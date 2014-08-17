@@ -1,0 +1,119 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+------------------------------------------------------------------------------AC
+-- NPC Name: Defensor Confirmo                                                --
+-- NPC Job:  Defensor                                                         --
+--                                                                            --
+-- NPC Race: Golden Magnus (78)        NPC Position:  462, 840, -9            --
+-- NPC Sex:  male                       NPC Direction: west                   --
+--                                                                            --
+-- Author:   Evie                                                             --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+name = "Defensor Confirmo"
+race = human
+sex = male
+position = 462, 840, -9
+direction = west
+job = "Defensor"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Evie"
+
+lookatDE = "Dies ist Defensor Confirmo."
+lookatUS = "This is Defensor Confirmo."
+useMsgDE = "Wage es nicht einen Defensor von Akultat zu berühren!"
+useMsgUS = "Dare you to touch a Defensor of Akultat!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 0
+colorHair = 255, 217, 083
+colorSkin = 255, 217, 083
+itemHead = 2303
+itemChest = 2402
+itemCoat = 2378
+itemMainHand = 2777
+itemSecondHand =2447
+itemHands = 531
+itemTrousers = 2116
+itemShoes = 770
+
+-- QuestID=526
+-- 14: No Quest taken
+-- 15: Quest taken - read the Reign of Akaltut.
+-- 16: Quest 7 solved
+
+-- Help
+"Help" -> inform("[Game Help] (This npc is a Defensor, ask for a test. Keywords: quest, Akaltut, drow, Defensor, name")
+"Hilfe" -> inform("[Spielhilfe] (Dieser NPC ist ein Wächter, frage Ihn nach dem Test. Stichworte: Aufgabe, Akaltut, Drow, Defensor, Name")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Ahh, have you come to test your skills today?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ahh, bist Du heute gekommen um dein Können zu testen?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ahh, have you come to test your skills today?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt.", "Ahh, bist Du heute gekommen um dein Können zu testen?"
+"Farewell", "Bye", "Fare well", "See you" -> "Come back, if you dare."
+"Tschüß", "Tschüss", "Wiedersehen" -> "Komm wieder wenn Du dich traust."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Come back, if you dare."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Komm wieder wenn Du dich traust."
+"who are you", "who art thou" -> "I am a Defensor of Akaltut's Lair, pass my test to prove you are an ally and I will open the way for you."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin ein Defensor von Akaltut´s Versteck. Bestehe meinen Test um zu zeigen das Du ein Verbündeter bist & ich werde Dir den Weg öffnen."
+english, "your name", "name" -> "I am Defensor Confirmo."
+"ihr name", "Name" -> "Ich bin Defensor Confirmo."
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "My job is a Defensor, I make sure only the worthy move on."
+"beruf" -> "Meine Aufgabe ist die eines Defensor, ich stelle sicher das nur die Würdigen weiterkommen."
+english, "job" -> "My job is a Defensor, I make sure only the worthy move on."
+"job" -> "Meine Aufgabe ist die eines Defensor, ich stelle sicher das nur die Würdigen weiterkommen."
+
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
+english, "Defensor" -> "My job is a Defensor, I make sure only the worthy move on.", "I am Defensor Confirmo."
+"Defensor" -> "Meine Aufgabe ist die eines Defensor, ich stelle sicher das nur die Würdigen weiterkommen.", "Ich bin Defensor Confirmo."
+english, "Drow" -> "The drow are dangerous fighters, are you a match for their skill?"
+"Drow" -> "Die Drow sind gefährliche Kämpfer, kannst Du dich mit Ihnen messen?"
+english, "Akaltut" -> "Akaltut is a spider queen. She and her breed are well known for terrorizing this corner. Pass our tests and you can face her."
+"Akaltut" -> "Akaltut ist eine Spinnenkönigin. Sie und ihre Zucht sind für das Terrorisieren dieser Gegend gut bekannt."
+
+-- Quests
+-- Defensor task seven.  Read the Reign of Akaltut
+-- If haven't completed previous Defensors tasks
+queststatus(526) < 14, english, "quest", "mission", "test" -> "See the Defensors before me."
+queststatus(526) < 14,  "quest", "mission", "Test" -> "Suche den vorigen Defensors."
+queststatus(526) < 14, "task", "adventure", "order" -> "See the Defensors before me."
+queststatus(526) < 14, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Suche den vorigen Defensors."
+-- Receiving the task of Reading the Reign of Akaltut
+queststatus(526) = 14, english, "quest", "mission", "test" -> inform("[New quest] Akaltut's Chamber 7"), queststatus(526) = 15, "I am Defensor Confirmo. To pass my test you must find the journal 'The Reign of Akaltut' in the library and read it."
+queststatus(526) = 14, "quest", "mission", "Test" -> inform("[New quest] Akaltut's Chamber 7"), queststatus(526) = 15, "Ich bin Defensor Confirmo. Um meine Prüfung zu bestehen, finde das Tagebuch 'Die Herrschaft Akaltuts' in der Bibliothek und lies es."
+queststatus(526) = 14, "task", "adventure", "order" -> inform("[New quest] Akaltut's Chamber 7"), queststatus(526) = 15, "I am Defensor Confirmo. To pass my test you must find the journal 'The Reign of Akaltut' in the library and read it."
+queststatus(526) = 14, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[New quest] Akaltut's Chamber 7"), queststatus(526) = 15, "Ich bin Defensor Confirmo. Um meine Prüfung zu bestehen, finde das Tagebuch 'Die Herrschaft Akaltuts' in der Bibliothek und lies es."
+-- If quest received but task not finished
+queststatus(526) = 15, english,"quest", "mission", "test" ->"Did you read 'The Reign of Akaltut'? If you do not pass this test you can't continue."
+queststatus(526) = 15, "quest", "mission", "Test" ->"Hast du 'Die Herrschaft Akaltuts' gelesen? Wenn du diese Prüfung nicht bestehst, kommst du nicht weiter."
+queststatus(526) = 15, "task", "adventure", "order" -> "Did you read 'The Reign of Akaltut'? If you do not pass this test you can't continue."
+queststatus(526) = 15, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hast du 'Die Herrschaft Akaltuts' gelesen? Wenn du diese Prüfung nicht bestehst, kommst du nicht weiter."
+-- If test is finished
+queststatus(526) = 16, english, ".+" -> inform("[Quest solved] You are awarded a crown."), item(225, 1, 699), queststatus(526) = 17, "You have passed this test and are awarded a crown."
+queststatus(526) = 16, ".+" -> inform("[Quest gelöst] Du erhältst eine Krone."), item(225, 1, 699), queststatus(526) = 17, "Du hast den Test bestanden. Du bekommst eine Krone."
+--If finished with the Defensor
+queststatus(526) = 17, english, "quest", "mission", "test" -> "You have passed, please see Defensor Prohibeo."
+queststatus(526) = 17, "quest", "mission", "Test" -> "Du hast bestanden. Gehe zum Defensor Prohibeo."
+queststatus(526) = 17, "task", "adventure", "order" -> "You have passed, please see Defensor Prohibeo."
+queststatus(526) = 17, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" ->"Du hast bestanden. Gehe zum Defensor Prohibeo."
