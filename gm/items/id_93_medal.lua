@@ -233,7 +233,7 @@ function changeAvatar(User, SourceItem, TargetPos)
 	local sdPlayer = SelectionDialog("Change the avatar of ...", "First choose a victim:", cbChoosePlayer);
 	local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"};
         for _, player in ipairs(players) do
-		local race = math.min(player:getRace()+1, table.getn(raceNames));
+		local race = math.min(player:getRace()+1, #raceNames);
 		sdPlayer:addOption(0,player.name .. " (" .. raceNames[race] .. ") " .. player.id);
         end
 	User:requestSelectionDialog(sdPlayer);

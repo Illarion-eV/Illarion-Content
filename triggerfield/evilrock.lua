@@ -87,7 +87,7 @@ function MoveToField(char)
 		end	
 	end
 
-	local AmountFlameFire = table.getn(triggerFlameFire)	
+	local AmountFlameFire = #triggerFlameFire	
 	for i = 1,AmountFlameFire do	
 		if (char.pos == triggerFlameFire[i]) then
 			base.character.CreateAfterTime (char,100,120,359,nil,1,1,988,998,225,235,0,0,600,600,1,1,nil,4,4,7,nil,nil,1)
@@ -97,21 +97,21 @@ function MoveToField(char)
 		end
 	end
 
-	local AmountFlameIce = table.getn(triggerFlameIce)	
+	local AmountFlameIce = #triggerFlameIce	
 	for i = 1,AmountFlameIce do	
 		if (char.pos == triggerFlameIce[i]) then
 			base.character.CreateAfterTime (char,100,120,360,nil,1,1,988,998,225,235,0,0,600,600,1,1,nil,5,4,7,nil,nil,1) 
 		end
 	end
 
-	local AmountFlamePoison = table.getn(triggerFlamePoison)	
+	local AmountFlamePoison = #triggerFlamePoison	
 	for i = 1,AmountFlamePoison do	
 		if (char.pos == triggerFlamePoison[i]) then
 			base.character.CreateAfterTime (char,100,120,372,nil,1,1,986,998,211,223,0,0,600,600,1,1,nil,13,4,7,nil,nil,1) 
 		end
 	end
 
-	local AmountEntranceTrap = table.getn(triggerEntranceTrap)
+	local AmountEntranceTrap = #triggerEntranceTrap
 	for i = 1,AmountEntranceTrap do
 		if (char.pos == triggerEntranceTrap[i]) then
 			for xx=992,996 do
@@ -133,10 +133,10 @@ function MoveToField(char)
 		end
 	end
 
-	local AmountVision = table.getn(triggerVision)	
+	local AmountVision = #triggerVision	
 	for i = 1,AmountVision do	
 		if (char.pos == triggerVision[i]) and math.random(1,100)< 81 then
-			AmountStory = table.getn(content.vision.VisionTextDE[VisionStory[i]])
+			AmountStory = #content.vision.VisionTextDE[VisionStory[i]]
 			TypeStory = VisionStory[i]
 			attendants[char.name] = world:getPlayersInRangeOf(position(940,200,0), 90)
 			for k,player in ipairs(attendants[char.name]) do
@@ -281,7 +281,7 @@ clicksAmountEn={"a click","three clicks","two clicks"}
 
 function RightWeight(char,clicksAmountVar)
 	playerWithRightWeight[char.name] = world:getPlayersInRangeOf(position(960,173,-6), 50)
-	local AmountStoneChamberStones = table.getn(stoneChamberStonePosition)
+	local AmountStoneChamberStones = #stoneChamberStonePosition
 	local ChanceForGemsToday = math.random(1,100)
 	if ChanceForGemsToday <= 10 or char:getQuestProgress(681) == 0 then
 		noLuckForGemsToday = true
@@ -379,7 +379,7 @@ function MoveFromField(char)
 		world:erase(checkStoneChamber,checkStoneChamber.number)
 		world:makeSound(13,position(952,173,-6))
 	end
-	local AmountStoneChamberStones = table.getn(stoneChamberStonePosition)
+	local AmountStoneChamberStones = #stoneChamberStonePosition
 	for i = 1,AmountStoneChamberStones do
 		local checkStoneChamber = world:getItemOnField(stoneChamberStonePosition[i])
 		if checkStoneChamber.id == stoneChamberStoneKind[i] then

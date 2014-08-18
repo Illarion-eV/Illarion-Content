@@ -38,7 +38,7 @@ end
 function SpawnSkeleton(Charakter)
     local Monsters = world:getMonstersInRangeOf(Charakter.pos,7);
 
-    if (table.getn(Monsters) > 0) then
+    if (#Monsters > 0) then
         for _, Monster in pairs(Monsters) do
             MonType = Monster:getMonsterType();
             if ((MonType>110) and (MonType<121)) then -- Skeletons

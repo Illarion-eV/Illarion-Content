@@ -211,7 +211,7 @@ function UseDarkColumns(User, SourceItem, ltstate)
 		return
 	end
 
-	local AmountDarkColumnEvilrock = table.getn(darkColumnEvilrock)
+	local AmountDarkColumnEvilrock = #darkColumnEvilrock
   	for i = 1,AmountDarkColumnEvilrock do
 		if (SourceItem.pos == darkColumnEvilrock[i]) and User:countItemAt("all", gemsRequired[i], {["gemLevel"]="1"}) >= 1 then
 --			local howmuchisit = User:countItemAt("all", 284)
@@ -303,7 +303,7 @@ function BlackColumnQuestProgressC(User,QuestStatusBlackColumn)
 			player:setQuestProgress(667,0)
 			base.common.InformNLS(player,"Das Summen bricht ab, die Lichter erlöschen und die Runen an den schwarzen Säulen verschwinden.", "The hum breaks up, lights go out and the runes disappear on the black column.")
 			world:makeSound(27,player.pos)
-			local AmountDarkColumnEvilrock = table.getn(darkColumnEvilrock)
+			local AmountDarkColumnEvilrock = #darkColumnEvilrock
 			for i=1,AmountDarkColumnEvilrock do
 				local DarkColumnEvilrockLightErase = world:getItemOnField(darkColumnEvilrock[i])
 				if DarkColumnEvilrockLightErase.id == 467 then
@@ -319,7 +319,7 @@ end
 
 function UseDarkColumnsPuzzle(User, SourceItem, ltstate)
 
-	local AmountDarkColumnEvilrock = table.getn(darkColumnEvilrock)
+	local AmountDarkColumnEvilrock = #darkColumnEvilrock
   	for i = 1,AmountDarkColumnEvilrock do
 		if (SourceItem.pos == darkColumnEvilrock[i]) and User:getQuestProgress(667) >= 1 and world:getItemOnField(SourceItem.pos).id == 467 then
 
@@ -399,7 +399,7 @@ puzzleDarkColumnOrder={1,5,3,6,2,4,1,2,3,6,5,4,1,2,6,3,5,4,1,5,6,3,2,4}
 
 function Puzzle(User,SourceItem)
 	local options
-	local Amountoptions = table.getn(puzzleOptionsDE)
+	local Amountoptions = #puzzleOptionsDE
 	local QuestStatusBlackColumn = User:getQuestProgress(667)
 	local TrueOption = math.random(1,3)
 

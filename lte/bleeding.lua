@@ -75,7 +75,7 @@ function callEffect( BleedingEffect, Victim )
                 if( i == 15 ) then
                     return true;
                 end
-                targetAttrib = lowerAttribs[math.random(1,table.getn(lowerAttribs))];
+                targetAttrib = lowerAttribs[math.random(1,#lowerAttribs)];
             until( Victim:increaseAttrib(targetAttrib,0) <= 4 );               
             Victim:increaseAttrib(targetAttrib,-1);
             foundAttrib, Attribmod = BleedingEffect:findValue( targetAttrib );

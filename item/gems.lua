@@ -154,7 +154,7 @@ function UseItem(User, SourceItem, ltstate)
 	end
 
 	local TargetItemEvilRock = base.common.GetItemInArea(User.pos, 2805);
-	local AmountDarkColumnEvilrock = table.getn(content.vision.darkColumnEvilrock)
+	local AmountDarkColumnEvilrock = #content.vision.darkColumnEvilrock
 	if TargetItemEvilRock ~= nil then
 		for i = 1,AmountDarkColumnEvilrock do
 			if TargetItemEvilRock.pos == content.vision.darkColumnEvilrock[i] then

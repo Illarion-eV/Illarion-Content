@@ -127,7 +127,7 @@ function createItemOnMap( ItemData, Target, CasterVal )
     local numb = base.common.Scale( ItemData.minSkill.number,  ItemData.maxSkill.number,  CasterVal );
     local itemid = ItemData.id;
     if ( type(ItemData.id) == "table" ) then
-        itemid = ItemData.id[ math.random( 1, table.getn( ItemData.id ) ) ];
+        itemid = ItemData.id[ math.random( 1, #ItemData.id ) ];
     end
 
     world:createItemFromId( itemid, numb, Target, true, qual, data );

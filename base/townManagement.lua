@@ -33,7 +33,7 @@ toolUseNameEN={"Guard","Licence","Key"}
 function townManagmentUseItem(User, SourceItem)
 
 	local toolUse
-	local AmountToolFunct = table.getn(toolUseNameDE)
+	local AmountToolFunct = #toolUseNameDE
 	for j = 1,AmountToolFunct do
 		if (SourceItem.pos == townManagmentItemPos[j]) then
 			toolTown = j
@@ -229,7 +229,7 @@ keydoorsnameEN[3]={"House of Malachite","Villa Goldvein","Flat Irmorom","Flat El
 function TownKey(User,toolTown)
 --debug("TownKey: "..User.name)
 	local keydoorsname
-	local AmountKeyDoors = table.getn(keydoorsnameDE[toolTown])
+	local AmountKeyDoors = #keydoorsnameDE[toolTown]
 	for j = 1,AmountKeyDoors do
 		if  User:getPlayerLanguage() == Player.german then
 			keydoorsname = keydoorsnameDE[toolTown]

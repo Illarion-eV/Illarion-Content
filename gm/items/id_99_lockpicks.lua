@@ -266,7 +266,7 @@ function charInfo(User, SourceItem, ltstate)
 	local sdPlayer = SelectionDialog("Get the stats of ...", "First choose a character:", cbChoosePlayer);
 	local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"};
         for _, player in ipairs(players) do
-		local race = math.min(player:getRace() + 1, table.getn(raceNames));
+		local race = math.min(player:getRace() + 1, #raceNames);
 		sdPlayer:addOption(0, player.name .. " (" .. raceNames[race] .. ") " .. player.id);
         end
 	User:requestSelectionDialog(sdPlayer);
@@ -322,7 +322,7 @@ function changeSkills(User, SourceItem, ltstate)
 	local sdPlayer = SelectionDialog("Change a skill.", "First choose a character:", cbChoosePlayer);
 	local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
         for _, player in ipairs(players) do
-		local race = math.min(player:getRace() + 1, table.getn(raceNames));
+		local race = math.min(player:getRace() + 1, #raceNames);
 		sdPlayer:addOption(0, player.name .. " (" .. raceNames[race] .. ") " .. player.id);
         end
 	User:requestSelectionDialog(sdPlayer);
@@ -371,7 +371,7 @@ function getSetQueststatus(User, SourceItem, ltstate)
 	local sdPlayer = SelectionDialog("Get/ Set Queststatus", "First choose a character:", cbChoosePlayer);
 	local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"};
         for _, player in ipairs(players) do
-		local race = math.min(player:getRace() + 1, table.getn(raceNames));
+		local race = math.min(player:getRace() + 1, #raceNames);
 		sdPlayer:addOption(0, player.name .. " (" .. raceNames[race] .. ") " .. player.id);
         end
 	User:requestSelectionDialog(sdPlayer);
@@ -424,7 +424,7 @@ function godMode(User, SourceItem, ltstate)
 	local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"};
 	sdPlayer:addOption(0, "Kill all Monster in a 3 tile radius");
         for _, player in ipairs(players) do
-		local race = math.min(player:getRace() + 1, table.getn(raceNames));
+		local race = math.min(player:getRace() + 1, #raceNames);
 		sdPlayer:addOption(0, player.name .. " (" .. raceNames[race] .. ") " .. player.id);
         end
 	User:requestSelectionDialog(sdPlayer);

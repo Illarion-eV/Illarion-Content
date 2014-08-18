@@ -335,7 +335,7 @@ function AddBonus(User,ItemList,ItemBoniList)   -- Adds bonus/malus for items to
     local SearchAt="";
     local SettedPositiv = false;
     --User:inform("Vars OK");
-    for i=1,table.getn(ItemList) do
+    for i=1,#ItemList do
         if (ItemBoniList[i]>0) then
             SearchAt="body";
         else
@@ -442,7 +442,7 @@ function performGFX( gfxID, posi )
     end
 
     if (type(gfxID) == "table") then
-        local sel = math.random(1,table.getn(gfxID));
+        local sel = math.random(1,#gfxID);
         gfxID = gfxID[ sel ];
     end
 
@@ -480,7 +480,7 @@ function performSFX( sfxID, posi )
     end
 
     if (type(sfxID) == "table") then
-        local sel = math.random(1,table.getn(sfxID));
+        local sel = math.random(1,#sfxID);
         sfxID = gfxID[ sel ];
     end
 

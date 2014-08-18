@@ -92,7 +92,7 @@ function UseItem(User, SourceItem)
 		-- no wood in hand, so check the belt
 		local woodIndex = 0;
 		local woodNum = 0;
-		while ( woodNum == 0 and woodIndex < table.getn(WoodIds) ) do
+		while ( woodNum == 0 and woodIndex < #WoodIds ) do
 			woodIndex = woodIndex + 1;
 			woodNum = User:countItemAt("all", WoodIds[woodIndex]);
 		end

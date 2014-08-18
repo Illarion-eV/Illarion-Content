@@ -194,7 +194,7 @@ function nextCycle()
     char_owner = false;
     if (value_owner ~= 0) then        
         players = world:getPlayersInRangeOf(thisNPC.pos,FollowInRange);
-        if (table.getn(players)>0) then
+        if (#players>0) then
             for i, player in pairs(players) do
                 if (player.id == value_owner) then
                     if (player:increaseAttrib("hitpoints",0) > 0) then
@@ -217,7 +217,7 @@ function nextCycle()
         if not char_owner then
             if ( ( thisNPC.pos.x > -289 ) and ( thisNPC.pos.x < -279 ) and ( thisNPC.pos.y > 46 ) and ( thisNPC.pos.y < 56 ) and ( thisNPC.pos.z == 0 ) ) then
                 players = world:getPlayersInRangeOf( position( 302, 229, 0 ), 12);
-                if (table.getn(players)>0) then
+                if (#players>0) then
                     for i, player in pairs(players) do
                         if (player.id == value_owner) then
                             if (player:increaseAttrib("hitpoints",0) > 0) then
@@ -239,7 +239,7 @@ function nextCycle()
                 end
             elseif ( ( thisNPC.pos.x > 296 ) and ( thisNPC.pos.x < 305 ) and ( thisNPC.pos.y > 223 ) and ( thisNPC.pos.y < 298 ) and ( thisNPC.pos.z == 0 ) ) then
                 players = world:getPlayersInRangeOf( position( -285, 49, 0 ), 12);
-                if (table.getn(players)>0) then
+                if (#players>0) then
                     for i, player in pairs(players) do
                         if (player.id == value_owner) then
                             if (player:increaseAttrib("hitpoints",0) > 0) then
@@ -390,7 +390,7 @@ function CheckItem( posi )
     local cnt = fld:countItems();
     local i;
     for i=0,cnt-1 do
-        if isPassable( (fld:getStackItem(i)).id, 1, table.getn( itemlist ) ) then
+        if isPassable( (fld:getStackItem(i)).id, 1, #itemlist ) then
             return false;
         end;
     end;

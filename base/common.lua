@@ -1674,7 +1674,7 @@ function ListToNumber(NumberList)
 
    local result=NumberList[1];
 
-   for i = 2, table.getn(NumberList) do
+   for i = 2, #NumberList do
 
       result = result ..NumberList[i];
 
@@ -1698,7 +1698,7 @@ function Shuffle(List)
 	local temp = 0
 	local j = 0;
 	local minIndex = 1;
-	local maxIndex = table.getn(List);
+	local maxIndex = #List;
 	if (List[0] ~= nil) then -- check if zero index is used
 		minIndex = 0;
 		maxIndex = maxIndex - 1;

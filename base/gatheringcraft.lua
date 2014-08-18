@@ -105,8 +105,8 @@ end
 function GatheringCraft:FindRandomItem(User)
 --[[Deactivate the call of interrupting messages.
   if math.random(1,100) == 50 then --why complicated if you can solve it simple... 1% chance for an interruption
-    if(table.getn(self.InterruptMsg) > 0) then
-      local m = math.random(table.getn(self.InterruptMsg));
+    if(#self.InterruptMsg > 0) then
+      local m = math.random(#self.InterruptMsg);
       base.common.InformNLS(User, self.InterruptMsg[m][1], self.InterruptMsg[m][2]);
       return true;
     end
@@ -136,8 +136,8 @@ function GatheringCraft:FindRandomItem(User)
 		end
 	end
 
-	if (table.getn(self.Monsters) > 0) then
-		local ra = math.random(table.getn(self.Monsters));
+	if (#self.Monsters > 0) then
+		local ra = math.random(#self.Monsters);
 		local pa = math.random();
 		if (pa < self.Monsters[ra].Probability*self.FastActionFactor) then
 			local TargetPos = getSpawnPosition(User)
@@ -153,14 +153,14 @@ function GatheringCraft:FindRandomItem(User)
 		end
 	end
 
-	if(table.getn(self.RandomItems) > 0) then
+	if(#self.RandomItems > 0) then
 
 		-- check all items with same random number and choose any possible item again randomly
 
 		local itemIndexList = {};
 
 		-- list all items that are possible
-		for it = 1, table.getn(self.RandomItems), 1 do
+		for it = 1, #self.RandomItems, 1 do
 			local rand = math.random();
 
 			if (rand <= self.RandomItems[it].Probability*self.FastActionFactor) then
@@ -169,8 +169,8 @@ function GatheringCraft:FindRandomItem(User)
 
 			end
 		end
-		if ( table.getn(itemIndexList) > 0 ) then -- For the unlikely case that two items were found at once, we just give one to the player
-			local ind = itemIndexList[math.random(1,table.getn(itemIndexList))];
+		if ( #itemIndexList > 0 ) then -- For the unlikely case that two items were found at once, we just give one to the player
+			local ind = itemIndexList[math.random(1,#itemIndexList)];
 			base.common.InformNLS(User, self.RandomItems[ind].MessageDE, self.RandomItems[ind].MessageEN);
 			local notCreated = User:createItem(self.RandomItems[ind].ID, self.RandomItems[ind].Quantity, self.RandomItems[ind].Quality, self.RandomItems[ind].Data);
 			if ( notCreated > 0 ) then -- too many items -> character can't carry anymore

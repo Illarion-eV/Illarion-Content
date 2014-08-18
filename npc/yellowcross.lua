@@ -32,7 +32,7 @@ function nextCycle(thisNPC)
 		end
 	end
 	
-    if (table.getn(monsters)>0) then -- Monster gefunden
+    if (#monsters>0) then -- Monster gefunden
         CreateCircle(46,thisNPC.pos,EffectArea+2); -- Lustiger Leuchtkreis
         for i, monster in pairs(monsters) do
             newPos = CalcNewPos(thisNPC.pos,monster.pos,EffectArea+2); -- Ziel des Abflugs
@@ -48,7 +48,7 @@ function nextCycle(thisNPC)
     -- Suche nach Spielern
     local players = world:getPlayersInRangeOf(thisNPC.pos,EffectArea); -- Suche nach Spielern
 
-    if (table.getn(players)>0) then -- Spieler gefunden
+    if (#players>0) then -- Spieler gefunden
         for i, player in pairs(players) do
             if (player:increaseAttrib("hitpoints",0) == 0) then -- Der Char ist tot, beleben wir ihn
                 player:increaseAttrib("hitpoints",1); -- Da lebt er wieder

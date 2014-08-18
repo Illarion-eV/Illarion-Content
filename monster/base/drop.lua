@@ -127,7 +127,7 @@ function Dropping(Char)
     end
 
     if first then
-        if (table.getn(SelItemValue)>0) then
+        if (#SelItemValue>0) then
             for i,values in pairs(SelItemValue) do
                 if ( values[1] ~= nil ) and ( values[2] ~= nil ) and ( values[3] ~= nil ) then
 				    if values[4] == 0 then
@@ -181,20 +181,20 @@ function CastMonMagic(Monster,Enemy,rndTry,DamageRange,Effect,Item,AP,LineOfFlig
 
 --[[
     if (math.random(1,rndTry)==1) and (Monster.pos.z==Enemy.pos.z) then
-        local EffectTry=math.random(1,table.getn(Effect)+table.getn(Item));
-        if ( EffectTry > table.getn(Effect) ) then
+        local EffectTry=math.random(1,#Effect+#Item);
+        if ( EffectTry > #Effect ) then
             base.common.CreateLine(Monster.pos,Enemy.pos, function( targetPos )
                 if world:isCharacterOnField( targetPos ) then
                     if world:isItemOnField( targetPos ) then
                         local foundItem = world:getItemOnField( targetPos );
-                        if ( foundItem.id == Item[EffectTry-table.getn(Effect)][1] ) then
-                            foundItem.quality = math.min( Item[EffectTry-table.getn(Effect)][3], foundItem.quality + Item[EffectTry-table.getn(Effect)][2] );
+                        if ( foundItem.id == Item[EffectTry-#Effect][1] ) then
+                            foundItem.quality = math.min( Item[EffectTry-#Effect][3], foundItem.quality + Item[EffectTry-#Effect][2] );
                             return false;
                         end
                     end
-                    world:createItemFromId(Item[EffectTry-table.getn(Effect)][1],1,targetPos,true,math.random(Item[EffectTry-table.getn(Effect)][2],Item[EffectTry-table.getn(Effect)][3]),Item[EffectTry-table.getn(Effect)][4]);
-                    if ( Item[EffectTry-table.getn(Effect)][5] > 0 ) then
-                        world:makeSound(Item[EffectTry-table.getn(Effect)][5],targetPos);
+                    world:createItemFromId(Item[EffectTry-#Effect][1],1,targetPos,true,math.random(Item[EffectTry-#Effect][2],Item[EffectTry-#Effect][3]),Item[EffectTry-#Effect][4]);
+                    if ( Item[EffectTry-#Effect][5] > 0 ) then
+                        world:makeSound(Item[EffectTry-#Effect][5],targetPos);
                     end
                     return false;
                 end

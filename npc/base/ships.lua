@@ -54,7 +54,7 @@ function AddPassangerPosition(RelativPosition)
 end
 
 function TryAddPassanger(Char)
-    if (table.getn(PassangerMask) >= table.getn(Passangers)) then
+    if (#PassangerMask >= #Passangers) then
         table.insert(Passangers,Char);
         return true
     else

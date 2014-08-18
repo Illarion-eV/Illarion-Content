@@ -90,7 +90,7 @@ function CastHealing(Monster, HealAmount, rndTry)
 
     -- Look for my friends
     local other_monsters = world:getMonstersInRangeOf(Monster.pos, 8);
-    if table.getn(other_monsters) == 0 then
+    if #other_monsters == 0 then
         return false;
     end
 
@@ -102,12 +102,12 @@ function CastHealing(Monster, HealAmount, rndTry)
         end
     end
 
-    if table.getn(monsters_in_need) == 0 then
+    if #monsters_in_need == 0 then
         return false;
     end
 
     -- Select monster to help
-    local selected_monster = math.random(1, table.getn(monsters_in_need));
+    local selected_monster = math.random(1, #monsters_in_need);
 
     other_monsters[selected_monster]:increaseAttrib("hitpoints", math.random(HealAmount[1], HealAmount[2]));
 
@@ -166,7 +166,7 @@ function CastMonster(Monster, monsters, rndTry)
         return false;
     end
 
-    local selectedMonsterIndex = math.random(1, table.getn(monsters));
+    local selectedMonsterIndex = math.random(1, #monsters);
     local selectedMonsterId = monsters[selectedMonsterIndex];
 
     local i = 0;

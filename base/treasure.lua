@@ -78,12 +78,12 @@ module("base.treasure", package.seeall)
         monsters[8]={125,132,205,262,631,661,691,912}; --Level 8
         monsters[9]={302,641,911}; --Level 9
 
-        monster1=monsters[level][math.random(1,table.getn(monsters[level]))];
-        monster2=monsters[level-1][math.random(1,table.getn(monsters[level-1]))];
-        monster3=monsters[level-1][math.random(1,table.getn(monsters[level-1]))];
-        monster4=monsters[level-2][math.random(1,table.getn(monsters[level-2]))];
-        monster5=monsters[level-2][math.random(1,table.getn(monsters[level-2]))];
-        monster6=monsters[level-2][math.random(1,table.getn(monsters[level-2]))];
+        monster1=monsters[level][math.random(1,#monsters[level])];
+        monster2=monsters[level-1][math.random(1,#monsters[level-1])];
+        monster3=monsters[level-1][math.random(1,#monsters[level-1])];
+        monster4=monsters[level-2][math.random(1,#monsters[level-2])];
+        monster5=monsters[level-2][math.random(1,#monsters[level-2])];
+        monster6=monsters[level-2][math.random(1,#monsters[level-2])];
 
         return {monster1,monster2,monster3,monster4,monster5,monster6};
 
@@ -237,12 +237,12 @@ module("base.treasure", package.seeall)
 			magicGem(item.gems.EMERALD, 2),magicGem(item.gems.RUBY, 2),magicGem(item.gems.AMETHYST, 2),magicGem(item.gems.TOPAZ, 2),magicGem(item.gems.OBSIDIAN, 2),magicGem(item.gems.SAPPHIRE, 2)
 		};
 
-        stuff1=stuff[level+2][math.random(1,table.getn(stuff[level+2]))];
-        stuff2=stuff[level+1][math.random(1,table.getn(stuff[level+1]))];
-        stuff3=stuff[level+1][math.random(1,table.getn(stuff[level+1]))];
-        stuff4=stuff[level][math.random(1,table.getn(stuff[level]))];
-        stuff5=stuff[level][math.random(1,table.getn(stuff[level]))];
-        stuff6=stuff[level][math.random(1,table.getn(stuff[level]))];
+        stuff1=stuff[level+2][math.random(1,#stuff[level+2])];
+        stuff2=stuff[level+1][math.random(1,#stuff[level+1])];
+        stuff3=stuff[level+1][math.random(1,#stuff[level+1])];
+        stuff4=stuff[level][math.random(1,#stuff[level])];
+        stuff5=stuff[level][math.random(1,#stuff[level])];
+        stuff6=stuff[level][math.random(1,#stuff[level])];
 
         return {stuff1,stuff2,stuff3,stuff4,stuff5,stuff6};
 

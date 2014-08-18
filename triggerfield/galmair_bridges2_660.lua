@@ -73,14 +73,14 @@ function MoveToField(char)
 			else
 			level = math.random(1,16) --selection of all monsters for good fighter
 		end
-		local enemy1 = monster[level][math.random(1,table.getn(monster[level]))]
-		local enemy2 = monster[level][math.random(1,table.getn(monster[level]))]
-		local enemy3 = monster[level][math.random(1,table.getn(monster[level]))]
-	--	local enemy4 = monster[level][math.random(1,table.getn(monster[level]))]
-	--	local enemy5 = monster[level][math.random(1,table.getn(monster[level]))]
-		local enemy6 = monster[level][math.random(1,table.getn(monster[level]))]
-		local enemy7 = monster[level][math.random(1,table.getn(monster[level]))]
-		local enemy8 = monster[level][math.random(1,table.getn(monster[level]))]
+		local enemy1 = monster[level][math.random(1,#monster[level])]
+		local enemy2 = monster[level][math.random(1,#monster[level])]
+		local enemy3 = monster[level][math.random(1,#monster[level])]
+	--	local enemy4 = monster[level][math.random(1,#monster[level])]
+	--	local enemy5 = monster[level][math.random(1,#monster[level])]
+		local enemy6 = monster[level][math.random(1,#monster[level])]
+		local enemy7 = monster[level][math.random(1,#monster[level])]
+		local enemy8 = monster[level][math.random(1,#monster[level])]
 		world:gfx(41,position(499,197,0));
         	world:createMonster(enemy1,position(499,197,0),0);
 		world:gfx(41,position(498,197,0));

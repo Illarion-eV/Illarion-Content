@@ -249,10 +249,10 @@ end
     lï¿½sst den NPC einmal irgend einen text aus textOrderSay sagen
     ]]--
 function OrderNPC:talkOrder()
-    local count = table.getn(self.openOrders);
+    local count = #self.openOrders;
     if ( count ~= 1 ) then
         --eine Liste von listen daher einen eintrag aus der liste zufï¿½llig auswï¿½hlen
-        local rand = math.random(table.getn(self.textOrderSay)-1);
+        local rand = math.random(#self.textOrderSay-1);
         local text = self.textOrderSay[rand+1];
         local ger = string.format(text.ger,count);
         local eng = string.format(text.eng,count);
@@ -261,8 +261,8 @@ function OrderNPC:talkOrder()
         end
     else
         local text = self.textOrderSay[1];
-        local ger = string.format(text.ger,table.getn(self.openOrders));
-        local eng = string.format(text.eng,table.getn(self.openOrders));
+        local ger = string.format(text.ger,#self.openOrders);
+        local eng = string.format(text.eng,#self.openOrders);
         if ( self.npc ~= nil ) then
             base.common.TalkNLS(self.npc,Character.say,text.ger,text.eng);
         end
@@ -273,7 +273,7 @@ end
     listet für den npc alle wichtigen daten auf
     ]]--
 function OrderNPC:showStats(who) 
-   local text = "Open orders: "..table.getn(self.openOrders).." time min: "..self.generationTime.min.." max: "..self.generationTime.max.." next (1/10s): "..self.generationCycle;
+   local text = "Open orders: "..#self.openOrders.." time min: "..self.generationTime.min.." max: "..self.generationTime.max.." next (1/10s): "..self.generationCycle;
    who:inform(text);
    self.orderPool:inform(who);
 end
@@ -316,8 +316,8 @@ function OrderNPC:receiveText(who,text)
         if ( string.find(text,ttext) ) then
             number = getNumberInString(text);
             if ( number ~= nil ) then
-                if ( number <= 0 or number > table.getn(self.openOrders) ) then
-                    base.common.TalkNLS(self.npc,Character.say,"Ich habe nur "..table.getn(self.openOrders).." Aufträge!","I only have "..table.getn(self.openOrders).." orders!");
+                if ( number <= 0 or number > #self.openOrders ) then
+                    base.common.TalkNLS(self.npc,Character.say,"Ich habe nur "..#self.openOrders.." Aufträge!","I only have "..#self.openOrders.." orders!");
                 else
                     local twn, go = getThrustWorthyness(who);
                     --schon eine Sperrfrist dann einfach den Text der Sperrfrist ausgeben
@@ -346,7 +346,7 @@ function OrderNPC:receiveText(who,text)
 	for i, ttext in pairs(self.triggerSeeOrder) do
         if ( string.find(text,ttext) ) then
             number = getNumberInString(text);
-            local ordercount = table.getn(self.openOrders)
+            local ordercount = #self.openOrders
             if ( number ~= nil ) then
                 if ( number <= 0 or number > ordercount ) then
                     if ( ordercount == 0 ) then
@@ -372,7 +372,7 @@ function OrderNPC:receiveText(who,text)
                     base.common.InformNLS(who,"Dieser Auftrag enthält:", "This order contains:");
                     who:inform(order:lookAt(who));
                 else
-                    base.common.TalkNLS(self.npc, Character.say,"Welchen der "..table.getn(self.openOrders).." Aufträge möchtest du sehen?","Which one of the "..table.getn(self.openOrders).." orders do you want to see?");
+                    base.common.TalkNLS(self.npc, Character.say,"Welchen der "..#self.openOrders.." Aufträge möchtest du sehen?","Which one of the "..#self.openOrders.." orders do you want to see?");
                 end
             end
             return;
@@ -385,7 +385,7 @@ function OrderNPC:addOrder( neworder )
 end
 
 function OrderNPC:createOrder()
-    local oocount = table.getn(self.openOrders);
+    local oocount = #self.openOrders;
     if ( oocount >= self.maxOpenOrders ) then
         --ï¿½ltesten Eintrag lï¿½schen wenn mehr Aufträge als erlaubt da sind 
         table.remove(self.openOrders,1);
@@ -896,7 +896,7 @@ function Order:partDelivery(character,orderstatestruct)
     --tabelle nach position sortieren, hï¿½chste zuerst damit von hinten nach vorne gelï¿½scht wird
     table.sort(orderstatestruct.itemlist, function(itema,itemb) return (itema.itempos > itemb.itempos); end);
     for i,item in pairs(self.items) do
-        --character:inform("teillieferung 1 n:"..table.getn(orderstatestruct.itemlist));
+        --character:inform("teillieferung 1 n:"..#orderstatestruct.itemlist);
         for y,item2 in pairs(orderstatestruct.itemlist) do
             --character:inform("teillieferung 2 :"..item.id.. "=="..item2.id.."c:"..item.count.." i2 numb: "..item2.number );
             --gleiches item suchen
@@ -993,7 +993,7 @@ function Order:getDataString()
     local retstring = "";
     local order = LuaLShift32(LuaAnd(tonumber(self.state),7),29);  --nur 3 Bit stehen lassen und nach links shiften
     if ( self.items ~= nil) then 
-        order = LuaOr(order,LuaLShift32(LuaAnd(table.getn(self.items),7),26)); --Anzahl der Items auf 3 Bit beschrï¿½nken und links shiften
+        order = LuaOr(order,LuaLShift32(LuaAnd(#self.items,7),26)); --Anzahl der Items auf 3 Bit beschrï¿½nken und links shiften
     end
     order = LuaOr(order,LuaLShift32(LuaAnd(self.quality,15),22)); --Qualitï¿½t auf 4 Bit beschrï¿½nken und nach links shiften
     order = LuaOr(order, LuaLShift32(LuaAnd(self.time.day,31),17)); --Tag auf 5 Bit beschrï¿½nken und nach links shiften.

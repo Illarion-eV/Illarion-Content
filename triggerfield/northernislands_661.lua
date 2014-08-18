@@ -64,7 +64,7 @@ function MoveFromField(char)
 	end
 
 	for i = 1,3 do
-		local AmountPos = table.getn(NorthPos[i])
+		local AmountPos = #NorthPos[i]
 		for j = 1,AmountPos do
 	   		if (char.pos == NorthPos[i][j]) then
 				NorthitemsID = createNorthItemID[i]

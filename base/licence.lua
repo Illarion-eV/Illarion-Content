@@ -29,7 +29,7 @@ PERMISSION_ACTIVE = 1	-- Permission for static tools is granted
 
 
 function licence(char)
-		local AmountCad = table.getn(licencePosCad)	--Cadomyr
+		local AmountCad = #licencePosCad	--Cadomyr
 		for i= 1,AmountCad do --loop for each tool-position (cadomyr)
 			local licencePos = licencePosCad[i] --get coordinates from table
 			local licenceDistance = char:distanceMetricToPosition (licencePos) --get distance from player
@@ -40,7 +40,7 @@ function licence(char)
 			end
 		end
 
-		local AmountRun = table.getn(licencePosRun)	--Runewick
+		local AmountRun = #licencePosRun	--Runewick
 		for i= 1,AmountRun do
 			local licencePos = licencePosRun[i]
 			local licenceDistance = char:distanceMetricToPosition (licencePos)
@@ -51,7 +51,7 @@ function licence(char)
 			end
 		end
 
-		local AmountGal = table.getn(licencePosGal)	--Galmair
+		local AmountGal = #licencePosGal	--Galmair
 		for i= 1,AmountGal do
 			local licencePos = licencePosGal[i]
 			local licenceDistance = char:distanceMetricToPosition (licencePos)

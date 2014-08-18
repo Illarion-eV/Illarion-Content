@@ -38,11 +38,11 @@ function callEffect(Effect,User)
 		findTypeStory, TypeStory = Effect:findValue("TypeStory") --find variable
 		StoriesAreSet = true
 	end
---[[	local AmountAreas = table.getn(triggerfield.evilrock.EvilRockAreaNames)
+--[[	local AmountAreas = #triggerfield.evilrock.EvilRockAreaNames
 	if User:getQuestProgress(664) == 1 then
 		for i = 1,AmountAreas do
 			if content.areas.PointInArea(User.pos,triggerfield.evilrock.EvilRockAreaNames[i]) then
-				AmountStory = table.getn(content.vision.VisionTextDE[i])
+				AmountStory = #content.vision.VisionTextDE[i]
 				TypeStory = i
 				StoriesAreSet = true
 			end

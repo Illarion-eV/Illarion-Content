@@ -40,7 +40,7 @@ Line = base.class.class(
 -- @return PolygonStruct
 Polygon = base.class.class(
 	function(obj, positionList, zList)
-		if table.getn(positionList) < 3 then
+		if #positionList < 3 then
 			debug("A polygon must have at least 3 points");
 			return;
 		end
@@ -49,7 +49,7 @@ Polygon = base.class.class(
 		obj.min = position(s.x,s.y,0);
 		obj.max = position(s.x,s.y,0);
 		table.insert(positionList, positionList[1]); -- add first point, so there is an edge between first and last point
-		for i=2,table.getn(positionList) do
+		for i=2,#positionList do
 			table.insert(obj.lineList, Line(s, positionList[i]));
 			s = positionList[i];
 			obj.min.x = math.min(obj.min.x, s.x);

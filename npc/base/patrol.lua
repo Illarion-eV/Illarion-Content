@@ -129,7 +129,7 @@ function ChooseNewPatrol(guard)
 	guard.waypoints:clear();
 	WpPointer[guard.id] = 0;
 	WpDone[guard.id] = 0;
-	local l = table.getn(PatrolList);
+	local l = #PatrolList;
 	if RandomPatrolChooser[guard.id] then
 		PatrolPointer[guard.id] = math.random(1,l);
 	else
@@ -141,7 +141,7 @@ function ChooseNewPatrol(guard)
 	if PatrolList[PatrolPointer[guard.id]].base[2] ~= 0 then
 		WpMax[guard.id] = PatrolList[PatrolPointer[guard.id]].base[2];
 	else
-		WpMax[guard.id] = table.getn(PatrolList[PatrolPointer[guard.id]]);
+		WpMax[guard.id] = #PatrolList[PatrolPointer[guard.id]];
 	end
 	ChooseNewWp(guard);
 end
@@ -149,7 +149,7 @@ end
 -- choose a new waypoint as destination, sequentially or randomly
 function ChooseNewWp(guard)
 	--npcdebug("ChooseNewWp");
-	local l = table.getn(PatrolList[PatrolPointer[guard.id]]);
+	local l = #PatrolList[PatrolPointer[guard.id]];
 	if PatrolList[PatrolPointer[guard.id]].base[1] then
 		WpPointer[guard.id] = math.random(1,l);
 	else

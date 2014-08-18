@@ -48,7 +48,7 @@ gemItem={45,46,283,284,197,198}
 function PayGemsToMeetHer(char)
 	local names
 	local namesgems
-	local AmountGems = table.getn(gemDE)
+	local AmountGems = #gemDE
 	if char:getQuestProgress(682) == 0 then
 		requiredGems = math.random(1,3)
 	else
@@ -94,7 +94,7 @@ end
 
 function PlayerHasTheRightGems(char,requiredGems)
 	local GemsOnBody = 0
-	local AmountGemsTypes = table.getn(gemItem)
+	local AmountGemsTypes = #gemItem
 	for i = 1,AmountGemsTypes do
 		if char:countItemAt("all", gemItem[i], {["gemLevel"]=requiredGems}) >= 1 then
 			GemsOnBody = GemsOnBody +1
@@ -112,7 +112,7 @@ end
 
 
 function WrapPlayerUp(char,requiredGems)
-	local AmountGemsTypes = table.getn(gemItem)
+	local AmountGemsTypes = #gemItem
 	for i = 1,AmountGemsTypes do
 		if char:countItemAt("all", gemItem[i], {["gemLevel"]=requiredGems}) >= 1 then
 			char:eraseItem(gemItem[i],1, {["gemLevel"]=requiredGems})

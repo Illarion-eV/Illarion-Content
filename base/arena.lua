@@ -191,7 +191,7 @@ function killMonster(User)
 end
 
 function getRandomMonster(level)
-	local randomNumber = math.random(1, table.getn(monsterIDsByLevel[level].monsters));
+	local randomNumber = math.random(1, #monsterIDsByLevel[level].monsters);
 	return monsterIDsByLevel[level].monsters[randomNumber];
 end
 

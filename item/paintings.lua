@@ -120,7 +120,7 @@ function LookAtItem(User, Item)
     
     local lookAt = base.lookat.GenerateLookAt(User, Item)
     if lookAt.description == "" then
-        val = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(PaintingListGerman))+1;
+        val = ((Item.pos.x + Item.pos.y + Item.pos.z) % #PaintingListGerman)+1;
         lookAt.description = base.common.GetNLS(User, PaintingListGerman[val], PaintingListEnglish[val])
     end
 

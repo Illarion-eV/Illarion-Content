@@ -30,7 +30,7 @@ end
 function PlayInstrument(User,Item,Skill)
     local Skl=User:getSkill(Skill);
     local Qual=math.floor(Item.quality/100);
-    local PlayVal=base.common.Limit(math.floor((Skl+(Qual*5))/120*table.getn(TalkTexts[Skill])*(math.random(8,13)/10)),1,table.getn(TalkTexts[Skill]));
+    local PlayVal=base.common.Limit(math.floor((Skl+(Qual*5))/120*#TalkTexts[Skill]*(math.random(8,13)/10)),1,#TalkTexts[Skill]);
     User:talk(Character.say, TalkTexts[Skill][PlayVal][2], TalkTexts[Skill][PlayVal][1])
     User:learn(Skill,30,100)
 	User.movepoints=User.movepoints-30;

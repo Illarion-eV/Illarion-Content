@@ -223,9 +223,9 @@ function onLogin( player )
 		extensionString="th" --default
 	end;
 		
-	if table.getn(players) > 1 then
+	if #players > 1 then
 
-	    base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..". Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..". There are "..table.getn(players).." players online."); --sending a message
+	    base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..". Es sind "..#players.." Spieler online.","[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..". There are "..#players.." players online."); --sending a message
 
 	else --player is alone
 		
@@ -272,7 +272,7 @@ function onLogin( player )
     end --Noobia end
 
 	--Messages of the day
-	dailyMessageID=math.random(1,table.getn(messageG)); --chosing a message at random
+	dailyMessageID=math.random(1,#messageG); --chosing a message at random
 	base.common.InformNLS(player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending a message
 
 	--Exchange leader NPCs if necessary

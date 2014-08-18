@@ -92,7 +92,7 @@ end
 
 function GetDirToNextWP(thisNPC) --returns the direction to the next waypoint
 	local RangeToCheck = 100;
-	if table.getn(waypoints[thisNPC.id])>0 then
+	if #waypoints[thisNPC.id]>0 then
         --thisNPC:talk(Character.say,"Calculating route to point: x="..waypoints[thisNPC.id][1].x ..", y="..waypoints[thisNPC.id][1].y);
 		fnd,dir = player[thisNPC.id]:getNextStepDir(waypoints[thisNPC.id][1],RangeToCheck);
 		while not fnd do

@@ -101,7 +101,7 @@ reward[750] = {{61,8},{2367,1},{2693,1},{2662,1},{559,10}} -- items worth 8 gold
 function getReward(Char)
 	local nrStones = CountStones(Char)
 	if reward[nrStones] ~= nil then
-		if table.getn(reward[nrStones]) == 1 then
+		if #reward[nrStones] == 1 then
 			Char:createItem(reward[nrStones][1][1],reward[nrStones][1][2],333,nil);
 			Char:inform("Du hast 2 Silberstücke erhalten, da du den ersten Markierungsstein entdeckt hast. Weiter so!", "You have received two silver coins for discovering the first marker stone. Keep it up!");
 			Char:setQuestProgress(320,2)

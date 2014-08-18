@@ -367,8 +367,8 @@ function getAmbient(Char)
 				table.insert(list,ambient);
 			end
 		end
-		if table.getn(list)>0 then
-			return list[math.random(1,table.getn(list))];
+		if #list>0 then
+			return list[math.random(1,#list)];
 		end
 	end
 	return nil;

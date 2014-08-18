@@ -330,7 +330,7 @@ function BW_intern_pos_okay( posi )
     if world:getField(posi):tile() == 7 then
         if world:isItemOnField( posi ) then
             local Itemid = world:getItemOnField( posi ).id;
-            if BW_intern_IDinList( Itemid, 1, table.getn( blocking_items ), blocking_items ) then
+            if BW_intern_IDinList( Itemid, 1, #blocking_items, blocking_items ) then
                 return false;
             end
         end
@@ -340,7 +340,7 @@ function BW_intern_pos_okay( posi )
         end
         
         local Itemid = world:getItemOnField( posi ).id;
-        if not BW_intern_IDinList( Itemid, 1, table.getn( passable_items ), passable_items ) then
+        if not BW_intern_IDinList( Itemid, 1, #passable_items, passable_items ) then
             return false;
         end
     end

@@ -62,7 +62,7 @@ function addEffect(fireEffect, Patient)         -- Infection starts
     --Patient:talk(Character.say, "Ich habs.");
     if burnList == nil then
         burnList = initBurnList();
-        burnLength = table.getn(burnList);
+        burnLength = #burnList;
         burnRad = 3;
     end;
 end
@@ -71,7 +71,7 @@ function loadEffect(fireEffect, Patient)         -- Infection starts
     Patient:talk(Character.say, "Ich habs geladen.");
     if burnList == nil then
         burnList = initBurnList();
-        burnLength = table.getn(burnList);
+        burnLength = #burnList;
         burnRad = 4;
     end;
 end

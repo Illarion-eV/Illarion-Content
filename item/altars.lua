@@ -314,7 +314,7 @@ end --function
 function tellStuff(list,lang)
   local text="";
   text=text..world:getItemName(list[1],lang);
-  for i=2,table.getn(list) do
+  for i=2,#list do
     text=text..", ";
     text=text..world:getItemName(list[i],lang);
   end
@@ -322,7 +322,7 @@ function tellStuff(list,lang)
 end
 
 function checkStuff(User,list)
-  for i=1,table.getn(list) do
+  for i=1,#list do
     if User:countItem(list[i])<1 then
       return false;
     end
@@ -331,7 +331,7 @@ function checkStuff(User,list)
 end
 
 function deleteStuff(User,list)
-  for i=1,table.getn(list) do
+  for i=1,#list do
     User:eraseItem(list[i],1);
   end
 end
@@ -339,7 +339,7 @@ end
 function checkAudience(god, position)
   local theCandidates=world:getPlayersInRangeOf(position,10);
   local counter=0; 
-  for i=1,table.getn(theCandidates) do
+  for i=1,#theCandidates do
     candidate=theCandidates[i];
     if candidate:getQuestProgress(401) == god then
       counter=counter+1;

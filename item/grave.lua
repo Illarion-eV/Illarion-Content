@@ -65,11 +65,11 @@ function UseItem(User, SourceItem)
 		end
 	end
 
-	local AmountGrave = table.getn(graveSourceItemPos)
+	local AmountGrave = #graveSourceItemPos
 	UserHasAlreadyThisGame=false
 	for i = 1,AmountGrave do
 		if (SourceItem.pos == graveSourceItemPos[i]) then
-			local AmountGemsAlreadyFound = table.getn(gemsAlreadyFound[i])
+			local AmountGemsAlreadyFound = #gemsAlreadyFound[i]
 			for j = 1,AmountGemsAlreadyFound do
 				if User:getQuestProgress(669) == gemsAlreadyFound[i][j] then
 					UserHasAlreadyThisGame=true

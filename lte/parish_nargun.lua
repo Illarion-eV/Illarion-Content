@@ -30,7 +30,7 @@ function addEffect(Effect, Char)
 	
 	if effectType >= 1 and effectType <= 4 then
 		Effect:addValue("saveRace", Char:getRace() );
-		Char:setRace(PN_FriendlyRaces[math.random(1,table.getn(PN_FriendlyRaces))]);
+		Char:setRace(PN_FriendlyRaces[math.random(1,#PN_FriendlyRaces)]);
 		world:gfx(31,Char.pos);
 		base.common.InformNLS(Char,
 			"Du fühlst dich auf einmal so seltsam distanziert von deinem Körper.",

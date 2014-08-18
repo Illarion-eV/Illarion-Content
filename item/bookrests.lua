@@ -37,7 +37,7 @@ function LookAtItem(User,Item)
 	-- Salavesh end
 
 	-- Bookrest for townManagement
-	local AmountTM = table.getn(base.townManagement.townManagmentItemPos)	
+	local AmountTM = #base.townManagement.townManagmentItemPos	
 	for i = 1,AmountTM do
 		if (Item.pos == base.townManagement.townManagmentItemPos[i]) then
 			lookAt = TMLookAt(User, Item)
@@ -46,7 +46,7 @@ function LookAtItem(User,Item)
 	-- Bookrest for townManagement end
 
 	-- Bookrest for ferry
-	local Amountferry = table.getn(base.seafaring.ferrySourceItemPos)
+	local Amountferry = #base.seafaring.ferrySourceItemPos
 	for i = 1,Amountferry do
 		if (Item.pos == base.seafaring.ferrySourceItemPos[i]) then
 			lookAt = FerryLookAt(User, Item)
@@ -127,7 +127,7 @@ function UseItem(User, SourceItem)
 	if (SourceItem.pos == position(975,173,0)) then
 		local controlpannel = world:getPlayersInRangeOf(position(969,173,0), 8)
 		if User:getQuestProgress(667) >= 25 then
-			local AmountDarkColumnEvilrock = table.getn(content.vision.darkColumnEvilrock)
+			local AmountDarkColumnEvilrock = #content.vision.darkColumnEvilrock
 			for i=1,AmountDarkColumnEvilrock do
 				local DarkColumnEvilrockLightErase = world:getItemOnField(content.vision.darkColumnEvilrock[i])
 				if DarkColumnEvilrockLightErase.id == 467 then
@@ -149,7 +149,7 @@ function UseItem(User, SourceItem)
 	-- Evilrock end
 
 	-- TownManagement
-	local AmountTM = table.getn(base.townManagement.townManagmentItemPos)	
+	local AmountTM = #base.townManagement.townManagmentItemPos	
 	for i = 1,AmountTM do	
 		if (SourceItem.pos == base.townManagement.townManagmentItemPos[i]) then
 			base.townManagement.townManagmentUseItem(User, SourceItem)
@@ -158,7 +158,7 @@ function UseItem(User, SourceItem)
 	-- TownManagement end
 
 	-- ferries
-	local Amountferry = table.getn(base.seafaring.ferrySourceItemPos)
+	local Amountferry = #base.seafaring.ferrySourceItemPos
 	for i = 1,Amountferry do
 		if (SourceItem.pos == base.seafaring.ferrySourceItemPos[i]) then
 			base.seafaring.Ferry(User, SourceItem)

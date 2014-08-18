@@ -197,7 +197,7 @@ function MoveToField(User)
 	end
 
 	local names
-	local Amountferry = table.getn(ferrySourcePos)
+	local Amountferry = #ferrySourcePos
 	local AmountWrapDirectly = 4
 	for j = 1,Amountferry do
 --[[	   for n = 1,AmountWrapDirectly do

@@ -117,7 +117,7 @@ function Ferry(User, SourceItem)
 	local chanceforpirateattack = math.random(1,100)
 	local names
 	local namestravel
-	local Amountferry = table.getn(ferrySourceItemPos)	
+	local Amountferry = #ferrySourceItemPos	
 	for j = 1,Amountferry do
 	   if (SourceItem.pos == ferrySourceItemPos[j]) then
 		if  User:getPlayerLanguage() == Player.german then
@@ -192,7 +192,7 @@ end
 
 function piratesAttack(User)
 	local options
-	local Amountoptions = table.getn(pirateOptionsDE)	
+	local Amountoptions = #pirateOptionsDE	
 	for j = 1,Amountoptions do
 	   	if  User:getPlayerLanguage() == Player.german then
 			pirateOptions = pirateOptionsDE
@@ -266,13 +266,13 @@ function piratesFight(User)
 	end
 	local monsterTyp = math.random(1,16)
 	for p=1,8 do
-		local enemy = monster[monsterTyp][math.random(1,table.getn(monster[monsterTyp]))]
+		local enemy = monster[monsterTyp][math.random(1,#monster[monsterTyp])]
 		world:gfx(41,piratesSpawnGround[p]);
 	      	world:createMonster(enemy,piratesSpawnGround[p],0);
 		world:makeSound(1,User.pos)
 	end
 	for pp=1,3 do
-		local enemy = monster[monsterTyp][math.random(1,table.getn(monster[monsterTyp]))]
+		local enemy = monster[monsterTyp][math.random(1,#monster[monsterTyp])]
 		world:gfx(41,piratesSpawnTop[pp]);
 	      	world:createMonster(enemy,piratesSpawnTop[pp],0);
 		world:makeSound(1,User.pos)

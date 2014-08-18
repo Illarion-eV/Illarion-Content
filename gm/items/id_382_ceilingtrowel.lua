@@ -342,7 +342,7 @@ function factionHandling(User, SourceItem)
 			local sd = SelectionDialog("Get/Set faction values for ...", "First choose a player:", cbChoosePlayer);
 			local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
 			for _,player in ipairs(players) do
-				local race = math.min(player:getRace()+1, table.getn(raceNames));
+				local race = math.min(player:getRace()+1, #raceNames);
 				sd:addOption(0,player.name .. " (" .. raceNames[race] .. ") " .. player.id);
 			end
 			User:requestSelectionDialog(sd);
