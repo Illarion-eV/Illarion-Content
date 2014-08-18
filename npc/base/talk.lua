@@ -69,13 +69,13 @@ end;
 function talkNPC:receiveText(npcChar, texttype, player, text)
 	local result = false;
 	
-	table.foreach(self._entry, function(_, entry)
+	for _, entry in pairs(self._entry) do
         if entry:checkEntry(npcChar, texttype, player, text) then
             entry:execute(npcChar, player);
 			result = true;
             return true;
         end;
-    end);
+    end
     
     return result;
 end;
@@ -115,12 +115,12 @@ function talkNPCEntry:addTrigger(text)
 end;
 
 function talkNPCEntry:setParent(npc)
-	local updateFkt = function(_, value)
-		value:setNPC(npc);
-	end;
-	
-	table.foreach(self._conditions, updateFkt);
-	table.foreach(self._consequences, updateFkt);
+	for _, value in pairs(self._conditions) do
+        value:setNPC(npc);
+    end
+	for _, value in pairs(self._consequences) do
+        value:setNPC(npc);
+    end
 	
 	self._parent = npc;
 end;
@@ -202,11 +202,11 @@ function talkNPCEntry:execute(npcChar, player)
 		npcChar:talk(textType, text);		
     end;
     
-	table.foreach(self._consequences, function(_, consequence)
+    for _, consequence in pairs(self._consequences) do
 		if consequence then
 			consequence:perform(npcChar, player);
 		end;
-	end);
+	end
 end;
 
 function _get_text_and_talktype(text)

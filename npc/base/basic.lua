@@ -174,13 +174,13 @@ function baseNPC:nextCycle(npcChar)
         local tempList = self._equipmentList;
         self["_equipmentList"] = nil;
         
-        table.foreach(tempList, function(key, value)
+        for _, value in pairs(tempList) do
             npcChar:createAtPos(value[1], value[2], 1);
             local item = npcChar:getItemAt(value[1]);
             item.wear = 255;
             item.quality = 999;
             world:changeItem(item);            
-        end);
+        end
     end;
     
     self.nextCycle = self.nextCycle2;
@@ -209,12 +209,12 @@ function baseNPC:nextCycle2(npcChar)
     self._nextCycleCalls = 2147483648;
     
     local nextRequestedCall = 0;
-    table.foreach(self._cycleFunctions, function(key, value)
+    for _, value in pairs(self._cycleFunctions) do
         nextRequestedCall = value:nextCycle(npcChar, oldCycle);
         if (nextRequestedCall ~= nil and nextRequestedCall >= 0) then
             self._nextCycleCalls = math.min(self._nextCycleCalls, nextRequestedCall);
         end;
-    end);
+    end
 end;
 
 --- This method should be called at each call of the receive text method. This 
@@ -256,11 +256,11 @@ function baseNPC:receiveText(npcChar, texttype, speaker, text)
     npcChar.activeLanguage = speaker.activeLanguage;
     text = string.lower(text);
     
-    table.foreach(self._receiveTextFunctions, function(key, value)
+    for _, value in pairs(self._receiveTextFunctions) do
         if (value:receiveText(npcChar, texttype, speaker, text)) then
             return true;
         end;
-    end);
+    end
     
     return false;
 end;
@@ -408,9 +408,9 @@ end;
 --
 --  @param npcChar the NPC character
 function baseNPC:initLanguages(npcChar)
-    table.foreach(self._npcLanguages, function(key, value)
+    for _, value in pairs(self._npcLanguages) do
         npcChar:increaseSkill(langCodeToSkill(value), 100);
-    end);
+    end
     self["initLanguages"] = nil;
 end;
 

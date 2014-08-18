@@ -100,12 +100,12 @@ function tradeNPC:showDialog(npcChar, player)
 
     local dialog = MerchantDialog(base.common.GetNLS(player, "Handel", "Trade"), callback)
 
-    table.foreach(self._sellItems, function(_, item)
+    for _, item in pairs(self._sellItems) do
         item:addToDialog(player, dialog);
-    end);
-    table.foreach(self._buyItems, function(_, item)
+    end
+    for _, item in pairs(self._buyItems) do
         item:addToDialog(player, dialog);
-    end);
+    end
 
     player:requestMerchantDialog(dialog)
 end;

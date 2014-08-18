@@ -107,14 +107,14 @@ end;
 function _processMonsters(self, npcChar, radius)
 	local monsterList = world:getMonstersInRangeOf(npcChar.pos, radius);
 	local warpedMonster = false;
-	table.foreach(monsterList, function(_, monster)
+	for _, monster in pairs(monsterList) do
 		if _isPointInGuardArea(self, npcChar, monster.pos) then
 			if not base.common.IsMonsterDocile(monster:getMonsterType()) then
 				warpedMonster = true;
 				_warpHostile(self, npcChar, monster);
 			end
 		end
-	end);
+	end
 	
 	if warpedMonster and (self._warpedMonsterText ~= nil) then
         local german, english = self._warpedMonsterText:getRandomMessage();
@@ -135,7 +135,7 @@ function _processPlayers(self, npcChar, radius)
 	local playerList = world:getPlayersInRangeOf(npcChar.pos, radius);
 	local warpedPlayers = false;
 	local hitPlayers = false;
-	table.foreach(playerList, function(_, player)
+	for _, player in pairs(playerList) do
 		if _isPointInGuardArea(self, npcChar, player.pos) then
 			local relation = base.factions.getPlayerRelation(player, self._parent._affiliation);
 			if (relation == base.factions.RELATION_AGGRESSIVE) then
@@ -148,7 +148,7 @@ function _processPlayers(self, npcChar, radius)
 				_warpHostile(self, npcChar, player);
 			end
 		end;
-	end);
+	end
 	
 	if hitPlayers then
 		world:makeSound(3, npcChar.pos);
