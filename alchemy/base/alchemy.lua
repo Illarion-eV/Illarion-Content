@@ -241,11 +241,12 @@ end
 -- @param ... the components effecting the potion one by one
 function setPotionEffect(resultingEffect, ...)
 	local currentList = potionsList;
-	for i, v in ipairs(arg) do
-		if (currentList[v] == nil) then
-			currentList[v] = {};
+	local args = table.pack(...)
+    for i=1,args.n do
+		if (currentList[args[i]] == nil) then
+			currentList[args[i]] = {};
 		end;
-		currentList = currentList[v];
+		currentList = currentList[args[i]];
 	end;
 	currentList[0] = resultingEffect;
 end;
@@ -262,11 +263,12 @@ end
 -- @return the resulting effect of the potion
 function getPotion(...)
 	local currentList = potionsList;
-	for i, v in ipairs(arg) do
-			if (currentList[v] == nil) then
+    local args = table.pack(...)
+	for i=1,args.n do
+			if (currentList[args[i]] == nil) then
 					return 0;
 			end;
-			currentList = currentList[v];
+			currentList = currentList[args[i]];
 	end;
 
 	if (currentList[0] == nil) then
