@@ -193,9 +193,12 @@ function dropDonfblade(dog)
 	while not positionX do
 		local checkPosition = position(Random.uniform(822,873),Random.uniform(765,799),0)
 		if (not world:isItemOnField(checkPosition)) and (not world:isCharacterOnField(checkPosition)) then
-			positionX = checkPosition.x
-			positionY = checkPosition.y
-			break
+			local tileID = world:getField(checkPosition):tile()
+			if tileID == 2 or tileID == 3 or tileID == 4 or tileID == 8 or tileID == 9 or tileID == 10 or tileID == 11 or tileID == 15 then
+				positionX = checkPosition.x
+				positionY = checkPosition.y
+				break
+			end
 		end
 	end
 	
