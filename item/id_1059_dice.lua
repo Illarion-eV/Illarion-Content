@@ -51,7 +51,7 @@ function informAboutResult(User, typeOfDice, numberOfDice)
 	local playerInRange = world:getPlayersInRangeOf(User.pos, 3);
 	User:talk(Character.say,"#me würfelt.","#me throws dice.")
 	for _,player in pairs(playerInRange) do 
-		player:inform(numberOfDice.." "..diceTypeDe.." Würfel wurden gewürfelt und sie zeigen: "..thrownNumbers ,numberOfDice.." "..diceTypeEn.." dice are trown and they show: "..thrownNumbers);		
+		player:inform(numberOfDice.." "..diceTypeDe.." Würfel wurden gewürfelt und sie zeigen: "..thrownNumbers ,numberOfDice.." "..diceTypeEn.." dice are thrown and they show: "..thrownNumbers);		
 	end
 		
 end

@@ -76,13 +76,13 @@ function AddWaypoint(thisNPC,posstruct, SpawnedMonAtWP) --Adds a waypoint, Spawn
 	--if waypoints[thisNPC.id]==nil then
 	--	table.insert(waypoints,thisNPC.id,{});
 	--end
-	waypoints[thisNPC.id][table.getn (waypoints[thisNPC.id])+1] = posstruct;  --add WP to the list
+	waypoints[thisNPC.id][#waypoints[thisNPC.id]+1] = posstruct;  --add WP to the list
 	if SpawnedMonAtWP== nil then SpawnedMonAtWP= false; end
 	--if SpawnAtWP[thisNPC.id]==nil then
 	--	table.insert(SpawnAtWP,thisNPC.id,{});--spawnID or false if no monster shall be spawned
 	--end
 
-    SpawnAtWP[thisNPC.id][table.getn (SpawnAtWP[thisNPC.id])+1] = SpawnedMonAtWP;
+    SpawnAtWP[thisNPC.id][#SpawnAtWP[thisNPC.id]+1] = SpawnedMonAtWP;
 	--table.insert(SpawnAtWP[thisNPC.id],{SpawnedMonAtWP}); --spawnID or false if no monster shall be spawned
 end
 
