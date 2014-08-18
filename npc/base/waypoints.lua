@@ -224,17 +224,17 @@ end
 -- recalculate the distinct index and return the posStruct 
 function IndexToPos(index)
 	local x,y,z;
-	x = math.floor(math.mod(index,100000000000000)/10000000000);
+	x = math.floor(math.fmod(index,100000000000000)/10000000000);
 	if index>=100000000000000 then
 		x = -1 * x;
 	end
-	index = math.mod(index,10000000000);
-	y = math.floor(math.mod(index,10000000000)/100000);
+	index = math.fmod(index,10000000000);
+	y = math.floor(math.fmod(index,10000000000)/100000);
 	if index>=10000000000 then
 		y = -1 * y;
 	end
-	index = math.mod(index,100000);
-	z = math.mod(index,10000);
+	index = math.fmod(index,100000);
+	z = math.fmod(index,10000);
 	if index>=100000 then
 		z = -1 * z;
 	end

@@ -143,7 +143,7 @@ function GenerateLookAt(user, item, material)
         end
         
         if material > NONE then
-            local itemDura = math.mod(item.quality, 100)
+            local itemDura = math.fmod(item.quality, 100)
             local itemQual = (item.quality - itemDura) / 100
             
             local duraIndex

@@ -435,16 +435,16 @@ function GetBonusFromTool(toolItem)
     local dataValue=0; --toolItem.data;
 		-- TODO get correct bonus
     if ((dataValue > 9) and (dataValue < 100)) then
-        str1 = math.mod(dataValue, 10) + 1;
+        str1 = math.fmod(dataValue, 10) + 1;
         dataValue = dataValue - str1 + 1;
         stone1 = math.floor(dataValue / 10);
         return stone1, str1, 0, 0;
     elseif ((dataValue > 1009) and (dataValue < 10000)) then
-        str1 = math.mod(dataValue, 10) + 1;
+        str1 = math.fmod(dataValue, 10) + 1;
         dataValue = dataValue - str1 + 1;
-        stone1 = math.mod(dataValue, 100) / 10;
+        stone1 = math.fmod(dataValue, 100) / 10;
         dataValue = dataValue - stone1 * 10;
-        str2 = math.mod(dataValue, 1000) / 100 + 1;
+        str2 = math.fmod(dataValue, 1000) / 100 + 1;
         stone2 = math.floor(dataValue / 1000);
         return stone1, str1, stone2, str2;
     end;
@@ -462,7 +462,7 @@ function GatheringToolBreaks(user, item, workTime)
 
   if (math.random(1, 100) < (workTime/3)) then
 
-    local durability = math.mod(item.quality, 100);
+    local durability = math.fmod(item.quality, 100);
     local quality = (item.quality - durability) / 100;
 
     if (durability == 0) then
@@ -492,7 +492,7 @@ function ToolBreaks(user, item)
         return false;
     end;
 
-    local durability = math.mod(item.quality, 100)
+    local durability = math.fmod(item.quality, 100)
     local quality = (item.quality - durability) / 100
 
     if durability == 0 then
@@ -1138,7 +1138,7 @@ function Round(value, precision)
 
     value = value * 10 ^ precision;
 
-    if (math.mod(value, 1) >= 0.5) then
+    if (math.fmod(value, 1) >= 0.5) then
         value = math.ceil( value );
     else
         value = math.floor( value );
@@ -1319,7 +1319,7 @@ function Split_number(Number, AmountOfDigits)
 
 	for i = (AmountOfDigits-1), 0, -1 do
 		tempcnt = tempcnt + 1;
-		temptable[tempcnt] = math.floor(math.mod((Number / (10^i)), 10) + 0.5);
+		temptable[tempcnt] = math.floor(math.fmod((Number / (10^i)), 10) + 0.5);
 	end
 	return temptable;
 end

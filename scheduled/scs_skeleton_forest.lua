@@ -74,7 +74,7 @@ function SpawnSkeletonCycle(CenterPos,Radius,Anzahl)
             if not( map[x][y] and  map[x-1][y] and map[x][y-1] and map[x-1][y-1] )
                and( map[x][y] or   map[x-1][y] or  map[x][y-1] or  map[x-1][y-1] ) then
                 count = count + 1;
-                if (math.mod(count,divid) == 0) then
+                if (math.fmod(count,divid) == 0) then
                     tPos = position( CenterPos.x + x, CenterPos.y + y, CenterPos.z )
                     world:createMonster(math.random(111,115),tPos,-15);
                     world:makeSound(5,tPos);

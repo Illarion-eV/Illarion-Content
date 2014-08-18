@@ -166,7 +166,7 @@ function damageItemDura( Item, targetArea, gfxid, sfxid, modifier, ItemType )
 
     local qual = Item.quality;
     if (qual > 999) then
-        qual = math.mod( qual, 1000 );
+        qual = math.fmod( qual, 1000 );
     end
 
     for i, posi in pairs(targetArea) do
@@ -220,7 +220,7 @@ function damageItemQual( Item, targetArea, gfxid, sfxid, modifier, ItemType )
 
     local qual = Item.quality;
     if (qual > 999) then
-        qual = math.mod( qual, 1000 );
+        qual = math.fmod( qual, 1000 );
     end
 
     for i, posi in pairs(targetArea) do

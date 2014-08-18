@@ -109,8 +109,8 @@ function getBonusFromItem(item, bonustype)
     local data = tonumber(item:getData("bonusitemData"));
     local i;
     for i=1,2 do
-        if( math.mod( data, 64 ) == bonustype ) then
-            return math.mod( math.floor( data / 64 ), 128 ) - 63;
+        if( math.fmod( data, 64 ) == bonustype ) then
+            return math.fmod( math.floor( data / 64 ), 128 ) - 63;
         else
             if( i == 2 ) then return 0; end;
             data = math.floor( data / 8192 );

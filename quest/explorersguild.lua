@@ -44,7 +44,7 @@ function CheckStone(Char,StoneNumber)
 	retVal=false;
     StoneBase=130+math.floor((StoneNumber-1)/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
 	--Char:inform("Stonebase: "..StoneBase);
-    StoneBaseOffset=math.mod(StoneNumber-1,32);  -- StoneNr inside range
+    StoneBaseOffset=math.fmod(StoneNumber-1,32);  -- StoneNr inside range
 	--Char:inform("Offset: "..StoneBaseOffset);
     HasStones=QuestprogressToStones(Char:getQuestProgress(StoneBase));
 	--Char:inform("HasStones: "..HasStones);
@@ -65,7 +65,7 @@ function CountStones(Char)
         stones=QuestprogressToStones(Char:getQuestProgress(i));
 		--debug("In Countstones, questid "..i.." and stones "..stones)
         while stones~=0 do
-            nrStones=nrStones+math.mod(stones,2);
+            nrStones=nrStones+math.fmod(stones,2);
             stones=math.floor(stones/2);
         end
     end
@@ -75,7 +75,7 @@ end
 function WriteStone(Char,StoneNumber)
     StoneBase=130+math.floor((StoneNumber-1)/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
 	--Char:inform("Base: "..StoneBase);
-    StoneBaseOffset=math.mod(StoneNumber-1,32);  -- StoneNr inside range
+    StoneBaseOffset=math.fmod(StoneNumber-1,32);  -- StoneNr inside range
     --Char:inform("Offset: "..StoneBaseOffset);
 	--Char:inform("Base offset: " .. StoneBase .. " Stone Nr "..StoneBaseOffset .. " for stone "..StoneNumber);
     currentStones=QuestprogressToStones(Char:getQuestProgress(StoneBase));

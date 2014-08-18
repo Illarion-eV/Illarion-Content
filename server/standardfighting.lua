@@ -491,7 +491,7 @@ function ArmourDegrade(Defender, Globals)
 
 	if(Rarity<0) then
 
-		local durability = math.mod(Globals.HittedItem.quality, 100);
+		local durability = math.fmod(Globals.HittedItem.quality, 100);
 		local quality = (Globals.HittedItem.quality - durability) / 100;
 		local nameText=world:getItemName(Globals.HittedItem.id,Defender.Char:getPlayerLanguage());
 
@@ -517,7 +517,7 @@ function ArmourDegrade(Defender, Globals)
 
 	elseif (base.common.Chance(Globals.Damage, 12000)) and (Globals.HittedItem.id ~= 0) then -- do not damage non existing items
 
-		local durability = math.mod(Globals.HittedItem.quality, 100);
+		local durability = math.fmod(Globals.HittedItem.quality, 100);
 		local quality = (Globals.HittedItem.quality - durability) / 100;
 		local nameText=world:getItemName(Globals.HittedItem.id,Defender.Char:getPlayerLanguage());
 
@@ -554,7 +554,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 
 	if(Rarity<0) then
 
-		local durability = math.mod(Attacker.WeaponItem.quality, 100);
+		local durability = math.fmod(Attacker.WeaponItem.quality, 100);
 		local quality = (Attacker.WeaponItem.quality - durability) / 100;
 
 		durability = durability - 20;
@@ -577,7 +577,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 
 	elseif (base.common.Chance(1, 20)) and (Attacker.WeaponItem.id ~= 0) then
 
-		local durability = math.mod(Attacker.WeaponItem.quality, 100);
+		local durability = math.fmod(Attacker.WeaponItem.quality, 100);
 		local quality = (Attacker.WeaponItem.quality - durability) / 100;
 
 		durability = durability - 1;
@@ -605,7 +605,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 
 	if(Rarity<0) then
 
-		local durability = math.mod(ParryWeapon.quality, 100);
+		local durability = math.fmod(ParryWeapon.quality, 100);
 		local quality = (ParryWeapon.quality - durability) / 100;
 
 		durability = durability - 20;
@@ -629,7 +629,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		"You should stop wielding your broken artifact '"..nameText.."' before it shatters!");
 
 	elseif (base.common.Chance(1, 60)) and (ParryWeapon.id ~= 0) then
-		local durability = math.mod(ParryWeapon.quality, 100);
+		local durability = math.fmod(ParryWeapon.quality, 100);
 		local quality = (ParryWeapon.quality - durability) / 100;
 
 		durability = durability - 1;
