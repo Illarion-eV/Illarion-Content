@@ -21,7 +21,7 @@ module("content.gathering", package.seeall)
 
 function InitGathering()
 	if(Init == nil) then
-	
+
 		-- if FastAction==true then the probabilities are again reduced in FindRandomItem, see gatheringcraft.lua
 
 		local prob_frequently = 0.005; --0.5% (1/200)
@@ -74,7 +74,7 @@ function InitGathering()
 		woodchopping:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
 
 		-- egg gathering
-		egggathering:AddRandomItem(2553,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Brágon, die Gott des Feuers, mit einem Kleinod aus Reinem Feuer.","For your hard and honest labour Brágon, the god of fire, rewards you with a treasure of Pure Fire."); --Pure fire
+		egggathering:AddRandomItem(2553,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Brágon, der Gott des Feuers, mit einem Kleinod aus Reinem Feuer.","For your hard and honest labour Brágon, the god of fire, rewards you with a treasure of Pure Fire."); --Pure fire
 		egggathering:AddRandomItem(item.gems.getMagicGemId(item.gems.OBSIDIAN),1,999,item.gems.getMagicGemData(1),prob_extremely_rarely,"Während du Eier sammelst, bemerkst du einen Stein, welcher sich  als wirklich beachtenswert herausstellt. Du findest einen magischen Obsidian.","While you collect eggs you notice a strange stone. You find a magical obsidian!"); --Magical obsidian
 		egggathering:AddRandomItem(249,1,333,{},prob_occasionally,"Für dieses Nest wurde ein ganzes Bündel Getreide als Nistmaterial verwendet.","A bundle of grain was used as nesting material for this nest."); --bundle of grain
 		egggathering:AddRandomItem(463,1,333,{},prob_frequently,"Du findest eine besonders große Feder, mit der man sicher auch gut schreiben kann.","You find a big feather that looks suitable for writing."); --Quill
@@ -144,7 +144,7 @@ function InitGathering()
 		mining:AddInterruptMessage("Du verlierst kurz das Gleichgewicht durch einen losen Gesteinsbrocken am Boden.", "Some rubble at your feet impedes your progress.");
 
 		--sanddigging
-		sanddigging:AddRandomItem(2553,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Brágon, die Gott des Feuers, mit einem Kleinod aus Reinem Feuer.","For your hard and honest labour Brágon, the god of fire, rewards you with a treasure of Pure Fire."); --Pure fire
+		sanddigging:AddRandomItem(2553,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Brágon, der Gott des Feuers, mit einem Kleinod aus Reinem Feuer.","For your hard and honest labour Brágon, the god of fire, rewards you with a treasure of Pure Fire."); --Pure fire
 		sanddigging:AddRandomItem(item.gems.getMagicGemId(item.gems.TOPAZ),1,999,item.gems.getMagicGemData(1),prob_extremely_rarely,"Ein Stein, strahlend wie die heiße Wüstensonne, kommt zwischen all dem Sand zum Vorschein. Du findest einen magischen Topas.","A stone, bright as the hot desert sun, reveals itself beneath your feet. Upon closer inspection it turns out to be a magic topaz."); --Magical topaz
 		sanddigging:AddRandomItem(3077,1,333,{},prob_extremely_rarely,"Eine funkelnde Münze liegt auf deinem Schaufelblatt. Hat sich die harte Arbeit doch gelohnt!","A tink of your shovel blade causes you to pause. Then to your surprise it turns out you struck a silver coin!"); --Silver coin
 		sanddigging:AddRandomItem(21,1,333,{},prob_occasionally,"Du findest einige noch heiße Kohlen im Sand. Ein Glück, dass du nicht auf diese Überreste einer nächtlichen Grillfeier getreten bist.","As your shovel digs through the sand you unearth an unused lump of coal and discover an abandoned campfire."); --Coal
@@ -174,7 +174,7 @@ function InitGathering()
 		claydigging:AddInterruptMessage("Das Loch, in dem du gräbst, füllt sich mit Wasser und du mußt es kurz abschöpfen.", "The pit you are digging fills with water causing you to pause in order to scoop it out.");
 
 		--herbgathering
-		herbgathering:AddRandomItem(2553,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Brágon, die Gott des Feuers, mit einem Kleinod aus Reinem Feuer.","For your hard and honest labour Brágon, the God of Fire, rewards you with a treasure of Pure Fire."); --Pure fire
+		herbgathering:AddRandomItem(2553,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Brágon, der Gott des Feuers, mit einem Kleinod aus Reinem Feuer.","For your hard and honest labour Brágon, the God of Fire, rewards you with a treasure of Pure Fire."); --Pure fire
 		herbgathering:AddRandomItem(item.gems.getMagicGemId(item.gems.SAPPHIRE),1,999,item.gems.getMagicGemData(1),prob_extremely_rarely,"Tief im Gestrüpp machst du ein blaues, unheimliches Leuchten aus. Du findest einen magischen Saphir.","Deep in the shrub you notice a blue, eerie glow. To your delight it turns out to be a magical sapphire."); --Magical sapphire
 		herbgathering:AddRandomItem(2183,1,333,{},prob_extremely_rarely,"Ein alter Krug liegt verlassen und einsam im Gebüsch.","An old mug lies abandoned and lonesome in the bushes."); --Mug
 		herbgathering:AddRandomItem(799,1,333,{},prob_occasionally,"Ein Weidenkorb liegt am Boden. Er scheint noch brauchbar zu sein.","A wicker basket lies on the ground. It still seems to be usable."); --Basket
