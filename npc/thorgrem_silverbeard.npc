@@ -147,10 +147,10 @@ queststatus(708) = 5, item(2738, all) > 4, item(1858, all) > 4, town = Galmair, 
 queststatus(708) = 5, item(2738, all) > 4, item(1858, all) > 4, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> deleteItem(2738, 5), deleteItem(1858, 5), queststatus(708) = 6, "Gut gemacht, vielen Dank. Ich denke, du kommst nun auch ohne meine Hilfe zurecht."
 
 -- not enough stuff
-queststatus(708) = 5, english, town = Galmair, "quest", "mission", "pin", "goblet" -> "You haven't solved the task yet. Please come back again if you have five pins and five goblets for me."
-queststatus(708) = 5, town = Galmair, "quest", "mission", "nägel", "kelch" -> "Du hast die Aufgabe noch nicht erfüllt wie ich sehe. Bitte bring mir fünf Nägel und fünf Kelche."
-queststatus(708) = 5, english, town = Galmair, "task", "adventure", "order" -> "You haven't solved the task yet. Please come back again if you have five pins and five goblets for me."
-queststatus(708) = 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du hast die Aufgabe noch nicht erfüllt wie ich sehe. Bitte bring mir fünf Nägel und fünf Kelche."
+queststatus(708) = 5, item(2738, all) < 5, item(1858, all) < 5, english, town = Galmair, "quest", "mission", "pin", "goblet" -> "You haven't solved the task yet. Please come back again if you have five pins and five goblets for me."
+queststatus(708) = 5, item(2738, all) < 5, item(1858, all) < 5, town = Galmair, "quest", "mission", "nägel", "kelch" -> "Du hast die Aufgabe noch nicht erfüllt wie ich sehe. Bitte bring mir fünf Nägel und fünf Kelche."
+queststatus(708) = 5, item(2738, all) < 5, item(1858, all) < 5, english, town = Galmair, "task", "adventure", "order" -> "You haven't solved the task yet. Please come back again if you have five pins and five goblets for me."
+queststatus(708) = 5, item(2738, all) < 5, item(1858, all) < 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du hast die Aufgabe noch nicht erfüllt wie ich sehe. Bitte bring mir fünf Nägel und fünf Kelche."
 
 -- Response after quest is done
 queststatus(708) = 6, english, town = Galmair, "quest", "mission" -> "I don't have anything more for you to do. Thank you for the help though!"
