@@ -22,7 +22,7 @@ require("base.licence")
 module("base.townManagement", package.seeall)
 
  -- Cadomyr, Runewick, Galmair
-townManagmentItemPos={position(118,530,0),position(899,772,2),position(344,223,0)}
+townManagmentItemPos={position(116,527,0),position(899,772,2),position(344,223,0)}
 requiredRank={9,8,8}
 
 toolUseNameDE={"Wache","Lizenz","Schlüssel"}
