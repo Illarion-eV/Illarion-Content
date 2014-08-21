@@ -27,14 +27,16 @@ LookAtItem = item.general.metal.LookAtItem
 
 function UseItem(User, SourceItem, ltstate)
 
-	local treeItem = content.gatheringcraft.woodchopping.getChopableTree(User);
-	if treeItem ~= nil then
+	local treeItem = content.gatheringcraft.woodchopping.getTree(User);
+	if treeItem then
 		content.gatheringcraft.woodchopping.StartGathering(User, treeItem, ltstate);
 		return;
 	end
-
-	base.common.HighInformNLS( User,
-	"Um Holz zu hacken musst du zu einem Baum gehen.",
-	"For chopping wood you have to go to a tree." );
+	
+	if treeItem == nil then
+		base.common.HighInformNLS( User,
+		"Um Holz zu hacken musst du zu einem Baum gehen.",
+		"For chopping wood you have to go to a tree." );
+	end
 end
 

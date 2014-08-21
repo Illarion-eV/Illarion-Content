@@ -185,6 +185,27 @@ function AddTree(TreeId, TrunkId, LogId, BoughId, Amount, BoughProbability)
 	table.insert(TreeItems, TreeId, treeTable);
 end
 
+unchoppableTrees = {}
+unchoppableTrees[203] = true
+unchoppableTrees[892] = true
+unchoppableTrees[893] = true
+unchoppableTrees[894] = true
+unchoppableTrees[910] = true
+unchoppableTrees[911] = true
+unchoppableTrees[912] = true
+unchoppableTrees[913] = true
+unchoppableTrees[959] = true
+unchoppableTrees[960] = true
+unchoppableTrees[961] = true
+unchoppableTrees[962] = true
+unchoppableTrees[963] = true
+unchoppableTrees[1193] = true
+unchoppableTrees[1194] = true
+unchoppableTrees[1195] = true
+unchoppableTrees[1198] = true
+unchoppableTrees[1807] = true
+unchoppableTrees[1808] = true
+
 function preventCutting(User, theAxe, theTree)
     
 	local effectType = theTree:getData("treeProtectionType")
@@ -220,10 +241,32 @@ function isChoppableTree(targetItem)
 	return false;
 end
 
-function getChopableTree(User)
+function isUnchoppableTree(targetItem,User)
+	
+	if targetItem ~= nil and unchoppableTrees[targetItem.id] ~= nil then
+		base.common.TurnTo( User, targetItem.pos )
+		User:inform("Diese Baumart kann nicht gefällt werden.","This kind of tree cannot be cut down.")
+		return true;
+	end
+
+end
+
+function getTree(User)
+
+	local tree = checkForTree(User,isChoppableTree)
+	if not tree then
+		if checkForTree(User,isUnchoppableTree) then
+			return false
+		end
+	end
+	
+	return tree
+end
+
+function checkForTree(User,theFunction)
 
 	local targetItem = base.common.GetFrontItem(User);
-	if isChoppableTree(targetItem) then
+	if theFunction(targetItem,User) then
 		return targetItem;
 	end
 
@@ -232,7 +275,7 @@ function getChopableTree(User)
 			local pos = position(User.pos.x+x,User.pos.y+y,User.pos.z);
 			if ( world:isItemOnField(pos) ) then
 				targetItem = world:getItemOnField(pos);
-				if isChoppableTree(targetItem) then
+				if theFunction(targetItem,User) then
 					return targetItem;
 				end
 			end
@@ -240,14 +283,4 @@ function getChopableTree(User)
 	end
 	return nil;
 
---[[
-	local tree = TreeItems[TargetItem.id];
-
-	if tree == nil then
-		base.common.HighInformNLS( User,
-		"Du kannst diese Baumart nicht fällen.",
-		"You cannot cut down this kind of tree." );
-		return;
-	end;
-]]
 end
