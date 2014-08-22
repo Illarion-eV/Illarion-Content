@@ -435,18 +435,25 @@ module("base.treasure", package.seeall)
     	end
     end
 
-    function createMap( Char )
+    function createMap(Char, Value)
         local MapPosition = findPosition( );
         if not MapPosition then
             return false;
         end
         local MapData = base.common.PositionToData( MapPosition )
-        local MapQuality = (10-math.floor(math.sqrt(math.random(1,99))))*100+99;
+
+        local MapQuality;
+        if (Value ~= nil and Value < 10 and Value > 0) then
+            MapQuality = Value;
+        else
+            MapQuality = (10-math.floor(math.sqrt(math.random(1,99))))*100+99;
+        end
+
         if Char:createItem(505,1,MapQuality,MapData) ~= 0 then
             world:createItemFromId(505, 1, Char.pos, true, MapQuality, MapData);
-			base.common.InformNLS(Char,
-				"Du kannst nichts mehr tragen.",
-				"You can't carry any more.");
+            base.common.InformNLS(Char,
+                "Du kannst nichts mehr tragen.",
+                "You can't carry any more.");
         end
 		return true;
     end
