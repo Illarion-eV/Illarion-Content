@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Depots
 
--- UPDATE common SET com_script='item.id_321_depot' WHERE com_itemid=321;
+-- UPDATE items SET itm_script='item.id_321_depot' WHERE itm_id=321;
 
 require("base.common")
 require("base.lookat")

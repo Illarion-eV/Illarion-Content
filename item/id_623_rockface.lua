@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 require("base.common")
 require("base.lookat")
 
--- UPDATE common SET com_script='item.id_623_rockface' WHERE com_itemid IN (623);
+-- UPDATE items SET itm_script='item.id_623_rockface' WHERE itm_id IN (623);
 
 module("item.id_623_rockface", package.seeall)
 

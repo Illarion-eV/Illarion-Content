@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Spinnennetze
 -- Nitram
 
--- UPDATE common SET com_script='item.spidernet' WHERE com_itemid IN (3093,3094,3095,3096);
+-- UPDATE items SET itm_script='item.spidernet' WHERE itm_id IN (3093,3094,3095,3096);
 
 module("item.spidernet", package.seeall)
 

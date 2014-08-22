@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE common SET com_script='item.id_250_mill' WHERE com_itemid IN (250);
+-- UPDATE items SET itm_script='item.id_250_mill' WHERE itm_id IN (250);
 
 require("base.licence")
 require("content.gatheringcraft.graingrinding")

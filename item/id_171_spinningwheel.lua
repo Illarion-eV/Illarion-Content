@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE common SET com_script='item.id_171_spinningwheel' WHERE com_itemid IN (171);
+-- UPDATE items SET itm_script='item.id_171_spinningwheel' WHERE itm_id IN (171);
 
 require("base.common")
 require("base.licence")

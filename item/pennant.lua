@@ -21,7 +21,7 @@ require("base.lookat")
 
 module("item.pennant", package.seeall)
 
--- UPDATE common SET com_script='item.pennant' WHERE com_itemid IN (2046, 2069, 512, 2924, 2925, 2926, 2927);
+-- UPDATE items SET itm_script='item.pennant' WHERE itm_id IN (2046, 2069, 512, 2924, 2925, 2926, 2927);
 
 
 function LookAtItem(User, Item)

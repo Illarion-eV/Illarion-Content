@@ -19,7 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --- well
 --- waters
 
--- UPDATE common SET com_script='item.id_51_emptybucket' WHERE com_itemid IN (51);
+-- UPDATE items SET itm_script='item.id_51_emptybucket' WHERE itm_id IN (51);
 
 require("base.common")
 require("alchemy.base.alchemy")

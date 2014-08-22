@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- UPDATE common SET com_script='item.id_2715_plane' WHERE com_itemid IN (2715);
+-- UPDATE items SET itm_script='item.id_2715_plane' WHERE itm_id IN (2715);
 
 require("content.craft.carpentry")
 require("base.licence")

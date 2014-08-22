@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE common SET com_script='item.id_9_saw' WHERE com_itemid IN (9);
+-- UPDATE items SET itm_script='item.id_9_saw' WHERE itm_id IN (9);
 
 require("base.licence")
 require("content.gatheringcraft.boardproducing")

@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
--- UPDATE common SET com_script='item.id_359_firefield' where com_itemid=359;
+-- UPDATE items SET itm_script='item.id_359_firefield' where itm_id=359;
 
 -- How it works: AffectedRaces holds a list of all races that have non-standard effect (thus, consuming more than or less than 100% of damage from a field).
 -- AffectedStren holds a list of damage-percentages, 100 (which would be default anyway) means 100% and so on. The first entry in the Races-list corresponds

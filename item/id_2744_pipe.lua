@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- UPDATE common SET com_script='item.id_2744_pipe' WHERE com_itemid = 2744;
+-- UPDATE items SET itm_script='item.id_2744_pipe' WHERE itm_id = 2744;
 
 require("base.common")
 require("item.general.wood")

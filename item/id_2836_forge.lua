@@ -15,9 +15,9 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE common SET com_script='item.id_2836_forge' WHERE com_itemid IN (2834,2835,2836,2837);
--- UPDATE common SET com_objectafterrot=2836 WHERE com_itemid = 2835;
--- UPDATE common SET com_objectafterrot=2837 WHERE com_itemid = 2834;
+-- UPDATE items SET itm_script='item.id_2836_forge' WHERE itm_id IN (2834,2835,2836,2837);
+-- UPDATE items SET com_objectafterrot=2836 WHERE itm_id = 2835;
+-- UPDATE items SET com_objectafterrot=2837 WHERE itm_id = 2834;
 
 require("base.licence")
 require("content.gatheringcraft.oremelting")

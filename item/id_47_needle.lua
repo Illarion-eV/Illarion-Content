@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- UPDATE common SET com_script='item.id_47_needle' WHERE com_itemid IN (47);
+-- UPDATE items SET itm_script='item.id_47_needle' WHERE itm_id IN (47);
 
 require("content.craft.tailoring")
 require("base.licence")

@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Kohlbewegungsscript
 
--- UPDATE common SET com_script='item.id_290_cabbage' WHERE com_itemid IN (290);
+-- UPDATE items SET itm_script='item.id_290_cabbage' WHERE itm_id IN (290);
 
 require("base.common")
 

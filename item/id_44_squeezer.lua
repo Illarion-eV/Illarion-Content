@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- UPDATE common SET com_script='item.id_44_squeezer' WHERE com_itemid IN (44);
+-- UPDATE items SET itm_script='item.id_44_squeezer' WHERE itm_id IN (44);
 
 require("base.common")
 require("base.licence")

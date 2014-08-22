@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE common SET com_script='item.harvest' WHERE com_itemid IN (14,300,387,1195,11,299,386,1193,1194);
+-- UPDATE items SET itm_script='item.harvest' WHERE itm_id IN (14,300,387,1195,11,299,386,1193,1194);
 
 require("base.common")
 require("content.gatheringcraft.fruitgathering")

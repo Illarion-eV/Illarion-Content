@@ -16,28 +16,28 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- mining mit Spitzhacke
 
--- UPDATE common SET com_script='item.id_2763_pickaxe' WHERE com_itemid=2763;
+-- UPDATE items SET itm_script='item.id_2763_pickaxe' WHERE itm_id=2763;
 
--- UPDATE common SET com_agingspeed = 255, com_objectafterrot = 1246 WHERE com_itemid = 1246;
--- UPDATE common SET com_agingspeed =  10, com_objectafterrot = 1246 WHERE com_itemid = 915;
+-- UPDATE items SET com_agingspeed = 255, com_objectafterrot = 1246 WHERE itm_id = 1246;
+-- UPDATE items SET com_agingspeed =  10, com_objectafterrot = 1246 WHERE itm_id = 915;
 
--- UPDATE common SET com_agingspeed = 255, com_objectafterrot = 1245 WHERE com_itemid = 1245;
--- UPDATE common SET com_agingspeed =  10, com_objectafterrot = 1245 WHERE com_itemid = 1254;
+-- UPDATE items SET com_agingspeed = 255, com_objectafterrot = 1245 WHERE itm_id = 1245;
+-- UPDATE items SET com_agingspeed =  10, com_objectafterrot = 1245 WHERE itm_id = 1254;
 
--- UPDATE common SET com_agingspeed = 255, com_objectafterrot = 232  WHERE com_itemid = 232;
--- UPDATE common SET com_agingspeed =  10, com_objectafterrot = 232  WHERE com_itemid = 233;
+-- UPDATE items SET com_agingspeed = 255, com_objectafterrot = 232  WHERE itm_id = 232;
+-- UPDATE items SET com_agingspeed =  10, com_objectafterrot = 232  WHERE itm_id = 233;
 
--- UPDATE common SET com_agingspeed = 255, com_objectafterrot = 914  WHERE com_itemid = 914;
--- UPDATE common SET com_agingspeed =  10, com_objectafterrot = 914  WHERE com_itemid = 1265;
+-- UPDATE items SET com_agingspeed = 255, com_objectafterrot = 914  WHERE itm_id = 914;
+-- UPDATE items SET com_agingspeed =  10, com_objectafterrot = 914  WHERE itm_id = 1265;
 
--- UPDATE common SET com_agingspeed = 255, com_objectafterrot = 1273 WHERE com_itemid = 1273;
--- UPDATE common SET com_agingspeed =  10, com_objectafterrot = 1273 WHERE com_itemid = 1257;
+-- UPDATE items SET com_agingspeed = 255, com_objectafterrot = 1273 WHERE itm_id = 1273;
+-- UPDATE items SET com_agingspeed =  10, com_objectafterrot = 1273 WHERE itm_id = 1257;
 
--- UPDATE common SET com_agingspeed = 255, com_objectafterrot = 1276 WHERE com_itemid = 1276;
--- UPDATE common SET com_agingspeed =  10, com_objectafterrot = 1276 WHERE com_itemid = 1278;
+-- UPDATE items SET com_agingspeed = 255, com_objectafterrot = 1276 WHERE itm_id = 1276;
+-- UPDATE items SET com_agingspeed =  10, com_objectafterrot = 1276 WHERE itm_id = 1278;
 
--- UPDATE common SET com_agingspeed = 255, com_objectafterrot = 1250 WHERE com_itemid = 1250;
--- UPDATE common SET com_agingspeed =  10, com_objectafterrot = 1250 WHERE com_itemid = 1251;
+-- UPDATE items SET com_agingspeed = 255, com_objectafterrot = 1250 WHERE itm_id = 1250;
+-- UPDATE items SET com_agingspeed =  10, com_objectafterrot = 1250 WHERE itm_id = 1251;
 
 require("base.common")
 require("base.treasure")

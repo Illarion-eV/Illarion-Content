@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- I_533 playing the drum
 
--- UPDATE common SET com_script='item.id_533_drum' WHERE com_itemid=533;
+-- UPDATE items SET itm_script='item.id_533_drum' WHERE itm_id=533;
 
 require("item.base.music")
 require("item.general.wood")

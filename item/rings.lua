@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
--- UPDATE common SET com_script = 'item.rings' WHERE com_itemid IN (68, 277, 278, 279, 280, 281, 282);
+-- UPDATE items SET itm_script = 'item.rings' WHERE itm_id IN (68, 277, 278, 279, 280, 281, 282);
 
 require("base.lookat")
 require("base.common")

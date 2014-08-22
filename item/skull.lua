@@ -16,8 +16,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("base.common")
 
--- UPDATE common SET com_script='item.skull' WHERE com_itemid = 2038;
--- UPDATE common SET com_script='item.skull' WHERE com_itemid = 2039;
+-- UPDATE items SET itm_script='item.skull' WHERE itm_id = 2038;
+-- UPDATE items SET itm_script='item.skull' WHERE itm_id = 2039;
 
 module("item.skull", package.seeall)
 

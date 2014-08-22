@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
---UPDATE common SET com_script='item.id_3076_coppercoins' WHERE com_itemid=3076;
+--UPDATE items SET itm_script='item.id_3076_coppercoins' WHERE itm_id=3076;
 require("base.common")
 
 module("item.id_3076_coppercoins", package.seeall)

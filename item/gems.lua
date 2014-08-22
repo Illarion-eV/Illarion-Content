@@ -24,7 +24,7 @@ require("base.money")
 require("item.base.crafts")
 require("content.vision")
 
--- UPDATE common SET com_script='item.gems' WHERE com_itemid IN (45, 46, 197, 198, 283, 284, 285);
+-- UPDATE items SET itm_script='item.gems' WHERE itm_id IN (45, 46, 197, 198, 283, 284, 285);
 
 module("item.gems", package.seeall)
 

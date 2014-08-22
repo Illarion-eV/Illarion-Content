@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE common SET com_script='item.id_1206_claypit' WHERE com_itemid=1206;
+-- UPDATE items SET itm_script='item.id_1206_claypit' WHERE itm_id=1206;
 
 require("base.common")
 require("base.lookat")

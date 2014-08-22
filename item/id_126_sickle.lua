@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- harvesting herbs and field crops
 
--- UPDATE common SET com_script='item.id_126_sickle' WHERE com_itemid=126;
+-- UPDATE items SET itm_script='item.id_126_sickle' WHERE itm_id=126;
 
 require("base.common")
 require("content.gatheringcraft.farming")

@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
--- UPDATE common SET com_script='item.id_372_poisonfield' where com_itemid=372;
+-- UPDATE items SET itm_script='item.id_372_poisonfield' where itm_id=372;
 
 require("base.common")
 

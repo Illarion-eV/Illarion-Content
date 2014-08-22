@@ -20,7 +20,7 @@ require("content.gatheringcraft.egggathering")
 
 module("item.nests", package.seeall)
 
--- UPDATE common SET com_script='item.nests' WHERE com_itemid IN (1171,1172);
+-- UPDATE items SET itm_script='item.nests' WHERE itm_id IN (1171,1172);
 
 function UseItem(User, SourceItem, ltstate)
 

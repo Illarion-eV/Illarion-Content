@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 
--- UPDATE common SET com_script='item.id_271_scythe' WHERE com_itemid IN (271);
+-- UPDATE items SET itm_script='item.id_271_scythe' WHERE itm_id IN (271);
 
 require("base.common")
 require("content.gatheringcraft.grainharvesting")

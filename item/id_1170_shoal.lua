@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- UPDATE common SET com_script='item.id_1170_shoal' WHERE com_itemid=1170;
+-- UPDATE items SET itm_script='item.id_1170_shoal' WHERE itm_id=1170;
 
 require("content.gatheringcraft.fishing")
 

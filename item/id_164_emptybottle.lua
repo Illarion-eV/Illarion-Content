@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 -- Merung 2011: fill stock or potion into bottle
--- UPDATE common SET com_script='item.id_164_emptybottle' WHERE com_itemid IN (164);
+-- UPDATE items SET itm_script='item.id_164_emptybottle' WHERE itm_id IN (164);
 
 require("base.common")
 require("alchemy.base.alchemy")

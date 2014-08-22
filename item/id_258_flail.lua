@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE common SET com_script='item.id_258_flail' WHERE com_itemid IN (258);
+-- UPDATE items SET itm_script='item.id_258_flail' WHERE itm_id IN (258);
 
 require("base.common")
 require("content.gatheringcraft.flailing")

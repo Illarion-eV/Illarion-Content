@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- I_92 Oel-Lampe
 
--- UPDATE common SET com_script='item.id_92_oillamp' WHERE com_itemid=92;
+-- UPDATE items SET itm_script='item.id_92_oillamp' WHERE itm_id=92;
 
 require("base.common")
 

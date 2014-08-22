@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Light a fire
 
--- UPDATE common SET com_script='item.woodlogs' WHERE com_itemid IN (3,543,544,2560);
+-- UPDATE items SET itm_script='item.woodlogs' WHERE itm_id IN (3,543,544,2560);
 
 require("base.common")
 

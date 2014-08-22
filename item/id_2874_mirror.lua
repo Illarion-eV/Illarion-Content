@@ -21,7 +21,7 @@ require("base.lookat")
 module("item.id_2874_mirror", package.seeall)
 -- belongs also to item id 2873
 
--- UPDATE common SET com_script='item.id_2874_mirror' WHERE com_itemid = 2874;
+-- UPDATE items SET itm_script='item.id_2874_mirror' WHERE itm_id = 2874;
 
 ladderPosition = position(-32,193,-8)
 mirrorPosition = position(-28,193,-8)

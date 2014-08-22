@@ -18,7 +18,7 @@ require("base.common")
 require("base.lookat")
 require("base.ranklist")
 
--- UPDATE common SET com_script='item.id_661_lectern' WHERE com_itemid IN (661, 660);
+-- UPDATE items SET itm_script='item.id_661_lectern' WHERE itm_id IN (661, 660);
 
 module("item.id_661_lectern", package.seeall)
 

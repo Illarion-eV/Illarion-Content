@@ -18,7 +18,7 @@ require("base.common");
 require("item.id_266_bookshelf")
 module("item.books", package.seeall)
 
--- UPDATE common SET com_script='item.books' WHERE com_itemid = 2622;
+-- UPDATE items SET itm_script='item.books' WHERE itm_id = 2622;
 
 -- 2622 is the alchemy book. dont use it otherwise.
 

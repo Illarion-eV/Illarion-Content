@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE common SET com_script='item.id_169_loom' WHERE com_itemid IN (169);
+-- UPDATE items SET itm_script='item.id_169_loom' WHERE itm_id IN (169);
 
 require("base.common")
 require("base.licence")

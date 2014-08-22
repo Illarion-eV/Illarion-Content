@@ -21,7 +21,7 @@ require("alchemy.teaching.transformation_dog")
 
 module("item.grave", package.seeall)
 
--- UPDATE common SET com_script='item.grave' WHERE com_itemid IN (337, 519, 520, 521);
+-- UPDATE items SET itm_script='item.grave' WHERE itm_id IN (337, 519, 520, 521);
 
 
 graveItemNumbers={337,519,520,521}

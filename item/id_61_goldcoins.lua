@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- I_61.lua Goldm&uuml;nzen einschmelzen
 
--- UPDATE common SET com_script='item.id_61_goldcoins' WHERE com_itemid IN (61);
+-- UPDATE items SET itm_script='item.id_61_goldcoins' WHERE itm_id IN (61);
 
 require("base.common")
 

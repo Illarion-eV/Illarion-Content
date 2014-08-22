@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE common SET com_script='item.bottles' WHERE com_itemid IN (2500, 2496, 2497, 2501, 2499);
+-- UPDATE items SET itm_script='item.bottles' WHERE itm_id IN (2500, 2496, 2497, 2501, 2499);
 
 require("base.common")
 require("base.lookat")

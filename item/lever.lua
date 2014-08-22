@@ -38,7 +38,7 @@ require("triggerfield.evilrock")
 
 module("item.lever", package.seeall)
 
--- UPDATE common SET com_script='item.lever' WHERE com_itemid IN (434, 435, 436, 437, 438, 439);
+-- UPDATE items SET itm_script='item.lever' WHERE itm_id IN (434, 435, 436, 437, 438, 439);
 
 function init()
     leverList={};

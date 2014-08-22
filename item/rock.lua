@@ -21,7 +21,7 @@ require("content.gatheringcraft.mining")
 
 module("item.rock", package.seeall)
 
--- UPDATE common SET com_script='item.rock' WHERE com_itemid IN (1246,1245,232,914,1273,1276,1250);
+-- UPDATE items SET itm_script='item.rock' WHERE itm_id IN (1246,1245,232,914,1273,1276,1250);
 
 function UseItem(User, SourceItem, ltstate)
     -- alchemy stuff

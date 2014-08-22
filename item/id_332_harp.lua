@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- I_332 Harfe spielen
 
--- UPDATE common SET com_script='item.id_332_harp' WHERE com_itemid=332;
+-- UPDATE items SET itm_script='item.id_332_harp' WHERE itm_id=332;
 
 require("item.base.music")
 require("item.general.wood")

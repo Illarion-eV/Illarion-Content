@@ -18,7 +18,7 @@ require("base.common")
 
 module("item.id_314_ash", package.seeall)
 
--- UPDATE common SET com_script='item.id_314_ash' WHERE com_itemid = 314;
+-- UPDATE items SET itm_script='item.id_314_ash' WHERE itm_id = 314;
 
 function LookAtItem(User,Item)
 

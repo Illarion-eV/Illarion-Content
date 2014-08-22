@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --Last Update: 01/04/2006
 --Update by:   Nitram
 
--- UPDATE common SET com_script='item.traps' WHERE com_itemid IN (377,378,379,380,381);
+-- UPDATE items SET itm_script='item.traps' WHERE itm_id IN (377,378,379,380,381);
 
 require("base.common")
 

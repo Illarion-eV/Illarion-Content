@@ -20,48 +20,48 @@ require("content.gatheringcraft.sowing")
 
 module("item.seeds", package.seeall)
 
--- UPDATE common SET com_script='item.seeds' WHERE com_itemid IN (259,291,534,2494,2917,728,773,779);
+-- UPDATE items SET itm_script='item.seeds' WHERE itm_id IN (259,291,534,2494,2917,728,773,779);
 
--- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 247 WHERE com_itemid = 246;
--- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 248 WHERE com_itemid = 247;
--- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 246 WHERE com_itemid = 248;
--- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 259 WHERE com_itemid = 259;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 247 WHERE itm_id = 246;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 248 WHERE itm_id = 247;
+-- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 246 WHERE itm_id = 248;
+-- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 259 WHERE itm_id = 259;
 
--- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 289 WHERE com_itemid = 288;
--- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 290 WHERE com_itemid = 289;
--- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 291 WHERE com_itemid = 290;
--- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 291 WHERE com_itemid = 291;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 289 WHERE itm_id = 288;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 290 WHERE itm_id = 289;
+-- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 291 WHERE itm_id = 290;
+-- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 291 WHERE itm_id = 291;
 
--- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 536 WHERE com_itemid = 535;
--- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 537 WHERE com_itemid = 536;
--- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 534 WHERE com_itemid = 537;
--- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 534 WHERE com_itemid = 534;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 536 WHERE itm_id = 535;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 537 WHERE itm_id = 536;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 534 WHERE itm_id = 537;
+-- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 534 WHERE itm_id = 534;
 
--- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 2491 WHERE com_itemid = 2490;
--- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 2492 WHERE com_itemid = 2491;
--- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 2494 WHERE com_itemid = 2492;
--- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 2494 WHERE com_itemid = 2494;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 2491 WHERE itm_id = 2490;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 2492 WHERE itm_id = 2491;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 2494 WHERE itm_id = 2492;
+-- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 2494 WHERE itm_id = 2494;
 
--- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 539 WHERE com_itemid = 538;
--- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 540 WHERE com_itemid = 539;
--- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 2917 WHERE com_itemid = 540;
--- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 2917 WHERE com_itemid = 2917;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 539 WHERE itm_id = 538;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 540 WHERE itm_id = 539;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 2917 WHERE itm_id = 540;
+-- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 2917 WHERE itm_id = 2917;
 
--- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 730 WHERE com_itemid = 729;
--- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 731 WHERE com_itemid = 730;
--- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 732 WHERE com_itemid = 731;
--- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 732 WHERE com_itemid = 732;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 730 WHERE itm_id = 729;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 731 WHERE itm_id = 730;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 732 WHERE itm_id = 731;
+-- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 732 WHERE itm_id = 732;
 
--- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 775 WHERE com_itemid = 774;
--- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 776 WHERE com_itemid = 775;
--- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 777 WHERE com_itemid = 776;
--- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 773 WHERE com_itemid = 777;
--- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 773 WHERE com_itemid = 773;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 775 WHERE itm_id = 774;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 776 WHERE itm_id = 775;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 777 WHERE itm_id = 776;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 773 WHERE itm_id = 777;
+-- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 773 WHERE itm_id = 773;
 
--- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 781 WHERE com_itemid = 780;
--- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 782 WHERE com_itemid = 781;
--- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 779 WHERE com_itemid = 782;
--- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 779 WHERE com_itemid = 779;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 781 WHERE itm_id = 780;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 782 WHERE itm_id = 781;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 779 WHERE itm_id = 782;
+-- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 779 WHERE itm_id = 779;
 
 
 

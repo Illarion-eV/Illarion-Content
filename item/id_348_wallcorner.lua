@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
--- UPDATE common SET com_script='item.id_348_wallcorner' WHERE com_itemid = 348;
+-- UPDATE items SET itm_script='item.id_348_wallcorner' WHERE itm_id = 348;
 
 module("item.id_348_wallcorner", package.seeall)
 

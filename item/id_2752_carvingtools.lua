@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- UPDATE common SET com_script='item.id_2752_carvingtools' WHERE com_itemid IN (2752);
+-- UPDATE items SET itm_script='item.id_2752_carvingtools' WHERE itm_id IN (2752);
 
 require("content.craft.carving")
 require("base.licence")

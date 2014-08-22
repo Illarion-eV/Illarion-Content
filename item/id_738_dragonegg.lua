@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
--- UPDATE common SET com_script='item.id_738_dragonegg' WHERE com_itemid IN (738);
+-- UPDATE items SET itm_script='item.id_738_dragonegg' WHERE itm_id IN (738);
 
 module("item.id_738_dragonegg", package.seeall)
 

@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- UPDATE common SET com_script='item.id_336_mirror' WHERE com_itemid = 336;
+-- UPDATE items SET itm_script='item.id_336_mirror' WHERE itm_id = 336;
 
 require("content.chardescription")
 require("item.general.jewel")

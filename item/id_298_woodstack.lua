@@ -20,7 +20,7 @@ require("base.common")
 
 module("item.id_298_woodstack", package.seeall)
 
--- UPDATE common SET com_script='item.id_298_woodstack' WHERE com_itemid IN (298);
+-- UPDATE items SET itm_script='item.id_298_woodstack' WHERE itm_id IN (298);
 
 function UseItem(User, SourceItem)
     

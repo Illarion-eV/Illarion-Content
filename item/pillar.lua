@@ -24,7 +24,7 @@ module("item.pillar", package.seeall)
 
 -- Edit by faladron 13. April 2012 added lines 72 - 92 for Endurance Cave Quest
 
--- UPDATE common SET com_script='item.pillar' WHERE com_itemid IN (272, 440, 441, 442, 443, 467, 692, 693, 694, 695, 2805);
+-- UPDATE items SET itm_script='item.pillar' WHERE itm_id IN (272, 440, 441, 442, 443, 467, 692, 693, 694, 695, 2805);
 
 function LookAtItem(User,Item)
 

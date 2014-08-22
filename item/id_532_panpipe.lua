@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- I_532 playing the panpipe
 
--- UPDATE common SET com_script='item.id_532_panpipe' WHERE com_itemid=532;
+-- UPDATE items SET itm_script='item.id_532_panpipe' WHERE itm_id=532;
 
 require("item.base.music")
 require("item.general.wood")

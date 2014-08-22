@@ -18,7 +18,7 @@ require("base.common")
 
 module("item.id_3077_silvercoins", package.seeall)
 
--- UPDATE common SET com_script='item.id_3077_silvercoins' WHERE com_itemid IN (3077);
+-- UPDATE items SET itm_script='item.id_3077_silvercoins' WHERE itm_id IN (3077);
 
 TimeList = {};
 

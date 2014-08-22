@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- UPDATE common SET com_script = 'item.id_917_cursedshield' WHERE com_itemid = 917;
+-- UPDATE items SET itm_script = 'item.id_917_cursedshield' WHERE itm_id = 917;
 
 require("base.common")
 require("item.general.metal")

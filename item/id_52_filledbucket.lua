@@ -19,7 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- extinguish forge (2835) --> (2836)
 -- extinguish fire
 -- pour on character
--- UPDATE common SET com_script='item.id_52_filledbucket' WHERE com_itemid IN (52);
+-- UPDATE items SET itm_script='item.id_52_filledbucket' WHERE itm_id IN (52);
 
 require("base.common")
 require("alchemy.base.alchemy")

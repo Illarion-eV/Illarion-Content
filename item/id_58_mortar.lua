@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- UPDATE common SET com_script='item.id_58_mortar' WHERE com_itemid=58;
+-- UPDATE items SET itm_script='item.id_58_mortar' WHERE itm_id=58;
 
 require("base.common")
 require("content.craft.dyemaking")

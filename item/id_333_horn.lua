@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- I_333 Horn spielen
 
--- UPDATE common SET com_script='item.id_333_horn' WHERE com_itemid=333;
+-- UPDATE items SET itm_script='item.id_333_horn' WHERE itm_id=333;
 
 require("item.base.music")
 require("item.general.wood")

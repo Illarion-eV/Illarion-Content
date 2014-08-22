@@ -21,7 +21,7 @@ require("base.lookat")
 
 module("item.keys", package.seeall)
 
--- UPDATE common SET com_script='item.keys' WHERE com_itemid IN (2121,2122,2123,2124,2141,2144,2145,2161,2556,2558,3054,3055,3056);
+-- UPDATE items SET itm_script='item.keys' WHERE itm_id IN (2121,2122,2123,2124,2141,2144,2145,2161,2556,2558,3054,3055,3056);
 
 function UseItem(User, SourceItem)
     local DoorItem = base.common.GetFrontItem( User );

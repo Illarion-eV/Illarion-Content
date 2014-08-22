@@ -19,7 +19,7 @@ require("base.common")
 
 module("item.id_316_sand", package.seeall)
 
--- UPDATE common SET com_script='item.id_316_sand' WHERE com_itemid = 316;
+-- UPDATE items SET itm_script='item.id_316_sand' WHERE itm_id = 316;
 
 function MoveItemBeforeMove(User, SourceItem, TargetItem)
     deleteIt=false;

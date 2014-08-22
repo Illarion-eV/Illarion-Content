@@ -21,7 +21,7 @@ require("item.id_266_bookshelf")
 
 module("item.id_3110_scroll", package.seeall)
 
--- UPDATE common SET com_script = 'item.id_3110_scroll' WHERE com_itemid = 3110;
+-- UPDATE items SET itm_script = 'item.id_3110_scroll' WHERE itm_id = 3110;
 
 function LookAtItem(User,Item)
     if Item:getData("bookId") ~= "" then

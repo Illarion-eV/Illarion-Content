@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- UPDATE common SET com_script='item.id_311_glassblowpipe' WHERE com_itemid=311;
+-- UPDATE items SET itm_script='item.id_311_glassblowpipe' WHERE itm_id=311;
 
 require("content.craft.glassblowing")
 require("base.licence")

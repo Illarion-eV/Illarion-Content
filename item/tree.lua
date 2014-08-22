@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE common SET com_script='item.tree' WHERE com_itemid IN (308, 586, 1804, 1807, 1808, 1809, 1817, 960, 961, 962, 963, 589,203,892,893,894,910,911,912,913,959,960,961,962,963,1193,1194,1195,1198,1807,1808);
+-- UPDATE items SET itm_script='item.tree' WHERE itm_id IN (308, 586, 1804, 1807, 1808, 1809, 1817, 960, 961, 962, 963, 589,203,892,893,894,910,911,912,913,959,960,961,962,963,1193,1194,1195,1198,1807,1808);
 
 require("alchemy.base.teacher")
 require("base.common")

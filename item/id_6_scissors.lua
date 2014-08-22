@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- UPDATE common SET com_script='item.id_6_scissors' WHERE com_itemid IN (6);
+-- UPDATE items SET itm_script='item.id_6_scissors' WHERE itm_id IN (6);
 
 require("base.common")
 require("content.gatheringcraft.entrailscutting")

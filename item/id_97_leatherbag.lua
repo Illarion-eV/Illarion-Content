@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
--- UPDATE common SET com_script='item.id_97_leatherbag' WHERE com_itemid=97;
+-- UPDATE items SET itm_script='item.id_97_leatherbag' WHERE itm_id=97;
 
 module("item.id_97_leatherbag", package.seeall)
 

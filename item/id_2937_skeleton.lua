@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- UPDATE common SET com_script='item.id_2937_skeleton' WHERE com_itemid = 2937;
+-- UPDATE items SET itm_script='item.id_2937_skeleton' WHERE itm_id = 2937;
 --Quest 112: The Ghost Oak, NPC Madoquar
 --Quest 522: Gorgophone's Nest
 
