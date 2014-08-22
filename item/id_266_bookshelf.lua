@@ -83,6 +83,7 @@ REIGN_AKALTUT = 331
 SLIMES = 332
 FRIEND_NEED = 333
 ABOMINATION_RUNS_HIDES = 334
+AKALTUT_ENTRY = 335
 C_ORDER_1 = 501
 C_SPEECH_321105 = 502
 PARCH_LONGO = 503
@@ -181,6 +182,7 @@ addBook(REIGN_AKALTUT, "Die Herrschaft Akaltuts: Tagebuch eines ahnungslosen Leh
 addBook(SLIMES, "Schleim: Ein kurzer Abriss", "Slimes: A brief history", 115)
 addBook(FRIEND_NEED, "Ein Freund in Not", "A Friend in Need", 3110)
 addBook(ABOMINATION_RUNS_HIDES, "Eine Scheuﬂlichkeit rennt und versteckt sich", "An Abomination Runs and Hides", 3110)
+addBook(AKALTUT_ENTRY, "Akultuts erstes R‰tzel", "Akaltut Entry Riddle", 3110)
 addBook(C_ORDER_1, "Befehl 04. Findos 38 n.VdH", "Order 04. Findos 38 AW", 3114)
 addBook(C_SPEECH_321105, "Rede 05. Findos 38 n.VdH", "Speech 04. Findos 38 AW", 3114)
 addBook(PARCH_LONGO, "Eine Nachricht", "A note", 3115)
