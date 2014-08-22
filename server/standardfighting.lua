@@ -952,7 +952,7 @@ end
 -- @return true in case the attack is fine
 function CheckAttackOK(CharStruct)
 --CharStruct.Char:talk(Character.say,"check 1 ok");
-    if (CharStruct["AttackKind"] == nil) then -- finding the attack type failed ******************************
+    if CharStruct["AttackKind"] == nil or CharStruct["Skillname"] == nil then -- finding the attack type or skill failed
         return false;
     end;
 --    CharStruct.Char:talk(Character.say,"check 2 ok");
