@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (527, 'quest.Akaltuts_Chamber_527_dungeon');
 
 require("base.common")
-module("quest.Akaltuts_Chamber_527_dungeon", package.seeall)
+module("quest.akaltuts_chamber_527_dungeon", package.seeall)
 
 GERMAN = Player.german
 ENGLISH = Player.english
