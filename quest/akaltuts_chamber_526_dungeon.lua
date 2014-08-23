@@ -102,6 +102,9 @@ Description[ENGLISH][30] = "You have finished part two of the testing."
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 Start = {438, 856, -9}
 
+-- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
+QuestTarget = {}
+
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 30
 
