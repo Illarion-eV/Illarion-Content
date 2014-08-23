@@ -32,7 +32,7 @@ function MoveToField(Character)
 
 	    destination = position(484,821,-9);
 
-	   base.common.HighInformNLS( User,
+	   base.common.HighInformNLS(Character,
 		"Du stolperst und fällst von der Brücke und rutscht in den Schlamm.",
 		"You stumble, falling down the bridge, sliding and slipping into the mud.");
 	end
