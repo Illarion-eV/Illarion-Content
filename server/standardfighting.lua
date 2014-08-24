@@ -170,7 +170,7 @@ function onAttack(Attacker, Defender)
 
     -- Newbie Island Check
     if not NewbieIsland(Attacker.Char, Defender.Char) then return false; end;
-	
+
 	-- unattackable monsters shall not be attacked
 	if monster.base.base.checkUnattackability(Defender.Char, Attacker.Char) then return false end
 
@@ -1835,7 +1835,11 @@ function LoadAttribsSkills(CharStruct, Offensive)
         CharStruct["agility"] = NotNil(CharStruct.Char:increaseAttrib("agility", 0));
         CharStruct["perception"]
             = NotNil(CharStruct.Char:increaseAttrib("perception", 0));
-        CharStruct["skill"] = NotNil(CharStruct.Char:getSkill(CharStruct.Skillname));
+        if CharStruct.Skillname == nil then
+			CharStruct["skill"] = 0
+		else
+			CharStruct["skill"] = NotNil(CharStruct.Char:getSkill(CharStruct.Skillname));
+		end
         CharStruct["natpoison"] = 0;
         --CharStruct["tactics"] = NotNil(CharStruct.Char:getSkill(Character.tactics));
         CharStruct["dexterity"]
@@ -2002,7 +2006,7 @@ function ShowAttackGFX(Attacker)
 		else -- 1 hand attack
 			Attacker.Char:performAnimation(5);
 		end;
-	
+
 	else -- The rest will use the old gfx
 		local gfxId = 22
 		if (Attacker.AttackKind == 0) then --wrestling
