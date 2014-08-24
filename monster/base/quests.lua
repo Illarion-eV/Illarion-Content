@@ -2429,12 +2429,11 @@ function iniQuests()
     statusId[id]=525;
     germanRace[id]="Drow Bogenschütze";
     englishRace[id]="Drow Archers";
-	table.insert(questList[71],id); --Female Drow Archer
 	table.insert(questList[61],id); --Drow Archer
     minimumQueststatus[id]=6;
     maximumQueststatus[id]=11;
 	questLocation[id]=position(470, 802, -9);
-    radius[id]=75;
+    radius[id]=100;
 
 	--Quest 108: Akaltut's Chambers
     germanTitle[id]="Akaltut's Chambers";
@@ -2448,15 +2447,10 @@ function iniQuests()
 	table.insert(questList[63],id); --Drow Mage
 	table.insert(questList[64],id); --Drow Priest
 	table.insert(questList[65],id); --Drow Patriarch
-	table.insert(questList[71],id); --Female Drow Archer
-	table.insert(questList[72],id); --Female Drow Warrior
-	table.insert(questList[73],id); --Female Drow Mage
-	table.insert(questList[74],id); --Female Drow Priest
-	table.insert(questList[75],id); --Drow Matriarch
 	minimumQueststatus[id]=13;
     maximumQueststatus[id]=21;
 	questLocation[id]=position(470, 802, -9);
-    radius[id]=75;
+    radius[id]=100;
 
 	--Quest 109: Akaltut's Chambers
     germanTitle[id]="Akaltut's Chambers";
@@ -2470,15 +2464,10 @@ function iniQuests()
 	table.insert(questList[63],id); --Drow Mage
 	table.insert(questList[64],id); --Drow Priest
 	table.insert(questList[65],id); --Drow Patriarch
-	table.insert(questList[71],id); --Female Drow Archer
-	table.insert(questList[72],id); --Female Drow Warrior
-	table.insert(questList[73],id); --Female Drow Mage
-	table.insert(questList[74],id); --Female Drow Priest
-	table.insert(questList[75],id); --Drow Matriarch
 	minimumQueststatus[id]=3;
     maximumQueststatus[id]=13;
 	questLocation[id]=position(470, 802, -9);
-    radius[id]=75;
+    radius[id]=100;
 
 	--Quest 110: Akaltut's Chambers
     germanTitle[id]="Akaltut's Chambers";
@@ -2488,11 +2477,10 @@ function iniQuests()
     germanRace[id]="Drow Krieger";
     englishRace[id]="Drow Warrior";
     table.insert(questList[62],id); --Drow Warrior
-	table.insert(questList[72],id); --Female Drow Warrior
 	minimumQueststatus[id]=18;
     maximumQueststatus[id]=28;
 	questLocation[id]=position(470, 802, -9);
-    radius[id]=75;
+    radius[id]=100;
 
 	--Quest 111: Akaltut's Chambers
     germanTitle[id]="Akaltut's Chambers";
@@ -2506,15 +2494,10 @@ function iniQuests()
 	table.insert(questList[63],id); --Drow Mage
 	table.insert(questList[64],id); --Drow Priest
 	table.insert(questList[65],id); --Drow Patriarch
-	table.insert(questList[71],id); --Female Drow Archer
-	table.insert(questList[72],id); --Female Drow Warrior
-	table.insert(questList[73],id); --Female Drow Mage
-	table.insert(questList[74],id); --Female Drow Priest
-	table.insert(questList[75],id); --Drow Matriarch
 	minimumQueststatus[id]=3;
     maximumQueststatus[id]=15;
 	questLocation[id]=position(470, 802, -9);
-    radius[id]=75;
+    radius[id]=100;
 
 	--Quest 112: Akaltut's Chambers
     germanTitle[id]="Akaltut's Chambers";
@@ -2531,7 +2514,7 @@ function iniQuests()
 	minimumQueststatus[id]=1;
     maximumQueststatus[id]=11;
 	questLocation[id]=position(470, 802, -9);
-    radius[id]=75;
+    radius[id]=100;
 
 	--Quest 113: Akaltut's Chambers
     germanTitle[id]="Akaltut's Chambers";
@@ -2548,7 +2531,7 @@ function iniQuests()
 	minimumQueststatus[id]=13;
     maximumQueststatus[id]=23;
 	questLocation[id]=position(470, 802, -9);
-    radius[id]=75;
+    radius[id]=100;
 
 	--Quest 114: Akaltut's Chambers
 	germanTitle[id]="Akaltut's Chambers";
@@ -2575,15 +2558,10 @@ function iniQuests()
 	table.insert(questList[63],id); --Drow Mage
 	table.insert(questList[64],id); --Drow Priest
 	table.insert(questList[65],id); --Drow Patriarch
-	table.insert(questList[71],id); --Female Drow Archer
-	table.insert(questList[72],id); --Female Drow Warrior
-	table.insert(questList[73],id); --Female Drow Mage
-	table.insert(questList[74],id); --Female Drow Priest
-	table.insert(questList[75],id); --Drow Matriarch
 	minimumQueststatus[id]=8;
     maximumQueststatus[id]=26;
 	questLocation[id]=position(470, 802, -9);
-    radius[id]=75;
+    radius[id]=100;
 
 	--Quest 116: Akaltut's Chambers
     germanTitle[id]="Akaltut's Chambers";
@@ -2597,15 +2575,10 @@ function iniQuests()
 	table.insert(questList[63],id); --Drow Mage
 	table.insert(questList[64],id); --Drow Priest
 	table.insert(questList[65],id); --Drow Patriarch
-	table.insert(questList[71],id); --Female Drow Archer
-	table.insert(questList[72],id); --Female Drow Warrior
-	table.insert(questList[73],id); --Female Drow Mage
-	table.insert(questList[74],id); --Female Drow Priest
-	table.insert(questList[75],id); --Drow Matriarch
 	minimumQueststatus[id]=1;
     maximumQueststatus[id]=21;
 	questLocation[id]=position(470, 802, -9);
-    radius[id]=75;
+    radius[id]=100;
 
 	--Quest 117: Akaltut's Chambers
     germanTitle[id]="Akaltut's Chambers";
@@ -2615,11 +2588,10 @@ function iniQuests()
     germanRace[id]="Drowanführer";
     englishRace[id]="Drow Leader";
 	table.insert(questList[65],id); --Drow Patriarch
-	table.insert(questList[75],id); --Drow Matriarch
 	minimumQueststatus[id]=23;
     maximumQueststatus[id]=26;
 	questLocation[id]=position(470, 802, -9);
-    radius[id]=75;
+    radius[id]=100;
 end
 
 
