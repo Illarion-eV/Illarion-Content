@@ -2423,6 +2423,7 @@ function iniQuests()
     radius[id]=30;
 
 	--Quest 107: Akaltut's Chambers
+	local id=107;
     germanTitle[id]="Akaltut's Chambers";
     englishTitle[id]="Akaltut's Chambers";
     NPCName[id]="Defensor Robur";
@@ -2436,6 +2437,7 @@ function iniQuests()
     radius[id]=100;
 
 	--Quest 108: Akaltut's Chambers
+	local id=108;
     germanTitle[id]="Akaltut's Chambers";
     englishTitle[id]="Akaltut's Chambers";
     NPCName[id]="Defensor Impetus";
@@ -2453,6 +2455,7 @@ function iniQuests()
     radius[id]=100;
 
 	--Quest 109: Akaltut's Chambers
+	local id=109;
     germanTitle[id]="Akaltut's Chambers";
     englishTitle[id]="Akaltut's Chambers";
     NPCName[id]="Defensor Mando";
@@ -2470,6 +2473,7 @@ function iniQuests()
     radius[id]=100;
 
 	--Quest 110: Akaltut's Chambers
+	local id=110;
     germanTitle[id]="Akaltut's Chambers";
     englishTitle[id]="Akaltut's Chambers";
     NPCName[id]="Defensor Prohibeo";
@@ -2483,6 +2487,7 @@ function iniQuests()
     radius[id]=100;
 
 	--Quest 111: Akaltut's Chambers
+	local id=111;
     germanTitle[id]="Akaltut's Chambers";
     englishTitle[id]="Akaltut's Chambers";
     NPCName[id]="Defensor Profligo";
@@ -2500,6 +2505,7 @@ function iniQuests()
     radius[id]=100;
 
 	--Quest 112: Akaltut's Chambers
+	local id=112;
     germanTitle[id]="Akaltut's Chambers";
     englishTitle[id]="Akaltut's Chambers";
     NPCName[id]="Defensor Torrens";
@@ -2517,6 +2523,7 @@ function iniQuests()
     radius[id]=100;
 
 	--Quest 113: Akaltut's Chambers
+	local id=113;
     germanTitle[id]="Akaltut's Chambers";
     englishTitle[id]="Akaltut's Chambers";
     NPCName[id]="Defensor Delinificus";
@@ -2534,6 +2541,7 @@ function iniQuests()
     radius[id]=100;
 
 	--Quest 114: Akaltut's Chambers
+	local id=114;
 	germanTitle[id]="Akaltut's Chambers";
     englishTitle[id]="Akaltut's Chambers";
     NPCName[id]="Defensor Transmutatio";
@@ -2547,6 +2555,7 @@ function iniQuests()
     radius[id]=100;
 
 	--Quest 115: Akaltut's Chambers
+	local id=115;
     germanTitle[id]="Akaltut's Chambers";
     englishTitle[id]="Akaltut's Chambers";
     NPCName[id]="Defensor Transfodio";
@@ -2564,6 +2573,7 @@ function iniQuests()
     radius[id]=100;
 
 	--Quest 116: Akaltut's Chambers
+	local id=116;
     germanTitle[id]="Akaltut's Chambers";
     englishTitle[id]="Akaltut's Chambers";
     NPCName[id]="Defensor Volnus";
@@ -2581,6 +2591,7 @@ function iniQuests()
     radius[id]=100;
 
 	--Quest 117: Akaltut's Chambers
+	local id=117;
     germanTitle[id]="Akaltut's Chambers";
     englishTitle[id]="Akaltut's Chambers";
     NPCName[id]="Defensor Extremus";
