@@ -356,6 +356,13 @@ function UseItem(user, item, target, counter, param, ltstate)
 
             user:requestSelectionDialog(dialog)
         end
+
+		-- Akaltut Quest
+		if item.pos == position(472, 839, -9) and user:getQuestProgress(526) == 15 then
+			user:setQuestProgress(526, 16);
+			user:inform("[Aufgabe gelöst] Kehre zu Defensor Confirmo zurück um deine Belohnung zu erhalten.",
+						"[Task solved] Return to Defensor Confirmo for your reward.");
+		end
     end
 end
 
