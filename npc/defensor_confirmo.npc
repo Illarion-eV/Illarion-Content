@@ -38,8 +38,8 @@ author = "Evie"
 
 lookatDE = "Dies ist Defensor Confirmo."
 lookatUS = "This is Defensor Confirmo."
-useMsgDE = "Wage es nicht einen Defensor von Akultat zu berühren!"
-useMsgUS = "Dare you to touch a Defensor of Akultat!"
+useMsgDE = "Wage es nicht einen Defensor von Akaltut zu berühren!"
+useMsgUS = "Dare you to touch a Defensor of Akaltut!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
@@ -74,7 +74,7 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ahh, have you come to test your ski
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Come back, if you dare."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Komm wieder wenn Du dich traust."
 "who are you", "who art thou" -> "I am a Defensor of Akaltut's Lair, pass my test to prove you are an ally and I will open the way for you."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin ein Defensor von Akaltut´s Versteck. Bestehe meinen Test um zu zeigen das Du ein Verbündeter bist & ich werde Dir den Weg öffnen."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin ein Defensor von Akaltuts Versteck. Bestehe meinen Test um zu zeigen das Du ein Verbündeter bist und ich werde Dir den Weg öffnen."
 english, "your name", "name" -> "I am Defensor Confirmo."
 "ihr name", "Name" -> "Ich bin Defensor Confirmo."
 
@@ -101,9 +101,9 @@ queststatus(526) < 14, "task", "adventure", "order" -> "See the Defensors before
 queststatus(526) < 14, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Suche den vorigen Defensors."
 -- Receiving the task of Reading the Reign of Akaltut
 queststatus(526) = 14, english, "quest", "mission", "test" -> inform("[New quest] Akaltut's Chamber 7"), queststatus(526) = 15, "I am Defensor Confirmo. To pass my test you must find the journal 'The Reign of Akaltut' in the library and read it."
-queststatus(526) = 14, "quest", "mission", "Test" -> inform("[New quest] Akaltut's Chamber 7"), queststatus(526) = 15, "Ich bin Defensor Confirmo. Um meine Prüfung zu bestehen, finde das Tagebuch 'Die Herrschaft Akaltuts' in der Bibliothek und lies es."
+queststatus(526) = 14, "quest", "mission", "Test" -> inform("[Neue Quest] Die Kammer von Akaltut 7"), queststatus(526) = 15, "Ich bin Defensor Confirmo. Um meine Prüfung zu bestehen, finde das Tagebuch 'Die Herrschaft Akaltuts' in der Bibliothek und lies es."
 queststatus(526) = 14, "task", "adventure", "order" -> inform("[New quest] Akaltut's Chamber 7"), queststatus(526) = 15, "I am Defensor Confirmo. To pass my test you must find the journal 'The Reign of Akaltut' in the library and read it."
-queststatus(526) = 14, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[New quest] Akaltut's Chamber 7"), queststatus(526) = 15, "Ich bin Defensor Confirmo. Um meine Prüfung zu bestehen, finde das Tagebuch 'Die Herrschaft Akaltuts' in der Bibliothek und lies es."
+queststatus(526) = 14, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Die Kammer von Akaltut 7"), queststatus(526) = 15, "Ich bin Defensor Confirmo. Um meine Prüfung zu bestehen, finde das Tagebuch 'Die Herrschaft Akaltuts' in der Bibliothek und lies es."
 -- If quest received but task not finished
 queststatus(526) = 15, english,"quest", "mission", "test" ->"Did you read 'The Reign of Akaltut'? If you do not pass this test you can't continue."
 queststatus(526) = 15, "quest", "mission", "Test" ->"Hast du 'Die Herrschaft Akaltuts' gelesen? Wenn du diese Prüfung nicht bestehst, kommst du nicht weiter."

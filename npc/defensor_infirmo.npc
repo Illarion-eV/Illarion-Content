@@ -38,8 +38,8 @@ author = "Evie"
 
 lookatDE = "Dies ist Defensor Infirmo."
 lookatUS = "This is Defensor Infirmo."
-useMsgDE = "Wage es nicht einen Defensor von Akultat zu berühren!"
-useMsgUS = "Dare you to touch a Defensor of Akultat!"
+useMsgDE = "Wage es nicht einen Defensor von Akaltut zu berühren!"
+useMsgUS = "Dare you to touch a Defensor of Akaltut!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
@@ -74,7 +74,7 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ahh, have you come to test your ski
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Come back, if you dare."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Komm wieder wenn Du dich traust."
 "who are you", "who art thou" -> "I am a Defensor of Akaltut's Lair, pass my test to prove you are an ally and I will open the way for you."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin ein Defensor von Akaltut´s Versteck. Bestehe meinen Test um zu zeigen das Du ein Verbündeter bist & ich werde Dir den Weg öffnen."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin ein Defensor von Akaltuts Versteck. Bestehe meinen Test um zu zeigen das Du ein Verbündeter bist und ich werde Dir den Weg öffnen."
 english, "your name", "name" -> "I am Defensor Infirmo."
 "ihr name", "Name" -> "Ich bin Defensor Infirmo."
 
@@ -101,9 +101,9 @@ queststatus(529) < 2, "task", "adventure", "order" -> "See the Defensor before m
 queststatus(529) < 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Suche den vorigen Defensor."
 -- Receiving the task of returning a loose Hellhound
 queststatus(529) = 2, english, "quest", "mission", "test" -> inform("[New quest] Akaltut's Chamber 18"), queststatus(529) = 3, "I am Defensor Infirmo. To pass my test you must return a Hellhound that is loose, wandering these halls, to its pit."
-queststatus(529) = 2, "quest", "mission", "Test" -> inform("[New quest] Akaltut's Chamber 18"), queststatus(529) = 3, "Ich bin Defensor Infirmo. Um meine Prüfung zu bestehen, bringe den entlaufenen Höllenhund, der irgendwo in diesen Hallen herumstreunt, zurück zu seiner Grube."
+queststatus(529) = 2, "quest", "mission", "Test" -> inform("[Neue Quest] Die Kammer von Akaltut 18"), queststatus(529) = 3, "Ich bin Defensor Infirmo. Um meine Prüfung zu bestehen, bringe den entlaufenen Höllenhund, der irgendwo in diesen Hallen herumstreunt, zurück zu seiner Grube."
 queststatus(529) = 2, "task", "adventure", "order" -> inform("[New quest] Akaltut's Chamber 18"), queststatus(529) = 3, "I am Defensor Infirmo. To pass my test you must return a Hellhound that is loose, wandering these halls, to its pit."
-queststatus(529) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[New quest] Akaltut's Chamber 18"), queststatus(529) = 3, "Ich bin Defensor Infirmo. Um meine Prüfung zu bestehen, bringe den entlaufenen Höllenhund, der irgendwo in diesen Hallen herumstreunt, zurück zu seiner Grube."
+queststatus(529) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Die Kammer von Akaltut 18"), queststatus(529) = 3, "Ich bin Defensor Infirmo. Um meine Prüfung zu bestehen, bringe den entlaufenen Höllenhund, der irgendwo in diesen Hallen herumstreunt, zurück zu seiner Grube."
 -- If quest received but task not finished
 queststatus(529) = 3, english,"quest", "mission", "test" -> "Have you returned the Hellhound? If you do not pass this test you can't continue."
 queststatus(529) = 3, "quest", "mission", "Test" -> "Hast du den entlaufenen Höllenhund zurückgebracht? Wenn du diese Prüfung nicht bestehst, kommst du nicht weiter."

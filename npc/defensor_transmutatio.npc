@@ -38,8 +38,8 @@ author = "Evie"
 
 lookatDE = "Dies ist Defensor Transmutatio."
 lookatUS = "This is Defensor Transmutatio."
-useMsgDE = "Wage es nicht einen Defensor von Akultat zu berühren!"
-useMsgUS = "Dare you to touch a Defensor of Akultat!"
+useMsgDE = "Wage es nicht einen Defensor von Akaltut zu berühren!"
+useMsgUS = "Dare you to touch a Defensor of Akaltut!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
@@ -74,7 +74,7 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ahh, have you come to test your ski
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Come back, if you dare."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Komm wieder wenn Du dich traust."
 "who are you", "who art thou" -> "I am a Defensor of Akaltut's Lair, pass my test to prove you are an ally and I will open the way for you."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin ein Defensor von Akaltut´s Versteck. Bestehe meinen Test um zu zeigen das Du ein Verbündeter bist & ich werde Dir den Weg öffnen."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin ein Defensor von Akaltuts Versteck. Bestehe meinen Test um zu zeigen das Du ein Verbündeter bist und ich werde Dir den Weg öffnen."
 english, "your name", "name" -> "I am Defensor Transmutatio."
 "ihr name", "Name" -> "Ich bin Defensor Transmutatio."
 
@@ -100,13 +100,13 @@ queststatus(528) < 26,  "quest", "mission", "Test" -> "Suche den vorigen Defenso
 queststatus(528) < 26, "task", "adventure", "order" -> "See the Defensors before me."
 queststatus(528) < 26, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Suche den vorigen Defensors."
 -- Receiving the task of Killing Unholy Archmage.
-queststatus(528) = 26, english, "quest", "mission", "test" -> inform("[New quest] Akaltut's Chamber 16"), queststatus(528) = 27, "I am Defensor Transmutatio. To pass my test you must kill Akalutut's rival the Unholy Archmage at Pauldron Island."
-queststatus(528) = 26, "quest", "mission", "Test" -> inform("[New quest] Akaltut's Chamber 16"), queststatus(528) = 27, "Ich bin Defensor Transmutatio. Um meine Prüfung zu bestehen, töte Akaltuts Rivalen, den Unheiligen Erzmagier der Pauldron Insel."
-queststatus(528) = 26, "task", "adventure", "order" -> inform("[New quest] Akaltut's Chamber 16"), queststatus(528) = 27, "I am Defensor Transmutatio. To pass my test you must kill Akalutut's rival the Unholy Archmage at Pauldron Island."
-queststatus(528) = \26, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[New quest] Akaltut's Chamber 16"), queststatus(528) = 27, "Ich bin Defensor Transmutatio. Um meine Prüfung zu bestehen, töte Akaltuts Rivalen, den Unheiligen Erzmagier der Pauldron Insel."
+queststatus(528) = 26, english, "quest", "mission", "test" -> inform("[New quest] Akaltut's Chamber 16"), queststatus(528) = 27, "I am Defensor Transmutatio. To pass my test you must kill Akaltut's rival the Unholy Archmage at Pauldron Island."
+queststatus(528) = 26, "quest", "mission", "Test" -> inform("[Neue Quest] Die Kammer von Akaltut 16"), queststatus(528) = 27, "Ich bin Defensor Transmutatio. Um meine Prüfung zu bestehen, töte Akaltuts Rivalen, den Unheiligen Erzmagier der Pauldron Insel."
+queststatus(528) = 26, "task", "adventure", "order" -> inform("[New quest] Akaltut's Chamber 16"), queststatus(528) = 27, "I am Defensor Transmutatio. To pass my test you must kill Akaltut's rival the Unholy Archmage at Pauldron Island."
+queststatus(528) = 26, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Die Kammer von Akaltut 16"), queststatus(528) = 27, "Ich bin Defensor Transmutatio. Um meine Prüfung zu bestehen, töte Akaltuts Rivalen, den Unheiligen Erzmagier der Pauldron Insel."
 -- If quest received but task not finished
 queststatus(528) > 26, queststatus(528) < 28, english,"quest", "mission", "test" -> "Did you kill the rival Unholy Archmage? If you do not pass this test you can't continue."
-queststatus(528) . > 26, queststatus(528) < 28, "quest", "mission", "Test" -> "Hast du den rivalisierenden Unheiligen Erzmagier getötet? Wenn du diese Prüfung nicht bestehst, kommst du nicht weiter."
+queststatus(528) > 26, queststatus(528) < 28, "quest", "mission", "Test" -> "Hast du den rivalisierenden Unheiligen Erzmagier getötet? Wenn du diese Prüfung nicht bestehst, kommst du nicht weiter."
 queststatus(528) > 26, queststatus(528) < 28, "task", "adventure", "order" -> "Did you kill the rival Unholy Archmage? If you do not pass this test you can't continue."
 queststatus(528) > 26, queststatus(528) < 28, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hast du den rivalisierenden Unheiligen Erzmagier getötet? Wenn du diese Prüfung nicht bestehst, kommst du nicht weiter."
 -- If test is finished

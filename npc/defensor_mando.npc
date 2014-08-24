@@ -38,8 +38,8 @@ author = "Evie"
 
 lookatDE = "Dies ist Defensor Mando."
 lookatUS = "This is Defensor Mando."
-useMsgDE = "Wage es nicht einen Defensor von Akultat zu berühren!"
-useMsgUS = "Dare you to touch a Defensor of Akultat!"
+useMsgDE = "Wage es nicht einen Defensor von Akaltut zu berühren!"
+useMsgUS = "Dare you to touch a Defensor of Akaltut!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
@@ -74,7 +74,7 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ahh, have you come to test your ski
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Come back, if you dare."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Komm wieder wenn Du dich traust."
 "who are you", "who art thou" -> "I am a Defensor of Akaltut's Lair, pass my test to prove you are an ally and I will open the way for you."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin ein Defensor von Akaltut´s Versteck. Bestehe meinen Test um zu zeigen das Du ein Verbündeter bist & ich werde Dir den Weg öffnen."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin ein Defensor von Akaltuts Versteck. Bestehe meinen Test um zu zeigen das Du ein Verbündeter bist und ich werde Dir den Weg öffnen."
 english, "your name", "name" -> "I am Defensor Mando."
 "ihr name", "Name" -> "Ich bin Defensor Mando."
 
@@ -101,17 +101,17 @@ queststatus(526) < 2, "task", "adventure", "order" -> "See the Defensors before 
 queststatus(526) < 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Suche den vorigen Defensors."
 -- Receiving the task of Killing ten drow
 queststatus(526) = 2, english, "quest", "mission", "test" -> inform("[New quest] Akaltut's Chamber 6"), queststatus(526) = 3, "I am Defensor Mando, to pass my test you must kill ten drow that roam these halls."
-queststatus(526) = 2,  "quest", "mission", "Test" -> inform("[New quest] Akaltut's Chamber 6"), queststatus(526) = 3, "Ich bin Defensor Mando, um meinen Test zu bestehen mußt Du zehn Drow töten, welche diese Hallen durchstreifen."
+queststatus(526) = 2,  "quest", "mission", "Test" -> inform("[Neue Quest] Die Kammer von Akaltut 6"), queststatus(526) = 3, "Ich bin Defensor Mando, um meinen Test zu bestehen musst Du zehn Drow töten, welche diese Hallen durchstreifen."
 queststatus(526) = 2, "task", "adventure", "order" -> inform("[New quest] Akaltut's Chamber 6"), queststatus(526) = 3, "I am Defensor Mando, to pass my test you must kill ten drow that roam these halls."
-queststatus(526) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[New quest] Akaltut's Chamber 6"), queststatus(526) = 3, "Ich bin Defensor Mando, um meinen Test zu bestehen mußt Du zehn Drow töten, welche diese Hallen durchstreifen."
+queststatus(526) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Die Kammer von Akaltut 6"), queststatus(526) = 3, "Ich bin Defensor Mando, um meinen Test zu bestehen musst Du zehn Drow töten, welche diese Hallen durchstreifen."
 -- If quest received but task not finished
 queststatus(526) > 2, queststatus(526) < 13, english,"quest", "mission", "test" -> "Have you killed ten drow? If you do not pass this test you can't continue."
 queststatus(526) > 2, queststatus(526) < 13, "quest", "mission", "Test" ->"Hast Du zehn Drow getötet? Wenn Du den Test nicht bestehst kannst Du nicht weitergehen."
 queststatus(526) > 2, queststatus(526) < 13, "task", "adventure", "order" -> "Have you killed ten drow? If you do not pass this test you can't continue."
 queststatus(526) > 2, queststatus(526) < 13,"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hast Du zehn Drow getötet? Wenn Du den Test nicht bestehst kannst Du nicht weitergehen."
 -- If test is finished
-queststatus(526) = 13, english, ".+" -> inform("[Quest solved] You are awarded one hundred silver coins."), money + 10000, queststatus(526) = 14, "You have passed this test and are awarded 100 silver coins."
-queststatus(526) = 13, ".+" -> inform("[Quest gelöst] Du erhältst hundert Silberstücke."), money + 10000, queststatus(526) = 14, "Du hast den Test bestanden. Du bekommst 100 Silberstücke."
+queststatus(526) = 13, english, ".+" -> inform("[Quest solved] You are awarded one hundred silver coins."), money + 10000, queststatus(526) = 14, "You have passed this test and are awarded one hundred silver coins."
+queststatus(526) = 13, ".+" -> inform("[Quest gelöst] Du erhältst hundert Silberstücke."), money + 10000, queststatus(526) = 14, "Du hast den Test bestanden. Du bekommst hundert Silberstücke."
 --If finished with the Defensor
 queststatus(526) = 14, english, "quest", "mission", "test" -> "You have passed, please see Defensor Confirmo."
 queststatus(526) = 14, "quest", "mission", "Test" -> "Du hast bestanden. Gehe zum Defensor Confirmo."
@@ -123,6 +123,6 @@ queststatus(526) = 14, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" ->"Du hast be
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Du bist in Akaltut´s Versteck eingedrungen in das sich nur wenige trauen.", "You have invaded Akaltut's Lair where few dare go."
+cycletext "Du bist in Akaltuts Versteck eingedrungen in das sich nur wenige trauen.", "You have invaded Akaltut's Lair where few dare go."
 cycletext "Die die sterben werden Teil der Knochenhaufen.", "Those who die become part of the Pile of Bones."
 cycletext "#me start dich mit kaltem hartem Blick an. 'Bist Du würdig?'", "#me stares at you with cold, hard eyes 'Are you worthy?'"

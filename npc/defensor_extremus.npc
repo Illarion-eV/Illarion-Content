@@ -38,8 +38,8 @@ author = "Evie"
 
 lookatDE = "Dies ist Defensor Extremus."
 lookatUS = "This is Defensor Extremus."
-useMsgDE = "Wage es nicht einen Defensor von Akultat zu berühren!"
-useMsgUS = "Dare you to touch a Defensor of Akultat!"
+useMsgDE = "Wage es nicht einen Defensor von Akaltut zu berühren!"
+useMsgUS = "Dare you to touch a Defensor of Akaltut!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
@@ -74,7 +74,7 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ahh, have you come to test your ski
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Come back, if you dare."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Komm wieder wenn Du dich traust."
 "who are you", "who art thou" -> "I am a Defensor of Akaltut's Lair, pass my test to prove you are an ally and I will open the way for you."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin ein Defensor von Akaltut´s Versteck. Bestehe meinen Test um zu zeigen das Du ein Verbündeter bist & ich werde Dir den Weg öffnen."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin ein Defensor von Akaltuts Versteck. Bestehe meinen Test um zu zeigen das Du ein Verbündeter bist und ich werde Dir den Weg öffnen."
 english, "your name", "name" -> "I am Defensor Extremus."
 "ihr name", "Name" -> "Ich bin Defensor Extremus."
 
@@ -101,9 +101,9 @@ queststatus(530) < 22, "task", "adventure", "order" -> "See the Defensor before 
 queststatus(530) < 22, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Suche den vorigen Defensor."
 -- Receiving the task of Killing three drow leaders
 queststatus(530) = 22, english, "quest", "mission", "test" -> inform("[New quest] Akaltut's Chamber 22"), queststatus(530) = 23, "I am Defensor Extremus. To pass my test, which is your final test, you must kill three drow leaders."
-queststatus(530) = 22, "quest", "mission", "Test" -> inform("[New quest] Akaltut's Chamber 22"), queststatus(530) = 23, "Ich bin Defensor Extremus. Um meine Prüfung zu bestehen, töte drei Drowanführer."
+queststatus(530) = 22, "quest", "mission", "Test" -> inform("[Neue Quest] Die Kammer von Akaltut 22"), queststatus(530) = 23, "Ich bin Defensor Extremus. Um meine Prüfung zu bestehen, töte drei Drowanführer."
 queststatus(530) = 22, "task", "adventure", "order" -> inform("[New quest] Akaltut's Chamber 22"), queststatus(530) = 23, "I am Defensor Extremus. To pass my test, which is your final test, you must kill three drow leaders."
-queststatus(530) = 22, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[New quest] Akaltut's Chamber 22"), queststatus(530) = 23, "Ich bin Defensor Extremus. Um meine Prüfung zu bestehen, töte drei Drowanführer."
+queststatus(530) = 22, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Die Kammer von Akaltut 22"), queststatus(530) = 23, "Ich bin Defensor Extremus. Um meine Prüfung zu bestehen, töte drei Drowanführer."
 -- If quest received but task not finished
 queststatus(530) > 22, queststatus(530) < 26, english,"quest", "mission", "test" -> "Have you killed the three drow leaders? If you do not pass this test you can't continue."
 queststatus(530) > 22, queststatus(530) < 26, "quest", "mission", "Test" -> "Hast du die drei Drowanführer getötet? Wenn du diese Prüfung nicht bestehst, kommst du nicht weiter."
@@ -114,6 +114,6 @@ queststatus(530) = 26, english, ".+" -> inform("[Quest solved] You are awarded a
 queststatus(530) = 26, ".+" -> inform("[Quest gelöst] Du erhältst ein Drowbogen."), item(2739, 1, 866,"descriptionEn" = "Spiderwebs are etched along the front of the bow, with the symbol of Akaltut embedded deeply into the riser. All carvings sporadically cast a strange glow.", "descriptionDe" = "Spinnennetze sind vorn in den Bogen geschnitzt. Das Symbol Akaltuts ist tief im Mittelstück eingelassen. Alle Schnitzereien werfen sporadisch einen merkwürdigen Schimmer.","rareness" = "4"), queststatus(530) = 27,"Du hast diese und alle anderen unserer Prüfungen bestanden. Für deine Beharrlichkeit wirst du mit diesem Drowbogen belohnt."
 --If finished with the Defensors
 queststatus(530) = 27, english, "quest", "mission", "test" -> "You have passed all of the Defensor's tests. In time, you may face Akaltut."
-queststatus(530) = 27, "quest", "mission", "Test" -> "Du hast alle Tests der Defensor's bestanden. Zur rechten Zeit wirst Du Akaltut gegenüberstehen."
+queststatus(530) = 27, "quest", "mission", "Test" -> "Du hast alle Tests der Defensoren bestanden. Zur rechten Zeit wirst Du Akaltut gegenüberstehen."
 queststatus(530) = 27, "task", "adventure", "order" -> "You have passed all of the Defensor's tests. In time you, you may face Akaltut."
-queststatus(530) = 27, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du hast alle Tests der Defensor's bestanden. Zur rechten Zeit wirst Du Akaltut gegenüberstehen."
+queststatus(530) = 27, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du hast alle Tests der Defensoren bestanden. Zur rechten Zeit wirst Du Akaltut gegenüberstehen."

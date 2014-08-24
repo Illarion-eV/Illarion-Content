@@ -38,8 +38,8 @@ author = "Evie"
 
 lookatDE = "Dies ist Defensor Venenatus."
 lookatUS = "This is Defensor Venenatus."
-useMsgDE = "Wage es nicht einen Defensor von Akultat zu berühren!"
-useMsgUS = "Dare you to touch a Defensor of Akultat!"
+useMsgDE = "Wage es nicht einen Defensor von Akaltut zu berühren!"
+useMsgUS = "Dare you to touch a Defensor of Akaltut!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
@@ -74,7 +74,7 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ahh, have you come to test your ski
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Come back, if you dare."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Komm wieder wenn Du dich traust."
 "who are you", "who art thou" -> "I am a Defensor of Akaltut's Lair, pass my test to prove you are an ally and I will open the way for you."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin ein Defensor von Akaltut´s Versteck. Bestehe meinen Test um zu zeigen das Du ein Verbündeter bist & ich werde Dir den Weg öffnen."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin ein Defensor von Akaltuts Versteck. Bestehe meinen Test um zu zeigen das Du ein Verbündeter bist und ich werde Dir den Weg öffnen."
 english, "your name", "name" -> "I am Defensor Venenatus."
 "ihr name", "Name" -> "Ich bin Defensor Venenatus."
 
@@ -101,9 +101,9 @@ queststatus(527) < 18, "task", "adventure", "order" -> "See the Defensors before
 queststatus(527) < 18, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Suche den vorigen Defensors."
 -- Receiving the task of Collecting 4 drow helms.
 queststatus(527) = 18, english, "quest", "mission", "test" -> inform("[New quest] Akaltut's Chamber 12"), queststatus(527) = 19, "I am Defensor Venenatus, to pass my test you must collect four drow helms."
-queststatus(527) = 18, "quest", "mission", "Test" -> inform("[New quest] Akaltut's Chamber 12"), queststatus(527) = 19, "Ich bin Defensor Venenatus, um meinen Test zu bestehen mußt du vier Drowhelme von den Drows, welche hier herum schweifen sammeln."
+queststatus(527) = 18, "quest", "mission", "Test" -> inform("[Neue Quest] Die Kammer von Akaltut 12"), queststatus(527) = 19, "Ich bin Defensor Venenatus, um meinen Test zu bestehen musst du vier Drowhelme von den Drows, welche hier herum schweifen sammeln."
 queststatus(527) = 18, "task", "adventure", "order" -> inform("[New quest] Akaltut's Chamber 12"), queststatus(527) = 19, "I am Defensor Venenatus, to pass my test you must collect four drow helms."
-queststatus(527) = 18, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[New quest] Akaltut's Chamber 12"), queststatus(527) = 19, "Ich bin Defensor Venanatus,um meinen Test zu bestehen mußt du vier Drowhelme von den Drows, welche hier herum schweifen sammeln."
+queststatus(527) = 18, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Die Kammer von Akaltut 12"), queststatus(527) = 19, "Ich bin Defensor Venanatus,um meinen Test zu bestehen musst du vier Drowhelme von den Drows, welche hier herum schweifen sammeln."
 -- If quest received but task not finished
 queststatus(527) = 19, item(2303, all) < 4, english,"quest", "mission", "test" ->"Do you have four drow helms? If you do not pass this test you can't continue."
 queststatus(527) = 19, item(2303, all) < 4, "quest", "mission", "Test" ->"Hast Du vier Drowhelme? Wenn Du diesen Test nicht bestehst kannst Du nicht weitergehen."
@@ -123,6 +123,6 @@ queststatus(527) = 20, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du hast b
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Du bist in Akaltut´s Versteck eingedrungen in das sich nur wenige trauen.", "You have invaded Akaltut's Lair where few dare go."
+cycletext "Du bist in Akaltuts Versteck eingedrungen in das sich nur wenige trauen.", "You have invaded Akaltut's Lair where few dare go."
 cycletext "Die die sterben werden Teil der Knochenhaufen.", "Those who die become part of the Pile of Bones."
 cycletext "#me start dich mit kaltem hartem Blick an. 'Bist Du würdig?'", "#me stares at you with cold, hard eyes 'Are you worthy?'"
