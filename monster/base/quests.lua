@@ -2550,7 +2550,7 @@ function iniQuests()
     englishRace[id]="Unholy Archmage";
 	table.insert(questList[204],id); --Unholy Archmage
 	minimumQueststatus[id]=27;
-    maximumQueststatus[id]=29;
+    maximumQueststatus[id]=28;
 	questLocation[id]=position(953, 382, 0);
     radius[id]=100;
 
