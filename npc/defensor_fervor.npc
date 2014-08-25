@@ -104,14 +104,14 @@ queststatus(528) = 24, english, "quest", "mission", "test" -> inform("[New quest
 queststatus(528) = 24, "quest", "mission", "Test" -> inform("[Neue Quest] Die Kammer von Akaltut 15"), queststatus(528) = 25, "Ich bin Defensor Fervor. Um meine Prüfung zu bestehen, nenne mir den Namen des Gebirges in dem wir und befinden."
 queststatus(528) = 24, "task", "adventure", "order" -> inform("[New quest] Akaltut's Chamber 15"), queststatus(528) = 25, "I am Defensor Fervor. To pass my test you must tell me the name of this mountain range we are in."
 queststatus(528) = 24, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Die Kammer von Akaltut 15"), queststatus(528) = 25, "Ich bin Defensor Fervor. Um meine Prüfung zu bestehen, nenne mir den Namen des Gebirges in dem wir und befinden."
+-- If test is finished
+queststatus(528) = 25, english, "Border" -> inform("[Quest solved] You are awarded a black cultist robe."), item(2378, 1, 699), queststatus(528) = 26, "You have passed this test and are awarded a black cultist robe."
+queststatus(528) = 25, "Grenz" -> inform("[Quest gelöst] Du erhältst eine Schwarzkultrobe zuerkannt."), item(2378, 1, 699), queststatus(528) = 26, "Du hast den Test bestanden. Du bekommst eine Schwarzkultrobe zuerkannt."
 -- If quest received but task not finished
 queststatus(528) = 25, english,"quest", "mission", "test" ->"What is the name of this mountain range? If you do not pass this test you can't continue."
 queststatus(528) = 25, "quest", "mission", "Test" ->"Wie lautet der Name dieses Gebirges? Wenn du diese Prüfung nicht bestehst, kommst du nicht weiter."
 queststatus(528) = 25, "task", "adventure", "order" -> "What is the name of this mountain range? If you do not pass this test you can't continue."
 queststatus(528) = 25, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wie lautet der Name dieses Gebirges? Wenn du diese Prüfung nicht bestehst, kommst du nicht weiter."
--- If test is finished
-queststatus(528) = 25, english, "Border" -> inform("[Quest solved] You are awarded a black cultist robe."), item(2378, 1, 699), queststatus(528) = 26, "You have passed this test and are awarded a black cultist robe."
-queststatus(528) = 25, "Grenz" -> inform("[Quest gelöst] Du erhältst eine Schwarzkultrobe zuerkannt."), item(2378, 1, 699), queststatus(528) = 26, "Du hast den Test bestanden. Du bekommst eine Schwarzkultrobe zuerkannt."
 --If finished with the Defensor
 queststatus(528) = 26, english, "quest", "mission", "test" -> "You have passed, please see Defensor Transmutatio."
 queststatus(528) = 26, "quest", "mission", "Test" -> "Du hast bestanden. Gehe zum Defensor Transmutatio."
