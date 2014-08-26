@@ -65,10 +65,10 @@ itemShoes = 770
 "Hilfe" -> inform("[Spielhilfe] (Dieser NPC ist ein Wächter, frage Ihn nach dem Test. Stichworte: Aufgabe, Akaltut, Drow, Defensor, Name")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Ahh, have you come to test your skills today?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ahh, bist Du heute gekommen um dein Können zu testen?"
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ahh, have you come to test your skills today?"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt.", "Ahh, bist Du heute gekommen um dein Können zu testen?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Welcome to the Aklatut's Chamber stronghold. It's a good day to test your skills."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen im innersten der Kammer von Akaltut.  Ein guter Tag um deine Fähigkeiten zu testen."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Welcome to the Aklatut's Chamber stronghold. It's a good day to test your skills."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt.", "Willkommen im innersten der Kammer von Akaltut.  Ein guter Tag um deine Fähigkeiten zu testen."
 "Farewell", "Bye", "Fare well", "See you" -> "Come back, if you dare."
 "Tschüß", "Tschüss", "Wiedersehen" -> "Komm wieder wenn Du dich traust."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Come back, if you dare."

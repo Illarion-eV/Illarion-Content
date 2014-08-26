@@ -32,8 +32,8 @@ Title[ENGLISH] = "Akaltut's Chamber II"
 Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Sammle 20 Kelche und bringe sie zum Defensor Sancio."
-Description[ENGLISH][1] = "Collect 20 goblets for Defensor Sancio."
+Description[GERMAN][1] = "Sammle sechs Elbenschwert und bringe sie zum Defensor Sancio."
+Description[ENGLISH][1] = "Collect six elven swords for Defensor Sancio."
 Description[GERMAN][2] = "Der Defensor Mando hat vielleicht eine Aufgabe für dich."
 Description[ENGLISH][2] = "The Defensor Mando may have a task for you."
 

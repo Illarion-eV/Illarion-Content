@@ -65,10 +65,10 @@ itemShoes = 770
 "Hilfe" -> inform("[Spielhilfe] (Dieser NPC ist ein Wächter, frage Ihn nach dem Test. Stichworte: Aufgabe, Akaltut, Drow, Defensor, Name")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Ahh, have you come to test your skills today?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ahh, bist Du heute gekommen um dein Können zu testen?"
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ahh, have you come to test your skills today?"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt.", "Ahh, bist Du heute gekommen um dein Können zu testen?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Welcome to the Akaltut's Chamber stronghold. It's a good day to test your skills."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen im innersten der Kammer von Akaltut.  Ein guter Tag um deine Fähigkeiten zu testen."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Welcome to the Akaltut's Chamber stronghold. It's a good day to test your skills."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt.", "Willkommen im innersten der Kammer von Akaltut.  Ein guter Tag um deine Fähigkeiten zu testen."
 "Farewell", "Bye", "Fare well", "See you" -> "Come back, if you dare."
 "Tschüß", "Tschüss", "Wiedersehen" -> "Komm wieder wenn Du dich traust."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Come back, if you dare."
@@ -93,28 +93,27 @@ english, "Akaltut" -> "Akaltut is a spider queen. She and her breed are well kno
 "Akaltut" -> "Akaltut ist eine Spinnenkönigin. Sie und ihre Zucht sind für das Terrorisieren dieser Gegend gut bekannt."
 
 -- Quests
--- Defensor task five.  Collect 20 goblets.
+-- Defensor task five.  Collect 6 elvenswords.
 -- If haven't completed previous Defensors tasks
-queststatus(525) < 22, english, "quest", "mission", "test" -> "See the Defensors before me."
-queststatus(525) < 22, "quest", "mission", "Test" -> "Suche den vorigen Defensors."
-queststatus(525) < 22, "task", "adventure", "order" -> "See the Defnesors before me."
-queststatus(525) < 22, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Suche den vorigen Wächter."
+queststatus(525) < 22, english, "quest", "mission", "test" -> "The skill testing must be done in order.  Please check with the Defensors before me."
+queststatus(525) < 22, "quest", "mission", "Test" -> "Die Proben deiner Fähigkeiten müssen der Reihe nach erfolgen. Bitte suche den zuständigen Defensor vor mir."
+queststatus(525) < 22, "task", "adventure", "order" -> "The skill testing must be done in order.  Please check with the Defensors before me."
+queststatus(525) < 22, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Die Proben deiner Fähigkeiten müssen der Reihe nach erfolgen. Bitte suche den zuständigen Defensor vor mir."
 -- Receiving the task of Collecting 20 goblets.
-queststatus(525) = 22, queststatus(526) = 0, english, "quest", "mission", "test" -> inform("[New quest] Akaltut's Chamber 5"), queststatus(526) = 1, queststatus(525) = 23, "I am Defensor Sancio, to pass my test you must collect twenty goblets."
-queststatus(525) = 22, queststatus(526) = 0, "quest", "mission", "Test" -> inform("[Neue Quest] Die Kammer von Akaltut 5"), queststatus(526) = 1, queststatus(525) = 23, "Ich bin Defensor Sancio. Um meinen Test zu bestehen musst du zwanzig Kelche von den Drows, welche hier herum schweifen sammeln."
-queststatus(525) = 22, queststatus(526) = 0, "task", "adventure", "order" -> inform("[New quest] Akaltut's Chamber 5"), queststatus(526) = 1, queststatus(525) = 23, "I am Defensor Sancio, to pass my test you must collect twenty goblets."
-queststatus(525) = 22, queststatus(526) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Die Kammer von Akaltut 5"), queststatus(526) = 1, queststatus(525) = 23, "Ich bin Defensor Sancio. Um meinen Test zu bestehen musst du zwanzig Kelche von den Drows, welche hier herum schweifen sammeln."
+queststatus(525) = 22, queststatus(526) = 0, english, "quest", "mission", "test" -> inform("[New quest] Akaltut's Chamber 5"), queststatus(526) = 1, queststatus(525) = 23, "I am Defensor Sancio, to pass my test you must collect six elvenswords."
+queststatus(525) = 22, queststatus(526) = 0, "quest", "mission", "Test" -> inform("[Neue Quest] Die Kammer von Akaltut 5"), queststatus(526) = 1, queststatus(525) = 23, "Ich bin Defensor Sancio. Um meinen Test zu bestehen musst du sechs Elbenschwert von den Drows, welche hier herum schweifen sammeln."
+queststatus(525) = 22, queststatus(526) = 0, "task", "adventure", "order" -> inform("[New quest] Akaltut's Chamber 5"), queststatus(526) = 1, queststatus(525) = 23, "I am Defensor Sancio, to pass my test you must collect six elvenswords."
+queststatus(525) = 22, queststatus(526) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Die Kammer von Akaltut 5"), queststatus(526) = 1, queststatus(525) = 23, "Ich bin Defensor Sancio. Um meinen Test zu bestehen musst du sechs Elbenschwert von den Drows, welche hier herum schweifen sammeln."
 -- If quest received but task not finished
-queststatus(526) = 1, item(1858, all) < 20, english,"quest", "mission", "test" ->"Do you have twenty goblets? If you do not pass this test you can't continue."
-queststatus(526) = 1, item(1858, all) < 20, "quest", "mission", "Test" ->"Hast Du zwanzig Kelche? Wenn Du diesen Test nicht bestehst kannst Du nicht weitergehen."
-queststatus(526) = 1, item(1858, all) < 20, "task", "adventure", "order" -> "Do you have twenty goblets? If you do not pass this test you can't continue."
-queststatus(526) = 1, item(1858, all) < 20, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hast Du zwanzig Kelche? Wenn Du diesen Test nicht bestehst kannst Du nicht weitergehen."
+queststatus(526) = 1, item(2778, all) < 6, english,"quest", "mission", "test" ->"Do you have six elvenswords? If you do not pass this test you can't continue."
+queststatus(526) = 1, item(2778, all) < 6, "quest", "mission", "Test" ->"Hast Du sechs Elbenschwert? Wenn Du diesen Test nicht bestehst kannst Du nicht weitergehen."
+queststatus(526) = 1, item(2778, all) < 6, "task", "adventure", "order" -> "Do you have six elvenswords? If you do not pass this test you can't continue."
+queststatus(526) = 1, item(2778, all) < 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hast Du sechs Elbenschwert? Wenn Du diesen Test nicht bestehst kannst Du nicht weitergehen."
 -- If test is finished
-queststatus(526) = 1, item(1858, all) > 19, english, ".+" -> inform("[Quest solved] You are awarded five venison dishes."), item(554, 5, 999), deleteItem(1858, 20), queststatus(526) = 2, "You have passed this test and are awarded five venison dishes."
-queststatus(526) = 1, item(1858, all) > 19, ".+" -> inform("[Quest gelöst] Du erhältst fünf Wildgerichte mit Beilage."), item(554, 5, 999), deleteItem(1858, 20), queststatus(526) = 2, "Du hast den Test bestanden. Du bekommst fünf Wildgerichte mit Beilage."
+queststatus(526) = 1, item(2778, all) > 5, english, ".+" -> inform("[Quest solved] You are awarded ten venison dishes."), item(554, 10, 999), deleteItem(2778, 6), queststatus(526) = 2, "You have passed this test and are awarded ten venison dishes."
+queststatus(526) = 1, item(2778, all) > 5, ".+" -> inform("[Quest gelöst] Du erhältst zehn Wildgerichte mit Beilage."), item(554, 10, 999), deleteItem(2778, 6), queststatus(526) = 2, "Du hast den Test bestanden. Du bekommst zehn Wildgerichte mit Beilage."
 --If finished with the Defensor
 queststatus(526) = 2, english, "quest", "mission", "test" -> "You have passed, please see Defensor Mando."
 queststatus(526) = 2, "quest", "mission", "Test" -> "Du hast bestanden. Gehe zum Defensor Mando."
 queststatus(526) = 2, "task", "adventure", "order" -> "You have passed, please see Defensor Mando."
 queststatus(526) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" ->"Du hast bestanden. Gehe zum Defensor Mando."
-
