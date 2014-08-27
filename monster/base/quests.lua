@@ -1311,8 +1311,8 @@ function iniQuests()
 	table.insert(questList[278],id); --All wasps
     minimumQueststatus[id]=1;
     maximumQueststatus[id]=5;
-	questLocation[id]=position(514, 178, 0);
-    radius[id]=250;
+	questLocation[id]=position(564, 178, 0);
+    radius[id]=450;
 
 	--Quest 51: Spy Informant
     local id=51;
@@ -1329,8 +1329,8 @@ function iniQuests()
 	table.insert(questList[278],id); --All wasps
     minimumQueststatus[id]=6;
     maximumQueststatus[id]=14;
-	questLocation[id]=position(514, 178, 0);
-    radius[id]=250;
+	questLocation[id]=position(564, 178, 0);
+    radius[id]=450;
 
 	--Quest 52: Spy Informant
     local id=52;
@@ -1347,8 +1347,8 @@ function iniQuests()
 	table.insert(questList[278],id); --All wasps
     minimumQueststatus[id]=15;
     maximumQueststatus[id]=27;
-	questLocation[id]=position(514, 178, 0);
-    radius[id]=250;
+	questLocation[id]=position(564, 178, 0);
+    radius[id]=450;
 
 	--Quest 53: Spy Informant
     local id=53;
@@ -1373,8 +1373,8 @@ function iniQuests()
 	table.insert(questList[1053],id); -- all slimes
     minimumQueststatus[id]=28;
     maximumQueststatus[id]=32;
-	questLocation[id]=position(514, 178, 0);
-    radius[id]=250;
+	questLocation[id]=position(564, 178, 0);
+    radius[id]=450;
 
 	--Quest 54: Spy Informant
     local id=54;
@@ -1399,8 +1399,8 @@ function iniQuests()
 	table.insert(questList[1053],id); -- all slimes
     minimumQueststatus[id]=33;
     maximumQueststatus[id]=41;
-	questLocation[id]=position(514, 178, 0);
-    radius[id]=250;
+	questLocation[id]=position(564, 178, 0);
+    radius[id]=450;
 
 	--Quest 55: Spy Informant
     local id=55;
@@ -1425,8 +1425,8 @@ function iniQuests()
 	table.insert(questList[1053],id); -- all slimes
     minimumQueststatus[id]=42;
     maximumQueststatus[id]=54;
-	questLocation[id]=position(514, 178, 0);
-    radius[id]=250;
+	questLocation[id]=position(564, 178, 0);
+    radius[id]=450;
 
 	--Quest 56: Spy Informant
     local id=56;
@@ -1447,8 +1447,8 @@ function iniQuests()
 	table.insert(questList[972],id); --All dogs
     minimumQueststatus[id]=55;
     maximumQueststatus[id]=59;
-	questLocation[id]=position(514, 178, 0);
-    radius[id]=250;
+	questLocation[id]=position(564, 178, 0);
+    radius[id]=450;
 
 	--Quest 57: Spy Informant
     local id=57;
@@ -1469,8 +1469,8 @@ function iniQuests()
 	table.insert(questList[972],id); --All dogs
     minimumQueststatus[id]=60;
     maximumQueststatus[id]=68;
-	questLocation[id]=position(514, 178, 0);
-    radius[id]=250;
+	questLocation[id]=position(564, 178, 0);
+    radius[id]=450;
 
 	--Quest 58: Spy Informant
     local id=58;
@@ -1491,8 +1491,8 @@ function iniQuests()
 	table.insert(questList[972],id); --All dogs
     minimumQueststatus[id]=69;
     maximumQueststatus[id]=81;
-	questLocation[id]=position(514, 178, 0);
-    radius[id]=250;
+	questLocation[id]=position(564, 178, 0);
+    radius[id]=450;
 
 	--Quest 59: Spy Informant
     local id=59;
@@ -1510,8 +1510,8 @@ function iniQuests()
 	table.insert(questList[1022],id); --All foxes
     minimumQueststatus[id]=82;
     maximumQueststatus[id]=86;
-	questLocation[id]=position(514, 178, 0);
-    radius[id]=250;
+	questLocation[id]=position(564, 178, 0);
+    radius[id]=450;
 
 	--Quest 60: Spy Informant
     local id=60;
@@ -1529,8 +1529,8 @@ function iniQuests()
 	table.insert(questList[1022],id); --All foxes
     minimumQueststatus[id]=87;
     maximumQueststatus[id]=95;
-	questLocation[id]=position(514, 178, 0);
-    radius[id]=250;
+	questLocation[id]=position(564, 178, 0);
+    radius[id]=450;
 
 	--Quest 61: Spy Informant
     local id=61;
@@ -1548,9 +1548,9 @@ function iniQuests()
 	table.insert(questList[1022],id); --All foxes
     minimumQueststatus[id]=96;
     maximumQueststatus[id]=108;
-	questLocation[id]=position(514, 178, 0);
-    radius[id]=250;
-
+	questLocation[id]=position(564, 178, 0);
+    radius[id]=450;
+	
 	--Quest 62: Spy Informant
     local id=62;
     germanTitle[id]="Spitzel Informant";
@@ -1567,8 +1567,8 @@ function iniQuests()
 	table.insert(questList[942],id);  --all ratmen
     minimumQueststatus[id]=109;
     maximumQueststatus[id]=113;
-	questLocation[id]=position(514, 178, 0);
-    radius[id]=250;
+	questLocation[id]=position(564, 178, 0);
+    radius[id]=450;
 
 	--Quest 63: Spy Informant
     local id=63;
@@ -1586,8 +1586,8 @@ function iniQuests()
 	table.insert(questList[942],id);  --all ratmen
     minimumQueststatus[id]=114;
     maximumQueststatus[id]=122;
-	questLocation[id]=position(514, 178, 0);
-    radius[id]=250;
+	questLocation[id]=position(564, 178, 0);
+    radius[id]=450;
 
 	--Quest 64: Spy Informant
     local id=64;
@@ -1605,9 +1605,9 @@ function iniQuests()
 	table.insert(questList[942],id);  --all ratmen
     minimumQueststatus[id]=123;
     maximumQueststatus[id]=135;
-	questLocation[id]=position(514, 178, 0);
-    radius[id]=250;
-
+	questLocation[id]=position(564, 178, 0);
+    radius[id]=450;
+	
 	--Quest 65: Spy Informant
     local id=65;
     germanTitle[id]="Spitzel Informant";
@@ -1624,8 +1624,8 @@ function iniQuests()
 	table.insert(questList[512],id); --all bears
     minimumQueststatus[id]=136;
     maximumQueststatus[id]=140;
-	questLocation[id]=position(514, 178, 0);
-    radius[id]=250;
+	questLocation[id]=position(564, 178, 0);
+    radius[id]=450;
 
 	--Quest 66: Spy Informant
     local id=66;
@@ -1643,8 +1643,8 @@ function iniQuests()
 	table.insert(questList[512],id); --all bears
     minimumQueststatus[id]=141;
     maximumQueststatus[id]=149;
-	questLocation[id]=position(514, 178, 0);
-    radius[id]=250;
+	questLocation[id]=position(564, 178, 0);
+    radius[id]=450;
 
 	--Quest 67: Spy Informant
     local id=67;
@@ -1662,8 +1662,8 @@ function iniQuests()
 	table.insert(questList[512],id); --all bears
     minimumQueststatus[id]=150;
     maximumQueststatus[id]=162;
-	questLocation[id]=position(514, 178, 0);
-    radius[id]=250;
+	questLocation[id]=position(564, 178, 0);
+    radius[id]=450;
 
 	--Quest 68: Spy Informant
     local id=68;
@@ -1681,8 +1681,8 @@ function iniQuests()
 	table.insert(questList[96],id); --all trolls
     minimumQueststatus[id]=163;
     maximumQueststatus[id]=167;
-	questLocation[id]=position(514, 178, 0);
-    radius[id]=250;
+	questLocation[id]=position(564, 178, 0);
+    radius[id]=450;
 
 	--Quest 69: Spy Informant
     local id=69;
@@ -1700,8 +1700,8 @@ function iniQuests()
 	table.insert(questList[96],id); --all trolls
     minimumQueststatus[id]=168;
     maximumQueststatus[id]=176;
-	questLocation[id]=position(514, 178, 0);
-    radius[id]=250;
+	questLocation[id]=position(564, 178, 0);
+    radius[id]=450;
 
 	--Quest 70: Spy Informant
     local id=70;
@@ -1719,8 +1719,8 @@ function iniQuests()
 	table.insert(questList[96],id); --all trolls
     minimumQueststatus[id]=177;
     maximumQueststatus[id]=189;
-	questLocation[id]=position(514, 178, 0);
-    radius[id]=250;
+	questLocation[id]=position(564, 178, 0);
+    radius[id]=450;
 
 	--Quest 71: The Researcher
 	local id=71;
