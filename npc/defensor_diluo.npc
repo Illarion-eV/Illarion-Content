@@ -57,7 +57,7 @@ itemShoes = 770
 
 -- QuestID=529
 -- 5: No Quest taken
--- 6: Quest taken - collect a sky shield, reward drow armor
+-- 6: Quest taken - collect 4 shield of the sky, reward drow armor
 -- 7: Quest 19 solved
 
 -- Help
@@ -65,10 +65,10 @@ itemShoes = 770
 "Hilfe" -> inform("[Spielhilfe] (Dieser NPC ist ein Wächter, frage Ihn nach dem Test. Stichworte: Aufgabe, Akaltut, Drow, Defensor, Name")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Ahh, have you come to test your skills today?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ahh, bist Du heute gekommen um dein Können zu testen?"
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ahh, have you come to test your skills today?"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt.", "Ahh, bist Du heute gekommen um dein Können zu testen?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Welcome to the Akaltut's Chamber stronghold. It's a good day to test your skills."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen im innersten der Kammer von Akaltut.  Ein guter Tag um deine Fähigkeiten zu testen."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Welcome to the Akaltut's Chamber stronghold. It's a good day to test your skills."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt.", "Willkommen im innersten der Kammer von Akaltut.  Ein guter Tag um deine Fähigkeiten zu testen."
 "Farewell", "Bye", "Fare well", "See you" -> "Come back, if you dare."
 "Tschüß", "Tschüss", "Wiedersehen" -> "Komm wieder wenn Du dich traust."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Come back, if you dare."
@@ -93,25 +93,25 @@ english, "Akaltut" -> "Akaltut is a spider queen. She and her breed are well kno
 "Akaltut" -> "Akaltut ist eine Spinnenkönigin. Sie und ihre Zucht sind für das Terrorisieren dieser Gegend gut bekannt."
 
 -- Quests
--- Defensor task nineteen.  Collect a sky shield.
+-- Defensor task nineteen.  Collect 4 shield of the sky.
 -- If haven't completed previous Defensors tasks
-queststatus(529) < 5, english, "quest", "mission", "test" -> "See the Defensor before me."
-queststatus(529) < 5, "quest", "mission", "Test" -> "Suche den vorigen Defensor."
-queststatus(529) < 5, "task", "adventure", "order" -> "See the Defensor before me."
-queststatus(529) < 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Suche den vorigen Defensor."
--- Receiving the task of Collecting sky shield.
-queststatus(529) = 5, english, "quest", "mission", "test" -> inform("[New quest] Akaltut's Chamber 19"), queststatus(529) = 6, "I am Defensor Diluo, to pass my test you must collect a shield of the sky."
-queststatus(529) = 5, "quest", "mission", "Test" -> inform("[Neue Quest] Die Kammer von Akaltut 19"), queststatus(529) = 6, "Ich bin Defensor Diluo, um meinen Test zu bestehen musst du ein Himmelsschild von den Drows, welche hier herum schweifen sammeln."
-queststatus(529) = 5, "task", "adventure", "order" -> inform("[New quest] Akaltut's Chamber 19"), queststatus(529) = 6, "I am Defensor Diluo, to pass my test you must collect a shield of the sky."
-queststatus(529) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Die Kammer von Akaltut 19"), queststatus(529) = 6, "Ich bin Defensor Diluo, um meinen Test zu bestehen musst du ein Himmelsschild von den Drows, welche hier herum schweifen sammeln."
+queststatus(529) < 5, english, "quest", "mission", "test" -> "The skill testing must be done in order.  Please check with the Defensors before me."
+queststatus(529) < 5, "quest", "mission", "Test" -> "Die Proben deiner Fähigkeiten müssen der Reihe nach erfolgen. Bitte suche den zuständigen Defensor vor mir."
+queststatus(529) < 5, "task", "adventure", "order" -> "The skill testing must be done in order.  Please check with the Defensors before me."
+queststatus(529) < 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Die Proben deiner Fähigkeiten müssen der Reihe nach erfolgen. Bitte suche den zuständigen Defensor vor mir."
+-- Receiving the task of Collecting 4 shield of the sky.
+queststatus(529) = 5, english, "quest", "mission", "test" -> inform("[New quest] Akaltut's Chamber 19"), queststatus(529) = 6, "I am Defensor Diluo, to pass my test you must collect four shield of the sky."
+queststatus(529) = 5, "quest", "mission", "Test" -> inform("[Neue Quest] Die Kammer von Akaltut 19"), queststatus(529) = 6, "Ich bin Defensor Diluo, um meinen Test zu bestehen musst du vier Himmelsschild sammeln."
+queststatus(529) = 5, "task", "adventure", "order" -> inform("[New quest] Akaltut's Chamber 19"), queststatus(529) = 6, "I am Defensor Diluo, to pass my test you must collect four shield of the sky."
+queststatus(529) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Die Kammer von Akaltut 19"), queststatus(529) = 6, "Ich bin Defensor Diluo, um meinen Test zu bestehen musst du vier Himmelsschild sammeln."
 -- If quest received but task not finished
-queststatus(529) = 6, item(2284, all) < 1, english,"quest", "mission", "test" ->"Do you have a sky shield? If you do not pass this test you can't continue."
-queststatus(529) = 6, item(2284, all) < 1, "quest", "mission", "Test" -> "Hast Du ein Himmelsschild? Wenn Du diesen Test nicht bestehst kannst Du nicht weitergehen."
-queststatus(529) = 6, item(2284, all) < 1, "task", "adventure", "order" -> "Do you have a sky shield? If you do not pass this test you can't continue."
-queststatus(529) = 6, item(2284, all) < 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hast Du ein Himmelsschild? Wenn Du diesen Test nicht bestehst kannst Du nicht weitergehen."
+queststatus(529) = 6, item(2284, all) < 4, english,"quest", "mission", "test" ->"Do you have four shield of the sky? If you do not pass this test you can't continue."
+queststatus(529) = 6, item(2284, all) < 4, "quest", "mission", "Test" -> "Hast Du vier Himmelsschild? Wenn Du diesen Test nicht bestehst kannst Du nicht weitergehen."
+queststatus(529) = 6, item(2284, all) < 4, "task", "adventure", "order" -> "Do you have four shield of the sky? If you do not pass this test you can't continue."
+queststatus(529) = 6, item(2284, all) < 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hast Du vier Himmelsschild? Wenn Du diesen Test nicht bestehst kannst Du nicht weitergehen."
 -- If test is finished
-queststatus(529) = 6, item(2284, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded a drow armour."), item(2402, 1, 866), deleteItem(2284, 1), queststatus(529) = 7, "You have passed this test and are awarded a drow armour."
-queststatus(529) = 6, item(2284, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst ein Drowrüstung."), item(2402, 1, 866), deleteItem(2284, 1), queststatus(529) = 7, "Du hast den Test bestanden. Du bekommst ein Drowrüstung."
+queststatus(529) = 6, item(2284, all) > 3, english, ".+" -> inform("[Quest solved] You are awarded a drow armour."), item(2402, 1, 866), deleteItem(2284, 4), queststatus(529) = 7, "You have passed this test and are awarded a drow armour."
+queststatus(529) = 6, item(2284, all) > 3, ".+" -> inform("[Quest gelöst] Du erhältst ein Drowrüstung."), item(2402, 1, 866), deleteItem(2284, 4), queststatus(529) = 7, "Du hast den Test bestanden. Du bekommst ein Drowrüstung."
 --If finished with the Defensor
 queststatus(529) = 7, english, "quest", "mission", "test" -> "You have passed, please see Defensor Transfodio."
 queststatus(529) = 7, "quest", "mission", "Test" -> "Du hast bestanden. Gehe zum Defensor Transfodio."

@@ -2517,6 +2517,9 @@ function iniQuests()
     table.insert(questList[831],id); --Poltergeist
 	table.insert(questList[841],id); --Coffinguard
 	table.insert(questList[842],id); --Undead Warlock
+	table.insert(questList[832],id); --Horrible Poltergeist
+	table.insert(questList[721],id); --Forgotten Mummy
+	table.insert(questList[731],id); --Dead King
 	minimumQueststatus[id]=1;
     maximumQueststatus[id]=11;
 	questLocation[id]=position(470, 802, -9);
