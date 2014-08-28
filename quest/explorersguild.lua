@@ -88,21 +88,21 @@ end
 -- reward[x] = {y,z} - x = stones to have collected, y = item id , z= amount of y
 reward = {}
 reward[1] = {{3077, 2}}; -- 2 silver coins (3077)
-reward[5] = {{3077, 10},{49,1},{841,1},{463,1},{27,1}}; -- items worth 10 silver coins
-reward[10] = {{3077, 20},{455, 10},{21,20},{325,1},{230,1}} -- items worth 20 silver coins
-reward[20] = {{3077, 30},{322,50},{1,1},{9,1},{2922,1}} -- items worth 30 silver coins
-reward[50] = {{3077, 60},{1062, 6},{353,3},{811,1},{297,1}} -- items worth 60 silver coins
-reward[100] = {{61, 1},{2390,1},{2647,5},{557,4},{2675,1}} -- items worth 1 gold coin
-reward[200] = {{61,2},{2369,1},{164,30},{2718,1},{547,1}} -- items worth 2 gold coins
-reward[350] = {{61,3},{193,1},{2685,1},{559,7},{2360,1}} -- items worth 3 gold coins
-reward[500] = {{61,5},{2551,10},{2552,10},{2553,10},{2554,10}} -- items worth 5 gold coins
-reward[750] = {{61,8},{2367,1},{2693,1},{2662,1},{559,10}} -- items worth 8 gold coins
+reward[5] = {{3077, 10},{49,1},{97,1},{463,1},{842,1}}; -- items worth 10 silver coins - silver coins, bread, leather bag, quill, green white skirt
+reward[10] = {{3077, 20},{455, 10},{812,1},{2629,1},{2359,1},{126,1},{72,1}} -- items worth 20 silver coins - silver coins, smoked fish, black doublet, light battle axe, mercenary armour, sickle, fishing rod
+reward[20] = {{3077, 30},{53,1},{2360,1},{454,4},{18,1}} -- items worth 30 silver coins - silver coins, leather boots, Guardians armour, blackberry muffins, light shield
+reward[50] = {{3077, 60},{2727, 1},{353,3},{2403,1},{2384,1}} -- items worth 60 silver coins - silver coins, fire hunters bow, apple pie, elvensilversteel armour, black coat
+reward[100] = {{61, 1},{557,4},{2675,1},{2302,1},{2419,1},{51,5}} -- items worth 1 gold coin - gold coin, steak dish, rapier, gynk mercenary helm, red priest robe, bucket
+reward[200] = {{61,2},{554,5},{1053,1},{696,1},{845,1}} -- items worth 2 gold coins - gold coins, vension dish, divine voulge, lizard armour, blue green heraldic dress
+reward[350] = {{61,5},{354,14},{558,1},{96,1},{2367,1}} -- items worth 5 gold coins - gold coins, strawberry cakes, archmage robe, steel tower shield, albarian nobles armour
+reward[500] = {{61,7},{2551,14},{2552,14},{2553,14},{2554,14}} -- items worth 7 gold coins - gold coins, pure aire, pure earth, pure fire, pure water
+reward[750] = {{61,10},{1052,1},{2400,1},{2662,1},{1155,20}} -- items worth 10 gold coins - gold coins, dwarven stormhammer, elven state armour, magical dwarven axe, chicken dish
 
 function getReward(Char)
 	local nrStones = CountStones(Char)
 	if reward[nrStones] ~= nil then
 		if #reward[nrStones] == 1 then
-			Char:createItem(reward[nrStones][1][1],reward[nrStones][1][2],333,nil);
+			Char:createItem(reward[nrStones][1][1],reward[nrStones][1][2],699,nil);
 			Char:inform("Du hast 2 Silberstücke erhalten, da du den ersten Markierungsstein entdeckt hast. Weiter so!", "You have received two silver coins for discovering the first marker stone. Keep it up!");
 			Char:setQuestProgress(320,2)
 		else
@@ -110,7 +110,7 @@ function getReward(Char)
 		end
 	end
 end
-
+	
 function rewardDialog(Char, nrStones)
 	local title = base.common.GetNLS(Char,"Entdeckergilde Belohnung","Explorerguild reward")
 	local text = base.common.GetNLS(Char,"Du hast "..nrStones.." Markierungssteine entdeckt, daher kannst du dir nun eine Belohnung aussuchen.", "You discovered "..nrStones.." marker stones, therefore you can pick a reward.")
@@ -119,7 +119,7 @@ function rewardDialog(Char, nrStones)
 		local success = dialog:getSuccess() 
 		if success then
 			selected = dialog:getSelectedIndex()+1
-			Char:createItem(reward[nrStones][selected][1],reward[nrStones][selected][2], 800, nil);	
+			Char:createItem(reward[nrStones][selected][1],reward[nrStones][selected][2], 699, nil);	
 		end
 	end
 
