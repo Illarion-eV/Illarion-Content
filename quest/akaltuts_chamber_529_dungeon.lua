@@ -44,8 +44,8 @@ Description[ENGLISH][4] = "Return to Defensor Infirmo for your reward."
 Description[GERMAN][5] = "Der Defensor Diluo hat vielleicht eine Aufgabe für dich."
 Description[ENGLISH][5] = "The Defensor Diluo may have a task for you."
 
-Description[GERMAN][6] = "Sammle eine Himmelsschild und bringe es zum Defensor Diluo."
-Description[ENGLISH][6] = "Collect one shield of the sky for Defensor Diluo."
+Description[GERMAN][6] = "Sammle vier Himmelsschilder und bringe sie zum Defensor Diluo."
+Description[ENGLISH][6] = "Collect four shield of the sky for Defensor Diluo."
 Description[GERMAN][7] = "Der Defensor Transfodio hat vielleicht eine Aufgabe für dich."
 Description[ENGLISH][7] = "The Defensor Transfodio may have a task for you."
 
