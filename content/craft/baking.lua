@@ -61,7 +61,7 @@ product:addRemnant(790) -- Remnant: Empty JuiceBottle (2498) 1x
 -------------- BANANABREAD - DONE ----------------
 
 ---------------- BAKED POTATO - 3568 ----------------------
-product = baking:addProduct(catId, 3568, 40, 60, 5, 8, 1)
+product = baking:addProduct(catId, 3568, 10, 30, 5, 8, 1)
 product:addIngredient(3567) -- add potato
 -------------- BAKED POTATO - DONE ----------------
 
