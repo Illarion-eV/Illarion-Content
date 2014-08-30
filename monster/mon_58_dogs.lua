@@ -52,6 +52,15 @@ function onSpawn(Monster)
     Monster:setSkinColor(red, green, blue);
 end
 
+function abortRoute(dog)
+    dog.waypoints:clear()
+    if dog.position == position(12,16,0) then
+        return
+    end
+    dog.waypoints:addWaypoint(position(12,16,0))
+    dog:setOnRoute(true)
+end
+
 function enemyNear(Monster, Enemy)
 
     if init==nil then
