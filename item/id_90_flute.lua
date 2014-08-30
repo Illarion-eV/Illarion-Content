@@ -33,9 +33,7 @@ item.base.music.addTalkText("#me plays a wild tune on the flute.","#me spielt ei
 
 
 function UseItem(User, SourceItem)
-    local dog = world:createMonster(584,position(8,12,0),0)
-    dog.waypoints:addWaypoint(position(8,16,0))
-    dog:setOnRoute(true)
+
     item.base.music.PlayInstrument(User,SourceItem,skill);
 
 end
