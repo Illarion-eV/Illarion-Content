@@ -127,7 +127,7 @@ queststatus(706) = 7, item(390, all) < 2, town = Cadomyr, ".+" -> "Ich wollte zw
 -- Response after quest is done
 queststatus(706) = 8, english, town = Cadomyr, "quest", "mission" -> "I don't have anything more for you to do. Thank you for the help though!"
 queststatus(706) = 8, town = Cadomyr, "quest", "mission" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
-queststatus(706) = 8$, town = Cadomyr, "task", "adventure", "order" -> "I don't have anything more for you to do. Thank you for the help though!"
+queststatus(706) = 8, town = Cadomyr, "task", "adventure", "order" -> "I don't have anything more for you to do. Thank you for the help though!"
 queststatus(706) = 8, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
 
 -- No quests for Non Cadomyrians

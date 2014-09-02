@@ -180,7 +180,7 @@ queststatus(181) = 0, english, chance(5.555555556), town = Galmair, "quest", "mi
 queststatus(181) = 0, german, chance(5.555555556), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte vier Schleime."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau vier Schleime zu Brei! Ich dir geben zwei Silberstücke zur Belohnung!", queststatus(181) = 28, queststatus(182) = 36
 queststatus(181) = 0, chance(5.555555556), town = Galmair, "task", "adventure", "order" ->inform("[New Information] Kill four slimes."), "Da Don needs information. Scout da area and smash foor slimes, yus reward bes tuuh silber coins.", queststatus(181) = 28, queststatus(182) = 36
 queststatus(181) = 0, chance(5.555555556), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> inform("[Neues Informationen] Töte vier Schleime."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau vier Schleime zu Brei! Ich dir geben zwei Silberstücke zur Belohnung!", queststatus(181) = 28, queststatus(182) = 36
-.
+
 -- Information 28 solved, reward: two sp, 5 rankpoints, delay: 5h
 queststatus(181) = 32, english, town = Galmair, ".*" -> inform("[Information collected] You are awarded two silver coins."), "Yubba, yus did goods.  Mes be tellin' da Stumpy.  Take des reward.", money + 200, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 2
 queststatus(181) = 32, town = Galmair, ".*" -> inform("[Informationen erhalten] Du erhältst zwei Silberstücke."), "Yubba, gut das ist! Ich erzählen werde dem Zwerg. Deine Belohnung du nimmst!", money + 200, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 2

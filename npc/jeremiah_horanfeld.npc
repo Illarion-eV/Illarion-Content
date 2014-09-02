@@ -111,7 +111,7 @@ town = Galmair, "quest", "mission" -> "Ich habe keine Arbeit für dich Vogelfreie
 town = Galmair, "task", "adventure", "order" -> "I do not have work for you outsider."
 town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keine Arbeit für dich Vogelfreier."
 
-.--- fix if quest started and sent to NPC by Jakob
+-- fix if quest started and sent to NPC by Jakob
 queststatus(187) > 0, queststatus(703) = 17, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 18, "Ah, Jakob sent you, but you have already asked me for something to do."
 queststatus(187) > 0, queststatus(703) = 17, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 18, "Ah, Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
 queststatus(187) > 0, queststatus(703) = 17, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 18, "Ah, Jakob sent you, but you have already asked me for something to do."
@@ -244,7 +244,7 @@ english, "name" -> "My name is Jeremiah Horanfeld, I am the Queen's own Vermin M
 "honour" -> "There is no greater honour than serving my Queen."
 "ehre" -> "Es gibt keine größere Ehre als meiner Königin zu dienen."
 "ratman" -> "The ratman in the well has a group of rat thugs in his command."
-"rattenmenschen" -> "Der Rattenmann am Wall hat eine Bande von Rattengangstern unter seinem Kommando.":
+"rattenmenschen" -> "Der Rattenmann am Wall hat eine Bande von Rattengangstern unter seinem Kommando."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "I don't know much about the Archmage, but who would follow a man who spends his time reading?"

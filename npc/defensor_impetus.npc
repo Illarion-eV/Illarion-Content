@@ -117,7 +117,7 @@ queststatus(525) = 22, english, "quest", "mission", "test" -> "You have passed, 
 queststatus(525) = 22, "quest", "mission", "Test" -> "Du hast bestanden. Gehe zum Defensor Sancio."
 queststatus(525) = 22, "task", "adventure", "order" -> "You have passed, please see Defensor Sancio."
 queststatus(525) = 22, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" ->"Du hast bestanden. Gehe zum Defensor Sancio."
-."
+
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
