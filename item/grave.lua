@@ -27,11 +27,11 @@ module("item.grave", package.seeall)
 graveItemNumbers={337,519,520,521}
 
 function LookAtItem(User, Item)
-	
+
 	if Item:getData("teachDogTransformationPotion") == "true" then
 		return alchemy.teaching.transformation_dog.LookAtGrave(User,Item)
 	end
-	
+
     return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
 end
 
@@ -54,6 +54,26 @@ function UseItem(User, SourceItem)
 		alchemy.teaching.transformation_dog.UseGrave(User, SourceItem)
 		return
 	end
+
+
+	if SourceItem.pos == position (447,785,-9) then -- kindness tombstone in Akaltut's Chambers
+		local queststatus = User:getQuestProgress(531); -- here, we save which events were triggered
+		local queststatuslist = {};
+		queststatuslist = base.common.Split_number(queststatus, 6); -- reading the digits of the queststatus as table
+		if queststatuslist[1] == 0 then -- gem, only triggered once by each char
+			base.common.InformNLS(User, "Du entdeckst einen glitzernden Edelstein bei der Leiche.", "You discover a shiny gem with the corpse.");
+			local notCreated = User:createItem(198, 1, 333, {["gemLevel"] = 1}); -- create the item
+			if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+				world:createItemFromId(198, notCreated, User.pos, true, 333, {["gemLevel"] = 1});
+				base.common.HighInformNLS(User,
+					"Du kannst nichts mehr tragen.",
+					"You can't carry any more.");
+			end
+			queststatuslist[1] = 1;
+            User:setQuestProgress(531, queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+queststatuslist[5]*10+queststatuslist[6]*1); --saving the new queststatus
+		end
+		return
+    end
 
 	local foundSource
 	-- check for grave
