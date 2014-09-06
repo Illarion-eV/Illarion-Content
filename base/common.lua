@@ -327,7 +327,6 @@ end
 --- Needed, but could need some rework
 function getFreePos(CenterPos, Rad)
 
-	local count
 	for count = 0, 50 do
 		local targetPos = position(CenterPos.x + math.random(-Rad, Rad), CenterPos.y + math.random(-Rad, Rad), CenterPos.z)
 		if world:getField(targetPos) ~= nil then
