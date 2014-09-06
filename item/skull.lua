@@ -84,7 +84,8 @@ function UseItem(User, SourceItem)
         User:inform("Als du den Schädel berührst beginnen dessen Augen grün zu glühen und eine Giftwolke steigt auf. Eine körperlose Stimme spricht 'Ein Tarantel hat es mitgenommen und im Nordwesten versteckt. In einem Schädel nahe eines Warnschildes.'",
                     "As you touch the skull, the eyes glow green and poison rises from them. A disembodied voice says 'A tarantula has taken it somewhere off in the Northwest. The skull lays near an evil sign.'")
         local cloud = world:createItemFromId(372, 1, SourceItem.pos, true, 700, nil) -- poison cloud
-        cloud.wear = 1;
+        cloud.wear = 1
+        world:changeItem(cloud)
         User:setQuestProgress(521, 7)
 
     elseif questStep == 7 and SourceItem.pos == position(839, 455, -6) then
@@ -140,6 +141,78 @@ function UseItem(User, SourceItem)
                 return
             end
         end
+    end
+
+    -- Akaltut Dungeon / drow dungeon
+    if SourceItem.pos == position(482, 840, -9) then
+        User:inform("Du machst eine magische Reise.",
+                    "You travel by the realm of magic.")
+        world:gfx(41, User.pos)
+        User:warp(position(477, 849, -9)) -- right location
+        world:gfx(41, User.pos)
+
+    elseif SourceItem.pos == position(482, 837, -9) then
+        User:inform("Du hast schlecht gewählt und ein Schlag trifft deine Hand. Du fühlst dich schächlich und wird auf magischem Weg aus dem Dungeon katapultiert.",
+                    "You have chosen poorly and feel a jolt hit your hand, making you feel poorly and sending you magically outside the dungeon.")
+        User:increaseAttrib("hitpoints", -(User:increaseAttrib("hitpoints", 0) / 3)) -- lose 1/3 HP
+        world:gfx(41, User.pos)
+        User:warp(position(454, 770, 0)) -- throw character out
+        world:gfx(41, User.pos)
+
+    elseif SourceItem.pos == position(476, 834, -9) then
+        User:inform("Du hast schlecht gewählt und ein fauliger Gestank wogt dir aus dem Schädel entgegen.",
+                    "You have chosen poorly and a putrid stench billows out of the skull towards you.")
+        local cloud = world:createItemFromId(372, 1, User.pos, true, 700, nil) -- poison cloud
+        cloud.wear = 1
+        world:changeItem(cloud)
+
+    elseif SourceItem.pos == position(477, 834, -9) then
+        User:inform("Du hast schlecht gewählt und ein Paar Dolche schiessen plötzlich aus den Augenhöhlen des Schädels und landen schmerzhaft in deiner Brust.",
+                    "You have chosen poorly and a pair of daggers is suddenly launched from the eye sockets of the skull, landing painfully in your chest.")
+        world:gfx(20, SourceItem.pos) -- dagger gfx
+        User:increaseAttrib("hitpoints", -1000) -- tbd: start an lte to deal out two hits instead
+
+    elseif SourceItem.pos == position(479, 834, -9) then
+        User:inform("Du hast schlecht gewählt und als die Kiefer auf und zuklappen kannst du gerade noch ausweichen, bevor giftige Pfeile herausschießen. Sie landen harmlos auf den Boden.",
+                    "You have chosen poorly and as the jaw starts clicking up and down you scurry away just in time as poisonous darts shoots out, harmlessly landing on the floor.")
+        world:gfx(15, SourceItem.pos) -- distance gfx
+        -- nothing happens
+
+    elseif SourceItem.pos == position(480, 834, -9) then
+        User:inform("Du hast schlecht gewählt und der Schädel erhebt sich in die Luft und beginnt sich schnell zu drehen. Er schiesst Funken und Flammen ind den Raum und jeder erleidet Verbrennungen.",
+                    "You have chosen poorly and the skull floats off the table and starts spinning very fast, shooting out sparks and flames. Everyone in the room is burned.")
+        world:erase(world:getItemOnField(position(480, 834, -9)), 1) --remove skull, scheduled/mapitemreset will clean up
+        for xx = 474, 482 do --set room on fire
+            for yy = 834, 844 do
+                local positionFlame = position(xx, yy, -9)
+                world:createItemFromId(359, 1, positionFlame, true, 500, nil)
+            end
+        end
+
+    elseif SourceItem.pos == position(482, 838, -9) then
+        User:inform("Du hast schlecht gewählt und der Totenschädel explodiert. Splitter fliegen durch den Raum und verwunden alle Anwesenden.",
+                    "You have chosen poorly and the skull suddenly explodes, sending sharp projectiles everywhere in the room, causing great harm to everyone.")
+        world:gfx(44, position(482, 838, -9));
+        world:erase(world:getItemOnField(position(482, 838, -9)), 1) --remove skull, scheduled/mapitemreset will clean up
+        for xx = 474, 482 do --set room on fire
+            for yy = 834, 844 do
+                if world:isCharacterOnField(position(xx, yy, -9)) then
+                    local char = world:getCharacterOnField(position(xx, yy, -9));
+                    char:increaseAttrib("hitpoints", -1000)
+                    char:inform("Du wirst von Knochensplittern getroffen",
+                                "You are hit by bone splinters.")
+                end
+            end
+        end
+
+    elseif SourceItem.pos == position(482, 839, -9) then
+        User:inform("Du hast schlecht gewählt und als die Kiefer auf und zuklappen kannst du gerade noch ausweichen, bevor giftige Pfeile herausschießen. Sie landen harmlos auf den Boden.",
+                    "You have chosen poorly and as the jaw starts clicking up and down you scurry away just in time as poisonous darts shoots out, harmlessly landing on the floor.")
+
+    elseif SourceItem.pos == position(482, 841, -9) then
+        User:inform("Du hast schlecht gewählt und als die Kiefer auf und zuklappen kannst du gerade noch ausweichen, bevor giftige Pfeile herausschießen. Sie landen harmlos auf den Boden.",
+                    "You have chosen poorly and as the jaw starts clicking up and down you scurry away just in time as poisonous darts shoots out, harmlessly landing on the floor.")
+
     end
 end
 
