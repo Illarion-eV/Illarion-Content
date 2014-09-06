@@ -22,35 +22,35 @@ module("item.id_1061_teleport", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
     if User.pos.z == -40 then
-		User:inform("Nichts passiert.", "Nothing happens.")
-	end
+        User:inform("Nichts passiert.", "Nothing happens.")
+    end
 
-	local destCoordX = SourceItem:getData("destinationCoordsX")
-	local destCoordY = SourceItem:getData("destinationCoordsY")
-	local destCoordZ = SourceItem:getData("destinationCoordsZ")
+    local destCoordX = SourceItem:getData("destinationCoordsX")
+    local destCoordY = SourceItem:getData("destinationCoordsY")
+    local destCoordZ = SourceItem:getData("destinationCoordsZ")
 
-	if (destCoordX ~= "") and (destCoordY ~= "") and (destCoordZ ~= "") then
+    if (destCoordX ~= "") and (destCoordY ~= "") and (destCoordZ ~= "") then
 
-		local radius = 4;
-		local targetPos = base.common.getFreePos(User.pos, radius)
+        local radius = 4;
+        local targetPos = base.common.getFreePos(User.pos, radius)
 
-		if targetPos ~= User.Pos then
-			-- create a gate
-			local myPortal = world:createItemFromId( 10, 1, targetPos, true, 933, nil);
-			myPortal:setData("destinationCoordsX", destCoordX)
-			myPortal:setData("destinationCoordsY", destCoordY)
-			myPortal:setData("destinationCoordsZ", destCoordZ)
-			world:changeItem(myPortal)
-			world:makeSound(4, targetPos)
+        if targetPos ~= User.Pos then
+            -- create a gate
+            local myPortal = world:createItemFromId( 10, 1, targetPos, true, 933, nil);
+            myPortal:setData("destinationCoordsX", destCoordX)
+            myPortal:setData("destinationCoordsY", destCoordY)
+            myPortal:setData("destinationCoordsZ", destCoordZ)
+            world:changeItem(myPortal)
+            world:makeSound(4, targetPos)
 
-		else -- no free space found
-			base.common.InformNLS( User,
-			"Rings um Dich erzittern Boden und Gegenstände!",
-			"All around you ground and items are trembling!" )
-		end
+        else -- no free space found
+            base.common.InformNLS( User,
+            "Rings um Dich erzittern Boden und Gegenstände!",
+            "All around you ground and items are trembling!" )
+        end
 
         world:erase(SourceItem, 1)
     else
-	   -- no portal book
-	end
+       -- no portal book
+    end
 end
