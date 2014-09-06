@@ -177,6 +177,9 @@ function MoveToField(User)
             if (trippingTime ~= "" and ((tonumber(trippingTime) + 300) > serverTime)) then
                 return
             end
+            -- safe tripping time
+            skele:setData("tripping_time", serverTime)
+            world:changeItem(skele)
         end
 
         if theWaypoint >= 1 and theWaypoint <= 21 then -- small spider swarm
@@ -185,7 +188,7 @@ function MoveToField(User)
 
             for i = 1, math.random(3, 9) do -- random count
                 local monPos = base.common.getFreePos(waypoint[theWaypoint], 3) -- radius 3 around triggerfile
-                world:createMonster(196, monPos, 0) -- small spider
+                world:createMonster(196, monPos, -20) -- small spider
                 world:gfx(41, monPos) -- swirly
             end
 
@@ -195,20 +198,11 @@ function MoveToField(User)
 
             local monList = {191, 192, 262, 231} -- Rekrap, Pitservant, Soulpain, Kingsfright
             local monPos = base.common.getFreePos(waypoint[theWaypoint], 2) -- radius 2 around triggerfield
-            world:createMonster(monList[math.random(1, #monList)], monPos, 0) -- 1 random spider of our list
+            world:createMonster(monList[math.random(1, #monList)], monPos, -20) -- 1 random spider of our list
             world:gfx(41, monPos) -- swirly
 
         end --all events handled
 
-        -- safe tripping time
-        if (world:isItemOnField(User.pos) == true) then
-            local skele = world:getItemOnField(User.pos)
-            local serverTime = world:getTime("unix")
-            skele:setData("tripping_time", serverTime)
-            world:changeItem(skele)
-        end
     end --triggerfield
 
-end --function
-
-
+end

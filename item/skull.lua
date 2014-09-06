@@ -83,7 +83,8 @@ function UseItem(User, SourceItem)
     elseif questStep == 6 and SourceItem.pos == position(899, 503, -6) then
         User:inform("Als du den Schädel berührst beginnen dessen Augen grün zu glühen und eine Giftwolke steigt auf. Eine körperlose Stimme spricht 'Ein Tarantel hat es mitgenommen und im Nordwesten versteckt. In einem Schädel nahe eines Warnschildes.'",
                     "As you touch the skull, the eyes glow green and poison rises from them. A disembodied voice says 'A tarantula has taken it somewhere off in the Northwest. The skull lays near an evil sign.'")
-        world:createItemFromId(372, 1, SourceItem.pos, true, 333, nil) -- poison cloud
+        local cloud = world:createItemFromId(372, 1, SourceItem.pos, true, 700, nil) -- poison cloud
+        cloud.wear = 1;
         User:setQuestProgress(521, 7)
 
     elseif questStep == 7 and SourceItem.pos == position(839, 455, -6) then
@@ -95,7 +96,7 @@ function UseItem(User, SourceItem)
         User:inform("Eine Spinne huscht aus dem Schädel heraus und greift dich an, nachdem sie einen großen, rot glänzenden Stein in dem Totenschädel versteckt.",
                     "A spider scurries out of the skull and attacks you after pushing a bright stone that flashes red back into the skull for safekeeping.")
         local monPos = base.common.getFreePos(SourceItem.pos, 3 ); -- radius 3 around skull
-        world:createMonster(223, monPos, 0) -- Giant Enforcer Spider
+        world:createMonster(223, monPos, -40) -- Giant Enforcer Spider
         world:gfx(41, monPos) -- swirly
         User:setQuestProgress(521, 9)
 
@@ -170,20 +171,18 @@ function SpawnSpider(User, skullItem)
                     "You find nothing inside this skull.")
         return
     end
+    -- safe tripping time
+    skullItem:setData("tripping_time", serverTime)
+    world:changeItem(skullItem)
 
     local monList = {191, 192, 193, 211, 222, 262} -- Rekrap Retep, Pitservant, Tarantula, Firespider, Juvenile Gynk Spider, Soulpain
     local monID = monList[math.random(1, #monList)]
     for i = 1, math.random(1, 2) do -- random count
         local monPos = base.common.getFreePos(skullItem.pos, 2) -- radius 2 around skull
-        world:createMonster(monID, monPos, 0)
+        world:createMonster(monID, monPos, -20)
         world:gfx(41, monPos) -- swirly
     end
     User:inform("Schlechte Wahl, Abenteuerer! Etwas springt aus dem Totenschädel heraus und greift dich an.",
                 "Wrong choice traveler! Something hops out of the skull and attacks you.")
-
-    -- safe tripping time
-    local serverTime = world:getTime("unix")
-    skullItem:setData("tripping_time", serverTime)
-    world:changeItem(skullItem)
 
 end
