@@ -100,7 +100,7 @@ Description[GERMAN][30] = "Du hast den zweiten Teil der Prüfung bestanden."
 Description[ENGLISH][30] = "You have finished part two of the testing."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {438, 856, -9}
+Start = {}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
