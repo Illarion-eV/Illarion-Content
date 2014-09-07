@@ -56,21 +56,21 @@ Description[ENGLISH][10] = "You have fulfilled all the tasks for Seleseth."
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {387, 277, 0}
+Start = {387, 278, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {position(387, 277, 0), position(467, 250, 0)} -- Clay Pit
-QuestTarget[2] = {position(387, 277, 0)} 
-QuestTarget[3] = {position(387, 277, 0), position(385, 270, 0)} -- Glass melting oven
-QuestTarget[4] = {position(387, 277, 0)} 
-QuestTarget[5] = {position(387, 277, 0), position(387, 279, 0)} -- gem grinder
-QuestTarget[6] = {position(387, 277, 0)} 
-QuestTarget[7] = {position(387, 277, 0), position(387, 279, 0)} -- gem grinder
-QuestTarget[8] = {position(387, 277, 0)} 
-QuestTarget[9] = {position(387, 277, 0)} -- Workshop
-QuestTarget[10] = {position(387, 277, 0)} 
+QuestTarget[1] = {position(387, 278, 0), position(467, 250, 0)} -- Clay Pit
+QuestTarget[2] = {position(387, 278, 0)} 
+QuestTarget[3] = {position(387, 278, 0), position(385, 270, 0)} -- Glass melting oven
+QuestTarget[4] = {position(387, 278, 0)} 
+QuestTarget[5] = {position(387, 278, 0), position(387, 279, 0)} -- gem grinder
+QuestTarget[6] = {position(387, 278, 0)} 
+QuestTarget[7] = {position(387, 278, 0), position(387, 279, 0)} -- gem grinder
+QuestTarget[8] = {position(387, 278, 0)} 
+QuestTarget[9] = {position(387, 278, 0)} -- Workshop
+QuestTarget[10] = {position(387, 278, 0)} 
 
 -- Insert the quest status which is reached at the end of the quest
 FINAL_QUEST_STATUS = 10
