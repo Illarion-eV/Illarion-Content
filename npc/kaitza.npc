@@ -90,7 +90,7 @@ itemShoes = 326
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Glory to ze Goddessss.", "Greetingsss, landwalker.", "#me lowers his head respectfully, 'Greetingsss.'"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ehre sei der Göttin.", "Grüssse, Landgänger.", "#me senkt seinen kopf respektvoll,'Greetingss'."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Glory to ze Goddessss.", "Greetingsss, landwalker.", "#me lowers his head respectfully, 'Greetingss'."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Ehre sei der Göttin.", "Grüssse, Landgänger.", "#me neigt sein Haupt respektvoll,'Grüssse'."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Ehre sei der Göttin.", "Grüssse, Landgänger.", "#me neigt sein Haupt respektvoll, 'Grüssse'."
 "Farewell", "Bye", "Fare well", "See you" -> "Glory to ze Goddessss.", "Zss. May Zelphia keep your watersss calm.", "#me bows his head respectfully, 'Zss. Farewell.'"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Ehre sssei der Göttin.", "Zzs. Möge Zelphina deine Wasser beruhig.", "#me neigt respektvoll das Haupt: 'Lebt wohl!'."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Glory to ze Goddessss.", "Zss. May Zelphia keep your waters calm.", "#me bows his head respectfully, 'Zss. Farewell.'"
@@ -233,7 +233,7 @@ english, "Zhambra" -> "All ze Godsss are acknowledged, only Zelphia iss worshipe
 "Zhambra" -> "Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.", "Zss. Ich verehre einzzzig die Göttin alein."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "Zss. I have nozing to trade.", "I do not ssseek to trade. Zss.", "Sssorry, I do not wisssh to trade.", trade, trade, trade
+"what sell", "what buy", "list wares", "price of" -> "Zss. I have nozing to trade.", "I do not ssseek to trade. Zss.", "Sssorry, I do not wisssh to trade."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Zss. Ich habe nichtsss zum handeln.", "Ich brache nichts zzu handeln.", "Entschuldigt, ich bin nicht am Handeln interessiert. Zss."
 "tell something" -> "Zss. What do you wisssh to know?", "Perhapsss I have a tasssk for you?", "Ssservice to ze Godsss isss ze most honourable life. Zss."
 "erzähl was", "erzähl etwas" -> "Vielleicht habe ich eine Aufgabe. Zss. Eine Aufgabe für Euch.", "Der Göttin zzzu dienen issst die grösssste Aufgabe im Leben. Zss."
