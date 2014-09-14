@@ -181,7 +181,7 @@ function tradeNPC:playerLooksAtItem(player, list, index)
        item = self._buyItems[index + 1]   
    end
    
-   return base.lookat.GenerateLookAt(player, item)
+   return base.lookat.GenerateLookAt(player, item._itemId, item._stack, item._data)
 end
 
 tradeNPCItem = base.class.class(function(self, id, itemType, nameDe, nameEn, price, stack, quality, data)
