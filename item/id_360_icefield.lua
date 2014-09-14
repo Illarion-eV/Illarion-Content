@@ -55,11 +55,12 @@ function CharacterOnField(User)
 
         local resist = monster.base.monstermagic.SpellResistence(User) * 10
         if resist < FieldItem.quality then
-            local damageDealt = math.random((7/100) * math.floor((FieldItem.quality  -resist) * 100), (9/100) * math.floor((FieldItem.quality - resist) * 100))
-            User:increaseAttrib("hitpoints", -damageDealt)
-
-            User:inform("Du fühlst, wie das eiskalte Feuer allmählich deine Haut verbrennt.",
-                        "You feel the icecold fire gradually burn your skin.")
+            local foundEffect = User.effects:find(111); -- iceflame lte
+            if not foundEffect then
+                local myEffect = LongTimeEffect(111, 50) --5sec
+                myEffect:addValue("quality", FieldItem.quality);
+                User.effects:addEffect(myEffect)
+            end
         else
             DeleteFlame(User, FieldItem)
         end

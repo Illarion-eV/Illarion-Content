@@ -56,13 +56,12 @@ function CharacterOnField(User)
 
         local resist = monster.base.monstermagic.SpellResistence(User) * 10
         if resist < FieldItem.quality then
-            local damageLow = (3/100) * math.floor((math.max(10, FieldItem.quality - resist)) * 100)
-            local damageHigh = (5/100) * math.floor((math.max(FieldItem.quality - resist)) * 100)
-            local damageDealt = math.random(math.min(damageLow, damageHigh), math.max(damageLow, damageHigh))
-            User:increaseAttrib("hitpoints", -damageDealt);
-
-            User:inform("Du fühlst, wie das glühend heiße Feuer allmählich deine Haut verbrennt.",
-                        "You feel the scorching fire gradually burn your skin.")
+            local foundEffect = User.effects:find(110); -- firefield lte
+            if not foundEffect then
+                local myEffect = LongTimeEffect(110, 50) --5sec
+                myEffect:addValue("quality", FieldItem.quality);
+                User.effects:addEffect(myEffect)
+            end
         else
             DeleteFlame(User, FieldItem)
         end

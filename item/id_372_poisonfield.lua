@@ -55,12 +55,12 @@ function CharacterOnField(User)
 
         local resist = monster.base.monstermagic.SpellResistence(User) * 10
         if resist < FieldItem.quality then
-            local damageDealt = math.random((7/1000) * math.floor((FieldItem.quality - resist) * 100), (9/1000) * math.floor((FieldItem.quality - resist) * 100))
-            local poisonDealt = math.random((2/100) * math.floor((FieldItem.quality - resist)*(100/20)),(5/100)*math.floor((FieldItem.quality-resist)*(100/20)))
-            User:increaseAttrib("hitpoints", -damageDealt)
-
-            User:inform("Du fühlst wie dein Körper schwächer wird.",
-                        "You feel your body becoming weaker.")
+            local foundEffect = User.effects:find(112); -- poisoncloud lte
+            if not foundEffect then
+                local myEffect = LongTimeEffect(112, 50) --5sec
+                myEffect:addValue("quality", FieldItem.quality);
+                User.effects:addEffect(myEffect)
+            end
         else
             DeleteFlame(User, FieldItem);
         end
