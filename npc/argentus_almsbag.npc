@@ -66,7 +66,7 @@ itemShoes = 53
 sellItems = 61, 3076, 3077
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
-tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeFinishedWithoutTradingMsg "Auf bald!", "Farewell!"
 tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Template Version 1.06, 08/29/2012 by Estralis Seborian
@@ -96,7 +96,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, hello!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, hallo!"
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Lebt wohl.", "Auf Bald!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Lebt wohl.", "Auf bald!"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adieu."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adieu."
 "How are you", "How feel", "How do you do" -> "I'm always happy when I'm trading."

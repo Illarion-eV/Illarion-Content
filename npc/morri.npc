@@ -70,7 +70,7 @@ buySecondaryItems = 121, 118, 2495, 1153, 354, 303, 353, 453, 454, 49, 191, 2, 5
 
 tradeNotEnoughMoneyMsg "Du kannst dir das nicht leisten!", "You can not afford that!"
 tradeFinishedMsg "Danke, komm bald wieder!", "Thanks, come again!"
-tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeFinishedWithoutTradingMsg "Auf bald!", "Farewell!"
 tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian

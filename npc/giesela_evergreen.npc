@@ -69,7 +69,7 @@ itemShoes = 0
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüße auch"
 "Farewell", "Bye", "Fare well", "See you" -> "Have a good day!"
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl", "Auf Bald"-> "Schönen Tag noch!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl", "Auf bald"-> "Schönen Tag noch!"
 
 english, "Ciao", "Adieu", "Au revoir" -> "Have a good day!"
 "Ciao", "Adieu", "Au revoir" -> "Schönen Tag noch!"
