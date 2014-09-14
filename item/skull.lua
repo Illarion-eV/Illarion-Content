@@ -145,8 +145,8 @@ function UseItem(User, SourceItem)
 
     -- Akaltut Dungeon / drow dungeon
     if SourceItem.pos == position(482, 840, -9) then
-        User:inform("Du machst eine magische Reise.",
-                    "You travel by the realm of magic.")
+        User:inform("Du hast weise gewählt. Dir wird Zugang zu Akaltuts Reich gewährt.",
+                    "You have chosen wisely and have earned passage into Akaltut's realm.")
         world:gfx(41, User.pos)
         User:warp(position(477, 849, -9)) -- right location
         world:gfx(41, User.pos)
@@ -159,7 +159,7 @@ function UseItem(User, SourceItem)
         User:warp(position(454, 770, 0)) -- throw character out
         world:gfx(41, User.pos)
 
-    elseif SourceItem.pos == position(476, 834, -9) then
+    elseif SourceItem.pos == position(478, 834, -9) then
         User:inform("Du hast schlecht gewählt und ein fauliger Gestank wogt dir aus dem Schädel entgegen.",
                     "You have chosen poorly and a putrid stench billows out of the skull towards you.")
         local cloud = world:createItemFromId(372, 1, User.pos, true, 700, nil) -- poison cloud
@@ -194,25 +194,40 @@ function UseItem(User, SourceItem)
                     "You have chosen poorly and the skull suddenly explodes, sending sharp projectiles everywhere in the room, causing great harm to everyone.")
         world:gfx(44, position(482, 838, -9));
         world:erase(world:getItemOnField(position(482, 838, -9)), 1) --remove skull, scheduled/mapitemreset will clean up
-        for xx = 474, 482 do --set room on fire
+        for xx = 474, 482 do --hit everyone in room
             for yy = 834, 844 do
                 if world:isCharacterOnField(position(xx, yy, -9)) then
                     local char = world:getCharacterOnField(position(xx, yy, -9));
-                    char:increaseAttrib("hitpoints", -1000)
-                    char:inform("Du wirst von Knochensplittern getroffen",
-                                "You are hit by bone splinters.")
+                    if char:getType() == Character.player then
+                        char:increaseAttrib("hitpoints", -1000)
+                        char:inform("Du wirst von Knochensplittern getroffen",
+                                    "You are hit by bone splinters.")
+                    end
                 end
             end
         end
 
     elseif SourceItem.pos == position(482, 839, -9) then
-        User:inform("Du hast schlecht gewählt und als die Kiefer auf und zuklappen kannst du gerade noch ausweichen, bevor giftige Pfeile herausschießen. Sie landen harmlos auf den Boden.",
-                    "You have chosen poorly and as the jaw starts clicking up and down you scurry away just in time as poisonous darts shoots out, harmlessly landing on the floor.")
+        User:inform("Du hast schlecht gewählt und grelles Licht strahlt plötzlich aus jeder Öffnung des Totenschädels. Du bist zeitweise geblendet.",
+                    "You have chosen poorly and a bright light suddenly flashes from every hole in the skull, blinding you temporarily.")
+        local foundEffect, myEffect = User.effects:find(100); -- perception debuff
+        if foundEffect then
+            myEffect.nextCalled = 5 * 600;
+        else
+            local myEffect = LongTimeEffect(100, 5 * 600) --5min
+            User.effects:addEffect(myEffect)
+        end
 
     elseif SourceItem.pos == position(482, 841, -9) then
-        User:inform("Du hast schlecht gewählt und als die Kiefer auf und zuklappen kannst du gerade noch ausweichen, bevor giftige Pfeile herausschießen. Sie landen harmlos auf den Boden.",
-                    "You have chosen poorly and as the jaw starts clicking up and down you scurry away just in time as poisonous darts shoots out, harmlessly landing on the floor.")
-
+        User:inform("Du hast schlecht gewählt und wirst plötzlich in eine dunkle Wolke gehüllt. Als sich diese endlich auflöst, fühlst du dich geschwächt. Hoffentlich legt sich das bald.",
+                    "You have chosen poorly and are suddenly enshrouded in a dark cloud. When it finally dissipates, you can feel a loss in stamina and hope to recover quickly.")
+        local foundEffect, myEffect = User.effects:find(101); -- constitution debuff
+        if foundEffect then
+            myEffect.nextCalled = 8 * 600;
+        else
+            local myEffect = LongTimeEffect(101, 8 * 600) --8min
+            User.effects:addEffect(myEffect)
+        end
     end
 end
 
