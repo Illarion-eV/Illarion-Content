@@ -22,6 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 require("base.class")
 require("base.common")
+require("base.lookat")
 require("base.messages")
 require("base.money")
 require("npc.base.basic")
@@ -79,22 +80,23 @@ end;
 
 function tradeNPC:showDialog(npcChar, player)
     local anyTradeAction = false;
+    
     local callback = function(dialog)
         local result = dialog:getResult()
         if result == MerchantDialog.playerSells then
             self:buyItemFromPlayer(npcChar, player, dialog:getSaleItem());
             anyTradeAction = true;
-        else
-            if result == MerchantDialog.playerBuys then
-                self:sellItemToPlayer(npcChar, player, dialog:getPurchaseIndex(), dialog:getPurchaseAmount());
-                anyTradeAction = true;
-            elseif (not anyTradeAction and self._dialogClosedNoTradeMsg:hasMessages()) then
-                local msgGerman, msgEnglish = self._dialogClosedNoTradeMsg:getRandomMessage();
-                npcChar:talk(Character.say, msgGerman, msgEnglish);
-            elseif (self._dialogClosedMsg:hasMessages()) then
-                local msgGerman, msgEnglish = self._dialogClosedMsg:getRandomMessage();
-                npcChar:talk(Character.say, msgGerman, msgEnglish);
-            end;
+        elseif result == MerchantDialog.playerBuys then
+            self:sellItemToPlayer(npcChar, player, dialog:getPurchaseIndex(), dialog:getPurchaseAmount());
+            anyTradeAction = true;
+        elseif result == MerchantDialog.playerLooksAt then
+            return self:playerLooksAtItem(player, dialog:getLookAtList(), dialog:getPurchaseIndex());
+        elseif (not anyTradeAction and self._dialogClosedNoTradeMsg:hasMessages()) then
+            local msgGerman, msgEnglish = self._dialogClosedNoTradeMsg:getRandomMessage();
+            npcChar:talk(Character.say, msgGerman, msgEnglish);
+        elseif (self._dialogClosedMsg:hasMessages()) then
+            local msgGerman, msgEnglish = self._dialogClosedMsg:getRandomMessage();
+            npcChar:talk(Character.say, msgGerman, msgEnglish);
         end;
     end;
 
@@ -169,6 +171,18 @@ function tradeNPC:sellItemToPlayer(npcChar, player, itemIndex, amount)
         npcChar:talk(Character.say, msgGerman, msgEnglish);
     end;
 end;
+
+function tradeNPC:playerLooksAtItem(player, list, index)
+   local item
+   
+   if list == MerchantDialog.listSell then
+       item = self._sellItems[index + 1]
+   else
+       item = self._buyItems[index + 1]   
+   end
+   
+   return base.lookat.GenerateLookAt(player, item)
+end
 
 tradeNPCItem = base.class.class(function(self, id, itemType, nameDe, nameEn, price, stack, quality, data)
     if (id == nil or id <= 0) then
