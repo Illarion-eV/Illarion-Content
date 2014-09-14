@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_372_poisonfield' where itm_id=372;
 
 require("base.common")
+require("monster.base.monstermagic")
 
 module("item.id_372_poisonfield", package.seeall)
 
@@ -52,8 +53,8 @@ function CharacterOnField(User)
 
     if (FieldItem.quality > 100) and User.pos.z ~= 100 and User.pos.z ~= 101 and User.pos.z ~= 40 then --no harmful flames on noobia or the working camp
 
-        local resist = SpellResistence(User)
-        if (resist < FieldItem.quality) then
+        local resist = monster.base.monstermagic.SpellResistence(User) * 10
+        if resist < FieldItem.quality then
             local damageDealt = math.random((7/1000) * math.floor((FieldItem.quality - resist) * 100), (9/1000) * math.floor((FieldItem.quality - resist) * 100))
             local poisonDealt = math.random((2/100) * math.floor((FieldItem.quality - resist)*(100/20)),(5/100)*math.floor((FieldItem.quality-resist)*(100/20)))
             User:increaseAttrib("hitpoints", -damageDealt)
@@ -85,12 +86,4 @@ function DeleteFlame(User, FlameItem)
     for i,item in pairs(items) do
         world:createItemFromItem(item, User.pos, true);
     end
-end
-
-function SpellResistence(TargetChar)
-    local TInt=TargetChar:increaseAttrib("intelligence",0);
-    local TEss=TargetChar:increaseAttrib("essence",0);
-    local TSkill=TargetChar:getSkill(Character.magicResistance);
-    local ResTry=(((TSkill*2)+(TEss*2)+TInt)/300)*999;
-    return math.max(0,math.min(999,math.floor(ResTry*(math.random(8,12)/10))))
 end

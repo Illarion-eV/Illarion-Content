@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_360_icefield' where itm_id=360;
 
 require("base.common")
+require("monster.base.monstermagic")
 
 module("item.id_360_icefield", package.seeall)
 
@@ -52,8 +53,8 @@ function CharacterOnField(User)
 
     if (FieldItem.quality > 100) and User.pos.z ~= 100 and User.pos.z ~= 101 and User.pos.z ~= 40 then --no harmful flames on noobia or the working camp
 
-        local resist = SpellResistence(User)
-        if resist < FieldItem.quality then   -- Qualität des Items --> Stärke mit Magie Resistenz vergleichen
+        local resist = monster.base.monstermagic.SpellResistence(User) * 10
+        if resist < FieldItem.quality then
             local damageDealt = math.random((7/100) * math.floor((FieldItem.quality  -resist) * 100), (9/100) * math.floor((FieldItem.quality - resist) * 100))
             User:increaseAttrib("hitpoints", -damageDealt)
 
@@ -84,14 +85,4 @@ function DeleteFlame(User, FlameItem)
     for i,item in pairs(items) do
         world:createItemFromItem(item, User.pos, true);
     end
-end
-
-function SpellResistence(TChar)                 -- should be 0 (no res) to 100 (super res)
-    MRes=TChar:getSkill(Character.magicResistance);    -- should depend on Int, Wp and magic resistency
-    RInt=TChar:increaseAttrib("intelligence",0);
-    RWillpower=TChar:increaseAttrib("willpower",0);
-
-    BaseSuccess=math.ceil((MRes+RWillpower+RInt)*100/140);
-    --TChar:talk(Character.say,"Eval SpRes. for "..TChar.name..": Mag Res= "..MRes..", Int= "..RInt..", WP="..RWillpower.." and calcbase= "..BaseSuccess);
-    return math.max(math.ceil((BaseSuccess*base.common.NormalRnd(0,100))/50),0);
 end
