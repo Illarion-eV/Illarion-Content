@@ -113,8 +113,7 @@ function LookAtItem(User, Item)
     local food = drinkList[ Item.id ];
 
     if food == nil then
-        User:inform("unkown drink item ID"..Item.id);
-        return
+        User:inform("unknown drink item ID"..Item.id);
     end
 
     return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
