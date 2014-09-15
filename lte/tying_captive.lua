@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("base.common")
 module("lte.tying_captive", package.seeall)
@@ -29,11 +29,11 @@ function addEffect( Tying, Captive )
 end
 
 function callEffect( Tying, Captive )
-	
+
 	local foundEscape, escape = Tying:findValue("escape");
 	Tying.nextCalled = 5;
 	local foundCapturer, Capturer = Tying:findValue("Capturer");
-	
+
 	if foundCapturer then
 		local range = 2;
 		local XOff;
@@ -43,7 +43,7 @@ function callEffect( Tying, Captive )
 			if not Capturer.effects:find(26) then
 				return checkForCapturers(Tying, Captive);
 			end
-			
+
 			Tying:removeValue("logout");
 			local foundSuccess = Tying:findValue("success");
 			if foundEscape then
@@ -71,16 +71,16 @@ function callEffect( Tying, Captive )
 			MoveCharacter(Captive,Tying,XOff,YOff,range);
 			return true;
 		end
-		
+
 		-- capturer not near, check for others
 		if checkForCapturers(Tying, Captive) then
 			return true;
 		end
-		
+
 		if Tying:findValue("success") then
 			return false;
 		end
-		
+
 		-- no capturers near! Handle possible logout (or warp)
 		if not Tying:findValue("logout") then
 			Tying:addValue("logout",1);
@@ -119,7 +119,7 @@ function callEffect( Tying, Captive )
 end
 
 function removeEffect( Tying, Captive )
-	
+
 	InformW(Captive,
 		"Du bist frei!",
 		"You are free!");
@@ -132,14 +132,12 @@ function removeEffect( Tying, Captive )
 end
 
 function loadEffect( Tying, Captive )
-	
+
 	foundCapturer, Capturer = Tying:findValue("Capturer");
 	if not IsEffectInLogoutTime(Tying, Captive) then
-		local logText = "[Rope]: "..Captive.name.." logs in again. "..(foundCapturer and " Capturer: "..Capturer or "").." Time limit exceeded"
-		log(logText);
+		log("[Rope]: Tied up character "..Captive.name.." logs in again. "..(foundCapturer and " Capturer: "..Capturer or "").." Time limit exceeded")
 	else
-		local logText = "[Rope]: "..Captive.name.." logs in again. "..(foundCapturer and " Capturer: "..Capturer or "").." Within time limit"
-		log(logText);
+		log("[Rope]: Tied up character "..Captive.name.." logs in again. "..(foundCapturer and " Capturer: "..Capturer or "").." Within time limit")
 	end
 	Tying:removeValue("logout");
 end
@@ -148,7 +146,7 @@ end
 -- Additional functions
 -- ===============================
 
---[[ 
+--[[
     IsCharidInRangeOf
     check if a Character with a certain ID is in range of a position
     @param integer - ID of the Character that shall be found
@@ -157,7 +155,7 @@ end
     @return CaptiveStruct - the Character if he was found, false if not found
 ]]
 function IsCharidInRangeOf( CharID, Position, Range )
-	
+
 	CharID = CharID+1-1;
 	local CharList = world:getCharactersInRangeOf(Position,Range);
 	for i,Char in pairs(CharList) do
@@ -172,7 +170,7 @@ end
 Return the best (highest) Offset for Char1, at least 0.
 ]]
 function GetBestAttribOffset( Char1, Char2, AttribList )
-	
+
 	local bestOffset = 0;
 	local currentOffset;
 	local cnt;
@@ -191,7 +189,7 @@ function MoveX(Character,XOff,forced)
     if (XOff == 0) and not forced then
         return false;
     end
-    
+
     old_pos = Character.pos;
     if (XOff > 0) then
         Character:move(6,true);
@@ -215,7 +213,7 @@ function MoveY(Character,YOff,forced)
     if (YOff == 0) and not forced then
         return false;
     end
-    
+
     old_pos = Character.pos;
     if (YOff > 0) then
         Character:move(0,true);
@@ -236,7 +234,7 @@ function MoveY(Character,YOff,forced)
 end
 
 function MoveCharacter( Character, Effect, XOff, YOff, range )
-	
+
 	local blocked, blockVal = Effect:findValue("blocked");
 	local saveAP = Character.movepoints; -- need normal AP, even for forced moving
 	Character.movepoints = 21;
@@ -337,7 +335,7 @@ function IsEffectInLogoutTime( Effect, Character )
 end
 
 function escapeSuccess( Effect, Captive, Capturer )
-	
+
 	local perc;
 	local AttribOffset;
 	local CharList = world:getCharactersInRangeOf(Captive.pos,5);
@@ -369,7 +367,7 @@ function escapeSuccess( Effect, Captive, Capturer )
 end
 
 function checkForCapturers( Tying, Captive )
-	
+
 	local CharList = world:getCharactersInRangeOf(Captive.pos,5);
 	for i,Char in pairs(CharList) do
 		if Char.pos.z == Captive.pos.z then
@@ -394,7 +392,7 @@ function checkForCapturers( Tying, Captive )
 end
 
 function logToFile(theString)
-	
+
 	coldLog,errMsg=io.open("/home/nitram/logs/tying_log.txt","a");
     if (coldLog~=nil) then
         coldLog:write(theString.."\n");
