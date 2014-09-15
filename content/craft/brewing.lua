@@ -134,6 +134,15 @@ product:addIngredient(52)
 product:addRemnant(51) -- Schritt 5: Eimer mit Wasser(52) 1x
 ------------------- FLASCHE MIT KOHLSAFT - FERTIG ---------------------------
 
+------------------- BOTTLE OF ORANGE JUICE- 3611 ---------------------------
+product = brewing:addProduct(catId, 3611, 45, 65, 90, 180)
+product:addIngredient(790) -- Step 1: Empty bottle(790) 1x
+product:addIngredient(1207, 3*2) -- Step 2 -3 Oranges (1207) 2x
+product:addIngredient(778) --Step 4: Sugarcane(778) 1x
+product:addIngredient(52)
+product:addRemnant(51) -- Step 5: Bucket of water (52) 1x
+------------------- BOTTLE WITH ORANGE JUICE DONE ---------------------------
+
 ------------------- FLASCHE MIT KAROTTENSAFT - 788 ---------------------------
 product = brewing:addProduct(catId, 788, 57, 75, 114, 228)
 product:addIngredient(790) -- Schritt 6: leere Flasche(790) 1x
