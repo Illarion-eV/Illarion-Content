@@ -137,7 +137,7 @@ function tradeNPC:buyItemFromPlayer(npcChar, player, boughtItem)
     local item
 
     for _, listItem in pairs(self._buyPrimaryItems) do
-        if isFittingItem(item, boughtItem) then
+        if isFittingItem(listItem, boughtItem) then
             item = listItem
             break
         end
@@ -145,7 +145,7 @@ function tradeNPC:buyItemFromPlayer(npcChar, player, boughtItem)
     
     if item == nil then
         for _, listItem in pairs(self._buySecondaryItems) do 
-            if isFittingItem(item, boughtItem) then
+            if isFittingItem(listItem, boughtItem) then
                 item = listItem
                 break
             end
