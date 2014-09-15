@@ -63,6 +63,7 @@ function InitDrinks()
 		drinkList[788] = {500, 790, 0}; -- bottle of carrot juice
 		drinkList[789] = {500, 790, 0}; -- bottle of strawberry juice
 		drinkList[791] = {500, 790, 0}; -- bottle of grape juice
+		drinkList[3611] =  {500, 790, 0};  -- bottle of orange juice
 
     end
 end
