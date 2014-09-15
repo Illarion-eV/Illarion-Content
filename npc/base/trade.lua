@@ -37,7 +37,8 @@ tradeNPC = base.class.class(function(self, rootNPC)
 
     self["_sellItems"] = {};
 
-    self["_buyItems"] = {};
+    self["_buyPrimaryItems"] = {};
+    self["_buySecondaryItems"] = {};
 
     self["_wrongItemMsg"] = base.messages.Messages();
     self["_notEnoughMoneyMsg"] = base.messages.Messages();
@@ -52,12 +53,16 @@ function tradeNPC:addItem(item)
 
     if (item._type == "sell") then
         table.insert(self._sellItems, item);
-    elseif (item._type == "buyPrimary" or item._type == "buySecondary") then
+    else
 		if (item._itemId == 97 or item._itemId == 320 or item._itemId == 321
 			or item._itemId == 799 or item._itemId == 1367 or item._itemId == 2830) then
 			debug("NPC can't buy item " .. item._itemId .. " because its blacklisted (container).");
 		else
-			table.insert(self._buyItems, item);
+            if item._type == "buyPrimary" then
+                table.insert(self._buyPrimaryItems, item)
+            elseif item._type == "buySecondary" then
+                table.insert(self._buySecondaryItems, item)
+            end
 		end;
     end;
 end;
@@ -105,7 +110,10 @@ function tradeNPC:showDialog(npcChar, player)
     for _, item in pairs(self._sellItems) do
         item:addToDialog(player, dialog);
     end
-    for _, item in pairs(self._buyItems) do
+    for _, item in pairs(self._buyPrimaryItems) do
+        item:addToDialog(player, dialog);
+    end
+    for _, item in pairs(self._buySecondaryItems) do
         item:addToDialog(player, dialog);
     end
 
@@ -126,21 +134,39 @@ end;
 
 function tradeNPC:buyItemFromPlayer(npcChar, player, boughtItem)
 	-- Buying at special price
-    for index, item in pairs(self._buyItems) do
+    local item
+
+    for _, listItem in pairs(self._buyPrimaryItems) do
         if isFittingItem(item, boughtItem) then
-            local price = item._price * boughtItem.number
-			local priceStringGerman, priceStringEnglish = base.money.MoneyToString(price);
-			local itemName = base.common.GetNLS(player, world:getItemName(boughtItem.id,0), world:getItemName(boughtItem.id,1));
-            if world:erase(boughtItem, boughtItem.number) then
-			    if (base.money.GiveMoneyToChar(player, price) == false) then
-					base.money.GiveMoneyToPosition(player.pos, price);
-				end
-				base.common.InformNLS(player, "Ihr habt "..boughtItem.number.." "..itemName.." zu einem Preis von "..priceStringGerman.." verkauft.", "You sold "..boughtItem.number.." "..itemName.." at a price of "..priceStringEnglish..".");
-				world:makeSound(24, player.pos)
-            end;
-            return;
+            item = listItem
+            break
+        end
+    end
+    
+    if item == nil then
+        for _, listItem in pairs(self._buySecondaryItems) do 
+            if isFittingItem(item, boughtItem) then
+                item = listItem
+                break
+            end
+        end
+    end
+    
+    if item then
+        local price = item._price * boughtItem.number
+        local priceStringGerman, priceStringEnglish = base.money.MoneyToString(price);
+        local itemName = base.common.GetNLS(player, world:getItemName(boughtItem.id,0), world:getItemName(boughtItem.id,1));
+        if world:erase(boughtItem, boughtItem.number) then
+            if (base.money.GiveMoneyToChar(player, price) == false) then
+                base.money.GiveMoneyToPosition(player.pos, price);
+            end
+
+            base.common.InformNLS(player, "Ihr habt "..boughtItem.number.." "..itemName.." zu einem Preis von "..priceStringGerman.." verkauft.", "You sold "..boughtItem.number.." "..itemName.." at a price of "..priceStringEnglish..".");
+            world:makeSound(24, player.pos)
         end;
-    end;
+        
+        return;
+    end
 
 	-- Reject item
 	if (self._wrongItemMsg:hasMessages()) then
@@ -177,8 +203,10 @@ function tradeNPC:playerLooksAtItem(player, list, index)
    
    if list == MerchantDialog.listSell then
        item = self._sellItems[index + 1]
-   else
-       item = self._buyItems[index + 1]   
+   elseif list == MerchantDialog.listBuyPrimary then
+       item = self._buyPrimaryItems[index + 1]
+   elseif list == MerchantDialog.listBuySecondary then
+          item = self._buySecondaryItems[index + 1]
    end
    
    return base.lookat.GenerateItemLookAtFromId(player, item._itemId, item._stack, item._data)
