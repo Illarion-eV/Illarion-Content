@@ -18,7 +18,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Purpose: react on by statue expandable ladder
 
 require("base.common")
-require("base.common")
 
 module("triggerfield.aq001_statueladder", package.seeall)
 
