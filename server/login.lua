@@ -611,6 +611,12 @@ function payNow(User)
 	    return;
 	end
 
+	-- no rank
+	local rank = base.factions.getRankAsNumber(User)
+	if rank < 2 then
+		return
+	end
+
     local taxHeight=0.05;  -- 5% taxes
 
 	local depNr={100,101,102,103};
