@@ -30,7 +30,7 @@ function LookAtItem(User, Item)
 	else
 		local dir = base.treasure.getDirection( User, Item );
 		local distance = base.treasure.getDistance (User, Item );
-		local TreasureName = base.treasure.GetTreasureName( math.floor(Item.quality/100), User:getPlayerLanguage(), not dir );
+		local TreasureName = base.treasure.GetTreasureName(math.max(1,math.floor(Item.quality/100)), User:getPlayerLanguage(), not dir );
 
 		if not dir then
 			base.lookat.SetSpecialDescription(Item, "Eine Karte mit einer Markierung auf einer Position irgendwo in deiner unmittelbaren Nähe. Du vermutest, dass es sich um "..TreasureName.." handelt.",
