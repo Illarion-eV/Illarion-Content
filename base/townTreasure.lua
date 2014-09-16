@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- This scripts contains functions to work with the town treasury
 
@@ -22,7 +22,7 @@ module("base.townTreasure", package.seeall)
 
 -- get the treasure of a town
 -- @town Town which treasure we want to get as a string: "Cadomyr"|"Runewick"|"Galmair"
-function GetTownTreasure(town)    
+function GetTownTreasure(town)
     local foundTreasure, currentTreasure = ScriptVars:find("Treasure"..town)
 	if not foundTreasure then
 		return 0;
@@ -32,11 +32,8 @@ function GetTownTreasure(town)
 		debug(string.format("Script variable was found and resolved to %s, but failed to convert to a number!", (currentTreasure == nil) and "nil" or currentTreasure));
 		return 0;
 	end
-	if (treasureNumber > 10000000) then
-		log(string.format("[WARN][Town Treasure] The treasure of %s exceeded 10 million copper coins. Something is wrong. Capping.", town));
-		return 10000000;
-	end
-	return treasureNumber;	
+
+	return treasureNumber;
 end
 
 -- get the amount of taxes collected to determine the amount of gems to pay out
@@ -100,7 +97,7 @@ function NewMonthSwitch(town,timeStmp)
 	ScriptVars:set("OldTreasure"..town, currentTreasure)
 	ScriptVars:set("SwitchedToPayment"..town, timeStmp)
 	ScriptVars:set("Treasure"..town, 0)
-	
+
 	local foundPayers, currentPayers = ScriptVars:find("Payers"..town)
 	if foundPayers then
 		--debug("found treasure"..currentTreasure);
