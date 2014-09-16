@@ -233,7 +233,7 @@ function onLogin( player )
 	end
 
 	--Taxes (has to be redone by "someone")
-	if not player:isAdmin() then --Admins don't pay taxes or get gems. Not on Noobia!
+	if not player:isAdmin() then --Admins don't pay taxes or get gems.
 		if not (player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan") then --leader don't pay taxes or get gems
 			-- So let there be taxes!
 			local taxText = payTaxes(player);
@@ -471,7 +471,7 @@ function PayOutWage(Recipient,town)
 			local baseWageUnit=totalTaxes/(totalPayers*10000);		-- 10000: "base unit"; change accordingly if necessary.
 			local RecipientRk=base.factions.getRankAsNumber(Recipient)
 
-			--If the recipient is level 1 they don't get anything. Stops abuse! - Flux
+			--If the recipient is level 1 they don't get anything.
 			if RecipientRk <2 then
 
 				infText = base.common.GetNLS(Recipient,
@@ -484,12 +484,11 @@ function PayOutWage(Recipient,town)
 			else
 
 				local RankedWage=math.ceil(RecipientRk*baseWageUnit*0.5);
-				endname="";
+				local endname="";
 				log(string.format("[gems] %s got %d magic gems from %s. Character's rank: %d",
 					base.character.LogText(Recipient), RankedWage, town, RecipientRk));
 				while RankedWage>0 do
 					local randomGem=math.random(1,2);
---					local maxGemLevel=math.floor(RankedWage^(1/3))
 					local maxGemLevel = math.floor(math.log(RankedWage)/math.log(3)) + 1
 					local gemLevel= base.common.Limit(math.random(1,maxGemLevel), 1, 10)
 
@@ -511,7 +510,6 @@ function PayOutWage(Recipient,town)
 					end
 
 					endname=endname.."\n"..basename;
-					--Recipient:inform("endname= "..endname);
 					local notCreated = Recipient:createItem( gemId, 1, 333, gemData );
 					if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 						world:createItemFromId( gemId, notCreated, Recipient.pos, true, 333, gemData );
@@ -520,7 +518,6 @@ function PayOutWage(Recipient,town)
 							"You can't carry any more and the rest drops to the ground.");
 					end
 
---					RankedWage=RankedWage-gemLevel^3;
 					RankedWage=RankedWage-3^(gemLevel-1)
 				end
 
