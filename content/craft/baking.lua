@@ -53,8 +53,8 @@ product:addIngredient(52)
 product:addRemnant(51) -- Step 2: Bucket with water (52) 1x
 -------------- BREAD - DONE ----------------
 
----------------- BANANABREAD - 49 ----------------------
-product = baking:addProduct(catId, 49, 30, 55, 24, 48, 1, {nameDe="Bananenbrot", nameEn="Bananabread"})
+---------------- BANANABREAD - 3609 ----------------------
+product = baking:addProduct(catId, 3609, 30, 55, 24, 48, 1)
 product:addIngredient(2, 2) -- Step 1: Flour (2) 1x
 product:addIngredient(785) -- Step 2: banana juice
 product:addRemnant(790) -- Remnant: Empty JuiceBottle (2498) 1x
@@ -115,9 +115,19 @@ product = baking:addProduct(catId, 1153, 95, 100, 175, 350)
 product:addIngredient(2, 3) -- Step 1: Flour (2) 3x
 product:addIngredient(778, 2) -- Step 2: Sugar Cane (778) 2x
 product:addIngredient(1150, 5) -- Step 3: White Egg (1150) 5x
-product:addIngredient(765, 1) -- Step 4: Daydream (765) 1x
-product:addIngredient(517) -- Step 5: Rum (517) 1x
+product:addIngredient(517) -- Step 4: Rum (517) 1x
 product:addRemnant(518) -- Remnant: Empty Rum Bottle (518) 1x
-product:addIngredient(2502) -- Step 6: Milk (2502) 1x
+product:addIngredient(2502) -- Step 5: Milk (2502) 1x
 product:addRemnant(2498) -- Remnant: Empty Bottle (2498) 1x
 -------------- CUSTARD PIE - DONE ----------------
+
+---------------- ELDERBERRY PIE - 3610 ----------------------
+product = baking:addProduct(catId, 3610, 100, 100, 200, 400)
+product:addIngredient(2, 3) -- Step 1: Flour (2) 3x
+product:addIngredient(778, 2) -- Step 2: Sugar Cane (778) 2x
+product:addIngredient(1150, 2) -- Step 3: White Egg (1150) 2x
+product:addIngredient(143, 15) -- Step 4: Red Elderbrries (143) 15x
+product:addIngredient(1207, 2) -- Step 5: Orange (1207) 2x
+product:addIngredient(1315) -- Step 6: Bottle of Berry Booze (1315) 1x
+product:addRemnant(1317) -- Remnant: Empty Bottle (1317) 1x
+-------------- ELDERBERRY PIE - DONE ----------------
