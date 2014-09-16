@@ -12,12 +12,12 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("base.class")
 require("npc.base.consequence.consequence")
 require("base.arena")
-require("lte.arena")
+require("lte.arena_timer")
 
 module("npc.base.consequence.arena", package.seeall)
 
