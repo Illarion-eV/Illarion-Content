@@ -30,14 +30,18 @@ module("item.bookrests", package.seeall)
 function LookAtItem(User,Item)
 
 	local lookAt
-	-- Bookrest for the Salavesh dungeon!
+	-- Bookrest for the Salavesh dungeon
 	if (Item.pos == position(741,406,-3)) then
 		lookAt = SalaveshLookAt(User, Item)
 	end
-	-- Salavesh end
+
+	-- Bookrest for Akaltut dungeon
+	if (Item.pos == position(430, 815, -9)) then
+		lookAt = AkaltutLookAt(User, Item)
+	end
 
 	-- Bookrest for townManagement
-	local AmountTM = #base.townManagement.townManagmentItemPos	
+	local AmountTM = #base.townManagement.townManagmentItemPos
 	for i = 1,AmountTM do
 		if (Item.pos == base.townManagement.townManagmentItemPos[i]) then
 			lookAt = TMLookAt(User, Item)
@@ -116,12 +120,42 @@ function SalaveshLookAt(User, Item)
 	return lookAt
 end
 
+function AkaltutLookAt(User, Item)
+
+	local lookAt = ItemLookAt();
+	lookAt.rareness = ItemLookAt.rareItem;
+
+	if (User:getPlayerLanguage()==0) then
+		lookAt.name = "Infirmos magische Schriftrolle";
+		lookAt.description = "Geschrieben in einer alten Sprache..."
+	else
+		lookAt.name = "Infirmo'S magical scroll";
+		lookAt.description = "Written in an old language..."
+	end
+	return lookAt
+end
+
 function UseItem(User, SourceItem)
-	-- Bookrest for the Salavesh dungeon!
+	-- Bookrest for the Salavesh dungeon
 	if (SourceItem.pos == position(741,406,-3)) then
 	    User:sendBook(201);
 	end
-	-- Salavesh end
+
+    	-- Bookrest for Akaltut dungeon
+	if (SourceItem.pos == position(430, 815, -9)) then
+        local foundEffect, myEffect = User.effects:find(120); -- monsterhunter_timer lte
+		if User:getQuestProgress(529) == 3 and not foundEffect then
+
+            User:inform("Der Höllenhund ist im Nordosten von hier.", "The hellhound is north east from here.")
+            local myEffect = LongTimeEffect(120, 50) -- 5sec
+            User.effects:addEffect(myEffect)
+        elseif foundEffect then
+            User:inform("Der Höllenhund ist im Nordosten von hier. Finde ihn!", "The hellhound is north east from here. Find it!")
+        else
+            User:inform("Die Schriftzeichen sagen dir nichts.", "You can't make any sense of the letters written here.")
+        end
+	end
+
 
 	-- Bookrest for the Evilrock!
 	if (SourceItem.pos == position(975,173,0)) then
@@ -149,8 +183,8 @@ function UseItem(User, SourceItem)
 	-- Evilrock end
 
 	-- TownManagement
-	local AmountTM = #base.townManagement.townManagmentItemPos	
-	for i = 1,AmountTM do	
+	local AmountTM = #base.townManagement.townManagmentItemPos
+	for i = 1,AmountTM do
 		if (SourceItem.pos == base.townManagement.townManagmentItemPos[i]) then
 			base.townManagement.townManagmentUseItem(User, SourceItem)
 		end
