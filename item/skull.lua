@@ -162,6 +162,7 @@ function UseItem(User, SourceItem)
     elseif SourceItem.pos == position(478, 834, -9) then
         User:inform("Du hast schlecht gewählt und ein fauliger Gestank wogt dir aus dem Schädel entgegen.",
                     "You have chosen poorly and a putrid stench billows out of the skull towards you.")
+        world:gfx(8, SourceItem.pos) -- poison ball gfx
         local cloud = world:createItemFromId(372, 1, User.pos, true, 700, nil) -- poison cloud
         cloud.wear = 1
         world:changeItem(cloud)
@@ -192,7 +193,7 @@ function UseItem(User, SourceItem)
     elseif SourceItem.pos == position(482, 838, -9) then
         User:inform("Du hast schlecht gewählt und der Totenschädel explodiert. Splitter fliegen durch den Raum und verwunden alle Anwesenden.",
                     "You have chosen poorly and the skull suddenly explodes, sending sharp projectiles everywhere in the room, causing great harm to everyone.")
-        world:gfx(44, position(482, 838, -9));
+        world:gfx(44, position(482, 838, -9)); -- fireflame gfx
         world:erase(world:getItemOnField(position(482, 838, -9)), 1) --remove skull, scheduled/mapitemreset will clean up
         for xx = 474, 482 do --hit everyone in room
             for yy = 834, 844 do
@@ -210,6 +211,7 @@ function UseItem(User, SourceItem)
     elseif SourceItem.pos == position(482, 839, -9) then
         User:inform("Du hast schlecht gewählt und grelles Licht strahlt plötzlich aus jeder Öffnung des Totenschädels. Du bist zeitweise geblendet.",
                     "You have chosen poorly and a bright light suddenly flashes from every hole in the skull, blinding you temporarily.")
+        world:gfx(31, SourceItem.pos) -- bright star gfx
         local foundEffect, myEffect = User.effects:find(100); -- perception debuff
         if foundEffect then
             myEffect.nextCalled = 5 * 600;
@@ -221,6 +223,7 @@ function UseItem(User, SourceItem)
     elseif SourceItem.pos == position(482, 841, -9) then
         User:inform("Du hast schlecht gewählt und wirst plötzlich in eine dunkle Wolke gehüllt. Als sich diese endlich auflöst, fühlst du dich geschwächt. Hoffentlich legt sich das bald.",
                     "You have chosen poorly and are suddenly enshrouded in a dark cloud. When it finally dissipates, you can feel a loss in stamina and hope to recover quickly.")
+        world:gfx(32, SourceItem.pos) -- red stuff falls gfx
         local foundEffect, myEffect = User.effects:find(101); -- constitution debuff
         if foundEffect then
             myEffect.nextCalled = 8 * 600;
