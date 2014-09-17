@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local consequence = require("npc.base.consequence.consequence")
-local repair = require("base.repair")
+local base_repair = require("base.repair")
 
 module("npc.base.consequence.repair", package.seeall)
 
@@ -27,5 +27,5 @@ function(self)
 end);
 
 function _repair_helper(self, npcChar, player)
-    repair.repairDialog(npcChar, player); 
+    base_repair.repairDialog(npcChar, player); 
 end;

@@ -15,7 +15,8 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 local class = require("base.class")
-local money = require("base.money")
+local base_money = require("base.money")
+local talk = require("npc.base.talk")
 local condition = require("npc.base.condition.condition")
 
 module("npc.base.condition.money", package.seeall)
@@ -23,7 +24,7 @@ module("npc.base.condition.money", package.seeall)
 money = class.class(condition.condition,
 function(self, comp, value)
     condition.condition:init(self);
-    self["value"], self["valuetype"] = npc.base.talk._set_value(value);
+    self["value"], self["valuetype"] = talk._set_value(value);
     if (comp == ">=" or comp == "=>") then
         self["check"] = _money_helper_greaterequal;
     elseif (comp == ">") then
@@ -36,16 +37,16 @@ function(self, comp, value)
 end);
 
 function _money_helper_greaterequal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return money.CharHasMoney(player, value);
+    local value = talk._get_value(self.npc, self.value, self.valuetype);
+    return base_money.CharHasMoney(player, value);
 end;
 
 function _money_helper_greater(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return money.CharHasMoney(player, value + 1);
+    local value = talk._get_value(self.npc, self.value, self.valuetype);
+    return base_money.CharHasMoney(player, value + 1);
 end;
 
 function _money_helper_lesser(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return not money.CharHasMoney(player, value);
+    local value = talk._get_value(self.npc, self.value, self.valuetype);
+    return not base_money.CharHasMoney(player, value);
 end;

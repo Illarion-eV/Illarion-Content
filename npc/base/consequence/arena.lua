@@ -16,7 +16,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local consequence = require("npc.base.consequence.consequence")
-local arena = require("base.arena")
+local base_arena = require("base.arena")
+local ranklist = require("base.ranklist")
 local arena_timer = require("lte.arena_timer")
 
 module("npc.base.consequence.arena", package.seeall)
@@ -37,16 +38,16 @@ function(self, mode)
 end);
 
 function _arena_helper_request(self, npcChar, player)
-	arena.requestMonster(player, npcChar);
+	base_arena.requestMonster(player, npcChar);
 end;
 
 function _arena_helper_points(self, npcChar, player)
-    arena.getArenastats(player, npcChar);
+    base_arena.getArenastats(player, npcChar);
 end;
 
 function _arena_helper_list(self, npcChar, player)
-	local arena = arena.getArena(player, npcChar);
-	local town = arena.arenaInformation[arena].town;
+	local arena = base_arena.getArena(player, npcChar);
+	local town = base_arena.arenaInformation[arena].town;
 	local arenaListName = "ArenaList"..town;
-    base.ranklist.getRanklist(player, arenaListName, true);
+    ranklist.getRanklist(player, arenaListName, true);
 end;

@@ -15,7 +15,8 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 local class = require("base.class")
-local money = require("base.money")
+local base_money = require("base.money")
+local talk = require("npc.base.talk")
 local consequence = require("npc.base.consequence.consequence")
 
 module("npc.base.consequence.money", package.seeall)
@@ -23,7 +24,7 @@ module("npc.base.consequence.money", package.seeall)
 money = class.class(consequence.consequence,
 function(self, mode, value)
     consequence.consequence:init(self);
-    self["value"], self["valuetype"] = npc.base.talk._set_value(value);
+    self["value"], self["valuetype"] = talk._set_value(value);
     if (mode == "+") then
         self["perform"] = _money_helper_add;
     elseif (mode == "-") then
@@ -34,13 +35,13 @@ function(self, mode, value)
 end);
 
 function _money_helper_add(self, npcChar, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    if (money.GiveMoneyToChar(player, value) == false) then
-		money.GiveMoneyToPosition(player.pos, value);
+    local value = talk._get_value(self.npc, self.value, self.valuetype);
+    if not base_money.GiveMoneyToChar(player, value) then
+		base_money.GiveMoneyToPosition(player.pos, value);
 	end
 end;
 
 function _money_helper_sub(self, npcChar, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    money.TakeMoneyFromChar(player, value);
+    local value = talk._get_value(self.npc, self.value, self.valuetype);
+    base_money.TakeMoneyFromChar(player, value);
 end;

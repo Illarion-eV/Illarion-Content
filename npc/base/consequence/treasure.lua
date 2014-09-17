@@ -15,7 +15,8 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 local class = require("base.class")
-local treasure = require("base.treasure")
+local base_treasure = require("base.treasure")
+local talk = require("npc.base.talk")
 local consequence = require("npc.base.consequence.consequence")
 
 module("npc.base.consequence.treasure", package.seeall)
@@ -24,11 +25,11 @@ treasure = class.class(consequence.consequence,
 function(self, level)
     consequence.consequence:init(self);
     
-    self["value"], self["valuetype"] = npc.base.talk._set_value(level);
+    self["value"], self["valuetype"] = talk._set_value(level);
     self["perform"] = _treasure_helper;
 end);
 
 function _treasure_helper(self, npcChar, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    treasure.createMap(player, value)
+    local value = talk._get_value(self.npc, self.value, self.valuetype);
+    base_treasure.createMap(player, value)
 end;
