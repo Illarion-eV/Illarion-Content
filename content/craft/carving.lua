@@ -315,6 +315,14 @@ product:addIngredient(56) -- Bough: 1x1
 
 catId = carving:addCategory("Wands", "Zauberstäbe") --Wands
 
+--Wand of spirit
+product = carving:addProduct(catId, 3608, 95, 100, 324, 648)
+product:addIngredient(56) -- Bough: 1x1
+product:addIngredient(545, 6) -- Cherry Wooden Boards: 6x1
+product:addIngredient(2527) -- Large Ornated Staff Handle: 1x1
+product:addIngredient(198, 3) -- Topaz: 3x1
+product:addIngredient(3607) -- Pure Spirit: 1x1
+
 --Wand of air
 product = carving:addProduct(catId, 2785, 90, 100, 324, 648)
 product:addIngredient(56) -- Bough: 1x1
