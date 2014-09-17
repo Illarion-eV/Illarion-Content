@@ -672,6 +672,7 @@ itemList = {
 2716 ,--Apfelholzbretter apple wood boards
 2502 ,--Milchflasche bottle of milk
 1207 ,--Orange orange
+3607 ,--pure spirit
 }
 
 gfxList = {

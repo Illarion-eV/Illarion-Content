@@ -194,8 +194,8 @@ module("base.treasure", package.seeall)
 			{77,1,nil}, {76,1,nil}, {204,1,nil}, {2655,1,nil}, {2658,1,nil}, {2727,1,nil}, {2740,1,nil}, {2780,1,nil}, {383,1,nil}, {231,1,nil}, {323,1,nil}, {2708,1,nil},
 			-- Clothes: novice mage robe,  mage robe,
 			{547,1,nil}, {548,1,nil},
-			-- Elements: pure air, pure earth, pure fire, pure water,
-			{2551,1,nil}, {2552,1,nil}, {2553,1,nil}, {2554,1,nil}
+			-- Elements: pure air, pure earth, pure fire, pure water, pure spirit
+			{2551,1,nil}, {2552,1,nil}, {2553,1,nil}, {2554,1,nil}, {3607,1,nil}
 		};
         stuff[8]={
 			-- Shields/Armor: albarian steel boots, short fur trousers, drow helmet, storm cap, steel tower shield, light hunting armor, albarian steelgloves, heavy steel greaves, steel plate,

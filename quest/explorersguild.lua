@@ -95,7 +95,7 @@ reward[50] = {{3077, 60},{2727, 1},{353,3},{2403,1},{2384,1}} -- items worth 60 
 reward[100] = {{61, 1},{557,4},{2675,1},{2302,1},{2419,1},{51,5}} -- items worth 1 gold coin - gold coin, steak dish, rapier, gynk mercenary helm, red priest robe, bucket
 reward[200] = {{61,2},{554,5},{1053,1},{696,1},{845,1}} -- items worth 2 gold coins - gold coins, vension dish, divine voulge, lizard armour, blue green heraldic dress
 reward[350] = {{61,5},{354,14},{558,1},{96,1},{2367,1}} -- items worth 5 gold coins - gold coins, strawberry cakes, archmage robe, steel tower shield, albarian nobles armour
-reward[500] = {{61,7},{2551,14},{2552,14},{2553,14},{2554,14}} -- items worth 7 gold coins - gold coins, pure aire, pure earth, pure fire, pure water
+reward[500] = {{61,7},{2551,14},{2552,14},{2553,14},{2554,14},{3607,14}} -- items worth 7 gold coins - gold coins, pure aire, pure earth, pure fire, pure water
 reward[750] = {{61,10},{1052,1},{2400,1},{2662,1},{1155,20}} -- items worth 10 gold coins - gold coins, dwarven stormhammer, elven state armour, magical dwarven axe, chicken dish
 
 function getReward(Char)

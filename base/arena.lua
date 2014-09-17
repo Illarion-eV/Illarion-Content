@@ -276,6 +276,7 @@ reward = {
 	{2552,1}, -- pure earth
 	{2553,1}, -- pure fire
 	{2554,1}, -- pure water
+	{3607,1}, -- pure spirit
 }
 
 function getReward(User, quest)
