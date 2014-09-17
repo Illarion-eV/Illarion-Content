@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Druidsystem: potion
 
-require("base.common")
-require("alchemy.base.alchemy")
-require("base.character")
+local common = require("base.common")
+local alchemy = require("alchemy.base.alchemy")
+local character = require("base.character")
 
 module("alchemy.item.id_166_pink_bottle", package.seeall)
 
@@ -32,7 +32,7 @@ function DrinkPotion(User,SourceItem)
     local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
 	
 	if potionEffectId == 0 or potionEffectId == nil  then -- no effect	
-	    base.common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", 
+	    common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", 
 		"You don't have the feeling that something happens.")
 	    return
 	
@@ -41,20 +41,20 @@ function DrinkPotion(User,SourceItem)
 		-- there is already an effect; sadly,therefore, the current potion will have no effect
 		local foundEffect, myEffect = User.effects:find(166)
 		if foundEffect then
-			base.common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert. Scheinbar verhindert der bereits wirkende Heiltranktrank weitere Effekte.", 
+			common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert. Scheinbar verhindert der bereits wirkende Heiltranktrank weitere Effekte.", 
 			"You don't have the feeling that something happens. It seems that the already affecting healing potion prevents other effects.")
 			return
 	    end
 	
-	    local dataZList = alchemy.base.alchemy.SplitData(User,potionEffectId)
+	    local dataZList = alchemy.SplitData(User,potionEffectId)
 	    -- taste and effect message
-	    alchemy.base.alchemy.generateTasteMessage(User,dataZList)
+	    alchemy.generateTasteMessage(User,dataZList)
 		GenerateEffectMessage(User,dataZList)
 		
 		local hitpointsOT, poisonvalueOT, manaOT, foodlevelOT
 		for i=1,8 do
 			
-			local Val = (dataZList[i]-5) * (topBorder[i]/5) * base.common.Scale( 0.5, 1, math.floor(SourceItem.quality/100) * 11 );
+			local Val = (dataZList[i]-5) * (topBorder[i]/5) * common.Scale( 0.5, 1, math.floor(SourceItem.quality/100) * 11 );
 			
 			if ( attribList[i] == "hitpointsOT" ) then
 				hitpointsOT = (Val * 1.25) / 5;
@@ -65,7 +65,7 @@ function DrinkPotion(User,SourceItem)
 			elseif ( attribList[i] == "foodlevelOT" ) then     			
 				   foodlevelOT = (Val * 1.25) / 5;
 			elseif ( attribList[i] == "poisonvalue" ) then
-				Val = base.common.Limit( (User:getPoisonValue() - Val) , 0, 10000 ); 
+				Val = common.Limit( (User:getPoisonValue() - Val) , 0, 10000 ); 
 				User:setPoisonValue( Val );
 			else
 				User:increaseAttrib(attribList[i],Val);
@@ -104,16 +104,16 @@ function DrinkPotion(User,SourceItem)
 		-- char pukes out a flame on the map, no further effect added
 		local foundEffect, myEffect = User.effects:find(60)
 		if foundEffect then
-			base.common.InformNLS(User, "Sofort steigt Hitze und Erbrochenes in dir auf.", 
+			common.InformNLS(User, "Sofort steigt Hitze und Erbrochenes in dir auf.", 
 			"Immediately, your body heats up and and some stomach contents comes up.")
 			User:talk(Character.say, "#me übergibt sich und spuckt dabei einen großen Feuerball aus.", "#me throws up and pukes out a big fireball.")
-			local frontPos = base.common.GetFrontPosition(User)
+			local frontPos = common.GetFrontPosition(User)
 			world:makeSound(5,frontPos)
 		    world:gfx(9,frontPos)
 			world:createItemFromId(359,1,frontPos,true,333,nil)
 			effectRemoved = User.effects:removeEffect(60)
 			if not effectRemoved then
-				base.common.InformNLS( User,"Fehler: Informiere einen Dev.", "Error: Inform a dev.")
+				common.InformNLS( User,"Fehler: Informiere einen Dev.", "Error: Inform a dev.")
 				return
 			end	
 			return
@@ -159,30 +159,30 @@ function GenerateEffectMessage(User,dataZList)
 	    effectMessageDE = "Du spührst keine Wirkung."
 		effectMessageEN = "You don't feel any effect."
 	end
-	base.common.InformNLS(User,effectMessageDE,effectMessageEN);
+	common.InformNLS(User,effectMessageDE,effectMessageEN);
 end
 
 function UseItem(User, SourceItem, ltstate)
     -- repair potion in case it's broken
-	alchemy.base.alchemy.repairPotion(SourceItem)
+	alchemy.repairPotion(SourceItem)
 	-- repair end
 	
 	if not ((SourceItem:getData("filledWith")=="potion") or (SourceItem:getData("filledWith") =="essenceBrew")) then
 		return -- no potion, no essencebrew, something else
 	end
 	
-	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
+	local cauldron = alchemy.GetCauldronInfront(User)
 	if cauldron then -- infront of a cauldron?
-	    alchemy.base.alchemy.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
+	    alchemy.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
 	
 	else -- not infront of a cauldron, therefore drink!
         if User.attackmode then
-		   base.common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während du kämpfst.", "You cannot use the potion while fighting.")
+		   common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während du kämpfst.", "You cannot use the potion while fighting.")
 		else
 		    User:talk(Character.say, "#me trinkt eine violette Flüssigkeit.", "#me drinks a violet liquid.")
 			User.movepoints=User.movepoints - 20
 			DrinkPotion(User,SourceItem) -- call effect
-			alchemy.base.alchemy.EmptyBottle(User,SourceItem)
+			alchemy.EmptyBottle(User,SourceItem)
 	    end
 	end  
 end

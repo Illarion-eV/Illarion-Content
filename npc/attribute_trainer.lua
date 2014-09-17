@@ -24,7 +24,7 @@ VALUES (0, 355, 254, 0, 4, 'Trainer Cloud McGoughey', 'npc.attribute_trainer', 0
 ---]]
 
 
-require("base.money")
+local money = require("base.money")
 module("npc.attribute_trainer", package.seeall)
 
 init = {};
@@ -109,7 +109,7 @@ function receiveText(npc, ttype, text, user)
 			            return
 			        end
 			        
-			        if not base.money.CharHasMoney(user, cost) then
+			        if not money.CharHasMoney(user, cost) then
 			            user:inform("Du hast nicht genug Geld!",
 	                            "You do not have enough money!", Character.highPriority)
 			            return
@@ -118,7 +118,7 @@ function receiveText(npc, ttype, text, user)
 			        if user:increaseBaseAttribute(reduceAttribute, -1) then
 			            if user:increaseBaseAttribute(increaseAttribute, 1) then
 			                if user:saveBaseAttributes() then
-			                    base.money.TakeMoneyFromChar(user, cost)
+			                    money.TakeMoneyFromChar(user, cost)
 			                    user:setQuestProgress(questId, questProgress + 1)
 			                    
 			                    local reduced = user:getBaseAttribute(reduceAttribute)

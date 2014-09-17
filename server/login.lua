@@ -15,13 +15,13 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- called after every player login
-require("base.common")
-require("base.money")
-require("base.factions")
-require("content.dailymessage")
-require("scheduled.factionLeader")
-require("base.townTreasure")
-require("base.character")
+local common = require("base.common")
+local money = require("base.money")
+local factions = require("base.factions")
+local dailymessage = require("content.dailymessage")
+local factionLeader = require("scheduled.factionLeader")
+local townTreasure = require("base.townTreasure")
+local character = require("base.character")
 
 module("server.login", package.seeall);
 
@@ -207,8 +207,8 @@ function onLogin( player )
 
 	--Reading current date
 	datum=world:getTime("day");
-	monthString=base.common.Month_To_String(world:getTime("month"));
-	hourStringG, hourStringE=base.common.Hour_To_String(world:getTime("hour"));
+	monthString=common.Month_To_String(world:getTime("month"));
+	hourStringG, hourStringE=common.Hour_To_String(world:getTime("hour"));
 
 	lastDigit=datum%10; --Is it st, nd or rd?
 
@@ -224,11 +224,11 @@ function onLogin( player )
 
 	if #players > 1 then
 
-	    base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..". Es sind "..#players.." Spieler online.","[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..". There are "..#players.." players online."); --sending a message
+	    common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..". Es sind "..#players.." Spieler online.","[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..". There are "..#players.." players online."); --sending a message
 
 	else --player is alone
 
-	    base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..". Ein Spieler ist online.","[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..". One player is online."); --sending a message
+	    common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..". Ein Spieler ist online.","[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..". One player is online."); --sending a message
 
 	end
 
@@ -251,7 +251,7 @@ function onLogin( player )
 	end
 
 	--Noobia handling
-	if (base.common.IsOnNoobia(player.pos)) then --On Noobia
+	if (common.IsOnNoobia(player.pos)) then --On Noobia
 
 		found, myEffect = player.effects:find(13); --Noob effect
 
@@ -272,7 +272,7 @@ function onLogin( player )
 
 	--Messages of the day
 	dailyMessageID=math.random(1,#messageG); --chosing a message at random
-	base.common.InformNLS(player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending a message
+	common.InformNLS(player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending a message
 
 	--Exchange leader NPCs if necessary
 	if player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan" then
@@ -305,7 +305,7 @@ end
 
 function showNewbieDialog(player)
 
-	local getText = function(deText,enText) return base.common.base.common.GetNLS(player, deText, enText) end
+	local getText = function(deText,enText) return common.common.GetNLS(player, deText, enText) end
 
 	local callbackNewbie = function(dialogNewbie) --start callback of Newbie Dialog
 
@@ -371,7 +371,7 @@ function welcomeNewPlayer(player)
 
 			if user:getQuestProgress(851) == 0 then
 
-				local getText = function(deText,enText) return base.common.base.common.GetNLS(user, deText, enText) end
+				local getText = function(deText,enText) return common.common.GetNLS(user, deText, enText) end
 
 				local callback = function(dialog)
 					local success = dialog:getSuccess()
@@ -426,7 +426,7 @@ function receiveGems(gemRecipient)
 	local yr=world:getTime("year");
 	local mon=world:getTime("month"); --- TODO
 	local timeStmp=yr*1000+mon;
-	local town = base.factions.getMembershipByName(gemRecipient)
+	local town = factions.getMembershipByName(gemRecipient)
 	if town == "None" then
 		return;
 	end
@@ -435,12 +435,12 @@ function receiveGems(gemRecipient)
 	--fnd=1
 	--lastSwitch=1
 	if not fnd then	-- first payout ever:
-		base.townTreasure.NewMonthSwitch(town,timeStmp)
+		townTreasure.NewMonthSwitch(town,timeStmp)
 		fnd, lastSwitch = ScriptVars:find("SwitchedToPayment"..town)
 	end
 
 	if fnd and tonumber(lastSwitch)~=timeStmp then
-		base.townTreasure.NewMonthSwitch(town,timeStmp)
+		townTreasure.NewMonthSwitch(town,timeStmp)
 		lastSwitch=timeStmp
 	end
 	-- now check if last payment was before actual month and actual month is the one to pay out.
@@ -459,8 +459,8 @@ end
 -- transfer
 function PayOutWage(Recipient,town)
 
-	local totalTaxes=base.townTreasure.GetPaymentAmount(town)
-	local totalPayers=base.townTreasure.GetTaxpayerNumber(town)
+	local totalTaxes=townTreasure.GetPaymentAmount(town)
+	local totalPayers=townTreasure.GetTaxpayerNumber(town)
 	local infText = "";
 
 	--Recipient:inform("in payoutwage "..totalPayers)
@@ -469,28 +469,28 @@ function PayOutWage(Recipient,town)
 	if tonumber(totalPayers)>0 then
 		if tonumber(totalTaxes)>0 then
 			local baseWageUnit=totalTaxes/(totalPayers*10000);		-- 10000: "base unit"; change accordingly if necessary.
-			local RecipientRk=base.factions.getRankAsNumber(Recipient)
+			local RecipientRk=factions.getRankAsNumber(Recipient)
 
 			--If the recipient is level 1 they don't get anything.
 			if RecipientRk <2 then
 
-				infText = base.common.GetNLS(Recipient,
+				infText = common.GetNLS(Recipient,
 	                "Du solltest dich bemühen, dein Ansehen in "..town.." zu steigern, damit du einen Lohn für deine Abgaben erhältst.",
 					"You should earn favour in "..town.." in order to receive rewards for your tribute.");
 
 				log(string.format("[gems] %s got 0 magic gems from %s. Character's rank: %d",
-					base.character.LogText(Recipient), town, RecipientRk))
+					character.LogText(Recipient), town, RecipientRk))
 
 			else
 
 				local RankedWage=math.ceil(RecipientRk*baseWageUnit*0.5);
 				local endname="";
 				log(string.format("[gems] %s got %d magic gems from %s. Character's rank: %d",
-					base.character.LogText(Recipient), RankedWage, town, RecipientRk));
+					character.LogText(Recipient), RankedWage, town, RecipientRk));
 				while RankedWage>0 do
 					local randomGem=math.random(1,2);
 					local maxGemLevel = math.floor(math.log(RankedWage)/math.log(3)) + 1
-					local gemLevel= base.common.Limit(math.random(1,maxGemLevel), 1, 10)
+					local gemLevel= common.Limit(math.random(1,maxGemLevel), 1, 10)
 
 					local gemsByTown={};
 					gemsByTown["Cadomyr"]={item.gems.TOPAZ, item.gems.AMETHYST}
@@ -513,7 +513,7 @@ function PayOutWage(Recipient,town)
 					local notCreated = Recipient:createItem( gemId, 1, 333, gemData );
 					if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 						world:createItemFromId( gemId, notCreated, Recipient.pos, true, 333, gemData );
-						base.common.HighInformNLS(Recipient,
+						common.HighInformNLS(Recipient,
 							"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 							"You can't carry any more and the rest drops to the ground.");
 					end
@@ -521,7 +521,7 @@ function PayOutWage(Recipient,town)
 					RankedWage=RankedWage-3^(gemLevel-1)
 				end
 
-				infText = base.common.GetNLS(Recipient,
+				infText = common.GetNLS(Recipient,
 	                                   "Deine loyalen Dienste für "..town.." werden mit den folgenden magischen Edelsteinen belohnt:"..endname,
 	                                   "Your loyal service to "..town.." is awarded with the following magical gems:"..endname)
 			end
@@ -534,10 +534,10 @@ end
 function MergeSkillInform(User)
 
 
-		local infText = base.common.GetNLS(User,
+		local infText = common.GetNLS(User,
 						"Illarion hat neue Rüstungsfertigkeiten. Deine alten Fertigkeiten Ausweichen und Taktik werden in eine Rüstungsfertigkeit deiner Wahl konvertiert. Bitte wähle eine Option:",
 						"Illarion now has new armour skills. Your old dodging and tactics skills will be converted into an armour skill of your choice. Please select an option:");
-		local title = base.common.GetNLS(User,"Neue Rüstungsfertigkeiten","New Armour Skills")
+		local title = common.GetNLS(User,"Neue Rüstungsfertigkeiten","New Armour Skills")
 
 		local closeTrib=function(onClose)
 			MergeSkill(User);
@@ -603,13 +603,13 @@ function payNow(User)
     local infText = "";
 
 	 -- no member of any town
-	local town = base.factions.getMembershipByName(User)
+	local town = factions.getMembershipByName(User)
 	if town == "None" then
 	    return;
 	end
 
 	-- no rank
-	local rank = base.factions.getRankAsNumber(User)
+	local rank = factions.getRankAsNumber(User)
 	if rank < 2 then
 		return
 	end
@@ -621,11 +621,11 @@ function payNow(User)
 	local val = 0;
 
     for i=1, #(depNr) do
-        valDepot[i]=base.money.DepotCoinsToMoney(User,depNr[i]);
+        valDepot[i]=money.DepotCoinsToMoney(User,depNr[i]);
 		val = val + valDepot[i]; 	--how much money is in the depots combined
     end
 
-	val = val + base.money.CharCoinsToMoney(User); -- total wealth
+	val = val + money.CharCoinsToMoney(User); -- total wealth
 
     tax=math.floor(val*taxHeight);
     local totTax=tax; -- total tax to pay
@@ -634,31 +634,31 @@ function payNow(User)
 	-- try to get the payable tax from the depots first
 	for i=1, #(depNr) do
 		if tax<=valDepot[i] then -- if you fild all you need in the first/ next depot, take it.
-			base.money.TakeMoneyFromDepot(User,tax,depNr[i]);
+			money.TakeMoneyFromDepot(User,tax,depNr[i]);
 			tax = 0;
 			break;
 		elseif tax ~= 0 and valDepot[i] > 0 then -- if not, take as much as you can from the following depots
-			base.money.TakeMoneyFromDepot(User,valDepot[i],depNr[i]);
+			money.TakeMoneyFromDepot(User,valDepot[i],depNr[i]);
 			tax = tax - valDepot[i];
 		end
 	end
 
 	if tax ~= 0 then --there wasn't enough cash in the depots, get the rest from the char
-		base.money.TakeMoneyFromChar(User,tax);
+		money.TakeMoneyFromChar(User,tax);
 	end
 
-	gstring,estring=base.money.MoneyToString(totTax); --converting money to a string
+	gstring,estring=money.MoneyToString(totTax); --converting money to a string
 
-	infText = base.common.GetNLS(User,
+	infText = common.GetNLS(User,
 	                                   "Du hast deine monatliche Abgabe an "..town.." gezahlt. Diesen Monat waren es "..gstring..". Die Abgabenhöhe betrug "..(taxHeight*100).."%",
 	                                   "You have paid your monthly tribute to "..town..". This month, it was "..estring..", resulting from a tribute rate of "..(taxHeight*100).."%");
 
 
-	base.townTreasure.ChangeTownTreasure(town,totTax)
-	base.townTreasure.IncreaseTaxpayerNumber(town)
+	townTreasure.ChangeTownTreasure(town,totTax)
+	townTreasure.IncreaseTaxpayerNumber(town)
 
 	log(string.format("[taxes] %s paid %d. Faction wealth of %s increased to %d copper.",
-				base.character.LogText(User), totTax, town, base.townTreasure.GetTownTreasure(town)));
+				character.LogText(User), totTax, town, townTreasure.GetTownTreasure(town)));
     return infText;
 end
 
@@ -670,7 +670,7 @@ function informPlayeraboutTaxandGems(User, gemText, taxText)
 	if gemText ~= nil then
 		infText = infText..gemText
 	end
-	local title = base.common.GetNLS(User,"Abgabenbenachrichtigung","Tribute information")
+	local title = common.GetNLS(User,"Abgabenbenachrichtigung","Tribute information")
 
 	local dialog=MessageDialog(title,infText,closeTrib);
 
@@ -684,10 +684,10 @@ end
 
 -- Function to exchange the faction leader of a town.
 function exchangeFactionLeader( playerName )
-	for i=1, #(scheduled.factionLeader.informationTable) do
-		if playerName == scheduled.factionLeader.informationTable[i].npcName then
-			scheduled.factionLeader.updatePosition(scheduled.factionLeader.informationTable[i].usualPosition,
-				scheduled.factionLeader.informationTable[i].newPosition)
+	for i=1, #(factionLeader.informationTable) do
+		if playerName == factionLeader.informationTable[i].npcName then
+			factionLeader.updatePosition(factionLeader.informationTable[i].usualPosition,
+				factionLeader.informationTable[i].newPosition)
 		end
 	end
 end

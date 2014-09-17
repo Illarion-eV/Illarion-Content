@@ -20,8 +20,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- on items: save old wear value in data (+500)
 --				if data is <500, set wear to 255 or default portable wear
 -- special data for on items: 2 => do not give anything back (e.g. a night watchman has put it on)
-require("base.common")
-require("base.lookat")
+local common = require("base.common")
+local lookat = require("base.lookat")
 
 module("item.lights", package.seeall)
 
@@ -67,7 +67,7 @@ ReqTexts.english = { [392] = "torches", [43] = "candles", [390] = "lamp oil" };
 function UseItem(User, SourceItem, ltstate)
 
 	if SourceItem:getType()==1 or SourceItem:getType()==2 then
-		base.common.InformNLS(User,
+		common.InformNLS(User,
 			"Nimm die Lichtquelle in die Hand oder lege sie am Gürtel ab.",
 			"Take the light source into your hand or put it on your belt.");
 		return;
@@ -90,7 +90,7 @@ function UseItem(User, SourceItem, ltstate)
 				User:setQuestProgress(310,4); --Connection to easyNPC
 				NPCList=world:getNPCSInRangeOf(position(52,24,100),1); --Let's be tolerant, the NPC might move a tile.
 				for i, Aldania in pairs(NPCList) do
-					base.common.TalkNLS(Aldania, Character.say, "Die Finsternis verheißt meist nichts Gutes. Du solltest immer eine Lichtquelle dabei haben, wenn du in die Dunkelheit hinaus reist oder alte Gemäuer untersuchst. Hier trennen sich nun unsere Wege, lauf einfach weiter die Straße hinunter zu diesem Wilden, Groknar. Er wird dich in die Kriegskunst einführen.", "The darkness can be a real obstacle in Illarion. You should remember to carry a light source when travelling by night, and when exploring caves and dungeons. Well, this is where we part company. Run along to that savage, Groknar, down the road. He will train you in the art of combat.");
+					common.TalkNLS(Aldania, Character.say, "Die Finsternis verheißt meist nichts Gutes. Du solltest immer eine Lichtquelle dabei haben, wenn du in die Dunkelheit hinaus reist oder alte Gemäuer untersuchst. Hier trennen sich nun unsere Wege, lauf einfach weiter die Straße hinunter zu diesem Wilden, Groknar. Er wird dich in die Kriegskunst einführen.", "The darkness can be a real obstacle in Illarion. You should remember to carry a light source when travelling by night, and when exploring caves and dungeons. Well, this is where we part company. Run along to that savage, Groknar, down the road. He will train you in the art of combat.");
 				end
 			end
 
@@ -99,7 +99,7 @@ function UseItem(User, SourceItem, ltstate)
             --Quest 105: NPC Gregor Remethar "A light at the end of the tunnel"
 
             if SourceItem.id == 395 and (SourceItem.pos == position (906, 823, -3) or SourceItem.pos == position (906, 825, -3) ) and User:getQuestProgress(105) == 1 then
-                base.common.InformNLS(User, "[Queststatus] Du entfachst die Ehrenfeuer von Runewick. Kehre zu Gregor Remethar zurück, um deine Belohnung einzufordern.", "[Quest status] You lit the lights of honour of Runewick. Return to Gregor Remethar to claim your reward.")
+                common.InformNLS(User, "[Queststatus] Du entfachst die Ehrenfeuer von Runewick. Kehre zu Gregor Remethar zurück, um deine Belohnung einzufordern.", "[Quest status] You lit the lights of honour of Runewick. Return to Gregor Remethar to claim your reward.")
                 User:setQuestProgress(105,2);
 				putOn(SourceItem,math.random(20,60),false); --these lights burn quite long
             else
@@ -111,7 +111,7 @@ function UseItem(User, SourceItem, ltstate)
 			end
 			
 		elseif this.req then
-			base.common.InformNLS(User,
+			common.InformNLS(User,
 				"Dafür brauchst du ".. ReqTexts.german[this.req.id] .. " in der Hand oder im Gürtel.",
 				"You need ".. ReqTexts.english[this.req.id] .. " in your belt or hands to do that.");
 		end
@@ -125,7 +125,7 @@ function UseItem(User, SourceItem, ltstate)
 		putOff(SourceItem,this);]]
 	
 	--Replacement: An inform. Remove this if you re-enable putting out fires.
-	base.common.InformNLS(User,"Du verbrennst dir die Finger beim Versuch, das Feuer zu ersticken.","You burn your fingers while trying to extinguish the flames.");
+	common.InformNLS(User,"Du verbrennst dir die Finger beim Versuch, das Feuer zu ersticken.","You burn your fingers while trying to extinguish the flames.");
 	--Issue #6881 END
 	
 	end
@@ -169,7 +169,7 @@ end
 -- give something back
 function giveBack(User, Item, this)
 	if tonumber(Item:getData("lightData"))==2 then -- a night watchman has put on that light, give nothing back
-		base.common.InformNLS(User,
+		common.InformNLS(User,
 			"Das Licht erlischt in dem Moment, als du danach greifst.",
 			"The light goes off in the very moment you reach out for it.")
 		return;
@@ -259,8 +259,8 @@ function MoveItemAfterMove(User,SourceItem,TargetItem)
 			end
 			world:makeSound(7,position(5,568,0))
 			world:createItemFromId(359,1,position(5,568,0),true,333,nil)
-			base.common.CreateCircle(position(5,568,0), 1, spawnFire)
-			base.common.CreateCircle(position(5,568,0), 2, spawnFire)
+			common.CreateCircle(position(5,568,0), 1, spawnFire)
+			common.CreateCircle(position(5,568,0), 2, spawnFire)
 			User:setQuestProgress(305,3)
 			User:inform("Du hast das Tabakfeld zerstört. Gut gemacht. Spreche nun mit Tobis Vunu.","You destroyed the tabacco field. Well done. Talk to Tobis Vunu now.")
 	    end
@@ -301,7 +301,7 @@ function MoveItemAfterMove(User,SourceItem,TargetItem)
 		User:setQuestProgress(310,3); --Connection to easyNPC
 		NPCList=world:getNPCSInRangeOf(position(52,24,100),1); --Let's be tolerant, the NPC might move a tile.
 		for i, Aldania in pairs(NPCList) do
-		    base.common.TalkNLS(Aldania, Character.say, "Sehr gut, nun weißt du, wie man mit Ausrüstung umgeht. Helme, Schuhe und ähnliches werden genauso angelegt. In meiner nächsten Lektion wirst du lernen, wie man Gegenstände benutzt. Entzünde die Fackel mit einem Doppelklick.", "Very good, you know how to properly handle your equipment now. Helmets, shoes and the like are equipped in the same way. My next lesson will allow you to use your items. Ignite the torch with a double click.");
+		    common.TalkNLS(Aldania, Character.say, "Sehr gut, nun weißt du, wie man mit Ausrüstung umgeht. Helme, Schuhe und ähnliches werden genauso angelegt. In meiner nächsten Lektion wirst du lernen, wie man Gegenstände benutzt. Entzünde die Fackel mit einem Doppelklick.", "Very good, you know how to properly handle your equipment now. Helmets, shoes and the like are equipped in the same way. My next lesson will allow you to use your items. Ignite the torch with a double click.");
 	    end
 	end
 
@@ -328,24 +328,24 @@ function LookAtItem(User, Item)
 	if TimeLeftI then
 	
 		if(TimeLeftI == 255) then
-			TimeLeft = base.common.GetNLS(User, "Sie wird nie ausbrennen.", "It will never burn down.");
+			TimeLeft = common.GetNLS(User, "Sie wird nie ausbrennen.", "It will never burn down.");
 		elseif (TimeLeftI == 0) then
-			TimeLeft = base.common.GetNLS(User, "Sie wird sofort ausbrennen.", "It will burn down immediately.");
+			TimeLeft = common.GetNLS(User, "Sie wird sofort ausbrennen.", "It will burn down immediately.");
 		elseif (TimeLeftI == 1) then
-			TimeLeft = base.common.GetNLS(User, "Sie wird demnächst ausbrennen.", "It will burn down anytime soon.");
+			TimeLeft = common.GetNLS(User, "Sie wird demnächst ausbrennen.", "It will burn down anytime soon.");
 		elseif (TimeLeftI == 2) then
-			TimeLeft = base.common.GetNLS(User, "Sie wird bald ausbrennen.", "It will burn down soon.");	
+			TimeLeft = common.GetNLS(User, "Sie wird bald ausbrennen.", "It will burn down soon.");	
 		elseif (TimeLeftI <= 4) then
-			TimeLeft = base.common.GetNLS(User, "Sie wird nach einer Weile ausbrennen.", "It will burn down in a while.");
+			TimeLeft = common.GetNLS(User, "Sie wird nach einer Weile ausbrennen.", "It will burn down in a while.");
 		elseif (TimeLeftI <= PORTABLE_WEAR) then
-			TimeLeft = base.common.GetNLS(User, "Sie wird nicht allzu bald ausbrennen.", "It will not burn down anytime soon.");
+			TimeLeft = common.GetNLS(User, "Sie wird nicht allzu bald ausbrennen.", "It will not burn down anytime soon.");
 		elseif (TimeLeftI >= PORTABLE_WEAR) then
-			TimeLeft = base.common.GetNLS(User, "Sie wird nach langer Zeit ausbrennen.", "It will burn down in a long time.");
+			TimeLeft = common.GetNLS(User, "Sie wird nach langer Zeit ausbrennen.", "It will burn down in a long time.");
 		end
-		base.lookat.SetSpecialDescription(Item, TimeLeft, TimeLeft);
+		lookat.SetSpecialDescription(Item, TimeLeft, TimeLeft);
 	end
 	
-	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
+	return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
 
 -- dirty quick fix for old data

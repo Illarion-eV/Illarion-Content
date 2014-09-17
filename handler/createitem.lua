@@ -14,13 +14,13 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
+local class = require("base.class")
 
 module("handler.createitem", package.seeall)
 
 
 
-createItem = base.class.class(function(creitem, posi, ID, qual, amnt)
+createItem = class.class(function(creitem, posi, ID, qual, amnt)
     creitem.pos=posi;
     creitem.itemId=ID;
     creitem.quality=qual;

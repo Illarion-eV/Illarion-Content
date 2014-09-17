@@ -21,7 +21,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (20,99,100,'triggerfield.noobiafactionwarp');
 -- INSERT INTO triggerfields VALUES (40,111,100,'triggerfield.noobiafactionwarp');
 
-require("base.common")
+local common = require("base.common")
 
 module("triggerfield.noobiafactionwarp", package.seeall)
 
@@ -148,7 +148,7 @@ function MoveToField(Character)
 	    for i = 1, #(playerlist) do 
 		    FactionStuff = base.factions.getFaction(playerlist[i]);
 	        if FactionStuff.tid == factionID then --Other faction members are alerted
-                base.common.InformNLS(playerlist[i],"[New player] Ein neuer Spieler ist gerade deinem Reich beigetreten.","[New player] A new player has just joined your realm.");  
+                common.InformNLS(playerlist[i],"[New player] Ein neuer Spieler ist gerade deinem Reich beigetreten.","[New player] A new player has just joined your realm.");  
 		    end
 	    end
 		

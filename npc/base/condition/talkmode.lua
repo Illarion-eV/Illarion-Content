@@ -14,14 +14,14 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
-require("npc.base.condition.condition")
+local class = require("base.class")
+local condition = require("npc.base.condition.condition")
 
 module("npc.base.condition.talkmode", package.seeall)
 
-talkmode = base.class.class(npc.base.condition.condition.condition,
+talkmode = class.class(condition.condition,
 function(self, value)
-    npc.base.condition.condition.condition:init(self);
+    condition.condition:init(self);
     if (value == "shout" or value == "yell" or value == Character.yell) then
         self["value"] = Character.yell;
 	elseif (value == "whisper" or value == Character.whisper) then

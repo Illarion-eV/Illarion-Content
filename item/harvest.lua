@@ -17,21 +17,21 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.harvest' WHERE itm_id IN (14,300,387,1195,11,299,386,1193,1194);
 
-require("base.common")
-require("content.gatheringcraft.fruitgathering")
+local common = require("base.common")
+local fruitgathering = require("content.gatheringcraft.fruitgathering")
 
 module("item.harvest", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
 
 	if SourceItem.id == 14 or SourceItem.id == 300 or SourceItem.id == 387 or SourceItem.id == 1195 then
-		content.gatheringcraft.fruitgathering.StartGathering(User, SourceItem, ltstate);
+		fruitgathering.StartGathering(User, SourceItem, ltstate);
 	elseif SourceItem.id == 386 then
-		base.common.HighInformNLS( User,"Diese Pflanze trägt keine Früchte.","This plant bears no fruits." );
+		common.HighInformNLS( User,"Diese Pflanze trägt keine Früchte.","This plant bears no fruits." );
 	elseif SourceItem.id == 11 or SourceItem.id == 299 or SourceItem.id == 1193 or SourceItem.id == 1194 then
-		base.common.HighInformNLS( User,"Dieser Baum trägt keine Früchte.","This tree bears no fruits." );	
+		common.HighInformNLS( User,"Dieser Baum trägt keine Früchte.","This tree bears no fruits." );	
 	else
-		base.common.HighInformNLS( User,"[FEHLER] Unbekannter Baum/Strauch, bitte informiere einen Entwickler.","[ERROR] Unknown bush/tree, please inform a developer." );	
+		common.HighInformNLS( User,"[FEHLER] Unbekannter Baum/Strauch, bitte informiere einen Entwickler.","[ERROR] Unknown bush/tree, please inform a developer." );	
 	end
 	
 end

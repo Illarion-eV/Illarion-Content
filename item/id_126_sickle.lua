@@ -18,41 +18,41 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_126_sickle' WHERE itm_id=126;
 
-require("base.common")
-require("content.gatheringcraft.farming")
-require("content.gatheringcraft.herbgathering")
-require("item.general.metal")
+local common = require("base.common")
+local farming = require("content.gatheringcraft.farming")
+local herbgathering = require("content.gatheringcraft.herbgathering")
+local metal = require("item.general.metal")
 
 module("item.id_126_sickle", package.seeall)
 
-LookAtItem = item.general.metal.LookAtItem
+LookAtItem = metal.LookAtItem
 
 function UseItem(User, SourceItem, ltstate)
 
 	local plant;
 
 	-- field grops (and seeds)
-	plant = content.gatheringcraft.farming.getFarmingItem(User);
+	plant = farming.getFarmingItem(User);
 	if plant ~= nil then
-		content.gatheringcraft.farming.StartGathering(User, plant, ltstate);
+		farming.StartGathering(User, plant, ltstate);
 		return;
 	end
 
 	-- handle herbs which are harvestable first
-	plant = content.gatheringcraft.herbgathering.getHerbItem(User, true);
+	plant = herbgathering.getHerbItem(User, true);
 	if plant ~= nil then
-		content.gatheringcraft.herbgathering.StartGathering(User, plant, ltstate);
+		herbgathering.StartGathering(User, plant, ltstate);
 		return;
 	end
 
 	-- try herbs which wont give a harvest as well
-	plant = content.gatheringcraft.herbgathering.getHerbItem(User, false);
+	plant = herbgathering.getHerbItem(User, false);
 	if plant ~= nil then
-		content.gatheringcraft.herbgathering.StartGathering(User, plant, ltstate);
+		herbgathering.StartGathering(User, plant, ltstate);
 		return;
 	end
 
-	base.common.HighInformNLS( User,
+	common.HighInformNLS( User,
 	"Hier ist nichts, wofür du die Sichel benutzen kannst.",
 	"There is nothing for which you can use the sickle." );
 

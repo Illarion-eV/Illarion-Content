@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("magic.base.basics");
+local basics = require("magic.base.basics")
 module("magic.base.teleportspell")
 
 function DoTeleSpell(Caster, TargetPos, ltstate)
@@ -23,13 +23,13 @@ function DoTeleSpell(Caster, TargetPos, ltstate)
         return;
     end
 
-    magic.base.basics.loadCorrectDefScript();
+    basics.loadCorrectDefScript();
 
     -- Generate the needed
-    magic.base.basics.gemBonis( Caster );
+    basics.gemBonis( Caster );
 
     genderMsg = {};
-    genderMsg[Player.german], genderMsg[Player.english] = magic.base.basics.GenderMessage( Caster );
+    genderMsg[Player.german], genderMsg[Player.english] = basics.GenderMessage( Caster );
 
     if ( Caster:distanceMetricToPosition(TargetPos) > Settings.Range + GemBonis.Range) then
         base.common.InformNLS( Caster,
@@ -54,11 +54,11 @@ function DoTeleSpell(Caster, TargetPos, ltstate)
         return;
     end
 
-    magic.base.basics.SayRunes( Caster );
+    basics.SayRunes( Caster );
 
-    local CasterVal=magic.base.basics.CasterValue( Caster );
+    local CasterVal=basics.CasterValue( Caster );
 
-    if not magic.base.basics.CheckAndReduceRequirements( Caster, CasterVal ) then
+    if not basics.CheckAndReduceRequirements( Caster, CasterVal ) then
         return;
     end
 
@@ -77,8 +77,8 @@ function DoTeleSpell(Caster, TargetPos, ltstate)
         TargetPos = position( math.floor(TargetPos.x+drift*math.sin( phi * math.pi )), math.floor(TargetPos.y+drift*math.cos( phi * math.pi )), TargetPos.z );
     end
 
-    magic.base.basics.performGFX(  Teleport.StartLocation.gfx, Caster.pos );
-    magic.base.basics.performSFX(  Teleport.StartLocation.sfx, Caster.pos );
+    basics.performGFX(  Teleport.StartLocation.gfx, Caster.pos );
+    basics.performSFX(  Teleport.StartLocation.sfx, Caster.pos );
 
     local oldPos = base.common.CopyPosition( Caster.pos );
     Caster:warp( TargetPos );
@@ -87,8 +87,8 @@ function DoTeleSpell(Caster, TargetPos, ltstate)
     end
 
     if not ( oldPos == Caster.pos ) then
-        magic.base.basics.performGFX( Teleport.TargetLocation.gfx, Caster.pos );
-        magic.base.basics.performSFX( Teleport.TargetLocation.sfx, Caster.pos );
+        basics.performGFX( Teleport.TargetLocation.gfx, Caster.pos );
+        basics.performSFX( Teleport.TargetLocation.sfx, Caster.pos );
     end
 
     if (LuaAnd(Caster:getQuestProgress(24),1) ~= 0 ) then

@@ -19,9 +19,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (-491,-488,-40,'triggerfield.labour_camp_dumping');
 -- INSERT INTO triggerfields VALUES (-491,-489,-40,'triggerfield.labour_camp_dumping');
 
-require("base.common")
-require("base.townTreasure")
-require("base.character")
+local common = require("base.common")
+local townTreasure = require("base.townTreasure")
+local character = require("base.character")
 
 module("triggerfield.labour_camp_dumping", package.seeall)
 
@@ -45,18 +45,18 @@ function PutItemOnField(Item,User)
 		if town then -- security check: only if the char as been sent to forced labour by a faction
 		
 			local theItemStats=world:getItemStats(Item)
-			itemNumberPay = base.common.Limit(Item.number,0,workLoad) -- we do only count the items a char has to deliver
+			itemNumberPay = common.Limit(Item.number,0,workLoad) -- we do only count the items a char has to deliver
 			local payToFaction = itemNumberPay*theItemStats.Worth*0.1 -- 10% of teh value
 			
 			if town ~= "None" then	
-				base.townTreasure.ChangeTownTreasure(town,payToFaction) -- add to the town treasure
+				townTreasure.ChangeTownTreasure(town,payToFaction) -- add to the town treasure
 				log(string.format("[donation][camp] %s handed %u %s (%u) over. Faction wealth of %s increased by %d copper to %d copper.",
-					base.character.LogText(User), Item.number, world:getItemName(Item.id,Player.english), Item.id, town, payToFaction, base.townTreasure.GetTownTreasure(town)));
+					character.LogText(User), Item.number, world:getItemName(Item.id,Player.english), Item.id, town, payToFaction, townTreasure.GetTownTreasure(town)));
 			end
 			
 		-- BUGGY INFORM
 		--	log(string.format("[prison mine] %s donated %u %s (%u). Faction wealth increased by %d copper to %d copper.",
-			--	base.character.LogText(User), Item.number, world:getItemName(Item.id,Player.english), Item.id, payToFaction, base.townTreasure.GetTownTreasure(FactionName)));
+			--	character.LogText(User), Item.number, world:getItemName(Item.id,Player.english), Item.id, payToFaction, townTreasure.GetTownTreasure(FactionName)));
 			-- reduce work load of char
 			if (workLoad - Item.number) <= 0 then
 				if workLoad > 0 then -- the char was actually still forced to work, inform him that he's free
@@ -67,15 +67,15 @@ function PutItemOnField(Item,User)
 							break
 					    end
 					end	
-				    base.common.InformNLS(User,"Freiheit!","Freedom!")
+				    common.InformNLS(User,"Freiheit!","Freedom!")
 				else
-				    base.common.InformNLS(User,"Du bemerkt, wie der Aufseher kopfschüttelnd zu dir blickt. Deine Strafe ist doch schon längst abgearbeitet.","You notice that the guard looks at you, shaking his head. You are already done!")
+				    common.InformNLS(User,"Du bemerkt, wie der Aufseher kopfschüttelnd zu dir blickt. Deine Strafe ist doch schon längst abgearbeitet.","You notice that the guard looks at you, shaking his head. You are already done!")
 				end	
 				User:setQuestProgress(25,0)
 				User:setQuestProgress(26,0)
 			else
 				User:setQuestProgress(25,workLoad-Item.number)
-			    base.common.InformNLS(User,"Du bemerkt, wie der Aufseher sich kurz etwas notiert. Scheinbar noch nicht deine letzte Ladung. Du musst noch "..(workLoad - Item.number).." Bodenschätze abliefern.","You notice that the guard seems to take a short note. Obviously, not your last charge. You still have to deliver "..(workLoad - Item.number).." resources.")
+			    common.InformNLS(User,"Du bemerkt, wie der Aufseher sich kurz etwas notiert. Scheinbar noch nicht deine letzte Ladung. Du musst noch "..(workLoad - Item.number).." Bodenschätze abliefern.","You notice that the guard seems to take a short note. Obviously, not your last charge. You still have to deliver "..(workLoad - Item.number).." resources.")
 			end
 		end
 		world:gfx(46,Item.pos)
@@ -107,7 +107,7 @@ function MoveToField(User)
 	end
 	
 	if noSpam == true then
-	    base.common.InformNLS(User,"Ein seltsames Kribbeln erfüllt dich. Auf dieser Plattform müssen die Rohstoffe scheinbar abgelegt werden."
+	    common.InformNLS(User,"Ein seltsames Kribbeln erfüllt dich. Auf dieser Plattform müssen die Rohstoffe scheinbar abgelegt werden."
 		                          ,"You feel a strange prickling. This platform is the place where you have to bring the resources to.")
     end
 end

@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
+local common = require("base.common")
 
 -- Long time effect (100)
 module("lte.debuff_perception", package.seeall)
@@ -39,7 +39,7 @@ end
 
 function removeEffect (theEffect, User)
 
-    base.common.InformNLS( User, "Deine Augen fühlen sich wieder normal an.", "Your eyes feel normal again.")
+    common.InformNLS( User, "Deine Augen fühlen sich wieder normal an.", "Your eyes feel normal again.")
     User:increaseAttrib("perception", 3);
 
 end

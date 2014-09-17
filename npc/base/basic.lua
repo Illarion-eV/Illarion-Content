@@ -22,15 +22,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --
 -- Author: Martin Karing
 
-require("base.common")
-require("base.class")
+local common = require("base.common")
+local class = require("base.class")
 
 module("npc.base.basic", package.seeall)
 
 --- Constructor for the baseNPC. This does not take any paramters.
 --
 -- The sole purpose is to prepare all required values in the NPC script.
-baseNPC = base.class.class(function(self)	
+baseNPC = class.class(function(self)	
     -- The state of the NPC. This value can be used to have the special parts
     -- of the NPC communicating with each other.
     self["state"] = baseNPC.stateNormal;
@@ -354,7 +354,7 @@ end;
 --  @param char the character who is looking at the NPC
 --  @param mode the mode used to look at the NPC (no effect)
 function baseNPC:lookAt(npcChar, char, mode)
-    char:sendCharDescription(npcChar.id, base.common.GetNLS(char, self._lookAtMsgDE, self._lookAtMsgUS));
+    char:sendCharDescription(npcChar.id, common.GetNLS(char, self._lookAtMsgDE, self._lookAtMsgUS));
 end;
 
 --- This method handles all use methods that are done to the NPC. When ever a

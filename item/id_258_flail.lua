@@ -17,16 +17,16 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_258_flail' WHERE itm_id IN (258);
 
-require("base.common")
-require("content.gatheringcraft.flailing")
-require("item.general.wood")
+local common = require("base.common")
+local flailing = require("content.gatheringcraft.flailing")
+local wood = require("item.general.wood")
 
 module("item.id_258_flail", package.seeall)
 
-LookAtItem = item.general.wood.LookAtItem
+LookAtItem = wood.LookAtItem
 
 function UseItem(User, SourceItem, ltstate)
 
-    content.gatheringcraft.flailing.StartGathering(User, nil, ltstate);
+    flailing.StartGathering(User, nil, ltstate);
 
 end

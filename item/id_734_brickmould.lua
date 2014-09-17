@@ -17,13 +17,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_734_brickmould' WHERE itm_id IN (734);
 
-require("base.licence")
-require("content.gatheringcraft.bricksproducing")
-require("item.general.wood")
+local licence = require("base.licence")
+local bricksproducing = require("content.gatheringcraft.bricksproducing")
+local wood = require("item.general.wood")
 
 module("item.id_734_brickmould", package.seeall)
 
-LookAtItem = item.general.wood.LookAtItem
+LookAtItem = wood.LookAtItem
 
 function getOven(User)
 
@@ -48,13 +48,13 @@ function getOven(User)
 end
 
 function UseItem(User, SourceItem, ltstate)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence
+	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
 	local ovenItem = getOven(User);
 	if ovenItem then
-		content.gatheringcraft.bricksproducing.StartGathering(User, ovenItem, ltstate);
+		bricksproducing.StartGathering(User, ovenItem, ltstate);
 		return
 	end
 

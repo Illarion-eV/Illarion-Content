@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("magic.base.basics");
+local basics = require("magic.base.basics")
 module("magic.base.creaturspell")
 
 function DoCreaturSpell(Caster, TargetPos, ltstate)
@@ -23,13 +23,13 @@ function DoCreaturSpell(Caster, TargetPos, ltstate)
         return;
     end
 
-    magic.base.basics.loadCorrectDefScript();
+    basics.loadCorrectDefScript();
 
     -- Generate the needed
-    magic.base.basics.gemBonis( Caster );
+    basics.gemBonis( Caster );
 
     genderMsg = {};
-    genderMsg[Player.german], genderMsg[Player.english] = magic.base.basics.GenderMessage( Caster );
+    genderMsg[Player.german], genderMsg[Player.english] = basics.GenderMessage( Caster );
 
     if ( Caster:distanceMetricToPosition(TargetPos) > Settings.Range + GemBonis.Range) then
         base.common.InformNLS( Caster,
@@ -61,11 +61,11 @@ function DoCreaturSpell(Caster, TargetPos, ltstate)
         return;
     end
 
-    magic.base.basics.SayRunes( Caster );
+    basics.SayRunes( Caster );
 
-    local CasterVal=magic.base.basics.CasterValue( Caster );
+    local CasterVal=basics.CasterValue( Caster );
 
-    if not magic.base.basics.CheckAndReduceRequirements( Caster, CasterVal ) then
+    if not basics.CheckAndReduceRequirements( Caster, CasterVal ) then
         return;
     end
 
@@ -78,8 +78,8 @@ function DoCreaturSpell(Caster, TargetPos, ltstate)
 
     world:createMonster(Monsters[math.random(1,#Monsters)],TargetPos,10);
 
-    magic.base.basics.performGFX( SpellEffects.gfx, TargetPos );
-    magic.base.basics.performSFX( SpellEffects.sfx, TargetPos );
+    basics.performGFX( SpellEffects.gfx, TargetPos );
+    basics.performSFX( SpellEffects.sfx, TargetPos );
 
     if (LuaAnd(Caster:getQuestProgress(24),1) ~= 0 ) then
         return;

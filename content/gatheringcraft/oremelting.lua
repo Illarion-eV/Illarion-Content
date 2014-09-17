@@ -26,8 +26,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- additional tool: crucible-pincers (2751)
 
 
-require("base.common")
-require("content.gathering")
+local common = require("base.common")
+local gathering = require("content.gathering")
 
 module("content.gatheringcraft.oremelting", package.seeall)
 
@@ -58,10 +58,10 @@ CoalItem = CreateItem(21);
 
 function StartGathering(User, SourceItem, ltstate)
 
-	content.gathering.InitGathering();
-	local oremelting = content.gathering.oremelting;
+	gathering.InitGathering();
+	local oremelting = gathering.oremelting;
 
-	base.common.ResetInterruption( User, ltstate );
+	common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
 		if (User:increaseAttrib("sex",0) == 0) then
 			gText = "seine";
@@ -89,13 +89,13 @@ function StartGathering(User, SourceItem, ltstate)
 		return
 	end
 
-	if not base.common.CheckItem( User, SourceItem ) then -- security check
+	if not common.CheckItem( User, SourceItem ) then -- security check
 		return
 	end
 
 	-- additional tool item is needed
 	if (User:countItemAt("all",2751)==0) then
-		base.common.HighInformNLS( User,
+		common.HighInformNLS( User,
 		"Du brauchst eine Tiegelzange um Erz zu schmelzen.",
 		"You need a pair of crucible-pincers for melting ore." );
 		return
@@ -104,14 +104,14 @@ function StartGathering(User, SourceItem, ltstate)
 	if ( toolItem.id ~= 2751 ) then
 		toolItem = User:getItemAt(6);
 		if ( toolItem.id ~= 2751 ) then
-			base.common.HighInformNLS( User,
+			common.HighInformNLS( User,
 			"Du musst die Tiegelzange in der Hand haben!",
 			"You have to hold the crucible-pincers in your hand!" );
 			return
 		end
 	end
 
-	if not base.common.FitForWork( User ) then -- check minimal food points
+	if not common.FitForWork( User ) then -- check minimal food points
 		if (SourceItem.id == 2835) then --turn it off
 			SourceItem.id = 2836;
 			SourceItem.wear = 255;
@@ -129,12 +129,12 @@ function StartGathering(User, SourceItem, ltstate)
 		return
 	end
 
-	base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+	common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 
 	-- any other checks?
 
 	if (User:countItemAt("all",CoalItem.id)<CoalItem.amount) then -- check for items to work on
-		base.common.HighInformNLS( User,
+		common.HighInformNLS( User,
 		"Du brauchst Kohle um an der Esse zu arbeiten.",
 		"You need coal for working at the forge." );
 		return;
@@ -152,7 +152,7 @@ function StartGathering(User, SourceItem, ltstate)
   
   
   if (oreItem == nil) then
-		base.common.HighInformNLS( User,
+		common.HighInformNLS( User,
 		"Du brauchst Eisenerz, Kupfererz, Silbererz, Goldnuggets oder Meriniumerz um es zu schmelzen.",
 		"You need iron ore, copper ore, silver ore, gold nuggets or merinium ore for melting it." );
     return;
@@ -182,7 +182,7 @@ function StartGathering(User, SourceItem, ltstate)
 
     else
       -- it's on, can't work now.
-      base.common.HighInformNLS( User,
+      common.HighInformNLS( User,
       "Jemand anderes arbeitet schon an der Esse.",
       "Someone else is already working at the forge." );
     end
@@ -220,7 +220,7 @@ function StartGathering(User, SourceItem, ltstate)
   local nextActionStarted = false;
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( oreItem.product.id, notCreated, User.pos, true, 333, nil );
-		base.common.HighInformNLS(User,
+		common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -232,19 +232,19 @@ function StartGathering(User, SourceItem, ltstate)
           nextActionStarted = true;
 
       else -- no ore
-        base.common.HighInformNLS(User,
+        common.HighInformNLS(User,
         "Du brauchst Eisenerz, Kupfererz, Silbererz, Goldnuggets oder Meriniumerz um es zu schmelzen.",
         "You need iron ore, copper ore, silver ore, gold nuggets or merinium ore for melting it." );
       end
     else -- no coal
-      base.common.HighInformNLS(User,
+      common.HighInformNLS(User,
       "Du hast nicht mehr genug Kohle.",
       "You don't have enough coal anymore." );
     end
 	end
 
-	if base.common.GatheringToolBreaks( User, toolItem, oremelting:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
-		base.common.HighInformNLS(User,
+	if common.GatheringToolBreaks( User, toolItem, oremelting:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
+		common.HighInformNLS(User,
 		"Deine alte Tiegelzange zerbricht.",
 		"Your old crucible-pincers break.");
 

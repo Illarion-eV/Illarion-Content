@@ -23,7 +23,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (888,646,0,'triggerfield.homeland');
 -- INSERT INTO triggerfields VALUES (889,646,0,'triggerfield.homeland');
 
-require("base.common")
+local common = require("base.common")
 
 module("triggerfield.homeland", package.seeall)
 

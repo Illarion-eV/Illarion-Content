@@ -14,8 +14,8 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
-require("base.character")
+local common = require("base.common")
+local character = require("base.character")
 
 module("scheduled.showGFX", package.seeall)
 
@@ -39,7 +39,7 @@ function CreateGFX()
 	world:gfx(11,myPos)
 	if world:isCharacterOnField(myPos) then
 		local myChar = world:getCharacterOnField(myPos)
-		if base.character.IsPlayer(myChar) then
+		if character.IsPlayer(myChar) then
 			myChar:talk(Character.say, "#mes Füße werden von einem großen Schleimtropfen, der sich vom schleimigen Setzling gelöst hat, getroffen.","#me's feet are hit by a big drop of slime, which has come off from the glutinous seedling.")
 		end
 	else
@@ -64,7 +64,7 @@ end
 function CreateSlime(ListSlime,thePos,slimeNumber)
 	local mon = world:createMonster(615,thePos,-10)
     ListSlime.Monster = true
-	base.character.DeathAfterTime(mon,18000,11,9,false)
+	character.DeathAfterTime(mon,18000,11,9,false)
 	local find, Effect = mon.effects:find(36)
 	if not find then
 		debug("Error: Effect not found.")

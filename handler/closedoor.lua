@@ -14,8 +14,8 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
-require("base.doors")
+local class = require("base.class")
+local doors = require("base.doors")
 
 module("handler.closedoor", package.seeall)
 
@@ -23,14 +23,14 @@ module("handler.closedoor", package.seeall)
 -- it makes sound 19 (world:makeSound(19, Door.pos);) when the door locks.
 -- A key with the same data than a door lock/unlocks it (not important here).
 
-closeDoor = base.class.class(function(door, posi)
+closeDoor = class.class(function(door, posi)
     door.pos=posi;
 end);
 
 function closeDoor:execute()
     if (world:isItemOnField(self.pos)==true) then
         item=world:getItemOnField(self.pos);
-        base.doors.CloseDoor(item);
+        doors.CloseDoor(item);
     else
         return -1;
     end

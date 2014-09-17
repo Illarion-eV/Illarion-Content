@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- ID 29
 -- Effects for parish of Nargun
 
-require("base.common")
+local common = require("base.common")
 module("lte.parish_nargun", package.seeall)
 
 cycleCounter = {};
@@ -32,7 +32,7 @@ function addEffect(Effect, Char)
 		Effect:addValue("saveRace", Char:getRace() );
 		Char:setRace(PN_FriendlyRaces[math.random(1,#PN_FriendlyRaces)]);
 		world:gfx(31,Char.pos);
-		base.common.InformNLS(Char,
+		common.InformNLS(Char,
 			"Du fühlst dich auf einmal so seltsam distanziert von deinem Körper.",
 			"You suddenly feel strangely dissociated from your body.");
 		cycleCounter[Char.id] = 40;
@@ -71,7 +71,7 @@ function removeEffect(Effect, Char)
 			gText = "Ein wohliges Gefühl überkommt dich, als ob du hier hingehörst.";
 			eText = "A cosy feeling comes over you, as if you belong here.";
 		end
-		base.common.InformNLS(Char,gText,eText);
+		common.InformNLS(Char,gText,eText);
 	end
 end
 
@@ -102,38 +102,38 @@ function PN_LeadToPoint( Char, effectType )
     if (distance <= 5) or (cycleCounter[Char.id]>=40) then
 	    if (Char.pos.z>=0 and Char.pos.z<=3) then
        	    
-       	    local dir = base.common.GetDirection( Char.pos, thepos );
+       	    local dir = common.GetDirection( Char.pos, thepos );
        	    local dirText;
 
-       	    if (dir == 0) then dirText = base.common.GetNLS( Char, "NORDEN", "NORTH" )
-       	    elseif (dir == 1) then dirText = base.common.GetNLS( Char, "NORDOSTEN", "NORTHEAST" )
-       	    elseif (dir == 2) then dirText = base.common.GetNLS( Char, "OSTEN", "EAST" )
-       	    elseif (dir == 3) then dirText = base.common.GetNLS( Char, "SÜDOSTEN", "SOUTHEAST" )
-       	    elseif (dir == 4) then dirText = base.common.GetNLS( Char, "SÜDEN", "SOUTH" )
-       	    elseif (dir == 5) then dirText = base.common.GetNLS( Char, "SÜDWESTEN", "SOUTHWEST" )
-       	    elseif (dir == 6) then dirText = base.common.GetNLS( Char, "WESTEN", "WEST" )
-       	    elseif (dir == 7) then dirText = base.common.GetNLS( Char, "NORDWESTEN", "NORTHWEST" )
+       	    if (dir == 0) then dirText = common.GetNLS( Char, "NORDEN", "NORTH" )
+       	    elseif (dir == 1) then dirText = common.GetNLS( Char, "NORDOSTEN", "NORTHEAST" )
+       	    elseif (dir == 2) then dirText = common.GetNLS( Char, "OSTEN", "EAST" )
+       	    elseif (dir == 3) then dirText = common.GetNLS( Char, "SÜDOSTEN", "SOUTHEAST" )
+       	    elseif (dir == 4) then dirText = common.GetNLS( Char, "SÜDEN", "SOUTH" )
+       	    elseif (dir == 5) then dirText = common.GetNLS( Char, "SÜDWESTEN", "SOUTHWEST" )
+       	    elseif (dir == 6) then dirText = common.GetNLS( Char, "WESTEN", "WEST" )
+       	    elseif (dir == 7) then dirText = common.GetNLS( Char, "NORDWESTEN", "NORTHWEST" )
        	    else return true
        	    end;
 
 		    if ( distance <= 5 ) then
-				base.common.InformNLS(Char,
+				common.InformNLS(Char,
 					"Genau hier solltest du hin. Du fühlst wie eine Last von dir genommen wird.",
 					"This is where you was to go. You feel a burden is taken off you.");
 					return false;
 			elseif ( distance <= 30 ) then
-			    base.common.InformNLS( Char,
+			    common.InformNLS( Char,
 			    "Dein Ziel ist ganz in der Nähe. Gehe weiter nach "..dirText,
 				"You are close to your destination. Keep going "..dirText);
                 cycleCounter[Char.id]=30;
 		    else
-			    base.common.InformNLS( Char,
+			    common.InformNLS( Char,
 				"Eine seltsame Macht zieht dich nach "..dirText,
 				"A strange power leads you "..dirText);
 				cycleCounter[Char.id]=20;
 		    end;
 	    else
-	     	base.common.InformNLS( Char,
+	     	common.InformNLS( Char,
 				"Irgendetwas sagt dir, dass es eine gute Idee wäre wieder zur Erdoberfläche zu gelangen.",
 				"Something tells you it would be a good idea to get back to the surface.");
 	  		cycleCounter[Char.id]=1;

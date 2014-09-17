@@ -14,19 +14,19 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
-require("base.factions")
-require("npc.base.condition.condition")
+local class = require("base.class")
+local factions = require("base.factions")
+local condition = require("npc.base.condition.condition")
 
 module("npc.base.condition.town", package.seeall)
 
-town = base.class.class(npc.base.condition.condition.condition,
+town = class.class(condition.condition,
 function(self, value)
-    npc.base.condition.condition.condition:init(self);
+    condition.condition:init(self);
     self["value"] = tonumber(value);
     self["check"] = _town_helper_equal;
 end);
 
 function _town_helper_equal(self, npcChar, texttype, player)
-    return (base.factions.getFaction(player).tid == self.value);
+    return (factions.getFaction(player).tid == self.value);
 end;

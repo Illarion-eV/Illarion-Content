@@ -14,14 +14,14 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
-require("npc.base.consequence.consequence")
+local class = require("base.class")
+local consequence = require("npc.base.consequence.consequence")
 
 module("npc.base.consequence.attribute", package.seeall)
 
-attribute = base.class.class(npc.base.consequence.consequence.consequence,
+attribute = class.class(consequence.consequence,
 function(self, name, mode, value)
-    npc.base.consequence.consequence.consequence:init(self);
+    consequence.consequence:init(self);
     self["value"], self["valuetype"] = npc.base.talk._set_value(value);
     self["name"] = name;
     if (mode == "=") then

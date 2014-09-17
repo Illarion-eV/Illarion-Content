@@ -26,8 +26,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- took checkHit out; replaced rabbits with slime; took out damage on item quality or duration
 
 
-require("base.common")
-require("scheduled.alchemy")
+local common = require("base.common")
+local alchemy = require("scheduled.alchemy")
 
 module("alchemy.base.missile", package.seeall);
 
@@ -105,7 +105,7 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
             -- damage depends on quality and baseDamage determined by area size
             -- 277HP - 4995HP
             local qual = Item.quality;
-            qual = base.common.Limit(math.floor(qual/100), 1, 9)
+            qual = common.Limit(math.floor(qual/100), 1, 9)
 
 			Schaden = baseDamage * qual;
 
@@ -127,7 +127,7 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
 
             -- Steifheit der Rüstung ermitteln. Je steifer die Rüstung deszo mehr wird der Schaden durch die Rüstung abgefangen
             -- 0 - 360
-            Stiffness = base.common.GetStiffness( Person );
+            Stiffness = common.GetStiffness( Person );
 
             -- Der dreifache Wert der Rüstungssteifheit wird vom Schaden abgezogen ( max. -1080 )
             Schaden = Schaden - Stiffness * 2;
@@ -190,10 +190,10 @@ function damageItemDura( Item, targetArea, gfxid, sfxid, modifier, ItemType )
                     ItemQual = math.floor( slotItem.quality / 100 );
                     ItemDura = slotItem.quality - ItemQual * 100;
 
-                    minReduce = base.common.Scale(  30, -1, ItemQual * 11 );
-                    maxReduce = base.common.Scale( 100, 50, ItemQual * 11 );
+                    minReduce = common.Scale(  30, -1, ItemQual * 11 );
+                    maxReduce = common.Scale( 100, 50, ItemQual * 11 );
 
-                    ItemDura = base.common.Limit( ItemDura - math.floor( base.common.Scale( minReduce, maxReduce, (qual-100)/8.99 ) )*modifier, 1, ItemDura );
+                    ItemDura = common.Limit( ItemDura - math.floor( common.Scale( minReduce, maxReduce, (qual-100)/8.99 ) )*modifier, 1, ItemDura );
 
                     slotItem.quality = ItemQual*100 + ItemDura;
                     world:changeItem( slotItem );
@@ -244,7 +244,7 @@ function damageItemQual( Item, targetArea, gfxid, sfxid, modifier, ItemType )
                     ItemQual = math.floor( slotItem.quality / 100 );
                     ItemDura = slotItem.quality - ItemQual * 100;
 
-                    ItemQual = base.common.Limit( ItemDura - math.floor( base.common.Scale( 1, 9, (qual-100)/8.99 ) )*modifier, 1, 9 );
+                    ItemQual = common.Limit( ItemDura - math.floor( common.Scale( 1, 9, (qual-100)/8.99 ) )*modifier, 1, 9 );
 
                     slotItem.quality = ItemQual*100 + ItemDura;
                     world:changeItem( slotItem );
@@ -291,9 +291,9 @@ function checkHit( User, Item )
     factor = factor - distance * distance; -- -285 - 299
     factor = ( factor + 100 ) / 2; -- -92,5 - 199,5
 
-    factor = base.common.Limit( factor, 0, 100 );
+    factor = common.Limit( factor, 0, 100 );
 
-    maxPosiModify = base.common.Scale( 5, 0, factor );
+    maxPosiModify = common.Scale( 5, 0, factor );
 
     if maxPosiModify == 0 then
         return Item.pos;

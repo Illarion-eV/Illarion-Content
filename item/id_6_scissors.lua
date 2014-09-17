@@ -16,41 +16,41 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_6_scissors' WHERE itm_id IN (6);
 
-require("base.common")
-require("content.gatheringcraft.entrailscutting")
-require("content.gatheringcraft.threadproducing")
-require("content.gatheringcraft.weaving")
-require("content.gatheringcraft.woolcutting")
-require("item.general.metal")
+local common = require("base.common")
+local entrailscutting = require("content.gatheringcraft.entrailscutting")
+local threadproducing = require("content.gatheringcraft.threadproducing")
+local weaving = require("content.gatheringcraft.weaving")
+local woolcutting = require("content.gatheringcraft.woolcutting")
+local metal = require("item.general.metal")
 
 module("item.id_6_scissors", package.seeall)
 
-LookAtItem = item.general.metal.LookAtItem
+LookAtItem = metal.LookAtItem
 
 function getLoom(User)
 
 	local LOOM = 169;
-	local item = base.common.GetFrontItem(User);
+	local item = common.GetFrontItem(User);
 	if (item ~= nil and item.id == LOOM) then
 		return item;
 	end
-	item = base.common.GetItemInArea(User.pos, LOOM);
+	item = common.GetItemInArea(User.pos, LOOM);
 	return item;
 end
 
 function getWheel(User)
 
 	local WHEEL = 171;
-	local item = base.common.GetFrontItem(User);
+	local item = common.GetFrontItem(User);
 	if (item ~= nil and item.id == WHEEL) then
 		return item;
 	end
-	item = base.common.GetItemInArea(User.pos, WHEEL);
+	item = common.GetItemInArea(User.pos, WHEEL);
 	return item;
 end
 
 function getSheep(User)
-	local targetCharacter = base.common.GetFrontCharacter(User);
+	local targetCharacter = common.GetFrontCharacter(User);
 	-- check for sheep in front
 	if (targetCharacter ~= nil and targetCharacter:getRace()==18) then
 		return targetCharacter;
@@ -78,7 +78,7 @@ function UseItem(User, SourceItem, ltstate)
 	-- check for sheep
 	target = getSheep(User);
 	if (target ~= nil) then
-		content.gatheringcraft.woolcutting.StartGathering(User, target, ltstate);
+		woolcutting.StartGathering(User, target, ltstate);
 		return;
 	end
 
@@ -89,7 +89,7 @@ function UseItem(User, SourceItem, ltstate)
 		if base.licence.licence(User) then --checks if user is citizen or has a licence
 			return -- avoids crafting if user is neither citizen nor has a licence
 		end
-		content.gatheringcraft.threadproducing.StartGathering(User, target, ltstate);
+		threadproducing.StartGathering(User, target, ltstate);
 		return;
 	end
 
@@ -99,18 +99,18 @@ function UseItem(User, SourceItem, ltstate)
 		if base.licence.licence(User) then --checks if user is citizen or has a licence
 			return -- avoids crafting if user is neither citizen nor has a licence
 		end
-		content.gatheringcraft.weaving.StartGathering(User, target, ltstate);
+		weaving.StartGathering(User, target, ltstate);
 		return;
 	end
 
 	-- check for entrails in inventory
 	if (User:countItemAt("all", 63) > 0) then
-		content.gatheringcraft.entrailscutting.StartGathering(User, nil, ltstate);
+		entrailscutting.StartGathering(User, nil, ltstate);
 		return;
 	end
 
 	-- there is nothing to work with
-	base.common.HighInformNLS( User,
+	common.HighInformNLS( User,
 	"Du brauchst entweder ein Schaf, um es zu scheren, musst for einem Spinnrad oder Webstuhl stehen, oder brauchst Eingeweide, um sie zu Garn zu zerschneiden.",
 	"You need either a sheep for shearing it, or need to stand in front of a spinning wheel or loom, or need entrails for cutting it and thus producing thread." );
 end

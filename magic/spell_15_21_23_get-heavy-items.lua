@@ -25,7 +25,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 -- including the main script for get-item spells
-require("magic.base.itemmovespell");
+local itemmovespell = require("magic.base.itemmovespell")
 module("magic.spell_15_21_23_get-heavy-items", package.seeall)
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_15_21_23_get-heavy-items.lua";

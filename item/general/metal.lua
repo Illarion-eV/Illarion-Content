@@ -15,9 +15,9 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 
-require("base.lookat")
-require("base.common")
-require("item.general.checks")
+local lookat = require("base.lookat")
+local common = require("base.common")
+local checks = require("item.general.checks")
 
 module("item.general.metal", package.seeall)
 
@@ -31,14 +31,14 @@ module("item.general.metal", package.seeall)
 -- UPDATE common SET com_script='item.general.metal' WHERE com_itemid IN (1,25,27,77,78,84,85,88,91,98,123,188,189,190,204,205,206,226,230,231,297,383,389,2626,2627,2629,2635,2636,2642,2645,2654,2655,2656,2658,2660,2662,2668,2671,2672,2675,2689,2693,2694,2701,2704,2705,2723,2725,2731,2737,2740,2742,2757,2775,2777,2778,2788);
 
 function LookAtItem(user, item)
-    return base.lookat.GenerateLookAt(user, item, base.lookat.METAL)
+    return lookat.GenerateLookAt(user, item, lookat.METAL)
 end
 
 function MoveItemBeforeMove(User,SourceItem,TargetItem)
 
 	if TargetItem:getType() == 4 then --inventory, not belt
 	
-		return item.general.checks.checkLevel(User,SourceItem);
+		return checks.checkLevel(User,SourceItem);
 		
 	else
 	

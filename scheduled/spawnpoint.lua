@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
+local common = require("base.common")
 module("scheduled.spawnpoint", package.seeall)
 -- INSERT INTO scheduledscripts VALUES('scheduled.spawnpoint', 5, 5, 'startSpawnpoint');
 

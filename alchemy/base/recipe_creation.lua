@@ -14,14 +14,14 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common")
+local common = require("base.common")
 
 
 module("alchemy.base.recipe_creation", package.seeall)
 
 -- called by item.id_463_quill
 function FirstMenu(User, ingredientsList)
-    local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
+    local getText = function(deText,enText) return common.common.GetNLS(User,deText,enText) end
     
 	if ingredientsList == nil then
 	    ingredientsList = {}
@@ -72,7 +72,7 @@ PLANT_CATS["DE"] = {"Waldpflanzen"  ,"Wiesenpflanzen","Gebirgspflanzen","Wüstenp
 PLANT_CATS["EN"] = {"Forest plants" ,"Grass plants" ,"Mountain plants" ,"Desert plants" ,"Swamp plants" ,"Water plants"  ,"Snow plants"  ,"Multiterras"  ,"Mushrooms","Agricultural products"}
 
 function SelectPlantCategory(User, ingredientsList, currentEssenceList)
-    local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
+    local getText = function(deText,enText) return common.common.GetNLS(User,deText,enText) end
 	
 	local callback = function(dialog) 
 		success = dialog:getSuccess() 
@@ -122,7 +122,7 @@ PLANTS["Mushrooms"]             = {158,159,160,161,162,163}
 PLANTS["Agricultural products"] = {154,200,201,259,290,772,778,2493}
 
 function SelectPlant(User, ingredientsList, category, currentEssenceList)
-    local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
+    local getText = function(deText,enText) return common.common.GetNLS(User,deText,enText) end
 	
 	local callback = function(dialog) 
 		success = dialog:getSuccess() 
@@ -175,7 +175,7 @@ end
 GEMPOWDERS = {446,447,448,449,450,451,452}	
 	
 function SelectGemDust(User, ingredientsList)
-    local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
+    local getText = function(deText,enText) return common.common.GetNLS(User,deText,enText) end
 	
 	local callback = function(dialog) 
 		success = dialog:getSuccess() 
@@ -250,7 +250,7 @@ ESSENCE_BREWS[330]["en"] = "Essence brew based on diamond powder"
 
 
 function SelectFillIntoCauldron(User, ingredientsList)
-    local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
+    local getText = function(deText,enText) return common.common.GetNLS(User,deText,enText) end
 	
 	local addList = {}
     local callback = function(dialog) 
@@ -295,7 +295,7 @@ function SelectFillIntoCauldron(User, ingredientsList)
 end
 
 function SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
-	local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
+	local getText = function(deText,enText) return common.common.GetNLS(User,deText,enText) end
 	
     local callback = function(dialog) 
 		local success = dialog:getSuccess() 
@@ -354,7 +354,7 @@ function SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
 end
 
 function SelectActiveSubstance(User, ingredientsList, currentConcentrations)
-	local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
+	local getText = function(deText,enText) return common.common.GetNLS(User,deText,enText) end
 	if currentConcentrations == nil then
 	    currentConcentrations = {5,5,5,5,5,5,5,5}
 	end	
@@ -396,7 +396,7 @@ function SelectActiveSubstance(User, ingredientsList, currentConcentrations)
 end
 
 function SelectConcentration(User,ingredientsList,currentConcentrations, activeSubstancePos)
-    local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
+    local getText = function(deText,enText) return common.common.GetNLS(User,deText,enText) end
 	
 	local activeSubstances = alchemy.base.alchemy.wirkstoff
 	local concentrationsDe = alchemy.base.alchemy.wirkung_de
@@ -458,7 +458,7 @@ function RemoveLastIngredient(User, ingredientsList)
 end
 
 function ShowRecipe(User, ingredientsList, notMenu) 
-    local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
+    local getText = function(deText,enText) return common.common.GetNLS(User,deText,enText) end
 	
 	local callback = function(dialog) 
 		local success = dialog:getSuccess() 
@@ -518,7 +518,7 @@ function ShowRecipe(User, ingredientsList, notMenu)
 end
 
 function ShowStockEssence(User, theLiquid, ingredientsList, notMenu)
-	local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
+	local getText = function(deText,enText) return common.common.GetNLS(User,deText,enText) end
 	
 	local liquid, liquidList = StockEssenceList(theLiquid)
 	local de, en, titleDe, titleEn
@@ -567,7 +567,7 @@ function StockEssenceList(theString)
 	    liquid = "essence brew"
 	end
 	local fromHere = string.find(theString,"(%d+)")
-	local theList = base.common.split(string.sub(theString,fromHere), ";")
+	local theList = common.split(string.sub(theString,fromHere), ";")
 	local returnList = {}
 	for i=1,#theList do
 		if tonumber(theList[i]) ~= nil then
@@ -578,7 +578,7 @@ function StockEssenceList(theString)
 end
 
 function FinishRecipe(User, ingredientsList)
-    local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
+    local getText = function(deText,enText) return common.common.GetNLS(User,deText,enText) end
 	
 	local parchment = GetParchmentQuill(User)
 	parchment = IsParchmentOK(User,parchment,ingredientsList)
@@ -681,7 +681,7 @@ function AddToRecipe(ingredientsList,addThis)
 end
 
 function WantToAbort(User, menuFunction, parameterList)
-    local getText = function(deText,enText) return base.common.base.common.GetNLS(User,deText,enText) end
+    local getText = function(deText,enText) return common.common.GetNLS(User,deText,enText) end
 	
     local callback = function(dialog)
 	    local success = dialog:getSuccess() 

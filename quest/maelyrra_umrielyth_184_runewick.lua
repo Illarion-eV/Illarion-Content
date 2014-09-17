@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (184, 'quest.maelyrra_umrielyth_184_runewick');
 
-require("base.common")
+local common = require("base.common")
 module("quest.maelyrra_umrielyth_184_runewick", package.seeall)
 
 GERMAN = Player.german
@@ -614,14 +614,14 @@ FINAL_QUEST_STATUS = 0
 
 
 function QuestTitle(user)
-    return base.common.GetNLS(user, Title[GERMAN], Title[ENGLISH])
+    return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])
 end
 
 function QuestDescription(user, status)
     local german = Description[GERMAN][status] or ""
     local english = Description[ENGLISH][status] or ""
 
-    return base.common.GetNLS(user, german, english)
+    return common.GetNLS(user, german, english)
 end
 
 function QuestStart()

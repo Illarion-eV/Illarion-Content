@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE common SET com_script='gm.items.id_93_medal' WHERE com_itemid=93;
 
-require("base.common")
+local common = require("base.common")
 module("gm.items.id_93_medal", package.seeall)
 
 function UseItemWithField(User, SourceItem, TargetPos)
@@ -103,7 +103,7 @@ function monster(User, SourceItem, TargetPos)
 		end
 
 		for i = 1, ammount do
-			monPos = base.common.getFreePos( TargetPos, radius );
+			monPos = common.getFreePos( TargetPos, radius );
 			world:createMonster(number, monPos, 20);
 			if gfxId ~= 0 then
 				world:gfx(gfxId, monPos);
@@ -240,7 +240,7 @@ function changeAvatar(User, SourceItem, TargetPos)
 end
 
 function UseItem(User, SourceItem)
-	UseItemWithField(User,SourceItem,base.common.GetFrontPosition(User));
+	UseItemWithField(User,SourceItem,common.GetFrontPosition(User));
 end
 
 function LookAtItem(User, Item)

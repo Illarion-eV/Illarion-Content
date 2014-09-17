@@ -16,8 +16,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (707, 'quest.zlatxhol_707_cadomyr');
 
-require("base.common")
-require("base.factions")
+local common = require("base.common")
+local factions = require("base.factions")
 module("quest.zlatxhol_707_cadomyr", package.seeall)
 
 GERMAN = Player.german
@@ -77,14 +77,14 @@ FINAL_QUEST_STATUS = 10
 
 
 function QuestTitle(user)
-    return base.common.GetNLS(user, Title[GERMAN], Title[ENGLISH])
+    return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])
 end
 
 function QuestDescription(user, status)
     local german = Description[GERMAN][status] or ""
     local english = Description[ENGLISH][status] or ""
 
-    return base.common.GetNLS(user, german, english)
+    return common.GetNLS(user, german, english)
 end
 
 function QuestStart()
@@ -100,7 +100,7 @@ function QuestFinalStatus()
 end
 
 function QuestAvailability(user, status)
-    if base.factions.isCadomyrCitizen(user) and status == 0 then
+    if factions.isCadomyrCitizen(user) and status == 0 then
         return Player.questAvailable
     else
         return Player.questNotAvailable

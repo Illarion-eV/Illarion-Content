@@ -14,11 +14,11 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
+local class = require("base.class")
 
 module("handler.warpplayer", package.seeall)
 
-warpPlayer = base.class.class(function(warppl, ply,destpos)
+warpPlayer = class.class(function(warppl, ply,destpos)
     warppl.player=ply;
     warppl.destpos=destpos;
 end);

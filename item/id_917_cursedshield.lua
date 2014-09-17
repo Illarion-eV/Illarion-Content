@@ -16,10 +16,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script = 'item.id_917_cursedshield' WHERE itm_id = 917;
 
-require("base.common")
-require("item.general.metal")
-require("base.lookat")
-require("item.general.checks")
+local common = require("base.common")
+local metal = require("item.general.metal")
+local lookat = require("base.lookat")
+local checks = require("item.general.checks")
 
 module("item.id_917_cursedshield", package.seeall, package.seeall(item.general.metal))
 
@@ -28,7 +28,7 @@ function MoveItemBeforeMove( User, SourceItem, TargetItem )
 
 	if TargetItem:getType() == 4 then --inventory, not belt
 
-		return item.general.checks.checkLevel(User,SourceItem);
+		return checks.checkLevel(User,SourceItem);
 
 	else
 
@@ -40,13 +40,13 @@ function MoveItemBeforeMove( User, SourceItem, TargetItem )
 
 			-- if successfully removed
 			if ( math.random( 2000 ) <= User:increaseAttrib( "willpower", 0 ) * 4 ) then
-				base.common.InformNLS( User, "Mit deinem starken Willen und Ausdauer schaffst du es, das verfluchte Schild von deiner Hand zu lösen.", "With a strong will and perseverance, you manage to detach the cursed shield from your hand." )
+				common.InformNLS( User, "Mit deinem starken Willen und Ausdauer schaffst du es, das verfluchte Schild von deiner Hand zu lösen.", "With a strong will and perseverance, you manage to detach the cursed shield from your hand." )
 				return true;
 			end;
 
 			-- else unable to remove shield
 
-			base.common.InformNLS( User, "Eine dunkle Energie scheint dich daran zu hindern das Schild loszulassen.", "Some kind of dark energy seems to prohibit you from releasing the shield." );
+			common.InformNLS( User, "Eine dunkle Energie scheint dich daran zu hindern das Schild loszulassen.", "Some kind of dark energy seems to prohibit you from releasing the shield." );
 			return false;
 		end;
 
@@ -66,7 +66,7 @@ function MoveItemAfterMove( User, SourceItem, TargetItem )
         if ( curseChance == 1 ) then
             TargetItem:setData("cursedShield",2);
             world:changeItem( TargetItem );
-            base.common.InformNLS( User, "Eine plötzliche dunkle Energie strömt aus dem Schild und scheint deine Hand zu packen.", "A sudden dark energy emenates from the shield and seems to clutch to your hand." );
+            common.InformNLS( User, "Eine plötzliche dunkle Energie strömt aus dem Schild und scheint deine Hand zu packen.", "A sudden dark energy emenates from the shield and seems to clutch to your hand." );
             return true;
         end;
     end;
@@ -75,5 +75,5 @@ function MoveItemAfterMove( User, SourceItem, TargetItem )
 end;
 
 function LookAtItem(User,Item)
-    return item.general.metal.LookAtItem(User,Item)
+    return metal.LookAtItem(User,Item)
 end

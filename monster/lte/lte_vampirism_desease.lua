@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common");
+local common = require("base.common")
 module("monster.lte.vampirism_desease", package.seeall);
 
 -- INSERT INTO longtimeeffects VALUES (501, 'satk_vampirism_desease', 'monster.lte.vampirism_desease');
@@ -51,7 +51,7 @@ function callEffect(VampEffect, User)
 	
 	local rand = math.random(1000);
 	if (rand == 1) then
-		base.common.InformNLS(User,
+		common.InformNLS(User,
 			"Du verspürst das Verlangen danach, jemanden zu töten...",
 			"You feel like killing someone...");
 	end

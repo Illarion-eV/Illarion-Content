@@ -22,8 +22,8 @@ lte ID = 18
 author: Lillian
 ]]
 
-require("base.common")
-require("base.arena")
+local common = require("base.common")
+local arena = require("base.arena")
 
 
 module("lte.arena_timer", package.seeall)
@@ -35,14 +35,14 @@ function addEffect(arenaEffect, User)
         return false;
     end
 	if isValidChar(User) then
-		base.arena.spawnMonster(User, level, arena);
+		arena.spawnMonster(User, level, arena);
 		return true;
 	end
 end
 
 function callEffect(arenaEffect, User)
     if (User:increaseAttrib("hitpoints",0) == 0) then
-        base.common.InformNLS( User,
+        common.InformNLS( User,
         "Ihr habt den Kampf verloren. Ihr bekommt keine Punkte.",
         "You lost the fight. You gained no points.");
         return false;
@@ -61,27 +61,27 @@ function callEffect(arenaEffect, User)
         return false;      -- no monster
     end
 
-    if base.arena.checkMonster( User ) then
-        base.common.InformNLS( User,
+    if arena.checkMonster( User ) then
+        common.InformNLS( User,
         "Ihr habt Euren Gegner geschlagen und Punkte verdient.",
         "You defeated your enemy and gained points for it.");
-		base.arena.setArenastats(User, arena, base.arena.monsterIDsByLevel[level].points);
-		local quest = base.arena.arenaInformation[arena].quest;
-		base.arena.getReward(User, quest)
-		local town = base.arena.arenaInformation[arena].town;
+		arena.setArenastats(User, arena, arena.monsterIDsByLevel[level].points);
+		local quest = arena.arenaInformation[arena].quest;
+		arena.getReward(User, quest)
+		local town = arena.arenaInformation[arena].town;
 		local arenaListName = "ArenaList"..town;
 		local points = User:getQuestProgress(quest);
 		base.ranklist.setRanklist(User, arenaListName, points);
 
 
-		if base.arena.arenaInformation[arena].newPlayerPos ~= nil then
-			User:warp(base.arena.arenaInformation[arena].newPlayerPos);
+		if arena.arenaInformation[arena].newPlayerPos ~= nil then
+			User:warp(arena.arenaInformation[arena].newPlayerPos);
 		end
         return false;
     end
 
 	if arenaEffect.numberCalled==300 then
-        base.common.InformNLS( User,
+        common.InformNLS( User,
         "Ihr habt zulange gebraucht, um das Monster zu besiegen.",
         "It took you too long to defeat the monster.");
         return false;
@@ -91,7 +91,7 @@ function callEffect(arenaEffect, User)
 end
 
 function removeEffect(arenaEffect, User)
-    base.arena.killMonster( User );
+    arena.killMonster( User );
     return false;
 end
 

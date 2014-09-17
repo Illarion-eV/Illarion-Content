@@ -25,7 +25,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 -- including the main script for gfx spells
-require("magic.base.gfxspell");
+local gfxspell = require("magic.base.gfxspell")
 module("magic.spell_12_13_24_extinguish-campfire-area", package.seeall)
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_12_13_24_extinguish-campfire-area.lua";

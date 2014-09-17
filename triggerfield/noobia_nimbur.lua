@@ -19,7 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (39,74,100,'triggerfield.noobia_nimbur');
 -- INSERT INTO triggerfields VALUES (38,74,100,'triggerfield.noobia_nimbur');
 
-require("base.common")
+local common = require("base.common")
 
 module("triggerfield.noobia_nimbur", package.seeall)
 

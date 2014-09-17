@@ -18,10 +18,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (479,249,0,'triggerfield.galmair_bridges1_660');
 -- INSERT INTO triggerfields VALUES (474,247,0,'triggerfield.galmair_bridges1_660');
 
-require("base.common")
-require("base.factions");
-require("lte.deathaftertime");
-require("lte.longterm_cooldown");
+local common = require("base.common")
+local factions = require("base.factions")
+local deathaftertime = require("lte.deathaftertime")
+local longterm_cooldown = require("lte.longterm_cooldown")
 module("triggerfield.galmair_bridges1_660", package.seeall)
 
 
@@ -57,13 +57,13 @@ function MoveToField(char)
 		else
 		fighter = 0
 	end
-	if base.factions.getMembership(char) == 3 then --set chance for Galmairians and non-Galmairians
+	if factions.getMembership(char) == 3 then --set chance for Galmairians and non-Galmairians
 		chance = 20
 		else
 		chance = 5
 	end
 	if math.random(1,100)< chance  and char:increaseAttrib("hitpoints",0)>8000 then --Chance of 10% and Hitpoints above 8000
-		if base.factions.getMembership(char) ~= 3 and (char:getSkill(Character.parry)<=30) or  base.factions.getMembership(char) ~= 3 and fighter ~= 1  then --Newbie and non-fighter protection for non-Galmairian
+		if factions.getMembership(char) ~= 3 and (char:getSkill(Character.parry)<=30) or  factions.getMembership(char) ~= 3 and fighter ~= 1  then --Newbie and non-fighter protection for non-Galmairian
 			return
 		end
 		shutup = 0 --player should get message later
@@ -111,14 +111,14 @@ function MoveFromField(char)
 	end
 	hero = world:getPlayersInRangeOf(char.pos, 20); --lets see if there is a player around
 	for i,player in ipairs(hero) do
-		if base.factions.getMembership(player) == 3 then --check if galmairians are there
+		if factions.getMembership(player) == 3 then --check if galmairians are there
 			luckybunch = 1 --if non-galmairians are together with galmairians
 		else
 		end
 	end
 	if char:getType() ~= Character.player then --monster start moving
 		for i,player in ipairs(hero) do
-			if base.factions.getMembership(player) == 3 then --check if galmairians are there
+			if factions.getMembership(player) == 3 then --check if galmairians are there
 				base.character.DeathAfterTime(char,math.random(5,10),0,1,true) --kill trigger monster
 				player:inform("Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen auf der Stadtmauer von Galmair dir mit ihren Armbrüsten zuwinken. Gut, dass du dem Don deine Steuern zahlst und er dich beschützt!", "Even before you are able to react, arrows shoot around you and take down your enemies. You look to the direction the arrows originated from and see guards on the town wall of Galmair waving to you with their crossbows. Good, you have paid your taxes to the Don and he protects you!")	--praise the don message for the player
 				shutup = 1 --stop spam in the future

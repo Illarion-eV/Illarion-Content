@@ -19,11 +19,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- bases upon Falk's original script
 -- by Merung
 
-require("base.common")
-require("alchemy.base.alchemy")
-require("alchemy.base.herbs")
-require("alchemy.base.gemdust")
-require("alchemy.teaching.transformation_dog")
+local common = require("base.common")
+local alchemy = require("alchemy.base.alchemy")
+local herbs = require("alchemy.base.herbs")
+local gemdust = require("alchemy.base.gemdust")
+local transformation_dog = require("alchemy.teaching.transformation_dog")
 
 module("alchemy.base.brewing", package.seeall)
 
@@ -32,19 +32,19 @@ function UseItem(User, SourceItem, ltstate)
 	if SourceItem.wear == 255 then
 	    return
 	end	
-	local isPlant, ignoreIt = alchemy.base.alchemy.getPlantSubstance(SourceItem.id, User)
-	local isGemDust = alchemy.base.alchemy.CheckIfGemDust(SourceItem.id, User)
+	local isPlant, ignoreIt = alchemy.getPlantSubstance(SourceItem.id, User)
+	local isGemDust = alchemy.CheckIfGemDust(SourceItem.id, User)
 	if isPlant  or SourceItem.id == 157 then
-	    alchemy.base.herbs.UseItem(User, SourceItem, ltstate)
+	    herbs.UseItem(User, SourceItem, ltstate)
 	elseif isGemDust then
-	    alchemy.base.gemdust.UseItem(User, SourceItem, ltstate)
+	    gemdust.UseItem(User, SourceItem, ltstate)
 	end
 end
 
 function LookAtItem(User, Item)
 
 	if Item.id == 140 and Item:getData("teachDogTransformationPotion") ~= "" then
-		return alchemy.teaching.transformation_dog.LookAtDonfbladeMap(User, Item)
+		return transformation_dog.LookAtDonfbladeMap(User, Item)
 	end
 	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
 end

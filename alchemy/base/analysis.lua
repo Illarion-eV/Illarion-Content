@@ -16,8 +16,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- analysis
 
-require("alchemy.base.alchemy")
-require("base.licence")
+local alchemy = require("alchemy.base.alchemy")
+local licence = require("base.licence")
 
 module("alchemy.base.analysis", package.seeall)
 
@@ -25,13 +25,13 @@ function StockAnalysis(User, gem, brew, ltstate)
 	local analysisResultDE = "Substanz:\nKräutersud\n\nWirkstoffkonzentrationen:\n"
 	local analysisResultEN = "Substanz:\nHerbal Stock\n\nActive substance concentrations:\n"
 	for i=1,8 do -- loop to get the concentration of the eight active substances
-		local wirkstoff = alchemy.base.alchemy.wirkstoff
+		local wirkstoff = alchemy.wirkstoff
 		local myCon = tonumber(brew:getData(""..wirkstoff[i].."Concentration"))
 		if myCon == nil then
 			myCon = 5
 		end
-		local conListDE = alchemy.base.alchemy.wirkung_de
-		local conListEN = alchemy.base.alchemy.wirkung_en		
+		local conListDE = alchemy.wirkung_de
+		local conListEN = alchemy.wirkung_en		
 		analysisResultDE = analysisResultDE..""..conListDE[myCon].." "..wirkstoff[i].."\n"
 		analysisResultEN = analysisResultEN..""..conListEN[myCon].." "..wirkstoff[i].."\n"
 	end
@@ -42,9 +42,9 @@ function EssenceBrewAnalysis(User, gem, brew, ltstate)
     local cauldron, bottle
 	local reGem, reGemdust, reCauldron, reBottle
 	if brew.id >= 1008 and brew.id <= 1018 then -- brew is a cauldron
-		reGem, reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, nil, brew.id, nil) 
+		reGem, reGemdust, reCauldron, reBottle = alchemy.GemDustBottleCauldron(nil, nil, brew.id, nil) 
 	else -- brew is a bottle
-		reGem, reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, nil, nil, brew.id) 	
+		reGem, reGemdust, reCauldron, reBottle = alchemy.GemDustBottleCauldron(nil, nil, nil, brew.id) 	
 	end	
 	local analysisResultDE
 	local analysisResultEN
@@ -76,10 +76,10 @@ function PotionAnalysis(User, gem, brew, ltstate)
 	local cauldron, bottle, potionQuality, potionQualityDE, potionQualityEN
 	local reGem, reGemdust, reCauldron, reBottle
 	if brew.id >= 1008 and brew.id <= 1018 then -- brew is a cauldron
-		reGem, reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, nil, brew.id, nil)
+		reGem, reGemdust, reCauldron, reBottle = alchemy.GemDustBottleCauldron(nil, nil, brew.id, nil)
 		potionQuality = tonumber(brew:getData("potionQuality"))
 	else -- brew is a bottle
-		reGem, reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, nil, nil, brew.id)
+		reGem, reGemdust, reCauldron, reBottle = alchemy.GemDustBottleCauldron(nil, nil, nil, brew.id)
 		potionQuality = brew.quality
 	end
 	local analysisResultDE
@@ -88,10 +88,10 @@ function PotionAnalysis(User, gem, brew, ltstate)
 	    analysisResultDE = "Die Analyse führt zu keinen schlüssigen Ergebnissen."
 		analysisResultEN = "The analysis does not provide any decent results."
 	else	
-		local qListDE = alchemy.base.alchemy.qListDe
-		local qListEN = alchemy.base.alchemy.qListEn
-		potionQualityEN = alchemy.base.alchemy.qListEn[math.floor(potionQuality/100)]
-		potionQualityDE = alchemy.base.alchemy.qListDe[math.floor(potionQuality/100)]
+		local qListDE = alchemy.qListDe
+		local qListEN = alchemy.qListEn
+		potionQualityEN = alchemy.qListEn[math.floor(potionQuality/100)]
+		potionQualityDE = alchemy.qListDe[math.floor(potionQuality/100)]
 		analysisResultDE = "Substanz:\nTrank auf "..world:getItemName(reGemdust,Player.german).."basis\n\nTrankgüte:\n"..potionQualityDE.." Qualität\n\nWirkung:\n"
 		analysisResultEN = "Substance:\nPotion based on "..world:getItemName(reGemdust,Player.english).."\n\nPotion quality:\n"..potionQualityEN.." quality\n\nEffect:"
 		local potionEffectId = tonumber(brew:getData("potionEffectId"))
@@ -100,15 +100,15 @@ function PotionAnalysis(User, gem, brew, ltstate)
 			analysisResultEN = analysisResultEN.."No effect"
 		elseif (potionEffectId >= 11111111) and (potionEffectId <= 99999999) then
 			if (reGemdust == 447) or (reGemdust == 450) then 
-				local dataZList = alchemy.base.alchemy.SplitData(User,brew:getData("potionEffectId"))
+				local dataZList = alchemy.SplitData(User,brew:getData("potionEffectId"))
 				for i=1,8 do 
-					local wirkstoff = alchemy.base.alchemy.wirkstoff
+					local wirkstoff = alchemy.wirkstoff
 					local myCon = dataZList[i]
 					if myCon == nil then
 						myCon = 5
 					end
-					local conListDE = alchemy.base.alchemy.wirkung_de
-					local conListEN = alchemy.base.alchemy.wirkung_en		
+					local conListDE = alchemy.wirkung_de
+					local conListEN = alchemy.wirkung_en		
 					analysisResultDE = analysisResultDE..""..conListDE[myCon].." "..wirkstoff[i].."\n"
 					analysisResultEN = analysisResultEN..""..conListEN[myCon].." "..wirkstoff[i].."\n"
 				end			
@@ -117,7 +117,7 @@ function PotionAnalysis(User, gem, brew, ltstate)
 		    analysisResultDE = analysisResultDE.."Sichtungstrank"
 			analysisResultEN = analysisResultEN.."Sighting potion"
 		else
-			effectList = alchemy.base.alchemy.potionName
+			effectList = alchemy.potionName
 			local potionEffectEN = effectList[potionEffectId][1]
 			local potionEffectDE = effectList[potionEffectId][2]
 			if (potionEffectEN == nil) or (potionEffectDE == nil) then -- potion has an effect id, but the effect id has no entry in the name list
@@ -132,7 +132,7 @@ end
 
 function AnalysisOfBrew(User, gem, brew, ltstate)
 
-    local isAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
+    local isAlchemist = alchemy.CheckIfAlchemist(User)
 	if not isAlchemist then
         User:inform("Nur jene, die die Kunst der Alchemie beherrschen vermögen zu analysieren.","Only those who have been introduced to the art of alchemy are able to analyse.")
 		return
@@ -179,20 +179,20 @@ function AnalysisOfBrew(User, gem, brew, ltstate)
 end
 
 function CauldronPotionCheck(User, SourceItem, TargetItem, ltstate)
-    local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
+    local cauldron = alchemy.GetCauldronInfront(User)
 	if (cauldron) and (cauldron.id ~= 1008) then
 		AnalysisOfBrew(User, SourceItem, cauldron, ltstate)
 	else	
 	    local brew = User:getItemAt(5)
 		-- repair potion in case it's broken
-		alchemy.base.alchemy.repairPotion(brew)
+		alchemy.repairPotion(brew)
 		-- repair end
 		if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") or brew:getData("filledWith")=="meraldilised slime" then
 	        AnalysisOfBrew(User, SourceItem, brew, ltstate)
 		else	
 	        local brew = User:getItemAt(6)
 			-- repair potion in case it's broken
-			alchemy.base.alchemy.repairPotion(brew)
+			alchemy.repairPotion(brew)
 			-- repair end
 			if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") or brew:getData("filledWith")=="meraldilised slime" then
 				AnalysisOfBrew(User, SourceItem, brew, ltstate)

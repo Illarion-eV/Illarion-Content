@@ -16,8 +16,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_266_bookshelf' WHERE itm_id IN (266, 267);
 
-require("base.common")
-require("base.lookat")
+local common = require("base.common")
+local lookat = require("base.lookat")
 
 module("item.id_266_bookshelf", package.seeall)
 
@@ -294,7 +294,7 @@ addBookshelf(position(472, 839, -9),{REIGN_AKALTUT})
 
 
 function LookAtItem(user, item)
-    local lookAt = base.lookat.GenerateLookAt(user, item)
+    local lookAt = lookat.GenerateLookAt(user, item)
 
     if item:getType() == scriptItem.field then
         local pos = item.pos
@@ -304,19 +304,19 @@ function LookAtItem(user, item)
             local bookCount = #bookshelf
 
             if bookCount == 0 then
-                lookAt.description = base.common.GetNLS(user, "Dieses Regal ist leer.", "This bookshelf is empty.")
+                lookAt.description = common.GetNLS(user, "Dieses Regal ist leer.", "This bookshelf is empty.")
             elseif bookCount == 1 then
-                lookAt.description = base.common.GetNLS(user, "Hier steht ein einzelnes Buch:", "There is one single book:")
-                lookAt.description = lookAt.description .. "\n" .. base.common.GetNLS(user, books[bookshelf[1]].german, books[bookshelf[1]].english)
+                lookAt.description = common.GetNLS(user, "Hier steht ein einzelnes Buch:", "There is one single book:")
+                lookAt.description = lookAt.description .. "\n" .. common.GetNLS(user, books[bookshelf[1]].german, books[bookshelf[1]].english)
             else
-                lookAt.description = base.common.GetNLS(user, "Hier stehen " .. bookCount .. " Bücher:", "There are " .. bookCount .. " books here:")
+                lookAt.description = common.GetNLS(user, "Hier stehen " .. bookCount .. " Bücher:", "There are " .. bookCount .. " books here:")
 
                 for i=1, bookCount do
-                    lookAt.description = lookAt.description .. "\n" .. base.common.GetNLS(user, books[bookshelf[i]].german, books[bookshelf[i]].english)
+                    lookAt.description = lookAt.description .. "\n" .. common.GetNLS(user, books[bookshelf[i]].german, books[bookshelf[i]].english)
                 end
             end
         else
-            lookAt.description = base.common.GetNLS(user, "Dieses Regal ist leer.", "This bookshelf is empty.")
+            lookAt.description = common.GetNLS(user, "Dieses Regal ist leer.", "This bookshelf is empty.")
         end
     end
 
@@ -346,12 +346,12 @@ function UseItem(user, item, target, counter, param, ltstate)
                 end
             end
 
-            local title = base.common.GetNLS(user, "Bücherregal", "Bookshelf")
-            local description = base.common.GetNLS(user, "Welches Buch möchtest du lesen?", "Which book do you want to read?")
+            local title = common.GetNLS(user, "Bücherregal", "Bookshelf")
+            local description = common.GetNLS(user, "Welches Buch möchtest du lesen?", "Which book do you want to read?")
             local dialog = SelectionDialog(title, description, callback)
 
             for i=1, bookCount do
-                dialog:addOption(books[bookshelf[i]].graphic, base.common.GetNLS(user, books[bookshelf[i]].german, books[bookshelf[i]].english))
+                dialog:addOption(books[bookshelf[i]].graphic, common.GetNLS(user, books[bookshelf[i]].german, books[bookshelf[i]].english))
             end
 
             user:requestSelectionDialog(dialog)

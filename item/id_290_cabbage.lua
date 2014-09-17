@@ -18,13 +18,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_290_cabbage' WHERE itm_id IN (290);
 
-require("base.common")
+local common = require("base.common")
 
 module("item.id_290_cabbage", package.seeall)
 
 function MoveItemBeforeMove(User, SourceItem, TargetItem)
     if (SourceItem:getData("amount") ~= "") then
-        base.common.HighInformNLS(User,
+        common.HighInformNLS(User,
 		"Du würdest den Kohl beschädigen, ziehst du ihn mit bloßen Händen heraus. Du benötigst eine Sichel, um ihn abzuschneiden.",
 		"You would damage the cabbage, if you pulled it out with bare hands. You need a sickle to cut it.");
         return false

@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
+local common = require("base.common")
 
 -- Long time effect (101)
 module("lte.debuff_constitution", package.seeall)
@@ -39,7 +39,7 @@ end
 
 function removeEffect (theEffect, User)
 
-    base.common.InformNLS( User, "Deine Ausdauer kehrt zurück.", "Your constitution is back to normal.")
+    common.InformNLS( User, "Deine Ausdauer kehrt zurück.", "Your constitution is back to normal.")
     User:increaseAttrib("constitution", 2);
 
 end

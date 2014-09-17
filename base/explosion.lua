@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-require("base.common")
+local common = require("base.common")
 
 module("base.explosion", package.seeall)
 
@@ -39,9 +39,9 @@ function CreateExplosion(CenterPos)
 		return true;
 	end
 
-	base.common.CreateCircle(CenterPos, 3, CreateOuterCircle);
-	base.common.CreateCircle(CenterPos, 2, CreateMiddleCircle);
-	base.common.CreateCircle(CenterPos, 1, CreateInnerCircle);
+	common.CreateCircle(CenterPos, 3, CreateOuterCircle);
+	common.CreateCircle(CenterPos, 2, CreateMiddleCircle);
+	common.CreateCircle(CenterPos, 1, CreateInnerCircle);
 	world:gfx(36,CenterPos);
 	world:makeSound(5,CenterPos);
 end
@@ -99,7 +99,7 @@ function HitChar(Posi,Hitpoints,CenterPos)
 				-- something not passable is in the way, recalculate position
 				if not field:isPassable() then
 
-					local phi = base.common.GetPhi(Character.pos, itemPos);
+					local phi = common.GetPhi(Character.pos, itemPos);
 					if (phi < math.pi / 8) then
 						tempX = itemPos.x - 1
 					elseif (phi < 3 * math.pi / 8) then
@@ -135,7 +135,7 @@ function HitChar(Posi,Hitpoints,CenterPos)
 		end
 
 		Character:warp(position(posX,posY,Character.pos.z));
-        base.common.InformNLS(Character,
+        common.InformNLS(Character,
         "Getroffen von der Detonation wirst du davon geschleudert.",
         "Hit by the detonation, you get thrown away.");
         Character:increaseAttrib("hitpoints",-Hitpoints);

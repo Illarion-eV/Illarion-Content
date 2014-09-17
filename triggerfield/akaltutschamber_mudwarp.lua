@@ -19,7 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (481,812,-9,'triggerfield.akaltutschamber_mudwarp');
 -- INSERT INTO triggerfields VALUES (482,812,-9,'triggerfield.akaltutschamber_mudwarp');
 
-require("base.common")
+local common = require("base.common")
 
 module("triggerfield.akaltutschamber_mudwarp", package.seeall)
 
@@ -32,7 +32,7 @@ function MoveToField(Character)
 
 	    destination = position(484,821,-9);
 
-	   base.common.HighInformNLS(Character,
+	   common.HighInformNLS(Character,
 		"Du stolperst und fällst von der Brücke und rutscht in den Schlamm.",
 		"You stumble, falling down the bridge, sliding and slipping into the mud.");
 	end

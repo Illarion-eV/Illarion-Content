@@ -14,15 +14,15 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
-require("monster.base.monstermagic")
+local common = require("base.common")
+local monstermagic = require("monster.base.monstermagic")
 
 -- Long time effect (112)
 module("lte.damagefield_poisoncloud", package.seeall)
 
 local function causeDamage(User, quality)
 
-    local resist = monster.base.monstermagic.SpellResistence(User) * 10
+    local resist = monstermagic.SpellResistence(User) * 10
     if resist < quality then
         local damageLow = 3 * math.floor((math.max(10, quality - resist)))
         local damageHigh = 5 * math.floor(quality - resist)
@@ -42,7 +42,7 @@ end
 function callEffect(theEffect, User)
 
     -- check if still on a damaging field
-    local Items = base.common.GetItemsOnField(User.pos)
+    local Items = common.GetItemsOnField(User.pos)
     local FieldItem
 
     for _, item in pairs(Items) do

@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script = 'item.id_1059_dice' WHERE itm_id = 1059 ;
 
-require("base.common")
+local common = require("base.common")
 
 module("item.id_1059_dice", package.seeall);
 
@@ -57,8 +57,8 @@ function informAboutResult(User, typeOfDice, numberOfDice)
 end
 
 function chooseNumberOfDice(User, typeOfDice)
-	local title = base.common.GetNLS(User,"Würfel", "Dice");
-	local text = base.common.GetNLS(User,"Bitte gib ein, wieviele Würfel du werfen möchtest." , "Please type in how many dice you wish to throw.");
+	local title = common.GetNLS(User,"Würfel", "Dice");
+	local text = common.GetNLS(User,"Bitte gib ein, wieviele Würfel du werfen möchtest." , "Please type in how many dice you wish to throw.");
 
 	local cbInputDialog = function (dialog)
 		if (not dialog:getSuccess()) then
@@ -84,8 +84,8 @@ function chooseNumberOfDice(User, typeOfDice)
 end
 
 function chooseTypeOfDice(User)
-	local title = base.common.GetNLS(User,"Würfel", "Dice");
-	local text = base.common.GetNLS(User,"Bitte wähle aus, welche Art Würfel du werfen möchtest." , "Please choose what type of dice you wish to throw.");
+	local title = common.GetNLS(User,"Würfel", "Dice");
+	local text = common.GetNLS(User,"Bitte wähle aus, welche Art Würfel du werfen möchtest." , "Please choose what type of dice you wish to throw.");
 	
 	local sdDice = function(dialog)
 		if (not dialog:getSuccess()) then
@@ -100,8 +100,8 @@ function chooseTypeOfDice(User)
 	end
 	local dialog = SelectionDialog(title, text, sdDice)
 
-	dialog:addOption(0, base.common.GetNLS(User, "W6 - Sechsseitiger Würfel", "D6 - Sixsided dice"))
-	dialog:addOption(0, base.common.GetNLS(User, "W20 - Zwanzigseiiger Würfel", "D20 - Twentysided dice"))
+	dialog:addOption(0, common.GetNLS(User, "W6 - Sechsseitiger Würfel", "D6 - Sixsided dice"))
+	dialog:addOption(0, common.GetNLS(User, "W20 - Zwanzigseiiger Würfel", "D20 - Twentysided dice"))
 	
 	User:requestSelectionDialog(dialog)
 end

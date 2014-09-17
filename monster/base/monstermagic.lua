@@ -14,9 +14,9 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
-require("base.character")
-require("lte.chr_reg");
+local common = require("base.common")
+local character = require("base.character")
+local chr_reg = require("lte.chr_reg")
 
 module("monster.base.monstermagic", package.seeall)
 
@@ -39,16 +39,16 @@ function SpellResistence( Char )
     local CWil   = Char:increaseAttrib("willpower",0);
     local CEss   = Char:increaseAttrib("essence",0);
     local CSkill = Char:getSkill(Character.magicResistance) ;
-    CSkill = base.common.Limit( CSkill, 0, MaximalMagicResistance( Char ) );
+    CSkill = common.Limit( CSkill, 0, MaximalMagicResistance( Char ) );
 
-    local ResTry = base.common.Limit(CSkill * ( ( CEss*3 + CWil*2 ) / 63 ), 0, 100 );
+    local ResTry = common.Limit(CSkill * ( ( CEss*3 + CWil*2 ) / 63 ), 0, 100 );
 
-    return base.common.Limit( math.floor( ResTry * math.random(8,12)/10 ), 0, 100 );
+    return common.Limit( math.floor( ResTry * math.random(8,12)/10 ), 0, 100 );
 end
 
 function MaximalMagicResistance( Char )
     local maxMagicResist = 1.4 * ( Char:increaseAttrib("intelligence",0) + ( Char:increaseAttrib("willpower",0) * 1.75 ) + ( Char:increaseAttrib("essence",0) * 2 ) ) + 5;
-    return base.common.Limit( maxMagicResist, 0, 100 );
+    return common.Limit( maxMagicResist, 0, 100 );
 end
 
 
@@ -140,7 +140,7 @@ function CastParalyze(Monster, Enemy, CastingTry, rndTry)
     local CastTry = math.random(CastingTry[1],CastingTry[2]) - SpellResistence( Enemy );
     CastTry = ( CastTry - CastingTry[1] ) / ( CastingTry[2] - CastingTry[1] ) * 100;
 
-    local Damage = base.common.ScaleUnlimited(30, 60, CastTry);
+    local Damage = common.ScaleUnlimited(30, 60, CastTry);
     if Damage > 0 then
         Enemy.movepoints = Enemy.movepoints - Damage;
         world:gfx(6, Enemy.pos);
@@ -189,7 +189,7 @@ function CastMonster(Monster, monsters, rndTry)
             world:createMonster(selectedMonsterId, SpawnPos, -15);
             world:gfx(41, SpawnPos);
             Monster.movepoints = Monster.movepoints - 40;
-            base.common.TalkNLS(Monster, Character.say,
+            common.TalkNLS(Monster, Character.say,
                 "#me murmelt eine mystische Formel.",
                 "#me mumbles a mystical formula.");
             return true;
@@ -243,7 +243,7 @@ function CastLargeAreaMagic(monster, DamageRange, CastingTry, rndTry)
     for i,target in pairs(targets) do
         local CastTry = math.random(CastingTry[1],CastingTry[2]) - SpellResistence( target );
         CastTry = ( CastTry - CastingTry[1] ) / ( CastingTry[2] - CastingTry[1] ) * 100;
-        local Damage = base.common.ScaleUnlimited( DamageRange[1], DamageRange[2], CastTry );
+        local Damage = common.ScaleUnlimited( DamageRange[1], DamageRange[2], CastTry );
         if Damage > 0 then
             DealMagicDamage(target, Damage);
             world:gfx(36, target.pos);
@@ -274,12 +274,12 @@ function CastFireball(Monster, Enemy, DamageRange, CastingTry, rndTry)
         return false; -- something blocks
     end
 
-    base.common.CreateLine(Monster.pos, Enemy.pos, function(targetPos)
+    common.CreateLine(Monster.pos, Enemy.pos, function(targetPos)
         if world:isCharacterOnField( targetPos ) then
             local Enemy = world:getCharacterOnField( targetPos );
             local CastTry = math.random(CastingTry[1],CastingTry[2]) - SpellResistence( Enemy );
             CastTry = ( CastTry - CastingTry[1] ) / ( CastingTry[2] - CastingTry[1] ) * 100;
-            local Damage = base.common.ScaleUnlimited( DamageRange[1], DamageRange[2], CastTry );
+            local Damage = common.ScaleUnlimited( DamageRange[1], DamageRange[2], CastTry );
             if Damage > 0 then
                 DealMagicDamage(Enemy, Damage);
                 world:gfx(44, targetPos);
@@ -292,7 +292,7 @@ function CastFireball(Monster, Enemy, DamageRange, CastingTry, rndTry)
         world:gfx(1, targetPos);
         return true;
     end );
-    base.common.TalkNLS( Monster, Character.say,
+    common.TalkNLS( Monster, Character.say,
         "#me murmelt eine mystische Formel.",
         "#me mumbles a mystical formula.");
 
@@ -317,7 +317,7 @@ function CastFlamefield(Monster, Enemy, QualityRange, rndTry)
         return false; -- something blocks
     end
 
-    base.common.CreateLine(Monster.pos, Enemy.pos, function(targetPos)
+    common.CreateLine(Monster.pos, Enemy.pos, function(targetPos)
         if world:isCharacterOnField( targetPos ) then
             if world:isItemOnField( targetPos ) then
                 local foundItem = world:getItemOnField( targetPos );
@@ -333,7 +333,7 @@ function CastFlamefield(Monster, Enemy, QualityRange, rndTry)
         world:gfx(1, targetPos);
         return true;
     end );
-    base.common.TalkNLS( Monster, Character.say,
+    common.TalkNLS( Monster, Character.say,
         "#me murmelt eine mystische Formel.",
         "#me mumbles a mystical formula.");
 
@@ -344,19 +344,19 @@ end
 -- Helper function to handle the Brink of Death
 
 function DealMagicDamage(Target, Damage)
-    if base.character.IsPlayer(Target)
-        and base.character.WouldDie(Target, Damage + 1)
-        and not base.character.AtBrinkOfDeath(Target) then
+    if character.IsPlayer(Target)
+        and character.WouldDie(Target, Damage + 1)
+        and not character.AtBrinkOfDeath(Target) then
         -- Character would die.
-        base.character.ToBrinkOfDeath(Target);
-        base.common.TalkNLS(Target, Character.say,
+        character.ToBrinkOfDeath(Target);
+        common.TalkNLS(Target, Character.say,
             "#me geht zu Boden.",
             "#me falls to the ground.");
 
         if not Target:isAdmin() then --Admins don't want to get paralysed!
-            base.common.ParalyseCharacter(Target, 2, false, true);
+            common.ParalyseCharacter(Target, 2, false, true);
             TimeFactor = 1; -- See lte.chr_reg
-            lte.chr_reg.stallRegeneration(Target, 60/TimeFactor); -- Stall regeneration for one minute. Attention! If you change TimeFactor in lte.chr_reg to another value but 1, you have to divide this "60" by that factor
+            chr_reg.stallRegeneration(Target, 60/TimeFactor); -- Stall regeneration for one minute. Attention! If you change TimeFactor in lte.chr_reg to another value but 1, you have to divide this "60" by that factor
         end
     else
         Target:increaseAttrib("hitpoints", -Damage);

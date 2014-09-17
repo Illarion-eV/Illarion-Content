@@ -18,11 +18,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --
 -- These NPCs guard a area and warp any monster coming too close and pushing
 -- away players they do not like.
-require("base.character")
-require("base.class")
-require("base.common")
-require("base.factions")
-require("base.messages")
+local character = require("base.character")
+local class = require("base.class")
+local common = require("base.common")
+local factions = require("base.factions")
+local messages = require("base.messages")
 
 module("npc.base.guard", package.seeall)
 
@@ -33,7 +33,7 @@ local _warpHostile;
 local _isPointInGuardArea;
 local _getTextAndTalktype;
 
-guardNPC = base.class.class(function(self, rootNPC)
+guardNPC = class.class(function(self, rootNPC)
     if (rootNPC == nil or not rootNPC:is_a(npc.base.basic.baseNPC)) then
         return;
     end;
@@ -68,7 +68,7 @@ end
 
 function guardNPC:addWarpedMonsterText(germanText, englishText)
 	if (self._warpedMonsterText == nil) then
-        self._warpedMonsterText = base.messages.Messages();
+        self._warpedMonsterText = messages.Messages();
     end;
     
     self._warpedMonsterText:addMessage(germanText, englishText);
@@ -76,7 +76,7 @@ end
 
 function guardNPC:addWarpedPlayerText(germanText, englishText)
 	if (self._warpedPlayerText == nil) then
-        self._warpedPlayerText = base.messages.Messages();
+        self._warpedPlayerText = messages.Messages();
     end;
     
     self._warpedPlayerText:addMessage(germanText, englishText);
@@ -84,7 +84,7 @@ end
 
 function guardNPC:addHitPlayerText(germanText, englishText)
 	if (self._hitPlayerText == nil) then
-        self._hitPlayerText = base.messages.Messages();
+        self._hitPlayerText = messages.Messages();
     end;
     
     self._hitPlayerText:addMessage(germanText, englishText);
@@ -109,7 +109,7 @@ function _processMonsters(self, npcChar, radius)
 	local warpedMonster = false;
 	for _, monster in pairs(monsterList) do
 		if _isPointInGuardArea(self, npcChar, monster.pos) then
-			if not base.common.IsMonsterDocile(monster:getMonsterType()) then
+			if not common.IsMonsterDocile(monster:getMonsterType()) then
 				warpedMonster = true;
 				_warpHostile(self, npcChar, monster);
 			end
@@ -137,13 +137,13 @@ function _processPlayers(self, npcChar, radius)
 	local hitPlayers = false;
 	for _, player in pairs(playerList) do
 		if _isPointInGuardArea(self, npcChar, player.pos) then
-			local relation = base.factions.getPlayerRelation(player, self._parent._affiliation);
-			if (relation == base.factions.RELATION_AGGRESSIVE) then
+			local relation = factions.getPlayerRelation(player, self._parent._affiliation);
+			if (relation == factions.RELATION_AGGRESSIVE) then
 				player:increaseAttrib("hitpoints", -1000);
 				hitPlayers = true;
 				warpedPlayers = true;
 				_warpHostile(self, npcChar, player);
-			elseif (relation == base.factions.RELATION_HOSTILE) --[[or ((relation == base.factions.RELATION_NEUTRAL) and player.attackmode)]] then
+			elseif (relation == factions.RELATION_HOSTILE) --[[or ((relation == factions.RELATION_NEUTRAL) and player.attackmode)]] then
 				warpedPlayers = true;
 				_warpHostile(self, npcChar, player);
 			end

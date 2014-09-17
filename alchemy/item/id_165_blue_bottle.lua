@@ -19,8 +19,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- support potions: the effect other potions (stocks or essencebrews) or the effect of potion
 -- e.g. change a potion's quality, remove cooldown of  potion
 
-require("base.common")
-require("alchemy.base.alchemy")
+local common = require("base.common")
+local alchemy = require("alchemy.base.alchemy")
 
 module("alchemy.item.id_165_blue_bottle", package.seeall)
 
@@ -28,31 +28,31 @@ module("alchemy.item.id_165_blue_bottle", package.seeall)
 
 function DrinkPotion(User,SourceItem)
     -- no effecs yet
-	 base.common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", 
+	 common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", 
 		"You don't have the feeling that something happens.")
 end
 
 function UseItem(User, SourceItem, ltstate)
     -- repair potion in case it's broken
-	alchemy.base.alchemy.repairPotion(SourceItem)
+	alchemy.repairPotion(SourceItem)
 	-- repair end	
 	
 	if not ((SourceItem:getData("filledWith")=="potion") or (SourceItem:getData("filledWith") =="essenceBrew")) then
 		return -- no potion, no essencebrew, something else
 	end
 	
-	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
+	local cauldron = alchemy.GetCauldronInfront(User)
 	if cauldron then -- infront of a cauldron?
 	
 	   -- is the char an alchemist?
-	    local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
+	    local anAlchemist = alchemy.CheckIfAlchemist(User)
 		if not anAlchemist then
 			User:inform("Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
 			return
 		end
 	   
 	   if ( ltstate == Action.abort ) then
-	        base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+	        common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
 	       return
 		end
 		
@@ -69,12 +69,12 @@ function UseItem(User, SourceItem, ltstate)
 		FillIn(User, SourceItem, cauldron)
 	else -- not infront of a cauldron, therefore drink!
         if User.attackmode then
-		   base.common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während du kämpfst.", "You cannot use the potion while fighting.")
+		   common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während du kämpfst.", "You cannot use the potion while fighting.")
 		else
 			User:talk(Character.say, "#me trinkt eine hellblaue Flüssigkeit.", "#me drinks a light blue liquid.")
 			User.movepoints=User.movepoints - 20
 			DrinkPotion(User,SourceItem)
-			alchemy.base.alchemy.EmptyBottle(User,SourceItem)
+			alchemy.EmptyBottle(User,SourceItem)
 	    end
 	end  
 end
@@ -96,16 +96,16 @@ function FillIn(User, SourceItem, cauldron)
 			SupportStock(User,SourceItem,cauldron)
 		
 		else
-			alchemy.base.alchemy.FillFromTo(SourceItem,cauldron)
+			alchemy.FillFromTo(SourceItem,cauldron)
 			world:changeItem(cauldron)
 		end    
-		alchemy.base.alchemy.EmptyBottle(User,SourceItem)
+		alchemy.EmptyBottle(User,SourceItem)
 		
 	elseif (SourceItem:getData("filledWith") =="essenceBrew") then -- essence brew should be filled into the cauldron
 		-- unlike the support potion itself, the essence brew of it has no specail effects when filled in
 		-- therefore we call the ordinary fill-function; note that we call it after checking for potion in this script
 		-- and we do not set ltstate as a parameter, since we did the abort stuff already here
-		alchemy.base.alchemy.FillIntoCauldron(User,SourceItem,cauldron)
+		alchemy.FillIntoCauldron(User,SourceItem,cauldron)
 	end
 
 end
@@ -114,11 +114,11 @@ function SupportStock(User,support,stock)
     
 	-- no effects yet, support has no effect, stock is unchanged
     
-	local cauldron = base.common.GetFrontItem( User )
+	local cauldron = common.GetFrontItem( User )
 	-- remove support potion in case it was in the cauldron
-	alchemy.base.alchemy.RemoveAll(cauldron)
+	alchemy.RemoveAll(cauldron)
 	-- fill in the stock
-	alchemy.base.alchemy.FillFromTo(stock,cauldron)
+	alchemy.FillFromTo(stock,cauldron)
 	world:changeItem(cauldron)
 	world:gfx(1,cauldron.pos)
 end
@@ -127,17 +127,17 @@ function SupportEssenceBrew(User,support,essenceBrew)
     
 	-- no effects yet, support has no effect, essenceBrew is unchanged
 	
-	local cauldron = base.common.GetFrontItem( User )
+	local cauldron = common.GetFrontItem( User )
 	-- remove the support 
-	alchemy.base.alchemy.RemoveAll(cauldron)
+	alchemy.RemoveAll(cauldron)
 	-- fill in the brew
-	alchemy.base.alchemy.FillFromTo(essenceBrew,cauldron)
+	alchemy.FillFromTo(essenceBrew,cauldron)
 	world:changeItem(cauldron)
 	world:gfx(1,cauldron.pos)
 end
 
 function SupportPotion(User,support,potion)
-    local cauldron = base.common.GetFrontItem( User )
+    local cauldron = common.GetFrontItem( User )
 	local supportEffectId = tonumber(support:getData("potionEffectId"))
 	
 	local supportQuality, potionQuality, bottle
@@ -157,10 +157,10 @@ function SupportPotion(User,support,potion)
 	
 	    if (potion.id == cauldronPotion[supportEffectId-399]) or (potion.id == bottlePotion[supportEffectId-399]) then -- support and potion belong together
 		    
-			supportQuality = base.common.Limit(math.floor(supportQuality/100), 1, 9)
+			supportQuality = common.Limit(math.floor(supportQuality/100), 1, 9)
 		    local chance = supportQuality*9  -- support quality * 9 = chance that potion's quality is increased
-		    if base.common.Chance(chance, 100)==true then 
-			    potionQuality = base.common.Limit(potionQuality+100, 100, 999) -- new quality
+		    if common.Chance(chance, 100)==true then 
+			    potionQuality = common.Limit(potionQuality+100, 100, 999) -- new quality
 			    world:gfx(53,cauldron.pos)
 			else -- no success, quality stays the same
 		        world:gfx(1,cauldron.pos)
@@ -173,8 +173,8 @@ function SupportPotion(User,support,potion)
 	else
 	    world:gfx(1,cauldron.pos)
 	end	
-    alchemy.base.alchemy.RemoveAll(cauldron)
-	alchemy.base.alchemy.FillFromTo(potion,cauldron)
+    alchemy.RemoveAll(cauldron)
+	alchemy.FillFromTo(potion,cauldron)
 	cauldron:setData("potionQuality",potionQuality) -- here we set the new quality, in case the quality raiser was successfull
 	world:changeItem(cauldron)
 end

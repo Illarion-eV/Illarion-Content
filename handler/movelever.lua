@@ -14,11 +14,11 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
+local class = require("base.class")
 
 module("handler.movelever", package.seeall)
 
-moveLever = base.class.class(function(mvLev, lev)
+moveLever = class.class(function(mvLev, lev)
     mvLev.lever=lev;
 end);
 

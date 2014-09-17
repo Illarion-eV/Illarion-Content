@@ -14,21 +14,21 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("content.craft.smithing")
-require("content.craft.goldsmithing")
-require("base.licence")
+local smithing = require("content.craft.smithing")
+local goldsmithing = require("content.craft.goldsmithing")
+local licence = require("base.licence")
 
 module("item.id_172_anvil", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence
+	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
-	if content.craft.smithing.smithing:isHandToolEquipped(User) then
-		content.craft.smithing.smithing:showDialog(User, SourceItem);
-	elseif content.craft.goldsmithing.goldsmithing:isHandToolEquipped(User) then
-		content.craft.goldsmithing.goldsmithing:showDialog(User, SourceItem);
+	if smithing.smithing:isHandToolEquipped(User) then
+		smithing.smithing:showDialog(User, SourceItem);
+	elseif goldsmithing.goldsmithing:isHandToolEquipped(User) then
+		goldsmithing.goldsmithing:showDialog(User, SourceItem);
 	else
 		base.common.HighInformNLS(User,
             "Dir fehlt ein Werkzeug in deiner Hand um hier zu arbeiten: Hammer oder Feinschmiedehammer",

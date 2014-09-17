@@ -14,8 +14,8 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
-require("base.money")
+local common = require("base.common")
+local money = require("base.money")
 
 itemPos = {{en="Head", de="Kopf"},{en="Neck", de="Hals"},{en="Breast", de="Brust"},{en="Both Hands", de="Beide Hände"},{en="Left Hand", de="Linke Hand"}, {en="Right Tool", de="Rechte Hand"},
 	{en="Left Finger", de="Linker Finger"},{en="Right Finger", de="Rechter Finger"} ,{en="Legs", de="Beine"}, {en="Feet", de="Füße"}, {en="Coat", de="Umhang"},{en="Belt 1", de="Gürtel 1"},
@@ -71,7 +71,7 @@ function repairDialog(npcChar, speaker)
 	for i,item in ipairs(itemsOnChar) do
 		itemName = world:getItemName(item.id,language)
 		repairPrice = getRepairPrice(item,speaker)
-		itemPosText = base.common.GetNLS(speaker, itemPosOnChar[i].de, itemPosOnChar[i].en)
+		itemPosText = common.GetNLS(speaker, itemPosOnChar[i].de, itemPosOnChar[i].en)
 		sdItems:addOption(item.id,itemName .. " (" .. itemPosText .. ")\n"..repairPriceText..repairPrice);
 	end
 	speaker:requestSelectionDialog(sdItems);
@@ -89,10 +89,10 @@ function getRepairPrice(theItem, speaker)
 		if price == 0 then
 			return price;
 		else
-			gstring,estring=base.money.MoneyToString(price)
+			gstring,estring=money.MoneyToString(price)
 		end
 
-		return base.common.GetNLS(speaker, gstring, estring)
+		return common.GetNLS(speaker, gstring, estring)
 	end
 	return 0;
 end
@@ -111,13 +111,13 @@ function repair(npcChar, speaker, theItem, language)
 	        local notRepairable={"Entschuldigt, aber das kann ich nicht reparieren.", "I cannot repair this, sorry."}; --Priceless, perfect or stackable item
 	        npcChar:talk(Character.say, notRepairable[language+1]);
 	    else -- I can repair it!
-		    if not base.money.CharHasMoney(speaker,price) then --player is broke
+		    if not money.CharHasMoney(speaker,price) then --player is broke
 				local notEnoughMoney={"Ihr habt anscheinend nicht genug Geld. Die Reparatur würde"..priceMessage.." kosten.","You don't have enough money I suppose. I demand"..priceMessage.." for repairing this item."}; --Player is broke
 				npcChar:talk(Character.say, notEnoughMoney[language+1]);
 		    else --he has the money
 				local successRepair={"Der Gegenstand wird für"..priceMessage.." in Stand gesetzt.", "The item is repaired at a cost of"..priceMessage.."."};
 				speaker:inform(successRepair[language+1]);
-				base.money.TakeMoneyFromChar(speaker,price); --pay!
+				money.TakeMoneyFromChar(speaker,price); --pay!
                 theItem.quality=theItem.quality+toRepair; --repair!
                 world:changeItem(theItem);
 		    end --price/repair

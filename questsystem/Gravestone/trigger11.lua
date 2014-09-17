@@ -14,8 +14,8 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("handler.createeffect")
-require("questsystem.base")
+local createeffect = require("handler.createeffect")
+local base = require("questsystem.base")
 module("questsystem.Gravestone.trigger11", package.seeall)
 
 local QUEST_NUMBER = 10000
@@ -38,7 +38,7 @@ function LookAtItem(PLAYER, item)
     
     HANDLER(PLAYER)
     
-    questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
+    base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
     return base.lookat.GenerateLookAt(PLAYER, item, base.lookat.NONE)
   end
 
@@ -46,7 +46,7 @@ function LookAtItem(PLAYER, item)
 end
 
 function HANDLER(PLAYER)
-    handler.createeffect.createEffect(position(605, 344, 0), 53):execute()
+    createeffect.createEffect(position(605, 344, 0), 53):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

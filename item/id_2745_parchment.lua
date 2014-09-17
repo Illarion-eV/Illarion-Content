@@ -14,14 +14,14 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common")
-require("alchemy.base.alchemy")
-require("alchemy.base.herbs")
-require("item.id_52_filledbucket")
-require("alchemy.item.id_331_green_bottle")
-require("alchemy.base.gemdust")
-require("item.id_164_emptybottle")
-require("triggerfield.potionToTeacher")
+local common = require("base.common")
+local alchemy = require("alchemy.base.alchemy")
+local herbs = require("alchemy.base.herbs")
+local id_52_filledbucket = require("item.id_52_filledbucket")
+local id_331_green_bottle = require("alchemy.item.id_331_green_bottle")
+local gemdust = require("alchemy.base.gemdust")
+local id_164_emptybottle = require("item.id_164_emptybottle")
+local potionToTeacher = require("triggerfield.potionToTeacher")
 
 module("item.id_2745_parchment", package.seeall)
 
@@ -47,7 +47,7 @@ end
 --------------------------------------------------------
 function LearnLenniersDream(User)
 
-	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
+	local anAlchemist = alchemy.CheckIfAlchemist(User)
 	if not anAlchemist then
 		User:inform("Ihr scheint nur seltsames Gekritzel zu stehen.","Only strange scribbling can be seen here.")
 		return
@@ -71,7 +71,7 @@ function TeachLenniersDream(User)
 
 
 	local callback = function(dialog)
-		triggerfield.potionToTeacher.TellRecipe(User, 318)
+		potionToTeacher.TellRecipe(User, 318)
 	end
 
 	local stockDe, stockEn = GenerateStockDescription(User)
@@ -116,9 +116,9 @@ function GetStockFromQueststatus(User)
 	if User:getQuestProgress(860) == 0 then
 		local stockList
 		stockList = GenerateStockConcentration()
-		User:setQuestProgress(860,alchemy.base.alchemy.DataListToNumber(stockList))
+		User:setQuestProgress(860,alchemy.DataListToNumber(stockList))
 	end
-	return alchemy.base.alchemy.SplitData(User,User:getQuestProgress(860))
+	return alchemy.SplitData(User,User:getQuestProgress(860))
 end
 
 function GenerateStockDescription(User)
@@ -127,8 +127,8 @@ function GenerateStockDescription(User)
 	local de = ""
 	local en = ""
 	for i=1,#stockList do
-		de = de .. alchemy.base.alchemy.wirkung_de[stockList[i]] .. " "..alchemy.base.alchemy.wirkstoff[i]
-		en = en .. alchemy.base.alchemy.wirkung_en[stockList[i]] .. " "..alchemy.base.alchemy.wirkstoff[i]
+		de = de .. alchemy.wirkung_de[stockList[i]] .. " "..alchemy.wirkstoff[i]
+		en = en .. alchemy.wirkung_en[stockList[i]] .. " "..alchemy.wirkstoff[i]
 		if i ~= 8 then
 			de = de .. ", "
 			en = en .. ", "
@@ -159,7 +159,7 @@ end
 function AlchemyRecipe(User, SourceItem,ltstate,checkVar)
 
 
-    if alchemy.base.alchemy.GetCauldronInfront(User) then
+    if alchemy.GetCauldronInfront(User) then
 	    -- The char wants to use the recipe infront of a cauldron.
 		UseRecipe(User, SourceItem,ltstate,checkVar)
 	else
@@ -173,7 +173,7 @@ function UseRecipe(User, SourceItem,ltstate,checkVar)
 
 
 	-- is the char an alchemist?
-	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
+	local anAlchemist = alchemy.CheckIfAlchemist(User)
 	if not anAlchemist then
 		User:inform("Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
 		return
@@ -193,7 +193,7 @@ end
 
 function StartBrewing(User,SourceItem,ltstate,checkVar)
     local ingredientsList = getIngredients(SourceItem)
-	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
+	local cauldron = alchemy.GetCauldronInfront(User)
 
 	if not cauldron then -- security check
 		return
@@ -267,7 +267,7 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 
 	USER_POSITION_LIST[User.id] = USER_POSITION_LIST[User.id]+1
 
-	if alchemy.base.alchemy.CheckExplosionAndCleanList(User) then
+	if alchemy.CheckExplosionAndCleanList(User) then
 	    if USER_POSITION_LIST[User.id] < #ingredientsList then
 			User:inform("Du brichst deine Arbeit vor dem "..USER_POSITION_LIST[User.id]..". Arbeitsschritt ab.", "You abort your work before the "..USER_POSITION_LIST[User.id]..". work step.")
 		end
@@ -289,29 +289,29 @@ function CallBrewFunctionAndDeleteItem(User,deleteItem, deleteId,cauldron)
 	    if deleteId == 52 then -- water
 			local buckets = User:getItemList(deleteId)
 			-- here, we could need a check if the bucket has no datas
-			item.id_52_filledbucket.FillIn(User, buckets[1], cauldron, true)
+			id_52_filledbucket.FillIn(User, buckets[1], cauldron, true)
 
-		elseif alchemy.base.alchemy.CheckIfGemDust(deleteId) then	--gemdust
-			alchemy.base.gemdust.BrewingGemDust(User,deleteId,cauldron)
+		elseif alchemy.CheckIfGemDust(deleteId) then	--gemdust
+			gemdust.BrewingGemDust(User,deleteId,cauldron)
 			local data = {}
 			User:eraseItem(deleteId,1,data)
 
-		elseif alchemy.base.alchemy.getPlantSubstance(deleteId) or deleteId == 157 then -- plant/rotten tree bark
-            alchemy.base.herbs.BeginnBrewing(User,deleteId,cauldron)
+		elseif alchemy.getPlantSubstance(deleteId) or deleteId == 157 then -- plant/rotten tree bark
+            herbs.BeginnBrewing(User,deleteId,cauldron)
 			local data = {}
 			User:eraseItem(deleteId,1,data)
         end
 
 	else
 	    if deleteItem.id == 164 then -- empty bottle
-		    item.id_164_emptybottle.FillIntoBottle(User, deleteItem, cauldron)
+		    id_164_emptybottle.FillIntoBottle(User, deleteItem, cauldron)
 
 		elseif deleteItem.id == 331 then -- stock
-			alchemy.item.id_331_green_bottle.FillStockIn(User,deleteItem, cauldron)
-			alchemy.base.alchemy.EmptyBottle(User,deleteItem)
+			id_331_green_bottle.FillStockIn(User,deleteItem, cauldron)
+			alchemy.EmptyBottle(User,deleteItem)
 
-		elseif alchemy.base.alchemy.CheckIfPotionBottle(deleteItem) then
-		    alchemy.base.alchemy.FillIntoCauldron(User,deleteItem,cauldron)
+		elseif alchemy.CheckIfPotionBottle(deleteItem) then
+		    alchemy.FillIntoCauldron(User,deleteItem,cauldron)
 		end
 	end
 
@@ -325,9 +325,9 @@ function GetStartAction(User, ingredientsList, cauldron)
 	if type(ingredient) == "number" then
 		if ingredient == 52 then
 			theString = "water"
-		elseif alchemy.base.alchemy.CheckIfGemDust(ingredient) then
+		elseif alchemy.CheckIfGemDust(ingredient) then
 		    theString = "gemPowder"
-		elseif alchemy.base.alchemy.getPlantSubstance(ingredient) or ingredient == 157 then
+		elseif alchemy.getPlantSubstance(ingredient) or ingredient == 157 then
 			theString = "plant"
 		end
 	else
@@ -340,7 +340,7 @@ function GetStartAction(User, ingredientsList, cauldron)
 		end
 	end
 
-	local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = alchemy.base.alchemy.GetStartAction(User, theString, cauldron)
+	local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = alchemy.GetStartAction(User, theString, cauldron)
 	return duration,gfxId,gfxIntervall,sfxId,sfxIntervall
 end
 
@@ -368,8 +368,8 @@ function GetItem(User, ingredientsList)
 			if liquid == "stock" then
 				local stockList = User:getItemList(331)
 				for i=1,#stockList do
-					local currentList = alchemy.base.alchemy.SubstanceDatasToList(stockList[i])
-					if alchemy.base.alchemy.CheckListsIfEqual(neededList,currentList) then
+					local currentList = alchemy.SubstanceDatasToList(stockList[i])
+					if alchemy.CheckListsIfEqual(neededList,currentList) then
 					    deleteItem = stockList[i]
 					end
 				end
@@ -390,7 +390,7 @@ function GetItem(User, ingredientsList)
 							end
 						end
 					end
-					if alchemy.base.alchemy.CheckListsIfEqual(neededList,currentList) then
+					if alchemy.CheckListsIfEqual(neededList,currentList) then
 					    deleteItem = bottleList[i]
 					end
 				end
@@ -437,7 +437,7 @@ function getIngredients(SourceItem)
 end
 
 function getText(User,deText,enText)
-    return base.common.base.common.GetNLS(User,deText,enText)
+    return common.common.GetNLS(User,deText,enText)
 end
 
 ---------------- ALCHEMY END ---------------------------

@@ -14,27 +14,27 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("monster.base.monstermagic")
-require("monster.base.base")
-require("monster.base.drop")
-require("monster.base.lookat")
-require("monster.base.quests")
-require("base.messages");
-require("monster.base.kills")
-require("base.arena")
-require("base.explosion")
+local monstermagic = require("monster.base.monstermagic")
+local base = require("monster.base.base")
+local drop = require("monster.base.drop")
+local lookat = require("monster.base.lookat")
+local quests = require("monster.base.quests")
+local messages = require("base.messages")
+local kills = require("monster.base.kills")
+local arena = require("base.arena")
+local explosion = require("base.explosion")
 module("monster.mon_27_wasps", package.seeall)
 
 
 function ini(Monster)
 
 init=true;
-monster.base.quests.iniQuests();
+quests.iniQuests();
 killer={}; --A list that keeps track of who attacked the monster last
 
 --Random Messages
 
-msgs = base.messages.Messages();
+msgs = messages.Messages();
 msgs:addMessage("#me fliegt, ein hohes, weinerlich klingendes Geräusch machend umher.", "#me flies around, making a high pitched whining sound.");
 msgs:addMessage("#me landet nur um wieder abheben zu können begleitet von einem kurzen Summen.", "#me lands, only to take off again with a short buzz.");
 msgs:addMessage("#me peitscht, einen Landeplatz suchend durch die Luft.", "#me whips about in the air, searching for somewhere to land.");
@@ -55,7 +55,7 @@ function enemyNear(Monster,Enemy)
     end
 
     if math.random(1,10) == 1 then
-        monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+        drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
 
     local MonID=Monster:getMonsterType();
@@ -71,10 +71,10 @@ function enemyOnSight(Monster,Enemy)
         ini(Monster);
     end
 
-	monster.base.monstermagic.regeneration(Monster); --if an enemy is around, the monster regenerates slowly
-    monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+	monstermagic.regeneration(Monster); --if an enemy is around, the monster regenerates slowly
+    drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
 
-	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
+	if base.isMonsterArcherInRange(Monster, Enemy) then
 		return true
 	end
 
@@ -83,7 +83,7 @@ function enemyOnSight(Monster,Enemy)
         world:gfx(9,Monster.pos);
     end
 
-	if monster.base.base.isMonsterInRange(Monster, Enemy) then
+	if base.isMonsterInRange(Monster, Enemy) then
         return true;
     else
         return false
@@ -95,7 +95,7 @@ function onAttacked(Monster,Enemy)
     if init==nil then
         ini(Monster);
     end
-    monster.base.kills.setLastAttacker(Monster,Enemy)
+    kills.setLastAttacker(Monster,Enemy)
     killer[Monster.id]=Enemy.id; --Keeps track who attacked the monster last
 end
 
@@ -104,7 +104,7 @@ function onCasted(Monster,Enemy)
     if init==nil then
         ini(Monster);
     end
-    monster.base.kills.setLastAttacker(Monster,Enemy)
+    kills.setLastAttacker(Monster,Enemy)
     killer[Monster.id]=Enemy.id; --Keeps track who attacked the monster last
 end
 
@@ -116,23 +116,23 @@ function onDeath(Monster)
 
         if murderer then --Checking for quests
 
-            monster.base.quests.checkQuest(murderer,Monster);
+            quests.checkQuest(murderer,Monster);
             killer[Monster.id]=nil;
             murderer=nil;
 
         end
     end
 
-    if base.arena.isArenaMonster(Monster) then
+    if arena.isArenaMonster(Monster) then
         return
     end
 
     local MonID=Monster:getMonsterType();
     if (MonID==278) then -- wasp of Fire!!!
-		base.explosion.CreateExplosion(Monster.pos);
+		explosion.CreateExplosion(Monster.pos);
     end
 
-	monster.base.drop.ClearDropping();
-    monster.base.drop.AddDropItem(2529,1,100,333,0,1); --honeycombs
-    monster.base.drop.Dropping(Monster);
+	drop.ClearDropping();
+    drop.AddDropItem(2529,1,100,333,0,1); --honeycombs
+    drop.Dropping(Monster);
 end

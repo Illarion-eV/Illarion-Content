@@ -14,15 +14,15 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.gems")
-require("content.lookat.unique")
-require("base.common")
-require("base.lookat")
-require("base.factions")
-require("alchemy.base.analysis")
-require("base.money")
-require("item.base.crafts")
-require("content.vision")
+local gems = require("base.gems")
+local unique = require("content.lookat.unique")
+local common = require("base.common")
+local lookat = require("base.lookat")
+local factions = require("base.factions")
+local analysis = require("alchemy.base.analysis")
+local money = require("base.money")
+local crafts = require("item.base.crafts")
+local vision = require("content.vision")
 
 -- UPDATE items SET itm_script='item.gems' WHERE itm_id IN (45, 46, 197, 198, 283, 284, 285);
 
@@ -97,7 +97,7 @@ function lookAtFilter(user, lookAt, data)
 end
 
 
-gemCraft = item.base.crafts.Craft:new{
+gemCraft = crafts.Craft:new{
     craftEN = "Magic Blacksmith",
     craftDE = "Magieschmied",
     npcCraft = true,
@@ -135,7 +135,7 @@ function getMagicGemData(level)
 end
 
 function LookAtItem(user, item)
-    local lookAt = base.lookat.GenerateLookAt(user, item)
+    local lookAt = lookat.GenerateLookAt(user, item)
 
     local data = {}
     data.gemLevel = tonumber(item:getData(levelDataKey))
@@ -147,17 +147,17 @@ end
 
 function UseItem(User, SourceItem, ltstate)
     if SourceItem:getData(levelDataKey) == "" then
-	    alchemy.base.analysis.CauldronPotionCheck(User, SourceItem, TargetItem, ltstate)
+	    analysis.CauldronPotionCheck(User, SourceItem, TargetItem, ltstate)
 		return
 	end
 
-	local TargetItemEvilRock = base.common.GetItemInArea(User.pos, 2805);
-	local AmountDarkColumnEvilrock = #content.vision.darkColumnEvilrock
+	local TargetItemEvilRock = common.GetItemInArea(User.pos, 2805);
+	local AmountDarkColumnEvilrock = #vision.darkColumnEvilrock
 	if TargetItemEvilRock ~= nil then
 		for i = 1,AmountDarkColumnEvilrock do
-			if TargetItemEvilRock.pos == content.vision.darkColumnEvilrock[i] then
-				base.common.TurnTo(User,TargetItemEvilRock.pos); -- turn if necessary
-				content.vision.UseDarkColumns(User,TargetItemEvilRock,ltstate)
+			if TargetItemEvilRock.pos == vision.darkColumnEvilrock[i] then
+				common.TurnTo(User,TargetItemEvilRock.pos); -- turn if necessary
+				vision.UseDarkColumns(User,TargetItemEvilRock,ltstate)
 				return
 			end
 		end
@@ -179,7 +179,7 @@ function handleSocketing(user, gem)
 
 	local callback = function(dialog)
         local success = dialog:getSuccess()
-        if success and base.common.CheckItem(user, gem) then
+        if success and common.CheckItem(user, gem) then
             local selected = dialog:getSelectedIndex() + 1
             local slot = socketablePositions[selected]
             local item = user:getItemAt(slot)
@@ -204,8 +204,8 @@ function handleSocketing(user, gem)
     end
 
     local language = user:getPlayerLanguage()
-    local caption = base.common.GetNLS(user, "Sockeln", "Socketing")
-    local description = base.common.GetNLS(user, "Bitte wähle eine Waffe die gesockelt werden soll:", "Please select a weapon to insert the gem into:")
+    local caption = common.GetNLS(user, "Sockeln", "Socketing")
+    local description = common.GetNLS(user, "Bitte wähle eine Waffe die gesockelt werden soll:", "Please select a weapon to insert the gem into:")
     local dialog = SelectionDialog(caption, description, callback)
     dialog:setCloseOnMove()
 
@@ -303,16 +303,16 @@ function magicSmith(npc, player)
         end
     end
 
-    local title = base.common.GetNLS(player, "Magieschmied", "Magic Blacksmith")
-    local text = base.common.GetNLS(player, "Wie kann ich behilflich sein?", "How may I be of assistance?")
+    local title = common.GetNLS(player, "Magieschmied", "Magic Blacksmith")
+    local text = common.GetNLS(player, "Wie kann ich behilflich sein?", "How may I be of assistance?")
     local dialog = SelectionDialog(title, text, callback)
     dialog:setCloseOnMove()
 
     local hammer = 122
     local tongs = 2140
 
-    dialog:addOption(hammer, base.common.GetNLS(player, "Edelsteine vereinigen", "Combine gems"))
-    dialog:addOption(tongs, base.common.GetNLS(player, "Edelsteine herauslösen", "Unsocket gems"))
+    dialog:addOption(hammer, common.GetNLS(player, "Edelsteine vereinigen", "Combine gems"))
+    dialog:addOption(tongs, common.GetNLS(player, "Edelsteine herauslösen", "Unsocket gems"))
 
     player:requestSelectionDialog(dialog)
 end
@@ -334,7 +334,7 @@ function unsocketGems(user)
             local item = user:getItemAt(slot)
 
             if isUnsocketable(item.id) and itemHasGems(item) then
-                if base.money.CharHasMoney(user, 100000) then
+                if money.CharHasMoney(user, 100000) then
                     for i = 1, #gemDataKey do
                         local itemKey = gemDataKey[i]
                         local level = tonumber(item:getData(itemKey))
@@ -349,7 +349,7 @@ function unsocketGems(user)
                         end
                     end
 
-                    base.money.TakeMoneyFromChar(user, 100000)
+                    money.TakeMoneyFromChar(user, 100000)
                     world:changeItem(item)
 
                     user:inform("Alle Edelsteine wurden aus dem Gegenstand entfernt und dir zurückgegeben.",
@@ -362,8 +362,8 @@ function unsocketGems(user)
     end
 
     local language = user:getPlayerLanguage()
-    local caption = base.common.GetNLS(user, "Entsockeln", "Unsocketing")
-    local description = base.common.GetNLS(user, "Bitte wähle einen Gegenstand der entsockelt werden soll. Kosten: Zehn Goldmünzen",
+    local caption = common.GetNLS(user, "Entsockeln", "Unsocketing")
+    local description = common.GetNLS(user, "Bitte wähle einen Gegenstand der entsockelt werden soll. Kosten: Zehn Goldmünzen",
                                                  "Please select an item to remove all gems from. Cost: ten gold coins")
     local dialog = SelectionDialog(caption, description, callback)
     dialog:setCloseOnMove()
@@ -379,5 +379,5 @@ function unsocketGems(user)
 end
 
 function itemHasGems(item)
-    return base.gems.getGemBonus(item) > 0
+    return gems.getGemBonus(item) > 0
 end

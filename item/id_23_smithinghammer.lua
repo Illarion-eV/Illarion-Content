@@ -16,18 +16,18 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_23_smithinghammer' WHERE itm_id IN (23);
 
-require("content.craft.smithing")
-require("base.licence")
-require("item.general.metal")
+local smithing = require("content.craft.smithing")
+local licence = require("base.licence")
+local metal = require("item.general.metal")
 
 module("item.id_23_smithinghammer", package.seeall)
 
-LookAtItem = item.general.metal.LookAtItem
+LookAtItem = metal.LookAtItem
 
 function UseItem(User, SourceItem, ltstate)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence
+	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
-    content.craft.smithing.smithing:showDialog(User, SourceItem)
+    smithing.smithing:showDialog(User, SourceItem)
 end

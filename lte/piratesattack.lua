@@ -17,8 +17,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- PiratesAttack, id 82
 -- controll the pirates attack in .base.seafaring
 
-require("base.common")
-require("base.seafaring")
+local common = require("base.common")
+local seafaring = require("base.seafaring")
 module("lte.piratesattack", package.seeall)
 
 function addEffect(Effect,User)               				
@@ -29,7 +29,7 @@ function callEffect(Effect,User)
 	local theQuestStatus=User:getQuestProgress(662)
 --User:inform("queststatus"..theQuestStatus,"queststatus"..theQuestStatus)
 	if theQuestStatus == 6 then
-		base.seafaring.piratesTimeWarning(User)
+		seafaring.piratesTimeWarning(User)
 	end 
 
 	if theQuestStatus >= 30 and User:getQuestProgress(663) == 1 then
@@ -37,14 +37,14 @@ function callEffect(Effect,User)
 	end
 
 	if theQuestStatus < 31 and User:getQuestProgress(663) == 1 then
-		if not base.seafaring.piratesPiratesAreThere(User) then
-			base.seafaring.piratesPiratesKill(User,base.seafaring.previousselected,base.seafaring.travlerslist[User.name])
+		if not seafaring.piratesPiratesAreThere(User) then
+			seafaring.piratesPiratesKill(User,seafaring.previousselected,seafaring.travlerslist[User.name])
 			return false
 		else
 			for d=1,2 do
-				local checkDoor = world:getItemOnField(base.seafaring.pirateDoors[d])
+				local checkDoor = world:getItemOnField(seafaring.pirateDoors[d])
 				if checkDoor.id == 3318 then
-					base.seafaring.piratesGeorgeBackstabRocks(User)
+					seafaring.piratesGeorgeBackstabRocks(User)
 					return false
 				end
 			end
@@ -52,15 +52,15 @@ function callEffect(Effect,User)
 	end
 
 	if theQuestStatus < 31 and User:getQuestProgress(663) == 0 then
-		base.seafaring.piratesFight(User)
+		seafaring.piratesFight(User)
 		User:setQuestProgress(663,1)
 	end
 
 	if theQuestStatus > 0 then 
 		User:setQuestProgress(662,theQuestStatus-1) --cooling!
 	else
-		if base.seafaring.piratesPiratesAreThere(User) then
-			base.seafaring.piratesPiratesRule(User)
+		if seafaring.piratesPiratesAreThere(User) then
+			seafaring.piratesPiratesRule(User)
 		end
 		return false
 	end

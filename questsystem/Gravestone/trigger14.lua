@@ -14,8 +14,8 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("handler.createplayeritem")
-require("questsystem.base")
+local createplayeritem = require("handler.createplayeritem")
+local base = require("questsystem.base")
 module("questsystem.Gravestone.trigger14", package.seeall)
 
 local QUEST_NUMBER = 10000
@@ -30,7 +30,7 @@ local NPC_REPLY_EN = "Thank you very much. I give you a ruby ring, a symbol of e
 function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
     and PLAYER:getType() == Character.player
-    and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
+    and base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
         if PLAYER:getPlayerLanguage() == Player.german then
             NPC_TRIGGER=string.gsub(NPC_TRIGGER_DE,'([ ]+)',' .*');
         else
@@ -51,7 +51,7 @@ function receiveText(npc, type, text, PLAYER)
             
             HANDLER(PLAYER)
             
-            questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
+            base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
         
             return true
         end
@@ -69,7 +69,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 68, 990, 1):execute()
+    createplayeritem.createPlayerItem(PLAYER, 68, 990, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

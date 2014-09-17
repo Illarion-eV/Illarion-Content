@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common")
+local common = require("base.common")
 
 module("scheduled.gaia", package.seeall)
 
@@ -26,7 +26,7 @@ function Init()
 	RarePlantByGround = {}
 	NormalPlantByGround = {}
     
-	local gt = base.common.GroundType
+	local gt = common.GroundType
 	
 	-- normal herbs; collectable with sickle
 	AddPlant(144, {gt.rocks},false)                         -- virgins weed
@@ -122,8 +122,8 @@ function PutPlantOnField(rare)
         myList = NormalPlantByGround
     end	
 	if theTile then
-		local groundType = base.common.GetGroundType( theTile:tile() )
-		local gt = base.common.GroundType
+		local groundType = common.GetGroundType( theTile:tile() )
+		local gt = common.GroundType
 		
 		if theTile:countItems() > 0 then -- check if no item is on that field
 		    return

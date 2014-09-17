@@ -18,8 +18,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE common SET com_script='gm.items.id_99_lockpicks' WHERE com_itemid=99;
 
-require("base.common")
-require("base.factions")
+local common = require("base.common")
+local factions = require("base.factions")
 
 module("gm.items.id_99_lockpicks", package.seeall)
 
@@ -153,10 +153,10 @@ function eraser(User, SourceItem, ltstate)
 		local chosenItem;
 		local index = dialog:getSelectedIndex();
 		if (index == 0) then
-			chosenItem = base.common.GetFrontItem(User);
+			chosenItem = common.GetFrontItem(User);
 			if chosenItem ~= nil then
 				world:erase(chosenItem, chosenItem.number);
-				User:logAdmin("erases " .. chosenItem.number .. " items from map: " .. world:getItemName(chosenItem.id, Player.english) .. "(" .. chosenItem.id .. ") at " .. tostring(base.common.GetFrontPosition(User)));
+				User:logAdmin("erases " .. chosenItem.number .. " items from map: " .. world:getItemName(chosenItem.id, Player.english) .. "(" .. chosenItem.id .. ") at " .. tostring(common.GetFrontPosition(User)));
 			end
 		else
 			chosenItem = itemsOnChar[index];
@@ -218,12 +218,12 @@ function factionInfoOfCharsInRadius(User, SourceItem, ltstate)
 	local germanRank, englishRank;
 
 	for _, player in ipairs(players) do
-		germanRank, englishRank = base.factions.getRank(player, true);
+		germanRank, englishRank = factions.getRank(player, true);
 		if germanRank == nil or englishRank == nil then
 			germanRank = "Vogelfrei";
 			englishRank = "Outlaw";
 		end
-		infos = infos..player.name.." - "..englishRank.."/"..germanRank.." - "..base.factions.getRankpoints(player).."\n";
+		infos = infos..player.name.." - "..englishRank.."/"..germanRank.." - "..factions.getRankpoints(player).."\n";
 	end
 	local mDialog = MessageDialog("Factioninformation", infos, nil);
 	User:requestMessageDialog(mDialog);
@@ -244,11 +244,11 @@ function charInfo(User, SourceItem, ltstate)
 			return;
 		end
 		local chosenPlayer = players[dialog:getSelectedIndex() + 1];
-		local faction = base.factions.getFaction(chosenPlayer);
-		local factionInfo = "Town: " .. base.factions.getMembershipByName(chosenPlayer);
+		local faction = factions.getFaction(chosenPlayer);
+		local factionInfo = "Town: " .. factions.getMembershipByName(chosenPlayer);
 		factionInfo = factionInfo .. "\nChanged towns already (town count): " .. faction.towncnt;
-		if (base.factions.townRanks[faction.tid] ~= nil and base.factions.townRanks[faction.tid][faction.rankTown] ~= nil) then
-			local germanRank, englishRank = base.factions.getRank(chosenPlayer, true);
+		if (factions.townRanks[faction.tid] ~= nil and factions.townRanks[faction.tid][faction.rankTown] ~= nil) then
+			local germanRank, englishRank = factions.getRank(chosenPlayer, true);
 			factionInfo = factionInfo .. "\nRank: " .. englishRank .. "/" .. germanRank;
 		else
 			factionInfo = factionInfo .. "\nRank: no rank " .. faction.rankTown;

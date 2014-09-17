@@ -14,8 +14,8 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common")
-require("base.lookat")
+local common = require("base.common")
+local lookat = require("base.lookat")
 
 module("item.paintings", package.seeall)
 
@@ -118,10 +118,10 @@ PaintingListEnglish =
 
 function LookAtItem(User, Item)
     
-    local lookAt = base.lookat.GenerateLookAt(User, Item)
+    local lookAt = lookat.GenerateLookAt(User, Item)
     if lookAt.description == "" then
         val = ((Item.pos.x + Item.pos.y + Item.pos.z) % #PaintingListGerman)+1;
-        lookAt.description = base.common.GetNLS(User, PaintingListGerman[val], PaintingListEnglish[val])
+        lookAt.description = common.GetNLS(User, PaintingListGerman[val], PaintingListEnglish[val])
     end
 
     return lookAt

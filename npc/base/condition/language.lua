@@ -14,14 +14,14 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
-require("npc.base.condition.condition")
+local class = require("base.class")
+local condition = require("npc.base.condition.condition")
 
 module("npc.base.condition.language", package.seeall)
 
-language = base.class.class(npc.base.condition.condition.condition,
+language = class.class(condition.condition,
 function(self, value)
-    npc.base.condition.condition.condition:init(self);
+    condition.condition:init(self);
     if (value == "german" or value == "deutsch") then
         self["value"] = Player.german;
     else

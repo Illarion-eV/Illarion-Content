@@ -14,9 +14,9 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
-require("base.hair")
-require("base.money")
+local common = require("base.common")
+local hair = require("base.hair")
+local money = require("base.money")
 
 module("triggerfield.hairdresser", package.seeall)
 
@@ -29,7 +29,7 @@ function MoveToField(User)
 
 	-- gets all npcs in a range of 1
 	local npcsInRange = world:getNPCSInRangeOf(User.pos, 1)
-	local germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
+	local germanMoney, englishMoney = money.MoneyToString(priceInCP);
 
 	User:setQuestProgress(32,User:getHair());
 	User:setQuestProgress(33,User:getBeard());
@@ -39,10 +39,10 @@ function MoveToField(User)
 
 	-- gets the npcStruct to make the npc talk or whatever else
 	for i, npcStruct in pairs(npcsInRange) do
-		if not base.money.CharHasMoney(User,priceInCP) then --not enough money!
+		if not money.CharHasMoney(User,priceInCP) then --not enough money!
 			gText="Ihr habt nicht genug Geld dabei! Ihr benötigt"..germanMoney..".";
 			eText="You don't have enough money with you! You'll need"..englishMoney..".";
-			outText=base.common.GetNLS(User,gText,eText);
+			outText=common.GetNLS(User,gText,eText);
 			npcStruct:talk(Character.say, outText);
 			break;
 		end
@@ -78,16 +78,16 @@ function MoveFromField(User)
 end
 
 function payForHairchange(User, NPC)
-	local germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
+	local germanMoney, englishMoney = money.MoneyToString(priceInCP);
 
-	if not base.money.CharHasMoney(User,priceInCP) then --not enough money!
+	if not money.CharHasMoney(User,priceInCP) then --not enough money!
 		gText="Ihr habt nicht genug Geld dabei! Ihr benötigt"..germanMoney..".";
 		eText="You don't have enough money with you! You'll need"..englishMoney..".";
-		outText=base.common.GetNLS(User,gText,eText);
+		outText=common.GetNLS(User,gText,eText);
         NPC:talk(Character.say, outText);
 		return;
 	end
-	base.money.TakeMoneyFromChar(User,priceInCP); --take money
+	money.TakeMoneyFromChar(User,priceInCP); --take money
 	User:inform("Ihr habt "..germanMoney.." bezahlt. Viel Dank und beehrt mich bald wieder!", "You paid"..englishMoney..". Thank you and please come back again!");
 	return true;
 end
@@ -108,11 +108,11 @@ function selectChoice(User, NPC)
 		end
 	end
 
-	local dialog = SelectionDialog(base.common.GetNLS(User,"Friseur","Hair dresser"), base.common.GetNLS(User,"Bitte wähle aus, was du ändern möchtest. Alles kostet 5 Gold und es wird bezahlt wenn du das Feld verlässt.","Please select what you would like to change. Everything costs 5 gold and will be paid once you leave the field."), callback)
+	local dialog = SelectionDialog(common.GetNLS(User,"Friseur","Hair dresser"), common.GetNLS(User,"Bitte wähle aus, was du ändern möchtest. Alles kostet 5 Gold und es wird bezahlt wenn du das Feld verlässt.","Please select what you would like to change. Everything costs 5 gold and will be paid once you leave the field."), callback)
 	dialog:setCloseOnMove()
-	dialog:addOption(0, base.common.GetNLS(User, "Frisur","Hair style"))
-	dialog:addOption(0, base.common.GetNLS(User, "Bart","Beard"))
-	dialog:addOption(0, base.common.GetNLS(User, "Haarfarbe","Hair color"))
+	dialog:addOption(0, common.GetNLS(User, "Frisur","Hair style"))
+	dialog:addOption(0, common.GetNLS(User, "Bart","Beard"))
+	dialog:addOption(0, common.GetNLS(User, "Haarfarbe","Hair color"))
 
 	User:requestSelectionDialog(dialog)
 end
@@ -134,18 +134,18 @@ function selectHair(User, NPC)
 			if selected == 0 then
 				selectChoice(User, NPC);
 			else
-				User:setHair(base.hair.hairStyles[race][gender][selected].id)
+				User:setHair(hair.hairStyles[race][gender][selected].id)
 				selectChoice(User, NPC);
 			end
 		end
 	end
 
-	local dialog = SelectionDialog(base.common.GetNLS(User,"Friseur","Hair dresser"), base.common.GetNLS(User,"Bitte wähle aus, welche Frisur du haben möchtest.","Please select what hair style you wish to have."), callback);
+	local dialog = SelectionDialog(common.GetNLS(User,"Friseur","Hair dresser"), common.GetNLS(User,"Bitte wähle aus, welche Frisur du haben möchtest.","Please select what hair style you wish to have."), callback);
 	dialog:setCloseOnMove();
-	dialog:addOption(0, base.common.GetNLS(User, "Zurück", "Back"));
-	local hairTable = base.hair.hairStyles[race][gender];
+	dialog:addOption(0, common.GetNLS(User, "Zurück", "Back"));
+	local hairTable = hair.hairStyles[race][gender];
 	for i=1, #(hairTable) do
-		dialog:addOption(0, base.common.GetNLS(User, hairTable[i].nameDe, hairTable[i].nameEn));
+		dialog:addOption(0, common.GetNLS(User, hairTable[i].nameDe, hairTable[i].nameEn));
 	end
 
 	User:requestSelectionDialog(dialog)
@@ -172,18 +172,18 @@ function selectBeard(User, NPC)
 			if selected == 0 then
 				selectChoice(User, NPC);
 			else
-				User:setBeard(base.hair.beardStyles[race][selected].id);
+				User:setBeard(hair.beardStyles[race][selected].id);
 				selectChoice(User, NPC);
 			end
 		end
 	end
 
-	local dialog = SelectionDialog(base.common.GetNLS(User,"Friseur","Hair dresser"), base.common.GetNLS(User,"Bitte wähle aus, welchen Bart du haben möchtest.","Please select what beard style you wish to have."), callback);
+	local dialog = SelectionDialog(common.GetNLS(User,"Friseur","Hair dresser"), common.GetNLS(User,"Bitte wähle aus, welchen Bart du haben möchtest.","Please select what beard style you wish to have."), callback);
 	dialog:setCloseOnMove()
-	dialog:addOption(0, base.common.GetNLS(User, "Zurück", "Back"));
-	local beardTable = base.hair.beardStyles[race];
+	dialog:addOption(0, common.GetNLS(User, "Zurück", "Back"));
+	local beardTable = hair.beardStyles[race];
 	for i=1, #(beardTable) do
-		dialog:addOption(0, base.common.GetNLS(User, beardTable[i].nameDe, beardTable[i].nameEn))
+		dialog:addOption(0, common.GetNLS(User, beardTable[i].nameDe, beardTable[i].nameEn))
 	end
 	User:requestSelectionDialog(dialog)
 end
@@ -234,12 +234,12 @@ function selectHaircolor(User, NPC)
 		end
 	end
 
-	local dialog = SelectionDialog(base.common.GetNLS(User,"Friseur","Hair dresser"), base.common.GetNLS(User,"Bitte wähle aus, welche Farbe du haben möchtest.","Please select what hair color you wish to have."), callback);
+	local dialog = SelectionDialog(common.GetNLS(User,"Friseur","Hair dresser"), common.GetNLS(User,"Bitte wähle aus, welche Farbe du haben möchtest.","Please select what hair color you wish to have."), callback);
 	dialog:setCloseOnMove();
-	dialog:addOption(0, base.common.GetNLS(User, "Zurück", "Back"));
-	dialog:addOption(0, base.common.GetNLS(User,"Naturhaarfarbe", "Natural hair color"));
+	dialog:addOption(0, common.GetNLS(User, "Zurück", "Back"));
+	dialog:addOption(0, common.GetNLS(User,"Naturhaarfarbe", "Natural hair color"));
 	for i=1, #(hairColorSimple) do
-		dialog:addOption(0, base.common.GetNLS(User,hairColorSimple[i].nameDe,hairColorSimple[i].nameEn));
+		dialog:addOption(0, common.GetNLS(User,hairColorSimple[i].nameDe,hairColorSimple[i].nameEn));
 	end
 
 	User:requestSelectionDialog(dialog)

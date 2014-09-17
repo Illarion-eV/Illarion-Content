@@ -14,21 +14,21 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common")
-require("base.time")
+local common = require("base.common")
+local time = require("base.time")
 
 module("npc.base.repeatable_quests", package.seeall)
 
 function checkIfTimesExpired(User, quest, monthToRepeat, dayToRepeat, hourToRepeat) 
 	local questState, questLastChanged = User:getQuestProgress(quest);
 	local month, day, hour;
-	local y, mo, d, h, mi, sec = base.time.getRLDateFromUnixTimestamp(questLastChanged);
+	local y, mo, d, h, mi, sec = time.getRLDateFromUnixTimestamp(questLastChanged);
 	
 	debug("LastChanged: "..questLastChanged)
 	
-	if base.time.daysPerMonth[mo] == 28 then
+	if time.daysPerMonth[mo] == 28 then
 		month = monthToRepeat * 2419200;
-	elseif base.time.daysPerMonth[mo] == 31 then
+	elseif time.daysPerMonth[mo] == 31 then
 		month = monthToRepeat * 2678400;
 	else 
 		month = monthToRepeat * 2592000;

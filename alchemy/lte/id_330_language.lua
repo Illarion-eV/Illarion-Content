@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- by Falk
 -- reworked by Merung
 
-require("base.common")
+local common = require("base.common")
 
 module("alchemy.lte.id_330_language", package.seeall)
 
@@ -32,7 +32,7 @@ function addEffect(Effect, User)
 end
 
 function callEffect(Effect,User)                  			
-	base.common.InformNLS( User, "Du fühlst, dass der Sprachtrank seine Wirkung verliert.", "You feel that the language potion looses its effect.")
+	common.InformNLS( User, "Du fühlst, dass der Sprachtrank seine Wirkung verliert.", "You feel that the language potion looses its effect.")
 	return false
 end
 

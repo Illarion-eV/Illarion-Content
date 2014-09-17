@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common");
+local common = require("base.common")
 module("monster.lte.lte_mananuke", package.seeall);
 
 -- INSERT INTO longtimeeffects VALUES (500, 'satk_mananuke', 'monster.lte.mananuke');
@@ -60,15 +60,15 @@ function doExplosion(manaNuke, User)
 	if not foundManaStolen then
 		return;
 	end
-	local Range = base.common.Limit(0, 20, math.ceil(ManaStolen / 1000));
+	local Range = common.Limit(0, 20, math.ceil(ManaStolen / 1000));
 	local Damage = math.ceil(ManaStolen / 2);
 	
-	local minX = base.common.Limit(0, 1024, User.pos.x - Range);
-	local maxX = base.common.Limit(0, 1024, User.pos.x + Range);
-	local minY = base.common.Limit(0, 1024, User.pos.y - Range);
-	local maxY = base.common.Limit(0, 1024, User.pos.y + Range);
+	local minX = common.Limit(0, 1024, User.pos.x - Range);
+	local maxX = common.Limit(0, 1024, User.pos.x + Range);
+	local minY = common.Limit(0, 1024, User.pos.y - Range);
+	local maxY = common.Limit(0, 1024, User.pos.y + Range);
 	
-	base.common.InformNLS(User, "[EXPLODINGNOWDE]", "[EXPLODINGNOWEN]");
+	common.InformNLS(User, "[EXPLODINGNOWDE]", "[EXPLODINGNOWEN]");
 	world:makeSound(1, User.pos);
 	for x = minX, maxX do
 		for y = minY, maxY do

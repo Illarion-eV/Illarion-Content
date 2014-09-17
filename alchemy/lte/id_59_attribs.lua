@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- LTE für das Druidensystem
 -- by Falk
-require("base.common")
+local common = require("base.common")
 
 module("alchemy.lte.id_59_attribs", package.seeall)
 
@@ -33,9 +33,9 @@ function callEffect(Effect,User)
     -- callEffect is only called once; we just need to return false
 	local find_i,sight = Effect:findValue("sightpotion")
 	if find then
-	    base.common.InformNLS( User, "Deine Augen fühlen sich wieder normal an.", "Your eyes feel normal again.")
+	    common.InformNLS( User, "Deine Augen fühlen sich wieder normal an.", "Your eyes feel normal again.")
 	else
-		base.common.InformNLS( User, "Du fühlst, dass der Stärkungstrank seine Wirkung verliert.", "You feel that the strengthening potion looses its effect.")
+		common.InformNLS( User, "Du fühlst, dass der Stärkungstrank seine Wirkung verliert.", "You feel that the strengthening potion looses its effect.")
 	end
 	return false
 

@@ -22,8 +22,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --
 -- Author: Martin Karing
 
-require("base.class")
-require("base.factions")
+local class = require("base.class")
+local factions = require("base.factions")
 
 module("npc.base.responses", package.seeall)
 
@@ -31,7 +31,7 @@ processorList = {};
 
 do
 	--- Default processor implementation that does simply nothing.
-	local processor = base.class.class(function(self)
+	local processor = class.class(function(self)
 		-- "check" is the function called once a response is added. This function
 		-- has to determine if this processor has at any point a impact on the 
 		-- response. If this function returns "false" the processor will never be
@@ -55,7 +55,7 @@ do
 		-- Player name processor
 		-- This processor replaces %CHARNAME with the name of the character
 		-- that is talking with the NPC.
-		local playerNameProcessor = base.class.class(processor,
+		local playerNameProcessor = class.class(processor,
 		function(self, value)
 			processor:init(self);
 		end);
@@ -73,7 +73,7 @@ do
 	do
 		-- NPC name processor
 		-- This processor replaces %NPCNAME with the name of the NPC.
-		local npcNameProcessor = base.class.class(processor,
+		local npcNameProcessor = class.class(processor,
 		function(self, value)
 			processor:init(self);
 		end);
@@ -91,7 +91,7 @@ do
 	do
 		-- town processor
 		-- This processor replaces %TOWN with the name of the town a character belongs to.
-		local townNameProcessor = base.class.class(processor,
+		local townNameProcessor = class.class(processor,
 		function(self, value)
 			processor:init(self);
 		end);
@@ -101,7 +101,7 @@ do
 		end;
 
 		function townNameProcessor:process(playerChar, npc, npcChar, response)
-			local townName = base.factions.getMembershipByName(playerChar)
+			local townName = factions.getMembershipByName(playerChar)
 			return string.gsub(response, "%%TOWN", townName);
 		end;
 		table.insert(processorList, townNameProcessor());
@@ -110,7 +110,7 @@ do
 	do
 		-- rank processor
 		-- This processor replaces %RANK with the rank of a character.
-		local rankProcessor = base.class.class(processor,
+		local rankProcessor = class.class(processor,
 		function(self, value)
 			processor:init(self);
 		end);
@@ -120,7 +120,7 @@ do
 		end;
 
 		function rankProcessor:process(playerChar, npc, npcChar, response)
-			local rank = base.factions.getRank(playerChar)
+			local rank = factions.getRank(playerChar)
 			return string.gsub(response, "%%RANK", rank);
 		end;
 		table.insert(processorList, rankProcessor());

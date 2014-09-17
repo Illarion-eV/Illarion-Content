@@ -14,14 +14,14 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
-require("npc.base.consequence.consequence")
+local class = require("base.class")
+local consequence = require("npc.base.consequence.consequence")
 
 module("npc.base.consequence.trade", package.seeall)
 
-trade = base.class.class(npc.base.consequence.consequence.consequence,
+trade = class.class(consequence.consequence,
 function(self, tradeNPC)
-    npc.base.consequence.consequence.consequence:init(self);
+    consequence.consequence:init(self);
     
     self["tradeNPC"] = tradeNPC;
     self["perform"] = _trade_helper;

@@ -14,11 +14,11 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
+local class = require("base.class")
 
 module("handler.teachrune", package.seeall)
 
-teachRune = base.class.class(function(tchrune, ply, mtype, rID)
+teachRune = class.class(function(tchrune, ply, mtype, rID)
     tchrune.player=ply;
     tchrune.magictype=mtype;
     tchrune.runeID=rID;

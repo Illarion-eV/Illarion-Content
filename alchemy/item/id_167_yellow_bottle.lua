@@ -15,8 +15,8 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 -- medicine (since illness will be a postVBU project, this will also be postVBU)
-require("base.common")
-require("alchemy.base.alchemy")
+local common = require("base.common")
+local alchemy = require("alchemy.base.alchemy")
 
 module("alchemy.item.id_167_yellow_bottle", package.seeall)
 
@@ -28,25 +28,25 @@ end
 
 function UseItem(User, SourceItem, ltstate)
     -- repair potion in case it's broken
-	alchemy.base.alchemy.repairPotion(SourceItem)
+	alchemy.repairPotion(SourceItem)
 	-- repair end
 	
 	if not ((SourceItem:getData("filledWith")=="potion") or (SourceItem:getData("filledWith") =="essenceBrew")) then
 		return -- no potion, no essencebrew, something else
 	end
 	
-	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
+	local cauldron = alchemy.GetCauldronInfront(User)
 	if cauldron then -- infront of a cauldron?
-	    alchemy.base.alchemy.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
+	    alchemy.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
 	
 	else -- not infront of a cauldron, therefore drink!
         if User.attackmode then
-		   base.common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während du kämpfst.", "You cannot use the potion while fighting.")
+		   common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während du kämpfst.", "You cannot use the potion while fighting.")
 		else
 			User:talk(Character.say, "#me trinkt eine gelbe Flüssigkeit.", "#me drinks a yellow liquid.")
 			User.movepoints=User.movepoints - 20
 			DrinkPotion(User,SourceItem) -- call effect
-			alchemy.base.alchemy.EmptyBottle(User,SourceItem)
+			alchemy.EmptyBottle(User,SourceItem)
 	    end
 	end
 end

@@ -18,32 +18,32 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_271_scythe' WHERE itm_id IN (271);
 
-require("base.common")
-require("content.gatheringcraft.grainharvesting")
-require("item.general.metal")
+local common = require("base.common")
+local grainharvesting = require("content.gatheringcraft.grainharvesting")
+local metal = require("item.general.metal")
 
 module("item.id_271_scythe", package.seeall)
 
-LookAtItem = item.general.metal.LookAtItem
+LookAtItem = metal.LookAtItem
 
 function getGrain(User)
 
 	-- first check front position for grain
-	local TargetItem = base.common.GetFrontItem(User);
+	local TargetItem = common.GetFrontItem(User);
 	if ( TargetItem ~= nil and TargetItem.id == 248 ) then
 		return TargetItem;
 	end
 
 	local foundYoungGrain = false; -- check if we only find not fully grown grain
-	TargetItem, foundYoungGrain = content.gatheringcraft.grainharvesting.GetNearbyGrain(User);
+	TargetItem, foundYoungGrain = grainharvesting.GetNearbyGrain(User);
 	if ( TargetItem == nil ) then
 		-- since we're here, there is no fully grown grain
 		if ( foundYoungGrain ) then
-			base.common.HighInformNLS( User,
+			common.HighInformNLS( User,
 			"Das Getreide ist noch nicht reif für den Schnitt.",
 			"The grain is not ready for harvest yet." );
 		else
-			base.common.HighInformNLS( User,
+			common.HighInformNLS( User,
 			"Du brauchst Getriede um es mit der Sense zu schneiden.",
 			"You need grain for harvesting it with the scythe." );
 		end
@@ -57,7 +57,7 @@ function UseItem(User, SourceItem, ltstate)
 
 	local grain = getGrain(User);
 	if grain ~= nil then
-		content.gatheringcraft.grainharvesting.StartGathering(User, grain, ltstate);
+		grainharvesting.StartGathering(User, grain, ltstate);
 	end
 
 end

@@ -49,7 +49,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (404,275,-6,'triggerfield.ferry');
 -- INSERT INTO triggerfields VALUES (404,276,-6,'triggerfield.ferry');
 
-require("base.common")
+local common = require("base.common")
 
 
 module("triggerfield.ferry", package.seeall)

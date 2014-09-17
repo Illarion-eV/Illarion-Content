@@ -19,17 +19,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- additional tool: sickle ( 126 )
 
-require("base.common")
-require("content.gathering")
+local common = require("base.common")
+local gathering = require("content.gathering")
 
 module("content.gatheringcraft.herbgathering", package.seeall)
 
 function StartGathering(User, SourceItem, ltstate)
 
-	content.gathering.InitGathering();
-	local theCraft = content.gathering.herbgathering;
+	gathering.InitGathering();
+	local theCraft = gathering.herbgathering;
 
-	base.common.ResetInterruption( User, ltstate );
+	common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
 		if (User:increaseAttrib("sex",0) == 0) then
 			gText = "seine";
@@ -42,13 +42,13 @@ function StartGathering(User, SourceItem, ltstate)
 		return
 	end
 
-	if not base.common.CheckItem( User, SourceItem ) then -- security check
+	if not common.CheckItem( User, SourceItem ) then -- security check
 		return
 	end
 
 	-- additional tool item is needed
 	if (User:countItemAt("all",126)==0) then
-		base.common.HighInformNLS( User,
+		common.HighInformNLS( User,
 		"Du brauchst eine Sichel um zu ernten.",
 		"You need a sickle for harvesting." );
 		return
@@ -57,18 +57,18 @@ function StartGathering(User, SourceItem, ltstate)
 	if ( toolItem.id ~=126 ) then
 		toolItem = User:getItemAt(6);
 		if ( toolItem.id ~= 126 ) then
-			base.common.HighInformNLS( User,
+			common.HighInformNLS( User,
 			"Du musst die Sichel in der Hand haben!",
 			"You have to hold the sickle in your hand!" );
 			return
 		end
 	end
 
-	if not base.common.FitForWork( User ) then -- check minimal food points
+	if not common.FitForWork( User ) then -- check minimal food points
 		return
 	end
 
-	base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+	common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 
 	-- check the amount
 	local MaxAmount = 10;
@@ -106,7 +106,7 @@ function StartGathering(User, SourceItem, ltstate)
 		end
 		if ( amount == 0 ) then
 			-- not regrown...
-			base.common.HighInformNLS( User,
+			common.HighInformNLS( User,
 			"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.",
 			"This plant is already completely harvested. Give it time to grow again." );
 			if ( changeItem ) then
@@ -133,7 +133,7 @@ function StartGathering(User, SourceItem, ltstate)
 	-- there is a harvestable item, but does the ground fit?
 	local harvestProduct = GetValidProduct(SourceItem);
 	if ( harvestProduct == nil ) then
-		base.common.HighInformNLS( User,
+		common.HighInformNLS( User,
 		"Diese Pflanze trägt nichts Nützliches, das du mit deiner Sichel schneiden kannst. Vielleicht wird diese Art Pflanze in einem anderen Boden besser gedeihen.",
 		"This plant yields nothing useful which you can cut with your sickle. Maybe this type of plant will flourish better in another soil." );
 		return;
@@ -188,7 +188,7 @@ function StartGathering(User, SourceItem, ltstate)
 	local notCreated = User:createItem( harvestProduct.productId, 1, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( harvestProduct.productId, notCreated, User.pos, true, 333, nil );
-		base.common.HighInformNLS(User,
+		common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -196,21 +196,21 @@ function StartGathering(User, SourceItem, ltstate)
 		local nextItem = getHerbItem(User, true);
 		if ( amount > 0 or nextItem~=nil) then  -- there are still items we can work on
 			if (amount < 1) then
-				base.common.TurnTo( User, nextItem.pos ); -- turn, so we find this item in next call as first item
+				common.TurnTo( User, nextItem.pos ); -- turn, so we find this item in next call as first item
 				SourceItem = nextItem;
 			end
 			theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User, toolItem);
 			User:changeSource(SourceItem);
 			User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else
-			base.common.HighInformNLS( User,
+			common.HighInformNLS( User,
 			"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.",
 			"This plant is already completely harvested. Give it time to grow again." );
 		end
 	end
 
-	if base.common.GatheringToolBreaks( User, toolItem, theCraft:GenWorkTime(User, toolItem) ) then -- damage and possibly break the tool
-		base.common.HighInformNLS(User,
+	if common.GatheringToolBreaks( User, toolItem, theCraft:GenWorkTime(User, toolItem) ) then -- damage and possibly break the tool
+		common.HighInformNLS(User,
 		"Deine alte Sichel zerbricht.",
 		"Your old sickle breaks.");
 		return
@@ -240,7 +240,7 @@ function GetValidProduct(TargetItem)
 		return nil;
 	end
 
-	local GroundType = base.common.GetGroundType(world:getField(TargetItem.pos):tile());
+	local GroundType = common.GetGroundType(world:getField(TargetItem.pos):tile());
 	for _,hp in pairs(HerbItems[TargetItem.id]) do
 		if (hp.groundType == nil or GroundType == hp.groundType) then
 			return hp
@@ -249,7 +249,7 @@ function GetValidProduct(TargetItem)
 	return nil;
 end
 
--- for GroundType, see base.common.GroundType. If it doesn't matter, just set it to nil
+-- for GroundType, see common.GroundType. If it doesn't matter, just set it to nil
 -- GrowFactors define how fast the plants regrow in the 4 seasons
 function CreateHarvestProduct(ProductId, GroundType, GrowFactors)
     local retValue = {};
@@ -274,7 +274,7 @@ end
 
 function getHerbItem(User, OnlyValidProducts)
 
-	local targetItem = base.common.GetFrontItem(User);
+	local targetItem = common.GetFrontItem(User);
 	if (isHerbItem(targetItem)) then
 		if ((not OnlyValidProducts) or (GetValidProduct(targetItem) ~= nil)) then
 			return targetItem;
@@ -307,7 +307,7 @@ function InitHerbItems()
 	HerbItems = {};
 
     -- just for short writing
-    local gt = base.common.GroundType;
+    local gt = common.GroundType;
 
 	-- herbs marked with TODO probably have the wrong name in the database. Correct names in German are given in the old list below
     -- druid herbs

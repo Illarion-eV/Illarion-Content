@@ -17,16 +17,16 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_2498_empty_bottle' WHERE itm_id IN (2498);
 
-require("base.common");
-require("content.gatheringcraft.milking")
+local common = require("base.common")
+local milking = require("content.gatheringcraft.milking")
 
 module("item.id_2498_empty_bottle", package.seeall)
 
 function getAnimal(User)
 
 	-- check for sheep or cow in front
-	local targetCharacter = base.common.GetFrontCharacter(User);
-	if (targetCharacter ~= nil and content.gatheringcraft.milking.isMilkable(targetCharacter)) then
+	local targetCharacter = common.GetFrontCharacter(User);
+	if (targetCharacter ~= nil and milking.isMilkable(targetCharacter)) then
 		return targetCharacter;
 	end
 
@@ -36,7 +36,7 @@ function getAnimal(User)
 			local pos = position(User.pos.x+x,User.pos.y+y,User.pos.z);
 			if ( world:isCharacterOnField(pos) ) then
 				targetCharacter = world:getCharacterOnField(pos);
-				if (content.gatheringcraft.milking.isMilkable(targetCharacter)) then
+				if (milking.isMilkable(targetCharacter)) then
 					return targetCharacter;
 				end
 			end
@@ -50,22 +50,22 @@ function UseItem(User, SourceItem, ltstate)
 	-- milking
 	local animal = getAnimal(User);
 	if animal ~= nil then
-		content.gatheringcraft.milking.StartGathering(User, animal, ltstate);
+		milking.StartGathering(User, animal, ltstate);
 		return
 	end
 
 	-- water scooping
 
 	-- check for well or fountain
-	local TargetItem = base.common.GetItemInArea(User.pos, 2207);
+	local TargetItem = common.GetItemInArea(User.pos, 2207);
 	if (TargetItem == nil) then
-		TargetItem = base.common.GetItemInArea(User.pos, 631);
+		TargetItem = common.GetItemInArea(User.pos, 631);
 		if (TargetItem == nil) then
-			TargetItem = base.common.GetItemInArea(User.pos, 2079);
+			TargetItem = common.GetItemInArea(User.pos, 2079);
 		end
 	end
 	if (TargetItem ~= nil) then
-		base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
+		common.TurnTo( User, TargetItem.pos ); -- turn if necessary
 		UseItemScooping(User, SourceItem, ltstate);
 		return;
 	end
@@ -73,13 +73,13 @@ function UseItem(User, SourceItem, ltstate)
 	-- check for water tile
 	local targetPos = GetWaterTilePosition(User);
 	if (targetPos ~= nil) then
-		base.common.TurnTo( User, targetPos ); -- turn if necessary
+		common.TurnTo( User, targetPos ); -- turn if necessary
 		UseItemScooping(User, SourceItem, ltstate);
 		return;
 	end
 
 	-- nothing found to fill the bottle
-	base.common.InformNLS(User,
+	common.InformNLS(User,
 	  "Du kannst Flaschen an einem Brunnen oder an einem Gewässer füllen, oder ein geeignetes Tier melken. Lämmer und Bullen können aus naheliegenden Gründen nicht gemolken werden.",
 	  "You can fill bottles at a well or at some waters, or milk an adequate domestic animal. Lamps and bulls cannot be milked, obviously.");
 
@@ -90,7 +90,7 @@ function GetWaterTilePosition(User)
   for x=-Radius,Radius do
     for y=-Radius,Radius do
       local targetPos = position(User.pos.x + x, User.pos.y, User.pos.z);
-      if (base.common.GetGroundType(world:getField(targetPos):tile()) == base.common.GroundType.water) then
+      if (common.GetGroundType(world:getField(targetPos):tile()) == common.GroundType.water) then
         return targetPos;
       end
     end
@@ -100,7 +100,7 @@ end
 
 function UseItemScooping(User, SourceItem, ltstate)
 
-	base.common.ResetInterruption( User, ltstate );
+	common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
 		if (User:increaseAttrib("sex",0) == 0) then
 			gText = "seine";
@@ -113,11 +113,11 @@ function UseItemScooping(User, SourceItem, ltstate)
 		return
 	end
 
-	if not base.common.CheckItem( User, SourceItem ) then -- security check
+	if not common.CheckItem( User, SourceItem ) then -- security check
 		return
 	end
 
-	if not base.common.FitForWork( User ) then -- check minimal food points
+	if not common.FitForWork( User ) then -- check minimal food points
 		return
 	end
 
@@ -133,7 +133,7 @@ function UseItemScooping(User, SourceItem, ltstate)
 	local notCreated = User:createItem( 2496, 1, 999, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 2496, notCreated, User.pos, true, 999, nil );
-		base.common.HighInformNLS(User,
+		common.HighInformNLS(User,
 		"Du kannst nichts mehr halten.",
 		"You can't carry any more.");
 	end

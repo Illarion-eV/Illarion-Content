@@ -14,11 +14,11 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
+local class = require("base.class")
 
 module("handler.createplayeritem", package.seeall)
 
-createPlayerItem = base.class.class(function(creplitem, ply, ID, qual, amnt)
+createPlayerItem = class.class(function(creplitem, ply, ID, qual, amnt)
     creplitem.player=ply;
     creplitem.itemId=ID;
     creplitem.quality=qual;

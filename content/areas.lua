@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- here, areas can be added
 
-require("base.polygons");
+local polygons = require("base.polygons")
 
 module("content.areas", package.seeall);
 
@@ -71,7 +71,7 @@ function AddArea(name, aList)
 	end
 	AreaList[name] = {};
 	for _,poly in pairs(aList) do
-		table.insert(AreaList[name], base.polygons.Polygon(poly[1],poly[2]));
+		table.insert(AreaList[name], polygons.Polygon(poly[1],poly[2]));
 	end
 	return true;
 end

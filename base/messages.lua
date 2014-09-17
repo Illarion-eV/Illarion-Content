@@ -44,11 +44,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --      The result is similar to msgs:getMessage(index), just the index is
 --      selected randomly.
 
-require("base.class")
+local class = require("base.class")
 module("base.messages", package.seeall)
 
 -- create messages class
-Messages = base.class.class(function(msg)
+Messages = class.class(function(msg)
     msg.__german = {};
     msg.__english = {};
     msg.__count = 0;

@@ -14,8 +14,8 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common")
-require("base.doors")
+local common = require("base.common")
+local doors = require("base.doors")
 
 module("item.doors", package.seeall)
 
@@ -25,26 +25,26 @@ function UseItem(User, SourceItem)
 
 	if User.pos.z==100 or User.pos.z==101 then --On Noobia: Doors must not be closed.
 		
-	    base.common.InformNLS(User,"Die Tür klemmt und kann nicht geschlossen werden.","The door is jammed and won't close.");
+	    common.InformNLS(User,"Die Tür klemmt und kann nicht geschlossen werden.","The door is jammed and won't close.");
 	    return; --bailing out
 			
 	end --Noobia end
 		
-    if base.doors.CloseDoor(SourceItem) then
+    if doors.CloseDoor(SourceItem) then
 		
-	    base.common.InformNLS(User,"Du schließt die Tür.","You close the door.");
+	    common.InformNLS(User,"Du schließt die Tür.","You close the door.");
      
 	else
 		
-		local OpenDoor,OpenOK=base.doors.OpenDoor(SourceItem);
+		local OpenDoor,OpenOK=doors.OpenDoor(SourceItem);
 		
         if OpenOK then
 		
-            base.common.InformNLS(User,"Du öffnest die Tür.","You open the door.");
+            common.InformNLS(User,"Du öffnest die Tür.","You open the door.");
 			
         elseif OpenDoor then
 		
-            base.common.InformNLS(User,"Du versuchst die Tür zu öffnen, doch sie ist verschlossen.","You try to open the door, but the door is locked.");
+            common.InformNLS(User,"Du versuchst die Tür zu öffnen, doch sie ist verschlossen.","You try to open the door, but the door is locked.");
 			
         end
 		

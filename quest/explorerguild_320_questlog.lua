@@ -16,8 +16,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (230, 'quest.explorerguild_320_questlog');
 
-require("base.common")
-require("quest.explorersguild")
+local common = require("base.common")
+local explorersguild = require("quest.explorersguild")
 
 module("quest.explorerguild_320_questlog", package.seeall)
 
@@ -37,15 +37,15 @@ FINAL_QUEST_STATUS = 3
 
 
 function QuestTitle(user)
-    return base.common.GetNLS(user, Title[GERMAN], Title[ENGLISH])
+    return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])
 end
 
 function QuestDescription(user, status)
     
-	local german = "Du hast bereits ".. quest.explorersguild.CountStones(user) .." Markierungssteine der Abenteurergilde gefunden. Weiter so!"
-    local english = "You have already found ".. quest.explorersguild.CountStones(user) .." marker stones of the Explorers' Guild. Keep it up!"
+	local german = "Du hast bereits ".. explorersguild.CountStones(user) .." Markierungssteine der Abenteurergilde gefunden. Weiter so!"
+    local english = "You have already found ".. explorersguild.CountStones(user) .." marker stones of the Explorers' Guild. Keep it up!"
 
-    return base.common.GetNLS(user, german, english)
+    return common.GetNLS(user, german, english)
 end
 
 function QuestTargets(user, status)

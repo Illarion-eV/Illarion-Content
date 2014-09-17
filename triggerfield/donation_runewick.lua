@@ -19,8 +19,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (896,779,2,'triggerfield.donation_runewick');
 -- INSERT INTO triggerfields VALUES (896,780,2,'triggerfield.donation_runewick');
 
-require("base.common")
-require("triggerfield.donation_base")
+local common = require("base.common")
+local donation_base = require("triggerfield.donation_base")
 
 module("triggerfield.donation_runewick", package.seeall)
 
@@ -29,13 +29,13 @@ module("triggerfield.donation_runewick", package.seeall)
 
 function PutItemOnField(Item,User)
 
-    donated=triggerfield.donation_base.donate(Item,User,"Runewick","Elvaine Morgan","TreasureRunewick"); -- That's all folks
+    donated=donation_base.donate(Item,User,"Runewick","Elvaine Morgan","TreasureRunewick"); -- That's all folks
 
    -- Quest 205 (Runewick Treasury, NPC Neiran el Nyarale)
 
     if (donated) and (User:getQuestProgress(205) == 1) then
 		User:setQuestProgress(205, 2); --Quest solved!
-		base.common.InformNLS(User,"[Queststatus] Du hast erfolgreich die Aufgabe von Neiran el Nyarale aufgeführt. Sprich mit ihm, um deine Belohnung einzufordern.","[Quest status] You successfully completet the task given by Neiran el Nyarale. Talk to him to claim your reward."); --sending a message
+		common.InformNLS(User,"[Queststatus] Du hast erfolgreich die Aufgabe von Neiran el Nyarale aufgeführt. Sprich mit ihm, um deine Belohnung einzufordern.","[Quest status] You successfully completet the task given by Neiran el Nyarale. Talk to him to claim your reward."); --sending a message
 	end
 
 	-- Quest end

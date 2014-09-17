@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
+local common = require("base.common")
 module("lte.tying_captive", package.seeall)
 --[[ LTE 24
      tying up: captive
@@ -272,7 +272,7 @@ function MoveCharacter( Character, Effect, XOff, YOff, range )
 end
 
 function InformW( User, textInDe, textInEn )
-    User:inform(base.common.GetNLS( User, textInDe, textInEn ),Player.mediumPriority);
+    User:inform(common.GetNLS( User, textInDe, textInEn ),Player.mediumPriority);
 end
 
 function IsEffectInLogoutTime( Effect, Character )

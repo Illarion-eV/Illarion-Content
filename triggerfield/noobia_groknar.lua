@@ -22,7 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (42,40,100,'triggerfield.noobia_groknar');
 
 
-require("base.common")
+local common = require("base.common")
 
 module("triggerfield.noobia_groknar", package.seeall)
 

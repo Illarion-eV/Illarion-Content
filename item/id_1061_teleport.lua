@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_1061_teleport' WHERE itm_id=1061;
 
-require("base.common")
+local common = require("base.common")
 
 module("item.id_1061_teleport", package.seeall)
 
@@ -32,7 +32,7 @@ function UseItem(User, SourceItem, ltstate)
     if (destCoordX ~= "") and (destCoordY ~= "") and (destCoordZ ~= "") then
 
         local radius = 4;
-        local targetPos = base.common.getFreePos(User.pos, radius)
+        local targetPos = common.getFreePos(User.pos, radius)
 
         if targetPos ~= User.Pos then
             -- create a gate
@@ -44,7 +44,7 @@ function UseItem(User, SourceItem, ltstate)
             world:makeSound(4, targetPos)
 
         else -- no free space found
-            base.common.InformNLS( User,
+            common.InformNLS( User,
             "Rings um Dich erzittern Boden und Gegenstände!",
             "All around you ground and items are trembling!" )
         end

@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.orders")
+local orders = require("base.orders")
 
 module("lte.order_retention_period", package.seeall)
 
@@ -37,9 +37,9 @@ end
 
 function removeEffect (eff,User)
     --beim entfernen die Vertrauenswürdigkeit erhöhen aber wert für gute Aufträge senken
-    base.orders.setThrustWorthyness(User,
-        base.orders.ThrustworthynessChangeAfterRetentionPeriod,
-        base.orders.GoodOrderChangeAfterRetentionPeriod);
+    orders.setThrustWorthyness(User,
+        orders.ThrustworthynessChangeAfterRetentionPeriod,
+        orders.GoodOrderChangeAfterRetentionPeriod);
 end
 
 function loadEffect (eff, User)

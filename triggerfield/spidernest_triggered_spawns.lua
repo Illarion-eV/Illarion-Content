@@ -69,7 +69,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (891, 483, -6,'triggerfield.spidernest_triggered_spawns');
 
 
-require("base.common")
+local common = require("base.common")
 
 module("triggerfield.spidernest_triggered_spawns", package.seeall)
 
@@ -184,20 +184,20 @@ function MoveToField(User)
 
         if theWaypoint >= 1 and theWaypoint <= 21 then -- small spider swarm
 
-            base.common.InformNLS(User, messageG[1], messageE[1]) --sending a message
+            common.InformNLS(User, messageG[1], messageE[1]) --sending a message
 
             for i = 1, math.random(3, 9) do -- random count
-                local monPos = base.common.getFreePos(waypoint[theWaypoint], 3) -- radius 3 around triggerfile
+                local monPos = common.getFreePos(waypoint[theWaypoint], 3) -- radius 3 around triggerfile
                 world:createMonster(196, monPos, -20) -- small spider
                 world:gfx(41, monPos) -- swirly
             end
 
         elseif theWaypoint >= 22 and theWaypoint <= 52 then -- one big spider
 
-            base.common.InformNLS(User, messageG[2], messageE[2]) --sending a message
+            common.InformNLS(User, messageG[2], messageE[2]) --sending a message
 
             local monList = {191, 192, 262, 231} -- Rekrap, Pitservant, Soulpain, Kingsfright
-            local monPos = base.common.getFreePos(waypoint[theWaypoint], 2) -- radius 2 around triggerfield
+            local monPos = common.getFreePos(waypoint[theWaypoint], 2) -- radius 2 around triggerfield
             world:createMonster(monList[math.random(1, #monList)], monPos, -20) -- 1 random spider of our list
             world:gfx(41, monPos) -- swirly
 

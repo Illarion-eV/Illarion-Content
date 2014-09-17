@@ -17,10 +17,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_1206_claypit' WHERE itm_id=1206;
 
-require("base.common")
-require("base.lookat")
-require("content.climbing")
-require("content.gatheringcraft.claydigging")
+local common = require("base.common")
+local lookat = require("base.lookat")
+local climbing = require("content.climbing")
+local claydigging = require("content.gatheringcraft.claydigging")
 
 module("item.id_1206_claypit", package.seeall)
 
@@ -30,27 +30,27 @@ function UseItem(User, SourceItem, ltstate)
 
   if SourceItem.pos == holePosition then
   	if (User:countItemAt("all",2760)==0) then
-		base.common.HighInformNLS(User,
+		common.HighInformNLS(User,
 		"Du brauchst ein Seil um hier hinab zu klettern.",
 		"You need a rope to climb down here.");
 		return;
 	end
-    content.climbing.climbDown(User);
+    climbing.climbDown(User);
     return;
   end
 
-  content.gatheringcraft.claydigging.StartGathering(User, SourceItem, ltstate);
+  claydigging.StartGathering(User, SourceItem, ltstate);
 end
 
 function LookAtItem(User, Item)
 
-  local lookAt = base.lookat.GenerateLookAt(User, Item);
+  local lookAt = lookat.GenerateLookAt(User, Item);
 
   if Item.pos == holePosition then
-	lookAt.name = base.common.GetNLS(User,
+	lookAt.name = common.GetNLS(User,
       "Ein tiefes Loch",
       "A deep hole");
-    lookAt.description = base.common.GetNLS(User,
+    lookAt.description = common.GetNLS(User,
       "Dieses Loch scheint bodenlos.",
       "This hole looks bottomless.");
   end

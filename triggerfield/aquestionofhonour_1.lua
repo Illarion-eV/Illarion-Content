@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 -- Quest: A Question of Honour (111)/(115)
-require("base.common")
+local common = require("base.common")
 
 module("triggerfield.aquestionofhonour_1", package.seeall)
 
@@ -48,17 +48,17 @@ function MoveToField(User)
        queststatus=User:getQuestProgress(115); --here, we save which fields were visited
       
        queststatuslist={};
-       queststatuslist=base.common.Split_number(queststatus, 3); --reading the digits of the queststatus as table
+       queststatuslist=common.Split_number(queststatus, 3); --reading the digits of the queststatus as table
       
       for i=1,3 do
           if User:isInRangeToPosition(waypoint[i],2) and queststatuslist[i] == 0 then
               queststatuslist[i]=1; --found it!
-              base.common.InformNLS(User,messageG[i],messageE[i]); --sending a message
+              common.InformNLS(User,messageG[i],messageE[i]); --sending a message
               User:setQuestProgress(115,queststatuslist[1]*100+queststatuslist[2]*10+ queststatuslist[3]*1); --saving the new queststatus
               queststatus=User:getQuestProgress(115); --and reading it again
             if queststatus==111 then --found all waypoints
                User:setQuestProgress(111, 5); --Quest solved!
-               base.common.InformNLS(User,"[Queststatus] Du hast deine Patroullie erfolgreich abgeschlossen.","[Quest status] You completed your patrol successfully."); --sending a message
+               common.InformNLS(User,"[Queststatus] Du hast deine Patroullie erfolgreich abgeschlossen.","[Quest status] You completed your patrol successfully."); --sending a message
                return; --more than solving isn't possible, bailing out
             end
          end

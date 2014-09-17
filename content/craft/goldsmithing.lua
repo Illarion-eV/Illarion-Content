@@ -14,11 +14,11 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("item.base.crafts")
+local crafts = require("item.base.crafts")
 
 module("content.craft.goldsmithing", package.seeall)
 
-goldsmithing = item.base.crafts.Craft:new{
+goldsmithing = crafts.Craft:new{
                       craftEN = "goldsmithing",
                       craftDE = "Goldschmieden",
                       handTool = 122,

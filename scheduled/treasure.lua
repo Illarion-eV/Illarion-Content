@@ -14,8 +14,8 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.treasure")
-require("base.common")
+local treasure = require("base.treasure")
+local common = require("base.common")
 
 module("scheduled.treasure", package.seeall)
 
@@ -24,16 +24,16 @@ module("scheduled.treasure", package.seeall)
 
 
 function treasureCheck()
-    local treasurePositions = base.treasure.treasurePositions;
-	local treasureCategory = base.treasure.treasureCategory
+    local treasurePositions = treasure.treasurePositions;
+	local treasureCategory = treasure.treasureCategory
     
 	for i=1,#treasurePositions do
 	    local thePos = treasurePositions[i]
-		if base.treasure.CheckMonsters( thePos ) then
+		if treasure.CheckMonsters( thePos ) then
 			world:gfx(16,thePos);
 			world:makeSound(13,thePos);
 			--world:createItemFromId(2830,1,thePos,true,333,{trsCat=tostring(treasureCategory[thePos])});
-			base.treasure.SpawnTreasure(treasureCategory[thePos], thePos)
+			treasure.SpawnTreasure(treasureCategory[thePos], thePos)
 		end
 	end
 

@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- basic handling for polygonal areas on the map
 
-require("base.class");
+local class = require("base.class")
 
 module("base.polygons",package.seeall);
 
@@ -24,7 +24,7 @@ module("base.polygons",package.seeall);
 -- @param posStruct Start point
 -- @param posStruct End point
 -- @return LineStruct
-Line = base.class.class(
+Line = class.class(
 	function(obj, startPoint, endPoint)
 		obj.startPoint = position(startPoint.x, startPoint.y, 0);
 		obj.endPoint = position(endPoint.x, endPoint.y, 0);
@@ -38,7 +38,7 @@ Line = base.class.class(
 -- @field zList list(int) list with valid z values for PIP test
 -- @param list(posStruct) List of points, neighbours are connected, aswell as first and last point of the list
 -- @return PolygonStruct
-Polygon = base.class.class(
+Polygon = class.class(
 	function(obj, positionList, zList)
 		if #positionList < 3 then
 			debug("A polygon must have at least 3 points");

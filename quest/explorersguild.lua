@@ -19,7 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- The questIDs start at 130 and go to 150.
 -- Written by Martin and Lillian
 
-require("base.common")
+local common = require("base.common")
 
 module("quest.explorersguild", package.seeall)
 
@@ -112,8 +112,8 @@ function getReward(Char)
 end
 	
 function rewardDialog(Char, nrStones)
-	local title = base.common.GetNLS(Char,"Entdeckergilde Belohnung","Explorerguild reward")
-	local text = base.common.GetNLS(Char,"Du hast "..nrStones.." Markierungssteine entdeckt, daher kannst du dir nun eine Belohnung aussuchen.", "You discovered "..nrStones.." marker stones, therefore you can pick a reward.")
+	local title = common.GetNLS(Char,"Entdeckergilde Belohnung","Explorerguild reward")
+	local text = common.GetNLS(Char,"Du hast "..nrStones.." Markierungssteine entdeckt, daher kannst du dir nun eine Belohnung aussuchen.", "You discovered "..nrStones.." marker stones, therefore you can pick a reward.")
 	
 	local callback = function(dialog) 
 		local success = dialog:getSuccess() 

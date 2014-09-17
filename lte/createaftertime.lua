@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- to create a item after some time
 -- see base.character.CreateAfterTime(Character,createAfter,createGfx,createSound)
 
-require("base.common")
+local common = require("base.common")
 module("lte.createaftertime", package.seeall)
 
 TextDE={};
@@ -74,7 +74,7 @@ if createItemTimeB ~= 0 then
 		if informplayeraboutunsuccess == nil then
 			informplayeraboutunsuccess = 0
 		elseif informplayeraboutunsuccess == 1 and createItemText==1 then -- if we have defined text1 for the created item
-			base.common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]); --inform player about result
+			common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]); --inform player about result
 		end
 		informplayeraboutunsuccess = informplayeraboutunsuccess+1
 
@@ -108,8 +108,8 @@ if createItemTimeB ~= 0 then
 					createItemY=math.random(createItemYA,createItemYB) --create random value between variables
 					createItemZ=math.random(createItemZA,createItemZB) --create random value between variables
 					posOfItem = position(createItemX,createItemY,createItemZ) --set value for position
---					if base.common.GetGroundType(world:getField(posOfItem):tile()) == GroundType.water then
-					if base.common.GetGroundType(world:getField(posOfItem):tile()) == 6 then
+--					if common.GetGroundType(world:getField(posOfItem):tile()) == GroundType.water then
+					if common.GetGroundType(world:getField(posOfItem):tile()) == 6 then
 						testforaccessabletile = 0
 					else
 						testforaccessabletile = 1
@@ -179,7 +179,7 @@ if createItemTimeB ~= 0 then
 	end
 --	findCreateItemText, createItemText = Effect:findValue("createItemText") --find variable
 --[[	if createItemText==1 then -- if we have defined text1 for the created item
-		base.common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]); --inform player about result
+		common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]); --inform player about result
 	end ]]--
 
 	if createItemText==2 or createItemText==3 or createItemText==4 or createItemText==5 then -- if we have defined text2..5 for the created item
@@ -199,7 +199,7 @@ elseif findCreateItemTimeBB then
 		if informplayeraboutunsuccess == nil then
 			informplayeraboutunsuccess = 0
 		elseif informplayeraboutunsuccess == 1 and createItemText==1 then -- if we have defined text1 for the created item
-			base.common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]); --inform player about result
+			common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]); --inform player about result
 		end
 		informplayeraboutunsuccess = informplayeraboutunsuccess+1
 
@@ -283,7 +283,7 @@ elseif findCreateItemTimeBB then
 	end
 --	findCreateItemText, createItemText = Effect:findValue("createItemText") --find variable
 --[[	if createItemText==1 then -- if we have defined text1 for the created item
-		base.common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]); --inform player about result
+		common.InformNLS(Character,TextDE[createItemText],TextEN[createItemText]); --inform player about result
 	end ]]--
 
 	if createItemText==2 or createItemText==3 or createItemText==4 or createItemText==5 then -- if we have defined text2..5 for the created item

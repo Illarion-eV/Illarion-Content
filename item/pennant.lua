@@ -16,8 +16,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Tree Script
 -- Envi
-require("base.common")
-require("base.lookat")
+local common = require("base.common")
+local lookat = require("base.lookat")
 
 module("item.pennant", package.seeall)
 
@@ -25,5 +25,5 @@ module("item.pennant", package.seeall)
 
 
 function LookAtItem(User, Item)
-    return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
+    return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end

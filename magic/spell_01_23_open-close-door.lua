@@ -20,13 +20,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --SPEZIALZAUBER
 --ITEMZAUBER
 
-require("base.doors")
-require("base.common")
+local doors = require("base.doors")
+local common = require("base.common")
 module("magic.spell_01_23_open-close-door", package.seeall)
 
 function OpenCloseTarget(Caster,Item)
-    if not base.common.IsLookingAt(Caster,Item.pos) then
-		base.common.TurnTo(Caster, Item.pos);
+    if not common.IsLookingAt(Caster,Item.pos) then
+		common.TurnTo(Caster, Item.pos);
 	end
     local Mana=Caster:increaseAttrib("mana",0);
     if (Mana>=100) then
@@ -34,23 +34,23 @@ function OpenCloseTarget(Caster,Item)
         Caster.activeLanguage=10;
         Caster:talk(Character.say,"KEL ANTH");
         Caster.activeLanguage=Language;
-        if base.doors.CloseDoor(Item) then
+        if doors.CloseDoor(Item) then
             Succeed(Caster)
-            base.common.InformNLS(Caster,"Von dem Windstoß getroffen klappt die Tür zu.","A mysterious breeze pushes the door close.");
+            common.InformNLS(Caster,"Von dem Windstoß getroffen klappt die Tür zu.","A mysterious breeze pushes the door close.");
         else
-            local OpenDoor,OpenOK=base.doors.OpenDoor(Item);
+            local OpenDoor,OpenOK=doors.OpenDoor(Item);
             if OpenOK then
                 Succeed(Caster)
-                base.common.InformNLS(Caster,"Vom Wind geführt schwingt die Tür auf.","A mysterious breeze pushes the door open.");
+                common.InformNLS(Caster,"Vom Wind geführt schwingt die Tür auf.","A mysterious breeze pushes the door open.");
             elseif OpenDoor then
                 Succeed(Caster)
-                base.common.InformNLS(Caster,"Der Wind rüttelt an der Tür, doch sie öffnet sich nicht.","The wind tries to open the door, but the door doesn't open.");
+                common.InformNLS(Caster,"Der Wind rüttelt an der Tür, doch sie öffnet sich nicht.","The wind tries to open the door, but the door doesn't open.");
             else
-                base.common.InformNLS(Caster,"Der Spruch zeigt keine Wirkung.","Nothing happens.");
+                common.InformNLS(Caster,"Der Spruch zeigt keine Wirkung.","Nothing happens.");
             end
         end
     else
-        base.common.InformNLS(Caster,"Nicht genug Mana.","Not enough mana.");
+        common.InformNLS(Caster,"Nicht genug Mana.","Not enough mana.");
     end
 end
 
@@ -64,11 +64,11 @@ function Succeed(Caster)
 end
 
 function CastMagic(Caster)
-    base.common.InformNLS(Caster,"Der Spruch zeigt keine Wirkung.","Nothing happens.");
+    common.InformNLS(Caster,"Der Spruch zeigt keine Wirkung.","Nothing happens.");
 end
 
 function CastMagicOnCharacter(Caster,TargetCharacter)
-    base.common.InformNLS(Caster,"Der Spruch zeigt keine Wirkung.","Nothing happens.");
+    common.InformNLS(Caster,"Der Spruch zeigt keine Wirkung.","Nothing happens.");
 end
 
 function CastMagicOnField(Caster,Targetpos)

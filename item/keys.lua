@@ -14,17 +14,17 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.keys")
-require("base.common")
-require("base.factions")
-require("base.lookat")
+local keys = require("base.keys")
+local common = require("base.common")
+local factions = require("base.factions")
+local lookat = require("base.lookat")
 
 module("item.keys", package.seeall)
 
 -- UPDATE items SET itm_script='item.keys' WHERE itm_id IN (2121,2122,2123,2124,2141,2144,2145,2161,2556,2558,3054,3055,3056);
 
 function UseItem(User, SourceItem)
-    local DoorItem = base.common.GetFrontItem( User );
+    local DoorItem = common.GetFrontItem( User );
 
 	if SourceItem:getData("townKeyOf") ~= "" then
 	    -- sentence char to forced labour
@@ -32,14 +32,14 @@ function UseItem(User, SourceItem)
 	    return
 	end
 
-	if base.keys.CheckKey(SourceItem,DoorItem,User) then
-        if base.keys.LockDoor(DoorItem) then
-            base.common.InformNLS(User,"Du sperrst die Tür ab.","You lock the door.");
-        elseif base.keys.UnlockDoor(DoorItem) then
-            base.common.InformNLS(User,"Du sperrst die Tür auf.","You unlock the door.");
+	if keys.CheckKey(SourceItem,DoorItem,User) then
+        if keys.LockDoor(DoorItem) then
+            common.InformNLS(User,"Du sperrst die Tür ab.","You lock the door.");
+        elseif keys.UnlockDoor(DoorItem) then
+            common.InformNLS(User,"Du sperrst die Tür auf.","You unlock the door.");
         end
     else
-        base.common.InformNLS(User,"Der Schlüssel passt hier nicht.","The key doesn't fit here.");
+        common.InformNLS(User,"Der Schlüssel passt hier nicht.","The key doesn't fit here.");
     end
 end
 
@@ -84,12 +84,12 @@ end
 function GuardBehaviourTowardsChar(User, SourceItem)
 
 	local modeStrings = {};
-	modeStrings[base.factions.RELATION_NEUTRAL] = "neutral";
-	modeStrings[base.factions.RELATION_HOSTILE] = "hostile";
-	modeStrings[base.factions.RELATION_AGGRESSIVE] = "aggressive";
-	modeStrings[base.factions.RELATION_FRIENDLY] = "friendly";
-	modeStrings[base.factions.RELATION_ACCEPTED] = "Let always pass";
-	local modeValues = {base.factions.RELATION_FRIENDLY, base.factions.RELATION_NEUTRAL, base.factions.RELATION_HOSTILE, base.factions.RELATION_AGGRESSIVE, base.factions.RELATION_ACCEPTED};
+	modeStrings[factions.RELATION_NEUTRAL] = "neutral";
+	modeStrings[factions.RELATION_HOSTILE] = "hostile";
+	modeStrings[factions.RELATION_AGGRESSIVE] = "aggressive";
+	modeStrings[factions.RELATION_FRIENDLY] = "friendly";
+	modeStrings[factions.RELATION_ACCEPTED] = "Let always pass";
+	local modeValues = {factions.RELATION_FRIENDLY, factions.RELATION_NEUTRAL, factions.RELATION_HOSTILE, factions.RELATION_AGGRESSIVE, factions.RELATION_ACCEPTED};
 
 	local callback = function(dialog)
 		local success = dialog:getSuccess()
@@ -155,14 +155,14 @@ function SelectTargetChar(User, SourceItem, behaviour)
 					User:inform("Character has not been found.")
 				else
 					local modeStrings = {};
-					modeStrings[base.factions.RELATION_NEUTRAL] = "neutral";
-					modeStrings[base.factions.RELATION_HOSTILE] = "hostile";
-					modeStrings[base.factions.RELATION_AGGRESSIVE] = "aggressive";
-					modeStrings[base.factions.RELATION_FRIENDLY] = "friendly";
-					modeStrings[base.factions.RELATION_ACCEPTED] = "Let always pass";
+					modeStrings[factions.RELATION_NEUTRAL] = "neutral";
+					modeStrings[factions.RELATION_HOSTILE] = "hostile";
+					modeStrings[factions.RELATION_AGGRESSIVE] = "aggressive";
+					modeStrings[factions.RELATION_FRIENDLY] = "friendly";
+					modeStrings[factions.RELATION_ACCEPTED] = "Let always pass";
 
-					local townId = base.factions.getTownIdByName(SourceItem:getData("townKeyOf"));
-					base.factions.setIndividualPlayerRelation(theChar, townId, behaviour, days);
+					local townId = factions.getTownIdByName(SourceItem:getData("townKeyOf"));
+					factions.setIndividualPlayerRelation(theChar, townId, behaviour, days);
 					User:inform("You changed guard behaviour of " .. SourceItem:getData("townKeyOf") .. " towards character " .. theChar.name .. " to " .. modeStrings[behaviour] .. " for " .. days .. " days.");
 					User:logAdmin("changes guard behaviour of " .. SourceItem:getData("townKeyOf") .. " towards character " .. theChar.name .. " to " .. modeStrings[behaviour] .. " for " .. days .. " days.");
 				end
@@ -268,8 +268,8 @@ function LookAtItem(User,Item)
 	local data = Item:getData("lockId");
 
 	if tonumber(data) == 666 and User:isAdmin() then
-		base.lookat.SetSpecialDescription(Item, "Generalschlüssel", "Masterkey")
+		lookat.SetSpecialDescription(Item, "Generalschlüssel", "Masterkey")
 	end
 
-   return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
+   return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end

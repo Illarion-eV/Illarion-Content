@@ -27,8 +27,8 @@ piss the other faction off.
 author: Lillian
 
 ]]
-require("base.money")
-require("base.ranklist")
+local money = require("base.money")
+local ranklist = require("base.ranklist")
 
 module("base.arena", package.seeall)
 
@@ -95,7 +95,7 @@ function requestMonster(User, NPC)
 		sdMonster:setCloseOnMove();
 		for i=1, #(monsterIDsByLevel) do
 			priceInCP = monsterIDsByLevel[i].price;
-			germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
+			germanMoney, englishMoney = money.MoneyToString(priceInCP);
 			sdMonster:addOption(61,"Stärke "..i.." Monster ("..monsterIDsByLevel[i].points.." Punkte)\n Preis:"..germanMoney);
 		end
 	else
@@ -103,7 +103,7 @@ function requestMonster(User, NPC)
 		sdMonster:setCloseOnMove();
 		for i=1, #(monsterIDsByLevel) do
 			priceInCP = monsterIDsByLevel[i].price;
-			germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
+			germanMoney, englishMoney = money.MoneyToString(priceInCP);
 			sdMonster:addOption(61,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." points)\n Price:"..englishMoney);
 		end
 	end
@@ -112,16 +112,16 @@ end
 
 function payforMonster(User, MonsterLevel, NPC)
 	local priceInCP = monsterIDsByLevel[MonsterLevel].price;
-	local germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
+	local germanMoney, englishMoney = money.MoneyToString(priceInCP);
 
-	if not base.money.CharHasMoney(User,priceInCP) then --not enough money!
+	if not money.CharHasMoney(User,priceInCP) then --not enough money!
 		gText="Ihr habt nicht genug Geld dabei! Ihr benötigt"..germanMoney..".";
 		eText="You don't have enough money with you! You'll need"..englishMoney..".";
 		outText=base.common.GetNLS(User,gText,eText);
         NPC:talk(Character.say, outText);
 		return false;
 	end
-	base.money.TakeMoneyFromChar(User,priceInCP); --take money
+	money.TakeMoneyFromChar(User,priceInCP); --take money
 	User:inform("Ihr habt Euch ein Monster für"..germanMoney.." gekauft. Viel Erfolg!", "You bought a monster at the price of"..englishMoney..". Good luck!");
 	return true;
 end

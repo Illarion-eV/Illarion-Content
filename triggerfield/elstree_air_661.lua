@@ -19,9 +19,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (798,422,0,'triggerfield.elstree_air_661');
 -- INSERT INTO triggerfields VALUES (798,423,0,'triggerfield.elstree_air_661');
 
-require("base.common")
-require("lte.createaftertime");
-require("lte.longterm_cooldown");
+local common = require("base.common")
+local createaftertime = require("lte.createaftertime")
+local longterm_cooldown = require("lte.longterm_cooldown")
 module("triggerfield.elstree_air_661", package.seeall)
 
 
@@ -44,13 +44,13 @@ function MoveToField(char)
 		createGfx=53 --light (blue glitter)
 		createRepeatA=3 --min three lights at the same time
 		createRepeatB=7 --up to five lights at the same time
-		createItemText=1 --select text-set 1 in .lte.createaftertime.lua
+		createItemText=1 --select text-set 1 in .createaftertime.lua
 		else
 		createItemTimeB=1 --use var1; yes, thus light onle one time
 		createGfx=46 --light (beam me up)
 		createRepeatA=1 --only one light 
 		createRepeatB=1 --only one light
-		createItemText=2 --select text-set 2 .lte.createaftertime.lua
+		createItemText=2 --select text-set 2 .createaftertime.lua
 		end		
 	createItemAmountA=1; --amount of element min
 	createItemAmountB=1; --amount of element max

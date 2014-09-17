@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 -- Quest: A spark to a flame (113)/(114)
-require("base.common")
+local common = require("base.common")
 
 module("triggerfield.asparktoaflame", package.seeall)
 
@@ -54,17 +54,17 @@ function MoveToField(User)
        queststatus=User:getQuestProgress(114); --here, we save which fields were visited
       
        queststatuslist={};
-       queststatuslist=base.common.Split_number(queststatus, 5); --reading the digits of the queststatus as table
+       queststatuslist=common.Split_number(queststatus, 5); --reading the digits of the queststatus as table
       
       for i=1,5 do
           if User:isInRangeToPosition(altar[i],1) and queststatuslist[i] == 0 then
               queststatuslist[i]=1; --found it!
-              base.common.InformNLS(User,messageG[i],messageE[i]); --sending a message
+              common.InformNLS(User,messageG[i],messageE[i]); --sending a message
               User:setQuestProgress(114,queststatuslist[1]*10000+queststatuslist[2]*1000+ queststatuslist[3]*100+queststatuslist[4]*10+queststatuslist[5]*1); --saving the new queststatus
               queststatus=User:getQuestProgress(114); --and reading it again
             if queststatus==11111 then --found all altars
                User:setQuestProgress(113, 2); --Quest solved!
-               base.common.InformNLS(User,"[Queststatus] Du hast nun alle Altare der Fünf besucht.","[Quest status] You have visited all the altars of the Five."); --sending a message
+               common.InformNLS(User,"[Queststatus] Du hast nun alle Altare der Fünf besucht.","[Quest status] You have visited all the altars of the Five."); --sending a message
                return; --more than solving isn't possible, bailing out
             end
             end

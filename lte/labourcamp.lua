@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common")
+local common = require("base.common")
 module("lte.labourcamp", package.seeall)
 
 -- INSERT INTO longtimeeffects VALUES (55, 'labourcamp', 'lte.labourcamp');
@@ -31,7 +31,7 @@ function callEffect(Effect,User)
 	
 	local findCounter,spamProtection_1 = Effect:findValue("spamProtection_1")
     if findCounter then
-	   spamProtection_1 = base.common.Limit((spamProtection_1 - 1), 0, 5)
+	   spamProtection_1 = common.Limit((spamProtection_1 - 1), 0, 5)
 	   Effect:addValue("spamProtection_1",spamProtection_1)
     end
    

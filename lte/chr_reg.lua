@@ -17,8 +17,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Long Time Effect Script - Character Regeneration
 -- by Nitram
 
-require("base.common")
-require("base.factions")
+local common = require("base.common")
+local factions = require("base.factions")
 module("lte.chr_reg", package.seeall)
 
 crossPosition={};
@@ -112,7 +112,7 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
                 if ( math.random(1,20/TimeFactor) == 2 ) then -- Send the message once each 20 seconds
 				
                     Char:talk(Character.say, "#me scheint Hunger zu haben, ein lautes Magenknurren ist zu vernehmen.", "#me 's stomach grumbles loudly.")
-                    base.common.InformNLS(Char,
+                    common.InformNLS(Char,
                         "Dein Magen schmerzt. Du bist am verhungern.",
                         "Your stomach hurts. You are going to die of hunger.");
 					
@@ -121,7 +121,7 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
             else -- Deathy by starvation
 
                 Char:talk(Character.say, "#me krampft zusammen und geht zu Boden.", "#me convulses and falls to the ground.")
-                base.common.InformNLS(Char,
+                common.InformNLS(Char,
                     "Dein Magen verkrampft sich und du merkst nur noch wie dein Körper auf dem Boden aufschlägt, bevor alles um dich dunkel wird.",
                     "Your stomach cramps and the last thing you feel is  your body hitting the ground before everything goes dark.");
 				
@@ -137,7 +137,7 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
 		
         if ( Poisonvalue == 0 ) then -- Poison is gone
 		
-            base.common.InformNLS(Char,
+            common.InformNLS(Char,
                 "Du fühlst wie das Gift in deinem Körper seine Wirkung verliert",
                 "You feel the poison in your body losing its effect.");
 			
@@ -149,7 +149,7 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
 			
                 if ( math.random(1,40/TimeFactor) == 2 or not Effect:findValue("poison") ) then -- Send the message once each 40 seconds
 				
-                    base.common.InformNLS(Char,
+                    common.InformNLS(Char,
                         "Du fühlst wie dein Körper von innen heraus geschwächt wird.",
                         "You feel your body becoming weaker.");
 
@@ -162,7 +162,7 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
                 Poisonvalue = 0; -- Remove the poison, mission accomplished
 				
                 Char:talk(Character.say, "#me tropft etwas Speichel aus dem Mund und bricht zusammen.", "#me starts to drool and falls to the ground.")
-                base.common.InformNLS(Char,
+                common.InformNLS(Char,
                     "Du fühlst ein Brennen in deinem Körper und wie sich der Speicheln in deinem Mund zusammen zieht, ehe die Welt um dich herum dunkel wird.",
                     "You feel a burning sensation in your body and your mouth watering before everything goes dark.");
 					
@@ -217,7 +217,7 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
 				
                     if ( math.random(1,1800/TimeFactor) == 2 ) then 
 					
-                        base.common.InformNLS(Char,
+                        common.InformNLS(Char,
                         "Du fühlst ein leichtes Grummeln in deinem Magen.",
                         "You feel a slight grumble in your stomach.");
 						
@@ -227,7 +227,7 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
 				
                     if ( math.random(1,900/TimeFactor) == 2 ) then
 					
-                        base.common.InformNLS(Char,
+                        common.InformNLS(Char,
                         "Dein Magen knurrt leicht.",
                         "You hear your stomach grumbling.");
 						
@@ -271,10 +271,10 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
     -----------------------FOODPOINTS DONE----------------------------------
 
     -----------------------OVERLOAD BEGIN-----------------------------
-    Hitpoints   = base.common.Limit( Hitpoints,   0, maxHitpoints  ); -- Lebenspunkte
-    Manapoints  = base.common.Limit( Manapoints,  0, maxManapoints ); -- Manapunkte
-    Poisonvalue = base.common.Limit( Poisonvalue, 0, 10000         ); -- Giftpunkte
-    Foodvalue   = base.common.Limit( Foodvalue,   0, maxFoodvalue  ); -- Nahrungspunkte
+    Hitpoints   = common.Limit( Hitpoints,   0, maxHitpoints  ); -- Lebenspunkte
+    Manapoints  = common.Limit( Manapoints,  0, maxManapoints ); -- Manapunkte
+    Poisonvalue = common.Limit( Poisonvalue, 0, 10000         ); -- Giftpunkte
+    Foodvalue   = common.Limit( Foodvalue,   0, maxFoodvalue  ); -- Nahrungspunkte
     -----------------------OVERLOAD DONE-----------------------------
 
     --------------ÄNDERUNGEN PRÜFEN UND DURCHFÜHREN ANFANG--------------------
@@ -366,7 +366,7 @@ function leadToCross( Char , Effect )
 	
 		world:gfx(31,Char.pos); --GFX, alternatively 16
         world:makeSound(13,Char.pos); --Healing sound
-        factionValues=base.factions.getFaction(Char); --reading the faction values
+        factionValues=factions.getFaction(Char); --reading the faction values
         Char:warp(crossPosition[factionValues.tid]); --warp to home cross
         Effect:removeValue("cycleCounter"); --stop counting
 		showRespawnDialog(Char)

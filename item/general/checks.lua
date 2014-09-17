@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 
-require("base.common")
+local common = require("base.common")
 
 module("item.general.checks", package.seeall)
 
@@ -28,7 +28,7 @@ function checkLevel(User,Item)
 		
 	else
 	
-		base.common.HighInformNLS(User, "Deine Fertigkeit '"..skillString.."' reicht nicht aus, um das volle Potential dieses Gegenstandes zu nutzen.", "Your skill '"..skillString.."' is not high enough to exploit the full potential of this item."); --inform
+		common.HighInformNLS(User, "Deine Fertigkeit '"..skillString.."' reicht nicht aus, um das volle Potential dieses Gegenstandes zu nutzen.", "Your skill '"..skillString.."' is not high enough to exploit the full potential of this item."); --inform
 		return true; --Change this to FALSE if you want to prevent equipping. For now, set to true because we do not have enough items.
 	
 	end

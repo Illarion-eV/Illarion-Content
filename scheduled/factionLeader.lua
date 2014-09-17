@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --Checks if the playable faction leaders is logged in and thus the NPC needs to be out of player sight
 
-require("base.common")
+local common = require("base.common")
 
 module("scheduled.factionLeader", package.seeall)
 
@@ -27,7 +27,7 @@ informationTable = {
 
 function checkFactionLeader()
 	for i=1, #(informationTable) do
-		charObject = base.common.CheckIfOnline(informationTable[i].npcName)
+		charObject = common.CheckIfOnline(informationTable[i].npcName)
 		if charObject ~= nil then
 			updatePosition(informationTable[i].usualPosition, informationTable[i].newPosition)
 		else

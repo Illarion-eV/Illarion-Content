@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common")
+local common = require("base.common")
 module("lte.attrib_boost", package.seeall)
 
 
@@ -35,7 +35,7 @@ end
 function addEffect(addPerc, User)    -- Wird nur beim Start des Effektes aufgerufen (-> Perc+1)
     User:inform("function addEffect erreicht")
     AttribToBoost, boostSteps, boostValue, reboostValue = initBoost(User)
-    base.common.InformNLS(User, "Deine Sinne werden merkbar sensibler.", "Your senses grow noticably.");
+    common.InformNLS(User, "Deine Sinne werden merkbar sensibler.", "Your senses grow noticably.");
     User:increaseAttrib(AttribToBoost,boostValue);    -- (erste Steigerung)
 end
 

@@ -15,8 +15,8 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-require("base.common")
-require("content.gathering")
+local common = require("base.common")
+local gathering = require("content.gathering")
 
 module("content.gatheringcraft.sowing", package.seeall)
 
@@ -33,9 +33,9 @@ seedPlantList[3566] = 3562; -- potatoes
 
 -- gets the free position for seeds
 function getFreeFieldPosition(User)
-	local frontField = base.common.GetFrontPosition(User);
+	local frontField = common.GetFrontPosition(User);
 	local field = world:getField(frontField);
-	local groundType = base.common.GetGroundType(field:tile());
+	local groundType = common.GetGroundType(field:tile());
 	local itemOnField = world:isItemOnField(frontField);
 
 	if not itemOnField and groundType == 1 then
@@ -47,7 +47,7 @@ function getFreeFieldPosition(User)
 			local checkPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
 			if not world:isItemOnField(checkPos) then
 				field = world:getField(checkPos);
-				groundType = base.common.GetGroundType(field:tile())
+				groundType = common.GetGroundType(field:tile())
 				if groundType == 1 then
 					return checkPos;
 				end
@@ -59,8 +59,8 @@ end
 
 function StartGathering(User, SourceItem, ltstate)
 
-	content.gathering.InitGathering();
-	local farming = content.gathering.farming;
+	gathering.InitGathering();
+	local farming = gathering.farming;
 	local seed = SourceItem
 	if seed.number < 1 then
 		User:inform("Du hast das Saatgut aufgebraucht.","You used all the seeds.")
@@ -69,10 +69,10 @@ function StartGathering(User, SourceItem, ltstate)
 
 	local TargetPos = getFreeFieldPosition(User);
 	if TargetPos == nil then
-		TargetPos = base.common.GetFrontPosition(User);
+		TargetPos = common.GetFrontPosition(User);
 	end
 
-	base.common.ResetInterruption( User, ltstate );
+	common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
 		if (User:increaseAttrib("sex",0) == 0) then
 			gText = "seine";
@@ -85,15 +85,15 @@ function StartGathering(User, SourceItem, ltstate)
 		return
 	end
 
-	if not base.common.FitForWork( User ) then -- check minimal food points
+	if not common.FitForWork( User ) then -- check minimal food points
 		return
 	end
 
-	base.common.TurnTo( User, TargetPos ); -- turn if necessary
+	common.TurnTo( User, TargetPos ); -- turn if necessary
 
 	-- should not stack plants on top of anything
 	if (world:isItemOnField(TargetPos)) then
-		base.common.HighInformNLS(User,
+		common.HighInformNLS(User,
 		"Du kannst nur auf einem freien Feld Saatgut aussäen.",
 		"Sowing seeds is only possible at a free spot.");
 		return;
@@ -101,9 +101,9 @@ function StartGathering(User, SourceItem, ltstate)
 
   -- only on farm land
 	local Field = world:getField( TargetPos )
-	local groundType = base.common.GetGroundType( Field:tile() );
+	local groundType = common.GetGroundType( Field:tile() );
 	if ( groundType ~= 1 ) then
-		base.common.HighInformNLS(User,
+		common.HighInformNLS(User,
 			"Du kannst nur auf Ackerboden Saatgut aussäen.",
 		"Sowing seeds is only possible on farm land.");
 		return
@@ -114,14 +114,14 @@ function StartGathering(User, SourceItem, ltstate)
 		User:startAction( farming.SavedWorkTime[User.id], 0, 0, 0, 0);
     -- this is no batch action => no emote message, only inform player
 		if farming.SavedWorkTime[User.id] > 15 then
-			base.common.InformNLS(User, "Du säst Saatgut aus.","You sow seeds.");
+			common.InformNLS(User, "Du säst Saatgut aus.","You sow seeds.");
 		end
 		return
 	end
 
 	local nextField = getFreeFieldPosition(User);
 	if (nextField~=nil) then  -- there are still free fields
-		base.common.TurnTo( User, nextField); -- turn
+		common.TurnTo( User, nextField); -- turn
 		farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,nil);
 		User:startAction( farming.SavedWorkTime[User.id], 0, 0, 0, 0);
 	end

@@ -15,8 +15,8 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-require("base.common")
-require("content.gathering")
+local common = require("base.common")
+local gathering = require("content.gathering")
 
 module("content.gatheringcraft.milking", package.seeall)
 
@@ -35,10 +35,10 @@ end
 
 function StartGathering(User, SourceAnimal, ltstate)
 
-	content.gathering.InitGathering();
-	local milking = content.gathering.milking;
+	gathering.InitGathering();
+	local milking = gathering.milking;
 
-	base.common.ResetInterruption( User, ltstate );
+	common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
 		if (User:increaseAttrib("sex",0) == 0) then
 			gText = "seine";
@@ -51,14 +51,14 @@ function StartGathering(User, SourceAnimal, ltstate)
 		return
 	end
 
-	if not base.common.FitForWork( User ) then -- check minimal food points
+	if not common.FitForWork( User ) then -- check minimal food points
 		return
 	end
 
-	base.common.TurnTo( User, SourceAnimal.pos ); -- turn if necessary
+	common.TurnTo( User, SourceAnimal.pos ); -- turn if necessary
 
 	if (User:countItemAt("all",2498) == 0) then -- check for items to work on
-		base.common.HighInformNLS( User,
+		common.HighInformNLS( User,
 		"Du brauchst eine große leere Flasche um zu melken.",
 		"You need a large empty bottle for milking." );
 		return;
@@ -66,7 +66,7 @@ function StartGathering(User, SourceAnimal, ltstate)
 
 	-- should be fine already, but check it nevertheless
 	if ( SourceAnimal == nil or (SourceAnimal ~= nil and not isMilkable(SourceAnimal) )) then
-		base.common.HighInformNLS( User,
+		common.HighInformNLS( User,
 		"Du musst vor einem Tier stehen, um es zu melken.",
 		"You have to stand in front of an animal for milk it." );
 		return;
@@ -85,7 +85,7 @@ function StartGathering(User, SourceAnimal, ltstate)
 	if ( ltstate == Action.none ) then
 
 		if gatherAmount >= 2 then
-			base.common.HighInformNLS( User,
+			common.HighInformNLS( User,
 			"Dieses Tier wurde rest kürzlich gemolken und gibt momentan keine Milch.",
 			"This animal was milked recently and doesn't give milk right now." );
 			return;
@@ -111,7 +111,7 @@ function StartGathering(User, SourceAnimal, ltstate)
 	local notCreated = User:createItem( 2502, 1, 333, nil); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 2502, notCreated, User.pos, true, 333, nil);
-		base.common.HighInformNLS(User,
+		common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	elseif gatherAmount < 2 then  -- character can still carry something and more milk is available
@@ -122,7 +122,7 @@ function StartGathering(User, SourceAnimal, ltstate)
 		SourceAnimal.movepoints = -1 * milking.SavedWorkTime[User.id]; -- make sure the animal doesn't move away
 		User:startAction(milking.SavedWorkTime[User.id], 21, 5, 10, 25);
 	else
-		base.common.HighInformNLS( User,
+		common.HighInformNLS( User,
 		"Dieses Tier ist ausreichend gemolken und gibt keine Milch mehr.",
 		"This animal is milked properly and doesn't give any more milk." );
 	end

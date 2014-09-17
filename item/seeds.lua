@@ -15,8 +15,8 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- sowing seeds
-require("base.common")
-require("content.gatheringcraft.sowing")
+local common = require("base.common")
+local sowing = require("content.gatheringcraft.sowing")
 
 module("item.seeds", package.seeall)
 
@@ -67,7 +67,7 @@ module("item.seeds", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
 
-	content.gatheringcraft.sowing.StartGathering(User, SourceItem, ltstate);
+	sowing.StartGathering(User, SourceItem, ltstate);
 end
 
 
@@ -90,7 +90,7 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
     -- end
     -- world:erase(SourceItem, SourceItem.number);
     -- world:increase(SourceItem, -SourceItem.number);
-    base.common.HighInformNLS(User,
+    common.HighInformNLS(User,
 		"Du brauchst eine Sichel, um die Samen zu ernten.",
 		"You need a sickle to harvest the seeds.");
     return false;

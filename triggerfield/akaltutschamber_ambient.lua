@@ -21,7 +21,7 @@ INSERT INTO triggerfields VALUES (X,Y,Z,'triggerfield.akaltutschamber_ambient');
 
 ]]
 
-require("base.common")
+local common = require("base.common")
 
 module("triggerfield.akaltutschamber_ambient", package.seeall)
 
@@ -95,7 +95,7 @@ Akaltuts_chamberList:add( position(480,837,-9),nil,"Als du dich umsiehst, erkenn
 function MoveToField(Char)
 	local this = getAkaltuts_chamber(Char);
 	if this then
-		base.common.InformNLS(Char,this.german,this.english);
+		common.InformNLS(Char,this.german,this.english);
 	end
 end
 

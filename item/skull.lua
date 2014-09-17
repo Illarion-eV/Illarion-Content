@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
+local common = require("base.common")
 
 -- UPDATE items SET itm_script='item.skull' WHERE itm_id = 2038;
 -- UPDATE items SET itm_script='item.skull' WHERE itm_id = 2039;
@@ -62,7 +62,7 @@ function UseItem(User, SourceItem)
         local notCreated = User:createItem(46, 25, 333, nil) -- 25 rubies
         if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
             world:createItemFromId(46, notCreated, User.pos, true, 333, nil)
-            base.common.HighInformNLS(User,
+            common.HighInformNLS(User,
                 "Du kannst nichts mehr halten.",
                 "You can't carry any more.")
         end
@@ -96,7 +96,7 @@ function UseItem(User, SourceItem)
     elseif questStep == 8 and SourceItem.pos == position(845, 464, -6) then
         User:inform("Eine Spinne huscht aus dem Schädel heraus und greift dich an, nachdem sie einen großen, rot glänzenden Stein in dem Totenschädel versteckt.",
                     "A spider scurries out of the skull and attacks you after pushing a bright stone that flashes red back into the skull for safekeeping.")
-        local monPos = base.common.getFreePos(SourceItem.pos, 3 ); -- radius 3 around skull
+        local monPos = common.getFreePos(SourceItem.pos, 3 ); -- radius 3 around skull
         world:createMonster(223, monPos, -40) -- Giant Enforcer Spider
         world:gfx(41, monPos) -- swirly
         User:setQuestProgress(521, 9)
@@ -107,7 +107,7 @@ function UseItem(User, SourceItem)
         local notCreated = User:createItem(46, 1, 333, {["gemLevel"] = 1}) -- 1 latent ruby
         if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
             world:createItemFromId(46, notCreated, User.pos, true, 333, {["gemLevel"] = 1})
-            base.common.HighInformNLS(User,
+            common.HighInformNLS(User,
                 "Du kannst nichts mehr halten.",
                 "You can't carry any more.")
         end
@@ -266,7 +266,7 @@ function SpawnSpider(User, skullItem)
     local monList = {191, 192, 193, 211, 222, 262} -- Rekrap Retep, Pitservant, Tarantula, Firespider, Juvenile Gynk Spider, Soulpain
     local monID = monList[math.random(1, #monList)]
     for i = 1, math.random(1, 2) do -- random count
-        local monPos = base.common.getFreePos(skullItem.pos, 2) -- radius 2 around skull
+        local monPos = common.getFreePos(skullItem.pos, 2) -- radius 2 around skull
         world:createMonster(monID, monPos, -20)
         world:gfx(41, monPos) -- swirly
     end

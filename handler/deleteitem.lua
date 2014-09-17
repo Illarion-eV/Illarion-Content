@@ -14,11 +14,11 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
+local class = require("base.class")
 
 module("handler.deleteitem", package.seeall)
 
-deleteItem = base.class.class(function(delitem, posi, delID)
+deleteItem = class.class(function(delitem, posi, delID)
     delitem.pos=posi;
     delitem.deleteItemId=delID;
 end);

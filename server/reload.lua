@@ -18,19 +18,19 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- note that !rd is a !fr without npc and spawn reloading
 -- note further that reload_tables will be called after this if and only if the !rd was successful and the !rd was issued by a !fr
 
-require("alchemy.base.alchemy")
-require("content.areas")
-require("content.rentrooms")
-require("item.lever")
+local alchemy = require("alchemy.base.alchemy")
+local areas = require("content.areas")
+local rentrooms = require("content.rentrooms")
+local lever = require("item.lever")
 
 module("server.reload", package.seeall)
 
 function onReload()
 
-    alchemy.base.alchemy.InitAlchemy();
-    content.areas.Init();
-    content.rentrooms.initRooms()
-    item.lever.init();
+    alchemy.InitAlchemy();
+    areas.Init();
+    rentrooms.initRooms()
+    lever.init();
  
     return true;
 end

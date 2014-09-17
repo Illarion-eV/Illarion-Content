@@ -14,8 +14,8 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
-require("base.treasure")
+local common = require("base.common")
+local treasure = require("base.treasure")
 
 module("base.gatheringcraft", package.seeall)
 
@@ -107,13 +107,13 @@ function GatheringCraft:FindRandomItem(User)
   if math.random(1,100) == 50 then --why complicated if you can solve it simple... 1% chance for an interruption
     if(#self.InterruptMsg > 0) then
       local m = math.random(#self.InterruptMsg);
-      base.common.InformNLS(User, self.InterruptMsg[m][1], self.InterruptMsg[m][2]);
+      common.InformNLS(User, self.InterruptMsg[m][1], self.InterruptMsg[m][2]);
       return true;
     end
   end
 --]]
 
-	base.common.GetHungry(User, self.FoodLevel);
+	common.GetHungry(User, self.FoodLevel);
 
   -- FindRandomItem is called when the User is currently working. If there was
   -- a reload, the working time will be nil. Check for this case.
@@ -124,14 +124,14 @@ function GatheringCraft:FindRandomItem(User)
   end
 
 	-- check for Noobia
-	if (base.common.IsOnNoobia(User.pos)) then
+	if (common.IsOnNoobia(User.pos)) then
 		return false;
 	end
 
 	if (self.Treasure > 0) then
 		local rand = math.random();
-		if(rand < self.Treasure*self.FastActionFactor) and base.treasure.createMap(User) then
-			base.common.InformNLS(User, self.TreasureMsg[1], self.TreasureMsg[2]);
+		if(rand < self.Treasure*self.FastActionFactor) and treasure.createMap(User) then
+			common.InformNLS(User, self.TreasureMsg[1], self.TreasureMsg[2]);
 			return true;
 		end
 	end
@@ -140,7 +140,7 @@ function GatheringCraft:FindRandomItem(User)
 		local ra = math.random(#self.Monsters);
 		local pa = math.random();
 		if (pa < self.Monsters[ra].Probability*self.FastActionFactor) then
-			local TargetPos = base.common.getFreePos(User.pos, 1)
+			local TargetPos = common.getFreePos(User.pos, 1)
 			world:createMonster(self.Monsters[ra].MonsterID, TargetPos, 20);
 			if ( self.Monsters[ra].GFX ~= nil ) then
 				world:gfx(self.Monsters[ra].GFX, TargetPos);
@@ -148,7 +148,7 @@ function GatheringCraft:FindRandomItem(User)
 			if(self.Monsters[ra].Sound ~= nil) then
 				world:makeSound(self.Monsters[ra].Sound, TargetPos);
 			end
-			base.common.InformNLS(User, self.Monsters[ra].MessageDE, self.Monsters[ra].MessageEN);
+			common.InformNLS(User, self.Monsters[ra].MessageDE, self.Monsters[ra].MessageEN);
 			return true;
 		end
 	end
@@ -171,11 +171,11 @@ function GatheringCraft:FindRandomItem(User)
 		end
 		if ( #itemIndexList > 0 ) then -- For the unlikely case that two items were found at once, we just give one to the player
 			local ind = itemIndexList[math.random(1,#itemIndexList)];
-			base.common.InformNLS(User, self.RandomItems[ind].MessageDE, self.RandomItems[ind].MessageEN);
+			common.InformNLS(User, self.RandomItems[ind].MessageDE, self.RandomItems[ind].MessageEN);
 			local notCreated = User:createItem(self.RandomItems[ind].ID, self.RandomItems[ind].Quantity, self.RandomItems[ind].Quality, self.RandomItems[ind].Data);
 			if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 				world:createItemFromId( self.RandomItems[ind].ID, notCreated, User.pos, true, self.RandomItems[ind].Quality, self.RandomItems[ind].Data );
-				base.common.HighInformNLS(User,
+				common.HighInformNLS(User,
 				"Du kannst nichts mehr halten.",
 				"You can't carry any more.");
 			end
@@ -192,12 +192,12 @@ function GatheringCraft:GenWorkTime(User, toolItem)
   local minTime = 12; --Minimum time for skill 100 and normal tool
   local maxTime = 60; --Maximum time for skill 0 and normal tool
 
-  local skill  = base.common.Limit(User:getSkill(self.LeadSkill), 0, 100);
-  local workTime = base.common.Scale(maxTime, minTime, skill); --scaling with the skill
+  local skill  = common.Limit(User:getSkill(self.LeadSkill), 0, 100);
+  local workTime = common.Scale(maxTime, minTime, skill); --scaling with the skill
 
   -- apply the quality bonus
   if ( toolItem ~= nil ) then
-    local qual = base.common.Limit(math.floor(toolItem.quality/100), 1, 9); -- quality integer in [1,9]
+    local qual = common.Limit(math.floor(toolItem.quality/100), 1, 9); -- quality integer in [1,9]
     workTime = workTime - workTime*0.20*((qual-5)/4); --+/-20% depending on tool quality
   end
 

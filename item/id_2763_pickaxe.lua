@@ -39,15 +39,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET com_agingspeed = 255, com_objectafterrot = 1250 WHERE itm_id = 1250;
 -- UPDATE items SET com_agingspeed =  10, com_objectafterrot = 1250 WHERE itm_id = 1251;
 
-require("base.common")
-require("base.treasure")
-require("content.gatheringcraft.mining")
-require("item.general.metal")
-require("alchemy.teaching.transformation_dog")
+local common = require("base.common")
+local treasure = require("base.treasure")
+local mining = require("content.gatheringcraft.mining")
+local metal = require("item.general.metal")
+local transformation_dog = require("alchemy.teaching.transformation_dog")
 
 module("item.id_2763_pickaxe", package.seeall)
 
-LookAtItem = item.general.metal.LookAtItem
+LookAtItem = metal.LookAtItem
 
 function UseItem(User, SourceItem, ltstate)
 
@@ -55,19 +55,19 @@ function UseItem(User, SourceItem, ltstate)
 	if ( toolItem.id ~=2763 ) then
 		toolItem = User:getItemAt(6);
 		if ( toolItem.id ~= 2763 ) then
-			base.common.HighInformNLS( User,
+			common.HighInformNLS( User,
 			"Du musst die Spitzhacke in der Hand haben!",
 			"You have to hold the pick-axe in your hand!" );
 			return
 		end
 	end
 
-	if not base.common.FitForWork( User ) then -- check minimal food points
+	if not common.FitForWork( User ) then -- check minimal food points
 		return
 	end
 	
 	-- check for alchemy scroll
-	if alchemy.teaching.transformation_dog.DigForTeachingScroll(User) then
+	if transformation_dog.DigForTeachingScroll(User) then
 		return
 	end
 
@@ -75,34 +75,34 @@ function UseItem(User, SourceItem, ltstate)
 		return;
 	end
 
-	local areaId = content.gatheringcraft.mining.GetAreaId(User.pos);
+	local areaId = mining.GetAreaId(User.pos);
 	if (areaId == nil) then
-		base.common.HighInformNLS(User,
+		common.HighInformNLS(User,
 		"Die Gegend sieht nicht so aus, als könnte man hier etwas finden.",
 		"The area doesn't look like a good place to mine.");
 		return;
 	end
 
-	local rock = content.gatheringcraft.mining.getRock(User, areaId);
+	local rock = mining.getRock(User, areaId);
 	if (rock == nil) then
-		base.common.HighInformNLS(User,
+		common.HighInformNLS(User,
 		"Du musst neben einem Felsen stehen um Bergbau zu betreiben.",
 		"You have to stand next to a rock to mine.");
 		return
 	end
 
-	content.gatheringcraft.mining.StartGathering(User, rock, ltstate);
+	mining.StartGathering(User, rock, ltstate);
 end
 
 -- @return  True if found a treasure.
 function DigForTreasure(User)
-	local TargetPos = base.common.GetFrontPosition(User);
+	local TargetPos = common.GetFrontPosition(User);
 	local groundTile = world:getField( TargetPos ):tile();
-	local groundType = base.common.GetGroundType( groundTile );
+	local groundType = common.GetGroundType( groundTile );
 
-	if ( (groundType == base.common.GroundType.rocks) and
-		base.treasure.DigForTreasure(User, TargetPos, (User:getSkill(Character.mining)/10)+1,
-			base.common.GetNLS( User,
+	if ( (groundType == common.GroundType.rocks) and
+		treasure.DigForTreasure(User, TargetPos, (User:getSkill(Character.mining)/10)+1,
+			common.GetNLS( User,
 			"Du schwingst deine Spitzhacke gegen den steinigen Boden und stößt auf etwas das noch härter ist als der Boden. Das muss er sein! Der Schatz. Noch einmal graben und der grenzenlose Reichtum ist dein!",
 			"You swing your pick-axe against the stony ground and hit something that is even harder then the ground. That must it be! The treasure! Another swing and it is yours!" ),
 			false) ) then

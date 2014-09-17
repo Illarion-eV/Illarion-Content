@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common");
+local common = require("base.common")
 module("monster.lte.lte_deathgaze", package.seeall);
 
 -- INSERT INTO longtimeeffects VALUES (550, 'satk_deathgaze', 'monster.lte.lte_deathgaze');

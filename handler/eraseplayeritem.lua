@@ -14,11 +14,11 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
+local class = require("base.class")
 
 module("handler.eraseplayeritem", package.seeall)
 
-erasePlayerItem = base.class.class(function(eraplitem, ply, ID, amnt)
+erasePlayerItem = class.class(function(eraplitem, ply, ID, amnt)
     eraplitem.player=ply;
     eraplitem.itemId=ID;
     eraplitem.amount=amnt;

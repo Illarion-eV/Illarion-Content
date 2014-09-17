@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("questsystem.base")
+local base = require("questsystem.base")
 module("questsystem.hagar_coin.trigger2", package.seeall)
 
 local QUEST_NUMBER = 10001
@@ -28,11 +28,11 @@ local LOOKAT_TEXT_EN = "You read: Search for the fir tree about 20 steps in the 
 
 function LookAtItem(PLAYER, item)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
-      and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
+      and base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
 	
 	base.lookat.SetSpecialDescription(item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
 	
-	questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
+	base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
     return base.lookat.GenerateLookAt(PLAYER, item, base.lookat.NONE)
   end
 

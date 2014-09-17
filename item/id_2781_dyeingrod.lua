@@ -17,13 +17,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_2781_dyeingrod' WHERE itm_id IN (2781);
 
-require("base.licence")
-require("content.gatheringcraft.dyeing")
-require("item.general.wood")
+local licence = require("base.licence")
+local dyeing = require("content.gatheringcraft.dyeing")
+local wood = require("item.general.wood")
 
 module("item.id_2781_dyeingrod", package.seeall)
 
-LookAtItem = item.general.wood.LookAtItem
+LookAtItem = wood.LookAtItem
 
 function getBarrel(User)
 
@@ -48,13 +48,13 @@ function getBarrel(User)
 end
 
 function UseItem(User, SourceItem, ltstate)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence
+	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
 	local barrelItem = getBarrel(User);
 	if barrelItem then
-		content.gatheringcraft.dyeing.StartGathering(User, barrelItem, ltstate);
+		dyeing.StartGathering(User, barrelItem, ltstate);
 		return
 	end
 

@@ -21,8 +21,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- trout (73) --> smoked fish (455)
 -- salmon (355) --> smoked fish (455)
 
-require("base.common")
-require("content.gathering")
+local common = require("base.common")
+local gathering = require("content.gathering")
 
 module("content.gatheringcraft.egggathering", package.seeall)
 
@@ -31,10 +31,10 @@ function StartGathering(User, SourceItem, ltstate)
 	local FILLED_NEST = 1171
 	local EGG = 1150
 
-	content.gathering.InitGathering();
-	local egggathering = content.gathering.egggathering;
+	gathering.InitGathering();
+	local egggathering = gathering.egggathering;
 
-	base.common.ResetInterruption( User, ltstate );
+	common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
 		if (User:increaseAttrib("sex",0) == 0) then
 			gText = "seine";
@@ -47,15 +47,15 @@ function StartGathering(User, SourceItem, ltstate)
 		return
 	end
 
-	if not base.common.CheckItem( User, SourceItem ) then -- security check
+	if not common.CheckItem( User, SourceItem ) then -- security check
 		return
 	end
 
 	-- Disabled in order to give a hungry player a chance to strengthen.
-	-- if not base.common.FitForWork( User ) then -- check minimal food points
+	-- if not common.FitForWork( User ) then -- check minimal food points
 		-- return
 	-- end
-	base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+	common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 
 	if SourceItem.id == EMPTY_NEST  then
       User:inform("Hier befinden sich keine Eier.","There are no eggs here.",Player.highPriority)
@@ -104,7 +104,7 @@ function StartGathering(User, SourceItem, ltstate)
 	local notCreated = User:createItem( EGG, 1, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( EGG, notCreated, User.pos, true, 333, nil );
-		base.common.HighInformNLS(User,
+		common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -114,7 +114,7 @@ function StartGathering(User, SourceItem, ltstate)
 		end
 	end
 	if (amount<=0) then
-      base.common.HighInformNLS(User,
+      common.HighInformNLS(User,
       "Dieses Nest ist leer.",
       "This nest is empty." );
 	  -- reset amount
