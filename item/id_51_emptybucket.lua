@@ -21,9 +21,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_51_emptybucket' WHERE itm_id IN (51);
 
-require("base.common")
-require("alchemy.base.alchemy")
-require("base.licence")
+local common = require("base.common")
+local alchemy = require("alchemy.base.alchemy")
+local licence = require("base.licence")
 
 module("item.id_51_emptybucket", package.seeall)
 
@@ -32,7 +32,7 @@ function UseItem(User, SourceItem, ltstate)
   -- check for cauldron
   TargetItem = GetCauldron(User);
   if (TargetItem ~= nil) then
-	base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
+	common.TurnTo( User, TargetItem.pos ); -- turn if necessary
     FillFromCauldron(User,SourceItem,TargetItem,ltstate);
     return;
   end
@@ -43,35 +43,35 @@ function UseItem(User, SourceItem, ltstate)
 
   local foundSource = false;
   -- check for well or fountain
-  TargetItem = base.common.GetItemInArea(User.pos, 2207);
+  TargetItem = common.GetItemInArea(User.pos, 2207);
   if (TargetItem == nil) then
-    TargetItem = base.common.GetItemInArea(User.pos, 631);
+    TargetItem = common.GetItemInArea(User.pos, 631);
     if (TargetItem == nil) then
-      TargetItem = base.common.GetItemInArea(User.pos, 2079);
+      TargetItem = common.GetItemInArea(User.pos, 2079);
     end
   end
   if (TargetItem ~= nil) then
-	base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
+	common.TurnTo( User, TargetItem.pos ); -- turn if necessary
     foundSource=true
   end
 
   -- check for water tile
   local targetPos = GetWaterTilePosition(User);
   if (targetPos ~= nil) then
-	base.common.TurnTo( User, targetPos ); -- turn if necessary
+	common.TurnTo( User, targetPos ); -- turn if necessary
     foundSource=true
   end
 
    if not foundSource then
 	  -- nothing found to fill the bucket.
-	  base.common.InformNLS(User,
+	  common.InformNLS(User,
 	  "Du kannst den Eimer an einem Brunnen oder an einem Gewässer füllen.",
 	  "You can fill the bucket at a well or at some waters.");
       return
 	end
 
     if ( ltstate == Action.abort ) then
-		base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+		common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
 	   return
 	end
 
@@ -84,7 +84,7 @@ function UseItem(User, SourceItem, ltstate)
 	local notCreated = User:createItem( 52, 1, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 52, notCreated, User.pos, true, 333, nil );
-		base.common.HighInformNLS(User,
+		common.HighInformNLS(User,
 		"Du kannst nichts mehr halten.",
 		"You can't carry any more.");
 		world:erase(SourceItem,1)
@@ -106,12 +106,12 @@ end
 function FillFromCauldron(User,SourceItem,TargetItem,ltstate)
 
     if ( ltstate == Action.abort ) then
-		base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+		common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
 	   return
 	end
 
 	-- is the char an alchemist?
-	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
+	local anAlchemist = alchemy.CheckIfAlchemist(User)
 	if not anAlchemist then
 		User:inform("Auf dem Schriftstück steht nur dir unverständliches Alchemistengeschwafel.","For you the document only appears to contain unintelligible alchemical gibberish.")
 		return
@@ -122,7 +122,7 @@ function FillFromCauldron(User,SourceItem,TargetItem,ltstate)
 		return
 	end
 
-  base.common.InformNLS(User,
+  common.InformNLS(User,
   "Du füllst den Eimer mit dem Wasser im Kessel.",
   "You fill the bucket with the water in the cauldron.");
 
@@ -136,7 +136,7 @@ function FillFromCauldron(User,SourceItem,TargetItem,ltstate)
 		local notCreated=User:createItem(52,1,333,nil)
 		if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 			world:createItemFromId(52,1,User.pos,true,333,nil)
-			base.common.HighInformNLS(User,
+			common.HighInformNLS(User,
 			"Du kannst nichts mehr halten.",
 			"You can't carry any more.");
 		end
@@ -150,7 +150,7 @@ end
 -- returns a cauldron filled with water if one is found next to the user.
 function GetCauldron(User)
   -- first check in front
-  local frontPos = base.common.GetFrontPosition(User);
+  local frontPos = common.GetFrontPosition(User);
   if (world:isItemOnField(frontPos)) then
     local item = world:getItemOnField(frontPos);
     if (item.id == 1010 and item:getData("filledWith") == "water") then
@@ -173,8 +173,8 @@ function GetCauldron(User)
 end
 
 function GetWaterTilePosition(User)
-  local targetPos = base.common.GetFrontPosition(User);
-  if (base.common.GetGroundType(world:getField(targetPos):tile()) == base.common.GroundType.water) then
+  local targetPos = common.GetFrontPosition(User);
+  if (common.GetGroundType(world:getField(targetPos):tile()) == common.GroundType.water) then
         return targetPos;
   end
 
@@ -182,7 +182,7 @@ function GetWaterTilePosition(User)
   for x=-Radius,Radius do
     for y=-Radius,Radius do
       targetPos = position(User.pos.x + x, User.pos.y, User.pos.z);
-      if (base.common.GetGroundType(world:getField(targetPos):tile()) == base.common.GroundType.water) then
+      if (common.GetGroundType(world:getField(targetPos):tile()) == common.GroundType.water) then
         return targetPos;
       end
     end

@@ -14,11 +14,11 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
+local class = require("base.class")
 
 module("handler.createeffect", package.seeall)
 
-createEffect = base.class.class(function(creff, posi, gfxid)
+createEffect = class.class(function(creff, posi, gfxid)
     creff.pos=posi;
     creff.effectId=gfxid;
 end);

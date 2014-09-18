@@ -21,17 +21,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- additional tool: scissors (6)
 
-require("base.common")
-require("content.gathering")
+local common = require("base.common")
+local gathering = require("content.gathering")
 
 module("content.gatheringcraft.entrailscutting", package.seeall)
 
 function StartGathering(User, SourceItem, ltstate)
 
-	content.gathering.InitGathering();
-	local entrailscutting = content.gathering.entrailscutting;
+	gathering.InitGathering();
+	local entrailscutting = gathering.entrailscutting;
 
-	base.common.ResetInterruption( User, ltstate );
+	common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
 		if (User:increaseAttrib("sex",0) == 0) then
 			gText = "seine";
@@ -44,13 +44,13 @@ function StartGathering(User, SourceItem, ltstate)
 		return
 	end
 
---	if not base.common.CheckItem( User, SourceItem ) then -- security check
+--	if not common.CheckItem( User, SourceItem ) then -- security check
 --		return
 --	end
 
 	-- additional tool item is needed
 	if (User:countItemAt("all",6)==0) then
-		base.common.HighInformNLS( User,
+		common.HighInformNLS( User,
 		"Du brauchst eine Schere um Garn herzustellen.",
 		"You need a pair of scissors for producing thread." );
 		return
@@ -59,21 +59,21 @@ function StartGathering(User, SourceItem, ltstate)
 	if ( toolItem.id ~= 6 ) then
 		toolItem = User:getItemAt(6);
 		if ( toolItem.id ~= 6 ) then
-			base.common.HighInformNLS( User,
+			common.HighInformNLS( User,
 			"Du musst die Schere in der Hand haben!",
 			"You have to hold the scissors in your hand!" );
 			return
 		end
 	end
 
-	if not base.common.FitForWork( User ) then -- check minimal food points
+	if not common.FitForWork( User ) then -- check minimal food points
 		return
 	end
 
 	-- any other checks?
 
 	if (User:countItemAt("all",63)==0) then -- check for items to work on
-		base.common.HighInformNLS( User,
+		common.HighInformNLS( User,
 		"Du brauchst Eingeweide um daraus Garn herzustellen.",
 		"You need entrails for producing thread." );
 		return;
@@ -98,7 +98,7 @@ function StartGathering(User, SourceItem, ltstate)
 	local notCreated = User:createItem( 50, 1, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 50, notCreated, User.pos, true, 333, nil );
-		base.common.HighInformNLS(User,
+		common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -106,14 +106,14 @@ function StartGathering(User, SourceItem, ltstate)
 			entrailscutting.SavedWorkTime[User.id] = entrailscutting:GenWorkTime(User, toolItem);
 			User:startAction( entrailscutting.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
-			base.common.HighInformNLS(User,
+			common.HighInformNLS(User,
 			"Du hast keine Eingeweide mehr.",
 			"You have no entrails anymore.");
 		end
 	end
 
-	if base.common.GatheringToolBreaks( User, toolItem, entrailscutting:GenWorkTime(User, toolItem) ) then -- damage and possibly break the tool
-		base.common.HighInformNLS(User,
+	if common.GatheringToolBreaks( User, toolItem, entrailscutting:GenWorkTime(User, toolItem) ) then -- damage and possibly break the tool
+		common.HighInformNLS(User,
 		"Deine alte Schere zerbricht.",
 		"Your old scissors break.");
 		return

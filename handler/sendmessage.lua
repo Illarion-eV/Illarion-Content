@@ -14,12 +14,12 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
-require("base.common")
+local class = require("base.class")
+local common = require("base.common")
 
 module("handler.sendmessage", package.seeall)
 
-sendMessage = base.class.class(function(sndMsg, posi, msgde, msgen, rad)
+sendMessage = class.class(function(sndMsg, posi, msgde, msgen, rad)
     sndMsg.pos=posi;
     sndMsg.messageDe=msgde;
     sndMsg.messageEn=msgen;
@@ -29,6 +29,6 @@ end);
 function sendMessage:execute()
     plyList=world:getPlayersInRangeOf(self.pos, self.radius);
     for i, player in pairs(plyList) do
-        base.common.InformNLS(player,self.messageDe,self.messageEn)
+        common.InformNLS(player,self.messageDe,self.messageEn)
     end
 end

@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (451,544,1,'triggerfield.bjolmur');
 
 
-require("base.common")
+local common = require("base.common")
 module("triggerfield.bjolmur", package.seeall)
 
 
@@ -31,7 +31,7 @@ function MoveToField(char)
 		if PlayerIsNaked(char) == true then
 			PayGemsToMeetHer(char)
 		elseif char.pos == position(451,543,0) then
-			base.common.InformNLS(char,"Du hörst etwas flüstern: 'Du hast zu viel an.'","You hear a whisper: 'You wear too much still.'")
+			common.InformNLS(char,"Du hörst etwas flüstern: 'Du hast zu viel an.'","You hear a whisper: 'You wear too much still.'")
 		end
 	end
 end

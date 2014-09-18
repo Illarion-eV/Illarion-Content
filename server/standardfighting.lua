@@ -52,25 +52,25 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 -- Hang in base.common - Some functions of the collection are needed
-require("base.common")
+local common = require("base.common")
 
 -- Include base.character to use the methods changing some attributes of the character properly there
-require("base.character")
+local character = require("base.character")
 
 -- For learning skills...
-require("server.learn")
+local learn = require("server.learn")
 
 -- Lists with static values of the fighting system
-require("content.fighting")
+local fighting = require("content.fighting")
 
 -- Include the regeneration LTE to access the control functions of this LTE
-require("lte.chr_reg");
+local chr_reg = require("lte.chr_reg")
 
 -- for gem bonus
-require("base.gems")
+local gems = require("base.gems")
 
 -- for checking for unattackable monsters
-require("monster.base.base")
+local base = require("monster.base.base")
 
 module("server.standardfighting", package.seeall)
 
@@ -172,7 +172,7 @@ function onAttack(Attacker, Defender)
     if not NewbieIsland(Attacker.Char, Defender.Char) then return false; end;
 
 	-- unattackable monsters shall not be attacked
-	if monster.base.base.checkUnattackability(Defender.Char, Attacker.Char) then return false end
+	if base.checkUnattackability(Defender.Char, Attacker.Char) then return false end
 
     -- Load the weapons of the attacker
     LoadWeapons(Attacker);
@@ -217,7 +217,7 @@ function onAttack(Attacker, Defender)
     local APreduction = HandleMovepoints(Attacker, Globals);
 
 	-- Turning the attacker to his victim
-    base.common.TurnTo(Attacker.Char,Defender.Char.pos);
+    common.TurnTo(Attacker.Char,Defender.Char.pos);
 
     -- Show the attacking animation
     ShowAttackGFX(Attacker);
@@ -498,7 +498,7 @@ function ArmourDegrade(Defender, Globals)
 		durability = durability - 20;
 
 		if (durability <= 0) then
-			base.common.InformNLS(Defender.Char,
+			common.InformNLS(Defender.Char,
 		  "Dein Artefakt '"..nameText.."' zerbricht. Das nächste Mal solltest du dich besser darum kümmern.",
 		  "Your artifact '"..nameText.."' shatters. You should take better care of it next time.");
 		  world:erase(Globals.HittedItem, 1);
@@ -510,12 +510,12 @@ function ArmourDegrade(Defender, Globals)
 		world:changeItem(Globals.HittedItem);
 
 
-		base.common.InformNLS(Defender.Char,
+		common.InformNLS(Defender.Char,
 		"Du solltest dein kaputtes Artefakt '"..nameText.."' ablegen bevor es zerbricht!",
 		"You should take off your broken artifact '"..nameText.."' before it shatters!");
 
 
-	elseif (base.common.Chance(Globals.Damage, 12000)) and (Globals.HittedItem.id ~= 0) then -- do not damage non existing items
+	elseif (common.Chance(Globals.Damage, 12000)) and (Globals.HittedItem.id ~= 0) then -- do not damage non existing items
 
 		local durability = math.fmod(Globals.HittedItem.quality, 100);
 		local quality = (Globals.HittedItem.quality - durability) / 100;
@@ -524,7 +524,7 @@ function ArmourDegrade(Defender, Globals)
 		durability = durability - 1;
 
 		if (durability == 0) then
-			base.common.InformNLS(Defender.Char,
+			common.InformNLS(Defender.Char,
 		  "Dein Rüstungsteil '"..nameText.."' zerbricht. Glücklicherweise tritt kein Splitter in deinen Körper ein.",
 		  "Your armour piece '"..nameText.."' shatters. Thankfully, no fragments end up in your body.");
 		  world:erase(Globals.HittedItem, 1);
@@ -536,7 +536,7 @@ function ArmourDegrade(Defender, Globals)
 		world:changeItem(Globals.HittedItem);
 
 		if (durability < 10) then
-		  base.common.InformNLS(Defender.Char,
+		  common.InformNLS(Defender.Char,
 		  "Dein Rüstungsteil '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du es reparieren.",
 		  "Your armour piece '"..nameText.."' has seen better days. You may want to repair it.");
 		end;
@@ -560,7 +560,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		durability = durability - 20;
 
 		if (durability <= 0) then
-			base.common.InformNLS(Attacker.Char,
+			common.InformNLS(Attacker.Char,
 		  "Dein Artefakt '"..nameText.."' zerbricht. Das nächste Mal solltest du dich besser darum kümmern.",
 		  "Your artifact '"..nameText.."' shatters. You should take better care of it next time.");
 		  world:erase(Attacker.WeaponItem, 1);
@@ -571,11 +571,11 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		--world:changeItem(Globals.HittedItem.WeaponItem);
 		world:changeItem(Attacker.WeaponItem);
 
-		base.common.InformNLS(Defender.Char,
+		common.InformNLS(Defender.Char,
 		"Du solltest aufhören, dein kaputtes Artefakt '"..nameText.."' zu verwenden, bevor es zerbricht!",
 		"You should stop wielding your broken artifact '"..nameText.."' before it shatters!");
 
-	elseif (base.common.Chance(1, 20)) and (Attacker.WeaponItem.id ~= 0) then
+	elseif (common.Chance(1, 20)) and (Attacker.WeaponItem.id ~= 0) then
 
 		local durability = math.fmod(Attacker.WeaponItem.quality, 100);
 		local quality = (Attacker.WeaponItem.quality - durability) / 100;
@@ -583,7 +583,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		durability = durability - 1;
 
 		if (durability == 0) then
-			base.common.InformNLS(Attacker.Char,
+			common.InformNLS(Attacker.Char,
 		  "Deine Waffe '"..nameText.."' zerbricht. Du vergießt eine bitter Träne und sagst lebe wohl, als sie in das nächste Leben übergeht.",
 		  "Your weapon '"..nameText.."' shatters. You shed a single tear and bid it farewell as it moves onto its next life.");
 		  world:erase(Attacker.WeaponItem, 1);
@@ -594,7 +594,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		world:changeItem(Attacker.WeaponItem);
 
 		if (durability < 10) then
-		  base.common.InformNLS(Attacker.Char,
+		  common.InformNLS(Attacker.Char,
 		  "Deine Waffe '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du sie reparieren.",
 		  "Your weapon '"..nameText.."' has seen better days. You may want to repair it.");
 		end;
@@ -611,7 +611,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		durability = durability - 20;
 
 		if (durability <= 0) then
-			base.common.InformNLS(Defender.Char,
+			common.InformNLS(Defender.Char,
 		  "Dein Artefakt '"..nameText.."' zerbricht. Das nächste Mal solltest du dich besser darum kümmern.",
 		  "Your artifact '"..nameText.."' shatters. You should take better care of it next time.");
 		  world:erase(ParryWeapon, 1);
@@ -624,18 +624,18 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		world:changeItem(ParryWeapon);
 
 
-		base.common.InformNLS(Defender.Char,
+		common.InformNLS(Defender.Char,
 		"Du solltest aufhören, dein kaputtes Artefakt '"..nameText.."' zu verwenden, bevor es zerbricht!",
 		"You should stop wielding your broken artifact '"..nameText.."' before it shatters!");
 
-	elseif (base.common.Chance(1, 60)) and (ParryWeapon.id ~= 0) then
+	elseif (common.Chance(1, 60)) and (ParryWeapon.id ~= 0) then
 		local durability = math.fmod(ParryWeapon.quality, 100);
 		local quality = (ParryWeapon.quality - durability) / 100;
 
 		durability = durability - 1;
 
 		if (durability == 0) then
-			base.common.InformNLS(Defender.Char,
+			common.InformNLS(Defender.Char,
 		  "Dein Gegenstand '"..nameText.."' zerbricht, dies erschwert es dir, dich zu verteidigen.",
 		  "Your item '"..nameText.."' shatters, making it more difficult for you to defend yourself.");
 		  world:erase(ParryWeapon, 1);
@@ -646,7 +646,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		world:changeItem(ParryWeapon);
 
 		if (durability < 10) then
-		  base.common.InformNLS(Defender.Char,
+		  common.InformNLS(Defender.Char,
 		  "Dein Gegenstand '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du ihn reparieren.",
 		  "Your item '"..nameText.."' has seen better days. You may want to repair it.");
 		end;
@@ -685,7 +685,7 @@ function CalculateDamage(Attacker, Globals)
 		end
 
     else
-        BaseDamage = content.fighting.GetWrestlingAttack( Attacker.Race ) * 10;
+        BaseDamage = fighting.GetWrestlingAttack( Attacker.Race ) * 10;
     end;
 
 	-- Noob messup malus
@@ -700,7 +700,7 @@ function CalculateDamage(Attacker, Globals)
     DexterityBonus = (Attacker.dexterity - 6) * 1;
     SkillBonus = (Attacker.skill - 20) * 1.5;
     --TacticsBonus = (Attacker.tactics - 20) * 0.5;
-    GemBonus = base.gems.getGemBonus(Attacker.WeaponItem);
+    GemBonus = gems.getGemBonus(Attacker.WeaponItem);
 
 	--Quality Bonus: Multiplies final value by 0.91-1.09
 	QualityBonus = 0.91+0.02*math.floor(Attacker.WeaponItem.quality/100);
@@ -739,9 +739,9 @@ function CauseDamage(Attacker, Defender, Globals)
     --Attacker.Char:inform("Dealt damage: ".. Globals.Damage .. " HP."); --Debugging
 	--Defender.Char:inform("Received damage: ".. Globals.Damage .. " HP."); --Debugging
 
-    if base.character.IsPlayer(Defender.Char) and not Defender.Char:isAdmin() and base.character.WouldDie(Defender.Char, Globals.Damage + 1) and not base.character.AtBrinkOfDeath(Defender.Char) then
+    if character.IsPlayer(Defender.Char) and not Defender.Char:isAdmin() and character.WouldDie(Defender.Char, Globals.Damage + 1) and not character.AtBrinkOfDeath(Defender.Char) then
         -- Character would die. Nearly killing him and moving him back in case it's possible
-        base.character.ToBrinkOfDeath(Defender.Char);
+        character.ToBrinkOfDeath(Defender.Char);
 
         local CharOffsetX = Attacker.Char.pos.x - Defender.Char.pos.x;
         local CharOffsetY = Attacker.Char.pos.y - Defender.Char.pos.y;
@@ -779,21 +779,21 @@ function CauseDamage(Attacker, Defender, Globals)
             end
         end
 
-        base.common.CreateLine(Defender.Char.pos, newPos, isNotBlocked);
+        common.CreateLine(Defender.Char.pos, newPos, isNotBlocked);
 
         if targetPos ~= startPos then
             Defender.Char:warp(targetPos)
         end
 
-        base.common.TalkNLS(Defender.Char, Character.say,
+        common.TalkNLS(Defender.Char, Character.say,
             "#me stolpert zurück und geht zu Boden.",
             "#me stumbles back and falls to the ground.");
 
 		if not Defender.Char:isAdmin() then --Admins don't want to get paralysed!
 
-            base.common.ParalyseCharacter(Defender.Char, 2, false, true);
+            common.ParalyseCharacter(Defender.Char, 2, false, true);
 			TimeFactor=1; -- See lte.chr_reg
-			lte.chr_reg.stallRegeneration(Defender.Char, 60/TimeFactor); -- Stall regeneration for one minute. Attention! If you change TimeFactor in lte.chr_reg to another value but 1, you have to divide this "60" by that factor
+			chr_reg.stallRegeneration(Defender.Char, 60/TimeFactor); -- Stall regeneration for one minute. Attention! If you change TimeFactor in lte.chr_reg to another value but 1, you have to divide this "60" by that factor
 
 		end
 
@@ -801,7 +801,7 @@ function CauseDamage(Attacker, Defender, Globals)
 
     else
 
-		base.character.ChangeHP(Defender.Char,-Globals.Damage); -- Finally dealing the damage.
+		character.ChangeHP(Defender.Char,-Globals.Damage); -- Finally dealing the damage.
 
         if (Attacker.AttackKind == 4) then -- Ranged attack
             if Defender.Char:getType() == Character.monster and Attacker.Char:getType() == Character.player then
@@ -839,7 +839,7 @@ function HitChance(Attacker, Defender, Globals)
 	end;
 
 	-- Min and max hit chance are 5% and 95% respectively
-	chancetohit = base.common.Limit(chancetohit, 5, 95);
+	chancetohit = common.Limit(chancetohit, 5, 95);
 
 	if (Attacker.AttackKind==4) then
 
@@ -862,7 +862,7 @@ function HitChance(Attacker, Defender, Globals)
 	end;
 
 	-- Attack misses
-	if not base.common.Chance(chancetohit, 100) then
+	if not common.Chance(chancetohit, 100) then
 		return false;
 	end;
 
@@ -931,10 +931,10 @@ function HitChance(Attacker, Defender, Globals)
 	end
 
 	 -- Min and max parry are 5% and 95% respectively
-	parryChance = base.common.Limit(parryChance, 5, 95);
+	parryChance = common.Limit(parryChance, 5, 95);
 
 	-- Attack was parried sucessfully
-	if base.common.Chance(parryChance, 100) then
+	if common.Chance(parryChance, 100) then
 		PlayParrySound(Attacker, Defender)
 		Defender.Char:performAnimation(9);
 		WeaponDegrade(Attacker, Defender, parryItem);
@@ -1225,23 +1225,23 @@ function CoupDeGrace(Attacker, Defender)
         return false;
     end;
 
-    if content.fighting.IsTrainingWeapon(Attacker.WeaponItem.id) then
+    if fighting.IsTrainingWeapon(Attacker.WeaponItem.id) then
         -- not done for training weapons
         return false;
     end;
 
-    if (base.character.AtBrinkOfDeath(Defender.Char)) then
+    if (character.AtBrinkOfDeath(Defender.Char)) then
         -- character nearly down
-        local gText = base.common.GetGenderText(Attacker.Char, "seinem",
+        local gText = common.GetGenderText(Attacker.Char, "seinem",
             "ihrem");
-        local eText = base.common.GetGenderText(Attacker.Char, "his",
+        local eText = common.GetGenderText(Attacker.Char, "his",
             "her");
         Attacker.Char:talk(Character.say,
                 string.format("#me gibt %s Gegner den Gnadenstoß.", gText),
                 string.format("#me gives %s enemy the coup de gráce.", eText))
 
         -- Kill character and notify other scripts about the death
-        if not base.character.Kill(Defender.Char) then
+        if not character.Kill(Defender.Char) then
             -- something interrupted the kill
             return true;
         end;
@@ -1267,7 +1267,7 @@ function DropAmmo(Attacker, Defender, GroundOnly)
         return;
     end;
 
-    if base.common.Chance(0.33) then
+    if common.Chance(0.33) then
         local AmmoItem;
         if (Attacker.Weapon.AmmunitionType
             == Attacker.SecWeapon.WeaponType) then
@@ -1322,7 +1322,7 @@ end;
 -- position set as center.
 -- @param Posi The center of the bloody area
 function DropMuchBlood(Posi)
-    local workingPos = base.common.CopyPosition(Posi);
+    local workingPos = common.CopyPosition(Posi);
 
     workingPos.x = workingPos.x - 1;
     workingPos.y = workingPos.y - 1;
@@ -1344,7 +1344,7 @@ end;
 -- 3 - Thrust
 function GetArmourType(Defender, Globals)
 
-    Globals["HittedArea"] = content.fighting.GetHitArea(Defender.Race);
+    Globals["HittedArea"] = fighting.GetHitArea(Defender.Race);
     Globals["HittedItem"] = Defender.Char:getItemAt(Globals.HittedArea);
 
     local armour, armourfound;
@@ -1387,25 +1387,25 @@ function GetArmourType(Defender, Globals)
 	--A check in case the defense stats of the armour are equal, will return a random value of the tied ranks.
 	if(armourtype>3) then
 		if(armourtype==12) then
-			if(base.common.Chance(1,2)) then
+			if(common.Chance(1,2)) then
 				armourtype = 1;
 			else
 				armourtype = 2;
 			end;
 		elseif(armourtype==23) then
-			if(base.common.Chance(1,2)) then
+			if(common.Chance(1,2)) then
 				armourtype = 2;
 			else
 				armourtype = 3;
 			end;
 		elseif(armourtype==13) then
-			if(base.common.Chance(1,2)) then
+			if(common.Chance(1,2)) then
 				armourtype = 1;
 			else
 				armourtype = 3;
 			end;
 		elseif(armourtype==123) then
-			local tempchance = base.common.Chance(1,3)
+			local tempchance = common.Chance(1,3)
 			if(tempchance==1) then
 				armourtype = 1;
 			elseif(tempchance==2) then
@@ -1459,7 +1459,7 @@ function CheckCriticals(Attacker, Defender, Globals)
 		end;
 	end;
 
-	if not base.common.Chance(chance, 100) then
+	if not common.Chance(chance, 100) then
 		Globals["criticalHit"] = 0;
 		return false;
 	else
@@ -1475,73 +1475,73 @@ end;
 -- @param Globals The table of the global values
 function Specials(Attacker, Defender, Globals)
 
-	local hisher =  base.common.GetGenderText(Attacker.Char,"his","her");
-	local seinihr = base.common.GetGenderText(Attacker.Char,"sein","ihr");
+	local hisher =  common.GetGenderText(Attacker.Char,"his","her");
+	local seinihr = common.GetGenderText(Attacker.Char,"sein","ihr");
 	if(Attacker.Char:getType() == Character.monster) then
 		if(Globals.criticalHit==1) then -- 1HS
-            base.common.TalkNLS(Attacker.Char, Character.say,
+            common.TalkNLS(Attacker.Char, Character.say,
                     "#me schlägt schnell zu und teilt rasch zwei Hiebe aus.",
                     "#me quickly strikes, dealing two blows in rapid succession.");
         elseif(Globals.criticalHit==2) then -- 1HC
-            base.common.TalkNLS(Attacker.Char, Character.say,
+            common.TalkNLS(Attacker.Char, Character.say,
                     "#me greift mit solcher Kraft an, dass der Angriff nicht pariert werden kann.",
                     "#me attacks with such force that it cannot be blocked.");
         elseif(Globals.criticalHit==3) then -- 1HP
-            base.common.TalkNLS(Attacker.Char, Character.say,
+            common.TalkNLS(Attacker.Char, Character.say,
                     "#me führt eine schmerzhafte Attacke gegen den Rücken aus.",
                     "#me delivers a painful back attack.");
         elseif(Globals.criticalHit==4) then -- 2HS
-            base.common.TalkNLS(Attacker.Char, Character.say,
+            common.TalkNLS(Attacker.Char, Character.say,
                     "#me führt einen gewaltigen Hieb aus und schlägt "..seinihr.."en Gegner zurück.",
                     "#me delivers a broad attack, knocking back "..hisher.." opponent.");
         elseif(Globals.criticalHit==5) then -- 2HC
-            base.common.TalkNLS(Attacker.Char, Character.say,
+            common.TalkNLS(Attacker.Char, Character.say,
                     "#me greift mit großer Kraft an und setzt "..seinihr.."en Gegner außer Gefecht.",
                     "#me attacks with great force, stunning "..hisher.." foe.");
         elseif(Globals.criticalHit==6) then -- 2HP
-            base.common.TalkNLS(Attacker.Char, Character.say,
+            common.TalkNLS(Attacker.Char, Character.say,
                     "#me stößt vor und landert einen durchbohrenden Treffer.",
                     "#me thrusts out, delivering a powerful, piercing attack.");
         elseif(Globals.criticalHit==7) then -- Dist
-            base.common.TalkNLS(Attacker.Char, Character.say,
+            common.TalkNLS(Attacker.Char, Character.say,
                     "#me zielt etwas länger und er trifft dadurch "..seinihr.." Ziel an einer ungeschützten Stelle.",
                     "#me takes careful aim, hitting "..hisher.." target with precision and power.");
         elseif(Globals.criticalHit==8) then -- Wrest
-            base.common.TalkNLS(Attacker.Char, Character.say,
+            common.TalkNLS(Attacker.Char, Character.say,
                     "#me führt einen extrem schnellen Hieb gegen "..seinihr.."en Gegner.",
                     "#me strikes out extremely quickly, dealing a powerful blow to "..hisher.." opponent.");
 		end;
 	else
 		if(Globals.criticalHit==1) then -- 1HS
-			base.common.TalkNLS(Attacker.Char, Character.say,
+			common.TalkNLS(Attacker.Char, Character.say,
 				"#me schwingt "..seinihr.."e Klinge und teilt rasch zwei Hiebe aus.",
 				"#me sweeps "..hisher.." blade, dealing two blows in rapid succession.");
 		elseif(Globals.criticalHit==2) then -- 1HC
-			base.common.TalkNLS(Attacker.Char, Character.say,
+			common.TalkNLS(Attacker.Char, Character.say,
 				"#me schwingt "..seinihr.."e Waffe mit solcher Kraft, dass diese nicht pariert werden kann.",
 				"#me swings "..hisher.." weapon with such force that it cannot be blocked.");
 		elseif(Globals.criticalHit==3) then -- 1HP
-			base.common.TalkNLS(Attacker.Char, Character.say,
+			common.TalkNLS(Attacker.Char, Character.say,
 				"#me rammt "..seinihr.."e Klinge schnell in den Rücken "..seinihr.."es Gegners.",
 				"#me slams "..hisher.." blade quickly into "..hisher.." opponent's back.");
 		elseif(Globals.criticalHit==4) then -- 2HS
-			base.common.TalkNLS(Attacker.Char, Character.say,
+			common.TalkNLS(Attacker.Char, Character.say,
 				"#me führ einen gewaltigen Hieb aus und schlägt "..seinihr.."en Gegner zurück.",
 				"#me delivers a mighty swing, knocking back "..hisher.." opponent.");
 		elseif(Globals.criticalHit==5) then -- 2HC
-			base.common.TalkNLS(Attacker.Char, Character.say,
+			common.TalkNLS(Attacker.Char, Character.say,
 				"#me lässt "..seinihr.."e Waffe mit gewaltiger Kraft nach unten fahren so dass "..seinihr.." Gegner benommen ist.",
 				"#me brings down "..hisher.." weapon with great force, stunning "..hisher.." foe.");
 		elseif(Globals.criticalHit==6) then -- 2HP
-			base.common.TalkNLS(Attacker.Char, Character.say,
+			common.TalkNLS(Attacker.Char, Character.say,
 				"#me stößt "..seinihr.."e Waffe mit einem kraftvollen Stich nach vorne.",
 				"#me thrusts "..hisher.." weapon with a powerful, piercing attack.");
 		elseif(Globals.criticalHit==7) then -- Dist
-			base.common.TalkNLS(Attacker.Char, Character.say,
+			common.TalkNLS(Attacker.Char, Character.say,
 				"#me zielt etwas länger und trifft dadurch "..seinihr.." Ziel an einer ungeschützten Stelle.",
 				"#me takes careful aim, hitting "..hisher.." target with precision and power.");
 		elseif(Globals.criticalHit==8) then -- Wrest
-			base.common.TalkNLS(Attacker.Char, Character.say,
+			common.TalkNLS(Attacker.Char, Character.say,
 				"#me führt einen extrem schnellen Hieb gegen "..seinihr.."en Gegner.",
 				"#me strikes out extremely quickly, dealing a powerful blow to "..hisher.." opponent.");
 		end;
@@ -1580,15 +1580,15 @@ function Specials(Attacker, Defender, Globals)
             end
         end;
 
-        base.common.CreateLine(Defender.Char.pos, newPos, isNotBlocked);
+        common.CreateLine(Defender.Char.pos, newPos, isNotBlocked);
 
         if targetPos ~= startPos then
             Defender.Char:warp(targetPos)
-			base.common.ParalyseCharacter(Defender.Char, 2, false, true);
+			common.ParalyseCharacter(Defender.Char, 2, false, true);
         end;
 	elseif(Globals.criticalHit==5) then
 		--Stun
-		base.common.ParalyseCharacter(Defender.Char, 2, false, true);
+		common.ParalyseCharacter(Defender.Char, 2, false, true);
 	end;
 
 end;
@@ -1599,11 +1599,11 @@ end;
 function Counter(Attacker, Defender)
 
 	if Defender.Char.attackmode then
-		if base.common.Chance(1,50) then
-			base.common.TalkNLS(Defender.Char, Character.say,
+		if common.Chance(1,50) then
+			common.TalkNLS(Defender.Char, Character.say,
             "#me blockt geschickt den Hieb und macht sich schnell für einen Konter bereit.",
             "#me deftly blocks the hit and quickly readies stance for a counter attack.");
-			base.character.ChangeFightingpoints(Defender.Char,-Defender.Char.fightpoints);
+			character.ChangeFightingpoints(Defender.Char,-Defender.Char.fightpoints);
 			Defender.Char.fightpoints = 21
 		end;
 	end;
@@ -1703,7 +1703,7 @@ function CalculateMovepoints(Attacker)
     if Attacker.IsWeapon then
         weaponFightpoints = Attacker.Weapon.ActionPoints;
 	else
-        weaponFightpoints = content.fighting.GetWrestlingMovepoints(Attacker.Race);
+        weaponFightpoints = fighting.GetWrestlingMovepoints(Attacker.Race);
     end;
 
 	if Attacker.Weapon.AmmunitionType==10 then
@@ -1740,13 +1740,13 @@ function HandleMovepoints(Attacker, Globals)
 		archerAdjustment = fightPointsBeforeCritical
 	end
 
-	base.character.ChangeFightingpoints(Attacker.Char,-math.floor(reduceFightpoints-archerAdjustment));
+	character.ChangeFightingpoints(Attacker.Char,-math.floor(reduceFightpoints-archerAdjustment));
 
 
 	if Attacker.Char:getType() == Character.monster then
 	--This is merely a hack. Without this, monsters just "fly" over tiles while attacking because they do not invest movepoints. Strangely, if we do the same for players, they get stalled. A profound solution is needed, most probably, this is a server issue. The line below does the job for now, but it's not a clean solution. ~Estralis
 
-		base.character.ChangeMovepoints(Attacker.Char,-math.floor(reduceFightpoints-archerAdjustment));
+		character.ChangeMovepoints(Attacker.Char,-math.floor(reduceFightpoints-archerAdjustment));
 
 	end
 
@@ -1950,7 +1950,7 @@ function NewbieIsland(Attacker, Defender)
     elseif (_AntiSpamVar[Attacker.id] < 280) then
         _AntiSpamVar[Attacker.id] =_AntiSpamVar[Attacker.id] + 1;
     else
-        base.common.InformNLS(Attacker,
+        common.InformNLS(Attacker,
         "[Tutorial] Du darfst während des Tutorials noch keine anderen Spieler angreifen. Klicke nochmals rechts auf deinen Gegner um den Kampf abzubrechen.",
         "[Tutorial] You are not allowed to attack other players during the tutorial. Right click again on your enemy to cancel the attack.");
         _AntiSpamVar[Attacker.id] = 0;
@@ -2037,7 +2037,7 @@ function ShowEffects(Attacker, Defender, Globals)
         if Globals.criticalHit>0 then
             --InformAboutCritical(Attacker.Char, Defender.Char, Globals.HittedArea);
             --[[ Wounds Script - Disabled for now
-            if base.character.IsPlayer(Defender.Char) and (math.random(8) == 1) then
+            if character.IsPlayer(Defender.Char) and (math.random(8) == 1) then
                 Defender.Char.effects:addEffect(LongTimeEffect(21, 10));
             end;
             --]]

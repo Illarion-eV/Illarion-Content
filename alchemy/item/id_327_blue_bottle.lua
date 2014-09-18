@@ -20,9 +20,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --Falk
 -- reworked by Merung
 
-require("base.common")
-require("alchemy.base.alchemy")
-require("alchemy.base.missile")
+local common = require("base.common")
+local alchemy = require("alchemy.base.alchemy")
+local missile = require("alchemy.base.missile")
 
 
 module("alchemy.item.id_327_blue_bottle", package.seeall)
@@ -36,41 +36,41 @@ local potionEffectId = (tonumber(Item:getData("potionEffectId")))
 	if (potionEffectId >= 300) and (potionEffectId <= 399) then	-- bombs
 		
 		if (potionEffectId == 301) then
-			alchemy.base.missile.effect_1( User, Item );
+			missile.effect_1( User, Item );
 		elseif (potionEffectId == 302) then
-			alchemy.base.missile.effect_2( User, Item );
+			missile.effect_2( User, Item );
 		elseif (potionEffectId == 303) then
-			alchemy.base.missile.effect_3( User, Item );
+			missile.effect_3( User, Item );
 		elseif (potionEffectId == 304) then
-			alchemy.base.missile.effect_4( User, Item );
+			missile.effect_4( User, Item );
 		elseif (potionEffectId == 305) then
-			alchemy.base.missile.effect_5( User, Item );
+			missile.effect_5( User, Item );
 		elseif (potionEffectId == 306) then
-			alchemy.base.missile.effect_6( User, Item );
+			missile.effect_6( User, Item );
 		elseif (potionEffectId == 307) then
-			alchemy.base.missile.effect_7( User, Item );
+			missile.effect_7( User, Item );
 		elseif (potionEffectId == 308) then
-			alchemy.base.missile.effect_8( User, Item );
+			missile.effect_8( User, Item );
 		elseif (potionEffectId == 309) then
-			alchemy.base.missile.effect_9( User, Item );
+			missile.effect_9( User, Item );
 		elseif (potionEffectId == 310) then
-			alchemy.base.missile.effect_10( User, Item );
+			missile.effect_10( User, Item );
 		elseif (potionEffectId == 311) then 
-			alchemy.base.missile.effect_11( User, Item );
+			missile.effect_11( User, Item );
 		elseif (potionEffectId == 312) then
-			alchemy.base.missile.effect_12( User, Item );
+			missile.effect_12( User, Item );
 		elseif (potionEffectId == 313) then 
-			alchemy.base.missile.effect_13( User, Item );
+			missile.effect_13( User, Item );
 		elseif (potionEffectId == 314) then
-			alchemy.base.missile.effect_14( User, Item );
+			missile.effect_14( User, Item );
 		elseif (potionEffectId == 315) then
-			alchemy.base.missile.effect_15( User, Item );
+			missile.effect_15( User, Item );
 		elseif (potionEffectId == 316) then
-			alchemy.base.missile.effect_16( User, Item );
+			missile.effect_16( User, Item );
 		elseif (potionEffectId == 317) then 
-			alchemy.base.missile.effect_17( User, Item );
+			missile.effect_17( User, Item );
 		elseif (potionEffectId == 318) then 
-		    alchemy.base.missile.effect_18( User, Item );
+		    missile.effect_18( User, Item );
 		else
 			-- unbekannter Trank
 		end
@@ -85,7 +85,7 @@ function Drop(User,TargetItem)
     if (math.random(1,User:increaseAttrib("dexterity",0)+7)==1) then
         Explode(User,TargetItem);
         User:talk(Character.say, "#me lässt eine Flasche fallen, welche explodiert.", "#me drops a bottle and it explodes.")
-        base.common.InformNLS( User,
+        common.InformNLS( User,
         "Der Wurfkörper rutscht dir aus den Händen und zerplatzt vor deinen Füßen.",
         "The missile slips out of your hands and burst asunder in front of you feets.");
     end;
@@ -140,7 +140,7 @@ function MoveItemBeforeMove( User, SourceItem, TargetItem )
     end
     
     if (SourceItem:getType()~=4) and (SourceItem:getData("missileStatus") == "activated") then
-        base.common.InformNLS( User,
+        common.InformNLS( User,
         "Du musst den Wurfkörper aus der Hand werfen.",
         "You have to throw the missle out of your hand.");
         return false; -- not in the hand; only for activated missile
@@ -150,13 +150,13 @@ end
 
 function DrinkPotion(User,SourceItem)
 -- no drink effect exists for bomb potions, yet
-   base.common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", 
+   common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", 
 		"You don't have the feeling that something happens.")
 end
 
 function UseItem(User, SourceItem, ltstate)
     -- repair potion in case it's broken
-	alchemy.base.alchemy.repairPotion(SourceItem)
+	alchemy.repairPotion(SourceItem)
 	-- repair end
 
 	if SourceItem:getData("filledWith")=="meraldilised slime" then
@@ -173,25 +173,25 @@ function UseItem(User, SourceItem, ltstate)
 	    potionEffectId = 0
 	end	
 	
-	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
+	local cauldron = alchemy.GetCauldronInfront(User)
 	if cauldron then -- infront of a cauldron?
-	    alchemy.base.alchemy.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
+	    alchemy.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
 	   
 	else -- not infront of a cauldron, therefore use it
         if User.attackmode then
-		   base.common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während du kämpfst.", "You cannot use the potion while fighting.")
+		   common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während du kämpfst.", "You cannot use the potion while fighting.")
 		else
 			if (potionEffectId >= 300) and (potionEffectId <= 399) then -- a bomb
 			      
 				local missileStatus = SourceItem:getData("missileStatus")
 				if (missileStatus == "deactivated") or (missileStatus == "") then -- potion deactivated or status not set --> activate
-					base.common.InformNLS( User,
+					common.InformNLS( User,
 					"Du entsicherst des Wurfkörper. Vorsicht damit.",
 					"You activate the missle. Careful with it.");
 					SourceItem:setData("missileStatus","activated")
 					world:changeItem( SourceItem );
 				else
-					base.common.InformNLS( User,
+					common.InformNLS( User,
 					"Du sicherst den Wurfkörper.",
 					"You deactivate the missile.");
 					SourceItem:setData("missileStatus","deactivated")
@@ -202,7 +202,7 @@ function UseItem(User, SourceItem, ltstate)
 				User:talk(Character.say, "#me trinkt eine dunkelblaue Flüssigkeit.", "#me drinks a dark blue liquid.")
 				User.movepoints=User.movepoints - 20
 				DrinkPotion(User,SourceItem)
-				alchemy.base.alchemy.EmptyBottle(User,SourceItem)
+				alchemy.EmptyBottle(User,SourceItem)
 	        end
 		end
 	end  

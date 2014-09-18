@@ -19,7 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --
 --  Author: Martin Karing (Nitram)
 
-require("base.common")
+local common = require("base.common")
 
 module("base.money", package.seeall)
 

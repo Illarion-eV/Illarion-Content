@@ -16,34 +16,34 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_24_shovel' WHERE itm_id=24;
 
-require("base.common")
-require("base.treasure")
-require("alchemy.teaching.transformation_dog")
-require("content.gatheringcraft.claydigging")
-require("content.gatheringcraft.sanddigging")
-require("item.general.metal")
+local common = require("base.common")
+local treasure = require("base.treasure")
+local transformation_dog = require("alchemy.teaching.transformation_dog")
+local claydigging = require("content.gatheringcraft.claydigging")
+local sanddigging = require("content.gatheringcraft.sanddigging")
+local metal = require("item.general.metal")
 
 module("item.id_24_shovel", package.seeall)
 
-LookAtItem = item.general.metal.LookAtItem
+LookAtItem = metal.LookAtItem
 
 function getSandPit(User)
 	local SAND_PIT = 1208;
-	local pitItem = base.common.GetFrontItem(User);
+	local pitItem = common.GetFrontItem(User);
 	if (pitItem ~= nil and pitItem.id == SAND_PIT) then
 		return pitItem;
 	end
-	pitItem = base.common.GetItemInArea(User.pos, SAND_PIT);
+	pitItem = common.GetItemInArea(User.pos, SAND_PIT);
 	return pitItem;
 end
 
 function getClayPit(User)
 	local CLAY_PIT = 1206;
-	local pitItem = base.common.GetFrontItem(User);
+	local pitItem = common.GetFrontItem(User);
 	if (pitItem ~= nil and pitItem.id == CLAY_PIT) then
 		return pitItem;
 	end
-	pitItem = base.common.GetItemInArea(User.pos, CLAY_PIT);
+	pitItem = common.GetItemInArea(User.pos, CLAY_PIT);
 	return pitItem;
 end
 
@@ -53,19 +53,19 @@ function UseItem(User, SourceItem, ltstate)
 	if ( toolItem.id ~=24 ) then
 		toolItem = User:getItemAt(6);
 		if ( toolItem.id ~= 24 ) then
-			base.common.HighInformNLS( User,
+			common.HighInformNLS( User,
 			"Du musst die Schaufel in der Hand haben!",
 			"You have to hold the shovel in your hand!" );
 			return
 		end
 	end
 
-	if not base.common.FitForWork( User ) then -- check minimal food points
+	if not common.FitForWork( User ) then -- check minimal food points
 		return
 	end
 	
 	-- check for alchemy scroll
-	if alchemy.teaching.transformation_dog.DigForTeachingScroll(User) then
+	if transformation_dog.DigForTeachingScroll(User) then
 		return
 	end
 
@@ -79,14 +79,14 @@ function UseItem(User, SourceItem, ltstate)
 	-- check for sand pit
 	pitItem = getSandPit(User);
 	if (pitItem ~= nil) then
-		content.gatheringcraft.sanddigging.StartGathering(User, pitItem, ltstate);
+		sanddigging.StartGathering(User, pitItem, ltstate);
 		return;
 	end
 
 	-- check for clay pit
 	pitItem = getClayPit(User);
 	if (pitItem ~= nil) then
-		content.gatheringcraft.claydigging.StartGathering(User, pitItem, ltstate);
+		claydigging.StartGathering(User, pitItem, ltstate);
 		return;
 	end
 
@@ -97,13 +97,13 @@ end
 
 -- @return  True if found a treasure.
 function DigForTreasure(User)
-	local TargetPos = base.common.GetFrontPosition(User);
+	local TargetPos = common.GetFrontPosition(User);
 	local groundTile = world:getField( TargetPos ):tile();
-	local groundType = base.common.GetGroundType( groundTile );
+	local groundType = common.GetGroundType( groundTile );
 
-	if (groundType ~= base.common.GroundType.rocks) and
-			base.treasure.DigForTreasure( User, TargetPos, (User:getSkill(Character.mining)/10)+1,
-			base.common.GetNLS( User,
+	if (groundType ~= common.GroundType.rocks) and
+			treasure.DigForTreasure( User, TargetPos, (User:getSkill(Character.mining)/10)+1,
+			common.GetNLS( User,
 				"Du gräbst mit deiner Schaufel in den Boden und stößt auf etwas hartes, von dem ein hölzerner Klang ausgeht. Noch einmal graben und du hältst den Schatz in deinen Händen.",
 				"You dig with your shovel into the ground and hit suddenly something hard and wooden sounding. You only have to dig another time to get the treasure." ),
 			false ) then
@@ -113,40 +113,40 @@ function DigForTreasure(User)
 end
 
 function DigForNothing(User)
-	local TargetPos = base.common.GetFrontPosition(User);
+	local TargetPos = common.GetFrontPosition(User);
 	local groundTile = world:getField( TargetPos ):tile();
-	local groundType = base.common.GetGroundType( groundTile );
+	local groundType = common.GetGroundType( groundTile );
 
-	if ( groundType == base.common.GroundType.field ) then
-		base.common.HighInformNLS( User,
+	if ( groundType == common.GroundType.field ) then
+		common.HighInformNLS( User,
 			"Du gräbst ein kleines Loch in den Ackerboden, doch findest du hier gar nichts.",
 			"You dig a small hole into the farming ground. But you find nothing.");
-	elseif ( groundType == base.common.GroundType.sand ) then
-		base.common.HighInformNLS( User,
+	elseif ( groundType == common.GroundType.sand ) then
+		common.HighInformNLS( User,
 			"Du gräbst ein kleines Loch in den Sand, doch findest du hier gar nichts.",
 			"You dig a small hole into the sand. But you find nothing.");
-	elseif ( groundType == base.common.GroundType.dirt ) then
-		base.common.HighInformNLS( User,
+	elseif ( groundType == common.GroundType.dirt ) then
+		common.HighInformNLS( User,
 			"Du gräbst ein kleines Loch in den Dreck, doch findest du hier gar nichts.",
 			"You dig a small hole into the dirt. But you find nothing.");
-	elseif ( groundType == base.common.GroundType.forest ) then
-		base.common.HighInformNLS( User,
+	elseif ( groundType == common.GroundType.forest ) then
+		common.HighInformNLS( User,
 			"Du gräbst ein kleines Loch in den Waldboden, doch findest du hier gar nichts.",
 			"You dig a small hole into the forest ground. But you find nothing.");
-	elseif ( groundType == base.common.GroundType.grass ) then
-		base.common.HighInformNLS( User,
+	elseif ( groundType == common.GroundType.grass ) then
+		common.HighInformNLS( User,
 			"Du gräbst ein kleines Loch in die Wiese, doch findest du hier gar nichts.",
 			"You dig a small hole into the grass. But you find nothing.");
-	elseif ( groundType == base.common.GroundType.rocks ) then
-		base.common.HighInformNLS( User,
+	elseif ( groundType == common.GroundType.rocks ) then
+		common.HighInformNLS( User,
 			"Der Boden besteht hier aus solidem Stein. Mit einer Schaufel hast du eindeutig das falsche Werkzeug.",
 			"The ground here is heavy stone. With a shovel you have the wrong tool here for sure.");
-	elseif ( groundType == base.common.GroundType.water ) then
-		base.common.HighInformNLS( User,
+	elseif ( groundType == common.GroundType.water ) then
+		common.HighInformNLS( User,
 			"Im Wasser mit einer Schaufel zu graben geht zwar relativ leicht, doch der Effekt ist recht gering.",
 			"To dig with a shovel in the water is pretty easy. But sadly there is no effect in doing this.");
 	else
-		base.common.HighInformNLS(User,
+		common.HighInformNLS(User,
 			"Du versuchst an dieser Stelle zu graben, findest aber nichts.",
 			"You attempt to dig here, but you don't find anything.");
 	end

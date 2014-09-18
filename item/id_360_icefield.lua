@@ -16,8 +16,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_360_icefield' where itm_id=360;
 
-require("base.common")
-require("monster.base.monstermagic")
+local common = require("base.common")
+local monstermagic = require("monster.base.monstermagic")
 
 module("item.id_360_icefield", package.seeall)
 
@@ -42,7 +42,7 @@ function CharacterOnField(User)
 
     -- Eisflamme auf dem Feld suchen
     -- !!Eventuell gibt es Probleme, wenn sich mehrere Flammen auf einem Feld befinden!!
-    local Items = base.common.GetItemsOnField(User.pos)
+    local Items = common.GetItemsOnField(User.pos)
     local FieldItem
     for _, item in pairs(Items) do
         if(item.id == 360) then
@@ -53,7 +53,7 @@ function CharacterOnField(User)
 
     if (FieldItem.quality > 100) and User.pos.z ~= 100 and User.pos.z ~= 101 and User.pos.z ~= 40 then --no harmful flames on noobia or the working camp
 
-        local resist = monster.base.monstermagic.SpellResistence(User) * 10
+        local resist = monstermagic.SpellResistence(User) * 10
         if resist < FieldItem.quality then
             local foundEffect = User.effects:find(111); -- iceflame lte
             if not foundEffect then

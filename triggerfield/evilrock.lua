@@ -57,8 +57,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- INSERT INTO triggerfields VALUES (970,171,2,'triggerfield.evilrock');
 
-require("base.common")
-require("base.class")
+local common = require("base.common")
+local class = require("base.class")
 module("triggerfield.evilrock", package.seeall)
 
 
@@ -92,7 +92,7 @@ function MoveToField(char)
 		if (char.pos == triggerFlameFire[i]) then
 			base.character.CreateAfterTime (char,100,120,359,nil,1,1,988,998,225,235,0,0,600,600,1,1,nil,4,4,7,nil,nil,1)
 			if char:getQuestProgress(680) ~= 0 then
-				base.common.InformNLS(char,"Denkst du wirklich, du hättest heute mehr Glück?","Do you really think you will have more luck today?")
+				common.InformNLS(char,"Denkst du wirklich, du hättest heute mehr Glück?","Do you really think you will have more luck today?")
 			end
 		end
 	end
@@ -290,7 +290,7 @@ function RightWeight(char,clicksAmountVar)
 	end
 	for m,player in ipairs(playerWithRightWeight[char.name]) do
 		if (content.areas.PointInArea(player.pos,"evilrockstonechamber")) then
-			base.common.InformNLS(player,"Der Thron sinkt ein wenig ein und du hörst ein "..clicksAmountDe[clicksAmountVar].." Klicken.","The throne sinks down slightly and you hear "..clicksAmountEn[clicksAmountVar].." .")
+			common.InformNLS(player,"Der Thron sinkt ein wenig ein und du hörst ein "..clicksAmountDe[clicksAmountVar].." Klicken.","The throne sinks down slightly and you hear "..clicksAmountEn[clicksAmountVar].." .")
 		end
 	end
 
@@ -304,13 +304,13 @@ function RightWeight(char,clicksAmountVar)
 		else
 			for m,player in ipairs(playerWithRightWeight[char.name]) do
 				world:makeSound(27,player.pos)
-				base.common.InformNLS(player,"Zusätzlich siehst du noch ein kurzes Aufleuchten einer Lichtquelle, welches aber sogleich abstirbt. Hier scheint heute nichts zu funktionieren.","Furthermore, you see a light blinking for a second but nothing happens. It does not seem as though anything is working today.")
+				common.InformNLS(player,"Zusätzlich siehst du noch ein kurzes Aufleuchten einer Lichtquelle, welches aber sogleich abstirbt. Hier scheint heute nichts zu funktionieren.","Furthermore, you see a light blinking for a second but nothing happens. It does not seem as though anything is working today.")
 			end
 		end
 	else
 		for m,player in ipairs(playerWithRightWeight[char.name]) do
 			world:makeSound(27,player.pos)
-			base.common.InformNLS(player,"Zusätzlich siehst du noch ein kurzes Aufleuchten einer Lichtquelle, welches aber sogleich abstirbt. Hier scheint heute nichts zu funktionieren.","Furthermore, you see a light blinking, which immediately disappears. It does not seem as though anything is working today.")
+			common.InformNLS(player,"Zusätzlich siehst du noch ein kurzes Aufleuchten einer Lichtquelle, welches aber sogleich abstirbt. Hier scheint heute nichts zu funktionieren.","Furthermore, you see a light blinking, which immediately disappears. It does not seem as though anything is working today.")
 		end
 	end
 	
@@ -324,7 +324,7 @@ function WrongWeight(char,clicksAmountVar)
 	playerWithWrongWeight[char.name] = world:getPlayersInRangeOf(position(960,173,-6), 50)
 	for m,player in ipairs(playerWithWrongWeight[char.name]) do
 		if (content.areas.PointInArea(player.pos,"evilrockstonechamber")) then
-			base.common.InformNLS(player,"Du hörst ein "..clicksAmountDe[clicksAmountVar].." Klicken während der Thron leicht einsinkt und eine Stimme ruft: 'Narr, du bist nicht ich! Hinweg mit dir!' Anschließend füllt sich der Raum mit Flammen.","You hear "..clicksAmountEn[clicksAmountVar].." during which the throne sinks down slightly and a voice shouts: 'Fool, you are not me! Leave!' The room fills itself with flames afterwards.")
+			common.InformNLS(player,"Du hörst ein "..clicksAmountDe[clicksAmountVar].." Klicken während der Thron leicht einsinkt und eine Stimme ruft: 'Narr, du bist nicht ich! Hinweg mit dir!' Anschließend füllt sich der Raum mit Flammen.","You hear "..clicksAmountEn[clicksAmountVar].." during which the throne sinks down slightly and a voice shouts: 'Fool, you are not me! Leave!' The room fills itself with flames afterwards.")
 			world:makeSound(25,player.pos);
 		end
 	end
@@ -420,7 +420,7 @@ end
 
 
 
-executePortalLeverRiddle = base.class.class(function(leverriddle, posi)
+executePortalLeverRiddle = class.class(function(leverriddle, posi)
     leverriddle.pos=posi;
 end);
 

@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Tree Script
 -- Envi
-require("base.common")
-require("base.lookat")
-require("content.vision")
+local common = require("base.common")
+local lookat = require("base.lookat")
+local vision = require("content.vision")
 
 module("item.pillar", package.seeall)
 
@@ -62,15 +62,15 @@ function LookAtItem(User,Item)
 	if lookAt then
 	    return lookAt --Send the custom lookAt
 	else
-		return base.lookat.GenerateLookAt(User, Item)
+		return lookat.GenerateLookAt(User, Item)
 	end
 end
 
 
 function UseItem(User, SourceItem, ltstate)
 	
-	content.vision.UseDarkColumnsPuzzle(User, SourceItem, ltstate)
-	content.vision.UseDarkColumns(User, SourceItem, ltstate)
+	vision.UseDarkColumnsPuzzle(User, SourceItem, ltstate)
+	vision.UseDarkColumns(User, SourceItem, ltstate)
 	
 	--Begin special statues of Sir Reginald and Queen Rosaline
 	
@@ -94,7 +94,7 @@ function UseItem(User, SourceItem, ltstate)
 		if User:getQuestProgress(111)==1 then --change when quest is ready!
             
 			User:setQuestProgress(111,2); --the player read all laws
-            base.common.InformNLS(User,"[Queststatus] Du hast nun die Sitten Cadomyrs gelesen.","[Quest progress] You read the Cadomyrian customs."); --sending the message
+            common.InformNLS(User,"[Queststatus] Du hast nun die Sitten Cadomyrs gelesen.","[Quest progress] You read the Cadomyrian customs."); --sending the message
          				
       	end   
 		

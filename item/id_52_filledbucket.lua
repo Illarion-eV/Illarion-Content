@@ -21,9 +21,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- pour on character
 -- UPDATE items SET itm_script='item.id_52_filledbucket' WHERE itm_id IN (52);
 
-require("base.common")
-require("alchemy.base.alchemy")
-require("base.licence")
+local common = require("base.common")
+local alchemy = require("alchemy.base.alchemy")
+local licence = require("base.licence")
 
 module("item.id_52_filledbucket", package.seeall)
 
@@ -32,17 +32,17 @@ function UseItem(User, SourceItem, ltstate)
   -- look for cauldron
   TargetItem = GetCauldron(User);
   if (TargetItem ~= nil) then
-	base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
+	common.TurnTo( User, TargetItem.pos ); -- turn if necessary
     WaterIntoCauldron(User,SourceItem,TargetItem,ltstate);
     return;
   end
 
   -- look for forge
-  TargetItem = base.common.GetItemInArea(User.pos, 2835, 1, true);
+  TargetItem = common.GetItemInArea(User.pos, 2835, 1, true);
   if (TargetItem ~= nil) then
     world:makeSound(9, TargetItem.pos)
     world:swap(TargetItem, 2836, 333);
-    base.common.InformNLS(User,
+    common.InformNLS(User,
     "Du löschst das Feuer in der Esse.",
     "You extinguish the fire in the forge.");
     world:gfx(11,TargetItem.pos)
@@ -51,25 +51,25 @@ function UseItem(User, SourceItem, ltstate)
   end
 
   -- look for fire
-  local FireItem, bool = base.common.GetItemInArea(User.pos, 12, 1, true);
+  local FireItem, bool = common.GetItemInArea(User.pos, 12, 1, true);
   if FireItem == nil then
-	    FireItem, bool = base.common.GetItemInArea(User.pos, 359, 1, true);
+	    FireItem, bool = common.GetItemInArea(User.pos, 359, 1, true);
   end
 
   if (FireItem ~= nil) then
-	base.common.TurnTo( User, FireItem.pos ); -- turn if necessary
+	common.TurnTo( User, FireItem.pos ); -- turn if necessary
     -- TODO is a noobia check needed?
     -- Don't extinguish static fires.
     world:makeSound(9, FireItem.pos);
     if (FireItem.wear == 255) then
-      base.common.InformNLS(User,
+      common.InformNLS(User,
       "Das Wasser verdampft in dem Feuer ohne es zu löschen.",
       "The water vaporises in the fire but it does not extinguish it.");
     else
-	  local frontitem = base.common.GetFrontItem(User);
+	  local frontitem = common.GetFrontItem(User);
 	  if frontitem~=nil then
 		world:erase(frontitem,frontitem.number);
-		base.common.InformNLS(User,
+		common.InformNLS(User,
 			"Du löschst das Feuer.",
 			"You extinguish the fire.");
 	  end
@@ -80,13 +80,13 @@ function UseItem(User, SourceItem, ltstate)
   end
 
   -- pour water on character. Either on the one in front or on the User himself.
-  local TargetChar = base.common.GetFrontCharacter(User);
+  local TargetChar = common.GetFrontCharacter(User);
   if (TargetChar ~= nil) then
     -- is this really a player?
     local players = world:getPlayersInRangeOf(TargetChar.pos, 0);
     for _,p in pairs(players) do
       if (p.id == TargetChar.id) then
-        base.common.InformNLS(User,
+        common.InformNLS(User,
         "Du schüttest das Wasser über die Person vor dir.",
         "You pour the water on the person in front of you.");
         PourOnCharacter(TargetChar, SourceItem);
@@ -103,7 +103,7 @@ end
 function PourOnCharacter (TargetCharacter, SourceItem )
   world:makeSound( 9, TargetCharacter.pos );
   world:swap(SourceItem, 51, 333);
-	base.common.InformNLS(TargetCharacter,
+	common.InformNLS(TargetCharacter,
   "Du fühlst dich gleich viel sauberer.",
   "You feel much cleaner.");
 end
@@ -112,23 +112,23 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,ltstate)
     local cauldron = TargetItem
 
 	-- is the char an alchemist?
-	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
+	local anAlchemist = alchemy.CheckIfAlchemist(User)
 	if not anAlchemist then
 		User:inform("Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
 		return
 	end
 
-	if base.licence.licence(User) then --checks if user is citizen or has a licence
+	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
 	if ( ltstate == Action.abort ) then
-	   base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+	   common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
 	   return
 	end
 
 	if ( ltstate == Action.none ) then
-		local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = alchemy.base.alchemy.GetStartAction(User, "water", cauldron)
+		local duration,gfxId,gfxIntervall,sfxId,sfxIntervall = alchemy.GetStartAction(User, "water", cauldron)
 		User:startAction( duration,gfxId,gfxIntervall,sfxId,sfxIntervall)
 		return
 	end
@@ -142,7 +142,7 @@ function FillIn(User, SourceItem, cauldron, noRepeat) -- do not remove noRepeat
 
    -- water, essence brew, potion or stock is in the cauldron; leads to a failure
 	if cauldron:getData("filledWith") == "water" then
-		base.common.InformNLS( User,
+		common.InformNLS( User,
 				"Der Kessel läuft über. Offensichtlich war schon Wasser in ihm.",
 				"The water runs over. Obviously, ther was already water in it.")
 		world:makeSound(9,cauldron.pos)
@@ -151,26 +151,26 @@ function FillIn(User, SourceItem, cauldron, noRepeat) -- do not remove noRepeat
 
 	elseif cauldron:getData("filledWith") == "essenceBrew" then
 		world:gfx(1,cauldron.pos)
-		base.common.InformNLS(User, "Der Inhalt des Kessels verpufft, als du das Wasser hinzu tust.",
+		common.InformNLS(User, "Der Inhalt des Kessels verpufft, als du das Wasser hinzu tust.",
 		                            "The substance in the cauldron blows out, as you fill the water in.")
-		alchemy.base.alchemy.RemoveAll(cauldron)
+		alchemy.RemoveAll(cauldron)
 
 	elseif cauldron:getData("filledWith") == "potion" then
-		alchemy.base.alchemy.RemoveAll(cauldron)
+		alchemy.RemoveAll(cauldron)
 		if cauldron.id == 1013 then
 		    world:makeSound(10,cauldron.pos)
 		    cauldron:setData("filledWith","water")
 		else
-			base.common.InformNLS(User, "Der Inhalt des Kessels verpufft, als du das Wasser hinzu tust.",
+			common.InformNLS(User, "Der Inhalt des Kessels verpufft, als du das Wasser hinzu tust.",
 										"The substance in the cauldron blows out, as you fill the water in.")
 		end
 		world:gfx(1,cauldron.pos)
 
 	elseif cauldron:getData("filledWith") == "stock" then
 		world:gfx(1,cauldron.pos)
-		base.common.InformNLS(User, "Der Inhalt des Kessels verpufft, als du das Wasser hinzu tust.",
+		common.InformNLS(User, "Der Inhalt des Kessels verpufft, als du das Wasser hinzu tust.",
 		                            "The substance in the cauldron blows out, as you fill the water in.")
-	    alchemy.base.alchemy.RemoveAll(cauldron)
+	    alchemy.RemoveAll(cauldron)
 
 	else -- nothing in the cauldron, we just fill in the water
 	    world:makeSound(10,cauldron.pos)
@@ -187,7 +187,7 @@ function CreateEmptyBucket(User, SourceItem,amount, noRepeat) -- do not remove n
 	local notCreated = User:createItem( 51, 1, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 51, notCreated, User.pos, true, 333, nil );
-		base.common.HighInformNLS(User,
+		common.HighInformNLS(User,
 		"Du kannst nichts mehr halten.",
 		"You can't carry any more.");
 		world:erase(SourceItem,1)
@@ -210,7 +210,7 @@ end
 
 function GetCauldron(User)
   -- first check in front
-  local frontPos = base.common.GetFrontPosition(User);
+  local frontPos = common.GetFrontPosition(User);
   if (world:isItemOnField(frontPos)) then
     local item = world:getItemOnField(frontPos);
     if (item.id > 1007 and item.id < 1019) then

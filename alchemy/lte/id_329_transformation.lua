@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- LTE für das Druidensystem
 -- by Falk
 -- Zeitverlauf und Rückwandlung bei Verwandlungen
-require("base.common")
+local common = require("base.common")
 
 module("alchemy.lte.id_329_transformation", package.seeall)
 
@@ -41,7 +41,7 @@ function callEffect(Effect,User)
 		  
 		  -- info that the effect will be removed soon
 		   if counterBlack == 2 then 
-		        base.common.InformNLS( User,
+		        common.InformNLS( User,
                 "Du spührst, wie ein Schauer über deinen Körper läuft. Deine Verwandlung wird nicht mehr lange andauern.",
                 "Shortly, you feel a chill on your skin. Your transformation won't last a long time anymore."
                        )

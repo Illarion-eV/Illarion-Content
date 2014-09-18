@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("questsystem.base")
+local base = require("questsystem.base")
 module("questsystem.hagar_coin.trigger1", package.seeall)
 
 local QUEST_NUMBER = 10001
@@ -27,13 +27,13 @@ local NPC_REPLY_DE = "Psst... Ich habe da etwas munkeln gehört von einer Botscha
 local NPC_REPLY_EN = "Psst... I heard rumors about something that was carved into a pine tree, in the southeast of the gate to Galmair, near the water."
 
 function receiveText(thisNPC, texttype, text, player)
-  if questsystem.base.fulfilsPrecondition(player, QUEST_NUMBER, PRECONDITION_QUESTSTATE)
+  if base.fulfilsPrecondition(player, QUEST_NUMBER, PRECONDITION_QUESTSTATE)
       and player:getType() == Character.player
       and string.find(text, getNLS(player, NPC_TRIGGER_DE, NPC_TRIGGER_EN)) then
 	thisNPC:talk(Character.say, getNLS(player, NPC_REPLY_DE, NPC_REPLY_EN))
     
     
-    questsystem.base.setPostcondition(player, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
+    base.setPostcondition(player, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
 
     return true
   end

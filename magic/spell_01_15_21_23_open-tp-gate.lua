@@ -24,7 +24,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
     SQL:    INSERT INTO spells VALUES (2^0+2^14+2^20+2^22,0,'m_01_15_21_23_open-tp-gate.lua');
 ]]
 
-require("magic.base.basics");
+local basics = require("magic.base.basics")
 module("magic.spell_01_15_21_23_open-tp-gate", package.seeall)
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_01_15_21_23_open-tp-gate.lua";
@@ -99,7 +99,7 @@ Portal = {
 
 
 -- Racial bonis
-magic.base.basics.magic.base.basics.initRaceBoni(); -- Init or reset all preset racial boni values
+basics.initRaceBoni(); -- Init or reset all preset racial boni values
 
 -- make sure that we remember that this is the original script loaded on this spell
 if (orgScript == nil) then
@@ -134,13 +134,13 @@ function DoTeleportSpell(Caster,TargetPos, ltstate)
         return;
     end
 
-    magic.base.basics.loadCorrectDefScript();
+    basics.loadCorrectDefScript();
 
     -- Generate the needed
-    magic.base.basics.gemBonis( Caster );
+    basics.gemBonis( Caster );
 
     genderMsg = {};
-    genderMsg[Player.german], genderMsg[Player.english] = magic.base.basics.GenderMessage( Caster );
+    genderMsg[Player.german], genderMsg[Player.english] = basics.GenderMessage( Caster );
 
     if ( Caster:distanceMetricToPosition(TargetPos) > Settings.Range + GemBonis.Range) then
         base.common.InformNLS( Caster,
@@ -165,11 +165,11 @@ function DoTeleportSpell(Caster,TargetPos, ltstate)
         return;
     end
 
-    magic.base.basics.SayRunes( Caster );
+    basics.SayRunes( Caster );
 
-    local CasterVal=magic.base.basics.CasterValue( Caster );
+    local CasterVal=basics.CasterValue( Caster );
 
-    if not magic.base.basics.CheckAndReduceRequirements( Caster, CasterVal ) then
+    if not basics.CheckAndReduceRequirements( Caster, CasterVal ) then
         return;
     end
 
@@ -186,8 +186,8 @@ function DoTeleportSpell(Caster,TargetPos, ltstate)
         "Der Spruch gelingt doch das Portal schliest sich sogleich wieder.",
         "The spell succeeds but the portal closes again instandly.");
     else
-        magic.base.basics.performGFX( SpellEffects.gfx, TargetPos );
-        magic.base.basics.performSFX( SpellEffects.sfx, TargetPos );
+        basics.performGFX( SpellEffects.gfx, TargetPos );
+        basics.performSFX( SpellEffects.sfx, TargetPos );
     end
 
     if (LuaAnd(Caster:getQuestProgress(24),1) ~= 0 ) then

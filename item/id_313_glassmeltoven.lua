@@ -17,37 +17,37 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_313_glassmeltoven' WHERE itm_id IN (313);
 
-require("base.common")
-require("base.licence")
-require("content.gatheringcraft.bricksproducing")
-require("content.gatheringcraft.glassingotproducing")
+local common = require("base.common")
+local licence = require("base.licence")
+local bricksproducing = require("content.gatheringcraft.bricksproducing")
+local glassingotproducing = require("content.gatheringcraft.glassingotproducing")
 
 module("item.id_313_glassmeltoven", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence
+	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
 	if (User:countItemAt("all",311)==0 and User:countItemAt("all",734)==0) then
 		-- no tool at all
-		base.common.HighInformNLS( User,
+		common.HighInformNLS( User,
 			"Du brauchst ein Glasblasrohr oder eine Ziegelform um hier zu arbeiten.",
 			"You need a glass blow pipe or a brick mould to work here." );
 	elseif (User:countItemAt("all",311)>0 and User:countItemAt("all",734)==0) then
 		-- only glass blow pipe
-		content.gatheringcraft.glassingotproducing.StartGathering(User, SourceItem, ltstate);
+		glassingotproducing.StartGathering(User, SourceItem, ltstate);
 	elseif (User:countItemAt("all",311)==0 and User:countItemAt("all",734)>0) then
 		-- only brick mould
-		content.gatheringcraft.bricksproducing.StartGathering(User, SourceItem, ltstate);
+		bricksproducing.StartGathering(User, SourceItem, ltstate);
 	else
 		-- both tools
 		if (User:countItemAt("all",316)>0 and User:countItemAt("all",314)>0) then
-			content.gatheringcraft.glassingotproducing.StartGathering(User, SourceItem, ltstate);
+			glassingotproducing.StartGathering(User, SourceItem, ltstate);
 		elseif ( (User:countItemAt("all",736) > 4) or (User:countItemAt("all",26) > 0) ) then
-			content.gatheringcraft.bricksproducing.StartGathering(User, SourceItem, ltstate);
+			bricksproducing.StartGathering(User, SourceItem, ltstate);
 		else
-			base.common.HighInformNLS( User,
+			common.HighInformNLS( User,
 				"Für die Ziegelform brauchst du Lehm oder fünf ungebrannte Ziegel, für das Glasblasrohr brauchst du Quarzsand und Pottasche.",
 				"For the brick mould you need clay or five unfired bricks, for the glass blow pipe you need quartz sand and potash." );
 		end

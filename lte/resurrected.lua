@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common")
+local common = require("base.common")
 module("lte.resurrected", package.seeall)
 
 attribs={"strength","dexterity","constitution","agility","intelligence","perception","willpower","essence"};
@@ -24,7 +24,7 @@ function addEffect( rebirthEffect, Reborn )
 	  return false;
     end
 
-        base.common.InformNLS( Reborn,
+        common.InformNLS( Reborn,
         "[Wiederbelebung] Du fühlst dich noch sehr schwach.",
         "[Respawn] You feel very weak." );
     local maxChange = 0;
@@ -42,7 +42,7 @@ function addEffect( rebirthEffect, Reborn )
     end;
 	local multi = 1;
 	local lastDeath = Reborn:getQuestProgress(20);
-	local now = base.common.GetCurrentTimestamp();
+	local now = common.GetCurrentTimestamp();
 	Reborn:setQuestProgress(20,now);
 	if lastDeath>0 and (now-lastDeath)>3600 then
 		multi = 2;
@@ -59,7 +59,7 @@ function loadEffect( rebirthEffect, Reborn )
     end
 
 
-    base.common.InformNLS( Reborn,
+    common.InformNLS( Reborn,
         "[Wiederbelebung] Du fühlst dich noch immer schwach.",
         "[Respawn] You feel still weak." );
 
@@ -150,7 +150,7 @@ function removeEffect( rebirthEffect, Reborn )
 	  return;
     end
 	
-	base.common.InformNLS( Reborn,
+	common.InformNLS( Reborn,
         "[Wiederbelebung] Du hast dich vollständig erholt.",
         "[Respawn] You have fully recovered." );
 
@@ -175,7 +175,7 @@ function doubleEffect( rebirthEffect, Reborn )
 	  return false;
     end
 
-    base.common.InformNLS( Reborn,
+    common.InformNLS( Reborn,
         "[Wiederbelebung] Du fühlst dich noch sehr schwach.",
         "[Respawn] You feel very weak." );
     local maxChange = 0;
@@ -202,6 +202,6 @@ function doubleEffect( rebirthEffect, Reborn )
 	end
 	multi = multi +1;
 	rebirthEffect:addValue("multiRes",multi);
-	Reborn:setQuestProgress(20,base.common.GetCurrentTimestamp());
+	Reborn:setQuestProgress(20,common.GetCurrentTimestamp());
     return true;
 end

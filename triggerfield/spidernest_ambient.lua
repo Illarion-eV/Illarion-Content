@@ -26,7 +26,7 @@ INSERT INTO triggerfields VALUES (909,521,-6,'triggerfield.spidernest_ambient');
 
 ]]
 
-require("base.common")
+local common = require("base.common")
 
 module("triggerfield.spidernest_ambient", package.seeall)
 
@@ -81,7 +81,7 @@ spidernestList:add( position(909,521,-6),{5,6,7},"Zu deiner Rechten siehst du ei
 function MoveToField(Char)
 	local this = getspidernest(Char);
 	if this then
-		base.common.InformNLS(Char,this.german,this.english);
+		common.InformNLS(Char,this.german,this.english);
 	end
 end
 

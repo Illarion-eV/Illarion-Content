@@ -16,22 +16,22 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script = 'item.rings' WHERE itm_id IN (68, 277, 278, 279, 280, 281, 282);
 
-require("base.lookat")
-require("base.common")
-require("item.general.checks")
-require("item.general.jewel")
+local lookat = require("base.lookat")
+local common = require("base.common")
+local checks = require("item.general.checks")
+local jewel = require("item.general.jewel")
 
 module("item.rings", package.seeall)
 
 function LookAtItem(User,Item)
-	return item.general.jewel.LookAtItem(User,Item);
+	return jewel.LookAtItem(User,Item);
 end
 
 function MoveItemBeforeMove(User,SourceItem,TargetItem)
 
 	if TargetItem:getType() == 4 then --inventory, not belt
 	
-		return item.general.checks.checkLevel(User,SourceItem);
+		return checks.checkLevel(User,SourceItem);
 		
 	else
 	

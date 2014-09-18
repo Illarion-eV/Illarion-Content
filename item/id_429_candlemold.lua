@@ -17,18 +17,18 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_429_candlemold' WHERE itm_id IN (429);
 
-require("base.common")
-require("base.licence")
-require("content.gatheringcraft.candleproducing")
-require("item.general.wood")
+local common = require("base.common")
+local licence = require("base.licence")
+local candleproducing = require("content.gatheringcraft.candleproducing")
+local wood = require("item.general.wood")
 
 module("item.id_429_candlemold", package.seeall)
 
-LookAtItem = item.general.wood.LookAtItem
+LookAtItem = wood.LookAtItem
 
 function getChandlerTable(User)
 
-	local targetItem = base.common.GetFrontItem(User);
+	local targetItem = common.GetFrontItem(User);
 	if (targetItem ~= nil and targetItem.id == 428) then
 		return targetItem;
 	end
@@ -49,18 +49,18 @@ function getChandlerTable(User)
 end
 
 function UseItem(User, SourceItem, ltstate)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence
+	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
 
 	local chandlertableItem = getChandlerTable(User);
 	if chandlertableItem then
-		content.gatheringcraft.candleproducing.StartGathering(User, chandlertableItem, ltstate);
+		candleproducing.StartGathering(User, chandlertableItem, ltstate);
 		return
 	end
 
-	base.common.HighInformNLS( User,
+	common.HighInformNLS( User,
 		"Du musst an einem Kerzenziehertisch arbeiten!",
 		"You have to work at a chandler table!" );
 

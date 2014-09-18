@@ -17,24 +17,24 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- gemdust
 -- alchemy system: using gemdust infront of a cauldron - creating essence brew or enchant a stock
 
-require("base.common")
-require("alchemy.base.alchemy")
-require("base.licence")
+local common = require("base.common")
+local alchemy = require("alchemy.base.alchemy")
+local licence = require("base.licence")
 
 module("alchemy.base.gemdust", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
 
     -- infront of a cauldron?
-    local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
+    local cauldron = alchemy.GetCauldronInfront(User)
     if cauldron then
 	  
-        if base.licence.licence(User) then --checks if user is citizen or has a licence 
+        if licence.licence(User) then --checks if user is citizen or has a licence 
 			return -- avoids crafting if user is neither citizen nor has a licence
 		end
 		
 		-- is the char an alchemist?
-		local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
+		local anAlchemist = alchemy.CheckIfAlchemist(User)
 		if not anAlchemist then
 			User:inform("Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
 			return
@@ -47,12 +47,12 @@ function UseItem(User, SourceItem, ltstate)
 		    return
         end
 		
-		if not alchemy.base.alchemy.checkFood(User) then
+		if not alchemy.checkFood(User) then
 			return
 		end
 		
         if ( ltstate == Action.abort ) then
-		    base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+		    common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
 			return
 		end
 	
@@ -63,7 +63,7 @@ function UseItem(User, SourceItem, ltstate)
 		
 		BrewingGemDust(User,SourceItem.id,cauldron)
 		world:erase(SourceItem,1)
-		alchemy.base.alchemy.lowerFood(User)
+		alchemy.lowerFood(User)
 	else
 	    -- not infront of cauldron, maybe do something else with herbs
         return
@@ -76,7 +76,7 @@ function GemDustInStock(User,cauldron,gemDustId)
 	local potionEffectId = ""
 	local addCon
 	if (gemDustId == 447) or (gemDustId == 450) then  -- secondary and primary attribute potions
-		local mySubstances = alchemy.base.alchemy.wirkstoff
+		local mySubstances = alchemy.wirkstoff
 		for i=1,8 do 
 		    addCon = (cauldron:getData(mySubstances[i].."Concentration")) -- stock conncentration determines the effect
 			if addCon == "" then
@@ -87,9 +87,9 @@ function GemDustInStock(User,cauldron,gemDustId)
 	else 
 		potionEffectId = 0 -- every other potion kind has NO effect
     end
-    local reGem, reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, gemDustId, nil, nil)
+    local reGem, reGemdust, reCauldron, reBottle = alchemy.GemDustBottleCauldron(nil, gemDustId, nil, nil)
 	cauldron.id = reCauldron
-	alchemy.base.alchemy.SetQuality(User, cauldron)
+	alchemy.SetQuality(User, cauldron)
 	cauldron:setData("potionEffectId",""..potionEffectId)
 	cauldron:setData("filledWith","potion")
 	world:changeItem(cauldron)
@@ -101,7 +101,7 @@ function GemDustInWater(User,cauldron,gemDustId)
     -- water + gemdust = essence brew
 	
 	cauldron:setData("filledWith","essenceBrew")
-	local reGem, reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, gemDustId, nil, nil)
+	local reGem, reGemdust, reCauldron, reBottle = alchemy.GemDustBottleCauldron(nil, gemDustId, nil, nil)
 	cauldron.id = reCauldron
 	world:changeItem(cauldron)
 	world:makeSound(13,cauldron.pos)
@@ -112,10 +112,10 @@ end
 function BrewingGemDust(User,gemDustId,cauldron)
     
 	if cauldron:getData("filledWith")=="potion" then -- potion in cauldron, failure
-	    alchemy.base.alchemy.CauldronDestruction(User,cauldron,2)
+	    alchemy.CauldronDestruction(User,cauldron,2)
 	
     elseif cauldron:getData("filledWith")=="essenceBrew" then -- essence brew in cauldron, failure
-	    alchemy.base.alchemy.CauldronDestruction(User,cauldron,2)
+	    alchemy.CauldronDestruction(User,cauldron,2)
 		
 	elseif cauldron:getData("filledWith") == "stock" then -- create a potion
 	    GemDustInStock(User,cauldron,gemDustId)
@@ -126,7 +126,7 @@ function BrewingGemDust(User,gemDustId,cauldron)
 		User:learn(Character.alchemy, 50/2, 100)
 	
 	else -- nothing in the cauldron
-	    base.common.InformNLS(User, "Der Edelsteinstaub verflüchtigt sich, als du ihn in den leeren Kessel schüttest.", 
+	    common.InformNLS(User, "Der Edelsteinstaub verflüchtigt sich, als du ihn in den leeren Kessel schüttest.", 
 		                            "The gem dust dissipates, as you fill it into the empty cauldron.")
 	end	
 end

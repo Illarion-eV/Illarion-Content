@@ -17,8 +17,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Vision, id 83
 -- controll the vision stories in .content.vision
 
-require("base.common")
-require("content.vision")
+local common = require("base.common")
+local vision = require("content.vision")
 module("lte.vision", package.seeall)
 
 TypeStory={}
@@ -42,7 +42,7 @@ function callEffect(Effect,User)
 	if User:getQuestProgress(664) == 1 then
 		for i = 1,AmountAreas do
 			if content.areas.PointInArea(User.pos,triggerfield.evilrock.EvilRockAreaNames[i]) then
-				AmountStory = #content.vision.VisionTextDE[i]
+				AmountStory = #vision.VisionTextDE[i]
 				TypeStory = i
 				StoriesAreSet = true
 			end
@@ -56,7 +56,7 @@ function callEffect(Effect,User)
 			local AmountStory = 0
 			return false
 		elseif User:getQuestProgress(664) <= AmountStory then
-			content.vision.vision(User,TypeStory)
+			vision.vision(User,TypeStory)
 			User:setQuestProgress(664,User:getQuestProgress(664)+1)
 		else
 			User:setQuestProgress(664,1)

@@ -14,8 +14,8 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("handler.sendmessagetoplayer")
-require("questsystem.base")
+local sendmessagetoplayer = require("handler.sendmessagetoplayer")
+local base = require("questsystem.base")
 module("questsystem.Gravestone.trigger7", package.seeall)
 
 local QUEST_NUMBER = 10000
@@ -28,12 +28,12 @@ local RADIUS = 1
 function UseItem(PLAYER, item, ltstate)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
       and ADDITIONALCONDITIONS(PLAYER)
-      and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
+      and base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
     --informNLS(PLAYER, TEXT_DE, TEXT_EN)
     
     HANDLER(PLAYER)
     
-    questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
+    base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
     return true
   end
 
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du wischt den Schmutz vom Grabstein und erblickst eine Inschrift.", "You clean off the dirt from the tombstone and an inscription appears."):execute()
+    sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du wischt den Schmutz vom Grabstein und erblickst eine Inschrift.", "You clean off the dirt from the tombstone and an inscription appears."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -14,16 +14,17 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.class")
-require("npc.base.consequence.consequence")
-require("base.arena")
-require("lte.arena_timer")
+local class = require("base.class")
+local consequence = require("npc.base.consequence.consequence")
+local base_arena = require("base.arena")
+local ranklist = require("base.ranklist")
+local arena_timer = require("lte.arena_timer")
 
 module("npc.base.consequence.arena", package.seeall)
 
-arena = base.class.class(npc.base.consequence.consequence.consequence,
+arena = class.class(consequence.consequence,
 function(self, mode)
-    npc.base.consequence.consequence.consequence:init(self);
+    consequence.consequence:init(self);
     self["mode"] = mode;
     if (mode == "request") then
         self["perform"] = _arena_helper_request;
@@ -37,16 +38,16 @@ function(self, mode)
 end);
 
 function _arena_helper_request(self, npcChar, player)
-	base.arena.requestMonster(player, npcChar);
+	base_arena.requestMonster(player, npcChar);
 end;
 
 function _arena_helper_points(self, npcChar, player)
-    base.arena.getArenastats(player, npcChar);
+    base_arena.getArenastats(player, npcChar);
 end;
 
 function _arena_helper_list(self, npcChar, player)
-	local arena = base.arena.getArena(player, npcChar);
-	local town = base.arena.arenaInformation[arena].town;
+	local arena = base_arena.getArena(player, npcChar);
+	local town = base_arena.arenaInformation[arena].town;
 	local arenaListName = "ArenaList"..town;
-    base.ranklist.getRanklist(player, arenaListName, true);
+    ranklist.getRanklist(player, arenaListName, true);
 end;

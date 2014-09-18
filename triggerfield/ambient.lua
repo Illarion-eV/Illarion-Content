@@ -21,7 +21,7 @@ INSERT INTO triggerfields VALUES (X,Y,Z,'triggerfield.ambient');
 
 ]]
 
-require("base.common")
+local common = require("base.common")
 
 module("triggerfield.ambient", package.seeall)
 
@@ -333,7 +333,7 @@ AmbientList:add( position(683,314,0),nil,"Die Straﬂe hier sieht verlassen aus. M
 function MoveToField(Char)
 	local this = getAmbient(Char);
 	if this then
-		base.common.InformNLS(Char,this.german,this.english);
+		common.InformNLS(Char,this.german,this.english);
 	end
 end
 

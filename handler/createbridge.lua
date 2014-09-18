@@ -14,11 +14,11 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
+local class = require("base.class")
 
 module("handler.createbridge", package.seeall)
 
-createBridge = base.class.class(function(crebrg, posi, dire, lng)
+createBridge = class.class(function(crebrg, posi, dire, lng)
     crebrg.pos=posi;
     crebrg.direction=dire;
     crebrg.length=lng;

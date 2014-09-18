@@ -14,8 +14,8 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common")
-require("base.money")
+local common = require("base.common")
+local money = require("base.money")
 --THE EDITABLE PART FOR NEW TOWNS IS SOME LINES BELOW
 
 -- NOTE: town IDs for:
@@ -388,9 +388,9 @@ function setSpecialRank(player, rank)
 		if rankpoints >= (highestRank-1)*100 then
 			player:setQuestProgress(200, tonumber(rank));
 			if rank == 0 then
-				inform = base.common.GetNLS(player,"Ihr wurdet degradiert und habt nun keinen spziellen Rang mehr.","You have been demoted and have no special rank anymore.")
+				inform = common.GetNLS(player,"Ihr wurdet degradiert und habt nun keinen spziellen Rang mehr.","You have been demoted and have no special rank anymore.")
 			else
-				inform = base.common.GetNLS(player,"Ihr wurdet befördert und seid nun "..getRank(player)..".","You have been promoted and are now "..getRank(player)..".");
+				inform = common.GetNLS(player,"Ihr wurdet befördert und seid nun "..getRank(player)..".","You have been promoted and are now "..getRank(player)..".");
 			end
 			player:inform(inform)
 			return true;
@@ -488,10 +488,10 @@ function informPlayerAboutRankchange(player, factionValues, rankHigher)
 	
 	-- Inform about rankchange
 	if rankHigher == true then
-		base.common.InformNLS( player, "Du hast soeben einen neuen Rang in "..townName.." erreicht. Du bist nun "..rankName.gRank..".",
+		common.InformNLS( player, "Du hast soeben einen neuen Rang in "..townName.." erreicht. Du bist nun "..rankName.gRank..".",
 			"You reached a new town rank in "..townName..". You are now "..rankName.eRank..".");
 	else
-		base.common.InformNLS( player, "Durch deine ständigen Konflikte mit dem Gesetz ist dein Rang in "..townName.." um eine Stufe gesunken. Du bist nun "..rankName.gRank..".",
+		common.InformNLS( player, "Durch deine ständigen Konflikte mit dem Gesetz ist dein Rang in "..townName.." um eine Stufe gesunken. Du bist nun "..rankName.gRank..".",
 			"Because of your permanent conflicts with the law your rank sinks for a degree in "..townName..". You are now "..rankName.eRank.."." );
 	end
 end
@@ -507,7 +507,7 @@ function informPlayerAboutRankpointchange(player, modifierTextarray)
 	local factionLeadersEN = {"Queen Rosaline Edwards", "Archmage Elvaine Morgan", "Don Valerio Guilianni"};
 
 	if faction ~= 0 then
-		base.common.InformNLS(player, "Dein Ansehen bei "..factionLeadersDE[faction].." "..modifierTextarray[1], "You "..modifierTextarray[2].." in "..factionLeadersEN[faction].."'s favour.");
+		common.InformNLS(player, "Dein Ansehen bei "..factionLeadersDE[faction].." "..modifierTextarray[1], "You "..modifierTextarray[2].." in "..factionLeadersEN[faction].."'s favour.");
 	else
 		return;
 	end;
@@ -534,13 +534,13 @@ function makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
 		end
 
 		local amountToPay = 1000*(2^fv.towncnt) -- amount in coppercoins
-		local GAmount, SAmount,CAmount = base.money.MoneyToCoins(amountToPay);
-		local germanMoney, englishMoney = base.money.MoneyToString(amountToPay);
+		local GAmount, SAmount,CAmount = money.MoneyToCoins(amountToPay);
+		local germanMoney, englishMoney = money.MoneyToString(amountToPay);
 		
-		if not base.money.CharHasMoney(originator,amountToPay) then --not enough money!
+		if not money.CharHasMoney(originator,amountToPay) then --not enough money!
 		 	gText="Ihr habt nicht genug Geld dabei! Ihr benötigt"..germanMoney..".";
 			eText="You don't have enough money with you! You'll need"..englishMoney..".";
-			outText=base.common.GetNLS(originator,gText,eText);
+			outText=common.GetNLS(originator,gText,eText);
             thisNPC:talk(Character.say, outText);
 			return;
 		end
@@ -553,7 +553,7 @@ function makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
 
 		if (fv.towncnt<99) then fv.towncnt = fv.towncnt+1; end; -- raise the town counter
 		setFaction(originator,fv); --write fv in Questprogress
-		base.money.TakeMoneyFromChar(originator,amountToPay); --take money
+		money.TakeMoneyFromChar(originator,amountToPay); --take money
 	end
 	return;
 end
@@ -573,7 +573,7 @@ function leaveFaction(originator, Faction, thisNPC)
 
 	gText="Ihr gehört nun keinem Reich mehr an. Das bedeutet das Ihr frei, aber auf Euch selbst gestellt seid. Viel Glück.";
 	eText="You're now not belonging to any realm. This means you're free but also on your own. Good luck.";
-	outText=base.common.GetNLS(originator,gText,eText);
+	outText=common.GetNLS(originator,gText,eText);
     thisNPC:talk(Character.say, outText);
 end
 

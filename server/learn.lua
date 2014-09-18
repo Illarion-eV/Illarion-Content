@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common")
+local common = require("base.common")
 
 module("server.learn", package.seeall)
 
@@ -77,13 +77,13 @@ function learn(user, skill, actionPoints, learnLimit)
 					if user:getType() == 0 and user:getQuestProgress(154)~=1 then --Only players get an inform once
 
 						skillstring=user:getSkillName(skill);
-						base.common.InformNLS(user,"[Levelaufstieg] Deine Fertigkeit '"..skillstring.."' hat sich soeben erhöht. Drücke 'C' um deine Fertigkeiten anzeigen zu lassen.","[Level up] Your skill '"..skillstring.."' just increased. Hit 'C' to review your skills."); --sending a message
+						common.InformNLS(user,"[Levelaufstieg] Deine Fertigkeit '"..skillstring.."' hat sich soeben erhöht. Drücke 'C' um deine Fertigkeiten anzeigen zu lassen.","[Level up] Your skill '"..skillstring.."' just increased. Hit 'C' to review your skills."); --sending a message
 						user:setQuestProgress(154,1); --Remember that we already spammed the player
 					
 					elseif user:getType() == 0 then
 						
 						skillstring=user:getSkillName(skill);
-						base.common.TempInformNLS(user,skillstring.." +1",skillstring.." +1"); --sending a message
+						common.TempInformNLS(user,skillstring.." +1",skillstring.." +1"); --sending a message
 						
 					end						
 		        end
@@ -109,7 +109,7 @@ function reduceMC( user )
 end
 
 function getLeadAttrib(Char, Skill)
-  local leadAttribName = base.common.GetLeadAttributeName(Skill);
+  local leadAttribName = common.GetLeadAttributeName(Skill);
   if leadAttribName~=nil then
     return Char:increaseAttrib(leadAttribName,0);
   end

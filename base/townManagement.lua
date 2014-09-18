@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 
-require("base.factions")
-require("base.common")
-require("base.licence")
+local factions = require("base.factions")
+local common = require("base.common")
+local licence = require("base.licence")
 module("base.townManagement", package.seeall)
 
  -- Cadomyr, Runewick, Galmair
@@ -75,7 +75,7 @@ function townManagmentUseItem(User, SourceItem)
 	if User:getQuestProgress(199) == toolTown and User:getQuestProgress(200) >= requiredRank[toolTown] and User:getQuestProgress(202) >= 600 or User:isAdmin() == true then
 		User:requestSelectionDialog(dialog)
 	else
-		base.common.InformNLS(User,"Du hast keine Befugnis hierzu.","You are not supposed to use this.")
+		common.InformNLS(User,"Du hast keine Befugnis hierzu.","You are not supposed to use this.")
 		return
 	end
 end
@@ -92,7 +92,7 @@ function TownGuard(User,toolTown)
 
 	local callback = function(dialog)
 		if not dialog:getSuccess() then
-			base.common.InformNLS(User,"Abbruch. Niemand wurde gebannt.","Aborted. No one was banned.")
+			common.InformNLS(User,"Abbruch. Niemand wurde gebannt.","Aborted. No one was banned.")
 			return
 		else
 			local myString = dialog:getInput()
@@ -128,15 +128,15 @@ function TownGuard(User,toolTown)
 					end
 				end
 				if not theChar then
-					base.common.InformNLS(User,"Charakter wurde nicht gefunden.","Character has not been found.")
+					common.InformNLS(User,"Charakter wurde nicht gefunden.","Character has not been found.")
 				else
 					local townId = toolTown
-					base.factions.setIndividualPlayerRelation(theChar, townId, base.factions.RELATION_HOSTILE, 3);
-					base.common.InformNLS(User,theChar.name.." ist für einen Zwergentag gebannt.",theChar.name.." is banned for one dwarven day.")
-					User:logAdmin("bans " .. theChar.name .. " for one day from " .. base.factions.getTownNameByID(townId));
+					factions.setIndividualPlayerRelation(theChar, townId, factions.RELATION_HOSTILE, 3);
+					common.InformNLS(User,theChar.name.." ist für einen Zwergentag gebannt.",theChar.name.." is banned for one dwarven day.")
+					User:logAdmin("bans " .. theChar.name .. " for one day from " .. factions.getTownNameByID(townId));
 				end
 			else
-				base.common.InformNLS(User,"Du hast nicht alle notwendige Information angegeben.","You haven't put in all necessary information.")
+				common.InformNLS(User,"Du hast nicht alle notwendige Information angegeben.","You haven't put in all necessary information.")
 			end
 		end
 	end
@@ -190,17 +190,17 @@ function TownLicence(User,toolTown)
 			licence.SetLicence(FirstLicence, SecondLicence, newLicence);
 			licenceStrings[licence.PERMISSION_NONE] = "restricted";
 			licenceStrings[licence.PERMISSION_ACTIVE] = "granted";
-			User:logAdmin("sets license of " .. base.factions.getTownNameByID(FirstLicence) .. " with respect to " .. base.factions.getTownNameByID(SecondLicence) .. " to " .. licenceStrings[newLicence] );
+			User:logAdmin("sets license of " .. factions.getTownNameByID(FirstLicence) .. " with respect to " .. factions.getTownNameByID(SecondLicence) .. " to " .. licenceStrings[newLicence] );
 		end
-		local sd = SelectionDialog(TextSetLicence, TextSetLicenceOf .. base.factions.getTownNameByID(FirstLicence) .. TextWithRespctToA .. base.factions.getTownNameByID(SecondLicence) .. TextTo, cbSetLicence);
+		local sd = SelectionDialog(TextSetLicence, TextSetLicenceOf .. factions.getTownNameByID(FirstLicence) .. TextWithRespctToA .. factions.getTownNameByID(SecondLicence) .. TextTo, cbSetLicence);
 		for _,m in ipairs(licenceValues) do
 			sd:addOption(0,licenceStrings[m]);
 		end
 		User:requestSelectionDialog(sd);
 	end
-	local sd = SelectionDialog(TextLicence, TextSetLicenceOf .. base.factions.getTownNameByID(FirstLicence) .. TextWithRespctToB, cbSecondLicence);
+	local sd = SelectionDialog(TextLicence, TextSetLicenceOf .. factions.getTownNameByID(FirstLicence) .. TextWithRespctToB, cbSecondLicence);
 	for _,f in ipairs(factionIds) do
-		sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. licenceStrings[licence.GetLicenceByFaction(FirstLicence, f)]);
+		sd:addOption(0,factions.getTownNameByID(f) .. ": " .. licenceStrings[licence.GetLicenceByFaction(FirstLicence, f)]);
 	end
 	User:requestSelectionDialog(sd);
 end

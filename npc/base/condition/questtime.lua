@@ -14,15 +14,15 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
-require("npc.base.repeatable_quests")
-require("npc.base.condition.condition")
+local class = require("base.class")
+local repeatable_quests = require("npc.base.repeatable_quests")
+local condition = require("npc.base.condition.condition")
 
 module("npc.base.condition.questtime", package.seeall)
 
-questtime = base.class.class(npc.base.condition.condition.condition,
+questtime = class.class(condition.condition,
 function(self, comp, quest, month, day, hour)
-	npc.base.condition.condition.condition:init(self);
+	condition.condition:init(self);
     self["month"], self["monthtype"] = npc.base.talk._set_value(month);
     self["day"], self["daytype"] = npc.base.talk._set_value(day);
     self["hour"], self["hourtype"] = npc.base.talk._set_value(hour);
@@ -43,7 +43,7 @@ function _questtime_helper_greater(self, npcChar, texttype, player)
 	local hour = npc.base.talk._get_value(self.npc, self.hour, self.hourtype);
 	local quest = self.quest;
     
-	return npc.base.repeatable_quests.checkIfTimesExpired(player, quest, month, day, hour);
+	return repeatable_quests.checkIfTimesExpired(player, quest, month, day, hour);
 end;
 
 function _questtime_helper_lesser(self, npcChar, texttype, player)
@@ -52,5 +52,5 @@ function _questtime_helper_lesser(self, npcChar, texttype, player)
 	local hour = npc.base.talk._get_value(self.npc, self.hour, self.hourtype);
 	local quest = self.quest;
 	
-    return not npc.base.repeatable_quests.checkIfTimesExpired(player, quest, month, day, hour); 
+    return not repeatable_quests.checkIfTimesExpired(player, quest, month, day, hour); 
 end;

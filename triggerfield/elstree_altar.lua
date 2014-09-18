@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (773,444,0,'triggerfield.elstree_altar');
 -- INSERT INTO triggerfields VALUES (773,445,0,'triggerfield.elstree_altar');
 
-require("base.common")
+local common = require("base.common")
 module("triggerfield.elstree_altar", package.seeall)
 
 
@@ -31,7 +31,7 @@ function MoveToField(char)
 
 	if (queststatus == 30) then
 		char:setQuestProgress(500, 31);
-		base.common.InformNLS(char,
+		common.InformNLS(char,
 		"Als du vor den Altar trittst, hörst du ein Lachen und aus dem Spiegel des Chaos wirft jemand eine Torte nach dir.",
 		"Stepping into the Altar you hear laughter and a pie is thrown at you from the Mirror of Chaos");
 

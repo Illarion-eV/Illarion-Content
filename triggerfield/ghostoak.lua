@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Quest: The Ghost Oak (112)
-require("base.common")
+local common = require("base.common")
 
 module("triggerfield.ghostoak", package.seeall)
 
@@ -25,7 +25,7 @@ function MoveToField(User)
 	end
 
    if (User:getQuestProgress(112) == 1) then
-      base.common.InformNLS(User,
+      common.InformNLS(User,
          "[Queststatus] Ein Schauer läuft dir den Rücken herunter, als du den Hain betrittst. Du hast die Geistereiche gefunden.",
          "[Quest status] A shiver runs down your spine as you enter the grove. This must be the ghost oak.");
       User:setQuestProgress(112, 2);

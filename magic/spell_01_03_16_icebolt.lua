@@ -25,7 +25,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 -- including the main script for gfx spells
-require("magic.base.gfxspell");
+local gfxspell = require("magic.base.gfxspell")
 module("magic.spell_01_03_16_icebolt", package.seeall)
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_01_03_16_icebolt.lua";

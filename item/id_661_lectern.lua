@@ -14,9 +14,9 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
-require("base.lookat")
-require("base.ranklist")
+local common = require("base.common")
+local lookat = require("base.lookat")
+local ranklist = require("base.ranklist")
 
 -- UPDATE items SET itm_script='item.id_661_lectern' WHERE itm_id IN (661, 660);
 
@@ -24,13 +24,13 @@ module("item.id_661_lectern", package.seeall)
 
 function UseItem(User,SourceItem,ltstate)
 	if SourceItem.pos == position(138, 551, 0) or SourceItem.pos == position(358, 217, 0) or SourceItem.pos == position(896, 761, 1) then
-		base.ranklist.getRanklist(User,"explorerRanklist", true);
+		ranklist.getRanklist(User,"explorerRanklist", true);
 	end
 end
 
 function LookAtItem(User, Item)
 	if Item.pos == position(138, 551, 0) or Item.pos == position(358, 217, 0) or Item.pos == position(896, 761, 1) then
-		base.lookat.SetSpecialDescription(Item, "Rangliste der Entdeckergilde.", "Ranklist of the explorer guild");
+		lookat.SetSpecialDescription(Item, "Rangliste der Entdeckergilde.", "Ranklist of the explorer guild");
 	end
-	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
+	return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end

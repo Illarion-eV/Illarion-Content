@@ -14,11 +14,11 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("item.base.crafts")
+local crafts = require("item.base.crafts")
 
 module("content.craft.dyemaking", package.seeall)
 
-dyemaking = item.base.crafts.Craft:new{
+dyemaking = crafts.Craft:new{
                     craftEN = "tailoring",
                     craftDE = "Schneidern",
                     handTool = 58,

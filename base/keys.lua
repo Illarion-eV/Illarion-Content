@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.doors")
+local doors = require("base.doors")
 
 module("base.keys", package.seeall)
 
@@ -28,7 +28,7 @@ module("base.keys", package.seeall)
     wrong
 ]]
 function LockDoor(Door)
-    if base.doors.CheckClosedDoor(Door.id) then
+    if doors.CheckClosedDoor(Door.id) then
         if (Door:getData("doorLock") == "unlocked") then
 			Door:setData("doorLock","locked")
 			world:changeItem(Door);
@@ -52,7 +52,7 @@ end;
     wrong
 ]]
 function UnlockDoor(Door)
-    if base.doors.CheckClosedDoor(Door.id) then
+    if doors.CheckClosedDoor(Door.id) then
         if (Door:getData("doorLock") == "locked" or Door:getData("lockId")~="") then
 			Door:setData("doorLock","unlocked")
 			world:changeItem(Door);
@@ -82,7 +82,7 @@ function CheckKey(Key, Door, User)
     if Door == nil then
 	    return false
 	end	
-	if base.doors.CheckClosedDoor(Door.id) or base.doors.CheckOpenDoor(Door.id) then
+	if doors.CheckClosedDoor(Door.id) or doors.CheckOpenDoor(Door.id) then
         if (Key:getData("lockId") == Door:getData("lockId") and Door:getData("lockId") ~= "") or checkForMasterKey(User, Key) then
             return true;
         else

@@ -21,7 +21,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Effekt Zauber
 
 -- including the main script for gfx spells
-require("magic.base.gfxspell");
+local gfxspell = require("magic.base.gfxspell")
 module("magic.spell_01_03_16_24_icebolt-area", package.seeall)
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_01_03_16_24_icebolt-area.lua";

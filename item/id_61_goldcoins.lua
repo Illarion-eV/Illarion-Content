@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_61_goldcoins' WHERE itm_id IN (61);
 
-require("base.common")
+local common = require("base.common")
 
 module("item.id_61_goldcoins", package.seeall)
 

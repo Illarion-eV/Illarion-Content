@@ -14,14 +14,14 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
-require("npc.base.condition.condition")
+local class = require("base.class")
+local condition = require("npc.base.condition.condition")
 
 module("npc.base.condition.item", package.seeall)
 
-item = base.class.class(npc.base.condition.condition.condition,
+item = class.class(condition.condition,
 function(self, itemId, itemLoc, comp, value, data)
-    npc.base.condition.condition.condition:init(self);
+    condition.condition:init(self);
     self["item"] = itemId;
     if (itemLoc == "all" or itemLoc == "belt" or itemLoc == "body"
         or itemLoc == "backpack") then

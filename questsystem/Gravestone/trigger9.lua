@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("questsystem.base")
+local base = require("questsystem.base")
 module("questsystem.Gravestone.trigger9", package.seeall)
 
 local QUEST_NUMBER = 10000
@@ -29,7 +29,7 @@ local NPC_REPLY_EN = "Mary Sue, my one and only true love. I wish I could see he
 function receiveText(npc, texttype, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
     and PLAYER:getType() == Character.player
-    and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
+    and base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
         if PLAYER:getPlayerLanguage() == Player.german then
             NPC_TRIGGER=string.gsub(NPC_TRIGGER_DE,'([ ]+)',' .*');
         else
@@ -50,7 +50,7 @@ function receiveText(npc, texttype, text, PLAYER)
             
             HANDLER(PLAYER)
             
-            questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
+            base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
         
             return true
         end

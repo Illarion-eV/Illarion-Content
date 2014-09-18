@@ -14,8 +14,8 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common")
-require("base.factions")
+local common = require("base.common")
+local factions = require("base.factions")
 
 module("base.licence", package.seeall)
 
@@ -64,13 +64,13 @@ function licence(char)
 end
 
 function licenceCheck(char)
-	if base.factions.getMembership(char) == 0 or base.factions.getRankpoints(char) >=100 then --check if player is outlaw or at least rank 2, anyone else will be ignored
-		if ((base.factions.getMembership(char) == licencerequired) or (char:getQuestProgress(licenceQuestID) > 0) or (GetLicenceByFaction(licencerequired, base.factions.getFaction(char).tid) == PERMISSION_ACTIVE)) then --check if player is member of the right faction or has licence or his/her faction has permission	
+	if factions.getMembership(char) == 0 or factions.getRankpoints(char) >=100 then --check if player is outlaw or at least rank 2, anyone else will be ignored
+		if ((factions.getMembership(char) == licencerequired) or (char:getQuestProgress(licenceQuestID) > 0) or (GetLicenceByFaction(licencerequired, factions.getFaction(char).tid) == PERMISSION_ACTIVE)) then --check if player is member of the right faction or has licence or his/her faction has permission	
 		else
 --			if math.random(1,100)< 51 then --chance that the player can break the law
---				base.common.InformNLS(char,"Hast du gar kein schlechtes Gewissen, hier ohne Lizenz zu arbeiten? Gehe ins Zensurbüro, um dort eine zu erwerben und damit die Geräte verwenden zu können oder werde Bürger dieser Stadt.","Do you not feel bad about working without a licence here? Go to the census office and purchase one in order to be able to use their static tools or become a citizen."); --player gets info he breaks law
+--				common.InformNLS(char,"Hast du gar kein schlechtes Gewissen, hier ohne Lizenz zu arbeiten? Gehe ins Zensurbüro, um dort eine zu erwerben und damit die Geräte verwenden zu können oder werde Bürger dieser Stadt.","Do you not feel bad about working without a licence here? Go to the census office and purchase one in order to be able to use their static tools or become a citizen."); --player gets info he breaks law
 --			else
-				base.common.InformNLS(char,"Du besitzt keine Lizenz für die Verwendung der Geräte dieser Stadt. Gehe ins Zensurbüro, um dort eine zu erwerben und damit die Geräte verwenden zu können oder werde Bürger dieser Stadt.","You do not have a licence for the use of static tools in this town. Go to the census office and purchase one in order to be able to use their static tools or become a citizen."); --player gets info to buy licence
+				common.InformNLS(char,"Du besitzt keine Lizenz für die Verwendung der Geräte dieser Stadt. Gehe ins Zensurbüro, um dort eine zu erwerben und damit die Geräte verwenden zu können oder werde Bürger dieser Stadt.","You do not have a licence for the use of static tools in this town. Go to the census office and purchase one in order to be able to use their static tools or become a citizen."); --player gets info to buy licence
 
 				return true --craft-script stops later; set to true as soon as NPCs are ready
 --			end
@@ -89,7 +89,7 @@ function GetLicence(char, thisFaction)
 --	end
 	
 --	local individualLicence = GetIndividualLicence(char, thisFaction) 
-	local f = base.factions.getFaction(char).tid;
+	local f = factions.getFaction(char).tid;
 	local factionLicence = GetLicenceByFaction(thisFaction, f);
 	return math.max(individualLicence, factionLicence)
 end

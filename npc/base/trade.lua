@@ -20,17 +20,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --
 -- Author: Martin Karing
 
-require("base.class")
-require("base.common")
-require("base.lookat")
-require("base.messages")
-require("base.money")
-require("npc.base.basic")
+local class = require("base.class")
+local common = require("base.common")
+local lookat = require("base.lookat")
+local messages = require("base.messages")
+local money = require("base.money")
+local basic = require("npc.base.basic")
 
 module("npc.base.trade", package.seeall)
 
-tradeNPC = base.class.class(function(self, rootNPC)
-    if (rootNPC == nil or not rootNPC:is_a(npc.base.basic.baseNPC)) then
+tradeNPC = class.class(function(self, rootNPC)
+    if (rootNPC == nil or not rootNPC:is_a(basic.baseNPC)) then
         return;
     end;
     self["_parent"] = rootNPC;
@@ -40,10 +40,10 @@ tradeNPC = base.class.class(function(self, rootNPC)
     self["_buyPrimaryItems"] = {};
     self["_buySecondaryItems"] = {};
 
-    self["_wrongItemMsg"] = base.messages.Messages();
-    self["_notEnoughMoneyMsg"] = base.messages.Messages();
-    self["_dialogClosedMsg"] = base.messages.Messages();
-    self["_dialogClosedNoTradeMsg"] = base.messages.Messages();
+    self["_wrongItemMsg"] = messages.Messages();
+    self["_notEnoughMoneyMsg"] = messages.Messages();
+    self["_dialogClosedMsg"] = messages.Messages();
+    self["_dialogClosedNoTradeMsg"] = messages.Messages();
 end);
 
 function tradeNPC:addItem(item)
@@ -105,7 +105,7 @@ function tradeNPC:showDialog(npcChar, player)
         end;
     end;
 
-    local dialog = MerchantDialog(base.common.GetNLS(player, "Handel", "Trade"), callback)
+    local dialog = MerchantDialog(common.GetNLS(player, "Handel", "Trade"), callback)
 
     for _, item in pairs(self._sellItems) do
         item:addToDialog(player, dialog);
@@ -154,14 +154,14 @@ function tradeNPC:buyItemFromPlayer(npcChar, player, boughtItem)
     
     if item then
         local price = item._price * boughtItem.number
-        local priceStringGerman, priceStringEnglish = base.money.MoneyToString(price);
-        local itemName = base.common.GetNLS(player, world:getItemName(boughtItem.id,0), world:getItemName(boughtItem.id,1));
+        local priceStringGerman, priceStringEnglish = money.MoneyToString(price);
+        local itemName = common.GetNLS(player, world:getItemName(boughtItem.id,0), world:getItemName(boughtItem.id,1));
         if world:erase(boughtItem, boughtItem.number) then
-            if (base.money.GiveMoneyToChar(player, price) == false) then
-                base.money.GiveMoneyToPosition(player.pos, price);
+            if (money.GiveMoneyToChar(player, price) == false) then
+                money.GiveMoneyToPosition(player.pos, price);
             end
 
-            base.common.InformNLS(player, "Ihr habt "..boughtItem.number.." "..itemName.." zu einem Preis von "..priceStringGerman.." verkauft.", "You sold "..boughtItem.number.." "..itemName.." at a price of "..priceStringEnglish..".");
+            common.InformNLS(player, "Ihr habt "..boughtItem.number.." "..itemName.." zu einem Preis von "..priceStringGerman.." verkauft.", "You sold "..boughtItem.number.." "..itemName.." at a price of "..priceStringEnglish..".");
             world:makeSound(24, player.pos)
         end;
         
@@ -178,19 +178,19 @@ end;
 function tradeNPC:sellItemToPlayer(npcChar, player, itemIndex, amount)
     local item = self._sellItems[itemIndex + 1];
     if (item == nil) then
-        base.common.InformNLS(player, "Ein Fehler ist beim Kauf des Items aufgetreten.", "An error occurred while buying the item.");
+        common.InformNLS(player, "Ein Fehler ist beim Kauf des Items aufgetreten.", "An error occurred while buying the item.");
         return;
     end;
 
-    if (base.money.CharHasMoney(player, item._price * amount)) then
-        base.money.TakeMoneyFromChar(player, item._price * amount);
-		local priceStringGerman, priceStringEnglish = base.money.MoneyToString(item._price * amount);
+    if (money.CharHasMoney(player, item._price * amount)) then
+        money.TakeMoneyFromChar(player, item._price * amount);
+		local priceStringGerman, priceStringEnglish = money.MoneyToString(item._price * amount);
         local notCreated = player:createItem(item._itemId, amount, item._quality, item._data);
-		local itemName = base.common.GetNLS(player, world:getItemName(item._itemId,0), world:getItemName(item._itemId,1));
+		local itemName = common.GetNLS(player, world:getItemName(item._itemId,0), world:getItemName(item._itemId,1));
         if (notCreated > 0) then
             world:createItemFromId(item._itemId, notCreated, player.pos, true, item._quality, item._data);
         end;
-		base.common.InformNLS(player, "Ihr habt "..amount.." "..itemName.." zu einem Preis von"..priceStringGerman.." gekauft.", "You bought "..amount.." "..itemName.." at a price of"..priceStringEnglish..".");
+		common.InformNLS(player, "Ihr habt "..amount.." "..itemName.." zu einem Preis von"..priceStringGerman.." gekauft.", "You bought "..amount.." "..itemName.." at a price of"..priceStringEnglish..".");
 		world:makeSound(24, player.pos)
     elseif (self._notEnoughMoneyMsg:hasMessages()) then
         local msgGerman, msgEnglish = self._notEnoughMoneyMsg:getRandomMessage();
@@ -209,10 +209,10 @@ function tradeNPC:playerLooksAtItem(player, list, index)
           item = self._buySecondaryItems[index + 1]
    end
    
-   return base.lookat.GenerateItemLookAtFromId(player, item._itemId, item._stack, item._data)
+   return lookat.GenerateItemLookAtFromId(player, item._itemId, item._stack, item._data)
 end
 
-tradeNPCItem = base.class.class(function(self, id, itemType, nameDe, nameEn, price, stack, quality, data)
+tradeNPCItem = class.class(function(self, id, itemType, nameDe, nameEn, price, stack, quality, data)
     if (id == nil or id <= 0) then
         error("Invalid ItemID for trade item");
     end;
@@ -268,7 +268,7 @@ tradeNPCItem = base.class.class(function(self, id, itemType, nameDe, nameEn, pri
 end);
 
 function tradeNPCItem:addToDialog(player, dialog)
-    local name = base.common.GetNLS(player, self._nameDe, self._nameEn);
+    local name = common.GetNLS(player, self._nameDe, self._nameEn);
     if (self._type == "sell") then
         dialog:addOffer(self._itemId, name, self._price * self._stack, self._stack);
     elseif (self._type == "buyPrimary") then

@@ -39,9 +39,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (420,75,0,'triggerfield.northernislands_661');
 
 
-require("base.common")
-require("lte.createaftertime");
-require("lte.longterm_cooldown");
+local common = require("base.common")
+local createaftertime = require("lte.createaftertime")
+local longterm_cooldown = require("lte.longterm_cooldown")
 module("triggerfield.northernislands_661", package.seeall)
 
 
@@ -95,13 +95,13 @@ function MoveFromField(char)
 		createGfx=NorthGfx --light
 		createRepeatA=2 --min three lights at the same time
 		createRepeatB=5 --up to five lights at the same time
-		createItemText=nil --no text-set 1 in .lte.createaftertime.lua
+		createItemText=nil --no text-set 1 in .createaftertime.lua
 		else
 		createItemTimeB=1 --use var1; yes, thus light only one time
 		createGfx=46 --light (beam me up)
 		createRepeatA=1 --only one light
 		createRepeatB=1 --only one light
-		createItemText=nil --no text-set 2 .lte.createaftertime.lua
+		createItemText=nil --no text-set 2 .createaftertime.lua
 		end
 	createItemAmountA=1; --amount of element min
 	createItemAmountB=1; --amount of element max

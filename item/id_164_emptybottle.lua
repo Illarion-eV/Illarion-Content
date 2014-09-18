@@ -18,9 +18,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Merung 2011: fill stock or potion into bottle
 -- UPDATE items SET itm_script='item.id_164_emptybottle' WHERE itm_id IN (164);
 
-require("base.common")
-require("alchemy.base.alchemy")
-require("base.licence")
+local common = require("base.common")
+local alchemy = require("alchemy.base.alchemy")
+local licence = require("base.licence")
 
 module("item.id_164_emptybottle", package.seeall)
 
@@ -28,10 +28,10 @@ function UseItem(User, SourceItem, ltstate)
 
 	-- alchemy
 	-- infront of a cauldron?
-	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
+	local cauldron = alchemy.GetCauldronInfront(User)
     if cauldron then
 	
-		if base.licence.licence(User) then --checks if user is citizen or has a licence 
+		if licence.licence(User) then --checks if user is citizen or has a licence 
 			return -- avoids crafting if user is neither citizen nor has a licence
 		end
 		
@@ -39,12 +39,12 @@ function UseItem(User, SourceItem, ltstate)
 		    return
 		end	
 		
-		if not alchemy.base.alchemy.checkFood(User) then
+		if not alchemy.checkFood(User) then
 			return
 		end
 		
 		if ( ltstate == Action.abort ) then
-			base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+			common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
 		   return
 		end
 	
@@ -54,11 +54,11 @@ function UseItem(User, SourceItem, ltstate)
 		end
 		
 		FillIntoBottle(User, SourceItem, cauldron)
-		alchemy.base.alchemy.lowerFood(User)
+		alchemy.lowerFood(User)
 	end
 
 	-- The Glutinous Tree
-	local frontItem = base.common.GetFrontItem(User)
+	local frontItem = common.GetFrontItem(User)
 	if frontItem and frontItem.id == 589 and frontItem.pos == position(376,288,0) then
 	    GetSlimeFromTree(User, SourceItem, ltstate)
 	end
@@ -69,13 +69,13 @@ end
 function CheckWaterEmpty(User, SourceItem, cauldron)
 
 	if (cauldron:getData("filledWith") == "water") then -- water belongs into a bucket, not a potion bottle!
-		base.common.InformNLS( User,
+		common.InformNLS( User,
 				"Es ist zu viel Wasser im Kessel, als dass es in die Flaschen passen würde. Ein Eimer wäre hilfreicher.",
 				"There is too much water in the cauldron to bottle it. Better use a bucket.")
 		return nil ;
 	-- no stock, no potion, not essence brew -> nothing we could fil into the bottle
 	elseif cauldron:getData("filledWith") == "" then
-		base.common.InformNLS( User,
+		common.InformNLS( User,
 				"Es befindet sich nichts zum Abfüllen im Kessel.",
 				"There is nothing to be bottled in the cauldron.")
 		return nil;
@@ -87,7 +87,7 @@ function FillIntoBottle(User, SourceItem, cauldron)
     
 	-- stock, essence brew or potion; fill it up
    if (cauldron:getData("filledWith") == "stock") or (cauldron:getData("filledWith") == "essenceBrew") or (cauldron:getData("filledWith") == "potion") then  
-		local reGem, reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, nil, cauldron.id, nil, User)
+		local reGem, reGemdust, reCauldron, reBottle = alchemy.GemDustBottleCauldron(nil, nil, cauldron.id, nil, User)
 		if SourceItem.number > 1 then -- stack! 
 			if cauldron:getData("filledWith") == "stock" then
 				local data = {}
@@ -124,10 +124,10 @@ function FillIntoBottle(User, SourceItem, cauldron)
 			world:erase(SourceItem,1)
 		else
 			SourceItem.id = reBottle
-			alchemy.base.alchemy.FillFromTo(cauldron,SourceItem)
+			alchemy.FillFromTo(cauldron,SourceItem)
 			world:changeItem(SourceItem)
 		end   
-		alchemy.base.alchemy.RemoveAll(cauldron)    			
+		alchemy.RemoveAll(cauldron)    			
 	end
 	world:changeItem(cauldron)
 	world:makeSound(10,cauldron.pos)

@@ -24,7 +24,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
     SQL:    INSERT INTO spells VALUES (2^8+2^25,0,'m_09_26_teach-taur.lua');
 ]]
 
-require("magic.base.teachspell");
+local teachspell = require("magic.base.teachspell")
 module("magic.spell_09_26_teach-taur", package.seeall)
 -- Informations about the rune
 Rune = {

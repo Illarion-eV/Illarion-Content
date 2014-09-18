@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Attackable guards (who can fight back!)
 -- monsterID 2000
 
-require("monster.base.monstermagic")
+local monstermagic = require("monster.base.monstermagic")
 
 module("monster.guards", package.seeall)
 
@@ -139,7 +139,7 @@ end
 
 
 function enemyOnSight(Guard,Enemy)
-	monster.base.monstermagic.regeneration(Guard); --if an enemy is around, the monster regenerates slowly
+	monstermagic.regeneration(Guard); --if an enemy is around, the monster regenerates slowly
     return false;
 end
 

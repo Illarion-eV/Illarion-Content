@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- tinderbox
 -- light a fire
 
-require ("base.common")
+local common = require("base.common")
 
 module("item.id_x_tinderbox", package.seeall)
 

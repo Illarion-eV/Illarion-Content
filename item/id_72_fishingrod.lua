@@ -16,17 +16,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_72_fishingrod' WHERE itm_id=72;
 
-require("base.common")
-require("content.gatheringcraft.fishing")
-require("item.general.wood")
+local common = require("base.common")
+local fishing = require("content.gatheringcraft.fishing")
+local wood = require("item.general.wood")
 
 module("item.id_72_fishingrod", package.seeall)
 
-LookAtItem = item.general.wood.LookAtItem
+LookAtItem = wood.LookAtItem
 
 function getWaterTilePosition(User)
-	local targetPos = base.common.GetFrontPosition(User);
-	if (base.common.GetGroundType(world:getField(targetPos):tile()) == base.common.GroundType.water) then
+	local targetPos = common.GetFrontPosition(User);
+	if (common.GetGroundType(world:getField(targetPos):tile()) == common.GroundType.water) then
 		return targetPos;
 	end
 
@@ -34,7 +34,7 @@ function getWaterTilePosition(User)
 	for x=-Radius,Radius do
 		for y=-Radius,Radius do
 			targetPos = position(User.pos.x + x, User.pos.y, User.pos.z);
-			if (base.common.GetGroundType(world:getField(targetPos):tile()) == base.common.GroundType.water) then
+			if (common.GetGroundType(world:getField(targetPos):tile()) == common.GroundType.water) then
 				return targetPos;
 			end
 		end
@@ -44,7 +44,7 @@ end
 
 function getShoal(User)
 
-	local targetItem = base.common.GetFrontItem(User);
+	local targetItem = common.GetFrontItem(User);
 	if (targetItem ~= nil and targetItem.id == 1170) then
 		return targetItem;
 	end
@@ -67,14 +67,14 @@ end
 function UseItem(User, SourceItem, ltstate)
 
 	if (getWaterTilePosition(User) == nil) then -- fishing only possible on water tiles
-		base.common.HighInformNLS(User,
+		common.HighInformNLS(User,
 		"Die Chance im Wasser einen Fisch zu fangen ist bedeutend höher als auf dem Land.",
 		"The chance to catch a fish is much higher in the water than on the land.");
 		return
 	end
 
-	if (base.common.GetFrontPosition(User).z < 0) then -- fishing underground is not possible
-		base.common.HighInformNLS(User,
+	if (common.GetFrontPosition(User).z < 0) then -- fishing underground is not possible
+		common.HighInformNLS(User,
 		"In unterirdischen Wasserlöchern wird das Angeln kaum erfolgreich sein.",
 		"Fishing in underground waterholes wouldn't be successful.");
 		return
@@ -82,11 +82,11 @@ function UseItem(User, SourceItem, ltstate)
 
 	local shoalItem = getShoal(User);
 	if (shoalItem == nil) then
-		base.common.HighInformNLS(User,
+		common.HighInformNLS(User,
 		"Hier scheinen sich keine Fische zu befinden. Halte Ausschau nach einem Fischschwarm.",
 		"There seems to be no fish here. Look for a shoal.");
 		return
 	end
 
-	content.gatheringcraft.fishing.StartGathering(User, shoalItem, ltstate);
+	fishing.StartGathering(User, shoalItem, ltstate);
 end

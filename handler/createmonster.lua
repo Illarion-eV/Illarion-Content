@@ -14,11 +14,11 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
+local class = require("base.class")
 
 module("handler.createmonster", package.seeall)
 
-createMonster = base.class.class(function(cremonst, posi, ID, mvpoints)
+createMonster = class.class(function(cremonst, posi, ID, mvpoints)
 	cremonst.pos=posi;
 	cremonst.monsterID=ID;
 	cremonst.movepoints=mvpoints;

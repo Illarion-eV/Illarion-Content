@@ -19,8 +19,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (339,216,0,'triggerfield.donation_galmair');
 -- INSERT INTO triggerfields VALUES (339,217,0,'triggerfield.donation_galmair');
 
-require("base.common")
-require("triggerfield.donation_base")
+local common = require("base.common")
+local donation_base = require("triggerfield.donation_base")
 
 module("triggerfield.donation_galmair", package.seeall)
 
@@ -29,14 +29,14 @@ module("triggerfield.donation_galmair", package.seeall)
 
 function PutItemOnField(Item,User)
 
-    donated=triggerfield.donation_base.donate(Item,User,"Galmair","Valerio Guilianni","TreasureGalmair"); -- That's all folks
+    donated=donation_base.donate(Item,User,"Galmair","Valerio Guilianni","TreasureGalmair"); -- That's all folks
 
 
    -- Quest 206 (Galmair Treasury, NPC Geretel Goldhair)
 
     if (donated) and (User:getQuestProgress(206) == 1) then
 		User:setQuestProgress(206, 2); --Quest solved!
-		base.common.InformNLS(User,"[Queststatus] Du hast erfolgreich etwas an den Don gespendet. Sprich mit Gretel Goldhair, um deine Belohnung einzufordern.","[Quest status] You successfully made a donation to the Don. Talk to Gretel Goldhair to claim your reward."); --sending a message
+		common.InformNLS(User,"[Queststatus] Du hast erfolgreich etwas an den Don gespendet. Sprich mit Gretel Goldhair, um deine Belohnung einzufordern.","[Quest status] You successfully made a donation to the Don. Talk to Gretel Goldhair to claim your reward."); --sending a message
 	end
 
 	-- Quest end

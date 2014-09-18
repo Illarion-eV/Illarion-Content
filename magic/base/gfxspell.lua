@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("magic.base.basics");
+local basics = require("magic.base.basics")
 module("magic.base.gfxspell")
 
 function DoGFXSpell(Caster, TargetPos, ltstate)
@@ -27,13 +27,13 @@ function DoGFXSpell(Caster, TargetPos, ltstate)
         return;
     end
 
-    magic.base.basics.loadCorrectDefScript();
+    basics.loadCorrectDefScript();
 
     -- Generate the needed
-    magic.base.basics.gemBonis( Caster );
+    basics.gemBonis( Caster );
 
     genderMsg = {};
-    genderMsg[Player.german], genderMsg[Player.english] = magic.base.basics.GenderMessage( Caster );
+    genderMsg[Player.german], genderMsg[Player.english] = basics.GenderMessage( Caster );
 
     if ( Caster:distanceMetricToPosition(TargetPos) > Settings.Range + GemBonis.Range) then
         base.common.InformNLS( Caster,
@@ -58,11 +58,11 @@ function DoGFXSpell(Caster, TargetPos, ltstate)
         return;
     end
 
-    magic.base.basics.SayRunes( Caster );
+    basics.SayRunes( Caster );
 
-    local CasterVal=magic.base.basics.CasterValue( Caster );
+    local CasterVal=basics.CasterValue( Caster );
 
-    if not magic.base.basics.CheckAndReduceRequirements( Caster, CasterVal ) then
+    if not basics.CheckAndReduceRequirements( Caster, CasterVal ) then
         return;
     end
 
@@ -140,11 +140,11 @@ end
 
 function HitOnPosition( Caster, CasterValue, posi, percent, radius )
     local showEffects = false;
-    showEffects = removeItemFromMap(SpellEffects[radius].removeItem, posi, magic.base.basics.CasterValue );
+    showEffects = removeItemFromMap(SpellEffects[radius].removeItem, posi, basics.CasterValue );
     if not world:isCharacterOnField(posi) then
         if SpellEffects[radius] ~= nil and ( showEffects or not SpellEffects.justAtHit ) then
-            magic.base.basics.performGFX( SpellEffects[radius].gfx, posi );
-            magic.base.basics.performSFX( SpellEffects[radius].sfx, posi );
+            basics.performGFX( SpellEffects[radius].gfx, posi );
+            basics.performSFX( SpellEffects[radius].sfx, posi );
         end
         return showEffects;
     end
@@ -159,23 +159,23 @@ function HitOnPosition( Caster, CasterValue, posi, percent, radius )
 
     local MagicRes;
     if TargetEffects and (TargetEffects.minSkill.hitpoints < 0 or TargetEffects.minSkill.foodpoints < 0 or TargetEffects.minSkill.actionpoints < 0 or TargetEffects.minSkill.manapoints < 0 or TargetEffects.minSkill.poison > 0 ) then
-        MagicRes = magic.base.basics.MagicResistence( HitChar );
+        MagicRes = basics.MagicResistence( HitChar );
     else
         MagicRes = 0;
     end
 
-    if ( MagicRes <= magic.base.basics.CasterValue ) then
-        showEffects = TargetHitting( Caster, HitChar, magic.base.basics.CasterValue, MagicRes, percent );
+    if ( MagicRes <= basics.CasterValue ) then
+        showEffects = TargetHitting( Caster, HitChar, basics.CasterValue, MagicRes, percent );
         if SpellEffects[radius] ~= nil and ( showEffects or not SpellEffects.justAtHit ) then
-            magic.base.basics.performGFX( SpellEffects[radius].gfx, posi );
-            magic.base.basics.performSFX( SpellEffects[radius].sfx, posi );
+            basics.performGFX( SpellEffects[radius].gfx, posi );
+            basics.performSFX( SpellEffects[radius].sfx, posi );
         end
-    elseif ( MagicRes > magic.base.basics.CasterValue * 2 ) then
-        showEffects = TargetHitting( Caster, Caster, magic.base.basics.CasterValue, magic.base.basics.MagicResistence( Caster ), percent );
+    elseif ( MagicRes > basics.CasterValue * 2 ) then
+        showEffects = TargetHitting( Caster, Caster, basics.CasterValue, basics.MagicResistence( Caster ), percent );
         world:gfx( 10, posi );
         if SpellEffects[radius] ~= nil and ( showEffects or not SpellEffects.justAtHit ) then
-            magic.base.basics.performGFX( SpellEffects[radius].gfx, Caster.pos );
-            magic.base.basics.performSFX( SpellEffects[radius].sfx, Caster.pos );
+            basics.performGFX( SpellEffects[radius].gfx, Caster.pos );
+            basics.performSFX( SpellEffects[radius].sfx, Caster.pos );
         end
         base.common.InformNLS( Caster,
         "Dein Ziel ist derart resistent gegen Magie das dein Zauber auf dich zurückgeworfen wird.",
@@ -199,7 +199,7 @@ function TargetHitting( Caster, Target, CasterValue, Resistance, Percent)
         return false;
     end
 
-    local Value = (magic.base.basics.CasterValue - Resistance)*Percent;
+    local Value = (basics.CasterValue - Resistance)*Percent;
 
     if TargetEffects.minSkill.hitpoints and TargetEffects.maxSkill.hitpoints then
         local AttribEffect = math.floor(base.common.Scale(TargetEffects.minSkill.hitpoints, TargetEffects.maxSkill.hitpoints, Value));
@@ -278,7 +278,7 @@ function TargetHitting( Caster, Target, CasterValue, Resistance, Percent)
         return true;
     end
 
-    if (magic.base.basics.MaximalMagicResistance( Target ) > Target:getSkill(Skill.magicResistance)) then
+    if (basics.MaximalMagicResistance( Target ) > Target:getSkill(Skill.magicResistance)) then
         --Target:learn(3,"magic resistance",2,100);
 		--Replace with new learn function, see learn.lua 
     end

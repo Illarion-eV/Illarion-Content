@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common")
+local common = require("base.common")
 
 module("item.id_3077_silvercoins", package.seeall)
 
@@ -23,7 +23,7 @@ module("item.id_3077_silvercoins", package.seeall)
 TimeList = {};
 
 function UseItem(User, SourceItem)
-	local frontItem = base.common.GetFrontItem(User)
+	local frontItem = common.GetFrontItem(User)
 	if frontItem then
 		if frontItem.id == 2805 and frontItem.pos == position(415, 273, -6) then --if frontItem is questpillar
 			if User:getQuestProgress(170) == 0 then

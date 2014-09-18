@@ -15,20 +15,20 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Food script
-require("base.common")
+local common = require("base.common")
 
 
 module("item.food", package.seeall)
 
 -- UPDATE items SET itm_script='item.food' WHERE itm_id IN (15,49,73,80,81,142,143,147,151,158,159,160,161,162,163,191,199,200,201,302,303,306,307,353,354,355,388,453,454,455,552,553,554,555,556,557,559,1207,2276,2277,2278,2456,2459,2493,2922,2923,2934,2940,3051);
 
-require("content.furtunecookies")
-require("alchemy.base.alchemy")
-require("alchemy.base.herbs")
-require("content.craft.baking")
-require("content.craft.cooking")
-require("lte.diet")
-require("content.specialeggs")
+local furtunecookies = require("content.furtunecookies")
+local alchemy = require("alchemy.base.alchemy")
+local herbs = require("alchemy.base.herbs")
+local baking = require("content.craft.baking")
+local cooking = require("content.craft.cooking")
+local diet = require("lte.diet")
+local specialeggs = require("content.specialeggs")
 
 -- buff types, they have exactly two attributes
 BUFFS = {
@@ -156,13 +156,13 @@ function UseItem(User, SourceItem, ltstate)
 	if (Init == nil) then
     Init = 1;
     -- import difficulties from crafts
-    for _,product in pairs(content.craft.baking.baking.products) do
+    for _,product in pairs(baking.baking.products) do
       if (FoodList[product.item] ~= nil) then
         FoodList[product.item].difficulty = product.difficulty;
         MAX_DIFFICULTY = math.max(MAX_DIFFICULTY, product.difficulty);
       end
     end
-    for _,product in pairs(content.craft.cooking.cooking.products) do
+    for _,product in pairs(cooking.cooking.products) do
       if (FoodList[product.item] ~= nil) then
         FoodList[product.item].difficulty = product.difficulty;
         MAX_DIFFICULTY = math.max(MAX_DIFFICULTY, product.difficulty);
@@ -182,21 +182,21 @@ function UseItem(User, SourceItem, ltstate)
     end
   end
 	-- check if used for alchemy purpose
-	local isPlant, ignoreIt = alchemy.base.alchemy.getPlantSubstance(SourceItem.id, User)
-	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User,SourceItem)
+	local isPlant, ignoreIt = alchemy.getPlantSubstance(SourceItem.id, User)
+	local cauldron = alchemy.GetCauldronInfront(User,SourceItem)
 	if (cauldron ~= nil) and isPlant then
-	    alchemy.base.herbs.UseItem(User, SourceItem, ltstate)
+	    herbs.UseItem(User, SourceItem, ltstate)
 		return
 	end
 
 	--check for special eggs
-	if content.specialeggs.checkSpecialEgg(SourceItem, User) then
+	if specialeggs.checkSpecialEgg(SourceItem, User) then
 		return
 	end
 
 	-- item should not be static
 	if SourceItem.wear == 255 then
-    base.common.HighInformNLS(User,
+    common.HighInformNLS(User,
     "Das kannst du nicht essen.",
     "You can't eat that.");
 		return;
@@ -212,14 +212,14 @@ function UseItem(User, SourceItem, ltstate)
 	local race = math.min(User:getRace()+1, 10);
 	-- not eatable for user's race
 	if foodItem.unEatable[race] then
-    base.common.HighInformNLS(User,
+    common.HighInformNLS(User,
     "Das kannst du nicht essen.",
     "You can't eat that.");
 		return;
 	end
 	-- user should not fight
 	if User.attackmode then
-    base.common.HighInformNLS( User,
+    common.HighInformNLS( User,
     "Du kannst nicht während eines Kampfes essen.",
     "You cannot eat during a fight.");
     return;
@@ -228,8 +228,8 @@ function UseItem(User, SourceItem, ltstate)
   -- fortune cookies
   if (SourceItem.id == 453) then
     if (math.random(1,100)==1) then
-      local deText, enText = content.furtunecookies.cookie();
-      base.common.InformNLS( User,
+      local deText, enText = furtunecookies.cookie();
+      common.InformNLS( User,
       "Du findest ein Stück Papier in dem Keks: \""..deText.."\"",
       "You find a piece of paper inside the cookie: \""..enText.."\"");
     end
@@ -251,12 +251,12 @@ function UseItem(User, SourceItem, ltstate)
   -- create leftovers
   if( foodItem.leftover > 0 ) then
     if( math.random( 50 ) <= 1 ) then
-      base.common.HighInformNLS( User, "Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.");
+      common.HighInformNLS( User, "Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.");
     else
 		local notCreated = User:createItem( foodItem.leftover, 1, 333, nil);
 		if ( notCreated > 0 ) then
 			world:createItemFromId( foodItem.leftover, notCreated, User.pos, true, 333, nil );
-			base.common.HighInformNLS(User,
+			common.HighInformNLS(User,
 			"Du kannst nichts mehr halten und lässt das Geschirr zu Boden fallen.",
 			"You can't carry any more and let the dishes drop to the ground.");
 		end
@@ -266,8 +266,8 @@ function UseItem(User, SourceItem, ltstate)
   -- check for poison
   local poison = foodItem.poison;
   if (poison ~= nil) then
-    User:setPoisonValue( base.common.Limit( (User:getPoisonValue() + poison) , 0, 10000) );
-    base.common.HighInformNLS(User,
+    User:setPoisonValue( common.Limit( (User:getPoisonValue() + poison) , 0, 10000) );
+    common.HighInformNLS(User,
     "Du fühlst dich krank und etwas benommen.",
     "You feel sick and a little dizzy.");
     SetNewFoodLevel(User, foodLevel-foodVal);
@@ -277,11 +277,11 @@ function UseItem(User, SourceItem, ltstate)
   foodLevel = foodLevel + foodVal;
   -- check if ate too much. Grant a buffer of half of the actual food value
   if (60000 + (0.5*foodVal) - foodLevel < 0) then
-    base.common.HighInformNLS( User,
+    common.HighInformNLS( User,
     "Du bekommst kaum noch was runter und dir wird schlecht.",
     "You hardly manage to eat something more and get sick!");
     -- check for newbie state
-    if (not base.common.IsOnNoobia(User.pos) and not (User:increaseAttrib("hitpoints",0) < 2000)) then
+    if (not common.IsOnNoobia(User.pos) and not (User:increaseAttrib("hitpoints",0) < 2000)) then
       User:increaseAttrib("hitpoints",-1000);
     end
     SetNewFoodLevel(User, 50000);
@@ -292,27 +292,27 @@ function UseItem(User, SourceItem, ltstate)
 
   -- inform the player about the food level. Avoid spam.
   if  (foodLevel > 55000) and ((foodLevel-foodVal) <= 55000) then
-    base.common.InformNLS( User,
+    common.InformNLS( User,
     "Nur mit Mühe kannst du dir noch etwas hinunter zwingen.",
     "You hardly manage to eat something more.");
   elseif  (foodLevel > 50000) and ((foodLevel-foodVal) <= 50000) then
-    base.common.InformNLS( User,
+    common.InformNLS( User,
     "Du bist sehr satt.",
     "You have had enough.");
   elseif  (foodLevel > 40000) and ((foodLevel-foodVal) <= 40000) then
-    base.common.InformNLS( User,
+    common.InformNLS( User,
     "Du bist satt.",
     "You are stuffed.");
   elseif  (foodLevel > 30000) and ((foodLevel-foodVal) <= 30000) then
-    base.common.InformNLS( User,
+    common.InformNLS( User,
     "Du fühlst dich noch etwas hungrig.",
     "You still feel a little hungry.");
   elseif  (foodLevel > 20000) and ((foodLevel-foodVal) <= 20000) then
-    base.common.InformNLS( User,
+    common.InformNLS( User,
     "Du hast noch immer Hunger.",
     "You are still hungry.");
   elseif  (foodLevel > 5000) and ((foodLevel-foodVal) <= 5000) then
-    base.common.InformNLS( User,
+    common.InformNLS( User,
     "Dein Magen schmerzt noch immer vor Hunger.",
     "Your stomach still hurts because of your hunger.");
   end
@@ -351,18 +351,18 @@ function UseItem(User, SourceItem, ltstate)
               User:inform("[ERROR] No expire stamp found. Using new one instead. Please inform a developer.");
               newIsBetter = true;
             else
-              if (newDuration > buffExpireStamp - base.common.GetCurrentTimestamp()) then
+              if (newDuration > buffExpireStamp - common.GetCurrentTimestamp()) then
                 newIsBetter = true;
               end
             end
           end
           if (newIsBetter) then
-            dietEffect:addValue("buffExpireStamp", base.common.GetCurrentTimestamp() + newDuration);
+            dietEffect:addValue("buffExpireStamp", common.GetCurrentTimestamp() + newDuration);
             if (newBuffAmount > buffAmount or buffType ~= foodItem.buffType) then
 			  dietEffect:addValue("buffType", foodItem.buffType);
               dietEffect:addValue("buffAmount", newBuffAmount);
-			  lte.diet.RemoveBuff(dietEffect, User);
-              lte.diet.InformPlayer(dietEffect, User);
+			  diet.RemoveBuff(dietEffect, User);
+              diet.InformPlayer(dietEffect, User);
             end
           end
         else
@@ -375,14 +375,14 @@ function UseItem(User, SourceItem, ltstate)
       local dietEffect=LongTimeEffect(12, newDuration*10);
       dietEffect:addValue("buffType", foodItem.buffType);
       dietEffect:addValue("buffAmount", newBuffAmount);
-      dietEffect:addValue("buffExpireStamp", base.common.GetCurrentTimestamp() + newDuration);
+      dietEffect:addValue("buffExpireStamp", common.GetCurrentTimestamp() + newDuration);
       User.effects:addEffect(dietEffect);
     end
   end
 end
 
 function SetNewFoodLevel(User, NewFoodLevel)
-  NewFoodLevel = base.common.Limit(NewFoodLevel, 0, 60000);
+  NewFoodLevel = common.Limit(NewFoodLevel, 0, 60000);
   local foodToAdd = NewFoodLevel - User:increaseAttrib("foodlevel",0);
   while true do
     User:increaseAttrib("foodlevel",math.min(10000,foodToAdd));

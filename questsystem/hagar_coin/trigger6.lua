@@ -14,8 +14,8 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("handler.createplayeritem")
-require("questsystem.base")
+local createplayeritem = require("handler.createplayeritem")
+local base = require("questsystem.base")
 module("questsystem.hagar_coin.trigger6", package.seeall)
 
 local QUEST_NUMBER = 10001
@@ -29,13 +29,13 @@ local LOOKAT_TEXT_EN = "In a small hole, you find a coin..."
 
 function LookAtItem(PLAYER, item)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
-      and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
+      and base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
 	base.lookat.SetSpecialDescription(item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
 	
     
-handler.createplayeritem.createPlayerItem(PLAYER, 3077, 999, 10):execute()
+createplayeritem.createPlayerItem(PLAYER, 3077, 999, 10):execute()
     
-    questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
+    base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
     return base.lookat.GenerateLookAt(PLAYER, item, base.lookat.NONE)
   end
 

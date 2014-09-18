@@ -17,15 +17,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Location: -29 195 -9
 -- Purpose: react on by statue expandable ladder
 
-require("base.common")
+local common = require("base.common")
 
 module("triggerfield.aq001_statueladder", package.seeall)
 
 function MoveToField( user )
     
-    if( base.common.isItemIdInFieldStack( 35, position(-29, 195, -9) ) ) then
+    if( common.isItemIdInFieldStack( 35, position(-29, 195, -9) ) ) then
         user:warp( position( -30, 195, -8 ) );
-        base.common.removeItemIdFromFieldStack( 35, position(-29, 195, -9) );
+        common.removeItemIdFromFieldStack( 35, position(-29, 195, -9) );
     end;
     
 end

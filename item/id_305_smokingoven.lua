@@ -17,17 +17,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_305_smokingoven' WHERE itm_id IN (305,304);
 
-require("base.common")
-require("base.licence")
-require("content.gatheringcraft.smokefood")
+local common = require("base.common")
+local licence = require("base.licence")
+local smokefood = require("content.gatheringcraft.smokefood")
 
 module("item.id_305_smokingoven", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence
+	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
-	content.gatheringcraft.smokefood.StartGathering(User, SourceItem, ltstate);
+	smokefood.StartGathering(User, SourceItem, ltstate);
 
 end

@@ -14,10 +14,10 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
-require("base.lookat")
-require("alchemy.base.teacher")
-require("content.gatheringcraft.mining")
+local common = require("base.common")
+local lookat = require("base.lookat")
+local teacher = require("alchemy.base.teacher")
+local mining = require("content.gatheringcraft.mining")
 
 module("item.rock", package.seeall)
 
@@ -26,37 +26,37 @@ module("item.rock", package.seeall)
 function UseItem(User, SourceItem, ltstate)
     -- alchemy stuff
 	if SourceItem.pos == position(75,651,0) or SourceItem.pos == position(873,878,0) then
-		alchemy.base.teacher.UseItem(User, SourceItem, ltstate)
+		teacher.UseItem(User, SourceItem, ltstate)
 		return
 	end
 	-- alchemy end
 
-	local areaId = content.gatheringcraft.mining.GetAreaId(User.pos);
+	local areaId = mining.GetAreaId(User.pos);
 	if (areaId == nil) then
-		base.common.HighInformNLS(User,
+		common.HighInformNLS(User,
 		"Die Gegend sieht nicht so aus, als könnte man hier etwas finden.",
 		"The area doesn't look like a good place to mine.");
 		return;
 	end
 
-	if (content.gatheringcraft.mining.isMinableRock(areaId, SourceItem) == false) then
-		base.common.HighInformNLS(User,
+	if (mining.isMinableRock(areaId, SourceItem) == false) then
+		common.HighInformNLS(User,
 		"Du musst neben einem Felsen stehen um Bergbau zu betreiben.",
 		"You have to stand next to a rock to mine.");
 		return
 	end
-	content.gatheringcraft.mining.StartGathering(User, SourceItem, ltstate);
+	mining.StartGathering(User, SourceItem, ltstate);
 
 end
 
 function LookAtItem(User,Item)
     -- alchemy stuff
 	if Item.pos == position(75,651,0) or Item.pos == position(873,878,0) then
-		return alchemy.base.teacher.LookAtItem(User, Item)
+		return teacher.LookAtItem(User, Item)
 	end
 	-- alchemy end
 
 	-- tbd: custom loockat for minable rocks
-    return base.lookat.GenerateLookAt(User, Item)
+    return lookat.GenerateLookAt(User, Item)
 
 end

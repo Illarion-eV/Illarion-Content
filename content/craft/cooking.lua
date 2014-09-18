@@ -14,12 +14,12 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("item.base.crafts")
-require("content.craft.brewing")
+local crafts = require("item.base.crafts")
+local brewing = require("content.craft.brewing")
 
 module("content.craft.cooking", package.seeall)
 
-cooking = item.base.crafts.Craft:new{
+cooking = crafts.Craft:new{
                      craftEN = "cooking",
                      craftDE = "Kochen",
                      handTool = 227,
@@ -27,7 +27,7 @@ cooking = item.base.crafts.Craft:new{
                      defaultFoodConsumption = 100,
                      sfx = 15,
                      sfxDuration = 40,
-                     fallbackCraft = content.craft.brewing.brewing,
+                     fallbackCraft = brewing.brewing,
                    };
 
 

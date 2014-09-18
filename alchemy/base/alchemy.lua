@@ -16,8 +16,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- ds_base_alchemy.lua
 
-require("base.common");
-require("base.licence")
+local common = require("base.common")
+local licence = require("base.licence")
 module("alchemy.base.alchemy", package.seeall)
 
 function InitAlchemy()
@@ -489,7 +489,7 @@ function generateTasteMessage(Character,dataZList)
 		textEn = string.sub(textEn, 0, -3);
         textEn = textEn..".";
     end
-    base.common.InformNLS(Character,textDe,textEn);
+    common.InformNLS(Character,textDe,textEn);
 end
 
 function CheckIfGemDust(itemId)
@@ -506,14 +506,14 @@ end
 FOOD_NEEDED = 250
 
 function checkFood(User)
-	if not base.common.FitForHardWork(User, FOOD_NEEDED) then
+	if not common.FitForHardWork(User, FOOD_NEEDED) then
 		return false
 	end
 	return true
 end
 
 function lowerFood(User)
-	base.common.GetHungry(User, FOOD_NEEDED)
+	common.GetHungry(User, FOOD_NEEDED)
 end
 
 function CheckIfPlant(itemId)
@@ -537,7 +537,7 @@ end
 
 function GetCauldronInfront(User,Item)
     local retVal = nil
-    Item = base.common.GetFrontItem(User)
+    Item = common.GetFrontItem(User)
 	if (Item ~= nil) and (Item.id >= 1008) and (Item.id <= 1018) then
 	    retVal = Item
 	end
@@ -600,7 +600,7 @@ end
 function EmptyBottle(User,Bottle)
     if math.random(1,20) == 1 then
 	   world:erase(Bottle,1) -- bottle breaks
-	   base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
+	   common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
 	else
 		if Bottle.number > 1 then -- if we empty a bottle (stock, potion or essence brew) it should normally never be a stack! but to be one the safe side, we check anyway
 		    User:createItem(164,1,333,nil)
@@ -681,7 +681,7 @@ function CauldronDestruction(User,cauldron,effectId)
 		local myVictims = world:getPlayersInRangeOf(cauldron.pos,1) -- we hurt everyone around the cauldron!
 	    for i=1,#myVictims do
 			myVictims[i]:increaseAttrib("hitpoints",-3000)
-			base.common.HighInformNLS(myVictims[i], "Du wirst von einer Explosion getroffen.", "You are hit by an explosion.")
+			common.HighInformNLS(myVictims[i], "Du wirst von einer Explosion getroffen.", "You are hit by an explosion.")
 	    end
 	end
 	USER_EXPLOSION_LIST[User.id] = true
@@ -695,12 +695,12 @@ function SetQuality(User,Item)
     local skillQuali = User:getSkill(Character.alchemy)*0.75
 -- attributes have an influence of 25% on the mean (if the sum of the attributes is 54 or higher, we reach the maixmum influence)
 	local attribCalc = (((User:increaseAttrib("essence",0) + User:increaseAttrib("perception",0) + User:increaseAttrib("intelligence",0) )/3))*5
-	local attribQuali = base.common.Scale(0,25,attribCalc)
+	local attribQuali = common.Scale(0,25,attribCalc)
 -- the mean
-	local mean =  base.common.Scale(1,9,(attribQuali + skillQuali))
+	local mean =  common.Scale(1,9,(attribQuali + skillQuali))
 -- normal distribution; mean determined by skill and attributes; fixed standard deviation
 	local quality = Random.normal(mean, 4.5);
-	quality = base.common.Limit(quality, 1, 9);
+	quality = common.Limit(quality, 1, 9);
 
 	Item:setData("potionQuality",quality*100+99)-- duarability is useless, we set it anway
 end
@@ -826,7 +826,7 @@ function FillIntoCauldron(User,SourceItem,cauldron,ltstate)
 		return
     end
 
-    if base.licence.licence(User) then --checks if user is citizen or has a licence
+    if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
@@ -835,7 +835,7 @@ function FillIntoCauldron(User,SourceItem,cauldron,ltstate)
 	end
 
 	if ( ltstate == Action.abort ) then
-		base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+		common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
 	    return
 	end
 

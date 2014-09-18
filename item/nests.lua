@@ -15,8 +15,8 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-require("base.common")
-require("content.gatheringcraft.egggathering")
+local common = require("base.common")
+local egggathering = require("content.gatheringcraft.egggathering")
 
 module("item.nests", package.seeall)
 
@@ -24,5 +24,5 @@ module("item.nests", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
 
-	content.gatheringcraft.egggathering.StartGathering(User, SourceItem, ltstate);
+	egggathering.StartGathering(User, SourceItem, ltstate);
 end

@@ -14,11 +14,11 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
+local class = require("base.class")
 
 module("base.lever", package.seeall)
 
-Lever = base.class.class(function(lev, posi, twoState)    -- defines a class
+Lever = class.class(function(lev, posi, twoState)    -- defines a class
     lev.pos = posi;                             -- this is the constructor!!!!
     lev.twoState = (twoState == true);          -- left-middle-right or just l-r
     lev.broken = false;                         -- broken lever? bring someone to repair!

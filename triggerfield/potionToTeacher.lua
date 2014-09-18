@@ -18,9 +18,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (376,223,0,'triggerfield.potionToTeacher');
 -- INSERT INTO triggerfields VALUES (137,543,0,'triggerfield.potionToTeacher');
 
-require("base.common")
-require("item.id_3109_open_pell")
-require("alchemy.base.alchemy")
+local common = require("base.common")
+local id_3109_open_pell = require("item.id_3109_open_pell")
+local alchemy = require("alchemy.base.alchemy")
 
 module("triggerfield.potionToTeacher", package.seeall)
 
@@ -58,7 +58,7 @@ function PutItemOnField(Item,User)
     local myNPC = getNPC(Item)
 	
 	-- is the char an alchemist?
-	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
+	local anAlchemist = alchemy.CheckIfAlchemist(User)
 	if not anAlchemist then
 		myNPC:talk(Character.say, "Mir ist nicht bekannt, dass Ihr ein Alchemist sein sollt. Nehmt Euer Zeug wieder weg.", "I haven't heard you being an alchemist. Take your stuff from my table.")
 		return
@@ -68,11 +68,11 @@ function PutItemOnField(Item,User)
 	if town == false then
 	    return
 	end	
-	local ListTaskItem = item.id_3109_open_pell.ListTaskItem[town]
+	local ListTaskItem = id_3109_open_pell.ListTaskItem[town]
 	if ListTaskItem == nil then
-	    item.id_3109_open_pell.Init()
+	    id_3109_open_pell.Init()
 	end
-	ListTaskItem = item.id_3109_open_pell.ListTaskItem[town]
+	ListTaskItem = id_3109_open_pell.ListTaskItem[town]
 	local success = false
 	local myListPos
 	for i=1,#ListTaskItem do 
@@ -103,7 +103,7 @@ function PutItemOnField(Item,User)
 	    myNPC:talk(Character.say, "Dafür werde ich Euch nichts lehren. Schaut auf meine Liste und zeigt mir, was Euch interessiert und ich sage Euch, was ich dafür verlange.", "I won't teach you anything for this. Have a look at my list, show me what you would liek to leran and I will tell you what you have to give me in return.")
 	
 	else
-        local ListEffectId = item.id_3109_open_pell.ListEffectId[town]
+        local ListEffectId = id_3109_open_pell.ListEffectId[town]
 		if User:getQuestProgress(ListEffectId[myListPos]+1000) ~= 0 then
 		    myNPC:talk(Character.say, "Mhh. Ich würde Euch wohl dafür etwas zeigen, aber Ihr macht den Eindruck, diese Kenntnisse schon zu haben.", "Mhh. Well, I would teach you something for this, but you seem to already have this knowledge.")
 		else
@@ -117,13 +117,13 @@ function PutItemOnField(Item,User)
 end
 
 function TellRecipe(User, effectId)
-    local ingredientList = alchemy.base.alchemy.getIngredients(effectId)
-	local recipeEN = "Potion: "..alchemy.base.alchemy.potionName[effectId][1].."\n\nComponents:\nStock:\n"
-	local recipeDE = "Trank: "..alchemy.base.alchemy.potionName[effectId][2].."\n\nKomponenten:\nSud:\n"
-	local dataZList = alchemy.base.alchemy.SplitData(User,ingredientList[2])
+    local ingredientList = alchemy.getIngredients(effectId)
+	local recipeEN = "Potion: "..alchemy.potionName[effectId][1].."\n\nComponents:\nStock:\n"
+	local recipeDE = "Trank: "..alchemy.potionName[effectId][2].."\n\nKomponenten:\nSud:\n"
+	local dataZList = alchemy.SplitData(User,ingredientList[2])
 	for i=1,8 do
-	    recipeEN = recipeEN..alchemy.base.alchemy.wirkung_en[dataZList[i]].." "..alchemy.base.alchemy.wirkstoff[i].."\n"
-		recipeDE = recipeDE..alchemy.base.alchemy.wirkung_de[dataZList[i]].." "..alchemy.base.alchemy.wirkstoff[i].."\n"
+	    recipeEN = recipeEN..alchemy.wirkung_en[dataZList[i]].." "..alchemy.wirkstoff[i].."\n"
+		recipeDE = recipeDE..alchemy.wirkung_de[dataZList[i]].." "..alchemy.wirkstoff[i].."\n"
 	end
 	recipeEN = recipeEN.."\nEssence brew based on "..world:getItemName(ingredientList[1],Player.english)..":\n"
 	recipeDE = recipeDE.."\nEssenzgebräu auf "..world:getItemName(ingredientList[1],Player.german).."basis:\n"

@@ -14,26 +14,26 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("monster.base.monstermagic")
-require("monster.base.base")
-require("monster.base.drop")
-require("monster.base.lookat")
-require("monster.base.quests")
-require("base.messages");
-require("monster.base.kills")
-require("base.arena")
+local monstermagic = require("monster.base.monstermagic")
+local base = require("monster.base.base")
+local drop = require("monster.base.drop")
+local lookat = require("monster.base.lookat")
+local quests = require("monster.base.quests")
+local messages = require("base.messages")
+local kills = require("monster.base.kills")
+local arena = require("base.arena")
 module("monster.mon_40_transparentwolfs", package.seeall)
 
 
 function ini(Monster)
 
 init=true;
-monster.base.quests.iniQuests();
+quests.iniQuests();
 killer={}; --A list that keeps track of who attacked the monster last
 
 --Random Messages
 
-msgs = base.messages.Messages();
+msgs = messages.Messages();
 msgs:addMessage("#me bleibt steifbeinig und aufgerichtet stehen.", "#me stands stiff legged and tall.");
 msgs:addMessage("#me duckt sich, bereit anzugreifen.", "#me crouches, ready to strike.");
 msgs:addMessage("#me hat Schaum vor dem Maul.", "#me foams at the mouth.");
@@ -58,7 +58,7 @@ function enemyNear(Monster,Enemy)
     end
 
     if math.random(1,10) == 1 then
-        monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+        drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
 
     return false
@@ -70,14 +70,14 @@ function enemyOnSight(Monster,Enemy)
         ini(Monster);
     end
 
-	monster.base.monstermagic.regeneration(Monster); --if an enemy is around, the monster regenerates slowly
-    monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+	monstermagic.regeneration(Monster); --if an enemy is around, the monster regenerates slowly
+    drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
 
-	if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
+	if base.isMonsterArcherInRange(Monster, Enemy) then
 		return true
 	end
 
-	if monster.base.base.isMonsterInRange(Monster, Enemy) then
+	if base.isMonsterInRange(Monster, Enemy) then
         return true;
     else
         return false
@@ -89,7 +89,7 @@ function onAttacked(Monster,Enemy)
     if init==nil then
         ini(Monster);
     end
-    monster.base.kills.setLastAttacker(Monster,Enemy)
+    kills.setLastAttacker(Monster,Enemy)
     killer[Monster.id]=Enemy.id; --Keeps track who attacked the monster last
 end
 
@@ -98,13 +98,13 @@ function onCasted(Monster,Enemy)
     if init==nil then
         ini(Monster);
     end
-    monster.base.kills.setLastAttacker(Monster,Enemy)
+    kills.setLastAttacker(Monster,Enemy)
     killer[Monster.id]=Enemy.id; --Keeps track who attacked the monster last
 end
 
 function onDeath(Monster)
 
-    if base.arena.isArenaMonster(Monster) then
+    if arena.isArenaMonster(Monster) then
         return
     end
 
@@ -115,26 +115,26 @@ function onDeath(Monster)
 
         if murderer then --Checking for quests
 
-            monster.base.quests.checkQuest(murderer,Monster);
+            quests.checkQuest(murderer,Monster);
             killer[Monster.id]=nil;
             murderer=nil;
 
         end
     end
 
-	monster.base.drop.ClearDropping();
+	drop.ClearDropping();
     local MonID=Monster:getMonsterType();
 
    if (MonID==401) then --Ghostwolf, Level: 4, Armourtype: heavy, Weapontype: distance
 
         --Category 1: Special Loot
 
-        local done=monster.base.drop.AddDropItem(63,1,50,(100*math.random(1,2)+math.random(11,22)),0,1); --entrails
+        local done=drop.AddDropItem(63,1,50,(100*math.random(1,2)+math.random(11,22)),0,1); --entrails
 
         --Category 2: Perma Loot
-        monster.base.drop.AddDropItem(2586,math.random(1,1),100,333,0,2); --fur
+        drop.AddDropItem(2586,math.random(1,1),100,333,0,2); --fur
 	end
-    monster.base.drop.Dropping(Monster);
+    drop.Dropping(Monster);
 end
 
 

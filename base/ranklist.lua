@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common")
+local common = require("base.common")
 
 module("base.ranklist", package.seeall)
 
@@ -37,14 +37,14 @@ function getRanklist(User, listName, showMessage)
 
 	found, listEntryString = ScriptVars:find(listName); -- get the top 5
 	if found then
-		listEntryTable = convertTo2dTable(base.common.split(listEntryString, ";"));
+		listEntryTable = convertTo2dTable(common.split(listEntryString, ";"));
 	elseif not found and showMessage then
-		User:inform(base.common.GetNLS(User, "Die Liste ist leer.","The list is empty."));
+		User:inform(common.GetNLS(User, "Die Liste ist leer.","The list is empty."));
 		return {};
 	end
 	
 	if (listEntryString == "" or listEntryString == nil) and showMessage then
-		User:inform(base.common.GetNLS(User, "Die Liste ist leer.","The list is empty."));
+		User:inform(common.GetNLS(User, "Die Liste ist leer.","The list is empty."));
 		return {};
 	end
 

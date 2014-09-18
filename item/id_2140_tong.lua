@@ -16,18 +16,18 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_2140_tong' WHERE itm_id=2140;
 
-require("content.craft.gemcutting")
-require("base.licence")
-require("item.general.metal")
+local gemcutting = require("content.craft.gemcutting")
+local licence = require("base.licence")
+local metal = require("item.general.metal")
 
 module("item.id_2140_tong", package.seeall)
 
-LookAtItem = item.general.metal.LookAtItem
+LookAtItem = metal.LookAtItem
 
 function UseItem(User, SourceItem, ltstate)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence
+	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
-    content.craft.gemcutting.gemcutting:showDialog(User, SourceItem)
+    gemcutting.gemcutting:showDialog(User, SourceItem)
 end

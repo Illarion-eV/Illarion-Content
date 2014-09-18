@@ -19,7 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- That script should be used for something like "item long time effects".
 -- Let a certain effect for a certain item happen after a certain time
 
-require("base.common")
+local common = require("base.common")
 
 module("scheduled.itemEffects", package.seeall)
 
@@ -56,7 +56,7 @@ end
 function riseWeakLich(pilePosition)
 	
 	local itemProperties = {itemId = 498}
-	if not base.common.DeleteItemFromStack(pilePosition, itemProperties) then
+	if not common.DeleteItemFromStack(pilePosition, itemProperties) then
 	    return
 	end
 	
@@ -76,7 +76,7 @@ end
 function hatchingSpiders(eggPosition)
 
 	local itemProperties = {itemId = 738, deleteAmount = 1, quality = false, data = {{dataKey = "spawnSpiders", dataValue = "true"}}}
-	if not base.common.DeleteItemFromStack(eggPosition, itemProperties) then
+	if not common.DeleteItemFromStack(eggPosition, itemProperties) then
 	    return
 	end
 	

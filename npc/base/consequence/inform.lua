@@ -14,14 +14,14 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
-require("npc.base.consequence.consequence")
+local class = require("base.class")
+local consequence = require("npc.base.consequence.consequence")
 
 module("npc.base.consequence.inform", package.seeall)
 
-inform = base.class.class(npc.base.consequence.consequence.consequence,
+inform = class.class(consequence.consequence,
 function(self, text)
-    npc.base.consequence.consequence.consequence:init(self);
+    consequence.consequence:init(self);
     
     self["text"] = tostring(text);
     self["perform"] = _inform_helper;

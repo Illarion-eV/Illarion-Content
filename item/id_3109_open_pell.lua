@@ -14,8 +14,8 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
-require("alchemy.base.alchemy")
+local common = require("base.common")
+local alchemy = require("alchemy.base.alchemy")
 
 
 
@@ -287,7 +287,7 @@ function RecipeInform( User, SourceItem)
     end
 
 	-- is the char an alchemist?
-	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
+	local anAlchemist = alchemy.CheckIfAlchemist(User)
 	if not anAlchemist then
 		User:inform("Auf dem Schriftstück steht nur dir unverständliches Alchemistengeschwafel.","For you the document only appears to contain unintelligible alchemical gibberish.")
 		return
@@ -332,10 +332,10 @@ function RecipeInform( User, SourceItem)
 	local alreadyLearned = {}
 	for i=1,#myListEffectId do
 		if User:getQuestProgress(myListEffectId[i]+1000) == 0 then
-			dialog:addOption(164, alchemy.base.alchemy.potionName[myListEffectId[i]][language])
+			dialog:addOption(164, alchemy.potionName[myListEffectId[i]][language])
 		else
-		    local bottle = alchemy.base.alchemy.getBottleFromEffect(myListEffectId[i])
-		    dialog:addOption(bottle, alchemy.base.alchemy.potionName[myListEffectId[i]][language])
+		    local bottle = alchemy.getBottleFromEffect(myListEffectId[i])
+		    dialog:addOption(bottle, alchemy.potionName[myListEffectId[i]][language])
 		end
 		table.insert(originalPos,i)
 	end
@@ -375,7 +375,7 @@ end
 
 function dogScroll(User, SourceItem)
 
-	if not alchemy.base.alchemy.CheckIfAlchemist(User) or tonumber(SourceItem:getData("learnerId")) ~= User.id then
+	if not alchemy.CheckIfAlchemist(User) or tonumber(SourceItem:getData("learnerId")) ~= User.id then
 		User:inform("Du kannst den Inhalt nicht entziffern. Es sind nur unverständliche Symbole.","You cannot read the scroll. There are only some symbols you don't understand.")
 		return
 	end
@@ -384,13 +384,13 @@ function dogScroll(User, SourceItem)
 end
 
 function TellRecipe(User, effectId)
-    local ingredientList = alchemy.base.alchemy.getIngredients(effectId)
-	local recipeEN = "Potion: "..alchemy.base.alchemy.potionName[effectId][1].."\n\nComponents:\nStock:\n"
-	local recipeDE = "Trank: "..alchemy.base.alchemy.potionName[effectId][2].."\n\nKomponenten:\nSud:\n"
-	local dataZList = alchemy.base.alchemy.SplitData(User,ingredientList[2])
+    local ingredientList = alchemy.getIngredients(effectId)
+	local recipeEN = "Potion: "..alchemy.potionName[effectId][1].."\n\nComponents:\nStock:\n"
+	local recipeDE = "Trank: "..alchemy.potionName[effectId][2].."\n\nKomponenten:\nSud:\n"
+	local dataZList = alchemy.SplitData(User,ingredientList[2])
 	for i=1,8 do
-	    recipeEN = recipeEN..alchemy.base.alchemy.wirkung_en[dataZList[i]].." "..alchemy.base.alchemy.wirkstoff[i].."\n"
-		recipeDE = recipeDE..alchemy.base.alchemy.wirkung_de[dataZList[i]].." "..alchemy.base.alchemy.wirkstoff[i].."\n"
+	    recipeEN = recipeEN..alchemy.wirkung_en[dataZList[i]].." "..alchemy.wirkstoff[i].."\n"
+		recipeDE = recipeDE..alchemy.wirkung_de[dataZList[i]].." "..alchemy.wirkstoff[i].."\n"
 	end
 	recipeEN = recipeEN.."\nEssence brew based on "..world:getItemName(ingredientList[1],Player.english)..":\n"
 	recipeDE = recipeDE.."\nEssenzgebräu auf "..world:getItemName(ingredientList[1],Player.german).."basis:\n"
@@ -426,8 +426,8 @@ function LookAtItem(User, Item)
     local town = getTown(Item)
 	if town then
 		local lookAt = ItemLookAt()
-		lookAt.name = base.common.GetNLS(User, "Schriftrolle", "Scroll")
-		lookAt.description = base.common.GetNLS(User, "Alchemierezepte", "Alchemy recipes")
+		lookAt.name = common.GetNLS(User, "Schriftrolle", "Scroll")
+		lookAt.description = common.GetNLS(User, "Alchemierezepte", "Alchemy recipes")
 		return lookAt
 	else
 		return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)

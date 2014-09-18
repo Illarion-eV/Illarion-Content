@@ -14,10 +14,10 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.character")
-require("base.common")
-require("base.money")
-require("base.townTreasure")
+local character = require("base.character")
+local common = require("base.common")
+local money = require("base.money")
+local townTreasure = require("base.townTreasure")
 
 module("triggerfield.donation_base", package.seeall)
 
@@ -29,7 +29,7 @@ function donate(Item,User,FactionName,LeaderName,Treasury)
 	
 	if ItemStats.Worth == 0 then -- worthless item -> inform
 	
-        base.common.InformNLS(User,"[Spende] Dieser Gegenstand ist wertlos.","[Donation] This item is worthless."); -- Feedback!
+        common.InformNLS(User,"[Spende] Dieser Gegenstand ist wertlos.","[Donation] This item is worthless."); -- Feedback!
 		donated=false; -- no donation
 		
 	else -- item with worth
@@ -44,13 +44,13 @@ function donate(Item,User,FactionName,LeaderName,Treasury)
 		
 		end
 		
-		base.townTreasure.ChangeTownTreasure(FactionName,payToFaction)
+		townTreasure.ChangeTownTreasure(FactionName,payToFaction)
 		
-		gstring,estring=base.money.MoneyToString(payToFaction); --converting money to a string
+		gstring,estring=money.MoneyToString(payToFaction); --converting money to a string
 			
-        base.common.InformNLS(User,"[Spende] Du spendest Gegenstände im Gegenwert von"..gstring.." in die Schatzkammer von "..FactionName..". "..LeaderName.." wird zufrieden sein.","[Donation] You donate items valued at"..estring.." to the treasury of "..FactionName..". "..LeaderName.." will be pleased."); -- Feedback!		
+        common.InformNLS(User,"[Spende] Du spendest Gegenstände im Gegenwert von"..gstring.." in die Schatzkammer von "..FactionName..". "..LeaderName.." wird zufrieden sein.","[Donation] You donate items valued at"..estring.." to the treasury of "..FactionName..". "..LeaderName.." will be pleased."); -- Feedback!		
 		log(string.format("[donation] %s donated %u %s (%u). Faction wealth of %s increased by %d copper to %d copper.",
-				base.character.LogText(User), Item.number, world:getItemName(Item.id,Player.english), Item.id, FactionName, payToFaction, base.townTreasure.GetTownTreasure(FactionName)));
+				character.LogText(User), Item.number, world:getItemName(Item.id,Player.english), Item.id, FactionName, payToFaction, townTreasure.GetTownTreasure(FactionName)));
 		world:gfx(46,Item.pos); -- nice GFX
 		world:erase(Item,Item.number); -- delete the item
 	    donated=true; -- donation worked

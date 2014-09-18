@@ -20,7 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Reworked by Merung for NewNoobia
 -- Pimped by Estralis
 
-require("base.common")
+local common = require("base.common")
 module("lte.newbieisland", package.seeall)
 
 

@@ -14,9 +14,9 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common")
-require("base.doors")
-require("base.factions")
+local common = require("base.common")
+local doors = require("base.doors")
+local factions = require("base.factions")
 
 module("base.seafaring", package.seeall)
 
@@ -319,7 +319,7 @@ function piratesGeorgeBackstabRocks(User)
 	for i,player in ipairs(travlerslist[User.name]) do
 		player:inform("George Backstab stürmt die Stufen hinauf und säubert das Schiff von den Piraten. Anschließend springt er über Board und schwimmt davon. Seine Flucht wird in deiner Fraktion gar nicht gut angkommen. Wie dem auch sei, das gewünschte Ziel wird sicher erreicht", "George Backstab storms up the stairs and throws all the pirates over the ship's rail. He jumps off the ship then and swims away. His escape is not well received in your faction. However, you reach your final destination safely.")
 		if player:getQuestProgress(200) == 0 then
-			base.factions.setRankpoints(player,player:getQuestProgress(202)-20)
+			factions.setRankpoints(player,player:getQuestProgress(202)-20)
 		else
 		end
 		world:gfx(1,player.pos)

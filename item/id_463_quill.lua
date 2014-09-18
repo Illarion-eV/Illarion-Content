@@ -15,10 +15,10 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_463_quill' WHERE itm_id IN (463);
-require("base.common")
-require("alchemy.base.alchemy")
-require("base.lookat")
-require("alchemy.base.recipe_creation")
+local common = require("base.common")
+local alchemy = require("alchemy.base.alchemy")
+local lookat = require("base.lookat")
+local recipe_creation = require("alchemy.base.recipe_creation")
 
 module("item.id_463_quill", package.seeall)
 
@@ -41,12 +41,12 @@ function UseItem(User, SourceItem, ltstate)
                     WriteLabel(User,SourceItem)
 			    end
 			elseif selected == 3 then
-			    local parchment = alchemy.base.recipe_creation.GetParchmentQuill(User)
-				parchment = alchemy.base.recipe_creation.IsParchmentOK(User,parchment,ingredientsList)
+			    local parchment = recipe_creation.GetParchmentQuill(User)
+				parchment = recipe_creation.IsParchmentOK(User,parchment,ingredientsList)
 				if not parchment then
 					return
 				else
-				    alchemy.base.recipe_creation.FirstMenu(User, ingredientsList)
+				    recipe_creation.FirstMenu(User, ingredientsList)
 				end
 			elseif selected == 1 then
 			    if not CheckIfContainerPresent(User) then
@@ -106,10 +106,10 @@ end
 
 function CheckIfBottleInHand(User, SourceItem)
 
-	local potionBottleList = alchemy.base.alchemy.bottleList
+	local potionBottleList = alchemy.bottleList
 	local beverageBottleList = {517, 1315, 1316, 1318, 1319, 783, 784, 785, 786, 787, 788, 789, 791, 2500, 2496, 2497, 2501, 2499};
 
-	local bottleItem = base.common.GetTargetItem(User, SourceItem);
+	local bottleItem = common.GetTargetItem(User, SourceItem);
 	if bottleItem == nil then
 		return nil;
 	end
@@ -146,7 +146,7 @@ function WriteContainerLabel(User,SourceItem)
 			local bag = CheckIfContainerPresent(User) -- check for the bag again
 			if bag then
 				local labelText = dialog:getInput()
-				base.lookat.SetSpecialDescription(bag,labelText,labelText)
+				lookat.SetSpecialDescription(bag,labelText,labelText)
 				world:changeItem(bag)
 				User:inform("Du beschriftest die Tasche mit '"..labelText.."'.","You label the bag as '"..labelText.."'.")
 			else
@@ -175,7 +175,7 @@ function WriteLabel(User,SourceItem)
 				--	return
 				--end
 				local labelText = dialog:getInput()
-				base.lookat.SetSpecialDescription(bottle,labelText,labelText)
+				lookat.SetSpecialDescription(bottle,labelText,labelText)
 				world:changeItem(bottle)
 				User:inform("Du beschriftest die Flasche mit '"..labelText.."'.","You label the bottle as '"..labelText.."'.")
 				
@@ -195,8 +195,8 @@ function removeLabel(User)
 	for i=1, #emptyBottleList do
 		local itemList = User:getItemList(emptyBottleList[i]);
 		for item=1, #itemList do
-			base.lookat.UnsetSpecialDescription(itemList[item]);
-			base.lookat.UnsetItemCraftedBy(itemList[item]); -- hack for "old" items
+			lookat.UnsetSpecialDescription(itemList[item]);
+			lookat.UnsetItemCraftedBy(itemList[item]); -- hack for "old" items
 			world:changeItem(itemList[item]);
 			removalCount = removalCount + itemList[item].number;
 		end
@@ -210,5 +210,5 @@ function removeLabel(User)
 end
 
 function getText(User,deText,enText)
-    return base.common.base.common.GetNLS(User,deText,enText)
+    return common.common.GetNLS(User,deText,enText)
 end

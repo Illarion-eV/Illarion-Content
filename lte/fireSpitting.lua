@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- fireSpitting, id 60
 
-require("base.common")
+local common = require("base.common")
 module("lte.fireSpitting", package.seeall)
 
 function addEffect(Effect, User)               				
@@ -43,17 +43,17 @@ function callEffect(Effect, User)
 			    local char = world:getCharacterOnField(posi)
 				char:inform("Du wirst von einer Flamme erwischt! Aua!","You are hit by fire! Ouch!",Character.highPriority)
 			    local damage = 100*quality
-				Stiffness = base.common.GetStiffness( char )
+				Stiffness = common.GetStiffness( char )
 				damage = damage - Stiffness
 				damage = damage - (char:increaseAttrib("constitution",0)*2)
-				base.common.Limit(damage, 100, 900)
+				common.Limit(damage, 100, 900)
 				char:increaseAttrib("hitpoints",-damage)
 			end	
 		    world:gfx(9,posi)
 			world:gfx(36,posi)			
 		end
-		spitFire(base.common.GetFrontPosition(User))
-		base.common.CreateLine(base.common.GetFrontPosition(User), base.common.GetFrontPosition(User, quality), spitFire)
+		spitFire(common.GetFrontPosition(User))
+		common.CreateLine(common.GetFrontPosition(User), common.GetFrontPosition(User, quality), spitFire)
         return false
     end
 end

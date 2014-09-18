@@ -16,10 +16,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE common SET com_script='gm.items.id_382_ceilingtrowel' WHERE com_itemid IN (382);
 
-require("base.factions")
-require("base.common")
-require("base.licence")
-require("scheduled.alchemy")
+local factions = require("base.factions")
+local common = require("base.common")
+local licence = require("base.licence")
+local alchemy = require("scheduled.alchemy")
 module("gm.items.id_382_ceilingtrowel", package.seeall)
 
 function UseItem(User, SourceItem)
@@ -33,9 +33,9 @@ function UseItem(User, SourceItem)
 
 		local index = dialog:getSelectedIndex() + 1;
 		if  index == 1 then
-			local TargetItem = base.common.GetTargetItem(User, SourceItem);
+			local TargetItem = common.GetTargetItem(User, SourceItem);
 			if not TargetItem then
-				TargetItem = base.common.GetFrontItem(User);
+				TargetItem = common.GetFrontItem(User);
 			end
 
 			if TargetItem == nil then
@@ -231,7 +231,7 @@ function factionHandling(User, SourceItem)
 					return;
 				end
 				local chosenPlayer = players[dialog:getSelectedIndex()+1];
-				local faction = base.factions.getFaction(chosenPlayer);
+				local faction = factions.getFaction(chosenPlayer);
 				local cbSetFactionValue = function (dialog)
 					if (not dialog:getSuccess()) then
 						return;
@@ -241,8 +241,8 @@ function factionHandling(User, SourceItem)
 					if (ind < 4) then
 						faction.tid = ind;
 						faction.rankpoints = 0;
-						base.factions.setFaction(chosenPlayer, faction);
-						User:logAdmin("changes faction of character " .. chosenPlayer.name .. " to " .. base.factions.getMembershipByName(chosenPlayer));
+						factions.setFaction(chosenPlayer, faction);
+						User:logAdmin("changes faction of character " .. chosenPlayer.name .. " to " .. factions.getMembershipByName(chosenPlayer));
 					--change towncount
 					elseif (ind == 4) then
 						local cbSetCount = function (dialog)
@@ -256,7 +256,7 @@ function factionHandling(User, SourceItem)
 							end
 							local oldValue = faction.towncnt;
 							faction.towncnt = countValue;
-							base.factions.setFaction(chosenPlayer, faction);
+							factions.setFaction(chosenPlayer, faction);
 							User:logAdmin("changes town count of character " .. chosenPlayer.name .. " from " .. oldValue .. " to " .. countValue);
 						end
 						User:requestInputDialog(InputDialog("Set town count", "", false, 255, cbSetCount));
@@ -271,9 +271,9 @@ function factionHandling(User, SourceItem)
 								User:inform("no number");
 								return;
 							end
-							if base.factions.getMembership(chosenPlayer) > 0 and base.factions.getMembership(chosenPlayer) < 4 then
+							if factions.getMembership(chosenPlayer) > 0 and factions.getMembership(chosenPlayer) < 4 then
 								local oldValue = faction.rankpoints;
-								base.factions.setRankpoints(chosenPlayer, rankpoints);
+								factions.setRankpoints(chosenPlayer, rankpoints);
 								User:logAdmin("changes rankpoints of character " .. chosenPlayer.name .. " from " .. oldValue .. " to " .. rankpoints);
 							else
 								User:inform("Player does not belong to any faction. Rankpoints not changed.");
@@ -286,20 +286,20 @@ function factionHandling(User, SourceItem)
 							if (not dialog:getSuccess()) then
 								return;
 							end
-							local _, oldRank = base.factions.getRank(chosenPlayer, true)
+							local _, oldRank = factions.getRank(chosenPlayer, true)
 							local success;
 							local index = dialog:getSelectedIndex();
 							if index == 0 then -- demoting
-								success = base.factions.setSpecialRank(chosenPlayer, 0);
+								success = factions.setSpecialRank(chosenPlayer, 0);
 							else -- promoting
-								success = base.factions.setSpecialRank(chosenPlayer, base.factions.highestRank+tonumber(index));
+								success = factions.setSpecialRank(chosenPlayer, factions.highestRank+tonumber(index));
 							end
 
-							if success == false and base.factions.getRankpoints(chosenPlayer) < (base.factions.highestRank-1)*100 then
-								User:inform("Rangchange failed. Player has not enough rankpoints. Current rankpoints: "..base.factions.getRankpoints(chosenPlayer));
+							if success == false and factions.getRankpoints(chosenPlayer) < (factions.highestRank-1)*100 then
+								User:inform("Rangchange failed. Player has not enough rankpoints. Current rankpoints: "..factions.getRankpoints(chosenPlayer));
 							elseif success == true then
 								User:inform("Rankchange for "..chosenPlayer.name.." successful.");
-								local _, newRank = base.factions.getRank(chosenPlayer, true)
+								local _, newRank = factions.getRank(chosenPlayer, true)
 								User:logAdmin("changes special rank of character " .. chosenPlayer.name .. " from " .. oldRank .. " to " .. newRank);
 							else
 								User:inform("Rangchange failed for unknown reasons. Please inform a developer.");
@@ -309,18 +309,18 @@ function factionHandling(User, SourceItem)
 					local infoText = ""
 					local sd = SelectionDialog("Special rank", infoText, cbSetSpecialRank);
 					sd:addOption(0, "Demote");
-					sd:addOption(0, "Promote to "..base.factions.getRankName(chosenPlayer, 8));
-					sd:addOption(0, "Promote to "..base.factions.getRankName(chosenPlayer, 9));
-					sd:addOption(0, "Promote to "..base.factions.getRankName(chosenPlayer, 10));
+					sd:addOption(0, "Promote to "..factions.getRankName(chosenPlayer, 8));
+					sd:addOption(0, "Promote to "..factions.getRankName(chosenPlayer, 9));
+					sd:addOption(0, "Promote to "..factions.getRankName(chosenPlayer, 10));
 					User:requestSelectionDialog(sd);
 				end
 			 end
 
 			--general faction part
-			local infoText = "Town: " .. base.factions.getMembershipByName(chosenPlayer);
+			local infoText = "Town: " .. factions.getMembershipByName(chosenPlayer);
 			infoText = infoText .. "\nChanged towns already (town count): " .. faction.towncnt;
-			if (base.factions.townRanks[faction.tid] ~= nil and base.factions.townRanks[faction.tid][faction.rankTown] ~= nil) then
-				local germanRank, englishRank = base.factions.getRank(chosenPlayer, true)
+			if (factions.townRanks[faction.tid] ~= nil and factions.townRanks[faction.tid][faction.rankTown] ~= nil) then
+				local germanRank, englishRank = factions.getRank(chosenPlayer, true)
 				infoText = infoText .. "\nRank: " .. englishRank .. "/" .. germanRank;
 			else
 				infoText = infoText .. "\nRank: no rank " .. faction.rankTown;
@@ -385,13 +385,13 @@ function factionHandling(User, SourceItem)
 				end
 				local firstFaction = factionIds[dialog:getSelectedIndex()+1];
 				local modeStrings = {};
-				modeStrings[base.factions.RELATION_SELF] = "self";
-				modeStrings[base.factions.RELATION_NEUTRAL] = "neutral";
-				modeStrings[base.factions.RELATION_HOSTILE] = "hostile";
-				modeStrings[base.factions.RELATION_AGGRESSIVE] = "aggressive";
-				modeStrings[base.factions.RELATION_FRIENDLY] = "friendly";
-				modeStrings[base.factions.RELATION_ACCEPTED] = "accepted player";
-				local modeValues = {base.factions.RELATION_FRIENDLY, base.factions.RELATION_NEUTRAL, base.factions.RELATION_HOSTILE, base.factions.RELATION_AGGRESSIVE};
+				modeStrings[factions.RELATION_SELF] = "self";
+				modeStrings[factions.RELATION_NEUTRAL] = "neutral";
+				modeStrings[factions.RELATION_HOSTILE] = "hostile";
+				modeStrings[factions.RELATION_AGGRESSIVE] = "aggressive";
+				modeStrings[factions.RELATION_FRIENDLY] = "friendly";
+				modeStrings[factions.RELATION_ACCEPTED] = "accepted player";
+				local modeValues = {factions.RELATION_FRIENDLY, factions.RELATION_NEUTRAL, factions.RELATION_HOSTILE, factions.RELATION_AGGRESSIVE};
 				local cbSecondFaction = function (dialog)
 					if (not dialog:getSuccess()) then
 						return;
@@ -402,24 +402,24 @@ function factionHandling(User, SourceItem)
 							return;
 						end
 						local mode = modeValues[dialog:getSelectedIndex()+1];
-						base.factions.setFactionRelation(firstFaction, secondFaction, mode);
-						User:logAdmin("changes guard mode of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to " .. base.factions.getTownNameByID(secondFaction) .. " to " .. modeStrings[mode]);
+						factions.setFactionRelation(firstFaction, secondFaction, mode);
+						User:logAdmin("changes guard mode of " .. factions.getTownNameByID(firstFaction) .. " with respect to " .. factions.getTownNameByID(secondFaction) .. " to " .. modeStrings[mode]);
 					end
-					local sd = SelectionDialog("Set guard modes", "Set guard modes of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to " .. base.factions.getTownNameByID(secondFaction) .. " to ...", cbSetMode);
+					local sd = SelectionDialog("Set guard modes", "Set guard modes of " .. factions.getTownNameByID(firstFaction) .. " with respect to " .. factions.getTownNameByID(secondFaction) .. " to ...", cbSetMode);
 					for _,m in ipairs(modeValues) do
 						sd:addOption(0,modeStrings[m]);
 					end
 					User:requestSelectionDialog(sd);
 				end
-				local sd = SelectionDialog("Guard modes", "Set guard modes of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to ...", cbSecondFaction);
+				local sd = SelectionDialog("Guard modes", "Set guard modes of " .. factions.getTownNameByID(firstFaction) .. " with respect to ...", cbSecondFaction);
 				for _,f in ipairs(factionIds) do
-					sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. modeStrings[base.factions.getFactionRelation(firstFaction, f)]);
+					sd:addOption(0,factions.getTownNameByID(f) .. ": " .. modeStrings[factions.getFactionRelation(firstFaction, f)]);
 				end
 				User:requestSelectionDialog(sd);
 			end
 			local sd = SelectionDialog("Get/Set guard modes", "For which faction do you want to get/set values?", cbFirstFaction);
 			for _,f in ipairs(factionIds) do
-				sd:addOption(0,base.factions.getTownNameByID(f));
+				sd:addOption(0,factions.getTownNameByID(f));
 			end
 			User:requestSelectionDialog(sd);
 
@@ -447,23 +447,23 @@ function factionHandling(User, SourceItem)
 						end
 						local newLicence = licenceValues[dialog:getSelectedIndex()+1];
 						licence.SetLicence(FirstLicence, SecondLicence, newLicence);
-						User:logAdmin("changes licence of " .. base.factions.getTownNameByID(FirstLicence) .. " with respect to " .. base.factions.getTownNameByID(SecondLicence) .. " to " .. licenceStrings[newLicence]);
+						User:logAdmin("changes licence of " .. factions.getTownNameByID(FirstLicence) .. " with respect to " .. factions.getTownNameByID(SecondLicence) .. " to " .. licenceStrings[newLicence]);
 					end
-					local sd = SelectionDialog("Set licence", "Set licence of " .. base.factions.getTownNameByID(FirstLicence) .. " with respect to " .. base.factions.getTownNameByID(SecondLicence) .. " to ...", cbSetLicence);
+					local sd = SelectionDialog("Set licence", "Set licence of " .. factions.getTownNameByID(FirstLicence) .. " with respect to " .. factions.getTownNameByID(SecondLicence) .. " to ...", cbSetLicence);
 					for _,m in ipairs(licenceValues) do
 						sd:addOption(0,licenceStrings[m]);
 					end
 					User:requestSelectionDialog(sd);
 				end
-				local sd = SelectionDialog("Licence", "Set licence of " .. base.factions.getTownNameByID(FirstLicence) .. " with respect to ...", cbSecondLicence);
+				local sd = SelectionDialog("Licence", "Set licence of " .. factions.getTownNameByID(FirstLicence) .. " with respect to ...", cbSecondLicence);
 				for _,f in ipairs(factionIds) do
-					sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. licenceStrings[licence.GetLicenceByFaction(FirstLicence, f)]);
+					sd:addOption(0,factions.getTownNameByID(f) .. ": " .. licenceStrings[licence.GetLicenceByFaction(FirstLicence, f)]);
 				end
 				User:requestSelectionDialog(sd);
 			end
 			local sd = SelectionDialog("Get/Set licence", "For which faction do you want to get/set values?", cbFirstLicence);
 			for _,f in ipairs(factionIds) do
-				sd:addOption(0,base.factions.getTownNameByID(f));
+				sd:addOption(0,factions.getTownNameByID(f));
 			end
 			User:requestSelectionDialog(sd);
 		end
@@ -649,7 +649,7 @@ end
 function sapwnStartStop(User, SourceItem)
 
 	local sp = scheduled.spawnpoint;
-	local spawnPos = base.common.GetFrontPosition(User);
+	local spawnPos = common.GetFrontPosition(User);
 
 	checkData(SourceItem,"intervals");
 	checkData(SourceItem,"endurance");
@@ -824,15 +824,15 @@ function ChangeRankpoints(User, modifier, value, faction, radius)
 	player_list=world:getPlayersInRangeOf(User.pos, radius);
 	if player_list[1]~=nil then
 		for i=1, #(player_list) do
-			Factionvalues = base.factions.getFaction(player_list[i]);
+			Factionvalues = factions.getFaction(player_list[i]);
 			if faction == nil or faction == 99 then
-				base.factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value);
+				factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value);
 				User:inform("You just "..text.." "..value.." rankpoints to everyone in a radius of ".. radius.." ("..player_list[i].name..").");
 				User:logAdmin(text .. " " .. value .. " rankpoints to character " .. player_list[i].name);
 			elseif tonumber(faction) == tonumber(Factionvalues.tid) then
-				base.factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value);
-				User:inform("You just "..text.." "..value.." rankpoints to "..player_list[i].name.." of the faction "..base.factions.getTownNameByID(Factionvalues.tid).." in a radius of ".. radius..".");
-				User:logAdmin(text .. " " ..value.. " rankpoints to character " .. player_list[i].name .. " of the faction " .. base.factions.getTownNameByID(Factionvalues.tid));
+				factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value);
+				User:inform("You just "..text.." "..value.." rankpoints to "..player_list[i].name.." of the faction "..factions.getTownNameByID(Factionvalues.tid).." in a radius of ".. radius..".");
+				User:logAdmin(text .. " " ..value.. " rankpoints to character " .. player_list[i].name .. " of the faction " .. factions.getTownNameByID(Factionvalues.tid));
 			else
 --				return;  --bad return, since it would break up as soon someone does not fulfill requirements even if there are more players to be checked.
 			end

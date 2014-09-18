@@ -17,12 +17,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_1005_beehive' WHERE itm_id=1005;
 
-require("base.common")
-require("content.gatheringcraft.honeygathering")
+local common = require("base.common")
+local honeygathering = require("content.gatheringcraft.honeygathering")
 
 module("item.id_1005_beehive", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
 
-	content.gatheringcraft.honeygathering.StartGathering(User, SourceItem, ltstate);
+	honeygathering.StartGathering(User, SourceItem, ltstate);
 end

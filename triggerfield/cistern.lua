@@ -21,7 +21,7 @@ INSERT INTO triggerfields VALUES (X,Y,Z,'triggerfield.cistern');
 
 ]]
 
-require("base.common")
+local common = require("base.common")
 
 module("triggerfield.cistern", package.seeall)
 
@@ -95,7 +95,7 @@ cisternList:add( position(113,570,-6),nil,"Eine Riesige Kanalratte springt überr
 function MoveToField(Char)
 	local this = getcistern(Char);
 	if this then
-		base.common.InformNLS(Char,this.german,this.english);
+		common.InformNLS(Char,this.german,this.english);
 	end
 end
 

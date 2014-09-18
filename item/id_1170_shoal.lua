@@ -16,11 +16,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_1170_shoal' WHERE itm_id=1170;
 
-require("content.gatheringcraft.fishing")
+local fishing = require("content.gatheringcraft.fishing")
 
 module("item.id_1170_shoal", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
 
-	content.gatheringcraft.fishing.StartGathering(User, SourceItem, ltstate);
+	fishing.StartGathering(User, SourceItem, ltstate);
 end

@@ -14,8 +14,8 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common")
-require("content.lookat.unique");
+local common = require("base.common")
+local unique = require("content.lookat.unique")
 module("magic.base.basics", package.seeall)
 
 function initRaceBoni()
@@ -74,7 +74,7 @@ function initRaceBoni()
     RaceBonis[53] = { 1.80, 5.00 }; --Icedragon
 end
 initRaceBoni();
-content.lookat.unique.itemList();
+unique.itemList();
 
 function SetRaceBoni( Race, offValue, defValue)
     RaceBonis[Race]={offValue, defValue};
@@ -104,11 +104,11 @@ function MagicResistence( Char )
     local CWil   = Char:increaseAttrib("willpower",0);
     local CEss   = Char:increaseAttrib("essence",0);
     local CSkill = Char:getSkill(Character.magicResistance) * GetDefensiveRaceBoni( Char:getRace() );
-    CSkill = base.common.Limit( CSkill, 0, MaximalMagicResistance( Char ) );
+    CSkill = common.Limit( CSkill, 0, MaximalMagicResistance( Char ) );
 
-    local ResTry=base.common.Limit(CSkill * ( ( CEss*3 + CWil*2 ) / 63 ), 0, 100 );
+    local ResTry=common.Limit(CSkill * ( ( CEss*3 + CWil*2 ) / 63 ), 0, 100 );
 
-    return base.common.Limit( math.floor( ResTry * math.random(8,12)/10 ), 0, 100 );
+    return common.Limit( math.floor( ResTry * math.random(8,12)/10 ), 0, 100 );
 end
 
 function CasterValue( Char )
@@ -129,7 +129,7 @@ function CasterValue( Char )
     local CasterTry = CSkill * ( ( CEss + CWil/2 + CInt*2 ) / 63 );
     CasterTry = CasterTry * Boni + math.random(-20,20);
 
-    CasterTry = base.common.Limit( 100 * (CasterTry - Skill.min) / ( Skill.max - Skill.min ), 0, 100 );
+    CasterTry = common.Limit( 100 * (CasterTry - Skill.min) / ( Skill.max - Skill.min ), 0, 100 );
     return CasterTry;
 end
 
@@ -145,21 +145,21 @@ function CheckAndReduceRequirements( Char, CasterValue )
         CasterValue = 0;
     end
 
-    local HPChange=math.floor( base.common.Scale(    CasterEffects.minSkill.hitpoints,    CasterEffects.maxSkill.hitpoints, CasterValue) );
-    local FPChange=math.floor( base.common.Scale(   CasterEffects.minSkill.foodpoints,   CasterEffects.maxSkill.foodpoints, CasterValue) );
-    local APChange=math.floor( base.common.Scale( CasterEffects.minSkill.actionpoints, CasterEffects.maxSkill.actionpoints, CasterValue) );
-    local MPChange=math.floor( base.common.Scale(   CasterEffects.minSkill.manapoints,   CasterEffects.maxSkill.manapoints, CasterValue) );
-    local PPChange=math.floor( base.common.Scale(       CasterEffects.minSkill.poison,       CasterEffects.maxSkill.poison, CasterValue) );
+    local HPChange=math.floor( common.Scale(    CasterEffects.minSkill.hitpoints,    CasterEffects.maxSkill.hitpoints, CasterValue) );
+    local FPChange=math.floor( common.Scale(   CasterEffects.minSkill.foodpoints,   CasterEffects.maxSkill.foodpoints, CasterValue) );
+    local APChange=math.floor( common.Scale( CasterEffects.minSkill.actionpoints, CasterEffects.maxSkill.actionpoints, CasterValue) );
+    local MPChange=math.floor( common.Scale(   CasterEffects.minSkill.manapoints,   CasterEffects.maxSkill.manapoints, CasterValue) );
+    local PPChange=math.floor( common.Scale(       CasterEffects.minSkill.poison,       CasterEffects.maxSkill.poison, CasterValue) );
 
     if ( Char:increaseAttrib("hitpoints",0) < -HPChange ) then
-        base.common.InformNLS( Char,
+        common.InformNLS( Char,
         "Diesen Spruch zu sprechen würde dich auf jeden Fall töten. Dein Überlebenstrieb wehrt sich dagegen.",
         "This spell would kill you in any way. You will to life holds against this." );
         return false;
     end
 
     if ( Char:increaseAttrib("foodlevel",0) < -FPChange ) then
-        base.common.InformNLS( Char,
+        common.InformNLS( Char,
         "Dein Hunger ist zu groß als das du dich genug konzentrieren könntest um diesen Zauber zu sprechen.",
         "Your hunger is to big to concentrate enougth to cast this spell." );
         return false;
@@ -173,14 +173,14 @@ function CheckAndReduceRequirements( Char, CasterValue )
             local findTime, rapidGainTime = reg_effect:findValue( "rapidManaTime" );
 
             if findMana and findTime then
-                rapidGainTime = base.common.GetCurrentTimestamp() - rapidGainTime;
-                additional_mana = base.common.Limit( rapidGainMana - 400*rapidGainTime, 0 );
+                rapidGainTime = common.GetCurrentTimestamp() - rapidGainTime;
+                additional_mana = common.Limit( rapidGainMana - 400*rapidGainTime, 0 );
             end
         end
     end
 
     if ( Char:increaseAttrib("mana",0) < -(MPChange-additional_mana) ) then
-        base.common.InformNLS( Char,
+        common.InformNLS( Char,
         "Du hast nicht genug Mana um diesen Zauber zu wirken.",
         "You lack of mana to cast this spell." );
         return false;
@@ -189,13 +189,13 @@ function CheckAndReduceRequirements( Char, CasterValue )
     if (HPChange~=0) then Char:increaseAttrib( "hitpoints", HPChange ); end;
     if (FPChange~=0) then
         while( FPChange ~= 0 ) do
-            Char:increaseAttrib( "foodlevel", base.common.Limit(FPChange,-10000,10000) );
-            FPChange = FPChange - base.common.Limit(FPChange,-10000,10000);
+            Char:increaseAttrib( "foodlevel", common.Limit(FPChange,-10000,10000) );
+            FPChange = FPChange - common.Limit(FPChange,-10000,10000);
         end
     end;
 
     if (MPChange < 0) then
-        local RapidRegainMana = math.floor( -MPChange * base.common.Scale( 4, 18, CasterValue ) / 10 );
+        local RapidRegainMana = math.floor( -MPChange * common.Scale( 4, 18, CasterValue ) / 10 );
         if( RapidRegainMana < 1000 ) then
             RapidRegainMana = 1000;
         end
@@ -203,18 +203,18 @@ function CheckAndReduceRequirements( Char, CasterValue )
         local found_reg, reg_effect = Char.effects:find( 2 );
         if found_reg then
             reg_effect:addValue( "rapidMana", RapidRegainMana );
-            reg_effect:addValue( "rapidManaTime", base.common.GetCurrentTimestamp() );
+            reg_effect:addValue( "rapidManaTime", common.GetCurrentTimestamp() );
         end
     end
 
     if (MPChange~=0) then Char:increaseAttrib( "mana", (MPChange-additional_mana) ); end;
 
-    if (PPChange~=0) then Char:setPoisonValue( base.common.Limit( (Char:getPoisonValue() + PPChange) , 0, 10000) );end;
+    if (PPChange~=0) then Char:setPoisonValue( common.Limit( (Char:getPoisonValue() + PPChange) , 0, 10000) );end;
     --if (PPChange~=0) then Char:increasePoisonValue(PPChange); end;
 
     if (APChange~=0) then Char.movepoints=Char.movepoints+APChange; end;
 
-    local AttribEffect = math.floor(base.common.Scale(CasterEffects.minSkill.posoffset, CasterEffects.maxSkill.posoffset, CasterValue));
+    local AttribEffect = math.floor(common.Scale(CasterEffects.minSkill.posoffset, CasterEffects.maxSkill.posoffset, CasterValue));
     if (AttribEffect~=0) then
         local phi = math.random()*2;
         local NewPos = position( math.floor(Char.pos.x+AttribEffect*math.sin( phi * math.pi )), math.floor(Char.pos.y+AttribEffect*math.cos( phi * math.pi )), Char.pos.z );
@@ -369,7 +369,7 @@ function actionDisturbed(Caster,disturber)
         local CWill = Caster:increaseAttrib("willpower",0);
         local CSkill = Caster:getSkill(Skill.name);
 
-        local contry = (CSkill-Skill.min)*base.common.Scale( 5, 12, (CIntel*2+CWill*3) ) / 10;
+        local contry = (CSkill-Skill.min)*common.Scale( 5, 12, (CIntel*2+CWill*3) ) / 10;
         if (math.random(0,100)<(conctry * HPMod(Caster:increaseAttrib("hitpoints",0)))) then
             return false
         else
@@ -402,7 +402,7 @@ function gemBonis( Char )
 	end
 
 	local stone = { {}, {} };
-	stone[1]["type"], stone[1]["effect"], stone[2]["type"], stone[2]["effect"] = base.common.GetBonusFromTool( StoneItem );
+	stone[1]["type"], stone[1]["effect"], stone[2]["type"], stone[2]["effect"] = common.GetBonusFromTool( StoneItem );
 
 	for i=1,2 do
 	    if stone[i].type == 2 then -- Smaragd
@@ -433,7 +433,7 @@ end;
 
 function MaximalMagicResistance( Char )
     local maxMagicResist = 1.4 * ( Char:increaseAttrib("intelligence",0) + ( Char:increaseAttrib("willpower",0) * 1.75 ) + ( Char:increaseAttrib("essence",0) * 2 ) ) + 5;
-    return base.common.Limit( maxMagicResist, 0, 100 );
+    return common.Limit( maxMagicResist, 0, 100 );
 end
 
 function performGFX( gfxID, posi )

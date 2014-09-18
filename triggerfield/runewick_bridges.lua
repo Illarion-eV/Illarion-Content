@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --Flames on the Runewick bridges
 --Flux
 
-require("base.common")
+local common = require("base.common")
 
 module("triggerfield.runewick_bridges", package.seeall)
 

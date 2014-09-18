@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Effect ID: 402
 
 
-require("base.common");
+local common = require("base.common")
 module("lte.shearing", package.seeall)
 
 function addEffect(shearingEffect, Animal)

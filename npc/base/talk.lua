@@ -20,16 +20,16 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --
 -- Author: Martin Karing
 
-require("base.common")
-require("base.messages")
-require("base.class")
-require("npc.base.basic")
-require("npc.base.responses")
+local common = require("base.common")
+local messages = require("base.messages")
+local class = require("base.class")
+local basic = require("npc.base.basic")
+local responses = require("npc.base.responses")
 
 module("npc.base.talk", package.seeall)
 
-talkNPC = base.class.class(function(self, rootNPC)
-    if (rootNPC == nil or not rootNPC:is_a(npc.base.basic.baseNPC)) then
+talkNPC = class.class(function(self, rootNPC)
+    if (rootNPC == nil or not rootNPC:is_a(basic.baseNPC)) then
         return;
     end;
     self["_parent"] = rootNPC;
@@ -45,7 +45,7 @@ end);
 
 function talkNPC:addCycleText(germanText, englishText)
     if (self._cycleText == nil) then
-        self._cycleText = base.messages.Messages();
+        self._cycleText = messages.Messages();
         self._parent:addCycle(self);
     end;
     
@@ -94,7 +94,7 @@ function talkNPC:nextCycle(npcChar, counter)
     return self._nextCycleText;
 end;
 
-talkNPCEntry = base.class.class(function(self)
+talkNPCEntry = class.class(function(self)
     self["_trigger"] = {};
     self["_conditions"] = {};
     
@@ -144,7 +144,7 @@ function talkNPCEntry:addResponse(text)
 	
     self._responsesCount = self._responsesCount + 1;
 	
-	for _, processor in pairs(npc.base.responses.processorList) do
+	for _, processor in pairs(responses.processorList) do
 		if processor:check(text) then
 			if (self._responseProcessors[self._responsesCount] == nil) then
 				self._responseProcessors[self._responsesCount] = {};

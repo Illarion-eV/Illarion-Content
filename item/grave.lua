@@ -16,8 +16,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Tree Script
 -- Envi
-require("base.common")
-require("alchemy.teaching.transformation_dog")
+local common = require("base.common")
+local transformation_dog = require("alchemy.teaching.transformation_dog")
 
 module("item.grave", package.seeall)
 
@@ -29,7 +29,7 @@ graveItemNumbers={337,519,520,521}
 function LookAtItem(User, Item)
 
 	if Item:getData("teachDogTransformationPotion") == "true" then
-		return alchemy.teaching.transformation_dog.LookAtGrave(User,Item)
+		return transformation_dog.LookAtGrave(User,Item)
 	end
 
     return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
@@ -51,7 +51,7 @@ gemsAlreadyFound[3]={45,242,329,526}
 function UseItem(User, SourceItem)
 
 	if SourceItem:getData("teachDogTransformationPotion") == "true" then
-		alchemy.teaching.transformation_dog.UseGrave(User, SourceItem)
+		transformation_dog.UseGrave(User, SourceItem)
 		return
 	end
 
@@ -59,13 +59,13 @@ function UseItem(User, SourceItem)
 	if SourceItem.pos == position (447,785,-9) then -- kindness tombstone in Akaltut's Chambers
 		local queststatus = User:getQuestProgress(531); -- here, we save which events were triggered
 		local queststatuslist = {};
-		queststatuslist = base.common.Split_number(queststatus, 6); -- reading the digits of the queststatus as table
+		queststatuslist = common.Split_number(queststatus, 6); -- reading the digits of the queststatus as table
 		if queststatuslist[1] == 0 then -- gem, only triggered once by each char
-			base.common.InformNLS(User, "Du entdeckst einen glitzernden Edelstein bei der Leiche.", "You discover a shiny gem with the corpse.");
+			common.InformNLS(User, "Du entdeckst einen glitzernden Edelstein bei der Leiche.", "You discover a shiny gem with the corpse.");
 			local notCreated = User:createItem(198, 1, 333, {["gemLevel"] = 1}); -- create the item
 			if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 				world:createItemFromId(198, notCreated, User.pos, true, 333, {["gemLevel"] = 1});
-				base.common.HighInformNLS(User,
+				common.HighInformNLS(User,
 					"Du kannst nichts mehr tragen.",
 					"You can't carry any more.");
 			end
@@ -78,9 +78,9 @@ function UseItem(User, SourceItem)
 	local foundSource
 	-- check for grave
 	for t=1,4 do
-		TargetItem = base.common.GetItemInArea(User.pos, graveItemNumbers[t])
+		TargetItem = common.GetItemInArea(User.pos, graveItemNumbers[t])
 		if (TargetItem ~= nil) then
-			base.common.TurnTo( User, TargetItem.pos); -- turn if necessary
+			common.TurnTo( User, TargetItem.pos); -- turn if necessary
 			foundSource=true
 		end
 	end
@@ -98,7 +98,7 @@ function UseItem(User, SourceItem)
 			if UserHasAlreadyThisGame ~= true then
 				User:talk(Character.say, "#me wischt Staub vom Grabstein und plötzlich beginnt die Hand zu schimmern in einem latenten " .. gemColourDE1[i], "#me waves over the tombstone and suddenly the hand glimmers in a latent ".. gemColourEN1[i] .. " light.")
 				User:createItem(typoOfGem[i],2,999,{["gemLevel"]="1"})
-				base.common.InformNLS(User,"~Im Staub finden sich zwei latente magische " .. gemColourDE2[i] .. ".", "~The dust in your hand bears two latent magical " .. gemColourEN2[i] .. ".")
+				common.InformNLS(User,"~Im Staub finden sich zwei latente magische " .. gemColourDE2[i] .. ".", "~The dust in your hand bears two latent magical " .. gemColourEN2[i] .. ".")
 				findPlayersForGems[User.name] = world:getPlayersInRangeOf(User.pos, 20)
 				for m,player in ipairs(findPlayersForGems[User.name]) do
 					local playersCurrentStatus = player:getQuestProgress(669)
@@ -106,7 +106,7 @@ function UseItem(User, SourceItem)
 				end
 			else
 				User:talk(Character.say, "#me wischt Staub vom Grabstein, der zu Boden fällt.", "#me waves over the tombstone and dust drops to the ground.")
-				base.common.InformNLS(User,"Du findest nichts außer Staub am Grabstein.", "You do not find anything except for dust on the tombstone.")
+				common.InformNLS(User,"Du findest nichts außer Staub am Grabstein.", "You do not find anything except for dust on the tombstone.")
 			end
 		end
 	end

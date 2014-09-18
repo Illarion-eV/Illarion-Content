@@ -15,26 +15,26 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-require("base.arena")
-require("base.common");
-require("base.messages");
-require("monster.base.base")
-require("monster.base.drop")
-require("monster.base.kills")
-require("monster.base.lookat")
-require("monster.base.monstermagic")
-require("monster.base.quests")
+local arena = require("base.arena")
+local common = require("base.common")
+local messages = require("base.messages")
+local base = require("monster.base.base")
+local drop = require("monster.base.drop")
+local kills = require("monster.base.kills")
+local lookat = require("monster.base.lookat")
+local monstermagic = require("monster.base.monstermagic")
+local quests = require("monster.base.quests")
 
 module("monster.mon_59_beetles", package.seeall)
 
 function ini(Monster)
 
     init = true;
-    monster.base.quests.iniQuests();
+    quests.iniQuests();
     killer={}; --A list that keeps track of who attacked the monster last
 
     --Random Messages
-    msgs = base.messages.Messages();
+    msgs = messages.Messages();
 
     msgs:addMessage("#me klickt mit den Mundwerkzeugen.", "#me clicks its mouthparts.");
 end
@@ -43,9 +43,9 @@ function onSpawn(Monster)
 
     local var = 60;
     local red, green, blue = Monster:getSkinColor();
-    red = base.common.Limit((red + math.random(-var, var)), 0, 255);
-    green = base.common.Limit((green + math.random(-var, var)), 0, 255);
-    blue = base.common.Limit((blue + math.random(-var, var)), 0, 255);
+    red = common.Limit((red + math.random(-var, var)), 0, 255);
+    green = common.Limit((green + math.random(-var, var)), 0, 255);
+    blue = common.Limit((blue + math.random(-var, var)), 0, 255);
     Monster:setSkinColor(red, green, blue);
 end
 
@@ -56,7 +56,7 @@ function enemyNear(Monster, Enemy)
     end
 
     if math.random(1,10) == 1 then
-         monster.base.drop.MonsterRandomTalk(Monster, msgs); --a random message is spoken once in a while
+         drop.MonsterRandomTalk(Monster, msgs); --a random message is spoken once in a while
     end
 
     return false
@@ -68,14 +68,14 @@ function enemyOnSight(Monster, Enemy)
         ini(Monster);
     end
 
-    monster.base.monstermagic.regeneration(Monster); --if an enemy is around, the monster regenerates slowly
-    monster.base.drop.MonsterRandomTalk(Monster, msgs); --a random message is spoken once in a while
+    monstermagic.regeneration(Monster); --if an enemy is around, the monster regenerates slowly
+    drop.MonsterRandomTalk(Monster, msgs); --a random message is spoken once in a while
 
-    if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
+    if base.isMonsterArcherInRange(Monster, Enemy) then
         return true
     end
 
-    if monster.base.base.isMonsterInRange(Monster, Enemy) then
+    if base.isMonsterInRange(Monster, Enemy) then
         return true;
     else
         return false
@@ -87,7 +87,7 @@ function onAttacked(Monster, Enemy)
     if init==nil then
         ini(Monster);
     end
-    monster.base.kills.setLastAttacker(Monster, Enemy)
+    kills.setLastAttacker(Monster, Enemy)
     killer[Monster.id] = Enemy.id; --Keeps track who attacked the monster last
 end
 
@@ -96,13 +96,13 @@ function onCasted(Monster, Enemy)
     if init==nil then
         ini(Monster);
     end
-    monster.base.kills.setLastAttacker(Monster, Enemy)
+    kills.setLastAttacker(Monster, Enemy)
     killer[Monster.id] = Enemy.id; --Keeps track who attacked the monster last
 end
 
 function onDeath(Monster)
 
-    if base.arena.isArenaMonster(Monster) then
+    if arena.isArenaMonster(Monster) then
         return
     end
     if killer and killer[Monster.id] ~= nil then
@@ -111,27 +111,27 @@ function onDeath(Monster)
 
         if murderer then --Checking for quests
 
-            monster.base.quests.checkQuest(murderer, Monster);
+            quests.checkQuest(murderer, Monster);
             killer[Monster.id] = nil;
             murderer = nil;
 
         end
     end
 
-    monster.base.drop.ClearDropping();
+    drop.ClearDropping();
     local MonID = Monster:getMonsterType();
 
     if (MonID==591 or MonID==592 or MonID==593 or MonID==594 or MonID==981 or MonID==991 or MonID==1001 or MonID==1011) then --beetle
 
-        monster.base.drop.AddDropItem(251,1,4,333,0,1); --raw amethyst
-        monster.base.drop.AddDropItem(252,1,3,333,0,1); --raw obsidian
-        monster.base.drop.AddDropItem(253,1,3,333,0,1); --raw sapphire
-        monster.base.drop.AddDropItem(254,1,1,333,0,1); --raw diamond
-        monster.base.drop.AddDropItem(255,1,4,333,0,1); --raw ruby
-        monster.base.drop.AddDropItem(256,1,2,333,0,1); --raw emerald
-        monster.base.drop.AddDropItem(257,1,2,333,0,1); --raw topaz
-        monster.base.drop.AddDropItem(1266,math.random(5,10),100,333,0,2); --stone
+        drop.AddDropItem(251,1,4,333,0,1); --raw amethyst
+        drop.AddDropItem(252,1,3,333,0,1); --raw obsidian
+        drop.AddDropItem(253,1,3,333,0,1); --raw sapphire
+        drop.AddDropItem(254,1,1,333,0,1); --raw diamond
+        drop.AddDropItem(255,1,4,333,0,1); --raw ruby
+        drop.AddDropItem(256,1,2,333,0,1); --raw emerald
+        drop.AddDropItem(257,1,2,333,0,1); --raw topaz
+        drop.AddDropItem(1266,math.random(5,10),100,333,0,2); --stone
 
     end
-    monster.base.drop.Dropping(Monster);
+    drop.Dropping(Monster);
 end

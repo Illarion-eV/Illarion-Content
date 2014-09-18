@@ -15,8 +15,8 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 -- base script for patrolling npcs or monsters
-require("npc.base.waypoints");
-require("base.doors")
+local waypoints = require("npc.base.waypoints")
+local doors = require("base.doors")
 module("npc.base.patrol", package.seeall)
 
 -- functions for subscription:
@@ -94,7 +94,7 @@ starts the patrol and initializes the PatrolList and WaypointList
 function StartPatrol(guard)
 	if firstStartPatrol==nil then
 		firstStartPatrol = 1;
-		npc.base.waypoints.Init();
+		waypoints.Init();
 		PatrolInit();
 	end
 	PatrolPointer[guard.id] = 0;
@@ -162,7 +162,7 @@ end
 
 -- get the respective waypoint or nil if noone exists
 function GetWpFromPos(pos)
-	local index = npc.base.waypoints.PosToIndex(pos);
+	local index = waypoints.PosToIndex(pos);
 	for _,area in pairs(WaypointList) do
 		if area[index] then
 			return area[index];
@@ -232,7 +232,7 @@ function OpenDoor(guard)
 	local door = CurWp[guard.id].data.door;
 	if door and (door.toPos == NextWp[guard.id].pos) then
 		local item = GetDoorItem(door.pos);
-		base.doors.OpenDoor(item);
+		doors.OpenDoor(item);
 	end
 end
 
@@ -241,14 +241,14 @@ function CloseDoor(guard)
 	local door = NextWp[guard.id].data.door;
 	if door and (door.toPos == CurWp[guard.id].pos) then
 		local item = world:getItemOnField(door.pos);
-		base.doors.CloseDoor(item);
+		doors.CloseDoor(item);
 	end
 end
 
 -- get the door item, works only if it is on top
 function GetDoorItem(Posi)
     local item = world:getItemOnField(Posi);
-	if (base.doors.CheckOpenDoor(item.id) or base.doors.CheckClosedDoor(item.id)) then
+	if (doors.CheckOpenDoor(item.id) or doors.CheckClosedDoor(item.id)) then
 		return item;
 	end;
     return nil;

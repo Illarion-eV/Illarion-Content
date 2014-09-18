@@ -22,30 +22,30 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- additional tool: brick mould (734)
 
-require("base.common")
-require("content.gathering")
+local common = require("base.common")
+local gathering = require("content.gathering")
 
 module("content.gatheringcraft.bricksproducing", package.seeall)
 
 function StartGathering(User, SourceItem, ltstate)
 
-	content.gathering.InitGathering();
+	gathering.InitGathering();
 
     if (User:countItemAt("all",26)>0) then
       ProduceUnfiredBricks( User, SourceItem, ltstate );
     elseif (User:countItemAt("all",736)>0) then
       ProduceBricks( User, SourceItem, ltstate );
     else
-      base.common.HighInformNLS( User,
+      common.HighInformNLS( User,
       "Du brauchst Lehm oder ungebrannte Ziegel um mit der Ziegelform hier zu arbeiten.",
       "You need clay or unfired bricks to work here with the brick mould." );
     end
 end
 
 function ProduceUnfiredBricks( User, SourceItem, ltstate )
-	local bricksproducing = content.gathering.bricksproducing;
+	local bricksproducing = gathering.bricksproducing;
 
-	base.common.ResetInterruption( User, ltstate );
+	common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
 		if (User:increaseAttrib("sex",0) == 0) then
 			gText = "seine";
@@ -58,7 +58,7 @@ function ProduceUnfiredBricks( User, SourceItem, ltstate )
 		return
 	end
 
-	if not base.common.CheckItem( User, SourceItem ) then -- security check
+	if not common.CheckItem( User, SourceItem ) then -- security check
 		return
 	end
 
@@ -71,18 +71,18 @@ function ProduceUnfiredBricks( User, SourceItem, ltstate )
 	if ( toolItem.id ~= 734 ) then
 		toolItem = User:getItemAt(6);
 		if ( toolItem.id ~= 734 ) then
-			base.common.HighInformNLS( User,
+			common.HighInformNLS( User,
 			"Du musst die Ziegelform in der Hand haben!",
 			"You have to hold the brick mould in your hand!" );
 			return
 		end
 	end
 
-	if not base.common.FitForWork( User ) then -- check minimal food points
+	if not common.FitForWork( User ) then -- check minimal food points
 		return
 	end
 
-	base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+	common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 
 	-- any other checks?
   if (User:countItemAt("all",26)==0) then
@@ -109,7 +109,7 @@ function ProduceUnfiredBricks( User, SourceItem, ltstate )
 	local notCreated = User:createItem( 736, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 736, notCreated, User.pos, true, 333, nil );
-		base.common.HighInformNLS(User,
+		common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -118,14 +118,14 @@ function ProduceUnfiredBricks( User, SourceItem, ltstate )
 			User:startAction( bricksproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
       -- Should actually never reach this, handle it nevertheless.
-			base.common.HighInformNLS(User,
+			common.HighInformNLS(User,
 			"Du hast keinen Lehm mehr.",
 			"You have no clay anymore.");
 		end
 	end
 
-	if base.common.GatheringToolBreaks( User, toolItem, bricksproducing:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
-		base.common.HighInformNLS(User,
+	if common.GatheringToolBreaks( User, toolItem, bricksproducing:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
+		common.HighInformNLS(User,
 		"Deine alte Ziegelform zerbricht.",
 		"Your old brick mould breaks.");
 		return
@@ -133,9 +133,9 @@ function ProduceUnfiredBricks( User, SourceItem, ltstate )
 end
 
 function ProduceBricks( User, SourceItem, ltstate )
-	local bricksproducing = content.gathering.bricksproducing;
+	local bricksproducing = gathering.bricksproducing;
 
-	base.common.ResetInterruption( User, ltstate );
+	common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
 		if (User:increaseAttrib("sex",0) == 0) then
 			gText = "seine";
@@ -148,7 +148,7 @@ function ProduceBricks( User, SourceItem, ltstate )
 		return
 	end
 
-	if not base.common.CheckItem( User, SourceItem ) then -- security check
+	if not common.CheckItem( User, SourceItem ) then -- security check
 		return
 	end
 
@@ -161,18 +161,18 @@ function ProduceBricks( User, SourceItem, ltstate )
 	if ( toolItem.id ~= 734 ) then
 		toolItem = User:getItemAt(6);
 		if ( toolItem.id ~= 734 ) then
-			base.common.HighInformNLS( User,
+			common.HighInformNLS( User,
 			"Du musst die Ziegelform in der Hand haben!",
 			"You have to hold the brick mould in your hand!" );
 			return
 		end
 	end
 
-	if not base.common.FitForWork( User ) then -- check minimal food points
+	if not common.FitForWork( User ) then -- check minimal food points
 		return
 	end
 
-	base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+	common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 
 	-- any other checks?
   if (User:countItemAt("all",736)<1) then
@@ -199,7 +199,7 @@ function ProduceBricks( User, SourceItem, ltstate )
 	local notCreated = User:createItem( 2588, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 2588, notCreated, User.pos, true, 333, nil );
-		base.common.HighInformNLS(User,
+		common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -208,14 +208,14 @@ function ProduceBricks( User, SourceItem, ltstate )
 			User:startAction( bricksproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
       -- Should actually never reach this, handle it nevertheless.
-			base.common.HighInformNLS(User,
+			common.HighInformNLS(User,
 			"Du hast nicht mehr genug ungebrannte Ziegel.",
 			"You don't have enough unfired bricks anymore.");
 		end
 	end
 
-	if base.common.GatheringToolBreaks( User, toolItem, bricksproducing:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
-		base.common.HighInformNLS(User,
+	if common.GatheringToolBreaks( User, toolItem, bricksproducing:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
+		common.HighInformNLS(User,
 		"Deine alte Ziegelform zerbricht.",
 		"Your old brick mould breaks.");
 		return

@@ -14,14 +14,14 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
+local class = require("base.class")
 
 module("npc.base.condition.condition", package.seeall)
 
 --- Basic class for all conditions. Its never needed to create this class in any
 --  NPC since this is just a collection of methods the actual condition classes
 --  share.
-condition = base.class.class(function(self)
+condition = class.class(function(self)
     self["check"] = _condition_helper_empty;
 end);
 

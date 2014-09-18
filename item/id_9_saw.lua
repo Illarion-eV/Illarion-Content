@@ -17,13 +17,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_9_saw' WHERE itm_id IN (9);
 
-require("base.licence")
-require("content.gatheringcraft.boardproducing")
-require("item.general.metal")
+local licence = require("base.licence")
+local boardproducing = require("content.gatheringcraft.boardproducing")
+local metal = require("item.general.metal")
 
 module("item.id_9_saw", package.seeall)
 
-LookAtItem = item.general.metal.LookAtItem
+LookAtItem = metal.LookAtItem
 
 function getWorkbench(User)
 	workbenches = {}
@@ -51,13 +51,13 @@ function getWorkbench(User)
 end
 
 function UseItem(User, SourceItem, ltstate)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence
+	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
 	local workbenchItem = getWorkbench(User);
 	if workbenchItem then
-		content.gatheringcraft.boardproducing.StartGathering(User, workbenchItem, ltstate);
+		boardproducing.StartGathering(User, workbenchItem, ltstate);
 		return
 	end
 

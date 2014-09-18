@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("magic.base.basics");
+local basics = require("magic.base.basics")
 module("magic.base.itemspell")
 
 function DoItemSpell(Caster, TargetPos, ltstate)
@@ -24,13 +24,13 @@ function DoItemSpell(Caster, TargetPos, ltstate)
         return;
     end
 
-    magic.base.basics.loadCorrectDefScript();
+    basics.loadCorrectDefScript();
 
     -- Generate the needed
-    magic.base.basics.gemBonis( Caster );
+    basics.gemBonis( Caster );
 
     genderMsg = {};
-    genderMsg[Player.german], genderMsg[Player.english] = magic.base.basics.GenderMessage( Caster );
+    genderMsg[Player.german], genderMsg[Player.english] = basics.GenderMessage( Caster );
 
     if ( Caster:distanceMetricToPosition(TargetPos) > Settings.Range + GemBonis.Range) then
         base.common.InformNLS( Caster,
@@ -55,11 +55,11 @@ function DoItemSpell(Caster, TargetPos, ltstate)
         return;
     end
 
-    magic.base.basics.SayRunes( Caster );
+    basics.SayRunes( Caster );
 
-    local CasterVal=magic.base.basics.CasterValue( Caster );
+    local CasterVal=basics.CasterValue( Caster );
 
-    if not magic.base.basics.CheckAndReduceRequirements( Caster, CasterVal ) then
+    if not basics.CheckAndReduceRequirements( Caster, CasterVal ) then
         return;
     end
 
@@ -72,16 +72,16 @@ function DoItemSpell(Caster, TargetPos, ltstate)
 
     if Spot then
         if Spot.item and createItemOnMap( Spot.item, TargetPos, CasterVal ) then
-            magic.base.basics.performGFX( Spot.gfx, TargetPos );
-            magic.base.basics.performSFX( Spot.sfx, TargetPos );
+            basics.performGFX( Spot.gfx, TargetPos );
+            basics.performSFX( Spot.sfx, TargetPos );
         end
     end
 
     if Wall then
         base.common.CreateTangentLine( Caster.pos, TargetPos, math.floor(base.common.Scale( Wall.minSkill.armlength, Wall.maxSkill.armlength, CasterVal )), function(posi)
             if Wall.item and createItemOnMap( Wall.item, posi, CasterVal ) then
-                magic.base.basics.performGFX( Wall.gfx, posi );
-                magic.base.basics.performSFX( Wall.sfx, posi );
+                basics.performGFX( Wall.gfx, posi );
+                basics.performSFX( Wall.sfx, posi );
             end
         end );
     end
@@ -89,8 +89,8 @@ function DoItemSpell(Caster, TargetPos, ltstate)
     if Circle then
         base.common.CreateCircle( Caster.pos, Caster:distanceMetricToPosition( TargetPos ), function(posi)
             if Circle.item and createItemOnMap( Circle.item, posi, CasterVal ) then
-                magic.base.basics.performGFX( Circle.gfx, posi );
-                magic.base.basics.performSFX( Circle.sfx, posi );
+                basics.performGFX( Circle.gfx, posi );
+                basics.performSFX( Circle.sfx, posi );
             end
         end );
     end
@@ -107,7 +107,7 @@ end
 function createItemOnMap( ItemData, Target, CasterVal )
     if world:isCharacterOnField( Target ) then
         local TargetChar = world:getCharacterOnField( Target );
-        CasterVal = CasterVal - magic.base.basics.MagicResistence( TargetChar );
+        CasterVal = CasterVal - basics.MagicResistence( TargetChar );
 
         if (CasterVal < 0) then
             world:gfx( 10, Target );

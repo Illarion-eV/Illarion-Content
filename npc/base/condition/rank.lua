@@ -14,15 +14,15 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
-require("base.factions")
-require("npc.base.condition.condition")
+local class = require("base.class")
+local factions = require("base.factions")
+local condition = require("npc.base.condition.condition")
 
 module("npc.base.condition.rank", package.seeall)
 
-rank = base.class.class(npc.base.condition.condition.condition,
+rank = class.class(condition.condition,
 function(self, comp, value)
-    npc.base.condition.condition.condition:init(self);
+    condition.condition:init(self);
     self["value"], self["valuetype"] = npc.base.talk._set_value(value);
     
     if (comp == "=") then
@@ -44,30 +44,30 @@ end);
 
 function _rank_helper_equal(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return base.factions.getRankAsNumber(player) == value;
+    return factions.getRankAsNumber(player) == value;
 end;
 
 function _rank_helper_notequal(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return base.factions.getRankAsNumber(player) ~= value;
+    return factions.getRankAsNumber(player) ~= value;
 end;
 
 function _rank_helper_lesserequal(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return base.factions.getRankAsNumber(player) <= value;
+    return factions.getRankAsNumber(player) <= value;
 end;
 
 function _rank_helper_greaterequal(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return base.factions.getRankAsNumber(player) >= value;
+    return factions.getRankAsNumber(player) >= value;
 end;
 
 function _rank_helper_greater(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return base.factions.getRankAsNumber(player) > value;
+    return factions.getRankAsNumber(player) > value;
 end;
 
 function _rank_helper_lesser(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return base.factions.getRankAsNumber(player) < value;
+    return factions.getRankAsNumber(player) < value;
 end;

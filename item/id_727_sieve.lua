@@ -17,15 +17,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_727_sieve' WHERE itm_id IN (727);
 
-require("base.licence")
-require("content.gatheringcraft.sieving")
+local licence = require("base.licence")
+local sieving = require("content.gatheringcraft.sieving")
 
 module("item.id_727_sieve", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence
+	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
-	content.gatheringcraft.sieving.StartGathering(User, SourceItem, ltstate);
+	sieving.StartGathering(User, SourceItem, ltstate);
 end

@@ -16,13 +16,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE common SET com_script='gm.items.id_100_trowel' WHERE com_itemid = 100;
 
-require("base.common")
+local common = require("base.common")
 module("gm.items.id_100_trowel", package.seeall)
 
 function UseItem(User, SourceItem)
-	local TargetItem = base.common.GetTargetItem(User, SourceItem);
+	local TargetItem = common.GetTargetItem(User, SourceItem);
 	if not TargetItem then
-		TargetItem = base.common.GetFrontItem(User);
+		TargetItem = common.GetFrontItem(User);
 	end
 	if (TargetItem ~= nil and TargetItem.id > 0) then
 	        if string.find(string.lower(User.lastSpokenText), "setnumber (%d+)") then
@@ -39,7 +39,7 @@ function UseItem(User, SourceItem)
 		return
 	end
 
-	local target = base.common.GetFrontPosition(User);
+	local target = common.GetFrontPosition(User);
 
 	local itemId = tonumber(value);
 	local itemQual = 333;

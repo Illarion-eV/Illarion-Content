@@ -17,16 +17,16 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_171_spinningwheel' WHERE itm_id IN (171);
 
-require("base.common")
-require("base.licence")
-require("content.gatheringcraft.threadproducing")
+local common = require("base.common")
+local licence = require("base.licence")
+local threadproducing = require("content.gatheringcraft.threadproducing")
 
 module("item.id_171_spinningwheel", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence
+	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
-	content.gatheringcraft.threadproducing.StartGathering(User, SourceItem, ltstate);
+	threadproducing.StartGathering(User, SourceItem, ltstate);
 end

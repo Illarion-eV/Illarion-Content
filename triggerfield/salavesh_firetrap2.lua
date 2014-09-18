@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
+local common = require("base.common")
 
 module("triggerfield.salavesh_firetrap2", package.seeall)
 
@@ -27,7 +27,7 @@ function MoveToField(User)
 		return
 	end
 
-		base.common.InformNLS(User,"Ein Feuerball schieﬂt aus einem kleinen Loch in der Wand die Halle entlang!","A firewall is shot from a small hole in the wall down the hallway!"); --sending a message
+		common.InformNLS(User,"Ein Feuerball schieﬂt aus einem kleinen Loch in der Wand die Halle entlang!","A firewall is shot from a small hole in the wall down the hallway!"); --sending a message
 
 		ycord=User.pos.y; --The y-coordinate of the triggerfield
 

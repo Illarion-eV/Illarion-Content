@@ -14,11 +14,11 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
+local class = require("base.class")
 
 module("handler.warptopos", package.seeall)
 
-warpToPos = base.class.class(function(warptopos, startpos,destpos)
+warpToPos = class.class(function(warptopos, startpos,destpos)
     warptopos.startpos=startpos;
     warptopos.destpos=destpos;
 end);

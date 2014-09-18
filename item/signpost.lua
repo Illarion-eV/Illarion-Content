@@ -16,14 +16,14 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Wegweiserskript
 -- Nitram
-require("base.common")
-require("base.lookat")
-require("triggerfield.slimeFeeding")
+local common = require("base.common")
+local lookat = require("base.lookat")
+local slimeFeeding = require("triggerfield.slimeFeeding")
 
 module("item.signpost", package.seeall)
 
 -- UPDATE items SET itm_script='item.signpost' WHERE itm_id IN (1817,1809,1808,1807,308,1804,586,3084,3081,3082,3083,519,520,521,337,1914,1915,2046,2069,512,2924,2925,2926,2927);
 
 function LookAtItem(User, Item)
-    return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
+    return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end

@@ -23,18 +23,18 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --      = 0 --> short description
 --      = 1 --> long description
 
-require("content.genus")
-require("base.common")
-require("base.factions")
-require("content.lookat.custom")
-require("content.uniquechardescription")
-require("item.altars")
+local genus = require("content.genus")
+local common = require("base.common")
+local factions = require("base.factions")
+local custom = require("content.lookat.custom")
+local uniquechardescription = require("content.uniquechardescription")
+local altars = require("item.altars")
 
 module("server.playerlookat", package.seeall)
 
 function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
 	debug(SourceCharacter.name .. " is looking at " .. TargetCharacter.name);
-  content.uniquechardescription.InitPlayerDesc();
+  uniquechardescription.InitPlayerDesc();
     -- here we go the lookat
     -- Generate the looking at value
     LookingAt = mode * 50;
@@ -45,11 +45,11 @@ function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
 
     --SourceCharacter:inform("mode= "..mode.." lookingat= "..LookingAt);
 
-	base.common.TurnTo( SourceCharacter, TargetCharacter.pos );
+	common.TurnTo( SourceCharacter, TargetCharacter.pos );
 
 	if not CustomLookAt then
-		content.lookat.custom.InitCustomLookAt();
-		CustomLookAt = content.lookat.custom.CustomLookAt;
+		custom.InitCustomLookAt();
+		CustomLookAt = custom.CustomLookAt;
 	end
 
 	if mode == 1 then
@@ -122,12 +122,12 @@ function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
     output=output..getWeaponText( TargetCharacter, lang, SourceCharacter );
 
 		--faction additions
-	Faction = base.factions.get(TargetCharacter);
+	Faction = factions.get(TargetCharacter);
 	if Faction.rankTown == 0 then
-		factiontext = ( lang ==0 and " ("..base.factions.TownRankList[Faction.rankTown].gRank..")" or " ("..base.factions.TownRankList[Faction.rankTown].eRank..")" );
+		factiontext = ( lang ==0 and " ("..factions.TownRankList[Faction.rankTown].gRank..")" or " ("..factions.TownRankList[Faction.rankTown].eRank..")" );
 	else
-		factiontext = ( (lang ==0 and " ("..base.factions.TownRankList[Faction.rankTown].gRank.." "..base.factions.TownNameGList[Faction.tid][1].."s)" )
-				or 	" ("..base.factions.TownRankList[Faction.rankTown].eRank.." of "..base.factions.TownNameEList[Faction.tid][1]..")" );
+		factiontext = ( (lang ==0 and " ("..factions.TownRankList[Faction.rankTown].gRank.." "..factions.TownNameGList[Faction.tid][1].."s)" )
+				or 	" ("..factions.TownRankList[Faction.rankTown].eRank.." of "..factions.TownNameEList[Faction.tid][1]..")" );
 	end
 	output = output .. factiontext;
 
@@ -145,7 +145,7 @@ function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
     if (mode == 1) then
         if (TargetCharacter:getPlayerLanguage() == 0) then
             TargetCharacter:inform( "Du fühlst dich beobachtet.",Player.mediumPriority );
-            if base.common.IsLookingAt( TargetCharacter, SourceCharacter.pos ) then
+            if common.IsLookingAt( TargetCharacter, SourceCharacter.pos ) then
                 if ( SourceCharacter:increaseAttrib( "sex", 0 ) == 0 ) then
                     TargetCharacter:sendCharDescription( SourceCharacter.id , "Er scheint dich anzustarren." );
                 else
@@ -154,7 +154,7 @@ function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
             end
         else
             TargetCharacter:inform( "You feel watched.",Player.mediumPriority );
-            if base.common.IsLookingAt( TargetCharacter, SourceCharacter.pos ) then
+            if common.IsLookingAt( TargetCharacter, SourceCharacter.pos ) then
                 if ( SourceCharacter:increaseAttrib( "sex", 0 ) == 0 ) then
                     TargetCharacter:sendCharDescription( SourceCharacter.id , "He appears to stare at you." );
                 else
@@ -163,9 +163,9 @@ function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
             end
         end
     end
-	if(content.uniquechardescription.PlayerDescriptionsDE[TargetCharacter.id] ~= nil) then
-		for i,v in pairs(content.uniquechardescription.PlayerDescriptionsDE[TargetCharacter.id]) do
-			base.common.InformNLS(SourceCharacter, content.uniquechardescription.PlayerDescriptionsDE[TargetCharacter.id][i], content.uniquechardescription.PlayerDescriptionsEN[TargetCharacter.id][i]);
+	if(uniquechardescription.PlayerDescriptionsDE[TargetCharacter.id] ~= nil) then
+		for i,v in pairs(uniquechardescription.PlayerDescriptionsDE[TargetCharacter.id]) do
+			common.InformNLS(SourceCharacter, uniquechardescription.PlayerDescriptionsDE[TargetCharacter.id][i], uniquechardescription.PlayerDescriptionsEN[TargetCharacter.id][i]);
 		end
 	end
 end
@@ -174,7 +174,7 @@ function checkCoat( TargetCharacter, lang, SourceCharacter )
     local coat = TargetCharacter:getItemAt( Character.coat );
     if ( coat ~= nil ) and ( coat.id > 0 ) then
         -- The dude has a coat!
-        output = output .. getText( "genus_"..content.genus.GenusData( coat.id ), lang );
+        output = output .. getText( "genus_"..genus.GenusData( coat.id ), lang );
         output = output .. world:getItemName( coat.id, lang );
 		handleCustomLookat( TargetCharacter, SourceCharacter, coat );
         return true;
@@ -189,7 +189,7 @@ function checkArmor( TargetCharacter, lang, modify, belowcoat, SourceCharacter )
             if belowcoat then
                 output = output .. " " .. getText( "below_coat", lang );
             end
-            output = output .. getText( "genus_"..content.genus.GenusData( breast.id ), lang );
+            output = output .. getText( "genus_"..genus.GenusData( breast.id ), lang );
             output = output .. world:getItemName( breast.id, lang );
 			handleCustomLookat( TargetCharacter, SourceCharacter, breast );
             return true;
@@ -228,7 +228,7 @@ function checkBelt( TargetCharacter, lang, modify, withend, SourceCharacter )
                     if not first_item then
                         output = output .. ", ";
                     end
-                    --output = output .. getText( "genus_"..content.genus.GenusData( item.id ), lang );
+                    --output = output .. getText( "genus_"..genus.GenusData( item.id ), lang );
                     output = output .. world:getItemName( item, lang ).."";
                 end
                 if first_item then
@@ -467,14 +467,14 @@ function getWeaponText( Char, lang, SourceChar )
         message = message .. ( lang == 0 and " In ihren Händen hat sie " or " In her hands she has " );
     end
     if ( leftItem ~= 0 ) then
-        message = message .. getText( "genus_"..content.genus.GenusData( leftItem ), lang );
+        message = message .. getText( "genus_"..genus.GenusData( leftItem ), lang );
         message = message .. world:getItemName( leftItem, lang );
     end
     if ( leftItem ~= 0 and rightItem ~= 0 ) then
         message = message .. ( lang == 0 and " und " or " and " );
     end
     if ( rightItem ~= 0 ) then
-        message = message .. getText( "genus_"..content.genus.GenusData( rightItem ), lang );
+        message = message .. getText( "genus_"..genus.GenusData( rightItem ), lang );
         message = message .. world:getItemName( rightItem, lang );
     end
     return message..".";
@@ -538,7 +538,7 @@ function handleCustomLookat(TargetChar,SourceChar,Item)
 			if Item.itempos ~= 4 then
 				local gender = CustomLookAt[Item.id][itemData][5];
 				if not gender then
-					gender = content.genus.GenusData( Item.id );
+					gender = genus.GenusData( Item.id );
 				end
 				customText = customText .. getText( "genus_"..gender, lang );
 			end
@@ -561,10 +561,10 @@ function createDevotionInform(SourceCharacter, TargetCharacter)
 	end
 	local sex = TargetCharacter:increaseAttrib("sex", 0);
 
-	if not item.altars.init then
-		item.altars.ini();
+	if not altars.init then
+		altars.ini();
 	end
-	local godName = item.altars.godName[devotion];
+	local godName = altars.godName[devotion];
 
 	local gText, eText = "","";
 	if sex == 0 then
@@ -591,5 +591,5 @@ function createDevotionInform(SourceCharacter, TargetCharacter)
 	gText = gText .. godName .."s.";
 	eText = eText .. "of " .. godName ".";
 
-	base.common.InformNLS(SourceCharacter, gText, eText);
+	common.InformNLS(SourceCharacter, gText, eText);
 end

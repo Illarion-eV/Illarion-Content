@@ -17,8 +17,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.bottles' WHERE itm_id IN (2500, 2496, 2497, 2501, 2499);
 
-require("base.common")
-require("base.lookat")
+local common = require("base.common")
+local lookat = require("base.lookat")
 
 module("item.bottles", package.seeall)
 
@@ -63,7 +63,7 @@ function UseItem(User, SourceItem)
     local food = drinkList[ SourceItem.id ];
     if (food ~= nil ) then
 	Evilrockentrance(User, SourceItem, ltstate)
-	local TargetItem = base.common.GetTargetItem(User, SourceItem);
+	local TargetItem = common.GetTargetItem(User, SourceItem);
         if( TargetItem ) then
             for i, combo in pairs(food[4]) do
                 if combo[1] == TargetItem.id then
@@ -83,7 +83,7 @@ function UseItem(User, SourceItem)
 						world:changeQuality( SourceItem, -100 );
 					else
 						if( math.random( 50 ) <= 1 ) then
-							base.common.InformNLS( User,
+							common.InformNLS( User,
 							"Die leere Flasche ist angeschlagen und unbrauchbar.",
 							"The empty bottle is broken and no longer usable.");
 						else
@@ -91,7 +91,7 @@ function UseItem(User, SourceItem)
 							local notCreated = User:createItem( food[3], 1, 333, dataCopy); -- create the remnant item
 							if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 								world:createItemFromId(food[3], notCreated, User.pos, true, 333, dataCopy);
-								base.common.HighInformNLS(User, "Du kannst nichts mehr halten.", "You can't carry any more.");
+								common.HighInformNLS(User, "Du kannst nichts mehr halten.", "You can't carry any more.");
 							end
 						end
 						world:erase(SourceItem,1);
@@ -102,7 +102,7 @@ function UseItem(User, SourceItem)
                 end -- found item
             end -- search loop
         else
-            base.common.InformNLS( User,
+            common.InformNLS( User,
                 "Nimm die Flasche und ein Trinkgefäß in deine Hände.",
                 "Take the bottle and a drinking vessel in your hands.");
         end
@@ -113,7 +113,7 @@ end
 
 
 function LookAtItem(User, Item)
-    local lookAt = base.lookat.GenerateLookAt(User, Item)
+    local lookAt = lookat.GenerateLookAt(User, Item)
 
     if firstcall==nil then
         InitDrinks();
@@ -138,12 +138,12 @@ function LookAtItem(User, Item)
     -- build quality text
     for i,qualLimit in pairs(BottleQualLm) do
         if (itemQual>=qualLimit ) then
-            DisplayText = base.common.GetNLS( User, BottleQualDe[i], BottleQualEn[i] );
+            DisplayText = common.GetNLS( User, BottleQualDe[i], BottleQualEn[i] );
             break;
         end
     end
 
-    DisplayText = DisplayText..base.common.GetNLS( User, food[1], food[2] );
+    DisplayText = DisplayText..common.GetNLS( User, food[1], food[2] );
 	if lookAt.description ~= nil then -- append the label
 		DisplayText = DisplayText..". "..lookAt.description;
 	end
@@ -159,16 +159,16 @@ function Evilrockentrance(User, SourceItem, ltstate)
   if checkBucket.id == 51 and SourceItem.id == 2496 then
 	local foundSource
 	-- check for empty bucket
-	TargetItem = base.common.GetItemInArea(User.pos, 51);
+	TargetItem = common.GetItemInArea(User.pos, 51);
 	if (TargetItem ~= nil) then
-		base.common.TurnTo( User, position(997,199,2) ); -- turn if necessary
+		common.TurnTo( User, position(997,199,2) ); -- turn if necessary
 		foundSource=true
 	end
 
 
 	if not foundSource then
 	-- nothing found to fill the bucket.
-	base.common.InformNLS(User,"Du solltest schon einen anderen Eimer zum Umfüllen haben.","You should have another container to transfer the water.");
+	common.InformNLS(User,"Du solltest schon einen anderen Eimer zum Umfüllen haben.","You should have another container to transfer the water.");
 	return
 	end
 

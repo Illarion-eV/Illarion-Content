@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common")
+local common = require("base.common")
 
 module("base.doors", package.seeall)
 
@@ -119,7 +119,7 @@ AddToDoorList = nil;
     @return ItemStruct - the door item that was found or nil
 ]]
 function GetDoorItem(Posi)
-    local items = base.common.GetItemsOnField(Posi);
+    local items = common.GetItemsOnField(Posi);
     for _, item in pairs(items) do
         if (OpenDoors[item.id] or ClosedDoors[item.id]) then
             return item;
