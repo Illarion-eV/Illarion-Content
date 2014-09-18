@@ -127,6 +127,7 @@ function onDeath(Monster)
 		if not done then done=monster.base.drop.AddDropItem(285,1,1,(100*math.random(8,9)+math.random(88,99)),0,2); end --diamond
         if not done then done=monster.base.drop.AddDropItem(item.gems.getMagicGemId(item.gems.TOPAZ),1,1,999,item.gems.getMagicGemData(1),2); end --magic topaz
         if not done then done=monster.base.drop.AddDropItem(item.gems.getMagicGemId(item.gems.SAPPHIRE),1,1,999,item.gems.getMagicGemData(1),2); end --magic sapphire
+		if not done then done=monster.base.drop.AddDropItem(3607,1,1,(100*math.random(8,9)+math.random(88,99)),0,3); end --pure spirit
 
         --Category 3: Weapon
 

@@ -174,7 +174,7 @@ product:addIngredient(546, 2) -- Naldor Wooden Boards: 2x1
 product:addIngredient(2573) -- Large Staff Handle: 1x1
 product:addIngredient(762) -- gold crak herb
 product:addIngredient(2571, 2) -- Merinium Ingot: 2x1
-product:addIngredient(2552); -- Pure Earthx1
+product:addIngredient(3607); -- Pure Spiritx1
 
 -- ornate mage's staff
 product = carving:addProduct(catId, 208, 92, 100, 168, 336, 1);

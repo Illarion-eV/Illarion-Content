@@ -147,7 +147,7 @@ product = goldsmithing:addProduct(catId, 2559, 90, 100, 243, 486)
 product:addIngredient(104, 2) -- Silver Ingot: 2x1
 product:addIngredient(236, 3) -- Gold Ingot: 2x1
 product:addIngredient(285) -- Diamond: 1x1
-product:addIngredient(2551) -- Pure Air: 1x1
+product:addIngredient(3607) -- Pure Spirit: 1x1
 product:addIngredient(2553) -- Pure Fire: 1x1
 product:addIngredient(2554) -- Pure Water: 1x1
 product:addIngredient(2571) -- Merinium Ingot

@@ -677,7 +677,7 @@ product:addIngredient(2571, 2); -- Merinium Ingot
 product:addIngredient(451); -- Topaz Powder
 product:addIngredient(285); -- Diamond
 product:addIngredient(46); -- Ruby
-product:addIngredient(2551); -- Pure Air
+product:addIngredient(3607); -- Pure Spirit
 product:addIngredient(104); -- Silver Ingot
 
 -- large fire-waraxe

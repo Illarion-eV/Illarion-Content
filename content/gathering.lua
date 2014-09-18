@@ -174,7 +174,7 @@ function InitGathering()
 		claydigging:AddInterruptMessage("Das Loch, in dem du gräbst, füllt sich mit Wasser und du mußt es kurz abschöpfen.", "The pit you are digging fills with water causing you to pause in order to scoop it out.");
 
 		--herbgathering
-		herbgathering:AddRandomItem(2553,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Brágon, der Gott des Feuers, mit einem Kleinod aus Reinem Feuer.","For your hard and honest labour Brágon, the God of Fire, rewards you with a treasure of Pure Fire."); --Pure fire
+		herbgathering:AddRandomItem(3607,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Eldan, der Gott des Geistes, mit einem Kleinod aus Reiner Geist.","For your hard and honest labour Eldan, the God of Spirit, rewards you with a treasure of Pure Spirit."); --Pure spirit
 		herbgathering:AddRandomItem(item.gems.getMagicGemId(item.gems.SAPPHIRE),1,999,item.gems.getMagicGemData(1),prob_extremely_rarely,"Tief im Gestrüpp machst du ein blaues, unheimliches Leuchten aus. Du findest einen magischen Saphir.","Deep in the shrub you notice a blue, eerie glow. To your delight it turns out to be a magical sapphire."); --Magical sapphire
 		herbgathering:AddRandomItem(2183,1,333,{},prob_extremely_rarely,"Ein alter Krug liegt verlassen und einsam im Gebüsch.","An old mug lies abandoned and lonesome in the bushes."); --Mug
 		herbgathering:AddRandomItem(799,1,333,{},prob_occasionally,"Ein Weidenkorb liegt am Boden. Er scheint noch brauchbar zu sein.","A wicker basket lies on the ground. It still seems to be usable."); --Basket

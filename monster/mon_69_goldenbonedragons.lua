@@ -118,6 +118,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(505,1,1,(100*math.random(7,8)+math.random(77,88)),nil,1); end --treasure map
         if not done then done=monster.base.drop.AddDropItem(446,1,1,(100*math.random(7,8)+math.random(77,88)),1,1); end --treasure map
         if not done then done=monster.base.drop.AddDropItem(738,1,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --dragon egg
+		if not done then done=monster.base.drop.AddDropItem(3607,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --pure spirit
 
         --Category 2: Gems
 
