@@ -65,6 +65,7 @@ itemShoes = 53
 
 sellItems = 122, 2140, 92, 393, 399, 1001, 1840, 2031, 446, 447, 448, 449, 450, 451, 452, 224, 465, 45, 46, 197, 198, 283, 284, 285, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282, 1858, 1054, 84, 98, 85, 297, 389, 398, 124, 229, 192, 2647
 buySecondaryItems = 122, 2140, 92, 393, 399, 1001, 1840, 2031, 446, 447, 448, 449, 450, 451, 452, 224, 225, 336, 465, 45, 46, 197, 198, 283, 284, 285, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282, 1858, 1054, 84, 98, 85, 123, 297, 389, 398, 444, 124, 229, 192, 296, 2647
+buyPrimaryItems = 251, 252, 253, 254, 255, 256, 257
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
 tradeFinishedWithoutTradingMsg "Auf bald!", "Farewell!"
@@ -86,6 +87,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 5% Swords: 84, 98, 85 (123)
 -- 5% Daggers: 297, 389, 398 (444)
 -- 5% Axes: 124, 229, 192 (296)
+-- 10% Raw gems: 251, 252, 253, 254, 255, 256, 257
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
 
