@@ -26,7 +26,8 @@ huntMonster = {}
 
 function addEffect(theEffect, User)
 
-    local monPos = base.common.getFreePos(position(448, 771, -9), 5)
+    -- spawn hellhound at library
+    local monPos = base.common.getFreePos(position(468, 839, -9), 5)
     local monster = world:createMonster(862, monPos, 20)
     huntMonster[User.id] =  monster
 end
@@ -52,13 +53,25 @@ function callEffect(theEffect, User)
         base.common.InformNLS( User,
         "Ihr habt zulange gebraucht, um das Monster zu finden, es ist entwischt.",
         "It took you too long to find the monster, it escaped.")
+        if isValidChar(huntMonster[User.id]) then
+			if huntMonster[User.id]:increaseAttrib("hitpoints",0) > 0 then
+				huntMonster[User.id]:increaseAttrib("hitpoints",-10000);
+			end
+        end
+        huntMonster[User.id] = nil
         return false
     end
 
+    -- lure to pit sucessful
     if huntMonster[User.id]:isInRangeToPosition(position(436, 836, -9), 2) then
         base.common.InformNLS( User,
         "[Quest gelöst] Kehre zu Defensor Infirmo zurück, um deine Belohnung zu erhalten.",
         "[Quest solved] Return to Defensor Informo to claim your reward.")
+        if isValidChar(huntMonster[User.id]) then
+
+				huntMonster[User.id]:warp(441, 844, -10); -- send it to the pit
+
+        end
         User:setQuestProgress(529, 4)
         huntMonster[User.id] = nil
         return false
