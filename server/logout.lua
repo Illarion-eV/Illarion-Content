@@ -18,9 +18,9 @@ local keys = require("base.keys")
 local common = require("base.common")
 local factionLeader = require("scheduled.factionLeader")
 
-module("server.logout", package.seeall)
+local M = {}
 
-function onLogout( theChar )
+function M.onLogout( theChar )
 
 	world:gfx(31,theChar.pos); --A nice GFX that announces clearly: A player logged out.
 
@@ -54,3 +54,5 @@ function exchangeFactionLeader( playerName )
 		end
 	end
 end
+
+return M

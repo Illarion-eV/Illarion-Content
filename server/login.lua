@@ -23,7 +23,7 @@ local factionLeader = require("scheduled.factionLeader")
 local townTreasure = require("base.townTreasure")
 local character = require("base.character")
 
-module("server.login", package.seeall);
+local M = {}
 
 -- Load messages of the day
 --German
@@ -196,7 +196,7 @@ messageE[78]="[Hint] It is not necessary to work all day long to raise your skil
 
 -- messages of the day - END
 
-function onLogin( player )
+function M.onLogin( player )
 
 	welcomeNewPlayer(player)
 
@@ -691,3 +691,5 @@ function exchangeFactionLeader( playerName )
 		end
 	end
 end
+
+return M

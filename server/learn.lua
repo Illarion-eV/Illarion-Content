@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 
-module("server.learn", package.seeall)
+local M = {}
 
 -- called by the server when user:learn(...) is issued by a script
 
@@ -29,7 +29,7 @@ learnLimit: Maximum skill level the user can reach with the triggering action.
 
 ]]
 
-function learn(user, skill, actionPoints, learnLimit)
+function M.learn(user, skill, actionPoints, learnLimit)
 	
 	leadAttrib = getLeadAttrib(user,skill); --reading the lead attribute
 	local skillName = user:getSkillName(skill) --reading the skill
@@ -101,7 +101,7 @@ end
 -- invoked every 10s on every user; to be used to reduce MC on a regular basis
 -- user:idleTime() can be used to get the number of seconds a user has been idle to check for inactivity
 
-function reduceMC( user )
+function M.reduceMC( user )
     
 	if user:idleTime() < 300 then --Has the user done any action or spoken anything within the last five minutes?
      	user:increaseMentalCapacity(-1*math.floor(user:getMentalCapacity()*0.00025+0.5)); --reduce MC-points by 0.025%, rounded correctly.
@@ -115,3 +115,5 @@ function getLeadAttrib(Char, Skill)
   end
   return 10; --No way, 10 should be default. Why did you return 5? ~Estralis
 end
+
+return M

@@ -23,9 +23,9 @@ local areas = require("content.areas")
 local rentrooms = require("content.rentrooms")
 local lever = require("item.lever")
 
-module("server.reload", package.seeall)
+local M = {}
 
-function onReload()
+function M.onReload()
 
     alchemy.InitAlchemy();
     areas.Init();
@@ -34,3 +34,5 @@ function onReload()
  
     return true;
 end
+
+return M

@@ -72,13 +72,13 @@ local gems = require("base.gems")
 -- for checking for unattackable monsters
 local base = require("monster.base.base")
 
-module("server.standardfighting", package.seeall)
+local M = {}
 
 firstTimeList = {}
 
 -- selects a target for monster from candidates, 0 means no target found
 -- this default can be overridden by a monster's setTarget entrypoint
-function setTarget(monster, candidates)
+function M.setTarget(monster, candidates)
     local target = 0
 
     for key,candidate in pairs(candidates) do
@@ -160,7 +160,7 @@ end
 -- @param Attacker The character who attacks
 -- @param Defender The character who is attacked
 -- @return true in case a attack was performed, else false
-function onAttack(Attacker, Defender)
+function M.onAttack(Attacker, Defender)
 
 	-- Prepare the lists that store the required values for the calculation
     local Attacker = { ["Char"]=Attacker };
@@ -2075,4 +2075,4 @@ Sounds[5]={32,42,40,42,42,44};
 Sounds[6]={32,44,41,44,44,41};
 Sounds[14]={32,43,41,42,40,41};
 
-
+return M

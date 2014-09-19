@@ -18,12 +18,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- deadPlayer - The player (character) whose hitpoints have just been set to zero
 
 local common = require("base.common")
-module("server.playerdeath", package.seeall)
+local M = {}
 
 DURABILITY_LOSS = 10
 BLOCKED_ITEM = 228
 
-function playerDeath(deadPlayer)
+function M.playerDeath(deadPlayer)
 
     if deadPlayer:isAdmin() then --Admins don't die. Failed, noob!
 	
@@ -83,3 +83,5 @@ function showDeathDialog(deadPlayer)
 	deadPlayer:requestMessageDialog(dialog); --showing the text
 		
 end
+
+return M
