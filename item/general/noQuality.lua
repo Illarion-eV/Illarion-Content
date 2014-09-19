@@ -20,13 +20,13 @@ local lookat = require("base.lookat")
 local common = require("base.common")
 local checks = require("item.general.checks")
 
-module("item.general.noQuality", package.seeall)
+local M = {}
 
 --This script can limit equipping e.g. throwing weapons without having to show the quality
 
 --No lookAt with quality, e.g. for stackable items
 
-function MoveItemBeforeMove(User,SourceItem,TargetItem)
+function M.MoveItemBeforeMove(User,SourceItem,TargetItem)
 
 	if TargetItem:getType() == 4 then --inventory, not belt
 	
@@ -42,4 +42,7 @@ function MoveItemBeforeMove(User,SourceItem,TargetItem)
 end
 
 	
+
+
+return M
 

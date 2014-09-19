@@ -18,7 +18,7 @@ local sendmessagetoplayer = require("handler.sendmessagetoplayer")
 local base = require("questsystem.base")
 local lookat = require("base.lookat")
 local common = require("base.common")
-module("questsystem.Geld_in_Hecke.trigger5", package.seeall)
+local M = {}
 
 local QUEST_NUMBER = 700
 local PRECONDITION_QUESTSTATE = 2
@@ -29,7 +29,7 @@ local RADIUS = 2
 local LOOKAT_TEXT_DE = "Ganz unten auf dem Boden des Fasses siehst du eine Notiz, die folgendes besagt: \"Das Geld liegt wie immer in der Hecke.\""
 local LOOKAT_TEXT_EN = "On the very bottom of the barrel is a hidden note. You can read the following: \"The money is as always in the hedge!\""
 
-function LookAtItem(PLAYER, item)
+function M.LookAtItem(PLAYER, item)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
       and ADDITIONALCONDITIONS(PLAYER)
       and base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -59,3 +59,5 @@ end
 function ADDITIONALCONDITIONS(PLAYER)
 return true
 end
+return M
+

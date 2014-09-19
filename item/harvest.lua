@@ -20,9 +20,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local fruitgathering = require("content.gatheringcraft.fruitgathering")
 
-module("item.harvest", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
 	if SourceItem.id == 14 or SourceItem.id == 300 or SourceItem.id == 387 or SourceItem.id == 1195 then
 		fruitgathering.StartGathering(User, SourceItem, ltstate);
@@ -35,3 +35,6 @@ function UseItem(User, SourceItem, ltstate)
 	end
 	
 end
+
+return M
+

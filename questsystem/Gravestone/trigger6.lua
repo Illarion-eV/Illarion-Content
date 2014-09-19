@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local sendmessagetoplayer = require("handler.sendmessagetoplayer")
 local base = require("questsystem.base")
-module("questsystem.Gravestone.trigger6", package.seeall)
+local M = {}
 
 local QUEST_NUMBER = 10000
 local PRECONDITION_QUESTSTATE = 27
@@ -25,7 +25,7 @@ local POSTCONDITION_QUESTSTATE = 39
 local POSITION = position(605, 344, 0)
 local RADIUS = 1
 
-function UseItem(PLAYER, item, ltstate)
+function M.UseItem(PLAYER, item, ltstate)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
       and ADDITIONALCONDITIONS(PLAYER)
       and base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -59,3 +59,5 @@ end
 function ADDITIONALCONDITIONS(PLAYER)
 return true
 end
+return M
+

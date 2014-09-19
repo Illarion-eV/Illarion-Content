@@ -21,7 +21,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local music = require("item.base.music")
 local wood = require("item.general.wood")
 
-module("item.id_90_flute", package.seeall)
+local M = {}
 
 skill = Character.flute
 
@@ -32,10 +32,13 @@ music.addTalkText("#me plays an airy tune on the flute.","#me spielt eine leicht
 music.addTalkText("#me plays a wild tune on the flute.","#me spielt eine wilde Melodie auf der Flöte.", skill);
 
 
-function UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem)
 
     music.PlayInstrument(User,SourceItem,skill);
 
 end
 
 LookAtItem = wood.LookAtItem
+
+return M
+

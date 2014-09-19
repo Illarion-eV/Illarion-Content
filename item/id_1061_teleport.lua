@@ -18,9 +18,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("item.id_1061_teleport", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
     if User.pos.z == -40 then
         User:inform("Nichts passiert.", "Nothing happens.")
     end
@@ -54,3 +54,6 @@ function UseItem(User, SourceItem, ltstate)
        -- no portal book
     end
 end
+
+return M
+

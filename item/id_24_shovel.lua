@@ -23,7 +23,7 @@ local claydigging = require("content.gatheringcraft.claydigging")
 local sanddigging = require("content.gatheringcraft.sanddigging")
 local metal = require("item.general.metal")
 
-module("item.id_24_shovel", package.seeall)
+local M = {}
 
 LookAtItem = metal.LookAtItem
 
@@ -47,7 +47,7 @@ function getClayPit(User)
 	return pitItem;
 end
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
 	local toolItem = User:getItemAt(5);
 	if ( toolItem.id ~=24 ) then
@@ -152,3 +152,6 @@ function DigForNothing(User)
 	end
 
 end
+
+return M
+

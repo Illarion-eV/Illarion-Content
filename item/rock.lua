@@ -19,11 +19,11 @@ local lookat = require("base.lookat")
 local teacher = require("alchemy.base.teacher")
 local mining = require("content.gatheringcraft.mining")
 
-module("item.rock", package.seeall)
+local M = {}
 
 -- UPDATE items SET itm_script='item.rock' WHERE itm_id IN (1246,1245,232,914,1273,1276,1250);
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
     -- alchemy stuff
 	if SourceItem.pos == position(75,651,0) or SourceItem.pos == position(873,878,0) then
 		teacher.UseItem(User, SourceItem, ltstate)
@@ -49,7 +49,7 @@ function UseItem(User, SourceItem, ltstate)
 
 end
 
-function LookAtItem(User,Item)
+function M.LookAtItem(User,Item)
     -- alchemy stuff
 	if Item.pos == position(75,651,0) or Item.pos == position(873,878,0) then
 		return teacher.LookAtItem(User, Item)
@@ -60,3 +60,6 @@ function LookAtItem(User,Item)
     return lookat.GenerateLookAt(User, Item)
 
 end
+
+return M
+

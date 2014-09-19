@@ -22,9 +22,9 @@ local common = require("base.common")
 local ranklist = require("base.ranklist")
 local explorerguild_320_questlog = require("quest.explorerguild_320_questlog")
 
-module("item.id_66_markerstone", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)  -- DONT EDIT THIS LINE!
+function M.UseItem(User, SourceItem, ltstate)  -- DONT EDIT THIS LINE!
 	local stonedata=SourceItem:getData("markerstone");
 	if tonumber(stonedata) then
 		if not explorersguild.CheckStone(User,tonumber(stonedata)) then
@@ -41,7 +41,7 @@ function UseItem(User, SourceItem, ltstate)  -- DONT EDIT THIS LINE!
     end
 end
 
-function LookAtItem(User,Item)
+function M.LookAtItem(User,Item)
 	local stonedata=Item:getData("markerstone");
 	if tonumber(stonedata) then
 		if not explorersguild.CheckStone(User,tonumber(stonedata)) then
@@ -52,3 +52,6 @@ function LookAtItem(User,Item)
     end
 	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)  
 end
+
+return M
+

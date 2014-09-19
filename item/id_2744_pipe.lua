@@ -19,11 +19,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local wood = require("item.general.wood")
 
-module("item.id_2744_pipe", package.seeall)
+local M = {}
 
 LookAtItem = wood.LookAtItem
 
-function UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem)
 	--local ammountSib = User:countItemAt("belt",155);
 	--local ammountTob = User:countItemAt("belt",772);
 	if (User:countItemAt("belt",155) == 0 and User:countItemAt("belt",772) == 0) then
@@ -54,3 +54,6 @@ function UseItem(User, SourceItem)
 
 	end
 end
+
+return M
+

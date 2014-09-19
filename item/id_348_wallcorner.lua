@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_348_wallcorner' WHERE itm_id = 348;
 
-module("item.id_348_wallcorner", package.seeall)
+local M = {}
 
-function UseItem(User, Item)
+function M.UseItem(User, Item)
     --The stuff below belongs to the quest of NPC Sylvester. This is old Gobaith stuff. But this quest should be converted to NewIllarion - so I don't delete it ~Estralis
 	--[[
     if (Item.pos == position(-106,-147,0)) then 
@@ -64,3 +64,6 @@ function UseItem(User, Item)
         end
     end]]
 end
+
+return M
+

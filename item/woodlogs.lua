@@ -20,9 +20,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("item.woodlogs", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem)
   local checkPos = SourceItem.pos;
   if (SourceItem:getType()~=3) then
     -- item is not on a field, try to light a fire at the front position.
@@ -77,3 +77,6 @@ function UseItem(User, SourceItem)
   "Du entzündest ein Feuer.",
   "You light a fire.");
 end
+
+return M
+

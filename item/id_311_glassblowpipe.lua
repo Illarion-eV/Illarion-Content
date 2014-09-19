@@ -20,14 +20,17 @@ local glassblowing = require("content.craft.glassblowing")
 local licence = require("base.licence")
 local jewel = require("item.general.jewel")
 
-module("item.id_311_glassblowpipe", package.seeall)
+local M = {}
 
 LookAtItem = jewel.LookAtItem
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
     glassblowing.glassblowing:showDialog(User, SourceItem)
 end
+
+return M
+

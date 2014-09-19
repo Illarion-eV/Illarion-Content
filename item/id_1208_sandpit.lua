@@ -18,9 +18,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local sanddigging = require("content.gatheringcraft.sanddigging")
 
-module("item.id_1208_sandpit", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
 	sanddigging.StartGathering(User, SourceItem, ltstate);
 end
+
+return M
+

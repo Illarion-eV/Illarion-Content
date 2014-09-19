@@ -19,11 +19,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.spidernet' WHERE itm_id IN (3093,3094,3095,3096);
 
-module("item.spidernet", package.seeall)
+local M = {}
 
 LastWarp={};
 
-function CharacterOnField(User)
+function M.CharacterOnField(User)
     --User:inform("Los");
     --Variables 'LastChar' and 'Last Warp' have to be remanent.
     --Variables 'AktTime' and 'Ensnarl' are defined as local.
@@ -52,3 +52,6 @@ function CharacterOnField(User)
         LastWarp[PosVal] = AktTime;
     end
 end
+
+return M
+

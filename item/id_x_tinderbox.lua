@@ -19,12 +19,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("item.id_x_tinderbox", package.seeall)
+local M = {}
 
 WoodIds = {544,543,2560,3};
 BC = base.common;
 
-function UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem)
 	
 	-- item in hand?
 	if not BC.IsItemInHands(SourceItem) then
@@ -205,3 +205,6 @@ function logToFile(theString)
     end
     return retVal;
 end
+
+return M
+

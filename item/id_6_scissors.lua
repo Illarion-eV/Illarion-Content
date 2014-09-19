@@ -23,7 +23,7 @@ local weaving = require("content.gatheringcraft.weaving")
 local woolcutting = require("content.gatheringcraft.woolcutting")
 local metal = require("item.general.metal")
 
-module("item.id_6_scissors", package.seeall)
+local M = {}
 
 LookAtItem = metal.LookAtItem
 
@@ -71,7 +71,7 @@ function getSheep(User)
 end
 
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
 	local target;
 
@@ -114,3 +114,6 @@ function UseItem(User, SourceItem, ltstate)
 	"Du brauchst entweder ein Schaf, um es zu scheren, musst for einem Spinnrad oder Webstuhl stehen, oder brauchst Eingeweide, um sie zu Garn zu zerschneiden.",
 	"You need either a sheep for shearing it, or need to stand in front of a spinning wheel or loom, or need entrails for cutting it and thus producing thread." );
 end
+
+return M
+

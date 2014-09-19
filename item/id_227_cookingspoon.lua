@@ -20,14 +20,17 @@ local cooking = require("content.craft.cooking")
 local licence = require("base.licence")
 local wood = require("item.general.wood")
 
-module("item.id_227_cookingspoon", package.seeall)
+local M = {}
 
 LookAtItem = wood.LookAtItem
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
     cooking.cooking:showDialog(User, SourceItem)
 end
+
+return M
+

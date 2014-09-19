@@ -45,11 +45,11 @@ local mining = require("content.gatheringcraft.mining")
 local metal = require("item.general.metal")
 local transformation_dog = require("alchemy.teaching.transformation_dog")
 
-module("item.id_2763_pickaxe", package.seeall)
+local M = {}
 
 LookAtItem = metal.LookAtItem
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
 	local toolItem = User:getItemAt(5);
 	if ( toolItem.id ~=2763 ) then
@@ -110,3 +110,6 @@ function DigForTreasure(User)
 	end
 	return false;
 end
+
+return M
+

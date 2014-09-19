@@ -25,9 +25,9 @@ local herbs = require("alchemy.base.herbs")
 local gemdust = require("alchemy.base.gemdust")
 local transformation_dog = require("alchemy.teaching.transformation_dog")
 
-module("alchemy.base.brewing", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
     -- no map items
 	if SourceItem.wear == 255 then
 	    return
@@ -41,10 +41,12 @@ function UseItem(User, SourceItem, ltstate)
 	end
 end
 
-function LookAtItem(User, Item)
+function M.LookAtItem(User, Item)
 
 	if Item.id == 140 and Item:getData("teachDogTransformationPotion") ~= "" then
 		return transformation_dog.LookAtDonfbladeMap(User, Item)
 	end
 	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
 end
+return M
+

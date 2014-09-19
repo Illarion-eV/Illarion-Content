@@ -18,9 +18,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("item.teleportgate", package.seeall)
+local M = {}
 
-function CharacterOnField( User )
+function M.CharacterOnField( User )
 
 	if (User:getType() ~= 0) then -- only players, else end of script
         return
@@ -62,3 +62,6 @@ function CharacterOnField( User )
 		end
 	end
 end
+
+return M
+

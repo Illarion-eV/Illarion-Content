@@ -19,11 +19,11 @@ local factions = require("base.factions")
 local transformation_dog = require("alchemy.teaching.transformation_dog")
 local id_266_bookshelf = require("item.id_266_bookshelf")
 
-module("item.id_3110_scroll", package.seeall)
+local M = {}
 
 -- UPDATE items SET itm_script = 'item.id_3110_scroll' WHERE itm_id = 3110;
 
-function LookAtItem(User,Item)
+function M.LookAtItem(User,Item)
     if Item:getData("bookId") ~= "" then
 		local bookId = tonumber(Item:getData("bookId"))
 		if bookId ~= nil then
@@ -35,7 +35,7 @@ function LookAtItem(User,Item)
 	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
 end
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
 	if SourceItem:getData("teachDogTransformationPotion") == "true" then
 		transformation_dog.UseSealedScroll(User, SourceItem)
@@ -67,3 +67,6 @@ function UseItem(User, SourceItem, ltstate)
 			return
 		end
 end
+
+return M
+

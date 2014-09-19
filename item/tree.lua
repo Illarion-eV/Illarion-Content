@@ -23,9 +23,9 @@ local lookat = require("base.lookat")
 local herbgathering = require("content.gatheringcraft.herbgathering")
 local woodchopping = require("content.gatheringcraft.woodchopping")
 
-module("item.tree", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
     -- alchemy stuff
 	if SourceItem.pos == position(432,238,0) then
 		teacher.UseItem(User, SourceItem, ltstate)
@@ -53,7 +53,7 @@ function UseItem(User, SourceItem, ltstate)
 	
 end
 
-function LookAtItem(User,Item)
+function M.LookAtItem(User,Item)
     -- alchemy stuff
 	if Item.pos == position(432,238,0) then
 		return teacher.LookAtItem(User, Item)
@@ -64,3 +64,6 @@ function LookAtItem(User,Item)
 	return lookat.GenerateLookAt(User, Item)
 
 end
+
+return M
+

@@ -21,13 +21,13 @@ local common = require("base.common")
 local checks = require("item.general.checks")
 local jewel = require("item.general.jewel")
 
-module("item.rings", package.seeall)
+local M = {}
 
-function LookAtItem(User,Item)
+function M.LookAtItem(User,Item)
 	return jewel.LookAtItem(User,Item);
 end
 
-function MoveItemBeforeMove(User,SourceItem,TargetItem)
+function M.MoveItemBeforeMove(User,SourceItem,TargetItem)
 
 	if TargetItem:getType() == 4 then --inventory, not belt
 	
@@ -41,3 +41,5 @@ function MoveItemBeforeMove(User,SourceItem,TargetItem)
 	
 	return true; --just in case
 end
+return M
+

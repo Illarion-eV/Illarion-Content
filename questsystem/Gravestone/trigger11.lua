@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local createeffect = require("handler.createeffect")
 local base = require("questsystem.base")
-module("questsystem.Gravestone.trigger11", package.seeall)
+local M = {}
 
 local QUEST_NUMBER = 10000
 local PRECONDITION_QUESTSTATE = 88
@@ -28,7 +28,7 @@ local RADIUS = 1
 local LOOKAT_TEXT_DE = "Die Namen der Liebenden leuchten für einen kurzen Moment auf."
 local LOOKAT_TEXT_EN = "The names of the lovers brighten up for a brief moment."
 
-function LookAtItem(PLAYER, item)
+function M.LookAtItem(PLAYER, item)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
       and ADDITIONALCONDITIONS(PLAYER)
       and PLAYER:getQuestProgress(QUEST_NUMBER) < ADDITIONAL_QUESTSTATE then
@@ -52,3 +52,5 @@ end
 function ADDITIONALCONDITIONS(PLAYER)
 return true
 end
+return M
+

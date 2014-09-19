@@ -21,12 +21,15 @@ local common = require("base.common")
 local stonecutting = require("content.gatheringcraft.stonecutting")
 local metal = require("item.general.metal")
 
-module("item.id_737_chisel", package.seeall)
+local M = {}
 
 LookAtItem = metal.LookAtItem
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
 	stonecutting.StartGathering(User, nil, ltstate);
 
 end
+
+return M
+

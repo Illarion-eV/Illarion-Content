@@ -21,7 +21,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local music = require("item.base.music")
 local wood = require("item.general.wood")
 
-module("item.id_532_panpipe", package.seeall)
+local M = {}
 
 skill = Character.panpipe
 
@@ -31,8 +31,11 @@ music.addTalkText("#me blows gently in the panpipes, singing a few, short tunes.
 music.addTalkText("#me plays a nice, coordinated melody on the panpipes.","#me spielt eine klare Melodie auf der Panflöte. ", skill);
 music.addTalkText("#me plays his panpipes, blowing gently and gracefully, singing an impressively beautiful melody.","#me spielt behändig eine beeindruckende Melodie voller Anmut auf der Panflöte. ", skill);
 
-function UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem)
     music.PlayInstrument(User,SourceItem, skill);
 end
 
 LookAtItem = wood.LookAtItem
+
+return M
+

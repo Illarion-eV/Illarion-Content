@@ -22,12 +22,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local licence = require("base.licence")
 local oremelting = require("content.gatheringcraft.oremelting")
 
-module("item.id_2836_forge", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
 	oremelting.StartGathering(User, SourceItem, ltstate);
 end
+
+return M
+

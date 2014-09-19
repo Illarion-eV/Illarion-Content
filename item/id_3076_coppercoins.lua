@@ -17,11 +17,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --UPDATE items SET itm_script='item.id_3076_coppercoins' WHERE itm_id=3076;
 local common = require("base.common")
 
-module("item.id_3076_coppercoins", package.seeall)
+local M = {}
 
 TimeList = {};
 
-function UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem)
 	if ( SourceItem.number == 1 ) then  --works only with 1 coin
 
     	if TimeList[User.id]~=nil then
@@ -38,3 +38,5 @@ function UseItem(User, SourceItem)
       	TimeList[User.id] = world:getTime("second");
 	end
 end
+return M
+

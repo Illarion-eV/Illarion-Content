@@ -22,11 +22,11 @@ local lookat = require("base.lookat")
 local climbing = require("content.climbing")
 local claydigging = require("content.gatheringcraft.claydigging")
 
-module("item.id_1206_claypit", package.seeall)
+local M = {}
 
 holePosition = position(854, 414, 0);
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
   if SourceItem.pos == holePosition then
   	if (User:countItemAt("all",2760)==0) then
@@ -42,7 +42,7 @@ function UseItem(User, SourceItem, ltstate)
   claydigging.StartGathering(User, SourceItem, ltstate);
 end
 
-function LookAtItem(User, Item)
+function M.LookAtItem(User, Item)
 
   local lookAt = lookat.GenerateLookAt(User, Item);
 
@@ -57,3 +57,6 @@ function LookAtItem(User, Item)
 
   return lookAt
 end
+
+return M
+

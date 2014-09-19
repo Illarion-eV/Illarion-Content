@@ -25,9 +25,9 @@ local factions = require("base.factions")
 -- UPDATE items SET itm_script='item.bookrests' WHERE itm_id = 3107;
 -- UPDATE items SET itm_script='item.bookrests' WHERE itm_id = 3108;
 
-module("item.bookrests", package.seeall)
+local M = {}
 
-function LookAtItem(User,Item)
+function M.LookAtItem(User,Item)
 
 	local lookAt
 	-- Bookrest for the Salavesh dungeon
@@ -135,7 +135,7 @@ function AkaltutLookAt(User, Item)
 	return lookAt
 end
 
-function UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem)
 	-- Bookrest for the Salavesh dungeon
 	if (SourceItem.pos == position(741,406,-3)) then
 	    User:sendBook(201);
@@ -280,4 +280,7 @@ function StaticTeleporter(User, SourceItem)
 	end
 	User:requestSelectionDialog(dialog)
 end
+
+
+return M
 

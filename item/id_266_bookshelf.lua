@@ -19,7 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local lookat = require("base.lookat")
 
-module("item.id_266_bookshelf", package.seeall)
+local M = {}
 
 CODOMYR_ON_C = 1
 CODOMYR_ON_G = 2
@@ -293,7 +293,7 @@ addBookshelf(position(472, 839, -9),{REIGN_AKALTUT})
 
 
 
-function LookAtItem(user, item)
+function M.LookAtItem(user, item)
     local lookAt = lookat.GenerateLookAt(user, item)
 
     if item:getType() == scriptItem.field then
@@ -323,7 +323,7 @@ function LookAtItem(user, item)
     return lookAt
 end
 
-function UseItem(user, item, target, counter, param, ltstate)
+function M.UseItem(user, item, target, counter, param, ltstate)
     if item:getType() ~= scriptItem.field then
         return
     end
@@ -373,3 +373,6 @@ end
 function isUserNextTo(user, pos)
     return user.pos.z == pos.z and math.max(math.abs(user.pos.x - pos.x), math.abs(user.pos.y - pos.y)) <= 1
 end
+
+return M
+

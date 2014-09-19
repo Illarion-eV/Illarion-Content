@@ -20,9 +20,9 @@ local factions = require("base.factions")
 local common = require("base.common")
 local licence = require("base.licence")
 local alchemy = require("scheduled.alchemy")
-module("gm.items.id_382_ceilingtrowel", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem)
 
 	-- First check for mode change
 	local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Egg Creation"};
@@ -795,13 +795,13 @@ function guardInfo(chosenPlayer)
 	return myInfoText
 end
 
-function LookAtItem(User, Item)
+function M.LookAtItem(User, Item)
 	base.lookat.SetSpecialDescription(Item, "Verwende die Kelle zum aufrufen der Funktionen (items, weather, factions, spawnpoints).", "Use the trowel to pick a function (items, weather, factions, spawnpoints).");
 	base.lookat.SetSpecialName(Item, "Kelle", "Trowel");
 	return base.lookat.GenerateLookAt(User, Item, base.lookat.METAL)
 end
 
-function UseItemWithField(User, SourceItem, TargetPos)
+function M.UseItemWithField(User, SourceItem, TargetPos)
 	local Field=world:getField(TargetPos)
 	User:inform("This field has the ID: "..Field:tile());
 end
@@ -866,3 +866,6 @@ function specialEggs(User)
 	User:requestInputDialog(InputDialog("Egg creation", "How many special eggs to you want to create? (Notice: Eggs will have a normal wear of 3. Increase manually if needed." ,false, 255, cbInputDialog))
 
 end
+
+return M
+

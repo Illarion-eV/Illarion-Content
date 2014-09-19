@@ -21,12 +21,15 @@ local common = require("base.common")
 local licence = require("base.licence")
 local threadproducing = require("content.gatheringcraft.threadproducing")
 
-module("item.id_171_spinningwheel", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
 	threadproducing.StartGathering(User, SourceItem, ltstate);
 end
+
+return M
+

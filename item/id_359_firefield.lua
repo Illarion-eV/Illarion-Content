@@ -19,9 +19,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local monstermagic = require("monster.base.monstermagic")
 
-module("item.id_359_firefield", package.seeall)
+local M = {}
 
-function CharacterOnField(User)
+function M.CharacterOnField(User)
 
     -- dont harm dead chars anymore
     if (User:increaseAttrib("hitpoints", 0) == 0) then
@@ -88,3 +88,6 @@ function DeleteFlame(User, FlameItem)
         world:createItemFromItem(item, User.pos, true);
     end
 end
+
+return M
+

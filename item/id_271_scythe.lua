@@ -22,7 +22,7 @@ local common = require("base.common")
 local grainharvesting = require("content.gatheringcraft.grainharvesting")
 local metal = require("item.general.metal")
 
-module("item.id_271_scythe", package.seeall)
+local M = {}
 
 LookAtItem = metal.LookAtItem
 
@@ -53,7 +53,7 @@ function getGrain(User)
 	return TargetItem;
 end
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
 	local grain = getGrain(User);
 	if grain ~= nil then
@@ -61,3 +61,6 @@ function UseItem(User, SourceItem, ltstate)
 	end
 
 end
+
+return M
+

@@ -19,11 +19,11 @@ local common = require("base.common")
 local factions = require("base.factions")
 local lookat = require("base.lookat")
 
-module("item.keys", package.seeall)
+local M = {}
 
 -- UPDATE items SET itm_script='item.keys' WHERE itm_id IN (2121,2122,2123,2124,2141,2144,2145,2161,2556,2558,3054,3055,3056);
 
-function UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem)
     local DoorItem = common.GetFrontItem( User );
 
 	if SourceItem:getData("townKeyOf") ~= "" then
@@ -264,7 +264,7 @@ end
 
 
 
-function LookAtItem(User,Item)
+function M.LookAtItem(User,Item)
 	local data = Item:getData("lockId");
 
 	if tonumber(data) == 666 and User:isAdmin() then
@@ -273,3 +273,6 @@ function LookAtItem(User,Item)
 
    return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
+
+return M
+

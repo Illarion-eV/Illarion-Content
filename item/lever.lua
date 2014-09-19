@@ -36,7 +36,7 @@ local eraseplayeritem = require("handler.eraseplayeritem")
 local createplayeritem = require("handler.createplayeritem")
 local evilrock = require("triggerfield.evilrock")
 
-module("item.lever", package.seeall)
+local M = {}
 
 -- UPDATE items SET itm_script='item.lever' WHERE itm_id IN (434, 435, 436, 437, 438, 439);
 
@@ -303,7 +303,7 @@ function generateKey(posX,posY,posZ)
     return posX*1024*1024+posY*1024+posZ;
 end
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
     if (initi==nil) then
         myLevers=init();
         initi=1;
@@ -314,7 +314,7 @@ function UseItem(User, SourceItem, ltstate)
     end
 end
 
-function LookAtItem(User, Item)
+function M.LookAtItem(User, Item)
     if (initi==nil) then
         myLevers=init();
         initi=1;
@@ -337,3 +337,6 @@ function AddToLevers(myLever)
         return -1;                                      -- no item there
     end
 end
+
+return M
+

@@ -16,13 +16,16 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 
-module("item.id_314_ash", package.seeall)
+local M = {}
 
 -- UPDATE items SET itm_script='item.id_314_ash' WHERE itm_id = 314;
 
-function LookAtItem(User,Item)
+function M.LookAtItem(User,Item)
 
 	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
 
 end
+
+
+return M
 

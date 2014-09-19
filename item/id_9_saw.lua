@@ -21,7 +21,7 @@ local licence = require("base.licence")
 local boardproducing = require("content.gatheringcraft.boardproducing")
 local metal = require("item.general.metal")
 
-module("item.id_9_saw", package.seeall)
+local M = {}
 
 LookAtItem = metal.LookAtItem
 
@@ -50,7 +50,7 @@ function getWorkbench(User)
 	return nil;
 end
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
@@ -65,3 +65,6 @@ function UseItem(User, SourceItem, ltstate)
 		"Du musst neben einem Werkbank stehen um die Säge zu benutzen.",
 		"You must stand next to a workbench to use the saw.");
 end
+
+return M
+

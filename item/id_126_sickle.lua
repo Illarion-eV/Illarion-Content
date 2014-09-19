@@ -23,11 +23,11 @@ local farming = require("content.gatheringcraft.farming")
 local herbgathering = require("content.gatheringcraft.herbgathering")
 local metal = require("item.general.metal")
 
-module("item.id_126_sickle", package.seeall)
+local M = {}
 
 LookAtItem = metal.LookAtItem
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
 	local plant;
 
@@ -57,3 +57,6 @@ function UseItem(User, SourceItem, ltstate)
 	"There is nothing for which you can use the sickle." );
 
 end
+
+return M
+

@@ -18,7 +18,7 @@ local common = require("base.common")
 local chardescription = require("content.chardescription")
 local lookat = require("base.lookat")
 
-module("item.id_2874_mirror", package.seeall)
+local M = {}
 -- belongs also to item id 2873
 
 -- UPDATE items SET itm_script='item.id_2874_mirror' WHERE itm_id = 2874;
@@ -26,7 +26,7 @@ module("item.id_2874_mirror", package.seeall)
 ladderPosition = position(-32,193,-8)
 mirrorPosition = position(-28,193,-8)
 
-function LookAtItem(User, Item)
+function M.LookAtItem(User, Item)
     
 	local lookAt = lookat.GenerateLookAt(User, Item)
 
@@ -42,7 +42,7 @@ function LookAtItem(User, Item)
     return lookAt
 end
 
-function UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem)
 	local output = "";
 	local lang = User:getPlayerLanguage();
 	local qual,dura = chardescription.getClothesFactor(User);
@@ -66,3 +66,5 @@ function UseItem(User, SourceItem)
 	end
 	User:inform(output);
 end
+return M
+

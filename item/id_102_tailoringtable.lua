@@ -19,12 +19,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local tailoring = require("content.craft.tailoring")
 local licence = require("base.licence")
 
-module("item.id_102_tailoringtable", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
     tailoring.tailoring:showDialog(User, SourceItem)
 end
+
+return M
+

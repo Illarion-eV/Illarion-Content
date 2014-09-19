@@ -23,7 +23,7 @@ local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local id_165_blue_bottle = require("alchemy.item.id_165_blue_bottle")
 
-module("alchemy.item.id_329_black_bottle",package.seeall); --, package.seeall(druid.base.alchemy))
+local M = {}
 
 -- UPDATE common SET com_script='alchemy.item.id_329_black_bottle' WHERE com_itemid = 329;
 
@@ -304,7 +304,7 @@ function dogTransformation(User,SourceItem)
 
 end
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
     -- repair potion in case it's broken
 	alchemy.repairPotion(SourceItem)
 	-- repair end
@@ -329,6 +329,8 @@ function UseItem(User, SourceItem, ltstate)
 	end  
 end
 	
-function LookAtItem(User,Item)
+function M.LookAtItem(User,Item)
 	return base.lookat.GenerateLookAt(User, Item, 0)
 end
+return M
+

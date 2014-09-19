@@ -21,9 +21,9 @@ local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local licence = require("base.licence")
 
-module("alchemy.base.gemdust", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
     -- infront of a cauldron?
     local cauldron = alchemy.GetCauldronInfront(User)
@@ -130,3 +130,5 @@ function BrewingGemDust(User,gemDustId,cauldron)
 		                            "The gem dust dissipates, as you fill it into the empty cauldron.")
 	end	
 end
+return M
+

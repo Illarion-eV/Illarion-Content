@@ -20,12 +20,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local licence = require("base.licence")
 local boardproducing = require("content.gatheringcraft.boardproducing")
 
-module("item.id_724_workbench", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
 	boardproducing.StartGathering(User, SourceItem, ltstate);
 end
+
+return M
+

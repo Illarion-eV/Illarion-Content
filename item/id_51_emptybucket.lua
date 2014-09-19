@@ -25,10 +25,10 @@ local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local licence = require("base.licence")
 
-module("item.id_51_emptybucket", package.seeall)
+local M = {}
 
 -- Wassereimer fuellen
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
   -- check for cauldron
   TargetItem = GetCauldron(User);
   if (TargetItem ~= nil) then
@@ -189,3 +189,6 @@ function GetWaterTilePosition(User)
   end
   return nil;
 end
+
+return M
+

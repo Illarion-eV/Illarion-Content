@@ -20,17 +20,20 @@ local ranklist = require("base.ranklist")
 
 -- UPDATE items SET itm_script='item.id_661_lectern' WHERE itm_id IN (661, 660);
 
-module("item.id_661_lectern", package.seeall)
+local M = {}
 
-function UseItem(User,SourceItem,ltstate)
+function M.UseItem(User,SourceItem,ltstate)
 	if SourceItem.pos == position(138, 551, 0) or SourceItem.pos == position(358, 217, 0) or SourceItem.pos == position(896, 761, 1) then
 		ranklist.getRanklist(User,"explorerRanklist", true);
 	end
 end
 
-function LookAtItem(User, Item)
+function M.LookAtItem(User, Item)
 	if Item.pos == position(138, 551, 0) or Item.pos == position(358, 217, 0) or Item.pos == position(896, 761, 1) then
 		lookat.SetSpecialDescription(Item, "Rangliste der Entdeckergilde.", "Ranklist of the explorer guild");
 	end
 	return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
+
+return M
+

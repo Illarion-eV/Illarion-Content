@@ -20,9 +20,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("item.id_290_cabbage", package.seeall)
+local M = {}
 
-function MoveItemBeforeMove(User, SourceItem, TargetItem)
+function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
     if (SourceItem:getData("amount") ~= "") then
         common.HighInformNLS(User,
 		"Du würdest den Kohl beschädigen, ziehst du ihn mit bloßen Händen heraus. Du benötigst eine Sichel, um ihn abzuschneiden.",
@@ -31,3 +31,6 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
     end
     return true
 end    
+
+return M
+

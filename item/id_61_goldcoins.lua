@@ -20,14 +20,14 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("item.id_61_goldcoins", package.seeall)
+local M = {}
 
 if not InitTime then
 	InitTime=true;
 	TimeList = {};
 end
 
-function UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem)
 
    	if TimeList[User.id]~=nil then
 		if  ( (math.abs(world:getTime("second") - TimeList[User.id]) ) <=3) then  --1 Rl. second delay
@@ -42,3 +42,5 @@ function UseItem(User, SourceItem)
 	User:talk(Character.say, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt "..gValue..".", "#me throws a coin in the air and catches it again. It shows "..eValue..".")
 
 end
+return M
+

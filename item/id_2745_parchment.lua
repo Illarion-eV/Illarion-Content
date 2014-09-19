@@ -23,12 +23,12 @@ local gemdust = require("alchemy.base.gemdust")
 local id_164_emptybottle = require("item.id_164_emptybottle")
 local potionToTeacher = require("triggerfield.potionToTeacher")
 
-module("item.id_2745_parchment", package.seeall)
+local M = {}
 
 -- important: do not remove the fourth parameter "checkVar".
 -- it is important for alchemy
 -- you can just ignore it
-function UseItem(User, SourceItem,ltstate,checkVar)
+function M.UseItem(User, SourceItem,ltstate,checkVar)
 
     -- Check if it is an alchemy recipe.
     if SourceItem:getData("alchemyRecipe") == "true" then
@@ -445,8 +445,11 @@ end
 
 
 
-function LookAtItem(User, Item)
+function M.LookAtItem(User, Item)
 
 	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
 
 end
+
+return M
+

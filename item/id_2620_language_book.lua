@@ -16,11 +16,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 
-module("item.id_2620_language_book", package.seeall)
+local M = {}
 
 -- UPDATE items SET itm_script='item.id_2620_language_book' WHERE itm_id = 2620;
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 	if SourceItem:getData("langcode") == "" then
 		SourceItem:setData("langcode", 11)
 	end	
@@ -134,7 +134,7 @@ function UseItem(User, SourceItem, ltstate)
 	--Replace with new learn function, see learn.lua 
 end
 
-function LookAtItem(User,Item)
+function M.LookAtItem(User,Item)
 	if Item:getData("langcode") == "" then
 		Item:setData("langcode", 11)
 	end	
@@ -202,3 +202,6 @@ function GetDifficulty(code)
     elseif (code==10) then return 5;
     end
 end
+
+return M
+

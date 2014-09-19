@@ -21,11 +21,11 @@ local climbing = require("content.climbing")
 local cloth = require("item.general.cloth")
 local tying_capturer = require("lte.tying_capturer")
 
-module("item.id_2760_rope", package.seeall)
+local M = {}
 
 LookAtItem = cloth.LookAtItem
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
 	if SourceItem:getData("tyingStatus") == "tied" then
 		-- it's a tying rope!
@@ -57,7 +57,7 @@ function UseItem(User, SourceItem, ltstate)
 	climbing.climbDown(User);
 end
 
-function MoveItemBeforeMove( User, SourceItem, TargetItem )
+function M.MoveItemBeforeMove( User, SourceItem, TargetItem )
 
 	if SourceItem:getData("tyingStatus") == "tied" then
 
@@ -401,3 +401,6 @@ function GetRaceGenderText( Language, Character )
 
 	return outText;
 end
+
+return M
+

@@ -20,7 +20,7 @@ local common = require("base.common")
 local fishing = require("content.gatheringcraft.fishing")
 local wood = require("item.general.wood")
 
-module("item.id_72_fishingrod", package.seeall)
+local M = {}
 
 LookAtItem = wood.LookAtItem
 
@@ -64,7 +64,7 @@ function getShoal(User)
 	return nil;
 end
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
 	if (getWaterTilePosition(User) == nil) then -- fishing only possible on water tiles
 		common.HighInformNLS(User,
@@ -90,3 +90,6 @@ function UseItem(User, SourceItem, ltstate)
 
 	fishing.StartGathering(User, shoalItem, ltstate);
 end
+
+return M
+

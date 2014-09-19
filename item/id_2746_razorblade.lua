@@ -21,7 +21,7 @@ local licence = require("base.licence")
 local leatherproducing = require("content.gatheringcraft.leatherproducing")
 local metal = require("item.general.metal")
 
-module("item.id_2746_razorblade", package.seeall)
+local M = {}
 
 LookAtItem = metal.LookAtItem
 
@@ -47,7 +47,7 @@ function getStretcher(User)
 	return nil;
 end
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
@@ -62,3 +62,6 @@ function UseItem(User, SourceItem, ltstate)
 		"Du musst neben einem Spannrahmen stehen um die Rasierklinge zu benutzen.",
 		"You must stand next to a stretcher to use the razor blade.");
 end
+
+return M
+

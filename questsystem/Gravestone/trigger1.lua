@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 local base = require("questsystem.base")
-module("questsystem.Gravestone.trigger1", package.seeall)
+local M = {}
 
 local QUEST_NUMBER = 10000
 local PRECONDITION_QUESTSTATE = 0
@@ -27,7 +27,7 @@ local RADIUS = 10
 local LOOKAT_TEXT_DE = "Du siehst einen alten schmutzigen Grabstein. Mit einem Tuch könntest du den Schmutz abwischen."
 local LOOKAT_TEXT_EN = "You see an old tombstone. With a cloth you could clean the dirt away."
 
-function LookAtItem(PLAYER, item)
+function M.LookAtItem(PLAYER, item)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
       and ADDITIONALCONDITIONS(PLAYER)
       and PLAYER:getQuestProgress(QUEST_NUMBER) < ADDITIONAL_QUESTSTATE then
@@ -50,3 +50,5 @@ end
 function ADDITIONALCONDITIONS(PLAYER)
 return true
 end
+return M
+

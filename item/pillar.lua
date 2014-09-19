@@ -20,13 +20,13 @@ local common = require("base.common")
 local lookat = require("base.lookat")
 local vision = require("content.vision")
 
-module("item.pillar", package.seeall)
+local M = {}
 
 -- Edit by faladron 13. April 2012 added lines 72 - 92 for Endurance Cave Quest
 
 -- UPDATE items SET itm_script='item.pillar' WHERE itm_id IN (272, 440, 441, 442, 443, 467, 692, 693, 694, 695, 2805);
 
-function LookAtItem(User,Item)
+function M.LookAtItem(User,Item)
 
 	-------------------------------- ENDURANCE CAVE QUEST LOOKAT -----------------------------------------
 	if Item.pos == position (7,11,-15) then
@@ -67,7 +67,7 @@ function LookAtItem(User,Item)
 end
 
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 	
 	vision.UseDarkColumnsPuzzle(User, SourceItem, ltstate)
 	vision.UseDarkColumns(User, SourceItem, ltstate)
@@ -146,3 +146,6 @@ function ReginaldLookAt(User, Item)
 	end
 	return lookAt
 end
+
+return M
+

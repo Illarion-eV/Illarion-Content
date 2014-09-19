@@ -20,9 +20,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("item.id_92_oillamp", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem)
     x=math.random(99);
     if x < 6 then
         common.InformNLS(User,"Du bist nicht sicher, aber es scheint als würde die Lampe etwas leuchten","You are not sure, but it seems the lamp starts to glow a little.");
@@ -33,3 +33,6 @@ function UseItem(User, SourceItem)
 
     end
 end
+
+return M
+

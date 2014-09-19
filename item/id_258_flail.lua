@@ -21,12 +21,15 @@ local common = require("base.common")
 local flailing = require("content.gatheringcraft.flailing")
 local wood = require("item.general.wood")
 
-module("item.id_258_flail", package.seeall)
+local M = {}
 
 LookAtItem = wood.LookAtItem
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
     flailing.StartGathering(User, nil, ltstate);
 
 end
+
+return M
+

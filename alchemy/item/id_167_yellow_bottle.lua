@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 
-module("alchemy.item.id_167_yellow_bottle", package.seeall)
+local M = {}
 
 -- UPDATE common SET com_script='alchemy.item.id_167_yellow_bottle' WHERE com_itemid = 167;
 
@@ -26,7 +26,7 @@ function DrinkPotion(User,SourceItem)
     User:inform("Der Trank scheint keine Wirkung zu haben.","The potion seems to have no effect.")
 end
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
     -- repair potion in case it's broken
 	alchemy.repairPotion(SourceItem)
 	-- repair end
@@ -50,3 +50,5 @@ function UseItem(User, SourceItem, ltstate)
 	    end
 	end
 end
+return M
+

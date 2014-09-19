@@ -20,14 +20,14 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local lookat = require("base.lookat")
 
-module("item.id_2207_well", package.seeall)
+local M = {}
 
 wellPosition1 = position(528, 555, 0); -- maze
 wellPosition2 = position(105, 600, 0); -- Cadomyr
 wellPosition3 = position(359, 273, 0); -- Galmair
 wellPosition4 = position(849, 841, 0); -- Runewick
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
   if (SourceItem:getData("modifier") == "wishing well") then
     common.InformNLS(User,
@@ -53,7 +53,7 @@ function UseItem(User, SourceItem, ltstate)
 
 end
 
-function LookAtItem(User, Item)
+function M.LookAtItem(User, Item)
 
   local lookAt = lookat.GenerateLookAt(User, Item);
 
@@ -72,4 +72,7 @@ function LookAtItem(User, Item)
   return lookAt
 end
 
+
+
+return M
 

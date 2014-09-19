@@ -20,9 +20,9 @@ local lookat = require("base.lookat")
 
 -- UPDATE items SET itm_script='item.id_505_treasuremap' WHERE itm_id IN (505);
 
-module("item.id_505_treasuremap", package.seeall)
+local M = {}
 
-function LookAtItem(User, Item)
+function M.LookAtItem(User, Item)
 	if Item:getData("MapPosX") == "" and Item:getData("MapPosY") == "" and Item:getData("MapPosZ") == "" then --no valid treasure map
 		lookat.SetSpecialDescription(Item, "Eine Stück Pergament mit ein paar Strichen. Es sieht eher nach einer Kinderzeichnung statt einer Schatzkarte aus.",
             "A piece of parchment with some lines on it. It rather looks like a childrens drawing instead of a treasure map." );
@@ -50,6 +50,9 @@ function LookAtItem(User, Item)
 	end;
 end;
 
-function UseItem(User, SourceItem, ltstate)  -- DONT EDIT THIS LINE!
+function M.UseItem(User, SourceItem, ltstate)  -- DONT EDIT THIS LINE!
 
 end
+
+return M
+

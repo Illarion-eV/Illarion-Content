@@ -18,9 +18,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("item.id_1059_dice", package.seeall);
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 	chooseTypeOfDice(User)
 end
 
@@ -105,3 +105,5 @@ function chooseTypeOfDice(User)
 	
 	User:requestSelectionDialog(dialog)
 end
+return M
+

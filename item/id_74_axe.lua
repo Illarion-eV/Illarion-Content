@@ -21,11 +21,11 @@ local common = require("base.common")
 local woodchopping = require("content.gatheringcraft.woodchopping")
 local metal = require("item.general.metal")
 
-module("item.id_74_axe", package.seeall)
+local M = {}
 
 LookAtItem = metal.LookAtItem
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
 	local treeItem = woodchopping.getTree(User);
 	if treeItem then
@@ -39,4 +39,7 @@ function UseItem(User, SourceItem, ltstate)
 		"For chopping wood you have to go to a tree." );
 	end
 end
+
+
+return M
 

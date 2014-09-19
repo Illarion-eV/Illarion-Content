@@ -21,7 +21,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local music = require("item.base.music")
 local wood = require("item.general.wood")
 
-module("item.id_333_horn", package.seeall)
+local M = {}
 
 skill = Character.horn
 
@@ -31,8 +31,11 @@ music.addTalkText("#me blows in a horn, sounding like a dying animal","#me bläst
 music.addTalkText("#me blows into a horn and produces a great sound","#me bläst in das Horn und erzeugt so einen guten Klang", skill);
 music.addTalkText("#me blows into a horn and produces a awesome sound","#me bläst in das Horn und erzeugt einen beeindruckenden Klang", skill);
 
-function UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem)
     music.PlayInstrument(User,SourceItem, skill);
 end
 
 LookAtItem = wood.LookAtItem
+
+return M
+

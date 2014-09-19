@@ -21,9 +21,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local lookat = require("base.lookat")
 
-module("item.id_321_depot", package.seeall)
+local M = {}
 
-function LookAtItem(User, Item)
+function M.LookAtItem(User, Item)
     local lookAt = lookat.GenerateLookAt(User, Item)
     local depotId = tonumber(Item:getData("depot"))
 
@@ -39,3 +39,6 @@ function LookAtItem(User, Item)
     
     return lookAt
 end
+
+return M
+

@@ -21,7 +21,7 @@ local licence = require("base.licence")
 local bricksproducing = require("content.gatheringcraft.bricksproducing")
 local wood = require("item.general.wood")
 
-module("item.id_734_brickmould", package.seeall)
+local M = {}
 
 LookAtItem = wood.LookAtItem
 
@@ -47,7 +47,7 @@ function getOven(User)
 	return nil;
 end
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
@@ -62,3 +62,6 @@ function UseItem(User, SourceItem, ltstate)
 		"Du musst neben einem Schmelzoven stehen um die Ziegelform zu benutzen.",
 		"You must stand next to a meltoven to use the brick mould.");
 end
+
+return M
+

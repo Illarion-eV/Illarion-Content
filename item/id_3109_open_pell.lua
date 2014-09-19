@@ -19,7 +19,7 @@ local alchemy = require("alchemy.base.alchemy")
 
 
 
-module("item.id_3109_open_pell",package.seeall)
+local M = {}
 
 -- script currently only used to teach alchemy recipes
 
@@ -342,7 +342,7 @@ function RecipeInform( User, SourceItem)
 	User:requestSelectionDialog(dialog)
 end
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
 	if SourceItem:getData("teachDogTransformationPotion") == "true" then
 		dogScroll(User, SourceItem)
@@ -422,7 +422,7 @@ function TellRecipe(User, effectId)
 
 end
 
-function LookAtItem(User, Item)
+function M.LookAtItem(User, Item)
     local town = getTown(Item)
 	if town then
 		local lookAt = ItemLookAt()
@@ -433,3 +433,6 @@ function LookAtItem(User, Item)
 		return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
 	end
 end
+
+return M
+

@@ -22,9 +22,9 @@ local licence = require("base.licence")
 local bricksproducing = require("content.gatheringcraft.bricksproducing")
 local glassingotproducing = require("content.gatheringcraft.glassingotproducing")
 
-module("item.id_313_glassmeltoven", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
@@ -53,3 +53,6 @@ function UseItem(User, SourceItem, ltstate)
 		end
 	end
 end
+
+return M
+

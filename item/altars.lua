@@ -65,7 +65,7 @@ local common = require("base.common")
 local gods = require("content.gods")
 local lookat = require("base.lookat")
 
-module("item.altars", package.seeall)
+local M = {}
 
 function ini()
   init=true;
@@ -108,7 +108,7 @@ function ini()
   priestItems[16]={2420,552,39,69,2746}; --Moshran: Black priest robe, Deer meat, Skull staff, Raw leather, razor blade
 end
 
-function LookAtItem( User, Item )
+function M.LookAtItem( User, Item )
   thisGod=tonumber(Item:getData("god"));
   
   if thisGod==nil then
@@ -182,7 +182,7 @@ function LookAtItem( User, Item )
   return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end --function
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
   thisGod=tonumber(SourceItem:getData("god"));
   
   if thisGod==nil then
@@ -351,3 +351,6 @@ function checkAudience(god, position)
     return false;
   end
 end
+
+return M
+

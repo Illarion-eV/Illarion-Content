@@ -19,7 +19,7 @@ local lookat = require("base.lookat")
 local common = require("base.common")
 local checks = require("item.general.checks")
 
-module("item.general.jewel", package.seeall)
+local M = {}
 
 -- Normal Items:
 -- UPDATE common SET com_script='item.general.jewel' WHERE com_itemid IN (225, 1840, 1858);
@@ -30,12 +30,12 @@ module("item.general.jewel", package.seeall)
 -- Weapon Items:
 -- UPDATE common SET com_script='item.general.jewel' WHERE com_itemid IN ();
 
-function LookAtItem(user, item)
+function M.LookAtItem(user, item)
     return lookat.GenerateLookAt(user, item, lookat.JEWELLERY)
 end;
 
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
     -- list with jewles and the functions belonging to them
     UseMe={}
 	-- UseMe[ITEMID] = function(...) UseJewl_ITEMID(...) end
@@ -47,7 +47,7 @@ function UseItem(User, SourceItem, ltstate)
     end
 end
 
-function MoveItemBeforeMove(User,SourceItem,TargetItem)
+function M.MoveItemBeforeMove(User,SourceItem,TargetItem)
 
 	if TargetItem:getType() == 4 then --inventory, not belt
 	
@@ -61,3 +61,5 @@ function MoveItemBeforeMove(User,SourceItem,TargetItem)
 	
 	return true; --just in case
 end
+return M
+

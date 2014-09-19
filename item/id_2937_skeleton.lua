@@ -21,9 +21,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local lookat = require("base.lookat")
 
-module("item.id_2937_skeleton", package.seeall)
+local M = {}
 
-function LookAtItem(User, Item)
+function M.LookAtItem(User, Item)
 
     if Item.pos == position (501, 156, 0) then --The body of Madoquar
         lookat.SetSpecialDescription(Item, "Ein zierliches Skelett, vielleicht von einer Elfin.", "A slender skeleton, maybe an elfess.") --sending the message
@@ -36,7 +36,7 @@ function LookAtItem(User, Item)
     return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
     if SourceItem.pos == position (501, 156, 0) and User:getQuestProgress(112) == 6 then --The body of Madoquar
         User:setQuestProgress(112,7) --Bone found!
@@ -62,3 +62,6 @@ function UseItem(User, SourceItem, ltstate)
     end
 
 end
+
+return M
+

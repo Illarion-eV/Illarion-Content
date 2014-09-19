@@ -19,15 +19,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local treasure = require("base.treasure")
 
-module("item.id_2830_chest", package.seeall)
+local M = {}
 
-function LookAtItem(User, Item)
+function M.LookAtItem(User, Item)
     local TreasureName = treasure.GetTreasureName(tonumber(Item:getData("trsCat")), User:getPlayerLanguage(), false );
 	base.lookat.SetSpecialDescription(Item,TreasureName, TreasureName);
 	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
 end
 
-function UseItem(User,SourceItem)
+function M.UseItem(User,SourceItem)
 
     local level=tonumber(SourceItem:getData("trsCat"))
     local posi=SourceItem.pos;
@@ -43,4 +43,7 @@ function UseItem(User,SourceItem)
     end
 
 end
+
+
+return M
 

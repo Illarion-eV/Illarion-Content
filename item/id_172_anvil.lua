@@ -18,9 +18,9 @@ local smithing = require("content.craft.smithing")
 local goldsmithing = require("content.craft.goldsmithing")
 local licence = require("base.licence")
 
-module("item.id_172_anvil", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
@@ -35,3 +35,6 @@ function UseItem(User, SourceItem, ltstate)
             "To work here you have to hold a tool in your hand: Hammer or finesmithing hammer")
 	end
 end
+
+return M
+

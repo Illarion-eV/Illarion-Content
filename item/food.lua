@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 
 
-module("item.food", package.seeall)
+local M = {}
 
 -- UPDATE items SET itm_script='item.food' WHERE itm_id IN (15,49,73,80,81,142,143,147,151,158,159,160,161,162,163,191,199,200,201,302,303,306,307,353,354,355,388,453,454,455,552,553,554,555,556,557,559,1207,2276,2277,2278,2456,2459,2493,2922,2923,2934,2940,3051);
 
@@ -152,7 +152,7 @@ FoodList:add( 162,	 VALUE_SMALL,	   0,	nil,	nil,	nil,	 600); -- birth mushroom
 FoodList:add( 158,	 VALUE_SMALL,	   0,	nil,	nil,	nil,	 400); -- bulbsponge mushroom
 FoodList:add( 159,	 VALUE_MEDIUM,	   0,	nil,	nil,	nil,	1000); -- toadstool
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 	if (Init == nil) then
     Init = 1;
     -- import difficulties from crafts
@@ -392,3 +392,6 @@ function SetNewFoodLevel(User, NewFoodLevel)
     end
   end
 end
+
+return M
+

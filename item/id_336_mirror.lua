@@ -19,11 +19,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local chardescription = require("content.chardescription")
 local jewel = require("item.general.jewel")
 
-module("item.id_336_mirror", package.seeall)
+local M = {}
 
 LookAtItem = jewel.LookAtItem
 
-function UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem)
 	local output = "";
 	local lang = User:getPlayerLanguage();
 	local qual,dura = chardescription.getClothesFactor(User);
@@ -47,3 +47,6 @@ function UseItem(User, SourceItem)
 	end
 	User:inform(output);
 end
+
+return M
+

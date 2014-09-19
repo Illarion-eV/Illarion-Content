@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 local base = require("questsystem.base")
-module("questsystem.hagar_coin.trigger4", package.seeall)
+local M = {}
 
 local QUEST_NUMBER = 10001
 local PRECONDITION_QUESTSTATE = 5
@@ -26,7 +26,7 @@ local RADIUS = 2
 local LOOKAT_TEXT_DE = "Du liest: Such etwa 20 Schritt weiter östlich die Tanne beim Wasser."
 local LOOKAT_TEXT_EN = "You read: Search for the fir tree about 20 steps in the east that stands at the water."
 
-function LookAtItem(PLAYER, item)
+function M.LookAtItem(PLAYER, item)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
       and base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
 	base.lookat.SetSpecialDescription(item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
@@ -39,4 +39,7 @@ function LookAtItem(PLAYER, item)
 
   return false
 end
+
+
+return M
 

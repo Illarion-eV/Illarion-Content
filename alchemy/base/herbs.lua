@@ -21,10 +21,10 @@ local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local licence = require("base.licence")
 
-module("alchemy.base.herbs", package.seeall)
+local M = {}
 
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
     -- infront of a cauldron?
 	local cauldron = alchemy.GetCauldronInfront(User)
@@ -207,3 +207,6 @@ function BrewingFilter(User,cauldron)
 		                            "The plant dries up on the hot bottom of the cauldron and falls to ashes.")
 	end
 end
+
+return M
+

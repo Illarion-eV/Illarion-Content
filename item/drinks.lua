@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local lookat = require("base.lookat")
 
-module("item.drinks", package.seeall)
+local M = {}
 
 -- UPDATE items SET itm_script='item.drinks' WHERE itm_id IN (2189, 2188, 2187, 2186, 2059, 2058, 2057, 2056, 1910, 1909, 1907, 1906, 1861, 2502, 1841, 1842, 1843, 1844, 1853, 1854, 1855, 1856, 1857, 1859, 1860, 517, 1315, 1316, 1318,1319);
 
@@ -68,7 +68,7 @@ function InitDrinks()
     end
 end
 
-function UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem)
     InitDrinks();
     if User.attackmode then
         common.InformNLS( User, "Du würdest alles verschütten.", "You'd spill everything.");
@@ -108,7 +108,7 @@ function UseItem(User, SourceItem)
 end
 
 
-function LookAtItem(User, Item)
+function M.LookAtItem(User, Item)
     InitDrinks();
     local food = drinkList[ Item.id ];
 
@@ -118,3 +118,6 @@ function LookAtItem(User, Item)
 
     return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
+
+return M
+

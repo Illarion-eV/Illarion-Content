@@ -20,7 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local milking = require("content.gatheringcraft.milking")
 
-module("item.id_2498_empty_bottle", package.seeall)
+local M = {}
 
 function getAnimal(User)
 
@@ -45,7 +45,7 @@ function getAnimal(User)
 	return nil;
 end
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
 	-- milking
 	local animal = getAnimal(User);
@@ -98,7 +98,7 @@ function GetWaterTilePosition(User)
   return nil;
 end
 
-function UseItemScooping(User, SourceItem, ltstate)
+function M.UseItemScooping(User, SourceItem, ltstate)
 
 	common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
@@ -139,3 +139,6 @@ function UseItemScooping(User, SourceItem, ltstate)
 	end
 
 end
+
+return M
+

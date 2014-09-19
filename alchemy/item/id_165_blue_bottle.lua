@@ -22,7 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 
-module("alchemy.item.id_165_blue_bottle", package.seeall)
+local M = {}
 
 -- UPDATE common SET com_script='alchemy.item.id_165_blue_bottle' WHERE com_itemid = 165;
 
@@ -32,7 +32,7 @@ function DrinkPotion(User,SourceItem)
 		"You don't have the feeling that something happens.")
 end
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
     -- repair potion in case it's broken
 	alchemy.repairPotion(SourceItem)
 	-- repair end	
@@ -179,6 +179,8 @@ function SupportPotion(User,support,potion)
 	world:changeItem(cauldron)
 end
 
-function LookAtItem(User,Item)
+function M.LookAtItem(User,Item)
 	return base.lookat.GenerateLookAt(User, Item, 0)   
 end
+return M
+

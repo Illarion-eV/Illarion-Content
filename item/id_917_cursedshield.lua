@@ -21,10 +21,10 @@ local metal = require("item.general.metal")
 local lookat = require("base.lookat")
 local checks = require("item.general.checks")
 
-module("item.id_917_cursedshield", package.seeall, package.seeall(item.general.metal))
+local M = {}
 
 
-function MoveItemBeforeMove( User, SourceItem, TargetItem )
+function M.MoveItemBeforeMove( User, SourceItem, TargetItem )
 
 	if TargetItem:getType() == 4 then --inventory, not belt
 
@@ -55,7 +55,7 @@ function MoveItemBeforeMove( User, SourceItem, TargetItem )
     return true;
 end;
 
-function MoveItemAfterMove( User, SourceItem, TargetItem )
+function M.MoveItemAfterMove( User, SourceItem, TargetItem )
     -- if shield equipped in hands
     if ( TargetItem.itempos == 5 ) or ( TargetItem.pos == 6 )then
         -- if curse gets in effect
@@ -74,6 +74,9 @@ function MoveItemAfterMove( User, SourceItem, TargetItem )
     return true;
 end;
 
-function LookAtItem(User,Item)
+function M.LookAtItem(User,Item)
     return metal.LookAtItem(User,Item)
 end
+
+return M
+

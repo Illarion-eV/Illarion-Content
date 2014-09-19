@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local sowing = require("content.gatheringcraft.sowing")
 
-module("item.seeds", package.seeall)
+local M = {}
 
 -- UPDATE items SET itm_script='item.seeds' WHERE itm_id IN (259,291,534,2494,2917,728,773,779);
 
@@ -65,14 +65,14 @@ module("item.seeds", package.seeall)
 
 
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
 	sowing.StartGathering(User, SourceItem, ltstate);
 end
 
 
 -- some plants rot to seeds again, those have a different data value
-function MoveItemBeforeMove(User, SourceItem, TargetItem)
+function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
   local amount = SourceItem:getData("amount");
   if (amount ~= "") then
     -- amount = tonumber(amount);
@@ -98,7 +98,7 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
   return true;
 end
 
--- function MoveItemAfterMove(User, SourceItem, TargetItem)
+-- function M.MoveItemAfterMove(User, SourceItem, TargetItem)
   -- local amount = SourceItem:getData("amount");
   -- if (amount ~= "") then
     -- amount = tonumber(amount);
@@ -114,3 +114,6 @@ end
     -- world:erase(TargetItem, SourceItem.number);
   -- end
 -- end
+
+return M
+

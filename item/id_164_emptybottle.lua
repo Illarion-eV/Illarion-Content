@@ -22,9 +22,9 @@ local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local licence = require("base.licence")
 
-module("item.id_164_emptybottle", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
 	-- alchemy
 	-- infront of a cauldron?
@@ -156,3 +156,5 @@ function GetSlimeFromTree(User, SourceItem, ltstate)
 	end
 	
 end
+return M
+

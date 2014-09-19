@@ -18,11 +18,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("item.id_298_woodstack", package.seeall)
+local M = {}
 
 -- UPDATE items SET itm_script='item.id_298_woodstack' WHERE itm_id IN (298);
 
-function UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem)
     
 	if (SourceItem:getType()==3) then
         SourceItem.wear = 4;
@@ -36,3 +36,5 @@ function UseItem(User, SourceItem)
             "You don't want to burn yourself!");
     end
 end
+return M
+

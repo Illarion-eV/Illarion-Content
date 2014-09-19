@@ -25,9 +25,9 @@ local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local licence = require("base.licence")
 
-module("item.id_52_filledbucket", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
   -- look for cauldron
   TargetItem = GetCauldron(User);
@@ -231,3 +231,6 @@ function GetCauldron(User)
   end
   return nil;
 end
+
+return M
+

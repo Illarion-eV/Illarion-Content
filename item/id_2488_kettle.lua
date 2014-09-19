@@ -19,12 +19,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local cooking = require("content.craft.cooking")
 local licence = require("base.licence")
 
-module("item.id_2488_kettle", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
     cooking.cooking:showDialog(User, SourceItem)
 end
+
+return M
+

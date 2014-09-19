@@ -18,11 +18,14 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local egggathering = require("content.gatheringcraft.egggathering")
 
-module("item.nests", package.seeall)
+local M = {}
 
 -- UPDATE items SET itm_script='item.nests' WHERE itm_id IN (1171,1172);
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
 	egggathering.StartGathering(User, SourceItem, ltstate);
 end
+
+return M
+

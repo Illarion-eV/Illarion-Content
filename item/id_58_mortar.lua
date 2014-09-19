@@ -20,12 +20,15 @@ local common = require("base.common")
 local dyemaking = require("content.craft.dyemaking")
 local jewel = require("item.general.jewel")
 
-module("item.id_58_mortar", package.seeall)
+local M = {}
 
 LookAtItem = jewel.LookAtItem
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
     dyemaking.dyemaking:showDialog(User, SourceItem)
 
 end
+
+return M
+

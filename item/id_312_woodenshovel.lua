@@ -22,7 +22,7 @@ local graingrinding = require("content.gatheringcraft.graingrinding")
 local sieving = require("content.gatheringcraft.sieving")
 local wood = require("item.general.wood")
 
-module("item.id_312_woodenshovel", package.seeall)
+local M = {}
 
 LookAtItem = wood.LookAtItem
 
@@ -70,7 +70,7 @@ function getSieve(User)
 	return nil;
 end
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
@@ -91,3 +91,6 @@ function UseItem(User, SourceItem, ltstate)
 		"Du musst neben einem Mühlstein oder Sieb stehen um die Holzkelle zu benutzen.",
 		"You must stand next to a millstone or a sieve to use the wooden shovel.");
 end
+
+return M
+

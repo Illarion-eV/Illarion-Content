@@ -22,7 +22,7 @@ local oremelting = require("content.gatheringcraft.oremelting")
 local waxproducing = require("content.gatheringcraft.waxproducing")
 local metal = require("item.general.metal")
 
-module("item.id_2751_cruciblepincers", package.seeall)
+local M = {}
 
 LookAtItem = metal.LookAtItem
 
@@ -75,7 +75,7 @@ function getChandlerTable(User)
 	return nil;
 end
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
@@ -96,3 +96,6 @@ function UseItem(User, SourceItem, ltstate)
 		"Du musst neben einem Schmelzofen oder Kerzenziehertisch stehen um die Tiegelzange zu benutzen.",
 		"You must stand next to a furnace or a chandler table to use the crucible-pincers.");
 end
+
+return M
+

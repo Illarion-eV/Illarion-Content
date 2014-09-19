@@ -25,7 +25,7 @@ local alchemy = require("alchemy.base.alchemy")
 local missile = require("alchemy.base.missile")
 
 
-module("alchemy.item.id_327_blue_bottle", package.seeall)
+local M = {}
 
 -- UPDATE common SET com_script='alchemy.item.id_327_blue_bottle' WHERE com_itemid = 327;
 
@@ -91,7 +91,7 @@ function Drop(User,TargetItem)
     end;
 end;
 
-function MoveItemAfterMove(User, SourceItem, TargetItem)
+function M.MoveItemAfterMove(User, SourceItem, TargetItem)
 	local missileStatus = (SourceItem:getData("missileStatus"));
     
 	local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
@@ -124,7 +124,7 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 	return true   
 end;
 
-function MoveItemBeforeMove( User, SourceItem, TargetItem )
+function M.MoveItemBeforeMove( User, SourceItem, TargetItem )
 	local missileStatus = (SourceItem:getData("missileStatus"));
     local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
 	if potionEffectId == nil then
@@ -154,7 +154,7 @@ function DrinkPotion(User,SourceItem)
 		"You don't have the feeling that something happens.")
 end
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
     -- repair potion in case it's broken
 	alchemy.repairPotion(SourceItem)
 	-- repair end
@@ -208,6 +208,9 @@ function UseItem(User, SourceItem, ltstate)
 	end  
 end
 
-function LookAtItem(User,Item)
+function M.LookAtItem(User,Item)
 	return base.lookat.GenerateLookAt(User, Item, 0)  
 end
+
+return M
+

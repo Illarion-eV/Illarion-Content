@@ -19,9 +19,9 @@ local lookat = require("base.lookat")
 
 -- UPDATE items SET itm_script='item.id_623_rockface' WHERE itm_id IN (623);
 
-module("item.id_623_rockface", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
   -- entrance to the cave
   local pos = position(894, 627, 0);
@@ -57,9 +57,12 @@ function UseItem(User, SourceItem, ltstate)
   end
 end
 
-function LookAtItem(User, Item)
+function M.LookAtItem(User, Item)
   if (Item.pos == position(894, 627, 0)) then
 		lookat.SetSpecialDescription(Item, "Eine merkwürdige Steinwand.", "A peculiar rock wall.");
   end
   return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
+
+return M
+

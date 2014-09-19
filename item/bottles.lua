@@ -20,7 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local lookat = require("base.lookat")
 
-module("item.bottles", package.seeall)
+local M = {}
 
 function InitDrinks()
     if ( drinkList == nil) then
@@ -51,7 +51,7 @@ end
 
 
 
-function UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem)
 
     if firstcall==nil then
         InitDrinks();
@@ -112,7 +112,7 @@ function UseItem(User, SourceItem)
 end
 
 
-function LookAtItem(User, Item)
+function M.LookAtItem(User, Item)
     local lookAt = lookat.GenerateLookAt(User, Item)
 
     if firstcall==nil then
@@ -194,4 +194,7 @@ function Evilrockentrance(User, SourceItem, ltstate)
 	end
   end
 end
+
+
+return M
 

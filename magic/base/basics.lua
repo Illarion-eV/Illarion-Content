@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local unique = require("content.lookat.unique")
-module("magic.base.basics", package.seeall)
+local M = {}
 
 function initRaceBoni()
     -- Default Values for racial boni related magic
@@ -352,7 +352,7 @@ function AddBonus(User,ItemList,ItemBoniList)   -- Adds bonus/malus for items to
     return Bonus
 end
 
-function actionDisturbed(Caster,disturber)
+function M.actionDisturbed(Caster,disturber)
     local RItem = disturber:getItemAt(Character.right_tool); -- Item in der Rechten Hand
     local LItem = disturber:getItemAt(Character.left_tool); -- Item in der Linken Hand
     local DefrFound,DefRightWeapon = world:getWeaponStruct(RItem.id);   -- Waffenwerte Rechte Waffe
@@ -509,3 +509,6 @@ function SpawnArea( monID, posi )
 	    end
 	end
 end
+
+return M
+

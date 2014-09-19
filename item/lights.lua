@@ -23,7 +23,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local lookat = require("base.lookat")
 
-module("item.lights", package.seeall)
+local M = {}
 
 -- UPDATE items SET itm_script='item.lights' WHERE itm_id IN (92, 397, 393, 394, 2856, 2855, 391, 392, 401, 402, 403, 404, 2851, 2852, 2853, 2854, 399, 400, 395, 396);
 
@@ -64,7 +64,7 @@ ReqTexts = {};
 ReqTexts.german = { [392] = "Fackeln", [43] = "Kerzen", [390] = "Lampenöl" };
 ReqTexts.english = { [392] = "torches", [43] = "candles", [390] = "lamp oil" };
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
 	if SourceItem:getType()==1 or SourceItem:getType()==2 then
 		common.InformNLS(User,
@@ -249,7 +249,7 @@ function putOff(Item, this)
 	world:changeItem(Item);
 end
 
-function MoveItemAfterMove(User,SourceItem,TargetItem)
+function M.MoveItemAfterMove(User,SourceItem,TargetItem)
 	-- Quest 305: we burn a tabacco plantaion
     
 	if User:getQuestProgress(305) == 2 then
@@ -311,7 +311,7 @@ function MoveItemAfterMove(User,SourceItem,TargetItem)
 
 end
 
-function LookAtItem(User, Item)
+function M.LookAtItem(User, Item)
 
 	local ItemName = world:getItemName(Item.id, User:getPlayerLanguage());
 	local TimeLeftI;
@@ -361,3 +361,6 @@ end
 function setLightData(Item, Num)
   Item:setData("lightData", "" .. Num);
 end
+
+return M
+

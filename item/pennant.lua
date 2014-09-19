@@ -19,11 +19,14 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local lookat = require("base.lookat")
 
-module("item.pennant", package.seeall)
+local M = {}
 
 -- UPDATE items SET itm_script='item.pennant' WHERE itm_id IN (2046, 2069, 512, 2924, 2925, 2926, 2927);
 
 
-function LookAtItem(User, Item)
+function M.LookAtItem(User, Item)
     return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
+
+return M
+

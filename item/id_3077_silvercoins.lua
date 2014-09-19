@@ -16,13 +16,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 
-module("item.id_3077_silvercoins", package.seeall)
+local M = {}
 
 -- UPDATE items SET itm_script='item.id_3077_silvercoins' WHERE itm_id IN (3077);
 
 TimeList = {};
 
-function UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem)
 	local frontItem = common.GetFrontItem(User)
 	if frontItem then
 		if frontItem.id == 2805 and frontItem.pos == position(415, 273, -6) then --if frontItem is questpillar
@@ -58,3 +58,5 @@ function UseItem(User, SourceItem)
 	User:talk(Character.say, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt "..gValue..".", "#me throws a coin in the air and catches it again. It shows "..eValue..".")
 	TimeList[User.id] = world:getTime("second");
 end
+return M
+

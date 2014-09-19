@@ -20,15 +20,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local potashproducing = require("content.gatheringcraft.potashproducing")
 
-module("item.id_12_campfire", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
 	potashproducing.StartGathering(User, SourceItem, ltstate);
 
 end
 
-function CharacterOnField(User)
+function M.CharacterOnField(User)
     common.InformNLS( User,
       "Du fühlst die aufsteigende Hitze des Feuers.",
       "You feel the heat of the fire." );
@@ -37,3 +37,6 @@ function CharacterOnField(User)
 		User:increaseAttrib("hitpoints",-math.random(200,400));
 	end]]
 end
+
+return M
+

@@ -19,7 +19,7 @@ local createplayeritem = require("handler.createplayeritem")
 local base = require("questsystem.base")
 local lookat = require("base.lookat")
 local common = require("base.common")
-module("questsystem.Geld_in_Hecke.trigger2", package.seeall)
+local M = {}
 
 local QUEST_NUMBER = 700
 local PRECONDITION_QUESTSTATE = 2
@@ -30,7 +30,7 @@ local RADIUS = 2
 local LOOKAT_TEXT_DE = ""
 local LOOKAT_TEXT_EN = ""
 
-function LookAtItem(PLAYER, item)
+function M.LookAtItem(PLAYER, item)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
       and ADDITIONALCONDITIONS(PLAYER)
       and base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
@@ -59,3 +59,5 @@ end
 function ADDITIONALCONDITIONS(PLAYER)
 return true
 end
+return M
+

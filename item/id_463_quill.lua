@@ -20,9 +20,9 @@ local alchemy = require("alchemy.base.alchemy")
 local lookat = require("base.lookat")
 local recipe_creation = require("alchemy.base.recipe_creation")
 
-module("item.id_463_quill", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
 	if SourceItem.itempos ~= 5 and SourceItem.itempos ~= 6 then
 	    User:inform("Du musst die Schreibfeder in der Hand halten.","You have to hold the quill in your hand.",Character.highPriority)
@@ -212,3 +212,6 @@ end
 function getText(User,deText,enText)
     return common.common.GetNLS(User,deText,enText)
 end
+
+return M
+

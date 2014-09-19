@@ -20,9 +20,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local honeygathering = require("content.gatheringcraft.honeygathering")
 
-module("item.id_1005_beehive", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
 	honeygathering.StartGathering(User, SourceItem, ltstate);
 end
+
+return M
+

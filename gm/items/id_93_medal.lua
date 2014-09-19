@@ -17,9 +17,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE common SET com_script='gm.items.id_93_medal' WHERE com_itemid=93;
 
 local common = require("base.common")
-module("gm.items.id_93_medal", package.seeall)
+local M = {}
 
-function UseItemWithField(User, SourceItem, TargetPos)
+function M.UseItemWithField(User, SourceItem, TargetPos)
 
 	-- First check for mode change
 	local modes = {"Monster", "GFX", "SFX", "Animation", "Avatar changes"};
@@ -239,12 +239,15 @@ function changeAvatar(User, SourceItem, TargetPos)
 	User:requestSelectionDialog(sdPlayer);
 end
 
-function UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem)
 	UseItemWithField(User,SourceItem,common.GetFrontPosition(User));
 end
 
-function LookAtItem(User, Item)
+function M.LookAtItem(User, Item)
 	base.lookat.SetSpecialDescription(Item, "Verwende die Medallie zum aufrufen der Funktionen.", "Use the medal to pick a function.");
 	base.lookat.SetSpecialName(Item, "Medaille", "Medal");
 	return base.lookat.GenerateLookAt(User, Item, base.lookat.METAL)
 end
+
+return M
+

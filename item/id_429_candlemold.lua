@@ -22,7 +22,7 @@ local licence = require("base.licence")
 local candleproducing = require("content.gatheringcraft.candleproducing")
 local wood = require("item.general.wood")
 
-module("item.id_429_candlemold", package.seeall)
+local M = {}
 
 LookAtItem = wood.LookAtItem
 
@@ -48,7 +48,7 @@ function getChandlerTable(User)
 	return nil;
 end
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
@@ -65,3 +65,6 @@ function UseItem(User, SourceItem, ltstate)
 		"You have to work at a chandler table!" );
 
 end
+
+return M
+
