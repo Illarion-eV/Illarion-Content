@@ -40,7 +40,7 @@ local M = {}
 
 -- UPDATE items SET itm_script='item.lever' WHERE itm_id IN (434, 435, 436, 437, 438, 439);
 
-function init()
+function M.init()
     leverList={};
 
 	-------------THIS LEVERS ARE FOR THE VBU, PLEASE DON'T REMOVE---------------
@@ -305,7 +305,7 @@ end
 
 function M.UseItem(User, SourceItem, ltstate)
     if (initi==nil) then
-        myLevers=init();
+        myLevers=M.init();
         initi=1;
     end
 	key=SourceItem.pos.x*1024*1024+SourceItem.pos.y*1024+SourceItem.pos.z;
@@ -316,7 +316,7 @@ end
 
 function M.LookAtItem(User, Item)
     if (initi==nil) then
-        myLevers=init();
+        myLevers=M.init();
         initi=1;
     end
     --User:inform(questA:getLeverHint(Item.pos)); --since everything from questA is deactivated, lets deactivate this aswell
