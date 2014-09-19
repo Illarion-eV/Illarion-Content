@@ -614,7 +614,7 @@ function payNow(User)
 		return
 	end
 
-    local taxHeight=0.05;  -- 5% taxes
+    local taxHeight=0.01;  -- 1% taxes
 
 	local depNr={100,101,102,103};
     local valDepot={0,0,0,0};
