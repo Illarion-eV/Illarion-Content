@@ -20,11 +20,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE tiles SET til_script='tile.id_11_gras' WHERE til_id = 11;
 local id_10_snow = require("tile.id_10_snow")
 
-module("tile.id_11_gras", package.seeall)
+local M = {}
 
-function useTile(User,Position)
+function M.useTile(User,Position)
 	if (world:getTime("month") <= 13) then
 		id_10_snow.useTile(User, Position)
 		return;
 	end;
 end
+
+return M
