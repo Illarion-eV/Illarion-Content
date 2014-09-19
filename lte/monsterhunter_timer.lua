@@ -69,7 +69,7 @@ function callEffect(theEffect, User)
         "[Quest solved] Return to Defensor Informo to claim your reward.")
         if isValidChar(huntMonster[User.id]) then
 
-				huntMonster[User.id]:warp(441, 844, -10); -- send it to the pit
+				huntMonster[User.id]:warp(position(441, 844, -10)); -- send it to the pit
 
         end
         User:setQuestProgress(529, 4)
