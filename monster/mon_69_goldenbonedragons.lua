@@ -22,6 +22,8 @@ local quests = require("monster.base.quests")
 local messages = require("base.messages")
 local kills = require("monster.base.kills")
 local arena = require("base.arena")
+local treasure = require("base.treasure")
+
 module("monster.mon_69_goldenbonedragons", package.seeall)
 
 function ini(Monster)
@@ -115,7 +117,7 @@ function onDeath(Monster)
 
         local done=drop.AddDropItem(451,1,20,(100*math.random(7,8)+math.random(77,88)),0,1); --topaz powder
         if not done then done=drop.AddDropItem(449,1,10,(100*math.random(7,8)+math.random(77,88)),0,1); end --obsidian powder
-        if not done then done=drop.AddDropItem(505,1,1,(100*math.random(7,8)+math.random(77,88)),nil,1); end --treasure map
+        if not done then done=drop.AddDropItem(505,1,1,899,treasure.createMapData(),1); end --treasure map
         if not done then done=drop.AddDropItem(446,1,1,(100*math.random(7,8)+math.random(77,88)),nil,1); end --saphhire powder
         if not done then done=drop.AddDropItem(738,1,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --dragon egg
 		if not done then done=drop.AddDropItem(3607,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --pure spirit
