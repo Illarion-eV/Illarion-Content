@@ -21,9 +21,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("quest.explorersguild", package.seeall)
+local M = {}
 
-function StoneToQuestprogress(StoneNumber)
+function M.StoneToQuestprogress(StoneNumber)
 	if StoneNumber < 2^31 then
 		return StoneNumber
 	else
@@ -31,7 +31,7 @@ function StoneToQuestprogress(StoneNumber)
 	end
 end
 
-function QuestprogressToStones(qpg)
+function M.QuestprogressToStones(qpg)
 	if qpg<0 then
 		return 2^31-1-qpg
 	else
@@ -39,7 +39,7 @@ function QuestprogressToStones(qpg)
 	end
 end
 
-function CheckStone(Char,StoneNumber)
+function M.CheckStone(Char,StoneNumber)
     --Char:inform("*** CHECK ***");
 	retVal=false;
     StoneBase=130+math.floor((StoneNumber-1)/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
@@ -57,7 +57,7 @@ function CheckStone(Char,StoneNumber)
     return retVal;
 end
 
-function CountStones(Char)
+function M.CountStones(Char)
     nrStones=0;
     StoneBase=130;
     StoneEnd=149;
@@ -72,7 +72,7 @@ function CountStones(Char)
     return nrStones
 end
 
-function WriteStone(Char,StoneNumber)
+function M.WriteStone(Char,StoneNumber)
     StoneBase=130+math.floor((StoneNumber-1)/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
 	--Char:inform("Base: "..StoneBase);
     StoneBaseOffset=math.fmod(StoneNumber-1,32);  -- StoneNr inside range
@@ -98,7 +98,7 @@ reward[350] = {{61,5},{354,14},{558,1},{96,1},{2367,1}} -- items worth 5 gold co
 reward[500] = {{61,7},{2551,14},{2552,14},{2553,14},{2554,14},{3607,14}} -- items worth 7 gold coins - gold coins, pure aire, pure earth, pure fire, pure water
 reward[750] = {{61,10},{1052,1},{2400,1},{2662,1},{1155,20}} -- items worth 10 gold coins - gold coins, dwarven stormhammer, elven state armour, magical dwarven axe, chicken dish
 
-function getReward(Char)
+function M.getReward(Char)
 	local nrStones = CountStones(Char)
 	if reward[nrStones] ~= nil then
 		if #reward[nrStones] == 1 then
@@ -111,7 +111,7 @@ function getReward(Char)
 	end
 end
 	
-function rewardDialog(Char, nrStones)
+function M.rewardDialog(Char, nrStones)
 	local title = common.GetNLS(Char,"Entdeckergilde Belohnung","Explorerguild reward")
 	local text = common.GetNLS(Char,"Du hast "..nrStones.." Markierungssteine entdeckt, daher kannst du dir nun eine Belohnung aussuchen.", "You discovered "..nrStones.." marker stones, therefore you can pick a reward.")
 	
@@ -134,3 +134,5 @@ function rewardDialog(Char, nrStones)
 
 	Char:requestSelectionDialog(dialog);
 end
+
+return M

@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (600, 'quest.sir_fludnar_yednos_600_runewick');
 
 local common = require("base.common")
-module("quest.sir_fludnar_yednos_600_runewick", package.seeall)
+local M = {}
 
 GERMAN = Player.german
 ENGLISH = Player.english
@@ -111,25 +111,27 @@ QuestTarget[30] = {position(896, 757, 1)} -- Sir Fludnar Yednos
 FINAL_QUEST_STATUS = 40
 
 
-function QuestTitle(user)
+function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])
 end
 
-function QuestDescription(user, status)
+function M.QuestDescription(user, status)
     local german = Description[GERMAN][status] or ""
     local english = Description[ENGLISH][status] or ""
 
     return common.GetNLS(user, german, english)
 end
 
-function QuestStart()
+function M.QuestStart()
     return Start
 end
 
-function QuestTargets(user, status)
+function M.QuestTargets(user, status)
     return QuestTarget[status]
 end
 
-function QuestFinalStatus()
+function M.QuestFinalStatus()
     return FINAL_QUEST_STATUS
 end
+
+return M

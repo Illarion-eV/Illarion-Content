@@ -1,7 +1,7 @@
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (QUESTID, 'quest.SCRIPTNAME');
 
 local common = require("base.common")
-module("quest.SCRIPTNAME", package.seeall)
+local M = {}
 
 GERMAN = Player.german
 ENGLISH = Player.english
@@ -31,11 +31,11 @@ QuestTarget[1] = {position(1, 2, 3), position(4, 5, 6)} OR QuestTarget[1] = {{1,
 FINAL_QUEST_STATUS = 0
 
 
-function QuestTitle(user)
+function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])
 end
 
-function QuestDescription(user, status)
+function M.QuestDescription(user, status)
     local german = Description[GERMAN][status] or ""
     local english = Description[ENGLISH][status] or ""
 
@@ -52,7 +52,7 @@ end
 -- Player.questNotAvailable.
 -- The function below is the server default. It will be used if this entry point is not defined.
 --[[
-function QuestAvailability(user, status)
+function M.QuestAvailability(user, status)
     if status == 0 then
         return Player.questAvailable
     else
@@ -61,14 +61,16 @@ function QuestAvailability(user, status)
 end
 --]]
 
-function QuestStart()
+function M.QuestStart()
     return Start
 end
 
-function QuestTargets(user, status)
+function M.QuestTargets(user, status)
     return QuestTarget[status]
 end
 
-function QuestFinalStatus()
+function M.QuestFinalStatus()
     return FINAL_QUEST_STATUS
 end
+
+return M

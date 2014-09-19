@@ -19,7 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local explorersguild = require("quest.explorersguild")
 
-module("quest.explorerguild_320_questlog", package.seeall)
+local M = {}
 
 GERMAN = Player.german
 ENGLISH = Player.english
@@ -36,11 +36,11 @@ QuestTarget = {}
 FINAL_QUEST_STATUS = 3
 
 
-function QuestTitle(user)
+function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])
 end
 
-function QuestDescription(user, status)
+function M.QuestDescription(user, status)
     
 	local german = "Du hast bereits ".. explorersguild.CountStones(user) .." Markierungssteine der Abenteurergilde gefunden. Weiter so!"
     local english = "You have already found ".. explorersguild.CountStones(user) .." marker stones of the Explorers' Guild. Keep it up!"
@@ -48,10 +48,11 @@ function QuestDescription(user, status)
     return common.GetNLS(user, german, english)
 end
 
-function QuestTargets(user, status)
+function M.QuestTargets(user, status)
     return QuestTarget[status]
 end
 
-function QuestFinalStatus()
+function M.QuestFinalStatus()
     return FINAL_QUEST_STATUS
 end
+return M
