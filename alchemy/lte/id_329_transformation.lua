@@ -19,7 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Zeitverlauf und Rückwandlung bei Verwandlungen
 local common = require("base.common")
 
-module("alchemy.lte.id_329_transformation", package.seeall)
+local M = {}
 
 -- INSERT INTO longtimeeffects VALUES (329, 'alchemy_transformation', 'alchemy.lte.id_329_transformation');
 
@@ -27,11 +27,11 @@ function getAction(User,Effect,Runde)
 	--Hier die eigentlichen Aktionen eintragen  
 end
   
-function addEffect(Effect, User)               -- Nur beim ersten Aufruf
+function M.addEffect(Effect, User)               -- Nur beim ersten Aufruf
 	--User:inform("debug func addEffect")
 end
 
-function callEffect(Effect,User)   
+function M.callEffect(Effect,User)   
 --User:inform("debug func callEffect")
     
 	local findCounter,counterBlack = Effect:findValue("counterBlack")
@@ -61,11 +61,11 @@ function callEffect(Effect,User)
    return true
 end
 
-function removeEffect(Effect,User)         
+function M.removeEffect(Effect,User)         
     TransformBack(Effect,User)
 end
 
-function loadEffect(Effect,User)
+function M.loadEffect(Effect,User)
    local findCounter,counterBlack = Effect:findValue("counterBlack")	
 	if findCounter then	
 		if counterBlack > 0 then -- check if the actual effect is still active
@@ -128,3 +128,5 @@ function TransformBack(Effect,User)
 	User:setRace(oldRace)
 	User:setAttrib("body_height",oldHeight) 
  end
+return M
+

@@ -18,7 +18,7 @@ local common = require("base.common")
 local monstermagic = require("monster.base.monstermagic")
 
 -- Long time effect (110)
-module("lte.damagefield_firefield", package.seeall)
+local M = {}
 
 local function causeDamage(User, quality)
 
@@ -31,7 +31,7 @@ local function causeDamage(User, quality)
     end
 end
 
-function addEffect(theEffect, User)
+function M.addEffect(theEffect, User)
 
     User:inform("Du fühlst wie das glühend heiße Feuer allmählich deine Haut verbrennt.",
                 "You feel the scorching fire gradually burn your skin.")
@@ -39,7 +39,7 @@ function addEffect(theEffect, User)
     causeDamage(User, quality)
 end
 
-function callEffect(theEffect, User)
+function M.callEffect(theEffect, User)
 
     -- check if still on a damaging field
     local Items = common.GetItemsOnField(User.pos)
@@ -63,12 +63,15 @@ function callEffect(theEffect, User)
     return true
 end
 
-function loadEffect(theEffect, User)
+function M.loadEffect(theEffect, User)
     -- we dont care
 end
 
-function removeEffect (theEffect, User)
+function M.removeEffect (theEffect, User)
 
     User:inform("Du fühlst wie das Brennen auf deiner Haut nachlässt.",
                 "You feel the burning of your skin fade.")
 end
+
+return M
+

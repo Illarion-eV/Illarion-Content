@@ -21,13 +21,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local transformation_dog = require("alchemy.teaching.transformation_dog")
 local showGFX = require("scheduled.showGFX")
-module("lte.deathaftertime", package.seeall)
+local M = {}
 
-function addEffect(Effect, Character)
+function M.addEffect(Effect, Character)
 
 end
 
-function callEffect(Effect, Character) 
+function M.callEffect(Effect, Character) 
   local posOfVic = Character.pos
     
   local findDeathGfx, deathGfx = Effect:findValue("deathGfx")
@@ -81,10 +81,12 @@ function TheGlutinousSeedling(slimeNumber)
 	showGFX.SlimeList["Slime"..slimeNumber].Monster = false
 end
 
-function removeEffect(Effect,User)
+function M.removeEffect(Effect,User)
 
 end
 
-function loadEffect(Effect,User)                  			
+function M.loadEffect(Effect,User)                  			
 
 end
+return M
+

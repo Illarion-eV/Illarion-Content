@@ -19,16 +19,16 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local vision = require("content.vision")
-module("lte.vision", package.seeall)
+local M = {}
 
 TypeStory={}
 AmountStory={}
 
-function addEffect(Effect,User)               				
+function M.addEffect(Effect,User)               				
 
 end
 
-function callEffect(Effect,User)
+function M.callEffect(Effect,User)
 	local theQuestStatus=User:getQuestProgress(664)
 --User:inform("queststatus"..theQuestStatus,"queststatus"..theQuestStatus)
 --debug("AmountStoryName: "..User.name)
@@ -68,10 +68,13 @@ function callEffect(Effect,User)
 	return true
 end
 
-function removeEffect(Effect,User)
+function M.removeEffect(Effect,User)
 
 end
 
-function loadEffect(Effect,User)                  			
+function M.loadEffect(Effect,User)                  			
 
 end
+
+return M
+

@@ -15,11 +15,11 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 local common = require("base.common")
-module("monster.lte.lte_mananuke", package.seeall);
+local M = {}
 
 -- INSERT INTO longtimeeffects VALUES (500, 'satk_mananuke', 'monster.lte.mananuke');
 
-function addEffect(manaNuke, User)
+function M.addEffect(manaNuke, User)
 	local magicResistance = User:getSkill(Character.magicResistance);
 	local essence = User:increaseAttrib("essence", 0);
 	
@@ -31,11 +31,11 @@ function addEffect(manaNuke, User)
     return true;
 end
 
-function loadEffect(manaNuke, User)
+function M.loadEffect(manaNuke, User)
 
 end
 
-function callEffect(manaNuke, User)
+function M.callEffect(manaNuke, User)
 	local foundManaPerCall, ManaPerCall = manaNuke:findValue("manaPerCall");
 	if not foundManaPerCall then
 		return false;
@@ -81,6 +81,9 @@ function doExplosion(manaNuke, User)
 	end
 end
 
-function removeEffect(manaNuke, User)
+function M.removeEffect(manaNuke, User)
 
 end
+
+return M
+

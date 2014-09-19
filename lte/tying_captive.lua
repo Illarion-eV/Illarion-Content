@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
-module("lte.tying_captive", package.seeall)
+local M = {}
 --[[ LTE 24
      tying up: captive
     @value Capturer - id of the char that the captive follows
@@ -24,11 +24,11 @@ module("lte.tying_captive", package.seeall)
     @value logout - set when all capturers are away.
     @value logyear, logmonth, logday, loghour, logminute, logsecond - exact date when waiting time for capturers ends.
 ]]
-function addEffect( Tying, Captive )
+function M.addEffect( Tying, Captive )
 	-- nothing
 end
 
-function callEffect( Tying, Captive )
+function M.callEffect( Tying, Captive )
 
 	local foundEscape, escape = Tying:findValue("escape");
 	Tying.nextCalled = 5;
@@ -118,7 +118,7 @@ function callEffect( Tying, Captive )
 	return false;
 end
 
-function removeEffect( Tying, Captive )
+function M.removeEffect( Tying, Captive )
 
 	InformW(Captive,
 		"Du bist frei!",
@@ -131,7 +131,7 @@ function removeEffect( Tying, Captive )
 	end
 end
 
-function loadEffect( Tying, Captive )
+function M.loadEffect( Tying, Captive )
 
 	foundCapturer, Capturer = Tying:findValue("Capturer");
 	if not IsEffectInLogoutTime(Tying, Captive) then
@@ -399,3 +399,6 @@ function logToFile(theString)
         coldLog:close();
 	end
 end
+
+return M
+

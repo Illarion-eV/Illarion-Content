@@ -18,18 +18,18 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- by Falk
 local common = require("base.common")
 
-module("alchemy.lte.id_59_attribs", package.seeall)
+local M = {}
 
 -- INSERT INTO longtimeeffects VALUES (59, 'alchemy_attribs', 'alchemy.lte.id_59_attribs');
 
 attribList ={"strength","willpower","perception","intelligence","constitution","agility","dexterity","essence"};
 bottomBorder = 1;
 
-function addEffect(Effect, User)
+function M.addEffect(Effect, User)
  
 end
 
-function callEffect(Effect,User)
+function M.callEffect(Effect,User)
     -- callEffect is only called once; we just need to return false
 	local find_i,sight = Effect:findValue("sightpotion")
 	if find then
@@ -41,7 +41,7 @@ function callEffect(Effect,User)
 
 end
 
-function removeEffect(Effect,User)
+function M.removeEffect(Effect,User)
     -- restore the attributes
 	
 	local find_i,sight = Effect:findValue("sightpotion")
@@ -57,7 +57,7 @@ function removeEffect(Effect,User)
 	end
 end
 
-function loadEffect(Effect,User)
+function M.loadEffect(Effect,User)
     -- login, we have to change the attributes again
 	local find_i,sight = Effect:findValue("sightpotion")
 	if not find then
@@ -70,3 +70,5 @@ function loadEffect(Effect,User)
 		end
 	end
 end
+return M
+

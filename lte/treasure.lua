@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local treasure = require("base.treasure")
-module("lte.treasure", package.seeall)
+local M = {}
 
-function addEffect(trsEff, trsHunter)
+function M.addEffect(trsEff, trsHunter)
     fnd, cat=trsEff:findValue("category");
     if not fnd then
         return false;       -- treasure lost!
@@ -27,7 +27,7 @@ function addEffect(trsEff, trsHunter)
     return true;
 end
 
-function callEffect(trsEff, trsHunter)
+function M.callEffect(trsEff, trsHunter)
     if (trsHunter:increaseAttrib("hitpoints",0) == 0) then
         common.InformNLS( trsHunter,
         "Der Schatz ist für immer verloren. Die Wächter haben gesiegt.",
@@ -82,11 +82,14 @@ function callEffect(trsEff, trsHunter)
     return true;
 end
 
-function removeEffect(trsEff, trsHunter)
+function M.removeEffect(trsEff, trsHunter)
     treasure.KillMonsters( trsHunter );
     return false;
 end
 
-function loadEffect(trsEff, trsHunter)
+function M.loadEffect(trsEff, trsHunter)
     return false;
 end
+
+return M
+

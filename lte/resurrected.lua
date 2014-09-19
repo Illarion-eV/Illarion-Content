@@ -15,11 +15,11 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 local common = require("base.common")
-module("lte.resurrected", package.seeall)
+local M = {}
 
 attribs={"strength","dexterity","constitution","agility","intelligence","perception","willpower","essence"};
 
-function addEffect( rebirthEffect, Reborn )
+function M.addEffect( rebirthEffect, Reborn )
     if Reborn:isAdmin() then
 	  return false;
     end
@@ -53,7 +53,7 @@ function addEffect( rebirthEffect, Reborn )
     return true;
 end;
 
-function loadEffect( rebirthEffect, Reborn )
+function M.loadEffect( rebirthEffect, Reborn )
     if Reborn:isAdmin() then
 	  return;
     end
@@ -93,7 +93,7 @@ function loadEffect( rebirthEffect, Reborn )
     end;
 end;
 
-function callEffect( rebirthEffect, Reborn )
+function M.callEffect( rebirthEffect, Reborn )
     if Reborn:isAdmin() then
 	  return false;
     end
@@ -144,7 +144,7 @@ function callEffect( rebirthEffect, Reborn )
     return callAgain;
 end;
 
-function removeEffect( rebirthEffect, Reborn )
+function M.removeEffect( rebirthEffect, Reborn )
     if Reborn:isAdmin() then
     Reborn:inform("Admins do not suffer from resurrection.");
 	  return;
@@ -170,7 +170,7 @@ function removeEffect( rebirthEffect, Reborn )
 end;
 
 -- NOTE: function is saved locally in npc_yellowcross.lua; Workaround for Mantis issue #451
-function doubleEffect( rebirthEffect, Reborn )
+function M.doubleEffect( rebirthEffect, Reborn )
     if Reborn:isAdmin() then
 	  return false;
     end
@@ -205,3 +205,6 @@ function doubleEffect( rebirthEffect, Reborn )
 	Reborn:setQuestProgress(20,common.GetCurrentTimestamp());
     return true;
 end
+
+return M
+

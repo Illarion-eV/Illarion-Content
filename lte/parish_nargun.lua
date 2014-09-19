@@ -18,13 +18,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Effects for parish of Nargun
 
 local common = require("base.common")
-module("lte.parish_nargun", package.seeall)
+local M = {}
 
 cycleCounter = {};
 PN_FriendlyRaces = {18,24,37,38};
 PN_Waypoints = {position(-80,-207,0), position(-222,-196,0), position(-200,-270,0), position(-384,-206,0)};
 
-function addEffect(Effect, Char)
+function M.addEffect(Effect, Char)
 	
 	local effectType = PN_GetEffectType(Effect);
 	
@@ -39,7 +39,7 @@ function addEffect(Effect, Char)
 	end
 end
 
-function callEffect(Effect, Char)
+function M.callEffect(Effect, Char)
 	local effectType = PN_GetEffectType(Effect);
 	Effect.nextCalled = 10;
 	if effectType >= 1 and effectType <= 4 then
@@ -48,7 +48,7 @@ function callEffect(Effect, Char)
 	return false;
 end
 
-function removeEffect(Effect, Char)
+function M.removeEffect(Effect, Char)
 	local effectType = PN_GetEffectType(Effect);
 	if effectType >= 1 and effectType <= 4 then
 		local foundSaveRace, saveRace = Effect:findValue("saveRace");
@@ -75,7 +75,7 @@ function removeEffect(Effect, Char)
 	end
 end
 
-function loadEffect(Effect, Char)
+function M.loadEffect(Effect, Char)
 	local effectType = PN_GetEffectType(Effect);
 	if effectType >= 1 and effectType <= 4 then
 		Char.effects:removeEffect(29);
@@ -143,3 +143,6 @@ function PN_LeadToPoint( Char, effectType )
     end
 	return true;
 end
+
+return M
+

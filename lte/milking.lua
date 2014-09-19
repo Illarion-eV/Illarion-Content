@@ -19,13 +19,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 local common = require("base.common")
-module("lte.milking", package.seeall)
+local M = {}
 
-function addEffect(milkingEffect, Animal)
+function M.addEffect(milkingEffect, Animal)
 
 end
 
-function callEffect(milkingEffect, Animal)
+function M.callEffect(milkingEffect, Animal)
 
 	local foundAmount, gatherAmount = milkingEffect:findValue("gatherAmount");
 	if (not foundAmount) then
@@ -45,3 +45,6 @@ function callEffect(milkingEffect, Animal)
 	return true;
 	
 end
+
+return M
+

@@ -18,7 +18,7 @@ local common = require("base.common")
 local monstermagic = require("monster.base.monstermagic")
 
 -- Long time effect (112)
-module("lte.damagefield_poisoncloud", package.seeall)
+local M = {}
 
 local function causeDamage(User, quality)
 
@@ -31,7 +31,7 @@ local function causeDamage(User, quality)
     end
 end
 
-function addEffect(theEffect, User)
+function M.addEffect(theEffect, User)
 
     User:inform("Du fühlst wie dein Körper schwächer wird.",
                 "You feel your body becoming weaker.")
@@ -39,7 +39,7 @@ function addEffect(theEffect, User)
     causeDamage(User, quality)
 end
 
-function callEffect(theEffect, User)
+function M.callEffect(theEffect, User)
 
     -- check if still on a damaging field
     local Items = common.GetItemsOnField(User.pos)
@@ -63,12 +63,15 @@ function callEffect(theEffect, User)
     return true
 end
 
-function loadEffect(theEffect, User)
+function M.loadEffect(theEffect, User)
     -- we dont care
 end
 
-function removeEffect (theEffect, User)
+function M.removeEffect (theEffect, User)
 
     User:inform("Du fühlst wie das Gift in deinem Körper nachlässt.",
                 "You feel the poison fade.")
 end
+
+return M
+

@@ -17,13 +17,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- fireSpitting, id 60
 
 local common = require("base.common")
-module("lte.fireSpitting", package.seeall)
+local M = {}
 
-function addEffect(Effect, User)               				
+function M.addEffect(Effect, User)               				
 
 end
 
-function callEffect(Effect, User) 
+function M.callEffect(Effect, User) 
     
 	local findSecondTime, sceondTime = Effect:findValue("secondTime")
     if not findSecondTime then
@@ -58,10 +58,13 @@ function callEffect(Effect, User)
     end
 end
 
-function removeEffect(Effect,User)
+function M.removeEffect(Effect,User)
 
 end
 
-function loadEffect(Effect,User)                  			
+function M.loadEffect(Effect,User)                  			
 
 end
+
+return M
+

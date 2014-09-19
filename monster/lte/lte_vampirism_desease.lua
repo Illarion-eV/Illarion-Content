@@ -15,19 +15,19 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 local common = require("base.common")
-module("monster.lte.vampirism_desease", package.seeall);
+local M = {}
 
 -- INSERT INTO longtimeeffects VALUES (501, 'satk_vampirism_desease', 'monster.lte.vampirism_desease');
 
-function addEffect(VampEffect, User)
+function M.addEffect(VampEffect, User)
     return true;
 end
 
-function loadEffect(VampEffect, User)
+function M.loadEffect(VampEffect, User)
 
 end
 
-function callEffect(VampEffect, User)
+function M.callEffect(VampEffect, User)
 	
 	local hourTime = world:getTime("hour");
 	if (hourTime < 6) and (hourTime > 20) then
@@ -70,6 +70,9 @@ function callEffect(VampEffect, User)
     return true;
 end
 
-function removeEffect(VampEffect, User)
+function M.removeEffect(VampEffect, User)
 
 end
+
+return M
+

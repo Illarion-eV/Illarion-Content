@@ -20,7 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local food = require("item.food")
 local common = require("base.common")
 
-module("lte.diet", package.seeall)
+local M = {}
 
 GermanAttributes = {
   ["constitution"] = "Ausdauer",
@@ -33,11 +33,11 @@ GermanAttributes = {
   ["essence"] = "Essenz"
 };
 
-function addEffect(dietEffect,Character)
+function M.addEffect(dietEffect,Character)
   InformPlayer(dietEffect,Character);
 end
 
-function callEffect(dietEffect,Character)
+function M.callEffect(dietEffect,Character)
 	local curStamp = common.GetCurrentTimestamp();
   local foundExpire, buffExpireStamp = dietEffect:findValue("buffExpireStamp");
   if (not foundExpire) then
@@ -51,7 +51,7 @@ function callEffect(dietEffect,Character)
   return true;
 end
 
-function removeEffect(dietEffect,Character)
+function M.removeEffect(dietEffect,Character)
   -- inform the player that the buff ends
   common.InformNLS(Character,
   "[Ernährung] Die Wirkung des guten Essens vergeht.",
@@ -60,7 +60,7 @@ function removeEffect(dietEffect,Character)
   RemoveBuff(dietEffect,Character);
 end
 
-function loadEffect(dietEffect,Character)
+function M.loadEffect(dietEffect,Character)
   -- check for old values and remove them
   if dietEffect:findValue("constMod") then
     dietEffect:removeValue("constMod");
@@ -150,3 +150,6 @@ function RemoveBuff(dietEffect, Character)
     end
   end
 end
+
+return M
+

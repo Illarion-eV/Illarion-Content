@@ -15,15 +15,15 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 local common = require("base.common")
-module("monster.lte.lte_deathgaze", package.seeall);
+local M = {}
 
 -- INSERT INTO longtimeeffects VALUES (550, 'satk_deathgaze', 'monster.lte.lte_deathgaze');
 
-function addEffect (gazeEff,user)
+function M.addEffect (gazeEff,user)
 
 end
 
-function callEffect (gazeEff,user)
+function M.callEffect (gazeEff,user)
 	found, effTime = gazeEff:findValue("effTime");
 	if found and (effTime>0) then
 		local HelmList = {7,16,94,184,185,2286,2287,2291,2302,2303,2444};
@@ -45,10 +45,13 @@ function callEffect (gazeEff,user)
 	return true;
 end
 
-function loadEffect(gazeEff, user)
+function M.loadEffect(gazeEff, user)
 
 end
 
-function removeEffect(gazeEff, user)
+function M.removeEffect(gazeEff, user)
 
 end
+
+return M
+

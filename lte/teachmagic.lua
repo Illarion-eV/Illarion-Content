@@ -15,12 +15,12 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 local common = require("base.common")
-module("lte.teachmagic", package.seeall)
+local M = {}
 
 ---------------------------
 -------- Character lernt eine Rune
 ---------------------------------
-function addEffect(teachEffect, Character)
+function M.addEffect(teachEffect, Character)
     Character:inform("AddEffect ausgeführt");
 
     
@@ -52,7 +52,7 @@ end
 -----------------------------------------------
 ------ Character is affected 
 -----------------------------------------------
-function callEffect(teachEffect, Character)    -- Effect wird ausgeführt
+function M.callEffect(teachEffect, Character)    -- Effect wird ausgeführt
 
 
    	teachEffect.nextCalled =99999999999999;       -- call it again in öhm...never!
@@ -68,11 +68,14 @@ end
 ---- Character lost effect
 ----------------------------------------------
 
-function removeEffect( Effect, Character )
+function M.removeEffect( Effect, Character )
   	-- Character:inform("moep->Und weiter gehts!");
 end
 
 
-function loadEffect(Effect, Character)
+function M.loadEffect(Effect, Character)
 
 end
+
+return M
+

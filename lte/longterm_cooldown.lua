@@ -20,15 +20,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("lte.longterm_cooldown", package.seeall)
+local M = {}
 
-function addEffect( Effect, Character)
+function M.addEffect( Effect, Character)
     -- it is needed to add at least value to make sure the effect does not get deleted right after
     -- the first call
     Effect:addValue("10",0);
 end;
 
-function callEffect( Effect, Char ) -- Effect is called
+function M.callEffect( Effect, Char ) -- Effect is called
 
     if Char:idleTime() < 300 then --absolutely no regeneration effect if the player is afk for more than five minutes
 
@@ -315,12 +315,15 @@ function callEffect( Effect, Char ) -- Effect is called
 end
 
 
-function removeEffect( Effect, Character )
+function M.removeEffect( Effect, Character )
 
 --This effect doesn't get removed.
 
 end
 
-function loadEffect(Effect, Character)
+function M.loadEffect(Effect, Character)
 
 end
+
+return M
+

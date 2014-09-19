@@ -19,7 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local factions = require("base.factions")
-module("lte.chr_reg", package.seeall)
+local M = {}
 
 crossPosition={};
 
@@ -33,14 +33,14 @@ crossPosition[3]= position(345,266,0);       -- Galmair
 TimeFactor = 1; -- Time between two effect calls in seconds. All effects scale with this number. Attention: If you change this number, also change it in server.standardfighting
 EffectID = 2;
 
-function addEffect( Effect, Character)
+function M.addEffect( Effect, Character)
 
     -- It is needed to add at least value to make sure the effect does not get deleted right after the first call
     Effect:addValue("10",0);
 	
 end;
 
-function callEffect( Effect, Char ) -- Effect called
+function M.callEffect( Effect, Char ) -- Effect called
 
 if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player is afk for more than five minutes
 
@@ -302,7 +302,7 @@ end -- All above is only conducted for players that aren't afk for more than fiv
 	
 end
 
-function removeEffect( Effect, Character )
+function M.removeEffect( Effect, Character )
 
     local newEffect = LongTimeEffect(2,10*TimeFactor);
     local found = false;
@@ -338,7 +338,7 @@ function removeEffect( Effect, Character )
     Character.effects:addEffect( newEffect );
 end
 
-function loadEffect(Effect, Character)
+function M.loadEffect(Effect, Character)
 
 end
 
@@ -469,3 +469,6 @@ function getWounds( Char, Effect )
     return Wounds;
 	
 end
+
+return M
+

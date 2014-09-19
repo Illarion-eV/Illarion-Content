@@ -19,7 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- see base.character.CreateAfterTime(Character,createAfter,createGfx,createSound)
 
 local common = require("base.common")
-module("lte.createaftertime", package.seeall)
+local M = {}
 
 TextDE={};
 TextEN={};
@@ -55,11 +55,11 @@ PosItemEN[8]=" south of you.";
 PosItemDE[9]=" unter deinen Beinen.";
 PosItemEN[9]=" underneath your feet.";
 
-function addEffect(Effect, Character)
+function M.addEffect(Effect, Character)
 
 end
 
-function callEffect(Effect, Character)
+function M.callEffect(Effect, Character)
 
 findCreateItemTimeB, createItemTimeB = Effect:findValue("createItemTimeB") --find variable
 findCreateItemTimeBB, createItemTimeBB = Effect:findValue("createItemTimeBB") --find variable
@@ -296,10 +296,13 @@ elseif findCreateItemTimeBB then
 end
 end
 
-function removeEffect(Effect,User)
+function M.removeEffect(Effect,User)
 
 end
 
-function loadEffect(Effect,User)
+function M.loadEffect(Effect,User)
 
 end
+
+return M
+

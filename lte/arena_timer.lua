@@ -26,9 +26,9 @@ local common = require("base.common")
 local arena = require("base.arena")
 
 
-module("lte.arena_timer", package.seeall)
+local M = {}
 
-function addEffect(arenaEffect, User)
+function M.addEffect(arenaEffect, User)
     found, level=arenaEffect:findValue("level");
 	found, arena=arenaEffect:findValue("arenaID");
     if not found then
@@ -40,7 +40,7 @@ function addEffect(arenaEffect, User)
 	end
 end
 
-function callEffect(arenaEffect, User)
+function M.callEffect(arenaEffect, User)
     if (User:increaseAttrib("hitpoints",0) == 0) then
         common.InformNLS( User,
         "Ihr habt den Kampf verloren. Ihr bekommt keine Punkte.",
@@ -90,11 +90,14 @@ function callEffect(arenaEffect, User)
     return true;
 end
 
-function removeEffect(arenaEffect, User)
+function M.removeEffect(arenaEffect, User)
     arena.killMonster( User );
     return false;
 end
 
-function loadEffect(arenaEffect, User)
+function M.loadEffect(arenaEffect, User)
     return false;
 end
+
+return M
+

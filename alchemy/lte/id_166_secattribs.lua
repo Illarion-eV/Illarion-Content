@@ -18,15 +18,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- by Falk
 -- complete new version by Merung
 
-module("alchemy.lte.id_166_secattribs", package.seeall)
+local M = {}
 
 -- INSERT INTO longtimeeffects VALUES (166, 'alchemy_secattribs', 'alchemy.lte.id_166_secattribs');
 
-function addEffect(Effect, User)               -- we start with adding the effect
+function M.addEffect(Effect, User)               -- we start with adding the effect
 	--User:inform("debug func addEffect")
 end
 
-function callEffect(Effect,User) 
+function M.callEffect(Effect,User) 
     local findCounter,counterPink = Effect:findValue("counterPink")
     
 	local findHitpointsIn,hitpointsIncrease = Effect:findValue("hitpointsIncrease")
@@ -90,10 +90,12 @@ function callEffect(Effect,User)
   return true
 end
 
-function loadEffect(Effect, User)
+function M.loadEffect(Effect, User)
     
 end	
 
-function removeEffect(Effect,User)         
+function M.removeEffect(Effect,User)         
 
 end
+return M
+

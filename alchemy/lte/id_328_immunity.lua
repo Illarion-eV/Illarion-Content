@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- by Falk
 -- immunity. Has actually nothing to do with healing potion 328 orange bottle
 
-module("alchemy.lte.id_328_immunity", package.seeall)
+local M = {}
 
 -- INSERT INTO longtimeeffects VALUES (328, 'alchemy_immunity', 'alchemy.lte.id_328_immunity');
 
@@ -26,11 +26,11 @@ function getAction(Character,Effect,Runde)
 --Hier die eigentlichen Aktionen eintragen  
 end
 
-function addEffect(Effect, Character)               -- Nur beim ersten Aufruf
+function M.addEffect(Effect, Character)               -- Nur beim ersten Aufruf
 --Character:inform("debug func addEffect") 
 end
 
-function callEffect(Effect,Character)                  -- Effect wird ausgeführt
+function M.callEffect(Effect,Character)                  -- Effect wird ausgeführt
 	
 	local foundImmunity, immunity, retVal = nil,nil,false;
 	for i=1,8 do
@@ -48,10 +48,13 @@ function callEffect(Effect,Character)                  -- Effect wird ausgeführt
 	return retVal;
 end
 
-function removeEffect(Effect,Character)         
+function M.removeEffect(Effect,Character)         
 --Character:inform("debug func removeEffect")  
 end
 
-function loadEffect(Effect,Character)                  -- wenn der Charakter erneut einloggt
+function M.loadEffect(Effect,Character)                  -- wenn der Charakter erneut einloggt
 --Character:inform("debug func loadEffect")   
 end
+
+return M
+

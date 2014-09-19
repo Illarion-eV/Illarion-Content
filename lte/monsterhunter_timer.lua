@@ -20,18 +20,18 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 require("base.common")
 
 
-module("lte.monsterhunter_timer", package.seeall)
+local M = {}
 
 huntMonster = {}
 
-function addEffect(theEffect, User)
+function M.addEffect(theEffect, User)
 
     local monPos = base.common.getFreePos(position(448, 771, -9), 5)
     local monster = world:createMonster(862, monPos, 20)
     huntMonster[User.id] =  monster
 end
 
-function callEffect(theEffect, User)
+function M.callEffect(theEffect, User)
     if (User:increaseAttrib("hitpoints",0) == 0) then
         base.common.InformNLS( User,
         "Ihr habt den Kampf verloren. Das Monster ist entwischt.",
@@ -67,10 +67,13 @@ function callEffect(theEffect, User)
     return true;
 end
 
-function removeEffect(theEffect, User)
+function M.removeEffect(theEffect, User)
     return false
 end
 
-function loadEffect(theEffect, User)
+function M.loadEffect(theEffect, User)
     return false
 end
+
+return M
+
