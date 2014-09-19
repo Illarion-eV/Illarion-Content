@@ -111,7 +111,7 @@ town = Galmair, "quest", "mission" -> "Nur Jene aus dem Reich der Weisheit werde
 town = Galmair, "task", "adventure", "order" -> "Only those from the realm of wisdom will find work here."
 town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nur Jene aus dem Reich der Weisheit werden hier etwas zu tun finden."
 
-.--- fix if quest started and sent to NPC by Florian
+-- fix if quest started and sent to NPC by Florian
 queststatus(188) > 0, queststatus(820) = 21, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 22, "Ah, Florain sent you, but you already asked me for something to do."
 queststatus(188) > 0, queststatus(820) = 21, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 22, "Ah, Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
 queststatus(188) > 0, queststatus(820) = 21, town = Runewick, "task", "adventure", "order" -> queststatus(820) = 22, "Ah, Florain sent you, but you already asked me for something to do."

@@ -67,7 +67,7 @@ sellItems = 122, 2140, 92, 393, 399, 1001, 1840, 2031, 446, 447, 448, 449, 450, 
 buySecondaryItems = 122, 2140, 92, 393, 399, 1001, 1840, 2031, 446, 447, 448, 449, 450, 451, 452, 224, 225, 336, 465, 45, 46, 197, 198, 283, 284, 285, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282, 1858, 1054, 84, 98, 85, 123, 297, 389, 398, 444, 124, 229, 192, 296, 2647
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
-tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeFinishedWithoutTradingMsg "Auf bald!", "Farewell!"
 tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian

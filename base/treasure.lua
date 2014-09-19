@@ -444,7 +444,7 @@ module("base.treasure", package.seeall)
 
         local MapQuality;
         if (Value ~= nil and Value < 10 and Value > 0) then
-            MapQuality = Value;
+            MapQuality = Value*100+99
         else
             MapQuality = (10-math.floor(math.sqrt(math.random(1,99))))*100+99;
         end
@@ -492,7 +492,7 @@ module("base.treasure", package.seeall)
             return false;
         end
 
-        local treasureLevel = math.floor( mapItem.quality / 100 );
+        local treasureLevel = math.max(1,math.floor( mapItem.quality / 100 ))
         if ( treasureLevel > maxToFind ) then
             base.common.InformNLS( User,
             "Du bist nicht erfahren genug in der Bergarbeit um diesen Schatz auszugraben.",

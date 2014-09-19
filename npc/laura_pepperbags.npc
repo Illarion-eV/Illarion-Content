@@ -66,7 +66,7 @@ itemShoes = 369
 sellItems = 61, 3076, 3077
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
-tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeFinishedWithoutTradingMsg "Auf bald!", "Farewell!"
 tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Template Version 1.06, 08/29/2012 by Estralis Seborian

@@ -63,7 +63,7 @@ buyPrimaryItems = 24, 2763, 26
 buySecondaryItems = 23, 737, 734, 736, 2588, 733, 735, 1266, 2738
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
-tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeFinishedWithoutTradingMsg "Auf bald!", "Farewell!"
 tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian

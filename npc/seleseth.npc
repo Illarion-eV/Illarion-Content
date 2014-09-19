@@ -16,7 +16,7 @@
 -- NPC Name: Seleseth                                                 Galmair --
 -- NPC Job:  Brick maker, mason and gem grinder                               --
 --                                                                            --
--- NPC Race: lizardman                  NPC Position:  387, 277, 0            --
+-- NPC Race: lizardman                  NPC Position:  387, 278, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
@@ -26,7 +26,7 @@
 name = "Seleseth"
 race = lizardman
 sex = male
-position = 387, 277, 0
+position = 387, 278, 0
 direction = west
 affiliation = "Galmair"
 job = "Brick maker, mason and gem grinder"

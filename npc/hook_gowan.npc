@@ -66,7 +66,7 @@ itemShoes = 53
 sellItems = 7, 27, 49, 55, 183, 363, 369, 2295, 2445, 2664, 3051
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
-tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeFinishedWithoutTradingMsg "Auf bald!", "Farewell!"
 tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Bags (97) removed until glitches with selling bags are resolved.

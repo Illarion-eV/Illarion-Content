@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 require("base.keys")
 require("base.common")
@@ -21,7 +21,7 @@ require("scheduled.factionLeader")
 module("server.logout", package.seeall)
 
 function onLogout( theChar )
-	
+
 	world:gfx(31,theChar.pos); --A nice GFX that announces clearly: A player logged out.
 
 	-- begin tying
@@ -35,12 +35,7 @@ function onLogout( theChar )
 		Tying:addValue("logminutes",world:getTime("minute")+3);
 		Tying:addValue("logseconds",world:getTime("second"));
 		foundCapturer, Capturer = Tying:findValue("Capturer");
-		local logText = os.date()..": "..theChar.name.." has logged out."..(foundCapturer and " Capturer: "..Capturer or "")
-		coldLog,errMsg=io.open("/home/nitram/logs/tying_log.txt","a");
-	    if (coldLog~=nil) then
-	        coldLog:write(logText.."\n");
-	        coldLog:close();
-		end
+		log("[Rope]: Tied up character "..theChar.name.." has logged out."..(foundCapturer and " Capturer: "..Capturer or ""))
 	end
 	-- end tying
 

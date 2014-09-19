@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --[[
 Effect to keep track of the arena monster.
@@ -26,7 +26,7 @@ require("base.common")
 require("base.arena")
 
 
-module("lte.arena", package.seeall)
+module("lte.arena_timer", package.seeall)
 
 function addEffect(arenaEffect, User)
     found, level=arenaEffect:findValue("level");
@@ -53,10 +53,10 @@ function callEffect(arenaEffect, User)
     local found;
     local arena;
 	local level;
-	
+
 	found, arena = arenaEffect:findValue("arenaID");
 	found, level = arenaEffect:findValue("level");
-	
+
     if not found then
         return false;      -- no monster
     end
@@ -73,20 +73,20 @@ function callEffect(arenaEffect, User)
 		local points = User:getQuestProgress(quest);
 		base.ranklist.setRanklist(User, arenaListName, points);
 
-		
+
 		if base.arena.arenaInformation[arena].newPlayerPos ~= nil then
 			User:warp(base.arena.arenaInformation[arena].newPlayerPos);
 		end
         return false;
     end
-	
+
 	if arenaEffect.numberCalled==300 then
         base.common.InformNLS( User,
         "Ihr habt zulange gebraucht, um das Monster zu besiegen.",
         "It took you too long to defeat the monster.");
         return false;
     end
-	
+
     return true;
 end
 

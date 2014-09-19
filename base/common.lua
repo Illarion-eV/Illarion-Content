@@ -326,30 +326,19 @@ end
 
 --- Needed, but could need some rework
 function getFreePos(CenterPos, Rad)
-	local tarPos;
-	local countPos = 0;
-	while true do
-		tarPos = position(CenterPos.x+math.random(-Rad,Rad),CenterPos.y+math.random(-Rad,Rad),CenterPos.z);
-		if not world:isItemOnField( tarPos ) and not world:isCharacterOnField( tarPos ) then
-			tileID = world:getField( tarPos ):tile();
-			if tileID ~= 0 and tileID ~= 5 and tileID ~= 6 and tileID~=42 and tileID ~= 43 and tileID~= 34 then --no inpassable tiles
-				countPos = 0;
-				return tarPos;
-			else
-				countPos = countPos +1;
-				if countPos > 50 then
-					countPos = 0;
-					return CenterPos;
+
+	for count = 0, 50 do
+		local targetPos = position(CenterPos.x + math.random(-Rad, Rad), CenterPos.y + math.random(-Rad, Rad), CenterPos.z)
+		if world:getField(targetPos) ~= nil then
+			if not world:isItemOnField(targetPos) and not world:isCharacterOnField(targetPos) then
+				local tileID = world:getField(targetPos):tile()
+				if tileID ~= 0 and tileID ~= 5 and tileID ~= 6 and tileID ~=42 and tileID ~= 43 and tileID ~= 34 then --no inpassable tiles
+					return targetPos
 				end
-			end
-		else
-			countPos = countPos +1;
-			if countPos > 50 then
-				countPos = 0;
-				return CenterPos;
 			end
 		end
 	end
+	return CenterPos
 end
 
 --- Check if a ItemStruct is valid for a special character

@@ -63,6 +63,7 @@ function InitDrinks()
 		drinkList[788] = {500, 790, 0}; -- bottle of carrot juice
 		drinkList[789] = {500, 790, 0}; -- bottle of strawberry juice
 		drinkList[791] = {500, 790, 0}; -- bottle of grape juice
+		drinkList[3611] =  {500, 790, 0};  -- bottle of orange juice
 
     end
 end
@@ -112,8 +113,7 @@ function LookAtItem(User, Item)
     local food = drinkList[ Item.id ];
 
     if food == nil then
-        User:inform("unkown drink item ID"..Item.id);
-        return
+        User:inform("unknown drink item ID"..Item.id);
     end
 
     return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)

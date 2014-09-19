@@ -112,7 +112,7 @@ town = Runewick, "quest", "mission" -> "#me schaut dich misstrauisch an 'Für Fre
 town = Runewick, "task", "adventure", "order" -> "#me looks at you with suspicious eyes, 'I do not have work for non citizens, you could be a spy!'"
 town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me schaut dich misstrauisch an, 'Für Fremde hab ich keine Arbeit, du könntest ein Spion sein!'"
 
-.--- fix if quest started and sent to NPC by Joey
+-- fix if quest started and sent to NPC by Joey
 queststatus(189) > 0, queststatus(712) = 17, english, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 18, "Ah, Joey sent you, but you already asked me for something to do."
 queststatus(189) > 0, queststatus(712) = 17, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 18, "Ah, Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt."
 queststatus(189) > 0, queststatus(712) = 17, town = Galmair, "task", "adventure", "order" -> queststatus(712) = 18, "Ah, Joey sent you, but you already asked me for something to do."

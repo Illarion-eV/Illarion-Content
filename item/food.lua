@@ -144,6 +144,8 @@ FoodList:add( 3570, nil,    2935,    1, {2,2,2,1,1,2,1,1,1,1}); -- Egg Salad
 FoodList:add( 3571, nil,    0,    1, {2,2,2,1,1,2,1,1,1,1}); -- Egg Salad Sandwich
 FoodList:add( 3572, nil,    2935,    1, {1,1,1,1,1,2,1,1,1,1}); -- Fish Soup
 FoodList:add( 3573,	nil,	   0,	 1,	{1,1,1,1,1,1,1,1,1,1}); -- cheese
+FoodList:add( 3609,	nil,	   0,	 1,	{1,1,1,1,1,1,1,1,1,1}); -- banana bread
+FoodList:add( 3610,	nil,	   0,	 1,	{1,1,1,1,1,1,1,1,1,1}); -- elderberry pie
 
 -- Poisoned Food
 FoodList:add( 162,	 VALUE_SMALL,	   0,	nil,	nil,	nil,	 600); -- birth mushroom

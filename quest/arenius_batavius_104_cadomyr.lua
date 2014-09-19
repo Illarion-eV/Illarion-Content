@@ -105,21 +105,21 @@ Description[ENGLISH][35] = "You have fulfilled all tasks for Arenius Batavius."
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {85, 587, 0}
+Start = {86, 586, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {position(85, 587, 0), position(113, 611, 0), position(141, 576, 0)} 
-QuestTarget[2] = {position(85, 587, 0)}
+QuestTarget[1] = {position(86, 586, 0), position(113, 611, 0), position(141, 576, 0)} 
+QuestTarget[2] = {position(86, 586, 0)}
 QuestTarget[3] = {position(670, 408, -3)} 
 QuestTarget[4] = {position(670, 408, -3)}
 QuestTarget[5] = {position(670, 408, -3)} 
 QuestTarget[6] = {position(670, 408, -3)}
 QuestTarget[7] = {position(670, 408, -3)} 
 QuestTarget[8] = {position(670, 408, -3)}
-QuestTarget[9] = {position(85, 587, 0)} 
-QuestTarget[10] = {position(85, 587, 0)}
+QuestTarget[9] = {position(86, 586, 0)} 
+QuestTarget[10] = {position(86, 586, 0)}
 QuestTarget[11] = {position(670, 408, -3)} 
 QuestTarget[12] = {position(670, 408, -3)}
 QuestTarget[13] = {position(670, 408, -3)} 
@@ -132,19 +132,19 @@ QuestTarget[19] = {position(670, 408, -3)}
 QuestTarget[20] = {position(670, 408, -3)} 
 QuestTarget[21] = {position(670, 408, -3)} 
 QuestTarget[22] = {position(670, 408, -3)} 
-QuestTarget[23] = {position(85, 587, 0)}
-QuestTarget[24] = {position(85, 587, 0)} 
-QuestTarget[25] = {position(85, 587, 0)}
+QuestTarget[23] = {position(86, 586, 0)}
+QuestTarget[24] = {position(86, 586, 0)}
+QuestTarget[25] = {position(86, 586, 0)}
 QuestTarget[26] = {position(670, 408, -3)} 
 QuestTarget[27] = {position(670, 408, -3)} 
-QuestTarget[28] = {position(85, 587, 0)} 
-QuestTarget[29] = {position(85, 587, 0)} 
+QuestTarget[28] = {position(86, 586, 0)}
+QuestTarget[29] = {position(86, 586, 0)} 
 QuestTarget[30] = {position(670, 408, -3)} 
-QuestTarget[31] = {position(85, 587, 0)}
-QuestTarget[32] = {position(85, 587, 0)} 
+QuestTarget[31] = {position(86, 586, 0)}
+QuestTarget[32] = {position(86, 586, 0)}
 QuestTarget[33] = {position(688, 392, -3)} 
-QuestTarget[34] = {position(85, 587, 0)} 
-QuestTarget[35] = {position(85, 587, 0)} 
+QuestTarget[34] = {position(86, 586, 0)}
+QuestTarget[35] = {position(86, 586, 0)}
 
 
 -- Insert the quest status which is reached at the end of the quest

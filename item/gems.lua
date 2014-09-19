@@ -100,7 +100,6 @@ end
 gemCraft = item.base.crafts.Craft:new{
     craftEN = "Magic Blacksmith",
     craftDE = "Magieschmied",
-    leadSkill = base.factions.getRankpoints,
     npcCraft = true,
     lookAtFilter = lookAtFilter,
 }
@@ -118,9 +117,8 @@ for gem=1,7 do
     local catId = categoryId[gem]
     if catId then
         for level=2,10 do
-            local requirement = (level - 2) * 10
             local duration = level * 10
-            product = gemCraft:addProduct(catId, gemItem[gem], requirement, requirement+10, duration, duration*2, 1, {gemLevel = level})
+            product = gemCraft:addProduct(catId, gemItem[gem], 0, 0, duration, duration*2, 1, {gemLevel = level})
             product:addIngredient(gemItem[gem], 3, {gemLevel = level-1})
         end
     end

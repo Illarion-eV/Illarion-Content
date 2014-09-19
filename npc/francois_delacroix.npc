@@ -98,8 +98,9 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- As a he Francois felt a never before felt wave of confidence. When Francois arrived in Runewick he let it known that he known that he was a skilled merchant. Once his knowledge was demonstrated he had no problem starting a debt to purchase goods.
 -- Money wise Francois is doing good, but his youth is growing thin. He yearns for a mate and passively lingers the thought if she wants to be with a guy or a girl.
 -- Personality: Gentle, sweet, talented sales person, charismatic, outgoing on the outside, but lonely and self-conscious on the inside.
+
 "kauf", "handel" -> "Lass uns handeln!", trade
-"buy", "sell", "trade" -> "Let's!", trade, trade
+"buy", "sell", "trade" -> "Let's!", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Francois Delacroix the Trader. Keywords: Hello, Markets, Buy, Sell, Agriculture, Trade.")
@@ -197,4 +198,4 @@ cycletext "Ihr könnt Euch kein Fleisch leisten? Milch ist das perfekte Mittel, u
 cycletext "Wie geht es Euch heute? Werft einen Blick auf meine neuesten Waren, Francois Delacroix bietet nur Feinste vom Feinsten an.", "How are you doing today? Check out the latest wares of mine, Francois Delacroix only offers the finest of the finest."
 cycletext "Euer liebster Händler für landwirtschaftliche Güter, ich, Francois Delacroix bin für euch da!", "Your favourite agricultural trader, Francois Delacroix, that's me, yearns to serve your needs!"
 cycletext "Ihr seid wunderschöne Leute. Habt einen wunderschönen Tag!", "You are beautiful people! Have an even more beautiful day!"
-cycletext "Seid Ihr hungrig, großer Kerl? Oder wollt ihr einen Mann glücklich machen, hübsches Fräulein? Ich, Francois Delacroix verkaufe das blutigste Fleisch. Für das Tier in euch!", "Are you hungry, big man? Or do you wish to please your beloved, pretty lady? I, Francois Delacroix, sell the bloodiest meat.. feed your wild side!"
+cycletext "Seid Ihr hungrig, großer Kerl? Oder wollt ihr einen Mann glücklich machen, hübsches Fräulein? Ich, Francois Delacroix verkaufe das blutigste Fleisch. Für das Tier in euch!", "Are you hungry, big man? Or do you wish to please your beloved, pretty lady? I, Francois Delacroix, sell the bloodiest meat... feed your wild side!"

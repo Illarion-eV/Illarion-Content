@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_1061_teleport' WHERE itm_id=1061;
 
@@ -22,51 +22,35 @@ module("item.id_1061_teleport", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
     if User.pos.z == -40 then
-		User:inform("Nichts passiert.", "Nothing happens.")
-	end
-	
-	local destCoordX; local destCoordY; local destCoordZ
-	local loc
-	local success
-	local radius
-	local myPortal
-	
-	destCoordX = SourceItem:getData("destinationCoordsX")
-	destCoordY = SourceItem:getData("destinationCoordsY")
-	destCoordZ = SourceItem:getData("destinationCoordsZ")
-	if (destCoordX ~= "") and (destCoordY ~= "") and (destCoordZ ~= "") then
-	    success = false;
-		radius = 4;
+        User:inform("Nichts passiert.", "Nothing happens.")
+    end
 
-		for i = 1, 10 do
-			loc = position( User.pos.x - radius + math.random( 2*radius ), User.pos.y - radius + math.random( 2*radius ), User.pos.z )
+    local destCoordX = SourceItem:getData("destinationCoordsX")
+    local destCoordY = SourceItem:getData("destinationCoordsY")
+    local destCoordZ = SourceItem:getData("destinationCoordsZ")
 
-			-- never create it on people
-			-- never create it on items
-			if not world:isCharacterOnField( loc ) and not world:isItemOnField( loc ) and (world:getField( loc ):tile()~=6) then
+    if (destCoordX ~= "") and (destCoordY ~= "") and (destCoordZ ~= "") then
 
-				-- create a gate 
-				myPortal = world:createItemFromId( 10, 1, loc, true, 933 ,nil);
-				myPortal:setData("destinationCoordsX",destCoordX)
-				myPortal:setData("destinationCoordsY",destCoordY)
-				myPortal:setData("destinationCoordsZ",destCoordZ)
-				world:changeItem(myPortal)
-				world:makeSound( 4, loc )
+        local radius = 4;
+        local targetPos = base.common.getFreePos(User.pos, radius)
 
-				success = true;
-				break
-			end
+        if targetPos ~= User.Pos then
+            -- create a gate
+            local myPortal = world:createItemFromId( 10, 1, targetPos, true, 933, nil);
+            myPortal:setData("destinationCoordsX", destCoordX)
+            myPortal:setData("destinationCoordsY", destCoordY)
+            myPortal:setData("destinationCoordsZ", destCoordZ)
+            world:changeItem(myPortal)
+            world:makeSound(4, targetPos)
 
-		end
+        else -- no free space found
+            base.common.InformNLS( User,
+            "Rings um Dich erzittern Boden und Gegenstände!",
+            "All around you ground and items are trembling!" )
+        end
 
-		if not success then -- no free space found
-			base.common.InformNLS( User,
-			"Rings um Dich erzittern Boden und Gegenstände!",
-			"All around you ground and items are trembling!" );
-		end	
-			
-        world:erase( SourceItem, 1 );
+        world:erase(SourceItem, 1)
     else
-	   -- no portal book
-	end	
+       -- no portal book
+    end
 end

@@ -19,7 +19,6 @@ require("monster.base.base")
 require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
-require("base.messages");
 require("monster.base.kills")
 require("base.arena")
 require("base.messages");
