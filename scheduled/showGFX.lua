@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local character = require("base.character")
 
-module("scheduled.showGFX", package.seeall)
+local M = {}
 
 -- INSERT INTO scheduledscripts VALUES('scheduled.showGFX', 10, 10, 'CreateGFX');
 
@@ -29,7 +29,7 @@ SlimeList.Slime1 = {}
 SlimeList.Slime2 = {}
 
 
-function CreateGFX()
+function M.CreateGFX()
     world:gfx(1,position(75,651,0)) -- thinking stone
 	world:gfx(11,position(873,878,0)) -- recognizing spring
     world:gfx(7,position(432,238,0)) -- knowing tree
@@ -86,3 +86,5 @@ function checkSlime(ListSlime)
 	end
 	return false
 end
+
+return M

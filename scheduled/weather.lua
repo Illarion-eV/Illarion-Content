@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-module("scheduled.weather", package.seeall)
+local M = {}
 
 -- INSERT INTO scheduledscripts VALUES('scheduled.weather', 350, 900, 'plantdrop');
 
@@ -196,7 +196,7 @@ end
 -- herbst: 9-12: Viel Nebel
 -- winter: 13-16: kalt, 
 
-function changeWeather()
+function M.changeWeather()
     actWeather=world.weather;
     
     month=world:getTime("month");
@@ -236,3 +236,5 @@ function changeWeather()
     logWeather(m_Weather);
     world:setWeather(m_Weather);
 end
+
+return M

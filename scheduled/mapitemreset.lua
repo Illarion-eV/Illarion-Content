@@ -18,9 +18,9 @@ local common = require("base.common")
 
 -- INSERT INTO scheduledscripts VALUES('scheduled.mapitemreset', 30, 30, 'resetMapitem');
 
-module("scheduled.mapitemreset", package.seeall)
+local M = {}
 
-function resetMapitem()
+function M.resetMapitem()
 
   -- close rockwall entrance again (item 623)
   local pos = position(894, 627, 0);
@@ -73,3 +73,5 @@ function resetMapitem()
     world:changeItem(skull)
   end
 end
+
+return M

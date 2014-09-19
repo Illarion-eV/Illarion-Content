@@ -21,10 +21,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("scheduled.itemEffects", package.seeall)
+local M = {}
 
 
-function itemEffects()
+function M.itemEffects()
 
 	spiderEgg()
 	pileOfBones()
@@ -99,3 +99,5 @@ function hatchingSpiders(eggPosition)
 		world:createMonster(196,spawnPosition,-5)
 	end	
 end
+
+return M

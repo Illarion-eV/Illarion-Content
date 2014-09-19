@@ -19,9 +19,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("scheduled.scs_skeleton_forest", package.seeall)
+local M = {}
 
-function ForestSkells()
+function M.ForestSkells()
     local Charakters = world:getPlayersInRangeOf(position(780,50,0),30);
 	for _,Char in pairs(Charakters) do
         RndTry = math.random(1,2)
@@ -83,3 +83,5 @@ function SpawnSkeletonCycle(CenterPos,Radius,Anzahl)
         end;
     end;
 end
+
+return M

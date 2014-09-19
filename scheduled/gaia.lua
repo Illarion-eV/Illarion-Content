@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 
-module("scheduled.gaia", package.seeall)
+local M = {}
 
 -- INSERT INTO scheduledscripts VALUES('scheduled.gaia', 10, 10, 'plantdrop');
 
@@ -95,7 +95,7 @@ function AddPlant(ItemID, Grounds, rare)
     end
 end
 
-function plantdrop()
+function M.plantdrop()
     if ( RarePlantByGround==nil ) then
         Init();
     end
@@ -146,3 +146,5 @@ function PutPlantOnField(rare)
 		return true
 	end
 end
+
+return M

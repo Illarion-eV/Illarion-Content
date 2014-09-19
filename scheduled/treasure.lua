@@ -17,13 +17,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local treasure = require("base.treasure")
 local common = require("base.common")
 
-module("scheduled.treasure", package.seeall)
+local M = {}
 
 -- INSERT INTO scheduledscripts VALUES('scheduled.treasure', 4, 4, 'treasureCheck');
 
 
 
-function treasureCheck()
+function M.treasureCheck()
     local treasurePositions = treasure.treasurePositions;
 	local treasureCategory = treasure.treasureCategory
     
@@ -38,3 +38,5 @@ function treasureCheck()
 	end
 
 end
+
+return M
