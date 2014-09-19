@@ -420,18 +420,18 @@ end
 
 
 
-executePortalLeverRiddle = class.class(function(leverriddle, posi)
+M.executePortalLeverRiddle = class.class(function(leverriddle, posi)
     leverriddle.pos=posi;
 end);
 
-function executePortalLeverRiddle:execute()
+function M.executePortalLeverRiddle:execute()
 	char=self.player
-	PortalLeverRiddle(char)
+	M.PortalLeverRiddle(char)
 end
 
 
 
-function PortalLeverRiddle(char)
+function M.PortalLeverRiddle(char)
 	world:makeSound(22,position(970,171,2))
 	if CheckPortalLeverRiddle1(char) == true or CheckPortalLeverRiddle2(char) == true or CheckPortalLeverRiddle3(char) == true or CheckPortalLeverRiddle4(char) == true then
 		world:gfx(32,position(970,171,2))
