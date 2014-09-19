@@ -20,11 +20,10 @@ local M = {}
 
 -- INSERT INTO scheduledscripts VALUES('scheduled.gaia', 10, 10, 'plantdrop');
 
+local RarePlantByGround = {}
+local NormalPlantByGround = {}
 
 function Init()
-    
-	RarePlantByGround = {}
-	NormalPlantByGround = {}
     
 	local gt = common.GroundType
 	
