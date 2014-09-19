@@ -24,7 +24,7 @@ local lookat = require("monster.base.lookat")
 local monstermagic = require("monster.base.monstermagic")
 local quests = require("monster.base.quests")
 
-module("monster.mon_111_rats", package.seeall)
+local M = {}
 
 
 function ini(Monster)
@@ -47,7 +47,7 @@ function ini(Monster)
     msgs:addMessage("#me faucht aggressiv.", "#me hisses agressively.");
 end
 
-function enemyNear(Monster, Enemy)
+function M.enemyNear(Monster, Enemy)
 
     if init==nil then
         ini(Monster);
@@ -60,7 +60,7 @@ function enemyNear(Monster, Enemy)
     return false
 end
 
-function enemyOnSight(Monster, Enemy)
+function M.enemyOnSight(Monster, Enemy)
 
     if init==nil then
         ini(Monster);
@@ -80,7 +80,7 @@ function enemyOnSight(Monster, Enemy)
     end
 end
 
-function onAttacked(Monster, Enemy)
+function M.onAttacked(Monster, Enemy)
 
     if init==nil then
         ini(Monster);
@@ -89,7 +89,7 @@ function onAttacked(Monster, Enemy)
     killer[Monster.id] = Enemy.id; --Keeps track who attacked the monster last
 end
 
-function onCasted(Monster, Enemy)
+function M.onCasted(Monster, Enemy)
 
     if init==nil then
         ini(Monster);
@@ -98,7 +98,7 @@ function onCasted(Monster, Enemy)
     killer[Monster.id] = Enemy.id; --Keeps track who attacked the monster last
 end
 
-function onDeath(Monster)
+function M.onDeath(Monster)
 
     if arena.isArenaMonster(Monster) then
         return
@@ -155,3 +155,6 @@ function onDeath(Monster)
     end
     drop.Dropping(Monster);
 end
+
+return M
+

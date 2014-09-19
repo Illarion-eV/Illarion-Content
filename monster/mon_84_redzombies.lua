@@ -22,7 +22,7 @@ local quests = require("monster.base.quests")
 local messages = require("base.messages")
 local kills = require("monster.base.kills")
 local arena = require("base.arena")
-module("monster.mon_84_redzombies", package.seeall)
+local M = {}
 
 
 function ini(Monster)
@@ -37,7 +37,7 @@ msgs:addMessage("#me atmet laut ein und aus.", "#me takes deep breaths.");
 
 end
 
-function enemyNear(Monster,Enemy)
+function M.enemyNear(Monster,Enemy)
 
 	local MonID=Monster:getMonsterType();
     if init==nil then
@@ -55,7 +55,7 @@ function enemyNear(Monster,Enemy)
 	end
 end
 
-function enemyOnSight(Monster,Enemy)
+function M.enemyOnSight(Monster,Enemy)
 
 	local MonID=Monster:getMonsterType();
     if init==nil then
@@ -78,7 +78,7 @@ function enemyOnSight(Monster,Enemy)
 	end
 end
 
-function onAttacked(Monster,Enemy)
+function M.onAttacked(Monster,Enemy)
 
     if init==nil then
         ini(Monster);
@@ -87,7 +87,7 @@ function onAttacked(Monster,Enemy)
     killer[Monster.id]=Enemy.id; --Keeps track who attacked the monster last
 end
 
-function onCasted(Monster,Enemy)
+function M.onCasted(Monster,Enemy)
 
     if init==nil then
         ini(Monster);
@@ -96,7 +96,7 @@ function onCasted(Monster,Enemy)
     killer[Monster.id]=Enemy.id; --Keeps track who attacked the monster last
 end
 
-function onDeath(Monster)
+function M.onDeath(Monster)
 
     if arena.isArenaMonster(Monster) then
         return
@@ -181,3 +181,6 @@ if (MonID==841) then --Coffinguard, Level: 4, Armourtype: heavy, Weapontype: con
     end
     drop.Dropping(Monster);
 end
+
+return M
+
