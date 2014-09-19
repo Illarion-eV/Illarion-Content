@@ -18,9 +18,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("npc.yellowcross", package.seeall)
+local M = {}
 
-function nextCycle(thisNPC)
+function M.nextCycle(thisNPC)
 
     EffectArea = 5;
 
@@ -83,7 +83,7 @@ end
 
 attribs={"strength","dexterity","constitution","agility","intelligence","perception","willpower","essence"};
 
-function doubleEffect( rebirthEffect, Reborn )
+function M.doubleEffect( rebirthEffect, Reborn )
     if Reborn:isAdmin() then
 	  return false;
     end
@@ -185,3 +185,5 @@ function CreateLineofFligth(StartPos,TargetPos,GFXID)
         world:gfx(GFXID,PathPos);
     end
 end
+
+return M

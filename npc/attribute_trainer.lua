@@ -25,11 +25,11 @@ VALUES (0, 355, 254, 0, 4, 'Trainer Cloud McGoughey', 'npc.attribute_trainer', 0
 
 
 local money = require("base.money")
-module("npc.attribute_trainer", package.seeall)
+local M = {}
 
 init = {};
 
-function nextCycle(npc)
+function M.nextCycle(npc)
     if not init[npc.id] then
         npc:createAtPos(3, 458, 1)
         npc:createAtPos(11, 195, 1)
@@ -40,11 +40,11 @@ function nextCycle(npc)
     end
 end
 
-function useNPC(npc, user)
+function M.useNPC(npc, user)
     receiveText(npc, nil, "train", user)
 end
 
-function receiveText(npc, ttype, text, user)
+function M.receiveText(npc, ttype, text, user)
     if not npc:isInRange(user, 2) then
         return
     end
@@ -210,3 +210,5 @@ function receiveText(npc, ttype, text, user)
 	
 	user:requestSelectionDialog(requestReduceAttribute)
 end
+
+return M
