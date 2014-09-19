@@ -19,9 +19,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("triggerfield.runewick_bridges", package.seeall)
+local M = {}
 
-function MoveToField( User )
+function M.MoveToField( User )
 	local displacement,xpos,ypos;
 	--North Bridge
 	for displacement = 1, 28, 3 do
@@ -780,3 +780,5 @@ end
 -- INSERT INTO triggerfields VALUES (946,818,1,'triggerfield.runewick_bridges');
 -- INSERT INTO triggerfields VALUES (947,818,1,'triggerfield.runewick_bridges');
 -- INSERT INTO triggerfields VALUES (948,818,1,'triggerfield.runewick_bridges');
+return M
+

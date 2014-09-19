@@ -28,11 +28,14 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (451,736,0,'triggerfield.raptor_hole');
 
 local common = require("base.common")
-module("triggerfield.raptor_hole", package.seeall)
+local M = {}
 
 
-function MoveToField(char)
+function M.MoveToField(char)
 	if char:getType() ~= Character.player then --Player will be ingored
 		world:makeSound(26,char.pos); --Rrroaaaarrrr!
 	end	
 end
+
+return M
+

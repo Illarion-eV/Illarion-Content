@@ -23,7 +23,7 @@ INSERT INTO triggerfields VALUES (X,Y,Z,'triggerfield.ambient');
 
 local common = require("base.common")
 
-module("triggerfield.ambient", package.seeall)
+local M = {}
 
 --[[
 position: coordinates
@@ -330,7 +330,7 @@ AmbientList:add( position(894,843,3),{0,1,7},"Die Vögel zwitschern draußen, im R
 AmbientList:add( position(907,834,0),nil,"Der Schnee glitzert durch die Fenster und bringt den Raum zum Leuchten. Es riecht nach Wintergebäck.","The glittering snow outside lights up the whole room. You can smell winter pastry.",{8,9,10,11,12,13,14,15,16,17,18,19,20},{13,14,15,16},10); --Specific Runewick, daylight, winter
 AmbientList:add( position(683,314,0),nil,"Die Straße hier sieht verlassen aus. Mitunter sind Rufe aus der Taverne zu vernehmen.","The street is quiet. Occasional shouts can be heard from the tavern.",{8,9,10,11,12,13,14,15,16,17,18,19,20},nil,10); --Specific Tavern, daylight
 
-function MoveToField(Char)
+function M.MoveToField(Char)
 	local this = getAmbient(Char);
 	if this then
 		common.InformNLS(Char,this.german,this.english);
@@ -373,3 +373,6 @@ function getAmbient(Char)
 	end
 	return nil;
 end
+
+return M
+

@@ -52,7 +52,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 
 
-module("triggerfield.ferry", package.seeall)
+local M = {}
 
 
 
@@ -191,7 +191,7 @@ ferryTargetPos[31]={position(389,273,-6)}
 
 noChoiceAndWrapDirectly={24,25,26,27,28,29,30,31}
 
-function MoveToField(User)
+function M.MoveToField(User)
 	if User:getType() ~= Character.player then
 		return
 	end
@@ -279,3 +279,6 @@ function MoveToField(User)
 	end
 	User:requestSelectionDialog(dialog)
 end
+
+return M
+

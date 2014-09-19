@@ -19,9 +19,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("triggerfield.aq001_wcno", package.seeall)
+local M = {}
 
-function MoveToField( user )
+function M.MoveToField( user )
 
     if( world:isCharacterOnField(position( 33, 195, -12)) ) then
         common.removeItemIdFromFieldStack( 287, position( 28, 190, -12) );
@@ -30,10 +30,13 @@ function MoveToField( user )
 end
 
 
-function MoveFromField( user )
+function M.MoveFromField( user )
 
     if( not common.isItemIdInFieldStack( 287, position( 28, 190, -12) ) ) then
         world:createItemFromId( 287, 1, position( 28, 190, -12), true, 333,0 );
     end;
 
 end
+
+return M
+

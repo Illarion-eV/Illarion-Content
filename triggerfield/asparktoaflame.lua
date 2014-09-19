@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Quest: A spark to a flame (113)/(114)
 local common = require("base.common")
 
-module("triggerfield.asparktoaflame", package.seeall)
+local M = {}
 
 function Init()
 
@@ -47,7 +47,7 @@ function Init()
     
 end
 
-function MoveToField(User)
+function M.MoveToField(User)
     Init();
    if (User:getQuestProgress(113) == 1) then --OK, the player does the quest
    
@@ -71,3 +71,6 @@ function MoveToField(User)
       end   
    end
 end
+
+return M
+

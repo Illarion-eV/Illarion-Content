@@ -23,9 +23,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("triggerfield.noobiafactionwarp", package.seeall)
+local M = {}
 
-function MoveToField(Character)
+function M.MoveToField(Character)
 
 	-- Cadomyr: 127 647 0
     -- Runewick: 788 826 0
@@ -158,3 +158,5 @@ function MoveToField(Character)
 		
 	end	
 end	
+return M
+

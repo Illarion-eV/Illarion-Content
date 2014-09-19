@@ -22,7 +22,7 @@ local common = require("base.common")
 local id_3109_open_pell = require("item.id_3109_open_pell")
 local alchemy = require("alchemy.base.alchemy")
 
-module("triggerfield.potionToTeacher", package.seeall)
+local M = {}
 
 
 function getNPC(Item)
@@ -54,7 +54,7 @@ function getTown(Item)
 	return false
 end
 
-function PutItemOnField(Item,User)
+function M.PutItemOnField(Item,User)
     local myNPC = getNPC(Item)
 	
 	-- is the char an alchemist?
@@ -154,3 +154,5 @@ function TellRecipe(User, effectId)
 	end	
 	    
 end
+return M
+

@@ -59,7 +59,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local class = require("base.class")
-module("triggerfield.evilrock", package.seeall)
+local M = {}
 
 
 triggerFlameFire={position(990,252,0),position(989,253,0),position(988,252,0),position(987,253,0),position(986,252,0),position(985,253,0)}
@@ -77,7 +77,7 @@ attendants2={}
 
 
 
-function MoveToField(char)
+function M.MoveToField(char)
 	if char:getType() ~= Character.player then --Monsters will be ingored
 		return
 	end
@@ -360,7 +360,7 @@ function StoneChamberQuestProgress(char)
 end
 
 
-function MoveFromField(char)
+function M.MoveFromField(char)
    if char:getType() ~= Character.player then
 	return
    else
@@ -478,4 +478,7 @@ function CheckPortalLeverRiddle4(char)
 		return false
 	end
 end
+
+
+return M
 

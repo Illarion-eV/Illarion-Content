@@ -19,10 +19,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (773,445,0,'triggerfield.elstree_altar');
 
 local common = require("base.common")
-module("triggerfield.elstree_altar", package.seeall)
+local M = {}
 
 
-function MoveToField(char)
+function M.MoveToField(char)
 	if char:getType() ~= Character.player then --Monsters will be ingored
 		return
 	end
@@ -39,4 +39,7 @@ function MoveToField(char)
 	end
 
 end
+
+
+return M
 

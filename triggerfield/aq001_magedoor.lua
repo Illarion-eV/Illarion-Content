@@ -19,9 +19,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local keys = require("base.keys")
 
-module("triggerfield.aq001_magedoor", package.seeall)
+local M = {}
 
-function CharacterOnField(Character)
+function M.CharacterOnField(Character)
     if( string.find( Character.lastSpokenText, "[Ll][Oo][Tt][Hh][Ll][Ee][Nn][Dd][Aa][Rr]" ) ~= nil ) then
         local doora=world:getItemOnField(position( -35, 195, -9 ));
         local doorb=world:getItemOnField(position( -35, 196, -9 ));
@@ -33,3 +33,6 @@ function CharacterOnField(Character)
         OpenDoor( doorb );
     end
 end
+
+return M
+

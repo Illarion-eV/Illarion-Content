@@ -25,9 +25,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("triggerfield.homeland", package.seeall)
+local M = {}
 
-function MoveToField(char)
+function M.MoveToField(char)
 	if char:getType() ~= Character.player then
 		return
 	end
@@ -77,4 +77,7 @@ function MoveToField(char)
 	        char:requestMessageDialog(dialogHomeland)
 
 end
+
+
+return M
 

@@ -17,10 +17,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Location: 28 190 -12
 -- Purpose: invisible wall for secret passage to well, testing for
 
-module("triggerfield.aq001_wcgate", package.seeall)
+local M = {}
 local common = require("base.common")
 
-function MoveToField( user )
+function M.MoveToField( user )
     if world:isItemOnField( position( 28, 190, -12) ) then
         if (world:getItemOnField( position( 28, 190, -12) )).id ~= 287 then
 
@@ -44,3 +44,6 @@ function MoveToField( user )
     end
 
 end
+
+return M
+

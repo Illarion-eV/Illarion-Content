@@ -18,11 +18,11 @@ local common = require("base.common")
 local hair = require("base.hair")
 local money = require("base.money")
 
-module("triggerfield.hairdresser", package.seeall)
+local M = {}
 
 priceInCP = 50000;
 
-function MoveToField(User)
+function M.MoveToField(User)
 	if User:getType() ~= Character.player then
 		return
 	end
@@ -53,7 +53,7 @@ function MoveToField(User)
 	end
 end
 
-function MoveFromField(User)
+function M.MoveFromField(User)
 	if User:getType() ~= Character.player then
 		return
 	end
@@ -245,3 +245,6 @@ function selectHaircolor(User, NPC)
 	User:requestSelectionDialog(dialog)
 
 end
+
+return M
+

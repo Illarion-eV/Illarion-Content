@@ -19,11 +19,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 local common = require("base.common")
-module("triggerfield.bjolmur", package.seeall)
+local M = {}
 
 
 
-function MoveToField(char)
+function M.MoveToField(char)
 	if char:getType() ~= Character.player then
 		return
 	end
@@ -155,4 +155,7 @@ function PlayerIsNaked(char)
 		return true
 	end
 end
+
+
+return M
 

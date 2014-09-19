@@ -19,9 +19,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("triggerfield.aq001_statueladder", package.seeall)
+local M = {}
 
-function MoveToField( user )
+function M.MoveToField( user )
     
     if( common.isItemIdInFieldStack( 35, position(-29, 195, -9) ) ) then
         user:warp( position( -30, 195, -8 ) );
@@ -29,3 +29,6 @@ function MoveToField( user )
     end;
     
 end
+
+return M
+

@@ -35,7 +35,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 local lookat = require("base.lookat")
-module("triggerfield.slimeFeeding", package.seeall)
+local M = {}
 
 -- 24 items. For every day of the month an own item..
 SLIME_DIET_ITEMS = {
@@ -113,7 +113,7 @@ function setSign()
 	
 end
 
-function PutItemOnField(Item,User)
+function M.PutItemOnField(Item,User)
 	if Item.pos ~= TELEPORTER_FIELD or world:getTime("month")==16 then
 		RefuseItem(Item)
 		return
@@ -177,3 +177,6 @@ function SlimeCreation()
 	FEEDING_IN_PROGRESS = true
 	
 end
+
+return M
+

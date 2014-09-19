@@ -21,9 +21,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("triggerfield.akaltutschamber_mudwarp", package.seeall)
+local M = {}
 
-function MoveToField(Character)
+function M.MoveToField(Character)
 
 	-- mudslide: 481 812 -9  and 482 812 -9
 
@@ -44,3 +44,6 @@ function MoveToField(Character)
     world:makeSound(13,destination);
     world:gfx(41,Character.pos);
 end
+
+return M
+

@@ -17,9 +17,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Quest: The Ghost Oak (112)
 local common = require("base.common")
 
-module("triggerfield.ghostoak", package.seeall)
+local M = {}
 
-function MoveToField(User)
+function M.MoveToField(User)
 	if User:getType() ~= Character.player then
 		return
 	end
@@ -31,3 +31,6 @@ function MoveToField(User)
       User:setQuestProgress(112, 2);
    end
 end
+
+return M
+

@@ -18,9 +18,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("triggerfield.labour_camp_warp", package.seeall)
+local M = {}
 
-function MoveToField(User)
+function M.MoveToField(User)
     if User:getQuestProgress(25) > 0 then -- char wants to go, but his work isn't done; makes the labour camp leader grumpy
 	    
 		-- check for spam and put a new spam marker in case it is no spam
@@ -85,3 +85,5 @@ function MoveToField(User)
         world:makeSound(13,User.pos);
     end	
 end
+return M
+

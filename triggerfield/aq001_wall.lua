@@ -17,12 +17,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Location: -50 201 -3
 -- Purpose: simulate illusion wall
 
-module("triggerfield.aq001_wall", package.seeall)
+local M = {}
 local common = require("base.common")
 
-function MoveFromField(User)
+function M.MoveFromField(User)
     if (User:getFaceTo() == 0) then
 	    common.InformNLS(user,"Die solide aussehende Höhlenwand war anscheinend nur eine Illusion und du stolperst in einen stockfinsteren Schacht...","Apparently the solid seeming cave wall was just an illusion and you stumble into a pitch-dark shaft...");
         User:warp( position( -50, 200, -9 ) );
     end;
 end
+
+return M
+

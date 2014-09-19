@@ -23,9 +23,9 @@ local common = require("base.common")
 local townTreasure = require("base.townTreasure")
 local character = require("base.character")
 
-module("triggerfield.labour_camp_dumping", package.seeall)
+local M = {}
 
-function PutItemOnField(Item,User)
+function M.PutItemOnField(Item,User)
     -- coal, iron, copper, gold, silver; more resources can be added
     if Item.id == 21 or Item.id == 22 or Item.id == 2536 or Item.id == 234 or Item.id == 1062 then
         
@@ -83,7 +83,7 @@ function PutItemOnField(Item,User)
 	end	
 end
 
-function MoveToField(User)
+function M.MoveToField(User)
     
 	-- check for spam and put a new spam marker in case it is no spam
 	local noSpam = false
@@ -111,3 +111,5 @@ function MoveToField(User)
 		                          ,"You feel a strange prickling. This platform is the place where you have to bring the resources to.")
     end
 end
+return M
+

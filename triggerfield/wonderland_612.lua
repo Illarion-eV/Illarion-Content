@@ -66,12 +66,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (884,593,0,'triggerfield.wonderland_612');
 -- INSERT INTO triggerfields VALUES (885,593,0,'triggerfield.wonderland_612');
 
-module("triggerfield.wonderland_612", package.seeall)
+local M = {}
 
 
 
 
-function MoveToField(char)
+function M.MoveToField(char)
 	if char:getType() ~= Character.player then
 		-- I cpommented the following lines out. Warping monsters around in masses seems to cause problems.
 		-- The reason why the monsters are warped here is unclear. Just do nothing with monsters.
@@ -188,4 +188,7 @@ function MoveToField(char)
 	
 end
 
+
+
+return M
 

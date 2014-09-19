@@ -19,9 +19,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("triggerfield.aq001_mirror", package.seeall)
+local M = {}
 
-function MoveFromField( user )
+function M.MoveFromField( user )
 
     if( common.isItemIdInFieldStack( 35, position(-32, 193, -8) ) ) then
 	    common.InformNLS(user,"Als du dich entfernst ist die Leiter verschwunden...","As you turn away, the ladder has vanished...");
@@ -31,7 +31,7 @@ function MoveFromField( user )
 end
 
 
-function CharacterOnField( user )
+function M.CharacterOnField( user )
 
     if( common.isItemIdInFieldStack( 35, position(-32, 193, -8) ) and ( user:getFaceTo() ~= 2 ) ) then
         common.InformNLS(user,"Als du dich wegdrehst ist die Leiter verschwunden...","As you turn away, the ladder has vanished...");
@@ -39,3 +39,6 @@ function CharacterOnField( user )
     end;
 
 end
+
+return M
+

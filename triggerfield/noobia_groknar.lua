@@ -24,9 +24,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("triggerfield.noobia_groknar", package.seeall)
+local M = {}
 
-function MoveToField(Character)
+function M.MoveToField(Character)
 
     -- for Noobia: the char has to walk to a field (this triggerfield); he gets a message and we change a queststatus so that we remember he was at the field
 	
@@ -50,4 +50,7 @@ function MoveToField(Character)
 		end
 	end
 end
+
+
+return M
 

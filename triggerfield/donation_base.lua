@@ -19,7 +19,7 @@ local common = require("base.common")
 local money = require("base.money")
 local townTreasure = require("base.townTreasure")
 
-module("triggerfield.donation_base", package.seeall)
+local M = {}
 
 function donate(Item,User,FactionName,LeaderName,Treasury)
 
@@ -60,3 +60,5 @@ function donate(Item,User,FactionName,LeaderName,Treasury)
 	return donated; -- returning whether the donation worked or not
 	
 end
+return M
+

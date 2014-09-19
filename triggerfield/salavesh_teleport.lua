@@ -19,9 +19,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("triggerfield.salavesh_teleport", package.seeall)
+local M = {}
 
-function MoveToField( User )
+function M.MoveToField( User )
 
 	if User:getType() ~= Character.player then
 		return
@@ -56,3 +56,6 @@ function MoveToField( User )
 	end
 
 end
+
+return M
+

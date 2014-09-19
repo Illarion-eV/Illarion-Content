@@ -22,10 +22,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local createaftertime = require("lte.createaftertime")
 local longterm_cooldown = require("lte.longterm_cooldown")
-module("triggerfield.elstree_air_661", package.seeall)
+local M = {}
 
 
-function MoveToField(char)
+function M.MoveToField(char)
 	if char:getQuestProgress(661) ~= 0 or char:getType() ~= Character.player then --lte check and character is monster
 		RewardInElstree=0; --nothing will be created
 		elseif math.random(1,100) < 91 then --chance check if lte=0 and character is player
@@ -73,3 +73,6 @@ function MoveToField(char)
 	base.character.CreateAfterTime (char,createItemTimeB,createItemTimeBB,createItemID,createItemIDB,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemText,createItemPos,createItemFieldAccess) -- call .lte.createaftertime
 
 end
+
+return M
+

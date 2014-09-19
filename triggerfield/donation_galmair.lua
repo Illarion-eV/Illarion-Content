@@ -22,12 +22,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local donation_base = require("triggerfield.donation_base")
 
-module("triggerfield.donation_galmair", package.seeall)
+local M = {}
 
 -- Donation to the Galmair treasury
 -- 337, 217, 0 = Galmair
 
-function PutItemOnField(Item,User)
+function M.PutItemOnField(Item,User)
 
     donated=donation_base.donate(Item,User,"Galmair","Valerio Guilianni","TreasureGalmair"); -- That's all folks
 
@@ -42,3 +42,6 @@ function PutItemOnField(Item,User)
 	-- Quest end
 
 end
+
+return M
+

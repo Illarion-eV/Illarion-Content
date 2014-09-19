@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 
-module("triggerfield.salavesh_triggered_events", package.seeall)
+local M = {}
 
 --This script handles scripted events on "Errant Crusade" quest map
 --Various events and fields are handled here for a better overview
@@ -55,7 +55,7 @@ function Init()
 
 end
 
-function MoveToField(User)
+function M.MoveToField(User)
 
 	if User:getType() ~= Character.player then
 		return
@@ -169,3 +169,6 @@ function MoveToField(User)
     end --triggerfield
 
 end --function
+
+return M
+

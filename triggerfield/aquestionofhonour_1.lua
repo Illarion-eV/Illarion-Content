@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Quest: A Question of Honour (111)/(115)
 local common = require("base.common")
 
-module("triggerfield.aquestionofhonour_1", package.seeall)
+local M = {}
 
 function Init()
 
@@ -41,7 +41,7 @@ function Init()
     
 end
 
-function MoveToField(User)
+function M.MoveToField(User)
     Init();
    if (User:getQuestProgress(111) == 4) then --OK, the player does the quest
    
@@ -65,3 +65,5 @@ function MoveToField(User)
       end   
    end
 end
+return M
+

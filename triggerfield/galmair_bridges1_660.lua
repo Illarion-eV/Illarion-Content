@@ -22,7 +22,7 @@ local common = require("base.common")
 local factions = require("base.factions")
 local deathaftertime = require("lte.deathaftertime")
 local longterm_cooldown = require("lte.longterm_cooldown")
-module("triggerfield.galmair_bridges1_660", package.seeall)
+local M = {}
 
 
 
@@ -45,7 +45,7 @@ module("triggerfield.galmair_bridges1_660", package.seeall)
     monster[16]={201,202,203,204}; --demon skeleton 205 
 
 
-function MoveToField(char)
+function M.MoveToField(char)
 	if char:getType() ~= Character.player then --Monsters will be ingored
 		return
 	end
@@ -105,7 +105,7 @@ function MoveToField(char)
 end
 
 
-function MoveFromField(char)
+function M.MoveFromField(char)
 	if shutup ~= 0 then --stop spam
 		return
 	end
@@ -143,4 +143,7 @@ function MoveFromField(char)
 		return
 	end
 end
+
+
+return M
 

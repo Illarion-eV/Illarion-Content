@@ -42,7 +42,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local createaftertime = require("lte.createaftertime")
 local longterm_cooldown = require("lte.longterm_cooldown")
-module("triggerfield.northernislands_661", package.seeall)
+local M = {}
 
 
 NorthPos={}
@@ -58,7 +58,7 @@ createNorthItemXB={369,430,501}
 createNorthItemYA={59,49,7}
 createNorthItemYB={78,79,30}
 
-function MoveFromField(char)
+function M.MoveFromField(char)
 	if char:getType() ~= Character.player then
 		return
 	end
@@ -122,3 +122,6 @@ function MoveFromField(char)
 	createItemPos=1 --check of position set
 	createItemFieldAccess=nil
 	base.character.CreateAfterTime (char,createItemTimeB,createItemTimeBB,createItemID,createItemIDB,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemText,createItemPos,createItemFieldAccess) end
+
+return M
+

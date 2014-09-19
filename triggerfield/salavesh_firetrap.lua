@@ -16,12 +16,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 
-module("triggerfield.salavesh_firetrap", package.seeall)
+local M = {}
 
 --This script shoots a fireball down the hall in the "Errant Crusade" quest map
 --Can be used with various triggerfields, players shall "abuse" this to fight the monsters down there
 
-function MoveToField(User)
+function M.MoveToField(User)
 
 	if User:getType() ~= Character.player then
 		return
@@ -63,4 +63,7 @@ function MoveToField(User)
 	    world:makeSound(5,position(xcord,415,-3)); --BOOM!
 
 end
+
+
+return M
 
