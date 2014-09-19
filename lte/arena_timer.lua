@@ -29,15 +29,22 @@ local arena = require("base.arena")
 module("lte.arena_timer", package.seeall)
 
 function addEffect(arenaEffect, User)
-    found, level=arenaEffect:findValue("level");
-	found, arena=arenaEffect:findValue("arenaID");
+
+    local found
+    local arenaId
+    local level
+
+    found, level = arenaEffect:findValue("level");
+    found, arenaId = arenaEffect:findValue("arenaID");
+
     if not found then
         return false;
     end
-	if isValidChar(User) then
-		arena.spawnMonster(User, level, arena);
-		return true;
-	end
+
+    if isValidChar(User) then
+        arena.spawnMonster(User, level, arenaId);
+        return true;
+    end
 end
 
 function callEffect(arenaEffect, User)
@@ -50,12 +57,12 @@ function callEffect(arenaEffect, User)
 
     arenaEffect.nextCalled = 30;
 
-    local found;
-    local arena;
-	local level;
+    local found
+    local arenaId
+    local level
 
-	found, arena = arenaEffect:findValue("arenaID");
-	found, level = arenaEffect:findValue("level");
+    found, arenaId = arenaEffect:findValue("arenaID");
+    found, level = arenaEffect:findValue("level");
 
     if not found then
         return false;      -- no monster
@@ -65,22 +72,22 @@ function callEffect(arenaEffect, User)
         common.InformNLS( User,
         "Ihr habt Euren Gegner geschlagen und Punkte verdient.",
         "You defeated your enemy and gained points for it.");
-		arena.setArenastats(User, arena, arena.monsterIDsByLevel[level].points);
-		local quest = arena.arenaInformation[arena].quest;
-		arena.getReward(User, quest)
-		local town = arena.arenaInformation[arena].town;
-		local arenaListName = "ArenaList"..town;
-		local points = User:getQuestProgress(quest);
-		base.ranklist.setRanklist(User, arenaListName, points);
+        arena.setArenastats(User, arenaId, arena.monsterIDsByLevel[level].points);
+        local quest = arena.arenaInformation[arenaId].quest;
+        arena.getReward(User, quest)
+        local town = arena.arenaInformation[arenaId].town;
+        local arenaListName = "ArenaList"..town;
+        local points = User:getQuestProgress(quest);
+        base.ranklist.setRanklist(User, arenaListName, points);
 
 
-		if arena.arenaInformation[arena].newPlayerPos ~= nil then
-			User:warp(arena.arenaInformation[arena].newPlayerPos);
-		end
+        if arena.arenaInformation[arenaId].newPlayerPos ~= nil then
+            User:warp(arena.arenaInformation[arenaId].newPlayerPos);
+        end
         return false;
     end
 
-	if arenaEffect.numberCalled==300 then
+    if arenaEffect.numberCalled==300 then
         common.InformNLS( User,
         "Ihr habt zulange gebraucht, um das Monster zu besiegen.",
         "It took you too long to defeat the monster.");
