@@ -23,6 +23,7 @@ local quests = require("monster.base.quests")
 local messages = require("base.messages")
 local kills = require("monster.base.kills")
 local arena = require("base.arena")
+local treasure = require("base.treasure")
 module("monster.mon_67_greenbonedragons", package.seeall)
 
 function ini(Monster)
@@ -187,7 +188,7 @@ function onDeath(Monster)
         local done=drop.AddDropItem(452,1,20,(100*math.random(6,7)+math.random(66,77)),0,1); --diamond powder
         if not done then done=drop.AddDropItem(225,1,10,(100*math.random(6,7)+math.random(66,77)),0,1); end --crown
         if not done then done=drop.AddDropItem(738,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --dragon egg
-        if not done then done=drop.AddDropItem(505,1,1,(100*math.random(6,7)+math.random(66,77)),nil,1); end --treasure map
+        if not done then done=drop.AddDropItem(505,1,1,799,treasure.createMapData(),1); end --treasure map
         if not done then done=drop.AddDropItem(449,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --obsidian powder
 
         --Category 2: Special loot

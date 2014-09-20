@@ -23,6 +23,7 @@ local quests = require("monster.base.quests")
 local messages = require("base.messages")
 local kills = require("monster.base.kills")
 local arena = require("base.arena")
+local treasure = require("base.treasure")
 module("monster.mon_68_bluebonedragons", package.seeall)
 
 function ini(Monster)
@@ -187,7 +188,7 @@ function onDeath(Monster)
         local done=drop.AddDropItem(447,1,20,(100*math.random(6,7)+math.random(66,77)),0,1); --ruby powder
         if not done then done=drop.AddDropItem(448,1,10,(100*math.random(6,7)+math.random(66,77)),0,1); end --emerald powder
         if not done then done=drop.AddDropItem(236,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --gold ingot
-        if not done then done=drop.AddDropItem(505,1,1,(100*math.random(6,7)+math.random(66,77)),nil,1); end --treasure map
+        if not done then done=drop.AddDropItem(505,1,1,799,treasure.createMapData(),1); end --treasure map
         if not done then done=drop.AddDropItem(446,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --sapphire powder
 
         --Category 2: Gems
