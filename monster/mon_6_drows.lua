@@ -277,7 +277,7 @@ function onDeath(Monster)
 
         --Category 1: Armor
 
-        local done=drop.AddDropItem(2111,1,20,(100*math.random(5,6)+math.random(55,66)),0,1); --blue steel greaves
+        local done=drop.AddDropItem(2111,1,20,(100*math.random(5,6)+math.random(55,66)),0,1); --full length chain pants
         if not done then done=drop.AddDropItem(184,1,10,(100*math.random(5,6)+math.random(55,66)),0,1); end --visor helmet
         if not done then done=drop.AddDropItem(2402,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --drow armor
         if not done then done=drop.AddDropItem(2303,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --drow helmet
@@ -285,8 +285,8 @@ function onDeath(Monster)
 
         --Category 2: Special loot
 
-        local done=drop.AddDropItem(2746,1,20,(100*math.random(5,6)+math.random(55,66)),0,2); --razor blade
-        if not done then done=drop.AddDropItem(2659,1,10,(100*math.random(5,6)+math.random(55,66)),0,2); end --nail board
+        local done=drop.AddDropItem(2376,1,20,(100*math.random(5,6)+math.random(55,66)),0,2); --black cultist robe
+        if not done then done=drop.AddDropItem(1318,1,10,(100*math.random(5,6)+math.random(55,66)),0,2); end --elven wine
         if not done then done=drop.AddDropItem(179,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --blue cloth
         if not done then done=drop.AddDropItem(54,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --green cloth
         if not done then done=drop.AddDropItem(174,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --red cloth
