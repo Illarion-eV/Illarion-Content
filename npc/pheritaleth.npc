@@ -96,8 +96,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Happy mining.", "Farewell."
 -- OPTIONAL TRIGGERS
 
 -- Gemcraft
-"gemcraft", "transmute", "combine", "enchant" -> gemcraft, "Let me take a look at your gems..."
-"verwandel", "verein", "kombinier", "verzauber" -> gemcraft, "Dann lasst mal eure Edelsteine sehen..."
+"gem", "magical smithing", "smithing", "gemcraft", "transmute", "combine", "enchant" -> gemcraft, "Let me take a look at your gems..."
+"Edelstein", "magisches Schmieden", "Schmieden", "verwandel", "verein", "kombinier", "verzauber" -> gemcraft, "Dann lasst mal eure Edelsteine sehen..."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "My profession is to transmute magical gems. I have several aeons of experience, so do not question my expertise."
