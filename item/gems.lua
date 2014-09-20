@@ -352,10 +352,11 @@ function unsocketGems(user)
                     money.TakeMoneyFromChar(user, price)
                     world:changeItem(item)
 
-                    user:inform("Alle Edelsteine wurden aus dem Gegenstand entfernt und dir zurückgegeben.",
-                                "All gems were removed from the item and returned to you.")
+                    local gstring, estring = money.MoneyToString(price)
+                    user:inform("Alle Edelsteine wurden aus dem Gegenstand entfernt und dir zurückgegeben für den Preis von " .. gstring ..".",
+                                "All gems were removed from the item and returned to you for the cost of " .. estring ..".")
                 else
-                    user:inform("Du hast keine zehn Goldmünzen!", "You do not have ten gold coins!", Character.highPriority)
+                    user:inform("Du hast nicht genug Münzen!", "You do not have enough coins!", Character.highPriority)
                 end
             end
         end
@@ -371,10 +372,9 @@ function unsocketGems(user)
     for i=1,#unsocketPositions do
         local slot = unsocketPositions[i]
         local item = user:getItemAt(slot)
-        local itemStats = world:getItemStats(item)
-        local gstring, estring = money.MoneyToString(itemStats.Worth)
-        local price = common.GetNLS(user, gstring, estring)
-        local name = world:getItemName(item.id, language) .. " (" .. price .. ")"
+        local price = world:getItemStats(item).Worth
+        local gstring, estring = money.MoneyToString(price)
+        local name = world:getItemName(item.id, language) .. " (" .. common.GetNLS(user, gstring, estring) .. ")"
         dialog:addOption(item.id, name)
     end
 
