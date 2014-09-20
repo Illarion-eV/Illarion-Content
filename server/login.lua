@@ -24,8 +24,6 @@ local dailymessage = require("content.dailymessage")
 local gems = require("item.gems")
 local factionLeader = require("scheduled.factionLeader")
 
-
-
 -- called after every player login
 
 module("server.login", package.seeall);
@@ -111,8 +109,7 @@ messageG[75]="[Tipp] Um Beute schnell aufzunehmen, drücke 'P' und du sammelst al
 messageG[76]="[Tipp] Eine Übersicht aller Kommandos kannst du dir mit F1 anzeigen lassen."
 messageG[77]="[Tipp] Wie schnell deine Fertigkeiten steigen, hängt vor allem davon ab, wie viel Zeit du im Spiel verbringst."
 messageG[78]="[Tipp] Es ist nicht nötig, den ganzen Tag hart zu arbeiten, um deine Fertigkeiten zu steigern. Mach auch mal eine Pause um dich zu unterhalten oder die Welt zu erkunden."
-
---messageG[XX]="[Tipp] Die Steuerungstaste schaltet zwischen Gehen und Laufen um."
+messageG[79]="[Tipp] Die Steuerungstaste schaltet zwischen Gehen und Laufen um."
 --messageG[XX]="[Tipp] Um die Sprache deines Charakters umzustellen, schreibe '!l' gefolgt von der gewünschten Sprache: Common, Elf, Human, Dwarf, Halfling, Lizard."
 
 --English
@@ -195,46 +192,41 @@ messageE[75]="[Hint] To collect loot quickly, press 'P' to collect all items wit
 messageE[76]="[Hint] To see an overview of all commands, hit F1.";
 messageE[77]="[Hint] The speed of skillgain is mainly determined by the time you spend in the game.";
 messageE[78]="[Hint] It is not necessary to work all day long to raise your skills. Take a break to chat or explore the world!";
-
---messageE[XX]="[Hint] CTRL toggles walking/running.";
+messageE[79]="[Hint] CTRL toggles walking/running.";
 --messageE[XX]="[Hint] To switch the language of your character, type '!l' followed by the desired language: Common, Elf, Human, Dwarf, Halfling, Lizard.";
 
 -- messages of the day - END
 
-function onLogin( player )
+function onLogin(player)
 
 	welcomeNewPlayer(player)
 
-	world:gfx(31,player.pos); --A nice GFX that announces clearly: A player logged in.
+	world:gfx(31, player.pos) --A nice GFX that announces clearly: A player logged in.
 
 	--General welcome message
-    players=world:getPlayersOnline(); --Reading all players online so we can count them
+    local players = world:getPlayersOnline() --Reading all players online so we can count them
 
 	--Reading current date
-	datum=world:getTime("day");
-	monthString=common.Month_To_String(world:getTime("month"));
-	hourStringG, hourStringE=common.Hour_To_String(world:getTime("hour"));
+	local datum = world:getTime("day")
+	local monthString = common.Month_To_String(world:getTime("month"))
+	local hourStringG, hourStringE = common.Hour_To_String(world:getTime("hour"))
 
-	lastDigit=datum%10; --Is it st, nd or rd?
+	local lastDigit = datum % 10 --Is it st, nd or rd?
 
 	if lastDigit == 1 and datum ~= 11 then
-		extensionString="st"
+		extensionString = "st"
 	elseif lastDigit == 2 and datum ~= 12 then
-		extensionString="nd"
+		extensionString = "nd"
 	elseif lastDigit == 3 and datum ~= 13 then
-		extensionString="rd"
+		extensionString = "rd"
 	else
-		extensionString="th" --default
+		extensionString = "th" --default
 	end;
 
 	if #players > 1 then
-
 	    common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..". Es sind "..#players.." Spieler online.","[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..". There are "..#players.." players online."); --sending a message
-
 	else --player is alone
-
 	    common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..". Ein Spieler ist online.","[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..". One player is online."); --sending a message
-
 	end
 
 	--Taxes (has to be redone by "someone")
@@ -258,53 +250,48 @@ function onLogin( player )
 	--Noobia handling
 	if (common.IsOnNoobia(player.pos)) then --On Noobia
 
-		found, myEffect = player.effects:find(13); --Noob effect
+		local found = player.effects:find(13); --Noob effect
 
 		if not found then --new player!
-
-            newbieEffect = LongTimeEffect(13,1);
-		    player.effects:addEffect(newbieEffect);
-
+		    player.effects:addEffect(LongTimeEffect(13, 1))
 		end
 
-		if  player:isInRangeToPosition(position(31,22,100),7) then --only show the dialog if the char is close to the noob spawn
-
-			showNewbieDialog(player);
-
-		end --Dialog
+		if  player:isInRangeToPosition(position(31, 22, 100), 7) then --only show the dialog if the char is close to the noob spawn
+			showNewbieDialog(player)
+		end
 
     end --Noobia end
 
 	--Messages of the day
-	dailyMessageID=math.random(1,#messageG); --chosing a message at random
-	common.InformNLS(player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending a message
+	local dailyMessageID = math.random(1, #messageG) --chosing a message at random
+	common.InformNLS(player, messageG[dailyMessageID], messageE[dailyMessageID]) --sending a message
 
 	--Exchange leader NPCs if necessary
 	if player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan" then
-		exchangeFactionLeader( player.name );
+		exchangeFactionLeader(player.name)
 	end
 
 	--TEMPORARY SOLUTION TO CATCH BUGGED PLAYERS
 	if player:getMentalCapacity() < 1999 then --Mental Capacity CANNOT drop below 1999 -> Bugged player or cheater
 
-        player:increaseMentalCapacity(2000000); --This is default for new players.
+        player:increaseMentalCapacity(2000000) --This is default for new players.
 
 	end
 	--TEMPORARY SOLUTION END
 
 	--IMO a dirty hack to display bars correctly
-	player:increaseAttrib("foodlevel",-1);
+	player:increaseAttrib("foodlevel", -1)
 
 	--Check regeneration script
-	find, reg_effect = player.effects:find(2);
-	if not find then
-		player.effects:addEffect( LongTimeEffect(2,10) );
+	local found = player.effects:find(2)
+	if not found then
+		player.effects:addEffect(LongTimeEffect(2, 10))
 	end
 
 	--Checking longterm cooldown
-	find, reg_effect = player.effects:find(33);
-	if not find then
-		player.effects:addEffect( LongTimeEffect(33,10) );
+	found = player.effects:find(33)
+	if not found then
+		player.effects:addEffect(LongTimeEffect(33, 10))
 	end
 end
 
