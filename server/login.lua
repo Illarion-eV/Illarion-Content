@@ -14,14 +14,19 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- called after every player login
-local common = require("base.common")
-local money = require("base.money")
-local factions = require("base.factions")
-local dailymessage = require("content.dailymessage")
-local factionLeader = require("scheduled.factionLeader")
-local townTreasure = require("base.townTreasure")
+
 local character = require("base.character")
+local common = require("base.common")
+local factions = require("base.factions")
+local money = require("base.money")
+local townTreasure = require("base.townTreasure")
+local dailymessage = require("content.dailymessage")
+local gems = require("item.gems")
+local factionLeader = require("scheduled.factionLeader")
+
+
+
+-- called after every player login
 
 module("server.login", package.seeall);
 
@@ -305,7 +310,7 @@ end
 
 function showNewbieDialog(player)
 
-	local getText = function(deText,enText) return common.common.GetNLS(player, deText, enText) end
+	local getText = function(deText,enText) return common.GetNLS(player, deText, enText) end
 
 	local callbackNewbie = function(dialogNewbie) --start callback of Newbie Dialog
 
@@ -371,7 +376,7 @@ function welcomeNewPlayer(player)
 
 			if user:getQuestProgress(851) == 0 then
 
-				local getText = function(deText,enText) return common.common.GetNLS(user, deText, enText) end
+				local getText = function(deText,enText) return common.GetNLS(user, deText, enText) end
 
 				local callback = function(dialog)
 					local success = dialog:getSuccess()
@@ -493,20 +498,20 @@ function PayOutWage(Recipient,town)
 					local gemLevel= common.Limit(math.random(1,maxGemLevel), 1, 10)
 
 					local gemsByTown={};
-					gemsByTown["Cadomyr"]={item.gems.TOPAZ, item.gems.AMETHYST}
-					gemsByTown["Runewick"]={item.gems.EMERALD, item.gems.RUBY}
-					gemsByTown["Galmair"]={item.gems.SAPPHIRE, item.gems.OBSIDIAN}
+					gemsByTown["Cadomyr"]={gems.TOPAZ, gems.AMETHYST}
+					gemsByTown["Runewick"]={gems.EMERALD, gems.RUBY}
+					gemsByTown["Galmair"]={gems.SAPPHIRE, gems.OBSIDIAN}
 
-					local gemId = item.gems.getMagicGemId(gemsByTown[town][randomGem]);
-					local gemData = item.gems.getMagicGemData(gemLevel);
+					local gemId = gems.getMagicGemId(gemsByTown[town][randomGem]);
+					local gemData = gems.getMagicGemData(gemLevel);
 
 					local basename={}
 					basename=world:getItemName(gemId, Recipient:getPlayerLanguage());
 
 					if Recipient:getPlayerLanguage() == 0 then
-						basename = item.gems.gemPrefixDE[gemLevel] .. " magischer " .. basename
+						basename = gems.gemPrefixDE[gemLevel] .. " magischer " .. basename
 					else
-						basename = item.gems.gemPrefixEN[gemLevel] .. " magical " .. basename
+						basename = gems.gemPrefixEN[gemLevel] .. " magical " .. basename
 					end
 
 					endname=endname.."\n"..basename;
