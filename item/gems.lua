@@ -332,9 +332,9 @@ function unsocketGems(user)
             local selected = dialog:getSelectedIndex() + 1
             local slot = unsocketPositions[selected]
             local item = user:getItemAt(slot)
-
+            local price = world:getItemStats(item).Worth
             if isUnsocketable(item.id) and itemHasGems(item) then
-                if money.CharHasMoney(user, 100000) then
+                if money.CharHasMoney(user, price) then
                     for i = 1, #gemDataKey do
                         local itemKey = gemDataKey[i]
                         local level = tonumber(item:getData(itemKey))
@@ -349,7 +349,7 @@ function unsocketGems(user)
                         end
                     end
 
-                    money.TakeMoneyFromChar(user, 100000)
+                    money.TakeMoneyFromChar(user, price)
                     world:changeItem(item)
 
                     user:inform("Alle Edelsteine wurden aus dem Gegenstand entfernt und dir zurückgegeben.",
@@ -363,16 +363,19 @@ function unsocketGems(user)
 
     local language = user:getPlayerLanguage()
     local caption = common.GetNLS(user, "Entsockeln", "Unsocketing")
-    local description = common.GetNLS(user, "Bitte wähle einen Gegenstand der entsockelt werden soll. Kosten: Zehn Goldmünzen",
-                                                 "Please select an item to remove all gems from. Cost: ten gold coins")
+    local description = common.GetNLS(user, "Bitte wähle einen Gegenstand der entsockelt werden soll. Kosten sind abhängig vom Wert des Gegenstands",
+                                                 "Please select an item to remove all gems from. Cost depends on worth of the item")
     local dialog = SelectionDialog(caption, description, callback)
     dialog:setCloseOnMove()
 
     for i=1,#unsocketPositions do
         local slot = unsocketPositions[i]
-        local itemId = user:getItemAt(slot).id
-        local name = world:getItemName(itemId, language)
-        dialog:addOption(itemId, name)
+        local item = user:getItemAt(slot)
+        local itemStats = world:getItemStats(item)
+        local gstring, estring = money.MoneyToString(itemStats.Worth)
+        local price = common.GetNLS(user, gstring, estring)
+        local name = world:getItemName(item.id, language) .. " (" .. price .. ")"
+        dialog:addOption(item.id, name)
     end
 
     user:requestSelectionDialog(dialog)
