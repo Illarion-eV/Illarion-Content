@@ -30,7 +30,7 @@ module("server.login", package.seeall);
 
 -- Load messages of the day
 --German
-messageG={};
+local messageG = {}
 messageG[1]="[Tipp] Leichte Rüstungen aus Leder schützen sehr gut gegen stumpfe Waffen aber schlecht gegen Hiebwaffen.";
 messageG[2]="[Tipp] Mittlere Rüstungen wie Kettenhemden schützen sehr gut gegen Hiebwaffen aber schlecht gegen Stich- und Distanzwaffen.";
 messageG[3]="[Tipp] Schwere Rüstungen wie Plattenpanzer schützen sehr gut gegen Stich- und Distanzwaffen aber schlecht gegen stumpfe Waffen.";
@@ -113,7 +113,7 @@ messageG[79]="[Tipp] Die Steuerungstaste schaltet zwischen Gehen und Laufen um."
 --messageG[XX]="[Tipp] Um die Sprache deines Charakters umzustellen, schreibe '!l' gefolgt von der gewünschten Sprache: Common, Elf, Human, Dwarf, Halfling, Lizard."
 
 --English
-messageE={};
+local messageE = {}
 messageE[1]="[Hint] Light armours, such as those made of leather, offer good protection against blunt weapons but perform poorly against slashing weapons.";
 messageE[2]="[Hint] Medium armours, such as chain mail, offer good protection against slashing weapons but are more vulnerable to stabbing weapons.";
 messageE[3]="[Hint] Heavy armours, such as those made from sturdy metal plates, offer good protection against stabbing weapons but are vulnerable to blunt weapons.";
@@ -213,6 +213,7 @@ function onLogin(player)
 
 	local lastDigit = datum % 10 --Is it st, nd or rd?
 
+    local extensionString
 	if lastDigit == 1 and datum ~= 11 then
 		extensionString = "st"
 	elseif lastDigit == 2 and datum ~= 12 then
@@ -221,7 +222,7 @@ function onLogin(player)
 		extensionString = "rd"
 	else
 		extensionString = "th" --default
-	end;
+	end
 
 	if #players > 1 then
 	    common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..". Es sind "..#players.." Spieler online.","[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..". There are "..#players.." players online."); --sending a message
@@ -395,19 +396,22 @@ function welcomeNewPlayer(player)
 	end
 end
 
-function payTaxes(taxPayer) --PLEASE use comments! ~Estralis
+function payTaxes(taxPayer)
 
-	local yr=world:getTime("year");
-	local mon=world:getTime("month");
-	local timeStmp=yr*1000+mon;
-	local lastTax=taxPayer:getQuestProgress(123);
-	if (lastTax~=0) then
-		if lastTax<timeStmp then
-			taxPayer:setQuestProgress(123,timeStmp);
+	local yr = world:getTime("year")
+	local mon = world:getTime("month")
+	local timeStmp = yr * 1000 + mon
+	local lastTax = taxPayer:getQuestProgress(123)
+
+	if (lastTax ~= 0) then
+        -- Character didnt pay taxes for this month yet
+		if lastTax < timeStmp then
+			taxPayer:setQuestProgress(123, timeStmp)
 			return payNow(taxPayer)
 		end
 	else
-		taxPayer:setQuestProgress(123,timeStmp);
+        -- Character never payed taxes before
+		taxPayer:setQuestProgress(123, timeStmp)
 		return payNow(taxPayer)
 	end
 
@@ -415,48 +419,47 @@ end
 
 function receiveGems(gemRecipient)
 
-	local yr=world:getTime("year");
-	local mon=world:getTime("month"); --- TODO
-	local timeStmp=yr*1000+mon;
+	local yr = world:getTime("year")
+	local mon = world:getTime("month")
+	local timeStmp = yr * 1000 + mon
 	local town = factions.getMembershipByName(gemRecipient)
 	if town == "None" then
-		return;
+		return
 	end
-	-- first check if there was a switch from collecting taxes to pay out gems already:
+
+	-- first check if there was a switch from collecting taxes to pay out gems already
 	local fnd, lastSwitch = ScriptVars:find("SwitchedToPayment"..town)
-	--fnd=1
-	--lastSwitch=1
-	if not fnd then	-- first payout ever:
+
+	if not fnd then
+        -- first payout ever
 		townTreasure.NewMonthSwitch(town,timeStmp)
 		fnd, lastSwitch = ScriptVars:find("SwitchedToPayment"..town)
 	end
 
-	if fnd and tonumber(lastSwitch)~=timeStmp then
-		townTreasure.NewMonthSwitch(town,timeStmp)
-		lastSwitch=timeStmp
+	if fnd and tonumber(lastSwitch) ~= timeStmp then
+		townTreasure.NewMonthSwitch(town, timeStmp)
+		lastSwitch = timeStmp
 	end
+
 	-- now check if last payment was before actual month and actual month is the one to pay out.
-	lastGem=gemRecipient:getQuestProgress(124);
-	if (lastGem~=0) then
-		if timeStmp>=tonumber(lastSwitch) and tonumber(lastGem)<timeStmp then
-			gemRecipient:setQuestProgress(124,timeStmp);
+	local lastGem = gemRecipient:getQuestProgress(124)
+	if (lastGem ~= 0) then
+		if timeStmp >= tonumber(lastSwitch) and tonumber(lastGem) < timeStmp then
+			gemRecipient:setQuestProgress(124, timeStmp)
 			return PayOutWage(gemRecipient,town)
 		end
 	else
-		gemRecipient:setQuestProgress(124,timeStmp);
+		gemRecipient:setQuestProgress(124, timeStmp)
 		return PayOutWage(gemRecipient,town)
 	end
 end
 
 -- transfer
-function PayOutWage(Recipient,town)
+function PayOutWage(Recipient, town)
 
-	local totalTaxes=townTreasure.GetPaymentAmount(town)
-	local totalPayers=townTreasure.GetTaxpayerNumber(town)
-	local infText = "";
-
-	--Recipient:inform("in payoutwage "..totalPayers)
-	--Recipient:inform("totaltaxes "..totalTaxes)
+	local totalTaxes = townTreasure.GetPaymentAmount(town)
+	local totalPayers = townTreasure.GetTaxpayerNumber(town)
+	local infText = ""
 
 	if tonumber(totalPayers)>0 then
 		if tonumber(totalTaxes)>0 then
