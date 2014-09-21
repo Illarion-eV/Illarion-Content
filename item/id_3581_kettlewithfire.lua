@@ -14,12 +14,12 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- UPDATE items SET itm_script='item.id_2488_kettle' WHERE itm_id IN (2488);
+-- UPDATE items SET itm_script='item.id_3581_kettle' WHERE itm_id IN (3581);
 
 local cooking = require("content.craft.cooking")
 local licence = require("base.licence")
 
-module("item.id_2488_kettle", package.seeall)
+module("item.id_3581_kettle", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
 	if licence.licence(User) then --checks if user is citizen or has a licence

@@ -31,7 +31,7 @@ cooking = crafts.Craft:new{
                    };
 
 
-cooking:addTool(2488) -- kettle
+cooking:addTool(3581) -- kettle w/fire
 
 --------------------------------------------------------------------------------------------
 local catId = cooking:addCategory("Soups", "Suppen") -- Suppenschüssel ( Suppen )
