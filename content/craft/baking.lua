@@ -62,7 +62,9 @@ product:addRemnant(790) -- Remnant: Empty JuiceBottle (2498) 1x
 
 ---------------- BAKED POTATO - 3568 ----------------------
 product = baking:addProduct(catId, 3568, 10, 30, 5, 8, 1)
-product:addIngredient(3567) -- add potato
+product:addIngredient(3567) -- Step 1: add potato
+product:addIngredient(3573) -- Step 2: Cheese (3573) 1x
+product:addIngredient(201) -- Step 3: Onion (201) 1x
 -------------- BAKED POTATO - DONE ----------------
 
 ---------------- MUFFIN - 454 ----------------------

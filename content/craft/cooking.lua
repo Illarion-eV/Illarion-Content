@@ -208,7 +208,7 @@ product:addIngredient(200) -- Step 4: Tomatoe(200) 1x
 -------------- FISH FILET - DONE ----------------
 
 ---------------- CHEESE - 3573 ----------------------
-product = cooking:addProduct(catId, 3573, 10, 30, 12, 24)
+product = cooking:addProduct(catId, 3573, 4, 24, 12, 24)
 product:addIngredient(2502, 2) -- Step 1: Milk (2502) 2x
 product:addRemnant(2498, 2) -- Remnant: Empty Bottle (2498) 2x
 -------------- CHEESE - DONE ----------------
