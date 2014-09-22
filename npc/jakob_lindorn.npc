@@ -147,7 +147,7 @@ queststatus(703) = 9, town = Cadomyr, "quest", "mission" -> "Ah..da seid Ihr ja 
 queststatus(703) = 9, town = Cadomyr, "task", "adventure", "order" -> "Ah..there you are again. Linda Rabon, an excellent cook, asked me to send you to her. She told me that she has probably a little task for you. You've probably met her in the tavern already."
 queststatus(703) = 9, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ah..da seid Ihr ja wieder. Linda Rabon, eine sehr gute Köchin, hat mich gebeten, Euch zu ihr zu senden. Sie sagte, sie hätte eine Aufgabe für Euch. Ihr habt sie sicher bereits in der Taverne gesehen."
 
--- Reret Odohir
+-- Reret Odohir - note: skipped quest steps are due to an npc changing realms, this skipping allows for people who are in the steps for the moved npc to carry on without problems.
 queststatus(703) > 9, queststatus(703) <=12, town = Cadomyr, english, "quest", "mission" -> queststatus(703) = 13, "Reret Odohir, our notary, told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colourful pillar."
 queststatus(703) > 9, queststatus(703) <=12, town = Cadomyr, "quest", "mission" -> queststatus(703) = 13, "Reret Odohir, unsere Notarin, sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr. Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor."
 queststatus(703) > 9, queststatus(703) <=12, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 13, "Reret Odohir, our notary, told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colourful pillar."
