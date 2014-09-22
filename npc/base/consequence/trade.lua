@@ -17,20 +17,22 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local class = require("base.class")
 local consequence = require("npc.base.consequence.consequence")
 
-module("npc.base.consequence.trade", package.seeall)
+local _trade_helper
 
-trade = class.class(consequence.consequence,
+local trade = class.class(consequence,
 function(self, tradeNPC)
-    consequence.consequence:init(self);
+    consequence:init(self)
     
-    self["tradeNPC"] = tradeNPC;
-    self["perform"] = _trade_helper;
-end);
+    self["tradeNPC"] = tradeNPC
+    self["perform"] = _trade_helper
+end)
 
 function _trade_helper(self, npcChar, player)
 	if (self["tradeNPC"] == nil) then
-		player:inform("This NPC has a bug, no trading items were set. Please inform a developer so he can beat the person responsible.");
-		return;
-	end;
-    self.tradeNPC:showDialog(npcChar, player); 
-end;
+		player:inform("This NPC has a bug, no trading items were set. Please inform a developer so he can beat the person responsible.")
+		return
+	end
+    self.tradeNPC:showDialog(npcChar, player) 
+end
+
+return trade

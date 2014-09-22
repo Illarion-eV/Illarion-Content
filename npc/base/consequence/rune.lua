@@ -17,17 +17,19 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local class = require("base.class")
 local consequence = require("npc.base.consequence.consequence")
 
-module("npc.base.consequence.rune", package.seeall)
+local _rune_helper
 
-rune = class.class(consequence.consequence,
+local rune = class.class(consequence,
 function(self, group, id)
-    consequence.consequence:init(self);
+    consequence:init(self)
     
-    self["id"] = tonumber(id);
-    self["group"] = tonumber(group);
-    self["perform"] = _rune_helper;
-end);
+    self["id"] = tonumber(id)
+    self["group"] = tonumber(group)
+    self["perform"] = _rune_helper
+end)
 
 function _rune_helper(self, npcChar, player)
-    player:teachMagic(self.group, self.rune);
-end;
+    player:teachMagic(self.group, self.rune)
+end
+
+return rune

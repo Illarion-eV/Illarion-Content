@@ -17,14 +17,16 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local class = require("base.class")
 local condition = require("npc.base.condition.condition")
 
-module("npc.base.condition.admin", package.seeall)
+local _admin_helper_equal
 
-admin = class.class(condition.condition,
+local admin = class.class(condition,
 function(self)
-    condition.condition:init(self);
-    self["check"] = _admin_helper_equal;
-end);
+    condition:init(self)
+    self["check"] = _admin_helper_equal
+end)
 
 function _admin_helper_equal(self, npcChar, texttype, player)
-    return player:isAdmin();
-end;
+    return player:isAdmin()
+end
+
+return admin

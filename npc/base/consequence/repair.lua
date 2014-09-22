@@ -18,14 +18,16 @@ local class = require("base.class")
 local consequence = require("npc.base.consequence.consequence")
 local base_repair = require("base.repair")
 
-module("npc.base.consequence.repair", package.seeall)
+local _repair_helper
 
-repair = class.class(consequence.consequence,
+local repair = class.class(consequence,
 function(self)
-    consequence.consequence:init(self);
-    self["perform"] = _repair_helper;
-end);
+    consequence:init(self)
+    self["perform"] = _repair_helper
+end)
 
 function _repair_helper(self, npcChar, player)
-    base_repair.repairDialog(npcChar, player); 
-end;
+    base_repair.repairDialog(npcChar, player) 
+end
+
+return repair

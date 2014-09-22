@@ -19,29 +19,32 @@ local base_money = require("base.money")
 local talk = require("npc.base.talk")
 local consequence = require("npc.base.consequence.consequence")
 
-module("npc.base.consequence.money", package.seeall)
+local _money_helper_add
+local _money_helper_sub
 
-money = class.class(consequence.consequence,
+local money = class.class(consequence,
 function(self, mode, value)
-    consequence.consequence:init(self);
-    self["value"], self["valuetype"] = talk._set_value(value);
+    consequence:init(self)
+    self["value"], self["valuetype"] = talk._set_value(value)
     if (mode == "+") then
-        self["perform"] = _money_helper_add;
+        self["perform"] = _money_helper_add
     elseif (mode == "-") then
-        self["perform"] = _money_helper_sub;
+        self["perform"] = _money_helper_sub
     else
         -- unkonwn comparator
-    end;
-end);
+    end
+end)
 
 function _money_helper_add(self, npcChar, player)
-    local value = talk._get_value(self.npc, self.value, self.valuetype);
+    local value = talk._get_value(self.npc, self.value, self.valuetype)
     if not base_money.GiveMoneyToChar(player, value) then
-		base_money.GiveMoneyToPosition(player.pos, value);
+		base_money.GiveMoneyToPosition(player.pos, value)
 	end
-end;
+end
 
 function _money_helper_sub(self, npcChar, player)
-    local value = talk._get_value(self.npc, self.value, self.valuetype);
-    base_money.TakeMoneyFromChar(player, value);
-end;
+    local value = talk._get_value(self.npc, self.value, self.valuetype)
+    base_money.TakeMoneyFromChar(player, value)
+end
+
+return money

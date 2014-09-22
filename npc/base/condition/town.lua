@@ -18,15 +18,17 @@ local class = require("base.class")
 local factions = require("base.factions")
 local condition = require("npc.base.condition.condition")
 
-module("npc.base.condition.town", package.seeall)
+local _town_helper_equal
 
-town = class.class(condition.condition,
+local town = class.class(condition,
 function(self, value)
-    condition.condition:init(self);
-    self["value"] = tonumber(value);
-    self["check"] = _town_helper_equal;
-end);
+    condition:init(self)
+    self["value"] = tonumber(value)
+    self["check"] = _town_helper_equal
+end)
 
 function _town_helper_equal(self, npcChar, texttype, player)
-    return (factions.getFaction(player).tid == self.value);
-end;
+    return (factions.getFaction(player).tid == self.value)
+end
+
+return town

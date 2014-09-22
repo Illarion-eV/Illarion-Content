@@ -18,56 +18,63 @@ local class = require("base.class")
 local factions = require("base.factions")
 local condition = require("npc.base.condition.condition")
 
-module("npc.base.condition.rank", package.seeall)
+local _rank_helper_equal
+local _rank_helper_notequal
+local _rank_helper_lesserequal
+local _rank_helper_greaterequal
+local _rank_helper_greater
+local _rank_helper_lesser
 
-rank = class.class(condition.condition,
+local rank = class.class(condition,
 function(self, comp, value)
-    condition.condition:init(self);
-    self["value"], self["valuetype"] = npc.base.talk._set_value(value);
+    condition:init(self)
+    self["value"], self["valuetype"] = npc.base.talk._set_value(value)
     
     if (comp == "=") then
-        self["check"] = _rank_helper_equal;
+        self["check"] = _rank_helper_equal
     elseif (comp == "<>" or comp == "!=" or comp == "~=") then
-        self["check"] = _rank_helper_notequal;
+        self["check"] = _rank_helper_notequal
     elseif (comp == "<=" or comp == "=<") then
-        self["check"] = _rank_helper_lesserequal;
+        self["check"] = _rank_helper_lesserequal
     elseif (comp == ">=" or comp == "=>") then
-        self["check"] = _rank_helper_greaterequal;
+        self["check"] = _rank_helper_greaterequal
     elseif (comp == ">") then
-        self["check"] = _rank_helper_greater;
+        self["check"] = _rank_helper_greater
     elseif (comp == "<") then
-        self["check"] = _rank_helper_lesser;
+        self["check"] = _rank_helper_lesser
     else
         -- unkonwn comparator
-    end;
-end);
+    end
+end)
 
 function _rank_helper_equal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return factions.getRankAsNumber(player) == value;
-end;
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    return factions.getRankAsNumber(player) == value
+end
 
 function _rank_helper_notequal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return factions.getRankAsNumber(player) ~= value;
-end;
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    return factions.getRankAsNumber(player) ~= value
+end
 
 function _rank_helper_lesserequal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return factions.getRankAsNumber(player) <= value;
-end;
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    return factions.getRankAsNumber(player) <= value
+end
 
 function _rank_helper_greaterequal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return factions.getRankAsNumber(player) >= value;
-end;
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    return factions.getRankAsNumber(player) >= value
+end
 
 function _rank_helper_greater(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return factions.getRankAsNumber(player) > value;
-end;
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    return factions.getRankAsNumber(player) > value
+end
 
 function _rank_helper_lesser(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return factions.getRankAsNumber(player) < value;
-end;
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    return factions.getRankAsNumber(player) < value
+end
+
+return rank

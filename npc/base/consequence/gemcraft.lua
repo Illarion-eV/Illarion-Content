@@ -18,15 +18,17 @@ local class = require("base.class")
 local consequence = require("npc.base.consequence.consequence")
 local gems = require("item.gems")
 
-module("npc.base.consequence.gemcraft", package.seeall)
+local _craft_helper
 
-gemcraft = class.class(consequence.consequence,
+local gemcraft = class.class(consequence,
 function(self)
-    consequence.consequence:init(self);
+    consequence:init(self)
     
-    self["perform"] = _craft_helper;
+    self["perform"] = _craft_helper
 end);
 
 function _craft_helper(self, npcChar, player)
     gems.magicSmith(npcChar, player) 
-end;
+end
+
+return gemcraft

@@ -17,18 +17,20 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local class = require("base.class")
 local condition = require("npc.base.condition.condition")
 
-module("npc.base.condition.rune", package.seeall)
+local _rune_helper
 
-rune = class.class(condition.condition,
+local rune = class.class(condition,
 function(self, value)
-    condition.condition:init(self);
+    condition:init(self)
     
-    self["value"] = 2 ^ (value - 1);
-    self["check"] = _rune_helper;
-end);
+    self["value"] = 2 ^ (value - 1)
+    self["check"] = _rune_helper
+end)
 
 function _rune_helper(self, npcChar, texttype, player)
-    local magicType = player:getMagicType();
-    local magicFlags = player:getMagicFlags(magicType);
-    return (LuaAnd(magicFlags, self.value) ~= 0);
-end;
+    local magicType = player:getMagicType()
+    local magicFlags = player:getMagicFlags(magicType)
+    return (LuaAnd(magicFlags, self.value) ~= 0)
+end
+
+return rune

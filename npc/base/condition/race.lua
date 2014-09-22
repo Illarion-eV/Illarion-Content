@@ -17,15 +17,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local class = require("base.class")
 local condition = require("npc.base.condition.condition")
 
-module("npc.base.condition.race", package.seeall)
+local _race_helper_equal
 
-race = class.class(condition.condition,
+local race = class.class(condition,
 function(self, value)
-    condition.condition:init(self);
-    self["value"] = tonumber(value);
-    self["check"] = _race_helper_equal;
-end);
+    condition:init(self)
+    self["value"] = tonumber(value)
+    self["check"] = _race_helper_equal
+end)
 
 function _race_helper_equal(self, npcChar, texttype, player)
     return (player:getRace() == self.value);
-end;
+end
+
+return race

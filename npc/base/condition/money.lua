@@ -19,34 +19,38 @@ local base_money = require("base.money")
 local talk = require("npc.base.talk")
 local condition = require("npc.base.condition.condition")
 
-module("npc.base.condition.money", package.seeall)
+local _money_helper_greaterequal
+local _money_helper_greater
+local _money_helper_lesser
 
-money = class.class(condition.condition,
+local money = class.class(condition,
 function(self, comp, value)
-    condition.condition:init(self);
-    self["value"], self["valuetype"] = talk._set_value(value);
+    condition:init(self)
+    self["value"], self["valuetype"] = talk._set_value(value)
     if (comp == ">=" or comp == "=>") then
-        self["check"] = _money_helper_greaterequal;
+        self["check"] = _money_helper_greaterequal
     elseif (comp == ">") then
-        self["check"] = _money_helper_greater;
+        self["check"] = _money_helper_greater
     elseif (comp == "<") then
-        self["check"] = _money_helper_lesser;
+        self["check"] = _money_helper_lesser
     else
         -- unkonwn comparator
-    end;
-end);
+    end
+end)
 
 function _money_helper_greaterequal(self, npcChar, texttype, player)
-    local value = talk._get_value(self.npc, self.value, self.valuetype);
-    return base_money.CharHasMoney(player, value);
-end;
+    local value = talk._get_value(self.npc, self.value, self.valuetype)
+    return base_money.CharHasMoney(player, value)
+end
 
 function _money_helper_greater(self, npcChar, texttype, player)
-    local value = talk._get_value(self.npc, self.value, self.valuetype);
-    return base_money.CharHasMoney(player, value + 1);
-end;
+    local value = talk._get_value(self.npc, self.value, self.valuetype)
+    return base_money.CharHasMoney(player, value + 1)
+end
 
 function _money_helper_lesser(self, npcChar, texttype, player)
-    local value = talk._get_value(self.npc, self.value, self.valuetype);
-    return not base_money.CharHasMoney(player, value);
-end;
+    local value = talk._get_value(self.npc, self.value, self.valuetype)
+    return not base_money.CharHasMoney(player, value)
+end
+
+return money

@@ -17,16 +17,18 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local class = require("base.class")
 local consequence = require("npc.base.consequence.consequence")
 
-module("npc.base.consequence.inform", package.seeall)
+local _inform_helper
 
-inform = class.class(consequence.consequence,
+local inform = class.class(consequence,
 function(self, text)
-    consequence.consequence:init(self);
+    consequence:init(self)
     
-    self["text"] = tostring(text);
-    self["perform"] = _inform_helper;
-end);
+    self["text"] = tostring(text)
+    self["perform"] = _inform_helper
+end)
 
 function _inform_helper(self, npcChar, player)
-    player:inform(self.text);
-end;
+    player:inform(self.text)
+end
+
+return inform

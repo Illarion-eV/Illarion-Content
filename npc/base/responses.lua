@@ -25,9 +25,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local class = require("base.class")
 local factions = require("base.factions")
 
-module("npc.base.responses", package.seeall)
-
-processorList = {};
+local processorList = {}
 
 do
 	--- Default processor implementation that does simply nothing.
@@ -36,20 +34,20 @@ do
 		-- has to determine if this processor has at any point a impact on the 
 		-- response. If this function returns "false" the processor will never be
 		-- executed for this class.
-		self["check"] = _processor_check_default;
+		self["check"] = _processor_check_default
 		
 		-- This function is called in order to process the actual response text.
 		-- This function has to return the new text in any case.
-		self["process"] = _processor_process_default;
-	end);
+		self["process"] = _processor_process_default
+	end)
 
 	function _processor_check_default(self, response)
-		return false;
-	end;
+		return false
+	end
 
 	function _processor_process_default(self, playerChar, npc, npcChar, response)
-		return response;
-	end;
+		return response
+	end
 
 	do
 		-- Player name processor
@@ -57,72 +55,74 @@ do
 		-- that is talking with the NPC.
 		local playerNameProcessor = class.class(processor,
 		function(self, value)
-			processor:init(self);
-		end);
+			processor:init(self)
+		end)
 
 		function playerNameProcessor:check(response)
-			return (string.find(response, "%%CHARNAME") ~= nil);
-		end;
+			return (string.find(response, "%%CHARNAME") ~= nil)
+		end
 
 		function playerNameProcessor:process(playerChar, npc, npcChar, response)
-			return string.gsub(response, "%%CHARNAME", playerChar.name);
-		end;
-		table.insert(processorList, playerNameProcessor());
-	end;
+			return string.gsub(response, "%%CHARNAME", playerChar.name)
+		end
+		table.insert(processorList, playerNameProcessor())
+	end
 
 	do
 		-- NPC name processor
 		-- This processor replaces %NPCNAME with the name of the NPC.
 		local npcNameProcessor = class.class(processor,
 		function(self, value)
-			processor:init(self);
-		end);
+			processor:init(self)
+		end)
 
 		function npcNameProcessor:check(response)
-			return (string.find(response, "%%NPCNAME") ~= nil);
-		end;
+			return (string.find(response, "%%NPCNAME") ~= nil)
+		end
 
 		function npcNameProcessor:process(playerChar, npc, npcChar, response)
-			return string.gsub(response, "%%NPCNAME", npcChar.name);
-		end;
-		table.insert(processorList, npcNameProcessor());
-	end;
+			return string.gsub(response, "%%NPCNAME", npcChar.name)
+		end
+		table.insert(processorList, npcNameProcessor())
+	end
 	
 	do
 		-- town processor
 		-- This processor replaces %TOWN with the name of the town a character belongs to.
 		local townNameProcessor = class.class(processor,
 		function(self, value)
-			processor:init(self);
-		end);
+			processor:init(self)
+		end)
 
 		function townNameProcessor:check(response)
-			return (string.find(response, "%%TOWN") ~= nil);
-		end;
+			return (string.find(response, "%%TOWN") ~= nil)
+		end
 
 		function townNameProcessor:process(playerChar, npc, npcChar, response)
 			local townName = factions.getMembershipByName(playerChar)
-			return string.gsub(response, "%%TOWN", townName);
-		end;
-		table.insert(processorList, townNameProcessor());
-	end;
+			return string.gsub(response, "%%TOWN", townName)
+		end
+		table.insert(processorList, townNameProcessor())
+	end
 	
 	do
 		-- rank processor
 		-- This processor replaces %RANK with the rank of a character.
 		local rankProcessor = class.class(processor,
 		function(self, value)
-			processor:init(self);
-		end);
+			processor:init(self)
+		end)
 
 		function rankProcessor:check(response)
-			return (string.find(response, "%%RANK") ~= nil);
-		end;
+			return (string.find(response, "%%RANK") ~= nil)
+		end
 
 		function rankProcessor:process(playerChar, npc, npcChar, response)
 			local rank = factions.getRank(playerChar)
-			return string.gsub(response, "%%RANK", rank);
-		end;
-		table.insert(processorList, rankProcessor());
-	end;	
-end;
+			return string.gsub(response, "%%RANK", rank)
+		end
+		table.insert(processorList, rankProcessor())
+	end	
+end
+
+return processorList

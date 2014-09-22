@@ -17,19 +17,21 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local class = require("base.class")
 local condition = require("npc.base.condition.condition")
 
-module("npc.base.condition.language", package.seeall)
+local _language_helper_equal
 
-language = class.class(condition.condition,
+local language = class.class(condition,
 function(self, value)
-    condition.condition:init(self);
+    condition:init(self)
     if (value == "german" or value == "deutsch") then
-        self["value"] = Player.german;
+        self["value"] = Player.german
     else
-        self["value"] = Player.english;
-    end;
-    self["check"] = _language_helper_equal;
-end);
+        self["value"] = Player.english
+    end
+    self["check"] = _language_helper_equal
+end)
 
 function _language_helper_equal(self, npcChar, texttype, player)
-    return (player:getPlayerLanguage() == self.value);
-end;
+    return (player:getPlayerLanguage() == self.value)
+end
+
+return language

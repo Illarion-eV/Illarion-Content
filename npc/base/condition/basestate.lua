@@ -17,21 +17,23 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local class = require("base.class")
 local condition = require("npc.base.condition.condition")
 
-module("npc.base.condition.basestate", package.seeall)
+local _basestate_helper_equal
 
-basestate = class.class(condition.condition,
+local basestate = class.class(condition,
 function(self, value)
-    condition.condition:init(self);
+    condition:init(self)
     if (value == "busy") then
-        self["value"] = npc.base.basic.baseNPC.stateBusyTalking;
+        self["value"] = npc.base.basic.baseNPC.stateBusyTalking
     elseif (value == "idle") then
-        self["value"] = npc.base.basic.baseNPC.stateNormal;
+        self["value"] = npc.base.basic.baseNPC.stateNormal
     else
-        self["value"] = -1;
-    end;
-    self["check"] = _basestate_helper_equal;
-end);
+        self["value"] = -1
+    end
+    self["check"] = _basestate_helper_equal
+end)
 
 function _basestate_helper_equal(self, npcChar, texttype, player)
     return (self.npc._parent.state == self.value)
-end;
+end
+
+return basestate

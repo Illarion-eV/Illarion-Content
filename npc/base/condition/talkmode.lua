@@ -17,21 +17,23 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local class = require("base.class")
 local condition = require("npc.base.condition.condition")
 
-module("npc.base.condition.talkmode", package.seeall)
+local _talkmode_helper_equal
 
-talkmode = class.class(condition.condition,
+local talkmode = class.class(condition,
 function(self, value)
-    condition.condition:init(self);
+    condition:init(self)
     if (value == "shout" or value == "yell" or value == Character.yell) then
-        self["value"] = Character.yell;
+        self["value"] = Character.yell
 	elseif (value == "whisper" or value == Character.whisper) then
-        self["value"] = Character.whisper;
+        self["value"] = Character.whisper
     else
-        self["value"] = Character.say;
-    end;
-    self["check"] = _talkmode_helper_equal;
-end);
+        self["value"] = Character.say
+    end
+    self["check"] = _talkmode_helper_equal
+end)
 
 function _talkmode_helper_equal(self, npcChar, texttype, player)
-    return (texttype == self.value);
-end;
+    return (texttype == self.value)
+end
+
+return talkmode

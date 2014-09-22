@@ -18,41 +18,44 @@ local class = require("base.class")
 local factions = require("base.factions")
 local consequence = require("npc.base.consequence.consequence")
 
-module("npc.base.consequence.rankpoints", package.seeall)
+local _rankpoints_helper_set
+local _rankpoints_helper_add
+local _rankpoints_helper_sub
 
-rankpoints = class.class(consequence.consequence,
+local rankpoints = class.class(consequence,
 function(self, mode, value)
-    consequence.consequence:init(self);
-    self["value"], self["valuetype"] = npc.base.talk._set_value(value);
+    consequence:init(self)
+    self["value"], self["valuetype"] = npc.base.talk._set_value(value)
     if (mode == "=") then
-            self["perform"] = _rankpoints_helper_set;
+            self["perform"] = _rankpoints_helper_set
     elseif (mode == "+") then
-            self["perform"] = _rankpoints_helper_add;
+            self["perform"] = _rankpoints_helper_add
     elseif (mode == "-") then
-            self["perform"] = _rankpoints_helper_sub;
+            self["perform"] = _rankpoints_helper_sub
     else
         -- unkonwn comparator
-    end;
-end);
+    end
+end)
 
 function _rankpoints_helper_set(self, npcChar, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    local rankpoints = factions.getRankpoints(player);
-    rankpoints = value;
-    factions.setRankpoints(player,rankpoints);
-end;
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local rankpoints = factions.getRankpoints(player)
+    rankpoints = value
+    factions.setRankpoints(player,rankpoints)
+end
 
 function _rankpoints_helper_add(self, npcChar, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    local rankpoints = factions.getRankpoints(player);
-    rankpoints = rankpoints + value;
-    factions.setRankpoints(player,rankpoints);
-end;
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local rankpoints = factions.getRankpoints(player)
+    rankpoints = rankpoints + value
+    factions.setRankpoints(player,rankpoints)
+end
 
 function _rankpoints_helper_sub(self, npcChar, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    local rankpoints = factions.getRankpoints(player);
-    rankpoints = rankpoints - value;
-    factions.setRankpoints(player,rankpoints);
-end;
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local rankpoints = factions.getRankpoints(player)
+    rankpoints = rankpoints - value
+    factions.setRankpoints(player,rankpoints)
+end
 	
+return rankpoints

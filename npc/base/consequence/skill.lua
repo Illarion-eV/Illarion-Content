@@ -17,37 +17,41 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local class = require("base.class")
 local consequence = require("npc.base.consequence.consequence")
 
-module("npc.base.consequence.skill", package.seeall)
+local _skill_helper_set
+local _skill_helper_add
+local _skill_helper_sub
 
-skill = class.class(consequence.consequence,
+local skill = class.class(consequence,
 function(self, name, mode, value)
-    consequence.consequence:init(self);
-    self["value"], self["valuetype"] = npc.base.talk._set_value(value);
-    self["name"] = name;
+    consequence:init(self)
+    self["value"], self["valuetype"] = npc.base.talk._set_value(value)
+    self["name"] = name
     if (mode == "=") then
-        self["perform"] = _skill_helper_set;
+        self["perform"] = _skill_helper_set
     elseif (mode == "+") then
-        self["perform"] = _skill_helper_add;
+        self["perform"] = _skill_helper_add
     elseif (mode == "-") then
-        self["perform"] = _skill_helper_sub;
+        self["perform"] = _skill_helper_sub
     else
         -- unkonwn comparator
-    end;
-end);
+    end
+end)
 
 function _skill_helper_set(self, npcChar, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    local currSkill = player:getSkill(self.name);
-    local modSkill = value - currSkill;
-    player:increaseSkill(self.name, modSkill);
-end;
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local currSkill = player:getSkill(self.name)
+    local modSkill = value - currSkill
+    player:increaseSkill(self.name, modSkill)
+end
 
 function _skill_helper_add(self, npcChar, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    player:increaseSkill(self.name, value);
-end;
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    player:increaseSkill(self.name, value)
+end
 
 function _skill_helper_sub(self, npcChar, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    player:increaseSkill(self.name, -value);
-end;
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    player:increaseSkill(self.name, -value)
+end
+
+return skill

@@ -17,15 +17,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local class = require("base.class")
 local condition = require("npc.base.condition.condition")
 
-module("npc.base.condition.chance", package.seeall)
+local _chance_helper_equal
 
-chance = class.class(condition.condition,
+local chance = class.class(condition,
 function(self, value)
-    condition.condition:init(self);
-    self["value"] = math.min(100, math.max(0, value + 1 - 1));
-    self["check"] = _chance_helper_equal;
-end);
+    condition:init(self)
+    self["value"] = math.min(100, math.max(0, value + 1 - 1))
+    self["check"] = _chance_helper_equal
+end)
 
 function _chance_helper_equal(self, npcChar, texttype, player)
-    return (math.random(100) < self.value);
-end;
+    return (math.random(100) < self.value)
+end
+
+return chance

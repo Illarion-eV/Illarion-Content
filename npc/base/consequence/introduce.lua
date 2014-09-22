@@ -17,15 +17,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local class = require("base.class")
 local consequence = require("npc.base.consequence.consequence")
 
-module("npc.base.consequence.introduce", package.seeall)
+local _introduce_helper
 
-introduce = class.class(consequence.consequence,
+local introduce = class.class(consequence,
 function(self, text)
-    consequence.consequence:init(self);
+    consequence:init(self)
     
-    self["perform"] = _introduce_helper;
-end);
+    self["perform"] = _introduce_helper
+end)
 
 function _introduce_helper(self, npcChar, player)
-    player:introduce(npcChar);
-end;
+    player:introduce(npcChar)
+end
+
+return introduce
