@@ -20,7 +20,7 @@ local consequence = require("npc.base.consequence.consequence")
 
 local _spawn_helper
 
-local spawn = class.class(consequence,
+local spawn = class(consequence,
 function(self, id, count, radius, x, y, z)
 	consequence:init(self)
 
