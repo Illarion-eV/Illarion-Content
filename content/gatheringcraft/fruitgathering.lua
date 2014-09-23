@@ -184,9 +184,11 @@ function InitHarvestItems()
 	}
 	HarvestItems[ 387 ] = {									-- bush
 	CreateHarvestProduct(81, gt.forest, nil, 5, 386),			-- berries
-	CreateHarvestProduct(199, gt.sand, nil, 7, 386),			-- tangerine
 	CreateHarvestProduct(388, gt.grass, nil, 10, 386)			-- grapes
 	}
+	HarvestItems[ 3613 ] = {
+    	CreateHarvestProduct(199, gt.sand, nil, 7, 3612),			-- tangerine
+    }
 end
 
 -- for GroundType, see common.GroundType. If it doesn't matter, just set it to nil
