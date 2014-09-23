@@ -35,7 +35,7 @@ end)
 
 function _spawn_helper(self, npcChar, player)
 	for i = 1, self.count do
-		local monPos = common.getFreePos(position(self.x,self.y,self.z), self.radius)
+		local monPos = common.getFreePos(position(self.x, self.y, self.z), self.radius)
 		world:createMonster(self.id, monPos, 0)
 	end
 end
