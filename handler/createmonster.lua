@@ -18,7 +18,7 @@ local class = require("base.class")
 
 module("handler.createmonster", package.seeall)
 
-createMonster = class.class(function(cremonst, posi, ID, mvpoints)
+createMonster = class(function(cremonst, posi, ID, mvpoints)
 	cremonst.pos=posi;
 	cremonst.monsterID=ID;
 	cremonst.movepoints=mvpoints;

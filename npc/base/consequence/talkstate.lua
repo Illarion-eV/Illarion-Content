@@ -20,7 +20,7 @@ local consequence = require("npc.base.consequence.consequence")
 local _talkstate_helper_begin
 local _talkstate_helper_end
 
-local talkstate = class.class(consequence,
+local talkstate = class(consequence,
 function(self, mode)
     consequence:init(self)
     

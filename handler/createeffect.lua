@@ -18,7 +18,7 @@ local class = require("base.class")
 
 module("handler.createeffect", package.seeall)
 
-createEffect = class.class(function(creff, posi, gfxid)
+createEffect = class(function(creff, posi, gfxid)
     creff.pos=posi;
     creff.effectId=gfxid;
 end);

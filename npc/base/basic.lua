@@ -31,7 +31,7 @@ local displayLanguageConfusion
 --- Constructor for the baseNPC. This does not take any paramters.
 --
 -- The sole purpose is to prepare all required values in the NPC script.
-local baseNPC = class.class(function(self)	
+local baseNPC = class(function(self)	
     -- The state of the NPC. This value can be used to have the special parts
     -- of the NPC communicating with each other.
     self["state"] = baseNPC.stateNormal

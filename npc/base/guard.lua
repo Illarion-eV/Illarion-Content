@@ -31,7 +31,7 @@ local _warpHostile
 local _isPointInGuardArea
 local _getTextAndTalktype
 
-local guardNPC = class.class(function(self, rootNPC)
+local guardNPC = class(function(self, rootNPC)
     if (rootNPC == nil or not rootNPC:is_a(npc.base.basic.baseNPC)) then
         return
     end

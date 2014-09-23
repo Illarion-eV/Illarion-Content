@@ -19,7 +19,7 @@ local common = require("base.common")
 
 module("handler.sendmessage", package.seeall)
 
-sendMessage = class.class(function(sndMsg, posi, msgde, msgen, rad)
+sendMessage = class(function(sndMsg, posi, msgde, msgen, rad)
     sndMsg.pos=posi;
     sndMsg.messageDe=msgde;
     sndMsg.messageEn=msgen;

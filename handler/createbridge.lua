@@ -18,7 +18,7 @@ local class = require("base.class")
 
 module("handler.createbridge", package.seeall)
 
-createBridge = class.class(function(crebrg, posi, dire, lng)
+createBridge = class(function(crebrg, posi, dire, lng)
     crebrg.pos=posi;
     crebrg.direction=dire;
     crebrg.length=lng;

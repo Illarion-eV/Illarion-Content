@@ -24,7 +24,7 @@ local _arena_helper_request
 local _arena_helper_points
 local _arena_helper_list
 
-local arena = class.class(consequence,
+local arena = class(consequence,
 function(self, mode)
     consequence:init(self)
     self["mode"] = mode

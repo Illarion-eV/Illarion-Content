@@ -420,7 +420,7 @@ end
 
 
 
-M.executePortalLeverRiddle = class.class(function(leverriddle, posi)
+M.executePortalLeverRiddle = class(function(leverriddle, posi)
     leverriddle.pos=posi;
 end);
 

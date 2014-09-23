@@ -19,7 +19,7 @@ local consequence = require("npc.base.consequence.consequence")
 
 local _warp_helper
 
-local warp = class.class(consequence,
+local warp = class(consequence,
 function(self, x, y, z)
     consequence:init(self)
     

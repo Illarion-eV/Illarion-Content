@@ -20,7 +20,7 @@ local base_repair = require("base.repair")
 
 local _repair_helper
 
-local repair = class.class(consequence,
+local repair = class(consequence,
 function(self)
     consequence:init(self)
     self["perform"] = _repair_helper

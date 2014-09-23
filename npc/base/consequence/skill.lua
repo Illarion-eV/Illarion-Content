@@ -21,7 +21,7 @@ local _skill_helper_set
 local _skill_helper_add
 local _skill_helper_sub
 
-local skill = class.class(consequence,
+local skill = class(consequence,
 function(self, name, mode, value)
     consequence:init(self)
     self["value"], self["valuetype"] = npc.base.talk._set_value(value)

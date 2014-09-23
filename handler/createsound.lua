@@ -18,7 +18,7 @@ local class = require("base.class")
 
 module("handler.createsound", package.seeall)
 
-createSound = class.class(function(crsnd, posi, sndid)
+createSound = class(function(crsnd, posi, sndid)
     crsnd.pos=posi;
     crsnd.soundId=sndid;
 end);

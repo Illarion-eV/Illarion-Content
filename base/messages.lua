@@ -48,7 +48,7 @@ local class = require("base.class")
 module("base.messages", package.seeall)
 
 -- create messages class
-Messages = class.class(function(msg)
+Messages = class(function(msg)
     msg.__german = {};
     msg.__english = {};
     msg.__count = 0;

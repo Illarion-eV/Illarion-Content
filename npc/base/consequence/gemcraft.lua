@@ -20,7 +20,7 @@ local gems = require("item.gems")
 
 local _craft_helper
 
-local gemcraft = class.class(consequence,
+local gemcraft = class(consequence,
 function(self)
     consequence:init(self)
     

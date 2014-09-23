@@ -18,9 +18,7 @@ local class = require("base.class")
 
 module("handler.createitem", package.seeall)
 
-
-
-createItem = class.class(function(creitem, posi, ID, qual, amnt)
+createItem = class(function(creitem, posi, ID, qual, amnt)
     creitem.pos=posi;
     creitem.itemId=ID;
     creitem.quality=qual;

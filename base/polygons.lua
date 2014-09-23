@@ -24,7 +24,7 @@ module("base.polygons",package.seeall);
 -- @param posStruct Start point
 -- @param posStruct End point
 -- @return LineStruct
-Line = class.class(
+Line = class(
 	function(obj, startPoint, endPoint)
 		obj.startPoint = position(startPoint.x, startPoint.y, 0);
 		obj.endPoint = position(endPoint.x, endPoint.y, 0);
@@ -38,7 +38,7 @@ Line = class.class(
 -- @field zList list(int) list with valid z values for PIP test
 -- @param list(posStruct) List of points, neighbours are connected, aswell as first and last point of the list
 -- @return PolygonStruct
-Polygon = class.class(
+Polygon = class(
 	function(obj, positionList, zList)
 		if #positionList < 3 then
 			debug("A polygon must have at least 3 points");

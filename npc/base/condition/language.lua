@@ -19,7 +19,7 @@ local condition = require("npc.base.condition.condition")
 
 local _language_helper_equal
 
-local language = class.class(condition,
+local language = class(condition,
 function(self, value)
     condition:init(self)
     if (value == "german" or value == "deutsch") then

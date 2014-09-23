@@ -19,7 +19,7 @@ local consequence = require("npc.base.consequence.consequence")
 
 local _trade_helper
 
-local trade = class.class(consequence,
+local trade = class(consequence,
 function(self, tradeNPC)
     consequence:init(self)
     

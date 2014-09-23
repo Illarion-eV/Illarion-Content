@@ -19,7 +19,7 @@ local condition = require("npc.base.condition.condition")
 
 local _talkmode_helper_equal
 
-local talkmode = class.class(condition,
+local talkmode = class(condition,
 function(self, value)
     condition:init(self)
     if (value == "shout" or value == "yell" or value == Character.yell) then

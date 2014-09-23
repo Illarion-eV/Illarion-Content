@@ -25,7 +25,7 @@ local _rank_helper_greaterequal
 local _rank_helper_greater
 local _rank_helper_lesser
 
-local rank = class.class(condition,
+local rank = class(condition,
 function(self, comp, value)
     condition:init(self)
     self["value"], self["valuetype"] = npc.base.talk._set_value(value)

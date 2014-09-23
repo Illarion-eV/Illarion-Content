@@ -20,7 +20,7 @@ local consequence = require("npc.base.consequence.consequence")
 local _deleteitem_helper
 local _deleteitem_data_helper
 
-local deleteitem = class.class(consequence,
+local deleteitem = class(consequence,
 function(self, id, count, data)
     consequence:init(self)
     

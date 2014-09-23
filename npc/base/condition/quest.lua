@@ -24,7 +24,7 @@ local _quest_helper_greaterequal
 local _quest_helper_greater_quest_helper_lesserz
 local _quest_helper_lesser
 
-local quest = class.class(condition,
+local quest = class(condition,
 function(self, questid, comp, value)
     condition:init(self)
     self["value"], self["valuetype"] = npc.base.talk._set_value(value)

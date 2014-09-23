@@ -24,7 +24,7 @@ local _number_helper_greaterequal
 local _number_helper_lesser
 local _number_helper_greater
 
-local number = class.class(condition,
+local number = class(condition,
 function(self, comp, value)
     condition:init(self)
     self["value"], self["valuetype"] = npc.base.talk._set_value(value)

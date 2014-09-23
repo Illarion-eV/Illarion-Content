@@ -24,7 +24,7 @@ local _magictype_helper_bard
 local _magictype_helper_druid
 local _test_magictype
 
-local magictype = class.class(condition,
+local magictype = class(condition,
 function(self, value)
     condition:init(self)
     if (value == "nomagic") then

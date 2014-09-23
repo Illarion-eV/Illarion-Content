@@ -19,7 +19,7 @@ local consequence = require("npc.base.consequence.consequence")
 
 local _rune_helper
 
-local rune = class.class(consequence,
+local rune = class(consequence,
 function(self, group, id)
     consequence:init(self)
     

@@ -19,7 +19,7 @@ local consequence = require("npc.base.consequence.consequence")
 
 local _item_helper
 
-local item = class.class(consequence,
+local item = class(consequence,
 function(self, id, count, quality, data)
     consequence:init(self)
     

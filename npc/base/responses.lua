@@ -29,7 +29,7 @@ local processorList = {}
 
 do
 	--- Default processor implementation that does simply nothing.
-	local processor = class.class(function(self)
+	local processor = class(function(self)
 		-- "check" is the function called once a response is added. This function
 		-- has to determine if this processor has at any point a impact on the 
 		-- response. If this function returns "false" the processor will never be
@@ -53,7 +53,7 @@ do
 		-- Player name processor
 		-- This processor replaces %CHARNAME with the name of the character
 		-- that is talking with the NPC.
-		local playerNameProcessor = class.class(processor,
+		local playerNameProcessor = class(processor,
 		function(self, value)
 			processor:init(self)
 		end)
@@ -71,7 +71,7 @@ do
 	do
 		-- NPC name processor
 		-- This processor replaces %NPCNAME with the name of the NPC.
-		local npcNameProcessor = class.class(processor,
+		local npcNameProcessor = class(processor,
 		function(self, value)
 			processor:init(self)
 		end)
@@ -89,7 +89,7 @@ do
 	do
 		-- town processor
 		-- This processor replaces %TOWN with the name of the town a character belongs to.
-		local townNameProcessor = class.class(processor,
+		local townNameProcessor = class(processor,
 		function(self, value)
 			processor:init(self)
 		end)
@@ -108,7 +108,7 @@ do
 	do
 		-- rank processor
 		-- This processor replaces %RANK with the rank of a character.
-		local rankProcessor = class.class(processor,
+		local rankProcessor = class(processor,
 		function(self, value)
 			processor:init(self)
 		end)

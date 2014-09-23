@@ -19,7 +19,7 @@ local consequence = require("npc.base.consequence.consequence")
 
 local _inform_helper
 
-local inform = class.class(consequence,
+local inform = class(consequence,
 function(self, text)
     consequence:init(self)
     

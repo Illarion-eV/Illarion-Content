@@ -19,7 +19,7 @@ local common = require("base.common")
 
 module("handler.warpgroup", package.seeall)
 
-warpGroup = class.class(function(warpgr, centerpos, radius, destpos,gfx)
+warpGroup = class(function(warpgr, centerpos, radius, destpos,gfx)
     warpgr.startpos=centerpos;
     warpgr.destpos=destpos;
     warpgr.range = radius;

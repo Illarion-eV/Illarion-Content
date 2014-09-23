@@ -22,7 +22,7 @@ local _rankpoints_helper_set
 local _rankpoints_helper_add
 local _rankpoints_helper_sub
 
-local rankpoints = class.class(consequence,
+local rankpoints = class(consequence,
 function(self, mode, value)
     consequence:init(self)
     self["value"], self["valuetype"] = npc.base.talk._set_value(value)

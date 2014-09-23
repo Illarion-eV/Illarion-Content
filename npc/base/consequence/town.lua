@@ -20,7 +20,7 @@ local consequence = require("npc.base.consequence.consequence")
 local _town_helper_set
 local _town_helper_status
 
-local town = class.class(consequence,
+local town = class(consequence,
 function(self, mode, value)
     consequence:init(self)
     self["value"], self["valuetype"] = npc.base.talk._set_value(value)

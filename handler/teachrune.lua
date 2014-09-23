@@ -18,7 +18,7 @@ local class = require("base.class")
 
 module("handler.teachrune", package.seeall)
 
-teachRune = class.class(function(tchrune, ply, mtype, rID)
+teachRune = class(function(tchrune, ply, mtype, rID)
     tchrune.player=ply;
     tchrune.magictype=mtype;
     tchrune.runeID=rID;

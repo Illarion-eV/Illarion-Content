@@ -19,7 +19,7 @@ local condition = require("npc.base.condition.condition")
 
 local _race_helper_equal
 
-local race = class.class(condition,
+local race = class(condition,
 function(self, value)
     condition:init(self)
     self["value"] = tonumber(value)

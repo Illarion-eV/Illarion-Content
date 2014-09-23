@@ -21,7 +21,7 @@ local condition = require("npc.base.condition.condition")
 local _questtime_helper_greater
 local _questtime_helper_lesser
 
-local questtime = class.class(condition,
+local questtime = class(condition,
 function(self, comp, quest, month, day, hour)
 	condition:init(self)
     self["month"], self["monthtype"] = npc.base.talk._set_value(month)

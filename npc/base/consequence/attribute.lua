@@ -21,7 +21,7 @@ local _attribute_helper_set
 local _attribute_helper_add
 local _attribute_helper_sub
 
-local attribute = class.class(consequence,
+local attribute = class(consequence,
 function(self, name, mode, value)
     consequence:init(self)
     self["value"], self["valuetype"] = npc.base.talk._set_value(value)

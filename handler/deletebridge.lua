@@ -18,7 +18,7 @@ local class = require("base.class")
 
 module("handler.deletebridge", package.seeall);
 
-deleteBridge = class.class(function(delbrg, posi)
+deleteBridge = class(function(delbrg, posi)
     delbrg.pos=posi;
 end);
 

@@ -18,7 +18,7 @@ local class = require("base.class")
 
 module("handler.deleteitem", package.seeall)
 
-deleteItem = class.class(function(delitem, posi, delID)
+deleteItem = class(function(delitem, posi, delID)
     delitem.pos=posi;
     delitem.deleteItemId=delID;
 end);

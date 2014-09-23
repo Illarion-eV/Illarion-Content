@@ -22,7 +22,7 @@ local consequence = require("npc.base.consequence.consequence")
 local _money_helper_add
 local _money_helper_sub
 
-local money = class.class(consequence,
+local money = class(consequence,
 function(self, mode, value)
     consequence:init(self)
     self["value"], self["valuetype"] = talk._set_value(value)

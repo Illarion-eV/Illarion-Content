@@ -19,7 +19,7 @@ local condition = require("npc.base.condition.condition")
 
 local _sex_helper_equal
 
-local sex = class.class(condition,
+local sex = class(condition,
 function(self, value)
     condition:init(self)
     if (value == "male" or value == 0) then

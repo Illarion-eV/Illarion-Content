@@ -24,7 +24,7 @@ local _skill_helper_greaterequal
 local _skill_helper_greater
 local _skill_helper_lesser
 
-local skill = class.class(condition,
+local skill = class(condition,
 function(self, name, comp, value)
     condition:init(self)
     self["value"], self["valuetype"] = npc.base.talk._set_value(value)

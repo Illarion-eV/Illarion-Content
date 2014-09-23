@@ -21,7 +21,7 @@ local _consequence_helper_empty
 --- Basic class for all consequences. Its never needed to create a instance of
 --  this class. Its just a collection of methods the specific consequences
 --  share.
-local consequence = class.class(function(self)
+local consequence = class(function(self)
     self["perform"] = _consequence_helper_empty
 end)
 

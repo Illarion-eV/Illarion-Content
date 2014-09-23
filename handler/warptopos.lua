@@ -18,7 +18,7 @@ local class = require("base.class")
 
 module("handler.warptopos", package.seeall)
 
-warpToPos = class.class(function(warptopos, startpos,destpos)
+warpToPos = class(function(warptopos, startpos,destpos)
     warptopos.startpos=startpos;
     warptopos.destpos=destpos;
 end);

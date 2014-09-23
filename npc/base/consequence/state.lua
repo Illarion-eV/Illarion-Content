@@ -21,7 +21,7 @@ local _state_helper_set
 local _state_helper_add
 local _state_helper_sub
 
-local state = class.class(consequence,
+local state = class(consequence,
 function(self, mode, value)
     consequence:init(self)
     self["value"], self["valuetype"] = npc.base.talk._set_value(value)

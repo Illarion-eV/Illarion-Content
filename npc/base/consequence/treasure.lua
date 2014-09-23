@@ -21,7 +21,7 @@ local consequence = require("npc.base.consequence.consequence")
 
 local _treasure_helper
 
-local treasure = class.class(consequence,
+local treasure = class(consequence,
 function(self, level)
     consequence:init(self)
     

@@ -23,7 +23,7 @@ module("handler.opendoor", package.seeall)
 -- it makes sound 19 (world:makeSound(19, Door.pos);) when the door locks.
 -- A key with the same data than a door lock/unlocks it (not important here).
 
-openDoor = class.class(function(door, posi)
+openDoor = class(function(door, posi)
     door.pos=posi;
 end);
 

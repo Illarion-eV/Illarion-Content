@@ -24,7 +24,7 @@ local _attrib_helper_greaterequal
 local _attrib_helper_lesser
 local _attrib_helper_greater
 
-local attribute = class.class(condition,
+local attribute = class(condition,
 function(self, name, comp, value)
     condition:init(self)
     self["value"], self["valuetype"] = npc.base.talk._set_value(value)

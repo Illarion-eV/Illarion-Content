@@ -30,7 +30,7 @@ local _item_helper_greaterequal_data
 local _item_helper_greater_data
 local _item_helper_lesser_data
 
-local item = class.class(condition,
+local item = class(condition,
 function(self, itemId, itemLoc, comp, value, data)
     condition:init(self)
     self["item"] = itemId

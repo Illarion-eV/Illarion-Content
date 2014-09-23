@@ -19,7 +19,7 @@ local condition = require("npc.base.condition.condition")
 
 local _chance_helper_equal
 
-local chance = class.class(condition,
+local chance = class(condition,
 function(self, value)
     condition:init(self)
     self["value"] = math.min(100, math.max(0, value + 1 - 1))

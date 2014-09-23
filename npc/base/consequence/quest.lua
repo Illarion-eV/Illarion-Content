@@ -21,7 +21,7 @@ local _quest_helper_set
 local _quest_helper_add
 local _quest_helper_sub
 
-local quest = class.class(consequence,
+local quest = class(consequence,
 function(self, questid, mode, value)
     consequence:init(self)
     self["value"], self["valuetype"] = npc.base.talk._set_value(value)

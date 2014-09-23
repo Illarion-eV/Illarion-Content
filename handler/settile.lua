@@ -18,7 +18,7 @@ local class = require("base.class")
 
 module("handler.settile", package.seeall)
 
-setTile = class.class(function(settl, posi, tlId)
+setTile = class(function(settl, posi, tlId)
     settl.pos=posi;
     settl.tileId=tlId;
 end);

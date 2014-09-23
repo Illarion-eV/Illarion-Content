@@ -18,7 +18,7 @@ local class = require("base.class")
 
 module("handler.createplayeritem", package.seeall)
 
-createPlayerItem = class.class(function(creplitem, ply, ID, qual, amnt)
+createPlayerItem = class(function(creplitem, ply, ID, qual, amnt)
     creplitem.player=ply;
     creplitem.itemId=ID;
     creplitem.quality=qual;

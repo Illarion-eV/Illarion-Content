@@ -19,7 +19,7 @@ local condition = require("npc.base.condition.condition")
 
 local _admin_helper_equal
 
-local admin = class.class(condition,
+local admin = class(condition,
 function(self)
     condition:init(self)
     self["check"] = _admin_helper_equal

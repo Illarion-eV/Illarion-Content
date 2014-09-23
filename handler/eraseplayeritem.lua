@@ -18,7 +18,7 @@ local class = require("base.class")
 
 module("handler.eraseplayeritem", package.seeall)
 
-erasePlayerItem = class.class(function(eraplitem, ply, ID, amnt)
+erasePlayerItem = class(function(eraplitem, ply, ID, amnt)
     eraplitem.player=ply;
     eraplitem.itemId=ID;
     eraplitem.amount=amnt;

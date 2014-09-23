@@ -18,7 +18,7 @@ local class = require("base.class")
 
 module("handler.warpplayer", package.seeall)
 
-warpPlayer = class.class(function(warppl, ply,destpos)
+warpPlayer = class(function(warppl, ply,destpos)
     warppl.player=ply;
     warppl.destpos=destpos;
 end);

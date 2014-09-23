@@ -19,7 +19,7 @@ local common = require("base.common")
 
 module("handler.sendmessagetoplayer", package.seeall)
 
-sendMessageToPlayer = class.class(function(sndMsgToPl, ply, msgde, msgen)
+sendMessageToPlayer = class(function(sndMsgToPl, ply, msgde, msgen)
     sndMsgToPl.player=ply;
     sndMsgToPl.messageDe=msgde;
     sndMsgToPl.messageEn=msgen;

@@ -19,7 +19,7 @@ local condition = require("npc.base.condition.condition")
 
 local _basestate_helper_equal
 
-local basestate = class.class(condition,
+local basestate = class(condition,
 function(self, value)
     condition:init(self)
     if (value == "busy") then

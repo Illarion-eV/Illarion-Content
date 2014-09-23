@@ -19,7 +19,7 @@ local condition = require("npc.base.condition.condition")
 
 local _rune_helper
 
-local rune = class.class(condition,
+local rune = class(condition,
 function(self, value)
     condition:init(self)
     

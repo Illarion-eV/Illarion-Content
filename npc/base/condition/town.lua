@@ -20,7 +20,7 @@ local condition = require("npc.base.condition.condition")
 
 local _town_helper_equal
 
-local town = class.class(condition,
+local town = class(condition,
 function(self, value)
     condition:init(self)
     self["value"] = tonumber(value)

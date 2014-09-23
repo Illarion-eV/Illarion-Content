@@ -23,7 +23,7 @@ local _money_helper_greaterequal
 local _money_helper_greater
 local _money_helper_lesser
 
-local money = class.class(condition,
+local money = class(condition,
 function(self, comp, value)
     condition:init(self)
     self["value"], self["valuetype"] = talk._set_value(value)

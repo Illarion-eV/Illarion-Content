@@ -26,7 +26,7 @@ local basic = require("npc.base.basic")
 local processorList = require("npc.base.responses")
 local tools = require("npc.base.tools")
 
-local talkNPC = class.class(function(self, rootNPC)
+local talkNPC = class(function(self, rootNPC)
     if (rootNPC == nil or not rootNPC:is_a(basic.baseNPC)) then
         return
     end
@@ -92,7 +92,7 @@ function talkNPC:nextCycle(npcChar, counter)
     return self._nextCycleText
 end
 
-local talkNPCEntry = class.class(function(self)
+local talkNPCEntry = class(function(self)
     self["_trigger"] = {}
     self["_conditions"] = {}
     
