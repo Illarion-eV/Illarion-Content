@@ -28,6 +28,7 @@ local money = require("base.money")
 local baseNPC = require("npc.base.basic")
 
 local isFittingItem
+local tradeNPCItem
 
 local tradeNPC = class(function(self, rootNPC)
     if rootNPC == nil or not rootNPC:is_a(baseNPC) then
@@ -212,7 +213,7 @@ function tradeNPC:playerLooksAtItem(player, list, index)
    return lookat.GenerateItemLookAtFromId(player, item._itemId, item._stack, item._data)
 end
 
-local tradeNPCItem = class(function(self, id, itemType, nameDe, nameEn, price, stack, quality, data)
+tradeNPCItem = class(function(self, id, itemType, nameDe, nameEn, price, stack, quality, data)
     if (id == nil or id <= 0) then
         error("Invalid ItemID for trade item")
     end
