@@ -15,6 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 local class = require("base.class")
+local baseNPC = require("npc.base.basic")
 local condition = require("npc.base.condition.condition")
 
 local _basestate_helper_equal
@@ -23,9 +24,9 @@ local basestate = class(condition,
 function(self, value)
     condition:init(self)
     if (value == "busy") then
-        self["value"] = npc.base.basic.baseNPC.stateBusyTalking
+        self["value"] = baseNPC.stateBusyTalking
     elseif (value == "idle") then
-        self["value"] = npc.base.basic.baseNPC.stateNormal
+        self["value"] = baseNPC.stateNormal
     else
         self["value"] = -1
     end

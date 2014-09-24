@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local condition = require("npc.base.condition.condition")
+local tools = require("npc.base.tools")
 
 local _number_helper_equal
 local _number_helper_notequal
@@ -27,7 +28,7 @@ local _number_helper_greater
 local number = class(condition,
 function(self, comp, value)
     condition:init(self)
-    self["value"], self["valuetype"] = npc.base.talk._set_value(value)
+    self["value"], self["valuetype"] = tools.set_value(value)
     if (comp == "=") then
         self["check"] = _number_helper_equal
     elseif (comp == "<>" or comp == "!=" or comp == "~=") then
@@ -46,32 +47,32 @@ function(self, comp, value)
 end)
 
 function _number_helper_equal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return (self.npc._saidNumber ~= nil and value == self.npc._saidNumber)
 end
 
 function _number_helper_notequal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return (self.npc._saidNumber ~= nil and value ~= self.npc._saidNumber)
 end
 
 function _number_helper_lesserequal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return (self.npc._saidNumber ~= nil and value <= self.npc._saidNumber)
 end
 
 function _number_helper_greaterequal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return (self.npc._saidNumber ~= nil and value >= self.npc._saidNumber)
 end
 
 function _number_helper_lesser(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return (self.npc._saidNumber ~= nil and value < self.npc._saidNumber)
 end
 
 function _number_helper_greater(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return (self.npc._saidNumber ~= nil and value > self.npc._saidNumber)
 end
 

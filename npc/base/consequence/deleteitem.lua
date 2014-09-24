@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local consequence = require("npc.base.consequence.consequence")
+local tools = require("npc.base.tools")
 
 local _deleteitem_helper
 local _deleteitem_data_helper
@@ -30,7 +31,7 @@ function(self, id, count, data)
         count = 0
     end
     
-    self["count"], self["counttype"] = npc.base.talk._set_value(count)
+    self["count"], self["counttype"] = tools.set_value(count)
 	
 	if (data == nil) then
 		self["perform"] = _deleteitem_helper
@@ -41,7 +42,7 @@ function(self, id, count, data)
 end)
 
 function _deleteitem_helper(self, npcChar, player)
-    local count = npc.base.talk._get_value(self.npc, self.count, self.counttype)
+    local count = tools.get_value(self.npc, self.count, self.counttype)
     
     if (count == 0) then
         count = player:countItemAt("all", self.id)
@@ -51,7 +52,7 @@ function _deleteitem_helper(self, npcChar, player)
 end
 
 function _deleteitem_data_helper(self, npcChar, player)
-    local count = npc.base.talk._get_value(self.npc, self.count, self.counttype)
+    local count = tools.get_value(self.npc, self.count, self.counttype)
     
     if (count == 0) then
         count = player:countItemAt("all", self.id, self.data)

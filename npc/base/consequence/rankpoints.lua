@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local class = require("base.class")
 local factions = require("base.factions")
 local consequence = require("npc.base.consequence.consequence")
+local tools = require("npc.base.tools")
 
 local _rankpoints_helper_set
 local _rankpoints_helper_add
@@ -25,7 +26,7 @@ local _rankpoints_helper_sub
 local rankpoints = class(consequence,
 function(self, mode, value)
     consequence:init(self)
-    self["value"], self["valuetype"] = npc.base.talk._set_value(value)
+    self["value"], self["valuetype"] = tools.set_value(value)
     if (mode == "=") then
             self["perform"] = _rankpoints_helper_set
     elseif (mode == "+") then
@@ -38,21 +39,21 @@ function(self, mode, value)
 end)
 
 function _rankpoints_helper_set(self, npcChar, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     local rankpoints = factions.getRankpoints(player)
     rankpoints = value
     factions.setRankpoints(player,rankpoints)
 end
 
 function _rankpoints_helper_add(self, npcChar, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     local rankpoints = factions.getRankpoints(player)
     rankpoints = rankpoints + value
     factions.setRankpoints(player,rankpoints)
 end
 
 function _rankpoints_helper_sub(self, npcChar, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     local rankpoints = factions.getRankpoints(player)
     rankpoints = rankpoints - value
     factions.setRankpoints(player,rankpoints)

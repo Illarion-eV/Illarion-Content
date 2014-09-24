@@ -20,6 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- away players they do not like.
 local character = require("base.character")
 local class = require("base.class")
+local baseNPC = require("npc.base.basic")
 local common = require("base.common")
 local factions = require("base.factions")
 local messages = require("base.messages")
@@ -32,7 +33,7 @@ local _isPointInGuardArea
 local _getTextAndTalktype
 
 local guardNPC = class(function(self, rootNPC)
-    if (rootNPC == nil or not rootNPC:is_a(npc.base.basic.baseNPC)) then
+    if rootNPC == nil or not rootNPC:is_a(baseNPC) then
         return
     end
     self["_parent"] = rootNPC

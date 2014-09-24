@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local base_treasure = require("base.treasure")
-local talk = require("npc.base.talk")
+local tools = require("npc.base.tools")
 local consequence = require("npc.base.consequence.consequence")
 
 local _treasure_helper
@@ -25,12 +25,12 @@ local treasure = class(consequence,
 function(self, level)
     consequence:init(self)
     
-    self["value"], self["valuetype"] = talk._set_value(level)
+    self["value"], self["valuetype"] = tools.set_value(level)
     self["perform"] = _treasure_helper
 end)
 
 function _treasure_helper(self, npcChar, player)
-    local value = talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     base_treasure.createMap(player, value)
 end
 

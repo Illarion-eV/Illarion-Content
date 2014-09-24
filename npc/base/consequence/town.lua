@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local consequence = require("npc.base.consequence.consequence")
+local tools = require("npc.base.tools")
 
 local _town_helper_set
 local _town_helper_status
@@ -23,7 +24,7 @@ local _town_helper_status
 local town = class(consequence,
 function(self, mode, value)
     consequence:init(self)
-    self["value"], self["valuetype"] = npc.base.talk._set_value(value)
+    self["value"], self["valuetype"] = tools.set_value(value)
     if (mode == "=") then
         self["perform"] = _town_helper_set
 	elseif (mode == "?") then
@@ -34,7 +35,7 @@ function(self, mode, value)
 end)
 
 function _town_helper_set(self, npcChar, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)	
+    local value = tools.get_value(self.npc, self.value, self.valuetype)	
 	local factionValues = base.factions.getFaction(player)
 	base.factions.makeCharMemberOfTown(player,npcChar,factionValues,1, value)
 end

@@ -22,12 +22,14 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local messages = require("base.messages")
 local class = require("base.class")
-local basic = require("npc.base.basic")
+local baseNPC = require("npc.base.basic")
 local processorList = require("npc.base.responses")
 local tools = require("npc.base.tools")
+local consequence = require("npc.base.consequence.consequence")
+local condition = require("npc.base.condition.condition")
 
 local talkNPC = class(function(self, rootNPC)
-    if (rootNPC == nil or not rootNPC:is_a(basic.baseNPC)) then
+    if rootNPC == nil or not rootNPC:is_a(baseNPC) then
         return
     end
     self["_parent"] = rootNPC
@@ -104,7 +106,7 @@ local talkNPCEntry = class(function(self)
 end)
 
 function talkNPCEntry:addTrigger(text)
-    if (text == nil or type(text) ~= "string") then
+    if text == nil or type(text) ~= "string" then
         return
     end
     text = string.lower(text)
@@ -123,19 +125,19 @@ function talkNPCEntry:setParent(npc)
 	self._parent = npc
 end
 
-function talkNPCEntry:addCondition(condition)
-    if (condition == nil or not condition:is_a(npc.base.condition.condition.condition)) then
+function talkNPCEntry:addCondition(c)
+    if c == nil or not c:is_a(condition.condition) then
         return
     end
 	
-    table.insert(self._conditions, condition)
+    table.insert(self._conditions, c)
 	if (self._parent ~= nil) then
-		condition:setNPC(self._parent)
+		c:setNPC(self._parent)
 	end
 end
 
 function talkNPCEntry:addResponse(text)
-    if (text == nil or type(text) ~= "string") then
+    if text == nil or type(text) ~= "string" then
         return
     end
     table.insert(self._responses, text)
@@ -152,14 +154,14 @@ function talkNPCEntry:addResponse(text)
 	end
 end
 
-function talkNPCEntry:addConsequence(consequence)
-    if (consequence == nil or not consequence:is_a(npc.base.consequence.consequence.consequence)) then
+function talkNPCEntry:addConsequence(c)
+    if c == nil or not c:is_a(consequence.consequence) then
         return
     end
 	
-    table.insert(self._consequences, consequence)
+    table.insert(self._consequences, c)
 	if (self._parent ~= nil) then
-		consequence:setNPC(self._parent)
+		c:setNPC(self._parent)
 	end
 end
 
@@ -167,7 +169,7 @@ function talkNPCEntry:checkEntry(npcChar, texttype, player, text)
     for _1, pattern in pairs(self._trigger) do
         local a, _2, number = string.find(text, pattern)
         self._saidNumber = number
-        if (a ~= nil) then
+        if a ~= nil then
             local conditionsResult = true
             for _3, condition in pairs(self._conditions) do
                 if not condition:check(npcChar, texttype, player) then

@@ -15,6 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 local class = require("base.class")
+local baseNPC = require("npc.base.basic")
 local consequence = require("npc.base.consequence.consequence")
 
 local _talkstate_helper_begin
@@ -34,11 +35,11 @@ function(self, mode)
 end)
 
 function _talkstate_helper_begin(self, npcChar, player)
-    self.npc._parent.state = npc.base.basic.baseNPC.stateBusyTalking
+    self.npc._parent.state = baseNPC.stateBusyTalking
 end
 
 function _talkstate_helper_end(self, npcChar, player)
-    self.npc._parent.state = npc.base.basic.baseNPC.stateNormal
+    self.npc._parent.state = baseNPC.stateNormal
 end
 
 return talkstate

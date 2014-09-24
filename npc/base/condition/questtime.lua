@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local class = require("base.class")
 local repeatable_quests = require("npc.base.repeatable_quests")
 local condition = require("npc.base.condition.condition")
+local tools = require("npc.base.tools")
 
 local _questtime_helper_greater
 local _questtime_helper_lesser
@@ -24,9 +25,9 @@ local _questtime_helper_lesser
 local questtime = class(condition,
 function(self, comp, quest, month, day, hour)
 	condition:init(self)
-    self["month"], self["monthtype"] = npc.base.talk._set_value(month)
-    self["day"], self["daytype"] = npc.base.talk._set_value(day)
-    self["hour"], self["hourtype"] = npc.base.talk._set_value(hour)
+    self["month"], self["monthtype"] = tools.set_value(month)
+    self["day"], self["daytype"] = tools.set_value(day)
+    self["hour"], self["hourtype"] = tools.set_value(hour)
     self["quest"] = quest
     
 	if (comp == ">") then
@@ -39,18 +40,18 @@ function(self, comp, quest, month, day, hour)
 end)
 
 function _questtime_helper_greater(self, npcChar, texttype, player)
-    local month = npc.base.talk._get_value(self.npc, self.month, self.monthtype)
-    local day = npc.base.talk._get_value(self.npc, self.day, self.daytype)
-	local hour = npc.base.talk._get_value(self.npc, self.hour, self.hourtype)
+    local month = tools.get_value(self.npc, self.month, self.monthtype)
+    local day = tools.get_value(self.npc, self.day, self.daytype)
+	local hour = tools.get_value(self.npc, self.hour, self.hourtype)
 	local quest = self.quest
     
 	return repeatable_quests.checkIfTimesExpired(player, quest, month, day, hour)
 end
 
 function _questtime_helper_lesser(self, npcChar, texttype, player)
-    local month = npc.base.talk._get_value(self.npc, self.month, self.monthtype)
-    local day = npc.base.talk._get_value(self.npc, self.day, self.daytype)
-	local hour = npc.base.talk._get_value(self.npc, self.hour, self.hourtype)
+    local month = tools.get_value(self.npc, self.month, self.monthtype)
+    local day = tools.get_value(self.npc, self.day, self.daytype)
+	local hour = tools.get_value(self.npc, self.hour, self.hourtype)
 	local quest = self.quest
 	
     return not repeatable_quests.checkIfTimesExpired(player, quest, month, day, hour) 

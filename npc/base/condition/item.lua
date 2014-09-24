@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local condition = require("npc.base.condition.condition")
+local tools = require("npc.base.tools")
 
 local _item_helper_equal
 local _item_helper_notequal
@@ -40,7 +41,7 @@ function(self, itemId, itemLoc, comp, value, data)
     else
         self["location"] = "all"
     end
-    self["value"], self["valuetype"] = npc.base.talk._set_value(value)
+    self["value"], self["valuetype"] = tools.set_value(value)
     
     if (data == nil) then
         if (comp == "=") then
@@ -79,62 +80,62 @@ function(self, itemId, itemLoc, comp, value, data)
 end)
 
 function _item_helper_equal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return player:countItemAt(self.location, self.item) == value
 end
 
 function _item_helper_notequal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return player:countItemAt(self.location, self.item) ~= value
 end
 
 function _item_helper_lesserequal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return player:countItemAt(self.location, self.item) <= value
 end
 
 function _item_helper_greaterequal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return player:countItemAt(self.location, self.item) >= value
 end
 
 function _item_helper_lesser(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return player:countItemAt(self.location, self.item) < value
 end
 
 function _item_helper_greater(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return player:countItemAt(self.location, self.item) > value
 end
 
 function _item_helper_equal_data(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return player:countItemAt(self.location, self.item, self.data) == value
 end
 
 function _item_helper_notequal_data(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return player:countItemAt(self.location, self.item, self.data) ~= value
 end
 
 function _item_helper_lesserequal_data(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return player:countItemAt(self.location, self.item, self.data) <= value
 end
 
 function _item_helper_greaterequal_data(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return player:countItemAt(self.location, self.item, self.data) >= value
 end
 
 function _item_helper_lesser_data(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return player:countItemAt(self.location, self.item, self.data) < value
 end
 
 function _item_helper_greater_data(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return player:countItemAt(self.location, self.item, self.data) > value
 end
 

@@ -25,12 +25,12 @@ local common = require("base.common")
 local lookat = require("base.lookat")
 local messages = require("base.messages")
 local money = require("base.money")
-local basic = require("npc.base.basic")
+local baseNPC = require("npc.base.basic")
 
 local isFittingItem
 
 local tradeNPC = class(function(self, rootNPC)
-    if (rootNPC == nil or not rootNPC:is_a(basic.baseNPC)) then
+    if rootNPC == nil or not rootNPC:is_a(baseNPC) then
         return
     end
     self["_parent"] = rootNPC

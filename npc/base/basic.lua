@@ -32,9 +32,18 @@ local displayLanguageConfusion
 --
 -- The sole purpose is to prepare all required values in the NPC script.
 local baseNPC = class(function(self)	
+    --- Constant for the state value of the NPC.
+    --- If this constant is set the NPC is currently in the normal mode.
+    self.stateNormal = 0
+
+    --- Constant for the state value of the NPC.
+    --- If this constant is set the NPC is currently busy talking with a specified
+    --- character and is not to walk around or anything like this.
+    self.stateBusyTalking = 1
+
     -- The state of the NPC. This value can be used to have the special parts
     -- of the NPC communicating with each other.
-    self["state"] = baseNPC.stateNormal
+    self["state"] = self.stateNormal
     
     -- The cycle functions are called during the next cycle method of this base
     -- NPC struct. Each special NPC class is able to register functions in this
@@ -99,15 +108,6 @@ local baseNPC = class(function(self)
 	-- The town this NPC is affiliated to.
 	self["_affiliation"] = 0
 end)
-
---- Constant for the state value of the NPC.
---- If this constant is set the NPC is currently in the normal mode.
-baseNPC["stateNormal"] = 0
-
---- Constant for the state value of the NPC.
---- If this constant is set the NPC is currently busy talking with a specified
---- character and is not to walk around or anything like this.
-baseNPC["stateBusyTalking"] = 1
 
 --- This method adds one function to the functions that are called during the
 --- next cycles.

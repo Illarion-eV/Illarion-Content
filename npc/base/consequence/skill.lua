@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local consequence = require("npc.base.consequence.consequence")
+local tools = require("npc.base.tools")
 
 local _skill_helper_set
 local _skill_helper_add
@@ -24,7 +25,7 @@ local _skill_helper_sub
 local skill = class(consequence,
 function(self, name, mode, value)
     consequence:init(self)
-    self["value"], self["valuetype"] = npc.base.talk._set_value(value)
+    self["value"], self["valuetype"] = tools.set_value(value)
     self["name"] = name
     if (mode == "=") then
         self["perform"] = _skill_helper_set
@@ -38,19 +39,19 @@ function(self, name, mode, value)
 end)
 
 function _skill_helper_set(self, npcChar, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     local currSkill = player:getSkill(self.name)
     local modSkill = value - currSkill
     player:increaseSkill(self.name, modSkill)
 end
 
 function _skill_helper_add(self, npcChar, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     player:increaseSkill(self.name, value)
 end
 
 function _skill_helper_sub(self, npcChar, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     player:increaseSkill(self.name, -value)
 end
 

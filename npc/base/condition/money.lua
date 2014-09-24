@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local base_money = require("base.money")
-local talk = require("npc.base.talk")
+local tools = require("npc.base.tools")
 local condition = require("npc.base.condition.condition")
 
 local _money_helper_greaterequal
@@ -26,7 +26,7 @@ local _money_helper_lesser
 local money = class(condition,
 function(self, comp, value)
     condition:init(self)
-    self["value"], self["valuetype"] = talk._set_value(value)
+    self["value"], self["valuetype"] = tools.set_value(value)
     if (comp == ">=" or comp == "=>") then
         self["check"] = _money_helper_greaterequal
     elseif (comp == ">") then
@@ -39,17 +39,17 @@ function(self, comp, value)
 end)
 
 function _money_helper_greaterequal(self, npcChar, texttype, player)
-    local value = talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return base_money.CharHasMoney(player, value)
 end
 
 function _money_helper_greater(self, npcChar, texttype, player)
-    local value = talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return base_money.CharHasMoney(player, value + 1)
 end
 
 function _money_helper_lesser(self, npcChar, texttype, player)
-    local value = talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return not base_money.CharHasMoney(player, value)
 end
 

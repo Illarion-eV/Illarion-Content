@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local condition = require("npc.base.condition.condition")
+local tools = require("npc.base.tools")
 
 local _attrib_helper_equal
 local _attrib_helper_notequal
@@ -27,7 +28,7 @@ local _attrib_helper_greater
 local attribute = class(condition,
 function(self, name, comp, value)
     condition:init(self)
-    self["value"], self["valuetype"] = npc.base.talk._set_value(value)
+    self["value"], self["valuetype"] = tools.set_value(value)
     self["attrib"] = name
     if (comp == "=") then
         self["check"] = _attrib_helper_equal
@@ -47,37 +48,37 @@ function(self, name, comp, value)
 end)
 
 function _attrib_helper_equal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
 	
 	return (value == player:increaseAttrib(self.attrib, 0))
 end
 
 function _attrib_helper_notequal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
 	
 	return (value ~= player:increaseAttrib(self.attrib, 0))
 end
 
 function _attrib_helper_lesserequal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
 	
 	return (value <= player:increaseAttrib(self.attrib, 0))
 end
 
 function _attrib_helper_greaterequal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
 	
 	return (value >= player:increaseAttrib(self.attrib, 0))
 end
 
 function _attrib_helper_lesser(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
 	
 	return (value < player:increaseAttrib(self.attrib, 0))
 end
 
 function _attrib_helper_greater(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
 	
 	return (value > player:increaseAttrib(self.attrib, 0))
 end
