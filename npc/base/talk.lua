@@ -43,6 +43,17 @@ local talkNPC = class(function(self, rootNPC)
     self["_nextCycleText"] = -1
 end)
 
+local talkNPCEntry = class(function(self)
+    self["_trigger"] = {}
+    self["_conditions"] = {}
+    
+    self["_responses"] = {}
+	self["_responseProcessors"] = {}
+    self["_responsesCount"] = 0
+    self["_consequences"] = {}
+	self["_parent"] = nil
+end)
+
 function talkNPC:addCycleText(germanText, englishText)
     if (self._cycleText == nil) then
         self._cycleText = messages.Messages()
@@ -94,17 +105,6 @@ function talkNPC:nextCycle(npcChar, counter)
     return self._nextCycleText
 end
 
-local talkNPCEntry = class(function(self)
-    self["_trigger"] = {}
-    self["_conditions"] = {}
-    
-    self["_responses"] = {}
-	self["_responseProcessors"] = {}
-    self["_responsesCount"] = 0
-    self["_consequences"] = {}
-	self["_parent"] = nil
-end)
-
 function talkNPCEntry:addTrigger(text)
     if text == nil or type(text) ~= "string" then
         return
@@ -126,7 +126,7 @@ function talkNPCEntry:setParent(npc)
 end
 
 function talkNPCEntry:addCondition(c)
-    if c == nil or not c:is_a(condition.condition) then
+    if c == nil or not c:is_a(condition) then
         return
     end
 	
@@ -155,7 +155,7 @@ function talkNPCEntry:addResponse(text)
 end
 
 function talkNPCEntry:addConsequence(c)
-    if c == nil or not c:is_a(consequence.consequence) then
+    if c == nil or not c:is_a(consequence) then
         return
     end
 	
