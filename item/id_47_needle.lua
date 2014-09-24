@@ -21,7 +21,7 @@ local metal = require("item.general.metal")
 
 local M = {}
 
-LookAtItem = metal.LookAtItem
+M.LookAtItem = metal.LookAtItem
 
 function M.UseItem(User, SourceItem, ltstate)
     tailoring.tailoring:showDialog(User, SourceItem)

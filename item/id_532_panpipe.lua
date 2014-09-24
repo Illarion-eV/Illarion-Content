@@ -35,7 +35,7 @@ function M.UseItem(User, SourceItem)
     music.PlayInstrument(User,SourceItem, skill);
 end
 
-LookAtItem = wood.LookAtItem
+M.LookAtItem = wood.LookAtItem
 
 return M
 

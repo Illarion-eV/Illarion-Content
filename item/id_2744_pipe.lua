@@ -21,7 +21,7 @@ local wood = require("item.general.wood")
 
 local M = {}
 
-LookAtItem = wood.LookAtItem
+M.LookAtItem = wood.LookAtItem
 
 function M.UseItem(User, SourceItem)
 	--local ammountSib = User:countItemAt("belt",155);

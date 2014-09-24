@@ -22,7 +22,7 @@ local wood = require("item.general.wood")
 
 local M = {}
 
-LookAtItem = wood.LookAtItem
+M.LookAtItem = wood.LookAtItem
 
 function getWaterTilePosition(User)
 	local targetPos = common.GetFrontPosition(User);

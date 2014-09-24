@@ -23,7 +23,7 @@ local tying_capturer = require("lte.tying_capturer")
 
 local M = {}
 
-LookAtItem = cloth.LookAtItem
+M.LookAtItem = cloth.LookAtItem
 
 function M.UseItem(User, SourceItem, ltstate)
 

@@ -21,7 +21,7 @@ local jewel = require("item.general.jewel")
 
 local M = {}
 
-LookAtItem = jewel.LookAtItem
+M.LookAtItem = jewel.LookAtItem
 
 function M.UseItem(User, SourceItem)
 	local output = "";

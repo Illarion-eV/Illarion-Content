@@ -38,7 +38,7 @@ function M.UseItem(User, SourceItem)
 
 end
 
-LookAtItem = wood.LookAtItem
+M.LookAtItem = wood.LookAtItem
 
 return M
 
