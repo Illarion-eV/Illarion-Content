@@ -16,19 +16,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_58_mortar' WHERE itm_id=58;
 
-local common = require("base.common")
 local dyemaking = require("content.craft.dyemaking")
 local jewel = require("item.general.jewel")
 
 local M = {}
 
-LookAtItem = jewel.LookAtItem
+M.LookAtItem = jewel.LookAtItem
 
 function M.UseItem(User, SourceItem, ltstate)
-
     dyemaking.dyemaking:showDialog(User, SourceItem)
-
 end
 
 return M
-

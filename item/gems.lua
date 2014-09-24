@@ -332,9 +332,9 @@ function unsocketGems(user)
             local selected = dialog:getSelectedIndex() + 1
             local slot = unsocketPositions[selected]
             local item = user:getItemAt(slot)
-
+            local price = world:getItemStats(item).Worth
             if isUnsocketable(item.id) and itemHasGems(item) then
-                if money.CharHasMoney(user, 100000) then
+                if money.CharHasMoney(user, price) then
                     for i = 1, #gemDataKey do
                         local itemKey = gemDataKey[i]
                         local level = tonumber(item:getData(itemKey))
@@ -349,13 +349,14 @@ function unsocketGems(user)
                         end
                     end
 
-                    money.TakeMoneyFromChar(user, 100000)
+                    money.TakeMoneyFromChar(user, price)
                     world:changeItem(item)
 
-                    user:inform("Alle Edelsteine wurden aus dem Gegenstand entfernt und dir zurückgegeben.",
-                                "All gems were removed from the item and returned to you.")
+                    local gstring, estring = money.MoneyToString(price)
+                    user:inform("Alle Edelsteine wurden aus dem Gegenstand entfernt und dir zurückgegeben für den Preis von " .. gstring ..".",
+                                "All gems were removed from the item and returned to you for the cost of " .. estring ..".")
                 else
-                    user:inform("Du hast keine zehn Goldmünzen!", "You do not have ten gold coins!", Character.highPriority)
+                    user:inform("Du hast nicht genug Münzen!", "You do not have enough coins!", Character.highPriority)
                 end
             end
         end
@@ -363,16 +364,18 @@ function unsocketGems(user)
 
     local language = user:getPlayerLanguage()
     local caption = common.GetNLS(user, "Entsockeln", "Unsocketing")
-    local description = common.GetNLS(user, "Bitte wähle einen Gegenstand der entsockelt werden soll. Kosten: Zehn Goldmünzen",
-                                                 "Please select an item to remove all gems from. Cost: ten gold coins")
+    local description = common.GetNLS(user, "Bitte wähle einen Gegenstand der entsockelt werden soll. Kosten sind abhängig vom Wert des Gegenstands",
+                                                 "Please select an item to remove all gems from. Cost depends on worth of the item")
     local dialog = SelectionDialog(caption, description, callback)
     dialog:setCloseOnMove()
 
     for i=1,#unsocketPositions do
         local slot = unsocketPositions[i]
-        local itemId = user:getItemAt(slot).id
-        local name = world:getItemName(itemId, language)
-        dialog:addOption(itemId, name)
+        local item = user:getItemAt(slot)
+        local price = world:getItemStats(item).Worth
+        local gstring, estring = money.MoneyToString(price)
+        local name = world:getItemName(item.id, language) .. " (" .. common.GetNLS(user, gstring, estring) .. ")"
+        dialog:addOption(item.id, name)
     end
 
     user:requestSelectionDialog(dialog)

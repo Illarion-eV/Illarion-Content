@@ -17,23 +17,14 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_121_peel' WHERE itm_id IN (121);
 
 local baking = require("content.craft.baking")
-local licence = require("base.licence")
 local wood = require("item.general.wood")
 
 local M = {}
 
-LookAtItem = wood.LookAtItem
+M.LookAtItem = wood.LookAtItem
 
 function M.UseItem(User, SourceItem, ltstate)
-	if licence.licence(User) then --checks if user is citizen or has a licence
-		return -- avoids crafting if user is neither citizen nor has a licence
-	end
-
     baking.baking:showDialog(User, SourceItem)
-end
-
-function M.LookAtItem(User, Item)
-    return base.lookat.GetItemDescription(User, Item, base.lookat.WOOD)
 end
 
 return M

@@ -12,25 +12,16 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+-- UPDATE items SET itm_script='item.id_3581_kettle' WHERE itm_id IN (3581);
+
+local cooking = require("content.craft.cooking")
+
 local M = {}
--- Langzeit Effekt für Lasttier
 
--- Aufgabe: Speichern und Übergeben des Lasttierbesitzers
-
-function M.addEffect(Effect, Carrier)
-    return true;
-end
-
-function M.callEffect(Effect, Carrier)
-    Effect.nextCalled = 360000;
-    return true;
-end
-
-function M.removeEffect(Effect, Carrier)
-    return true;
+function M.UseItem(User, SourceItem, ltstate)
+    cooking.cooking:showDialog(User, SourceItem)
 end
 
 return M
-

@@ -16,15 +16,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local smithing = require("content.craft.smithing")
 local goldsmithing = require("content.craft.goldsmithing")
-local licence = require("base.licence")
 
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-	if licence.licence(User) then --checks if user is citizen or has a licence
-		return -- avoids crafting if user is neither citizen nor has a licence
-	end
-
 	if smithing.smithing:isHandToolEquipped(User) then
 		smithing.smithing:showDialog(User, SourceItem);
 	elseif goldsmithing.goldsmithing:isHandToolEquipped(User) then
@@ -37,4 +32,3 @@ function M.UseItem(User, SourceItem, ltstate)
 end
 
 return M
-

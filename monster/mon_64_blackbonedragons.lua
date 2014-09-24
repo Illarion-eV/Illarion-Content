@@ -23,6 +23,8 @@ local quests = require("monster.base.quests")
 local messages = require("base.messages")
 local kills = require("monster.base.kills")
 local arena = require("base.arena")
+local treasure = require("base.treasure")
+
 local M = {}
 
 function ini(Monster)
@@ -115,7 +117,7 @@ function M.onDeath(Monster)
         --Category 1: Armor
 
         local done=drop.AddDropItem(738,1,20,(100*math.random(8,9)+math.random(88,99)),0,1); --dragon egg
-        if not done then done=drop.AddDropItem(505,1,10,(100*math.random(8,9)+math.random(88,99)),nil,1); end --treasure map
+        if not done then done=drop.AddDropItem(505,1,1,899,treasure.createMapData(),1); end --treasure map
         if not done then done=drop.AddDropItem(448,1,1,(100*math.random(8,9)+math.random(88,99)),0,1); end --emerald powder
         if not done then done=drop.AddDropItem(451,1,1,(100*math.random(8,9)+math.random(88,99)),0,1); end --topaz powder
         if not done then done=drop.AddDropItem(452,1,1,(100*math.random(8,9)+math.random(88,99)),0,1); end --diamond powder

@@ -341,6 +341,78 @@ function CastFlamefield(Monster, Enemy, QualityRange, rndTry)
     return true;
 end
 
+-- Fire breathing for dragons
+-- Note: depending on graphicItem it might lso spit poison or ice, or whatever
+
+function FireBreath(Monster, Enemy, graphicItem)
+    if (firstBreath==nil) then
+        NearBreathShape={};
+        NearBreathShape[1]={9,9,9,9,9};
+        NearBreathShape[2]={0,9,9,9,0};
+        NearBreathShape[3]={0,9,9,9,0};
+        NearBreathShape[4]={0,0,9,0,0};
+        NearBreathShape[5]={0,0,9,0,0};
+        firstBreath=true;
+    end
+
+    BreathTry=math.random(1,66);
+    if (BreathTry==1) and (Monster.pos.z==Enemy.pos.z) then
+        Monster.fightpoints=Monster.fightpoints-40;
+        if (Monster:distanceMetric(Enemy)<=4) then
+            Looking=Monster:getFaceTo()
+            if (Looking==0) then
+                BreathShape=NearBreathShape;
+            elseif (Looking==2) then
+                BreathShape=ShapeDrehen(NearBreathShape);
+            elseif (Looking==4) then
+                BreathShape=ShapeDrehen(ShapeDrehen(NearBreathShape));
+            elseif (Looking==6) then
+                BreathShape=ShapeDrehen(ShapeDrehen(ShapeDrehen(NearBreathShape)));
+            end
+            for i=1,5 do
+                for k=1,5 do
+                    if (Looking==0) then
+                        BreathPos=position(Monster.pos.x-3+k,Monster.pos.y-7+i,Monster.pos.z);
+                    elseif (Looking==2) then
+                        BreathPos=position(Monster.pos.x+k,Monster.pos.y-3+i,Monster.pos.z);
+                    elseif (Looking==4) then
+                        BreathPos=position(Monster.pos.x-3+k,Monster.pos.y+i,Monster.pos.z);
+                    elseif (Looking==6) then
+                        BreathPos=position(Monster.pos.x-7+k,Monster.pos.y-3+i,Monster.pos.z);
+                    end
+                    if (BreathShape[i][k]~=0) then
+                        world:gfx(BreathShape[i][k],BreathPos);
+                        if (math.random(1,5)==1) then
+                            world:createItemFromId(graphicItem,1,BreathPos,true,math.random(200,600),nil);
+                            world:makeSound(5,BreathPos);
+                        end
+                        if world:isCharacterOnField(BreathPos) then
+                            HitChar=world:getCharacterOnField(BreathPos);
+                            HitChar:increaseAttrib("hitpoints",-2000)
+                        end
+                    end
+                end
+            end
+        else
+            return false
+        end
+    end
+    growltry=math.random(1,8);
+    if (growltry==1) then
+        world:makeSound(26,Monster.pos);
+    end
+    return true
+end
+
+function ShapeDrehen(Shape)
+    retShape={};
+    for i=1,5 do
+        retShape[i]={Shape[5][i],Shape[4][i],Shape[3][i],Shape[2][i],Shape[1][i]};
+    end
+    return retShape
+end
+
+
 -- Helper function to handle the Brink of Death
 
 function DealMagicDamage(Target, Damage)

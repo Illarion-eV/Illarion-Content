@@ -435,12 +435,21 @@ module("base.treasure", package.seeall)
     	end
     end
 
-    function createMap(Char, Value)
+    function createMapData()
         local MapPosition = findPosition( );
         if not MapPosition then
             return false;
         end
-        local MapData = common.PositionToData( MapPosition )
+
+        return common.PositionToData( MapPosition )
+    end
+
+    function createMap(Char, Value)
+
+        local MapData = createMapData()
+        if not MapData then
+            return false
+        end
 
         local MapQuality;
         if (Value ~= nil and Value < 10 and Value > 0) then

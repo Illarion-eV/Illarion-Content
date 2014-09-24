@@ -21,6 +21,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local lookat = require("base.lookat")
+local licence = require("base.licence")
 
 module("item.base.crafts", package.seeall)
 
@@ -214,6 +215,11 @@ end
 function Craft:allowUserCrafting(user, source)
     if source:getType() == scriptItem.field and self.tool[source.id] then
         common.TurnTo(user, source.pos)
+        
+        if not self:userHasLicense(user) then
+            return false
+        end    
+        
         if not self:isHandToolEquipped(user) then
             local germanTool = world:getItemName(self.handTool, Player.german)
             local englishTool = world:getItemName(self.handTool, Player.english)
@@ -224,6 +230,10 @@ function Craft:allowUserCrafting(user, source)
         end
     else
         if not self:locationFine(user) then
+            return false
+        end
+        
+        if not self:userHasLicense(user) then
             return false
         end
 
@@ -237,6 +247,10 @@ function Craft:allowUserCrafting(user, source)
     end
 
     return true
+end
+
+function Craft:userHasLicense(user)
+    return not licence.licence(user)
 end
 
 function Craft:isHandToolEquipped(user)

@@ -14,20 +14,23 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- called after every player login
-local common = require("base.common")
-local money = require("base.money")
-local factions = require("base.factions")
-local dailymessage = require("content.dailymessage")
-local factionLeader = require("scheduled.factionLeader")
-local townTreasure = require("base.townTreasure")
+
 local character = require("base.character")
+local common = require("base.common")
+local factions = require("base.factions")
+local money = require("base.money")
+local townTreasure = require("base.townTreasure")
+local dailymessage = require("content.dailymessage")
+local gems = require("item.gems")
+local factionLeader = require("scheduled.factionLeader")
+
+-- called after every player login
 
 local M = {}
 
 -- Load messages of the day
 --German
-messageG={};
+local messageG = {}
 messageG[1]="[Tipp] Leichte Rüstungen aus Leder schützen sehr gut gegen stumpfe Waffen aber schlecht gegen Hiebwaffen.";
 messageG[2]="[Tipp] Mittlere Rüstungen wie Kettenhemden schützen sehr gut gegen Hiebwaffen aber schlecht gegen Stich- und Distanzwaffen.";
 messageG[3]="[Tipp] Schwere Rüstungen wie Plattenpanzer schützen sehr gut gegen Stich- und Distanzwaffen aber schlecht gegen stumpfe Waffen.";
@@ -106,12 +109,11 @@ messageG[75]="[Tipp] Um Beute schnell aufzunehmen, drücke 'P' und du sammelst al
 messageG[76]="[Tipp] Eine Übersicht aller Kommandos kannst du dir mit F1 anzeigen lassen."
 messageG[77]="[Tipp] Wie schnell deine Fertigkeiten steigen, hängt vor allem davon ab, wie viel Zeit du im Spiel verbringst."
 messageG[78]="[Tipp] Es ist nicht nötig, den ganzen Tag hart zu arbeiten, um deine Fertigkeiten zu steigern. Mach auch mal eine Pause um dich zu unterhalten oder die Welt zu erkunden."
-
---messageG[XX]="[Tipp] Die Steuerungstaste schaltet zwischen Gehen und Laufen um."
+messageG[79]="[Tipp] Die Steuerungstaste schaltet zwischen Gehen und Laufen um."
 --messageG[XX]="[Tipp] Um die Sprache deines Charakters umzustellen, schreibe '!l' gefolgt von der gewünschten Sprache: Common, Elf, Human, Dwarf, Halfling, Lizard."
 
 --English
-messageE={};
+local messageE = {}
 messageE[1]="[Hint] Light armours, such as those made of leather, offer good protection against blunt weapons but perform poorly against slashing weapons.";
 messageE[2]="[Hint] Medium armours, such as chain mail, offer good protection against slashing weapons but are more vulnerable to stabbing weapons.";
 messageE[3]="[Hint] Heavy armours, such as those made from sturdy metal plates, offer good protection against stabbing weapons but are vulnerable to blunt weapons.";
@@ -190,8 +192,7 @@ messageE[75]="[Hint] To collect loot quickly, press 'P' to collect all items wit
 messageE[76]="[Hint] To see an overview of all commands, hit F1.";
 messageE[77]="[Hint] The speed of skillgain is mainly determined by the time you spend in the game.";
 messageE[78]="[Hint] It is not necessary to work all day long to raise your skills. Take a break to chat or explore the world!";
-
---messageE[XX]="[Hint] CTRL toggles walking/running.";
+messageE[79]="[Hint] CTRL toggles walking/running.";
 --messageE[XX]="[Hint] To switch the language of your character, type '!l' followed by the desired language: Common, Elf, Human, Dwarf, Halfling, Lizard.";
 
 -- messages of the day - END
@@ -200,36 +201,33 @@ function M.onLogin( player )
 
 	welcomeNewPlayer(player)
 
-	world:gfx(31,player.pos); --A nice GFX that announces clearly: A player logged in.
+	world:gfx(31, player.pos) --A nice GFX that announces clearly: A player logged in.
 
 	--General welcome message
-    players=world:getPlayersOnline(); --Reading all players online so we can count them
+    local players = world:getPlayersOnline() --Reading all players online so we can count them
 
 	--Reading current date
-	datum=world:getTime("day");
-	monthString=common.Month_To_String(world:getTime("month"));
-	hourStringG, hourStringE=common.Hour_To_String(world:getTime("hour"));
+	local datum = world:getTime("day")
+	local monthString = common.Month_To_String(world:getTime("month"))
+	local hourStringG, hourStringE = common.Hour_To_String(world:getTime("hour"))
 
-	lastDigit=datum%10; --Is it st, nd or rd?
+	local lastDigit = datum % 10 --Is it st, nd or rd?
 
+    local extensionString
 	if lastDigit == 1 and datum ~= 11 then
-		extensionString="st"
+		extensionString = "st"
 	elseif lastDigit == 2 and datum ~= 12 then
-		extensionString="nd"
+		extensionString = "nd"
 	elseif lastDigit == 3 and datum ~= 13 then
-		extensionString="rd"
+		extensionString = "rd"
 	else
-		extensionString="th" --default
-	end;
+		extensionString = "th" --default
+	end
 
 	if #players > 1 then
-
 	    common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..". Es sind "..#players.." Spieler online.","[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..". There are "..#players.." players online."); --sending a message
-
 	else --player is alone
-
 	    common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..". Ein Spieler ist online.","[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..". One player is online."); --sending a message
-
 	end
 
 	--Taxes (has to be redone by "someone")
@@ -253,59 +251,54 @@ function M.onLogin( player )
 	--Noobia handling
 	if (common.IsOnNoobia(player.pos)) then --On Noobia
 
-		found, myEffect = player.effects:find(13); --Noob effect
+		local found = player.effects:find(13); --Noob effect
 
 		if not found then --new player!
-
-            newbieEffect = LongTimeEffect(13,1);
-		    player.effects:addEffect(newbieEffect);
-
+		    player.effects:addEffect(LongTimeEffect(13, 1))
 		end
 
-		if  player:isInRangeToPosition(position(31,22,100),7) then --only show the dialog if the char is close to the noob spawn
-
-			showNewbieDialog(player);
-
-		end --Dialog
+		if  player:isInRangeToPosition(position(31, 22, 100), 7) then --only show the dialog if the char is close to the noob spawn
+			showNewbieDialog(player)
+		end
 
     end --Noobia end
 
 	--Messages of the day
-	dailyMessageID=math.random(1,#messageG); --chosing a message at random
-	common.InformNLS(player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending a message
+	local dailyMessageID = math.random(1, #messageG) --chosing a message at random
+	common.InformNLS(player, messageG[dailyMessageID], messageE[dailyMessageID]) --sending a message
 
 	--Exchange leader NPCs if necessary
 	if player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan" then
-		exchangeFactionLeader( player.name );
+		exchangeFactionLeader(player.name)
 	end
 
 	--TEMPORARY SOLUTION TO CATCH BUGGED PLAYERS
 	if player:getMentalCapacity() < 1999 then --Mental Capacity CANNOT drop below 1999 -> Bugged player or cheater
 
-        player:increaseMentalCapacity(2000000); --This is default for new players.
+        player:increaseMentalCapacity(2000000) --This is default for new players.
 
 	end
 	--TEMPORARY SOLUTION END
 
 	--IMO a dirty hack to display bars correctly
-	player:increaseAttrib("foodlevel",-1);
+	player:increaseAttrib("foodlevel", -1)
 
 	--Check regeneration script
-	find, reg_effect = player.effects:find(2);
-	if not find then
-		player.effects:addEffect( LongTimeEffect(2,10) );
+	local found = player.effects:find(2)
+	if not found then
+		player.effects:addEffect(LongTimeEffect(2, 10))
 	end
 
 	--Checking longterm cooldown
-	find, reg_effect = player.effects:find(33);
-	if not find then
-		player.effects:addEffect( LongTimeEffect(33,10) );
+	found = player.effects:find(33)
+	if not found then
+		player.effects:addEffect(LongTimeEffect(33, 10))
 	end
 end
 
 function showNewbieDialog(player)
 
-	local getText = function(deText,enText) return common.common.GetNLS(player, deText, enText) end
+	local getText = function(deText,enText) return common.GetNLS(player, deText, enText) end
 
 	local callbackNewbie = function(dialogNewbie) --start callback of Newbie Dialog
 
@@ -371,7 +364,7 @@ function welcomeNewPlayer(player)
 
 			if user:getQuestProgress(851) == 0 then
 
-				local getText = function(deText,enText) return common.common.GetNLS(user, deText, enText) end
+				local getText = function(deText,enText) return common.GetNLS(user, deText, enText) end
 
 				local callback = function(dialog)
 					local success = dialog:getSuccess()
@@ -403,19 +396,22 @@ function welcomeNewPlayer(player)
 	end
 end
 
-function payTaxes(taxPayer) --PLEASE use comments! ~Estralis
+function payTaxes(taxPayer)
 
-	local yr=world:getTime("year");
-	local mon=world:getTime("month");
-	local timeStmp=yr*1000+mon;
-	local lastTax=taxPayer:getQuestProgress(123);
-	if (lastTax~=0) then
-		if lastTax<timeStmp then
-			taxPayer:setQuestProgress(123,timeStmp);
+	local yr = world:getTime("year")
+	local mon = world:getTime("month")
+	local timeStmp = yr * 1000 + mon
+	local lastTax = taxPayer:getQuestProgress(123)
+
+	if (lastTax ~= 0) then
+        -- Character didnt pay taxes for this month yet
+		if lastTax < timeStmp then
+			taxPayer:setQuestProgress(123, timeStmp)
 			return payNow(taxPayer)
 		end
 	else
-		taxPayer:setQuestProgress(123,timeStmp);
+        -- Character never payed taxes before
+		taxPayer:setQuestProgress(123, timeStmp)
 		return payNow(taxPayer)
 	end
 
@@ -423,48 +419,47 @@ end
 
 function receiveGems(gemRecipient)
 
-	local yr=world:getTime("year");
-	local mon=world:getTime("month"); --- TODO
-	local timeStmp=yr*1000+mon;
+	local yr = world:getTime("year")
+	local mon = world:getTime("month")
+	local timeStmp = yr * 1000 + mon
 	local town = factions.getMembershipByName(gemRecipient)
 	if town == "None" then
-		return;
+		return
 	end
-	-- first check if there was a switch from collecting taxes to pay out gems already:
+
+	-- first check if there was a switch from collecting taxes to pay out gems already
 	local fnd, lastSwitch = ScriptVars:find("SwitchedToPayment"..town)
-	--fnd=1
-	--lastSwitch=1
-	if not fnd then	-- first payout ever:
+
+	if not fnd then
+        -- first payout ever
 		townTreasure.NewMonthSwitch(town,timeStmp)
 		fnd, lastSwitch = ScriptVars:find("SwitchedToPayment"..town)
 	end
 
-	if fnd and tonumber(lastSwitch)~=timeStmp then
-		townTreasure.NewMonthSwitch(town,timeStmp)
-		lastSwitch=timeStmp
+	if fnd and tonumber(lastSwitch) ~= timeStmp then
+		townTreasure.NewMonthSwitch(town, timeStmp)
+		lastSwitch = timeStmp
 	end
+
 	-- now check if last payment was before actual month and actual month is the one to pay out.
-	lastGem=gemRecipient:getQuestProgress(124);
-	if (lastGem~=0) then
-		if timeStmp>=tonumber(lastSwitch) and tonumber(lastGem)<timeStmp then
-			gemRecipient:setQuestProgress(124,timeStmp);
+	local lastGem = gemRecipient:getQuestProgress(124)
+	if (lastGem ~= 0) then
+		if timeStmp >= tonumber(lastSwitch) and tonumber(lastGem) < timeStmp then
+			gemRecipient:setQuestProgress(124, timeStmp)
 			return PayOutWage(gemRecipient,town)
 		end
 	else
-		gemRecipient:setQuestProgress(124,timeStmp);
+		gemRecipient:setQuestProgress(124, timeStmp)
 		return PayOutWage(gemRecipient,town)
 	end
 end
 
 -- transfer
-function PayOutWage(Recipient,town)
+function PayOutWage(Recipient, town)
 
-	local totalTaxes=townTreasure.GetPaymentAmount(town)
-	local totalPayers=townTreasure.GetTaxpayerNumber(town)
-	local infText = "";
-
-	--Recipient:inform("in payoutwage "..totalPayers)
-	--Recipient:inform("totaltaxes "..totalTaxes)
+	local totalTaxes = townTreasure.GetPaymentAmount(town)
+	local totalPayers = townTreasure.GetTaxpayerNumber(town)
+	local infText = ""
 
 	if tonumber(totalPayers)>0 then
 		if tonumber(totalTaxes)>0 then
@@ -493,20 +488,20 @@ function PayOutWage(Recipient,town)
 					local gemLevel= common.Limit(math.random(1,maxGemLevel), 1, 10)
 
 					local gemsByTown={};
-					gemsByTown["Cadomyr"]={item.gems.TOPAZ, item.gems.AMETHYST}
-					gemsByTown["Runewick"]={item.gems.EMERALD, item.gems.RUBY}
-					gemsByTown["Galmair"]={item.gems.SAPPHIRE, item.gems.OBSIDIAN}
+					gemsByTown["Cadomyr"]={gems.TOPAZ, gems.AMETHYST}
+					gemsByTown["Runewick"]={gems.EMERALD, gems.RUBY}
+					gemsByTown["Galmair"]={gems.SAPPHIRE, gems.OBSIDIAN}
 
-					local gemId = item.gems.getMagicGemId(gemsByTown[town][randomGem]);
-					local gemData = item.gems.getMagicGemData(gemLevel);
+					local gemId = gems.getMagicGemId(gemsByTown[town][randomGem]);
+					local gemData = gems.getMagicGemData(gemLevel);
 
 					local basename={}
 					basename=world:getItemName(gemId, Recipient:getPlayerLanguage());
 
 					if Recipient:getPlayerLanguage() == 0 then
-						basename = item.gems.gemPrefixDE[gemLevel] .. " magischer " .. basename
+						basename = gems.gemPrefixDE[gemLevel] .. " magischer " .. basename
 					else
-						basename = item.gems.gemPrefixEN[gemLevel] .. " magical " .. basename
+						basename = gems.gemPrefixEN[gemLevel] .. " magical " .. basename
 					end
 
 					endname=endname.."\n"..basename;
@@ -614,7 +609,7 @@ function payNow(User)
 		return
 	end
 
-    local taxHeight=0.05;  -- 5% taxes
+    local taxHeight=0.01;  -- 1% taxes
 
 	local depNr={100,101,102,103};
     local valDepot={0,0,0,0};

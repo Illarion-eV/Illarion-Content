@@ -15,17 +15,11 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 local brewing = require("content.craft.brewing")
-local licence = require("base.licence")
 
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-	if licence.licence(User) then --checks if user is citizen or has a licence 
-		return -- avoids crafting if user is neither citizen nor has a licence
-	end
-
     brewing.brewing:showDialog(User, SourceItem)
 end
 
 return M
-

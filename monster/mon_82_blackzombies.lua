@@ -22,8 +22,9 @@ local quests = require("monster.base.quests")
 local messages = require("base.messages")
 local kills = require("monster.base.kills")
 local arena = require("base.arena")
-local M = {}
+local treasure = require("base.treasure")
 
+local M = {}
 
 function ini(Monster)
 
@@ -147,7 +148,7 @@ if (MonID==821) then --Bog Body, Level: 4, Armourtype: light, Weapontype: slashi
         local done=drop.AddDropItem(324,1,20,(100*math.random(2,3)+math.random(22,33)),0,1); --bucket
         if not done then done=drop.AddDropItem(92,1,10,(100*math.random(2,3)+math.random(22,33)),0,1); end --oil lamp
         if not done then done=drop.AddDropItem(67,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --rubin amulet
-        if not done then done=drop.AddDropItem(505,1,1,(100*math.random(2,3)+math.random(22,33)),nil,1); end --treasure map
+        if not done then done=drop.AddDropItem(505,1,1,299,treasure.createMapData(),1); end --treasure map
         if not done then done=drop.AddDropItem(314,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --potash
 
         --Category 2: Gems
