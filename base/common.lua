@@ -133,7 +133,7 @@ function M.GetDirection(StartPosition, TargetPosition)
         return Character.dir_down;
     end
 
-    local phi = GetPhi(StartPosition, TargetPosition);
+    local phi = M.GetPhi(StartPosition, TargetPosition);
 
     if (phi < math.pi / 8) then
         return Character.dir_east;
@@ -161,7 +161,7 @@ end;
 -- @param Location The position the character shall turn to
 function M.TurnTo(User, Location)
     local oldDir = User:getFaceTo();
-    local newDir = GetDirection(User.pos, Location);
+    local newDir = M.GetDirection(User.pos, Location);
 
     if (newDir ~= oldDir) then
         User:turn(newDir);
@@ -200,7 +200,7 @@ end;
 -- @param User The character whos front area is searched
 -- @return The item that was found or nil
 function M.GetFrontItem(User, dir)
-    local Posi = GetFrontPosition(User, 1, dir);
+    local Posi = M.GetFrontPosition(User, 1, dir);
 
     if world:isItemOnField(Posi) then
         return world:getItemOnField(Posi);
@@ -213,7 +213,7 @@ end;
 -- @param User The character whos front area is searched
 -- @return The ID of the item in front of the character or 0 in case there is none
 function M.GetFrontItemID(User, dir)
-    local theItem = GetFrontItem(User, dir);
+    local theItem = M.GetFrontItem(User, dir);
 
     if not theItem then
         return 0;
@@ -226,7 +226,7 @@ end;
 -- @param User The character whos front area is searched
 -- @return The character in front of the parameter character or nil
 function M.GetFrontCharacter(User)
-    local Posi = GetFrontPosition(User);
+    local Posi = M.GetFrontPosition(User);
 
     if world:isCharacterOnField(Posi) then
         return world:getCharacterOnField(Posi);
@@ -269,7 +269,7 @@ end;
 -- @param User The character whos back area is searched
 -- @return The item that was found or nil
 function M.GetBehindItem(User)
-    local Posi = GetBehindPosition(User);
+    local Posi = M.GetBehindPosition(User);
 
     if world:isItemOnField(Posi) then
         return world:getItemOnField(Posi);
@@ -282,7 +282,7 @@ end;
 -- @param User The character whos back area is searched
 -- @return The ID of the item in front of the character or 0 in case there is none
 function M.GetBehindItemID(User)
-    local theItem = GetBehindItem(User);
+    local theItem = M.GetBehindItem(User);
 
     if not theItem then
         return 0;
@@ -295,7 +295,7 @@ end;
 -- @param User The character whos front area is searched
 -- @return The character in front of the parameter character or nil
 function M.GetBehindCharacter(User)
-    local Posi = GetBehindPosition(User);
+    local Posi = M.GetBehindPosition(User);
 
     if world:isCharacterOnField(Posi) then
         return world:getCharacterOnField(Posi);
@@ -379,7 +379,7 @@ end;
 -- @param User The character whos foodpoints are checked
 -- @return True in case the character has enougth food points, false if not
 function M.FitForWork(User)
-    return FitForHardWork(User, 1000);
+    return M.FitForHardWork(User, 1000);
 end;
 
 --- Checks if the Character has a minimal amount of food points. If not it
@@ -389,7 +389,7 @@ end;
 -- @return True in case the character has enougth food points, false if not
 function M.FitForHardWork(User, required)
     if (User:increaseAttrib("foodlevel", 0) < required) then
-        InformNLS(User,
+        M.InformNLS(User,
         "Du bist dafür zu erschöpft.",
         "You are too exhausted for that.");
         return false;
@@ -404,7 +404,7 @@ end;
 function M.GetHungry(User, units)
     local food = User:increaseAttrib("foodlevel", -units);
     if ((food > 1000 + units * 5) and (food <= 1000 + units * 6)) then
-        InformNLS(User,
+        M.InformNLS(User,
         "Die Arbeit macht Dich langsam müde und hungrig.",
         "You are getting tired and hungry from your work.");
     end;
@@ -464,7 +464,7 @@ function M.GatheringToolBreaks(user, item, workTime)
     world:changeItem(item);
 
     if (durability < 10) then
-      InformNLS(user,
+      M.InformNLS(user,
       "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
       "The tool looks like it could break soon. You should try to get a new one.");
     end
@@ -489,16 +489,16 @@ function M.ToolBreaks(user, item)
 
         if math.random(1, 100) == 1 then
             if math.random(1, 2) == 1 then
-                InformNLS(user,
+                M.InformNLS(user,
                     "Das Werkzeug zerbricht. Du bist am Boden zerstört und wirst es sehr vermissen.",
                     "The tool breaks. You are devastated and will miss it very much.")
             else
-                InformNLS(user,
+                M.InformNLS(user,
                     "Das Werkzeug zerbricht. Du hast mehr Drama erwartet, aber es ist einfach kaputt.",
                     "The tool breaks. You expected more drama, but it is just broken.")
             end
         else
-            InformNLS(user,
+            M.InformNLS(user,
                 "Das Werkzeug zerbricht.",
                 "The tool breaks.")
         end
@@ -510,7 +510,7 @@ function M.ToolBreaks(user, item)
         world:changeItem(item)
 
         if durability < 10 then
-            InformNLS(user,
+            M.InformNLS(user,
                 "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
                 "The tool looks like it could break soon. You should try to get a new one.")
         end
@@ -541,7 +541,7 @@ end
 --- Get a timestamp based on the current server time. Resolution in RL seconds.
 -- @return The current timestamp
 function M.GetCurrentTimestamp()
-    return GetCurrentTimestampForDate(world:getTime("year"),
+    return M.GetCurrentTimestampForDate(world:getTime("year"),
         world:getTime("month"),
         world:getTime("day"),
         world:getTime("hour"),
@@ -667,7 +667,7 @@ GroundType = {
 -- @param maxVal Maximal value of the random number range
 -- @return The random number
 function M.NormalRnd(minVal, maxVal)
-    return NormalRnd2(minVal, maxVal, 10);
+    return M.NormalRnd2(minVal, maxVal, 10);
 end;
 
 --- Create random number with normal distribution.
@@ -1036,7 +1036,7 @@ end;
     @param function(PositionStruct) - Event function that is triggered for every position
 ]]
 function M.CreateTangentLine(CenterPos, TargetPos, ArmLength, Event)
-    local phi = GetPhi( CenterPos, TargetPos ) + math.pi/2;
+    local phi = M.GetPhi( CenterPos, TargetPos ) + math.pi/2;
 
     local xoffset = math.cos( phi );
     local yoffset = math.sin( phi );
@@ -1078,7 +1078,7 @@ end;
     @return integer - interpolated value
 ]]
 function M.Scale(ScBegin, ScEnd, value)
-    return ScaleUnlimited(ScBegin, ScEnd, Limit(value, 0, 100));
+    return M.ScaleUnlimited(ScBegin, ScEnd, M.Limit(value, 0, 100));
 end;
 
 --[[
