@@ -527,7 +527,7 @@ end
 -- @return true if the cooldown is expired (or there was none yet) and new one has been set;
 -- false if the cooldown is still valid
 function M.ItemCooldown(User,Item, dataKey, cooldownDuration)
-    local timeNow = GetCurrentTimestamp()
+    local timeNow = M.GetCurrentTimestamp()
 	local timeThen = tonumber(Item:getData(dataKey))
 	if (timeThen == nil) or ((timeNow - timeThen) >= cooldownDuration) then
 	    Item:setData(dataKey,timeNow)
@@ -1055,11 +1055,11 @@ function M.CreateTangentLine(CenterPos, TargetPos, ArmLength, Event)
     local second_go_on = true;
     for i=1, ArmLength do
         if first_go_on then
-            first_go_on = Event(position(Round(TargetPos.x + i * xoffset), Round(TargetPos.y + i * yoffset), TargetPos.z));
+            first_go_on = Event(position(Round(TargetPos.x + i * xoffset), M.Round(TargetPos.y + i * yoffset), TargetPos.z));
             first_go_on = (first_go_on ~= nil and first_go_on or true);
         end;
         if second_go_on then
-            second_go_on = Event(position(Round(TargetPos.x - i * xoffset), Round(TargetPos.y - i * yoffset), TargetPos.z));
+            second_go_on = Event(position(Round(TargetPos.x - i * xoffset), M.Round(TargetPos.y - i * yoffset), TargetPos.z));
             second_go_on = ( second_go_on ~= nil and second_go_on or true );
         end;
         if not first_go_on and not second_go_on then
@@ -1451,7 +1451,7 @@ function M.ExtgetPlayersInRangeOf(posi, radius)
 
 	for i, player in pairs(plyList) do
 	    -- player not in rect, remove from list
-		if not isInRect(player.pos, posi, radius) then
+		if not M.isInRect(player.pos, posi, radius) then
 			plyList[i] = nil;
 	    end
 	end
@@ -1515,7 +1515,7 @@ end
 -- @param source The source item that is "used with" the target item
 -- @return The target item (in the other hand slot than the source) or nil if no target is found
 function M.GetTargetItem( character, source )
-	if not IsItemInHands(source) then
+	if not M.IsItemInHands(source) then
 		return nil;
 	end
 	local tpos = 11 - source.itempos; -- either 5 or 6
@@ -1529,7 +1529,7 @@ end
 --- Returns the real date and time as a String
 -- @return date and time in format: YYYY-MM-DD | hh:mm:ss
 function M.GetRealDateTimeString()
-	local year, month, day, hour, minute, second = GetRealDate();
+	local year, month, day, hour, minute, second = M.GetRealDate();
 	local timeString =
 		function(int)
 			if int < 10 then
@@ -1544,7 +1544,7 @@ end
 --- Returns the real date as a String
 -- @return date in format: YYYY-MM-DD
 function M.GetRealDateString()
-	local year, month, day, hour, minute, second = GetRealDate();
+	local year, month, day, hour, minute, second = M.GetRealDate();
 	local timeString =
 		function(int)
 			if int < 10 then
@@ -1558,7 +1558,7 @@ end
 --- Returns the real time as a String
 -- @return time in format: hh:mm:ss
 function M.GetRealTimeString()
-	local year, month, day, hour, minute, second = GetRealDate();
+	local year, month, day, hour, minute, second = M.GetRealDate();
 	local timeString =
 		function(int)
 			if int < 10 then
