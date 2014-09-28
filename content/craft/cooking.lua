@@ -39,13 +39,12 @@ local catId = cooking:addCategory("Soups", "Suppen") -- Suppenschüssel ( Suppen 
 ---------------- FISH SOUP - 3572 ----------------------
 product = cooking:addProduct(catId, 3572, 75, 95, 80, 160)
 product:addIngredient(2935) -- Step 1: Soup Bowl (2935) 1x
-product:addIngredient(52) -- Step 2: Bucket with water (52) 1x
-product:addRemnant(51) -- Remnant: Empty bucket (51) 1x
+product:addIngredient(2502) -- Step 2: Milk (2502) 1x
+product:addRemnant(2498) -- Remnant: Empty Bottle (2498) 1x
 product:addIngredient(1209) -- Step 3: Horse Mackerel (1209) 1x
 product:addIngredient(355) -- Step 4: Salmon (355) 1x
 product:addIngredient(3567) -- Step 5: Potato(3568) 1x
 product:addIngredient(290) -- Step 6: Cabbage (290) 1x
-product:addRemnant(2498) -- Remnant: Empty Bottle (2498) 1x
 ---------------------FISH SOUP DONE--------------------
 
 ---------------- EGG SALAD - 3570 ----------------------
