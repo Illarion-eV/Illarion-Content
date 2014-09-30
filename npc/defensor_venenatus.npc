@@ -61,8 +61,8 @@ itemShoes = 770
 -- 20: Quest 12 solved
 
 -- Help
-"Help" -> inform("[Game Help] This npc is a Defensor, ask for a test. Keywords: quest, Akaltut, drow, Defensor, name")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist ein Wächter, frage Ihn nach dem Test. Stichworte: Aufgabe, Akaltut, Drow, Defensor, Name")
+"Help" -> inform("[Game Help] This NPC is a Defensor, ask for a test. Keywords: quest, Akaltut, drow, Defensor, name.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist ein Wächter, frage Ihn nach dem Test. Stichworte: Aufgabe, Akaltut, Drow, Defensor, Name.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Welcome to the Akaltut's Chamber stronghold. It's a good day to test your skills."
