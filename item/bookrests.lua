@@ -129,7 +129,7 @@ function AkaltutLookAt(User, Item)
 		lookAt.name = "Infirmos magische Schriftrolle";
 		lookAt.description = "Geschrieben in einer alten Sprache..."
 	else
-		lookAt.name = "Infirmo'S magical scroll";
+		lookAt.name = "Infirmo's magical scroll";
 		lookAt.description = "Written in an old language..."
 	end
 	return lookAt
@@ -146,11 +146,11 @@ function UseItem(User, SourceItem)
         local foundEffect, myEffect = User.effects:find(120); -- monsterhunter_timer lte
 		if User:getQuestProgress(529) == 3 and not foundEffect then
 
-            User:inform("Der Höllenhund ist im Nordosten von hier.", "The hellhound is north east from here.")
+            User:inform("Der Höllenhund ist im Südosten von hier.", "The hellhound is  southeast from here.")
             local myEffect = LongTimeEffect(120, 50) -- 5sec
             User.effects:addEffect(myEffect)
         elseif foundEffect then
-            User:inform("Der Höllenhund ist im Nordosten von hier. Finde ihn!", "The hellhound is north east from here. Find it!")
+            User:inform("Der Höllenhund ist im Südosten von hier. Finde ihn!", "The hellhound is  southeast from here. Find it!")
         else
             User:inform("Die Schriftzeichen sagen dir nichts.", "You can't make any sense of the letters written here.")
         end
@@ -229,12 +229,12 @@ function StaticTeleporter(User, SourceItem)
 
     local names
 	if  User:getPlayerLanguage() == Player.german then
-		names = {"Runewick","Galmair","Cadomyr","Gasthof zur Hanfschlinge"}
+		names = {"Runewick","Galmair","Cadomyr","Gasthof zur Hanfschlinge","Gefängnismine"}
 	else
-		names = {"Runewick","Galmair","Cadomyr","Hemp Necktie Inn"}
+		names = {"Runewick","Galmair","Cadomyr","Hemp Necktie Inn","Prison Mine"}
 	end
 	local items = {105,61,2701,1909}
-	local targetPos = {position(835,813,0), position(423,246,0),position(126,647,0),position(684,307,0)}
+	local targetPos = {position(835,813,0), position(423,246,0),position(126,647,0),position(684,307,0),position(-484,-455,-40)}
 
 	local callback = function(dialog)
 
