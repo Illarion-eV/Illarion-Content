@@ -1756,7 +1756,7 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
 	-- Attacker learns weapon skill
 	if Attacker.Skillname then
 
-		Attacker.Char:learn(Attacker.Skillname, AP/3, math.max(Defender.DefenseSkill + 10, Defender.parry + 10));
+		Attacker.Char:learn(Attacker.Skillname, AP/3, math.max(Defender.DefenseSkill + 20, Defender.parry + 20));
 
 	end
 
@@ -1771,7 +1771,7 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
 
 		if armourfound then
 
-			Defender.Char:learn(Defender.DefenseSkillName,(AP+archerAdditional)/3,Attacker.skill + 10);
+			Defender.Char:learn(Defender.DefenseSkillName,(AP+archerAdditional)/3,Attacker.skill + 20);
 
 		end
 
@@ -1797,7 +1797,7 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
 
 	if parryWeapon then
 
-		Defender.Char:learn(Character.parry, AP/3, Attacker.skill + 10)
+		Defender.Char:learn(Character.parry, AP/3, Attacker.skill + 20)
 
 	end
 end;
