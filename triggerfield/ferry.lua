@@ -20,7 +20,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (614,855,0,'triggerfield.ferry');
 -- INSERT INTO triggerfields VALUES (615,855,0,'triggerfield.ferry');
 -- INSERT INTO triggerfields VALUES (616,855,0,'triggerfield.ferry');
--- INSERT INTO triggerfields VALUES (105,833,0,'triggerfield.ferry');
 -- INSERT INTO triggerfields VALUES (987,257,0,'triggerfield.ferry');
 -- INSERT INTO triggerfields VALUES (988,257,0,'triggerfield.ferry');
 -- INSERT INTO triggerfields VALUES (475,33,0,'triggerfield.ferry');
@@ -48,6 +47,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (389,273,-6,'triggerfield.ferry');
 -- INSERT INTO triggerfields VALUES (404,275,-6,'triggerfield.ferry');
 -- INSERT INTO triggerfields VALUES (404,276,-6,'triggerfield.ferry');
+-- INSERT INTO triggerfields VALUES (355,864,2,'triggerfield.ferry');
 
 local common = require("base.common")
 
@@ -56,7 +56,7 @@ module("triggerfield.ferry", package.seeall)
 
 
 
-ferrySourcePos={position(614,863,0),position(615,863,0),position(616,863,0),position(614,855,0),position(615,855,0),position(616,855,0),position(105,833,0),position(987,257,0),position(988,257,0),position(475,33,0),position(475,34,0),position(482,33,0),position(482,34,0),position(412,84,0),position(412,85,0),position(419,84,0),position(419,85,0),position(361,49,0),position(361,50,0),position(367,49,0),position(367,50,0),position(86,988,0),position(96,988,0),position(289,283,0),position(275,275,0),position(288,292,0),position(274,275,0),position(389,272,-6),position(389,273,-6),position(404,275,-6),position(404,276,-6)}
+ferrySourcePos={position(614,863,0),position(615,863,0),position(616,863,0),position(614,855,0),position(615,855,0),position(616,855,0),position(987,257,0),position(988,257,0),position(475,33,0),position(475,34,0),position(482,33,0),position(482,34,0),position(412,84,0),position(412,85,0),position(419,84,0),position(419,85,0),position(361,49,0),position(361,50,0),position(367,49,0),position(367,50,0),position(86,988,0),position(96,988,0),position(289,283,0),position(275,275,0),position(288,292,0),position(274,275,0),position(389,272,-6),position(389,273,-6),position(404,275,-6),position(404,276,-6),position(355,864,2)}
 
 ferryDE={}
 ferryEN={}
@@ -72,8 +72,6 @@ ferryDE[5]={"Cadomyr Hafen","Runewick Hafen"}
 ferryEN[5]={"Cadomyr Harbour","Runewick Harbour"}
 ferryDE[6]={"Cadomyr Hafen","Runewick Hafen"}
 ferryEN[6]={"Cadomyr Harbour","Runewick Harbour"}
-ferryDE[7]={"Cadomyr Harbour"}
-ferryEN[7]={"Cadomyr Harbour"}
 ferryDE[8]={"Nördlicher Hafen"}
 ferryEN[8]={"Northern Harbour"}
 ferryDE[9]={"Nördlicher Hafen"}
@@ -122,6 +120,8 @@ ferryDE[30]={"Schlackengrube"}
 ferryEN[30]={"Scoria Mine"}
 ferryDE[31]={"Schlackengrube"}
 ferryEN[31]={"Scoria Mine"}
+ferryDE[32]={"Fähre"}
+ferryEN[32]={"Ferry"}
 
 ferryItem={}
 ferryItem[1]={2701,105}
@@ -130,23 +130,23 @@ ferryItem[3]={2701,105}
 ferryItem[4]={2701,105}
 ferryItem[5]={2701,105}
 ferryItem[6]={2701,105}
-ferryItem[7]={2701}
+ferryItem[7]={308}
 ferryItem[8]={308}
-ferryItem[9]={308}
+ferryItem[9]={61,359,360}
 ferryItem[10]={61,359,360}
 ferryItem[11]={61,359,360}
 ferryItem[12]={61,359,360}
-ferryItem[13]={61,359,360}
+ferryItem[13]={61,359,372}
 ferryItem[14]={61,359,372}
 ferryItem[15]={61,359,372}
 ferryItem[16]={61,359,372}
-ferryItem[17]={61,359,372}
+ferryItem[17]={61,360,372}
 ferryItem[18]={61,360,372}
 ferryItem[19]={61,360,372}
 ferryItem[20]={61,360,372}
-ferryItem[21]={61,360,372}
+ferryItem[21]={2701,105}
 ferryItem[22]={2701,105}
-ferryItem[23]={2701,105}
+ferryItem[23]={61}
 ferryItem[24]={61}
 ferryItem[25]={61}
 ferryItem[26]={61}
@@ -154,7 +154,7 @@ ferryItem[27]={61}
 ferryItem[28]={61}
 ferryItem[29]={61}
 ferryItem[30]={61}
-ferryItem[31]={61}
+ferryItem[31]={50}
 
 ferryTargetPos={}
 ferryTargetPos[1]={position(102,790,0),position(728,809,0)}
@@ -163,119 +163,107 @@ ferryTargetPos[3]={position(102,790,0),position(728,809,0)}
 ferryTargetPos[4]={position(102,790,0),position(728,809,0)}
 ferryTargetPos[5]={position(102,790,0),position(728,809,0)}
 ferryTargetPos[6]={position(102,790,0),position(728,809,0)}
-ferryTargetPos[7]={position(102,790,0)}
+ferryTargetPos[7]={position(870,286,0)}
 ferryTargetPos[8]={position(870,286,0)}
-ferryTargetPos[9]={position(870,286,0)}
+ferryTargetPos[9]={position(450,95,0),position(364,49,0),position(415,85,0)}
 ferryTargetPos[10]={position(450,95,0),position(364,49,0),position(415,85,0)}
 ferryTargetPos[11]={position(450,95,0),position(364,49,0),position(415,85,0)}
 ferryTargetPos[12]={position(450,95,0),position(364,49,0),position(415,85,0)}
-ferryTargetPos[13]={position(450,95,0),position(364,49,0),position(415,85,0)}
+ferryTargetPos[13]={position(450,95,0),position(364,49,0),position(478,34,0)}
 ferryTargetPos[14]={position(450,95,0),position(364,49,0),position(478,34,0)}
 ferryTargetPos[15]={position(450,95,0),position(364,49,0),position(478,34,0)}
 ferryTargetPos[16]={position(450,95,0),position(364,49,0),position(478,34,0)}
-ferryTargetPos[17]={position(450,95,0),position(364,49,0),position(478,34,0)}
+ferryTargetPos[17]={position(450,95,0),position(415,85,0),position(478,34,0)}
 ferryTargetPos[18]={position(450,95,0),position(415,85,0),position(478,34,0)}
 ferryTargetPos[19]={position(450,95,0),position(415,85,0),position(478,34,0)}
 ferryTargetPos[20]={position(450,95,0),position(415,85,0),position(478,34,0)}
-ferryTargetPos[21]={position(450,95,0),position(415,85,0),position(478,34,0)}
+ferryTargetPos[21]={position(102,790,0),position(728,809,0)}
 ferryTargetPos[22]={position(102,790,0),position(728,809,0)}
-ferryTargetPos[23]={position(102,790,0),position(728,809,0)}
-ferryTargetPos[24]={position(275,274,0)}
-ferryTargetPos[25]={position(290,283,0)}
-ferryTargetPos[26]={position(274,274,0)}
-ferryTargetPos[27]={position(289,292,0)}
-ferryTargetPos[28]={position(404,275,-6)}
-ferryTargetPos[29]={position(404,276,-6)}
-ferryTargetPos[30]={position(389,272,-6)}
-ferryTargetPos[31]={position(389,273,-6)}
+ferryTargetPos[23]={position(275,274,0)}
+ferryTargetPos[24]={position(290,283,0)}
+ferryTargetPos[25]={position(274,274,0)}
+ferryTargetPos[26]={position(289,292,0)}
+ferryTargetPos[27]={position(404,275,-6)}
+ferryTargetPos[28]={position(404,276,-6)}
+ferryTargetPos[29]={position(389,272,-6)}
+ferryTargetPos[30]={position(389,273,-6)}
+ferryTargetPos[31]={position(355,864,2)}
 
-noChoiceAndWrapDirectly={24,25,26,27,28,29,30,31}
+ferryFactionHarborPos={position(690,320,0),position(101,790,0),position(727,809,0),position(451,95,0)}
+
+noChoiceAndWrapDirectly={23,24,25,26,27,28,29,30,31}
 
 function MoveToField(User)
-	if User:getType() ~= Character.player then
-		return
-	end
+    if User:getType() ~= Character.player then
+        return
+    end
 
-	local names
-	local Amountferry = #ferrySourcePos
-	local AmountWrapDirectly = 4
-	for j = 1,Amountferry do
---[[	   for n = 1,AmountWrapDirectly do
-		if j == noChoiceAndWrapDirectly[n] then
-			if (User.pos == ferrySourcePos[j]) then
-				User:warp(ferryTargetPos[j][1])
-				return
-			end
-		end
-	   end]]
-	   if (User.pos == ferrySourcePos[j]) then
-		for _,n in ipairs(noChoiceAndWrapDirectly) do
-			if j == n then
-				User:warp(ferryTargetPos[j][1])
-				return
-			end
-		end
-		if  User:getPlayerLanguage() == Player.german then
-			names = ferryDE[j]
-		else
-			names = ferryEN[j]
-		end
-		items = ferryItem[j]
-		targetPos = ferryTargetPos[j]
-           end
-	end
---User:inform("names: "..names,"names: "..names)
---User:inform("items: "..items,"items: "..items)
--- User:inform("targetPos: ","targetPos: ")
+    if User.pos == position(355,864,2) and world:getItemOnField(position(355,864,2)).id == 10  then
+        world:gfx(41,User.pos)
+        world:makeSound(13,User.pos)
+        for pf = 0,3 do
+            if pf == User:getQuestProgress(199) then
+                User:warp(ferryFactionHarborPos[pf+1])
+                world:gfx(41,User.pos)
+                world:makeSound(13,User.pos)
+                return
+            end
+        end
+    end
 
-	local callback = function(dialog)
+    local names
+    local Amountferry = #ferrySourcePos
+    local AmountWrapDirectly = 9
+    for j = 1,Amountferry do
+        if User.pos == ferrySourcePos[j] then
+            for _,n in ipairs(noChoiceAndWrapDirectly) do
+                if j == n then
+                    User:warp(ferryTargetPos[j][1])
+                    return
+                end
+            end
+            if  User:getPlayerLanguage() == Player.german then
+                names = ferryDE[j]
+            else
+                names = ferryEN[j]
+            end
+            items = ferryItem[j]
+            targetPos = ferryTargetPos[j]
+        end
+    end
 
-		success = dialog:getSuccess()
-		if success then
-			selected = dialog:getSelectedIndex()
---			if  base.money.CharHasMoney(User,10000) then
+    local callback = function(dialog)
 
-				if (targetPos[selected+1].x - User.pos.x) * (targetPos[selected+1].x - User.pos.x) < 6 then
-					User:inform("Du befindest dich bereits in " ..names[selected+1]..".", "You are already in "..names[selected+1]..".")
-				else
+        success = dialog:getSuccess()
+        if success then
+            selected = dialog:getSelectedIndex()
+            if (targetPos[selected+1].x - User.pos.x) * (targetPos[selected+1].x - User.pos.x) < 6 then
+                User:inform("Du befindest dich bereits in " ..names[selected+1]..".", "You are already in "..names[selected+1]..".")
+            else
+                travler = world:getPlayersInRangeOf(User.pos, 5);
 
+                for i,player in ipairs(travler) do
+                    player:inform("Du hast dich dazu entschlossen nach " ..names[selected+1].. " zu Reisen.", "You have chosen to travel to " ..names[selected+1]..".")
+                    world:gfx(1,player.pos)
+                    world:makeSound(9,player.pos);
+                    player:warp(targetPos[selected+1])
+                    world:gfx(11,player.pos)
+                    world:makeSound(9,player.pos);
+                end
+            end
+        end
+    end
 
---					base.money.TakeMoneyFromChar(User,10000)
+    local dialog
+    if User:getPlayerLanguage() == Player.german then
+        dialog = SelectionDialog("Fähre", "Wähle eine Ziel aus.", callback)
+    else
+        dialog = SelectionDialog("Ferry", "Choose a destination.", callback)
+    end
+    dialog:setCloseOnMove()
 
-
-					travler = world:getPlayersInRangeOf(User.pos, 5);
-
-					for i,player in ipairs(travler) do
-						player:inform("Du hast dich dazu entschlossen nach " ..names[selected+1].. " zu Reisen.", "You have chosen to travel to " ..names[selected+1]..".")
-						world:gfx(1,player.pos)
-						world:makeSound(9,player.pos);
-						player:warp(targetPos[selected+1])
-						world:gfx(11,player.pos)
-						world:makeSound(9,player.pos);
-					end
-
---					handler.warpgroup.warpGroup(SourceItem.pos, 5, position(1,1,0), 42 )
---					User:warp(targetPos[selected+1])
---					world:gfx(11,User.pos)
---					world:makeSound(9,User.pos);
-				end
---			else
---				User:inform("Ihr habt nicht genug Geld für diese Reise. Die Reise kostet ein Goldstück für eine Überfahrt.", "You don't have enough money for this journey. The journey costs one gold coin for one passage.")
---			end
-
-		end
-	end
-
-	local dialog
-	if User:getPlayerLanguage() == Player.german then
-		dialog = SelectionDialog("Fähre", "Wähle eine Ziel aus.", callback)
-	else
-		dialog = SelectionDialog("Ferry", "Choose a destination.", callback)
-	end
-	dialog:setCloseOnMove()
-
-	for i=1,#items do
-		dialog:addOption(items[i], names[i])
-	end
-	User:requestSelectionDialog(dialog)
+    for i=1,#items do
+        dialog:addOption(items[i], names[i])
+    end
+    User:requestSelectionDialog(dialog)
 end
