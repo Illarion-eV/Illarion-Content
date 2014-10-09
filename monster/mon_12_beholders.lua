@@ -276,7 +276,7 @@ function onDeath(Monster)
         local done=drop.AddDropItem(281,1,20,(100*math.random(7,8)+math.random(77,88)),0,3); --emerald ring
         if not done then done=drop.AddDropItem(278,1,10,(100*math.random(7,8)+math.random(77,88)),0,3); end --obsidian ring
         if not done then done=drop.AddDropItem(279,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --sapphire ring
-        if not done then done=drop.AddDropItem(272,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --topaz ring
+        if not done then done=drop.AddDropItem(282,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --topaz ring
         if not done then done=drop.AddDropItem(280,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --diamond ring
 
         --Category 4: Perma Loot
