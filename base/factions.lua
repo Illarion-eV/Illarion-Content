@@ -34,27 +34,27 @@ function InitFactionLists()
 	TownJailKey={};
 
 	--A list with the ranks
-	CadomyrRankListMale = { {gRank = "Höriger", eRank = "Serf"},        	--rank 1
-					 {gRank = "Rekrut", eRank = "Recruit"},           	--rank 2	
-					 {gRank = "Page", eRank = "Page"},           	--rank 3					 
-					 {gRank = "Knappe", eRank = "Squire"},           	--rank 4
-					 {gRank = "Ritter", eRank = "Knight"},       --rank 5
-					 {gRank = "Freiherr", eRank = "Lord"},         --rank 6
-					 {gRank = "Baron", eRank = "Baron"},        		--rank 7
-					 {gRank = "Graf", eRank = "Count"},     			--rank 8
-					 {gRank = "Fürst", eRank = "Earl"},           	--rank 9
+	CadomyrRankListMale = { {gRank = "Leibeigener", eRank = "Serf"},        	--rank 1
+					 {gRank = "Höriger", eRank = "Bondsman"},           	--rank 2	
+					 {gRank = "Diener", eRank = "Servant"},           	--rank 3					 
+					 {gRank = "Freisasse", eRank = "Yeoman"},           	--rank 4
+					 {gRank = "Page", eRank = "Page"},       --rank 5
+					 {gRank = "Knappe", eRank = "Squire"},         --rank 6
+					 {gRank = "Ritter", eRank = "Knight"},        		--rank 7
+					 {gRank = "Baron", eRank = "Baron"},     			--rank 8
+					 {gRank = "Graf", eRank = "Count"},           	--rank 9
 					 {gRank = "Herzog", eRank = "Duke"},				--rank 10					 
 					 {gRank = "König", eRank = "King"}};				--rank leader
 	
-	CadomyrRankListFemale = { {gRank = "Hörige", eRank = "Serf"},        	--rank 1
-					 {gRank = "Dienerin", eRank = "Servant"},           	--rank 2	
-					 {gRank = "Magd", eRank = "Maid"},           	--rank 3
-					 {gRank = "Zofe", eRank = "Abigail"},       --rank 4			 
-					 {gRank = "Hofdame", eRank = "Dame"},         --rank 5
-					 {gRank = "Freifrau", eRank = "Lady"},        		--rank 6					 
-					 {gRank = "Baronin", eRank = "Baroness"},        		--rank 7
-					 {gRank = "Gräfin", eRank = "Countess"},     			--rank 8
-					 {gRank = "Fürstin", eRank = "Earl"},           	--rank 9
+	CadomyrRankListFemale = { {gRank = "Leibeigene", eRank = "Serf"},        	--rank 1
+					 {gRank = "Hörige", eRank = "Bondswoman"},           	--rank 2	
+					 {gRank = "Dienerin", eRank = "Servant"},           	--rank 3
+					 {gRank = "Freisassin", eRank = "Yeowoman"},       --rank 4			 
+					 {gRank = "Pagin", eRank = "Page"},         --rank 5
+					 {gRank = "Knappin", eRank = "Squire"},        		--rank 6					 
+					 {gRank = "Ritterin", eRank = "Knight"},        		--rank 7
+					 {gRank = "Baroin", eRank = "Baroness"},     			--rank 8
+					 {gRank = "Gräfin", eRank = "Countess"},           	--rank 9
 					 {gRank = "Herzogin", eRank = "Duchess"},				--rank 10	
 					 {gRank = "Königin", eRank = "Queen"}};				--rank leader
 

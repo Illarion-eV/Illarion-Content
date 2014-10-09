@@ -146,58 +146,58 @@ rank > 9, town = Cadomyr, sex = male, "rang" -> "Herzog %CHARNAME! Hochwohlgebor
 rank > 9, town = Cadomyr, sex = female, "rang" -> "Herzogin %CHARNAME! Hochwohlgeboren, wie ist es Euch ergangen?"
 
 -- Rank 9
-rank > 8, town = Cadomyr, sex = male, "rank" -> "Greetings to you, Earl!"
-rank > 8, town = Cadomyr, sex = female, "rank" -> "Greetings to you, Earl!"
-rank > 8, town = Cadomyr, sex = male, "rang" -> "Seid gegrüßt, mein Fürst!"
-rank > 8, town = Cadomyr, sex = female, "rang" -> "Seid gegrüßt, meine Fürstin!"
+rank > 8, town = Cadomyr, sex = male, "rank" -> "Greetings to you, Count!"
+rank > 8, town = Cadomyr, sex = female, "rank" -> "Greetings to you, Countess!"
+rank > 8, town = Cadomyr, sex = male, "rang" -> "Seid gegrüßt, mein Graf!"
+rank > 8, town = Cadomyr, sex = female, "rang" -> "Seid gegrüßt, meine Gräfin!"
 
 -- Rank 8
-rank > 7, town = Cadomyr, sex = male, "rank" -> "Greetings to you, Count %CHARNAME!"
-rank > 7, town = Cadomyr, sex = female, "rank" -> "Greetings to you, Countess %CHARNAME!"
-rank > 7, town = Cadomyr, sex = male, "rang" -> "Graf %CHARNAME, seid gegrüßt!"
-rank > 7, town = Cadomyr, sex = female, "rang" -> "Gräfin %CHARNAME, seid gegrüßt!"
+rank > 7, town = Cadomyr, sex = male, "rank" -> "Greetings to you, Baron %CHARNAME!"
+rank > 7, town = Cadomyr, sex = female, "rank" -> "Greetings to you, Baroness %CHARNAME!"
+rank > 7, town = Cadomyr, sex = male, "rang" -> "Baron %CHARNAME, seid gegrüßt!"
+rank > 7, town = Cadomyr, sex = female, "rang" -> "Baronin %CHARNAME, seid gegrüßt!"
 
 -- Rank 7
-rank > 6, town = Cadomyr, sex = male, "rank" -> "Greetings to you, Baron!"
-rank > 6, town = Cadomyr, sex = female, "rank" -> "Greetings to you, Baroness!"
-rank > 6, town = Cadomyr, sex = male, "rang" -> "Baron, seid gegrüßt!"
-rank > 6, town = Cadomyr, sex = female, "rang" -> "Baroness, seid gegrüßt!"
+rank > 6, town = Cadomyr, sex = male, "rank" -> "Greetings to you, Knight!"
+rank > 6, town = Cadomyr, sex = female, "rank" -> "Greetings to you, Knight!"
+rank > 6, town = Cadomyr, sex = male, "rang" -> "Ritter, seid gegrüßt!"
+rank > 6, town = Cadomyr, sex = female, "rang" -> "Ritterin, seid gegrüßt!"
 
 -- Rank 6
-rank > 5, town = Cadomyr, sex = male, "rank" -> "Greetings to you, Lord %CHARNAME!"
-rank > 5, town = Cadomyr, sex = female, "rank" -> "Greetings to you, Lady %CHARNAME!"
-rank > 5, town = Cadomyr, sex = male, "rang" -> "Freiherr %CHARNAME, seid gegrüßt!"
-rank > 5, town = Cadomyr, sex = female, "rang" -> "Freifrau %CHARNAME, seid gegrüßt!"
+rank > 5, town = Cadomyr, sex = male, "rank" -> "Greetings to you, Squire %CHARNAME!"
+rank > 5, town = Cadomyr, sex = female, "rank" -> "Greetings to you, Squire %CHARNAME!"
+rank > 5, town = Cadomyr, sex = male, "rang" -> "Knappe %CHARNAME, seid gegrüßt!"
+rank > 5, town = Cadomyr, sex = female, "rang" -> "Knappin %CHARNAME, seid gegrüßt!"
 
 -- Rank 5
-rank > 4, town = Cadomyr, sex = male, "rank" -> "Greetings to you, noble knight!"
-rank > 4, town = Cadomyr, sex = female, "rank" -> "Greetings to you, noble dame!"
-rank > 4, town = Cadomyr, sex = male, "rang" -> "Edler Ritter, seid gegrüßt!"
-rank > 4, town = Cadomyr, sex = female, "rang" -> "Edle Hofdame, seid gegrüßt!"
+rank > 4, town = Cadomyr, sex = male, "rank" -> "Greetings to you, Page!"
+rank > 4, town = Cadomyr, sex = female, "rank" -> "Greetings to you, Page!"
+rank > 4, town = Cadomyr, sex = male, "rang" -> "Page, seid gegrüßt!"
+rank > 4, town = Cadomyr, sex = female, "rang" -> "Pagin, seid gegrüßt!"
 
 -- Rank 4
-rank > 6, town = Cadomyr, sex = male, "rank" -> "Greetings to you, squire!"
-rank > 6, town = Cadomyr, sex = female, "rank" -> "Greetings to you, abigail!"
-rank > 6, town = Cadomyr, sex = male, "rang" -> "Seid gegrüßt, Herr Knappe!"
-rank > 6, town = Cadomyr, sex = female, "rang" -> "Seid gegrüßt, Frau Zofe!"
+rank > 6, town = Cadomyr, sex = male, "rank" -> "Greetings to you, Yeoman!"
+rank > 6, town = Cadomyr, sex = female, "rank" -> "Greetings to you, Yeowoman!"
+rank > 6, town = Cadomyr, sex = male, "rang" -> "Seid gegrüßt, Freisasse!"
+rank > 6, town = Cadomyr, sex = female, "rang" -> "Seid gegrüßt, Freisassin!"
 
 -- Rank 3
-rank > 2, town = Cadomyr, sex = male, "rank" -> "Good day, page %CHARNAME!"
-rank > 2, town = Cadomyr, sex = female, "rank" -> "Good day, maid %CHARNAME!"
-rank > 2, town = Cadomyr, sex = male, "rang" -> "Guten Tag, Page %CHARNAME!"
-rank > 2, town = Cadomyr, sex = female, "rang" -> "Guten Tag, Magd %CHARNAME!"
+rank > 2, town = Cadomyr, sex = male, "rank" -> "Good day, Servant %CHARNAME!"
+rank > 2, town = Cadomyr, sex = female, "rank" -> "Good day, Servant %CHARNAME!"
+rank > 2, town = Cadomyr, sex = male, "rang" -> "Guten Tag, Diener %CHARNAME!"
+rank > 2, town = Cadomyr, sex = female, "rang" -> "Guten Tag, Dienerin %CHARNAME!"
 
 -- Rank 2
-rank > 1, town = Cadomyr, sex = male, "rank" -> "Ah! So you are a recruit?"
-rank > 1, town = Cadomyr, sex = female, "rank" -> "Ah! So you are a servant?"
-rank > 1, town = Cadomyr, sex = male, "rang" -> "Ah! Ihr seid ein Rekrut."
-rank > 1, town = Cadomyr, sex = female, "rang" -> "Ah! Ihr seid eine Dienerin."
+rank > 1, town = Cadomyr, sex = male, "rank" -> "Ah! So you are a Bondsman?"
+rank > 1, town = Cadomyr, sex = female, "rank" -> "Ah! So you are a Bondswoman?"
+rank > 1, town = Cadomyr, sex = male, "rang" -> "Ah! Ihr seid ein Höriger."
+rank > 1, town = Cadomyr, sex = female, "rang" -> "Ah! Ihr seid eine Hörige."
 
 -- Rank 1
-rank > 0, town = Cadomyr, sex = male, "rank" -> "You are new here. You are not well known. Make an effort and become famous, serf!"
-rank > 0, town = Cadomyr, sex = female, "rank" -> "You are new here. You are not well known. Make an effort and become famous, serf!"
-rank > 0, town = Cadomyr, sex = male, "rang" -> "Ihr seid noch ganz neu hier. Euch kennt kaum jemand. Strengt Euch mehr an und mach Euch einen Namen, Höriger!"
-rank > 0, town = Cadomyr, sex = female, "rang" -> "Ihr seid noch ganz neu hier. Euch kennt kaum jemand. Strengt Euch mehr an und mach Euch einen Namen, Hörige!"
+rank > 0, town = Cadomyr, sex = male, "rank" -> "You are new here. You are not well known. Make an effort and become famous, Serf!"
+rank > 0, town = Cadomyr, sex = female, "rank" -> "You are new here. You are not well known. Make an effort and become famous, Serf!"
+rank > 0, town = Cadomyr, sex = male, "rang" -> "Ihr seid noch ganz neu hier. Euch kennt kaum jemand. Strengt Euch mehr an und mach Euch einen Namen, Leibeigener!"
+rank > 0, town = Cadomyr, sex = female, "rang" -> "Ihr seid noch ganz neu hier. Euch kennt kaum jemand. Strengt Euch mehr an und mach Euch einen Namen, Leibeigene!"
 
 -- saying Rank without beeing a member of Cadomyr
 "rank" -> "I do not know about other ranks of other towns.", "I am not interested in other systems, only the Cadomyrian one."
