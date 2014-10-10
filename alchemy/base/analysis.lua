@@ -82,7 +82,7 @@ function CharacterAnalysis(User,gem)
             gem:setData("analysingCharges",newCharge)
             world:changeItem(gem)
         else
-            world:erase(Bottle,1)
+            world:erase(gem,1)
             User:createItem(46,1,333,{descriptionDe = descriptionDe, descriptionEn = descriptionEn})
         end
         User:inform("Ein Sprung bildet sich im Edelstein.","A crack appears in the gem.",Player.highPriority)
