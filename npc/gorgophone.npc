@@ -51,7 +51,7 @@ radius = 0
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me clicks her jaws and looks at you appraisingly."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me klickt ihr Kiefer und schaut dich abschätzend an."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me klickt ihren Kiefer und schaut dich abschätzend an."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me clicks her jaws and looks at you appraisingly."
 "Hiho", "Hallo", "Hey", "Greeb" -> "#me klickt ihr Kiefer und schaut dich abschätzend an."
 "Farewell", "Bye", "Fare well", "See you" -> "#me turns away from you and returns to her web."
