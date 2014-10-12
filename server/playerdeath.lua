@@ -56,13 +56,17 @@ function playerDeath(deadPlayer)
 
             if item.id > 0 and item.id ~= BLOCKEDITEM and item.quality > 100 and not common.isStackable then
                 local durability = item.quality % 100
-
-                if durability <= DURABILITY_LOSS then
+                local newbieModficator = 1
+                if deadPlayer:isNewPlayer() then
+                    newbieModficator = 2
+                end
+                
+                if durability <= DURABILITY_LOSS/newbieModficator then
                     deadPlayer:increaseAtPos(i, -1)
 					nameText=world:getItemName(item.id,deadPlayer:getPlayerLanguage());
 					common.HighInformNLS(deadPlayer,"[Tod] Dein Gegenstand '"..nameText.."' wurde zerstört.","[Death] Your item '"..nameText.."' was destroyed."); --sending a message
                 else
-                    item.quality = item.quality - DURABILITY_LOSS
+                    item.quality = item.quality - DURABILITY_LOSS/newbieModficator
                     world:changeItem(item)
                 end
             end

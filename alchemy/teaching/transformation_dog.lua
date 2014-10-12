@@ -20,6 +20,7 @@ local character = require("base.character")
 local alchemy = require("alchemy.base.alchemy")
 local base = require("monster.base.base")
 local potionToTeacher = require("triggerfield.potionToTeacher")
+local treasure = require("base.treasure")
 
 module("alchemy.teaching.transformation_dog", package.seeall)
 
@@ -211,8 +212,8 @@ end
 
 function LookAtDonfbladeMap(User, Item)
 
-	local dir = base.treasure.getDirection( User, Item )
-	local distance = base.treasure.getDistance (User, Item )
+	local dir = treasure.getDirection( User, Item )
+	local distance = treasure.getDistance (User, Item )
 	
 	if not dir then
 		base.lookat.SetSpecialDescription(Item,

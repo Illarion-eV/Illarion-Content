@@ -67,12 +67,12 @@ function chooseNumberOfDice(User, typeOfDice)
 		local inputNumber = dialog:getInput();
 		if (string.find(inputNumber,"(%d+)") ~= nil) then
 			if tonumber(inputNumber) <= 0 then
-				User:inform("Du musst mindestens einen Würfel werfen.","You have to trow at least one dice.")
+				User:inform("Du musst mindestens einen Würfel werfen.","You have to throw at least one dice.")
 				chooseNumberOfDice(User, typeOfDice)
 			elseif tonumber(inputNumber) > 0 and tonumber(inputNumber) < 7 then 
 				informAboutResult(User, typeOfDice, inputNumber)
 			else
-				User:inform("Du kannst nur bis zu 6 Würfel werfen.", "You can only trow up to 6 dice.")
+				User:inform("Du kannst nur bis zu 6 Würfel werfen.", "You can only throw up to 6 dice.")
 				chooseNumberOfDice(User, typeOfDice)
 			end
 		else
