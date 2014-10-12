@@ -73,7 +73,7 @@ VisionTextDE[3][2]="Der Mann tritt zurück und sieht dem Zwergen zu, wie dieser s
 VisionTextDE[3][3]="Der Zwerg setzt fort 'Ich frag mich, wieso wir hier sind? Wir könnten die Festung irgendwo bauen und nicht an diesem schmutzigen Ort.'";
 VisionTextDE[3][4]="'Du wirst nicht bezahlt, um Fragen zu stellen', erwidert der Mann. 'Mach deine Arbeit wie es dir angeordnet wurde.'";
 VisionTextDE[3][5]="Der Zwerg zischt: 'Und du? Was machst du?' Der Mann antwortet ruhig: 'Das wirst du später sehen.'";
-VisionTextDE[3][6]="'Arr, so, warum? Ihr sucht nach Diamanten? Nach magischen, oder? Und was sollen diese Gravierungen an der Säule dort drüben?' fragt der Zwerg als er dem Mann das fertige Werkstück zeigt. ";
+VisionTextDE[3][6]="'Arr, so, warum? Ihr sucht nach magischen Steinen, oder? Und was sollen diese Gravierungen an der Säule dort drüben?' fragt der Zwerg als er dem Mann das fertige Werkstück zeigt. ";
 VisionTextDE[3][7]="Der Mann begutachtet das Werkstück und nickt: 'Gute Arbeit. Ich muss gestehen, du verstehst dein Handwerk. Unglücklicherweise, redest du zu viel.'";
 VisionTextDE[3][8]="Der Mann zieht einen roten Dolch und beide Schatten verschwinden.";
 VisionTextEN[3]={};
@@ -82,7 +82,7 @@ VisionTextEN[3][2]="The man steps back and looks at the dwarf while the dwarf sw
 VisionTextEN[3][3]="The dwarf continues 'I am wondering why we are here? We could have built this stronghold wherever and not here at this nasty place.'";
 VisionTextEN[3][4]="'You are not paid to ask questions', the man replies. 'Do your work as you are supposed to do.'";
 VisionTextEN[3][5]="The dwarf hisses: 'And you? What are you doing?' The man replies quietly: 'You will see later.'";
-VisionTextEN[3][6]="'Arr, so, why? You are looking for diamonds. Magical ones, aren't you? And what are those engravings for on the column over there?', the dwarf asks as he shows the man the finished piece of work.";
+VisionTextEN[3][6]="'Arr, so, why? You are looking for magical stones, aren't you? And what are those engravings for on the column over there?', the dwarf asks as he shows the man the finished piece of work.";
 VisionTextEN[3][7]="The man examines the piece of work and nods: 'Very well done. I have to admit, you understand your profession. Unfortunately, you talk to much.'";
 VisionTextEN[3][8]="The man draws a red dagger and both shades fade away.'";
 
@@ -252,13 +252,13 @@ function UseDarkColumns(User, SourceItem, ltstate)
 				world:makeSound(27,darkColumnEvilrock[l])
 			end
 
-
 			BlackColumnQuestProgressA(User)
-		elseif (SourceItem.pos == darkColumnEvilrock[i]) and (User:countItemAt("all", gemsRequired[i]) >= 1) then
+
+		elseif SourceItem.pos == darkColumnEvilrock[i] and User:countItemAt("all", gemsRequired[i]) >= 1 then
 			common.InformNLS(User,"Der Edelstein lässt sich einsetzen, aber er scheint nicht der Richtige zu sein. Vielleicht versuchst du einen Anderen.","Your gem seems to fit but for some reason it does not seem to be the right one.")
-		elseif (SourceItem.pos == darkColumnEvilrock[i]) and (User:countItemAt("all", 285) >= 1 or User:countItemAt("all", 283) >= 1 or User:countItemAt("all", 46) >= 1 or User:countItemAt("all", 198) >= 1) then
+		elseif SourceItem.pos == darkColumnEvilrock[i] and User:countItemAt("all", 285) >= 1 or SourceItem.pos == darkColumnEvilrock[i] and User:countItemAt("all", 285) >= 1 or SourceItem.pos == darkColumnEvilrock[i] and User:countItemAt("all", 283) >= 1 or SourceItem.pos == darkColumnEvilrock[i] and User:countItemAt("all", 45) >= 1 or SourceItem.pos == darkColumnEvilrock[i] and User:countItemAt("all", 46) >= 1 or SourceItem.pos == darkColumnEvilrock[i] and User:countItemAt("all", 197) >= 1 or SourceItem.pos == darkColumnEvilrock[i] and User:countItemAt("all", 198) >= 1 then
 			common.InformNLS(User,"Diese Art von Edelstein scheint nicht zu passen. Vielleicht versuchst du eine andere Art.","This kind of gem does not seem to fit. You might want to try a different one.")
-		elseif (SourceItem.pos == darkColumnEvilrock[i]) then
+		elseif SourceItem.pos == darkColumnEvilrock[i] then
 			common.InformNLS(User,"Keiner deiner Gegenstände scheint zu passen.","None of your items seem to fit.")
 		end
 	end
