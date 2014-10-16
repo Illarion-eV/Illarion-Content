@@ -23,6 +23,7 @@ local M = {}
 function M.UseItem(User, SourceItem, ltstate)
     if User.pos.z == -40 then
         User:inform("Nichts passiert.", "Nothing happens.")
+        return
     end
 
     local destCoordX = SourceItem:getData("destinationCoordsX")

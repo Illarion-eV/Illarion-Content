@@ -73,6 +73,10 @@ product = glassblowing:addProduct(catId, 2672, 75, 95, 120, 240)
 product:addIngredient(41, 3) -- Glass Ingot: 3x
 product:addIngredient(448, 1) -- Emerald dust
 
+--Wine Glass
+product = glassblowing:addProduct(catId, 2457, 70, 90, 30, 60)
+product:addIngredient(41, 3) -- Glass Ingot: 3x
+
 --Glass Mug
 product = glassblowing:addProduct(catId, 1908, 60, 90, 20, 40)
 product:addIngredient(41, 2) -- Glass Ingot: 2x

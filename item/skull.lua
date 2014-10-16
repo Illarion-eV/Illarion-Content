@@ -23,9 +23,17 @@ local M = {}
 
 
 function M.UseItem(User, SourceItem)
+advantureslist={}
+
     -- Evilrock skulls
     local skullSourceItemPos = {position(989, 247, 0), position(990, 241, 0), position(997, 226, 0)}
     local typoOfFlame={359, 360, 372}
+
+    local adventurers = world:getPlayersInRangeOf(User.pos, 25) 
+    advantureslist[User.name] = adventurers				
+    for i,player in ipairs(advantureslist[User.name]) do
+        player:setQuestProgress(683,0)
+    end
 
     for i = 1, #skullSourceItemPos do
         if (SourceItem.pos == skullSourceItemPos[i]) then

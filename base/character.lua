@@ -141,53 +141,81 @@ end;
 -- @param createSound The sound played on created item, nil for no sound
 -- @param createItemFieldAccess Should field of created item be accessable, nil or 0 for accessable
 function CreateAfterTime(Character,createItemTimeB,createItemTimeBB,createItemID,createItemIDB,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemText,createItemPos,createItemFieldAccess)
-	find, myEffect = Character.effects:find(80)
-	if find then
-		return
-	else
-		createAfter=math.random(createAfterA,createAfterB);
-		myEffect = LongTimeEffect(80,createAfter)
-		if createItemTimeB ~= nil then
-			myEffect:addValue("createItemTimeB",createItemTimeB)
-		end
-		if createItemTimeBB ~= nil then
-			myEffect:addValue("createItemTimeBB",createItemTimeBB)
-		end
-		if createItemID ~= nil then
-			myEffect:addValue("createItemID",createItemID)
-		end
-		if createItemIDB ~= nil then
-			myEffect:addValue("createItemIDB",createItemIDB)
-		end
-		myEffect:addValue("createItemAmountA",createItemAmountA)
-		myEffect:addValue("createItemAmountB",createItemAmountB)
-		myEffect:addValue("createItemXA",createItemXA)
-		myEffect:addValue("createItemXB",createItemXB)
-		myEffect:addValue("createItemYA",createItemYA)
-		myEffect:addValue("createItemYB",createItemYB)
-		myEffect:addValue("createItemZA",createItemZA)
-		myEffect:addValue("createItemZB",createItemZB)
-		myEffect:addValue("createItemQualA",createItemQualA)
-		myEffect:addValue("createItemQualB",createItemQualB)
-		myEffect:addValue("createAfterA",createAfterA)
-		myEffect:addValue("createAfterB",createAfterB)
-		myEffect:addValue("createRepeatA",createRepeatA)
-		myEffect:addValue("createRepeatB",createRepeatB)
-		if createItemFieldAccess ~= nil then
-			myEffect:addValue("createItemFieldAccess",createItemFieldAccess)
-		end
-		if createItemPos ~= nil then
-			myEffect:addValue("createItemPos",createItemPos)
-		end
-		if createItemText ~= nil then
-			myEffect:addValue("createItemText",createItemText)
-		end
-		if createGfx ~= nil then
-			myEffect:addValue("createGfx",createGfx)
-       		end
-		if createSound ~= nil then
-			myEffect:addValue("createSound",createSound)  
-		end
-		Character.effects:addEffect(myEffect)
-	end
+    local find, myEffect = Character.effects:find(80)
+    if find then
+        return
+    else
+        createAfter=math.random(createAfterA,createAfterB)
+        myEffect = LongTimeEffect(80,createAfter)
+        if createItemTimeB ~= nil then
+            myEffect:addValue("createItemTimeB",createItemTimeB)
+        end
+        if createItemTimeBB ~= nil then
+            myEffect:addValue("createItemTimeBB",createItemTimeBB)
+        end
+        if createItemID ~= nil then
+            myEffect:addValue("createItemID",createItemID)
+        end
+        if createItemIDB ~= nil then
+            myEffect:addValue("createItemIDB",createItemIDB)
+        end
+        if createItemAmountA ~= nil then
+            myEffect:addValue("createItemAmountA",createItemAmountA)
+        end
+        if createItemAmountB ~= nil then
+            myEffect:addValue("createItemAmountB",createItemAmountB)
+        end
+        if createItemXA ~= nil then
+            myEffect:addValue("createItemXA",createItemXA)
+        end
+        if createItemXB ~= nil then
+            myEffect:addValue("createItemXB",createItemXB)
+        end
+        if createItemYA ~= nil then
+            myEffect:addValue("createItemYA",createItemYA)
+        end
+        if createItemYB ~= nil then
+            myEffect:addValue("createItemYB",createItemYB)
+        end
+        if createItemZA ~= nil then
+            myEffect:addValue("createItemZA",createItemZA)
+        end
+        if createItemZB ~= nil then
+            myEffect:addValue("createItemZB",createItemZB)
+        end
+        if createItemQualA ~= nil then
+            myEffect:addValue("createItemQualA",createItemQualA)
+        end
+        if createItemQualB ~= nil then
+            myEffect:addValue("createItemQualB",createItemQualB)
+        end
+        if createAfterA ~= nil then
+            myEffect:addValue("createAfterA",createAfterA)
+        end
+        if createAfterB ~= nil then
+            myEffect:addValue("createAfterB",createAfterB)
+        end
+        if createRepeatA ~= nil then
+            myEffect:addValue("createRepeatA",createRepeatA)
+        end
+        if createRepeatB ~= nil then
+            myEffect:addValue("createRepeatB",createRepeatB)
+        end
+        if createItemFieldAccess ~= nil then
+            myEffect:addValue("createItemFieldAccess",createItemFieldAccess)
+        end
+        if createItemPos ~= nil then
+            myEffect:addValue("createItemPos",createItemPos)
+        end
+        if createItemText ~= nil then
+            myEffect:addValue("createItemText",createItemText)
+        end
+        if createGfx ~= nil then
+            myEffect:addValue("createGfx",createGfx)
+               end
+        if createSound ~= nil then
+            myEffect:addValue("createSound",createSound)  
+        end
+        Character.effects:addEffect(myEffect)
+    end
 end

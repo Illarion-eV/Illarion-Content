@@ -144,7 +144,7 @@ function NewMonth(User)
 	local year = math.floor(qstStatus/100)
 	local month = qstStatus - (year*100)
 	
-	if qstStatus == 0 or month > world:getTime("month") or year > world:getTime("year") then
+	if qstStatus == 0 or month < world:getTime("month") or year < world:getTime("year") then
 		return true
 	end
 	return false	

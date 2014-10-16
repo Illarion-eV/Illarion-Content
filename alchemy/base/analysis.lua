@@ -18,8 +18,97 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local alchemy = require("alchemy.base.alchemy")
 local licence = require("base.licence")
+local common = require("base.common")
+local redBottle = require("alchemy.item.id_59_red_bottle")
 
 module("alchemy.base.analysis", package.seeall)
+
+function AnalysisMain(User,gem)
+    if IsCharacterAnalysingGem(gem) then
+        CharacterAnalysis(User,gem)
+    else
+        CauldronPotionCheck(User)
+    end
+end
+
+function CharacterAnalysis(User,gem)
+
+    if not alchemy.CheckIfAlchemist(User) then
+        return
+    end
+
+    local targetCharacter = common.GetFrontCharacter(User)
+    if not targetCharacter then
+        User:inform("Du siehst nur unklare Formen, als du durch den Edelstein blickst.","Looking through the gem, you see only unclear forms.")
+        return
+    end
+    
+    User:talk(Character.say,"#me blickt durch einen Rubin auf die Person vor sich.","#me looks through a ruby at the person infront of " .. common.GetGenderText(User, "him", "her") .. ".")
+    
+    local analysisResult
+    local foundAttributeEffect, attributeEffect = targetCharacter.effects:find(59)
+    if not foundAttributeEffect then
+        analysisResult = common.GetNLS(User, "Die Gestalt der Person scheint sich im Edelstein aufzulösen und du erkennst, dass sie scheinbar keinen Stärkungstrank intus hat.", "The figure seems to dissolve within the ruby and you recognize that the person haven't drunk a strengthening potion")
+    else
+        analysisResult = common.GetNLS(User, "Die Gestalt der Person scheint sich im Edelstein aufzulösen und du erkennst, dass sie einen Stärkungstrank intus hat:\n", "The figure seems to dissolve within the ruby and you recognize that the person has drunk a strengthening potion:\n")
+        for i=1,#redBottle.attribList do
+            local findAttribute, attributeChanger = attributeEffect:findValue(redBottle.attribList[i])
+            if findAttribute and attributeChanger ~= 5 then
+                local increasedOrDecreased = ""
+                if attributeChanger < 5 then
+                    increaseOrDecrease = common.GetNLS(User, "gesenkte", "decreased")
+                else
+                    increaseOrDecrease = common.GetNLS(User, "gehobene", "increased")
+                end
+                analysisResult = analysisResult .. common.GetNLS(User, "\n" .. redBottle.intensityListDe[attributeChanger] .. " " .. increaseOrDecrease .. " " .. redBottle.attribListDe[i], "\n" .. redBottle.intensityListEn[attributeChanger] .. " " .. increaseOrDecrease .. " " .. redBottle.attribList[i])
+            end
+        end
+    end
+    
+    local callback = function(dialog) end
+    local dialog = MessageDialog(common.GetNLS(User, "Analyseergebnisse", "Results of the analysis"), analysisResult, callback)
+    User:requestMessageDialog(dialog)
+    
+    local newCharge = tonumber(gem:getData("analysingCharges")) - 1
+    if newCharge < 1 then
+        world:erase(gem,1)
+        User:inform("Der Rubin zerspringt in Einzelteile.","The ruby brusts into pieces.",Player.highPriority)
+    else
+        local descriptionDe = "Ein fester, gelblicher Überzug bedeckt Rubin." .. chargeText[newCharge][Player.german]
+        local descriptionEn = "A hard, yellowish film covers the ruby." .. chargeText[newCharge][Player.english]
+        if gem.number == 1 then
+            gem:setData("descriptionDe",descriptionDe)
+            gem:setData("descriptionEn",descriptionEn)
+            gem:setData("analysingCharges",newCharge)
+            world:changeItem(gem)
+        else
+            world:erase(gem,1)
+            User:createItem(46,1,333,{descriptionDe = descriptionDe, descriptionEn = descriptionEn})
+        end
+        User:inform("Ein Sprung bildet sich im Edelstein.","A crack appears in the gem.",Player.highPriority)
+    end
+ 
+ end
+
+
+chargeText = {}
+chargeText[1] = {[Player.german] = " Der Stein droht zu zerbrechen. Überall sind Sprünge im Überzug und dem Stein zu sehen. Teilweise sind schon sachen rausgebrochen.", [Player.english] = " The gem might be ready to burst. There are cracks covering the whole film and gem. Some parts are already broken off."}
+chargeText[2] = {[Player.german] = " Der Überzug und der Stein sind vollkommen von Sprüngen überzogen.", [Player.english] = " The film and the gem are completely covered in cracks."}
+chargeText[3] = {[Player.german] = " Der Überzug ist komplett von Sprüngen bedeckt. Auch der Stein hat viele Risse.", [Player.english] = " The film is completely covered with cracks. The gem itself has also a lot of cracks"}
+chargeText[4] = {[Player.german] = " Der Überzug ist komplett von Sprüngen bedeckt. Auch der Stein hat ein paar Risse.", [Player.english] = " The film is completely covered with cracks. The gem itself has also some cracks."}
+chargeText[5] = {[Player.german] = " Der Überzug ist komplett von Sprüngen bedeckt. Auch der Stein selber scheint einen Riss zu haben.", [Player.english] = " The film is completely covered with cracks. The gem itself seems also to have one."}
+chargeText[6] = {[Player.german] = " Der Überzug hat sehr viele Sprünge.", [Player.english] = " The film has a lot of crack in it."}
+chargeText[7] = {[Player.german] = " Ein paar Sprünge befinden sich im Überzug." , [Player.english] = " The film has several cracks."}
+chargeText[8] = {[Player.german] = " Ein kleiner Sprung befindet sich im Überzug.", [Player.english] = " The film has a small crack."}
+chargeText[9] = {[Player.german] = "", [Player.english] = ""}
+
+
+function IsCharacterAnalysingGem(gem)
+    if gem:getData("analysingCharges") ~= "" then
+        return true
+    end
+    return false
+end
 
 function StockAnalysis(User, gem, brew, ltstate)
 	local analysisResultDE = "Substanz:\nKräutersud\n\nWirkstoffkonzentrationen:\n"

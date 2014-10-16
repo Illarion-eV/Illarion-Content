@@ -147,7 +147,7 @@ end
 
 function M.UseItem(User, SourceItem, ltstate)
     if SourceItem:getData(levelDataKey) == "" then
-	    analysis.CauldronPotionCheck(User, SourceItem, TargetItem, ltstate)
+	    analysis.AnalysisMain(User,SourceItem)
 		return
 	end
 
