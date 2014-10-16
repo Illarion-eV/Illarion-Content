@@ -18,11 +18,11 @@ local common = require("base.common")
 local character = require("base.character")
 local chr_reg = require("lte.chr_reg")
 
-module("monster.base.monstermagic", package.seeall)
+local M = {}
 
 -- This function regenerates monsters slowly
 
-function regeneration( Monster )
+function M.regeneration( Monster )
 
     if ( Monster:increaseAttrib("hitpoints", 0) < 10000) and (math.random(1, 3) == 1) then -- Once each 3rd second in average
         local con = Monster:increaseAttrib("constitution", 0);
@@ -35,18 +35,18 @@ end
 
 -- Spell resistance calculation might need simplification
 
-function SpellResistence( Char )
+function M.SpellResistence( Char )
     local CWil   = Char:increaseAttrib("willpower",0);
     local CEss   = Char:increaseAttrib("essence",0);
     local CSkill = Char:getSkill(Character.magicResistance) ;
-    CSkill = common.Limit( CSkill, 0, MaximalMagicResistance( Char ) );
+    CSkill = common.Limit( CSkill, 0, M.MaximalMagicResistance( Char ) );
 
     local ResTry = common.Limit(CSkill * ( ( CEss*3 + CWil*2 ) / 63 ), 0, 100 );
 
     return common.Limit( math.floor( ResTry * math.random(8,12)/10 ), 0, 100 );
 end
 
-function MaximalMagicResistance( Char )
+function M.MaximalMagicResistance( Char )
     local maxMagicResist = 1.4 * ( Char:increaseAttrib("intelligence",0) + ( Char:increaseAttrib("willpower",0) * 1.75 ) + ( Char:increaseAttrib("essence",0) * 2 ) ) + 5;
     return common.Limit( maxMagicResist, 0, 100 );
 end
@@ -54,7 +54,7 @@ end
 
 -- This function teleports the monster away  few fields
 
-function SuddenWarp(Monster, Enemy, rndTry)
+function M.SuddenWarp(Monster, Enemy, rndTry)
     if rndTry == nil then
         rndTry = 30; -- Once every 30 seconds in average
     end
@@ -79,7 +79,7 @@ end
 
 -- This function heals a random monster
 
-function CastHealing(Monster, HealAmount, rndTry)
+function M.CastHealing(Monster, HealAmount, rndTry)
     if rndTry == nil then
         rndTry = 10; -- Once every 10 seconds in average
     end
@@ -124,7 +124,7 @@ end
 -- This function drains movepoints of a monster's enemy
 -- XXX: CastingTry and Spell Resistence is a mess
 
-function CastParalyze(Monster, Enemy, CastingTry, rndTry)
+function M.CastParalyze(Monster, Enemy, CastingTry, rndTry)
     if rndTry == nil then
         rndTry = 10; -- Once every 10 seconds in average
     end
@@ -137,7 +137,7 @@ function CastParalyze(Monster, Enemy, CastingTry, rndTry)
         return false;
     end
 
-    local CastTry = math.random(CastingTry[1],CastingTry[2]) - SpellResistence( Enemy );
+    local CastTry = math.random(CastingTry[1],CastingTry[2]) - M.SpellResistence( Enemy );
     CastTry = ( CastTry - CastingTry[1] ) / ( CastingTry[2] - CastingTry[1] ) * 100;
 
     local Damage = common.ScaleUnlimited(30, 60, CastTry);
@@ -157,7 +157,7 @@ end
 
 -- Spawn a new monster
 
-function CastMonster(Monster, monsters, rndTry)
+function M.CastMonster(Monster, monsters, rndTry)
     if rndTry == nil then
         rndTry = 30; -- Once every 30 seconds in average
     end
@@ -205,7 +205,7 @@ end
 -- A area damage spell
 -- XXX: CastingTry and Spell Resistence is a mess
 
-function CastLargeAreaMagic(monster, DamageRange, CastingTry, rndTry)
+function M.CastLargeAreaMagic(monster, DamageRange, CastingTry, rndTry)
     if rndTry == nil then
         rndTry = 30; -- Once every 30 seconds in average
     end
@@ -241,11 +241,11 @@ function CastLargeAreaMagic(monster, DamageRange, CastingTry, rndTry)
     local CastTry = 0;
     local Damage = 0;
     for i,target in pairs(targets) do
-        local CastTry = math.random(CastingTry[1],CastingTry[2]) - SpellResistence( target );
+        local CastTry = math.random(CastingTry[1],CastingTry[2]) - M.SpellResistence( target );
         CastTry = ( CastTry - CastingTry[1] ) / ( CastingTry[2] - CastingTry[1] ) * 100;
         local Damage = common.ScaleUnlimited( DamageRange[1], DamageRange[2], CastTry );
         if Damage > 0 then
-            DealMagicDamage(target, Damage);
+            M.DealMagicDamage(target, Damage);
             world:gfx(36, target.pos);
         else
             world:gfx(12, target.pos);
@@ -259,7 +259,7 @@ end
 
 -- A simple fireball spell
 
-function CastFireball(Monster, Enemy, DamageRange, CastingTry, rndTry)
+function M.CastFireball(Monster, Enemy, DamageRange, CastingTry, rndTry)
     if rndTry == nil then
         rndTry = 30; -- Once every 30 seconds in average
     end
@@ -277,11 +277,11 @@ function CastFireball(Monster, Enemy, DamageRange, CastingTry, rndTry)
     common.CreateLine(Monster.pos, Enemy.pos, function(targetPos)
         if world:isCharacterOnField( targetPos ) then
             local Enemy = world:getCharacterOnField( targetPos );
-            local CastTry = math.random(CastingTry[1],CastingTry[2]) - SpellResistence( Enemy );
+            local CastTry = math.random(CastingTry[1],CastingTry[2]) - M.SpellResistence( Enemy );
             CastTry = ( CastTry - CastingTry[1] ) / ( CastingTry[2] - CastingTry[1] ) * 100;
             local Damage = common.ScaleUnlimited( DamageRange[1], DamageRange[2], CastTry );
             if Damage > 0 then
-                DealMagicDamage(Enemy, Damage);
+                M.DealMagicDamage(Enemy, Damage);
                 world:gfx(44, targetPos);
             else
                 world:gfx(12, targetPos);
@@ -302,7 +302,7 @@ end
 
 -- A flame field on the ground
 
-function CastFlamefield(Monster, Enemy, QualityRange, rndTry)
+function M.CastFlamefield(Monster, Enemy, QualityRange, rndTry)
     if rndTry == nil then
         rndTry = 30; -- Once every 30 seconds in average
     end
@@ -344,7 +344,7 @@ end
 -- Fire breathing for dragons
 -- Note: depending on graphicItem it might lso spit poison or ice, or whatever
 
-function FireBreath(Monster, Enemy, graphicItem)
+function M.FireBreath(Monster, Enemy, graphicItem)
     if (firstBreath==nil) then
         NearBreathShape={};
         NearBreathShape[1]={9,9,9,9,9};
@@ -363,11 +363,11 @@ function FireBreath(Monster, Enemy, graphicItem)
             if (Looking==0) then
                 BreathShape=NearBreathShape;
             elseif (Looking==2) then
-                BreathShape=ShapeDrehen(NearBreathShape);
+                BreathShape=M.ShapeDrehen(NearBreathShape);
             elseif (Looking==4) then
-                BreathShape=ShapeDrehen(ShapeDrehen(NearBreathShape));
+                BreathShape=M.ShapeDrehen(M.ShapeDrehen(NearBreathShape));
             elseif (Looking==6) then
-                BreathShape=ShapeDrehen(ShapeDrehen(ShapeDrehen(NearBreathShape)));
+                BreathShape=M.ShapeDrehen(M.ShapeDrehen(M.ShapeDrehen(NearBreathShape)));
             end
             for i=1,5 do
                 for k=1,5 do
@@ -404,7 +404,7 @@ function FireBreath(Monster, Enemy, graphicItem)
     return true
 end
 
-function ShapeDrehen(Shape)
+function M.ShapeDrehen(Shape)
     retShape={};
     for i=1,5 do
         retShape[i]={Shape[5][i],Shape[4][i],Shape[3][i],Shape[2][i],Shape[1][i]};
@@ -415,7 +415,7 @@ end
 
 -- Helper function to handle the Brink of Death
 
-function DealMagicDamage(Target, Damage)
+function M.DealMagicDamage(Target, Damage)
     if character.IsPlayer(Target)
         and character.WouldDie(Target, Damage + 1)
         and not character.AtBrinkOfDeath(Target) then
@@ -434,3 +434,6 @@ function DealMagicDamage(Target, Damage)
         Target:increaseAttrib("hitpoints", -Damage);
     end
 end
+
+return M
+
