@@ -78,7 +78,7 @@ function M.WriteStone(Char,StoneNumber)
     StoneBaseOffset=math.fmod(StoneNumber-1,32);  -- StoneNr inside range
     --Char:inform("Offset: "..StoneBaseOffset);
 	--Char:inform("Base offset: " .. StoneBase .. " Stone Nr "..StoneBaseOffset .. " for stone "..StoneNumber);
-    currentStones=QuestprogressToStones(Char:getQuestProgress(StoneBase));
+    currentStones=M.QuestprogressToStones(Char:getQuestProgress(StoneBase));
     --Char:inform("currently: "..currentStones);
 	Char:setQuestProgress(StoneBase,StoneToQuestprogress(LuaOr(2^StoneBaseOffset,currentStones)));
 	--Char:inform("new: "..(2^StoneBaseOffset).." in total: "..(LuaOr(2^StoneBaseOffset,currentStones)-2^31));
