@@ -99,7 +99,7 @@ reward[500] = {{61,7},{2551,14},{2552,14},{2553,14},{2554,14},{3607,14}} -- item
 reward[750] = {{61,10},{1052,1},{2400,1},{2662,1},{1155,20}} -- items worth 10 gold coins - gold coins, dwarven stormhammer, elven state armour, magical dwarven axe, chicken dish
 
 function M.getReward(Char)
-	local nrStones = CountStones(Char)
+	local nrStones = M.CountStones(Char)
 	if reward[nrStones] ~= nil then
 		if #reward[nrStones] == 1 then
 			Char:createItem(reward[nrStones][1][1],reward[nrStones][1][2],699,nil);
