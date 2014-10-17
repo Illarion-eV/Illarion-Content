@@ -240,7 +240,7 @@ function changeAvatar(User, SourceItem, TargetPos)
 end
 
 function M.UseItem(User, SourceItem)
-	UseItemWithField(User,SourceItem,common.GetFrontPosition(User));
+	M.UseItemWithField(User,SourceItem,common.GetFrontPosition(User));
 end
 
 function M.LookAtItem(User, Item)
