@@ -18,6 +18,8 @@ local common = require("base.common")
 local money = require("base.money")
 --THE EDITABLE PART FOR NEW TOWNS IS SOME LINES BELOW
 
+local M = {}
+
 -- NOTE: town IDs for:
 M.cadomyr = 1
 M.runewick = 2
