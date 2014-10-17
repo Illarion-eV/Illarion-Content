@@ -46,7 +46,7 @@ function M.CheckStone(Char,StoneNumber)
 	--Char:inform("Stonebase: "..StoneBase);
     StoneBaseOffset=math.fmod(StoneNumber-1,32);  -- StoneNr inside range
 	--Char:inform("Offset: "..StoneBaseOffset);
-    HasStones=QuestprogressToStones(Char:getQuestProgress(StoneBase));
+    HasStones=M.QuestprogressToStones(Char:getQuestProgress(StoneBase));
 	--Char:inform("HasStones: "..HasStones);
 	--Char:inform("thisstone: "..2^(StoneBaseOffset));
     GotStone=LuaAnd(2^(StoneBaseOffset),HasStones);
