@@ -628,29 +628,29 @@ end
 -- @return The ground typ as one of the following constants:  GroundType.unknown, GroundType.field, GroundType.forest, GroundType.sand, GroundType.gras, GroundType.rocks, GroundType.water, GroundType.dirt
 function M.GetGroundType(TileID)
     if (TileID == 4) then -- field
-        return GroundType.field;
+        return M.GroundType.field;
     elseif (TileID == 6) then -- water
-        return GroundType.water;
+        return M.GroundType.water;
     elseif (TileID == 9) then -- forest
-        return GroundType.forest;
+        return M.GroundType.forest;
     elseif (TileID == 3 or TileID == 12) then -- sand
-        return GroundType.sand;
+        return M.GroundType.sand;
     elseif (TileID == 11) then -- grass
-        return GroundType.grass;
+        return M.GroundType.grass;
     elseif (TileID == 2 or TileID == 15) then -- rocks
-        return GroundType.rocks;
+        return M.GroundType.rocks;
     elseif (TileID == 8 or TileID == 16) then -- dirt
-        return GroundType.dirt;
+        return M.GroundType.dirt;
     elseif (TileID == 10) then -- snow
-        return GroundType.snow;
+        return M.GroundType.snow;
     end;
 
-    return GroundType.unknown;
+    return M.GroundType.unknown;
 end;
 
 --- This list contains the constants that are returned by GetGroundType.
 -- @class Enumerator
-GroundType = {
+M.GroundType = {
     ["unknown"] = 0,
     ["field"] = 1,
     ["forest"] = 2,
