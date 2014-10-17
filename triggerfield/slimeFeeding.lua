@@ -95,7 +95,7 @@ FEEDING_IN_PROGRESS = false
 
 SIGN_POSITION = position(888,797,0)
 
-function setSign()
+function M.setSign()
 	
 	if world:isItemOnField(SIGN_POSITION) then
 		local signSlimeFeeding = world:getItemOnField(SIGN_POSITION)
@@ -179,4 +179,3 @@ function SlimeCreation()
 end
 
 return M
-

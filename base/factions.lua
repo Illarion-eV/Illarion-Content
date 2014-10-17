@@ -19,11 +19,9 @@ local money = require("base.money")
 --THE EDITABLE PART FOR NEW TOWNS IS SOME LINES BELOW
 
 -- NOTE: town IDs for:
-cadomyr = 1
-runewick = 2
-galmair = 3
-
-module("base.factions", package.seeall)
+M.cadomyr = 1
+M.runewick = 2
+M.galmair = 3
 
 function InitFactionLists()
 
@@ -153,11 +151,11 @@ if not InitFaction then
 --AddAdditionalTownName(German Trigger, English Trigger)
 
 AddTown(0,"None");
-AddTown(cadomyr,"Cadomyr");
+AddTown(M.cadomyr,"Cadomyr");
 --AddTownMainKey(1,2121, 333, 5030);
 --AddTownJailKey(12,2121, 333, 5031);
-AddTown(runewick,"Runewick");
-AddTown(galmair,"Galmair");
+AddTown(M.runewick,"Runewick");
+AddTown(M.galmair,"Galmair");
 
 
 end
@@ -193,20 +191,20 @@ end
 
 	@return - Id of the town
 ]]
-function getMembership(player)
+function M.getMembership(player)
 	return player:getQuestProgress(199);
 end
 
-function isCadomyrCitizen(player)
-    return getMembership(player) == cadomyr
+function M.isCadomyrCitizen(player)
+    return M.getMembership(player) == M.cadomyr
 end
 
-function isGalmairCitizen(player)
-    return getMembership(player) == galmair
+function M.isGalmairCitizen(player)
+    return M.getMembership(player) == M.galmair
 end
 
-function isRunewickCitizen(player)
-    return getMembership(player) == runewick
+function M.isRunewickCitizen(player)
+    return M.getMembership(player) == M.runewick
 end
 
 --[[
@@ -215,7 +213,7 @@ end
 
 	@return - name of the town
 ]]
-function getMembershipByName(player)
+function M.getMembershipByName(player)
 	return getTownNameByID(player:getQuestProgress(199));
 end
 
@@ -225,8 +223,8 @@ end
 	
 	@return - name of the rank
 ]]
-function getRank(player, bothFlag)
-	local Faction = getFaction(player);
+function M.getRank(player, bothFlag)
+	local Faction = M.getFaction(player);
 	if (townRanks[Faction.tid] == nil) then
 		return "[ERROR: no ranks for " .. Faction.tid .. "]";
 	end
@@ -288,7 +286,7 @@ end
 	@return - name of the rank
 ]]
 function getRankName(player, ranknumber)
-	local Faction = getFaction(player);
+	local Faction = M.getFaction(player);
 	
 	if ranknumber > leaderRank then
 		return;
@@ -317,7 +315,7 @@ end
     @return Array - 1. a counter how often a Char changed the town, 2.the Town he belongs to ,
 					3-5 the Ranks/Reputation in the Towns Cadomyr, Runewick and Galmair
 ]]
-function getFaction(originator)
+function M.getFaction(originator)
 	local rankTown;
 
 	--check for special rank
@@ -380,7 +378,7 @@ end
 	@return - special rank was set (true|false)
 ]]
 function setSpecialRank(player, rank) 
-	local Faction = getFaction(player);
+	local Faction = M.getFaction(player);
 	local rankpoints = Faction.rankpoints;
 	local inform;
 	
@@ -390,7 +388,7 @@ function setSpecialRank(player, rank)
 			if rank == 0 then
 				inform = common.GetNLS(player,"Ihr wurdet degradiert und habt nun keinen spziellen Rang mehr.","You have been demoted and have no special rank anymore.")
 			else
-				inform = common.GetNLS(player,"Ihr wurdet befördert und seid nun "..getRank(player)..".","You have been promoted and are now "..getRank(player)..".");
+				inform = common.GetNLS(player,"Ihr wurdet befördert und seid nun "..M.getRank(player)..".","You have been promoted and are now "..M.getRank(player)..".");
 			end
 			player:inform(inform)
 			return true;
@@ -425,7 +423,7 @@ end
 
 ]]
 function setRankpoints(originator, rankpoints)
-	local Faction = getFaction(originator);
+	local Faction = M.getFaction(originator);
 	local rank = Faction.rankTown;
 
 	if Faction.tid == 0 then --outlaw
@@ -474,7 +472,7 @@ end
 --[[
 	inform the player about a rankchange
 	@param rankHigher - true|false (true = player advanced a rank)
-	@param factionValues - array of getFaction(player)
+	@param factionValues - array of M.getFaction(player)
 ]]
 function informPlayerAboutRankchange(player, factionValues, rankHigher)
 	-- collect all data needed for rankchange inform
@@ -502,7 +500,7 @@ end
 	@modifierTextarray - Textarray with the info if the rankpoints were raised/ declined
 ]]
 function informPlayerAboutRankpointchange(player, modifierTextarray)
-	local faction = base.factions.getMembership(player);
+	local faction = M.getMembership(player);
 	local factionLeadersDE = {"Königin Rosaline Edwards", "Erzmagier Elvaine Morgan", "Don Valerio Guilianni"};
 	local factionLeadersEN = {"Queen Rosaline Edwards", "Archmage Elvaine Morgan", "Don Valerio Guilianni"};
 
@@ -602,7 +600,7 @@ function getPlayerRelation(player, townFaction)
 	end
 	
 	local individualRelation = getIndividualPlayerRelation(player, townFaction);	
-    local playerFaction = getFaction(player).tid;
+    local playerFaction = M.getFaction(player).tid;
 	local factionRelation = getFactionRelation(townFaction, playerFaction);
 	
 	if (individualRelation == RELATION_ACCEPTED) then
@@ -698,13 +696,13 @@ end
 function getIndividualPlayerRelation(player, townFaction) 
 	local relationId = -1;
 	local daysId = -1;
-	if (townFaction == cadomyr) then
+	if (townFaction == M.cadomyr) then
 		relationId = 191;
 		daysId = 192;
-	elseif (townFaction == runewick) then
+	elseif (townFaction == M.runewick) then
 		relationId = 193;
 		daysId = 194;
-	elseif (townFaction == galmair) then
+	elseif (townFaction == M.galmair) then
 		relationId = 195;
 		daysId = 196;
 	end
@@ -751,13 +749,13 @@ function setIndividualPlayerRelation(player, townFaction, newRelation, timeLimit
 	
 	local relationId = -1;
 	local daysId = -1;
-	if (townFaction == cadomyr) then
+	if (townFaction == M.cadomyr) then
 		relationId = 191;
 		daysId = 192;
-	elseif (townFaction == runewick) then
+	elseif (townFaction == M.runewick) then
 		relationId = 193;
 		daysId = 194;
-	elseif (townFaction == galmair) then
+	elseif (townFaction == M.galmair) then
 		relationId = 195;
 		daysId = 196;
 	end
@@ -773,3 +771,5 @@ function setIndividualPlayerRelation(player, townFaction, newRelation, timeLimit
 		player:setQuestProgress(daysId, timeLimitInDays);
 	end
 end
+
+return M
