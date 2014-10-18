@@ -21,5 +21,3 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.traps' WHERE itm_id IN (377,378,379,380,381);
 
 local common = require("base.common")
-
-module("item.traps", package.seeall)
