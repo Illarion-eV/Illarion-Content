@@ -36,7 +36,7 @@ language = human
 defaultLanguage = common
 autointroduce = on
 
-author = "Rincewind"/"Rakaya"
+author = "Rincewind, Rakaya"
 
 lookatDE = "Er trägt einfach, abgenutzte Kleidung. Sein Geschicht ist verwittert."
 lookatUS = "He wears battered clothings. His face is rugged."
@@ -173,5 +173,5 @@ cycletext "#me schnieft ein wenig und wischt seine Nase am Hemdärmel ab.", "#me 
 cycletext "#me pfeift eine Melodie.", "#me whistles a melody."
 cycletext "Ich repariere zwar nicht alles, aber vieles", "In fact I repair not everything, but most of the things you have."
 cycletext "Das beste Bier gab es im Fluffy Sheep.", "The best beer you could find in the Fluffy Sheep."
-cycletext "#me schaut sehnsüchtig zu einen Krug Bier, schüttelt aber dann den Kopf", "#me looks to a mug of beer longingly, but shakes his head" 
+cycletext "#me schaut sehnsüchtig zu einen Krug Bier, schüttelt aber dann den Kopf", "#me looks to a mug of beer longingly, but shakes his head"
 cycletext "Borgate, noch ein Glas 'Trolls Baner Karottensaft'.", "Borgate, another glass full of 'Trolls Bane Carrot Juice'."
