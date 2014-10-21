@@ -156,7 +156,7 @@ english, "Moshran" -> state = 1, "One more word about HIM and you will have to v
 
 -- Catching quest triggers
 english, "quest" -> "When you can get new informations about Gobaith, I will be very grateful."
-german, "quest" -> "Wenn du heraufinden könntest, was von Gobaith übrig ist, wäre ich dir sehr dankbar.""
+german, "quest" -> "Wenn du heraufinden könntest, was von Gobaith übrig ist, wäre ich dir sehr dankbar."
 "task", "adventure", "order" -> "When you can get new informations about Gobaith, I will be very grateful."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wenn du heraufinden könntest, was von Gobaith übrig ist, wäre ich dir sehr dankbar."
 
