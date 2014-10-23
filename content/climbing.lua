@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("content.climbing", package.seeall)
+local M = {}
 
 function getWell(User)
 
@@ -42,7 +42,7 @@ function getHole(User)
 end
 
 
-function climbDown(User)
+function M.climbDown(User)
 
 
 	-- climb down a well
