@@ -20,12 +20,12 @@ local lookat = require("base.lookat")
 
 module("monster.base.drop", package.seeall)
 
-function ClearDropping()
+function M.ClearDropping()
     SelItemValue={};
     Catsdone={};
 end
 
-function AddDropItem(ItemID,Amount,Prob,Qual,DataValue,Category)
+function M.AddDropItem(ItemID,Amount,Prob,Qual,DataValue,Category)
     if( Amount == nil ) then
         return false;
     elseif (Amount>0) then
@@ -46,7 +46,7 @@ function AddDropItem(ItemID,Amount,Prob,Qual,DataValue,Category)
     return false;
 end
 
-function RareArmours(Item)
+function M.RareArmours(Item)
 
 	local rand = math.random();
 
@@ -82,7 +82,7 @@ function RareArmours(Item)
 
 end
 
-function RareWeapons(Item)
+function M.RareWeapons(Item)
 
 	local rand = math.random();
 
@@ -118,7 +118,7 @@ function RareWeapons(Item)
 
 end
 
-function Dropping(Char)
+function M.Dropping(Char)
     if ((dropped == nil) or (dropped ~= Char.id)) then
         dropped = Char.id;
         first = true
@@ -175,7 +175,7 @@ end
 	LineOfFlight = Gfx that is shown on the Line between Monster and Target 1= puff of smoke all the way
 	CastingTry = {minSkill, maxSkill} Skillbounds for Monster Casting, influence Damage Output, Sucess against Mag Resi of player etc.]]
 
-function CastMonMagic(Monster,Enemy,rndTry,DamageRange,Effect,Item,AP,LineOfFlight,CastingTry)
+function M.CastMonMagic(Monster,Enemy,rndTry,DamageRange,Effect,Item,AP,LineOfFlight,CastingTry)
 -- Disabled this shit with it's 1000 parameters where all sorts of junk is passed in.
 -- Unless someone rewrites it in a clean way, I _will_ soon delete this for good! -- vilarion
 
@@ -248,7 +248,7 @@ end
 
 --Addition by Estralis: A function that makes a monster speak a random message
 
-function MonsterRandomTalk(Monster,msgs)
+function M.MonsterRandomTalk(Monster,msgs)
 
     if (math.random(1,300) == 1 ) then --once each 5 minutes (300) in average a message is spoken
 
@@ -263,7 +263,7 @@ end
 
 --Added by Faladrion: Preserving the GynkFire as a throwable monster weapon needs fixing :o
 
-function ThrowMolotov(Monster,Enemy,rndTry,AP)
+function M.ThrowMolotov(Monster,Enemy,rndTry,AP)
     if (math.random(1,rndTry)==1) and (Monster.pos.z==Enemy.pos.z) then --does not throw very often, half the frequency of casting monsters
         local hitPos=position( Enemy.pos.x+math.random(-2,2), Enemy.pos.y+math.random(-2,2), Enemy.pos.z );
         local distance = Monster:distanceMetricToPosition( hitPos );
@@ -304,7 +304,7 @@ function ThrowMolotov(Monster,Enemy,rndTry,AP)
     return true;
 end
 
-function HitChar(Posi,Hitpoints)
-		if world:isCharacterOnField(Posi) then world:getCharacterOnField(Posi):increaseAttrib("hitpoints",-Hitpoints) end;
-		end;
+function M.HitChar(Posi,Hitpoints)
+	if world:isCharacterOnField(Posi) then world:getCharacterOnField(Posi):increaseAttrib("hitpoints",-Hitpoints) end;
+end
 
