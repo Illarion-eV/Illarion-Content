@@ -17,10 +17,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("item.general.checks", package.seeall)
+local M = {}
 
 --This function checks whether the user has the necessary level for the item or not
-function checkLevel(User,Item) 
+function M.checkLevel(User,Item) 
 
 	if checkSkill(User,Item) then
 	
@@ -128,3 +128,5 @@ function armourSkillLevel(User,armour)
 		
 	end;
 end;
+
+return M
