@@ -16,10 +16,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 
-module("base.time", package.seeall)
+local M = {}
 
-daysPerMonth = {31,28,31,30,31,30,31,31,30,31,30,31}
-TIMEZONE=-5
+M.daysPerMonth = {31,28,31,30,31,30,31,31,30,31,30,31}
+local TIMEZONE=-5
 
 --[[
 	Converts a unix timestamp into the RL date
@@ -31,12 +31,12 @@ TIMEZONE=-5
 	@return minute - the minute of the given timestamp
 	@return second - the second of the given timestamp
 ]]
-function getRLDateFromUnixTimestamp(timestamp)
+function M.getRLDateFromUnixTimestamp(timestamp)
 	local year=math.floor(1970+ timestamp /31556926)
 	local ds=((1970+timestamp/31556926)-year)*31556926
 	local month=math.floor(ds/2629743)+1
 	local d=math.floor(ds/86400)+1
-	local day=math.floor(((ds/2629743+1)-month)*daysPerMonth[month])+2
+	local day=math.floor(((ds/2629743+1)-month)*M.daysPerMonth[month])+2
 	local DST=0;
 	
 	if(month==3)then 
@@ -53,3 +53,5 @@ function getRLDateFromUnixTimestamp(timestamp)
 	local second= math.floor(math.fmod(math.fmod(timestamp,60*60*24),60))
 	return year, month, day, hour, minute, second;
 end
+
+return M
