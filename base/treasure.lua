@@ -20,9 +20,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local gems = require("item.gems")
 
-module("base.treasure", package.seeall)
+local M = {}
 
-    function GetTreasureName( level, lang, details )
+    function M.GetTreasureName( level, lang, details )
         if details then
             if ( level == 1 ) then
                 return ( lang == 0 and "vergrabene Habseligkeiten von Bauern" or "buried belongings of farmers" );
@@ -252,18 +252,18 @@ module("base.treasure", package.seeall)
         return math.random(6,9)*100+math.random(50,99);
     end
 
-	treasurePositions = {};
-    treasureCategory = {};
+	M.treasurePositions = {};
+    M.treasureCategory = {};
 	treasureMonsters = {};
 	treasureHunters = {}
 
-	function SpawnMonsters( User, level, TargetPosition )
+	function M.SpawnMonsters( User, level, TargetPosition )
 	    TargetPos=TargetPosition
 
 		treasureMonsters[TargetPos] = {};
-        treasureCategory[TargetPos] = {};
-        treasureCategory[TargetPos] = level
-		table.insert(treasurePositions,TargetPos)
+        M.treasureCategory[TargetPos] = {};
+        M.treasureCategory[TargetPos] = level
+		table.insert(M.treasurePositions,TargetPos)
 		treasureHunters[TargetPos] = {}
 
 		local players = world:getPlayersInRangeOf(TargetPos,15)
@@ -295,7 +295,7 @@ module("base.treasure", package.seeall)
         end
     end
 
-    function CheckMonsters( TargetPos)
+    function M.CheckMonsters( TargetPos)
         if not treasureMonsters[TargetPos] then
             return true;
         end
@@ -308,9 +308,9 @@ module("base.treasure", package.seeall)
             end
         end
         treasureMonsters[TargetPos] = nil;
-		for i=1,#treasurePositions do
-			if treasurePositions[i] == TargetPos then
-				table.remove(treasurePositions,i)
+		for i=1,#M.treasurePositions do
+			if M.treasurePositions[i] == TargetPos then
+				table.remove(M.treasurePositions,i)
 				break
 			end
 		end
@@ -330,7 +330,7 @@ module("base.treasure", package.seeall)
         return true;
     end
 
-    function KillMonsters( User )
+    function M.KillMonsters( User )
 
         if not treasureMonsters[User.id] then
 
@@ -352,7 +352,7 @@ module("base.treasure", package.seeall)
         return true;
     end
 
-    function SpawnTreasure( level, posi )
+    function M.SpawnTreasure( level, posi )
         local itemList = GetTreasure( level );
         for i, itemData in pairs(itemList) do
             world:createItemFromId( itemData[1], math.random(1, itemData[2]), posi, true, GetQuality( level ), itemData[3] );
@@ -364,10 +364,10 @@ module("base.treasure", package.seeall)
 		    world:createItemFromId(61,math.random(math.ceil(0.05*level*level),math.ceil(0.15*level*level)),posi,true,333,nil);
 		end
 
-		treasureCategory[posi] = nil
+		M.treasureCategory[posi] = nil
     end
 
-    function getDistance( User, Item )
+    function M.getDistance( User, Item )
         local MapData = {Item:getData("MapPosX"),Item:getData("MapPosY"),Item:getData("MapPosZ")}
 		local RealTarget = common.DataToPosition( MapData );
         local TargetLocation = modPosition( User, RealTarget );
@@ -388,7 +388,7 @@ module("base.treasure", package.seeall)
         end
     end
 
-    function getDirection( User, Item )
+    function M.getDirection( User, Item )
         local RealTarget = common.DataToPosition( {Item:getData("MapPosX"),Item:getData("MapPosY"),Item:getData("MapPosZ")} );
         local TargetLocation = modPosition( User, RealTarget );
         if not TargetLocation then
@@ -435,7 +435,7 @@ module("base.treasure", package.seeall)
     	end
     end
 
-    function createMapData()
+    function M.createMapData()
         local MapPosition = findPosition( );
         if not MapPosition then
             return false;
@@ -444,9 +444,9 @@ module("base.treasure", package.seeall)
         return common.PositionToData( MapPosition )
     end
 
-    function createMap(Char, Value)
+    function M.createMap(Char, Value)
 
-        local MapData = createMapData()
+        local MapData = M.createMapData()
         if not MapData then
             return false
         end
@@ -490,7 +490,7 @@ module("base.treasure", package.seeall)
 
     foundTreasureAt = {};
 
-    function DigForTreasure( User, TargetPosition, maxToFind, diggingOutMsg, foundMessage )
+    function M.DigForTreasure( User, TargetPosition, maxToFind, diggingOutMsg, foundMessage )
         local worked;
         local mapItem;
         local mapItemNr;
@@ -547,7 +547,7 @@ module("base.treasure", package.seeall)
             treasureEff.nextCalled =20;
         end]]
 
-		SpawnMonsters( User, treasureLevel, TargetPosition )
+		M.SpawnMonsters( User, treasureLevel, TargetPosition )
 
 	   if ( mapItemNr > 0 ) then
             local thisBP=User:getBackPack();
@@ -615,3 +615,5 @@ module("base.treasure", package.seeall)
         until not worked;
         return false,0,0;
     end
+    
+return M
