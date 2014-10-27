@@ -24,6 +24,7 @@ author: Lillian
 
 local common = require("base.common")
 local arena = require("base.arena")
+local ranklist = require("base.ranklist")
 
 
 local M = {}
@@ -78,7 +79,7 @@ function M.callEffect(arenaEffect, User)
         local town = arena.arenaInformation[arenaId].town;
         local arenaListName = "ArenaList"..town;
         local points = User:getQuestProgress(quest);
-        base.ranklist.setRanklist(User, arenaListName, points);
+        ranklist.setRanklist(User, arenaListName, points);
 
 
         if arena.arenaInformation[arenaId].newPlayerPos ~= nil then

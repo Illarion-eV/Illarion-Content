@@ -14,9 +14,10 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
+
 local common = require("base.common")
 
-module("base.ranklist", package.seeall)
+local M ={}
 
 --[[
 gets the top 5 of the ranklist. Each ranklist entry contains the
@@ -29,7 +30,7 @@ showMessage = true: displays a messagebox with the ranklist
 showMessage = false: returns the ranklist table
 ]]
 
-function getRanklist(User, listName, showMessage)
+function M.getRanklist(User, listName, showMessage)
 	local found = false;
 	local listEntryString;
 	local listEntryTable = {};
@@ -85,8 +86,8 @@ maxEntries = 5
 Saves the points of the player and if he reached the 
 top five, also saves the new top five.
 ]]
-function setRanklist(User, listName, points) 
-	local ranklist = getRanklist(User, listName, false)
+function M.setRanklist(User, listName, points) 
+	local ranklist = M.getRanklist(User, listName, false)
 	local joinedRanklist = {}
 	
 	--User:inform("ranklist nr: "..#ranklist)
@@ -169,3 +170,5 @@ function isUserInList(User, ranklist)
 	--debug(User.name.." not found")
 	return false, 0;
 end
+
+return M
