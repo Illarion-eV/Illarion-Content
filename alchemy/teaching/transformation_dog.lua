@@ -22,14 +22,14 @@ local base = require("monster.base.base")
 local potionToTeacher = require("triggerfield.potionToTeacher")
 local treasure = require("base.treasure")
 
-module("alchemy.teaching.transformation_dog", package.seeall)
+local M = {}
 
 -- This script handles the teaching of the dog transformation potion.
 
 
 DOG_STATUS = false
 
-function LookAtGrave(User,Item)
+function M.LookAtGrave(User,Item)
 	local graveInscription = common.GetNLS(User, "~Hier ruht Tavalion. Weiser Druide und größter Freund der Tiere.~", "~Here rests Tavalion. A wise druid and the greatest friend of the dogs.~")
 	
 	if not alchemy.CheckIfAlchemist(User) then
@@ -49,7 +49,7 @@ end
 
 LAST_TIME = 0
 
-function UseGrave(User, SourceItem)
+function M.UseGrave(User, SourceItem)
 	
 	if alchemy.CheckIfAlchemist(User) then
 		if DOG_STATUS ~= false or User:getQuestProgress(862) ~= 0 or world:getTime("unix") - LAST_TIME < 120 then 
@@ -65,7 +65,7 @@ function UseGrave(User, SourceItem)
 
 end
 
-function UseSealedScroll(User, SourceItem)
+function M.UseSealedScroll(User, SourceItem)
 	
 	if not alchemy.CheckIfAlchemist(User) or tonumber(SourceItem:getData("learnerId")) ~= User.id then
 		User:inform("Es gelingt dir nicht, das Siegel zu brechen.","You seem unable to break the seal.")
@@ -185,7 +185,7 @@ function ApperanceOfDog(User)
 
 end
 
-function dropDonfblade(dog)
+function M.dropDonfblade(dog)
 
 	dog:talk(Character.say, "#me legt ein großes Donfblatt vor dem Grab ab. Kurz bellt er, bevor er wieder davon geht.",
 	"#me drops a big donf blade infront of the grave. He woofs shortly before he walks back.")
@@ -210,7 +210,7 @@ function dropDonfblade(dog)
 	-- Dog is killed by the death lte.
 end
 
-function LookAtDonfbladeMap(User, Item)
+function M.LookAtDonfbladeMap(User, Item)
 
 	local dir = treasure.getDirection( User, Item )
 	local distance = treasure.getDistance (User, Item )
@@ -227,7 +227,7 @@ function LookAtDonfbladeMap(User, Item)
 	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
 end
 
-function DigForTeachingScroll(User)
+function M.DigForTeachingScroll(User)
 
 	local donfblades = User:getItemList(140)
 	local donfblade = false
@@ -270,3 +270,5 @@ function DigForTeachingScroll(User)
 		return true
 	end
 end
+
+return M

@@ -24,7 +24,6 @@ local kills = require("monster.base.kills")
 local lookat = require("monster.base.lookat")
 local monstermagic = require("monster.base.monstermagic")
 local quests = require("monster.base.quests")
-local transformation_dog = require("alchemy.teaching.transformation_dog")
 
 local M = {}
 
