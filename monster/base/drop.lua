@@ -18,7 +18,7 @@ local common = require("base.common")
 local messages = require("base.messages")
 local lookat = require("base.lookat")
 
-module("monster.base.drop", package.seeall)
+local M = {}
 
 function M.ClearDropping()
     SelItemValue={};
@@ -308,3 +308,4 @@ function M.HitChar(Posi,Hitpoints)
 	if world:isCharacterOnField(Posi) then world:getCharacterOnField(Posi):increaseAttrib("hitpoints",-Hitpoints) end;
 end
 
+return M
