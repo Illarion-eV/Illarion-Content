@@ -59,6 +59,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local class = require("base.class")
+local character = require("base.character")
 local M = {}
 
 
@@ -93,7 +94,7 @@ function M.MoveToField(char)
     for i = 1,AmountFlameFire do    
         if char.pos == triggerFlameFire[i] then
             if char:getQuestProgress(683) == 0 and find == false then
-                base.character.CreateAfterTime (char,100,120,359,nil,1,1,988,998,225,235,0,0,600,600,1,1,nil,4,1,3,nil,nil,1)
+                character.CreateAfterTime (char,100,120,359,nil,1,1,988,998,225,235,0,0,600,600,1,1,nil,4,1,3,nil,nil,1)
                 local adventurers = world:getPlayersInRangeOf(char.pos, 15) 
                             advantureslist[char.name] = adventurers                
                 for i,player in ipairs(advantureslist[char.name]) do
@@ -110,7 +111,7 @@ function M.MoveToField(char)
     for i = 1,AmountFlameIce do    
         if char.pos == triggerFlameIce[i] then
             if char:getQuestProgress(683) == 0 and find == false then
-                base.character.CreateAfterTime (char,100,120,360,nil,1,1,988,998,225,235,0,0,600,600,1,1,nil,5,1,3,nil,nil,1) 
+                character.CreateAfterTime (char,100,120,360,nil,1,1,988,998,225,235,0,0,600,600,1,1,nil,5,1,3,nil,nil,1) 
                 local adventurers = world:getPlayersInRangeOf(char.pos, 15) 
                             advantureslist[char.name] = adventurers                
                 for i,player in ipairs(advantureslist[char.name]) do
@@ -124,7 +125,7 @@ function M.MoveToField(char)
     for i = 1,AmountFlamePoison do    
         if char.pos == triggerFlamePoison[i] then
             if char:getQuestProgress(683) == 0 and find == false then
-                base.character.CreateAfterTime (char,100,120,372,nil,1,1,986,998,211,223,0,0,600,600,1,1,nil,13,1,3,nil,nil,1) 
+                character.CreateAfterTime (char,100,120,372,nil,1,1,986,998,211,223,0,0,600,600,1,1,nil,13,1,3,nil,nil,1) 
                 local adventurers = world:getPlayersInRangeOf(char.pos, 15) 
                             advantureslist[char.name] = adventurers                
                 for i,player in ipairs(advantureslist[char.name]) do

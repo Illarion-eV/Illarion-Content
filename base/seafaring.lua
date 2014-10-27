@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local doors = require("base.doors")
 local factions = require("base.factions")
+local character = require("base.character")
 
 module("base.seafaring", package.seeall)
 
@@ -347,7 +348,7 @@ function piratesGeorgeBackstabRocks(User)
     local monsters = world:getMonstersInRangeOf(position(352,870,1), 30); --get all monster in player range 
     for i,mon in ipairs(monsters) do
         mon:warp(position(5,5,0))
-        base.character.DeathAfterTime(mon,math.random(10,30),0,33,true) --kill all monsters
+        character.DeathAfterTime(mon,math.random(10,30),0,33,true) --kill all monsters
     end
     local travlers = world:getPlayersInRangeOf(User.pos, 40) 
     travlerslist[User.name] = travlers
@@ -403,14 +404,14 @@ function piratesPiratesRule(User)
             else
                 player:inform("Malachín war wohl mit den Piraten. Sie sind in der Lage das Schiff zu überlaufen und setzen alle Anwesenden ihrem Glück mit Cherga aus. Wird Cherga Gnade haben?", "Malachín was obviously with the pirates. They overrun the ship and all passenger have to face Cherga. Will Cherga have mercy on you?")
                 player:warp(targetPos[previousselected[User.name]+1])
-                base.character.DeathAfterTime(player,math.random(10,30),0,27,true) --kill all players
+                character.DeathAfterTime(player,math.random(10,30),0,27,true) --kill all players
             end
         end
     end
     local monsters = world:getMonstersInRangeOf(position(352,870,1), 30); --get all monster in player range
     for i,mon in ipairs(monsters) do
         mon:warp(position(5,5,0))        
-        base.character.DeathAfterTime(mon,100) --kill all monsters
+        character.DeathAfterTime(mon,100) --kill all monsters
     end
     portalcreateforleftovers(User)
 end

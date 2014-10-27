@@ -15,13 +15,13 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 -- Collection of helper functions for the handling of characters
-module("base.character", package.seeall)
+local M = {}
 
 --- Change the hitpoints value of a character.
 -- @param User The characters that receives the hitpoints change.
 -- @param Value The value the hitpoints are changed by.
 -- @return true in case the character is alive after the change of the hitpoints
-function ChangeHP(User, Value)
+function M.ChangeHP(User, Value)
     return User:increaseAttrib("hitpoints", Value) > 0;
 end;
 
@@ -29,7 +29,7 @@ end;
 -- @param User The character that is tested
 -- @param Value The value of hitpoints that are supposed to be reduced
 -- @return true in case the character would survive
-function WouldDie(User, Value)
+function M.WouldDie(User, Value)
     return User:increaseAttrib("hitpoints", 0) <= Value;
 end;
 
@@ -37,21 +37,21 @@ end;
 -- has only one hitpoint left.
 -- @param User The character to check
 -- @return true in case the character is at the brink of death
-function AtBrinkOfDeath(User)
+function M.AtBrinkOfDeath(User)
     return WouldDie(User, 1);
 end;
 
 --- Bring a character to the brink of death. Means that he has only one hitpoint
 -- left.
 -- @param User The character to bring to the brink of death
-function ToBrinkOfDeath(User)
+function M.ToBrinkOfDeath(User)
     ChangeHP(User, 1 - User:increaseAttrib("hitpoints", 0));
 end;
 
 --- Kill a character.
 -- @param User The character to kill
 -- @return true in case the player was killed successfully
-function Kill(User)
+function M.Kill(User)
     ChangeHP(User, -10000);
     return true;
 end;
@@ -59,7 +59,7 @@ end;
 --- Change the movepoints of a character by the value handed over.
 -- @param User The character thats movepoints are supposed to change
 -- @param Value The amount of movepoints that are added
-function ChangeMovepoints(User, Value)
+function M.ChangeMovepoints(User, Value)
 
     User.movepoints = User.movepoints + Value;
 	
@@ -70,7 +70,7 @@ end;
 -- @param Value The amount of fightingpoints that are added
 -- @info This is currently set to change the movepoints also because the
 --          fighting points do not seem to work on the current server
-function ChangeFightingpoints(User, Value)
+function M.ChangeFightingpoints(User, Value)
 
     User.fightpoints = User.fightpoints + Value;
 	
@@ -79,7 +79,7 @@ end;
 --- Check if the character is a player character.
 -- @param User The character to check
 -- @return true in case the character is a player character
-function IsPlayer(User)
+function M.IsPlayer(User)
     return User:getType() == 0;
 end;
 
@@ -89,7 +89,7 @@ end;
 -- @param deathGfx The GFX shown on the characters' death, nil for no GFX
 -- @param deathSound The sound played on characters' death, nil for no sound
 -- @param blood Boolean determining if blood is dropped or not
-function DeathAfterTime(Character,deathAfter,deathGfx,deathSound,blood)
+function M.DeathAfterTime(Character,deathAfter,deathGfx,deathSound,blood)
     local find, myEffect = Character.effects:find(36)
 	if find then 
 	    return
@@ -111,7 +111,7 @@ end
 -- Get a string that is nicely usable for a character reference in the logfile
 -- @param character the character
 -- @return the reference string to the character for the logfile
-function LogText(character)
+function M.LogText(character)
 	return string.format("%s (%u)", character.name, character.id);
 end;
 
@@ -140,7 +140,7 @@ end;
 -- @param createGfx The GFX shown on the created item, nil for no GFX
 -- @param createSound The sound played on created item, nil for no sound
 -- @param createItemFieldAccess Should field of created item be accessable, nil or 0 for accessable
-function CreateAfterTime(Character,createItemTimeB,createItemTimeBB,createItemID,createItemIDB,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemText,createItemPos,createItemFieldAccess)
+function M.CreateAfterTime(Character,createItemTimeB,createItemTimeBB,createItemID,createItemIDB,createItemAmountA,createItemAmountB,createItemXA,createItemXB,createItemYA,createItemYB,createItemZA,createItemZB,createItemQualA,createItemQualB,createAfterA,createAfterB,createGfx,createSound,createRepeatA,createRepeatB,createItemText,createItemPos,createItemFieldAccess)
     local find, myEffect = Character.effects:find(80)
     if find then
         return
@@ -219,3 +219,5 @@ function CreateAfterTime(Character,createItemTimeB,createItemTimeBB,createItemID
         Character.effects:addEffect(myEffect)
     end
 end
+
+return M

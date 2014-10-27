@@ -23,7 +23,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- include base.common for additional functions
 local common = require("base.common")
-local character = require("base.character")
 local id_165_blue_bottle = require("alchemy.item.id_165_blue_bottle")
 local alchemy = require("alchemy.base.alchemy")
 

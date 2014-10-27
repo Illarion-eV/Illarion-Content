@@ -28,6 +28,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local alchemy = require("scheduled.alchemy")
+local character = require("base.character")
 
 module("alchemy.base.missile", package.seeall);
 
@@ -71,7 +72,7 @@ function createSlime(User, Item, targetArea )
         if not world:isCharacterOnField( posi ) then
             slime = world:createMonster(1054,posi,-20);
             if isValidChar(slime) then
-				base.character.DeathAfterTime(slime,(lifeTime+(math.random(10,200))),11,9)
+				character.DeathAfterTime(slime,(lifeTime+(math.random(10,200))),11,9)
 		    end
         end
     end

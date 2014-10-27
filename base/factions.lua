@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local money = require("base.money")
+local character = require("base.character")
 --THE EDITABLE PART FOR NEW TOWNS IS SOME LINES BELOW
 
 local M = {}
@@ -722,7 +723,7 @@ function getIndividualPlayerRelation(player, townFaction)
 	local days, setTime = player:getQuestProgress(daysId);
 	
 	if (relation ~= M.RELATION_FRIENDLY) and (relation ~= M.RELATION_NEUTRAL) and (relation ~= M.RELATION_AGGRESSIVE) and (relation ~= M.RELATION_ACCEPTED) and (relation ~= M.RELATION_HOSTILE) then
-		debug("[Error] "..base.character.LogText(player).." got illegal value for temporary faction relation. Resetting.");
+		debug("[Error] ".. character.LogText(player).." got illegal value for temporary faction relation. Resetting.");
 		player:setQuestProgress(relationId, M.RELATION_NEUTRAL);
 		return M.RELATION_NEUTRAL;
 	end	
