@@ -16,13 +16,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- This scripts contains functions to work with the town treasury
 
-local common = require("base.common")
 
-module("base.townTreasure", package.seeall)
+local M = {}
 
 -- get the treasure of a town
 -- @town Town which treasure we want to get as a string: "Cadomyr"|"Runewick"|"Galmair"
-function GetTownTreasure(town)
+function M.GetTownTreasure(town)
     local foundTreasure, currentTreasure = ScriptVars:find("Treasure"..town)
 	if not foundTreasure then
 		return 0;
@@ -38,7 +37,7 @@ end
 
 -- get the amount of taxes collected to determine the amount of gems to pay out
 -- @town Town which treasure we want to get as a string: "Cadomyr"|"Runewick"|"Galmair"
-function GetPaymentAmount(town)
+function M.GetPaymentAmount(town)
     local foundTreasure, currentTreasure = ScriptVars:find("OldTreasure"..town)
 	if not foundTreasure then
 		currentTreasure = 0
@@ -48,7 +47,7 @@ end
 
 -- get the amount of taxespayers last month to determine the amount of gems to pay out
 -- @town Town which treasure we want to get as a string: "Cadomyr"|"Runewick"|"Galmair"
-function GetTaxpayerNumber(town)
+function M.GetTaxpayerNumber(town)
 	local foundPayers, currentNoPayer = ScriptVars:find("OldPayers"..town)
 	if not foundPayers then
 		return 0;
@@ -59,8 +58,8 @@ end
 -- change treasure of a town
 -- @town Town which treasure we want to change
 -- @amount Amount of money. Positive number = increase treasure; negative number = decrease treasure
-function ChangeTownTreasure(town,amount)
-   local currentTreasure = GetTownTreasure(town)
+function M.ChangeTownTreasure(town,amount)
+   local currentTreasure = M.GetTownTreasure(town)
    local newTreasure = currentTreasure + amount
    ScriptVars:set("Treasure"..town, newTreasure)
    ScriptVars:save()
@@ -68,7 +67,7 @@ end
 
 -- increases the number of taxpayers for this month by 1.
 -- @town Town
-function IncreaseTaxpayerNumber(town)
+function M.IncreaseTaxpayerNumber(town)
 	local foundPayers, currentNoPayer = ScriptVars:find("Payers"..town)
 	if foundPayers then
 		--debug("found payers: "..currentNoPayer)
@@ -88,9 +87,9 @@ end
 --	* Actual number of taxpayers is set to 0
 --@town Town
 --@timeStmp Timestamp of the new month
-function NewMonthSwitch(town,timeStmp)
+function M.NewMonthSwitch(town,timeStmp)
 	--debug("NewMonthSwitch with "..town.." and "..timeStmp);
-	local currentTreasure = GetTownTreasure(town);
+	local currentTreasure = M.GetTownTreasure(town);
 	log(string.format("[tax switch] %s's treasure was reset. Old treasure was %d copper coins",
 				town, currentTreasure))
 	--debug("found treasure"..currentTreasure);
@@ -109,3 +108,5 @@ function NewMonthSwitch(town,timeStmp)
 	end
 	ScriptVars:save()
 end
+
+return M
