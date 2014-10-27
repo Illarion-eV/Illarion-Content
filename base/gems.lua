@@ -14,10 +14,10 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-module("base.gems", package.seeall)
+local M = {}
 
 -- calculates the gem bonus and returns it in %
-function getGemBonus(item)
+function M.getGemBonus(item)
     gemStrength={};
     gemStrength[1]=extractNum(item:getData("magicalEmerald"));
     gemStrength[2]=extractNum(item:getData("magicalRuby"));
@@ -45,3 +45,4 @@ function extractNum(text)
     return tonumber(text)
 end
 
+return M
