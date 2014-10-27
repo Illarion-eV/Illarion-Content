@@ -16,11 +16,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 
-module("monster.base.base", package.seeall)
+local M = {}
 
 -- Checks if a monster archer is in range to its target.
 -- Return true if the monster is an archer AND in range. Otherwise false.
-function isMonsterArcherInRange(archer, target)
+function M.isMonsterArcherInRange(archer, target)
 
 	return false;
 
@@ -29,49 +29,49 @@ end
 
 -- Checks if a monster is within 6 fields to its target. Also slows monster down
 -- Return false if monster should go ahead and aggro the target.
-function isMonsterInRange(monster, target)
+function M.isMonsterInRange(monster, target)
 
 	return false;
 end
 
-noDropList = {}
+M.noDropList = {}
 -- Saves a monster as one that should not drop
-function setNoDrop(theMonster)
+function M.setNoDrop(theMonster)
 
-	noDropList[theMonster.id] = true
+	M.noDropList[theMonster.id] = true
 
 end
 
 -- Check if the the monster is in the noDropList
 -- set keepInList to true in case it should stay in the list (e.g. if it hasn't died yet)
-function checkNoDrop(theMonster, keepInList)
+function M.checkNoDrop(theMonster, keepInList)
 	
-	if noDropList[theMonster.id] then
+	if M.noDropList[theMonster.id] then
 		if not keepInList then
-			noDropList[theMonster.id] = nil
+			M.noDropList[theMonster.id] = nil
 		end
 		return true
 	end
 	return false
 end
 
-unattackableList = {}
-function setUnattackability(theMonster,messageGerman, messageEnglish)
+M.unattackableList = {}
+function M.setUnattackability(theMonster,messageGerman, messageEnglish)
 	
-	unattackableList[theMonster.id] = {}
-	unattackableList[theMonster.id]["messageGerman"] = messageGerman
-	unattackableList[theMonster.id]["messageEnglish"] = messageEnglish
+	M.unattackableList[theMonster.id] = {}
+	M.unattackableList[theMonster.id]["messageGerman"] = messageGerman
+	M.unattackableList[theMonster.id]["messageEnglish"] = messageEnglish
 
 end
 
-function checkUnattackability(theMonster, attacker)
+function M.checkUnattackability(theMonster, attacker)
 	
-	if unattackableList[theMonster.id] then
-		if attacker and unattackableList[theMonster.id]["messageGerman"] and unattackableList[theMonster.id]["messageEnglish"] then
+	if M.unattackableList[theMonster.id] then
+		if attacker and M.unattackableList[theMonster.id]["messageGerman"] and M.unattackableList[theMonster.id]["messageEnglish"] then
 			local currentTime = world:getTime("unix")
-			if (not unattackableList[theMonster.id][attacker.id]) or currentTime - unattackableList[theMonster.id][attacker.id] > 9 then
-				attacker:inform(unattackableList[theMonster.id]["messageGerman"],unattackableList[theMonster.id]["messageEnglish"])
-				unattackableList[theMonster.id][attacker.id] = currentTime
+			if (not M.unattackableList[theMonster.id][attacker.id]) or currentTime - M.unattackableList[theMonster.id][attacker.id] > 9 then
+				attacker:inform(M.unattackableList[theMonster.id]["messageGerman"],M.unattackableList[theMonster.id]["messageEnglish"])
+				M.unattackableList[theMonster.id][attacker.id] = currentTime
 			end
 		end
 		return true
@@ -80,8 +80,10 @@ function checkUnattackability(theMonster, attacker)
 end
 
 -- That function should awalys be called when an unattackable monster dies, in order to clean up the list
-function removeUnattackability(theMonster)
+function M.removeUnattackability(theMonster)
 
-	unattackableList[theMonster.id] = nil
+	M.unattackableList[theMonster.id] = nil
 
 end
+
+return M
