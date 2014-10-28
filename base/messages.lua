@@ -45,7 +45,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --      selected randomly.
 
 local class = require("base.class")
-module("base.messages", package.seeall)
 
 -- create messages class
 Messages = class(function(msg)
@@ -121,3 +120,4 @@ function Messages:__len()
     return self.__count;
 end;
 
+return Messages

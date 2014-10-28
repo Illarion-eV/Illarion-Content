@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 -- monster lookat
-module("monster.base.lookat")
+local M = {}
 
 -- mode is always 0
 function lookAtMonster( player, monster, mode )
@@ -56,3 +56,5 @@ function getHPText(HP,language)
     local interval=math.ceil(HP/1700);
     return HPText[language][interval];
 end
+
+return M
