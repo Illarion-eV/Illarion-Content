@@ -16,5 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 
-module("item.id_2952_plate", package.seeall)
+local M = {}
+
+return M
 
