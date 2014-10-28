@@ -17,7 +17,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- base script for patrolling npcs or monsters
 local waypoints = require("npc.base.waypoints")
 local doors = require("base.doors")
-module("npc.base.patrol", package.seeall)
+
+local M = {}
 
 -- functions for subscription:
 -- AbortRoute(guard)
@@ -269,3 +270,5 @@ end
 function getPos(pos)
 	return pos.x ..",".. pos.y;
 end
+
+return M
