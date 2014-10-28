@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-module("base.hair", package.seeall)
+local M = {}
 
 humanHairStyles = {
 	{
@@ -95,8 +95,8 @@ orcHairStyles = {
 	}
 }
 
-hairStyles = {dwarfHairStyles, halfingHairStyles, elfHairStyles, orcHairStyles}
-hairStyles[0] = humanHairStyles;
+M.hairStyles = {dwarfHairStyles, halfingHairStyles, elfHairStyles, orcHairStyles}
+M.hairStyles[0] = humanHairStyles;
 
 
 --Beard sytles by race
@@ -119,5 +119,7 @@ dwarfBeard = {
 	{id=4 , nameDe="Rauschebart", nameEn="Long thick beard"}
 }
 
-beardStyles = {dwarfBeard}
-beardStyles[0] = humanBeard;
+M.beardStyles = {dwarfBeard}
+M.beardStyles[0] = humanBeard;
+
+return M
