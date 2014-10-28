@@ -18,9 +18,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local licence = require("base.licence")
-module("alchemy.base.alchemy", package.seeall)
+local M = {}
 
-function InitAlchemy()
+function M.InitAlchemy()
     InitPlantSubstance()
 	InitPotions()
 end
@@ -99,7 +99,7 @@ function setPlantSubstance(id, plusSubstance, minusSubstance)
 	plantList[id] = {plusSubstance, minusSubstance}
 end
 
-function getPlantSubstance(id, User)
+function M.getPlantSubstance(id, User)
     if not plantList[id] then
 	    return false
 	end
@@ -116,7 +116,7 @@ end
 -- the list of possible potions effects
 potionsList = {};
 ingredientsList = {}
-potionName = {}
+M.potionName = {}
 idList = {}
 
 -- on reload, this function is called
@@ -130,99 +130,99 @@ idList = {}
 function InitPotions()
 
 -- body liquid potions
-    potionName[10]	= {"Dragon Breath","Drachenatem"}
+    M.potionName[10]	= {"Dragon Breath","Drachenatem"}
 	setPotion(10, 450, 58325631, 755, 755, 141, 141, 141, 146, false, false) -- done
 -- body liquid end
 
 -- bombs
-    potionName[301]	= {"Small Explosion","Kleine Explosion"}
+    M.potionName[301]	= {"Small Explosion","Kleine Explosion"}
 	setPotion(301, 446, 34374416, 755, 755, 755, 146, 141 ,141, 141, 133)
-	potionName[302]	= {"Medium Explosion","Mittlere Explosion"}
+	M.potionName[302]	= {"Medium Explosion","Mittlere Explosion"}
 	setPotion(302, 446, 44156426, 755, 755, 146, 146, 141 ,141, 141, 133)
-	potionName[304]	= {"Big Explosion","Große Explosion"}
+	M.potionName[304]	= {"Big Explosion","Große Explosion"}
 	setPotion(304, 446, 22446419, 755, 146, 146, 146, 141 ,141, 141, 133) -- done
-	potionName[306]	= {"Small Mana Annihilator","Kleiner Manaannihilator"}
+	M.potionName[306]	= {"Small Mana Annihilator","Kleiner Manaannihilator"}
 	setPotion(306, 446, 22856451, 138, 138, 138, 146, 134, 134, 134, 133)
-	potionName[307]	= {"Medium Mana Annihilator","Mittlerer Manaannihilator"}
+	M.potionName[307]	= {"Medium Mana Annihilator","Mittlerer Manaannihilator"}
 	setPotion(307, 446, 21957432, 138, 138, 146, 146, 134, 134, 134, 133)
-	potionName[309]	= {"Big Mana Annihilator","Großer Manaannihilator"}
+	M.potionName[309]	= {"Big Mana Annihilator","Großer Manaannihilator"}
 	setPotion(309, 446, 22955451, 138, 146, 146, 146, 134, 134, 134, 133)
-	potionName[311]	= {"Small Nutrition Annihilator","Kleiner Nahrungsannihilator"}
+	M.potionName[311]	= {"Small Nutrition Annihilator","Kleiner Nahrungsannihilator"}
 	setPotion(311, 446, 26843821, 754, 754, 754, 146, 135, 135, 135, 133)
-	potionName[312]	= {"Medium Nutrition Annihilator","Mittlerer Nahrungsannihilator"}
+	M.potionName[312]	= {"Medium Nutrition Annihilator","Mittlerer Nahrungsannihilator"}
 	setPotion(312, 446, 15873523, 754, 754, 146, 146, 135, 135, 135, 133)
-	potionName[314]	= {"Big Nutrition Annihilator","Großer Nahrungsannihilator"}
+	M.potionName[314]	= {"Big Nutrition Annihilator","Großer Nahrungsannihilator"}
 	setPotion(314, 446, 15783424, 754, 146, 146, 146, 135, 135, 135, 133)
-	potionName[316]	= {"Small Slime Barrier","Kleine Schleimbarriere"}
+	M.potionName[316]	= {"Small Slime Barrier","Kleine Schleimbarriere"}
 	setPotion(316, 446, 86386546, 140, 140, 140, 152, 146, false, false, false)
-	potionName[317]	= {"Big Slime Barrier","Große Schleimbarriere"}
+	M.potionName[317]	= {"Big Slime Barrier","Große Schleimbarriere"}
 	setPotion(317, 446, 76576456, 140, 140, 140, 140, 152, 152, 146, 146)
-	potionName[318]	= {"Lennier's Dream","Lenniers Traum"}
+	M.potionName[318]	= {"Lennier's Dream","Lenniers Traum"}
 	setPotion(318, 446, 57932798, 765,146,146,146,148,15,151,764)
 -- bombs end
 
 -- quality raiser
-	potionName[400] = {"Quality Raiser for Potions based on Emerald Powder","Qualitätsheber für Tränke auf Smaragdstaubbasis"}
+	M.potionName[400] = {"Quality Raiser for Potions based on Emerald Powder","Qualitätsheber für Tränke auf Smaragdstaubbasis"}
 	setPotion(400, 448, 69487354, 763, 768, 133, 133, 133, false, false, false)
-    potionName[401] = {"Quality Raiser for Potions based on Ruby Powder","Qualitätsheber für Tränke auf Rubinstaubbasis"}
+    M.potionName[401] = {"Quality Raiser for Potions based on Ruby Powder","Qualitätsheber für Tränke auf Rubinstaubbasis"}
 	setPotion(401, 448, 64966357, 763, 758, 133, 133, 133, false, false, false)
-	potionName[402] = {"Quality Raiser for Potions based on Sapphire Powder","Qualitätsheber für Tränke auf Saphirstaubbasis"}
+	M.potionName[402] = {"Quality Raiser for Potions based on Sapphire Powder","Qualitätsheber für Tränke auf Saphirstaubbasis"}
 	setPotion(402, 448, 62497378, 763, 146, 133, 133, 133, false, false, false)
-	potionName[403] = {"Quality Raiser for Potions based on Obsidian Powder","Qualitätsheber für Tränke auf Obsidianstaubbasis"}
+	M.potionName[403] = {"Quality Raiser for Potions based on Obsidian Powder","Qualitätsheber für Tränke auf Obsidianstaubbasis"}
 	setPotion(403, 448, 64489753, 763, 766, 133, 133, 133, false, false, false)
-	potionName[404] = {"Quality Raiser for Potions based on Amethyst Powder","Qualitätsheber für Tränke auf Amethyststaubbasis"}
+	M.potionName[404] = {"Quality Raiser for Potions based on Amethyst Powder","Qualitätsheber für Tränke auf Amethyststaubbasis"}
 	setPotion(404, 448, 67645954, 763, 152, 133, 133, 133, false, false, false)
-	potionName[405] = {"Quality Raiser for Potions based on Topaz Powder","Qualitätsheber für Tränke auf Topasstaubbasis"}
+	M.potionName[405] = {"Quality Raiser for Potions based on Topaz Powder","Qualitätsheber für Tränke auf Topasstaubbasis"}
 	setPotion(405, 448, 64873297, 763, 761, 133, 133, 133, false, false, false)
-	potionName[406] = {"Quality Raiser for Potions based on Diamond Powder","Qualitätsheber für Tränke auf Diamantstaubbasis"}
+	M.potionName[406] = {"Quality Raiser for Potions based on Diamond Powder","Qualitätsheber für Tränke auf Diamantstaubbasis"}
 	setPotion(406, 448, 64763659, 763, 756, 133, 133, 133, false, false, false)
 -- quality raiser end
 
 -- transformation potions
-	potionName[500] = {"Shape Shifter Male Human","Verwandler Männlicher Mensch"}
+	M.potionName[500] = {"Shape Shifter Male Human","Verwandler Männlicher Mensch"}
 	setPotion(500, 449, 64135842, 766, 161, 754, 752, false, false, false, false)
-	potionName[501] = {"Shape Shifter Female Human","Verwandler Weiblicher Mensch"}
+	M.potionName[501] = {"Shape Shifter Female Human","Verwandler Weiblicher Mensch"}
 	setPotion(501, 449, 64135842, 766, 162, 754, 752, false, false, false, false)
-	potionName[510] = {"Shape Shifter Male Dwarf","Verwandler Männlicher Zwerg"}
+	M.potionName[510] = {"Shape Shifter Male Dwarf","Verwandler Männlicher Zwerg"}
 	setPotion(510, 449, 74385866, 766, 161, 762, 759, false, false, false, false)
-	potionName[511] = {"Shape Shifter Female Dwarf","Verwandler Weiblicher Zwerg"}
+	M.potionName[511] = {"Shape Shifter Female Dwarf","Verwandler Weiblicher Zwerg"}
 	setPotion(511, 449, 74385866, 766, 162, 762, 759, false, false, false, false)
-	potionName[520] = {"Shape Shifter Male Halfling","Verwandler Männlicher Halbling"}
+	M.potionName[520] = {"Shape Shifter Male Halfling","Verwandler Männlicher Halbling"}
 	setPotion(520, 449, 84452136, 766, 161, 765, 151, false, false, false, false)
-	potionName[521] = {"Shape Shifter Female Halfling","Verwandler Weiblicher Halbling"}
+	M.potionName[521] = {"Shape Shifter Female Halfling","Verwandler Weiblicher Halbling"}
 	setPotion(521, 449, 84452136, 766, 162, 765, 151, false, false, false, false)
-	potionName[530] = {"Shape Shifter Male Elf","Verwandler Männlicher Elf"}
+	M.potionName[530] = {"Shape Shifter Male Elf","Verwandler Männlicher Elf"}
 	setPotion(530, 449, 87372749, 766, 161, 756, 753, false, false, false, false)
-	potionName[531] = {"Shape Shifter Female Elf","Verwandler Weiblicher Elf"}
+	M.potionName[531] = {"Shape Shifter Female Elf","Verwandler Weiblicher Elf"}
 	setPotion(531, 449, 87372749, 766, 162, 756, 753, false, false, false, false)
-	potionName[540] = {"Shape Shifter Male Orc","Verwandler Männlicher Ork"}
+	M.potionName[540] = {"Shape Shifter Male Orc","Verwandler Männlicher Ork"}
 	setPotion(540, 449, 63584498, 766, 161, 764, 763, false, false, false, false)
-	potionName[541] = {"Shape Shifter Female Orc","Verwandler Weiblicher Ork"}
+	M.potionName[541] = {"Shape Shifter Female Orc","Verwandler Weiblicher Ork"}
 	setPotion(541, 449, 63584498, 766, 162, 764, 763, false, false, false, false)
-	potionName[550] = {"Shape Shifter Male Lizardman","Verwandler Männlicher Echsenmensch"}
+	M.potionName[550] = {"Shape Shifter Male Lizardman","Verwandler Männlicher Echsenmensch"}
 	setPotion(550, 449, 23417592, 766, 161, 760, 767, false, false, false, false)
-	potionName[551] = {"Shape Shifter Female Echsenmensch","Verwandler Weiblicher Echsenmensch"}
+	M.potionName[551] = {"Shape Shifter Female Echsenmensch","Verwandler Weiblicher Echsenmensch"}
 	setPotion(551, 449, 23417592, 766, 162, 760, 767, false, false, false, false)
-	potionName[560] = {"Shape Shifter Dog","Verwandler Hund"}
+	M.potionName[560] = {"Shape Shifter Dog","Verwandler Hund"}
 	setPotion(560, 449, 31397191, 766, 152, 81, 81, 762, false, false, false)
 -- transformation potions end
 
 --language potions
-	potionName[600] = {"Language Potion Common Language","Sprachtrank Handelssprache"}
+	M.potionName[600] = {"Language Potion Common Language","Sprachtrank Handelssprache"}
 	setPotion(600, 452, 26727482, 756, 765, 135, false, false, false, false, false)
-    potionName[601] = {"Language Potion Human Language","Sprachtrank Menschensprache"}
+    M.potionName[601] = {"Language Potion Human Language","Sprachtrank Menschensprache"}
 	setPotion(601, 452, 28751379, 756, 765, 769, false, false, false, false, false)
-	potionName[602] = {"Language Potion Dwarf Language","Sprachtrank Zwergensprache"}
+	M.potionName[602] = {"Language Potion Dwarf Language","Sprachtrank Zwergensprache"}
 	setPotion(602, 452, 23369487, 756, 765, 762, false, false, false, false, false)
-	potionName[603] = {"Language Potion Elf Language","Sprachtrank Elfensprache"}
+	M.potionName[603] = {"Language Potion Elf Language","Sprachtrank Elfensprache"}
 	setPotion(603, 452, 51397674, 756, 765, 138, false, false, false, false, false)
-	potionName[604] = {"Language Potion Lizard Language","Sprachtrank Echsensprache"}
+	M.potionName[604] = {"Language Potion Lizard Language","Sprachtrank Echsensprache"}
 	setPotion(604, 452, 85612648, 756, 765, 761, false, false, false, false, false)
-	potionName[605] = {"Language Potion Orc Language","Sprachtrank Orksprache"}
+	M.potionName[605] = {"Language Potion Orc Language","Sprachtrank Orksprache"}
 	setPotion(605, 452, 58641767, 756, 765, 764, false, false, false, false, false)
-	potionName[606] = {"Language Potion Halfling Language","Sprachtrank Halblingssprache"}
+	M.potionName[606] = {"Language Potion Halfling Language","Sprachtrank Halblingssprache"}
 	setPotion(606, 452, 56612824, 756, 765, 768, false, false, false, false, false)
-	potionName[607] = {"Language Potion Ancient Language","Sprachtrank Antike Sprache"}
+	M.potionName[607] = {"Language Potion Ancient Language","Sprachtrank Antike Sprache"}
 	setPotion(607, 452, 25796346, 756, 756, 765, 152, false, false, false, false)
 -- language potions end
 
@@ -277,7 +277,7 @@ function getPotion(...)
 	return currentList[0];
 end;
 
-function getIngredients(effectId)
+function M.getIngredients(effectId)
 
     if ingredientsList[effectId] == nil then
 	    return
@@ -290,45 +290,45 @@ end
 gemDustList  = {"non",446      ,447 ,448    ,449       ,450     ,451  ,452}
 gemList      = {"non",284      ,46  ,45     ,283       ,197     ,198  ,285}
 cauldronList = {1012 ,1011     ,1016,1013   ,1009      ,1015    ,1018 ,1017}
-bottleList   = {331  ,327      ,59  ,165    ,329       ,166     ,167  ,330}
+M.bottleList   = {331  ,327      ,59  ,165    ,329       ,166     ,167  ,330}
 
 --Qualitätsbezeichnungen
-qListDe={"fürchterliche","schlechte","schwache","leicht schwache","durchschnittliche","gute","sehr gute","großartige","hervorragende"};
-qListEn={"awful","bad","weak","slightly weak","average","good","very good","great","outstanding"};
+M.qListDe={"fürchterliche","schlechte","schwache","leicht schwache","durchschnittliche","gute","sehr gute","großartige","hervorragende"};
+M.qListEn={"awful","bad","weak","slightly weak","average","good","very good","great","outstanding"};
 
 -- Liste der Wirkstoffnamen
-wirkstoff = {};
-wirkung_de = {};
-wirkung_en = {};
+M.wirkstoff = {};
+M.wirkung_de = {};
+M.wirkung_en = {};
 
-wirkstoff[1] = "Adrazin";
-wirkstoff[2] = "Illidrium";
-wirkstoff[3] = "Caprazin";
-wirkstoff[4] = "Hyperborelium";
-wirkstoff[5] = "Echolon";
-wirkstoff[6] = "Dracolin";
-wirkstoff[7] = "Orcanol";
-wirkstoff[8] = "Fenolin";
+M.wirkstoff[1] = "Adrazin";
+M.wirkstoff[2] = "Illidrium";
+M.wirkstoff[3] = "Caprazin";
+M.wirkstoff[4] = "Hyperborelium";
+M.wirkstoff[5] = "Echolon";
+M.wirkstoff[6] = "Dracolin";
+M.wirkstoff[7] = "Orcanol";
+M.wirkstoff[8] = "Fenolin";
 
-wirkung_de[1] = "gesättigte Anreicherung";
-wirkung_de[2] = "eine sehr ausgeprägte Menge";
-wirkung_de[3] = "merklich";
-wirkung_de[4] = "schwache Konzentration";
-wirkung_de[5] = "kein";
-wirkung_de[6] = "geringe Mengen";
-wirkung_de[7] = "etwas";
-wirkung_de[8] = "konzentriertes";
-wirkung_de[9] = "hoch toxisches";
+M.wirkung_de[1] = "gesättigte Anreicherung";
+M.wirkung_de[2] = "eine sehr ausgeprägte Menge";
+M.wirkung_de[3] = "merklich";
+M.wirkung_de[4] = "schwache Konzentration";
+M.wirkung_de[5] = "kein";
+M.wirkung_de[6] = "geringe Mengen";
+M.wirkung_de[7] = "etwas";
+M.wirkung_de[8] = "konzentriertes";
+M.wirkung_de[9] = "hoch toxisches";
 
-wirkung_en[1] = "saturated solution";
-wirkung_en[2] = "dominant marked";
-wirkung_en[3] = "distinctive";
-wirkung_en[4] = "slightly marked";
-wirkung_en[5] = "no";
-wirkung_en[6] = "slightly pronounced";
-wirkung_en[7] = "enriched";
-wirkung_en[8] = "dominant pronounced";
-wirkung_en[9] = "highly toxic";
+M.wirkung_en[1] = "saturated solution";
+M.wirkung_en[2] = "dominant marked";
+M.wirkung_en[3] = "distinctive";
+M.wirkung_en[4] = "slightly marked";
+M.wirkung_en[5] = "no";
+M.wirkung_en[6] = "slightly pronounced";
+M.wirkung_en[7] = "enriched";
+M.wirkung_en[8] = "dominant pronounced";
+M.wirkung_en[9] = "highly toxic";
 
 --Wirkungen auf Attribute
 --Reihe 1
@@ -357,7 +357,7 @@ taste[0]   ={"fruchtig","herb"     ,"bitter"    ,"faulig"      ,"sauer"       ,"
 taste[1]   ={"fruity"  ,"tartly"   ,"bitter"    ,"putrefactive","sour"        ,"salty"  ,"hot"      ,"sweet"};
 
 -- -------------------------------------------------------------------------------
-function CheckAttrRow(User,dataZList)
+function M.CheckAttrRow(User,dataZList)
 
    retVal = true
    if dataZList[9] == 0 then
@@ -369,7 +369,7 @@ function CheckAttrRow(User,dataZList)
    return retVal
 end
 -- -------------------------------------------------------------------------------
-function ImpactRow1(User,dataZList)
+function M.ImpactRow1(User,dataZList)
 
   for i=1,8 do
 
@@ -398,7 +398,7 @@ function ImpactRow1(User,dataZList)
   --User:inform("debug 13")
 end
 -- --------------------------------------------------------------------------------
-function SplitData(User,theData)
+function M.SplitData(User,theData)
     local myData
 	dataZList = {}
 	for i=1,8 do
@@ -409,7 +409,7 @@ function SplitData(User,theData)
 	return dataZList
 end
 
-function DataListToNumber(dataList)
+function M.DataListToNumber(dataList)
 	theData = 0
 	for i=1,8 do
 		theData = theData + dataList[i]*10^(8-i)
@@ -417,10 +417,10 @@ function DataListToNumber(dataList)
 	return theData
 end
 
-function SubstanceDatasToList(theItem)
+function M.SubstanceDatasToList(theItem)
     local substanceList = {}
 	for i=1,8 do
-	    local concentration = tonumber(theItem:getData(wirkstoff[i].."Concentration"))
+	    local concentration = tonumber(theItem:getData(M.wirkstoff[i].."Concentration"))
 		if concentration ~= nil then
 			table.insert(substanceList,concentration)
 		end
@@ -431,7 +431,7 @@ end
 
 -- probably, works only with lists containing no other lists
 -- todo: make it also possibel to check lists containing list(s)
-function CheckListsIfEqual(ListOne,ListTwo)
+function M.CheckListsIfEqual(ListOne,ListTwo)
     local check = true
 	if #ListOne == #ListTwo then
 	    for i=1,#ListOne do
@@ -447,7 +447,7 @@ function CheckListsIfEqual(ListOne,ListTwo)
 end
 
 
-function generateTasteMessage(Character,dataZList)
+function M.generateTasteMessage(Character,dataZList)
     local textDe = "Der Trank schmeckt ";
 	local textEn = "The potion tastes ";
     local anyTaste = false;
@@ -492,7 +492,7 @@ function generateTasteMessage(Character,dataZList)
     common.InformNLS(Character,textDe,textEn);
 end
 
-function CheckIfGemDust(itemId)
+function M.CheckIfGemDust(itemId)
 local retVal = nil;
 for i,checkId in pairs(gemDustList) do
     if itemId == checkId then
@@ -505,27 +505,27 @@ end
 
 FOOD_NEEDED = 250
 
-function checkFood(User)
+function M.checkFood(User)
 	if not common.FitForHardWork(User, FOOD_NEEDED) then
 		return false
 	end
 	return true
 end
 
-function lowerFood(User)
+function M.lowerFood(User)
 	common.GetHungry(User, FOOD_NEEDED)
 end
 
-function CheckIfPlant(itemId)
+function M.CheckIfPlant(itemId)
 	if plantList[itemId] ~= nil or itemId == 157 then
 		return true
 	end
 	return false
 end
 
-function CheckIfPotionBottle(SourceItem, User)
+function M.CheckIfPotionBottle(SourceItem, User)
 local retVal = nil;
-for i,checkId in pairs(bottleList) do
+for i,checkId in pairs(M.bottleList) do
     theItem = SourceItem
 	if theItem.id == checkId then
     retVal = theItem
@@ -535,7 +535,7 @@ end
 return retVal
 end
 
-function GetCauldronInfront(User,Item)
+function M.GetCauldronInfront(User,Item)
     local retVal = nil
     Item = common.GetFrontItem(User)
 	if (Item ~= nil) and (Item.id >= 1008) and (Item.id <= 1018) then
@@ -544,7 +544,7 @@ function GetCauldronInfront(User,Item)
 	return retVal
 end
 
-function CheckIfAlchemist(User)
+function M.CheckIfAlchemist(User)
     if (User:getMagicType() ~= 3) then
 	    return false
 	else
@@ -552,7 +552,7 @@ function CheckIfAlchemist(User)
     end
 end
 
-function getBottleFromEffect(effectId)
+function M.getBottleFromEffect(effectId)
 -- won't work with NORMAL primar and secundar attribute potins, since the both have 11111111 - 99999999 as a range for effect ids
     if (effectId >= 1) and (effectId <= 99) then
 	    return 166
@@ -572,21 +572,21 @@ function getBottleFromEffect(effectId)
     return
 end
 
-function RemoveEssenceBrew(Item)
+function M.RemoveEssenceBrew(Item)
     for i=1,8 do
 	    Item:setData("essenceHerb"..i,"")
 	end
 end
 
-function RemoveStock(Item)
+function M.RemoveStock(Item)
     for i=1,8 do
-	    Item:setData(wirkstoff[i].."Concentration","")
+	    Item:setData(M.wirkstoff[i].."Concentration","")
 	end
 end
 
-function RemoveAll(Item)
-    RemoveEssenceBrew(Item)
-	RemoveStock(Item)
+function M.RemoveAll(Item)
+    M.RemoveEssenceBrew(Item)
+	M.RemoveStock(Item)
 	Item:setData("potionEffectId","")
 	Item:setData("potionQuality","")
 	Item:setData("filledWith","")
@@ -597,7 +597,7 @@ function RemoveAll(Item)
 	end
 end
 
-function EmptyBottle(User,Bottle)
+function M.EmptyBottle(User,Bottle)
     if math.random(1,20) == 1 then
 	   world:erase(Bottle,1) -- bottle breaks
 	   common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
@@ -606,7 +606,7 @@ function EmptyBottle(User,Bottle)
 		    User:createItem(164,1,333,nil)
 			world:erase(Bottle,1)
 		else
-			RemoveAll(Bottle)
+			M.RemoveAll(Bottle)
 			Bottle.id = 164
 			Bottle.quality = 333
 			world:changeItem(Bottle)
@@ -614,10 +614,10 @@ function EmptyBottle(User,Bottle)
 	end
 end
 
-function FillFromTo(fromItem,toItem)
+function M.FillFromTo(fromItem,toItem)
 -- copies all datas (and quality and id) from fromItem to toItem
 	for i=1,8 do
-	    toItem:setData(wirkstoff[i].."Concentration",fromItem:getData(wirkstoff[i].."Concentration"))
+	    toItem:setData(M.wirkstoff[i].."Concentration",fromItem:getData(M.wirkstoff[i].."Concentration"))
 		toItem:setData("essenceHerb"..i,fromItem:getData("essenceHerb"..i))
 	end
     toItem:setData("filledWith",fromItem:getData("filledWith"))
@@ -633,9 +633,9 @@ function FillFromTo(fromItem,toItem)
 	end
     local reGem, reDust, reCauldron, reBottle
 	if fromItem.id >= 1008 and fromItem.id <= 1018 then
-	   reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, fromItem.id, nil)
+	   reGem, reDust, reCauldron, reBottle = M.GemDustBottleCauldron(nil, nil, fromItem.id, nil)
 	else
-	    reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, fromItem.id)
+	    reGem, reDust, reCauldron, reBottle = M.GemDustBottleCauldron(nil, nil, nil, fromItem.id)
 	end
 	if toItem.id >= 1008 and toItem.id <= 1018 then
 		toItem.id = reCauldron
@@ -645,7 +645,7 @@ function FillFromTo(fromItem,toItem)
     world:changeItem(toItem)
 end
 
-function CheckExplosionAndCleanList(User)
+function M.CheckExplosionAndCleanList(User)
    local check = false
 	if USER_EXPLOSION_LIST then
 		if USER_EXPLOSION_LIST[User.id] == true then
@@ -656,7 +656,7 @@ function CheckExplosionAndCleanList(User)
     return check
 end
 
-function CauldronDestruction(User,cauldron,effectId)
+function M.CauldronDestruction(User,cauldron,effectId)
     if USER_EXPLOSION_LIST == nil then -- note: it's global!
 		USER_EXPLOSION_LIST = {}
 	end
@@ -685,12 +685,12 @@ function CauldronDestruction(User,cauldron,effectId)
 	    end
 	end
 	USER_EXPLOSION_LIST[User.id] = true
-	RemoveAll(cauldron)
+	M.RemoveAll(cauldron)
 	cauldron.id = 1008
 	world:changeItem(cauldron)
 end
 
-function SetQuality(User,Item)
+function M.SetQuality(User,Item)
 -- skill has an influence of 75% on the mean
     local skillQuali = User:getSkill(Character.alchemy)*0.75
 -- attributes have an influence of 25% on the mean (if the sum of the attributes is 54 or higher, we reach the maixmum influence)
@@ -705,7 +705,7 @@ function SetQuality(User,Item)
 	Item:setData("potionQuality",quality*100+99)-- duarability is useless, we set it anway
 end
 
-function GemDustBottleCauldron(gemId, gemdustId, cauldronId, bottleId)
+function M.GemDustBottleCauldron(gemId, gemdustId, cauldronId, bottleId)
     -- this function returns matching gem id, gemdust id, cauldron id and bottle id
     -- only one parameter is needed; if there are more than one, only the first one will be taken into account
     local myList
@@ -720,7 +720,7 @@ function GemDustBottleCauldron(gemId, gemdustId, cauldronId, bottleId)
 	    myList = cauldronList
 		myValue = cauldronId
     elseif bottleId then
-        myList = bottleList
+        myList = M.bottleList
 		myValue = bottleId
     else
 	    return
@@ -732,7 +732,7 @@ function GemDustBottleCauldron(gemId, gemdustId, cauldronId, bottleId)
 		    reGem = gemList[i]
 			reGemdust = gemDustList[i]
 	        reCauldron = cauldronList[i]
-			reBottle = bottleList[i]
+			reBottle = M.bottleList[i]
 	        break
 		end
 	end
@@ -741,16 +741,16 @@ end
 ----------------------------------------------------
 -- combine of stock and essence brew to create a potion
 -- function is only called when item 331 is a stock or when a potion-bottle is an essence brew
-function CombineStockEssence( User, stock, essenceBrew)
-   local cauldron = GetCauldronInfront(User)
+function M.CombineStockEssence( User, stock, essenceBrew)
+   local cauldron = M.GetCauldronInfront(User)
     if cauldron then
 
 		-- we get the gem dust used as an ingredient; and the new cauldron id we need later
 		local reGem, ingredientGemdust, newCauldron, reBottle
 		if cauldron:getData("filledWith") == "essenceBrew" then
-		    reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, essenceBrew.id, nil)
+		    reGem, ingredientGemdust, newCauldron, reBottle = M.GemDustBottleCauldron(nil, nil, essenceBrew.id, nil)
 		else
-			reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, essenceBrew.id)
+			reGem, ingredientGemdust, newCauldron, reBottle = M.GemDustBottleCauldron(nil, nil, nil, essenceBrew.id)
 		end
 		-- create our ingredients list
 		local myIngredients = {}
@@ -759,7 +759,7 @@ function CombineStockEssence( User, stock, essenceBrew)
 		-- secondly, the stock
 		local stockConc = ""
 		for i=1,8 do
-		    local currentSubs = stock:getData(wirkstoff[i].."Concentration")
+		    local currentSubs = stock:getData(M.wirkstoff[i].."Concentration")
 			if currentSubs == "" then
 			    currentSubs = 5
 			end
@@ -802,8 +802,8 @@ function CombineStockEssence( User, stock, essenceBrew)
 			end
         end
 		-- delte old cauldron datas and add new ones
-		RemoveAll(cauldron)
-		SetQuality(User,cauldron)
+		M.RemoveAll(cauldron)
+		M.SetQuality(User,cauldron)
 		cauldron.id = newCauldron
 		debug("effect id 2: "..effectID)
 		cauldron:setData("potionEffectId", ""..effectID)
@@ -818,10 +818,10 @@ function CombineStockEssence( User, stock, essenceBrew)
 	end
 end
 
-function FillIntoCauldron(User,SourceItem,cauldron,ltstate)
+function M.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
     -- function to fill stock, essencebrew or potion into a cauldron
 	-- is the char an alchemist?
-	local anAlchemist = CheckIfAlchemist(User,"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
+	local anAlchemist = M.CheckIfAlchemist(User,"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
 	if not anAlchemist then
 		return
     end
@@ -830,7 +830,7 @@ function FillIntoCauldron(User,SourceItem,cauldron,ltstate)
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
-	if not alchemy.base.alchemy.checkFood(User) then
+	if not M.checkFood(User) then
 		return
 	end
 
@@ -852,58 +852,58 @@ function FillIntoCauldron(User,SourceItem,cauldron,ltstate)
     if (SourceItem:getData("filledWith") =="essenceBrew") then -- essence brew should be filled into the cauldron
 		-- water, essence brew or potion is in the cauldron; leads to a failure
 		if cauldron:getData("filledWith") == "water" then
-			CauldronDestruction(User,cauldron,1)
+			M.CauldronDestruction(User,cauldron,1)
 
 		elseif cauldron:getData("filledWith") == "essenceBrew" then
-			CauldronDestruction(User,cauldron,2)
+			M.CauldronDestruction(User,cauldron,2)
 
 		elseif cauldron:getData("filledWith") == "potion" then
 			if cauldron.id == 1013 then -- support potion
 				alchemy.item.id_165_blue_bottle.SupportEssencebrew(User,cauldron,SourceItem)
 			else
-				CauldronDestruction(User,cauldron,2)
+				M.CauldronDestruction(User,cauldron,2)
 		    end
 
 		elseif cauldron:getData("filledWith") == "stock" then -- stock is in the cauldron; we call the combin function
-				CombineStockEssence( User, cauldron, SourceItem)
+				M.CombineStockEssence( User, cauldron, SourceItem)
 				if check == false then
 				  return
 				end
 
 		else -- nothing in the cauldron, we just fill in the essence brew
-			FillFromTo(SourceItem,cauldron)
+			M.FillFromTo(SourceItem,cauldron)
 		end
 
 	elseif (SourceItem:getData("filledWith")=="potion") then -- potion should be filled into the cauldron
 		    -- water, essence brew, potion or stock is in the cauldron; leads to a failure
 		if cauldron:getData("cauldronFilledWith") == "water" then
-			CauldronDestruction(User,cauldron,1)
+			M.CauldronDestruction(User,cauldron,1)
 
 		elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then
-			CauldronDestruction(User,cauldron,2)
+			M.CauldronDestruction(User,cauldron,2)
 
 		elseif cauldron:getData("filledWith") == "potion" then
 			if cauldron.id == 1013 then -- support potion
 			    alchemy.item.id_165_blue_bottle.SupportPotion(User,cauldron,SourceItem)
 			else
-				CauldronDestruction(User,cauldron,2)
+				M.CauldronDestruction(User,cauldron,2)
 			end
 
 		elseif cauldron:getData("filledWith") == "stock" then
-			CauldronDestruction(User,cauldron,2)
+			M.CauldronDestruction(User,cauldron,2)
 
 		else -- nothing in the cauldron, we just fill in the potion
-            FillFromTo(SourceItem,cauldron)
+            M.FillFromTo(SourceItem,cauldron)
 		    world:changeItem(cauldron)
 		end
 
     end
-	EmptyBottle(User,SourceItem)
+	M.EmptyBottle(User,SourceItem)
 end
 
 -- a bug led to a situation that some potions missed the "filledWith"-data
 -- this function will be called whenever seomething is done to a potion and set the proper data
-function repairPotion(Item)
+function M.repairPotion(Item)
     if tonumber(Item:getData("potionEffectId")) ~= nil then
 	    Item:setData("filledWith","potion")
 		world:changeItem(Item)
@@ -912,7 +912,7 @@ end
 
 -- return a list containing values for actionStart
 --@param theIngredient can be: "water","bottle","plant","gemPowder","stock","essenceBrew","potion"; everything else gets a default value
-function GetStartAction(User, theIngredient, cauldron)
+function M.GetStartAction(User, theIngredient, cauldron)
 
 	local duration = 0
 	local gfxId = 0
@@ -965,3 +965,5 @@ function GetStartAction(User, theIngredient, cauldron)
     end
 	return duration,gfxId,gfxIntervall,sfxId,sfxIntervall
 end
+
+return M
