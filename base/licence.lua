@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local factions = require("base.factions")
 
-module("base.licence", package.seeall)
+local M = {}
 
 
 licencePosCad={position(105,550,0),position(105,595,0)}; --Cadomyr
@@ -28,7 +28,7 @@ PERMISSION_NONE = 0	-- Permission for static tools is restricted
 PERMISSION_ACTIVE = 1	-- Permission for static tools is granted
 
 
-function licence(char)
+function M.licence(char)
 		local AmountCad = #licencePosCad	--Cadomyr
 		for i= 1,AmountCad do --loop for each tool-position (cadomyr)
 			local licencePos = licencePosCad[i] --get coordinates from table
@@ -151,3 +151,5 @@ function InitLicence(thisFaction)
 		end
 	end
 end
+
+return M
