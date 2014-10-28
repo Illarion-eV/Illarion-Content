@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local doors = require("base.doors")
 
-module("base.keys", package.seeall)
+local M = {}
 
 --[[
     LockDoor
@@ -27,7 +27,7 @@ module("base.keys", package.seeall)
     @return boolean - true in case the door got locked, false if anything went
     wrong
 ]]
-function LockDoor(Door)
+function M.LockDoor(Door)
     if doors.CheckClosedDoor(Door.id) then
         if (Door:getData("doorLock") == "unlocked") then
 			Door:setData("doorLock","locked")
@@ -51,7 +51,7 @@ end;
     @return boolean - true in case the door got locked, false if anything went
     wrong
 ]]
-function UnlockDoor(Door)
+function M.UnlockDoor(Door)
     if doors.CheckClosedDoor(Door.id) then
         if (Door:getData("doorLock") == "locked" or Door:getData("lockId")~="") then
 			Door:setData("doorLock","unlocked")
@@ -78,7 +78,7 @@ end;
     @return boolean - true in case the key item would fit to the door, false if
     it does not fit
 ]]
-function CheckKey(Key, Door, User)
+function M.CheckKey(Key, Door, User)
     if Door == nil then
 	    return false
 	end	
@@ -108,3 +108,5 @@ function checkForMasterKey(User, key)
 		return false;
 	end
 end
+
+return M
