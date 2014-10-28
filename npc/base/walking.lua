@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Basic functions for walking of characters
 
-module("npc.base.walking", package.seeall)
+local M = {}
 
 blocked = {};
 last_dir = {};
@@ -347,3 +347,5 @@ function BW_intern_pos_okay( posi )
     
     return true;
 end
+
+return M
