@@ -19,7 +19,7 @@ local doors = require("base.doors")
 local factions = require("base.factions")
 local character = require("base.character")
 
-module("base.seafaring", package.seeall)
+local M = {}
 
 M.ferrySourceItemPos={position(101,790,0),position(727,809,0),position(888,485,0),position(870,285,0),position(451,95,0),position(105,833,0),position(554,658,0)}
 
@@ -515,3 +515,4 @@ function portalremoveforleftovers(User)
     until world:isItemOnField(position(355,864,2)) == false
 end
 
+return M
