@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local factions = require("base.factions")
-module("base.orders", package.seeall)
+local M = {}
 
 --Welches Item ist ein Auftrag (Schriftrolle)
 OrderItem = 3110;
@@ -25,7 +25,7 @@ OrderItem = 3110;
 OrderRetentionPeriod = 5*60; --5 rl hours ig time retention period(8 was bit too high!)
 
 --Um welchen Wert wird die Vertrauenswürdigkeit nach ablauf der Sperrfrist erhöht
-ThrustworthynessChangeAfterRetentionPeriod = 5;
+M.ThrustworthynessChangeAfterRetentionPeriod = 5;
 
 --Um welchen Wert wird die Vertrauenswürdigkeit nach annehmen eines neuen Auftrags vermindert
 ThrustworthynessChangeAfterGetOrder = -5;
@@ -44,7 +44,7 @@ GoodOrderChangeAfterSuccessOrder = 3;
 --Um welchen Wert wird der Wert fï¿½r Gute Aufträge erhöht wenn ein Auftrag ï¿½berzogen wurde
 GoodOrderChangeAfterNotSuccessOrder = -15;
 --Um welchen Wert wird der Wert fï¿½r Gute Aufträge gesenkt nach einer Sperrfrist
-GoodOrderChangeAfterRetentionPeriod = -50;
+M.GoodOrderChangeAfterRetentionPeriod = -50;
 
 
 
@@ -83,7 +83,7 @@ end
     @param ntwn der neue Vertrauenswürdigkeitswert
     @param ngoodorders der neue Wert fï¿½r Gute Aufträge
 ]]--
-function setThrustWorthyness(user,ntwn,ngoodorders)
+function M.setThrustWorthyness(user,ntwn,ngoodorders)
     local qp = user:getQuestProgress(61);
     --Vertrauenswürdigkeit herausmasken
     twn = LuaAnd(qp,255);
@@ -294,19 +294,19 @@ function OrderNPC:receiveText(who,text)
             who:inform("twn: "..twn.." go: "..go);
         elseif ( string.find(text,"set twn.+(%d+)") ) then
             local numb = getNumberInString(text);
-            setThrustWorthyness(who,numb,0);
+            M.setThrustWorthyness(who,numb,0);
             who:inform("twn: "..numb);
         elseif ( string.find(text,"set twn.+-(%d+)") ) then
             local numb = getNumberInString(text);
-            setThrustWorthyness(who,0-numb,0);
+            M.setThrustWorthyness(who,0-numb,0);
             who:inform("twn: -"..numb);
         elseif ( string.find(text,"set go.+(%d+)") ) then
             local numb = getNumberInString(text);
-            setThrustWorthyness(who,0,numb);
+            M.setThrustWorthyness(who,0,numb);
             who:inform("go: "..numb);
         elseif ( string.find(text,"set go.+-(%d+)") ) then
             local numb = getNumberInString(text);
-            setThrustWorthyness(who,0,0-numb);
+            M.setThrustWorthyness(who,0,0-numb);
             who:inform("go: "..numb);        
         end
     end
@@ -333,7 +333,7 @@ function OrderNPC:receiveText(who,text)
                         order:setTime();
                         if ( order:createOrderItem(who) ) then
                             common.TalkNLS(self.npc,Character.say,self.textGetOrder.ger,self.textGetOrder.eng);
-                            setThrustWorthyness(who,ThrustworthynessChangeAfterGetOrder,0);
+                            M.setThrustWorthyness(who,ThrustworthynessChangeAfterGetOrder,0);
                             common.InformNLS(who, "[Neues Quest] Bringe Ihm die verlangten Waren innerhalb der im Vertrag vorgegebenen Zeit.", "[New quest] Bring him the demanded wares within the given time of the contract.");
                             table.remove(self.openOrders,number);
                         end
@@ -950,10 +950,10 @@ function Order:doOrder(character,orderstatestruct)
     --Vertrauenswürdigkeit erhï¿½hen
     if ( orderstatestruct.intime and orderstatestruct.inquality ) then
         --Wert für gut erfüllten auftrag.
-        setThrustWorthyness(character,ThrustworthynessChangeAfterSuccessOrder,GoodOrderChangeAfterSuccessOrder);
+        M.setThrustWorthyness(character,ThrustworthynessChangeAfterSuccessOrder,GoodOrderChangeAfterSuccessOrder);
     else
         --Wert für schlecht erfüllten auftrag.
-        setThrustWorthyness(character,ThrustworthynessChangeAfterNotSuccessOrder,GoodOrderChangeAfterNotSuccessOrder);
+        M.setThrustWorthyness(character,ThrustworthynessChangeAfterNotSuccessOrder,GoodOrderChangeAfterNotSuccessOrder);
     end
 	common.InformNLS(character, "[Quest gelöst] Du erhältst "..price.." Kupferstücke.", "[Quest solved] You are awarded "..price.." copper coins.")
 end
@@ -1448,3 +1448,4 @@ function ConvertDateToHourOffset(year, month, day, hour)
 	return HoursTillInvalidOrder;
 end		
 		
+return M
