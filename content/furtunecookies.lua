@@ -14,9 +14,9 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-module("content.furtunecookies", package.seeall)
+local M = {}
 
-function cookie(User)
+function M.cookie(User)
     local luck=math.random(1,43);
     local germText;
     local englText;
@@ -153,3 +153,5 @@ function cookie(User)
 
     return germText,englText;
 end
+
+return M
