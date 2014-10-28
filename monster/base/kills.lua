@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-module("monster.base.kills",package.seeall)
+local M = {}
 
 lastAttacker={};
 
@@ -33,3 +33,5 @@ end;
 function M.isLastAttacker(monster, enemy)
 	return lastAttacker[monster.id] == enemy;
 end;
+
+return M
