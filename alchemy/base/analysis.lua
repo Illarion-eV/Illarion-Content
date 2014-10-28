@@ -21,9 +21,9 @@ local licence = require("base.licence")
 local common = require("base.common")
 local redBottle = require("alchemy.item.id_59_red_bottle")
 
-module("alchemy.base.analysis", package.seeall)
+local M = {}
 
-function AnalysisMain(User,gem)
+function M.AnalysisMain(User,gem)
     if IsCharacterAnalysingGem(gem) then
         CharacterAnalysis(User,gem)
     else
@@ -290,3 +290,5 @@ function CauldronPotionCheck(User, SourceItem, TargetItem, ltstate)
     end		
 			
 end
+
+return M
