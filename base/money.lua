@@ -21,7 +21,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("base.money", package.seeall)
+local M = {}
 
 --- The Item ID of the item used as gold coins.
 GoldCoinsID = 61;
@@ -41,7 +41,7 @@ CopperCoinsID = 3076;
 --  @param sCoins - number - the amount of silver coins
 --  @param cCoins - number - the amount of copper coins
 --  @return number - the total amount of the money in copper coins
-function CoinsToMoney(gCoins, sCoins, cCoins)
+function M.CoinsToMoney(gCoins, sCoins, cCoins)
     return (gCoins * 100 + sCoins) * 100 + cCoins;
 end;
 
@@ -51,8 +51,8 @@ end;
 --
 --  @param char - CharStruct - the char the money count is wanted from
 --  @return number - the total amount of money in copper coins the player has
-function CharCoinsToMoney(char)
-    return CoinsToMoney(char:countItem(GoldCoinsID),
+function M.CharCoinsToMoney(char)
+    return M.CoinsToMoney(char:countItem(GoldCoinsID),
         char:countItem(SilverCoinsID), char:countItem(CopperCoinsID));
 end;
 
@@ -64,7 +64,7 @@ end;
 --  @return number - the amount of copper coins the character has
 --  @note The values returned by this function are not normalized. So its
 --      possible that the values for silver and copper coins are greater 100
-function CharCoins(char)
+function  M.CharCoins(char)
     return char:countItem(GoldCoinsID), char:countItem(SilverCoinsID),
         char:countItem(CopperCoinsID)
 end;
@@ -76,7 +76,7 @@ end;
 --  @param char - CharStruct - the char the money count is wanted from
 --  @param depNr - the ID of the depot to check
 --  @return number - the total amount of money in copper coins the player has
-function DepotCoinsToMoney(char,depNr)
+function M.DepotCoinsToMoney(char,depNr)
         depot=char:getDepot(depNr);
         if depot then
             copper=depot:countItem(CopperCoinsID);
@@ -85,7 +85,7 @@ function DepotCoinsToMoney(char,depNr)
         else
             return 0;
         end
-    return CoinsToMoney(gold,silver, copper);
+    return M.CoinsToMoney(gold,silver, copper);
 end;
 
 --- Get the coins a character has in his Depot.
@@ -95,7 +95,7 @@ end;
 --  @return number - the amount of gold coins the depot has
 --  @return number - the amount of silver coins the depot has
 --  @return number - the amount of copper coins the depot has
-function DepotCoins(char,depNr)
+function M.DepotCoins(char,depNr)
         depot=char:getDepot(depNr);
         if depot then
             copper=depot:countItem(CopperCoinsID);
@@ -114,7 +114,7 @@ end;
 --  @return number - the amount of gold coins in the total amount of money
 --  @return number - the amount of silver coins in the total amount of money
 --  @return number - the amount of copper coins in the total amount of money
-function MoneyToCoins(money)
+function M.MoneyToCoins(money)
     local gCoins = math.floor(money / 10000);
     local sCoins = math.floor((money % 10000) / 100);
     local cCoins = money % 100;
@@ -126,8 +126,8 @@ end;
 --  @param char - CharStruct - the char who needs to have the money
 --  @param money - number - the money needed at least
 --  @return boolean - true in case the player has the needed amount of money
-function CharHasMoney(char, money)
-    return CharCoinsToMoney(char) >= money;
+function M.CharHasMoney(char, money)
+    return M.CharCoinsToMoney(char) >= money;
 end;
 
 --- Give a exact configuration of coins to a character. This method does either
@@ -139,7 +139,7 @@ end;
 --  @param sCoins - number - the amount of silver coins the char shall receive
 --  @param cCoins - number - the amount of copper coins the char shall receive
 --  @return boolean - true in case all items were created properly
-function GiveCoinsToChar(char, gCoins, sCoins, cCoins)
+function M.GiveCoinsToChar(char, gCoins, sCoins, cCoins)
     if (gCoins > 0) then
 	    local notCreated = char:createItem(GoldCoinsID, gCoins, 333, nil);
 	    if (notCreated > 0) then
@@ -186,12 +186,12 @@ end;
 --      money
 --  @param money - number - the money the char is suposed to receive
 --  @return boolean - true in case all items were created properly
-function GiveMoneyToChar(char, money)
+function M.GiveMoneyToChar(char, money)
     local gCoins;
     local sCoins;
     local cCoins;
-    gCoins, sCoins, cCoins = MoneyToCoins(money);
-    return GiveCoinsToChar(char, gCoins, sCoins, cCoins);
+    gCoins, sCoins, cCoins = M.MoneyToCoins(money);
+    return M.GiveCoinsToChar(char, gCoins, sCoins, cCoins);
 end;
 
 --- Give a exact configuration of coins to a position. This will create the
@@ -201,7 +201,7 @@ end;
 --  @param gCoins - number - the amount of gold coins to be created at pos
 --  @param sCoins - number - the amount of silver coins to be created at pos
 --  @param cCoins - number - the amount of copper coins to be created at pos
-function GiveCoinsToPosition(pos, gCoins, sCoins, cCoins)
+function M.GiveCoinsToPosition(pos, gCoins, sCoins, cCoins)
 	local maxStack = 1000;
 
     while (cCoins > maxStack) do
@@ -235,12 +235,12 @@ end;
 --  @param pos - PositionStruct - the position that shall receive the money
 --  @param money - number - the amount of money that shall be created on the
 --      position
-function GiveMoneyToPosition(pos, money)
+function M.GiveMoneyToPosition(pos, money)
     local gCoins;
     local sCoins;
     local cCoins;
-    gCoins, sCoins, cCoins = MoneyToCoins(money);
-    return GiveCoinsToPosition(pos, gCoins, sCoins, cCoins);
+    gCoins, sCoins, cCoins = M.MoneyToCoins(money);
+    return M.GiveCoinsToPosition(pos, gCoins, sCoins, cCoins);
 end;
 
 --- Take some coins from a character. This function only does anything in case
@@ -252,11 +252,11 @@ end;
 --  @param cCoins - number - the amount of copper coins taken
 --  @note This method is able to give coins to the player in case the amount
 --      of coins is lesser then 0.
-function TakeCoinsFromChar(char, gCoins, sCoins, cCoins)
+function M.TakeCoinsFromChar(char, gCoins, sCoins, cCoins)
     local charGold = 0;
     local charSilver = 0;
     local charCopper = 0;
-    charGold, charSilver, charCopper = CharCoins(char);
+    charGold, charSilver, charCopper =  M.CharCoins(char);
 
     if (gCoins > charGold or sCoins > charSilver or cCoins > charCopper) then
         return;
@@ -275,7 +275,7 @@ function TakeCoinsFromChar(char, gCoins, sCoins, cCoins)
     end;
 
     if (gCoins < 0 or sCoins < 0 or cCoins < 0) then
-        GiveCoinsToChar(char, math.min(0, gCoins) * (-1),
+        M.GiveCoinsToChar(char, math.min(0, gCoins) * (-1),
             math.min(0, sCoins) * (-1), math.min(0, cCoins) * (-1));
     end;
 end;
@@ -288,11 +288,11 @@ end;
 --  @param sCoins - number - the amount of silver coins taken
 --  @param cCoins - number - the amount of copper coins taken
 --  @param depotId - number - the ID of the corresponding depot
-function TakeCoinsFromDepot(char, gCoins, sCoins, cCoins, depotId)
+function M.TakeCoinsFromDepot(char, gCoins, sCoins, cCoins, depotId)
     local charGold = 0;
     local charSilver = 0;
     local charCopper = 0;
-    charGold, charSilver, charCopper = DepotCoins(char,depotId);
+    charGold, charSilver, charCopper = M.DepotCoins(char,depotId);
 
     depot=char:getDepot(depotId);
     if not depot then
@@ -316,7 +316,7 @@ function TakeCoinsFromDepot(char, gCoins, sCoins, cCoins, depotId)
     end;
 
 	if (gCoins < 0 or sCoins < 0 or cCoins < 0) then
-        GiveCoinsToChar(char, math.min(0, gCoins) * (-1),
+        M.GiveCoinsToChar(char, math.min(0, gCoins) * (-1),
             math.min(0, sCoins) * (-1), math.min(0, cCoins) * (-1));
     end;
 end;
@@ -328,8 +328,8 @@ end;
 --
 --  @param char - CharStruct - the char the money is taken from
 --  @param money - number - the amount of money taken from the char
-function TakeMoneyFromChar(char, money)
-    if not CharHasMoney(char, money) then
+function M.TakeMoneyFromChar(char, money)
+    if not M.CharHasMoney(char, money) then
         return;
     end
     local PayGold = 0;
@@ -338,12 +338,12 @@ function TakeMoneyFromChar(char, money)
     local MissGold = 0;
     local MissSilver = 0;
     local MissCopper = 0;
-    MissGold, MissSilver, MissCopper = MoneyToCoins(money);
+    MissGold, MissSilver, MissCopper = M.MoneyToCoins(money);
 
     local charGold = 0;
     local charSilver = 0;
     local charCopper = 0;
-    charGold, charSilver, charCopper = CharCoins(char);
+    charGold, charSilver, charCopper =  M.CharCoins(char);
 
     local Amount = money;
 
@@ -395,7 +395,7 @@ function TakeMoneyFromChar(char, money)
         PaySilver = PaySilver + MissSilver - 100;
     end;
 
-    TakeCoinsFromChar(char, PayGold, PaySilver, PayCopper);
+    M.TakeCoinsFromChar(char, PayGold, PaySilver, PayCopper);
 end;
 
 --- This method takes a certain amount of money from the depot of a player.
@@ -406,9 +406,9 @@ end;
 --  @param char - CharStruct - the char the money is taken from
 --  @param money - number - the amount of money taken from the char
 --  @param depotId - number - the ID of the depot to take the money from
-function TakeMoneyFromDepot(char, money, depotId)
+function M.TakeMoneyFromDepot(char, money, depotId)
 
-    if DepotCoinsToMoney(char, depotId)<money then
+    if M.DepotCoinsToMoney(char, depotId)<money then
         return;
     end
 
@@ -418,12 +418,12 @@ function TakeMoneyFromDepot(char, money, depotId)
     local MissGold = 0;
     local MissSilver = 0;
     local MissCopper = 0;
-    MissGold, MissSilver, MissCopper = MoneyToCoins(money);
+    MissGold, MissSilver, MissCopper = M.MoneyToCoins(money);
 
     local charGold = 0;
     local charSilver = 0;
     local charCopper = 0;
-    charGold, charSilver, charCopper = DepotCoins(char,depotId);
+    charGold, charSilver, charCopper = M.DepotCoins(char,depotId);
 
     local Amount = money;
 
@@ -475,19 +475,19 @@ function TakeMoneyFromDepot(char, money, depotId)
         PaySilver = PaySilver + MissSilver - 100;
     end;
 
-    TakeCoinsFromDepot(char, PayGold, PaySilver, PayCopper,depotId);
+    M.TakeCoinsFromDepot(char, PayGold, PaySilver, PayCopper,depotId);
 end;
 
-function IsCurrency(itemId)
+function M.IsCurrency(itemId)
     return itemId == CopperCoinsID or itemId == SilverCoinsID or itemId == GoldCoinsID
 end
 
 --- This method returns a german and an english string, based on the money amount.
 --  @param money - number - the amount of money to be converted
 
-function MoneyToString(money)
+function M.MoneyToString(money)
 
-    gp,sp,cp=base.money.MoneyToCoins(money); --converting to gp, sp and cp
+    gp,sp,cp=M.MoneyToCoins(money); --converting to gp, sp and cp
 
 	local estring = " ";
 	local gstring = " ";
