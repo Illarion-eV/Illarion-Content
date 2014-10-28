@@ -19,10 +19,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local factions = require("base.factions")
 local common = require("base.common")
 local licence = require("base.licence")
-module("base.townManagement", package.seeall)
+
+local M = {}
 
  -- Cadomyr, Runewick, Galmair
-townManagmentItemPos={position(116,527,0),position(899,772,2),position(344,223,0)}
+M.townManagmentItemPos={position(116,527,0),position(899,772,2),position(344,223,0)}
 requiredRank={8,8,8}
 
 toolUseNameDE={"Wache","Lizenz","Schlüssel"}
@@ -30,12 +31,12 @@ toolUseNameEN={"Guard","Licence","Key"}
 
 
 
-function townManagmentUseItem(User, SourceItem)
+function M.townManagmentUseItem(User, SourceItem)
 
 	local toolUse
 	local AmountToolFunct = #toolUseNameDE
 	for j = 1,AmountToolFunct do
-		if (SourceItem.pos == townManagmentItemPos[j]) then
+		if (SourceItem.pos == M.townManagmentItemPos[j]) then
 			toolTown = j
 			if  User:getPlayerLanguage() == Player.german then
 				toolUse = toolUseNameDE
@@ -266,3 +267,4 @@ function TownKey(User,toolTown)
 	User:requestSelectionDialog(dialog)
 end
 
+return M
