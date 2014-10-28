@@ -22,6 +22,7 @@ local id_331_green_bottle = require("alchemy.item.id_331_green_bottle")
 local gemdust = require("alchemy.base.gemdust")
 local id_164_emptybottle = require("item.id_164_emptybottle")
 local potionToTeacher = require("triggerfield.potionToTeacher")
+local recipe_creation = require("alchemy.base.recipe_creation")
 
 local M = {}
 
