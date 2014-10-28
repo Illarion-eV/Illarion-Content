@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-module("content.dailymessage", package.seeall);
+local M = {}
 
 GoodBadDayMessages = {};
 
@@ -678,3 +678,5 @@ end;
 initMessages();
 
 initMessages = nil;
+
+return M
