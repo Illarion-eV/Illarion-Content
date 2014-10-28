@@ -22,10 +22,10 @@ itemPos = {{en="Head", de="Kopf"},{en="Neck", de="Hals"},{en="Breast", de="Brust
 	{en="Belt 2", de="Gürtel 2"},{en="Belt 3", de="Gürtel 3"},{en="Belt 4", de="Gürtel 4"},{en="Belt 5", de="Gürtel 5"},{en="Belt 6", de="Gürtel 6"}}
 itemPos[0] = {en="Backpack", de="Rucksack"}
 
-module("base.repair", package.seeall)
+local M = {}
 
 --opens a selection dialog for the player to choose an item to repair
-function repairDialog(npcChar, speaker)
+function M.repairDialog(npcChar, speaker)
 
 	local dialogTitle, dialogInfoText, repairPriceText;
 	local language = speaker:getPlayerLanguage();
@@ -124,3 +124,5 @@ function repair(npcChar, speaker, theItem, language)
 	    end --there is an item
     end --item exists
 end;
+
+return M
