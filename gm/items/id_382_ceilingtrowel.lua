@@ -20,6 +20,7 @@ local factions = require("base.factions")
 local common = require("base.common")
 local licence = require("base.licence")
 local alchemy = require("scheduled.alchemy")
+local specialeggs = require("content.specialeggs")
 local M = {}
 
 function M.UseItem(User, SourceItem)
