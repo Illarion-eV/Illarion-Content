@@ -28,8 +28,8 @@ VisionTextDE[1][3]="Der linke Mann erwidert mit gebeugtem Kopf: 'Wir sind fast f
 VisionTextDE[1][4]="'Fast?' Der Mann blickt sich um und dreht sich dann wieder den beiden Männern zu. 'Und die Steinkammer?'";
 VisionTextDE[1][5]="Der rechte Mann blickt kurz auf und erwidert ebenfalls mit gesenktem Kopf: 'Mein Meister, die Steinkammer ist bereit, um eure Steine zu beherbergen.'";
 VisionTextDE[1][6]="'Ich werde sie das nächste Mal mit mir mitbringen, wenn ich wieder komme. Der große Mann betrachtet den großen Raum erneut und fragt dann: 'Und der Zwerg in der Gebirgsstadt? Akzeptiert er? Oder muss ich ihn überzeugen?";
-VisionTextDE[1][7]="Der linke Mann erwidert grinsend: 'Gierig wie der alt Zwerg ist, konnte er nicht widerstehen. Er ist schlimmer als sein Sohn. Wir haben ihre Miner dabei beobachten können, wie extra Schichten machen.'";
-VisionTextDE[1][8]="Der große Mann wartet kurz bevor er antwortet: 'Bringt Essen und Getränke für das Abendmahl nun. Wir müssen morgen früh rasch nach Albar aufbrechen.";
+VisionTextDE[1][7]="Der linke Mann erwidert grinsend: 'Gierig wie der alt Zwerg ist, konnte er nicht widerstehen. Er ist schlimmer als sein Sohn. Wir haben ihre Hauer dabei beobachten können, wie sie extra Schichten machen.'";
+VisionTextDE[1][8]="Der große Mann wartet kurz bevor er antwortet: 'Bringt nun Essen und Getränke für das Abendmahl. Wir müssen morgen früh rasch nach Albar aufbrechen.";
 VisionTextDE[1][9]="Sobald die letzten Worte gesprochen sind, verschwinden alle Schatten.";
 VisionTextEN={};
 VisionTextEN[1]={};
@@ -46,12 +46,12 @@ VisionTextEN[1][9]="As soon as the last words are said, all the shades disappear
 VisionTextDE[2]={};
 VisionTextDE[2][1]="Die Schatten zweier Männer erscheinen. Einer steht nahe dem Lesepult, der andere steht zwischen den ersten beiden schwarzen Säulen.";
 VisionTextDE[2][2]="Er scheint, sechs latent glitzernde Edelsteine in drei verschiedenen Farben zu halten.";
-VisionTextDE[2][3]="Es wirkt als würde er auf eine Frage antwortent zu dem Mann am Lesepult nicken und einen einen der violett scheinenden Steine nehmen und sie gemeinsam mit einer der ersten schwarzen Säulen verwenden, worauf ein helles Licht auf der Spitze der schwarzen Säule erscheint.";
+VisionTextDE[2][3]="Es wirkt als würde er auf eine Frage antwortent zu dem Mann am Lesepult nicken und einen der violett scheinenden Steine nehmen und sie gemeinsam mit einer der ersten schwarzen Säulen verwenden, worauf ein helles Licht auf der Spitze der schwarzen Säule erscheint.";
 VisionTextDE[2][4]="'Wirklich? Ich wusste das nicht', fragt der andere Mann, während der eine Mann zu der zweiten der beiden ersten Säulen geht und seine Aktion mit dem anderen violett scheinenden Stein wiederholt.";
 VisionTextDE[2][5]="'Ja, jedes Mal. Du verwendest sie und sie sind weg. Die Säulen verbrennen die irgendwie', wirft der eine Mann zurück und geht auf die beiden mittleren schwarzen Säulen zu, wo er seine blau scheinenden Edelsteine mit beiden schwarzen Säulen verwendet.";
 VisionTextDE[2][6]="Der andere Mann fragt: 'Weißt du wo er sie her kriegt? Er muss eine Quelle haben, so wie er sie verschwenden kann.' 'Keine Ahnung', antworet der eine Mann während er näher kommt und seine grün leuchtenden Edelsteine mit den beiden letzten schwarzen Säulen verwendet.";
-VisionTextDE[2][7]="'Du musst bedenken, dass wir nicht jeden Tag hinunter in die Steinkammer gehen', fügt er hinzu und verwendet den zweiten grünen Edelstein. Ein weiteres hell leuchtendes Lich erscheint an der Spitze dieser schwarzen Säule. Mit einem Schlag brennt ein grünes Licht jede Säulen entlang und versteckte Runen werden auf den Säulen entblößt";
-VisionTextDE[2][8]="Der eine Mann geht zurück zu der nordwestlichen schwarzen Säule, wo er seinen Kopf kratzt. Dann beginnt er konzentriert einige Wörter zu murmeln, die scheinbar ein Teil eines Gedichts sind: 'Es brennt in seinem Herz,...'.";
+VisionTextDE[2][7]="'Du musst bedenken, dass wir nicht jeden Tag hinunter in die Steinkammer gehen', fügt er hinzu und verwendet den zweiten grünen Edelstein. Ein weiteres hell leuchtendes Lich erscheint an der Spitze dieser schwarzen Säule. Mit einem Schlag brennt ein grünes Licht jede Säulen entlang und versteckte Runen werden auf den Säulen sichtbar";
+VisionTextDE[2][8]="Der eine Mann geht zurück zu der nordwestlichen schwarzen Säule, wobei er seinen Kopf kratzt. Dann beginnt er konzentriert einige Wörter zu murmeln, die scheinbar ein Teil eines Gedichts sind: 'Es brennt in seinem Herz,...'.";
 VisionTextDE[2][9]="Während er spricht wählt er einige der aufgedeckten Runen an den schwarzen Säulen und geht von einer zur nächsten. Ein dumpfes Summen verstärkt sich mit jeder Auswahl.";
 VisionTextDE[2][10]="'Hast du eine Ahnung, warum er dieses Gedicht gewählt hat?', fragt der andere Mann. Der eine Mann hält ein für einen Augenblick und antwortet 'Das habe ich doch schon gesagt, oder? Wie dem auch sei, drück mal besser den Knopf und bring uns hinunter!'";
 VisionTextDE[2][11]="Der andere Mann nickt und drückt einen Knopf am Lesepult. Die Schatten der beiden Männer verschwinden sofort.";
@@ -88,12 +88,12 @@ VisionTextEN[3][7]="The man examines the piece of work and nods: 'Very well done
 VisionTextEN[3][8]="The man draws a red dagger and both shades fade away.'";
 
 VisionTextDE[4]={};
-VisionTextDE[4][1]="Es scheint als zwei Männer stehen neben einen kleinen Boot am Strand. Einer sagt zu dem anderen in einer vergänglichen Stimme: 'Wer dachte, dass es so enden wird? Alles verloren. Er war so mächtig und nichts ist übrig geblieben von seiner Macht. Alles weg.'";
-VisionTextDE[4][2]="'Niemand, schätze ich.' Der andere Mann seufzt und setzt fort: 'Er war sich wahrscheinlich zu sicher seiner Sache. Ich sagte ihm, er soll sie nicht trennen, aber er wollte nicht auf mich hören. Eine Schande.'";
-VisionTextDE[4][3]="'Wo wirst du hingehen, mein Freund?', fragt der Mann als dem anderen hilft, das Boot bereit zu machen.";
+VisionTextDE[4][1]="Es scheint als ob zwei Männer neben einen kleinen Boot am Strand stehen. Einer sagt zu dem anderen in einer vergänglichen Stimme: 'Wer dachte, dass es so enden wird? Alles verloren. Er war so mächtig und nichts ist übrig geblieben von seiner Macht. Alles weg.'";
+VisionTextDE[4][2]="'Niemand, schätze ich.' Der andere Mann seufzt und setzt fort: 'Er war sich wahrscheinlich seiner Sache zu sicher. Ich sagte ihm, er soll sie nicht trennen, aber er wollte nicht auf mich hören. Eine Schande.'";
+VisionTextDE[4][3]="'Wo wirst du hingehen, mein Freund?', fragt der Mann als dem anderen und hilft, das Boot bereit zu machen.";
 VisionTextDE[4][4]="'Keine Ahnung, wirklich, keine Ahnung', erwidert der andere Mann am Strand. 'Und du? Hast du eine Idee?'";
-VisionTextDE[4][5]="Der Mann zeigt in den Nordosten: 'Ich habe von einer kleinen Insel im Nordosten gehört. Ich werde wahrscheinlich das nächste Schiff dorthin nehmen, aber ich habe das jetzt noch nicht beschlossen.'";
-VisionTextDE[4][6]="Der andere Mann nickt und springt in das Boot. 'Wo auch immer du hingehst, ich wünsch dir nur das beste. Pass auf dich auf. Wenn die Götter wollen, werden wir und wieder sehen' sagt er und drückt das Boot in das Meer.";
+VisionTextDE[4][5]="Der Mann zeigt in den Nordosten: 'Ich habe von einer kleinen Insel im Nordosten gehört. Ich werde wahrscheinlich das nächste Schiff dorthin nehmen, aber ich habe das noch nicht beschlossen.'";
+VisionTextDE[4][6]="Der andere Mann nickt und springt in das Boot. 'Wo auch immer du hingehst, ich wünsch dir nur das Beste. Pass auf dich auf. Wenn die Götter wollen, werden wir uns wieder sehen' sagt er und drückt das Boot ins Meer.";
 VisionTextDE[4][7]="Der Mann nickt und winkt. 'Ich hoffe es. Eine letzte Frage noch. Hast du je versucht unten auf dem Thron zu sitzen?'";
 VisionTextDE[4][8]="'Nein, niemals. Es hätte nicht zweimal geklickt. Ich bin wesentlich schwerer als er es je war.";
 VisionTextDE[4][9]="Der Mann grinst. 'Ich verstehe! Leb wohl!'";
@@ -116,11 +116,11 @@ VisionTextDE[5][2]="Der Mann am Tisch blickt auf und dreht sich zu dem anderen. 
 VisionTextDE[5][3]="Der andere Mann wirkt geschockt und fragt: 'Bist du dir sicher? Wo hast du diese Information her?'";
 VisionTextDE[5][4]="'Meine Quellen liegen nie falsch. Du glaubst mir besser. Wir müssen alles vorbereiten', erwidert der Mann am Tisch.";
 VisionTextDE[5][5]="'Du meinst, die wissen über uns Bescheid?' 'Nein, noch nicht. Aber ich denke, es ist nur eine Frage der Zeit bis sie uns hier finden. Wir müssen alles vorbereiten und verschwinden. Es ist vorbei.'";
-VisionTextDE[5][6]="Der andere Mann nickt 'Bleiben wir beim Plan und hast etwas anderes vor?'";
-VisionTextDE[5][7]="Der Mann am Tisch blickt auf das Pergament: 'Alles niederzubrennen mag eine schlechte Idee sein. Der Rauch würde uns verraten und sie direkt zu uns führen.' Er hält ein für einen Augenblick bevor er fortfährt: 'Es ist besser, so viel wie möglich im Meer zu versenken.'";
+VisionTextDE[5][6]="Der andere Mann nickt 'Bleiben wir beim Plan oder hast etwas anderes vor?'";
+VisionTextDE[5][7]="Der Mann am Tisch blickt auf das Pergament: 'Alles niederzubrennen mag eine schlechte Idee sein. Der Rauch würde uns verraten und sie direkt zu uns führen.' Er hält für einen Augenblick ein bevor er fortfährt: 'Es ist besser, so viel wie möglich im Meer zu versenken.'";
 VisionTextDE[5][8]="'Und diese.../Schlüssel/?', fragt der andere nervös.";
 VisionTextDE[5][9]="Der Mann am Tisch wartet erneut kurz: 'Es wäre eine Schande, oder?' Er blickt gedankenvoll auf die Pergamente und wendet sich schlußendlich wieder dem anderen Mann zu: 'Versteck sie getrennt irgendwo, wo niemand sie suchen wird.'";
-VisionTextDE[5][10]="Der andere Mann blickt verwirrt bis der Mann am Tisch sagt: 'Steck sie zu den Toden. Dort wird sie niemand suchen, falls sie ein wenig Anstand haben.'";
+VisionTextDE[5][10]="Der andere Mann blickt verwirrt bis der Mann am Tisch sagt: 'Steck sie zu den Toten. Dort wird sie niemand suchen, falls sie ein wenig Anstand haben.'";
 VisionTextDE[5][11]="Der andere Mann erwidert 'Falls!', dreht sich weg und verlässt den Raum schnell. Der Schatten des Mannes am Tisch verschwindet ebenfalls.";
 VisionTextEN[5]={};
 VisionTextEN[5][1]="A man seems to sit writing at a table whilst another appears to enter the room. 'They say you want to talk to me. What happened?'";
@@ -140,7 +140,7 @@ VisionTextDE[6][1]="Zwei Männer erscheinen und sind dabei, die Kammer zu reinige
 VisionTextDE[6][2]="'Es scheint nicht so. Andererseits, es hat einen Grund warum sie die Vertrauten genannten werden', erwidert der andere Mann.";
 VisionTextDE[6][3]="'Lass uns annehmen, er hat ihnen vertraut, dann bleibt immer noch die Frage offen, ob sie überhaupt in der Lage waren, sie zu verwenden?, fährt der erstere fort zu fragen.";
 VisionTextDE[6][4]="Der andere Mann zuckt mit den Schultern: 'Ich hoffe es für ihn. Ich hoffe es für uns! Stell dir seinen Ärger vor, falls einer verloren geht.' Er lacht. 'Wie dem auch sei, du scheinst dich nicht zu fürchten, oder?'";
-VisionTextDE[6][5]="Der erstere Mann schüttelt den Kopf: 'Nein, bin ich nicht. Ich versteh nur nicht den Plan. Ich meine... Es gibt sieben von ihnen. Wir... Er hat vier. Somit sind drei übrig und niemand weiß irgendetwas über sie. Was ist, wenn jemand nur auf einen /Fehler/ von ihm wartet. Nichts würde leichter sein, als einen nach dem anderen sich zu schnappen, jetzt, wo er sie getrennt hat. Verstehst du?'";
+VisionTextDE[6][5]="Der erstere Mann schüttelt den Kopf: 'Nein, ich fürchte mich nicht. Ich versteh nur den Plan nicht. Ich meine... Es gibt sieben von ihnen. Wir... Er hat vier. Somit sind drei übrig und niemand weiß irgendetwas über sie. Was ist, wenn jemand nur auf einen /Fehler/ von ihm wartet. Nichts würde leichter sein, als sich einen nach dem anderen zu schnappen, jetzt, wo er sie getrennt hat. Verstehst du?'";
 VisionTextDE[6][6]="'Was zerbrichst du dir da den Kopf darüber?, zischt der andere zurück. 'Die anderen sind wahrscheinlich genauso verteilt und warum sollten wir Zeit verschwenden, anstelle uns zu nehmen, was wir so schnell wie möglich besitzen können? Wer soll uns stoppen? Wir haben Albar geschlagen, wir haben Salkamar geschlagen und wir sind dabei Lor-Angur zu schlagen. Nur einer von Narguns Tricks kann uns dabei behindern, aber nicht mehr stoppen!'.";
 VisionTextDE[6][7]="'Vielleicht hast du recht', antwortet der erstere während er mit dem Reinigen weiter macht.";
 VisionTextDE[6][8]="'Vielleicht? Ha! Ich habe immer recht!' Sein Lachen schallt durch die Kammer und beide Schatten verschwinden wieder.";
@@ -456,7 +456,7 @@ function Puzzle(User,SourceItem)
 	local dialog
 
 	if  User:getPlayerLanguage() == Player.german then
-		dialog = SelectionDialog("Schwarze Säulen Rätsel", "Treffe deine Wahl, aber sei vorsichtig. Bei einer flaschen Antwort musst du wieder von vorne beginnen.", callback)
+		dialog = SelectionDialog("Schwarze Säulen Rätsel", "Triff deine Wahl, aber sei vorsichtig. Bei einer flaschen Antwort musst du wieder von vorne beginnen.", callback)
 	else
 		dialog = SelectionDialog("Black Column Puzzle", "Select your choice but be careful. If you select the wrong answer, you move back to the beginning.", callback)
 	end
@@ -498,7 +498,7 @@ function M.beamMeDown(User, SourceItem)
 		if content.areas.PointInArea(player.pos,"evilrock6") then
 			player:warp(position(973,173,-6))
 			player:setQuestProgress(667,0)
-			common.InformNLS(player,"Das Summen bricht ab und ein Lichtermantel umschließt dich, der dich an einen anderen Ort zieht.", "The hum breaks up and a coat of light encloses you and pulls you to a different place.")
+			common.InformNLS(player,"Das Summen bricht ab und ein Lichtermantel, der dich an einen anderen Ort zieht, umschließt dich.", "The hum breaks up and a coat of light encloses you and pulls you to a different place.")
 			world:makeSound(13,player.pos)
 			world:gfx(37,player.pos)
 		end
