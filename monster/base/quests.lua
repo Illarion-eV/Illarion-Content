@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --Generic 'Kill X monsters' quests by Estralis Seborian
 
-module("monster.base.quests", package.seeall)
+local M = {}
 
 --TEMPLATE TO ADD A QUEST TO function iniQuests()
 
