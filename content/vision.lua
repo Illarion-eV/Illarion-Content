@@ -18,7 +18,7 @@ local common = require("base.common")
 local evilrock = require("triggerfield.evilrock")
 local areas = require("content.areas")
 
-module("content.vision", package.seeall)
+local M = {}
 
 VisionTextDE={};
 VisionTextDE[1]={};
@@ -513,3 +513,5 @@ function EvilRockPortal(User)
 	world:changeItem(portalEvilRock)
 	world:makeSound( 4, position(977,173,-6))
 end
+
+return M
