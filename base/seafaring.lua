@@ -21,7 +21,7 @@ local character = require("base.character")
 
 module("base.seafaring", package.seeall)
 
-ferrySourceItemPos={position(101,790,0),position(727,809,0),position(888,485,0),position(870,285,0),position(451,95,0),position(105,833,0),position(554,658,0)}
+M.ferrySourceItemPos={position(101,790,0),position(727,809,0),position(888,485,0),position(870,285,0),position(451,95,0),position(105,833,0),position(554,658,0)}
 
 ferryDE={}
 ferryEN={}
@@ -139,17 +139,17 @@ monster[16]={201,202,203,204}; --demon skeleton 205
 piratesSpawnGround={position(349,869,1),position(349,873,1),position(350,881,1),position(352,884,1),position(356,885,1),position(359,882,1),position(359,879,1),position(359,871,1)}
 piratesSpawnTop={position(351,863,2),position(355,862,2),position(357,863,2)}
 
-pirateDoors={position(354,873,0),position(355,873,0)}
+M.pirateDoors={position(354,873,0),position(355,873,0)}
 
-travlerslist={}
+M.travlerslist={}
 
-function Ferry(User, SourceItem)
+function M.Ferry(User, SourceItem)
     local chanceforpirateattack = math.random(1,100)
     local names
     local namestravel
-    local Amountferry = #ferrySourceItemPos    
+    local Amountferry = #M.ferrySourceItemPos    
     for j = 1,Amountferry do
-       if (SourceItem.pos == ferrySourceItemPos[j]) then
+       if (SourceItem.pos == M.ferrySourceItemPos[j]) then
         if  User:getPlayerLanguage() == Player.german then
             names = ferryDE[j]
             namestravel = ferrytravelDE[j]
@@ -172,16 +172,16 @@ function Ferry(User, SourceItem)
                 
                     base.money.TakeMoneyFromChar(User,1000)
                     local travlers = world:getPlayersInRangeOf(SourceItem.pos, 5) 
-                    travlerslist[User.name] = travlers
+                    M.travlerslist[User.name] = travlers
 
                     if chanceforpirateattack < 6 and SomeoneThere(User) ~= true then --chance of 5% and noone else is there
-                        previousselected = {}
-                        for i,player in ipairs(travlerslist[User.name]) do                        
-                            previousselected[player.name] = selected
+                        M.previousselected = {}
+                        for i,player in ipairs(M.travlerslist[User.name]) do                        
+                            M.previousselected[player.name] = selected
 			end
                         portalremoveforleftovers(User)
                         piratesAttack(User)
-                        for i,player in ipairs(travlerslist[User.name]) do
+                        for i,player in ipairs(M.travlerslist[User.name]) do
                             player:inform("[Hinweis 1] Piraten nähern sich dem Schiff. Folgende Möglichkeiten stehen zur Wahl: Kämpfen, fliehen oder ein Goldstück zahlen.", "[Information 1] Pirates are coming closer to your ship. You can choose between the following options: fight, flee or pay a gold coin.")
                             player:inform("[Hinweis 2] Auswählen in der Auswahl-Box kann die Person, die für die Fährenfahrt bezahlt hat.", "[Information 2] The person who paid for the ferry trip can select an option in the selection box.")
                             world:gfx(1,player.pos)
@@ -191,7 +191,7 @@ function Ferry(User, SourceItem)
                             world:makeSound(9,player.pos)
                         end
                      else
-                        for i,player in ipairs(travlerslist[User.name]) do
+                        for i,player in ipairs(M.travlerslist[User.name]) do
                             player:inform("Du hast dich dazu entschlossen, " ..namestravel[selected+1].. " zu Reisen.", "You have chosen to travel to " ..namestravel[selected+1]..".")
                             world:gfx(1,player.pos)
                             world:makeSound(9,player.pos)
@@ -263,7 +263,7 @@ function piratesAttack(User)
     User:requestSelectionDialog(dialog)
 
     for d=1,2 do
-        local checkDoor = world:getItemOnField(pirateDoors[d])
+        local checkDoor = world:getItemOnField(M.pirateDoors[d])
         if checkDoor.id == 3318 then
             world:swap(checkDoor,3314,233)
         end
@@ -274,18 +274,18 @@ end
 
 function piratesFight(User)
     local travlers = world:getPlayersInRangeOf(User.pos, 40) 
-    travlerslist[User.name] = travlers
-    for i,player in ipairs(travlerslist[User.name]) do
+    M.travlerslist[User.name] = travlers
+    for i,player in ipairs(M.travlerslist[User.name]) do
         if player:isInRangeToPosition(position(352,870,0), 30) or player:isInRangeToPosition(position(352,870,1), 30) or player:isInRangeToPosition(position(352,870,2), 30) then
             player:inform("Die Piraten erreichen das Schiff und ziehen ihre Waffen. Auf welcher Seite wird wohl Malachín stehen?", "The pirates reach the ship and draw their weapons. Which side will be supported by Malachín?")
         end
     end
-    for i,player in ipairs(travlerslist[User.name]) do
+    for i,player in ipairs(M.travlerslist[User.name]) do
         if player:isInRangeToPosition(position(352,870,0), 30) or player:isInRangeToPosition(position(352,870,1), 30) or player:isInRangeToPosition(position(352,870,2), 30) then
             player:inform("[Hinweis] Von nun an bleiben nur noch fünf Minuten über, um ein Scheitern und somit die Begegnung mit Cherga zu vermeiden. Unten im Schiffsbauch befindet sich Hilfe. Öffne die Tür für den Sträfling George Backstab und er wird das Schiff von den Piraten säubern. Aber bedenke, dies kostet den Verlust von Rangpunkten!", "[Hint] You have just five minutes left to avoid failure and thus a meeting with Cherga. There is help waiting for you downstairs in the ship's hold. Open the door to free the prisoner George Backstab and he will help you clear the ship of pirates. However, this will cost you some rank points.")
         end
     end
-    local countplayers = #travlerslist[User.name]
+    local countplayers = #M.travlerslist[User.name]
     local monsterTyp = math.random(1,16)
     if countplayers >= 6 then
         monsterAmountDown = 8
@@ -307,7 +307,7 @@ function piratesFight(User)
         world:makeSound(1,User.pos)
     end
 
-    for i,player in ipairs(travlerslist[User.name]) do
+    for i,player in ipairs(M.travlerslist[User.name]) do
         player:setQuestProgress(662,30)
         player:setQuestProgress(663,30)
         find, myEffect = player.effects:find(82)
@@ -322,7 +322,7 @@ end
 
 
 
-function piratesPiratesAreThere(User)
+function M.piratesPiratesAreThere(User)
     local monsters = world:getMonstersInRangeOf(position(352,870,1), 30); --get all monster in player range
     for i,mon in ipairs(monsters) do
         return true
@@ -344,17 +344,17 @@ end
 
 
 
-function piratesGeorgeBackstabRocks(User)
+function M.piratesGeorgeBackstabRocks(User)
     local monsters = world:getMonstersInRangeOf(position(352,870,1), 30); --get all monster in player range 
     for i,mon in ipairs(monsters) do
         mon:warp(position(5,5,0))
         character.DeathAfterTime(mon,math.random(10,30),0,33,true) --kill all monsters
     end
     local travlers = world:getPlayersInRangeOf(User.pos, 40) 
-    travlerslist[User.name] = travlers
-    for i,player in ipairs(travlerslist[User.name]) do
+    M.travlerslist[User.name] = travlers
+    for i,player in ipairs(M.travlerslist[User.name]) do
         if player:isInRangeToPosition(position(352,870,0), 30) or player:isInRangeToPosition(position(352,870,1), 30) or player:isInRangeToPosition(position(352,870,2), 30) then
-            if previousselected == nil then
+            if M.previousselected == nil then
             else
                 player:inform("George Backstab stürmt die Stufen hinauf und säubert das Schiff von den Piraten. Anschließend springt er über Board und schwimmt davon. Seine Flucht wird in deiner Fraktion gar nicht gut angkommen. Wie dem auch sei, das gewünschte Ziel wird sicher erreicht", "George Backstab storms up the stairs and throws all the pirates over the ship's rail. He jumps off the ship then and swims away. His escape is not well received in your faction. However, you reach your final destination safely.")
                 if player:getQuestProgress(200) == 0 then
@@ -363,7 +363,7 @@ function piratesGeorgeBackstabRocks(User)
                 end
                 world:gfx(1,player.pos)
                 world:makeSound(9,player.pos)
-                player:warp(targetPos[previousselected[User.name]+1])
+                player:warp(targetPos[M.previousselected[User.name]+1])
                 world:gfx(11,player.pos)
                 world:makeSound(9,player.pos)
             end
@@ -374,17 +374,17 @@ end
 
 
 
-function piratesPiratesKill(User)
+function M.piratesPiratesKill(User)
     local travlers = world:getPlayersInRangeOf(User.pos, 40) 
-    travlerslist[User.name] = travlers
-    for i,player in ipairs(travlerslist[User.name]) do
+    M.travlerslist[User.name] = travlers
+    for i,player in ipairs(M.travlerslist[User.name]) do
         if player:isInRangeToPosition(position(352,870,0), 30) or player:isInRangeToPosition(position(352,870,1), 30) or player:isInRangeToPosition(position(352,870,2), 30) then
-            if previousselected == nil then
+            if M.previousselected == nil then
             else
                 player:inform("Nachdem die Piratenmeute zurückgeschlagen werden konnte, wird das gewünschte Ziel sicher erreicht.", "After all the pirates were pushed back, you reach your final destination safely.")
                 world:gfx(1,player.pos)
                 world:makeSound(9,player.pos)
-                player:warp(targetPos[previousselected[User.name]+1])
+                player:warp(targetPos[M.previousselected[User.name]+1])
                 world:gfx(11,player.pos)
                 world:makeSound(9,player.pos)
             end
@@ -395,15 +395,15 @@ end
 
 
 
-function piratesPiratesRule(User)
+function M.piratesPiratesRule(User)
     local travlers = world:getPlayersInRangeOf(User.pos, 40) 
-    travlerslist[User.name] = travlers
-    for i,player in ipairs(travlerslist[User.name]) do
+    M.travlerslist[User.name] = travlers
+    for i,player in ipairs(M.travlerslist[User.name]) do
         if player:isInRangeToPosition(position(352,870,0), 30) or player:isInRangeToPosition(position(352,870,1), 30) or player:isInRangeToPosition(position(352,870,2), 30) then
-            if previousselected == nil then
+            if M.previousselected == nil then
             else
                 player:inform("Malachín war wohl mit den Piraten. Sie sind in der Lage das Schiff zu überlaufen und setzen alle Anwesenden ihrem Glück mit Cherga aus. Wird Cherga Gnade haben?", "Malachín was obviously with the pirates. They overrun the ship and all passenger have to face Cherga. Will Cherga have mercy on you?")
-                player:warp(targetPos[previousselected[User.name]+1])
+                player:warp(targetPos[M.previousselected[User.name]+1])
                 character.DeathAfterTime(player,math.random(10,30),0,27,true) --kill all players
             end
         end
@@ -418,10 +418,10 @@ end
 
 
 
-function piratesTimeWarning(User)
+function M.piratesTimeWarning(User)
     local travlers = world:getPlayersInRangeOf(User.pos, 40) 
-    travlerslist[User.name] = travlers
-    for i,player in ipairs(travlerslist[User.name]) do
+    M.travlerslist[User.name] = travlers
+    for i,player in ipairs(M.travlerslist[User.name]) do
         if player:isInRangeToPosition(position(352,870,0), 30) or player:isInRangeToPosition(position(352,870,1), 30) or player:isInRangeToPosition(position(352,870,2), 30) then
             player:inform("[Hinweis] Es ist nur noch eine Minute übrig, das Schiff von den Piraten zu säubern. Vielleicht sollte die Hilfe von George Backstab doch in Anspruch genommen werden. Hierzu einfach die Verliestür unten im Schiffsbauch öffnen.", "[Hint] There is only one minute left to clear the boat of pirates. You should probably consider using the help of George Backstab. Just open the door down in the ship's hold.")
         end    
@@ -432,16 +432,16 @@ end
 
 function piratesFlee(User)
     local travlers = world:getPlayersInRangeOf(User.pos, 40) 
-    travlerslist[User.name] = travlers
+    M.travlerslist[User.name] = travlers
     if math.random(1,100)< 26 then
-        for i,player in ipairs(travlerslist[User.name]) do
+        for i,player in ipairs(M.travlerslist[User.name]) do
             if player:isInRangeToPosition(position(352,870,0), 30) or player:isInRangeToPosition(position(352,870,1), 30) or player:isInRangeToPosition(position(352,870,2), 30) then
-                if previousselected == nil then
+                if M.previousselected == nil then
                 else
                     player:inform("Die Bemühungen zahlen sich aus und die Flucht gelingt. Sicher wird das gewünschte Ziel erreicht.", "Your effort is rewarded. You are able to flee successfully and reach your final destination safely.")
                     world:gfx(1,player.pos)
                     world:makeSound(9,player.pos)
-                    player:warp(targetPos[previousselected[User.name]+1])
+                    player:warp(targetPos[M.previousselected[User.name]+1])
                     world:gfx(11,player.pos)
                     world:makeSound(9,player.pos)
                 end
@@ -449,7 +449,7 @@ function piratesFlee(User)
         end
         portalcreateforleftovers(User)
     else
-        for i,player in ipairs(travlerslist[User.name]) do
+        for i,player in ipairs(M.travlerslist[User.name]) do
             if player:isInRangeToPosition(position(352,870,0), 30) or player:isInRangeToPosition(position(352,870,1), 30) or player:isInRangeToPosition(position(352,870,2), 30) then
                 player:inform("Oh nein, zu langsam!", "Oh no, too slow!")
             end
@@ -462,17 +462,17 @@ end
 
 function piratesPay(User)
     local travlers = world:getPlayersInRangeOf(User.pos, 40) 
-    travlerslist[User.name] = travlers
+    M.travlerslist[User.name] = travlers
     if base.money.CharHasMoney(User,10000) then
         base.money.TakeMoneyFromChar(User,10000)
-        for i,player in ipairs(travlerslist[User.name]) do
+        for i,player in ipairs(M.travlerslist[User.name]) do
             if player:isInRangeToPosition(position(352,870,0), 30) or player:isInRangeToPosition(position(352,870,1), 30) or player:isInRangeToPosition(position(352,870,2), 30) then
-                if previousselected == nil then
+                if M.previousselected == nil then
                 else
                     player:inform("Das Gold ist weg, aber dafür das gewünschte Ziel erreicht.", "The gold is gone but in return you reach your final destination safely.")
                     world:gfx(1,player.pos)
                     world:makeSound(9,player.pos)
-                    player:warp(targetPos[previousselected[User.name]+1])
+                    player:warp(targetPos[M.previousselected[User.name]+1])
                     world:gfx(11,player.pos)
                     world:makeSound(9,player.pos)
                 end
@@ -480,7 +480,7 @@ function piratesPay(User)
         end
         portalcreateforleftovers(User)
     else
-        for i,player in ipairs(travlerslist[User.name]) do
+        for i,player in ipairs(M.travlerslist[User.name]) do
             if player:isInRangeToPosition(position(352,870,0), 30) or player:isInRangeToPosition(position(352,870,1), 30) or player:isInRangeToPosition(position(352,870,2), 30) then
                 player:inform("Nein, das ist zu wenig Geld! Damit lassen sich die Piraten nicht bestechen.", "No, that's not enough for bribing the pirates!")
             end
