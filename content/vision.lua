@@ -157,7 +157,7 @@ VisionTextEN[6][8]="'Probably? Ha! I am always right!' His laughter rings throug
 attendants={}
 attendants2={}
 
-function vision(char,TypeStory)
+function M.vision(char,TypeStory)
 --debug("3: "..TypeStory)
 	local LineStory = char:getQuestProgress(664)
 	attendants[char.name] = world:getPlayersInRangeOf(position(940,200,0), 90)
@@ -196,9 +196,9 @@ end
 
 
 
-darkColumnEvilrock={position(967,171,0),position(969,171,0),position(971,171,0),position(967,175,0),position(969,175,0),position(971,175,0)}
-darkColumnEvilrockLight={position(967,171,1),position(969,171,1),position(971,171,1),position(967,175,1),position(969,175,1),position(971,175,1)}
-darkColumnEvilrockFlame={467,467,467,467,467,467}
+M.darkColumnEvilrock={position(967,171,0),position(969,171,0),position(971,171,0),position(967,175,0),position(969,175,0),position(971,175,0)}
+M.darkColumnEvilrockLight={position(967,171,1),position(969,171,1),position(971,171,1),position(967,175,1),position(969,175,1),position(971,175,1)}
+M.darkColumnEvilrockFlame={467,467,467,467,467,467}
 CheckLightOnColumnIsThere={}
 enabledAttendantsForPuzzle={}
 
@@ -206,22 +206,22 @@ enabledAttendantsForPuzzle={}
 gemsRequired={197,284,45,197,284,45}
 
 
-function UseDarkColumns(User, SourceItem, ltstate)
+function M.UseDarkColumns(User, SourceItem, ltstate)
 
 	if User:getQuestProgress(667) >= 1 or world:getItemOnField(SourceItem.pos).id == 467 then
 		return
 	end
 
-	local AmountDarkColumnEvilrock = #darkColumnEvilrock
+	local AmountDarkColumnEvilrock = #M.darkColumnEvilrock
   	for i = 1,AmountDarkColumnEvilrock do
-		if (SourceItem.pos == darkColumnEvilrock[i]) and User:countItemAt("all", gemsRequired[i], {["gemLevel"]="1"}) >= 1 then
+		if (SourceItem.pos == M.darkColumnEvilrock[i]) and User:countItemAt("all", gemsRequired[i], {["gemLevel"]="1"}) >= 1 then
 --			local howmuchisit = User:countItemAt("all", 284)
 
 			local foundSource
 	-- check for dark column
-			TargetItem = darkColumnEvilrock[i];
+			TargetItem = M.darkColumnEvilrock[i];
 			if (TargetItem ~= nil) then
-				common.TurnTo( User, darkColumnEvilrock[i] ); -- turn if necessary
+				common.TurnTo( User, M.darkColumnEvilrock[i] ); -- turn if necessary
 				foundSource=true
 			end
 
@@ -229,13 +229,13 @@ function UseDarkColumns(User, SourceItem, ltstate)
 				User:startAction( 20, 21, 5, 28, 55);
 --				User:startAction( 20, 21, 5, 13, 25);
 				User:talk(Character.say, "#me setzt einen magischen Edelstein in die Säule ein.", "#me sets a magical gem into the column.")
-				world:gfx(52,darkColumnEvilrockLight[i])
-				world:createItemFromId( darkColumnEvilrockFlame[i], 1, darkColumnEvilrock[i], true, 666, nil)
+				world:gfx(52,M.darkColumnEvilrockLight[i])
+				world:createItemFromId( M.darkColumnEvilrockFlame[i], 1, M.darkColumnEvilrock[i], true, 666, nil)
 				User:eraseItem(gemsRequired[i],1, {["gemLevel"]="1"})
 			end
 
 			for j = 1,AmountDarkColumnEvilrock do
-				local CheckLightOnColumn = world:getItemOnField(darkColumnEvilrock[j])
+				local CheckLightOnColumn = world:getItemOnField(M.darkColumnEvilrock[j])
 				if CheckLightOnColumn.id == 467 then
 					CheckLightOnColumnIsThere[j] = true
 				else
@@ -249,17 +249,17 @@ function UseDarkColumns(User, SourceItem, ltstate)
 			end
 
 			for l = 1,AmountDarkColumnEvilrock do
-				world:gfx(5,darkColumnEvilrock[l])
-				world:makeSound(27,darkColumnEvilrock[l])
+				world:gfx(5,M.darkColumnEvilrock[l])
+				world:makeSound(27,M.darkColumnEvilrock[l])
 			end
 
 			BlackColumnQuestProgressA(User)
 
-		elseif SourceItem.pos == darkColumnEvilrock[i] and User:countItemAt("all", gemsRequired[i]) >= 1 then
+		elseif SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", gemsRequired[i]) >= 1 then
 			common.InformNLS(User,"Der Edelstein lässt sich einsetzen, aber er scheint nicht der Richtige zu sein. Vielleicht versuchst du einen Anderen.","Your gem seems to fit but for some reason it does not seem to be the right one.")
-		elseif SourceItem.pos == darkColumnEvilrock[i] and User:countItemAt("all", 285) >= 1 or SourceItem.pos == darkColumnEvilrock[i] and User:countItemAt("all", 285) >= 1 or SourceItem.pos == darkColumnEvilrock[i] and User:countItemAt("all", 283) >= 1 or SourceItem.pos == darkColumnEvilrock[i] and User:countItemAt("all", 45) >= 1 or SourceItem.pos == darkColumnEvilrock[i] and User:countItemAt("all", 46) >= 1 or SourceItem.pos == darkColumnEvilrock[i] and User:countItemAt("all", 197) >= 1 or SourceItem.pos == darkColumnEvilrock[i] and User:countItemAt("all", 198) >= 1 then
+		elseif SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 285) >= 1 or SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 285) >= 1 or SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 283) >= 1 or SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 45) >= 1 or SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 46) >= 1 or SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 197) >= 1 or SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 198) >= 1 then
 			common.InformNLS(User,"Diese Art von Edelstein scheint nicht zu passen. Vielleicht versuchst du eine andere Art.","This kind of gem does not seem to fit. You might want to try a different one.")
-		elseif SourceItem.pos == darkColumnEvilrock[i] then
+		elseif SourceItem.pos == M.darkColumnEvilrock[i] then
 			common.InformNLS(User,"Keiner deiner Gegenstände scheint zu passen.","None of your items seem to fit.")
 		end
 	end
@@ -304,12 +304,12 @@ function BlackColumnQuestProgressC(User,QuestStatusBlackColumn)
 			player:setQuestProgress(667,0)
 			common.InformNLS(player,"Das Summen bricht ab, die Lichter erlöschen und die Runen an den schwarzen Säulen verschwinden.", "The hum breaks up, lights go out and the runes disappear on the black column.")
 			world:makeSound(27,player.pos)
-			local AmountDarkColumnEvilrock = #darkColumnEvilrock
+			local AmountDarkColumnEvilrock = #M.darkColumnEvilrock
 			for i=1,AmountDarkColumnEvilrock do
-				local DarkColumnEvilrockLightErase = world:getItemOnField(darkColumnEvilrock[i])
+				local DarkColumnEvilrockLightErase = world:getItemOnField(M.darkColumnEvilrock[i])
 				if DarkColumnEvilrockLightErase.id == 467 then
 					world:erase(DarkColumnEvilrockLightErase,DarkColumnEvilrockLightErase.number)
-					world:gfx(45,darkColumnEvilrockLight[i])
+					world:gfx(45,M.darkColumnEvilrockLight[i])
 				end
 			end
 		else
@@ -318,17 +318,17 @@ function BlackColumnQuestProgressC(User,QuestStatusBlackColumn)
 end
 
 
-function UseDarkColumnsPuzzle(User, SourceItem, ltstate)
+function M.UseDarkColumnsPuzzle(User, SourceItem, ltstate)
 
-	local AmountDarkColumnEvilrock = #darkColumnEvilrock
+	local AmountDarkColumnEvilrock = #M.darkColumnEvilrock
   	for i = 1,AmountDarkColumnEvilrock do
-		if (SourceItem.pos == darkColumnEvilrock[i]) and User:getQuestProgress(667) >= 1 and world:getItemOnField(SourceItem.pos).id == 467 then
+		if (SourceItem.pos == M.darkColumnEvilrock[i]) and User:getQuestProgress(667) >= 1 and world:getItemOnField(SourceItem.pos).id == 467 then
 
 			local foundSource
 	-- check for dark column
-			TargetItem = darkColumnEvilrock[i];
+			TargetItem = M.darkColumnEvilrock[i];
 			if (TargetItem ~= nil) then
-				common.TurnTo( User, darkColumnEvilrock[i] ); -- turn if necessary
+				common.TurnTo( User, M.darkColumnEvilrock[i] ); -- turn if necessary
 				foundSource=true
 			end
 
@@ -404,7 +404,7 @@ function Puzzle(User,SourceItem)
 	local QuestStatusBlackColumn = User:getQuestProgress(667)
 	local TrueOption = math.random(1,3)
 
-	if (SourceItem.pos == darkColumnEvilrock[puzzleDarkColumnOrder[QuestStatusBlackColumn]]) then
+	if (SourceItem.pos == M.darkColumnEvilrock[puzzleDarkColumnOrder[QuestStatusBlackColumn]]) then
 		OptionToSelect[TrueOption] = QuestStatusBlackColumn
 		if TrueOption == 1 then
 			repeat
@@ -486,7 +486,7 @@ end
 
 findPossiblePlayersForBeamMeDown={}
 
-function beamMeDown(User, SourceItem)
+function M.beamMeDown(User, SourceItem)
 	world:makeSound(22,position(975,173,0))
 	world:gfx(46,position(975,173,0))
 	findPossiblePlayersForBeamMeDown[User.name] = world:getPlayersInRangeOf(position(970,173,0), 8)

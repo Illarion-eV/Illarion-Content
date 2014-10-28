@@ -18,6 +18,7 @@ local common = require("base.common")
 local seafaring = require("base.seafaring")
 local townManagement = require("base.townManagement")
 local factions = require("base.factions")
+local vision = require("content.vision")
 
 -- UPDATE items SET itm_script='item.bookrests' WHERE itm_id = 3104;
 -- UPDATE items SET itm_script='item.bookrests' WHERE itm_id = 3105;
