@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- monsterID 2000
 
 local monstermagic = require("monster.base.monstermagic")
+local kills = require("monster.base.kills")
 
 local M = {}
 
@@ -147,13 +148,13 @@ end
 function M.onAttacked(Guard,Enemy)
     isEnemy[Enemy.id]=1;		-- this one is put on our list of enemys
     Guard:talk(Character.yell, "I am under attack, help!");
-    monster.base.kills.setLastAttacker(Guard,Enemy)
+    kills.setLastAttacker(Guard,Enemy)
 end
 
 
 -- attack back, whoever it is
 function M.onCasted(Guard,Enemy)
-    monster.base.kills.setLastAttacker(Guard,Enemy)
+    kills.setLastAttacker(Guard,Enemy)
 end
 
 

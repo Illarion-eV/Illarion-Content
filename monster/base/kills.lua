@@ -18,18 +18,18 @@ module("monster.base.kills",package.seeall)
 
 lastAttacker={};
 
-function setLastAttacker(monster, enemy)
+function M.setLastAttacker(monster, enemy)
     lastAttacker[monster.id] = enemy;
 end;
 
-function getLastAttacker(monster)
+function M.getLastAttacker(monster)
 	return lastAttacker[monster.id];
 end;
 
-function hasLastAttacker(monster)
+function M.hasLastAttacker(monster)
 	return lastAttacker[monster.id] ~= nil;
 end;
 
-function isLastAttacker(monster, enemy)
+function M.isLastAttacker(monster, enemy)
 	return lastAttacker[monster.id] == enemy;
 end;
