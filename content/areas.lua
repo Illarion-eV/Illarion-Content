@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local polygons = require("base.polygons")
 
-module("content.areas", package.seeall);
+local M = {}
 
 function Init()
 	if AreaList then
@@ -80,7 +80,7 @@ end
 -- @param posStruct The point to be tested
 -- @param string The name of the area
 -- @return boolean True if point is in area with areaName
-function PointInArea(point, areaName)
+function M.PointInArea(point, areaName)
 	if not AreaList then
 		Init();
 	end
@@ -95,3 +95,5 @@ function PointInArea(point, areaName)
 	end
 	return false;
 end
+
+return M

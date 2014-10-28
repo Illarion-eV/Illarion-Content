@@ -60,6 +60,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local class = require("base.class")
 local character = require("base.character")
+local areas = require("content.areas")
 local M = {}
 
 
