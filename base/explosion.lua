@@ -17,14 +17,14 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-module("base.explosion", package.seeall)
+local M = {}
 
 --[[
     CreateExplosion
     Provide an explosion that also throws characters away, in a radios of 3 fields
     @param integer - Center of the explosion
 ]]
-function CreateExplosion(CenterPos)
+function M.CreateExplosion(CenterPos)
 
 	function CreateOuterCircle(HitPos)
 		CreateExplosionCircle(HitPos, 1,250,CenterPos,false);
@@ -141,3 +141,5 @@ function HitChar(Posi,Hitpoints,CenterPos)
         Character:increaseAttrib("hitpoints",-Hitpoints);
     end;
 end;
+
+return M
