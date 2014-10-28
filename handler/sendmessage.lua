@@ -17,8 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local class = require("base.class")
 local common = require("base.common")
 
-module("handler.sendmessage", package.seeall)
-
 sendMessage = class(function(sndMsg, posi, msgde, msgen, rad)
     sndMsg.pos=posi;
     sndMsg.messageDe=msgde;
@@ -32,3 +30,5 @@ function sendMessage:execute()
         common.InformNLS(player,self.messageDe,self.messageEn)
     end
 end
+
+return sendMessage

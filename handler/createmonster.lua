@@ -16,7 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 
-module("handler.createmonster", package.seeall)
 
 createMonster = class(function(cremonst, posi, ID, mvpoints)
 	cremonst.pos=posi;
@@ -28,3 +27,4 @@ function createMonster:execute()
 	world:createMonster(self.monsterID, self.pos, self.movepoints);
 end
 
+return createMonster

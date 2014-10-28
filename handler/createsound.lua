@@ -16,8 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 
-module("handler.createsound", package.seeall)
-
 createSound = class(function(crsnd, posi, sndid)
     crsnd.pos=posi;
     crsnd.soundId=sndid;
@@ -26,3 +24,5 @@ end);
 function createSound:execute()
     world:makeSound(self.soundId, self.pos);
 end
+
+return createSound

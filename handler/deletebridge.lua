@@ -16,8 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 
-module("handler.deletebridge", package.seeall);
-
 deleteBridge = class(function(delbrg, posi)
     delbrg.pos=posi;
 end);
@@ -95,3 +93,5 @@ function deleteBridge:execute()
         end
     end
 end
+
+return deleteBridge

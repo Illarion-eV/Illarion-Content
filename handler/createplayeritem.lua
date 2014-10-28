@@ -16,7 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 
-module("handler.createplayeritem", package.seeall)
 
 createPlayerItem = class(function(creplitem, ply, ID, qual, amnt)
     creplitem.player=ply;
@@ -29,3 +28,5 @@ function createPlayerItem:execute()
     person=self.player
     person:createItem(self.itemId, self.amount,self.quality,nil);
 end
+
+return createPlayerItem

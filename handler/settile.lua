@@ -16,7 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 
-module("handler.settile", package.seeall)
 
 setTile = class(function(settl, posi, tlId)
     settl.pos=posi;
@@ -26,3 +25,5 @@ end);
 function setTile:execute()
     world:changeTile(self.tileId, self.pos);
 end
+
+return setTile

@@ -16,8 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 
-module("handler.deleteitem", package.seeall)
-
 deleteItem = class(function(delitem, posi, delID)
     delitem.pos=posi;
     delitem.deleteItemId=delID;
@@ -36,3 +34,5 @@ function deleteItem:execute()
         return -1;
     end
 end
+
+return deleteItem

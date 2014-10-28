@@ -35,3 +35,5 @@ function closeDoor:execute()
         return -1;
     end
 end
+
+return closeDoor

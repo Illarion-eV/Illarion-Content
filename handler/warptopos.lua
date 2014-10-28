@@ -16,7 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 
-module("handler.warptopos", package.seeall)
 
 warpToPos = class(function(warptopos, startpos,destpos)
     warptopos.startpos=startpos;
@@ -30,3 +29,5 @@ function warpToPos:execute()   --warps a player from position startpos to the po
     	player:warp(self.destpos);
     end
 end
+
+return warptToPos

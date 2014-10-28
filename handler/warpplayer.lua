@@ -16,8 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 
-module("handler.warpplayer", package.seeall)
-
 warpPlayer = class(function(warppl, ply,destpos)
     warppl.player=ply;
     warppl.destpos=destpos;
@@ -26,3 +24,5 @@ end);
 function warpPlayer:execute()   --warps a player to the position destpos
     (self.player):warp(self.destpos);
 end
+
+return warpPlayer

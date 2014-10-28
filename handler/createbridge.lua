@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 
-module("handler.createbridge", package.seeall)
+
 
 createBridge = class(function(crebrg, posi, dire, lng)
     crebrg.pos=posi;
@@ -89,3 +89,5 @@ function createBridge:execute()
         return -2;
      end
 end
+
+return createBridge

@@ -17,8 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local class = require("base.class")
 local common = require("base.common")
 
-module("handler.warpgroup", package.seeall)
-
 warpGroup = class(function(warpgr, centerpos, radius, destpos,gfx)
     warpgr.startpos=centerpos;
     warpgr.destpos=destpos;
@@ -39,3 +37,5 @@ function warpGroup:execute()   --warps all players within a range radius from ce
 		player:warp( dest );
     end
 end
+
+return warpGroup

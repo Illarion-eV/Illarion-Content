@@ -16,8 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 
-module("handler.teachrune", package.seeall)
-
 teachRune = class(function(tchrune, ply, mtype, rID)
     tchrune.player=ply;
     tchrune.magictype=mtype;
@@ -27,3 +25,5 @@ end);
 function teachRune:execute()
   (self.player):teachMagic(self.magictype,2^(self.runeID));
 end
+
+return teachRune

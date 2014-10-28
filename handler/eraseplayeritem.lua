@@ -16,8 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 
-module("handler.eraseplayeritem", package.seeall)
-
 erasePlayerItem = class(function(eraplitem, ply, ID, amnt)
     eraplitem.player=ply;
     eraplitem.itemId=ID;
@@ -28,3 +26,5 @@ function erasePlayerItem:execute()
     person=self.player
     person:eraseItem(self.itemId, self.amount);
 end
+
+return erasePlayerItem

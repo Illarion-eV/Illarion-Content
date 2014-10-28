@@ -16,7 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 
-module("handler.createeffect", package.seeall)
 
 createEffect = class(function(creff, posi, gfxid)
     creff.pos=posi;
@@ -26,3 +25,5 @@ end);
 function createEffect:execute()
     world:gfx(self.effectId, self.pos);
 end
+
+return createEffect
