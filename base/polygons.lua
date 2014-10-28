@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local class = require("base.class")
 
-module("base.polygons",package.seeall);
+local M = {}
 
 --- representation of a line. All positions have z=0.
 -- @param posStruct Start point
@@ -38,7 +38,7 @@ Line = class(
 -- @field zList list(int) list with valid z values for PIP test
 -- @param list(posStruct) List of points, neighbours are connected, aswell as first and last point of the list
 -- @return PolygonStruct
-Polygon = class(
+M.Polygon = class(
 	function(obj, positionList, zList)
 		if #positionList < 3 then
 			debug("A polygon must have at least 3 points");
@@ -173,3 +173,5 @@ function Polygon:pip(point)
 	end
 	return (count%2 == 1);
 end
+
+return M
