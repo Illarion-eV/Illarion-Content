@@ -16,9 +16,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 
-module("base.lever", package.seeall)
+local M = {}
 
-Lever = class(function(lev, posi, twoState)    -- defines a class
+
+M.Lever = class(function(lev, posi, twoState)    -- defines a class
     lev.pos = posi;                             -- this is the constructor!!!!
     lev.twoState = (twoState == true);          -- left-middle-right or just l-r
     lev.broken = false;                         -- broken lever? bring someone to repair!
@@ -143,3 +144,5 @@ function Lever:bind(levState, action)                       -- bind an action to
     thisAction={levState,action};                           -- put everything into the list
     table.insert(bindList[key],thisAction);
 end
+
+return M
