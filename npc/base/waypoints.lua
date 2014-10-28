@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- base script for waypoints
 
-module("npc.base.waypoints", package.seeall)
+local M = {}
 
 -------------------------
 -- *** DEFINITIONS *** --
@@ -72,12 +72,12 @@ function Waypoint:new(pos,area,neighbours,data)
 	if not WaypointList[area] then
 		WaypointList[area] = {};
 	end
-	WaypointList[area][PosToIndex(pos)] = this;
+	WaypointList[area][M.PosToIndex(pos)] = this;
 	if data.waiting then
 		if not WaitingList[area] then
 			WaitingList[area] = {};
 		end
-		WaitingList[area][PosToIndex(pos)] = this;
+		WaitingList[area][M.PosToIndex(pos)] = this;
 	end
 	if not AreaList[area] then
 		AreaList[area] = {};
@@ -170,12 +170,12 @@ end
 This function should be called after all waypoints have been set.
 It connects the waypoints as neighbourhoods and bridges and the areas using a Dijkstra algorhithm.
 ]]
-function Init()
+function M.Init()
 	for _,area in pairs(WaypointList) do
 		for _,this in pairs(area) do
 			if this.data.bridge then
 				local b = this.data.bridge;
-				b.toWaypoint = WaypointList[b.toArea][PosToIndex(b.toWaypoint)];
+				b.toWaypoint = WaypointList[b.toArea][M.PosToIndex(b.toWaypoint)];
 			end
 			for _,that in pairs(area) do
 				if this:getDistance(that)<12 then
@@ -206,7 +206,7 @@ function Init()
 end
 
 -- calculate a distinct index for the given position
-function PosToIndex(pos)
+function M.PosToIndex(pos)
 	local index = 0;
 	if pos.x<0 then
 		index = index + 100000000000000;
@@ -240,3 +240,5 @@ function IndexToPos(index)
 	end
 	return position(x,y,z);
 end
+
+return M
