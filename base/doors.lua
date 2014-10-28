@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 
-module("base.doors", package.seeall)
+local M = {}
 
 OpenDoors = {};
 ClosedDoors = {};
@@ -134,7 +134,7 @@ end;
     @param integer - the ID of the item that shall be checked
     @return boolean - true in case the item is a opened door, else false
 ]]
-function CheckOpenDoor(DoorID)
+function M.CheckOpenDoor(DoorID)
     return (OpenDoors[DoorID] ~= nil);
 end;
 
@@ -144,7 +144,7 @@ end;
     @param integer - the ID of the item that shall be checked
     @return boolean - true in case the item is a closed door, else false
 ]]
-function CheckClosedDoor(DoorID)
+function M.CheckClosedDoor(DoorID)
     return (ClosedDoors[DoorID] ~= nil);
 end;
 
@@ -155,7 +155,7 @@ end;
     @ewruen boolean - true in case the door got closed, false if something went
         wrong
 ]]
-function CloseDoor(Door)
+function M.CloseDoor(Door)
     if OpenDoors[Door.id] then
         world:swap(Door, OpenDoors[Door.id], 233);
         world:makeSound(21, Door.pos);
@@ -174,7 +174,7 @@ end;
         item was found and it wound be possible to open it, the second value is
         true in case the door really got opened and false if it was locked
 ]]
-function OpenDoor(Door)
+function M.OpenDoor(Door)
     if ClosedDoors[Door.id] then
         if Door:getData("lockId") == "" or Door:getData("doorLock")=="unlocked" then
             world:swap(Door, ClosedDoors[Door.id], 233);
@@ -185,3 +185,5 @@ function OpenDoor(Door)
     end
     return false, false;
 end
+
+return M
