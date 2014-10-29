@@ -20,7 +20,7 @@ local polygons = require("base.polygons")
 
 local M = {}
 
-function Init()
+function M.Init()
 	if AreaList then
 		return;
 	end

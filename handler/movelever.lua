@@ -16,13 +16,14 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 
+local M = {}
 
-moveLever = class(function(mvLev, lev)
+M.moveLever = class(function(mvLev, lev)
     mvLev.lever=lev;
 end);
 
-function moveLever:execute()
+function M.moveLever:execute()
     self.lever:switchLever(nil);
 end
 
-return moveLever
+return M

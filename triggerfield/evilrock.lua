@@ -56,7 +56,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (964,174,-6,'triggerfield.evilrock');
 
 -- INSERT INTO triggerfields VALUES (970,171,2,'triggerfield.evilrock');
-
+local lookat = require("base.lookat")
 local common = require("base.common")
 local class = require("base.class")
 local character = require("base.character")
@@ -152,7 +152,7 @@ function M.MoveToField(char)
                 world:createItemFromId(51, 1, position(997,199,2), true, 333, nil)
                 local CreateBucket = world:getItemOnField(position(997,199,2))                
                 CreateBucket.wear=255
-                base.lookat.SetSpecialDescription(CreateBucket,"Wie viel Wasser wohl in diesen Eimer passt?","How much water might fit into this bucket?")
+                lookat.SetSpecialDescription(CreateBucket,"Wie viel Wasser wohl in diesen Eimer passt?","How much water might fit into this bucket?")
                 world:changeItem(CreateBucket)
             end
         end

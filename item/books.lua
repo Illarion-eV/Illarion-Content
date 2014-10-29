@@ -14,6 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
+local lookat = require("base.lookat")
 local common = require("base.common")
 local id_266_bookshelf = require("item.id_266_bookshelf")
 local M = {}
@@ -72,11 +73,11 @@ function M.LookAtItem(User,Item)
 		local bookId =tonumber( Item:getData("bookId"))
 		if bookId ~= nil then
 			if id_266_bookshelf.books[bookId] ~= nil then
-				base.lookat.SetSpecialName(Item,id_266_bookshelf.books[bookId].german,id_266_bookshelf.books[bookId].english)
+				lookat.SetSpecialName(Item,id_266_bookshelf.books[bookId].german,id_266_bookshelf.books[bookId].english)
 			end
 		end
 	end
-	return base.lookat.GenerateLookAt(User, Item, 0)
+	return lookat.GenerateLookAt(User, Item, 0)
 end   
 return M
 

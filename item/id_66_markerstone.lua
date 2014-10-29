@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_66_markerstone' WHERE itm_id IN (66);
 
-
+local lookat = require("base.lookat")
 local explorersguild = require("quest.explorersguild")
 local common = require("base.common")
 local ranklist = require("base.ranklist")
@@ -45,12 +45,12 @@ function M.LookAtItem(User,Item)
 	local stonedata=Item:getData("markerstone");
 	if tonumber(stonedata) then
 		if not explorersguild.CheckStone(User,tonumber(stonedata)) then
-			base.lookat.SetSpecialDescription( Item, "Ein Markierungsstein der Abenteurergilde.","A marker stone of the Explorers' Guild.");
+			lookat.SetSpecialDescription( Item, "Ein Markierungsstein der Abenteurergilde.","A marker stone of the Explorers' Guild.");
 		else
-			base.lookat.SetSpecialDescription( Item, "Du hast diesen Markierungsstein der Abenteurergilde bereits früher gefunden; er trägt die Nummer "..stonedata,"You have already found that marker stone of the Explorers' Guild earlier; it has the number "..stonedata);
+			lookat.SetSpecialDescription( Item, "Du hast diesen Markierungsstein der Abenteurergilde bereits früher gefunden; er trägt die Nummer "..stonedata,"You have already found that marker stone of the Explorers' Guild earlier; it has the number "..stonedata);
 		end
     end
-	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)  
+	return lookat.GenerateLookAt(User, Item, lookat.NONE)  
 end
 
 return M

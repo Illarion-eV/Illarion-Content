@@ -15,15 +15,15 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 local class = require("base.class")
+local M = {}
 
-
-setTile = class(function(settl, posi, tlId)
+M.setTile = class(function(settl, posi, tlId)
     settl.pos=posi;
     settl.tileId=tlId;
 end);
 
-function setTile:execute()
+function M.setTile:execute()
     world:changeTile(self.tileId, self.pos);
 end
 
-return setTile
+return M

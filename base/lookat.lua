@@ -79,7 +79,7 @@ function M.GenerateLookAt(user, item, material)
         return
     end
     
-    material = material or NONE
+    material = material or M.NONE
 
     if material < M.NONE or material > M.JEWELLERY then
         debug("Sanity check failed, no valid material supplied.")
@@ -142,7 +142,7 @@ function M.GenerateLookAt(user, item, material)
             lookAt.worth = 20*item.number * itemCommon.Worth
         end
         
-        if material > NONE then
+        if material > M.NONE then
             local itemDura = math.fmod(item.quality, 100)
             local itemQual = (item.quality - itemDura) / 100
             

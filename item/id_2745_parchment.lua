@@ -23,7 +23,7 @@ local gemdust = require("alchemy.base.gemdust")
 local id_164_emptybottle = require("item.id_164_emptybottle")
 local potionToTeacher = require("triggerfield.potionToTeacher")
 local recipe_creation = require("alchemy.base.recipe_creation")
-
+local lookat = require("base.lookat")
 local M = {}
 
 -- important: do not remove the fourth parameter "checkVar".
@@ -448,7 +448,7 @@ end
 
 function M.LookAtItem(User, Item)
 
-	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
+	return lookat.GenerateLookAt(User, Item, lookat.NONE)
 
 end
 

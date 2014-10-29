@@ -16,19 +16,20 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local common = require("base.common")
+local M = {}
 
-sendMessage = class(function(sndMsg, posi, msgde, msgen, rad)
+M.sendMessage = class(function(sndMsg, posi, msgde, msgen, rad)
     sndMsg.pos=posi;
     sndMsg.messageDe=msgde;
     sndMsg.messageEn=msgen;
     sndMsg.radius=rad;
 end);
 
-function sendMessage:execute()
+function M.sendMessage:execute()
     plyList=world:getPlayersInRangeOf(self.pos, self.radius);
     for i, player in pairs(plyList) do
         common.InformNLS(player,self.messageDe,self.messageEn)
     end
 end
 
-return sendMessage
+return M

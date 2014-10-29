@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE common SET com_script='gm.items.id_382_ceilingtrowel' WHERE com_itemid IN (382);
-
+local lookat = require("base.lookat")
 local factions = require("base.factions")
 local common = require("base.common")
 local licence = require("base.licence")
@@ -797,9 +797,9 @@ function guardInfo(chosenPlayer)
 end
 
 function M.LookAtItem(User, Item)
-	base.lookat.SetSpecialDescription(Item, "Verwende die Kelle zum aufrufen der Funktionen (items, weather, factions, spawnpoints).", "Use the trowel to pick a function (items, weather, factions, spawnpoints).");
-	base.lookat.SetSpecialName(Item, "Kelle", "Trowel");
-	return base.lookat.GenerateLookAt(User, Item, base.lookat.METAL)
+	lookat.SetSpecialDescription(Item, "Verwende die Kelle zum aufrufen der Funktionen (items, weather, factions, spawnpoints).", "Use the trowel to pick a function (items, weather, factions, spawnpoints).");
+	lookat.SetSpecialName(Item, "Kelle", "Trowel");
+	return lookat.GenerateLookAt(User, Item, lookat.METAL)
 end
 
 function M.UseItemWithField(User, SourceItem, TargetPos)

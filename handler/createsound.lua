@@ -15,14 +15,15 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 local class = require("base.class")
+local M = {}
 
-createSound = class(function(crsnd, posi, sndid)
+M.createSound = class(function(crsnd, posi, sndid)
     crsnd.pos=posi;
     crsnd.soundId=sndid;
 end);
 
-function createSound:execute()
+function M.createSound:execute()
     world:makeSound(self.soundId, self.pos);
 end
 
-return createSound
+return M

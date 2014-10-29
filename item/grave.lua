@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Envi
 local common = require("base.common")
 local transformation_dog = require("alchemy.teaching.transformation_dog")
-
+local lookat = require("base.lookat")
 local M = {}
 
 -- UPDATE items SET itm_script='item.grave' WHERE itm_id IN (337, 519, 520, 521);
@@ -32,7 +32,7 @@ function M.LookAtItem(User, Item)
 		return transformation_dog.LookAtGrave(User,Item)
 	end
 
-    return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
+    return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
 
 

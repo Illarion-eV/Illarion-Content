@@ -15,14 +15,15 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 local class = require("base.class")
+local M = {}
 
-warpPlayer = class(function(warppl, ply,destpos)
+M.warpPlayer = class(function(warppl, ply,destpos)
     warppl.player=ply;
     warppl.destpos=destpos;
 end);
 
-function warpPlayer:execute()   --warps a player to the position destpos
+function M.warpPlayer:execute()   --warps a player to the position destpos
     (self.player):warp(self.destpos);
 end
 
-return warpPlayer
+return M

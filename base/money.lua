@@ -532,3 +532,5 @@ function M.MoneyToString(money)
 
     return gstring, estring;
 end;
+
+return M

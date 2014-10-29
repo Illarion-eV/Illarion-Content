@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- GM tool to delete items, to teleport and to conduct character changes
 
 -- UPDATE common SET com_script='gm.items.id_99_lockpicks' WHERE com_itemid=99;
-
+local lookat = require("base.lookat")
 local common = require("base.common")
 local factions = require("base.factions")
 
@@ -431,9 +431,9 @@ function godMode(User, SourceItem, ltstate)
 end
 
 function M.LookAtItem(User, Item)
-	base.lookat.SetSpecialDescription(Item, "Verwende die Dietriche zum aufrufen der Funktionen.", "Use the lockpicks to pick a function.");
-	base.lookat.SetSpecialName(Item, "Dietriche", "Lockpicks");
-	return base.lookat.GenerateLookAt(User, Item, base.lookat.METAL)
+	lookat.SetSpecialDescription(Item, "Verwende die Dietriche zum aufrufen der Funktionen.", "Use the lockpicks to pick a function.");
+	lookat.SetSpecialName(Item, "Dietriche", "Lockpicks");
+	return lookat.GenerateLookAt(User, Item, lookat.METAL)
 end
 
 function String2Number(str)

@@ -20,7 +20,6 @@ local common = require("base.common")
 local factions = require("base.factions")
 local money = require("base.money")
 local townTreasure = require("base.townTreasure")
-local dailymessage = require("content.dailymessage")
 local gems = require("item.gems")
 local factionLeader = require("scheduled.factionLeader")
 

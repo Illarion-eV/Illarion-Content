@@ -24,7 +24,7 @@ local alchemy = require("alchemy.base.alchemy")
 local herbs = require("alchemy.base.herbs")
 local gemdust = require("alchemy.base.gemdust")
 local transformation_dog = require("alchemy.teaching.transformation_dog")
-
+local lookat = require("base.lookat")
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
@@ -46,7 +46,7 @@ function M.LookAtItem(User, Item)
 	if Item.id == 140 and Item:getData("teachDogTransformationPotion") ~= "" then
 		return transformation_dog.LookAtDonfbladeMap(User, Item)
 	end
-	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
+	return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
 return M
 

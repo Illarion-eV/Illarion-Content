@@ -22,7 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local id_165_blue_bottle = require("alchemy.item.id_165_blue_bottle")
-
+local lookat = require("base.lookat")
 local M = {}
 
 -- UPDATE common SET com_script='alchemy.item.id_329_black_bottle' WHERE com_itemid = 329;
@@ -330,7 +330,7 @@ function M.UseItem(User, SourceItem, ltstate)
 end
 	
 function M.LookAtItem(User,Item)
-	return base.lookat.GenerateLookAt(User, Item, 0)
+	return lookat.GenerateLookAt(User, Item, 0)
 end
 return M
 

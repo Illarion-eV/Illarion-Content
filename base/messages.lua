@@ -45,9 +45,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --      selected randomly.
 
 local class = require("base.class")
-
+local M = {}
 -- create messages class
-Messages = class(function(msg)
+M.Messages = class(function(msg)
     msg.__german = {};
     msg.__english = {};
     msg.__count = 0;
@@ -62,7 +62,7 @@ end);
 -- @param engMsg the english version of the message
 -- <br>
 -- @return The index of the added message
-function Messages:addMessage(gerMsg, engMsg)
+function M.Messages:addMessage(gerMsg, engMsg)
     if gerMsg == nil or gerMsg == "" then
         if engMsg == nil or engMsg == "" then
             -- ignore empty messages.
@@ -85,7 +85,7 @@ end;
 -- <br>
 -- @return the german version of the message and the english version of the
 --      message
-function Messages:getRandomMessage()
+function M.Messages:getRandomMessage()
     local messageID = math.random(1, self.__count);
     return self.__german[messageID], self.__english[messageID];
 end;
@@ -97,7 +97,7 @@ end;
 -- <br>
 -- @return the german version of the message and the english version of the
 --      message or a error message in case the index value is out of bounds
-function Messages:getMessage(index)
+function M.Messages:getMessage(index)
     if index < 1 or index > self.__count then
         error("Index out of bounds");
     end;
@@ -107,7 +107,7 @@ end;
 --- Check if this instance contains any messages.
 -- <br>
 -- @return true in case there are messages stored in this object
-function Messages:hasMessages()
+function M.Messages:hasMessages()
 	return self.__count > 0
 end;
 
@@ -116,8 +116,8 @@ end;
 -- messages stored in this object.<br>
 -- <br>
 -- @return the amount of messages stored in this object
-function Messages:__len()
+function M.Messages:__len()
     return self.__count;
 end;
 
-return Messages
+return M

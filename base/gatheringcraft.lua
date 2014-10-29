@@ -17,9 +17,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local treasure = require("base.treasure")
 
-module("base.gatheringcraft", package.seeall)
+local M = {}
 
-RandomItem = {
+M.RandomItem = {
 	ID = 0,
     Quantity = 1,
     Quality = 333,
@@ -29,7 +29,7 @@ RandomItem = {
 	MessageEN = nil,
 };
 
-GatheringCraft = {
+M.GatheringCraft = {
 	RandomItems = { },
 	InterruptMsg = { },
 	Monsters = { },
@@ -51,7 +51,7 @@ Monster = {
 	GFX = nil
 };
 
-function GatheringCraft:new(gc)
+function M.GatheringCraft:new(gc)
     gc = gc or {};
     setmetatable(gc, self);
     self.__index = self;
@@ -62,41 +62,41 @@ function GatheringCraft:new(gc)
     return gc;
 end
 
-function RandomItem:new(item)
+function M.RandomItem:new(item)
 	item = item or {};
 	setmetatable(item, self);
 	self.__index = self;
 	return item;
 end
 
-function Monster:new(m)
+function M.Monster:new(m)
 	m = m or {};
 	setmetatable(m, self);
 	self.__index = self;
 	return m;
 end
 
-function GatheringCraft:SetFoodLevel(FoodLevel)
+function M.GatheringCraft:SetFoodLevel(FoodLevel)
 	self.FoodLevel = FoodLevel;
 end
 
-function GatheringCraft:SetTreasureMap(Probability, MessageDE, MessageEN)
+function M.GatheringCraft:SetTreasureMap(Probability, MessageDE, MessageEN)
 	self.Treasure = Probability;
 	self.TreasureMsg[1] = MessageDE;
 	self.TreasureMsg[2] = MessageEN;
 end
 
-function GatheringCraft:AddInterruptMessage(MessageDE, MessageEN)
+function M.GatheringCraft:AddInterruptMessage(MessageDE, MessageEN)
 	table.insert(self.InterruptMsg, { MessageDE, MessageEN });
 	return;
 end
 
-function GatheringCraft:AddMonster(MonsterID, Probability, MessageDE, MessageEN, Sound, GFX)
+function M.GatheringCraft:AddMonster(MonsterID, Probability, MessageDE, MessageEN, Sound, GFX)
 	table.insert(self.Monsters, Monster:new{["MonsterID"] = MonsterID, ["Probability"] = Probability, ["MessageDE"] = MessageDE, ["MessageEN"] = MessageEN, ["Sound"] = Sound, ["GFX"] = GFX});
 	return;
 end
 
-function GatheringCraft:AddRandomItem(ItemID, Quantity, Quality, Data, Probability, MessageDE, MessageEN)
+function M.GatheringCraft:AddRandomItem(ItemID, Quantity, Quality, Data, Probability, MessageDE, MessageEN)
 	table.insert(self.RandomItems, RandomItem:new{["ID"] = ItemID, ["Quantity"] = Quantity, ["Quality"] = Quality, ["Data"] = Data, ["Probability"] = Probability, ["MessageDE"] = MessageDE, ["MessageEN"] = MessageEN});
 	return;
 end

@@ -19,7 +19,7 @@ local seafaring = require("base.seafaring")
 local townManagement = require("base.townManagement")
 local factions = require("base.factions")
 local vision = require("content.vision")
-
+local lookat = require("base.lookat")
 -- UPDATE items SET itm_script='item.bookrests' WHERE itm_id = 3104;
 -- UPDATE items SET itm_script='item.bookrests' WHERE itm_id = 3105;
 -- UPDATE items SET itm_script='item.bookrests' WHERE itm_id = 3106;
@@ -68,7 +68,7 @@ function M.LookAtItem(User,Item)
 	if lookAt then
 	    return lookAt
 	else
-	    return base.lookat.GenerateLookAt(User, Item, 0)
+	    return lookat.GenerateLookAt(User, Item, 0)
 	end
 end
 

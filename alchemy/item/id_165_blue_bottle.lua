@@ -21,7 +21,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
-
+local lookat = require("base.lookat")
 local M = {}
 
 -- UPDATE common SET com_script='alchemy.item.id_165_blue_bottle' WHERE com_itemid = 165;
@@ -180,7 +180,7 @@ function SupportPotion(User,support,potion)
 end
 
 function M.LookAtItem(User,Item)
-	return base.lookat.GenerateLookAt(User, Item, 0)   
+	return lookat.GenerateLookAt(User, Item, 0)   
 end
 return M
 

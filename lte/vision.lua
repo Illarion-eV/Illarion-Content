@@ -19,7 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local vision = require("content.vision")
-local areas = require("cotent.areas")
+local areas = require("content.areas")
 local M = {}
 
 TypeStory={}

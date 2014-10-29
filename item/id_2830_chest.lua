@@ -18,13 +18,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local treasure = require("base.treasure")
-
+local lookat = require("base.lookat")
 local M = {}
 
 function M.LookAtItem(User, Item)
     local TreasureName = treasure.GetTreasureName(tonumber(Item:getData("trsCat")), User:getPlayerLanguage(), false );
-	base.lookat.SetSpecialDescription(Item,TreasureName, TreasureName);
-	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
+	lookat.SetSpecialDescription(Item,TreasureName, TreasureName);
+	return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
 
 function M.UseItem(User,SourceItem)

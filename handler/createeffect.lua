@@ -15,15 +15,15 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 local class = require("base.class")
+local M = {}
 
-
-createEffect = class(function(creff, posi, gfxid)
+M.createEffect = class(function(creff, posi, gfxid)
     creff.pos=posi;
     creff.effectId=gfxid;
 end);
 
-function createEffect:execute()
+function M.createEffect:execute()
     world:gfx(self.effectId, self.pos);
 end
 
-return createEffect
+return M

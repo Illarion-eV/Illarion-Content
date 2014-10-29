@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE common SET com_script='gm.items.id_93_medal' WHERE com_itemid=93;
-
+local lookat = require("base.lookat")
 local common = require("base.common")
 local M = {}
 
@@ -30,7 +30,7 @@ function M.UseItemWithField(User, SourceItem, TargetPos)
 
 		local index = dialog:getSelectedIndex() + 1;
 		if index == 1 then
-			monster(User,SourceItem,TargetPos);
+			monsterCreation(User,SourceItem,TargetPos);
 		elseif index == 2 then
 			gfx(User,SourceItem,TargetPos);
 		elseif index == 3 then
@@ -50,7 +50,7 @@ function M.UseItemWithField(User, SourceItem, TargetPos)
 	User:requestSelectionDialog(sd);
 end
 
-function monster(User, SourceItem, TargetPos)
+function monsterCreation(User, SourceItem, TargetPos)
 
 	local cbInputDialog = function (dialog)
 		if (not dialog:getSuccess()) then
@@ -244,9 +244,9 @@ function M.UseItem(User, SourceItem)
 end
 
 function M.LookAtItem(User, Item)
-	base.lookat.SetSpecialDescription(Item, "Verwende die Medallie zum aufrufen der Funktionen.", "Use the medal to pick a function.");
-	base.lookat.SetSpecialName(Item, "Medaille", "Medal");
-	return base.lookat.GenerateLookAt(User, Item, base.lookat.METAL)
+	lookat.SetSpecialDescription(Item, "Verwende die Medallie zum aufrufen der Funktionen.", "Use the medal to pick a function.");
+	lookat.SetSpecialName(Item, "Medaille", "Medal");
+	return lookat.GenerateLookAt(User, Item, lookat.METAL)
 end
 
 return M

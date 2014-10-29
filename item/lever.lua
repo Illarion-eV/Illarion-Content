@@ -14,6 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
+local lookat = require("base.lookat")
 local common = require("base.common")
 local lever = require("base.lever")
 local deleteitem = require("handler.deleteitem")
@@ -320,7 +321,7 @@ function M.LookAtItem(User, Item)
         initi=1;
     end
     --User:inform(questA:getLeverHint(Item.pos)); --since everything from questA is deactivated, lets deactivate this aswell
-	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
+	return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
 
 function AddToLevers(myLever)

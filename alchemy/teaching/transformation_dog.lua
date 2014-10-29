@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-
+local lookat = require("base.lookat")
 local common = require("base.common")
 local character = require("base.character")
 local alchemy = require("alchemy.base.alchemy")
@@ -42,7 +42,7 @@ function M.LookAtGrave(User,Item)
 		end
 	end
 	
-	local lookat = base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
+	local lookat = lookat.GenerateLookAt(User, Item, lookat.NONE)
 	lookat.description = graveInscription
 	return lookat
 end
@@ -216,15 +216,15 @@ function M.LookAtDonfbladeMap(User, Item)
 	local distance = treasure.getDistance (User, Item )
 	
 	if not dir then
-		base.lookat.SetSpecialDescription(Item,
+		lookat.SetSpecialDescription(Item,
 		"Das Donfblatt scheint so etwas eine Karte zu sein. Eine Pfotenabdruck markiert eine Stelle, die sich scheinbar ganz in deiner Nähe befindet.",
 		"The donblade seems to be some kind of a map. A paw print shows a mark that is somewhere very close to you.")
 	else
-		base.lookat.SetSpecialDescription(Item,
+		lookat.SetSpecialDescription(Item,
 		"Das Donfblatt scheint so etwas eine Karte zu sein. Eine Pfotenabdruck markiert eine Stelle, die sich von dir aus gesehen "..distance.." im "..dir.." befindet.",
 		"The donblade seems to be some kind of a map. A paw print shows a mark that is probably located somewhere "..distance.." in the "..dir.." of your current position.")
 	end
-	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
+	return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
 
 function M.DigForTeachingScroll(User)

@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 local common = require("base.common")
-
+local lookat = require("base.lookat")
 local M = {}
 
 -- UPDATE items SET itm_script='item.id_2620_language_book' WHERE itm_id = 2620;
@@ -142,11 +142,11 @@ function M.LookAtItem(User,Item)
     local langcode = math.floor(tonumber(Item:getData("langcode"))/10);
     local modecode = tonumber(Item:getData("langcode")) - (langcode * 10);
     if (modecode == 2) then
-		base.lookat.SetSpecialName(Item, "Buch des Ephraim","Book of Ephraim");
+		lookat.SetSpecialName(Item, "Buch des Ephraim","Book of Ephraim");
     else
-        base.lookat.SetSpecialName(Item, "Lehrbuch der "..GetLanguage(langcode,false),"Textbook of the "..GetLanguage(langcode,true));
+        lookat.SetSpecialName(Item, "Lehrbuch der "..GetLanguage(langcode,false),"Textbook of the "..GetLanguage(langcode,true));
     end
-	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
+	return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
 
 function Learning(User,Value,Skillname)

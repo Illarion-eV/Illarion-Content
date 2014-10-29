@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 -- UPDATE items SET itm_script='item.id_97_leatherbag' WHERE itm_id=97;
-
+local lookat = require("base.lookat")
 local M = {}
 
 BAG_LABEL_KEY = "bagLabel"
@@ -23,7 +23,7 @@ BAG_LABEL_COMMAND = "!bag"
 MAX_LABEL_LENGTH = 100
 
 function M.LookAtItem(User,Item)
-    local lookAt = base.lookat.GenerateLookAt(User, Item)
+    local lookAt = lookat.GenerateLookAt(User, Item)
 
     local bagLabel = Item:getData(BAG_LABEL_KEY)
     if bagLabel ~= "" then

@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local doors = require("base.doors")
+local lookat = require("base.lookat")
 
 local M = {}
 
@@ -53,7 +54,7 @@ function M.UseItem(User, SourceItem)
 end
 
 function M.LookAtItem(User,Item)
-    return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
+    return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
 
 return M

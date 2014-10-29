@@ -17,16 +17,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local class = require("base.class")
 local doors = require("base.doors")
 
+local M = {}
 
 -- A door is locked if its quality is 333 and unlocked if it is 233. Data has to be ~=0.
 -- it makes sound 19 (world:makeSound(19, Door.pos);) when the door locks.
 -- A key with the same data than a door lock/unlocks it (not important here).
 
-openDoor = class(function(door, posi)
+M.openDoor = class(function(door, posi)
     door.pos=posi;
 end);
 
-function openDoor:execute()
+function M.openDoor:execute()
     --[[lst=world:getPlayersOnline();
     for i,ply in pairs(lst) do
         if ply.id==42 then
@@ -42,4 +43,4 @@ function openDoor:execute()
     end
 end
 
-return openDoor
+return M

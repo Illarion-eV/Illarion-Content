@@ -26,8 +26,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local genus = require("content.genus")
 local common = require("base.common")
 local factions = require("base.factions")
-local custom = require("content.lookat.custom")
-local uniquechardescription = require("content.uniquechardescription")
 local altars = require("item.altars")
 
 local M = {}

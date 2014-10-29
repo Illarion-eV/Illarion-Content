@@ -15,15 +15,16 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 local class = require("base.class")
+local M = {}
 
-teachRune = class(function(tchrune, ply, mtype, rID)
+M.teachRune = class(function(tchrune, ply, mtype, rID)
     tchrune.player=ply;
     tchrune.magictype=mtype;
     tchrune.runeID=rID;
 end);
 
-function teachRune:execute()
+function M.teachRune:execute()
   (self.player):teachMagic(self.magictype,2^(self.runeID));
 end
 
-return teachRune
+return M

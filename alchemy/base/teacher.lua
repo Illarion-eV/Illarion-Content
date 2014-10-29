@@ -14,6 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
+local lookat = require("base.lookat")
 local common = require("base.common")
 local M = {}
 
@@ -570,7 +571,7 @@ function M.LookAtItem(player, item)
     if item.pos == position(432,238,0) or item.pos == position(75,651,0) or item.pos == position(873,878,0) then
 	    return getLookAt(player,item)
 	else
-	    return base.lookat.GenerateLookAt(player, item, 0)
+	    return lookat.GenerateLookAt(player, item, 0)
 	end	
 end
 return M

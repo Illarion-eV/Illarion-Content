@@ -37,7 +37,7 @@ end);
 
             -- here, we have all methods of the above class. enjoy!
 
-function Lever:findType(lpos)                   -- returns leverstate, levertype, movingTo
+function M.Lever:findType(lpos)                   -- returns leverstate, levertype, movingTo
     if (world:isItemOnField(lpos)==true) then
         leverItem=world:getItemOnField(lpos);
         itemid=leverItem.id;
@@ -60,16 +60,16 @@ function Lever:findType(lpos)                   -- returns leverstate, levertype
     end
 end
 
-function Lever:getPosition()                    -- do as the name says
+function M.Lever:getPosition()                    -- do as the name says
     return self.pos;
 end
 
-function Lever:setMinStrength(str)              -- strengh needed to switch the lever
+function M.Lever:setMinStrength(str)              -- strengh needed to switch the lever
     self.minStrength=str;
     return str;
 end
 
-function Lever:switchLever(Char)                    -- switch the lever; return new state
+function M.Lever:switchLever(Char)                    -- switch the lever; return new state
     thisState, thisType, thisMovingTo = self:findType(self.pos);
     newMovingTo=0;
     if Char==nil then
@@ -133,7 +133,7 @@ function Lever:switchLever(Char)                    -- switch the lever; return 
     end 
 end
 
-function Lever:bind(levState, action)                       -- bind an action to a specific state
+function M.Lever:bind(levState, action)                       -- bind an action to a specific state
     if (bindList==nil) then 
         bindList={};
     end

@@ -17,14 +17,16 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local class = require("base.class")
 local common = require("base.common")
 
-warpGroup = class(function(warpgr, centerpos, radius, destpos,gfx)
+local M = {}
+
+M.warpGroup = class(function(warpgr, centerpos, radius, destpos,gfx)
     warpgr.startpos=centerpos;
     warpgr.destpos=destpos;
     warpgr.range = radius;
     warpgr.gfx = gfx;
 end);
 
-function warpGroup:execute()   --warps all players within a range radius from centerpos to destpos
+function M.warpGroup:execute()   --warps all players within a range radius from centerpos to destpos
     plyList = common.ExtgetPlayersInRangeOf(self.startpos, self.range);
 
 	for i, player in pairs(plyList) do
@@ -38,4 +40,4 @@ function warpGroup:execute()   --warps all players within a range radius from ce
     end
 end
 
-return warpGroup
+return M

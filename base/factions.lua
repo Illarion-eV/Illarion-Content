@@ -325,7 +325,7 @@ function M.getFaction(originator)
 	if getSpecialRank(originator) ~= 0 then
 		rankTown = getSpecialRank(originator);
 	else
-		rankTown = getRankAsNumber(originator);
+		rankTown = M.getRankAsNumber(originator);
 	end
 	
 	local factionMembership = originator:getQuestProgress(199);
