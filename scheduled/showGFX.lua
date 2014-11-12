@@ -24,9 +24,9 @@ local M = {}
 
 -- this script is used to show a ceratin graphic effect on a certain position every ten seconds
 
-SlimeList = {}
-SlimeList.Slime1 = {}
-SlimeList.Slime2 = {}
+M.SlimeList = {}
+M.SlimeList.Slime1 = {}
+M.SlimeList.Slime2 = {}
 
 
 function M.CreateGFX()
@@ -50,12 +50,12 @@ end
 
 function SpawnSlime(thePos)
 
-	if checkSlime(SlimeList.Slime1) then
-		CreateSlime(SlimeList.Slime1,thePos,1)
+	if checkSlime(M.SlimeList.Slime1) then
+		CreateSlime(M.SlimeList.Slime1,thePos,1)
 		return;
 	end
-	if checkSlime(SlimeList.Slime2) then
-		CreateSlime(SlimeList.Slime2,thePos,2)
+	if checkSlime(M.SlimeList.Slime2) then
+		CreateSlime(M.SlimeList.Slime2,thePos,2)
 		return;
 	end
 
