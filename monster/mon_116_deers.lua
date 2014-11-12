@@ -26,6 +26,8 @@ local monstermagic = require("monster.base.monstermagic")
 local quests = require("monster.base.quests")
 
 local M = {}
+local init = nil
+
 
 function ini(Monster)
 

@@ -26,6 +26,8 @@ local arena = require("base.arena")
 local treasure = require("base.treasure")
 
 local M = {}
+local init = nil
+
 
 function ini(Monster)
 

@@ -122,8 +122,7 @@ function M.LookAtItem(User, Item)
 
     local food = drinkList[ Item.id ];
     if food == nil then
-        User:inform("unkown bottle item ");
-        return
+        return lookAt
     end
 
     -- decode item quality, extract duration

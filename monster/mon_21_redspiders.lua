@@ -24,6 +24,8 @@ local kills = require("monster.base.kills")
 local arena = require("base.arena")
 local explosion = require("base.explosion")
 local M = {}
+local init = nil
+
 
 
 function ini(Monster)

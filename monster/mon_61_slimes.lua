@@ -24,6 +24,8 @@ local kills = require("monster.base.kills")
 local arena = require("base.arena")
 local showGFX = require("scheduled.showGFX")
 local M = {}
+local init = nil
+
 
 local initiated = false
 local killer = {} --A list that keeps track of who attacked the monster last

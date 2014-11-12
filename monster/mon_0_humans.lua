@@ -23,6 +23,8 @@ local kills = require("monster.base.kills")
 local arena = require("base.arena")
 local messages = require("base.messages")
 local M = {}
+local init = nil
+
 
 function M.onSpawn(theHuman)
 

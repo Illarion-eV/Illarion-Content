@@ -24,6 +24,7 @@ local id_164_emptybottle = require("item.id_164_emptybottle")
 local potionToTeacher = require("triggerfield.potionToTeacher")
 local recipe_creation = require("alchemy.base.recipe_creation")
 local lookat = require("base.lookat")
+local licence = require("base.licence")
 local M = {}
 
 -- important: do not remove the fourth parameter "checkVar".
@@ -200,7 +201,7 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 		return
 	end
 
-	if base.licence.licence(User) then --checks if user is citizen or has a licence
+	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 

@@ -110,8 +110,8 @@ function InitFactionLists()
 	NoneRankList ={};
 	NoneRankList[0] = {gRank = "Geächteter", eRank = "Outcast"};
 
-	townRanks = {CadomyrRankListMale, RunewickRankListMale, GalmairRankListMale, CadomyrRankListFemale, RunewickRankListFemale, GalmairRankListFemale}
-	townRanks[0] = NoneRankList;
+	M.townRanks = {CadomyrRankListMale, RunewickRankListMale, GalmairRankListMale, CadomyrRankListFemale, RunewickRankListFemale, GalmairRankListFemale}
+	M.townRanks[0] = NoneRankList;
 end
 
 --[[
@@ -228,35 +228,35 @@ end
 ]]
 function M.getRank(player, bothFlag)
 	local Faction = M.getFaction(player);
-	if (townRanks[Faction.tid] == nil) then
+	if (M.townRanks[Faction.tid] == nil) then
 		return "[ERROR: no ranks for " .. Faction.tid .. "]";
 	end
-	if (townRanks[Faction.tid][Faction.rankTown] == nil) then
+	if (M.townRanks[Faction.tid][Faction.rankTown] == nil) then
 		return "[ERROR: no rank " .. Faction.rankTown .. " in town " .. Faction.tid .. "]";
 	end
 
 	if (player:increaseAttrib("sex",0) == 0) then --male Ranks
 		if not bothFlag then
 			if player:getPlayerLanguage() == 0 then
-				return townRanks[Faction.tid][Faction.rankTown].gRank;
+				return M.townRanks[Faction.tid][Faction.rankTown].gRank;
 			else
-				return townRanks[Faction.tid][Faction.rankTown].eRank;
+				return M.townRanks[Faction.tid][Faction.rankTown].eRank;
 			end
 		else
-			local gerRank = townRanks[Faction.tid][Faction.rankTown].gRank;
-			local enRank = townRanks[Faction.tid][Faction.rankTown].eRank
+			local gerRank = M.townRanks[Faction.tid][Faction.rankTown].gRank;
+			local enRank = M.townRanks[Faction.tid][Faction.rankTown].eRank
 			return gerRank, enRank;
 		end
 	else
 		if not bothFlag then
 			if player:getPlayerLanguage() == 0 then
-				return townRanks[tonumber(Faction.tid)+3][Faction.rankTown].gRank;
+				return M.townRanks[tonumber(Faction.tid)+3][Faction.rankTown].gRank;
 			else
-				return townRanks[tonumber(Faction.tid)+3][Faction.rankTown].eRank;
+				return M.townRanks[tonumber(Faction.tid)+3][Faction.rankTown].eRank;
 			end
 		else
-			local gerRank = townRanks[Faction.tid+3][Faction.rankTown].gRank;
-			local enRank = townRanks[Faction.tid+3][Faction.rankTown].eRank;
+			local gerRank = M.townRanks[Faction.tid+3][Faction.rankTown].gRank;
+			local enRank = M.townRanks[Faction.tid+3][Faction.rankTown].eRank;
 			return gerRank, enRank;
 		end
 	end
@@ -297,15 +297,15 @@ function getRankName(player, ranknumber)
 	
 	if (player:increaseAttrib("sex",0) == 0) then --male Ranks
 		if player:getPlayerLanguage() == 0 then
-			return townRanks[Faction.tid][ranknumber].gRank;
+			return M.townRanks[Faction.tid][ranknumber].gRank;
 		else
-			return townRanks[Faction.tid][ranknumber].eRank;
+			return M.townRanks[Faction.tid][ranknumber].eRank;
 		end
 	else
 		if player:getPlayerLanguage() == 0 then
-			return townRanks[tonumber(Faction.tid)+3][ranknumber].gRank;
+			return M.townRanks[tonumber(Faction.tid)+3][ranknumber].gRank;
 		else
-			return townRanks[tonumber(Faction.tid)+3][ranknumber].eRank;
+			return M.townRanks[tonumber(Faction.tid)+3][ranknumber].eRank;
 		end
 	end
 end
@@ -482,9 +482,9 @@ function informPlayerAboutRankchange(player, factionValues, rankHigher)
 	local townName = M.getTownNameByID(factionValues.tid)
 	
 	if (player:increaseAttrib("sex",0) == 0) then --male Ranks
-		rankName = townRanks[factionValues.tid][factionValues.rankTown]
+		rankName = M.townRanks[factionValues.tid][factionValues.rankTown]
 	else --female Ranks
-		rankName = townRanks[tonumber(factionValues.tid)+3][factionValues.rankTown]
+		rankName = M.townRanks[tonumber(factionValues.tid)+3][factionValues.rankTown]
 	end
 	
 	-- Inform about rankchange

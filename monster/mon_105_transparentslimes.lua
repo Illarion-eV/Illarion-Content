@@ -24,6 +24,8 @@ local kills = require("monster.base.kills")
 local arena = require("base.arena")
 local slimeFeeding = require("triggerfield.slimeFeeding")
 local M = {}
+local init = nil
+
 
 
 function ini(Monster)

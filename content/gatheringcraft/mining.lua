@@ -391,7 +391,7 @@ Radius 15
 
     InitDone = true;
 end
-
+local Area = nil
 function AddArea(AreaID,Center,Rad)
     if (Area == nil) then
         Area = { };

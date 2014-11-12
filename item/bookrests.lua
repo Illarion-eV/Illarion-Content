@@ -20,6 +20,7 @@ local townManagement = require("base.townManagement")
 local factions = require("base.factions")
 local vision = require("content.vision")
 local lookat = require("base.lookat")
+local money = require("base.money")
 -- UPDATE items SET itm_script='item.bookrests' WHERE itm_id = 3104;
 -- UPDATE items SET itm_script='item.bookrests' WHERE itm_id = 3105;
 -- UPDATE items SET itm_script='item.bookrests' WHERE itm_id = 3106;
@@ -244,7 +245,7 @@ function StaticTeleporter(User, SourceItem)
 			local selected = dialog:getSelectedIndex()+1
 			local userFaction = factions.getMembershipByName(User)
 			-- Check wether the char has enough money or travels from necktie to hometown or vice versa
-			if (base.money.CharHasMoney(User,500) or NecktieHomeTravel(User,names,targetPos,selected)) then
+			if (money.CharHasMoney(User,500) or NecktieHomeTravel(User,names,targetPos,selected)) then
 
 				if User:distanceMetricToPosition(targetPos[selected]) < 5 then
 					User:inform("Ihr befindet euch bereits in " ..names[selected]..".", "You are already in "..names[selected]..".")
@@ -252,7 +253,7 @@ function StaticTeleporter(User, SourceItem)
 
 					User:inform("Ihr habt euch dazu entschlossen nach " ..names[selected].. " zu Reisen.", "You have chosen to travel to " ..names[selected]..".")
 					if not NecktieHomeTravel(User,names,targetPos,selected) then
-						base.money.TakeMoneyFromChar(User,500)
+						money.TakeMoneyFromChar(User,500)
 					end
 					world:gfx(46,User.pos)
 					world:makeSound(13,User.pos);
