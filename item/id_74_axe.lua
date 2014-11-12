@@ -17,26 +17,29 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- lumberjacking
 -- UPDATE items SET itm_script='item.id_74_axe' WHERE itm_id IN (74,2946);
 
-require("base.common")
-require("content.gatheringcraft.woodchopping")
-require("item.general.metal")
+local common = require("base.common")
+local woodchopping = require("content.gatheringcraft.woodchopping")
+local metal = require("item.general.metal")
 
-module("item.id_74_axe", package.seeall)
+local M = {}
 
-LookAtItem = item.general.metal.LookAtItem
+M.LookAtItem = metal.LookAtItem
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
-	local treeItem = content.gatheringcraft.woodchopping.getTree(User);
+	local treeItem = woodchopping.getTree(User);
 	if treeItem then
-		content.gatheringcraft.woodchopping.StartGathering(User, treeItem, ltstate);
+		woodchopping.StartGathering(User, treeItem, ltstate);
 		return;
 	end
 	
 	if treeItem == nil then
-		base.common.HighInformNLS( User,
+		common.HighInformNLS( User,
 		"Um Holz zu hacken musst du zu einem Baum gehen.",
 		"For chopping wood you have to go to a tree." );
 	end
 end
+
+
+return M
 

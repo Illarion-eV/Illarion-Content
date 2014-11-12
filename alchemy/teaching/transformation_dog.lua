@@ -14,43 +14,44 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
+local lookat = require("base.lookat")
+local common = require("base.common")
+local character = require("base.character")
+local alchemy = require("alchemy.base.alchemy")
+local base = require("monster.base.base")
+local potionToTeacher = require("triggerfield.potionToTeacher")
+local treasure = require("base.treasure")
 
-require("base.common")
-require("base.character")
-require("alchemy.base.alchemy")
-require("monster.base.base")
-require("triggerfield.potionToTeacher")
-
-module("alchemy.teaching.transformation_dog", package.seeall)
+local M = {}
 
 -- This script handles the teaching of the dog transformation potion.
 
 
 DOG_STATUS = false
 
-function LookAtGrave(User,Item)
-	local graveInscription = base.common.GetNLS(User, "~Hier ruht Tavalion. Weiser Druide und größter Freund der Tiere.~", "~Here rests Tavalion. A wise druid and the greatest friend of the dogs.~")
+function M.LookAtGrave(User,Item)
+	local graveInscription = common.GetNLS(User, "~Hier ruht Tavalion. Weiser Druide und größter Freund der Tiere.~", "~Here rests Tavalion. A wise druid and the greatest friend of the dogs.~")
 	
-	if not alchemy.base.alchemy.CheckIfAlchemist(User) then
-		graveInscription = graveInscription .. base.common.GetNLS(User, " Ein seltsames, unkenntliches Symbol befindet sich unter der Inschrift.", " A strange, unrecognizeable symbol can be seen below the inscription.")
+	if not alchemy.CheckIfAlchemist(User) then
+		graveInscription = graveInscription .. common.GetNLS(User, " Ein seltsames, unkenntliches Symbol befindet sich unter der Inschrift.", " A strange, unrecognizeable symbol can be seen below the inscription.")
 	else
 		if not CorrectSightingPotion(User) then
-			graveInscription = graveInscription .. base.common.GetNLS(User, " Ein seltsames, unkenntliches Symbol befindet sich unter der Inschrift. Während du es betrachtest, nimmt es langsam die Gestalt einer Hand an.", " Below the inscription, you see a strange symbole. As you look at it, it forms into the shape of a hand.")
+			graveInscription = graveInscription .. common.GetNLS(User, " Ein seltsames, unkenntliches Symbol befindet sich unter der Inschrift. Während du es betrachtest, nimmt es langsam die Gestalt einer Hand an.", " Below the inscription, you see a strange symbole. As you look at it, it forms into the shape of a hand.")
 		else
-			graveInscription = graveInscription .. base.common.GetNLS(User, " Ein Pfotenabdruck ist unter der Inschrift zu sehen.", " Below the inscription, one can see a pawprint.")
+			graveInscription = graveInscription .. common.GetNLS(User, " Ein Pfotenabdruck ist unter der Inschrift zu sehen.", " Below the inscription, one can see a pawprint.")
 		end
 	end
 	
-	local lookat = base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
+	local lookat = lookat.GenerateLookAt(User, Item, lookat.NONE)
 	lookat.description = graveInscription
 	return lookat
 end
 
 LAST_TIME = 0
 
-function UseGrave(User, SourceItem)
+function M.UseGrave(User, SourceItem)
 	
-	if alchemy.base.alchemy.CheckIfAlchemist(User) then
+	if alchemy.CheckIfAlchemist(User) then
 		if DOG_STATUS ~= false or User:getQuestProgress(862) ~= 0 or world:getTime("unix") - LAST_TIME < 120 then 
 			return
 		end
@@ -64,9 +65,9 @@ function UseGrave(User, SourceItem)
 
 end
 
-function UseSealedScroll(User, SourceItem)
+function M.UseSealedScroll(User, SourceItem)
 	
-	if not alchemy.base.alchemy.CheckIfAlchemist(User) or tonumber(SourceItem:getData("learnerId")) ~= User.id then
+	if not alchemy.CheckIfAlchemist(User) or tonumber(SourceItem:getData("learnerId")) ~= User.id then
 		User:inform("Es gelingt dir nicht, das Siegel zu brechen.","You seem unable to break the seal.")
 		return
 	end
@@ -75,7 +76,7 @@ function UseSealedScroll(User, SourceItem)
 	SourceItem.id = 3109
 	world:changeItem(SourceItem)
 	User:setQuestProgress(560,1)
-	triggerfield.potionToTeacher.TellRecipe(User, 560)
+	potionToTeacher.TellRecipe(User, 560)
 	
 end
 
@@ -139,9 +140,9 @@ function GetStockFromQueststatus(User)
 	if User:getQuestProgress(861) == 0 then
 		local stockList
 		stockList = GenerateStockConcentration()
-		User:setQuestProgress(861,alchemy.base.alchemy.DataListToNumber(stockList))
+		User:setQuestProgress(861,alchemy.DataListToNumber(stockList))
 	end
-	return alchemy.base.alchemy.SplitData(User,User:getQuestProgress(861))
+	return alchemy.SplitData(User,User:getQuestProgress(861))
 end
 
 function GenerateStockDescription(User)
@@ -150,8 +151,8 @@ function GenerateStockDescription(User)
 	local de = ""
 	local en = ""
 	for i=1,#stockList do
-		de = de .. alchemy.base.alchemy.wirkung_de[stockList[i]] .. " "..alchemy.base.alchemy.wirkstoff[i]
-		en = en .. alchemy.base.alchemy.wirkung_en[stockList[i]] .. " "..alchemy.base.alchemy.wirkstoff[i]
+		de = de .. alchemy.wirkung_de[stockList[i]] .. " "..alchemy.wirkstoff[i]
+		en = en .. alchemy.wirkung_en[stockList[i]] .. " "..alchemy.wirkstoff[i]
 		if i ~= 8 then
 			de = de .. ", "
 			en = en .. ", "
@@ -168,15 +169,15 @@ function ApperanceOfDog(User)
 	if world:isCharacterOnField(apperancePosition) then
 		local warpChar = world:getCharacterOnField(apperancePosition)
 		User:talk(Character.say, "#me wird zurückgeworfen.","#me is thrown back.")
-		User:warp(base.common.GetBehindPosition(User, 3))
+		User:warp(common.GetBehindPosition(User, 3))
 	end
 	
 	local theDog = world:createMonster(584,position(925,941,0),-200)
 	world:gfx(7,theDog.pos)
 	theDog:talk(Character.say, "#me erscheint in einem Wirbel von Laubblättern. In der Schnauze hält er ein großes Donfblatt.",
 	"#me appears in a swirl of maple leaves. It holds a big donf blade in its muzzle.")
-	monster.base.base.setNoDrop(theDog)
-	base.character.DeathAfterTime(theDog,70,7,nil,nil)
+	base.setNoDrop(theDog)
+	character.DeathAfterTime(theDog,70,7,nil,nil)
 	local find, Effect = theDog.effects:find(36)
 	Effect:addValue("transfomationDog",1)
 	LEARNER_ID = User.id
@@ -184,7 +185,7 @@ function ApperanceOfDog(User)
 
 end
 
-function dropDonfblade(dog)
+function M.dropDonfblade(dog)
 
 	dog:talk(Character.say, "#me legt ein großes Donfblatt vor dem Grab ab. Kurz bellt er, bevor er wieder davon geht.",
 	"#me drops a big donf blade infront of the grave. He woofs shortly before he walks back.")
@@ -209,24 +210,24 @@ function dropDonfblade(dog)
 	-- Dog is killed by the death lte.
 end
 
-function LookAtDonfbladeMap(User, Item)
+function M.LookAtDonfbladeMap(User, Item)
 
-	local dir = base.treasure.getDirection( User, Item )
-	local distance = base.treasure.getDistance (User, Item )
+	local dir = treasure.getDirection( User, Item )
+	local distance = treasure.getDistance (User, Item )
 	
 	if not dir then
-		base.lookat.SetSpecialDescription(Item,
+		lookat.SetSpecialDescription(Item,
 		"Das Donfblatt scheint so etwas eine Karte zu sein. Eine Pfotenabdruck markiert eine Stelle, die sich scheinbar ganz in deiner Nähe befindet.",
 		"The donblade seems to be some kind of a map. A paw print shows a mark that is somewhere very close to you.")
 	else
-		base.lookat.SetSpecialDescription(Item,
+		lookat.SetSpecialDescription(Item,
 		"Das Donfblatt scheint so etwas eine Karte zu sein. Eine Pfotenabdruck markiert eine Stelle, die sich von dir aus gesehen "..distance.." im "..dir.." befindet.",
 		"The donblade seems to be some kind of a map. A paw print shows a mark that is probably located somewhere "..distance.." in the "..dir.." of your current position.")
 	end
-	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
+	return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
 
-function DigForTeachingScroll(User)
+function M.DigForTeachingScroll(User)
 
 	local donfblades = User:getItemList(140)
 	local donfblade = false
@@ -239,7 +240,7 @@ function DigForTeachingScroll(User)
 		return false
 	end
 	
-	local frontPosition = base.common.GetFrontPosition(User)
+	local frontPosition = common.GetFrontPosition(User)
 	local scrollPosition = position(tonumber(donfblade:getData("MapPosX")),tonumber(donfblade:getData("MapPosY")),tonumber(donfblade:getData("MapPosZ")))
 	if frontPosition ~= scrollPosition then
 		return false
@@ -250,7 +251,7 @@ function DigForTeachingScroll(User)
 		return true
 	
 	else
-		if not alchemy.base.alchemy.CheckIfAlchemist(User) then
+		if not alchemy.CheckIfAlchemist(User) then
 			User:inform("Du findest nichts, doch du glaubst ein Knurren in der Ferne zu vernehmen und eine Stimme flüstert dir zu: 'Du hast den Pfad verlassen! Kehre zurück, wenn du ihn wieder betreten hast!'","You find nothing but you belive to hear a snarl in the distance and a voce whispers to you: 'You left our path! Return once you have returned to it!'")
 			return true
 		end
@@ -269,3 +270,5 @@ function DigForTeachingScroll(User)
 		return true
 	end
 end
+
+return M

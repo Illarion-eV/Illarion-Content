@@ -14,30 +14,33 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
-require("npc.base.consequence.consequence")
+local class = require("base.class")
+local consequence = require("npc.base.consequence.consequence")
+local tools = require("npc.base.tools")
 
-module("npc.base.consequence.item", package.seeall)
+local _item_helper
 
-item = base.class.class(npc.base.consequence.consequence.consequence,
+local item = class(consequence,
 function(self, id, count, quality, data)
-    npc.base.consequence.consequence.consequence:init(self);
+    consequence:init(self)
     
-    self["id"] = tonumber(id);
-    self["count"], self["counttype"] = npc.base.talk._set_value(count);
-    self["quality"], self["qualitytype"] = npc.base.talk._set_value(quality);
-    self["data"] = data;
-    self["perform"] = _item_helper;
-end);
+    self["id"] = tonumber(id)
+    self["count"], self["counttype"] = tools.set_value(count)
+    self["quality"], self["qualitytype"] = tools.set_value(quality)
+    self["data"] = data
+    self["perform"] = _item_helper
+end)
 
 function _item_helper(self, npcChar, player)
-    local count = npc.base.talk._get_value(self.npc, self.count, self.counttype);
-    local quality = npc.base.talk._get_value(self.npc, self.quality, self.qualitytype);
-    local data = self.data;
+    local count = tools.get_value(self.npc, self.count, self.counttype)
+    local quality = tools.get_value(self.npc, self.quality, self.qualitytype)
+    local data = self.data
     
-    local notcreated = player:createItem(self.id, count, quality, data);
+    local notcreated = player:createItem(self.id, count, quality, data)
     
     if (notcreated > 0) then
-        world:createItemFromId(self.id, notcreated, player.pos, true, quality, data);
-    end; 
-end;
+        world:createItemFromId(self.id, notcreated, player.pos, true, quality, data)
+    end 
+end
+
+return item

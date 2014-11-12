@@ -15,14 +15,17 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 -- UPDATE items SET itm_script='item.id_456_snowball' WHERE itm_id IN (456);
-require("base.common")
+local common = require("base.common")
 
-module("item.id_456_snowball", package.seeall)
+local M = {}
 
-function UseItem(User,SourceItem)
+function M.UseItem(User,SourceItem)
 --[[
 	local oldSlime = world:createMonster(1055,position(8,2,0),0)
 	oldSlime.waypoints:addWaypoint(position(10,6,0))
 	oldSlime:setOnRoute(true)
 	]]
 end
+
+return M
+

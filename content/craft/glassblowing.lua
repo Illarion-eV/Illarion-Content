@@ -14,11 +14,11 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("item.base.crafts")
+local crafts = require("item.base.crafts")
 
 module("content.craft.glassblowing", package.seeall)
 
-glassblowing = item.base.crafts.Craft:new{
+glassblowing = crafts.Craft:new{
                           craftEN = "glass blowing",
                           craftDE = "Glasblasen",
                           handTool = 311,
@@ -72,6 +72,10 @@ product:addIngredient(46) -- Ruby: 1x
 product = glassblowing:addProduct(catId, 2672, 75, 95, 120, 240)
 product:addIngredient(41, 3) -- Glass Ingot: 3x
 product:addIngredient(448, 1) -- Emerald dust
+
+--Wine Glass
+product = glassblowing:addProduct(catId, 2457, 70, 90, 30, 60)
+product:addIngredient(41, 3) -- Glass Ingot: 3x
 
 --Glass Mug
 product = glassblowing:addProduct(catId, 1908, 60, 90, 20, 40)

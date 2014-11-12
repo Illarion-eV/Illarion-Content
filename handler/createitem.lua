@@ -14,19 +14,18 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
+local class = require("base.class")
+local M = {}
 
-module("handler.createitem", package.seeall)
-
-
-
-createItem = base.class.class(function(creitem, posi, ID, qual, amnt)
+M.createItem = class(function(creitem, posi, ID, qual, amnt)
     creitem.pos=posi;
     creitem.itemId=ID;
     creitem.quality=qual;
     creitem.amount=amnt;
 end);
 
-function createItem:execute()
+function M.createItem:execute()
     world:createItemFromId(self.itemId, self.amount, self.pos,true,self.quality,nil);
 end
+
+return M

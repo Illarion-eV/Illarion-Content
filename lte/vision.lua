@@ -17,18 +17,19 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Vision, id 83
 -- controll the vision stories in .content.vision
 
-require("base.common")
-require("content.vision")
-module("lte.vision", package.seeall)
+local common = require("base.common")
+local vision = require("content.vision")
+local areas = require("content.areas")
+local M = {}
 
 TypeStory={}
 AmountStory={}
 
-function addEffect(Effect,User)               				
+function M.addEffect(Effect,User)               				
 
 end
 
-function callEffect(Effect,User)
+function M.callEffect(Effect,User)
 	local theQuestStatus=User:getQuestProgress(664)
 --User:inform("queststatus"..theQuestStatus,"queststatus"..theQuestStatus)
 --debug("AmountStoryName: "..User.name)
@@ -42,7 +43,7 @@ function callEffect(Effect,User)
 	if User:getQuestProgress(664) == 1 then
 		for i = 1,AmountAreas do
 			if content.areas.PointInArea(User.pos,triggerfield.evilrock.EvilRockAreaNames[i]) then
-				AmountStory = #content.vision.VisionTextDE[i]
+				AmountStory = #vision.VisionTextDE[i]
 				TypeStory = i
 				StoriesAreSet = true
 			end
@@ -56,7 +57,7 @@ function callEffect(Effect,User)
 			local AmountStory = 0
 			return false
 		elseif User:getQuestProgress(664) <= AmountStory then
-			content.vision.vision(User,TypeStory)
+			vision.vision(User,TypeStory)
 			User:setQuestProgress(664,User:getQuestProgress(664)+1)
 		else
 			User:setQuestProgress(664,1)
@@ -68,10 +69,13 @@ function callEffect(Effect,User)
 	return true
 end
 
-function removeEffect(Effect,User)
+function M.removeEffect(Effect,User)
 
 end
 
-function loadEffect(Effect,User)                  			
+function M.loadEffect(Effect,User)                  			
 
 end
+
+return M
+

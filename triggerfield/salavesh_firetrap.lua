@@ -14,20 +14,20 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
+local common = require("base.common")
 
-module("triggerfield.salavesh_firetrap", package.seeall)
+local M = {}
 
 --This script shoots a fireball down the hall in the "Errant Crusade" quest map
 --Can be used with various triggerfields, players shall "abuse" this to fight the monsters down there
 
-function MoveToField(User)
+function M.MoveToField(User)
 
 	if User:getType() ~= Character.player then
 		return
 	end
 
-		base.common.InformNLS(User,"Ein Feuerball schieﬂt aus einem kleinen Loch in der Wand die Halle entlang!","A firewall is shot from a small hole in the wall down the hallway!"); --sending a message
+		common.InformNLS(User,"Ein Feuerball schieﬂt aus einem kleinen Loch in der Wand die Halle entlang!","A firewall is shot from a small hole in the wall down the hallway!"); --sending a message
 
 		xcord=User.pos.x; --The x-coordinate of the triggerfield
 
@@ -63,4 +63,7 @@ function MoveToField(User)
 	    world:makeSound(5,position(xcord,415,-3)); --BOOM!
 
 end
+
+
+return M
 

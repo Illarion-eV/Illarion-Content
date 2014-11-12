@@ -14,11 +14,12 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
+local class = require("base.class")
 
-module("base.lever", package.seeall)
+local M = {}
 
-Lever = base.class.class(function(lev, posi, twoState)    -- defines a class
+
+M.Lever = class(function(lev, posi, twoState)    -- defines a class
     lev.pos = posi;                             -- this is the constructor!!!!
     lev.twoState = (twoState == true);          -- left-middle-right or just l-r
     lev.broken = false;                         -- broken lever? bring someone to repair!
@@ -36,7 +37,7 @@ end);
 
             -- here, we have all methods of the above class. enjoy!
 
-function Lever:findType(lpos)                   -- returns leverstate, levertype, movingTo
+function M.Lever:findType(lpos)                   -- returns leverstate, levertype, movingTo
     if (world:isItemOnField(lpos)==true) then
         leverItem=world:getItemOnField(lpos);
         itemid=leverItem.id;
@@ -59,16 +60,16 @@ function Lever:findType(lpos)                   -- returns leverstate, levertype
     end
 end
 
-function Lever:getPosition()                    -- do as the name says
+function M.Lever:getPosition()                    -- do as the name says
     return self.pos;
 end
 
-function Lever:setMinStrength(str)              -- strengh needed to switch the lever
+function M.Lever:setMinStrength(str)              -- strengh needed to switch the lever
     self.minStrength=str;
     return str;
 end
 
-function Lever:switchLever(Char)                    -- switch the lever; return new state
+function M.Lever:switchLever(Char)                    -- switch the lever; return new state
     thisState, thisType, thisMovingTo = self:findType(self.pos);
     newMovingTo=0;
     if Char==nil then
@@ -132,7 +133,7 @@ function Lever:switchLever(Char)                    -- switch the lever; return 
     end 
 end
 
-function Lever:bind(levState, action)                       -- bind an action to a specific state
+function M.Lever:bind(levState, action)                       -- bind an action to a specific state
     if (bindList==nil) then 
         bindList={};
     end
@@ -143,3 +144,5 @@ function Lever:bind(levState, action)                       -- bind an action to
     thisAction={levState,action};                           -- put everything into the list
     table.insert(bindList[key],thisAction);
 end
+
+return M

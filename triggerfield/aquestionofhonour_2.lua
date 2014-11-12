@@ -15,9 +15,9 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 -- Quest: A Question of Honour (111)/(116)
-require("base.common")
+local common = require("base.common")
 
-module("triggerfield.aquestionofhonour_2", package.seeall)
+local M = {}
 
 function Init()
 
@@ -44,19 +44,19 @@ function Init()
     
 end
 
-function MoveToField(User)
+function M.MoveToField(User)
     Init();
    if (User:getQuestProgress(111) == 9) then --OK, the player does the quest
    
       queststatus=User:getQuestProgress(116); --here, we save which fields were visited
       
       queststatuslist={};
-      queststatuslist=base.common.Split_number(queststatus, 4); --reading the digits of the queststatus as table
+      queststatuslist=common.Split_number(queststatus, 4); --reading the digits of the queststatus as table
       
       for i=1,4 do
           if User:isInRangeToPosition(waypoint[i],1) and queststatuslist[i] == 0 then
             queststatuslist[i]=1; --found it!
-            base.common.InformNLS(User,messageG[i],messageE[i]); --sending a message
+            common.InformNLS(User,messageG[i],messageE[i]); --sending a message
             User:setQuestProgress(116,queststatuslist[1]*1000+queststatuslist[2]*100+ queststatuslist[3]*10+ queststatuslist[4]*1); --saving the new queststatus
             queststatus=User:getQuestProgress(116); --and reading it again
             
@@ -73,10 +73,12 @@ function MoveToField(User)
             
             if queststatus==1111 then --found all waypoints
                 User:setQuestProgress(111, 10); --Quest solved!
-               base.common.InformNLS(User,"[Queststatus] Du hast deine Patroullie erfolgreich abgeschlossen.","[Quest status] You completed your patrol successfully."); --sending a message
+               common.InformNLS(User,"[Queststatus] Du hast deine Patroullie erfolgreich abgeschlossen.","[Quest status] You completed your patrol successfully."); --sending a message
                return; --more than solving isn't possible, bailing out
             end
             end
       end   
    end
 end
+return M
+

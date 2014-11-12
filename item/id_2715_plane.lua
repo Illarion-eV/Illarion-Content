@@ -16,18 +16,16 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_2715_plane' WHERE itm_id IN (2715);
 
-require("content.craft.carpentry")
-require("base.licence")
-require("item.general.wood")
+local carpentry = require("content.craft.carpentry")
+local wood = require("item.general.wood")
 
-module("item.id_2715_plane", package.seeall)
+local M = {}
 
-LookAtItem = item.general.wood.LookAtItem
+M.LookAtItem = wood.LookAtItem
 
-function UseItem(User, SourceItem, ltstate)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence
-		return -- avoids crafting if user is neither citizen nor has a licence
-	end
-
-    content.craft.carpentry.carpentry:showDialog(User, SourceItem)
+function M.UseItem(User, SourceItem, ltstate)
+    carpentry.carpentry:showDialog(User, SourceItem)
 end
+
+return M
+

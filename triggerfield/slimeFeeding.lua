@@ -34,8 +34,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (887,797,0,'triggerfield.slimeFeeding');
 
 
-require("base.lookat")
-module("triggerfield.slimeFeeding", package.seeall)
+local lookat = require("base.lookat")
+local M = {}
 
 -- 24 items. For every day of the month an own item..
 SLIME_DIET_ITEMS = {
@@ -95,7 +95,7 @@ FEEDING_IN_PROGRESS = false
 
 SIGN_POSITION = position(888,797,0)
 
-function setSign()
+function M.setSign()
 	
 	if world:isItemOnField(SIGN_POSITION) then
 		local signSlimeFeeding = world:getItemOnField(SIGN_POSITION)
@@ -103,8 +103,8 @@ function setSign()
 			local day = world:getTime("day")
 			local itemId = SLIME_DIET_ITEMS[day]["itemId"]
 			local amount = SLIME_DIET_ITEMS[day]["amount"]
-			base.lookat.SetSpecialName(signSlimeFeeding, "Regeln für das Füttern des alten Schleims", "Rules for feeding the old slime")
-			base.lookat.SetSpecialDescription(signSlimeFeeding,"Heutiges Futter: "..world:getItemName(itemId,Player.german)..", Anzahl: "..amount.." // Beachten: Nur Gegenstandsteleporter nutzen; pro Person nur einmal im Monat füttern (Überfressungsprävention); nur vorgegebenes Futter verwenden (Nährstoffversorgungssicherstellung); niemals sollen zwei Personen gleichzeitig füttern (Unentscheidbarkeitssyndromverhinderung); KEINE FÜTTERUNG IM MAS!",
+			lookat.SetSpecialName(signSlimeFeeding, "Regeln für das Füttern des alten Schleims", "Rules for feeding the old slime")
+			lookat.SetSpecialDescription(signSlimeFeeding,"Heutiges Futter: "..world:getItemName(itemId,Player.german)..", Anzahl: "..amount.." // Beachten: Nur Gegenstandsteleporter nutzen; pro Person nur einmal im Monat füttern (Überfressungsprävention); nur vorgegebenes Futter verwenden (Nährstoffversorgungssicherstellung); niemals sollen zwei Personen gleichzeitig füttern (Unentscheidbarkeitssyndromverhinderung); KEINE FÜTTERUNG IM MAS!",
 			"Today's feeding: "..world:getItemName(itemId,Player.english)..", amount: "..amount.." // Keep in mind: Use only the object teleporter; every person may feed the slime only once a month (prevention of overeating); use only the food allowed on the current day (securing of nutrient supply); two people should never ever feed simultaneously (prevention of undecidability syndrome); NO FEEDING DURING MAS!")
 			world:changeItem(signSlimeFeeding)
 		end
@@ -113,7 +113,7 @@ function setSign()
 	
 end
 
-function PutItemOnField(Item,User)
+function M.PutItemOnField(Item,User)
 	if Item.pos ~= TELEPORTER_FIELD or world:getTime("month")==16 then
 		RefuseItem(Item)
 		return
@@ -144,7 +144,7 @@ function NewMonth(User)
 	local year = math.floor(qstStatus/100)
 	local month = qstStatus - (year*100)
 	
-	if qstStatus == 0 or month > world:getTime("month") or year > world:getTime("year") then
+	if qstStatus == 0 or month < world:getTime("month") or year < world:getTime("year") then
 		return true
 	end
 	return false	
@@ -177,3 +177,5 @@ function SlimeCreation()
 	FEEDING_IN_PROGRESS = true
 	
 end
+
+return M

@@ -14,18 +14,20 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
-require("npc.base.consequence.consequence")
-require("base.repair")
+local class = require("base.class")
+local consequence = require("npc.base.consequence.consequence")
+local base_repair = require("base.repair")
 
-module("npc.base.consequence.repair", package.seeall)
+local _repair_helper
 
-repair = base.class.class(npc.base.consequence.consequence.consequence,
+local repair = class(consequence,
 function(self)
-    npc.base.consequence.consequence.consequence:init(self);
-    self["perform"] = _repair_helper;
-end);
+    consequence:init(self)
+    self["perform"] = _repair_helper
+end)
 
 function _repair_helper(self, npcChar, player)
-    base.repair.repairDialog(npcChar, player); 
-end;
+    base_repair.repairDialog(npcChar, player) 
+end
+
+return repair

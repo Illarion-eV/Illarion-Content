@@ -14,15 +14,15 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
+local class = require("base.class")
 
-module("handler.deletebridge", package.seeall);
+local M = {}
 
-deleteBridge = base.class.class(function(delbrg, posi)
+M.deleteBridge = class(function(delbrg, posi)
     delbrg.pos=posi;
 end);
 
-function deleteBridge:execute()
+function M.deleteBridge:execute()
     if (world:isItemOnField(self.pos)==true) then
         item=world:getItemOnField(self.pos);
         if(item.id==618 or item.id==621 or item.id==614 or item.id==617) then
@@ -95,3 +95,5 @@ function deleteBridge:execute()
         end
     end
 end
+
+return M

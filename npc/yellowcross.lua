@@ -16,11 +16,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Basiscript für die Kreuze
 
-require("base.common")
+local common = require("base.common")
 
-module("npc.yellowcross", package.seeall)
+local M = {}
 
-function nextCycle(thisNPC)
+function M.nextCycle(thisNPC)
 
     EffectArea = 5;
 
@@ -83,12 +83,12 @@ end
 
 attribs={"strength","dexterity","constitution","agility","intelligence","perception","willpower","essence"};
 
-function doubleEffect( rebirthEffect, Reborn )
+function M.doubleEffect( rebirthEffect, Reborn )
     if Reborn:isAdmin() then
 	  return false;
     end
 
-    base.common.InformNLS( Reborn,
+    common.InformNLS( Reborn,
         "[Wiederbelebung] Du fühlst dich noch sehr schwach.",
         "[Respawn] You feel very weak." );
     local maxChange = 0;
@@ -115,7 +115,7 @@ function doubleEffect( rebirthEffect, Reborn )
 	end
 	multi = multi +1;
 	rebirthEffect:addValue("multiRes",multi);
-	Reborn:setQuestProgress(20,base.common.GetCurrentTimestamp());
+	Reborn:setQuestProgress(20,common.GetCurrentTimestamp());
     return true;
 end
 
@@ -185,3 +185,5 @@ function CreateLineofFligth(StartPos,TargetPos,GFXID)
         world:gfx(GFXID,PathPos);
     end
 end
+
+return M

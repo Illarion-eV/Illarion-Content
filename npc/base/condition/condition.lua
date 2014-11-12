@@ -14,21 +14,23 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
+local class = require("base.class")
 
-module("npc.base.condition.condition", package.seeall)
+local _condition_helper_empty
 
 --- Basic class for all conditions. Its never needed to create this class in any
 --  NPC since this is just a collection of methods the actual condition classes
 --  share.
-condition = base.class.class(function(self)
-    self["check"] = _condition_helper_empty;
-end);
+condition = class(function(self)
+    self["check"] = _condition_helper_empty
+end)
 
 function condition:setNPC(npc)
-    self["npc"] = npc;
-end;
+    self["npc"] = npc
+end
 
 function _condition_helper_empty(self, npcChar, texttype, player)
     -- by default nothing is done
-end;
+end
+
+return condition

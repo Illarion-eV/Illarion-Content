@@ -14,22 +14,24 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-module("monster.base.kills",package.seeall)
+local M = {}
 
 lastAttacker={};
 
-function setLastAttacker(monster, enemy)
+function M.setLastAttacker(monster, enemy)
     lastAttacker[monster.id] = enemy;
 end;
 
-function getLastAttacker(monster)
+function M.getLastAttacker(monster)
 	return lastAttacker[monster.id];
 end;
 
-function hasLastAttacker(monster)
+function M.hasLastAttacker(monster)
 	return lastAttacker[monster.id] ~= nil;
 end;
 
-function isLastAttacker(monster, enemy)
+function M.isLastAttacker(monster, enemy)
 	return lastAttacker[monster.id] == enemy;
 end;
+
+return M

@@ -14,18 +14,18 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
-require("base.messages")
-require("base.lookat")
+local common = require("base.common")
+local messages = require("base.messages")
+local lookat = require("base.lookat")
 
-module("monster.base.drop", package.seeall)
+local M = {}
 
-function ClearDropping()
+function M.ClearDropping()
     SelItemValue={};
     Catsdone={};
 end
 
-function AddDropItem(ItemID,Amount,Prob,Qual,DataValue,Category)
+function M.AddDropItem(ItemID,Amount,Prob,Qual,DataValue,Category)
     if( Amount == nil ) then
         return false;
     elseif (Amount>0) then
@@ -46,7 +46,7 @@ function AddDropItem(ItemID,Amount,Prob,Qual,DataValue,Category)
     return false;
 end
 
-function RareArmours(Item)
+function M.RareArmours(Item)
 
 	local rand = math.random();
 
@@ -62,27 +62,27 @@ function RareArmours(Item)
 
 	if(rand<uncommondrop) then
 		Item:setData("RareArmour", -1);
-		base.lookat.SetSpecialDescription(Item, "This appears to be an uncommon artifact. You should get it repaired by a smith before you use it.", "This appears to be an uncommon artifact. You should get it repaired by a smith before you use it.");
-		base.lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
-		base.lookat.SetItemRareness(Item,ItemLookAt.uncommonItem);
+		lookat.SetSpecialDescription(Item, "This appears to be an uncommon artifact. You should get it repaired by a smith before you use it.", "This appears to be an uncommon artifact. You should get it repaired by a smith before you use it.");
+		lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
+		lookat.SetItemRareness(Item,ItemLookAt.uncommonItem);
 		world:changeItem(Item);
 	elseif(rand<chanceofraredrop) then
 		Item:setData("RareArmour", -2);
-		base.lookat.SetSpecialDescription(Item, "This appears to be a rare artifact. You should get it repaired by a smith before you use it.", "This appears to be a rare artifact. You should get it repaired by a smith before you use it.");
-		base.lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
-		base.lookat.SetItemRareness(Item,ItemLookAt.rareItem);
+		lookat.SetSpecialDescription(Item, "This appears to be a rare artifact. You should get it repaired by a smith before you use it.", "This appears to be a rare artifact. You should get it repaired by a smith before you use it.");
+		lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
+		lookat.SetItemRareness(Item,ItemLookAt.rareItem);
 		world:changeItem(Item);
 	elseif(rand<chanceofexceptionaldrop) then
 		Item:setData("RareArmour", -3);
-		base.lookat.SetSpecialDescription(Item, "This appears to be an exceptional artifact. You should get it repaired by a smith before you use it.", "This appears to be an exceptional artifact. You should get it repaired by a smith before you use it.");
-		base.lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
-		base.lookat.SetItemRareness(Item,ItemLookAt.epicItem);
+		lookat.SetSpecialDescription(Item, "This appears to be an exceptional artifact. You should get it repaired by a smith before you use it.", "This appears to be an exceptional artifact. You should get it repaired by a smith before you use it.");
+		lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
+		lookat.SetItemRareness(Item,ItemLookAt.epicItem);
 		world:changeItem(Item);
 	end
 
 end
 
-function RareWeapons(Item)
+function M.RareWeapons(Item)
 
 	local rand = math.random();
 
@@ -98,27 +98,27 @@ function RareWeapons(Item)
 
 	if(rand<uncommondrop) then
 		Item:setData("RareWeapon", -1);
-		base.lookat.SetSpecialDescription(Item, "This appears to be an uncommon artifact. You should get it repaired by a smith before you use it.", "This appears to be an uncommon artifact. You should get it repaired by a smith before you use it.");
-		base.lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
-		base.lookat.SetItemRareness(Item,ItemLookAt.uncommonItem);
+		lookat.SetSpecialDescription(Item, "This appears to be an uncommon artifact. You should get it repaired by a smith before you use it.", "This appears to be an uncommon artifact. You should get it repaired by a smith before you use it.");
+		lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
+		lookat.SetItemRareness(Item,ItemLookAt.uncommonItem);
 		world:changeItem(Item);
 	elseif(rand<chanceofraredrop) then
 		Item:setData("RareWeapon", -2);
-		base.lookat.SetSpecialDescription(Item, "This appears to be a rare artifact. You should get it repaired by a smith before you use it.", "This appears to be a rare artifact. You should get it repaired by a smith before you use it.");
-		base.lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
-		base.lookat.SetItemRareness(Item,ItemLookAt.rareItem);
+		lookat.SetSpecialDescription(Item, "This appears to be a rare artifact. You should get it repaired by a smith before you use it.", "This appears to be a rare artifact. You should get it repaired by a smith before you use it.");
+		lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
+		lookat.SetItemRareness(Item,ItemLookAt.rareItem);
 		world:changeItem(Item);
 	elseif(rand<chanceofexceptionaldrop) then
 		Item:setData("RareWeapon", -3);
-		base.lookat.SetSpecialDescription(Item, "This appears to be an exceptional artifact. You should get it repaired by a smith before you use it.", "This appears to be an exceptional artifact. You should get it repaired by a smith before you use it.");
-		base.lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
-		base.lookat.SetItemRareness(Item,ItemLookAt.epicItem);
+		lookat.SetSpecialDescription(Item, "This appears to be an exceptional artifact. You should get it repaired by a smith before you use it.", "This appears to be an exceptional artifact. You should get it repaired by a smith before you use it.");
+		lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
+		lookat.SetItemRareness(Item,ItemLookAt.epicItem);
 		world:changeItem(Item);
 	end
 
 end
 
-function Dropping(Char)
+function M.Dropping(Char)
     if ((dropped == nil) or (dropped ~= Char.id)) then
         dropped = Char.id;
         first = true
@@ -175,7 +175,7 @@ end
 	LineOfFlight = Gfx that is shown on the Line between Monster and Target 1= puff of smoke all the way
 	CastingTry = {minSkill, maxSkill} Skillbounds for Monster Casting, influence Damage Output, Sucess against Mag Resi of player etc.]]
 
-function CastMonMagic(Monster,Enemy,rndTry,DamageRange,Effect,Item,AP,LineOfFlight,CastingTry)
+function M.CastMonMagic(Monster,Enemy,rndTry,DamageRange,Effect,Item,AP,LineOfFlight,CastingTry)
 -- Disabled this shit with it's 1000 parameters where all sorts of junk is passed in.
 -- Unless someone rewrites it in a clean way, I _will_ soon delete this for good! -- vilarion
 
@@ -183,7 +183,7 @@ function CastMonMagic(Monster,Enemy,rndTry,DamageRange,Effect,Item,AP,LineOfFlig
     if (math.random(1,rndTry)==1) and (Monster.pos.z==Enemy.pos.z) then
         local EffectTry=math.random(1,#Effect+#Item);
         if ( EffectTry > #Effect ) then
-            base.common.CreateLine(Monster.pos,Enemy.pos, function( targetPos )
+            common.CreateLine(Monster.pos,Enemy.pos, function( targetPos )
                 if world:isCharacterOnField( targetPos ) then
                     if world:isItemOnField( targetPos ) then
                         local foundItem = world:getItemOnField( targetPos );
@@ -201,18 +201,18 @@ function CastMonMagic(Monster,Enemy,rndTry,DamageRange,Effect,Item,AP,LineOfFlig
                 world:gfx( LineOfFlight, targetPos );
                 return true;
             end );
-			base.common.TalkNLS( Monster, Character.say,
+			common.TalkNLS( Monster, Character.say,
 			"#me murmelt eine mystische Formel.",
 			"#me mumbles a mystical formula.");
             Monster.movepoints=Monster.movepoints-AP;
             return true;
         else
-            base.common.CreateLine(Monster.pos,Enemy.pos, function( targetPos )
+            common.CreateLine(Monster.pos,Enemy.pos, function( targetPos )
                 if world:isCharacterOnField( targetPos ) then
                     local Enemy = world:getCharacterOnField( targetPos );
                     local CastTry = math.random(CastingTry[1],CastingTry[2]) - SpellResistence( Enemy );
                     CastTry = ( CastTry - CastingTry[1] ) / ( CastingTry[2] - CastingTry[1] ) * 100;
-                    local Damage = base.common.ScaleUnlimited( DamageRange[1], DamageRange[2], CastTry );
+                    local Damage = common.ScaleUnlimited( DamageRange[1], DamageRange[2], CastTry );
                     if Damage > 0 then
                         Enemy:increaseAttrib("hitpoints",-Damage);
 
@@ -232,7 +232,7 @@ function CastMonMagic(Monster,Enemy,rndTry,DamageRange,Effect,Item,AP,LineOfFlig
                 world:gfx( LineOfFlight, targetPos );
                 return true;
             end );
-			base.common.TalkNLS( Monster, Character.say,
+			common.TalkNLS( Monster, Character.say,
 			"#me murmelt eine mystische Formel.",
 			"#me mumbles a mystical formula.");
             Monster.movepoints=Monster.movepoints-AP;
@@ -248,14 +248,14 @@ end
 
 --Addition by Estralis: A function that makes a monster speak a random message
 
-function MonsterRandomTalk(Monster,msgs)
+function M.MonsterRandomTalk(Monster,msgs)
 
     if (math.random(1,300) == 1 ) then --once each 5 minutes (300) in average a message is spoken
 
         Monster:increaseSkill(Character.commonLanguage,100-Monster:getSkill(Character.commonLanguage)); --if the monster could not talk, it can talk now
 
         germanMessage, englishMessage = msgs:getRandomMessage(); --choses a random message
-        base.common.TalkNLS( Monster, Character.say, germanMessage, englishMessage ); --does the talking in both languages
+        common.TalkNLS( Monster, Character.say, germanMessage, englishMessage ); --does the talking in both languages
 
     end
 
@@ -263,7 +263,7 @@ end
 
 --Added by Faladrion: Preserving the GynkFire as a throwable monster weapon needs fixing :o
 
-function ThrowMolotov(Monster,Enemy,rndTry,AP)
+function M.ThrowMolotov(Monster,Enemy,rndTry,AP)
     if (math.random(1,rndTry)==1) and (Monster.pos.z==Enemy.pos.z) then --does not throw very often, half the frequency of casting monsters
         local hitPos=position( Enemy.pos.x+math.random(-2,2), Enemy.pos.y+math.random(-2,2), Enemy.pos.z );
         local distance = Monster:distanceMetricToPosition( hitPos );
@@ -279,20 +279,20 @@ function ThrowMolotov(Monster,Enemy,rndTry,AP)
         local hitpoints;
 
         world:gfx(36,hitPos);
-        HitChar(hitPos,base.common.Scale(3000,6000,Strength));
+        HitChar(hitPos,common.Scale(3000,6000,Strength));
         world:makeSound(5,hitPos);
-        hitpoints = base.common.Scale( 1000, 3000, Strength );
-        base.common.CreateCircle( hitPos, 1, function( targetPos )
+        hitpoints = common.Scale( 1000, 3000, Strength );
+        common.CreateCircle( hitPos, 1, function( targetPos )
             world:gfx( 44, targetPos );
             HitChar( targetPos, hitpoints );
         end );
-        hitpoints = base.common.Scale( 100, 500, Strength );
-        base.common.CreateCircle( hitPos, 2, function( targetPos )
+        hitpoints = common.Scale( 100, 500, Strength );
+        common.CreateCircle( hitPos, 2, function( targetPos )
             world:gfx( 9, targetPos );
             HitChar( targetPos, hitpoints );
         end );
-        hitpoints = base.common.Scale( 20, 100, Strength );
-        base.common.CreateCircle( hitPos, 3, function( targetPos )
+        hitpoints = common.Scale( 20, 100, Strength );
+        common.CreateCircle( hitPos, 3, function( targetPos )
             world:gfx( 1, targetPos );
             HitChar( targetPos, hitpoints );
         end );
@@ -304,7 +304,8 @@ function ThrowMolotov(Monster,Enemy,rndTry,AP)
     return true;
 end
 
-function HitChar(Posi,Hitpoints)
-		if world:isCharacterOnField(Posi) then world:getCharacterOnField(Posi):increaseAttrib("hitpoints",-Hitpoints) end;
-		end;
+function M.HitChar(Posi,Hitpoints)
+	if world:isCharacterOnField(Posi) then world:getCharacterOnField(Posi):increaseAttrib("hitpoints",-Hitpoints) end;
+end
 
+return M

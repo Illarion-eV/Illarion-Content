@@ -17,16 +17,19 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_737_chisel' WHERE itm_id IN (737);
 
-require("base.common")
-require("content.gatheringcraft.stonecutting")
-require("item.general.metal")
+local common = require("base.common")
+local stonecutting = require("content.gatheringcraft.stonecutting")
+local metal = require("item.general.metal")
 
-module("item.id_737_chisel", package.seeall)
+local M = {}
 
-LookAtItem = item.general.metal.LookAtItem
+M.LookAtItem = metal.LookAtItem
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
-	content.gatheringcraft.stonecutting.StartGathering(User, nil, ltstate);
+	stonecutting.StartGathering(User, nil, ltstate);
 
 end
+
+return M
+

@@ -16,18 +16,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_311_glassblowpipe' WHERE itm_id=311;
 
-require("content.craft.glassblowing")
-require("base.licence")
-require("item.general.jewel")
+local glassblowing = require("content.craft.glassblowing")
+local jewel = require("item.general.jewel")
 
-module("item.id_311_glassblowpipe", package.seeall)
+local M = {}
 
-LookAtItem = item.general.jewel.LookAtItem
+M.LookAtItem = jewel.LookAtItem
 
-function UseItem(User, SourceItem, ltstate)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence
-		return -- avoids crafting if user is neither citizen nor has a licence
-	end
-
-    content.craft.glassblowing.glassblowing:showDialog(User, SourceItem)
+function M.UseItem(User, SourceItem, ltstate)
+    glassblowing.glassblowing:showDialog(User, SourceItem)
 end
+
+return M

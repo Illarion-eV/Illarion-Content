@@ -19,17 +19,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- additional tool: shovel ( 24 )
 
-require("base.common")
-require("content.gathering")
+local common = require("base.common")
+local gathering = require("content.gathering")
 
 module("content.gatheringcraft.sanddigging", package.seeall)
 
 function StartGathering(User, SourceItem, ltstate)
 
-	content.gathering.InitGathering();
-	local sanddigging = content.gathering.sanddigging;
+	gathering.InitGathering();
+	local sanddigging = gathering.sanddigging;
 
-	base.common.ResetInterruption( User, ltstate );
+	common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
 		if (User:increaseAttrib("sex",0) == 0) then
 			gText = "seine";
@@ -42,13 +42,13 @@ function StartGathering(User, SourceItem, ltstate)
 		return
 	end
 
-	if not base.common.CheckItem( User, SourceItem ) then -- security check
+	if not common.CheckItem( User, SourceItem ) then -- security check
 		return
 	end
 
 	-- additional tool item is needed
 	if (User:countItemAt("all",24)==0) then
-		base.common.HighInformNLS( User,
+		common.HighInformNLS( User,
 		"Du brauchst eine Schaufel um zu graben.",
 		"You need a shovel for digging." );
 		return
@@ -57,18 +57,18 @@ function StartGathering(User, SourceItem, ltstate)
 	if ( toolItem.id ~=24 ) then
 		toolItem = User:getItemAt(6);
 		if ( toolItem.id ~= 24 ) then
-			base.common.HighInformNLS( User,
+			common.HighInformNLS( User,
 			"Du musst die Schaufel in der Hand haben!",
 			"You have to hold the shovel in your hand!" );
 			return
 		end
 	end
 
-	if not base.common.FitForWork( User ) then -- check minimal food points
+	if not common.FitForWork( User ) then -- check minimal food points
 		return
 	end
 
-	base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+	common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 
 	-- check the amount
 	local MaxAmount = 20
@@ -103,7 +103,7 @@ function StartGathering(User, SourceItem, ltstate)
 		end
 		if ( amount == 0 ) then
 			-- not regrown...
-			base.common.HighInformNLS( User,
+			common.HighInformNLS( User,
 			"An dieser Stelle gibt es nicht mehrs zu holen.",
 			"There isn't anything left in this pit." );
 			if ( changeItem ) then
@@ -173,7 +173,7 @@ function StartGathering(User, SourceItem, ltstate)
 	local notCreated = User:createItem( 726, 1, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 726, notCreated, User.pos, true, 333, nil );
-		base.common.HighInformNLS(User,
+		common.HighInformNLS(User,
 		"Du kannst nichts mehr halten.",
 		"You can't carry any more.");
 	else -- character can still carry something
@@ -182,8 +182,8 @@ function StartGathering(User, SourceItem, ltstate)
 		User:startAction( sanddigging.SavedWorkTime[User.id], 0, 0, 0, 0);
 	end
 
-	if base.common.GatheringToolBreaks( User, toolItem, sanddigging:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
-		base.common.HighInformNLS(User,
+	if common.GatheringToolBreaks( User, toolItem, sanddigging:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
+		common.HighInformNLS(User,
 		"Deine alte Schaufel zerbricht.",
 		"Your old shovel breaks.");
 		return

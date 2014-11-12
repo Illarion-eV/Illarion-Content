@@ -14,13 +14,13 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.keys")
-require("base.common")
-require("scheduled.factionLeader")
+local keys = require("base.keys")
+local common = require("base.common")
+local factionLeader = require("scheduled.factionLeader")
 
-module("server.logout", package.seeall)
+local M = {}
 
-function onLogout( theChar )
+function M.onLogout( theChar )
 
 	world:gfx(31,theChar.pos); --A nice GFX that announces clearly: A player logged out.
 
@@ -47,10 +47,12 @@ end
 
 -- Function to exchange the faction leader of a town.
 function exchangeFactionLeader( playerName )
-	for i=1, #(scheduled.factionLeader.informationTable) do
-		if playerName == scheduled.factionLeader.informationTable[i].npcName then
-			scheduled.factionLeader.updatePosition(scheduled.factionLeader.informationTable[i].newPosition,
-				scheduled.factionLeader.informationTable[i].usualPosition)
+	for i=1, #(factionLeader.informationTable) do
+		if playerName == factionLeader.informationTable[i].npcName then
+			factionLeader.updatePosition(factionLeader.informationTable[i].newPosition,
+				factionLeader.informationTable[i].usualPosition)
 		end
 	end
 end
+
+return M

@@ -14,19 +14,20 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
+local class = require("base.class")
+local M = {}
 
-module("handler.warptopos", package.seeall)
-
-warpToPos = base.class.class(function(warptopos, startpos,destpos)
+M.warpToPos = class(function(warptopos, startpos,destpos)
     warptopos.startpos=startpos;
     warptopos.destpos=destpos;
 end);
 
-function warpToPos:execute()   --warps a player from position startpos to the position destpos
+function M.warpToPos:execute()   --warps a player from position startpos to the position destpos
     local player = world:getCharacterOnField(self.startpos);
     if player~= nil then
     	world:gfx(46,self.startpos); -- "sun" graphic
     	player:warp(self.destpos);
     end
 end
+
+return M

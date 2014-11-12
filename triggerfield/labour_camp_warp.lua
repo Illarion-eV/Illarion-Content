@@ -16,11 +16,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO triggerfields VALUES (-495,-484,-40,'triggerfield.labour_camp_warp');
 
-require("base.common")
+local common = require("base.common")
 
-module("triggerfield.labour_camp_warp", package.seeall)
+local M = {}
 
-function MoveToField(User)
+function M.MoveToField(User)
     if User:getQuestProgress(25) > 0 then -- char wants to go, but his work isn't done; makes the labour camp leader grumpy
 	    
 		-- check for spam and put a new spam marker in case it is no spam
@@ -54,7 +54,7 @@ function MoveToField(User)
 				end
 			end
 		end
-		base.common.InformNLS(User,"Der Teleporter scheint dir den Dienster zu verweigern, bis deine Strafe abgearbeitet ist.","The teleporter seems to be not working for you as long as you haven't served your sentence.")
+		common.InformNLS(User,"Der Teleporter scheint dir den Dienster zu verweigern, bis deine Strafe abgearbeitet ist.","The teleporter seems to be not working for you as long as you haven't served your sentence.")
 		
 	else -- the char is allowed to leave
 	
@@ -85,3 +85,5 @@ function MoveToField(User)
         world:makeSound(13,User.pos);
     end	
 end
+return M
+

@@ -18,14 +18,14 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Effect ID: 402
 
 
-require("base.common");
-module("lte.shearing", package.seeall)
+local common = require("base.common")
+local M = {}
 
-function addEffect(shearingEffect, Animal)
+function M.addEffect(shearingEffect, Animal)
 
 end
 
-function callEffect(shearingEffect, Animal)
+function M.callEffect(shearingEffect, Animal)
 
 	local foundAmount, gatherAmount = shearingEffect:findValue("gatherAmount");
 	if (not foundAmount) then
@@ -46,3 +46,6 @@ function callEffect(shearingEffect, Animal)
 	return true;
 	
 end
+
+return M
+

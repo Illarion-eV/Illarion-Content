@@ -14,17 +14,17 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-module("lte.paralysis", package.seeall)
+local M = {}
 -- Long time effect script for paralysing
 -- effect ID: 23
 
-function addEffect( Paralysis, Target )
+function M.addEffect( Paralysis, Target )
 	
 	Target.movepoints = -500;
 	Paralysis.nextCalled = 1;
 end
 
-function callEffect( Paralysis, Target )
+function M.callEffect( Paralysis, Target )
 	
 	foundTime, timeLeft = Paralysis:findValue("timeLeft");
 	
@@ -42,13 +42,16 @@ function callEffect( Paralysis, Target )
 	return false;
 end
 
-function loadEffect( Paralysis, Target )
+function M.loadEffect( Paralysis, Target )
 	
 	Target.movepoints = -500;
 	Paralysis.nextCalled = 10;
 end
 
-function removeEffect( Paralysis, Target )
+function M.removeEffect( Paralysis, Target )
 	
 	Target.movepoints = 21;
 end
+
+return M
+

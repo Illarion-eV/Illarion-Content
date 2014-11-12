@@ -14,58 +14,66 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
-require("npc.base.condition.condition")
+local class = require("base.class")
+local condition = require("npc.base.condition.condition")
+local tools = require("npc.base.tools")
 
-module("npc.base.condition.state", package.seeall)
+local _state_helper_equal
+local _state_helper_notequal
+local _state_helper_lesserequal
+local _state_helper_greaterequal
+local _state_helper_greater
+local _state_helper_lesser
 
-state = base.class.class(npc.base.condition.condition.condition,
+local state = class(condition,
 function(self, comp, value)
-    npc.base.condition.condition.condition:init(self);
-    self["value"], self["valuetype"] = npc.base.talk._set_value(value);
+    condition:init(self)
+    self["value"], self["valuetype"] = tools.set_value(value)
     if (comp == "=") then
-        self["check"] = _state_helper_equal;
+        self["check"] = _state_helper_equal
     elseif (comp == "<>" or comp == "!=" or comp == "~=") then
-        self["check"] = _state_helper_notequal;
+        self["check"] = _state_helper_notequal
     elseif (comp == "<=" or comp == "=<") then
-        self["check"] = _state_helper_lesserequal;
+        self["check"] = _state_helper_lesserequal
     elseif (comp == ">=" or comp == "=>") then
-        self["check"] = _state_helper_greaterequal;
+        self["check"] = _state_helper_greaterequal
     elseif (comp == ">") then
-        self["check"] = _state_helper_greater;
+        self["check"] = _state_helper_greater
     elseif (comp == "<") then
-        self["check"] = _state_helper_lesser;
+        self["check"] = _state_helper_lesser
     else
         -- unkonwn comparator
-    end; 
-end);
+    end 
+end)
 
 function _state_helper_equal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return (value == self.npc._state)
-end;
+end
 
 function _state_helper_notequal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return (value ~= self.npc._state)
-end;
+end
 
 function _state_helper_lesserequal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return (self.npc._state <= value)
-end;
+end
 
 function _state_helper_greaterequal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return (self.npc._state >= value)
-end;
+end
 
 function _state_helper_lesser(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return (self.npc._state < value)
-end;
+end
 
 function _state_helper_greater(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return (self.npc._state > value)
-end;
+end
+
+return state

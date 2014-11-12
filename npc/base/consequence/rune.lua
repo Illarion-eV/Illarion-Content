@@ -14,20 +14,22 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
-require("npc.base.consequence.consequence")
+local class = require("base.class")
+local consequence = require("npc.base.consequence.consequence")
 
-module("npc.base.consequence.rune", package.seeall)
+local _rune_helper
 
-rune = base.class.class(npc.base.consequence.consequence.consequence,
+local rune = class(consequence,
 function(self, group, id)
-    npc.base.consequence.consequence.consequence:init(self);
+    consequence:init(self)
     
-    self["id"] = tonumber(id);
-    self["group"] = tonumber(group);
-    self["perform"] = _rune_helper;
-end);
+    self["id"] = tonumber(id)
+    self["group"] = tonumber(group)
+    self["perform"] = _rune_helper
+end)
 
 function _rune_helper(self, npcChar, player)
-    player:teachMagic(self.group, self.rune);
-end;
+    player:teachMagic(self.group, self.rune)
+end
+
+return rune

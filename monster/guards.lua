@@ -17,9 +17,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Attackable guards (who can fight back!)
 -- monsterID 2000
 
-require("monster.base.monstermagic")
+local monstermagic = require("monster.base.monstermagic")
+local kills = require("monster.base.kills")
 
-module("monster.guards", package.seeall)
+local M = {}
 
 function initGuard(Guard)
     Guard:setAttrib("agility",10);
@@ -102,7 +103,7 @@ function getNextPoint(Pos,PCloud,Radius)
 end
 
 -- Set clothes, weapons, hair/beard, colors, waypoints + set on this route, talking-skills
-function onSpawn(Guard)
+function M.onSpawn(Guard)
     initGuard(Guard);
 	newPt=getNextPoint(Guard.pos,cloud,20)
 	Guard.waypoints:addWaypoint(newPt);
@@ -112,13 +113,13 @@ end
 
 -- Check if the enemy should be attacked, return true (did something) or false (nothing),
 -- not called if enemy is in attack range
-function enemyNear(Guard,Enemy)
+function M.enemyNear(Guard,Enemy)
     return false;
 end
 
 -- Who should be attacked, return index of char in candList; return 0 to ignore everyone completely.
 -- ATM: 1) check if there's someone already on the enemylist, 2) then check for "sign"
-function setTarget(Guard, candList)
+function M.setTarget(Guard, candList)
     for key,target in pairs(candList) do            -- search list for someone
         --target:inform("now checking...");
         if isEnemy[target.id] ~= nil then			-- attack this guy
@@ -138,28 +139,28 @@ function setTarget(Guard, candList)
 end
 
 
-function enemyOnSight(Guard,Enemy)
-	monster.base.monstermagic.regeneration(Guard); --if an enemy is around, the monster regenerates slowly
+function M.enemyOnSight(Guard,Enemy)
+	monstermagic.regeneration(Guard); --if an enemy is around, the monster regenerates slowly
     return false;
 end
 
 -- attack back, whoever it is (set on isEnemy-List!)
-function onAttacked(Guard,Enemy)
+function M.onAttacked(Guard,Enemy)
     isEnemy[Enemy.id]=1;		-- this one is put on our list of enemys
     Guard:talk(Character.yell, "I am under attack, help!");
-    monster.base.kills.setLastAttacker(Guard,Enemy)
+    kills.setLastAttacker(Guard,Enemy)
 end
 
 
 -- attack back, whoever it is
-function onCasted(Guard,Enemy)
-    monster.base.kills.setLastAttacker(Guard,Enemy)
+function M.onCasted(Guard,Enemy)
+    kills.setLastAttacker(Guard,Enemy)
 end
 
 
 -- if someone is talking to you, stand still and talk back (a little)
 -- also check if the character should be attacked!
-function receiveText(Guard, type, text, originator)
+function M.receiveText(Guard, type, text, originator)
     -- check distance
     if originator.id ~= Guard.id then
         if originator:getType()==0 then		-- A player!
@@ -183,7 +184,7 @@ end
 
 
 -- is called once a guard is set off his route or when his route is simply finished
-function abortRoute(Guard)
+function M.abortRoute(Guard)
     Guard:talk(Character.say,"ABORTING ROUTE NOW!");
     restList=Guard.waypoints:getWaypoints();
     if (# restList==0) then
@@ -201,8 +202,10 @@ function abortRoute(Guard)
 end
 
 -- spawn loot
-function onDeath(Guard)
+function M.onDeath(Guard)
 
 --Plz spawn magic gems :-) ~Estralis
 
 end
+return M
+

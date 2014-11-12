@@ -14,12 +14,14 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
-module("server.depot", package.seeall)
+local common = require("base.common")
+local M = {}
 
-function onOpenDepot(User, Depot)
+function M.onOpenDepot(User, Depot)
 
-  base.common.TurnTo( User, Depot.pos ); -- turn if necessary
+  common.TurnTo( User, Depot.pos ); -- turn if necessary
 
   return true
 end
+
+return M

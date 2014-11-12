@@ -14,59 +14,67 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
-require("npc.base.condition.condition")
+local class = require("base.class")
+local condition = require("npc.base.condition.condition")
+local tools = require("npc.base.tools")
 
-module("npc.base.condition.skill", package.seeall)
+local _skill_helper_equal
+local _skill_helper_notequal
+local _skill_helper_lesserequal
+local _skill_helper_greaterequal
+local _skill_helper_greater
+local _skill_helper_lesser
 
-skill = base.class.class(npc.base.condition.condition.condition,
+local skill = class(condition,
 function(self, name, comp, value)
-    npc.base.condition.condition.condition:init(self);
-    self["value"], self["valuetype"] = npc.base.talk._set_value(value);
-    self["skill"] = name;
+    condition:init(self)
+    self["value"], self["valuetype"] = tools.set_value(value)
+    self["skill"] = name
     if (comp == "=") then
-        self["check"] = _skill_helper_equal;
+        self["check"] = _skill_helper_equal
     elseif (comp == "<>" or comp == "!=" or comp == "~=") then
-        self["check"] = _skill_helper_notequal;
+        self["check"] = _skill_helper_notequal
     elseif (comp == "<=" or comp == "=<") then
-        self["check"] = _skill_helper_lesserequal;
+        self["check"] = _skill_helper_lesserequal
     elseif (comp == ">=" or comp == "=>") then
-        self["check"] = _skill_helper_greaterequal;
+        self["check"] = _skill_helper_greaterequal
     elseif (comp == ">") then
-        self["check"] = _skill_helper_greater;
+        self["check"] = _skill_helper_greater
     elseif (comp == "<") then
-        self["check"] = _skill_helper_lesser;
+        self["check"] = _skill_helper_lesser
     else
         -- unkonwn comparator
-    end;
-end);
+    end
+end)
 
 function _skill_helper_equal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return (player:getSkill(self.skill) == value)
-end;
+end
 
 function _skill_helper_notequal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return (player:getSkill(self.skill) ~= value)
-end;
+end
 
 function _skill_helper_lesserequal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return (player:getSkill(self.skill) <= value)
-end;
+end
 
 function _skill_helper_greaterequal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return (player:getSkill(self.skill) >= value)
-end;
+end
 
 function _skill_helper_lesser(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return (player:getSkill(self.skill) < value)
-end;
+end
 
 function _skill_helper_greater(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
     return (player:getSkill(self.skill) > value)
-end;
+end
+
+return skill

@@ -20,15 +20,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Reworked by Merung for NewNoobia
 -- Pimped by Estralis
 
-require("base.common")
-module("lte.newbieisland", package.seeall)
+local common = require("base.common")
+local M = {}
 
 
 
-function addEffect(newbieEffect, Character)
+function M.addEffect(newbieEffect, Character)
 end
 
-function callEffect(newbieEffect,Character)
+function M.callEffect(newbieEffect,Character)
     
 	if (Character.pos.z ~= 100) and (Character.pos.z ~= 101) then
 	    return false; --removing the effect
@@ -56,5 +56,8 @@ function callEffect(newbieEffect,Character)
 	
 end
 
-function removeEffect(newbieEffect, Character)
+function M.removeEffect(newbieEffect, Character)
 end
+
+return M
+

@@ -17,32 +17,32 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Player death
 -- deadPlayer - The player (character) whose hitpoints have just been set to zero
 
-require("base.common")
-module("server.playerdeath", package.seeall)
+local common = require("base.common")
+local M = {}
 
 DURABILITY_LOSS = 10
 BLOCKED_ITEM = 228
 
-function playerDeath(deadPlayer)
+function M.playerDeath(deadPlayer)
 
     if deadPlayer:isAdmin() then --Admins don't die. Failed, noob!
 	
 	    deadPlayer:increaseAttrib("hitpoints",10000); -- Respawn
-		base.common.HighInformNLS(deadPlayer,"[Wiederbelebung] Admins sterben nicht.","[Respawn] Admins don't die."); --sending a message
+		common.HighInformNLS(deadPlayer,"[Wiederbelebung] Admins sterben nicht.","[Respawn] Admins don't die."); --sending a message
 		return; --bailing out!
 			
     elseif deadPlayer.pos.z==100 or deadPlayer.pos.z==101 then --someone died on Noobia!
 	
 	    deadPlayer:increaseAttrib("hitpoints",10000); -- Respawn
 		world:gfx(53,deadPlayer.pos);
-        base.common.HighInformNLS(deadPlayer,"[Wiederbelebung] Während des Tutorials bist du 'unsterblich'. Im Hauptspiel ist die Wiederbelebung mit merklichen Konsequenzen für deinen Charakter verbunden.","[Respawn] During the tutorial, you are 'immortal'. In the main game, serious consequences for your character are triggered upon respawn."); --sending a message
+        common.HighInformNLS(deadPlayer,"[Wiederbelebung] Während des Tutorials bist du 'unsterblich'. Im Hauptspiel ist die Wiederbelebung mit merklichen Konsequenzen für deinen Charakter verbunden.","[Respawn] During the tutorial, you are 'immortal'. In the main game, serious consequences for your character are triggered upon respawn."); --sending a message
         return; --bailing out!
      
     elseif deadPlayer.pos.z==-40 then -- death in the prison mine; no kill taxi!	 
 	
 	    deadPlayer:increaseAttrib("hitpoints",10000); -- Respawn
 		world:gfx(53,deadPlayer.pos);
-        base.common.HighInformNLS(deadPlayer,"[Wiederbelebung] In der Gefängnismine bist du 'unsterblich'. Weiterarbeiten!","[Respawn] In the prison mine, you are 'immortal'. Work on!"); --sending a message
+        common.HighInformNLS(deadPlayer,"[Wiederbelebung] In der Gefängnismine bist du 'unsterblich'. Weiterarbeiten!","[Respawn] In the prison mine, you are 'immortal'. Work on!"); --sending a message
         return; --bailing out!
 		
 	else --valid death
@@ -56,13 +56,17 @@ function playerDeath(deadPlayer)
 
             if item.id > 0 and item.id ~= BLOCKEDITEM and item.quality > 100 and not common.isStackable then
                 local durability = item.quality % 100
-
-                if durability <= DURABILITY_LOSS then
+                local newbieModficator = 1
+                if deadPlayer:isNewPlayer() then
+                    newbieModficator = 2
+                end
+                
+                if durability <= DURABILITY_LOSS/newbieModficator then
                     deadPlayer:increaseAtPos(i, -1)
 					nameText=world:getItemName(item.id,deadPlayer:getPlayerLanguage());
-					base.common.HighInformNLS(deadPlayer,"[Tod] Dein Gegenstand '"..nameText.."' wurde zerstört.","[Death] Your item '"..nameText.."' was destroyed."); --sending a message
+					common.HighInformNLS(deadPlayer,"[Tod] Dein Gegenstand '"..nameText.."' wurde zerstört.","[Death] Your item '"..nameText.."' was destroyed."); --sending a message
                 else
-                    item.quality = item.quality - DURABILITY_LOSS
+                    item.quality = item.quality - DURABILITY_LOSS/newbieModficator
                     world:changeItem(item)
                 end
             end
@@ -83,3 +87,5 @@ function showDeathDialog(deadPlayer)
 	deadPlayer:requestMessageDialog(dialog); --showing the text
 		
 end
+
+return M

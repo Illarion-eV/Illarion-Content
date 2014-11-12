@@ -21,9 +21,9 @@ INSERT INTO triggerfields VALUES (X,Y,Z,'triggerfield.ambient');
 
 ]]
 
-require("base.common")
+local common = require("base.common")
 
-module("triggerfield.ambient", package.seeall)
+local M = {}
 
 --[[
 position: coordinates
@@ -84,7 +84,7 @@ AmbientList:add( position(331,537,0),nil,"Der Sand knirscht unter deinen Füßen."
 AmbientList:add( position(336,563,0),nil,"Vor dir erstrecken sich die Dünen, so weit das Auge reicht.","The dunes ahead of you seem to stretch endlessly.",nil,nil,10); --General desert
 AmbientList:add( position(348,710,0),nil,"Warmer Wind bläst durch die Wüste und Geheul ist in der Ferne zu hören.","A warm wind blows across the desert, and howls can be heard in the distance.",nil,nil,10); --General desert
 AmbientList:add( position(349,576,0),nil,"Du wirst das Gefühl nicht los, dass dich jemand beobachtet.","You struggle to ignore the strange feeling that you are being watched.",nil,nil,10); --General desert
-AmbientList:add( position(365,619,0),nil,"Ein scharfer Wind wirbelt den Sand um dich herum auf als du dich dem Herz der Wüste Katanbi näherst.","The fierce wind bellows and blows the sand wildly around you; the Katanbi desert proves quite treacherous.",nil,nil,10); --General desert
+AmbientList:add( position(365,619,0),nil,"Ein scharfer Wind wirbelt den Sand um dich herum auf als du dich dem Herz der Wüste Kantabi näherst.","The fierce wind bellows and blows the sand wildly around you; the Kantabi desert proves quite treacherous.",nil,nil,10); --General desert
 AmbientList:add( position(400,709,0),nil,"Nach dem anstrengenden Marsch durch feinen Sand mutet es regelrecht erfrischend an, wieder festen Boden unter den Füßen zu haben. ","Walking through the sand proves to be quite the workout for your legs and feet as you dredge along.",nil,nil,10); --General desert
 AmbientList:add( position(402,707,0),nil,"Beim Umherstreifen in der Wüste rinnt dir immer wieder etwas Sand ins Schuhwerk und scheuert zwischen deinen Zehen. ","Whilst roaming the desert, sand trickles through your footwear over and over again, rubbing between your toes. ",nil,nil,10); --General desert
 AmbientList:add( position(109,709,0),nil,"Vom sandigen Boden her steigt eine Hitze auf, die deine Augen austrocknet.","The heat of the sand is rising up to meet your dry eyes.",{8,9,10,11,12,13,14,15,16,17,18,19,20},nil,10); --General desert, daylight
@@ -96,7 +96,7 @@ AmbientList:add( position(330,752,0),nil,"Du bemerkst eine verlockende Oase in d
 AmbientList:add( position(345,715,0),nil,"Hoch über dir zieht ein Geier seine Kreise, ein fürwahr unheilvolles Omen.","Above, a vulture soars through the skies. A troubling sign, indeed. ",{8,9,10,11,12,13,14,15,16,17,18,19,20},nil,10); --General desert, daylight
 AmbientList:add( position(400,695,0),nil,"Ein Geier zieht seine Kreise über der Wüste.","A vulture flies in circles over the desert.",{8,9,10,11,12,13,14,15,16,17,18,19,20},nil,10); --General desert, daylight
 AmbientList:add( position(412,762,0),nil,"Eine kleine Echse läuft geschwind eine Sandverwehung herab.","A small lizard runs swiftly down a sand drift.",{8,9,10,11,12,13,14,15,16,17,18,19,20},nil,10); --General desert, daylight
-AmbientList:add( position(437,797,0),{5,6,7},"Die karge Wüste Katanbi erstreckt sich vor dir. Eine Sandhose bildet sich in der Ferne.","You find yourself between dunes on an open plane when you spot a swirling column of sand ominously looming in the distance.",{8,9,10,11,12,13,14,15,16,17,18,19,20},Nil,10); --General desert, daylight
+AmbientList:add( position(437,797,0),{5,6,7},"Die karge Wüste Kantabi erstreckt sich vor dir. Eine Sandhose bildet sich in der Ferne.","You find yourself between dunes on an open plane when you spot a swirling column of sand ominously looming in the distance.",{8,9,10,11,12,13,14,15,16,17,18,19,20},Nil,10); --General desert, daylight
 AmbientList:add( position(213,740,0),nil,"Die Sonne strahlt gnadenlos auf dich herab. Durst beginnt dich zu matern.","The high sun beats down on you harshly. You begin to feel thirsty very quickly.",{8,9,10,11,12,13,14,15,16,17,18,19,20},{1,2,3,4,5,6,7,8,9,10,11,12},10); --General desert, daylight, not winter
 AmbientList:add( position(239,639,0),nil,"Der heiße Wüstenwind treibt sein munteres Spiel mit einer Windhose aus Sand.","The hot desert wind plays its game with a small vortex of sand forming nearby.",{8,9,10,11,12,13,14,15,16,17,18,19,20},{1,2,3,4,5,6,7,8,9,10,11,12},10); --General desert, daylight, not winter
 AmbientList:add( position(240,522,0),nil,"Die Hitze der Wüste wird unerträglich. Du fragst dich, wie du hier ohne Sonnenstich wieder herauskommst.","The cruel desert shows you no mercy and you just hope you have enough supplies to make it across.",{8,9,10,11,12,13,14,15,16,17,18,19,20},{1,2,3,4,5,6,7,8,9,10,11,12},10); --General desert, daylight, not winter
@@ -109,7 +109,7 @@ AmbientList:add( position(324,763,0),nil,"Mit einem Blick in die Ferne bekommst 
 AmbientList:add( position(355,614,0),nil,"Die segenden Strahlen der Sonne fahren Speeren gleich auf jedes Wesen in der Wüste nieder.","Torrid sunbeams dart like spears at every being in the desert.",{8,9,10,11,12,13,14,15,16,17,18,19,20},{1,2,3,4,5,6,7,8,9,10,11,12},10); --General desert, daylight, not winter
 AmbientList:add( position(352,712,0),nil,"Die unerträgliche Hitze macht jeden Schritt zu einer Tortur.","The unrelenting heat tortures you with every step you take.",{8,9,10,11,12,13,14,15,16,17,18,19,20},{1,2,3,4,5,6,7,8,9,10,11,12},10); --General desert, daylight, not winter
 AmbientList:add( position(371,569,0),nil,"Die schier endlosen Sandmassen verschwimmen in der Ferne zu einer wabernden Masse. Erbarmungslos brennt die Sonne von oben hernieder.","Vast lands of sand are stretching off into the distance gradually blurring into a wafting mass. From above, the sun burns incessantly.",{8,9,10,11,12,13,14,15,16,17,18,19,20},{1,2,3,4,5,6,7,8,9,10,11,12},10); --General desert, daylight, not winter
-AmbientList:add( position(427,743,0),nil,"Du spürst die unerträgliche Hitze der Sonnenstrahlen dieses Tages in der Wüste Katanbi auf deiner Haut.","You feel a heavy, almost unbearable heat from the sun's rays this day.",{8,9,10,11,12,13,14,15,16,17,18,19,20},{1,2,3,4,5,6,7,8,9,10,11,12},10); --General desert, daylight, not winter
+AmbientList:add( position(427,743,0),nil,"Du spürst die unerträgliche Hitze der Sonnenstrahlen dieses Tages in der Wüste Kantabi auf deiner Haut.","You feel a heavy, almost unbearable heat from the sun's rays this day.",{8,9,10,11,12,13,14,15,16,17,18,19,20},{1,2,3,4,5,6,7,8,9,10,11,12},10); --General desert, daylight, not winter
 AmbientList:add( position(391,774,0),nil,"Eine angenehm kühle Brise bläßt dir ins Gesicht, dennoch wirkt die Wüste unwirtlich und feindlich.","A calm breeze blows in your face, without sand this time, but the desert still reaches out before you in the most inhospitable way.",{8,9,10,11,12,13,14,15,16,17,18,19,20},{13,14,15,16},10); --General desert, daylight, winter
 AmbientList:add( position(73,770,0),{5,6,7},"Am Strand siehst du einen wundervollen Sonnenuntergang, der das Wasser und die fernen Wolken in ein anmutiges Licht taucht.","From the beach you can see the beautiful sunset, covering the distant waters and clouds with an orange glow.",{17,18,19,20},nil,10); --General desert, late daylight
 AmbientList:add( position(214,606,0),nil,"Eine Sternschnuppe erhellt kurzzeitig den Nachthimmel, bevor sie am Horizont verschwindet.","A shooting star lights up the sky before it vanishes at the horizon.",{0,1,2,3,4,5,6,7,21,22,23,24},nil,10); --General desert, night
@@ -330,10 +330,10 @@ AmbientList:add( position(894,843,3),{0,1,7},"Die Vögel zwitschern draußen, im R
 AmbientList:add( position(907,834,0),nil,"Der Schnee glitzert durch die Fenster und bringt den Raum zum Leuchten. Es riecht nach Wintergebäck.","The glittering snow outside lights up the whole room. You can smell winter pastry.",{8,9,10,11,12,13,14,15,16,17,18,19,20},{13,14,15,16},10); --Specific Runewick, daylight, winter
 AmbientList:add( position(683,314,0),nil,"Die Straße hier sieht verlassen aus. Mitunter sind Rufe aus der Taverne zu vernehmen.","The street is quiet. Occasional shouts can be heard from the tavern.",{8,9,10,11,12,13,14,15,16,17,18,19,20},nil,10); --Specific Tavern, daylight
 
-function MoveToField(Char)
+function M.MoveToField(Char)
 	local this = getAmbient(Char);
 	if this then
-		base.common.InformNLS(Char,this.german,this.english);
+		common.InformNLS(Char,this.german,this.english);
 	end
 end
 
@@ -373,3 +373,6 @@ function getAmbient(Char)
 	end
 	return nil;
 end
+
+return M
+

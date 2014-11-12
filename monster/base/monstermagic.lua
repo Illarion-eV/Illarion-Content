@@ -14,15 +14,15 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
-require("base.character")
-require("lte.chr_reg");
+local common = require("base.common")
+local character = require("base.character")
+local chr_reg = require("lte.chr_reg")
 
-module("monster.base.monstermagic", package.seeall)
+local M = {}
 
 -- This function regenerates monsters slowly
 
-function regeneration( Monster )
+function M.regeneration( Monster )
 
     if ( Monster:increaseAttrib("hitpoints", 0) < 10000) and (math.random(1, 3) == 1) then -- Once each 3rd second in average
         local con = Monster:increaseAttrib("constitution", 0);
@@ -35,26 +35,26 @@ end
 
 -- Spell resistance calculation might need simplification
 
-function SpellResistence( Char )
+function M.SpellResistence( Char )
     local CWil   = Char:increaseAttrib("willpower",0);
     local CEss   = Char:increaseAttrib("essence",0);
     local CSkill = Char:getSkill(Character.magicResistance) ;
-    CSkill = base.common.Limit( CSkill, 0, MaximalMagicResistance( Char ) );
+    CSkill = common.Limit( CSkill, 0, M.MaximalMagicResistance( Char ) );
 
-    local ResTry = base.common.Limit(CSkill * ( ( CEss*3 + CWil*2 ) / 63 ), 0, 100 );
+    local ResTry = common.Limit(CSkill * ( ( CEss*3 + CWil*2 ) / 63 ), 0, 100 );
 
-    return base.common.Limit( math.floor( ResTry * math.random(8,12)/10 ), 0, 100 );
+    return common.Limit( math.floor( ResTry * math.random(8,12)/10 ), 0, 100 );
 end
 
-function MaximalMagicResistance( Char )
+function M.MaximalMagicResistance( Char )
     local maxMagicResist = 1.4 * ( Char:increaseAttrib("intelligence",0) + ( Char:increaseAttrib("willpower",0) * 1.75 ) + ( Char:increaseAttrib("essence",0) * 2 ) ) + 5;
-    return base.common.Limit( maxMagicResist, 0, 100 );
+    return common.Limit( maxMagicResist, 0, 100 );
 end
 
 
 -- This function teleports the monster away  few fields
 
-function SuddenWarp(Monster, Enemy, rndTry)
+function M.SuddenWarp(Monster, Enemy, rndTry)
     if rndTry == nil then
         rndTry = 30; -- Once every 30 seconds in average
     end
@@ -79,7 +79,7 @@ end
 
 -- This function heals a random monster
 
-function CastHealing(Monster, HealAmount, rndTry)
+function M.CastHealing(Monster, HealAmount, rndTry)
     if rndTry == nil then
         rndTry = 10; -- Once every 10 seconds in average
     end
@@ -124,7 +124,7 @@ end
 -- This function drains movepoints of a monster's enemy
 -- XXX: CastingTry and Spell Resistence is a mess
 
-function CastParalyze(Monster, Enemy, CastingTry, rndTry)
+function M.CastParalyze(Monster, Enemy, CastingTry, rndTry)
     if rndTry == nil then
         rndTry = 10; -- Once every 10 seconds in average
     end
@@ -137,10 +137,10 @@ function CastParalyze(Monster, Enemy, CastingTry, rndTry)
         return false;
     end
 
-    local CastTry = math.random(CastingTry[1],CastingTry[2]) - SpellResistence( Enemy );
+    local CastTry = math.random(CastingTry[1],CastingTry[2]) - M.SpellResistence( Enemy );
     CastTry = ( CastTry - CastingTry[1] ) / ( CastingTry[2] - CastingTry[1] ) * 100;
 
-    local Damage = base.common.ScaleUnlimited(30, 60, CastTry);
+    local Damage = common.ScaleUnlimited(30, 60, CastTry);
     if Damage > 0 then
         Enemy.movepoints = Enemy.movepoints - Damage;
         world:gfx(6, Enemy.pos);
@@ -157,7 +157,7 @@ end
 
 -- Spawn a new monster
 
-function CastMonster(Monster, monsters, rndTry)
+function M.CastMonster(Monster, monsters, rndTry)
     if rndTry == nil then
         rndTry = 30; -- Once every 30 seconds in average
     end
@@ -189,7 +189,7 @@ function CastMonster(Monster, monsters, rndTry)
             world:createMonster(selectedMonsterId, SpawnPos, -15);
             world:gfx(41, SpawnPos);
             Monster.movepoints = Monster.movepoints - 40;
-            base.common.TalkNLS(Monster, Character.say,
+            common.TalkNLS(Monster, Character.say,
                 "#me murmelt eine mystische Formel.",
                 "#me mumbles a mystical formula.");
             return true;
@@ -205,7 +205,7 @@ end
 -- A area damage spell
 -- XXX: CastingTry and Spell Resistence is a mess
 
-function CastLargeAreaMagic(monster, DamageRange, CastingTry, rndTry)
+function M.CastLargeAreaMagic(monster, DamageRange, CastingTry, rndTry)
     if rndTry == nil then
         rndTry = 30; -- Once every 30 seconds in average
     end
@@ -241,11 +241,11 @@ function CastLargeAreaMagic(monster, DamageRange, CastingTry, rndTry)
     local CastTry = 0;
     local Damage = 0;
     for i,target in pairs(targets) do
-        local CastTry = math.random(CastingTry[1],CastingTry[2]) - SpellResistence( target );
+        local CastTry = math.random(CastingTry[1],CastingTry[2]) - M.SpellResistence( target );
         CastTry = ( CastTry - CastingTry[1] ) / ( CastingTry[2] - CastingTry[1] ) * 100;
-        local Damage = base.common.ScaleUnlimited( DamageRange[1], DamageRange[2], CastTry );
+        local Damage = common.ScaleUnlimited( DamageRange[1], DamageRange[2], CastTry );
         if Damage > 0 then
-            DealMagicDamage(target, Damage);
+            M.DealMagicDamage(target, Damage);
             world:gfx(36, target.pos);
         else
             world:gfx(12, target.pos);
@@ -259,7 +259,7 @@ end
 
 -- A simple fireball spell
 
-function CastFireball(Monster, Enemy, DamageRange, CastingTry, rndTry)
+function M.CastFireball(Monster, Enemy, DamageRange, CastingTry, rndTry)
     if rndTry == nil then
         rndTry = 30; -- Once every 30 seconds in average
     end
@@ -274,14 +274,14 @@ function CastFireball(Monster, Enemy, DamageRange, CastingTry, rndTry)
         return false; -- something blocks
     end
 
-    base.common.CreateLine(Monster.pos, Enemy.pos, function(targetPos)
+    common.CreateLine(Monster.pos, Enemy.pos, function(targetPos)
         if world:isCharacterOnField( targetPos ) then
             local Enemy = world:getCharacterOnField( targetPos );
-            local CastTry = math.random(CastingTry[1],CastingTry[2]) - SpellResistence( Enemy );
+            local CastTry = math.random(CastingTry[1],CastingTry[2]) - M.SpellResistence( Enemy );
             CastTry = ( CastTry - CastingTry[1] ) / ( CastingTry[2] - CastingTry[1] ) * 100;
-            local Damage = base.common.ScaleUnlimited( DamageRange[1], DamageRange[2], CastTry );
+            local Damage = common.ScaleUnlimited( DamageRange[1], DamageRange[2], CastTry );
             if Damage > 0 then
-                DealMagicDamage(Enemy, Damage);
+                M.DealMagicDamage(Enemy, Damage);
                 world:gfx(44, targetPos);
             else
                 world:gfx(12, targetPos);
@@ -292,7 +292,7 @@ function CastFireball(Monster, Enemy, DamageRange, CastingTry, rndTry)
         world:gfx(1, targetPos);
         return true;
     end );
-    base.common.TalkNLS( Monster, Character.say,
+    common.TalkNLS( Monster, Character.say,
         "#me murmelt eine mystische Formel.",
         "#me mumbles a mystical formula.");
 
@@ -302,7 +302,7 @@ end
 
 -- A flame field on the ground
 
-function CastFlamefield(Monster, Enemy, QualityRange, rndTry)
+function M.CastFlamefield(Monster, Enemy, QualityRange, rndTry)
     if rndTry == nil then
         rndTry = 30; -- Once every 30 seconds in average
     end
@@ -317,7 +317,7 @@ function CastFlamefield(Monster, Enemy, QualityRange, rndTry)
         return false; -- something blocks
     end
 
-    base.common.CreateLine(Monster.pos, Enemy.pos, function(targetPos)
+    common.CreateLine(Monster.pos, Enemy.pos, function(targetPos)
         if world:isCharacterOnField( targetPos ) then
             if world:isItemOnField( targetPos ) then
                 local foundItem = world:getItemOnField( targetPos );
@@ -333,7 +333,7 @@ function CastFlamefield(Monster, Enemy, QualityRange, rndTry)
         world:gfx(1, targetPos);
         return true;
     end );
-    base.common.TalkNLS( Monster, Character.say,
+    common.TalkNLS( Monster, Character.say,
         "#me murmelt eine mystische Formel.",
         "#me mumbles a mystical formula.");
 
@@ -341,24 +341,99 @@ function CastFlamefield(Monster, Enemy, QualityRange, rndTry)
     return true;
 end
 
+-- Fire breathing for dragons
+-- Note: depending on graphicItem it might lso spit poison or ice, or whatever
+
+function M.FireBreath(Monster, Enemy, graphicItem)
+    if (firstBreath==nil) then
+        NearBreathShape={};
+        NearBreathShape[1]={9,9,9,9,9};
+        NearBreathShape[2]={0,9,9,9,0};
+        NearBreathShape[3]={0,9,9,9,0};
+        NearBreathShape[4]={0,0,9,0,0};
+        NearBreathShape[5]={0,0,9,0,0};
+        firstBreath=true;
+    end
+
+    BreathTry=math.random(1,66);
+    if (BreathTry==1) and (Monster.pos.z==Enemy.pos.z) then
+        Monster.fightpoints=Monster.fightpoints-40;
+        if (Monster:distanceMetric(Enemy)<=4) then
+            Looking=Monster:getFaceTo()
+            if (Looking==0) then
+                BreathShape=NearBreathShape;
+            elseif (Looking==2) then
+                BreathShape=M.ShapeDrehen(NearBreathShape);
+            elseif (Looking==4) then
+                BreathShape=M.ShapeDrehen(M.ShapeDrehen(NearBreathShape));
+            elseif (Looking==6) then
+                BreathShape=M.ShapeDrehen(M.ShapeDrehen(M.ShapeDrehen(NearBreathShape)));
+            end
+            for i=1,5 do
+                for k=1,5 do
+                    if (Looking==0) then
+                        BreathPos=position(Monster.pos.x-3+k,Monster.pos.y-7+i,Monster.pos.z);
+                    elseif (Looking==2) then
+                        BreathPos=position(Monster.pos.x+k,Monster.pos.y-3+i,Monster.pos.z);
+                    elseif (Looking==4) then
+                        BreathPos=position(Monster.pos.x-3+k,Monster.pos.y+i,Monster.pos.z);
+                    elseif (Looking==6) then
+                        BreathPos=position(Monster.pos.x-7+k,Monster.pos.y-3+i,Monster.pos.z);
+                    end
+                    if (BreathShape[i][k]~=0) then
+                        world:gfx(BreathShape[i][k],BreathPos);
+                        if (math.random(1,5)==1) then
+                            world:createItemFromId(graphicItem,1,BreathPos,true,math.random(200,600),nil);
+                            world:makeSound(5,BreathPos);
+                        end
+                        if world:isCharacterOnField(BreathPos) then
+                            HitChar=world:getCharacterOnField(BreathPos);
+                            HitChar:increaseAttrib("hitpoints",-2000)
+                        end
+                    end
+                end
+            end
+        else
+            return false
+        end
+    end
+    growltry=math.random(1,8);
+    if (growltry==1) then
+        world:makeSound(26,Monster.pos);
+    end
+    return true
+end
+
+function M.ShapeDrehen(Shape)
+    retShape={};
+    for i=1,5 do
+        retShape[i]={Shape[5][i],Shape[4][i],Shape[3][i],Shape[2][i],Shape[1][i]};
+    end
+    return retShape
+end
+
+
 -- Helper function to handle the Brink of Death
 
-function DealMagicDamage(Target, Damage)
-    if base.character.IsPlayer(Target)
-        and base.character.WouldDie(Target, Damage + 1)
-        and not base.character.AtBrinkOfDeath(Target) then
+function M.DealMagicDamage(Target, Damage)
+    if character.IsPlayer(Target)
+        and character.WouldDie(Target, Damage + 1)
+        and not character.AtBrinkOfDeath(Target) then
         -- Character would die.
-        base.character.ToBrinkOfDeath(Target);
-        base.common.TalkNLS(Target, Character.say,
+        character.ToBrinkOfDeath(Target);
+        common.TalkNLS(Target, Character.say,
             "#me geht zu Boden.",
             "#me falls to the ground.");
 
         if not Target:isAdmin() then --Admins don't want to get paralysed!
-            base.common.ParalyseCharacter(Target, 2, false, true);
+            common.ParalyseCharacter(Target, 2, false, true);
             TimeFactor = 1; -- See lte.chr_reg
-            lte.chr_reg.stallRegeneration(Target, 60/TimeFactor); -- Stall regeneration for one minute. Attention! If you change TimeFactor in lte.chr_reg to another value but 1, you have to divide this "60" by that factor
+            chr_reg.stallRegeneration(Target, 60/TimeFactor); -- Stall regeneration for one minute. Attention! If you change TimeFactor in lte.chr_reg to another value but 1, you have to divide this "60" by that factor
         end
     else
         Target:increaseAttrib("hitpoints", -Damage);
     end
 end
+
+return M
+

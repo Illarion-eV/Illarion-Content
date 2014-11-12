@@ -17,17 +17,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- logs (2560,543,544,3) --> potash (314)
 
-require("base.common")
-require("content.gathering")
+local common = require("base.common")
+local gathering = require("content.gathering")
 
 module("content.gatheringcraft.potashproducing", package.seeall)
 
 function StartGathering(User, SourceItem, ltstate)
 
-	content.gathering.InitGathering();
-	local potashproducing = content.gathering.potashproducing;
+	gathering.InitGathering();
+	local potashproducing = gathering.potashproducing;
 
-	base.common.ResetInterruption( User, ltstate );
+	common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
 		if (User:increaseAttrib("sex",0) == 0) then
 			gText = "seine";
@@ -40,21 +40,21 @@ function StartGathering(User, SourceItem, ltstate)
 		return
 	end
 
-	if not base.common.CheckItem( User, SourceItem ) then -- security check
+	if not common.CheckItem( User, SourceItem ) then -- security check
 		return
 	end
 
-	if not base.common.FitForWork( User ) then -- check minimal food points
+	if not common.FitForWork( User ) then -- check minimal food points
 		return
 	end
 
-	base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+	common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 
 	-- any other checks?
 
 	if ((User:countItemAt("all",2560) == 0) and (User:countItemAt("all",543) == 0) and
 		(User:countItemAt("all",544) == 0) and (User:countItemAt("all",3) == 0)) then -- check for items to work on
-		base.common.HighInformNLS( User,
+		common.HighInformNLS( User,
 		"Du brauchst Holz um Pottasche zu produzieren.",
 		"You need wood for producing potash." );
 		return;
@@ -87,7 +87,7 @@ function StartGathering(User, SourceItem, ltstate)
 	local notCreated = User:createItem( 314, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 314, notCreated, User.pos, true, 333, nil );
-		base.common.HighInformNLS(User,
+		common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -96,7 +96,7 @@ function StartGathering(User, SourceItem, ltstate)
 			potashproducing.SavedWorkTime[User.id] = potashproducing:GenWorkTime(User,nil);
 			User:startAction( potashproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
-			base.common.HighInformNLS(User,
+			common.HighInformNLS(User,
 			"Du hast kein Holz mehr.",
 			"You have no wood anymore.");
 		end

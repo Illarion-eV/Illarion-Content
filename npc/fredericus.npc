@@ -65,8 +65,7 @@ itemShoes = 369
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 72, 126, 752, 753, 759, 763, 767, 133, 134, 135, 136, 137, 140, 141, 142, 143, 144, 145, 148, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 73, 355, 455
-buyPrimaryItems = 72, 73, 355, 455
+sellItems = 126, 752, 753, 759, 763, 767, 133, 134, 135, 136, 137, 140, 141, 142, 143, 144, 145, 148, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163
 buySecondaryItems = 126, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 133, 134, 135, 136, 137, 138, 140, 141, 142, 143, 144, 145, 146, 148, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
@@ -85,40 +84,38 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- This NPC is supposed to trade (all goods are sold and bought, percentage indicates ratio of price bough/sold):
 
--- 10% Tools (Fisher): 72
 -- 5% Tools (Herb gatherer): 126
 -- 5% Herbs II: 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769
 -- 5% Herbs: 133, 134, 135, 136, 137, 138, 140, 141, 142, 143, 144, 145, 146, 148, 152, 153, 154, 155, 156, 157
 -- 5% Mushrooms: 158, 159, 160, 161, 162, 163
--- 10% Fish: 73, 355, 455
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the fisherman Fredericus. Keyphrases: Hello, fisherman, Tanora, trade.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Fischer Fredericus. Schlüsselwörter: Hallo, Fischer, Tanora, Handel.")
+"Help" -> inform("[Game Help] This NPC is the fisherman Fredericus. Keyphrases: Hello, Tanora, trade.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Fischer Fredericus. Schlüsselwörter: Hallo, Tanora, Handel.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Ahoy! Fresh fish!", "G'day. I just came ashore.", "Only the best fish, only today, only for you!"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ahoi! Frischer Fisch!", "Tag. Bin gerade von großer Fahrt zurück.", "Nur der beste Fisch, nur heute, nur für euch!"
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ahoy! Fresh fish!", "G'day. I just came ashore.", "Only the best fish, only today, only for you!"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Ahoi! Frischer Fisch!", "Tag. Bin gerade von großer Fahrt zurück.", "Nur der beste Fisch, nur heute, nur für euch!"
-"Farewell", "Bye", "Fare well", "See you" -> "Good trip.", "Until next time, remember, a fish a day keeps the medico away.", "Farewell."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gute Fahrt.", "Bis zum nächesten Mal, denkt daran, ein Fisch am Tag hält den Medizinmann fern.", "Auf wiedersehen."
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Good trip.", "Until next time, remember, a fish a day keeps the medico away.", "Farewell."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Gute Fahrt.", "Bis zum nächesten Mal, denkt daran, ein Fisch am Tag hält den Medizinmann fern.", "Auf wiedersehen."
-"How are you", "How feel", "How do you do" -> "I feel good, not a wonder, I had fish today.", "I'd feel much better if you buy some fish.", "Fine, thank you."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es gut, ist auch kein Wunder, ich habe heute Fisch gegessen.", "Mir würde es weit besser gehen, wenn ihr Fisch kaufen würdet.", "Gut, danke der Nachfrage."
-"your name", "who are you", "who art thou" -> "Fredericus. That's me.", "I am the fisherman Fredericus.", "Fredericus is my name, I trade fish."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Fredericus. Das bin ich.", "Ich bin der Fischer Fredericus.", "Fredericus ist mein Name, ich handel mit Fischen."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "G'day. I just came ashore."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Tag. Bin gerade von großer Fahrt zurück."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "G'day. I just came ashore."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Tag. Bin gerade von großer Fahrt zurück."
+"Farewell", "Bye", "Fare well", "See you" -> "Good trip.", "Farewell."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gute Fahrt.", "Auf wiedersehen."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Good trip.", "Farewell."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Gute Fahrt.", "Auf wiedersehen."
+"How are you", "How feel", "How do you do" -> "Fine, thank you."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Gut, danke der Nachfrage."
+"your name", "who are you", "who art thou" -> "Fredericus. That's me."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Fredericus. Das bin ich."
 
 -- Optional: Trade Hooks, use only for traders
-"sell", "buy", "wares", "price", "trade", "purchase" -> "Fish, fish, fish. I trade fish... And also herbs, if you need any to spice up your dishes.", "I trade fish, do you need any?", "I trade what you need to catch fish and I even buy the fish you caught.", "Ya want to trade? Aye, have a look!", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Fisch, Fisch und nochmal Fisch. Ich handele mit Fischen und auch Kräutern, wenn ihr eure Gerichte würzen wollt.", "Ich handel Fische, braucht ihr welche?", "Ich verkaufe alles, was man zum Fischen braucht und kaufe sogar euren Fang.", "Du willst handeln? Da schau her was ich hab!", trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Ya want to trade? Aye, have a look!", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Du willst handeln? Da schau her was ich hab!", trade
 
 -- Catching quest triggers
-english, "quest", "mission" -> "I do not issue any quests. But you can bring me fish and I'll pay you for your work."
-"quest", "mission" -> "Ich verteile keine Aufgaben. Aber ihr könnt mir Fisch bringen und ich bezahle eure Arbeit."
-"task", "adventure", "order" -> "I do not issue any quests. But you can bring me fish and I'll pay you for your work."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich verteile keine Aufgaben. Aber ihr könnt mir Fisch bringen und ich bezahle eure Arbeit."
+english, "quest", "mission" -> "I do not issue any quests."
+"quest", "mission" -> "Ich verteile keine Aufgaben."
+"task", "adventure", "order" -> "I do not issue any quests."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich verteile keine Aufgaben."
 
 -- Easter Egg
 "fischers fritze" -> "Fischt frische Fische!"
@@ -134,14 +131,8 @@ english, "Gobaith", "Gobiath" -> "I once sailed to Gobaith, the natives tossed o
 "mein Name" -> "Oh, interessant, wollt ihr auch ein Fischer wie ich werden?", "Ein netter Name."
 
 -- More small talk; add at least five triggers
-english, "Zerarisa" -> "I think Zerarisa is one of the lizards, living at Cape Farewell."
-"Zerarisa" -> "Ich meine, Zerarisa ist eine der Echsen, die am Kap des Abschiedes wohnen."
 "Cape", "Farewell" -> "Cape Farewell is to the south and west, land's end one could say."
 "Kap", "Abschied" -> "Das Kap des Abschiedes ist im Südwesten, am Ende der Welt könnte man sagen."
-"boat", "ship", "vessle" -> "No, I will not lend you my boat. Take a fishing rod and go to the shore."
-"Boot", "Schiff" -> "Ich kann euch mein Boot nicht leihen. Nehmt eine Angelrute und geht zur Küste."
-"Fischer" -> "Ich bin ein Fischer. Das ist ein hartes Geschäft, aber es ist ehrlich und ehrbar."
-"fisherman" -> "I'm a fisherman. A hard job, but an honest and honourable job."
 "trader", "merchant", "collegue", "vendor", "market" -> "Here, at the marketplace, there are many traders. You can buy many goods here in Cadomyr."
 "händler", "kollege", "höker", "markt" -> "Hier auf dem Marktplatz gibt es einige Händler. Man kann viele Waren hier in Cadomyr kaufen."
 
@@ -188,12 +179,12 @@ english, "Irmorom" -> "Irmorom helps me to do good business, but my fate is in t
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 english, "Fredericus" -> "I am merely a humble fisherman. But I could tell you about the Gods, shall I?"
 "Fredericus" -> "Ich bin nur ein einfacher Fischer, aber ich könnte euch etwas über die Götter erzählen, wenn ihr Zeit habt."
-"Yes" -> "Aye, aye, and a flounder in addition.", "Well, maybe a herring?", "That's good."
-"Ja" -> "Aye, aye, und eine Flunder dazu.", "Vielleicht einen Hering?", "Das ist gut auch so."
-"No" -> "Do you prefer salmon perhaps?", "Will bloaters make you content?", "Mackerels?"
-"Nein" -> "Mögt ihr lieber Lachs?", "Würde euch ein Bückling zufriedenstellen?", "Makrelen?"
-"stinkt" -> "Das stimmt nicht.", "Mein Fisch ist lecker!"
-"stinks" -> "It does not!", "My fish is tasty!"
+"Yes" -> "That's good."
+"Ja" -> "Das ist gut auch so."
+"No" -> "Will bloaters make you content?"
+"Nein" -> "Würde euch ein Bückling zufriedenstellen?"
+"stinkt" -> "Das stimmt nicht."
+"stinks" -> "It does not!"
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
@@ -202,13 +193,9 @@ english, "Fredericus" -> "I am merely a humble fisherman. But I could tell you a
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Mein Fisch stinkt nicht!", "My fish does not stink!"
-cycletext "Frischer Fisch!", "Fresh fish!"
-cycletext "Fisch, Kräuter, alles, was ihr braucht für das Festmahl!", "Fish, herbs, all you need for dinner!"
-cycletext "#me riecht an den Fischen in seiner Auslage und verzieht das Gesicht.", "#me sniffs at the fish on his cart and wrinkles his nose."
-cycletext "Fangfrischer Lachs!", "Fresh salmon!"
-cycletext "Komm, kauf jetzt und pack dir noch einen Aal drauf!", "C'mon, buy now and you get an eel for free!"
-cycletext "Kauft noch einen Bückling, der schmeckt zwar nicht, hält aber die Ratten fern.", "Buy this bloater, it is not tasty, but it keeps the rats at bay."
-cycletext "Beste Forellen!", "Best trout!"
-cycletext "Leckere Heringe!", "Tasty herrings!"
-cycletext "Ein Pfund Makrelen, nur jetzt, nur für euch!", "A pound of mackerels, only now, only for you!"
+cycletext "#me reinigt sich seine Nägel mit einem Dolch.", "#me cleans his finger nails with a dagger."
+cycletext "#me schaut sich gereizt um.", "#me looks about crankily."
+cycletext "#me verstaut eine Flasche in seinem Beutel.", "#me stores a bottle in their bag."
+cycletext "#me schreibt einen Brief.", "#me writes a letter."
+cycletext "#me schaut zu den Wolken.", "#me gazes at the clouds."
+cycletext "#me summt etwas vor sich hin.", "#me hums to himself."

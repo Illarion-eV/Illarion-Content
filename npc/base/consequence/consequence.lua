@@ -14,21 +14,23 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
+local class = require("base.class")
 
-module("npc.base.consequence.consequence", package.seeall)
+local _consequence_helper_empty
 
 --- Basic class for all consequences. Its never needed to create a instance of
 --  this class. Its just a collection of methods the specific consequences
 --  share.
-consequence = base.class.class(function(self)
-    self["perform"] = _consequence_helper_empty;
-end);
+local consequence = class(function(self)
+    self["perform"] = _consequence_helper_empty
+end)
 
 function consequence:setNPC(npc)
-    self["npc"] = npc;
-end;
+    self["npc"] = npc
+end
 
 function _consequence_helper_empty(self, npcChar, player)
     -- by default nothing is done
-end;
+end
+
+return consequence

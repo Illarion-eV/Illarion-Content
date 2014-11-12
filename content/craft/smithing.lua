@@ -14,11 +14,11 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("item.base.crafts")
+local crafts = require("item.base.crafts")
 
 module("content.craft.smithing", package.seeall)
 
-smithing = item.base.crafts.Craft:new{
+smithing = crafts.Craft:new{
                       craftEN = "blacksmithing",
                       craftDE = "Schmieden",
                       handTool = 23,
@@ -677,7 +677,7 @@ product:addIngredient(2571, 2); -- Merinium Ingot
 product:addIngredient(451); -- Topaz Powder
 product:addIngredient(285); -- Diamond
 product:addIngredient(46); -- Ruby
-product:addIngredient(2551); -- Pure Air
+product:addIngredient(3607); -- Pure Spirit
 product:addIngredient(104); -- Silver Ingot
 
 -- large fire-waraxe

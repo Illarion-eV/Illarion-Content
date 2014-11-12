@@ -14,38 +14,43 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
-require("base.money")
-require("npc.base.condition.condition")
+local class = require("base.class")
+local base_money = require("base.money")
+local tools = require("npc.base.tools")
+local condition = require("npc.base.condition.condition")
 
-module("npc.base.condition.money", package.seeall)
+local _money_helper_greaterequal
+local _money_helper_greater
+local _money_helper_lesser
 
-money = base.class.class(npc.base.condition.condition.condition,
+local money = class(condition,
 function(self, comp, value)
-    npc.base.condition.condition.condition:init(self);
-    self["value"], self["valuetype"] = npc.base.talk._set_value(value);
+    condition:init(self)
+    self["value"], self["valuetype"] = tools.set_value(value)
     if (comp == ">=" or comp == "=>") then
-        self["check"] = _money_helper_greaterequal;
+        self["check"] = _money_helper_greaterequal
     elseif (comp == ">") then
-        self["check"] = _money_helper_greater;
+        self["check"] = _money_helper_greater
     elseif (comp == "<") then
-        self["check"] = _money_helper_lesser;
+        self["check"] = _money_helper_lesser
     else
         -- unkonwn comparator
-    end;
-end);
+    end
+end)
 
 function _money_helper_greaterequal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return base.money.CharHasMoney(player, value);
-end;
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
+    return base_money.CharHasMoney(player, value)
+end
 
 function _money_helper_greater(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return base.money.CharHasMoney(player, value + 1);
-end;
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
+    return base_money.CharHasMoney(player, value + 1)
+end
 
 function _money_helper_lesser(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return not base.money.CharHasMoney(player, value);
-end;
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
+    return not base_money.CharHasMoney(player, value)
+end
+
+return money

@@ -18,14 +18,14 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --Dyluck
 --[[ Not used yet. Commented out for now. -Dyluck Dec 13, 2012
 
-module("item.id_37_window", package.seeall)
+local M = {}
 
 
 --Window_ID37
 --A window that the player can use to enter/exit the temple
 --Part of Ronagan's Temple questid(n/a) and related NPCs/scripts...
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
 	local win = position(504, 215, 0); --location of the window; to be changed
 	local inside = position(505, 215, 0); --location that entering window warps to; to be changed
@@ -61,3 +61,5 @@ function UseItem(User, SourceItem, ltstate)
 end
 
 ]]
+return M
+

@@ -16,16 +16,19 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_44_squeezer' WHERE itm_id IN (44);
 
-require("base.common")
-require("base.licence")
-require("content.gatheringcraft.oilsqueezing")
+local common = require("base.common")
+local licence = require("base.licence")
+local oilsqueezing = require("content.gatheringcraft.oilsqueezing")
 
-module("item.id_44_squeezer", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence
+function M.UseItem(User, SourceItem, ltstate)
+	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
-	content.gatheringcraft.oilsqueezing.StartGathering(User, SourceItem, ltstate);
+	oilsqueezing.StartGathering(User, SourceItem, ltstate);
 end
+
+return M
+

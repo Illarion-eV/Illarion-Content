@@ -14,10 +14,10 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
-require("base.lookat")
+local common = require("base.common")
+local lookat = require("base.lookat")
 
-module("item.drinks", package.seeall)
+local M = {}
 
 -- UPDATE items SET itm_script='item.drinks' WHERE itm_id IN (2189, 2188, 2187, 2186, 2059, 2058, 2057, 2056, 1910, 1909, 1907, 1906, 1861, 2502, 1841, 1842, 1843, 1844, 1853, 1854, 1855, 1856, 1857, 1859, 1860, 517, 1315, 1316, 1318,1319);
 
@@ -68,10 +68,10 @@ function InitDrinks()
     end
 end
 
-function UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem)
     InitDrinks();
     if User.attackmode then
-        base.common.InformNLS( User, "Du würdest alles verschütten.", "You'd spill everything.");
+        common.InformNLS( User, "Du würdest alles verschütten.", "You'd spill everything.");
         return -- Abbrechen wenn Spieler im Kampf ist
     end
     local food = drinkList[ SourceItem.id ];
@@ -84,21 +84,21 @@ function UseItem(User, SourceItem)
     world:makeSound(12,User.pos); -- Trinkgeräuusch machen
 
 	if ( math.random( 50 ) <= 1 ) then -- 1/50 das die Flasche zerbricht
-        base.common.InformNLS( User, "Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.");
+        common.InformNLS( User, "Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.");
     else
 		local dataCopy = {descriptionDe=SourceItem:getData("descriptionDe"), descriptionEn=SourceItem:getData("descriptionEn")};
 		local notCreated = User:createItem( food[2], 1, 333, dataCopy); -- create the remnant item
 		if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 			world:createItemFromId(food[2], notCreated, User.pos, true, 333, dataCopy);
-			base.common.HighInformNLS(User, "Du kannst nichts mehr halten.", "You can't carry any more.");
+			common.HighInformNLS(User, "Du kannst nichts mehr halten.", "You can't carry any more.");
 		end
 	end
 	world:erase(SourceItem, 1);
 
     if ( foodLevel > 40000 ) then
-        base.common.InformNLS( User, "Du hast genug getrunken.", "You have had enough to drink.");
+        common.InformNLS( User, "Du hast genug getrunken.", "You have had enough to drink.");
     elseif ( foodLevel > 40000 ) then
-        base.common.InformNLS( User, "Du schaffst es nicht noch mehr zu trinken.", "You cannot drink anything else.");
+        common.InformNLS( User, "Du schaffst es nicht noch mehr zu trinken.", "You cannot drink anything else.");
         foodLevel = foodLevel - food[1];
     end
 
@@ -108,7 +108,7 @@ function UseItem(User, SourceItem)
 end
 
 
-function LookAtItem(User, Item)
+function M.LookAtItem(User, Item)
     InitDrinks();
     local food = drinkList[ Item.id ];
 
@@ -116,5 +116,8 @@ function LookAtItem(User, Item)
         User:inform("unknown drink item ID"..Item.id);
     end
 
-    return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
+    return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
+
+return M
+

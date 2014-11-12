@@ -14,18 +14,26 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
+local common = require("base.common")
 
 -- UPDATE items SET itm_script='item.skull' WHERE itm_id = 2038;
 -- UPDATE items SET itm_script='item.skull' WHERE itm_id = 2039;
 
-module("item.skull", package.seeall)
+local M = {}
 
 
-function UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem)
+advantureslist={}
+
     -- Evilrock skulls
     local skullSourceItemPos = {position(989, 247, 0), position(990, 241, 0), position(997, 226, 0)}
     local typoOfFlame={359, 360, 372}
+
+    local adventurers = world:getPlayersInRangeOf(User.pos, 25) 
+    advantureslist[User.name] = adventurers				
+    for i,player in ipairs(advantureslist[User.name]) do
+        player:setQuestProgress(683,0)
+    end
 
     for i = 1, #skullSourceItemPos do
         if (SourceItem.pos == skullSourceItemPos[i]) then
@@ -62,7 +70,7 @@ function UseItem(User, SourceItem)
         local notCreated = User:createItem(46, 25, 333, nil) -- 25 rubies
         if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
             world:createItemFromId(46, notCreated, User.pos, true, 333, nil)
-            base.common.HighInformNLS(User,
+            common.HighInformNLS(User,
                 "Du kannst nichts mehr halten.",
                 "You can't carry any more.")
         end
@@ -96,7 +104,7 @@ function UseItem(User, SourceItem)
     elseif questStep == 8 and SourceItem.pos == position(845, 464, -6) then
         User:inform("Eine Spinne huscht aus dem Schädel heraus und greift dich an, nachdem sie einen großen, rot glänzenden Stein in dem Totenschädel versteckt.",
                     "A spider scurries out of the skull and attacks you after pushing a bright stone that flashes red back into the skull for safekeeping.")
-        local monPos = base.common.getFreePos(SourceItem.pos, 3 ); -- radius 3 around skull
+        local monPos = common.getFreePos(SourceItem.pos, 3 ); -- radius 3 around skull
         world:createMonster(223, monPos, -40) -- Giant Enforcer Spider
         world:gfx(41, monPos) -- swirly
         User:setQuestProgress(521, 9)
@@ -107,7 +115,7 @@ function UseItem(User, SourceItem)
         local notCreated = User:createItem(46, 1, 333, {["gemLevel"] = 1}) -- 1 latent ruby
         if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
             world:createItemFromId(46, notCreated, User.pos, true, 333, {["gemLevel"] = 1})
-            base.common.HighInformNLS(User,
+            common.HighInformNLS(User,
                 "Du kannst nichts mehr halten.",
                 "You can't carry any more.")
         end
@@ -162,6 +170,7 @@ function UseItem(User, SourceItem)
     elseif SourceItem.pos == position(478, 834, -9) then
         User:inform("Du hast schlecht gewählt und ein fauliger Gestank wogt dir aus dem Schädel entgegen.",
                     "You have chosen poorly and a putrid stench billows out of the skull towards you.")
+        world:gfx(8, SourceItem.pos) -- poison ball gfx
         local cloud = world:createItemFromId(372, 1, User.pos, true, 700, nil) -- poison cloud
         cloud.wear = 1
         world:changeItem(cloud)
@@ -192,7 +201,7 @@ function UseItem(User, SourceItem)
     elseif SourceItem.pos == position(482, 838, -9) then
         User:inform("Du hast schlecht gewählt und der Totenschädel explodiert. Splitter fliegen durch den Raum und verwunden alle Anwesenden.",
                     "You have chosen poorly and the skull suddenly explodes, sending sharp projectiles everywhere in the room, causing great harm to everyone.")
-        world:gfx(44, position(482, 838, -9));
+        world:gfx(44, position(482, 838, -9)); -- fireflame gfx
         world:erase(world:getItemOnField(position(482, 838, -9)), 1) --remove skull, scheduled/mapitemreset will clean up
         for xx = 474, 482 do --hit everyone in room
             for yy = 834, 844 do
@@ -210,6 +219,7 @@ function UseItem(User, SourceItem)
     elseif SourceItem.pos == position(482, 839, -9) then
         User:inform("Du hast schlecht gewählt und grelles Licht strahlt plötzlich aus jeder Öffnung des Totenschädels. Du bist zeitweise geblendet.",
                     "You have chosen poorly and a bright light suddenly flashes from every hole in the skull, blinding you temporarily.")
+        world:gfx(31, SourceItem.pos) -- bright star gfx
         local foundEffect, myEffect = User.effects:find(100); -- perception debuff
         if foundEffect then
             myEffect.nextCalled = 5 * 600;
@@ -221,6 +231,7 @@ function UseItem(User, SourceItem)
     elseif SourceItem.pos == position(482, 841, -9) then
         User:inform("Du hast schlecht gewählt und wirst plötzlich in eine dunkle Wolke gehüllt. Als sich diese endlich auflöst, fühlst du dich geschwächt. Hoffentlich legt sich das bald.",
                     "You have chosen poorly and are suddenly enshrouded in a dark cloud. When it finally dissipates, you can feel a loss in stamina and hope to recover quickly.")
+        world:gfx(32, SourceItem.pos) -- red stuff falls gfx
         local foundEffect, myEffect = User.effects:find(101); -- constitution debuff
         if foundEffect then
             myEffect.nextCalled = 8 * 600;
@@ -266,7 +277,7 @@ function SpawnSpider(User, skullItem)
     local monList = {191, 192, 193, 211, 222, 262} -- Rekrap Retep, Pitservant, Tarantula, Firespider, Juvenile Gynk Spider, Soulpain
     local monID = monList[math.random(1, #monList)]
     for i = 1, math.random(1, 2) do -- random count
-        local monPos = base.common.getFreePos(skullItem.pos, 2) -- radius 2 around skull
+        local monPos = common.getFreePos(skullItem.pos, 2) -- radius 2 around skull
         world:createMonster(monID, monPos, -20)
         world:gfx(41, monPos) -- swirly
     end
@@ -274,3 +285,6 @@ function SpawnSpider(User, skullItem)
                 "Wrong choice traveler! Something hops out of the skull and attacks you.")
 
 end
+
+return M
+

@@ -16,15 +16,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_102_tailoringtable' WHERE itm_id IN (102,103);
 
-require("content.craft.tailoring")
-require("base.licence")
+local tailoring = require("content.craft.tailoring")
 
-module("item.id_102_tailoringtable", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence
-		return -- avoids crafting if user is neither citizen nor has a licence
-	end
-
-    content.craft.tailoring.tailoring:showDialog(User, SourceItem)
+function M.UseItem(User, SourceItem, ltstate)
+    tailoring.tailoring:showDialog(User, SourceItem)
 end
+
+return M
+

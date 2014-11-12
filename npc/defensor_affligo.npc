@@ -61,14 +61,14 @@ itemShoes = 770
 -- 2: Quest 9 solved
 
 -- Help
-"Help" -> inform("[Game Help] (This npc is a Defensor, ask for a test. Keywords: quest, Akaltut, drow, Defensor, name")
-"Hilfe" -> inform("[Spielhilfe] (Dieser NPC ist ein Wächter, frage Ihn nach dem Test. Stichworte: Aufgabe, Akaltut, Drow, Defensor, Name")
+"Help" -> inform("[Game Help] This NPC is a Defensor, ask for a test. Keywords: quest, Akaltut, drow, Defensor, name.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist ein Wächter, frage Ihn nach dem Test. Stichworte: Aufgabe, Akaltut, Drow, Defensor, Name.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Welcome to the Akaltut's Chamber stronghold. It's a good day to test your skills."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen im innersten der Kammer von Akaltut.  Ein guter Tag um deine Fähigkeiten zu testen."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen im Innersten der Kammer von Akaltut. Ein guter Tag um deine Fähigkeiten zu testen."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Welcome to the Akaltut's Chamber stronghold. It's a good day to test your skills."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt.", "Willkommen im innersten der Kammer von Akaltut.  Ein guter Tag um deine Fähigkeiten zu testen."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt.", "Willkommen im Innersten der Kammer von Akaltut. Ein guter Tag um deine Fähigkeiten zu testen."
 "Farewell", "Bye", "Fare well", "See you" -> "Come back, if you dare."
 "Tschüß", "Tschüss", "Wiedersehen" -> "Komm wieder wenn Du dich traust."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Come back, if you dare."

@@ -59,8 +59,8 @@ itemShoes = 326
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 51, 126, 258, 271, 69, 2547, 2586, 154, 200, 201, 290, 249, 772, 778, 2493, 15, 80, 81, 147, 151, 199, 302, 388, 2502, 259, 291, 534, 728, 773, 779, 2494, 2917, 307, 552, 553, 2934, 1151, 1150, 3567, 3566
-buySecondaryItems = 51, 126, 258, 271, 69, 2547, 2586, 154, 200, 201, 290, 249, 772, 778, 2493, 15, 80, 81, 147, 151, 199, 302, 388, 330, 259, 291, 534, 728, 773, 779, 2494, 2917, 307, 552, 553, 2934, 1151, 1150, 3567, 3566
+sellItems = 51, 126, 258, 271, 69, 2547, 2586, 154, 200, 201, 290, 249, 772, 778, 2493, 15, 80, 81, 147, 151, 199, 302, 388, 2502, 259, 291, 534, 728, 773, 779, 2494, 2917, 307, 552, 553, 2934, 1151, 1150, 3567, 3566, 1207, 73, 355, 455, 1210, 1209, 72
+buySecondaryItems = 51, 126, 258, 271, 69, 2547, 2586, 154, 200, 201, 290, 249, 772, 778, 2493, 15, 80, 81, 147, 151, 199, 302, 388, 330, 259, 291, 534, 728, 773, 779, 2494, 2917, 307, 552, 553, 2934, 1151, 1150, 3567, 3566, 1207, 73, 355, 455, 1210, 1209, 72
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
 tradeFinishedWithoutTradingMsg "Auf bald!", "Farewell!"
@@ -71,11 +71,13 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- Tools (Farmer): 51, 126, 258, 271
 -- Animal skins: 69, 2547, 2586
 -- Crops: 154, 200, 201, 290, 249, 772, 778, 2493, 3567
--- Fruits: 15, 80, 81, 147, 151, 199, 302, 388
+-- Fruits: 15, 80, 81, 147, 151, 199, 302, 388, 1207
 -- Milk: 330
 -- Seeds: 259, 291, 534, 728, 773, 779, 2494, 2917, 3566
 -- Raw meat: 307, 552, 553, 2934, 1151
 -- 10% Eggs 1149
+-- 5% Fish: 73, 355, 455, 1210, 1209
+-- 5% Tools (Fisher): 72
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
 

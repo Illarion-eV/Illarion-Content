@@ -14,11 +14,11 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("item.base.crafts")
+local crafts = require("item.base.crafts")
 
 module("content.craft.baking", package.seeall)
 
-baking = item.base.crafts.Craft:new{
+baking = crafts.Craft:new{
                      craftEN = "baking",
                      craftDE = "Backen",
                      handTool = 121,
@@ -46,6 +46,19 @@ product:addIngredient(52)
 product:addRemnant(51) -- Step 3: Bucket with water (52) 1x
 -------------- COOKIES - DONE ----------------
 
+---------------- Sausage on Bread - 3631 ----------------------
+product = baking:addProduct(catId, 3631, 10, 30, 14, 28)
+product:addIngredient(3051) -- Step 1: Sausage (3051) 1x
+product:addIngredient(2) -- Step 2: Flour(2) 1x
+-------------- Sausage on Bread - DONE ----------------
+
+---------------- BAKED POTATO - 3568 ----------------------
+product = baking:addProduct(catId, 3568, 10, 30, 14, 28)
+product:addIngredient(3567) -- Step 1: add potato
+product:addIngredient(3573) -- Step 2: Cheese (3573) 1x
+product:addIngredient(201) -- Step 3: Onion (201) 1x
+-------------- BAKED POTATO - DONE ----------------
+
 ---------------- BREAD - 49 ----------------------
 product = baking:addProduct(catId, 49, 25, 45, 22, 44)
 product:addIngredient(2, 2) -- Step 1: Flour (2) 1x
@@ -59,11 +72,6 @@ product:addIngredient(2, 2) -- Step 1: Flour (2) 1x
 product:addIngredient(785) -- Step 2: banana juice
 product:addRemnant(790) -- Remnant: Empty JuiceBottle (2498) 1x
 -------------- BANANABREAD - DONE ----------------
-
----------------- BAKED POTATO - 3568 ----------------------
-product = baking:addProduct(catId, 3568, 10, 30, 5, 8, 1)
-product:addIngredient(3567) -- add potato
--------------- BAKED POTATO - DONE ----------------
 
 ---------------- MUFFIN - 454 ----------------------
 product = baking:addProduct(catId, 454, 45, 65, 64, 128, 2)
@@ -123,7 +131,7 @@ product:addRemnant(2498) -- Remnant: Empty Bottle (2498) 1x
 
 ---------------- ELDERBERRY PIE - 3610 ----------------------
 product = baking:addProduct(catId, 3610, 99, 100, 200, 400)
-product:addIngredient(2, 3) -- Step 1: Flour (2) 3x
+product:addIngredient(2, 2) -- Step 1: Flour (2) 2x
 product:addIngredient(778, 2) -- Step 2: Sugar Cane (778) 2x
 product:addIngredient(1150, 2) -- Step 3: White Egg (1150) 2x
 product:addIngredient(143, 15) -- Step 4: Red Elderbrries (143) 15x

@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- This script is the central item lookat.
 
-require("base.lookat")
+local lookat = require("base.lookat")
 
-module("server.itemlookat", package.seeall)
+local M = {}
 
 --- Item Lookat
 -- The task of this function is to generate the lookat on a item.
@@ -26,6 +26,8 @@ module("server.itemlookat", package.seeall)
 --
 -- @param[in] player 	the player that is supposed to receive the inform
 -- @param[in] item      the item the player is looking at
-function lookAtItem(player, item)
-	return base.lookat.GenerateLookAt(player, item)
+function M.lookAtItem(player, item)
+	return lookat.GenerateLookAt(player, item)
 end
+
+return M

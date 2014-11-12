@@ -14,12 +14,12 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("item.base.crafts")
-require("content.craft.brewing")
+local crafts = require("item.base.crafts")
+local brewing = require("content.craft.brewing")
 
 module("content.craft.cooking", package.seeall)
 
-cooking = item.base.crafts.Craft:new{
+cooking = crafts.Craft:new{
                      craftEN = "cooking",
                      craftDE = "Kochen",
                      handTool = 227,
@@ -27,26 +27,24 @@ cooking = item.base.crafts.Craft:new{
                      defaultFoodConsumption = 100,
                      sfx = 15,
                      sfxDuration = 40,
-                     fallbackCraft = content.craft.brewing.brewing,
+                     fallbackCraft = brewing.brewing,
                    };
 
 
-cooking:addTool(2488) -- kettle
+cooking:addTool(3581) -- kettle w/fire
 
 --------------------------------------------------------------------------------------------
 local catId = cooking:addCategory("Soups", "Suppen") -- Suppenschüssel ( Suppen )
 
 ---------------- FISH SOUP - 3572 ----------------------
-product = cooking:addProduct(catId, 3572, 75, 95, 8, 160)
+product = cooking:addProduct(catId, 3572, 75, 95, 80, 160)
 product:addIngredient(2935) -- Step 1: Soup Bowl (2935) 1x
-product:addIngredient(52) -- Step 2: Bucket with water (52) 1x
-product:addRemnant(51) -- Remnant: Empty bucket (51) 1x
+product:addIngredient(2502) -- Step 2: Milk (2502) 1x
+product:addRemnant(2498) -- Remnant: Empty Bottle (2498) 1x
 product:addIngredient(1209) -- Step 3: Horse Mackerel (1209) 1x
 product:addIngredient(355) -- Step 4: Salmon (355) 1x
 product:addIngredient(3567) -- Step 5: Potato(3568) 1x
 product:addIngredient(290) -- Step 6: Cabbage (290) 1x
-product:addIngredient(2502) -- Step 6: Milk (2502) 1x
-product:addRemnant(2498) -- Remnant: Empty Bottle (2498) 1x
 ---------------------FISH SOUP DONE--------------------
 
 ---------------- EGG SALAD - 3570 ----------------------
@@ -208,7 +206,7 @@ product:addIngredient(200) -- Step 4: Tomatoe(200) 1x
 -------------- FISH FILET - DONE ----------------
 
 ---------------- CHEESE - 3573 ----------------------
-product = cooking:addProduct(catId, 3573, 10, 30, 12, 24)
+product = cooking:addProduct(catId, 3573, 4, 24, 12, 24)
 product:addIngredient(2502, 2) -- Step 1: Milk (2502) 2x
 product:addRemnant(2498, 2) -- Remnant: Empty Bottle (2498) 2x
 -------------- CHEESE - DONE ----------------

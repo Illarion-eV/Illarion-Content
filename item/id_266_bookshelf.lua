@@ -16,10 +16,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_266_bookshelf' WHERE itm_id IN (266, 267);
 
-require("base.common")
-require("base.lookat")
+local common = require("base.common")
+local lookat = require("base.lookat")
 
-module("item.id_266_bookshelf", package.seeall)
+local M = {}
 
 CODOMYR_ON_C = 1
 CODOMYR_ON_G = 2
@@ -84,6 +84,7 @@ SLIMES = 332
 FRIEND_NEED = 333
 ABOMINATION_RUNS_HIDES = 334
 AKALTUT_ENTRY = 335
+TRAVELS_DIARY = 336
 C_ORDER_1 = 501
 C_SPEECH_321105 = 502
 PARCH_LONGO = 503
@@ -183,6 +184,7 @@ addBook(SLIMES, "Schleim: Ein kurzer Abriss", "Slimes: A brief history", 115)
 addBook(FRIEND_NEED, "Ein Freund in Not", "A Friend in Need", 3110)
 addBook(ABOMINATION_RUNS_HIDES, "Eine Scheußlichkeit rennt und versteckt sich", "An Abomination Runs and Hides", 3110)
 addBook(AKALTUT_ENTRY, "Akultuts erstes Rätzel", "Akaltut Entry Riddle", 3110)
+addBook(TRAVELS_DIARY, "Ein Reisetagebuch", "A Traveler's Journal", 2598)
 addBook(C_ORDER_1, "Befehl 04. Findos 38 n.VdH", "Order 04. Findos 38 AW", 3114)
 addBook(C_SPEECH_321105, "Rede 05. Findos 38 n.VdH", "Speech 04. Findos 38 AW", 3114)
 addBook(PARCH_LONGO, "Eine Nachricht", "A note", 3115)
@@ -293,8 +295,8 @@ addBookshelf(position(472, 839, -9),{REIGN_AKALTUT})
 
 
 
-function LookAtItem(user, item)
-    local lookAt = base.lookat.GenerateLookAt(user, item)
+function M.LookAtItem(user, item)
+    local lookAt = lookat.GenerateLookAt(user, item)
 
     if item:getType() == scriptItem.field then
         local pos = item.pos
@@ -304,26 +306,26 @@ function LookAtItem(user, item)
             local bookCount = #bookshelf
 
             if bookCount == 0 then
-                lookAt.description = base.common.GetNLS(user, "Dieses Regal ist leer.", "This bookshelf is empty.")
+                lookAt.description = common.GetNLS(user, "Dieses Regal ist leer.", "This bookshelf is empty.")
             elseif bookCount == 1 then
-                lookAt.description = base.common.GetNLS(user, "Hier steht ein einzelnes Buch:", "There is one single book:")
-                lookAt.description = lookAt.description .. "\n" .. base.common.GetNLS(user, books[bookshelf[1]].german, books[bookshelf[1]].english)
+                lookAt.description = common.GetNLS(user, "Hier steht ein einzelnes Buch:", "There is one single book:")
+                lookAt.description = lookAt.description .. "\n" .. common.GetNLS(user, books[bookshelf[1]].german, books[bookshelf[1]].english)
             else
-                lookAt.description = base.common.GetNLS(user, "Hier stehen " .. bookCount .. " Bücher:", "There are " .. bookCount .. " books here:")
+                lookAt.description = common.GetNLS(user, "Hier stehen " .. bookCount .. " Bücher:", "There are " .. bookCount .. " books here:")
 
                 for i=1, bookCount do
-                    lookAt.description = lookAt.description .. "\n" .. base.common.GetNLS(user, books[bookshelf[i]].german, books[bookshelf[i]].english)
+                    lookAt.description = lookAt.description .. "\n" .. common.GetNLS(user, books[bookshelf[i]].german, books[bookshelf[i]].english)
                 end
             end
         else
-            lookAt.description = base.common.GetNLS(user, "Dieses Regal ist leer.", "This bookshelf is empty.")
+            lookAt.description = common.GetNLS(user, "Dieses Regal ist leer.", "This bookshelf is empty.")
         end
     end
 
     return lookAt
 end
 
-function UseItem(user, item, target, counter, param, ltstate)
+function M.UseItem(user, item, target, counter, param, ltstate)
     if item:getType() ~= scriptItem.field then
         return
     end
@@ -346,12 +348,12 @@ function UseItem(user, item, target, counter, param, ltstate)
                 end
             end
 
-            local title = base.common.GetNLS(user, "Bücherregal", "Bookshelf")
-            local description = base.common.GetNLS(user, "Welches Buch möchtest du lesen?", "Which book do you want to read?")
+            local title = common.GetNLS(user, "Bücherregal", "Bookshelf")
+            local description = common.GetNLS(user, "Welches Buch möchtest du lesen?", "Which book do you want to read?")
             local dialog = SelectionDialog(title, description, callback)
 
             for i=1, bookCount do
-                dialog:addOption(books[bookshelf[i]].graphic, base.common.GetNLS(user, books[bookshelf[i]].german, books[bookshelf[i]].english))
+                dialog:addOption(books[bookshelf[i]].graphic, common.GetNLS(user, books[bookshelf[i]].german, books[bookshelf[i]].english))
             end
 
             user:requestSelectionDialog(dialog)
@@ -373,3 +375,6 @@ end
 function isUserNextTo(user, pos)
     return user.pos.z == pos.z and math.max(math.abs(user.pos.x - pos.x), math.abs(user.pos.y - pos.y)) <= 1
 end
+
+return M
+

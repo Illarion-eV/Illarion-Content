@@ -26,9 +26,9 @@ INSERT INTO triggerfields VALUES (909,521,-6,'triggerfield.spidernest_ambient');
 
 ]]
 
-require("base.common")
+local common = require("base.common")
 
-module("triggerfield.spidernest_ambient", package.seeall)
+local M = {}
 
 --[[
 position: coordinates
@@ -78,10 +78,10 @@ spidernestList:add( position(909,519,-6),{5,6,7},"Zu deiner Rechten siehst du ei
 spidernestList:add( position(909,520,-6),{5,6,7},"Zu deiner Rechten siehst du einen Totelschädel liegen, der dich mit glühend roten Augen zu mustern scheint.","Off to your right, you see a skull whose eyes glow a bright red, beckoning you over.");
 spidernestList:add( position(909,521,-6),{5,6,7},"Zu deiner Rechten siehst du einen Totelschädel liegen, der dich mit glühend roten Augen zu mustern scheint.","Off to your right, you see a skull whose eyes glow a bright red, beckoning you over.");
 
-function MoveToField(Char)
+function M.MoveToField(Char)
 	local this = getspidernest(Char);
 	if this then
-		base.common.InformNLS(Char,this.german,this.english);
+		common.InformNLS(Char,this.german,this.english);
 	end
 end
 
@@ -121,3 +121,6 @@ function getspidernest(Char)
 	end
 	return nil;
 end
+
+return M
+

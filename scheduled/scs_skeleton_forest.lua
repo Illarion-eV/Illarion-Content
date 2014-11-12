@@ -17,11 +17,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Skeleton Forest
 -- Skeleton Spawn Script
 
-require("base.common")
+local common = require("base.common")
 
-module("scheduled.scs_skeleton_forest", package.seeall)
+local M = {}
 
-function ForestSkells()
+function M.ForestSkells()
     local Charakters = world:getPlayersInRangeOf(position(780,50,0),30);
 	for _,Char in pairs(Charakters) do
         RndTry = math.random(1,2)
@@ -30,7 +30,7 @@ function ForestSkells()
                 return
             end
         elseif (RndTry == 2) then
-		    base.common.InformNLS(Char,"Du hörst ein leises Knacken im Unterholz und vielleicht ein leises Murmeln.","You hear a quiet cracking in the forest and maybe a muttering.");
+		    common.InformNLS(Char,"Du hörst ein leises Knacken im Unterholz und vielleicht ein leises Murmeln.","You hear a quiet cracking in the forest and maybe a muttering.");
         end
     end
 end
@@ -47,7 +47,7 @@ function SpawnSkeleton(Charakter)
         end
     end
 
-	base.common.InformNLS(Charakter,"Um dich herum raschelt der Wald und du hört das Klappern von Knochen.","Around you the forest rustles and you hear the clacking of bones.");
+	common.InformNLS(Charakter,"Um dich herum raschelt der Wald und du hört das Klappern von Knochen.","Around you the forest rustles and you hear the clacking of bones.");
 
     SpawnSkeletonCycle(Charakter.pos,6,math.random(3,8));
     return true;
@@ -83,3 +83,5 @@ function SpawnSkeletonCycle(CenterPos,Radius,Anzahl)
         end;
     end;
 end
+
+return M

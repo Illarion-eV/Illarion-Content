@@ -14,13 +14,13 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common")
-
-module("item.id_2620_language_book", package.seeall)
+local common = require("base.common")
+local lookat = require("base.lookat")
+local M = {}
 
 -- UPDATE items SET itm_script='item.id_2620_language_book' WHERE itm_id = 2620;
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 	if SourceItem:getData("langcode") == "" then
 		SourceItem:setData("langcode", 11)
 	end	
@@ -51,65 +51,65 @@ function UseItem(User, SourceItem, ltstate)
     end
     
     if (User:increaseAttrib("intelligence",0) < GetDifficulty(langcode)) then
-        base.common.InformNLS(User,"Du verstehst nichts von dem, was hier steht","You understand nothing from the things, written in this book");
+        common.InformNLS(User,"Du verstehst nichts von dem, was hier steht","You understand nothing from the things, written in this book");
     end
            
     if (Skill<1) then
-        base.common.InformNLS(User,"Du verstehst nichts von dem, was hier steht","You understand nothing from the things, written in this book");
+        common.InformNLS(User,"Du verstehst nichts von dem, was hier steht","You understand nothing from the things, written in this book");
     elseif (Skill>59) then
-        base.common.InformNLS(User,"Du findest nichts was du noch nicht weist, in diesem Buch","You find nothing new in this book");
+        common.InformNLS(User,"Du findest nichts was du noch nicht weist, in diesem Buch","You find nothing new in this book");
     else
         if (Counter ==1) then
             if (Skill<15) then
                 if Learning(User,15,Skillname) then
-                    base.common.InformNLS(User,"Du lernst erste Grundlagen der "..GetLanguage(langcode,false),"You learn first basics of the "..Skillname);
+                    common.InformNLS(User,"Du lernst erste Grundlagen der "..GetLanguage(langcode,false),"You learn first basics of the "..Skillname);
                 else
-                    base.common.InformNLS(User,"Du kannst dich nicht auf dieses schwere Thema konzentrieren","You can't concentrate on this topic");
+                    common.InformNLS(User,"Du kannst dich nicht auf dieses schwere Thema konzentrieren","You can't concentrate on this topic");
                 end
             else
-                base.common.InformNLS(User,"Das was hier steht kannst du schon","The things written here, you know allready");
+                common.InformNLS(User,"Das was hier steht kannst du schon","The things written here, you know allready");
             end
         elseif (Counter==2) then
             if (Skill<30) then
                 if (Skill>14) then
                     if Learning(User,30,Skillname) then
-                        base.common.InformNLS(User,"Du lernst die Grundlegenden Vokabeln der Sprache","You learn the basic words of the language");
+                        common.InformNLS(User,"Du lernst die Grundlegenden Vokabeln der Sprache","You learn the basic words of the language");
                     else
-                        base.common.InformNLS(User,"Du kannst dich nicht auf dieses schwere Thema konzentrieren","You can't concentrate on this topic");
+                        common.InformNLS(User,"Du kannst dich nicht auf dieses schwere Thema konzentrieren","You can't concentrate on this topic");
                     end
                 else
-                    base.common.InformNLS(User,"Was hier steht, verstehst du noch nicht","You don't understand the things written down on this page");
+                    common.InformNLS(User,"Was hier steht, verstehst du noch nicht","You don't understand the things written down on this page");
                 end
             else
-                base.common.InformNLS(User,"Das was hier steht kannst du schon","The things written here, you know allready");
+                common.InformNLS(User,"Das was hier steht kannst du schon","The things written here, you know allready");
             end
         elseif (Counter==3) then
             if (Skill<45) then
                 if (Skill>29) then
                     if Learning(User,45,Skillname) then
-                        base.common.InformNLS(User,"Du lernst die Grammatik der Sprache.","You learn the grammatics of the "..Skillname..".");
+                        common.InformNLS(User,"Du lernst die Grammatik der Sprache.","You learn the grammatics of the "..Skillname..".");
                     else
-                        base.common.InformNLS(User,"Du kannst dich nicht auf dieses schwere Thema konzentrieren","You can't concentrate on this topic");
+                        common.InformNLS(User,"Du kannst dich nicht auf dieses schwere Thema konzentrieren","You can't concentrate on this topic");
                     end
                 else
-                    base.common.InformNLS(User,"Was hier steht, verstehst du noch nicht","You don't understand the things written down on this page");
+                    common.InformNLS(User,"Was hier steht, verstehst du noch nicht","You don't understand the things written down on this page");
                 end
             else
-                base.common.InformNLS(User,"Das was hier steht kannst du schon","The things written here, you know allready");
+                common.InformNLS(User,"Das was hier steht kannst du schon","The things written here, you know allready");
             end            
         elseif (Counter==4) then
             if (Skill>30) then
                 if Learning(User,60,Skillname) then
-                    base.common.InformNLS(User,"Du lernst die letzten Feinheiten der Sprache.","You learn the last intricacies of the "..Skillname..".");
+                    common.InformNLS(User,"Du lernst die letzten Feinheiten der Sprache.","You learn the last intricacies of the "..Skillname..".");
                 else
-                    base.common.InformNLS(User,"Du kannst dich nicht auf dieses schwere Thema konzentrieren","You can't concentrate on this topic");
+                    common.InformNLS(User,"Du kannst dich nicht auf dieses schwere Thema konzentrieren","You can't concentrate on this topic");
                 end
             else
-                base.common.InformNLS(User,"Was hier steht, verstehst du noch nicht","You don't understand the things written down on this page");
+                common.InformNLS(User,"Was hier steht, verstehst du noch nicht","You don't understand the things written down on this page");
             end
         end
     end
-	local frontItem = base.common.GetFrontItem(User);
+	local frontItem = common.GetFrontItem(User);
 	
     if frontItem and ((frontItem.id == 266) or (frontItem.id == 267)) then
         world:erase(SourceItem,1)
@@ -118,11 +118,11 @@ function UseItem(User, SourceItem, ltstate)
 	end
 	
 	-- obsolet?
-	--[[local TargetItem = base.common.GetTargetItem(User, SourceItem);
+	--[[local TargetItem = common.GetTargetItem(User, SourceItem);
     if (TargetItem.id == 329 and tonumber(TargetItem:getData("langcode")) == 0) then
         if ( Skill > 50) then
             if (modecode==0) then
-                base.common.InformNLS(User,"Du schreibst eine Kurze Notiz in das Buch die dem nächsten Lernenden Helfen wird, den Einstieg in die Sprache zu finden",
+                common.InformNLS(User,"Du schreibst eine Kurze Notiz in das Buch die dem nächsten Lernenden Helfen wird, den Einstieg in die Sprache zu finden",
                 "You write a short note into the book, which will help the next one, who wants to learn, to start learning the language");
                 SourceItem:setData("langcode", tonumber(SourceItem:getData("langcode"))+1);
                 world:changeItem(SourceItem);
@@ -134,7 +134,7 @@ function UseItem(User, SourceItem, ltstate)
 	--Replace with new learn function, see learn.lua 
 end
 
-function LookAtItem(User,Item)
+function M.LookAtItem(User,Item)
 	if Item:getData("langcode") == "" then
 		Item:setData("langcode", 11)
 	end	
@@ -142,11 +142,11 @@ function LookAtItem(User,Item)
     local langcode = math.floor(tonumber(Item:getData("langcode"))/10);
     local modecode = tonumber(Item:getData("langcode")) - (langcode * 10);
     if (modecode == 2) then
-		base.lookat.SetSpecialName(Item, "Buch des Ephraim","Book of Ephraim");
+		lookat.SetSpecialName(Item, "Buch des Ephraim","Book of Ephraim");
     else
-        base.lookat.SetSpecialName(Item, "Lehrbuch der "..GetLanguage(langcode,false),"Textbook of the "..GetLanguage(langcode,true));
+        lookat.SetSpecialName(Item, "Lehrbuch der "..GetLanguage(langcode,false),"Textbook of the "..GetLanguage(langcode,true));
     end
-	return base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)
+	return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
 
 function Learning(User,Value,Skillname)
@@ -202,3 +202,6 @@ function GetDifficulty(code)
     elseif (code==10) then return 5;
     end
 end
+
+return M
+

@@ -18,16 +18,16 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- to kill a monster (or a char) after some time
 -- see base.character.DeathAfterTime(Character,deathAfter,deathGfx,deathSound)
 
-require("base.common")
-require("alchemy.teaching.transformation_dog")
-require("scheduled.showGFX")
-module("lte.deathaftertime", package.seeall)
+local common = require("base.common")
+local transformation_dog = require("alchemy.teaching.transformation_dog")
+local showGFX = require("scheduled.showGFX")
+local M = {}
 
-function addEffect(Effect, Character)
+function M.addEffect(Effect, Character)
 
 end
 
-function callEffect(Effect, Character) 
+function M.callEffect(Effect, Character) 
   local posOfVic = Character.pos
     
   local findDeathGfx, deathGfx = Effect:findValue("deathGfx")
@@ -67,7 +67,7 @@ function callEffect(Effect, Character)
 	-- Dog Transformation Quest check
 	local find, value = Effect:findValue("transfomationDog")
 	if find and value then
-		alchemy.teaching.transformation_dog.dropDonfblade(Character)
+		transformation_dog.dropDonfblade(Character)
 	end
 	-- Dog Transformation Quest check end
 	
@@ -77,14 +77,16 @@ function callEffect(Effect, Character)
 end
 
 function TheGlutinousSeedling(slimeNumber)
-	scheduled.showGFX.SlimeList["Slime"..slimeNumber].Time = world:getTime("unix")
-	scheduled.showGFX.SlimeList["Slime"..slimeNumber].Monster = false
+	showGFX.SlimeList["Slime"..slimeNumber].Time = world:getTime("unix")
+	showGFX.SlimeList["Slime"..slimeNumber].Monster = false
 end
 
-function removeEffect(Effect,User)
+function M.removeEffect(Effect,User)
 
 end
 
-function loadEffect(Effect,User)                  			
+function M.loadEffect(Effect,User)                  			
 
 end
+return M
+

@@ -16,11 +16,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Default look-at script
 
-require("base.common")
-require("base.gems")
-require("base.money")
+local common = require("base.common")
+local gems = require("base.gems")
+local money = require("base.money")
 
-module("base.lookat", package.seeall)
+local M = {}
 
 -- init german descriptions
 GenericQualDe = {"perfekt", "exzellent", "sehr gut", "gut", "normal", "mäßig", "schlecht", "sehr schlecht", "schrecklich", "furchtbar"}
@@ -40,11 +40,11 @@ GenericDuraEn[4] = {"sparkling", "shiny", "glittery",   "used", "slightly scrape
 
 GenericDuraLm = {90, 80, 70, 60, 50, 40, 30, 20, 10, 0}
 
-NONE = 0
-METAL = 1
-WOOD = 2
-CLOTH = 3
-JEWELLERY = 4
+M.NONE = 0
+M.METAL = 1
+M.WOOD = 2
+M.CLOTH = 3
+M.JEWELLERY = 4
 
 WeaponType = {}
 WeaponType[WeaponStruct.slashing] = {de = "Hiebwaffe", en = "Slashing Weapon", skill = Character.slashingWeapons}
@@ -68,7 +68,7 @@ ArmourType[ArmorStruct.medium] = {de = "Mittlere Rüstung", en = "Medium Armour",
 ArmourType[ArmorStruct.heavy] = {de = "Schwere Rüstung", en = "Heavy Armour", skill = Character.heavyArmour}
 ArmourType[ArmorStruct.juwellery] = {de = "Schmuck", en = "Jewellery"}
 
-function GenerateLookAt(user, item, material)
+function M.GenerateLookAt(user, item, material)
     if user == nil then
         debug("Sanity check failed, no valid character supplied.")
         return
@@ -79,9 +79,9 @@ function GenerateLookAt(user, item, material)
         return
     end
     
-    material = material or NONE
+    material = material or M.NONE
 
-    if material < NONE or material > JEWELLERY then
+    if material < M.NONE or material > M.JEWELLERY then
         debug("Sanity check failed, no valid material supplied.")
     end
     
@@ -98,7 +98,7 @@ function GenerateLookAt(user, item, material)
         defaultName = itemCommon.English
         usedName = item:getData("nameEn")
     end
-    if base.common.IsNilOrEmpty(usedName) then
+    if common.IsNilOrEmpty(usedName) then
         usedName = defaultName
     end
 
@@ -123,7 +123,7 @@ function GenerateLookAt(user, item, material)
         usedDescription = item:getData("descriptionEn")
     end
     
-    if base.common.IsNilOrEmpty(usedDescription) then
+    if common.IsNilOrEmpty(usedDescription) then
         lookAt.description = defaultDescription
     else
         lookAt.description = usedDescription
@@ -132,17 +132,17 @@ function GenerateLookAt(user, item, material)
     if itemCommon.AgeingSpeed < 255 and itemCommon.Weight < 30000 then
         local craftedByData = item:getData("craftedBy")
         
-        if not base.common.IsNilOrEmpty(craftedByData) then
+        if not common.IsNilOrEmpty(craftedByData) then
             lookAt.craftedBy = craftedByData
         end
         
         lookAt.weight = item.number * itemCommon.Weight
         
-        if not base.money.IsCurrency(item.id) then
+        if not money.IsCurrency(item.id) then
             lookAt.worth = 20*item.number * itemCommon.Worth
         end
         
-        if material > NONE then
+        if material > M.NONE then
             local itemDura = math.fmod(item.quality, 100)
             local itemQual = (item.quality - itemDura) / 100
             
@@ -182,13 +182,13 @@ function GenerateLookAt(user, item, material)
         lookAt.amethystLevel = GetGemLevel(item, "magicalAmethyst")
         lookAt.obsidianLevel = GetGemLevel(item, "magicalObsidian")
         lookAt.topazLevel = GetGemLevel(item, "magicalTopaz")
-        lookAt.bonus = base.gems.getGemBonus(item)
+        lookAt.bonus = gems.getGemBonus(item)
     end
     
     return lookAt
 end
 
-function GenerateItemLookAtFromId(user, itemId, stackSize, data)
+function M.GenerateItemLookAtFromId(user, itemId, stackSize, data)
     local lookAt = ItemLookAt()
     local isGerman = user:getPlayerLanguage() == Player.german
     data = data or {}
@@ -199,7 +199,7 @@ function GenerateItemLookAtFromId(user, itemId, stackSize, data)
     else
         usedName = data["nameEn"]
     end
-    if base.common.IsNilOrEmpty(usedName) then
+    if common.IsNilOrEmpty(usedName) then
         usedName = world:getItemName(itemId, user:getPlayerLanguage())
     end
     lookAt.name = TitleCase(usedName)
@@ -221,7 +221,7 @@ function GenerateItemLookAtFromId(user, itemId, stackSize, data)
         usedDescription = data["descriptionEn"]
     end
     
-    if not base.common.IsNilOrEmpty(usedDescription) then
+    if not common.IsNilOrEmpty(usedDescription) then
         lookAt.description = usedDescription
     end
 
@@ -305,7 +305,7 @@ end
 -- @param item the item that is supposed to receive the new values
 -- @param german the german name this item is supposed to display
 -- @param english the english name this item is supposed to display
-function SetSpecialName(item, german, english)    
+function M.SetSpecialName(item, german, english)    
     if item == nil then
         debug("Sanity check failed, no valid item supplied.")
         return
@@ -324,7 +324,7 @@ end
 --  This function does NOT call world:changeItem()! You have to do this yourself.
 --
 -- @param item the item that is supposed to receive the new values
-function UnsetSpecialName(item)
+function M.UnsetSpecialName(item)
     if item == nil then
         debug("Sanity check failed, no valid item supplied.")
         return
@@ -340,7 +340,7 @@ end
 -- @param item the item that is supposed to receive the new values
 -- @param german the german description this item is supposed to display
 -- @param english the english description this item is supposed to display
-function SetSpecialDescription(item, german, english)    
+function M.SetSpecialDescription(item, german, english)    
     if item == nil then
         debug("Sanity check failed, no valid item supplied.")
         return
@@ -359,7 +359,7 @@ end
 --  This function does NOT call world:changeItem()! You have to do this yourself.
 --
 -- @param item the item that is supposed to receive the new values
-function UnsetSpecialDescription(item)
+function M.UnsetSpecialDescription(item)
     if item == nil then
         debug("Sanity check failed, no valid item supplied.")
         return
@@ -374,7 +374,7 @@ end
 --
 -- @param item the item that is supposed to receive the new values
 -- @param rare the rareness value, valid values are: ItemLookAt.commonItem, ItemLookAt.uncommonItem, ItemLookAt.rareItem, ItemLookAt.epicItem
-function SetItemRareness(item, rare)    
+function M.SetItemRareness(item, rare)    
     if item == nil then
         debug("Sanity check failed, no valid item supplied.")
         return
@@ -392,7 +392,7 @@ end
 --  This function does NOT call world:changeItem()! You have to do this yourself.
 --
 -- @param item the item that is supposed to receive the new values
-function UnsetItemRareness(item)
+function M.UnsetItemRareness(item)
     if item == nil then
         debug("Sanity check failed, no valid item supplied.")
         return
@@ -406,7 +406,7 @@ end
 --
 -- @param item the item that is supposed to receive the new values
 -- @param name the name of the person who created this item
-function SetItemCraftedBy(item, name)    
+function M.SetItemCraftedBy(item, name)    
     if item == nil then
         debug("Sanity check failed, no valid item supplied.")
         return
@@ -424,7 +424,7 @@ end
 --  This function does NOT call world:changeItem()! You have to do this yourself.
 --
 -- @param item the item that is supposed to receive the new values
-function UnsetItemCraftedBy(item)
+function M.UnsetItemCraftedBy(item)
     if (item == nil) then
         debug("Sanity check failed, no valid item supplied.")
         return
@@ -432,3 +432,5 @@ function UnsetItemCraftedBy(item)
     
     item:setData("craftedBy", "")
 end
+
+return M

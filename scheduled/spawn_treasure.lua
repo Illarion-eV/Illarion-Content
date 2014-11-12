@@ -18,11 +18,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Current setting is once in 6-18 hours
 -- Estralis
 
-require("base.common")
+local common = require("base.common")
 
-module("scheduled.spawn_treasure", package.seeall)
+local M = {}
 
-function spawnTreasure()
+function M.spawnTreasure()
 
 	local treasurePos=position(703,421,-3); --Salavesh dungeon
 	
@@ -57,3 +57,5 @@ function spawnTreasure()
 	end
 	
 end
+
+return M

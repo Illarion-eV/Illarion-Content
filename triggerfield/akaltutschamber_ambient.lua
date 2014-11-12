@@ -21,9 +21,9 @@ INSERT INTO triggerfields VALUES (X,Y,Z,'triggerfield.akaltutschamber_ambient');
 
 ]]
 
-require("base.common")
+local common = require("base.common")
 
-module("triggerfield.akaltutschamber_ambient", package.seeall)
+local M = {}
 
 --[[
 position: coordinates
@@ -92,10 +92,10 @@ Akaltuts_chamberList:add( position(425,839,-9),nil,"Die Reiter auf den Pferdesta
 Akaltuts_chamberList:add( position(477,839,-9),nil,"Als du dich umsiehst, erkennst du Reihen von Schädeln an der Wand. Die Schädel an der nördlichen Wand haben rot glühende Augen, während die der im Osten grünlich glühen. Vielleicht birgt das Bild an der Wand Hinweise zur Lösung des Rätsels.","As you look around, you notice the skulls lining the walls. The ones on the northern wall have red glowing eyes while the eastern skulls' eyes glow green. Perhaps the picture on the wall holds the clue to these skulls?.",nil,nil,100); --Akaltuts_Chamber_-9
 Akaltuts_chamberList:add( position(480,837,-9),nil,"Als du dich umsiehst, erkennst du Reihen von Schädeln an der Wand. Die Schädel an der nördlichen Wand haben rot glühende Augen, während die der im Osten grünlich glühen. Vielleicht birgt das Bild an der Wand Hinweise zur Lösung des Rätsels.","As you look around, you notice the skulls lining the walls. The ones on the northern wall have red glowing eyes while the eastern skulls' eyes glow green. Perhaps the picture on the wall holds the clue to these skulls?.",nil,nil,100); --Akaltuts_Chamber_-9
 
-function MoveToField(Char)
+function M.MoveToField(Char)
 	local this = getAkaltuts_chamber(Char);
 	if this then
-		base.common.InformNLS(Char,this.german,this.english);
+		common.InformNLS(Char,this.german,this.english);
 	end
 end
 
@@ -135,3 +135,6 @@ function getAkaltuts_chamber(Char)
 	end
 	return nil;
 end
+
+return M
+

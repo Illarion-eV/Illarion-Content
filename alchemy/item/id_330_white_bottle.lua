@@ -19,11 +19,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --Temporäre Einzelwirkungen
 --Falk
 -- reworked by Merung 
-require("base.common")
-require("alchemy.base.alchemy")
-require("alchemy.item.id_165_blue_bottle")
-
-module("alchemy.item.id_330_white_bottle",package.seeall)
+local common = require("base.common")
+local alchemy = require("alchemy.base.alchemy")
+local id_165_blue_bottle = require("alchemy.item.id_165_blue_bottle")
+local lookat = require("base.lookat")
+local M = {}
 
 -- UPDATE common SET com_script='alchemy.item.id_330_white_bottle' WHERE com_itemid = 330;
 
@@ -34,7 +34,7 @@ function DrinkPotion(User,SourceItem)
     potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
 
     if potionEffectId == 0 or potionEffectId == nil  then -- no effect	
-	    base.common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", 
+	    common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", 
 		"You don't have the feeling that something happens.")
 	    return
     
@@ -54,7 +54,7 @@ function DrinkPotion(User,SourceItem)
 			--User:increaseSkill(skillName,(-(newSkill-oldSkill))) -- old skill level restored]]
 		    effectRemoved = User.effects:removeEffect(330)
 			if not effectRemoved then
-				base.common.InformNLS( User,"Fehler: informiere einen dev. lte nicht entfernt. white bottle script", "Error: inform dev. Lte not removed. white bottle script.")
+				common.InformNLS( User,"Fehler: informiere einen dev. lte nicht entfernt. white bottle script", "Error: inform dev. Lte not removed. white bottle script.")
 				return
 			end
 		end
@@ -77,31 +77,34 @@ function DrinkPotion(User,SourceItem)
     end
   end
     
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
     -- repair potion in case it's broken
-	alchemy.base.alchemy.repairPotion(SourceItem)
+	alchemy.repairPotion(SourceItem)
 	-- repair end
 	
 	if not ((SourceItem:getData("filledWith")=="potion") or (SourceItem:getData("filledWith") =="essenceBrew")) then
 		return -- no potion, no essencebrew, something else
 	end
 	
-	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
+	local cauldron = alchemy.GetCauldronInfront(User)
 	if cauldron then -- infront of a cauldron?
-	    alchemy.base.alchemy.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
+	    alchemy.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
 	
 	else -- not infront of a cauldron, therefore drink!
         if User.attackmode then
-		   base.common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während du kämpfst.", "You cannot use the potion while fighting.")
+		   common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während du kämpfst.", "You cannot use the potion while fighting.")
 		else
 			User:talk(Character.say, "#me trinkt eine weiße Flüssigkeit.", "#me drinks a white liquid.")
 			User.movepoints=User.movepoints - 20
 			DrinkPotion(User,SourceItem) -- call effect
-			alchemy.base.alchemy.EmptyBottle(User,SourceItem)
+			alchemy.EmptyBottle(User,SourceItem)
 	    end
 	end  
 end
 
-function LookAtItem(User,Item)
-	return base.lookat.GenerateLookAt(User, Item, 0)
+function M.LookAtItem(User,Item)
+	return lookat.GenerateLookAt(User, Item, 0)
 end
+
+return M
+

@@ -14,17 +14,17 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
+local class = require("base.class")
+local M = {}
 
-module("handler.createmonster", package.seeall)
-
-createMonster = base.class.class(function(cremonst, posi, ID, mvpoints)
+M.createMonster = class(function(cremonst, posi, ID, mvpoints)
 	cremonst.pos=posi;
 	cremonst.monsterID=ID;
 	cremonst.movepoints=mvpoints;
 end);
 	
-function createMonster:execute()
+function M.createMonster:execute()
 	world:createMonster(self.monsterID, self.pos, self.movepoints);
 end
 
+return M

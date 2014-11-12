@@ -14,14 +14,14 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common")
+local common = require("base.common")
 
 
-module("item.id_316_sand", package.seeall)
+local M = {}
 
 -- UPDATE items SET itm_script='item.id_316_sand' WHERE itm_id = 316;
 
-function MoveItemBeforeMove(User, SourceItem, TargetItem)
+function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
     deleteIt=false;
     GroundItem=world:getItemOnField(TargetItem.pos);
     if (GroundItem.id==10) then
@@ -32,6 +32,9 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
     return true
 end
 
-function MoveItemAfterMove(User, SourceItem, TargetItem)
+function M.MoveItemAfterMove(User, SourceItem, TargetItem)
     if deleteIt then world:erase(TargetItem,1) end
 end
+
+return M
+

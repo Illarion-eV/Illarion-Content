@@ -14,19 +14,21 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
-require("npc.base.consequence.consequence")
-require("item.gems")
+local class = require("base.class")
+local consequence = require("npc.base.consequence.consequence")
+local gems = require("item.gems")
 
-module("npc.base.consequence.gemcraft", package.seeall)
+local _craft_helper
 
-gemcraft = base.class.class(npc.base.consequence.consequence.consequence,
+local gemcraft = class(consequence,
 function(self)
-    npc.base.consequence.consequence.consequence:init(self);
+    consequence:init(self)
     
-    self["perform"] = _craft_helper;
+    self["perform"] = _craft_helper
 end);
 
 function _craft_helper(self, npcChar, player)
-    item.gems.magicSmith(npcChar, player) 
-end;
+    gems.magicSmith(npcChar, player) 
+end
+
+return gemcraft

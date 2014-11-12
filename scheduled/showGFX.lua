@@ -14,22 +14,22 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
-require("base.character")
+local common = require("base.common")
+local character = require("base.character")
 
-module("scheduled.showGFX", package.seeall)
+local M = {}
 
 -- INSERT INTO scheduledscripts VALUES('scheduled.showGFX', 10, 10, 'CreateGFX');
 
 
 -- this script is used to show a ceratin graphic effect on a certain position every ten seconds
 
-SlimeList = {}
-SlimeList.Slime1 = {}
-SlimeList.Slime2 = {}
+M.SlimeList = {}
+M.SlimeList.Slime1 = {}
+M.SlimeList.Slime2 = {}
 
 
-function CreateGFX()
+function M.CreateGFX()
     world:gfx(1,position(75,651,0)) -- thinking stone
 	world:gfx(11,position(873,878,0)) -- recognizing spring
     world:gfx(7,position(432,238,0)) -- knowing tree
@@ -39,7 +39,7 @@ function CreateGFX()
 	world:gfx(11,myPos)
 	if world:isCharacterOnField(myPos) then
 		local myChar = world:getCharacterOnField(myPos)
-		if base.character.IsPlayer(myChar) then
+		if character.IsPlayer(myChar) then
 			myChar:talk(Character.say, "#mes Füße werden von einem großen Schleimtropfen, der sich vom schleimigen Setzling gelöst hat, getroffen.","#me's feet are hit by a big drop of slime, which has come off from the glutinous seedling.")
 		end
 	else
@@ -50,12 +50,12 @@ end
 
 function SpawnSlime(thePos)
 
-	if checkSlime(SlimeList.Slime1) then
-		CreateSlime(SlimeList.Slime1,thePos,1)
+	if checkSlime(M.SlimeList.Slime1) then
+		CreateSlime(M.SlimeList.Slime1,thePos,1)
 		return;
 	end
-	if checkSlime(SlimeList.Slime2) then
-		CreateSlime(SlimeList.Slime2,thePos,2)
+	if checkSlime(M.SlimeList.Slime2) then
+		CreateSlime(M.SlimeList.Slime2,thePos,2)
 		return;
 	end
 
@@ -64,7 +64,7 @@ end
 function CreateSlime(ListSlime,thePos,slimeNumber)
 	local mon = world:createMonster(615,thePos,-10)
     ListSlime.Monster = true
-	base.character.DeathAfterTime(mon,18000,11,9,false)
+	character.DeathAfterTime(mon,18000,11,9,false)
 	local find, Effect = mon.effects:find(36)
 	if not find then
 		debug("Error: Effect not found.")
@@ -86,3 +86,5 @@ function checkSlime(ListSlime)
 	end
 	return false
 end
+
+return M

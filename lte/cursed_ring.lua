@@ -14,16 +14,16 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-module("lte.cursed_ring", package.seeall)
+local M = {}
 -- In work! By Avalyon
 -- Boni or curse for the cursed ring
 
-function callEffect(eff, User)
+function M.callEffect(eff, User)
  eff.nextCalled = 65535;
    return true;
 end
 
-function addEffect (eff, User)
+function M.addEffect (eff, User)
 eff:addValue( "curse", 1)
       if (tonumber(User:getItemAt( 8 ):getData("ringData")) == User.id) or (tonumber(User:getItemAt( 7 ):getData("ringData")) == User.id) then
                 User:increaseAttrib ("agility", 3);
@@ -38,11 +38,14 @@ eff:addValue( "curse", 1)
    return true
 end
 
-function removeEffect (eff,User)
+function M.removeEffect (eff,User)
 eff:removeValue ("curse");
 end
 
-function loadEffect (eff, User)
+function M.loadEffect (eff, User)
 end
 
+
+
+return M
 

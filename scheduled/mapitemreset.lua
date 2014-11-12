@@ -14,13 +14,13 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
+local common = require("base.common")
 
 -- INSERT INTO scheduledscripts VALUES('scheduled.mapitemreset', 30, 30, 'resetMapitem');
 
-module("scheduled.mapitemreset", package.seeall)
+local M = {}
 
-function resetMapitem()
+function M.resetMapitem()
 
   -- close rockwall entrance again (item 623)
   local pos = position(894, 627, 0);
@@ -33,7 +33,7 @@ function resetMapitem()
     local targetPos = position(892, 627, 0);
     blocker:warp(targetPos);
     world:gfx(7, targetPos);
-    base.common.HighInformNLS(blocker,
+    common.HighInformNLS(blocker,
       "Ein Windstoss wirft dich zurück bevor die Felswand dich trifft!",
       "A wind gust throws you back before the rock hits you!");
   end
@@ -44,7 +44,7 @@ function resetMapitem()
 
     local Characters = world:getPlayersInRangeOf(pos, 5);
     for i, Char in pairs(Characters) do
-      base.common.InformNLS(Char,
+      common.InformNLS(Char,
       "Eine Steinwand erscheint wie aus dem nichts.",
       "A rock wall appears out of nowhere.");
     end
@@ -73,3 +73,5 @@ function resetMapitem()
     world:changeItem(skull)
   end
 end
+
+return M

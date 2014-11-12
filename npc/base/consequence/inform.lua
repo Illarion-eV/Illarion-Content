@@ -14,19 +14,21 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
-require("npc.base.consequence.consequence")
+local class = require("base.class")
+local consequence = require("npc.base.consequence.consequence")
 
-module("npc.base.consequence.inform", package.seeall)
+local _inform_helper
 
-inform = base.class.class(npc.base.consequence.consequence.consequence,
+local inform = class(consequence,
 function(self, text)
-    npc.base.consequence.consequence.consequence:init(self);
+    consequence:init(self)
     
-    self["text"] = tostring(text);
-    self["perform"] = _inform_helper;
-end);
+    self["text"] = tostring(text)
+    self["perform"] = _inform_helper
+end)
 
 function _inform_helper(self, npcChar, player)
-    player:inform(self.text);
-end;
+    player:inform(self.text)
+end
+
+return inform

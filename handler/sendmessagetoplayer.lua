@@ -14,17 +14,18 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
-require("base.common")
+local class = require("base.class")
+local common = require("base.common")
+local M = {}
 
-module("handler.sendmessagetoplayer", package.seeall)
-
-sendMessageToPlayer = base.class.class(function(sndMsgToPl, ply, msgde, msgen)
+M.sendMessageToPlayer = class(function(sndMsgToPl, ply, msgde, msgen)
     sndMsgToPl.player=ply;
     sndMsgToPl.messageDe=msgde;
     sndMsgToPl.messageEn=msgen;
 end);
 
-function sendMessageToPlayer:execute()
-    base.common.InformNLS(self.player,self.messageDe,self.messageEn);
+function M.sendMessageToPlayer:execute()
+    common.InformNLS(self.player,self.messageDe,self.messageEn);
 end
+
+return M

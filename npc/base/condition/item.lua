@@ -14,115 +14,129 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
-require("npc.base.condition.condition")
+local class = require("base.class")
+local condition = require("npc.base.condition.condition")
+local tools = require("npc.base.tools")
 
-module("npc.base.condition.item", package.seeall)
+local _item_helper_equal
+local _item_helper_notequal
+local _item_helper_lesserequal
+local _item_helper_greaterequal
+local _item_helper_greater
+local _item_helper_lesser
+local _item_helper_equal_data
+local _item_helper_notequal_data
+local _item_helper_lesserequal_data
+local _item_helper_greaterequal_data
+local _item_helper_greater_data
+local _item_helper_lesser_data
 
-item = base.class.class(npc.base.condition.condition.condition,
+local item = class(condition,
 function(self, itemId, itemLoc, comp, value, data)
-    npc.base.condition.condition.condition:init(self);
-    self["item"] = itemId;
+    condition:init(self)
+    self["item"] = itemId
     if (itemLoc == "all" or itemLoc == "belt" or itemLoc == "body"
         or itemLoc == "backpack") then
-        self["location"] = itemLoc;
+        self["location"] = itemLoc
     else
-        self["location"] = "all";
-    end;
-    self["value"], self["valuetype"] = npc.base.talk._set_value(value);
+        self["location"] = "all"
+    end
+    self["value"], self["valuetype"] = tools.set_value(value)
     
     if (data == nil) then
         if (comp == "=") then
-            self["check"] = _item_helper_equal;
+            self["check"] = _item_helper_equal
         elseif (comp == "<>" or comp == "!=" or comp == "~=") then
-            self["check"] = _item_helper_notequal;
+            self["check"] = _item_helper_notequal
         elseif (comp == "<=" or comp == "=<") then
-            self["check"] = _item_helper_lesserequal;
+            self["check"] = _item_helper_lesserequal
         elseif (comp == ">=" or comp == "=>") then
-            self["check"] = _item_helper_greaterequal;
+            self["check"] = _item_helper_greaterequal
         elseif (comp == ">") then
-            self["check"] = _item_helper_greater;
+            self["check"] = _item_helper_greater
         elseif (comp == "<") then
-            self["check"] = _item_helper_lesser;
+            self["check"] = _item_helper_lesser
         else
             -- unkonwn comparator
-        end;
+        end
     else
-        self["data"] = data;
+        self["data"] = data
         if (comp == "=") then
-            self["check"] = _item_helper_equal_data;
+            self["check"] = _item_helper_equal_data
         elseif (comp == "<>" or comp == "!=" or comp == "~=") then
-            self["check"] = _item_helper_notequal_data;
+            self["check"] = _item_helper_notequal_data
         elseif (comp == "<=" or comp == "=<") then
-            self["check"] = _item_helper_lesserequal_data;
+            self["check"] = _item_helper_lesserequal_data
         elseif (comp == ">=" or comp == "=>") then
-            self["check"] = _item_helper_greaterequal_data;
+            self["check"] = _item_helper_greaterequal_data
         elseif (comp == ">") then
-            self["check"] = _item_helper_greater_data;
+            self["check"] = _item_helper_greater_data
         elseif (comp == "<") then
-            self["check"] = _item_helper_lesser_data;
+            self["check"] = _item_helper_lesser_data
         else
             -- unkonwn comparator
-        end;
-    end;
-end);
+        end
+    end
+end)
 
 function _item_helper_equal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return player:countItemAt(self.location, self.item) == value;
-end;
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
+    return player:countItemAt(self.location, self.item) == value
+end
 
 function _item_helper_notequal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return player:countItemAt(self.location, self.item) ~= value;
-end;
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
+    return player:countItemAt(self.location, self.item) ~= value
+end
 
 function _item_helper_lesserequal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return player:countItemAt(self.location, self.item) <= value;
-end;
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
+    return player:countItemAt(self.location, self.item) <= value
+end
 
 function _item_helper_greaterequal(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return player:countItemAt(self.location, self.item) >= value;
-end;
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
+    return player:countItemAt(self.location, self.item) >= value
+end
 
 function _item_helper_lesser(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return player:countItemAt(self.location, self.item) < value;
-end;
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
+    return player:countItemAt(self.location, self.item) < value
+end
 
 function _item_helper_greater(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return player:countItemAt(self.location, self.item) > value;
-end;
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
+    return player:countItemAt(self.location, self.item) > value
+end
 
 function _item_helper_equal_data(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return player:countItemAt(self.location, self.item, self.data) == value;
-end;
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
+    return player:countItemAt(self.location, self.item, self.data) == value
+end
 
 function _item_helper_notequal_data(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return player:countItemAt(self.location, self.item, self.data) ~= value;
-end;
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
+    return player:countItemAt(self.location, self.item, self.data) ~= value
+end
 
 function _item_helper_lesserequal_data(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return player:countItemAt(self.location, self.item, self.data) <= value;
-end;
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
+    return player:countItemAt(self.location, self.item, self.data) <= value
+end
 
 function _item_helper_greaterequal_data(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return player:countItemAt(self.location, self.item, self.data) >= value;
-end;
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
+    return player:countItemAt(self.location, self.item, self.data) >= value
+end
 
 function _item_helper_lesser_data(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return player:countItemAt(self.location, self.item, self.data) < value;
-end;
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
+    return player:countItemAt(self.location, self.item, self.data) < value
+end
 
 function _item_helper_greater_data(self, npcChar, texttype, player)
-    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    return player:countItemAt(self.location, self.item, self.data) > value;
-end;
+    local value = tools.get_value(self.npc, self.value, self.valuetype)
+    return player:countItemAt(self.location, self.item, self.data) > value
+end
+
+return item

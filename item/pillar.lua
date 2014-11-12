@@ -16,17 +16,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Tree Script
 -- Envi
-require("base.common")
-require("base.lookat")
-require("content.vision")
+local common = require("base.common")
+local lookat = require("base.lookat")
+local vision = require("content.vision")
 
-module("item.pillar", package.seeall)
+local M = {}
 
 -- Edit by faladron 13. April 2012 added lines 72 - 92 for Endurance Cave Quest
 
 -- UPDATE items SET itm_script='item.pillar' WHERE itm_id IN (272, 440, 441, 442, 443, 467, 692, 693, 694, 695, 2805);
 
-function LookAtItem(User,Item)
+function M.LookAtItem(User,Item)
 
 	-------------------------------- ENDURANCE CAVE QUEST LOOKAT -----------------------------------------
 	if Item.pos == position (7,11,-15) then
@@ -62,15 +62,15 @@ function LookAtItem(User,Item)
 	if lookAt then
 	    return lookAt --Send the custom lookAt
 	else
-		return base.lookat.GenerateLookAt(User, Item)
+		return lookat.GenerateLookAt(User, Item)
 	end
 end
 
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 	
-	content.vision.UseDarkColumnsPuzzle(User, SourceItem, ltstate)
-	content.vision.UseDarkColumns(User, SourceItem, ltstate)
+	vision.UseDarkColumnsPuzzle(User, SourceItem, ltstate)
+	vision.UseDarkColumns(User, SourceItem, ltstate)
 	
 	--Begin special statues of Sir Reginald and Queen Rosaline
 	
@@ -94,7 +94,7 @@ function UseItem(User, SourceItem, ltstate)
 		if User:getQuestProgress(111)==1 then --change when quest is ready!
             
 			User:setQuestProgress(111,2); --the player read all laws
-            base.common.InformNLS(User,"[Queststatus] Du hast nun die Sitten Cadomyrs gelesen.","[Quest progress] You read the Cadomyrian customs."); --sending the message
+            common.InformNLS(User,"[Queststatus] Du hast nun die Sitten Cadomyrs gelesen.","[Quest progress] You read the Cadomyrian customs."); --sending the message
          				
       	end   
 		
@@ -146,3 +146,6 @@ function ReginaldLookAt(User, Item)
 	end
 	return lookAt
 end
+
+return M
+

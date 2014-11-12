@@ -14,35 +14,38 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-module("lte.blessing", package.seeall)
+local M = {}
 -- Long time Script "Blessing" (25) effectid
 -- Triggered by donating money to an altar, and increases attributes temporarily
 -- Written by Hadrian (The weird llama person)
 
     
-function addEffect(Blessing, Character)       
+function M.addEffect(Blessing, Character)       
 
 	Character:setAttrib("dexterity",Character:increaseAttrib("dexterity",0)+1);
 	Character:setAttrib("perception",Character:increaseAttrib("perception",0)+2);
 		
     end
 
-function callEffect(Blessing, Character)
+function M.callEffect(Blessing, Character)
 
 
 	return false;
 end
 
-function loadEffect(Blessing, Character)
+function M.loadEffect(Blessing, Character)
 
 	Character:setAttrib("dexterity",Character:increaseAttrib("dexterity",0)+1);
 	Character:setAttrib("perception",Character:increaseAttrib("perception",0)+2);
 
 end
 
-function removeEffect (Blessing, Character)
+function M.removeEffect (Blessing, Character)
 
 	Character:setAttrib("dexterity",Character:increaseAttrib("dexterity",0)-1);
 	Character:setAttrib("perception",Character:increaseAttrib("perception",0)-2);
 
 end
+
+return M
+

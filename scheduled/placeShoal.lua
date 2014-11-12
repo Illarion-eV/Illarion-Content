@@ -16,11 +16,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO scheduledscripts VALUES('scheduled.placeShoal', 60, 60, 'placeShoal')
 
-module("scheduled.placeShoal", package.seeall)
+local M = {}
 
 shoalPositions = {}
 
-function placeShoal()
+function M.placeShoal()
 
 	if #shoalPositions == 0 then
 		return
@@ -36,3 +36,5 @@ function placeShoal()
 		end
 	end
 end
+
+return M

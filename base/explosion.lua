@@ -15,16 +15,16 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-require("base.common")
+local common = require("base.common")
 
-module("base.explosion", package.seeall)
+local M = {}
 
 --[[
     CreateExplosion
     Provide an explosion that also throws characters away, in a radios of 3 fields
     @param integer - Center of the explosion
 ]]
-function CreateExplosion(CenterPos)
+function M.CreateExplosion(CenterPos)
 
 	function CreateOuterCircle(HitPos)
 		CreateExplosionCircle(HitPos, 1,250,CenterPos,false);
@@ -39,9 +39,9 @@ function CreateExplosion(CenterPos)
 		return true;
 	end
 
-	base.common.CreateCircle(CenterPos, 3, CreateOuterCircle);
-	base.common.CreateCircle(CenterPos, 2, CreateMiddleCircle);
-	base.common.CreateCircle(CenterPos, 1, CreateInnerCircle);
+	common.CreateCircle(CenterPos, 3, CreateOuterCircle);
+	common.CreateCircle(CenterPos, 2, CreateMiddleCircle);
+	common.CreateCircle(CenterPos, 1, CreateInnerCircle);
 	world:gfx(36,CenterPos);
 	world:makeSound(5,CenterPos);
 end
@@ -59,22 +59,22 @@ function CreateExplosionCircle(HitPos,gfxid,Damage,CenterPos,setFlames)
 end;
 
 function HitChar(Posi,Hitpoints,CenterPos)
-    if world:isCharacterOnField(Posi) then
-        local Character = world:getCharacterOnField(Posi);
+    if world:isexplosionVictimOnField(Posi) then
+        local explosionVictim = world:getexplosionVictimOnField(Posi);
 
-        if (Character:getType() == 2) then --dont touch npcs
+        if (explosionVictim:getType() == 2) then --dont touch npcs
             return;
         end
 
 		local posX;
 		local posY;
         if (Posi == CenterPos) then -- code path not reached
-			posX = Character.pos.x+math.random(-9,9)
-			posY = Character.pos.y+math.random(-9,9)
+			posX = explosionVictim.pos.x+math.random(-9,9)
+			posY = explosionVictim.pos.y+math.random(-9,9)
         else
-            local Distance = Character:distanceMetricToPosition(CenterPos);
-            local Diffx = CenterPos.x - Character.pos.x;
-            local Diffy = CenterPos.y - Character.pos.y;
+            local Distance = explosionVictim:distanceMetricToPosition(CenterPos);
+            local Diffx = CenterPos.x - explosionVictim.pos.x;
+            local Diffy = CenterPos.y - explosionVictim.pos.y;
             if (Distance == 1) then
                 Diffx = 6*Diffx;
                 Diffy = 6*Diffy;
@@ -82,14 +82,14 @@ function HitChar(Posi,Hitpoints,CenterPos)
                 Diffx = 2*Diffx;
                 Diffy = 2*Diffy;
             end
-			posX = Character.pos.x-Diffx
-			posY = Character.pos.y-Diffy
+			posX = explosionVictim.pos.x-Diffx
+			posY = explosionVictim.pos.y-Diffy
 		end
 
-		local listOfStuff = world:LoS(Character.pos, position(posX,posY,Character.pos.z))
+		local listOfStuff = world:LoS(explosionVictim.pos, position(posX,posY,explosionVictim.pos.z))
 
 		if listOfStuff ~= nil then
-			local minDistance = Character:distanceMetricToPosition(position(posX,posY,Character.pos.z));
+			local minDistance = explosionVictim:distanceMetricToPosition(position(posX,posY,explosionVictim.pos.z));
 
 			for i, listEntry in pairs(listOfStuff) do
 				local itemPos = listEntry.OBJECT.pos
@@ -99,7 +99,7 @@ function HitChar(Posi,Hitpoints,CenterPos)
 				-- something not passable is in the way, recalculate position
 				if not field:isPassable() then
 
-					local phi = base.common.GetPhi(Character.pos, itemPos);
+					local phi = common.GetPhi(explosionVictim.pos, itemPos);
 					if (phi < math.pi / 8) then
 						tempX = itemPos.x - 1
 					elseif (phi < 3 * math.pi / 8) then
@@ -124,7 +124,7 @@ function HitChar(Posi,Hitpoints,CenterPos)
 						tempX = itemPos.x - 1
 					end;
 
-					local tempDistance = Character:distanceMetricToPosition(position(tempX,tempY,Character.pos.z));
+					local tempDistance = explosionVictim:distanceMetricToPosition(position(tempX,tempY,explosionVictim.pos.z));
 					if (  tempDistance < minDistance) then
 						minDistance = tempDistance;
 						posX = tempX;
@@ -134,10 +134,12 @@ function HitChar(Posi,Hitpoints,CenterPos)
 			end
 		end
 
-		Character:warp(position(posX,posY,Character.pos.z));
-        base.common.InformNLS(Character,
+		explosionVictim:warp(position(posX,posY,explosionVictim.pos.z));
+        common.InformNLS(explosionVictim,
         "Getroffen von der Detonation wirst du davon geschleudert.",
         "Hit by the detonation, you get thrown away.");
-        Character:increaseAttrib("hitpoints",-Hitpoints);
+        explosionVictim:increaseAttrib("hitpoints",-Hitpoints);
     end;
 end;
+
+return M

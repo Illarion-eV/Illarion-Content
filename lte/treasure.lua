@@ -14,22 +14,22 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common")
-require("base.treasure")
-module("lte.treasure", package.seeall)
+local common = require("base.common")
+local treasure = require("base.treasure")
+local M = {}
 
-function addEffect(trsEff, trsHunter)
+function M.addEffect(trsEff, trsHunter)
     fnd, cat=trsEff:findValue("category");
     if not fnd then
         return false;       -- treasure lost!
     end
-    base.treasure.SpawnMonsters( trsHunter, cat );
+    treasure.SpawnMonsters( trsHunter, cat );
     return true;
 end
 
-function callEffect(trsEff, trsHunter)
+function M.callEffect(trsEff, trsHunter)
     if (trsHunter:increaseAttrib("hitpoints",0) == 0) then
-        base.common.InformNLS( trsHunter,
+        common.InformNLS( trsHunter,
         "Der Schatz ist für immer verloren. Die Wächter haben gesiegt.",
         "The treasure is lost forever. The guardians defeated you.)");
         return false;
@@ -50,7 +50,7 @@ function callEffect(trsEff, trsHunter)
     end
 
     if not trsHunter:isInRangeToPosition( trsPosition, 40 ) then
-        base.common.InformNLS( trsHunter,
+        common.InformNLS( trsHunter,
         "Der Schatz ist für immer verloren. Die Wächter haben euch in die Flucht geschlagen.",
         "The treasure is lost forever. The guardians made you retreat.");
         return false;
@@ -61,19 +61,19 @@ function callEffect(trsEff, trsHunter)
         return false;       -- treasure lost!
     end
 
-    if base.treasure.CheckMonsters( trsHunter ) then
-        base.common.InformNLS( trsHunter,
+    if treasure.CheckMonsters( trsHunter ) then
+        common.InformNLS( trsHunter,
         "Die Wächter des Schatzes wurden besiegt. Gebt nicht alles auf einmal aus!",
         "The guardians of the treasure have been slain. Do not spend it all at once!");
 
         world:gfx(16,trsPosition);
         world:makeSound(13,trsPosition);
-		base.treasure.SpawnTreasure(cat, trsPosition)
+		treasure.SpawnTreasure(cat, trsPosition)
         return false;
     end
 
     if trsEff.numberCalled==300 then
-        base.common.InformNLS( trsHunter,
+        common.InformNLS( trsHunter,
         "Der Schatz ist für immer verloren. Ihr habt die Wächter nicht beizeiten besiegen können.",
         "The treasure is lost forever. You could not defeat the guardians in time.");
         return false;
@@ -82,11 +82,14 @@ function callEffect(trsEff, trsHunter)
     return true;
 end
 
-function removeEffect(trsEff, trsHunter)
-    base.treasure.KillMonsters( trsHunter );
+function M.removeEffect(trsEff, trsHunter)
+    treasure.KillMonsters( trsHunter );
     return false;
 end
 
-function loadEffect(trsEff, trsHunter)
+function M.loadEffect(trsEff, trsHunter)
     return false;
 end
+
+return M
+

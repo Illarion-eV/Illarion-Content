@@ -15,26 +15,26 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-require("base.arena")
-require("base.messages");
-require("monster.base.base")
-require("monster.base.drop")
-require("monster.base.kills")
-require("monster.base.lookat")
-require("monster.base.monstermagic")
-require("monster.base.quests")
+local arena = require("base.arena")
+local messages = require("base.messages")
+local base = require("monster.base.base")
+local drop = require("monster.base.drop")
+local kills = require("monster.base.kills")
+local lookat = require("monster.base.lookat")
+local monstermagic = require("monster.base.monstermagic")
+local quests = require("monster.base.quests")
 
-module("monster.mon_111_rats", package.seeall)
+local M = {}
 
 
 function ini(Monster)
 
     init=true;
-    monster.base.quests.iniQuests();
+    quests.iniQuests();
     killer={}; --A list that keeps track of who attacked the monster last
 
     --Random Messages
-    msgs = base.messages.Messages();
+    msgs = messages.Messages();
     msgs:addMessage("#me knurrt.", "#me growls.");
     msgs:addMessage("#me quiekt.", "#me squeaks.");
     msgs:addMessage("#me ist mit Läusen und anderen Parasiten übersät.", "#me is covered with lice and other parasites.");
@@ -47,60 +47,60 @@ function ini(Monster)
     msgs:addMessage("#me faucht aggressiv.", "#me hisses agressively.");
 end
 
-function enemyNear(Monster, Enemy)
+function M.enemyNear(Monster, Enemy)
 
     if init==nil then
         ini(Monster);
     end
 
     if math.random(1,10) == 1 then
-        monster.base.drop.MonsterRandomTalk(Monster, msgs); --a random message is spoken once in a while
+        drop.MonsterRandomTalk(Monster, msgs); --a random message is spoken once in a while
     end
 
     return false
 end
 
-function enemyOnSight(Monster, Enemy)
+function M.enemyOnSight(Monster, Enemy)
 
     if init==nil then
         ini(Monster);
     end
 
-    monster.base.monstermagic.regeneration(Monster); --if an enemy is around, the monster regenerates slowly
-    monster.base.drop.MonsterRandomTalk(Monster, msgs); --a random message is spoken once in a while
+    monstermagic.regeneration(Monster); --if an enemy is around, the monster regenerates slowly
+    drop.MonsterRandomTalk(Monster, msgs); --a random message is spoken once in a while
 
-    if monster.base.base.isMonsterArcherInRange(Monster, Enemy) then
+    if base.isMonsterArcherInRange(Monster, Enemy) then
         return true
     end
 
-    if monster.base.base.isMonsterInRange(Monster, Enemy) then
+    if base.isMonsterInRange(Monster, Enemy) then
         return true;
     else
         return false
     end
 end
 
-function onAttacked(Monster, Enemy)
+function M.onAttacked(Monster, Enemy)
 
     if init==nil then
         ini(Monster);
     end
-    monster.base.kills.setLastAttacker(Monster, Enemy)
+    kills.setLastAttacker(Monster, Enemy)
     killer[Monster.id] = Enemy.id; --Keeps track who attacked the monster last
 end
 
-function onCasted(Monster, Enemy)
+function M.onCasted(Monster, Enemy)
 
     if init==nil then
         ini(Monster);
     end
-    monster.base.kills.setLastAttacker(Monster, Enemy)
+    kills.setLastAttacker(Monster, Enemy)
     killer[Monster.id] = Enemy.id; --Keeps track who attacked the monster last
 end
 
-function onDeath(Monster)
+function M.onDeath(Monster)
 
-    if base.arena.isArenaMonster(Monster) then
+    if arena.isArenaMonster(Monster) then
         return
     end
 
@@ -111,47 +111,50 @@ function onDeath(Monster)
 
         if murderer then --Checking for quests
 
-            monster.base.quests.checkQuest(murderer, Monster);
+            quests.checkQuest(murderer, Monster);
             killer[Monster.id] = nil;
             murderer = nil;
 
         end
     end
 
-    monster.base.drop.ClearDropping();
+    drop.ClearDropping();
     local MonID = Monster:getMonsterType();
 
     if (MonID == 1111) then --Rat, lvl1
 
-        monster.base.drop.AddDropItem(63,1,50,333,0,1); --entrails
-        monster.base.drop.AddDropItem(2586,1,100,333,0,1); --fur
+        drop.AddDropItem(63,1,50,333,0,1); --entrails
+        drop.AddDropItem(2586,1,100,333,0,1); --fur
 
     elseif (MonID == 1112) then --Small Rat, lvl1
 
-        monster.base.drop.AddDropItem(63,1,100,333,0,1); --entrails
-        monster.base.drop.AddDropItem(2586,1,50,333,0,1); --fur
+        drop.AddDropItem(63,1,100,333,0,1); --entrails
+        drop.AddDropItem(2586,1,50,333,0,1); --fur
 
     elseif (MonID == 1113) then --Agressive Rat, lvl2
 
-        monster.base.drop.AddDropItem(63,1,50,333,0,1); --entrails
-        monster.base.drop.AddDropItem(2586,1,100,333,0,1); --fur
+        drop.AddDropItem(63,1,50,333,0,1); --entrails
+        drop.AddDropItem(2586,1,100,333,0,1); --fur
 
 
     elseif (MonID == 1114) then --Muskrat, lvl2
 
-        monster.base.drop.AddDropItem(63,1,50,333,0,1); --entrails
-        monster.base.drop.AddDropItem(2586,1,100,333,0,1); --fur
+        drop.AddDropItem(63,1,50,333,0,1); --entrails
+        drop.AddDropItem(2586,1,100,333,0,1); --fur
 
     elseif (MonID == 1115) then --Plague Rat, lvl3
 
-        monster.base.drop.AddDropItem(63,1,50,333,0,1); --entrails
-        monster.base.drop.AddDropItem(69,1,100,333,0,1); --raw leather
+        drop.AddDropItem(63,1,50,333,0,1); --entrails
+        drop.AddDropItem(69,1,100,333,0,1); --raw leather
 
     elseif (MonID == 1116) then --Sewer Rat, lvl3
 
-        monster.base.drop.AddDropItem(63,1,50,333,0,1); --entrails
-        monster.base.drop.AddDropItem(2586,1,100,333,0,1); --fur
+        drop.AddDropItem(63,1,50,333,0,1); --entrails
+        drop.AddDropItem(2586,1,100,333,0,1); --fur
 
     end
-    monster.base.drop.Dropping(Monster);
+    drop.Dropping(Monster);
 end
+
+return M
+

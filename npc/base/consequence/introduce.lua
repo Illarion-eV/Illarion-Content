@@ -14,18 +14,20 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
-require("npc.base.consequence.consequence")
+local class = require("base.class")
+local consequence = require("npc.base.consequence.consequence")
 
-module("npc.base.consequence.introduce", package.seeall)
+local _introduce_helper
 
-introduce = base.class.class(npc.base.consequence.consequence.consequence,
+local introduce = class(consequence,
 function(self, text)
-    npc.base.consequence.consequence.consequence:init(self);
+    consequence:init(self)
     
-    self["perform"] = _introduce_helper;
-end);
+    self["perform"] = _introduce_helper
+end)
 
 function _introduce_helper(self, npcChar, player)
-    player:introduce(npcChar);
-end;
+    player:introduce(npcChar)
+end
+
+return introduce

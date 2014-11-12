@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-module("content.fighting", package.seeall)
+local M = {}
 
 --[[
     Returns the attack value of a race wrestling
@@ -22,7 +22,7 @@ module("content.fighting", package.seeall)
     @param  int requested race
     @return int attack value
 ]]
-function GetWrestlingAttack(Race)
+function M.GetWrestlingAttack(Race)
      return 10;
 end;
 
@@ -32,7 +32,7 @@ end;
     @param  int requested race
     @return int movepoints
 ]]
-function GetWrestlingMovepoints( Race )
+function M.GetWrestlingMovepoints( Race )
      return 25;
 end;
 
@@ -372,7 +372,7 @@ end
     @param  int ID of the Item
     @return boolean training weapon or not
 ]]
-function IsTrainingWeapon( ItemID )
+function M.IsTrainingWeapon( ItemID )
     return ( ItemID == 445 );
 end;
 
@@ -380,7 +380,7 @@ end;
 -- can be hit can alter.
 -- @param Race the race of the character who receives the hit
 -- @return The area that is hit
-function GetHitArea(Race)
+function M.GetHitArea(Race)
     local randomValue = math.random(100);
     if ( randomValue < 15 ) then
         return Character.head;
@@ -408,3 +408,5 @@ end;
 function BonusDodgeChance(Attacker, Defender)
     return 0;
 end;
+
+return M

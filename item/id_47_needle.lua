@@ -16,18 +16,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_47_needle' WHERE itm_id IN (47);
 
-require("content.craft.tailoring")
-require("base.licence")
-require("item.general.metal")
+local tailoring = require("content.craft.tailoring")
+local metal = require("item.general.metal")
 
-module("item.id_47_needle", package.seeall)
+local M = {}
 
-LookAtItem = item.general.metal.LookAtItem
+M.LookAtItem = metal.LookAtItem
 
-function UseItem(User, SourceItem, ltstate)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence
-		return -- avoids crafting if user is neither citizen nor has a licence
-	end
-
-    content.craft.tailoring.tailoring:showDialog(User, SourceItem)
+function M.UseItem(User, SourceItem, ltstate)
+    tailoring.tailoring:showDialog(User, SourceItem)
 end
+
+return M

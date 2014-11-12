@@ -14,8 +14,8 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common")
-module("lte.tying_capturer", package.seeall)
+local common = require("base.common")
+local M = {}
 --[[ LTE 26
      tying up: capturer
     @value Captive - id of the char that is tied up
@@ -23,12 +23,12 @@ module("lte.tying_capturer", package.seeall)
     @value logout - set when captive is disappeared
 ]]
 
-function addEffect( Tying, Capturer )
+function M.addEffect( Tying, Capturer )
 	
 	-- nothing
 end
 
-function callEffect( Tying, Capturer )
+function M.callEffect( Tying, Capturer )
 	
 	local foundEscape, escape = Tying:findValue("escape");
 	local foundLogout = Tying:findValue("logout");
@@ -145,7 +145,7 @@ function callEffect( Tying, Capturer )
 	return false;
 end
 
-function removeEffect( Tying, Capturer )
+function M.removeEffect( Tying, Capturer )
 	
 	local rope = GetRope(Capturer);
 	if rope then
@@ -172,7 +172,7 @@ function removeEffect( Tying, Capturer )
 	end
 end
 
-function loadEffect( Tying, Capturer )
+function M.loadEffect( Tying, Capturer )
 	
 	Tying:removeValue("logout");
 end
@@ -221,7 +221,7 @@ function GetBestAttribOffset( Char1, Char2, AttribList )
 end
 
 function InformW( User, textInDe, textInEn )
-    User:inform(base.common.GetNLS( User, textInDe, textInEn ),Player.mediumPriority);
+    User:inform(common.GetNLS( User, textInDe, textInEn ),Player.mediumPriority);
 end
 
 function GetRope( Character )
@@ -262,3 +262,6 @@ function HasEnoughCapturers( Character, excludedId )
 	end
 	return (retVal >= limit);
 end
+
+return M
+

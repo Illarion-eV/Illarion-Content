@@ -14,12 +14,12 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-module("questsystem.base", package.seeall)
+local M = {}
 
-function fulfilsPrecondition(player, questNumber, questState)
+function M.fulfilsPrecondition(player, questNumber, questState)
   return player:getQuestProgress(questNumber) == questState
 end
 
-function setPostcondition(player, questNumber, questState)
+function M.setPostcondition(player, questNumber, questState)
   player:setQuestProgress(questNumber, questState)
 end

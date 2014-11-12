@@ -14,10 +14,11 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
-require("triggerfield.evilrock")
+local common = require("base.common")
+local evilrock = require("triggerfield.evilrock")
+local areas = require("content.areas")
 
-module("content.vision", package.seeall)
+local M = {}
 
 VisionTextDE={};
 VisionTextDE[1]={};
@@ -27,8 +28,8 @@ VisionTextDE[1][3]="Der linke Mann erwidert mit gebeugtem Kopf: 'Wir sind fast f
 VisionTextDE[1][4]="'Fast?' Der Mann blickt sich um und dreht sich dann wieder den beiden M‰nnern zu. 'Und die Steinkammer?'";
 VisionTextDE[1][5]="Der rechte Mann blickt kurz auf und erwidert ebenfalls mit gesenktem Kopf: 'Mein Meister, die Steinkammer ist bereit, um eure Steine zu beherbergen.'";
 VisionTextDE[1][6]="'Ich werde sie das n‰chste Mal mit mir mitbringen, wenn ich wieder komme. Der groﬂe Mann betrachtet den groﬂen Raum erneut und fragt dann: 'Und der Zwerg in der Gebirgsstadt? Akzeptiert er? Oder muss ich ihn ¸berzeugen?";
-VisionTextDE[1][7]="Der linke Mann erwidert grinsend: 'Gierig wie der alt Zwerg ist, konnte er nicht widerstehen. Er ist schlimmer als sein Sohn. Wir haben ihre Miner dabei beobachten kˆnnen, wie extra Schichten machen.'";
-VisionTextDE[1][8]="Der groﬂe Mann wartet kurz bevor er antwortet: 'Bringt Essen und Getr‰nke f¸r das Abendmahl nun. Wir m¸ssen morgen fr¸h rasch nach Albar aufbrechen.";
+VisionTextDE[1][7]="Der linke Mann erwidert grinsend: 'Gierig wie der alt Zwerg ist, konnte er nicht widerstehen. Er ist schlimmer als sein Sohn. Wir haben ihre Hauer dabei beobachten kˆnnen, wie sie extra Schichten machen.'";
+VisionTextDE[1][8]="Der groﬂe Mann wartet kurz bevor er antwortet: 'Bringt nun Essen und Getr‰nke f¸r das Abendmahl. Wir m¸ssen morgen fr¸h rasch nach Albar aufbrechen.";
 VisionTextDE[1][9]="Sobald die letzten Worte gesprochen sind, verschwinden alle Schatten.";
 VisionTextEN={};
 VisionTextEN[1]={};
@@ -45,12 +46,12 @@ VisionTextEN[1][9]="As soon as the last words are said, all the shades disappear
 VisionTextDE[2]={};
 VisionTextDE[2][1]="Die Schatten zweier M‰nner erscheinen. Einer steht nahe dem Lesepult, der andere steht zwischen den ersten beiden schwarzen S‰ulen.";
 VisionTextDE[2][2]="Er scheint, sechs latent glitzernde Edelsteine in drei verschiedenen Farben zu halten.";
-VisionTextDE[2][3]="Es wirkt als w¸rde er auf eine Frage antwortent zu dem Mann am Lesepult nicken und einen einen der violett scheinenden Steine nehmen und sie gemeinsam mit einer der ersten schwarzen S‰ulen verwenden, worauf ein helles Licht auf der Spitze der schwarzen S‰ule erscheint.";
+VisionTextDE[2][3]="Es wirkt als w¸rde er auf eine Frage antwortent zu dem Mann am Lesepult nicken und einen der violett scheinenden Steine nehmen und sie gemeinsam mit einer der ersten schwarzen S‰ulen verwenden, worauf ein helles Licht auf der Spitze der schwarzen S‰ule erscheint.";
 VisionTextDE[2][4]="'Wirklich? Ich wusste das nicht', fragt der andere Mann, w‰hrend der eine Mann zu der zweiten der beiden ersten S‰ulen geht und seine Aktion mit dem anderen violett scheinenden Stein wiederholt.";
 VisionTextDE[2][5]="'Ja, jedes Mal. Du verwendest sie und sie sind weg. Die S‰ulen verbrennen die irgendwie', wirft der eine Mann zur¸ck und geht auf die beiden mittleren schwarzen S‰ulen zu, wo er seine blau scheinenden Edelsteine mit beiden schwarzen S‰ulen verwendet.";
 VisionTextDE[2][6]="Der andere Mann fragt: 'Weiﬂt du wo er sie her kriegt? Er muss eine Quelle haben, so wie er sie verschwenden kann.' 'Keine Ahnung', antworet der eine Mann w‰hrend er n‰her kommt und seine gr¸n leuchtenden Edelsteine mit den beiden letzten schwarzen S‰ulen verwendet.";
-VisionTextDE[2][7]="'Du musst bedenken, dass wir nicht jeden Tag hinunter in die Steinkammer gehen', f¸gt er hinzu und verwendet den zweiten gr¸nen Edelstein. Ein weiteres hell leuchtendes Lich erscheint an der Spitze dieser schwarzen S‰ule. Mit einem Schlag brennt ein gr¸nes Licht jede S‰ulen entlang und versteckte Runen werden auf den S‰ulen entblˆﬂt";
-VisionTextDE[2][8]="Der eine Mann geht zur¸ck zu der nordwestlichen schwarzen S‰ule, wo er seinen Kopf kratzt. Dann beginnt er konzentriert einige Wˆrter zu murmeln, die scheinbar ein Teil eines Gedichts sind: 'Es brennt in seinem Herz,...'.";
+VisionTextDE[2][7]="'Du musst bedenken, dass wir nicht jeden Tag hinunter in die Steinkammer gehen', f¸gt er hinzu und verwendet den zweiten gr¸nen Edelstein. Ein weiteres hell leuchtendes Lich erscheint an der Spitze dieser schwarzen S‰ule. Mit einem Schlag brennt ein gr¸nes Licht jede S‰ulen entlang und versteckte Runen werden auf den S‰ulen sichtbar";
+VisionTextDE[2][8]="Der eine Mann geht zur¸ck zu der nordwestlichen schwarzen S‰ule, wobei er seinen Kopf kratzt. Dann beginnt er konzentriert einige Wˆrter zu murmeln, die scheinbar ein Teil eines Gedichts sind: 'Es brennt in seinem Herz,...'.";
 VisionTextDE[2][9]="W‰hrend er spricht w‰hlt er einige der aufgedeckten Runen an den schwarzen S‰ulen und geht von einer zur n‰chsten. Ein dumpfes Summen verst‰rkt sich mit jeder Auswahl.";
 VisionTextDE[2][10]="'Hast du eine Ahnung, warum er dieses Gedicht gew‰hlt hat?', fragt der andere Mann. Der eine Mann h‰lt ein f¸r einen Augenblick und antwortet 'Das habe ich doch schon gesagt, oder? Wie dem auch sei, dr¸ck mal besser den Knopf und bring uns hinunter!'";
 VisionTextDE[2][11]="Der andere Mann nickt und dr¸ckt einen Knopf am Lesepult. Die Schatten der beiden M‰nner verschwinden sofort.";
@@ -73,7 +74,7 @@ VisionTextDE[3][2]="Der Mann tritt zur¸ck und sieht dem Zwergen zu, wie dieser s
 VisionTextDE[3][3]="Der Zwerg setzt fort 'Ich frag mich, wieso wir hier sind? Wir kˆnnten die Festung irgendwo bauen und nicht an diesem schmutzigen Ort.'";
 VisionTextDE[3][4]="'Du wirst nicht bezahlt, um Fragen zu stellen', erwidert der Mann. 'Mach deine Arbeit wie es dir angeordnet wurde.'";
 VisionTextDE[3][5]="Der Zwerg zischt: 'Und du? Was machst du?' Der Mann antwortet ruhig: 'Das wirst du sp‰ter sehen.'";
-VisionTextDE[3][6]="'Arr, so, warum? Ihr sucht nach Diamanten? Nach magischen, oder? Und was sollen diese Gravierungen an der S‰ule dort dr¸ben?' fragt der Zwerg als er dem Mann das fertige Werkst¸ck zeigt. ";
+VisionTextDE[3][6]="'Arr, so, warum? Ihr sucht nach magischen Steinen, oder? Und was sollen diese Gravierungen an der S‰ule dort dr¸ben?' fragt der Zwerg als er dem Mann das fertige Werkst¸ck zeigt. ";
 VisionTextDE[3][7]="Der Mann begutachtet das Werkst¸ck und nickt: 'Gute Arbeit. Ich muss gestehen, du verstehst dein Handwerk. Ungl¸cklicherweise, redest du zu viel.'";
 VisionTextDE[3][8]="Der Mann zieht einen roten Dolch und beide Schatten verschwinden.";
 VisionTextEN[3]={};
@@ -82,17 +83,17 @@ VisionTextEN[3][2]="The man steps back and looks at the dwarf while the dwarf sw
 VisionTextEN[3][3]="The dwarf continues 'I am wondering why we are here? We could have built this stronghold wherever and not here at this nasty place.'";
 VisionTextEN[3][4]="'You are not paid to ask questions', the man replies. 'Do your work as you are supposed to do.'";
 VisionTextEN[3][5]="The dwarf hisses: 'And you? What are you doing?' The man replies quietly: 'You will see later.'";
-VisionTextEN[3][6]="'Arr, so, why? You are looking for diamonds. Magical ones, aren't you? And what are those engravings for on the column over there?', the dwarf asks as he shows the man the finished piece of work.";
+VisionTextEN[3][6]="'Arr, so, why? You are looking for magical stones, aren't you? And what are those engravings for on the column over there?', the dwarf asks as he shows the man the finished piece of work.";
 VisionTextEN[3][7]="The man examines the piece of work and nods: 'Very well done. I have to admit, you understand your profession. Unfortunately, you talk to much.'";
 VisionTextEN[3][8]="The man draws a red dagger and both shades fade away.'";
 
 VisionTextDE[4]={};
-VisionTextDE[4][1]="Es scheint als zwei M‰nner stehen neben einen kleinen Boot am Strand. Einer sagt zu dem anderen in einer verg‰nglichen Stimme: 'Wer dachte, dass es so enden wird? Alles verloren. Er war so m‰chtig und nichts ist ¸brig geblieben von seiner Macht. Alles weg.'";
-VisionTextDE[4][2]="'Niemand, sch‰tze ich.' Der andere Mann seufzt und setzt fort: 'Er war sich wahrscheinlich zu sicher seiner Sache. Ich sagte ihm, er soll sie nicht trennen, aber er wollte nicht auf mich hˆren. Eine Schande.'";
-VisionTextDE[4][3]="'Wo wirst du hingehen, mein Freund?', fragt der Mann als dem anderen hilft, das Boot bereit zu machen.";
+VisionTextDE[4][1]="Es scheint als ob zwei M‰nner neben einen kleinen Boot am Strand stehen. Einer sagt zu dem anderen in einer verg‰nglichen Stimme: 'Wer dachte, dass es so enden wird? Alles verloren. Er war so m‰chtig und nichts ist ¸brig geblieben von seiner Macht. Alles weg.'";
+VisionTextDE[4][2]="'Niemand, sch‰tze ich.' Der andere Mann seufzt und setzt fort: 'Er war sich wahrscheinlich seiner Sache zu sicher. Ich sagte ihm, er soll sie nicht trennen, aber er wollte nicht auf mich hˆren. Eine Schande.'";
+VisionTextDE[4][3]="'Wo wirst du hingehen, mein Freund?', fragt der Mann als dem anderen und hilft, das Boot bereit zu machen.";
 VisionTextDE[4][4]="'Keine Ahnung, wirklich, keine Ahnung', erwidert der andere Mann am Strand. 'Und du? Hast du eine Idee?'";
-VisionTextDE[4][5]="Der Mann zeigt in den Nordosten: 'Ich habe von einer kleinen Insel im Nordosten gehˆrt. Ich werde wahrscheinlich das n‰chste Schiff dorthin nehmen, aber ich habe das jetzt noch nicht beschlossen.'";
-VisionTextDE[4][6]="Der andere Mann nickt und springt in das Boot. 'Wo auch immer du hingehst, ich w¸nsch dir nur das beste. Pass auf dich auf. Wenn die Gˆtter wollen, werden wir und wieder sehen' sagt er und dr¸ckt das Boot in das Meer.";
+VisionTextDE[4][5]="Der Mann zeigt in den Nordosten: 'Ich habe von einer kleinen Insel im Nordosten gehˆrt. Ich werde wahrscheinlich das n‰chste Schiff dorthin nehmen, aber ich habe das noch nicht beschlossen.'";
+VisionTextDE[4][6]="Der andere Mann nickt und springt in das Boot. 'Wo auch immer du hingehst, ich w¸nsch dir nur das Beste. Pass auf dich auf. Wenn die Gˆtter wollen, werden wir uns wieder sehen' sagt er und dr¸ckt das Boot ins Meer.";
 VisionTextDE[4][7]="Der Mann nickt und winkt. 'Ich hoffe es. Eine letzte Frage noch. Hast du je versucht unten auf dem Thron zu sitzen?'";
 VisionTextDE[4][8]="'Nein, niemals. Es h‰tte nicht zweimal geklickt. Ich bin wesentlich schwerer als er es je war.";
 VisionTextDE[4][9]="Der Mann grinst. 'Ich verstehe! Leb wohl!'";
@@ -115,11 +116,11 @@ VisionTextDE[5][2]="Der Mann am Tisch blickt auf und dreht sich zu dem anderen. 
 VisionTextDE[5][3]="Der andere Mann wirkt geschockt und fragt: 'Bist du dir sicher? Wo hast du diese Information her?'";
 VisionTextDE[5][4]="'Meine Quellen liegen nie falsch. Du glaubst mir besser. Wir m¸ssen alles vorbereiten', erwidert der Mann am Tisch.";
 VisionTextDE[5][5]="'Du meinst, die wissen ¸ber uns Bescheid?' 'Nein, noch nicht. Aber ich denke, es ist nur eine Frage der Zeit bis sie uns hier finden. Wir m¸ssen alles vorbereiten und verschwinden. Es ist vorbei.'";
-VisionTextDE[5][6]="Der andere Mann nickt 'Bleiben wir beim Plan und hast etwas anderes vor?'";
-VisionTextDE[5][7]="Der Mann am Tisch blickt auf das Pergament: 'Alles niederzubrennen mag eine schlechte Idee sein. Der Rauch w¸rde uns verraten und sie direkt zu uns f¸hren.' Er h‰lt ein f¸r einen Augenblick bevor er fortf‰hrt: 'Es ist besser, so viel wie mˆglich im Meer zu versenken.'";
+VisionTextDE[5][6]="Der andere Mann nickt 'Bleiben wir beim Plan oder hast etwas anderes vor?'";
+VisionTextDE[5][7]="Der Mann am Tisch blickt auf das Pergament: 'Alles niederzubrennen mag eine schlechte Idee sein. Der Rauch w¸rde uns verraten und sie direkt zu uns f¸hren.' Er h‰lt f¸r einen Augenblick ein bevor er fortf‰hrt: 'Es ist besser, so viel wie mˆglich im Meer zu versenken.'";
 VisionTextDE[5][8]="'Und diese.../Schl¸ssel/?', fragt der andere nervˆs.";
 VisionTextDE[5][9]="Der Mann am Tisch wartet erneut kurz: 'Es w‰re eine Schande, oder?' Er blickt gedankenvoll auf die Pergamente und wendet sich schluﬂendlich wieder dem anderen Mann zu: 'Versteck sie getrennt irgendwo, wo niemand sie suchen wird.'";
-VisionTextDE[5][10]="Der andere Mann blickt verwirrt bis der Mann am Tisch sagt: 'Steck sie zu den Toden. Dort wird sie niemand suchen, falls sie ein wenig Anstand haben.'";
+VisionTextDE[5][10]="Der andere Mann blickt verwirrt bis der Mann am Tisch sagt: 'Steck sie zu den Toten. Dort wird sie niemand suchen, falls sie ein wenig Anstand haben.'";
 VisionTextDE[5][11]="Der andere Mann erwidert 'Falls!', dreht sich weg und verl‰sst den Raum schnell. Der Schatten des Mannes am Tisch verschwindet ebenfalls.";
 VisionTextEN[5]={};
 VisionTextEN[5][1]="A man seems to sit writing at a table whilst another appears to enter the room. 'They say you want to talk to me. What happened?'";
@@ -139,7 +140,7 @@ VisionTextDE[6][1]="Zwei M‰nner erscheinen und sind dabei, die Kammer zu reinige
 VisionTextDE[6][2]="'Es scheint nicht so. Andererseits, es hat einen Grund warum sie die Vertrauten genannten werden', erwidert der andere Mann.";
 VisionTextDE[6][3]="'Lass uns annehmen, er hat ihnen vertraut, dann bleibt immer noch die Frage offen, ob sie ¸berhaupt in der Lage waren, sie zu verwenden?, f‰hrt der erstere fort zu fragen.";
 VisionTextDE[6][4]="Der andere Mann zuckt mit den Schultern: 'Ich hoffe es f¸r ihn. Ich hoffe es f¸r uns! Stell dir seinen ƒrger vor, falls einer verloren geht.' Er lacht. 'Wie dem auch sei, du scheinst dich nicht zu f¸rchten, oder?'";
-VisionTextDE[6][5]="Der erstere Mann sch¸ttelt den Kopf: 'Nein, bin ich nicht. Ich versteh nur nicht den Plan. Ich meine... Es gibt sieben von ihnen. Es soll hier sein, falls es stimmt. Wir... Er hat drei. Somit sind drei ¸brig und niemand weiﬂ irgendetwas ¸ber sie. Was ist, wenn jemand nur auf einen /Fehler/ von ihm wartet. Nichts w¸rde leichter sein, als einen nach dem anderen sich zu schnappen, jetzt, wo er sie getrennt hat. Verstehst du?'";
+VisionTextDE[6][5]="Der erstere Mann sch¸ttelt den Kopf: 'Nein, ich f¸rchte mich nicht. Ich versteh nur den Plan nicht. Ich meine... Es gibt sieben von ihnen. Wir... Er hat vier. Somit sind drei ¸brig und niemand weiﬂ irgendetwas ¸ber sie. Was ist, wenn jemand nur auf einen /Fehler/ von ihm wartet. Nichts w¸rde leichter sein, als sich einen nach dem anderen zu schnappen, jetzt, wo er sie getrennt hat. Verstehst du?'";
 VisionTextDE[6][6]="'Was zerbrichst du dir da den Kopf dar¸ber?, zischt der andere zur¸ck. 'Die anderen sind wahrscheinlich genauso verteilt und warum sollten wir Zeit verschwenden, anstelle uns zu nehmen, was wir so schnell wie mˆglich besitzen kˆnnen? Wer soll uns stoppen? Wir haben Albar geschlagen, wir haben Salkamar geschlagen und wir sind dabei Lor-Angur zu schlagen. Nur einer von Narguns Tricks kann uns dabei behindern, aber nicht mehr stoppen!'.";
 VisionTextDE[6][7]="'Vielleicht hast du recht', antwortet der erstere w‰hrend er mit dem Reinigen weiter macht.";
 VisionTextDE[6][8]="'Vielleicht? Ha! Ich habe immer recht!' Sein Lachen schallt durch die Kammer und beide Schatten verschwinden wieder.";
@@ -148,7 +149,7 @@ VisionTextEN[6][1]="The shades of two men appear, who clean the chamber. One of 
 VisionTextEN[6][2]="'It does not seem so. On the other hand, there is a reason why they are called the Trusted Ones', the other man replies.";
 VisionTextEN[6][3]="'Let's assume he can trust them, there is still the question left, are they even able to handle them?', the former continues to ask questions.";
 VisionTextEN[6][4]="The other man shrugs: 'I hope so, for his sake. I hope for us! Imagine his anger if one of them gets lost.' He laughs. 'However, it seems you are scared, are you?'";
-VisionTextEN[6][5]="The former man shakes his head: 'No, I am not. I just do not understand his move. I mean... There are seven of them. One should be here if that is true. We... He has three. So, there are three left and no one knows anything about them. What if someone is just waiting for such a /mistake/ by him? Nothing would be easier then to pick up one after the other, now, he has separated them. Do you understand?'";
+VisionTextEN[6][5]="The former man shakes his head: 'No, I am not. I just do not understand his move. I mean... There are seven of them. We... He has four. So, there are three left and no one knows anything about them. What if someone is just waiting for such a /mistake/ by him? Nothing would be easier then to pick up one after the other, now, he has separated them. Do you understand?'";
 VisionTextEN[6][6]="'Why do you worry about that?', the other one hisses back. 'The others are likely separated as well and why should we waste time instead of taking what we can possess as quickly as possible? Who should stop us? We beat Albar, we beat Salkamar and we are about to beat Lor-Angur. Only one of Nargun's tricks might hinder us, but it cannot stop us anymore!'";
 VisionTextEN[6][7]="'Probably, you are right', the former one replies as he continues cleaning.";
 VisionTextEN[6][8]="'Probably? Ha! I am always right!' His laughter rings through the chamber and both shades fade away.";
@@ -156,15 +157,15 @@ VisionTextEN[6][8]="'Probably? Ha! I am always right!' His laughter rings throug
 attendants={}
 attendants2={}
 
-function vision(char,TypeStory)
+function M.vision(char,TypeStory)
 --debug("3: "..TypeStory)
 	local LineStory = char:getQuestProgress(664)
 	attendants[char.name] = world:getPlayersInRangeOf(position(940,200,0), 90)
 	if attendants[char.name] ~= nil then
 			for k,player in ipairs(attendants[char.name]) do
-				if (content.areas.PointInArea(player.pos,triggerfield.evilrock.EvilRockAreaNames[TypeStory])) then
+				if (content.areas.PointInArea(player.pos,evilrock.EvilRockAreaNames[TypeStory])) then
 --					player:inform(""..VisionTextDE[TypeStory][LineStory],""..VisionTextEN[TypeStory][LineStory])
-					base.common.InformNLS(player,VisionTextDE[TypeStory][LineStory],VisionTextEN[TypeStory][LineStory])
+					common.InformNLS(player,VisionTextDE[TypeStory][LineStory],VisionTextEN[TypeStory][LineStory])
 --debug("ThereOn0: "..player.name)
 				else
 --debug("NotThereOn0: "..player.name)
@@ -178,9 +179,9 @@ function vision(char,TypeStory)
 	attendants2[char.name] = world:getPlayersInRangeOf(position(940,200,-6), 90)
 	if attendants2[char.name] ~= nil then
 			for k,player in ipairs(attendants2[char.name]) do
-				if (content.areas.PointInArea(player.pos,triggerfield.evilrock.EvilRockAreaNames[TypeStory])) then
+				if (content.areas.PointInArea(player.pos,evilrock.EvilRockAreaNames[TypeStory])) then
 --					player:inform(""..VisionTextDE[TypeStory][LineStory],""..VisionTextEN[TypeStory][LineStory])
-					base.common.InformNLS(player,VisionTextDE[TypeStory][LineStory],VisionTextEN[TypeStory][LineStory])
+					common.InformNLS(player,VisionTextDE[TypeStory][LineStory],VisionTextEN[TypeStory][LineStory])
 --debug("ThereOn-6: "..player.name)
 				else
 --debug("NotThereOn-6: "..player.name)
@@ -195,9 +196,9 @@ end
 
 
 
-darkColumnEvilrock={position(967,171,0),position(969,171,0),position(971,171,0),position(967,175,0),position(969,175,0),position(971,175,0)}
-darkColumnEvilrockLight={position(967,171,1),position(969,171,1),position(971,171,1),position(967,175,1),position(969,175,1),position(971,175,1)}
-darkColumnEvilrockFlame={467,467,467,467,467,467}
+M.darkColumnEvilrock={position(967,171,0),position(969,171,0),position(971,171,0),position(967,175,0),position(969,175,0),position(971,175,0)}
+M.darkColumnEvilrockLight={position(967,171,1),position(969,171,1),position(971,171,1),position(967,175,1),position(969,175,1),position(971,175,1)}
+M.darkColumnEvilrockFlame={467,467,467,467,467,467}
 CheckLightOnColumnIsThere={}
 enabledAttendantsForPuzzle={}
 
@@ -205,22 +206,22 @@ enabledAttendantsForPuzzle={}
 gemsRequired={197,284,45,197,284,45}
 
 
-function UseDarkColumns(User, SourceItem, ltstate)
+function M.UseDarkColumns(User, SourceItem, ltstate)
 
 	if User:getQuestProgress(667) >= 1 or world:getItemOnField(SourceItem.pos).id == 467 then
 		return
 	end
 
-	local AmountDarkColumnEvilrock = #darkColumnEvilrock
+	local AmountDarkColumnEvilrock = #M.darkColumnEvilrock
   	for i = 1,AmountDarkColumnEvilrock do
-		if (SourceItem.pos == darkColumnEvilrock[i]) and User:countItemAt("all", gemsRequired[i], {["gemLevel"]="1"}) >= 1 then
+		if (SourceItem.pos == M.darkColumnEvilrock[i]) and User:countItemAt("all", gemsRequired[i], {["gemLevel"]="1"}) >= 1 then
 --			local howmuchisit = User:countItemAt("all", 284)
 
 			local foundSource
 	-- check for dark column
-			TargetItem = darkColumnEvilrock[i];
+			TargetItem = M.darkColumnEvilrock[i];
 			if (TargetItem ~= nil) then
-				base.common.TurnTo( User, darkColumnEvilrock[i] ); -- turn if necessary
+				common.TurnTo( User, M.darkColumnEvilrock[i] ); -- turn if necessary
 				foundSource=true
 			end
 
@@ -228,13 +229,13 @@ function UseDarkColumns(User, SourceItem, ltstate)
 				User:startAction( 20, 21, 5, 28, 55);
 --				User:startAction( 20, 21, 5, 13, 25);
 				User:talk(Character.say, "#me setzt einen magischen Edelstein in die S‰ule ein.", "#me sets a magical gem into the column.")
-				world:gfx(52,darkColumnEvilrockLight[i])
-				world:createItemFromId( darkColumnEvilrockFlame[i], 1, darkColumnEvilrock[i], true, 666, nil)
+				world:gfx(52,M.darkColumnEvilrockLight[i])
+				world:createItemFromId( M.darkColumnEvilrockFlame[i], 1, M.darkColumnEvilrock[i], true, 666, nil)
 				User:eraseItem(gemsRequired[i],1, {["gemLevel"]="1"})
 			end
 
 			for j = 1,AmountDarkColumnEvilrock do
-				local CheckLightOnColumn = world:getItemOnField(darkColumnEvilrock[j])
+				local CheckLightOnColumn = world:getItemOnField(M.darkColumnEvilrock[j])
 				if CheckLightOnColumn.id == 467 then
 					CheckLightOnColumnIsThere[j] = true
 				else
@@ -248,18 +249,18 @@ function UseDarkColumns(User, SourceItem, ltstate)
 			end
 
 			for l = 1,AmountDarkColumnEvilrock do
-				world:gfx(5,darkColumnEvilrock[l])
-				world:makeSound(27,darkColumnEvilrock[l])
+				world:gfx(5,M.darkColumnEvilrock[l])
+				world:makeSound(27,M.darkColumnEvilrock[l])
 			end
 
-
 			BlackColumnQuestProgressA(User)
-		elseif (SourceItem.pos == darkColumnEvilrock[i]) and (User:countItemAt("all", gemsRequired[i]) >= 1) then
-			base.common.InformNLS(User,"Der Edelstein l‰sst sich einsetzen, aber er scheint nicht der Richtige zu sein. Vielleicht versuchst du einen Anderen.","Your gem seems to fit but for some reason it does not seem to be the right one.")
-		elseif (SourceItem.pos == darkColumnEvilrock[i]) and (User:countItemAt("all", 283) >= 1 or User:countItemAt("all", 46) >= 1 or User:countItemAt("all", 198) >= 1) then
-			base.common.InformNLS(User,"Diese Art von Edelstein scheint nicht zu passen. Vielleicht versuchst du eine andere Art.","This kind of gem does not seem to fit. You might want to try a different one.")
-		elseif (SourceItem.pos == darkColumnEvilrock[i]) then
-			base.common.InformNLS(User,"Keiner deiner Gegenst‰nde scheint zu passen.","None of your items seem to fit.")
+
+		elseif SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", gemsRequired[i]) >= 1 then
+			common.InformNLS(User,"Der Edelstein l‰sst sich einsetzen, aber er scheint nicht der Richtige zu sein. Vielleicht versuchst du einen Anderen.","Your gem seems to fit but for some reason it does not seem to be the right one.")
+		elseif SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 285) >= 1 or SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 285) >= 1 or SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 283) >= 1 or SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 45) >= 1 or SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 46) >= 1 or SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 197) >= 1 or SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 198) >= 1 then
+			common.InformNLS(User,"Diese Art von Edelstein scheint nicht zu passen. Vielleicht versuchst du eine andere Art.","This kind of gem does not seem to fit. You might want to try a different one.")
+		elseif SourceItem.pos == M.darkColumnEvilrock[i] then
+			common.InformNLS(User,"Keiner deiner Gegenst‰nde scheint zu passen.","None of your items seem to fit.")
 		end
 	end
 end
@@ -268,9 +269,9 @@ end
 function BlackColumnQuestProgressA(User)
 	enabledAttendantsForPuzzle[User.name] = world:getPlayersInRangeOf(position(969,172,0), 10)
 	for m,player in ipairs(enabledAttendantsForPuzzle[User.name]) do
-		if (content.areas.PointInArea(player.pos,triggerfield.evilrock.EvilRockAreaNames[2])) then
+		if (content.areas.PointInArea(player.pos,evilrock.EvilRockAreaNames[2])) then
 			player:setQuestProgress(667,1)
-			base.common.InformNLS(player,"Eine Stimme sagt: 'Flammen, die Welt steht in Flammen!' Anschlieﬂend ist ein Summen zu hˆren und selektierbare Runen erscheinen an den schwarzen S‰ulen.","A voice says: 'Fire, the world is on fire!' A hum can be heard afterwards and selectable runes appear on the black columns.")
+			common.InformNLS(player,"Eine Stimme sagt: 'Flammen, die Welt steht in Flammen!' Anschlieﬂend ist ein Summen zu hˆren und selektierbare Runen erscheinen an den schwarzen S‰ulen.","A voice says: 'Fire, the world is on fire!' A hum can be heard afterwards and selectable runes appear on the black columns.")
 		else
 		end
 	end
@@ -280,11 +281,11 @@ end
 function BlackColumnQuestProgressB(User,QuestStatusBlackColumn)
 	enabledAttendantsForPuzzle[User.name] = world:getPlayersInRangeOf(position(969,172,0), 10)
 	for m,player in ipairs(enabledAttendantsForPuzzle[User.name]) do
-		if (content.areas.PointInArea(player.pos,triggerfield.evilrock.EvilRockAreaNames[2])) then
+		if (content.areas.PointInArea(player.pos,evilrock.EvilRockAreaNames[2])) then
 			if QuestStatusBlackColumn == 16 then
-				base.common.InformNLS(player,"Eine Stimme ruft: 'Flammen, die Welt steht in Flammen!'. Das Summen verst‰rkt sich anschlieﬂend.", "A voice shouts: 'Fire, the world is on fire!' The hum intensifies afterwards.")
+				common.InformNLS(player,"Eine Stimme ruft: 'Flammen, die Welt steht in Flammen!'. Das Summen verst‰rkt sich anschlieﬂend.", "A voice shouts: 'Fire, the world is on fire!' The hum intensifies afterwards.")
 			else
-				base.common.InformNLS(player,"Das Summen verst‰rkt sich als du den magischen Edelstein einsetzt.", "The hum intensifies as you put in the magical gem.")
+				common.InformNLS(player,"Das Summen verst‰rkt sich als du den magischen Edelstein einsetzt.", "The hum intensifies as you put in the magical gem.")
 			end
 			player:setQuestProgress(667,QuestStatusBlackColumn+1)
 		else
@@ -299,16 +300,16 @@ end
 function BlackColumnQuestProgressC(User,QuestStatusBlackColumn)
 	enabledAttendantsForPuzzle[User.name] = world:getPlayersInRangeOf(position(969,172,0), 10)
 	for m,player in ipairs(enabledAttendantsForPuzzle[User.name]) do
-		if (content.areas.PointInArea(player.pos,triggerfield.evilrock.EvilRockAreaNames[2])) then
+		if (content.areas.PointInArea(player.pos,evilrock.EvilRockAreaNames[2])) then
 			player:setQuestProgress(667,0)
-			base.common.InformNLS(player,"Das Summen bricht ab, die Lichter erlˆschen und die Runen an den schwarzen S‰ulen verschwinden.", "The hum breaks up, lights go out and the runes disappear on the black column.")
+			common.InformNLS(player,"Das Summen bricht ab, die Lichter erlˆschen und die Runen an den schwarzen S‰ulen verschwinden.", "The hum breaks up, lights go out and the runes disappear on the black column.")
 			world:makeSound(27,player.pos)
-			local AmountDarkColumnEvilrock = #darkColumnEvilrock
+			local AmountDarkColumnEvilrock = #M.darkColumnEvilrock
 			for i=1,AmountDarkColumnEvilrock do
-				local DarkColumnEvilrockLightErase = world:getItemOnField(darkColumnEvilrock[i])
+				local DarkColumnEvilrockLightErase = world:getItemOnField(M.darkColumnEvilrock[i])
 				if DarkColumnEvilrockLightErase.id == 467 then
 					world:erase(DarkColumnEvilrockLightErase,DarkColumnEvilrockLightErase.number)
-					world:gfx(45,darkColumnEvilrockLight[i])
+					world:gfx(45,M.darkColumnEvilrockLight[i])
 				end
 			end
 		else
@@ -317,17 +318,17 @@ function BlackColumnQuestProgressC(User,QuestStatusBlackColumn)
 end
 
 
-function UseDarkColumnsPuzzle(User, SourceItem, ltstate)
+function M.UseDarkColumnsPuzzle(User, SourceItem, ltstate)
 
-	local AmountDarkColumnEvilrock = #darkColumnEvilrock
+	local AmountDarkColumnEvilrock = #M.darkColumnEvilrock
   	for i = 1,AmountDarkColumnEvilrock do
-		if (SourceItem.pos == darkColumnEvilrock[i]) and User:getQuestProgress(667) >= 1 and world:getItemOnField(SourceItem.pos).id == 467 then
+		if (SourceItem.pos == M.darkColumnEvilrock[i]) and User:getQuestProgress(667) >= 1 and world:getItemOnField(SourceItem.pos).id == 467 then
 
 			local foundSource
 	-- check for dark column
-			TargetItem = darkColumnEvilrock[i];
+			TargetItem = M.darkColumnEvilrock[i];
 			if (TargetItem ~= nil) then
-				base.common.TurnTo( User, darkColumnEvilrock[i] ); -- turn if necessary
+				common.TurnTo( User, M.darkColumnEvilrock[i] ); -- turn if necessary
 				foundSource=true
 			end
 
@@ -403,7 +404,7 @@ function Puzzle(User,SourceItem)
 	local QuestStatusBlackColumn = User:getQuestProgress(667)
 	local TrueOption = math.random(1,3)
 
-	if (SourceItem.pos == darkColumnEvilrock[puzzleDarkColumnOrder[QuestStatusBlackColumn]]) then
+	if (SourceItem.pos == M.darkColumnEvilrock[puzzleDarkColumnOrder[QuestStatusBlackColumn]]) then
 		OptionToSelect[TrueOption] = QuestStatusBlackColumn
 		if TrueOption == 1 then
 			repeat
@@ -455,7 +456,7 @@ function Puzzle(User,SourceItem)
 	local dialog
 
 	if  User:getPlayerLanguage() == Player.german then
-		dialog = SelectionDialog("Schwarze S‰ulen R‰tsel", "Treffe deine Wahl, aber sei vorsichtig. Bei einer flaschen Antwort musst du wieder von vorne beginnen.", callback)
+		dialog = SelectionDialog("Schwarze S‰ulen R‰tsel", "Triff deine Wahl, aber sei vorsichtig. Bei einer flaschen Antwort musst du wieder von vorne beginnen.", callback)
 	else
 		dialog = SelectionDialog("Black Column Puzzle", "Select your choice but be careful. If you select the wrong answer, you move back to the beginning.", callback)
 	end
@@ -485,7 +486,7 @@ end
 
 findPossiblePlayersForBeamMeDown={}
 
-function beamMeDown(User, SourceItem)
+function M.beamMeDown(User, SourceItem)
 	world:makeSound(22,position(975,173,0))
 	world:gfx(46,position(975,173,0))
 	findPossiblePlayersForBeamMeDown[User.name] = world:getPlayersInRangeOf(position(970,173,0), 8)
@@ -497,7 +498,7 @@ function beamMeDown(User, SourceItem)
 		if content.areas.PointInArea(player.pos,"evilrock6") then
 			player:warp(position(973,173,-6))
 			player:setQuestProgress(667,0)
-			base.common.InformNLS(player,"Das Summen bricht ab und ein Lichtermantel umschlieﬂt dich, der dich an einen anderen Ort zieht.", "The hum breaks up and a coat of light encloses you and pulls you to a different place.")
+			common.InformNLS(player,"Das Summen bricht ab und ein Lichtermantel, der dich an einen anderen Ort zieht, umschlieﬂt dich.", "The hum breaks up and a coat of light encloses you and pulls you to a different place.")
 			world:makeSound(13,player.pos)
 			world:gfx(37,player.pos)
 		end
@@ -512,3 +513,5 @@ function EvilRockPortal(User)
 	world:changeItem(portalEvilRock)
 	world:makeSound( 4, position(977,173,-6))
 end
+
+return M

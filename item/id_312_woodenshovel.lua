@@ -17,14 +17,14 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_312_woodenshovel' WHERE itm_id IN (312);
 
-require("base.licence")
-require("content.gatheringcraft.graingrinding")
-require("content.gatheringcraft.sieving")
-require("item.general.wood")
+local licence = require("base.licence")
+local graingrinding = require("content.gatheringcraft.graingrinding")
+local sieving = require("content.gatheringcraft.sieving")
+local wood = require("item.general.wood")
 
-module("item.id_312_woodenshovel", package.seeall)
+local M = {}
 
-LookAtItem = item.general.wood.LookAtItem
+M.LookAtItem = wood.LookAtItem
 
 function getMill(User)
 
@@ -70,20 +70,20 @@ function getSieve(User)
 	return nil;
 end
 
-function UseItem(User, SourceItem, ltstate)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence
+function M.UseItem(User, SourceItem, ltstate)
+	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
 	local millItem = getMill(User);
 	if millItem then
-		content.gatheringcraft.graingrinding.StartGathering(User, millItem, ltstate);
+		graingrinding.StartGathering(User, millItem, ltstate);
 		return
 	end
 
 	local sieveItem = getSieve(User);
 	if sieveItem then
-		content.gatheringcraft.sieving.StartGathering(User, sieveItem, ltstate);
+		sieving.StartGathering(User, sieveItem, ltstate);
 		return
 	end
 
@@ -91,3 +91,6 @@ function UseItem(User, SourceItem, ltstate)
 		"Du musst neben einem Mühlstein oder Sieb stehen um die Holzkelle zu benutzen.",
 		"You must stand next to a millstone or a sieve to use the wooden shovel.");
 end
+
+return M
+

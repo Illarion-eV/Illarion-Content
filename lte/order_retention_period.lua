@@ -14,9 +14,9 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.orders")
+local orders = require("base.orders")
 
-module("lte.order_retention_period", package.seeall)
+local M = {}
 
 --[[
     Sperrfristeffekt: Falls ein Char zu viele offene Aufträge hat ohne diese zu erfüllen
@@ -26,22 +26,25 @@ module("lte.order_retention_period", package.seeall)
 
 
 
-function callEffect(eff, User)
+function M.callEffect(eff, User)
    --nach dem ersten Aufruf entfernen
    return false;
 end
 
-function addEffect (eff, User)
+function M.addEffect (eff, User)
     --eff.nextCalled = OrderRetentationPeriod * 600;
 end
 
-function removeEffect (eff,User)
+function M.removeEffect (eff,User)
     --beim entfernen die Vertrauenswürdigkeit erhöhen aber wert für gute Aufträge senken
-    base.orders.setThrustWorthyness(User,
-        base.orders.ThrustworthynessChangeAfterRetentionPeriod,
-        base.orders.GoodOrderChangeAfterRetentionPeriod);
+    orders.setThrustWorthyness(User,
+        orders.ThrustworthynessChangeAfterRetentionPeriod,
+        orders.GoodOrderChangeAfterRetentionPeriod);
 end
 
-function loadEffect (eff, User)
+function M.loadEffect (eff, User)
 end
+
+
+return M
 

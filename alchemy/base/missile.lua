@@ -26,10 +26,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- took checkHit out; replaced rabbits with slime; took out damage on item quality or duration
 
 
-require("base.common")
-require("scheduled.alchemy")
+local common = require("base.common")
+local alchemy = require("scheduled.alchemy")
+local character = require("base.character")
 
-module("alchemy.base.missile", package.seeall);
+local M = {}
 
 ListeObjHolz = {39,40,56,57,76,207,208,209,293,323,2782,2783,2784,2785,2786};
 
@@ -71,7 +72,7 @@ function createSlime(User, Item, targetArea )
         if not world:isCharacterOnField( posi ) then
             slime = world:createMonster(1054,posi,-20);
             if isValidChar(slime) then
-				base.character.DeathAfterTime(slime,(lifeTime+(math.random(10,200))),11,9)
+				character.DeathAfterTime(slime,(lifeTime+(math.random(10,200))),11,9)
 		    end
         end
     end
@@ -105,7 +106,7 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
             -- damage depends on quality and baseDamage determined by area size
             -- 277HP - 4995HP
             local qual = Item.quality;
-            qual = base.common.Limit(math.floor(qual/100), 1, 9)
+            qual = common.Limit(math.floor(qual/100), 1, 9)
 
 			Schaden = baseDamage * qual;
 
@@ -127,7 +128,7 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
 
             -- Steifheit der Rüstung ermitteln. Je steifer die Rüstung deszo mehr wird der Schaden durch die Rüstung abgefangen
             -- 0 - 360
-            Stiffness = base.common.GetStiffness( Person );
+            Stiffness = common.GetStiffness( Person );
 
             -- Der dreifache Wert der Rüstungssteifheit wird vom Schaden abgezogen ( max. -1080 )
             Schaden = Schaden - Stiffness * 2;
@@ -190,10 +191,10 @@ function damageItemDura( Item, targetArea, gfxid, sfxid, modifier, ItemType )
                     ItemQual = math.floor( slotItem.quality / 100 );
                     ItemDura = slotItem.quality - ItemQual * 100;
 
-                    minReduce = base.common.Scale(  30, -1, ItemQual * 11 );
-                    maxReduce = base.common.Scale( 100, 50, ItemQual * 11 );
+                    minReduce = common.Scale(  30, -1, ItemQual * 11 );
+                    maxReduce = common.Scale( 100, 50, ItemQual * 11 );
 
-                    ItemDura = base.common.Limit( ItemDura - math.floor( base.common.Scale( minReduce, maxReduce, (qual-100)/8.99 ) )*modifier, 1, ItemDura );
+                    ItemDura = common.Limit( ItemDura - math.floor( common.Scale( minReduce, maxReduce, (qual-100)/8.99 ) )*modifier, 1, ItemDura );
 
                     slotItem.quality = ItemQual*100 + ItemDura;
                     world:changeItem( slotItem );
@@ -244,7 +245,7 @@ function damageItemQual( Item, targetArea, gfxid, sfxid, modifier, ItemType )
                     ItemQual = math.floor( slotItem.quality / 100 );
                     ItemDura = slotItem.quality - ItemQual * 100;
 
-                    ItemQual = base.common.Limit( ItemDura - math.floor( base.common.Scale( 1, 9, (qual-100)/8.99 ) )*modifier, 1, 9 );
+                    ItemQual = common.Limit( ItemDura - math.floor( common.Scale( 1, 9, (qual-100)/8.99 ) )*modifier, 1, 9 );
 
                     slotItem.quality = ItemQual*100 + ItemDura;
                     world:changeItem( slotItem );
@@ -291,9 +292,9 @@ function checkHit( User, Item )
     factor = factor - distance * distance; -- -285 - 299
     factor = ( factor + 100 ) / 2; -- -92,5 - 199,5
 
-    factor = base.common.Limit( factor, 0, 100 );
+    factor = common.Limit( factor, 0, 100 );
 
-    maxPosiModify = base.common.Scale( 5, 0, factor );
+    maxPosiModify = common.Scale( 5, 0, factor );
 
     if maxPosiModify == 0 then
         return Item.pos;
@@ -381,28 +382,28 @@ end
 ---- HITPOINT WURFBOMBEN ----
 
 -- Voller Hitpoint-Schaden auf 1er-Feld
-function effect_1(User,Item)
+function M.effect_1(User,Item)
     causeDamage(User, Item, { Item.pos }, "hitpoints", { "strength", "constitution" }, 12, 5 );
 end
 
 -- Voller Hitpoint-Schaden auf 9er-Feld
-function effect_2(User,Item)
+function M.effect_2(User,Item)
     causeDamage(User, Item, fieldOfRadius1( Item ), "hitpoints", { "strength", "constitution" }, 12, 5 );
 end
 
 -- Aufgeteilter Hitpoint-Schaden auf 9er Feld
-function effect_3(User,Item)
+function M.effect_3(User,Item)
     local hitArea = fieldOfRadius1( Item );
     causeDamage(User, Item, hitArea, "hitpoints", { "strength", "constitution" }, 12, 5, 1/countCharacters( hitArea ) );
 end
 
 -- Voller Hitpoint-Schaden auf 21er-Feld
-function effect_4(User,Item)
+function M.effect_4(User,Item)
     causeDamage(User, Item, fieldOfRadius( Item ), "hitpoints", { "strength", "constitution" }, 12, 5 );
 end
 
 -- Aufgeteilter Hitpoint-Schaden auf 21er Feld
-function effect_5(User,Item)
+function M.effect_5(User,Item)
     local hitArea = fieldOfRadius( Item );
     causeDamage(User, Item, hitArea, "hitpoints", { "strength", "constitution" }, 12, 5, 1/countCharacters( hitArea ) );
 end
@@ -411,28 +412,28 @@ end
 ---- MANA WURFBOMBEN ----
 
 -- Voller Mana-Schaden auf 1er-Feld
-function effect_6(User,Item)
+function M.effect_6(User,Item)
     causeDamage(User, Item, { Item.pos }, "mana", { "willpower", "essence" }, 4, 5 );
 end
 
 -- Voller Mana-Schaden auf 9er-Feld
-function effect_7(User,Item)
+function M.effect_7(User,Item)
     causeDamage(User, Item, (fieldOfRadius1( Item ) ), "mana", { "willpower", "essence" }, 4, 5 );
 end
 
 -- Aufgeteilter Mana-Schaden auf 9er Feld
-function effect_8(User,Item)
+function M.effect_8(User,Item)
     local hitArea = (fieldOfRadius1( Item ) );
     causeDamage(User, Item, hitArea, "mana", { "willpower", "essence" }, 4, 5, 1/countCharacters( hitArea ) );
 end
 
 -- Voller Mana-Schaden auf 21er-Feld
-function effect_9(User,Item)
+function M.effect_9(User,Item)
     causeDamage(User, Item, (fieldOfRadius( Item ) ), "mana", { "willpower", "essence" }, 4, 5 );
 end
 
 -- Aufgeteilter Mana-Schaden auf 21er Feld
-function effect_10(User,Item)
+function M.effect_10(User,Item)
     local hitArea = (fieldOfRadius( Item ) );
     causeDamage(User, Item, hitArea, "mana", { "willpower", "essence" }, 4, 5, 1/countCharacters( hitArea ) );
 end
@@ -441,28 +442,28 @@ end
 ---- FOODLEVEL WURFBOMBEN ----
 
 -- Voller Sattmacher-Schaden auf 1er-Feld
-function effect_11(User,Item)
+function M.effect_11(User,Item)
     causeDamage(User, Item, { Item.pos }, "foodlevel", { "constitution", "agility" }, 5, 5, 6 );
 end
 
 -- Voller Sattmacher-Schaden auf 9er-Feld
-function effect_12(User,Item)
+function M.effect_12(User,Item)
     causeDamage(User, Item, (fieldOfRadius1( Item ) ), "foodlevel", { "constitution", "agility" }, 5, 5, 6 );
 end
 
 -- Aufgeteilter Sattmacher-Schaden auf 9er Feld
-function effect_13(User,Item)
+function M.effect_13(User,Item)
     local hitArea = (fieldOfRadius1( Item ) );
     causeDamage(User, Item, hitArea, "foodlevel", { "constitution", "agility" }, 4, 5, 6/countCharacters( hitArea ) );
 end
 
 -- Voller Sattmacher-Schaden auf 21er-Feld
-function effect_14(User,Item)
+function M.effect_14(User,Item)
     causeDamage(User, Item, (fieldOfRadius( Item ) ), "foodlevel", { "constitution", "agility" }, 4, 5, 6 );
 end
 
 -- Aufgeteilter Sattmacher-Schaden auf 21er Feld
-function effect_15(User,Item)
+function M.effect_15(User,Item)
     local hitArea = (fieldOfRadius( Item ) );
     causeDamage(User, Item, hitArea, "foodlevel", { "constitution", "agility" }, 4, 5, 6/countCharacters( hitArea ) );
 end
@@ -470,19 +471,19 @@ end
 ---- MONSTER UM DEN WEG ZU BLOCKIEREN ----
 
 --Schleimbarriere auf 9er-Feld
-function effect_16(User,Item)
+function M.effect_16(User,Item)
     createSlime(User, Item, (fieldOfRadius1( Item ) ) );
 end
 
 --Schleimbarriere auf 21er-Feld
-function effect_17(User,Item)
+function M.effect_17(User,Item)
     createSlime(User, Item, (fieldOfRadius( Item ) ) );
 end
 
 ----- OTHERS -------
 
 --Create fruits and smell which allures insects
-function effect_18(User,Item)
+function M.effect_18(User,Item)
     fruitBomb(User, Item, fieldOfRadius( Item, 6 ))
 end
 
@@ -733,3 +734,5 @@ end
 
 --Zur Aufhebung der Matschbarriere folgen noch Vorschläge
 ]]
+
+return M

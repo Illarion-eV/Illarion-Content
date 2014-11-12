@@ -17,19 +17,19 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_12_campfire' where itm_id=12;
 
-require("base.common")
-require("content.gatheringcraft.potashproducing")
+local common = require("base.common")
+local potashproducing = require("content.gatheringcraft.potashproducing")
 
-module("item.id_12_campfire", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
-	content.gatheringcraft.potashproducing.StartGathering(User, SourceItem, ltstate);
+	potashproducing.StartGathering(User, SourceItem, ltstate);
 
 end
 
-function CharacterOnField(User)
-    base.common.InformNLS( User,
+function M.CharacterOnField(User)
+    common.InformNLS( User,
       "Du fühlst die aufsteigende Hitze des Feuers.",
       "You feel the heat of the fire." );
 	--Damage from campfires is annoying and abuseable; deactivated.
@@ -37,3 +37,6 @@ function CharacterOnField(User)
 		User:increaseAttrib("hitpoints",-math.random(200,400));
 	end]]
 end
+
+return M
+

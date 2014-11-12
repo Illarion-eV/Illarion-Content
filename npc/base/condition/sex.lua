@@ -14,22 +14,24 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
-require("npc.base.condition.condition")
+local class = require("base.class")
+local condition = require("npc.base.condition.condition")
 
-module("npc.base.condition.sex", package.seeall)
+local _sex_helper_equal
 
-sex = base.class.class(npc.base.condition.condition.condition,
+local sex = class(condition,
 function(self, value)
-    npc.base.condition.condition.condition:init(self);
+    condition:init(self)
     if (value == "male" or value == 0) then
-        self["value"] = 0;
+        self["value"] = 0
     else
-        self["value"] = 1;
-    end;
-    self["check"] = _sex_helper_equal;
-end);
+        self["value"] = 1
+    end
+    self["check"] = _sex_helper_equal
+end)
 
 function _sex_helper_equal(self, npcChar, texttype, player)
-    return (player:increaseAttrib("sex", 0) == self.value);
-end;
+    return (player:increaseAttrib("sex", 0) == self.value)
+end
+
+return sex

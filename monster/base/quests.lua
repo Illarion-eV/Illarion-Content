@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --Generic 'Kill X monsters' quests by Estralis Seborian
 
-module("monster.base.quests", package.seeall)
+local M = {}
 
 --TEMPLATE TO ADD A QUEST TO function iniQuests()
 
@@ -39,7 +39,7 @@ module("monster.base.quests", package.seeall)
 --Quest 2: To accept quest 2, set queststatus to 13 with the NPC. Use queststatus 13->18 to count 5 monsters. If the quest is finished, set queststatus to 19 with the NPC.
 --Quest 3: To accept quest 3, set queststatus to 20 with the NPC. Use queststatus 20->21 to count 1 monster. If the quest is finished, set queststatus to 22 with the NPC.
 
-function iniQuests()
+function M.iniQuests()
 
     --Initilisation
 
@@ -2609,7 +2609,7 @@ function iniQuests()
 end
 
 
-function checkQuest(User,Monster)
+function M.checkQuest(User,Monster)
 
     local MonID = Monster:getMonsterType();
     local qList = questList[MonID];
@@ -2639,5 +2639,4 @@ function checkQuest(User,Monster)
     end
 end
 
-
-
+return M

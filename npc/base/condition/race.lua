@@ -14,18 +14,20 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
-require("npc.base.condition.condition")
+local class = require("base.class")
+local condition = require("npc.base.condition.condition")
 
-module("npc.base.condition.race", package.seeall)
+local _race_helper_equal
 
-race = base.class.class(npc.base.condition.condition.condition,
+local race = class(condition,
 function(self, value)
-    npc.base.condition.condition.condition:init(self);
-    self["value"] = tonumber(value);
-    self["check"] = _race_helper_equal;
-end);
+    condition:init(self)
+    self["value"] = tonumber(value)
+    self["check"] = _race_helper_equal
+end)
 
 function _race_helper_equal(self, npcChar, texttype, player)
     return (player:getRace() == self.value);
-end;
+end
+
+return race

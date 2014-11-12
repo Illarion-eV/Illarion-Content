@@ -14,9 +14,10 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common");
-require("item.id_266_bookshelf")
-module("item.books", package.seeall)
+local lookat = require("base.lookat")
+local common = require("base.common")
+local id_266_bookshelf = require("item.id_266_bookshelf")
+local M = {}
 
 -- UPDATE items SET itm_script='item.books' WHERE itm_id = 2622;
 
@@ -40,7 +41,7 @@ function InitBook()
 	end]]
 end
 
-function UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem)
 	InitBook();
     -- alchemy book; DO NOT CHANGE! STARTER PACK RELEVANT!
 	if SourceItem.id == 2622 then
@@ -52,7 +53,7 @@ function UseItem(User, SourceItem)
 		if bookId == nil then
 			return
 		end
-		if item.id_266_bookshelf.books[bookId] ~= nil then
+		if id_266_bookshelf.books[bookId] ~= nil then
 			User:sendBook(bookId)
 		end
 	end
@@ -61,20 +62,22 @@ function UseItem(User, SourceItem)
 	--[[	if (User:getSkill(bookLanguage[SourceItem.data]) >= bookMinimumLanguage) then
 		User:sendBook(SourceItem.data);
 	else
-		base.common.InformNLS(User, Item, 
+		common.InformNLS(User, Item, 
 			"Das Buch ist in einer Sprache geschrieben, von der du zu wenig Kenntnisse hast.",
 			"The book is written in a language in what your knowledge is not advanced enough.");
 	end]]
 end
 
-function LookAtItem(User,Item)
+function M.LookAtItem(User,Item)
     if Item:getData("bookId")~="" then
 		local bookId =tonumber( Item:getData("bookId"))
 		if bookId ~= nil then
-			if item.id_266_bookshelf.books[bookId] ~= nil then
-				base.lookat.SetSpecialName(Item,item.id_266_bookshelf.books[bookId].german,item.id_266_bookshelf.books[bookId].english)
+			if id_266_bookshelf.books[bookId] ~= nil then
+				lookat.SetSpecialName(Item,id_266_bookshelf.books[bookId].german,id_266_bookshelf.books[bookId].english)
 			end
 		end
 	end
-	return base.lookat.GenerateLookAt(User, Item, 0)
+	return lookat.GenerateLookAt(User, Item, 0)
 end   
+return M
+

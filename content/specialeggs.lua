@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE common SET com_script='gm.items.id_100_trowel' WHERE com_itemid = 100;
 
-module("content.specialeggs", package.seeall)
+local M = {}
 
 
 -- That list contains nearly all items a player can carry.
@@ -672,6 +672,7 @@ itemList = {
 2716 ,--Apfelholzbretter apple wood boards
 2502 ,--Milchflasche bottle of milk
 1207 ,--Orange orange
+3607 ,--pure spirit
 }
 
 gfxList = {
@@ -682,13 +683,13 @@ eggIds = {
 1149,1150
 }
 
-function createSpecialEgg(user, amount)
+function M.createSpecialEgg(user, amount)
 
 	user:createItem(eggIds[Random.uniform(1,#eggIds)],amount,333,{nameDe="Buntes Ei",nameEn="Coloured Egg",descriptionDe="Das Ei ist mir verschiedenen bunten Verzierungen versehen worden.",descriptionEn="There are various colourful decorations on the egg.",rareness=ItemLookAt.uncommonItem,specialEgg="true"})
 
 end
 
-function checkSpecialEgg(theItem, user)
+function M.checkSpecialEgg(theItem, user)
 
 	if theItem:getData("specialEgg") == "true" then
 		openSpecialEgg(theItem, user)
@@ -711,3 +712,5 @@ function openSpecialEgg(egg, user)
 	end
 	world:gfx(gfxList[Random.uniform(1,#gfxList)],user.pos)
 end
+
+return M

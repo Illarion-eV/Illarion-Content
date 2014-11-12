@@ -18,11 +18,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (479,249,0,'triggerfield.galmair_bridges1_660');
 -- INSERT INTO triggerfields VALUES (474,247,0,'triggerfield.galmair_bridges1_660');
 
-require("base.common")
-require("base.factions");
-require("lte.deathaftertime");
-require("lte.longterm_cooldown");
-module("triggerfield.galmair_bridges1_660", package.seeall)
+local common = require("base.common")
+local factions = require("base.factions")
+local deathaftertime = require("lte.deathaftertime")
+local longterm_cooldown = require("lte.longterm_cooldown")
+local character = require("base.character")
+local M = {}
 
 
 
@@ -45,7 +46,7 @@ module("triggerfield.galmair_bridges1_660", package.seeall)
     monster[16]={201,202,203,204}; --demon skeleton 205 
 
 
-function MoveToField(char)
+function M.MoveToField(char)
 	if char:getType() ~= Character.player then --Monsters will be ingored
 		return
 	end
@@ -57,13 +58,13 @@ function MoveToField(char)
 		else
 		fighter = 0
 	end
-	if base.factions.getMembership(char) == 3 then --set chance for Galmairians and non-Galmairians
+	if factions.getMembership(char) == 3 then --set chance for Galmairians and non-Galmairians
 		chance = 20
 		else
 		chance = 5
 	end
 	if math.random(1,100)< chance  and char:increaseAttrib("hitpoints",0)>8000 then --Chance of 10% and Hitpoints above 8000
-		if base.factions.getMembership(char) ~= 3 and (char:getSkill(Character.parry)<=30) or  base.factions.getMembership(char) ~= 3 and fighter ~= 1  then --Newbie and non-fighter protection for non-Galmairian
+		if factions.getMembership(char) ~= 3 and (char:getSkill(Character.parry)<=30) or  factions.getMembership(char) ~= 3 and fighter ~= 1  then --Newbie and non-fighter protection for non-Galmairian
 			return
 		end
 		shutup = 0 --player should get message later
@@ -105,27 +106,27 @@ function MoveToField(char)
 end
 
 
-function MoveFromField(char)
+function M.MoveFromField(char)
 	if shutup ~= 0 then --stop spam
 		return
 	end
 	hero = world:getPlayersInRangeOf(char.pos, 20); --lets see if there is a player around
 	for i,player in ipairs(hero) do
-		if base.factions.getMembership(player) == 3 then --check if galmairians are there
+		if factions.getMembership(player) == 3 then --check if galmairians are there
 			luckybunch = 1 --if non-galmairians are together with galmairians
 		else
 		end
 	end
 	if char:getType() ~= Character.player then --monster start moving
 		for i,player in ipairs(hero) do
-			if base.factions.getMembership(player) == 3 then --check if galmairians are there
-				base.character.DeathAfterTime(char,math.random(5,10),0,1,true) --kill trigger monster
+			if factions.getMembership(player) == 3 then --check if galmairians are there
+				character.DeathAfterTime(char,math.random(5,10),0,1,true) --kill trigger monster
 				player:inform("Bevor du auch noch reagieren kannst, schießen Pfeile an dir vorbei und töten deine Widersacher. Du blickst in die Richtung von wo die Pfeile kamen und siehst die Wachen auf der Stadtmauer von Galmair dir mit ihren Armbrüsten zuwinken. Gut, dass du dem Don deine Steuern zahlst und er dich beschützt!", "Even before you are able to react, arrows shoot around you and take down your enemies. You look to the direction the arrows originated from and see guards on the town wall of Galmair waving to you with their crossbows. Good, you have paid your taxes to the Don and he protects you!")	--praise the don message for the player
 				shutup = 1 --stop spam in the future
 				player:setQuestProgress(660,math.random(300,600)) --lte set for all players around
 				local monsters = world:getMonstersInRangeOf(player.pos, 35); --get all monster in player range 
 				for i,mon in ipairs(monsters) do
-					base.character.DeathAfterTime(mon,math.random(5,10),0,33,true) --kill all monsters
+					character.DeathAfterTime(mon,math.random(5,10),0,33,true) --kill all monsters
 				end
 				return
 			
@@ -143,4 +144,7 @@ function MoveFromField(char)
 		return
 	end
 end
+
+
+return M
 

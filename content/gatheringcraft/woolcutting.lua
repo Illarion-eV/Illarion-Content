@@ -19,17 +19,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- additional tool: scissors (6)
 
-require("base.common")
-require("content.gathering")
+local common = require("base.common")
+local gathering = require("content.gathering")
 
 module("content.gatheringcraft.woolcutting", package.seeall)
 
 function StartGathering(User, SourceAnimal, ltstate)
 
-	content.gathering.InitGathering();
-	local woolcutting = content.gathering.woolcutting;
+	gathering.InitGathering();
+	local woolcutting = gathering.woolcutting;
 
-	base.common.ResetInterruption( User, ltstate );
+	common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
 		if (User:increaseAttrib("sex",0) == 0) then
 			gText = "seine";
@@ -42,13 +42,13 @@ function StartGathering(User, SourceAnimal, ltstate)
 		return
 	end
 
---	if not base.common.CheckItem( User, SourceItem ) then -- security check
+--	if not common.CheckItem( User, SourceItem ) then -- security check
 --		return
 --	end
 
 	-- additional tool item is needed
 	if (User:countItemAt("all",6)==0) then
-		base.common.HighInformNLS( User,
+		common.HighInformNLS( User,
 		"Du brauchst eine Schere um zu Wolle zu scheren.",
 		"You need a pair of scissors for shearing a sheep." );
 		return
@@ -57,22 +57,22 @@ function StartGathering(User, SourceAnimal, ltstate)
 	if ( toolItem.id ~= 6 ) then
 		toolItem = User:getItemAt(6);
 		if ( toolItem.id ~= 6 ) then
-			base.common.HighInformNLS( User,
+			common.HighInformNLS( User,
 			"Du musst die Schere in der Hand haben!",
 			"You have to hold the scissors in your hand!" );
 			return
 		end
 	end
 
-	if not base.common.FitForWork( User ) then -- check minimal food points
+	if not common.FitForWork( User ) then -- check minimal food points
 		return
 	end
 
-	base.common.TurnTo( User, SourceAnimal.pos ); -- turn if necessary
+	common.TurnTo( User, SourceAnimal.pos ); -- turn if necessary
 
 	-- Sheep should actually be already a sheep character struct, but check it nevertheless
 	if ( SourceAnimal == nil or (SourceAnimal ~= nil and SourceAnimal:getRace()~=18) ) then
-		base.common.HighInformNLS( User,
+		common.HighInformNLS( User,
 		"Du musst vor einem Schaf stehen, um es zu scheren.",
 		"You have to stand in front of a sheep for shearing it." );
 		return;
@@ -90,7 +90,7 @@ function StartGathering(User, SourceAnimal, ltstate)
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 	
 		if gatherAmount >= 20 then
-			base.common.HighInformNLS( User,
+			common.HighInformNLS( User,
 			"Dieses Schaf wurde kürzlich erst geschoren und gibt momentan keine Wolle.",
 			"This sheep has been sheared recently and doesn't give wool right now." );
 			return;
@@ -120,7 +120,7 @@ function StartGathering(User, SourceAnimal, ltstate)
 	local notCreated = User:createItem( 170, 1, 333, nil); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 170, notCreated, User.pos, true, 333, nil);
-		base.common.HighInformNLS(User,
+		common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	elseif gatherAmount < 20 then -- character can still carry something and more wool is available
@@ -130,13 +130,13 @@ function StartGathering(User, SourceAnimal, ltstate)
 		-- make sure the sheep doesn't move away
 		SourceAnimal.movepoints = math.min(SourceAnimal.movepoints, -1*woolcutting.SavedWorkTime[User.id]);
 	else
-		base.common.HighInformNLS( User,
+		common.HighInformNLS( User,
 		"Dieses Schaf ist nun geschoren und gibt keine Wolle mehr.",
 		"This sheep is now sheared properly and doesn't give any more wool." );
 	end
 
-	if base.common.GatheringToolBreaks( User, toolItem, woolcutting:GenWorkTime(User, toolItem) ) then -- damage and possibly break the tool
-		base.common.HighInformNLS(User,
+	if common.GatheringToolBreaks( User, toolItem, woolcutting:GenWorkTime(User, toolItem) ) then -- damage and possibly break the tool
+		common.HighInformNLS(User,
 		"Deine alte Schere zerbricht.",
 		"Your old scissors break.");
 		return

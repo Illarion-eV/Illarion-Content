@@ -105,8 +105,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell and do not forget 
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "#me verneigt sich. 'Nizar aus der Serin Wüste. Es würde mich freuen, wenn Ihr mir euren Namen verratet, mein Freund.'"
 
 -- TRIGGERS for Gemcraft
-"gem", "magical smithing", "smithing" -> "Ah. I'd love to work for you.", "Of course I'll help you with magical gems.", gemcraft
-"Edelstein", "magisches Schmieden", "Schmieden" -> "Ah. Ich arbeite gern für Euch. Nun denn ...", "Natürlich helfe ich Euch was diese magischen Edelsteinen betrifft!", gemcraft
+"gem", "magical smithing", "smithing", "gemcraft", "transmute", "combine", "enchant" -> "Ah. I'd love to work for you.", "Of course I'll help you with magical gems.", gemcraft
+"Edelstein", "magisches Schmieden", "Schmieden", "verwandel", "verein", "kombinier", "verzauber" -> "Ah. Ich arbeite gern für Euch. Nun denn ...", "Natürlich helfe ich Euch was diese magischen Edelsteinen betrifft!", gemcraft
 
 -- OPTIONAL TRIGGERS
 queststatus(701) = 1, english, "Zassaria", "lizard", "oil", "lamp", "riverbank" -> queststatus(701) = 2, "Ah yes, thank you for passing on the message. Go talk to Zassaria, I'm sure she will reward you for your service."

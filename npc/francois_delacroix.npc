@@ -59,9 +59,8 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 51, 126, 258, 271, 312, 69, 2547, 2586, 154, 200, 201, 290, 249, 259, 772, 778, 2493, 291, 534, 728, 773, 779, 2494, 2917, 2502, 307, 552, 553, 2934, 1151, 1150, 15, 80, 81, 147, 151, 199, 302, 388, 72, 73, 355, 455, 3567, 3566
-buyPrimaryItems = 51, 126, 258, 271, 312, 69, 2547, 2586, 154, 200, 201, 290, 249, 259, 772, 778, 2493, 291, 534, 728, 773, 779, 2494, 2917, 2502, 307, 552, 553, 2934, 1151, 1150, 15, 80, 81, 147, 151, 199, 302, 388, 3567, 3566
-buySecondaryItems = 72, 73, 355, 455
+sellItems = 51, 126, 258, 271, 312, 69, 2547, 2586, 154, 200, 201, 290, 249, 259, 772, 778, 2493, 291, 534, 728, 773, 779, 2494, 2917, 2502, 307, 552, 553, 2934, 1151, 1150, 15, 80, 81, 147, 151, 199, 302, 388, 72, 73, 355, 455, 3567, 3566, 1207, 1210, 1209
+buyPrimaryItems = 51, 126, 258, 271, 312, 69, 2547, 2586, 154, 200, 201, 290, 249, 259, 772, 778, 2493, 291, 534, 728, 773, 779, 2494, 2917, 2502, 307, 552, 553, 2934, 1151, 1150, 15, 80, 81, 147, 151, 199, 302, 388, 3567, 3566, 1207, 73, 355, 455, 1210, 1209, 72
 tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
 tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
 tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you like my wares?"
@@ -71,15 +70,15 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- This NPC is supposed to trade (all goods are sold and bought, percentage indicates ratio of price bought/sold):
 
 -- 10% Tools (Farmer): 51, 126, 258, 271, 312
--- 5% Tools (Fisher): 72
+-- 10% Tools (Fisher): 72
 -- 10% Animal skins: 69, 2547, 2586
 -- 10% Crops: 154, 200, 201, 290, 249, 772, 778, 2493, 3567
--- 5% Fish: 73, 355, 455
+-- 10% Fish: 73, 355, 455, 1210, 1209
 -- 10% Seeds: 259, 291, 534, 728, 773, 779, 2494, 2917, 3566
 -- 10% Milk: 330
 -- 10% Raw meat: 307, 552, 553, 2934, 1151
 -- 10% Eggs 1149
--- 10% Fruits: 15, 80, 81, 147, 151, 199, 302, 388
+-- 10% Fruits: 15, 80, 81, 147, 151, 199, 302, 388, 1207
 
 -- Take this hammer documentary
 -- Names: Francois Delacroix

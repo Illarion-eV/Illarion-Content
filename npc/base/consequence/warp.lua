@@ -14,22 +14,23 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
--- $Id$
-require("base.class")
-require("npc.base.consequence.consequence")
+local class = require("base.class")
+local consequence = require("npc.base.consequence.consequence")
 
-module("npc.base.consequence.warp", package.seeall)
+local _warp_helper
 
-warp = base.class.class(npc.base.consequence.consequence.consequence,
+local warp = class(consequence,
 function(self, x, y, z)
-    npc.base.consequence.consequence.consequence:init(self);
+    consequence:init(self)
     
-    self["x"] = tonumber(x);
-    self["y"] = tonumber(y);
-    self["z"] = tonumber(z);
-    self["perform"] = _warp_helper;
-end);
+    self["x"] = tonumber(x)
+    self["y"] = tonumber(y)
+    self["z"] = tonumber(z)
+    self["perform"] = _warp_helper
+end)
 
 function _warp_helper(self, npcChar, player)
-    player:warp(position(self.x,self.y,self.z));
-end;
+    player:warp(position(self.x,self.y,self.z))
+end
+
+return warp

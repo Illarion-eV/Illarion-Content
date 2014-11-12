@@ -14,41 +14,46 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
-require("base.seafaring")
-require("base.townManagement")
-require("base.factions")
-
+local common = require("base.common")
+local seafaring = require("base.seafaring")
+local townManagement = require("base.townManagement")
+local factions = require("base.factions")
+local vision = require("content.vision")
+local lookat = require("base.lookat")
 -- UPDATE items SET itm_script='item.bookrests' WHERE itm_id = 3104;
 -- UPDATE items SET itm_script='item.bookrests' WHERE itm_id = 3105;
 -- UPDATE items SET itm_script='item.bookrests' WHERE itm_id = 3106;
 -- UPDATE items SET itm_script='item.bookrests' WHERE itm_id = 3107;
 -- UPDATE items SET itm_script='item.bookrests' WHERE itm_id = 3108;
 
-module("item.bookrests", package.seeall)
+local M = {}
 
-function LookAtItem(User,Item)
+function M.LookAtItem(User,Item)
 
 	local lookAt
-	-- Bookrest for the Salavesh dungeon!
+	-- Bookrest for the Salavesh dungeon
 	if (Item.pos == position(741,406,-3)) then
 		lookAt = SalaveshLookAt(User, Item)
 	end
-	-- Salavesh end
+
+	-- Bookrest for Akaltut dungeon
+	if (Item.pos == position(430, 815, -9)) then
+		lookAt = AkaltutLookAt(User, Item)
+	end
 
 	-- Bookrest for townManagement
-	local AmountTM = #base.townManagement.townManagmentItemPos	
+	local AmountTM = #townManagement.townManagmentItemPos
 	for i = 1,AmountTM do
-		if (Item.pos == base.townManagement.townManagmentItemPos[i]) then
+		if (Item.pos == townManagement.townManagmentItemPos[i]) then
 			lookAt = TMLookAt(User, Item)
 		end
 	end
 	-- Bookrest for townManagement end
 
 	-- Bookrest for ferry
-	local Amountferry = #base.seafaring.ferrySourceItemPos
+	local Amountferry = #seafaring.ferrySourceItemPos
 	for i = 1,Amountferry do
-		if (Item.pos == base.seafaring.ferrySourceItemPos[i]) then
+		if (Item.pos == seafaring.ferrySourceItemPos[i]) then
 			lookAt = FerryLookAt(User, Item)
 		end
 	end
@@ -63,7 +68,7 @@ function LookAtItem(User,Item)
 	if lookAt then
 	    return lookAt
 	else
-	    return base.lookat.GenerateLookAt(User, Item, 0)
+	    return lookat.GenerateLookAt(User, Item, 0)
 	end
 end
 
@@ -116,12 +121,42 @@ function SalaveshLookAt(User, Item)
 	return lookAt
 end
 
-function UseItem(User, SourceItem)
-	-- Bookrest for the Salavesh dungeon!
+function AkaltutLookAt(User, Item)
+
+	local lookAt = ItemLookAt();
+	lookAt.rareness = ItemLookAt.rareItem;
+
+	if (User:getPlayerLanguage()==0) then
+		lookAt.name = "Infirmos magische Schriftrolle";
+		lookAt.description = "Geschrieben in einer alten Sprache..."
+	else
+		lookAt.name = "Infirmo's magical scroll";
+		lookAt.description = "Written in an old language..."
+	end
+	return lookAt
+end
+
+function M.UseItem(User, SourceItem)
+	-- Bookrest for the Salavesh dungeon
 	if (SourceItem.pos == position(741,406,-3)) then
 	    User:sendBook(201);
 	end
-	-- Salavesh end
+
+    	-- Bookrest for Akaltut dungeon
+	if (SourceItem.pos == position(430, 815, -9)) then
+        local foundEffect, myEffect = User.effects:find(120); -- monsterhunter_timer lte
+		if User:getQuestProgress(529) == 3 and not foundEffect then
+
+            User:inform("Der Höllenhund ist im Südosten von hier.", "The hellhound is  southeast from here.")
+            local myEffect = LongTimeEffect(120, 50) -- 5sec
+            User.effects:addEffect(myEffect)
+        elseif foundEffect then
+            User:inform("Der Höllenhund ist im Südosten von hier. Finde ihn!", "The hellhound is  southeast from here. Find it!")
+        else
+            User:inform("Die Schriftzeichen sagen dir nichts.", "You can't make any sense of the letters written here.")
+        end
+	end
+
 
 	-- Bookrest for the Evilrock!
 	if (SourceItem.pos == position(975,173,0)) then
@@ -149,19 +184,19 @@ function UseItem(User, SourceItem)
 	-- Evilrock end
 
 	-- TownManagement
-	local AmountTM = #base.townManagement.townManagmentItemPos	
-	for i = 1,AmountTM do	
-		if (SourceItem.pos == base.townManagement.townManagmentItemPos[i]) then
-			base.townManagement.townManagmentUseItem(User, SourceItem)
+	local AmountTM = #townManagement.townManagmentItemPos
+	for i = 1,AmountTM do
+		if (SourceItem.pos == townManagement.townManagmentItemPos[i]) then
+			townManagement.townManagmentUseItem(User, SourceItem)
 		end
 	end
 	-- TownManagement end
 
 	-- ferries
-	local Amountferry = #base.seafaring.ferrySourceItemPos
+	local Amountferry = #seafaring.ferrySourceItemPos
 	for i = 1,Amountferry do
-		if (SourceItem.pos == base.seafaring.ferrySourceItemPos[i]) then
-			base.seafaring.Ferry(User, SourceItem)
+		if (SourceItem.pos == seafaring.ferrySourceItemPos[i]) then
+			seafaring.Ferry(User, SourceItem)
 		end
 	end
 	-- ferries end
@@ -174,7 +209,7 @@ function UseItem(User, SourceItem)
 end
 
 function usingHomeTeleporter(User,factionNames,teleporterPos)
-	local userFaction = base.factions.getMembershipByName(User)
+	local userFaction = factions.getMembershipByName(User)
 	for i=1,#factionNames do
 		if factionNames[i] == userFaction and User:distanceMetricToPosition(teleporterPos[i]) < 5 then
 			return true
@@ -184,7 +219,7 @@ function usingHomeTeleporter(User,factionNames,teleporterPos)
 end
 
 function NecktieHomeTravel(User,factionNames,teleporterPos,selected)
-	local userFaction = base.factions.getMembershipByName(User)
+	local userFaction = factions.getMembershipByName(User)
 	if (factionNames[selected]==userFaction and User:distanceMetricToPosition(teleporterPos[4]) < 5) or (selected == 4 and usingHomeTeleporter(User,factionNames,teleporterPos)) then
 		return true
 	end
@@ -195,19 +230,19 @@ function StaticTeleporter(User, SourceItem)
 
     local names
 	if  User:getPlayerLanguage() == Player.german then
-		names = {"Runewick","Galmair","Cadomyr","Gasthof zur Hanfschlinge"}
+		names = {"Runewick","Galmair","Cadomyr","Gasthof zur Hanfschlinge","Gefängnismine"}
 	else
-		names = {"Runewick","Galmair","Cadomyr","Hemp Necktie Inn"}
+		names = {"Runewick","Galmair","Cadomyr","Hemp Necktie Inn","Prison Mine"}
 	end
-	local items = {105,61,2701,1909}
-	local targetPos = {position(835,813,0), position(423,246,0),position(126,647,0),position(684,307,0)}
+	local items = {105,61,2701,1909,466}
+	local targetPos = {position(835,813,0), position(423,246,0),position(126,647,0),position(684,307,0),position(-484,-455,-40)}
 
 	local callback = function(dialog)
 
 		local success = dialog:getSuccess()
 		if success then
 			local selected = dialog:getSelectedIndex()+1
-			local userFaction = base.factions.getMembershipByName(User)
+			local userFaction = factions.getMembershipByName(User)
 			-- Check wether the char has enough money or travels from necktie to hometown or vice versa
 			if (base.money.CharHasMoney(User,500) or NecktieHomeTravel(User,names,targetPos,selected)) then
 
@@ -246,4 +281,7 @@ function StaticTeleporter(User, SourceItem)
 	end
 	User:requestSelectionDialog(dialog)
 end
+
+
+return M
 

@@ -14,16 +14,16 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common")
-module("lte.labourcamp", package.seeall)
+local common = require("base.common")
+local M = {}
 
 -- INSERT INTO longtimeeffects VALUES (55, 'labourcamp', 'lte.labourcamp');
 
 
-function addEffect(Effect, User)
+function M.addEffect(Effect, User)
 end
 
-function callEffect(Effect,User)
+function M.callEffect(Effect,User)
 
     if User.pos.z ~= -40 then -- security check: char not in labour camp, remove lte
 	    return false
@@ -31,15 +31,17 @@ function callEffect(Effect,User)
 	
 	local findCounter,spamProtection_1 = Effect:findValue("spamProtection_1")
     if findCounter then
-	   spamProtection_1 = base.common.Limit((spamProtection_1 - 1), 0, 5)
+	   spamProtection_1 = common.Limit((spamProtection_1 - 1), 0, 5)
 	   Effect:addValue("spamProtection_1",spamProtection_1)
     end
    
     return true
 end
 
-function removeEffect(Effect,User)
+function M.removeEffect(Effect,User)
 end
 
-function loadEffect(Effect,User)
+function M.loadEffect(Effect,User)
 end
+return M
+

@@ -14,12 +14,12 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-module("lte.bleeding", package.seeall)
+local M = {}
 -- Bleeding Mainscript
 
 lowerAttribs = {"agility","stength","constitution","perception","dexterity"};
 
-function addEffect( BleedingEffect, Victim )
+function M.addEffect( BleedingEffect, Victim )
     BleedingEffect:addValue( "wounds", 1 );
     if ( Victim:getPlayerLanguage() == 0 ) then
         Victim:inform( "Durch den Schlag fängst du dir eine stark blutende Wunde ein." );
@@ -30,7 +30,7 @@ function addEffect( BleedingEffect, Victim )
     return true;
 end
 
-function doubleEffect( BleedingEffect, Victim )
+function M.doubleEffect( BleedingEffect, Victim )
     woundsFound, wounds = BleedingEffect:findValue( "wounds" );
     if woundsFound then
         BleedingEffect:addValue( "wounds", wounds + 1 );
@@ -46,7 +46,7 @@ function doubleEffect( BleedingEffect, Victim )
     return true;
 end
 
-function callEffect( BleedingEffect, Victim )
+function M.callEffect( BleedingEffect, Victim )
     woundsFound, wounds = BleedingEffect:findValue( "wounds" );
     if not woundsFound then
         wounds = 0;
@@ -156,7 +156,7 @@ function dropTheBlood( posi )
     end
 end
 
-function removeEffect( BleedingEffect, Victim )
+function M.removeEffect( BleedingEffect, Victim )
     for i,attribute in lowerAttribs do
         foundAttrib, Attribmod = BleedingEffect:findValue( attribute );
         if not foundAttrib then
@@ -168,7 +168,7 @@ function removeEffect( BleedingEffect, Victim )
     end
 end
 
-function loadEffect( BleedingEffect, Victim )
+function M.loadEffect( BleedingEffect, Victim )
     for i,attribute in lowerAttribs do
         foundAttrib, Attribmod = BleedingEffect:findValue( attribute );
         if not foundAttrib then
@@ -179,3 +179,6 @@ function loadEffect( BleedingEffect, Victim )
         end
     end
 end
+
+return M
+

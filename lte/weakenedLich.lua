@@ -16,13 +16,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Turns a weakened lich back to a normal one
 
-module("lte.weakenedLich", package.seeall)
+local M = {}
 
-function addEffect(theEffect, weakendLich)               				
+function M.addEffect(theEffect, weakendLich)               				
 
 end
 
-function callEffect(theEffect, weakendLich) 
+function M.callEffect(theEffect, weakendLich) 
 
 	weakendLich:increaseAttrib("hitpoints",-10000)
 	local strongLich = world:createMonster(205,weakendLich.pos,-20)
@@ -33,10 +33,12 @@ function callEffect(theEffect, weakendLich)
 	return false
 end
 
-function removeEffect(theEffect, weakendLich) 
+function M.removeEffect(theEffect, weakendLich) 
 
 end
 
-function loadEffect(theEffect, weakendLich)           			
+function M.loadEffect(theEffect, weakendLich)           			
 
 end
+return M
+

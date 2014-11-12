@@ -151,14 +151,10 @@ english, "Irmorom" -> "He's the only one that ever cared about me. I give him te
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Severus", "Rabon" -> "Oh, do you need something?", "That is me.", "Hello. I am Severus Rabon. I would be glad to help you with anything that you need."
 "Severus", "Rabon" -> "Oh, braucht ihr etwas?", "Das bin ich.", "Hallo. Ich bin Severus Rabon. Ich bin euch gerne behilflich, wenn ihr etwas benötigt."
-"Yes" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait, what?"
-"Ja" -> "Hab ich was gesagt?", "Ich glaube nicht, dass ich recht verstehe, um was es geht.", "Wie bitte?"
-"No" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait, what?"
-"Nein" -> "Hab ich was gesagt?", "Ich glaube nicht, dass ich recht verstehe, um was es geht.", "Wie bitte?"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "This discussion is not relevant to me.", "Maybe talk about something like adventures or missions. People respond well to those words.", "I have no intention of buying your chicken."
-german, chance(20.0), ".*" -> "Irgendwie interessiert mich das nicht.", "Redet doch über Aufgaben oder Abenteuer. Die Leute reden gerne über sowas.", "Ich kaufe keine Hühner."
+english, chance(5.0), ".*" -> "This discussion is not relevant to me.", "Maybe talk about something like adventures or missions. People respond well to those words.", "I have no intention of buying your chicken."
+german, chance(5.0), ".*" -> "Irgendwie interessiert mich das nicht.", "Redet doch über Aufgaben oder Abenteuer. Die Leute reden gerne über sowas.", "Ich kaufe keine Hühner."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

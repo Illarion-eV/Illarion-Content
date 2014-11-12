@@ -312,9 +312,9 @@ queststatus(181) ~= 0, queststatus(181) < 95, town = Galmair, "Auftrag", "Aufgab
 
 -- Information 96: Kill twelve foxes in three hours
 -- 96: Information 96 taken, get twelve foxes, reward: twelve sp, 6 rankpoints
-queststatus(181) = 0, english, chance(10), town = Galmair, "quest", "mission" -> inform("[New Information] Kill twelve foxes."), "Da Don needs information. Scout da area and smash delve foxes, yus reward bes delve silber coins.", queststatus(162) = 96, queststatus(163) = 36
+queststatus(181) = 0, english, chance(10), town = Galmair, "quest", "mission" -> inform("[New Information] Kill twelve foxes."), "Da Don needs information. Scout da area and smash delve foxes, yus reward bes delve silber coins.", queststatus(181) = 96, queststatus(182) = 36
 queststatus(181) = 0, german, chance(10), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte zwölf Füchse."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau zwölf Füchse zu Brei! Ich dir geben zwölf Silberstücke zur Belohnung!", queststatus(181) = 96, queststatus(182) = 36
-queststatus(181) = 0, chance(10), town = Galmair, "task", "adventure", "order"-> inform("[New Information] Kill twelve foxes."), "Da Don needs information. Scout da area and smash delve foxes, yus reward bes delve silber coins.", queststatus(162) = 96, queststatus(163) = 36
+queststatus(181) = 0, chance(10), town = Galmair, "task", "adventure", "order"-> inform("[New Information] Kill twelve foxes."), "Da Don needs information. Scout da area and smash delve foxes, yus reward bes delve silber coins.", queststatus(181) = 96, queststatus(182) = 36
 queststatus(181) = 0, german, chance(10), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte zwölf Füchse."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau zwölf Füchse zu Brei! Ich dir geben zwölf Silberstücke zur Belohnung!", queststatus(181) = 96, queststatus(182) = 36
 
 -- Information 96 solved, reward: twelve sp, 6 rankpoints, delay: 5h
@@ -336,7 +336,7 @@ queststatus(181) = 0, chance(11.11111111), town = Galmair, "Auftrag", "Aufgabe",
 
 -- Information 109 solved, reward: six sp, 5 rankpoints, delay: 5h
 queststatus(181) = 113, english, town = Galmair, ".*" -> inform("[Information collected] You are awarded six silver coins."), "Yubba, yus did goods.  Mes be tellin' da Stumpy.  Take des reward.", money + 600, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 2
-queststatus(181) = 113, town = Galmair, ".*" -> inform("[Informationen erhalten] Du erhältst sechs Silberstücke."), "Yubba, gut das ist! Ich erzählen werde dem Zwerg. Deine Belohnung du nimmst!", money + 600, queststatus(162) = 0, queststatus(181) = 0, queststatus(182) = 60, rankpoints + 2
+queststatus(181) = 113, town = Galmair, ".*" -> inform("[Informationen erhalten] Du erhältst sechs Silberstücke."), "Yubba, gut das ist! Ich erzählen werde dem Zwerg. Deine Belohnung du nimmst!", money + 600, queststatus(181) = 0, queststatus(182) = 0, queststatus(183) = 60, rankpoints + 2
 
 -- Information 109 taken but not solved, repeat the instructions
 queststatus(181) ~= 0, queststatus(181) < 113, english, town = Galmair, "quest", "mission" -> "Da Don needs da information, yus wasting time!"
@@ -363,9 +363,9 @@ queststatus(181) ~= 0, queststatus(181) < 122, town = Galmair, "Auftrag", "Aufga
 
 -- Information 123: Kill twelve ratmen in three hours
 -- 123: Information 123 taken, get twelve ratmen, reward: eighteen sp, 6 rankpoints
-queststatus(181) = 0, english, chance(14.28571429), town = Galmair, "quest", "mission" -> inform("[New Information] Kill twelve ratmen."), "Da Don needs information. Scout da area and smash delve ratmen, yus reward bes den and ate silber coins.", queststatus(162) = 123, queststatus(163) = 36
+queststatus(181) = 0, english, chance(14.28571429), town = Galmair, "quest", "mission" -> inform("[New Information] Kill twelve ratmen."), "Da Don needs information. Scout da area and smash delve ratmen, yus reward bes den and ate silber coins.", queststatus(181) = 123, queststatus(182) = 36
 queststatus(181) = 0, german, chance(14.28571429), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte zwölf Rattenmenschen."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau zwölf Rattenmenschen zu Brei! Ich dir geben achtzehn Silberstücke zur Belohnung!", queststatus(181) = 123, queststatus(182) = 36
-queststatus(181) = 0, chance(14.28571429), town = Galmair, "task", "adventure", "order" -> inform("[New Information] Kill twelve ratmen."), "Da Don needs information. Scout da area and smash delve ratmen, yus reward bes den and ate silber coins.", queststatus(162) = 123, queststatus(163) = 36
+queststatus(181) = 0, chance(14.28571429), town = Galmair, "task", "adventure", "order" -> inform("[New Information] Kill twelve ratmen."), "Da Don needs information. Scout da area and smash delve ratmen, yus reward bes den and ate silber coins.", queststatus(181) = 123, queststatus(182) = 36
 queststatus(181) = 0, chance(14.28571429), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Informationen] Töte zwölf Rattenmenschen."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau zwölf Rattenmenschen zu Brei! Ich dir geben achtzehn Silberstücke zur Belohnung!", queststatus(181) = 123, queststatus(182) = 36
 
 -- Information 123 solved, reward: eighteen sp, 6 rankpoints, delay: 5h

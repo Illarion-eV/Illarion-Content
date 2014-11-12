@@ -14,15 +14,12 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("content.craft.brewing")
-require("base.licence")
+local brewing = require("content.craft.brewing")
 
-module("item.id_339_barrel", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence 
-		return -- avoids crafting if user is neither citizen nor has a licence
-	end
-
-    content.craft.brewing.brewing:showDialog(User, SourceItem)
+function M.UseItem(User, SourceItem, ltstate)
+    brewing.brewing:showDialog(User, SourceItem)
 end
+
+return M

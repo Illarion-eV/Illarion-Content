@@ -16,14 +16,14 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- fireSpitting, id 60
 
-require("base.common")
-module("lte.fireSpitting", package.seeall)
+local common = require("base.common")
+local M = {}
 
-function addEffect(Effect, User)               				
+function M.addEffect(Effect, User)               				
 
 end
 
-function callEffect(Effect, User) 
+function M.callEffect(Effect, User) 
     
 	local findSecondTime, sceondTime = Effect:findValue("secondTime")
     if not findSecondTime then
@@ -43,25 +43,28 @@ function callEffect(Effect, User)
 			    local char = world:getCharacterOnField(posi)
 				char:inform("Du wirst von einer Flamme erwischt! Aua!","You are hit by fire! Ouch!",Character.highPriority)
 			    local damage = 100*quality
-				Stiffness = base.common.GetStiffness( char )
+				Stiffness = common.GetStiffness( char )
 				damage = damage - Stiffness
 				damage = damage - (char:increaseAttrib("constitution",0)*2)
-				base.common.Limit(damage, 100, 900)
+				common.Limit(damage, 100, 900)
 				char:increaseAttrib("hitpoints",-damage)
 			end	
 		    world:gfx(9,posi)
 			world:gfx(36,posi)			
 		end
-		spitFire(base.common.GetFrontPosition(User))
-		base.common.CreateLine(base.common.GetFrontPosition(User), base.common.GetFrontPosition(User, quality), spitFire)
+		spitFire(common.GetFrontPosition(User))
+		common.CreateLine(common.GetFrontPosition(User), common.GetFrontPosition(User, quality), spitFire)
         return false
     end
 end
 
-function removeEffect(Effect,User)
+function M.removeEffect(Effect,User)
 
 end
 
-function loadEffect(Effect,User)                  			
+function M.loadEffect(Effect,User)                  			
 
 end
+
+return M
+

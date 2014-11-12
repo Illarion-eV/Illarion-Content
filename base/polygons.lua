@@ -16,15 +16,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- basic handling for polygonal areas on the map
 
-require("base.class");
+local class = require("base.class")
 
-module("base.polygons",package.seeall);
+local M = {}
 
 --- representation of a line. All positions have z=0.
 -- @param posStruct Start point
 -- @param posStruct End point
 -- @return LineStruct
-Line = base.class.class(
+M.Line = class(
 	function(obj, startPoint, endPoint)
 		obj.startPoint = position(startPoint.x, startPoint.y, 0);
 		obj.endPoint = position(endPoint.x, endPoint.y, 0);
@@ -38,7 +38,7 @@ Line = base.class.class(
 -- @field zList list(int) list with valid z values for PIP test
 -- @param list(posStruct) List of points, neighbours are connected, aswell as first and last point of the list
 -- @return PolygonStruct
-Polygon = base.class.class(
+M.Polygon = class(
 	function(obj, positionList, zList)
 		if #positionList < 3 then
 			debug("A polygon must have at least 3 points");
@@ -50,7 +50,7 @@ Polygon = base.class.class(
 		obj.max = position(s.x,s.y,0);
 		table.insert(positionList, positionList[1]); -- add first point, so there is an edge between first and last point
 		for i=2,#positionList do
-			table.insert(obj.lineList, Line(s, positionList[i]));
+			table.insert(obj.lineList, M.Line(s, positionList[i]));
 			s = positionList[i];
 			obj.min.x = math.min(obj.min.x, s.x);
 			obj.min.y = math.min(obj.min.y, s.y);
@@ -69,7 +69,7 @@ Polygon = base.class.class(
 -- @param LineStruct The otherLine for which intersection with current Line is tested
 -- @param boolean True if self is a horizontal ray. Thus if the start/end point of otherLine is on self then true is returned if and only if the rest of otherLine is below self.
 -- @return boolean True if the two lines intersect, false if no intersection or lines are identical
-function Line:intersectsLine(otherLine, selfIsRay)
+function M.Line:intersectsLine(otherLine, selfIsRay)
 	-- solve for p1, p2 i.e. the fraction on the two lines from the start point to the intersection point
 	local denominator = (otherLine.endPoint.y - otherLine.startPoint.y)*(self.endPoint.x - self.startPoint.x) - (otherLine.endPoint.x - otherLine.startPoint.x)*(self.endPoint.y - self.startPoint.y);
 	local nominator1 = (otherLine.endPoint.x - otherLine.startPoint.x)*(self.startPoint.y - otherLine.startPoint.y) - (otherLine.endPoint.y - otherLine.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x);
@@ -105,7 +105,7 @@ end
 --- tests if a point is on a line.
 -- @param posStruct The point to be tested.
 -- @return boolean True if point is on Line
-function Line:pointOnLine(point)
+function M.Line:pointOnLine(point)
 	-- check x coordinate
 	local px = -1;
 	local py = -2;
@@ -144,7 +144,7 @@ end
 --- Point-In-Polygon test
 -- @param posStruct The point to be tested if inside the Polygon
 -- @return boolean True if point is in Polygon
-function Polygon:pip(point)
+function M.Polygon:pip(point)
 	-- valid z level?
 	local zValid = false;
 	for _,level in pairs(self.zList) do
@@ -161,7 +161,7 @@ function Polygon:pip(point)
 		return false;
 	end
 	-- create a test line from the point to the right most boundary
-	local testLine = Line(point, position(self.max.x+1, point.y, 0));
+	local testLine = M.Line(point, position(self.max.x+1, point.y, 0));
 	local count = 0;
 	for _,curLine in pairs(self.lineList) do
 		if curLine:pointOnLine(point) then
@@ -173,3 +173,5 @@ function Polygon:pip(point)
 	end
 	return (count%2 == 1);
 end
+
+return M

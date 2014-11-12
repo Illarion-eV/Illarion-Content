@@ -14,15 +14,15 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-require("base.common")
-require("monster.base.monstermagic")
+local common = require("base.common")
+local monstermagic = require("monster.base.monstermagic")
 
 -- Long time effect (112)
-module("lte.damagefield_poisoncloud", package.seeall)
+local M = {}
 
 local function causeDamage(User, quality)
 
-    local resist = monster.base.monstermagic.SpellResistence(User) * 10
+    local resist = monstermagic.SpellResistence(User) * 10
     if resist < quality then
         local damageLow = 3 * math.floor((math.max(10, quality - resist)))
         local damageHigh = 5 * math.floor(quality - resist)
@@ -31,7 +31,7 @@ local function causeDamage(User, quality)
     end
 end
 
-function addEffect(theEffect, User)
+function M.addEffect(theEffect, User)
 
     User:inform("Du fühlst wie dein Körper schwächer wird.",
                 "You feel your body becoming weaker.")
@@ -39,10 +39,10 @@ function addEffect(theEffect, User)
     causeDamage(User, quality)
 end
 
-function callEffect(theEffect, User)
+function M.callEffect(theEffect, User)
 
     -- check if still on a damaging field
-    local Items = base.common.GetItemsOnField(User.pos)
+    local Items = common.GetItemsOnField(User.pos)
     local FieldItem
 
     for _, item in pairs(Items) do
@@ -63,12 +63,15 @@ function callEffect(theEffect, User)
     return true
 end
 
-function loadEffect(theEffect, User)
+function M.loadEffect(theEffect, User)
     -- we dont care
 end
 
-function removeEffect (theEffect, User)
+function M.removeEffect (theEffect, User)
 
     User:inform("Du fühlst wie das Gift in deinem Körper nachlässt.",
                 "You feel the poison fade.")
 end
+
+return M
+

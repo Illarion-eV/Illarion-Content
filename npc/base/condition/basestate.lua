@@ -14,24 +14,27 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
-require("npc.base.condition.condition")
+local class = require("base.class")
+local baseNPC = require("npc.base.basic")
+local condition = require("npc.base.condition.condition")
 
-module("npc.base.condition.basestate", package.seeall)
+local _basestate_helper_equal
 
-basestate = base.class.class(npc.base.condition.condition.condition,
+local basestate = class(condition,
 function(self, value)
-    npc.base.condition.condition.condition:init(self);
+    condition:init(self)
     if (value == "busy") then
-        self["value"] = npc.base.basic.baseNPC.stateBusyTalking;
+        self["value"] = baseNPC.stateBusyTalking
     elseif (value == "idle") then
-        self["value"] = npc.base.basic.baseNPC.stateNormal;
+        self["value"] = baseNPC.stateNormal
     else
-        self["value"] = -1;
-    end;
-    self["check"] = _basestate_helper_equal;
-end);
+        self["value"] = -1
+    end
+    self["check"] = _basestate_helper_equal
+end)
 
 function _basestate_helper_equal(self, npcChar, texttype, player)
     return (self.npc._parent.state == self.value)
-end;
+end
+
+return basestate

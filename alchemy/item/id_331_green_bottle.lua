@@ -22,39 +22,38 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- ------------------------------------------------
 
 -- include base.common for additional functions
-require("base.common")
-require("base.character")
-require("alchemy.item.id_165_blue_bottle")
-require("alchemy.base.alchemy")
-
-module("alchemy.item.id_331_green_bottle", package.seeall)
+local common = require("base.common")
+local id_165_blue_bottle = require("alchemy.item.id_165_blue_bottle")
+local alchemy = require("alchemy.base.alchemy")
+local lookat = require("base.lookat")
+local M = {}
 
 -- UPDATE common SET com_script='alchemy.item.id_331_green_bottle' WHERE com_itemid = 331;
 
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
     
 	if SourceItem:getData("filledWith") ~= "stock" then -- no stock, something else
 	    return
 	
 	else
         -- infront of a cauldron?
-		local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
+		local cauldron = alchemy.GetCauldronInfront(User)
         if cauldron then
 	        
 			-- is the char an alchemist?
-	        local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
+	        local anAlchemist = alchemy.CheckIfAlchemist(User)
 			if not anAlchemist then
 				User:inform("Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
 				return
 			end
 			
-			if not alchemy.base.alchemy.checkFood(User) then
+			if not alchemy.checkFood(User) then
 				return
 			end
 		
 			if ( ltstate == Action.abort ) then
-				base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+				common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
 			   return
 			end
 		
@@ -69,21 +68,21 @@ function UseItem(User, SourceItem, ltstate)
 			end	  
 
 			FillStockIn(User,SourceItem,cauldron)
-			alchemy.base.alchemy.EmptyBottle(User,SourceItem)
-			alchemy.base.alchemy.lowerFood(User)
+			alchemy.EmptyBottle(User,SourceItem)
+			alchemy.lowerFood(User)
 		else
 		    DrinkIt(User, SourceItem)
-			alchemy.base.alchemy.EmptyBottle(User,SourceItem)
+			alchemy.EmptyBottle(User,SourceItem)
 		end
 	end
 end
 
 function DrinkIt(User, SourceItem)
     if User.attackmode then
-		base.common.InformNLS(User, "Du kannst nichts trinken, während du kämpfst.", "You cannot drink while fighting.", Player.lowPriority)
+		common.InformNLS(User, "Du kannst nichts trinken, während du kämpfst.", "You cannot drink while fighting.", Player.lowPriority)
 	else
 		User:talk(Character.say, "#me trinkt eine grüne Flüssigkeit.", "#me drinks a green liquid.")
-		base.common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", "You don't have the feeling that something happens.")
+		common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", "You don't have the feeling that something happens.")
 		User.movepoints=User.movepoints - 20
 	end
 end
@@ -91,29 +90,31 @@ end
 function FillStockIn(User,SourceItem, cauldron)
     -- water, stock or potion is in the cauldron; leads to a failure
 	if cauldron:getData("filledWith") == "water" then
-		alchemy.base.alchemy.CauldronDestruction(User,cauldron,1)
+		alchemy.CauldronDestruction(User,cauldron,1)
 
 	elseif cauldron:getData("filledWith") == "stock" then
-		alchemy.base.alchemy.CauldronDestruction(User,cauldron,2)
+		alchemy.CauldronDestruction(User,cauldron,2)
 	
 	elseif cauldron:getData("filledWith") == "potion" then
 		if cauldron.id == 1013 then -- support potion
-			 alchemy.item.id_165_blue_bottle.SupportStock(User,cauldron,SourceItem)
+			 id_165_blue_bottle.SupportStock(User,cauldron,SourceItem)
 		else
-			alchemy.base.alchemy.CauldronExplosion(User,cauldron,2)
+			alchemy.CauldronExplosion(User,cauldron,2)
 		end
 	
 	elseif cauldron:getData("filledWith") == "essenceBrew" then 
-		local check = alchemy.base.alchemy.CombineStockEssence( User, SourceItem, cauldron)
+		local check = alchemy.CombineStockEssence( User, SourceItem, cauldron)
         if check == false then
 		    return
 		end	
 	elseif cauldron.id == 1008 then -- nothing in the cauldron, we just fill in the stock
-		alchemy.base.alchemy.FillFromTo(SourceItem,cauldron)
+		alchemy.FillFromTo(SourceItem,cauldron)
 		world:changeItem(cauldron)
 	end
 end
 
-function LookAtItem(User,Item)
-    return base.lookat.GenerateLookAt(User, Item, 0)
+function M.LookAtItem(User,Item)
+    return lookat.GenerateLookAt(User, Item, 0)
 end 
+return M
+

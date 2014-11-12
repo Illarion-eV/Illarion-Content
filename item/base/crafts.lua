@@ -19,8 +19,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- added object orientation by vilarion
 -- rewritten for VBU by vilarion
 
-require("base.common")
-require("base.lookat")
+local common = require("base.common")
+local lookat = require("base.lookat")
+local licence = require("base.licence")
 
 module("item.base.crafts", package.seeall)
 
@@ -213,11 +214,16 @@ end
 
 function Craft:allowUserCrafting(user, source)
     if source:getType() == scriptItem.field and self.tool[source.id] then
-        base.common.TurnTo(user, source.pos)
+        common.TurnTo(user, source.pos)
+        
+        if not self:userHasLicense(user) then
+            return false
+        end    
+        
         if not self:isHandToolEquipped(user) then
             local germanTool = world:getItemName(self.handTool, Player.german)
             local englishTool = world:getItemName(self.handTool, Player.english)
-            base.common.HighInformNLS(user,
+            common.HighInformNLS(user,
             "Dir fehlt ein Werkzeug in deiner Hand um hier zu arbeiten: " .. germanTool,
             "To work here you have to hold a tool in your hand: " .. englishTool)
             return false
@@ -226,10 +232,14 @@ function Craft:allowUserCrafting(user, source)
         if not self:locationFine(user) then
             return false
         end
+        
+        if not self:userHasLicense(user) then
+            return false
+        end
 
         if not self:isHandToolEquipped(user) then
             self:swapToInactiveItem(user)
-            base.common.HighInformNLS(user,
+            common.HighInformNLS(user,
             "Du musst das Werkzeug in die Hand nehmen um damit zu arbeiten.",
             "To work with that tool you have to hold it in your hand.")
             return false
@@ -237,6 +247,10 @@ function Craft:allowUserCrafting(user, source)
     end
 
     return true
+end
+
+function Craft:userHasLicense(user)
+    return not licence.licence(user)
 end
 
 function Craft:isHandToolEquipped(user)
@@ -283,7 +297,7 @@ function Craft:getLookAt(user, object)
     local item = object.item
     local quantity = object.quantity
     local data = object.data
-    local lookAt = base.lookat.GenerateItemLookAtFromId(user, item, quantity, data)
+    local lookAt = lookat.GenerateItemLookAtFromId(user, item, quantity, data)
     
     if self.lookAtFilter then
         lookAt = self.lookAtFilter(user, lookAt, data)
@@ -414,7 +428,7 @@ end
 function Product:getCraftingTime(skill)
     local requirement = self.difficulty
     local learnProgress = (skill - requirement) / (self.learnLimit - requirement) * 100
-    local craftingTime = base.common.Scale(self.maxTime, self.minTime, learnProgress)
+    local craftingTime = common.Scale(self.maxTime, self.minTime, learnProgress)
     craftingTime = math.ceil(craftingTime)
     return craftingTime
 end
@@ -424,7 +438,7 @@ function Craft:swapToActiveItem(user)
         return
     end
 
-    local frontItem = base.common.GetFrontItem(user)
+    local frontItem = common.GetFrontItem(user)
     
     if not self.toolLink[frontItem.id] then
         return
@@ -448,7 +462,7 @@ function Craft:swapToInactiveItem(user)
         return
     end
 
-    local frontItem = base.common.GetFrontItem(user)
+    local frontItem = common.GetFrontItem(user)
     
     if not self.toolLink[frontItem.id] then
         return
@@ -471,7 +485,7 @@ end
 
 function Craft:checkRequiredFood(user, neededFood, difficulty)
     local requiredFood = neededFood * (0.02*difficulty + 1)
-    if base.common.FitForHardWork(user, neededFood*2 + requiredFood) then
+    if common.FitForHardWork(user, neededFood*2 + requiredFood) then
         return true, requiredFood
     else
         return false, 0
@@ -508,11 +522,11 @@ function Craft:checkMaterial(user, productId)
             local ingredientName = self:getLookAt(user, ingredient).name
 
             if available == 0 then
-                base.common.HighInformNLS( user,
+                common.HighInformNLS( user,
                 "Dir fehlt: "..ingredientName..".",
                 "You lack: "..ingredientName..".")
             else
-                base.common.HighInformNLS( user,
+                common.HighInformNLS( user,
                 "Das Material reicht nicht. Dir fehlt: "..ingredientName..".",
                 "The materials are insufficient. You lack: "..ingredientName..".")
             end
@@ -531,16 +545,16 @@ function Craft:generateQuality(user, productId, toolItem)
     local product = self.products[productId]
     local scalar = (self:getSkill(user) - product.difficulty) / (math.min(100, product.learnLimit) - product.difficulty) * 100
      
-    local quality = base.common.Scale(4, 8, scalar)
+    local quality = common.Scale(4, 8, scalar)
     local toolQuality = math.floor(toolItem.quality/100)
     
     quality = quality + math.random(math.min(0,((toolQuality-5)/2)),math.max(0,((toolQuality-5)/2))); -- +2 for a perfect tool, -2 for a crappy tool
 	    
     quality = math.floor(quality)
-	quality = base.common.Limit(quality, 1, 9)
+	quality = common.Limit(quality, 1, 9)
 	
 	quality = quality + math.random(-1,1); -- Final scatter!
-	quality = base.common.Limit(quality, 1, 9)
+	quality = common.Limit(quality, 1, 9)
 	    
     local durability = 99
     return quality * 100 + durability
@@ -551,10 +565,10 @@ function Craft:locationFine(user)
 
     self:turnToTool(user)
 
-    local staticTool = base.common.GetFrontItemID(user)
+    local staticTool = common.GetFrontItemID(user)
     if self.activeTool[staticTool] then
         if not self.fallbackCraft then
-            base.common.HighInformNLS(user,
+            common.HighInformNLS(user,
             "Hier arbeitet schon jemand.",
             "Someone is working here already.")
         end
@@ -563,14 +577,14 @@ function Craft:locationFine(user)
         if not self.fallbackCraft then
             local germanTool = world:getItemName(self.defaultTool, Player.german)
             local englishTool = world:getItemName(self.defaultTool, Player.english)
-            base.common.HighInformNLS(user,
+            common.HighInformNLS(user,
             "Du stehst nicht neben dem benötigten Werkzeug: " .. germanTool,
             "There is no " .. englishTool .. " close by to work with.")
         end
         return false
-    elseif base.common.GetFrontItem(user).id == 359 and base.common.GetFrontItem(user).quality == 100 then
+    elseif common.GetFrontItem(user).id == 359 and common.GetFrontItem(user).quality == 100 then
         if not self.fallbackCraft then
-            base.common.HighInformNLS(user,
+            common.HighInformNLS(user,
             "Aus irgendeinem Grund liefert die Flamme nicht die benötigte Hitze.",
             "For some reason the flame does not provide the required heat.")
         end
@@ -591,14 +605,14 @@ function Craft:turnToTool(user)
     local left = (right - 1) % 8
 
     for i=1,4 do
-        local staticTool = base.common.GetFrontItemID(user, right)
+        local staticTool = common.GetFrontItemID(user, right)
 
         if self.tool[staticTool] then
             user:turn(right)
             return true
         end
 
-        staticTool = base.common.GetFrontItemID(user, left)
+        staticTool = common.GetFrontItemID(user, left)
 
         if self.tool[staticTool] then
             user:turn(left)
@@ -620,7 +634,7 @@ function Craft:craftItem(user, productId)
     local toolItem = self:getHandToolEquipped(user)
     
     if product.difficulty > skill then
-        base.common.HighInformNLS(user,
+        common.HighInformNLS(user,
         "Du bist nicht fähig genug um das zu tun.",
         "You are not skilled enough to do this.")
         self:swapToInactiveItem(user)
@@ -641,8 +655,8 @@ function Craft:craftItem(user, productId)
         self:createItem(user, productId, toolItem)
        
         if not self.npcCraft then 
-            base.common.ToolBreaks(user, toolItem, true)
-            base.common.GetHungry(user, neededFood)
+            common.ToolBreaks(user, toolItem, true)
+            common.GetHungry(user, neededFood)
         end
 
         if type(self.leadSkill) == "number" then    
@@ -692,7 +706,7 @@ function Craft:createItem(user, productId, toolItem)
     end
 
     if not createdEverything then
-        base.common.HighInformNLS(user,
+        common.HighInformNLS(user,
         "Du kannst nichts mehr halten.",
         "You cannot carry anything else.")
     end

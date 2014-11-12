@@ -16,10 +16,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_738_dragonegg' WHERE itm_id IN (738);
 
-module("item.id_738_dragonegg", package.seeall)
+local M = {}
 
 
-function MoveItemBeforeMove(User, SourceItem, TargetItem)
+function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
 
 	if SourceItem:getData("spawnSpiders") == "true" then
 		User:inform("Das schleimige Spinnenei rutscht dir aus der Hand.","The slimy spider egg slips from your hands.")
@@ -29,3 +29,5 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
 	return true
 
 end
+return M
+

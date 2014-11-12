@@ -16,11 +16,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.teleportgate' WHERE itm_id IN (10,792,794,795)
 
-require("base.common")
+local common = require("base.common")
 
-module("item.teleportgate", package.seeall)
+local M = {}
 
-function CharacterOnField( User )
+function M.CharacterOnField( User )
 
 	if (User:getType() ~= 0) then -- only players, else end of script
         return
@@ -48,7 +48,7 @@ function CharacterOnField( User )
 		User:warp( dest );
 		world:gfx( 41, User.pos )
 
-		base.common.InformNLS( User,
+		common.InformNLS( User,
 		"Du machst eine magische Reise.",
 		"You travel by the realm of magic." );
 
@@ -62,3 +62,6 @@ function CharacterOnField( User )
 		end
 	end
 end
+
+return M
+

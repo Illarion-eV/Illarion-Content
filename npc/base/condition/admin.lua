@@ -14,17 +14,19 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
-require("npc.base.condition.condition")
+local class = require("base.class")
+local condition = require("npc.base.condition.condition")
 
-module("npc.base.condition.admin", package.seeall)
+local _admin_helper_equal
 
-admin = base.class.class(npc.base.condition.condition.condition,
+local admin = class(condition,
 function(self)
-    npc.base.condition.condition.condition:init(self);
-    self["check"] = _admin_helper_equal;
-end);
+    condition:init(self)
+    self["check"] = _admin_helper_equal
+end)
 
 function _admin_helper_equal(self, npcChar, texttype, player)
-    return player:isAdmin();
-end;
+    return player:isAdmin()
+end
+
+return admin

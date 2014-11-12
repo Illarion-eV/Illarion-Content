@@ -14,8 +14,8 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common")
-module("scheduled.alchemy", package.seeall)
+local common = require("base.common")
+local M = {}
 
 -- INSERT INTO scheduledscripts VALUES('scheduled.alchemy', 5, 5, 'startAlchemy');
 
@@ -38,7 +38,7 @@ CENTERS = {}
 CENTER = {}
 
 
-function startAlchemy()
+function M.startAlchemy()
 
 	fruitBombInsectsSpawning()
 	
@@ -111,3 +111,5 @@ function fruitBombInsectsSpawning()
 	
 	
 end
+
+return M

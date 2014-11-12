@@ -27,10 +27,10 @@ piss the other faction off.
 author: Lillian
 
 ]]
-require("base.money")
-require("base.ranklist")
+local money = require("base.money")
+local ranklist = require("base.ranklist")
 
-module("base.arena", package.seeall)
+local M = {}
 
 --[[
 Level 1: Annoying monsters award 1 point
@@ -43,7 +43,7 @@ Level 7: Monsters for really, really good fighters 'heroes' award 13 points
 Level 8: Monsters for group fights award 18 points
 Level 9: Unbelieavable strong monsters for 'groups' award 21 points
 ]]
-monsterIDsByLevel = {
+M.monsterIDsByLevel = {
 	{monsters = {991, 271, 1051, 582, 1071}, points = 1, price=4000},
 	{monsters = {101, 196, 273, 602, 881}, points = 2, price= 7800},
 	{monsters = {311, 394, 551, 882, 1011}, points = 3, price=11000},
@@ -55,24 +55,24 @@ monsterIDsByLevel = {
 	{monsters = {302, 641, 911}, points = 23, price=46000}
 }
 
-arenaInformation = {{playerPos=nil, monsterPos=position(255,668,0), newPlayerPos=nil, npcName="Dale Daeon", town="Cadomyr", quest=801},
+M.arenaInformation = {{playerPos=nil, monsterPos=position(255,668,0), newPlayerPos=nil, npcName="Dale Daeon", town="Cadomyr", quest=801},
 					{playerPos=nil, monsterPos=position(995,784,-3), newPlayerPos=nil, npcName="Manuel Salan", town="Runewick", quest=802},
 					{playerPos=nil, monsterPos=position(334,160,-6), newPlayerPos=nil, npcName="Angelo Rothman", town="Galmair", quest=803}}
 
-function requestMonster(User, NPC)
+function M.requestMonster(User, NPC)
 	local cbChooseLevel = function (dialog)
 		if (not dialog:getSuccess()) then
 			return;
         end
 
 		local index = dialog:getSelectedIndex()+1;
-		local arena = getArena(User, NPC);
+		local arena = M.getArena(User, NPC);
 		local paid = payforMonster(User, index, NPC)
 		local priceInCP;
 		local germanMoney, englishMoney;
 		if paid then
-			if arenaInformation[arena].playerPos ~= nil then
-				User:warp(arenaInformation[arena].playerPos);
+			if M.arenaInformation[arena].playerPos ~= nil then
+				User:warp(M.arenaInformation[arena].playerPos);
 			end
 			--add the effect to keep track of the monster
 			arenaEffect=LongTimeEffect(18,1);
@@ -93,35 +93,35 @@ function requestMonster(User, NPC)
 	if User:getPlayerLanguage() == 0 then
 		sdMonster = SelectionDialog("Monsterstärke", "Wählt wie stark das Monster sein soll, gegen das Ihr kämpfen möchtet:", cbChooseLevel);
 		sdMonster:setCloseOnMove();
-		for i=1, #(monsterIDsByLevel) do
-			priceInCP = monsterIDsByLevel[i].price;
-			germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
-			sdMonster:addOption(61,"Stärke "..i.." Monster ("..monsterIDsByLevel[i].points.." Punkte)\n Preis:"..germanMoney);
+		for i=1, #(M.monsterIDsByLevel) do
+			priceInCP = M.monsterIDsByLevel[i].price;
+			germanMoney, englishMoney = money.MoneyToString(priceInCP);
+			sdMonster:addOption(61,"Stärke "..i.." Monster ("..M.monsterIDsByLevel[i].points.." Punkte)\n Preis:"..germanMoney);
 		end
 	else
 		sdMonster = SelectionDialog("Monster strength", "Please choose how strong the monster you wish to fight against should be:", cbChooseLevel);
 		sdMonster:setCloseOnMove();
-		for i=1, #(monsterIDsByLevel) do
-			priceInCP = monsterIDsByLevel[i].price;
-			germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
-			sdMonster:addOption(61,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." points)\n Price:"..englishMoney);
+		for i=1, #(M.monsterIDsByLevel) do
+			priceInCP = M.monsterIDsByLevel[i].price;
+			germanMoney, englishMoney = money.MoneyToString(priceInCP);
+			sdMonster:addOption(61,"Level "..i.." Monster ("..M.monsterIDsByLevel[i].points.." points)\n Price:"..englishMoney);
 		end
 	end
 	User:requestSelectionDialog(sdMonster);
 end
 
 function payforMonster(User, MonsterLevel, NPC)
-	local priceInCP = monsterIDsByLevel[MonsterLevel].price;
-	local germanMoney, englishMoney = base.money.MoneyToString(priceInCP);
+	local priceInCP = M.monsterIDsByLevel[MonsterLevel].price;
+	local germanMoney, englishMoney = money.MoneyToString(priceInCP);
 
-	if not base.money.CharHasMoney(User,priceInCP) then --not enough money!
+	if not money.CharHasMoney(User,priceInCP) then --not enough money!
 		gText="Ihr habt nicht genug Geld dabei! Ihr benötigt"..germanMoney..".";
 		eText="You don't have enough money with you! You'll need"..englishMoney..".";
 		outText=base.common.GetNLS(User,gText,eText);
         NPC:talk(Character.say, outText);
 		return false;
 	end
-	base.money.TakeMoneyFromChar(User,priceInCP); --take money
+	money.TakeMoneyFromChar(User,priceInCP); --take money
 	User:inform("Ihr habt Euch ein Monster für"..germanMoney.." gekauft. Viel Erfolg!", "You bought a monster at the price of"..englishMoney..". Good luck!");
 	return true;
 end
@@ -129,14 +129,14 @@ end
 arenaMonster = {}
 arenaMonsterByMonsterId = {}
 
-function spawnMonster(User, MonsterLevel, arena)
+function M.spawnMonster(User, MonsterLevel, arena)
     if not arenaMonster[User.id] then
 		arenaMonster[User.id] = {};
     end
 
 	local monster;
-	world:gfx(31,arenaInformation[arena].monsterPos);
-	monster = world:createMonster(getRandomMonster(MonsterLevel),arenaInformation[arena].monsterPos,0);
+	world:gfx(31,M.arenaInformation[arena].monsterPos);
+	monster = world:createMonster(getRandomMonster(MonsterLevel),M.arenaInformation[arena].monsterPos,0);
 	if isValidChar(monster) then
 		table.insert( arenaMonster[User.id], monster );
 
@@ -147,7 +147,7 @@ function spawnMonster(User, MonsterLevel, arena)
 	end
 end
 
-function isArenaMonster(monster)
+function M.isArenaMonster(monster)
 
 
 	if arenaMonsterByMonsterId[monster.id] ~= nil then
@@ -157,7 +157,7 @@ function isArenaMonster(monster)
 
 end
 
-function checkMonster(User)
+function M.checkMonster(User)
 	if not arenaMonster[User.id] then
 		return true;
     end
@@ -173,7 +173,7 @@ function checkMonster(User)
     return true;
 end
 
-function killMonster(User)
+function M.killMonster(User)
     if not arenaMonster[User.id] then
 		return true;
     end
@@ -191,13 +191,13 @@ function killMonster(User)
 end
 
 function getRandomMonster(level)
-	local randomNumber = math.random(1, #monsterIDsByLevel[level].monsters);
-	return monsterIDsByLevel[level].monsters[randomNumber];
+	local randomNumber = math.random(1, #M.monsterIDsByLevel[level].monsters);
+	return M.monsterIDsByLevel[level].monsters[randomNumber];
 end
 
-function getArena(User, NPC)
-	for i=1, #(arenaInformation) do
-		if arenaInformation[i].npcName == NPC.name then
+function M.getArena(User, NPC)
+	for i=1, #(M.arenaInformation) do
+		if M.arenaInformation[i].npcName == NPC.name then
 			return i;
 		end
 	end
@@ -214,9 +214,9 @@ function isUserInList(User, ranklist)
 end
 
 -- Returns the points of a present arena, which the player has earned so far
-function getArenastats(User, NPC)
-	local arena = getArena(User, NPC);
-	local quest = arenaInformation[arena].quest;
+function M.getArenastats(User, NPC)
+	local arena = M.getArena(User, NPC);
+	local quest = M.arenaInformation[arena].quest;
 	local points = User:getQuestProgress(quest);
 
 	gText="Ihr habt bereits "..points.." gesammelt. Weiter so!";
@@ -225,8 +225,8 @@ function getArenastats(User, NPC)
     NPC:talk(Character.say, outText);
 end
 
-function setArenastats(User, arena, points)
-	local quest = arenaInformation[arena].quest;
+function M.setArenastats(User, arena, points)
+	local quest = M.arenaInformation[arena].quest;
 	local oldPoints = User:getQuestProgress(quest);
 
 	points = points + oldPoints;
@@ -276,9 +276,10 @@ reward = {
 	{2552,1}, -- pure earth
 	{2553,1}, -- pure fire
 	{2554,1}, -- pure water
+	{3607,1}, -- pure spirit
 }
 
-function getReward(User, quest)
+function M.getReward(User, quest)
 	local numberOfRewards = User:getQuestProgress(quest+2)
 	local currentPoints = User:getQuestProgress(quest)
 	local pointsNeededForNewReward = 50;
@@ -313,3 +314,5 @@ function rewardDialog(User, points)
 
 	User:requestSelectionDialog(dialog);
 end
+
+return M

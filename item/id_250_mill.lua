@@ -17,15 +17,18 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_250_mill' WHERE itm_id IN (250);
 
-require("base.licence")
-require("content.gatheringcraft.graingrinding")
+local licence = require("base.licence")
+local graingrinding = require("content.gatheringcraft.graingrinding")
 
-module("item.id_250_mill", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
-	if base.licence.licence(User) then --checks if user is citizen or has a licence
+function M.UseItem(User, SourceItem, ltstate)
+	if licence.licence(User) then --checks if user is citizen or has a licence
 		return -- avoids crafting if user is neither citizen nor has a licence
 	end
 
-	content.gatheringcraft.graingrinding.StartGathering(User, SourceItem, ltstate);
+	graingrinding.StartGathering(User, SourceItem, ltstate);
 end
+
+return M
+

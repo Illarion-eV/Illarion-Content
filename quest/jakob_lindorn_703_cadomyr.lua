@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (703, 'quest.jakob_lindorn_703_cadomyr');
 
-require("base.common")
-require("base.factions")
-module("quest.jakob_lindorn_703_cadomyr", package.seeall)
+local common = require("base.common")
+local factions = require("base.factions")
+local M = {}
 
 GERMAN = Player.german
 ENGLISH = Player.english
@@ -53,8 +53,8 @@ Description[GERMAN][9] = "Die Köchin Linda Rabon hat eine Aufgabe für dich. Such
 Description[ENGLISH][9] = "The cook, Linda Rabon, has a task for you, search for her in the tavern in Cadomyr."
 Description[GERMAN][10] = "Geh zu Jakob Lindorn beim Teleporter in Cadomyr, er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][10] = "Go to Jakob Lindorn at the teleporter of Cadomyr, he is sure to have another task for you."
-Description[GERMAN][11] = "Such Zerarisa beim Kap des Abschieds und hilf ihr, wenn sie eine Aufgabe für dich hat. Das Kap findest du, wenn du der Straße nach Westen folgst. Die Wegweiser sollten dich direkt zum Kap führen."
-Description[ENGLISH][11] = "Search for Zerarisa at Cape Farewell and help her if she has a task for you. You can find the Cape if you follow the street to the west, the signposts should lead you in the right direction."
+Description[GERMAN][11] = "Geh zu Jakob Lindorn beim Teleporter in Cadomyr, er hat bestimmt noch eine Aufgabe für dich."
+Description[ENGLISH][11] = "Go to Jakob Lindorn at the teleporter of Cadomyr, he is sure to have another task for you."
 Description[GERMAN][12] = "Geh zu Jakob Lindorn beim Teleporter in Cadomyr, er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][12] = "Go to Jakob Lindorn at the teleporter of Cadomyr, he is sure to have another task for you."
 Description[GERMAN][13] = "Reret Odohir, die Notarin Cadomyrs hat eine Aufgabe für dich. Such sie. Du kannst sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor."
@@ -85,7 +85,7 @@ QuestTarget[7] = {position(124, 649, 0), position(110, 574, 0)} -- Hassan
 QuestTarget[8] = {position(124, 649, 0)}
 QuestTarget[9] = {position(124, 649, 0), position(116, 576, 0)} -- Linda Rabon
 QuestTarget[10] = {position(124, 649, 0)}
-QuestTarget[11] = {position(124, 649, 0), position(46, 683, 0)}  -- Zerarisa
+QuestTarget[11] = {position(124, 649, 0)}  -- Zerarisa removed from npc b/c moved to new realm.
 QuestTarget[12] = {position(124, 649, 0)}
 QuestTarget[13] = {position(124, 649, 0), position(106, 553, 0)} -- Reret Odohir
 QuestTarget[14] = {position(124, 649, 0)}
@@ -98,33 +98,35 @@ QuestTarget[18] = {position(124, 649, 0)}
 FINAL_QUEST_STATUS = 18
 
 
-function QuestTitle(user)
-    return base.common.GetNLS(user, Title[GERMAN], Title[ENGLISH])
+function M.QuestTitle(user)
+    return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])
 end
 
-function QuestDescription(user, status)
+function M.QuestDescription(user, status)
     local german = Description[GERMAN][status] or ""
     local english = Description[ENGLISH][status] or ""
 
-    return base.common.GetNLS(user, german, english)
+    return common.GetNLS(user, german, english)
 end
 
-function QuestStart()
+function M.QuestStart()
     return Start
 end
 
-function QuestTargets(user, status)
+function M.QuestTargets(user, status)
     return QuestTarget[status]
 end
 
-function QuestFinalStatus()
+function M.QuestFinalStatus()
     return FINAL_QUEST_STATUS
 end
 
-function QuestAvailability(user, status)
-    if base.factions.isCadomyrCitizen(user) and status == 0 then
+function M.QuestAvailability(user, status)
+    if factions.isCadomyrCitizen(user) and status == 0 then
         return Player.questAvailable
     else
         return Player.questNotAvailable
     end
 end
+
+return M

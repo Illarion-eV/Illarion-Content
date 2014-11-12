@@ -14,16 +14,17 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common")
-require("base.money")
+local common = require("base.common")
+local money = require("base.money")
+local character = require("base.character")
 --THE EDITABLE PART FOR NEW TOWNS IS SOME LINES BELOW
 
--- NOTE: town IDs for:
-cadomyr = 1
-runewick = 2
-galmair = 3
+local M = {}
 
-module("base.factions", package.seeall)
+-- NOTE: town IDs for:
+M.cadomyr = 1
+M.runewick = 2
+M.galmair = 3
 
 function InitFactionLists()
 
@@ -34,27 +35,27 @@ function InitFactionLists()
 	TownJailKey={};
 
 	--A list with the ranks
-	CadomyrRankListMale = { {gRank = "Höriger", eRank = "Serf"},        	--rank 1
-					 {gRank = "Rekrut", eRank = "Recruit"},           	--rank 2	
-					 {gRank = "Page", eRank = "Page"},           	--rank 3					 
-					 {gRank = "Knappe", eRank = "Squire"},           	--rank 4
-					 {gRank = "Ritter", eRank = "Knight"},       --rank 5
-					 {gRank = "Freiherr", eRank = "Lord"},         --rank 6
-					 {gRank = "Baron", eRank = "Baron"},        		--rank 7
-					 {gRank = "Graf", eRank = "Count"},     			--rank 8
-					 {gRank = "Fürst", eRank = "Earl"},           	--rank 9
+	CadomyrRankListMale = { {gRank = "Leibeigener", eRank = "Serf"},        	--rank 1
+					 {gRank = "Höriger", eRank = "Bondsman"},           	--rank 2	
+					 {gRank = "Diener", eRank = "Servant"},           	--rank 3					 
+					 {gRank = "Freisasse", eRank = "Yeoman"},           	--rank 4
+					 {gRank = "Page", eRank = "Page"},       --rank 5
+					 {gRank = "Knappe", eRank = "Squire"},         --rank 6
+					 {gRank = "Ritter", eRank = "Knight"},        		--rank 7
+					 {gRank = "Baron", eRank = "Baron"},     			--rank 8
+					 {gRank = "Graf", eRank = "Count"},           	--rank 9
 					 {gRank = "Herzog", eRank = "Duke"},				--rank 10					 
 					 {gRank = "König", eRank = "King"}};				--rank leader
 	
-	CadomyrRankListFemale = { {gRank = "Hörige", eRank = "Serf"},        	--rank 1
-					 {gRank = "Dienerin", eRank = "Servant"},           	--rank 2	
-					 {gRank = "Magd", eRank = "Maid"},           	--rank 3
-					 {gRank = "Zofe", eRank = "Abigail"},       --rank 4			 
-					 {gRank = "Hofdame", eRank = "Dame"},         --rank 5
-					 {gRank = "Freifrau", eRank = "Lady"},        		--rank 6					 
-					 {gRank = "Baronin", eRank = "Baroness"},        		--rank 7
-					 {gRank = "Gräfin", eRank = "Countess"},     			--rank 8
-					 {gRank = "Fürstin", eRank = "Earl"},           	--rank 9
+	CadomyrRankListFemale = { {gRank = "Leibeigene", eRank = "Serf"},        	--rank 1
+					 {gRank = "Hörige", eRank = "Bondswoman"},           	--rank 2	
+					 {gRank = "Dienerin", eRank = "Servant"},           	--rank 3
+					 {gRank = "Freisassin", eRank = "Yeowoman"},       --rank 4			 
+					 {gRank = "Pagin", eRank = "Page"},         --rank 5
+					 {gRank = "Knappin", eRank = "Squire"},        		--rank 6					 
+					 {gRank = "Ritterin", eRank = "Knight"},        		--rank 7
+					 {gRank = "Baroin", eRank = "Baroness"},     			--rank 8
+					 {gRank = "Gräfin", eRank = "Countess"},           	--rank 9
 					 {gRank = "Herzogin", eRank = "Duchess"},				--rank 10	
 					 {gRank = "Königin", eRank = "Queen"}};				--rank leader
 
@@ -153,11 +154,11 @@ if not InitFaction then
 --AddAdditionalTownName(German Trigger, English Trigger)
 
 AddTown(0,"None");
-AddTown(cadomyr,"Cadomyr");
+AddTown(M.cadomyr,"Cadomyr");
 --AddTownMainKey(1,2121, 333, 5030);
 --AddTownJailKey(12,2121, 333, 5031);
-AddTown(runewick,"Runewick");
-AddTown(galmair,"Galmair");
+AddTown(M.runewick,"Runewick");
+AddTown(M.galmair,"Galmair");
 
 
 end
@@ -169,7 +170,7 @@ end
 
 	@return - name of town
 ]]
-function getTownNameByID(TownID)
+function M.getTownNameByID(TownID)
 	for i=1, #(TownList) do
 		if (TownList[i].townID == TownID) then
 			return TownList[i].townName
@@ -193,20 +194,20 @@ end
 
 	@return - Id of the town
 ]]
-function getMembership(player)
+function M.getMembership(player)
 	return player:getQuestProgress(199);
 end
 
-function isCadomyrCitizen(player)
-    return getMembership(player) == cadomyr
+function M.isCadomyrCitizen(player)
+    return M.getMembership(player) == M.cadomyr
 end
 
-function isGalmairCitizen(player)
-    return getMembership(player) == galmair
+function M.isGalmairCitizen(player)
+    return M.getMembership(player) == M.galmair
 end
 
-function isRunewickCitizen(player)
-    return getMembership(player) == runewick
+function M.isRunewickCitizen(player)
+    return M.getMembership(player) == M.runewick
 end
 
 --[[
@@ -215,8 +216,8 @@ end
 
 	@return - name of the town
 ]]
-function getMembershipByName(player)
-	return getTownNameByID(player:getQuestProgress(199));
+function M.getMembershipByName(player)
+	return M.getTownNameByID(player:getQuestProgress(199));
 end
 
 --[[
@@ -225,8 +226,8 @@ end
 	
 	@return - name of the rank
 ]]
-function getRank(player, bothFlag)
-	local Faction = getFaction(player);
+function M.getRank(player, bothFlag)
+	local Faction = M.getFaction(player);
 	if (townRanks[Faction.tid] == nil) then
 		return "[ERROR: no ranks for " .. Faction.tid .. "]";
 	end
@@ -267,14 +268,14 @@ end
 	
 	@return - number of the rank
 ]]
-function getRankAsNumber(player)
+function M.getRankAsNumber(player)
 	local rankTown;
 	local rankpoints;
 
 	if getSpecialRank(player) ~= 0 then
 		rankTown = getSpecialRank(player);
 	else
-		rankpoints = getRankpoints(player);
+		rankpoints = M.getRankpoints(player);
 		rankTown = math.floor(rankpoints/100)+1;
 	end
 	return rankTown;
@@ -288,7 +289,7 @@ end
 	@return - name of the rank
 ]]
 function getRankName(player, ranknumber)
-	local Faction = getFaction(player);
+	local Faction = M.getFaction(player);
 	
 	if ranknumber > leaderRank then
 		return;
@@ -317,19 +318,19 @@ end
     @return Array - 1. a counter how often a Char changed the town, 2.the Town he belongs to ,
 					3-5 the Ranks/Reputation in the Towns Cadomyr, Runewick and Galmair
 ]]
-function getFaction(originator)
+function M.getFaction(originator)
 	local rankTown;
 
 	--check for special rank
 	if getSpecialRank(originator) ~= 0 then
 		rankTown = getSpecialRank(originator);
 	else
-		rankTown = getRankAsNumber(originator);
+		rankTown = M.getRankAsNumber(originator);
 	end
 	
 	local factionMembership = originator:getQuestProgress(199);
 	local towncnt = originator:getQuestProgress(201);
-	local rankpoints = getRankpoints(originator);
+	local rankpoints = M.getRankpoints(originator);
 	local specialRank = getSpecialRank(originator);
 
 	return { towncnt = towncnt, tid = factionMembership, rankTown = rankTown, rankpoints = rankpoints};
@@ -342,7 +343,7 @@ end
 
     @return qpg - rankpoints in realm
 ]]
-function getRankpoints(originator)
+function M.getRankpoints(originator)
 	local qpg = originator:getQuestProgress(202); -- rankpoints
 	return qpg;
 end
@@ -380,7 +381,7 @@ end
 	@return - special rank was set (true|false)
 ]]
 function setSpecialRank(player, rank) 
-	local Faction = getFaction(player);
+	local Faction = M.getFaction(player);
 	local rankpoints = Faction.rankpoints;
 	local inform;
 	
@@ -388,9 +389,9 @@ function setSpecialRank(player, rank)
 		if rankpoints >= (highestRank-1)*100 then
 			player:setQuestProgress(200, tonumber(rank));
 			if rank == 0 then
-				inform = base.common.GetNLS(player,"Ihr wurdet degradiert und habt nun keinen spziellen Rang mehr.","You have been demoted and have no special rank anymore.")
+				inform = common.GetNLS(player,"Ihr wurdet degradiert und habt nun keinen spziellen Rang mehr.","You have been demoted and have no special rank anymore.")
 			else
-				inform = base.common.GetNLS(player,"Ihr wurdet befördert und seid nun "..getRank(player)..".","You have been promoted and are now "..getRank(player)..".");
+				inform = common.GetNLS(player,"Ihr wurdet befördert und seid nun "..M.getRank(player)..".","You have been promoted and are now "..M.getRank(player)..".");
 			end
 			player:inform(inform)
 			return true;
@@ -424,8 +425,8 @@ end
     @param Rankpoints - the value Rankpoints
 
 ]]
-function setRankpoints(originator, rankpoints)
-	local Faction = getFaction(originator);
+function M.setRankpoints(originator, rankpoints)
+	local Faction = M.getFaction(originator);
 	local rank = Faction.rankTown;
 
 	if Faction.tid == 0 then --outlaw
@@ -449,7 +450,7 @@ function setRankpoints(originator, rankpoints)
 		Faction.rankTown = leaderRank;
 	end
 	
-	if rankpoints < base.factions.getRankpoints(originator) then
+	if rankpoints < base.factions.M.getRankpoints(originator) then
 		playerText = {"sinkt.","decline"};
 		informPlayerAboutRankpointchange(originator, playerText);
 		if getSpecialRank(originator) ~= 0 then
@@ -474,11 +475,11 @@ end
 --[[
 	inform the player about a rankchange
 	@param rankHigher - true|false (true = player advanced a rank)
-	@param factionValues - array of getFaction(player)
+	@param factionValues - array of M.getFaction(player)
 ]]
 function informPlayerAboutRankchange(player, factionValues, rankHigher)
 	-- collect all data needed for rankchange inform
-	local townName = getTownNameByID(factionValues.tid)
+	local townName = M.getTownNameByID(factionValues.tid)
 	
 	if (player:increaseAttrib("sex",0) == 0) then --male Ranks
 		rankName = townRanks[factionValues.tid][factionValues.rankTown]
@@ -488,10 +489,10 @@ function informPlayerAboutRankchange(player, factionValues, rankHigher)
 	
 	-- Inform about rankchange
 	if rankHigher == true then
-		base.common.InformNLS( player, "Du hast soeben einen neuen Rang in "..townName.." erreicht. Du bist nun "..rankName.gRank..".",
+		common.InformNLS( player, "Du hast soeben einen neuen Rang in "..townName.." erreicht. Du bist nun "..rankName.gRank..".",
 			"You reached a new town rank in "..townName..". You are now "..rankName.eRank..".");
 	else
-		base.common.InformNLS( player, "Durch deine ständigen Konflikte mit dem Gesetz ist dein Rang in "..townName.." um eine Stufe gesunken. Du bist nun "..rankName.gRank..".",
+		common.InformNLS( player, "Durch deine ständigen Konflikte mit dem Gesetz ist dein Rang in "..townName.." um eine Stufe gesunken. Du bist nun "..rankName.gRank..".",
 			"Because of your permanent conflicts with the law your rank sinks for a degree in "..townName..". You are now "..rankName.eRank.."." );
 	end
 end
@@ -502,12 +503,12 @@ end
 	@modifierTextarray - Textarray with the info if the rankpoints were raised/ declined
 ]]
 function informPlayerAboutRankpointchange(player, modifierTextarray)
-	local faction = base.factions.getMembership(player);
+	local faction = M.getMembership(player);
 	local factionLeadersDE = {"Königin Rosaline Edwards", "Erzmagier Elvaine Morgan", "Don Valerio Guilianni"};
 	local factionLeadersEN = {"Queen Rosaline Edwards", "Archmage Elvaine Morgan", "Don Valerio Guilianni"};
 
 	if faction ~= 0 then
-		base.common.InformNLS(player, "Dein Ansehen bei "..factionLeadersDE[faction].." "..modifierTextarray[1], "You "..modifierTextarray[2].." in "..factionLeadersEN[faction].."'s favour.");
+		common.InformNLS(player, "Dein Ansehen bei "..factionLeadersDE[faction].." "..modifierTextarray[1], "You "..modifierTextarray[2].." in "..factionLeadersEN[faction].."'s favour.");
 	else
 		return;
 	end;
@@ -534,13 +535,13 @@ function makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
 		end
 
 		local amountToPay = 1000*(2^fv.towncnt) -- amount in coppercoins
-		local GAmount, SAmount,CAmount = base.money.MoneyToCoins(amountToPay);
-		local germanMoney, englishMoney = base.money.MoneyToString(amountToPay);
+		local GAmount, SAmount,CAmount = money.MoneyToCoins(amountToPay);
+		local germanMoney, englishMoney = money.MoneyToString(amountToPay);
 		
-		if not base.money.CharHasMoney(originator,amountToPay) then --not enough money!
+		if not money.CharHasMoney(originator,amountToPay) then --not enough money!
 		 	gText="Ihr habt nicht genug Geld dabei! Ihr benötigt"..germanMoney..".";
 			eText="You don't have enough money with you! You'll need"..englishMoney..".";
-			outText=base.common.GetNLS(originator,gText,eText);
+			outText=common.GetNLS(originator,gText,eText);
             thisNPC:talk(Character.say, outText);
 			return;
 		end
@@ -553,7 +554,7 @@ function makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
 
 		if (fv.towncnt<99) then fv.towncnt = fv.towncnt+1; end; -- raise the town counter
 		setFaction(originator,fv); --write fv in Questprogress
-		base.money.TakeMoneyFromChar(originator,amountToPay); --take money
+		money.TakeMoneyFromChar(originator,amountToPay); --take money
 	end
 	return;
 end
@@ -573,7 +574,7 @@ function leaveFaction(originator, Faction, thisNPC)
 
 	gText="Ihr gehört nun keinem Reich mehr an. Das bedeutet das Ihr frei, aber auf Euch selbst gestellt seid. Viel Glück.";
 	eText="You're now not belonging to any realm. This means you're free but also on your own. Good luck.";
-	outText=base.common.GetNLS(originator,gText,eText);
+	outText=common.GetNLS(originator,gText,eText);
     thisNPC:talk(Character.say, outText);
 end
 
@@ -582,12 +583,12 @@ end
 -- The following functions allow checking and controlling the relations between factions.
 
 -- The following constants define the different relations modes.
-RELATION_SELF = -1;		    -- This is the constant returned in case the relation of a faction to itself is checked.
-RELATION_FRIENDLY = 1;      -- The factions have a friendly relationship.
-RELATION_NEUTRAL = 0;		-- The factions have a neutral relationship, guards will only process the members of this faction in case they appear hostile.
-RELATION_HOSTILE = 2;		-- The factions have a hostile relationship. The guards will ensure that the members of this faction stay out of the home town.
-RELATION_AGGRESSIVE = 3;	-- The factions have a aggressive relationship. The guards will engage the members of this faction on sight.
-RELATION_ACCEPTED = 4;		-- This is a special relationship that only applies to individual players. It causes the total relationship to the town to be neutral, even if the relationship of the town and the player faction is hostile or aggressive
+M.RELATION_SELF = -1;		    -- This is the constant returned in case the relation of a faction to itself is checked.
+M.RELATION_FRIENDLY = 1;      -- The factions have a friendly relationship.
+M.RELATION_NEUTRAL = 0;		-- The factions have a neutral relationship, guards will only process the members of this faction in case they appear hostile.
+M.RELATION_HOSTILE = 2;		-- The factions have a hostile relationship. The guards will ensure that the members of this faction stay out of the home town.
+M.RELATION_AGGRESSIVE = 3;	-- The factions have a aggressive relationship. The guards will engage the members of this faction on sight.
+M.RELATION_ACCEPTED = 4;		-- This is a special relationship that only applies to individual players. It causes the total relationship to the town to be neutral, even if the relationship of the town and the player faction is hostile or aggressive
 
 --- Get the relation of a town faction to a specific player. This functions takes both the relation of the town faction and the player faction and the
 --- relation of the town faction to the individual player into consideration. Administrators are always considered to be friendly, because they are
@@ -596,32 +597,32 @@ RELATION_ACCEPTED = 4;		-- This is a special relationship that only applies to i
 -- @param player the player
 -- @param townFaction the faction of the town
 -- @return int the relationship constant for the relationship between the town faction and the player
-function getPlayerRelation(player, townFaction)
+function M.getPlayerRelation(player, townFaction)
 	if player:isAdmin() then
-		return RELATION_FRIENDLY;
+		return M.RELATION_FRIENDLY;
 	end
 	
 	local individualRelation = getIndividualPlayerRelation(player, townFaction);	
-    local playerFaction = getFaction(player).tid;
+    local playerFaction = M.getFaction(player).tid;
 	local factionRelation = getFactionRelation(townFaction, playerFaction);
 	
-	if (individualRelation == RELATION_ACCEPTED) then
-		return (factionRelation == RELATION_FRIENDLY) and RELATION_FRIENDLY or RELATION_NEUTRAL;
+	if (individualRelation == M.RELATION_ACCEPTED) then
+		return (factionRelation == M.RELATION_FRIENDLY) and M.RELATION_FRIENDLY or M.RELATION_NEUTRAL;
 	end
 	
-	if (factionRelation == RELATION_AGGRESSIVE) then
-		return RELATION_AGGRESSIVE;
-	elseif (factionRelation == RELATION_HOSTILE) then
-		if (individualRelation == RELATION_AGGRESSIVE) then
-			return RELATION_AGGRESSIVE;
+	if (factionRelation == M.RELATION_AGGRESSIVE) then
+		return M.RELATION_AGGRESSIVE;
+	elseif (factionRelation == M.RELATION_HOSTILE) then
+		if (individualRelation == M.RELATION_AGGRESSIVE) then
+			return M.RELATION_AGGRESSIVE;
 		else
-			return RELATION_HOSTILE;
+			return M.RELATION_HOSTILE;
 		end
-	elseif (factionRelation == RELATION_NEUTRAL) then
-		if (individualRelation == RELATION_AGGRESSIVE) or (individualRelation == RELATION_HOSTILE) then
+	elseif (factionRelation == M.RELATION_NEUTRAL) then
+		if (individualRelation == M.RELATION_AGGRESSIVE) or (individualRelation == M.RELATION_HOSTILE) then
 			return individualRelation;
 		else
-			return RELATION_NEUTRAL;
+			return M.RELATION_NEUTRAL;
 		end
 	else
 		return individualRelation;
@@ -636,18 +637,18 @@ end
 -- @return int the relationship constant for the relation of the towns faction to the player faction
 function getFactionRelation(townFaction, playerFaction)
 	if (townFaction == playerFaction) then
-		return RELATION_SELF;
+		return M.RELATION_SELF;
 	end
 	
 	local found, relation = ScriptVars:find("Mode_"..tostring(townFaction));
 	if not found then
-		return RELATION_HOSTILE;
+		return M.RELATION_HOSTILE;
 	end
 	relation = relation % (10 ^ (playerFaction + 1));
 	relation = math.floor(relation / (10 ^ playerFaction));
 	
-	if (relation ~= RELATION_FRIENDLY) and (relation ~= RELATION_NEUTRAL) and (relation ~= RELATION_AGGRESSIVE) then
-		return RELATION_HOSTILE; 
+	if (relation ~= M.RELATION_FRIENDLY) and (relation ~= M.RELATION_NEUTRAL) and (relation ~= M.RELATION_AGGRESSIVE) then
+		return M.RELATION_HOSTILE; 
 	end
 	return relation;
 end
@@ -656,9 +657,9 @@ end
 --
 -- @param townFaction the town faction
 -- @param playerFaction the player faction
--- @param newRelation the new relationship (RELATION_FRIENDLY,RELATION_NEUTRAL,RELATION_HOSTILE,RELATION_AGGRESSIVE)
+-- @param newRelation the new relationship (M.RELATION_FRIENDLY,M.RELATION_NEUTRAL,M.RELATION_HOSTILE,M.RELATION_AGGRESSIVE)
 function setFactionRelation(townFaction, playerFaction, newRelation)
-	if (newRelation ~= RELATION_FRIENDLY) and (newRelation ~= RELATION_NEUTRAL) and (newRelation ~= RELATION_HOSTILE) and (newRelation ~= RELATION_AGGRESSIVE) then
+	if (newRelation ~= M.RELATION_FRIENDLY) and (newRelation ~= M.RELATION_NEUTRAL) and (newRelation ~= M.RELATION_HOSTILE) and (newRelation ~= M.RELATION_AGGRESSIVE) then
 		debug("[Error] Applied illegal relationship mode: "..tostring(newRelation));
 		return;
 	end
@@ -698,39 +699,39 @@ end
 function getIndividualPlayerRelation(player, townFaction) 
 	local relationId = -1;
 	local daysId = -1;
-	if (townFaction == cadomyr) then
+	if (townFaction == M.cadomyr) then
 		relationId = 191;
 		daysId = 192;
-	elseif (townFaction == runewick) then
+	elseif (townFaction == M.runewick) then
 		relationId = 193;
 		daysId = 194;
-	elseif (townFaction == galmair) then
+	elseif (townFaction == M.galmair) then
 		relationId = 195;
 		daysId = 196;
 	end
 	
 	if (relationId < 0) or (daysId < 0) then
-		return RELATION_NEUTRAL;
+		return M.RELATION_NEUTRAL;
 	end
 	
     local relation = player:getQuestProgress(relationId);
 	
-	if (relation == RELATION_NEUTRAL) then
-		return RELATION_NEUTRAL;
+	if (relation == M.RELATION_NEUTRAL) then
+		return M.RELATION_NEUTRAL;
 	end
 	
 	local days, setTime = player:getQuestProgress(daysId);
 	
-	if (relation ~= RELATION_FRIENDLY) and (relation ~= RELATION_NEUTRAL) and (relation ~= RELATION_AGGRESSIVE) and (relation ~= RELATION_ACCEPTED) and (relation ~= RELATION_HOSTILE) then
-		debug("[Error] "..base.character.LogText(player).." got illegal value for temporary faction relation. Resetting.");
-		player:setQuestProgress(relationId, RELATION_NEUTRAL);
-		return RELATION_NEUTRAL;
+	if (relation ~= M.RELATION_FRIENDLY) and (relation ~= M.RELATION_NEUTRAL) and (relation ~= M.RELATION_AGGRESSIVE) and (relation ~= M.RELATION_ACCEPTED) and (relation ~= M.RELATION_HOSTILE) then
+		debug("[Error] ".. character.LogText(player).." got illegal value for temporary faction relation. Resetting.");
+		player:setQuestProgress(relationId, M.RELATION_NEUTRAL);
+		return M.RELATION_NEUTRAL;
 	end	
 	
 	if (days > 0) then 
 	    local daysInSec = (days / 3) * 24 * 60 * 60;
 	    if ((world:getTime("unix") - setTime) >= daysInSec) then
-		    return RELATION_NEUTRAL;
+		    return M.RELATION_NEUTRAL;
 		end	
 	end	
 	
@@ -743,21 +744,21 @@ end
 -- @param townFaction the faction that is effected
 -- @param newRelation the new relation value
 -- @param the time limited in days for this change to wear off
-function setIndividualPlayerRelation(player, townFaction, newRelation, timeLimitInDays) 
-	if (newRelation ~= RELATION_FRIENDLY) and (newRelation ~= RELATION_NEUTRAL) and (newRelation ~= RELATION_HOSTILE) and (newRelation ~= RELATION_AGGRESSIVE) and (newRelation ~= RELATION_ACCEPTED) then
+function M.setIndividualPlayerRelation(player, townFaction, newRelation, timeLimitInDays) 
+	if (newRelation ~= M.RELATION_FRIENDLY) and (newRelation ~= M.RELATION_NEUTRAL) and (newRelation ~= M.RELATION_HOSTILE) and (newRelation ~= M.RELATION_AGGRESSIVE) and (newRelation ~= M.RELATION_ACCEPTED) then
 		debug("[Error] Applied illegal relationship mode: "..tostring(newRelation));
 		return;
 	end
 	
 	local relationId = -1;
 	local daysId = -1;
-	if (townFaction == cadomyr) then
+	if (townFaction == M.cadomyr) then
 		relationId = 191;
 		daysId = 192;
-	elseif (townFaction == runewick) then
+	elseif (townFaction == M.runewick) then
 		relationId = 193;
 		daysId = 194;
-	elseif (townFaction == galmair) then
+	elseif (townFaction == M.galmair) then
 		relationId = 195;
 		daysId = 196;
 	end
@@ -767,9 +768,11 @@ function setIndividualPlayerRelation(player, townFaction, newRelation, timeLimit
 	end
 	
 	player:setQuestProgress(relationId, newRelation);
-	if (newRelation == RELATION_NEUTRAL) then
+	if (newRelation == M.RELATION_NEUTRAL) then
 		player:setQuestProgress(daysId, 0);
 	else
 		player:setQuestProgress(daysId, timeLimitInDays);
 	end
 end
+
+return M

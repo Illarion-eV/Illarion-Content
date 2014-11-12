@@ -14,8 +14,9 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common");
-module("alchemy.base.teacher", package.seeall)
+local lookat = require("base.lookat")
+local common = require("base.common")
+local M = {}
 
 -- This script turns a character into an alchemist. 
 -- Three 'beings' can do that: Knowing Tree (Galmair), Thinking Stone (Cadomyr), Recognizing Spring(Runewick)
@@ -489,7 +490,7 @@ function ThirdTask(User, SourceItem)
 	end
 end
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
     if not (SourceItem.pos == position(75,651,0) or SourceItem.pos == position(432,238,0) or SourceItem.pos == position(873,878,0)) then
 	    return
 	end	
@@ -566,10 +567,12 @@ function getLookAt(player,item)
     return lookAt
 end
 
-function LookAtItem(player, item)
+function M.LookAtItem(player, item)
     if item.pos == position(432,238,0) or item.pos == position(75,651,0) or item.pos == position(873,878,0) then
 	    return getLookAt(player,item)
 	else
-	    return base.lookat.GenerateLookAt(player, item, 0)
+	    return lookat.GenerateLookAt(player, item, 0)
 	end	
 end
+return M
+

@@ -14,8 +14,8 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.common")
-module("lte.attrib_boost", package.seeall)
+local common = require("base.common")
+local M = {}
 
 
 -- Character bekommt einen Attributs-Boost, der erst ansteigt und dann sinkt --
@@ -32,18 +32,18 @@ function initBoost(User)
 end   
 
 
-function addEffect(addPerc, User)    -- Wird nur beim Start des Effektes aufgerufen (-> Perc+1)
-    User:inform("function addEffect erreicht")
+function M.addEffect(addPerc, User)    -- Wird nur beim Start des Effektes aufgerufen (-> Perc+1)
+    User:inform("function M.addEffect erreicht")
     AttribToBoost, boostSteps, boostValue, reboostValue = initBoost(User)
-    base.common.InformNLS(User, "Deine Sinne werden merkbar sensibler.", "Your senses grow noticably.");
+    common.InformNLS(User, "Deine Sinne werden merkbar sensibler.", "Your senses grow noticably.");
     User:increaseAttrib(AttribToBoost,boostValue);    -- (erste Steigerung)
 end
 
 
 -- Wird regelmaessig aufgerufen (das erste mal nach einer Minute)
 
-function callEffect(percBoost, User)                    -- Effect wird ausgeführt
-    User:inform("function callEffect erreicht")
+function M.callEffect(percBoost, User)                    -- Effect wird ausgeführt
+    User:inform("function M.callEffect erreicht")
     percBoost.nextCalled = 60;                          -- Erneut in einer Minute aufrufen
     found,addPerc = percBoost:findValue("addPerc");     -- Wieviel wurde bisher "geboostet"?
     if found then                                       -- sicherheitshalber: wenn ueberhaupt geboostet wurde
@@ -64,14 +64,17 @@ function callEffect(percBoost, User)                    -- Effect wird ausgeführ
     end
 end
 
-function removeEffect( Effect, Character )
+function M.removeEffect( Effect, Character )
     -- do nothing
 end
 
-function loadEffect(Effect, Character)                  -- wenn der Charakter einloggt...
+function M.loadEffect(Effect, Character)                  -- wenn der Charakter einloggt...
     found,addPerc = coldEffect:findValue("addPerc");
     if found then
         User:increaseAttrib(AttribToBoost,addPerc);     -- Buchhaltung: Auslesen der aktuellen "steigerung" und steigern
         percBoost.nextCalled = 600;                     -- in einer Minute wieder aufrufen
     end
 end
+
+return M
+

@@ -12,26 +12,16 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- This could be maybe used for scars or stigmas - would be a good punishment for thieves imo
+-- UPDATE items SET itm_script='item.id_3581_kettle' WHERE itm_id IN (3581);
 
-module("content.uniquechardescription", package.seeall)
+local cooking = require("content.craft.cooking")
 
-function AddPlayerDescription(id, textde, texten)
-	table.insert(PlayerDescriptionsDE[id], textde);
-	table.insert(PlayerDescriptionsEN[id], texten);
+local M = {}
+
+function M.UseItem(User, SourceItem, ltstate)
+    cooking.cooking:showDialog(User, SourceItem)
 end
 
-function InitPlayerDesc()
-
-	if(Init == nil) then
-		
-		PlayerDescriptionsDE = {{}};
-		PlayerDescriptionsEN = {{}};
-		
-		--AddPlayerDescription(PlayerID, TextDE, TextEN);
-	
-		Init = 1;
-	end
-end
+return M

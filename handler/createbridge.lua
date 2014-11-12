@@ -14,17 +14,17 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-require("base.class")
+local class = require("base.class")
+local M = {}
 
-module("handler.createbridge", package.seeall)
 
-createBridge = base.class.class(function(crebrg, posi, dire, lng)
+M.createBridge = class(function(crebrg, posi, dire, lng)
     crebrg.pos=posi;
     crebrg.direction=dire;
     crebrg.length=lng;
 end);
 
-function createBridge:execute()
+function M.createBridge:execute()
     if self.length>2 then
         if self.direction==0 then       -- to north
             strBridge=world:createItemFromId(617, 1, self.pos, true, 999, {deleteBridgeDir = "north"});
@@ -89,3 +89,5 @@ function createBridge:execute()
         return -2;
      end
 end
+
+return M

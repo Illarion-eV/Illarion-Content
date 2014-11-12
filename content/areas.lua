@@ -16,11 +16,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- here, areas can be added
 
-require("base.polygons");
+local polygons = require("base.polygons")
 
-module("content.areas", package.seeall);
+local M = {}
 
-function Init()
+function M.Init()
 	if AreaList then
 		return;
 	end
@@ -71,7 +71,7 @@ function AddArea(name, aList)
 	end
 	AreaList[name] = {};
 	for _,poly in pairs(aList) do
-		table.insert(AreaList[name], base.polygons.Polygon(poly[1],poly[2]));
+		table.insert(AreaList[name], polygons.Polygon(poly[1],poly[2]));
 	end
 	return true;
 end
@@ -80,7 +80,7 @@ end
 -- @param posStruct The point to be tested
 -- @param string The name of the area
 -- @return boolean True if point is in area with areaName
-function PointInArea(point, areaName)
+function M.PointInArea(point, areaName)
 	if not AreaList then
 		Init();
 	end
@@ -95,3 +95,5 @@ function PointInArea(point, areaName)
 	end
 	return false;
 end
+
+return M

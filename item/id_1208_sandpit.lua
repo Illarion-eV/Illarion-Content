@@ -16,11 +16,14 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_1208_sandpit' WHERE itm_id=1208;
 
-require("content.gatheringcraft.sanddigging")
+local sanddigging = require("content.gatheringcraft.sanddigging")
 
-module("item.id_1208_sandpit", package.seeall)
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 
-	content.gatheringcraft.sanddigging.StartGathering(User, SourceItem, ltstate);
+	sanddigging.StartGathering(User, SourceItem, ltstate);
 end
+
+return M
+

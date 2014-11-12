@@ -16,11 +16,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script = 'item.id_1059_dice' WHERE itm_id = 1059 ;
 
-require("base.common")
+local common = require("base.common")
 
-module("item.id_1059_dice", package.seeall);
+local M = {}
 
-function UseItem(User, SourceItem, ltstate)
+function M.UseItem(User, SourceItem, ltstate)
 	chooseTypeOfDice(User)
 end
 
@@ -57,8 +57,8 @@ function informAboutResult(User, typeOfDice, numberOfDice)
 end
 
 function chooseNumberOfDice(User, typeOfDice)
-	local title = base.common.GetNLS(User,"Würfel", "Dice");
-	local text = base.common.GetNLS(User,"Bitte gib ein, wieviele Würfel du werfen möchtest." , "Please type in how many dice you wish to throw.");
+	local title = common.GetNLS(User,"Würfel", "Dice");
+	local text = common.GetNLS(User,"Bitte gib ein, wieviele Würfel du werfen möchtest." , "Please type in how many dice you wish to throw.");
 
 	local cbInputDialog = function (dialog)
 		if (not dialog:getSuccess()) then
@@ -67,12 +67,12 @@ function chooseNumberOfDice(User, typeOfDice)
 		local inputNumber = dialog:getInput();
 		if (string.find(inputNumber,"(%d+)") ~= nil) then
 			if tonumber(inputNumber) <= 0 then
-				User:inform("Du musst mindestens einen Würfel werfen.","You have to trow at least one dice.")
+				User:inform("Du musst mindestens einen Würfel werfen.","You have to throw at least one dice.")
 				chooseNumberOfDice(User, typeOfDice)
 			elseif tonumber(inputNumber) > 0 and tonumber(inputNumber) < 7 then 
 				informAboutResult(User, typeOfDice, inputNumber)
 			else
-				User:inform("Du kannst nur bis zu 6 Würfel werfen.", "You can only trow up to 6 dice.")
+				User:inform("Du kannst nur bis zu 6 Würfel werfen.", "You can only throw up to 6 dice.")
 				chooseNumberOfDice(User, typeOfDice)
 			end
 		else
@@ -84,8 +84,8 @@ function chooseNumberOfDice(User, typeOfDice)
 end
 
 function chooseTypeOfDice(User)
-	local title = base.common.GetNLS(User,"Würfel", "Dice");
-	local text = base.common.GetNLS(User,"Bitte wähle aus, welche Art Würfel du werfen möchtest." , "Please choose what type of dice you wish to throw.");
+	local title = common.GetNLS(User,"Würfel", "Dice");
+	local text = common.GetNLS(User,"Bitte wähle aus, welche Art Würfel du werfen möchtest." , "Please choose what type of dice you wish to throw.");
 	
 	local sdDice = function(dialog)
 		if (not dialog:getSuccess()) then
@@ -100,8 +100,10 @@ function chooseTypeOfDice(User)
 	end
 	local dialog = SelectionDialog(title, text, sdDice)
 
-	dialog:addOption(0, base.common.GetNLS(User, "W6 - Sechsseitiger Würfel", "D6 - Sixsided dice"))
-	dialog:addOption(0, base.common.GetNLS(User, "W20 - Zwanzigseiiger Würfel", "D20 - Twentysided dice"))
+	dialog:addOption(0, common.GetNLS(User, "W6 - Sechsseitiger Würfel", "D6 - Sixsided dice"))
+	dialog:addOption(0, common.GetNLS(User, "W20 - Zwanzigseiiger Würfel", "D20 - Twentysided dice"))
 	
 	User:requestSelectionDialog(dialog)
 end
+return M
+

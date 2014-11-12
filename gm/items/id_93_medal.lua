@@ -15,11 +15,11 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE common SET com_script='gm.items.id_93_medal' WHERE com_itemid=93;
+local lookat = require("base.lookat")
+local common = require("base.common")
+local M = {}
 
-require("base.common")
-module("gm.items.id_93_medal", package.seeall)
-
-function UseItemWithField(User, SourceItem, TargetPos)
+function M.UseItemWithField(User, SourceItem, TargetPos)
 
 	-- First check for mode change
 	local modes = {"Monster", "GFX", "SFX", "Animation", "Avatar changes"};
@@ -30,7 +30,7 @@ function UseItemWithField(User, SourceItem, TargetPos)
 
 		local index = dialog:getSelectedIndex() + 1;
 		if index == 1 then
-			monster(User,SourceItem,TargetPos);
+			monsterCreation(User,SourceItem,TargetPos);
 		elseif index == 2 then
 			gfx(User,SourceItem,TargetPos);
 		elseif index == 3 then
@@ -50,7 +50,7 @@ function UseItemWithField(User, SourceItem, TargetPos)
 	User:requestSelectionDialog(sd);
 end
 
-function monster(User, SourceItem, TargetPos)
+function monsterCreation(User, SourceItem, TargetPos)
 
 	local cbInputDialog = function (dialog)
 		if (not dialog:getSuccess()) then
@@ -103,7 +103,7 @@ function monster(User, SourceItem, TargetPos)
 		end
 
 		for i = 1, ammount do
-			monPos = base.common.getFreePos( TargetPos, radius );
+			monPos = common.getFreePos( TargetPos, radius );
 			world:createMonster(number, monPos, 20);
 			if gfxId ~= 0 then
 				world:gfx(gfxId, monPos);
@@ -239,12 +239,15 @@ function changeAvatar(User, SourceItem, TargetPos)
 	User:requestSelectionDialog(sdPlayer);
 end
 
-function UseItem(User, SourceItem)
-	UseItemWithField(User,SourceItem,base.common.GetFrontPosition(User));
+function M.UseItem(User, SourceItem)
+	M.UseItemWithField(User,SourceItem,common.GetFrontPosition(User));
 end
 
-function LookAtItem(User, Item)
-	base.lookat.SetSpecialDescription(Item, "Verwende die Medallie zum aufrufen der Funktionen.", "Use the medal to pick a function.");
-	base.lookat.SetSpecialName(Item, "Medaille", "Medal");
-	return base.lookat.GenerateLookAt(User, Item, base.lookat.METAL)
+function M.LookAtItem(User, Item)
+	lookat.SetSpecialDescription(Item, "Verwende die Medallie zum aufrufen der Funktionen.", "Use the medal to pick a function.");
+	lookat.SetSpecialName(Item, "Medaille", "Medal");
+	return lookat.GenerateLookAt(User, Item, lookat.METAL)
 end
+
+return M
+
