@@ -12,8 +12,9 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this progra  If not, see <http://www.gnu.org/licenses/>.
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+
 local gatheringcraft = require("base.gatheringcraft")
 local gems = require("item.gems")
 
