@@ -50,37 +50,37 @@ end)
 function _attrib_helper_equal(self, npcChar, texttype, player)
     local value = tools.get_value(self.npc, self.value, self.valuetype)
 	
-	return (value == player:increaseAttrib(self.attrib, 0))
+	return (player:increaseAttrib(self.attrib, 0) == value)
 end
 
 function _attrib_helper_notequal(self, npcChar, texttype, player)
     local value = tools.get_value(self.npc, self.value, self.valuetype)
 	
-	return (value ~= player:increaseAttrib(self.attrib, 0))
+	return (player:increaseAttrib(self.attrib, 0) ~= value)
 end
 
 function _attrib_helper_lesserequal(self, npcChar, texttype, player)
     local value = tools.get_value(self.npc, self.value, self.valuetype)
 	
-	return (value <= player:increaseAttrib(self.attrib, 0))
+	return (player:increaseAttrib(self.attrib, 0) <= value)
 end
 
 function _attrib_helper_greaterequal(self, npcChar, texttype, player)
     local value = tools.get_value(self.npc, self.value, self.valuetype)
 	
-	return (value >= player:increaseAttrib(self.attrib, 0))
+	return (player:increaseAttrib(self.attrib, 0) >= value)
 end
 
 function _attrib_helper_lesser(self, npcChar, texttype, player)
     local value = tools.get_value(self.npc, self.value, self.valuetype)
 	
-	return (value < player:increaseAttrib(self.attrib, 0))
+	return (player:increaseAttrib(self.attrib, 0) < value)
 end
 
 function _attrib_helper_greater(self, npcChar, texttype, player)
     local value = tools.get_value(self.npc, self.value, self.valuetype)
 	
-	return (value > player:increaseAttrib(self.attrib, 0))
+	return (player:increaseAttrib(self.attrib, 0) > value)
 end
 
 return attribute
