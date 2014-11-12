@@ -98,14 +98,12 @@ queststatus(525) = 0, english, "quest", "mission", "test" -> inform("[New quest]
 queststatus(525) = 0, "quest", "mission", "Test" -> inform("[Neue Quest] Die Kammer von Akaltut 1"), queststatus(525) = 1, "Ich bin Defensor Animositas. Um meine Prüfung zu bestehen, nenne mir den Namen des ersten Toten einer Gruppe von Abenteurern, die vor langer Zeit hier durchkamen."
 queststatus(525) = 0, "task", "adventure", "order" -> inform("[New quest] Akaltut's Chamber 1"), queststatus(525) = 1, "I am Defensor Animositas. To pass my test you must tell me the name of the first that died in a band of adventurers that passed this way some time ago."
 queststatus(525) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Die Kammer von Akaltut 1"), queststatus(525) = 1, "Ich bin Defensor Animositas. Um meine Prüfung zu bestehen, nenne mir den Namen des ersten Toten einer Gruppe von Abenteurern, die vor langer Zeit hier durchkamen."
--- Quest received but not finished
-queststatus(525) = 1, english,"quest", "mission", "test" -> "What is the name of the first adventurer to die? You must know this information to pass my test."
-queststatus(525) = 1, "quest", "mission", "Test" -> "Wie lautet der Name des ersten Abenteurers, der starb? Du musst dies wissen, um meine Prüfung zu bestehen."
-queststatus(525) = 1, "task", "adventure", "order" -> "What is the name of the first adventurer to die? You must know this information to pass my test."
-queststatus(525) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wie lautet der Name des ersten Abenteurers, der starb? Du musst dies wissen, um meine Prüfung zu bestehen."
 -- Quest completed
 queststatus(525) = 1, english, "theresa" -> inform("[Quest solved] You are awarded fifty silver coins."), money + 5000, queststatus(525) = 2, "Yes, the mage was the first to go. You have passed this test and are awarded 50 silver coins."
 queststatus(525) = 1, "theresa" -> inform("[Quest gelöst] Du erhältst fünfzig Silberstücke."), money + 5000, queststatus(525) = 2, "Ja, die Magierin starb als erste. Du hast den Test bestanden. Du bekommst 50 Silberstücke."
+-- Quest received but not finished
+queststatus(525) = 1, english, ".*" -> "What is the name of the first adventurer to die? You must know this information to pass my test."
+queststatus(525) = 1, german, ".*" -> "Wie lautet der Name des ersten Abenteurers, der starb? Du musst dies wissen, um meine Prüfung zu bestehen."
 -- If finished with the Defensor
 queststatus(525) = 2, english, "quest", "mission", "test" -> "You have passed, please see Defensor Iracundia."
 queststatus(525) = 2, "quest", "mission", "Test" -> "Du hast bestanden. Gehe zum Defensor Iracundia."
