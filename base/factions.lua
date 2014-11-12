@@ -597,7 +597,7 @@ M.RELATION_ACCEPTED = 4;		-- This is a special relationship that only applies to
 -- @param player the player
 -- @param townFaction the faction of the town
 -- @return int the relationship constant for the relationship between the town faction and the player
-function getPlayerRelation(player, townFaction)
+function M.getPlayerRelation(player, townFaction)
 	if player:isAdmin() then
 		return M.RELATION_FRIENDLY;
 	end

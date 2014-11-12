@@ -86,7 +86,7 @@ function M.WriteStone(Char,StoneNumber)
 end
 
 -- reward[x] = {y,z} - x = stones to have collected, y = item id , z= amount of y
-reward = {}
+local reward = {}
 reward[1] = {{3077, 2}}; -- 2 silver coins (3077)
 reward[5] = {{3077, 10},{49,1},{97,1},{463,1},{842,1}}; -- items worth 10 silver coins - silver coins, bread, leather bag, quill, green white skirt
 reward[10] = {{3077, 20},{455, 10},{812,1},{2629,1},{2359,1},{126,1},{72,1}} -- items worth 20 silver coins - silver coins, smoked fish, black doublet, light battle axe, mercenary armour, sickle, fishing rod
@@ -106,7 +106,7 @@ function M.getReward(Char)
 			Char:inform("Du hast 2 Silberstücke erhalten, da du den ersten Markierungsstein entdeckt hast. Weiter so!", "You have received two silver coins for discovering the first marker stone. Keep it up!");
 			Char:setQuestProgress(320,2)
 		else
-			rewardDialog(Char, nrStones)
+			M.rewardDialog(Char, nrStones)
 		end
 	end
 end

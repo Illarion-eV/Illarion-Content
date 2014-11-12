@@ -25,9 +25,9 @@ function StartGathering(User, SourceItem, ltstate)
 	InitHarvestItems();
 
 	gathering.InitGathering();
-	local fruitgathering = gathering.fruitgathering;
-
-	common.ResetInterruption( User, ltstate );
+	local fruitgathering = gathering.fruitgathering
+    
+    common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
 		if (User:increaseAttrib("sex",0) == 0) then
 			gText = "seine";

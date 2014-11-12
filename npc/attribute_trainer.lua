@@ -27,7 +27,7 @@ VALUES (0, 355, 254, 0, 4, 'Trainer Cloud McGoughey', 'npc.attribute_trainer', 0
 local money = require("base.money")
 local M = {}
 
-init = {};
+local init = {};
 
 function M.nextCycle(npc)
     if not init[npc.id] then

@@ -38,7 +38,7 @@ end;
 -- @param User The character to check
 -- @return true in case the character is at the brink of death
 function M.AtBrinkOfDeath(User)
-    return WouldDie(User, 1);
+    return M.WouldDie(User, 1);
 end;
 
 --- Bring a character to the brink of death. Means that he has only one hitpoint

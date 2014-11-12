@@ -60,7 +60,7 @@ function M.repairDialog(npcChar, speaker)
 		local chosenItem = itemsOnChar[index]
 		if chosenItem ~= nil then
 			repair(npcChar, speaker, chosenItem, language); -- let's repair
-			repairDialog(npcChar, speaker); -- call dialog recursively, to allow further repairs
+			M.repairDialog(npcChar, speaker); -- call dialog recursively, to allow further repairs
 		else
 			speaker:inform("[ERROR] Something went wrong, please inform a developer.");
 		end

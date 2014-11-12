@@ -123,12 +123,12 @@ for gem=1,7 do
     end
 end
 
-function getMagicGemId(gem, level)
+function M.getMagicGemId(gem, level)
     local level = level or 1
     return gemItem[gem]
 end
 
-function getMagicGemData(level)
+function M.getMagicGemData(level)
     local level = level or 1
     return {gemLevel = level}
 end

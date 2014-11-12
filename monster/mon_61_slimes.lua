@@ -25,12 +25,13 @@ local arena = require("base.arena")
 local showGFX = require("scheduled.showGFX")
 local M = {}
 
+local initiated = false
+local killer = {} --A list that keeps track of who attacked the monster last
 
 function ini(Monster)
 
-init=true;
 quests.iniQuests();
-killer={}; --A list that keeps track of who attacked the monster last
+
 
 --Random Messages
 msgs = messages.Messages();
@@ -48,7 +49,7 @@ end
 
 function M.enemyNear(Monster,Enemy)
 
-    if init==nil then
+    if initiated==nil then
         ini(Monster);
     end
 
@@ -62,7 +63,7 @@ end
 function M.enemyOnSight(Monster,Enemy)
 
 	local MonID=Monster:getMonsterType();
-    if init==nil then
+    if initiated==nil then
         ini(Monster);
     end
 
@@ -83,7 +84,8 @@ function M.enemyOnSight(Monster,Enemy)
 end
 
 function M.onAttacked(Monster,Enemy)
-    if init==nil then
+
+    if initiated==nil then
         ini(Monster);
     end
     kills.setLastAttacker(Monster,Enemy)
@@ -92,7 +94,7 @@ end
 
 function M.onCasted(Monster,Enemy)
 
-    if init==nil then
+    if initiated==nil then
         ini(Monster);
     end
     kills.setLastAttacker(Monster,Enemy)

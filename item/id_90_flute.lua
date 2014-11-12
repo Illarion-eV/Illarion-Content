@@ -31,7 +31,6 @@ music.addTalkText("#me plays an out of tune melody.","#me spielt eine verstimmte
 music.addTalkText("#me plays an airy tune on the flute.","#me spielt eine leichte Melodie auf der Flöte.", skill);
 music.addTalkText("#me plays a wild tune on the flute.","#me spielt eine wilde Melodie auf der Flöte.", skill);
 
-
 function M.UseItem(User, SourceItem)
 
     music.PlayInstrument(User,SourceItem,skill);

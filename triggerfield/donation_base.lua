@@ -21,7 +21,7 @@ local townTreasure = require("base.townTreasure")
 
 local M = {}
 
-function donate(Item,User,FactionName,LeaderName,Treasury)
+function M.donate(Item,User,FactionName,LeaderName,Treasury)
 
     -- This function donates 10% of the worth of an item to the faction
     
