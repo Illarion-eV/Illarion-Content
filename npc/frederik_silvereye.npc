@@ -225,6 +225,8 @@ english, "Gobaith", "Gobiath" -> "Never heard of that. Is it something to eat?"
 "Gobaith", "Gobiath" -> "Nie davon gehört. Ist es etwas zu Essen?"
 "my name" -> "It's a pleasure to meet you."
 "mein Name" -> "Ich freue mich Euch kennenzulernen."
+english, "deal" -> "We deal with everything in Galmair. But once, I made a special deal. A famous painter wanted to take residence but could not pay. He drew a picture of the Don instead. Miggs liked it. To get it he discharged all my debts."
+"Geschäft" -> "Du kannst mit allem in Galmair ein Geschäft machen. Ich hatte mal einen Maler hier, der kein Geld hatte. Er zeichnete stattdessen ein Bild vom Don, das Miggs unbedingt haben wollte. So bin ich damals meine Schulden losgeworden."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "chair" -> "I like my chair!"
