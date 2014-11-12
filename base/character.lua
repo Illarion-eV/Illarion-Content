@@ -45,14 +45,14 @@ end;
 -- left.
 -- @param User The character to bring to the brink of death
 function M.ToBrinkOfDeath(User)
-    ChangeHP(User, 1 - User:increaseAttrib("hitpoints", 0));
+    M.ChangeHP(User, 1 - User:increaseAttrib("hitpoints", 0));
 end;
 
 --- Kill a character.
 -- @param User The character to kill
 -- @return true in case the player was killed successfully
 function M.Kill(User)
-    ChangeHP(User, -10000);
+    M.ChangeHP(User, -10000);
     return true;
 end;
 

@@ -16,7 +16,7 @@
 -- NPC Name: Defensor Robur                                                   --
 -- NPC Job:  Defensor                                                         --
 --                                                                            --
--- NPC Race: Golden Magnus (78)        NPC Position:  475, 846, -9            --
+-- NPC Race: Golden Magnus (78)        NPC Position:  474, 850, -9            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Evie                                                             --
@@ -25,8 +25,8 @@
 name = "Defensor Robur"
 race = human
 sex = male
-position = 475, 846, -9
-direction = south
+position = 474, 850, -9
+direction = east
 job = "Defensor"
 
 language = common

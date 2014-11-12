@@ -23,7 +23,7 @@ local factions = require("base.factions")
 
 local M = {}
 
-itemPos = {"Head","Neck","Breast","Hands","Left Tool","Right Tool",
+local itemPos = {"Head","Neck","Breast","Hands","Left Tool","Right Tool",
 	"Left Finger","Right Finger","Legs","Feet","Coat","Belt 1",
 	"Belt 2","Belt 3","Belt 4","Belt 5","Belt 6"}
 itemPos[0] = "Backpack"
