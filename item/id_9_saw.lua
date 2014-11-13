@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_9_saw' WHERE itm_id IN (9);
 
+local common = require("base.common")
 local licence = require("base.licence")
 local boardproducing = require("content.gatheringcraft.boardproducing")
 local metal = require("item.general.metal")
@@ -30,7 +31,7 @@ function getWorkbench(User)
 	workbenches[724] = true
 	workbenches[725] = true
 
-	local targetItem = base.common.GetFrontItem(User);
+	local targetItem = common.GetFrontItem(User);
 	if (targetItem ~= nil and workbenches[targetItem.id] ~= nil) then
 		return targetItem;
 	end
@@ -61,7 +62,7 @@ function M.UseItem(User, SourceItem, ltstate)
 		return
 	end
 
-	base.common.InformNLS(User,
+	common.InformNLS(User,
 		"Du musst neben einem Werkbank stehen um die Säge zu benutzen.",
 		"You must stand next to a workbench to use the saw.");
 end
