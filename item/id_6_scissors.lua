@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local entrailscutting = require("content.gatheringcraft.entrailscutting")
+local licence = require("base.licence")
 local threadproducing = require("content.gatheringcraft.threadproducing")
 local weaving = require("content.gatheringcraft.weaving")
 local woolcutting = require("content.gatheringcraft.woolcutting")
@@ -86,7 +87,7 @@ function M.UseItem(User, SourceItem, ltstate)
 	-- check for spinning wheel
 	target = getWheel(User);
 	if (target ~= nil) then
-		if base.licence.licence(User) then --checks if user is citizen or has a licence
+		if licence.licence(User) then --checks if user is citizen or has a licence
 			return -- avoids crafting if user is neither citizen nor has a licence
 		end
 		threadproducing.StartGathering(User, target, ltstate);
@@ -96,7 +97,7 @@ function M.UseItem(User, SourceItem, ltstate)
 	-- check for loom
 	target = getLoom(User);
 	if (target ~= nil) then
-		if base.licence.licence(User) then --checks if user is citizen or has a licence
+		if licence.licence(User) then --checks if user is citizen or has a licence
 			return -- avoids crafting if user is neither citizen nor has a licence
 		end
 		weaving.StartGathering(User, target, ltstate);

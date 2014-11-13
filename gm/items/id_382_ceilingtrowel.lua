@@ -432,7 +432,6 @@ function factionHandling(User, SourceItem)
 					return;
 				end
 				local FirstLicence = factionIds[dialog:getSelectedIndex()+1];
-				local licence = base.licence;
 				local licenceStrings = {};
 				licenceStrings[licence.PERMISSION_NONE] = "Permission for static tools is restricted";
 				licenceStrings[licence.PERMISSION_ACTIVE] = "Permission for static tools is granted";
