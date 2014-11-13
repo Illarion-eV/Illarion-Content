@@ -19,30 +19,23 @@ local common = require("base.common")
 
 local M = {}
 
-function Init()
 
-    if InitDone then
-        return
-    end
-   
-      waypoint={}; --a list with positions
-      waypoint[1]=position(121,547,0); --1: Palace
-      waypoint[2]=position(107,558,0); --2: Notary
-      waypoint[3]=position(114,634,0); --3: Gate
-      messageG={};
-      messageG[1]="[Queststatus] Im Palast scheint alles in Ordnung zu sein.";
-      messageG[2]="[Queststatus] Reret Odohir scheint es gut zu gehen.";
-      messageG[3]="[Queststatus] Horatio Milenus bewacht das Tor wie eh und je.";
-      messageE={};
-      messageE[1]="[Quest status] All is quiet in the palace.";
-      messageE[2]="[Quest status] Reret Odohir seems to be doing well.";
-      messageE[3]="[Quest status] Horatio Milenus guards the gate just like he should be doing.";
-      InitDone = true;
-    
-end
+local waypoint={}; --a list with positions
+waypoint[1]=position(121,547,0); --1: Palace
+waypoint[2]=position(107,558,0); --2: Notary
+waypoint[3]=position(114,634,0); --3: Gate
+local messageG={};
+messageG[1]="[Queststatus] Im Palast scheint alles in Ordnung zu sein.";
+messageG[2]="[Queststatus] Reret Odohir scheint es gut zu gehen.";
+messageG[3]="[Queststatus] Horatio Milenus bewacht das Tor wie eh und je.";
+local messageE={};
+messageE[1]="[Quest status] All is quiet in the palace.";
+messageE[2]="[Quest status] Reret Odohir seems to be doing well.";
+messageE[3]="[Quest status] Horatio Milenus guards the gate just like he should be doing.";
+
 
 function M.MoveToField(User)
-    Init();
+    
    if (User:getQuestProgress(111) == 4) then --OK, the player does the quest
    
        queststatus=User:getQuestProgress(115); --here, we save which fields were visited
