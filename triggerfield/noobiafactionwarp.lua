@@ -22,6 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (40,111,100,'triggerfield.noobiafactionwarp');
 
 local common = require("base.common")
+local factions = require("base.factions")
 
 local M = {}
 
@@ -97,7 +98,7 @@ function M.MoveToField(Character)
 	Character:setQuestProgress(314,1); --Viola
 	Character:setQuestProgress(320,1); --Explorer
 	
-	FactionCheck = base.factions.getFaction(Character);
+	FactionCheck = factions.getFaction(Character);
 	                                                           
 	if (not Character:isAdmin() and not (FactionCheck.tid~=0)) and not oldPlayer then -- Admins and chars who are already members of a faction are unaffected and just warped 
 	    
@@ -146,7 +147,7 @@ function M.MoveToField(Character)
 	    playerlist = world:getPlayersOnline();
 		
 	    for i = 1, #(playerlist) do 
-		    FactionStuff = base.factions.getFaction(playerlist[i]);
+		    FactionStuff = factions.getFaction(playerlist[i]);
 	        if FactionStuff.tid == factionID then --Other faction members are alerted
                 common.InformNLS(playerlist[i],"[New player] Ein neuer Spieler ist gerade deinem Reich beigetreten.","[New player] A new player has just joined your realm.");  
 		    end
@@ -154,7 +155,7 @@ function M.MoveToField(Character)
 		
 		-- We make the noob a faction member - finally!
 		Character:setQuestProgress(199,factionID);
-		base.factions.setRankpoints(Character,0);
+		factions.setRankpoints(Character,0);
 		
 	end	
 end	
