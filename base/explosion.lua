@@ -59,8 +59,8 @@ function CreateExplosionCircle(HitPos,gfxid,Damage,CenterPos,setFlames)
 end;
 
 function HitChar(Posi,Hitpoints,CenterPos)
-    if world:isexplosionVictimOnField(Posi) then
-        local explosionVictim = world:getexplosionVictimOnField(Posi);
+    if world:isCharacterOnField(Posi) then
+        local explosionVictim = world:getCharacterOnField(Posi);
 
         if (explosionVictim:getType() == 2) then --dont touch npcs
             return;
