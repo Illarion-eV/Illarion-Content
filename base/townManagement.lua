@@ -156,7 +156,6 @@ function TownLicence(User,toolTown)
 
 	local factionIds = {0,1,2,3};
 	local FirstLicence = toolTown;
-	local licence = base.licence;
 	local licenceStrings = {};
 	if  User:getPlayerLanguage() == Player.german then
 		licenceStrings[licence.PERMISSION_NONE] = "Benutzung von statischen Werkzeugen ist verboten.";
