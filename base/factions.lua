@@ -450,7 +450,7 @@ function M.setRankpoints(originator, rankpoints)
 		Faction.rankTown = leaderRank;
 	end
 	
-	if rankpoints < base.factions.M.getRankpoints(originator) then
+	if rankpoints < M.getRankpoints(originator) then
 		playerText = {"sinkt.","decline"};
 		informPlayerAboutRankpointchange(originator, playerText);
 		if getSpecialRank(originator) ~= 0 then
