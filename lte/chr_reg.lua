@@ -428,7 +428,7 @@ function no_regeneration( Effect )
     return true;
 end
 
-function stallRegeneration(Char, Loops)
+function M.stallRegeneration(Char, Loops)
     local foundEffect, effect = Char.effects:find(EffectID);
     
     if not foundEffect then
