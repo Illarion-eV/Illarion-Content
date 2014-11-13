@@ -20,17 +20,17 @@ local common = require("base.common")
 local factions = require("base.factions")
 local M = {}
 
-GERMAN = Player.german
-ENGLISH = Player.english
+local GERMAN = Player.german
+local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
-Title = {}
+local Title = {}
 Title[GERMAN] = "Das Schmiedehandwerk"
 Title[ENGLISH] = "The smithing craft"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
-Description = {}
+local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Sammel 10 Klumpen Kohle und 10 Brocken Eisenerz und bring diese zu Berri Firegold in der Werkstatt von Cadomyr. Wenn du die Stadt verlässt und nach Süden der Straße folgst, erreichst du den 'Grundstein der Aufrichtigkeit'. Dort kannst du Kohle finden. Wenn du die Stadt verlässt und nach Nordosten gehst, erreichst du den 'Freiheitsbruch'. Dort findest du Eisen- und Kupfererz und manchmal sogar Goldnuggets. Mit der Spitzhacke kannst du das Erz von den Steinen abbauen."
@@ -52,7 +52,7 @@ Start = {141, 582, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
-QuestTarget = {}
+local QuestTarget = {}
 QuestTarget[1] = {position(141, 582, 0), position(169, 617, 0), position(134, 696, 0)} -- Mines
 QuestTarget[2] = {position(141, 582, 0)} 
 QuestTarget[3] = {position(141, 582, 0), position(143, 590, 0)} -- Furnace
@@ -61,7 +61,7 @@ QuestTarget[5] = {position(141, 582, 0), position(139, 589, 0)} -- anvil
 QuestTarget[6] = {position(141, 582, 0)} 
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 6
+local FINAL_QUEST_STATUS = 6
 
 
 function M.QuestTitle(user)

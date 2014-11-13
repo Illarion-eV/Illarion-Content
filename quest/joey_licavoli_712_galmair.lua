@@ -20,17 +20,17 @@ local common = require("base.common")
 local factions = require("base.factions")
 local M = {}
 
-GERMAN = Player.german
-ENGLISH = Player.english
+local GERMAN = Player.german
+local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
-Title = {}
+local Title = {}
 Title[GERMAN] = "Willkommen in Galmair"
 Title[ENGLISH] = "Welcome to Galmair"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
-Description = {}
+local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Suche Hannah Shepard bei den Feldern außerhalb von Galmair und frag sie nach einer Aufgabe. Solltest du weitere Aufgaben von Joey erledigen wollen, kehr später zu ihm zurück. Die Felder sind gleich ein paar Schritte östlich von Joeys Position."
@@ -75,7 +75,7 @@ Description[ENGLISH][18] = "You have fulfilled all the tasks for Joey Licavoli."
 Start = {425, 247, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
-QuestTarget = {}
+local QuestTarget = {}
 QuestTarget[1] = {position(425, 247, 0), position(434, 257, 0)} -- Hannah Shepard
 QuestTarget[2] = {position(425, 247, 0)}
 QuestTarget[3] = {position(425, 247, 0), position(387, 273, 0)} -- Thorgrem Silverbeard
@@ -96,7 +96,7 @@ QuestTarget[17] = {position(425, 247, 0), position(348, 273, 0)} -- Fokous Onyxb
 QuestTarget[18] = {position(425, 247, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 18
+local FINAL_QUEST_STATUS = 18
 
 
 function M.QuestTitle(user)

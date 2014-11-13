@@ -20,17 +20,17 @@ local common = require("base.common")
 local factions = require("base.factions")
 local M = {}
 
-GERMAN = Player.german
-ENGLISH = Player.english
+local GERMAN = Player.german
+local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
-Title = {}
+local Title = {}
 Title[GERMAN] = "Willkommen in Cadomyr"
 Title[ENGLISH] = "Welcome to Cadomyr"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
-Description = {}
+local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Such Berri Firegold in der Werkstatt von Cadomyr und frag ihn nach einer Aufgabe. Solltest du weitere Aufgaben von Jakob erledigen wollen, kehr später zu ihm zurück. Die Werkstatt kannst du ganz leicht finden. Geh durch das Haupttor im Norden, dann bieg nach rechts ab, geh durch das Tor, nun erneut nach Norden, dann öffnest du das Tor zu deiner linken und gehst nach Norden. Die Werkstatt befindet sich beim kleinen Garten mit den Werkzeugen darin."
@@ -74,7 +74,7 @@ Description[ENGLISH][18] = "You have fulfilled all the tasks for Jakob Lindorn."
 Start = {124, 649, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
-QuestTarget = {}
+local QuestTarget = {}
 QuestTarget[1] = {position(124, 649, 0), position(141, 582, 0)} -- Berri Firegold
 QuestTarget[2] = {position(124, 649, 0)}
 QuestTarget[3] = {position(124, 649, 0), position(133, 638, 0)} -- Grakamesh
@@ -95,7 +95,7 @@ QuestTarget[17] = {position(124, 649, 0), position(104, 600, 0)} -- Jeremiah Hor
 QuestTarget[18] = {position(124, 649, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 18
+local FINAL_QUEST_STATUS = 18
 
 
 function M.QuestTitle(user)

@@ -20,17 +20,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local M = {}
      
-GERMAN = Player.german
-ENGLISH = Player.english
+local GERMAN = Player.german
+local ENGLISH = Player.english
      
 -- Insert the quest title here, in both languages
-Title = {}
+local Title = {}
 Title[GERMAN] = "Fischen für Echsen"
 Title[ENGLISH] = "Fishing For Lizards"
      
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
-Description = {}
+local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Besorge zehn Forellen und bringe sie zu Kaitza. Stelle dich ans Wasser und benutze die Angel um Fische zu fangen."
@@ -48,7 +48,7 @@ Start = {841, 743, 0}
 
    
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
-QuestTarget = {}
+local QuestTarget = {}
 QuestTarget[1] = {position(841, 743, 0), position(791, 798, 0)} -- Angelpunkt
 QuestTarget[2] = {position(841, 743, 0)} 
 QuestTarget[3] = {position(841, 743, 0), position(791, 798, 0)} -- Angelpunkt
@@ -56,7 +56,7 @@ QuestTarget[4] = {position(841, 743, 0)}
 
      
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 4
+local FINAL_QUEST_STATUS = 4
      
      
 function M.QuestTitle(user)

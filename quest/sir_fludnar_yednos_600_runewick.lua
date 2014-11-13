@@ -19,17 +19,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local M = {}
 
-GERMAN = Player.german
-ENGLISH = Player.english
+local GERMAN = Player.german
+local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
-Title = {}
+local Title = {}
 Title[GERMAN] = "Ork-Forscher"
 Title[ENGLISH] = "Orc-Researcher"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
-Description = {}
+local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][11] = "Finde Nobarg bei der Kapelle der Fünf im südwestlichen Teil der Karte. Numila Irunnleh in Runewick und Ruzuss in Cadomyr können dir dabei helfen diese zu finden. Wenn du Nobarg gefunden hast, stelle ihm die Frage, die dir Sir Fludnar Yednos gestellt hat. Bedenke, ohne Nobarg kannst du diese Aufgabe nicht lösen. Dein Schlüsselwort für Nobarg lautet: 'Zeitalter'."
@@ -84,7 +84,7 @@ Start = {896, 757, 1}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
-QuestTarget = {}
+local QuestTarget = {}
 QuestTarget[11] = {position(475, 795, 0)} -- Nobarg
 QuestTarget[12] = {position(475, 795, 0)} -- Nobarg
 QuestTarget[13] = {position(475, 795, 0)} -- Nobarg
@@ -108,7 +108,7 @@ QuestTarget[30] = {position(896, 757, 1)} -- Sir Fludnar Yednos
 
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 40
+local FINAL_QUEST_STATUS = 40
 
 
 function M.QuestTitle(user)

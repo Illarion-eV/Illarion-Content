@@ -19,17 +19,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local M = {}
 
-GERMAN = Player.german
-ENGLISH = Player.english
+local GERMAN = Player.german
+local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
-Title = {}
+local Title = {}
 Title[GERMAN] = "Feuer und Flamme"
 Title[ENGLISH] = "A spark to a flame"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
-Description = {}
+local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Gehe zu jeden einzelnen Schrein der Fünf in ihren Tempel."
@@ -47,7 +47,7 @@ Description[ENGLISH][5] = "You have fulfilled all the tasks for Bathelor. Praise
 Start = {519, 128, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
-QuestTarget = {}
+local QuestTarget = {}
 QuestTarget[1] = {position(549, 138, 0), position(551, 133, 0), position(556, 135, 0), position(556, 141, 0), position(551, 143, 0), position(519, 128, 0)} -- Shrines
 QuestTarget[2] = {position(519, 128, 0)} 
 QuestTarget[3] = {position(519, 128, 0)} 
@@ -56,7 +56,7 @@ QuestTarget[5] = {position(519, 128, 0)}
 
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 5
+local FINAL_QUEST_STATUS = 5
 
 
 function M.QuestTitle(user)

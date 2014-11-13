@@ -19,17 +19,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local M = {}
 
-GERMAN = Player.german
-ENGLISH = Player.english
+local GERMAN = Player.german
+local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
-Title = {}
+local Title = {}
 Title[GERMAN] = "Ein guter Anfang in Runewick"
 Title[ENGLISH] = "A good beginning in Runewick"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
-Description = {}
+local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Gehe zu Daniel Brock und frag ihn nach einer Aufgabe. Er ist im Turm der Luft zu finden.\n Von Florain aus, einfach über die lange Brücke nach Osten und durch das blaue Portal gehen. Am Marktplatz angekommen, ist der Turm der Luft das Gebäude im Süden. Dort einfach eine Etage nach unten und durch die Tür gehen."
@@ -81,7 +81,7 @@ Description[ENGLISH][22] = "Florain Dreyndel cannot help you any further now. Ju
 Start = {833, 815, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
-QuestTarget = {}
+local QuestTarget = {}
 QuestTarget[1] = {position(904, 827, 0)} -- Daniel
 QuestTarget[2] = {position(833, 815, 0)} -- Florain
 QuestTarget[3] = {position(905, 780, 0)} -- Judith
@@ -106,7 +106,7 @@ QuestTarget[21] = {position(843, 844, 0)} -- Cilivren
 QuestTarget[22] = {position(833, 815, 0)} -- Florain
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 22
+local FINAL_QUEST_STATUS = 22
 
 
 function M.QuestTitle(user)

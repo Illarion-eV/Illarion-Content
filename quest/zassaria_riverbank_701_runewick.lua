@@ -20,17 +20,17 @@ local common = require("base.common")
 local factions = require("base.factions")
 local M = {}
 
-GERMAN = Player.german
-ENGLISH = Player.english
+local GERMAN = Player.german
+local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
-Title = {}
+local Title = {}
 Title[GERMAN] = "Frag für mich"
 Title[ENGLISH] = "Ask for me"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
-Description = {}
+local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Zassaria Riverbank bat dich eine Nachricht an Nizar zu überbringen, einem Händler der auf dem Marktplatz in Runewick zu finden ist."
@@ -68,7 +68,7 @@ Description[ENGLISH][15] = "You have fulfilled all tasks of Zassaria Riverbank."
 Start = {900, 800, 1}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
-QuestTarget = {}
+local QuestTarget = {}
 QuestTarget[1] = {position(910, 801, 1)} -- Nizar
 QuestTarget[2] = {position(900, 800, 1)}
 QuestTarget[3] = {position(900, 800, 1)}
@@ -86,7 +86,7 @@ QuestTarget[14] = {position(900, 800, 1)}
 QuestTarget[15] = {position(900, 800, 1)}
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 15
+local FINAL_QUEST_STATUS = 15
 
 
 function M.QuestTitle(user)

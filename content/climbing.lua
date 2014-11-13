@@ -81,3 +81,4 @@ function M.climbDown(User)
 	end
 end
 
+return M

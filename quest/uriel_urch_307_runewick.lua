@@ -20,17 +20,17 @@ local common = require("base.common")
 local factions = require("base.factions")
 local M = {}
 
-GERMAN = Player.german
-ENGLISH = Player.english
+local GERMAN = Player.german
+local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
-Title = {}
+local Title = {}
 Title[GERMAN] = "Geschichten und Schwerter"
 Title[ENGLISH] = "Tales and Swords"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
-Description = {}
+local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Besorge einen Bierkrug und bringe ihn Uriel. Du kannst einen Bierkrug vom Händler kaufen oder fülle Bier aus einer Flasche in einen leeren Krug. Bier kann man mit einen Kochlöffel am Weinfass herstellen."
@@ -55,7 +55,7 @@ Start = {902, 773, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
-QuestTarget = {}
+local QuestTarget = {}
 QuestTarget[1] = {position(902, 773, 0), position(899, 772, 0), position (906, 841, 0)}
 QuestTarget[2] = {position(902, 773, 0)} 
 QuestTarget[3] = {position(902, 773, 0), position(899, 772, 0), position (906, 841, 0)} 
@@ -65,7 +65,7 @@ QuestTarget[6] = {position(902, 773, 0)}
 QuestTarget[7] = {position(902, 773, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 7
+local FINAL_QUEST_STATUS = 7
 
 
 function M.QuestTitle(user)

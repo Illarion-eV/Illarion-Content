@@ -18,21 +18,21 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local M = {}
 
-shoalPositions = {}
+M.shoalPositions = {}
 
 function M.placeShoal()
 
-	if #shoalPositions == 0 then
+	if #M.shoalPositions == 0 then
 		return
 	end
-	for i=#shoalPositions,1,-1 do
-		if shoalPositions[i]["counter"] == 0 then
-			if not world:isItemOnField(shoalPositions[i]["shoalPosition"]) or world:getItemOnField(shoalPositions[i]["shoalPosition"]).id ~= 1170 then
-				local shoal = world:createItemFromId(1170,1,shoalPositions[i]["shoalPosition"],true,333,{amount = 20})
+	for i=#M.shoalPositions,1,-1 do
+		if M.shoalPositions[i]["counter"] == 0 then
+			if not world:isItemOnField(M.shoalPositions[i]["shoalPosition"]) or world:getItemOnField(M.shoalPositions[i]["shoalPosition"]).id ~= 1170 then
+				local shoal = world:createItemFromId(1170,1,M.shoalPositions[i]["shoalPosition"],true,333,{amount = 20})
 			end
-			table.remove(shoalPositions,i)
+			table.remove(M.shoalPositions,i)
 		else
-			shoalPositions[i]["counter"] = shoalPositions[i]["counter"] - 1
+			M.shoalPositions[i]["counter"] = M.shoalPositions[i]["counter"] - 1
 		end
 	end
 end

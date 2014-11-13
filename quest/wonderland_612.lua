@@ -19,17 +19,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local M = {}
 
-GERMAN = Player.german
-ENGLISH = Player.english
+local GERMAN = Player.german
+local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
-Title = {}
+local Title = {}
 Title[GERMAN] = "Gefangen im Wunderland"
 Title[ENGLISH] = "Trapped in the Wonderland"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
-Description = {}
+local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Um zu entkommen lese dir sorgfältig die Anweisungen der Stimmen durch und achte darauf, aus welcher Himmelsrichtung sie kommen.\nEs empfiehlt sich ebenfalls erst zu überlegen und dann zu agieren, anstelle wild und zufÃ¤llig herumzulaufen."
@@ -40,11 +40,11 @@ Description[GERMAN][3] = "Du bist erfolgreich dem Geist entkommen. Glückwunsch!"
 Description[ENGLISH][3] = "You have successfully escaped. Congratulations!"
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
-QuestTarget = {}
+local QuestTarget = {}
 QuestTarget[2] = {{890,596,0}, {876,590,0}, {878,562,0}}
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 3
+local FINAL_QUEST_STATUS = 3
 
 
 function M.QuestTitle(user)

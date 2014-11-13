@@ -20,17 +20,17 @@ local common = require("base.common")
 local factions = require("base.factions")
 local M = {}
 
-GERMAN = Player.german
-ENGLISH = Player.english
+local GERMAN = Player.german
+local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
-Title = {}
+local Title = {}
 Title[GERMAN] = "Geschichte schreiben"
 Title[ENGLISH] = "Writing History"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
-Description = {}
+local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Besorge fünf Wasserflaschen und bringe sie Mirarie. Du kannst sie bei einem Händler kaufen oder große leere Flaschen an einem Brunnen oder Gewässer füllen."
@@ -68,7 +68,7 @@ Start = {128, 621, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
-QuestTarget = {}
+local QuestTarget = {}
 QuestTarget[1] = {position(128, 621, 0), position(113, 574, 0), position(117, 607, 0)} 
 QuestTarget[2] = {position(128, 621, 0)} 
 QuestTarget[3] = {position(128, 621, 0), position(113, 611, 0)} 
@@ -85,7 +85,7 @@ QuestTarget[13] = {position(128, 621, 0)}
 QuestTarget[14] = {position(128, 621, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 14
+local FINAL_QUEST_STATUS = 14
 
 
 function M.QuestTitle(user)

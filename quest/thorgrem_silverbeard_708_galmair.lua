@@ -20,17 +20,17 @@ local common = require("base.common")
 local factions = require("base.factions")
 local M = {}
 
-GERMAN = Player.german
-ENGLISH = Player.english
+local GERMAN = Player.german
+local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
-Title = {}
+local Title = {}
 Title[GERMAN] = "Das Schmiedehandwerk"
 Title[ENGLISH] = "The smithing craft"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
-Description = {}
+local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Sammel 10 Klumpen Kohle und 10 Brocken Eisenerz und bring diese zu Thorgrem Silverbeard bei der Werkstatt von Galmair. Wenn du aus der Werkstatt die südliche Tür hinaus nimmst, der Straße nach Süden folgst, bis du zu einer Brücke gelangst und anschließend weiter nach Südosten gehst, erreichst du die Malachitmine. Zur Dunkellochmine gelangst du, wenn du die Stadt im Osten verlässt, der Straße nach Osten folgst, die goldene Brücke überquerst und anschließend die goldene Brücke im Norden nochmals überquerst. Nach der Brücke nimmst du den Weg nach Nordwesten und überquerst die Holzbrücke und dann hast du dein Ziel erreicht."
@@ -52,7 +52,7 @@ Start = {387, 273, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
-QuestTarget = {}
+local QuestTarget = {}
 QuestTarget[1] = {position(387, 273, 0), position(397, 145, 0), position(426, 355, 0)} -- Mines
 QuestTarget[2] = {position(387, 273, 0)} 
 QuestTarget[3] = {position(387, 273, 0), position(387, 272, 0)} -- Furnace
@@ -61,7 +61,7 @@ QuestTarget[5] = {position(387, 273, 0), position(383, 272, 0)} -- anvil
 QuestTarget[6] = {position(387, 273, 0)} 
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 6
+local FINAL_QUEST_STATUS = 6
 
 
 function M.QuestTitle(user)

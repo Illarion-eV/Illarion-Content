@@ -19,17 +19,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local M = {}
 
-GERMAN = Player.german
-ENGLISH = Player.english
+local GERMAN = Player.german
+local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
-Title = {}
+local Title = {}
 Title[GERMAN] = "Der Wilderer"
 Title[ENGLISH] = "The Poacher"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
-Description = {}
+local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Gehe in den Elsbaumwald östlich von Eugene und jage sechs Schweine. Bringe ihm dann mindestens drei Stücke Schweinefleisch. Um zu Jagen nimm eine Waffe in die Hand und greife die Schweine an."
@@ -105,7 +105,7 @@ Start = {693, 493, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
-QuestTarget = {}
+local QuestTarget = {}
 QuestTarget[1] = {position(789, 483, 0), position(766, 459, 0)} 
 QuestTarget[2] = {position(789, 483, 0), position(766, 459, 0)} --Wald
 QuestTarget[3] = {position(789, 483, 0), position(766, 459, 0)} 
@@ -142,7 +142,7 @@ QuestTarget[33] = {position(693, 493, 0)} --Eugene
 
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 33
+local FINAL_QUEST_STATUS = 33
 
 
 function M.QuestTitle(user)

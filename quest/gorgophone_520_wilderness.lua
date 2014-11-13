@@ -20,17 +20,17 @@ local common = require("base.common")
 local factions = require("base.factions")
 local M = {}
 
-GERMAN = Player.german
-ENGLISH = Player.english
+local GERMAN = Player.german
+local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
-Title = {}
+local Title = {}
 Title[GERMAN] = "Das Nest der Gorgophone"
 Title[ENGLISH] = "Gorgophone's Nest"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
-Description = {}
+local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Töte Kleine Spinnen für Gorgophone. Du musst noch 25 erledigen."
@@ -318,13 +318,13 @@ npcPos = position(852, 497, -6);
 Start = npcPos;
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
-QuestTarget = {}
+local QuestTarget = {}
 for i = 1, 132 do
   QuestTarget[i] = {npcPos};
 end
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 133
+local FINAL_QUEST_STATUS = 133
 
 
 function M.QuestTitle(user)

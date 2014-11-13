@@ -19,18 +19,18 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local M = {}
      
-GERMAN = Player.german
-ENGLISH = Player.english
+local GERMAN = Player.german
+local ENGLISH = Player.english
      
 	 
 -- Insert the quest title here, in both languages
-Title = {}
+local Title = {}
 Title[GERMAN] = "Eibenthal"
 Title[ENGLISH] = "Yewdale"
      
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
-Description = {}
+local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Baue Getreide an und bringe Nana zehn Getreidebündel. Sähe dafür Getreide auf dem Feld an und ernte das fertige Getreide mit einer Sense."
@@ -55,7 +55,7 @@ Description[ENGLISH][8] = "You have fulfilled all the tasks for Nana Winterbutte
 Start = {791, 798, 0}
  
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
-QuestTarget = {}
+local QuestTarget = {}
 QuestTarget[1] = {position(847, 828, 0), position (791, 798, 0)} -- Feld
 QuestTarget[2] = {position(791, 798, 0)}
 QuestTarget[3] = {position(847, 828, 0), position (791, 798, 0)} -- Feld
@@ -66,7 +66,7 @@ QuestTarget[7] = {position(833, 863, 0), position(791, 798, 0)} -- Angelpunkt
 QuestTarget[8] = {position(791, 798, 0)}
      
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 8
+local FINAL_QUEST_STATUS = 8
      
      
 function M.QuestTitle(user)

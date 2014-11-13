@@ -19,17 +19,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local M = {}
 
-GERMAN = Player.german
-ENGLISH = Player.english
+local GERMAN = Player.german
+local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
-Title = {}
+local Title = {}
 Title[GERMAN] = "Einführung - Kämpfen"
 Title[ENGLISH] = "Tutorial - Fighting"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
-Description = {}
+local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Diese Station lehrt dich, wie man kämpft. Groknar, der Lehrmeister, ist ein stolzer und mächtiger Orkkrieger. Stell dich ihm vor - vorsichtig.\n\nMonster und auch andere Spielercharaktere (PvP) kannst du mit einem Rechtsklick angreifen."
@@ -49,11 +49,11 @@ Description[ENGLISH][6] = "You finished the tutorial on fighting."
 Start = {41, 44, 100}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
-QuestTarget = {}
+local QuestTarget = {}
 --QuestTarget[1] = {position(x, y, 100), position(x, y, 100)}
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 6
+local FINAL_QUEST_STATUS = 6
 
 
 function M.QuestTitle(user)

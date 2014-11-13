@@ -521,7 +521,7 @@ end
     @param fv -- the List with the Factionvalues of the Char
     @param theRank(number) -- the rank the char shall get in the town
 ]]
-function makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
+function M.makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
 	if theRank==leaderRank then --make char to leader of this town
 		fv.tid = theTown; --make him member of this town
 		fv.rankTown = leaderRank; --give him the leader rank

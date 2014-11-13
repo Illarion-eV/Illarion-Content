@@ -18,6 +18,7 @@ local common = require("base.common")
 local doors = require("base.doors")
 local factions = require("base.factions")
 local character = require("base.character")
+local money = require("base.money")
 
 local M = {}
 
@@ -168,9 +169,9 @@ function M.Ferry(User, SourceItem)
         success = dialog:getSuccess()
         if success then
             local selected = dialog:getSelectedIndex()
-            if  base.money.CharHasMoney(User,1000) then
+            if  money.CharHasMoney(User,1000) then
                 
-                    base.money.TakeMoneyFromChar(User,1000)
+                    money.TakeMoneyFromChar(User,1000)
                     local travlers = world:getPlayersInRangeOf(SourceItem.pos, 5) 
                     M.travlerslist[User.name] = travlers
 
@@ -463,8 +464,8 @@ end
 function piratesPay(User)
     local travlers = world:getPlayersInRangeOf(User.pos, 40) 
     M.travlerslist[User.name] = travlers
-    if base.money.CharHasMoney(User,10000) then
-        base.money.TakeMoneyFromChar(User,10000)
+    if money.CharHasMoney(User,10000) then
+        money.TakeMoneyFromChar(User,10000)
         for i,player in ipairs(M.travlerslist[User.name]) do
             if player:isInRangeToPosition(position(352,870,0), 30) or player:isInRangeToPosition(position(352,870,1), 30) or player:isInRangeToPosition(position(352,870,2), 30) then
                 if M.previousselected == nil then

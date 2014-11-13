@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local class = require("base.class")
 local consequence = require("npc.base.consequence.consequence")
 local tools = require("npc.base.tools")
+local factions = require("base.factions")
 
 local _town_helper_set
 local _town_helper_status
@@ -36,12 +37,12 @@ end)
 
 function _town_helper_set(self, npcChar, player)
     local value = tools.get_value(self.npc, self.value, self.valuetype)	
-	local factionValues = base.factions.getFaction(player)
-	base.factions.makeCharMemberOfTown(player,npcChar,factionValues,1, value)
+	local factionValues = factions.getFaction(player)
+	factions.makeCharMemberOfTown(player,npcChar,factionValues,1, value)
 end
 
 function _town_helper_status(self, npcChar, player)
-	base.factions.informPlayerAboutStatus(player)
+	factions.informPlayerAboutStatus(player)
 end
 
 return town

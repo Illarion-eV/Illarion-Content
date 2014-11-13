@@ -22,17 +22,17 @@ local M = {}
      
 	 
 	 
-GERMAN = Player.german
-ENGLISH = Player.english
+local GERMAN = Player.german
+local ENGLISH = Player.english
      
 -- Insert the quest title here, in both languages
-Title = {}
+local Title = {}
 Title[GERMAN] = "Das faule Schneiderlein"
 Title[ENGLISH] = "The Lazy Tailoress"
      
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
-Description = {}
+local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Sammel zwanzig Wollballen und bringe sie zurück zu Lilith. Wenn du Schafe mit einer Schere scherst, bekommst du Wolle."
@@ -55,7 +55,7 @@ Start = {894, 762, 0}
 
     
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
-QuestTarget = {}
+local QuestTarget = {}
 QuestTarget[1] = {position(852, 792, 0), position(894, 762, 0)} -- Sheep
 QuestTarget[2] = {position(894, 762, 0)} -- Lilith Needlehand 
 QuestTarget[3] = {position(911, 783, 0), position(894, 762, 0)} -- spinning wheel
@@ -64,7 +64,7 @@ QuestTarget[5] = {position(909, 778, 0), position(894, 762, 0)} -- barrel
 QuestTarget[6] = {position(894, 762, 0)} -- Lilith Needlehand 
      
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 6
+local FINAL_QUEST_STATUS = 6
      
      
 function M.QuestTitle(user)

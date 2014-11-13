@@ -21,6 +21,7 @@ local licence = require("base.licence")
 local oremelting = require("content.gatheringcraft.oremelting")
 local waxproducing = require("content.gatheringcraft.waxproducing")
 local metal = require("item.general.metal")
+local common = require("base.common")
 
 local M = {}
 
@@ -33,7 +34,7 @@ function getFurnace(User)
 	furnaces[2836] = true
 	furnaces[2837] = true
 
-	local targetItem = base.common.GetFrontItem(User);
+	local targetItem = common.GetFrontItem(User);
 	if (targetItem ~= nil and furnaces[targetItem.id] ~= nil) then
 		return targetItem;
 	end
@@ -55,7 +56,7 @@ end
 
 function getChandlerTable(User)
 
-	local targetItem = base.common.GetFrontItem(User);
+	local targetItem = common.GetFrontItem(User);
 	if (targetItem ~= nil and targetItem.id == 428) then
 		return targetItem;
 	end
@@ -92,7 +93,7 @@ function M.UseItem(User, SourceItem, ltstate)
 		return
 	end
 
-	base.common.InformNLS(User,
+	common.InformNLS(User,
 		"Du musst neben einem Schmelzofen oder Kerzenziehertisch stehen um die Tiegelzange zu benutzen.",
 		"You must stand next to a furnace or a chandler table to use the crucible-pincers.");
 end

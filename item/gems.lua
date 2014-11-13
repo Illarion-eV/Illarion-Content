@@ -287,7 +287,7 @@ function isUnsocketable(itemId)
     return world:getWeaponStruct(itemId);
 end
 
-function magicSmith(npc, player)
+function M.magicSmith(npc, player)
     local callback = function(dialog)
         success = dialog:getSuccess()
 

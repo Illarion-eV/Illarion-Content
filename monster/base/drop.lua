@@ -254,7 +254,7 @@ function M.MonsterRandomTalk(Monster,msgs)
 
         Monster:increaseSkill(Character.commonLanguage,100-Monster:getSkill(Character.commonLanguage)); --if the monster could not talk, it can talk now
 
-        germanMessage, englishMessage = msgs:getRandomMessage(); --choses a random message
+        local germanMessage, englishMessage = msgs:getRandomMessage(); --choses a random message
         common.TalkNLS( Monster, Character.say, germanMessage, englishMessage ); --does the talking in both languages
 
     end

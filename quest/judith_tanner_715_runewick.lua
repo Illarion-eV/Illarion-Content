@@ -20,17 +20,17 @@ local common = require("base.common")
 local factions = require("base.factions")
 local M = {}
 
-GERMAN = Player.german
-ENGLISH = Player.english
+local GERMAN = Player.german
+local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
-Title = {}
+local Title = {}
 Title[GERMAN] = "Das Schneiderhandwerk"
 Title[ENGLISH] = "The tailoring craft"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
-Description = {}
+local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 
@@ -61,7 +61,7 @@ Start = {905, 780, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
-QuestTarget = {}
+local QuestTarget = {}
 QuestTarget[1] = {position(905, 780, 0), position(860, 768, 0)} -- Sheeps
 QuestTarget[2] = {position(905, 780, 0)} 
 QuestTarget[3] = {position(905, 780, 0), position(911, 782, 0), position(911, 781, 0)} -- Spinning wheel and loom
@@ -74,7 +74,7 @@ QuestTarget[9] = {position(905, 780, 0), position(909, 778, 0)} -- Barrels
 QuestTarget[10] = {position(905, 780, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 10
+local FINAL_QUEST_STATUS = 10
 
 
 function M.QuestTitle(user)

@@ -20,17 +20,17 @@ local common = require("base.common")
 local factions = require("base.factions")
 local M = {}
 
-GERMAN = Player.german
-ENGLISH = Player.english
+local GERMAN = Player.german
+local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
-Title = {}
+local Title = {}
 Title[GERMAN] = "Eine Frage der Ehre"
 Title[ENGLISH] = "A Question of Honour"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
-Description = {}
+local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Lies die Sitten, die auf dem Monument von Sir Reginald Edwards vor dem Palast von Cadomyr stehen. Betrachte hierfür die Statue. Kehre dann zu Beror zurück."
@@ -75,7 +75,7 @@ Description[ENGLISH][18] = "You have fulfilled all the tasks for Beror Oakaxe."
 Start = {135, 620, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
-QuestTarget = {}
+local QuestTarget = {}
 QuestTarget[1] = {position(135, 620, 0), position(125, 566, 0)} -- statue
 QuestTarget[2] = {position(135, 620, 0)} 
 QuestTarget[3] = {position(135, 620, 0)} 
@@ -97,7 +97,7 @@ QuestTarget[18] = {position(135, 620, 0)}
 
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 18
+local FINAL_QUEST_STATUS = 18
 
 
 function M.QuestTitle(user)

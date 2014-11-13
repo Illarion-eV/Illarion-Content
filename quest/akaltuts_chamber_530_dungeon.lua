@@ -19,17 +19,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local M = {}
 
-GERMAN = Player.german
-ENGLISH = Player.english
+local GERMAN = Player.german
+local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
-Title = {}
+local Title = {}
 Title[GERMAN] = "Die Kammer von Akaltut VI"
 Title[ENGLISH] = "Akaltut's Chamber VI"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
-Description = {}
+local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Töte Drow für den Defensor Volnus. Du benötigst noch 20."
@@ -92,13 +92,13 @@ Description[ENGLISH][27] = "You have passed all the tests of the Defensors."
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {}
+local Description = {}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
-QuestTarget = {}
+local QuestTarget = {}
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 27
+local FINAL_QUEST_STATUS = 27
 
 
 function M.QuestTitle(user)

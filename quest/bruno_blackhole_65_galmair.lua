@@ -20,17 +20,17 @@ local common = require("base.common")
 local factions = require("base.factions")
 local M = {}
 
-GERMAN = Player.german
-ENGLISH = Player.english
+local GERMAN = Player.german
+local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
-Title = {}
+local Title = {}
 Title[GERMAN] = "Malachitmine"
 Title[ENGLISH] = "Malachite Mine"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
-Description = {}
+local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Sammel zehn rohe Steine und bringe diese Bruno. Du kannst rohe Steine entweder beim Händler kaufen oder in der Mine finden. Nimm hierfür eine Spitzhacke in die Hand und benutzte sie, während du vor einem Stein stehst."
@@ -54,7 +54,7 @@ Description[ENGLISH][8] = "You have fulfilled all of Brunon's tasks."
 Start = {439, 359, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
-QuestTarget = {}
+local QuestTarget = {}
 QuestTarget[1] = {position(439, 359, 0), position(366, 275, 0), position(435, 359, 0)} 
 QuestTarget[2] = {position(439, 359, 0)} 
 QuestTarget[3] = {position(439, 359, 0), position(366, 275, 0), position(436, 360, 0)} 
@@ -65,7 +65,7 @@ QuestTarget[7] = {position(439, 359, 0), position(819, 104, 0), position(380, 29
 QuestTarget[8] = {position(439, 359, 0)} 
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 8
+local FINAL_QUEST_STATUS = 8
 
 
 function M.QuestTitle(user)

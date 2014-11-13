@@ -20,17 +20,17 @@ local common = require("base.common")
 local factions = require("base.factions")
 local M = {}
 
-GERMAN = Player.german
-ENGLISH = Player.english
+local GERMAN = Player.german
+local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
-Title = {}
+local Title = {}
 Title[GERMAN] = "Das Edelsteinschleifen und Ziegelmachen"
 Title[ENGLISH] = "Gem grinding and brick making"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
-Description = {}
+local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Sammle zehn Klumpen Lehm ín den Lehmgruben östlich der Stadt Nahe der Kupferbrücke und bringe sie zu Seleseth in der Werkstatt von Galmair. Lehm sammelst du, in dem die Schaufel in die Hand nimmst und sie bei einer Lehmgrube benutzt."
@@ -60,7 +60,7 @@ Start = {387, 278, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
-QuestTarget = {}
+local QuestTarget = {}
 QuestTarget[1] = {position(387, 278, 0), position(467, 250, 0)} -- Clay Pit
 QuestTarget[2] = {position(387, 278, 0)} 
 QuestTarget[3] = {position(387, 278, 0), position(385, 270, 0)} -- Glass melting oven
@@ -73,7 +73,7 @@ QuestTarget[9] = {position(387, 278, 0)} -- Workshop
 QuestTarget[10] = {position(387, 278, 0)} 
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 10
+local FINAL_QUEST_STATUS = 10
 
 
 function M.QuestTitle(user)
