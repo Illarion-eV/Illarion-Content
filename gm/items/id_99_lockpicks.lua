@@ -350,14 +350,14 @@ function getSetQueststatus(User, SourceItem, ltstate)
 			local inputString = dialog:getInput();
 			if (string.find(inputString, "(%d+) (%d+)") ~= nil) then
 				local a, b, quest, status = string.find(inputString, "(%d+) (%d+)");
-				quest = tonumber(quest);
-				status = tonumber(status);
+				local quest = tonumber(quest);
+				local status = tonumber(status);
 				chosenPlayer:setQuestProgress(quest, status);
 				User:inform("Quest " .. quest .. " has been set to " .. status .. "!");
 				User:logAdmin("changes queststatus of character " .. chosenPlayer.name .. ". Quest ID " .. quest .. " set to value " .. status);
 			elseif (string.find(inputString, "(%d+)") ~= nil) then
 				local a, b, quest = string.find(inputString, "(%d+)");
-				quest = tonumber(quest);
+				local quest = tonumber(quest);
 				User:inform("Quest " .. quest .. " has the status " .. chosenPlayer:getQuestProgress(quest) .. ".");
 			else
 				User:inform("Sorry, I didn't understand you.");
