@@ -27,15 +27,15 @@ local vision = require("content.vision")
 
 local M = {}
 
-DIAMOND  = 1
-EMERALD  = 2
-RUBY     = 3
-OBSIDIAN = 4
-SAPPHIRE = 5
-AMETHYST = 6
-TOPAZ    = 7
+local DIAMOND  = 1
+local EMERALD  = 2
+local RUBY     = 3
+local OBSIDIAN = 4
+local SAPPHIRE = 5
+local AMETHYST = 6
+local TOPAZ    = 7
 
-gemItem = {}
+local gemItem = {}
 gemItem[DIAMOND] = 285
 gemItem[EMERALD] = 45
 gemItem[RUBY] = 46
@@ -44,7 +44,7 @@ gemItem[SAPPHIRE] = 284
 gemItem[AMETHYST] = 197
 gemItem[TOPAZ] = 198
 
-gemId = {}
+local gemId = {}
 gemId[285] = DIAMOND
 gemId[45] = EMERALD
 gemId[46] = RUBY
@@ -53,7 +53,7 @@ gemId[284] = SAPPHIRE
 gemId[197] = AMETHYST
 gemId[198] = TOPAZ
 
-gemDataKey = {}
+local gemDataKey = {}
 gemDataKey[DIAMOND] = "magicalDiamond"
 gemDataKey[EMERALD] = "magicalEmerald"
 gemDataKey[RUBY] = "magicalRuby"
@@ -62,12 +62,12 @@ gemDataKey[SAPPHIRE] = "magicalSapphire"
 gemDataKey[AMETHYST] = "magicalAmethyst"
 gemDataKey[TOPAZ] = "magicalTopaz"
 
-levelDataKey = "gemLevel"
+local levelDataKey = "gemLevel"
 
-gemPrefixDE = {"Latent", "Bedingt", "Leicht", "M‰ﬂig", "Durchschnittlich", "Bemerkenswert", "Stark", "Sehr stark", "Unglaublich", "Einzigartig"}
-gemPrefixEN = {"Latent", "Limited", "Slight", "Moderate", "Average", "Notable", "Strong", "Very Strong", "Unbelievable", "Unique"}
+local gemPrefixDE = {"Latent", "Bedingt", "Leicht", "M‰ﬂig", "Durchschnittlich", "Bemerkenswert", "Stark", "Sehr stark", "Unglaublich", "Einzigartig"}
+local gemPrefixEN = {"Latent", "Limited", "Slight", "Moderate", "Average", "Notable", "Strong", "Very Strong", "Unbelievable", "Unique"}
 
-gemLevelRareness = {}
+local gemLevelRareness = {}
 gemLevelRareness[1] = ItemLookAt.uncommonItem
 gemLevelRareness[2] = ItemLookAt.uncommonItem
 gemLevelRareness[3] = ItemLookAt.uncommonItem
@@ -218,7 +218,7 @@ function handleSocketing(user, gem)
     user:requestSelectionDialog(dialog)
 end
 
-slots = {}
+local slots = {}
 table.insert(slots, Character.left_tool)
 table.insert(slots, Character.right_tool)
 table.insert(slots, Character.belt_pos_1)
