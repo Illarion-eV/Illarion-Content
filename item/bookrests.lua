@@ -29,6 +29,15 @@ local money = require("base.money")
 
 local M = {}
 
+local FerryLookAt
+local TMLookAt
+local StaticTeleporterLookAt
+local SalaveshLookAt
+local AkaltutLookAt
+local usingHomeTeleporter
+local NecktieHomeTravel
+local StaticTeleporter
+
 function M.LookAtItem(User,Item)
 
 	local lookAt
