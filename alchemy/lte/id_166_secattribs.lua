@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- LTE für das Druidensystem
 -- by Falk
 -- complete new version by Merung
+local common = require("base.common")
 
 local M = {}
 
@@ -56,7 +57,7 @@ function M.callEffect(Effect,User)
               User:increaseAttrib("foodlevel",foodlevelIncrease);
            end
            if findPoisonvalueIn then    
-	          poisonvalueIncrease = base.common.Limit( (User:getPoisonValue() - poisonvalueIncrease) , 0, 10000 ); 
+	          poisonvalueIncrease = common.Limit( (User:getPoisonValue() - poisonvalueIncrease) , 0, 10000 ); 
 	          User:setPoisonValue( poisonvalueIncrease );
 	       end
 	      
@@ -70,7 +71,7 @@ function M.callEffect(Effect,User)
               User:increaseAttrib("foodlevel",-foodlevelDecrease);
            end
            if findPoisonvalueDe then    
-	          poisonvalueDecrease = base.common.Limit( (User:getPoisonValue() + poisonvalueDecrease) , 0, 10000 ); 
+	          poisonvalueDecrease = common.Limit( (User:getPoisonValue() + poisonvalueDecrease) , 0, 10000 ); 
 	          User:setPoisonValue( poisonvalueDecrease );
 	       end
 		  
@@ -81,7 +82,7 @@ function M.callEffect(Effect,User)
 	       
 		   if counterPink <= 0 then
 		        world:gfx(45,User.pos)
-				base.common.InformNLS(User,"Die Wirkungsphase des Heiltranks endet.","The effect phase of the healing potion ends.")
+				common.InformNLS(User,"Die Wirkungsphase des Heiltranks endet.","The effect phase of the healing potion ends.")
 				return false
 	       end
        end
