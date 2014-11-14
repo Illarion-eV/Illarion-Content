@@ -29,7 +29,7 @@ local M = {}
 
 
 --- NO EFFECT 
-function DrinkPotion(User,SourceItem)
+local function DrinkPotion(User,SourceItem)
 
     potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
 

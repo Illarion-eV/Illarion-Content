@@ -22,7 +22,7 @@ local M = {}
 
 -- UPDATE common SET com_script='alchemy.item.id_167_yellow_bottle' WHERE com_itemid = 167;
 
-function DrinkPotion(User,SourceItem)
+local function DrinkPotion(User,SourceItem)
     User:inform("Der Trank scheint keine Wirkung zu haben.","The potion seems to have no effect.")
 end
 

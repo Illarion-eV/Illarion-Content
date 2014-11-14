@@ -23,11 +23,11 @@ local M = {}
 
 -- UPDATE common SET com_script='alchemy.item.id_166_pink_bottle' WHERE com_itemid = 166;
 
-bottomBorder = 2;
-topBorder = {7000       ,7000  ,50000      ,10000        ,7000         ,7000    ,50000        ,10000}
-attribList ={"hitpoints","mana","foodlevel","poisonvalue","hitpointsOT","manaOT","foodlevelOT","poisonvalueOT"}
+local bottomBorder = 2;
+local topBorder = {7000       ,7000  ,50000      ,10000        ,7000         ,7000    ,50000        ,10000}
+local attribList ={"hitpoints","mana","foodlevel","poisonvalue","hitpointsOT","manaOT","foodlevelOT","poisonvalueOT"}
 
-function DrinkPotion(User,SourceItem)
+local function DrinkPotion(User,SourceItem)
     local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
 	
 	if potionEffectId == 0 or potionEffectId == nil  then -- no effect	
