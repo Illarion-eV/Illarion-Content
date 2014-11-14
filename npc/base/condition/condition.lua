@@ -21,7 +21,7 @@ local _condition_helper_empty
 --- Basic class for all conditions. Its never needed to create this class in any
 --  NPC since this is just a collection of methods the actual condition classes
 --  share.
-condition = class(function(self)
+local condition = class(function(self)
     self["check"] = _condition_helper_empty
 end)
 
