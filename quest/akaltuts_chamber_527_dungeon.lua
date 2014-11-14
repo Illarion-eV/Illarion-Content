@@ -81,7 +81,7 @@ Description[GERMAN][21] = "Du hast den dritten Teil der Prüfung bestanden."
 Description[ENGLISH][21] = "You have finished part three of the testing."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-local Description = {}
+local Start = {}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
