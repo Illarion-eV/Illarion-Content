@@ -23,6 +23,23 @@ local M = {}
 local RarePlantByGround = {}
 local NormalPlantByGround = {}
 
+function AddPlant(ItemID, Grounds, rare)
+    if rare then
+        for i=1, #Grounds do
+            if RarePlantByGround[Grounds[i]] == nil then
+				RarePlantByGround[Grounds[i]] = {}
+			end
+            table.insert(RarePlantByGround[Grounds[i]], ItemID);
+		end
+    else
+        for i=1, #Grounds do
+			if NormalPlantByGround[Grounds[i]] == nil then
+				NormalPlantByGround[Grounds[i]] = {}
+			end
+            table.insert(NormalPlantByGround[Grounds[i]], ItemID);
+		end
+    end
+end
 
 local gt = common.GroundType
 
@@ -73,25 +90,6 @@ AddPlant(765, {gt.forest},true)                        -- day tream
 AddPlant(766, {gt.forest},true)                        -- con blossom
 AddPlant(768, {gt.forest},true)                        -- wolverine fern
 AddPlant(769, {gt.sand},true)                         -- desert berry
-
-
-function AddPlant(ItemID, Grounds, rare)
-    if rare then
-        for i=1, #Grounds do
-            if RarePlantByGround[Grounds[i]] == nil then
-				RarePlantByGround[Grounds[i]] = {}
-			end
-            table.insert(RarePlantByGround[Grounds[i]], ItemID);
-		end
-    else
-        for i=1, #Grounds do
-			if NormalPlantByGround[Grounds[i]] == nil then
-				NormalPlantByGround[Grounds[i]] = {}
-			end
-            table.insert(NormalPlantByGround[Grounds[i]], ItemID);
-		end
-    end
-end
 
 function M.plantdrop()
     if ( RarePlantByGround==nil ) then
