@@ -28,6 +28,8 @@ local M = {}
 
 
 local DOG_STATUS = false
+local LAST_TIME = 0
+local LEARNER_ID = false
 
 function M.LookAtGrave(User,Item)
 	local graveInscription = common.GetNLS(User, "~Hier ruht Tavalion. Weiser Druide und größter Freund der Tiere.~", "~Here rests Tavalion. A wise druid and the greatest friend of the dogs.~")
@@ -47,7 +49,7 @@ function M.LookAtGrave(User,Item)
 	return lookat
 end
 
-local LAST_TIME = 0
+
 
 function M.UseGrave(User, SourceItem)
 	
@@ -160,8 +162,6 @@ local function GenerateStockDescription(User)
 	end
 	return de, en
 end
-
-local LEARNER_ID = false
 
 local function ApperanceOfDog(User)
 
