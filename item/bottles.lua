@@ -107,7 +107,7 @@ function M.UseItem(User, SourceItem)
                 "Take the bottle and a drinking vessel in your hands.");
         end
     else
-        User:inform("unkown bottle item ");
+        --User:inform("unkown bottle item ");
     end
 end
 
