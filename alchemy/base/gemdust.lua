@@ -61,7 +61,7 @@ function M.UseItem(User, SourceItem, ltstate)
 		   return
 		end
 		
-		BrewingGemDust(User,SourceItem.id,cauldron)
+		M.BrewingGemDust(User,SourceItem.id,cauldron)
 		world:erase(SourceItem,1)
 		alchemy.lowerFood(User)
 	else
@@ -109,7 +109,7 @@ function GemDustInWater(User,cauldron,gemDustId)
 
 end
 
-function BrewingGemDust(User,gemDustId,cauldron)
+function M.BrewingGemDust(User,gemDustId,cauldron)
     
 	if cauldron:getData("filledWith")=="potion" then -- potion in cauldron, failure
 	    alchemy.CauldronDestruction(User,cauldron,2)

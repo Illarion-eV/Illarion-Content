@@ -47,6 +47,12 @@ end
 
 ---------------- ALCHEMY -------------------------------
 --------------------------------------------------------
+
+local function getText(User,deText,enText)
+    return common.GetNLS(User,deText,enText)
+end
+
+
 function LearnLenniersDream(User)
 
 	local anAlchemist = alchemy.CheckIfAlchemist(User)
@@ -436,10 +442,6 @@ function getIngredients(SourceItem)
 		end
 	end
     return ingredientsList
-end
-
-function getText(User,deText,enText)
-    return common.common.GetNLS(User,deText,enText)
 end
 
 ---------------- ALCHEMY END ---------------------------
