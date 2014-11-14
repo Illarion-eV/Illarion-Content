@@ -17,10 +17,16 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Long Time Effect Script: Diet System
 -- Effect ID: 12
 
-local food = require("item.food")
 local common = require("base.common")
 
 local M = {}
+
+-- buff types, they have exactly two attributes
+local BUFFS = {
+  {"constitution", "strength"},
+  {"agility", "dexterity"},
+  {"perception", "intelligence"}
+};
 
 GermanAttributes = {
   ["constitution"] = "Ausdauer",
@@ -34,7 +40,7 @@ GermanAttributes = {
 };
 
 function M.addEffect(dietEffect,Character)
-  InformPlayer(dietEffect,Character);
+  M.InformPlayer(dietEffect,Character);
 end
 
 function M.callEffect(dietEffect,Character)
@@ -57,7 +63,7 @@ function M.removeEffect(dietEffect,Character)
   "[Ernährung] Die Wirkung des guten Essens vergeht.",
   "[Diet] The effect of the good food vanishes.");
 
-  RemoveBuff(dietEffect,Character);
+  M.RemoveBuff(dietEffect,Character);
 end
 
 function M.loadEffect(dietEffect,Character)
@@ -81,7 +87,7 @@ function M.loadEffect(dietEffect,Character)
     end
     -- add 1 for each attribute of this buff
     for i=1,buffAmount do
-      local attrib = food.BUFFS[buffType][i];
+      local attrib = BUFFS[buffType][i];
       Character:setAttrib(attrib,Character:increaseAttrib(attrib,0)+1);
     end
   else
@@ -89,7 +95,7 @@ function M.loadEffect(dietEffect,Character)
   end
 end
 
-function InformPlayer(dietEffect, Character)
+function M.InformPlayer(dietEffect, Character)
   local foundBuff, buffType = dietEffect:findValue("buffType");
   if (foundBuff) then
     local foundBuffAmount, buffAmount = dietEffect:findValue("buffAmount");
@@ -99,7 +105,7 @@ function InformPlayer(dietEffect, Character)
       buffAmount = 1;
     end
     if (buffAmount == 1) then
-      local attrib = food.BUFFS[buffType][1];
+      local attrib = BUFFS[buffType][1];
 	  Character:setAttrib(attrib,Character:increaseAttrib(attrib,0)+1);
       local gText = "[Ernährung] Durch das gute Essen erhöht sich vorübergehend folgendes Attribut um 1: ";
       if (GermanAttributes[attrib] ~= nil) then
@@ -110,10 +116,10 @@ function InformPlayer(dietEffect, Character)
       local eText = "[Diet] Due to your good food, the following attribute is temporarily increased by 1: " .. attrib;
       common.InformNLS(Character,gText,eText);
     else
-      local attrib = food.BUFFS[buffType];
+      local attrib = BUFFS[buffType];
       local gText = "[Ernährung] Durch das gute Essen erhöhen sich vorübergehend folgende Attribute um 1: ";
       local eText = "[Diet] Due to your good food, the following attributes are temporarily increased by 1: ";
-      local attrib = food.BUFFS[buffType][1];
+      local attrib = BUFFS[buffType][1];
 	  Character:setAttrib(attrib,Character:increaseAttrib(attrib,0)+1);
       eText = eText .. attrib;
       if (GermanAttributes[attrib] ~= nil) then
@@ -121,7 +127,7 @@ function InformPlayer(dietEffect, Character)
       else
         gText = gText .. attrib;
       end
-      attrib = food.BUFFS[buffType][2];
+      attrib = BUFFS[buffType][2];
 	  Character:setAttrib(attrib,Character:increaseAttrib(attrib,0)+1);
       eText = eText .. " and " .. attrib;
       if (GermanAttributes[attrib] ~= nil) then
@@ -134,7 +140,7 @@ function InformPlayer(dietEffect, Character)
   end
 end
 
-function RemoveBuff(dietEffect, Character)
+function M.RemoveBuff(dietEffect, Character)
   local foundBuff, buffType = dietEffect:findValue("buffType");
   if (foundBuff) then
     local foundBuffAmount, buffAmount = dietEffect:findValue("buffAmount");
@@ -145,7 +151,7 @@ function RemoveBuff(dietEffect, Character)
     end
     -- reset again the attributes
     for i=1,buffAmount do
-      local attrib = food.BUFFS[buffType][i];
+      local attrib = BUFFS[buffType][i];
       Character:setAttrib(attrib,math.max(1,Character:increaseAttrib(attrib,0)-1));
     end
   end
