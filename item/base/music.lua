@@ -21,7 +21,7 @@ local common = require("base.common")
 
 local M = {}
 
-TalkTexts={[Character.flute] = {}, [Character.lute] = {}, [Character.horn] = {}, [Character.harp] = {}, [Character.panpipe] = {}, [Character.drum] = {}};
+local TalkTexts={[Character.flute] = {}, [Character.lute] = {}, [Character.horn] = {}, [Character.harp] = {}, [Character.panpipe] = {}, [Character.drum] = {}};
 
 function M.addTalkText(eText,gText, Skill)
     table.insert(TalkTexts[Skill],{eText,gText});
