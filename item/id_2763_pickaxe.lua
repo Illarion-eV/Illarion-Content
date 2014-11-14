@@ -49,6 +49,23 @@ local M = {}
 
 M.LookAtItem = metal.LookAtItem
 
+-- @return  True if found a treasure.
+local function DigForTreasure(User)
+	local TargetPos = common.GetFrontPosition(User);
+	local groundTile = world:getField( TargetPos ):tile();
+	local groundType = common.GetGroundType( groundTile );
+
+	if ( (groundType == common.GroundType.rocks) and
+		treasure.DigForTreasure(User, TargetPos, (User:getSkill(Character.mining)/10)+1,
+			common.GetNLS( User,
+			"Du schwingst deine Spitzhacke gegen den steinigen Boden und stößt auf etwas das noch härter ist als der Boden. Das muss er sein! Der Schatz. Noch einmal graben und der grenzenlose Reichtum ist dein!",
+			"You swing your pick-axe against the stony ground and hit something that is even harder then the ground. That must it be! The treasure! Another swing and it is yours!" ),
+			false) ) then
+		return true;
+	end
+	return false;
+end
+
 function M.UseItem(User, SourceItem, ltstate)
 
 	local toolItem = User:getItemAt(5);
@@ -92,23 +109,6 @@ function M.UseItem(User, SourceItem, ltstate)
 	end
 
 	mining.StartGathering(User, rock, ltstate);
-end
-
--- @return  True if found a treasure.
-function DigForTreasure(User)
-	local TargetPos = common.GetFrontPosition(User);
-	local groundTile = world:getField( TargetPos ):tile();
-	local groundType = common.GetGroundType( groundTile );
-
-	if ( (groundType == common.GroundType.rocks) and
-		treasure.DigForTreasure(User, TargetPos, (User:getSkill(Character.mining)/10)+1,
-			common.GetNLS( User,
-			"Du schwingst deine Spitzhacke gegen den steinigen Boden und stößt auf etwas das noch härter ist als der Boden. Das muss er sein! Der Schatz. Noch einmal graben und der grenzenlose Reichtum ist dein!",
-			"You swing your pick-axe against the stony ground and hit something that is even harder then the ground. That must it be! The treasure! Another swing and it is yours!" ),
-			false) ) then
-		return true;
-	end
-	return false;
 end
 
 return M
