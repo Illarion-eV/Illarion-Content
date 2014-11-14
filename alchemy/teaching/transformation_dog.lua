@@ -27,7 +27,7 @@ local M = {}
 -- This script handles the teaching of the dog transformation potion.
 
 
-DOG_STATUS = false
+local DOG_STATUS = false
 
 function M.LookAtGrave(User,Item)
 	local graveInscription = common.GetNLS(User, "~Hier ruht Tavalion. Weiser Druide und größter Freund der Tiere.~", "~Here rests Tavalion. A wise druid and the greatest friend of the dogs.~")
@@ -47,7 +47,7 @@ function M.LookAtGrave(User,Item)
 	return lookat
 end
 
-LAST_TIME = 0
+local LAST_TIME = 0
 
 function M.UseGrave(User, SourceItem)
 	
@@ -80,7 +80,7 @@ function M.UseSealedScroll(User, SourceItem)
 	
 end
 
-function CorrectSightingPotion(User)
+local function CorrectSightingPotion(User)
 
 	local foundEffect, myEffect = User.effects:find(59);
 	if foundEffect then
@@ -96,7 +96,7 @@ function CorrectSightingPotion(User)
 	
 end
 
-function TellSightingPotionRecipe(User)
+local function TellSightingPotionRecipe(User)
 
 	local callback = function(dialog) end
 	local stockDe, stockEn = GenerateStockDescription(User)
@@ -113,7 +113,7 @@ function TellSightingPotionRecipe(User)
 	
 end
 
-function GenerateStockConcentration()
+local function GenerateStockConcentration()
 
 	local stockList = {1,1,1,1,1,1,1,1}
 	local add = 42
@@ -135,7 +135,7 @@ function GenerateStockConcentration()
 	return stockList
 end
 
-function GetStockFromQueststatus(User)
+local function GetStockFromQueststatus(User)
 
 	if User:getQuestProgress(861) == 0 then
 		local stockList
@@ -145,7 +145,7 @@ function GetStockFromQueststatus(User)
 	return alchemy.SplitData(User,User:getQuestProgress(861))
 end
 
-function GenerateStockDescription(User)
+local function GenerateStockDescription(User)
 
 	local stockList = GetStockFromQueststatus(User)
 	local de = ""
@@ -161,9 +161,9 @@ function GenerateStockDescription(User)
 	return de, en
 end
 
-LEARNER_ID = false
+local LEARNER_ID = false
 
-function ApperanceOfDog(User)
+local function ApperanceOfDog(User)
 
 	local apperancePosition = position(925,941,0)
 	if world:isCharacterOnField(apperancePosition) then
