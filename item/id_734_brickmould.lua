@@ -20,6 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local licence = require("base.licence")
 local bricksproducing = require("content.gatheringcraft.bricksproducing")
 local wood = require("item.general.wood")
+local common = require("base.common")
 
 local M = {}
 
@@ -27,7 +28,7 @@ M.LookAtItem = wood.LookAtItem
 
 function getOven(User)
 
-	local targetItem = base.common.GetFrontItem(User);
+	local targetItem = common.GetFrontItem(User);
 	if (targetItem ~= nil and targetItem.id == 313) then
 		return targetItem;
 	end
@@ -58,7 +59,7 @@ function M.UseItem(User, SourceItem, ltstate)
 		return
 	end
 
-	base.common.InformNLS(User,
+	common.InformNLS(User,
 		"Du musst neben einem Schmelzoven stehen um die Ziegelform zu benutzen.",
 		"You must stand next to a meltoven to use the brick mould.");
 end
