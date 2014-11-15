@@ -366,7 +366,7 @@ end
     @param Faction - the Array which includes the values to be changed
 
 ]]
-function setFaction(originator,Faction)
+function M.setFaction(originator,Faction)
 	-------------write changes------------
 	originator:setQuestProgress(199,tonumber(Faction.tid));
 	originator:setQuestProgress(201,tonumber(Faction.towncnt));
@@ -525,7 +525,7 @@ function M.makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
 	if theRank==leaderRank then --make char to leader of this town
 		fv.tid = theTown; --make him member of this town
 		fv.rankTown = leaderRank; --give him the leader rank
-		fv = setFaction(originator,fv);
+		fv = M.setFaction(originator,fv);
 		return;
 	elseif theRank == 0 or theTown == 0 then --becoming an outlaw
 		leaveFaction(originator, fv, thisNPC)
@@ -553,7 +553,7 @@ function M.makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
 		fv.rankTown = theRank -- set the rank of the town
 
 		if (fv.towncnt<99) then fv.towncnt = fv.towncnt+1; end; -- raise the town counter
-		setFaction(originator,fv); --write fv in Questprogress
+		M.setFaction(originator,fv); --write fv in Questprogress
 		money.TakeMoneyFromChar(originator,amountToPay); --take money
 	end
 	return;
@@ -570,7 +570,7 @@ function leaveFaction(originator, Faction, thisNPC)
 	Faction.rankTown = 0;
 	Faction.tid = 0;
 
-	setFaction(originator,Faction); --write fv in Questprogress
+	M.setFaction(originator,Faction); --write fv in Questprogress
 
 	gText="Ihr gehört nun keinem Reich mehr an. Das bedeutet das Ihr frei, aber auf Euch selbst gestellt seid. Viel Glück.";
 	eText="You're now not belonging to any realm. This means you're free but also on your own. Good luck.";
