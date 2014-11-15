@@ -19,6 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local lookat = require("base.lookat")
+local evilrock = require("triggerfield.evilrock")
 
 local M = {}
 
@@ -183,7 +184,7 @@ function Evilrockentrance(User, SourceItem, ltstate)
 			checkFullBucket.wear=255
 			world:changeItem(checkFullBucket)
 		end ]]
-	triggerfield.evilrock.RemoveEntranceTrap(User)
+	evilrock.RemoveEntranceTrap(User)
 
 
 	local notCreated = User:createItem( 2498, 1, 999, nil ); -- create the new produced items
