@@ -15,6 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 local common = require("base.common")
+local alchemy = require("alchemy.base.alchemy")
 
 
 local M = {}
@@ -383,9 +384,9 @@ function SelectActiveSubstance(User, ingredientsList, currentConcentrations)
 	local dialog = SelectionDialog(getText("Rezepterstellung","Recipe creation"), getText("Wähle einen Wirkstoff aus, um dessen Konzentartion festzusetzen. Wähle 'Sud dem Rezept hinzufügen', wenn du damit fertig bist.","Select an active substance to determine its concentration. If you are done, choose 'Add stock to the recipe'"), callback)
 	
 	dialog:addOption(0, getText("Zurück","Back"))
-    local activeSubstances = alchemy.base.alchemy.wirkstoff
-	local concentrationsDe = alchemy.base.alchemy.wirkung_de
-	local concentrationsEn = alchemy.base.alchemy.wirkung_en
+    local activeSubstances = alchemy.wirkstoff
+	local concentrationsDe = alchemy.wirkung_de
+	local concentrationsEn = alchemy.wirkung_en
 	for i=1,#activeSubstances do 
 	    dialog:addOption(0,getText(activeSubstances[i]..": "..concentrationsDe[currentConcentrations[i]],activeSubstances[i]..": "..concentrationsEn[currentConcentrations[i]]))
 	end
@@ -398,9 +399,9 @@ end
 function SelectConcentration(User,ingredientsList,currentConcentrations, activeSubstancePos)
     local getText = function(deText,enText) return common.GetNLS(User,deText,enText) end
 	
-	local activeSubstances = alchemy.base.alchemy.wirkstoff
-	local concentrationsDe = alchemy.base.alchemy.wirkung_de
-	local concentrationsEn = alchemy.base.alchemy.wirkung_en
+	local activeSubstances = alchemy.wirkstoff
+	local concentrationsDe = alchemy.wirkung_de
+	local concentrationsEn = alchemy.wirkung_en
 	
 	local callback = function(dialog) 
 		local success = dialog:getSuccess() 
@@ -541,12 +542,12 @@ function ShowStockEssence(User, theLiquid, ingredientsList, notMenu)
 		titleEn = "Essence brew"
 		de = "Sud:"
 		en = "Stock:"
-		local activeSubstances = alchemy.base.alchemy.wirkstoff
-		local concentrationsDe = alchemy.base.alchemy.wirkung_de
-		local concentrationsEn = alchemy.base.alchemy.wirkung_en
+		local activeSubstances = alchemy.wirkstoff
+		local concentrationsDe = alchemy.wirkung_de
+		local concentrationsEn = alchemy.wirkung_en
 		for i=1,#liquidList do
-		    de = de.."\n"..concentrationsDe[liquidList[i]].." "..alchemy.base.alchemy.wirkstoff[i]
-			en = en.."\n"..concentrationsEn[liquidList[i]].." "..alchemy.base.alchemy.wirkstoff[i]
+		    de = de.."\n"..concentrationsDe[liquidList[i]].." "..alchemy.wirkstoff[i]
+			en = en.."\n"..concentrationsEn[liquidList[i]].." "..alchemy.wirkstoff[i]
 		end
 	end
 
