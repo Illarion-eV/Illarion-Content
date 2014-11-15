@@ -36,6 +36,39 @@ taste[1]     ={"fruity"  ,"tartly"      ,"bitter"          ,"putrefactive","acid
 local intensityListDe = {"stark"   ,"merkbar"  ,"leicht"  ,"kaum merklich"   ,"","kaum merklich"   ,"leicht"  ,"merkbar"  ,"stark"}
 local intensityListEn = {"strongly","noticably","slightly","barely noticably","","barely noticable","slightly","noticably","strongly"}
 
+local function GenerateEffectMessage(User,dataZList)
+    local effectMessagesDe = ""
+    local effectMessagesEn = ""
+	local anyEffect = false
+
+	local attribEn, attribDe, nPTagEn, nPTagDe, attribIntensityEn, attribIntensityDe
+	for i=1,8 do
+	    if dataZList[i] ~= 5 then
+
+			attribEn = attribList[i] -- attribute
+			attribDe = attribListDe[i]
+			if dataZList[i] > 5 then
+			    nPTagEn = "in" -- increasing
+				nPTagDe = "zu"
+			else
+                nPTagEn = "de" -- decreasing
+                nPTagDe = "ab"
+		    end
+	        attribIntensityEn = intensityListEn[dataZList[i]] -- how strong it is in/decreased
+			attribIntensityDe = intensityListDe[dataZList[i]]
+            anyEffect = true
+			-- we put everything together
+			effectMessagesDe = effectMessagesDe.."Deine "..attribDe.." nimmt".." "..attribIntensityDe.." "..nPTagDe..". "
+			effectMessagesEn = effectMessagesEn.."Your "..attribEn.." "..nPTagEn.."creases "..attribIntensityEn..". "
+		end
+    end
+    if anyEffect == false then -- no effect
+	    common.InformNLS(User,"Du spürst keine Wirkung.","You don't feel any effect.")
+	else
+	    common.InformNLS(User,effectMessagesDe,effectMessagesEn)
+    end
+end
+
 local function DrinkPotion(User,SourceItem)
     local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
 
@@ -114,39 +147,6 @@ local function DrinkPotion(User,SourceItem)
 	else
 	    -- something else
 	end
-end
-
-function GenerateEffectMessage(User,dataZList)
-    local effectMessagesDe = ""
-    local effectMessagesEn = ""
-	local anyEffect = false
-
-	local attribEn, attribDe, nPTagEn, nPTagDe, attribIntensityEn, attribIntensityDe
-	for i=1,8 do
-	    if dataZList[i] ~= 5 then
-
-			attribEn = attribList[i] -- attribute
-			attribDe = attribListDe[i]
-			if dataZList[i] > 5 then
-			    nPTagEn = "in" -- increasing
-				nPTagDe = "zu"
-			else
-                nPTagEn = "de" -- decreasing
-                nPTagDe = "ab"
-		    end
-	        attribIntensityEn = intensityListEn[dataZList[i]] -- how strong it is in/decreased
-			attribIntensityDe = intensityListDe[dataZList[i]]
-            anyEffect = true
-			-- we put everything together
-			effectMessagesDe = effectMessagesDe.."Deine "..attribDe.." nimmt".." "..attribIntensityDe.." "..nPTagDe..". "
-			effectMessagesEn = effectMessagesEn.."Your "..attribEn.." "..nPTagEn.."creases "..attribIntensityEn..". "
-		end
-    end
-    if anyEffect == false then -- no effect
-	    common.InformNLS(User,"Du spürst keine Wirkung.","You don't feel any effect.")
-	else
-	    common.InformNLS(User,effectMessagesDe,effectMessagesEn)
-    end
 end
 
 function M.UseItem(User, SourceItem, ltstate)
