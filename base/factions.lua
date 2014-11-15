@@ -145,7 +145,7 @@ if not InitFaction then
 	InitFactionLists();
 	InitFaction = true;
     citizenRank = 1;
-	highestRank = 7;
+	M.highestRank = 7;
 	specialRanks = {8,9,10};
     leaderRank = 11;
 
@@ -288,7 +288,7 @@ end
 	
 	@return - name of the rank
 ]]
-function getRankName(player, ranknumber)
+function M.getRankName(player, ranknumber)
 	local Faction = M.getFaction(player);
 	
 	if ranknumber > leaderRank then
@@ -380,13 +380,13 @@ end
 	
 	@return - special rank was set (true|false)
 ]]
-function setSpecialRank(player, rank) 
+function M.setSpecialRank(player, rank) 
 	local Faction = M.getFaction(player);
 	local rankpoints = Faction.rankpoints;
 	local inform;
 	
-	if (rank > highestRank and rank < leaderRank) or rank == 0  then
-		if rankpoints >= (highestRank-1)*100 then
+	if (rank > M.highestRank and rank < leaderRank) or rank == 0  then
+		if rankpoints >= (M.highestRank-1)*100 then
 			player:setQuestProgress(200, tonumber(rank));
 			if rank == 0 then
 				inform = common.GetNLS(player,"Ihr wurdet degradiert und habt nun keinen spziellen Rang mehr.","You have been demoted and have no special rank anymore.")
@@ -409,7 +409,7 @@ end
 ]]
 function checkForRankChange(rankpoints,rank)
 	local newRank = math.floor(rankpoints/100)+1
-	if newRank > rank and newRank <= highestRank then
+	if newRank > rank and newRank <= M.highestRank then
 		return newRank;
 	elseif newRank < rank and newRank >= citizenRank then
 		return newRank;
@@ -435,12 +435,12 @@ function M.setRankpoints(originator, rankpoints)
 
 	if rankpoints < 0 then
 		rankpoints = 0;
-	elseif rankpoints > ((highestRank-1)*100)+99 then
-		rankpoints = ((highestRank-1)*100)+99;
+	elseif rankpoints > ((M.highestRank-1)*100)+99 then
+		rankpoints = ((M.highestRank-1)*100)+99;
 	end
 
 	-- determine if player got a new rank
-	if rank <= highestRank then
+	if rank <= M.highestRank then
 		Faction.rankTown = checkForRankChange(rankpoints,rank);	
 	end
 
@@ -454,7 +454,7 @@ function M.setRankpoints(originator, rankpoints)
 		playerText = {"sinkt.","decline"};
 		informPlayerAboutRankpointchange(originator, playerText);
 		if getSpecialRank(originator) ~= 0 then
-			setSpecialRank(originator, 0);
+			M.setSpecialRank(originator, 0);
 		end
 	else
 		playerText = {"steigt.","advance"};
