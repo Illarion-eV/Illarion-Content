@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local lookat = require("base.lookat")
 local common = require("base.common")
+local alchemy = require("alchemy.base.alchemy")
 local M = {}
 
 -- This script turns a character into an alchemist. 
@@ -496,7 +497,7 @@ function M.UseItem(User, SourceItem, ltstate)
 	end	
 	
 	-- already an alchemist?
-    local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User)
+    local anAlchemist = alchemy.CheckIfAlchemist(User)
 	if anAlchemist and User:getQuestProgress(350)==100 then
 	    SendMessage(User, SourceItem,
 		            "You hear a voice you are unable to localise: \"You already know the great secret of alchemy. I am not allowed to help you further. Go away!\"",
