@@ -188,7 +188,7 @@ if (MonID==301) then --Stone Golem, Level: 4, Armourtype: light, Weapontype: con
         if not done then done=drop.AddDropItem(733,1,1,(100*math.random(8,9)+math.random(88,99)),0,3); end --stone block
 
         --Category 4: Perma Loot
-        drop.AddDropItem(3077,math.random(90,250),100,333,0,4); --silver coins
+        drop.AddDropItem(3077,math.random(90,270),100,333,0,4); --silver coins
 
     end
     drop.Dropping(Monster);
