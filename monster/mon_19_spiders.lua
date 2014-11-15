@@ -23,6 +23,8 @@ local quests = require("monster.base.quests")
 local kills = require("monster.base.kills")
 local arena = require("base.arena")
 local messages = require("base.messages")
+local lookat = require("base.lookat")
+local itemEffects = require("scheduled.itemEffects")
 local M = {}
 local init = nil
 
@@ -306,17 +308,17 @@ function DropSpiderEgg(theSpider)
 		world:gfx(8,theSpider.pos)
 		local spiderEgg = world:createItemFromId(738,1,theSpider.pos,true,333,nil)
 		spiderEgg.wear = 2
-		base.lookat.SetSpecialName(spiderEgg, "Spinnenei", "Spider egg")
+		lookat.SetSpecialName(spiderEgg, "Spinnenei", "Spider egg")
 		spiderEgg:setData("spawnSpiders","true")
 		world:changeItem(spiderEgg)
-		table.insert(scheduled.itemEffects.SPIDER_EGGS,{itemPosition = position(theSpider.pos.x,theSpider.pos.y,theSpider.pos.z), itemCounter = 0})
+		table.insert(itemEffects.SPIDER_EGGS,{itemPosition = position(theSpider.pos.x,theSpider.pos.y,theSpider.pos.z), itemCounter = 0})
 		for i=-1,1 do
 			for j=-1,1 do
 				local slimePosition = position(theSpider.pos.x + i, theSpider.pos.y + j, theSpider.pos.z)
 				if not world:isItemOnField(slimePosition) then
 					local spiderSlime = world:createItemFromId(3102,1,slimePosition,true,333,nil)
 					spiderEgg.wear = 3
-					base.lookat.SetSpecialName(spiderSlime, "Spinnenschleim", "Spider slime")
+					lookat.SetSpecialName(spiderSlime, "Spinnenschleim", "Spider slime")
 					world:changeItem(spiderSlime)
 					if world:isCharacterOnField(slimePosition) then
 						local hitChar = world:getCharacterOnField(slimePosition)

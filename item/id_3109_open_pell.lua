@@ -257,11 +257,9 @@ function getTownOfPell(SourceItem)
 	elseif SourceItem.pos == position(137,542,0) then
 	    return "Cadomyr"
 	elseif SourceItem.pos == position(376,222,0) then
-        debug("return galmair")
         return "Galmair"
     end
-    debug("getTownOfPell returns false")
-	return false
+    return false
 end
 
 function getNPC(SourceItem)
@@ -424,7 +422,7 @@ function TellRecipe(User, effectId)
 end
 
 function M.LookAtItem(User, Item)
-debug("look at")
+
     local town = getTownOfPell(Item)
 	if town then
         local lookAt = lookat.GenerateLookAt(User, Item, lookat.NONE)
@@ -432,8 +430,7 @@ debug("look at")
 		lookAt.description = common.GetNLS(User, "Alchemierezepte", "Alchemy recipes")
 		return lookAt
 	else
-        debug("not town")
-		return lookat.GenerateLookAt(User, Item, lookat.NONE)
+        return lookat.GenerateLookAt(User, Item, lookat.NONE)
 	end
 end
 

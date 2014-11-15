@@ -93,15 +93,6 @@ function M.onAttacked(Monster,Enemy)
 end
 
 function M.onCasted(Monster,Enemy)
-local MonID=Monster:getMonsterType();
-	if(MonID == 302) then
-		if monster.specialattacks.mgolem_spells.MGolem_Shield (monster,char) then
-			return true;
-		else
-			return false;
-		end
-	end
-
     if init==nil then
         ini(Monster);
     end

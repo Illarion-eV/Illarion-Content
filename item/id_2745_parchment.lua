@@ -240,7 +240,7 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 					if string.find(ingredientsList[i],"bottle") then
 						dialog:addOption(164, getText(User,counter..". Abfüllen",counter..". Bottling"))
 					else
-						local liquid, liquidList = alchemy.base.recipe_creation.StockEssenceList(ingredientsList[i])
+						local liquid, liquidList = recipe_creation.StockEssenceList(ingredientsList[i])
 						if liquid == "stock" then
 							dialog:addOption(331, getText(User,counter..". Sud",counter..". Stock"))
 						elseif liquid == "essence brew" then
@@ -372,7 +372,7 @@ function GetItem(User, ingredientsList)
 				missingEn = "You don't have: empty bottle"
 			end
 		else
-            local liquid, neededList = alchemy.base.recipe_creation.StockEssenceList(ingredientsList[USER_POSITION_LIST[User.id]])
+            local liquid, neededList = recipe_creation.StockEssenceList(ingredientsList[USER_POSITION_LIST[User.id]])
 			if liquid == "stock" then
 				local stockList = User:getItemList(331)
 				for i=1,#stockList do
@@ -424,7 +424,7 @@ end
 
 function ViewRecipe(User, SourceItem)
     local ingredientsList = getIngredients(SourceItem)
-	alchemy.base.recipe_creation.ShowRecipe(User, ingredientsList, true)
+	recipe_creation.ShowRecipe(User, ingredientsList, true)
 end
 
 function getIngredients(SourceItem)
