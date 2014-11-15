@@ -56,10 +56,10 @@ Description[ENGLISH][10] = "You found the Magical Torturous Eye! Show it to its 
 Description[GERMAN][11] = "Du besitzt das Zauberauge der Pein."
 Description[ENGLISH][11] = "You own the Magical Torturous Eye."
 
-npcPos = position(905, 515, -6);
+local npcPos = position(905, 515, -6);
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = npcPos;
+local Start = npcPos;
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}

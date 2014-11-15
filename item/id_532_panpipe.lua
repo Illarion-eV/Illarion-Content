@@ -23,7 +23,7 @@ local wood = require("item.general.wood")
 
 local M = {}
 
-skill = Character.panpipe
+local skill = Character.panpipe
 
 music.addTalkText("#me blows hard in the panpipes, making a loud, annoying, screeching sound.", "#me pustet in die Panflöte und erzeugt ein lautes, nerviges, fast schreiendes Geräusch.", skill );
 music.addTalkText("#me blows in the panpipes randomly, letting out a few loud uncoordinated sounds.", "#me bläst wirr auf der Panflöte, laute aber unmelodische Töne sind die Folge.", skill);

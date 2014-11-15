@@ -27,6 +27,64 @@ local M = {}
 
 M.LookAtItem = metal.LookAtItem
 
+-- @return  True if found a treasure.
+local function DigForTreasure(User)
+	local TargetPos = common.GetFrontPosition(User);
+	local groundTile = world:getField( TargetPos ):tile();
+	local groundType = common.GetGroundType( groundTile );
+
+	if (groundType ~= common.GroundType.rocks) and
+			treasure.DigForTreasure( User, TargetPos, (User:getSkill(Character.mining)/10)+1,
+			common.GetNLS( User,
+				"Du gräbst mit deiner Schaufel in den Boden und stößt auf etwas hartes, von dem ein hölzerner Klang ausgeht. Noch einmal graben und du hältst den Schatz in deinen Händen.",
+				"You dig with your shovel into the ground and hit suddenly something hard and wooden sounding. You only have to dig another time to get the treasure." ),
+			false ) then
+		return true;
+	end
+	return false;
+end
+
+local function DigForNothing(User)
+	local TargetPos = common.GetFrontPosition(User);
+	local groundTile = world:getField( TargetPos ):tile();
+	local groundType = common.GetGroundType( groundTile );
+
+	if ( groundType == common.GroundType.field ) then
+		common.HighInformNLS( User,
+			"Du gräbst ein kleines Loch in den Ackerboden, doch findest du hier gar nichts.",
+			"You dig a small hole into the farming ground. But you find nothing.");
+	elseif ( groundType == common.GroundType.sand ) then
+		common.HighInformNLS( User,
+			"Du gräbst ein kleines Loch in den Sand, doch findest du hier gar nichts.",
+			"You dig a small hole into the sand. But you find nothing.");
+	elseif ( groundType == common.GroundType.dirt ) then
+		common.HighInformNLS( User,
+			"Du gräbst ein kleines Loch in den Dreck, doch findest du hier gar nichts.",
+			"You dig a small hole into the dirt. But you find nothing.");
+	elseif ( groundType == common.GroundType.forest ) then
+		common.HighInformNLS( User,
+			"Du gräbst ein kleines Loch in den Waldboden, doch findest du hier gar nichts.",
+			"You dig a small hole into the forest ground. But you find nothing.");
+	elseif ( groundType == common.GroundType.grass ) then
+		common.HighInformNLS( User,
+			"Du gräbst ein kleines Loch in die Wiese, doch findest du hier gar nichts.",
+			"You dig a small hole into the grass. But you find nothing.");
+	elseif ( groundType == common.GroundType.rocks ) then
+		common.HighInformNLS( User,
+			"Der Boden besteht hier aus solidem Stein. Mit einer Schaufel hast du eindeutig das falsche Werkzeug.",
+			"The ground here is heavy stone. With a shovel you have the wrong tool here for sure.");
+	elseif ( groundType == common.GroundType.water ) then
+		common.HighInformNLS( User,
+			"Im Wasser mit einer Schaufel zu graben geht zwar relativ leicht, doch der Effekt ist recht gering.",
+			"To dig with a shovel in the water is pretty easy. But sadly there is no effect in doing this.");
+	else
+		common.HighInformNLS(User,
+			"Du versuchst an dieser Stelle zu graben, findest aber nichts.",
+			"You attempt to dig here, but you don't find anything.");
+	end
+
+end
+
 function getSandPit(User)
 	local SAND_PIT = 1208;
 	local pitItem = common.GetFrontItem(User);
@@ -95,63 +153,6 @@ function M.UseItem(User, SourceItem, ltstate)
 
 end
 
--- @return  True if found a treasure.
-function DigForTreasure(User)
-	local TargetPos = common.GetFrontPosition(User);
-	local groundTile = world:getField( TargetPos ):tile();
-	local groundType = common.GetGroundType( groundTile );
-
-	if (groundType ~= common.GroundType.rocks) and
-			treasure.DigForTreasure( User, TargetPos, (User:getSkill(Character.mining)/10)+1,
-			common.GetNLS( User,
-				"Du gräbst mit deiner Schaufel in den Boden und stößt auf etwas hartes, von dem ein hölzerner Klang ausgeht. Noch einmal graben und du hältst den Schatz in deinen Händen.",
-				"You dig with your shovel into the ground and hit suddenly something hard and wooden sounding. You only have to dig another time to get the treasure." ),
-			false ) then
-		return true;
-	end
-	return false;
-end
-
-function DigForNothing(User)
-	local TargetPos = common.GetFrontPosition(User);
-	local groundTile = world:getField( TargetPos ):tile();
-	local groundType = common.GetGroundType( groundTile );
-
-	if ( groundType == common.GroundType.field ) then
-		common.HighInformNLS( User,
-			"Du gräbst ein kleines Loch in den Ackerboden, doch findest du hier gar nichts.",
-			"You dig a small hole into the farming ground. But you find nothing.");
-	elseif ( groundType == common.GroundType.sand ) then
-		common.HighInformNLS( User,
-			"Du gräbst ein kleines Loch in den Sand, doch findest du hier gar nichts.",
-			"You dig a small hole into the sand. But you find nothing.");
-	elseif ( groundType == common.GroundType.dirt ) then
-		common.HighInformNLS( User,
-			"Du gräbst ein kleines Loch in den Dreck, doch findest du hier gar nichts.",
-			"You dig a small hole into the dirt. But you find nothing.");
-	elseif ( groundType == common.GroundType.forest ) then
-		common.HighInformNLS( User,
-			"Du gräbst ein kleines Loch in den Waldboden, doch findest du hier gar nichts.",
-			"You dig a small hole into the forest ground. But you find nothing.");
-	elseif ( groundType == common.GroundType.grass ) then
-		common.HighInformNLS( User,
-			"Du gräbst ein kleines Loch in die Wiese, doch findest du hier gar nichts.",
-			"You dig a small hole into the grass. But you find nothing.");
-	elseif ( groundType == common.GroundType.rocks ) then
-		common.HighInformNLS( User,
-			"Der Boden besteht hier aus solidem Stein. Mit einer Schaufel hast du eindeutig das falsche Werkzeug.",
-			"The ground here is heavy stone. With a shovel you have the wrong tool here for sure.");
-	elseif ( groundType == common.GroundType.water ) then
-		common.HighInformNLS( User,
-			"Im Wasser mit einer Schaufel zu graben geht zwar relativ leicht, doch der Effekt ist recht gering.",
-			"To dig with a shovel in the water is pretty easy. But sadly there is no effect in doing this.");
-	else
-		common.HighInformNLS(User,
-			"Du versuchst an dieser Stelle zu graben, findest aber nichts.",
-			"You attempt to dig here, but you don't find anything.");
-	end
-
-end
 
 return M
 

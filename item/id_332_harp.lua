@@ -23,7 +23,7 @@ local wood = require("item.general.wood")
 
 local M = {}
 
-skill = Character.harp
+local skill = Character.harp
 
 music.addTalkText("#me plays the harp with a horrible crash","#me macht ein furchtbares Geräusch mit der Harfe", skill);
 music.addTalkText("#me plays a stilted tune on the harp","#me spielt eine gezierte Melodie auf der Harfe", skill);

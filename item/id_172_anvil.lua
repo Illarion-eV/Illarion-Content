@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local smithing = require("content.craft.smithing")
 local goldsmithing = require("content.craft.goldsmithing")
+local common = require("base.common")
 
 local M = {}
 
@@ -25,7 +26,7 @@ function M.UseItem(User, SourceItem, ltstate)
 	elseif goldsmithing.goldsmithing:isHandToolEquipped(User) then
 		goldsmithing.goldsmithing:showDialog(User, SourceItem);
 	else
-		base.common.HighInformNLS(User,
+		common.HighInformNLS(User,
             "Dir fehlt ein Werkzeug in deiner Hand um hier zu arbeiten: Hammer oder Feinschmiedehammer",
             "To work here you have to hold a tool in your hand: Hammer or finesmithing hammer")
 	end

@@ -92,7 +92,7 @@ Description[ENGLISH][27] = "You have passed all the tests of the Defensors."
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-local Description = {}
+local Start = {}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}

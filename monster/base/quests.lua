@@ -42,20 +42,21 @@ local M = {}
 --Quest 3: To accept quest 3, set queststatus to 20 with the NPC. Use queststatus 20->21 to count 1 monster. If the quest is finished, set queststatus to 22 with the NPC.
 
 function M.iniQuests()
-
+end
+    
     --Initilisation
 
-    statusId={};
-    germanTitle={};
-    englishTitle={};
-    NPCName={};
-    germanRace={};
-    englishRace={};
-    questList={};
-    minimumQueststatus={};
-    maximumQueststatus={};
-    questLocation={};
-    radius={};
+    local statusId={};
+    local germanTitle={};
+    local englishTitle={};
+    local NPCName={};
+    local germanRace={};
+    local englishRace={};
+    local questList={};
+    local minimumQueststatus={};
+    local maximumQueststatus={};
+    local questLocation={};
+    local radius={};
 
     questList[1]={}; --Human
     questList[2]={}; --Human Warrior
@@ -2608,7 +2609,7 @@ function M.iniQuests()
     maximumQueststatus[id]=26;
 	questLocation[id]=position(470, 802, -9);
     radius[id]=100;
-end
+
 
 
 function M.checkQuest(User,Monster)

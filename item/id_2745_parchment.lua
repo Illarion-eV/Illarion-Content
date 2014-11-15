@@ -97,7 +97,7 @@ function TeachLenniersDream(User)
 
 end
 
-function GenerateStockConcentration()
+function M.GenerateStockConcentration()
 
 	local stockList = {1,1,1,1,1,1,1,1}
 	local add = 43
@@ -119,11 +119,11 @@ function GenerateStockConcentration()
 	return stockList
 end
 
-function GetStockFromQueststatus(User)
+function M.GetStockFromQueststatus(User)
 
 	if User:getQuestProgress(860) == 0 then
 		local stockList
-		stockList = GenerateStockConcentration()
+		stockList = M.GenerateStockConcentration()
 		User:setQuestProgress(860,alchemy.DataListToNumber(stockList))
 	end
 	return alchemy.SplitData(User,User:getQuestProgress(860))
@@ -131,7 +131,7 @@ end
 
 function GenerateStockDescription(User)
 
-	local stockList = GetStockFromQueststatus(User)
+	local stockList = M.GetStockFromQueststatus(User)
 	local de = ""
 	local en = ""
 	for i=1,#stockList do
