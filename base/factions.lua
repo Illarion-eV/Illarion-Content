@@ -179,7 +179,7 @@ function M.getTownNameByID(TownID)
   return "";
 end
 
-function getTownIdByName(name)
+function M.getTownIdByName(name)
 	for i=1, #(TownList) do
 		if (TownList[i].townName == name) then
 			return TownList[i].townID
