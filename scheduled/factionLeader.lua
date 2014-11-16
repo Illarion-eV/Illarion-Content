@@ -29,14 +29,14 @@ function M.checkFactionLeader()
 	for i=1, #(M.informationTable) do
 		charObject = common.CheckIfOnline(M.informationTable[i].npcName)
 		if charObject ~= nil then
-			updatePosition(M.informationTable[i].usualPosition, M.informationTable[i].newPosition)
+			M.updatePosition(M.informationTable[i].usualPosition, M.informationTable[i].newPosition)
 		else
-			updatePosition(M.informationTable[i].newPosition, M.informationTable[i].usualPosition)
+			M.updatePosition(M.informationTable[i].newPosition, M.informationTable[i].usualPosition)
 		end
 	end
 end
 
-function updatePosition(usualPosition, newPosition)
+function M.updatePosition(usualPosition, newPosition)
 	if world:isCharacterOnField(usualPosition) == true then
 		npcCharObject = world:getCharacterOnField(usualPosition);
 		if npcCharObject:getType() == Character.npc then
