@@ -1053,12 +1053,12 @@ function M.iniQuests()
     statusId[id]=162;
     germanRace[id]="Menschen";
     englishRace[id]="humans";
-	table.insert(questList[1],id); --All humans
-	table.insert(questList[2],id); --All humans
-	table.insert(questList[3],id); --All humans
-	table.insert(questList[4],id); --All humans
-	table.insert(questList[5],id); --All humans
-	table.insert(questList[6],id); --All humans
+	table.insert(questList[1],id); --All mon_0_humans
+	table.insert(questList[2],id); --All mon_0_humans
+	table.insert(questList[3],id); --All mon_0_humans
+	table.insert(questList[4],id); --All mon_0_humans
+	table.insert(questList[5],id); --All mon_0_humans
+	table.insert(questList[6],id); --All mon_0_humans
     minimumQueststatus[id]=109;
     maximumQueststatus[id]=113;
     questLocation[id]=position(250, 650, 0);
@@ -1072,12 +1072,12 @@ function M.iniQuests()
     statusId[id]=162;
     germanRace[id]="Menschen";
     englishRace[id]="humans";
-	table.insert(questList[1],id); --All humans
-	table.insert(questList[2],id); --All humans
-	table.insert(questList[3],id); --All humans
-	table.insert(questList[4],id); --All humans
-	table.insert(questList[5],id); --All humans
-	table.insert(questList[6],id); --All humans
+	table.insert(questList[1],id); --All mon_0_humans
+	table.insert(questList[2],id); --All mon_0_humans
+	table.insert(questList[3],id); --All mon_0_humans
+	table.insert(questList[4],id); --All mon_0_humans
+	table.insert(questList[5],id); --All mon_0_humans
+	table.insert(questList[6],id); --All mon_0_humans
     minimumQueststatus[id]=114;
     maximumQueststatus[id]=122;
     questLocation[id]=position(250, 650, 0);
@@ -1091,12 +1091,12 @@ function M.iniQuests()
     statusId[id]=162;
     germanRace[id]="Menschen";
     englishRace[id]="humans";
-	table.insert(questList[1],id); --All humans
-	table.insert(questList[2],id); --All humans
-	table.insert(questList[3],id); --All humans
-	table.insert(questList[4],id); --All humans
-	table.insert(questList[5],id); --All humans
-	table.insert(questList[6],id); --All humans
+	table.insert(questList[1],id); --All mon_0_humans
+	table.insert(questList[2],id); --All mon_0_humans
+	table.insert(questList[3],id); --All mon_0_humans
+	table.insert(questList[4],id); --All mon_0_humans
+	table.insert(questList[5],id); --All mon_0_humans
+	table.insert(questList[6],id); --All mon_0_humans
     minimumQueststatus[id]=123;
     maximumQueststatus[id]=135;
     questLocation[id]=position(250, 650, 0);
@@ -2003,12 +2003,12 @@ function M.iniQuests()
     statusId[id]=184;
     germanRace[id]="Menschen";
     englishRace[id]="humans";
-	table.insert(questList[1],id); --All humans
-	table.insert(questList[2],id); --All humans
-	table.insert(questList[3],id); --All humans
-	table.insert(questList[4],id); --All humans
-	table.insert(questList[5],id); --All humans
-	table.insert(questList[6],id); --All humans
+	table.insert(questList[1],id); --All mon_0_humans
+	table.insert(questList[2],id); --All mon_0_humans
+	table.insert(questList[3],id); --All mon_0_humans
+	table.insert(questList[4],id); --All mon_0_humans
+	table.insert(questList[5],id); --All mon_0_humans
+	table.insert(questList[6],id); --All mon_0_humans
     minimumQueststatus[id]=109;
     maximumQueststatus[id]=113;
 	questLocation[id]=position(811, 735, 0);
@@ -2022,12 +2022,12 @@ function M.iniQuests()
     statusId[id]=184;
     germanRace[id]="Menschen";
     englishRace[id]="humans";
-	table.insert(questList[1],id); --All humans
-	table.insert(questList[2],id); --All humans
-	table.insert(questList[3],id); --All humans
-	table.insert(questList[4],id); --All humans
-	table.insert(questList[5],id); --All humans
-	table.insert(questList[6],id); --All humans
+	table.insert(questList[1],id); --All mon_0_humans
+	table.insert(questList[2],id); --All mon_0_humans
+	table.insert(questList[3],id); --All mon_0_humans
+	table.insert(questList[4],id); --All mon_0_humans
+	table.insert(questList[5],id); --All mon_0_humans
+	table.insert(questList[6],id); --All mon_0_humans
     minimumQueststatus[id]=114;
     maximumQueststatus[id]=122;
 	questLocation[id]=position(811, 735, 0);
@@ -2041,12 +2041,12 @@ function M.iniQuests()
     statusId[id]=184;
     germanRace[id]="Menschen";
     englishRace[id]="humans";
-	table.insert(questList[1],id); --All humans
-	table.insert(questList[2],id); --All humans
-	table.insert(questList[3],id); --All humans
-	table.insert(questList[4],id); --All humans
-	table.insert(questList[5],id); --All humans
-	table.insert(questList[6],id); --All humans
+	table.insert(questList[1],id); --All mon_0_humans
+	table.insert(questList[2],id); --All mon_0_humans
+	table.insert(questList[3],id); --All mon_0_humans
+	table.insert(questList[4],id); --All mon_0_humans
+	table.insert(questList[5],id); --All mon_0_humans
+	table.insert(questList[6],id); --All mon_0_humans
     minimumQueststatus[id]=123;
     maximumQueststatus[id]=135;
 	questLocation[id]=position(811, 735, 0);

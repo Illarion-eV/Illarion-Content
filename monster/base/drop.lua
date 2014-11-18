@@ -14,298 +14,277 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local common = require("base.common")
-local messages = require("base.messages")
-local lookat = require("base.lookat")
-
-local M = {}
-
-function M.ClearDropping()
-    SelItemValue={};
-    Catsdone={};
+local function _isNumber(value)
+    return type(value) == "number"
 end
 
-function M.AddDropItem(ItemID,Amount,Prob,Qual,DataValue,Category)
-    if( Amount == nil ) then
-        return false;
-    elseif (Amount>0) then
-        if (Catsdone[Category]~=true) then
-            Catsdone[Category]=true;
-            gesProb=0;
-            CatTry=math.random(100);
-        end
-        if ((CatTry>gesProb) and (CatTry<=gesProb+Prob)) then
-            if (Qual < 101) then
-                Qual = Qual + 100;
-            end
-            table.insert(SelItemValue,{ItemID,Amount,Qual,DataValue});
-            return true;
-        end
-        gesProb=gesProb+Prob;
-    end
-    return false;
+local function _isTable(value)
+    return type(value) == "table"
 end
 
-function M.RareArmours(Item)
-
-	local rand = math.random();
-
-	--The chances for an uncommon, rare or exceptional drop
-	local uncommondrop = 1/100;
-	local raredrop = 1/1000;
-	local exceptionaldrop = 1/10000;
-
-
-	--The probabilities should be independent of each other, so they have to divide by the probability so far.
-	local chanceofraredrop=uncommondrop+raredrop/(1-uncommondrop);
-	local chanceofexceptionaldrop=chanceofraredrop+exceptionaldrop/(1-chanceofraredrop);
-
-	if(rand<uncommondrop) then
-		Item:setData("RareArmour", -1);
-		lookat.SetSpecialDescription(Item, "This appears to be an uncommon artifact. You should get it repaired by a smith before you use it.", "This appears to be an uncommon artifact. You should get it repaired by a smith before you use it.");
-		lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
-		lookat.SetItemRareness(Item,ItemLookAt.uncommonItem);
-		world:changeItem(Item);
-	elseif(rand<chanceofraredrop) then
-		Item:setData("RareArmour", -2);
-		lookat.SetSpecialDescription(Item, "This appears to be a rare artifact. You should get it repaired by a smith before you use it.", "This appears to be a rare artifact. You should get it repaired by a smith before you use it.");
-		lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
-		lookat.SetItemRareness(Item,ItemLookAt.rareItem);
-		world:changeItem(Item);
-	elseif(rand<chanceofexceptionaldrop) then
-		Item:setData("RareArmour", -3);
-		lookat.SetSpecialDescription(Item, "This appears to be an exceptional artifact. You should get it repaired by a smith before you use it.", "This appears to be an exceptional artifact. You should get it repaired by a smith before you use it.");
-		lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
-		lookat.SetItemRareness(Item,ItemLookAt.epicItem);
-		world:changeItem(Item);
-	end
-
+local function _isFunction(value)
+    return type(value) == "function"
 end
 
-function M.RareWeapons(Item)
+return function(params)
+    local self = {}
+    local groups = {}
+    local defaultMonsterLevel
 
-	local rand = math.random();
-
-	--The chances for an uncommon, rare or exceptional drop
-	local uncommondrop = 1/100;
-	local raredrop = 1/1000;
-	--local exceptionaldrop = 1/10000;
-	local exceptionaldrop = 1/2;
-
-	--The probabilities should be independent of each other, so they have to divide by the probability so far.
-	local chanceofraredrop=uncommondrop+raredrop/(1-uncommondrop);
-	local chanceofexceptionaldrop=chanceofraredrop+exceptionaldrop/(1-chanceofraredrop);
-
-	if(rand<uncommondrop) then
-		Item:setData("RareWeapon", -1);
-		lookat.SetSpecialDescription(Item, "This appears to be an uncommon artifact. You should get it repaired by a smith before you use it.", "This appears to be an uncommon artifact. You should get it repaired by a smith before you use it.");
-		lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
-		lookat.SetItemRareness(Item,ItemLookAt.uncommonItem);
-		world:changeItem(Item);
-	elseif(rand<chanceofraredrop) then
-		Item:setData("RareWeapon", -2);
-		lookat.SetSpecialDescription(Item, "This appears to be a rare artifact. You should get it repaired by a smith before you use it.", "This appears to be a rare artifact. You should get it repaired by a smith before you use it.");
-		lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
-		lookat.SetItemRareness(Item,ItemLookAt.rareItem);
-		world:changeItem(Item);
-	elseif(rand<chanceofexceptionaldrop) then
-		Item:setData("RareWeapon", -3);
-		lookat.SetSpecialDescription(Item, "This appears to be an exceptional artifact. You should get it repaired by a smith before you use it.", "This appears to be an exceptional artifact. You should get it repaired by a smith before you use it.");
-		lookat.SetSpecialName(Item, "Broken Artifact","Broken Artifact")
-		lookat.SetItemRareness(Item,ItemLookAt.epicItem);
-		world:changeItem(Item);
-	end
-
-end
-
-function M.Dropping(Char)
-    if ((dropped == nil) or (dropped ~= Char.id)) then
-        dropped = Char.id;
-        first = true
-    elseif (dropped == Char.id) then
-        first = false;
-    end
-
-    if first then
-        if (#SelItemValue>0) then
-            for i,values in pairs(SelItemValue) do
-                if ( values[1] ~= nil ) and ( values[2] ~= nil ) and ( values[3] ~= nil ) then
-				    if values[4] == 0 then
-					    values[4] = nil; --catching "old" data values
-					end
-                    Item=world:createItemFromId(values[1],values[2],Char.pos,true,values[3], values[4]) -- Do not create items with old data
-
-					--This will become the rare artifacts system
-					--[[if isTestserver() then
-						local armourfound, armour;
-						armourfound, armour = world:getArmorStruct(values[1]);
-						local weaponfound, weapon;
-						weaponfound, weapon = world:getWeaponStruct(values[1]);
-
-						if armourfound then
-							RareArmours(Item);
-						elseif weaponfound then
-							RareWeapons(Item);
-						end
-					end;]]
-
-					-- values[1]=ID, values[2]=amount, values[3]=quality, values[4]=data
-                end
-            end
-        end
-        local checkItems = {61,293,294,64,549,322,237,1266,3076,3077}; --ffs use comments! ~Estralis
-        for i,CheckItemItemid in pairs(checkItems) do
-            ItemCnt = Char:countItem(CheckItemItemid);
-            if (ItemCnt > 0) then
-                world:createItemFromId(CheckItemItemid,ItemCnt,Char.pos,true,222,nil);
-            end
+    if _isTable(params) then
+        if _isNumber(params.monsterLevel) then
+            defaultMonsterLevel = tonumber(params.monsterLevel)
         end
     end
-end
 
+    local function add(value)
+        if not _isTable(value) then
+            error("The value to be added to the drop definition is not set to a valid value.")
+        end
 
---[[ function CastMonMagic(
-	Monster = The Monster casting
-	Enemy = The Target
-	rndTry = 1 : rndTry (number) chance of spell being casted
-	DamageRange = { min Dmg, max Dmg}
-	Effect = { { EffectGfx, EffectSound} { Effect2} etc. }
-	Item = { ID, min qualy,max qualy, data, wear }, {Item2} etc... Creates an item on EnemyPosition (Flamewall, etc.)
-	AP = Action Points, reduction of movepoints because of casting
-	LineOfFlight = Gfx that is shown on the Line between Monster and Target 1= puff of smoke all the way
-	CastingTry = {minSkill, maxSkill} Skillbounds for Monster Casting, influence Damage Output, Sucess against Mag Resi of player etc.]]
-
-function M.CastMonMagic(Monster,Enemy,rndTry,DamageRange,Effect,Item,AP,LineOfFlight,CastingTry)
--- Disabled this shit with it's 1000 parameters where all sorts of junk is passed in.
--- Unless someone rewrites it in a clean way, I _will_ soon delete this for good! -- vilarion
-
---[[
-    if (math.random(1,rndTry)==1) and (Monster.pos.z==Enemy.pos.z) then
-        local EffectTry=math.random(1,#Effect+#Item);
-        if ( EffectTry > #Effect ) then
-            common.CreateLine(Monster.pos,Enemy.pos, function( targetPos )
-                if world:isCharacterOnField( targetPos ) then
-                    if world:isItemOnField( targetPos ) then
-                        local foundItem = world:getItemOnField( targetPos );
-                        if ( foundItem.id == Item[EffectTry-#Effect][1] ) then
-                            foundItem.quality = math.min( Item[EffectTry-#Effect][3], foundItem.quality + Item[EffectTry-#Effect][2] );
-                            return false;
-                        end
-                    end
-                    world:createItemFromId(Item[EffectTry-#Effect][1],1,targetPos,true,math.random(Item[EffectTry-#Effect][2],Item[EffectTry-#Effect][3]),Item[EffectTry-#Effect][4]);
-                    if ( Item[EffectTry-#Effect][5] > 0 ) then
-                        world:makeSound(Item[EffectTry-#Effect][5],targetPos);
-                    end
-                    return false;
-                end
-                world:gfx( LineOfFlight, targetPos );
-                return true;
-            end );
-			common.TalkNLS( Monster, Character.say,
-			"#me murmelt eine mystische Formel.",
-			"#me mumbles a mystical formula.");
-            Monster.movepoints=Monster.movepoints-AP;
-            return true;
+        if _isFunction(value.dropGroup) then
+            table.insert(self.groups, value)
         else
-            common.CreateLine(Monster.pos,Enemy.pos, function( targetPos )
-                if world:isCharacterOnField( targetPos ) then
-                    local Enemy = world:getCharacterOnField( targetPos );
-                    local CastTry = math.random(CastingTry[1],CastingTry[2]) - SpellResistence( Enemy );
-                    CastTry = ( CastTry - CastingTry[1] ) / ( CastingTry[2] - CastingTry[1] ) * 100;
-                    local Damage = common.ScaleUnlimited( DamageRange[1], DamageRange[2], CastTry );
-                    if Damage > 0 then
-                        Enemy:increaseAttrib("hitpoints",-Damage);
-
-                        if ( Effect[EffectTry][1] > 0 ) then
-                            world:gfx(Effect[EffectTry][1],targetPos);
-                        end
-                    else
-                        if ( Effect[EffectTry][1] > 0 ) then
-                            world:gfx(12,targetPos);
-                        end
-                    end
-                    if ( Effect[EffectTry][2] > 0 ) then
-                        world:makeSound(Effect[EffectTry][2],targetPos);
-                    end
-                    return false;
-                end;
-                world:gfx( LineOfFlight, targetPos );
-                return true;
-            end );
-			common.TalkNLS( Monster, Character.say,
-			"#me murmelt eine mystische Formel.",
-			"#me mumbles a mystical formula.");
-            Monster.movepoints=Monster.movepoints-AP;
-            return true;
+            error("The value added to the drop definition does not implement the expected function.")
         end
     end
---]]
-    return false;
-end
 
+    function self.dropItem(params)
+        local self = {}
+        if not _isTable(params) then
+            error("Required parameters for drop items missing.")
+        end
 
+        local itemId
+        if _isNumber(params.itemId) then
+            itemId = tonumber(params.itemId)
+        else
+            error("Creating drop item failed. Parameter \"itemId\" is missing or contains a wrong type.")
+        end
 
-
---Addition by Estralis: A function that makes a monster speak a random message
-
-function M.MonsterRandomTalk(Monster,msgs)
-
-    if (math.random(1,300) == 1 ) then --once each 5 minutes (300) in average a message is spoken
-
-        Monster:increaseSkill(Character.commonLanguage,100-Monster:getSkill(Character.commonLanguage)); --if the monster could not talk, it can talk now
-
-        local germanMessage, englishMessage = msgs:getRandomMessage(); --choses a random message
-        common.TalkNLS( Monster, Character.say, germanMessage, englishMessage ); --does the talking in both languages
-
-    end
-
-end
-
---Added by Faladrion: Preserving the GynkFire as a throwable monster weapon needs fixing :o
-
-function M.ThrowMolotov(Monster,Enemy,rndTry,AP)
-    if (math.random(1,rndTry)==1) and (Monster.pos.z==Enemy.pos.z) then --does not throw very often, half the frequency of casting monsters
-        local hitPos=position( Enemy.pos.x+math.random(-2,2), Enemy.pos.y+math.random(-2,2), Enemy.pos.z );
-        local distance = Monster:distanceMetricToPosition( hitPos );
-        if ( distance < 3 ) then
-            if( math.random(1,2) == 1 ) then
-                hitPos.x = ( hitPos.x > 0 and hitPos.x + 3 - distance or hitPos.x - 3 + distance );
+        local amountRange
+        if params.amount == nil then
+            amountRange = {1, 1}
+        elseif _isNumber(params.amount) then
+            local amountValue = tonumber(params.amount)
+            amountRange = {amountValue, amountValue }
+            if amountValue < 1 then
+                error("The amount of a item was set to a value less than 0. That is just wrong.")
+            end
+        elseif _isTable(params.amount) then
+            local fromValue = params.amount.from or params.amount[1]
+            local toValue = params.amount.to or params.amount[2]
+            if _isNumber(fromValue) and _isNumber(toValue) then
+                amountRange = {tonumber(fromValue), tonumber(toValue) }
+                if amountRange[1] > amountRange[2] then
+                    error("Range for amount was set but the from value is greater than the to value.")
+                elseif amountRange[1] < 1 then
+                    error("The lower end of the amount range was set to a value less than 0. That is wrong.")
+                end
             else
-                hitPos.y = ( hitPos.y > 0 and hitPos.y + 3 - distance or hitPos.y - 3 + distance );
+                error("The amount value was detected as table. How ever the from and to value for the range is missing.")
+            end
+        else
+            error("The amount was set to something. How ever it was not possible to detect what the input means.")
+        end
+
+        local probability
+        if _isNumber(params.probability) then
+            probability = tonumber(params.probability)
+            if probability <= 0 or probability > 1 then
+                error("Propability value was found but is out of range: " + probability)
+            end
+        else
+            error("The required propability for the drop of a item was not set to a legal value.")
+        end
+
+        local defaultQualityRange
+        local defaultDurabilityRange
+        if params.monsterLevel == nil then
+            if defaultMonsterLevel == nil then
+                defaultQualityRange = {4, 6}
+                defaultDurabilityRange = {44, 66 }
+            else
+                defaultQualityRange = {math.max(defaultMonsterLevel - 1, 1), defaultMonsterLevel}
+                defaultDurabilityRange = {math.max((defaultMonsterLevel - 1) * 11, 1), defaultMonsterLevel * 11}
+            end
+        elseif _isNumber(params.monsterLevel) then
+            local level = tonumber(params.monsterLevel)
+            if level < 1 or level > 9 then
+                error("The level of the monster for that drop was set to a valid that is out of range:" + level)
+            end
+            defaultQualityRange = {math.max(level - 1, 1), level}
+            defaultDurabilityRange = {math.max((level - 1) * 11, 1), level * 11}
+        end
+
+        local qualityRange
+        if params.quality == nil then
+            qualityRange = defaultQualityRange
+        elseif _isNumber(params.quality) then
+            local qualityValue = tonumber(params.quality)
+            qualityRange = {qualityValue, qualityValue}
+            if qualityValue < 1 or qualityValue > 9 then
+                error("The quality value is out of range: " + qualityValue)
+            end
+        elseif _isTable(params.quality) then
+            local fromValue = params.quality.from or params.quality[1]
+            local toValue = params.quality.to or params.quality[2]
+            if _isNumber(fromValue) and _isNumber(toValue) then
+                qualityRange = {tonumber(fromValue), tonumber(toValue) }
+                if qualityRange[1] > qualityRange[2] then
+                    error("Range for quality was set but the from value is greater than the to value.")
+                elseif qualityRange[1] < 1 or qualityRange[2] > 9 then
+                    error("The range of the quality value exceeds the valid range.")
+                end
+            else
+                error("The quality value was detected as table. How ever the from and to value for the range is missing.")
+            end
+        else
+            error("The quality was set to something. How ever it was not possible to detect what the input means.")
+        end
+
+        local durabilityRange
+        if params.durability == nil then
+            durabilityRange = defaultDurabilityRange
+        elseif _isNumber(params.durability) then
+            local durabilityValue = tonumber(params.durability)
+            durabilityRange = {durabilityValue, durabilityValue }
+            if durabilityValue < 1 or durabilityValue > 99 then
+                error("The durability value is out of range: " + durabilityValue)
+            end
+        elseif _isTable(params.durability) then
+            local fromValue = params.durability.from or params.durability[1]
+            local toValue = params.durability.to or params.durability[2]
+            if _isNumber(fromValue) and _isNumber(toValue) then
+                durabilityRange = {tonumber(fromValue), tonumber(toValue) }
+                if durabilityRange[1] > durabilityRange[2] then
+                    error("Range for durability was set but the from value is greater than the to value.")
+                elseif durabilityRange[1] < 1 or durabilityRange[2] > 99 then
+                    error("The range of the durability value exceeds the valid range.")
+                end
+            else
+                error("The durability value was detected as table. How ever the from and to value for the range is missing.")
+            end
+        else
+            error("The durability was set to something. How ever it was not possible to detect what the input means.")
+        end
+
+        local data
+        if params.data ~= nil then
+            if _isTable(params.data) then
+                data = {}
+                for key, value in pairs(params.data) do
+                    if key == nil or value == nil then
+                        error("Data table contains illegal key or value.")
+                    end
+                    if _isTable(key) or _isTable(value) then
+                        error("The data table contains a array as key or value. That is not valid.")
+                    end
+                    data[tostring(key)] = tostring(value)
+                end
+                if #data == 0 then
+                    data = nil
+                end
             end
         end
 
-        local Strength=math.random(55,88);
-        local hitpoints;
+        function self.dropItem(pos, randomValue)
+            if (randomValue <= probability) then
+                local amount = math.random(amountRange[1], amountRange[2])
+                local qual = math.random(qualityRange[1], qualityRange[2]) * 100 + math.random(durabilityRange[1], durabilityRange[2])
+                world:createItemFromId(itemId, amount, pos, true, qual, data)
+                return true, randomValue - probability
+            end
+            return false, randomValue - probability
+        end
 
-        world:gfx(36,hitPos);
-        HitChar(hitPos,common.Scale(3000,6000,Strength));
-        world:makeSound(5,hitPos);
-        hitpoints = common.Scale( 1000, 3000, Strength );
-        common.CreateCircle( hitPos, 1, function( targetPos )
-            world:gfx( 44, targetPos );
-            HitChar( targetPos, hitpoints );
-        end );
-        hitpoints = common.Scale( 100, 500, Strength );
-        common.CreateCircle( hitPos, 2, function( targetPos )
-            world:gfx( 9, targetPos );
-            HitChar( targetPos, hitpoints );
-        end );
-        hitpoints = common.Scale( 20, 100, Strength );
-        common.CreateCircle( hitPos, 3, function( targetPos )
-            world:gfx( 1, targetPos );
-            HitChar( targetPos, hitpoints );
-        end );
-
-        Monster.movepoints=Monster.movepoints - AP;
-        Monster:talk(Character.say, "#me schmeißt eine weiße Flasche nach "..Enemy.name..".", "#me tosses a white bottle at "..Enemy.name..".")
-		return false;
+        return self
     end
-    return true;
-end
 
-function M.HitChar(Posi,Hitpoints)
-	if world:isCharacterOnField(Posi) then world:getCharacterOnField(Posi):increaseAttrib("hitpoints",-Hitpoints) end;
-end
+    function self.dropGroup()
+        local self = {}
+        local items = {}
 
-return M
+        function self.add(value)
+            if not _isTable(value) then
+                error("The value to be added to the list of drop items is not set to a valid value.")
+            end
+
+            if _isFunction(value.dropItem) then
+                table.insert(self.items, value)
+            else
+                -- Automatic population of the probability. The first item in the list gets 20%, the second 10% and
+                -- every following entry gets 10%
+                if value.probability == nil then
+                    local itemsCount = #items
+                    if itemsCount == 0 then
+                        value.probability = 0.2
+                    elseif itemsCount == 1 then
+                        value.probability = 0.1
+                    else
+                        value.probability = 0.01
+                    end
+                end
+                table.insert(self.items, M.dropItem(value))
+            end
+        end
+
+        function self.dropGroup(pos)
+            local randomValue = math.random()
+            for _, item in pairs(items) do
+                local dropped, randomValue = item.dropItem(pos, randomValue)
+                if dropped then return end
+            end
+        end
+
+        add(self)
+        return self
+    end
+
+    function self.addMoneyDrop(level)
+        local monsterLevel
+        if not _isNumber(level) then
+            if defaultMonsterLevel == nil then
+                error("The value for the monster level is not set to a number and the default value is not set too.")
+            else
+                monsterLevel = defaultMonsterLevel;
+            end
+        else
+            monsterLevel = tonumber(level)
+        end
+        if monsterLevel < 1 or monsterLevel > 9 then
+            error("The value for the monster level is out of range: " + level)
+        end
+
+        -- Monsters at or below level 1 do not get any money drop
+        if monsterLevel > 1 then
+            local group = M.dropGroup()
+            if monsterLevel == 2 then
+                group.add{itemId = 3076, probability = 1, amount = {from = 10, to = 30}}
+            elseif monsterLevel == 3 then
+                group.add{itemId = 3076, probability = 1, amount = {from = 20, to = 60}}
+            elseif monsterLevel == 4 then
+                group.add{itemId = 3076, probability = 1, amount = {from = 30, to = 90}}
+            elseif monsterLevel == 5 then
+                group.add{itemId = 3076, probability = 1, amount = {from = 60, to = 180}}
+            elseif monsterLevel == 6 then
+                group.add{itemId = 3076, probability = 1, amount = {from = 180, to = 540}}
+            elseif monsterLevel == 7 then
+                group.add{itemId = 3077, probability = 1, amount = {from = 10, to = 30}}
+            elseif monsterLevel == 8 then
+                group.add{itemId = 3077, probability = 1, amount = {from = 30, to = 90}}
+            elseif monsterLevel == 9 then
+                group.add{itemId = 3077, probability = 1, amount = {from = 90, to = 270}}
+            end
+            add(group)
+        end
+    end
+
+    function self.drop(pos)
+        for _, group in pairs(groups) do
+            group.dropGroup(pos)
+        end
+    end
+
+    return self;
+end

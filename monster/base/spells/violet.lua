@@ -12,26 +12,24 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local M = {}
+local spellDamage = require("monster.base.spells.damage")
 
-lastAttacker={};
+local function _isTable(value)
+    return type(value) == "table"
+end
 
-function M.setLastAttacker(monster, enemy)
-    lastAttacker[monster.id] = enemy;
-end;
+return function(params)
+    if params == nil then
+        params = {}
+    end
+    if not _isTable(params) then
+        error("The parameters for the violett flame spell aren't a table.")
+    end
 
-function M.getLastAttacker(monster)
-	return lastAttacker[monster.id];
-end;
+    if params.gfxId == nil then params.gfxId = 51 end
+    if params.sfxId == nil then params.sfxId = 5 end
 
-function M.hasLastAttacker(monster)
-	return lastAttacker[monster.id] ~= nil;
-end;
-
-function M.isLastAttacker(monster, enemy)
-	return lastAttacker[monster.id] == enemy;
-end;
-
-return M
+    return spellDamage(params)
+end

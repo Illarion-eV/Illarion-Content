@@ -424,17 +424,17 @@ function M.GetBonusFromTool(toolItem)
     local dataValue=0; --toolItem.data;
 		-- TODO get correct bonus
     if ((dataValue > 9) and (dataValue < 100)) then
-        str1 = math.fmod(dataValue, 10) + 1;
+        local str1 = math.fmod(dataValue, 10) + 1;
         dataValue = dataValue - str1 + 1;
-        stone1 = math.floor(dataValue / 10);
+        local stone1 = math.floor(dataValue / 10);
         return stone1, str1, 0, 0;
     elseif ((dataValue > 1009) and (dataValue < 10000)) then
-        str1 = math.fmod(dataValue, 10) + 1;
+        local str1 = math.fmod(dataValue, 10) + 1;
         dataValue = dataValue - str1 + 1;
-        stone1 = math.fmod(dataValue, 100) / 10;
+        local stone1 = math.fmod(dataValue, 100) / 10;
         dataValue = dataValue - stone1 * 10;
-        str2 = math.fmod(dataValue, 1000) / 100 + 1;
-        stone2 = math.floor(dataValue / 1000);
+        local str2 = math.fmod(dataValue, 1000) / 100 + 1;
+        local stone2 = math.floor(dataValue / 1000);
         return stone1, str1, stone2, str2;
     end;
     return 0, 0, 0, 0;
@@ -952,6 +952,7 @@ function M.IsCharacterParalysed(Character)
     return nil;
 end;
 
+local circleCache = {}
 --[[
     CreateCircle
     Calculates a circle based on a center position and a radius. It triggers a Event function
@@ -962,16 +963,13 @@ end;
 ]]
 function M.CreateCircle(CenterPos, Radius, Event)
     if not Event then
-        return;
-    end;
-    if not storedCircle then
-        storedCircle = {};
-    end;
-    if not storedCircle[Radius] then
+        return
+    end
+    if not circleCache[Radius] then
         local irad = math.ceil(Radius);
         local dim = 2*(irad+1);
         local map = {} ;
-        storedCircle[Radius] = {};
+        circleCache[Radius] = {};
 
         for x = -irad - 1, irad do
             map[x] = {};
@@ -984,13 +982,13 @@ function M.CreateCircle(CenterPos, Radius, Event)
             for y = -irad, irad do
                 if not (map[x][y] and map[x-1][y] and map[x][y-1] and map[x-1][y-1])
                    and (map[x][y] or map[x-1][y] or map[x][y-1] or map[x-1][y-1]) then
-                    table.insert(storedCircle[Radius], position(x, y, 0));
+                    table.insert(circleCache[Radius], position(x, y, 0));
                 end;
             end;
         end;
     end;
     local go_on;
-    for _, posi in pairs(storedCircle[Radius]) do
+    for _, posi in pairs(circleCache[Radius]) do
         go_on = Event(position(CenterPos.x + posi.x, CenterPos.y + posi.y, CenterPos.z));
         if (go_on == false and go_on ~= nil) then
             return true;

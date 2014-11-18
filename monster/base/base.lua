@@ -14,76 +14,83 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-
+local common = require("base.common")
+local quests = require("monster.base.quests")
+local arena = require("base.arena")
 
 local M = {}
 
--- Checks if a monster archer is in range to its target.
--- Return true if the monster is an archer AND in range. Otherwise false.
-function M.isMonsterArcherInRange(archer, target)
+local noDropList = {}
+local killers = {}
 
-	return false;
+local function performRandomTalk(monster, msgs)
+    local langSkill = monster:getSkill(Character.commonLanguage)
+    if langSkill < 100 then
+        monster:increaseSkill(Character.commonLanguage, 100 - langSkill)
+    end
 
+    local germanMessage, englishMessage = msgs:getRandomMessage() --choses a random message
+    common.TalkNLS(monster, Character.say, germanMessage, englishMessage ) --does the talking in both languages
 end
 
-
--- Checks if a monster is within 6 fields to its target. Also slows monster down
--- Return false if monster should go ahead and aggro the target.
-function M.isMonsterInRange(monster, target)
-
-	return false;
+local function performRegeneration(monster)
+    if (math.random() < 0.3) and (monster:increaseAttrib("hitpoints", 0) < 10000) then
+        local con = monster:increaseAttrib("constitution", 0)
+        local healAmount = 2 * con
+        monster:increaseAttrib("hitpoints", healAmount)
+    end
 end
 
-M.noDropList = {}
+local function reportAttack(monster, enemy)
+    killers[monster.id] = enemy
+end
+
+local function reportMonsterDeath(monster)
+    local killer = killers[monster.id]
+    if killer ~= nil then
+        if isCharValid(killer) then
+            quests.checkQuest(killer, monster)
+        end
+        killers[monster.id] = nil
+    end
+    noDropList[monster.id] = nil
+end
+
+function M.generateCallbacks(msgs, drops)
+    local t = {}
+
+    function t.enemyNear(monster, _)
+        if math.random() < 3e-4 then --once each 5 minutes (3e-4) in average a message is spoken (is called very often)
+            performRandomTalk(monster, msgs)
+        end
+        return false
+    end
+
+    function t.enemyOnSight(monster, _)
+        performRegeneration(monster)
+        if math.random() < 3e-3 then --once each 5 minutes (3e-3) in average a message is spoken
+            performRandomTalk(monster, msgs)
+        end
+        return false
+    end
+
+    t.onAttacked = reportAttack
+    t.onCasted = reportAttack
+
+    function t.onDeath(monster)
+        if arena.isArenaMonster(monster) then return end
+        if not noDropList[monster.id] then
+            drops.drop(monster.pos)
+        end
+        reportMonsterDeath(monster)
+    end
+
+    return t
+end
+
 -- Saves a monster as one that should not drop
-function M.setNoDrop(theMonster)
-
-	M.noDropList[theMonster.id] = true
-
-end
-
--- Check if the the monster is in the noDropList
--- set keepInList to true in case it should stay in the list (e.g. if it hasn't died yet)
-function M.checkNoDrop(theMonster, keepInList)
-	
-	if M.noDropList[theMonster.id] then
-		if not keepInList then
-			M.noDropList[theMonster.id] = nil
-		end
-		return true
-	end
-	return false
-end
-
-M.unattackableList = {}
-function M.setUnattackability(theMonster,messageGerman, messageEnglish)
-	
-	M.unattackableList[theMonster.id] = {}
-	M.unattackableList[theMonster.id]["messageGerman"] = messageGerman
-	M.unattackableList[theMonster.id]["messageEnglish"] = messageEnglish
-
-end
-
-function M.checkUnattackability(theMonster, attacker)
-	
-	if M.unattackableList[theMonster.id] then
-		if attacker and M.unattackableList[theMonster.id]["messageGerman"] and M.unattackableList[theMonster.id]["messageEnglish"] then
-			local currentTime = world:getTime("unix")
-			if (not M.unattackableList[theMonster.id][attacker.id]) or currentTime - M.unattackableList[theMonster.id][attacker.id] > 9 then
-				attacker:inform(M.unattackableList[theMonster.id]["messageGerman"],M.unattackableList[theMonster.id]["messageEnglish"])
-				M.unattackableList[theMonster.id][attacker.id] = currentTime
-			end
-		end
-		return true
-	end
-	return false
-end
-
--- That function should awalys be called when an unattackable monster dies, in order to clean up the list
-function M.removeUnattackability(theMonster)
-
-	M.unattackableList[theMonster.id] = nil
-
+function M.setNoDrop(monster)
+    noDropList[monster.id] = true
 end
 
 return M
