@@ -18,10 +18,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 
 local M = {}
-
+local InitQuestPlaces = nil
 function Init()
 
-    if InitDone then
+    if InitQuestPlaces then
         return
     end
    
@@ -43,7 +43,7 @@ function Init()
       messageE[3]="[Quest status] You approach the altar of Eldan, and you are overwhelmed by thoughtful contemplation.";
       messageE[4]="[Quest status] You approach the altar of Tanora shrouded in a dense fog.";      
       messageE[5]="[Quest status] You approach the altar of Findari and swirling gusts of wind billow around you.";
-      InitDone = true;
+      InitQuestPlaces = true;
     
 end
 

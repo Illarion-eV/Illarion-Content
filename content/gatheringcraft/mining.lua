@@ -124,9 +124,9 @@ function StartGathering(User, SourceItem, ltstate)
 end
 
 
-
+local initMining = nil
 function Init()
-    if InitDone then
+    if initMining then
         return
     end
 
@@ -389,7 +389,7 @@ Radius 15
 
 
 
-    InitDone = true;
+    initMining = true;
 end
 local Area = nil
 function AddArea(AreaID,Center,Rad)
