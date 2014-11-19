@@ -53,7 +53,7 @@ function M.UseItem(User, SourceItem, ltstate)
 		   return
 		end
 		
-		FillIntoBottle(User, SourceItem, cauldron)
+		M.FillIntoBottle(User, SourceItem, cauldron)
 		alchemy.lowerFood(User)
 	end
 
@@ -83,7 +83,7 @@ function CheckWaterEmpty(User, SourceItem, cauldron)
     return true
 end
 
-function FillIntoBottle(User, SourceItem, cauldron)
+function M.FillIntoBottle(User, SourceItem, cauldron)
     
 	-- stock, essence brew or potion; fill it up
    if (cauldron:getData("filledWith") == "stock") or (cauldron:getData("filledWith") == "essenceBrew") or (cauldron:getData("filledWith") == "potion") then  
