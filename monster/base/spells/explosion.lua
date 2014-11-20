@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local spellProjectile = require("monster.base.spells.projectile")
+local spellDamage = require("monster.base.spells.damage")
 
 local function _isTable(value)
     return type(value) == "table"
@@ -25,12 +25,11 @@ return function(params)
         params = {}
     end
     if not _isTable(params) then
-        error("The parameters for the fireball spell aren't a table.")
+        error("The parameters for the lighting spell aren't a table.")
     end
 
-    if params.gfxId == nil then params.gfxId = 9 end
+    if params.gfxId == nil then params.gfxId = 44 end
     if params.sfxId == nil then params.sfxId = 5 end
-    if params.trailGfxId == nil then params.trailGfxId = 1 end
 
-    return spellProjectile(params)
+    return spellDamage(params)
 end

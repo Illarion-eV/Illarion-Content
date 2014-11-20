@@ -58,10 +58,10 @@ function M.generateCallbacks(drops)
         local hairBrunette = {128, 64, 0} -- Brunette hair Red,Green,Blue
         local hairColors = {hairBlonde, hairPurple, hairRed, hairBrunette}
         local myHairColor = hairColors[math.random(#hairColors)]
-        theOrc:setAttrib("sex", mySex)
-        theOrc:setSkinColor(red, green, blue)
-        theOrc:setHair(myHair[mySex][math.random(#myHair[mySex])])
-        theOrc:setHairColor(myHairColor[1], myHairColor[2], myHairColor[3])
+        monster:setAttrib("sex", mySex)
+        monster:setSkinColor(red, green, blue)
+        monster:setHair(myHair[mySex][math.random(#myHair[mySex])])
+        monster:setHairColor(myHairColor[1], myHairColor[2], myHairColor[3])
     end
     return t
 end

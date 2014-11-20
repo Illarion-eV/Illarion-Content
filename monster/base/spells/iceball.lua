@@ -28,7 +28,7 @@ return function(params)
         error("The parameters for the fireball spell aren't a table.")
     end
 
-    if params.gfxId == nil then params.gfxId = 9 end
+    if params.gfxId == nil then params.gfxId = 4 end
     if params.sfxId == nil then params.sfxId = 5 end
     if params.trailGfxId == nil then params.trailGfxId = 1 end
 

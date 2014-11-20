@@ -14,13 +14,15 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local warpSpell = require("monster.base.spells.warp")
-local healSpell = require("monster.base.spells.heal")
-local summonSpell = require("monster.base.spells.summon")
+local explosionSpell = require("mosnter.base.spells.explosion")
 local fireballSpell = require("monster.base.spells.fireball")
 local firefieldSpell = require("monster.base.spells.firefield")
+local healSpell = require("monster.base.spells.heal")
+local iceballSpell = require("monster.base.spells.iceball")
 local lightingSpell = require("monster.base.spells.lighting")
+local summonSpell = require("monster.base.spells.summon")
 local violetSpell = require("monster.base.spells.violet")
+local warpSpell = require("monster.base.spells.warp")
 
 local function _isNumber(value)
     return type(value) == "number"
@@ -71,16 +73,8 @@ return function()
         end
     end
 
-    function self.addWarping(params)
-        self.addSpell(warpSpell(params), params)
-    end
-
-    function self.addHealing(params)
-        self.addSpell(healSpell(params), params)
-    end
-
-    function self.addSummon(params)
-        self.addSpell(summonSpell(params), params)
+    function self.addExplosion(params)
+        self.addSpell(explosionSpell(params), params)
     end
 
     function self.addFireball(params)
@@ -91,12 +85,28 @@ return function()
         self.addSpell(firefieldSpell(params), params)
     end
 
+    function self.addHealing(params)
+        self.addSpell(healSpell(params), params)
+    end
+
+    function self.addIceball(params)
+        self.addSpell(iceballSpell(params), params)
+    end
+
     function self.addLighting(params)
         self.addSpell(lightingSpell(params), params)
     end
 
+    function self.addSummon(params)
+        self.addSpell(summonSpell(params), params)
+    end
+
     function self.addVioletFlame(params)
         self.addSpell(violetSpell(params), params)
+    end
+
+    function self.addWarping(params)
+        self.addSpell(warpSpell(params), params)
     end
 
     local function castEnemyNear(monster, enemy)
