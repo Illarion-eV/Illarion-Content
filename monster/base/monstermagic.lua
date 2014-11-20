@@ -355,7 +355,7 @@ function M.FireBreath(Monster, Enemy, graphicItem)
         firstBreath=true;
     end
 
-    BreathTry=math.random(1,66);
+    local BreathTry=math.random(1,66);
     if (BreathTry==1) and (Monster.pos.z==Enemy.pos.z) then
         Monster.fightpoints=Monster.fightpoints-40;
         if (Monster:distanceMetric(Enemy)<=4) then
