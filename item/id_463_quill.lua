@@ -22,6 +22,10 @@ local recipe_creation = require("alchemy.base.recipe_creation")
 
 local M = {}
 
+local function getText(User,deText,enText)
+    return common.GetNLS(User,deText,enText)
+end
+
 function M.UseItem(User, SourceItem, ltstate)
 
 	if SourceItem.itempos ~= 5 and SourceItem.itempos ~= 6 then
@@ -209,9 +213,6 @@ function removeLabel(User)
 	end
 end
 
-function getText(User,deText,enText)
-    return common.common.GetNLS(User,deText,enText)
-end
 
 return M
 

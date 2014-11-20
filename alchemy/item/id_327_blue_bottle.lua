@@ -29,7 +29,7 @@ local M = {}
 
 -- UPDATE common SET com_script='alchemy.item.id_327_blue_bottle' WHERE com_itemid = 327;
 
-function Explode(User,TargetItem)
+local function Explode(User,TargetItem)
 local Item = TargetItem
 local potionEffectId = (tonumber(Item:getData("potionEffectId")))
 
@@ -81,7 +81,7 @@ local potionEffectId = (tonumber(Item:getData("potionEffectId")))
 	end
 end
 
-function Drop(User,TargetItem)
+local function Drop(User,TargetItem)
     if (math.random(1,User:increaseAttrib("dexterity",0)+7)==1) then
         Explode(User,TargetItem);
         User:talk(Character.say, "#me lässt eine Flasche fallen, welche explodiert.", "#me drops a bottle and it explodes.")
@@ -148,7 +148,7 @@ function M.MoveItemBeforeMove( User, SourceItem, TargetItem )
     return true;
 end
 
-function DrinkPotion(User,SourceItem)
+local function DrinkPotion(User,SourceItem)
 -- no drink effect exists for bomb potions, yet
    common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", 
 		"You don't have the feeling that something happens.")

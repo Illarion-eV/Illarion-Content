@@ -20,10 +20,10 @@ local M = {}
 
 --This script handles scripted events on "Errant Crusade" quest map
 --Various events and fields are handled here for a better overview
-
+local InitSalaveshTrigers = nil
 function Init()
 
-    if InitDone then
+    if InitSalaveshTrigers then
         return
     end
 
@@ -51,7 +51,7 @@ function Init()
 	messageE[5]="Out of the darkness, you see the faint gleeming of a dark presence limping towards you...";
 	messageE[6]="A disgusting stench reaches your nose. Out of the muddy water in this flooded tunnel, formless creatures approach you.";
 
-    InitDone = true;
+    InitSalaveshTrigers = true;
 
 end
 

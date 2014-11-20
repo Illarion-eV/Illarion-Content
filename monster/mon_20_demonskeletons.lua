@@ -23,6 +23,7 @@ local quests = require("monster.base.quests")
 local messages = require("base.messages")
 local kills = require("monster.base.kills")
 local arena = require("base.arena")
+local itemEffects = require("scheduled.itemEffects")
 local M = {}
 local init = nil
 
@@ -125,15 +126,7 @@ function M.onAttacked(Monster,Enemy)
 end
 
 function M.onCasted(Monster,Enemy)
-    local MonID=Monster:getMonsterType();
-	if(MonID == 205) then
-		if monster.specialattacks.lich_spells.Lich_MagicShield (monster, char) then
-			return true;
-		else
-			return false;
-		end
-	end
-
+    
     if init==nil then
         ini(Monster);
     end
@@ -313,7 +306,7 @@ function LichPileOfBones(theLich)
 	theLich:talk(Character.say,"#me zerfällt zu einem Knochenhaufen.","#me collapses into a pile of bones.")
 	world:gfx(45,theLich.pos)
 	world:createItemFromId(498,1,theLich.pos,true,333,nil)
-	table.insert(scheduled.itemEffects.PILE_OF_BONES,{itemPosition = position(theLich.pos.x,theLich.pos.y,theLich.pos.z), itemCounter = 0})
+	table.insert(itemEffects.PILE_OF_BONES,{itemPosition = position(theLich.pos.x,theLich.pos.y,theLich.pos.z), itemCounter = 0})
 
 end
 

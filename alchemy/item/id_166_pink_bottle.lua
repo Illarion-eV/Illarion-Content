@@ -23,11 +23,39 @@ local M = {}
 
 -- UPDATE common SET com_script='alchemy.item.id_166_pink_bottle' WHERE com_itemid = 166;
 
-bottomBorder = 2;
-topBorder = {7000       ,7000  ,50000      ,10000        ,7000         ,7000    ,50000        ,10000}
-attribList ={"hitpoints","mana","foodlevel","poisonvalue","hitpointsOT","manaOT","foodlevelOT","poisonvalueOT"}
+local bottomBorder = 2;
+local topBorder = {7000       ,7000  ,50000      ,10000        ,7000         ,7000    ,50000        ,10000}
+local attribList ={"hitpoints","mana","foodlevel","poisonvalue","hitpointsOT","manaOT","foodlevelOT","poisonvalueOT"}
 
-function DrinkPotion(User,SourceItem)
+local function GenerateEffectMessage(User,dataZList)
+    local effectMessageDE = ""
+	local effectMessageEN = ""
+	local anyEffect = false
+	
+	ListPositiveEffectDE = {"Deine Lebenskraft nimmt sofort zu."   ,"Dein Mana nimmt sofort zu."   ,"Du fühlst dich sofort satter."      ,"Das Gift in dir wird geschwächt."       ,"Deine Lebenskraft nimmt mit der Zeit zu.","Dein Mana nimmt mit der Zeit zu.","Mit der Zeit nimmt dein Hunger ab.","Das Gift in dir wird mit der Zeit schwächer."}
+	ListNegativeEffectDE = {"Deine Lebenskraft nimmt sofort ab."   ,"Dein Mana nimmt sofort ab."   ,"Du fühlst dich plötlzich hungriger.","Gift breitet sich in dir aus."          ,"Deine Lebenskraft nimmt mit der Zeit ab.","Dein Mana nimmt mit der Zeit ab.","Mit der Zeit nimmt dein Hunger zu.","Mit der Zeit breitet sich ein stärker werdendes Gift aus."}
+	ListPositiveEffectEN = {"Your life energy increases instantly.","Your mana increases instanly.","You feel instantly more sated."     ,"The poison in you is instalny weakened.","Your life energy increases with time."   ,"Your mana increases with time."  ,"Your hunger decreases with time."  ,"The poison is weakend with time."}
+	ListNegativeEffectEN = {"Your life energy decreases instantly.","Your mana decreases instanly.","You feel instantly more hungry."    ,"You are poisoned."                      ,"Your life energy decreases with time."   ,"Your mana decreases with time."  ,"Your hunger increases with time."  ,"A with time stronger getting poison spreads in your body."}
+	
+	for i=1,8 do
+		if (dataZList[i] > 5) then
+		   effectMessageDE = effectMessageDE.." "..ListPositiveEffectDE[i]
+		   effectMessageEN = effectMessageEN.." "..ListPositiveEffectEN[i]
+	       anyEffect = true
+	   elseif (dataZList[i] < 5) then
+			effectMessageDE = effectMessageDE.." "..ListNegativeEffectDE[i]
+			effectMessageEN = effectMessageEN.." "..ListNegativeEffectEN[i]
+	        anyEffect = true
+	   end
+	end
+	if anyEffect == false then
+	    effectMessageDE = "Du spührst keine Wirkung."
+		effectMessageEN = "You don't feel any effect."
+	end
+	common.InformNLS(User,effectMessageDE,effectMessageEN);
+end
+
+local function DrinkPotion(User,SourceItem)
     local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
 	
 	if potionEffectId == 0 or potionEffectId == nil  then -- no effect	
@@ -131,34 +159,6 @@ function DrinkPotion(User,SourceItem)
 	else
 	    --whatever
 	end	
-end
-
-function GenerateEffectMessage(User,dataZList)
-    local effectMessageDE = ""
-	local effectMessageEN = ""
-	local anyEffect = false
-	
-	ListPositiveEffectDE = {"Deine Lebenskraft nimmt sofort zu."   ,"Dein Mana nimmt sofort zu."   ,"Du fühlst dich sofort satter."      ,"Das Gift in dir wird geschwächt."       ,"Deine Lebenskraft nimmt mit der Zeit zu.","Dein Mana nimmt mit der Zeit zu.","Mit der Zeit nimmt dein Hunger ab.","Das Gift in dir wird mit der Zeit schwächer."}
-	ListNegativeEffectDE = {"Deine Lebenskraft nimmt sofort ab."   ,"Dein Mana nimmt sofort ab."   ,"Du fühlst dich plötlzich hungriger.","Gift breitet sich in dir aus."          ,"Deine Lebenskraft nimmt mit der Zeit ab.","Dein Mana nimmt mit der Zeit ab.","Mit der Zeit nimmt dein Hunger zu.","Mit der Zeit breitet sich ein stärker werdendes Gift aus."}
-	ListPositiveEffectEN = {"Your life energy increases instantly.","Your mana increases instanly.","You feel instantly more sated."     ,"The poison in you is instalny weakened.","Your life energy increases with time."   ,"Your mana increases with time."  ,"Your hunger decreases with time."  ,"The poison is weakend with time."}
-	ListNegativeEffectEN = {"Your life energy decreases instantly.","Your mana decreases instanly.","You feel instantly more hungry."    ,"You are poisoned."                      ,"Your life energy decreases with time."   ,"Your mana decreases with time."  ,"Your hunger increases with time."  ,"A with time stronger getting poison spreads in your body."}
-	
-	for i=1,8 do
-		if (dataZList[i] > 5) then
-		   effectMessageDE = effectMessageDE.." "..ListPositiveEffectDE[i]
-		   effectMessageEN = effectMessageEN.." "..ListPositiveEffectEN[i]
-	       anyEffect = true
-	   elseif (dataZList[i] < 5) then
-			effectMessageDE = effectMessageDE.." "..ListNegativeEffectDE[i]
-			effectMessageEN = effectMessageEN.." "..ListNegativeEffectEN[i]
-	        anyEffect = true
-	   end
-	end
-	if anyEffect == false then
-	    effectMessageDE = "Du spührst keine Wirkung."
-		effectMessageEN = "You don't feel any effect."
-	end
-	common.InformNLS(User,effectMessageDE,effectMessageEN);
 end
 
 function M.UseItem(User, SourceItem, ltstate)

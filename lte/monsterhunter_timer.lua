@@ -17,24 +17,24 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- lte ID = 120
 
-require("base.common")
+local common = require("base.common")
 
 
 local M = {}
 
-huntMonster = {}
+local huntMonster = {}
 
 function M.addEffect(theEffect, User)
 
     -- spawn hellhound at library
-    local monPos = base.common.getFreePos(position(468, 839, -9), 5)
+    local monPos = common.getFreePos(position(468, 839, -9), 5)
     local monster = world:createMonster(862, monPos, 20)
     huntMonster[User.id] =  monster
 end
 
 function M.callEffect(theEffect, User)
     if (User:increaseAttrib("hitpoints",0) == 0) then
-        base.common.InformNLS( User,
+        common.InformNLS( User,
         "Ihr habt den Kampf verloren. Das Monster ist entwischt.",
         "You lost the fight. The Monster escaped.")
         return false
@@ -43,14 +43,14 @@ function M.callEffect(theEffect, User)
     theEffect.nextCalled = 50;
 
     if not isValidChar(huntMonster[User.id]) then
-       base.common.InformNLS( User,
+       common.InformNLS( User,
         "Jemand hat das Monster getötet!",
         "Someone killed the monster!")
         return false
     end
 
 	if theEffect.numberCalled == 600 then
-        base.common.InformNLS( User,
+        common.InformNLS( User,
         "Ihr habt zulange gebraucht, um das Monster zu finden, es ist entwischt.",
         "It took you too long to find the monster, it escaped.")
         if isValidChar(huntMonster[User.id]) then
@@ -64,7 +64,7 @@ function M.callEffect(theEffect, User)
 
     -- lure to pit sucessful
     if huntMonster[User.id]:isInRangeToPosition(position(436, 836, -9), 2) then
-        base.common.InformNLS( User,
+        common.InformNLS( User,
         "[Quest gelöst] Kehre zu Defensor Infirmo zurück, um deine Belohnung zu erhalten.",
         "[Quest solved] Return to Defensor Informo to claim your reward.")
         if isValidChar(huntMonster[User.id]) then

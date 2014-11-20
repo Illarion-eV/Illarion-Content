@@ -71,7 +71,7 @@ function M.nextCycle(thisNPC)
 				-- WORKAROUND for Mantis issue #451: doubleEffect from lte_resurrected.lua, as all values are deleted upon double-adding effect
 				local foundRes, resEffect = player.effects:find(400);
 				if foundRes then
-					doubleEffect(resEffect,player);
+					M.doubleEffect(resEffect,player);
 				else
 					player.effects:addEffect( LongTimeEffect(400,math.random(600,1800)) );
 				end

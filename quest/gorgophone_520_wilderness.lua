@@ -312,10 +312,10 @@ Description[ENGLISH][132] = "Return to Gorgophone, you have completed her task."
 Description[GERMAN][133] = "Du hast alle Aufgaben der Gorgophone erledigt."
 Description[ENGLISH][133] = "You have completed all tasks of Gorgophone."
 
-npcPos = position(852, 497, -6);
+local npcPos = position(852, 497, -6);
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = npcPos;
+local Start = npcPos;
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}

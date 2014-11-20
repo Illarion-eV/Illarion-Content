@@ -20,6 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local licence = require("base.licence")
 local leatherproducing = require("content.gatheringcraft.leatherproducing")
 local metal = require("item.general.metal")
+local common = require("base.common")
 
 local M = {}
 
@@ -27,7 +28,7 @@ M.LookAtItem = metal.LookAtItem
 
 function getStretcher(User)
 
-	local targetItem = base.common.GetFrontItem(User);
+	local targetItem = common.GetFrontItem(User);
 	if (targetItem ~= nil and targetItem.id == 2052) then
 		return targetItem;
 	end
@@ -58,7 +59,7 @@ function M.UseItem(User, SourceItem, ltstate)
 		return
 	end
 
-	base.common.InformNLS(User,
+	common.InformNLS(User,
 		"Du musst neben einem Spannrahmen stehen um die Rasierklinge zu benutzen.",
 		"You must stand next to a stretcher to use the razor blade.");
 end

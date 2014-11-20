@@ -23,7 +23,8 @@ local common = require("base.common")
 
 local M = {}
 
-
+M.SPIDER_EGGS = {}
+M.PILE_OF_BONES = {}
 function M.itemEffects()
 
 	spiderEgg()
@@ -46,10 +47,9 @@ function doFunctionIfPositionAndCounter(theList, neededCounter, theFunction)
 
 end
 
-PILE_OF_BONES = {}
 function pileOfBones()
 	
-	doFunctionIfPositionAndCounter(PILE_OF_BONES, 8, function(pilePosition) riseWeakLich(pilePosition) end)
+	doFunctionIfPositionAndCounter(M.PILE_OF_BONES, 8, function(pilePosition) riseWeakLich(pilePosition) end)
 	
 end
 
@@ -65,10 +65,9 @@ function riseWeakLich(pilePosition)
 
 end
 
-SPIDER_EGGS = {}
 function spiderEgg()
 
-	doFunctionIfPositionAndCounter(SPIDER_EGGS, 8, function(pilePosition) hatchingSpiders(pilePosition) end)
+	doFunctionIfPositionAndCounter(M.SPIDER_EGGS, 8, function(pilePosition) hatchingSpiders(pilePosition) end)
 
 end
 

@@ -22,6 +22,7 @@ local quests = require("monster.base.quests")
 local messages = require("base.messages")
 local kills = require("monster.base.kills")
 local arena = require("base.arena")
+local gems = require("item.gems")
 local M = {}
 local init = nil
 
@@ -189,7 +190,7 @@ function M.onDeath(Monster)
         if not done then done=drop.AddDropItem(280,1,10,(100*math.random(7,8)+math.random(77,88)),0,2); end --diamond ring
         if not done then done=drop.AddDropItem(278,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --obsidian ring
         if not done then done=drop.AddDropItem(68,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --ruby ring
-        if not done then done=drop.AddDropItem(item.gems.getMagicGemId(item.gems.RUBY),1,1,999,item.gems.getMagicGemData(1),2); end --magic ruby
+        if not done then done=drop.AddDropItem(gems.getMagicGemId(gems.RUBY),1,1,999,gems.getMagicGemData(1),2); end --magic ruby
 
         --Category 3: Cutted gems + rings
         local done=drop.AddDropItem(283,1,20,(100*math.random(7,8)+math.random(77,88)),0,3); --obsidian

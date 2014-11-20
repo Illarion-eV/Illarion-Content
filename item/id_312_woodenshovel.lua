@@ -21,6 +21,7 @@ local licence = require("base.licence")
 local graingrinding = require("content.gatheringcraft.graingrinding")
 local sieving = require("content.gatheringcraft.sieving")
 local wood = require("item.general.wood")
+local common = require("base.common")
 
 local M = {}
 
@@ -28,7 +29,7 @@ M.LookAtItem = wood.LookAtItem
 
 function getMill(User)
 
-	local targetItem = base.common.GetFrontItem(User);
+	local targetItem = common.GetFrontItem(User);
 	if (targetItem ~= nil and targetItem.id == 250) then
 		return targetItem;
 	end
@@ -50,7 +51,7 @@ end
 
 function getSieve(User)
 
-	local targetItem = base.common.GetFrontItem(User);
+	local targetItem = common.GetFrontItem(User);
 	if (targetItem ~= nil and targetItem.id == 727) then
 		return targetItem;
 	end
@@ -87,7 +88,7 @@ function M.UseItem(User, SourceItem, ltstate)
 		return
 	end
 
-	base.common.InformNLS(User,
+	common.InformNLS(User,
 		"Du musst neben einem Mühlstein oder Sieb stehen um die Holzkelle zu benutzen.",
 		"You must stand next to a millstone or a sieve to use the wooden shovel.");
 end

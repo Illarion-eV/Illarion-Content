@@ -67,8 +67,6 @@ local lookat = require("base.lookat")
 
 local M = {}
 
-function ini()
-  init=true;
 --These are the items I need to become a devotee
 --Items by Cromwell
   devoteItems={};
@@ -106,7 +104,7 @@ function ini()
   priestItems[14]={368,20,2701,40,333}; --Zhambra: Yellow priest robe, Large metal shield, Longsword, Cleric's staff, Horn
   priestItems[15]={2420,2689,384,365,285}; --Ronagan: Black priest robe, Poisoned ornate dagger, Thieves gloves, Half leather armor, Diamond
   priestItems[16]={2420,552,39,69,2746}; --Moshran: Black priest robe, Deer meat, Skull staff, Raw leather, razor blade
-end
+
 
 function M.LookAtItem( User, Item )
   thisGod=tonumber(Item:getData("god"));
@@ -115,9 +113,7 @@ function M.LookAtItem( User, Item )
     thisGod = 0;
   end;
   
-  if init==nil or init==false then
-    ini();
-  end
+  
   --Tell the user who's altar that is
   if thisGod==gods.GOD_NONE  or thisGod>gods.GOD_THEFIVE then --undedicated altar
     lookat.SetSpecialName(Item, "Ungeweihter Altar","Undedicated altar")

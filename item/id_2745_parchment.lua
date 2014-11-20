@@ -47,6 +47,12 @@ end
 
 ---------------- ALCHEMY -------------------------------
 --------------------------------------------------------
+
+local function getText(User,deText,enText)
+    return common.GetNLS(User,deText,enText)
+end
+
+
 function LearnLenniersDream(User)
 
 	local anAlchemist = alchemy.CheckIfAlchemist(User)
@@ -91,7 +97,7 @@ function TeachLenniersDream(User)
 
 end
 
-function GenerateStockConcentration()
+function M.GenerateStockConcentration()
 
 	local stockList = {1,1,1,1,1,1,1,1}
 	local add = 43
@@ -113,11 +119,11 @@ function GenerateStockConcentration()
 	return stockList
 end
 
-function GetStockFromQueststatus(User)
+function M.GetStockFromQueststatus(User)
 
 	if User:getQuestProgress(860) == 0 then
 		local stockList
-		stockList = GenerateStockConcentration()
+		stockList = M.GenerateStockConcentration()
 		User:setQuestProgress(860,alchemy.DataListToNumber(stockList))
 	end
 	return alchemy.SplitData(User,User:getQuestProgress(860))
@@ -125,7 +131,7 @@ end
 
 function GenerateStockDescription(User)
 
-	local stockList = GetStockFromQueststatus(User)
+	local stockList = M.GetStockFromQueststatus(User)
 	local de = ""
 	local en = ""
 	for i=1,#stockList do
@@ -234,7 +240,7 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 					if string.find(ingredientsList[i],"bottle") then
 						dialog:addOption(164, getText(User,counter..". Abfüllen",counter..". Bottling"))
 					else
-						local liquid, liquidList = alchemy.base.recipe_creation.StockEssenceList(ingredientsList[i])
+						local liquid, liquidList = recipe_creation.StockEssenceList(ingredientsList[i])
 						if liquid == "stock" then
 							dialog:addOption(331, getText(User,counter..". Sud",counter..". Stock"))
 						elseif liquid == "essence brew" then
@@ -366,7 +372,7 @@ function GetItem(User, ingredientsList)
 				missingEn = "You don't have: empty bottle"
 			end
 		else
-            local liquid, neededList = alchemy.base.recipe_creation.StockEssenceList(ingredientsList[USER_POSITION_LIST[User.id]])
+            local liquid, neededList = recipe_creation.StockEssenceList(ingredientsList[USER_POSITION_LIST[User.id]])
 			if liquid == "stock" then
 				local stockList = User:getItemList(331)
 				for i=1,#stockList do
@@ -418,7 +424,7 @@ end
 
 function ViewRecipe(User, SourceItem)
     local ingredientsList = getIngredients(SourceItem)
-	alchemy.base.recipe_creation.ShowRecipe(User, ingredientsList, true)
+	recipe_creation.ShowRecipe(User, ingredientsList, true)
 end
 
 function getIngredients(SourceItem)
@@ -436,10 +442,6 @@ function getIngredients(SourceItem)
 		end
 	end
     return ingredientsList
-end
-
-function getText(User,deText,enText)
-    return common.common.GetNLS(User,deText,enText)
 end
 
 ---------------- ALCHEMY END ---------------------------

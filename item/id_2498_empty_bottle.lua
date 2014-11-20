@@ -98,7 +98,7 @@ function GetWaterTilePosition(User)
   return nil;
 end
 
-function M.UseItemScooping(User, SourceItem, ltstate)
+function UseItemScooping(User, SourceItem, ltstate)
 
 	common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted

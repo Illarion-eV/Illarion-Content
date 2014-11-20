@@ -141,7 +141,7 @@ if (MonID==911) then -- Merinium Golem, Level: 9, Armourtype: medium, Weapontype
         if not done then done=drop.AddDropItem(733,5,1,(100*math.random(8,9)+math.random(88,99)),0,3); end --stone block
 
         --Category 4: Perma Loot
-        drop.AddDropItem(3077,math.random(90,250),100,773,0,4); --silver coins
+        drop.AddDropItem(3077,math.random(90,270),100,773,0,4); --silver coins
 
 	elseif (MonID==912) then -- Gold Golem, Level: 8, Armourtype: medium, Weapontype: concussion
 

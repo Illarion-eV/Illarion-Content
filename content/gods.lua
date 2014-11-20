@@ -220,7 +220,7 @@ RUNE_HEALING = 1;
 -- other runes
 RUNE_SMALL = 32;
 
-DESCRIPTION_EN = {
+M.DESCRIPTION_EN = {
 	[M.GOD_USHARA]="Goddess of earth";
     [M.GOD_BRAGON]="God of fire";
     [M.GOD_ELDAN]="God of spirit";
@@ -239,7 +239,7 @@ DESCRIPTION_EN = {
     [M.GOD_MOSHRAN]="God of blood and bones";
 }
 	
-DESCRIPTION_DE ={
+M.DESCRIPTION_DE ={
     [M.GOD_BRAGON]="der Gott des Feuers";
     [M.GOD_ELDAN]="der Gott des Geistes";
     [M.GOD_FINDARI]="die Göttin der Luft";

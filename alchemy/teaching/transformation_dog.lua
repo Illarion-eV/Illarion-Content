@@ -27,7 +27,25 @@ local M = {}
 -- This script handles the teaching of the dog transformation potion.
 
 
-DOG_STATUS = false
+local DOG_STATUS = false
+local LAST_TIME = 0
+local LEARNER_ID = false
+
+local function CorrectSightingPotion(User)
+
+	local foundEffect, myEffect = User.effects:find(59);
+	if foundEffect then
+		local findsight, sightpotion = myEffect:findValue("sightpotion")
+		if findsight then
+			if sightpotion == User:getQuestProgress(861) then
+				return true
+			end
+		end
+	end
+	
+	return false
+	
+end
 
 function M.LookAtGrave(User,Item)
 	local graveInscription = common.GetNLS(User, "~Hier ruht Tavalion. Weiser Druide und größter Freund der Tiere.~", "~Here rests Tavalion. A wise druid and the greatest friend of the dogs.~")
@@ -47,7 +65,7 @@ function M.LookAtGrave(User,Item)
 	return lookat
 end
 
-LAST_TIME = 0
+
 
 function M.UseGrave(User, SourceItem)
 	
@@ -59,7 +77,7 @@ function M.UseGrave(User, SourceItem)
 		if CorrectSightingPotion(User) then
 			ApperanceOfDog(User)
 		else
-			TellSightingPotionRecipe(User)
+			M.TellSightingPotionRecipe(User)
 		end
 	end
 
@@ -80,26 +98,10 @@ function M.UseSealedScroll(User, SourceItem)
 	
 end
 
-function CorrectSightingPotion(User)
-
-	local foundEffect, myEffect = User.effects:find(59);
-	if foundEffect then
-		local findsight, sightpotion = myEffect:findValue("sightpotion")
-		if findsight then
-			if sightpotion == User:getQuestProgress(861) then
-				return true
-			end
-		end
-	end
-	
-	return false
-	
-end
-
-function TellSightingPotionRecipe(User)
+function M.TellSightingPotionRecipe(User)
 
 	local callback = function(dialog) end
-	local stockDe, stockEn = GenerateStockDescription(User)
+	local stockDe, stockEn = M.GenerateStockDescription(User)
 	
 	local textDe = "Du glaubst eine Stimme in den Blättern des Naldorbaumes, der hinter dem Grab steht zu hören. Sie flüstert dir zu: 'Willst du auf vier Pfoten gehen lernen, lerne zu erst das Sehen. Ein Sichtungstrank wird dir helfen. So verbinde das folgende: Rubinstaubessenzgebräu, beinhaltend Wutbeere, Wutbeere, Regenkraut, Tagtraum, Fliegenpilz, mit einem Sud, beinhalten "..stockDe.." .' Die Stimme verschwindet und du glaubst in der Ferne ein Bellen zu hören."
 	local textEn = "It seems to you that there is a voice coming from the leaves of the tree behind the grave. It whispers to you: 'If you want to learn two walk on four paws, learn to see. A sighting potion will help you. So, combine a ruby essence brew, containing anger berry, anger berry, rain weed, daydream, toadstool, and a stock, containing "..stockEn.." .' The voice disappears and you believe to hear a bark in the distance."
@@ -113,7 +115,7 @@ function TellSightingPotionRecipe(User)
 	
 end
 
-function GenerateStockConcentration()
+function M.GenerateStockConcentration()
 
 	local stockList = {1,1,1,1,1,1,1,1}
 	local add = 42
@@ -135,19 +137,19 @@ function GenerateStockConcentration()
 	return stockList
 end
 
-function GetStockFromQueststatus(User)
+function M.GetStockFromQueststatus(User)
 
 	if User:getQuestProgress(861) == 0 then
 		local stockList
-		stockList = GenerateStockConcentration()
+		stockList = M.GenerateStockConcentration()
 		User:setQuestProgress(861,alchemy.DataListToNumber(stockList))
 	end
 	return alchemy.SplitData(User,User:getQuestProgress(861))
 end
 
-function GenerateStockDescription(User)
+function M.GenerateStockDescription(User)
 
-	local stockList = GetStockFromQueststatus(User)
+	local stockList = M.GetStockFromQueststatus(User)
 	local de = ""
 	local en = ""
 	for i=1,#stockList do
@@ -160,8 +162,6 @@ function GenerateStockDescription(User)
 	end
 	return de, en
 end
-
-LEARNER_ID = false
 
 function ApperanceOfDog(User)
 

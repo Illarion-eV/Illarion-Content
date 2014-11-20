@@ -61,6 +61,7 @@ local common = require("base.common")
 local class = require("base.class")
 local character = require("base.character")
 local areas = require("content.areas")
+--local vision = require("content.vision")
 local M = {}
 
 
@@ -161,7 +162,7 @@ function M.MoveToField(char)
     local AmountVision = #triggerVision    
     for i = 1,AmountVision do    
         if (char.pos == triggerVision[i]) and math.random(1,100)< 81 then
-            AmountStory = #content.vision.VisionTextDE[VisionStory[i]]
+            AmountStory = #vision.VisionTextDE[VisionStory[i]]
             TypeStory = VisionStory[i]
             attendants[char.name] = world:getPlayersInRangeOf(position(940,200,0), 90)
             for k,player in ipairs(attendants[char.name]) do
@@ -314,7 +315,7 @@ function RightWeight(char,clicksAmountVar)
         noLuckForGemsToday = false
     end
     for m,player in ipairs(playerWithRightWeight[char.name]) do
-        if (content.areas.PointInArea(player.pos,"evilrockstonechamber")) then
+        if (areas.PointInArea(player.pos,"evilrockstonechamber")) then
             common.InformNLS(player,"Der Thron sinkt ein wenig ein und du hörst ein "..clicksAmountDe[clicksAmountVar].." Klicken.","The throne sinks down slightly and you hear "..clicksAmountEn[clicksAmountVar].." .")
         end
     end
@@ -347,7 +348,7 @@ end
 function WrongWeight(char,clicksAmountVar)
     playerWithWrongWeight[char.name] = world:getPlayersInRangeOf(position(960,173,-6), 50)
     for m,player in ipairs(playerWithWrongWeight[char.name]) do
-        if (content.areas.PointInArea(player.pos,"evilrockstonechamber")) then
+        if (areas.PointInArea(player.pos,"evilrockstonechamber")) then
             common.InformNLS(player,"Du hörst ein "..clicksAmountDe[clicksAmountVar].." Klicken während der Thron leicht einsinkt und eine Stimme ruft: 'Narr, du bist nicht ich! Hinweg mit dir!' Anschließend füllt sich der Raum mit Flammen.","You hear "..clicksAmountEn[clicksAmountVar].." during which the throne sinks down slightly and a voice shouts: 'Fool, you are not me! Leave!' The room fills itself with flames afterwards.")
             world:makeSound(25,player.pos);
         end

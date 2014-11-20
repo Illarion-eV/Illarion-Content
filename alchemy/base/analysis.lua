@@ -23,15 +23,15 @@ local redBottle = require("alchemy.item.id_59_red_bottle")
 
 local M = {}
 
-function M.AnalysisMain(User,gem)
-    if IsCharacterAnalysingGem(gem) then
-        CharacterAnalysis(User,gem)
+function M.AnalysisMain(User,theGem)
+    if IsCharacterAnalysingGem(theGem) then
+        CharacterAnalysis(User,theGem)
     else
-        CauldronPotionCheck(User)
+        CauldronPotionCheck(User,theGem)
     end
 end
 
-function CharacterAnalysis(User,gem)
+function CharacterAnalysis(User,theGem)
 
     if not alchemy.CheckIfAlchemist(User) then
         return
@@ -69,20 +69,20 @@ function CharacterAnalysis(User,gem)
     local dialog = MessageDialog(common.GetNLS(User, "Analyseergebnisse", "Results of the analysis"), analysisResult, callback)
     User:requestMessageDialog(dialog)
     
-    local newCharge = tonumber(gem:getData("analysingCharges")) - 1
+    local newCharge = tonumber(theGem:getData("analysingCharges")) - 1
     if newCharge < 1 then
-        world:erase(gem,1)
+        world:erase(theGem,1)
         User:inform("Der Rubin zerspringt in Einzelteile.","The ruby brusts into pieces.",Player.highPriority)
     else
         local descriptionDe = "Ein fester, gelblicher Überzug bedeckt Rubin." .. chargeText[newCharge][Player.german]
         local descriptionEn = "A hard, yellowish film covers the ruby." .. chargeText[newCharge][Player.english]
-        if gem.number == 1 then
-            gem:setData("descriptionDe",descriptionDe)
-            gem:setData("descriptionEn",descriptionEn)
-            gem:setData("analysingCharges",newCharge)
-            world:changeItem(gem)
+        if theGem.number == 1 then
+            theGem:setData("descriptionDe",descriptionDe)
+            theGem:setData("descriptionEn",descriptionEn)
+            theGem:setData("analysingCharges",newCharge)
+            world:changeItem(theGem)
         else
-            world:erase(gem,1)
+            world:erase(theGem,1)
             User:createItem(46,1,333,{descriptionDe = descriptionDe, descriptionEn = descriptionEn})
         end
         User:inform("Ein Sprung bildet sich im Edelstein.","A crack appears in the gem.",Player.highPriority)
@@ -161,7 +161,7 @@ function EssenceBrewAnalysis(User, gem, brew, ltstate)
 	return analysisResultDE, analysisResultEN
 end
 
-function PotionAnalysis(User, gem, brew, ltstate)
+function PotionAnalysis(User, theGem, brew, ltstate)
 	local cauldron, bottle, potionQuality, potionQualityDE, potionQualityEN
 	local reGem, reGemdust, reCauldron, reBottle
 	if brew.id >= 1008 and brew.id <= 1018 then -- brew is a cauldron
@@ -173,7 +173,7 @@ function PotionAnalysis(User, gem, brew, ltstate)
 	end
 	local analysisResultDE
 	local analysisResultEN
-	if gem.id ~= reGem then -- the gem used does not match the substance
+	if theGem.id ~= reGem then -- the gem used does not match the substance
 	    analysisResultDE = "Die Analyse führt zu keinen schlüssigen Ergebnissen."
 		analysisResultEN = "The analysis does not provide any decent results."
 	else	
@@ -219,7 +219,7 @@ function PotionAnalysis(User, gem, brew, ltstate)
 	return analysisResultDE, analysisResultEN	
 end
 
-function AnalysisOfBrew(User, gem, brew, ltstate)
+function AnalysisOfBrew(User, theGem, brew, ltstate)
 
     local isAlchemist = alchemy.CheckIfAlchemist(User)
 	if not isAlchemist then
@@ -246,13 +246,13 @@ function AnalysisOfBrew(User, gem, brew, ltstate)
 		analysisResultEN = "Substance: Meraldilised Slime"
 		
 	elseif brew:getData("filledWith") == "stock" then
-	    analysisResultDE, analysisResultEN = StockAnalysis(User, gem, brew, ltstate)
+	    analysisResultDE, analysisResultEN = StockAnalysis(User, theGem, brew, ltstate)
 		
 	elseif brew:getData("filledWith") == "essenceBrew" then
-        analysisResultDE, analysisResultEN = EssenceBrewAnalysis(User, gem, brew, ltstate)
+        analysisResultDE, analysisResultEN = EssenceBrewAnalysis(User, theGem, brew, ltstate)
 		
 	elseif brew:getData("filledWith") == "potion" then
-	    analysisResultDE, analysisResultEN = PotionAnalysis(User, gem, brew, ltstate)
+	    analysisResultDE, analysisResultEN = PotionAnalysis(User, theGem, brew, ltstate)
 	end	
 	
 	if analysisResultDE and analysisResultEN then 
