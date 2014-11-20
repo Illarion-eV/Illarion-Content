@@ -387,8 +387,8 @@ function M.FireBreath(Monster, Enemy, graphicItem)
                             world:makeSound(5,BreathPos);
                         end
                         if world:isCharacterOnField(BreathPos) then
-                            HitChar=world:getCharacterOnField(BreathPos);
-                            HitChar:increaseAttrib("hitpoints",-2000)
+                            local HitCharacter=world:getCharacterOnField(BreathPos);
+                            HitCharacter:increaseAttrib("hitpoints",-2000)
                         end
                     end
                 end

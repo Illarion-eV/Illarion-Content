@@ -49,7 +49,7 @@ end
 function CreateExplosionCircle(HitPos,gfxid,Damage,CenterPos,setFlames)
 
 	world:gfx(gfxid,HitPos);
-	HitChar(HitPos,Damage,CenterPos);
+	HitVictims(HitPos,Damage,CenterPos);
 
 	if setFlames then
 		if (math.random(1,5)==1) then
@@ -58,7 +58,7 @@ function CreateExplosionCircle(HitPos,gfxid,Damage,CenterPos,setFlames)
 	end
 end;
 
-function HitChar(Posi,Hitpoints,CenterPos)
+function HitVictims(Posi,Hitpoints,CenterPos)
     if world:isCharacterOnField(Posi) then
         local explosionVictim = world:getCharacterOnField(Posi);
 
