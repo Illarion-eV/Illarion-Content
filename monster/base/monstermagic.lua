@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local explosionSpell = require("mosnter.base.spells.explosion")
 local fireballSpell = require("monster.base.spells.fireball")
 local firefieldSpell = require("monster.base.spells.firefield")
+local flamestrikeSpell = require("monster.base.spells.flamestrike")
 local healSpell = require("monster.base.spells.heal")
 local iceballSpell = require("monster.base.spells.iceball")
 local lightingSpell = require("monster.base.spells.lighting")
@@ -83,6 +84,10 @@ return function()
 
     function self.addFirefield(params)
         self.addSpell(firefieldSpell(params), params)
+    end
+
+    function self.addFlamestrike(params)
+        self.addSpell(flamestrikeSpell(params), params)
     end
 
     function self.addHealing(params)
