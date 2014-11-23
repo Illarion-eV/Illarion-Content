@@ -1858,4 +1858,88 @@ function M.IsOnNoobia(Pos)
   return false;
 end
 
+--- Convert a RGB color to a HSV color.
+-- @param red the red color component in a range from 0 to 255
+-- @param green the green color component in a range from 0 to 255
+-- @param blue the blue color component in a range from 0 to 255
+-- @return hue, saturation, value color components. Hue in a range from 0° to 360°. Saturation and value in a range
+--         from 0 to 1
+function M.RGBtoHSV(red, green, blue)
+    local max = math.max(red, green, blue)
+    local min = math.min(red, green, blue)
+    if max > 255 or min < 0 then
+        error("The color values are rgb to hsv conversation are out of bounds.")
+    end
+
+    local delta = max - min
+    local hue
+    if delta == 0 then
+        hue = 0
+    elseif max == red and green >= blue then
+        hue = 60 * (green - blue) / delta
+    elseif max == red and green < blue then
+        hue = 60 * (green - blue) / delta + 360
+    elseif max == green then
+        hue = 60 * (blue - red) / delta + 120
+    elseif max == blue then
+        hue = 60 * (red - green) / delta + 240
+    end
+
+    local saturation
+    if max == 0 then
+        saturation = 0
+    else
+        saturation = 1 - min/max
+    end
+
+    return hue, saturation, max / 255
+end
+
+--- Convert a HSV color value to a RGB color value.
+-- @param hue The hue value in degrees. Values larger then 360° are wrapped until they fit the range from 0° to 360°
+-- @param saturation The saturation value in a range from 0 to 1
+-- @param value The color value in a range from 0 to 1
+-- @return red, green, blue color value in a range from 0 to 255 as integer value
+function M.HSVtoRGB(hue, saturation, value)
+    local realHue = math.mod(hue, 360)
+    if saturation < 0 or saturation > 1 then
+        error("Saturation is out of bounds: " + saturation)
+    end
+    if value < 0 or value > 1 then
+        error("Saturation is out of bounds: " + value)
+    end
+
+    local c = saturation * value
+    local x = c * (1 - math.abs(math.mod(realHue / 60, 2) - 1))
+    local m = value - c
+    local red = 0
+    local green = 0
+    local blue = 0
+    if realHue >= 0 and realHue < 60 then
+        red = c
+        green = x
+    elseif realHue >= 60 and realHue < 120 then
+        red = x
+        green = c
+    elseif realHue >= 120 and realHue < 180 then
+        green = c
+        blue = x
+    elseif realHue >= 180 and realHue < 240 then
+        green = x
+        blue = c
+    elseif realHue >= 240 and realHue < 300 then
+        red = x
+        blue = c
+    elseif realHue >= 300 and realHue < 360 then
+        red = c
+        blue = x
+    end
+
+    local function fixValue(v)
+        return math.floor((v + m) * 255 + 0.5)
+    end
+
+    return fixValue(red), fixValue(green), fixValue(blue)
+end
+
 return M

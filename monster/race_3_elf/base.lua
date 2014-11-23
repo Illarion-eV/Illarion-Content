@@ -32,33 +32,8 @@ msgs:addMessage("Die, die ihre Hand gegen das unsterbliche Volk erheben, bringen
 
 local M = {}
 
-function M.generateCallbacks(drops)
-    local t = base.generateCallbacks(msgs, drops)
-    t.onSpawn = function(monster)
-        local mySex = math.random(2) == 1 and Character.male or Character.female
-
-        local var = 20 -- variation of color, +/- var
-        local baseR = 255 -- baseRed
-        local baseG = 230 -- baseGreen
-        local baseB = 210 -- baseBlue
-        local red = math.min(255, baseR + math.random(-var, var))
-        local green = math.min(255, baseG + math.random(-var, var))
-        local blue = math.min(255, baseB + math.random(-var, var))
-        local myHair = {}
-        myHair[Character.male] = {1, 2} -- list of possible hair IDs
-        myHair[Character.female] = {1, 4, 7, 8}
-        local hairBlonde = {255, 157, 98} -- Blonde hair Red,Green,Blue
-        local hairPurple = {64, 0, 64} -- Purple hair Red,Green,Blue
-        local hairGreen = {0, 64, 64} -- Green hair Red,Green,Blue
-        local hairBrunette = {128, 64, 64} -- Brunette hair Red,Green,Blue
-        local hairColors = {hairBlonde, hairPurple, hairGreen, hairBrunette}
-        local myHairColor = hairColors[math.random(#hairColors)]
-        monster:setAttrib("sex", mySex)
-        monster:setSkinColor(red, green, blue)
-        monster:setHair(myHair[mySex][math.random(#myHair[mySex])])
-        monster:setHairColor(myHairColor[1], myHairColor[2], myHairColor[3])
-    end
-    return t
+function M.generateCallbacks()
+    return base.generateCallbacks(msgs)
 end
 
 return M

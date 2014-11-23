@@ -14,19 +14,19 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID34, Elven Mage, Level: 5, Armourtype: cloth, Weapontype: concussion
+--ID 64, Drow Priest, Level: 6, Armourtype: cloth, Weapontype: concussion
 
 local monstermagic = require("monster.base.monstermagic")
-local elves = require("monster.race_3_elf.base")
+local drows = require("monster.race_6_drow.base")
 
 local magic = monstermagic()
 magic.addWarping{probability = 0.03, usage = magic.ONLY_NEAR_ENEMY}
 
-magic.addFireball{probability = 0.05, damage = {from = 1000, to = 2000}}
-magic.addFireball{probability = 0.03, damage = {from =  500, to = 1000}, targetCount = 3}
+magic.addSummon{probability = 0.0249, monsters = {551, 822}} -- imp, black zombie
+magic.addSummon{probability = 0.0050, monsters = {551, 552}} -- surprise spawn. Some black hellhounds
+magic.addSummon{probability = 0.0001, monsters = {893}} -- rare summon. Magic fire imp
 
-magic.addHealing{probability = 0.05, damage = {from = 1000, to = 2000}}
-magic.addHealing{probability = 0.05, damage = {from =  500, to = 1000}, targetCount = 3}
+magic.addVioletFlame{probability = 0.02, damage = {from = 1000, to = 2000}}
 
-local M = elves.generateCallbacks()
+local M = drows.generateCallbacks()
 return magic.addCallbacks(M)

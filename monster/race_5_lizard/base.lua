@@ -34,29 +34,8 @@ msgs:addMessage("#me schlägt mit dem Schwanz drohend auf den Boden und zeigt sei
 
 local M = {}
 
-function M.generateCallbacks(drops)
-    local t = base.generateCallbacks(msgs, drops)
-    t.onSpawn = function(monster)
-        local mySex = math.random(2) == 1 and Character.male or Character.female
-
-        local red = math.random(0, 255)
-        local green = math.random(0, 255)
-        local blue = math.random(0, 255)
-        local myHair = {}
-        myHair[Character.male] = {1, 2, 3, 4, 5, 6} -- list of possible hair IDs
-        myHair[Character.female] = {1, 2, 3, 4, 5, 6}
-        local hairTeal = {0, 128, 128} -- Teal hair Red,Green,Blue
-        local hairPurple = {128, 0, 128} -- Purple hair Red,Green,Blue
-        local hairRed = {165, 10, 10} -- Red hair Red,Green,Blue
-        local hairGreen = {0, 128, 64} -- Green hair Red,Green,Blue
-        local hairColors = {hairTeal, hairPurple, hairRed, hairGreen}
-        local myHairColor = hairColors[math.random(#hairColors)]
-        monster:setAttrib("sex", mySex)
-        monster:setSkinColor(red, green, blue)
-        monster:setHair(myHair[mySex][math.random(#myHair[mySex])])
-        monster:setHairColor(myHairColor[1], myHairColor[2], myHairColor[3])
-    end
-    return t
+function M.generateCallbacks()
+    return base.generateCallbacks(msgs)
 end
 
 return M

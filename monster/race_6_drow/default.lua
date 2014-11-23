@@ -14,15 +14,9 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 33, Elven Priest, Level: 5, Armourtype: cloth, Weapontype: concussion
+--ID 61, Drow,         Level: 6, Armourtype: light,  Weapontype: slashing
+--ID 62, Drow Warrior, Level: 6, Armourtype: medium, Weapontype: slashing
+--ID 65, Drow-leader,  Level: 6, Armourtype: heavy,  Weapontype: slashing
 
-local monstermagic = require("monster.base.monstermagic")
-local elves = require("monster.race_3_elf.base")
-
-local magic = monstermagic()
-magic.addSummon{probability = 0.0249, monsters = {252, 582, 622}} -- some animals
-magic.addSummon{probability = 0.0050, monsters = {253, 583}} -- stronger animals
-magic.addSummon{probability = 0.0001, monsters = {584}} -- even strong animal
-
-local M = elves.generateCallbacks()
-return magic.addCallbacks(M)
+local drows = require("monster.race_6_drow.base")
+return drows.generateCallbacks()

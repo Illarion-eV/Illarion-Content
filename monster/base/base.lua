@@ -56,7 +56,13 @@ local function reportMonsterDeath(monster)
     noDropList[monster.id] = nil
 end
 
-function M.generateCallbacks(msgs, drops)
+local function performDrop(monster)
+    if not noDropList[monster.id] then
+        -- TODO: Implement drop function
+    end
+end
+
+function M.generateCallbacks(msgs)
     local t = {}
 
     function t.enemyNear(monster, _)
@@ -79,9 +85,8 @@ function M.generateCallbacks(msgs, drops)
 
     function t.onDeath(monster)
         if arena.isArenaMonster(monster) then return end
-        if not noDropList[monster.id] then
-            drops.drop(monster.pos)
-        end
+
+        performDrop(monster)
         reportMonsterDeath(monster)
     end
 

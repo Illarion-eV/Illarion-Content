@@ -37,16 +37,16 @@ killer={}; --A list that keeps track of who attacked the monster last
 --Random Messages
 
 msgs = messages.Messages();
-msgs:addMessage("#me bewegt alle ihre Beine näher zu ihrem Körper.", "#me moves all of its legs closer to its body.");
-msgs:addMessage("#me fährt sich mit den Vorderbeinen über ihren Kopf.", "#me touches its head with its forelegs.");
+msgs:addMessage("#me bewegt alle ihre Beine nï¿½her zu ihrem Kï¿½rper.", "#me moves all of its legs closer to its body.");
+msgs:addMessage("#me fï¿½hrt sich mit den Vorderbeinen ï¿½ber ihren Kopf.", "#me touches its head with its forelegs.");
 msgs:addMessage("#me faucht angriffslustig.", "#me spits aggressively.");
 msgs:addMessage("#me gibt ein paar zischende Laute von sich.", "#me does some frizzling noises.");
-msgs:addMessage("#me hält zwei Beine schützend vor ihrem Gesicht.", "#me holds two legs up protectively.");
+msgs:addMessage("#me hï¿½lt zwei Beine schï¿½tzend vor ihrem Gesicht.", "#me holds two legs up protectively.");
 msgs:addMessage("#me krabbelt schnell umher.", "#me crawls around quickly.");
-msgs:addMessage("#me schüttelt ein Netz von einem ihrer Beine ab, in dem es sich verfangen hatte.", "#me shakes a web off one of its legs, where it had become entangled.");
-msgs:addMessage("#me schüttelt ihren Körper etwas.", "#me shakes its head a little.");
+msgs:addMessage("#me schï¿½ttelt ein Netz von einem ihrer Beine ab, in dem es sich verfangen hatte.", "#me shakes a web off one of its legs, where it had become entangled.");
+msgs:addMessage("#me schï¿½ttelt ihren Kï¿½rper etwas.", "#me shakes its head a little.");
 msgs:addMessage("#me zieht beim Laufen einige Spinnennetze mit sich.", "#me tugs as it walks a cobweb with it.");
-msgs:addMessage("#mes Beine machen knackende Geräusche auf dem Boden.", "#me's legs make cracking sounds as they touch the ground.");
+msgs:addMessage("#mes Beine machen knackende Gerï¿½usche auf dem Boden.", "#me's legs make cracking sounds as they touch the ground.");
 
 end
 
@@ -119,19 +119,6 @@ function M.onDeath(Monster)
 	local MonID=Monster:getMonsterType();
 	if (MonID==211) then -- spider of Fire!!
 		explosion.CreateExplosion(Monster.pos);
-    end
-
-    if killer and killer[Monster.id] ~= nil then
-
-        murderer=getCharForId(killer[Monster.id]);
-
-        if murderer then --Checking for quests
-
-            quests.checkQuest(murderer,Monster);
-            killer[Monster.id]=nil;
-            murderer=nil;
-
-        end
     end
 
     drop.ClearDropping();

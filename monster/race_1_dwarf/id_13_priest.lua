@@ -14,39 +14,10 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---Dwarven Priest, Level: 5, Armourtype: cloth, Weapontype: concussion
-local LEVEL = 5
+--ID 13, Dwarven Priest, Level: 5, Armourtype: cloth, Weapontype: concussion
 
-local drop = require("monster.base.drop"){monsterLevel = LEVEL}
 local monstermagic = require("monster.base.monstermagic")
 local dwarfs = require("monster.race_1_dwarf.base")
-
---Category 1: Armor
-local armorDropGroup = drop.dropGroup()
-armorDropGroup.add{itemId = 807} --blue doublet
-armorDropGroup.add{itemId = 182} --black shirt
-armorDropGroup.add{itemId = 823} --grey trousers
-armorDropGroup.add{itemId = 2421} --white priest robe
-armorDropGroup.add{itemId = 2418} --grey priest robe
-
---Category 2: Special loot
-local specialDropGroup = drop.dropGroup()
-specialDropGroup.add{itemId = 391} --torch
-specialDropGroup.add{itemId = 223} --iron goblet
-specialDropGroup.add{itemId = 2935} --soup bowl
-specialDropGroup.add{itemId = 1001} --plate
-specialDropGroup.add{itemId = 2031} --plate
-
---Category 3: Weapon
-local weaponDropGroup = drop.dropGroup()
-weaponDropGroup.add{itemId = 40} --cleric's staff
-weaponDropGroup.add{itemId = 230} --mace
-weaponDropGroup.add{itemId = 2664} --club
-weaponDropGroup.add{itemId = 209} --battle staff
-weaponDropGroup.add{itemId = 231} --morning star
-
---Category 4: Perma Loot
-drop.addMoneyDrop()
 
 local magic = monstermagic()
 magic.addWarping{probability = 0.03, usage = magic.ONLY_NEAR_ENEMY}
@@ -57,5 +28,5 @@ magic.addLighting{probability = 0.03, damage = {from =  500, to = 1000}, targetC
 magic.addHealing{probability = 0.05, damage = {from = 1000, to = 2000}}
 magic.addHealing{probability = 0.05, damage = {from =  500, to = 1000}, targetCount = 3}
 
-local M = dwarfs.generateCallbacks(drop)
+local M = dwarfs.generateCallbacks()
 return magic.addCallbacks(M)
