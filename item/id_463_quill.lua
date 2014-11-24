@@ -46,11 +46,11 @@ function M.UseItem(User, SourceItem, ltstate)
 			    end
 			elseif selected == 3 then
 			    local parchment = recipe_creation.GetParchmentQuill(User)
-				parchment = recipe_creation.IsParchmentOK(User,parchment,ingredientsList)
+				parchment = recipe_creation.IsParchmentOK(User,parchment)
 				if not parchment then
 					return
 				else
-				    recipe_creation.FirstMenu(User, ingredientsList)
+				    recipe_creation.FirstMenu(User)
 				end
 			elseif selected == 1 then
 			    if not CheckIfContainerPresent(User) then

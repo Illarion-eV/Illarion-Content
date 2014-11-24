@@ -50,7 +50,7 @@ function M.enemyNear(Monster,Enemy)
         drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
 
-    return FireBreath(Monster,Enemy, 372)
+    return ( monstermagic.FireBreath(Monster,Enemy, 372) == false )
 end
 
 function M.enemyOnSight(Monster,Enemy)
@@ -70,7 +70,7 @@ function M.enemyOnSight(Monster,Enemy)
 	if base.isMonsterInRange(Monster, Enemy) then
         return true;
     else
-        return ( FireBreath(Monster,Enemy) == true );
+        return ( monstermagic.FireBreath(Monster,Enemy, 372) == false)
     end
 end
 
