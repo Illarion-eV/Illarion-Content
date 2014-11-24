@@ -41,7 +41,7 @@ function M.nextCycle(npc)
 end
 
 function M.useNPC(npc, user)
-    receiveText(npc, nil, "train", user)
+    M.receiveText(npc, nil, "train", user)
 end
 
 function M.receiveText(npc, ttype, text, user)

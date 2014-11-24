@@ -172,15 +172,15 @@ function M.UseItem(User, SourceItem)
 	if (SourceItem.pos == position(975,173,0)) then
 		local controlpannel = world:getPlayersInRangeOf(position(969,173,0), 8)
 		if User:getQuestProgress(667) >= 25 then
-			local AmountDarkColumnEvilrock = #content.vision.darkColumnEvilrock
+			local AmountDarkColumnEvilrock = #vision.darkColumnEvilrock
 			for i=1,AmountDarkColumnEvilrock do
-				local DarkColumnEvilrockLightErase = world:getItemOnField(content.vision.darkColumnEvilrock[i])
+				local DarkColumnEvilrockLightErase = world:getItemOnField(vision.darkColumnEvilrock[i])
 				if DarkColumnEvilrockLightErase.id == 467 then
 					world:erase(DarkColumnEvilrockLightErase,DarkColumnEvilrockLightErase.number)
-					world:gfx(45,content.vision.darkColumnEvilrockLight[i])
+					world:gfx(45,vision.darkColumnEvilrockLight[i])
 				end
 			end
-			content.vision.beamMeDown(User, SourceItem)
+			vision.beamMeDown(User, SourceItem)
 			return
 		else
 			for i,player in ipairs(controlpannel) do

@@ -22,6 +22,10 @@ local recipe_creation = require("alchemy.base.recipe_creation")
 
 local M = {}
 
+local function getText(User,deText,enText)
+    return common.GetNLS(User,deText,enText)
+end
+
 function M.UseItem(User, SourceItem, ltstate)
 
 	if SourceItem.itempos ~= 5 and SourceItem.itempos ~= 6 then
@@ -42,11 +46,11 @@ function M.UseItem(User, SourceItem, ltstate)
 			    end
 			elseif selected == 3 then
 			    local parchment = recipe_creation.GetParchmentQuill(User)
-				parchment = recipe_creation.IsParchmentOK(User,parchment,ingredientsList)
+				parchment = recipe_creation.IsParchmentOK(User,parchment)
 				if not parchment then
 					return
 				else
-				    recipe_creation.FirstMenu(User, ingredientsList)
+				    recipe_creation.FirstMenu(User)
 				end
 			elseif selected == 1 then
 			    if not CheckIfContainerPresent(User) then
@@ -209,9 +213,6 @@ function removeLabel(User)
 	end
 end
 
-function getText(User,deText,enText)
-    return common.common.GetNLS(User,deText,enText)
-end
 
 return M
 

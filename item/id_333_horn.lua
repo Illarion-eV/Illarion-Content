@@ -23,7 +23,7 @@ local wood = require("item.general.wood")
 
 local M = {}
 
-skill = Character.horn
+local skill = Character.horn
 
 music.addTalkText("#me 's cheeks turn red while blowing in a horn but no sound is audible","#me's Wangen werden beim Blasen in das Horn rot, aber kein Ton ist zu hören.", skill);
 music.addTalkText("#me blows in a horn producing a buzzing sound","#me bläst in das Horn und erzeugt ein summendes Geräusch", skill);

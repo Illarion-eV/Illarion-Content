@@ -22,8 +22,8 @@ local M = {}
 
 -- INSERT INTO longtimeeffects VALUES (59, 'alchemy_attribs', 'alchemy.lte.id_59_attribs');
 
-attribList ={"strength","willpower","perception","intelligence","constitution","agility","dexterity","essence"};
-bottomBorder = 1;
+local attribList ={"strength","willpower","perception","intelligence","constitution","agility","dexterity","essence"};
+local bottomBorder = 1;
 
 function M.addEffect(Effect, User)
  

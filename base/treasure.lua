@@ -567,7 +567,10 @@ local M = {}
     end
 
     function checkMap( User, TargetPosition )
+    
+   
         if User:countItem(505)==0 then
+        
             return false,0,0;
         end
 
@@ -593,6 +596,7 @@ local M = {}
         -- backpack
         local theBackpack=User:getBackPack();
         if theBackpack==nil then
+        
             return false,0,0;
         end
         local i = 0;
@@ -613,6 +617,7 @@ local M = {}
                 end
 		   end
         until not worked;
+        
         return false,0,0;
     end
     

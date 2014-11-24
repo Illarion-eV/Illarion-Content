@@ -31,7 +31,7 @@ local M = {}
 -- apperance lists with the different values for the six races
 -- 0 = human; 1 = dwarf; 2 = halfling; 3 = elf; 4 = orc; 5 = lizard
 -- the color sets are seperated by ; while the three values of each set are seperated by ,
-ListSkinColor = {}
+local ListSkinColor = {}
 ListSkinColor[0] = {246, 218, 181;243, 185, 111; 210, 146, 110;172, 116, 59;69, 42, 21;250, 199, 168}
 ListSkinColor[1] = {246, 218, 181;243, 185, 111; 210, 146, 110;172, 116, 59;69, 42, 21;250, 199, 168}
 ListSkinColor[2] = {246, 218, 181;243, 185, 111; 210, 146, 110;172, 116, 59;69, 42, 21;250, 199, 168}
@@ -39,7 +39,7 @@ ListSkinColor[3] = {227, 217, 213;239, 188, 137;215, 172, 134;188, 124, 95;196, 
 ListSkinColor[4] = {139, 123, 63;84, 134, 37;99, 132, 53;169, 144, 51;125, 92, 49;84, 101, 56}
 ListSkinColor[5] = {104, 128, 52;235, 173, 0;159, 59, 59;82, 181, 138;21, 53, 91;184, 135, 214}
 
-ListHairColor = {}
+local ListHairColor = {}
 ListHairColor[0] = {255, 249, 7;162, 77, 0;95, 23, 0;216, 216, 216;39, 39, 39;119, 56, 3}
 ListHairColor[1] = {255, 249, 7;162, 77, 0;95, 23, 0;216, 216, 216;39, 39, 39;119, 56, 3}
 ListHairColor[2] = {255, 249, 7;162, 77, 0;95, 23, 0;216, 216, 216;39, 39, 39;119, 56, 3}
@@ -47,7 +47,7 @@ ListHairColor[3] = {255, 249, 7;104, 128, 52;108, 64, 35;108, 62, 46;216, 216, 2
 ListHairColor[4] = {162, 76, 0;116, 1, 4;139, 123, 61;39, 39, 39;166, 166, 166;58, 28, 4}
 ListHairColor[5] = {239, 231, 0;154, 0, 0;72, 36, 0;28, 26, 48;44, 115, 133;96, 153, 46}
 
-ListBeard = {}
+local ListBeard = {}
 ListBeard[0] = {0,1,3,4,5,6}
 ListBeard[1] = {1,2,4}
 ListBeard[2] = {0}
@@ -55,7 +55,7 @@ ListBeard[3] = {0}
 ListBeard[4] = {0}
 ListBeard[5] = {0}
 
-ListHairMale = {}
+local ListHairMale = {}
 ListHairMale[0] = {0,1,2,3}
 ListHairMale[1] = {0,1,2,3}
 ListHairMale[2] = {0,1,2}
@@ -63,7 +63,7 @@ ListHairMale[3] = {1,2}
 ListHairMale[4] = {0,1,2,3,4,5}
 ListHairMale[5] = {1,2,3,4,5,6}
 
-ListHairFemale = {}
+local ListHairFemale = {}
 ListHairFemale[0] = {1,7,8}
 ListHairFemale[1] = {1,7,9}
 ListHairFemale[2] = {1,2,9}
@@ -71,7 +71,7 @@ ListHairFemale[3] = {1,7,8}
 ListHairFemale[4] = {1,7,8}
 ListHairFemale[5] = {1,2,3,4,5,6}
 
-function DrinkPotion(User,SourceItem)
+local function DrinkPotion(User,SourceItem)
     
     potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
     

@@ -26,11 +26,11 @@ local alchemy = require("alchemy.base.alchemy")
 local herbs = require("alchemy.base.herbs")
 local baking = require("content.craft.baking")
 local cooking = require("content.craft.cooking")
--- local diet = require("lte.diet") -- circular reference
+local diet = require("lte.diet")
 local specialeggs = require("content.specialeggs")
 
 -- buff types, they have exactly two attributes
-M.BUFFS = {
+local BUFFS = {
   {"constitution", "strength"},
   {"agility", "dexterity"},
   {"perception", "intelligence"}

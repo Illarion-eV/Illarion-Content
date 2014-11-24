@@ -63,7 +63,7 @@ function M.UseItem(User, SourceItem, ltstate)
 		   return
 	    end
 
-		BeginnBrewing(User,SourceItem.id,cauldron)
+		M.BeginnBrewing(User,SourceItem.id,cauldron)
 		world:erase(SourceItem,1)
 		alchemy.lowerFood(User)
 	else
@@ -72,7 +72,7 @@ function M.UseItem(User, SourceItem, ltstate)
 	end
 end
 
-function BeginnBrewing(User,plantId,cauldron)
+function M.BeginnBrewing(User,plantId,cauldron)
 
 	local isPlant, ignoreIt = alchemy.getPlantSubstance(plantId, User)
 	if isPlant then

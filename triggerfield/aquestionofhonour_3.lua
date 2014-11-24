@@ -19,30 +19,23 @@ local common = require("base.common")
 
 local M = {}
 
-function Init()
 
-    if InitDone then
-        return
-    end
-   
-      waypoint={}; --a list with positions
-      waypoint[1]=position(697,313,0); --1: Hemp Necktie Inn
-      waypoint[2]=position(348,229,0); --2: Galmair
-      waypoint[3]=position(903,768,2); --3: Runewick
-      messageG={};
-      messageG[1]="[Queststatus] Du betrittst den Gasthof zur Hanfschlinge. Was für ein dreckiger, unehrenhafter Ort!";
-      messageG[2]="[Queststatus] Der 'Palast' des Dons - Du solltest die Ohren aufsperren, aber nicht deine Geldbörse.";
-      messageG[3]="[Queststatus] Unerträgliches Gewäsch kommt aus dem Mund des Erzmagiers. Diesen Unsinn willst du gar nicht erst daheim vermelden.";
-      messageE={};
-      messageE[1]="[Quest status] You enter the Hemp Necktie Inn. What a filthy and dishonourable place, it doesn't take too long to figure out there is nothing of worth in this place!";
-      messageE[2]="[Quest status] The Don's 'palace' - you should drop an ear here but not your purse.";
-      messageE[3]="[Quest status] Unbearable babbling comes out of the mouth of the Archmage. You don't want to report this nonsense at home...";
-      InitDone = true;
-    
-end
+local waypoint={}; --a list with positions
+waypoint[1]=position(697,313,0); --1: Hemp Necktie Inn
+waypoint[2]=position(348,229,0); --2: Galmair
+waypoint[3]=position(903,768,2); --3: Runewick
+local messageG={};
+messageG[1]="[Queststatus] Du betrittst den Gasthof zur Hanfschlinge. Was für ein dreckiger, unehrenhafter Ort!";
+messageG[2]="[Queststatus] Der 'Palast' des Dons - Du solltest die Ohren aufsperren, aber nicht deine Geldbörse.";
+messageG[3]="[Queststatus] Unerträgliches Gewäsch kommt aus dem Mund des Erzmagiers. Diesen Unsinn willst du gar nicht erst daheim vermelden.";
+local messageE={};
+messageE[1]="[Quest status] You enter the Hemp Necktie Inn. What a filthy and dishonourable place, it doesn't take too long to figure out there is nothing of worth in this place!";
+messageE[2]="[Quest status] The Don's 'palace' - you should drop an ear here but not your purse.";
+messageE[3]="[Quest status] Unbearable babbling comes out of the mouth of the Archmage. You don't want to report this nonsense at home...";
+
 
 function M.MoveToField(User)
-    Init();
+
    if (User:getQuestProgress(111) == 12) then --OK, the player does the quest
    
        queststatus=User:getQuestProgress(117); --here, we save which fields were visited

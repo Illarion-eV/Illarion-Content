@@ -20,23 +20,23 @@ local common = require("base.common")
 
 local M = {}
 
-informationTable = {
+M.informationTable = {
 	{npcName="Rosaline Edwards", usualPosition=position(122, 521, 0), newPosition=position(237, 104, 0)},
 	{npcName="Valerio Guilianni", usualPosition=position(337, 215, 0), newPosition=position(238, 104, 0)},
 	{npcName="Elvaine Morgan", usualPosition=position(898, 775, 2), newPosition=position(239, 104, 0)}}
 
 function M.checkFactionLeader()
-	for i=1, #(informationTable) do
-		charObject = common.CheckIfOnline(informationTable[i].npcName)
+	for i=1, #(M.informationTable) do
+		charObject = common.CheckIfOnline(M.informationTable[i].npcName)
 		if charObject ~= nil then
-			updatePosition(informationTable[i].usualPosition, informationTable[i].newPosition)
+			M.updatePosition(M.informationTable[i].usualPosition, M.informationTable[i].newPosition)
 		else
-			updatePosition(informationTable[i].newPosition, informationTable[i].usualPosition)
+			M.updatePosition(M.informationTable[i].newPosition, M.informationTable[i].usualPosition)
 		end
 	end
 end
 
-function updatePosition(usualPosition, newPosition)
+function M.updatePosition(usualPosition, newPosition)
 	if world:isCharacterOnField(usualPosition) == true then
 		npcCharObject = world:getCharacterOnField(usualPosition);
 		if npcCharObject:getType() == Character.npc then

@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (-495,-484,-40,'triggerfield.labour_camp_warp');
 
 local common = require("base.common")
+local factions = require("base.factions")
 
 local M = {}
 
@@ -64,7 +65,7 @@ function M.MoveToField(User)
 			User:eraseItem( ItemListe[i], amount);
 		end --items deleted;
 
-		local Faction = base.factions.getFaction(User); -- lookup to which faction the Character belongs to
+		local Faction = factions.getFaction(User); -- lookup to which faction the Character belongs to
 		local dest
 		if     Faction.tid == 1 then 
 		       dest = position(127,647,0) --cadomyr

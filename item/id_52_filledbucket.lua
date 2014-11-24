@@ -134,11 +134,11 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,ltstate)
 	end
 
 	-- the actual filling needs to be in an seperate function, since this function is also called by other script, where we do not need ltstate!
-	FillIn(User, SourceItem, cauldron)
+	M.FillIn(User, SourceItem, cauldron)
 end
 
 
-function FillIn(User, SourceItem, cauldron, noRepeat) -- do not remove noRepeat
+function M.FillIn(User, SourceItem, cauldron, noRepeat) -- do not remove noRepeat
 
    -- water, essence brew, potion or stock is in the cauldron; leads to a failure
 	if cauldron:getData("filledWith") == "water" then

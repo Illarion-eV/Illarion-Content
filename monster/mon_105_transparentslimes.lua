@@ -56,7 +56,7 @@ function M.onSpawn(theSlime)
 
 end
 
-DELETED = false
+local DELETED = false
 function M.abortRoute(theSlime)
 	-- Slime feeding quest in Runewick
 	if theSlime:getMonsterType()==1055 then

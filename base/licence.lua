@@ -24,8 +24,8 @@ licencePosCad={position(105,550,0),position(105,595,0)}; --Cadomyr
 licencePosRun={position(910,800,0),position(790,800,0),position(870,890,0),position(910,800,1),position(910,800,3)}; --Runewick
 licencePosGal={position(360,235,0),position(345,280,0),position(390,330,-6),position(400,220,-6)}; --Galmair 
 
-PERMISSION_NONE = 0	-- Permission for static tools is restricted
-PERMISSION_ACTIVE = 1	-- Permission for static tools is granted
+M.PERMISSION_NONE = 0	-- Permission for static tools is restricted
+M.PERMISSION_ACTIVE = 1	-- Permission for static tools is granted
 
 
 function M.licence(char)
@@ -65,7 +65,7 @@ end
 
 function licenceCheck(char)
 	if factions.getMembership(char) == 0 or factions.getRankpoints(char) >=100 then --check if player is outlaw or at least rank 2, anyone else will be ignored
-		if ((factions.getMembership(char) == licencerequired) or (char:getQuestProgress(licenceQuestID) > 0) or (GetLicenceByFaction(licencerequired, factions.getFaction(char).tid) == PERMISSION_ACTIVE)) then --check if player is member of the right faction or has licence or his/her faction has permission	
+		if ((factions.getMembership(char) == licencerequired) or (char:getQuestProgress(licenceQuestID) > 0) or (M.GetLicenceByFaction(licencerequired, factions.getFaction(char).tid) == M.PERMISSION_ACTIVE)) then --check if player is member of the right faction or has licence or his/her faction has permission	
 		else
 --			if math.random(1,100)< 51 then --chance that the player can break the law
 --				common.InformNLS(char,"Hast du gar kein schlechtes Gewissen, hier ohne Lizenz zu arbeiten? Gehe ins Zensurbüro, um dort eine zu erwerben und damit die Geräte verwenden zu können oder werde Bürger dieser Stadt.","Do you not feel bad about working without a licence here? Go to the census office and purchase one in order to be able to use their static tools or become a citizen."); --player gets info he breaks law
@@ -84,13 +84,10 @@ end
 -- @param char The character whose faction is to be checked
 -- @param thisFaction The faction ID of the static tool
 function GetLicence(char, thisFaction)
---	if char:isAdmin() and not char.name=="Jupiter" then
---		return PERMISSION_NONE;
---	end
-	
+
 --	local individualLicence = GetIndividualLicence(char, thisFaction) 
 	local f = factions.getFaction(char).tid;
-	local factionLicence = GetLicenceByFaction(thisFaction, f);
+	local factionLicence = M.GetLicenceByFaction(thisFaction, f);
 	return math.max(individualLicence, factionLicence)
 end
 
@@ -98,11 +95,11 @@ end
 --- get the licence for this faction by the other (hostile) faction
 -- @param thisFaction The faction ID of the static tool
 -- @param otherFaction The faction ID that is to be checked
-function GetLicenceByFaction(thisFaction, otherFaction)
+function M.GetLicenceByFaction(thisFaction, otherFaction)
 	local found, licence = ScriptVars:find("Licence_".. thisFaction);
 	if not found then
 		InitLicence(thisFaction);
-		return GetLicenceByFaction(thisFaction, otherFaction);
+		return M.GetLicenceByFaction(thisFaction, otherFaction);
 	end
 	licence = licence % (10^(otherFaction+1));
 	licence = math.floor(licence / 10^otherFaction);
@@ -114,13 +111,13 @@ end
 -- @param thisFaction The faction ID of the static tool
 -- @param otherFaction The faction ID whose licence is to be changed
 -- @param newLicence The new licence, e.g. PERMISSIOM_NONE
-function SetLicence(thisFaction, otherFaction, newLicence)
+function M.SetLicence(thisFaction, otherFaction, newLicence)
 	-- get licence for all factions
 	local found, licenceAll = ScriptVars:find("Licence_".. thisFaction);
 	local oldLicence = 0;
 	if not found then
 		InitLicence(thisFaction);
-		SetLicence(thisFaction, otherFaction, newLicence);
+		M.SetLicence(thisFaction, otherFaction, newLicence);
 		return;
 	else
 		-- calculate the old licence for the otherFaction
@@ -143,11 +140,11 @@ end
 -- @param thisFaction The faction ID of the current faction
 function InitLicence(thisFaction)
 	ScriptVars:set("Licence_".. thisFaction, 0);
-	SetLicence(thisFaction, thisFaction, PERMISSIOM_ACTIVE);
+	M.SetLicence(thisFaction, thisFaction, PERMISSIOM_ACTIVE);
 	local factions = {0,1,2,3};
 	for _,f in pairs(factions) do
 		if (thisFaction ~= f) then
-			SetLicence(thisFaction, f, PERMISSIOM_ACTIVE);
+			M.SetLicence(thisFaction, f, PERMISSIOM_ACTIVE);
 		end
 	end
 end

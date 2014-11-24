@@ -35,10 +35,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 local lookat = require("base.lookat")
+local factions = require("base.factions")
 local M = {}
 
 -- 24 items. For every day of the month an own item..
-SLIME_DIET_ITEMS = {
+local SLIME_DIET_ITEMS = {
 {itemId = 159, amount = 15}, --[[toad stool]]
 {itemId = 52, amount = 3}, --[[bucket of water]]
 {itemId = 447, amount = 3}, --[[ruby powder]]
@@ -65,7 +66,7 @@ SLIME_DIET_ITEMS = {
 {itemId = 26, amount = 15} --[[clay]]
 }
 
-REWARD_LIST = {
+M.REWARD_LIST = {
 {itemId = 164, amount = 1, quality = 333, data = nil}, --[[empty bottle]]
 {itemId = 59, amount = 1, quality = 333, data = {potionEffectId = 59555555, filledWith = "potion", descriptionDe = "Idiotenheilmitte. Idiot's treatment", descriptionEn = "Idiotenheilmitte. Idiot's treatment"}}, --[[potion, increase int]]
 {itemId = 126, amount = 1, quality = 666, data = nil}, --[[sickel]]
@@ -83,17 +84,17 @@ REWARD_LIST = {
 {itemId = 2668, amount = 1, quality = 444, data = nil} --[[poisoned simple dagger]]
 }
 
-TELEPORTER_FIELD = position(887,797,0)
-WARP_BACK_POSITION = position(882,792,0)
-WARP_TO_SLIME_POSITION = position(887,791,0)
-SLIME_CAVE_POSITION = position(890,792,0)
-REWARD_POSITION = position(887,796,0)
-OLD_SLIME = 1055
+local TELEPORTER_FIELD = position(887,797,0)
+local WARP_BACK_POSITION = position(882,792,0)
+M.WARP_TO_SLIME_POSITION = position(887,791,0)
+M.SLIME_CAVE_POSITION = position(890,792,0)
+M.REWARD_POSITION = position(887,796,0)
+local OLD_SLIME = 1055
 
-FEEDING_IN_PROGRESS = false
+M.FEEDING_IN_PROGRESS = false
 
 
-SIGN_POSITION = position(888,797,0)
+local SIGN_POSITION = position(888,797,0)
 
 function M.setSign()
 	
@@ -124,11 +125,11 @@ function M.PutItemOnField(Item,User)
 	local neededAmount = SLIME_DIET_ITEMS[day]["amount"]
 	
 	local itemAccepted
-	if Item.id == neededId and Item.number == neededAmount and FEEDING_IN_PROGRESS == false and NewMonth(User) then
+	if Item.id == neededId and Item.number == neededAmount and M.FEEDING_IN_PROGRESS == false and NewMonth(User) then
 		AcceptItem(Item)
 		SlimeCreation()
-		if base.factions.isRunewickCitizen(User) then
-			base.factions.setRankpoints(User, base.factions.getRankpoints(User)+3)
+		if factions.isRunewickCitizen(User) then
+			factions.setRankpoints(User, factions.getRankpoints(User)+3)
 		end
 		User:setQuestProgress(450,world:getTime("year")*100 + world:getTime("month"))
 	else
@@ -161,20 +162,20 @@ end
 function AcceptItem(Item)
 
 	world:gfx(45,Item.pos)
-	world:gfx(46,WARP_TO_SLIME_POSITION)
-    world:createItemFromItem(Item,WARP_TO_SLIME_POSITION,true)
+	world:gfx(46,M.WARP_TO_SLIME_POSITION)
+    world:createItemFromItem(Item,M.WARP_TO_SLIME_POSITION,true)
 	world:erase(Item,Item.number)
 end
 
 function SlimeCreation()
 
-    local oldSlime = world:createMonster(OLD_SLIME,SLIME_CAVE_POSITION,0)
+    local oldSlime = world:createMonster(OLD_SLIME,M.SLIME_CAVE_POSITION,0)
 	oldSlime:talk(Character.say, "#me fließt aus der Höhlennische und beginnt sich in Richtung des Futters zu bewegen.",
 	"#me flows out from the small hole and starts to move towards the feed.")
 	oldSlime.movepoints = oldSlime.movepoints - 50
-	oldSlime.waypoints:addWaypoint(WARP_TO_SLIME_POSITION)
+	oldSlime.waypoints:addWaypoint(M.WARP_TO_SLIME_POSITION)
 	oldSlime:setOnRoute(true)
-	FEEDING_IN_PROGRESS = true
+	M.FEEDING_IN_PROGRESS = true
 	
 end
 

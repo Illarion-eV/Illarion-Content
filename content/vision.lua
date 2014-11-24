@@ -163,7 +163,7 @@ function M.vision(char,TypeStory)
 	attendants[char.name] = world:getPlayersInRangeOf(position(940,200,0), 90)
 	if attendants[char.name] ~= nil then
 			for k,player in ipairs(attendants[char.name]) do
-				if (content.areas.PointInArea(player.pos,evilrock.EvilRockAreaNames[TypeStory])) then
+				if (areas.PointInArea(player.pos,evilrock.EvilRockAreaNames[TypeStory])) then
 --					player:inform(""..VisionTextDE[TypeStory][LineStory],""..VisionTextEN[TypeStory][LineStory])
 					common.InformNLS(player,VisionTextDE[TypeStory][LineStory],VisionTextEN[TypeStory][LineStory])
 --debug("ThereOn0: "..player.name)
@@ -179,7 +179,7 @@ function M.vision(char,TypeStory)
 	attendants2[char.name] = world:getPlayersInRangeOf(position(940,200,-6), 90)
 	if attendants2[char.name] ~= nil then
 			for k,player in ipairs(attendants2[char.name]) do
-				if (content.areas.PointInArea(player.pos,evilrock.EvilRockAreaNames[TypeStory])) then
+				if (areas.PointInArea(player.pos,evilrock.EvilRockAreaNames[TypeStory])) then
 --					player:inform(""..VisionTextDE[TypeStory][LineStory],""..VisionTextEN[TypeStory][LineStory])
 					common.InformNLS(player,VisionTextDE[TypeStory][LineStory],VisionTextEN[TypeStory][LineStory])
 --debug("ThereOn-6: "..player.name)
@@ -269,7 +269,7 @@ end
 function BlackColumnQuestProgressA(User)
 	enabledAttendantsForPuzzle[User.name] = world:getPlayersInRangeOf(position(969,172,0), 10)
 	for m,player in ipairs(enabledAttendantsForPuzzle[User.name]) do
-		if (content.areas.PointInArea(player.pos,evilrock.EvilRockAreaNames[2])) then
+		if (areas.PointInArea(player.pos,evilrock.EvilRockAreaNames[2])) then
 			player:setQuestProgress(667,1)
 			common.InformNLS(player,"Eine Stimme sagt: 'Flammen, die Welt steht in Flammen!' Anschließend ist ein Summen zu hören und selektierbare Runen erscheinen an den schwarzen Säulen.","A voice says: 'Fire, the world is on fire!' A hum can be heard afterwards and selectable runes appear on the black columns.")
 		else
@@ -281,7 +281,7 @@ end
 function BlackColumnQuestProgressB(User,QuestStatusBlackColumn)
 	enabledAttendantsForPuzzle[User.name] = world:getPlayersInRangeOf(position(969,172,0), 10)
 	for m,player in ipairs(enabledAttendantsForPuzzle[User.name]) do
-		if (content.areas.PointInArea(player.pos,evilrock.EvilRockAreaNames[2])) then
+		if (areas.PointInArea(player.pos,evilrock.EvilRockAreaNames[2])) then
 			if QuestStatusBlackColumn == 16 then
 				common.InformNLS(player,"Eine Stimme ruft: 'Flammen, die Welt steht in Flammen!'. Das Summen verstärkt sich anschließend.", "A voice shouts: 'Fire, the world is on fire!' The hum intensifies afterwards.")
 			else
@@ -300,7 +300,7 @@ end
 function BlackColumnQuestProgressC(User,QuestStatusBlackColumn)
 	enabledAttendantsForPuzzle[User.name] = world:getPlayersInRangeOf(position(969,172,0), 10)
 	for m,player in ipairs(enabledAttendantsForPuzzle[User.name]) do
-		if (content.areas.PointInArea(player.pos,evilrock.EvilRockAreaNames[2])) then
+		if (areas.PointInArea(player.pos,evilrock.EvilRockAreaNames[2])) then
 			player:setQuestProgress(667,0)
 			common.InformNLS(player,"Das Summen bricht ab, die Lichter erlöschen und die Runen an den schwarzen Säulen verschwinden.", "The hum breaks up, lights go out and the runes disappear on the black column.")
 			world:makeSound(27,player.pos)
@@ -491,11 +491,11 @@ function M.beamMeDown(User, SourceItem)
 	world:gfx(46,position(975,173,0))
 	findPossiblePlayersForBeamMeDown[User.name] = world:getPlayersInRangeOf(position(970,173,0), 8)
 	for m,player in ipairs(findPossiblePlayersForBeamMeDown[User.name]) do
-		if content.areas.PointInArea(player.pos,"evilrock6") then
+		if areas.PointInArea(player.pos,"evilrock6") then
 			world:makeSound(13,player.pos)
 			world:gfx(37,player.pos)
 		end
-		if content.areas.PointInArea(player.pos,"evilrock6") then
+		if areas.PointInArea(player.pos,"evilrock6") then
 			player:warp(position(973,173,-6))
 			player:setQuestProgress(667,0)
 			common.InformNLS(player,"Das Summen bricht ab und ein Lichtermantel, der dich an einen anderen Ort zieht, umschließt dich.", "The hum breaks up and a coat of light encloses you and pulls you to a different place.")

@@ -39,7 +39,7 @@ Description[ENGLISH][8] = "Since you have accomplished his task, Nobarg will ans
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-local Description = {}
+local Start = {}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
@@ -56,6 +56,7 @@ function M.QuestTitle(user)
 end
 
 function M.QuestDescription(user, status)
+    
     local german = Description[GERMAN][status] or ""
     local english = Description[ENGLISH][status] or ""
 

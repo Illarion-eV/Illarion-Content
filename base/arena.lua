@@ -29,6 +29,7 @@ author: Lillian
 ]]
 local money = require("base.money")
 local ranklist = require("base.ranklist")
+local common = require("base.common")
 
 local M = {}
 
@@ -117,7 +118,7 @@ function payforMonster(User, MonsterLevel, NPC)
 	if not money.CharHasMoney(User,priceInCP) then --not enough money!
 		gText="Ihr habt nicht genug Geld dabei! Ihr benötigt"..germanMoney..".";
 		eText="You don't have enough money with you! You'll need"..englishMoney..".";
-		outText=base.common.GetNLS(User,gText,eText);
+		outText=common.GetNLS(User,gText,eText);
         NPC:talk(Character.say, outText);
 		return false;
 	end
@@ -221,7 +222,7 @@ function M.getArenastats(User, NPC)
 
 	gText="Ihr habt bereits "..points.." gesammelt. Weiter so!";
 	eText="You have already earnt "..points.." points. Keep it up!";
-	outText=base.common.GetNLS(User,gText,eText);
+	outText=common.GetNLS(User,gText,eText);
     NPC:talk(Character.say, outText);
 end
 
@@ -292,8 +293,8 @@ function M.getReward(User, quest)
 end
 
 function rewardDialog(User, points)
-	local title = base.common.GetNLS(User,"Arena Belohnung","Arena reward")
-	local text = base.common.GetNLS(User,"Du hast "..points.." Punkte gesammelt, daher kannst du dir nun eine Belohnung aussuchen.", "You earned "..points.." points, therefore you can pick a reward.")
+	local title = common.GetNLS(User,"Arena Belohnung","Arena reward")
+	local text = common.GetNLS(User,"Du hast "..points.." Punkte gesammelt, daher kannst du dir nun eine Belohnung aussuchen.", "You earned "..points.." points, therefore you can pick a reward.")
 
 	local callback = function(dialog)
 		local success = dialog:getSuccess()

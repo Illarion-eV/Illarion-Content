@@ -26,7 +26,7 @@ local M = {}
 
 -- UPDATE common SET com_script='alchemy.item.id_165_blue_bottle' WHERE com_itemid = 165;
 
-function DrinkPotion(User,SourceItem)
+local function DrinkPotion(User,SourceItem)
     -- no effecs yet
 	 common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", 
 		"You don't have the feeling that something happens.")

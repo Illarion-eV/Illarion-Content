@@ -142,7 +142,7 @@ function M.onDeath(Monster)
         if not done then done=drop.AddDropItem(279,1,1,(100*math.random(8,9)+math.random(88,99)),0,3); end --sapphire ring
 
         --Category 4: Perma Loot
-        drop.AddDropItem(3077,math.random(90,250),100,333,0,4); --silver coins
+        drop.AddDropItem(3077,math.random(90,270),100,333,0,4); --silver coins
 
     end
     drop.Dropping(Monster);
