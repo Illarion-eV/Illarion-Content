@@ -45,15 +45,18 @@ local function reportAttack(monster, enemy)
     killers[monster.id] = enemy
 end
 
+local function cleanupMonster(monster)
+    killers[monster.id] = nil
+    noDropList[monster.id] = nil
+end
+
 local function reportMonsterDeath(monster)
     local killer = killers[monster.id]
     if killer ~= nil then
         if isCharValid(killer) then
             quests.checkQuest(killer, monster)
         end
-        killers[monster.id] = nil
     end
-    noDropList[monster.id] = nil
 end
 
 local function performDrop(monster)
@@ -84,10 +87,11 @@ function M.generateCallbacks(msgs)
     t.onCasted = reportAttack
 
     function t.onDeath(monster)
-        if arena.isArenaMonster(monster) then return end
-
-        performDrop(monster)
-        reportMonsterDeath(monster)
+        if not arena.isArenaMonster(monster) then
+            performDrop(monster)
+            reportMonsterDeath(monster)
+        end
+        cleanupMonster(monster)
     end
 
     return t

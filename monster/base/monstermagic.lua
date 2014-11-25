@@ -20,6 +20,7 @@ local firefieldSpell = require("monster.base.spells.firefield")
 local flamestrikeSpell = require("monster.base.spells.flamestrike")
 local healSpell = require("monster.base.spells.heal")
 local iceballSpell = require("monster.base.spells.iceball")
+local icestrikeSpell = require("monster.base.spells.icestrike")
 local lightingSpell = require("monster.base.spells.lighting")
 local poisonballSpell = require("monster.base.spells.poisonball")
 local summonSpell = require("monster.base.spells.summon")
@@ -97,6 +98,10 @@ return function()
 
     function self.addIceball(params)
         self.addSpell(iceballSpell(params), params)
+    end
+
+    function self.addIcestrike(params)
+        self.addSpell(icestrikeSpell(params), params)
     end
 
     function self.addLighting(params)
