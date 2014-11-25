@@ -1901,7 +1901,7 @@ end
 -- @param value The color value in a range from 0 to 1
 -- @return red, green, blue color value in a range from 0 to 255 as integer value
 function M.HSVtoRGB(hue, saturation, value)
-    local realHue = math.mod(hue, 360)
+    local realHue = hue % 360
     if saturation < 0 or saturation > 1 then
         error("Saturation is out of bounds: " + saturation)
     end

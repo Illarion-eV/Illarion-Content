@@ -40,7 +40,12 @@ local M = {}
 function M.generateCallbacks()
     local t = base.generateCallbacks(msgs)
 
+    local orgOnSpawn = t.onSpawn
     function t.onSpawn(monster)
+        if orgOnSpawn ~= nil then
+            orgOnSpawn(monster)
+        end
+
         -- Drows are just elves with with a very dark skin color and very bright hair
         do
             -- Very dark gray skin

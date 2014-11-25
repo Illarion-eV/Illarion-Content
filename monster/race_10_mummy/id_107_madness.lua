@@ -44,7 +44,7 @@ function M.onDeath(monster)
         for _ = 1, 2 do
             spawnNewMummy(monster.pos)
         end
-    else
+    elseif orgOnDeath ~= nil then
         -- normal death, with drops and everything. Only in case the mummy is really killed.
         orgOnDeath(monster)
     end
