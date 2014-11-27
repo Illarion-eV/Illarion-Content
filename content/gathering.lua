@@ -86,7 +86,7 @@ function InitGathering()
 
 		--honeygathering
 		honeygathering:AddRandomItem(2551,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Findari, die Göttin der Luft, mit einem Kleinod aus Reiner Luft.","For your hard and honest labour Findari, the Godess of Air, rewards you with a treasure of Pure Air."); --Pure air
-		honeygathering:AddRandomItem(gems.getMagicGemId(gems.EMERALD),1,999,gems.getMagicGemData(1),prob_extremely_rarely,"Im Inneren des Bienenstocks bemerkst du grün glühendes Licht. Du findest einen magischen Emerald.","Inside the hive, you notice a green light. With a closer look you realize it is a magical emerald."); --Magical emerald
+		honeygathering:AddRandomItem(gems.getMagicGemId(gems.EMERALD),1,999,gems.getMagicGemData(1),prob_extremely_rarely,"Im Inneren des Bienenstocks bemerkst du grün glühendes Licht. Du findest einen magischen Smaragd.","Inside the hive, you notice a green light. With a closer look you realize it is a magical emerald."); --Magical emerald
 		honeygathering:AddRandomItem(2744,1,333,{},prob_extremely_rarely,"Ein Imkerkollege scheint hier seine Pfeife vergessen zu haben. Du nimmst sie an dich.","A beekeeper colleague must have forgotten his pipe for smoking out the bees. You take it with you."); --Pipe
 		honeygathering:AddRandomItem(151,1,333,{},prob_occasionally,"Die Bienen haben offensichtlich Vorräte angelegt. Sogar eine ganze Erdbeere haben sie in ihren Stock geschleppt.","As you carefully pull honey from the hive you notice a sticky strawberry in your grasp!"); --Strawberry
 		honeygathering:AddRandomItem(431,1,333,{},prob_frequently,"An deinen Händen bleibt klebriger Wachs hängen.","Your hands get stuck in sticky wax.", 0); --Wax
