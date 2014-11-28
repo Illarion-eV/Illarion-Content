@@ -21,11 +21,11 @@ local alchemy = require("alchemy.base.alchemy")
 local M = {}
 
 -- called by item.id_463_quill
-function M.FirstMenu(User, ingredientsList)
+function M.FirstMenu(User, ListOfIngredients)
     local getText = function(deText,enText) return common.GetNLS(User,deText,enText) end
     
-	if ingredientsList == nil then
-	    ingredientsList = {}
+	if ListOfIngredients == nil then
+	    ListOfIngredients = {}
 	end
 
     local callback = function(dialog) 
@@ -33,25 +33,25 @@ function M.FirstMenu(User, ingredientsList)
 		if success then
 			local selected = dialog:getSelectedIndex()+1
 			if selected == 1 then
-			    SelectPlantCategory(User, ingredientsList)
+			    SelectPlantCategory(User, ListOfIngredients)
 			elseif selected == 2 then
-                SelectGemDust(User, ingredientsList)
+                SelectGemDust(User, ListOfIngredients)
       		elseif selected == 3 then
-                SelectFillIntoCauldron(User, ingredientsList)
+                SelectFillIntoCauldron(User, ListOfIngredients)
 			elseif selected == 4 then
-                BottleFromCauldron(User, ingredientsList)
+                BottleFromCauldron(User, ListOfIngredients)
 			elseif selected == 5 then
-			    RemoveLastIngredient(User, ingredientsList)
+			    RemoveLastIngredient(User, ListOfIngredients)
 			elseif selected == 6 then
-                M.ShowRecipe(User, ingredientsList) 
+                M.ShowRecipe(User, ListOfIngredients) 
 			elseif selected == 7 then
-                FinishRecipe(User, ingredientsList)
+                FinishRecipe(User, ListOfIngredients)
 			end	
 		else
-			local menuFunction = function(User, ingredientsList) 
-			    M.FirstMenu(User,ingredientsList)
+			local menuFunction = function(User, ListOfIngredients) 
+			    M.FirstMenu(User,ListOfIngredients)
 			end	
-		    WantToAbort(User, menuFunction, {ingredientsList})
+		    WantToAbort(User, menuFunction, {ListOfIngredients})
 		end
 	end
 
@@ -72,7 +72,7 @@ local PLANT_CATS = {}
 PLANT_CATS["DE"] = {"Waldpflanzen"  ,"Wiesenpflanzen","Gebirgspflanzen","Wüstenpflanzen","Sumpfpflanzen","Wasserpflanzen","Schneepflanze","Multiterraten","Pilze"    ,"Agrarprodukte"}
 PLANT_CATS["EN"] = {"Forest plants" ,"Grass plants" ,"Mountain plants" ,"Desert plants" ,"Swamp plants" ,"Water plants"  ,"Snow plants"  ,"Multiterras"  ,"Mushrooms","Agricultural products"}
 
-function SelectPlantCategory(User, ingredientsList, currentEssenceList)
+function SelectPlantCategory(User, ListOfIngredients, currentEssenceList)
     local getText = function(deText,enText) return common.GetNLS(User,deText,enText) end
 	
 	local callback = function(dialog) 
@@ -81,18 +81,18 @@ function SelectPlantCategory(User, ingredientsList, currentEssenceList)
 			selected = dialog:getSelectedIndex()+1
 			if selected == 1 then
 			    if currentEssenceList then
-				    SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
+				    SelectEssenceBrewOption(User, ListOfIngredients, currentEssenceList)
 				else
-					M.FirstMenu(User, ingredientsList)
+					M.FirstMenu(User, ListOfIngredients)
 				end	
 			else	
-			    SelectPlant(User, ingredientsList, PLANT_CATS["EN"][selected-1], currentEssenceList)
+			    SelectPlant(User, ListOfIngredients, PLANT_CATS["EN"][selected-1], currentEssenceList)
 			end	
 		else
-			local menuFunction = function(User, ingredientsList, currentEssenceList) 
-			    SelectPlantCategory(User,ingredientsList, currentEssenceList)
+			local menuFunction = function(User, ListOfIngredients, currentEssenceList) 
+			    SelectPlantCategory(User,ListOfIngredients, currentEssenceList)
 			end	
-		    WantToAbort(User, menuFunction, {ingredientsList, currentEssenceList})
+		    WantToAbort(User, menuFunction, {ListOfIngredients, currentEssenceList})
 		end
 	end
 
@@ -122,7 +122,7 @@ PLANTS["Multiterras"]           = {15 ,80 ,133,149,157,302,753,759,1207}
 PLANTS["Mushrooms"]             = {158,159,160,161,162,163}
 PLANTS["Agricultural products"] = {154,200,201,259,290,772,778,2493}
 
-function SelectPlant(User, ingredientsList, category, currentEssenceList)
+function SelectPlant(User, ListOfIngredients, category, currentEssenceList)
     local getText = function(deText,enText) return common.GetNLS(User,deText,enText) end
 	
 	local callback = function(dialog) 
@@ -130,31 +130,31 @@ function SelectPlant(User, ingredientsList, category, currentEssenceList)
 		if success then
 			selected = dialog:getSelectedIndex()+1
 			if selected == 1 then
-			    SelectPlantCategory(User, ingredientsList,currentEssenceList)
+			    SelectPlantCategory(User, ListOfIngredients,currentEssenceList)
 			else
 				if currentEssenceList == nil then
-					if not CheckAmount(ingredientsList, User) then
+					if not CheckAmount(ListOfIngredients, User) then
 						return
 					end	
-					AddToRecipe(ingredientsList,PLANTS[category][selected-1])
+					AddToRecipe(ListOfIngredients,PLANTS[category][selected-1])
 					User:inform("Wurde dem Rezept hinzugefügt: "..world:getItemName(PLANTS[category][selected-1],Player.german),"Added to the recipe: "..world:getItemName(PLANTS[category][selected-1],Player.english),Character.lowPriority)
-					SelectPlant(User, ingredientsList, category)
+					SelectPlant(User, ListOfIngredients, category)
 				else
 					if #currentEssenceList == 9 then
 					    User:inform("Du kannst nicht mehr als acht Pflanzen einem Essengebräu hinzutun.","You cannot add more than eight plants to an essence brew.",Character.lowPriority)
-						SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
+						SelectEssenceBrewOption(User, ListOfIngredients, currentEssenceList)
 					else
 						table.insert(currentEssenceList,PLANTS[category][selected-1])
 						User:inform("Wurde dem Essenzgebräu hinzugefügt: "..world:getItemName(PLANTS[category][selected-1],Player.german),"Has beend added to the essence brew: "..world:getItemName(PLANTS[category][selected-1],Player.english),Character.lowPriority)
-						SelectPlant(User, ingredientsList, category, currentEssenceList)
+						SelectPlant(User, ListOfIngredients, category, currentEssenceList)
 					end
 				end
 			end 
 		else
-			local menuFunction = function(User, ingredientsList, category, currentEssenceList) 
-			    SelectPlant(User,ingredientsList, category, currentEssenceList)
+			local menuFunction = function(User, ListOfIngredients, category, currentEssenceList) 
+			    SelectPlant(User,ListOfIngredients, category, currentEssenceList)
 			end	
-		    WantToAbort(User, menuFunction, {ingredientsList, category, currentEssenceList})
+		    WantToAbort(User, menuFunction, {ListOfIngredients, category, currentEssenceList})
 		end
 	end
 
@@ -175,7 +175,7 @@ end
 
 local GEMPOWDERS = {446,447,448,449,450,451,452}	
 	
-function SelectGemDust(User, ingredientsList)
+function SelectGemDust(User, ListOfIngredients)
     local getText = function(deText,enText) return common.GetNLS(User,deText,enText) end
 	
 	local callback = function(dialog) 
@@ -183,20 +183,20 @@ function SelectGemDust(User, ingredientsList)
 		if success then
 			selected = dialog:getSelectedIndex()+1
 			if selected == 1 then
-			    M.FirstMenu(User, ingredientsList)
+			    M.FirstMenu(User, ListOfIngredients)
 			else
-				if not CheckAmount(ingredientsList, User) then
+				if not CheckAmount(ListOfIngredients, User) then
 				    return
 				end	
-				AddToRecipe(ingredientsList,GEMPOWDERS[selected-1])
+				AddToRecipe(ListOfIngredients,GEMPOWDERS[selected-1])
 				User:inform("Wurde dem Rezept hinzugefügt: "..world:getItemName(GEMPOWDERS[selected-1],Player.german),"Added to the recipe: "..world:getItemName(GEMPOWDERS[selected-1],Player.english),Character.lowPriority)
-			    SelectGemDust(User, ingredientsList)
+			    SelectGemDust(User, ListOfIngredients)
 			end 
 		else
-			local menuFunction = function(User, ingredientsList) 
-			    SelectGemDust(User,ingredientsList)
+			local menuFunction = function(User, ListOfIngredients) 
+			    SelectGemDust(User,ListOfIngredients)
 			end	
-		    WantToAbort(User, menuFunction, {ingredientsList})
+		    WantToAbort(User, menuFunction, {ListOfIngredients})
 		end
 	end
 
@@ -209,14 +209,14 @@ function SelectGemDust(User, ingredientsList)
 	User:requestSelectionDialog(dialog)
 end
 
-function BottleFromCauldron(User, ingredientsList)
+function BottleFromCauldron(User, ListOfIngredients)
 	
-	if not CheckAmount(ingredientsList) then
+	if not CheckAmount(ListOfIngredients) then
 		return
 	end	
-	AddToRecipe(ingredientsList,"bottle")
+	AddToRecipe(ListOfIngredients,"bottle")
 	User:inform("Wurde dem Rezept hinzugefügt: Abfüllen","Added to the recipe: Bottling",Character.lowPriority)
-	M.FirstMenu(User, ingredientsList)
+	M.FirstMenu(User, ListOfIngredients)
 end
 
 local ESSENCE_BREWS_IDS = {59,165,166,167,327,329,330}
@@ -250,7 +250,7 @@ ESSENCE_BREWS[330]["de"] = "Essenzgebräu auf Diamantstaubbasis"
 ESSENCE_BREWS[330]["en"] = "Essence brew based on diamond powder"
 
 
-function SelectFillIntoCauldron(User, ingredientsList)
+function SelectFillIntoCauldron(User, ListOfIngredients)
     local getText = function(deText,enText) return common.GetNLS(User,deText,enText) end
 	
 	local addList = {}
@@ -259,27 +259,27 @@ function SelectFillIntoCauldron(User, ingredientsList)
 		if success then
 			selected = dialog:getSelectedIndex()+1
 			if selected == 1 then
-			    M.FirstMenu(User, ingredientsList)
+			    M.FirstMenu(User, ListOfIngredients)
 			elseif selected == 2 then 
-			    if not CheckAmount(ingredientsList, User) then
+			    if not CheckAmount(ListOfIngredients, User) then
 				    return
 				end	
-				AddToRecipe(ingredientsList,52)
+				AddToRecipe(ListOfIngredients,52)
 				User:inform("Wurde dem Rezept hinzugefügt: "..world:getItemName(52,Player.german),"Added to the recipe: "..world:getItemName(52,Player.english),Character.lowPriority)
-				SelectFillIntoCauldron(User, ingredientsList)
+				SelectFillIntoCauldron(User, ListOfIngredients)
 			elseif selected == 3 then
-			    SelectActiveSubstance(User, ingredientsList, {5,5,5,5,5,5,5,5})
+			    SelectActiveSubstance(User, ListOfIngredients, {5,5,5,5,5,5,5,5})
 			else
-     			if not CheckAmount(ingredientsList, User) then
+     			if not CheckAmount(ListOfIngredients, User) then
 				    return
 				end
-				SelectEssenceBrewOption(User, ingredientsList, {ESSENCE_BREWS_IDS[selected-3]})
+				SelectEssenceBrewOption(User, ListOfIngredients, {ESSENCE_BREWS_IDS[selected-3]})
 		    end
 		else
-			local menuFunction = function(User, ingredientsList) 
-			    SelectFillIntoCauldron(User,ingredientsList)
+			local menuFunction = function(User, ListOfIngredients) 
+			    SelectFillIntoCauldron(User,ListOfIngredients)
 			end	
-		    WantToAbort(User, menuFunction, {ingredientsList})
+		    WantToAbort(User, menuFunction, {ListOfIngredients})
 		end
 	end
     
@@ -295,7 +295,7 @@ function SelectFillIntoCauldron(User, ingredientsList)
 	User:requestSelectionDialog(dialog)
 end
 
-function SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
+function SelectEssenceBrewOption(User, ListOfIngredients, currentEssenceList)
 	local getText = function(deText,enText) return common.GetNLS(User,deText,enText) end
 	
     local callback = function(dialog) 
@@ -303,9 +303,9 @@ function SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
 		if success then
 			local selected = dialog:getSelectedIndex() + 1
 			if selected == 1 then
-				SelectFillIntoCauldron(User, ingredientsList)
+				SelectFillIntoCauldron(User, ListOfIngredients)
 			elseif selected == 2 then
-                SelectPlantCategory(User, ingredientsList, currentEssenceList)
+                SelectPlantCategory(User, ListOfIngredients, currentEssenceList)
             elseif selected == 3 then
 				if #currentEssenceList < 2 then
 				    User:inform("Es befinden sich keine Pflanzen zum Entfernen im Essenzgebräu.","There are no plants to be removed in the essence brew.")
@@ -313,17 +313,17 @@ function SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
 					local removed = table.remove(currentEssenceList)
 					User:inform("Wurde vom Essenzgebräu entfernt: "..world:getItemName(removed,Player.german),"Has been remove from the essence brew: "..world:getItemName(removed,Player.english),Character.lowPriority) 
 				end
-				SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
+				SelectEssenceBrewOption(User, ListOfIngredients, currentEssenceList)
 			else
-				AddToRecipe(ingredientsList,"essence "..table.concat(currentEssenceList,";"))
+				AddToRecipe(ListOfIngredients,"essence "..table.concat(currentEssenceList,";"))
 				User:inform("Wurde dem Rezept hinzugefügt: Essenzgebräu","Added to the recipe: Essence brew",Character.lowPriority)
-				M.FirstMenu(User, ingredientsList)
+				M.FirstMenu(User, ListOfIngredients)
 			end	
 		else
-			local menuFunction = function(User, ingredientsList, currentEssenceList) 
-			    SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
+			local menuFunction = function(User, ListOfIngredients, currentEssenceList) 
+			    SelectEssenceBrewOption(User, ListOfIngredients, currentEssenceList)
 			end	
-		    WantToAbort(User, menuFunction, {ingredientsList, currentEssenceList})
+		    WantToAbort(User, menuFunction, {ListOfIngredients, currentEssenceList})
 		end
 	end
 	
@@ -354,7 +354,7 @@ function SelectEssenceBrewOption(User, ingredientsList, currentEssenceList)
 
 end
 
-function SelectActiveSubstance(User, ingredientsList, currentConcentrations)
+function SelectActiveSubstance(User, ListOfIngredients, currentConcentrations)
 	local getText = function(deText,enText) return common.GetNLS(User,deText,enText) end
 	if currentConcentrations == nil then
 	    currentConcentrations = {5,5,5,5,5,5,5,5}
@@ -365,19 +365,19 @@ function SelectActiveSubstance(User, ingredientsList, currentConcentrations)
 		if success then
 			local selected = dialog:getSelectedIndex() + 1
 			if selected == 1 then
-				SelectFillIntoCauldron(User, ingredientsList)
+				SelectFillIntoCauldron(User, ListOfIngredients)
 			elseif selected >= 2 and selected <= 9 then
-			    SelectConcentration(User,ingredientsList,currentConcentrations, selected-1)
+			    SelectConcentration(User,ListOfIngredients,currentConcentrations, selected-1)
 			else
-			    AddToRecipe(ingredientsList,"stock "..table.concat(currentConcentrations,";"))
+			    AddToRecipe(ListOfIngredients,"stock "..table.concat(currentConcentrations,";"))
 				User:inform("Wurde dem Rezept hinzugefügt: Sud","Added to the recipe: Stock",Character.lowPriority)
-				M.FirstMenu(User, ingredientsList)
+				M.FirstMenu(User, ListOfIngredients)
 			end
 		else
-			local menuFunction = function(User, ingredientsList, currentConcentrations) 
-			    SelectActiveSubstance(User, ingredientsList, currentConcentrations)
+			local menuFunction = function(User, ListOfIngredients, currentConcentrations) 
+			    SelectActiveSubstance(User, ListOfIngredients, currentConcentrations)
 			end	
-		    WantToAbort(User, menuFunction, {ingredientsList, currentConcentrations})
+		    WantToAbort(User, menuFunction, {ListOfIngredients, currentConcentrations})
 		end
 	end
 
@@ -396,7 +396,7 @@ function SelectActiveSubstance(User, ingredientsList, currentConcentrations)
 	
 end
 
-function SelectConcentration(User,ingredientsList,currentConcentrations, activeSubstancePos)
+function SelectConcentration(User,ListOfIngredients,currentConcentrations, activeSubstancePos)
     local getText = function(deText,enText) return common.GetNLS(User,deText,enText) end
 	
 	local activeSubstances = alchemy.wirkstoff
@@ -408,16 +408,16 @@ function SelectConcentration(User,ingredientsList,currentConcentrations, activeS
 		if success then
 			local selected = dialog:getSelectedIndex()+1
 			if selected == 1 then
-				SelectActiveSubstance(User, ingredientsList, currentConcentrations)
+				SelectActiveSubstance(User, ListOfIngredients, currentConcentrations)
 			else
 				currentConcentrations[activeSubstancePos] = selected-1
-				SelectActiveSubstance(User, ingredientsList, currentConcentrations)
+				SelectActiveSubstance(User, ListOfIngredients, currentConcentrations)
 			end	
 		else
-			local menuFunction = function(User, ingredientsList,currentConcentrations, activeSubstancePos) 
-			    SelectConcentration(User,ingredientsList,currentConcentrations, activeSubstancePos)
+			local menuFunction = function(User, ListOfIngredients,currentConcentrations, activeSubstancePos) 
+			    SelectConcentration(User,ListOfIngredients,currentConcentrations, activeSubstancePos)
 			end	
-		    WantToAbort(User, menuFunction, {ingredientsList,currentConcentrations, activeSubstancePos})
+		    WantToAbort(User, menuFunction, {ListOfIngredients,currentConcentrations, activeSubstancePos})
 		end
 	end
 
@@ -431,14 +431,14 @@ function SelectConcentration(User,ingredientsList,currentConcentrations, activeS
 	User:requestSelectionDialog(dialog)
 end
 
-function RemoveLastIngredient(User, ingredientsList)
+function RemoveLastIngredient(User, ListOfIngredients)
     
-	if #ingredientsList==0 then
+	if #ListOfIngredients==0 then
 	    User:inform("Das Rezept ist leer. Es kann nichts entfernt werden.","The recipe is empty. There is nothing to be removed.",Character.lowPriority)
-	    M.FirstMenu(User, ingredientsList)
+	    M.FirstMenu(User, ListOfIngredients)
 		return
 	end	
-    local removed = table.remove(ingredientsList)
+    local removed = table.remove(ListOfIngredients)
 	if type(removed)=="number" then
 	    User:inform("Die letzte Zutat wurde vom Rezept entfernt: "..world:getItemName(removed,Player.german),"The last ingredient has been removed: "..world:getItemName(removed,Player.english),Character.lowPriority)
     elseif type(removed)=="string" then
@@ -455,10 +455,10 @@ function RemoveLastIngredient(User, ingredientsList)
 		end	
 		User:inform("Die letzte Zutat wurde vom Rezept entfernt: "..de,"The last ingredient has been removed: "..en,Character.lowPriority)
 	end
-	M.FirstMenu(User, ingredientsList)
+	M.FirstMenu(User, ListOfIngredients)
 end
 
-function M.ShowRecipe(User, ingredientsList, notMenu) 
+function M.ShowRecipe(User, ListOfIngredients, notMenu) 
     local getText = function(deText,enText) return common.GetNLS(User,deText,enText) end
 	
 	local callback = function(dialog) 
@@ -472,15 +472,15 @@ function M.ShowRecipe(User, ingredientsList, notMenu)
 			    minus = 1
 			end	
 			if selected == 1 and not notMenu then
-			    M.FirstMenu(User, ingredientsList)
-            elseif type(ingredientsList[selected-minus])=="string" and not string.find(ingredientsList[selected-minus],"bottle") then
-				ShowStockEssence(User, ingredientsList[selected-minus], ingredientsList, notMenu)
+			    M.FirstMenu(User, ListOfIngredients)
+            elseif type(ListOfIngredients[selected-minus])=="string" and not string.find(ListOfIngredients[selected-minus],"bottle") then
+				ShowStockEssence(User, ListOfIngredients[selected-minus], ListOfIngredients, notMenu)
 			else
-				M.ShowRecipe(User, ingredientsList, notMenu) 
+				M.ShowRecipe(User, ListOfIngredients, notMenu) 
 			end	
 		else
 			if not notMenu then
-				M.FirstMenu(User, ingredientsList)
+				M.FirstMenu(User, ListOfIngredients)
 			end	
 		end
 	end
@@ -495,15 +495,15 @@ function M.ShowRecipe(User, ingredientsList, notMenu)
 	if not notMenu then
 		dialog:addOption(0, getText("Zurück","Back"))
 	end	
-	if #ingredientsList > 0 then
+	if #ListOfIngredients > 0 then
 	    local counter = 0
-		for i=1,#ingredientsList do
+		for i=1,#ListOfIngredients do
 		    counter = counter + 1
-			if type(ingredientsList[i])=="string" then 
-				if string.find(ingredientsList[i],"bottle") then
+			if type(ListOfIngredients[i])=="string" then 
+				if string.find(ListOfIngredients[i],"bottle") then
 					dialog:addOption(164, getText(counter..". Abfüllen",counter..". Bottling"))
 				else	
-				    local liquid, liquidList = M.StockEssenceList(ingredientsList[i])
+				    local liquid, liquidList = M.StockEssenceList(ListOfIngredients[i])
 					if liquid == "stock" then
 					    dialog:addOption(331, getText(counter..". Sud",counter..". Stock"))
 					elseif liquid == "essence brew" then
@@ -511,14 +511,14 @@ function M.ShowRecipe(User, ingredientsList, notMenu)
 					end		
 			    end
 			else
-				dialog:addOption(ingredientsList[i], getText(counter..". "..world:getItemName(ingredientsList[i],Player.german),counter..". "..world:getItemName(ingredientsList[i],Player.english)))
+				dialog:addOption(ListOfIngredients[i], getText(counter..". "..world:getItemName(ListOfIngredients[i],Player.german),counter..". "..world:getItemName(ListOfIngredients[i],Player.english)))
 			end
 		end
 	end
 	User:requestSelectionDialog(dialog)
 end
 
-function ShowStockEssence(User, theLiquid, ingredientsList, notMenu)
+function ShowStockEssence(User, theLiquid, ListOfIngredients, notMenu)
 	local getText = function(deText,enText) return common.GetNLS(User,deText,enText) end
 	
 	local liquid, liquidList = M.StockEssenceList(theLiquid)
@@ -552,7 +552,7 @@ function ShowStockEssence(User, theLiquid, ingredientsList, notMenu)
 	end
 
 	local callback = function(dialog)
-        M.ShowRecipe(User, ingredientsList, notMenu) 
+        M.ShowRecipe(User, ListOfIngredients, notMenu) 
     end
 
 	local dialog = MessageDialog(getText(titleDe,titleEn), getText(de,en), callback)
@@ -578,28 +578,28 @@ function M.StockEssenceList(theString)
 	return liquid, returnList
 end
 
-function FinishRecipe(User, ingredientsList)
+function FinishRecipe(User, ListOfIngredients)
     local getText = function(deText,enText) return common.GetNLS(User,deText,enText) end
 	
 	local parchment = M.GetParchmentQuill(User)
-	parchment = M.IsParchmentOK(User,parchment,ingredientsList)
+	parchment = M.IsParchmentOK(User,parchment,ListOfIngredients)
 	if not parchment then
-		M.FirstMenu(User, ingredientsList)
+		M.FirstMenu(User, ListOfIngredients)
 		return
 	end
 	
-	if #ingredientsList == 0 then
+	if #ListOfIngredients == 0 then
 	    User:inform("Es wurde noch nichts zum Notieren ausgewählt.","Nothing has been selected to be written down so far.", Character.highPriority)
-		M.FirstMenu(User, ingredientsList)
+		M.FirstMenu(User, ListOfIngredients)
 		return
     end
 	
 	local callback = function(dialog)
 		if dialog:getSuccess() then
 			local parchment = M.GetParchmentQuill(User)
-			parchment = M.IsParchmentOK(User,parchment,ingredientsList)
+			parchment = M.IsParchmentOK(User,parchment,ListOfIngredients)
 			if not parchment then
-				M.FirstMenu(User, ingredientsList)
+				M.FirstMenu(User, ListOfIngredients)
 				return
 			end
 			if parchment.number > 1 then
@@ -607,8 +607,8 @@ function FinishRecipe(User, ingredientsList)
 				data["descriptionDe"] = "Alchemistisches Rezept: "..dialog:getInput()
 				data["descriptionEn"] = "Alchemical recipe: "..dialog:getInput()
 				data["alchemyRecipe"] = "true"
-				for i=1,#ingredientsList do
-					data["ingredient"..i] = ingredientsList[i]
+				for i=1,#ListOfIngredients do
+					data["ingredient"..i] = ListOfIngredients[i]
 				end
 				world:erase(parchment,1)
 				local notCreated = User:createItem(2745,1,333,data)
@@ -619,14 +619,14 @@ function FinishRecipe(User, ingredientsList)
 			    parchment:setData("descriptionDe","Alchemistisches Rezept: "..dialog:getInput())
 				parchment:setData("descriptionEn","Alchemical recipe: "..dialog:getInput())
 				parchment:setData("alchemyRecipe","true")
-				for i=1,#ingredientsList do
-					parchment:setData("ingredient"..i,ingredientsList[i])
+				for i=1,#ListOfIngredients do
+					parchment:setData("ingredient"..i,ListOfIngredients[i])
 				end
 				world:changeItem(parchment)
 			end	
 		else
 			User:inform("Du hast die Rezeptbenennung abgebrochen.","You abroted the naming of the recipe.",Character.lowPriority)
-			M.FirstMenu(User, ingredientsList)
+			M.FirstMenu(User, ListOfIngredients)
 		end
 	end
 	local dialog = InputDialog(getText("Rezeptbenennung","Recipe naming"), getText("Gebe einen Namen für das Rezept ein.","Enter a name for the recipe."), false, 100, callback)
@@ -634,7 +634,7 @@ function FinishRecipe(User, ingredientsList)
 	return
 end
 
-function M.IsParchmentOK(User,parchment,ingredientsList)
+function M.IsParchmentOK(User,parchment,ListOfIngredients)
     if not parchment then
 		User:inform("Du musst eine Feder und ein leeres Pergament in den Händen halten, um das Rezept zu notieren.", "You have to hold a quill and a parchment in your hands to write the recipe.") 
 		return nil
@@ -666,18 +666,18 @@ function M.GetParchmentQuill(User)
 	return nil
 end
 
-function CheckAmount(ingredientsList, User)
+function CheckAmount(ListOfIngredients, User)
 
-	if #ingredientsList > 59 then
+	if #ListOfIngredients > 59 then
 		User:inform("Das Pergament ist voll. Du kannst dies nicht mehr dem Rezept hinzufügen.","The parchment is full. You cannot add to the recipe anymore.",Character.highPriority)
         return false
 	end
     return true	
 end
 
-function AddToRecipe(ingredientsList,addThis)
+function AddToRecipe(ListOfIngredients,addThis)
     
-	table.insert(ingredientsList,addThis)
+	table.insert(ListOfIngredients,addThis)
 	
 end
 

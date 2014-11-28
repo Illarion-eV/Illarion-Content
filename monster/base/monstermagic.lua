@@ -355,7 +355,7 @@ function M.FireBreath(Monster, Enemy, graphicItem)
         firstBreath=true;
     end
 
-    BreathTry=math.random(1,66);
+    local BreathTry=math.random(1,66);
     if (BreathTry==1) and (Monster.pos.z==Enemy.pos.z) then
         Monster.fightpoints=Monster.fightpoints-40;
         if (Monster:distanceMetric(Enemy)<=4) then
@@ -387,8 +387,8 @@ function M.FireBreath(Monster, Enemy, graphicItem)
                             world:makeSound(5,BreathPos);
                         end
                         if world:isCharacterOnField(BreathPos) then
-                            HitChar=world:getCharacterOnField(BreathPos);
-                            HitChar:increaseAttrib("hitpoints",-2000)
+                            local HitCharacter=world:getCharacterOnField(BreathPos);
+                            HitCharacter:increaseAttrib("hitpoints",-2000)
                         end
                     end
                 end

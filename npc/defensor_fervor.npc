@@ -108,15 +108,17 @@ queststatus(528) = 24, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[N
 queststatus(528) = 25, english, "Border" -> inform("[Quest solved] You are awarded a black cultist robe."), item(2378, 1, 699), queststatus(528) = 26, "You have passed this test and are awarded a black cultist robe."
 queststatus(528) = 25, "Grenz" -> inform("[Quest gelöst] Du erhältst eine Schwarzkultrobe zuerkannt."), item(2378, 1, 699), queststatus(528) = 26, "Du hast den Test bestanden. Du bekommst eine Schwarzkultrobe zuerkannt."
 -- If quest received but task not finished
-queststatus(528) = 25, english,"quest", "mission", "test" ->"What is the name of this mountain range? If you do not pass this test you can't continue."
-queststatus(528) = 25, "quest", "mission", "Test" ->"Wie lautet der Name dieses Gebirges? Wenn du diese Prüfung nicht bestehst, kommst du nicht weiter."
-queststatus(528) = 25, "task", "adventure", "order" -> "What is the name of this mountain range? If you do not pass this test you can't continue."
-queststatus(528) = 25, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wie lautet der Name dieses Gebirges? Wenn du diese Prüfung nicht bestehst, kommst du nicht weiter."
+queststatus(528) = 25, english, ".*" ->"What is the name of this mountain range? If you do not pass this test you can't continue."
+queststatus(528) = 25, german, ".*" ->"Wie lautet der Name dieses Gebirges? Wenn du diese Prüfung nicht bestehst, kommst du nicht weiter."
 --If finished with the Defensor
 queststatus(528) = 26, english, "quest", "mission", "test" -> "You have passed, please see Defensor Transmutatio."
 queststatus(528) = 26, "quest", "mission", "Test" -> "Du hast bestanden. Gehe zum Defensor Transmutatio."
 queststatus(528) = 26, "task", "adventure", "order" -> "You have passed, please see Defensor Transmutatio."
 queststatus(528) = 26, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du hast bestanden. Gehe zum Defensor Transmutatio."
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+queststatus(528) < 26, english, ".*" -> "Finish our tests in order and you will be rewarded."
+queststatus(528) < 26, german, ".*" -> "Beende unsere Aufgaben und Du wirst eine Belohnung erhalten."
+
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

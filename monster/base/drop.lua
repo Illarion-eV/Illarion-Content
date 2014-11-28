@@ -279,22 +279,22 @@ function M.ThrowMolotov(Monster,Enemy,rndTry,AP)
         local hitpoints;
 
         world:gfx(36,hitPos);
-        HitChar(hitPos,common.Scale(3000,6000,Strength));
+        M.HitChar(hitPos,common.Scale(3000,6000,Strength));
         world:makeSound(5,hitPos);
         hitpoints = common.Scale( 1000, 3000, Strength );
         common.CreateCircle( hitPos, 1, function( targetPos )
             world:gfx( 44, targetPos );
-            HitChar( targetPos, hitpoints );
+            M.HitChar( targetPos, hitpoints );
         end );
         hitpoints = common.Scale( 100, 500, Strength );
         common.CreateCircle( hitPos, 2, function( targetPos )
             world:gfx( 9, targetPos );
-            HitChar( targetPos, hitpoints );
+            M.HitChar( targetPos, hitpoints );
         end );
         hitpoints = common.Scale( 20, 100, Strength );
         common.CreateCircle( hitPos, 3, function( targetPos )
             world:gfx( 1, targetPos );
-            HitChar( targetPos, hitpoints );
+            M.HitChar( targetPos, hitpoints );
         end );
 
         Monster.movepoints=Monster.movepoints - AP;

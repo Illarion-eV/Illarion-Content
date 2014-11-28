@@ -20,6 +20,7 @@ local common = require("base.common")
 local lookat = require("base.lookat")
 
 local M = {}
+M.books = {}
 
 CODOMYR_ON_C = 1
 CODOMYR_ON_G = 2
@@ -105,8 +106,7 @@ GAL_QUATER = 517
 
 
 function addBook(id, germanTitle, englishTitle, bookGraphic)
-    books = books or {}
-    books[id] = {german = germanTitle, english = englishTitle, graphic = bookGraphic}
+    M.books[id] = {german = germanTitle, english = englishTitle, graphic = bookGraphic}
 end
 
 function addBookshelf(pos, containedBooks)
@@ -309,12 +309,12 @@ function M.LookAtItem(user, item)
                 lookAt.description = common.GetNLS(user, "Dieses Regal ist leer.", "This bookshelf is empty.")
             elseif bookCount == 1 then
                 lookAt.description = common.GetNLS(user, "Hier steht ein einzelnes Buch:", "There is one single book:")
-                lookAt.description = lookAt.description .. "\n" .. common.GetNLS(user, books[bookshelf[1]].german, books[bookshelf[1]].english)
+                lookAt.description = lookAt.description .. "\n" .. common.GetNLS(user, M.books[bookshelf[1]].german, M.books[bookshelf[1]].english)
             else
                 lookAt.description = common.GetNLS(user, "Hier stehen " .. bookCount .. " Bücher:", "There are " .. bookCount .. " books here:")
 
                 for i=1, bookCount do
-                    lookAt.description = lookAt.description .. "\n" .. common.GetNLS(user, books[bookshelf[i]].german, books[bookshelf[i]].english)
+                    lookAt.description = lookAt.description .. "\n" .. common.GetNLS(user, M.books[bookshelf[i]].german, M.books[bookshelf[i]].english)
                 end
             end
         else
@@ -353,7 +353,7 @@ function M.UseItem(user, item, target, counter, param, ltstate)
             local dialog = SelectionDialog(title, description, callback)
 
             for i=1, bookCount do
-                dialog:addOption(books[bookshelf[i]].graphic, common.GetNLS(user, books[bookshelf[i]].german, books[bookshelf[i]].english))
+                dialog:addOption(M.books[bookshelf[i]].graphic, common.GetNLS(user, M.books[bookshelf[i]].german, M.books[bookshelf[i]].english))
             end
 
             user:requestSelectionDialog(dialog)

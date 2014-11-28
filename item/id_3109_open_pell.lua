@@ -23,27 +23,27 @@ local M = {}
 
 -- script currently only used to teach alchemy recipes
 
-local ListEffectId = {}
-local ListTaskText = {}
-local ListTaskItem = {}
+M.ListEffectId = {}
+M.ListTaskText = {}
+M.ListTaskItem = {}
 
 
-ListEffectId["Runewick"] = {}
-ListTaskText["Runewick"] = {}
-ListTaskItem["Runewick"] = {}
+M.ListEffectId["Runewick"] = {}
+M.ListTaskText["Runewick"] = {}
+M.ListTaskItem["Runewick"] = {}
 
-ListEffectId["Cadomyr"] = {}
-ListTaskText["Cadomyr"] = {}
-ListTaskItem["Cadomyr"] = {}
+M.ListEffectId["Cadomyr"] = {}
+M.ListTaskText["Cadomyr"] = {}
+M.ListTaskItem["Cadomyr"] = {}
 
-ListEffectId["Galmair"] = {}
-ListTaskText["Galmair"] = {}
-ListTaskItem["Galmair"] = {}
+M.ListEffectId["Galmair"] = {}
+M.ListTaskText["Galmair"] = {}
+M.ListTaskItem["Galmair"] = {}
 
 function AddPotion(town, potionEffectId, taskText, taskItem)
-    table.insert(ListEffectId[town],potionEffectId)
-	table.insert(ListTaskText[town],taskText)
-	table.insert(ListTaskItem[town],taskItem)
+    table.insert(M.ListEffectId[town],potionEffectId)
+	table.insert(M.ListTaskText[town],taskText)
+	table.insert(M.ListTaskItem[town],taskItem)
 end
 
 --[[
@@ -281,7 +281,7 @@ end
 
 function RecipeInform( User, SourceItem)
 
-    if (ListEffectId["Runewick"] == nil) then
+    if (M.ListEffectId["Runewick"] == nil) then
 	    Init()
     end
 
@@ -293,9 +293,9 @@ function RecipeInform( User, SourceItem)
 	end
 
 	local town = getTownOfPell(SourceItem)
-	local myListEffectId = ListEffectId[town]
-	local myListTaskText = ListTaskText[town]
-	local myListTaskItem = ListTaskItem[town]
+	local myListEffectId = M.ListEffectId[town]
+	local myListTaskText = M.ListTaskText[town]
+	local myListTaskItem = M.ListTaskItem[town]
 
 	local language
 	if User:getPlayerLanguage() == Player.english then
