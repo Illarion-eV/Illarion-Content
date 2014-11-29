@@ -16,13 +16,16 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local explosionSpell = require("mosnter.base.spells.explosion")
 local fireballSpell = require("monster.base.spells.fireball")
+local fireconeSpell = require("monster.base.spells.firecone")
 local firefieldSpell = require("monster.base.spells.firefield")
 local flamestrikeSpell = require("monster.base.spells.flamestrike")
 local healSpell = require("monster.base.spells.heal")
 local iceballSpell = require("monster.base.spells.iceball")
+local iceconeSpell = require("monster.base.spells.icecone")
 local icestrikeSpell = require("monster.base.spells.icestrike")
 local lightingSpell = require("monster.base.spells.lighting")
 local poisonballSpell = require("monster.base.spells.poisonball")
+local poisonconeSpell = require("monster.base.spells.poisoncone")
 local summonSpell = require("monster.base.spells.summon")
 local violetSpell = require("monster.base.spells.violet")
 local warpSpell = require("monster.base.spells.warp")
@@ -84,6 +87,10 @@ return function()
         self.addSpell(fireballSpell(params), params)
     end
 
+    function self.addFirecone(params)
+        self.addSpell(fireconeSpell(params), params)
+    end
+
     function self.addFirefield(params)
         self.addSpell(firefieldSpell(params), params)
     end
@@ -100,6 +107,10 @@ return function()
         self.addSpell(iceballSpell(params), params)
     end
 
+    function self.addIcecone(params)
+        self.addSpell(iceconeSpell(params), params)
+    end
+
     function self.addIcestrike(params)
         self.addSpell(icestrikeSpell(params), params)
     end
@@ -110,6 +121,10 @@ return function()
 
     function self.addPoisonball(params)
         self.addSpell(poisonballSpell(params), params)
+    end
+
+    function self.addPoisoncone(params)
+        self.addSpell(poisonconeSpell(params), params)
     end
 
     function self.addSummon(params)

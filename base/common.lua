@@ -168,33 +168,42 @@ function M.TurnTo(User, Location)
     end;
 end;
 
+function M.GetDirectionVector(dir)
+    if dir == Character.dir_up then
+        return 0, 0, 1
+    elseif dir == Character.dir_down then
+        return 0, 0, -1
+    elseif dir == Character.north then
+        return 0, -1, 0
+    elseif dir == Character.northeast then
+        return 1, -1, 0
+    elseif dir == Character.east then
+        return 1, 0, 0
+    elseif dir == Character.southeast then
+        return 1, 1, 0
+    elseif dir == Character.south then
+        return 0, 1, 0
+    elseif dir == Character.southwest then
+        return -1, 1, 0
+    elseif dir == Character.west then
+        return -1, 0, 0
+    elseif dir == Character.northwest then
+        return -1, -1, 0
+    else
+        error("Unexpected value for parameter \"dir\"")
+    end
+end
+
 --- Get the position right in front of a character in looking direction
 -- @param User The character the front position is wanted
 -- @return The position in front of the character
 function M.GetFrontPosition(User, distance, dir)
-    local direct = dir or User:getFaceTo();
-    local d = distance or 1;
+    local direct = dir or User:getFaceTo()
+    local d = distance or 1
+    local vX, vY = M.GetDirectionVector(direct)
 
-    if (direct == Character.north) then
-        return position(User.pos.x, User.pos.y - d, User.pos.z);
-    elseif (direct == Character.northeast) then
-        return position(User.pos.x + d, User.pos.y - d, User.pos.z);
-    elseif (direct == Character.east) then
-        return position(User.pos.x + d, User.pos.y, User.pos.z);
-    elseif (direct == Character.southeast) then
-        return position(User.pos.x + d, User.pos.y + d, User.pos.z);
-    elseif (direct == Character.south) then
-        return position(User.pos.x, User.pos.y + d, User.pos.z);
-    elseif (direct == Character.southwest) then
-        return position(User.pos.x - d, User.pos.y + d, User.pos.z);
-    elseif (direct == Character.west) then
-        return position(User.pos.x - d, User.pos.y, User.pos.z);
-    elseif (direct == Character.northwest) then
-        return position(User.pos.x - d, User.pos.y - d, User.pos.z);
-    end;
-
-    return User.pos;
-end;
+    return position(User.pos.x + vX * d, User.pos.y + vY * d, User.pos.z)
+end
 
 --- Get the item that is in front of the character in case there is one
 -- @param User The character whos front area is searched
