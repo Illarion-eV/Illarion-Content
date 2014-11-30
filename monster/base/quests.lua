@@ -154,9 +154,9 @@ end
     questList[231]={}; --Kingsfright
     questList[232]={}; --Shadowmuncher
     questList[241]={}; --Pig
-    questList[251]={}; --Boar
-    questList[252]={}; --Young Boar
-    questList[253]={}; --Hog
+    questList[242]={}; --Boar
+    questList[243]={}; --Young Boar
+    questList[244]={}; --Hog
     questList[261]={}; --Nightmare Spider
     questList[262]={}; --Soulpain
     questList[271]={}; --Wasp
@@ -171,8 +171,8 @@ end
     questList[331]={}; --Silver Golem
     questList[341]={}; --Diamond Golem
     questList[371]={}; --Cow
-    questList[381]={}; --Bull
-    questList[382]={}; --Young Bull
+    questList[372]={}; --Bull
+    questList[373]={}; --Young Bull
     questList[391]={}; --Wolf
     questList[392]={}; --Welp
     questList[393]={}; --Young Wolf
@@ -180,13 +180,13 @@ end
     questList[395]={}; --Pack Leader
     questList[396]={}; --Peaceful Wolf
     questList[401]={}; --Ghost Wolf
-    questList[411]={}; --Lambslaughterer
-    questList[421]={}; --Grey Tail
-    questList[431]={}; --Redwolf
-    questList[491]={}; --Silverback
-    questList[492]={}; --Young Silverback
-    questList[501]={}; --Black Bear
-    questList[502]={}; --Young Black Bear
+    questList[402]={}; --Lambslaughterer
+    questList[403]={}; --Grey Tail
+    questList[404]={}; --Redwolf
+    questList[513]={}; --Silverback
+    questList[514]={}; --Young Silverback
+    questList[515]={}; --Black Bear
+    questList[516]={}; --Young Black Bear
     questList[511]={}; --Grizzly Bear
     questList[512]={}; --Young Grizzly Bear
     questList[521]={}; --Snapper
@@ -475,9 +475,9 @@ end
 	table.insert(questList[395],id); --Pack Leader
     table.insert(questList[396],id); --Peaceful Wolf
     table.insert(questList[401],id); --Ghost Wolf
-    table.insert(questList[411],id); --Lambslaughterer
-	table.insert(questList[421],id); --Grey Tail
-    table.insert(questList[431],id); --Redwolf
+    table.insert(questList[402],id); --Lambslaughterer
+	table.insert(questList[403],id); --Grey Tail
+    table.insert(questList[404],id); --Redwolf
     minimumQueststatus[id]=1;
     maximumQueststatus[id]=11;
     questLocation[id]=position(774,711,0);
@@ -535,9 +535,9 @@ end
     germanRace[id]="Wildschweine";
     englishRace[id]="boars";
 	table.insert(questList[241],id); --Pig
-	table.insert(questList[251],id); --Boar
-	table.insert(questList[252],id); --Young Boar
-	table.insert(questList[253],id); --Hog
+	table.insert(questList[242],id); --Boar
+	table.insert(questList[243],id); --Young Boar
+	table.insert(questList[244],id); --Hog
     minimumQueststatus[id]=1;
     maximumQueststatus[id]=7;
     questLocation[id]=position(775,475,0);
@@ -553,8 +553,8 @@ end
     germanRace[id]="Rinder";
     englishRace[id]="bulls";
     table.insert(questList[371],id); --Cow
-	table.insert(questList[381],id); --Bull
-	table.insert(questList[382],id); --Young Bull
+	table.insert(questList[372],id); --Bull
+	table.insert(questList[373],id); --Young Bull
     minimumQueststatus[id]=9;
     maximumQueststatus[id]=21;
     questLocation[id]=position(775,475,0);
@@ -576,9 +576,9 @@ end
 	table.insert(questList[395],id); --Pack Leader
     table.insert(questList[396],id); --Peaceful Wolf
     table.insert(questList[401],id); --Ghost Wolf
-    table.insert(questList[411],id); --Lambslaughterer
-	table.insert(questList[421],id); --Grey Tail
-    table.insert(questList[431],id); --Redwolf
+    table.insert(questList[402],id); --Lambslaughterer
+	table.insert(questList[403],id); --Grey Tail
+    table.insert(questList[404],id); --Redwolf
     minimumQueststatus[id]=23;
     maximumQueststatus[id]=29;
     questLocation[id]=position(775,475,0);
@@ -798,9 +798,9 @@ end
     germanRace[id]="Wildschweine";
     englishRace[id]="boars";
 	table.insert(questList[241],id); --Pig
-	table.insert(questList[251],id); --Boar
-	table.insert(questList[252],id); --Young Boar
-	table.insert(questList[253],id); --Hog
+	table.insert(questList[242],id); --Boar
+	table.insert(questList[243],id); --Young Boar
+	table.insert(questList[244],id); --Hog
     minimumQueststatus[id]=3;
     maximumQueststatus[id]=13;
     questLocation[id]=position(786, 474, 0);
@@ -1619,10 +1619,10 @@ end
     statusId[id]=181;
     germanRace[id]="Bären";
     englishRace[id]="bears";
-	table.insert(questList[491],id); -- all bears
-	table.insert(questList[492],id); --all bears
-	table.insert(questList[501],id); --all bears
-	table.insert(questList[502],id); --all bears
+	table.insert(questList[513],id); -- all bears
+	table.insert(questList[514],id); --all bears
+	table.insert(questList[515],id); --all bears
+	table.insert(questList[516],id); --all bears
 	table.insert(questList[511],id); --all bears
 	table.insert(questList[512],id); --all bears
     minimumQueststatus[id]=136;
@@ -1638,10 +1638,10 @@ end
     statusId[id]=181;
     germanRace[id]="Bären";
     englishRace[id]="bears";
-	table.insert(questList[491],id); -- all bears
-	table.insert(questList[492],id); --all bears
-	table.insert(questList[501],id); --all bears
-	table.insert(questList[502],id); --all bears
+	table.insert(questList[513],id); -- all bears
+	table.insert(questList[514],id); --all bears
+	table.insert(questList[515],id); --all bears
+	table.insert(questList[516],id); --all bears
 	table.insert(questList[511],id); --all bears
 	table.insert(questList[512],id); --all bears
     minimumQueststatus[id]=141;
@@ -1657,10 +1657,10 @@ end
     statusId[id]=181;
     germanRace[id]="Bären";
     englishRace[id]="bears";
-	table.insert(questList[491],id); -- all bears
-	table.insert(questList[492],id); --all bears
-	table.insert(questList[501],id); --all bears
-	table.insert(questList[502],id); --all bears
+	table.insert(questList[513],id); -- all bears
+	table.insert(questList[514],id); --all bears
+	table.insert(questList[515],id); --all bears
+	table.insert(questList[516],id); --all bears
 	table.insert(questList[511],id); --all bears
 	table.insert(questList[512],id); --all bears
     minimumQueststatus[id]=150;
@@ -1885,9 +1885,9 @@ end
 	table.insert(questList[395],id); --All Wolves
     table.insert(questList[396],id); --All Wolves
     table.insert(questList[401],id); --All Wolves
-    table.insert(questList[411],id); --All Wolves
-	table.insert(questList[421],id); --All Wolves
-    table.insert(questList[431],id); --All Wolves
+    table.insert(questList[402],id); --All Wolves
+	table.insert(questList[403],id); --All Wolves
+    table.insert(questList[404],id); --All Wolves
     minimumQueststatus[id]=55;
     maximumQueststatus[id]=59;
 	questLocation[id]=position(811, 735, 0);
@@ -1908,9 +1908,9 @@ end
 	table.insert(questList[395],id); --All Wolves
     table.insert(questList[396],id); --All Wolves
     table.insert(questList[401],id); --All Wolves
-    table.insert(questList[411],id); --All Wolves
-	table.insert(questList[421],id); --All Wolves
-    table.insert(questList[431],id); --All Wolves
+    table.insert(questList[402],id); --All Wolves
+	table.insert(questList[403],id); --All Wolves
+    table.insert(questList[404],id); --All Wolves
     minimumQueststatus[id]=60;
     maximumQueststatus[id]=68;
 	questLocation[id]=position(811, 735, 0);
@@ -1931,9 +1931,9 @@ end
 	table.insert(questList[395],id); --All Wolves
     table.insert(questList[396],id); --All Wolves
     table.insert(questList[401],id); --All Wolves
-    table.insert(questList[411],id); --All Wolves
-	table.insert(questList[421],id); --All Wolves
-    table.insert(questList[431],id); --All Wolves
+    table.insert(questList[402],id); --All Wolves
+	table.insert(questList[403],id); --All Wolves
+    table.insert(questList[404],id); --All Wolves
     minimumQueststatus[id]=69;
     maximumQueststatus[id]=81;
 	questLocation[id]=position(811, 735, 0);

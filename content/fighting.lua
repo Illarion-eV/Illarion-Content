@@ -65,7 +65,7 @@ end
 function GetWrestlingGFX( Attacker )
     if ( Attacker.Race == 25 ) and ( Attacker.Char:getType() == 1 ) then
         local monID = Attacker.Char:getMonsterType();
-        if (monID == 501 or monID == 502) then
+        if (monID == 515 or monID == 516) then
             return 44;
         elseif (monID == 503 or monID == 504) then
             return 3;

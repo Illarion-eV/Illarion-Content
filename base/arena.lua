@@ -48,9 +48,9 @@ M.monsterIDsByLevel = {
 	{monsters = {991, 271, 1051, 582, 1071}, points = 1, price=4000},
 	{monsters = {101, 196, 273, 602, 881}, points = 2, price= 7800},
 	{monsters = {311, 394, 551, 882, 1011}, points = 3, price=11000},
-	{monsters = {141, 501, 552, 791, 872}, points = 4, price=14000},
-	{monsters = {191, 492, 531, 411, 851}, points = 6, price=19200},
-	{monsters = {121, 201, 491, 525, 852}, points = 8, price=23200},
+	{monsters = {141, 515, 552, 791, 872}, points = 4, price=14000},
+	{monsters = {191, 514, 531, 402, 851}, points = 6, price=19200},
+	{monsters = {121, 201, 513, 525, 852}, points = 8, price=23200},
 	{monsters = {534, 124, 562, 661, 853}, points = 13, price=35100},
 	{monsters = {125, 205, 912, 262, 691}, points = 18, price=43200},
 	{monsters = {302, 641, 911}, points = 23, price=46000}
