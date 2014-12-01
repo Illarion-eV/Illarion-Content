@@ -16,7 +16,7 @@
 -- NPC Name: Sogg Beermug                                             Galmair --
 -- NPC Job:  Trader                                                           --
 --                                                                            --
--- NPC Race: orc                        NPC Position:  353, 276, 0            --
+-- NPC Race: orc                        NPC Position:  362, 279, 0            --
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Rincewind                                                        --
@@ -26,7 +26,7 @@
 name = "Sogg Beermug"
 race = orc
 sex = male
-position = 353, 276, 0
+position = 362, 279, 0
 direction = north
 affiliation = "Galmair"
 job = "Trader"
