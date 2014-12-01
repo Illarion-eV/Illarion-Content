@@ -14,9 +14,9 @@
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Antonius Copperhand                                      Galmair --
--- NPC Job:  Goldsmith NPC                                                    --
+-- NPC Job:  Goldsmith                                                        --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  359, 278, 0            --
+-- NPC Race: dwarf                      NPC Position:  373, 263, 0            --
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
@@ -26,10 +26,10 @@
 name = "Antonius Copperhand"
 race = dwarf
 sex = male
-position = 359, 278, 0
-direction = north
+position = 373, 263, 0
+direction = west
 affiliation = "Galmair"
-job = "Goldsmith NPC"
+job = "Goldsmith"
 
 language = common
 language = dwarf
