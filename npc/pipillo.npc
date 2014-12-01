@@ -16,7 +16,7 @@
 -- NPC Name: Pipillo                                                     None --
 -- NPC Job:  portalbook merchant                                              --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  412, 291, 0            --
+-- NPC Race: halfling                   NPC Position:  405, 248, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot, Faladron                                                    --
@@ -26,7 +26,7 @@
 name = "Pipillo"
 race = halfling
 sex = male
-position = 412, 291, 0
+position = 405, 248, 0
 direction = south
 affiliation = "None"
 job = "portal book merchant"
