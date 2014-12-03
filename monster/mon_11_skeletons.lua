@@ -304,7 +304,7 @@ function M.onDeath(Monster)
     elseif (MonID==117) then --Weakened Lich
 
 		--[[ Weakened Lich.
-		Appears from a pile of bones dropped by a normal lich. That lich hasnt droped anything except this bones.
+		Appears from a pile of bones dropped by a normal lich. That lich hasn't dropped anything except this bones.
 		You get the loot for the normal lich if you kill that weakened lich. Therefore, this loot is more expensive than
 		a monster of this category would normally drop.
 		--]]

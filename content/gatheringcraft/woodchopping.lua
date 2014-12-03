@@ -222,7 +222,7 @@ function preventCutting(User, theAxe, theTree)
 		world:gfx(11,User.pos)
 		world:makeSound(9,User.pos)
 		User:increaseAttrib("hitpoints",-1000)
-		User:talk(Character.say, "#me wird, bevor die Axt den berühren kann, von einem dicken Batzen Schleim getroffen, der aus der Baumkrone heraustropfte.", "#me is, before the hatchet touches the tree, hit by a big blob of slime which droped down from the treetrop.")
+		User:talk(Character.say, "#me wird, bevor die Axt den berühren kann, von einem dicken Batzen Schleim getroffen, der aus der Baumkrone heraustropfte.", "#me is, before the hatchet touches the tree, hit by a big blob of slime which dropped down from the treetrop.")
 		User:inform("Der Schleim verursacht ein überaus schmerzhaftes Brennen auf deiner Haut.", "The slime causes very painful burning to your skin.", Character.highPriority)
 	else
 		User:inform("Als du zum Fällen ausholst, rutscht dir das Beil fast aus der Hand. Du kannst es gerade noch so festhalten.", "As you strike out, you nearly drop the hatchet. You barely keep hold of it.", Character.highPriority)
