@@ -202,7 +202,7 @@ end
     questList[542]={}; --Deamonbeast
     questList[543]={}; --Giant Deamonbeast
     questList[551]={}; --Imp
-    questList[552]={}; --Jack of all Imps
+    questList[552]={}; --Satyr
     questList[553]={}; --Cursed Imp
     questList[561]={}; --Iron Golem
     questList[562]={}; --Steelgolem

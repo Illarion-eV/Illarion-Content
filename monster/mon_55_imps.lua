@@ -151,7 +151,7 @@ if (MonID==551) then --Imp, Level: 3, Armourtype: light, Weapontype: slashing
         drop.AddDropItem(3076,math.random(20,60),100,773,0,4); --copper coins
 
 
-    elseif (MonID==552) then --Jack of all Imps, Level: 4, Armourtype: light, Weapontype: concussion
+    elseif (MonID==552) then --Satyr, Level: 4, Armourtype: light, Weapontype: concussion
 
         --Category 1: Armor
 
