@@ -132,7 +132,7 @@ function M.onDeath(Monster)
 
     drop.ClearDropping();
     local MonID=Monster:getMonsterType();
-   if (MonID==261) then --Nightmarespider, Level: 7, Armourtype: heavy, Weapontype: distance
+   if (MonID==261) then --Nightmarespider, Level: 7, Armourtype: heavy, Weapontype: puncture
 
         --Category 1: Raw gems
 
