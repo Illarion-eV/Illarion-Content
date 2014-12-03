@@ -112,7 +112,7 @@ function M.onDeath(Monster)
     drop.ClearDropping();
     local MonID=Monster:getMonsterType();
 
-if (MonID==571) then --Nuzzler, Level: 3, Armourtype: light, Weapontype: puncture
+if (MonID==571) then --Snuffler, Level: 3, Armourtype: light, Weapontype: puncture
 
         --Category 1: Armor
 

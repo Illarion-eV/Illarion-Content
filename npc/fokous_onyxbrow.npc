@@ -210,9 +210,9 @@ queststatus(189) > 23, queststatus(189) < 34, town = Galmair, "Auftrag", "Aufgab
 
 -- Quest 6  Kill Ratman Boss
 -- Give out Quest 6
-queststatus(189) = 35, english, town = Galmair, "quest", "mission" -> inform("[New quest] Save Da Beer VI"), queststatus(189) = 36, "Kill the ratman boss in the Cistern, he goes by the Nuzzler. Maybe then the rats will leave!"
+queststatus(189) = 35, english, town = Galmair, "quest", "mission" -> inform("[New quest] Save Da Beer VI"), queststatus(189) = 36, "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
 queststatus(189) = 35, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Rette das Bierlager VI"), queststatus(189) = 36, "Töte den Rattenmenschen in der Zisterne, er ist der Befehlshaber und trägt den Namen 'Schnüffler'. Vielleicht werden die Ratten sich dann zurückziehen!"
-queststatus(189) = 35, town = Galmair, "task", "adventure" -> inform("[New quest] Save Da Beer VI"), queststatus(189) = 36, "Kill the ratman boss in the Cistern, he goes by the Nuzzler. Maybe then the rats will leave!"
+queststatus(189) = 35, town = Galmair, "task", "adventure" -> inform("[New quest] Save Da Beer VI"), queststatus(189) = 36, "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
 queststatus(189) = 35, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rette das Bierlager VI"), queststatus(189) = 36, "Töte den Rattenmenschen in der Zisterne, er ist der Befehlshaber und trägt den Namen 'Schnüffler'. Vielleicht werden die Ratten sich dann zurückziehen!"
 
 -- Quest 6 solved, 30 silver, +10 rankpoints
@@ -220,9 +220,9 @@ queststatus(189) = 37, english, town = Galmair, ".+" -> inform("[Quest solved] Y
 queststatus(189) = 37, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), money + 3000, queststatus(189) = 38, rankpoints + 10, "Arr!!! Das Bier ist gerettet, ich habe nichts mehr für dich zu tun."
 
 -- Quest 6 taken but not finished
-queststatus(189) > 35, queststatus(189) < 37, town = Galmair, english, "quest", "mission" -> "Kill the ratman boss in the Cistern, he goes by the Nuzzler. Maybe then the rats will leave!"
+queststatus(189) > 35, queststatus(189) < 37, town = Galmair, english, "quest", "mission" -> "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
 queststatus(189) > 35, queststatus(189) < 37, town = Galmair, "quest", "mission" -> "Töte den Rattenmenschen in der Zisterne, er ist der Befehlshaber und trägt den Namen 'Schnüffler'. Vielleicht werden die Ratten sich dann zurückziehen!"
-queststatus(189) > 35, queststatus(189) < 37, town = Galmair, "task", "adventure" -> "Kill the ratman boss in the Cistern, he goes by the Nuzzler. Maybe then the rats will leave!"
+queststatus(189) > 35, queststatus(189) < 37, town = Galmair, "task", "adventure" -> "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
 queststatus(189) > 35, queststatus(189) < 37, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Töte den Rattenmenschen in der Zisterne, er ist der Befehlshaber und trägt den Namen 'Schnüffler'. Vielleicht werden die Ratten sich dann zurückziehen!"
 
 -- No more quests, just nice words of gratitude

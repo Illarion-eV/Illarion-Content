@@ -209,9 +209,9 @@ queststatus(188) > 23, queststatus(188) < 34, town = Runewick, "Auftrag", "Aufga
 
 -- Quest 6  Kill Ratman Boss
 -- Give out Quest 6
-queststatus(188) = 35, english, town = Runewick, "quest", "mission" -> inform("[New quest] Save The Fields VI"), queststatus(188) = 36, "Kill the ratman boss in the Cistern, he goes by the Nuzzler. Maybe then the rats will leave!"
+queststatus(188) = 35, english, town = Runewick, "quest", "mission" -> inform("[New quest] Save The Fields VI"), queststatus(188) = 36, "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
 queststatus(188) = 35, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Rette die Äcker VI"), queststatus(188) = 36, "Töte den Rattenmenschen in der Zisterne, er ist der Befehlshaber und trägt den Namen 'Schnüffler'. Vielleicht werden die Ratten sich dann zurückziehen!"
-queststatus(188) = 35, town = Runewick, "task", "adventure" -> inform("[New quest] Save The Fields VI"), queststatus(188) = 36, "Kill the ratman boss in the Cistern, he goes by the Nuzzler. Maybe then the rats will leave!"
+queststatus(188) = 35, town = Runewick, "task", "adventure" -> inform("[New quest] Save The Fields VI"), queststatus(188) = 36, "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
 queststatus(188) = 35, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rette die Äcker VI"), queststatus(188) = 36, "Töte den Rattenmenschen in der Zisterne, er ist der Befehlshaber und trägt den Namen 'Schnüffler'. Vielleicht werden die Ratten sich dann zurückziehen!"
 
 -- Quest 6 solved, 30 silver, +10 rankpoints
@@ -219,9 +219,9 @@ queststatus(188) = 37, english, town = Runewick, ".+" -> inform("[Quest solved] 
 queststatus(188) = 37, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), money + 3000, queststatus(188) = 38, rankpoints + 10, "Du hast erfolgreich geholfen die Ernte zu beschützen, der Erzmagier und ich sind dankbar."
 
 -- Quest 6 taken but not finished
-queststatus(188) > 35, queststatus(188) < 37, town = Runewick, english, "quest", "mission" -> "Kill the ratman boss in the Cistern, he goes by the Nuzzler. Maybe then the rats will leave!"
+queststatus(188) > 35, queststatus(188) < 37, town = Runewick, english, "quest", "mission" -> "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
 queststatus(188) > 35, queststatus(188) < 37, town = Runewick, "quest", "mission" -> "Töte den Rattenmenschen in der Zisterne, er ist der Befehlshaber und trägt den Namen 'Schnüffler'. Vielleicht werden die Ratten sich dann zurückziehen!"
-queststatus(188) > 35, queststatus(188) < 37, town = Runewick, "task", "adventure" -> "Kill the ratman boss in the Cistern, he goes by the Nuzzler. Maybe then the rats will leave!"
+queststatus(188) > 35, queststatus(188) < 37, town = Runewick, "task", "adventure" -> "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
 queststatus(188) > 35, queststatus(188) < 37, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> "Töte den Rattenmenschen in der Zisterne, er ist der Befehlshaber und trägt den Namen 'Schnüffler'. Vielleicht werden die Ratten sich dann zurückziehen!"
 
 -- No more quests, just nice words of gratitude
