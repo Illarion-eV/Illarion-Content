@@ -172,7 +172,7 @@ if (MonID==881) then --Bloodhunter, Level: 2, Armourtype: cloth, Weapontype: con
         drop.AddDropItem(3076,math.random(20,60),100,773,0,4); --copper coins
 
 
-    elseif (MonID==883) then --Bloodsniffler, Level: 4, Armourtype: light, Weapontype: slashing
+    elseif (MonID==883) then --Bloodsniffer, Level: 4, Armourtype: light, Weapontype: slashing
 
         --Category 1: Special Loot
 

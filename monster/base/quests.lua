@@ -275,7 +275,7 @@ end
     questList[873]={}; --Giant Swampbeast
     questList[881]={}; --Bloodhunter
     questList[882]={}; --Monstrosity
-    questList[883]={}; --Bloodsniffler
+    questList[883]={}; --Bloodsniffer
     questList[891]={}; --Fire Imp
     questList[892]={}; --Cures Fire Imp
     questList[893]={}; --Mystic Fire Imp
