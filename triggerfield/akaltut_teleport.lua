@@ -34,28 +34,28 @@ function M.MoveToField( User )
 	    world:gfx(41,User.pos);
 	    world:makeSound(13,User.pos);
 	elseif User.pos == position(503, 780, -6) then -- Wind 1 - 
-		common.InformNLS(User,"Eine heftige BÃ¶e reiÃŸt dich um und wirbelt dich durch die Luft.","Strong winds lift you off your feet and send you flying through the air."); --sending a message
+		common.InformNLS(User,"Eine heftige Böe reißt dich um und wirbelt dich durch die Luft.","Strong winds lift you off your feet and send you flying through the air."); --sending a message
 	    world:gfx(7,User.pos);
 	    world:makeSound(27,User.pos);
         User:warp(position(483,777,-6));
 	    world:gfx(7,User.pos);
 	    world:makeSound(27,User.pos);
 	elseif User.pos == position(510, 776, -6) then -- Wind 2
-		common.InformNLS(User,"Eine heftige BÃ¶e reiÃŸt dich um und wirbelt dich durch die Luft.","Strong winds lift you off your feet and send you flying through the air."); --sending a message
+		common.InformNLS(User,"Eine heftige Böe reißt dich um und wirbelt dich durch die Luft.","Strong winds lift you off your feet and send you flying through the air."); --sending a message
 		world:gfx(7,User.pos);
 	    world:makeSound(27,User.pos);
         User:warp(position(511,788,-6));
         world:gfx(7,User.pos);
         world:makeSound(27,User.pos);
 	elseif User.pos == position(517, 778, -6) then -- Wind 3
-		common.InformNLS(User,"Eine heftige BÃ¶e reiÃŸt dich um und wirbelt dich durch die Luft.","Strong winds lift you off your feet and send you flying through the air."); --sending a message
+		common.InformNLS(User,"Eine heftige Böe reißt dich um und wirbelt dich durch die Luft.","Strong winds lift you off your feet and send you flying through the air."); --sending a message
 		world:gfx(7,User.pos);
 	    world:makeSound(27,User.pos);
         User:warp(position(542, 772, -6));
         world:gfx(7,User.pos);
         world:makeSound(27,User.pos);
 	elseif User.pos == position(512, 786, -6) then -- Wind 4
-		common.InformNLS(User,"Eine heftige BÃ¶e reiÃŸt dich um und wirbelt dich durch die Luft.","Strong winds lift you off your feet and send you flying through the air."); --sending a message
+		common.InformNLS(User,"Eine heftige Böe reißt dich um und wirbelt dich durch die Luft.","Strong winds lift you off your feet and send you flying through the air."); --sending a message
 		world:gfx(7,User.pos);
 	    world:makeSound(27,User.pos);
         User:warp(position(528, 785, -6));
@@ -82,7 +82,7 @@ function M.MoveToField( User )
 	elseif User.pos == position(453, 819, -9) then -- Exit from mud pit to -6
 		world:gfx(41,User.pos);
 	    world:makeSound(13,User.pos);
-        User:warp(position(509 777 -6));
+        User:warp(position(509, 777, -6));
         world:gfx(41,User.pos);
         world:makeSound(13,User.pos);
 	elseif User.pos == position(470, 773, -9) then -- lev -9 exit to surface
