@@ -35,7 +35,7 @@ function M.CharacterOnField(User)
 
     -- immune
     if User:getType() == Character.monster then
-        if User:getMonsterType() == 651 then -- undead firedragon
+        if User:getMonsterType() == 633 then -- undead firedragon
             return
         end
     end

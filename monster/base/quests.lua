@@ -227,12 +227,12 @@ end
     questList[621]={}; --Chicken
     questList[622]={}; --Angry Chicken
     questList[631]={}; --Bone Dragon
-    questList[641]={}; --Black Dragonskeleton
-    questList[651]={}; --Undead Firedragon
-    questList[661]={}; --Nightmare Dragon
-    questList[671]={}; --Undead Swampdragon
-    questList[681]={}; --Shiny Deathdragon
-    questList[691]={}; --Golden Bonedragon
+    questList[632]={}; --Black Dragonskeleton
+    questList[633]={}; --Undead Firedragon
+    questList[634]={}; --Nightmare Dragon
+    questList[635]={}; --Undead Swampdragon
+    questList[636]={}; --Shiny Deathdragon
+    questList[637]={}; --Golden Bonedragon
     questList[701]={}; --Chergas Servant
     questList[711]={}; --Palace Guard
     questList[721]={}; --Forgotten Mummy
@@ -750,7 +750,7 @@ end
     statusId[id]=104;
     englishRace[id]="undead fire dragons";
     germanRace[id]="untote Feuerdrachen";
-    table.insert(questList[651],id);
+    table.insert(questList[633],id);
     minimumQueststatus[id]=33;
     maximumQueststatus[id]=34;
     questLocation[id]=position(705,410,-3);

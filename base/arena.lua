@@ -51,9 +51,9 @@ M.monsterIDsByLevel = {
 	{monsters = {141, 515, 552, 791, 872}, points = 4, price=14000},
 	{monsters = {191, 514, 531, 402, 851}, points = 6, price=19200},
 	{monsters = {121, 201, 513, 525, 852}, points = 8, price=23200},
-	{monsters = {534, 124, 562, 661, 853}, points = 13, price=35100},
-	{monsters = {125, 205, 912, 262, 691}, points = 18, price=43200},
-	{monsters = {302, 641, 911}, points = 23, price=46000}
+	{monsters = {534, 124, 562, 634, 853}, points = 13, price=35100},
+	{monsters = {125, 205, 912, 262, 637}, points = 18, price=43200},
+	{monsters = {302, 632, 911}, points = 23, price=46000}
 }
 
 M.arenaInformation = {{playerPos=nil, monsterPos=position(255,668,0), newPlayerPos=nil, npcName="Dale Daeon", town="Cadomyr", quest=801},
