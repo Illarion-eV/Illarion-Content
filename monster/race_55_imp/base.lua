@@ -14,10 +14,17 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 531, Walking Dead,   Level: 5, Armourtype: heavy,  Weapontype: puncture
---ID 532, Limping Zombie, Level: 5, Armourtype: midium, Weapontype: concussion
---ID 533, Zombie,         Level: 6, Armourtype: light,  Weapontype: slashing
---ID 534, Zombiegiant,    Level: 7, Armourtype: medium, Weapontype: concussion
+local base = require("monster.base.base")
+local messages = require("base.messages")
 
-local zombies = require("monster.race_53_zombie.base")
-return zombies.generateCallbacks()
+--Random Messages
+local msgs = messages.Messages()
+msgs:addMessage("#me knurrt.", "#me growls.")
+
+local M = {}
+
+function M.generateCallbacks()
+    return base.generateCallbacks(msgs)
+end
+
+return M

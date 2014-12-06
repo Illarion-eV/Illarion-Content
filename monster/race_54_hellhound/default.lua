@@ -14,10 +14,9 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 531, Walking Dead,   Level: 5, Armourtype: heavy,  Weapontype: puncture
---ID 532, Limping Zombie, Level: 5, Armourtype: midium, Weapontype: concussion
---ID 533, Zombie,         Level: 6, Armourtype: light,  Weapontype: slashing
---ID 534, Zombiegiant,    Level: 7, Armourtype: medium, Weapontype: concussion
+--ID 541, Crippled Deamonbeast, Level: 6, Armourtype: heavy,  Weapontype: slashing
+--ID 542, Deamonbeast,          Level: 7, Armourtype: midium, Weapontype: puncture
+--ID 543, Giant Deamonbeast,    Level: 7, Armourtype: medium, Weapontype: concussion
 
-local zombies = require("monster.race_53_zombie.base")
-return zombies.generateCallbacks()
+local hellhounds = require("monster.race_54_hellhound.base")
+return hellhounds.generateCallbacks()

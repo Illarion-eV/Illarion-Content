@@ -14,10 +14,16 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 531, Walking Dead,   Level: 5, Armourtype: heavy,  Weapontype: puncture
---ID 532, Limping Zombie, Level: 5, Armourtype: midium, Weapontype: concussion
---ID 533, Zombie,         Level: 6, Armourtype: light,  Weapontype: slashing
---ID 534, Zombiegiant,    Level: 7, Armourtype: medium, Weapontype: concussion
+--ID 553, Cursed Imp, Level: 4, Armourtype: cloth, Weapontype: distance
 
-local zombies = require("monster.race_53_zombie.base")
-return zombies.generateCallbacks()
+local monstermagic = require("monster.base.monstermagic")
+local imps = require("monster.race_55_imp.base")
+
+local magic = monstermagic()
+magic.addWarping{probability = 0.05, usage = magic.ONLY_NEAR_ENEMY}
+
+magic.addFireball{probability = 0.025,  damage = {from = 500, to = 1500}}
+magic.addIceball{ probability = 0.025,  damage = {from = 500, to = 1500}}
+
+local M = imps.generateCallbacks()
+return magic.addCallbacks(M)

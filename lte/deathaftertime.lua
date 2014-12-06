@@ -57,13 +57,6 @@ function M.callEffect(Effect, Character)
 		end
     end
 	
-	-- Glutinous Seedling: slime check
-	local find, slimeNumber = Effect:findValue("GlutinousSeedling")
-	if find then
-		TheGlutinousSeedling(slimeNumber)
-	end
-	-- Glutinous Seedling end
-	
 	-- Dog Transformation Quest check
 	local find, value = Effect:findValue("transfomationDog")
 	if find and value then
@@ -74,11 +67,6 @@ function M.callEffect(Effect, Character)
    Character:increaseAttrib("hitpoints",-10000) -- die!
    return false
 -- callEffect is only needed once, no return true necessary
-end
-
-function TheGlutinousSeedling(slimeNumber)
-	showGFX.SlimeList["Slime"..slimeNumber].Time = world:getTime("unix")
-	showGFX.SlimeList["Slime"..slimeNumber].Monster = false
 end
 
 function M.removeEffect(Effect,User)

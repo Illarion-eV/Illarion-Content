@@ -14,10 +14,10 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 531, Walking Dead,   Level: 5, Armourtype: heavy,  Weapontype: puncture
---ID 532, Limping Zombie, Level: 5, Armourtype: midium, Weapontype: concussion
---ID 533, Zombie,         Level: 6, Armourtype: light,  Weapontype: slashing
---ID 534, Zombiegiant,    Level: 7, Armourtype: medium, Weapontype: concussion
+--ID 611, Stinky Slime,      Level: 3, Armourtype: cloth, Weapontype: wrestling
+--ID 612, Slimey Slime,      Level: 3, Armourtype: cloth, Weapontype: wrestling
+--ID 613, Smouldy Slime,     Level: 4, Armourtype: cloth, Weapontype: wrestling
+--ID 614, Cauterizing Slime, Level: 5, Armourtype: cloth, Weapontype: wrestling
 
-local zombies = require("monster.race_53_zombie.base")
-return zombies.generateCallbacks()
+local slimes = require("monster.race_61_slime.base")
+return slimes.generateCallbacks()

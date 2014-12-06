@@ -14,10 +14,8 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 531, Walking Dead,   Level: 5, Armourtype: heavy,  Weapontype: puncture
---ID 532, Limping Zombie, Level: 5, Armourtype: midium, Weapontype: concussion
---ID 533, Zombie,         Level: 6, Armourtype: light,  Weapontype: slashing
---ID 534, Zombiegiant,    Level: 7, Armourtype: medium, Weapontype: concussion
+--ID 551, Imp,              Level: 3, Armourtype: light, Weapontype: slashing
+--ID 552, Jack of all Imps, Level: 4, Armourtype: light, Weapontype: concussion
 
-local zombies = require("monster.race_53_zombie.base")
-return zombies.generateCallbacks()
+local imps = require("monster.race_55_imp.base")
+return imps.generateCallbacks()

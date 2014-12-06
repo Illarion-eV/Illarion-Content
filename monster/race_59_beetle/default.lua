@@ -14,10 +14,10 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 531, Walking Dead,   Level: 5, Armourtype: heavy,  Weapontype: puncture
---ID 532, Limping Zombie, Level: 5, Armourtype: midium, Weapontype: concussion
---ID 533, Zombie,         Level: 6, Armourtype: light,  Weapontype: slashing
---ID 534, Zombiegiant,    Level: 7, Armourtype: medium, Weapontype: concussion
+--ID 591, Peaceful Beetle
+--ID 592, Hunter Beetle
+--ID 593, Scarab
+--ID 594, Coffin Crawler
 
-local zombies = require("monster.race_53_zombie.base")
-return zombies.generateCallbacks()
+local beetles = require("monster.race_59_beetle.base")
+return beetles.generateCallbacks()

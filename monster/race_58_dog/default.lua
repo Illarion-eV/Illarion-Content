@@ -14,10 +14,10 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 531, Walking Dead,   Level: 5, Armourtype: heavy,  Weapontype: puncture
---ID 532, Limping Zombie, Level: 5, Armourtype: midium, Weapontype: concussion
---ID 533, Zombie,         Level: 6, Armourtype: light,  Weapontype: slashing
---ID 534, Zombiegiant,    Level: 7, Armourtype: medium, Weapontype: concussion
+--ID 581, Dog
+--ID 582, Vicious Dog
+--ID 583, Watchdog
+--ID 584, Docile Stray Dog
 
-local zombies = require("monster.race_53_zombie.base")
-return zombies.generateCallbacks()
+local dogs = require("monster.race_58_dog.base")
+return dogs.generateCallbacks()

@@ -14,10 +14,8 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 531, Walking Dead,   Level: 5, Armourtype: heavy,  Weapontype: puncture
---ID 532, Limping Zombie, Level: 5, Armourtype: midium, Weapontype: concussion
---ID 533, Zombie,         Level: 6, Armourtype: light,  Weapontype: slashing
---ID 534, Zombiegiant,    Level: 7, Armourtype: medium, Weapontype: concussion
+--ID 571, Nuzzler, Level: 3, Armourtype: light, Weapontype: puncture
+--ID 572, Baiter, Level: 4, Armourtype: light, Weapontype: slashing
 
-local zombies = require("monster.race_53_zombie.base")
-return zombies.generateCallbacks()
+local ratmen = require("monster.race_57_ratman.base")
+return ratmen.generateCallbacks()

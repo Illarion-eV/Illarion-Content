@@ -291,16 +291,16 @@ end
     questList[941]={}; --Crazy Rat Alchemist
     questList[942]={}; --Ratpriest
     questList[951]={}; --Attack Dog
-    questList[961]={}; --Hounrin
-    questList[962]={}; --Young Hounrin
-    questList[971]={}; --Orchound
-    questList[972]={}; --Young Orchound
+    questList[952]={}; --Hounrin
+    questList[953]={}; --Young Hounrin
+    questList[954]={}; --Orchound
+    questList[955]={}; --Young Orchound
     questList[981]={}; --Corpseeater
-    questList[991]={}; --Copperling
-    questList[1001]={}; --Graveraper
-    questList[1011]={}; --Bonescraper
-    questList[1021]={}; --Grey Fox
-    questList[1022]={}; --Young Grey Fox
+    questList[982]={}; --Copperling
+    questList[983]={}; --Graveraper
+    questList[984]={}; --Bonescraper
+    questList[605]={}; --Grey Fox
+    questList[606]={}; --Young Grey Fox
     questList[1031]={}; --Bloodslime
     questList[1032]={}; --Wandering Pool of Blood
     questList[1033]={}; --Wandering Demonblood
@@ -310,9 +310,7 @@ end
     questList[1051]={}; --Ectoplasm
     questList[1052]={}; --Malicious Ectoplasm
     questList[1053]={}; --Doomed Ectoplasm
-    questList[1061]={}; --Brown Chicken
-    questList[1071]={}; --Crazy Chicken
-    questList[1081]={}; --Black Chicken
+    questList[623]={}; --Crazy Chicken
 	questList[1111]={}; --Rat
 	questList[1112]={}; --Small Rat
 	questList[1113]={}; --Agressive Rat
@@ -497,10 +495,10 @@ end
     table.insert(questList[583],id);
     table.insert(questList[584],id);
 	table.insert(questList[951],id);
-    table.insert(questList[961],id);
-    table.insert(questList[962],id);
-    table.insert(questList[971],id);
-	table.insert(questList[972],id);
+    table.insert(questList[952],id);
+    table.insert(questList[953],id);
+    table.insert(questList[954],id);
+	table.insert(questList[955],id);
     minimumQueststatus[id]=13;
     maximumQueststatus[id]=18;
     questLocation[id]=position(774,711,0);
@@ -819,9 +817,9 @@ end
 	table.insert(questList[593],id); --All beetles
 	table.insert(questList[594],id); --All beetles
 	table.insert(questList[981],id); --All beetles
-	table.insert(questList[991],id); --All beetles
-	table.insert(questList[1001],id); --All beetles
-	table.insert(questList[1011],id); --All beetles
+	table.insert(questList[982],id); --All beetles
+	table.insert(questList[983],id); --All beetles
+	table.insert(questList[984],id); --All beetles
     minimumQueststatus[id]=1;
     maximumQueststatus[id]=5;
     questLocation[id]=position(250, 650, 0);
@@ -840,9 +838,9 @@ end
 	table.insert(questList[593],id); --All beetles
 	table.insert(questList[594],id); --All beetles
 	table.insert(questList[981],id); --All beetles
-	table.insert(questList[991],id); --All beetles
-	table.insert(questList[1001],id); --All beetles
-	table.insert(questList[1011],id); --All beetles
+	table.insert(questList[982],id); --All beetles
+	table.insert(questList[983],id); --All beetles
+	table.insert(questList[984],id); --All beetles
     minimumQueststatus[id]=6;
     maximumQueststatus[id]=14;
     questLocation[id]=position(250, 650, 0);
@@ -861,9 +859,9 @@ end
 	table.insert(questList[593],id); --All beetles
 	table.insert(questList[594],id); --All beetles
 	table.insert(questList[981],id); --All beetles
-	table.insert(questList[991],id); --All beetles
-	table.insert(questList[1001],id); --All beetles
-	table.insert(questList[1011],id); --All beetles
+	table.insert(questList[982],id); --All beetles
+	table.insert(questList[983],id); --All beetles
+	table.insert(questList[984],id); --All beetles
     minimumQueststatus[id]=15;
     maximumQueststatus[id]=27;
     questLocation[id]=position(250, 650, 0);
@@ -936,10 +934,10 @@ end
 	table.insert(questList[583],id); --All dogs
 	table.insert(questList[584],id); --All dogs
 	table.insert(questList[951],id); --All dogs
-	table.insert(questList[961],id); --All dogs
-	table.insert(questList[962],id); --All dogs
-	table.insert(questList[971],id); --All dogs
-	table.insert(questList[972],id); --All dogs
+	table.insert(questList[952],id); --All dogs
+	table.insert(questList[953],id); --All dogs
+	table.insert(questList[954],id); --All dogs
+	table.insert(questList[955],id); --All dogs
     minimumQueststatus[id]=55;
     maximumQueststatus[id]=59;
     questLocation[id]=position(250, 650, 0);
@@ -958,10 +956,10 @@ end
 	table.insert(questList[583],id); --All dogs
 	table.insert(questList[584],id); --All dogs
 	table.insert(questList[951],id); --All dogs
-	table.insert(questList[961],id); --All dogs
-	table.insert(questList[962],id); --All dogs
-	table.insert(questList[971],id); --All dogs
-	table.insert(questList[972],id); --All dogs
+	table.insert(questList[952],id); --All dogs
+	table.insert(questList[953],id); --All dogs
+	table.insert(questList[954],id); --All dogs
+	table.insert(questList[955],id); --All dogs
     minimumQueststatus[id]=60;
     maximumQueststatus[id]=68;
     questLocation[id]=position(250, 650, 0);
@@ -980,10 +978,10 @@ end
 	table.insert(questList[583],id); --All dogs
 	table.insert(questList[584],id); --All dogs
 	table.insert(questList[951],id); --All dogs
-	table.insert(questList[961],id); --All dogs
-	table.insert(questList[962],id); --All dogs
-	table.insert(questList[971],id); --All dogs
-	table.insert(questList[972],id); --All dogs
+	table.insert(questList[952],id); --All dogs
+	table.insert(questList[953],id); --All dogs
+	table.insert(questList[954],id); --All dogs
+	table.insert(questList[955],id); --All dogs
     minimumQueststatus[id]=69;
     maximumQueststatus[id]=81;
     questLocation[id]=position(250, 650, 0);
@@ -1001,8 +999,8 @@ end
 	table.insert(questList[602],id); --All foxes
 	table.insert(questList[603],id); --All foxes
 	table.insert(questList[604],id); --All foxes
-	table.insert(questList[1021],id); --All foxes
-	table.insert(questList[1022],id); --All foxes
+	table.insert(questList[605],id); --All foxes
+	table.insert(questList[606],id); --All foxes
     minimumQueststatus[id]=82;
     maximumQueststatus[id]=86;
     questLocation[id]=position(250, 650, 0);
@@ -1020,8 +1018,8 @@ end
 	table.insert(questList[602],id); --All foxes
 	table.insert(questList[603],id); --All foxes
 	table.insert(questList[604],id); --All foxes
-	table.insert(questList[1021],id); --All foxes
-	table.insert(questList[1022],id); --All foxes
+	table.insert(questList[605],id); --All foxes
+	table.insert(questList[606],id); --All foxes
     minimumQueststatus[id]=87;
     maximumQueststatus[id]=95;
     questLocation[id]=position(250, 650, 0);
@@ -1039,8 +1037,8 @@ end
 	table.insert(questList[602],id); --All foxes
 	table.insert(questList[603],id); --All foxes
 	table.insert(questList[604],id); --All foxes
-	table.insert(questList[1021],id); --All foxes
-	table.insert(questList[1022],id); --All foxes
+	table.insert(questList[605],id); --All foxes
+	table.insert(questList[606],id); --All foxes
     minimumQueststatus[id]=96;
     maximumQueststatus[id]=108;
     questLocation[id]=position(250, 650, 0);
@@ -1444,10 +1442,10 @@ end
 	table.insert(questList[583],id); --All dogs
 	table.insert(questList[584],id); --All dogs
 	table.insert(questList[951],id); --All dogs
-	table.insert(questList[961],id); --All dogs
-	table.insert(questList[962],id); --All dogs
-	table.insert(questList[971],id); --All dogs
-	table.insert(questList[972],id); --All dogs
+	table.insert(questList[952],id); --All dogs
+	table.insert(questList[953],id); --All dogs
+	table.insert(questList[954],id); --All dogs
+	table.insert(questList[955],id); --All dogs
     minimumQueststatus[id]=55;
     maximumQueststatus[id]=59;
 	questLocation[id]=position(564, 178, 0);
@@ -1466,10 +1464,10 @@ end
 	table.insert(questList[583],id); --All dogs
 	table.insert(questList[584],id); --All dogs
 	table.insert(questList[951],id); --All dogs
-	table.insert(questList[961],id); --All dogs
-	table.insert(questList[962],id); --All dogs
-	table.insert(questList[971],id); --All dogs
-	table.insert(questList[972],id); --All dogs
+	table.insert(questList[952],id); --All dogs
+	table.insert(questList[953],id); --All dogs
+	table.insert(questList[954],id); --All dogs
+	table.insert(questList[955],id); --All dogs
     minimumQueststatus[id]=60;
     maximumQueststatus[id]=68;
 	questLocation[id]=position(564, 178, 0);
@@ -1488,10 +1486,10 @@ end
 	table.insert(questList[583],id); --All dogs
 	table.insert(questList[584],id); --All dogs
 	table.insert(questList[951],id); --All dogs
-	table.insert(questList[961],id); --All dogs
-	table.insert(questList[962],id); --All dogs
-	table.insert(questList[971],id); --All dogs
-	table.insert(questList[972],id); --All dogs
+	table.insert(questList[952],id); --All dogs
+	table.insert(questList[953],id); --All dogs
+	table.insert(questList[954],id); --All dogs
+	table.insert(questList[955],id); --All dogs
     minimumQueststatus[id]=69;
     maximumQueststatus[id]=81;
 	questLocation[id]=position(564, 178, 0);
@@ -1509,8 +1507,8 @@ end
 	table.insert(questList[602],id); --All foxes
 	table.insert(questList[603],id); --All foxes
 	table.insert(questList[604],id); --All foxes
-	table.insert(questList[1021],id); --All foxes
-	table.insert(questList[1022],id); --All foxes
+	table.insert(questList[605],id); --All foxes
+	table.insert(questList[606],id); --All foxes
     minimumQueststatus[id]=82;
     maximumQueststatus[id]=86;
 	questLocation[id]=position(564, 178, 0);
@@ -1528,8 +1526,8 @@ end
 	table.insert(questList[602],id); --All foxes
 	table.insert(questList[603],id); --All foxes
 	table.insert(questList[604],id); --All foxes
-	table.insert(questList[1021],id); --All foxes
-	table.insert(questList[1022],id); --All foxes
+	table.insert(questList[605],id); --All foxes
+	table.insert(questList[606],id); --All foxes
     minimumQueststatus[id]=87;
     maximumQueststatus[id]=95;
 	questLocation[id]=position(564, 178, 0);
@@ -1547,8 +1545,8 @@ end
 	table.insert(questList[602],id); --All foxes
 	table.insert(questList[603],id); --All foxes
 	table.insert(questList[604],id); --All foxes
-	table.insert(questList[1021],id); --All foxes
-	table.insert(questList[1022],id); --All foxes
+	table.insert(questList[605],id); --All foxes
+	table.insert(questList[606],id); --All foxes
     minimumQueststatus[id]=96;
     maximumQueststatus[id]=108;
 	questLocation[id]=position(564, 178, 0);
@@ -1816,10 +1814,10 @@ end
 	table.insert(questList[583],id); --All dogs
 	table.insert(questList[584],id); --All dogs
 	table.insert(questList[951],id); --All dogs
-	table.insert(questList[961],id); --All dogs
-	table.insert(questList[962],id); --All dogs
-	table.insert(questList[971],id); --All dogs
-	table.insert(questList[972],id); --All dogs
+	table.insert(questList[952],id); --All dogs
+	table.insert(questList[953],id); --All dogs
+	table.insert(questList[954],id); --All dogs
+	table.insert(questList[955],id); --All dogs
     minimumQueststatus[id]=28;
     maximumQueststatus[id]=32;
 	questLocation[id]=position(811, 735, 0);
@@ -1839,10 +1837,10 @@ end
 	table.insert(questList[583],id); --All dogs
 	table.insert(questList[584],id); --All dogs
 	table.insert(questList[951],id); --All dogs
-	table.insert(questList[961],id); --All dogs
-	table.insert(questList[962],id); --All dogs
-	table.insert(questList[971],id); --All dogs
-	table.insert(questList[972],id); --All dogs
+	table.insert(questList[952],id); --All dogs
+	table.insert(questList[953],id); --All dogs
+	table.insert(questList[954],id); --All dogs
+	table.insert(questList[955],id); --All dogs
     minimumQueststatus[id]=33;
     maximumQueststatus[id]=41;
 	questLocation[id]=position(811, 735, 0);
@@ -1861,10 +1859,10 @@ end
 	table.insert(questList[583],id); --All dogs
 	table.insert(questList[584],id); --All dogs
 	table.insert(questList[951],id); --All dogs
-	table.insert(questList[961],id); --All dogs
-	table.insert(questList[962],id); --All dogs
-	table.insert(questList[971],id); --All dogs
-	table.insert(questList[972],id); --All dogs
+	table.insert(questList[952],id); --All dogs
+	table.insert(questList[953],id); --All dogs
+	table.insert(questList[954],id); --All dogs
+	table.insert(questList[955],id); --All dogs
     minimumQueststatus[id]=42;
     maximumQueststatus[id]=54;
 	questLocation[id]=position(811, 735, 0);
@@ -1951,8 +1949,8 @@ end
 	table.insert(questList[602],id); --All foxes
 	table.insert(questList[603],id); --All foxes
 	table.insert(questList[604],id); --All foxes
-	table.insert(questList[1021],id); --All foxes
-	table.insert(questList[1022],id); --All foxes
+	table.insert(questList[605],id); --All foxes
+	table.insert(questList[606],id); --All foxes
     minimumQueststatus[id]=82;
     maximumQueststatus[id]=86;
 	questLocation[id]=position(811, 735, 0);
@@ -1970,8 +1968,8 @@ end
 	table.insert(questList[602],id); --All foxes
 	table.insert(questList[603],id); --All foxes
 	table.insert(questList[604],id); --All foxes
-	table.insert(questList[1021],id); --All foxes
-	table.insert(questList[1022],id); --All foxes
+	table.insert(questList[605],id); --All foxes
+	table.insert(questList[606],id); --All foxes
     minimumQueststatus[id]=87;
     maximumQueststatus[id]=95;
 	questLocation[id]=position(811, 735, 0);
@@ -1989,8 +1987,8 @@ end
 	table.insert(questList[602],id); --All foxes
 	table.insert(questList[603],id); --All foxes
 	table.insert(questList[604],id); --All foxes
-	table.insert(questList[1021],id); --All foxes
-	table.insert(questList[1022],id); --All foxes
+	table.insert(questList[605],id); --All foxes
+	table.insert(questList[606],id); --All foxes
     minimumQueststatus[id]=96;
     maximumQueststatus[id]=108;
 	questLocation[id]=position(811, 735, 0);

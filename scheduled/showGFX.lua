@@ -21,70 +21,21 @@ local M = {}
 
 -- INSERT INTO scheduledscripts VALUES('scheduled.showGFX', 10, 10, 'CreateGFX');
 
-
--- this script is used to show a ceratin graphic effect on a certain position every ten seconds
-
-M.SlimeList = {}
-M.SlimeList.Slime1 = {}
-M.SlimeList.Slime2 = {}
-
-
 function M.CreateGFX()
-    world:gfx(1,position(75,651,0)) -- thinking stone
-	world:gfx(11,position(873,878,0)) -- recognizing spring
-    world:gfx(7,position(432,238,0)) -- knowing tree
+    world:gfx(1, position(75, 651, 0)) -- thinking stone
+	world:gfx(11, position(873, 878, 0)) -- recognizing spring
+    world:gfx(7, position(432, 238, 0)) -- knowing tree
 
 	-- Glutinous Seedling
-	local myPos = position(376+math.random(-1,1), 288+math.random(-1,1), 0)
-	world:gfx(11,myPos)
+	local myPos = position(math.random(375, 377), math.random(287, 289), 0)
+	world:gfx(11, myPos)
 	if world:isCharacterOnField(myPos) then
 		local myChar = world:getCharacterOnField(myPos)
 		if character.IsPlayer(myChar) then
 			myChar:talk(Character.say, "#mes Füße werden von einem großen Schleimtropfen, der sich vom schleimigen Setzling gelöst hat, getroffen.","#me's feet are hit by a big drop of slime, which has come off from the glutinous seedling.")
 		end
-	else
-        SpawnSlime(myPos)
 	end
 	-- Glutinous Seedling end
-end
-
-function SpawnSlime(thePos)
-
-	if checkSlime(M.SlimeList.Slime1) then
-		CreateSlime(M.SlimeList.Slime1,thePos,1)
-		return;
-	end
-	if checkSlime(M.SlimeList.Slime2) then
-		CreateSlime(M.SlimeList.Slime2,thePos,2)
-		return;
-	end
-
-end
-
-function CreateSlime(ListSlime,thePos,slimeNumber)
-	local mon = world:createMonster(615,thePos,-10)
-    ListSlime.Monster = true
-	character.DeathAfterTime(mon,18000,11,9,false)
-	local find, Effect = mon.effects:find(36)
-	if not find then
-		debug("Error: Effect not found.")
-	else
-		Effect:addValue("GlutinousSeedling",slimeNumber)
-	end
-end
-
-function checkSlime(ListSlime)
-
-    if ListSlime.Monster == nil then
-		return true
-	end
-
-	if ListSlime.Monster == false then
-		if (world:getTime("unix") - ListSlime.Time) >= 900 then
-			return true
-		end
-	end
-	return false
 end
 
 return M

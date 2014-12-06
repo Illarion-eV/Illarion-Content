@@ -14,10 +14,19 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 531, Walking Dead,   Level: 5, Armourtype: heavy,  Weapontype: puncture
---ID 532, Limping Zombie, Level: 5, Armourtype: midium, Weapontype: concussion
---ID 533, Zombie,         Level: 6, Armourtype: light,  Weapontype: slashing
---ID 534, Zombiegiant,    Level: 7, Armourtype: medium, Weapontype: concussion
+--ID 605, Grey Fox
+--ID 606, Young Grey Fox
 
-local zombies = require("monster.race_53_zombie.base")
-return zombies.generateCallbacks()
+local foxes = require("monster.race_60_fox.base")
+local M = foxes.generateCallbacks()
+
+local orgOnSpawn = M.onSpawn
+function M.onSpawn(monster)
+    if orgOnSpawn ~= nil then
+        orgOnSpawn(monster)
+    end
+
+    monster:setSkinColor(100, 100, 100)
+end
+
+return M
