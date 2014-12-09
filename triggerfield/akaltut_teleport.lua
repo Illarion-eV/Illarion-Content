@@ -33,7 +33,7 @@ function M.MoveToField( User )
         User:warp(position(466,740,-6));
 	    world:gfx(41,User.pos);
 	    world:makeSound(13,User.pos);
-	elseif User.pos == position(503, 780, -6) then -- Wind 1 - 
+	elseif User.pos == position(503, 780, -6) then -- Wind 1 -
 		common.InformNLS(User,"Eine heftige Böe reißt dich um und wirbelt dich durch die Luft.","Strong winds lift you off your feet and send you flying through the air."); --sending a message
 	    world:gfx(7,User.pos);
 	    world:makeSound(27,User.pos);
@@ -161,5 +161,5 @@ function M.MoveToField( User )
 
 end
 
-return
+return M
 
