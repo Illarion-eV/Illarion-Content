@@ -114,7 +114,7 @@ function M.MoveToField(User)
 			world:gfx(41,position(714,431,-3));
             world:createMonster(172,position(714,431,-3),0); --mummified temple servant
 			world:gfx(41,position(716,434,-3));
-            world:createMonster(701,position(716,434,-3),0); --Cherga's servant
+            world:createMonster(105,position(716,434,-3),0); --Cherga's servant
 
 		elseif User.pos == waypoint[4] and queststatuslist[4] == 0 then --icetrap and an ambush by imps
 

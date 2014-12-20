@@ -4,3 +4,7 @@
 illarionserver/development
 illarionserver/documentation
 illarionserver/test
+*.iml
+out/
+*.ipr
+*.iws

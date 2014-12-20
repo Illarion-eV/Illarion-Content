@@ -233,10 +233,10 @@ end
     questList[635]={}; --Undead Swampdragon
     questList[636]={}; --Shiny Deathdragon
     questList[637]={}; --Golden Bonedragon
-    questList[701]={}; --Chergas Servant
-    questList[711]={}; --Palace Guard
-    questList[721]={}; --Forgotten Mummy
-    questList[731]={}; --Dead King
+    questList[105]={}; --Chergas Servant
+    questList[108]={}; --Palace Guard
+    questList[109]={}; --Forgotten Mummy
+    questList[110]={}; --Dead King
     questList[741]={}; --Phantomskeleton
     questList[742]={}; --Bone Schemes
     questList[743]={}; --Bone Ghost
@@ -366,8 +366,8 @@ end
 	table.insert(questList[171],id);
 	table.insert(questList[172],id);
 	table.insert(questList[173],id);
-	table.insert(questList[721],id);
-	table.insert(questList[731],id);
+	table.insert(questList[109],id);
+	table.insert(questList[110],id);
     minimumQueststatus[id]=13;
     maximumQueststatus[id]=18;
     questLocation[id]=position(298,352,-6);
@@ -408,8 +408,8 @@ end
 	table.insert(questList[171],id);
 	table.insert(questList[172],id);
 	table.insert(questList[173],id);
-	table.insert(questList[721],id);
-	table.insert(questList[731],id);
+	table.insert(questList[109],id);
+	table.insert(questList[110],id);
     minimumQueststatus[id]=1;
     maximumQueststatus[id]=11;
     questLocation[id]=position(135,655,-4);
@@ -617,8 +617,8 @@ end
 	table.insert(questList[171],id);
 	table.insert(questList[172],id);
 	table.insert(questList[173],id);
-	table.insert(questList[721],id);
-	table.insert(questList[731],id);
+	table.insert(questList[109],id);
+	table.insert(questList[110],id);
     minimumQueststatus[id]=3;
     maximumQueststatus[id]=8;
     questLocation[id]=position(665,415,0);
@@ -674,8 +674,8 @@ end
 	table.insert(questList[171],id);
 	table.insert(questList[172],id);
 	table.insert(questList[173],id);
-	table.insert(questList[721],id);
-	table.insert(questList[731],id);
+	table.insert(questList[109],id);
+	table.insert(questList[110],id);
     minimumQueststatus[id]=3;
     maximumQueststatus[id]=9;
     questLocation[id]=position(705,410,-3);
@@ -2519,8 +2519,8 @@ end
 	table.insert(questList[841],id); --Coffinguard
 	table.insert(questList[842],id); --Undead Warlock
 	table.insert(questList[832],id); --Horrible Poltergeist
-	table.insert(questList[721],id); --Forgotten Mummy
-	table.insert(questList[731],id); --Dead King
+	table.insert(questList[109],id); --Forgotten Mummy
+	table.insert(questList[110],id); --Dead King
 	minimumQueststatus[id]=1;
     maximumQueststatus[id]=11;
 	questLocation[id]=position(470, 802, -9);

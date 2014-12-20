@@ -37,6 +37,7 @@ magic.addSummon{probability = 0.0050, monsters = {104, 107, 113}} -- surprise sp
 magic.addSummon{probability = 0.0001, monsters = {115, 201}} -- rare summon. Magic skeleton or a demon skeleton
 
 local M = demonSkeletons.generateCallbacks()
+M = magic.addCallbacks(M)
 
 local orgOnDeath = M.onDeath
 function M.onDeath(monster)
@@ -63,4 +64,4 @@ function M.onDeath(monster)
     scheduledFunction.registerFunction(8, function() spawnWeakLich(pos) end)
 end
 
-return magic.addCallbacks(M)
+return M

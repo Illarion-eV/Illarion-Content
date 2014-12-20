@@ -16,7 +16,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 195, Spider Queen, Level: 7, Armourtype: heavy, Weapontype: slashing
 
+local common = require("base.common")
+local lookat = require("base.lookat")
 local monstermagic = require("monster.base.monstermagic")
+local scheduledFunction = require("scheduled.scheduledFunction")
 local spiders = require("monster.race_19_spider.base")
 
 local magic = monstermagic()
@@ -24,4 +27,71 @@ magic.addPoisonball{probability = 0.04, damage = {from = 2000, to = 4000}}
 magic.addPoisonball{probability = 0.01, damage = {from = 1000, to = 2000}, targetCount = 3}
 
 local M = spiders.generateCallbacks()
-return magic.addCallbacks(M)
+M = magic.addCallbacks(M)
+
+local orgOnDeath = M.onDeath
+function M.onDeath(monster)
+    if orgOnDeath ~= nil then
+        orgOnDeath(monster)
+    end
+
+    if Random.uniform() < 0.3 then
+        local pos = position(monster.pos.x, monster.pos.y, monster.pos.z)
+        monster:talk(Character.say,
+            "#me explodiert und hinterlässt ein schleimiges Spinnenei.",
+            "#me explodes and a slimey spider egg is left behind.")
+
+        world:gfx(8, monster.pos)
+        local spiderEgg = world:createItemFromId(738, 1, monster.pos, true, 333, nil)
+        spiderEgg.wear = 2
+        lookat.SetSpecialName(spiderEgg, "Spinnenei", "Spider egg")
+        spiderEgg:setData("spawnSpiders", "true")
+        world:changeItem(spiderEgg)
+
+        for i=-1, 1 do
+            for j=-1, 1 do
+                local slimePosition = position(monster.pos.x + i, monster.pos.y + j, monster.pos.z)
+                if not world:isItemOnField(slimePosition) then
+                    local spiderSlime = world:createItemFromId(3102, 1, slimePosition, true, 333, nil)
+                    spiderEgg.wear = 3
+                    lookat.SetSpecialName(spiderSlime, "Spinnenschleim", "Spider slime")
+                    world:changeItem(spiderSlime)
+                    if world:isCharacterOnField(slimePosition) then
+                        local hitChar = world:getCharacterOnField(slimePosition)
+                        hitChar:inform("Du wirst von ekeligem klebrigem Spinnenschleim getroffen.", "You are hit by disgusting and sticky spider slime.")
+                    end
+                end
+            end
+        end
+
+        local function hatchEggs(pos)
+            local itemProperties = {itemId = 738, deleteAmount = 1, quality = false, data = {{dataKey = "spawnSpiders", dataValue = "true"}}}
+            if not common.DeleteItemFromStack(pos, itemProperties) then
+                return
+            end
+
+            world:gfx(1,pos)
+            local players = world:getPlayersInRangeOf(pos, 5)
+            for _, player in pairs(players) do
+                player:inform("Das Ei zerspringt und kleine Spinnen schlüpfen.","The egg breaks and small spiders hatch.")
+            end
+
+            for _=1, Random.uniform(3,5) do
+                local spawnPosition = pos
+                for j=-1, 1 do
+                    for k=-1, 1 do
+                        local checkPosition = position(spawnPosition.x + j, spawnPosition.y + k, spawnPosition.z)
+                        if checkPosition ~= pos and world:getField(checkPosition):isPassable() and not world:isCharacterOnField(checkPosition) then
+                            spawnPosition = checkPosition
+                        end
+                    end
+                end
+                world:createMonster(196, spawnPosition, -5)
+            end
+        end
+
+        scheduledFunction.registerFunction(8, function() hatchEggs(pos) end)
+    end
+end
+
+return M
