@@ -55,11 +55,11 @@ Start = {439, 359, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(439, 359, 0), position(366, 275, 0), position(435, 359, 0)} 
+QuestTarget[1] = {position(439, 359, 0), position(369, 279, 0), position(435, 359, 0)} 
 QuestTarget[2] = {position(439, 359, 0)} 
-QuestTarget[3] = {position(439, 359, 0), position(366, 275, 0), position(436, 360, 0)} 
+QuestTarget[3] = {position(439, 359, 0), position(369, 279, 0), position(436, 360, 0)} 
 QuestTarget[4] = {position(439, 359, 0)} 
-QuestTarget[5] = {position(439, 359, 0), position(366, 275, 0), position(435, 359, 0)} 
+QuestTarget[5] = {position(439, 359, 0), position(369, 279, 0), position(435, 359, 0)} 
 QuestTarget[6] = {position(439, 359, 0)} 
 QuestTarget[7] = {position(439, 359, 0), position(819, 104, 0), position(380, 292, 0)} -- Raban
 QuestTarget[8] = {position(439, 359, 0)} 
