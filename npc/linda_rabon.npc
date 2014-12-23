@@ -181,7 +181,7 @@ english, "Rose" -> "Father used to be the cook and mother the waitress, but sinc
 "Rose" -> "Vater war der Koch und Mutter hat bedient, aber da Mutter nun von uns gegangen ist...", "Mutter hat immer gesagt, wenn ich mal groß bin, werde ich hübsch sein.", "Mutter war immer so nett, sie war sogar zu bösen Leuten nett."
 english, "Hassan" -> "He's cute, don't you think?", "I wish he would tell stories, but Hassan never talks.", "He rarely speaks. It's kind of weird, don't you think?", "He's so big, he picked me up once. I felt like I was touching the stars.", "He's so big, he used to have to duck to enter this place. My father is so nice though, he made the entrance taller."
 "Hassan" -> "Er ist süß, nicht wahr?", "Ich wünschte, er würde manchmal Geschichten erzählen, aber Hassan redet nicht gerne.", "Er spricht nur selten. Merkwürdig, oder?", "Er ist so groß! Er hat mich einmal hochgehoben. Es fühlte sich an, als könnte ich die Sterne berühren.", "Er ist so groß! Er mußte sich früher immer bücken, um durch die Tür zu kommen. Mein Vater hat dann netterweise den Türrahmen höher gemacht."
-english, "honor" -> "I'm not a noble nor a warrior but all my cooked food should taste good. That's my kind of honor."
+"honor", "honour" -> "I'm not a noble nor a warrior but all my cooked food should taste good. That's my kind of honour."
 "Ehre" -> "Ich bin keine Adlige und auch keine Kriegerin. Aber was ich koche soll gut schmecken. Das ist mein Weg der Ehre."
 
 -- Cadomyr
