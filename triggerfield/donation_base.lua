@@ -31,6 +31,11 @@ function M.donate(Item,User,FactionName,LeaderName,Treasury)
 	
         common.InformNLS(User,"[Spende] Dieser Gegenstand ist wertlos.","[Donation] This item is worthless."); -- Feedback!
 		donated=false; -- no donation
+	
+	elseif Item.id == 97 or Item.id == 799 then --Bags and baskets cannot be donated as the content of containers cannot be evaluated.
+	
+	    common.InformNLS(User,"[Spende] Taschen und Körbe können nicht gespendet werden.","[Donation] Bags and baskets cannot be donated."); -- Feedback!
+		donated=false; -- no donation
 		
 	else -- item with worth
 	
