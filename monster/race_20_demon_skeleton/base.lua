@@ -61,6 +61,8 @@ function M.generateCallbacks()
             saturation = {min = 0.5, max = 0.7}, -- Saturation 60% +- 10%
             value =      {min = 0.9, max = 1.0}} -- Value 95% +- 5%
     end
+
+    return t
 end
 
 return M
