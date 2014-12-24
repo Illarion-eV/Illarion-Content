@@ -16,5 +16,5 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 261, Nightmarespider, Level: 7, Armourtype: heavy, Weapontype: distance
 
-local transparentSpiders = require("monster.race_26_tranparent_spider.base")
+local transparentSpiders = require("monster.race_26_transparent_spider.base")
 return transparentSpiders.generateCallbacks()
