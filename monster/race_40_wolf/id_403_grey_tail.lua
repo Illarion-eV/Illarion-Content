@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 403, Grey Tail, Level: 3, Armourtype: light, Weapontype: wrestling
 
+local base = require("monster.base.base")
 local wolves = require("monster.race_40_wolf.base")
 local M = wolves.generateCallbacks()
 
@@ -25,7 +26,7 @@ function M.onSpawn(monster)
         orgOnSpawn(monster)
     end
 
-    monster:setSkinColor(200, 200, 220)
+    base.setColor{monster = monster, target = base.SKIN_COLOR, red = 200, green = 200, blue = 220}
 end
 
 return M

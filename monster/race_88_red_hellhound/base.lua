@@ -14,6 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+local base = require("monster.base.base")
 local hellhounds = require("monster.race_54_hellhound.base")
 
 local M = {}
@@ -27,7 +28,7 @@ function M.generateCallbacks()
             orgOnSpawn(monster)
         end
 
-        monster:setSkinColor(255, 140, 140)
+        base.setColor{monster = monster, target = base.SKIN_COLOR, red = 255, green = 140, blue = 140}
     end
     return t
 end

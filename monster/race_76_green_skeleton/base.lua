@@ -14,6 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+local base = require("monster.base.base")
 local skeletons = require("monster.race_11_skeleton.base")
 
 -- The green skeletons are just skeletons with a special skin color
@@ -29,7 +30,7 @@ function M.generateCallbacks()
             orgOnSpawn(monster)
         end
 
-        monster:setSkinColor(100, 140, 100)
+        base.setColor{monster = monster, target = base.SKIN_COLOR, red = 100, green = 140, blue = 100}
     end
     return t
 end

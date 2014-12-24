@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --ID 952, Hounrin
 --ID 953, Young Hounrin
 
+local base = require("monster.base.base")
 local dogs = require("monster.race_95_dog.base")
 local M = dogs.generateCallbacks()
 
@@ -26,7 +27,7 @@ function M.onSpawn(monster)
         orgOnSpawn(monster)
     end
 
-    monster:setSkinColor(190, 190, 190)
+    base.setColor{monster = monster, target = base.SKIN_COLOR, red = 190, green = 190, blue = 190}
 end
 
 return M

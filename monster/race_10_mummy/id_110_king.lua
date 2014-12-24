@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 110, Dead King, Level: 7, Armourtype: medium, Weapontype: slashing
 
+local base = require("monster.base.base")
 local monstermagic = require("monster.base.monstermagic")
 local mummies = require("monster.race_10_mummy.base")
 local M = mummies.generateCallbacks()
@@ -26,7 +27,7 @@ function M.onSpawn(monster)
         orgOnSpawn(monster)
     end
 
-    monster:setSkinColor(255, 255, 120)
+    base.setColor{monster = monster, target = base.SKIN_COLOR, red = 255, green = 255, blue = 120}
 end
 
 local magic = monstermagic()

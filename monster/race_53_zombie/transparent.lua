@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --ID 537, Poltergeist, Level: 5, Armourtype: light, Weapontype: slashing
 --ID 538, Horrible Poltergeist, Level: 6, Armourtype: light, Weapontype: concussion
 
+local base = require("monster.base.base")
 local zombies = require("monster.race_53_zombie.base")
 local M = zombies.generateCallbacks()
 
@@ -26,7 +27,7 @@ function M.onSpawn(monster)
         orgOnSpawn(monster)
     end
 
-    monster:setSkinColor(120, 255, 255, 180)
+    base.setColor{monster = monster, target = base.SKIN_COLOR, red = 120, green = 255, blue = 255, alpha = 180}
 end
 
 return M

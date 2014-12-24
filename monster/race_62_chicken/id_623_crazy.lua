@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 623, Crazy Chicken
 
+local base = require("monster.base.base")
 local chicken = require("monster.race_62_chicken.base")
 local M = chicken.generateCallbacks()
 
@@ -25,7 +26,7 @@ function M.onSpawn(monster)
         orgOnSpawn(monster)
     end
 
-    monster:setSkinColor(255, 100, 100)
+    base.setColor{monster = monster, target = base.SKIN_COLOR, red = 255, green = 100, blue = 100}
 end
 
 return M

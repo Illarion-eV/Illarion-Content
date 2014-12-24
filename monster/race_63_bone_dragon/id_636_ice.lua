@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 636, Shiny Deathdragon, Level: 7, Armourtype: heavy, Weapontype: slashing
 
+local base = require("monster.base.base")
 local monstermagic = require("monster.base.monstermagic")
 local boneDragons = require("monster.race_63_bone_dragon.base")
 local M = boneDragons.generateCallbacks()
@@ -26,7 +27,7 @@ function M.onSpawn(monster)
         orgOnSpawn(monster)
     end
 
-    monster:setSkinColor(120, 170, 255)
+    base.setColor{monster = monster, target = base.SKIN_COLOR, red = 120, green = 170, blue = 255}
 end
 
 local magic = monstermagic()

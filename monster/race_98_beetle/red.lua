@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 983, Gravereaper
 
+local base = require("monster.base.base")
 local beetles = require("monster.race_98_beetle.base")
 local M = beetles.generateCallbacks()
 
@@ -25,7 +26,7 @@ function M.onSpawn(monster)
         orgOnSpawn(monster)
     end
 
-    monster:setSkinColor(255, 0, 0)
+    base.setColor{monster = monster, target = base.SKIN_COLOR, red = 255, green = 0, blue = 0}
 end
 
 return M

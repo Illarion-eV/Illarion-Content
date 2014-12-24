@@ -14,6 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+local base = require("monster.base.base")
 local beholders = require("monster.race_12_beholder.base")
 
 -- The black beholder is a normal beholder with altered skin color. We can use the default script of the beholders and
@@ -30,7 +31,7 @@ function M.generateCallbacks()
             orgOnSpawn(monster)
         end
 
-        monster:setSkinColor(20, 255, 255)
+        base.setColor{monster = monster, target = base.SKIN_COLOR, red = 20, green = 255, blue = 255}
     end
     return t
 end

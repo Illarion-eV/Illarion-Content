@@ -15,7 +15,6 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local base = require("monster.base.base")
-local common = require("base.common")
 local messages = require("base.messages")
 
 --Random Messages
@@ -57,11 +56,10 @@ function M.generateCallbacks()
             orgOnSpawn(monster)
         end
 
-        local hue = 0 + ((math.random() * 2) - 1) * 5 -- Hue at 0° +- 5° (Red)
-        local saturation = 0.6 + ((math.random() * 2) - 1) * 0.1 -- Saturation 60% +- 10%
-        local value = 0.95 + ((math.random() * 2) - 1) * 0.05 -- value 95% +- 5%
-
-        monster:setSkinColor(common.HSVtoRGB(hue, saturation, value))
+        base.setColor{monster = monster, target = base.SKIN_COLOR,
+            hue =        {min = -5,  max = 5},   -- Hue at 0° +- 5° (Red)
+            saturation = {min = 0.5, max = 0.7}, -- Saturation 60% +- 10%
+            value =      {min = 0.9, max = 1.0}} -- Value 95% +- 5%
     end
 end
 

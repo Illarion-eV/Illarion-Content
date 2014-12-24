@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 540, Undead Warlock, Level: 5, Armourtype: light, Weapontype: concussion
 
+local base = require("monster.base.base")
 local monstermagic = require("monster.base.monstermagic")
 local zombies = require("monster.race_53_zombie.base")
 local M = zombies.generateCallbacks()
@@ -26,7 +27,7 @@ function M.onSpawn(monster)
         orgOnSpawn(monster)
     end
 
-    monster:setSkinColor(255, 140, 190)
+    base.setColor{monster = monster, target = base.SKIN_COLOR, red = 255, green = 140, blue = 190}
 end
 
 local magic = monstermagic()

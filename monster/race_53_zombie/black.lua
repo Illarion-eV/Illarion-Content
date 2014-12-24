@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --ID 535, Bog Body, Level: 4, Armourtype: light, Weapontype: slashing
 --ID 536, Ragged Bog Body, Level: 3, Armourtype: light, Weapontype: slashing
 
+local base = require("monster.base.base")
 local zombies = require("monster.race_53_zombie.base")
 local M = zombies.generateCallbacks()
 
@@ -26,7 +27,7 @@ function M.onSpawn(monster)
         orgOnSpawn(monster)
     end
 
-    monster:setSkinColor(100, 100, 100)
+    base.setColor{monster = monster, target = base.SKIN_COLOR, red = 100, green = 100, blue = 100}
 end
 
 return M

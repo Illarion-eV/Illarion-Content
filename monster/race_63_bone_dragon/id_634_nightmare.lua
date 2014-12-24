@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 634, Nightmare Dragon, Level: 8, Armourtype: medium, Weapontype: puncture
 
+local base = require("monster.base.base")
 local boneDragons = require("monster.race_63_bone_dragon.base")
 local M = boneDragons.generateCallbacks()
 
@@ -25,7 +26,7 @@ function M.onSpawn(monster)
         orgOnSpawn(monster)
     end
 
-    monster:setSkinColor(20, 200, 255, 180)
+    base.setColor{monster = monster, target = base.SKIN_COLOR, red = 20, green = 200, blue = 255, alpha = 180}
 end
 
 return M

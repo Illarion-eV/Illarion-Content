@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 637, Golden Bonedragon, Level: 8, Armourtype: medium, Weapontype: slashing
 
+local base = require("monster.base.base")
 local boneDragons = require("monster.race_63_bone_dragon.base")
 local M = boneDragons.generateCallbacks()
 
@@ -25,7 +26,7 @@ function M.onSpawn(monster)
         orgOnSpawn(monster)
     end
 
-    monster:setSkinColor(215, 180, 100)
+    base.setColor{monster = monster, target = base.SKIN_COLOR, red = 215, green = 180, blue = 100}
 end
 
 return M

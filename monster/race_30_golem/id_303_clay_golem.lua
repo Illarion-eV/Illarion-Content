@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 303, Clay Golem, Level: 3, Armourtype: medium, Weapontype: concussion
 
+local base = require("monster.base.base")
 local golems = require("monster.race_30_golem.base")
 local M = golems.generateCallbacks()
 
@@ -25,7 +26,7 @@ function M.onSpawn(monster)
         orgOnSpawn(monster)
     end
 
-    monster:setSkinColor(200, 120, 120)
+    base.setColor{monster = monster, target = base.SKIN_COLOR, red = 200, green = 120, blue = 120}
 end
 
 return M

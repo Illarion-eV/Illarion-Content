@@ -114,14 +114,14 @@ return function(params)
     end
 
     function self.cast(monster, enemy)
-        if math.random() <= probability then
+        if Random.uniform() <= probability then
             local selectedMonsterIndex = math.random(1, #monsterIds)
             local selectedMonsterId = monsterIds[selectedMonsterIndex]
 
             local i = 0
             while i < 20 do
-                local warpRange = (math.random() * (range - minRange)) + minRange
-                local direction = math.random() * 2 * math.pi
+                local warpRange = (Random.uniform() * (range - minRange)) + minRange
+                local direction = Random.uniform() * 2 * math.pi
                 local x = math.floor(math.sin(direction) * warpRange + 0.5)
                 local y = math.floor(math.cos(direction) * warpRange + 0.5)
 

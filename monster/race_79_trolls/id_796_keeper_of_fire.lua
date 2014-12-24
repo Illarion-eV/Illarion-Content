@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 796, Keeper of fire, Level: 7, Armourtype: heavy, Weapontype: slashing
 
+local base = require("monster.base.base")
 local monstermagic = require("monster.base.monstermagic")
 local trolls = require("monster.race_79_trolls.base")
 local M = trolls.generateCallbacks()
@@ -26,7 +27,7 @@ function M.onSpawn(monster)
         orgOnSpawn(monster)
     end
 
-    monster:setSkinColor(120, 120, 255)
+    base.setColor{monster = monster, target = base.SKIN_COLOR, red = 120, green = 120, blue = 255}
 end
 
 local magic = monstermagic()

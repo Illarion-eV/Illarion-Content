@@ -93,9 +93,9 @@ return function(params)
     end
 
     function self.cast(monster, enemy)
-        if math.random() <= probability then
-            local warpRange = (math.random() * (range - minRange)) + minRange
-            local direction = math.random() * 2 * math.pi
+        if Random.uniform() <= probability then
+            local warpRange = (Random.uniform() * (range - minRange)) + minRange
+            local direction = Random.uniform() * 2 * math.pi
             local x = math.floor(math.sin(direction) * warpRange + 0.5)
             local y = math.floor(math.cos(direction) * warpRange + 0.5)
 

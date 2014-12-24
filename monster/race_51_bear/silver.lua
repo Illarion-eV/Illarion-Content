@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --ID 513, Silverback, Level: 6, Armourtype: medium, Weapontype: concussion
 --ID 514, Young Silverback, Level: 5, Armourtype: medium, Weapontype: wrestling
 
+local base = require("monster.base.base")
 local bears = require("monster.race_51_bear.base")
 local M = bears.generateCallbacks()
 
@@ -26,7 +27,7 @@ function M.onSpawn(monster)
         orgOnSpawn(monster)
     end
 
-    monster:setSkinColor(200, 200, 200)
+    base.setColor{monster = monster, target = base.SKIN_COLOR, red = 200, green = 200, blue = 200}
 end
 
 return M

@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 524, Fireraptor, Level: 6, Armourtype: medium, Weapontype: puncture
 
+local base = require("monster.base.base")
 local monstermagic = require("monster.base.monstermagic")
 local raptors = require("monster.race_52_raptor.base")
 local M = raptors.generateCallbacks()
@@ -26,7 +27,7 @@ function M.onSpawn(monster)
         orgOnSpawn(monster)
     end
 
-    monster:setSkinColor(255, 100, 100)
+    base.setColor{monster = monster, target = base.SKIN_COLOR, red = 255, green = 100, blue = 100}
 end
 
 local magic = monstermagic()

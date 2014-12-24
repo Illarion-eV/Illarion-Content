@@ -101,7 +101,7 @@ return function(params)
     end
 
     function self.cast(monster, enemy)
-        if math.random() <= probability then
+        if Random.uniform() <= probability then
             -- Look for my friends
             local otherMonsters = world:getMonstersInRangeOf(monster.pos, 8)
             if #otherMonsters == 0 then return false end

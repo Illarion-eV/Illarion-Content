@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 791, Bridge Troll, Level: 4, Armourtype: light, Weapontype: concussion
 
+local base = require("monster.base.base")
 local trolls = require("monster.race_79_trolls.base")
 local M = trolls.generateCallbacks()
 
@@ -25,7 +26,7 @@ function M.onSpawn(monster)
         orgOnSpawn(monster)
     end
 
-    monster:setSkinColor(120, 120, 255)
+    base.setColor{monster = monster, target = base.SKIN_COLOR, red = 120, green = 120, blue = 255}
 end
 
 return M

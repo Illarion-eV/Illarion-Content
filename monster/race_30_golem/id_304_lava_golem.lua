@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 304, Lavagolem, Level: 5, Armourtype: heavy, Weapontype: slashing
 
+local base = require("monster.base.base")
 local golems = require("monster.race_30_golem.base")
 local M = golems.generateCallbacks()
 
@@ -25,7 +26,7 @@ function M.onSpawn(monster)
         orgOnSpawn(monster)
     end
 
-    monster:setSkinColor(255, 110, 110)
+    base.setColor{monster = monster, target = base.SKIN_COLOR, red = 255, green = 110, blue = 110}
 end
 
 return M

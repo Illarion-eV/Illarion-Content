@@ -239,7 +239,7 @@ return function(params)
     end
 
     function self.cast(monster, enemy)
-        if math.random() <= probability then
+        if Random.uniform() <= probability then
             local castedAtLeastOnce = false
             local remainingAttacks = targets
             if monster.isInRange(enemy, attackRange) and not enemy:isAdmin() then

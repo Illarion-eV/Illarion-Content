@@ -202,7 +202,7 @@ return function(params)
 
     local function attackField(pos)
         if gfxId > 0 then world:gfx(gfxId, pos) end
-        if itemId > 0 and math.random() < itemProbability then
+        if itemId > 0 and Random.uniform() < itemProbability then
             local qual = math.random(itemQualityRange[1], itemQualityRange[2]) * 100 +
                     math.random(itemDurabilityRange[1], itemDurabilityRange[2])
             world:createItemFromId(itemId, 1, pos, true, qual, nil);
@@ -218,7 +218,7 @@ return function(params)
     end
 
     function self.cast(monster, enemy)
-        if math.random() <= probability then
+        if Random.uniform() <= probability then
             --So the cone is always a isosceles triangle. We take the attack range as the height of the triangle.
             --Best was to calculate it, is use calculate half of the triangle as right triangle and mirror it.
 

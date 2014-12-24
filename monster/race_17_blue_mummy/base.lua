@@ -14,6 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+local base = require("monster.base.base")
 local mummies = require("monster.race_10_mummy.base")
 
 -- The blue mummies are normal mummies with altered skin color. We can use the default script of the mummies
@@ -30,7 +31,7 @@ function M.generateCallbacks()
             orgOnSpawn(monster)
         end
 
-        monster:setSkinColor(120, 190, 255)
+        base.setColor{monster = monster, target = base.SKIN_COLOR, red = 120, green = 190, blue = 255}
     end
     return t
 end

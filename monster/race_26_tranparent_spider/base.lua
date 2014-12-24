@@ -14,6 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+local base = require("monster.base.base")
 local spiders = require("monster.race_19_spider.base")
 
 -- The transparent spiders are just spiders with a special skin color
@@ -29,7 +30,7 @@ function M.generateCallbacks()
             orgOnSpawn(monster)
         end
 
-        monster:setSkinColor(255, 255, 255, 155)
+        base.setColor{monster = monster, target = base.SKIN_COLOR, color = base.white(), alpha = 155}
     end
     return t
 end

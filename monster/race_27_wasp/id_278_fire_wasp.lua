@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 278, Fire Wasp
 
+local base = require("monster.base.base")
 local explosion = require("base.explosion")
 local wasps = require("monster.race_27_wasp.base")
 
@@ -27,7 +28,7 @@ function M.onSpawn(monster)
         orgOnSpawn(monster)
     end
 
-    monster:setSkinColor(255, 120, 120)
+    base.setColor{monster = monster, target = base.SKIN_COLOR, red = 255, green = 120, blue = 120}
 end
 
 local orgOnDeath = M.onDeath

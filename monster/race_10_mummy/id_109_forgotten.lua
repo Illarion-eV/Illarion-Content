@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 109, Forgotten Mummy, Level: 6, Armourtype: medium, Weapontype: distance
 
+local base = require("monster.base.base")
 local mummies = require("monster.race_10_mummy.base")
 local M = mummies.generateCallbacks()
 
@@ -25,7 +26,7 @@ function M.onSpawn(monster)
         orgOnSpawn(monster)
     end
 
-    monster:setSkinColor(90, 90, 90)
+    base.setColor{monster = monster, target = base.SKIN_COLOR, red = 90, green = 90, blue = 90}
 end
 
 return M

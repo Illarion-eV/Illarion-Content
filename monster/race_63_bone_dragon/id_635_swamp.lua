@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 635, Undead Swampdragon, Level: 7, Armourtype: medium, Weapontype: distance
 
+local base = require("monster.base.base")
 local monstermagic = require("monster.base.monstermagic")
 local boneDragons = require("monster.race_63_bone_dragon.base")
 local M = boneDragons.generateCallbacks()
@@ -26,7 +27,7 @@ function M.onSpawn(monster)
         orgOnSpawn(monster)
     end
 
-    monster:setSkinColor(20, 255, 50)
+    base.setColor{monster = monster, target = base.SKIN_COLOR, red = 20, green = 255, blue = 50}
 end
 
 local magic = monstermagic()

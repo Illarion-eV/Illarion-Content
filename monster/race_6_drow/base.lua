@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local common require("base.common")
 local base = require("monster.base.base")
 local messages = require("base.messages")
 
@@ -47,18 +46,10 @@ function M.generateCallbacks()
         end
 
         -- Drows are just elves with with a very dark skin color and very bright hair
-        do
-            -- Very dark gray skin
-            local darkValue = 0.23 -- Darkest value
-            local brightValue = 0.55 -- Brightest value
-            monster:setSkinColor(common.HSVtoRGB(0, 0, darkValue + math.random() * (brightValue - darkValue)))
-        end
-        do
-            -- Very bright gray hair
-            local darkValue = 0.80 -- Darkest value
-            local brightValue = 0.90 -- Brightest value
-            monster:setHairColor(common.HSVtoRGB(0, 0, darkValue + math.random() * (brightValue - darkValue)))
-        end
+        base.setColor{monster = monster, target = base.SKIN_COLOR,
+            hue = 0, saturation = 0, value = {min = 0.23, max = 0.55}}
+        base.setColor{monster = monster, target = base.HAIR_COLOR,
+            hue = 0, saturation = 0, value = {min = 0.80, max = 0.90}}
     end
 
     return t
