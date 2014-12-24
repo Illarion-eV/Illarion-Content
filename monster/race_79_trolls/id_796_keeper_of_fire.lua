@@ -35,8 +35,8 @@ magic.addWarping{probability = 0.03, usage = magic.ONLY_NEAR_ENEMY}
 
 magic.addFireball{probability = 0.03,  damage = {from = 1500, to = 2500}}
 magic.addFireball{probability = 0.015, damage = {from =  500, to = 1000}, targetCount = 4}
-magic.addFirestrike{probability = 0.02,  damage = {from = 2000, to = 2500}}
-magic.addFirestrike{probability = 0.015, damage = {from =  700, to = 1400}, targetCount = 3}
+magic.addFlamestrike{probability = 0.02,  damage = {from = 2000, to = 2500}}
+magic.addFlamestrike{probability = 0.015, damage = {from =  700, to = 1400}, targetCount = 3}
 
 magic.addHealing{probability = 0.05, damage = {from = 1000, to = 2000}}
 magic.addHealing{probability = 0.05, damage = {from =  500, to = 1000}, targetCount = 3}
