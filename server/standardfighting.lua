@@ -69,9 +69,6 @@ local chr_reg = require("lte.chr_reg")
 -- for gem bonus
 local gems = require("base.gems")
 
--- for checking for unattackable monsters
-local base = require("monster.base.base")
-
 local M = {}
 
 firstTimeList = {}
@@ -169,10 +166,7 @@ function M.onAttack(Attacker, Defender)
 
 
     -- Newbie Island Check
-    if not NewbieIsland(Attacker.Char, Defender.Char) then return false; end;
-
-	-- unattackable monsters shall not be attacked
-	if base.checkUnattackability(Defender.Char, Attacker.Char) then return false end
+    if not NewbieIsland(Attacker.Char, Defender.Char) then return false; end
 
     -- Load the weapons of the attacker
     LoadWeapons(Attacker);
