@@ -205,7 +205,7 @@ return function(params)
         if Random.uniform() <= probability then
             local castedAtLeastOnce = false
             local remainingAttacks = targets
-            if monster.isInRange(enemy, attackRange) and not enemy:isAdmin() then
+            if monster:isInRange(enemy, attackRange) and not enemy:isAdmin() then
                 castSpellAt(enemy)
                 remainingAttacks = remainingAttacks - 1
                 castedAtLeastOnce = true
