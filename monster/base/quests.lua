@@ -254,16 +254,16 @@ end
     questList[784]={}; --Golden Archer
     questList[791]={}; --Bridge Troll
     questList[792]={}; --Bridge Troll Shaman
-    questList[801]={}; --Mountain Troll
-    questList[802]={}; --Mountain Troll Archer
-    questList[811]={}; --Firespitter
-    questList[812]={}; --Keeper of fire
-    questList[821]={}; --Bog Body
-    questList[822]={}; --Ragged Bog Body
-    questList[831]={}; --Poltergeist
-    questList[832]={}; --Horrible Poltergeist
-    questList[841]={}; --Coffinguard
-    questList[842]={}; --Undead Warlock
+    questList[793]={}; --Mountain Troll
+    questList[794]={}; --Mountain Troll Archer
+    questList[795]={}; --Firespitter
+    questList[796]={}; --Keeper of fire
+    questList[535]={}; --Bog Body
+    questList[536]={}; --Ragged Bog Body
+    questList[537]={}; --Poltergeist
+    questList[538]={}; --Horrible Poltergeist
+    questList[539]={}; --Coffinguard
+    questList[540]={}; --Undead Warlock
     questList[851]={}; --Shadowrunner
     questList[852]={}; --Shadowfright
     questList[853]={}; --Giant Shadowrunner
@@ -2513,12 +2513,12 @@ end
     statusId[id]=528;
     germanRace[id]="Zombie";
     englishRace[id]="Zombie";
-	table.insert(questList[821],id); --Bog Body
-    table.insert(questList[822],id); --Ragged Bog Body
-    table.insert(questList[831],id); --Poltergeist
-	table.insert(questList[841],id); --Coffinguard
-	table.insert(questList[842],id); --Undead Warlock
-	table.insert(questList[832],id); --Horrible Poltergeist
+	table.insert(questList[535],id); --Bog Body
+    table.insert(questList[536],id); --Ragged Bog Body
+    table.insert(questList[537],id); --Poltergeist
+	table.insert(questList[539],id); --Coffinguard
+	table.insert(questList[540],id); --Undead Warlock
+	table.insert(questList[538],id); --Horrible Poltergeist
 	table.insert(questList[109],id); --Forgotten Mummy
 	table.insert(questList[110],id); --Dead King
 	minimumQueststatus[id]=1;

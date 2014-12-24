@@ -14,11 +14,10 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 110, Dead King, Level: 7, Armourtype: medium, Weapontype: slashing
+--ID 791, Bridge Troll, Level: 4, Armourtype: light, Weapontype: concussion
 
-local monstermagic = require("monster.base.monstermagic")
-local mummies = require("monster.race_10_mummy.base")
-local M = mummies.generateCallbacks()
+local trolls = require("monster.race_79_trolls.base")
+local M = trolls.generateCallbacks()
 
 local orgOnSpawn = M.onSpawn
 function M.onSpawn(monster)
@@ -26,14 +25,7 @@ function M.onSpawn(monster)
         orgOnSpawn(monster)
     end
 
-    monster:setSkinColor(255, 255, 120)
+    monster:setSkinColor(120, 120, 255)
 end
 
-local magic = monstermagic()
-magic.addWarping{probability = 0.03, usage = magic.ONLY_NEAR_ENEMY}
-
-magic.addSummon{probability = 0.03, monsters = {103, 593, 536}} -- summon mummy, skeleton and scarab
-
-magic.addVioletFlame{probability = 0.02, damage = {from = 1500, to = 2500}}
-
-return magic.addCallbacks(M)
+return M
