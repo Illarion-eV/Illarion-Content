@@ -282,8 +282,8 @@ end
     questList[901]={}; --Shadow Wimp
     questList[902]={}; --Shadow Imp
     questList[903]={}; --Shadow Dancer
-    questList[911]={}; --Merinium Golem
-    questList[912]={}; --Gold Golem
+    questList[563]={}; --Merinium Golem
+    questList[564]={}; --Gold Golem
     questList[921]={}; --Sewer Rat
     questList[922]={}; --Giant Sewer Rat
     questList[931]={}; --Contaminated Ratchild
@@ -1174,8 +1174,8 @@ end
 	table.insert(questList[341],id); --All golems
 	table.insert(questList[561],id); --All golems
 	table.insert(questList[562],id); --All golems
-	table.insert(questList[911],id); --All golems
-	table.insert(questList[912],id); --All golems
+	table.insert(questList[563],id); --All golems
+	table.insert(questList[564],id); --All golems
     minimumQueststatus[id]=163;
     maximumQueststatus[id]=167;
     questLocation[id]=position(250, 650, 0);
@@ -1197,8 +1197,8 @@ end
 	table.insert(questList[341],id); --All golems
 	table.insert(questList[561],id); --All golems
 	table.insert(questList[562],id); --All golems
-	table.insert(questList[911],id); --All golems
-	table.insert(questList[912],id); --All golems
+	table.insert(questList[563],id); --All golems
+	table.insert(questList[564],id); --All golems
     minimumQueststatus[id]=168;
     maximumQueststatus[id]=176;
     questLocation[id]=position(250, 650, 0);
@@ -1220,8 +1220,8 @@ end
 	table.insert(questList[341],id); --All golems
 	table.insert(questList[561],id); --All golems
 	table.insert(questList[562],id); --All golems
-	table.insert(questList[911],id); --All golems
-	table.insert(questList[912],id); --All golems
+	table.insert(questList[563],id); --All golems
+	table.insert(questList[564],id); --All golems
     minimumQueststatus[id]=177;
     maximumQueststatus[id]=189;
     questLocation[id]=position(250, 650, 0);
