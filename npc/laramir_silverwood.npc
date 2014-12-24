@@ -14,9 +14,9 @@
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Laramir Silverwood                                          None --
--- NPC Job:  Carpenter/Schmied                                                --
+-- NPC Job:  Carpenter                                                        --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  367, 277, 0            --
+-- NPC Race: elf                        NPC Position:  373, 268, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
@@ -26,10 +26,10 @@
 name = "Laramir Silverwood"
 race = elf
 sex = male
-position = 367, 277, 0
-direction = south
+position = 373, 268, 0
+direction = west
 affiliation = "None"
-job = "Carpenter/Schmied"
+job = "Carpenter"
 
 language = common
 language = elf

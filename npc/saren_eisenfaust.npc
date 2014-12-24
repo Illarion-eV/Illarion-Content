@@ -16,7 +16,7 @@
 -- NPC Name: Saren Eisenfaust                                         Galmair --
 -- NPC Job:  stuff for smithing skill                                                  --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  376, 281, 0            --
+-- NPC Race: dwarf                      NPC Position:  376, 284, 0            --
 -- NPC Sex:  male                       NPC Direction: west	                  --
 --                                                                            --
 -- Authors:  Rincewind                                                        --
@@ -27,7 +27,7 @@
 name = "Saren Eisenfaust"
 race = dwarf
 sex = male
-position = 376, 281, 0
+position = 376, 284, 0
 direction = west
 affiliation = "Galmair"
 job = "stuff for smithing skill"
@@ -47,7 +47,7 @@ wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
 hairID = 3
-beardID = 1
+beardID = 2
 colorHair = 255, 113, 3
 colorSkin = 245, 180, 137
 itemHead = 0

@@ -16,7 +16,7 @@
 -- NPC Name: Morri                                                    Galmair --
 -- NPC Job:  Trader                                                           --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  353, 266, 0            --
+-- NPC Race: dwarf                      NPC Position:  355, 264, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Rincewind                                                        --
@@ -26,7 +26,7 @@
 name = "Morri"
 race = dwarf
 sex = male
-position = 353, 266, 0
+position = 355, 264, 0
 direction = south
 affiliation = "Galmair"
 job = "Trader"

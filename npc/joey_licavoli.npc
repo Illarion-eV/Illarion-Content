@@ -163,14 +163,14 @@ queststatus(712) = 13, town = Galmair, "task", "adventure", "order" -> "Groktan 
 queststatus(712) = 13, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Groktan Flintsplit hat eine Aufgabe für Euch. Besucht ihn doch bitte im Haus des Schuldeneintreibers. Es ist das Gebäude mit dem roten Ziegeldachach kurz vor dem Palast."
 
 -- Pipillo
-queststatus(712) = 14, english, town = Galmair, "quest", "mission" -> queststatus(712) = 15, "Pipillo was looking for you. Search for him in the Inn and ask him for a task."
-queststatus(712) = 14, town = Galmair, "quest", "mission" -> queststatus(712) = 15, "Pipillo hat nach dir gefragt. Suche er in der Herberge und frag er nach einer Aufgabe."
-queststatus(712) = 14, town = Galmair, "task", "adventure", "order" -> queststatus(712) = 15, "Pipillo was looking for you. Search for him in the Inn and ask him for a task."
-queststatus(712) = 14, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(712) = 15, "Pipillo hat nach dir gefragt. Suche er in der Herberge und frag er nach einer Aufgabe."
-queststatus(712) = 15, english, town = Galmair, "quest", "mission" -> "Pipillo was looking for you. Search for him in the Inn and ask him for a task."
-queststatus(712) = 15, town = Galmair, "quest", "mission" -> "Pipillo hat nach dir gefragt. Suche er in der Herberge und frag er nach einer Aufgabe."
-queststatus(712) = 15, town = Galmair, "task", "adventure", "order" -> "Pipillo was looking for you. Search for him in the Inn and ask him for a task."
-queststatus(712) = 15, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Pipillo hat nach dir gefragt. Suche er in der Herberge und frag er nach einer Aufgabe."
+queststatus(712) = 14, english, town = Galmair, "quest", "mission" -> queststatus(712) = 15, "Pipillo was looking for you. Search for him inside the gate and ask him for a task."
+queststatus(712) = 14, town = Galmair, "quest", "mission" -> queststatus(712) = 15, "Pipillo hat nach euch gesucht. Findet ihn im Inneren des Torhauses und fragt ihn nach einer Aufgabe."
+queststatus(712) = 14, town = Galmair, "task", "adventure", "order" -> queststatus(712) = 15, "Pipillo was looking for you. Search for him inside the gate and ask him for a task."
+queststatus(712) = 14, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(712) = 15, "Pipillo hat nach euch gesucht. Findet ihn im Inneren des Torhauses und fragt ihn nach einer Aufgabe."
+queststatus(712) = 15, english, town = Galmair, "quest", "mission" -> "Pipillo was looking for you. Search for him inside the gate and ask him for a task."
+queststatus(712) = 15, town = Galmair, "quest", "mission" -> "Pipillo hat nach euch gesucht. Findet ihn im Inneren des Torhauses und fragt ihn nach einer Aufgabe."
+queststatus(712) = 15, town = Galmair, "task", "adventure", "order" -> "Pipillo was looking for you. Search for him inside the gate and ask him for a task."
+queststatus(712) = 15, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Pipillo hat nach euch gesucht. Findet ihn im Inneren des Torhauses und fragt ihn nach einer Aufgabe."
 
 -- Fokous Onyxbrow
 queststatus(712) = 16, english, town = Galmair, "quest", "mission" -> queststatus(712) = 17, "Fokous Onyxbrow probably has a task for you.  Search for him in the marketplace of Galmair and ask him for a task."

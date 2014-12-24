@@ -238,6 +238,9 @@ english, "quest", "mission" -> "Nothing to do for you yet, but soon I will have 
 "task", "adventure", "order" -> "Nothing to do for you yet, but soon I will have plenty of tasks for you."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für euch zu tun momentan aber bald habe ich einige Aufgaben für euch."
 
+english, "lost" -> "A lot of knowledge get lost. But here, in the encyclopedia of ruin towns just a single page is missing. It would be complete if the page 23 was not needed due to an emergency once. For years I have tried to find a copy."
+"verloren" -> "Wissen geht immer mal wieder verloren. Aber schau doch, in dieser Enzyklopädie der Ruinenstädte fehlt Seite 23. Die ist vor Jahren durch einen Notfall verlorengegangen. Ich suche schon ewig, kann aber keine Kopie auftreiben."
+
 -- Faction stuff
 "archmage" -> "The Archmage owns two stones of power, an emerald and a ruby. They protect us against Galmair and Cadomyr."
 "Erzmagier" -> "Der Erzmagier besitzt zwei Steine der Macht. Einen Smaragd und einen Rubin. Die beschützen uns vor Galmair und Cadomyr."

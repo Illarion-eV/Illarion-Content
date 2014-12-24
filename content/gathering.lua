@@ -86,7 +86,7 @@ function InitGathering()
 
 		--honeygathering
 		honeygathering:AddRandomItem(2551,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Findari, die Göttin der Luft, mit einem Kleinod aus Reiner Luft.","For your hard and honest labour Findari, the Godess of Air, rewards you with a treasure of Pure Air."); --Pure air
-		honeygathering:AddRandomItem(gems.getMagicGemId(gems.EMERALD),1,999,gems.getMagicGemData(1),prob_extremely_rarely,"Im Inneren des Bienenstocks bemerkst du grün glühendes Licht. Du findest einen magischen Emerald.","Inside the hive, you notice a green light. With a closer look you realize it is a magical emerald."); --Magical emerald
+		honeygathering:AddRandomItem(gems.getMagicGemId(gems.EMERALD),1,999,gems.getMagicGemData(1),prob_extremely_rarely,"Im Inneren des Bienenstocks bemerkst du grün glühendes Licht. Du findest einen magischen Smaragd.","Inside the hive, you notice a green light. With a closer look you realize it is a magical emerald."); --Magical emerald
 		honeygathering:AddRandomItem(2744,1,333,{},prob_extremely_rarely,"Ein Imkerkollege scheint hier seine Pfeife vergessen zu haben. Du nimmst sie an dich.","A beekeeper colleague must have forgotten his pipe for smoking out the bees. You take it with you."); --Pipe
 		honeygathering:AddRandomItem(151,1,333,{},prob_occasionally,"Die Bienen haben offensichtlich Vorräte angelegt. Sogar eine ganze Erdbeere haben sie in ihren Stock geschleppt.","As you carefully pull honey from the hive you notice a sticky strawberry in your grasp!"); --Strawberry
 		honeygathering:AddRandomItem(431,1,333,{},prob_frequently,"An deinen Händen bleibt klebriger Wachs hängen.","Your hands get stuck in sticky wax.", 0); --Wax
@@ -179,7 +179,7 @@ function InitGathering()
 		herbgathering:AddRandomItem(gems.getMagicGemId(gems.SAPPHIRE),1,999,gems.getMagicGemData(1),prob_extremely_rarely,"Tief im Gestrüpp machst du ein blaues, unheimliches Leuchten aus. Du findest einen magischen Saphir.","Deep in the shrub you notice a blue, eerie glow. To your delight it turns out to be a magical sapphire."); --Magical sapphire
 		herbgathering:AddRandomItem(2183,1,333,{},prob_extremely_rarely,"Ein alter Krug liegt verlassen und einsam im Gebüsch.","An old mug lies abandoned and lonesome in the bushes."); --Mug
 		herbgathering:AddRandomItem(799,1,333,{},prob_occasionally,"Ein Weidenkorb liegt am Boden. Er scheint noch brauchbar zu sein.","A wicker basket lies on the ground. It still seems to be usable."); --Basket
-		herbgathering:AddRandomItem(2570,1,333,{},prob_frequently,"Ein Griff einer alten Sichel liegt achtlos weggeworfen zwischen Blättern und Ästen heru","A handle of an old sickle lies between the leaves and branches, but the blade is no where in sight."); --Sickle hilt
+		herbgathering:AddRandomItem(2570,1,333,{},prob_frequently,"Ein Griff einer alten Sichel liegt achtlos weggeworfen zwischen Ästen und Blättern herum.","A handle of an old sickle lies between the leaves and branches, but the blade is no where in sight."); --Sickle hilt
 		herbgathering:SetTreasureMap(prob_rarely,"Unter einer Lage Blätter stößt du auf eine Schatzkarte. Hoffentlich ist der Besitzer nicht in der Nähe.","Under a layer of leaves you find a treasure map. Hopefully, the owner is not nearby!");
 		herbgathering:AddMonster(271,prob_rarely,"Eine Wespe steigt aus dem Gestrüpp auf, offensichtlich unerfreut über die Störung.","A pesky wasp rises from the bushes apparently displeased with your disturbance.",4,7);
 

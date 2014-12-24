@@ -202,11 +202,11 @@ end
     questList[542]={}; --Deamonbeast
     questList[543]={}; --Giant Deamonbeast
     questList[551]={}; --Imp
-    questList[552]={}; --Jack of all Imps
+    questList[552]={}; --Satyr
     questList[553]={}; --Cursed Imp
     questList[561]={}; --Iron Golem
     questList[562]={}; --Steelgolem
-    questList[571]={}; --Nuzzler
+    questList[571]={}; --Snuffler
     questList[572]={}; --Baiter
     questList[581]={}; --Dog
     questList[582]={}; --Vicious Dog
@@ -275,7 +275,7 @@ end
     questList[873]={}; --Giant Swampbeast
     questList[881]={}; --Bloodhunter
     questList[882]={}; --Monstrosity
-    questList[883]={}; --Bloodsniffler
+    questList[883]={}; --Bloodsniffer
     questList[891]={}; --Fire Imp
     questList[892]={}; --Cures Fire Imp
     questList[893]={}; --Mystic Fire Imp
@@ -2389,7 +2389,7 @@ end
     statusId[id]=187;
     germanRace[id]="Rattenmenschen";
     englishRace[id]="ratman";
-	table.insert(questList[571],id); --Nuzzler
+	table.insert(questList[571],id); --Snuffler
 	minimumQueststatus[id]=36;
     maximumQueststatus[id]=37;
 	questLocation[id]=position(125,565,-6);
@@ -2403,7 +2403,7 @@ end
     statusId[id]=188;
     germanRace[id]="Rattenmenschen";
     englishRace[id]="ratman";
-	table.insert(questList[571],id); --Nuzzler
+	table.insert(questList[571],id); --Snuffler
 	minimumQueststatus[id]=36;
     maximumQueststatus[id]=37;
 	questLocation[id]=position(840,840,-6);
@@ -2417,7 +2417,7 @@ end
     statusId[id]=189;
     germanRace[id]="Rattenmenschen";
     englishRace[id]="ratman";
-	table.insert(questList[571],id); --Nuzzler
+	table.insert(questList[571],id); --Snuffler
 	minimumQueststatus[id]=36;
     maximumQueststatus[id]=37;
 	questLocation[id]=position(370,470,-6);

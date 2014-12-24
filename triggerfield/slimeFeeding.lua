@@ -58,7 +58,7 @@ local SLIME_DIET_ITEMS = {
 {itemId = 150, amount = 15}, --[[red head]]
 {itemId = 259, amount = 15}, --[[grain]]
 {itemId = 140, amount = 60}, --[[donf blade]]
-{itemId = 762, amount = 20}, --[[coarse sand]]
+{itemId = 726, amount = 20}, --[[coarse sand]]
 {itemId = 767, amount = 10}, --[[water blossom]]
 {itemId = 451, amount = 3}, --[[topaz powder]]
 {itemId = 138, amount = 3}, --[[night angels blossom]]

@@ -70,10 +70,10 @@ Start = {360, 281, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(366, 275, 0)} -- Nik Nilo
+QuestTarget[1] = {position(369, 279, 0)} -- Nik Nilo
 QuestTarget[2] = {position(360, 281, 0)}
 QuestTarget[3] = {position(360, 281, 0)}
-QuestTarget[4] = {position(353, 266, 0)} -- Morri
+QuestTarget[4] = {position(355, 264, 0)} -- Morri
 QuestTarget[5] = {position(360, 281, 0)}
 QuestTarget[6] = {position(360, 281, 0)}
 QuestTarget[7] = {position(341, 218, 0)} -- Gretel Goldhair

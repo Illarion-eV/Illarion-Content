@@ -16,8 +16,8 @@
 -- NPC Name: Nik Nilo                                                    None --
 -- NPC Job:  trader                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  366, 275, 0            --
--- NPC Sex:  male                       NPC Direction: west                   --
+-- NPC Race: human                      NPC Position:  369, 279, 0            --
+-- NPC Sex:  male                       NPC Direction: north                   --
 --                                                                            --
 -- Authors:  Drathe                                                           --
 --           Estralis Seborian                                                --
@@ -27,8 +27,8 @@
 name = "Nik Nilo"
 race = human
 sex = male
-position = 366, 275, 0
-direction = west
+position = 369, 279, 0
+direction = north
 affiliation = "None"
 job = "trader"
 

@@ -209,9 +209,9 @@ queststatus(187) > 23, queststatus(187) < 34, town = Cadomyr, "Auftrag", "Aufgab
 
 -- Quest 6  Kill Ratman Boss
 -- Give out Quest 6
-queststatus(187) = 35, english, town = Cadomyr, "quest", "mission" -> inform("[New quest] Vermin Monitor VI"), queststatus(187) = 36, "Kill the ratman boss in the Cistern, he goes by the Nuzzler. Maybe then the rats will leave!"
+queststatus(187) = 35, english, town = Cadomyr, "quest", "mission" -> inform("[New quest] Vermin Monitor VI"), queststatus(187) = 36, "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
 queststatus(187) = 35, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Schädlingswächter VI"), queststatus(187) = 36, "Töte den Rattenmenschen in der Zisterne, er ist der Befehlshaber und trägt den Namen 'Schnüffler'. Vielleicht werden die Ratten sich dann zurückziehen!"
-queststatus(187) = 35, town = Cadomyr, "task", "adventure" -> inform("[New quest] Vermin Monitor VI"), queststatus(187) = 36, "Kill the ratman boss in the Cistern, he goes by the Nuzzler. Maybe then the rats will leave!"
+queststatus(187) = 35, town = Cadomyr, "task", "adventure" -> inform("[New quest] Vermin Monitor VI"), queststatus(187) = 36, "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
 queststatus(187) = 35, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Schädlingswächter VI"), queststatus(187) = 36, "Töte den Rattenmenschen in der Zisterne, er ist der Befehlshaber und trägt den Namen 'Schnüffler'. Vielleicht werden die Ratten sich dann zurückziehen!"
 
 -- Quest 6 solved, 30 silver, +10 rankpoints
@@ -219,9 +219,9 @@ queststatus(187) = 37, english, town = Cadomyr, ".+" -> inform("[Quest solved] Y
 queststatus(187) = 37, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), money + 3000, queststatus(187) = 38, rankpoints + 10, "Du hast deinen Mut und deine Ehre bewiesen. Du wirst ein guter Diener der Königin sein."
 
 -- Quest 6 taken but not finished
-queststatus(187) > 35, queststatus(187) < 37, town = Cadomyr, english, "quest", "mission" -> "Kill the ratman boss in the Cistern, he goes by the Nuzzler. Maybe then the rats will leave!"
+queststatus(187) > 35, queststatus(187) < 37, town = Cadomyr, english, "quest", "mission" -> "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
 queststatus(187) > 35, queststatus(187) < 37, town = Cadomyr, "quest", "mission" -> "Töte den Rattenmenschen in der Zisterne, er ist der Befehlshaber und trägt den Namen 'Schnüffler'. Vielleicht werden die Ratten sich dann zurückziehen!"
-queststatus(187) > 35, queststatus(187) < 37, town = Cadomyr, "task", "adventure" -> "Kill the ratman boss in the Cistern, he goes by the Nuzzler. Maybe then the rats will leave!"
+queststatus(187) > 35, queststatus(187) < 37, town = Cadomyr, "task", "adventure" -> "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
 queststatus(187) > 35, queststatus(187) < 37, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> "Töte den Rattenmenschen in der Zisterne, er ist der Befehlshaber und trägt den Namen 'Schnüffler'. Vielleicht werden die Ratten sich dann zurückziehen!"
 
 -- No more quests, just nice words of gratitude

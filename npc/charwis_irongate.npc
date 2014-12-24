@@ -17,17 +17,17 @@
 -- NPC Job:  Message quest giver                                              --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  360, 281, 0            --
--- NPC Sex:  male                       NPC Direction: east                   --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Lillian                                                          --
---                                                Illarion easyNPC Editor 1.02 --
+--                                               Illarion easyNPC Editor 1.02 --
 --------------------------------------------------------------------------------
 
 name = "Charwis Irongate"
 race = human
 sex = male
 position = 360, 281, 0
-direction = east
+direction = west
 affiliation = "Galmair"
 job = "Message quest giver"
 

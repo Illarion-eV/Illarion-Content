@@ -50,6 +50,8 @@ product:addRemnant(51) -- Step 3: Bucket with water (52) 1x
 product = baking:addProduct(catId, 3631, 10, 30, 14, 28)
 product:addIngredient(3051) -- Step 1: Sausage (3051) 1x
 product:addIngredient(2) -- Step 2: Flour(2) 1x
+product:addIngredient(52)
+product:addRemnant(51) -- Step 3: Bucket with water (52) 1x
 -------------- Sausage on Bread - DONE ----------------
 
 ---------------- BAKED POTATO - 3568 ----------------------
