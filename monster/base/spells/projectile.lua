@@ -265,7 +265,7 @@ return function(params)
                     local selectedTargetIndex = standardfighting.setTarget(monster, possibleTargets)
                     if selectedTargetIndex == 0 then return castedAtLeastOnce end
 
-                    local selectedTarget table.remove(possibleTargets, selectedTargetIndex)
+                    local selectedTarget = table.remove(possibleTargets, selectedTargetIndex)
                     fireProjectileAt(monster, selectedTarget)
                     remainingAttacks = remainingAttacks - 1
                     castedAtLeastOnce = true
