@@ -311,12 +311,12 @@ end
     questList[1052]={}; --Malicious Ectoplasm
     questList[1053]={}; --Doomed Ectoplasm
     questList[623]={}; --Crazy Chicken
-	questList[1111]={}; --Rat
-	questList[1112]={}; --Small Rat
-	questList[1113]={}; --Agressive Rat
-	questList[1114]={}; --Muskrat
-	questList[1115]={}; --Plague Rat
-	questList[1116]={}; --Sewer Rat
+    questList[1111]={}; --Rat
+    questList[1112]={}; --Small Rat
+    questList[1113]={}; --Agressive Rat
+    questList[1114]={}; --Muskrat
+    questList[1115]={}; --Plague Rat
+    questList[1116]={}; --Sewer Rat
     questList[2000]={}; --Guards
 
     --Quest 1: Galmair Sewers I (77)
@@ -333,14 +333,14 @@ end
     table.insert(questList[613],id);
     table.insert(questList[614],id);
     table.insert(questList[1031],id);
-	table.insert(questList[1032],id);
-	table.insert(questList[1033],id);
+    table.insert(questList[1032],id);
+    table.insert(questList[1033],id);
     table.insert(questList[1041],id);
-	table.insert(questList[1042],id);
-	table.insert(questList[1043],id);
+    table.insert(questList[1042],id);
+    table.insert(questList[1043],id);
     table.insert(questList[1051],id);
-	table.insert(questList[1052],id);
-	table.insert(questList[1053],id);
+    table.insert(questList[1052],id);
+    table.insert(questList[1053],id);
     minimumQueststatus[id]=1;
     maximumQueststatus[id]=11;
     questLocation[id]=position(298,352,-6);
@@ -361,13 +361,13 @@ end
     table.insert(questList[104],id);
     table.insert(questList[106],id);
     table.insert(questList[107],id);
-	table.insert(questList[151],id);
-	table.insert(questList[152],id);
-	table.insert(questList[171],id);
-	table.insert(questList[172],id);
-	table.insert(questList[173],id);
-	table.insert(questList[109],id);
-	table.insert(questList[110],id);
+    table.insert(questList[151],id);
+    table.insert(questList[152],id);
+    table.insert(questList[171],id);
+    table.insert(questList[172],id);
+    table.insert(questList[173],id);
+    table.insert(questList[109],id);
+    table.insert(questList[110],id);
     minimumQueststatus[id]=13;
     maximumQueststatus[id]=18;
     questLocation[id]=position(298,352,-6);
@@ -403,13 +403,13 @@ end
     table.insert(questList[104],id);
     table.insert(questList[106],id);
     table.insert(questList[107],id);
-	table.insert(questList[151],id);
-	table.insert(questList[152],id);
-	table.insert(questList[171],id);
-	table.insert(questList[172],id);
-	table.insert(questList[173],id);
-	table.insert(questList[109],id);
-	table.insert(questList[110],id);
+    table.insert(questList[151],id);
+    table.insert(questList[152],id);
+    table.insert(questList[171],id);
+    table.insert(questList[172],id);
+    table.insert(questList[173],id);
+    table.insert(questList[109],id);
+    table.insert(questList[110],id);
     minimumQueststatus[id]=1;
     maximumQueststatus[id]=11;
     questLocation[id]=position(135,655,-4);
@@ -429,14 +429,14 @@ end
     table.insert(questList[613],id);
     table.insert(questList[614],id);
     table.insert(questList[1031],id);
-	table.insert(questList[1032],id);
-	table.insert(questList[1033],id);
+    table.insert(questList[1032],id);
+    table.insert(questList[1033],id);
     table.insert(questList[1041],id);
-	table.insert(questList[1042],id);
-	table.insert(questList[1043],id);
+    table.insert(questList[1042],id);
+    table.insert(questList[1043],id);
     table.insert(questList[1051],id);
-	table.insert(questList[1052],id);
-	table.insert(questList[1053],id);
+    table.insert(questList[1052],id);
+    table.insert(questList[1053],id);
     minimumQueststatus[id]=13;
     maximumQueststatus[id]=18;
     questLocation[id]=position(135,655,-4);
@@ -470,11 +470,11 @@ end
     table.insert(questList[392],id); --Welp
     table.insert(questList[393],id); --Young Wolf
     table.insert(questList[394],id); --GiantWolf
-	table.insert(questList[395],id); --Pack Leader
+    table.insert(questList[395],id); --Pack Leader
     table.insert(questList[396],id); --Peaceful Wolf
     table.insert(questList[401],id); --Ghost Wolf
     table.insert(questList[402],id); --Lambslaughterer
-	table.insert(questList[403],id); --Grey Tail
+    table.insert(questList[403],id); --Grey Tail
     table.insert(questList[404],id); --Redwolf
     minimumQueststatus[id]=1;
     maximumQueststatus[id]=11;
@@ -494,11 +494,11 @@ end
     table.insert(questList[582],id);
     table.insert(questList[583],id);
     table.insert(questList[584],id);
-	table.insert(questList[951],id);
+    table.insert(questList[951],id);
     table.insert(questList[952],id);
     table.insert(questList[953],id);
     table.insert(questList[954],id);
-	table.insert(questList[955],id);
+    table.insert(questList[955],id);
     minimumQueststatus[id]=13;
     maximumQueststatus[id]=18;
     questLocation[id]=position(774,711,0);
@@ -513,10 +513,10 @@ end
     statusId[id]=79;
     germanRace[id]="Spinnen";
     englishRace[id]="spiders";
-	table.insert(questList[191],id);
-	table.insert(questList[192],id);
-	table.insert(questList[193],id);
-	table.insert(questList[195],id);
+    table.insert(questList[191],id);
+    table.insert(questList[192],id);
+    table.insert(questList[193],id);
+    table.insert(questList[195],id);
     table.insert(questList[196],id);
     minimumQueststatus[id]=20;
     maximumQueststatus[id]=21;
@@ -532,10 +532,10 @@ end
     statusId[id]=4;
     germanRace[id]="Wildschweine";
     englishRace[id]="boars";
-	table.insert(questList[241],id); --Pig
-	table.insert(questList[242],id); --Boar
-	table.insert(questList[243],id); --Young Boar
-	table.insert(questList[244],id); --Hog
+    table.insert(questList[241],id); --Pig
+    table.insert(questList[242],id); --Boar
+    table.insert(questList[243],id); --Young Boar
+    table.insert(questList[244],id); --Hog
     minimumQueststatus[id]=1;
     maximumQueststatus[id]=7;
     questLocation[id]=position(775,475,0);
@@ -551,8 +551,8 @@ end
     germanRace[id]="Rinder";
     englishRace[id]="bulls";
     table.insert(questList[371],id); --Cow
-	table.insert(questList[372],id); --Bull
-	table.insert(questList[373],id); --Young Bull
+    table.insert(questList[372],id); --Bull
+    table.insert(questList[373],id); --Young Bull
     minimumQueststatus[id]=9;
     maximumQueststatus[id]=21;
     questLocation[id]=position(775,475,0);
@@ -571,11 +571,11 @@ end
     table.insert(questList[392],id); --Welp
     table.insert(questList[393],id); --Young Wolf
     table.insert(questList[394],id); --GiantWolf
-	table.insert(questList[395],id); --Pack Leader
+    table.insert(questList[395],id); --Pack Leader
     table.insert(questList[396],id); --Peaceful Wolf
     table.insert(questList[401],id); --Ghost Wolf
     table.insert(questList[402],id); --Lambslaughterer
-	table.insert(questList[403],id); --Grey Tail
+    table.insert(questList[403],id); --Grey Tail
     table.insert(questList[404],id); --Redwolf
     minimumQueststatus[id]=23;
     maximumQueststatus[id]=29;
@@ -612,13 +612,13 @@ end
     table.insert(questList[104],id);
     table.insert(questList[106],id);
     table.insert(questList[107],id);
-	table.insert(questList[151],id);
-	table.insert(questList[152],id);
-	table.insert(questList[171],id);
-	table.insert(questList[172],id);
-	table.insert(questList[173],id);
-	table.insert(questList[109],id);
-	table.insert(questList[110],id);
+    table.insert(questList[151],id);
+    table.insert(questList[152],id);
+    table.insert(questList[171],id);
+    table.insert(questList[172],id);
+    table.insert(questList[173],id);
+    table.insert(questList[109],id);
+    table.insert(questList[110],id);
     minimumQueststatus[id]=3;
     maximumQueststatus[id]=8;
     questLocation[id]=position(665,415,0);
@@ -638,13 +638,13 @@ end
     table.insert(questList[113],id);
     table.insert(questList[114],id);
     table.insert(questList[115],id);
-	table.insert(questList[751],id);
-	table.insert(questList[752],id);
+    table.insert(questList[751],id);
+    table.insert(questList[752],id);
     table.insert(questList[753],id);
     table.insert(questList[754],id);
     table.insert(questList[761],id);
     table.insert(questList[762],id);
-	table.insert(questList[763],id);
+    table.insert(questList[763],id);
     table.insert(questList[764],id);
     table.insert(questList[782],id);
     table.insert(questList[783],id);
@@ -669,13 +669,13 @@ end
     table.insert(questList[104],id);
     table.insert(questList[106],id);
     table.insert(questList[107],id);
-	table.insert(questList[151],id);
-	table.insert(questList[152],id);
-	table.insert(questList[171],id);
-	table.insert(questList[172],id);
-	table.insert(questList[173],id);
-	table.insert(questList[109],id);
-	table.insert(questList[110],id);
+    table.insert(questList[151],id);
+    table.insert(questList[152],id);
+    table.insert(questList[171],id);
+    table.insert(questList[172],id);
+    table.insert(questList[173],id);
+    table.insert(questList[109],id);
+    table.insert(questList[110],id);
     minimumQueststatus[id]=3;
     maximumQueststatus[id]=9;
     questLocation[id]=position(705,410,-3);
@@ -695,13 +695,13 @@ end
     table.insert(questList[113],id);
     table.insert(questList[114],id);
     table.insert(questList[115],id);
-	table.insert(questList[751],id);
-	table.insert(questList[752],id);
+    table.insert(questList[751],id);
+    table.insert(questList[752],id);
     table.insert(questList[753],id);
     table.insert(questList[754],id);
     table.insert(questList[761],id);
     table.insert(questList[762],id);
-	table.insert(questList[763],id);
+    table.insert(questList[763],id);
     table.insert(questList[764],id);
     table.insert(questList[782],id);
     table.insert(questList[783],id);
@@ -756,7 +756,7 @@ end
     questLocation[id]=position(705,410,-3);
     radius[id]=75;
 
-	--Quest 21: The Ghost Oak IV
+    --Quest 21: The Ghost Oak IV
 
     local id=21;
     englishTitle[id]="The Ghost Oak IV";
@@ -771,7 +771,7 @@ end
     questLocation[id]=position(501,107,0);
     radius[id]=15;
 
-	--Quest 22: Tutorial Groknar
+    --Quest 22: Tutorial Groknar
 
     local id=22;
     germanTitle[id]="Tutorial";
@@ -795,16 +795,16 @@ end
     statusId[id]=500;
     germanRace[id]="Wildschweine";
     englishRace[id]="boars";
-	table.insert(questList[241],id); --Pig
-	table.insert(questList[242],id); --Boar
-	table.insert(questList[243],id); --Young Boar
-	table.insert(questList[244],id); --Hog
+    table.insert(questList[241],id); --Pig
+    table.insert(questList[242],id); --Boar
+    table.insert(questList[243],id); --Young Boar
+    table.insert(questList[244],id); --Hog
     minimumQueststatus[id]=3;
     maximumQueststatus[id]=13;
     questLocation[id]=position(786, 474, 0);
     radius[id]=50;
 
-	--Quest 24: Glorious Bounty
+    --Quest 24: Glorious Bounty
     local id=24;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
     englishTitle[id]="Glorious Bounty";
@@ -812,14 +812,14 @@ end
     statusId[id]=162;
     germanRace[id]="Käfer";
     englishRace[id]="beetles";
-	table.insert(questList[591],id); --All beetles
-	table.insert(questList[592],id); --All beetles
-	table.insert(questList[593],id); --All beetles
-	table.insert(questList[594],id); --All beetles
-	table.insert(questList[981],id); --All beetles
-	table.insert(questList[982],id); --All beetles
-	table.insert(questList[983],id); --All beetles
-	table.insert(questList[984],id); --All beetles
+    table.insert(questList[591],id); --All beetles
+    table.insert(questList[592],id); --All beetles
+    table.insert(questList[593],id); --All beetles
+    table.insert(questList[594],id); --All beetles
+    table.insert(questList[981],id); --All beetles
+    table.insert(questList[982],id); --All beetles
+    table.insert(questList[983],id); --All beetles
+    table.insert(questList[984],id); --All beetles
     minimumQueststatus[id]=1;
     maximumQueststatus[id]=5;
     questLocation[id]=position(250, 650, 0);
@@ -833,20 +833,20 @@ end
     statusId[id]=162;
     germanRace[id]="Käfer";
     englishRace[id]="beetles";
-	table.insert(questList[591],id); --All beetles
-	table.insert(questList[592],id); --All beetles
-	table.insert(questList[593],id); --All beetles
-	table.insert(questList[594],id); --All beetles
-	table.insert(questList[981],id); --All beetles
-	table.insert(questList[982],id); --All beetles
-	table.insert(questList[983],id); --All beetles
-	table.insert(questList[984],id); --All beetles
+    table.insert(questList[591],id); --All beetles
+    table.insert(questList[592],id); --All beetles
+    table.insert(questList[593],id); --All beetles
+    table.insert(questList[594],id); --All beetles
+    table.insert(questList[981],id); --All beetles
+    table.insert(questList[982],id); --All beetles
+    table.insert(questList[983],id); --All beetles
+    table.insert(questList[984],id); --All beetles
     minimumQueststatus[id]=6;
     maximumQueststatus[id]=14;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
 
-	--Quest 26: Glorious Bounty
+    --Quest 26: Glorious Bounty
     local id=26;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
     englishTitle[id]="Glorious Bounty";
@@ -854,20 +854,20 @@ end
     statusId[id]=162;
     germanRace[id]="Käfer";
     englishRace[id]="beetles";
-	table.insert(questList[591],id); --All beetles
-	table.insert(questList[592],id); --All beetles
-	table.insert(questList[593],id); --All beetles
-	table.insert(questList[594],id); --All beetles
-	table.insert(questList[981],id); --All beetles
-	table.insert(questList[982],id); --All beetles
-	table.insert(questList[983],id); --All beetles
-	table.insert(questList[984],id); --All beetles
+    table.insert(questList[591],id); --All beetles
+    table.insert(questList[592],id); --All beetles
+    table.insert(questList[593],id); --All beetles
+    table.insert(questList[594],id); --All beetles
+    table.insert(questList[981],id); --All beetles
+    table.insert(questList[982],id); --All beetles
+    table.insert(questList[983],id); --All beetles
+    table.insert(questList[984],id); --All beetles
     minimumQueststatus[id]=15;
     maximumQueststatus[id]=27;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
 
-	--Quest 27: Glorious Bounty
+    --Quest 27: Glorious Bounty
     local id=27;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
     englishTitle[id]="Glorious Bounty";
@@ -875,17 +875,17 @@ end
     statusId[id]=162;
     germanRace[id]="Wespen";
     englishRace[id]="wasps";
-	table.insert(questList[271],id); --All wasps
-	table.insert(questList[272],id); --All wasps
-	table.insert(questList[273],id); --All wasps
-	table.insert(questList[274],id); --All wasps
-	table.insert(questList[278],id); --All wasps
+    table.insert(questList[271],id); --All wasps
+    table.insert(questList[272],id); --All wasps
+    table.insert(questList[273],id); --All wasps
+    table.insert(questList[274],id); --All wasps
+    table.insert(questList[278],id); --All wasps
     minimumQueststatus[id]=28;
     maximumQueststatus[id]=32;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
 
-	--Quest 28: Glorious Bounty
+    --Quest 28: Glorious Bounty
     local id=28;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
     englishTitle[id]="Glorious Bounty";
@@ -893,17 +893,17 @@ end
     statusId[id]=162;
     germanRace[id]="Wespen";
     englishRace[id]="wasps";
-	table.insert(questList[271],id); --All wasps
-	table.insert(questList[272],id); --All wasps
-	table.insert(questList[273],id); --All wasps
-	table.insert(questList[274],id); --All wasps
-	table.insert(questList[278],id); --All wasps
+    table.insert(questList[271],id); --All wasps
+    table.insert(questList[272],id); --All wasps
+    table.insert(questList[273],id); --All wasps
+    table.insert(questList[274],id); --All wasps
+    table.insert(questList[278],id); --All wasps
     minimumQueststatus[id]=33;
     maximumQueststatus[id]=41;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
 
-	--Quest 29: Glorious Bounty
+    --Quest 29: Glorious Bounty
     local id=29;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
     englishTitle[id]="Glorious Bounty";
@@ -911,17 +911,17 @@ end
     statusId[id]=162;
     germanRace[id]="Wespen";
     englishRace[id]="wasps";
-	table.insert(questList[271],id); --All wasps
-	table.insert(questList[272],id); --All wasps
-	table.insert(questList[273],id); --All wasps
-	table.insert(questList[274],id); --All wasps
-	table.insert(questList[278],id); --All wasps
+    table.insert(questList[271],id); --All wasps
+    table.insert(questList[272],id); --All wasps
+    table.insert(questList[273],id); --All wasps
+    table.insert(questList[274],id); --All wasps
+    table.insert(questList[278],id); --All wasps
     minimumQueststatus[id]=42;
     maximumQueststatus[id]=54;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
 
-	--Quest 30: Glorious Bounty
+    --Quest 30: Glorious Bounty
     local id=30;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
     englishTitle[id]="Glorious Bounty";
@@ -929,21 +929,21 @@ end
     statusId[id]=162;
     germanRace[id]="Hunde";
     englishRace[id]="dogs";
-	table.insert(questList[581],id); --All dogs
-	table.insert(questList[582],id); --All dogs
-	table.insert(questList[583],id); --All dogs
-	table.insert(questList[584],id); --All dogs
-	table.insert(questList[951],id); --All dogs
-	table.insert(questList[952],id); --All dogs
-	table.insert(questList[953],id); --All dogs
-	table.insert(questList[954],id); --All dogs
-	table.insert(questList[955],id); --All dogs
+    table.insert(questList[581],id); --All dogs
+    table.insert(questList[582],id); --All dogs
+    table.insert(questList[583],id); --All dogs
+    table.insert(questList[584],id); --All dogs
+    table.insert(questList[951],id); --All dogs
+    table.insert(questList[952],id); --All dogs
+    table.insert(questList[953],id); --All dogs
+    table.insert(questList[954],id); --All dogs
+    table.insert(questList[955],id); --All dogs
     minimumQueststatus[id]=55;
     maximumQueststatus[id]=59;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
 
-	--Quest 31: Glorious Bounty
+    --Quest 31: Glorious Bounty
     local id=31;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
     englishTitle[id]="Glorious Bounty";
@@ -951,21 +951,21 @@ end
     statusId[id]=162;
     germanRace[id]="Hunde";
     englishRace[id]="dogs";
-	table.insert(questList[581],id); --All dogs
-	table.insert(questList[582],id); --All dogs
-	table.insert(questList[583],id); --All dogs
-	table.insert(questList[584],id); --All dogs
-	table.insert(questList[951],id); --All dogs
-	table.insert(questList[952],id); --All dogs
-	table.insert(questList[953],id); --All dogs
-	table.insert(questList[954],id); --All dogs
-	table.insert(questList[955],id); --All dogs
+    table.insert(questList[581],id); --All dogs
+    table.insert(questList[582],id); --All dogs
+    table.insert(questList[583],id); --All dogs
+    table.insert(questList[584],id); --All dogs
+    table.insert(questList[951],id); --All dogs
+    table.insert(questList[952],id); --All dogs
+    table.insert(questList[953],id); --All dogs
+    table.insert(questList[954],id); --All dogs
+    table.insert(questList[955],id); --All dogs
     minimumQueststatus[id]=60;
     maximumQueststatus[id]=68;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
 
-	--Quest 32: Glorious Bounty
+    --Quest 32: Glorious Bounty
     local id=32;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
     englishTitle[id]="Glorious Bounty";
@@ -973,21 +973,21 @@ end
     statusId[id]=162;
     germanRace[id]="Hunde";
     englishRace[id]="dogs";
-	table.insert(questList[581],id); --All dogs
-	table.insert(questList[582],id); --All dogs
-	table.insert(questList[583],id); --All dogs
-	table.insert(questList[584],id); --All dogs
-	table.insert(questList[951],id); --All dogs
-	table.insert(questList[952],id); --All dogs
-	table.insert(questList[953],id); --All dogs
-	table.insert(questList[954],id); --All dogs
-	table.insert(questList[955],id); --All dogs
+    table.insert(questList[581],id); --All dogs
+    table.insert(questList[582],id); --All dogs
+    table.insert(questList[583],id); --All dogs
+    table.insert(questList[584],id); --All dogs
+    table.insert(questList[951],id); --All dogs
+    table.insert(questList[952],id); --All dogs
+    table.insert(questList[953],id); --All dogs
+    table.insert(questList[954],id); --All dogs
+    table.insert(questList[955],id); --All dogs
     minimumQueststatus[id]=69;
     maximumQueststatus[id]=81;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
 
-	--Quest 33: Glorious Bounty
+    --Quest 33: Glorious Bounty
     local id=33;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
     englishTitle[id]="Glorious Bounty";
@@ -995,18 +995,18 @@ end
     statusId[id]=162;
     germanRace[id]="Füchse";
     englishRace[id]="foxes";
-	table.insert(questList[601],id); --All foxes
-	table.insert(questList[602],id); --All foxes
-	table.insert(questList[603],id); --All foxes
-	table.insert(questList[604],id); --All foxes
-	table.insert(questList[605],id); --All foxes
-	table.insert(questList[606],id); --All foxes
+    table.insert(questList[601],id); --All foxes
+    table.insert(questList[602],id); --All foxes
+    table.insert(questList[603],id); --All foxes
+    table.insert(questList[604],id); --All foxes
+    table.insert(questList[605],id); --All foxes
+    table.insert(questList[606],id); --All foxes
     minimumQueststatus[id]=82;
     maximumQueststatus[id]=86;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
 
-	--Quest 34: Glorious Bounty
+    --Quest 34: Glorious Bounty
     local id=34;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
     englishTitle[id]="Glorious Bounty";
@@ -1014,18 +1014,18 @@ end
     statusId[id]=162;
     germanRace[id]="Füchse";
     englishRace[id]="foxes";
-	table.insert(questList[601],id); --All foxes
-	table.insert(questList[602],id); --All foxes
-	table.insert(questList[603],id); --All foxes
-	table.insert(questList[604],id); --All foxes
-	table.insert(questList[605],id); --All foxes
-	table.insert(questList[606],id); --All foxes
+    table.insert(questList[601],id); --All foxes
+    table.insert(questList[602],id); --All foxes
+    table.insert(questList[603],id); --All foxes
+    table.insert(questList[604],id); --All foxes
+    table.insert(questList[605],id); --All foxes
+    table.insert(questList[606],id); --All foxes
     minimumQueststatus[id]=87;
     maximumQueststatus[id]=95;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
 
-	--Quest 35: Glorious Bounty
+    --Quest 35: Glorious Bounty
     local id=35;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
     englishTitle[id]="Glorious Bounty";
@@ -1033,18 +1033,18 @@ end
     statusId[id]=162;
     germanRace[id]="Füchse";
     englishRace[id]="foxes";
-	table.insert(questList[601],id); --All foxes
-	table.insert(questList[602],id); --All foxes
-	table.insert(questList[603],id); --All foxes
-	table.insert(questList[604],id); --All foxes
-	table.insert(questList[605],id); --All foxes
-	table.insert(questList[606],id); --All foxes
+    table.insert(questList[601],id); --All foxes
+    table.insert(questList[602],id); --All foxes
+    table.insert(questList[603],id); --All foxes
+    table.insert(questList[604],id); --All foxes
+    table.insert(questList[605],id); --All foxes
+    table.insert(questList[606],id); --All foxes
     minimumQueststatus[id]=96;
     maximumQueststatus[id]=108;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
 
-	--Quest 36: Glorious Bounty
+    --Quest 36: Glorious Bounty
     local id=36;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
     englishTitle[id]="Glorious Bounty";
@@ -1052,18 +1052,18 @@ end
     statusId[id]=162;
     germanRace[id]="Menschen";
     englishRace[id]="humans";
-	table.insert(questList[1],id); --All mon_0_humans
-	table.insert(questList[2],id); --All mon_0_humans
-	table.insert(questList[3],id); --All mon_0_humans
-	table.insert(questList[4],id); --All mon_0_humans
-	table.insert(questList[5],id); --All mon_0_humans
-	table.insert(questList[6],id); --All mon_0_humans
+    table.insert(questList[1],id); --All mon_0_humans
+    table.insert(questList[2],id); --All mon_0_humans
+    table.insert(questList[3],id); --All mon_0_humans
+    table.insert(questList[4],id); --All mon_0_humans
+    table.insert(questList[5],id); --All mon_0_humans
+    table.insert(questList[6],id); --All mon_0_humans
     minimumQueststatus[id]=109;
     maximumQueststatus[id]=113;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
 
-	--Quest 37: Glorious Bounty
+    --Quest 37: Glorious Bounty
     local id=37;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
     englishTitle[id]="Glorious Bounty";
@@ -1071,18 +1071,18 @@ end
     statusId[id]=162;
     germanRace[id]="Menschen";
     englishRace[id]="humans";
-	table.insert(questList[1],id); --All mon_0_humans
-	table.insert(questList[2],id); --All mon_0_humans
-	table.insert(questList[3],id); --All mon_0_humans
-	table.insert(questList[4],id); --All mon_0_humans
-	table.insert(questList[5],id); --All mon_0_humans
-	table.insert(questList[6],id); --All mon_0_humans
+    table.insert(questList[1],id); --All mon_0_humans
+    table.insert(questList[2],id); --All mon_0_humans
+    table.insert(questList[3],id); --All mon_0_humans
+    table.insert(questList[4],id); --All mon_0_humans
+    table.insert(questList[5],id); --All mon_0_humans
+    table.insert(questList[6],id); --All mon_0_humans
     minimumQueststatus[id]=114;
     maximumQueststatus[id]=122;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
 
-	--Quest 38: Glorious Bounty
+    --Quest 38: Glorious Bounty
     local id=38;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
     englishTitle[id]="Glorious Bounty";
@@ -1090,18 +1090,18 @@ end
     statusId[id]=162;
     germanRace[id]="Menschen";
     englishRace[id]="humans";
-	table.insert(questList[1],id); --All mon_0_humans
-	table.insert(questList[2],id); --All mon_0_humans
-	table.insert(questList[3],id); --All mon_0_humans
-	table.insert(questList[4],id); --All mon_0_humans
-	table.insert(questList[5],id); --All mon_0_humans
-	table.insert(questList[6],id); --All mon_0_humans
+    table.insert(questList[1],id); --All mon_0_humans
+    table.insert(questList[2],id); --All mon_0_humans
+    table.insert(questList[3],id); --All mon_0_humans
+    table.insert(questList[4],id); --All mon_0_humans
+    table.insert(questList[5],id); --All mon_0_humans
+    table.insert(questList[6],id); --All mon_0_humans
     minimumQueststatus[id]=123;
     maximumQueststatus[id]=135;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
 
-	--Quest 39: Glorious Bounty
+    --Quest 39: Glorious Bounty
     local id=39;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
     englishTitle[id]="Glorious Bounty";
@@ -1109,18 +1109,18 @@ end
     statusId[id]=162;
     germanRace[id]="Orks";
     englishRace[id]="orcs";
-	table.insert(questList[41],id); --All orcs
-	table.insert(questList[42],id); --All orcs
-	table.insert(questList[43],id); --All orcs
-	table.insert(questList[44],id); --All orcs
-	table.insert(questList[45],id); --All orcs
-	table.insert(questList[46],id); --All orcs
+    table.insert(questList[41],id); --All orcs
+    table.insert(questList[42],id); --All orcs
+    table.insert(questList[43],id); --All orcs
+    table.insert(questList[44],id); --All orcs
+    table.insert(questList[45],id); --All orcs
+    table.insert(questList[46],id); --All orcs
     minimumQueststatus[id]=136;
     maximumQueststatus[id]=140;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
 
-	--Quest 40: Glorious Bounty
+    --Quest 40: Glorious Bounty
     local id=40;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
     englishTitle[id]="Glorious Bounty";
@@ -1128,18 +1128,18 @@ end
     statusId[id]=162;
     germanRace[id]="Orks";
     englishRace[id]="orcs";
-	table.insert(questList[41],id); --All orcs
-	table.insert(questList[42],id); --All orcs
-	table.insert(questList[43],id); --All orcs
-	table.insert(questList[44],id); --All orcs
-	table.insert(questList[45],id); --All orcs
-	table.insert(questList[46],id); --All orcs
+    table.insert(questList[41],id); --All orcs
+    table.insert(questList[42],id); --All orcs
+    table.insert(questList[43],id); --All orcs
+    table.insert(questList[44],id); --All orcs
+    table.insert(questList[45],id); --All orcs
+    table.insert(questList[46],id); --All orcs
     minimumQueststatus[id]=141;
     maximumQueststatus[id]=149;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
 
-	--Quest 41: Glorious Bounty
+    --Quest 41: Glorious Bounty
     local id=41;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
     englishTitle[id]="Glorious Bounty";
@@ -1147,18 +1147,18 @@ end
     statusId[id]=162;
     germanRace[id]="Orks";
     englishRace[id]="orcs";
-	table.insert(questList[41],id); --All orcs
-	table.insert(questList[42],id); --All orcs
-	table.insert(questList[43],id); --All orcs
-	table.insert(questList[44],id); --All orcs
-	table.insert(questList[45],id); --All orcs
-	table.insert(questList[46],id); --All orcs
+    table.insert(questList[41],id); --All orcs
+    table.insert(questList[42],id); --All orcs
+    table.insert(questList[43],id); --All orcs
+    table.insert(questList[44],id); --All orcs
+    table.insert(questList[45],id); --All orcs
+    table.insert(questList[46],id); --All orcs
     minimumQueststatus[id]=150;
     maximumQueststatus[id]=162;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
 
-	--Quest 42: Glorious Bounty
+    --Quest 42: Glorious Bounty
     local id=42;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
     englishTitle[id]="Glorious Bounty";
@@ -1166,22 +1166,22 @@ end
     statusId[id]=162;
     germanRace[id]="Golems";
     englishRace[id]="golems";
-	table.insert(questList[301],id); --All golems
-	table.insert(questList[302],id); --All golems
-	table.insert(questList[311],id); --All golems
-	table.insert(questList[321],id); --All golems
-	table.insert(questList[331],id); --All golems
-	table.insert(questList[341],id); --All golems
-	table.insert(questList[561],id); --All golems
-	table.insert(questList[562],id); --All golems
-	table.insert(questList[563],id); --All golems
-	table.insert(questList[564],id); --All golems
+    table.insert(questList[301],id); --All golems
+    table.insert(questList[302],id); --All golems
+    table.insert(questList[311],id); --All golems
+    table.insert(questList[321],id); --All golems
+    table.insert(questList[331],id); --All golems
+    table.insert(questList[341],id); --All golems
+    table.insert(questList[561],id); --All golems
+    table.insert(questList[562],id); --All golems
+    table.insert(questList[563],id); --All golems
+    table.insert(questList[564],id); --All golems
     minimumQueststatus[id]=163;
     maximumQueststatus[id]=167;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
 
-	--Quest 43: Glorious Bounty
+    --Quest 43: Glorious Bounty
     local id=43;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
     englishTitle[id]="Glorious Bounty";
@@ -1189,22 +1189,22 @@ end
     statusId[id]=162;
     germanRace[id]="Golems";
     englishRace[id]="golems";
-	table.insert(questList[301],id); --All golems
-	table.insert(questList[302],id); --All golems
-	table.insert(questList[311],id); --All golems
-	table.insert(questList[321],id); --All golems
-	table.insert(questList[331],id); --All golems
-	table.insert(questList[341],id); --All golems
-	table.insert(questList[561],id); --All golems
-	table.insert(questList[562],id); --All golems
-	table.insert(questList[563],id); --All golems
-	table.insert(questList[564],id); --All golems
+    table.insert(questList[301],id); --All golems
+    table.insert(questList[302],id); --All golems
+    table.insert(questList[311],id); --All golems
+    table.insert(questList[321],id); --All golems
+    table.insert(questList[331],id); --All golems
+    table.insert(questList[341],id); --All golems
+    table.insert(questList[561],id); --All golems
+    table.insert(questList[562],id); --All golems
+    table.insert(questList[563],id); --All golems
+    table.insert(questList[564],id); --All golems
     minimumQueststatus[id]=168;
     maximumQueststatus[id]=176;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
 
-	--Quest 44: Glorious Bounty
+    --Quest 44: Glorious Bounty
     local id=44;
     germanTitle[id]="Ruhmhafte Kopfgeldjagd";
     englishTitle[id]="Glorious Bounty";
@@ -1212,22 +1212,22 @@ end
     statusId[id]=162;
     germanRace[id]="Golems";
     englishRace[id]="golems";
-	table.insert(questList[301],id); --All golems
-	table.insert(questList[302],id); --All golems
-	table.insert(questList[311],id); --All golems
-	table.insert(questList[321],id); --All golems
-	table.insert(questList[331],id); --All golems
-	table.insert(questList[341],id); --All golems
-	table.insert(questList[561],id); --All golems
-	table.insert(questList[562],id); --All golems
-	table.insert(questList[563],id); --All golems
-	table.insert(questList[564],id); --All golems
+    table.insert(questList[301],id); --All golems
+    table.insert(questList[302],id); --All golems
+    table.insert(questList[311],id); --All golems
+    table.insert(questList[321],id); --All golems
+    table.insert(questList[331],id); --All golems
+    table.insert(questList[341],id); --All golems
+    table.insert(questList[561],id); --All golems
+    table.insert(questList[562],id); --All golems
+    table.insert(questList[563],id); --All golems
+    table.insert(questList[564],id); --All golems
     minimumQueststatus[id]=177;
     maximumQueststatus[id]=189;
     questLocation[id]=position(250, 650, 0);
     radius[id]=250;
 
-	--Quest 45: Gorgophone's nest
+    --Quest 45: Gorgophone's nest
     local id=45;
     germanTitle[id]="Das Nest der Gorgophone";
     englishTitle[id]="Gorgophone's Nest";
@@ -1235,13 +1235,13 @@ end
     statusId[id]=520;
     germanRace[id]="kleine Spinnen";
     englishRace[id]="small spiders";
-	table.insert(questList[196],id); --Small Spider
+    table.insert(questList[196],id); --Small Spider
     minimumQueststatus[id]=1;
     maximumQueststatus[id]=26;
     questLocation[id]=position(852, 497, -6);
     radius[id]=200;
 
-	--Quest 46: Gorgophone's nest
+    --Quest 46: Gorgophone's nest
     local id=46;
     germanTitle[id]="Das Nest der Gorgophone";
     englishTitle[id]="Gorgophone's Nest";
@@ -1249,13 +1249,13 @@ end
     statusId[id]=520;
     germanRace[id]="Rekrap Retep Spinnen";
     englishRace[id]="Rekrap Retep spiders";
-	table.insert(questList[191],id); --Rekrap Retep
+    table.insert(questList[191],id); --Rekrap Retep
     minimumQueststatus[id]=30;
     maximumQueststatus[id]=50;
     questLocation[id]=position(852, 497, -6);
     radius[id]=200;
 
-	--Quest 47: Gorgophone's nest
+    --Quest 47: Gorgophone's nest
     local id=47;
     germanTitle[id]="Das Nest der Gorgophone";
     englishTitle[id]="Gorgophone's Nest";
@@ -1263,13 +1263,13 @@ end
     statusId[id]=520;
     germanRace[id]="Taranteln";
     englishRace[id]="tarantulas";
-	table.insert(questList[193],id); --Tarantula
+    table.insert(questList[193],id); --Tarantula
     minimumQueststatus[id]=52;
     maximumQueststatus[id]=67;
     questLocation[id]=position(852, 497, -6);
     radius[id]=200;
 
-	--Quest 48: Gorgophone's nest
+    --Quest 48: Gorgophone's nest
     local id=48;
     germanTitle[id]="Das Nest der Gorgophone";
     englishTitle[id]="Gorgophone's Nest";
@@ -1277,13 +1277,13 @@ end
     statusId[id]=520;
     germanRace[id]="Spinnenköniginnen";
     englishRace[id]="Spider Queens";
-	table.insert(questList[195],id); --SpiderQueen
+    table.insert(questList[195],id); --SpiderQueen
     minimumQueststatus[id]=75;
     maximumQueststatus[id]=80;
     questLocation[id]=position(852, 497, -6);
     radius[id]=200;
 
-	--Quest 49: Gorgophone's nest
+    --Quest 49: Gorgophone's nest
     local id=49;
     germanTitle[id]="Das Nest der Gorgophone";
     englishTitle[id]="Gorgophone's Nest";
@@ -1291,13 +1291,13 @@ end
     statusId[id]=520;
     germanRace[id]="Seelenpein Spinnen";
     englishRace[id]="Soulpain spiders";
-	table.insert(questList[262],id); --Soulpain
+    table.insert(questList[262],id); --Soulpain
     minimumQueststatus[id]=82;
     maximumQueststatus[id]=132;
     questLocation[id]=position(852, 497, -6);
     radius[id]=200;
 
-	--Quest 50: Spy Informant
+    --Quest 50: Spy Informant
     local id=50;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
@@ -1305,17 +1305,17 @@ end
     statusId[id]=181;
     germanRace[id]="Wespen";
     englishRace[id]="wasps";
-	table.insert(questList[271],id); --All wasps
-	table.insert(questList[272],id); --All wasps
-	table.insert(questList[273],id); --All wasps
-	table.insert(questList[274],id); --All wasps
-	table.insert(questList[278],id); --All wasps
+    table.insert(questList[271],id); --All wasps
+    table.insert(questList[272],id); --All wasps
+    table.insert(questList[273],id); --All wasps
+    table.insert(questList[274],id); --All wasps
+    table.insert(questList[278],id); --All wasps
     minimumQueststatus[id]=1;
     maximumQueststatus[id]=5;
-	questLocation[id]=position(564, 178, 0);
+    questLocation[id]=position(564, 178, 0);
     radius[id]=450;
 
-	--Quest 51: Spy Informant
+    --Quest 51: Spy Informant
     local id=51;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
@@ -1323,17 +1323,17 @@ end
     statusId[id]=181;
     germanRace[id]="Wespen";
     englishRace[id]="wasps";
-	table.insert(questList[271],id); --All wasps
-	table.insert(questList[272],id); --All wasps
-	table.insert(questList[273],id); --All wasps
-	table.insert(questList[274],id); --All wasps
-	table.insert(questList[278],id); --All wasps
+    table.insert(questList[271],id); --All wasps
+    table.insert(questList[272],id); --All wasps
+    table.insert(questList[273],id); --All wasps
+    table.insert(questList[274],id); --All wasps
+    table.insert(questList[278],id); --All wasps
     minimumQueststatus[id]=6;
     maximumQueststatus[id]=14;
-	questLocation[id]=position(564, 178, 0);
+    questLocation[id]=position(564, 178, 0);
     radius[id]=450;
 
-	--Quest 52: Spy Informant
+    --Quest 52: Spy Informant
     local id=52;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
@@ -1341,17 +1341,17 @@ end
     statusId[id]=181;
     germanRace[id]="Wespen";
     englishRace[id]="wasps";
-	table.insert(questList[271],id); --All wasps
-	table.insert(questList[272],id); --All wasps
-	table.insert(questList[273],id); --All wasps
-	table.insert(questList[274],id); --All wasps
-	table.insert(questList[278],id); --All wasps
+    table.insert(questList[271],id); --All wasps
+    table.insert(questList[272],id); --All wasps
+    table.insert(questList[273],id); --All wasps
+    table.insert(questList[274],id); --All wasps
+    table.insert(questList[278],id); --All wasps
     minimumQueststatus[id]=15;
     maximumQueststatus[id]=27;
-	questLocation[id]=position(564, 178, 0);
+    questLocation[id]=position(564, 178, 0);
     radius[id]=450;
 
-	--Quest 53: Spy Informant
+    --Quest 53: Spy Informant
     local id=53;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
@@ -1359,25 +1359,25 @@ end
     statusId[id]=181;
     germanRace[id]="Schleime";
     englishRace[id]="Slimes";
-	table.insert(questList[611],id); -- all slimes
+    table.insert(questList[611],id); -- all slimes
     table.insert(questList[612],id); -- all slimes
     table.insert(questList[613],id); -- all slimes
     table.insert(questList[614],id); -- all slimes
     table.insert(questList[1031],id); -- all slimes
-	table.insert(questList[1032],id); -- all slimes
-	table.insert(questList[1033],id); -- all slimes
+    table.insert(questList[1032],id); -- all slimes
+    table.insert(questList[1033],id); -- all slimes
     table.insert(questList[1041],id); -- all slimes
-	table.insert(questList[1042],id); -- all slimes
-	table.insert(questList[1043],id); -- all slimes
+    table.insert(questList[1042],id); -- all slimes
+    table.insert(questList[1043],id); -- all slimes
     table.insert(questList[1051],id); -- all slimes
-	table.insert(questList[1052],id); -- all slimes
-	table.insert(questList[1053],id); -- all slimes
+    table.insert(questList[1052],id); -- all slimes
+    table.insert(questList[1053],id); -- all slimes
     minimumQueststatus[id]=28;
     maximumQueststatus[id]=32;
-	questLocation[id]=position(564, 178, 0);
+    questLocation[id]=position(564, 178, 0);
     radius[id]=450;
 
-	--Quest 54: Spy Informant
+    --Quest 54: Spy Informant
     local id=54;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
@@ -1385,25 +1385,25 @@ end
     statusId[id]=181;
     germanRace[id]="Schleime";
     englishRace[id]="Slimes";
-	table.insert(questList[611],id); -- all slimes
+    table.insert(questList[611],id); -- all slimes
     table.insert(questList[612],id); -- all slimes
     table.insert(questList[613],id); -- all slimes
     table.insert(questList[614],id); -- all slimes
     table.insert(questList[1031],id); -- all slimes
-	table.insert(questList[1032],id); -- all slimes
-	table.insert(questList[1033],id); -- all slimes
+    table.insert(questList[1032],id); -- all slimes
+    table.insert(questList[1033],id); -- all slimes
     table.insert(questList[1041],id); -- all slimes
-	table.insert(questList[1042],id); -- all slimes
-	table.insert(questList[1043],id); -- all slimes
+    table.insert(questList[1042],id); -- all slimes
+    table.insert(questList[1043],id); -- all slimes
     table.insert(questList[1051],id); -- all slimes
-	table.insert(questList[1052],id); -- all slimes
-	table.insert(questList[1053],id); -- all slimes
+    table.insert(questList[1052],id); -- all slimes
+    table.insert(questList[1053],id); -- all slimes
     minimumQueststatus[id]=33;
     maximumQueststatus[id]=41;
-	questLocation[id]=position(564, 178, 0);
+    questLocation[id]=position(564, 178, 0);
     radius[id]=450;
 
-	--Quest 55: Spy Informant
+    --Quest 55: Spy Informant
     local id=55;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
@@ -1411,25 +1411,25 @@ end
     statusId[id]=181;
     germanRace[id]="Schleime";
     englishRace[id]="Slimes";
-	table.insert(questList[611],id); -- all slimes
+    table.insert(questList[611],id); -- all slimes
     table.insert(questList[612],id); -- all slimes
     table.insert(questList[613],id); -- all slimes
     table.insert(questList[614],id); -- all slimes
     table.insert(questList[1031],id); -- all slimes
-	table.insert(questList[1032],id); -- all slimes
-	table.insert(questList[1033],id); -- all slimes
+    table.insert(questList[1032],id); -- all slimes
+    table.insert(questList[1033],id); -- all slimes
     table.insert(questList[1041],id); -- all slimes
-	table.insert(questList[1042],id); -- all slimes
-	table.insert(questList[1043],id); -- all slimes
+    table.insert(questList[1042],id); -- all slimes
+    table.insert(questList[1043],id); -- all slimes
     table.insert(questList[1051],id); -- all slimes
-	table.insert(questList[1052],id); -- all slimes
-	table.insert(questList[1053],id); -- all slimes
+    table.insert(questList[1052],id); -- all slimes
+    table.insert(questList[1053],id); -- all slimes
     minimumQueststatus[id]=42;
     maximumQueststatus[id]=54;
-	questLocation[id]=position(564, 178, 0);
+    questLocation[id]=position(564, 178, 0);
     radius[id]=450;
 
-	--Quest 56: Spy Informant
+    --Quest 56: Spy Informant
     local id=56;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
@@ -1437,21 +1437,21 @@ end
     statusId[id]=181;
     germanRace[id]="Hunde";
     englishRace[id]="dogs";
-	table.insert(questList[581],id); --All dogs
-	table.insert(questList[582],id); --All dogs
-	table.insert(questList[583],id); --All dogs
-	table.insert(questList[584],id); --All dogs
-	table.insert(questList[951],id); --All dogs
-	table.insert(questList[952],id); --All dogs
-	table.insert(questList[953],id); --All dogs
-	table.insert(questList[954],id); --All dogs
-	table.insert(questList[955],id); --All dogs
+    table.insert(questList[581],id); --All dogs
+    table.insert(questList[582],id); --All dogs
+    table.insert(questList[583],id); --All dogs
+    table.insert(questList[584],id); --All dogs
+    table.insert(questList[951],id); --All dogs
+    table.insert(questList[952],id); --All dogs
+    table.insert(questList[953],id); --All dogs
+    table.insert(questList[954],id); --All dogs
+    table.insert(questList[955],id); --All dogs
     minimumQueststatus[id]=55;
     maximumQueststatus[id]=59;
-	questLocation[id]=position(564, 178, 0);
+    questLocation[id]=position(564, 178, 0);
     radius[id]=450;
 
-	--Quest 57: Spy Informant
+    --Quest 57: Spy Informant
     local id=57;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
@@ -1459,21 +1459,21 @@ end
     statusId[id]=181;
     germanRace[id]="Hunde";
     englishRace[id]="dogs";
-	table.insert(questList[581],id); --All dogs
-	table.insert(questList[582],id); --All dogs
-	table.insert(questList[583],id); --All dogs
-	table.insert(questList[584],id); --All dogs
-	table.insert(questList[951],id); --All dogs
-	table.insert(questList[952],id); --All dogs
-	table.insert(questList[953],id); --All dogs
-	table.insert(questList[954],id); --All dogs
-	table.insert(questList[955],id); --All dogs
+    table.insert(questList[581],id); --All dogs
+    table.insert(questList[582],id); --All dogs
+    table.insert(questList[583],id); --All dogs
+    table.insert(questList[584],id); --All dogs
+    table.insert(questList[951],id); --All dogs
+    table.insert(questList[952],id); --All dogs
+    table.insert(questList[953],id); --All dogs
+    table.insert(questList[954],id); --All dogs
+    table.insert(questList[955],id); --All dogs
     minimumQueststatus[id]=60;
     maximumQueststatus[id]=68;
-	questLocation[id]=position(564, 178, 0);
+    questLocation[id]=position(564, 178, 0);
     radius[id]=450;
 
-	--Quest 58: Spy Informant
+    --Quest 58: Spy Informant
     local id=58;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
@@ -1481,21 +1481,21 @@ end
     statusId[id]=181;
     germanRace[id]="Hunde";
     englishRace[id]="dogs";
-	table.insert(questList[581],id); --All dogs
-	table.insert(questList[582],id); --All dogs
-	table.insert(questList[583],id); --All dogs
-	table.insert(questList[584],id); --All dogs
-	table.insert(questList[951],id); --All dogs
-	table.insert(questList[952],id); --All dogs
-	table.insert(questList[953],id); --All dogs
-	table.insert(questList[954],id); --All dogs
-	table.insert(questList[955],id); --All dogs
+    table.insert(questList[581],id); --All dogs
+    table.insert(questList[582],id); --All dogs
+    table.insert(questList[583],id); --All dogs
+    table.insert(questList[584],id); --All dogs
+    table.insert(questList[951],id); --All dogs
+    table.insert(questList[952],id); --All dogs
+    table.insert(questList[953],id); --All dogs
+    table.insert(questList[954],id); --All dogs
+    table.insert(questList[955],id); --All dogs
     minimumQueststatus[id]=69;
     maximumQueststatus[id]=81;
-	questLocation[id]=position(564, 178, 0);
+    questLocation[id]=position(564, 178, 0);
     radius[id]=450;
 
-	--Quest 59: Spy Informant
+    --Quest 59: Spy Informant
     local id=59;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
@@ -1503,18 +1503,18 @@ end
     statusId[id]=181;
     germanRace[id]="Füchse";
     englishRace[id]="foxes";
-	table.insert(questList[601],id); --All foxes
-	table.insert(questList[602],id); --All foxes
-	table.insert(questList[603],id); --All foxes
-	table.insert(questList[604],id); --All foxes
-	table.insert(questList[605],id); --All foxes
-	table.insert(questList[606],id); --All foxes
+    table.insert(questList[601],id); --All foxes
+    table.insert(questList[602],id); --All foxes
+    table.insert(questList[603],id); --All foxes
+    table.insert(questList[604],id); --All foxes
+    table.insert(questList[605],id); --All foxes
+    table.insert(questList[606],id); --All foxes
     minimumQueststatus[id]=82;
     maximumQueststatus[id]=86;
-	questLocation[id]=position(564, 178, 0);
+    questLocation[id]=position(564, 178, 0);
     radius[id]=450;
 
-	--Quest 60: Spy Informant
+    --Quest 60: Spy Informant
     local id=60;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
@@ -1522,18 +1522,18 @@ end
     statusId[id]=181;
     germanRace[id]="Füchse";
     englishRace[id]="foxes";
-	table.insert(questList[601],id); --All foxes
-	table.insert(questList[602],id); --All foxes
-	table.insert(questList[603],id); --All foxes
-	table.insert(questList[604],id); --All foxes
-	table.insert(questList[605],id); --All foxes
-	table.insert(questList[606],id); --All foxes
+    table.insert(questList[601],id); --All foxes
+    table.insert(questList[602],id); --All foxes
+    table.insert(questList[603],id); --All foxes
+    table.insert(questList[604],id); --All foxes
+    table.insert(questList[605],id); --All foxes
+    table.insert(questList[606],id); --All foxes
     minimumQueststatus[id]=87;
     maximumQueststatus[id]=95;
-	questLocation[id]=position(564, 178, 0);
+    questLocation[id]=position(564, 178, 0);
     radius[id]=450;
 
-	--Quest 61: Spy Informant
+    --Quest 61: Spy Informant
     local id=61;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
@@ -1541,18 +1541,18 @@ end
     statusId[id]=181;
     germanRace[id]="Füchse";
     englishRace[id]="foxes";
-	table.insert(questList[601],id); --All foxes
-	table.insert(questList[602],id); --All foxes
-	table.insert(questList[603],id); --All foxes
-	table.insert(questList[604],id); --All foxes
-	table.insert(questList[605],id); --All foxes
-	table.insert(questList[606],id); --All foxes
+    table.insert(questList[601],id); --All foxes
+    table.insert(questList[602],id); --All foxes
+    table.insert(questList[603],id); --All foxes
+    table.insert(questList[604],id); --All foxes
+    table.insert(questList[605],id); --All foxes
+    table.insert(questList[606],id); --All foxes
     minimumQueststatus[id]=96;
     maximumQueststatus[id]=108;
-	questLocation[id]=position(564, 178, 0);
+    questLocation[id]=position(564, 178, 0);
     radius[id]=450;
-	
-	--Quest 62: Spy Informant
+    
+    --Quest 62: Spy Informant
     local id=62;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
@@ -1560,18 +1560,18 @@ end
     statusId[id]=181;
     germanRace[id]="Rattenmenschen";
     englishRace[id]="Ratmen";
-	table.insert(questList[573],id);  --all ratmen
-	table.insert(questList[574],id);  --all ratmen
-	table.insert(questList[575],id);  --all ratmen
-	table.insert(questList[576],id);  --all ratmen
-	table.insert(questList[577],id);  --all ratmen
-	table.insert(questList[578],id);  --all ratmen
+    table.insert(questList[573],id);  --all ratmen
+    table.insert(questList[574],id);  --all ratmen
+    table.insert(questList[575],id);  --all ratmen
+    table.insert(questList[576],id);  --all ratmen
+    table.insert(questList[577],id);  --all ratmen
+    table.insert(questList[578],id);  --all ratmen
     minimumQueststatus[id]=109;
     maximumQueststatus[id]=113;
-	questLocation[id]=position(564, 178, 0);
+    questLocation[id]=position(564, 178, 0);
     radius[id]=450;
 
-	--Quest 63: Spy Informant
+    --Quest 63: Spy Informant
     local id=63;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
@@ -1579,18 +1579,18 @@ end
     statusId[id]=181;
     germanRace[id]="Rattenmenschen";
     englishRace[id]="Ratmen";
-	table.insert(questList[573],id);  --all ratmen
-	table.insert(questList[574],id); --all ratmen
-	table.insert(questList[575],id);  --all ratmen
-	table.insert(questList[576],id); --all ratmen
-	table.insert(questList[577],id); --all ratmen
-	table.insert(questList[578],id);  --all ratmen
+    table.insert(questList[573],id);  --all ratmen
+    table.insert(questList[574],id); --all ratmen
+    table.insert(questList[575],id);  --all ratmen
+    table.insert(questList[576],id); --all ratmen
+    table.insert(questList[577],id); --all ratmen
+    table.insert(questList[578],id);  --all ratmen
     minimumQueststatus[id]=114;
     maximumQueststatus[id]=122;
-	questLocation[id]=position(564, 178, 0);
+    questLocation[id]=position(564, 178, 0);
     radius[id]=450;
 
-	--Quest 64: Spy Informant
+    --Quest 64: Spy Informant
     local id=64;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
@@ -1598,18 +1598,18 @@ end
     statusId[id]=181;
     germanRace[id]="Rattenmenschen";
     englishRace[id]="Ratmen";
-	table.insert(questList[573],id); --all ratmen
-	table.insert(questList[574],id);  --all ratmen
-	table.insert(questList[575],id); --all ratmen
-	table.insert(questList[576],id);  --all ratmen
-	table.insert(questList[577],id); --all ratmen
-	table.insert(questList[578],id);  --all ratmen
+    table.insert(questList[573],id); --all ratmen
+    table.insert(questList[574],id);  --all ratmen
+    table.insert(questList[575],id); --all ratmen
+    table.insert(questList[576],id);  --all ratmen
+    table.insert(questList[577],id); --all ratmen
+    table.insert(questList[578],id);  --all ratmen
     minimumQueststatus[id]=123;
     maximumQueststatus[id]=135;
-	questLocation[id]=position(564, 178, 0);
+    questLocation[id]=position(564, 178, 0);
     radius[id]=450;
-	
-	--Quest 65: Spy Informant
+    
+    --Quest 65: Spy Informant
     local id=65;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
@@ -1617,18 +1617,18 @@ end
     statusId[id]=181;
     germanRace[id]="Bären";
     englishRace[id]="bears";
-	table.insert(questList[513],id); -- all bears
-	table.insert(questList[514],id); --all bears
-	table.insert(questList[515],id); --all bears
-	table.insert(questList[516],id); --all bears
-	table.insert(questList[511],id); --all bears
-	table.insert(questList[512],id); --all bears
+    table.insert(questList[513],id); -- all bears
+    table.insert(questList[514],id); --all bears
+    table.insert(questList[515],id); --all bears
+    table.insert(questList[516],id); --all bears
+    table.insert(questList[511],id); --all bears
+    table.insert(questList[512],id); --all bears
     minimumQueststatus[id]=136;
     maximumQueststatus[id]=140;
-	questLocation[id]=position(564, 178, 0);
+    questLocation[id]=position(564, 178, 0);
     radius[id]=450;
 
-	--Quest 66: Spy Informant
+    --Quest 66: Spy Informant
     local id=66;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
@@ -1636,18 +1636,18 @@ end
     statusId[id]=181;
     germanRace[id]="Bären";
     englishRace[id]="bears";
-	table.insert(questList[513],id); -- all bears
-	table.insert(questList[514],id); --all bears
-	table.insert(questList[515],id); --all bears
-	table.insert(questList[516],id); --all bears
-	table.insert(questList[511],id); --all bears
-	table.insert(questList[512],id); --all bears
+    table.insert(questList[513],id); -- all bears
+    table.insert(questList[514],id); --all bears
+    table.insert(questList[515],id); --all bears
+    table.insert(questList[516],id); --all bears
+    table.insert(questList[511],id); --all bears
+    table.insert(questList[512],id); --all bears
     minimumQueststatus[id]=141;
     maximumQueststatus[id]=149;
-	questLocation[id]=position(564, 178, 0);
+    questLocation[id]=position(564, 178, 0);
     radius[id]=450;
 
-	--Quest 67: Spy Informant
+    --Quest 67: Spy Informant
     local id=67;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
@@ -1655,18 +1655,18 @@ end
     statusId[id]=181;
     germanRace[id]="Bären";
     englishRace[id]="bears";
-	table.insert(questList[513],id); -- all bears
-	table.insert(questList[514],id); --all bears
-	table.insert(questList[515],id); --all bears
-	table.insert(questList[516],id); --all bears
-	table.insert(questList[511],id); --all bears
-	table.insert(questList[512],id); --all bears
+    table.insert(questList[513],id); -- all bears
+    table.insert(questList[514],id); --all bears
+    table.insert(questList[515],id); --all bears
+    table.insert(questList[516],id); --all bears
+    table.insert(questList[511],id); --all bears
+    table.insert(questList[512],id); --all bears
     minimumQueststatus[id]=150;
     maximumQueststatus[id]=162;
-	questLocation[id]=position(564, 178, 0);
+    questLocation[id]=position(564, 178, 0);
     radius[id]=450;
 
-	--Quest 68: Spy Informant
+    --Quest 68: Spy Informant
     local id=68;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
@@ -1674,18 +1674,18 @@ end
     statusId[id]=181;
     germanRace[id]="Trolle";
     englishRace[id]="trolls";
-	table.insert(questList[91],id); --all trolls
-	table.insert(questList[92],id); --all trolls
-	table.insert(questList[93],id); --all trolls
-	table.insert(questList[94],id); --all trolls
-	table.insert(questList[95],id); --all trolls
-	table.insert(questList[96],id); --all trolls
+    table.insert(questList[91],id); --all trolls
+    table.insert(questList[92],id); --all trolls
+    table.insert(questList[93],id); --all trolls
+    table.insert(questList[94],id); --all trolls
+    table.insert(questList[95],id); --all trolls
+    table.insert(questList[96],id); --all trolls
     minimumQueststatus[id]=163;
     maximumQueststatus[id]=167;
-	questLocation[id]=position(564, 178, 0);
+    questLocation[id]=position(564, 178, 0);
     radius[id]=450;
 
-	--Quest 69: Spy Informant
+    --Quest 69: Spy Informant
     local id=69;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
@@ -1693,18 +1693,18 @@ end
     statusId[id]=181;
     germanRace[id]="Trolle";
     englishRace[id]="trolls";
-	table.insert(questList[91],id); --all trolls
-	table.insert(questList[92],id); --all trolls
-	table.insert(questList[93],id); --all trolls
-	table.insert(questList[94],id); --all trolls
-	table.insert(questList[95],id); --all trolls
-	table.insert(questList[96],id); --all trolls
+    table.insert(questList[91],id); --all trolls
+    table.insert(questList[92],id); --all trolls
+    table.insert(questList[93],id); --all trolls
+    table.insert(questList[94],id); --all trolls
+    table.insert(questList[95],id); --all trolls
+    table.insert(questList[96],id); --all trolls
     minimumQueststatus[id]=168;
     maximumQueststatus[id]=176;
-	questLocation[id]=position(564, 178, 0);
+    questLocation[id]=position(564, 178, 0);
     radius[id]=450;
 
-	--Quest 70: Spy Informant
+    --Quest 70: Spy Informant
     local id=70;
     germanTitle[id]="Spitzel Informant";
     englishTitle[id]="Spy Informant";
@@ -1712,164 +1712,164 @@ end
     statusId[id]=181;
     germanRace[id]="Trolle";
     englishRace[id]="trolls";
-	table.insert(questList[91],id); --all trolls
-	table.insert(questList[92],id); --all trolls
-	table.insert(questList[93],id); --all trolls
-	table.insert(questList[94],id); --all trolls
-	table.insert(questList[95],id); --all trolls
-	table.insert(questList[96],id); --all trolls
+    table.insert(questList[91],id); --all trolls
+    table.insert(questList[92],id); --all trolls
+    table.insert(questList[93],id); --all trolls
+    table.insert(questList[94],id); --all trolls
+    table.insert(questList[95],id); --all trolls
+    table.insert(questList[96],id); --all trolls
     minimumQueststatus[id]=177;
     maximumQueststatus[id]=189;
-	questLocation[id]=position(564, 178, 0);
+    questLocation[id]=position(564, 178, 0);
     radius[id]=450;
 
-	--Quest 71: The Researcher
-	local id=71;
+    --Quest 71: The Researcher
+    local id=71;
     germanTitle[id]="Die Forscher";
     englishTitle[id]="The Researcher";
     NPCName[id]="Maelyrra Umrielyth";
     statusId[id]=184;
     germanRace[id]="Schleime";
     englishRace[id]="Slimes";
-	table.insert(questList[611],id); -- all slimes
+    table.insert(questList[611],id); -- all slimes
     table.insert(questList[612],id); -- all slimes
     table.insert(questList[613],id); -- all slimes
     table.insert(questList[614],id); -- all slimes
     table.insert(questList[1031],id); -- all slimes
-	table.insert(questList[1032],id); -- all slimes
-	table.insert(questList[1033],id); -- all slimes
+    table.insert(questList[1032],id); -- all slimes
+    table.insert(questList[1033],id); -- all slimes
     table.insert(questList[1041],id); -- all slimes
-	table.insert(questList[1042],id); -- all slimes
-	table.insert(questList[1043],id); -- all slimes
+    table.insert(questList[1042],id); -- all slimes
+    table.insert(questList[1043],id); -- all slimes
     table.insert(questList[1051],id); -- all slimes
-	table.insert(questList[1052],id); -- all slimes
-	table.insert(questList[1053],id); -- all slimes
+    table.insert(questList[1052],id); -- all slimes
+    table.insert(questList[1053],id); -- all slimes
     minimumQueststatus[id]=1;
     maximumQueststatus[id]=5;
-	questLocation[id]=position(811, 735, 0);
+    questLocation[id]=position(811, 735, 0);
     radius[id]=300;
 
-	--Quest 72: The Researcher
-	local id=72;
+    --Quest 72: The Researcher
+    local id=72;
     germanTitle[id]="Die Forscher";
     englishTitle[id]="The Researcher";
     NPCName[id]="Maelyrra Umrielyth";
     statusId[id]=184;
     germanRace[id]="Schleime";
     englishRace[id]="Slimes";
-	table.insert(questList[611],id); -- all slimes
+    table.insert(questList[611],id); -- all slimes
     table.insert(questList[612],id); -- all slimes
     table.insert(questList[613],id); -- all slimes
     table.insert(questList[614],id); -- all slimes
     table.insert(questList[1031],id); -- all slimes
-	table.insert(questList[1032],id); -- all slimes
-	table.insert(questList[1033],id); -- all slimes
+    table.insert(questList[1032],id); -- all slimes
+    table.insert(questList[1033],id); -- all slimes
     table.insert(questList[1041],id); -- all slimes
-	table.insert(questList[1042],id); -- all slimes
-	table.insert(questList[1043],id); -- all slimes
+    table.insert(questList[1042],id); -- all slimes
+    table.insert(questList[1043],id); -- all slimes
     table.insert(questList[1051],id); -- all slimes
-	table.insert(questList[1052],id); -- all slimes
-	table.insert(questList[1053],id); -- all slimes
+    table.insert(questList[1052],id); -- all slimes
+    table.insert(questList[1053],id); -- all slimes
     minimumQueststatus[id]=6;
     maximumQueststatus[id]=14;
-	questLocation[id]=position(811, 735, 0);
+    questLocation[id]=position(811, 735, 0);
     radius[id]=300;
 
-	--Quest 73: The Researcher
-	local id=73;
+    --Quest 73: The Researcher
+    local id=73;
     germanTitle[id]="Die Forscher";
     englishTitle[id]="The Researcher";
     NPCName[id]="Maelyrra Umrielyth";
     statusId[id]=184;
     germanRace[id]="Schleime";
     englishRace[id]="Slimes";
-	table.insert(questList[611],id); -- all slimes
+    table.insert(questList[611],id); -- all slimes
     table.insert(questList[612],id); -- all slimes
     table.insert(questList[613],id); -- all slimes
     table.insert(questList[614],id); -- all slimes
     table.insert(questList[1031],id); -- all slimes
-	table.insert(questList[1032],id); -- all slimes
-	table.insert(questList[1033],id); -- all slimes
+    table.insert(questList[1032],id); -- all slimes
+    table.insert(questList[1033],id); -- all slimes
     table.insert(questList[1041],id); -- all slimes
-	table.insert(questList[1042],id); -- all slimes
-	table.insert(questList[1043],id); -- all slimes
+    table.insert(questList[1042],id); -- all slimes
+    table.insert(questList[1043],id); -- all slimes
     table.insert(questList[1051],id); -- all slimes
-	table.insert(questList[1052],id); -- all slimes
-	table.insert(questList[1053],id); -- all slimes
+    table.insert(questList[1052],id); -- all slimes
+    table.insert(questList[1053],id); -- all slimes
     minimumQueststatus[id]=15;
     maximumQueststatus[id]=27;
-	questLocation[id]=position(811, 735, 0);
+    questLocation[id]=position(811, 735, 0);
     radius[id]=300;
 
-	--Quest 74: The Researcher
-	local id=74;
+    --Quest 74: The Researcher
+    local id=74;
     germanTitle[id]="Die Forscher";
     englishTitle[id]="The Researcher";
     NPCName[id]="Maelyrra Umrielyth";
     statusId[id]=184;
     germanRace[id]="Hunde";
     englishRace[id]="dogs";
-	table.insert(questList[581],id); --All dogs
-	table.insert(questList[582],id); --All dogs
-	table.insert(questList[583],id); --All dogs
-	table.insert(questList[584],id); --All dogs
-	table.insert(questList[951],id); --All dogs
-	table.insert(questList[952],id); --All dogs
-	table.insert(questList[953],id); --All dogs
-	table.insert(questList[954],id); --All dogs
-	table.insert(questList[955],id); --All dogs
+    table.insert(questList[581],id); --All dogs
+    table.insert(questList[582],id); --All dogs
+    table.insert(questList[583],id); --All dogs
+    table.insert(questList[584],id); --All dogs
+    table.insert(questList[951],id); --All dogs
+    table.insert(questList[952],id); --All dogs
+    table.insert(questList[953],id); --All dogs
+    table.insert(questList[954],id); --All dogs
+    table.insert(questList[955],id); --All dogs
     minimumQueststatus[id]=28;
     maximumQueststatus[id]=32;
-	questLocation[id]=position(811, 735, 0);
+    questLocation[id]=position(811, 735, 0);
     radius[id]=300;
 
 
-	--Quest 75: The Researcher
-	local id=75;
+    --Quest 75: The Researcher
+    local id=75;
     germanTitle[id]="Die Forscher";
     englishTitle[id]="The Researcher";
     NPCName[id]="Maelyrra Umrielyth";
     statusId[id]=184;
     germanRace[id]="Hunde";
     englishRace[id]="dogs";
-	table.insert(questList[581],id); --All dogs
-	table.insert(questList[582],id); --All dogs
-	table.insert(questList[583],id); --All dogs
-	table.insert(questList[584],id); --All dogs
-	table.insert(questList[951],id); --All dogs
-	table.insert(questList[952],id); --All dogs
-	table.insert(questList[953],id); --All dogs
-	table.insert(questList[954],id); --All dogs
-	table.insert(questList[955],id); --All dogs
+    table.insert(questList[581],id); --All dogs
+    table.insert(questList[582],id); --All dogs
+    table.insert(questList[583],id); --All dogs
+    table.insert(questList[584],id); --All dogs
+    table.insert(questList[951],id); --All dogs
+    table.insert(questList[952],id); --All dogs
+    table.insert(questList[953],id); --All dogs
+    table.insert(questList[954],id); --All dogs
+    table.insert(questList[955],id); --All dogs
     minimumQueststatus[id]=33;
     maximumQueststatus[id]=41;
-	questLocation[id]=position(811, 735, 0);
+    questLocation[id]=position(811, 735, 0);
     radius[id]=300;
 
-	--Quest 76: The Researcher
-	local id=76;
+    --Quest 76: The Researcher
+    local id=76;
     germanTitle[id]="Die Forscher";
     englishTitle[id]="The Researcher";
     NPCName[id]="Maelyrra Umrielyth";
     statusId[id]=184;
     germanRace[id]="Hunde";
     englishRace[id]="dogs";
-	table.insert(questList[581],id); --All dogs
-	table.insert(questList[582],id); --All dogs
-	table.insert(questList[583],id); --All dogs
-	table.insert(questList[584],id); --All dogs
-	table.insert(questList[951],id); --All dogs
-	table.insert(questList[952],id); --All dogs
-	table.insert(questList[953],id); --All dogs
-	table.insert(questList[954],id); --All dogs
-	table.insert(questList[955],id); --All dogs
+    table.insert(questList[581],id); --All dogs
+    table.insert(questList[582],id); --All dogs
+    table.insert(questList[583],id); --All dogs
+    table.insert(questList[584],id); --All dogs
+    table.insert(questList[951],id); --All dogs
+    table.insert(questList[952],id); --All dogs
+    table.insert(questList[953],id); --All dogs
+    table.insert(questList[954],id); --All dogs
+    table.insert(questList[955],id); --All dogs
     minimumQueststatus[id]=42;
     maximumQueststatus[id]=54;
-	questLocation[id]=position(811, 735, 0);
+    questLocation[id]=position(811, 735, 0);
     radius[id]=300;
 
-	--Quest 77: The Researcher
-	local id=77;
+    --Quest 77: The Researcher
+    local id=77;
     germanTitle[id]="Die Forscher";
     englishTitle[id]="The Researcher";
     NPCName[id]="Maelyrra Umrielyth";
@@ -1880,19 +1880,19 @@ end
     table.insert(questList[392],id); --All Wolves
     table.insert(questList[393],id); --All Wolves
     table.insert(questList[394],id); --All Wolves
-	table.insert(questList[395],id); --All Wolves
+    table.insert(questList[395],id); --All Wolves
     table.insert(questList[396],id); --All Wolves
     table.insert(questList[401],id); --All Wolves
     table.insert(questList[402],id); --All Wolves
-	table.insert(questList[403],id); --All Wolves
+    table.insert(questList[403],id); --All Wolves
     table.insert(questList[404],id); --All Wolves
     minimumQueststatus[id]=55;
     maximumQueststatus[id]=59;
-	questLocation[id]=position(811, 735, 0);
+    questLocation[id]=position(811, 735, 0);
     radius[id]=300;
 
-	--Quest 78: The Researcher
-	local id=78;
+    --Quest 78: The Researcher
+    local id=78;
     germanTitle[id]="Die Forscher";
     englishTitle[id]="The Researcher";
     NPCName[id]="Maelyrra Umrielyth";
@@ -1903,19 +1903,19 @@ end
     table.insert(questList[392],id); --All Wolves
     table.insert(questList[393],id); --All Wolves
     table.insert(questList[394],id); --All Wolves
-	table.insert(questList[395],id); --All Wolves
+    table.insert(questList[395],id); --All Wolves
     table.insert(questList[396],id); --All Wolves
     table.insert(questList[401],id); --All Wolves
     table.insert(questList[402],id); --All Wolves
-	table.insert(questList[403],id); --All Wolves
+    table.insert(questList[403],id); --All Wolves
     table.insert(questList[404],id); --All Wolves
     minimumQueststatus[id]=60;
     maximumQueststatus[id]=68;
-	questLocation[id]=position(811, 735, 0);
+    questLocation[id]=position(811, 735, 0);
     radius[id]=300;
 
-	--Quest 79: The Researcher
-	local id=79;
+    --Quest 79: The Researcher
+    local id=79;
     germanTitle[id]="Die Forscher";
     englishTitle[id]="The Researcher";
     NPCName[id]="Maelyrra Umrielyth";
@@ -1926,555 +1926,555 @@ end
     table.insert(questList[392],id); --All Wolves
     table.insert(questList[393],id); --All Wolves
     table.insert(questList[394],id); --All Wolves
-	table.insert(questList[395],id); --All Wolves
+    table.insert(questList[395],id); --All Wolves
     table.insert(questList[396],id); --All Wolves
     table.insert(questList[401],id); --All Wolves
     table.insert(questList[402],id); --All Wolves
-	table.insert(questList[403],id); --All Wolves
+    table.insert(questList[403],id); --All Wolves
     table.insert(questList[404],id); --All Wolves
     minimumQueststatus[id]=69;
     maximumQueststatus[id]=81;
-	questLocation[id]=position(811, 735, 0);
+    questLocation[id]=position(811, 735, 0);
     radius[id]=300;
 
-	--Quest 80: The Researcher
-	local id=80;
+    --Quest 80: The Researcher
+    local id=80;
     germanTitle[id]="Die Forscher";
     englishTitle[id]="The Researcher";
     NPCName[id]="Maelyrra Umrielyth";
     statusId[id]=184;
     germanRace[id]="Füchse";
     englishRace[id]="foxes";
-	table.insert(questList[601],id); --All foxes
-	table.insert(questList[602],id); --All foxes
-	table.insert(questList[603],id); --All foxes
-	table.insert(questList[604],id); --All foxes
-	table.insert(questList[605],id); --All foxes
-	table.insert(questList[606],id); --All foxes
+    table.insert(questList[601],id); --All foxes
+    table.insert(questList[602],id); --All foxes
+    table.insert(questList[603],id); --All foxes
+    table.insert(questList[604],id); --All foxes
+    table.insert(questList[605],id); --All foxes
+    table.insert(questList[606],id); --All foxes
     minimumQueststatus[id]=82;
     maximumQueststatus[id]=86;
-	questLocation[id]=position(811, 735, 0);
+    questLocation[id]=position(811, 735, 0);
     radius[id]=300;
 
-	--Quest 81: The Researcher
-	local id=81;
+    --Quest 81: The Researcher
+    local id=81;
     germanTitle[id]="Die Forscher";
     englishTitle[id]="The Researcher";
     NPCName[id]="Maelyrra Umrielyth";
     statusId[id]=184;
     germanRace[id]="Füchse";
     englishRace[id]="foxes";
-	table.insert(questList[601],id); --All foxes
-	table.insert(questList[602],id); --All foxes
-	table.insert(questList[603],id); --All foxes
-	table.insert(questList[604],id); --All foxes
-	table.insert(questList[605],id); --All foxes
-	table.insert(questList[606],id); --All foxes
+    table.insert(questList[601],id); --All foxes
+    table.insert(questList[602],id); --All foxes
+    table.insert(questList[603],id); --All foxes
+    table.insert(questList[604],id); --All foxes
+    table.insert(questList[605],id); --All foxes
+    table.insert(questList[606],id); --All foxes
     minimumQueststatus[id]=87;
     maximumQueststatus[id]=95;
-	questLocation[id]=position(811, 735, 0);
+    questLocation[id]=position(811, 735, 0);
     radius[id]=300;
 
-	--Quest 82: The Researcher
-	local id=82;
+    --Quest 82: The Researcher
+    local id=82;
     germanTitle[id]="Die Forscher";
     englishTitle[id]="The Researcher";
     NPCName[id]="Maelyrra Umrielyth";
     statusId[id]=184;
     germanRace[id]="Füchse";
     englishRace[id]="foxes";
-	table.insert(questList[601],id); --All foxes
-	table.insert(questList[602],id); --All foxes
-	table.insert(questList[603],id); --All foxes
-	table.insert(questList[604],id); --All foxes
-	table.insert(questList[605],id); --All foxes
-	table.insert(questList[606],id); --All foxes
+    table.insert(questList[601],id); --All foxes
+    table.insert(questList[602],id); --All foxes
+    table.insert(questList[603],id); --All foxes
+    table.insert(questList[604],id); --All foxes
+    table.insert(questList[605],id); --All foxes
+    table.insert(questList[606],id); --All foxes
     minimumQueststatus[id]=96;
     maximumQueststatus[id]=108;
-	questLocation[id]=position(811, 735, 0);
+    questLocation[id]=position(811, 735, 0);
     radius[id]=300;
 
-	--Quest 83: The Researcher
-	local id=83;
+    --Quest 83: The Researcher
+    local id=83;
     germanTitle[id]="Die Forscher";
     englishTitle[id]="The Researcher";
     NPCName[id]="Maelyrra Umrielyth";
     statusId[id]=184;
     germanRace[id]="Menschen";
     englishRace[id]="humans";
-	table.insert(questList[1],id); --All mon_0_humans
-	table.insert(questList[2],id); --All mon_0_humans
-	table.insert(questList[3],id); --All mon_0_humans
-	table.insert(questList[4],id); --All mon_0_humans
-	table.insert(questList[5],id); --All mon_0_humans
-	table.insert(questList[6],id); --All mon_0_humans
+    table.insert(questList[1],id); --All mon_0_humans
+    table.insert(questList[2],id); --All mon_0_humans
+    table.insert(questList[3],id); --All mon_0_humans
+    table.insert(questList[4],id); --All mon_0_humans
+    table.insert(questList[5],id); --All mon_0_humans
+    table.insert(questList[6],id); --All mon_0_humans
     minimumQueststatus[id]=109;
     maximumQueststatus[id]=113;
-	questLocation[id]=position(811, 735, 0);
+    questLocation[id]=position(811, 735, 0);
     radius[id]=300;
 
-	--Quest 84: The Researcher
-	local id=84;
+    --Quest 84: The Researcher
+    local id=84;
     germanTitle[id]="Die Forscher";
     englishTitle[id]="The Researcher";
     NPCName[id]="Maelyrra Umrielyth";
     statusId[id]=184;
     germanRace[id]="Menschen";
     englishRace[id]="humans";
-	table.insert(questList[1],id); --All mon_0_humans
-	table.insert(questList[2],id); --All mon_0_humans
-	table.insert(questList[3],id); --All mon_0_humans
-	table.insert(questList[4],id); --All mon_0_humans
-	table.insert(questList[5],id); --All mon_0_humans
-	table.insert(questList[6],id); --All mon_0_humans
+    table.insert(questList[1],id); --All mon_0_humans
+    table.insert(questList[2],id); --All mon_0_humans
+    table.insert(questList[3],id); --All mon_0_humans
+    table.insert(questList[4],id); --All mon_0_humans
+    table.insert(questList[5],id); --All mon_0_humans
+    table.insert(questList[6],id); --All mon_0_humans
     minimumQueststatus[id]=114;
     maximumQueststatus[id]=122;
-	questLocation[id]=position(811, 735, 0);
+    questLocation[id]=position(811, 735, 0);
     radius[id]=300;
 
-	--Quest 85: The Researcher
-	local id=85;
+    --Quest 85: The Researcher
+    local id=85;
     germanTitle[id]="Die Forscher";
     englishTitle[id]="The Researcher";
     NPCName[id]="Maelyrra Umrielyth";
     statusId[id]=184;
     germanRace[id]="Menschen";
     englishRace[id]="humans";
-	table.insert(questList[1],id); --All mon_0_humans
-	table.insert(questList[2],id); --All mon_0_humans
-	table.insert(questList[3],id); --All mon_0_humans
-	table.insert(questList[4],id); --All mon_0_humans
-	table.insert(questList[5],id); --All mon_0_humans
-	table.insert(questList[6],id); --All mon_0_humans
+    table.insert(questList[1],id); --All mon_0_humans
+    table.insert(questList[2],id); --All mon_0_humans
+    table.insert(questList[3],id); --All mon_0_humans
+    table.insert(questList[4],id); --All mon_0_humans
+    table.insert(questList[5],id); --All mon_0_humans
+    table.insert(questList[6],id); --All mon_0_humans
     minimumQueststatus[id]=123;
     maximumQueststatus[id]=135;
-	questLocation[id]=position(811, 735, 0);
+    questLocation[id]=position(811, 735, 0);
     radius[id]=300;
 
-	--Quest 86: The Researcher
-	local id=86;
+    --Quest 86: The Researcher
+    local id=86;
     germanTitle[id]="Die Forscher";
     englishTitle[id]="The Researcher";
     NPCName[id]="Maelyrra Umrielyth";
     statusId[id]=184;
     germanRace[id]="Diebe";
     englishRace[id]="thieves";
-	table.insert(questList[5],id); --Human Thief
-	table.insert(questList[23],id); --Halfling Thief
-	table.insert(questList[43],id); --Orc Thief
-	table.insert(questList[55],id); --Lizard Thief
-	minimumQueststatus[id]=136;
+    table.insert(questList[5],id); --Human Thief
+    table.insert(questList[23],id); --Halfling Thief
+    table.insert(questList[43],id); --Orc Thief
+    table.insert(questList[55],id); --Lizard Thief
+    minimumQueststatus[id]=136;
     maximumQueststatus[id]=140;
-	questLocation[id]=position(811, 735, 0);
+    questLocation[id]=position(811, 735, 0);
     radius[id]=300;
 
-	--Quest 87: The Researcher
-	local id=87;
+    --Quest 87: The Researcher
+    local id=87;
     germanTitle[id]="Die Forscher";
     englishTitle[id]="The Researcher";
     NPCName[id]="Maelyrra Umrielyth";
     statusId[id]=184;
     germanRace[id]="Diebe";
     englishRace[id]="thieves";
-	table.insert(questList[5],id); --Human Thief
-	table.insert(questList[23],id); --Halfling Thief
-	table.insert(questList[43],id); --Orc Thief
-	table.insert(questList[55],id); --Lizard Thief
-	minimumQueststatus[id]=141;
+    table.insert(questList[5],id); --Human Thief
+    table.insert(questList[23],id); --Halfling Thief
+    table.insert(questList[43],id); --Orc Thief
+    table.insert(questList[55],id); --Lizard Thief
+    minimumQueststatus[id]=141;
     maximumQueststatus[id]=149;
-	questLocation[id]=position(811, 735, 0);
+    questLocation[id]=position(811, 735, 0);
     radius[id]=300;
 
-	--Quest 88: The Researcher
-	local id=88;
+    --Quest 88: The Researcher
+    local id=88;
     germanTitle[id]="Die Forscher";
     englishTitle[id]="The Researcher";
     NPCName[id]="Maelyrra Umrielyth";
     statusId[id]=184;
     germanRace[id]="Diebe";
     englishRace[id]="thieves";
-	table.insert(questList[5],id); --Human Thief
-	table.insert(questList[23],id); --Halfling Thief
-	table.insert(questList[43],id); --Orc Thief
-	table.insert(questList[55],id); --Lizard Thief
-	minimumQueststatus[id]=150;
+    table.insert(questList[5],id); --Human Thief
+    table.insert(questList[23],id); --Halfling Thief
+    table.insert(questList[43],id); --Orc Thief
+    table.insert(questList[55],id); --Lizard Thief
+    minimumQueststatus[id]=150;
     maximumQueststatus[id]=162;
-	questLocation[id]=position(811, 735, 0);
+    questLocation[id]=position(811, 735, 0);
     radius[id]=300;
 
-	--Quest 89: The Researcher
-	local id=89;
+    --Quest 89: The Researcher
+    local id=89;
     germanTitle[id]="Die Forscher";
     englishTitle[id]="The Researcher";
     NPCName[id]="Maelyrra Umrielyth";
     statusId[id]=184;
     germanRace[id]="zombies";
     englishRace[id]="zombies";
-	table.insert(questList[531],id); --All Zombies
-	table.insert(questList[532],id); --All Zombies
-	table.insert(questList[533],id); --All Zombies
-	table.insert(questList[534],id); --All Zombies
-	minimumQueststatus[id]=163;
+    table.insert(questList[531],id); --All Zombies
+    table.insert(questList[532],id); --All Zombies
+    table.insert(questList[533],id); --All Zombies
+    table.insert(questList[534],id); --All Zombies
+    minimumQueststatus[id]=163;
     maximumQueststatus[id]=167;
-	questLocation[id]=position(811, 735, 0);
+    questLocation[id]=position(811, 735, 0);
     radius[id]=300;
 
-	--Quest 90: The Researcher
-	local id=90;
+    --Quest 90: The Researcher
+    local id=90;
     germanTitle[id]="Die Forscher";
     englishTitle[id]="The Researcher";
     NPCName[id]="Maelyrra Umrielyth";
     statusId[id]=184;
     germanRace[id]="zombies";
     englishRace[id]="zombies";
-	table.insert(questList[531],id); --All Zombies
-	table.insert(questList[532],id); --All Zombies
-	table.insert(questList[533],id); --All Zombies
-	table.insert(questList[534],id); --All Zombies
-	minimumQueststatus[id]=168;
+    table.insert(questList[531],id); --All Zombies
+    table.insert(questList[532],id); --All Zombies
+    table.insert(questList[533],id); --All Zombies
+    table.insert(questList[534],id); --All Zombies
+    minimumQueststatus[id]=168;
     maximumQueststatus[id]=176;
-	questLocation[id]=position(811, 735, 0);
+    questLocation[id]=position(811, 735, 0);
     radius[id]=300;
 
-	--Quest 91: The Researcher
-	local id=91;
+    --Quest 91: The Researcher
+    local id=91;
     germanTitle[id]="Die Forscher";
     englishTitle[id]="The Researcher";
     NPCName[id]="Maelyrra Umrielyth";
     statusId[id]=184;
     germanRace[id]="zombies";
     englishRace[id]="zombies";
-	table.insert(questList[531],id); --All Zombies
-	table.insert(questList[532],id); --All Zombies
-	table.insert(questList[533],id); --All Zombies
-	table.insert(questList[534],id); --All Zombies
-	minimumQueststatus[id]=177;
+    table.insert(questList[531],id); --All Zombies
+    table.insert(questList[532],id); --All Zombies
+    table.insert(questList[533],id); --All Zombies
+    table.insert(questList[534],id); --All Zombies
+    minimumQueststatus[id]=177;
     maximumQueststatus[id]=189;
-	questLocation[id]=position(811, 735, 0);
+    questLocation[id]=position(811, 735, 0);
     radius[id]=300;
 
-	--Quest 92: Vermin Monitor
-	local id=92;
+    --Quest 92: Vermin Monitor
+    local id=92;
     germanTitle[id]="Schädlingswächter";
     englishTitle[id]="Vermin Monitor";
     NPCName[id]="Jeremiah Horanfeld";
     statusId[id]=187;
     germanRace[id]="Ratten";
     englishRace[id]="rats";
-	table.insert(questList[1111],id); --Rat
-	table.insert(questList[1112],id); --Small Rat
-	table.insert(questList[1113],id); --Agressive Rat
-	table.insert(questList[1114],id); --Muskrat
-	table.insert(questList[1115],id); --Plague Rat
-	table.insert(questList[1116],id); --Sewer Rat
-	minimumQueststatus[id]=1;
+    table.insert(questList[1111],id); --Rat
+    table.insert(questList[1112],id); --Small Rat
+    table.insert(questList[1113],id); --Agressive Rat
+    table.insert(questList[1114],id); --Muskrat
+    table.insert(questList[1115],id); --Plague Rat
+    table.insert(questList[1116],id); --Sewer Rat
+    minimumQueststatus[id]=1;
     maximumQueststatus[id]=6;
-	questLocation[id]=position(125,565,-6);
+    questLocation[id]=position(125,565,-6);
     radius[id]=40;
 
-	--Quest 93: Vermin Monitor
-	local id=93;
+    --Quest 93: Vermin Monitor
+    local id=93;
     germanTitle[id]="Schädlingswächter";
     englishTitle[id]="Vermin Monitor";
     NPCName[id]="Jeremiah Horanfeld";
     statusId[id]=187;
     germanRace[id]="Ratten";
     englishRace[id]="rats";
-	table.insert(questList[1111],id); --Rat
-	table.insert(questList[1112],id); --Small Rat
-	table.insert(questList[1113],id); --Agressive Rat
-	table.insert(questList[1114],id); --Muskrat
-	table.insert(questList[1115],id); --Plague Rat
-	table.insert(questList[1116],id); --Sewer Rat
-	minimumQueststatus[id]=10;
+    table.insert(questList[1111],id); --Rat
+    table.insert(questList[1112],id); --Small Rat
+    table.insert(questList[1113],id); --Agressive Rat
+    table.insert(questList[1114],id); --Muskrat
+    table.insert(questList[1115],id); --Plague Rat
+    table.insert(questList[1116],id); --Sewer Rat
+    minimumQueststatus[id]=10;
     maximumQueststatus[id]=20;
-	questLocation[id]=position(125,565,-6);
+    questLocation[id]=position(125,565,-6);
     radius[id]=40;
 
-	--Quest 94: Vermin Monitor
-	local id=94;
+    --Quest 94: Vermin Monitor
+    local id=94;
     germanTitle[id]="Schädlingswächter";
     englishTitle[id]="Vermin Monitor";
     NPCName[id]="Jeremiah Horanfeld";
     statusId[id]=187;
     germanRace[id]="Ratten";
     englishRace[id]="rats";
-	table.insert(questList[1111],id); --Rat
-	table.insert(questList[1112],id); --Small Rat
-	table.insert(questList[1113],id); --Agressive Rat
-	table.insert(questList[1114],id); --Muskrat
-	table.insert(questList[1115],id); --Plague Rat
-	table.insert(questList[1116],id); --Sewer Rat
-	minimumQueststatus[id]=24;
+    table.insert(questList[1111],id); --Rat
+    table.insert(questList[1112],id); --Small Rat
+    table.insert(questList[1113],id); --Agressive Rat
+    table.insert(questList[1114],id); --Muskrat
+    table.insert(questList[1115],id); --Plague Rat
+    table.insert(questList[1116],id); --Sewer Rat
+    minimumQueststatus[id]=24;
     maximumQueststatus[id]=34;
-	questLocation[id]=position(125,565,-6);
+    questLocation[id]=position(125,565,-6);
     radius[id]=40;
 
-	--Quest 95: Save The Field
-	local id=95;
+    --Quest 95: Save The Field
+    local id=95;
     germanTitle[id]="Rette die Äcker";
     englishTitle[id]="Save The Field";
     NPCName[id]="Cilivren Itiireae";
     statusId[id]=188;
     germanRace[id]="Ratten";
     englishRace[id]="rats";
-	table.insert(questList[1111],id); --Rat
-	table.insert(questList[1112],id); --Small Rat
-	table.insert(questList[1113],id); --Agressive Rat
-	table.insert(questList[1114],id); --Muskrat
-	table.insert(questList[1115],id); --Plague Rat
-	table.insert(questList[1116],id); --Sewer Rat
-	minimumQueststatus[id]=1;
+    table.insert(questList[1111],id); --Rat
+    table.insert(questList[1112],id); --Small Rat
+    table.insert(questList[1113],id); --Agressive Rat
+    table.insert(questList[1114],id); --Muskrat
+    table.insert(questList[1115],id); --Plague Rat
+    table.insert(questList[1116],id); --Sewer Rat
+    minimumQueststatus[id]=1;
     maximumQueststatus[id]=6;
-	questLocation[id]=position(832,832,-3);
+    questLocation[id]=position(832,832,-3);
     radius[id]=50;
 
-	--Quest 96: Save The Field (SECOND LEVEL)
-	local id=96;
+    --Quest 96: Save The Field (SECOND LEVEL)
+    local id=96;
     germanTitle[id]="Rette die Äcker";
     englishTitle[id]="Save The Field";
     NPCName[id]="Cilivren Itiireae";
     statusId[id]=188;
     germanRace[id]="Ratten";
     englishRace[id]="rats";
-	table.insert(questList[1111],id); --Rat
-	table.insert(questList[1112],id); --Small Rat
-	table.insert(questList[1113],id); --Agressive Rat
-	table.insert(questList[1114],id); --Muskrat
-	table.insert(questList[1115],id); --Plague Rat
-	table.insert(questList[1116],id); --Sewer Rat
-	minimumQueststatus[id]=1;
+    table.insert(questList[1111],id); --Rat
+    table.insert(questList[1112],id); --Small Rat
+    table.insert(questList[1113],id); --Agressive Rat
+    table.insert(questList[1114],id); --Muskrat
+    table.insert(questList[1115],id); --Plague Rat
+    table.insert(questList[1116],id); --Sewer Rat
+    minimumQueststatus[id]=1;
     maximumQueststatus[id]=6;
-	questLocation[id]=position(840,840,-6);
+    questLocation[id]=position(840,840,-6);
     radius[id]=50;
 
-	--Quest 97: Save The Field
-	local id=97;
+    --Quest 97: Save The Field
+    local id=97;
     germanTitle[id]="Rette die Äcker";
     englishTitle[id]="Save The Field";
     NPCName[id]="Cilivren Itiireae";
     statusId[id]=188;
     germanRace[id]="Ratten";
     englishRace[id]="rats";
-	table.insert(questList[1111],id); --Rat
-	table.insert(questList[1112],id); --Small Rat
-	table.insert(questList[1113],id); --Agressive Rat
-	table.insert(questList[1114],id); --Muskrat
-	table.insert(questList[1115],id); --Plague Rat
-	table.insert(questList[1116],id); --Sewer Rat
-	minimumQueststatus[id]=10;
+    table.insert(questList[1111],id); --Rat
+    table.insert(questList[1112],id); --Small Rat
+    table.insert(questList[1113],id); --Agressive Rat
+    table.insert(questList[1114],id); --Muskrat
+    table.insert(questList[1115],id); --Plague Rat
+    table.insert(questList[1116],id); --Sewer Rat
+    minimumQueststatus[id]=10;
     maximumQueststatus[id]=20;
-	questLocation[id]=position(832,832,-3);
+    questLocation[id]=position(832,832,-3);
     radius[id]=50;
 
-	--Quest 98: Save The Field (SECOND LEVEL)
-	local id=98;
+    --Quest 98: Save The Field (SECOND LEVEL)
+    local id=98;
     germanTitle[id]="Rette die Äcker";
     englishTitle[id]="Save The Field";
     NPCName[id]="Cilivren Itiireae";
     statusId[id]=188;
     germanRace[id]="Ratten";
     englishRace[id]="rats";
-	table.insert(questList[1111],id); --Rat
-	table.insert(questList[1112],id); --Small Rat
-	table.insert(questList[1113],id); --Agressive Rat
-	table.insert(questList[1114],id); --Muskrat
-	table.insert(questList[1115],id); --Plague Rat
-	table.insert(questList[1116],id); --Sewer Rat
-	minimumQueststatus[id]=10;
+    table.insert(questList[1111],id); --Rat
+    table.insert(questList[1112],id); --Small Rat
+    table.insert(questList[1113],id); --Agressive Rat
+    table.insert(questList[1114],id); --Muskrat
+    table.insert(questList[1115],id); --Plague Rat
+    table.insert(questList[1116],id); --Sewer Rat
+    minimumQueststatus[id]=10;
     maximumQueststatus[id]=20;
-	questLocation[id]=position(840,840,-6);
+    questLocation[id]=position(840,840,-6);
     radius[id]=50;
 
-	--Quest 99: Save The Field
-	local id=99;
+    --Quest 99: Save The Field
+    local id=99;
     germanTitle[id]="Rette die Äcker";
     englishTitle[id]="Save The Field";
     NPCName[id]="Cilivren Itiireae";
     statusId[id]=188;
     germanRace[id]="Ratten";
     englishRace[id]="rats";
-	table.insert(questList[1111],id); --Rat
-	table.insert(questList[1112],id); --Small Rat
-	table.insert(questList[1113],id); --Agressive Rat
-	table.insert(questList[1114],id); --Muskrat
-	table.insert(questList[1115],id); --Plague Rat
-	table.insert(questList[1116],id); --Sewer Rat
-	minimumQueststatus[id]=24;
+    table.insert(questList[1111],id); --Rat
+    table.insert(questList[1112],id); --Small Rat
+    table.insert(questList[1113],id); --Agressive Rat
+    table.insert(questList[1114],id); --Muskrat
+    table.insert(questList[1115],id); --Plague Rat
+    table.insert(questList[1116],id); --Sewer Rat
+    minimumQueststatus[id]=24;
     maximumQueststatus[id]=34;
-	questLocation[id]=position(832,832,-3);
+    questLocation[id]=position(832,832,-3);
     radius[id]=50;
 
-	--Quest 100: Save The Field (SECOND LEVEL)
-	local id=100;
+    --Quest 100: Save The Field (SECOND LEVEL)
+    local id=100;
     germanTitle[id]="Rette die Äcker";
     englishTitle[id]="Save The Field";
     NPCName[id]="Cilivren Itiireae";
     statusId[id]=188;
     germanRace[id]="Ratten";
     englishRace[id]="rats";
-	table.insert(questList[1111],id); --Rat
-	table.insert(questList[1112],id); --Small Rat
-	table.insert(questList[1113],id); --Agressive Rat
-	table.insert(questList[1114],id); --Muskrat
-	table.insert(questList[1115],id); --Plague Rat
-	table.insert(questList[1116],id); --Sewer Rat
-	minimumQueststatus[id]=24;
+    table.insert(questList[1111],id); --Rat
+    table.insert(questList[1112],id); --Small Rat
+    table.insert(questList[1113],id); --Agressive Rat
+    table.insert(questList[1114],id); --Muskrat
+    table.insert(questList[1115],id); --Plague Rat
+    table.insert(questList[1116],id); --Sewer Rat
+    minimumQueststatus[id]=24;
     maximumQueststatus[id]=34;
-	questLocation[id]=position(840,840,-6);
+    questLocation[id]=position(840,840,-6);
     radius[id]=50;
 
-	--Quest 101: Save Da Beer
-	local id=101;
+    --Quest 101: Save Da Beer
+    local id=101;
     germanTitle[id]="Rette das Bierlager";
     englishTitle[id]="Save Da Beer";
     NPCName[id]="Fokous Onyxbrow";
     statusId[id]=189;
     germanRace[id]="Ratten";
     englishRace[id]="rats";
-	table.insert(questList[1111],id); --Rat
-	table.insert(questList[1112],id); --Small Rat
-	table.insert(questList[1113],id); --Agressive Rat
-	table.insert(questList[1114],id); --Muskrat
-	table.insert(questList[1115],id); --Plague Rat
-	table.insert(questList[1116],id); --Sewer Rat
-	minimumQueststatus[id]=1;
+    table.insert(questList[1111],id); --Rat
+    table.insert(questList[1112],id); --Small Rat
+    table.insert(questList[1113],id); --Agressive Rat
+    table.insert(questList[1114],id); --Muskrat
+    table.insert(questList[1115],id); --Plague Rat
+    table.insert(questList[1116],id); --Sewer Rat
+    minimumQueststatus[id]=1;
     maximumQueststatus[id]=6;
-	questLocation[id]=position(370,470,-6);
+    questLocation[id]=position(370,470,-6);
     radius[id]=30;
 
-	--Quest 102: Save Da Beer
-	local id=102;
+    --Quest 102: Save Da Beer
+    local id=102;
     germanTitle[id]="Rette das Bierlager";
     englishTitle[id]="Save Da Beer";
     NPCName[id]="Fokous Onyxbrow";
     statusId[id]=189;
     germanRace[id]="Ratten";
     englishRace[id]="rats";
-	table.insert(questList[1111],id); --Rat
-	table.insert(questList[1112],id); --Small Rat
-	table.insert(questList[1113],id); --Agressive Rat
-	table.insert(questList[1114],id); --Muskrat
-	table.insert(questList[1115],id); --Plague Rat
-	table.insert(questList[1116],id); --Sewer Rat
-	minimumQueststatus[id]=10;
+    table.insert(questList[1111],id); --Rat
+    table.insert(questList[1112],id); --Small Rat
+    table.insert(questList[1113],id); --Agressive Rat
+    table.insert(questList[1114],id); --Muskrat
+    table.insert(questList[1115],id); --Plague Rat
+    table.insert(questList[1116],id); --Sewer Rat
+    minimumQueststatus[id]=10;
     maximumQueststatus[id]=20;
-	questLocation[id]=position(370,470,-6);
+    questLocation[id]=position(370,470,-6);
     radius[id]=30;
 
-	--Quest 103: Save Da Beer
-	local id=103;
+    --Quest 103: Save Da Beer
+    local id=103;
     germanTitle[id]="Rette das Bierlager";
     englishTitle[id]="Save Da Beer";
     NPCName[id]="Fokous Onyxbrow";
     statusId[id]=189;
     germanRace[id]="Ratten";
     englishRace[id]="rats";
-	table.insert(questList[1111],id); --Rat
-	table.insert(questList[1112],id); --Small Rat
-	table.insert(questList[1113],id); --Agressive Rat
-	table.insert(questList[1114],id); --Muskrat
-	table.insert(questList[1115],id); --Plague Rat
-	table.insert(questList[1116],id); --Sewer Rat
-	minimumQueststatus[id]=24;
+    table.insert(questList[1111],id); --Rat
+    table.insert(questList[1112],id); --Small Rat
+    table.insert(questList[1113],id); --Agressive Rat
+    table.insert(questList[1114],id); --Muskrat
+    table.insert(questList[1115],id); --Plague Rat
+    table.insert(questList[1116],id); --Sewer Rat
+    minimumQueststatus[id]=24;
     maximumQueststatus[id]=34;
-	questLocation[id]=position(370,470,-6);
+    questLocation[id]=position(370,470,-6);
     radius[id]=30;
 
-	--Quest 104: Vermin Monitor
-	local id=104;
+    --Quest 104: Vermin Monitor
+    local id=104;
     germanTitle[id]="Schädlingswächter";
     englishTitle[id]="Vermin Monitor";
     NPCName[id]="Jeremiah Horanfeld";
     statusId[id]=187;
     germanRace[id]="Rattenmenschen";
     englishRace[id]="ratman";
-	table.insert(questList[571],id); --Snuffler
-	minimumQueststatus[id]=36;
+    table.insert(questList[571],id); --Snuffler
+    minimumQueststatus[id]=36;
     maximumQueststatus[id]=37;
-	questLocation[id]=position(125,565,-6);
+    questLocation[id]=position(125,565,-6);
     radius[id]=40;
 
-	--Quest 105: Save The Field
-	local id=105;
+    --Quest 105: Save The Field
+    local id=105;
     germanTitle[id]="Rette die Äcker";
     englishTitle[id]="Save The Field";
     NPCName[id]="Cilivren Itiireae";
     statusId[id]=188;
     germanRace[id]="Rattenmenschen";
     englishRace[id]="ratman";
-	table.insert(questList[571],id); --Snuffler
-	minimumQueststatus[id]=36;
+    table.insert(questList[571],id); --Snuffler
+    minimumQueststatus[id]=36;
     maximumQueststatus[id]=37;
-	questLocation[id]=position(840,840,-6);
+    questLocation[id]=position(840,840,-6);
     radius[id]=50;
 
-	--Quest 106: Save Da Beer
-	local id=106;
+    --Quest 106: Save Da Beer
+    local id=106;
     germanTitle[id]="Rette das Bierlager";
     englishTitle[id]="Save Da Beer";
     NPCName[id]="Fokous Onyxbrow";
     statusId[id]=189;
     germanRace[id]="Rattenmenschen";
     englishRace[id]="ratman";
-	table.insert(questList[571],id); --Snuffler
-	minimumQueststatus[id]=36;
+    table.insert(questList[571],id); --Snuffler
+    minimumQueststatus[id]=36;
     maximumQueststatus[id]=37;
-	questLocation[id]=position(370,470,-6);
+    questLocation[id]=position(370,470,-6);
     radius[id]=30;
 
-	--Quest 107: Akaltut's Chambers
-	local id=107;
+    --Quest 107: Akaltut's Chambers
+    local id=107;
     germanTitle[id]="Akaltut's Chambers";
     englishTitle[id]="Akaltut's Chambers";
     NPCName[id]="Defensor Robur";
     statusId[id]=525;
     germanRace[id]="Drow Bogenschütze";
     englishRace[id]="Drow Archers";
-	table.insert(questList[61],id); --Drow Archer
+    table.insert(questList[61],id); --Drow Archer
     minimumQueststatus[id]=6;
     maximumQueststatus[id]=11;
-	questLocation[id]=position(470, 802, -9);
+    questLocation[id]=position(470, 802, -9);
     radius[id]=100;
 
-	--Quest 108: Akaltut's Chambers
-	local id=108;
+    --Quest 108: Akaltut's Chambers
+    local id=108;
     germanTitle[id]="Akaltut's Chambers";
     englishTitle[id]="Akaltut's Chambers";
     NPCName[id]="Defensor Impetus";
     statusId[id]=525;
     germanRace[id]="Drow";
     englishRace[id]="Drow";
-	table.insert(questList[61],id); --Drow Archer
+    table.insert(questList[61],id); --Drow Archer
     table.insert(questList[62],id); --Drow Warrior
-	table.insert(questList[63],id); --Drow Mage
-	table.insert(questList[64],id); --Drow Priest
-	table.insert(questList[65],id); --Drow Patriarch
-	minimumQueststatus[id]=13;
+    table.insert(questList[63],id); --Drow Mage
+    table.insert(questList[64],id); --Drow Priest
+    table.insert(questList[65],id); --Drow Patriarch
+    minimumQueststatus[id]=13;
     maximumQueststatus[id]=21;
-	questLocation[id]=position(470, 802, -9);
+    questLocation[id]=position(470, 802, -9);
     radius[id]=100;
 
-	--Quest 109: Akaltut's Chambers
-	local id=109;
+    --Quest 109: Akaltut's Chambers
+    local id=109;
     germanTitle[id]="Akaltut's Chambers";
     englishTitle[id]="Akaltut's Chambers";
     NPCName[id]="Defensor Mando";
     statusId[id]=526;
     germanRace[id]="Drow";
     englishRace[id]="Drow";
-	table.insert(questList[61],id); --Drow Archer
+    table.insert(questList[61],id); --Drow Archer
     table.insert(questList[62],id); --Drow Warrior
-	table.insert(questList[63],id); --Drow Mage
-	table.insert(questList[64],id); --Drow Priest
-	table.insert(questList[65],id); --Drow Patriarch
-	minimumQueststatus[id]=3;
+    table.insert(questList[63],id); --Drow Mage
+    table.insert(questList[64],id); --Drow Priest
+    table.insert(questList[65],id); --Drow Patriarch
+    minimumQueststatus[id]=3;
     maximumQueststatus[id]=13;
-	questLocation[id]=position(470, 802, -9);
+    questLocation[id]=position(470, 802, -9);
     radius[id]=100;
 
-	--Quest 110: Akaltut's Chambers
-	local id=110;
+    --Quest 110: Akaltut's Chambers
+    local id=110;
     germanTitle[id]="Akaltut's Chambers";
     englishTitle[id]="Akaltut's Chambers";
     NPCName[id]="Defensor Prohibeo";
@@ -2482,130 +2482,130 @@ end
     germanRace[id]="Drow Krieger";
     englishRace[id]="Drow Warrior";
     table.insert(questList[62],id); --Drow Warrior
-	minimumQueststatus[id]=18;
+    minimumQueststatus[id]=18;
     maximumQueststatus[id]=28;
-	questLocation[id]=position(470, 802, -9);
+    questLocation[id]=position(470, 802, -9);
     radius[id]=100;
 
-	--Quest 111: Akaltut's Chambers
-	local id=111;
+    --Quest 111: Akaltut's Chambers
+    local id=111;
     germanTitle[id]="Akaltut's Chambers";
     englishTitle[id]="Akaltut's Chambers";
     NPCName[id]="Defensor Profligo";
     statusId[id]=527;
     germanRace[id]="Drow";
     englishRace[id]="Drow";
-	table.insert(questList[61],id); --Drow Archer
+    table.insert(questList[61],id); --Drow Archer
     table.insert(questList[62],id); --Drow Warrior
-	table.insert(questList[63],id); --Drow Mage
-	table.insert(questList[64],id); --Drow Priest
-	table.insert(questList[65],id); --Drow Patriarch
-	minimumQueststatus[id]=3;
+    table.insert(questList[63],id); --Drow Mage
+    table.insert(questList[64],id); --Drow Priest
+    table.insert(questList[65],id); --Drow Patriarch
+    minimumQueststatus[id]=3;
     maximumQueststatus[id]=15;
-	questLocation[id]=position(470, 802, -9);
+    questLocation[id]=position(470, 802, -9);
     radius[id]=100;
 
-	--Quest 112: Akaltut's Chambers
-	local id=112;
+    --Quest 112: Akaltut's Chambers
+    local id=112;
     germanTitle[id]="Akaltut's Chambers";
     englishTitle[id]="Akaltut's Chambers";
     NPCName[id]="Defensor Torrens";
     statusId[id]=528;
     germanRace[id]="Zombie";
     englishRace[id]="Zombie";
-	table.insert(questList[535],id); --Bog Body
+    table.insert(questList[535],id); --Bog Body
     table.insert(questList[536],id); --Ragged Bog Body
     table.insert(questList[537],id); --Poltergeist
-	table.insert(questList[539],id); --Coffinguard
-	table.insert(questList[540],id); --Undead Warlock
-	table.insert(questList[538],id); --Horrible Poltergeist
-	table.insert(questList[109],id); --Forgotten Mummy
-	table.insert(questList[110],id); --Dead King
-	minimumQueststatus[id]=1;
+    table.insert(questList[539],id); --Coffinguard
+    table.insert(questList[540],id); --Undead Warlock
+    table.insert(questList[538],id); --Horrible Poltergeist
+    table.insert(questList[109],id); --Forgotten Mummy
+    table.insert(questList[110],id); --Dead King
+    minimumQueststatus[id]=1;
     maximumQueststatus[id]=11;
-	questLocation[id]=position(470, 802, -9);
+    questLocation[id]=position(470, 802, -9);
     radius[id]=100;
 
-	--Quest 113: Akaltut's Chambers
-	local id=113;
+    --Quest 113: Akaltut's Chambers
+    local id=113;
     germanTitle[id]="Akaltut's Chambers";
     englishTitle[id]="Akaltut's Chambers";
     NPCName[id]="Defensor Delinificus";
     statusId[id]=528;
     germanRace[id]="skeleton";
     englishRace[id]="skeleton";
-	table.insert(questList[111],id); --Skeleton
+    table.insert(questList[111],id); --Skeleton
     table.insert(questList[112],id); --Scruffy Skeleton
-	table.insert(questList[113],id); --Armored Skeleton
-	table.insert(questList[114],id); --Crippled Skeleton
-	table.insert(questList[115],id); --Mystic Skeleton
-	minimumQueststatus[id]=13;
+    table.insert(questList[113],id); --Armored Skeleton
+    table.insert(questList[114],id); --Crippled Skeleton
+    table.insert(questList[115],id); --Mystic Skeleton
+    minimumQueststatus[id]=13;
     maximumQueststatus[id]=23;
-	questLocation[id]=position(470, 802, -9);
+    questLocation[id]=position(470, 802, -9);
     radius[id]=100;
 
-	--Quest 114: Akaltut's Chambers
-	local id=114;
-	germanTitle[id]="Akaltut's Chambers";
+    --Quest 114: Akaltut's Chambers
+    local id=114;
+    germanTitle[id]="Akaltut's Chambers";
     englishTitle[id]="Akaltut's Chambers";
     NPCName[id]="Defensor Transmutatio";
     statusId[id]=528;
     germanRace[id]="Unheiligen Erzmagier ";
     englishRace[id]="Unholy Archmage";
-	table.insert(questList[204],id); --Unholy Archmage
-	minimumQueststatus[id]=27;
+    table.insert(questList[204],id); --Unholy Archmage
+    minimumQueststatus[id]=27;
     maximumQueststatus[id]=28;
-	questLocation[id]=position(953, 382, 0);
+    questLocation[id]=position(953, 382, 0);
     radius[id]=100;
 
-	--Quest 115: Akaltut's Chambers
-	local id=115;
+    --Quest 115: Akaltut's Chambers
+    local id=115;
     germanTitle[id]="Akaltut's Chambers";
     englishTitle[id]="Akaltut's Chambers";
     NPCName[id]="Defensor Transfodio";
     statusId[id]=529;
     germanRace[id]="Drow";
     englishRace[id]="Drow";
-	table.insert(questList[61],id); --Drow Archer
+    table.insert(questList[61],id); --Drow Archer
     table.insert(questList[62],id); --Drow Warrior
-	table.insert(questList[63],id); --Drow Mage
-	table.insert(questList[64],id); --Drow Priest
-	table.insert(questList[65],id); --Drow Patriarch
-	minimumQueststatus[id]=8;
+    table.insert(questList[63],id); --Drow Mage
+    table.insert(questList[64],id); --Drow Priest
+    table.insert(questList[65],id); --Drow Patriarch
+    minimumQueststatus[id]=8;
     maximumQueststatus[id]=26;
-	questLocation[id]=position(470, 802, -9);
+    questLocation[id]=position(470, 802, -9);
     radius[id]=100;
 
-	--Quest 116: Akaltut's Chambers
-	local id=116;
+    --Quest 116: Akaltut's Chambers
+    local id=116;
     germanTitle[id]="Akaltut's Chambers";
     englishTitle[id]="Akaltut's Chambers";
     NPCName[id]="Defensor Volnus";
     statusId[id]=530;
     germanRace[id]="Drow";
     englishRace[id]="Drow";
-	table.insert(questList[61],id); --Drow Archer
+    table.insert(questList[61],id); --Drow Archer
     table.insert(questList[62],id); --Drow Warrior
-	table.insert(questList[63],id); --Drow Mage
-	table.insert(questList[64],id); --Drow Priest
-	table.insert(questList[65],id); --Drow Patriarch
-	minimumQueststatus[id]=1;
+    table.insert(questList[63],id); --Drow Mage
+    table.insert(questList[64],id); --Drow Priest
+    table.insert(questList[65],id); --Drow Patriarch
+    minimumQueststatus[id]=1;
     maximumQueststatus[id]=21;
-	questLocation[id]=position(470, 802, -9);
+    questLocation[id]=position(470, 802, -9);
     radius[id]=100;
 
-	--Quest 117: Akaltut's Chambers
-	local id=117;
+    --Quest 117: Akaltut's Chambers
+    local id=117;
     germanTitle[id]="Akaltut's Chambers";
     englishTitle[id]="Akaltut's Chambers";
     NPCName[id]="Defensor Extremus";
     statusId[id]=530;
     germanRace[id]="Drowanführer";
     englishRace[id]="Drow Leader";
-	table.insert(questList[65],id); --Drow Patriarch
-	minimumQueststatus[id]=23;
+    table.insert(questList[65],id); --Drow Patriarch
+    minimumQueststatus[id]=23;
     maximumQueststatus[id]=26;
-	questLocation[id]=position(470, 802, -9);
+    questLocation[id]=position(470, 802, -9);
     radius[id]=100;
 
 
