@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 861, Crippled Ghostbeast, Level: 5, Armourtype: light,  Weapontype: concussion
 --ID 862, Ghostbeast,          Level: 6, Armourtype: medium, Weapontype: puncture
---ID 863. Giant Ghostbeast,    Level: 7, Armourtype: heavy,  Weapontype: slashing
+--ID 863, Giant Ghostbeast,    Level: 7, Armourtype: heavy,  Weapontype: slashing
 
 local transparentHellhounds = require("monster.race_86_transparent_hellhound.base")
 return transparentHellhounds.generateCallbacks()

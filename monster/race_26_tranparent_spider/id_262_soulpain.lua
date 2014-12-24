@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---Soulpain: 8, Armourtype: medium, Weapontype: wrestling
+--Soulpain: 262, Armourtype: medium, Weapontype: wrestling
 
 local monstermagic = require("monster.base.monstermagic")
 local transparentSpiders = require("monster.race_26_tranparent_spider.base")

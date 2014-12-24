@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --ID 191, Rekrap Retep, Level: 5, Armourtype: medium, Weapontype: slashing
 --ID 192, Pitservant,   Level: 5, Armourtype: light,  Weapontype: concussion
 --ID 193, Tarantula,    Level: 6, Armourtype: heavy,  Weapontype: puncture
+--ID 196, Small spider
 
 local spiders = require("monster.race_19_spider.base")
 return spiders.generateCallbacks()
