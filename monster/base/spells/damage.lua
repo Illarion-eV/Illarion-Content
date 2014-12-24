@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local base = require("monster.base.spells.base")
-local standardfighting = require("base.standardfighting")
+local standardfighting = require("server.standardfighting")
 
 local function _isNumber(value)
     return type(value) == "number"
