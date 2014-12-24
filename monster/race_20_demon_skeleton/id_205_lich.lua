@@ -56,7 +56,7 @@ function M.onDeath(monster)
         end
 
         local weakenedLich = world:createMonster(117, pos, -5)
-        if weakenedLich ~= nil and isCharValid(weakenedLich) then
+        if weakenedLich ~= nil and isValidChar(weakenedLich) then
             weakenedLich:talk(Character.say, "#me erhebt sich aus dem Knochenhaufen.", "#me rises from the pile of bones.")
         end
     end

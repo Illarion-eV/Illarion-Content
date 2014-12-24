@@ -90,7 +90,7 @@ end
 local function reportMonsterDeath(monster)
     local killer = killers[monster.id]
     if killer ~= nil then
-        if isCharValid(killer) then
+        if isValidChar(killer) then
             quests.checkQuest(killer, monster)
         end
     end
@@ -151,7 +151,7 @@ function M.setColor(params)
         error("The parameter for the setColor function are not set.")
     end
 
-    if params.monster == nil or not isCharValid(params.monster) then
+    if params.monster == nil or not isValidChar(params.monster) then
         error("The referenced monster is not set or not valid.")
     end
 

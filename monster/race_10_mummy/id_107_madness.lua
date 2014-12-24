@@ -30,7 +30,7 @@ end
 
 local function spawnNewMummy(pos)
     local newMummy = world:createMonster(107, pos, 0)
-    if newMummy ~= nil and isCharValid(newMummy) then
+    if newMummy ~= nil and isValidChar(newMummy) then
         world:gfx(5, newMummy.pos);
     end
 end
