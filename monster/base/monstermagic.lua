@@ -180,5 +180,7 @@ return function()
 
         return t
     end
+
+    return self
 end
 

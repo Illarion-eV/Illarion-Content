@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --ID 262, Soulpain, Level: 8, Armourtype: medium, Weapontype: wrestling
 
 local monstermagic = require("monster.base.monstermagic")
-local transparentSpiders = require("monster.race_26_tranparent_spider.base")
+local transparentSpiders = require("monster.race_26_transparent_spider.base")
 
 local magic = monstermagic()
 magic.addVioletFlame{probability = 0.02,  damage = {from = 2500, to = 4000}}
