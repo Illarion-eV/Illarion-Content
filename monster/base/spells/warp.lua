@@ -103,7 +103,7 @@ return function(params)
             monster:warp(position(enemy.pos.x + x, enemy.pos.y + y, enemy.pos.z))
             if gfxId > 0 then world:gfx(gfxId, monster.pos) end
             if sfxId > 0 then world:makeSound(sfxId, monster.pos) end
-            monster.movepoints = Monster.movepoints - usedMovepoints
+            monster.movepoints = monster.movepoints - usedMovepoints
 
             return true
         end
