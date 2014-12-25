@@ -1920,7 +1920,7 @@ function M.HSVtoRGB(hue, saturation, value)
     end
 
     local c = saturation * value
-    local x = c * (1 - math.abs(math.mod(realHue / 60, 2) - 1))
+    local x = c * (1 - math.abs(((realHue / 60) % 2) - 1))
     local m = value - c
     local red = 0
     local green = 0
