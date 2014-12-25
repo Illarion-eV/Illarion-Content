@@ -29,3 +29,5 @@ function M.onDeath(monster)
         orgOnDeath(monster) -- dropping and everything
     end
 end
+
+return M
