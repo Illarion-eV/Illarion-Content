@@ -263,7 +263,11 @@ function M.setColor(params)
         if alpha == 255 then
             params.monster:setSkinColor(red, green, blue)
         else
-            debug("Setting the alpha value of the color is not yet supported. Once the server support works, fix this")
+            if not reportedTransparencyIssue then
+                reportedTransparencyIssue = true
+                debug("Setting the alpha value of the color is not yet supported. Once the server support works, fix this")
+            end
+
             params.monster:setSkinColor(red, green, blue) -- ,alpha
         end
     else
