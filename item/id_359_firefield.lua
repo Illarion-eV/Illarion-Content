@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_359_firefield' where itm_id=359;
 
 local common = require("base.common")
-local monstermagic = require("monster.base.monstermagic")
+local monstermagic = require("monster.base.spells.base")
 
 local M = {}
 
@@ -54,7 +54,7 @@ function M.CharacterOnField(User)
 
     if (FieldItem.quality > 100) and User.pos.z ~= 100 and User.pos.z ~= 101 and User.pos.z ~= 40 then --no harmful flames on noobia or the working camp
 
-        local resist = monstermagic.SpellResistence(User) * 10
+        local resist = monstermagic.getSpellResistence(User) * 10
         if resist < FieldItem.quality then
             local foundEffect = User.effects:find(110); -- firefield lte
             if not foundEffect then
