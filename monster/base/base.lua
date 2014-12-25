@@ -146,6 +146,8 @@ function M.white()
     return {255, 255, 255}
 end
 
+local reportedTransparencyIssue = false
+
 function M.setColor(params)
     if not _isTable(params) then
         error("The parameter for the setColor function are not set.")
@@ -268,7 +270,11 @@ function M.setColor(params)
         if alpha == 255 then
             params.monster:setHairColor(red, green, blue)
         else
-            debug("Setting the alpha value of the color is not yet supported. Once the server support works, fix this")
+            if not reportedTransparencyIssue then
+                reportedTransparencyIssue = true
+                debug("Setting the alpha value of the color is not yet supported. Once the server support works, fix this")
+            end
+
             params.monster:setHairColor(red, green, blue) -- ,alpha
         end
     end
