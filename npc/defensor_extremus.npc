@@ -117,3 +117,6 @@ queststatus(530) = 27, english, "quest", "mission", "test" -> "You have passed a
 queststatus(530) = 27, "quest", "mission", "Test" -> "Du hast alle Tests der Defensoren bestanden. Zur rechten Zeit wirst Du Akaltut gegenüberstehen."
 queststatus(530) = 27, "task", "adventure", "order" -> "You have passed all of the Defensor's tests. In time you, you may face Akaltut."
 queststatus(530) = 27, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du hast alle Tests der Defensoren bestanden. Zur rechten Zeit wirst Du Akaltut gegenüberstehen."
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+queststatus(525) < 1, english, ".*" -> "Finish our tests in order and you will be rewarded."
+queststatus(525) < 1, german, ".*" -> "Beende unsere Aufgaben und Du wirst eine Belohnung erhalten."

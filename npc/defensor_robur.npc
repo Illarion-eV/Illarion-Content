@@ -117,3 +117,12 @@ queststatus(525) = 12, english, "quest", "mission", "test" -> "You have passed, 
 queststatus(525) = 12, "quest", "mission", "Test" -> "Du hast bestanden. Gehe zum Defensor Impetus."
 queststatus(525) = 12, "task", "adventure", "order" -> "You have passed, please see Defensor Impetus."
 queststatus(525) = 12, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du hast bestanden. Gehe zum Defensor Impetus."
+-- If moved on with the questline
+queststatus(525) > 12, english, "quest", "mission", "test" -> "You have passed, please the other Defensors."
+queststatus(525) > 12, "quest", "mission", "Test" -> "Du hast den Test bestanden, sprich zu den anderen Defensoren"
+queststatus(525) > 12, "task", "adventure", "order" -> "You have passed, please the other Defensors."
+queststatus(525) > 12, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du hast den Test bestanden, sprich zu den anderen Defensoren"
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+queststatus(525) < 1, english, ".*" -> "Finish our tests in order and you will be rewarded."
+queststatus(525) < 1, german, ".*" -> "Beende unsere Aufgaben und Du wirst eine Belohnung erhalten."
