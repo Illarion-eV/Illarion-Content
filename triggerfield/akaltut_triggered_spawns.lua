@@ -82,7 +82,7 @@ function M.MoveToField(User)
 
 		if theWaypoint >= 1 and theWaypoint <= 8 then -- one skeleton
 
-            common.InformNLS(User, messageG[2], messageE[2]) --sending a message
+            common.InformNLS(User, messageG[1], messageE[1]) --sending a message
 
             local monList = {783, 784, 205} -- Golden Magnus, Golden Archer, Liche
             local monPos = common.getFreePos(waypoint[theWaypoint], 2) -- radius 2 around triggerfield
