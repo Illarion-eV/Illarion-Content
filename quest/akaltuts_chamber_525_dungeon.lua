@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (525, 'quest.Akaltuts_Chamber_525_dungeon');
 
 local common = require("base.common")
+local monsterQuests = require("monster.base.quests")
 local M = {}
 
 local GERMAN = Player.german
@@ -85,7 +86,6 @@ Description[ENGLISH][22] = "The Defensor Sancio may have a task for you."
 Description[GERMAN][23] = "Du hast den ersten Teil der Prüfung bestanden."
 Description[ENGLISH][23] = "You have finished part one of the testing."
 
-
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 local Start = {}
 
@@ -95,6 +95,25 @@ local QuestTarget = {}
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 23
 
+-- Register the monster kill parts of the quest.
+monsterQuests.addQuest{
+    questId = 525,
+    location = {position = position(470, 802, -9), radius = 100},
+    queststatus = {from = 6, to = 11},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Dunkelelfbogenschützen", english = "drow archers"},
+    npcName = "Defensor Robur",
+    monsterIds = {61} -- drow archer
+}
+monsterQuests.addQuest{
+    questId = 525,
+    location = {position = position(470, 802, -9), radius = 100},
+    queststatus = {from = 13, to = 21},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Dunkelelfen", english = "drows"},
+    npcName = "Defensor Impetus",
+    monsterGroupIds = {6} -- all drows
+}
 
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])

@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (311, 'quest.groknar_311_noobia');
 
 local common = require("base.common")
+local monsterQuests = require("monster.base.quests")
 local M = {}
 
 local GERMAN = Player.german
@@ -46,7 +47,7 @@ Description[GERMAN][6] = "Du hast die Einführung über das Kämpfen abgeschlossen.
 Description[ENGLISH][6] = "You finished the tutorial on fighting."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {41, 44, 100}
+local Start = {41, 44, 100}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
@@ -55,6 +56,16 @@ local QuestTarget = {}
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 6
 
+-- Register the monster kill parts of the quest.
+monsterQuests.addQuest{
+    questId = 311,
+    location = {position = position(41, 46, 100), radius = 50},
+    queststatus = {from = 2, to = 5},
+    questTitle = {german = "Tutorial", english = "Tutorial"},
+    monsterName = {german = "Schweine", english = "pigs"},
+    npcName = "Groknar",
+    monsterIds = {241} -- pig
+}
 
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])

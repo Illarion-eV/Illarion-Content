@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (529, 'quest.Akaltuts_Chamber_529_dungeon');
 
 local common = require("base.common")
+local monsterQuests = require("monster.base.quests")
 local M = {}
 
 local GERMAN = Player.german
@@ -103,6 +104,16 @@ local QuestTarget = {}
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 28
 
+-- Register the monster kill parts of the quest.
+monsterQuests.addQuest{
+    questId = 529,
+    location = {position = position(470, 802, -9), radius = 100},
+    queststatus = {from = 8, to = 26},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Dunkelelfen", english = "drows"},
+    npcName = "Defensor Transfodio",
+    monsterGroupIds = {6} -- all drows
+}
 
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])

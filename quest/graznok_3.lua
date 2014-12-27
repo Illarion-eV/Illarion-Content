@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (3, 'quest.graznok_3');
 
 local common = require("base.common")
+local monsterQuests = require("monster.base.quests")
 local M = {}
 
 local GERMAN = Player.german
@@ -77,8 +78,7 @@ Description[ENGLISH][21] = "You have helped Graznok by making Ingruk's Cave a bi
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {672, 449, 0}
-
+local Start = {672, 449, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
@@ -106,6 +106,26 @@ QuestTarget[20] = {position(672, 449, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 21
+
+-- Register the monster kill parts of the quest.
+monsterQuests.addQuest{
+    questId = 3,
+    location = {position = position(665, 415, 0), radius = 35},
+    queststatus = {from = 3, to = 8},
+    questTitle = {german = "Der feige Ork II", english = "The Craven Orc II"},
+    monsterName = {german = "\"Lumpenmanns\"", english = "\"ragmen\""},
+    npcName = "Graznok",
+    raceIds = {10} -- all mummies
+}
+monsterQuests.addQuest{
+    questId = 3,
+    location = {position = position(665, 415, 0), radius = 35},
+    queststatus = {from = 10, to = 20},
+    questTitle = {german = "Der feige Ork III", english = "The Craven Orc III"},
+    monsterName = {german = "\"Knochenmanns\"", english = "\"bonemen\""},
+    npcName = "Graznok",
+    raceIds = {11} -- all skeletons
+}
 
 
 function M.QuestTitle(user)

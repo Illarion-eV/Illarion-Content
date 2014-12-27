@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local factions = require("base.factions")
+local monsterQuests = require("monster.base.quests")
 local M = {}
 
 local GERMAN = Player.german
@@ -326,6 +327,52 @@ end
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 133
 
+-- Register the monster kill parts of the quest.
+monsterQuests.addQuest{
+    questId = 520,
+    location = {position = npcPos, radius = 200},
+    queststatus = {from = 1, to = 26},
+    questTitle = {german = "Das Nest der Gorgophone", english = "Gorgophone's Nest"},
+    monsterName = {german = "kleine Spinnen", english = "small spiders"},
+    npcName = "Gorgophone",
+    monsterIds = {196} -- small spider
+}
+monsterQuests.addQuest{
+    questId = 520,
+    location = {position = npcPos, radius = 200},
+    queststatus = {from = 30, to = 50},
+    questTitle = {german = "Das Nest der Gorgophone", english = "Gorgophone's Nest"},
+    monsterName = {german = "Rekrap Retep Spinnen", english = "Rekrap Retep spiders"},
+    npcName = "Gorgophone",
+    monsterIds = {191} -- Rekrap Retep
+}
+monsterQuests.addQuest{
+    questId = 520,
+    location = {position = npcPos, radius = 200},
+    queststatus = {from = 52, to = 67},
+    questTitle = {german = "Das Nest der Gorgophone", english = "Gorgophone's Nest"},
+    monsterName = {german = "Taranteln", english = "tarantulas"},
+    npcName = "Gorgophone",
+    monsterIds = {193} -- Tarantula
+}
+monsterQuests.addQuest{
+    questId = 520,
+    location = {position = npcPos, radius = 200},
+    queststatus = {from = 75, to = 80},
+    questTitle = {german = "Das Nest der Gorgophone", english = "Gorgophone's Nest"},
+    monsterName = {german = "Spinnenköniginnen", english = "Spider Queens"},
+    npcName = "Gorgophone",
+    monsterIds = {195} -- Spider queen
+}
+monsterQuests.addQuest{
+    questId = 520,
+    location = {position = npcPos, radius = 200},
+    queststatus = {from = 82, to = 132},
+    questTitle = {german = "Das Nest der Gorgophone", english = "Gorgophone's Nest"},
+    monsterName = {german = "Seelenpein Spinnen", english = "Soulpain spiders"},
+    npcName = "Gorgophone",
+    monsterIds = {262} -- Soulpain
+}
 
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])

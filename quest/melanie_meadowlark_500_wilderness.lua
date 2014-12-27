@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local factions = require("base.factions")
+local monsterQuests = require("monster.base.quests")
 local M = {}
 
 local GERMAN = Player.german
@@ -104,7 +105,7 @@ Description[GERMAN][33] = "Sammel zwanzig Flammenkelchblüten und bringe diese zu
 Description[ENGLISH][33] = "Collect twenty flamegoblet blossoms and bring them to Melanie."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {816, 440, 0}
+local Start = {816, 440, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
@@ -148,6 +149,16 @@ QuestTarget[33] = {position(816, 440, 0)}
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 34
 
+-- Register the monster kill parts of the quest.
+monsterQuests.addQuest{
+    questId = 500,
+    location = {position = position(786, 474, 0), radius = 50},
+    queststatus = {from = 3, to = 13},
+    questTitle = {german = "Elstree Waldläuferin II", english = "Elstree Ranger II"},
+    monsterName = {german = "Wildschweine", english = "boars"},
+    npcName = "Melanie Meadowlark",
+    raceIds = {24} -- all pigs
+}
 
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])

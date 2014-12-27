@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (162, 'quest.palis_nestros_162_cadomyr');
 
 local common = require("base.common")
+local monsterQuests = require("monster.base.quests")
 local M = {}
 
 local GERMAN = Player.german
@@ -413,9 +414,8 @@ Description[ENGLISH][187] = "The Kantabi desert has become a dangerous place. Th
 Description[ENGLISH][188] = "The Kantabi desert has become a dangerous place. There is a bounty put on twelve golems to make the desert peaceful again. Set out and kill them, thirty silver coins will be your reward."
 Description[ENGLISH][189] = "Return to Palis Nestros to claim your reward."
 
-
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {93, 618, 0}
+local Start = {93, 618, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
@@ -612,6 +612,196 @@ QuestTarget[189] = {position(93, 618, 0)} -- Palis
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 0
 
+-- Register the monster kill parts of the quest.
+monsterQuests.addQuest{
+    questId = 162,
+    location = {position = position(250, 650, 0), radius = 250},
+    queststatus = {from = 1, to = 5},
+    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    monsterName = {german = "Käfer", english = "beetles"},
+    npcName = "Palis Nestros",
+    raceIds = {59} -- all beetles
+}
+monsterQuests.addQuest{
+    questId = 162,
+    location = {position = position(250, 650, 0), radius = 250},
+    queststatus = {from = 6, to = 14},
+    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    monsterName = {german = "Käfer", english = "beetles"},
+    npcName = "Palis Nestros",
+    raceIds = {59} -- all beetles
+}
+monsterQuests.addQuest{
+    questId = 162,
+    location = {position = position(250, 650, 0), radius = 250},
+    queststatus = {from = 15, to = 27},
+    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    monsterName = {german = "Käfer", english = "beetles"},
+    npcName = "Palis Nestros",
+    raceIds = {59} -- all beetles
+}
+monsterQuests.addQuest{
+    questId = 162,
+    location = {position = position(250, 650, 0), radius = 250},
+    queststatus = {from = 28, to = 32},
+    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    monsterName = {german = "Wespen", english = "wasps"},
+    npcName = "Palis Nestros",
+    raceIds = {27} -- all wasps
+}
+monsterQuests.addQuest{
+    questId = 162,
+    location = {position = position(250, 650, 0), radius = 250},
+    queststatus = {from = 33, to = 41},
+    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    monsterName = {german = "Wespen", english = "wasps"},
+    npcName = "Palis Nestros",
+    raceIds = {27} -- all wasps
+}
+monsterQuests.addQuest{
+    questId = 162,
+    location = {position = position(250, 650, 0), radius = 250},
+    queststatus = {from = 42, to = 54},
+    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    monsterName = {german = "Wespen", english = "wasps"},
+    npcName = "Palis Nestros",
+    raceIds = {27} -- all wasps
+}
+monsterQuests.addQuest{
+    questId = 162,
+    location = {position = position(250, 650, 0), radius = 250},
+    queststatus = {from = 55, to = 59},
+    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    monsterName = {german = "Hunde", english = "dogs"},
+    npcName = "Palis Nestros",
+    raceIds = {58} -- all dogs
+}
+monsterQuests.addQuest{
+    questId = 162,
+    location = {position = position(250, 650, 0), radius = 250},
+    queststatus = {from = 60, to = 68},
+    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    monsterName = {german = "Hunde", english = "dogs"},
+    npcName = "Palis Nestros",
+    raceIds = {58} -- all dogs
+}
+monsterQuests.addQuest{
+    questId = 162,
+    location = {position = position(250, 650, 0), radius = 250},
+    queststatus = {from = 69, to = 81},
+    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    monsterName = {german = "Hunde", english = "dogs"},
+    npcName = "Palis Nestros",
+    raceIds = {58} -- all dogs
+}
+monsterQuests.addQuest{
+    questId = 162,
+    location = {position = position(250, 650, 0), radius = 250},
+    queststatus = {from = 82, to = 86},
+    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    monsterName = {german = "Füchse", english = "foxes"},
+    npcName = "Palis Nestros",
+    raceIds = {60} -- all foxes
+}
+monsterQuests.addQuest{
+    questId = 162,
+    location = {position = position(250, 650, 0), radius = 250},
+    queststatus = {from = 87, to = 95},
+    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    monsterName = {german = "Füchse", english = "foxes"},
+    npcName = "Palis Nestros",
+    raceIds = {60} -- all foxes
+}
+monsterQuests.addQuest{
+    questId = 162,
+    location = {position = position(250, 650, 0), radius = 250},
+    queststatus = {from = 96, to = 108},
+    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    monsterName = {german = "Füchse", english = "foxes"},
+    npcName = "Palis Nestros",
+    raceIds = {60} -- all foxes
+}
+monsterQuests.addQuest{
+    questId = 162,
+    location = {position = position(250, 650, 0), radius = 250},
+    queststatus = {from = 109, to = 113},
+    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    monsterName = {german = "Menschen", english = "humans"},
+    npcName = "Palis Nestros",
+    raceIds = {0} -- all humans
+}
+monsterQuests.addQuest{
+    questId = 162,
+    location = {position = position(250, 650, 0), radius = 250},
+    queststatus = {from = 114, to = 122},
+    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    monsterName = {german = "Menschen", english = "humans"},
+    npcName = "Palis Nestros",
+    raceIds = {0} -- all humans
+}
+monsterQuests.addQuest{
+    questId = 162,
+    location = {position = position(250, 650, 0), radius = 250},
+    queststatus = {from = 123, to = 135},
+    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    monsterName = {german = "Menschen", english = "humans"},
+    npcName = "Palis Nestros",
+    raceIds = {0} -- all humans
+}
+monsterQuests.addQuest{
+    questId = 162,
+    location = {position = position(250, 650, 0), radius = 250},
+    queststatus = {from = 136, to = 140},
+    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    monsterName = {german = "Orks", english = "orcs"},
+    npcName = "Palis Nestros",
+    raceIds = {4} -- all orcs
+}
+monsterQuests.addQuest{
+    questId = 162,
+    location = {position = position(250, 650, 0), radius = 250},
+    queststatus = {from = 141, to = 149},
+    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    monsterName = {german = "Orks", english = "orcs"},
+    npcName = "Palis Nestros",
+    raceIds = {4} -- all orcs
+}
+monsterQuests.addQuest{
+    questId = 162,
+    location = {position = position(250, 650, 0), radius = 250},
+    queststatus = {from = 150, to = 162},
+    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    monsterName = {german = "Orks", english = "orcs"},
+    npcName = "Palis Nestros",
+    raceIds = {4} -- all orcs
+}
+monsterQuests.addQuest{
+    questId = 162,
+    location = {position = position(250, 650, 0), radius = 250},
+    queststatus = {from = 163, to = 167},
+    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    monsterName = {german = "Golems", english = "golems"},
+    npcName = "Palis Nestros",
+    raceIds = {30, 56} -- all golems and mech golems
+}
+monsterQuests.addQuest{
+    questId = 162,
+    location = {position = position(250, 650, 0), radius = 250},
+    queststatus = {from = 168, to = 176},
+    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    monsterName = {german = "Golems", english = "golems"},
+    npcName = "Palis Nestros",
+    raceIds = {30, 56} -- all golems and mech golems
+}
+monsterQuests.addQuest{
+    questId = 162,
+    location = {position = position(250, 650, 0), radius = 250},
+    queststatus = {from = 177, to = 189},
+    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    monsterName = {german = "Golems", english = "golems"},
+    npcName = "Palis Nestros",
+    raceIds = {30, 56} -- all golems and mech golems
+}
 
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])

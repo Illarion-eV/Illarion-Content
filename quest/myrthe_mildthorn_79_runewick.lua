@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (79, 'quest.myrthe_mildthorn_79_runewick');
      
 local common = require("base.common")
+local monsterQuests = require("monster.base.quests")
 local M = {}
      
 local GERMAN = Player.german
@@ -77,7 +78,7 @@ Description[ENGLISH][21] = "You have fulfilled all the tasks for Myrthe Mildthor
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {785, 748, 0}
+local Start = {785, 748, 0}
 
  
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
@@ -104,10 +105,37 @@ QuestTarget[19] = {position(784, 772, 0)}
 QuestTarget[20] = {position(785, 748, 0)}
 QuestTarget[21] = {position(785, 748, 0)}
 
-
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 22
-     
+
+-- Register the monster kill parts of the quest.
+monsterQuests.addQuest{
+    questId = 79,
+    location = {position = position(774, 711, 0), radius = 40},
+    queststatus = {from = 1, to = 11},
+    questTitle = {german = "Eine Höhle im Wald I", english = "A cave in the Woods I"},
+    monsterName = {german = "Wölfe", english = "wolves"},
+    npcName = "Myrthe Mildthorn",
+    raceIds = {39} -- all wolves
+}
+monsterQuests.addQuest{
+    questId = 79,
+    location = {position = position(774, 711, 0), radius = 40},
+    queststatus = {from = 13, to = 18},
+    questTitle = {german = "Eine Höhle im Wald II", english = "A cave in the Woods II"},
+    monsterName = {german = "Hunde", english = "dogs"},
+    npcName = "Myrthe Mildthorn",
+    raceIds = {58} -- all dogs
+}
+monsterQuests.addQuest{
+    questId = 79,
+    location = {position = position(774, 711, 0), radius = 40},
+    queststatus = {from = 20, to = 21},
+    questTitle = {german = "Eine Höhle im Wald III", english = "A cave in the Woods III"},
+    monsterName = {german = "die Spinne", english = "the spider"},
+    npcName = "Myrthe Mildthorn",
+    raceIds = {19} -- all spiders
+}
      
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])

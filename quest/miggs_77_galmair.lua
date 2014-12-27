@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (77, 'quest.miggs_77_galmair');
 
 local common = require("base.common")
+local monsterQuests = require("monster.base.quests")
 local M = {}
 
 local GERMAN = Player.german
@@ -77,10 +78,8 @@ Description[ENGLISH][21] = "Return to Miggs."
 Description[GERMAN][22] = "Du hast alle Aufgaben von Miggs erfüllt."
 Description[ENGLISH][22] = "You have fulfilled all tasks for Miggs."
 
-
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {374, 216, 0}
-
+local Start = {374, 216, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
@@ -110,6 +109,34 @@ QuestTarget[22] = {position(374, 216, 0)}
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 22
 
+-- Register the monster kill parts of the quest.
+monsterQuests.addQuest{
+    questId = 77,
+    location = {position = position(298, 352, -6), radius = 65},
+    queststatus = {from = 1, to = 11},
+    questTitle = {german = "Die Kanalisation von Galmair I", english = "Galmair Sewers I"},
+    monsterName = {german = "Schleime", english = "slimes"},
+    npcName = "Miggs",
+    raceIds = {61} -- all slimes
+}
+monsterQuests.addQuest{
+    questId = 77,
+    location = {position = position(298, 352, -6), radius = 65},
+    queststatus = {from = 13, to = 18},
+    questTitle = {german = "Die Kanalisation von Galmair II", english = "Galmair Sewers II"},
+    monsterName = {german = "stinkige Gullimumien", english = "smelly sewer mummies"},
+    npcName = "Miggs",
+    raceIds = {10} -- all mummies
+}
+monsterQuests.addQuest{
+    questId = 77,
+    location = {position = position(298, 352, -6), radius = 65},
+    queststatus = {from = 20, to = 21},
+    questTitle = {german = "Die Kanalisation von Galmair III", english = "Galmair Sewers III"},
+    monsterName = {german = "den Halblingsdieb", english = "the halfling thief"},
+    npcName = "Miggs",
+    monsterIds = {23} -- halfling thieves
+}
 
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])
@@ -133,4 +160,5 @@ end
 function M.QuestFinalStatus()
     return FINAL_QUEST_STATUS
 end
+
 return M

@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (78, 'quest.grakamesh_78_cadomyr');
 
 local common = require("base.common")
+local monsterQuests = require("monster.base.quests")
 local M = {}
 
 local GERMAN = Player.german
@@ -77,11 +78,8 @@ Description[ENGLISH][21] = "Return to Grakamesh."
 Description[GERMAN][22] = "Du hast alle Aufgaben von Grakamesh erfüllt."
 Description[ENGLISH][22] = "You have fulfilled all tasks for Grakamesh."
 
-
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {133, 638, 0}
-
-
+local Start = {133, 638, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
@@ -111,6 +109,34 @@ QuestTarget[22] = {position(133, 638, 0)}
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 22
 
+-- Register the monster kill parts of the quest.
+monsterQuests.addQuest{
+    questId = 78,
+    location = {position = position(135, 655, -4), radius = 50},
+    queststatus = {from = 1, to = 11},
+    questTitle = {german = "Sir Reginalds Gruft I", english = "Sir Reginald's Tomb I"},
+    monsterName = {german = "Mumien", english = "mummies"},
+    npcName = "Grakamesh",
+    raceIds = {10} -- all mummies
+}
+monsterQuests.addQuest{
+    questId = 78,
+    location = {position = position(135, 655, -4), radius = 50},
+    queststatus = {from = 13, to = 18},
+    questTitle = {german = "Sir Reginalds Gruft II", english = "Sir Reginald's Tomb II"},
+    monsterName = {german = "Schleime", english = "slimes"},
+    npcName = "Grakamesh",
+    raceIds = {61} -- all slimes
+}
+monsterQuests.addQuest{
+    questId = 78,
+    location = {position = position(135, 655, -4), radius = 50},
+    queststatus = {from = 20, to = 21},
+    questTitle = {german = "Sir Reginalds Gruft III", english = "Sir Reginald's Tomb III"},
+    monsterName = {german = "das Geisterskelett", english = "the ghosts skeleton"},
+    npcName = "Grakamesh",
+    monsterIds = {115} -- ghost skeleton
+}
 
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])

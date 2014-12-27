@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (104, 'quest.arenius_batavius_104_cadomyr');
 
 local common = require("base.common")
+local monsterQuests = require("monster.base.quests")
 local M = {}
 
 local GERMAN = Player.german
@@ -103,10 +104,8 @@ Description[ENGLISH][34] = "Return to Arenius Batavius."
 Description[GERMAN][35] = "Du hast alle Aufgaben von Arenius Batavius erfüllt."
 Description[ENGLISH][35] = "You have fulfilled all tasks for Arenius Batavius."
 
-
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {86, 586, 0}
-
+local Start = {86, 586, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
@@ -146,10 +145,55 @@ QuestTarget[33] = {position(688, 392, -3)}
 QuestTarget[34] = {position(86, 586, 0)}
 QuestTarget[35] = {position(86, 586, 0)}
 
-
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 35
 
+-- Register the monster kill parts of the quest.
+monsterQuests.addQuest{
+    questId = 104,
+    location = {position = position(705, 410, -3), radius = 75},
+    queststatus = {from = 3, to = 9},
+    questTitle = {german = "Der fehlgeleitete Kreuzzug II", english = "The Errant Crusade II"},
+    monsterName = {german = "Mumien", english = "mummies"},
+    npcName = "Arenius Batavius",
+    raceIds = {10} -- all mummies
+}
+monsterQuests.addQuest{
+    questId = 104,
+    location = {position = position(705, 410, -3), radius = 75},
+    queststatus = {from = 11, to = 23},
+    questTitle = {german = "Der fehlgeleitete Kreuzzug III", english = "The Errant Crusade III"},
+    monsterName = {german = "Skelette", english = "skeletons"},
+    npcName = "Arenius Batavius",
+    raceIds = {11} -- all skeletons
+}
+monsterQuests.addQuest{
+    questId = 104,
+    location = {position = position(705, 410, -3), radius = 75},
+    queststatus = {from = 26, to = 28},
+    questTitle = {german = "Der fehlgeleitete Kreuzzug IV", english = "The Errant Crusade IV"},
+    monsterName = {german = "Blutmagier", english = "blood mages"},
+    npcName = "Arenius Batavius",
+    monsterIds = {4} -- human mages
+}
+monsterQuests.addQuest{
+    questId = 104,
+    location = {position = position(705, 410, -3), radius = 75},
+    queststatus = {from = 30, to = 31},
+    questTitle = {german = "Der fehlgeleitete Kreuzzug V", english = "The Errant Crusade V"},
+    monsterName = {german = "den Dämonenskelettkrieger", english = "the demon dkeleton warrior"},
+    npcName = "Arenius Batavius",
+    monsterIds = {201} -- demon skeleton
+}
+monsterQuests.addQuest{
+    questId = 104,
+    location = {position = position(705, 410, -3), radius = 75},
+    queststatus = {from = 33, to = 34},
+    questTitle = {german = "Der fehlgeleitete Kreuzzug VI", english = "The Errant Crusade VI"},
+    monsterName = {german = "den untoten Feuerdrachen", english = "the undead fire dragon"},
+    npcName = "Arenius Batavius",
+    monsterIds = {633} -- bone fire dragon
+}
 
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])

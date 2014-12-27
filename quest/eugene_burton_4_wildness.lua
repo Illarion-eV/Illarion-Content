@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (4, 'quest.eugene_burton_4_wildness');
 
 local common = require("base.common")
+local monsterQuests = require("monster.base.quests")
 local M = {}
 
 local GERMAN = Player.german
@@ -101,7 +102,7 @@ Description[ENGLISH][33] = "You have fulfilled all tasks for Eugene Burton."
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {693, 493, 0}
+local Start = {693, 493, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
@@ -140,10 +141,46 @@ QuestTarget[31] = {position(803, 441, 0)}
 QuestTarget[32] = {position(693, 493, 0)} --Eugene 
 QuestTarget[33] = {position(693, 493, 0)} --Eugene
 
-
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 33
 
+-- Register the monster kill parts of the quest.
+monsterQuests.addQuest{
+    questId = 4,
+    location = {position = position(775, 475, 0), radius = 75},
+    queststatus = {from = 1, to = 7},
+    questTitle = {german = "Der Wilderer I", english = "The Poacher I"},
+    monsterName = {german = "Wildschweine", english = "boars"},
+    npcName = "Eugene Burton",
+    raceIds = {24} -- all pigs
+}
+monsterQuests.addQuest{
+    questId = 4,
+    location = {position = position(775, 475, 0), radius = 75},
+    queststatus = {from = 9, to = 21},
+    questTitle = {german = "Der Wilderer II", english = "The Poacher II"},
+    monsterName = {german = "Rinder", english = "bulls"},
+    npcName = "Eugene Burton",
+    raceIds = {37} -- all cows
+}
+monsterQuests.addQuest{
+    questId = 4,
+    location = {position = position(775, 475, 0), radius = 75},
+    queststatus = {from = 23, to = 29},
+    questTitle = {german = "Der Wilderer III", english = "The Poacher III"},
+    monsterName = {german = "Wölfe", english = "wolves"},
+    npcName = "Eugene Burton",
+    raceIds = {39} -- all wolves
+}
+monsterQuests.addQuest{
+    questId = 4,
+    location = {position = position(775, 475, 0), radius = 75},
+    queststatus = {from = 31, to = 32},
+    questTitle = {german = "Der Wilderer IV", english = "The Poacher IV"},
+    monsterName = {german = "den elfischen Wildhüter", english = "the elven ranger"},
+    npcName = "Eugene Burton",
+    monsterIds = {35} -- elven ranger
+}
 
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])

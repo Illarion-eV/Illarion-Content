@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (112, 'quest.madoquar_112_wildness');
 
 local common = require("base.common")
+local monsterQuests = require("monster.base.quests")
 local M = {}
 
 local GERMAN = Player.german
@@ -55,10 +56,8 @@ Description[ENGLISH][10] = "Return to Madoquar."
 Description[GERMAN][11] = "Du hast alle Aufgaben von Madoquar erfüllt."
 Description[ENGLISH][11] = "You have fulfilled all tasks for Madoquar."
 
-
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {452, 111, 0}
-
+local Start = {452, 111, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
@@ -72,12 +71,21 @@ QuestTarget[7] = {position(452, 111, 0)}
 QuestTarget[8] = {position(452, 111, 0)}
 QuestTarget[9] = {position(501, 107, 0)} 
 QuestTarget[10] = {position(452, 111, 0)}
-QuestTarget[11] = {position(452, 111, 0)} 
-
+QuestTarget[11] = {position(452, 111, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 11
 
+-- Register the monster kill parts of the quest.
+monsterQuests.addQuest{
+    questId = 112,
+    location = {position = position(501, 107, 0), radius = 15},
+    queststatus = {from = 9, to = 10},
+    questTitle = {german = "Die Geistereiche IV", english = "The Ghost Oak IV"},
+    monsterName = {german = "den Geist der Eiche", english = "the Oak Ghost"},
+    npcName = "Madoquar",
+    monsterIds = {743} -- bone ghost
+}
 
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])

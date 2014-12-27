@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local factions = require("base.factions")
+local monsterQuests = require("monster.base.quests")
 local M = {}
 
 local GERMAN = Player.german
@@ -120,7 +121,7 @@ Description[GERMAN][38] = "Du hast alle Aufgaben von Jeremiah Horanfeld erfüllt.
 Description[ENGLISH][38] = "You have fulfilled all of Jeremiah Horanfeld's tasks."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {104, 600, 0}
+local Start = {104, 600, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
@@ -166,6 +167,43 @@ QuestTarget[38] = {position(104, 600, 0)}
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 38
 
+-- Register the monster kill parts of the quest.
+monsterQuests.addQuest{
+    questId = 187,
+    location = {position = position(125, 565, -6), radius = 40},
+    queststatus = {from = 1, to = 6},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Ratten", english = "rats"},
+    npcName = "Jeremiah Horanfeld",
+    raceIds = {111} -- all rats
+}
+monsterQuests.addQuest{
+    questId = 187,
+    location = {position = position(125, 565, -6), radius = 40},
+    queststatus = {from = 10, to = 20},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Ratten", english = "rats"},
+    npcName = "Jeremiah Horanfeld",
+    raceIds = {111} -- all rats
+}
+monsterQuests.addQuest{
+    questId = 187,
+    location = {position = position(125, 565, -6), radius = 40},
+    queststatus = {from = 24, to = 34},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Ratten", english = "rats"},
+    npcName = "Jeremiah Horanfeld",
+    raceIds = {111} -- all rats
+}
+monsterQuests.addQuest{
+    questId = 187,
+    location = {position = position(125, 565, -6), radius = 40},
+    queststatus = {from = 36, to = 37},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "den Rattenmenschen", english = "the ratman"},
+    npcName = "Jeremiah Horanfeld",
+    monsterIds = {571} -- Snuffler
+}
 
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])

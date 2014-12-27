@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (184, 'quest.maelyrra_umrielyth_184_runewick');
 
 local common = require("base.common")
+local monsterQuests = require("monster.base.quests")
 local M = {}
 
 local GERMAN = Player.german
@@ -413,9 +414,8 @@ Description[ENGLISH][187] = "Kill twelve zombies you still need two."
 Description[ENGLISH][188] = "Kill twelve zombies you still need one."
 Description[ENGLISH][189] = "Return to Maelyrra Umrielyth to claim your reward."
 
-
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {861, 809, 0}
+local Start = {861, 809, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
@@ -612,6 +612,196 @@ QuestTarget[189] = {position(861, 809, 0)} -- Maelyrra
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 0
 
+-- Register the monster kill parts of the quest.
+monsterQuests.addQuest{
+    questId = 184,
+    location = {position = position(811, 735, 0), radius = 300},
+    queststatus = {from = 1, to = 5},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Schleime", english = "slimes"},
+    npcName = "Maelyrra Umrielyth",
+    raceIds = {61} -- all slimes
+}
+monsterQuests.addQuest{
+    questId = 184,
+    location = {position = position(811, 735, 0), radius = 300},
+    queststatus = {from = 6, to = 14},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Schleime", english = "slimes"},
+    npcName = "Maelyrra Umrielyth",
+    raceIds = {61} -- all slimes
+}
+monsterQuests.addQuest{
+    questId = 184,
+    location = {position = position(811, 735, 0), radius = 300},
+    queststatus = {from = 15, to = 27},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Schleime", english = "slimes"},
+    npcName = "Maelyrra Umrielyth",
+    raceIds = {61} -- all slimes
+}
+monsterQuests.addQuest{
+    questId = 184,
+    location = {position = position(811, 735, 0), radius = 300},
+    queststatus = {from = 28, to = 32},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Hunde", english = "dogs"},
+    npcName = "Maelyrra Umrielyth",
+    raceIds = {58} -- all dogs
+}
+monsterQuests.addQuest{
+    questId = 184,
+    location = {position = position(811, 735, 0), radius = 300},
+    queststatus = {from = 33, to = 41},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Hunde", english = "dogs"},
+    npcName = "Maelyrra Umrielyth",
+    raceIds = {58} -- all dogs
+}
+monsterQuests.addQuest{
+    questId = 184,
+    location = {position = position(811, 735, 0), radius = 300},
+    queststatus = {from = 42, to = 54},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Hunde", english = "dogs"},
+    npcName = "Maelyrra Umrielyth",
+    raceIds = {58} -- all dogs
+}
+monsterQuests.addQuest{
+    questId = 184,
+    location = {position = position(811, 735, 0), radius = 300},
+    queststatus = {from = 55, to = 59},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Wölfe", english = "wolves"},
+    npcName = "Maelyrra Umrielyth",
+    raceIds = {39} -- all wolves
+}
+monsterQuests.addQuest{
+    questId = 184,
+    location = {position = position(811, 735, 0), radius = 300},
+    queststatus = {from = 60, to = 68},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Wölfe", english = "wolves"},
+    npcName = "Maelyrra Umrielyth",
+    raceIds = {39} -- all wolves
+}
+monsterQuests.addQuest{
+    questId = 184,
+    location = {position = position(811, 735, 0), radius = 300},
+    queststatus = {from = 69, to = 81},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Wölfe", english = "wolves"},
+    npcName = "Maelyrra Umrielyth",
+    raceIds = {39} -- all wolves
+}
+monsterQuests.addQuest{
+    questId = 184,
+    location = {position = position(811, 735, 0), radius = 300},
+    queststatus = {from = 82, to = 86},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Füchse", english = "foxes"},
+    npcName = "Maelyrra Umrielyth",
+    raceIds = {60} -- all foxes
+}
+monsterQuests.addQuest{
+    questId = 184,
+    location = {position = position(811, 735, 0), radius = 300},
+    queststatus = {from = 87, to = 95},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Füchse", english = "foxes"},
+    npcName = "Maelyrra Umrielyth",
+    raceIds = {60} -- all foxes
+}
+monsterQuests.addQuest{
+    questId = 184,
+    location = {position = position(811, 735, 0), radius = 300},
+    queststatus = {from = 96, to = 108},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Füchse", english = "foxes"},
+    npcName = "Maelyrra Umrielyth",
+    raceIds = {60} -- all foxes
+}
+monsterQuests.addQuest{
+    questId = 184,
+    location = {position = position(811, 735, 0), radius = 300},
+    queststatus = {from = 109, to = 113},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Menschen", english = "humans"},
+    npcName = "Maelyrra Umrielyth",
+    raceIds = {0} -- all humans
+}
+monsterQuests.addQuest{
+    questId = 184,
+    location = {position = position(811, 735, 0), radius = 300},
+    queststatus = {from = 114, to = 122},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Menschen", english = "humans"},
+    npcName = "Maelyrra Umrielyth",
+    raceIds = {0} -- all humans
+}
+monsterQuests.addQuest{
+    questId = 184,
+    location = {position = position(811, 735, 0), radius = 300},
+    queststatus = {from = 123, to = 135},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Menschen", english = "humans"},
+    npcName = "Maelyrra Umrielyth",
+    raceIds = {0} -- all humans
+}
+monsterQuests.addQuest{
+    questId = 184,
+    location = {position = position(811, 735, 0), radius = 300},
+    queststatus = {from = 136, to = 140},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Diebe", english = "thieves"},
+    npcName = "Maelyrra Umrielyth",
+    monsterIds = {5, 23, 43, 55} -- different thieves
+}
+monsterQuests.addQuest{
+    questId = 184,
+    location = {position = position(811, 735, 0), radius = 300},
+    queststatus = {from = 141, to = 149},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Diebe", english = "thieves"},
+    npcName = "Maelyrra Umrielyth",
+    monsterIds = {5, 23, 43, 55} -- different thieves
+}
+monsterQuests.addQuest{
+    questId = 184,
+    location = {position = position(811, 735, 0), radius = 300},
+    queststatus = {from = 150, to = 162},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Diebe", english = "thieves"},
+    npcName = "Maelyrra Umrielyth",
+    monsterIds = {5, 23, 43, 55} -- different thieves
+}
+monsterQuests.addQuest{
+    questId = 184,
+    location = {position = position(811, 735, 0), radius = 300},
+    queststatus = {from = 163, to = 167},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Zombies", english = "zombies"},
+    npcName = "Maelyrra Umrielyth",
+    raceIds = {53} -- all zombies
+}
+monsterQuests.addQuest{
+    questId = 184,
+    location = {position = position(811, 735, 0), radius = 300},
+    queststatus = {from = 168, to = 176},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Zombies", english = "zombies"},
+    npcName = "Maelyrra Umrielyth",
+    raceIds = {53} -- all zombies
+}
+monsterQuests.addQuest{
+    questId = 184,
+    location = {position = position(811, 735, 0), radius = 300},
+    queststatus = {from = 177, to = 178},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
+    monsterName = {german = "Zombies", english = "zombies"},
+    npcName = "Maelyrra Umrielyth",
+    raceIds = {53} -- all zombies
+}
 
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])

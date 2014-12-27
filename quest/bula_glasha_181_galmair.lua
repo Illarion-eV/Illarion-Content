@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (181, 'quest.bula_glasha_181_galmair');
 
 local common = require("base.common")
+local monsterQuests = require("monster.base.quests")
 local M = {}
 
 local GERMAN = Player.german
@@ -415,7 +416,7 @@ Description[ENGLISH][189] = "Return to Bula Glasha to claim your reward."
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {407, 232, 0}
+local Start = {407, 232, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
@@ -612,6 +613,196 @@ QuestTarget[189] = {position(407, 232, 0)} -- Bula
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 0
 
+-- Register the monster kill parts of the quest.
+monsterQuests.addQuest{
+    questId = 181,
+    location = {position = position(564, 178, 0), radius = 450},
+    queststatus = {from = 1, to = 5},
+    questTitle = {german = "Spitzel Informant", english = "Spy Informant"},
+    monsterName = {german = "Wespen", english = "wasps"},
+    npcName = "Bula Glasha",
+    raceIds = {27} -- all wasps
+}
+monsterQuests.addQuest{
+    questId = 181,
+    location = {position = position(564, 178, 0), radius = 450},
+    queststatus = {from = 6, to = 14},
+    questTitle = {german = "Spitzel Informant", english = "Spy Informant"},
+    monsterName = {german = "Wespen", english = "wasps"},
+    npcName = "Bula Glasha",
+    raceIds = {27} -- all wasps
+}
+monsterQuests.addQuest{
+    questId = 181,
+    location = {position = position(564, 178, 0), radius = 450},
+    queststatus = {from = 15, to = 27},
+    questTitle = {german = "Spitzel Informant", english = "Spy Informant"},
+    monsterName = {german = "Wespen", english = "wasps"},
+    npcName = "Bula Glasha",
+    raceIds = {27} -- all wasps
+}
+monsterQuests.addQuest{
+    questId = 181,
+    location = {position = position(564, 178, 0), radius = 450},
+    queststatus = {from = 28, to = 32},
+    questTitle = {german = "Spitzel Informant", english = "Spy Informant"},
+    monsterName = {german = "Schleime", english = "slimes"},
+    npcName = "Bula Glasha",
+    raceIds = {61} -- all slimes
+}
+monsterQuests.addQuest{
+    questId = 181,
+    location = {position = position(564, 178, 0), radius = 450},
+    queststatus = {from = 33, to = 41},
+    questTitle = {german = "Spitzel Informant", english = "Spy Informant"},
+    monsterName = {german = "Schleime", english = "slimes"},
+    npcName = "Bula Glasha",
+    raceIds = {61} -- all slimes
+}
+monsterQuests.addQuest{
+    questId = 181,
+    location = {position = position(564, 178, 0), radius = 450},
+    queststatus = {from = 42, to = 54},
+    questTitle = {german = "Spitzel Informant", english = "Spy Informant"},
+    monsterName = {german = "Schleime", english = "slimes"},
+    npcName = "Bula Glasha",
+    raceIds = {61} -- all slimes
+}
+monsterQuests.addQuest{
+    questId = 181,
+    location = {position = position(564, 178, 0), radius = 450},
+    queststatus = {from = 55, to = 59},
+    questTitle = {german = "Spitzel Informant", english = "Spy Informant"},
+    monsterName = {german = "Hunde", english = "dogs"},
+    npcName = "Bula Glasha",
+    raceIds = {58} -- all dogs
+}
+monsterQuests.addQuest{
+    questId = 181,
+    location = {position = position(564, 178, 0), radius = 450},
+    queststatus = {from = 60, to = 68},
+    questTitle = {german = "Spitzel Informant", english = "Spy Informant"},
+    monsterName = {german = "Hunde", english = "dogs"},
+    npcName = "Bula Glasha",
+    raceIds = {58} -- all dogs
+}
+monsterQuests.addQuest{
+    questId = 181,
+    location = {position = position(564, 178, 0), radius = 450},
+    queststatus = {from = 69, to = 81},
+    questTitle = {german = "Spitzel Informant", english = "Spy Informant"},
+    monsterName = {german = "Hunde", english = "dogs"},
+    npcName = "Bula Glasha",
+    raceIds = {58} -- all dogs
+}
+monsterQuests.addQuest{
+    questId = 181,
+    location = {position = position(564, 178, 0), radius = 450},
+    queststatus = {from = 82, to = 86},
+    questTitle = {german = "Spitzel Informant", english = "Spy Informant"},
+    monsterName = {german = "Füchse", english = "foxes"},
+    npcName = "Bula Glasha",
+    raceIds = {60} -- all foxes
+}
+monsterQuests.addQuest{
+    questId = 181,
+    location = {position = position(564, 178, 0), radius = 450},
+    queststatus = {from = 87, to = 95},
+    questTitle = {german = "Spitzel Informant", english = "Spy Informant"},
+    monsterName = {german = "Füchse", english = "foxes"},
+    npcName = "Bula Glasha",
+    raceIds = {60} -- all foxes
+}
+monsterQuests.addQuest{
+    questId = 181,
+    location = {position = position(564, 178, 0), radius = 450},
+    queststatus = {from = 96, to = 108},
+    questTitle = {german = "Spitzel Informant", english = "Spy Informant"},
+    monsterName = {german = "Füchse", english = "foxes"},
+    npcName = "Bula Glasha",
+    raceIds = {60} -- all foxes
+}
+monsterQuests.addQuest{
+    questId = 181,
+    location = {position = position(564, 178, 0), radius = 450},
+    queststatus = {from = 109, to = 113},
+    questTitle = {german = "Spitzel Informant", english = "Spy Informant"},
+    monsterName = {german = "Rattenmenschen", english = "ratmen"},
+    npcName = "Bula Glasha",
+    raceIds = {57} -- all ratmen
+}
+monsterQuests.addQuest{
+    questId = 181,
+    location = {position = position(564, 178, 0), radius = 450},
+    queststatus = {from = 114, to = 122},
+    questTitle = {german = "Spitzel Informant", english = "Spy Informant"},
+    monsterName = {german = "Rattenmenschen", english = "ratmen"},
+    npcName = "Bula Glasha",
+    raceIds = {57} -- all ratmen
+}
+monsterQuests.addQuest{
+    questId = 181,
+    location = {position = position(564, 178, 0), radius = 450},
+    queststatus = {from = 123, to = 135},
+    questTitle = {german = "Spitzel Informant", english = "Spy Informant"},
+    monsterName = {german = "Rattenmenschen", english = "ratmen"},
+    npcName = "Bula Glasha",
+    raceIds = {57} -- all ratmen
+}
+monsterQuests.addQuest{
+    questId = 181,
+    location = {position = position(564, 178, 0), radius = 450},
+    queststatus = {from = 136, to = 140},
+    questTitle = {german = "Spitzel Informant", english = "Spy Informant"},
+    monsterName = {german = "Bären", english = "bears"},
+    npcName = "Bula Glasha",
+    raceIds = {51} -- all bears
+}
+monsterQuests.addQuest{
+    questId = 181,
+    location = {position = position(564, 178, 0), radius = 450},
+    queststatus = {from = 141, to = 149},
+    questTitle = {german = "Spitzel Informant", english = "Spy Informant"},
+    monsterName = {german = "Bären", english = "bears"},
+    npcName = "Bula Glasha",
+    raceIds = {51} -- all bears
+}
+monsterQuests.addQuest{
+    questId = 181,
+    location = {position = position(564, 178, 0), radius = 450},
+    queststatus = {from = 150, to = 162},
+    questTitle = {german = "Spitzel Informant", english = "Spy Informant"},
+    monsterName = {german = "Bären", english = "bears"},
+    npcName = "Bula Glasha",
+    raceIds = {51} -- all bears
+}
+monsterQuests.addQuest{
+    questId = 181,
+    location = {position = position(564, 178, 0), radius = 450},
+    queststatus = {from = 163, to = 167},
+    questTitle = {german = "Spitzel Informant", english = "Spy Informant"},
+    monsterName = {german = "Trolle", english = "trolls"},
+    npcName = "Bula Glasha",
+    raceIds = {9} -- all trolls
+}
+monsterQuests.addQuest{
+    questId = 181,
+    location = {position = position(564, 178, 0), radius = 450},
+    queststatus = {from = 168, to = 176},
+    questTitle = {german = "Spitzel Informant", english = "Spy Informant"},
+    monsterName = {german = "Trolle", english = "trolls"},
+    npcName = "Bula Glasha",
+    raceIds = {9} -- all trolls
+}
+monsterQuests.addQuest{
+    questId = 181,
+    location = {position = position(564, 178, 0), radius = 450},
+    queststatus = {from = 177, to = 189},
+    questTitle = {german = "Spitzel Informant", english = "Spy Informant"},
+    monsterName = {german = "Trolle", english = "trolls"},
+    npcName = "Bula Glasha",
+    raceIds = {9} -- all trolls
+}
 
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])
