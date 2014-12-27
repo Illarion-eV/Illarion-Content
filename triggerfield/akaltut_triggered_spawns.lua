@@ -42,7 +42,7 @@ waypoint[7] = position(479, 932, -9)
 waypoint[8] = position(464, 915, -9)
 
 local messageG = {} --German informs
-messageG[1] = "Wie Sie zu FuÃŸ, die Knochen unter den FÃ¼ÃŸen beginnen sich zu bewegen und sich wieder zusammensetzen!"
+messageG[1] = "Die Knochen unter deinen Füßen beginnen sich zu bewegen und sich wieder zusammensetzen!"
 
 
 local messageE = {} --English informs
