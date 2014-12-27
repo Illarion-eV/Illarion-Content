@@ -96,9 +96,34 @@ local function reportMonsterDeath(monster)
     end
 end
 
+local function dropLootItem(monster, lootItemData)
+    local amount = Random.uniform(lootItemData.minAmount, lootItemData.maxAmount)
+    local quality = Random.uniform(lootItemData.minQuality, lootItemData.maxQuality)
+    local durability = Random.uniform(lootItemData.minDurability, lootItemData.maxDurability)
+
+    world:createItemFromId(
+        lootItemData.itemId, amount, monster.pos, true, quality * 100 + durability, lootItemData.data)
+end
+
+local function dropLootCategory(monster, lootData)
+    local randomTry = Random.uniform()
+    for _, itemInfo in pairs(lootData) do
+        if itemInfo.probability >= randomTry then
+            dropLootItem(monster, itemInfo)
+            return
+        else
+            randomTry = randomTry - itemInfo.probability
+        end
+    end
+end
+
 local function performDrop(monster)
     if not noDropList[monster.id] then
-        -- TODO: Implement drop function
+        local loot = monster:getLoot()
+
+        for _, category in pairs(loot) do
+            dropLootCategory(category)
+        end
     end
 end
 
