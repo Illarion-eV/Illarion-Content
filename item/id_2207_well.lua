@@ -24,7 +24,7 @@ local M = {}
 
 wellPosition1 = position(528, 555, 0); -- maze
 wellPosition2 = position(105, 600, 0); -- Cadomyr
-wellPosition3 = position(359, 273, 0); -- Galmair
+wellPosition3 = position(357, 272, 0); -- Galmair
 wellPosition4 = position(849, 841, 0); -- Runewick
 
 function M.UseItem(User, SourceItem, ltstate)
