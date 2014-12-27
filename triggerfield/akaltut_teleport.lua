@@ -64,7 +64,7 @@ function M.MoveToField( User )
 	elseif User.pos == position(502, 732, -6) then -- End of Lava Trap
 		world:gfx(41,User.pos);
 	    world:makeSound(13,User.pos);
-        User:warp(position(425,785. -9));
+        User:warp(position(425,785, -9));
         world:gfx(41,User.pos);
         world:makeSound(13,User.pos);
 	elseif User.pos == position(481, 843, -9) then -- To mud pit from skull room.
