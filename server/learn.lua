@@ -35,7 +35,7 @@ function M.learn(user, skill, actionPoints, learnLimit)
 	local skillName = user:getSkillName(skill) --reading the skill
 	
     --Learning speed - Change here if you're unhappy with the learning speed. Skillgain scales in a linear way.
-	scalingFactor=500; --Here, you can mod the learning speed. Higher value=faster ;-)
+	scalingFactor=500; --Here, you can mod the learning speed. Higher value=faster
 	
 	--Constants - Do not change unless you know exactly what you're doing!
 	amplification=100; --An 'abritrary' value that governs the 'resolution' of the MC function.
@@ -60,12 +60,12 @@ function M.learn(user, skill, actionPoints, learnLimit)
 			minorIncrease=math.floor(scalingFactor*attributeFactor*actionpointFactor*MCfactor);
             
 			
-			--If you want to debug... But there is no bug here!
+			--For debugging, use the following line.
 			--user:inform("Skill= "..skillName..", actionPoints="..actionPoints..", MCfactor="..MCfactor..", attributeFactor="..attributeFactor..", actionpointFactor="..actionpointFactor..", minorIncrease="..minorIncrease.."!");
 						
 			while minorIncrease>0 do --for the rare case that an action results in two swirlies, we have this loop
 			
-                realIncrease=math.min(minorIncrease,10000) -- to prevent overflow, we cannot gain more than one level per action anyway
+                realIncrease=math.min(minorIncrease,10000) --to prevent overflow, we cannot gain more than one level per action anyway
 				
                 if minorSkill+realIncrease<10000 then
                     user:increaseMinorSkill(skill,realIncrease); --minimum of 10 actions of 50AP for a swirlie at 5% activity
@@ -113,7 +113,7 @@ function getLeadAttrib(Char, Skill)
   if leadAttribName~=nil then
     return Char:increaseAttrib(leadAttribName,0);
   end
-  return 10; --No way, 10 should be default. Why did you return 5? ~Estralis
+  return 10; --10 should be default
 end
 
 return M
