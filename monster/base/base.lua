@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local quests = require("monster.base.quests")
+local hooks = require("monster.base.hooks")
 local treasure = require("base.treasure")
 local arena = require("base.arena")
 
@@ -86,15 +87,19 @@ end
 local function cleanupMonster(monster)
     killers[monster.id] = nil
     noDropList[monster.id] = nil
+    hooks.cleanHooks(monster)
 end
 
 local function reportMonsterDeath(monster)
     local killer = killers[monster.id]
-    if killer ~= nil then
-        if isValidChar(killer) then
-            quests.checkQuest(killer, monster)
-        end
+    if killer ~= nil and (not isValidChar(killer) or not killer:isInRange(monster, 12)) then
+        killer = nil
     end
+
+    if killer ~= nil and not arena.isArenaMonster(monster) then
+        quests.checkQuest(killer, monster)
+    end
+    hooks.executeOnDeath(monster, killer)
 end
 
 local function copyMergeTables(table1, table2)
@@ -138,7 +143,7 @@ local function dropLootCategory(monster, lootData)
 end
 
 local function performDrop(monster)
-    if not noDropList[monster.id] then
+    if not arena.isArenaMonster(monster) and not noDropList[monster.id] then
         local loot = monster:getLoot()
 
         for _, category in pairs(loot) do
@@ -169,10 +174,8 @@ function M.generateCallbacks(msgs)
     t.onCasted = reportAttack
 
     function t.onDeath(monster)
-        if not arena.isArenaMonster(monster) then
-            performDrop(monster)
-            reportMonsterDeath(monster)
-        end
+        performDrop(monster)
+        reportMonsterDeath(monster)
         cleanupMonster(monster)
     end
 
