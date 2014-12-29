@@ -414,200 +414,16 @@ Description[ENGLISH][187] = "The Kantabi desert has become a dangerous place. Th
 Description[ENGLISH][188] = "The Kantabi desert has become a dangerous place. There is a bounty put on twelve golems to make the desert peaceful again. Set out and kill them, thirty silver coins will be your reward."
 Description[ENGLISH][189] = "Return to Palis Nestros to claim your reward."
 
+local npcLocation = position(93, 618, 0)
+
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-local Start = {93, 618, 0}
+local Start = {npcLocation.x, npcLocation.y, npcLocation.z}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(93, 618, 0)} -- Palis
-QuestTarget[2] = {position(93, 618, 0)} -- Palis
-QuestTarget[3] = {position(93, 618, 0)} -- Palis
-QuestTarget[4] = {position(93, 618, 0)} -- Palis
-QuestTarget[5] = {position(93, 618, 0)} -- Palis
-QuestTarget[6] = {position(93, 618, 0)} -- Palis
-QuestTarget[7] = {position(93, 618, 0)} -- Palis
-QuestTarget[8] = {position(93, 618, 0)} -- Palis
-QuestTarget[9] = {position(93, 618, 0)} -- Palis
-QuestTarget[10] = {position(93, 618, 0)} -- Palis
-QuestTarget[11] = {position(93, 618, 0)} -- Palis
-QuestTarget[12] = {position(93, 618, 0)} -- Palis
-QuestTarget[13] = {position(93, 618, 0)} -- Palis
-QuestTarget[14] = {position(93, 618, 0)} -- Palis
-QuestTarget[15] = {position(93, 618, 0)} -- Palis
-QuestTarget[16] = {position(93, 618, 0)} -- Palis
-QuestTarget[17] = {position(93, 618, 0)} -- Palis
-QuestTarget[18] = {position(93, 618, 0)} -- Palis
-QuestTarget[19] = {position(93, 618, 0)} -- Palis
-QuestTarget[20] = {position(93, 618, 0)} -- Palis
-QuestTarget[21] = {position(93, 618, 0)} -- Palis
-QuestTarget[22] = {position(93, 618, 0)} -- Palis
-QuestTarget[23] = {position(93, 618, 0)} -- Palis
-QuestTarget[24] = {position(93, 618, 0)} -- Palis
-QuestTarget[25] = {position(93, 618, 0)} -- Palis
-QuestTarget[26] = {position(93, 618, 0)} -- Palis
-QuestTarget[27] = {position(93, 618, 0)} -- Palis
-QuestTarget[28] = {position(93, 618, 0)} -- Palis
-QuestTarget[29] = {position(93, 618, 0)} -- Palis
-QuestTarget[30] = {position(93, 618, 0)} -- Palis
-QuestTarget[31] = {position(93, 618, 0)} -- Palis
-QuestTarget[32] = {position(93, 618, 0)} -- Palis
-QuestTarget[33] = {position(93, 618, 0)} -- Palis
-QuestTarget[34] = {position(93, 618, 0)} -- Palis
-QuestTarget[35] = {position(93, 618, 0)} -- Palis
-QuestTarget[36] = {position(93, 618, 0)} -- Palis
-QuestTarget[37] = {position(93, 618, 0)} -- Palis
-QuestTarget[38] = {position(93, 618, 0)} -- Palis
-QuestTarget[39] = {position(93, 618, 0)} -- Palis
-QuestTarget[40] = {position(93, 618, 0)} -- Palis
-QuestTarget[41] = {position(93, 618, 0)} -- Palis
-QuestTarget[42] = {position(93, 618, 0)} -- Palis
-QuestTarget[43] = {position(93, 618, 0)} -- Palis
-QuestTarget[44] = {position(93, 618, 0)} -- Palis
-QuestTarget[45] = {position(93, 618, 0)} -- Palis
-QuestTarget[46] = {position(93, 618, 0)} -- Palis
-QuestTarget[47] = {position(93, 618, 0)} -- Palis
-QuestTarget[48] = {position(93, 618, 0)} -- Palis
-QuestTarget[49] = {position(93, 618, 0)} -- Palis
-QuestTarget[50] = {position(93, 618, 0)} -- Palis
-QuestTarget[51] = {position(93, 618, 0)} -- Palis
-QuestTarget[52] = {position(93, 618, 0)} -- Palis
-QuestTarget[53] = {position(93, 618, 0)} -- Palis
-QuestTarget[54] = {position(93, 618, 0)} -- Palis
-QuestTarget[55] = {position(93, 618, 0)} -- Palis
-QuestTarget[56] = {position(93, 618, 0)} -- Palis
-QuestTarget[57] = {position(93, 618, 0)} -- Palis
-QuestTarget[58] = {position(93, 618, 0)} -- Palis
-QuestTarget[59] = {position(93, 618, 0)} -- Palis
-QuestTarget[60] = {position(93, 618, 0)} -- Palis
-QuestTarget[61] = {position(93, 618, 0)} -- Palis
-QuestTarget[62] = {position(93, 618, 0)} -- Palis
-QuestTarget[63] = {position(93, 618, 0)} -- Palis
-QuestTarget[64] = {position(93, 618, 0)} -- Palis
-QuestTarget[65] = {position(93, 618, 0)} -- Palis
-QuestTarget[66] = {position(93, 618, 0)} -- Palis
-QuestTarget[67] = {position(93, 618, 0)} -- Palis
-QuestTarget[68] = {position(93, 618, 0)} -- Palis
-QuestTarget[69] = {position(93, 618, 0)} -- Palis
-QuestTarget[70] = {position(93, 618, 0)} -- Palis
-QuestTarget[71] = {position(93, 618, 0)} -- Palis
-QuestTarget[72] = {position(93, 618, 0)} -- Palis
-QuestTarget[73] = {position(93, 618, 0)} -- Palis
-QuestTarget[74] = {position(93, 618, 0)} -- Palis
-QuestTarget[75] = {position(93, 618, 0)} -- Palis
-QuestTarget[76] = {position(93, 618, 0)} -- Palis
-QuestTarget[77] = {position(93, 618, 0)} -- Palis
-QuestTarget[78] = {position(93, 618, 0)} -- Palis
-QuestTarget[79] = {position(93, 618, 0)} -- Palis
-QuestTarget[80] = {position(93, 618, 0)} -- Palis
-QuestTarget[81] = {position(93, 618, 0)} -- Palis
-QuestTarget[82] = {position(93, 618, 0)} -- Palis
-QuestTarget[83] = {position(93, 618, 0)} -- Palis
-QuestTarget[84] = {position(93, 618, 0)} -- Palis
-QuestTarget[85] = {position(93, 618, 0)} -- Palis
-QuestTarget[86] = {position(93, 618, 0)} -- Palis
-QuestTarget[87] = {position(93, 618, 0)} -- Palis
-QuestTarget[88] = {position(93, 618, 0)} -- Palis
-QuestTarget[89] = {position(93, 618, 0)} -- Palis
-QuestTarget[90] = {position(93, 618, 0)} -- Palis
-QuestTarget[91] = {position(93, 618, 0)} -- Palis
-QuestTarget[92] = {position(93, 618, 0)} -- Palis
-QuestTarget[93] = {position(93, 618, 0)} -- Palis
-QuestTarget[94] = {position(93, 618, 0)} -- Palis
-QuestTarget[95] = {position(93, 618, 0)} -- Palis
-QuestTarget[96] = {position(93, 618, 0)} -- Palis
-QuestTarget[97] = {position(93, 618, 0)} -- Palis
-QuestTarget[98] = {position(93, 618, 0)} -- Palis
-QuestTarget[99] = {position(93, 618, 0)} -- Palis
-QuestTarget[100] = {position(93, 618, 0)} -- Palis
-QuestTarget[101] = {position(93, 618, 0)} -- Palis
-QuestTarget[102] = {position(93, 618, 0)} -- Palis
-QuestTarget[103] = {position(93, 618, 0)} -- Palis
-QuestTarget[104] = {position(93, 618, 0)} -- Palis
-QuestTarget[105] = {position(93, 618, 0)} -- Palis
-QuestTarget[106] = {position(93, 618, 0)} -- Palis
-QuestTarget[107] = {position(93, 618, 0)} -- Palis
-QuestTarget[108] = {position(93, 618, 0)} -- Palis
-QuestTarget[109] = {position(93, 618, 0)} -- Palis
-QuestTarget[110] = {position(93, 618, 0)} -- Palis
-QuestTarget[111] = {position(93, 618, 0)} -- Palis
-QuestTarget[112] = {position(93, 618, 0)} -- Palis
-QuestTarget[113] = {position(93, 618, 0)} -- Palis
-QuestTarget[114] = {position(93, 618, 0)} -- Palis
-QuestTarget[115] = {position(93, 618, 0)} -- Palis
-QuestTarget[116] = {position(93, 618, 0)} -- Palis
-QuestTarget[117] = {position(93, 618, 0)} -- Palis
-QuestTarget[118] = {position(93, 618, 0)} -- Palis
-QuestTarget[119] = {position(93, 618, 0)} -- Palis
-QuestTarget[120] = {position(93, 618, 0)} -- Palis
-QuestTarget[121] = {position(93, 618, 0)} -- Palis
-QuestTarget[122] = {position(93, 618, 0)} -- Palis
-QuestTarget[123] = {position(93, 618, 0)} -- Palis
-QuestTarget[124] = {position(93, 618, 0)} -- Palis
-QuestTarget[125] = {position(93, 618, 0)} -- Palis
-QuestTarget[126] = {position(93, 618, 0)} -- Palis
-QuestTarget[127] = {position(93, 618, 0)} -- Palis
-QuestTarget[128] = {position(93, 618, 0)} -- Palis
-QuestTarget[129] = {position(93, 618, 0)} -- Palis
-QuestTarget[130] = {position(93, 618, 0)} -- Palis
-QuestTarget[131] = {position(93, 618, 0)} -- Palis
-QuestTarget[132] = {position(93, 618, 0)} -- Palis
-QuestTarget[133] = {position(93, 618, 0)} -- Palis
-QuestTarget[134] = {position(93, 618, 0)} -- Palis
-QuestTarget[135] = {position(93, 618, 0)} -- Palis
-QuestTarget[136] = {position(93, 618, 0)} -- Palis
-QuestTarget[137] = {position(93, 618, 0)} -- Palis
-QuestTarget[138] = {position(93, 618, 0)} -- Palis
-QuestTarget[139] = {position(93, 618, 0)} -- Palis
-QuestTarget[140] = {position(93, 618, 0)} -- Palis
-QuestTarget[141] = {position(93, 618, 0)} -- Palis
-QuestTarget[142] = {position(93, 618, 0)} -- Palis
-QuestTarget[143] = {position(93, 618, 0)} -- Palis
-QuestTarget[144] = {position(93, 618, 0)} -- Palis
-QuestTarget[145] = {position(93, 618, 0)} -- Palis
-QuestTarget[146] = {position(93, 618, 0)} -- Palis
-QuestTarget[147] = {position(93, 618, 0)} -- Palis
-QuestTarget[148] = {position(93, 618, 0)} -- Palis
-QuestTarget[149] = {position(93, 618, 0)} -- Palis
-QuestTarget[150] = {position(93, 618, 0)} -- Palis
-QuestTarget[151] = {position(93, 618, 0)} -- Palis
-QuestTarget[152] = {position(93, 618, 0)} -- Palis
-QuestTarget[153] = {position(93, 618, 0)} -- Palis
-QuestTarget[154] = {position(93, 618, 0)} -- Palis
-QuestTarget[155] = {position(93, 618, 0)} -- Palis
-QuestTarget[156] = {position(93, 618, 0)} -- Palis
-QuestTarget[157] = {position(93, 618, 0)} -- Palis
-QuestTarget[158] = {position(93, 618, 0)} -- Palis
-QuestTarget[159] = {position(93, 618, 0)} -- Palis
-QuestTarget[160] = {position(93, 618, 0)} -- Palis
-QuestTarget[161] = {position(93, 618, 0)} -- Palis
-QuestTarget[162] = {position(93, 618, 0)} -- Palis
-QuestTarget[163] = {position(93, 618, 0)} -- Palis
-QuestTarget[164] = {position(93, 618, 0)} -- Palis
-QuestTarget[165] = {position(93, 618, 0)} -- Palis
-QuestTarget[166] = {position(93, 618, 0)} -- Palis
-QuestTarget[167] = {position(93, 618, 0)} -- Palis
-QuestTarget[168] = {position(93, 618, 0)} -- Palis
-QuestTarget[169] = {position(93, 618, 0)} -- Palis
-QuestTarget[170] = {position(93, 618, 0)} -- Palis
-QuestTarget[171] = {position(93, 618, 0)} -- Palis
-QuestTarget[172] = {position(93, 618, 0)} -- Palis
-QuestTarget[173] = {position(93, 618, 0)} -- Palis
-QuestTarget[174] = {position(93, 618, 0)} -- Palis
-QuestTarget[175] = {position(93, 618, 0)} -- Palis
-QuestTarget[176] = {position(93, 618, 0)} -- Palis
-QuestTarget[177] = {position(93, 618, 0)} -- Palis
-QuestTarget[178] = {position(93, 618, 0)} -- Palis
-QuestTarget[179] = {position(93, 618, 0)} -- Palis
-QuestTarget[180] = {position(93, 618, 0)} -- Palis
-QuestTarget[181] = {position(93, 618, 0)} -- Palis
-QuestTarget[182] = {position(93, 618, 0)} -- Palis
-QuestTarget[183] = {position(93, 618, 0)} -- Palis
-QuestTarget[184] = {position(93, 618, 0)} -- Palis
-QuestTarget[185] = {position(93, 618, 0)} -- Palis
-QuestTarget[186] = {position(93, 618, 0)} -- Palis
-QuestTarget[187] = {position(93, 618, 0)} -- Palis
-QuestTarget[188] = {position(93, 618, 0)} -- Palis
-QuestTarget[189] = {position(93, 618, 0)} -- Palis
+for i = 1, 189 do
+    QuestTarget[i] = {npcLocation} -- Palis
+end
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 0
@@ -617,7 +433,7 @@ monsterQuests.addQuest{
     questId = 162,
     location = {position = position(250, 650, 0), radius = 250},
     queststatus = {from = 1, to = 5},
-    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Käfer", english = "beetles"},
     npcName = "Palis Nestros",
     raceIds = {59} -- all beetles
@@ -626,7 +442,7 @@ monsterQuests.addQuest{
     questId = 162,
     location = {position = position(250, 650, 0), radius = 250},
     queststatus = {from = 6, to = 14},
-    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Käfer", english = "beetles"},
     npcName = "Palis Nestros",
     raceIds = {59} -- all beetles
@@ -635,7 +451,7 @@ monsterQuests.addQuest{
     questId = 162,
     location = {position = position(250, 650, 0), radius = 250},
     queststatus = {from = 15, to = 27},
-    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Käfer", english = "beetles"},
     npcName = "Palis Nestros",
     raceIds = {59} -- all beetles
@@ -644,7 +460,7 @@ monsterQuests.addQuest{
     questId = 162,
     location = {position = position(250, 650, 0), radius = 250},
     queststatus = {from = 28, to = 32},
-    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Wespen", english = "wasps"},
     npcName = "Palis Nestros",
     raceIds = {27} -- all wasps
@@ -653,7 +469,7 @@ monsterQuests.addQuest{
     questId = 162,
     location = {position = position(250, 650, 0), radius = 250},
     queststatus = {from = 33, to = 41},
-    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Wespen", english = "wasps"},
     npcName = "Palis Nestros",
     raceIds = {27} -- all wasps
@@ -662,7 +478,7 @@ monsterQuests.addQuest{
     questId = 162,
     location = {position = position(250, 650, 0), radius = 250},
     queststatus = {from = 42, to = 54},
-    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Wespen", english = "wasps"},
     npcName = "Palis Nestros",
     raceIds = {27} -- all wasps
@@ -671,7 +487,7 @@ monsterQuests.addQuest{
     questId = 162,
     location = {position = position(250, 650, 0), radius = 250},
     queststatus = {from = 55, to = 59},
-    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Hunde", english = "dogs"},
     npcName = "Palis Nestros",
     raceIds = {58} -- all dogs
@@ -680,7 +496,7 @@ monsterQuests.addQuest{
     questId = 162,
     location = {position = position(250, 650, 0), radius = 250},
     queststatus = {from = 60, to = 68},
-    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Hunde", english = "dogs"},
     npcName = "Palis Nestros",
     raceIds = {58} -- all dogs
@@ -689,7 +505,7 @@ monsterQuests.addQuest{
     questId = 162,
     location = {position = position(250, 650, 0), radius = 250},
     queststatus = {from = 69, to = 81},
-    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Hunde", english = "dogs"},
     npcName = "Palis Nestros",
     raceIds = {58} -- all dogs
@@ -698,7 +514,7 @@ monsterQuests.addQuest{
     questId = 162,
     location = {position = position(250, 650, 0), radius = 250},
     queststatus = {from = 82, to = 86},
-    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Füchse", english = "foxes"},
     npcName = "Palis Nestros",
     raceIds = {60} -- all foxes
@@ -707,7 +523,7 @@ monsterQuests.addQuest{
     questId = 162,
     location = {position = position(250, 650, 0), radius = 250},
     queststatus = {from = 87, to = 95},
-    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Füchse", english = "foxes"},
     npcName = "Palis Nestros",
     raceIds = {60} -- all foxes
@@ -716,7 +532,7 @@ monsterQuests.addQuest{
     questId = 162,
     location = {position = position(250, 650, 0), radius = 250},
     queststatus = {from = 96, to = 108},
-    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Füchse", english = "foxes"},
     npcName = "Palis Nestros",
     raceIds = {60} -- all foxes
@@ -725,7 +541,7 @@ monsterQuests.addQuest{
     questId = 162,
     location = {position = position(250, 650, 0), radius = 250},
     queststatus = {from = 109, to = 113},
-    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Menschen", english = "humans"},
     npcName = "Palis Nestros",
     raceIds = {0} -- all humans
@@ -734,7 +550,7 @@ monsterQuests.addQuest{
     questId = 162,
     location = {position = position(250, 650, 0), radius = 250},
     queststatus = {from = 114, to = 122},
-    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Menschen", english = "humans"},
     npcName = "Palis Nestros",
     raceIds = {0} -- all humans
@@ -743,7 +559,7 @@ monsterQuests.addQuest{
     questId = 162,
     location = {position = position(250, 650, 0), radius = 250},
     queststatus = {from = 123, to = 135},
-    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Menschen", english = "humans"},
     npcName = "Palis Nestros",
     raceIds = {0} -- all humans
@@ -752,7 +568,7 @@ monsterQuests.addQuest{
     questId = 162,
     location = {position = position(250, 650, 0), radius = 250},
     queststatus = {from = 136, to = 140},
-    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Orks", english = "orcs"},
     npcName = "Palis Nestros",
     raceIds = {4} -- all orcs
@@ -761,7 +577,7 @@ monsterQuests.addQuest{
     questId = 162,
     location = {position = position(250, 650, 0), radius = 250},
     queststatus = {from = 141, to = 149},
-    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Orks", english = "orcs"},
     npcName = "Palis Nestros",
     raceIds = {4} -- all orcs
@@ -770,7 +586,7 @@ monsterQuests.addQuest{
     questId = 162,
     location = {position = position(250, 650, 0), radius = 250},
     queststatus = {from = 150, to = 162},
-    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Orks", english = "orcs"},
     npcName = "Palis Nestros",
     raceIds = {4} -- all orcs
@@ -779,7 +595,7 @@ monsterQuests.addQuest{
     questId = 162,
     location = {position = position(250, 650, 0), radius = 250},
     queststatus = {from = 163, to = 167},
-    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Golems", english = "golems"},
     npcName = "Palis Nestros",
     raceIds = {30, 56} -- all golems and mech golems
@@ -788,7 +604,7 @@ monsterQuests.addQuest{
     questId = 162,
     location = {position = position(250, 650, 0), radius = 250},
     queststatus = {from = 168, to = 176},
-    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Golems", english = "golems"},
     npcName = "Palis Nestros",
     raceIds = {30, 56} -- all golems and mech golems
@@ -797,7 +613,7 @@ monsterQuests.addQuest{
     questId = 162,
     location = {position = position(250, 650, 0), radius = 250},
     queststatus = {from = 177, to = 189},
-    questTitle = {german = "Ruhmhafte Kopfgeldjagd", english = "Glorious Bounty"},
+    questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Golems", english = "golems"},
     npcName = "Palis Nestros",
     raceIds = {30, 56} -- all golems and mech golems

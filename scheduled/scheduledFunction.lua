@@ -20,7 +20,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- some delay. It is possible to register functions in that script that will be executed afer a set delay.
 local M = {}
 
-
 -- The list of functions and their counters that are scheduled to be executed
 local executionQueue = {}
 
@@ -51,3 +50,5 @@ function M.onExecute()
         end
     end
 end
+
+return M
