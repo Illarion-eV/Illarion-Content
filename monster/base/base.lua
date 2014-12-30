@@ -147,7 +147,7 @@ local function performDrop(monster)
         local loot = monster:getLoot()
 
         for _, category in pairs(loot) do
-            dropLootCategory(category)
+            dropLootCategory(monster, category)
         end
     end
 end
