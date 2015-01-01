@@ -22,7 +22,6 @@ local arena = require("base.arena")
 
 local M = {}
 
-local noDropList = {}
 local killers = {}
 
 local function _isNumber(value)
@@ -86,7 +85,6 @@ end
 
 local function cleanupMonster(monster)
     killers[monster.id] = nil
-    noDropList[monster.id] = nil
     hooks.cleanHooks(monster)
 end
 
@@ -143,7 +141,7 @@ local function dropLootCategory(monster, lootData)
 end
 
 local function performDrop(monster)
-    if not arena.isArenaMonster(monster) and not noDropList[monster.id] then
+    if not arena.isArenaMonster(monster) and not hooks.isNoDrop(monster) then
         local loot = monster:getLoot()
 
         for _, category in pairs(loot) do
@@ -180,11 +178,6 @@ function M.generateCallbacks(msgs)
     end
 
     return t
-end
-
--- Saves a monster as one that should not drop
-function M.setNoDrop(monster)
-    noDropList[monster.id] = true
 end
 
 M.SKIN_COLOR = 0

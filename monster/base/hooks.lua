@@ -21,6 +21,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local M = {}
 local callbackRegister = {}
+local noDropList = {}
 
 local ON_DEATH = 1
 
@@ -70,6 +71,16 @@ end
 -- Removes all hooks registered to this monster. This should be called once the monster is getting removed.
 function M.cleanHooks(monster)
     callbackRegister[monster.id] = nil
+    noDropList[monster.id] = nil
+end
+
+-- Saves a monster as one that should not drop
+function M.setNoDrop(monster)
+    noDropList[monster.id] = true
+end
+
+function M.isNoDrop(monster)
+    return noDropList[monster.id]
 end
 
 return M

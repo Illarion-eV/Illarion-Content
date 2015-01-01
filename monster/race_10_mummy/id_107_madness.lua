@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --ID 107, Mummy of Madness, Level: 2, Armourtype: -, Weapontype: slashing
 
 local base = require("monster.base.base")
+local hooks = require("monster.base.hooks")
 local mummies = require("monster.race_10_mummy.base")
 local M = mummies.generateCallbacks()
 
@@ -45,7 +46,7 @@ function M.onDeath(monster)
         for _ = 1, 2 do
             spawnNewMummy(monster.pos)
         end
-        base.setNoDrop(monster)
+        hooks.setNoDrop(monster)
     end
 
     if orgOnDeath ~= nil then

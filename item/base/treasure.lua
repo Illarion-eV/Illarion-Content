@@ -22,7 +22,6 @@ local character = require("base.character")
 local common = require("base.common")
 local content = require("content.treasure")
 local money = require("base.money")
-local monsterBase = require("monster.base.base")
 local monsterHooks = require("monster.base.hooks")
 local scheduledFunction = require("scheduled.scheduledFunction")
 
@@ -210,7 +209,7 @@ end
 local function killMonsters(monsterList)
     for _, monster in pairs(monsterList) do
         if monster ~= nil and isValidChar(monster) then
-            monsterBase.setNoDrop(monster)
+            monsterHooks.setNoDrop(monster)
             character.Kill(monster)
         end
     end
