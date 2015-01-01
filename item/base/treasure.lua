@@ -72,7 +72,7 @@ local function findPosition()
 
             local field = world:getField(pos)
             if field ~= nil then
-                local tileId = field.tile;
+                local tileId = field:tile();
                 for _, validTileId in pairs(content.treasureTiles) do
                     if tileId == validTileId then
                         if not world:isItemOnField(pos) then
