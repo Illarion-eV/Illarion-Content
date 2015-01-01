@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 local class = require("base.class")
-local base_treasure = require("base.treasure")
+local base_treasure = require("item.base.treasure")
 local tools = require("npc.base.tools")
 local consequence = require("npc.base.consequence.consequence")
 

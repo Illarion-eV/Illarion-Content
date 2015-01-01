@@ -22,23 +22,30 @@ local money = require("base.money")
 
 local M = {}
 
+local TitleCase
+local AddWeaponOrArmourType
+local AddTypeAndLevel
+local GetGemLevel
+local GetItemDescription
+
 -- init german descriptions
-GenericQualDe = {"perfekt", "exzellent", "sehr gut", "gut", "normal", "mäßig", "schlecht", "sehr schlecht", "schrecklich", "furchtbar"}
-GenericDuraDe = {}
+local GenericQualDe = {"perfekt", "exzellent", "sehr gut", "gut", "normal", "mäßig", "schlecht", "sehr schlecht",
+    "schrecklich", "furchtbar"}
+local GenericDuraDe = {}
 GenericDuraDe[1] = {"nagelneu", "neu",       "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "rostig",        "klapprig"  }
 GenericDuraDe[2] = {"nagelneu", "neu",       "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "morsch",        "zerfallend"}
 GenericDuraDe[3] = {"nagelneu", "neu",       "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "fadenscheinig", "zerfetzt"  }
 GenericDuraDe[4] = {"funkelnd", "strahlend", "glänzend", "gebraucht", "angekratzt",       "zerkratzt", "matt",           "alt", "stumpf",        "brüchig"   }
 
 -- init english descriptions
-GenericQualEn = {"perfect", "excellent", "very good", "good", "normal", "average", "bad", "very bad", "awful", "horrible"}
-GenericDuraEn = {}
+local GenericQualEn = {"perfect", "excellent", "very good", "good", "normal", "average", "bad", "very bad", "awful", "horrible"}
+local GenericDuraEn = {}
 GenericDuraEn[1] = {"brand new", "new",   "almost new", "used", "slightly scraped",   "scraped",   "highly scraped",   "old", "rusty",      "corroded"      }
 GenericDuraEn[2] = {"brand new", "new",   "almost new", "used", "slightly scratched", "scratched", "highly scratched", "old", "rotten",     "nearly decayed"}
 GenericDuraEn[3] = {"brand new", "new",   "almost new", "used", "slightly frayed",    "frayed",    "highly frayed",    "old", "threadbare", "ragged"        }
 GenericDuraEn[4] = {"sparkling", "shiny", "glittery",   "used", "slightly scraped",   "scraped",   "highly scraped",   "old", "tarnished",  "fragile"       }
 
-GenericDuraLm = {90, 80, 70, 60, 50, 40, 30, 20, 10, 0}
+local GenericDuraLm = {90, 80, 70, 60, 50, 40, 30, 20, 10, 0}
 
 M.NONE = 0
 M.METAL = 1
@@ -46,7 +53,7 @@ M.WOOD = 2
 M.CLOTH = 3
 M.JEWELLERY = 4
 
-WeaponType = {}
+local WeaponType = {}
 WeaponType[WeaponStruct.slashing] = {de = "Hiebwaffe", en = "Slashing Weapon", skill = Character.slashingWeapons}
 WeaponType[WeaponStruct.concussion] = {de = "Schlagwaffe", en = "Concussion Weapon", skill = Character.concussionWeapons}
 WeaponType[WeaponStruct.puncture] = {de = "Stichwaffe", en = "Puncture Weapon", skill = Character.punctureWeapons}
@@ -60,7 +67,7 @@ WeaponType[WeaponStruct.stone] = {de = "Munition", en = "Ammunition", skill = Ch
 WeaponType[WeaponStruct.stave] = {de = "Zauberstab", en = "Wand"}
 WeaponType[WeaponStruct.shield] = {de = "Schild", en = "Shield", skill = Character.parry}
 
-ArmourType = {}
+local ArmourType = {}
 ArmourType[ArmorStruct.clothing] = {de = "Kleidung", en = "Clothing"}
 ArmourType[ArmorStruct.general] = {de = "Allgemeine Rüstung", en = "General Armour"}
 ArmourType[ArmorStruct.light] = {de = "Leichte Rüstung", en = "Light Armour", skill = Character.lightArmour}
@@ -296,7 +303,7 @@ function GetGemLevel(item, dataEntry)
 end
 
 function GetItemDescription(User, Item, material, Weapon, Priest)
-    return GenerateLookAt(User, Item, material)
+    return M.GenerateLookAt(User, Item, material)
 end
 
 --- Apply a special name to a item. The name is stored in the data values.

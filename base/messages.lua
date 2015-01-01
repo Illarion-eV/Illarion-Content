@@ -86,7 +86,7 @@ end;
 -- @return the german version of the message and the english version of the
 --      message
 function M.Messages:getRandomMessage()
-    local messageID = math.random(1, self.__count);
+    local messageID = Random.uniform(1, self.__count);
     return self.__german[messageID], self.__english[messageID];
 end;
 

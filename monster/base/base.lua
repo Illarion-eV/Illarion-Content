@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local quests = require("monster.base.quests")
 local hooks = require("monster.base.hooks")
-local treasure = require("base.treasure")
+local treasure = require("item.base.treasure")
 local arena = require("base.arena")
 
 local M = {}

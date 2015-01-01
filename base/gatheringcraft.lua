@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
-local treasure = require("base.treasure")
+local treasure = require("item.base.treasure")
 
 module("base.gatheringcraft", package.seeall)
 

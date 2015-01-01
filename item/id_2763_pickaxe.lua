@@ -40,7 +40,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET com_agingspeed =  10, com_objectafterrot = 1250 WHERE itm_id = 1251;
 
 local common = require("base.common")
-local treasure = require("base.treasure")
+local treasure = require("item.base.treasure")
 local mining = require("content.gatheringcraft.mining")
 local metal = require("item.general.metal")
 local transformation_dog = require("alchemy.teaching.transformation_dog")
@@ -51,64 +51,68 @@ M.LookAtItem = metal.LookAtItem
 
 -- @return  True if found a treasure.
 local function DigForTreasure(User)
-	local TargetPos = common.GetFrontPosition(User);
-	local groundTile = world:getField( TargetPos ):tile();
-	local groundType = common.GetGroundType( groundTile );
+    local TargetPos = common.GetFrontPosition(User);
+    local groundTile = world:getField(TargetPos):tile();
+    local groundType = common.GetGroundType(groundTile);
 
-	if ( (groundType == common.GroundType.rocks) and
-		treasure.DigForTreasure(User, TargetPos, (User:getSkill(Character.mining)/10)+1,
-			common.GetNLS( User,
-			"Du schwingst deine Spitzhacke gegen den steinigen Boden und stößt auf etwas das noch härter ist als der Boden. Das muss er sein! Der Schatz. Noch einmal graben und der grenzenlose Reichtum ist dein!",
-			"You swing your pick-axe against the stony ground and hit something that is even harder then the ground. That must it be! The treasure! Another swing and it is yours!" ),
-			false) ) then
-		return true;
-	end
-	return false;
+    if groundType == common.GroundType.rocks then
+        return treasure.performDiggingForTreasure(User, TargetPos, {
+            maximalLevel = (User:getSkill(Character.mining) / 10) + 1,
+            msgDiggingOut = {
+                de = "Du schwingst deine Spitzhacke gegen den steinigen Boden und stößt auf etwas das noch " ..
+                        "härter ist als der Boden. Das muss er sein! Der Schatz. Noch einmal graben und der " ..
+                        "grenzenlose Reichtum ist dein!",
+                en = "You swing your pick-axe against the stony ground and hit something that is even harder " ..
+                        "then the ground. That must it be! The treasure! Another swing and it is yours!"
+            }}
+        )
+    end
+    return false;
 end
 
 function M.UseItem(User, SourceItem, ltstate)
 
-	local toolItem = User:getItemAt(5);
-	if ( toolItem.id ~=2763 ) then
-		toolItem = User:getItemAt(6);
-		if ( toolItem.id ~= 2763 ) then
-			common.HighInformNLS( User,
-			"Du musst die Spitzhacke in der Hand haben!",
-			"You have to hold the pick-axe in your hand!" );
-			return
-		end
-	end
+    local toolItem = User:getItemAt(5);
+    if ( toolItem.id ~=2763 ) then
+        toolItem = User:getItemAt(6);
+        if ( toolItem.id ~= 2763 ) then
+            common.HighInformNLS( User,
+            "Du musst die Spitzhacke in der Hand haben!",
+            "You have to hold the pick-axe in your hand!" );
+            return
+        end
+    end
 
-	if not common.FitForWork( User ) then -- check minimal food points
-		return
-	end
-	
-	-- check for alchemy scroll
-	if transformation_dog.DigForTeachingScroll(User) then
-		return
-	end
+    if not common.FitForWork( User ) then -- check minimal food points
+        return
+    end
+    
+    -- check for alchemy scroll
+    if transformation_dog.DigForTeachingScroll(User) then
+        return
+    end
 
-	if DigForTreasure(User) then
-		return;
-	end
+    if DigForTreasure(User) then
+        return;
+    end
 
-	local areaId = mining.GetAreaId(User.pos);
-	if (areaId == nil) then
-		common.HighInformNLS(User,
-		"Die Gegend sieht nicht so aus, als könnte man hier etwas finden.",
-		"The area doesn't look like a good place to mine.");
-		return;
-	end
+    local areaId = mining.GetAreaId(User.pos);
+    if (areaId == nil) then
+        common.HighInformNLS(User,
+        "Die Gegend sieht nicht so aus, als könnte man hier etwas finden.",
+        "The area doesn't look like a good place to mine.");
+        return;
+    end
 
-	local rock = mining.getRock(User, areaId);
-	if (rock == nil) then
-		common.HighInformNLS(User,
-		"Du musst neben einem Felsen stehen um Bergbau zu betreiben.",
-		"You have to stand next to a rock to mine.");
-		return
-	end
+    local rock = mining.getRock(User, areaId);
+    if (rock == nil) then
+        common.HighInformNLS(User,
+        "Du musst neben einem Felsen stehen um Bergbau zu betreiben.",
+        "You have to stand next to a rock to mine.");
+        return
+    end
 
-	mining.StartGathering(User, rock, ltstate);
+    mining.StartGathering(User, rock, ltstate);
 end
 
 return M

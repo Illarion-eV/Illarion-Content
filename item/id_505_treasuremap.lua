@@ -14,44 +14,65 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-local common = require("base.common")
-local treasure = require("base.treasure")
+local treasureBase = require("item.base.treasure")
+local treasureContent = require("content.treasure")
 local lookat = require("base.lookat")
 
 -- UPDATE items SET itm_script='item.id_505_treasuremap' WHERE itm_id IN (505);
 
 local M = {}
 
+local function isValidMap(item)
+    local x = tonumber(item:getData("MapPosX"))
+    local y = tonumber(item:getData("MapPosY"))
+    local z = tonumber(item:getData("MapPosZ"))
+
+    return x ~= nil and y ~= nil and z ~= nil
+end
+
+local function getText(user, item)
+    if not isValidMap(item) then --no valid treasure map
+        return "Eine Stück Pergament mit ein paar Strichen. Es sieht eher nach einer Kinderzeichnung " ..
+                "statt einer Schatzkarte aus.",
+                "A piece of parchment with some lines on it. It rather looks like a childrens drawing " ..
+                "instead of a treasure map."
+    else
+        local targetData = treasureBase.getTargetInformation(user, item)
+        local treasureNameDe, treasureNameEn
+        if not targetData then
+            treasureNameDe, treasureNameEn = treasureContent.getTreasureName(treasureBase.getTreasureLevel(item))
+        else
+            treasureNameDe, treasureNameEn = treasureContent.getTreasureShortName(treasureBase.getTreasureLevel(item))
+        end
+
+        if not targetData then
+            return "Eine Karte mit einer Markierung auf einer Position irgendwo in deiner unmittelbaren Nähe. " ..
+                   "Du vermutest, dass es sich um " .. treasureNameDe .. " handelt.",
+                   "A map that shows a position somewhere really close to your current position. You think it " ..
+                   "could be " .. treasureNameEn .. "."
+        elseif not targetData.direction.de and not targetData.direction.en then
+            return "Du scheinst dich nicht im richtigen Gebiet aufzuhalten.",
+                   "You don't seem to be in the correct area."
+        else
+            return "Eine Karte mit einer Markierung, die sich wahrscheinlich von dir aus gesehen " ..
+                   targetData.distance.de .. " im " .. targetData.direction.de .. " befindet. " ..
+                   "Du vermutest, dass es sich um " .. treasureNameDe .. " handelt.",
+                   "A map that shows a mark that is probably located somewhere " ..
+                   targetData.distance.en.." in the "..targetData.direction.en.." of your current position. " ..
+                   "You believe the map leads to " .. treasureNameEn .. "."
+        end
+    end
+end
+
 function M.LookAtItem(User, Item)
-	if Item:getData("MapPosX") == "" and Item:getData("MapPosY") == "" and Item:getData("MapPosZ") == "" then --no valid treasure map
-		lookat.SetSpecialDescription(Item, "Eine Stück Pergament mit ein paar Strichen. Es sieht eher nach einer Kinderzeichnung statt einer Schatzkarte aus.",
-            "A piece of parchment with some lines on it. It rather looks like a childrens drawing instead of a treasure map." );
-		return lookat.GenerateLookAt(User, Item, lookat.NONE)
-	else
-		local dir = treasure.getDirection( User, Item );
-		local distance = treasure.getDistance (User, Item );
-		local TreasureName = treasure.GetTreasureName(math.max(1,math.floor(Item.quality/100)), User:getPlayerLanguage(), not dir );
+    local textDe, textEn = getText(User, Item)
+    lookat.SetSpecialDescription(Item, textDe, textEn)
+    return lookat.GenerateLookAt(User, Item, lookat.NONE)
+end
 
-		if not dir then
-			lookat.SetSpecialDescription(Item, "Eine Karte mit einer Markierung auf einer Position irgendwo in deiner unmittelbaren Nähe. Du vermutest, dass es sich um "..TreasureName.." handelt.",
-				"A map that shows a position somewhere really close to your current position. You think it could be "..TreasureName.."." );
-			return lookat.GenerateLookAt(User, Item, lookat.NONE)
-		elseif string.find(dir,"wrong")~=nil then
-			lookat.SetSpecialDescription(Item,
-				"Du scheinst dich nicht im richtigen Gebiet aufzuhalten.",
-				"You don't seem to be in the correct area.");
-			return lookat.GenerateLookAt(User, Item, lookat.NONE)
-		else
-			lookat.SetSpecialDescription(Item,
-				"Eine Karte mit einer Markierung, die sich wahrscheinlich von dir aus gesehen "..distance.." im "..dir.." befindet. Du vermutest, dass es sich um "..TreasureName.." handelt.",
-				"A map that shows a mark that is probably located somewhere "..distance.." in the "..dir.." of your current position. You believe the map leads to "..TreasureName.."." );
-			return lookat.GenerateLookAt(User, Item, lookat.NONE)
-		end;
-	end;
-end;
-
-function M.UseItem(User, SourceItem, ltstate)  -- DONT EDIT THIS LINE!
-
+function M.UseItem(User, SourceItem)
+    local textDe, textEn = getText(User, SourceItem)
+    User:inform(textDe, textEn)
 end
 
 return M
