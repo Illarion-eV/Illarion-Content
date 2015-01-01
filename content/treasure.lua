@@ -70,25 +70,25 @@ end
 -- The maximal level limit is set to a lower value then the treasure is. This usually happens in case the players
 -- does not have the sufficient skill level
 M.msgTreasureLevelTooHigh = messages.Messages()
-M.msgTreasureLevelTooHigh.addMessage("Du bist nicht erfahren genug in der Bergarbeit um diesen Schatz auszugraben.",
+M.msgTreasureLevelTooHigh:addMessage("Du bist nicht erfahren genug in der Bergarbeit um diesen Schatz auszugraben.",
     "You are not skilled enough in mining to dig out the treasure.")
 
 -- The treasure was found, but to give the players some time to repair they have to digg another time into the ground
 -- to trigger the spawning of the treasure.
 M.msgDiggingOut = messages.Messages()
-M.msgDiggingOut.addMessage("Du stößt auf etwas hartes im Boden. Das ist der Schatz! Grabe nochmal um ihn zu heben.",
+M.msgDiggingOut:addMessage("Du stößt auf etwas hartes im Boden. Das ist der Schatz! Grabe nochmal um ihn zu heben.",
     "You hit something hard in the ground. Dig another time in order to get the treasure.")
 
 -- This message is used when the players digg up the treasure
 M.msgFoundTreasure = messages.Messages()
-M.msgFoundTreasure.addMessage(
+M.msgFoundTreasure:addMessage(
     "Du gräbst den Schatz aus dem Boden aus und musst dabei leider feststellen, dass der Schatz einige Wächter hat.",
     "You dig the treasure out of the ground and realize that the treasure sadly has some guards."
 )
 
 -- This message is used once all the guards are beaten and the treasure is spawned.
 M.msgBeatenGuardians = messages.Messages()
-M.msgBeatenGuardians.addMessage(
+M.msgBeatenGuardians:addMessage(
     "Die Wächter des Schatzes wurden besiegt. Gebt nicht alles auf einmal aus!",
     "The guardians of the treasure have been slain. Do not spend it all at once!"
 )
