@@ -21,8 +21,6 @@ local messages = require("base.messages")
 
 local M = {}
 
-local magicGem
-
 -- Title name of the treasures
 -- Get the long name of the treasure. Returns german and english
 function M.getTreasureName(level)
@@ -140,6 +138,14 @@ guardianMonsters[9] = {302, 632, 563} --Level 9
 -- case the data value is nil the item will be created without data. Writing just the ID instead if the table is
 -- short hand for the writing the table with amount and data set to nil.
 local treasureContents = {}
+
+local function magicGem(gem, quantity)
+    local level = 1
+    local id = gems.getMagicGemId(gem, level)
+    local data = gems.getMagicGemData(level)
+    return {id, quantity, data}
+end
+
 treasureContents[1] = {
     -- Ammo: arrow, bolt, throwing star, wind arrows, poisoned arrow, stone, throwing axe, throwing spear,
     {64, 100}, {237, 100}, {294, 20}, {322, 50}, {549, 50}, {1266, 100}, {2645, 20}, {293, 20},
@@ -276,13 +282,6 @@ treasureContents[11] = {
     -- Magical emerald Level 2, Magical ruby Level 2, Magical amethyst Level 2, Magical topaz Level 2, Magical obsidian Level 2, Magical sapphire Level 2
     magicGem(gems.EMERALD, 2), magicGem(gems.RUBY, 2), magicGem(gems.AMETHYST, 2), magicGem(gems.TOPAZ, 2), magicGem(gems.OBSIDIAN, 2), magicGem(gems.SAPPHIRE, 2)
 }
-
-function magicGem(gem, quantity)
-    local level = 1
-    local id = gems.getMagicGemId(gem, level)
-    local data = gems.getMagicGemData(level)
-    return {id, quantity, data}
-end
 
 -- Get the amount of copper coins that is supposed to be in the treasure.
 function M.getMoneyInTreasure(level)
