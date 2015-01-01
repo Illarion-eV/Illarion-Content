@@ -21,7 +21,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local character = require("base.character")
 local common = require("base.common")
 local content = require("content.treasure")
-local money = require("content.money")
+local money = require("base.money")
 local monsterBase = require("monster.base.base")
 local monsterHooks = require("monster.base.hooks")
 local scheduledFunction = require("scheduled.scheduledFunction")
