@@ -430,7 +430,7 @@ for i = 1, 11 do
                 end
             end
             if entry[3] ~= nil then
-                if _isTable[entry[3]] then
+                if _isTable(entry[3]) then
                     data = entry[3]
                 else
                     error(string.format("Item entry %d for treasure contents of level %d contains something" ..
