@@ -151,8 +151,8 @@ local function getTreasureMapForLocation(player, requiredItemId, requiredLocatio
     local items = player:getItemList(requiredItemId)
     for _, treasureMap in pairs(items) do
         local x = tonumber(treasureMap:getData("MapPosX"))
-        local y = tonumber(treasureMap:getData("MapPosX"))
-        local z = tonumber(treasureMap:getData("MapPosX"))
+        local y = tonumber(treasureMap:getData("MapPosY"))
+        local z = tonumber(treasureMap:getData("MapPosZ"))
         if x ~= nil and y ~= nil and z ~= nil then
             local mapPosition = common.DataToPosition({x, y, z})
             if mapPosition == requiredLocation then

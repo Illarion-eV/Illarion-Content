@@ -31,7 +31,7 @@ M.LookAtItem = metal.LookAtItem
 local function DigForTreasure(User)
     local TargetPos = common.GetFrontPosition(User)
     local groundTile = world:getField(TargetPos):tile()
-    local groundType = common.GetGroundType( groundTile )
+    local groundType = common.GetGroundType(groundTile)
 
     if groundType ~= common.GroundType.rocks then
         return treasure.performDiggingForTreasure(User, TargetPos, {
