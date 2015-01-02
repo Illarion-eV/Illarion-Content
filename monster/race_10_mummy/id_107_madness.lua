@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 107, Mummy of Madness, Level: 2, Armourtype: -, Weapontype: slashing
 
-local base = require("monster.base.base")
+local common = require("base.common")
 local hooks = require("monster.base.hooks")
 local mummies = require("monster.race_10_mummy.base")
 local M = mummies.generateCallbacks()
@@ -33,7 +33,7 @@ end
 local function spawnNewMummy(pos)
     local newMummy = world:createMonster(107, pos, 0)
     if newMummy ~= nil and isValidChar(newMummy) then
-        world:gfx(5, newMummy.pos);
+        world:gfx(5, common.getFreePos(pos, 1));
     end
 end
 
