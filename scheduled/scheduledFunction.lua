@@ -23,30 +23,26 @@ local M = {}
 -- The list of functions and their counters that are scheduled to be executed
 local executionQueue = {}
 
--- The list of functions that were not yet added to the queue.
-local newExecutions = {}
-
 function M.registerFunction(delay, callFunction)
-    table.insert(newExecutions, {counter = delay, exec = callFunction})
+    table.insert(executionQueue, {counter = delay, exec = callFunction})
+    debug("Added function to scheduled function. With delay: " .. delay)
 end
 
 function M.onExecute()
-    -- First process the new functions
-    while (#newExecutions > 0) do
-        local data = table.remove(newExecutions)
-        if data.counter == 0 then
-            data.exec()
-        else
-            table.insert(executionQueue, data)
-        end
-    end
+    if (#executionQueue > 0) then
+        debug("There are functions scheduled.")
+        local currentQueue = executionQueue
+        executionQueue = {}
 
-    -- Now process the actual queue.
-    for index, data in pairs(executionQueue) do
-        data.counter = data.counter - 1
-        if data.counter == 0 then
-            data.exec()
-            executionQueue[index] = nil
+        for index, data in pairs(executionQueue) do
+            data.counter = data.counter - 1
+            if data.counter <= 0 then
+                debug("Executing function")
+                data.exec()
+            else
+                debug("Reschedulding functoin. Delay now: " .. data.counter)
+                table.insert(executionQueue, data)
+            end
         end
     end
 end
