@@ -283,6 +283,17 @@ local function dropTreasureItem(treasureLocation, level)
     end
 end
 
+local function informAboutError(user)
+    user:inform(
+        "[OOC] Das Script für die Schatzsuche hat einen Fehler festgestellt und die Ausführung abgebrochen. " ..
+                "Der Schatz kann aktuell nicht behoben werden. " ..
+                "Das Technische Team wurde von dem Problem in Kenntnis gesetzt.",
+        "[OOC] The script for the treasure hunt detected an internal error and canceled the execution. " ..
+                "The treasure can't be found right now. " ..
+                "The development team was informed about the problem."
+    )
+end
+
 function M.createMapData()
     local location = findPosition();
     if location == nil then
@@ -419,6 +430,8 @@ function M.performDiggingForTreasure(treasureHunter, diggingLocation, additional
         return true
     end
 
+    treasureFoundLocations[locationKey] = nil
+
     local msgFoundTreasureDe, msgFoundTreasureEn
     local msgGuardiansBeatenDe, msgGuardiansBeatenEn
     if _isTable(additionalParams) then
@@ -451,16 +464,15 @@ function M.performDiggingForTreasure(treasureHunter, diggingLocation, additional
 
     local monsterList = spawnMonsters(diggingLocation, treasureLevel)
     if monsterList == nil then
-        treasureHunter:inform(
-            "[OOC] Das Script für die Schatzsuche hat einen Fehler festgestellt und die Ausführung abgebrochen. " ..
-            "Der Schatz kann aktuell nicht behoben werden. " ..
-            "Das Technische Team wurde von dem Problem in Kenntnis gesetzt.",
-            "[OOC] The script for the treasure hunt detected an internal error and canceled the execution. " ..
-            "The treasure can't be found right now. " ..
-            "The development team was informed about the problem."
-        )
-        treasureFoundLocations[locationKey] = nil
+        informAboutError(treasureHunter)
         error("Treasure system malfunction. Spawning the monsters failed.")
+    end
+
+    -- Remove the treasure map
+    if not world:erase(treasureMap, 1) then
+        informAboutError(treasureHunter)
+        killMonsters(monsterList)
+        error("Treasure system malfunction. Removing the treasure map failed..")
     end
 
     local remainingMonsters = #monsterList
