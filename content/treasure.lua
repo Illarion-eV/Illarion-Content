@@ -417,7 +417,7 @@ for i = 1, 11 do
             local amount = 1
             local data = {}
             if _isNumber(entry[1]) then
-                id = entry[i]
+                id = entry[1]
             else
                 error(string.format("Item entry %d for treasure contents of level %d contains no valid item id", j, i))
             end
