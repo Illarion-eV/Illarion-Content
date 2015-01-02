@@ -332,7 +332,7 @@ function M.dropTreasureItems(treasureLocation, level)
     table.insert(itemSpawnResults, dropTreasureItem(treasureLocation, level + 2))
     table.insert(itemSpawnResults, dropTreasureItem(treasureLocation, level + 2))
 
-    money.GiveMoneyToPosition(content.getMoneyInTreasure(level))
+    money.GiveMoneyToPosition(treasureLocation, content.getMoneyInTreasure(level))
 
     -- check if all items got spawned.
     for _, flag in pairs(itemSpawnResults) do

@@ -228,13 +228,9 @@ end
 --  with the least amount of coin items as possible on the target location.
 --
 --  @param pos - PositionStruct - the position that shall receive the money
---  @param money - number - the amount of money that shall be created on the
---      position
+--  @param money - number - the amount of money that shall be created on the position
 function M.GiveMoneyToPosition(pos, money)
-    local gCoins
-    local sCoins
-    local cCoins
-    gCoins, sCoins, cCoins = M.MoneyToCoins(money)
+    local gCoins, sCoins, cCoins = M.MoneyToCoins(money)
     return M.GiveCoinsToPosition(pos, gCoins, sCoins, cCoins)
 end
 
