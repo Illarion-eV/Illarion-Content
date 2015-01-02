@@ -103,7 +103,7 @@ local treasureTiles = {2, 3, 4, 8, 9, 10, 11, 15} -- only "non-urban" basic tile
 -- This expects a two dimensional list. The first level is the level of the treasure the monster is assigned to.
 -- The second level contains the IDs of the monsters that may be spawned.
 local guardianMonsters = {}
-guardianMonsters[1] = {271, 274, 278, 581, 582, 592, 601, 622, 982, 1031, 1051, 1071} --Level 1
+guardianMonsters[1] = {271, 274, 278, 581, 582, 592, 601, 622, 982, 1031, 1051} --Level 1
 guardianMonsters[2] = {
     101, 103, 104, 107, 114, 151, 172, 196, 272, 273, 392, 393, 583, 593, 602, 762, 881, 891, 573, 577, 953, 955, 983,
     606, 1032, 1041, 1052
