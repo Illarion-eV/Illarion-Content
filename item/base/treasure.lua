@@ -133,7 +133,7 @@ local function getTextForDirection(direction)
     elseif direction == Character.dir_east then
         return "Osten", "east"
     elseif direction == Character.dir_southeast then
-        return c"Südosten", "southeast"
+        return "Südosten", "southeast"
     elseif direction == Character.dir_south then
         return "Süden", "south"
     elseif direction == Character.dir_southwest then
