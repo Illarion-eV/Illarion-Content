@@ -201,7 +201,7 @@ return function(params)
     local function fireProjectileAt(monster, enemy)
         local blockList = world:LoS(monster.pos, enemy.pos)
         local obstructionIndex, obstruction = next(blockList)
-        while (obstruction.TYPE == "CHARACTER") and (obstruction.OBJECT.id == monster.id) do
+        while obstruction ~= nil and (obstruction.TYPE == "CHARACTER") and (obstruction.OBJECT.id == monster.id) do
             obstructionIndex, obstruction = next(blockList, obstructionIndex)
         end
         local targetPos = obstruction and obstruction.OBJECT.pos or enemy.pos
