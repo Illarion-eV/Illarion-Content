@@ -34,7 +34,7 @@ function M.onExecute()
         local currentQueue = executionQueue
         executionQueue = {}
 
-        for index, data in pairs(executionQueue) do
+        for index, data in pairs(currentQueue) do
             data.counter = data.counter - 1
             if data.counter <= 0 then
                 debug("Executing function")
