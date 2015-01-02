@@ -25,22 +25,18 @@ local executionQueue = {}
 
 function M.registerFunction(delay, callFunction)
     table.insert(executionQueue, {counter = delay, exec = callFunction})
-    debug("Added function to scheduled function. With delay: " .. delay)
 end
 
 function M.onExecute()
     if (#executionQueue > 0) then
-        debug("There are functions scheduled.")
         local currentQueue = executionQueue
         executionQueue = {}
 
         for index, data in pairs(currentQueue) do
             data.counter = data.counter - 1
             if data.counter <= 0 then
-                debug("Executing function")
                 data.exec()
             else
-                debug("Reschedulding functoin. Delay now: " .. data.counter)
                 table.insert(executionQueue, data)
             end
         end

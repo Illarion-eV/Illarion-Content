@@ -48,7 +48,9 @@ function M.onDeath(monster)
     local pos = position(monster.pos.x, monster.pos.y, monster.pos.z)
     monster:talk(Character.say, "#me zerfällt zu einem Knochenhaufen.", "#me collapses into a pile of bones.")
     world:gfx(45, pos)
-    world:createItemFromId(498, 1, pos, true, 333, nil)
+    local pileOfBones = world:createItemFromId(498, 1, pos, true, 333, nil)
+    pileOfBones.wear = 3
+    world:changeItem(pileOfBones)
 
     local function spawnWeakLich(pos)
         if not common.DeleteItemFromStack(pos, {itemId = 498}) then
