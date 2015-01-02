@@ -1062,11 +1062,13 @@ function M.CreateTangentLine(CenterPos, TargetPos, ArmLength, Event)
     local second_go_on = true;
     for i=1, ArmLength do
         if first_go_on then
-            first_go_on = Event(position(Round(TargetPos.x + i * xoffset), M.Round(TargetPos.y + i * yoffset), TargetPos.z));
+            first_go_on = Event(position(M.Round(TargetPos.x + i * xoffset),
+                M.Round(TargetPos.y + i * yoffset), TargetPos.z));
             first_go_on = (first_go_on ~= nil and first_go_on or true);
         end;
         if second_go_on then
-            second_go_on = Event(position(Round(TargetPos.x - i * xoffset), M.Round(TargetPos.y - i * yoffset), TargetPos.z));
+            second_go_on = Event(position(M.Round(TargetPos.x - i * xoffset),
+                M.Round(TargetPos.y - i * yoffset), TargetPos.z));
             second_go_on = ( second_go_on ~= nil and second_go_on or true );
         end;
         if not first_go_on and not second_go_on then
