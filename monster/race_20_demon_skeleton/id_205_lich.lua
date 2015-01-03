@@ -39,6 +39,16 @@ magic.addSummon{probability = 0.0001, monsters = {115, 201}} -- rare summon. Mag
 local M = demonSkeletons.generateCallbacks()
 M = magic.addCallbacks(M)
 
+local function spawnWeakLich(pos)
+    if not common.DeleteItemFromStack(pos, {itemId = 498}) then
+        debug("Failed to remove the pile of bones for the lich.")
+    end
+    local weakenedLich = world:createMonster(117, pos, -5)
+    if weakenedLich ~= nil and isValidChar(weakenedLich) then
+        weakenedLich:talk(Character.say, "#me erhebt sich aus dem Knochenhaufen.", "#me rises from the pile of bones.")
+    end
+end
+
 local orgOnDeath = M.onDeath
 function M.onDeath(monster)
     if orgOnDeath ~= nil then
@@ -51,17 +61,6 @@ function M.onDeath(monster)
     local pileOfBones = world:createItemFromId(498, 1, pos, true, 333, nil)
     pileOfBones.wear = 3
     world:changeItem(pileOfBones)
-
-    local function spawnWeakLich(pos)
-        if not common.DeleteItemFromStack(pos, {itemId = 498}) then
-            return
-        end
-
-        local weakenedLich = world:createMonster(117, pos, -5)
-        if weakenedLich ~= nil and isValidChar(weakenedLich) then
-            weakenedLich:talk(Character.say, "#me erhebt sich aus dem Knochenhaufen.", "#me rises from the pile of bones.")
-        end
-    end
 
     scheduledFunction.registerFunction(8, function() spawnWeakLich(pos) end)
 end
