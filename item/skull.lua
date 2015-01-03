@@ -105,7 +105,7 @@ advantureslist={}
         User:inform("Eine Spinne huscht aus dem Sch‰del heraus und greift dich an, nachdem sie einen groﬂen, rot gl‰nzenden Stein in dem Totensch‰del versteckt.",
                     "A spider scurries out of the skull and attacks you after pushing a bright stone that flashes red back into the skull for safekeeping.")
         local monPos = common.getFreePos(SourceItem.pos, 3 ); -- radius 3 around skull
-        world:createMonster(223, monPos, -40) -- Giant Enforcer Spider
+        world:createMonster(262, monPos, -40) -- Soulpain
         world:gfx(41, monPos) -- swirly
         User:setQuestProgress(521, 9)
 
@@ -274,7 +274,7 @@ function SpawnSpider(User, skullItem)
     skullItem:setData("tripping_time", serverTime)
     world:changeItem(skullItem)
 
-    local monList = {191, 192, 193, 211, 222, 262} -- Rekrap Retep, Pitservant, Tarantula, Firespider, Juvenile Gynk Spider, Soulpain
+    local monList = {191, 192, 193, 211, 222} -- Rekrap Retep, Pitservant, Tarantula, Firespider, Juvenile Gynk Spider
     local monID = monList[math.random(1, #monList)]
     for i = 1, math.random(1, 2) do -- random count
         local monPos = common.getFreePos(skullItem.pos, 2) -- radius 2 around skull
