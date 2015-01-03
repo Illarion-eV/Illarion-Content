@@ -381,7 +381,7 @@ end
 
 -- Get one random free location
 function M.getFreePos(CenterPos, Rad)
-    local pos = M.GetFreePositions(CenterPos, Rad, false, true)
+    local pos = M.GetFreePositions(CenterPos, Rad, false, true)()
     if pos == nil then
         return CenterPos
     end
