@@ -43,7 +43,8 @@ local function spawnWeakLich(pos)
     if not common.DeleteItemFromStack(pos, {itemId = 498}) then
         debug("Failed to remove the pile of bones for the lich.")
     end
-    local weakenedLich = world:createMonster(117, pos, -5)
+    local spawnPosition = common.GetFreePositions(pos, 1, true, true)() or pos
+    local weakenedLich = world:createMonster(117, spawnPosition, -5)
     if weakenedLich ~= nil and isValidChar(weakenedLich) then
         weakenedLich:talk(Character.say, "#me erhebt sich aus dem Knochenhaufen.", "#me rises from the pile of bones.")
     end

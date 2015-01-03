@@ -187,8 +187,7 @@ local function removeMonsterFromList(monsterId)
     end
 end
 
-local function spawnMonster(treasurePosition, level)
-    local spawnPosition = common.getFreePos(treasurePosition, 5);
+local function spawnMonster(spawnPosition, level)
     while true do
         local monsterId = getRandomMonsterId(level)
         if monsterId == -1 then
@@ -216,13 +215,23 @@ local function killMonsters(monsterList)
 end
 
 local function spawnMonsters(treasurePosition, treasureLevel)
+    local spawnPositions = common.GetFreePositions(treasurePosition, 5, true, true)
     local createdMonsters = {}
-    table.insert(createdMonsters, spawnMonster(treasurePosition, treasureLevel))
-    table.insert(createdMonsters, spawnMonster(treasurePosition, treasureLevel))
-    table.insert(createdMonsters, spawnMonster(treasurePosition, math.max(1, treasureLevel - 1)))
-    table.insert(createdMonsters, spawnMonster(treasurePosition, math.max(1, treasureLevel - 1)))
-    table.insert(createdMonsters, spawnMonster(treasurePosition, math.max(1, treasureLevel - 2)))
-    table.insert(createdMonsters, spawnMonster(treasurePosition, math.max(1, treasureLevel - 2)))
+
+    local function nextFreePos()
+        local pos = spawnPositions()
+        if pos == nil then
+            return treasurePosition
+        end
+        return pos
+    end
+
+    table.insert(createdMonsters, spawnMonster(nextFreePos(), treasureLevel))
+    table.insert(createdMonsters, spawnMonster(nextFreePos(), treasureLevel))
+    table.insert(createdMonsters, spawnMonster(nextFreePos(), math.max(1, treasureLevel - 1)))
+    table.insert(createdMonsters, spawnMonster(nextFreePos(), math.max(1, treasureLevel - 1)))
+    table.insert(createdMonsters, spawnMonster(nextFreePos(), math.max(1, treasureLevel - 2)))
+    table.insert(createdMonsters, spawnMonster(nextFreePos(), math.max(1, treasureLevel - 2)))
 
     -- check if the creation of any monster failed
     for _, monster in pairs(createdMonsters) do

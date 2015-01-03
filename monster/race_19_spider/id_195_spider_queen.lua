@@ -29,6 +29,28 @@ magic.addPoisonball{probability = 0.01, damage = {from = 1000, to = 2000}, targe
 local M = spiders.generateCallbacks()
 M = magic.addCallbacks(M)
 
+local function hatchEggs(pos)
+    local itemProperties = {itemId = 738, deleteAmount = 1, quality = false, data = {{dataKey = "spawnSpiders", dataValue = "true"}}}
+    if not common.DeleteItemFromStack(pos, itemProperties) then
+        return
+    end
+
+    world:gfx(1, pos)
+    local players = world:getPlayersInRangeOf(pos, 5)
+    for _, player in pairs(players) do
+        player:inform("Das Ei zerspringt und kleine Spinnen schlüpfen.","The egg breaks and small spiders hatch.")
+    end
+
+    local spawnCount = Random.uniform(3, 5)
+    for freePos in common.GetFreePositions(pos, 2, true, true) do
+        world:createMonster(196, freePos, -5)
+        if spawnCount <= 1 then
+            break
+        end
+        spawnCount = spawnCount - 1
+    end
+end
+
 local orgOnDeath = M.onDeath
 function M.onDeath(monster)
     if orgOnDeath ~= nil then
@@ -50,43 +72,20 @@ function M.onDeath(monster)
 
         for i=-1, 1 do
             for j=-1, 1 do
-                local slimePosition = position(monster.pos.x + i, monster.pos.y + j, monster.pos.z)
-                if not world:isItemOnField(slimePosition) then
-                    local spiderSlime = world:createItemFromId(3102, 1, slimePosition, true, 333, nil)
-                    spiderEgg.wear = 3
-                    lookat.SetSpecialName(spiderSlime, "Spinnenschleim", "Spider slime")
-                    world:changeItem(spiderSlime)
-                    if world:isCharacterOnField(slimePosition) then
-                        local hitChar = world:getCharacterOnField(slimePosition)
-                        hitChar:inform("Du wirst von ekeligem klebrigem Spinnenschleim getroffen.", "You are hit by disgusting and sticky spider slime.")
-                    end
-                end
-            end
-        end
-
-        local function hatchEggs(pos)
-            local itemProperties = {itemId = 738, deleteAmount = 1, quality = false, data = {{dataKey = "spawnSpiders", dataValue = "true"}}}
-            if not common.DeleteItemFromStack(pos, itemProperties) then
-                return
-            end
-
-            world:gfx(1,pos)
-            local players = world:getPlayersInRangeOf(pos, 5)
-            for _, player in pairs(players) do
-                player:inform("Das Ei zerspringt und kleine Spinnen schlüpfen.","The egg breaks and small spiders hatch.")
-            end
-
-            for _=1, Random.uniform(3,5) do
-                local spawnPosition = pos
-                for j=-1, 1 do
-                    for k=-1, 1 do
-                        local checkPosition = position(spawnPosition.x + j, spawnPosition.y + k, spawnPosition.z)
-                        if checkPosition ~= pos and world:getField(checkPosition):isPassable() and not world:isCharacterOnField(checkPosition) then
-                            spawnPosition = checkPosition
+                if i ~= 0 or j ~= 0 then
+                    local slimePosition = position(monster.pos.x + i, monster.pos.y + j, monster.pos.z)
+                    if not world:isItemOnField(slimePosition) then
+                        local spiderSlime = world:createItemFromId(3102, 1, slimePosition, true, 333, nil)
+                        spiderEgg.wear = 3
+                        lookat.SetSpecialName(spiderSlime, "Spinnenschleim", "Spider slime")
+                        world:changeItem(spiderSlime)
+                        if world:isCharacterOnField(slimePosition) then
+                            local hitChar = world:getCharacterOnField(slimePosition)
+                            hitChar:inform("Du wirst von ekeligem klebrigem Spinnenschleim getroffen.",
+                                "You are hit by disgusting and sticky spider slime.")
                         end
                     end
                 end
-                world:createMonster(196, spawnPosition, -5)
             end
         end
 

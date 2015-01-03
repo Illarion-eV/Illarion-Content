@@ -33,7 +33,7 @@ end
 local function spawnNewMummy(pos)
     local newMummy = world:createMonster(107, pos, 0)
     if newMummy ~= nil and isValidChar(newMummy) then
-        world:gfx(5, common.getFreePos(pos, 1));
+        world:gfx(5, pos);
     end
 end
 
@@ -42,9 +42,10 @@ local orgOnDeath = M.onDeath
 
 function M.onDeath(monster)
     if isSpecialTime() then
+        local spawnPositions = common.GetFreePositions(monster.pos, 1, true, true)
         -- Special time! Respawn two new mummies to create more fun!
         for _ = 1, 2 do
-            spawnNewMummy(monster.pos)
+            spawnNewMummy(spawnPositions() or monster.pos)
         end
         hooks.setNoDrop(monster)
     end
