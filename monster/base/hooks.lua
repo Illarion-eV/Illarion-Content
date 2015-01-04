@@ -22,6 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local M = {}
 local callbackRegister = {}
 local noDropList = {}
+local forcedDeathList = {}
 
 local ON_DEATH = 1
 
@@ -72,6 +73,7 @@ end
 function M.cleanHooks(monster)
     callbackRegister[monster.id] = nil
     noDropList[monster.id] = nil
+    forcedDeathList[monster.id] = nil
 end
 
 -- Saves a monster as one that should not drop
@@ -79,8 +81,21 @@ function M.setNoDrop(monster)
     noDropList[monster.id] = true
 end
 
+-- Set the monster to die in any case. This disables the special functions of monsters that keep them alive in any way
+-- in case they would die.
+-- As an example this function causes the mummy of madness to just die, no matter the day of time.
+function M.setForcedDeath(monster)
+    forcedDeathList[monster.id] = true
+end
+
+-- Check if the monster is set to drop nothing
 function M.isNoDrop(monster)
     return noDropList[monster.id]
+end
+
+-- Check if the monster is set to drop nothing
+function M.isForcedDeath(monster)
+    return forcedDeathList[monster.id]
 end
 
 return M

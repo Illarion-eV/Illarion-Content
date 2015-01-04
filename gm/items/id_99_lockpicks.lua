@@ -20,6 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local lookat = require("base.lookat")
 local common = require("base.common")
 local factions = require("base.factions")
+local monsterHooks = require("monster.base.hooks")
 
 local M = {}
 
@@ -28,8 +29,8 @@ local itemPos = {"Head","Neck","Breast","Hands","Left Tool","Right Tool",
 	"Belt 2","Belt 3","Belt 4","Belt 5","Belt 6"}
 itemPos[0] = "Backpack"
 
-Location={};
-Coordina={};
+local Location={};
+local Coordina={};
 Location[1]="Player";
 Coordina[1]={"X","Y","Z"};
 Location[2]="GM Castle";
@@ -65,7 +66,7 @@ Coordina[16]={750,810,0};
 Location[17]="Runewick Lurnord Bridge";
 Coordina[17]={844,822,0};
 
-skillNames = {
+local skillNames = {
 	Character.alchemy,
 	Character.carpentry,
 	Character.concussionWeapons,
@@ -395,6 +396,7 @@ function godMode(User, SourceItem, ltstate)
 		if index == 0 then
 			local monsters = world:getMonstersInRangeOf(User.pos, 3);
 			for _, monster in ipairs(monsters) do
+				monsterHooks.setForcedDeath(monster)
 				monster:increaseAttrib("hitpoints", -10000);
 			end
 			User:logAdmin("instant kills " .. #monsters .. " monsters at " .. tostring(User.pos));

@@ -41,7 +41,7 @@ end
 local orgOnDeath = M.onDeath
 
 function M.onDeath(monster)
-    if isSpecialTime() then
+    if isSpecialTime() and not hooks.isForcedDeath(monster) then
         local spawnPositions = common.GetFreePositions(monster.pos, 1, true, true)
         -- Special time! Respawn two new mummies to create more fun!
         for _ = 1, 2 do
