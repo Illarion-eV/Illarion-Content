@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-local common = require("base.common")
 local lookat = require("base.lookat")
 
 local M = {}
@@ -22,9 +21,7 @@ local M = {}
 -- UPDATE items SET itm_script='item.id_314_ash' WHERE itm_id = 314;
 
 function M.LookAtItem(User,Item)
-
-	return lookat.GenerateLookAt(User, Item, lookat.NONE)
-
+    return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
 
 

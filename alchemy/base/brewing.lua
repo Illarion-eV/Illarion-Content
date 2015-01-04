@@ -19,7 +19,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- bases upon Falk's original script
 -- by Merung
 
-local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local herbs = require("alchemy.base.herbs")
 local gemdust = require("alchemy.base.gemdust")

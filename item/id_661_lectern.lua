@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local common = require("base.common")
 local lookat = require("base.lookat")
 local ranklist = require("base.ranklist")
 
@@ -22,17 +21,21 @@ local ranklist = require("base.ranklist")
 
 local M = {}
 
-function M.UseItem(User,SourceItem,ltstate)
-	if SourceItem.pos == position(138, 551, 0) or SourceItem.pos == position(358, 217, 0) or SourceItem.pos == position(896, 761, 1) then
-		ranklist.getRanklist(User,"explorerRanklist", true);
+local function isRanklistLocation(pos)
+	return pos == position(138, 551, 0) or pos == position(358, 217, 0) or pos == position(896, 761, 1)
+end
+
+function M.UseItem(user, sourceItem)
+	if isRanklistLocation(sourceItem.pos) then
+		ranklist.getRanklist(user, "explorerRanklist", true)
 	end
 end
 
-function M.LookAtItem(User, Item)
-	if Item.pos == position(138, 551, 0) or Item.pos == position(358, 217, 0) or Item.pos == position(896, 761, 1) then
-		lookat.SetSpecialDescription(Item, "Rangliste der Entdeckergilde.", "Ranklist of the explorer guild");
+function M.LookAtItem(user, item)
+	if isRanklistLocation(item.pos) then
+		lookat.SetSpecialDescription(item, "Rangliste der Entdeckergilde.", "Ranklist of the explorer guild")
 	end
-	return lookat.GenerateLookAt(User, Item, lookat.NONE)
+	return lookat.GenerateLookAt(user, item, lookat.NONE)
 end
 
 return M
