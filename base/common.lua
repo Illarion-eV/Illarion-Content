@@ -1217,27 +1217,6 @@ function M.GetPhi(StartPos, TargetPos)
 end
 
 --[[
-    PositionToData
-    Encodes a position into a value that would fit into the data value of a item
-    Use DataToPosition to get the PositionStruct again
-    @param PositionStruct - The position that should be encoded
-    @return table - Table containing x,y,z positions
-]]
-function M.PositionToData(posi)
-    return {["MapPosX"]=posi.x,["MapPosY"]=posi.y,["MapPosZ"]=posi.z}
-end;
-
---[[
-    DataToPosition
-    Converts a value encoded with PositionToData back to the PositionStruct
-    @param posList - List containig x,y,z
-    @return PositionStruct - The PositionStruct that was encoded in the list
-]]
-function M.DataToPosition(posList)
-    return position(tonumber(posList[1]),tonumber(posList[2]),tonumber(posList[3]))
-end;
-
---[[
     ChangeAttribute
     Change a attribute by a given value and return the effective change
     @param CharacterStruct - The character whos attribute shall be changed

@@ -154,7 +154,7 @@ local function getTreasureMapForLocation(player, requiredItemId, requiredLocatio
         local y = tonumber(treasureMap:getData("MapPosY"))
         local z = tonumber(treasureMap:getData("MapPosZ"))
         if x ~= nil and y ~= nil and z ~= nil then
-            local mapPosition = common.DataToPosition({x, y, z})
+            local mapPosition = position(x, y, z)
             if mapPosition == requiredLocation then
                 return treasureMap
             end
@@ -309,7 +309,7 @@ function M.createMapData()
         return nil;
     end
 
-    return common.PositionToData(location)
+    return {MapPosX = location.x, MapPosY = location.y, MapPosZ = location.z}
 end
 
 function M.createMap(player, mapLevel)
@@ -357,8 +357,14 @@ function M.getTreasureLevel(item)
 end
 
 function M.getTargetInformation(player, mapItem)
-    local dataValues = {mapItem:getData("MapPosX"), mapItem:getData("MapPosY"), mapItem:getData("MapPosZ")}
-    local mapTarget = common.DataToPosition(dataValues)
+    local mapTargetX = tonumber(mapItem:getData("MapPosX"))
+    local mapTargetY = tonumber(mapItem:getData("MapPosY"))
+    local mapTargetZ = tonumber(mapItem:getData("MapPosZ"))
+    if mapTargetX == nil or mapTargetY == nil or mapTargetZ == nil then
+        return false
+    end
+
+    local mapTarget = position(mapTargetX, mapTargetY, mapTargetZ)
     local usedTarget = getModifiedPosition(player, mapTarget)
 
     if not usedTarget then
