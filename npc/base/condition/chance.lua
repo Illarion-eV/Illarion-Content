@@ -27,7 +27,7 @@ function(self, value)
 end)
 
 function _chance_helper_equal(self, npcChar, texttype, player)
-    return (math.random(100) < self.value)
+    return (Random.uniform(1, 100) < self.value)
 end
 
 return chance

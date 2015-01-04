@@ -119,10 +119,10 @@ return function(params)
                 if #woundedMonsters == 0 then return performedSpell end
 
                 -- Select monster to help
-                local selectedMonsterIndex = math.random(1, #woundedMonsters)
+                local selectedMonsterIndex = Random.uniform(1, #woundedMonsters)
                 local selectedMonster = woundedMonsters[selectedMonsterIndex]
                 table.remove(woundedMonsters, selectedMonsterIndex)
-                selectedMonster:increaseAttrib("hitpoints", math.random(healRange[1], healRange[2]))
+                selectedMonster:increaseAttrib("hitpoints", Random.uniform(healRange[1], healRange[2]))
 
                 if gfxId > 0 then world:gfx(gfxId, selectedMonster.pos) end
                 if sfxId > 0 then world:makeSound(sfxId, selectedMonster.pos) end

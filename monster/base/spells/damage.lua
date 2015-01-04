@@ -189,14 +189,14 @@ return function(params)
     -- Deal damage
     local function castSpellAt(enemy)
         local spellResistence = base.getSpellResistence(enemy)
-        local damage = math.random(damageRange[1], damageRange[2]) * spellResistence
+        local damage = Random.uniform(damageRange[1], damageRange[2]) * spellResistence
 
         base.dealMagicDamage(enemy, damage)
         if gfxId > 0 then world:gfx(gfxId, enemy.pos) end
         if sfxId > 0 then world:makeSound(sfxId, enemy.pos) end
         if itemId > 0 then
-            local qual = math.random(itemQualityRange[1], itemQualityRange[2]) * 100 +
-                    math.random(itemDurabilityRange[1], itemDurabilityRange[2])
+            local qual = Random.uniform(itemQualityRange[1], itemQualityRange[2]) * 100 +
+                    Random.uniform(itemDurabilityRange[1], itemDurabilityRange[2])
             world:createItemFromId(itemId, 1, enemy.pos, true, qual, nil);
         end
     end

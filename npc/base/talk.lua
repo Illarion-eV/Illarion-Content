@@ -93,7 +93,7 @@ end
 
 function talkNPC:nextCycle(npcChar, counter)
     if (counter >= self._nextCycleText) then
-	    self._nextCycleText = math.random(6000, 9000) --10 to 15 minutes
+	    self._nextCycleText = Random.uniform(6000, 9000) --10 to 15 minutes
         local german, english = self._cycleText:getRandomMessage()
         local textTypeDe, textDe = tools.get_text_and_talktype(german)
         local textTypeEn, textEn = tools.get_text_and_talktype(english)

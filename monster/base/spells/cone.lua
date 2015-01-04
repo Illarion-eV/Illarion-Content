@@ -203,15 +203,15 @@ return function(params)
     local function attackField(pos)
         if gfxId > 0 then world:gfx(gfxId, pos) end
         if itemId > 0 and Random.uniform() < itemProbability then
-            local qual = math.random(itemQualityRange[1], itemQualityRange[2]) * 100 +
-                    math.random(itemDurabilityRange[1], itemDurabilityRange[2])
+            local qual = Random.uniform(itemQualityRange[1], itemQualityRange[2]) * 100 +
+                    Random.uniform(itemDurabilityRange[1], itemDurabilityRange[2])
             world:createItemFromId(itemId, 1, pos, true, qual, nil);
         end
 
         if world:isCharacterOnField(pos) then
             local victim = world:getCharacterOnField(pos)
             local spellResistence = base.getSpellResistence(victim)
-            local damage = math.random(damageRange[1], damageRange[2]) * spellResistence
+            local damage = Random.uniform(damageRange[1], damageRange[2]) * spellResistence
 
             base.dealMagicDamage(victim, damage)
         end

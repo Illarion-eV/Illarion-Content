@@ -115,7 +115,7 @@ return function(params)
 
     function self.cast(monster, enemy)
         if Random.uniform() <= probability then
-            local selectedMonsterIndex = math.random(1, #monsterIds)
+            local selectedMonsterIndex = Random.uniform(1, #monsterIds)
             local selectedMonsterId = monsterIds[selectedMonsterIndex]
 
             local i = 0
