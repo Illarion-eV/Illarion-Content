@@ -14,8 +14,8 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---Teleporters in the Salavesh Dungeon
---Estralis Seborian
+--Teleporters in the Akaltut Chambers Dungeon
+--Evie Pryler
 
 local common = require("base.common")
 

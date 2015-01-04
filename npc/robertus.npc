@@ -59,8 +59,8 @@ itemShoes = 53
 -- the merchant dialog.
 
 sellItems = 24, 2763, 23, 737, 734, 26, 736, 2588, 733, 735, 1266, 2738
-buyPrimaryItems = 24, 2763, 26
-buySecondaryItems = 23, 737, 734, 736, 2588, 733, 735, 1266, 2738
+buyPrimaryItems = 24, 2763, 26, 736, 2588, 734
+buySecondaryItems = 23, 737, 733, 735, 1266, 2738
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
 tradeFinishedWithoutTradingMsg "Auf bald!", "Farewell!"
@@ -69,10 +69,10 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 -- This NPC is supposed to trade (all goods are sold and bought, percentage indicates ratio of price bough/sold):
 
--- 10% Tools: 24(shovel), 2763(pickaxe)
--- 5% Tools (Mason): 23(hammer), 737(chisel), 734(brick mould)
+-- 10% Tools: 24(shovel), 2763(pickaxe), 734(brick mould)
+-- 5% Tools (Mason): 23(hammer), 737(chisel)
 -- 10% Clay: 26
--- 5% Bricks: 736, 2588
+-- 10% Bricks: 736, 2588
 -- 5% Stones: 733, 735, 1266
 -- 5%: 2738(pins)
 
