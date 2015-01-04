@@ -41,12 +41,11 @@ end
 
 function M.getSpellResistence(char)
     local willpower = char:increaseAttrib("willpower", 0);
-    local essence   = char:increaseAttrib("essence", 0);
 
-    local minResistence = willpower + essence;
-    local maxResistence = willpower + essence * 3;
+    local minResistence = willpower;
+    local maxResistence = willpower * 2;
 
-    return common.Limit(math.random(minResistence, maxResistence) / 100.0, 0, 1);
+    return common.Limit(Random.uniform(minResistence, maxResistence) / 50.0, 0, 1);
 end
 
 return M
