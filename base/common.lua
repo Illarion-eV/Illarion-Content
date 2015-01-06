@@ -1243,8 +1243,8 @@ function M.ChangeAttribute( Character, attrib, value, bottomBorder, topBorder )
     local oldValue = Character:increaseAttrib(attrib, 0);
     local newValue = oldValue + value;
     if (newValue < bottomBorder) then
-        value = bottomValue - newValue;
-        newValue = bottomValue;
+        value = bottomBorder - newValue;
+        newValue = bottomBorder;
     elseif (newValue > topBorder) then
         value = newValue - topBorder;
         newValue = topBorder;
