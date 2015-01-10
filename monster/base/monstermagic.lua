@@ -63,6 +63,7 @@ return function()
     local self = {}
     local spellsEnemyNear = {}
     local spellsEnemyOnSight = {}
+    local maximalAttackDistance = 1
 
     self.ONLY_ON_SIGHT = 1
     self.ONLY_NEAR_ENEMY = 2
@@ -74,6 +75,12 @@ return function()
         end
         if not _isFunction(spell.cast) then
             error("The spell does not implement the required cast function.")
+        end
+
+        if params.range ~= nil then
+            if _isNumber(params.range) then
+                maximalAttackDistance = math.max(maximalAttackDistance, tonumber(params.range))
+            end
         end
 
         local usageFlag = self.ALWAYS
@@ -197,7 +204,12 @@ return function()
                 return true
             end
 
-            return not _isPlayerAtAdjazentTile(monster.pos)
+            if _isPlayerAtAdjazentTile(monster.pos) then
+                return false
+            end
+
+            local players = world:getPlayersInRangeOf(monster.pos, maximalAttackDistance)
+            return #players > 0
         end
 
         return t

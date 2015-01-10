@@ -80,7 +80,7 @@ end;
 -- @param User The character to check
 -- @return true in case the character is a player character
 function M.IsPlayer(User)
-    return User:getType() == 0;
+    return User:getType() == Character.player;
 end;
 
 -- Kills immediately after a defined period of time

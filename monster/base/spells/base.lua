@@ -22,17 +22,23 @@ local M = {}
 
 function M.dealMagicDamage(target, damange)
     if damange < 1 then return end
-    if character.IsPlayer(target) and
-            character.WouldDie(target, damange + 1) and
-            not character.AtBrinkOfDeath(target) then
-        -- Character would die.
-        character.ToBrinkOfDeath(target)
-        common.TalkNLS(target, Character.say, "#me geht zu Boden.", "#me falls to the ground.")
+    if character.IsPlayer(target) and character.WouldDie(target, damange) then
+        if character.AtBrinkOfDeath(target) then
+            if target:isAdmin() then
+                chr_reg.stallRegeneration(target, 0)
+            end
+            character.Kill(target)
+        else
+            -- Character would die.
+            character.ToBrinkOfDeath(target)
+            common.TalkNLS(target, Character.say, "#me geht zu Boden.", "#me falls to the ground.")
 
-        if not target:isAdmin() then --Admins don't want to get paralysed!
-            common.ParalyseCharacter(target, 2, false, true)
+            if not target:isAdmin() then --Admins don't want to get paralysed!
+                common.ParalyseCharacter(target, 2, false, true)
+            end
+
             local timeFactor = 1 -- See lte.chr_reg
-            chr_reg.stallRegeneration(target, 60/timeFactor) -- Stall regeneration for one minute. Attention! If you change TimeFactor in lte.chr_reg to another value but 1, you have to divide this "60" by that factor
+            chr_reg.stallRegeneration(target, 60 / timeFactor)
         end
     else
         target:increaseAttrib("hitpoints", -damange)
@@ -40,9 +46,10 @@ function M.dealMagicDamage(target, damange)
 end
 
 function M.isValidTarget(char)
-    --if char:isAdmin() then
-    --    return false
-    --end
+    local noAttackQuestProgress = char:getQuestProgress(36)
+    if noAttackQuestProgress ~= 0 then
+        return false
+    end
 
     local hitPoints = char:increaseAttrib("hitpoints", 0)
     return hitPoints > 0
