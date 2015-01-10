@@ -52,7 +52,7 @@ return function(params)
     local itemId = 0
     local itemQualityRange = {2, 5}
     local itemDurabilityRange = {11, 88}
-    local itemProbability = 0.3
+    local itemProbability = 0.08
     local usedMovepoints = 20
 
     if _isTable(params) then
