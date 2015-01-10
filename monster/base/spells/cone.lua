@@ -222,6 +222,9 @@ return function(params)
             --So the cone is always a isosceles triangle. We take the attack range as the height of the triangle.
             --Best was to calculate it, is use calculate half of the triangle as right triangle and mirror it.
 
+            --Turn to the target
+            common.TurnTo(monster, enemy.pos)
+
             local angleInRad = math.rad(angularAperture / 2)
             local oppositeLeg = math.tan(angleInRad) * attackRange;
 

@@ -248,7 +248,7 @@ return function(params)
             local firstAttackDone = false
             if monster:isInRange(enemy, attackRange) and base.isValidTarget(enemy) then
                 if not firstAttackDone then
-                    monster:turn(enemy.pos)
+                    common.TurnTo(monster, enemy.pos)
                     firstAttackDone = true
                 end
                 fireProjectileAt(monster, enemy)
@@ -275,7 +275,7 @@ return function(params)
 
                     local selectedTarget = table.remove(possibleTargets, selectedTargetIndex)
                     if not firstAttackDone then
-                        monster:turn(selectedTarget.pos)
+                        common.TurnTo(monster, selectedTarget.pos)
                         firstAttackDone = true
                     end
                     fireProjectileAt(monster, selectedTarget)

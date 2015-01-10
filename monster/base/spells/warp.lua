@@ -14,6 +14,8 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+local common = require("base.common")
+
 local function _isNumber(value)
     return type(value) == "number"
 end
@@ -106,7 +108,7 @@ return function(params)
             if sfxId > 0 then world:makeSound(sfxId, monster.pos) end
 
             -- Turn the monster to the location of origin so it still engages the enemies
-            monster:turn(originalPosition)
+            common.TurnTo(monster, originalPosition)
 
             monster.movepoints = monster.movepoints - usedMovepoints
 

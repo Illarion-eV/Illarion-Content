@@ -228,7 +228,7 @@ return function(params)
             local firstAttackDone = false
             if isValidTarget(monster, enemy) then
                 if not firstAttackDone then
-                    monster:turn(enemy.pos)
+                    common.TurnTo(monster, enemy.pos)
                     firstAttackDone = true
                 end
                 castSpellAt(enemy)
@@ -255,7 +255,7 @@ return function(params)
 
                     local selectedTarget = table.remove(possibleTargets, selectedTargetIndex)
                     if not firstAttackDone then
-                        monster:turn(selectedTarget.pos)
+                        common.TurnTo(monster, selectedTarget.pos)
                         firstAttackDone = true
                     end
                     castSpellAt(selectedTarget)
