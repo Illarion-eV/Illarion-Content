@@ -209,7 +209,11 @@ return function()
             end
 
             local players = world:getPlayersInRangeOf(monster.pos, maximalAttackDistance)
-            return #players > 0
+            for _, player in pairs(players) do
+                if monster:isInRange(players, maximalAttackDistance) then
+                    return true
+                end
+            end
         end
 
         return t

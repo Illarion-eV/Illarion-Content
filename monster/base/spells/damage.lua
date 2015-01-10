@@ -201,11 +201,35 @@ return function(params)
         end
     end
 
+    local function isValidTarget(monster, target)
+        if monster.id == target.id then
+            return false
+        end
+        if monster:isInRange(target, attackRange) and base.isValidTarget(target) then
+            local blockList = world:LoS(monster.pos, target.pos)
+            local obstructionIndex, obstruction
+            if blockList ~= nil then
+                obstructionIndex, obstruction = next(blockList)
+                while obstruction ~= nil and (obstruction.TYPE == "CHARACTER" or
+                        (obstruction.TYPE == "ITEM" and not obstruction.OBJECT:isLarge())) do
+                    obstructionIndex, obstruction = next(blockList, obstructionIndex)
+                end
+            end
+            return obstruction == nil
+        end
+        return false
+    end
+
     function self.cast(monster, enemy)
         if Random.uniform() <= probability then
             local castedAtLeastOnce = false
             local remainingAttacks = targets
-            if monster:isInRange(enemy, attackRange) and base.isValidTarget(enemy) then
+            local firstAttackDone = false
+            if isValidTarget(monster, enemy) then
+                if not firstAttackDone then
+                    monster:turn(enemy.pos)
+                    firstAttackDone = true
+                end
                 castSpellAt(enemy)
                 remainingAttacks = remainingAttacks - 1
                 castedAtLeastOnce = true
@@ -217,7 +241,7 @@ return function(params)
                 local targets = world:getPlayersInRangeOf(monster.pos, attackRange)
                 local possibleTargets = {}
                 for _, target in pairs(targets) do
-                    if target.id ~= enemy.id and base.isValidTarget(target) then
+                    if isValidTarget(monster, target) then
                         table.insert(possibleTargets, target)
                     end
                 end
@@ -229,6 +253,10 @@ return function(params)
                     if selectedTargetIndex == 0 then return castedAtLeastOnce end
 
                     local selectedTarget = table.remove(possibleTargets, selectedTargetIndex)
+                    if not firstAttackDone then
+                        monster:turn(selectedTarget.pos)
+                        firstAttackDone = true
+                    end
                     castSpellAt(selectedTarget)
                     remainingAttacks = remainingAttacks - 1
                     castedAtLeastOnce = true

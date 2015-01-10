@@ -245,7 +245,12 @@ return function(params)
         if Random.uniform() <= probability then
             local castedAtLeastOnce = false
             local remainingAttacks = targets
+            local firstAttackDone = false
             if monster:isInRange(enemy, attackRange) and base.isValidTarget(enemy) then
+                if not firstAttackDone then
+                    monster:turn(enemy.pos)
+                    firstAttackDone = true
+                end
                 fireProjectileAt(monster, enemy)
                 remainingAttacks = remainingAttacks - 1
                 castedAtLeastOnce = true
@@ -269,6 +274,10 @@ return function(params)
                     if selectedTargetIndex == 0 then return castedAtLeastOnce end
 
                     local selectedTarget = table.remove(possibleTargets, selectedTargetIndex)
+                    if not firstAttackDone then
+                        monster:turn(selectedTarget.pos)
+                        firstAttackDone = true
+                    end
                     fireProjectileAt(monster, selectedTarget)
                     remainingAttacks = remainingAttacks - 1
                     castedAtLeastOnce = true
