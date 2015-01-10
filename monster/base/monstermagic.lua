@@ -63,7 +63,7 @@ return function()
     local self = {}
     local spellsEnemyNear = {}
     local spellsEnemyOnSight = {}
-    local maximalAttackDistance = -1
+    local maximalAttackDistance = 1
 
     self.ONLY_ON_SIGHT = 1
     self.ONLY_NEAR_ENEMY = 2
@@ -76,12 +76,11 @@ return function()
         if not _isFunction(spell.cast) then
             error("The spell does not implement the required cast function.")
         end
-
-        if params.range ~= nil then
-            if _isNumber(params.range) then
-                maximalAttackDistance = math.max(maximalAttackDistance, tonumber(params.range))
-            end
+        if not _isFunction(spell.getAttackRange) then
+            error("The spell does not implement the required getAttackRange function.")
         end
+
+        maximalAttackDistance = math.max(maximalAttackDistance, spell.getAttackRange())
 
         local usageFlag = self.ALWAYS
         if _isTable(params) then
@@ -183,11 +182,6 @@ return function()
     end
 
     function self.addCallbacks(t)
-        local attackRange = maximalAttackDistance
-        if attackRange == -1 then
-            attackRange = 8
-        end
-
         if not _isTable(t) then
             error("Adding the magic callbacks requires a table as parameter that contains the already set callbacks.")
         end
@@ -213,9 +207,9 @@ return function()
                 return false
             end
 
-            local players = world:getPlayersInRangeOf(monster.pos, attackRange)
+            local players = world:getPlayersInRangeOf(monster.pos, maximalAttackDistance)
             for _, player in pairs(players) do
-                if monster:isInRange(players, attackRange) then
+                if monster:isInRange(player, maximalAttackDistance) then
                     return true
                 end
             end

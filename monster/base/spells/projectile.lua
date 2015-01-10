@@ -241,6 +241,10 @@ return function(params)
         end)
     end
 
+    function self.getAttackRange()
+        return attackRange
+    end
+
     function self.cast(monster, enemy)
         if Random.uniform() <= probability then
             local castedAtLeastOnce = false

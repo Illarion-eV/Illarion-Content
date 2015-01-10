@@ -113,6 +113,10 @@ return function(params)
         error("The summoning spell requires some parameters.")
     end
 
+    function self.getAttackRange()
+        return 0
+    end
+
     function self.cast(monster, enemy)
         if Random.uniform() <= probability then
             local selectedMonsterIndex = Random.uniform(1, #monsterIds)

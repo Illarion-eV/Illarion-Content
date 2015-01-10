@@ -217,6 +217,10 @@ return function(params)
         end
     end
 
+    function self.getAttackRange()
+        return attackRange
+    end
+
     function self.cast(monster, enemy)
         if Random.uniform() <= probability then
             --So the cone is always a isosceles triangle. We take the attack range as the height of the triangle.
