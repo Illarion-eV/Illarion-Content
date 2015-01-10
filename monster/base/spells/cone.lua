@@ -220,7 +220,9 @@ return function(params)
         if itemId > 0 and not common.isItemIdInFieldStack(itemId, pos) and Random.uniform() < itemProbability then
             local qual = Random.uniform(itemQualityRange[1], itemQualityRange[2]) * 100 +
                     Random.uniform(itemDurabilityRange[1], itemDurabilityRange[2])
-            world:createItemFromId(itemId, 1, pos, true, qual, nil);
+            local item = world:createItemFromId(itemId, 1, pos, true, qual, nil)
+            item.wear = 2
+            world:changeItem(item)
         end
 
         if world:isCharacterOnField(pos) then
