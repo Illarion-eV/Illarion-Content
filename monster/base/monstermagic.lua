@@ -14,6 +14,8 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+local character = require("base.character")
+
 local explosionSpell = require("monster.base.spells.explosion")
 local fireballSpell = require("monster.base.spells.fireball")
 local fireconeSpell = require("monster.base.spells.firecone")
@@ -49,7 +51,7 @@ local function _isPlayerAtAdjazentTile(pos)
                 local checkPos = position(pos.x + x, pos.y + y, pos.z)
                 if world:isCharacterOnField(checkPos) then
                     local char = world:getCharacterOnField(checkPos)
-                    if char:getType() == Character.player then
+                    if character.IsPlayer(char) and not character.IsDead(char) then
                         return true
                     end
                 end
@@ -64,6 +66,7 @@ return function()
     local spellsEnemyNear = {}
     local spellsEnemyOnSight = {}
     local maximalAttackDistance = 1
+    local keepDistance = true
 
     self.ONLY_ON_SIGHT = 1
     self.ONLY_NEAR_ENEMY = 2
@@ -162,6 +165,10 @@ return function()
         self.addSpell(warpSpell(params), params)
     end
 
+    function self.setKeepDistance(value)
+        keepDistance = value
+    end
+
     local function castEnemyNear(monster, enemy)
         for _, spell in pairs(spellsEnemyNear) do
             if (spell.cast(monster, enemy)) then
@@ -179,6 +186,27 @@ return function()
             end
         end
         return false
+    end
+
+    local function isPossibleTarget(monster, target)
+        if character.IsDead(target) then
+            return false
+        end
+
+        if not monster:isInRange(player, maximalAttackDistance) then
+            return false
+        end
+
+        local blockList = world:LoS(monster.pos, target.pos)
+        local obstructionIndex, obstruction
+        if blockList ~= nil then
+            obstructionIndex, obstruction = next(blockList)
+            while obstruction ~= nil and (obstruction.TYPE == "CHARACTER" or
+                    (obstruction.TYPE == "ITEM" and not obstruction.OBJECT:isLarge())) do
+                obstructionIndex, obstruction = next(blockList, obstructionIndex)
+            end
+        end
+        return obstruction == nil
     end
 
     function self.addCallbacks(t)
@@ -207,12 +235,15 @@ return function()
                 return false
             end
 
-            local players = world:getPlayersInRangeOf(monster.pos, maximalAttackDistance)
-            for _, player in pairs(players) do
-                if monster:isInRange(player, maximalAttackDistance) then
-                    return true
+            if keepDistance then
+                local players = world:getPlayersInRangeOf(monster.pos, maximalAttackDistance)
+                for _, player in pairs(players) do
+                    if isPossibleTarget(monster, player) then
+                        return true
+                    end
                 end
             end
+
             return false
         end
 

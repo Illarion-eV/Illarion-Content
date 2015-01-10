@@ -17,12 +17,21 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Collection of helper functions for the handling of characters
 local M = {}
 
+local HITPOINTS = "hitpoints"
+
+--- Get the current hitpoints of the character
+-- @param User the character that is queried
+-- @return the hitpoints of the character
+function M.GetHP(User)
+    return User:increaseAttrib(HITPOINTS, 0)
+end
+
 --- Change the hitpoints value of a character.
 -- @param User The characters that receives the hitpoints change.
 -- @param Value The value the hitpoints are changed by.
 -- @return true in case the character is alive after the change of the hitpoints
 function M.ChangeHP(User, Value)
-    return User:increaseAttrib("hitpoints", Value) > 0;
+    return User:increaseAttrib(HITPOINTS, Value) > 0;
 end;
 
 --- Check if a character would surive if a amount of hitpoints get reduced
@@ -30,8 +39,15 @@ end;
 -- @param Value The value of hitpoints that are supposed to be reduced
 -- @return true in case the character would survive
 function M.WouldDie(User, Value)
-    return User:increaseAttrib("hitpoints", 0) <= Value;
+    return M.GetHP(User) <= Value;
 end;
+
+--- Check if a character is dead.
+-- @param User the character to check
+-- @return true in case the character is dead
+function M.IsDead(User)
+    return M.GetHP(User) == 0
+end
 
 --- Check if the character is at the brink of death. Means that the character
 -- has only one hitpoint left.
@@ -45,7 +61,7 @@ end;
 -- left.
 -- @param User The character to bring to the brink of death
 function M.ToBrinkOfDeath(User)
-    M.ChangeHP(User, 1 - User:increaseAttrib("hitpoints", 0));
+    M.ChangeHP(User, 1 - M.GetHP(User));
 end;
 
 --- Kill a character.
@@ -60,9 +76,7 @@ end;
 -- @param User The character thats movepoints are supposed to change
 -- @param Value The amount of movepoints that are added
 function M.ChangeMovepoints(User, Value)
-
     User.movepoints = User.movepoints + Value;
-	
 end;
 
 --- Change the fighting points of a character by the value handed over.
@@ -71,9 +85,7 @@ end;
 -- @info This is currently set to change the movepoints also because the
 --          fighting points do not seem to work on the current server
 function M.ChangeFightingpoints(User, Value)
-
     User.fightpoints = User.fightpoints + Value;
-	
 end;
 
 --- Check if the character is a player character.
