@@ -63,7 +63,7 @@ return function()
     local self = {}
     local spellsEnemyNear = {}
     local spellsEnemyOnSight = {}
-    local maximalAttackDistance = 1
+    local maximalAttackDistance = -1
 
     self.ONLY_ON_SIGHT = 1
     self.ONLY_NEAR_ENEMY = 2
@@ -183,6 +183,11 @@ return function()
     end
 
     function self.addCallbacks(t)
+        local attackRange = maximalAttackDistance
+        if attackRange == -1 then
+            attackRange = 8
+        end
+
         if not _isTable(t) then
             error("Adding the magic callbacks requires a table as parameter that contains the already set callbacks.")
         end
@@ -208,12 +213,13 @@ return function()
                 return false
             end
 
-            local players = world:getPlayersInRangeOf(monster.pos, maximalAttackDistance)
+            local players = world:getPlayersInRangeOf(monster.pos, attackRange)
             for _, player in pairs(players) do
-                if monster:isInRange(players, maximalAttackDistance) then
+                if monster:isInRange(players, attackRange) then
                     return true
                 end
             end
+            return false
         end
 
         return t
