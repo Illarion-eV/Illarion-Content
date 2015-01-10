@@ -26,6 +26,21 @@ local function _isTable(value)
     return type(value) == "table"
 end
 
+local function isCarryingShieldInSlot(char, slot)
+    local item = char:getItemAt(slot)
+    if item ~= nil then
+        local weaponFound, weapon = world:getWeaponStruct(item.id)
+        if weaponFound then
+            return weapon.WeaponType == 14
+        end
+    end
+    return false
+end
+
+local function isCarryingShield(char)
+    return isCarryingShieldInSlot(char, Character.right_tool) or isCarryingShieldInSlot(char, Character.left_tool)
+end
+
 return function(params)
     local self = {}
     local damageRange = {1000, 2000}
@@ -262,14 +277,24 @@ return function(params)
                            return false
                        end
                        coneFields[pos] = true
-                       -- The cone is blocked by a character on the field
+
                        if world:isCharacterOnField(pos) then
-                           return false
+                           -- There is a character on this field.
+                           local blockingChar = world:getCharacterOnField(pos)
+                           if common.isLookingAt(blockingChar, originPos) then
+                               -- Character has to look to the direction of the cone to block it.
+                               if isCarryingShield(blockingChar) then
+                                   return false
+                               end
+                           end
                        end
 
                        -- The cone is blocked by tiles that became not passable due to items place on them
                        if not field:isPassable() and world:isItemOnField(pos) then
-                           return false
+                           local fieldItem = world:getItemOnField(pos)
+                           if fieldItem:isLarge() then
+                               return false
+                           end
                        end
                        return true
                    end)
