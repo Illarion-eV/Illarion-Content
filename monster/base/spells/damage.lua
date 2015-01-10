@@ -15,6 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local base = require("monster.base.spells.base")
+local common = require("base.common")
 local standardfighting = require("server.standardfighting")
 
 local function _isNumber(value)
@@ -194,7 +195,7 @@ return function(params)
         base.dealMagicDamage(enemy, damage)
         if gfxId > 0 then world:gfx(gfxId, enemy.pos) end
         if sfxId > 0 then world:makeSound(sfxId, enemy.pos) end
-        if itemId > 0 then
+        if itemId > 0 and not common.isItemIdInFieldStack(itemId, enemy.pos) then
             local qual = Random.uniform(itemQualityRange[1], itemQualityRange[2]) * 100 +
                     Random.uniform(itemDurabilityRange[1], itemDurabilityRange[2])
             world:createItemFromId(itemId, 1, enemy.pos, true, qual, nil);
