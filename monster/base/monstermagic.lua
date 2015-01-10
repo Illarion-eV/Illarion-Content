@@ -15,6 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local character = require("base.character")
+local common = require("base.common")
 
 local explosionSpell = require("monster.base.spells.explosion")
 local fireballSpell = require("monster.base.spells.fireball")
@@ -197,16 +198,30 @@ return function()
             return false
         end
 
-        local blockList = world:LoS(monster.pos, target.pos)
-        local obstructionIndex, obstruction
-        if blockList ~= nil then
-            obstructionIndex, obstruction = next(blockList)
-            while obstruction ~= nil and (obstruction.TYPE == "CHARACTER" or
-                    (obstruction.TYPE == "ITEM" and not obstruction.OBJECT:isLarge())) do
-                obstructionIndex, obstruction = next(blockList, obstructionIndex)
+        local foundObstruction = false
+        common.CreateLine(monster.pos, target.pos, function(currentPos)
+            if target.pos == currentPos then
+                foundObstruction = false
+                return false
             end
-        end
-        return obstruction == nil
+
+            if world:isCharacterOnField(currentPos) then
+                foundObstruction = true
+                return false
+            end
+
+            if world:isItemOnField(currentPos) then
+                local possibleObstruction = world:getItemOnField(currentPos)
+                if possibleObstruction:isLarge() then
+                    foundObstruction = true
+                    return false
+                end
+            end
+
+            return true
+        end)
+
+        return foundObstruction
     end
 
     function self.addCallbacks(t)

@@ -15,6 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local base = require("monster.base.spells.base")
+local character = require("base.character")
 local common = require("base.common")
 local standardfighting = require("server.standardfighting")
 
@@ -199,46 +200,46 @@ return function(params)
     -- Shoot a projectile into the general direction of the enemy. Maybe it hits maybe it does not. Depends on the
     -- obstruction of the firing line.
     local function fireProjectileAt(monster, enemy)
-        local blockList = world:LoS(monster.pos, enemy.pos)
-        local obstructionIndex, obstruction
-        if blockList ~= nil then
-            obstructionIndex, obstruction = next(blockList)
-            while obstruction ~= nil and (obstruction.TYPE == "CHARACTER") and (obstruction.OBJECT.id == monster.id) do
-                obstructionIndex, obstruction = next(blockList, obstructionIndex)
-            end
-        end
-        local targetPos = obstruction and obstruction.OBJECT.pos or enemy.pos
-
-        common.CreateLine(monster.pos, targetPos, function(currentPos)
+        local hitPosition
+        local hitCharacter
+        common.CreateLine(monster.pos, enemy.pos, function(currentPos)
             if world:isCharacterOnField(currentPos) then
-                local victim = world:getCharacterOnField(currentPos)
-                local spellResistence = base.getSpellResistence(victim)
-                local damage = Random.uniform(damageRange[1], damageRange[2]) * spellResistence
-
-                base.dealMagicDamage(victim, damage)
-                if gfxId > 0 then world:gfx(gfxId, currentPos) end
-                if sfxId > 0 then world:makeSound(sfxId, currentPos) end
-                if itemId > 0 then
-                    local qual = Random.uniform(itemQualityRange[1], itemQualityRange[2]) * 100 +
-                            Random.uniform(itemDurabilityRange[1], itemDurabilityRange[2])
-                    world:createItemFromId(itemId, 1, targetPos, true, qual, nil);
+                local possibleTarget = world:getCharacterOnField(currentPos)
+                if not character.IsDead(possibleTarget) then
+                    hitPosition = currentPos
+                    hitCharacter = possibleTarget
+                    return false
                 end
+            end
 
-                return false
-            end
-            if currentPos == targetPos then
-                if gfxId > 0 then world:gfx(gfxId, currentPos) end
-                if sfxId > 0 then world:makeSound(sfxId, currentPos) end
-                if itemId > 0 then
-                    local qual = Random.uniform(itemQualityRange[1], itemQualityRange[2]) * 100 +
-                            Random.uniform(itemDurabilityRange[1], itemDurabilityRange[2])
-                    world:createItemFromId(itemId, 1, targetPos, true, qual, nil);
+            if world:isItemOnField(currentPos) then
+                local possibleObstruction = world:getItemOnField(currentPos)
+                if possibleObstruction:isLarge() then
+                    hitPosition = currentPos
+                    hitCharacter = nil
+                    return false
                 end
-                return false
             end
+
             if trailGfxId > 0 then world:gfx(trailGfxId, currentPos) end
             return true
         end)
+
+        if hitCharacter ~= nil then
+            local spellResistence = base.getSpellResistence(hitCharacter)
+            local damage = Random.uniform(damageRange[1], damageRange[2]) * spellResistence
+            base.dealMagicDamage(hitCharacter, damage)
+        end
+
+        if gfxId > 0 then world:gfx(gfxId, hitPosition) end
+        if sfxId > 0 then world:makeSound(sfxId, hitPosition) end
+        if itemId > 0 then
+            local qual = Random.uniform(itemQualityRange[1], itemQualityRange[2]) * 100 +
+                    Random.uniform(itemDurabilityRange[1], itemDurabilityRange[2])
+            local item = world:createItemFromId(itemId, 1, hitPosition, true, qual, nil)
+            item.wear = 2
+            world:changeItem(item)
+        end
     end
 
     function self.getAttackRange()
