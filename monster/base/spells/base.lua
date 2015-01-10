@@ -44,7 +44,7 @@ function M.isValidTarget(char)
     --    return false
     --end
 
-    local hitPoints = char:increaseAttribute("hitpoints", 0)
+    local hitPoints = char:increaseAttrib("hitpoints", 0)
     return hitPoints > 0
 end
 

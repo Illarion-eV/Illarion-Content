@@ -242,9 +242,7 @@ return function(params)
     end
 
     function self.cast(monster, enemy)
-        monster:talk(Character.say, "Trying to fire a projectile spell.")
         if Random.uniform() <= probability then
-            monster:talk(Character.say, "Random check is okay")
             local castedAtLeastOnce = false
             local remainingAttacks = targets
             if monster:isInRange(enemy, attackRange) and base.isValidTarget(enemy) then
