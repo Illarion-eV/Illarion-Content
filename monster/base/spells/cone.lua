@@ -281,7 +281,7 @@ return function(params)
                        if world:isCharacterOnField(pos) then
                            -- There is a character on this field.
                            local blockingChar = world:getCharacterOnField(pos)
-                           if common.isLookingAt(blockingChar, originPos) then
+                           if common.IsLookingAt(blockingChar, originPos) then
                                -- Character has to look to the direction of the cone to block it.
                                if isCarryingShield(blockingChar) then
                                    return false
@@ -290,7 +290,7 @@ return function(params)
                        end
 
                        -- The cone is blocked by tiles that became not passable due to items place on them
-                       if not field:isPassable() and world:isItemOnField(pos) then
+                       if world:isItemOnField(pos) then
                            local fieldItem = world:getItemOnField(pos)
                            if fieldItem:isLarge() then
                                return false
