@@ -221,7 +221,7 @@ return function()
             return true
         end)
 
-        return foundObstruction
+        return not foundObstruction
     end
 
     function self.addCallbacks(t)
