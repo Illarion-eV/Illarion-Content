@@ -127,16 +127,29 @@ return function(params)
 
                 local spawnPos = position(monster.pos.x + x, monster.pos.y + y, monster.pos.z)
 
-                if not world:isCharacterOnField(spawnPos) and world:getField(spawnPos) then
-                    world:createMonster(selectedMonsterId, spawnPos, -usedMovepoints)
-                    if gfxId > 0 then world:gfx(gfxId, monster.pos) end
-                    if gfxId > 0 then world:gfx(gfxId, spawnPos) end
-                    if sfxId > 0 then world:makeSound(sfxId, spawnPos) end
-                    monster.movepoints = monster.movepoints - usedMovepoints
-                    return true
-                else
-                    i = i + 1
+                -- lets check if we are in the same room.
+                local blockList = world:LoS(monster.pos, spawnPos)
+                local obstructionIndex, obstruction
+                if blockList ~= nil then
+                    obstructionIndex, obstruction = next(blockList)
+                    while obstruction ~= nil and (obstruction.TYPE == "CHARACTER" or
+                            (obstruction.TYPE == "ITEM" and not obstruction.OBJECT:isLarge())) do
+                        obstructionIndex, obstruction = next(blockList, obstructionIndex)
+                    end
                 end
+
+                if obstruction == nil then
+                    local field = world:getField(spawnPos)
+                    if field ~= nil and field:isPassable() and not world:isCharacterOnField(spawnPos) then
+                        world:createMonster(selectedMonsterId, spawnPos, -usedMovepoints)
+                        if gfxId > 0 then world:gfx(gfxId, monster.pos) end
+                        if gfxId > 0 then world:gfx(gfxId, spawnPos) end
+                        if sfxId > 0 then world:makeSound(sfxId, spawnPos) end
+                        monster.movepoints = monster.movepoints - usedMovepoints
+                        return true
+                    end
+                end
+                i = i + 1
             end
 
             return false

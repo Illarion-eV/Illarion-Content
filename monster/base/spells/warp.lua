@@ -99,10 +99,15 @@ return function(params)
             local x = math.floor(math.sin(direction) * warpRange + 0.5)
             local y = math.floor(math.cos(direction) * warpRange + 0.5)
 
+            local originalPosition = position(monster.pos.x, monster.pos.y, monster.pos.z)
             if gfxId > 0 then world:gfx(gfxId, monster.pos) end
             monster:warp(position(enemy.pos.x + x, enemy.pos.y + y, enemy.pos.z))
             if gfxId > 0 then world:gfx(gfxId, monster.pos) end
             if sfxId > 0 then world:makeSound(sfxId, monster.pos) end
+
+            -- Turn the monster to the location of origin so it still engages the enemies
+            monster:turn(originalPosition)
+
             monster.movepoints = monster.movepoints - usedMovepoints
 
             return true

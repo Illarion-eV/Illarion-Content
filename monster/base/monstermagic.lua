@@ -42,6 +42,23 @@ local function _isFunction(value)
     return type(value) == "function"
 end
 
+local function _isPlayerAtAdjazentTile(pos)
+    for x = -1, 1 do
+        for y = -1, 1 do
+            if x ~= 0 or y ~= 0 then
+                local checkPos = position(pos.x + x, pos.y + y, pos.z)
+                if world:isCharacterOnField(checkPos) then
+                    local char = world:getCharacterOnField(checkPos)
+                    if char:getType() == Character.player then
+                        return true
+                    end
+                end
+            end
+        end
+    end
+    return false
+end
+
 return function()
     local self = {}
     local spellsEnemyNear = {}
@@ -62,11 +79,11 @@ return function()
         local usageFlag = self.ALWAYS
         if _isTable(params) then
             if params.usage ~= nil then
-               if _isNumber(params.usage) then
-                   usageFlag = tonumber(params.usage)
-               else
-                   error("The usage flag for the spell was set to something. How ever not a number.")
-               end
+                if _isNumber(params.usage) then
+                    usageFlag = tonumber(params.usage)
+                else
+                    error("The usage flag for the spell was set to something. How ever not a number.")
+                end
             end
         end
 
@@ -151,6 +168,7 @@ return function()
     local function castEnemyOnSight(monster, enemy)
         for _, spell in pairs(spellsEnemyOnSight) do
             if (spell.cast(monster, enemy)) then
+                monster:performAnimation(11) -- Cast Animation
                 return true
             end
         end
@@ -175,7 +193,11 @@ return function()
             if oldEnemyOnSight ~= nil and oldEnemyOnSight(monster, enemy) then
                 return true
             end
-            return castEnemyOnSight(monster, enemy)
+            if castEnemyOnSight(monster, enemy) then
+                return true
+            end
+
+            return not _isPlayerAtAdjazentTile(monster.pos)
         end
 
         return t
@@ -183,4 +205,3 @@ return function()
 
     return self
 end
-

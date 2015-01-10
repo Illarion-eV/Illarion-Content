@@ -200,9 +200,12 @@ return function(params)
     -- obstruction of the firing line.
     local function fireProjectileAt(monster, enemy)
         local blockList = world:LoS(monster.pos, enemy.pos)
-        local obstructionIndex, obstruction = next(blockList)
-        while obstruction ~= nil and (obstruction.TYPE == "CHARACTER") and (obstruction.OBJECT.id == monster.id) do
-            obstructionIndex, obstruction = next(blockList, obstructionIndex)
+        local obstructionIndex, obstruction
+        if blockList ~= nil then
+            obstructionIndex, obstruction = next(blockList)
+            while obstruction ~= nil and (obstruction.TYPE == "CHARACTER") and (obstruction.OBJECT.id == monster.id) do
+                obstructionIndex, obstruction = next(blockList, obstructionIndex)
+            end
         end
         local targetPos = obstruction and obstruction.OBJECT.pos or enemy.pos
 
