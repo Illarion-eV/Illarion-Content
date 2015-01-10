@@ -194,12 +194,13 @@ return function()
             return false
         end
 
-        if not monster:isInRange(player, maximalAttackDistance) then
+        if not monster:isInRange(target, maximalAttackDistance) then
             return false
         end
 
         local foundObstruction = false
         common.CreateLine(monster.pos, target.pos, function(currentPos)
+            if currentPos == monster.pos then return true end
             if target.pos == currentPos then
                 foundObstruction = false
                 return false
