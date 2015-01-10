@@ -205,7 +205,7 @@ return function(params)
         if Random.uniform() <= probability then
             local castedAtLeastOnce = false
             local remainingAttacks = targets
-            if monster:isInRange(enemy, attackRange) and not enemy:isAdmin() then
+            if monster:isInRange(enemy, attackRange) and base.isValidTarget(enemy) then
                 castSpellAt(enemy)
                 remainingAttacks = remainingAttacks - 1
                 castedAtLeastOnce = true
@@ -217,7 +217,7 @@ return function(params)
                 local targets = world:getPlayersInRangeOf(monster.pos, attackRange)
                 local possibleTargets = {}
                 for _, target in pairs(targets) do
-                    if target.id ~= enemy.id then
+                    if target.id ~= enemy.id and base.isValidTarget(target) then
                         table.insert(possibleTargets, target)
                     end
                 end

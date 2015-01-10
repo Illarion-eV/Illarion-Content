@@ -242,10 +242,12 @@ return function(params)
     end
 
     function self.cast(monster, enemy)
+        monster:talk(Character.say, "Trying to fire a projectile spell.")
         if Random.uniform() <= probability then
+            monster:talk(Character.say, "Random check is okay")
             local castedAtLeastOnce = false
             local remainingAttacks = targets
-            if monster:isInRange(enemy, attackRange) and not enemy:isAdmin() then
+            if monster:isInRange(enemy, attackRange) and base.isValidTarget(enemy) then
                 fireProjectileAt(monster, enemy)
                 remainingAttacks = remainingAttacks - 1
                 castedAtLeastOnce = true
@@ -257,7 +259,7 @@ return function(params)
                 local targets = world:getPlayersInRangeOf(monster.pos, attackRange)
                 local possibleTargets = {}
                 for _, target in pairs(targets) do
-                    if target.id ~= enemy.id then
+                    if target.id ~= enemy.id and base.isValidTarget(target) then
                         table.insert(possibleTargets, target)
                     end
                 end

@@ -39,6 +39,15 @@ function M.dealMagicDamage(target, damange)
     end
 end
 
+function M.isValidTarget(char)
+    --if char:isAdmin() then
+    --    return false
+    --end
+
+    local hitPoints = char:increaseAttribute("hitpoints", 0)
+    return hitPoints > 0
+end
+
 function M.getSpellResistence(char)
     local willpower = char:increaseAttrib("willpower", 0);
 
