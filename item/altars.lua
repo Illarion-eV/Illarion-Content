@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --Priest magic: Becoming a devotee, change devotion, become a priest by using an altar
 --Altars are dedicated to gods, encoded in the data value
@@ -20,7 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --401 contains the ID of the god the character is devoted to
 --402 contains the ID of the god the character is a priest of. MUST be equal to 401 or 0.
 --Elder Gods
---1: Ushara - Goddess of earth 
+--1: Ushara - Goddess of earth
 --2: Brágon - God of fire
 --3: Eldan - God of spirit
 --4: Tanora/Zelphia - Goddess of water
@@ -34,7 +34,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --11: Malachín - God of battle and hunting
 --12: Irmorom - God of trade and craftsmanship
 --13: Sirani - Goddess of love and pleasure
---14: Zhambra - God of friendship and loyalty  
+--14: Zhambra - God of friendship and loyalty
 --15: Ronagan - God of thieves and shadows
 --16: Moshran - God of blood and bones
 
@@ -69,7 +69,7 @@ local M = {}
 
 --These are the items I need to become a devotee
 --Items by Cromwell
-  devoteItems={};
+  local devoteItems={};
   devoteItems[1]={733,316,2588}; --Ushara: Stone block, Quartz sand, Brick
   devoteItems[2]={314,236,43}; --Brágon: potash, Gold ignot, Candle
   devoteItems[3]={256,2745,155}; --Eldan: Raw diamonds, Parchment, Sibanac leaf
@@ -87,7 +87,7 @@ local M = {}
   devoteItems[15]={2760,190,48}; --Ronagan: Rope, Ornate dagger, Leather gloves
   devoteItems[16]={16,63,2757}; --Moshran: Orcish helmet, Entrails, Scimitar
 --These are the items I need to become a priest. Not relevant for now since there is no priest magic.
-  priestItems={};
+  local priestItems={};
   priestItems[1]={2416,40,26,726,735}; --Ushara: Brown priest robe, Cleric's staff, Clay, Coarse sand, Raw stone
   priestItems[2]={2419,40,391,46,234}; --Brágon: Red priest robe, Cleric's staff, Torch, Ruby, Gold nugget
   priestItems[3]={2418,40,41,285,463}; --Eldan: Grey priest robe, Cleric's staff, Glass ignot, Diamond, Quill
@@ -108,12 +108,12 @@ local M = {}
 
 function M.LookAtItem( User, Item )
   thisGod=tonumber(Item:getData("god"));
-  
+
   if thisGod==nil then
     thisGod = 0;
   end;
-  
-  
+
+
   --Tell the user who's altar that is
   if thisGod==gods.GOD_NONE  or thisGod>gods.GOD_THEFIVE then --undedicated altar
     lookat.SetSpecialName(Item, "Ungeweihter Altar","Undedicated altar")
@@ -121,10 +121,10 @@ function M.LookAtItem( User, Item )
     lookat.SetSpecialName(Item,
     "Altar "..gods.GOD_DE[thisGod].."s, "..gods.DESCRIPTION_DE[thisGod]..".",
     "Altar of "..gods.GOD_EN[thisGod]..", the "..gods.DESCRIPTION_EN[thisGod]..".");
-    
+
     if (thisGod > 5) then
       -- anything else is only for the younger gods
-      
+
       --Now send the user some infos what he should do if he wants to become a devotee, change dedication or become a priest
       devotion=User:getQuestProgress(401);
       priesthood=User:getQuestProgress(402);
@@ -149,7 +149,7 @@ function M.LookAtItem( User, Item )
         --For enabling becoming a priest, use the stuff below. Doesn't make any sense without priest magic, though.
         -- TODO needs adjustment.
   --[[
-        if User:getMagicType()== 0 and User:getMagicFlags(0)~= 0 then --a mage! Can't become priest 
+        if User:getMagicType()== 0 and User:getMagicFlags(0)~= 0 then --a mage! Can't become priest
           common.InformNLS(User,"Ein Magier kann leider kein Priester werden.","As a magician, you cannot become a priest anymore.");
         elseif User:getMagicType()== 2 and User:getMagicFlags(2)~= 0 then --a bard! Can't become priest
           common.InformNLS(User,"Ein Barde kann leider kein Priester werden.","As a bard, you cannot become a priest anymore.");
@@ -180,13 +180,11 @@ end --function
 
 function M.UseItem(User, SourceItem, ltstate)
   thisGod=tonumber(SourceItem:getData("god"));
-  
+
   if thisGod==nil then
     thisGod = 0;
   end;
-  if init==nil or init==false then
-    ini();
-  end
+
   --Depending on who's altar that is and who uses it, execute different actions
   if thisGod==gods.GOD_NONE  or thisGod>gods.GOD_THEFIVE then --undedicated altar
     common.InformNLS(User,"Ihr berührt den Altar, die Abwesenheit göttlichen Wirkens ist offensichtlich.","You touch the altar, the absence of divine blessing is obvious.");
@@ -229,9 +227,9 @@ function M.UseItem(User, SourceItem, ltstate)
           common.InformNLS(User,
           "[INFO] An dieser Stelle könntest du Priester werden, aber Priestermagie ist noch nicht verfügbar.",
           "[INFO] At this point you could become a priest, but priest magic is not available yet.");
-          --Below, even more stuff that only makes sense with priest magic. Code makes devotees become priests.			 
+          --Below, even more stuff that only makes sense with priest magic. Code makes devotees become priests.
           --[[
-          if User:getMagicType()== 0 and User:getMagicFlags(0)~= 0 then --a mage! Can't become priest 
+          if User:getMagicType()== 0 and User:getMagicFlags(0)~= 0 then --a mage! Can't become priest
             common.InformNLS(User,"Ein Magier kann leider kein Priester werden.","As a magician, you cannot become a priest anymore.");
           elseif User:getMagicType()== 2 and User:getMagicFlags(2)~= 0 then --a bard! Can't become priest
             common.InformNLS(User,"Ein Barde kann leider kein Priester werden.","As a bard, you cannot become a priest anymore.");
@@ -248,7 +246,7 @@ function M.UseItem(User, SourceItem, ltstate)
                 User:setMagicType(1);
                 User:teachMagic(1,1); --priest runes
                 User:teachMagic(1,2);
-                User:teachMagic(1,3); 
+                User:teachMagic(1,3);
               else --does not have the stuff
                 common.InformNLS(User,"Um ein Priester "..godName[thisGod].."s zu werden, werdet ihr folgendes opfern müssen:","To become a priest of "..godName[thisGod]..", you'll have to donate:");
               end --item check
@@ -286,7 +284,7 @@ function M.UseItem(User, SourceItem, ltstate)
               world:makeSound(13,User.pos);
               User:setQuestProgress(401,thisGod); --become devotee of this god
               User:setQuestProgress(402,thisGod); --become priest of this god
-          
+
             else --does not have the stuff
               common.InformNLS(User,"Um ein Priester "..godName[thisGod].."s zu werden, werdet ihr folgendes opfern müssen:","To become a  priest of "..godName[thisGod]..", you'll have to donate:");
             end
@@ -334,7 +332,7 @@ end
 
 function checkAudience(god, position)
   local theCandidates=world:getPlayersInRangeOf(position,10);
-  local counter=0; 
+  local counter=0;
   for i=1,#theCandidates do
     candidate=theCandidates[i];
     if candidate:getQuestProgress(401) == god then

@@ -12,50 +12,43 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Quest: A spark to a flame (113)/(114)
 local common = require("base.common")
 
 local M = {}
-local InitQuestPlaces = nil
-function Init()
 
-    if InitQuestPlaces then
-        return
-    end
-   
-      altar={}; --a list with positions
+
+      local altar={}; --a list with positions
       altar[1]=position(551,133,0); --1: Ushara Goddess of earth
       altar[2]=position(551,143,0); --2: Brágon God of fire
       altar[3]=position(556,141,0); --3: Eldan God of spirit
       altar[4]=position(549,138,0); --4: Tanora/Zelphia Goddess of water
       altar[5]=position(556,135,0); --5: Findari Goddess of air
-      messageG={};
+      local messageG={};
       messageG[1]="[Queststatus] Du näherst dich dem Altar Usharas. Eine beruhigende Stille umgibt dich.";
       messageG[2]="[Queststatus] Du näherst dich dem Altar Brágons. Hitze schlägt dir ins Gesicht.";
       messageG[3]="[Queststatus] Du näherst dich dem Altar Eldans. Nachdenklich betrachtest du den Schrein.";
       messageG[4]="[Queststatus] Du näherst dich dem Altar Tanoras. Täuscht du dich oder liegt hier Nebel in der Luft?";
       messageG[5]="[Queststatus] Du näherst dich dem Altar Findaris. Eine Winböe streift durch deine Kleidung.";
-      messageE={};
+      local messageE={};
       messageE[1]="[Quest status] You approach the altar of Ushara - the silence is comforting.";
       messageE[2]="[Quest status] You approach the altar of Brágon as a wave of heat engulfs you.";
       messageE[3]="[Quest status] You approach the altar of Eldan, and you are overwhelmed by thoughtful contemplation.";
-      messageE[4]="[Quest status] You approach the altar of Tanora shrouded in a dense fog.";      
+      messageE[4]="[Quest status] You approach the altar of Tanora shrouded in a dense fog.";
       messageE[5]="[Quest status] You approach the altar of Findari and swirling gusts of wind billow around you.";
-      InitQuestPlaces = true;
-    
-end
+
 
 function M.MoveToField(User)
-    Init();
+
    if (User:getQuestProgress(113) == 1) then --OK, the player does the quest
-   
+
        queststatus=User:getQuestProgress(114); --here, we save which fields were visited
-      
+
        queststatuslist={};
        queststatuslist=common.Split_number(queststatus, 5); --reading the digits of the queststatus as table
-      
+
       for i=1,5 do
           if User:isInRangeToPosition(altar[i],1) and queststatuslist[i] == 0 then
               queststatuslist[i]=1; --found it!
@@ -68,7 +61,7 @@ function M.MoveToField(User)
                return; --more than solving isn't possible, bailing out
             end
             end
-      end   
+      end
    end
 end
 
