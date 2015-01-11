@@ -14,6 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
+local common = require("base.common")
 local treasureBase = require("item.base.treasure")
 local treasureContent = require("content.treasure")
 local lookat = require("base.lookat")
@@ -66,8 +67,9 @@ end
 
 function M.LookAtItem(User, Item)
     local textDe, textEn = getText(User, Item)
-    lookat.SetSpecialDescription(Item, textDe, textEn)
-    return lookat.GenerateLookAt(User, Item, lookat.NONE)
+    local itemLookat = lookat.GenerateLookAt(User, Item, lookat.NONE)
+    itemLookat.description = common.GetNLS(User, textDe, textEn)
+    return itemLookat
 end
 
 function M.UseItem(User, SourceItem)
