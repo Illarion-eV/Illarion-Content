@@ -479,6 +479,10 @@ end;
 
 
 function ArmourDegrade(Defender, Globals)
+    
+    if Defender.Char:getType() ~= Character.player then
+        return
+    end
 
 	--WHAT IS THIS? Pleae use comments. ~Estralis
 	local Rarity = NotNil(tonumber(Globals.HittedItem:getData("RareArmour")));
@@ -546,7 +550,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 	local Rarity = NotNil(tonumber(Attacker.WeaponItem:getData("RareWeapon")));
     local nameText=world:getItemName(Attacker.WeaponItem.id,Attacker.Char:getPlayerLanguage());
 
-	if(Rarity<0) then
+	if(Rarity<0) and Attacker.Char:getType() == Character.player then
 
 		local durability = math.fmod(Attacker.WeaponItem.quality, 100);
 		local quality = (Attacker.WeaponItem.quality - durability) / 100;
@@ -569,7 +573,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		"Du solltest aufhören, dein kaputtes Artefakt '"..nameText.."' zu verwenden, bevor es zerbricht!",
 		"You should stop wielding your broken artifact '"..nameText.."' before it shatters!");
 
-	elseif (common.Chance(1, 20)) and (Attacker.WeaponItem.id ~= 0) then
+	elseif (common.Chance(1, 20)) and (Attacker.WeaponItem.id ~= 0) and Attacker.Char:getType() == Character.player then
 
 		local durability = math.fmod(Attacker.WeaponItem.quality, 100);
 		local quality = (Attacker.WeaponItem.quality - durability) / 100;
@@ -597,7 +601,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 	Rarity = NotNil(tonumber(ParryWeapon:getData("RareWeapon")));
     local nameText=world:getItemName(ParryWeapon.id,Defender.Char:getPlayerLanguage());
 
-	if(Rarity<0) then
+	if(Rarity<0) and Defender.Char:getType() == Character.player then
 
 		local durability = math.fmod(ParryWeapon.quality, 100);
 		local quality = (ParryWeapon.quality - durability) / 100;
@@ -622,7 +626,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 		"Du solltest aufhören, dein kaputtes Artefakt '"..nameText.."' zu verwenden, bevor es zerbricht!",
 		"You should stop wielding your broken artifact '"..nameText.."' before it shatters!");
 
-	elseif (common.Chance(1, 60)) and (ParryWeapon.id ~= 0) then
+	elseif (common.Chance(1, 60)) and (ParryWeapon.id ~= 0) and Defender.Char:getType() == Character.player then
 		local durability = math.fmod(ParryWeapon.quality, 100);
 		local quality = (ParryWeapon.quality - durability) / 100;
 
