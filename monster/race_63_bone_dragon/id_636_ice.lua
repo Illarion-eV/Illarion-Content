@@ -31,7 +31,7 @@ function M.onSpawn(monster)
 end
 
 local magic = monstermagic()
-magic.addIcecone{probability = 0.02, damage = {from = 1500, to = 3000}, range = 6,
+magic.addIcecone{probability = 0.13, damage = {from = 1500, to = 3000}, range = 6,
     itemProbability = 0.055, quality = {from = 2, to = 5}}
 
 magic.setKeepDistance(false)
