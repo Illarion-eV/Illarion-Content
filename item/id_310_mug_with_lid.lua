@@ -23,7 +23,7 @@ local mugs = {}
 local mugAmount = 0
 
 function M.getRandomMugId()
-    Random.uniform(1, mugAmount)
+    return Random.uniform(1, mugAmount)
 end
 
 local function addMug(mugId, titleDe, titleEn, pictureDe, pictureEn)
