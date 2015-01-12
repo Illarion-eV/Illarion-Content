@@ -26,6 +26,14 @@ function M.getRandomMugId()
     return Random.uniform(1, mugAmount)
 end
 
+function M.dropMugByChance(dropLocation,chance)
+    chance = chance or 1
+    
+    if mugAmount > 0 and chance <= Random.uniform(1,100) then
+        world:createItemFromId(310, 1, dropLocation, true, 999, {mugId = M.getRandomMugId()})
+    end
+end
+
 local function addMug(mugId, titleDe, titleEn, pictureDe, pictureEn)
     mugs[mugId] = {titleDe = titleDe, titleEn = titleEn, pictureDe = pictureDe, pictureEn = pictureEn}
     mugAmount = mugAmount + 1
@@ -36,7 +44,6 @@ function M.LookAtItem(User, Item)
         Item:setData("mugId", M.getRandomMugId())
         world:changeItem(Item)
     end
-    
     
     local mugId = tonumber(Item:getData("mugId"))
     

@@ -24,6 +24,7 @@ local content = require("content.treasure")
 local money = require("base.money")
 local monsterHooks = require("monster.base.hooks")
 local scheduledFunction = require("scheduled.scheduledFunction")
+local mugWithLid = require("item.id_310_mug_with_lid")
 
 local M = {}
 
@@ -341,6 +342,7 @@ function M.dropTreasureItems(treasureLocation, level)
     table.insert(itemSpawnResults, dropTreasureItem(treasureLocation, level + 2))
     table.insert(itemSpawnResults, dropTreasureItem(treasureLocation, level + 2))
 
+    mugWithLid.dropMugByChance(dropLocation,level*2)
     money.GiveMoneyToPosition(treasureLocation, content.getMoneyInTreasure(level))
 
     -- check if all items got spawned.
