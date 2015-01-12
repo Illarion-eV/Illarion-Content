@@ -196,7 +196,7 @@ local function spawnMonster(spawnPosition, level)
         end
 
         local monster = world:createMonster(monsterId, spawnPosition, 10)
-        if monster == nil then
+        if monster == nil or not isValidChar(monster) then
             removeMonsterFromList(monsterId)
             debug(string.format("Treasure: Failed to spawn monster with ID %d. The monster is removed from the lists",
                                 monsterId))
