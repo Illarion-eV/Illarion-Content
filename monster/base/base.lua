@@ -19,6 +19,7 @@ local quests = require("monster.base.quests")
 local hooks = require("monster.base.hooks")
 local treasure = require("item.base.treasure")
 local arena = require("base.arena")
+local mugWithLid = require("item.id_310_mug_with_lid")
 
 local M = {}
 
