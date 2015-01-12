@@ -169,8 +169,8 @@ treasureContents[2] = {
     {236, 5}, 2571, {2588, 10}, --{2696, 10}, {2537, 10},
     -- Usables: parchment, soup bowl, plate, candles, small empty bottle, empty bottle, large empty bottle,
     {2745, 10}, {2935, 10}, {2952, 10}, {43, 10}, {1317, 10}, {164, 10}, {2498, 10},
-    -- Misc: amulet, iron goblet, golden goblet, mug with lid, wodden sword, plate, copper goblet, goblet, glass mug, plate, glass, clay mug, clay cup, wooden cup, wine glass,
-    222, 223, 224, 310, 445, 1001, 1840, 1858, 1908, 2031, 2055, 2183, 2184, 2185, 2457,
+    -- Misc: amulet, iron goblet, golden goblet, clay mug, wodden sword, plate, copper goblet, goblet, glass mug, plate, glass, clay mug, clay cup, wooden cup, wine glass,
+    222, 223, 224, 2183, 445, 1001, 1840, 1858, 1908, 2031, 2055, 2183, 2184, 2185, 2457,
     -- Handles: axehandle, large ornated handle, dagger handle, hammer handle, large handle, mace handle, morning star handle, saw handle, scythe handle, shovel handle, sickle handle, staff handle, long staff handle, sword handle, big sword handle, (small handle, )
     {2525, 10}, {2527, 10}, {2530, 10}, {2541, 10}, {2544, 10}, {2548, 10}, {2549, 10}, {2561, 10}, {2566, 10}, {2567, 10}, {2570, 10}, {2572, 10}, {2573, 10}, {2584, 10}, {2585, 10} --, 2528,
 }

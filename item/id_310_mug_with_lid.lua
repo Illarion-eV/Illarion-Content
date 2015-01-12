@@ -22,13 +22,8 @@ local M = {}
 local mugs = {}
 local mugAmount = 0
 
-function M.chanceForMugDrop(dropPosition, chance)
-    chance = chance or 1
-    
-    if chance < Random.uniform(1, 100) then
-        world:createItemFromId(310, 1, dropPosition, true, 333, {mugId = Random.uniform(1, mugAmount)})
-    end
-
+function M.getRandomMugId()
+    Random.uniform(1, mugAmount)
 end
 
 local function addMug(mugId, titleDe, titleEn, pictureDe, pictureEn)
@@ -38,7 +33,7 @@ end
 
 function M.LookAtItem(User, Item)
     if Item:getData("mugId") == "random" then
-        Item:setData("mugId", Random.uniform(1, mugAmount))
+        Item:setData("mugId", M.getRandomMugId())
         world:changeItem(Item)
     end
     

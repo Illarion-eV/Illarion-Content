@@ -123,6 +123,9 @@ local function dropLootItem(monster, lootItemData)
         if _isTable(mapData) then
             data = copyMergeTables(data, mapData)
         end
+    
+    elseif lootItemData.itemId == 310 then -- mug with lid; give it a proper collector's mug id
+        data = {mugId = mugWithLid.getRandomMugId()}
     end
 
     world:createItemFromId(lootItemData.itemId, amount, monster.pos, true, quality * 100 + durability, data)
