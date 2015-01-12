@@ -61,7 +61,7 @@ function M.getSpellResistence(char)
     local minResistence = willpower;
     local maxResistence = willpower * 2;
 
-    return common.Limit(Random.uniform(minResistence, maxResistence) / 50.0, 0, 1);
+    return common.Limit(Random.uniform(minResistence, maxResistence) / 80.0, 0, 1);
 end
 
 return M

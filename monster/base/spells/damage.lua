@@ -190,7 +190,7 @@ return function(params)
     -- Deal damage
     local function castSpellAt(enemy)
         local spellResistence = base.getSpellResistence(enemy)
-        local damage = Random.uniform(damageRange[1], damageRange[2]) * spellResistence
+        local damage = Random.uniform(damageRange[1], damageRange[2]) * (1.0 - spellResistence)
 
         base.dealMagicDamage(enemy, damage)
         if gfxId > 0 then world:gfx(gfxId, enemy.pos) end

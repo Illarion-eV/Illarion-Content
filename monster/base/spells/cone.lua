@@ -228,7 +228,7 @@ return function(params)
         if world:isCharacterOnField(pos) then
             local victim = world:getCharacterOnField(pos)
             local spellResistence = base.getSpellResistence(victim)
-            local damage = Random.uniform(damageRange[1], damageRange[2]) * spellResistence
+            local damage = Random.uniform(damageRange[1], damageRange[2]) * (1.0 - spellResistence)
 
             base.dealMagicDamage(victim, damage)
         end

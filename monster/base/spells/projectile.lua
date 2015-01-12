@@ -227,7 +227,7 @@ return function(params)
 
         if hitCharacter ~= nil then
             local spellResistence = base.getSpellResistence(hitCharacter)
-            local damage = Random.uniform(damageRange[1], damageRange[2]) * spellResistence
+            local damage = Random.uniform(damageRange[1], damageRange[2]) * (1.0 - spellResistence)
             base.dealMagicDamage(hitCharacter, damage)
         end
 
