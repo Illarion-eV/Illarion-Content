@@ -129,10 +129,10 @@ function M.UseItem(User, SourceItem, ltstate)
 
 	    if User:getPlayerLanguage() == 0 then
 
-			dialogChancellor1 = MessageDialog("Liste der Galmarianischen Kanzler","Arcia im Jahr 44\nII. Evie Pryler im Jahr 43\nIII. Oxiana im Jahr42\nIV. Oxiana im Jahr 41", callbackChancellor1)
+			dialogChancellor1 = MessageDialog("Liste der Galmarianischen Kanzler","Arcia im Jahr 44\nEvie Pryler im Jahr 43\nOxiana im Jahr42\nOxiana im Jahr 41", callbackChancellor1)
 
 	    else
-		    dialogChancellor1 = MessageDialog("List of Galmairian Chancellors","Arcia in the year 44\nII. Evie Pryler in the year 43\nIII. Oxiana in the year 42\nIV. Oxiana in the year 41", callbackChancellor1)
+		    dialogChancellor1 = MessageDialog("List of Galmairian Chancellors","Arcia in the year 44\nEvie Pryler in the year 43\nOxiana in the year 42\nOxiana in the year 41", callbackChancellor1)
 
 	    end
 
@@ -145,28 +145,28 @@ function M.UseItem(User, SourceItem, ltstate)
 
 	    if User:getPlayerLanguage() == 0 then
 
-		    dialogChancellor2 = MessageDialog("Liste der Galmarianischen Kanzler","Kyre im Jahr 44\nII. Velisai im Jahr 43\nIII. Kyre im Jahr42\nIV. Kyre im Jahr", callbackChancellor2)
+		    dialogChancellor2 = MessageDialog("Liste der Galmarianischen Kanzler","Kyre im Jahr 44\nVelisai im Jahr 43\nKyre im Jahr42\nKyre im Jahr", callbackChancellor2)
 
 	    else
 
-		    dialogChancellor2 = MessageDialog("List of Galmairian Chancellors","Kyre in the year 44\nII. Velisai in the year 43\nIII. Kyre in the year 42\nIV. Kyre in the year 41", callbackChancellor2)
+		    dialogChancellor2 = MessageDialog("List of Galmairian Chancellors","Kyre in the year 44\nVelisai in the year 43\nKyre in the year 42\nKyre in the year 41", callbackChancellor2)
 
 	    end
 
 		User:requestMessageDialog(dialogChancellor2)
 
-	elseif SourceItem.pos == position (359,266,0) then --Chancellor Statue 3
+	elseif SourceItem.pos == position (374,282,0) then --Chancellor Statue 3
 
 		--Dialog
 		local callbackChancellor3 = function(dialogChancellor3) end --empty callback
 
 	    if User:getPlayerLanguage() == 0 then
 
-		    dialogChancellor3 = MessageDialog("Liste der Galmarianischen Kanzler","Sarangerel (Ufedhin Copperhand) im Jahr 44\nII. Sarangerel im Jahr 43\nIII. Uhuru Pryler im Jahr42\nIV. Purple im Jahr", callbackChancellor3)
+		    dialogChancellor3 = MessageDialog("Liste der Galmarianischen Kanzler","Sarangerel (Ufedhin Copperhand) im Jahr 44\nSarangerel im Jahr 43\nUhuru Pryler im Jahr42\nPurple im Jahr", callbackChancellor3)
 
 	    else
 
-		    dialogChancellor3 = MessageDialog("List of Galmairian Chancellors","Sarangerel (Ufedhin Copperhand) in the year 44\nII. Sarangerel in the year 43\nIII. Uhuru Pryler in the year 42\nIV. Purple in the year 41", callbackChancellor3)
+		    dialogChancellor3 = MessageDialog("List of Galmairian Chancellors","Sarangerel (Ufedhin Copperhand) in the year 44\nSarangerel in the year 43\nUhuru Pryler in the year 42\nPurple in the year 41", callbackChancellor3)
 
 	    end
 
