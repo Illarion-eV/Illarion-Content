@@ -347,7 +347,7 @@ function M.GetFreePositions(centerPosition, searchRadius, allowPassableItems, sh
     local yCoords = {}
     for i = -searchRadius, searchRadius do
         table.insert(xCoords, centerPosition.x + i)
-        table.insert(yCoords, centerPosition.x + i)
+        table.insert(yCoords, centerPosition.y + i)
     end
     if shuffle then
         M.Shuffle(xCoords)
