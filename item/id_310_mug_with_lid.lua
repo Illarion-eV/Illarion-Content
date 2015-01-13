@@ -29,7 +29,7 @@ end
 function M.dropMugByChance(dropLocation,chance)
     chance = chance or 1
     
-    if mugAmount > 0 and chance <= Random.uniform(1,100) then
+    if mugAmount > 0 and chance >= Random.uniform(1,100) then
         world:createItemFromId(310, 1, dropLocation, true, 999, {mugId = M.getRandomMugId()})
     end
 end
