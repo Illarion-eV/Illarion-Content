@@ -20,23 +20,23 @@ local lookat = require("base.lookat")
 local M = {}
 
 local mugs = {}
-local mugAmount = 0
+local validMugIds = {}
 
 function M.getRandomMugId()
-    return Random.uniform(1, mugAmount)
+    return validMugIds[Random.uniform(1, #validMugIds)]
 end
 
 function M.dropMugByChance(dropLocation,chance)
     chance = chance or 1
     
-    if mugAmount > 0 and chance >= Random.uniform(1,100) then
+    if #validMugIds > 0 and chance >= Random.uniform(1,100) then
         world:createItemFromId(310, 1, dropLocation, true, 999, {mugId = M.getRandomMugId()})
     end
 end
 
 local function addMug(mugId, titleDe, titleEn, pictureDe, pictureEn)
     mugs[mugId] = {titleDe = titleDe, titleEn = titleEn, pictureDe = pictureDe, pictureEn = pictureEn}
-    mugAmount = mugAmount + 1
+    table.insert(validMugIds, mugId)
 end
 
 function M.LookAtItem(User, Item)
