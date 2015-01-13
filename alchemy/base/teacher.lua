@@ -42,22 +42,22 @@ HerbsTaskOneNameEN["Recognizing Spring"] = {"virgin's weed","strawberries","yell
 HerbsTaskOneNameDE["Recognizing Spring"] = {"Jungfernkraut","Erdbeeren","Gelbkraut"}
 -- TASK ONE END --
 
--- TASK TWO: two normal herbs 
-HerbsTaskTwoId = {}
-HerbsTaskTwoNameEN = {}
-HerbsTaskTwoNameDE = {}
+-- TASK TWO: two gem powders
+GemPowderTaskTwoId = {}
+GemPowderTaskTwoNameEN = {}
+GemPowderTaskTwoNameDE = {}
 
-HerbsTaskTwoId["Knowing Tree"] =   {761,766}
-HerbsTaskTwoNameEN["Knowing Tree"] = {"rain weed","con blossom"}
-HerbsTaskTwoNameDE["Knowing Tree"] = {"Regenkraut","Trugblüte"}
+GemPowderTaskTwoId["Knowing Tree"] =   {446,447}
+GemPowderTaskTwoNameEN["Knowing Tree"] = {"sapphire powder","ruby powder"}
+GemPowderTaskTwoNameDE["Knowing Tree"] = {"Saphirstaub","Rubinstaub"}
 
-HerbsTaskTwoId["Thinking Stone"] =   {769,146}
-HerbsTaskTwoNameEN["Thinking Stone"] = {"desert berry","desert sky capsule"}
-HerbsTaskTwoNameDE["Thinking Stone"] = {"Wüstenbeere","Wüstenhimmelskapsel"}
+GemPowderTaskTwoId["Thinking Stone"] =   {448,449}
+GemPowderTaskTwoNameEN["Thinking Stone"] = {"emerald powder","obsidian powder"}
+GemPowderTaskTwoNameDE["Thinking Stone"] = {"Smaragdstaub","Obsidianstaub"}
 
-HerbsTaskTwoId["Recognizing Spring"] = {756,765}
-HerbsTaskTwoNameEN["Recognizing Spring"] = {"pious berry","day dream"}
-HerbsTaskTwoNameDE["Recognizing Spring"] = {"Frommbeere","Tagtraum"}
+GemPowderTaskTwoId["Recognizing Spring"] = {450,452}
+GemPowderTaskTwoNameEN["Recognizing Spring"] = {"amethyst powder","diamond powder"}
+GemPowderTaskTwoNameDE["Recognizing Spring"] = {"Amethyststaub","Diamantstaub"}
 -- TASK TWO END --
 
 -- deleting the herbs --
@@ -71,6 +71,19 @@ HerbsDeleteTextDE["Recognizing Spring"] = {"Ein Schwall von Wasser erhebt sich a
 HerbsDeleteTextEN["Knowing Tree"] = {"A gust of wind gets hold of the herbs and carries them into the treetop."}
 HerbsDeleteTextEN["Thinking Stone"] = {"As if they had an own will, the herbs fall out of your hand and disappear in a small sand vortex."}
 HerbsDeleteTextEN["Recognizing Spring"] = {"A wave raises from the spring and flushes the herbs from your hand, which disappear in the water."}
+-- deleting END --
+
+-- deleting the gem powder --
+GemPowderDeleteTextDE = {}
+GemPowderDeleteTextEN = {}
+
+GemPowderDeleteTextDE["Knowing Tree"] = {"Eine Windböe erfasst die Beutel mit Edelsteinstaub und trägt sie in die Krone des Baumes."}
+GemPowderDeleteTextDE["Thinking Stone"] = {"Wie von selbst fallen die Beutel mit Edelsteinstaub aus deiner Hand und verschwinden in einem Strudel von Sand."}
+GemPowderDeleteTextDE["Recognizing Spring"] = {"Ein Schwall von Wasser erhebt sich aus der Quelle und spült die Beutel mit Edelsteinstaub aus deiner Hand, welche im Wasse verschwinden." }
+
+GemPowderDeleteTextEN["Knowing Tree"] = {"A gust of wind gets hold of the gem powder bags and carries them into the treetop."}
+GemPowderDeleteTextEN["Thinking Stone"] = {"As if they had an own will, the gem pwoder bags fall out of your hand and disappear in a small sand vortex."}
+GemPowderDeleteTextEN["Recognizing Spring"] = {"A wave raises from the spring and flushes the gem powder bags from your hand, which disappear in the water."}
 -- deleting END --
 
 -- question and answer lists --
@@ -445,8 +458,8 @@ function SecondTask(User, SourceItem)
 	else
 	    -- he has finished the first task; delete herbs; tell him his second task
 		SendMessage(User, SourceItem,
-			        HerbsDeleteTextEN[questInfos.teacherEN2][1].." For a short amount of time it seems as if someone would smack their lips, then the voice says: \"Good, very good. But there is an other task for you left. Now bring me two rare herbs - "..HerbsTaskTwoNameEN[questInfos.teacherEN2][1].." and "..HerbsTaskTwoNameEN[questInfos.teacherEN2][2]..". Be successful and you are a step closer to your goal.", 
-					HerbsDeleteTextDE[questInfos.teacherEN2][1].." Für einen Moment glaubst du etwas wie ein Schmatzen zu hören, bevor die Stimme erklingt: \"Sehr gut, sehr gut. Aber es erwartet dich noch eine Aufgabe. Nun sollst du mir zwei seltene Kräuter bringen und zwar "..HerbsTaskTwoNameDE[questInfos.teacherEN2][1].." und "..HerbsTaskTwoNameDE[questInfos.teacherEN2][2]..". Sei erfolgreich und du bist deinem Ziel ein Stück näher."
+			        HerbsDeleteTextEN[questInfos.teacherEN2][1].." For a short amount of time it seems as if someone would smack their lips, then the voice says: \"Good, very good. But there is an other task for you left. Now bring me two rare herbs - "..GemPowderTaskTwoNameEN[questInfos.teacherEN2][1].." and "..GemPowderTaskTwoNameEN[questInfos.teacherEN2][2]..". Be successful and you are a step closer to your goal.", 
+					HerbsDeleteTextDE[questInfos.teacherEN2][1].." Für einen Moment glaubst du etwas wie ein Schmatzen zu hören, bevor die Stimme erklingt: \"Sehr gut, sehr gut. Aber es erwartet dich noch eine Aufgabe. Nun sollst du mir zwei seltene Kräuter bringen und zwar "..GemPowderTaskTwoNameDE[questInfos.teacherEN2][1].." und "..GemPowderTaskTwoNameDE[questInfos.teacherEN2][2]..". Sei erfolgreich und du bist deinem Ziel ein Stück näher."
 					);
 		User:eraseItem(HerbsTaskOneId[questInfos.teacherEN2][1],5)
 		User:eraseItem(HerbsTaskOneId[questInfos.teacherEN2][2],5)
@@ -463,21 +476,21 @@ function ThirdTask(User, SourceItem)
 	
 	if qstPrg == 3 then
         -- check if he accomplished the second task	
-	    if (User:countItem(HerbsTaskTwoId[questInfos.teacherEN2][1]) < 1) or (User:countItem(HerbsTaskTwoId[questInfos.teacherEN2][2]) < 1) then
+	    if (User:countItem(GemPowderTaskTwoId[questInfos.teacherEN2][1]) < 1) or (User:countItem(GemPowderTaskTwoId[questInfos.teacherEN2][2]) < 1) then
 	        SendMessage(User, SourceItem,
-			            "\"Oh! You don't have the herbs. If you have forgotten what you are supposed to get - "..HerbsTaskTwoNameEN[questInfos.teacherEN2][1].." and "..HerbsTaskTwoNameEN[questInfos.teacherEN2][2]..".\"", 
-						"\"Sowas! Du hast die Kräuter nicht dabei. Falls du es vergessen hast - "..HerbsTaskTwoNameDE[questInfos.teacherEN2][1].." and "..HerbsTaskTwoNameDE[questInfos.teacherEN2][2]..".\""
+			            "\"Oh! You don't have the gem powder. If you have forgotten what you are supposed to get - "..GemPowderTaskTwoNameEN[questInfos.teacherEN2][1].." and "..GemPowderTaskTwoNameEN[questInfos.teacherEN2][2]..".\"", 
+						"\"Sowas! Du hast den Edelsteinstaub nicht dabei. Falls du es vergessen hast - "..GemPowderTaskTwoNameDE[questInfos.teacherEN2][1].." and "..GemPowderTaskTwoNameDE[questInfos.teacherEN2][2]..".\""
 						);
             return
 	    else -- he was; inform him about the questions and ask him the first one after he closed the message dialog
 		    User:setQuestProgress(questInfos.questId,4)
 			SendMessage(User, SourceItem,
-			            HerbsDeleteTextEN[questInfos.teacherEN2][1].." For a moment you believe to hear something like: \"Delicious, mh, so delicious...\" Then you hear the familiar voice: \"Yes, you solved this task. Now, he wants me to ask you some question. When you have answered three, I will tell you the secret of alchemy.\"", 
-						HerbsDeleteTextDE[questInfos.teacherEN2][1].." Einen Moment lang glaubst du ein Murmeln zu hören: \"Lecker, mh, so lecker...\" Dann erklingt die Stimme wieder auf bekannte Weise: \"Ja, du hast diese Aufgabe bestanden. Als nächstes verlangt er, dass ich dir Fragen stelle. Sobald du mir drei beantworten konntest, werde ich dir das Geheimnis verraten.\"",
+			            GemPowderDeleteTextEN[questInfos.teacherEN2][1].." For a moment you believe to hear something like: \"Delicious, mh, so delicious...\" Then you hear the familiar voice: \"Yes, you solved this task. Now, he wants me to ask you some question. When you have answered three, I will tell you the secret of alchemy.\"", 
+						GemPowderDeleteTextDE[questInfos.teacherEN2][1].." Einen Moment lang glaubst du ein Murmeln zu hören: \"Lecker, mh, so lecker...\" Dann erklingt die Stimme wieder auf bekannte Weise: \"Ja, du hast diese Aufgabe bestanden. Als nächstes verlangt er, dass ich dir Fragen stelle. Sobald du mir drei beantworten konntest, werde ich dir das Geheimnis verraten.\"",
 						true
 						);
-            User:eraseItem(HerbsTaskTwoId[questInfos.teacherEN2][1],1)
-			User:eraseItem(HerbsTaskTwoId[questInfos.teacherEN2][2],1)
+            User:eraseItem(GemPowderTaskTwoId[questInfos.teacherEN2][1],1)
+			User:eraseItem(GemPowderTaskTwoId[questInfos.teacherEN2][2],1)
 		end	
 	else
 	    -- ask the remaining questions
