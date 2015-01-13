@@ -21,7 +21,7 @@ local mageBehaviour = require("monster.base.behaviour.mage")
 local monstermagic = require("monster.base.monstermagic")
 
 local magic = monstermagic()
-magic.addWarping{probability = 0.03, usage = magic.ONLY_NEAR_ENEMY}
+magic.addWarping{probability = 0.15, usage = magic.ONLY_NEAR_ENEMY}
 
 magic.addFireball{probability = 0.05, damage = {from = 2000, to = 3000}}
 magic.addFireball{probability = 0.03, damage = {from =  700, to = 1500}, targetCount = 3}

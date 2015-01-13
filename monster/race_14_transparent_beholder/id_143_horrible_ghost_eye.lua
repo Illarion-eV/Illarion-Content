@@ -21,7 +21,7 @@ local monstermagic = require("monster.base.monstermagic")
 local transparentBeholders = require("monster.race_14_transparent_beholder.base")
 
 local magic = monstermagic()
-magic.addWarping{probability = 0.04, usage = magic.ONLY_NEAR_ENEMY}
+magic.addWarping{probability = 0.17, usage = magic.ONLY_NEAR_ENEMY}
 
 magic.addFireball{   probability = 0.04,  damage = {from = 1500, to = 2500}}
 magic.addIceball{    probability = 0.009, damage = {from = 1700, to = 3000}}

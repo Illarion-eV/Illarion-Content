@@ -21,7 +21,7 @@ local monstermagic = require("monster.base.monstermagic")
 local redImps = require("monster.race_89_red_imp.base")
 
 local magic = monstermagic()
-magic.addWarping{probability = 0.03, usage = magic.ONLY_NEAR_ENEMY}
+magic.addWarping{probability = 0.15, usage = magic.ONLY_NEAR_ENEMY}
 
 magic.addSummon{probability = 0.03, monsters = {622, 1032}} -- slimes
 

@@ -33,7 +33,7 @@ function M.onSpawn(monster)
 end
 
 local magic = monstermagic()
-magic.addWarping{probability = 0.03, usage = magic.ONLY_NEAR_ENEMY}
+magic.addWarping{probability = 0.15, usage = magic.ONLY_NEAR_ENEMY}
 
 magic.addIcestrike{probability = 0.05, damage = {from = 1000, to = 2000}}
 magic.addIcestrike{probability = 0.03, damage = {from =  500, to = 1000}, targetCount = 3}
