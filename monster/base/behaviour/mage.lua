@@ -47,6 +47,22 @@ local function _isPlayerAtAdjazentTile(pos)
     return false
 end
 
+local function isDistanceWeaponInSlot(char, slot)
+    local item = char:getItemAt(slot)
+    if item ~= nil then
+        local weaponFound, weapon = world:getWeaponStruct(item.id)
+        if weaponFound then
+            return weapon.WeaponType == 7
+        end
+    end
+    return false
+end
+
+-- Check if a character is a archer. Means that he has a distance weapon in either hand
+local function _isArcher(char)
+    return isDistanceWeaponInSlot(char, Character.right_tool) or isDistanceWeaponInSlot(char, Character.left_tool)
+end
+
 function M.addCallbacks(magic, t)
     if not _isTable(magic) then
         error("Creating the mage behaviour for monsters requires a reference to the monster magic instance.")
@@ -109,7 +125,9 @@ function M.addCallbacks(magic, t)
 
         local players = world:getPlayersInRangeOf(monster.pos, maximalAttackDistance)
         for _, player in pairs(players) do
-            if isPossibleTarget(monster, player) then
+            -- Check if there is a possible target in range that is NOT a archer. In case there are only archers
+            -- go into close combat, as the archers are weaker this way.
+            if isPossibleTarget(monster, player) and not _isArcher(player) then
                 return true
             end
         end
