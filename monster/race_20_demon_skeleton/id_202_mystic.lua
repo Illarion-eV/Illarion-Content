@@ -16,8 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 202, Mystic Demon Skeleton, Level: 6, Armourtype: light, Weapontype: concussion (wrestling)
 
-local monstermagic = require("monster.base.monstermagic")
 local demonSkeletons = require("monster.race_20_demon_skeleton.base")
+local mageBehaviour = require("monster.base.behaviour.mage")
+local monstermagic = require("monster.base.monstermagic")
 
 local magic = monstermagic()
 magic.addWarping{probability = 0.05, usage = magic.ONLY_NEAR_ENEMY}
@@ -28,4 +29,5 @@ magic.addIceball{    probability = 0.009, damage = {from = 2000, to = 3000}}
 magic.addFlamestrike{probability = 0.001, damage = {from = 1000, to = 1500}, targetCount = 7}
 
 local M = demonSkeletons.generateCallbacks()
-return magic.addCallbacks(M)
+M = magic.addCallbacks(M)
+return mageBehaviour.addCallbacks(magic, M)

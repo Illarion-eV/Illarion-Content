@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 143, Horrible Ghost Eye, Level: 6, Armourtype: heavy, Weapontype: slashing
 
+local mageBehaviour = require("monster.base.behaviour.mage")
 local monstermagic = require("monster.base.monstermagic")
 local transparentBeholders = require("monster.race_14_transparent_beholder.base")
 
@@ -32,4 +33,5 @@ magic.addHealing{probability = 0.05, damage = {from = 1500, to = 2500}}
 magic.addHealing{probability = 0.05, damage = {from = 1000, to = 1500}, targetCount = 2}
 
 local M = transparentBeholders.generateCallbacks()
-return magic.addCallbacks(M)
+M = magic.addCallbacks(M)
+return mageBehaviour.addCallbacks(magic, M)

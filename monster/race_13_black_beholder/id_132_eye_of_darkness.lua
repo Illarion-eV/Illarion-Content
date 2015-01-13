@@ -16,8 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 132, Eye of Darkness, Level: 8, Armourtype: medium, Weapontype: slashing
 
-local monstermagic = require("monster.base.monstermagic")
 local blackBeholders = require("monster.race_13_black_beholder.base")
+local mageBehaviour = require("monster.base.behaviour.mage")
+local monstermagic = require("monster.base.monstermagic")
 
 local magic = monstermagic()
 magic.addWarping{probability = 0.08, usage = magic.ONLY_NEAR_ENEMY}
@@ -33,4 +34,5 @@ magic.addHealing{probability = 0.05, damage = {from = 1500, to = 2500}}
 magic.addHealing{probability = 0.05, damage = {from = 1000, to = 1500}, targetCount = 2}
 
 local M = blackBeholders.generateCallbacks()
-return magic.addCallbacks(M)
+M = magic.addCallbacks(M)
+return mageBehaviour.addCallbacks(magic, M)

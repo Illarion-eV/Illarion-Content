@@ -16,8 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 64, Drow Priest, Level: 6, Armourtype: cloth, Weapontype: concussion
 
-local monstermagic = require("monster.base.monstermagic")
 local drows = require("monster.race_6_drow.base")
+local mageBehaviour = require("monster.base.behaviour.mage")
+local monstermagic = require("monster.base.monstermagic")
 
 local magic = monstermagic()
 magic.addWarping{probability = 0.03, usage = magic.ONLY_NEAR_ENEMY}
@@ -29,4 +30,5 @@ magic.addSummon{probability = 0.0001, monsters = {893}} -- rare summon. Magic fi
 magic.addVioletFlame{probability = 0.02, damage = {from = 1000, to = 2000}}
 
 local M = drows.generateCallbacks()
-return magic.addCallbacks(M)
+M = magic.addCallbacks(M)
+return mageBehaviour.addCallbacks(magic, M)

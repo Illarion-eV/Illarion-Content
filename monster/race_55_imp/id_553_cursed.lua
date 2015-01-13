@@ -16,8 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 553, Cursed Imp, Level: 4, Armourtype: cloth, Weapontype: distance
 
-local monstermagic = require("monster.base.monstermagic")
 local imps = require("monster.race_55_imp.base")
+local mageBehaviour = require("monster.base.behaviour.mage")
+local monstermagic = require("monster.base.monstermagic")
 
 local magic = monstermagic()
 magic.addWarping{probability = 0.05, usage = magic.ONLY_NEAR_ENEMY}
@@ -26,4 +27,5 @@ magic.addFireball{probability = 0.025,  damage = {from = 500, to = 1500}}
 magic.addIceball{ probability = 0.025,  damage = {from = 500, to = 1500}}
 
 local M = imps.generateCallbacks()
-return magic.addCallbacks(M)
+M = magic.addCallbacks(M)
+return mageBehaviour.addCallbacks(magic, M)
