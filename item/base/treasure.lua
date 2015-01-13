@@ -342,7 +342,7 @@ function M.dropTreasureItems(treasureLocation, level)
     table.insert(itemSpawnResults, dropTreasureItem(treasureLocation, level + 2))
     table.insert(itemSpawnResults, dropTreasureItem(treasureLocation, level + 2))
 
-    mugWithLid.dropMugByChance(dropLocation,level*2)
+    mugWithLid.dropMugByChance(treasureLocation,level*2)
     money.GiveMoneyToPosition(treasureLocation, content.getMoneyInTreasure(level))
 
     -- check if all items got spawned.
