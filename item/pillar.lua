@@ -145,7 +145,7 @@ function M.UseItem(User, SourceItem, ltstate)
 
 	    if User:getPlayerLanguage() == 0 then
 
-		    dialogChancellor2 = MessageDialog("Liste der Galmarianischen Kanzler","Kyre im Jahr 44\nVelisai im Jahr 43\nKyre im Jahr42\nKyre im Jahr", callbackChancellor2)
+		    dialogChancellor2 = MessageDialog("Liste der Galmarianischen Kanzler","Kyre im Jahr 44\nVelisai im Jahr 43\nKyre im Jahr42\nKyre im Jahr 41", callbackChancellor2)
 
 	    else
 
@@ -162,7 +162,7 @@ function M.UseItem(User, SourceItem, ltstate)
 
 	    if User:getPlayerLanguage() == 0 then
 
-		    dialogChancellor3 = MessageDialog("Liste der Galmarianischen Kanzler","Sarangerel (Ufedhin Copperhand) im Jahr 44\nSarangerel im Jahr 43\nUhuru Pryler im Jahr42\nPurple im Jahr", callbackChancellor3)
+		    dialogChancellor3 = MessageDialog("Liste der Galmarianischen Kanzler","Sarangerel (Ufedhin Copperhand) im Jahr 44\nSarangerel im Jahr 43\nUhuru Pryler im Jahr42\nPurple im Jahr 41", callbackChancellor3)
 
 	    else
 
