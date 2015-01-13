@@ -47,7 +47,7 @@ function M.LookAtItem(User, Item)
     
     local mugId = tonumber(Item:getData("mugId"))
     
-    if mugId then
+    if mugId and mugs[mugId] then
         lookat.SetSpecialName(Item,"Verzierter Humpen","Decorated Mug")
 		lookat.SetSpecialDescription(Item,"Der Humpen zeigt folgendes Bild: ".. mugs[mugId]["pictureDe"] .." Unter dem Bild befindet eine Gravur: ".. mugs[mugId]["titleDe"], "The mug shows the following picture: ".. mugs[mugId]["pictureEn"] .." There is an engraving beneath the picture: ".. mugs[mugId]["titleEn"])
     end
