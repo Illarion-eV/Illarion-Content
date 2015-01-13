@@ -192,7 +192,7 @@ local function spawnMonster(spawnPosition, level)
     while true do
         local monsterId = getRandomMonsterId(level)
         if monsterId == -1 then
-            return nil
+            return false
         end
 
         local monster = world:createMonster(monsterId, spawnPosition, 10)
@@ -236,7 +236,7 @@ local function spawnMonsters(treasurePosition, treasureLevel)
 
     -- check if the creation of any monster failed
     for _, monster in pairs(createdMonsters) do
-        if monster == nil then
+        if not monster then
             killMonsters(createdMonsters)
             return nil
         end
