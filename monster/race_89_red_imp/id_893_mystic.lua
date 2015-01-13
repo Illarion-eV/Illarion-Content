@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 893, Mystic Fireimp, Level: 4, Armourtype: cloth, Weapontype: concussion
 
+local mageBehaviour = require("monster.base.behaviour.mage")
 local monstermagic = require("monster.base.monstermagic")
 local redImps = require("monster.race_89_red_imp.base")
 
@@ -27,4 +28,5 @@ magic.addSummon{probability = 0.03, monsters = {622, 1032}} -- slimes
 magic.addFireball{probability = 0.05, damage = {from = 250, to = 750}}
 
 local M = redImps.generateCallbacks()
-return magic.addCallbacks(M)
+M = magic.addCallbacks(M)
+return mageBehaviour.addCallbacks(magic, M)

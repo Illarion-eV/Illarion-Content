@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 115, Mystic Skeleton, Level: 3, Armourtype: cloth, Weapontype: concussion
 
+local mageBehaviour = require("monster.base.behaviour.mage")
 local monstermagic = require("monster.base.monstermagic")
 local skeletons = require("monster.race_11_skeleton.base")
 
@@ -30,4 +31,5 @@ magic.addHealing{probability = 0.05, damage = {from = 700, to = 1500}}
 magic.addHealing{probability = 0.05, damage = {from = 500, to = 1000}, targetCount = 2}
 
 local M = skeletons.generateCallbacks()
-return magic.addCallbacks(M)
+M = magic.addCallbacks(M)
+return mageBehaviour.addCallbacks(magic, M)

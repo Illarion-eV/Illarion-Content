@@ -32,8 +32,6 @@ end
 
 local magic = monstermagic()
 magic.addFirecone{probability = 0.13, damage = {from = 1500, to = 3000}, range = 6,
-    itemProbability = 0.055, quality = {from = 2, to = 5} }
-
-magic.setKeepDistance(false)
+    itemProbability = 0.055, quality = {from = 2, to = 5}}
 
 return magic.addCallbacks(M)

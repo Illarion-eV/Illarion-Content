@@ -16,8 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 783, Golden Magus, Level: 5, Armourtype: light, Weapontype: concussion
 
-local monstermagic = require("monster.base.monstermagic")
 local goldenSkeletons = require("monster.race_78_golden_skeleton.base")
+local mageBehaviour = require("monster.base.behaviour.mage")
+local monstermagic = require("monster.base.monstermagic")
 
 local magic = monstermagic()
 magic.addWarping{probability = 0.03, usage = magic.ONLY_NEAR_ENEMY}
@@ -30,4 +31,5 @@ magic.addHealing{probability = 0.05, damage = {from = 1000, to = 2000}}
 magic.addHealing{probability = 0.05, damage = {from =  500, to = 1000}, targetCount = 3}
 
 local M = goldenSkeletons.generateCallbacks()
-return magic.addCallbacks(M)
+M = magic.addCallbacks(M)
+return mageBehaviour.addCallbacks(magic, M)

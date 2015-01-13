@@ -15,8 +15,9 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 4, Human Necromancer, Level: 5, Armourtype: cloth, Weapontype: concussion
-local monstermagic = require("monster.base.monstermagic")
 local humans = require("monster.race_0_human.base")
+local mageBehaviour = require("monster.base.behaviour.mage")
+local monstermagic = require("monster.base.monstermagic")
 
 local magic = monstermagic()
 magic.addWarping{probability = 0.03, usage = magic.ONLY_NEAR_ENEMY}
@@ -28,4 +29,5 @@ magic.addSummon{probability = 0.0001, monsters = {115, 201}} -- rare summon. Mag
 magic.addVioletFlame{probability = 0.02, damage = {from = 800, to = 1600}}
 
 local M = humans.generateCallbacks()
-return magic.addCallbacks(M)
+M = magic.addCallbacks(M)
+return mageBehaviour.addCallbacks(magic, M)

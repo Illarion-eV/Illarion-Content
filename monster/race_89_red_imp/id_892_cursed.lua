@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 892, Cursed Fire Imp, Level: 3, Armourtype: light, Weapontype: slashing
 
+local mageBehaviour = require("monster.base.behaviour.mage")
 local monstermagic = require("monster.base.monstermagic")
 local redImps = require("monster.race_89_red_imp.base")
 
@@ -26,4 +27,5 @@ magic.addFireball{probability = 0.045, damage = {from = 250, to = 750}}
 magic.addFlamestrike{probability = 0.005, damage = {from = 250, to = 750}, targetCount = 3}
 
 local M = redImps.generateCallbacks()
-return magic.addCallbacks(M)
+M = magic.addCallbacks(M)
+return mageBehaviour.addCallbacks(magic, M)

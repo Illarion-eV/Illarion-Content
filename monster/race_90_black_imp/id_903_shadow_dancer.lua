@@ -20,8 +20,6 @@ local monstermagic = require("monster.base.monstermagic")
 local blackImps = require("monster.race_90_black_imp.base")
 
 local magic = monstermagic()
-magic.addWarping{probability = 0.03, usage = magic.ONLY_NEAR_ENEMY}
-
 magic.addSummon{probability = 0.0249, monsters = {622, 611, 881}} -- Angry chicken, Stinky Slime, Bloodhunter
 magic.addSummon{probability = 0.0050, monsters = {614, 883}}      -- Cauterizing Slime, Bloodsniffler
 magic.addSummon{probability = 0.0001, monsters = {852}}           -- Shadowfright

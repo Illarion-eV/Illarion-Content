@@ -45,29 +45,11 @@ local function _isFunction(value)
     return type(value) == "function"
 end
 
-local function _isPlayerAtAdjazentTile(pos)
-    for x = -1, 1 do
-        for y = -1, 1 do
-            if x ~= 0 or y ~= 0 then
-                local checkPos = position(pos.x + x, pos.y + y, pos.z)
-                if world:isCharacterOnField(checkPos) then
-                    local char = world:getCharacterOnField(checkPos)
-                    if character.IsPlayer(char) and not character.IsDead(char) then
-                        return true
-                    end
-                end
-            end
-        end
-    end
-    return false
-end
-
 return function()
     local self = {}
     local spellsEnemyNear = {}
     local spellsEnemyOnSight = {}
     local maximalAttackDistance = 1
-    local keepDistance = true
 
     self.ONLY_ON_SIGHT = 1
     self.ONLY_NEAR_ENEMY = 2
@@ -166,13 +148,14 @@ return function()
         self.addSpell(warpSpell(params), params)
     end
 
-    function self.setKeepDistance(value)
-        keepDistance = value
+    function self.getMaximalAttackDistance()
+        return maximalAttackDistance
     end
 
     local function castEnemyNear(monster, enemy)
         for _, spell in pairs(spellsEnemyNear) do
             if (spell.cast(monster, enemy)) then
+                monster:performAnimation(11) -- Cast Animation
                 return true
             end
         end
@@ -187,42 +170,6 @@ return function()
             end
         end
         return false
-    end
-
-    local function isPossibleTarget(monster, target)
-        if character.IsDead(target) then
-            return false
-        end
-
-        if not monster:isInRange(target, maximalAttackDistance) then
-            return false
-        end
-
-        local foundObstruction = false
-        common.CreateLine(monster.pos, target.pos, function(currentPos)
-            if currentPos == monster.pos then return true end
-            if target.pos == currentPos then
-                foundObstruction = false
-                return false
-            end
-
-            if world:isCharacterOnField(currentPos) then
-                foundObstruction = true
-                return false
-            end
-
-            if world:isItemOnField(currentPos) then
-                local possibleObstruction = world:getItemOnField(currentPos)
-                if possibleObstruction:isLarge() then
-                    foundObstruction = true
-                    return false
-                end
-            end
-
-            return true
-        end)
-
-        return not foundObstruction
     end
 
     function self.addCallbacks(t)
@@ -243,24 +190,8 @@ return function()
             if oldEnemyOnSight ~= nil and oldEnemyOnSight(monster, enemy) then
                 return true
             end
-            if castEnemyOnSight(monster, enemy) then
-                return true
-            end
 
-            if _isPlayerAtAdjazentTile(monster.pos) then
-                return false
-            end
-
-            if keepDistance then
-                local players = world:getPlayersInRangeOf(monster.pos, maximalAttackDistance)
-                for _, player in pairs(players) do
-                    if isPossibleTarget(monster, player) then
-                        return true
-                    end
-                end
-            end
-
-            return false
+            return castEnemyOnSight(monster, enemy)
         end
 
         return t

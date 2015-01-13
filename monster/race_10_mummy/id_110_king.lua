@@ -17,8 +17,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --ID 110, Dead King, Level: 7, Armourtype: medium, Weapontype: slashing
 
 local base = require("monster.base.base")
+local mageBehaviour = require("monster.base.behaviour.mage")
 local monstermagic = require("monster.base.monstermagic")
 local mummies = require("monster.race_10_mummy.base")
+
 local M = mummies.generateCallbacks()
 
 local orgOnSpawn = M.onSpawn
@@ -37,4 +39,5 @@ magic.addSummon{probability = 0.03, monsters = {103, 593, 536}} -- summon mummy,
 
 magic.addVioletFlame{probability = 0.02, damage = {from = 1500, to = 2500}}
 
-return magic.addCallbacks(M)
+M = magic.addCallbacks(M)
+return mageBehaviour.addCallbacks(magic, M)

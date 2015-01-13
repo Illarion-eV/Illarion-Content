@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --ID 578, Ratpriest, Level: 3, Armourtype: light, Weapontype: concussion
 
 local base = require("monster.base.base")
+local mageBehaviour = require("monster.base.behaviour.mage")
 local monstermagic = require("monster.base.monstermagic")
 local ratmen = require("monster.race_57_ratman.base")
 local M = ratmen.generateCallbacks()
@@ -39,4 +40,5 @@ magic.addWarping{probability = 0.03, usage = magic.ONLY_NEAR_ENEMY}
 magic.addIcestrike{probability = 0.05, damage = {from = 500, to = 750}}
 magic.addIceball{  probability = 0.03, damage = {from = 100, to = 300}, targetCount = 5}
 
-return magic.addCallbacks(M)
+M = magic.addCallbacks(M)
+return mageBehaviour.addCallbacks(magic, M)

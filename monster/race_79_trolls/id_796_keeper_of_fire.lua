@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --ID 796, Keeper of fire, Level: 7, Armourtype: heavy, Weapontype: slashing
 
 local base = require("monster.base.base")
+local mageBehaviour = require("monster.base.behaviour.mage")
 local monstermagic = require("monster.base.monstermagic")
 local trolls = require("monster.race_79_trolls.base")
 local M = trolls.generateCallbacks()
@@ -41,4 +42,5 @@ magic.addFlamestrike{probability = 0.015, damage = {from =  700, to = 1400}, tar
 magic.addHealing{probability = 0.05, damage = {from = 1000, to = 2000}}
 magic.addHealing{probability = 0.05, damage = {from =  500, to = 1000}, targetCount = 3}
 
-return magic.addCallbacks(M)
+M = magic.addCallbacks(M)
+return mageBehaviour.addCallbacks(magic, M)

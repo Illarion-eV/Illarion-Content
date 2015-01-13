@@ -17,8 +17,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --ID 792, Bridge Troll Shaman, Level: 5, Armourtype: light, Weapontype: slashing
 
 local base = require("monster.base.base")
+local mageBehaviour = require("monster.base.behaviour.mage")
 local monstermagic = require("monster.base.monstermagic")
 local trolls = require("monster.race_79_trolls.base")
+
 local M = trolls.generateCallbacks()
 
 local orgOnSpawn = M.onSpawn
@@ -39,4 +41,5 @@ magic.addIcestrike{probability = 0.03, damage = {from =  500, to = 1000}, target
 magic.addHealing{probability = 0.05, damage = {from = 1000, to = 2000}}
 magic.addHealing{probability = 0.05, damage = {from =  500, to = 1000}, targetCount = 3}
 
-return magic.addCallbacks(M)
+M = magic.addCallbacks(M)
+return mageBehaviour.addCallbacks(magic, M)

@@ -16,8 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 204, Unholy Archmage, Level: 7, Armourtype: heavy, Weapontype: slashing
 
-local monstermagic = require("monster.base.monstermagic")
 local demonSkeletons = require("monster.race_20_demon_skeleton.base")
+local mageBehaviour = require("monster.base.behaviour.mage")
+local monstermagic = require("monster.base.monstermagic")
 
 local magic = monstermagic()
 magic.addWarping{probability = 0.05, usage = magic.ONLY_NEAR_ENEMY}
@@ -31,4 +32,5 @@ magic.addHealing{probability = 0.05, damage = {from = 2000, to = 3500}}
 magic.addHealing{probability = 0.05, damage = {from = 1000, to = 2000}, targetCount = 3}
 
 local M = demonSkeletons.generateCallbacks()
-return magic.addCallbacks(M)
+M = magic.addCallbacks(M)
+return mageBehaviour.addCallbacks(magic, M)
