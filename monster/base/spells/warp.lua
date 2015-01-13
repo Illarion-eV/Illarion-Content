@@ -146,6 +146,7 @@ return function(params)
             end
 
             local warpTarget
+            local lookAtTarget = position(monster.pos.x, monster.pos.y, monster.pos.z)
 
             if not foundOther and foundArcher ~= nil then
                 -- We are close to a archer and there is nobody around to protect him.
@@ -164,8 +165,9 @@ return function(params)
                         end
                     end
 
-                    if not badPosition and _isValidWarpPosition(freePosition) then
+                    if not badPosition and _isValidWarpPosition(monster, freePosition) then
                         warpTarget = freePosition
+                        lookAtTarget = foundArcher.pos
                         break
                     end
                 end
@@ -174,10 +176,10 @@ return function(params)
                 local bestTargetFound
                 local hostileCount = math.huge
                 for freePosition in common.GetFreePositions(monster.pos, range, true, true) do
-                    if _isValidWarpPosition(freePosition) then
+                    if _isValidWarpPosition(monster, freePosition) then
                         local playersAroundNewLocation = _getAdjazentPlayers(freePosition)
                         local badPeopleCounter = 0
-                        for _, player in pairs(nearPlayers) do
+                        for _, player in pairs(playersAroundNewLocation) do
                             if not _isArcher(player) then
                                 badPeopleCounter = badPeopleCounter + 1
                             end
@@ -196,15 +198,14 @@ return function(params)
                 warpTarget = bestTargetFound
             end
 
-            if warpTarget ~= nil then
-                local originalPosition = position(monster.pos.x, monster.pos.y, monster.pos.z)
+            if warpTarget ~= nil and warpTarget ~= monster.pos then
                 if gfxId > 0 then world:gfx(gfxId, monster.pos) end
                 monster:warp(warpTarget)
                 if gfxId > 0 then world:gfx(gfxId, monster.pos) end
                 if sfxId > 0 then world:makeSound(sfxId, monster.pos) end
 
                 -- Turn the monster to the location of origin so it still engages the enemies
-                common.TurnTo(monster, originalPosition)
+                common.TurnTo(monster, lookAtTarget)
 
                 monster.movepoints = monster.movepoints - usedMovepoints
 

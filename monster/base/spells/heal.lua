@@ -27,7 +27,7 @@ return function(params)
     local healAtOnce = 1
     local healRange = {1000, 2000}
     local probability = 0.03
-    local gfxId = 41
+    local gfxId = 16
     local sfxId = 0
     local usedMovepoints = 20
 
