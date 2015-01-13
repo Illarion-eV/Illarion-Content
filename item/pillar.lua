@@ -58,6 +58,21 @@ function M.LookAtItem(User,Item)
 	if (Item.pos == position(125,566,0)) then
 		lookAt = ReginaldLookAt(User, Item)
 	end
+		
+	-- Chancellor Statue 1
+	if (Item.pos == position(371,266,0)) then
+		lookAt = Chancellor1LookAt(User, Item)
+	end
+
+	-- Chancellor Statue 2
+	if (Item.pos == position(359,266,0)) then
+		lookAt = Chancellor2LookAt(User, Item)
+	end
+	
+	-- Chancellor Statue 3
+	if (Item.pos == position(374,282,0)) then
+		lookAt = Chancellor3LookAt(User, Item)
+	end
 	
 	if lookAt then
 	    return lookAt --Send the custom lookAt
@@ -148,31 +163,6 @@ function ReginaldLookAt(User, Item)
 end
 
 --------------------------------------Galmair Chancellor Statues-------------------------------------------------------------------
-local lookAt
-	
-	-- Chancellor Statue 1
-	if (Item.pos == position(371,266,0)) then
-		lookAt = Chancellor1LookAt(User, Item)
-	end
-
-	-- Chancellor Statue 2
-	if (Item.pos == position(359,266,0)) then
-		lookAt = Chancellor2LookAt(User, Item)
-	end
-	
-	-- Chancellor Statue 3
-	if (Item.pos == position(374,282,0)) then
-		lookAt = Chancellor3LookAt(User, Item)
-	end
-	
-	if lookAt then
-	    return lookAt --Send the custom lookAt
-	else
-		return lookat.GenerateLookAt(User, Item)
-	end
-end
-
-
 function M.UseItem(User, SourceItem, ltstate)
 	
 	vision.UseDarkColumnsPuzzle(User, SourceItem, ltstate)
