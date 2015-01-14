@@ -343,7 +343,9 @@ function M.dropTreasureItems(treasureLocation, level)
     table.insert(itemSpawnResults, dropTreasureItem(treasureLocation, level + 2))
 
     mugWithLid.dropMugByChance(treasureLocation,level*2)
-    money.GiveMoneyToPosition(treasureLocation, content.getMoneyInTreasure(level))
+
+    local minMoney, maxMoney = content.getMoneyInTreasure(level)
+    money.GiveMoneyToPosition(treasureLocation, Random.uniform(minMoney, maxMoney))
 
     -- check if all items got spawned.
     for _, flag in pairs(itemSpawnResults) do

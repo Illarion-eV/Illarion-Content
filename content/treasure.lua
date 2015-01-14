@@ -283,10 +283,12 @@ treasureContents[11] = {
     magicGem(gems.EMERALD, 2), magicGem(gems.RUBY, 2), magicGem(gems.AMETHYST, 2), magicGem(gems.TOPAZ, 2), magicGem(gems.OBSIDIAN, 2), magicGem(gems.SAPPHIRE, 2)
 }
 
--- Get the amount of copper coins that is supposed to be in the treasure.
+--- Get the amount of copper coins that is supposed to be in the treasure.
+-- @param level the level of the treasure
+-- @return the minimal amount and the maximal amount of money in the treasure
 function M.getMoneyInTreasure(level)
     local sqrLevel = level * level
-    return Random.uniform(500 * sqrLevel, 1500 * sqrLevel)
+    return 500 * sqrLevel, 1500 * sqrLevel
 end
 
 -- Postprocessing
