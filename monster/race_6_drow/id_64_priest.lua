@@ -21,7 +21,7 @@ local mageBehaviour = require("monster.base.behaviour.mage")
 local monstermagic = require("monster.base.monstermagic")
 
 local magic = monstermagic()
-magic.addWarping{probability = 0.03, usage = magic.ONLY_NEAR_ENEMY}
+magic.addWarping{probability = 0.15, usage = magic.ONLY_NEAR_ENEMY}
 
 magic.addSummon{probability = 0.0249, monsters = {551, 822}} -- imp, black zombie
 magic.addSummon{probability = 0.0050, monsters = {551, 552}} -- surprise spawn. Some black hellhounds

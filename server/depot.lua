@@ -15,13 +15,12 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
+
 local M = {}
 
 function M.onOpenDepot(User, Depot)
-
-  common.TurnTo( User, Depot.pos ); -- turn if necessary
-
-  return true
+    common.TurnTo(User, Depot.pos) -- turn if necessary
+    return true
 end
 
 return M

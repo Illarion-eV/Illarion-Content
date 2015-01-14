@@ -20,7 +20,7 @@ local mageBehaviour = require("monster.base.behaviour.mage")
 local monstermagic = require("monster.base.monstermagic")
 
 local magic = monstermagic()
-magic.addWarping{probability = 0.03, usage = magic.ONLY_NEAR_ENEMY}
+magic.addWarping{probability = 0.15, usage = magic.ONLY_NEAR_ENEMY}
 
 magic.addSummon{probability = 0.0249, monsters = {101, 111}} -- summon simple mummies and skeltons
 magic.addSummon{probability = 0.0050, monsters = {104, 107, 113}} -- surprise spawn. Stronger mummies and skeletons

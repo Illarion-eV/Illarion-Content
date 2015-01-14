@@ -33,7 +33,7 @@ function M.onSpawn(monster)
 end
 
 local magic = monstermagic()
-magic.addWarping{probability = 0.03, usage = magic.ONLY_NEAR_ENEMY}
+magic.addWarping{probability = 0.15, usage = magic.ONLY_NEAR_ENEMY}
 
 magic.addSummon{probability = 0.03, monsters = {103, 593, 536}} -- summon mummy, skeleton and scarab
 

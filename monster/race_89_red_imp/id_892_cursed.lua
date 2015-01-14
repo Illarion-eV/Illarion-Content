@@ -21,7 +21,7 @@ local monstermagic = require("monster.base.monstermagic")
 local redImps = require("monster.race_89_red_imp.base")
 
 local magic = monstermagic()
-magic.addWarping{probability = 0.03, usage = magic.ONLY_NEAR_ENEMY}
+magic.addWarping{probability = 0.15, usage = magic.ONLY_NEAR_ENEMY}
 
 magic.addFireball{probability = 0.045, damage = {from = 250, to = 750}}
 magic.addFlamestrike{probability = 0.005, damage = {from = 250, to = 750}, targetCount = 3}

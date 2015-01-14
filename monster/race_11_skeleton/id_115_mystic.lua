@@ -21,7 +21,7 @@ local monstermagic = require("monster.base.monstermagic")
 local skeletons = require("monster.race_11_skeleton.base")
 
 local magic = monstermagic()
-magic.addWarping{probability = 0.01, usage = magic.ONLY_NEAR_ENEMY}
+magic.addWarping{probability = 0.10, usage = magic.ONLY_NEAR_ENEMY}
 
 magic.addFireball{   probability = 0.04,  damage = {from =  900, to = 1000}}
 magic.addIceball{    probability = 0.009, damage = {from = 1000, to = 1500}}

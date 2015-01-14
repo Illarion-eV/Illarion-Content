@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- called after every !rd command and !fr command
 -- note that !rd is a !fr without npc and spawn reloading
@@ -26,11 +26,11 @@ local M = {}
 
 function M.onReload()
 
-    alchemy.InitAlchemy();
-    areas.Init();
-    lever.init();
- 
-    return true;
+    alchemy.InitAlchemy()
+    areas.Init()
+    lever.init()
+
+    return true
 end
 
 return M

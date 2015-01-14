@@ -33,7 +33,7 @@ function M.onSpawn(monster)
 end
 
 local magic = monstermagic()
-magic.addWarping{probability = 0.03, usage = magic.ONLY_NEAR_ENEMY}
+magic.addWarping{probability = 0.15, usage = magic.ONLY_NEAR_ENEMY}
 
 magic.addSummon{probability = 0.0249, monsters = {611, 1031}} -- slimes and red slimes
 magic.addSummon{probability = 0.0050, monsters = {614, 1033}} -- more slimes, same color but stronger
