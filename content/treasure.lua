@@ -286,7 +286,7 @@ treasureContents[11] = {
 -- Get the amount of copper coins that is supposed to be in the treasure.
 function M.getMoneyInTreasure(level)
     local sqrLevel = level * level
-    return 500 * sqrLevel, 1500 * sqrLevel
+    return Random.uniform(500 * sqrLevel, 1500 * sqrLevel)
 end
 
 -- Postprocessing
