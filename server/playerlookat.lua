@@ -31,7 +31,7 @@ local altars = require("item.altars")
 local M = {}
 
 function M.lookAtPlayer( SourceCharacter, TargetCharacter, mode)
-	debug(SourceCharacter.name .. " is looking at " .. TargetCharacter.name);
+    debug(SourceCharacter.name .. " is looking at " .. TargetCharacter.name);
   uniquechardescription.InitPlayerDesc();
     -- here we go the lookat
     -- Generate the looking at value
@@ -43,16 +43,16 @@ function M.lookAtPlayer( SourceCharacter, TargetCharacter, mode)
 
     --SourceCharacter:inform("mode= "..mode.." lookingat= "..LookingAt);
 
-	common.TurnTo( SourceCharacter, TargetCharacter.pos );
+    common.TurnTo( SourceCharacter, TargetCharacter.pos );
 
-	if not CustomLookAt then
-		custom.InitCustomLookAt();
-		CustomLookAt = custom.CustomLookAt;
-	end
+    if not CustomLookAt then
+        custom.InitCustomLookAt();
+        CustomLookAt = custom.CustomLookAt;
+    end
 
-	if mode == 1 then
-		createDevotionInform(SourceCharacter, TargetCharacter);
-	end
+    if mode == 1 then
+        createDevotionInform(SourceCharacter, TargetCharacter);
+    end
 
     local lang = SourceCharacter:getPlayerLanguage();
     -- inform about stats
@@ -103,7 +103,7 @@ function M.lookAtPlayer( SourceCharacter, TargetCharacter, mode)
     -- Lets check for a coat
     if checkCoat( TargetCharacter, lang, SourceCharacter ) then
         -- coat hides the things below, but not for everyone.
-		if checkArmor( TargetCharacter, lang, 45, true, SourceCharacter ) then
+        if checkArmor( TargetCharacter, lang, 45, true, SourceCharacter ) then
             checkBelt( TargetCharacter, lang, 45, true, SourceCharacter );
         else    -- no armor
             checkBelt( TargetCharacter, lang, 45, false, SourceCharacter );
@@ -119,15 +119,15 @@ function M.lookAtPlayer( SourceCharacter, TargetCharacter, mode)
     output=output..". "; --..getClothesText(qual, dura, lang, TargetCharacter:increaseAttrib( "sex", 0 ),SourceCharacter);
     output=output..getWeaponText( TargetCharacter, lang, SourceCharacter );
 
-		--faction additions
-	Faction = factions.get(TargetCharacter);
-	if Faction.rankTown == 0 then
-		factiontext = ( lang ==0 and " ("..factions.TownRankList[Faction.rankTown].gRank..")" or " ("..factions.TownRankList[Faction.rankTown].eRank..")" );
-	else
-		factiontext = ( (lang ==0 and " ("..factions.TownRankList[Faction.rankTown].gRank.." "..factions.TownNameGList[Faction.tid][1].."s)" )
-				or 	" ("..factions.TownRankList[Faction.rankTown].eRank.." of "..factions.TownNameEList[Faction.tid][1]..")" );
-	end
-	output = output .. factiontext;
+        --faction additions
+    Faction = factions.get(TargetCharacter);
+    if Faction.rankTown == 0 then
+        factiontext = ( lang ==0 and " ("..factions.TownRankList[Faction.rankTown].gRank..")" or " ("..factions.TownRankList[Faction.rankTown].eRank..")" );
+    else
+        factiontext = ( (lang ==0 and " ("..factions.TownRankList[Faction.rankTown].gRank.." "..factions.TownNameGList[Faction.tid][1].."s)" )
+                or 	" ("..factions.TownRankList[Faction.rankTown].eRank.." of "..factions.TownNameEList[Faction.tid][1]..")" );
+    end
+    output = output .. factiontext;
 
     checkCustomInventory(TargetCharacter, SourceCharacter);
 
@@ -161,11 +161,11 @@ function M.lookAtPlayer( SourceCharacter, TargetCharacter, mode)
             end
         end
     end
-	if(uniquechardescription.PlayerDescriptionsDE[TargetCharacter.id] ~= nil) then
-		for i,v in pairs(uniquechardescription.PlayerDescriptionsDE[TargetCharacter.id]) do
-			common.InformNLS(SourceCharacter, uniquechardescription.PlayerDescriptionsDE[TargetCharacter.id][i], uniquechardescription.PlayerDescriptionsEN[TargetCharacter.id][i]);
-		end
-	end
+    if(uniquechardescription.PlayerDescriptionsDE[TargetCharacter.id] ~= nil) then
+        for i,v in pairs(uniquechardescription.PlayerDescriptionsDE[TargetCharacter.id]) do
+            common.InformNLS(SourceCharacter, uniquechardescription.PlayerDescriptionsDE[TargetCharacter.id][i], uniquechardescription.PlayerDescriptionsEN[TargetCharacter.id][i]);
+        end
+    end
 end
 
 function checkCoat( TargetCharacter, lang, SourceCharacter )
@@ -174,7 +174,7 @@ function checkCoat( TargetCharacter, lang, SourceCharacter )
         -- The dude has a coat!
         output = output .. getText( "genus_"..genus.GenusData( coat.id ), lang );
         output = output .. world:getItemName( coat.id, lang );
-		handleCustomLookat( TargetCharacter, SourceCharacter, coat );
+        handleCustomLookat( TargetCharacter, SourceCharacter, coat );
         return true;
     end
     return false;
@@ -189,7 +189,7 @@ function checkArmor( TargetCharacter, lang, modify, belowcoat, SourceCharacter )
             end
             output = output .. getText( "genus_"..genus.GenusData( breast.id ), lang );
             output = output .. world:getItemName( breast.id, lang );
-			handleCustomLookat( TargetCharacter, SourceCharacter, breast );
+            handleCustomLookat( TargetCharacter, SourceCharacter, breast );
             return true;
         end
     end
@@ -203,7 +203,7 @@ function checkBelt( TargetCharacter, lang, modify, withend, SourceCharacter )
         first_item = true;
         for i=12,17 do
             item = TargetCharacter:getItemAt( i );
-			handleCustomLookat( TargetCharacter, SourceCharacter, item );
+            handleCustomLookat( TargetCharacter, SourceCharacter, item );
             item = ( item == nil and 0 or item.id );
             if ( item ~= 0 and item ~= 228 and item ~= 93 and item ~= 99 and item ~= 100 and item ~= 382 ) then
                 if first_item then
@@ -446,10 +446,10 @@ function getWeaponText( Char, lang, SourceChar )
     local message = "";
     local leftItem = Char:getItemAt( Character.left_tool );
     handleCustomLookat(Char,SourceChar,leftItem);
-	leftItem = ( leftItem == nil and 0 or leftItem.id );
+    leftItem = ( leftItem == nil and 0 or leftItem.id );
     local rightItem = Char:getItemAt( Character.right_tool );
     handleCustomLookat(Char,SourceChar,rightItem);
-	rightItem = ( rightItem == nil and 0 or rightItem.id );
+    rightItem = ( rightItem == nil and 0 or rightItem.id );
     if ( leftItem == 228 or leftItem == 93 or leftItem == 99 or leftItem == 100 or leftItem == 382 ) then
         leftItem = 0;
     end
@@ -480,116 +480,116 @@ end
 
 function checkCustomInventory(TargetChar, SourceChar)
 
-	local checkItem;
-	local posList = {1,4,9,10};
-	-- check rest of inventory
-	for i,pos in pairs(posList) do
-		checkItem = TargetChar:getItemAt(pos);
-		if checkItem.id > 0 then
-			handleCustomLookat(TargetChar,SourceChar,checkItem);
-		end
-	end
-	-- do not show to everyone
-	if LookingAt > 45 then
-		-- check neck
-		handleCustomLookat(TargetChar,SourceChar,TargetChar:getItemAt(2));
-		-- check fingers if no glove is found
-		if TargetChar:getItemAt(4).id == 0 then
-			handleCustomLookat(TargetChar,SourceChar,TargetChar:getItemAt(7));
-			handleCustomLookat(TargetChar,SourceChar,TargetChar:getItemAt(8));
-		end
-	end
+    local checkItem;
+    local posList = {1,4,9,10};
+    -- check rest of inventory
+    for i,pos in pairs(posList) do
+        checkItem = TargetChar:getItemAt(pos);
+        if checkItem.id > 0 then
+            handleCustomLookat(TargetChar,SourceChar,checkItem);
+        end
+    end
+    -- do not show to everyone
+    if LookingAt > 45 then
+        -- check neck
+        handleCustomLookat(TargetChar,SourceChar,TargetChar:getItemAt(2));
+        -- check fingers if no glove is found
+        if TargetChar:getItemAt(4).id == 0 then
+            handleCustomLookat(TargetChar,SourceChar,TargetChar:getItemAt(7));
+            handleCustomLookat(TargetChar,SourceChar,TargetChar:getItemAt(8));
+        end
+    end
 end
 
 function handleCustomLookat(TargetChar,SourceChar,Item)
 
-	if Item == nil or Item.id <= 0 or Item.data <= 2^30 then
-		return;
-	end
-	if CustomLookAt[Item.id] ~= nil then
-		local itemData = Item.data - 2^30;
-		if CustomLookAt[Item.id][itemData] ~= nil then
-			local lang = SourceChar:getPlayerLanguage();
-			local customText;
-			if TargetChar:increaseAttrib("sex",0) == 0 then
-				if Item:getType() == 5 then
-					customText = ( lang == 0 and "Am Gürtel hat er " or "At the belt he has " )
-				else
-					if Item.itempos == 5 or Item.itempos == 6 then
-						customText = ( lang == 0 and "In den Händen hat er " or "In his hands he has " );
-					else
-						customText = ( lang == 0 and "Er trägt " or "He wears " );
-					end
-				end
-			else
-				if Item:getType() == 5 then
-					customText = ( lang == 0 and "Am Gürtel hat sie " or "At the belt she has " )
-				else
-					if Item.itempos == 5 or Item.itempos == 6 then
-						customText = ( lang == 0 and "In den Händen hat sie " or "In her hands she has " );
-					else
-						customText = ( lang == 0 and "Sie trägt " or "She wears " );
-					end
-				end
-			end
-			-- check for changed gender, but no gender text for gloves
-			if Item.itempos ~= 4 then
-				local gender = CustomLookAt[Item.id][itemData][5];
-				if not gender then
-					gender = genus.GenusData( Item.id );
-				end
-				customText = customText .. getText( "genus_"..gender, lang );
-			end
-			-- removed item name?
-			if not CustomLookAt[Item.id][itemData][4] then
-				customText = customText .. world:getItemName( Item.id, lang ) .. " ";
-			end
-			customText = customText .. CustomLookAt[Item.id][itemData][lang+1] .. ". ";
-			SourceChar:inform( customText,Player.mediumPriority );
-		end
-	end
+    if Item == nil or Item.id <= 0 or Item.data <= 2^30 then
+        return;
+    end
+    if CustomLookAt[Item.id] ~= nil then
+        local itemData = Item.data - 2^30;
+        if CustomLookAt[Item.id][itemData] ~= nil then
+            local lang = SourceChar:getPlayerLanguage();
+            local customText;
+            if TargetChar:increaseAttrib("sex",0) == 0 then
+                if Item:getType() == 5 then
+                    customText = ( lang == 0 and "Am Gürtel hat er " or "At the belt he has " )
+                else
+                    if Item.itempos == 5 or Item.itempos == 6 then
+                        customText = ( lang == 0 and "In den Händen hat er " or "In his hands he has " );
+                    else
+                        customText = ( lang == 0 and "Er trägt " or "He wears " );
+                    end
+                end
+            else
+                if Item:getType() == 5 then
+                    customText = ( lang == 0 and "Am Gürtel hat sie " or "At the belt she has " )
+                else
+                    if Item.itempos == 5 or Item.itempos == 6 then
+                        customText = ( lang == 0 and "In den Händen hat sie " or "In her hands she has " );
+                    else
+                        customText = ( lang == 0 and "Sie trägt " or "She wears " );
+                    end
+                end
+            end
+            -- check for changed gender, but no gender text for gloves
+            if Item.itempos ~= 4 then
+                local gender = CustomLookAt[Item.id][itemData][5];
+                if not gender then
+                    gender = genus.GenusData( Item.id );
+                end
+                customText = customText .. getText( "genus_"..gender, lang );
+            end
+            -- removed item name?
+            if not CustomLookAt[Item.id][itemData][4] then
+                customText = customText .. world:getItemName( Item.id, lang ) .. " ";
+            end
+            customText = customText .. CustomLookAt[Item.id][itemData][lang+1] .. ". ";
+            SourceChar:inform( customText,Player.mediumPriority );
+        end
+    end
 end
 
 function createDevotionInform(SourceCharacter, TargetCharacter)
-	local devotion = TargetCharacter:getQuestProgress(401);
-	local priesthood = TargetCharacter:getQuestProgress(402);
+    local devotion = TargetCharacter:getQuestProgress(401);
+    local priesthood = TargetCharacter:getQuestProgress(402);
 
-	if devotion == 0 then
-		return;
-	end
-	local sex = TargetCharacter:increaseAttrib("sex", 0);
+    if devotion == 0 then
+        return;
+    end
+    local sex = TargetCharacter:increaseAttrib("sex", 0);
 
-	if not altars.init then
-		altars.ini();
-	end
-	local godName = altars.godName[devotion];
+    if not altars.init then
+        altars.ini();
+    end
+    local godName = altars.godName[devotion];
 
-	local gText, eText = "","";
-	if sex == 0 then
-		gText = "Er ist ein ";
-		eText = "He is a ";
-		if priesthood > 0 then
-			gText = gText .. "Priester ";
-			eText = eText .. "priest ";
-		else
-			gText = gText .. "Anhänger ";
-			eText = eText .. "devotee ";
-		end
-	else
-		gText = "Sie ist eine ";
-		eText = "She is a ";
-		if priesthood > 0 then
-			gText = gText .. "Priesterin ";
-			eText = eText .. "priestess ";
-		else
-			gText = gText .. "Anhängerin ";
-			eText = eText .. "devotee ";
-		end
-	end
-	gText = gText .. godName .."s.";
-	eText = eText .. "of " .. godName ".";
+    local gText, eText = "","";
+    if sex == 0 then
+        gText = "Er ist ein ";
+        eText = "He is a ";
+        if priesthood > 0 then
+            gText = gText .. "Priester ";
+            eText = eText .. "priest ";
+        else
+            gText = gText .. "Anhänger ";
+            eText = eText .. "devotee ";
+        end
+    else
+        gText = "Sie ist eine ";
+        eText = "She is a ";
+        if priesthood > 0 then
+            gText = gText .. "Priesterin ";
+            eText = eText .. "priestess ";
+        else
+            gText = gText .. "Anhängerin ";
+            eText = eText .. "devotee ";
+        end
+    end
+    gText = gText .. godName .."s.";
+    eText = eText .. "of " .. godName ".";
 
-	common.InformNLS(SourceCharacter, gText, eText);
+    common.InformNLS(SourceCharacter, gText, eText);
 end
 
 return M
