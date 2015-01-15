@@ -199,10 +199,10 @@ function changeAvatar(User, SourceItem, TargetPos)
 				red = tonumber(red);
 				green = tonumber(green);
 				blue = tonumber(blue);
-				if modifier == "haircolor" then
-					chosenPlayer:setHairColor(red, green, blue);
+				if modifier == "haircolor" or modifier == "haircolour" then
+					chosenPlayer:setHairColour(colour(red, green, blue));
 				elseif modifier == "skincolor" then
-					chosenPlayer:setSkinColor(red, green, blue);
+					chosenPlayer:setSkinColour(colour(red, green, blue));
 				else
 					User:inform("Sorry, I didn't understand you.");
 					return;

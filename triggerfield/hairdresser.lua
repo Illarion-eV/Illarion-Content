@@ -33,9 +33,9 @@ function M.MoveToField(User)
 
 	User:setQuestProgress(32,User:getHair());
 	User:setQuestProgress(33,User:getBeard());
-	local red, green, blue = User:getHairColor();
-	local haircolor = red*1000000 + green*1000 + blue;
-	User:setQuestProgress(34,haircolor);
+	local hairColour = User:getHairColour();
+	local hairColourData = hairColour.r*1000000 + hairColour.g*1000 + hairColour.b;
+	User:setQuestProgress(34,hairColourData);
 
 	-- gets the npcStruct to make the npc talk or whatever else
 	for i, npcStruct in pairs(npcsInRange) do
@@ -59,8 +59,8 @@ function M.MoveFromField(User)
 	end
 
 	local currentHair = User:getHair();
-	local cRed, cGreen, cBlue = User:getHairColor();
-	local currentHaircolor = cRed*1000000 + cGreen*1000 + cBlue;
+	local hairColour = User:getHairColour();
+	local currentHaircolor = hairColour.r*1000000 + hairColour.g*1000 + hairColour.b;
 	local currentBeard = User:getBeard();
 
 	local originalHaircolor = User:getQuestProgress(34);
@@ -204,10 +204,10 @@ function selectHaircolor(User, NPC)
 	local originalHaircolor = User:getQuestProgress(31)
 
 	if originalHaircolor == 0 then
-		local red, green, blue  = User:getHairColor();
-		red = red*1000000;
-		green = green*1000;
-		blue = blue;
+		local colour  = User:getHairColour();
+		local red = colour.r*1000000;
+		local green = colour.g*1000;
+		local blue = colour.b;
 
 		User:setQuestProgress(31,tonumber(red+green+blue));
 	end
@@ -225,10 +225,11 @@ function selectHaircolor(User, NPC)
 				g = (hairColor - r*1000000)/1000;
 				b = (hairColor - r*1000000 - g*1000);
 
-				User:setHairColor(r, g, b);
+				User:setHairColour(colour(r, g, b));
 				selectChoice(User, NPC);
 			else
-				User:setHairColor(hairColorSimple[selected-1].r, hairColorSimple[selected-1].g, hairColorSimple[selected-1].b);
+				User:setHairColour(colour(hairColorSimple[selected-1].r, hairColorSimple[selected-1].g,
+					hairColorSimple[selected-1].b));
 				selectChoice(User, NPC);
 			end
 		end

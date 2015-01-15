@@ -80,11 +80,11 @@ function M.loadEffect(Effect,User)
 			local findNewHair, newHair = Effect:findValue("newHair")
 			local findNewSex, newSex = Effect:findValue("newSex")
 			
-			if findNewSkinColor1 then
-				User:setSkinColor(newSkincolor1,newSkincolor2,newSkincolor3)
+			if findNewSkincolor1 then
+				User:setSkinColour(colour(newSkincolor1,newSkincolor2,newSkincolor3))
 			end
-			if findNewHairColor1 then
-				User:setHairColor(newHaircolor1,newHaircolor2,newHaircolor3)
+			if findNewHaircolor1 then
+				User:setHairColour(colour(newHaircolor1,newHaircolor2,newHaircolor3))
 			end
 			if findNewBeard then
 				User:setBeard(newBeard)
@@ -116,8 +116,8 @@ function TransformBack(Effect,User)
 	local findOldHair, oldHair = Effect:findValue("oldHair")
 	local findOldSex, oldSex = Effect:findValue("oldSex")
 	
-	User:setSkinColor(oldSkincolor1,oldSkincolor2,oldSkincolor3)
-	User:setHairColor(oldHaircolor1,oldHaircolor2,oldHaircolor3)
+	User:setSkinColour(colour(oldSkincolor1,oldSkincolor2,oldSkincolor3))
+	User:setHairColour(colour(oldHaircolor1,oldHaircolor2,oldHaircolor3))
 	User:setBeard(oldBeard)
 	User:setHair(oldHair)
 	User:setAttrib("sex",oldSex)
