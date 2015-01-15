@@ -158,6 +158,11 @@ end
 -- @param Defender The character who is attacked
 -- @return true in case a attack was performed, else false
 function M.onAttack(Attacker, Defender)
+	if Attacker.fightpoints < 0 then
+		-- This happens only if the player cheats.
+		-- Let's don't attack now.
+		return
+	end
 
 	-- Prepare the lists that store the required values for the calculation
     local Attacker = { ["Char"]=Attacker };
