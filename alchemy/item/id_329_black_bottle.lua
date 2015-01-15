@@ -124,15 +124,15 @@ local function DrinkPotion(User,SourceItem)
 						local findOldHaircolor3, oldHaircolor3 = myEffect:findValue("oldHaircolor3")
 
 						if findOldSkincolor1 and findOldSkincolor2 and findOldSkincolor3 then
-							oldSkinColour.r = oldSkincolor1
-							oldSkinColour.g = oldSkincolor2
-							oldSkinColour.b = oldSkincolor3
+							oldSkinColour.red = oldSkincolor1
+							oldSkinColour.green = oldSkincolor2
+							oldSkinColour.blue = oldSkincolor3
 						end
 
 						if findOldHaircolor1 and findOldHaircolor2 and findOldHaircolor3 then
-							oldHairColour.r = oldHaircolor1
-							oldHairColour.g = oldHaircolor2
-							oldHairColour.b = oldHaircolor3
+							oldHairColour.red = oldHaircolor1
+							oldHairColour.green = oldHaircolor2
+							oldHairColour.blue = oldHaircolor3
 						end
 
 						findOldHair, oldHair = myEffect:findValue("oldHair")
@@ -184,12 +184,12 @@ local function DrinkPotion(User,SourceItem)
 					myEffect:addValue("oldSex",oldSex)
 					myEffect:addValue("oldHair",oldHair)
 					myEffect:addValue("oldBeard",oldBeard)
-					myEffect:addValue("oldSkincolor1",oldSkinColour.r)
-					myEffect:addValue("oldSkincolor2",oldSkinColour.g)
-					myEffect:addValue("oldSkincolor3",oldSkinColour.b)
-					myEffect:addValue("oldHaircolor1",oldHairColour.r)
-					myEffect:addValue("oldHaircolor2",oldHairColour.g)
-					myEffect:addValue("oldHaircolor3",oldHairColour.b)
+					myEffect:addValue("oldSkincolor1",oldSkinColour.red)
+					myEffect:addValue("oldSkincolor2",oldSkinColour.green)
+					myEffect:addValue("oldSkincolor3",oldSkinColour.blue)
+					myEffect:addValue("oldHaircolor1",oldHairColour.red)
+					myEffect:addValue("oldHaircolor2",oldHairColour.green)
+					myEffect:addValue("oldHaircolor3",oldHairColour.blue)
 			  
 					myEffect:addValue("newSex",newSex)
 					myEffect:addValue("newHair",newHair)
@@ -264,15 +264,15 @@ function dogTransformation(User,SourceItem)
 				local findOldHaircolor3, oldHaircolor3 = myEffect:findValue("oldHaircolor3")
 
 				if findOldSkincolor1 and findOldSkincolor2 and findOldSkincolor3 then
-					oldSkinColour.r = oldSkincolor1
-					oldSkinColour.g = oldSkincolor2
-					oldSkinColour.b = oldSkincolor3
+					oldSkinColour.red = oldSkincolor1
+					oldSkinColour.green = oldSkincolor2
+					oldSkinColour.blue = oldSkincolor3
 				end
 
 				if findOldHaircolor1 and findOldHaircolor2 and findOldHaircolor3 then
-					oldHairColour.r = oldHaircolor1
-					oldHairColour.g = oldHaircolor2
-					oldHairColour.b = oldHaircolor3
+					oldHairColour.red = oldHaircolor1
+					oldHairColour.green = oldHaircolor2
+					oldHairColour.blue = oldHaircolor3
 				end
 
 				findOldHair, oldHair = myEffect:findValue("oldHair")
@@ -304,12 +304,12 @@ function dogTransformation(User,SourceItem)
 		myEffect:addValue("oldSex",oldSex)
 		myEffect:addValue("oldHair",oldHair)
 		myEffect:addValue("oldBeard",oldBeard)
-		myEffect:addValue("oldSkincolor1",oldSkinColour.r)
-		myEffect:addValue("oldSkincolor2",oldSkinColour.g)
-		myEffect:addValue("oldSkincolor3",oldSkinColour.b)
-		myEffect:addValue("oldHaircolor1",oldHairColour.r)
-		myEffect:addValue("oldHaircolor2",oldHairColour.g)
-		myEffect:addValue("oldHaircolor3",oldHairColour.b)
+		myEffect:addValue("oldSkincolor1",oldSkinColour.red)
+		myEffect:addValue("oldSkincolor2",oldSkinColour.green)
+		myEffect:addValue("oldSkincolor3",oldSkinColour.blue)
+		myEffect:addValue("oldHaircolor1",oldHairColour.red)
+		myEffect:addValue("oldHaircolor2",oldHairColour.green)
+		myEffect:addValue("oldHaircolor3",oldHairColour.blue)
 		myEffect:addValue("oldRace",oldRace)
 		myEffect:addValue("oldHeight",oldHeight)
 		myEffect:addValue("newRace",newRace)
