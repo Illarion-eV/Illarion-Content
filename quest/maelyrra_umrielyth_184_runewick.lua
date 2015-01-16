@@ -415,207 +415,28 @@ Description[ENGLISH][188] = "Kill twelve zombies you still need one."
 Description[ENGLISH][189] = "Return to Maelyrra Umrielyth to claim your reward."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-local Start = {861, 809, 0}
+local Start = {861, 809, 0 }
+
+local NPC_POS = position(861, 809, 0)
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[2] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[3] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[4] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[5] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[6] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[7] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[8] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[9] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[10] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[11] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[12] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[13] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[14] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[15] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[16] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[17] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[18] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[19] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[20] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[21] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[22] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[23] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[24] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[25] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[26] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[27] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[28] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[29] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[30] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[31] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[32] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[33] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[34] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[35] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[36] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[37] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[38] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[39] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[40] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[41] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[42] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[43] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[44] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[45] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[46] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[47] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[48] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[49] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[50] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[51] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[52] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[53] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[54] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[55] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[56] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[57] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[58] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[59] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[60] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[61] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[62] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[63] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[64] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[65] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[66] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[67] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[68] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[69] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[70] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[71] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[72] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[73] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[74] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[75] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[76] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[77] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[78] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[79] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[80] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[81] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[82] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[83] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[84] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[85] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[86] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[87] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[88] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[89] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[90] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[91] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[92] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[93] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[94] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[95] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[96] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[97] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[98] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[99] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[100] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[101] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[102] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[103] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[104] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[105] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[106] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[107] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[108] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[109] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[110] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[111] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[112] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[113] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[114] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[115] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[116] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[117] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[118] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[119] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[120] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[121] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[122] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[123] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[124] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[125] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[126] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[127] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[128] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[129] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[130] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[131] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[132] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[133] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[134] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[135] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[136] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[137] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[138] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[139] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[140] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[141] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[142] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[143] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[144] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[145] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[146] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[147] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[148] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[149] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[150] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[151] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[152] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[153] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[154] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[155] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[156] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[157] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[158] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[159] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[160] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[161] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[162] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[163] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[164] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[165] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[166] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[167] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[168] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[169] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[170] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[171] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[172] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[173] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[174] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[175] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[176] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[177] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[178] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[179] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[180] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[181] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[182] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[183] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[184] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[185] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[186] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[187] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[188] = {position(861, 809, 0)} -- Maelyrra
-QuestTarget[189] = {position(861, 809, 0)} -- Maelyrra
+do
+    local questTargetContent = {NPC_POS}
+    for i = 1, 189 do
+        QuestTarget[i] = questTargetContent  -- Maelyrra
+    end
+end
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 0
 
+local HUNTING_POS = position(811, 735, 0)
+
 -- Register the monster kill parts of the quest.
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = position(811, 735, 0), radius = 300},
+    location = {position = HUNTING_POS, radius = 300},
     queststatus = {from = 1, to = 5},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Schleime", english = "slimes"},
@@ -624,7 +445,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = position(811, 735, 0), radius = 300},
+    location = {position = HUNTING_POS, radius = 300},
     queststatus = {from = 6, to = 14},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Schleime", english = "slimes"},
@@ -633,7 +454,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = position(811, 735, 0), radius = 300},
+    location = {position = HUNTING_POS, radius = 300},
     queststatus = {from = 15, to = 27},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Schleime", english = "slimes"},
@@ -642,7 +463,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = position(811, 735, 0), radius = 300},
+    location = {position = HUNTING_POS, radius = 300},
     queststatus = {from = 28, to = 32},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Hunde", english = "dogs"},
@@ -651,7 +472,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = position(811, 735, 0), radius = 300},
+    location = {position = HUNTING_POS, radius = 300},
     queststatus = {from = 33, to = 41},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Hunde", english = "dogs"},
@@ -660,7 +481,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = position(811, 735, 0), radius = 300},
+    location = {position = HUNTING_POS, radius = 300},
     queststatus = {from = 42, to = 54},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Hunde", english = "dogs"},
@@ -669,7 +490,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = position(811, 735, 0), radius = 300},
+    location = {position = HUNTING_POS, radius = 300},
     queststatus = {from = 55, to = 59},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Wölfe", english = "wolves"},
@@ -678,7 +499,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = position(811, 735, 0), radius = 300},
+    location = {position = HUNTING_POS, radius = 300},
     queststatus = {from = 60, to = 68},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Wölfe", english = "wolves"},
@@ -687,7 +508,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = position(811, 735, 0), radius = 300},
+    location = {position = HUNTING_POS, radius = 300},
     queststatus = {from = 69, to = 81},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Wölfe", english = "wolves"},
@@ -696,7 +517,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = position(811, 735, 0), radius = 300},
+    location = {position = HUNTING_POS, radius = 300},
     queststatus = {from = 82, to = 86},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Füchse", english = "foxes"},
@@ -705,7 +526,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = position(811, 735, 0), radius = 300},
+    location = {position = HUNTING_POS, radius = 300},
     queststatus = {from = 87, to = 95},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Füchse", english = "foxes"},
@@ -714,7 +535,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = position(811, 735, 0), radius = 300},
+    location = {position = HUNTING_POS, radius = 300},
     queststatus = {from = 96, to = 108},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Füchse", english = "foxes"},
@@ -723,7 +544,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = position(811, 735, 0), radius = 300},
+    location = {position = HUNTING_POS, radius = 300},
     queststatus = {from = 109, to = 113},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Menschen", english = "humans"},
@@ -732,7 +553,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = position(811, 735, 0), radius = 300},
+    location = {position = HUNTING_POS, radius = 300},
     queststatus = {from = 114, to = 122},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Menschen", english = "humans"},
@@ -741,7 +562,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = position(811, 735, 0), radius = 300},
+    location = {position = HUNTING_POS, radius = 300},
     queststatus = {from = 123, to = 135},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Menschen", english = "humans"},
@@ -750,7 +571,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = position(811, 735, 0), radius = 300},
+    location = {position = HUNTING_POS, radius = 300},
     queststatus = {from = 136, to = 140},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Diebe", english = "thieves"},
@@ -759,7 +580,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = position(811, 735, 0), radius = 300},
+    location = {position = HUNTING_POS, radius = 300},
     queststatus = {from = 141, to = 149},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Diebe", english = "thieves"},
@@ -768,7 +589,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = position(811, 735, 0), radius = 300},
+    location = {position = HUNTING_POS, radius = 300},
     queststatus = {from = 150, to = 162},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Diebe", english = "thieves"},
@@ -777,7 +598,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = position(811, 735, 0), radius = 300},
+    location = {position = HUNTING_POS, radius = 300},
     queststatus = {from = 163, to = 167},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Zombies", english = "zombies"},
@@ -786,7 +607,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = position(811, 735, 0), radius = 300},
+    location = {position = HUNTING_POS, radius = 300},
     queststatus = {from = 168, to = 176},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Zombies", english = "zombies"},
@@ -795,8 +616,8 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 184,
-    location = {position = position(811, 735, 0), radius = 300},
-    queststatus = {from = 177, to = 178},
+    location = {position = HUNTING_POS, radius = 300},
+    queststatus = {from = 177, to = 189},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Zombies", english = "zombies"},
     npcName = "Maelyrra Umrielyth",
