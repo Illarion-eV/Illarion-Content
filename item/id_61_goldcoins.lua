@@ -12,9 +12,8 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- I_61.lua Goldm&uuml;nzen einschmelzen
 
 -- UPDATE items SET itm_script='item.id_61_goldcoins' WHERE itm_id IN (61);
 
@@ -22,25 +21,25 @@ local common = require("base.common")
 
 local M = {}
 
-if not InitTime then
-	InitTime=true;
-	TimeList = {};
-end
+local TimeList = {}
 
 function M.UseItem(User, SourceItem)
 
-   	if TimeList[User.id]~=nil then
-		if  ( (math.abs(world:getTime("second") - TimeList[User.id]) ) <=3) then  --1 Rl. second delay
-			return;
-		end
-	end
-   	TimeList[User.id] = world:getTime("second");
-		
-	if math.random(2) == 1 then	gValue = "Kopf"; eValue = "head";
-	else gValue = "Zahl"; eValue = "tail"; end    
-	
-	User:talk(Character.say, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt "..gValue..".", "#me throws a coin in the air and catches it again. It shows "..eValue..".")
+    if TimeList[User.id] ~= nil then
+        if (math.abs(world:getTime("second") - TimeList[User.id])) <= 3 then  -- 1 Rl. second delay
+            return
+        end
+    end
 
+    local face
+    if math.random(2) == 1 then
+        face = common.GetNLS(User, "Kopf", "head")
+    else
+        face = common.GetNLS(User, "Zahl","tail")
+    end
+
+    User:talk(Character.say, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt "..face..".", "#me throws a coin in the air and catches it again. It shows "..face..".")
+    TimeList[User.id] = world:getTime("second")
 end
-return M
 
+return M
