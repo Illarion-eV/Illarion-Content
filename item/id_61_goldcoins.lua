@@ -18,10 +18,20 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_61_goldcoins' WHERE itm_id IN (61);
 
 local common = require("base.common")
+local lookat = require("base.lookat")
 
 local M = {}
 
 local TimeList = {}
+
+function M.LookAtItem(User, Item)
+    if Item.number == 1 then
+        lookat.SetSpecialDescription(Item, "Eine einzelne Münze", "A single coin")
+    else
+        lookat.SetSpecialDescription(Item, "Eine Sammlung aus " .. Item.number .. " Münzen", "A collection of " .. Item.number .. "coins")
+    end
+    return lookat.GenerateLookAt(User, Item, lookat.NONE)
+end
 
 function M.UseItem(User, SourceItem)
 
