@@ -28,7 +28,7 @@ function M.LookAtItem(User, Item)
     if Item.number == 1 then
         lookat.SetSpecialDescription(Item, "Eine einzelne Münze", "A single coin")
     else
-        lookat.SetSpecialDescription(Item, "Eine Sammlung aus " .. Item.number .. " Münzen", "A collection of " .. Item.number .. "coins")
+        lookat.SetSpecialDescription(Item, "Eine Sammlung aus " .. Item.number .. " Münzen", "A collection of " .. Item.number .. " coins")
     end
     return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
