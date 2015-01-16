@@ -15,10 +15,12 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 635, Undead Swampdragon, Level: 7, Armourtype: medium, Weapontype: distance
+local monsterId = 635
 
 local base = require("monster.base.base")
 local monstermagic = require("monster.base.monstermagic")
 local boneDragons = require("monster.race_63_bone_dragon.base")
+local poisonfield = require("item.id_372_poisonfield")
 local M = boneDragons.generateCallbacks()
 
 local orgOnSpawn = M.onSpawn
@@ -33,5 +35,7 @@ end
 local magic = monstermagic()
 magic.addPoisoncone{probability = 0.13, damage = {from = 1500, to = 3000}, range = 6,
     itemProbability = 0.055, quality = {from = 2, to = 5}}
+    
+poisonfield.setPoisonImmunity(monsterId)
 
 return magic.addCallbacks(M)

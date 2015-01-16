@@ -21,6 +21,16 @@ local monstermagic = require("monster.base.spells.base")
 
 local M = {}
 
+local flameImmuneMonsters = {}
+
+function M.setFlameImmunity(monsterId)
+    flameImmuneMonsters[monsterId] = true
+end
+
+local function checkFlameImmunity(monsterId)
+    return flameImmuneMonsters[monsterId]
+end
+
 function M.CharacterOnField(User)
 
     -- dont harm dead chars anymore
@@ -34,10 +44,8 @@ function M.CharacterOnField(User)
     end
 
     -- immune
-    if User:getType() == Character.monster then
-        if User:getMonsterType() == 633 then -- undead firedragon
-            return
-        end
+    if User:getType() == Character.monster and checkFlameImmunity(User:getMonsterType()) then
+        return
     end
 
     -- Flamme auf dem Feld suchen

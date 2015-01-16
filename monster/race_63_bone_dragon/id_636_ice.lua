@@ -15,10 +15,12 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 636, Shiny Deathdragon, Level: 7, Armourtype: heavy, Weapontype: slashing
+local monsterId = 636
 
 local base = require("monster.base.base")
 local monstermagic = require("monster.base.monstermagic")
 local boneDragons = require("monster.race_63_bone_dragon.base")
+local icefield = require("item.id_360_icefield")
 local M = boneDragons.generateCallbacks()
 
 local orgOnSpawn = M.onSpawn
@@ -33,5 +35,7 @@ end
 local magic = monstermagic()
 magic.addIcecone{probability = 0.13, damage = {from = 1500, to = 3000}, range = 6,
     itemProbability = 0.055, quality = {from = 2, to = 5}}
+    
+icefield.setIceImmunity(monsterId)
 
 return magic.addCallbacks(M)

@@ -15,10 +15,12 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 633, Undead Firedragon, Level: 7, Armourtype: heavy, Weapontype: slashing
+local monsterId = 633
 
 local base = require("monster.base.base")
 local monstermagic = require("monster.base.monstermagic")
 local boneDragons = require("monster.race_63_bone_dragon.base")
+local firefield = require("item.id_359_firefield")
 local M = boneDragons.generateCallbacks()
 
 local orgOnSpawn = M.onSpawn
@@ -33,5 +35,7 @@ end
 local magic = monstermagic()
 magic.addFirecone{probability = 0.13, damage = {from = 1500, to = 3000}, range = 6,
     itemProbability = 0.055, quality = {from = 2, to = 5}}
+    
+firefield.setFlameImmunity(monsterId)
 
 return magic.addCallbacks(M)

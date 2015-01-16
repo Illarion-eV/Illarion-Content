@@ -15,10 +15,12 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 524, Fireraptor, Level: 6, Armourtype: medium, Weapontype: puncture
+local monsterId = 524
 
 local base = require("monster.base.base")
 local monstermagic = require("monster.base.monstermagic")
 local raptors = require("monster.race_52_raptor.base")
+local firefield = require("item.id_359_firefield")
 local M = raptors.generateCallbacks()
 
 local orgOnSpawn = M.onSpawn
@@ -33,5 +35,7 @@ end
 local magic = monstermagic()
 magic.addFirecone{probability = 0.02,  damage = {from = 500, to = 1000}, range = 3, angularAperture = 90,
     itemProbability = 0.05, quality = {from = 1, to = 3}}
+
+firefield.setFlameImmunity(monsterId)
 
 return magic.addCallbacks(M)

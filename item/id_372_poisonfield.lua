@@ -21,6 +21,17 @@ local monstermagic = require("monster.base.spells.base")
 
 local M = {}
 
+local poisonImmuneMonsters = {}
+
+function M.setPoisonImmunity(monsterId)
+    poisonImmuneMonsters[monsterId] = true
+end
+
+local function checkPoisonImmunity(monsterId)
+    return poisonImmuneMonsters[monsterId]
+end
+
+
 function M.CharacterOnField(User)
 
     -- dont harm dead chars anymore
@@ -33,11 +44,9 @@ function M.CharacterOnField(User)
         return
     end
 
-    --immune
-    if User:getType() == Character.monster then
-        if User:getMonsterType() == 635 then -- Undead Swampdragon
-            return
-        end
+    -- immune
+    if User:getType() == Character.monster and checkPoisonImmunity(User:getMonsterType()) then
+        return
     end
 
     -- Giftwolke auf dem Feld suchen

@@ -21,6 +21,16 @@ local monstermagic = require("monster.base.spells.base")
 
 local M = {}
 
+local iceImmuneMonsters = {}
+
+function M.setIceImmunity(monsterId)
+    iceImmuneMonsters[monsterId] = true
+end
+
+local function checkIceImmunity(monsterId)
+    return iceImmuneMonsters[monsterId]
+end
+
 function M.CharacterOnField(User)
 
     -- dont harm dead chars anymore
@@ -33,11 +43,9 @@ function M.CharacterOnField(User)
         return
     end
 
-    --immune
-    if User:getType() == Character.monster then
-        if User:getMonsterType() == 636 then -- Shiny Deathdragon
-            return
-        end
+    -- immune
+    if User:getType() == Character.monster and checkIceImmunity(User:getMonsterType()) then
+        return
     end
 
     -- Eisflamme auf dem Feld suchen

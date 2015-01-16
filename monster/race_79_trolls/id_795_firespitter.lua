@@ -15,10 +15,12 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 795, Firespitter, Level: 6, Armourtype: medium, Weapontype: distance
+local monsterId = 795
 
 local base = require("monster.base.base")
 local monstermagic = require("monster.base.monstermagic")
 local trolls = require("monster.race_79_trolls.base")
+local firefield = require("item.id_359_firefield")
 local M = trolls.generateCallbacks()
 
 local orgOnSpawn = M.onSpawn
@@ -33,5 +35,7 @@ end
 local magic = monstermagic()
 magic.addFirecone{probability = 0.005, damage = {from = 700, to = 1000}, range = 4, angularAperture = 60,
     itemProbability = 0.08, quality = {from = 2, to = 3}}
+    
+firefield.setFlameImmunity(monsterId)
 
 return magic.addCallbacks(M)
