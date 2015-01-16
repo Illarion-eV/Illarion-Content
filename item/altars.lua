@@ -68,46 +68,87 @@ local lookat = require("base.lookat")
 local M = {}
 
 --These are the items I need to become a devotee
---Items by Cromwell
-  local devoteItems={};
-  devoteItems[1]={733,316,2588}; --Ushara: Stone block, Quartz sand, Brick
-  devoteItems[2]={314,236,43}; --Brágon: potash, Gold ignot, Candle
-  devoteItems[3]={256,2745,155}; --Eldan: Raw diamonds, Parchment, Sibanac leaf
-  devoteItems[4]={52,253,72}; --Tanora: Bucket of water, Raw sapphire, Fishing rod
-  devoteItems[5]={64,463,65}; --Findari: Arrow, Quill, Short Bow
-  devoteItems[6]={80,356,733}; --Nargùn: Banana, Slouch hat, Stone block
-  devoteItems[7]={2745,43,463}; --Elara: Parchment, Candle, Quill
-  devoteItems[8]={223,2500,388}; --Adron: Iron Goblet, Bottle of Wine, Grapes
-  devoteItems[9]={258,534,259}; --Oldra: Flail, Onion seeds, Grain
-  devoteItems[10]={24,43,182}; --Cherga: Shovel, Candle, Black shirt
-  devoteItems[11]={19,65,2586}; --Malachín: Metal shield, Short bow, Fur
-  devoteItems[12]={3077,23,2140}; --Irmorom: Silver coin, Hammer, Tongs
-  devoteItems[13]={235,144,174}; --Sirani: Gold ring, Virgins weed, Red cloth
-  devoteItems[14]={2760,17,78}; --Zhambra: Rope, Wooden shield, Short sword
-  devoteItems[15]={2760,190,48}; --Ronagan: Rope, Ornate dagger, Leather gloves
-  devoteItems[16]={16,63,2757}; --Moshran: Orcish helmet, Entrails, Scimitar
---These are the items I need to become a priest. Not relevant for now since there is no priest magic.
-  local priestItems={};
-  priestItems[1]={2416,40,26,726,735}; --Ushara: Brown priest robe, Cleric's staff, Clay, Coarse sand, Raw stone
-  priestItems[2]={2419,40,391,46,234}; --Brágon: Red priest robe, Cleric's staff, Torch, Ruby, Gold nugget
-  priestItems[3]={2418,40,41,285,463}; --Eldan: Grey priest robe, Cleric's staff, Glass ignot, Diamond, Quill
-  priestItems[4]={193,40,2496,284,279}; --Tanora: Blue robe, Cleric's staff, Bottle of Water, Sapphire, Sapphire ring
-  priestItems[5]={2421,40,2780,322,166}; --Findari: White priest robe, Cleric's staff, Longbow, Wind arrow, Big empty bottle
-  priestItems[6]={2418,445,355,225,290}; --Nargùn: Grey priest robe, Wooden sword, Salmon, Crown, Cabbage
-  priestItems[7]={368,76,397,3110,222}; --Elara: Yellow priest robe, Mage's staff, Oil lamp, Pell, Amulet
-  priestItems[8]={2419,224,335,2744,155}; --Adron: Red priest robe, Golden goblet, Lute, Pipe, Sibanac leaf
-  priestItems[9]={2416,271,126,2786,249}; --Oldra: Brown priest robe, Scythe, Sickle, Branch, Bundle of grain
-  priestItems[10]={2420,271,138,314,726}; --Cherga: Black priest robe, Scythe, Night angels blossom, potash, Coarse sand
-  priestItems[11]={2421,20,391,2291,78}; --Malachín: White priest robe, Large metal shield, Torch, Salkamaerian Paladin's helmet, Shortsword
-  priestItems[12]={2418,226,74,2763,2752}; --Irmorom: Gray priest robe, War Hammer, Hatchet, Pickaxe, Carving tools
-  priestItems[13]={2421,40,280,354,222}; --Sirani: White priest robe, Cleric's staff, Diamond ring, Strawberry cake, Amulet
-  priestItems[14]={368,20,2701,40,333}; --Zhambra: Yellow priest robe, Large metal shield, Longsword, Cleric's staff, Horn
-  priestItems[15]={2420,2689,384,365,285}; --Ronagan: Black priest robe, Poisoned ornate dagger, Thieves gloves, Half leather armor, Diamond
-  priestItems[16]={2420,552,39,69,2746}; --Moshran: Black priest robe, Deer meat, Skull staff, Raw leather, razor blade
+local devoteItems={};
+devoteItems[1]={733,316,2588}; --Ushara: Stone block, Quartz sand, Brick
+devoteItems[2]={314,236,43}; --Brágon: potash, Gold ignot, Candle
+devoteItems[3]={256,2745,155}; --Eldan: Raw diamonds, Parchment, Sibanac leaf
+devoteItems[4]={52,253,72}; --Tanora: Bucket of water, Raw sapphire, Fishing rod
+devoteItems[5]={64,463,65}; --Findari: Arrow, Quill, Short Bow
+devoteItems[6]={80,356,733}; --Nargùn: Banana, Slouch hat, Stone block
+devoteItems[7]={2745,43,463}; --Elara: Parchment, Candle, Quill
+devoteItems[8]={223,2500,388}; --Adron: Iron Goblet, Bottle of Wine, Grapes
+devoteItems[9]={258,534,259}; --Oldra: Flail, Onion seeds, Grain
+devoteItems[10]={24,43,182}; --Cherga: Shovel, Candle, Black shirt
+devoteItems[11]={19,65,2586}; --Malachín: Metal shield, Short bow, Fur
+devoteItems[12]={3077,23,2140}; --Irmorom: Silver coin, Hammer, Tongs
+devoteItems[13]={235,144,174}; --Sirani: Gold ring, Virgins weed, Red cloth
+devoteItems[14]={2760,17,78}; --Zhambra: Rope, Wooden shield, Short sword
+devoteItems[15]={2760,190,48}; --Ronagan: Rope, Ornate dagger, Leather gloves
+devoteItems[16]={16,63,2757}; --Moshran: Orcish helmet, Entrails, Scimitar
 
+--These are the items I need to become a priest. Not relevant for now since there is no priest magic.
+local priestItems={};
+priestItems[1]={2416,40,26,726,735}; --Ushara: Brown priest robe, Cleric's staff, Clay, Coarse sand, Raw stone
+priestItems[2]={2419,40,391,46,234}; --Brágon: Red priest robe, Cleric's staff, Torch, Ruby, Gold nugget
+priestItems[3]={2418,40,41,285,463}; --Eldan: Grey priest robe, Cleric's staff, Glass ignot, Diamond, Quill
+priestItems[4]={193,40,2496,284,279}; --Tanora: Blue robe, Cleric's staff, Bottle of Water, Sapphire, Sapphire ring
+priestItems[5]={2421,40,2780,322,166}; --Findari: White priest robe, Cleric's staff, Longbow, Wind arrow, Big empty bottle
+priestItems[6]={2418,445,355,225,290}; --Nargùn: Grey priest robe, Wooden sword, Salmon, Crown, Cabbage
+priestItems[7]={368,76,397,3110,222}; --Elara: Yellow priest robe, Mage's staff, Oil lamp, Pell, Amulet
+priestItems[8]={2419,224,335,2744,155}; --Adron: Red priest robe, Golden goblet, Lute, Pipe, Sibanac leaf
+priestItems[9]={2416,271,126,2786,249}; --Oldra: Brown priest robe, Scythe, Sickle, Branch, Bundle of grain
+priestItems[10]={2420,271,138,314,726}; --Cherga: Black priest robe, Scythe, Night angels blossom, potash, Coarse sand
+priestItems[11]={2421,20,391,2291,78}; --Malachín: White priest robe, Large metal shield, Torch, Salkamaerian Paladin's helmet, Shortsword
+priestItems[12]={2418,226,74,2763,2752}; --Irmorom: Gray priest robe, War Hammer, Hatchet, Pickaxe, Carving tools
+priestItems[13]={2421,40,280,354,222}; --Sirani: White priest robe, Cleric's staff, Diamond ring, Strawberry cake, Amulet
+priestItems[14]={368,20,2701,40,333}; --Zhambra: Yellow priest robe, Large metal shield, Longsword, Cleric's staff, Horn
+priestItems[15]={2420,2689,384,365,285}; --Ronagan: Black priest robe, Poisoned ornate dagger, Thieves gloves, Half leather armor, Diamond
+priestItems[16]={2420,552,39,69,2746}; --Moshran: Black priest robe, Deer meat, Skull staff, Raw leather, razor blade
+
+
+local function tellStuff(list,lang)
+    local text="";
+    text=text..world:getItemName(list[1],lang);
+    for i=2,#list do
+        text=text..", ";
+        text=text..world:getItemName(list[i],lang);
+    end
+    return text;
+end
+
+local function checkStuff(User,list)
+    for i=1,#list do
+        if User:countItem(list[i])<1 then
+            return false;
+        end
+    end
+    return true;
+end
+
+local function deleteStuff(User,list)
+    for i=1,#list do
+        User:eraseItem(list[i],1);
+    end
+end
+
+local function checkAudience(god, position)
+    local theCandidates=world:getPlayersInRangeOf(position,10);
+    local counter=0;
+    for i=1,#theCandidates do
+        candidate=theCandidates[i];
+        if candidate:getQuestProgress(401) == god then
+            counter=counter+1;
+        end
+    end
+    if counter>3 then --I need three other characters with the same devotion around
+        return true;
+    else
+        return false;
+    end
+end
 
 function M.LookAtItem( User, Item )
-  thisGod=tonumber(Item:getData("god"));
+  local thisGod = tonumber(Item:getData("god"))
 
   if thisGod==nil then
     thisGod = 0;
@@ -126,8 +167,8 @@ function M.LookAtItem( User, Item )
       -- anything else is only for the younger gods
 
       --Now send the user some infos what he should do if he wants to become a devotee, change dedication or become a priest
-      devotion=User:getQuestProgress(401);
-      priesthood=User:getQuestProgress(402);
+      local devotion = User:getQuestProgress(401)
+      local priesthood = User:getQuestProgress(402)
       --Check for corrupted status
       if priesthood ~= 0 and devotion ~= priesthood and User:getMagicType()== 1 then --Error! The character is a priest, but not a priest of "his" god!
         common.InformNLS(User,"[Fehler] Bitte informiere einen Entwickler. Der Priesterstatus deines Charakters ist fehlerhaft.","[Error] Please inform a developer, the priest status of your character is flawed.");
@@ -179,7 +220,7 @@ function M.LookAtItem( User, Item )
 end --function
 
 function M.UseItem(User, SourceItem, ltstate)
-  thisGod=tonumber(SourceItem:getData("god"));
+  local thisGod = tonumber(SourceItem:getData("god"))
 
   if thisGod==nil then
     thisGod = 0;
@@ -192,8 +233,8 @@ function M.UseItem(User, SourceItem, ltstate)
     if (thisGod > 5) then
       -- anything else is only for the younger gods
       --Now send the user some infos what he should do if he wants to become a devotee, change dedication or become a priest
-      devotion=User:getQuestProgress(401);
-      priesthood=User:getQuestProgress(402);
+      local devotion = User:getQuestProgress(401)
+      local priesthood = User:getQuestProgress(402)
       --Check for corrupted status
       if priesthood ~= 0 and devotion ~= priesthood and User:getMagicType()== 1 then --Error! The character is a priest, but not a priest of "his" god!
         common.InformNLS(User,"[Fehler] Bitte informiere einen Entwickler. Der Priesterstatus deines Charakters ist fehlerhaft.","[Error] Please inform a developer, the priest status of your character is flawed.");
@@ -305,46 +346,4 @@ function M.UseItem(User, SourceItem, ltstate)
   end --dedicated altar
 end --function
 
-function tellStuff(list,lang)
-  local text="";
-  text=text..world:getItemName(list[1],lang);
-  for i=2,#list do
-    text=text..", ";
-    text=text..world:getItemName(list[i],lang);
-  end
-  return text;
-end
-
-function checkStuff(User,list)
-  for i=1,#list do
-    if User:countItem(list[i])<1 then
-      return false;
-    end
-  end
-  return true;
-end
-
-function deleteStuff(User,list)
-  for i=1,#list do
-    User:eraseItem(list[i],1);
-  end
-end
-
-function checkAudience(god, position)
-  local theCandidates=world:getPlayersInRangeOf(position,10);
-  local counter=0;
-  for i=1,#theCandidates do
-    candidate=theCandidates[i];
-    if candidate:getQuestProgress(401) == god then
-      counter=counter+1;
-    end
-  end
-  if counter>3 then --I need three other characters with the same devotion around
-    return true;
-  else
-    return false;
-  end
-end
-
 return M
-

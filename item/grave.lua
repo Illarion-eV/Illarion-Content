@@ -14,17 +14,17 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- Tree Script
--- Envi
-local common = require("base.common")
-local transformation_dog = require("alchemy.teaching.transformation_dog")
-local lookat = require("base.lookat")
-local M = {}
 
 -- UPDATE items SET itm_script='item.grave' WHERE itm_id IN (337, 519, 520, 521);
 
+local common = require("base.common")
+local transformation_dog = require("alchemy.teaching.transformation_dog")
+local lookat = require("base.lookat")
 
-graveItemNumbers={337,519,520,521}
+local M = {}
+
+
+local graveItemNumbers = {337, 519, 520, 521}
 
 function M.LookAtItem(User, Item)
 
@@ -36,14 +36,14 @@ function M.LookAtItem(User, Item)
 end
 
 
-findPlayersForGems={}
-graveSourceItemPos={position(958,238,0),position(968,226,0),position(970,219,0)}
-typoOfGem={197,284,45}
-gemColourDE1={"Lilla","Blau","Grün"}
-gemColourDE2={"Amethysten","Saphire","Smaragde"}
-gemColourEN1={"purple","blue","green"}
-gemColourEN2={"Amethysts","Sapphires","Emeralds"}
-gemsAlreadyFound={}
+local findPlayersForGems={}
+local graveSourceItemPos={position(958,238,0),position(968,226,0),position(970,219,0)}
+local typoOfGem={197,284,45}
+local gemColourDE1={"Lilla","Blau","Grün"}
+local gemColourDE2={"Amethysten","Saphire","Smaragde"}
+local gemColourEN1={"purple","blue","green"}
+local gemColourEN2={"Amethysts","Sapphires","Emeralds"}
+local gemsAlreadyFound={}
 gemsAlreadyFound[1]={197,242,481,526}
 gemsAlreadyFound[2]={284,329,481,526}
 gemsAlreadyFound[3]={45,242,329,526}
@@ -78,7 +78,7 @@ function M.UseItem(User, SourceItem)
 	local foundSource
 	-- check for grave
 	for t=1,4 do
-		TargetItem = common.GetItemInArea(User.pos, graveItemNumbers[t])
+		local TargetItem = common.GetItemInArea(User.pos, graveItemNumbers[t])
 		if (TargetItem ~= nil) then
 			common.TurnTo( User, TargetItem.pos); -- turn if necessary
 			foundSource=true
@@ -113,4 +113,3 @@ function M.UseItem(User, SourceItem)
 end
 
 return M
-

@@ -12,42 +12,27 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local lookat = require("base.lookat")
-local common = require("base.common")
-local id_266_bookshelf = require("item.id_266_bookshelf")
-local M = {}
 
 -- UPDATE items SET itm_script='item.books' WHERE itm_id = 2622;
 
+local lookat = require("base.lookat")
+local common = require("base.common")
+local id_266_bookshelf = require("item.id_266_bookshelf")
+
+local M = {}
+
 -- 2622 is the alchemy book. dont use it otherwise.
 
-function InitBook()
-	--[[ -- needs a check
-	if (Init == nil) then
-		bookTitleDE = {}; -- The german title of the book.
-		bookTitleEN = {}; -- The english title of the book.
-		bookLanguage = {}; -- The ingame language skill name in which the book is written.
-		bookminimumLanguage = {}; -- The minimum language skill needed to read that book.
-		
-		-- Book of the priests of Eldan (1)
-		bookTitleDE[1] = "Das Buch der Priester Eldans";
-		bookTitleEN[1] = "Book of the priests of Eldan";	
-		bookLanguage[1] = Character.commonLanguage;			
-		bookMinimumLanguage[1] = 0;			
-		
-		Init = true;
-	end]]
-end
-
 function M.UseItem(User, SourceItem)
-	InitBook();
+
     -- alchemy book; DO NOT CHANGE! STARTER PACK RELEVANT!
 	if SourceItem.id == 2622 then
 	    User:sendBook(101)
-	end	
+	end
 	-- alchemy end
+
 	if SourceItem:getData("bookId")~="" then
 		local bookId =tonumber( SourceItem:getData("bookId"))
 		if bookId == nil then
@@ -57,12 +42,12 @@ function M.UseItem(User, SourceItem)
 			User:sendBook(bookId)
 		end
 	end
-	
-	-- old data! 
+
+	-- old data!
 	--[[	if (User:getSkill(bookLanguage[SourceItem.data]) >= bookMinimumLanguage) then
 		User:sendBook(SourceItem.data);
 	else
-		common.InformNLS(User, Item, 
+		common.InformNLS(User, Item,
 			"Das Buch ist in einer Sprache geschrieben, von der du zu wenig Kenntnisse hast.",
 			"The book is written in a language in what your knowledge is not advanced enough.");
 	end]]
@@ -78,6 +63,6 @@ function M.LookAtItem(User,Item)
 		end
 	end
 	return lookat.GenerateLookAt(User, Item, 0)
-end   
-return M
+end
 
+return M
