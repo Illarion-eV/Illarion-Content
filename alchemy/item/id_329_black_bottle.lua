@@ -73,7 +73,7 @@ ListHairFemale[5] = {1,2,3,4,5,6}
 
 local function DrinkPotion(User,SourceItem)
     
-    potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
+    local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
     
 	if potionEffectId == 0 or potionEffectId == nil  then -- no effect	
 	    common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", 
@@ -94,8 +94,8 @@ local function DrinkPotion(User,SourceItem)
 		local isMonster = 0
 		-- our old value to change the char later back
 		local oldRace = User:getRace()
-	    local oldSkincolor1,oldSkincolor2,oldSkincolor3 = User:getSkinColor()
-	    local oldHaircolor1,oldHaircolor2,oldHaircolor3 = User:getHairColor()
+	    local oldSkinColour = User:getSkinColour()
+	    local oldHairColour = User:getHairColour()
 	    local oldSex = User:increaseAttrib("sex",0)
 	    local oldHair = User:getHair()
 	    local oldBeard = User:getBeard()
@@ -116,15 +116,28 @@ local function DrinkPotion(User,SourceItem)
 				else -- not the same transformation; we need to get the old apperance values from the LTE
 			       local findIsMonster, isMonster = myEffect:findValue("isMonster")
 					if isMonster ~= 1 then
-					    findOldSkincolor1, oldSkincolor1 = myEffect:findValue("oldSkincolor1")
-						findOldSkincolor2, oldSkincolor2 = myEffect:findValue("oldSkincolor2")
-						findOldSkincolor3, oldSkincolor3 = myEffect:findValue("oldSkincolor3")
-						findOldHaircolor1, oldHaircolor1 = myEffect:findValue("oldHaircolor1")
-						findOldHaircolor2, oldHaircolor2 = myEffect:findValue("oldHaircolor2")
-						findOldHaircolor3, oldHaircolor3 = myEffect:findValue("oldHaircolor3")
-					    findOldHair, oldHair = myEffect:findValue("oldHair")
+					    local findOldSkincolor1, oldSkincolor1 = myEffect:findValue("oldSkincolor1")
+						local findOldSkincolor2, oldSkincolor2 = myEffect:findValue("oldSkincolor2")
+						local findOldSkincolor3, oldSkincolor3 = myEffect:findValue("oldSkincolor3")
+						local findOldHaircolor1, oldHaircolor1 = myEffect:findValue("oldHaircolor1")
+						local findOldHaircolor2, oldHaircolor2 = myEffect:findValue("oldHaircolor2")
+						local findOldHaircolor3, oldHaircolor3 = myEffect:findValue("oldHaircolor3")
+
+						if findOldSkincolor1 and findOldSkincolor2 and findOldSkincolor3 then
+							oldSkinColour.red = oldSkincolor1
+							oldSkinColour.green = oldSkincolor2
+							oldSkinColour.blue = oldSkincolor3
+						end
+
+						if findOldHaircolor1 and findOldHaircolor2 and findOldHaircolor3 then
+							oldHairColour.red = oldHaircolor1
+							oldHairColour.green = oldHaircolor2
+							oldHairColour.blue = oldHaircolor3
+						end
+
+						findOldHair, oldHair = myEffect:findValue("oldHair")
 						findOldBeard, oldBeard = myEffect:findValue("oldBeard")
-					    findOldSex, oldSex = myEffect:findValue("oldSex")
+						findOldSex, oldSex = myEffect:findValue("oldSex")
 					end	
 					findOldRace, oldRace = myEffect:findValue("oldRace")
 					findOldHeight, oldHeight = myEffect:findValue("oldHeight")
@@ -171,12 +184,12 @@ local function DrinkPotion(User,SourceItem)
 					myEffect:addValue("oldSex",oldSex)
 					myEffect:addValue("oldHair",oldHair)
 					myEffect:addValue("oldBeard",oldBeard)
-					myEffect:addValue("oldSkincolor1",oldSkincolor1)
-					myEffect:addValue("oldSkincolor2",oldSkincolor2)
-					myEffect:addValue("oldSkincolor3",oldSkincolor3)
-					myEffect:addValue("oldHaircolor1",oldHaircolor1)
-					myEffect:addValue("oldHaircolor2",oldHaircolor2)
-					myEffect:addValue("oldHaircolor3",oldHaircolor3)
+					myEffect:addValue("oldSkincolor1",oldSkinColour.red)
+					myEffect:addValue("oldSkincolor2",oldSkinColour.green)
+					myEffect:addValue("oldSkincolor3",oldSkinColour.blue)
+					myEffect:addValue("oldHaircolor1",oldHairColour.red)
+					myEffect:addValue("oldHaircolor2",oldHairColour.green)
+					myEffect:addValue("oldHaircolor3",oldHairColour.blue)
 			  
 					myEffect:addValue("newSex",newSex)
 					myEffect:addValue("newHair",newHair)
@@ -200,8 +213,8 @@ local function DrinkPotion(User,SourceItem)
 			 User:setAttrib("sex",newSex)
 			 User:setHair(newHair)
 			 User:setBeard(newBeard)
-			 User:setSkinColor(newSkincolor1,newSkincolor2,newSkincolor3)
-			 User:setHairColor(newHaircolor1,newHaircolor2,newHaircolor3)
+			 User:setSkinColour(colour(newSkincolor1,newSkincolor2,newSkincolor3))
+			 User:setHairColour(colour(newHaircolor1,newHaircolor2,newHaircolor3))
 		  end
 		  User:setRace(newRace)
 		  User:setAttrib("body_height",newHeight)
@@ -220,8 +233,8 @@ end
 function dogTransformation(User,SourceItem)
 
 	local oldRace = User:getRace()
-	local oldSkincolor1,oldSkincolor2,oldSkincolor3 = User:getSkinColor()
-	local oldHaircolor1,oldHaircolor2,oldHaircolor3 = User:getHairColor()
+	local oldSkinColour = User:getSkinColour()
+	local oldHairColour = User:getHairColour()
 	local oldSex = User:increaseAttrib("sex",0)
 	local oldHair = User:getHair()
 	local oldBeard = User:getBeard()
@@ -243,12 +256,25 @@ function dogTransformation(User,SourceItem)
 					return
 				end
 			else -- not the same transformation; we need to get the old apperance values from the LTE
-				findOldSkincolor1, oldSkincolor1 = myEffect:findValue("oldSkincolor1")
-				findOldSkincolor2, oldSkincolor2 = myEffect:findValue("oldSkincolor2")
-				findOldSkincolor3, oldSkincolor3 = myEffect:findValue("oldSkincolor3")
-				findOldHaircolor1, oldHaircolor1 = myEffect:findValue("oldHaircolor1")
-				findOldHaircolor2, oldHaircolor2 = myEffect:findValue("oldHaircolor2")
-				findOldHaircolor3, oldHaircolor3 = myEffect:findValue("oldHaircolor3")
+				local findOldSkincolor1, oldSkincolor1 = myEffect:findValue("oldSkincolor1")
+				local findOldSkincolor2, oldSkincolor2 = myEffect:findValue("oldSkincolor2")
+				local findOldSkincolor3, oldSkincolor3 = myEffect:findValue("oldSkincolor3")
+				local findOldHaircolor1, oldHaircolor1 = myEffect:findValue("oldHaircolor1")
+				local findOldHaircolor2, oldHaircolor2 = myEffect:findValue("oldHaircolor2")
+				local findOldHaircolor3, oldHaircolor3 = myEffect:findValue("oldHaircolor3")
+
+				if findOldSkincolor1 and findOldSkincolor2 and findOldSkincolor3 then
+					oldSkinColour.red = oldSkincolor1
+					oldSkinColour.green = oldSkincolor2
+					oldSkinColour.blue = oldSkincolor3
+				end
+
+				if findOldHaircolor1 and findOldHaircolor2 and findOldHaircolor3 then
+					oldHairColour.red = oldHaircolor1
+					oldHairColour.green = oldHaircolor2
+					oldHairColour.blue = oldHaircolor3
+				end
+
 				findOldHair, oldHair = myEffect:findValue("oldHair")
 				findOldBeard, oldBeard = myEffect:findValue("oldBeard")
 				findOldSex, oldSex = myEffect:findValue("oldSex")
@@ -278,12 +304,12 @@ function dogTransformation(User,SourceItem)
 		myEffect:addValue("oldSex",oldSex)
 		myEffect:addValue("oldHair",oldHair)
 		myEffect:addValue("oldBeard",oldBeard)
-		myEffect:addValue("oldSkincolor1",oldSkincolor1)
-		myEffect:addValue("oldSkincolor2",oldSkincolor2)
-		myEffect:addValue("oldSkincolor3",oldSkincolor3)
-		myEffect:addValue("oldHaircolor1",oldHaircolor1)
-		myEffect:addValue("oldHaircolor2",oldHaircolor2)
-		myEffect:addValue("oldHaircolor3",oldHaircolor3)
+		myEffect:addValue("oldSkincolor1",oldSkinColour.red)
+		myEffect:addValue("oldSkincolor2",oldSkinColour.green)
+		myEffect:addValue("oldSkincolor3",oldSkinColour.blue)
+		myEffect:addValue("oldHaircolor1",oldHairColour.red)
+		myEffect:addValue("oldHaircolor2",oldHairColour.green)
+		myEffect:addValue("oldHaircolor3",oldHairColour.blue)
 		myEffect:addValue("oldRace",oldRace)
 		myEffect:addValue("oldHeight",oldHeight)
 		myEffect:addValue("newRace",newRace)
@@ -292,7 +318,7 @@ function dogTransformation(User,SourceItem)
 		myEffect:addValue("newSkincolor2",newSkincolor2)
 		myEffect:addValue("newSkincolor3",newSkincolor3)
 		
-		User:setSkinColor(newSkincolor1,newSkincolor2,newSkincolor3)
+		User:setSkinColour(colour(newSkincolor1,newSkincolor2,newSkincolor3))
 		User:setRace(newRace)
 		User:setAttrib("body_height",newHeight)
 	  

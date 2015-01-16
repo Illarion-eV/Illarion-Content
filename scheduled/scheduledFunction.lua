@@ -23,44 +23,23 @@ local M = {}
 -- The list of functions and their counters that are scheduled to be executed
 local executionQueue = {}
 
-local firstExecution = true
-local firstExecutionTime = 0
-
 function M.registerFunction(delay, callFunction)
-    if firstExecution then
-        debug("Scheduled functions script was not yet executed!!")
-    end
     table.insert(executionQueue, {counter = delay, exec = callFunction})
-    if firstExecution then
-        debug("?????????? function scheduled with delay: " .. delay)
-    else
-        debug(firstExecutionTime .. " function scheduled with delay: " .. delay)
-    end
 end
 
 function M.onExecute()
-    if firstExecution then
-        debug("Scheduled functions script are executed for the first time now!")
-        firstExecutionTime = world:getTime("unix")
-        firstExecution = false
-    end
     if (#executionQueue > 0) then
-        debug(firstExecutionTime .. " There are functions scheduled")
         local currentQueue = executionQueue
         executionQueue = {}
 
         for _, data in pairs(currentQueue) do
             data.counter = data.counter - 1
             if data.counter <= 0 then
-                debug(firstExecutionTime .. " Executing function")
                 data.exec()
             else
                 table.insert(executionQueue, data)
-                debug(firstExecutionTime .. " Resheduling function. Remaining delay: " .. data.counter)
             end
         end
-    else
-        debug(firstExecutionTime .. " There are NO functions scheduled")
     end
 end
 
