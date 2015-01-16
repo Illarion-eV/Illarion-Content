@@ -44,9 +44,9 @@ end
 
 function M.LookAtItem(User, Item)
     -- NPC Borgate uses a different mug each day
-    if Item.pos == BORGATES_MUG_POS then
+    if Item.pos == BORGATES_MUG_POS and Item.wear == 255 then
         local today = world:getTime("day")
-        if Item:getData("day") ~= today then
+        if tonumber(Item:getData("day")) ~= today then
             Item:setData("day", today)
             Item:setData("mugId", M.getRandomMugId())
             world:changeItem(Item)
