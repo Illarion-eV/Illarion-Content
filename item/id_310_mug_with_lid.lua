@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local lookat = require("base.lookat")
@@ -22,13 +22,16 @@ local M = {}
 local mugs = {}
 local validMugIds = {}
 
+-- the mug on NPC Borgate's counter
+local BORGATES_MUG_POS = position(709, 313, 0)
+
 function M.getRandomMugId()
     return validMugIds[Random.uniform(1, #validMugIds)]
 end
 
 function M.dropMugByChance(dropLocation,chance)
     chance = chance or 1
-    
+
     if #validMugIds > 0 and chance >= Random.uniform(1,100) then
         world:createItemFromId(310, 1, dropLocation, true, 999, {mugId = M.getRandomMugId()})
     end
@@ -40,18 +43,28 @@ local function addMug(mugId, titleDe, titleEn, pictureDe, pictureEn)
 end
 
 function M.LookAtItem(User, Item)
+    -- NPC Borgate uses a different mug each day
+    if Item.pos == BORGATES_MUG_POS and Item.wear == 255 then
+        local today = world:getTime("day")
+        if tonumber(Item:getData("day")) ~= today then
+            Item:setData("day", today)
+            Item:setData("mugId", M.getRandomMugId())
+            world:changeItem(Item)
+        end
+    end
+
     if Item:getData("mugId") == "random" then
         Item:setData("mugId", M.getRandomMugId())
         world:changeItem(Item)
     end
-    
+
     local mugId = tonumber(Item:getData("mugId"))
-    
+
     if mugId and mugs[mugId] then
         lookat.SetSpecialName(Item,"Verzierter Humpen","Decorated Mug")
 		lookat.SetSpecialDescription(Item,"Der Humpen zeigt folgendes Bild: ".. mugs[mugId]["pictureDe"] .." Unter dem Bild befindet sich eine Gravur: ".. mugs[mugId]["titleDe"], "The mug shows the following picture: ".. mugs[mugId]["pictureEn"] .." There is an engraving beneath the picture: ".. mugs[mugId]["titleEn"])
     end
-    
+
     return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
 
