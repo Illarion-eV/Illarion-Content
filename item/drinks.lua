@@ -70,8 +70,18 @@ function M.UseItem(User, SourceItem)
         common.InformNLS( User, "Du würdest alles verschütten.", "You'd spill everything.")
         return
     end
+
+
+    -- item should not be static
+    if SourceItem.wear == 255 then
+        common.HighInformNLS(User,
+            "Das kannst du nicht drinken.",
+            "You can't drink that.")
+        return
+    end
+
     local food = drinkList[SourceItem.id]
-    if (food == nil ) then
+    if (food == nil) then
         User:inform("Unknown drinking Item: ID"..SourceItem.id.." Please Report this to a developer.")
         return
     end
@@ -79,12 +89,12 @@ function M.UseItem(User, SourceItem)
     local foodLevel = User:increaseAttrib("foodlevel", 0) + food[1]
     world:makeSound(12, User.pos) -- drink sound
 
-    if ( math.random( 50 ) <= 1 ) then
+    if math.random(50) <= 1 then
         common.InformNLS( User, "Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.")
     else
         local dataCopy = {descriptionDe=SourceItem:getData("descriptionDe"), descriptionEn=SourceItem:getData("descriptionEn")}
-        local notCreated = User:createItem( food[2], 1, 333, dataCopy) -- create the remnant item
-        if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+        local notCreated = User:createItem(food[2], 1, 333, dataCopy) -- create the remnant item
+        if notCreated > 0 then -- too many items -> character can't carry anymore
             world:createItemFromId(food[2], notCreated, User.pos, true, 333, dataCopy)
             common.HighInformNLS(User, "Du kannst nichts mehr halten.", "You can't carry any more.")
         end
@@ -98,15 +108,15 @@ function M.UseItem(User, SourceItem)
         foodLevel = foodLevel - food[1]
     end
 
-    if ( User:increaseAttrib("foodlevel", 0) ~= foodLevel ) then
-        User:increaseAttrib("foodlevel",-(User:increaseAttrib("foodlevel",0)-foodLevel))
+    if User:increaseAttrib("foodlevel", 0) ~= foodLevel then
+        User:increaseAttrib("foodlevel",-(User:increaseAttrib("foodlevel",0) - foodLevel))
     end
 end
 
 
 function M.LookAtItem(User, Item)
 
-    local food = drinkList[ Item.id ]
+    local food = drinkList[Item.id]
 
     if food == nil then
         User:inform("unknown drink item ID"..Item.id)
@@ -116,4 +126,3 @@ function M.LookAtItem(User, Item)
 end
 
 return M
-
