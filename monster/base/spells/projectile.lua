@@ -213,7 +213,7 @@ return function(params)
             end
 
             local field = world:getField(currentPos)
-            local itemCount = world:countItems()
+            local itemCount = field:countItems()
             for i = 0, itemCount - 1 do
                 local possibleObstruction = field:getStackItem(i)
                 if possibleObstruction:isLarge() then
