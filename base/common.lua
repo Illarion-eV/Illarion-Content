@@ -50,7 +50,7 @@ end
 
 function M.TalkNLS(User, method, textInDe, textInEN)
     User:talk(method, textInDe, textInEN)
-end;
+end
 
 --- Get a text based on the gender of the character.
 -- @param User The character used to choose the text
@@ -394,12 +394,13 @@ end
 -- @param altIDs alternative ItemIDs the item could have changed to and is still valid
 -- @return True if everything is fine, else false
 function M.CheckItem(User, Item, altIDs)
-    local ItemCheck = nil
+    local ItemCheck
     if Item:getType() == scriptItem.field then
         if world:isItemOnField(Item.pos) then
             ItemCheck = world:getItemOnField(Item.pos)
         end
     elseif Item:getType() == scriptItem.container then
+        local found
         found, ItemCheck = User:getBackPack():viewItemNr(Item.itempos)
         if not found then
             ItemCheck = nil

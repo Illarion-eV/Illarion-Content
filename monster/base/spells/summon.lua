@@ -14,6 +14,9 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+local base = require("monster.base.spells.base")
+local common = require("base.common")
+
 local function _isNumber(value)
     return type(value) == "number"
 end
@@ -26,7 +29,6 @@ return function(params)
     local self = {}
     local monsterIds = {}
     local range = 5
-    local minRange = 2
     local probability = 0.03
     local gfxId = 41
     local sfxId = 0
@@ -73,19 +75,6 @@ return function(params)
             end
         end
 
-        if params.minRange ~= nil then
-            if _isNumber(params.minRange) then
-                minRange = tonumber(params.minRange)
-                if minRange <= 0 then
-                    error("The minimal range value for a warping spell was set to 0 or less.")
-                elseif minRange > range then
-                    error("The minimal range value was set to a valid larger than the actual range.")
-                end
-            else
-                error("The minimal range value for the spell was set to something, but not to a number.")
-            end
-        end
-
         if params.gfxId ~= nil then
             if _isNumber(params.gfxId) then
                 gfxId = tonumber(params.gfxId)
@@ -122,41 +111,16 @@ return function(params)
             local selectedMonsterIndex = Random.uniform(1, #monsterIds)
             local selectedMonsterId = monsterIds[selectedMonsterIndex]
 
-            local i = 0
-            while i < 20 do
-                local warpRange = (Random.uniform() * (range - minRange)) + minRange
-                local direction = Random.uniform() * 2 * math.pi
-                local x = math.floor(math.sin(direction) * warpRange + 0.5)
-                local y = math.floor(math.cos(direction) * warpRange + 0.5)
-
-                local spawnPos = position(monster.pos.x + x, monster.pos.y + y, monster.pos.z)
-
-                -- lets check if we are in the same room.
-                local blockList = world:LoS(monster.pos, spawnPos)
-                local obstructionIndex, obstruction
-                if blockList ~= nil then
-                    obstructionIndex, obstruction = next(blockList)
-                    while obstruction ~= nil and (obstruction.TYPE == "CHARACTER" or
-                            (obstruction.TYPE == "ITEM" and not obstruction.OBJECT:isLarge())) do
-                        obstructionIndex, obstruction = next(blockList, obstructionIndex)
-                    end
+            for spawnPos in common.GetFreePositions(monster.pos, range, true, true) do
+                if base.isLineOfSightFree(monster.pos, spawnPos) then
+                    world:createMonster(selectedMonsterId, spawnPos, -usedMovepoints)
+                    if gfxId > 0 then world:gfx(gfxId, monster.pos) end
+                    if gfxId > 0 then world:gfx(gfxId, spawnPos) end
+                    if sfxId > 0 then world:makeSound(sfxId, spawnPos) end
+                    monster.movepoints = monster.movepoints - usedMovepoints
+                    return true
                 end
-
-                if obstruction == nil then
-                    local field = world:getField(spawnPos)
-                    if field ~= nil and field:isPassable() and not world:isCharacterOnField(spawnPos) then
-                        world:createMonster(selectedMonsterId, spawnPos, -usedMovepoints)
-                        if gfxId > 0 then world:gfx(gfxId, monster.pos) end
-                        if gfxId > 0 then world:gfx(gfxId, spawnPos) end
-                        if sfxId > 0 then world:makeSound(sfxId, spawnPos) end
-                        monster.movepoints = monster.movepoints - usedMovepoints
-                        return true
-                    end
-                end
-                i = i + 1
             end
-
-            return false
         end
         return false
     end

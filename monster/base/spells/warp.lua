@@ -14,6 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+local base = require("monster.base.spells.base")
 local character = require("base.character")
 local common = require("base.common")
 
@@ -119,19 +120,6 @@ return function(params)
         return result
     end
 
-    local function _isValidWarpPosition(monster, warpTarget)
-        local blockList = world:LoS(monster.pos, warpTarget)
-        local obstructionIndex, obstruction
-        if blockList ~= nil then
-            obstructionIndex, obstruction = next(blockList)
-            while obstruction ~= nil and (obstruction.TYPE == "CHARACTER" or
-                    (obstruction.TYPE == "ITEM" and not obstruction.OBJECT:isLarge())) do
-                obstructionIndex, obstruction = next(blockList, obstructionIndex)
-            end
-        end
-        return obstruction == nil
-    end
-
     function self.cast(monster, enemy)
         if Random.uniform() <= probability then
             local nearPlayers = _getAdjazentPlayers(monster.pos)
@@ -165,7 +153,7 @@ return function(params)
                         end
                     end
 
-                    if not badPosition and _isValidWarpPosition(monster, freePosition) then
+                    if not badPosition and base.isLineOfSightFree(monster.pos, freePosition) then
                         warpTarget = freePosition
                         lookAtTarget = foundArcher.pos
                         break
@@ -176,7 +164,7 @@ return function(params)
                 local bestTargetFound
                 local hostileCount = math.huge
                 for freePosition in common.GetFreePositions(monster.pos, range, true, true) do
-                    if _isValidWarpPosition(monster, freePosition) then
+                    if base.isLineOfSightFree(monster.pos, freePosition) then
                         local playersAroundNewLocation = _getAdjazentPlayers(freePosition)
                         local badPeopleCounter = 0
                         for _, player in pairs(playersAroundNewLocation) do

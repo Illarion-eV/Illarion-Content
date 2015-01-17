@@ -209,16 +209,7 @@ return function(params)
             return false
         end
         if monster:isInRange(target, attackRange) and base.isValidTarget(target) then
-            local blockList = world:LoS(monster.pos, target.pos)
-            local obstructionIndex, obstruction
-            if blockList ~= nil then
-                obstructionIndex, obstruction = next(blockList)
-                while obstruction ~= nil and (obstruction.TYPE == "CHARACTER" or
-                        (obstruction.TYPE == "ITEM" and not obstruction.OBJECT:isLarge())) do
-                    obstructionIndex, obstruction = next(blockList, obstructionIndex)
-                end
-            end
-            return obstruction == nil
+            return base.isLineOfSightFree(monster.pos, target.pos)
         end
         return false
     end

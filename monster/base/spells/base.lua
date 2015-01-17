@@ -64,4 +64,15 @@ function M.getSpellResistence(char)
     return common.Limit(Random.uniform(minResistence, maxResistence) / 80.0, 0, 1);
 end
 
+-- Check if the line of sight is free from large objects that obstruct the view
+function M.isLineOfSightFree(startPos, targetPos)
+    local blockList = world:LoS(startPos, targetPos)
+    for _, obstruction in pairs(blockList) do
+        if obstruction.TYPE == "ITEM" and obstruction.OBJECT:isLarge() then
+            return false
+        end
+    end
+    return true
+end
+
 return M
