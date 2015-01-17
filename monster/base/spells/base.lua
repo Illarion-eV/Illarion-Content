@@ -68,7 +68,7 @@ end
 function M.isLineOfSightFree(startPos, targetPos)
     local blockList = world:LoS(startPos, targetPos)
     for _, obstruction in pairs(blockList) do
-        if obstruction.TYPE == "ITEM" and obstruction.OBJECT:isLarge() then
+        if obstruction.TYPE == "ITEM" then
             return false
         end
     end
