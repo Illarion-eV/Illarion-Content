@@ -22,7 +22,9 @@ local M = {}
 
 function M.dealMagicDamage(target, damange)
     if damange < 1 then return end
-    if character.IsPlayer(target) and character.WouldDie(target, damange) then
+    -- Check for damage + 1 to avoid the case that a regular hit lowers the hitpoints down to 1 and directly sends a
+    -- character to the brink of death.
+    if character.IsPlayer(target) and character.WouldDie(target, damange + 1) then
         if character.AtBrinkOfDeath(target) then
             if target:isAdmin() then
                 chr_reg.stallRegeneration(target, 0)
