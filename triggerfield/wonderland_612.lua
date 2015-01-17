@@ -118,7 +118,7 @@ function M.MoveToField(char)
 			char:warp(position(885,594,0))
 			world:gfx(37,char.pos);
 			world:makeSound(13,char.pos);
-			char:inform("Die krächzende Stimme brüllt: \"Verdammt! Nun gut, du darfst über die Brücke gehen.\" Worauf die eine Stimme aus dem Norden ruft: \"Nicht zur Brücke. In den Baum! In den Baum!\"", "The jagged voice bellows: \"Blimey! Well, you are allowed to pass the bridge.\". A voice from the north shouts: \"Don't go to the bridge. Into the tree! Into the tree!\"")
+			char:inform("Die krächzende Stimme brüllt: \"Verdammt! Nun gut, du darfst über die Brücke gehen.\" Worauf die eine Stimme aus dem Norden ruft: \"Nicht zur Brücke. In der Pinie! In der Pinie!\"", "The jagged voice bellows: \"Blimey! Well, you are allowed to pass the bridge.\". A voice from the north shouts: \"Don't go to the bridge. Into the pine tree! Into the pine tree!\"")
 			return
 
 		--890,560,0 correct choice #4
