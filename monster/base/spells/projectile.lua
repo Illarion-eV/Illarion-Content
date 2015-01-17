@@ -212,8 +212,10 @@ return function(params)
                 end
             end
 
-            if world:isItemOnField(currentPos) then
-                local possibleObstruction = world:getItemOnField(currentPos)
+            local field = world:getField(currentPos)
+            local itemCount = world:countItems()
+            for i = 0, itemCount - 1 do
+                local possibleObstruction = field:getStackItem(i)
                 if possibleObstruction:isLarge() then
                     hitPosition = currentPos
                     hitCharacter = nil
@@ -233,7 +235,7 @@ return function(params)
 
         if gfxId > 0 then world:gfx(gfxId, hitPosition) end
         if sfxId > 0 then world:makeSound(sfxId, hitPosition) end
-        if itemId > 0 then
+        if itemId > 0 and not common.isItemIdInFieldStack(itemId, enemy.pos) then
             local qual = Random.uniform(itemQualityRange[1], itemQualityRange[2]) * 100 +
                     Random.uniform(itemDurabilityRange[1], itemDurabilityRange[2])
             local item = world:createItemFromId(itemId, 1, hitPosition, true, qual, nil)
