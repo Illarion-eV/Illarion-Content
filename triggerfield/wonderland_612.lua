@@ -128,7 +128,7 @@ function M.MoveToField(char)
 			char:warp(position(885,584,0))
 			world:gfx(37,char.pos);
 			world:makeSound(13,char.pos);
-			char:inform("Die krächzende Stimme bellt: \"Narr!\" Worauf eine Stimme aus dem Süden ruft: \"Zum Meer! Zum Meer!\"", "The jagged voice barks: \"Fool!\". A voice from the south shouts: \"To the sea! To the sea!\"")
+			char:inform("Die krächzende Stimme bellt: \"Narr!\" Worauf eine Stimme aus dem Osten ruft: \"Zum Meer! Zu Mir!\"", "The jagged voice barks: \"Fool!\". A voice from the east shouts: \"To the sea! Come to me!\"")
 			return
 
 		--885,573,0 correct choice #3
@@ -177,7 +177,7 @@ function M.MoveToField(char)
 			char:inform("Du hörst ein Lachen und eine krächzende Stimme sagen: \"HAHA! Du enkommst mir nicht!\" Eine andere Stimme ruft dir erneut aus dem Nordwesten zu: \"Gib nicht auf! Du kannst es schaffen, aber geh weg von mir.\"","You hear laughter and a croaking voice, saying: \"HAHA! You cannot escape!\"Another voice replies again from the northwest: \"Do not give in! You can make it but get away from me.\"")  
 
 			if (char:increaseAttrib("hitpoints",0)>2000) then --punishment for wrong turn
-				char:increaseAttrib("hitpoints", -500)
+				char:increaseAttrib("hitpoints", math.random (-100,-500))
 				world:makeSound(3,char.pos);
 			end
 		end
