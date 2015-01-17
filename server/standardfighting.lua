@@ -89,7 +89,7 @@ local function getArcherRange(archer)
 end
 
 local function isPossibleTarget(monster, candidate)
-	if not character:IsPlayer(candidate) and candidate.pos.z ~= -40 then
+	if not character.IsPlayer(candidate) and candidate.pos.z ~= -40 then
 		return false
 	end
 
