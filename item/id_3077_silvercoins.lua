@@ -12,51 +12,62 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local common = require("base.common")
-
-local M = {}
 
 -- UPDATE items SET itm_script='item.id_3077_silvercoins' WHERE itm_id IN (3077);
 
-TimeList = {};
+local common = require("base.common")
+local lookat = require("base.lookat")
+
+local M = {}
+
+local TimeList = {}
+
+function M.LookAtItem(User, Item)
+    if Item.number == 1 then
+        lookat.SetSpecialDescription(Item, "Eine einzelne Münze", "A single coin")
+    else
+        lookat.SetSpecialDescription(Item, "Eine Sammlung aus " .. Item.number .. " Münzen", "A collection of " .. Item.number .. " coins")
+    end
+    return lookat.GenerateLookAt(User, Item, lookat.NONE)
+end
 
 function M.UseItem(User, SourceItem)
-	local frontItem = common.GetFrontItem(User)
-	if frontItem then
-		if frontItem.id == 2805 and frontItem.pos == position(415, 273, -6) then --if frontItem is questpillar
-			if User:getQuestProgress(170) == 0 then
-				User:setQuestProgress (170, 1)
-				User:inform('Die Münze fällt durch den Schlitz und mit einem metallischen Klicken öffnet sich eine versteckte Klappe in der Säule, aus der ein Schild fällt.', 'The coin falls into the slit and with a metallic click a hidden hatch opens and a shield drops out.')
-				world:erase(SourceItem,1)
-				local data = {}
-				data.descriptionDe="Geweihter Schild Ronagans"
-				data.descriptionEn="Blessed Shield of Ronagan"
-				User:createItem(17, 1, 799, data)
-			else
-				User:inform('Die Münze verschwindet im Schlitz, aber nichts passiert.', 'The coin disappears but nothing happens.')
-				world:erase(SourceItem,1)
-			end
-		return;
-		end
-	end
-	
-	if TimeList[User.id]~=nil then
-		if  ( (math.abs(world:getTime("second") - TimeList[User.id]) ) <=3) then  --1 Rl. second delay
-			return;
-		end
-	end
+    local frontItem = common.GetFrontItem(User)
+    if frontItem then
+        if frontItem.id == 2805 and frontItem.pos == position(415, 273, -6) then --if frontItem is questpillar
+            if User:getQuestProgress(170) == 0 then
+                User:setQuestProgress (170, 1)
+                User:inform('Die Münze fällt durch den Schlitz und mit einem metallischen Klicken öffnet sich eine versteckte Klappe in der Säule, aus der ein Schild fällt.', 'The coin falls into the slit and with a metallic click a hidden hatch opens and a shield drops out.')
+                world:erase(SourceItem, 1)
+                local data = {}
+                data.descriptionDe = "Geweihter Schild Ronagans"
+                data.descriptionEn = "Blessed Shield of Ronagan"
+                User:createItem(17, 1, 799, data)
+            else
+                User:inform('Die Münze verschwindet im Schlitz, aber nichts passiert.', 'The coin disappears but nothing happens.')
+                world:erase(SourceItem, 1)
+            end
+        return;
+        end
+    end
 
-		
-	if math.random(2) == 1 then	
-		gValue = "Kopf"; eValue = "head";
-	else 
-		gValue = "Zahl"; eValue = "tail";
-	end    
-	
-	User:talk(Character.say, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt "..gValue..".", "#me throws a coin in the air and catches it again. It shows "..eValue..".")
-	TimeList[User.id] = world:getTime("second");
+    if TimeList[User.id] ~= nil then
+        if (math.abs(world:getTime("second") - TimeList[User.id])) <= 3 then  -- 1 Rl. second delay
+            return
+        end
+    end
+
+    local face
+    if math.random(2) == 1 then
+        face = common.GetNLS(User, "Kopf", "head")
+    else
+        face = common.GetNLS(User, "Zahl","tail")
+    end
+
+    User:talk(Character.say, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt "..face..".", "#me throws a coin in the air and catches it again. It shows "..face..".")
+    TimeList[User.id] = world:getTime("second")
 end
-return M
 
+return M

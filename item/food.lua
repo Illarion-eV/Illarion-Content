@@ -14,13 +14,10 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- Food script
-local common = require("base.common")
-
-local M = {}
 
 -- UPDATE items SET itm_script='item.food' WHERE itm_id IN (15,49,73,80,81,142,143,147,151,158,159,160,161,162,163,191,199,200,201,302,303,306,307,353,354,355,388,453,454,455,552,553,554,555,556,557,559,1207,2276,2277,2278,2456,2459,2493,2922,2923,2934,2940,3051);
 
+local common = require("base.common")
 local furtunecookies = require("content.furtunecookies")
 local alchemy = require("alchemy.base.alchemy")
 local herbs = require("alchemy.base.herbs")
@@ -29,23 +26,25 @@ local cooking = require("content.craft.cooking")
 local diet = require("lte.diet")
 local specialeggs = require("content.specialeggs")
 
+local M = {}
+
 -- buff types, they have exactly two attributes
 local BUFFS = {
   {"constitution", "strength"},
   {"agility", "dexterity"},
   {"perception", "intelligence"}
-};
+}
 
 -- this is updated while adding food items
-MAX_DIFFICULTY = 0;
+local MAX_DIFFICULTY = 0
 
-MIN_CRAFTED_FOODVALUE = 6000;
-MAX_CRAFTED_FOODVALUE = 45000;
+local MIN_CRAFTED_FOODVALUE = 6000
+local MAX_CRAFTED_FOODVALUE = 45000
 
-VALUE_SMALL = 875;
-VALUE_MEDIUM = 1687;
-VALUE_LARGE = 2500;
-VALUE_XLARGE = 4000;
+local VALUE_SMALL = 875
+local VALUE_MEDIUM = 1687
+local VALUE_LARGE = 2500
+local VALUE_XLARGE = 4000
 
 --[[ create FoodList
 FoodList:add() adds an element
@@ -64,16 +63,16 @@ the racial tables have the following struct (in order of the race numbers):
 ]]
 local FoodList
 FoodList = { add = function (self,id,Value,Leftover,BuffType,RacialFactor,UnEatable,Poison)
-				self[id] = {};
-				self[id].value = Value or VALUE_XLARGE;
-				self[id].leftover = Leftover or 0;
-        self[id].buffType = BuffType;
-				self[id].difficulty = nil;
-				self[id].racialFactor = RacialFactor or {1,1,1,1,1,1,1,1,1,1};
-				self[id].unEatable = UnEatable or {};
-				self[id].poison = Poison;
-			end
-};
+                self[id] = {}
+                self[id].value = Value or VALUE_XLARGE
+                self[id].leftover = Leftover or 0
+                self[id].buffType = BuffType
+                self[id].difficulty = nil
+                self[id].racialFactor = RacialFactor or {1,1,1,1,1,1,1,1,1,1}
+                self[id].unEatable = UnEatable or {}
+                self[id].poison = Poison
+            end
+}
 
 -- Free Food
 FoodList:add(  15,	 VALUE_LARGE,	   0); -- apple
@@ -153,9 +152,21 @@ FoodList:add( 162,	 VALUE_SMALL,	   0,	nil,	nil,	nil,	 600); -- birth mushroom
 FoodList:add( 158,	 VALUE_SMALL,	   0,	nil,	nil,	nil,	 400); -- bulbsponge mushroom
 FoodList:add( 159,	 VALUE_MEDIUM,	   0,	nil,	nil,	nil,	1000); -- toadstool
 
+local function SetNewFoodLevel(User, NewFoodLevel)
+  NewFoodLevel = common.Limit(NewFoodLevel, 0, 60000);
+  local foodToAdd = NewFoodLevel - User:increaseAttrib("foodlevel",0);
+  while true do
+    User:increaseAttrib("foodlevel",math.min(10000,foodToAdd));
+    foodToAdd = foodToAdd - math.min(10000,foodToAdd);
+    if (foodToAdd == 0) then
+      break;
+    end
+  end
+end
+
 local Init
 function M.UseItem(User, SourceItem, ltstate)
-	if (Init == nil) then
+    if (Init == nil) then
     Init = 1;
     -- import difficulties from crafts
     for _,product in pairs(baking.baking.products) do
@@ -183,26 +194,26 @@ function M.UseItem(User, SourceItem, ltstate)
       end
     end
   end
-	-- check if used for alchemy purpose
-	local isPlant, ignoreIt = alchemy.getPlantSubstance(SourceItem.id, User)
-	local cauldron = alchemy.GetCauldronInfront(User,SourceItem)
-	if (cauldron ~= nil) and isPlant then
-	    herbs.UseItem(User, SourceItem, ltstate)
-		return
-	end
+    -- check if used for alchemy purpose
+    local isPlant, ignoreIt = alchemy.getPlantSubstance(SourceItem.id, User)
+    local cauldron = alchemy.GetCauldronInfront(User,SourceItem)
+    if (cauldron ~= nil) and isPlant then
+        herbs.UseItem(User, SourceItem, ltstate)
+        return
+    end
 
-	--check for special eggs
-	if specialeggs.checkSpecialEgg(SourceItem, User) then
-		return
-	end
+    --check for special eggs
+    if specialeggs.checkSpecialEgg(SourceItem, User) then
+        return
+    end
 
-	-- item should not be static
-	if SourceItem.wear == 255 then
+    -- item should not be static
+    if SourceItem.wear == 255 then
     common.HighInformNLS(User,
     "Das kannst du nicht essen.",
     "You can't eat that.");
-		return;
-	end
+        return;
+    end
 
   local foodItem = FoodList[ SourceItem.id ];
   -- known food item?
@@ -210,17 +221,17 @@ function M.UseItem(User, SourceItem, ltstate)
     User:inform("[ERROR] unknown food item. ID: " .. SourceItem.id .. ". Please inform a developer.");
     return;
   end
-	-- define user's race (+1 for valid table index), non-playable races are set to 10
-	local race = math.min(User:getRace()+1, 10);
-	-- not eatable for user's race
-	if foodItem.unEatable[race] then
+    -- define user's race (+1 for valid table index), non-playable races are set to 10
+    local race = math.min(User:getRace()+1, 10);
+    -- not eatable for user's race
+    if foodItem.unEatable[race] then
     common.HighInformNLS(User,
     "Das kannst du nicht essen.",
     "You can't eat that.");
-		return;
-	end
-	-- user should not fight
-	if User.attackmode then
+        return;
+    end
+    -- user should not fight
+    if User.attackmode then
     common.HighInformNLS( User,
     "Du kannst nicht während eines Kampfes essen.",
     "You cannot eat during a fight.");
@@ -255,13 +266,13 @@ function M.UseItem(User, SourceItem, ltstate)
     if( math.random( 50 ) <= 1 ) then
       common.HighInformNLS( User, "Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.");
     else
-		local notCreated = User:createItem( foodItem.leftover, 1, 333, nil);
-		if ( notCreated > 0 ) then
-			world:createItemFromId( foodItem.leftover, notCreated, User.pos, true, 333, nil );
-			common.HighInformNLS(User,
-			"Du kannst nichts mehr halten und lässt das Geschirr zu Boden fallen.",
-			"You can't carry any more and let the dishes drop to the ground.");
-		end
+        local notCreated = User:createItem( foodItem.leftover, 1, 333, nil);
+        if ( notCreated > 0 ) then
+            world:createItemFromId( foodItem.leftover, notCreated, User.pos, true, 333, nil );
+            common.HighInformNLS(User,
+            "Du kannst nichts mehr halten und lässt das Geschirr zu Boden fallen.",
+            "You can't carry any more and let the dishes drop to the ground.");
+        end
     end
   end
 
@@ -361,9 +372,9 @@ function M.UseItem(User, SourceItem, ltstate)
           if (newIsBetter) then
             dietEffect:addValue("buffExpireStamp", common.GetCurrentTimestamp() + newDuration);
             if (newBuffAmount > buffAmount or buffType ~= foodItem.buffType) then
-			  dietEffect:addValue("buffType", foodItem.buffType);
+              dietEffect:addValue("buffType", foodItem.buffType);
               dietEffect:addValue("buffAmount", newBuffAmount);
-			  diet.RemoveBuff(dietEffect, User);
+              diet.RemoveBuff(dietEffect, User);
               diet.InformPlayer(dietEffect, User);
             end
           end
@@ -383,17 +394,4 @@ function M.UseItem(User, SourceItem, ltstate)
   end
 end
 
-function SetNewFoodLevel(User, NewFoodLevel)
-  NewFoodLevel = common.Limit(NewFoodLevel, 0, 60000);
-  local foodToAdd = NewFoodLevel - User:increaseAttrib("foodlevel",0);
-  while true do
-    User:increaseAttrib("foodlevel",math.min(10000,foodToAdd));
-    foodToAdd = foodToAdd - math.min(10000,foodToAdd);
-    if (foodToAdd == 0) then
-      break;
-    end
-  end
-end
-
 return M
-
