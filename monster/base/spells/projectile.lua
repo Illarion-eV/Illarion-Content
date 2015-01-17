@@ -248,12 +248,17 @@ return function(params)
         return attackRange
     end
 
+    local function isValidTarget(monster, enemy)
+        return monster.id ~= enemy.id and monster:isInRange(enemy, attackRange) and
+                base.isValidTarget(enemy) and base.isLineOfSightFree(monster.pos, enemy.pos)
+    end
+
     function self.cast(monster, enemy)
         if Random.uniform() <= probability then
             local castedAtLeastOnce = false
             local remainingAttacks = targets
             local firstAttackDone = false
-            if monster:isInRange(enemy, attackRange) and base.isValidTarget(enemy) then
+            if isValidTarget(monster, enemy) then
                 if not firstAttackDone then
                     common.TurnTo(monster, enemy.pos)
                     firstAttackDone = true
@@ -269,7 +274,7 @@ return function(params)
                 local targets = world:getPlayersInRangeOf(monster.pos, attackRange)
                 local possibleTargets = {}
                 for _, target in pairs(targets) do
-                    if target.id ~= enemy.id and base.isValidTarget(target) then
+                    if isValidTarget(monster, enemy) then
                         table.insert(possibleTargets, target)
                     end
                 end
