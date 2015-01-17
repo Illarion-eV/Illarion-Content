@@ -71,7 +71,66 @@ local gems = require("base.gems")
 
 local M = {}
 
-firstTimeList = {}
+local firstTimeList = {}
+
+local function getRangeOfDistanceWeaponInSlot(char, slot)
+	local item = char:getItemAt(slot)
+	local weaponFound, weapon = world:getWeaponStruct(item.id)
+	if weaponFound and weapon.WeaponType == 7 then
+		return weapon.Range
+	end
+	return 0
+end
+
+local function getArcherRange(archer)
+	local leftRange = getRangeOfDistanceWeaponInSlot(archer, Character.left_tool)
+	local rightRange = getRangeOfDistanceWeaponInSlot(archer, Character.right_tool)
+	return math.max(leftRange, rightRange)
+end
+
+local function isPossibleTarget(monster, candidate)
+	if not character:IsPlayer(candidate) and candidate.pos.z ~= -40 then
+		return false
+	end
+
+	if character.IsDead(candidate) then
+		return false
+	end
+
+	if (candidate:getQuestProgress(36) ~= 0) then
+		return false;
+	end
+
+	local distance
+	local monsterId = monster.id
+	if firstTimeList[monsterId] ~= nil and firstTimeList[monsterId] == candidate.id then
+		distance = 10
+	else
+		distance = 8
+	end
+
+
+	local range = getArcherRange(monster)
+	if range > 0 then
+		if candidate:isInRange(monster, range) then
+			local blockList = world:LoS( monster.pos, candidate.pos )
+			local next = next	-- make next-iterator local
+			if (next(blockList)~=nil) then	-- see if there is a "next" (first) object in blockList!
+				return false;				-- something blocks
+			end
+		else
+			return false
+		end
+	elseif not candidate:isInRange(monster, distance) then
+		return false
+	end
+
+	return true
+end
+
+local function isBetterTarget(currentTarget, candidate)
+	return character.GetHP(candidate) < character.GetHP(currentTarget)
+end
 
 -- selects a target for monster from candidates, 0 means no target found
 -- this default can be overridden by a monster's setTarget entrypoint
@@ -92,64 +151,6 @@ function M.setTarget(monster, candidates)
 		firstTimeList[monsterId] = candidate.id;
 	end
     return target
-end
-
-function isArcher(archer, target)
-
-	local lItem = archer:getItemAt(Character.left_tool)
-	local rItem = archer:getItemAt(Character.right_tool)
-	local rAttFound, rAttWeapon = world:getWeaponStruct(rItem.id)
-    local lAttFound, lAttWeapon = world:getWeaponStruct(lItem.id)
-
-	local range = nil;
-	if lAttFound and lAttWeapon.WeaponType == 7 then
-		range = lAttWeapon.Range
-	elseif rAttFound and rAttWeapon.WeaponType == 7 then
-		range = rAttWeapon.Range
-	end
-
-	return range;
-end
-
-
-
-function isPossibleTarget(monster, candidate)
-    if candidate:getType() ~= Character.player and candidate.pos.z ~= -40 then
-        return false
-    end
-
-    if (candidate:getQuestProgress(36) ~= 0) then
-		return false;
-	end
-
-	local distance
-	local monsterId = monster.id
-	if firstTimeList[monsterId] ~= nil and firstTimeList[monsterId] == candidate.id then
-		distance = 10
-	else
-		distance = 8
-	end
-
-
-	local range = isArcher(monster, candidate)
-	if  range ~= nil and candidate:distanceMetric(monster) > range then
-		return false;
-	elseif range then
-		local blockList = world:LoS( monster.pos, candidate.pos )
-		local next = next	-- make next-iterator local
-		if (next(blockList)~=nil) then	-- see if there is a "next" (first) object in blockList!
-				return false;				-- something blocks
-		end
-	elseif candidate:distanceMetric(monster) > distance then
-		return false;
-	end
-
-	return true
-end
-
-function isBetterTarget(currentTarget, candidate)
-    return candidate:increaseAttrib("hitpoints", 0)
-            < currentTarget:increaseAttrib("hitpoints", 0)
 end
 
 --- Main Attack function. This function is called by the server to start an
