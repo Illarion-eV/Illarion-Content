@@ -274,7 +274,7 @@ return function(params)
                 local targets = world:getPlayersInRangeOf(monster.pos, attackRange)
                 local possibleTargets = {}
                 for _, target in pairs(targets) do
-                    if isValidTarget(monster, enemy) then
+                    if isValidTarget(monster, target) then
                         table.insert(possibleTargets, target)
                     end
                 end
