@@ -60,7 +60,7 @@ function M.PutItemOnField(Item,User)
 	-- is the char an alchemist?
 	local anAlchemist = alchemy.CheckIfAlchemist(User)
 	if not anAlchemist then
-		myNPC:talk(Character.say, "Mir ist nicht bekannt, dass Ihr ein Alchemist sein sollt. Nehmt Euer Zeug wieder weg.", "I haven't heard you being an alchemist. Take your stuff from my table.")
+		myNPC:talk(Character.say, "Mir ist nicht bekannt, dass Ihr ein Alchemist sein sollt. Nehmt Euer Zeug wieder weg.", "I haven't heard that you are an alchemist. Take your stuff from my table.")
 		return
 	end
 	
@@ -100,16 +100,16 @@ function M.PutItemOnField(Item,User)
 	    end
 	end
     if success == false then
-	    myNPC:talk(Character.say, "Dafür werde ich Euch nichts lehren. Schaut auf meine Liste und zeigt mir, was Euch interessiert und ich sage Euch, was ich dafür verlange.", "I won't teach you anything for this. Have a look at my list, show me what you would liek to leran and I will tell you what you have to give me in return.")
+	    myNPC:talk(Character.say, "Dafür werde ich Euch nichts lehren. Schaut auf meine Liste und zeigt mir, was Euch interessiert und ich sage Euch, was ich dafür verlange.", "I won't teach you anything for this. Have a look at my list, show me what you would like to learn and I will tell you what you have to give me in return.")
 	
 	else
         local ListEffectId = id_3109_open_pell.ListEffectId[town]
 		if User:getQuestProgress(ListEffectId[myListPos]+1000) ~= 0 then
-		    myNPC:talk(Character.say, "Mhh. Ich würde Euch wohl dafür etwas zeigen, aber Ihr macht den Eindruck, diese Kenntnisse schon zu haben.", "Mhh. Well, I would teach you something for this, but you seem to already have this knowledge.")
+		    myNPC:talk(Character.say, "Mhh. Ich würde Euch wohl dafür etwas zeigen, aber Ihr macht den Eindruck, diese Kenntnisse schon zu haben.", "Hmm. Well, I would teach you something for this, but you seem to already have this knowledge.")
 		else
 			myNPC:talk(Character.say, "Ah! Sehr gut, sehr gut! Nun denn, Ihr habt es Euch verdient. Schaut genau her.", "Ah! Very good, very good! Well, you've earned your pay. Look closely.")
 			world:erase(Item,1)
-			myNPC:talk(Character.say, "#me beginnt sorgsam und langsam die einzelnen Zutaten vorzubereiten und dann zu verarbeiten, darauf Acht gebend, dass keine Unbefugten es sehen können. \"So geht das richtig.\"", "#me starts to prepare the ingredients carefully and slowly and then to worken them, while making sure that no unasked eyes have a look at it. \"So geht das richtig.\"")
+			myNPC:talk(Character.say, "#me beginnt sorgsam und langsam die einzelnen Zutaten vorzubereiten und dann zu verarbeiten, darauf Acht gebend, dass keine Unbefugten es sehen können. \"So geht das richtig.\"", "#me starts to prepare the ingredients carefully and slowly and then to process them, while making sure that no unauthorized eyes have a look at it. \"So this goes properly.\"")
 			User:setQuestProgress(ListEffectId[myListPos]+1000,1)
 			TellRecipe(User,ListEffectId[myListPos])
 		end	
@@ -138,7 +138,7 @@ function TellRecipe(User, effectId)
 		end
 	end
     if not success then
-        recipeEN = recipeEN.."No essecned herbs" 
+        recipeEN = recipeEN.."No essenced herbs" 
         recipeDE = recipeDE.."Keine essenzierten Kräuter"
     end
 
