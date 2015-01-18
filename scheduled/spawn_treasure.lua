@@ -56,7 +56,7 @@ function M.spawnTreasure()
 		
 	end
 	
-	local treasurePos=position(907,547,0); --Wonderland
+	local treasurePos=position(907,574,0); --Wonderland
 	
     if #world:getPlayersInRangeOf(treasurePos,20) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
 	
