@@ -38,10 +38,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (545, 119, 0,'triggerfield.altaroffive_triggered_events');
 -- INSERT INTO triggerfields VALUES (545, 118, 0,'triggerfield.altaroffive_triggered_events');
 -- INSERT INTO triggerfields VALUES (545, 117, 0,'triggerfield.altaroffive_triggered_events');
--- INSERT INTO triggerfields VALUES (545, 120, 0,'triggerfield.altaroffive_triggered_events');
--- INSERT INTO triggerfields VALUES (545, 119, 0,'triggerfield.altaroffive_triggered_events');
--- INSERT INTO triggerfields VALUES (545, 118, 0,'triggerfield.altaroffive_triggered_events');
--- INSERT INTO triggerfields VALUES (545, 117, 0,'triggerfield.altaroffive_triggered_events');
+-- INSERT INTO triggerfields VALUES (550, 122, 0,'triggerfield.altaroffive_triggered_events');
+-- INSERT INTO triggerfields VALUES (550, 120, 0,'triggerfield.altaroffive_triggered_events');
+-- INSERT INTO triggerfields VALUES (554, 121, 0,'triggerfield.altaroffive_triggered_events');
+-- INSERT INTO triggerfields VALUES (552, 125, 0,'triggerfield.altaroffive_triggered_events');
 
 local common = require("base.common")
 
@@ -71,10 +71,10 @@ waypoint[17] = position(556, 139, 0) -- Eldan Area
 waypoint[18] = position(555, 142, 0)
 waypoint[19] = position(562, 143, 0)
 waypoint[20] = position(559, 139, 0)
-waypoint[21] = position(545, 120, 0) -- Ushara Area
-waypoint[22] = position(545, 119, 0)
-waypoint[23] = position(545, 118, 0)
-waypoint[24] = position(545, 117, 0)
+waypoint[21] = position(550, 122, 0) -- Ushara Area
+waypoint[22] = position(550, 120, 0)
+waypoint[23] = position(554, 121, 0)
+waypoint[24] = position(552, 125, 0)
 waypoint[25] = position(545, 120, 0) -- Tree Area
 waypoint[26] = position(545, 119, 0)
 waypoint[27] = position(545, 118, 0)
