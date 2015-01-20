@@ -127,11 +127,11 @@ function M.MoveToField(User)
             world:gfx(38,position(549,145,0)); --a flame
             world:gfx(38,position(557,147,0)); --a flame
             world:gfx(38,position(547,147,0)); --a flame
-            world:makesound(5,position(551,143,0)); --a flame
-            world:makesound(5,position(552,143,0)); --a flame
-            world:makesound(5,position(549,145,0)); --a flame
-            world:makesound(5,position(557,147,0)); --a flame
-            world:makesound(5,position(547,147,0)); --a flame
+            world:makeSound(5,position(551,143,0)); --a flame
+            world:makeSound(5,position(552,143,0)); --a flame
+            world:makeSound(5,position(549,145,0)); --a flame
+            world:makeSound(5,position(557,147,0)); --a flame
+            world:makeSound(5,position(547,147,0)); --a flame
 
         elseif theWaypoint>= 9 and theWaypoint <= 12 then -- trigger wind
 
@@ -142,11 +142,11 @@ function M.MoveToField(User)
             world:gfx(7,position(560,133,0)); --a wind
             world:gfx(7,position(556,131,0)); --a wind
             world:gfx(7,position(563,125,0)); --a wind
-            world:makesound(27,position(556,135,0)); --a wind
-            world:makesound(27,position(566,133,0)); --a wind
-            world:makesound(27,position(560,133,0)); --a wind
-            world:makesound(27,position(556,131,0)); --a wind
-            world:makesound(27,position(563,125,0)); --a wind
+            world:makeSound(27,position(556,135,0)); --a wind
+            world:makeSound(27,position(566,133,0)); --a wind
+            world:makeSound(27,position(560,133,0)); --a wind
+            world:makeSound(27,position(556,131,0)); --a wind
+            world:makeSound(27,position(563,125,0)); --a wind
 
         elseif theWaypoint>= 13 and theWaypoint <= 16 then -- trigger water
 
@@ -157,11 +157,11 @@ function M.MoveToField(User)
             world:gfx(11,position(540,136,0)); --a water
             world:gfx(11,position(547,133,0)); --a water
             world:gfx(11,position(538,129,0)); --a water
-            world:makesound(9,position(549,138,0)); --a water
-            world:makesound(9,position(543,139,0)); --a water
-            world:makesound(9,position(540,136,0)); --a water
-            world:makesound(9,position(547,133,0)); --a water
-            world:makesound(9,position(538,129,0)); --a water
+            world:makeSound(9,position(549,138,0)); --a water
+            world:makeSound(9,position(543,139,0)); --a water
+            world:makeSound(9,position(540,136,0)); --a water
+            world:makeSound(9,position(547,133,0)); --a water
+            world:makeSound(9,position(538,129,0)); --a water
 
         elseif theWaypoint>= 17 and theWaypoint <= 20 then -- trigger light
 
@@ -190,10 +190,10 @@ function M.MoveToField(User)
             world:gfx(11,position(538,118,0)); --a water
             world:gfx(11,position(537,118,0)); --a water
             world:gfx(11,position(537,116,0)); --a water
-            world:makesound(9,position(537,117,0)); --a water
-            world:makesound(9,position(538,118,0)); --a water
-            world:makesound(9,position(537,118,0)); --a water
-            world:makesound(9,position(537,116,0)); --a water
+            world:makeSound(9,position(537,117,0)); --a water
+            world:makeSound(9,position(538,118,0)); --a water
+            world:makeSound(9,position(537,118,0)); --a water
+            world:makeSound(9,position(537,116,0)); --a water
         end --all events handled
 
     end --triggerfield
