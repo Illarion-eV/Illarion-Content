@@ -74,6 +74,36 @@ function M.MoveToField(char)
         return
     end
 
+    -- entrance to wonderland. Cant enter here, only via bookrest (item/bookrests.lua)
+    local bridge1 = position(878, 562, 0)
+    local bridge2 = position(876, 590, 0)
+    local bridge3 = position(890, 596, 0)
+    local warpback1 = position(875, 562, 0)
+    local warpback1 = position(872, 590, 0)
+    local warpback1 = position(890, 600, 0)
+
+    local warpedout = false
+
+    if char.pos == bridge1 then
+        world:makeSound(1,char.pos)
+        char:warp(warpback1)
+        warpedout = true
+    elseif char.pos == bridge2 then
+        world:makeSound(1,char.pos)
+        char:warp(warpback2)
+        warpedout = true
+    elseif char.pos == bridge2 then
+        world:makeSound(1,char.pos)
+        char:warp(warpback2)
+        warpedout = true
+    end
+
+    if warpedout == true then
+        char:inform("Du hörst eine krächzende Stimme schreien: \"Das Wunderland kann nicht betreten werden ohne Erlaubnis. Finde das magische Podest um hereinzukommen\" Danach kehrt Stille ein.",
+                    "You hear a croaking voice screaming: \"You may not enter Wonderland without permission. Find the magical podium if you wish to enter.\" Afterwards there is silence.")
+        return
+    end
+
     -- just fluff messages if main quest solved
     if char:getQuestProgress(612) == 2 and math.random(0,99)< 10 then -- riddle has been solved yet; the voice one more time; chance be warped
         if char.pos == position(890,596,0) or char.pos == position(876,590,0) or char.pos == position(878,562,0) then
