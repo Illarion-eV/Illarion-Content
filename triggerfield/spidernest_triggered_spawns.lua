@@ -185,7 +185,7 @@ function M.MoveToField(User)
 
             common.InformNLS(User, messageG[2], messageE[2]) --sending a message
 
-            local monList = {191, 192, 231} -- Rekrap, Pitservant, Kingsfright
+            local monList = {191, 192, 231} -- Dread spider, Pit servant, Kings fright
             local monPos = common.getFreePos(waypoint[theWaypoint], 2) -- radius 2 around triggerfield
             world:createMonster(monList[math.random(1, #monList)], monPos, -20) -- 1 random spider of our list
             world:gfx(41, monPos) -- swirly

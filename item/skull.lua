@@ -274,7 +274,7 @@ function SpawnSpider(User, skullItem)
     skullItem:setData("tripping_time", serverTime)
     world:changeItem(skullItem)
 
-    local monList = {191, 192, 193, 211, 222} -- Rekrap Retep, Pitservant, Tarantula, Firespider, Juvenile Gynk Spider
+    local monList = {191, 192, 193, 211, 222} -- Dread Spider, Pit Servant, Tarantula, Fire Spider, Juvenile Gynk Spider
     local monID = monList[math.random(1, #monList)]
     for i = 1, math.random(1, 2) do -- random count
         local monPos = common.getFreePos(skullItem.pos, 2) -- radius 2 around skull
