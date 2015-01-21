@@ -302,7 +302,7 @@ function WonderlandTeleporter(User, SourceItem)
             if selected == 1 then
                 local wonderlandStart = position(900, 580, 0)
                 User:inform("Ihr habt euch dazu entschlossen das Wunderland zu betreten.", "You have chosen to enter the Wonderland.")
-
+                User:setQuestProgress(612,0)
                 world:gfx(46, User.pos)
                 world:makeSound(13, User.pos)
 
