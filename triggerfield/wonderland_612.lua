@@ -126,7 +126,7 @@ function M.MoveToField(char)
         --884,594,0 correct choice #6
         if char.pos == position(884,594,0) or char.pos == position(884,593,0) or char.pos == position(884,595,0) then
             world:gfx(37,char.pos);
-            char:warp(position(863,578,0))
+            char:warp(position(905, 574, 0))
             world:gfx(37,char.pos);
             world:makeSound(13,char.pos);
             char:inform("Du vernimmst noch ein langezogenes 'Nein'. Danach kehrt Stille ein. Du bist wieder frei.", "You hear a dying 'No'. Afterwards there is silence. You are free again.")
