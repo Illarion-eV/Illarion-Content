@@ -14,6 +14,13 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+
+-- UPDATE items SET itm_script='item.bookrests' WHERE itm_id = 3104;
+-- UPDATE items SET itm_script='item.bookrests' WHERE itm_id = 3105;
+-- UPDATE items SET itm_script='item.bookrests' WHERE itm_id = 3106;
+-- UPDATE items SET itm_script='item.bookrests' WHERE itm_id = 3107;
+-- UPDATE items SET itm_script='item.bookrests' WHERE itm_id = 3108;
+
 local common = require("base.common")
 local seafaring = require("base.seafaring")
 local townManagement = require("base.townManagement")
@@ -21,11 +28,7 @@ local factions = require("base.factions")
 local vision = require("content.vision")
 local lookat = require("base.lookat")
 local money = require("base.money")
--- UPDATE items SET itm_script='item.bookrests' WHERE itm_id = 3104;
--- UPDATE items SET itm_script='item.bookrests' WHERE itm_id = 3105;
--- UPDATE items SET itm_script='item.bookrests' WHERE itm_id = 3106;
--- UPDATE items SET itm_script='item.bookrests' WHERE itm_id = 3107;
--- UPDATE items SET itm_script='item.bookrests' WHERE itm_id = 3108;
+
 
 local M = {}
 
@@ -37,10 +40,12 @@ local AkaltutLookAt
 local usingHomeTeleporter
 local NecktieHomeTravel
 local StaticTeleporter
+local WonderlandTeleporter
 
-local salaveshBookrest = position(741,406,-3)
+local salaveshBookrest = position(741, 406, -3)
 local akaltutBookrest = position(430, 815, -9)
-local evilrockBookrest = position(975,173,0)
+local evilrockBookrest = position(975, 173, 0)
+local wonderlandBookrest = position(864, 550, 0)
 
 function M.LookAtItem(User,Item)
 
@@ -62,7 +67,6 @@ function M.LookAtItem(User,Item)
             lookAt = TMLookAt(User, Item)
         end
     end
-    -- Bookrest for townManagement end
 
     -- Bookrest for ferry
     local Amountferry = #seafaring.ferrySourceItemPos
@@ -71,13 +75,11 @@ function M.LookAtItem(User,Item)
             lookAt = FerryLookAt(User, Item)
         end
     end
-    -- ferries end
 
     -- static teleporter
     if Item:getData("staticTeleporter") ~= "" then
         lookAt = StaticTeleporterLookAt(User, Item)
     end
-    -- teleporter end
 
     if lookAt then
         return lookAt
@@ -88,63 +90,58 @@ end
 
 
 function FerryLookAt(User, Item)
-    local lookAt = ItemLookAt();
---	lookAt.rareness = ItemLookAt.rareItem;
+    local lookAt = ItemLookAt()
     if (User:getPlayerLanguage()==0) then
-        lookAt.name = "Fähre";
+        lookAt.name = "Fähre"
         lookAt.description = "Wer bei der nächsten Fahrt mit möchte, sollte sich schnellstens hier innerhalb von fünf Schritten sammeln. Preis: Zehn Silberstücke für die ganze Gruppe."
     else
-        lookAt.name = "Ferry";
+        lookAt.name = "Ferry"
         lookAt.description = "Anyone who would like to join for the next trip should gather here within five steps. Price: Ten silver pieces for the whole group."
     end
     return lookAt
 end
 
 function TMLookAt(User, Item)
-    local lookAt = ItemLookAt();
---	lookAt.rareness = ItemLookAt.rareItem;
+    local lookAt = ItemLookAt()
     if (User:getPlayerLanguage()==0) then
-        lookAt.name = "Stadtverwaltung";
+        lookAt.name = "Stadtverwaltung"
         lookAt.description = "Instrument zur Verwaltung der Stadt. Nur für offizielle Vertreter."
     else
-        lookAt.name = "Town Managment";
+        lookAt.name = "Town Managment"
         lookAt.description = "Instrument for town management. Only for officials."
     end
     return lookAt
 end
 
 function StaticTeleporterLookAt(User, Item)
-
-    local lookAt = ItemLookAt();
-    lookAt.name = "Teleporter";
+    local lookAt = ItemLookAt()
+    lookAt.name = "Teleporter"
     return lookAt
 end
 
 function SalaveshLookAt(User, Item)
-
-    local lookAt = ItemLookAt();
-    lookAt.rareness = ItemLookAt.rareItem;
+    local lookAt = ItemLookAt()
+    lookAt.rareness = ItemLookAt.rareItem
 
     if (User:getPlayerLanguage()==0) then
-        lookAt.name = "Tagebuch des Abtes Elzechiel";
+        lookAt.name = "Tagebuch des Abtes Elzechiel"
         lookAt.description = "Dieses Buch ist von einer schaurigen Schönheit. Du bist versucht, es dennoch zu lesen..."
     else
-        lookAt.name = "Journal of Abbot Elzechiel";
+        lookAt.name = "Journal of Abbot Elzechiel"
         lookAt.description = "This item has an evil presence. You are tempted to read it, though..."
     end
     return lookAt
 end
 
 function AkaltutLookAt(User, Item)
-
-    local lookAt = ItemLookAt();
-    lookAt.rareness = ItemLookAt.rareItem;
+    local lookAt = ItemLookAt()
+    lookAt.rareness = ItemLookAt.rareItem
 
     if (User:getPlayerLanguage()==0) then
-        lookAt.name = "Infirmos magische Schriftrolle";
+        lookAt.name = "Infirmos magische Schriftrolle"
         lookAt.description = "Geschrieben in einer alten Sprache..."
     else
-        lookAt.name = "Infirmo's magical scroll";
+        lookAt.name = "Infirmo's magical scroll"
         lookAt.description = "Written in an old language..."
     end
     return lookAt
@@ -153,12 +150,12 @@ end
 function M.UseItem(User, SourceItem)
     -- Bookrest for the Salavesh dungeon
     if (SourceItem.pos == salaveshBookrest) then
-        User:sendBook(201);
+        User:sendBook(201)
     end
 
         -- Bookrest for Akaltut dungeon
     if (SourceItem.pos == akaltutBookrest) then
-        local foundEffect, myEffect = User.effects:find(120); -- monsterhunter_timer lte
+        local foundEffect, myEffect = User.effects:find(120) -- monsterhunter_timer lte
         if User:getQuestProgress(529) == 3 and not foundEffect then
             User:inform("Der Höllenhund ist im Südosten von hier.", "The hellhound is  southeast from here.")
             local myEffect = LongTimeEffect(120, 50) -- 5sec
@@ -170,7 +167,7 @@ function M.UseItem(User, SourceItem)
         end
     end
 
-    -- Bookrest for the Evilrock!
+    -- Bookrest for the Evilrock
     if (SourceItem.pos == evilrockBookrest) then
         local controlpannel = world:getPlayersInRangeOf(position(969,173,0), 8)
         if User:getQuestProgress(667) >= 25 then
@@ -193,7 +190,11 @@ function M.UseItem(User, SourceItem)
         end
 
     end
-    -- Evilrock end
+
+    -- Bookrest for the Wonderland Area
+    if (SourceItem.pos == wonderlandBookrest) then
+        WonderlandTeleporter(User, SourceItem)
+    end
 
     -- TownManagement
     local AmountTM = #townManagement.townManagmentItemPos
@@ -202,7 +203,6 @@ function M.UseItem(User, SourceItem)
             townManagement.townManagmentUseItem(User, SourceItem)
         end
     end
-    -- TownManagement end
 
     -- ferries
     local Amountferry = #seafaring.ferrySourceItemPos
@@ -211,13 +211,11 @@ function M.UseItem(User, SourceItem)
             seafaring.Ferry(User, SourceItem)
         end
     end
-    -- ferries end
 
     -- static teleporter
     if SourceItem:getData("staticTeleporter") ~= "" then
         StaticTeleporter(User, SourceItem)
     end
-    -- static teleporter end
 end
 
 function usingHomeTeleporter(User,factionNames,teleporterPos)
@@ -253,7 +251,7 @@ function StaticTeleporter(User, SourceItem)
 
         local success = dialog:getSuccess()
         if success then
-            local selected = dialog:getSelectedIndex()+1
+            local selected = dialog:getSelectedIndex() + 1
             local userFaction = factions.getMembershipByName(User)
             -- Check wether the char has enough money or travels from necktie to hometown or vice versa
             if (money.CharHasMoney(User,500) or NecktieHomeTravel(User,names,targetPos,selected)) then
@@ -294,6 +292,38 @@ function StaticTeleporter(User, SourceItem)
     User:requestSelectionDialog(dialog)
 end
 
+function WonderlandTeleporter(User, SourceItem)
+    local choices = {common.GetNLS(User, "Ja, natürlich!", "Yes, of course!"), common.GetNLS(User, "Nein, lieber nicht...", "No, better not...")}
+    local callback = function(dialog)
+
+        local success = dialog:getSuccess()
+        if success then
+            local selected = dialog:getSelectedIndex() + 1
+            if selected == 1 then
+                local wonderlandStart = position(900, 580, 0)
+                User:inform("Ihr habt euch dazu entschlossen das Wunderland zu betreten.", "You have chosen to enter the Wonderland.")
+
+                world:gfx(46, User.pos)
+                world:makeSound(13, User.pos)
+
+                User:warp(wonderlandStart)
+                world:makeSound(25, User.pos)
+                User:inform("Du hörst ein Lachen und eine krächzende Stimme sagen: \"HAHA! Du gehörst nun mir!\" Nach einer Weile hörst du eine andere Stimme aus dem Nordwesten: \"Geh weg von mir!\"","You hear laughter and a croaking voice, saying: \"HAHA! You are mine now!\" After a while you hear another voice from the northwest: \"Get away from me!\"")
+            end
+        end
+    end
+
+    local dialogTitle = common.GetNLS(User, "Wunderland Teleporter", "Wonderland Teleporter")
+    local dialogText = common.GetNLS(User, "Möchtet Ihr das Wunderland betreten?",
+                                            "Do you wish to go to Wonderland?")
+    local dialog = MessageDialog(dialogTitle, dialogText, callback)
+
+    dialog:setCloseOnMove()
+
+    for i = 1, #choices do
+        dialog:addOption(0, choices[i])
+    end
+    User:requestSelectionDialog(dialog)
+end
 
 return M
-
