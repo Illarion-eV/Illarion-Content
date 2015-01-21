@@ -66,7 +66,7 @@ itemShoes = 53
 -- the merchant dialog.
 
 sellItems = 23, 24, 2763, 737, 733, 735, 1266, 21, 22, 234, 1062, 2536, 310, 390, 391, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
-buyPrimaryItems = 734, 23, 24, 2763, 737, 736, 2588, 733, 735, 1266, 21, 22, 234, 1062, 2536
+buyPrimaryItems = 734, 23, 24, 2763, 737, 733, 735, 1266, 21, 22, 234, 1062, 2536
 buySecondaryItems = 310, 390, 391, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you cannot afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
