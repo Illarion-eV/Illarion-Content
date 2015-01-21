@@ -19,54 +19,63 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local lookat = require("base.lookat")
+local climbing = require("content.climbing")
 
 local M = {}
 
-wellPosition1 = position(528, 555, 0); -- maze
-wellPosition2 = position(105, 600, 0); -- Cadomyr
-wellPosition3 = position(357, 272, 0); -- Galmair
-wellPosition4 = position(849, 841, 0); -- Runewick
+local wellPosition1 = position(528, 555, 0) -- maze
+local wellPosition2 = position(105, 600, 0) -- Cadomyr
+local wellPosition3 = position(357, 272, 0) -- Galmair
+local wellPosition4 = position(849, 841, 0) -- Runewick
 
 function M.UseItem(User, SourceItem, ltstate)
 
-  if (SourceItem:getData("modifier") == "wishing well") then
-    common.InformNLS(User,
-      "Vielleicht kann sich einer deiner Wünsche erfüllen, wenn du etwas hineinwirfst?",
-      "Maybe one of your wishes come true, if you pitch something in?");
-  elseif SourceItem.pos == wellPosition1 then
-    common.InformNLS(User,
-      "Vielleicht kannst du mit einem Seil hinabklettern?",
-      "Maybe you can climb down with a rope?");
-  elseif SourceItem.pos == wellPosition2 then
-    common.InformNLS(User,
-      "Vielleicht kannst du mit einem Seil hinabklettern?",
-      "Maybe you can climb down with a rope?");
-  elseif SourceItem.pos == wellPosition3 then
-    common.InformNLS(User,
-      "Vielleicht kannst du mit einem Seil hinabklettern?",
-      "Maybe you can climb down with a rope?");
-  elseif SourceItem.pos == wellPosition4 then
-    common.InformNLS(User,
-      "Vielleicht kannst du mit einem Seil hinabklettern?",
-      "Maybe you can climb down with a rope?");
-  end
+    if (SourceItem:getData("modifier") == "wishing well") then
+        common.InformNLS(User,
+            "Vielleicht kann sich einer deiner Wünsche erfüllen, wenn du etwas hineinwirfst?",
+            "Maybe one of your wishes come true, if you pitch something in?")
+        -- TODO: select dialog for coins
+        return
+    end
+
+    local climbable = false
+
+    if SourceItem.pos == wellPosition1 then
+        climbable = true
+    elseif SourceItem.pos == wellPosition2 then
+        climbable = true
+    elseif SourceItem.pos == wellPosition3 then
+        climbable = true
+    elseif SourceItem.pos == wellPosition4 then
+        climbable = true
+    end
+
+    if climbable then
+        base.common.HighInformNLS(User,
+            "Du brauchst ein Seil um hier hinab zu klettern.",
+            "You need a rope to climb down here.")
+        if content.climbing.hasRope(User) then
+            content.climbing.climbDown(User)
+        end
+    end
+  -- TODO: select diaolg water scooping + climbing
 
 end
 
 function M.LookAtItem(User, Item)
 
-  local lookAt = lookat.GenerateLookAt(User, Item);
+  local lookAt = lookat.GenerateLookAt(User, Item)
 
   if ( Item:getData("modifier") == "wishing well" ) then
-    lookAt.name = common.GetNLS(User, "Wunschbrunnen", "wishing well");
+    lookAt.name = common.GetNLS(User, "Wunschbrunnen", "wishing well")
   elseif Item.pos == wellPosition1 then
-    lookAt.name = common.GetNLS(User, "Ausgetrockneter Brunnen", "Dry well");
+    lookAt.name = common.GetNLS(User, "Ausgetrockneter Brunnen", "Dry well")
   elseif Item.pos == wellPosition2 then
-    lookAt.name = common.GetNLS(User, "Zisterne von Cadomyr", "Cadomyr Cavern");
+    lookAt.name = common.GetNLS(User, "Zisterne von Cadomyr", "Cadomyr Cavern")
   elseif Item.pos == wellPosition3 then
-    lookAt.name = common.GetNLS(User, "Zisterne von Galmair", "Galmair Cavern");
+    lookAt.name = common.GetNLS(User, "Zisterne von Galmair", "Galmair Cavern")
   elseif Item.pos == wellPosition4 then
-    lookAt.name = common.GetNLS(User, "Zisterne von Runewick", "Runewick Cavern");
+    lookAt.name = common.GetNLS(User, "Zisterne von Runewick", "Runewick Cavern")
   end
 
   return lookAt

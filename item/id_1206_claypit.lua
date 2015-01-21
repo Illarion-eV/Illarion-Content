@@ -24,39 +24,36 @@ local claydigging = require("content.gatheringcraft.claydigging")
 
 local M = {}
 
-holePosition = position(854, 414, 0);
+local holePosition = position(854, 414, 0)
 
 function M.UseItem(User, SourceItem, ltstate)
 
-  if SourceItem.pos == holePosition then
-  	if (User:countItemAt("all",2760)==0) then
-		common.HighInformNLS(User,
-		"Du brauchst ein Seil um hier hinab zu klettern.",
-		"You need a rope to climb down here.");
-		return;
-	end
-    climbing.climbDown(User);
-    return;
-  end
+    if SourceItem.pos == holePosition then
+        common.HighInformNLS(User,
+            "Du brauchst ein Seil um hier hinab zu klettern.",
+            "You need a rope to climb down here.")
+        if content.climbing.hasRope(User) then
+            climbing.climbDown(User)
+        end
+        return
+    end
 
-  claydigging.StartGathering(User, SourceItem, ltstate);
+    claydigging.StartGathering(User, SourceItem, ltstate)
 end
 
 function M.LookAtItem(User, Item)
 
-  local lookAt = lookat.GenerateLookAt(User, Item);
+    local lookAt = lookat.GenerateLookAt(User, Item)
 
-  if Item.pos == holePosition then
-	lookAt.name = common.GetNLS(User,
-      "Ein tiefes Loch",
-      "A deep hole");
-    lookAt.description = common.GetNLS(User,
-      "Dieses Loch scheint bodenlos.",
-      "This hole looks bottomless.");
-  end
-
-  return lookAt
+    if Item.pos == holePosition then
+        lookAt.name = common.GetNLS(User,
+            "Ein tiefes Loch",
+            "A deep hole")
+        lookAt.description = common.GetNLS(User,
+        "Dieses Loch scheint bodenlos.",
+        "This hole looks bottomless.")
+    end
+    return lookAt
 end
 
 return M
-
