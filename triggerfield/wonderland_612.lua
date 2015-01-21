@@ -79,22 +79,22 @@ function M.MoveToField(char)
     local bridge2 = position(876, 590, 0)
     local bridge3 = position(890, 596, 0)
     local warpback1 = position(875, 562, 0)
-    local warpback1 = position(872, 590, 0)
-    local warpback1 = position(890, 600, 0)
+    local warpback2 = position(872, 590, 0)
+    local warpback3 = position(890, 600, 0)
 
     local warpedout = false
 
     if char.pos == bridge1 then
-        world:makeSound(1,char.pos)
+        world:makeSound(1, char.pos)
         char:warp(warpback1)
         warpedout = true
     elseif char.pos == bridge2 then
-        world:makeSound(1,char.pos)
+        world:makeSound(1, char.pos)
         char:warp(warpback2)
         warpedout = true
-    elseif char.pos == bridge2 then
-        world:makeSound(1,char.pos)
-        char:warp(warpback2)
+    elseif char.pos == bridge3 then
+        world:makeSound(1, char.pos)
+        char:warp(warpback3)
         warpedout = true
     end
 
