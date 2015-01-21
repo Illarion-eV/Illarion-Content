@@ -316,7 +316,7 @@ function WonderlandTeleporter(User, SourceItem)
     local dialogTitle = common.GetNLS(User, "Wunderland Teleporter", "Wonderland Teleporter")
     local dialogText = common.GetNLS(User, "Möchtet Ihr das Wunderland betreten?",
                                             "Do you wish to go to Wonderland?")
-    local dialog = MessageDialog(dialogTitle, dialogText, callback)
+    local dialog = SelectionDialog(dialogTitle, dialogText, callback)
 
     dialog:setCloseOnMove()
 
