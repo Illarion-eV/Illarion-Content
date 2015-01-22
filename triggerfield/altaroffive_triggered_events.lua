@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-
+-- INSERT INTO triggerfields VALUES (550, 161, 0,'triggerfield.altaroffive_triggered_events');
 -- INSERT INTO triggerfields VALUES (549, 161, 0,'triggerfield.altaroffive_triggered_events');
 -- INSERT INTO triggerfields VALUES (525, 129, 0,'triggerfield.altaroffive_triggered_events');
 -- INSERT INTO triggerfields VALUES (525, 128, 0,'triggerfield.altaroffive_triggered_events');
@@ -34,14 +34,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (555, 142, 0,'triggerfield.altaroffive_triggered_events');
 -- INSERT INTO triggerfields VALUES (562, 143, 0,'triggerfield.altaroffive_triggered_events');
 -- INSERT INTO triggerfields VALUES (559, 139, 0,'triggerfield.altaroffive_triggered_events');
--- INSERT INTO triggerfields VALUES (545, 120, 0,'triggerfield.altaroffive_triggered_events');
--- INSERT INTO triggerfields VALUES (545, 119, 0,'triggerfield.altaroffive_triggered_events');
--- INSERT INTO triggerfields VALUES (545, 118, 0,'triggerfield.altaroffive_triggered_events');
--- INSERT INTO triggerfields VALUES (545, 117, 0,'triggerfield.altaroffive_triggered_events');
 -- INSERT INTO triggerfields VALUES (550, 122, 0,'triggerfield.altaroffive_triggered_events');
 -- INSERT INTO triggerfields VALUES (550, 120, 0,'triggerfield.altaroffive_triggered_events');
 -- INSERT INTO triggerfields VALUES (554, 121, 0,'triggerfield.altaroffive_triggered_events');
 -- INSERT INTO triggerfields VALUES (552, 125, 0,'triggerfield.altaroffive_triggered_events');
+-- INSERT INTO triggerfields VALUES (545, 120, 0,'triggerfield.altaroffive_triggered_events');
+-- INSERT INTO triggerfields VALUES (545, 119, 0,'triggerfield.altaroffive_triggered_events');
+-- INSERT INTO triggerfields VALUES (545, 118, 0,'triggerfield.altaroffive_triggered_events');
+-- INSERT INTO triggerfields VALUES (545, 117, 0,'triggerfield.altaroffive_triggered_events');
+
 
 local common = require("base.common")
 
@@ -177,11 +178,15 @@ function M.MoveToField(User)
 
             common.InformNLS(User, messageG[6], messageE[6]) --sending a message
 
-            world:createItemFromId(2492,1,position(552,123,0),true,599,nil); --a carrot
-            world:createItemFromId(537,1,position(551,123,0),true,599,nil); --a onion
-            world:createItemFromId(289,1,position(551,122,0),true,599,nil); --a cabbage
-            world:createItemFromId(540,1,position(552,122,0),true,599,nil); --a tomato
-
+            world:gfx(5,position(552,123,0)); --a green flash
+            world:gfx(5,position(551,123,0)); --a green flash
+            world:gfx(5,position(551,122,0)); --a green flash
+            world:gfx(5,position(552,122,0)); --a green flash
+			world:makeSound(13,position(552,123,0)); --a green flash
+            world:makeSound(13,position(551,123,0)); --a green flash
+            world:makeSound(13,position(551,122,0)); --a green flash
+            world:makeSound(13,position(552,122,0)); --a green flash
+			
         elseif theWaypoint>= 25 and theWaypoint <= 28 then -- trigger water
 
             common.InformNLS(User, messageG[7], messageE[7]) --sending a message
