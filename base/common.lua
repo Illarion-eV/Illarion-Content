@@ -1888,7 +1888,7 @@ end
 -- Checks if a given position is located in the prison mine.
 -- @param posStruct Pos  The position to check.
 -- @return bool  True if position is located in Prison mine, false otherwise.
-function M.IsInPrison(Pos)
+function M.isInPrison(Pos)
   if (Pos.z == -40) then
     return true;
   end

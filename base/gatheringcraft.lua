@@ -128,9 +128,9 @@ function GatheringCraft:FindRandomItem(User)
 		return false;
 	end
 	
-		-- check for Prison Mine
-	if (common.IsInPrison(User.pos)) then
-		return false;
+	-- check for Prison Mine
+	if (common.isInPrison(User.pos)) then
+       return false
 	end
 
 	if (self.Treasure > 0) then
