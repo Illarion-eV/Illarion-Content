@@ -1885,6 +1885,16 @@ function M.IsOnNoobia(Pos)
   return false;
 end
 
+-- Checks if a given position is located in the prison mine.
+-- @param posStruct Pos  The position to check.
+-- @return bool  True if position is located in Prison mine, false otherwise.
+function M.IsInPrison(Pos)
+  if (Pos.z == -40) then
+    return true;
+  end
+  return false;
+end
+
 --- Convert a RGB color to a HSV color.
 -- @param red the red color component in a range from 0 to 255
 -- @param green the green color component in a range from 0 to 255

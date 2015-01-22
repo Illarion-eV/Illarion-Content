@@ -127,6 +127,11 @@ function GatheringCraft:FindRandomItem(User)
 	if (common.IsOnNoobia(User.pos)) then
 		return false;
 	end
+	
+		-- check for Prison Mine
+	if (common.IsInPrison(User.pos)) then
+		return false;
+	end
 
 	if (self.Treasure > 0) then
 		local rand = math.random();
