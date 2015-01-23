@@ -78,8 +78,8 @@ tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you li
 -- Template Version 1.02, 12/02/2010 by Estralis Seborian
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Borgate Northoff the innkeeper of The Hemp Necktie Inn . Keywords: Gods, Bragon, Adron, trade")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Borgate Northoff der Wirt vom Gasthof zur Hanfschlinge. Schlüsselwörter: Götter, Bragon, Adron, Handel")
+"Help" -> inform("[Game Help] This NPC is Borgate Northoff the innkeeper of The Hemp Necktie Inn . Keywords: Gods, Bragon, Adron, trade, mug.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Borgate Northoff der Wirt vom Gasthof zur Hanfschlinge. Schlüsselwörter: Götter, Bragon, Adron, Handel, becher, krug.")
 
 --quest
 queststatus(652) = 1, item(1908, all) > 0, english, "."  -> queststatus(652) = 2, deleteItem(1908, 1), item(1909,1,777), inform("[Quest 'Find Borgate Northoff' end]"), "Aahr! Wulfgorda's mug! I wonder if she will ever bring her mug by herself. Anyway, one free beer for you!"
