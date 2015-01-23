@@ -63,7 +63,48 @@ function M.spawnTreasure()
 		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chess
 		
 	end
-	
-end
 
+	local treasurePos=position(531,804,-6); --Akaltuts level 2
+	
+    if #world:getPlayersInRangeOf(treasurePos,20) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
+	
+		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chess
+    end
+
+	local treasurePos=position(222,479,-3); --Buccaneer Lurk
+	
+    if #world:getPlayersInRangeOf(treasurePos,20) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
+	
+		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chess
+    end
+
+	local treasurePos=position(841,524,-12); --Bandit Hideout
+	
+    if #world:getPlayersInRangeOf(treasurePos,20) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
+	
+		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chess
+    end
+	
+	local treasurePos=position(202,415,-3); --Fortress Hammerfall
+	
+    if #world:getPlayersInRangeOf(treasurePos,20) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
+	
+		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chess
+    end
+	
+	local treasurePos=position(847,503,-6); --Spider Nest
+	
+    if #world:getPlayersInRangeOf(treasurePos,20) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
+	
+		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chess
+    end
+	
+	local treasurePos=position(782,273,-9); --Buccaneer Lurk
+	
+    if #world:getPlayersInRangeOf(treasurePos,20) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
+	
+		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chess
+    end
+	
+	end
 return M
