@@ -126,6 +126,8 @@ english, "half-hung", "bryan" -> "Bryan is the owner of the Hemp Necktie Inn so 
 "Sil[vb]erbran[dt]" -> "In Silberbrand gabs eine Menge Könige, aber ich will meinen, König Tialdin von Silberbrand ist der Bedeutendste.", "Silberbrand - Die Zwergenstadt unter dem Thron Irmoroms, im Herzen des Kupfergebierges. Mögen wir ihr Andenken in Ehren halten.", "Silberbrand nahm damals jeden Zwerg auf. Und sogar des Nachts soll der Hammerklang der Schmiede hörbar gewesen sein. Eine wirklich mächtige Stadt."
 "Gowan", "Sam", "brute", "Booze", "hook" -> "Als ich hier her kam, stellte keiner Fragen, und ich fragte auch nichts. Der Eine oder Andere spricht trozdem manchmal über sich. Aber es ist Half-hung Bryans Gesetz. 'Es werden keine Fragen gestellt.'", "Eigentlich weiß ich alles, aber ich erzähl nichts davon..."
 "half-hung", "bryan" -> "Bryan ist der Besitzer vom Gasthof zur Hanfschlinge. Und hier zählt nur sein Gesetz. Am Besten fragt ihr ihn selbst dannach.", "Eigentlich weiß ich alles, aber ich erzähl nichts davon..."
+english, "mug", "collection", "decorated" -> "Ah, da mugs ya say? A dwarf used ta make dem dere mugs long ago. Nobody is sure where he is now."
+"becher", "krug", "Verzierter", "sammlung" -> "Ah, diese Humpen sagst du, aye? Ein Zwerg stellte die einst her. Lang ist's her. Niemand weiß allerding wo er nun ist."
 
 -- Faction stuff
 "archmage" -> "Old Borgate knows some things that would mean you couldn't sleep anymore, but I can hold my tongue... Can you?"
