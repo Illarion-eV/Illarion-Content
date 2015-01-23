@@ -99,7 +99,7 @@ function M.spawnTreasure()
 		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chess
     end
 	
-	local treasurePos=position(782,273,-9); --Buccaneer Lurk
+	local treasurePos=position(785,273,-9); --Lake of life
 	
     if #world:getPlayersInRangeOf(treasurePos,20) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
 	
