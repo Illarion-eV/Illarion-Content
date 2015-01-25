@@ -350,8 +350,8 @@ function M.GetFreePositions(centerPosition, searchRadius, allowPassableItems, sh
         table.insert(yCoords, centerPosition.y + i)
     end
     if shuffle then
-        M.Shuffle(xCoords)
-        M.Shuffle(yCoords)
+        xCoords = M.Shuffle(xCoords)
+        yCoords = M.Shuffle(yCoords)
     end
 
     local sideLength = searchRadius * 2 + 1
