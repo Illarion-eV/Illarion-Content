@@ -338,7 +338,7 @@ function M.LookAtItem(User, Item)
 		elseif (TimeLeftI <= 4) then
 			TimeLeft = common.GetNLS(User, "Sie wird nach einer Weile ausbrennen.", "It will burn down in a while.");
 		elseif (TimeLeftI <= PORTABLE_WEAR) then
-			TimeLeft = common.GetNLS(User, "Sie wird nicht allzu bald ausbrennen.", "It will not burn down anytime soon.");
+			TimeLeft = common.GetNLS(User, "Dieser Gegenstand brennt gerade nicht.", "This item is not currently burning.");
 		elseif (TimeLeftI >= PORTABLE_WEAR) then
 			TimeLeft = common.GetNLS(User, "Sie wird nach langer Zeit ausbrennen.", "It will burn down in a long time.");
 		end
