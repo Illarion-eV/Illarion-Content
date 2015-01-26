@@ -25,12 +25,12 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 941, 790, 0, 4, 'Granor Bergenhieb', 'npc.granor_bergenhieb', 0, 2, 2, 190, 190, 190, 255, 222, 173);
+VALUES (1, 16, 686, 1, 4, 'Granor Bergenhieb', 'npc.granor_bergenhieb', 0, 2, 2, 190, 190, 190, 255, 222, 173);
 ---]]
 name = "Granor Bergenhieb"
 race = dwarf
 sex = male
-position = 941, 790, 0
+position = 16, 686, 1
 direction = south
 affiliation = "Cadomyr"
 job = "Alchemist"
