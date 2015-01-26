@@ -28,7 +28,7 @@ function M.onSpawn(monster)
         orgOnSpawn(monster)
     end
 
-    base.setColor{monster = monster, hue = 0, saturation = 0, value = 0.2, alpha = 180}
+    base.setColor{monster = monster,  target = base.SKIN_COLOR, hue = 0, saturation = 0, value = 0.2, alpha = 180}
 end
 
 local DELETED = false
