@@ -1,0 +1,196 @@
+--[[
+Illarion Server
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU Affero General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option) any
+later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+details.
+
+You should have received a copy of the GNU Affero General Public License along
+with this program.  If not, see <http://www.gnu.org/licenses/>.
+--]]
+--------------------------------------------------------------------------------
+-- NPC Name: Granor Bergenhieb                                        Cadomyr --
+-- NPC Job:  Alchemist                                                        --
+--                                                                            --
+-- NPC Race: dwarf                      NPC Position:  941, 790, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   Merung                                                           --
+--                                                Illarion easyNPC Editor 2.1.20.3-5-g2ded2da --
+--------------------------------------------------------------------------------
+
+--[[SQL
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
+VALUES (1, 941, 790, 0, 4, 'Granor Bergenhieb', 'npc.granor_bergenhieb', 0, 2, 2, 190, 190, 190, 255, 222, 173);
+---]]
+name = "Granor Bergenhieb"
+race = dwarf
+sex = male
+position = 941, 790, 0
+direction = south
+affiliation = "Cadomyr"
+job = "Alchemist"
+
+language = common
+language = dwarf
+defaultLanguage = common
+autointroduce = on
+
+author = "Merung"
+
+lookatDE = "Dieser NPC ist Granor Bergenhieb der Alchemist."
+lookatUS = "This NPC is Granor Bergenhieb the alchemist."
+useMsgDE = "Nimm deine Drecksgriffel weg oder ich lass Egon sie abbeißen!"
+useMsgUS = "Take your filthy finger of me or I will have Egon chew them off you!"
+wrongLangDE = "Sprich normal, Schwachkopf!"
+wrongLangUS = "Speak normally, half-wit!"
+radius = 0
+hairID = 2
+beardID = 2
+colorHair = 190, 190, 190
+colorSkin = 255, 222 ,173
+itemHead = 0
+itemChest = 814
+itemCoat = 2384
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 0
+itemTrousers = 826
+itemShoes = 1055
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is Baldo Proudtoe the gardener. Keywords: Task, Don Valerio, Red cloud extract, Egon, Potion")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Baldo Proudtoe der Gärtner. Schlüsselwörter: Aufgabe, Don Valerio, Rotwolkenextrakt, Egon, Tränke")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me grumbles and mumbles: 'No time for idle talk.'", "Yes, yes, of course.", "Hello. Good day, good night and may the gods bless you, knucklehead. What do you want?", "What?!"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me grummelt und brummelt: 'Keine Zeit für unwichtiges Geplapper.'","Ja, ja, na sicher.","Hallo, guten Tag, gute nacht, fröhlichen Geburtstag und mögen die Götter dich segenen, Dummkopf. Was willst du?", "Was?!"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me grumbles and mumbles: 'No time for idle talk.'", "Yes, yes, of course.", "Hello. Good day, good night and may the gods bless you, knucklehead. What do you want?", "What?!"
+"Hiho", "Hallo", "Hey", "Greeb" -> "#me grummelt und brummelt: 'Keine Zeit für unwichtiges Geplapper.'","Ja, ja, na sicher.","Hallo, guten Tag, gute nacht, fröhlichen Geburtstag und mögen die Götter dich segenen, Dummkopf. Was willst du?", "Was?!"
+"Farewell", "Bye", "Fare well", "See you" -> "Go!", "Couldn't care less.", "Finally.", "And now I finally can go back to work!", "Don't disturb me again!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" ->  "Geh!", "Könnte mich nicht weniger interessieren.", "Endlich kann ich mich wieder der Arbeit widmen.", "Stör mich nicht nochmal!"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go!", "Couldn't care less.", "Finally.", "And now I finally can go back to work!", "Don't disturb me again!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Geh!", "Könnte mich nicht weniger interessieren.", "Endlich kann ich mich wieder der Arbeit widmen.", "Stör mich nicht nochmal!"
+"your name", "who are you", "who art thou" -> "Granor Bergenhieb. Und du? Halt warte. Interessiert mich nicht."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Granor Bergenhieb. And you? Oh, wait. I don't care."
+
+-- No new month; no new task yet
+queststatus(999) = 6, english, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> "Next month! I'm sure I have something else to do for you then. Until then, I don't want to see your face again."
+queststatus(999) = 6, german, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> "Nächsten Monat! Dann hab ich bestimmt wieder was zutun zu haben für dich. Vorher will dich dein Gesicht nicht wiedersehen."
+
+-- Task finished; reward not taken yet
+queststatus(999) = 5, english, ".*" -> "What? What? I told you you can get your herbs from Egon. Now stop disturbing me!"
+queststatus(999) = 5, item(447, all) > 1, ".*" -> "Was? Was? Ich hab dir gesagt, du kannst deine Kräuter von Egon abholen. Jetzt hör auf mich zu belästigen!"
+
+-- Task 1: 10 empty bottles
+queststatus(999) = 0, chance(25.0), german, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> inform("[Neues Quest] Alchemistischer Bedarf"), queststatus(999) = 1, "Egon der Nichtsnutz hat mit seinem Schwanz die Flaschenkiste umgeworfen. Brauch neue. Bring mir mal so 10 Stück und du bekommst ein paar kostbare Pflanzen, die eigentlich zu Schade für jemanden wie dich sind."
+queststatus(999) = 0, chance(25.0), english, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> inform("[New Quest] Alchemical needs" ), queststatus(999) = 1, "With his ugly tail, Egon the no-good knocked over my box with bottles. Need new. Bring me, let's say, 10. You will get some precious herbs in exchance, even though they are wasted on someone like you."
+
+-- Task 1: solved
+queststatus(999) = 1, item(164, all) > 9, english, ".*" -> deleteItem(164, 15), queststatus(999) = 5, "Wurd ja aber auch mal Zeit, nicht? Geh zu Egon und hol dir deine Kräuter. Dann mach, dass du verschwindest."
+queststatus(999) = 1, item(164, all) > 9, ".*" -> deleteItem(164, 15), queststatus(999) = 5, "Was about time, eh? Go to Ego and get your herbs. Then, see to it that you get lost."
+
+-- Task 1: repeat task
+queststatus(999) = 1, item(164, all) < 10, english, ".*" -> "Quassel mich nicht voll! Ich wollte zehn Flaschen für meine Tränke! Los besorg sie! Hau ab!"
+queststatus(999) = 1, item(164, all) < 10, ".*" -> "Stop jabbering! I want ten bottles for my potions. Go, get them! Get lost!"
+
+-- Task 2: 30 sun herbs
+queststatus(999) = 0, chance(33.33333333), german, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> inform("[Neues Quest] Alchemistischer Bedarf"), queststatus(999) = 2, "Hohlkopf Egon hat mal wieder seinen Beutel mit Sonnenkraut verloren. Bring 30 neue. Der dämliche Rattschenmensch bekommt die nur noch von mir, wenn er sie braucht. Du kriegt ein paar selten Pflanzen im Austausch."
+queststatus(999) = 0, chance(33.33333333), english, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> inform("[New Quest] Alchemical needs"), queststatus(999) = 2, "Deadhead Egon lost his bag with sun herbs again. Brin me a 30 new ones. From now on, I will give that stupid ratman the sun herbs only when he needs it. You will get some rare herbs in exnchange."
+
+-- Task 2: solved
+queststatus(99) = 2, item(133, all) > 29, german, ".*" -> deleteItem(133, 30), queststatus(999) = 5, "Wurd ja aber auch mal Zeit, nicht? Geh zu Egon und hol dir deine Kräuter. Dann mach, dass du verschwindest."
+queststatus(999) = 2, item(133, all) > 29, ".*" -> deleteItem(133, 30), queststatus(999) = 5, "Was about time, eh? Go to Ego and get your herbs. Then, see to it that you get lost."
+
+-- Task 2: repeat task
+queststatus(999) = 1, item(133, all) < 30, german, ".*" -> "Quassel mich nicht voll! Ich wollte 30 Sonnenkräuter! Los besorg sie! Hau ab!"
+queststatus(999) = 1, item(133, all) < 30, ".*" -> "Stop jabbering! I want 30 sun herbs. Go, get them! Get lost!"
+
+-- Task 3: 2 ruby powder
+queststatus(999) = 0, chance(50.0), german, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> inform("[Neues Quest] Alchemistischer Bedarf"), queststatus(999) = 3, "Die häßliche Ratte hat doch tatsächlich meine letzen Beutel Rubinstaub aufgefressen! Hol mir zwei neue und du bekommst ein paar selten Kräuter."
+queststatus(999) = 0, chance(50.0), english, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> inform("[New Quest] Alchemical needs" ), queststatus(999) = 3, "That ugly rat guzzled my last sacks of ruby powder! Get me two sacks of ruby powder and you will get some rare herbs."
+
+-- Task 3: solved
+queststatus(999) = 3, item(447, all) > 1, german, ".*" -> deleteItem(447, 2), queststatus(999) = 5, "Wurd ja aber auch mal Zeit, nicht? Geh zu Egon und hol dir deine Kräuter. Dann mach, dass du verschwindest."
+queststatus(999) = 3, item(447, all) > 1, ".*" -> deleteItem(447, 2), queststatus(999) = 5, "Was about time, eh? Go to Ego and get your herbs. Then, see to it that you get lost."
+
+-- Task 3: repeat task
+queststatus(999) = 3, item(447, all) < 1, german, ".*" -> "Quassel mich nicht voll! Ich wollte zwei Beutel mit Rubinstaub! Los besorg sie! Hau ab!"
+queststatus(999) = 3, item(447, all) < 1, ".*" -> "Stop jabbering! I want two sack of ruby powder. Go, get them! Get lost!"
+
+-- Task 4: 1 mortar
+queststatus(999) = 0, chance(100.0), german, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> inform("[Neues Quest] Alchemistischer Bedarf"), queststatus(999) = 4, "Egon hat seinen Mörser nach einem Vogel geworfen. Jetzt brauch ich einen neuen! Bring mir einen und du kannst dir ein paar seltene Kräuter von der schwachsinnigen Ratte holen."
+queststatus(999) = 0, chance(100.0), english, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> inform("[New Quest] Alchemical needs" ), queststatus(999) = 4, "Egon threw his mortar at a bird. Now he needs a new one! Get me one and you can get some rare from that imbecile rat."
+
+-- Task 4: solved
+queststatus(999) = 4, item(58, all) > 0, german, ".*" -> deleteItem(58, 1), queststatus(999) = 5, "Wurd ja aber auch mal Zeit, nicht? Geh zu Egon und hol dir deine Kräuter. Dann mach, dass du verschwindest."
+queststatus(999) = 4, item(58, all) > 1, ".*" -> deleteItem(58, 1), queststatus(999) = 5, "Was about time, eh? Go to Ego and get your herbs. Then, see to it that you get lost."
+
+-- Task 4: repeat task
+queststatus(999) = 4, item(447, all) < 1, german, ".*" -> "Quassel mich nicht voll! Ich wollte zwei Beutel mit Rubinstaub! Los besorg sie! Hau ab!"
+queststatus(999) = 4, item(447, all) < 1, ".*" -> "Stop jabbering! I want two sack of ruby powder. Go, get them! Get lost!"
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "It's none for your buisness what I do."
+"beruf" -> "Geht dich nichts an, was ich tue."
+english, "job" -> "It's none for your buisness what I do."
+"job" -> "Geht dich nichts an, was ich tue."
+english, "Gobaith", "Gobiath" -> "A lot of alchemical knowledge swapped over, when that place in the nowhere was destroyed. Anytime again, if you ask me."
+"Gobaith", "Gobiath" -> "Von diesem Fleck im Nirgendwo ist einiges an alchemistischem Wissen rübergeschwappt, als die Insel unterging. Von mir aus immer wieder."
+"my name" -> "Why would I want to know your ugly name? It suits you well, though."
+"mein Name" -> "Warum sollte ich deinen häßlichen Namen wissen wollen? Aber immerhin passt er zu dir."
+
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"alchemie" -> "Du willst was über Alchemie wissen? Warum? Würdest du eh nicht kapieren. Alchemie hat nichts mit dem Gelabber zutun, wie es etwa Runewicker von sich geben. Es geht um das Machen!"
+"alchemy" -> "You want to know something  about alchemy? Why? You wouldn't understand it anyway. Alchemy has nothing to do with the babbling as the Runewicker think. It is about doing!"
+"Rotwolk" -> "Hast du Rotwolkenextrakt gesagt?! Hast du welches? Ich geb dir alles dafür! 100 Gold? Willst du Egon? Gib mir auch nur einen Korn und du kannst ihn mitnehmen!"
+"red cloud" -> "Did you say red cloud extract?! Do you have some? Give it to me and you will get whatever you want! 100 Gold? Do you want Egon? Give me just one little piece and you can take him!"
+english, "Egon" -> "Egon is stupid. But not as stupid as most people in Illarion are. Yes, yes, he is a ratman. And? If a piece of shit like Valerio can rule a town, a ratman suerly can be an assistant"
+"Egon" -> "Egon is dumm. Aber nicht so dumm wie es die meißten in Illarion sind. Ja, ja, er ist ein Rattenmensch. Und? Wenn ein Stück Scheiße wie Valerio eine Stadt führen kann, kann ein Rattenmensch sicherlich ein Assistent sein."
+"tr[äa]nke" -> "Hahaha! Über meine Tränke willst du was wissen? Pah! Selbst Egon weiß kaum was über sie. Doch sie haben mehr Einfluss auf Illarion, mehr als du denkst..."
+"potion" -> "Hahaha! You want to know more about my potions? Pah! Even Egon knowds hardly anything about then. But they have more influence on Illarion than you think..."
+
+-- Faction stuff. Please remove if you send the template to outsiders!
+"archmage" -> "That mage Elvaine Morgan thinks he is smart. He has knowledge, yes. But smartness? No! What worth does knowledge has if you don't put it to any use? He hides behind his books, afraid or the world and real knowledge."
+"Erzmagier" -> "Der Magier Elvaine Morgan denkt er sei klug. Wissen hat er, ja. Aber Klugheit? Welchen Wert hat Wissen, wenn man es nicht gebraucht? Er versteckt sich hinter Bücher aus Angst vor der Welt und wahrem Wissen."
+english, "Elvaine", "Morgan" -> "That mage Elvaine Morgan thinks he is smart. He has knowledge, yes. But smartness? No! What worth does knowledge has if you don't put it to any use? He hides behind his books, afraid or the world and real knowledge."
+"Elvaine", "Morgan" -> "Der Magier Elvaine Morgan denkt er sei klug. Wissen hat er, ja. Aber Klugheit? Welchen Wert hat Wissen, wenn man es nicht gebraucht? Er versteckt sich hinter Bücher aus Angst vor der Welt und wahrem Wissen."
+english, "Runewick" -> "A bunch of scared mages and alchemists who have no sense for the true, deeper knowledge of alchemy."
+"Runewick" -> "Ein Haufen verängstigter Magier und Alchemisten, die keinen Sinn für das wahre, tiefere Wissen der Alchemi hate."
+english, "Valerio", "Guilianni", "Don" -> "Guilianni is a disgusting, greedy pig. I shit on him and I shit on Galmair. I hope he chokes on it."
+"Valerio", "Guilianni", "Don" -> "Guilianni ist ein ekelhaftes, gieriges Schwein. Ich scheiß auf ihn und ich scheiß auf Galmair. Ich hoffe er ertsickt dran."
+english, "Galmair" -> "Guilianni is a disgusting, greedy pig. I shit on him and I shit on Galmair. I hope he chokes on it."
+"Galmair" -> "Guilianni ist ein ekelhaftes, gieriges Schwein. Ich scheiß auf ihn und ich scheiß auf Galmair. Ich hoffe er ertsickt dran."
+"Queen" -> "Without me she would be dead. I saved her from a strong feaver that no one could heal when she was a small brat. That's why her father allowed me to stay here, despite the disguting Valerio yearning for my head."
+"Königin" -> "Ohne mich wäre sie tot. Hab sie als kleines Gör von einem Fieber befreit, das niemand anderes heilen konnte. Deswegen erlaubte mir ihr Vater hier zu bleiben, obwohl der dreckige Valerio meinen Kopf wollte."
+english, "rosaline", "edwards" -> "Without me she would be dead. I saved her from a strong feaver that no one could heal when she was a small brat. That's why her father allowed me to stay here, despite the disguting Valerio yearning for my head."
+"rosaline", "edwards" -> "Ohne mich wäre sie tot. Hab sie als kleines Gör von einem Fieber befreit, das niemand anderes heilen konnte. Deswegen erlaubte mir ihr Vater hier zu bleiben, obwohl der dreckige Valerio meinen Kopf wollte."
+english, "Cadomyr" -> "You think I am an idiot? In Cadomyr, I found protection. I certainly won't complain."
+"Cadomyr" -> "Denkst du ich bin ein Idiot? Hab hier in Cadomyr Schutz gefunden, da werd ich mich kaum beschweren."
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"g[öo]tt" -> "Geht dich einen feuchten Dreck an, wann ich zu den Göttern bete und wann nicht."
+"god" -> "It's none of your goddman buisness when I pray to the gods and when not."
+german, "Tanora", "Zelphia", "Ushara", "Br[aà]gon", "Eldan", "Findari", "Narg[uù]n", "Elara", "Adron", "Oldra", "Cherga", "Malach[iì]n", "Irmorom", "Sirani", "Zhambra", "Ronagan" -> "Geht dich einen feuchten Dreck an, wann ich zu den Göttern bete und wann nicht."
+english, "Tanora", "Zelphia", "Ushara", "Br[aà]gon", "Eldan", "Findari", "Narg[uù]n", "Elara", "Adron", "Oldra", "Cherga", "Malach[iì]n", "Irmorom", "Sirani", "Zhambra", "Ronagan" -> "It's none of your goddman buisness when I pray to the gods and when not."
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Gift, Heilung. Alles das selbe für mich. Alles nur ein Trank.","Poison, healing. All the same to me. Just an other potion."
+cycletext "#s Bei den Göttern! Sei 30 Jahren habe ich kein Rotwolkenextrakt mehr gesehen.","#s By the gods! I haven't seen red cloud extract in 30 years."
+cycletext "Druiden! Pah! Benebel sich mit Sibanac und quatschen mit Bäumen.","Druids! Pah! Numbing themselves with sibanac and babble with trees."
+cycletext "Sumpfblume, Firnisblüte, Eisblatt, Feuerwurzel und... ja, und was?","Mash flower, firnis blossom, ice leaf, fire root and... and what?"
+cycletext "Egon! Du bist so dumm wie du häßlich bist.","Egon! You are as stupid as you are ugly."
+cycletext "#me murmelt: 'Valerion, du elender Haufen Müll...'","#me mutters: 'Valerio, you filthy piece of trash.'"
+cycletext "#me hält einen Topas über den Kesselinhalt und starrt darauf.","#me holds a topaz above the content of the cauldron and stares at it."
+cycletext "Rotwolkenextrakt! Egon, wir brauchen Rotwolkenextrakt, verdammt!","Red cloud extract! Egon, we need red cloud extract, damnit!"
+cycletext "#me rührt im Kessel.","#me stirs in the cauldron."
+cycletext "#s Egons! Hurry! I need those herbs every moment!","#s Egon! Beeilung! Ich brauch die Kräuer jeden Moment."
