@@ -47,7 +47,7 @@ Level 9: Unbelieavable strong monsters for 'groups' award 21 points
 M.monsterIDsByLevel = {
 	{monsters = {982, 271, 1051, 582, 623}, points = 1, price=4000},
 	{monsters = {101, 196, 273, 602, 881}, points = 2, price= 7800},
-	{monsters = {311, 394, 551, 882, 984}, points = 3, price=11000},
+	{monsters = {394, 551, 882, 984}, points = 3, price=11000},
 	{monsters = {141, 515, 552, 791, 872}, points = 4, price=14000},
 	{monsters = {191, 514, 531, 402, 851}, points = 6, price=19200},
 	{monsters = {121, 201, 513, 525, 852}, points = 8, price=23200},
