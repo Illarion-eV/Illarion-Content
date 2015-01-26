@@ -160,7 +160,7 @@ english, chance(10), ".+" -> "Yep, yep, yep, yep."
 german, chance(10), ".+" -> "Jap, jap, jap, jap."
 
 english, chance(11.111111111111), ".+" -> "#me licks his teeth and stares at the person in front of him, mumbling something incomprehensible."
-german, chance(11.111111111111), ".+" -> "blb"
+german, chance(11.111111111111), ".+" -> "#me leckt seine Zähne und starrt die Person vor sich an. Dabei murmelt er etwas Unverständliches."
 
 english, chance(12.5), ".+" -> "Egon! Me Egon! Egon!"
 german, chance(12.5), ".+" -> "Egon! Ich Egon! Egon!"
