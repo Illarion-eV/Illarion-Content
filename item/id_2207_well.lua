@@ -51,7 +51,7 @@ function M.UseItem(User, SourceItem, ltstate)
     end
 
     if climbable then
-        base.common.HighInformNLS(User,
+        common.HighInformNLS(User,
             "Du brauchst ein Seil um hier hinab zu klettern.",
             "You need a rope to climb down here.")
         if content.climbing.hasRope(User) then
