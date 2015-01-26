@@ -343,26 +343,22 @@ end
 -- @param shuffle randomize the order the tiles are returned in (optional, defaults to false)
 -- @return a function that can be used as iterator that gives all the free locations one by one
 function M.GetFreePositions(centerPosition, searchRadius, allowPassableItems, shuffle)
-    local xCoords = {}
-    local yCoords = {}
-    for i = -searchRadius, searchRadius do
-        table.insert(xCoords, centerPosition.x + i)
-        table.insert(yCoords, centerPosition.y + i)
+    local coords = {}
+    for x = -searchRadius, searchRadius do
+        for y = -searchRadius, searchRadius do
+            table.insert(coords, {centerPosition.x + x, centerPosition.y + y})
+        end
     end
     if shuffle then
-        xCoords = M.Shuffle(xCoords)
-        yCoords = M.Shuffle(yCoords)
+        coords = M.Shuffle(coords)
     end
 
-    local sideLength = searchRadius * 2 + 1
-    local currentIndex = 0
-    local lastIndex = sideLength * sideLength - 1
-    local floor = math.floor
+    local currentIndex = 1
+    local lastIndex = #coords
     return function()
-        while currentIndex < lastIndex do
-            local xIndex = floor(currentIndex / sideLength) + 1
-            local yIndex = (currentIndex % sideLength) + 1
-            local targetPos = position(xCoords[xIndex], yCoords[yIndex], centerPosition.z)
+        while currentIndex <= lastIndex do
+            local xyCoords = coords[currentIndex]
+            local targetPos = position(xyCoords[1], xyCoords[2], centerPosition.z)
 
             currentIndex = currentIndex + 1
 
