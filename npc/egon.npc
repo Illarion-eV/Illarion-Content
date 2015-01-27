@@ -187,7 +187,7 @@ english, chance(100), ".+" -> "#me shakes his head several times and cries out: 
 german, chance(100), ".+" -> "#me schüttelt seinen Kopf einige Male und schreit auf: 'Mir gut, mir gut!'"
 
 cycletext "#mes starrer Blick richtet sich auf den Zwerg am Kessel.","#me stares to the dwarf standing by the cauldron."
-cycletext "#me wedelt mit seinem Schwanz.", "#me flicks his tail."
+cycletext "#me wedelt mit seinem Schwanz.", "#me wags his tail."
 cycletext "#me zerrupft mit seinen Krallenhänden Pflanzen.","#me pulls herbs to pieces with his claws."
 cycletext "#me jault laut und monoton auf.", "#me yowls loudly and monotonously."
 cycletext "#mes Körper zuckt einige Male zusammen.", "#me's body cringes a couple of times."

@@ -21,6 +21,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local licence = require("base.licence")
+local granorsHut = require("content.granorsHut")
 
 local M = {}
 
@@ -30,6 +31,11 @@ function M.UseItem(User, SourceItem, ltstate)
 	-- infront of a cauldron?
 	local cauldron = alchemy.GetCauldronInfront(User)
     if cauldron then
+    
+        if cauldron:getData("granorsHut") ~= "" then
+            granorsHut.fillingFromCauldron(User, ltstate)
+            return
+        end
 	
 		if licence.licence(User) then --checks if user is citizen or has a licence 
 			return -- avoids crafting if user is neither citizen nor has a licence
@@ -52,8 +58,8 @@ function M.UseItem(User, SourceItem, ltstate)
 		   User:startAction(20,21,5,15,25);
 		   return
 		end
-		
-		M.FillIntoBottle(User, SourceItem, cauldron)
+        
+        M.FillIntoBottle(User, SourceItem, cauldron)
 		alchemy.lowerFood(User)
 	end
 

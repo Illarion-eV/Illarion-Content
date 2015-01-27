@@ -22,6 +22,26 @@ local common = require("base.common")
 
 local M = {}
 
+local monthlyQuestsIds = {504}
+
+-- Check quests that can be done once in every ingame month
+local function checkMonthlyQuests(char)
+    local currentTimeUnix = world:getTime("unix")
+    local secondsOfCurrenMonth = world:getTime("day")*24*60*60 + world:getTime("hour")*60*60 + world:getTime("seconds")
+
+    for i = 1, #monthlyQuestsIds do
+        local questId = monthlyQuestsIds[i]
+        local questProgress, lastSet = char:getQuestProgress(questId)
+        if questProgress > 0 then
+            local secondsSinceLastSet = (currentTimeUnix - lastSet)*3 -- multiplied by 3 to get ingame seconds
+            if secondsSinceLastSet > secondsOfCurrentMonth then
+                char:setQuestProgress(questId, 0)
+            end
+        end
+    end
+    
+end
+
 function M.addEffect( Effect, Character)
     -- it is needed to add at least value to make sure the effect does not get deleted right after
     -- the first call
@@ -31,6 +51,9 @@ end;
 function M.callEffect( Effect, Char ) -- Effect is called
 
     if Char:idleTime() < 300 then --absolutely no regeneration effect if the player is afk for more than five minutes
+        
+        -- Reset queststatus for quests that can be done once every ingame month
+        checkMonthlyQuests(Char)
 
 
 		--Addition by Envi: Quest 680 (Evil Rock Reward)
