@@ -35,14 +35,14 @@ function M.MoveToField( User )
 
     if User.pos == position(789, 295, -9) then -- to the boss area
 	    world:gfx(41, User.pos)
-	    world:makeSound(13,User.pos)
+	    world:makeSound(13, User.pos)
         User:warp(position(559, 260, 0))
 	    world:gfx(41, User.pos)
 	    world:makeSound(13, User.pos)
 	elseif User.pos == position(559, 258, 0) then -- back down to Lake of Life Main Dungeon
 		world:gfx(41, User.pos)
 	    world:makeSound(13, User.pos)
-        User:warp(position(797, 295 -9))
+        User:warp(position(797, 295, -9))
         world:gfx(41, User.pos)
         world:makeSound(13,User.pos)
 	elseif User.pos == position(727, 324, -9) then -- Boat to Island of Zenia
