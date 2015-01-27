@@ -32,7 +32,7 @@ function M.UseItem(User, SourceItem, ltstate)
         common.HighInformNLS(User,
             "Du brauchst ein Seil um hier hinab zu klettern.",
             "You need a rope to climb down here.")
-        if content.climbing.hasRope(User) then
+        if climbing.hasRope(User) then
             climbing.climbDown(User)
         end
         return
