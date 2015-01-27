@@ -151,8 +151,8 @@ queststatus(99) = 2, item(133, all) > 29, german, ".*" -> deleteItem(133, 30), q
 queststatus(504) = 2, item(133, all) > 29, ".*" -> deleteItem(133, 30), queststatus(504) = 5, "Was about time, eh? Go to Ego and get your herbs. Then, see to it that you get lost."
 
 -- Task 2: repeat task
-queststatus(504) = 1, item(133, all) < 30, german, ".*" -> "Quassel mich nicht voll! Ich wollte 30 Sonnenkr‰uter! Los besorg sie! Hau ab!"
-queststatus(504) = 1, item(133, all) < 30, ".*" -> "Stop jabbering! I want 30 sun herbs. Go, get them! Get lost!"
+queststatus(504) = 2, item(133, all) < 30, german, ".*" -> "Quassel mich nicht voll! Ich wollte 30 Sonnenkr‰uter! Los besorg sie! Hau ab!"
+queststatus(504) = 2, item(133, all) < 30, ".*" -> "Stop jabbering! I want 30 sun herbs. Go, get them! Get lost!"
 
 -- Task 3: 2 ruby powder
 queststatus(504) = 0, chance(50.0), german, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> inform("[Neues Quest] Alchemistischer Bedarf"), queststatus(504) = 3, "Die h‰ﬂliche Ratte hat doch tats‰chlich meine letzen Beutel Rubinstaub aufgefressen! Hol mir zwei neue und du bekommst ein paar selten Kr‰uter."
