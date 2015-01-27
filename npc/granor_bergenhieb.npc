@@ -63,8 +63,8 @@ itemTrousers = 826
 itemShoes = 1055
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Baldo Proudtoe the gardener. Keywords: Task, Don Valerio, Red cloud extract, Egon, Potion")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Baldo Proudtoe der Gärtner. Schlüsselwörter: Aufgabe, Don Valerio, Rotwolkenextrakt, Egon, Tränke")
+"Help" -> inform("[Game Help] This NPC is Granor Bergenhieb the alchemist. Keywords: Task, Don Valerio, Red cloud extract, Egon, Potion")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Granor Bergenhieb der Alchemist. Schlüsselwörter: Aufgabe, Don Valerio, Rotwolkenextrakt, Egon, Tränke")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me grumbles and mumbles: 'No time for idle talk.'", "Yes, yes, of course.", "Hello. Good day, good night and may the gods bless you, knucklehead. What do you want?", "What?!"
@@ -75,8 +75,8 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me grumbles and mumbles: 'No time 
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" ->  "Geh!", "Könnte mich nicht weniger interessieren.", "Endlich kann ich mich wieder der Arbeit widmen.", "Stör mich nicht nochmal!"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go!", "Couldn't care less.", "Finally.", "And now I finally can go back to work!", "Don't disturb me again!"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Geh!", "Könnte mich nicht weniger interessieren.", "Endlich kann ich mich wieder der Arbeit widmen.", "Stör mich nicht nochmal!"
-"your name", "who are you", "who art thou" -> "Granor Bergenhieb. Und du? Halt warte. Interessiert mich nicht."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Granor Bergenhieb. And you? Oh, wait. I don't care."
+"your name", "who are you", "who art thou" ->  "Granor Bergenhieb. And you? Oh, wait. I don't care."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Granor Bergenhieb. Und du? Halt warte. Interessiert mich nicht."
 
 -- No new month; no new task yet
 queststatus(504) = 6, english, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> "Next month! I'm sure I have something else to do for you then. Until then, I don't want to see your face again."
@@ -91,8 +91,8 @@ queststatus(504) = 0, chance(25.0), german, "Auftrag", "Aufgabe", "Abenteuer", "
 queststatus(504) = 0, chance(25.0), english, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> inform("[New Quest] Alchemical needs" ), queststatus(504) = 1, "With his ugly tail, Egon the no-good knocked over my box with bottles. Need new. Bring me, let's say, 10. You will get some precious herbs in exchance, even though they are wasted on someone like you."
 
 -- Task 1: solved
-queststatus(504) = 1, item(164, all) > 9, english, ".*" -> deleteItem(164, 15), queststatus(504) = 5, "Wurd ja aber auch mal Zeit, nicht? Geh zu Egon und hol dir deine Kräuter. Dann mach, dass du verschwindest."
-queststatus(504) = 1, item(164, all) > 9, ".*" -> deleteItem(164, 15), queststatus(504) = 5, "Was about time, eh? Go to Ego and get your herbs. Then, see to it that you get lost."
+queststatus(504) = 1, item(164, all) > 9, german, ".*" -> deleteItem(164, 15), queststatus(504) = 5, "Wurd ja aber auch mal Zeit, nicht? Geh zu Egon und hol dir deine Kräuter. Dann mach, dass du verschwindest."
+queststatus(504) = 1, item(164, all) > 9, english ".*" -> deleteItem(164, 15), queststatus(504) = 5, "Was about time, eh? Go to Ego and get your herbs. Then, see to it that you get lost."
 
 -- Task 1: repeat task
 queststatus(504) = 1, item(164, all) < 10, english, ".*" -> "Quassel mich nicht voll! Ich wollte zehn Flaschen für meine Tränke! Los besorg sie! Hau ab!"
