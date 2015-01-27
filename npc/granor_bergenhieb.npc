@@ -128,7 +128,7 @@ queststatus(504) = 6, german, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task
 
 -- Task finished; reward not taken yet
 queststatus(504) = 5, english, ".*" -> "What? What? I told you you can get your herbs from Egon. Now stop disturbing me!"
-queststatus(504) = 5 -> 1, ".*" -> "Was? Was? Ich hab dir gesagt, du kannst deine Kräuter von Egon abholen. Jetzt hör auf mich zu belästigen!"
+queststatus(504) = 5, ".*" -> "Was? Was? Ich hab dir gesagt, du kannst deine Kräuter von Egon abholen. Jetzt hör auf mich zu belästigen!"
 
 -- Task 1: 10 empty bottles
 queststatus(504) = 0, chance(25.0), german, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> inform("[Neues Quest] Alchemistischer Bedarf"), queststatus(504) = 1, "Egon der Nichtsnutz hat mit seinem Schwanz die Flaschenkiste umgeworfen. Brauch neue. Bring mir mal so 10 Stück und du bekommst ein paar kostbare Pflanzen, die eigentlich zu Schade für jemanden wie dich sind."
