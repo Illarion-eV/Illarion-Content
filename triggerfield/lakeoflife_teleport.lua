@@ -21,7 +21,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (756, 351, -9,'triggerfield.lakeoflife_teleport');
 
 --Teleporters in the Lake of Life dungeon
---Evie Pryler
 
 local common = require("base.common")
 
