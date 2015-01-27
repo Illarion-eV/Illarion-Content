@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
--- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (64, 'quest.granor_bergenhieb_504');
+-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (504, 'quest.granor_bergenhieb_504');
 
 local common = require("base.common")
 local M = {}
@@ -46,18 +46,18 @@ Description[GERMAN][5] = "Für deine Mühen, sollst du dir nun deine Belohnung vom
 Description[ENGLISH][5] = "In exchange for your efforts, you can now get your reward from the ratman Egon."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-local Start = position(14, 686, 1)
+local Start = position(16, 687, 1)
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(14, 686, 1)}
-QuestTarget[2] = {position(14, 686, 1)}
-QuestTarget[3] = {position(14, 686, 1)}
-QuestTarget[4] = {position(14, 686, 1)}
+QuestTarget[1] = {position(16, 687, 1)}
+QuestTarget[2] = {position(16, 687, 1)}
+QuestTarget[3] = {position(16, 687, 1)}
+QuestTarget[4] = {position(16, 687, 1)}
 QuestTarget[5] = {position(17, 682, 1)}
 
 -- Insert the quest status which is reached at the end of the quest
-local FINAL_QUEST_STATUS = 5
+local FINAL_QUEST_STATUS = 6
 
 
 function M.QuestTitle(user)
