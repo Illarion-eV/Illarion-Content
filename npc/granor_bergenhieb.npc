@@ -92,10 +92,10 @@ queststatus(504) = 0, chance(25.0), english, "Auftrag", "Aufgabe", "Abenteuer", 
 
 -- Task 1: solved
 queststatus(504) = 1, item(164, all) > 9, german, ".*" -> deleteItem(164, 15), queststatus(504) = 5, "Wurd ja aber auch mal Zeit, nicht? Geh zu Egon und hol dir deine Kräuter. Dann mach, dass du verschwindest."
-queststatus(504) = 1, item(164, all) > 9, english ".*" -> deleteItem(164, 15), queststatus(504) = 5, "Was about time, eh? Go to Ego and get your herbs. Then, see to it that you get lost."
+queststatus(504) = 1, item(164, all) > 9, ".*" -> deleteItem(164, 15), queststatus(504) = 5, "Was about time, eh? Go to Ego and get your herbs. Then, see to it that you get lost."
 
 -- Task 1: repeat task
-queststatus(504) = 1, item(164, all) < 10, english, ".*" -> "Quassel mich nicht voll! Ich wollte zehn Flaschen für meine Tränke! Los besorg sie! Hau ab!"
+queststatus(504) = 1, item(164, all) < 10, german, ".*" -> "Quassel mich nicht voll! Ich wollte zehn Flaschen für meine Tränke! Los besorg sie! Hau ab!"
 queststatus(504) = 1, item(164, all) < 10, ".*" -> "Stop jabbering! I want ten bottles for my potions. Go, get them! Get lost!"
 
 -- Task 2: 30 sun herbs
