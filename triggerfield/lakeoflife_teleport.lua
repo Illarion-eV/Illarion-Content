@@ -14,6 +14,12 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+
+-- INSERT INTO triggerfields VALUES (789, 295, -9,'triggerfield.lakeoflife_teleport');
+-- INSERT INTO triggerfields VALUES (559, 258, 0,'triggerfield.lakeoflife_teleport');
+-- INSERT INTO triggerfields VALUES (727, 324, -9,'triggerfield.lakeoflife_teleport');
+-- INSERT INTO triggerfields VALUES (756, 351, -9,'triggerfield.lakeoflife_teleport');
+
 --Teleporters in the Lake of Life dungeon
 --Evie Pryler
 
@@ -27,35 +33,34 @@ function M.MoveToField( User )
 		return
 	end
 
-    if User.pos == position(789, 295, -9) then --To the boss area.
-	    world:gfx(41,User.pos);
-	    world:makeSound(13,User.pos);
-        User:warp(position(559, 260, 0));
-	    world:gfx(41,User.pos);
-	    world:makeSound(13,User.pos);
-	elseif User.pos == position(559,258,0) then -- back down to Lake of Life Main Dungeon
-		world:gfx(41,User.pos);
-	    world:makeSound(13,User.pos);
-        User:warp(position(797, 295 -9));
-        world:gfx(41,User.pos);
-        world:makeSound(13,User.pos);
-	elseif User.pos == position(727, 324, -9) then -- Boat to Island of Zenia.
-		common.InformNLS(User,"Als du in das Boot steigst, setzt es sich in Bewegung, bevor du dich hinsitzen kannst, um dich zu einer entfernten Insel zu tragen.","As you step into the boat, it starts moving before you have a chance to sit down, transporting you to a distant island."); --sending a message	
-		world:gfx(11,User.pos);
-	    world:makeSound(9,User.pos);
-        User:warp(position(756, 341, -9));
-        world:gfx(11,User.pos);
-        world:makeSound(9,User.pos);
+    if User.pos == position(789, 295, -9) then -- to the boss area
+	    world:gfx(41, User.pos)
+	    world:makeSound(13,User.pos)
+        User:warp(position(559, 260, 0))
+	    world:gfx(41, User.pos)
+	    world:makeSound(13, User.pos)
+	elseif User.pos == position(559, 258, 0) then -- back down to Lake of Life Main Dungeon
+		world:gfx(41, User.pos)
+	    world:makeSound(13, User.pos)
+        User:warp(position(797, 295 -9))
+        world:gfx(41, User.pos)
+        world:makeSound(13,User.pos)
+	elseif User.pos == position(727, 324, -9) then -- Boat to Island of Zenia
+		common.InformNLS(User,"Als du in das Boot steigst, setzt es sich in Bewegung, bevor du dich hinsetzen kannst, um dich zu einer entfernten Insel zu tragen.","As you step into the boat, it starts moving before you have a chance to sit down, transporting you to a distant island.")
+		world:gfx(11, User.pos)
+	    world:makeSound(9, User.pos)
+        User:warp(position(756, 341, -9))
+        world:gfx(11,User.pos)
+        world:makeSound(9, User.pos)
 	elseif User.pos == position(756, 351, -9) then -- Boat back to the dock
-		common.InformNLS(User,"Als du in das Boot steigst, setzt es sich in Bewegung, bevor du dich hinsitzen kannst, um dich zurück zur Anlegestelle zu tragen.","As you step into the boat, it starts moving before you have a chance to sit down, transporting you back to the dock."); --sending a message	
-		world:gfx(11,User.pos);
-	    world:makeSound(9,User.pos);
-        User:warp(position(734, 323, -9));
-        world:gfx(11,User.pos);
-        world:makeSound(9,User.pos);
+		common.InformNLS(User,"Als du in das Boot steigst, setzt es sich in Bewegung, bevor du dich hinsetzen kannst, um dich zurück zur Anlegestelle zu tragen.","As you step into the boat, it starts moving before you have a chance to sit down, transporting you back to the dock.")
+		world:gfx(11, User.pos)
+	    world:makeSound(9, User.pos)
+        User:warp(position(734, 323, -9))
+        world:gfx(11, User.pos)
+        world:makeSound(9, User.pos)
 	end
 
 end
 
 return M
-
