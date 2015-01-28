@@ -147,6 +147,36 @@ local function checkAudience(god, position)
     end
 end
 
+local function ZeniaAltar(User, SourceItem)
+
+    if User:getQuestProgress(502) == 1 then
+        User:setQuestProgress(502, 2) --Prayer done
+        common.InformNLS(User, "[Quest status] Du hast gebetet und hoffentlich Zenia damit erfreut. Kehre zu ihr zurück", "[Quest status] You feel as if you have prayed sufficient to please Zenia. Please return to her.")
+    elseif User:getQuestProgress(502) == 8 then
+        world:deleteItem(2760, User.Pos, 4)
+
+        local queststatus = User:getQuestProgress(522) -- here, we save which events were triggered
+        local queststatuslist = {}
+        queststatuslist = common.Split_number(queststatus, 6) -- reading the digits of the queststatus as table
+        if queststatuslist[1] == 0 then -- sword, only triggered once by each char
+            common.InformNLS(User, "Du findest ein Schwert bei der Leiche des Drow.", "You discover a sword by the corpse of the drow.")
+            local notCreated = User:createItem(3035, 1, 801, nil) -- create the item
+            if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+                world:createItemFromId(3035, notCreated, User.pos, true, 801, nil)
+                common.HighInformNLS(User,
+                    "Du kannst nichts mehr tragen.",
+                    "You can't carry any more.")
+            end
+            queststatuslist[1] = 1 --triggered it!
+            User:setQuestProgress(522,queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+ queststatuslist[5]*10+ queststatuslist[6]*1); --saving the new queststatus
+            User:setQuestProgress(502, 7) --Sword done
+        end
+    elseif User:getQuestProgress(502) == 10 then
+        -- xxx
+        User:setQuestProgress(502, 9) -- back a step 9
+    end
+end
+
 function M.LookAtItem( User, Item )
   local thisGod = tonumber(Item:getData("god"))
 
@@ -220,6 +250,13 @@ function M.LookAtItem( User, Item )
 end --function
 
 function M.UseItem(User, SourceItem, ltstate)
+
+    -- Lake of Life Altar
+    if SourceItem.pos == position(763, 336, -9) then --Zenia's Altar
+        ZeniaAltar(User, SourceItem)
+        return
+    end
+
   local thisGod = tonumber(SourceItem:getData("god"))
 
   if thisGod==nil then
