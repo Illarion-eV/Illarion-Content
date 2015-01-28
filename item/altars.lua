@@ -152,29 +152,28 @@ local function ZeniaAltar(User, SourceItem)
     if User:getQuestProgress(502) == 1 then
         User:setQuestProgress(502, 2) --Prayer done
         common.InformNLS(User, "[Quest status] Du hast gebetet und hoffentlich Zenia damit erfreut. Kehre zu ihr zurück", "[Quest status] You feel as if you have prayed sufficient to please Zenia. Please return to her.")
-    elseif User:getQuestProgress(502) == 8 then
+    elseif User:getQuestProgress(502) == 8 then -- Take raft items
         world:deleteItem(2760, User.Pos, 4)
-
-        local queststatus = User:getQuestProgress(522) -- here, we save which events were triggered
-        local queststatuslist = {}
-        queststatuslist = common.Split_number(queststatus, 6) -- reading the digits of the queststatus as table
-        if queststatuslist[1] == 0 then -- sword, only triggered once by each char
-            common.InformNLS(User, "Du findest ein Schwert bei der Leiche des Drow.", "You discover a sword by the corpse of the drow.")
-            local notCreated = User:createItem(3035, 1, 801, nil) -- create the item
-            if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-                world:createItemFromId(3035, notCreated, User.pos, true, 801, nil)
-                common.HighInformNLS(User,
-                    "Du kannst nichts mehr tragen.",
-                    "You can't carry any more.")
-            end
-            queststatuslist[1] = 1 --triggered it!
-            User:setQuestProgress(522,queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+ queststatuslist[5]*10+ queststatuslist[6]*1); --saving the new queststatus
-            User:setQuestProgress(502, 7) --Sword done
-        end
-    elseif User:getQuestProgress(502) == 10 then
-        -- xxx
-        User:setQuestProgress(502, 9) -- back a step 9
-    end
+		world:deleteItem(3, User.Pos, 10)
+		world:deleteItem(26, User.Pos, 10)
+		world:deleteItem(73, User.Pos, 10)
+		User:setQuestProgress(502, 9) --  You made a raft.
+		common.InformNLS(User, "[Quest status] Du sieht, nach dem Beten, dass die Materialien sich von selbst zu einem kleinen Floss zusammenfügen.  Du klettert darauf und wird zu einer kleinen Insel transportiert.", "[Quest status] After praying, you see the items magically form a small raft.  You climb on board and are transported to a small island.")
+	    world:gfx(41, User.pos)
+	    world:makeSound(13, User.pos)
+        User:warp(position(753, 351, -9))
+	    world:gfx(41, User.pos)
+	    world:makeSound(13, User.pos)
+    elseif User:getQuestProgress(502) == 10 then -- Revisit Zenia
+	    world:deleteItem(355, User.Pos, 10)
+	    User:setQuestProgress(502, 9) --  Ready to leave again.
+		common.InformNLS(User, "[Quest status] Du sieht, nach dem Beten, einen hellen Lichtblitz und das kleine Floss erscheint im Wasser. Nachdem du darauf geklettert bist, wirst du zurück auf die kleine Insel gebracht.", "[Quest status]  After praying, you see a bright light flash and your small raft magically appears in the water. Climbing onto it, you are transported back to the small island.")
+		world:gfx(41, User.pos)
+	    world:makeSound(13, User.pos)
+        User:warp(position(753, 351, -9))
+	    world:gfx(41, User.pos)
+	    world:makeSound(13, User.pos)
+	end
 end
 
 function M.LookAtItem( User, Item )
