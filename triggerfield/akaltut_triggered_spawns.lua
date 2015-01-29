@@ -80,7 +80,7 @@ function M.MoveToField(User)
             world:changeItem(skele)
         end
 
-		if theWaypoint >= 1 and theWaypoint <= 8 then -- one skeleton
+        if theWaypoint >= 1 and theWaypoint <= 8 then -- one skeleton
 
             common.InformNLS(User, messageG[1], messageE[1]) --sending a message
 
@@ -96,4 +96,3 @@ function M.MoveToField(User)
 end
 
 return M
-

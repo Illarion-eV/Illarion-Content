@@ -147,6 +147,31 @@ local function checkAudience(god, position)
     end
 end
 
+local function ZeniaAltar(User, SourceItem)
+
+    if User:getQuestProgress(502) == 1 then
+        User:setQuestProgress(502, 2) --Prayer done
+        common.InformNLS(User, "[Quest status] Du hast gebetet und hoffentlich Zenia damit erfreut. Kehre zu ihr zurück", "[Quest status] You feel as if you have prayed sufficient to please Zenia. Please return to her.")
+    elseif User:getQuestProgress(502) == 8 then -- Take raft items
+        User:eraseItem(2760, 4)
+		User:eraseItem(3, 10)
+		User:eraseItem(26, 10)
+		User:eraseItem(73, 10)
+		User:setQuestProgress(502, 9) --  You made a raft.
+		common.InformNLS(User, "[Quest status] Du sieht, nach dem Beten, dass die Materialien sich von selbst zu einem kleinen Floss zusammenfügen.  Du klettert darauf und wird zu einer kleinen Insel transportiert.", "[Quest status] After praying, you see the items magically form a small raft.  You climb on board and are transported to a small island.")
+        User:warp(position(753, 351, -9))
+	    world:gfx(11, User.pos)
+	    world:makeSound(9, User.pos)
+    elseif User:getQuestProgress(502) == 10 then -- Revisit Zenia
+	    User:eraseItem(355, 10)
+	    User:setQuestProgress(502, 9) --  Ready to leave again.
+		common.InformNLS(User, "[Quest status] Du sieht, nach dem Beten, einen hellen Lichtblitz und das kleine Floss erscheint im Wasser. Nachdem du darauf geklettert bist, wirst du zurück auf die kleine Insel gebracht.", "[Quest status]  After praying, you see a bright light flash and your small raft magically appears in the water. Climbing onto it, you are transported back to the small island.")
+        User:warp(position(753, 351, -9))
+	    world:gfx(11, User.pos)
+	    world:makeSound(9, User.pos)
+	end
+end
+
 function M.LookAtItem( User, Item )
   local thisGod = tonumber(Item:getData("god"))
 
@@ -220,6 +245,13 @@ function M.LookAtItem( User, Item )
 end --function
 
 function M.UseItem(User, SourceItem, ltstate)
+
+    -- Lake of Life Altar
+    if SourceItem.pos == position(763, 336, -9) then --Zenia's Altar
+        ZeniaAltar(User, SourceItem)
+        return
+    end
+
   local thisGod = tonumber(SourceItem:getData("god"))
 
   if thisGod==nil then
