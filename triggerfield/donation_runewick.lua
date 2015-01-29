@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO triggerfields VALUES (897,779,2,'triggerfield.donation_runewick');
 -- INSERT INTO triggerfields VALUES (897,780,2,'triggerfield.donation_runewick');
@@ -20,7 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (896,780,2,'triggerfield.donation_runewick');
 
 local common = require("base.common")
-local donation_base = require("triggerfield.donation_base")
+local donation_base = require("triggerfield.base.donation")
 
 local M = {}
 
@@ -29,18 +29,13 @@ local M = {}
 
 function M.PutItemOnField(Item,User)
 
-    donated=donation_base.donate(Item,User,"Runewick","Elvaine Morgan","TreasureRunewick"); -- That's all folks
+    local donated = donation_base.donate(Item, User, "Runewick", "Elvaine Morgan", "TreasureRunewick") -- That's all folks
 
    -- Quest 205 (Runewick Treasury, NPC Neiran el Nyarale)
-
     if (donated) and (User:getQuestProgress(205) == 1) then
-		User:setQuestProgress(205, 2); --Quest solved!
-		common.InformNLS(User,"[Queststatus] Du hast erfolgreich die Aufgabe von Neiran el Nyarale aufgeführt. Sprich mit ihm, um deine Belohnung einzufordern.","[Quest status] You successfully completet the task given by Neiran el Nyarale. Talk to him to claim your reward."); --sending a message
+		User:setQuestProgress(205, 2) --Quest solved!
+		common.InformNLS(User, "[Queststatus] Du hast erfolgreich die Aufgabe von Neiran el Nyarale aufgeführt. Sprich mit ihm, um deine Belohnung einzufordern.", "[Quest status] You successfully completed the task given by Neiran el Nyarale. Talk to him to claim your reward.")
 	end
-
-	-- Quest end
-
 end
 
 return M
-
