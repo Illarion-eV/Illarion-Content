@@ -19,6 +19,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local lookat = require("base.lookat")
+local granorsHut = require("content.granorsHut")
+
 local M = {}
 
 -- UPDATE common SET com_script='alchemy.item.id_166_pink_bottle' WHERE com_itemid = 166;
@@ -158,7 +160,11 @@ local function DrinkPotion(User,SourceItem)
 		
 	else
 	    --whatever
-	end	
+	end
+    
+    if SourceItem:getData("granorsHut") ~= "" then
+        granorsHut.potionReplacer()
+    end
 end
 
 function M.UseItem(User, SourceItem, ltstate)

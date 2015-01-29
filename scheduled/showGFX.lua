@@ -16,12 +16,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local character = require("base.character")
+local granorsHut = require("content.granorsHut")
 
 local M = {}
 
 -- INSERT INTO scheduledscripts VALUES('scheduled.showGFX', 10, 10, 'CreateGFX');
 
 function M.CreateGFX()
+    granorsHut.spawnPoisonClouds()
+    
     world:gfx(1, position(75, 651, 0)) -- thinking stone
 	world:gfx(11, position(873, 878, 0)) -- recognizing spring
     world:gfx(7, position(432, 238, 0)) -- knowing tree

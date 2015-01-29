@@ -122,6 +122,10 @@ english, "Cadomyr" -> "You think I am an idiot? In Cadomyr, I found protection. 
 german, "Tanora", "Zelphia", "Ushara", "Br[aà]gon", "Eldan", "Findari", "Narg[uù]n", "Elara", "Adron", "Oldra", "Cherga", "Malach[iì]n", "Irmorom", "Sirani", "Zhambra", "Ronagan" -> "Geht dich einen feuchten Dreck an, wann ich zu den Göttern bete und wann nicht."
 english, "Tanora", "Zelphia", "Ushara", "Br[aà]gon", "Eldan", "Findari", "Narg[uù]n", "Elara", "Adron", "Oldra", "Cherga", "Malach[iì]n", "Irmorom", "Sirani", "Zhambra", "Ronagan" -> "It's none of your goddman buisness when I pray to the gods and when not."
 
+-- This is a small trick to prevent the npc to respond on a forced auto emote by the player
+"s head is hit by a stone." -> money+0
+"wird von einem Stein am Kopf getroffen." -> money+0
+
 -- No new month; no new task yet
 queststatus(504) = 6, english, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> "Next month! I'm sure I have something else to do for you then. Until then, I don't want to see your face again."
 queststatus(504) = 6, german, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> "Nächsten Monat! Dann hab ich bestimmt wieder was zutun zu haben für dich. Vorher will dich dein Gesicht nicht wiedersehen."

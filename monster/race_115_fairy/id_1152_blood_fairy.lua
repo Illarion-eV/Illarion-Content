@@ -1,6 +1,4 @@
 --[[
-Illarion Server
-
 This program is free software: you can redistribute it and/or modify it under
 the terms of the GNU Affero General Public License as published by the Free
 Software Foundation, either version 3 of the License, or (at your option) any
@@ -14,18 +12,21 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- INSERT INTO triggerfields VALUES (13,691,1,'triggerfield.eventFieldsGranorsHut');
 
+--ID 1152, Blood fairy,      Level: 1
 
+local base = require("monster.base.base")
+local fairies = require("monster.race_115_fairy.base")
 
--- Triggerfields in Granor Bergenhieb's hut
+local M = fairies.generateCallbacks()
 
-local granorsHut = require("content.granorsHut")
+local orgOnSpawn = M.onSpawn
+function M.onSpawn(monster)
+    if orgOnSpawn ~= nil then
+        orgOnSpawn(monster)
+    end
 
-local M = {}
-
-function M.MoveFromField(user)
-    granorsHut.doorCheck(user)
+    base.setColor{monster = monster, target = base.SKIN_COLOR, red = 139, green = 26, blue = 26}
 end
 
 return M

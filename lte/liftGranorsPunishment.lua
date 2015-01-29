@@ -14,18 +14,22 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- INSERT INTO triggerfields VALUES (13,691,1,'triggerfield.eventFieldsGranorsHut');
+local common = require("base.common")
 
-
-
--- Triggerfields in Granor Bergenhieb's hut
-
-local granorsHut = require("content.granorsHut")
-
+-- Long time effect (6)
 local M = {}
 
-function M.MoveFromField(user)
-    granorsHut.doorCheck(user)
+function M.callEffect(theEffect, user)
+    return false
+end
+
+function M.loadEffect(theEffect, user)
+    user:increaseAttrib("perception", -10)
+end
+
+function M.removeEffect (theEffect, user)
+    user:inform("Die Blendung, die du in Granors Hütte erfahren hast, verliert ihre Wirkung.", "The blinding that were inflicted on you in Granor's hut vanishes.")
+    user:increaseAttrib("perception", 10)
 end
 
 return M

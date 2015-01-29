@@ -22,6 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local lookat = require("base.lookat")
 local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
+local granorsHut = require("content.granorsHut")
 
 local M = {}
 
@@ -143,10 +144,13 @@ local function DrinkPotion(User,SourceItem)
 		if not foundEffect then
 		   User.effects:addEffect( myEffect )
 		end
-
 	else
 	    -- something else
 	end
+    
+    if SourceItem:getData("granorsHut") ~= "" then
+        granorsHut.potionReplacer()
+    end
 end
 
 function M.UseItem(User, SourceItem, ltstate)

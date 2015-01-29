@@ -20,6 +20,7 @@ local alchemy = require("alchemy.base.alchemy")
 local licence = require("base.licence")
 local common = require("base.common")
 local redBottle = require("alchemy.item.id_59_red_bottle")
+local granorsHut = require("content.granorsHut")
 
 local M = {}
 
@@ -253,7 +254,10 @@ function AnalysisOfBrew(User, theGem, brew, ltstate)
 		
 	elseif brew:getData("filledWith") == "potion" then
 	    analysisResultDE, analysisResultEN = PotionAnalysis(User, theGem, brew, ltstate)
-	end	
+        
+	elseif brew:getData("granorsHut") ~= "" then
+        analysisResultDE, analysisResultEN = granorsHut.granorsPotion()
+    end
 	
 	if analysisResultDE and analysisResultEN then 
 		-- message box for the results

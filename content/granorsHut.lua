@@ -19,6 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- The functions are hooked in the various scripts with the actual entry points.
 
 local lookat = require("base.lookat")
+local scheduledFunction = require("scheduled.scheduledFunction")
 
 local M = {}
 
@@ -30,6 +31,8 @@ local function getNpc(npcName)
         end
     end
 end
+
+
 
 -- Hook for the bottle script; trying to fill up Granor's potion in the cauldron
 function M.fillingFromCauldron(user, ltstate)
@@ -47,7 +50,7 @@ function M.fillingFromCauldron(user, ltstate)
     if ltstate == Action.success then
         local egon = getNpc("Egon")
         egon:talk(Character.say, "#me kreischt laut auf und wirft in einer sehr schnellen Bewegungen einen schweren Stein in Richtung Kessel.", "#me cries out very loudly and throws a heavy stone into the direction of the cauldron.")
-        user:talk(Character.say, "#me wirf von einem Stein am Kopf getroffen.", "#me's head is hit by a stone.")
+        user:talk(Character.say, "#me wird von einem Stein am Kopf getroffen.", "#me's head is hit by a stone.")
         world:gfx(13, user.pos)
         user:increaseAttrib("hitpoints",-3000)
     end
@@ -69,6 +72,7 @@ function M.doorCheck(user)
             local granorBergenhieb = getNpc("Granor Bergenhieb")
             local messageNumber = Random.uniform(1, #closeTheDoorMessages)
             granorBergenhieb:talk(Character.yell, closeTheDoorMessages[messageNumber][Player.german], closeTheDoorMessages[messageNumber][Player.english])
+            timeLastMessage = world:getTime("unix")
         end
     end
 end
@@ -94,6 +98,91 @@ function M.searchInHedge(user)
         end
         user:setQuestProgress(505, 1)
     end
+end
+
+-- Hook for schedule script; spawn spawn clouds in the area
+function M.spawnPoisonClouds()
+    for i = 1, 4 do
+        local randomPosition = position(Random.uniform(3, 40), Random.uniform(675, 700), 0)
+        if world:getField(randomPosition):isPassable() then
+            world:gfx(8, randomPosition)
+        end
+    end
+end
+
+-- Hook for analyzing script; hand over message of potion analysis
+function M.granorsPotion()
+return "Du erkennst, dass eine Vielzahl an essenzierten Kräuter verarbeitet wurden. Wirkstoffe in den höchsten Konzentrationen schimmern auch durch. Doch du siehst auch seltsame, gräuliche Flecken, die du nicht erklären kannst.", "You recognize that a lot of esssenced herbs have been used. Active agents in the highest concentrations gleam. But you also see strange, grey spots, which you are unable to explain."
+end
+
+local function cleanTable(tablePos, potionId)
+
+    if #(world:getPlayersInRangeOf(tablePos, 15)) > 0 then
+        return false, false
+    end
+    
+    local counter = 0
+    while counter < 20 do
+        local checkItem = world:getItemOnField(tablePos)
+        if checkItem.id == 320 then
+            return false, true
+        elseif checkItem.id == potionId and checkItem.wear == 255 then
+            return true, false
+        else
+            world:erase(checkItem, checkItem.number)
+            counter = counter + 1
+        end
+    end
+    
+    return false, false
+
+end
+
+-- Hook for potion scripts; replace map potion that were drunk
+function M.potionReplacer()
+    
+    local redPotionPos = position(14, 683, 1)
+    local pinkPotionPos = position(15, 683, 1)
+    
+    local repeatRepalcer
+    
+    local pinkPotionThere, emptyTable = cleanTable(pinkPotionPos, 166)
+    if pinkPotionThere then
+        repeatReplacer = false
+    elseif emptyTable then
+        repeatPlacer = false
+        world:createItemFromId(166, 1, pinkPotionPos, true, 111, {filledWith = "potion", potionEffectId = "35555555", granorsHut = "true"})
+    else
+        repeatReplacer = true
+    end
+    
+    local redPotionThere, emptyTable = cleanTable(redPotionPos, 166)
+    if redPotionThere then
+        repeatReplacer = false
+    elseif emptyTable then
+        repeatPlacer = false
+        world:createItemFromId(59, 1, redPotionPos, true, 111, {filledWith = "potion", potionEffectId = "44444444", granorsHut = "true"})
+    else
+        repeatReplacer = true
+    end
+    
+    if repeatReplacer then
+        scheduledFunction.registerFunction(5, function() M.potionReplacer() end)
+    end
+end
+
+-- Hook for using Granor's book
+function M.readingBook(user)
+    local foundEffect, myEffect = u.effects:find(6)
+    if foundEffect then
+        return
+    end
+    user:increaseAttrib("perception", -10)
+    user.effects:addEffect(LongTimeEffect(6, 150))
+    user:inform("Als du das Buch aufschlägst, leuchten die Buchstaben gar gräzlich grellend auf. Du bist vollkommen geblendet und die Welt um dich herum, wird zu einem kaum wahrnehmbaren milchigen Schleier. Deine Wahrnehmung hat sich radiakl verschlechtert.","As you open the book, the letters glare horribly brightly. You are completely blinded and the world around your becomes a barely visible foggy veil. Your perception got a lot worse.")
+    
+    local granor = getNpc("Granor Bergenhieb")
+    granor:talk(Character.say, "#me lacht dreckig auf. 'Sowas passiert, wenn man ungefragt anderer Leute Dinge anfässt. Aber hält ja nur leider 'ne halbe Stunde an...'", "#me laughs maliciously. 'Well, that happens to those who touch other peoples' things without being allowed. Yet, it will only last half an hour...'")
 end
 
 return M

@@ -20,6 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local lookat = require("base.lookat")
 local common = require("base.common")
 local id_266_bookshelf = require("item.id_266_bookshelf")
+local granorsHut = require("content.granorsHut")
 
 local M = {}
 
@@ -32,6 +33,10 @@ function M.UseItem(User, SourceItem)
 	    User:sendBook(101)
 	end
 	-- alchemy end
+    
+    if SourceItem:getData("granorsHut") ~= "" then
+        granorsHut.readingBook(User)
+    end
 
 	if SourceItem:getData("bookId")~="" then
 		local bookId =tonumber( SourceItem:getData("bookId"))
