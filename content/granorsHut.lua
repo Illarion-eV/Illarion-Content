@@ -167,7 +167,7 @@ function M.potionReplacer()
     end
     
     if repeatReplacer then
-        scheduledFunction.registerFunction(5, function() M.potionReplacer() end)
+        scheduledFunction.registerFunction(30, function() M.potionReplacer() end)
     end
 end
 
@@ -178,7 +178,7 @@ function M.readingBook(user)
         return
     end
     user:increaseAttrib("perception", -10)
-    user.effects:addEffect(LongTimeEffect(6, 150))
+    user.effects:addEffect(LongTimeEffect(6, 18000))
     user:inform("Als du das Buch aufschlägst, leuchten die Buchstaben gar gräzlich grellend auf. Du bist vollkommen geblendet und die Welt um dich herum, wird zu einem kaum wahrnehmbaren milchigen Schleier. Deine Wahrnehmung hat sich radiakl verschlechtert.","As you open the book, the letters glare horribly brightly. You are completely blinded and the world around your becomes a barely visible foggy veil. Your perception got a lot worse.")
     
     local granor = getNpc("Granor Bergenhieb")
