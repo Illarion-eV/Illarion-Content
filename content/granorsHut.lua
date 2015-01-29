@@ -43,7 +43,7 @@ function M.fillingFromCauldron(user, ltstate)
 	
     if ltstate == Action.none then
        local granorBergenhieb = getNpc("Granor Bergenhieb")
-       granorBergenhieb:talk(Character.say, "#me spricht mit düsterer Stimme: 'Mach weiter und du erlebst, wenn Egon einen seiner Momente hat., Dreckssau.'", "#me whispers in a dark voice: 'Keep going and you will experience one of Egon's special momenets, shit-head.'")
+       granorBergenhieb:talk(Character.say, "#me spricht mit düsterer Stimme: 'Mach weiter und du erlebst, wenn Egon einen seiner Momente hat., Dreckssau.'", "#me whispers in a dark voice: 'Keep going and you will experience one of Egon's special moments, shit-head.'")
        user:startAction(50,21,5,15,25)
     end
     
@@ -60,7 +60,7 @@ local closeTheDoorMessages = {}
 closeTheDoorMessages[1] = {[Player.german] = "Mach gefälligst die Tür du, Holzkopf!", [Player.english] = "Close the door, pinhead!"}
 closeTheDoorMessages[2] = {[Player.german] = "Faule Sau! Türen kann man auch wieder zu machen!", [Player.english] = "Lazy pig! Doors are there for a reason!"}
 closeTheDoorMessages[3] = {[Player.german] = "Ey, du Gossenkind, schließ die Tür!", [Player.english] = "Ey, urchin, close the door!"}
-closeTheDoorMessages[4] = {[Player.german] = "Zu faul die Tür zu schließen! Wo sind wir denn hier?!", [Player.english] = "Too lazy to close a door! Where do you think we are"}
+closeTheDoorMessages[4] = {[Player.german] = "Zu faul die Tür zu schließen! Wo sind wir denn hier?!", [Player.english] = "Too lazy to close a door! Where do you think we are?"}
 closeTheDoorMessages[5] = {[Player.german] = "Dumm wie Mist und frech wie Scheiße. Zu fein Türen zu schließen, was?!", [Player.english] = "Stupid like dung and insolent like shit. Are we too fine to close doors or what?!"}
 
 local timeLastMessage
@@ -91,10 +91,10 @@ end
 -- Hook for using hedge item
 function M.searchInHedge(user)
     if user:getQuestProgress(505) == 0 then
-        user:inform("Du findet in der Hecke eine Sichel mit einem scheinbar angeknabberten Griff, an dem noch ein bißchen Sabber hängt.", "As you search through the hedge, you find a sickle with a seemingly nibbled on handle. There is even some salvia still on it.")
-        local notCreated = user:createItem(126, 1, 666, {descriptionDe = "Der Holzgriff der Sichel wurde angeknabbert.", descriptionEn = "The wodden handle of the sickle has been nibbled at."})
+        user:inform("Du findet in der Hecke eine Sichel mit einem scheinbar angeknabberten Griff, an dem noch ein bißchen Sabber hängt.", "As you search through the hedge, you find a sickle with a seemingly nibbled on handle. There is even some saliva still on it.")
+        local notCreated = user:createItem(126, 1, 666, {descriptionDe = "Der Holzgriff der Sichel wurde angeknabbert.", descriptionEn = "The wooden handle of the sickle has been nibbled at."})
         if notCreated > 0 then
-            world:createItemFromId(126, 1, user.pos, true, 666, {descriptionDe = "Der Holzgriff der Sichel wurde angeknabbert.", descriptionEn = "The wodden handle of the sickle has been nibbled at."})
+            world:createItemFromId(126, 1, user.pos, true, 666, {descriptionDe = "Der Holzgriff der Sichel wurde angeknabbert.", descriptionEn = "The wooden handle of the sickle has been nibbled at."})
         end
         user:setQuestProgress(505, 1)
     end
@@ -112,7 +112,7 @@ end
 
 -- Hook for analyzing script; hand over message of potion analysis
 function M.granorsPotion()
-return "Du erkennst, dass eine Vielzahl an essenzierten Kräuter verarbeitet wurden. Wirkstoffe in den höchsten Konzentrationen schimmern auch durch. Doch du siehst auch seltsame, gräuliche Flecken, die du nicht erklären kannst.", "You recognize that a lot of esssenced herbs have been used. Active agents in the highest concentrations gleam. But you also see strange, grey spots, which you are unable to explain."
+return "Du erkennst, dass eine Vielzahl an essenzierten Kräuter verarbeitet wurden. Wirkstoffe in den höchsten Konzentrationen schimmern auch durch. Doch du siehst auch seltsame, gräuliche Flecken, die du nicht erklären kannst.", "You recognize that a lot of essence herbs have been used. Active agents in the highest concentrations gleam. But you also see strange grey spots which you are unable to explain."
 end
 
 local function cleanTable(tablePos, potionId)
