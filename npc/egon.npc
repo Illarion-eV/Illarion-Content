@@ -165,7 +165,7 @@ german, chance(11.111111111111), ".+" -> "#me leckt seine Zähne und starrt die P
 english, chance(12.5), ".+" -> "Egon! Me Egon! Egon!"
 german, chance(12.5), ".+" -> "Egon! Ich Egon! Egon!"
 
-english, chance(14.285714285714), ".+" -> "#me hits his own head a couple of times."
+english, chance(14.285714285714), ".+" -> "#me hits his head a couple of times."
 german, chance(14.285714285714), ".+" -> "#me schlägt sich einige Male selbst gegen den Kopf."
 
 english, chance(16.666666666667), ".+" -> "#me stares at the person in front of him before he hisses and begins to wildly pull herbs apart."
@@ -174,13 +174,13 @@ german, chance(16.666666666667), ".+" -> "#me starrt die Person vor sich eine We
 english, chance(20), ".+" -> "Red... red cloud...cloud extract. You have?"
 german, chance(20), ".+" -> "Rot...Rotwolken...wolkenextrakt. Du hast?"
 
-english, chance(25), ".+" -> "#me bows foreward to sniff at the person in front of him."
+english, chance(25), ".+" -> "#me bows forward to sniff at the person in front of him."
 german, chance(25), ".+" -> "#me beugt sich vor, um an der Person vor sich zu schnuppern."
 
-english, chance(33.333333333333), ".+" -> "#me cries: 'Ney, ney, you not hurting me!'"
+english, chance(33.333333333333), ".+" -> "#me cries: 'No, no, you not hurting me!'"
 german, chance(33.333333333333), ".+" -> "#me kreischt: 'Nein, nein, nicht verletzen!'"
 
-english, chance(50), ".+" -> "#me fligs his tail hectically and claps his hands."
+english, chance(50), ".+" -> "#me flips his tail hectically and claps his hands."
 german, chance(50), ".+" -> "#me wedelt hektisch mit dem Schwanz und und klatscht mit den Händen."
 
 english, chance(100), ".+" -> "#me shakes his head several times and cries out: 'Me good, me good!'"
