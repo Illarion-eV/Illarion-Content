@@ -173,7 +173,7 @@ end
 
 -- Hook for using Granor's book
 function M.readingBook(user)
-    local foundEffect, myEffect = u.effects:find(6)
+    local foundEffect, myEffect = user.effects:find(6)
     if foundEffect then
         return
     end
