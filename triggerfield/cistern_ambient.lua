@@ -38,7 +38,32 @@ for script:
 cisternList.add( position(x,y,z), {0,1,7}, "german", "english", {0,1,23}, {1,2,16}, chance );
 
 for db:
-INSERT INTO triggerfields VALUES (x,y,z,'triggerfield.cistern');
+INSERT INTO triggerfields VALUES (840,848,-6,'triggerfield.cistern_ambient');
+INSERT INTO triggerfields VALUES (823,832,-6,'triggerfield.cistern_ambient');
+INSERT INTO triggerfields VALUES (822,832,-6,'triggerfield.cistern_ambient');
+INSERT INTO triggerfields VALUES (821,832,-6,'triggerfield.cistern_ambient');
+INSERT INTO triggerfields VALUES (820,832,-6,'triggerfield.cistern_ambient');
+INSERT INTO triggerfields VALUES (838,836,-6,'triggerfield.cistern_ambient');
+INSERT INTO triggerfields VALUES (847,844,-6,'triggerfield.cistern_ambient');
+INSERT INTO triggerfields VALUES (837,840,-3,'triggerfield.cistern_ambient');
+INSERT INTO triggerfields VALUES (832,831,-3,'triggerfield.cistern_ambient');
+INSERT INTO triggerfields VALUES (839,823,-6,'triggerfield.cistern_ambient');
+
+INSERT INTO triggerfields VALUES (355,471,-6,'triggerfield.cistern_ambient');
+INSERT INTO triggerfields VALUES (354,471,-6,'triggerfield.cistern_ambient');
+INSERT INTO triggerfields VALUES (360,464,-6,'triggerfield.cistern_ambient');
+INSERT INTO triggerfields VALUES (360,465,-6,'triggerfield.cistern_ambient');
+INSERT INTO triggerfields VALUES (368,471,-6,'triggerfield.cistern_ambient');
+INSERT INTO triggerfields VALUES (368,470,-6,'triggerfield.cistern_ambient');
+INSERT INTO triggerfields VALUES (382,482,-6,'triggerfield.cistern_ambient');
+
+INSERT INTO triggerfields VALUES (105,580,-6,'triggerfield.cistern_ambient');
+INSERT INTO triggerfields VALUES (114,583,-6,'triggerfield.cistern_ambient');
+INSERT INTO triggerfields VALUES (115,560,-6,'triggerfield.cistern_ambient');
+INSERT INTO triggerfields VALUES (135,556,-6,'triggerfield.cistern_ambient');
+INSERT INTO triggerfields VALUES (105,563,-6,'triggerfield.cistern_ambient');
+INSERT INTO triggerfields VALUES (113,570,-6,'triggerfield.cistern_ambient');
+
 ]]
 
 
