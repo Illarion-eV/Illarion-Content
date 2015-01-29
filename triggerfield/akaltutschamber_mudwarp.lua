@@ -25,25 +25,24 @@ local M = {}
 
 function M.MoveToField(Character)
 
-	-- mudslide: 481 812 -9  and 482 812 -9
+    -- mudslide: 481 812 -9  and 482 812 -9
 
-	local destination
-	if Character.pos == position(481,812,-9) or Character.pos == position(482,812,-9) then --mudslide
+    local destination
+    if Character.pos == position(481, 812, -9) or Character.pos == position(482, 812, -9) then --mudslide
 
-	    destination = position(484,821,-9);
+        destination = position(484, 821, -9)
 
-	   common.HighInformNLS(Character,
-		"Du stolperst und fällst von der Brücke und rutscht in den Schlamm.",
-		"You stumble, falling down the bridge, sliding and slipping into the mud.");
-	end
+        common.HighInformNLS(Character,
+            "Du stolperst und fällst von der Brücke und rutscht in den Schlamm.",
+            "You stumble, falling down the bridge, sliding and slipping into the mud.")
+    end
 
-	--Warping the character
-    world:gfx(41,Character.pos);
-	world:makeSound(13,Character.pos);
-	Character:warp(destination);
-    world:makeSound(13,destination);
-    world:gfx(41,Character.pos);
+    --Warping the character
+    world:gfx(41, Character.pos)
+    world:makeSound(13, Character.pos)
+    Character:warp(destination)
+    world:makeSound(13, destination)
+    world:gfx(41, Character.pos)
 end
 
 return M
-

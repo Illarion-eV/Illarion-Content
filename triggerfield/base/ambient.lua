@@ -15,65 +15,63 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-
 return function()
     local self = {}
 
     function self.add(pos, direction, german, english, hours, months, chance)
         if not self[pos.x] then
-            self[pos.x] = {};
+            self[pos.x] = {}
         end
         if not self[pos.x][pos.y] then
-            self[pos.x][pos.y] = {};
+            self[pos.x][pos.y] = {}
         end
         if not self[pos.x][pos.y][pos.z] then
-            self[pos.x][pos.y][pos.z] = {};
+            self[pos.x][pos.y][pos.z] = {}
         end
-        local this = self[pos.x][pos.y][pos.z];
+        local this = self[pos.x][pos.y][pos.z]
         table.insert(this, {
-            direction = direction or {0,1,2,3,4,5,6,7};
-            german = german or "";
-            english = english or "";
-            hours = hours or {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23};
-            months = months or {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
-            chance = chance or 100;
+            direction = direction or {0,1,2,3,4,5,6,7},
+            german = german or "",
+            english = english or "",
+            hours = hours or {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23},
+            months = months or {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16},
+            chance = chance or 100
         })
     end
 
-
     function self.get(Char)
-        local pos = Char.pos;
-        local dir = Char:getFaceTo();
+        local pos = Char.pos
+        local dir = Char:getFaceTo()
 
         if self[pos.x] and self[pos.x][pos.y] and self[pos.x][pos.y][pos.z] then
-            local this = self[pos.x][pos.y][pos.z];
-            local list = {};
+            local this = self[pos.x][pos.y][pos.z]
+            local list = {}
             for _, ambient in pairs(this) do
-                local timeOk, monthOk, dirOk = false, false, false;
-                for _,that in pairs(ambient.hours) do
-                    if that==world:getTime("hour") then
-                        timeOk = true;
-                        break;
+                local timeOk, monthOk, dirOk = false, false, false
+                for _, that in pairs(ambient.hours) do
+                    if that == world:getTime("hour") then
+                        timeOk = true
+                        break
                     end
                 end
-                for _,that in pairs(ambient.months) do
-                    if that==world:getTime("month") then
-                        monthOk = true;
-                        break;
+                for _, that in pairs(ambient.months) do
+                    if that == world:getTime("month") then
+                        monthOk = true
+                        break
                     end
                 end
-                for _,that in pairs(ambient.direction) do
-                    if that==dir then
-                        dirOk = true;
-                        break;
+                for _, that in pairs(ambient.direction) do
+                    if that == dir then
+                        dirOk = true
+                        break
                     end
                 end
-                if timeOk and monthOk and dirOk and math.random(0,99) < ambient.chance then --chance!
-                    table.insert(list, ambient);
+                if timeOk and monthOk and dirOk and math.random(0,99) < ambient.chance then
+                    table.insert(list, ambient)
                 end
             end
-            if #list>0 then
-                return list[math.random(1,#list)];
+            if #list > 0 then
+                return list[math.random(1, #list)]
             end
         end
         return nil
