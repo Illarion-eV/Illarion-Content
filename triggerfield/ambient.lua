@@ -42,7 +42,7 @@ INSERT INTO triggerfields VALUES (x,y,z,'triggerfield.ambient');
 ]]
 
 
-AmbientList = ambient_base()
+local AmbientList = ambient_base()
 
 -- Tutorial by Rincewind and Estralis
 AmbientList.add( position(28,101,100 ),{5,6,7},"[Tutorial] Dies ist der Weg nach Runewick, dem Reich der Weisheit und Magie.","[Tutorial] This is the way to Runewick, realm of wisdom and magic.",nil,nil,100); --Tutorial
