@@ -68,9 +68,9 @@ itemShoes = 1055
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me grumbles and mumbles: 'No time for idle talk.'", "Yes, yes, of course.", "Hello. Good day, good night and may the gods bless you, knucklehead. What do you want?", "What?!"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me grummelt und brummelt: 'Keine Zeit für unwichtiges Geplapper.'","Ja, ja, na sicher.","Hallo, guten Tag, gute nacht, fröhlichen Geburtstag und mögen die Götter dich segenen, Dummkopf. Was willst du?", "Was?!"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me grummelt und brummelt: 'Keine Zeit für unwichtiges Geplapper.'","Ja, ja, na sicher.","Hallo, guten Tag, gute Nacht, fröhlichen Geburtstag und mögen die Götter dich segnen, Dummkopf. Was willst du?", "Was?!"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me grumbles and mumbles: 'No time for idle talk.'", "Yes, yes, of course.", "Hello. Good day, good night and may the gods bless you, knucklehead. What do you want?", "What?!"
-"Hiho", "Hallo", "Hey", "Greeb" -> "#me grummelt und brummelt: 'Keine Zeit für unwichtiges Geplapper.'","Ja, ja, na sicher.","Hallo, guten Tag, gute nacht, fröhlichen Geburtstag und mögen die Götter dich segenen, Dummkopf. Was willst du?", "Was?!"
+"Hiho", "Hallo", "Hey", "Greeb" -> "#me grummelt und brummelt: 'Keine Zeit für unwichtiges Geplapper.'","Ja, ja, na sicher.","Hallo, guten Tag, gute Nacht, fröhlichen Geburtstag und mögen die Götter dich segnen, Dummkopf. Was willst du?", "Was?!"
 "Farewell", "Bye", "Fare well", "See you" -> "Go!", "Couldn't care less.", "Finally.", "And now I finally can go back to work!", "Don't disturb me again!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" ->  "Geh!", "Könnte mich nicht weniger interessieren.", "Endlich kann ich mich wieder der Arbeit widmen.", "Stör mich nicht nochmal!"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go!", "Couldn't care less.", "Finally.", "And now I finally can go back to work!", "Don't disturb me again!"
@@ -83,18 +83,18 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go!", "Couldn't care less."
 "beruf" -> "Geht dich nichts an, was ich tue."
 english, "job" -> "It's none for your business what I do."
 "job" -> "Geht dich nichts an, was ich tue."
-english, "Gobaith", "Gobiath" -> "A lot of alchemical knowledge swapped over when that place in the nowhere was destroyed. Can happen anytime again, if you ask me."
+english, "Gobaith", "Gobiath" -> "A lot of alchemical knowledge swapped over when that place in the nowhere was destroyed. Can happen any time again, if you ask me."
 "Gobaith", "Gobiath" -> "Von diesem Fleck im Nirgendwo ist einiges an alchemistischem Wissen rübergeschwappt, als die Insel unterging. Von mir aus immer wieder."
 "my name" -> "Why would I want to know your ugly name? It suits you well, though."
 "mein Name" -> "Warum sollte ich deinen häßlichen Namen wissen wollen? Aber immerhin passt er zu dir."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"alchemie" -> "Du willst was über Alchemie wissen? Warum? Würdest du eh nicht kapieren. Alchemie hat nichts mit dem Gelabber zutun, wie es etwa Runewicker von sich geben. Es geht um das Machen!"
-"alchemy" -> "You want to know something  about alchemy? Why? You wouldn't understand it anyway. Alchemy has nothing to do with the babbling as the Runewickers think. It is about doing!"
+"alchemie" -> "Du willst was über Alchemie wissen? Warum? Würdest du eh nicht kapieren. Alchemie hat nichts mit dem Gelaber zu tun, wie es etwa Runewicker von sich geben. Es geht um das Machen!"
+"alchemy" -> "You want to know something  about alchemy? Why? You wouldn't understand it anyway. Alchemy has nothing to do with the babbling that the Runewickers conduct. It is about doing!"
 "Rotwolk" -> "Hast du Rotwolkenextrakt gesagt?! Hast du welches? Ich geb dir alles dafür! 100 Gold? Willst du Egon? Gib mir auch nur einen Korn und du kannst ihn mitnehmen!"
 "red cloud" -> "Did you say red cloud extract?! Do you have some? Give it to me and you will get whatever you want! 100 Gold? Do you want Egon? Give me just one little piece and you can take him!"
 english, "Egon" -> "Egon is stupid. But not as stupid as most people in Illarion are. Yes, yes, he is a ratman. And? If a piece of shit like Valerio can rule a town, a ratman surely can be an assistant"
-"Egon" -> "Egon is dumm. Aber nicht so dumm wie es die meißten in Illarion sind. Ja, ja, er ist ein Rattenmensch. Und? Wenn ein Stück Scheiße wie Valerio eine Stadt führen kann, kann ein Rattenmensch sicherlich ein Assistent sein."
+"Egon" -> "Egon is dumm. Aber nicht so dumm wie es die meisten in Illarion sind. Ja, ja, er ist ein Rattenmensch. Und? Wenn ein Stück Scheiße wie Valerio eine Stadt führen kann, kann ein Rattenmensch sicherlich ein Assistent sein."
 "tr[äa]nke" -> "Hahaha! Über meine Tränke willst du was wissen? Pah! Selbst Egon weiß kaum was über sie. Doch sie haben mehr Einfluss auf Illarion, mehr als du denkst..."
 "potion" -> "Hahaha! You want to know more about my potions? Pah! Even Egon knows hardly anything about them. But they have more influence on Illarion than you think..."
 
@@ -104,11 +104,11 @@ english, "Egon" -> "Egon is stupid. But not as stupid as most people in Illarion
 english, "Elvaine", "Morgan" -> "That mage Elvaine Morgan thinks he is smart. He has knowledge, yes. But smartness? No! What worth does knowledge have if you don't put it to any use? He hides behind his books, afraid of the world and real knowledge."
 "Elvaine", "Morgan" -> "Der Magier Elvaine Morgan denkt er sei klug. Wissen hat er, ja. Aber Klugheit? Welchen Wert hat Wissen, wenn man es nicht gebraucht? Er versteckt sich hinter Bücher aus Angst vor der Welt und wahrem Wissen."
 english, "Runewick" -> "A bunch of scared mages and alchemists who have no sense for the true, deeper knowledge of alchemy."
-"Runewick" -> "Ein Haufen verängstigter Magier und Alchemisten, die keinen Sinn für das wahre, tiefere Wissen der Alchemi hate."
+"Runewick" -> "Ein Haufen verängstigter Magier und Alchemisten, die keinen Sinn für das wahre, tiefere Wissen der Alchemie haben."
 english, "Valerio", "Guilianni", "Don" -> "Guilianni is a disgusting, greedy pig. I shit on him and I shit on Galmair. I hope he chokes on it."
-"Valerio", "Guilianni", "Don" -> "Guilianni ist ein ekelhaftes, gieriges Schwein. Ich scheiß auf ihn und ich scheiß auf Galmair. Ich hoffe er ertsickt dran."
+"Valerio", "Guilianni", "Don" -> "Guilianni ist ein ekelhaftes, gieriges Schwein. Ich scheiß auf ihn und ich scheiß auf Galmair. Ich hoffe er erstickt dran."
 english, "Galmair" -> "Guilianni is a disgusting, greedy pig. I shit on him and I shit on Galmair. I hope he chokes on it."
-"Galmair" -> "Guilianni ist ein ekelhaftes, gieriges Schwein. Ich scheiß auf ihn und ich scheiß auf Galmair. Ich hoffe er ertsickt dran."
+"Galmair" -> "Guilianni ist ein ekelhaftes, gieriges Schwein. Ich scheiß auf ihn und ich scheiß auf Galmair. Ich hoffe er erstickt dran."
 "Queen" -> "Without me she would be dead. I saved her from a strong fever that no one could heal when she was a small brat. That's why her father allowed me to stay here, despite the disgusting Valerio yearning for my head."
 "Königin" -> "Ohne mich wäre sie tot. Hab sie als kleines Gör von einem Fieber befreit, das niemand anderes heilen konnte. Deswegen erlaubte mir ihr Vater hier zu bleiben, obwohl der dreckige Valerio meinen Kopf wollte."
 english, "rosaline", "edwards" -> "Without me she would be dead. I saved her from a strong fever that no one could heal when she was a small brat. That's why her father allowed me to stay here, despite the disgusting Valerio yearning for my head."
@@ -128,7 +128,7 @@ english, "Tanora", "Zelphia", "Ushara", "Br[aà]gon", "Eldan", "Findari", "Narg[u
 
 -- No new month; no new task yet
 queststatus(504) = 6, english, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> "Next month! I'm sure I have something else to do for you then. Until then, I don't want to see your face again."
-queststatus(504) = 6, german, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> "Nächsten Monat! Dann hab ich bestimmt wieder was zutun zu haben für dich. Vorher will dich dein Gesicht nicht wiedersehen."
+queststatus(504) = 6, german, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> "Nächsten Monat! Dann hab ich bestimmt wieder was zu tun für dich. Vorher will dich dein Gesicht nicht wiedersehen."
 
 -- Task finished; reward not taken yet
 queststatus(504) = 5, english, ".*" -> "What? What? I told you you can get your herbs from Egon. Now stop disturbing me!"
@@ -159,7 +159,7 @@ queststatus(504) = 2, item(133, all) < 30, german, ".*" -> "Quassel mich nicht v
 queststatus(504) = 2, item(133, all) < 30, ".*" -> "Stop jabbering! I want 30 sun herbs. Go, get them! Get lost!"
 
 -- Task 3: 2 ruby powder
-queststatus(504) = 0, chance(50.0), german, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> inform("[Neues Quest] Alchemistischer Bedarf"), queststatus(504) = 3, "Die häßliche Ratte hat doch tatsächlich meine letzen Beutel Rubinstaub aufgefressen! Hol mir zwei neue und du bekommst ein paar selten Kräuter."
+queststatus(504) = 0, chance(50.0), german, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> inform("[Neues Quest] Alchemistischer Bedarf"), queststatus(504) = 3, "Die häßliche Ratte hat doch tatsächlich meine letzten Beutel Rubinstaub aufgefressen! Hol mir zwei neue und du bekommst ein paar selten Kräuter."
 queststatus(504) = 0, chance(50.0), english, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> inform("[New Quest] Alchemical needs" ), queststatus(504) = 3, "That ugly rat guzzled my last sacks of ruby powder! Get me two sacks of ruby powder and you will get some rare herbs."
 
 -- Task 3: solved
@@ -189,11 +189,11 @@ queststatus(504) = 4, item(58, all) < 1, ".*" -> "Stop jabbering! I want a new m
 
 cycletext "Gift, Heilung. Alles das selbe für mich. Alles nur ein Trank.","Poison, healing. All the same to me. Just an other potion."
 cycletext "#s Bei den Göttern! Sei 30 Jahren habe ich kein Rotwolkenextrakt mehr gesehen.","#s By the gods! I haven't seen red cloud extract in 30 years."
-cycletext "Druiden! Pah! Benebel sich mit Sibanac und quatschen mit Bäumen.","Druids! Pah! Numbing themselves with sibanac and babble with trees."
+cycletext "Druiden! Pah! Benebeln sich mit Sibanac und quatschen mit Bäumen.","Druids! Pah! Numbing themselves with sibanac and babble with trees."
 cycletext "Sumpfblume, Firnisblüte, Eisblatt, Feuerwurzel und... ja, und was?","Mash flower, firnis blossom, ice leaf, fire root and... and what?"
 cycletext "Egon! Du bist so dumm wie du häßlich bist.","Egon! You are as stupid as you are ugly."
-cycletext "#me murmelt: 'Valerion, du elender Haufen Müll...'","#me mutters: 'Valerio, you filthy piece of trash.'"
+cycletext "#me murmelt: 'Valerio, du elender Haufen Müll...'","#me mutters: 'Valerio, you filthy piece of trash.'"
 cycletext "#me hält einen Topas über den Kesselinhalt und starrt darauf.","#me holds a topaz above the content of the cauldron and stares at it."
 cycletext "Rotwolkenextrakt! Egon, wir brauchen Rotwolkenextrakt, verdammt!","Red cloud extract! Egon, we need red cloud extract, damn it!"
 cycletext "#me rührt im Kessel.","#me stirs in the cauldron."
-cycletext"#s Egon! Beeilung! Ich brauch die Kräuer jeden Moment.", "#s Egons! Hurry! I need those herbs this moment!"
+cycletext"#s Egon! Beeilung! Ich brauch die Kräuter jeden Moment.", "#s Egons! Hurry! I need those herbs this moment!"

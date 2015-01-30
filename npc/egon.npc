@@ -181,7 +181,7 @@ english, chance(33.333333333333), ".+" -> "#me cries: 'No, no, you not hurting m
 german, chance(33.333333333333), ".+" -> "#me kreischt: 'Nein, nein, nicht verletzen!'"
 
 english, chance(50), ".+" -> "#me flips his tail hectically and claps his hands."
-german, chance(50), ".+" -> "#me wedelt hektisch mit dem Schwanz und und klatscht mit den Händen."
+german, chance(50), ".+" -> "#me wedelt hektisch mit dem Schwanz und klatscht mit den Händen."
 
 english, chance(100), ".+" -> "#me shakes his head several times and cries out: 'Me good, me good!'"
 german, chance(100), ".+" -> "#me schüttelt seinen Kopf einige Male und schreit auf: 'Mir gut, mir gut!'"
