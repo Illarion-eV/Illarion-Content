@@ -12,10 +12,10 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- This script handles all the small features of the alchemy hut of Granor Bergenhieb. 
+-- This script handles all the small features of the alchemy hut of Granor Bergenhieb.
 -- The functions are hooked in the various scripts with the actual entry points.
 
 local lookat = require("base.lookat")
@@ -36,23 +36,23 @@ end
 
 -- Hook for the bottle script; trying to fill up Granor's potion in the cauldron
 function M.fillingFromCauldron(user, ltstate)
-    
+
     if ltstate == Action.abort then
         uer:inform("Du brichst deine Arbeit ab.", "You abort your work.")
     end
-	
+
     if ltstate == Action.none then
        local granorBergenhieb = getNpc("Granor Bergenhieb")
-       granorBergenhieb:talk(Character.say, "#me spricht mit düsterer Stimme: 'Mach weiter und du erlebst, wenn Egon einen seiner Momente hat., Dreckssau.'", "#me whispers in a dark voice: 'Keep going and you will experience one of Egon's special moments, shit-head.'")
+       granorBergenhieb:talk(Character.say, "#me spricht mit düsterer Stimme: 'Mach weiter und du erlebst, wenn Egon einen seiner Momente hat, Drecksau.'", "#me whispers in a dark voice: 'Keep going and you will experience one of Egon's special moments, shit-head.'")
        user:startAction(50,21,5,15,25)
     end
-    
+
     if ltstate == Action.success then
         local egon = getNpc("Egon")
         egon:talk(Character.say, "#me kreischt laut auf und wirft in einer sehr schnellen Bewegungen einen schweren Stein in Richtung Kessel.", "#me cries out very loudly and throws a heavy stone into the direction of the cauldron.")
         user:talk(Character.say, "#me wird von einem Stein am Kopf getroffen.", "#me's head is hit by a stone.")
         world:gfx(13, user.pos)
-        user:increaseAttrib("hitpoints",-3000)
+        user:increaseAttrib("hitpoints", -3000)
     end
 end
 
@@ -85,7 +85,7 @@ function M.lookingAtHedge(user, item)
     else
         lookat.SetSpecialDescription(item, "Die Hecke ist voll von Löchern.", "There are a lot of holes in the hedge.")
     end
-    
+
 end
 
 -- Hook for using hedge item
@@ -120,7 +120,7 @@ local function cleanTable(tablePos, potionId)
     if #(world:getPlayersInRangeOf(tablePos, 15)) > 0 then
         return false, false
     end
-    
+
     local counter = 0
     while counter < 20 do
         local checkItem = world:getItemOnField(tablePos)
@@ -133,19 +133,19 @@ local function cleanTable(tablePos, potionId)
             counter = counter + 1
         end
     end
-    
+
     return false, false
 
 end
 
 -- Hook for potion scripts; replace map potion that were drunk
 function M.potionReplacer()
-    
+
     local redPotionPos = position(14, 683, 1)
     local pinkPotionPos = position(15, 683, 1)
-    
+
     local repeatRepalcer
-    
+
     local pinkPotionThere, emptyTable = cleanTable(pinkPotionPos, 166)
     if pinkPotionThere then
         repeatReplacer = false
@@ -155,7 +155,7 @@ function M.potionReplacer()
     else
         repeatReplacer = true
     end
-    
+
     local redPotionThere, emptyTable = cleanTable(redPotionPos, 166)
     if redPotionThere then
         repeatReplacer = false
@@ -165,7 +165,7 @@ function M.potionReplacer()
     else
         repeatReplacer = true
     end
-    
+
     if repeatReplacer then
         scheduledFunction.registerFunction(30, function() M.potionReplacer() end)
     end
@@ -179,8 +179,8 @@ function M.readingBook(user)
     end
     user:increaseAttrib("perception", -10)
     user.effects:addEffect(LongTimeEffect(6, 18000))
-    user:inform("Als du das Buch aufschlägst, leuchten die Buchstaben gar gräzlich grellend auf. Du bist vollkommen geblendet und die Welt um dich herum, wird zu einem kaum wahrnehmbaren milchigen Schleier. Deine Wahrnehmung hat sich radiakl verschlechtert.","As you open the book, the letters glare horribly brightly. You are completely blinded and the world around your becomes a barely visible foggy veil. Your perception got a lot worse.")
-    
+    user:inform("Als du das Buch aufschlägst, leuchten die Buchstaben gar gräßlich grellend auf. Du bist vollkommen geblendet und die Welt um dich herum, wird zu einem kaum wahrnehmbaren milchigen Schleier. Deine Wahrnehmung hat sich radikal verschlechtert.","As you open the book, the letters glare horribly brightly. You are completely blinded and the world around your becomes a barely visible foggy veil. Your perception got a lot worse.")
+
     local granor = getNpc("Granor Bergenhieb")
     granor:talk(Character.say, "#me lacht dreckig auf. 'Sowas passiert, wenn man ungefragt anderer Leute Dinge anfässt. Aber hält ja nur leider 'ne halbe Stunde an...'", "#me laughs maliciously. 'Well, that happens to those who touch other peoples' things without being allowed. Yet, it will only last half an hour...'")
 end
