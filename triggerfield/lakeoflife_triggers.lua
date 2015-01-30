@@ -58,14 +58,14 @@ function M.MoveToField( User )
         elseif User.pos == position(666, 235, -9) then -- inform
 	        common.InformNLS(User,"In der Nähe hörst Du etwas laut etwas unter Wasser rutschen.","You hear something loud slip under the water nearby.")
 		    world:makeSound(5, User.pos)
-        elseif Character.pos == position(770, 293, -9) or Character.pos == position(769, 300, -9) then -- Ice Entrapment #1
+        elseif User.pos == position(770, 293, -9) or User.pos == position(769, 300, -9) then -- Ice Entrapment #1
             common.InformNLS(User,"Du hörst etwas laut unter deinem Fuß knacken. Eine Falle löst aus und Du bist plötzlich im Eis verschüttet. Bist Du klug genug um einen Weg heraus zu finden?","You hear something loud click under your foot. A trap springs and you are suddenly entombed in ice. Are you clever enough to find your way out?")		
             world:gfx(41, User.pos)
 	        world:makeSound(5, User.pos)
             User:warp(position(770, 295, -9))
             world:gfx(41, User.pos)
             world:makeSound(13, User.pos)
-		elseif Character.pos == position(782, 293, -9) or Character.pos == position(779, 293, -9) or Character.pos == position(786, 294, -9) then -- Ice Entrapment #2
+		elseif User.pos == position(782, 293, -9) or User.pos == position(779, 293, -9) or User.pos == position(786, 294, -9) then -- Ice Entrapment #2
             common.InformNLS(User,"Du hörst etwas laut unter deinem Fuß knacken. Eine Falle löst aus und Du bist plötzlich im Eis verschüttet. Bist Du klug genug um einen Weg heraus zu finden?","You hear something loud click under your foot. A trap springs and you are suddenly entombed in ice. Are you clever enough to find your way out?")		
             world:gfx(41, User.pos)
 	        world:makeSound(5, User.pos)
