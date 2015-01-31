@@ -154,15 +154,21 @@ function M.init()
     evilrock11:bind(0, evilrock.executePortalLeverRiddle(position(974,169,2)));
     evilrock11:bind(1, evilrock.executePortalLeverRiddle(position(974,169,2)));
 
-    -- Bridge in Lake of Life Dungeon ----
-    local lakeofLife = lever.Lever(position(720, 258, -9), true)
-    lakeofLife:bind(0, deletebridge.deleteBridge(position(722, 258, -9), 0, 19))
-    lakeofLife:bind(0, deletebridge.deleteBridge(position(723, 258, -9), 0, 19))
-    lakeofLife:bind(1, createbridge.createBridge(position(722, 258, -9), 0, 19))
-    lakeofLife:bind(1, createbridge.createBridge(position(723, 258, -9), 0, 19))
-    lakeofLife:bind(1, sendmessage.sendMessage(position(720, 258, -9), "Du hörst ein knarzendes Geräusch.", "You hear a grinding sound.", 10))
-    lakeofLife:bind(1, sendmessage.sendMessage(position(781, 188, -9), "Du hörst ein knarzendes Geräsch in der Ferne.", "You hear a grinding sound a distance away.", 10))
+  -- Bridges in Lake of Life Dungeon ----
+	local lakeofLife1 = lever.Lever(position(720, 258, -9), true)
+    lakeofLife1:bind(0, deletebridge.deleteBridge(position(722, 258, -9), 0, 19))
+	lakeofLife1:bind(0, deletebridge.deleteBridge(position(723, 258, -9), 0, 19))
+    lakeofLife1:bind(1, createbridge.createBridge(position(722, 258, -9), 0, 19))
+	lakeofLife1:bind(1, createbridge.createBridge(position(723, 258, -9), 0, 19))
+	lakeofLife1:bind(1, sendmessage.sendMessage(position(720, 258, -9), "Du hörst ein knarzendes Geräusch.", "You hear a grinding sound.", 10))
 
+	local lakeofLife2 = lever.Lever(position(781, 188, -9), true)
+    lakeofLife2:bind(0, deletebridge.deleteBridge(position(722, 258, -9), 0, 19))
+	lakeofLife2:bind(0, deletebridge.deleteBridge(position(723, 258, -9), 0, 19))
+    lakeofLife2:bind(1, createbridge.createBridge(position(722, 258, -9), 0, 19))
+	lakeofLife2:bind(1, createbridge.createBridge(position(723, 258, -9), 0, 19))
+	lakeofLife2:bind(1, sendmessage.sendMessage(position(781, 188, -9), "Du hörst ein knarzendes Geräsch in der Ferne.", "You hear a grinding sound a distance away.", 10))
+	
     AddToLevers(elevator1);
     AddToLevers(elevator2);
     AddToLevers(evilrock1);
@@ -176,7 +182,8 @@ function M.init()
     AddToLevers(evilrock9);
     AddToLevers(evilrock10);
     AddToLevers(evilrock11);
-    AddToLevers(lakeofLife);
+    AddToLevers(lakeofLife1);
+	AddToLevers(lakeofLife2);
 end
 
 
