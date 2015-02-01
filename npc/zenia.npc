@@ -80,7 +80,7 @@ english, "Ciao", "Adieu", "Au revoir" -> "Clear waterss on your travelss."
 "water" -> "Zze water iz life giving, iz all. *She smiles and bows her head, obviously deep in thought*"
 "Wasser" -> "Dass Wassser isst Leben sspendend, ist alles. 'Sie lächelt und neigt ihren Kopf, offenbar tief in Gedanken versunken.'"
 "prayer", "worship" -> "Pray to zze Mozzer and sshe will help you on your way."
-"Gebet", "Andacht" -> "Ich binss Edelsteinsschleifer, Sssteinmetzzs und Zzsiegelmacher, wollen du michssz helfen?"
+"Gebet", "Andacht", "bete" -> "Bete zzur Mutter und ssie wird dir auf deinen Weg helfen."
 english, "Tanora", "Zelphia" -> "Zze Mozzer hass helped Zenia lead a good full life, wizz many hatchlingss, and lead me here to zziss wonderful place in my old age. "
 "Tanora", "Zelphia" -> "Mutter hat Zzenia geholfen ein gutess Leben zu führen, mit vielen Jungen. Und ssie führte mich in meinen alten Tagen zu diessen wunderbaren Platz."
 
@@ -151,7 +151,7 @@ queststatus(502) = 7, "quest", "mission"-> inform("[Neue Quest] Preisen Zelphia 
 queststatus(502) = 7, "task", "adventure", "order" ->  inform("[New quest] Praise Zelphia IV"), item(73, 10), queststatus(502) = 8, "Good, zeiss mud is perfect for my bed nesst. You may keep half zee mud. You will need fish for your offering to zze Mozzer, so I will give you ten finish for your work. Now take your offering and materials to the altar, kneel, and pray to zze Mozzer for help to reach zze boat to eze ssouth."
 queststatus(502) = 7, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Preisen Zelphia IV"), item(73, 10), queststatus(502) = 8, "Gut, diesser Lehm isst perfekt für Zzeniass Schlafnesst. Du kannsst die Hälfte dess Lehmss behalten. Du wirsst Fisch für die Opfergabe an Mutter brauchen. Zzenia gibt dir zzehn Stück dafür. Nimm die Opfergabe und dass Material und bringe es zzum Altar, knie nieder und bete zzur Mutter, damit ssie dir hilft dass Boot, dasss in den Ssüden führt, zzu erreichen."
 --if not done
-queststatus(502) = 8, english, ".+" -> "Ksss. If you do not wish to leave you can stay here. I can always use another fisherman. Ozzerwise, takez ze ssupplies for ze raft to ze altar and pray to ze Mozzer."
+queststatus(502) = 8, english, ".+" -> "Ksss. If you do not wish to leave you can stay here. I can always use another fisherman. Ozzerwise, takez ze ssupplies for ze raft to ze altar and pray to zze Mozzer."
 queststatus(502) = 8, ".+" -> "Zss. Wenn du nicht gehen willsst, kannsst du auch hier bleiben. Zzenia kann auch einen anderen Fischer fragen. Anssonssten nimm die Materialien für dass Flosss mit zzum Altar und bete zzur Mutter."
 
 --if done then moved to small island
@@ -160,6 +160,9 @@ queststatus(502) = 9, english, "quest", "mission"-> inform("[New quest] Praise Z
 queststatus(502) = 9, "quest", "mission"-> inform("[Neue Quest] Preisen Zelphia V"), item(355, 10), queststatus(502) = 10, "Oh, Zzenia erinnert sich an dir von früher. Nimm den Fisch, opfere ihn und bete um Mutterss Hilfe, um zzur grosssen Inssel zzurück zzu kommen."
 queststatus(502) = 9, "task", "adventure", "order" -> inform("[New quest] Praise Zelphia V"), item(355, 10), queststatus(502) = 10, "Oh, Zenia remember you from before! Take zzesse fissh, make offering and pray for zze Mozzer'ss help in getting back to zze big island."
 queststatus(502) = 9, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Preisen Zelphia V"), item(355, 10), queststatus(502) = 10, "Oh, Zzenia erinnert sich an dir von früher. Nimm den Fisch, opfere ihn und bete um Mutterss Hilfe, um zzur grosssen Inssel zzurück zzu kommen."
+--if you dont pray
+queststatus(502) = 10, english, ".+" -> "Ksss. If you do not wish to leave you can stay here. Pray to zze Mozzer."
+queststatus(502) = 10, ".+" -> "Zss. Wenn du nicht gehen willsst, kannsst du auch hier bleiben. Zzenia kann auch einen anderen Fischer fragen. Bete zzur Mutter."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
