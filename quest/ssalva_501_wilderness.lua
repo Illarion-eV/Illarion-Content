@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (520, 'quest.ssalva_501_wilderness');
+-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (501, 'quest.ssalva_501_wilderness');
 
 local common = require("base.common")
 local factions = require("base.factions")
@@ -34,42 +34,42 @@ Title[ENGLISH] = "Zzarn'K'Ska of Zelphia"
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Finde den Eingang zum Verlies des See´s des Lebens und berichte Salva davon."
+Description[GERMAN][1] = "Finde den Eingang zum Verlies des Sees des Lebens und berichte Ssalva davon."
 Description[ENGLISH][1] = "Find the entrance to the Lake of Life Dungeon and tell Ssalva of it."
 Description[GERMAN][2] = "Kehre zu Ssalva zurück, du hast ihre Aufgabe erledigt."
 Description[ENGLISH][2] = "Return to Ssalva, you have finished her task."
 
-Description[GERMAN][3] = "Rede mit Ssalva, sie hat villeicht eine weitere Aufgabe für dich."
+Description[GERMAN][3] = "Rede mit Ssalva, sie hat vielleicht eine weitere Aufgabe für dich."
 Description[ENGLISH][3] = "Check with Ssalva, she may have another task for you."
 
-Description[GERMAN][4] = "Erforsche das Verlies des See´s des Lebens und finde die zweite große Insel bevor du zu Salva zurückkehrst um zu berichten."
+Description[GERMAN][4] = "Erforsche das Verlies des Sees des Lebens und finde die zweite große Insel bevor du zu Ssalva zurückkehrst um zu berichten."
 Description[ENGLISH][4] = "Explore the Lake of Life Dungeon and find the second major island before reporting back to Ssalva."
 Description[GERMAN][5] = "Kehre zu Ssalva zurück, du hast ihre Aufgabe erledigt."
 Description[ENGLISH][5] = "Return to Ssalva, you have finished her task."
 
-Description[GERMAN][6] = "Rede mit Ssalva, sie hat villeicht eine weitere Aufgabe für dich."
+Description[GERMAN][6] = "Rede mit Ssalva, sie hat vielleicht eine weitere Aufgabe für dich."
 Description[ENGLISH][6] = "Check with Ssalva, she may have another task for you."
 
 Description[GERMAN][7] = "Zähle die Brücken des im Untergrund liegenden Sees des Lebens und berichte die Zahl an Salva"
 Description[ENGLISH][7] = "Count the bridges in the Underground Lake of Life and give the number to Ssalva."
 
-Description[GERMAN][8] = "Rede mit Ssalva, sie hat villeicht eine weitere Aufgabe für dich."
+Description[GERMAN][8] = "Rede mit Ssalva, sie hat vielleicht eine weitere Aufgabe für dich."
 Description[ENGLISH][8] = "Check with Ssalva, she may have another task for you."
 
-Description[GERMAN][9] = "Finde die Opferstelle im See des Lebens und opfere Tanora dort eine Wasserblüte. Danach kehre zu Salva zurück um ihr zu berichten und für weitere Anweisungen."
+Description[GERMAN][9] = "Finde die Opferstelle im See des Lebens und opfere dort eine Wasserblüte für Tanora. Danach kehre zu Ssalva zurück um ihr zu berichten und um weitere Anweisungen zu erhalten."
 Description[ENGLISH][9] = "Find the offering plate in the Lake of Life and leave an offering of one waterblossom for Tanora.  After doing so, report back to Ssalva for further instructions."
 Description[GERMAN][10] = "Kehre zu Ssalva zurück, du hast ihre Aufgabe erledigt."
 Description[ENGLISH][10] = "Return to Ssalva, you have finished her task."
 
-Description[GERMAN][11] = "Rede mit Ssalva, sie hat villeicht eine weitere Aufgabe für dich."
+Description[GERMAN][11] = "Rede mit Ssalva, sie hat vielleicht eine weitere Aufgabe für dich."
 Description[ENGLISH][11] = "Check with Ssalva, she may have another task for you."
 
-Description[GERMAN][12] = "Sammle 5 Fische jeder Art (Lachs, Forelle, Stachelmakrele und Rotbarsch), 20 Eier, eine Eiercremetorte & 2 Fischsuppen. Finde Zenia und tausche die Gegenstände gegen Informationen und berichte diese an Salva."
+Description[GERMAN][12] = "Sammle 5 Fische jeder Art (Lachs, Forelle, Stachelmakrele und Rotbarsch), 20 Eier, eine Eiercremetorte & 2 Fischsuppen. Finde Zenia und tausche die Gegenstände gegen Informationen und berichte diese an Ssalva."
 Description[ENGLISH][12] = "Gather five of each fish (trout, salmon, horse mackerel, and rose fish), 20 eggs, one custard pie, two fish soups. Find Zenia and exchange the items for some information and report back to Ssalva."
 Description[GERMAN][13] = "Kehre zu Ssalva zurück, du hast ihre Aufgabe erledigt."
 Description[ENGLISH][13] = "Return to Ssalva, you have finished her task."
 
-Description[GERMAN][14] = "Rede mit Ssalva, sie hat villeicht eine weitere Aufgabe für dich."
+Description[GERMAN][14] = "Rede mit Ssalva, sie hat vielleicht eine weitere Aufgabe für dich."
 Description[ENGLISH][14] = "Check with Ssalva, she may have another task for you."
 
 Description[GERMAN][15] = "Töte der Renegat für Ssalva. Du musst noch 15 erledigen."
@@ -105,7 +105,7 @@ Description[ENGLISH][29] = "Kill renegades for Ssalva. You still need 1."
 Description[GERMAN][30] = "Kehre zu Ssalva zurück, du hast ihre Aufgabe erledigt."
 Description[ENGLISH][30] = "Return to Ssalva, you have finished her task."
 
-Description[GERMAN][31] = "Rede mit Ssalva, sie hat villeicht eine weitere Aufgabe für dich."
+Description[GERMAN][31] = "Rede mit Ssalva, sie hat vielleicht eine weitere Aufgabe für dich."
 Description[ENGLISH][31] = "Check with Ssalva, she may have another task for you."
 
 Description[GERMAN][32] = "Töte den Anführer der Echsen- Tempelgarde und brich die Moral der Extremistengruppe."
