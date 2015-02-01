@@ -25,11 +25,11 @@ local M = {}
 
 function M.MoveToField(User)
 
-    if  User:getQuestProgress(501) == 1 and User:isInRangeToPosition((position (638, 272, -9)), 10) then -- Player found Lake of Life Dungeon entrance.
+    if  User:isInRangeToPosition((position (638, 272, -9)), 10)  and User:getQuestProgress(501) == 1 and -- Player found Lake of Life Dungeon entrance.
         User:setQuestProgress(501, 2)
         common.InformNLS(User, "Du hast den Eingang zum See des Lebens gefunden. Kehre zu Salva zurück, du hast ihre Aufgabe erfüllt.", "You have found the entrance to the Lake of Life. Return to Ssalva, you have finished her task.")
 
-	elseif User:getQuestProgress(501) == 4 and User:isInRangeToPosition((position (722 , 258, -9)), 10) then -- Player found Lake of Life Dungeon second Island.
+	elseif User:isInRangeToPosition((position (722 , 258, -9)), 10) and User:getQuestProgress(501) == 4 then -- Player found Lake of Life Dungeon second Island.
 	    User:setQuestProgress(501, 5)
         common.InformNLS(User, "Du hast die zweite Insel gefunden. Kehre zu Salva zurück, du hast ihre Aufgabe erfüllt.", "You have found the second island. Return to Ssalva, you have finished her task.")
 	end
