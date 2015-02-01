@@ -124,7 +124,7 @@ local Start = npcPos;
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-for i = 1, 132 do
+for i = 1, 34 do
   QuestTarget[i] = {npcPos};
 end
 

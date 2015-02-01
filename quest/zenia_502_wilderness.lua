@@ -71,11 +71,42 @@ local Start = npcPos;
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-for i = 1, 132 do
+for i = 1, 11 do
   QuestTarget[i] = {npcPos};
 end
-
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 11
+
+
+function M.QuestTitle(user)
+    return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])
+end
+
+function M.QuestDescription(user, status)
+    local german = Description[GERMAN][status] or ""
+    local english = Description[ENGLISH][status] or ""
+
+    return common.GetNLS(user, german, english)
+end
+
+function M.QuestStart()
+    return Start
+end
+
+function M.QuestTargets(user, status)
+    return QuestTarget[status]
+end
+
+function M.QuestFinalStatus()
+    return FINAL_QUEST_STATUS
+end
+
+function M.QuestAvailability(user, status)
+    if status == 0 then
+        return Player.questAvailable
+    else
+        return Player.questNotAvailable
+    end
+end
 
 return M
