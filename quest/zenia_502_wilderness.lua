@@ -77,3 +77,5 @@ end
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 11
+
+return M
