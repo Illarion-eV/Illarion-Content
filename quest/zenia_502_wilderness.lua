@@ -61,6 +61,9 @@ Description[ENGLISH][9] = "With the help of the Mother you have successfully bui
 Description[GERMAN][10] = "Du musst nochmals mit deinen Gaben am Altar beten um Hilfe für dein Floß zu erhalten."
 Description[ENGLISH][10] = "You must pray again at the altar with your offering to summon your raft."
 
+Description[GERMAN][11] = "Du hast alle Aufgaben erfüllt."
+Description[ENGLISH][11] = "You have finished all tasks."
+
 local npcPos = position(760, 339, -9);
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
@@ -73,4 +76,4 @@ for i = 1, 132 do
 end
 
 -- Insert the quest status which is reached at the end of the quest
-local FINAL_QUEST_STATUS = 10
+local FINAL_QUEST_STATUS = 11
