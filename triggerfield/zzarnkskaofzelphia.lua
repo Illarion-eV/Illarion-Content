@@ -25,7 +25,7 @@ local M = {}
 
 function M.MoveToField(User)
 
-    if  User:isInRangeToPosition((position (638, 272, -9)), 10)  and User:getQuestProgress(501) == 1 and -- Player found Lake of Life Dungeon entrance.
+    if  User:isInRangeToPosition((position (638, 272, -9)), 10)  and User:getQuestProgress(501) == 1 then -- Player found Lake of Life Dungeon entrance.
         User:setQuestProgress(501, 2)
         common.InformNLS(User, "Du hast den Eingang zum See des Lebens gefunden. Kehre zu Salva zurück, du hast ihre Aufgabe erfüllt.", "You have found the entrance to the Lake of Life. Return to Ssalva, you have finished her task.")
 
