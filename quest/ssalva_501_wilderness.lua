@@ -139,8 +139,8 @@ monsterQuests.addQuest{
         {position = position(557, 263, 0), radius = 25}
     },
     queststatus = {from = 15, to = 30},
-    questTitle = {german = "", english = "Zzarn'K'Ska of Zelphia"},
-    monsterName = {german = "", english = "Lizards"},
+    questTitle = {german = "Zzarn'K'Ska von Zelphia", english = "Zzarn'K'Ska of Zelphia"},
+    monsterName = {german = "Echsenmenschen", english = "Lizards"},
     npcName = "Ssalva",
     monsterIds = {51,52,53,54,55} -- all lizards
 }
@@ -148,8 +148,8 @@ monsterQuests.addQuest{
     questId = 501,
     location = {position =  position(557, 263, 0), radius = 25},
     queststatus = {from = 32, to = 33},
-    questTitle = {german = "", english = "Zzarn'K'Ska of Zelphia"},
-    monsterName = {german = "", english = "Lizard Templar Warrior"},
+    questTitle = {german = "Zzarn'K'Ska von Zelphia", english = "Zzarn'K'Ska of Zelphia"},
+    monsterName = {german = "Echsen-Tempelkrieger", english = "Lizard Templar Warrior"},
     npcName = "Ssalva",
     monsterIds = {52} -- Lizard Templar Warrior
 }
