@@ -36,6 +36,13 @@ function M.MoveToField(User)
 
 end
 
+
+local altarPlate = position(782, 297, -9)
+
+local donatedItem = {
+{itemId = 767, amount = 1}, --[[water blossom]]
+}
+
 function M.PutItemOnField(Item,User)
     if  User:getQuestProgress(501) == 9 and Item.pos == altarPlate and Item.id == donatedItem then --  doing the quest - water blossom on the altar
 	    world:gfx(46, Item.pos) -- nice GFX
@@ -44,12 +51,6 @@ function M.PutItemOnField(Item,User)
 		common.InformNLS(User, "Du hast deine Gabe dargebracht. Kehre zu Salva zurück, du hast ihre Aufgabe erfüllt.", "You have placed your offering. Return to Ssalva, you have finished her task.")
         end
 	end
-
-local altarPlate = position(782, 297, -9)
-
-local donatedItem = {
-{itemId = 767, amount = 1}, --[[water blossom]]
-}
 
 return M
 
