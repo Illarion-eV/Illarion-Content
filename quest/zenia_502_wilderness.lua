@@ -42,8 +42,8 @@ Description[ENGLISH][2] = "Return to Zenia, you have finished her task."
 Description[GERMAN][3] = "Rede mit Zenia, sie hat vielleicht eine weitere Aufgabe für dich."
 Description[ENGLISH][3] = "Check with Zenia, she may have another task for you."
 
-Description[GERMAN][4] = "Sammle 20 Bretter, um Zenia dabei zu helfen, das Material für das Floß zu sammeln."
-Description[ENGLISH][4] = "Collect 20 logs for Zenia to help her and gather supplies for your raft."
+Description[GERMAN][4] = "Sammle 10 Bretter, um Zenia dabei zu helfen, das Material für das Floß zu sammeln."
+Description[ENGLISH][4] = "Collect 10 logs for Zenia to help her and gather supplies for your raft."
 Description[GERMAN][5] = "Rede mit Zenia, sie hat vielleicht eine weitere Aufgabe für dich."
 Description[ENGLISH][5] = "Check with Zenia, she may have another task for you."
 
