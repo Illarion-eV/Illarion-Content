@@ -74,11 +74,15 @@ function M.resetMapitem()
   end
 
     -- reset lake of life bridge
-    local lever = world:getItemOnField(position(720, 258, -9))
-    if ( lever.id == 436) then
-        -- switch back lever
-        lever.id = 434
-        world:changeItem(lever)
+    local lever1 = world:getItemOnField(position(720, 258, -9))
+    local lever2 = world:getItemOnField(position(781, 188, -9))
+
+    if ( lever1.id == 436 or lever2.id == 436) then
+        -- switch back levers
+        lever1.id = 434
+        world:changeItem(lever1)
+        lever2.id = 434
+        world:changeItem(lever2)
 
         -- xxx: handle chars on the bridge!
 
