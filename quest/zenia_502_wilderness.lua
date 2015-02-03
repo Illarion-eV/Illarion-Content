@@ -34,31 +34,31 @@ Title[ENGLISH] = "Praise Zelphia"
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Opfere das Seil beim Beten am Altar der Mutter(benutzen) um deine Ergebenheit und Bereitwilligkeit zu zeigen um ihrer Dienerin Zenia zu helfen."
+Description[GERMAN][1] = "Opfere das Seil der Mutter am Altar (benutzen), um deine Ergebenheit und Bereitschaft, ihrer Dienerin Zenia zu helfen, zu zeigen."
 Description[ENGLISH][1] = "Show the rope to the Mother by praying (using) the altar, to show your devotion and willingness to help her servant Zenia."
-Description[GERMAN][2] = "Kehre zu Zenia zurück, du hast ihre Aufgabe erledigt."
+Description[GERMAN][2] = "Kehre zu Zenia zurück. Du hast ihre Aufgabe erledigt."
 Description[ENGLISH][2] = "Return to Zenia, you have finished her task."
 
 Description[GERMAN][3] = "Rede mit Zenia, sie hat vielleicht eine weitere Aufgabe für dich."
 Description[ENGLISH][3] = "Check with Zenia, she may have another task for you."
 
-Description[GERMAN][4] = "Sammle 20 Bretter um Zenia zu helfen das Material für das Floß zu sammeln."
+Description[GERMAN][4] = "Sammle 20 Bretter, um Zenia dabei zu helfen, das Material für das Floß zu sammeln."
 Description[ENGLISH][4] = "Collect 20 logs for Zenia to help her and gather supplies for your raft."
 Description[GERMAN][5] = "Rede mit Zenia, sie hat vielleicht eine weitere Aufgabe für dich."
 Description[ENGLISH][5] = "Check with Zenia, she may have another task for you."
 
-Description[GERMAN][6] = "Sammle 20 Batzen Schlamm um Zenia zu helfen das Material für das Floß zu sammeln."
+Description[GERMAN][6] = "Sammle 20 Batzen Schlamm, um Zenia dabei zu helfen, das Material für das Floß zu sammeln."
 Description[ENGLISH][6] = "Collect 20 shovels full of mud for Zenia to help her and gather supplies for your raft."
 Description[GERMAN][7] = "Rede mit Zenia, sie hat vielleicht eine weitere Aufgabe für dich."
 Description[ENGLISH][7] = "Check with Zenia, she may have another task for you."
 
-Description[GERMAN][8] = "Bringe alle Dinge für den Floßbau zum Altar und bete zur Mutter dir zu helfen."
+Description[GERMAN][8] = "Bringe alle Dinge für den Floßbau zum Altar und erbitte den Beistand der Mutter."
 Description[ENGLISH][8] = "Take all materials to the altar and pray to the Mother for help with your raft."
 
-Description[GERMAN][9] = "Mit Hilfe der Mutter ist es Dir gelungen ein Floß zu bauen und die Insel zu verlassen. Zenia kann dir sicher helfen falls du wieder hier an Land gespült wirst."
+Description[GERMAN][9] = "Mit Hilfe der Mutter ist es dir gelungen, ein Floß zu bauen und die Insel zu verlassen. Zenia kann dir sicher helfen, falls du wieder hier an Land gespült wirst."
 Description[ENGLISH][9] = "With the help of the Mother you have successfully built a raft and left the island.  Zenia may be able to assist should you land there again."
 
-Description[GERMAN][10] = "Du musst nochmals mit deinen Gaben am Altar beten um Hilfe für dein Floß zu erhalten."
+Description[GERMAN][10] = "Du musst nochmals mit deinen Gaben am Altar beten, um Hilfe für dein Floß zu erhalten."
 Description[ENGLISH][10] = "You must pray again at the altar with your offering to summon your raft."
 
 Description[GERMAN][11] = "Du hast alle Aufgaben erfüllt."
