@@ -20,364 +20,208 @@ local common = require("base.common")
 local lookat = require("base.lookat")
 
 local M = {}
-M.books = {}
 
-CODOMYR_ON_C = 1
-CODOMYR_ON_G = 2
-CODOMYR_ON_R = 3
-GALMAIR_ON_C = 4
-GALMAIR_ON_G = 5
-GALMAIR_ON_R = 6
-RUNEWICK_C = 7
-RUNEWICK_G = 8
-RUNEWICK_R = 9
-GODS1 = 10
-GODS2 = 11
-GODS3 = 12
-STATUTE_RUNEWICK = 13
-CHRONICLES_GALMAIR = 14
-HISTORY_RUNEWICK = 15
-CALENDAR = 16
-C_HUMAN = 17
-C_ELVES = 18
-C_HALFLING = 19
-C_DWARF = 20
-C_LIZARDMEN = 21
-C_ORC = 22
-GOD_MALACHIN = 23
-GOD_SIRANI = 24
-GOD_ZHAMBRA = 25
-ZODIC_SIGN = 26
-ALCHEMY = 101
-JOURNAL_ELZECHIEL = 201
-ELDAN_HERMIT = 301
-QUESTION_HONOUR = 302
-TALE_OF_BROTHERS = 303
-HUMANS_BERRYARD = 304
-BARON_BIGFOOT = 305
-BREWYN = 306
-BLUMFUSSENS = 307
-NOIRA_LIV = 308
-FINDARIL_DAUGHTER = 309
-PETITION_FINDARI = 310
-URUBUR = 311
-ELDAN_PARCHMENT = 312
-CANDLES = 313
-ORCMAGES = 314
-JOKES = 315
-MONROK_CHRONIC = 316
-ONE = 317
-ART_TRADE = 318
-BRIAR = 319
-CRAFTMAN_STORY = 320
-DEMONOLOGIST = 321
-DWARVEN_POEMS = 322
-FAIRY = 323
-GLORI_IRMOROM = 324
-LOR_ANGUR = 325
-PETITION_ZELPHIA = 326
-TALES_TRAVELLER = 327
-TIHGARACS_COMBAT = 328
-EPOS_IGNIS = 329
-H_EVERGREEN = 330
-REIGN_AKALTUT = 331
-SLIMES = 332
-FRIEND_NEED = 333
-ABOMINATION_RUNS_HIDES = 334
-AKALTUT_ENTRY = 335
-TRAVELS_DIARY = 336
-C_ORDER_1 = 501
-C_SPEECH_321105 = 502
-PARCH_LONGO = 503
-TRAVEL_TANORAKIND = 504
-WALLERY_BANK = 505
-GAL_ADJUTANT = 506
-GAL_CHARGE = 507
-GAL_CIA = 508
-GAL_DIPLO = 509
-GAL_ENTERT = 510
-GAL_FORCES = 511
-GAL_HANGMAN = 512
-GAL_HEADHUNTER = 513
-GAL_MERCHANT = 514
-GAL_PRIEST = 515
-GAL_TRANSL = 516
-GAL_QUATER = 517
+local maximumBooksPerShelf = 10
 
+local bookBlackHeavy = 2620
+local bookBlackLong = 110
+local bookBlackOrdinary = 2621
+local bookBlackRedRune = 2619
+local bookBlackRedRuneHeavy = 130
+local bookBlackSilverLong = 2605
+local bookBlackSilverSquare = 2604
+local bookBlackSmallHeavy = 117
+local bookBlackSmallLong = 128
+local bookBlackValuable = 109
+local bookBlueOrnament = 105
+local bookBlueRedLandscape = 2608
+local bookBlueRedLong = 2606
+local bookBlueSilverLandscape = 2609
+local bookBlueSilverLong = 2610
+local bookBrown = 107
+local bookBrownSmall = 127
+local bookCyanBooklet = 2598
+local bookCyanBottle = 106
+local bookGreenLight = 114
+local bookGreenLong = 115
+local bookGreyLandscape = 2617
+local bookGreyLargeHeavy = 116
+local bookletBlue = 129
+local bookletBlueRed = 2607
+local bookletPink = 112
+local bookletYellow = 2616
+local bookRedBooklet = 2602
+local bookRedHeavy = 111
+local bookRedHigh = 108
+local bookRedLight = 113
+local bookTreasureMap = 505
+local bookWhiteRune = 2622
+local bookYellow = 2615
+local bookYellowVeryHeavy = 131
+local pell = 3110
+local pellOpen = 3109
 
-function addBook(id, germanTitle, englishTitle, bookGraphic)
-    M.books[id] = {german = germanTitle, english = englishTitle, graphic = bookGraphic}
-end
+local bookList = {}
+bookList["cadomyr_on_cadomyr"] = {english = "Cadomyr, most faithful", german = "Cadomyr, unsere treueste", bookId = 1, bookGraphic = bookBrown}
+bookList["cadomyr_on_galmair"] = {english = "Galmair, the Others from the North", german = "Galmair, die Anderen vom Norden", bookId = 2, bookGraphic = bookBrown}
+bookList["cadomyr_on_runewick"] = {english = "Runewick, the Others from the East", german = "Runewick, die Anderen vom Osten", bookId = 3, bookGraphic = bookBrown}
+bookList["galmair_on_cadomyr"] = {english = "Cadomyr, by Torbus Nonak", german = "Cadomyr, von Torbus Nonak", bookId = 4, bookGraphic = bookBlackLong}
+bookList["galmair_on_galmair"] = {english = "Galmair, by Torbus Nonak", german = "Galmair, von Torbus Nonak", bookId = 5, bookGraphic = bookBlackLong}
+bookList["galmair_on_runewick"] = {english = "Runewick, by Torbus Nonak", german = "Runewick, von Torbus Nonak", bookId = 6, bookGraphic = bookBlackLong}
+bookList["runewick_on_cadomyr"] = {english = "Cadomyr, Cottages of Blood and Honour", german = "Cadomyr, Hütten des Blutes und der Ehre", bookId = 7, bookGraphic = bookBlueSilverLong}
+bookList["runewick_on_galmair"] = {english = "Galmair, Burrow of Lies and Coins", german = "Galmair, Erdhöhle der Lügen und Münzen", bookId = 8, bookGraphic = bookBlueSilverLong}
+bookList["runewick_on_runewick"] = {english = "Runewick, Towers of Wisdom and Power", german = "Runewick, Türme der Weisheit und Macht", bookId = 9, bookGraphic = bookBlueSilverLong}
+bookList["gods1"] = {english = "The big lore ofIllarion's Gods", german = "Almanach der Götter Illarions", bookId = 10, bookGraphic = bookRedHeavy}
+bookList["gods2"] = {english = "Gods of Illarion", german = "Illarions Götterwelt", bookId = 11, bookGraphic = bookRedLight}
+bookList["gods3"] = {english = "My first lore of the Gods", german = "Meine erste Götterkunde", bookId = 12, bookGraphic = bookletBlue}
+bookList["statute_book_of_runewick"] = {english = "Statute Book of Runewick (35)", german = "Gesetzesbuch von Runewick (35)", bookId = 13, bookGraphic = bookBlueOrnament}
+bookList["chronicles_of_galmair"] = {english = "The Chronicles of Galmair", german = "Die Chroniken von Galmair", bookId = 14, bookGraphic = bookBlackSmallHeavy}
+bookList["history_of_runewick"] = {english = "History of Runewick", german = "Geschichte von Runewick", bookId = 15, bookGraphic = bookBlueSilverLong}
+bookList["calendar"] = {english = "Something about the Calendar", german = "Einiges Wissenswertes über den Kalender", bookId = 16, bookGraphic = bookGreyLargeHeavy}
+bookList["cultures_of_the_humans"] = {english = "Cultures of the Humans", german = "Kulturgeschichte des Menschen", bookId = 17, bookGraphic = bookBlackOrdinary}
+bookList["elven_history_and_culture"] = {english = "Elven History and Culture", german = "Elfische Geschichte und Kultur", bookId = 18, bookGraphic = bookCyanBottle}
+bookList["halfling_culture_and_history"] = {english = "Halfling Culture and History", german = "Kultur und Geschichte der Halblinge", bookId = 19, bookGraphic = bookBlueRedLong}
+bookList["dwarven_history_and_culture"] = {english = "Dwarven History and Culture", german = "Die Geschichte und Kultur der Zwerge", bookId = 20, bookGraphic = bookletBlueRed}
+bookList["lizardmen_history_and_culture"] = {english = "Lizardmen History and Culture", german = "Die Gemeinschaft der Echsenmenschen", bookId = 21, bookGraphic = bookRedBooklet}
+bookList["orcish_history_and_culture"] = {english = "Orcish History and Culture", german = "Orkische Geschichte und Kultur", bookId = 22, bookGraphic = bookBlackValuable}
+bookList["god_malachin"] = {english = "Malachín", german = "Malachín", bookId = 23, bookGraphic = Pell}
+bookList["god_sirani"] = {english = "Sirani", german = "Sirani", bookId = 24, bookGraphic = Pell}
+bookList["god_zhambra"] = {english = "Zhambia", german = "Zhambia", bookId = 25, bookGraphic = Pell}
+bookList["zodiac_sign"] = {english = "The zodiac sign of Illarion", german = "Die Tierkreiszeichen", bookId = 26, bookGraphic = bookYellowVeryHeavy}
+bookList["alchemy"] = {english = "Book of Alchemy", german = "Buch der Alchemie", bookId = 101, bookGraphic = bookWhiteRune}
+bookList["journal_of_abbot_elzechiel"] = {english = "Journal of Abbot Elzechiel", german = "Tagebuch des Abtes Elzechiel", bookId = 201, bookGraphic = Pell}
+bookList["a_hermit_on_the_lookout_for_eldan"] = {english = "A hermit on the lookout for Eldan", german = "Einsiedler auf der Suche nach Eldan", bookId = 301, bookGraphic = bookletPink}
+bookList["a_question_of_honour"] = {english = "A Question of Honour", german = "Eine Frage der Ehre", bookId = 302, bookGraphic = bookBlackSmallHeavy}
+bookList["a_tale_of_brothers"] = {english = "A tale of brothers", german = "Die Geschichte zweier Brüder", bookId = 303, bookGraphic = bookCyanBooklet}
+bookList["about_the_humans_by_thomas_berryard"] = {english = "About the Humans", german = "Über die Menschen", bookId = 304, bookGraphic = bookGreenLong}
+bookList["baros_bigfoot_and_the_pride"] = {english = "Baros Bigfoot and the pride", german = "Baros Großfuß und der Hochmut", bookId = 305, bookGraphic = bookBlueRedLandscape}
+bookList["brewyn_the_liar"] = {english = "Brewyn the Liar", german = "Brewyn der Lügner", bookId = 306, bookGraphic = bookBlackSilverLong}
+bookList["chronicle_recording_of_the_blumfussens_family_tree"] = {english = "Chronicle recording of the Blumfußens family tree", german = "Die Stammbaumaufzeichnung der Blumfußens", bookId = 307, bookGraphic = bookGreenLight}
+bookList["diary_of_noira_liv"] = {english = "The diary of Noira Liv", german = "Das Tagebuch von Noira Liv", bookId = 308, bookGraphic = bookletBlue}
+bookList["findaril_daughter_of_the_wind"] = {english = "Findaril, Daughter of the wind", german = "Findaril, Tochter des Windes", bookId = 309, bookGraphic = bookBlueSilverLandscape}
+bookList["petition_in_the_name_of_findari"] = {english = "Petition in the name of Findari", german = "Gebet im Namen Findari", bookId = 310, bookGraphic = Pell}
+bookList["story_of_urubur"] = {english = "The Story of Urubur", german = "Die Geschichte Urubur", bookId = 311, bookGraphic = bookWhiteRune}
+bookList["parchment_of_the_priests_of_eldan"] = {english = "Parchment of the priests of Eldan", german = "Das Pergament der Priester Eldans", bookId = 312, bookGraphic = Pell}
+bookList["making_candles"] = {english = "Making Candles", german = "Kerzenherstellung", bookId = 313, bookGraphic = Pell}
+bookList["blud_an_fiar_ork_magik"] = {english = "Blud an Fiar, Ork Magik", german = "Blut und Feuer, orkische Magie", bookId = 314, bookGraphic = bookBlackRedRuneHeavy}
+bookList["book_of_jokes"] = {english = "The book of jokes", german = "Das Buch der Witze", bookId = 315, bookGraphic = bookletYellow}
+bookList["fragment_of_the_manrok_chronicles"] = {english = "Fragment of the Manrok Chronicles", german = "Fragment der Manrok-Chroniken", bookId = 316, bookGraphic = bookBlackSmallLong}
+bookList["the_one"] = {english = "The One!", german = "Der Eine!", bookId = 317, bookGraphic = Pell}
+bookList["art_of_trade"] = {english = "The art of trade", german = "Die Kunst des Handels", bookId = 318, bookGraphic = bookBlackSilverSquare}
+bookList["articles_greenbriar"] = {english = "The Articles of Greenbriar", german = "Die Satzung Greenbriars", bookId = 319, bookGraphic = bookYellow}
+bookList["craftman_story"] = {english = "A craftman story", german = "Eine Handwerker Geschichte", bookId = 320, bookGraphic = bookRedHigh}
+bookList["demonologist"] = {english = "The Demonologist", german = "Der Dämonologe", bookId = 321, bookGraphic = bookBlackLong}
+bookList["dwarven_poems"] = {english = "Dwarven Poems", german = "Zwergisches Liedgut", bookId = 322, bookGraphic = bookBlackSilverSquare}
+bookList["fairy"] = {english = "Fairies", german = "Feen", bookId = 323, bookGraphic = bookRedBooklet}
+bookList["glorification_to_irmorom"] = {english = "Glorification to Irmorom", german = "Lobpreis an Irmorom", bookId = 324, bookGraphic = PellOpen}
+bookList["lor_angur"] = {english = "Lor-Angur", german = "Lor-Angur", bookId = 325, bookGraphic = bookBrownSmall}
+bookList["petition_for_zelphia"] = {english = "Petition for Zelphia", german = "Gebet für Zelphia", bookId = 326, bookGraphic = Pell}
+bookList["tales_of_a_traveller"] = {english = "Tales of a traveller", german = "Geschichten eines Reisenden", bookId = 327, bookGraphic = bookBlueSilverLong}
+bookList["tihgoracs_book_of_combat"] = {english = "Book of Combat", german = "Buch der Kampfeskunst", bookId = 328, bookGraphic = bookBlackLong}
+bookList["epos_ignis"] = {english = "Epos Ignis", german = "Epos Ignis", bookId = 329, bookGraphic = bookBlackSilverLong}
+bookList["h_evergreen"] = {english = "History of the Evergreen Halflings", german = "Geschichte der Evergreen Halflings", bookId = 330, bookGraphic = bookBlueRedLandscape}
+bookList["the_reign_of_akaltut"] = {english = "The Reign of Akaltut: Diary of a Naive Apprentice", german = "Die Herrschaft Akaltuts: Tagebuch eines ahnungslosen Lehrlings", bookId = 331, bookGraphic = bookBlackSilverSquare}
+bookList["slimes"] = {english = "Slimes: A brief history", german = "Schleim: Ein kurzer Abriss", bookId = 332, bookGraphic = bookGreenLong}
+bookList["a_friend_in_need"] = {english = "A Friend in Need", german = "Ein Freund in Not", bookId = 333, bookGraphic = Pell}
+bookList["abomination_runs_and_hides"] = {english = "An Abomination Runs and Hides", german = "Ein abscheuliches Monster versteckt sich", bookId = 334, bookGraphic = Pell}
+bookList["akaltut_entry_riddle"] = {english = "Akaltut Entry Riddle", german = "Akaltuts erstes Rätsel", bookId = 335, bookGraphic = Pell}
+bookList["cadomyr_order1"] = {english = "Order 04. Findos 38 AW", german = "Befehl 04. Findos 38 n.VdH", bookId = 501, bookGraphic = Pell}
+bookList["speech_rosaline_32_11_05"] = {english = "Speech 04. Findos 38 AW", german = "Rede 05. Findos 38 n.VdH", bookId = 502, bookGraphic = Pell}
+bookList["parchment_longo"] = {english = "A note", german = "Eine Nachricht", bookId = 503, bookGraphic = Pell}
+bookList["travel_companions_tanorakind"] = {english = "Looking for travel companions!", german = "Reisegefährten gesucht!", bookId = 504, bookGraphic = Pell}
+bookList["vincent_wallery_bank"] = {english = "Vincent Wallery Bank", german = "Vincent Wallery Bank", bookId = 505, bookGraphic = Pell}
+bookList["galmair_charge"] = {english = "Wanted! Person in Charge", german = "Gesucht! Ansprechpartner", bookId = 507, bookGraphic = Pell}
+bookList["galmair_cia"] = {english = "Wanted! Spies", german = "Gesucht! Spione", bookId = 508, bookGraphic = Pell}
+bookList["galmair_diplomants"] = {english = "Wanted! Diplomats", german = "Gesucht! Diplomaten", bookId = 509, bookGraphic = Pell}
+bookList["galmair_entertainment"] = {english = "Wanted! Entertainment", german = "Gesucht! Unterhaltung", bookId = 510, bookGraphic = Pell}
+bookList["galmair_forces"] = {english = "Wanted! Armed Forces", german = "Gesucht! Streitmacht", bookId = 511, bookGraphic = Pell}
+bookList["galmair_hangman"] = {english = "Wanted! Hangmans", german = "Gesucht! Henker", bookId = 512, bookGraphic = Pell}
+bookList["galmair_headhunter"] = {english = "Wanted! Headhunters", german = "Gesucht! Kopfgeldjäger", bookId = 513, bookGraphic = Pell}
+bookList["galmair_merchants"] = {english = "Wanted! Merchants", german = "Gesucht! Kaufleute", bookId = 514, bookGraphic = Pell}
+bookList["galmair_priester"] = {english = "Wanted! Priests", german = "Gesucht! Priester", bookId = 515, bookGraphic = Pell}
+bookList["galmair_translator"] = {english = "Wanted! Interpreter", german = "Gesucht! Dolmetscher", bookId = 516, bookGraphic = Pell}
+bookList["galmair_adjutant"] = {english = "Wanted! Adjutant", german = "Gesucht! Adjutant", bookId = 506, bookGraphic = Pell}
+bookList["galmair_quartermaster"] = {english = "Wanted! Quatermaster", german = "Gesucht! Quartiermeister", bookId = 517, bookGraphic = Pell}
+bookList["the_read_wolf_and_the_bear"] = {english = "The fable of the red wolve and the bear", german = "Das Märchen vom roten Wolf und dem Bär", bookId = 336, bookGraphic = bookBlackSilverLong}
+bookList["ritual_waterelemental_wascher"] = {english = "Summoning of the water elemental Pran Xixuan", german = "Über die Beschwörung des Wasserelementars Pran Xixuan", bookId = 337, bookGraphic = bookletPink}
+bookList["resists_the_stake"] = {english = "Resist the stake!", german = "Wider dem Scheiterhaufen", bookId = 338, bookGraphic = bookBlackRedRuneHeavy}
+bookList["lecture_runewick_history"] = {english = "Lecture Runewick's history", german = "Vortrag zur Geschichte Runewicks", bookId = 339, bookGraphic = bookRedLight}
+bookList["in_the_name_of_nargun_or_not"] = {english = "In the Name of Nargun!.. or not?", german = "Im Namen von Nargun! .. oder auch nicht?", bookId = 340, bookGraphic = bookYellow}
+bookList["dragon_dreams"] = {english = "Dragon dreams", german = "Drachenträume", bookId = 341, bookGraphic = bookBlackValuable}
+bookList["about_flame_orks"] = {english = "About Flame Orcs", german = "Über die Flammenorks", bookId = 342, bookGraphic = bookBlueSilverLong}
+bookList["a_nargun_mass"] = {english = "A Nargún mass by Ishan", german = "Eine Nargún Messe, von Ishan", bookId = 343, bookGraphic = bookletYellow}
+bookList["a_travelers_diary"] = {english = "Megildor's Journal", german = "Reistagebuch des Megildor", bookId = 344, bookGraphic = bookGreyLandscape}
+bookList["letastos_diary"] = {english = "Letastos Diary", german = "Letastos Tagebuch", bookId = 345, bookGraphic = bookBlackOrdinary}
+bookList["alberto_dicker"] = {english = "The pictures of Alberto Dicker", german = "Der Bilder Alberto Dickers", bookId = 346, bookGraphic = bookRedLight}
+bookList["book_of_jokes2"] = {english = "The second book of jokes", german = "Das zweite Buch der Witze", bookId = 347, bookGraphic = bookletYellow}
+bookList["book_of_jokes3"] = {english = "The new book of jokes", german = "Das neue Buch der Witze", bookId = 348, bookGraphic = bookletYellow}
+bookList["constitution_runewick_44"] = {english = "Constitution of the Academy and the city of Runewick (44)", german = "Verfassung der Akademie und Stadt Runewick (44)", bookId = 349, bookGraphic = bookRedHeavy}
+bookList["see_of_life"] = {english = "Letters Regarding the Lake of Life", german = "Briefe bezüglich des Sees des Lebens", bookId = 350, bookGraphic = bookRedLight}
+bookList["clansmen"] = {english = "The Clansmen by Thomas Dix on the Rock", german = "Die Sippen von Thomas Dix on the Rock", bookId = 351, bookGraphic = bookBlueSilverLong}
+bookList["barhead_kings"] = {english = "Letters from Rufus the Longfinger", german = "Briefe von Rufus Langfinger", bookId = 352, bookGraphic = bookCyanBooklet}
+bookList["druid_parchment"] = {english = "The fall of the Eldan monastery", german = "Die Zerstörung des Kloster Eldan", bookId = 353, bookGraphic = PellOpen}
+bookList["festival_relationship"] = {english = "The Festival Of Relationship", german = "Das Fest der Bindung", bookId = 354, bookGraphic = bookBlackOrdinary}
+bookList["chronicles_of_galmair_2"] = {english = "The Chronicles of Galmair (38-42)", german = "Die Chroniken von Galmair (38-42)", bookId = 355, bookGraphic = bookBlackSmallHeavy}
+bookList["magic_gems"] = {english = "Ranks and Magical Gems", german = "Ränge und magische Edelsteine", bookId = 356, bookGraphic = bookBlackValuable}
+bookList["poems_marina"] = {english = "Poems from Marina", german = "Marinas Gedichtbuch", bookId = 357, bookGraphic = bookGreenLong}
+bookList["celegails_songbook"] = {english = "Celegails songbook", german = "Celagails Liederbuch", bookId = 358, bookGraphic = bookBlueRedLong}
 
-function addBookshelf(pos, containedBooks)
-    bookshelves = bookshelves or {}
-    bookshelves[pos.x] = bookshelves[pos.x] or {}
-    bookshelves[pos.x][pos.y] = bookshelves[pos.x][pos.y] or {}
-    bookshelves[pos.x][pos.y][pos.z] = {}
-    local bookshelf = bookshelves[pos.x][pos.y][pos.z]
-
-    for i=1, #containedBooks do
-        table.insert(bookshelf, containedBooks[i])
+function M.UseItem(user, item)
+    local bookIds = {}
+    
+    local callback = function(dialog)
+        local success = dialog:getSuccess()
+        if success then
+            local selected = dialog:getSelectedIndex() + 1
+            user:sendBook(bookIds[selected])
+        end
     end
+
+    local title = common.GetNLS(user, "Bücherregal", "Bookshelf")
+    local description = common.GetNLS(user, "Welches Buch möchtest du lesen?", "Which book do you want to read?")
+    local dialog = SelectionDialog(title, description, callback)
+    dialog:setCloseOnMove()
+  
+    for i = 1, maximumBooksPerShelf do
+        local book = item:getData("book" .. i)
+        if book ~= "" then
+            dialog:addOption(bookList[book].bookGraphic, common.GetNLS(user, bookList[book].german, bookList[book].english))
+            table.insert(bookIds, bookList[book].bookId)
+        end
+    end    
+    
+    if #bookIds > 0 then
+        user:requestSelectionDialog(dialog)
+    end
+
 end
-
-addBook(CODOMYR_ON_C, "Cadomyr, unsere treueste", "Cadomyr, most faithful", 107)
-addBook(CODOMYR_ON_G, "Galmair, die Anderen vom Norden", "Galmair, the Others from the North", 107)
-addBook(CODOMYR_ON_R, "Runewick, die Anderen vom Osten", "Runewick, the Others from the East", 107)
-addBook(GALMAIR_ON_C, "Cadomyr, von Torbus Nonak", "Cadomyr, by Torbus Nonak", 110)
-addBook(GALMAIR_ON_G, "Galmair, von Torbus Nonak", "Galmair, by Torbus Nonak", 110)
-addBook(GALMAIR_ON_R, "Runewick, von Torbus Nonak", "Runewick, by Torbus Nonak", 110)
-addBook(RUNEWICK_C, "Cadomyr, Hütten des Blutes und der Ehre", "Cadomyr, Cottages of Blood and Honour", 2610)
-addBook(RUNEWICK_G, "Galmair, Erdhöhle der Lügen und Münzen", "Galmair, Burrow of Lies and Coins", 2610)
-addBook(RUNEWICK_R, "Runewick, Türme der Weisheit und Macht", "Runewick, Towers of Wisdom and Power", 2610)
-addBook(GODS1, "Götterkunde", "Lore of the Gods", 111)
-addBook(GODS2, "Illarions Götterwelt", "Gods of Illarion", 113)
-addBook(GODS3, "Götterkunde", "Lore of the Gods", 3114)
-addBook(STATUTE_RUNEWICK, "Gesetzesbuch von Runewick", "Statute Book of Runewick", 105)
-addBook(CHRONICLES_GALMAIR, "Die Chroniken von Galmair", "The Chronicles of Galmair", 117)
-addBook(HISTORY_RUNEWICK, "Geschichte von Runewick", "History of Runewick", 2610)
-addBook(CALENDAR, "Einiges Wissenswertes über den Kalender", "Something about the Calendar", 116)
-addBook(C_HUMAN, "Kulturgeschichte des Menschen", "Cultures of the Humans", 2621)
-addBook(C_ELVES, "Elfische Geschichte und Kultur", "Elven History and Culture", 106)
-addBook(C_HALFLING, "Kultur und Geschichte der Halblinge", "Halfling Culture and History", 2606)
-addBook(C_DWARF, "Die Geschichte und Kultur der Zwerge", "Dwarven History and Culture", 2607)
-addBook(C_LIZARDMEN, "Die Gemeinschaft der Echsenmenschen", "Lizardmen History and Culture", 2602)
-addBook(C_ORC, "Orkische Geschichte und Kultur", "Orcish History and Culture", 109)
-addBook(GOD_MALACHIN, "Malachín", "Malachín", 3114)
-addBook(GOD_SIRANI, "Sirani", "Sirani", 3113)
-addBook(GOD_ZHAMBRA, "Zhambia", "Zhambia", 3112)
-addBook(ZODIC_SIGN, "Die Tierkreiszeichen", "The zodiac sign of Illarion", 131)
-addBook(ALCHEMY, "Buch der Alchemie", "Book of Alchemy", 2622)
-addBook(JOURNAL_ELZECHIEL, "Tagebuch des Abtes Elzechiel", "Journal of Abbot Elzechiel", 3114)
-addBook(ELDAN_HERMIT, "Einsiedler auf der Suche nach Eldan", "A hermit on the lookout for Eldan", 112)
-addBook(QUESTION_HONOUR, "Eine Frage der Ehre", "A Question of Honour", 117)
-addBook(TALE_OF_BROTHERS, "Die Geschichte zweier Brüder", "A tale of brothers", 2598)
-addBook(HUMANS_BERRYARD, "Über die Menschen", "About the Humans", 115)
-addBook(BARON_BIGFOOT, "Baros Großfuß und der Hochmut", "Baros Bigfoot and the pride", 2608)
-addBook(BREWYN, "Brewyn der Lügner", "Brewyn the Liar", 2605)
-addBook(BLUMFUSSENS, "Die Stammbaumaufzeichnung der Blumfußens", "Chronicle recording of the Blumfußens family tree", 114)
-addBook(NOIRA_LIV, "Das Tagebuch von Noira Liv", "The diary of Noira Liv", 129)
-addBook(FINDARIL_DAUGHTER, "Findaril, Tochter des Windes", "Findaril, Daughter of the wind", 2609)
-addBook(PETITION_FINDARI, "Gebet im Namen Findari", "Petition in the name of Findari", 3113)
-addBook(URUBUR, "Die Geschichte Urubur", "The Story of Urubur", 2622)
-addBook(ELDAN_PARCHMENT, "Das Pergament der Priester Eldans", "Parchment of the priests of Eldan", 3115)
-addBook(CANDLES, "Kerzenherstellung", "Making Candles", 3112)
-addBook(ORCMAGES, "Blut und Feuer, orkische Magie", "Blud an Fiar, Ork Magik", 130)
-addBook(JOKES, "Das Buch der Witze", "The book of jokes", 2616)
-addBook(MONROK_CHRONIC, "Fragment der Manrok-Chroniken", "Fragment of the Manrok Chronicles", 128)
-addBook(ONE, "Der Eine!", "The One!", 3110)
-addBook(ART_TRADE, "Die Kunst des Handels", "The art of trade", 2604)
-addBook(BRIAR, "Die Satzung Greenbriars", "The Articles of Greenbriar", 2615)
-addBook(CRAFTMAN_STORY, "Eine Handwerker Geschichte", "A craftman story", 108)
-addBook(DEMONOLOGIST, "Der Dämonologe", "The Demonologist", 110)
-addBook(DWARVEN_POEMS, "Zwergisches Liedgut", "Dwarven Poems", 2604)
-addBook(FAIRY, "Feen", "Fairies", 2602)
-addBook(GLORI_IRMOROM, "Lobpreis an Irmorom", "Glorification to Irmorom", 3115)
-addBook(LOR_ANGUR, "Lor-Angur", "Lor-Angur", 127)
-addBook(PETITION_ZELPHIA, "Gebet für Zelphia", "Petition for Zelphia", 3115)
-addBook(TALES_TRAVELLER, "Geschichten eines Reisenden", "Tales of a traveller", 2610)
-addBook(TIHGARACS_COMBAT, "Buch der Kampfeskunst", "Book of Combat", 110)
-addBook(EPOS_IGNIS, "Epos Ignis", "Epos Ignis", 2605)
-addBook(H_EVERGREEN, "Geschichte der Evergreen Halflings", "History of the Evergreen Halflings", 2608)
-addBook(REIGN_AKALTUT, "Die Herrschaft Akaltuts: Tagebuch eines ahnungslosen Lehrlings", "The Reign of Akaltut: Diary of a Naive Apprentice", 2604)
-addBook(SLIMES, "Schleim: Ein kurzer Abriss", "Slimes: A brief history", 115)
-addBook(FRIEND_NEED, "Ein Freund in Not", "A Friend in Need", 3110)
-addBook(ABOMINATION_RUNS_HIDES, "Eine Scheußlichkeit rennt und versteckt sich", "An Abomination Runs and Hides", 3110)
-addBook(AKALTUT_ENTRY, "Akultuts erstes Rätzel", "Akaltut Entry Riddle", 3110)
-addBook(TRAVELS_DIARY, "Ein Reisetagebuch", "A Traveler's Journal", 2598)
-addBook(C_ORDER_1, "Befehl 04. Findos 38 n.VdH", "Order 04. Findos 38 AW", 3114)
-addBook(C_SPEECH_321105, "Rede 05. Findos 38 n.VdH", "Speech 04. Findos 38 AW", 3114)
-addBook(PARCH_LONGO, "Eine Nachricht", "A note", 3115)
-addBook(TRAVEL_TANORAKIND, "Reisegefährten gesucht!", "Looking for travel companions!", 3113)
-addBook(WALLERY_BANK, "Vincent Wallery Bank", "Vincent Wallery Bank", 3116)
-addBook(GAL_CHARGE, "Gesucht! Ansprechpartner", "Wanted! Person in Charge", 3116)
-addBook(GAL_CIA, "Gesucht! Spione", "Wanted! Spies", 3115)
-addBook(GAL_DIPLO, "Gesucht! Diplomaten", "Wanted! Diplomats", 3112)
-addBook(GAL_ENTERT, "Gesucht! Unterhaltung", "Wanted! Entertainment", 3113)
-addBook(GAL_FORCES, "Gesucht! Streitmacht", "Wanted! Armed Forces", 3114)
-addBook(GAL_HANGMAN, "Gesucht! Henker", "Wanted! Hangmans", 3110)
-addBook(GAL_HEADHUNTER, "Gesucht! Kopfgeldjäger", "Wanted! Headhunters", 3110)
-addBook(GAL_MERCHANT, "Gesucht! Kaufleute", "Wanted! Merchants", 3111)
-addBook(GAL_PRIEST, "Gesucht! Priester", "Wanted! Priests", 3115)
-addBook(GAL_TRANSL, "Gesucht! Dolmetscher", "Wanted! Interpreter", 3116)
-addBook(GAL_ADJUTANT, "Gesucht! Adjutant", "Wanted! Adjutant", 3110)
-addBook(GAL_QUATER, "Gesucht! Quartiermeister", "Wanted! Quatermaster", 3110)
-
-addBookshelf(position(390, 185, -6), {CALENDAR, C_ORC, ORCMAGES, MONROK_CHRONIC, ONE})
-addBookshelf(position(548, 547, -6), {ORCMAGES, ONE, DEMONOLOGIST,FRIEND_NEED})
-addBookshelf(position(423, 296, -3), {C_HALFLING})
-addBookshelf(position(131, 549, 0), {C_HUMAN})
-addBookshelf(position(131, 551, 0), {C_ELVES})
-addBookshelf(position(131, 553, 0), {C_LIZARDMEN, PETITION_ZELPHIA})
-addBookshelf(position(131, 555, 0), {TIHGARACS_COMBAT})
-addBookshelf(position(136, 548, 0), {C_ORDER_1, C_SPEECH_321105})
-addBookshelf(position(138, 548, 0), {CODOMYR_ON_C, CODOMYR_ON_G, CODOMYR_ON_R})
-addBookshelf(position(140, 548, 0), {CALENDAR, ZODIC_SIGN, CANDLES})
-addBookshelf(position(140, 623, 0), {TIHGARACS_COMBAT, CALENDAR, PETITION_ZELPHIA})
-addBookshelf(position(141, 550, 0), {GODS3, GOD_MALACHIN, GOD_SIRANI, GOD_ZHAMBRA})
-addBookshelf(position(141, 552, 0), {TALE_OF_BROTHERS, TALES_TRAVELLER,ABOMINATION_RUNS_HIDES})
-addBookshelf(position(357, 224, 0), {QUESTION_HONOUR})
-addBookshelf(position(359, 221, 0), {GODS2, GLORI_IRMOROM})
-addBookshelf(position(360, 217, 0), {TIHGARACS_COMBAT})
-addBookshelf(position(361, 221, 0), {DWARVEN_POEMS})
-addBookshelf(position(362, 217, 0), {C_ORC, C_HUMAN})
-addBookshelf(position(363, 221, 0), {CRAFTMAN_STORY, ART_TRADE})
-addBookshelf(position(364, 217, 0), {C_DWARF, URUBUR})
-addBookshelf(position(365, 222, 0), {GALMAIR_ON_C, GALMAIR_ON_G, GALMAIR_ON_R, CHRONICLES_GALMAIR})
-addBookshelf(position(365, 224, 0), {ZODIC_SIGN, CALENDAR, ABOMINATION_RUNS_HIDES})
-addBookshelf(position(375, 215, 0), {GAL_ADJUTANT, GAL_DIPLO, GAL_FORCES, GAL_CIA, GAL_CHARGE, GAL_ENTERT, GAL_HANGMAN, GAL_MERCHANT, GAL_PRIEST, GAL_TRANSL, GAL_QUATER})
-addBookshelf(position(375, 217, 0), {GALMAIR_ON_C, GALMAIR_ON_G})
-addBookshelf(position(375, 219, 0), {GALMAIR_ON_R, CHRONICLES_GALMAIR})
-addBookshelf(position(388, 235, 0), {GALMAIR_ON_C})
-addBookshelf(position(390, 238, 0), {GALMAIR_ON_G})
-addBookshelf(position(390, 236, 0), {GALMAIR_ON_R})
-addBookshelf(position(403, 259, 0), {GODS2, CHRONICLES_GALMAIR})
-addBookshelf(position(405, 259, 0), {ALCHEMY, GLORI_IRMOROM})
-addBookshelf(position(407, 259, 0), {GALMAIR_ON_C, GALMAIR_ON_G, GALMAIR_ON_R, C_DWARF,SLIMES})
-addBookshelf(position(412, 289, 0), {GALMAIR_ON_G, GALMAIR_ON_C})
-addBookshelf(position(698, 311, 0), {CALENDAR, BLUMFUSSENS})
-addBookshelf(position(698, 319, 0), {JOKES, ALCHEMY, WALLERY_BANK})
-addBookshelf(position(698, 323, 0), {PARCH_LONGO})
-addBookshelf(position(901, 831, 0), {CANDLES, CRAFTMAN_STORY})
-addBookshelf(position(949, 752, 0), {BLUMFUSSENS, HUMANS_BERRYARD, H_EVERGREEN, BRIAR})
-addBookshelf(position(952, 756, 0), {ALCHEMY, C_HALFLING})
-addBookshelf(position(86, 584, 1), {FAIRY, GOD_SIRANI})
-addBookshelf(position(88, 584, 1), {CODOMYR_ON_C, CRAFTMAN_STORY})
-addBookshelf(position(406, 258, 1), {GALMAIR_ON_G})
-addBookshelf(position(406, 260, 1), {CHRONICLES_GALMAIR})
-addBookshelf(position(402, 260, 1), {GALMAIR_ON_G})
-addBookshelf(position(402, 258, 1), {GALMAIR_ON_C})
-addBookshelf(position(404, 258, 1), {GALMAIR_ON_R})
-addBookshelf(position(889, 835, 1), {NOIRA_LIV, CALENDAR})
-addBookshelf(position(889, 754, 1), {DEMONOLOGIST})
-addBookshelf(position(889, 838, 1), {ELDAN_PARCHMENT, ELDAN_HERMIT})
-addBookshelf(position(890, 758, 1), {EPOS_IGNIS})
-addBookshelf(position(890, 835, 1), {TALES_TRAVELLER, FAIRY})
-addBookshelf(position(891, 762, 1), {ELDAN_PARCHMENT, GODS1})
-addBookshelf(position(892, 754, 1), {LOR_ANGUR})
-addBookshelf(position(892, 828, 1), {PETITION_ZELPHIA, GLORI_IRMOROM})
-addBookshelf(position(892, 841, 1), {FINDARIL_DAUGHTER, PETITION_FINDARI})
-addBookshelf(position(892, 844, 1), {GODS3, GOD_MALACHIN})
-addBookshelf(position(893, 847, 1), {GODS2, GOD_SIRANI})
-addBookshelf(position(894, 765, 1), {C_HALFLING, C_ELVES, STATUTE_RUNEWICK})
-addBookshelf(position(895, 756, 1), {C_ORC, C_LIZARDMEN})
-addBookshelf(position(896, 828, 1), {STATUTE_RUNEWICK})
-addBookshelf(position(896, 847, 1), {GODS1, GOD_ZHAMBRA})
-addBookshelf(position(897, 774, 1), {CANDLES})
-addBookshelf(position(897, 829, 1), {RUNEWICK_C, RUNEWICK_G, RUNEWICK_R})
-addBookshelf(position(897, 833, 1), {C_HALFLING, C_ELVES})
-addBookshelf(position(898, 756, 1), {C_DWARF, C_HUMAN})
-addBookshelf(position(900, 828, 1), {HISTORY_RUNEWICK})
-addBookshelf(position(900, 784, 1), {ABOMINATION_RUNS_HIDES})
-addBookshelf(position(901, 784, 1), {STATUTE_RUNEWICK, ZODIC_SIGN, TRAVEL_TANORAKIND})
-addBookshelf(position(902, 761, 1), {RUNEWICK_C, RUNEWICK_G, RUNEWICK_R})
-addBookshelf(position(902, 767, 1), {STATUTE_RUNEWICK, HISTORY_RUNEWICK})
-addBookshelf(position(903, 828, 1), {STATUTE_RUNEWICK})
-addBookshelf(position(906, 824, 1), {TRAVEL_TANORAKIND})
-addBookshelf(position(952, 756, 1), {RUNEWICK_C, RUNEWICK_G, RUNEWICK_R})
-addBookshelf(position(955, 761, 1), {CALENDAR, C_ELVES, STATUTE_RUNEWICK})
-addBookshelf(position(955, 763, 1), {C_HALFLING, BLUMFUSSENS})
-addBookshelf(position(897, 766, 2), {TALE_OF_BROTHERS, LOR_ANGUR})
-addBookshelf(position(899, 766, 2), {HISTORY_RUNEWICK, STATUTE_RUNEWICK})
-addBookshelf(position(906, 763, 2), {CALENDAR})
-addBookshelf(position(955, 764, 2), {GODS1})
-addBookshelf(position(943, 759, 3), {RUNEWICK_C, RUNEWICK_G, RUNEWICK_R})
-addBookshelf(position(943, 762, 3), {STATUTE_RUNEWICK})
-addBookshelf(position(892, 831, 4), {BARON_BIGFOOT})
-addBookshelf(position(901, 773, 4), {MONROK_CHRONIC})
-addBookshelf(position(949, 757, 4), {BREWYN})
-addBookshelf(position(243, 113, 0), {CODOMYR_ON_C, CODOMYR_ON_G, CODOMYR_ON_R, GALMAIR_ON_C, GALMAIR_ON_G, GALMAIR_ON_R, RUNEWICK_C, RUNEWICK_G, RUNEWICK_R, GODS1, GODS2, GODS3, STATUTE_RUNEWICK, CHRONICLES_GALMAIR, HISTORY_RUNEWICK, CALENDAR, C_HUMAN, C_ELVES, C_HALFLING, C_DWARF, C_LIZARDMEN, C_ORC, GOD_SIRANI, GOD_ZHAMBRA, ZODIC_SIGN})
-addBookshelf(position(143, 111, 0), {ALCHEMY})
-addBookshelf(position(241, 109, 0), {JOURNAL_ELZECHIEL})
-addBookshelf(position(239, 109, 0), {ELDAN_HERMIT, QUESTION_HONOUR, TALE_OF_BROTHERS, HUMANS_BERRYARD, BARON_BIGFOOT, BREWYN, BLUMFUSSENS, NOIRA_LIV, FINDARIL_DAUGHTER, PETITION_FINDARI, URUBUR, ELDAN_PARCHMENT, CANDLES, ORCMAGES, JOKES, MONROK_CHRONIC, ONE, ART_TRADE, BRIAR, CRAFTMAN_STORY, DEMONOLOGIST, DWARVEN_POEMS, FAIRY, GLORI_IRMOROM, LOR_ANGUR, PETITION_ZELPHIA, TALES_TRAVELLER, TIHGARACS_COMBAT, EPOS_IGNIS, H_EVERGREEN})
-addBookshelf(position(237, 109, 0), {C_ORDER_1, C_SPEECH_321105, PARCH_LONGO, TRAVEL_TANORAKIND, WALLERY_BANK, GAL_ADJUTANT, GAL_CHARGE, GAL_CIA, GAL_DIPLO, GAL_ENTERT, GAL_FORCES, GAL_HANGMAN, GAL_MERCHANT, GAL_PRIEST, GAL_TRANSL, GAL_QUATER})
-addBookshelf(position(472, 839, -9),{REIGN_AKALTUT})
-addBookshelf(position(385, 549, 0), {FRIEND_NEED})
-addBookshelf(position(591, 314, 0), {FRIEND_NEED})
-
-
-
 
 function M.LookAtItem(user, item)
     local lookAt = lookat.GenerateLookAt(user, item)
-
-    if item:getType() == scriptItem.field then
-        local pos = item.pos
-        local bookshelf = getBookshelf(pos)
-
-        if bookshelf then
-            local bookCount = #bookshelf
-
-            if bookCount == 0 then
-                lookAt.description = common.GetNLS(user, "Dieses Regal ist leer.", "This bookshelf is empty.")
-            elseif bookCount == 1 then
-                lookAt.description = common.GetNLS(user, "Hier steht ein einzelnes Buch:", "There is one single book:")
-                lookAt.description = lookAt.description .. "\n" .. common.GetNLS(user, M.books[bookshelf[1]].german, M.books[bookshelf[1]].english)
-            else
-                lookAt.description = common.GetNLS(user, "Hier stehen " .. bookCount .. " Bücher:", "There are " .. bookCount .. " books here:")
-
-                for i=1, bookCount do
-                    lookAt.description = lookAt.description .. "\n" .. common.GetNLS(user, M.books[bookshelf[i]].german, M.books[bookshelf[i]].english)
-                end
-            end
-        else
-            lookAt.description = common.GetNLS(user, "Dieses Regal ist leer.", "This bookshelf is empty.")
+    
+    local bookTitles = {german = {}, english = {}}
+    for i = 1, maximumBooksPerShelf do
+        local book = item:getData("book" .. i)
+        if book ~= "" then
+            table.insert(bookTitles.german, bookList[book].german)
+            table.insert(bookTitles.english, bookList[book].english)
         end
     end
+    
+    if #bookTitles.german == 0 then
+        lookAt.description = common.GetNLS(user, "Dieses Regal ist leer.", "This bookshelf is empty.")
+    elseif #bookTitles.german == 1 then
+        lookAt.description = common.GetNLS(user, "Hier steht ein einzelnes Buch:", "There is one single book:")
+        lookAt.description = lookAt.description .. "\n" .. common.GetNLS(user, bookTitles.german, bookTitles.english)
+    else
+        lookAt.description = common.GetNLS(user, "Hier stehen " .. #bookTitles.german .. " Bücher:", "There are " .. #bookTitles.german .. " books here:")
 
+        for i=1, #bookTitles.german do
+            lookAt.description = lookAt.description .. "\n" .. common.GetNLS(user, bookTitles.german[i], bookTitles.english[i])
+        end
+    end
+    
     return lookAt
 end
 
-function M.UseItem(user, item, target, counter, param, ltstate)
-    if item:getType() ~= scriptItem.field then
-        return
-    end
-
-    local pos = item.pos
-    local bookshelf = getBookshelf(pos)
-
-    if bookshelf then
-        local bookCount = #bookshelf
-
-        if bookCount == 1 then
-            user:sendBook(bookshelf[1])
-        elseif bookCount > 1 then
-            local callback = function(dialog)
-                local success = dialog:getSuccess()
-
-                if success and isUserNextTo(user, pos) then
-                    local selected = dialog:getSelectedIndex() + 1
-                    user:sendBook(bookshelf[selected])
-                end
-            end
-
-            local title = common.GetNLS(user, "Bücherregal", "Bookshelf")
-            local description = common.GetNLS(user, "Welches Buch möchtest du lesen?", "Which book do you want to read?")
-            local dialog = SelectionDialog(title, description, callback)
-
-            for i=1, bookCount do
-                dialog:addOption(M.books[bookshelf[i]].graphic, common.GetNLS(user, M.books[bookshelf[i]].german, M.books[bookshelf[i]].english))
-            end
-
-            user:requestSelectionDialog(dialog)
-        end
-
-		-- Akaltut Quest
-		if item.pos == position(472, 839, -9) and user:getQuestProgress(526) == 15 then
-			user:setQuestProgress(526, 16);
-			user:inform("[Aufgabe gelöst] Kehre zu Defensor Confirmo zurück um deine Belohnung zu erhalten.",
-						"[Task solved] Return to Defensor Confirmo for your reward.");
-		end
-    end
-end
-
-function getBookshelf(pos)
-    return bookshelves and bookshelves[pos.x] and bookshelves[pos.x][pos.y] and bookshelves[pos.x][pos.y][pos.z]
-end
-
-function isUserNextTo(user, pos)
-    return user.pos.z == pos.z and math.max(math.abs(user.pos.x - pos.x), math.abs(user.pos.y - pos.y)) <= 1
-end
-
 return M
-
