@@ -68,6 +68,14 @@ local function Chancellor3LookAt(User, Item)
     return itemLookat
 end
 
+local function PillarLookAt(User, Item)
+    local itemLookat = lookat.GenerateLookAt(User, Item, lookat.NONE)
+    itemLookat.name = common.GetNLS(User, "Zzarn'K'Ska Pfeiler", "Zzarn'K'Ska Pillar")
+    itemLookat.description = common.GetNLS(User,
+        "Replace",
+        "The handle of a weapon can be seen sticking out from the pillar.")
+    return itemLookat
+end
 
 function M.LookAtItem(User, Item)
 
@@ -110,6 +118,11 @@ function M.LookAtItem(User, Item)
         itemLookat = Chancellor3LookAt(User, Item)
     end
 
+	    -- Zzarn'K'Ska Pillar
+    if Item.pos == position(563, 260, 0) then
+        itemLookat = PillarLookAt(User, Item)
+    end
+	
     if itemLookat then
         return itemLookat --Send the custom lookAt
     else
@@ -190,7 +203,31 @@ function M.UseItem(User, SourceItem, ltstate)
         local dialogChancellor3 = MessageDialog(dialogTitle, dialogText, callbackChancellor3)
 
         User:requestMessageDialog(dialogChancellor3)
-
+		
+    elseif SourceItem.pos == position(563, 260, 0) then --Zzarn'K'Ska Pillar
+      --Quest
+        if User:getQuestProgress(503) == 0 then -- start the quest
+            User:setQuestProgress(503, 1); -- get an inform
+            User:inform("", "Take this weapon to join us, or die where you stand.")
+			
+		elseif User:getQuestProgress(503) == 1 then -- taking the weapon
+		    local queststatus = User:getQuestProgress(506) -- here, we save which events were triggered
+            local queststatuslist = {}
+			queststatuslist = common.Split_number(queststatus, 6) -- reading the digits of the queststatus as table
+			if queststatuslist[1] == 0 then -- sword, only triggered once by each char
+			User:inform("", "You take the sword and join the Zzarn'K'Ska.")
+                local notCreated = User:createItem(2655, 1, 866, {descriptionEn = "Holy Sword of the Zzarn'K'Ska of Zelphia", descriptionDe = "", rareness = "4"}) -- create the item
+                if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+                world:createItemFromId(2655, notCreated, User.pos, true, 866, {descriptionEn = "Holy Sword of the Zzarn'K'Ska of Zelphia", descriptionDe = "", rareness = "4"})
+                common.HighInformNLS(User,
+                    "Du kannst nichts mehr tragen.",
+                    "You can't carry any more.")
+	            end
+			queststatuslist[1] = 1
+            User:setQuestProgress(506, queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+queststatuslist[5]*10+queststatuslist[6]*1) --saving the new queststatus
+            User:setQuestProgress(503, 2) 
+	        end
+		end
     end
 
 end
