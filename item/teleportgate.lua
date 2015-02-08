@@ -20,7 +20,7 @@ local common = require("base.common")
 
 local M = {}
 
-local function akalutCadmoyBlockade(user, sourceItem, destination)
+local function akalutCadomyrBlockade(user, sourceItem, destination)
 
     local foundValue, value = ScriptVars:find("akalutCadomyrBlockade")
     if not foundValue or tonumber(value) == 0 then
@@ -66,7 +66,7 @@ function M.CharacterOnField( User )
     
     if destFound then -- destination was defined
     
-        if akalutCadmoyBlockade(User, SourceItem, dest) then
+        if akalutCadomyrBlockade(User, SourceItem, dest) then
             return
         end
     
