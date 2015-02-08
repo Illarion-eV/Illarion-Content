@@ -20,6 +20,28 @@ local common = require("base.common")
 
 local M = {}
 
+local function akalutCadmoyBlockade(user, sourceItem, destination)
+
+    local foundValue, value = ScriptVars:find("akalutCadomyrBlockade")
+    if not foundValue or tonumber(value) == 0 then
+        return false
+    end
+    
+    local cadomyrCheckPos = position(114, 635, 0)
+    
+    if user:distanceMetricToPosition(cadomyrCheckPos) <= 100 or math.sqrt((cadomyrCheckPos.x - destination.x)^2 + (cadomyrCheckPos.y - destination.y)^2) <= 100 then
+    
+        world:erase(sourceItem, sourceItem.number)
+        world:gfx(45, sourceItem.pos)
+        user:inform("Du spürst ein schmerzhaftes Prickeln, als das Portal zusammenbricht.", "You feel a painful prickling as the portal collapses.", Character.highPriority)
+        return true
+    
+    end
+    
+    return false
+    
+end
+
 function M.CharacterOnField( User )
 
 	if (User:getType() ~= 0) then -- only players, else end of script
@@ -41,8 +63,13 @@ function M.CharacterOnField( User )
 		dest = position(destCoordX,destCoordY,destCoordZ)
         destFound = true
 	end
-
-	if destFound then -- destination was defined
+    
+    if destFound then -- destination was defined
+    
+        if akalutCadmoyBlockade(User, SourceItem, dest) then
+            return
+        end
+    
 		world:makeSound( 13, dest )
 		world:gfx( 41, User.pos )
 		User:warp( dest );

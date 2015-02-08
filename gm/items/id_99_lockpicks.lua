@@ -96,6 +96,69 @@ local skillNames = {
 	Character.wrestling
 }
 
+local function akalutCadomyrBlockade(User, SourceItem, ltstate)
+
+    local foundValue, value = ScriptVars:find("akalutCadomyrBlockade")
+    local newValue
+    local titel
+    local description
+    local informMessage
+    
+    if foundValue and tonumber(value) == 1then
+        newValue = 0
+        title = "Akalut: Cadomyr blockade. Do you want to deactivate it?"
+        description = "This special event renders Cadomyr's teleporter useless. You cannot travel to it or from it. Furthermore, portal books do not work in Cadomyr and cannot be used to get to Cadomyr. Do you really want to deactivate this?"
+        informMessage = "You deactivated the Cadomyr blockade for the Akalut quest."
+    else
+        newValue = 1
+        title = "Akalut: Cadomyr blockade. Do you want to activate it?"
+        description = "This special event renders Cadomyr's teleporter useless. You cannot travel to it or from it. Furthermore, portal books do not work in Cadomyr and cannot be used to get to Cadomyr. Do you really want to activate this?"
+        informMessage = "You activated the Cadomyr blockade for the Akalut quest."
+    end
+    
+    local yesOrNo = {"Yes", "No"}
+	local cbQuestEvents = function (dialog)
+		if (not dialog:getSuccess()) then
+			return;
+		end
+		local index = dialog:getSelectedIndex() + 1
+		if index == 1 then
+            User:inform(informMessage)
+            ScriptVars:set("akalutCadomyrBlockade",newValue)
+            ScriptVars:save()
+            local foundValue, value = ScriptVars:find("akalutCadomyrBlockade")
+        else
+            return
+        end
+	end
+	local sd = SelectionDialog(title, description, cbQuestEvents)
+	for _, m in ipairs(yesOrNo) do
+		sd:addOption(0, m);
+	end
+	User:requestSelectionDialog(sd)
+
+end
+
+local function questEvents(User, SourceItem, ltstate)
+
+    local questEvents = {"Akalut: Cadomyr blockade"}
+	local cbQuestEvents = function (dialog)
+		if (not dialog:getSuccess()) then
+			return;
+		end
+		local index = dialog:getSelectedIndex() + 1
+		if index == 1 then
+			akalutCadomyrBlockade(User, SourceItem, ltstate)
+		end
+	end
+	local sd = SelectionDialog("Select special quest event.", "Select special quest event", cbQuestEvents)
+	for _, m in ipairs(questEvents) do
+		sd:addOption(0, m);
+	end
+	User:requestSelectionDialog(sd)
+
+end
+
 function M.UseItem(User, SourceItem, ltstate)
 
 	--if injured, heal!
@@ -106,33 +169,35 @@ function M.UseItem(User, SourceItem, ltstate)
 	end
 
 	-- First check for mode change
-	local modes = {"Eraser", "Teleport", "Faction info of chars in radius", "Char Info", "Change skills", "Get/ Set Queststatus", "Instant kill/ revive"};
+	local modes = {"Eraser", "Teleport", "Faction info of chars in radius", "Char Info", "Change skills", "Get/ Set Queststatus", "Instant kill/ revive", "Quest events"}
 	local cbSetMode = function (dialog)
 		if (not dialog:getSuccess()) then
 			return;
 		end
-		local index = dialog:getSelectedIndex() + 1;
+		local index = dialog:getSelectedIndex() + 1
 		if index == 1 then
-			eraser(User, SourceItem, ltstate);
+			eraser(User, SourceItem, ltstate)
 		elseif index == 2 then
-			teleporter(User, SourceItem, ltstate);
+			teleporter(User, SourceItem, ltstate)
 		elseif index == 3 then
-			factionInfoOfCharsInRadius(User, SourceItem, ltstate);
+			factionInfoOfCharsInRadius(User, SourceItem, ltstate)
 		elseif index == 4 then
-			charInfo(User, SourceItem,ltstate);
+			charInfo(User, SourceItem,ltstate)
 		elseif index == 5 then
-			changeSkills(User, SourceItem, ltstate);
+			changeSkills(User, SourceItem, ltstate)
 		elseif index == 6 then
-			getSetQueststatus(User, SourceItem, ltstate);
+			getSetQueststatus(User, SourceItem, ltstate)
 		elseif index == 7 then
-			godMode(User, SourceItem, ltstate);
-		end
+			godMode(User, SourceItem, ltstate)
+		elseif index == 8 then
+            questEvents(User, SourceItem, ltstate)
+        end
 	end
-	local sd = SelectionDialog("Pick a function of the lockpicks.", "Which do you want to use?", cbSetMode);
+	local sd = SelectionDialog("Pick a function of the lockpicks.", "Which do you want to use?", cbSetMode)
 	for _, m in ipairs(modes) do
 		sd:addOption(0, m);
 	end
-	User:requestSelectionDialog(sd);
+	User:requestSelectionDialog(sd)
 end
 
 function eraser(User, SourceItem, ltstate)
