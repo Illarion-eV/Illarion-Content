@@ -22,15 +22,15 @@ local M = {}
 -- UPDATE items SET itm_script = 'item.id_3110_scroll' WHERE itm_id = 3110;
 
 function M.LookAtItem(User,Item)
-    if Item:getData("bookId") ~= "" then
-		local bookId = tonumber(Item:getData("bookId"))
-		if bookId ~= nil then
-			if id_266_bookshelf.books[bookId] ~= nil then
-				lookat.SetSpecialName(Item, id_266_bookshelf.books[bookId].german, id_266_bookshelf.books[bookId].english)
+    if Item:getData("book")~="" then
+		local book =tonumber( Item:getData("book"))
+		if book ~= nil then
+			if id_266_bookshelf.bookList[book] ~= nil then
+				lookat.SetSpecialName(Item,id_266_bookshelf.bookList[book].german,id_266_bookshelf.bookList[book].english)
 			end
 		end
 	end
-	return lookat.GenerateLookAt(User, Item, lookat.NONE)
+	return lookat.GenerateLookAt(User, Item, 0)
 end
 
 function M.UseItem(User, SourceItem)
@@ -39,15 +39,14 @@ function M.UseItem(User, SourceItem)
 		return
 	end
 
-	if SourceItem:getData("bookId") ~= "" then
-		local bookId = tonumber(SourceItem:getData("bookId"))
-		if bookId == nil then
+	if SourceItem:getData("book")~="" then
+		local book =tonumber( SourceItem:getData("book"))
+		if book == nil then
 			return
 		end
-		if id_266_bookshelf.books[bookId] ~= nil then
-			User:sendBook(bookId)
+		if id_266_bookshelf.bookList[book] ~= nil then
+			User:sendBook(id_266_bookshelf.bookList[book].bookId)
 		end
-		return
 	end
 
 	-- teleport character on use
