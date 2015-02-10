@@ -12,119 +12,111 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --Flames on the Runewick bridges
---Flux
 
 local common = require("base.common")
 
 local M = {}
 
 function M.MoveToField( User )
-	local displacement,xpos,ypos;
-	--North Bridge
-	for displacement = 1, 28, 3 do
-		for xpos = 909, 911, 1 do
-			for ypos = 760, 765, 1 do
-				if User.pos == position(xpos+displacement,ypos,1) then
-					local flametype;
+    local displacement, xpos,ypos
+    --North Bridge
+    for displacement = 1, 28, 3 do
+        for xpos = 909, 911, 1 do
+            for ypos = 760, 765, 1 do
+                if User.pos == position(xpos+displacement,ypos,1) then
+                    local flametype
 
-					if displacement%2 == 0 then
-						flametype = 359;
-					else
-						flametype = 360;
-					end;
+                    if displacement%2 == 0 then
+                        flametype = 359
+                    else
+                        flametype = 360
+                    end
 
-					local testthing = 910+displacement;
-					local pillar1 = world:getField(position(testthing, 760,1));
-					local flame1 = pillar1:getStackItem(pillar1:countItems()-1);
-					local pillar2 = world:getField(position(testthing, 764,1));
-					local flame2 = pillar2:getStackItem(pillar2:countItems()-1);
-					if flame1.id == 2805 then
-						local newflame = world:createItemFromId(flametype,1,position(testthing,760,1),true,333,nil);
-						newflame.wear = 1;
-						world:changeItem(newflame);
-					end;
-					if flame2.id == 2805 then
-						local newflame = world:createItemFromId(flametype,1,position(testthing,764,1),true,333,nil);
-						newflame.wear = 1;
-						world:changeItem(newflame);
-					end;
-				end;
-			end;
-		end;
-	end;
+                    local testthing = 910+displacement
+                    local pillar1 = world:getField(position(testthing, 760,1))
+                    local flame1 = pillar1:getStackItem(pillar1:countItems()-1)
+                    local pillar2 = world:getField(position(testthing, 764,1))
+                    local flame2 = pillar2:getStackItem(pillar2:countItems()-1)
+                    if flame1.id == 2805 then
+                        local newflame = world:createItemFromId(flametype,1,position(testthing,760,1),true,333,nil)
+                        newflame.wear = 1
+                        world:changeItem(newflame)
+                    end
+                    if flame2.id == 2805 then
+                        local newflame = world:createItemFromId(flametype,1,position(testthing,764,1),true,333,nil)
+                        newflame.wear = 1
+                        world:changeItem(newflame)
+                    end
+                end
+            end
+        end
+    end
 
-	--South Bridge
-	for displacement = 0, 33, 3 do
-		for xpos = 910, 912, 1 do
-			for ypos = 830, 835, 1 do
-				if User.pos == position(xpos+displacement,ypos,1) then
-					local flametype;
+    --South Bridge
+    for displacement = 0, 33, 3 do
+        for xpos = 910, 912, 1 do
+            for ypos = 830, 835, 1 do
+                if User.pos == position(xpos+displacement,ypos,1) then
+                    local flametype
 
-					if displacement%2 == 0 then
-						flametype = 359;
-					else
-						flametype = 360;
-					end;
+                    if displacement%2 == 0 then
+                        flametype = 359
+                    else
+                        flametype = 360
+                    end
 
-					local testthing = 911+displacement;
-					local pillar1 = world:getField(position(testthing, 830,1));
-					local flame1 = pillar1:getStackItem(pillar1:countItems()-1);
-					local pillar2 = world:getField(position(testthing, 834,1));
-					local flame2 = pillar2:getStackItem(pillar2:countItems()-1);
-					if flame1.id == 2805 then
-						local newflame = world:createItemFromId(flametype,1,position(testthing,830,1),true,333,nil);
-						newflame.wear = 1;
-						world:changeItem(newflame);
-					end;
-					if flame2.id == 2805 then
-						local newflame = world:createItemFromId(flametype,1,position(testthing,834,1),true,333,nil);
-						newflame.wear = 1;
-						world:changeItem(newflame);
-					end;
-				end;
-			end;
-		end;
-	end;
+                    local testthing = 911+displacement
+                    local pillar1 = world:getField(position(testthing, 830,1))
+                    local flame1 = pillar1:getStackItem(pillar1:countItems()-1)
+                    local pillar2 = world:getField(position(testthing, 834,1))
+                    local flame2 = pillar2:getStackItem(pillar2:countItems()-1)
+                    if flame1.id == 2805 then
+                        local newflame = world:createItemFromId(flametype,1,position(testthing,830,1),true,333,nil)
+                        newflame.wear = 1
+                        world:changeItem(newflame)
+                    end
+                    if flame2.id == 2805 then
+                        local newflame = world:createItemFromId(flametype,1,position(testthing,834,1),true,333,nil)
+                        newflame.wear = 1
+                        world:changeItem(newflame)
+                    end
+                end
+            end
+        end
+    end
 
-	--East Bridge
-	for displacement = 0, 48, 3 do
-		for xpos = 943, 948, 1 do
-			for ypos = 770, 772, 1 do
-				if User.pos == position(xpos,ypos+displacement,1) then
-					if displacement%2 == 0 then
-						flametype = 359;
-					else
-						flametype = 360;
-					end;
-					local testthing = 771+displacement;
-					local pillar1 = world:getField(position(944, testthing,1));
-					local flame1 = pillar1:getStackItem(pillar1:countItems()-1);
-					local pillar2 = world:getField(position(948, testthing,1));
-					local flame2 = pillar2:getStackItem(pillar2:countItems()-1);
-					if flame1.id == 2805 then
-						local newflame = world:createItemFromId(flametype,1,position(944, testthing,1),true,333,nil);
-						newflame.wear = 1;
-						world:changeItem(newflame);
-					end;
-					if flame2.id == 2805 then
-						local newflame = world:createItemFromId(flametype,1,position(948, testthing,1),true,333,nil);
-						newflame.wear = 1;
-						world:changeItem(newflame);
-					end;
-				end;
-			end;
-		end;
-	end;
-
-
-
-
-
-
-
+    --East Bridge
+    for displacement = 0, 48, 3 do
+        for xpos = 943, 948, 1 do
+            for ypos = 770, 772, 1 do
+                if User.pos == position(xpos,ypos+displacement,1) then
+                    if displacement%2 == 0 then
+                        flametype = 359
+                    else
+                        flametype = 360
+                    end
+                    local testthing = 771+displacement
+                    local pillar1 = world:getField(position(944, testthing,1))
+                    local flame1 = pillar1:getStackItem(pillar1:countItems()-1)
+                    local pillar2 = world:getField(position(948, testthing,1))
+                    local flame2 = pillar2:getStackItem(pillar2:countItems()-1)
+                    if flame1.id == 2805 then
+                        local newflame = world:createItemFromId(flametype,1,position(944, testthing,1),true,333,nil)
+                        newflame.wear = 1
+                        world:changeItem(newflame)
+                    end
+                    if flame2.id == 2805 then
+                        local newflame = world:createItemFromId(flametype,1,position(948, testthing,1),true,333,nil)
+                        newflame.wear = 1
+                        world:changeItem(newflame)
+                    end
+                end
+            end
+        end
+    end
 end
 
 -- North Bridge Triggers

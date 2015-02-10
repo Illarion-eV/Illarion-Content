@@ -51,15 +51,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 
-
 local M = {}
 
+local ferrySourcePos={position(614,863,0),position(615,863,0),position(616,863,0),position(614,855,0),position(615,855,0),position(616,855,0),position(987,257,0),position(988,257,0),position(475,33,0),position(475,34,0),position(482,33,0),position(482,34,0),position(412,84,0),position(412,85,0),position(419,84,0),position(419,85,0),position(361,49,0),position(361,50,0),position(367,49,0),position(367,50,0),position(86,988,0),position(96,988,0),position(289,283,0),position(275,275,0),position(288,292,0),position(274,275,0),position(389,272,-6),position(389,273,-6),position(404,275,-6),position(404,276,-6),position(355,864,2)}
 
-
-ferrySourcePos={position(614,863,0),position(615,863,0),position(616,863,0),position(614,855,0),position(615,855,0),position(616,855,0),position(987,257,0),position(988,257,0),position(475,33,0),position(475,34,0),position(482,33,0),position(482,34,0),position(412,84,0),position(412,85,0),position(419,84,0),position(419,85,0),position(361,49,0),position(361,50,0),position(367,49,0),position(367,50,0),position(86,988,0),position(96,988,0),position(289,283,0),position(275,275,0),position(288,292,0),position(274,275,0),position(389,272,-6),position(389,273,-6),position(404,275,-6),position(404,276,-6),position(355,864,2)}
-
-ferryDE={}
-ferryEN={}
+local ferryDE={}
+local ferryEN={}
 ferryDE[1]={"Cadomyr Hafen","Runewick Hafen"}
 ferryEN[1]={"Cadomyr Harbour","Runewick Harbour"}
 ferryDE[2]={"Cadomyr Hafen","Runewick Hafen"}
@@ -123,7 +120,7 @@ ferryEN[31]={"Scoria Mine"}
 ferryDE[32]={"Fähre"}
 ferryEN[32]={"Ferry"}
 
-ferryItem={}
+local ferryItem={}
 ferryItem[1]={2701,105}
 ferryItem[2]={2701,105}
 ferryItem[3]={2701,105}
@@ -156,7 +153,7 @@ ferryItem[29]={61}
 ferryItem[30]={61}
 ferryItem[31]={50}
 
-ferryTargetPos={}
+local ferryTargetPos={}
 ferryTargetPos[1]={position(102,790,0),position(728,809,0)}
 ferryTargetPos[2]={position(102,790,0),position(728,809,0)}
 ferryTargetPos[3]={position(102,790,0),position(728,809,0)}
@@ -189,9 +186,9 @@ ferryTargetPos[29]={position(389,272,-6)}
 ferryTargetPos[30]={position(389,273,-6)}
 ferryTargetPos[31]={position(355,864,2)}
 
-ferryFactionHarborPos={position(690,320,0),position(101,790,0),position(727,809,0),position(451,95,0)}
+local ferryFactionHarborPos={position(690,320,0),position(101,790,0),position(727,809,0),position(451,95,0)}
 
-noChoiceAndWrapDirectly={23,24,25,26,27,28,29,30,31}
+local noChoiceAndWrapDirectly={23,24,25,26,27,28,29,30,31}
 
 function M.MoveToField(User)
     if User:getType() ~= Character.player then
@@ -212,6 +209,8 @@ function M.MoveToField(User)
     end
 
     local names
+    local items
+    local targetPos
     local Amountferry = #ferrySourcePos
     local AmountWrapDirectly = 9
     for j = 1,Amountferry do
@@ -233,16 +232,15 @@ function M.MoveToField(User)
     end
 
     local callback = function(dialog)
-
-        success = dialog:getSuccess()
+        local success = dialog:getSuccess()
         if success then
             selected = dialog:getSelectedIndex()
             if (targetPos[selected+1].x - User.pos.x) * (targetPos[selected+1].x - User.pos.x) < 6 then
                 User:inform("Du befindest dich bereits in " ..names[selected+1]..".", "You are already in "..names[selected+1]..".")
             else
-                travler = world:getPlayersInRangeOf(User.pos, 5);
+                local travelers = world:getPlayersInRangeOf(User.pos, 5);
 
-                for i,player in ipairs(travler) do
+                for i,player in ipairs(travelers) do
                     player:inform("Du hast dich dazu entschlossen nach " ..names[selected+1].. " zu Reisen.", "You have chosen to travel to " ..names[selected+1]..".")
                     world:gfx(1,player.pos)
                     world:makeSound(9,player.pos);
@@ -269,4 +267,3 @@ function M.MoveToField(User)
 end
 
 return M
-

@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO triggerfields VALUES (990,253,0,'triggerfield.evilrock');
 -- INSERT INTO triggerfields VALUES (989,253,0,'triggerfield.evilrock');
@@ -65,19 +65,19 @@ local areas = require("content.areas")
 local M = {}
 
 
-triggerFlameFire={position(990,252,0),position(989,253,0),position(988,252,0),position(987,253,0),position(986,252,0),position(985,253,0)}
-triggerFlameIce={position(990,253,0),position(989,252,0),position(988,253,0),position(987,252,0),position(986,253,0),position(985,252,0)}
-triggerFlamePoison={position(994,228,0),position(995,228,0)}
-triggerEntranceTrap={position(990,201,0),position(990,202,0),position(990,203,0),position(990,204,0)}
+local triggerFlameFire={position(990,252,0),position(989,253,0),position(988,252,0),position(987,253,0),position(986,252,0),position(985,253,0)}
+local triggerFlameIce={position(990,253,0),position(989,252,0),position(988,253,0),position(987,252,0),position(986,253,0),position(985,252,0)}
+local triggerFlamePoison={position(994,228,0),position(995,228,0)}
+local triggerEntranceTrap={position(990,201,0),position(990,202,0),position(990,203,0),position(990,204,0)}
 
-triggerVision={position(952,206,0),position(952,207,0),position(963,177,0),position(962,177,0),position(920,200,0),position(921,200,0),position(912,250,0),position(912,251,0),position(963,203,1),position(964,203,1),position(966,209,1),position(966,210,1),position(964,172,-6),position(964,173,-6),position(964,174,-6)}
-VisionStory={1,1,2,2,3,3,4,4,5,5,5,5,6,6,6}
-EvilRockAreaNames={"evilrock1","evilrock2","evilrock3","evilrock4","evilrock5","evilrock6"}
+local triggerVision={position(952,206,0),position(952,207,0),position(963,177,0),position(962,177,0),position(920,200,0),position(921,200,0),position(912,250,0),position(912,251,0),position(963,203,1),position(964,203,1),position(966,209,1),position(966,210,1),position(964,172,-6),position(964,173,-6),position(964,174,-6)}
+local VisionStory={1,1,2,2,3,3,4,4,5,5,5,5,6,6,6}
+local EvilRockAreaNames={"evilrock1","evilrock2","evilrock3","evilrock4","evilrock5","evilrock6"}
 
-attendants={}
-attendants2={}
+local attendants={}
+local attendants2={}
 --evilrockStory={}
-advantureslist={}
+local advantureslist={}
 
 
 function M.MoveToField(char)
@@ -87,18 +87,18 @@ function M.MoveToField(char)
     if char.pos == triggerFlameFire[i] then
         if player:getQuestProgress(680) ~= 0 then
             return true
-        end    
+        end
     end
 
-   find, myEffect = char.effects:find(80)
+    local find, myEffect = char.effects:find(80)
 
-    local AmountFlameFire = #triggerFlameFire    
-    for i = 1,AmountFlameFire do    
+    local AmountFlameFire = #triggerFlameFire
+    for i = 1,AmountFlameFire do
         if char.pos == triggerFlameFire[i] then
             if char:getQuestProgress(683) == 0 and find == false then
                 character.CreateAfterTime (char,100,120,359,nil,1,1,988,998,225,235,0,0,600,600,1,1,nil,4,1,3,nil,nil,1)
-                local adventurers = world:getPlayersInRangeOf(char.pos, 15) 
-                            advantureslist[char.name] = adventurers                
+                local adventurers = world:getPlayersInRangeOf(char.pos, 15)
+                            advantureslist[char.name] = adventurers
                 for i,player in ipairs(advantureslist[char.name]) do
                     player:setQuestProgress(683,1)
                 end
@@ -109,13 +109,13 @@ function M.MoveToField(char)
         end
     end
 
-    local AmountFlameIce = #triggerFlameIce    
-    for i = 1,AmountFlameIce do    
+    local AmountFlameIce = #triggerFlameIce
+    for i = 1,AmountFlameIce do
         if char.pos == triggerFlameIce[i] then
             if char:getQuestProgress(683) == 0 and find == false then
-                character.CreateAfterTime (char,100,120,360,nil,1,1,988,998,225,235,0,0,600,600,1,1,nil,5,1,3,nil,nil,1) 
-                local adventurers = world:getPlayersInRangeOf(char.pos, 15) 
-                            advantureslist[char.name] = adventurers                
+                character.CreateAfterTime (char,100,120,360,nil,1,1,988,998,225,235,0,0,600,600,1,1,nil,5,1,3,nil,nil,1)
+                local adventurers = world:getPlayersInRangeOf(char.pos, 15)
+                            advantureslist[char.name] = adventurers
                 for i,player in ipairs(advantureslist[char.name]) do
                     player:setQuestProgress(683,1)
                 end
@@ -123,13 +123,13 @@ function M.MoveToField(char)
         end
     end
 
-    local AmountFlamePoison = #triggerFlamePoison    
-    for i = 1,AmountFlamePoison do    
+    local AmountFlamePoison = #triggerFlamePoison
+    for i = 1,AmountFlamePoison do
         if char.pos == triggerFlamePoison[i] then
             if char:getQuestProgress(683) == 0 and find == false then
-                character.CreateAfterTime (char,100,120,372,nil,1,1,986,998,211,223,0,0,600,600,1,1,nil,13,1,3,nil,nil,1) 
-                local adventurers = world:getPlayersInRangeOf(char.pos, 15) 
-                            advantureslist[char.name] = adventurers                
+                character.CreateAfterTime (char,100,120,372,nil,1,1,986,998,211,223,0,0,600,600,1,1,nil,13,1,3,nil,nil,1)
+                local adventurers = world:getPlayersInRangeOf(char.pos, 15)
+                            advantureslist[char.name] = adventurers
                 for i,player in ipairs(advantureslist[char.name]) do
                     player:setQuestProgress(683,1)
                 end
@@ -151,7 +151,7 @@ function M.MoveToField(char)
             else
                 world:erase(CheckBucket,CheckBucket.number)
                 world:createItemFromId(51, 1, position(997,199,2), true, 333, nil)
-                local CreateBucket = world:getItemOnField(position(997,199,2))                
+                local CreateBucket = world:getItemOnField(position(997,199,2))
                 CreateBucket.wear=255
                 lookat.SetSpecialDescription(CreateBucket,"Wie viel Wasser wohl in diesen Eimer passt?","How much water might fit into this bucket?")
                 world:changeItem(CreateBucket)
@@ -159,8 +159,8 @@ function M.MoveToField(char)
         end
     end
 
-    local AmountVision = #triggerVision    
-    for i = 1,AmountVision do    
+    local AmountVision = #triggerVision
+    for i = 1,AmountVision do
         if (char.pos == triggerVision[i]) and math.random(1,100)< 81 then
             AmountStory = #vision.VisionTextDE[VisionStory[i]]
             TypeStory = VisionStory[i]
@@ -170,7 +170,7 @@ function M.MoveToField(char)
                 if player:getQuestProgress(665) == 0 then
                     player:setQuestProgress(665,2)
                 else
-                    return                    
+                    return
                 end
 
             end
@@ -180,7 +180,7 @@ function M.MoveToField(char)
                 if player:getQuestProgress(665) == 0 then
                     player:setQuestProgress(665,2)
                 else
-                    return                    
+                    return
                 end
 
             end
@@ -193,7 +193,7 @@ function M.MoveToField(char)
         local checkRedPortal = world:getItemOnField(position(970,171,2))
         if checkRedPortal.id == 798 then
             world:erase(checkRedPortal,checkRedPortal.number)
-        end 
+        end
         if char:getFaceTo() == 1 or char:getFaceTo() == 2 or char:getFaceTo() == 3 then
             world:gfx(41,char.pos);
             world:makeSound(13,char.pos);
@@ -236,13 +236,13 @@ function M.MoveToField(char)
         end
     end
     if char.pos == position(952,173,-6) then
-        local weightOfPlayer = char:increaseAttrib("weight",0)    
+        local weightOfPlayer = char:increaseAttrib("weight",0)
 --debug("weightOfPlayer: "..weightOfPlayer)
-        local heightOfPlayer = char:increaseAttrib("body_height",0)    
+        local heightOfPlayer = char:increaseAttrib("body_height",0)
 --debug("heightOfPlayer: "..heightOfPlayer)
-        local strengthOfPlayer = char:increaseAttrib("strength",0)    
+        local strengthOfPlayer = char:increaseAttrib("strength",0)
 --debug("strengthOfPlayer: "..strengthOfPlayer)
-        local ageOfPlayer = char:increaseAttrib("age",0)    
+        local ageOfPlayer = char:increaseAttrib("age",0)
 --debug("ageOfPlayer: "..ageOfPlayer)
 
 
@@ -259,11 +259,11 @@ function M.MoveToField(char)
             end
         end
         local language = char:getPlayerLanguage();
-    
+
         for i,item in ipairs(itemsOnChar) do
             local statsofItemsOnChar = world:getItemStatsFromId(item.id)
             local statsofItemsOnCharWeight = statsofItemsOnChar.Weight
-            if item.itempos >= 11 and item.itempos <= 18 then    
+            if item.itempos >= 11 and item.itempos <= 18 then
                 numberofItemsOnChar = char:countItemAt("belt",item.id)
             else
                 numberofItemsOnChar = char:countItemAt("body",item.id)
@@ -278,7 +278,7 @@ function M.MoveToField(char)
         local weightOfPlayerPlusItemsPlusBag = weightOfPlayer+weightofItemsInBackPack+ItemsOnBodyBelt
 --debug("weightOfPlayerPlusItemsPlusBag: "..weightOfPlayerPlusItemsPlusBag)
 
-        if weightOfPlayerPlusItemsPlusBag == nil  then        
+        if weightOfPlayerPlusItemsPlusBag == nil  then
             clicksAmountVar = 1
             WrongWeight(char,clicksAmountVar)
         elseif weightOfPlayerPlusItemsPlusBag <= 12400 then
@@ -286,24 +286,24 @@ function M.MoveToField(char)
             WrongWeight(char,clicksAmountVar)
         elseif weightOfPlayerPlusItemsPlusBag >= 13500 then
             clicksAmountVar = 2
-            WrongWeight(char,clicksAmountVar)        
-        else            
+            WrongWeight(char,clicksAmountVar)
+        else
             clicksAmountVar = 3
             RightWeight(char,clicksAmountVar)
         end
     end
-    
+
 end
 
 
 
 
-stoneChamberStonePosition={position(957,170,-6),position(953,167,-6),position(948,168,-6),position(946,173,-6),position(948,178,-6),position(953,179,-6),position(957,176,-6)}
-stoneChamberStoneKind={283,197,46,285,45,198,284}
-playerWithWrongWeight={}
-playerWithRightWeight={}
-clicksAmountDe={"einmaliges","dreimaliges","zweimaliges"}
-clicksAmountEn={"a click","three clicks","two clicks"}
+local stoneChamberStonePosition={position(957,170,-6),position(953,167,-6),position(948,168,-6),position(946,173,-6),position(948,178,-6),position(953,179,-6),position(957,176,-6)}
+local stoneChamberStoneKind={283,197,46,285,45,198,284}
+local playerWithWrongWeight={}
+local playerWithRightWeight={}
+local clicksAmountDe={"einmaliges","dreimaliges","zweimaliges"}
+local clicksAmountEn={"a click","three clicks","two clicks"}
 
 function RightWeight(char,clicksAmountVar)
     playerWithRightWeight[char.name] = world:getPlayersInRangeOf(position(960,173,-6), 50)
@@ -339,7 +339,7 @@ function RightWeight(char,clicksAmountVar)
             common.InformNLS(player,"Zusätzlich siehst du noch ein kurzes Aufleuchten einer Lichtquelle, welches aber sogleich abstirbt. Hier scheint heute nichts zu funktionieren.","Furthermore, you see a light blinking, which immediately disappears. It does not seem as though anything is working today.")
         end
     end
-    
+
     world:createItemFromId(467,1,position(952,173,-6),true,333,nil)
     playerHasCorrectWeight = true
 end
@@ -364,7 +364,7 @@ end
 
 
 
-stoneChamberAttendants={}
+local stoneChamberAttendants={}
 
 function StoneChamberQuestProgressCheck(char)
     stoneChamberAttendants[char.name] = world:getPlayersInRangeOf(position(952,173,-6), 50)
@@ -421,7 +421,7 @@ end
 
 function StartVision(char,AmountStory,TypeStory)
     find, myEffect = char.effects:find(83)
-    if find then 
+    if find then
         return
     else
         myEffect = LongTimeEffect(83,50)
@@ -508,6 +508,4 @@ function CheckPortalLeverRiddle4(char)
     end
 end
 
-
 return M
-
