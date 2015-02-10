@@ -38,13 +38,13 @@ function M.UseItem(User, SourceItem)
         granorsHut.readingBook(User)
     end
 
-	if SourceItem:getData("bookId")~="" then
-		local bookId =tonumber( SourceItem:getData("bookId"))
-		if bookId == nil then
+	if SourceItem:getData("book")~="" then
+		local book =tonumber( SourceItem:getData("book"))
+		if book == nil then
 			return
 		end
-		if id_266_bookshelf.books[bookId] ~= nil then
-			User:sendBook(bookId)
+		if id_266_bookshelf.bookList[book] ~= nil then
+			User:sendBook(id_266_bookshelf.bookList[book].bookId)
 		end
 	end
 
@@ -59,11 +59,11 @@ function M.UseItem(User, SourceItem)
 end
 
 function M.LookAtItem(User,Item)
-    if Item:getData("bookId")~="" then
-		local bookId =tonumber( Item:getData("bookId"))
-		if bookId ~= nil then
-			if id_266_bookshelf.books[bookId] ~= nil then
-				lookat.SetSpecialName(Item,id_266_bookshelf.books[bookId].german,id_266_bookshelf.books[bookId].english)
+    if Item:getData("book")~="" then
+		local book =tonumber( Item:getData("book"))
+		if book ~= nil then
+			if id_266_bookshelf.bookList[book] ~= nil then
+				lookat.SetSpecialName(Item,id_266_bookshelf.bookList[book].german,id_266_bookshelf.bookList[book].english)
 			end
 		end
 	end
