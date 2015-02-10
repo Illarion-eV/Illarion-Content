@@ -281,10 +281,6 @@ end
 
 function RecipeInform( User, SourceItem)
 
-    if (M.ListEffectId["Runewick"] == nil) then
-	    Init()
-    end
-
 	-- is the char an alchemist?
 	local anAlchemist = alchemy.CheckIfAlchemist(User)
 	if not anAlchemist then
@@ -435,4 +431,3 @@ function M.LookAtItem(User, Item)
 end
 
 return M
-
