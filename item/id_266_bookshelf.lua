@@ -168,7 +168,7 @@ bookList["celegails_songbook"] = {english = "Celegails songbook", german = "Cela
 
 function M.UseItem(user, item)
     local bookIds = {}
-    
+
     local callback = function(dialog)
         local success = dialog:getSuccess()
         if success then
@@ -181,15 +181,15 @@ function M.UseItem(user, item)
     local description = common.GetNLS(user, "Welches Buch möchtest du lesen?", "Which book do you want to read?")
     local dialog = SelectionDialog(title, description, callback)
     dialog:setCloseOnMove()
-  
+
     for i = 1, maximumBooksPerShelf do
         local book = item:getData("book" .. i)
         if book ~= "" then
             dialog:addOption(bookList[book].bookGraphic, common.GetNLS(user, bookList[book].german, bookList[book].english))
             table.insert(bookIds, bookList[book].bookId)
         end
-    end    
-    
+    end
+
     if #bookIds > 0 then
         user:requestSelectionDialog(dialog)
     end
@@ -198,7 +198,7 @@ end
 
 function M.LookAtItem(user, item)
     local lookAt = lookat.GenerateLookAt(user, item)
-    
+
     local bookTitles = {german = {}, english = {}}
     for i = 1, maximumBooksPerShelf do
         local book = item:getData("book" .. i)
@@ -207,12 +207,12 @@ function M.LookAtItem(user, item)
             table.insert(bookTitles.english, bookList[book].english)
         end
     end
-    
+
     if #bookTitles.german == 0 then
         lookAt.description = common.GetNLS(user, "Dieses Regal ist leer.", "This bookshelf is empty.")
     elseif #bookTitles.german == 1 then
         lookAt.description = common.GetNLS(user, "Hier steht ein einzelnes Buch:", "There is one single book:")
-        lookAt.description = lookAt.description .. "\n" .. common.GetNLS(user, bookTitles.german, bookTitles.english)
+        lookAt.description = lookAt.description .. "\n" .. common.GetNLS(user, bookTitles.german[1], bookTitles.english[1])
     else
         lookAt.description = common.GetNLS(user, "Hier stehen " .. #bookTitles.german .. " Bücher:", "There are " .. #bookTitles.german .. " books here:")
 
@@ -220,7 +220,7 @@ function M.LookAtItem(user, item)
             lookAt.description = lookAt.description .. "\n" .. common.GetNLS(user, bookTitles.german[i], bookTitles.english[i])
         end
     end
-    
+
     return lookAt
 end
 
