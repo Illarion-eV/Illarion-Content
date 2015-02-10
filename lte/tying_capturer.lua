@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local M = {}
@@ -24,17 +24,17 @@ local M = {}
 ]]
 
 function M.addEffect( Tying, Capturer )
-	
+
 	-- nothing
 end
 
 function M.callEffect( Tying, Capturer )
-	
+
 	local foundEscape, escape = Tying:findValue("escape");
 	local foundLogout = Tying:findValue("logout");
 	local foundCaptive, Captive = Tying:findValue("Captive");
 	Tying.nextCalled = 5;
-	
+
 	if foundCaptive then
 		Captive = IsCharidInRangeOf(Captive,Capturer.pos,5);
 		if Captive then
@@ -44,7 +44,7 @@ function M.callEffect( Tying, Capturer )
 					"You untie the captive.");
 				return false;
 			end
-			
+
 			-- ## BEGIN ## reappeared captive
 			if foundLogout then
 				Tying:removeValue("logout");
@@ -67,7 +67,7 @@ function M.callEffect( Tying, Capturer )
 				end
 			end
 			-- ## END ## reappeared captive
-			
+
 			-- ## BEGIN ## rope handling
 			if not foundLogout then
 				local Rope = GetRope(Capturer);
@@ -89,7 +89,7 @@ function M.callEffect( Tying, Capturer )
 				world:changeItem(Rope);
 			end
 			-- ## END ## rope handling
-			
+
 			-- ## BEGIN ## escape algorithm for leading capturer
 			local foundEffect, TyingCaptive = Captive.effects:find(24);
 			if foundEffect then
@@ -131,7 +131,7 @@ function M.callEffect( Tying, Capturer )
 			-- ## END ## escape algorithm for leading capturer
 			return true;
 		end
-		
+
 		-- no captive near
 		local foundLogout = Tying:findValue("logout");
 		if not foundLogout then -- first call after captive disappeared, inform player
@@ -146,7 +146,7 @@ function M.callEffect( Tying, Capturer )
 end
 
 function M.removeEffect( Tying, Capturer )
-	
+
 	local rope = GetRope(Capturer);
 	if rope then
 		local eraseIt = true;
@@ -173,7 +173,7 @@ function M.removeEffect( Tying, Capturer )
 end
 
 function M.loadEffect( Tying, Capturer )
-	
+
 	Tying:removeValue("logout");
 end
 
@@ -181,7 +181,7 @@ end
 -- Additional functions
 -- ===============================
 
---[[ 
+--[[
     IsCharidInRangeOf
     check if a Character with a certain ID is in range of a position
     @param integer - ID of the Character that shall be found
@@ -189,8 +189,8 @@ end
     @param integer - radius of the circle that shall be checked
     @return CaptiveStruct - the Character if he was found, false if not found
 ]]
-function IsCharidInRangeOf( CharID, Position, Range )
-	
+function M.IsCharidInRangeOf( CharID, Position, Range )
+
 	CharID = CharID+1-1;
 	local CharList = world:getCharactersInRangeOf(Position,Range);
 	for i,Char in pairs(CharList) do
@@ -204,8 +204,8 @@ end
 --[[ Compare all attribs in AttribList from Char1 and Char2.
 Return the best (highest) Offset for Char1, at least 0.
 ]]
-function GetBestAttribOffset( Char1, Char2, AttribList )
-	
+function M.GetBestAttribOffset( Char1, Char2, AttribList )
+
 	local bestOffset = 0;
 	local currentOffset;
 	local cnt;
@@ -224,8 +224,8 @@ function InformW( User, textInDe, textInEn )
     User:inform(common.GetNLS( User, textInDe, textInEn ),Player.mediumPriority);
 end
 
-function GetRope( Character )
-	
+function M.GetRope( Character )
+
 	local Rope = Character:getItemAt(5);
 	if not ( Rope.id == 2760 and Rope:getData("tyingStatus") == "tied" ) then
 		Rope = Character:getItemAt(6);
@@ -236,8 +236,8 @@ function GetRope( Character )
 	return Rope;
 end
 
-function HasEnoughCapturers( Character, excludedId )
-	
+function M.HasEnoughCapturers( Character, excludedId )
+
 	local limit = 2;
 	local retVal = 0;
 	local CharList = world:getCharactersInRangeOf(Character.pos,5);
