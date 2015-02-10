@@ -61,7 +61,7 @@ local bookYellowVeryHeavy = 131
 local pell = 3110
 local pellOpen = 3109
 
-local bookList = {}
+M.bookList = {}
 bookList["cadomyr_on_cadomyr"] = {english = "Cadomyr, most faithful", german = "Cadomyr, unsere treueste", bookId = 1, bookGraphic = bookBrown}
 bookList["cadomyr_on_galmair"] = {english = "Galmair, the Others from the North", german = "Galmair, die Anderen vom Norden", bookId = 2, bookGraphic = bookBrown}
 bookList["cadomyr_on_runewick"] = {english = "Runewick, the Others from the East", german = "Runewick, die Anderen vom Osten", bookId = 3, bookGraphic = bookBrown}
@@ -185,8 +185,8 @@ function M.UseItem(user, item)
     for i = 1, maximumBooksPerShelf do
         local book = item:getData("book" .. i)
         if book ~= "" then
-            dialog:addOption(bookList[book].bookGraphic, common.GetNLS(user, bookList[book].german, bookList[book].english))
-            table.insert(bookIds, bookList[book].bookId)
+            dialog:addOption(M.bookList[book].bookGraphic, common.GetNLS(user, M.bookList[book].german, M.bookList[book].english))
+            table.insert(bookIds, M.bookList[book].bookId)
         end
     end
 
@@ -203,8 +203,8 @@ function M.LookAtItem(user, item)
     for i = 1, maximumBooksPerShelf do
         local book = item:getData("book" .. i)
         if book ~= "" then
-            table.insert(bookTitles.german, bookList[book].german)
-            table.insert(bookTitles.english, bookList[book].english)
+            table.insert(bookTitles.german, M.bookList[book].german)
+            table.insert(bookTitles.english, M.bookList[book].english)
         end
     end
 

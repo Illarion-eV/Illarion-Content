@@ -38,29 +38,18 @@ function M.UseItem(User, SourceItem)
         granorsHut.readingBook(User)
     end
 
-	if SourceItem:getData("book")~="" then
-		local book =tonumber( SourceItem:getData("book"))
-		if book == nil then
-			return
-		end
+    local book = SourceItem:getData("book")
+	if book ~= "" then
 		if id_266_bookshelf.bookList[book] ~= nil then
 			User:sendBook(id_266_bookshelf.bookList[book].bookId)
 		end
 	end
 
-	-- old data!
-	--[[	if (User:getSkill(bookLanguage[SourceItem.data]) >= bookMinimumLanguage) then
-		User:sendBook(SourceItem.data);
-	else
-		common.InformNLS(User, Item,
-			"Das Buch ist in einer Sprache geschrieben, von der du zu wenig Kenntnisse hast.",
-			"The book is written in a language in what your knowledge is not advanced enough.");
-	end]]
 end
 
 function M.LookAtItem(User,Item)
-    if Item:getData("book")~="" then
-		local book =tonumber( Item:getData("book"))
+    local book = Item:getData("book")
+    if book ~= "" then
 		if book ~= nil then
 			if id_266_bookshelf.bookList[book] ~= nil then
 				lookat.SetSpecialName(Item,id_266_bookshelf.bookList[book].german,id_266_bookshelf.bookList[book].english)

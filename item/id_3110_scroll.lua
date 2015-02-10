@@ -22,12 +22,10 @@ local M = {}
 -- UPDATE items SET itm_script = 'item.id_3110_scroll' WHERE itm_id = 3110;
 
 function M.LookAtItem(User,Item)
-    if Item:getData("book")~="" then
-		local book =tonumber( Item:getData("book"))
-		if book ~= nil then
-			if id_266_bookshelf.bookList[book] ~= nil then
-				lookat.SetSpecialName(Item,id_266_bookshelf.bookList[book].german,id_266_bookshelf.bookList[book].english)
-			end
+    local book = Item:getData("book")
+    if book ~= "" then
+        if id_266_bookshelf.bookList[book] ~= nil then
+            lookat.SetSpecialName(Item,id_266_bookshelf.bookList[book].german,id_266_bookshelf.bookList[book].english)
 		end
 	end
 	return lookat.GenerateLookAt(User, Item, 0)
@@ -38,14 +36,11 @@ function M.UseItem(User, SourceItem)
 		transformation_dog.UseSealedScroll(User, SourceItem)
 		return
 	end
-
-	if SourceItem:getData("book")~="" then
-		local book =tonumber( SourceItem:getData("book"))
-		if book == nil then
-			return
-		end
-		if id_266_bookshelf.bookList[book] ~= nil then
-			User:sendBook(id_266_bookshelf.bookList[book].bookId)
+    
+    local book = SourceItem:getData("book")
+	if book ~= "" then
+        if id_266_bookshelf.bookList[book] ~= nil then
+            User:sendBook(id_266_bookshelf.bookList[book].bookId)
 		end
 	end
 
