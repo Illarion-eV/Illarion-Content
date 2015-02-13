@@ -90,7 +90,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 10% Throwing weapons: 293, 294, 2645
 -- 10% Weapons: 445(wooden sword), 1045(wooden dagger), 2664(club), 1044(battle hammer), 1041(spiked mace), 1052 Dwarfen Stormhammer, 1043 Dwarfen Hammer, 226 warhammer, 2737 war flail, 231 battle flail, 230 mace, 1090 walking stick
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Lothar Piero the timber merchant. Keywords: buy, sell, trade, Hello, profession, poetry, Pennymill, Archmage Morgan.")
@@ -98,7 +98,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "May Oldra bless you. Do you need wooden goods?", "#me nods slowly: 'Wisdom and patience. How can I help you?'", "Hiho! How can I help you?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Oldra mit Euch. Benötigt Ihr hölzernes Gut?", "#me neigt seinen Kopf: 'Weisheit und Ausgeglichenheit. Wie darf ich Euch behilfich sein?'", "Hiho! Womit kann ich dienlich sein?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Oldra mit Euch. Benötigt Ihr hölzernes Gut?", "#me neigt seinen Kopf: 'Weisheit und Ausgeglichenheit. Wie darf ich Euch behilfich sein?'", "Hiho! Womit kann ich dienlich sein?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Sounds sloppy, but I'm not picky. Be greeted!", "Honour the Gods, do you need boards?", "Good day. I welcome you on behalf of all my collegues."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Das ist durchwegs salopp gesagt, aber ich bin nicht kleinlich. Seid gegrüßt.", "Ehre den Göttern, wollt ihr Bretter kaufen?", "Guten Tag. Im Namen aller Händler will ich Euch willkommen heißen."
 "Farewell", "Bye", "Fare well", "See you" -> "Good bye. May Oldra bless your gardens and fields.", "Farewell and see you soon.", "Adieu! Come back anytime soon."
@@ -108,7 +108,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Good bye. May Oldra bless y
 "How are you", "How feel", "How do you do" -> "Wonderful! Indeed, Oldra smiles upon me.", "Even if a cloud covers the sun, I know that it shines on me every day.", "A dark night is defeated by the sunrise."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Ausgezeichnet. Ja, Oldra blickt wohlwollend auf mich herab.", "Auch wenn hier und dort eine Wolke die Sonne verdecken mag, ich weiß, dass sie trotzdem jeden neuen Tag am Himmel stehen wird.", "So finster Euch manche Nacht erscheinen kann, die Sonne wird erwachen und alles Finstere vertreiben."
 "your name", "who are you", "who art thou" -> "My name is Lothar Piero. Welcome to the market of Runewick.", "I am Lothar Piero and I... wood.", "Boards, shields, bows, what do you desire? I am Lothar Piero and I have wood!"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich heiße Lothar Piero. Seid mir willkommen am Markt von Runewick.", "Ich bin Lothar Piero und handle mit allerlei hölzernen Gut.", "Bretter, Schilde, Bögen, was wollt Ihr wohl mögen? Ich bin Lothar Piero und handle mit Holz."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich heiße Lothar Piero. Seid mir willkommen am Markt von Runewick.", "Ich bin Lothar Piero und handle mit allerlei hölzernen Gut.", "Bretter, Schilde, Bögen, was wollt Ihr wohl mögen? Ich bin Lothar Piero und handle mit Holz."
 
 -- Catching quest triggers
 english, "quest", "mission" -> "Sorry, I have no job for you."

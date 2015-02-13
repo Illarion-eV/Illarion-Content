@@ -78,7 +78,7 @@ itemShoes = 0
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetingsss to you."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßsst."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßsst."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetingsss to you.", "#me hisses."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßsst.", "#me zischt"
 "Farewell", "Bye", "Fare well", "See you" -> "Ssss. Zzzelphia be with you. Zss."
@@ -88,13 +88,13 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ssss. Zzzelphia be with you
 "How are you", "How feel", "How do you do" -> "I'm feeling very good. Sss. Extraordinary."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es sssehr gut. Ausssgezzeichnet. Sss."
 "your name", "who are you", "who art thou" -> "I am the one called Zassaria Riverbank. Nice to meet you. Sss."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich werde Zassaria Riverbank genannt. Sss."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich werde Zassaria Riverbank genannt. Sss."
 
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Tsss! I ate all my fisssh. I'll catch new fishiesss sssoon."
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Tsss! Ich aß all meinen Fisssch. Ich werde ssschnellssstmöglich neuen fangen."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Tsss! Ich aß all meinen Fisssch. Ich werde ssschnellssstmöglich neuen fangen."
 
 -- A message Quest
 -- fix

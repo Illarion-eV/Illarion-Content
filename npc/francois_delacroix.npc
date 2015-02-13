@@ -107,7 +107,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day.", "Greeted be.", "It's your lucky day! You've found the best farmer in town!"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Guten Tag.", "Wie geht es Euch?", "Heute scheint Euer Glückstag zu sein, warum? Ihr habt beschlossen bei mir einzukaufen."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Guten Tag.", "Wie geht es Euch?", "Heute scheint Euer Glückstag zu sein, warum? Ihr habt beschlossen bei mir einzukaufen."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Good day there.", "How fare you?", "It's your lucky day! You've found the best farmer in town!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Guten Tagder Herr, die Dame.", "Wie geht es Euch?", "Heute scheint Euer Glückstag zu sein, warum? Ihr habt beschlossen bei mir einzukaufen."
 "Farewell", "Bye", "Fare well", "See you" -> "Have a magnificent day today. Remember you are beautiful.", "Great tidings, friend! See you later.", "Remember to tell your friends to come and see Francois Delacroix for all their agricultural needs!"
@@ -117,7 +117,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a great day today! You
 "How are you", "How feel", "How do you do" -> "I'd feel better if you  brought something.", " I feel a lot better now that you've come!", "It's just one of those days, you know?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich würde mich besser fühlen, würdet ihr etwas einkaufen.", "Ich fühle mich viel besser jetzt wo ihr vorbei gekommen seid.", "Es ist einer dieser Tage, Ihr versteht?"
 "your name", "who are you", "who art thou" -> "Francois Delacroix , agricultural goods.", "My name is Francois. It's beyond a pleasure to be acquainted with you", "Francois Delacroix, it still feels weird every time I say it."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Francois Delacroix, Produke aus der Landwirtschaft.", "My Name ist Francois. Es ist mir eine Freude Eure Bekanntschaft zu machen", "Francois Delacroix. Es klingt noch immer jedes Mal seltsam es zu sagen."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Francois Delacroix, Produke aus der Landwirtschaft.", "My Name ist Francois. Es ist mir eine Freude Eure Bekanntschaft zu machen", "Francois Delacroix. Es klingt noch immer jedes Mal seltsam es zu sagen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I sell goods such as milk and farmer's tools", "I sell that which you need.", "I sell homemade agricultural goods.", trade

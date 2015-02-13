@@ -82,7 +82,7 @@ queststatus(620) = 1, english, ".*" -> inform("[Quest End 'Find Numila'] You rec
 queststatus(620) = 1, ".*" -> inform("[Quest Ende 'Finde Numila'] Du hast 10 Silberstücke erhalten."), money + 1000, queststatus(620) = 2, "Heil Oldra. Endlich habt ihr mich gefunden. Elesil hat mich bereits informiert über euren Besuch. *Überreicht einige Silbermünzen und wendet sich wieder ihrem Buch zu*"
 
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hail Oldra. *Turns back to her book*"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Heil Oldra. *Wendet sich wieder ihrem Buch zu*"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Heil Oldra. *Wendet sich wieder ihrem Buch zu*"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hail Oldra. *Turns back to her book*"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Heil Oldra. *Wendet sich wieder ihrem Buch zu*"
 "Farewell", "Bye", "Fare well", "See you" -> "Au revoir. *Turns back to her book*"
@@ -92,7 +92,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Au revoir. *Turns back to h
 "How are you", "How feel", "How do you do" -> "Fine, fine. *Turns back to her book*"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Fein, fein. *Wendet sich wieder ihrem Buch zu*"
 "your name", "who are you", "who art thou" -> "Numila Irunnleh the scholar. *Turns back to her book*"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Numila Irunnleh die Wissenschaftlerin. *Wendet sich wieder ihrem Buch zu*"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Numila Irunnleh die Wissenschaftlerin. *Wendet sich wieder ihrem Buch zu*"
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 english, "inform" -> inform("[Keywords] Illarion, northeast, northwest, southwest, southeast"), "I have information about places close to Runewick for you, if you want to know about them?"

@@ -65,7 +65,7 @@ queststatus(712) = 0, town = Galmair, ".+" -> queststatus(712) = 1, "Willkommen 
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Be greeted.", "Nice to meet you, I'm Joey Licavoli"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Freut mich, Euch zu treffen. Ich bin Joey Licavoli."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Freut mich, Euch zu treffen. Ich bin Joey Licavoli."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted.", "Nice to meet you, I'm Joey Licavoli"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt.", "Freut mich, Euch zu treffen. Ich bin Joey Licavoli."
 "Farewell", "Bye", "Fare well", "See you" -> "Thank you so, so much for talking to me. If you need help finding something to do, just come back.", "Please have a good day. If you need help finding something to do, just come back."
@@ -75,7 +75,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Thank you so, so much for t
 "How are you", "How feel", "How do you do" -> "I feel fine, thank you for asking."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke für die Nachfrage."
 "your name", "who are you", "who art thou" -> "I'm Joey Licavoli. I'm here to help."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Joey Licavoli. Ich bin hier zum Helfen."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Joey Licavoli. Ich bin hier zum Helfen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "My mission is to help, so if you need something to do, just ask."

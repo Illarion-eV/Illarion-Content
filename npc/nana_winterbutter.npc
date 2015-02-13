@@ -90,7 +90,7 @@ itemShoes = 53
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings! Maybe you could help me with a recipe?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt! Vielleicht könntet Ihr mir bei einem Rezept helfen."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt! Vielleicht könntet Ihr mir bei einem Rezept helfen."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings! Maybe you could help me with a recipe?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt! Vielleicht könntet Ihr mir bei einem Rezept helfen."
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell!", "Oldra's blessing!", "Come back soon!"
@@ -100,7 +100,7 @@ english, "Ciao", "Adieu", "Au revoir" -> "Farewell!", "Oldra's blessing!", "Come
 "How are you", "How feel", "How do you do" -> "I'm fine.", "Thank you very much!", "Well, I have this recipe in mind, which I would like to try."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es gut.", "Vielen Dank!", "Nun, ich habe dieses Rezept im Kopf, welches ich gerne ausprobieren würde."
 "your name", "who are you", "who art thou" -> "I am Nana Winterbutter.", "I'm a cook as you might have noticed, and a good one I might add"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Nana Winterbutter.", "Ich bin eine Köchin, wie Ihr vielleicht bereits bemerkt habt. Und eine gute, wenn ich das hinzufügen darf."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Nana Winterbutter.", "Ich bin eine Köchin, wie Ihr vielleicht bereits bemerkt habt. Und eine gute, wenn ich das hinzufügen darf."
 
 -- Tool hints
 queststatus(70) = 0, "recipe" -> "I have this special recipe in mind. I don't want to reveal too much about it but I would be grateful if you could help me with a quest."

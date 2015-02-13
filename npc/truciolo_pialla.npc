@@ -79,7 +79,7 @@ itemShoes = 697
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greeting, what do you want?", "The Five with you, may I help you?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße dich.", "Die Fünf mit dir, kann ich dir irgendwie helfen?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße dich.", "Die Fünf mit dir, kann ich dir irgendwie helfen?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "What do you want? Oh sorry, Greetings!", "Ja ja."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Was? Oh entschuldigt, natürlich. Grüßt Euch!", "Ja ja."
 "Farewell", "Bye", "Fare well", "See you" -> "Bye bye, take care.", "The Five with you!", "Until next time!"
@@ -89,7 +89,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Bye bye, take care.", "The 
 "How are you", "How feel", "How do you do" -> "I can't say anything is bothering me and you?", "So-so, but I'm fine right now."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich kann nicht klagen und du?", "Ganz gut und selbst?", "Mal so, mal so, aber gerade geht es mir ganz gut."
 "your name", "who are you", "who art thou" -> "I'm Truciolo and who are you?", "I'm called Truciolo, and what's your name?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin der Schnitzer Truciolo und wer bist du?", "Man nennt mich Truciolo und wie nennt man dich?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin der Schnitzer Truciolo und wer bist du?", "Man nennt mich Truciolo und wie nennt man dich?"
 
 -- 1st quest
 queststatus(670) = 0, english, town = Galmair, "quest", "mission" -> "I could help you if you want to become a carver as well, but first bring me ten logs of apple wood, along with ten boughs, and don't forget to bring a saw. Here is a hatchet for you to get the wood.", item(74, 1, 333), queststatus(670) = 1

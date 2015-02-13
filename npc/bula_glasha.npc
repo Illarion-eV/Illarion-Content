@@ -79,7 +79,7 @@ itemShoes = 1054
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greebas. Joo want work?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Greebas. Du wollen Arbeit?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Greebas. Du wollen Arbeit?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greebas. Joo want work?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Greebas. Du wollen Arbeit?"
 "Farewell", "Bye", "Fare well", "See you" -> "Farebbas."
@@ -89,7 +89,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebbas"
 "How are you", "How feel", "How do you do" -> "Hurr! Mes bes goods."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Hurr! Wir sein gut."
 "your name", "who are you", "who art thou" -> "Joo can calls mes Bula Glasha. Mes have special job yubba."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Du sagen Bula Glasha zu mir, ich Dir geben besonderen Auftrag."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Du sagen Bula Glasha zu mir, ich Dir geben besonderen Auftrag."
 
 -- OPTIONAL TRIGGERS
 

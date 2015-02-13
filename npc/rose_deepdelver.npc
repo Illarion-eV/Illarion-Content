@@ -73,7 +73,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- ----------------------------------------------------------------------------AC
 
 -- Stock: big empty bottle, bread roll, golden goblet, apple pie, cookies, muffin, bottle with rum, empty bottle, bottle of blackberry juice, bottle of tangerine juice, bottle of banana juice, bottle of cabbage juice, bottle of tea, bottle of carrot juice, bottle of strawberry juice, empty bottle, bottle of grape juice, bottle of berry booze, bottle of bear slayer, small empty bottle, bottle of Elven wine, bottle of cherry schnapps, (silver, copper, gold)goblet, goblet with water, goblet with wine, goblet with mead, goblet with cider, cider, (empty,full)beer mug, glass, glass with mead, glass with wine, glass with water, glass with cider, wooden cup, cup with water, cup with wine, cup with mead, cup with cider, mulligan, cabbage stew, mushroom soup, blue bottle, orange bottle, grey bottle, green bottle, red bottle, black bottle, sausages dish, onion soup,  soup bowl, plate
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Lass uns handeln!", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Lass uns handeln!", trade
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Let's trade!", trade
 
 -- Help
@@ -82,7 +82,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho! I sell the best drinks."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho! Ich verkaufe die besten Getränke!"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho! Ich verkaufe die besten Getränke!"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Nice day, isn't it?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Schöner Tag heute, nicht?"
 "Farewell", "Bye", "Fare well", "See you" -> "See you!", "Toodles!", "Farewell."
@@ -92,7 +92,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "See you!", "Toodles!", "Far
 "How are you", "How feel", "How do you do" -> "I'm fine, what about you?", "I'm fine, but you look like you could need something to drink, hihi."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir gehts ganz gut und dir?", "Gut., aber du siehst aus als würdest du was zu trinken gebrauchen, hihi."
 "your name", "who are you", "who art thou" -> "Rose Deepdelver, barkeeper. That's me.", "I am the barkeeper Rose Deepdelver.", "Rose Deepdelver is my name, owner of this lovely tavern."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Rose Deepdelver, die Bedienung. Das bin ich.", "Ich bin die Bedienung Rose Deepdelver", "Rose Deepdelver mein Name, Besitzerin dieser großartigen Taverne."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Rose Deepdelver, die Bedienung. Das bin ich.", "Ich bin die Bedienung Rose Deepdelver", "Rose Deepdelver mein Name, Besitzerin dieser großartigen Taverne."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the owner and also the barkeeper of this tavern."

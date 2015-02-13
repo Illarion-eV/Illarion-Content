@@ -85,7 +85,7 @@ sellItems = 61, 3076, 3077
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings. You came to me to change money, am I right?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße. Ihr seid zu mir gekommen, um Geld zu wechseln, hab ich nicht recht?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße. Ihr seid zu mir gekommen, um Geld zu wechseln, hab ich nicht recht?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings. You came to me to change money, am I right?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüße. Ihr seid zu mir gekommen, um Geld zu wechseln, hab ich nicht recht?"
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell and come back with more money."
@@ -95,7 +95,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell and come back with
 "How are you", "How feel", "How do you do" -> "Let's skip this and get straight to business."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Überspringen wir die Höflichkeiten und kommen gleich zum Geschäft."
 "your name", "who are you", "who art thou" -> "Cassandra."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Cassandra."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Cassandra."
 
 -- OPTIONAL TRIGGERS
 
@@ -123,7 +123,7 @@ english, "gold" -> "A gold coin equals a hundred silver coins."
 
 -- Optional: Catching typical NPC phrases
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I just change money. I do not offer any other services.", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich wechsle einfach nur Geld. Ich biete keine anderen Dienste an.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich wechsle einfach nur Geld. Ich biete keine anderen Dienste an.", trade
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 english, "Ronagan" -> "You don't think that Ronagan is one of the evil guys, do you? If so, you have to learn a lot about the nature of the gods."

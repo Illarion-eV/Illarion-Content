@@ -71,7 +71,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- Tools (Brewer): 51, 227
 -- Beer: 1909, 1908
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Me sell all bottles and Barrels. Uh... wait. - Nubba you can't buy a barrel. But all things needed to brew! Hurr hurr.", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Isch verkauf Flaschn und Fässa. Uh...wart mal. - Nubba die Fässa kann man nischt kaufen. Aber alles Zeug zum Braun! Hehe.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Isch verkauf Flaschn und Fässa. Uh...wart mal. - Nubba die Fässa kann man nischt kaufen. Aber alles Zeug zum Braun! Hehe.", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Sogg Beermug the Alchemist. Keywords: buy, sell, trade, Occupation, Runewick, Galmair, Cadomyr"), state = 0, "Help? All ob us need help!...'hic'"
@@ -79,7 +79,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greebas!", "Hurr! Greetings.", "#me grunts and waves a mug of beer.", "Skoal! Come over 'ere and drink with Sogg!"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Greebas!", "Hurr! Grüße.", "#me grunzt und winkt mit einem Krug Bier.", "Prost! Kommst du her, und trinkst mit Sogg!"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Greebas!", "Hurr! Grüße.", "#me grunzt und winkt mit einem Krug Bier.", "Prost! Kommst du her, und trinkst mit Sogg!"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greebas!", "Hurr! Greetings.", "#me grunts and waves a mug of beer.", "Skoal! Come over 'ere and drink with Sogg!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Greebas!", "Hurr! Grüße.", "#me grunzt und winkt mit einem Krug Bier.", "Prost! Kommst du her, und trinkst mit Sogg!"
 "Farewell", "Bye", "Fare well", "See you" -> "Farebaaaa...!"
@@ -89,7 +89,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebaaaa...!"
 "How are you", "How feel", "How do you do" -> "Mes just a little bitty drunky..."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mirr nur kleinig bisschen bertrunkchen..."
 "your name", "who are you", "who art thou" -> "I'm Sogg Beermug. 'hic' Mes guarding tha barrels an' bottles! Uh!"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Isch bin Sogg Beermug. 'hick' Mirr bewacht all die Fässer und Flasch!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Isch bin Sogg Beermug. 'hick' Mirr bewacht all die Fässer und Flasch!"
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> "I havn't any tashks for you."

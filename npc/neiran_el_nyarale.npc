@@ -92,7 +92,7 @@ buySecondaryItems = 2
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings to you!", "#me smiles, 'Greetings'", "Good day, how can I help you?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt!", "#me lächelt: 'Grüße'", "Guten Tag, wie kann ich euch helfen?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt!", "#me lächelt: 'Grüße'", "Guten Tag, wie kann ich euch helfen?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello hello!", "Good day, how can I help you?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hallo hallo!", "Guten Tag, wie kann ich euch helfen?"
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell!", "See you soon again.", "#me waves: 'Have a good day!'"
@@ -102,13 +102,13 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Take care!", "May the Five 
 "How are you", "How feel", "How do you do" -> "Me? Thank you, I am fine. How are you?", "How do you do?", "#me shrugs his shoulders, 'I'm fine, how are you?'"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich? Mir geht es gut. Danke. Wie geht es Euch?", "Wie geht es Euch?", "#me zuckt mit den Schultern: 'Mir geht es gut und euch?'"
 "your name", "who are you", "who art thou" -> "Neiran el Nyarale, how can I help you?", "Neiran el Nyarale, at your service.", "Neiran el Nyarale from Runewick, and who are you?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Neiran el Nyarale, was kann ich für Euch tun?", "Neiran el Nyarale, zu euren Diensten.", "Neiran el Nyarale, aus Runewick. Und wer seid ihr?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Neiran el Nyarale, was kann ich für Euch tun?", "Neiran el Nyarale, zu euren Diensten.", "Neiran el Nyarale, aus Runewick. Und wer seid ihr?"
 
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Me? I am not a trader. I'm the guard of the treasury, a very interesting profession if you ask me."
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich? Ich bin kein Händler. Ich bin der Wächter der Schatzkammer, ein sehr interessanter Beruf wenn ihr mich fragt."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich? Ich bin kein Händler. Ich bin der Wächter der Schatzkammer, ein sehr interessanter Beruf wenn ihr mich fragt."
 
 -- Quest 1: Donate something to the treasury
 -- fix

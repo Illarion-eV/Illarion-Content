@@ -85,7 +85,7 @@ itemShoes = 697
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be Greeted.", "Be Greeted in the name of the Five. Have you come to help with our rat mission?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Begrüßt.", "Sei gegrüßt im Namen der Fünf. Bist du gekommen uns bei der Rattenmission zu helfen?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Begrüßt.", "Sei gegrüßt im Namen der Fünf. Bist du gekommen uns bei der Rattenmission zu helfen?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be Greeted.", "Be Greeted in the name of the Five. Have you come to help with our rat mission?"
 "Hiho", "Hallo", "Hey", "Greeb" ->"Begrüßt.", "Sei gegrüßt im Namen der Fünf. Bist du gekommen uns bei der Rattenmission zu helfen?"
 "Farewell", "Bye", "Fare well", "See you" -> "May the five guide you.", "Farewell and safekeeping till we cross paths again."
@@ -95,7 +95,7 @@ english, "Ciao", "Adieu", "Au revoir" -> "May the five guide you.", "Farewell an
 "How are you", "How feel", "How do you do" -> "I am most blessed."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich bin reich gesegnet."
 "your name", "who are you", "who art thou" -> "My name is Cilivren Itiireae, I am the Guardian of the Fields."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Cilivren Itiireae, Ich bin der Wächter der Felder."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Mein Name ist Cilivren Itiireae, Ich bin der Wächter der Felder."
 
 -- Catching quest triggers of other factions' members.
 english, town = none, "quest", "mission" -> "Only those from the realm of wisdom will find work here."

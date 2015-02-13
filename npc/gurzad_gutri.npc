@@ -100,7 +100,7 @@ itemShoes = 53
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day to ye, have ya come to contribute to Galmair's storage", "Greetings! This here be where the Don lives, so watch yourself.", "Hello there. This is where we sort out the storage for Galmair, I hope you're here to help!"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt. Seid Ihr gekommen, um Galmairs Lager aufzustocken?", "Grüße! Der Don wohnt und lebt hier, also benehmt Euch!", "Grüße. An diesem Ort sammeln wir unter anderem die Güter Galmairs, ich hoffe, Ihr seid gekommen, um zu spenden und zu helfen."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt. Seid Ihr gekommen, um Galmairs Lager aufzustocken?", "Grüße! Der Don wohnt und lebt hier, also benehmt Euch!", "Grüße. An diesem Ort sammeln wir unter anderem die Güter Galmairs, ich hoffe, Ihr seid gekommen, um zu spenden und zu helfen."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Good day to ye, have ya come to contribute to Galmair's storage", "Greetings! This here be where the Don lives, so watch yourself.", "Hello there. This is where we sort out the storage for Galmair, I hope you're here to help!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt. Seid Ihr gekommen, um Galmairs Lager aufzustocken?", "Grüße! Der Don wohnt und lebt hier, also benehmt Euch!", "Grüße. An diesem Ort sammeln wir unter anderem die Güter Galmairs, ich hoffe, Ihr seid gekommen, um zu spenden und zu helfen."
 "Farewell", "Bye", "Fare well", "See you" -> "Irmorom with ye!", "Check back regularly for more orders!", "Best o' luck to ya!"
@@ -110,7 +110,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Irmorom with ye!", "Check b
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "I am well, but I'll be better after you help stock the storage!"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Es geht mir gut, aber ich würde mich freuen, wenn Ihr mir helfen könntet!"
 "your name", "who are you", "who art thou" -> "I am Gurzad Gutri! I have been tasked with the position of clerk to help maintain our stocks and storage, I expect ye want to help?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Gurzad Gutri! Ich wurde mit der Position des obersten Sekretärs beauftragt, um das Lager der Stadt instand zu halten. Ich nehme an, Ihr wollt mir dabei helfen?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Gurzad Gutri! Ich wurde mit der Position des obersten Sekretärs beauftragt, um das Lager der Stadt instand zu halten. Ich nehme an, Ihr wollt mir dabei helfen?"
 
 -- Catching quest triggers of other factions' members. Outlaws are ignored.
 english, town = Cadomyr, "quest", "mission" -> "In Galmair, we stand on our own feet! We are not in need of the Queen's assistance!"

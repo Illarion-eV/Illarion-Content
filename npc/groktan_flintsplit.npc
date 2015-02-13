@@ -97,7 +97,7 @@ queststatus(107) > 14, ".+" -> inform("[Error] Something went wrong, please info
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "You're not here to pay a bill, so, what is it you want?", "Your account with the Don is balanced. Whatcha want?", "A good day to you, a good day for Galmair."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Du bist nicht hier, um eine Rechnung zu begleichen. Also, was gibt es?", "Du hast keine offenen Rechnungen mit dem Don. Was ist los?", "Einen guten Tag wünsche ich, einen guten Tag für Galmair."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Du bist nicht hier, um eine Rechnung zu begleichen. Also, was gibt es?", "Du hast keine offenen Rechnungen mit dem Don. Was ist los?", "Einen guten Tag wünsche ich, einen guten Tag für Galmair."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "You're not here to pay a bill, so, what is it you want?", "Your account with the Don is balanced. Whatcha want?", "A good day to you, a good day for Galmair."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Du bist nicht hier, um eine Rechnung zu begleichen. Also, was gibt es?", "Du hast keine offenen Rechnungen mit dem Don. Was ist los?", "Einen guten Tag wünsche ich, einen guten Tag für Galmair."
 "Farewell", "Bye", "Fare well", "See you" -> "Come back with some money!", "Good bye, and always think what the Don would do to you if you misbehave.", "#me grunts, 'Aye, bye'."
@@ -107,7 +107,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Come back with some money!"
 "How are you", "How feel", "How do you do" -> "The things I do make me feel alright. How about you?", "Well, I know many folks who feel worse, usually, they owe the Don some money.", "Business is good. The Don cares for me and I care for his debt claims."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Was mache mache, stellt mich zufrieden. Und wie sieht das bei dir aus?", "Nun, ich kenne viele Leute, denen es weit schlechter geht. Meist schulden sie dem Don Geld.", "Das Geschäft läuft bestens. Der Don sorgt für mich und ich kümmere mich um seine Schuldscheine."
 "your name", "who are you", "who art thou" -> "I am Badman!", "They call me Groktan, as long as they don't mess with me... Then, they call me Master Groktan!", "Groktan Flintsplit. At the Don's service."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Badman!", "Die Leute nennen mich Groktan, solange sie sich mit mir noch nicht angelegt haben. Hinterher nennen sie mich dann Meister Groktan!", "Groktan Flintsplit. Stets dem Don zu Diensten."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Badman!", "Die Leute nennen mich Groktan, solange sie sich mit mir noch nicht angelegt haben. Hinterher nennen sie mich dann Meister Groktan!", "Groktan Flintsplit. Stets dem Don zu Diensten."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 -- 1st quest: Bring 5 ropes, reward 200cp

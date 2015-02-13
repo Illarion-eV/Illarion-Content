@@ -90,7 +90,7 @@ buySecondaryItems = 2, 3
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hello. You look happy today. Did you eat a nice meal?", "Hello. You do not look too happy today. Are you hungry?", "Hello. How are you today?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo. Du siehst glücklich aus. Hast du grade etwas leckeres gegessen?", "Hallo. Du siehst nicht so glücklich aus. Hast du Hunger?", "Hallo. Wie geht es dir?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo. Du siehst glücklich aus. Hast du grade etwas leckeres gegessen?", "Hallo. Du siehst nicht so glücklich aus. Hast du Hunger?", "Hallo. Wie geht es dir?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello. You look happy today. Did you eat a nice meal?", "Hello. You do not look too happy today. Are you hungry?", "Hello. How are you today?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hallo. Du siehst glücklich aus. Hast du grade etwas leckeres gegessen?", "Hallo. Du siehst nicht so glücklich aus. Hast du hunger?", "Hallo. Wie geht es dir?"
 "Farewell", "Bye", "Fare well", "See you" -> "Safe journey, and don't forget to take enough food with you!", "#me waves goodbye.", "Please come again!"
@@ -100,7 +100,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Safe journey, and don't for
 "How are you", "How feel", "How do you do" -> "I am fine, I just ate my cake.", "I am fine, I'll soon eat my cake.", "I am sad, I ate all my cake."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut. Ich habe eben Kuchen gegessen.", "Mir geht es gut. Ich werde gleich Kuchen essen.", "Ich bin traurig. Ich habe meinen Kuchen aufgegessen."
 "your name", "who are you", "who art thou" -> "Marcel Metalfeet, at your service."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Marcel Metalfeet, stets zu Diensten."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Marcel Metalfeet, stets zu Diensten."
 
 -- repair triggers
 "repair", "fix", "polish", "mend", "patch", "darn" -> "Let's have a look at this.", repair
@@ -110,7 +110,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Safe journey, and don't for
 
 -- Optional: Trade Hooks, use only for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I do not sell anything, but I can repair all kinds of things for you."
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "I verkaufe nichts, aber ich kann alles mögliche für Euch reparieren."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "I verkaufe nichts, aber ich kann alles mögliche für Euch reparieren."
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 english, "quest", "mission" -> "I don't have anything to do for you."

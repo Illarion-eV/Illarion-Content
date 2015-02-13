@@ -93,7 +93,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 10% Hats: 357, 358, 370, 371, 828, 829, 830, 831, 832
 -- 10% Leather goods: 48, 53, 89, 97, 356, 362, 363, 364, 365, 366, 367, 369, 526, 527, 697, 698, 2113, 2114, 97
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you're interested in my wares.", "Take your time to look around.", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the tailor Timotheus. Keywords: sell, buy, trade, Hello, tailor.")
@@ -101,7 +101,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Welcome wise one.", "Why, greetings to you!", "Greetings elevated one."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen, mein weiser Freund.", "Wie jetzt, seid gegrüßt!", "Grüße, mein Großer."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen, mein weiser Freund.", "Wie jetzt, seid gegrüßt!", "Grüße, mein Großer."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Please don't be so informal!", "Well.. Greetings.", "Is that the way people talk on the street nowadays?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Na, nicht so schnodderig.", "Nun... seid gegrüßt.", "Redet man heutzutage so auf der Straße?"
 "Farewell", "Bye", "Fare well", "See you" -> "May Elara protect your knowledge!", "Insightful journey to you!", "Farewell now!"
@@ -111,7 +111,7 @@ english, "Ciao", "Adieu", "Au revoir" -> "Trying to charming me, eh? Farewell th
 "How are you", "How feel", "How do you do" -> "I'm feeling wonderful, thank you.", "Great! Did you know the library has books about famous tailors? Amazing literature."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es wunderbar, danke.", "Großartig! Wußtet ihr, dass es in der Bibliothek Bücher über berühmte Schneider gibt? Spannende Lektüre, muss ich sagen."
 "your name", "who are you", "who art thou" -> "I am Timotheus.", "Why, Timotheus of course!"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Timotheus.", "Wie jetzt, Timotheus natürlich!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Timotheus.", "Wie jetzt, Timotheus natürlich!"
 
 -- Catching quest triggers
 english, "quest" -> "I only sell goods, my apologies. Quests are for the courageous and the empty headed."

@@ -76,7 +76,7 @@ itemShoes = 369
 queststatus(604) = 1, english, ".*" -> inform("[Quest 'Find Elesil'] You can talk with Elesil now. Ask for 'help' if you do not know what to say! You can also go back to Hummi to collect your reward and come back later."), "How can I help you? Do you want any information? Or would you like a task?", queststatus(604) = 2
 queststatus(604) = 1, ".*" -> inform("[Quest 'Finde Elesil'] Da kannst nun mit Elesil sprechen. Frage nach 'Hilfe' wenn du nicht weiﬂt nach was du fragen sollst! Du kannst auch zur¸ck zu Hummi gehen um deine Belohnung abzuholen und sp‰ter nochmals vorbei kommen."), "Wie kann ich euch helfen? W¸nscht ihr eine Information? Oder w¸nscht ihr eine Aufgabe?", queststatus(604) = 2
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> inform("[Hint] Have you already asked her for 'information' or her 'quest'?"),"Hail Elara. *Closes her eyes*"
-"Gr¸ﬂ", "Gruﬂ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> inform("[Hinweis] Hast du sie bereits nach 'Information' oder 'Quest' befragt?"),"Heil Elara. *Schlieﬂt ihre Augen*"
+"Gr¸ﬂ", "Gruﬂ", "Gr¸ss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> inform("[Hinweis] Hast du sie bereits nach 'Information' oder 'Quest' befragt?"),"Heil Elara. *Schlieﬂt ihre Augen*"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> inform("[Hint] Have you already asked her for 'information' or her 'quest'?"),"Hail Elara. *Closes her eyes*"
 "Hiho", "Hallo", "Hey", "Greeb" -> inform("[Hinweis] Hast du sie bereits nach 'Information' oder 'Quest' befragt?"),"Heil Elara. *Schlieﬂt ihre Augen*"
 "Farewell", "Bye", "Fare well", "See you" -> "Au revoir. *Closes her eyes*"
@@ -86,7 +86,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Au revoir. *Closes her eyes
 "How are you", "How feel", "How do you do" -> "Fine, fine. *Closes her eyes*"
 "Wie geht", "Wie f¸hlst", "Wie ist es ergangen", "Wie Befind" -> "Fein, fein. *Schlieﬂt ihre Augen*"
 "your name", "who are you", "who art thou" -> "Elesil Daelwon. *Closes her eyes*"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiﬂt" -> "Elesil Daelwon. *Schlieﬂt ihre Augen*"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiﬂt", "wie heisst" -> "Elesil Daelwon. *Schlieﬂt ihre Augen*"
 
 -- OPTIONAL TRIGGERS
 

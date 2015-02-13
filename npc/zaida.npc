@@ -93,9 +93,9 @@ queststatus(76) = 1, item(2057, all) < 1, "How are you", "How feel", "How do you
 queststatus(76) = 2, "How are you", "How feel", "How do you do" -> "I feel reinvigorated, thank you for asking."
 "Farewell", "Bye", "Fare well", "See you" -> "Until next time, traveler!"
 english, "Ciao", "Adieu", "Au revoir" -> "Farewell, traveler!"
-queststatus(76) = 0, "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> inform("[Neues Quest] Die Schwätzerin von Runewick"), queststatus(76) = 1, "#me nickt respektvoll mit dem Kopf: 'Seid gegrüßt, Reisender. Wenn ihr meine Gesellschaft genießen wollt, so bringt mir doch ein Glas Wein zunächst. Dann, wenn ihr es noch wünscht, können wir diskutieren.'"
-queststatus(76) = 1, item(2057, all) < 1, "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "#me deutet auf den Wirt. 'Bringt mir ein Glas Wein und ich werde eure Fragen beantworten. Sollte nicht allzu schwer sein, möchte man meinen.'"
-queststatus(76) = 2, "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "#me nickt respektvoll: 'Seid gegrüßt. Nun, da ihr meiner Bitte entsprochen habt, könnt ihr mich mit eurer Anwesenheit belästigen und mich mit euren Fragen nerven.'"
+queststatus(76) = 0, "Grüß", "Gruß", "Grüss", "Gruss", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> inform("[Neues Quest] Die Schwätzerin von Runewick"), queststatus(76) = 1, "#me nickt respektvoll mit dem Kopf: 'Seid gegrüßt, Reisender. Wenn ihr meine Gesellschaft genießen wollt, so bringt mir doch ein Glas Wein zunächst. Dann, wenn ihr es noch wünscht, können wir diskutieren.'"
+queststatus(76) = 1, item(2057, all) < 1, "Grüß", "Gruß", "Grüss", "Gruss", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "#me deutet auf den Wirt. 'Bringt mir ein Glas Wein und ich werde eure Fragen beantworten. Sollte nicht allzu schwer sein, möchte man meinen.'"
+queststatus(76) = 2, "Grüß", "Gruß", "Grüss", "Gruss", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "#me nickt respektvoll: 'Seid gegrüßt. Nun, da ihr meiner Bitte entsprochen habt, könnt ihr mich mit eurer Anwesenheit belästigen und mich mit euren Fragen nerven.'"
 queststatus(76) = 0, "Hiho", "Hallo", "Hey", "Greeb" -> inform("[Neues Quest] Die Schwätzerin von Runewick"), queststatus(76) = 1, "#me lächelt herablassend. 'Seid gegrüßt, Reisender. Solltet ihr mich etwas fragen wollen, so müsst ihr mir zunächst ein Glas Wein bringen.'"
 queststatus(76) = 1, item(2057, all) < 1, "Hiho", "Hallo", "Hey", "Greeb" -> "#me deutet auf den Wirt. 'Bringt mir ein Glas Wein und ich werde eure Fragen beantworten. Sollte nicht allzu schwer sein, möchte man meinen.'"
 queststatus(76) = 2, "Hiho", "Hallo", "Hey", "Greeb" -> "#me nickt knapp. 'Nun denn, da ihr euren Teil der Abmachung eingehalten habt, ist es nun an mir, meinen Teil zu leisten.'"
@@ -104,7 +104,7 @@ queststatus(76) = 1, item(2057, all) < 1, "Wie geht", "Wie fühlst", "Wie ist es 
 queststatus(76) = 2, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich fühle mich wie neu geboren, danke der Nachfrage."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Bis zum nächsten mal, Reisender."
 "Ciao", "Adieu", "Au revoir" -> "Gehabt euch wohl, Reisender."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "My name is Zaida. One day, I'll be a honourable magician, right now, I am just thirsty."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "My name is Zaida. One day, I'll be a honourable magician, right now, I am just thirsty."
 "your name", "who are you", "who art thou" -> "Mein Name ist Zaida. Eines Tages werde ich eine ehrenhafte Magierin sein, jetzt bin ich aber erstmal durstig."
 
 -- First part, the gossiper is thirsty

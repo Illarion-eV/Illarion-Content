@@ -67,7 +67,7 @@ tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
 tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you like my wares?"
 
 -- Stock: big empty bottle, bread roll, golden goblet, apple pie, cookies, muffin, bottle with rum, empty bottle, bottle of blackberry juice, bottle of tangerine juice, bottle of banana juice, bottle of cabbage juice, bottle of tea, bottle of carrot juice, bottle of strawberry juice, empty bottle, bottle of grape juice, bottle of berry booze, bottle of bear slayer, small empty bottle, bottle of Elven wine, bottle of cherry schnapps, (silver, copper, gold)goblet, goblet with water, goblet with wine, goblet with mead, goblet with cider, cider, (empty,full)beer mug, glass, glass with mead, glass with wine, glass with water, glass with cider, wooden cup, cup with water, cup with wine, cup with mead, cup with cider, mulligan, cabbage stew, mushroom soup, blue bottle, orange bottle, grey bottle, green bottle, red bottle, black bottle, sausages dish, onion soup,  soup bowl, plate
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Lass uns handeln!", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Lass uns handeln!", trade
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Let's trade!", trade
 
 -- Template Version 1.02, 12/02/2010 by Estralis Seborian
@@ -104,7 +104,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Be well! An' careful that n
 "How are you", "How feel", "How do you do" -> "Aye, I'm fine, but you seem to be thirsty..."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Aye, mir gehts gut. Aber ihr seht aus als hättet ihr Durst..."
 "your name", "who are you", "who art thou" -> "I am Hagar Wernson, the innkeeper."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Hagar Wernson, der Wirt."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Hagar Wernson, der Wirt."
 
 -- Catching quest triggers
 english, "quest" -> "I haven't any tasks for you."

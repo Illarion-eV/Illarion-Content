@@ -77,7 +77,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 5%: 2738(pins)
 
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I trade with building materials. I'll purchase anything that can help building Her Majesty's... place of peaceful rest.", "Bricks, stone blocks, marble... all the workers need.", "I can sell you the tools you need to serve the Queen. On, on!", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich handele mit Baumaterialien. Ich werde alles erwerben, was benötigt wird um für ihre Majestät... einen Ort der letzten Ruhe zu bauen.", "Ziegelsteine, Steinblöcke, Marmor... Ich handele mit allem, was die Arbeiter brauchen.", "Ich kann euch die Werkzeuge verkaufen, die ihr braucht, um Königin Rosaline zu dienen. Los, los!", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich handele mit Baumaterialien. Ich werde alles erwerben, was benötigt wird um für ihre Majestät... einen Ort der letzten Ruhe zu bauen.", "Ziegelsteine, Steinblöcke, Marmor... Ich handele mit allem, was die Arbeiter brauchen.", "Ich kann euch die Werkzeuge verkaufen, die ihr braucht, um Königin Rosaline zu dienen. Los, los!", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the royal builder Robertus. Keywords: buy, sell, trade, Hello, builder.")
@@ -85,7 +85,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Ah, you must be the marble deliverer. Put it just next to the stack of bricks.", "Welcome, stranger. Do you have any building materials for me?", "Be greeted, in the name of the Queen."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ah, ihr müßt der Marmorlieferant sein. Lagert es neben den Ziegelsteinen.", "Willkommen, Fremdling. Habt ihr Baumaterial für mich?", "Seid im Namen der Königin gegrüßt."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ah, ihr müßt der Marmorlieferant sein. Lagert es neben den Ziegelsteinen.", "Willkommen, Fremdling. Habt ihr Baumaterial für mich?", "Seid im Namen der Königin gegrüßt."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ah, you must be the marble deliverer. Put it just next to the stack of bricks.", "Welcome, stranger. Do you have any building materials for me?", "Be greeted, in the name of the Queen."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Ah, ihr müßt der Marmorlieferant sein. Lagert es neben den Ziegelsteinen.", "Willkommen, Fremdling. Habt ihr Baumaterial für mich?", "Seid im Namen der Königin gegrüßt."
 "Farewell", "Good bye", "Bye", "Fare well", "see you" -> "Farewell.", "Goodbye.", "Until next time!"
@@ -95,7 +95,7 @@ english, "Ciao", "Adieu", "Au revoir" -> "Farewell.", "Goodbye.", "Until next ti
 "How are you", "How feel", "How do you do" -> "As long as the Queen is content, I am happy, and I'd do anything to please her.", "I just need to finish this calculation, then we can talk.", "Every day is a great day to serve under Queen Rosaline."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Solange die Königin zufrieden ist, bin ich es auch. Und ich werde alles tun, um sie zufrieden zu stellen.", "Ich muss nur noch grad diese Berechnung abschließen, dann können wir reden.", "Jeder Tag ist der richtige, um Königin Rosaline zu dienen."
 "your name", "who are you", "who art thou" -> "Robertus.", "My name is Robertus, I am the royal builder. I serve the Queen with every fibre of my body.", "They call me Robertus. I'm the royal builder of Cadomyr, loyal to the Queen."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Robertus.", "Mein Name ist Robertus, ich bin der königliche Baumeister. Ich diene der Königin mit jeder Faser meines Körpers.", "Man nennt mich Robertus. Ich bin der königliche Baumeister Cadomyrs, stets der Königin ergeben."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Robertus.", "Mein Name ist Robertus, ich bin der königliche Baumeister. Ich diene der Königin mit jeder Faser meines Körpers.", "Man nennt mich Robertus. Ich bin der königliche Baumeister Cadomyrs, stets der Königin ergeben."
 
 -- Quest 108: A message from Hector Valerion
 queststatus(108) = 3, "message", "news", "letter", "scroll", "parchment", "task", "adventure", "order" -> inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."), queststatus(108) = 4, "Oh! Her Majesty has drawn a sketch showing how she'd like her grave to be! What a marvellous plan! A cube in the desert!"

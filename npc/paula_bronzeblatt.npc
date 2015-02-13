@@ -90,7 +90,7 @@ itemShoes = 326
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hello, hello. Would you like to buy a treasure map? I sell them for just five gold coins. Say 'deal' and it belongs to you."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, hallo. Willst du eine Schatzkarte kaufen? Ich verkaufe die für fünf Goldmünzen. Sage 'Deal' und eine gehört dir."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, hallo. Willst du eine Schatzkarte kaufen? Ich verkaufe die für fünf Goldmünzen. Sage 'Deal' und eine gehört dir."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, hello. Would you like to buy a treasure map? I sell them for just five gold coins. Say 'deal' and it belongs to you."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, hallo. Willst du eine Schatzkarte kaufen? Ich verkaufe die für fünf Goldmünzen. Sage 'Deal' und eine gehört dir."
 "Farewell", "Bye", "Fare well", "See you" -> "See you soon!"
@@ -100,7 +100,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "See you soon!"
 "How are you", "How feel", "How do you do" -> "Fine, and you? Interested in buying a treasure map? I sell them for just five gold coins. Say 'deal' and it belongs to you."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Gut, und dir? Interessiert in den Erwerb einer Schatzkarte? Ich verkaufe die für fünf Goldmünzen. Sage 'Deal' und eine gehört dir."
 "your name", "who are you", "who art thou" -> "My name is Paula and I sell treasure maps. I sell them for just five gold coins. Say 'deal' and it belongs to you."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Paula und verkaufe Schatzkarten. Ich verkaufe die für fünf Goldmünzen. Sage 'Deal' und eine gehört dir."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Paula und verkaufe Schatzkarten. Ich verkaufe die für fünf Goldmünzen. Sage 'Deal' und eine gehört dir."
 
 -- OPTIONAL TRIGGERS
 -- uses longterm_cooldown.lua

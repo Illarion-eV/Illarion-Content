@@ -89,7 +89,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 10% Writing stuff: 463, 2745
 -- 10% Mushrooms: 158, 159, 160, 161, 162, 163
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
 
 -- Help
 "Help" -> inform("[Game Help]This NPC is William Daloire the herbalist. Keywords: trade, buy, sell, greetings, profession, tell something.")
@@ -107,7 +107,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adé!", "A bientôt!", "May O
 "How are you", "How feel", "How do you do" -> "Thank you for asking. Since I stopped smoking Sibanac I feel great!", " I drank some herbal tea for my headache, now I feel better."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Danke der Nachfrage. Seitdem ich kein Sibanac mehr rauche geht es mir ausgezeichnet!", "I trank Tee gegen meine Kopfschmerzen, und nun  geht es mir wieder gut."
 "your name", "who are you", "who art thou" -> "I'm a merchant, I sell fresh herbs. I am called William Deloire.", "I'm William Deloire, at you service."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin ein Händler der frische Kräuter verkauft. Ich werde William Deloire genannt.", "Ich heiße William Deloire, was kann ich für Euch tun?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin ein Händler der frische Kräuter verkauft. Ich werde William Deloire genannt.", "Ich heiße William Deloire, was kann ich für Euch tun?"
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 english, "quest", "mission" -> "Nah I don't sell quests. I mean.. sorry.. I don't *have any* quests for you, rather."

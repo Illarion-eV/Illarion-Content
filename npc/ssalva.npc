@@ -64,7 +64,7 @@ itemShoes = 53
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Blesssingss and greetingss of zze Mozzer."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüssse und Segensswünsche der Mutter."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüssse und Segensswünsche der Mutter."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetinzss of zze Mozzer to you. Blesssed are we zziss day.", "Blesssingss and greetingss of zze Mozzer."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüssse und Segensswünsche der Mutter."
 "Farewell", "Bye", "Fare well", "See you" -> "Sswim sstrong. May zze Mozzer guide you back."
@@ -72,7 +72,7 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetinzss of zze Mozzer to you. Bl
 "How are you", "How feel", "How do you do" -> "Ssalva iss fine and doing zze work of zze Mozzer."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ssalva geht es gut und ssie macht ihre Arbeit für Mutter."
 "your name", "who are you", "who art thou" -> "Sshe iss Ssalva, zze true sservant of zze Mozzer."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heißen", "wie heisst", "wie heissen" -> "Sie ist Ssalva, wahre Dienerin der Mutter."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst", "wie heißen", "wie heisst", "wie heissen" -> "Sie ist Ssalva, wahre Dienerin der Mutter."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "water" -> "Water iss zze life of uss all, zze gift of zze mother."

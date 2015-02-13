@@ -72,7 +72,7 @@ itemShoes = 53
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Your pilgrimage has come to an end. You have found the temple of the Five.", "Be greeted in the name of Brágon.", "Hail Brágon! What is it, my child?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Eure Pilgerfahrt hat eine Ende. Ihr habt den Tempel der Fünf gefunden.", "Seid gegrüßt im Namen Brágons.", "Was gibt es, mein Kind?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Eure Pilgerfahrt hat eine Ende. Ihr habt den Tempel der Fünf gefunden.", "Seid gegrüßt im Namen Brágons.", "Was gibt es, mein Kind?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Your pilgrimage has come to an end. You have found the temple of the Five.", "Be greeted in the name of Brágon.", "Hail Brágon! What is it, my child?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Eure Pilgerfahrt hat eine Ende. Ihr habt den Tempel der Fünf gefunden.", "Seid gegrüßt im Namen Brágons.", "Was gibt es, mein Kind?"
 "Farewell", "Bye", "Fare well", "See you" -> "May Brágon speed you into the flames", "May the fire within you never be extinguished!", "Go with Brágon's blessing."
@@ -82,7 +82,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go with Brágon speed.", "An
 "How are you", "How feel", "How do you do" -> "I feel enlightened."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich fühle mich erleuchtet."
 "your name", "who are you", "who art thou" -> "I am Bathelor, high priest of Brágon. Praise Brágon!"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Bathelor, Hohepriester Brágons. Lobet Brágon!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Bathelor, Hohepriester Brágons. Lobet Brágon!"
 
 -- 1st quest: Visit the shrines of the five
 queststatus(113) = 0, english, "quest", "mission" -> inform("[New quest] A spark to a flame I"), queststatus(113) = 1, "Very well. To prove that you are a truly devout servant of the Five, I want you to pay hommage to them. Visit each of the shrines of the Five in the temple and honour them."
