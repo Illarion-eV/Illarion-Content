@@ -79,7 +79,7 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetinzss of zze Mozzer to you. Bl
 "Wasser" -> "Wassser ist unser aller Leben, das Geschenk der Mutter."
 "prayer", "worship" -> "Zze zzealotss have many prayerss in zze name of zze Mozzzer. Many of zzem are not proper prayerss."
 "Gebet", "Andacht" -> "Die Fanatiker haben viele Anbeter im Namen der Mutter. Viele von ihnen ssind keine guten Glaubenden."
-english, "Tanora", "Zelphia", "Mother", "Mozzer" -> "Zze Mozzer is everyzzing. Zze extremisstss do foul zzingss in her name."
+english, "Tanora", "Zelphia", "Mother", "Mozzer" -> "Zze Mozzer iss everyzzing. Zze extremisstss do foul zzingss in her name."
 "Tanora", "Zelphia", "Mozzer", "Mutter" -> "Mutter ist Alless. Die Extremisten tun schreckliche Dinge in ihrem Namen."
 "Lake of Life" -> "Ssalva does ssee zzat zziss iss a large underground lake, which zze Mozzer hass given sspecial life for it glowss brightly. Ssalva greatly wisshess to one day sswim in zziss lake."
 "See des Lebens" -> "Ssalva hat gesehen, dass es ein grossser unterirdischer See ist, welchem Mutter besonderes Leben mit strahlendem Leuchten gegeben hat. Ssalvas grössster Wunsch ist eines Tages in diesem See zu schwimmen."
@@ -111,15 +111,12 @@ queststatus(501) = 0, "quest", "mission" -> inform("[Neue Quest] Zzarn'K'Ska von
 queststatus(501) = 0, "task", "adventure", "order" -> inform("[New quest] Zzarn'K'Ska of Zelphia I"), queststatus(501) = 1, "Ksss. Near here iss zze Underground Lake of Life. It iss an area zzat hass been taken over by radical religiouss zealotss of ze Mozzer. Find a way to zzeir sstronghold. We musst errradicate zzem."
 queststatus(501) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Zzarn'K'Ska von Zelphia I"), queststatus(501) = 1, "Ksss. In der Nähe hier ist See des Lebens. Der Bereich wird beherrscht von einer Gruppe radikal religiöser Fanatiker der Mutter. Finde einen Weg in ihre Festung. Wir müssen sie ausmerzen."
 --if not done
-queststatus(501) = 1, english, "quest", "mission" -> "Ksss. *Swishes her tail agitatedly* Zze must find a way to zze stronghold."
-queststatus(501) = 1, "quest", "mission" -> "Ksss. *wedelt aufgeregt mit ihrem Schwanz* Sie muss Weg in die Festung finden."
-queststatus(501) = 1, "task", "adventure", "order" -> "Ksss. *Swishes her tail agitatedly* Zze must find a way to zze stronghold."
-queststatus(501) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ksss. *wedelt aufgeregt mit ihrem Schwanz* Sie muss Weg in die Festung finden."
+queststatus(501) = 1, english, ".+" -> "Ksss. *Swishes her tail agitatedly* Zze must find a way to zze stronghold."
+queststatus(501) = 1, ".+" -> "Ksss. *wedelt aufgeregt mit ihrem Schwanz* Sie muss Weg in die Festung finden."
+
 -- if done
-queststatus(501) = 2, english, "quest", "mission" -> inform("[Quest solved] You are awarded twenty-five silver coins."), money + 2500, queststatus(501) = 3, "Zzzz. Good you found zzem. We musst take further meassuress against zze Zzarn'K'Ska. Take zzis reward as a token of gratitude."
-queststatus(501) = 2, "quest", "mission" -> inform("[Quest gelöst] Du erhältst fünfundzwanzig Silberstücke."), money + 2500, queststatus(501) = 3, "Zzzz. Gut, du hast ssie gefunden. Wir müssen weitere Maßnahmen gegen sie ergreifen. Zzarn´K´Ska. Nimm diesse Belohnung als Zeichen des Dankes."
-queststatus(501) = 2, "task", "adventure", "order" -> inform("[Quest solved] You are awarded twenty-five silver coins."), money + 2500, queststatus(501) = 3, "Zzzz. Good you found zzem. We musst take further meassuress against zze Zzarn'K'Ska. Take zzis reward as a token of gratitude."
-queststatus(501) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Quest gelöst] Du erhältst fünfundzwanzig Silberstücke."), money + 2500, queststatus(501) = 3, "Zzzz. Gut, du hast ssie gefunden. Wir müssen weitere Maßnahmen gegen sie ergreifen. Zzarn´K´Ska. Nimm diesse Belohnung als Zeichen des Dankes."
+queststatus(501) = 2, english, ".+" -> inform("[Quest solved] You are awarded twenty-five silver coins."), money + 2500, queststatus(501) = 3, "Zzzz. Good you found zzem. We musst take further meassuress against zze Zzarn'K'Ska. Take zzis reward as a token of gratitude."
+queststatus(501) = 2, ".+" -> inform("[Quest gelöst] Du erhältst fünfundzwanzig Silberstücke."), money + 2500, queststatus(501) = 3, "Zzzz. Gut, du hast ssie gefunden. Wir müssen weitere Maßnahmen gegen sie ergreifen. Zzarn´K´Ska. Nimm diesse Belohnung als Zeichen des Dankes."
 
 --Recieve second quest
 --find route to second island
@@ -128,10 +125,9 @@ queststatus(501) = 3, "quest", "mission" -> inform("[Neue Quest] Zzarn'K'Ska von
 queststatus(501) = 3, "task", "adventure", "order" -> inform("[New quest] Zzarn'K'Ska of Zelphia II"), queststatus(501)= 4, "Sss. There iss two large islandss? Find zze way to zze ssecond one. We must prevail."
 queststatus(501) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Zzarn'K'Ska von Zelphia II"), queststatus(501) = 4, "Sss. Da sind zwei große Inseln? Finde einen Weg zur zweiten Insel. Wir müssen sie beherrschen."
 -- if not done
-queststatus(501) = 4, "quest", "mission" -> "Ksss. Accesss to zze ssecond island iss necesssary to face zzisss zzreat to zze mozzer. Keep looking!"
-queststatus(501) = 4, "quest", "mission" -> "Ksss. Der Zugang zur zweiten Insel ist notwendig, um bestehen zu können vor der Bedrohung für die Mutter. Sssuche weiter!"
-queststatus(501) = 4, "task", "adventure", "order" -> "Ksss. Accesss to zze ssecond island iss necesssary to face zzisss zzreat to zze mozzer. Keep looking!"
-queststatus(501) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ksss. Der Zugang zur zweiten Insel ist notwendig, um bestehen zu können vor der Bedrohung für die Mutter. Sssuche weiter!"
+queststatus(501) = 4, english, ".+" -> "Ksss. Accesss to zze ssecond island iss necesssary to face zzisss zzreat to zze mozzer. Keep looking!"
+queststatus(501) = 4, ".+" -> "Ksss. Der Zugang zur zweiten Insel ist notwendig, um bestehen zu können vor der Bedrohung für die Mutter. Sssuche weiter!"
+
 -- if done
 queststatus(501) = 5, english, ".+" -> inform("[Quest solved] You are awarded fifty silver coins."), money + 5000, queststatus(501) = 6, "Yesss, Yesss very good. Let uss plan more."
 queststatus(501) = 5, ".+" -> inform("[Quest gelöst] Du erhältst fünfzig Silberstücke."), money + 5000, queststatus(501) = 6, "Ja, ja, sehr gut. Lass uns weiterplanen."
@@ -148,8 +144,8 @@ queststatus(501) = 7, english, "8" -> inform("[Quest solved] You are awarded sev
 queststatus(501) = 7, "eight" -> inform("[Quest solved] You are awarded seventy-five silver coins."), money + 7500, queststatus(501) = 8, "Zzis iss many more than Ssalva expected. Zzer infrasstructure iss much more advanced than Ssalva thought."
 queststatus(501) = 7, "8", "acht" -> inform("[Quest gelöst] Du erhältst fünfundsiebzig Silberstücke."), money + 7500, queststatus(501) = 8, "Dies sind viel mehr als Ssalva erwartet hatte. Die Einrichtung ist viel entwickelter als Sslava gedacht hat."
 -- if not done
-queststatus(501) = 7, english, ".*" -> "Zziss ansswer sseemss incorrect bassed on ozzer reportss. Perhapss you sshould look around ssome more."
-queststatus(501) = 7, german, ".*" -> "Diese Antwort scheint falsch im Verhältniss zu anderen Berichten. Vielleicht musst Du dich noch mehr umsehen."
+queststatus(501) = 7, english, ".+" -> "Zziss ansswer sseemss incorrect bassed on ozzer reportss. Perhapss you sshould look around ssome more."
+queststatus(501) = 7, ".+" -> "Diese Antwort scheint falsch im Verhältniss zu anderen Berichten. Vielleicht musst Du dich noch mehr umsehen."
 
 --Recieve fourth quest
 --waterblossom to offering plate
@@ -158,10 +154,9 @@ queststatus(501) = 8, "quest", "mission"-> inform("[Neue Quest] Zzarn'K'Ska von 
 queststatus(501) = 8, "task", "adventure", "order" -> inform("[New quest] Zzarn'K'Ska of Zelphia IV"), queststatus(501) = 9, "Pleasse find a water blosssom and give it to zze Goddess Tanora at the alter, which stands in the Lake of Life.  Requesst a blesssing before we continue, assking for her undersstanding in what musst be done. *place the item on the offering plate inside the dungeon*"
 queststatus(501) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Zzarn'K'Ska von Zelphia IV"), queststatus(501) = 9, "Bitte finde eine Wassserblüte und gib diese der Göttin Tanora beim Altar, welcher im See des Lebens steht. Erbitte ihren Ssegen und ihr Verständnis für das, was wir tun müssen, bevor wir fortfahren. *lege den Gegenstand auf die Opferplatte im Verlies*"
 --if not done
-queststatus(501) = 9, english, "quest", "mission" -> "Ksss. Zze musst honour zee Mozzer before we can proceed. Provide her wizz zze water blosssom offering."
-queststatus(501) = 9, "quest", "mission" -> "Ksss. Bevor wir weitermachen musst du Mutter ehren. Biete ihr die Wassserblüte an."
-queststatus(501) = 9, "task", "adventure", "order" -> "Ksss. Zze musst honour zee Mozzer before we can proceed. Provide her wizz zze water blosssom offering."
-queststatus(501) = 9, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ksss. Bevor wir weitermachen musst du Mutter ehren. Biete ihr die Wassserblüte an."
+queststatus(501) = 9, english, ".+" -> "Ksss. Zze musst honour zee Mozzer before we can proceed. Provide her wizz zze water blosssom offering."
+queststatus(501) = 9, ".+" -> "Ksss. Bevor wir weitermachen musst du Mutter ehren. Biete ihr die Wassserblüte an."
+
 --if done
 queststatus(501) = 10, english, ".+" -> inform("[Quest solved] You are awarded five custard pies."), item(1153, 5), queststatus(501) = 11, "Zze Mozzer will look over uss becausse of your gift. We may now continue in confidence."
 queststatus(501) = 10, ".+" -> inform("[Quest gelöst] Du erhältst fünf Eiercremetorten."), item(1153, 5), queststatus(501) = 11, "Mutter wird wegen deiner Gabe über uns wachen. Wir können nun mit Zuversicht fortfahren."
@@ -173,13 +168,11 @@ queststatus(501) = 11, "quest", "mission"-> inform("[Neue Quest] Zzarn'K'Ska von
 queststatus(501) = 11, "task", "adventure", "order" -> inform("[New quest] Zzarn'K'Ska of Zelphia V"), queststatus(501) = 12, "Pleasse go ssee a dear friend of mine. Zenia will give you ssome information I require in exchange for ssome itemss sshe hass been craving. Pleasse bring Zenia one cusstard pie, two fissh soupss, 20 eggss, and five of each type of fish. You can find Zenia ssomewhere hiding on an island in the Lake of Life."
 queststatus(501) = 11, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Zzarn'K'Ska von Zelphia V"), queststatus(501) = 12, "Bitte ssuch einen guten Freund von mir auf. Zzenia wird dir einige Informationen geben, die ich benötige, im Tausch gegen einige Dinge, die ssie verlangt. Bitte bringe Zzenia eine Eiercremetorte, zzwei Fischssuppen, 20 Eier und fünf Fische jeder Art. Du kannsst Zzenia irgendwo auf einer Inssel im Ssee des Lebenss finden, wo ssie ssich versteckt."
 --if not done
-queststatus(501) = 12, english, "quest", "mission" -> "Takess zzese gifts to Zenia and get informations from her."
-queststatus(501) = 12, "quest", "mission" -> "Nimm diesse Geschenke für Zzenia und hole die Informationen von ihr."
-queststatus(501) = 12, "task", "adventure", "order" -> "Takess zzese gifts to Zenia and get informations from her."
-queststatus(501) = 12, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nimm diesse Geschenke für Zzenia und hole die Informationen von ihr."
+queststatus(501) = 12, english, ".+" -> "Takess zzese gifts to Zenia and get informations from her."
+queststatus(501) = 12, ".+" -> "Nimm diesse Geschenke für Zzenia und hole die Informationen von ihr."
 --if done
-queststatus(501) = 13, english, ".+" -> inform("[Quest solved] You are awarded a red steel shield."), item(2388, 1, 799), queststatus(501) = 14, "Ksss. Zat iss mosst interessting newss. If you can helpss me more, we will erradicate zzem."
-queststatus(501) = 13, ".+" -> inform("[Quest gelöst] Du erhältst ein rotes Stahlschild."), item(2388, 1, 799), queststatus(501) = 14, "Zsss. Dass ssind ssehr interesssante Neuigkeiten. Wenn du mir weiterhin helfen kannsst, dann werden wir ssie ausslöschen."
+queststatus(501) = 13, english, ".+" -> inform("[Quest solved] You are awarded a red steel shield and 150 silvercoins."), money + 150000, item(2388, 1, 799), queststatus(501) = 14, "Ksss. Zat iss mosst interessting newss. If you can helpss me more, we will erradicate zzem."
+queststatus(501) = 13, ".+" -> inform("[Quest gelöst] Du erhältst ein rotes Stahlschild und einhundertfünfzig Silberstücke."), money + 150000, item(2388, 1, 799), queststatus(501) = 14, "Zsss. Dass ssind ssehr interesssante Neuigkeiten. Wenn du mir weiterhin helfen kannsst, dann werden wir ssie ausslöschen."
 
 --Receive sixth quest
 --Kill 15 lizards in Lake of Life
@@ -188,13 +181,11 @@ queststatus(501) = 14, "quest", "mission"-> inform("[Neue Quest] Zzarn'K'Ska von
 queststatus(501) = 14, "task", "adventure", "order" -> inform("[New quest] Zzarn'K'Ska of Zelphia VI"), queststatus(501) = 15, "Sssss. We musst get rid of zzesse Lake of Life renegadess. Pleasse kill 15 for Ssalva. Clear waterss Ssalva doess wissh for you in your endeavour."
 queststatus(501) = 14, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Zzarn'K'Ska von Zelphia VI"), queststatus(501) = 15, "Sssss. Wir müssen diese Abtrünnigen vom See des Lebens loswerden. Bitte töte 15 von ihnen für Ssalva. Klare Wassser wünscht Ssalva für deine Bemühungen."
 --if not done
-queststatus(501) > 14, queststatus(501) < 30, english, "quest", "mission" -> "Ksss!!! Kill 15 Renegadess for Ssalva. Zziss musst be done!"
-queststatus(501) > 14, queststatus(501) < 30, "quest", "mission" -> "Ksss!!! Töte 15 Abtrünnige für Ssalva. Es muss getan werden."
-queststatus(501) > 14, queststatus(501) < 30, "task", "adventure", "order" -> "Ksss!!! Kill 15 Renegadess for Ssalva. Zziss musst be done!"
-queststatus(501) > 14, queststatus(501) < 30, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ksss!!! Töte 15 Abtrünnige für Ssalva. Es muss getan werden."
+queststatus(501) > 14, queststatus(501) < 30, english, ".+" -> "Ksss!!! Kill 15 Renegadess for Ssalva. Zziss musst be done!"
+queststatus(501) > 14, queststatus(501) < 30, ".+" -> "Ksss!!! Töte 15 Abtrünnige für Ssalva. Es muss getan werden."
 --if done
 queststatus(501) = 30, english, ".+" -> inform("[Quest solved] You are awarded one hundred fifty silver coins."), money + 15000, queststatus(501) = 31, "Yesss, yesss very good. One more ssstep sshould do it."
-queststatus(501) = 30, ".+"-> inform("[Quest gelöst] Du erhältst einhundertfünfzig Silberstücke."), money + 15000, queststatus(501) = 31, "Ja, ja, nur noch ein Schritt bleibt zu tun."
+queststatus(501) = 30, ".+" -> inform("[Quest gelöst] Du erhältst einhundertfünfzig Silberstücke."), money + 15000, queststatus(501) = 31, "Ja, ja, nur noch ein Schritt bleibt zu tun."
 
 --Receive seventh quest
 --Kill Lizard Templar warrior
@@ -203,10 +194,8 @@ queststatus(501) = 31, "quest", "mission"-> inform("[Neue Quest] Zzarn'K'Ska von
 queststatus(501) = 31, "task", "adventure", "order" -> inform("[New quest] Zzarn'K'Ska of Zelphia VII"), queststatus(501) = 32, "It'z time to take out zzeir leader. Kill ze temple warrior to break zzeir morale."
 queststatus(501) = 31, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Zzarn'K'Ska von Zelphia VII"), queststatus(501) = 32, "Es wird Zeit ihren Anführer zu beseitigen. Töte den Tempelkrieger, um ihre Moral zu brechen."
 --if not done
-queststatus(501) > 31, queststatus(501) < 33, english, "quest", "mission" -> "Ksss! If zze leader issn't killed zzey will not break. Kill zze temple warrior to break zzeir morale."
-queststatus(501) > 31, queststatus(501) < 33, "quest", "mission" -> "Ksss! Solange ihr Anführer nicht getötet wurde werden sie nicht aufgeben. Töte den Tempelkrieger, um ihre Moral zu brechen."
-queststatus(501) > 31, queststatus(501) < 33, "task", "adventure", "order" -> "Ksss! If zze leader issn't killed zzey will not break. Kill zze temple warrior to break zzeir morale."
-queststatus(501) > 31, queststatus(501) < 33, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ksss! Solange ihr Anführer nicht getötet wurde werden sie nicht aufgeben. Töte den Tempelkrieger, um ihre Moral zu brechen."
+queststatus(501) > 31, queststatus(501) < 33, english, ".+" -> "Ksss! If zze leader issn't killed zzey will not break. Kill zze temple warrior to break zzeir morale."
+queststatus(501) > 31, queststatus(501) < 33, ".+" -> "Ksss! Solange ihr Anführer nicht getötet wurde werden sie nicht aufgeben. Töte den Tempelkrieger, um ihre Moral zu brechen."
 --if done
 queststatus(501) = 33, english, ".+" -> inform("[Quest solved] You are awarded a pure water."), item(2554, 1, 999), queststatus(501) = 34, "Zzey should fall now. Zzank you for your effortss. Accept zziss gift of zze Mozzer as a token of gratitude."
 queststatus(501) = 33, ".+"-> inform("[Quest gelöst] Du erhältst eine reines Wasser."), item(2554, 1, 999), queststatus(501) = 34, "Sie sollten jetzt fallen. Danke für deine Bemühungen. Nimm dieses Geschenk der Mutter als Zeichen der Anerkennung."
