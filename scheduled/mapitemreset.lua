@@ -77,7 +77,18 @@ function M.resetMapitem()
     local lever1 = world:getItemOnField(position(720, 258, -9))
     local lever2 = world:getItemOnField(position(781, 188, -9))
 
-    if ( lever1.id == 436 or lever2.id == 436) then
+
+
+    if (lever1.id == 436 or lever2.id == 436) then
+        local trippingTime1 = tonumber(lever1:getData("LastUseTime")) or 0
+        local trippingTime2 = tonumber(lever2:getData("LastUseTime")) or 0
+        local serverTime = world:getTime("unix")
+
+        --check if 10min are over
+        if math.max(trippingTime1, trippingTime2) + 600 > serverTime then
+                return
+        end
+
         -- switch back levers
         lever1.id = 434
         world:changeItem(lever1)
