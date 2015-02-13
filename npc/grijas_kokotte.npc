@@ -99,7 +99,7 @@ itemShoes = 697
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day, what do ya want?", "Irmorom with ya, do ya need anything?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Tach auch, wat gibts?", "Irmorom zum Gruße, brauchst du wat?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Tach auch, wat gibts?", "Irmorom zum Gruße, brauchst du wat?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "What do ya want, eh? We say greetings around here.", "Aye, whatever.", "You won't go far with that greeting around here."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Wat willste, eh? Dat heißt Tach!", "Aye, wat auch immer.", "Damit kommste hier nich weit, es heißt Tach!"
 "Farewell", "Bye", "Fare well", "See you" -> "Aye, take care.", "Irmorom with ya!", "Until next time!"
@@ -109,7 +109,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Aye, take care.", "Irmorom 
 "How are you", "How feel", "How do you do" -> "I can't say anything's bothering me and ya?", "So-so, but I'm fine right now."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich kann nich klagen und du?", "Ganz gut und selbst?", "Mal so, mal so, aber gerade geht es mir ganz gut."
 "your name", "who are you", "who art thou" -> "I'm Grijas and who are you?", "I'm called Grijas, Grijas Kokotte, and what's your name?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Grijas und wer bist du?", "Man nennt mich Grijas, Grijas Kokotte und wie nennt man dich?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Grijas und wer bist du?", "Man nennt mich Grijas, Grijas Kokotte und wie nennt man dich?"
 
 -- Straight to repeated quest
 skill(cookingAndBaking) > 79, queststatus(671) = 0, english, town = Galmair, "quest", "mission", "task", "adventure" -> inform("[Bear Quest] Feed a salmon!"), queststatus(671) = 13, queststatus(673) = 18, "I see. You are a good cook and interested in our town. Could you please feed the Bear of Galmair a salmon."

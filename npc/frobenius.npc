@@ -85,7 +85,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 5% Helmets: 7, 16, 94, 184, 185, 187, 202, 324, 2286, 2287, 2290, 2291, 2302, 2441, 2444
 -- 5% Spears: 1046, 1038, 1049, 1047, 1040, 1048, 1053, 77, 1039, (1050, 1051)
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the blacksmith Frobenius. Keywords: buy, sell, trade, Hello, blacksmith, iron.")
@@ -93,7 +93,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Let's get to business, alright?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Lasst uns zum Geschäft kommen, ja?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Lasst uns zum Geschäft kommen, ja?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Let's get to business, alright?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Lasst uns zum Geschäft kommen, ja?"
 "Farewell", "Bye", "Fare well", "See you" -> "Kill some scum with my weapons, will you?"
@@ -103,7 +103,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Kill some scum with my weap
 "How are you", "How feel", "How do you do" -> "Pardon me, but I do not want to talk about my feelings."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Entschuldigt, aber ich möchte nicht über meine Gefühle reden."
 "your name", "who are you", "who art thou" -> "Frobenius!", "I am Frobenius, the blacksmith."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Frobenius!", "Ich bin Frobenius, der Schmied."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Frobenius!", "Ich bin Frobenius, der Schmied."
 
 -- Catching quest triggers
 english, "quest", "mission" -> "Your quest today: Defend Cadomyr with my weapons. You have to buy one first..."

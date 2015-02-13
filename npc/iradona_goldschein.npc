@@ -76,7 +76,7 @@ itemShoes = 369
 queststatus(606) = 1, english, ".*" -> inform("[Quest 'Find Iradona'] You can talk with Iradona now. Ask for 'help' if you do not know what to ask! You can also go back to Hummi to collect your reward and come back later."), "How can I help you? Do you want any information? Or would you like to do a task?", queststatus(606)=2
 queststatus(606) = 1, ".*" -> inform("[Quest 'Finde Iradona'] Da kannst nun mit Iradona sprechen. Frage nach 'Hilfe' wenn du nicht weißt nach was du fragen sollst! Du kannst auch zurück zu Hummi gehen um deine Belohnung abzuholen und später nochmals vorbei kommen."), "Wie kann ich der Herrschaft helfen? Wird eine Information erwünscht? Oder eine Aufgabe?", queststatus(606)=2
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> inform("[Hint] Have you already asked her for 'information' or her 'quest'?"),"Good day, my dear. Can I help you with some information?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> inform("[Hinweis] Hast du sie bereits nach 'Information' oder 'Quest' befragt?"),"Tach die Herrschaft, darf ich behilflich sein mit einer Auskunft?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> inform("[Hinweis] Hast du sie bereits nach 'Information' oder 'Quest' befragt?"),"Tach die Herrschaft, darf ich behilflich sein mit einer Auskunft?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> inform("[Hint] Have you already asked her for 'information' or her 'quest'?"),"Good day, my dear. Can I help you with some information?"
 "Hiho", "Hallo", "Hey", "Greeb" -> inform("[Hinweis] Hast du sie bereits nach 'Information' oder 'Quest' befragt?"),"Tach die Herrschaft, darf ich behilflich sein mit einer Auskunft?"
 "Farewell", "Bye", "Fare well", "See you" -> "See ya soon."
@@ -86,7 +86,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "See ya soon."
 "How are you", "How feel", "How do you do" -> "My head hurts, because of these thousands of questions the people of Galmair have."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mein Kopf schmerzt von den vielen Fragen der Leute von Galmair hier."
 "your name", "who are you", "who art thou" -> "Iradona Goldschein, the informant of Galmair."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Iradona Goldschein, die Auskunftgeberin von Galmair."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Iradona Goldschein, die Auskunftgeberin von Galmair."
 
 -- OPTIONAL TRIGGERS
 

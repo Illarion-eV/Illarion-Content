@@ -68,7 +68,7 @@ itemShoes = 1055
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me grumbles and mumbles: 'No time for idle talk.'", "Yes, yes, of course.", "Hello. Good day, good night and may the gods bless you, knucklehead. What do you want?", "What?!"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me grummelt und brummelt: 'Keine Zeit für unwichtiges Geplapper.'","Ja, ja, na sicher.","Hallo, guten Tag, gute Nacht, fröhlichen Geburtstag und mögen die Götter dich segnen, Dummkopf. Was willst du?", "Was?!"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me grummelt und brummelt: 'Keine Zeit für unwichtiges Geplapper.'","Ja, ja, na sicher.","Hallo, guten Tag, gute Nacht, fröhlichen Geburtstag und mögen die Götter dich segnen, Dummkopf. Was willst du?", "Was?!"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me grumbles and mumbles: 'No time for idle talk.'", "Yes, yes, of course.", "Hello. Good day, good night and may the gods bless you, knucklehead. What do you want?", "What?!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "#me grummelt und brummelt: 'Keine Zeit für unwichtiges Geplapper.'","Ja, ja, na sicher.","Hallo, guten Tag, gute Nacht, fröhlichen Geburtstag und mögen die Götter dich segnen, Dummkopf. Was willst du?", "Was?!"
 "Farewell", "Bye", "Fare well", "See you" -> "Go!", "Couldn't care less.", "Finally.", "And now I finally can go back to work!", "Don't disturb me again!"
@@ -76,7 +76,7 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me grumbles and mumbles: 'No time 
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go!", "Couldn't care less.", "Finally.", "And now I finally can go back to work!", "Don't disturb me again!"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Geh!", "Könnte mich nicht weniger interessieren.", "Endlich kann ich mich wieder der Arbeit widmen.", "Stör mich nicht nochmal!"
 "your name", "who are you", "who art thou" ->  "Granor Bergenhieb. And you? Oh, wait. I don't care."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Granor Bergenhieb. Und du? Halt warte. Interessiert mich nicht."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Granor Bergenhieb. Und du? Halt warte. Interessiert mich nicht."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "It's none for your business what I do."

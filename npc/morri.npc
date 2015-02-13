@@ -75,7 +75,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am selling different meals, just have a look!", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich verkaufe verschiedenstes Essen schau dich nur um!", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich verkaufe verschiedenstes Essen schau dich nur um!", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Morri the cook. Keywords: buy, sell, trade, Profession.")
@@ -87,7 +87,7 @@ queststatus(702) = 4, "charwis", "irongate", "Bestellung", "nägel" -> queststatu
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hrm...Greetings. How can I help you?", "#me grumbles moodily, 'Good day'.", "Hail Irmorom. Do you want to buy something?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hrm...Grüße. Wie kann ich Euch helfen?", "#me brummt schlecht gelaunt: 'Guten Tag.'", "Heil Irmorom. Wollt ihr was kaufen?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hrm...Grüße. Wie kann ich Euch helfen?", "#me brummt schlecht gelaunt: 'Guten Tag.'", "Heil Irmorom. Wollt ihr was kaufen?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hrm...Greetings. How can I help you?", "#me grumbles moodily, 'Good day'.", "Hail Irmorom. Do you want to buy something?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hrm...Grüße. Wie kann ich Euch helfen?", "#me brummt schlecht gelaunt: 'Guten Tag.'", "Heil Irmorom. Wollt ihr was kaufen?"
 "Farewell", "Bye", "Fare well", "See you" -> "Bye and enjoy your meal.", "Arr... See you soon.", "Fare thee well and come again soon!"
@@ -97,7 +97,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Bye and enjoy your meal.", 
 "How are you", "How feel", "How do you do" -> "Great and how are you?", "I'm fine, thanks!"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Großartig und wie gehts dir?", "Mir gehts gut, dankie!"
 "your name", "who are you", "who art thou" -> "I am Morri the cook.", "The best cook in Galmair, that's me Morri!"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Morri der Koch.", "Der beste Koch in Galmair, das bin ich Morri!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Morri der Koch.", "Der beste Koch in Galmair, das bin ich Morri!"
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> "I don't employ anyone, ask someone else!"

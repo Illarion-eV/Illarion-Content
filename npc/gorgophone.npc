@@ -51,7 +51,7 @@ radius = 0
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me clicks her jaws and looks at you appraisingly."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me klickt ihren Kiefer und schaut dich abschätzend an."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me klickt ihren Kiefer und schaut dich abschätzend an."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me clicks her jaws and looks at you appraisingly."
 "Hiho", "Hallo", "Hey", "Greeb" -> "#me klickt ihr Kiefer und schaut dich abschätzend an."
 "Farewell", "Bye", "Fare well", "See you" -> "#me turns away from you and returns to her web."
@@ -61,7 +61,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me turns away from you and
 "How are you", "How feel", "How do you do" -> "#me looks up at you and mutters 'I am as I always am. Working on my web and tending to my egg sac.'"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "#me schaut dich an und murmelt 'Mir geht es wie immer. Ich arbeite an meinem Netz und Pflege meinen Kokon.'"
 "your name", "who are you", "who art thou" -> "#me cleans her gnashing fangs before responding 'I am Gorgophone, the grim slayer. Mother of thousands of Gynkese Widows throughout the land. Maybe you know my children?'"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "#me reinigt ihre knirschenden Fänge bevor sie antwortet 'Ich bin Gorgophone, die grimmige Schlächterin. Mutter von Tausenden von Gynk Witwen in diesem Reich. Vielleicht kennt ihr meine Kinder.'"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "#me reinigt ihre knirschenden Fänge bevor sie antwortet 'Ich bin Gorgophone, die grimmige Schlächterin. Mutter von Tausenden von Gynk Witwen in diesem Reich. Vielleicht kennt ihr meine Kinder.'"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a mother."

@@ -82,7 +82,7 @@ queststatus(305) = 6, "help" -> inform("[Game Help] This NPC is Corporal Piero t
 
 -- generall
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hello.", "Zhambras greets.", "Be greeted.", "Zhambra may bless the Queen."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo.", "Seid gegrüßt.", "Zhambra zum Gruße.", "Lang lebe Königin Rosaline Edwards."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo.", "Seid gegrüßt.", "Zhambra zum Gruße.", "Lang lebe Königin Rosaline Edwards."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello.", "Zhambras greets.", "Be greeted.", "Zhambra may bless the Queen."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hallo.", "Seid gegrüßt.", "Zhambra zum Gruße.", "Lang lebe Königin Rosaline Edwards."
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell.", "Have a good day.", "Good bye.", "Zhambra shall be with you."
@@ -92,7 +92,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell.", "Have a good da
 "How are you", "How feel", "How do you do" -> "I'm mostly fine. The pirates are quiet. Should I take this as good or bad? I don't know.", "As long as Queen Rosaline rules our land, everything is going well.", "Hail Zhambra, hail Queen Rosaline! I'm good."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Größtenteils gut. Die Piraten verhalten sich ruhig. Ist das ein gutes Zeichen oder ein Schlechtes? Ich weiß es nicht.", "So lange Königin Rosaline unser Land regiert, geht alles seinen rechten Weges.", "Heil Zhambra, Heil Königin Rosaline! Mir geht's gut."
 "your name", "who are you", "who art thou" -> "I am Corporal Piero. Servant of the Queen in Cadomyr."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Corporal Piero. Diener der Königin von Cadomyr."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Corporal Piero. Diener der Königin von Cadomyr."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 

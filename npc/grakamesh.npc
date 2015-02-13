@@ -94,7 +94,7 @@ queststatus(78) > 22, ".+" -> inform("[Error] Something went wrong, please infor
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greebas. Honour dem dead!", "Hurr! Yoos look like yoos can help mes - mes dance fer salvation.", "Greebs. Nub hab much time fer yoos, need to dance and sing more to scare away evil spooks."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Greebas. Ehre die Ahnen!", "Hurr! Du sehst aus als kannst helfen mir - mirr tanzt für Heil von Seele.", "Greebs. Grakamesh hat wenig Zeit für dich. Mirr muss tanzen und singt, zu vertreiben bösen Spuk."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Greebas. Ehre die Ahnen!", "Hurr! Du sehst aus als kannst helfen mir - mirr tanzt für Heil von Seele.", "Greebs. Grakamesh hat wenig Zeit für dich. Mirr muss tanzen und singt, zu vertreiben bösen Spuk."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greebas. Honour dem dead!", "Hurr! Yoos look like yoos can help mes - mes dance fer salvation.", "Greebs. Nub hab much time fer yoos, need to dance and sing more to scare away evil spooks."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Greebas. Ehre die Ahnen!", "Hurr! Du sehst aus als kannst helfen mir - mirr tanzt für Heil von Seele.", "Greebs. Grakamesh hat wenig Zeit für dich. Mirr muss tanzen und singt, zu vertreiben bösen Spuk."
 "Farewell", "Bye", "Fare well", "See you" -> "Farebbas! Pray fer old oomie chief, Reginald, will yoos?", "Gud hunt!", "Can yoos bring mes sum bananas when yoos come back? Danks in advance."
@@ -104,7 +104,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebbas! Pray fer old oomi
 "How are you", "How feel", "How do you do" -> "Dem gods, dey will hear mes singin'. Mes gottur dance and sing to scare away spooks from old oomie chief tomb.", "Mes feel like dancin'.", "Danks, but mes feel much better if all spooks be smashed and Reginald oomie can rest in peace."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Die Götta werden hören meine Gesang! Grakamesh wird singen und tanzen, alle böser Spuk.", "Mirr fühlt den Rhytmus!", "Danks, aber mirr fühlen besser vieles, wenn alle böser Spuk zerschlagen und zerhauen ist. Dann Reginald-Oomie wir druhen in Ruhe."
 "your name", "who are you", "who art thou" -> "Me dat shaman Grakamesh. Mes know lots about spooks and stuff.", "Grakamesh, dat shaman, at yoos service... after mes hab dance.", "Hurr, Grakamesh mes be!"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich binne der Schamane Grakamesh. Weiß vieles über Sachen und Spuk.", "Grakamesh, der Schamane zu deiner Dienste... wenn mir getanzt fertig.", "Hurr, ich binne Grakamesh!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich binne der Schamane Grakamesh. Weiß vieles über Sachen und Spuk.", "Grakamesh, der Schamane zu deiner Dienste... wenn mir getanzt fertig.", "Hurr, ich binne Grakamesh!"
 
 -- Catching quest triggers. Modify if the NPC does quests.
 -- 1st quest: Kill 10 mummies, player receives torch.

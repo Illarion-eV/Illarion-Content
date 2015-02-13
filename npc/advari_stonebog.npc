@@ -79,7 +79,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 5% Fish: 73, 355, 455, 1210, 1209
 -- 5% Tools (Fisher): 72
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Advari Stonebog the trader. Buy, sell, trade, Dwarf, Beer, Orcs, Name.")
@@ -87,7 +87,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greeted be.", "Wealth and glory, friend.", "Hail Irmorom.", "Great day to be a dwarf!", "This 'ere be me stall. You want to buy some wares?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho, Reisender.", "Wohlstand und profitable Geschäfte, mein Freund.", "Heil Irmorom.", "Gr'duzk. - würde ich sagen und heißt so viel wie guten Tag.", "H'druk g'har. Dies ist mein Schuppen. Wollt ihr was kaufen?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho, Reisender.", "Wohlstand und profitable Geschäfte, mein Freund.", "Heil Irmorom.", "Gr'duzk. - würde ich sagen und heißt so viel wie guten Tag.", "H'druk g'har. Dies ist mein Schuppen. Wollt ihr was kaufen?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greeted be.", "Wealth and glory, friend.", "Hail Irmorom.", "Great day to be a dwarf!", "This 'ere be me stall. You want to buy some wares?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho, Reisender.", "Wohlstand und profitable Geschäfte, mein Freund.", "Heil Irmorom.", "Gr'duzk. - würde ich sagen und heißt so viel wie guten Tag.", "H'druk g'har. Dies ist mein Schuppen. Wollt ihr was kaufen?"
 "Farewell", "Bye", "Fare well", "See you" -> "G'hruk. Farewell.", "Abundance and Wealth, my friend.", "Arr."
@@ -97,7 +97,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "G'hruk. Farewell.", "Abunda
 "How are you", "How feel", "How do you do" -> "Aye, the business is well and the Greenskins behave properly.", "Arr, as soon as I'm able to leave my shop, I am going to drink beer at Hagar's Inn. He is a Longleg, but the stuff is brewed by us dwarves!", "Gold. That's what a dwarf aspires to and I have a huge amount of it."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Aye, das Geschäft geht gut, und die Grünschnauzen benehmen sich einigermaßen.", "Arr, wenn ich einmal hier wegkomm, geh ich sofort zu Hagar! Der ist zwar ein Langbein, aber das Bier, das haben wir Zwerge ihm gebraut!", "Gold. Das ist was ein Zwerg will. Und ich hab eine Menge davon."
 "your name", "who are you", "who art thou" -> "Arr, just mellow dwarves tell their real name and someone like you would just yell it out to everyone, but in common language I'm called Advari Stonebog", "Advari Stonebog. And that's all someone like you needs to know."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Arr, nur Weichzwerge verraten ihren wahren Namen. Wer weiß wem, einer wie du, ihn erzählen würde! Aber in der allgemeinen Sprache heiße ich Advari Stonebog.", "Advari Stonebog. Und mehr braucht einer wie du, nicht zu wissen."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Arr, nur Weichzwerge verraten ihren wahren Namen. Wer weiß wem, einer wie du, ihn erzählen würde! Aber in der allgemeinen Sprache heiße ich Advari Stonebog.", "Advari Stonebog. Und mehr braucht einer wie du, nicht zu wissen."
 
 -- Catching quest triggers
 english, "quest", "mission" -> "I don't have any tasks for yer. Better ask the Don, aye?"

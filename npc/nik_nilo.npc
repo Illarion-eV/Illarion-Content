@@ -82,7 +82,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 5% Stuff: 310, 390, 391, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
 
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I trade with rocks and stones that are as hard as my muscles!", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich handel mit Felsen und Steinen, die so hart sind wie meine Muskeln!", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich handel mit Felsen und Steinen, die so hart sind wie meine Muskeln!", trade
 
 -- Help
 "Help" -> inform("[Game Help] This is 'Big Nik', he is a tool and supply trader. Keywords: sell, buy, trade, Hello, profession, laws.")
@@ -94,7 +94,7 @@ queststatus(702) = 1, "charwis", "rubin", "edelstein", "irongate" -> queststatus
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me grins as he waves, 'What can I do for you?'", "#me lifts his head, 'Hello there, you here to buy or sell?'", "Hello, you look like someone who knows a good price for tools, that's why you're here, right?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me grinst und winkt: 'Was kann ich für euch tun?'", "#me hebt den Kopf: 'Heda, wollt ihr etwas kaufen oder loswerden?'", "Hallo, ihr seht aus wie jemand, dem ich einen guten Preis für Werkzeuge machen kann. Deshalb seid ihr doch hier?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me grinst und winkt: 'Was kann ich für euch tun?'", "#me hebt den Kopf: 'Heda, wollt ihr etwas kaufen oder loswerden?'", "Hallo, ihr seht aus wie jemand, dem ich einen guten Preis für Werkzeuge machen kann. Deshalb seid ihr doch hier?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Yeah, yeah, you here to buy or sell?", "#me scratches his cheek as he looks over, 'Want to see my wares?'", "Hello and all that, why don't you spend some of that coin you have with me!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Jaja, wollt ihr nun etwas kaufen oder loswerden?", "#me kratzt sich am Kinn und schaut umher: 'Seid ihr wegen meinen Waren hier?'", "Hallo und so, warum gebt ihr nicht einfach etwas Geld bei mir aus!"
 "Farewell", "Bye", "Fare well", "See you" -> "Aye... another time.", "Come back again now!", "#me chuckles, 'I'll be seeing you again I hope.'"
@@ -104,7 +104,7 @@ english, "Ciao", "Adieu", "Au revoir" -> "Aye... another time.", "Come back agai
 "How are you", "How feel", "How do you do" -> "I do alright, I would do better if you bought something!", "Why do you ask, you wont get a better price for small talk.", "I'm good, all the better for making a trade with you."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es gut und es würde mir noch besser gehen, wenn ihr etwas kaufen würdet.", "Warum fragt ihr, denkt ihr, dass ihr durch Geschwätz einen besseren Preis bekommt?", "Gut, genau richtig, um mit euch zu handeln."
 "your name", "who are you", "who art thou" -> "#me chuckles, 'Nik Nilo, but people call me Big Nik.", "Big Nik and don't you forget it!", "You mean you never heard of me, I'm Big Nik Nilo!"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "#me lacht auf: 'Nik Nilo, aber die Leute nennen mich Big Nik.", "Big Nik, vergesst das besser nicht.", "Ihr habt also noch nie von mir gehört? Ich bin Big Nik Nilo!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "#me lacht auf: 'Nik Nilo, aber die Leute nennen mich Big Nik.", "Big Nik, vergesst das besser nicht.", "Ihr habt also noch nie von mir gehört? Ich bin Big Nik Nilo!"
 
 -- Catching quest triggers
 english, "quest", "mission" -> "#me laughs, 'What? I'm a builders merchant, I have tools not quests."

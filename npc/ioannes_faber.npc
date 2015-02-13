@@ -76,7 +76,7 @@ itemShoes = 53
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hail and may Malachín bless you. I assume you obey the Queen?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Malachín zum Gruße. Ich nehme an, ihr gehorcht der Königin."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Malachín zum Gruße. Ich nehme an, ihr gehorcht der Königin."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hail and may Malachín bless you. I assume you obey the Queen?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Malachín zum Gruße. Ich nehme an, ihr gehorcht der Königin."
 "Farewell", "Bye", "Fare well", "See you" -> "Go forth and do as the Queen tells you.", "Farewell and may your journey be a pleasant one.", "Good bye and don't forget to come back."
@@ -86,7 +86,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go forth and do as the Quee
 "How are you", "How feel", "How do you do" -> "The smile of the Queen makes me spin, spinning within.", "Every word of the Queen is like caress."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Das Lächeln der Königin macht mich ganz wuschig im Inneren.", "Jedes Wort der Königin ist wie eine Liebkosung."
 "your name", "who are you", "who art thou" -> "Faber. Ioannes Faber. I am the royal treasurer, do not underestimate my importance at the palace.", "My name is Ioannes Faber, the royal treasurer of Cadomyr. The Queen relies on me, indeed.", "You don't know my name? Better write it down then: Ioannes Faber."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Faber. Ioannes Faber. Ich bin der königliche Kämmerer, ihr solltet meine Bedeutung am Hofe nicht unterschätzen.", "Mein Name ist Ioannes Faber, der königliche Kämmerer von Cadomyr. Die Königin hält große Stücke auf mich.", "Ihr kennt meinen Namen nicht? Schreibt ihn euch besser auf: Ioannes Faber."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Faber. Ioannes Faber. Ich bin der königliche Kämmerer, ihr solltet meine Bedeutung am Hofe nicht unterschätzen.", "Mein Name ist Ioannes Faber, der königliche Kämmerer von Cadomyr. Die Königin hält große Stücke auf mich.", "Ihr kennt meinen Namen nicht? Schreibt ihn euch besser auf: Ioannes Faber."
 
 -- Catching quest triggers of other factions' members. Outlaws are ignored.
 english, town = Galmair, "quest", "mission" -> "I doubt you came to the right place for a mission. How about you try the sewers?"

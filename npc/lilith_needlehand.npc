@@ -75,7 +75,7 @@ itemShoes = 369
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho! You must have come to help me!", "Oh my, hello there! You are here to assist me, I assume?", "#me gives a charming smile, 'Are you here to help me?'"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho! Du bist sicher hier, um mir zu helfen!", "Oh, hallo!", "#me lächelt freundlich."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho! Du bist sicher hier, um mir zu helfen!", "Oh, hallo!", "#me lächelt freundlich."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! You must have come to help me!", "Oh my, hello there! You are here to assist me, I assume?", "#me gives a charming smile, 'Are you here to help me?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Du bist sicher hier, um mir zu helfen!", "Oh, hallo! Du kannst mir bestimmt helfen.", "#me lächelt freundlich."
 "Farewell", "Bye", "Fare well", "See you" -> "#me waves excitedly.", "Good Bye!", "Come back soon and maybe we can have some cake!", "#me turns back to the sheep, saying over her shoulder 'Farewell' as she pets one."
@@ -85,7 +85,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me waves excitedly.", "Goo
 "How are you", "How feel", "How do you do" -> "I'm in a hurry! The Archmage ordered a robe and I haven't finished it yet."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich bin in Eile. Der Erzmagier hat eine Robe bestellt und ich habe sie noch nicht fertig."
 "your name", "who are you", "who art thou" -> "My name is Lilith Needlehand, and I am a tailor. It is a pleasure to meet you!"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Lilith Needlehand und ich bin eine Schneiderin. Es ist schön, deine Bekanntschaft zu machen."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Mein Name ist Lilith Needlehand und ich bin eine Schneiderin. Es ist schön, deine Bekanntschaft zu machen."
 
 -- fix
 queststatus(73) > 0, queststatus(820) = 17, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 18, "Ah Florain sent you but you already asked me for something to do."

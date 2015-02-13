@@ -91,7 +91,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 10% Daggers: 297, 389, 398 (444)
 -- 10% Axes: 124, 229, 192 (296)
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I sell any kind of jewellery.", "Things made of gold, of copper, of gems... What do you need?", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich handele mit allerlei Juwelen.", "Dinge aus Gold, aus Kupfer, aus Edelsteinen... was braucht ihr?", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich handele mit allerlei Juwelen.", "Dinge aus Gold, aus Kupfer, aus Edelsteinen... was braucht ihr?", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the jeweller Jacobus. Keywords: buy, sell, trade, Hello, jewellery.")
@@ -99,7 +99,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Welcome to Cadomyr.", "Be greeted.", "Hello, do you need a ruby necklace?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen in Cadomyr.", "Seid gegrüßt.", "Hallo, braucht ihr eine Rubinkette?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen in Cadomyr.", "Seid gegrüßt.", "Hallo, braucht ihr eine Rubinkette?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Welcome to Cadomyr.", "Be greeted.", "Hello, do you need a ruby necklace?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Willkommen in Cadomyr.", "Seid gegrüßt.", "Hallo, braucht ihr eine Rubinkette?"
 "Farewell", "Bye", "Fare well", "See you" -> "I hope you'll recommend my goods.", "Good bye.", "Have a nice day."
@@ -109,7 +109,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "I hope you'll recommend my 
 "How are you", "How feel", "How do you do" -> "I feel like selling gems."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir ist danach, Edelsteine zu verkaufen."
 "your name", "who are you", "who art thou" -> "I am Jacobus, the jeweller.", "Jacobus.", "Jacobus, so do not call me Jack."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Jacobus der Juwelier.", "Jacobus.", "Jacobus. Und nennt mich nicht Jack."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Jacobus der Juwelier.", "Jacobus.", "Jacobus. Und nennt mich nicht Jack."
 
 -- Catching quest triggers
 english, "quest", "mission" -> "I don't have a quest for you, sorry."

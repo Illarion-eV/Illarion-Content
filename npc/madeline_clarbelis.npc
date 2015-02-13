@@ -87,7 +87,7 @@ queststatus(333) > 12, ".+" -> inform("[Error] Something went wrong, please info
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me blushes slightly, 'H...hello there.'", "#me glances toward her feet, 'Greetings.'", "G...greetings."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me wird leicht rot.,'H...Hallo.'", "#me schaut verlegen zu Boden 'G...Grüße '.", "G...Grüße."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me wird leicht rot.,'H...Hallo.'", "#me schaut verlegen zu Boden 'G...Grüße '.", "G...Grüße."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me blushes slightly, 'H...hello there.'", "#me glances toward her feet, 'Greetings.'", "G...greetings."
 "Hiho", "Hallo", "Hey", "Greeb" -> "#me wird leicht rot.,'H...Hallo.'", "#me schaut verlegen zu Boden 'G...Grüße '.", "G...Grüße."
 "Farewell", "Bye", "Fare well", "See you" -> "#me purses her lips, nodding once.", "Take care.", "Farewell."
@@ -97,7 +97,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me purses her lips, noddin
 "How are you", "How feel", "How do you do" -> "I...I am fine.", "Well...of course. Why would I be otherwise?", "#me fidgets nervously, 'I cannot complain.'"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "I...Ich, mir geht es gut.", "Gut... natürlich. Warum sollte es mir schlecht gehen?", "#me zappelt nervös. 'Ich kann nicht klagen'."
 "your name", "who are you", "who art thou" -> "Madeline. Madeline Clarbelis.", "I am Madeline.", "M...my name is Madeline Clarbelis."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Madeline. Madeline Clarbelis.", "I am Madeline.", "M...mein Name i...ist Madeline Clarbelis."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Madeline. Madeline Clarbelis.", "I am Madeline.", "M...mein Name i...ist Madeline Clarbelis."
 
 -- 1st quest: Deliver 'Aurora's staff': receive long staff handle
 

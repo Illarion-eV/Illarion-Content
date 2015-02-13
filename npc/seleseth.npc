@@ -64,7 +64,7 @@ itemShoes = 0
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetingsss to you.", "Yess, greetingsss.", "Blessingsss of the Mother upon you, greetingsss"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüßsse dir.", "Ja, Grüße.", "Grüße."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüßsse dir.", "Ja, Grüße.", "Grüße."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetingsss to you.", "Yess, greetingss.", "Greetsss."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüßsse dir.", "Ja, Grüßsse.", "Grüßsse."
 "Farewell", "Bye", "Fare well", "See you" -> "May the rainsss be heavy and frequent.", "May the sssea-Mother watch your path.", "Farewell, zsss."
@@ -74,7 +74,7 @@ english, "Ciao", "Adieu", "Au revoir" -> "Goodbye", "Farewell", "#me nods slowly
 "How are you", "How feel", "How do you do" -> "Ssseleseth isss fine, yesss."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ssseleseth issst gut, ja.."
 "your name", "who are you", "who art thou" -> "I be Ssseleseth, would you like to do a job for me?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich sindss Ssseleseth, machenss du Aufgabe für michse?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich sindss Ssseleseth, machenss du Aufgabe für michse?"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a gem grinder, massson and bricksss maker, do you wantssz to help Ssseleseth?"

@@ -64,7 +64,7 @@ itemShoes = 53
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, what do you need?", "Good day, what do you need?", "I'm Daniel Brock, what can I do for you?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, was brauchst du?", "Guten Tag, was willst du?", "Ich bin Daniel Brock, was kann ich für dich tun?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, was brauchst du?", "Guten Tag, was willst du?", "Ich bin Daniel Brock, was kann ich für dich tun?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, what do you need?", "Good day, what do you need?", "I'm Daniel Brock, what can I do for you?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, was brauchst du?", "Guten Tag, was willst du?", "Ich bin Daniel Brock, was kann ich für dich tun?"
 "Farewell", "Bye", "Fare well", "See you" -> "#me chuckles, 'I'll be seeing you again I hope.'", "Aye... another time."
@@ -74,7 +74,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me chuckles, 'I'll be seei
 "How are you", "How feel", "How do you do" -> "I feel fine, thank you for asking."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke der Nachfrage."
 "your name", "who are you", "who art thou" -> "I'm Daniel Brock, who are you?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Daniel Brock, wer bist du?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Daniel Brock, wer bist du?"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a carpenter, if you want to know more about it, ask me for a task. I'm sure I have something for you to do."

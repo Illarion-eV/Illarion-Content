@@ -126,7 +126,7 @@ english, "quest", "job", "problem" -> "Take a Knife and take a Virgins as hostag
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hej lubber!", "Aye.", "Always fair winds and following seas, Jack.", "Arr! Whats new?", "Oi me matee! Ya wouldn' happen to 'ave a bottle o' rum on ya would yee?", "Ahoy, me Hearties!"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hej Landratte!", "Aye.", "Mast- und Schotbruch, Matrose!", "Arr! Was gibt's?", "Ahoi!"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hej Landratte!", "Aye.", "Mast- und Schotbruch, Matrose!", "Arr! Was gibt's?", "Ahoi!"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hej lubber!", "Aye.", "Always fair winds and following seas, Jack.", "Arr! Whats new?", "Oi me matee! Ya wouldn' happen to 'ave a bottle o' rum on ya would yee?", "Ahoy, me Hearties!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hej Landratte!", "Aye.", "Mast- und Schotbruch, Matrose!", "Arr! Was gibt's?", "Ahoi!"
 "Farewell", "Bye", "Fare well", "See you" -> "Don't get biten by seedogs!", "Aye.", "Good wind."
@@ -136,7 +136,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Don't get biten by seedogs!
 "How are you", "How feel", "How do you do" -> "I'm good matee! The winds fair and my bottle is filled. Aye."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht's gut, Kumpel. Die Winde sind gut und die Flasche is voll. Aye."
 "your name", "who are you", "who art thou" -> "I am Tobis Vunu. Siver me timbers!"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Tobis Vunu. Bei meinen wankenden Masten!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Tobis Vunu. Bei meinen wankenden Masten!"
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a scary Pirate! Arr!"

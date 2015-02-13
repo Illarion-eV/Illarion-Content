@@ -87,9 +87,9 @@ queststatus(74) > 2, ".*" -> "Error! Something went wrong, please inform a devel
 queststatus(74) = 0, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> inform("[New quest] Galmair's Gossiper"), queststatus(74) = 1, "#me flashes you a sparse-toothed grin. 'Eh! If ye want to sit down with me, ye better bring me a mug of beer. Then I'll answer yer questions.'"
 queststatus(74) = 1, item(1909, all) < 1, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Is there wax in yer ears or what? If ye want to talk with me, ye need to bring me a beer! I'm bloody thirsty."
 queststatus(74) = 2, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "If it isn't mah good ol' buddy! Come, sit down and drink with meh!"
-queststatus(74) = 0, "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> inform("[Neues Quest] Der Schwätzer von Galmair"), queststatus(74) = 1, "#me zeigt ein zahnloses Grinsen. 'Eh! Wenn du dich hier hinsetzen willst, bring mir besser ein Bier. Dann beantworte ich deine Fragen.'"
-queststatus(74) = 1, item(1909, all) < 1, "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hast du Wachs in den Ohren oder was? Wenn du mit mir reden willst, musst du mir ein Bier bringen. Ich bin verdammt nochmal durstig."
-queststatus(74) = 2, "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Wenn das nicht mein guter Kumpel ist! Komm, setz dich und trink mit mir!"
+queststatus(74) = 0, "Grüß", "Gruß", "Grüss", "Gruss", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> inform("[Neues Quest] Der Schwätzer von Galmair"), queststatus(74) = 1, "#me zeigt ein zahnloses Grinsen. 'Eh! Wenn du dich hier hinsetzen willst, bring mir besser ein Bier. Dann beantworte ich deine Fragen.'"
+queststatus(74) = 1, item(1909, all) < 1, "Grüß", "Gruß", "Grüss", "Gruss", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hast du Wachs in den Ohren oder was? Wenn du mit mir reden willst, musst du mir ein Bier bringen. Ich bin verdammt nochmal durstig."
+queststatus(74) = 2, "Grüß", "Gruß", "Grüss", "Gruss", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Wenn das nicht mein guter Kumpel ist! Komm, setz dich und trink mit mir!"
 queststatus(74) = 0, english, "Hiho", "Hallo", "Hey", "Greeb" -> inform("[New quest] Galmair's Gossiper"), queststatus(74) = 1, "#me strokes his beard and grins: 'Arr, Greetings! If ye want to talk, then ye better quench my thirst first!'"
 queststatus(74) = 1, item(1909, all) < 1, english, "Hiho", "Hallo", "Hey", "Greeb" -> "Is there wax in yer ears or what? If ye want to talk with me, ye need to bring me a beer! I'm bloody thirsty."
 queststatus(74) = 2, english, "Hiho", "Hallo", "Hey", "Greeb" -> "What! Haven't seen ya since last time."
@@ -107,7 +107,7 @@ queststatus(74) = 0, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> inform("
 queststatus(74) = 1, item(1909, all) < 1, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Hast du Wachs in den Ohren oder was? Wenn du mit mir reden willst, musst du mir ein Bier bringen. Ich bin verdammt nochmal durstig."
 queststatus(74) = 2, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ein Bier am Morgen vertreibt Kummer und Sorgen. Und ich hab keine mehr."
 "your name", "who are you", "who art thou" -> "Cormac, the... river transportation entrepreneur."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Cormac, der... Flussschiffahrtstransportunternehmer."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Cormac, der... Flussschiffahrtstransportunternehmer."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 -- First part, the gossiper is thirsty--

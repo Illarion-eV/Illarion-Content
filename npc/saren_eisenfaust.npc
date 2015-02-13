@@ -80,7 +80,7 @@ itemShoes = 697
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day, what do ya want?", "Irmorom with ya, do ya need anything?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Tach auch, wat gibts?", "Irmorom zum Gruße, brauchst du wat?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Tach auch, wat gibts?", "Irmorom zum Gruße, brauchst du wat?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "What do ya want, eh? We say greetings around here.", "Aye, whatever.", "You won't go far with that greeting around here."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Wat willste, eh? Dat heißt Tach!", "Aye, wat auch immer.", "Damit kommste hier nich weit, es heißt Tach!"
 "Farewell", "Bye", "Fare well", "See you" -> "Aye, take care.", "Irmorom with ya!", "Until next time!"
@@ -90,7 +90,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Aye, take care.", "Irmorom 
 "How are you", "How feel", "How do you do" -> "Can't say anything's bothering me and ya?", "So-so, but I'm fine right now."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich kann nich klagen und du?", "Ganz gut und selbst?", "Mal so, mal so, aber gerade geht es mir ganz gut."
 "your name", "who are you", "who art thou" -> "I'm Saren and who are you?", "I'm called Saren, Saren Eisenfaust, and what's your name?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin der Saren und wer bist du?", "Man nennt mich Saren, Saren Eisenfaust und wie nennt man dich?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin der Saren und wer bist du?", "Man nennt mich Saren, Saren Eisenfaust und wie nennt man dich?"
 
 -- 1st quest
 queststatus(81) = 0, english, town = Galmair, "quest", "mission" -> "I can help ya if ya wanna become a smith, but first bring me 10 lumps of coal, along with 10 chunks of iron ore, and don't forget to bring a hammer. Here is a pickaxe for you to get the ore.", item(2763, 1, 333), queststatus(81) = 1

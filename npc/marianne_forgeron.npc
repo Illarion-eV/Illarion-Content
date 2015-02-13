@@ -90,7 +90,7 @@ buySecondaryItems = 2
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings. Ya want something magical made from gemstones?", "Be greeted. Shall I combine magical gemstones for you? That is my job, ya know?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße. Soll ich dir wat magisches aus Edelsteinen machen?", "Sei jegrüßt. Willste datt ich deine magischen Edelsteine kombinieren tue? Datt is nämlich mein Job."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße. Soll ich dir wat magisches aus Edelsteinen machen?", "Sei jegrüßt. Willste datt ich deine magischen Edelsteine kombinieren tue? Datt is nämlich mein Job."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings. Ya want something magical made from gemstones?", "Be greeted. Shall I combine magical gemstones for you? That is my job, ya know?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüße. Soll ich dir watt magisches aus Edelsteinen machen?", "Seid jegrüßt. Willste datt ich deine magischen Edelsteine kombinieren tu? Datt is nämlich mein Job."
 "Farewell", "Bye", "Fare well", "See you" -> "May Irmorom be with ya!", "May Irmorom protect ya!"
@@ -100,7 +100,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May Irmorom be with ya!", "
 "How are you", "How feel", "How do you do" -> "Fine. And you?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Jut, jut. Selber?"
 "your name", "who are you", "who art thou" -> " Marianne Forgeron, that's my name.", "Marianne Forgeron."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> " Marianne Forgeron, so heiße ich.", " Marianne Forgeron."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> " Marianne Forgeron, so heiße ich.", " Marianne Forgeron."
 
 -- TRIGGERS for Gemcraft
 "gem", "magical smithing", "smithing", "gemcraft", "transmute", "combine", "enchant" -> "Did I hear ya say work?", "Let's start!", gemcraft

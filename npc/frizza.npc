@@ -76,7 +76,7 @@ itemShoes = 369
 queststatus(605) = 1, english, ".*" -> inform("[Quest 'Find Frizza'] You can speak with Frizza now. Ask for 'help' if you do not know what to say! You can also go back to Hummi to collect your reward and come back later."), queststatus(605) = 2, "How can I help you? Are you looking for any information? Or would you like to be given a tasssk?"
 queststatus(605) = 1, ".*" -> inform("[Quest 'Finde Frizza'] Da kannst nun mit Frizza sprechen. Frage nach 'Hilfe' wenn du nicht weißt wonach du fragen sollst! Du kannst auch zurück zu Hummi gehen um deine Belohnung abzuholen und später nochmals vorbei kommen."), queststatus(605) = 2, "Wie kann ich helfen? Wird eine Information erwünssscht? Oder eine Aufgabe?"
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> inform("[Hint] Have you already asked her for 'information' or her 'quest'?"), "Greetingsss, can I help you?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> inform("[Hinweis] Hast du sie bereits nach 'Information' oder 'Quest' befragt?"), "Grüsssse, kann ich helfen?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> inform("[Hinweis] Hast du sie bereits nach 'Information' oder 'Quest' befragt?"), "Grüsssse, kann ich helfen?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> inform("[Hint] Have you already asked her for 'information' or her 'quest'?"), "Greetingsss, can I help you?"
 "Hiho", "Hallo", "Hey", "Greeb" -> inform("[Hinweis] Hast du sie bereits nach 'Information' oder 'Quest' befragt?"), "Grüsssse, kann ich helfen?"
 "Farewell", "Bye", "Fare well", "See you" -> "Sssee you again, when you need more information."
@@ -86,7 +86,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Sssee you again, when you n
 "How are you", "How feel", "How do you do" -> "Very good, I could jussst anssswer a quesssstion few minutes ago."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Sssehr gut, konnte gerade wieder eine Frage beantworten."
 "your name", "who are you", "who art thou" -> "Frizza, the informant of Cadomyr."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Frizza, die Informantin von Cadomyr."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Frizza, die Informantin von Cadomyr."
 
 -- OPTIONAL TRIGGERS
 

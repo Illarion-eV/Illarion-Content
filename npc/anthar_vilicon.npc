@@ -98,7 +98,7 @@ itemShoes = 771
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted. A good day for a good deed - maybe I have a mission for you.", "Hail! Welcome to the Palace of the Edwards. Do not dare to disrespect the Queen and you life will be a long one.", "Chancellor Vilicon greets you. You came here for your orders, I assume? The administration of Cadomyr appreciates your assistance."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt. Ein guter Tag für eine gute Tat - vielleicht habe ich eine Mission für euch.", "Willkommen im Palast der Edwards. Gehorcht der Königin und euer Leben wird ein langes sein.", "Kanzler Vilicon grüßt euch. Ihr kamt wegen eurer Befehle her, nehme ich an. Die Verwaltung Cadomyrs begrüßt eure Unterstützung."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt. Ein guter Tag für eine gute Tat - vielleicht habe ich eine Mission für euch.", "Willkommen im Palast der Edwards. Gehorcht der Königin und euer Leben wird ein langes sein.", "Kanzler Vilicon grüßt euch. Ihr kamt wegen eurer Befehle her, nehme ich an. Die Verwaltung Cadomyrs begrüßt eure Unterstützung."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted. A good day for a good deed - maybe I have a mission for you.", "Hail! Welcome to the Palace of the Edwards. Do not dare to disrespect the Queen and you life will be a long one.", "Chancellor Vilicon greets you. You came here for your orders, I assume? The administration of Cadomyr appreciates your assistance."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt. Ein guter Tag für eine gute Tat - vielleicht habe ich eine Mission für euch.", "Willkommen im Palast der Edwards. Gehorcht der Königin und euer Leben wird ein langes sein.", "Kanzler Vilicon grüßt euch. Ihr kamt wegen eurer Befehle her, nehme ich an. Die Verwaltung Cadomyrs begrüßt eure Unterstützung."
 "Farewell", "Bye", "Fare well", "See you" -> "Go with the gods' blessing.", "May the gods protect you as they protect her Majesty.", "Farewell and best of luck."
@@ -108,7 +108,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go with the gods' blessing.
 "How are you", "How feel", "How do you do" -> "My health is not an issue here. I am an elf as you might see."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Meine Gesundheit spielt keine Rolle. Ich bin ein Elf, wie ihr seht."
 "your name", "who are you", "who art thou" -> "I am Anthar Vilicon, Chancellor of Cadomyr. I am the head of administration and if you are loyal, I have a mission for you."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Anthar Vilicon, Kanzler Cadomyrs. Ich bin das Oberhaupt der Administration und wenn ihr loyal seid, dann habe ich eine Mission für euch."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Anthar Vilicon, Kanzler Cadomyrs. Ich bin das Oberhaupt der Administration und wenn ihr loyal seid, dann habe ich eine Mission für euch."
 
 -- Catching quest triggers of other factions' members. Outlaws are ignored.
 english, town = Galmair, "quest", "mission" -> "Farewell and my best 'regards' to your Don."

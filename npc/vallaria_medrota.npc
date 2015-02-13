@@ -71,7 +71,7 @@ sellItem = id(2622), de("Buch der Alchemie"), en("Book Of Alchemy"), price(1000)
 
 -- general speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings!", "Hello.", "Be greeted!"
-"Grüß", "Gruß", "Gruss", "Grüss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße.", "Hallo.", "Seid gegrüßt!"
+"Grüß", "Gruß", "Grüss", "Gruss", "Gruss", "Grüss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße.", "Hallo.", "Seid gegrüßt!"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings!", "Hello.", "Be greeted!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüße.", "Hallo.", "Seid gegrüßt!"
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell", "Goodbye.", "Have a nice day."
@@ -81,7 +81,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell", "Goodbye.", "Hav
 "How are you", "How feel", "How do you do" -> "I was doing better. I was doing worse.", "I am fine.", "Thanks for asking. I am doing well."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut.", "Danke der Nachfrage. Ich kann nicht klagen.", "Es ging mir schon besser."
 "your name", "who are you", "who art thou" -> "I am Vallaria Medrota."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Vallaria Medrota."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Vallaria Medrota."
 
 -- tasks-- leraning recipes
 english, "quest", "mission" -> "If you want to learn the proper creation of a certain potion, have a look at my list here."

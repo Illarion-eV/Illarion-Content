@@ -81,7 +81,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 10% Swords: 1, 25, 78, 204, 2658, 2701, 2731, 2757, 2775, 2778, 2788, 2776
 -- 10% Spears: 1046, 1038, 1049, 1047, 1040, 1048, 1053, 77, 1039, (1050, 1051)
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Gâsh! I sell everything made in the forge. Sharpest axes! Mightiest armours! Best tools. Uh!", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Gâsh! Ich verkaufe alles was sie in der Schmiede zusammen bauen. Schärfste Äxte! Mächtigste Rüstungen! Und bestes Werkzeug. Uh!", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Gâsh! Ich verkaufe alles was sie in der Schmiede zusammen bauen. Schärfste Äxte! Mächtigste Rüstungen! Und bestes Werkzeug. Uh!", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Krudash the arms dealer. Keywords: buy, sell, trade, Er'hja, Kroch'Gurak, Snaga, Alice, Tom"), "Me, Krudash, sell and buy lots of stuff! Taghta?"
@@ -89,7 +89,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greebas. Do you need sumthing?", "Hurr! Be greeted.", "Hurr. Me, Krudash, sell all you need. For good hack'n sack trip! Hehe!", "Latha math! Greetings-Greetings, mes mean."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Greebas. Brauchst du was, hä?", "Hurr! Sei gegrüßt.", "Hurr. Ich, Krudash verkaufe alles, was 'ner wie du braucht für's hacken und plündarn! Hehe!", "Latha math! Grüße-Grüße, sag ich.", "Sei willkommen, in 'Krudash's Hacken und Plündern'!"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Greebas. Brauchst du was, hä?", "Hurr! Sei gegrüßt.", "Hurr. Ich, Krudash verkaufe alles, was 'ner wie du braucht für's hacken und plündarn! Hehe!", "Latha math! Grüße-Grüße, sag ich.", "Sei willkommen, in 'Krudash's Hacken und Plündern'!"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greebas. Do you need sumthing?", "Hurr! Be greeted.", "Hurr. Me, Krudash, sell all you need. For good hack'n sack trip! Hehe!", "Latha math! Greetings-Greetings, mes mean."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Greebas. Brauchst du was, hä?", "Hurr! Sei gegrüßt.", "Hurr. Ich, Krudash verkaufe alles, was 'ner wie du braucht für's hacken und plündarn! Hehe!", "Latha math! Grüße-Grüße, sag ich.", "Sei willkommen, in 'Krudash's Hacken und Plündern'!"
 "Farewell", "Bye", "Fare well", "See you" -> "Farebas. Have a good sackin'!", "Slàn leibhslàn! Would say in the orcish tongue. Tagtha?"
@@ -99,7 +99,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebas. Have a good sackin
 "How are you", "How feel", "How do you do" -> "Hurr. Mes alrighty! Good shop, good husband, good whelps.", "Uh! I'm a rich and mighty orc! Lots of snagas are mine!", "Hrmpf!"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Hurr. Mirr gehts gut. Hab nen feinen Laden. N'guten Mann. Und gute welpen!", "Hrmpf!", "Uh! Ich bin ne reiche und mächtige Ork. Und alle Snagas tun, was ich befehle."
 "your name", "who are you", "who art thou" -> "I am Krudash, and this my shop, 'Hack'n Sack', selling all stuff you need for good hack'n sack trip."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Krudash Und dars ist mein Laden. 'Hack'n Sack' - Hacken und Plündern! Verkaufe alles was du brauchst fürr guttes Hackn und plündarn."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Krudash Und dars ist mein Laden. 'Hack'n Sack' - Hacken und Plündern! Verkaufe alles was du brauchst fürr guttes Hackn und plündarn."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> "I... and my snagas... do all the work, so there is nothing for a maggot like you to do!"

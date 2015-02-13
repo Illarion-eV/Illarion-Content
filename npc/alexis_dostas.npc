@@ -74,7 +74,7 @@ itemShoes = 53
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted. You came here for a mount I suppose?", "Welcome to the stables.", "If you need a mount, you came to the right place."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt. Ihr seid hier eines Reittiers wegen, nehme ich an.", "Willkommen in den Stallungen.", "Falls ihr ein Lasttier benötigt seid ihr hier richtig."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt. Ihr seid hier eines Reittiers wegen, nehme ich an.", "Willkommen in den Stallungen.", "Falls ihr ein Lasttier benötigt seid ihr hier richtig."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted. You came here for a mount I suppose?", "Welcome to the stables.", "If you need a beast of burden, you came to the right place."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt. Ihr seid hier eines Reittiers wegen, nehme ich an.", "Willkommen in den Stallungen.", "Falls ihr ein Reittier benötigt seid ihr hier richtig."
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell... and come back alive."
@@ -84,7 +84,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell... and come back a
 "How are you", "How feel", "How do you do" -> "This is none of your business, sorry."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Entschuldigt, aber das tut jetzt nichts zur Sache."
 "your name", "who are you", "who art thou" -> "My name is Alexis Dostas, I am the royal stablemaster."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Alexis Dostas, ich bin hier der königliche Stallmeister."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Mein Name ist Alexis Dostas, ich bin hier der königliche Stallmeister."
 
 -- OPTIONAL TRIGGERS
 

@@ -64,7 +64,7 @@ itemShoes = 53
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetinzss of zze Mozzer to you. Blesssed are we zziss day.", "Blessingsss of zze Mozzer upon you, greetingsss."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüssse der Mutter für dich. Gessegnet sseien wir diesser Tage."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüssse der Mutter für dich. Gessegnet sseien wir diesser Tage."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetinzss of zze Mozzer to you. Blesssed are we zziss day.", "Blessingsss of zze Mozzer upon you, greetingsss."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüssse der Mutter für dich. Gessegnet sseien wir diesser Tage."
 "Farewell", "Bye", "Fare well", "See you" -> "Clear waterss on your travelss."
@@ -74,7 +74,7 @@ english, "Ciao", "Adieu", "Au revoir" -> "Clear waterss on your travelss."
 "How are you", "How feel", "How do you do" -> "Zenia iz good. Zze Mozzer providess all sshe needss, including help to keep her ssleeping nesst in good ssturdy condition."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Zzenia geht ess gut. Mutter gibt ihr alless, wass ssie braucht, auch die Hilfe, um ihr Schlafnesst in gutem Zzustand zzu halten."
 "your name", "who are you", "who art thou" -> "Sshe is Zenia, sservant of zze Mozzer."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ssie ist Zzenia, Dienerin der Mutter."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ssie ist Zzenia, Dienerin der Mutter."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "water" -> "Zze water iz life giving, iz all. *She smiles and bows her head, obviously deep in thought*"

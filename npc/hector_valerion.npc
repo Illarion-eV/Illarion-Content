@@ -97,7 +97,7 @@ itemShoes = 369
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted. You interrupt me, so it has to be important.", "#me closes a book and grumbles, 'What is it again?'", "Speak or be quiet, the latter is preferred."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid mir gegrüßt. Ihr unterbrecht mich beim Lesen, also muss es wichtig sein.", "#me legt ein Buch beiseite und grummelt: 'Was ist denn jetzt schon wieder?'", "Sprecht oder schweigt, letzteres wäre mir lieber."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid mir gegrüßt. Ihr unterbrecht mich beim Lesen, also muss es wichtig sein.", "#me legt ein Buch beiseite und grummelt: 'Was ist denn jetzt schon wieder?'", "Sprecht oder schweigt, letzteres wäre mir lieber."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted. You interrupt me, so it has to be important.", "#me closes a book and grumbles, 'What is it again?'", "Speak or be quiet, the latter is preferred."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Seid mir gegrüßt. Ihr unterbrecht mich beim Lesen, also muss es wichtig sein.", "#me legt ein Buch beiseite und grummelt: 'Was ist denn jetzt schon wieder?'", "Sprecht oder schweigt, letzteres wäre mir lieber."
 "Farewell", "Bye", "Fare well", "See you" -> "Can I continue reading now? Undisturbed? Thank you!", "Go and don't come back too early.", "There is the door."
@@ -107,7 +107,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Can I continue reading now?
 "How are you", "How feel", "How do you do" -> "Just work! But what do I say, you look like somebody with loss of esteem. How about you fulfil a royal mission?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Immer diese Arbeit! Aber was sage ich, ihr seht aus, als wenn ihr voller Tatendrang wäret. Werdet ihr auf eine königliche Mission gehen?"
 "your name", "who are you", "who art thou" -> "My name is Hector, Hector Valerion. I am the royal ambassador and you are...?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Hector, Hector Valerion. Ich bin der königliche Botschafter und ihr seid...?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Mein Name ist Hector, Hector Valerion. Ich bin der königliche Botschafter und ihr seid...?"
 
 -- Catching quest triggers. Modify if the NPC does quests.
 -- 1st quest: Bring 5 quills (463), reward 200cp

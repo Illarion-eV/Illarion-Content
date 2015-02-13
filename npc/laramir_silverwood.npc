@@ -89,7 +89,7 @@ buySecondaryItems = 9, 74, 2709, 2715, 2752, 2193, 2194, 2935, 2952, 2185, 323, 
 -- 5% Weapons: 445(wooden sword), 1045(wooden dagger), 2664(club) [1044(battle hammer), 1041(Stachelkeule)], 1052 Dwarfen Stormhammer, 1043 Dwarfen Hammer, 226 warhammer, 2737 warflail, 231 battle flail, 230 mace, 1090 walking stick
 
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I trade in wooden goods. Feel free to take a look, my friend.", trade
-"kauf", "waren", "preis", "Handel", "ver‰uﬂer", "erwerb" -> "I handle mit hˆlzernen Waren. Bitte, sieh dich ruhig um, mein Freund!", trade
+"kauf", "waren", "preis", "Handel", "ver‰uﬂer", "ver‰usser", "erwerb" -> "I handle mit hˆlzernen Waren. Bitte, sieh dich ruhig um, mein Freund!", trade
 
 -- MANDATORY TRIGGERS
 
@@ -99,7 +99,7 @@ buySecondaryItems = 9, 74, 2709, 2715, 2752, 2193, 2194, 2935, 2952, 2185, 323, 
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted, my friend. How are you today?", "Greetings my friend. Did you come here to take a look at my wares?", "#me smiles, 'Greetings, my friend.'"
-"Gr¸ﬂ", "Gruﬂ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid Gegr¸ﬂt mein Freund. Wie geht es dir heute?", "Gr¸ﬂe, mein Freund. Bist du gekommen um meine Ware zu bewundern?", "#me l‰chelt 'Gr¸ﬂe, mein Freund.'"
+"Gr¸ﬂ", "Gruﬂ", "Gr¸ss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid Gegr¸ﬂt mein Freund. Wie geht es dir heute?", "Gr¸ﬂe, mein Freund. Bist du gekommen um meine Ware zu bewundern?", "#me l‰chelt 'Gr¸ﬂe, mein Freund.'"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted, my friend. How are you today?", "Greetings my friend. Did you come here to take a look at my wares?", "#me smiles, 'Greetings, my friend.'"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Seid Gegr¸ﬂt mein Freund. Wie geht es dir heute?", "Gr¸ﬂe, mein Freund. Bist du gekommen um meine Ware zu bewundern?", "#me l‰chelt 'Gr¸ﬂe, mein Freund.'"
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell, my friend.", "Stay safe, my friend!", "May the Gods protect you, my friend!"
@@ -109,7 +109,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell, my friend.", "Sta
 "How are you", "How feel", "How do you do" -> "Thank you for asking, my friend. I feel fine, and you?"
 "Wie geht", "Wie f¸hlst", "Wie ist es ergangen", "Wie Befind" -> "Danke der Nachfrage, mein Freund. Ich f¸hle mich gut. Und du?"
 "your name", "who are you", "who art thou" -> end, "My name is Laramir Silverwood, my friend."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiﬂt" -> "Mein Freund, ich heiﬂe Laramir Silverwood.", "Mein Name ist Laramir Silverwood, mein Freund."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiﬂt", "wie heisst" -> "Mein Freund, ich heiﬂe Laramir Silverwood.", "Mein Name ist Laramir Silverwood, mein Freund."
 
 -- OPTIONAL TRIGGERS
 
