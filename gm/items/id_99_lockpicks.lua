@@ -498,7 +498,7 @@ function godMode(User, SourceItem, ltstate)
 end
 
 function M.LookAtItem(User, Item)
-	lookat.SetSpecialDescription(Item, "Verwende die Dietriche zum aufrufen der Funktionen.", "Use the lockpicks to pick a function.");
+	lookat.SetSpecialDescription(Item, "Verwende die Dietriche zum Aufrufen der Funktionen.", "Use the lockpicks to pick a function.");
 	lookat.SetSpecialName(Item, "Dietriche", "Lockpicks");
 	return lookat.GenerateLookAt(User, Item, lookat.METAL)
 end
