@@ -59,20 +59,20 @@ itemTrousers = 367
 itemShoes = 53
 
 -- Help
-"Help" -> inform("[Game Help] This is NPC Zenia.  Keywords are: quest, task, Tanora, Zelphia, water, and prayer.")
+"Help" -> inform("[Game Help] This is NPC Zenia. Keywords are: quest, task, Tanora, Zelphia, water, and prayer.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Zenia. Schlüsselwörter: Quest, Aufgabe, Tanora, Zelphia, Wasser, Gebet.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetinzss of zze Mozzer to you. Blesssed are we zziss day.", "Blessingsss of zze Mozzer upon you, greetingsss."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüssse der Mutter für dich. Gessegnet sseien wir diesse Tage."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüssse der Mutter für dich. Gessegnet sseien wir diesser Tage."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetinzss of zze Mozzer to you. Blesssed are we zziss day.", "Blessingsss of zze Mozzer upon you, greetingsss."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Grüssse der Mutter für dich. Gessegnet sseien wir diesse Tage."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Grüssse der Mutter für dich. Gessegnet sseien wir diesser Tage."
 "Farewell", "Bye", "Fare well", "See you" -> "Clear waterss on your travelss."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Klaress Wassser auf deinen Reisen."
 english, "Ciao", "Adieu", "Au revoir" -> "Clear waterss on your travelss."
 "Ciao", "Adieu", "Au revoir" -> "Klaress Wassser auf deinen Reisen."
 "How are you", "How feel", "How do you do" -> "Zenia iz good. Zze Mozzer providess all sshe needss, including help to keep her ssleeping nesst in good ssturdy condition."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Zzenia geht ess gut. Mutter gibt ihr alless wass ssie braucht, auch die Hilfe um ihr Schlafnesst in guten Zzustand zzu halten."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Zzenia geht ess gut. Mutter gibt ihr alless, wass ssie braucht, auch die Hilfe, um ihr Schlafnesst in gutem Zzustand zzu halten."
 "your name", "who are you", "who art thou" -> "Sshe is Zenia, sservant of zze Mozzer."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ssie ist Zzenia, Dienerin der Mutter."
 
@@ -85,7 +85,7 @@ english, "Tanora", "Zelphia" -> "Zze Mozzer hass helped Zenia lead a good full l
 "Tanora", "Zelphia" -> "Mutter hat Zzenia geholfen ein gutess Leben zu führen, mit vielen Jungen. Und ssie führte mich in meinen alten Tagen zu diessem wunderbaren Platz."
 
 --------------------------------------------------Quest from Ssalva-------------------------------------------------------------------------------------------
---If you have quest from Ssalva to give gifts to Zenia -  1-custard pie, 2 fish soup, 20 eggs, and five of each fish type
+--If you have quest from Ssalva to give gifts to Zenia - 1-custard pie, 2 fish soup, 20 eggs, and five of each fish type
 --Do not have all items
 queststatus(501) = 12, item(1153, all) < 1, english, "gift", "Ssalva" -> "Ssalva did promisse Zenia more itemss zzan zziss. Are you ssure you have everyzzing?"
 queststatus(501) = 12, item(1153, all) < 1, "Ssalva", "Geschenk", "gabe" -> "Ssalva hat Zenia mehr Ssachen versprochen alss dasss. Bist du ssicher, dasss du alless hast?"
@@ -108,9 +108,9 @@ queststatus(501) = 12, "Ssalva", "Geschenk", "gabe" -> deleteItem(1153, 1), dele
 -- Quests
 --Show the rope you are given at the altar (use altar)
 queststatus(502) = 0, english, "quest", "mission" -> inform("[New quest] Praise Zelphia I"), item(2760, 4, 333), queststatus(502) = 1, "Sseems zze Mozzer ssent you to learn ssome zzingss. If you wissh to return to zze main island you musst firsst pray to zze Mozzer for guidance. Zzen, Zenia will aid you in your return, sshow zze Mozzer the rope I have graciously given you."
-queststatus(502) = 0, "quest", "mission" -> inform("[Neue Quest] Preise Zelphia I"), item(2760, 4, 333), queststatus(502) = 1, "Scheint dasss Mutter dich geschickt hat, um einige Dinge zu lernen. Wenn du zzurück auf die Hauptinssel willsst, mussst du zzuersst Mutter um Führung anbeten. Dann wird Zzenia dir bei deiner Rückkehr helfen. Zzeig Mutter das Sseil, dass Zzenia dir gnädigerweisse überlasssen hat."
+queststatus(502) = 0, "quest", "mission" -> inform("[Neue Quest] Preise Zelphia I"), item(2760, 4, 333), queststatus(502) = 1, "Scheint, dasss Mutter dich geschickt hat, um einige Dinge zu lernen. Wenn du zzurück auf die Hauptinssel willsst, mussst du zzuersst Mutter um Führung anbeten. Dann wird Zzenia dir bei deiner Rückkehr helfen. Zzeig Mutter das Sseil, dass Zzenia dir gnädigerweisse überlasssen hat."
 queststatus(502) = 0, "task", "adventure", "order" -> inform("[New quest] Praise Zelphia I"), item(2760, 4, 333), queststatus(502) = 1, "Sseems zze Mozzer ssent you to learn ssome zzingss. If you wissh to return to zze main island you musst firsst pray to zze Mozzer for guidance. Zzen, Zenia will aid you in your return, sshow zze Mozzer the rope I have graciously given you."
-queststatus(502) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Preise Zelphia I"), item(2760, 4, 333), queststatus(502) = 1, "Scheint dasss Mutter dich geschickt hat, um einige Dinge zu lernen. Wenn du zzurück auf die Hauptinssel willsst, mussst du zzuersst Mutter um Führung anbeten. Dann wird Zzenia dir bei deiner Rückkehr helfen. Zzeig Mutter das Sseil, dass Zzenia dir gnädigerweisse überlasssen hat."
+queststatus(502) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Preise Zelphia I"), item(2760, 4, 333), queststatus(502) = 1, "Scheint, dasss Mutter dich geschickt hat, um einige Dinge zu lernen. Wenn du zzurück auf die Hauptinssel willsst, mussst du zzuersst Mutter um Führung anbeten. Dann wird Zzenia dir bei deiner Rückkehr helfen. Zzeig Mutter das Sseil, dass Zzenia dir gnädigerweisse überlasssen hat."
 --if not done
 queststatus(502) = 1, english, ".+" -> "Ksss. If you do not wish to leave you can sstay here. I can alwayss usse anozzer fissherman. Ozzerwize pray to zze Mozzer."
 queststatus(502) = 1, ".+" -> "Zss. Wenn du nicht gehen willsst, kannsst du auch hier bleiben. Zzenia kann auch einen anderen Fischer fragen. Anssonssten bete zzur Mutter."
@@ -120,13 +120,13 @@ queststatus(502) = 2, ".+" -> queststatus(502) = 3, item(3572, 2, 333), "Ja, du 
 
 --Recieve second quest
 --collect 10 logs for Zenia
-queststatus(502) = 3, english, "quest", "mission" -> inform("[New quest] Praise Zelphia II"), item(74, 1, 333), queststatus(502) = 4, "You honour zze Mozzer sso I sshall help you gazzer materialss for a raft. Zze Mozzer providess all we need. Take zziss hatchet and cut 10 logs from zosse old trees. Bring me zze logs."
-queststatus(502) = 3, "quest", "mission" -> inform("[Neue Quest] Preise Zelphia II"), item(74, 1, 333), queststatus(502) = 4, "Du ehrsst die Mutter, alsso hilft Zzenia dir Material für ein Flosss zu ssammeln. Die Mutter stellt alless bereit wass wir brauchen. Nimm diesse Axt und schlage 10 Stämme von diessen alten Bäumen. Bring ssie Zzenia dann."
-queststatus(502) = 3, "task", "adventure", "order" -> inform("[New quest] Praise Zelphia II"), item(74, 1, 333), queststatus(502) = 4, "You honour zze Mozzer sso I sshall help you gazzer materialss for a raft. Zze Mozzer providess all we need. Take zziss hatchet and cut 10 logs from zosse old trees. Bring me zze logs."
-queststatus(502) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Preise Zelphia II"), item(74, 1, 333), queststatus(502) = 4, "Du ehrsst die Mutter, alsso hilft Zzenia dir Material für ein Flosss zu ssammeln. Die Mutter stellt alless bereit wass wir brauchen. Nimm diesse Axt und schlage 10 Stämme von diessen alten Bäumen. Bring ssie Zzenia dann."
+queststatus(502) = 3, english, "quest", "mission" -> inform("[New quest] Praise Zelphia II"), item(74, 1, 333), queststatus(502) = 4, "You honour zze Mozzer sso I sshall help you gazzer materialss for a raft. Zze Mozzer providess all we need. Take zziss hatchet and cut ten logs from zosse old trees. Bring me zze logs."
+queststatus(502) = 3, "quest", "mission" -> inform("[Neue Quest] Preise Zelphia II"), item(74, 1, 333), queststatus(502) = 4, "Du ehrsst die Mutter, alsso hilft Zzenia dir Material für ein Flosss zu ssammeln. Die Mutter stellt alless bereit wass wir brauchen. Nimm diesse Axt und schlage zehn Stämme von diessen alten Bäumen. Bring ssie Zzenia dann."
+queststatus(502) = 3, "task", "adventure", "order" -> inform("[New quest] Praise Zelphia II"), item(74, 1, 333), queststatus(502) = 4, "You honour zze Mozzer sso I sshall help you gazzer materialss for a raft. Zze Mozzer providess all we need. Take zziss hatchet and cut ten logs from zosse old trees. Bring me zze logs."
+queststatus(502) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Preise Zelphia II"), item(74, 1, 333), queststatus(502) = 4, "Du ehrsst die Mutter, alsso hilft Zzenia dir Material für ein Flosss zu ssammeln. Die Mutter stellt alless bereit wass wir brauchen. Nimm diesse Axt und schlage zehn Stämme von diessen alten Bäumen. Bring ssie Zzenia dann."
 -- if not done
-queststatus(502) = 4, item(3, all) < 10, english, ".+" -> "Ksss. If you do not wish to leave you can stay here. I can always use another fisherman. Ozzerwize fetch 10 logs."
-queststatus(502) = 4, item(3, all) < 10, ".+" -> "Zss. Wenn du nicht gehen willsst, kannsst du auch hier bleiben. Zzenia kann auch einen anderen Fischer fragen. Anssonssten hole 10 Stämme."
+queststatus(502) = 4, item(3, all) < 10, english, ".+" -> "Ksss. If you do not wish to leave you can stay here. I can always use another fisherman. Ozzerwize ten logs."
+queststatus(502) = 4, item(3, all) < 10, ".+" -> "Zss. Wenn du nicht gehen willsst, kannsst du auch hier bleiben. Zzenia kann auch einen anderen Fischer fragen. Anssonssten hole zehn Stämme."
 -- if done
 queststatus(502) = 4, item(3, all) >9, english, ".+" -> deleteItem(3, 5), queststatus(502) = 5, item(3572, 2, 333), "Yess you are getting zzere. Take zziss ssoup to nourish your body wizz zze giftss of zze Mozzer."
 queststatus(502) = 4, item(3, all) >9, ".+" -> deleteItem(3, 5), queststatus(502) = 5, item(3572, 2, 333), "Ja, du kommsst da hin. Nimm diesse Ssuppe, um deinen Körper mit den Geschenken der Mutter zzu ernähren."
@@ -147,9 +147,9 @@ queststatus(502) = 6, item(26, all) >19, ".+" -> deleteItem(26, 10), queststatus
 --Recieve fourth quest
 --finally the raft
 queststatus(502) = 7, english, "quest", "mission"-> inform("[New quest] Praise Zelphia IV"), item(73, 10), queststatus(502) = 8, "Good, zziss mud iz perfect for my bed nesst. You may keep half zze mud. You will need fish for your offering to zze Mozzer, sso I will give you ten fish for your work. Now take your offering and materialss to the altar, kneel, and pray to zze Mother for help to reach zze island to zze ssouzz."
-queststatus(502) = 7, "quest", "mission"-> inform("[Neue Quest] Preisen Zelphia IV"), item(73, 10), queststatus(502) = 8, "Gut, diesser Lehm isst perfekt für Zzeniass Schlafnesst. Du kannsst die Hälfte dess Lehmss behalten. Du wirsst Fisch für die Opfergabe an Mutter brauchen. Zzenia gibt dir zzehn Stück dafür. Nimm die Opfergabe und dass Material und bringe es zzum Altar, knie nieder und bete zzur Mutter, damit ssie dir hilft dass Insel, dasss in den Ssüden führt, zzu erreichen."
-queststatus(502) = 7, "task", "adventure", "order" ->  inform("[New quest] Praise Zelphia IV"), item(73, 10), queststatus(502) = 8, "Good, zziss mud iz perfect for my bed nesst. You may keep half zze mud. You will need fish for your offering to zze Mozzer, sso I will give you ten fish for your work. Now take your offering and materialss to the altar, kneel, and pray to zze Mother for help to reach zze island to zze ssouzz."
-queststatus(502) = 7, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Preisen Zelphia IV"), item(73, 10), queststatus(502) = 8, "Gut, diesser Lehm isst perfekt für Zzeniass Schlafnesst. Du kannsst die Hälfte dess Lehmss behalten. Du wirsst Fisch für die Opfergabe an Mutter brauchen. Zzenia gibt dir zzehn Stück dafür. Nimm die Opfergabe und dass Material und bringe es zzum Altar, knie nieder und bete zzur Mutter, damit ssie dir hilft dass Insel, dasss in den Ssüden führt, zzu erreichen."
+queststatus(502) = 7, "quest", "mission"-> inform("[Neue Quest] Preise Zelphia IV"), item(73, 10), queststatus(502) = 8, "Gut, diesser Lehm isst perfekt für Zzeniass Schlafnesst. Du kannsst die Hälfte dess Lehmss behalten. Du wirsst Fisch für die Opfergabe an Mutter brauchen. Zzenia gibt dir zzehn Stück dafür. Nimm die Opfergabe und dass Material und bringe es zzum Altar, knie nieder und bete zzur Mutter, damit ssie dir hilft dass Insel, dasss in den Ssüden führt, zzu erreichen."
+queststatus(502) = 7, "task", "adventure", "order" -> inform("[New quest] Praise Zelphia IV"), item(73, 10), queststatus(502) = 8, "Good, zziss mud iz perfect for my bed nesst. You may keep half zze mud. You will need fish for your offering to zze Mozzer, sso I will give you ten fish for your work. Now take your offering and materialss to the altar, kneel, and pray to zze Mother for help to reach zze island to zze ssouzz."
+queststatus(502) = 7, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Preise Zelphia IV"), item(73, 10), queststatus(502) = 8, "Gut, diesser Lehm isst perfekt für Zzeniass Schlafnesst. Du kannsst die Hälfte dess Lehmss behalten. Du wirsst Fisch für die Opfergabe an Mutter brauchen. Zzenia gibt dir zzehn Stück dafür. Nimm die Opfergabe und dass Material und bringe es zzum Altar, knie nieder und bete zzur Mutter, damit ssie dir hilft dass Insel, dasss in den Ssüden führt, zzu erreichen."
 --if not done
 queststatus(502) = 8, english, ".+" -> "Ksss. If you do not wish to leave you can stay here. I can always use another fisherman. Ozzerwise, takez ze ssupplies for ze raft to ze altar and pray to zze Mozzer."
 queststatus(502) = 8, ".+" -> "Zss. Wenn du nicht gehen willsst, kannsst du auch hier bleiben. Zzenia kann auch einen anderen Fischer fragen. Anssonssten nimm die Materialien für dass Flosss mit zzum Altar und bete zzur Mutter."
@@ -157,9 +157,9 @@ queststatus(502) = 8, ".+" -> "Zss. Wenn du nicht gehen willsst, kannsst du auch
 --if done then moved to small island
 --if you return to Zenia's nest
 queststatus(502) = 9, english, "quest", "mission"-> inform("[New quest] Praise Zelphia V"), item(355, 10), queststatus(502) = 10, "Oh, Zenia remember you from before! Take zzesse fissh, make offering and pray for zze Mozzer'ss help in getting back to zze big island."
-queststatus(502) = 9, "quest", "mission"-> inform("[Neue Quest] Preisen Zelphia V"), item(355, 10), queststatus(502) = 10, "Oh, Zzenia erinnert sich an dich von früher. Nimm den Fisch, opfere ihn und bete um Mutterss Hilfe, um zzur grosssen Inssel zzurück zzu kommen."
+queststatus(502) = 9, "quest", "mission"-> inform("[Neue Quest] Preise Zelphia V"), item(355, 10), queststatus(502) = 10, "Oh, Zzenia erinnert sich an dich von früher. Nimm den Fisch, opfere ihn und bete um Mutterss Hilfe, um zzur grosssen Inssel zzurück zzu kommen."
 queststatus(502) = 9, "task", "adventure", "order" -> inform("[New quest] Praise Zelphia V"), item(355, 10), queststatus(502) = 10, "Oh, Zenia remember you from before! Take zzesse fissh, make offering and pray for zze Mozzer'ss help in getting back to zze big island."
-queststatus(502) = 9, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Preisen Zelphia V"), item(355, 10), queststatus(502) = 10, "Oh, Zzenia erinnert sich an dich von früher. Nimm den Fisch, opfere ihn und bete um Mutterss Hilfe, um zzur grosssen Inssel zzurück zzu kommen."
+queststatus(502) = 9, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Preise Zelphia V"), item(355, 10), queststatus(502) = 10, "Oh, Zzenia erinnert sich an dich von früher. Nimm den Fisch, opfere ihn und bete um Mutterss Hilfe, um zzur grosssen Inssel zzurück zzu kommen."
 --if you dont pray
 queststatus(502) = 10, english, ".+" -> "Ksss. If you do not wish to leave you can stay here. Pray to zze Mozzer."
 queststatus(502) = 10, ".+" -> "Zss. Wenn du nicht gehen willsst, kannsst du auch hier bleiben. Zzenia kann auch einen anderen Fischer fragen. Bete zzur Mutter."
