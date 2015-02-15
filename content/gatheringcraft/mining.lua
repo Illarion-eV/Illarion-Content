@@ -124,13 +124,7 @@ function StartGathering(User, SourceItem, ltstate)
 end
 
 
-local initMining = nil
-function Init()
-    if initMining then
-        return
-    end
-
-    Rocks={};       -- Steine
+local  Rocks = {}       -- Steine
 
     Rocks[1246]  = 915;
     Rocks[1245]  = 1254;
@@ -139,6 +133,25 @@ function Init()
     Rocks[1273]  = 1257;
     Rocks[1276]  = 1278;
     Rocks[1250]  = 1251;
+
+local Area = {}
+local function AddArea(AreaID,Center,Rad)
+
+    Area[AreaID] = { };
+    Area[AreaID]["Center"] = Center;
+    Area[AreaID]["Radius"] = Rad;
+end
+
+local function AddStone(AreaID,StoneID)
+    if ( Area[AreaID]["Stones"] == nil ) then
+        Area[AreaID]["Stones"] = { };
+    end
+    Area[AreaID]["Stones"][StoneID] = { };
+end
+
+local function SetResource(AreaID,StoneID,RessID,Chance)
+    Area[AreaID]["Stones"][StoneID][RessID] = Chance;
+end
 
 --[[
 For coals mines:
@@ -387,37 +400,12 @@ Radius 15
 		AddStone( 95, 232 );
 		AddStone( 95, 1245 );
 
-
-
-    initMining = true;
-end
-local Area = nil
-function AddArea(AreaID,Center,Rad)
-    if (Area == nil) then
-        Area = { };
-    end
-    Area[AreaID] = { };
-    Area[AreaID]["Center"] = Center;
-    Area[AreaID]["Radius"] = Rad;
-end
-
-function AddStone(AreaID,StoneID)
-    if ( Area[AreaID]["Stones"] == nil ) then
-        Area[AreaID]["Stones"] = { };
-    end
-    Area[AreaID]["Stones"][StoneID] = { };
-end
-
-function SetResource(AreaID,StoneID,RessID,Chance)
-  Area[AreaID]["Stones"][StoneID][RessID] = Chance;
-end
-
 function GetResource(AreaID, StoneID)
-  ResourceList = Area[AreaID]["Stones"][StoneID];
-  cumulatedProbability = 0;
-  rand = math.random(1,100);
+  local ResourceList = Area[AreaID]["Stones"][StoneID];
+  local cumulatedProbability = 0;
+  local rand = math.random(1,100);
   -- Default: raw stone
-  resourceId = 735;
+  local resourceId = 735;
   for i,chances in pairs(ResourceList) do
     cumulatedProbability = cumulatedProbability + chances;
     if (rand <= cumulatedProbability) then
@@ -429,12 +417,10 @@ function GetResource(AreaID, StoneID)
 end
 
 function GetAreaId(TargetPos)
-	Init();
-    local XDiff = 0;
-    local YDiff = 0;
+
     for i, AreaData in pairs(Area) do
-        XDiff = AreaData["Center"].x - TargetPos.x;
-        YDiff = AreaData["Center"].y - TargetPos.y;
+        local XDiff = AreaData["Center"].x - TargetPos.x;
+        local YDiff = AreaData["Center"].y - TargetPos.y;
         if (math.sqrt((XDiff * XDiff) + (YDiff * YDiff)) <= AreaData["Radius"]) then
             if (TargetPos.z == AreaData["Center"].z) then
                 return i;
