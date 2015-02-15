@@ -21,16 +21,13 @@ local common = require("base.common")
 
 local M = {}
 
-local DURABILITY_LOSS = 10
-local BLOCKED_ITEM = 228
-
 local function showDeathDialog(deadPlayer)
 
     local dialogTitle = common.GetNLS(deadPlayer, "Tod", "Death")
     local dialogText = common.GetNLS(deadPlayer,
         "Du bist gestorben. Deine Ausrüstung nimmt schweren Schaden. Die Welt um dich herum verblasst und du bereitest dich darauf vor, den Göttern in Chergas Reich der Toten gegenüberzutreten. Du wirst in einer Minute wiederbelebt - so wenn die Götter es wollen.",
         "You have died. Your equipment got damaged seriously. The world around you fades and you prepare yourself to face the Gods in the afterlife of Cherga's Realm. You will respawn in a minute - so the gods will.")
-    local callback = function(nothing) end --empty callback
+    local callback = function() end --empty callback
     local dialog = MessageDialog(dialogTitle, dialogText, callback)
 
     deadPlayer:requestMessageDialog(dialog)
@@ -64,11 +61,14 @@ function M.playerDeath(deadPlayer)
         world:makeSound(25, deadPlayer.pos)
         showDeathDialog(deadPlayer)
 
+
+        local DURABILITY_LOSS = 10
+        local BLOCKED_ITEM = 228
         for i = Character.head, Character.coat do
             local item = deadPlayer:getItemAt(i)
             local commonItem = world:getItemStats(item)
 
-            if item.id > 0 and item.id ~= BLOCKEDITEM and item.quality > 100 and not commonItem.isStackable then
+            if item.id > 0 and item.id ~= BLOCKED_ITEM and item.quality > 100 and not commonItem.isStackable then
                 local durability = item.quality % 100
                 local newbieModficator = 1
                 if deadPlayer:isNewPlayer() then
