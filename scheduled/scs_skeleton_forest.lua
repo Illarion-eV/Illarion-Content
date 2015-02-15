@@ -24,7 +24,7 @@ local M = {}
 function M.ForestSkells()
     local Charakters = world:getPlayersInRangeOf(position(780,50,0),30);
 	for _,Char in pairs(Charakters) do
-        RndTry = math.random(1,2)
+        local RndTry = math.random(1,2)
         if (RndTry == 1) then
             if SpawnSkeleton(Char) then
                 return
@@ -40,7 +40,7 @@ function SpawnSkeleton(Charakter)
 
     if (#Monsters > 0) then
         for _, Monster in pairs(Monsters) do
-            MonType = Monster:getMonsterType();
+            local MonType = Monster:getMonsterType();
             if ((MonType>110) and (MonType<121)) then -- Skeletons
                 return false;
             end
@@ -75,7 +75,7 @@ function SpawnSkeletonCycle(CenterPos,Radius,Anzahl)
                and( map[x][y] or   map[x-1][y] or  map[x][y-1] or  map[x-1][y-1] ) then
                 count = count + 1;
                 if (math.fmod(count,divid) == 0) then
-                    tPos = position( CenterPos.x + x, CenterPos.y + y, CenterPos.z )
+                    local tPos = position( CenterPos.x + x, CenterPos.y + y, CenterPos.z )
                     world:createMonster(math.random(111,115),tPos,-15);
                     world:makeSound(5,tPos);
                 end

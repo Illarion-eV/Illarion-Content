@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- script to put lights on and off
 -- off items: save old wear value in data (+1000)
@@ -72,7 +72,7 @@ function M.UseItem(User, SourceItem, ltstate)
 			"Take the light source into your hand or put it on your belt.");
 		return;
 	end
-	
+
 	if SourceItem.number > 1 then
 	    User:inform("Du kannst immer nur eine Lichtquelle auf einmal anzünden. Um einen Stapel aufzuteilen, halte die Umschalttaste, während du den Stapel auf ein freies Inventarfeld ziehst.",
 					"You can only light up one light source at once. To split a stack, hold shift while dragging the item stack to a free inventory slot.")
@@ -83,7 +83,7 @@ function M.UseItem(User, SourceItem, ltstate)
 	if this then
 		local ok, wear = checkReq(User,SourceItem,this)
 		if ok then
-		
+
 		    --Noobia addition by Estralis: Lighting a torch is a task of NPC Aldania
 
             if User:getQuestProgress(310)==3 and SourceItem.id==391 and User:isInRangeToPosition((position (52,24,100)),20) then --only invoked if the user has the quest, uses a torch and is in range of the NPC
@@ -109,25 +109,25 @@ function M.UseItem(User, SourceItem, ltstate)
 			    putOn(SourceItem,wear,false);
 
 			end
-			
+
 		elseif this.req then
 			common.InformNLS(User,
 				"Dafür brauchst du ".. ReqTexts.german[this.req.id] .. " in der Hand oder im Gürtel.",
 				"You need ".. ReqTexts.english[this.req.id] .. " in your belt or hands to do that.");
 		end
 	elseif LightsOn[SourceItem.id] then
-	
+
 	--Issue #6881: Estralis removed the option to put out lights. Reason: New rot system restores wear value after moving the item. Could be abused.
 	--[[	this = LightsOn[SourceItem.id];
 		if this.back then
 			giveBack(User,SourceItem,this)
 		end
 		putOff(SourceItem,this);]]
-	
+
 	--Replacement: An inform. Remove this if you re-enable putting out fires.
 	common.InformNLS(User,"Du verbrennst dir die Finger beim Versuch, das Feuer zu ersticken.","You burn your fingers while trying to extinguish the flames.");
 	--Issue #6881 END
-	
+
 	end
 end
 
@@ -174,8 +174,8 @@ function giveBack(User, Item, this)
 			"The light goes off in the very moment you reach out for it.")
 		return;
 	end
-	local myItem=nil;
-	local finalItem = nil;
+	local myItem
+	local finalItem
 	if User:createItem(this.back,1,333,15734) == 0 then
 		for i=1,17 do
 			myItem = User:getItemAt( i );
@@ -251,10 +251,10 @@ end
 
 function M.MoveItemAfterMove(User,SourceItem,TargetItem)
 	-- Quest 305: we burn a tabacco plantaion
-    
+
 	if User:getQuestProgress(305) == 2 then
 		if (TargetItem.pos.x >= 3) and (TargetItem.pos.x <= 6) and (TargetItem.pos.y >= 565) and (TargetItem.pos.y <= 571) and (TargetItem.pos.z <= 0) then
-		    local spawnFire = function(posi) 
+		    local spawnFire = function(posi)
 				world:createItemFromId(359,1,posi,true,333,nil)
 			end
 			world:makeSound(7,position(5,568,0))
@@ -264,14 +264,14 @@ function M.MoveItemAfterMove(User,SourceItem,TargetItem)
 			User:setQuestProgress(305,3)
 			User:inform("Du hast das Tabakfeld zerstört. Gut gemacht. Spreche nun mit Tobis Vunu.","You destroyed the tabacco field. Well done. Talk to Tobis Vunu now.")
 	    end
-	end	
-	
+	end
+
 	-- I comment the following out, because In think it is not neccessary to actually delete the plants
 	-- furthermore, if we just spawn fire and let it rot, we don't have to replace the plants by using a scheduled script. Merung
 	--[[
 	 local fld=world:getField(TargetItem.pos);
 	local cnt=fld:countItems();
-	
+
 	if (SourceItem.id == 392 ) then
 		if User:getQuestProgress(305) == 2 then
 			if ((3 <= TargetItem.pos.x) or (TargetItem.pos.x <= 6)) and ((565 <= TargetItem.pos.y) or (TargetItem.pos.y <= 571)) and (TargetItem.pos.z == 0) then -- is it the right plantaion?
@@ -279,7 +279,7 @@ function M.MoveItemAfterMove(User,SourceItem,TargetItem)
 					TheItem=fld:getStackItem(i);
 					if (TheItem.id==775) then -- did the torch landed on a tobacco plant?
 						world:erase(TargetItem,1)
-						for j=1,4 do 
+						for j=1,4 do
 							PositionX = 3 + j - 1
 							for k=1,12 do
 								PositionY = 565 + k - 1
@@ -287,14 +287,14 @@ function M.MoveItemAfterMove(User,SourceItem,TargetItem)
 								if TheItem.id == 775 then
 									world:erase(TheItem,1)
 								end
-							end	
+							end
 						end
 					end
 				end
 			end
 	    end
 	end   ]]
-	
+
 --Noobia addition by Estralis: Equipping a torch is a task of NPC Aldania
 
     if User:getQuestProgress(310)==2 and TargetItem.id==391 and User:isInRangeToPosition((position (51,30,100)),20) and TargetItem:getType() == 4 then --only invoked if the user has the quest, moves a torch to a hand slot and is in range of the NPC
@@ -324,9 +324,9 @@ function M.LookAtItem(User, Item)
 			TimeLeftI = PORTABLE_WEAR;
 		end
 	end
-	
+
 	if TimeLeftI then
-	
+
 		if(TimeLeftI == 255) then
 			TimeLeft = common.GetNLS(User, "Sie wird nie ausbrennen.", "It will never burn down.");
 		elseif (TimeLeftI == 0) then
@@ -334,7 +334,7 @@ function M.LookAtItem(User, Item)
 		elseif (TimeLeftI == 1) then
 			TimeLeft = common.GetNLS(User, "Sie wird demnächst ausbrennen.", "It will burn down anytime soon.");
 		elseif (TimeLeftI == 2) then
-			TimeLeft = common.GetNLS(User, "Sie wird bald ausbrennen.", "It will burn down soon.");	
+			TimeLeft = common.GetNLS(User, "Sie wird bald ausbrennen.", "It will burn down soon.");
 		elseif (TimeLeftI <= 4) then
 			TimeLeft = common.GetNLS(User, "Sie wird nach einer Weile ausbrennen.", "It will burn down in a while.");
 		elseif (TimeLeftI <= PORTABLE_WEAR) then
@@ -344,7 +344,7 @@ function M.LookAtItem(User, Item)
 		end
 		lookat.SetSpecialDescription(Item, TimeLeft, TimeLeft);
 	end
-	
+
 	return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
 

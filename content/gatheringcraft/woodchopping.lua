@@ -31,14 +31,7 @@ function StartGathering(User, SourceItem, ltstate)
 
 	common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
-		if (User:increaseAttrib("sex",0) == 0) then
-			gText = "seine";
-			eText = "his";
-		else
-			gText = "ihre";
-			eText = "her";
-		end
-		User:talk(Character.say, "#me unterbricht "..gText.." Arbeit.", "#me interrupts "..eText.." work.")
+        User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
 		return
 	end
 
@@ -207,7 +200,7 @@ unchoppableTrees[1807] = true
 unchoppableTrees[1808] = true
 
 function preventCutting(User, theAxe, theTree)
-    
+
 	local effectType = theTree:getData("treeProtectionType")
 
 	if effectType == "lightning" then
@@ -242,7 +235,7 @@ function isChoppableTree(targetItem)
 end
 
 function isUnchoppableTree(targetItem,User)
-	
+
 	if targetItem ~= nil and unchoppableTrees[targetItem.id] ~= nil then
 		common.TurnTo( User, targetItem.pos )
 		User:inform("Diese Baumart kann nicht gefällt werden.","This kind of tree cannot be cut down.")
@@ -259,7 +252,7 @@ function getTree(User)
 			return false
 		end
 	end
-	
+
 	return tree
 end
 

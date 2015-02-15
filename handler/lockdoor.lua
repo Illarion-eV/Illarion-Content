@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local keys = require("base.keys")
@@ -36,7 +36,7 @@ function M.lockDoor:execute()
     end
     char:inform("in exe");--]]
     if (world:isItemOnField(self.pos)==true) then
-        item=world:getItemOnField(self.pos);
+        local item = world:getItemOnField(self.pos)
         keys.LockDoor(item);
     else
         return -1;

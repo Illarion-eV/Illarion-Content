@@ -1641,28 +1641,24 @@ function M.GetRealDate()
 	return year, month, day, hour, minute, second;
 end
 
---[[
-- BasicNPCChecks
-- @param originator CharStruct Character to speaks with the NPC
-- @param NPCRange int Talking Range of the NPC
-- @return boolean true for talking is okay, false for not okay.
-]]
-function M.BasicNPCChecks(originator,NPCRange, npc)
-    if not npc:isInRange(originator,NPCRange) then
-        return false;
+-- Returns an NPC in case it is found within a given range of a give position
+-- @param centerPosition Position structure that is the center of the search area.
+-- @param radius Radius within which is searched
+-- @param npcId The id of the npc to search for
+-- @param npcName Name of the npc to search for
+-- @return Returns the NPC in case it was found else false
+function getNpc(centerPosition, radius, npcId, npcName)
+    
+    local npcs = world:getNPCSInRangeOf(centerPosition, radius)
+    for _, candidateNpc in pairs(npcs) do
+        if (npcName and candidateNpc.name == npcName) or (npcId and candidateNpc.name == npcName) then
+            return candidateNpc
+        end
     end
-
-    if (originator.id == npc.id) then
-        return false;
-    end
-
-    if ( originator:getType() ~= 0 ) then
-        return false;
-    end
-
-    return true;
+    
+    return false
+    
 end
-
 
 function M.PositionToText(pos)
     if pos ~= nil then

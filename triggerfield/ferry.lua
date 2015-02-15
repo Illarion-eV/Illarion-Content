@@ -234,7 +234,7 @@ function M.MoveToField(User)
     local callback = function(dialog)
         local success = dialog:getSuccess()
         if success then
-            selected = dialog:getSelectedIndex()
+            local selected = dialog:getSelectedIndex()
             if (targetPos[selected+1].x - User.pos.x) * (targetPos[selected+1].x - User.pos.x) < 6 then
                 User:inform("Du befindest dich bereits in " ..names[selected+1]..".", "You are already in "..names[selected+1]..".")
             else

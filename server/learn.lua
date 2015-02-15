@@ -40,7 +40,6 @@ learnLimit: Maximum skill level the user can reach with the triggering action.
 function M.learn(user, skill, actionPoints, learnLimit)
 
     local leadAttrib = getLeadAttrib(user, skill) --reading the lead attribute
-    local skillName = user:getSkillName(skill) --reading the skill
 
     --Learning speed - Change here if you're unhappy with the learning speed. Skillgain scales in a linear way.
     local scalingFactor = 500 --Here, you can mod the learning speed. Higher value=faster
@@ -69,7 +68,7 @@ function M.learn(user, skill, actionPoints, learnLimit)
 
 
             --For debugging, use the following line.
-            --user:inform("Skill= "..skillName..", actionPoints="..actionPoints..", MCfactor="..MCfactor..", attributeFactor="..attributeFactor..", actionpointFactor="..actionpointFactor..", minorIncrease="..minorIncrease.."!");
+            --user:inform("Skill= "..user:getSkillName(skill)..", actionPoints="..actionPoints..", MCfactor="..MCfactor..", attributeFactor="..attributeFactor..", actionpointFactor="..actionpointFactor..", minorIncrease="..minorIncrease.."!");
 
             while minorIncrease > 0 do --for the rare case that an action results in two swirlies, we have this loop
 

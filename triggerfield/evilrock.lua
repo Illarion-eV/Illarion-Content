@@ -162,8 +162,8 @@ function M.MoveToField(char)
     local AmountVision = #triggerVision
     for i = 1,AmountVision do
         if (char.pos == triggerVision[i]) and math.random(1,100)< 81 then
-            AmountStory = #vision.VisionTextDE[VisionStory[i]]
-            TypeStory = VisionStory[i]
+            local AmountStory = #vision.VisionTextDE[VisionStory[i]]
+            local TypeStory = VisionStory[i]
             attendants[char.name] = world:getPlayersInRangeOf(position(940,200,0), 90)
             for k,player in ipairs(attendants[char.name]) do
 --                if (content.areas.PointInArea(player.pos,EvilRockAreaNames[VisionStory[i]])) and player:getQuestProgress(664) >= 2 then
@@ -263,6 +263,7 @@ function M.MoveToField(char)
         for i,item in ipairs(itemsOnChar) do
             local statsofItemsOnChar = world:getItemStatsFromId(item.id)
             local statsofItemsOnCharWeight = statsofItemsOnChar.Weight
+            local numberofItemsOnChar
             if item.itempos >= 11 and item.itempos <= 18 then
                 numberofItemsOnChar = char:countItemAt("belt",item.id)
             else
@@ -279,16 +280,16 @@ function M.MoveToField(char)
 --debug("weightOfPlayerPlusItemsPlusBag: "..weightOfPlayerPlusItemsPlusBag)
 
         if weightOfPlayerPlusItemsPlusBag == nil  then
-            clicksAmountVar = 1
+            local clicksAmountVar = 1
             WrongWeight(char,clicksAmountVar)
         elseif weightOfPlayerPlusItemsPlusBag <= 12400 then
-            clicksAmountVar = 1
+            local clicksAmountVar = 1
             WrongWeight(char,clicksAmountVar)
         elseif weightOfPlayerPlusItemsPlusBag >= 13500 then
-            clicksAmountVar = 2
+            local clicksAmountVar = 2
             WrongWeight(char,clicksAmountVar)
         else
-            clicksAmountVar = 3
+            local clicksAmountVar = 3
             RightWeight(char,clicksAmountVar)
         end
     end
@@ -309,6 +310,7 @@ function RightWeight(char,clicksAmountVar)
     playerWithRightWeight[char.name] = world:getPlayersInRangeOf(position(960,173,-6), 50)
     local AmountStoneChamberStones = #stoneChamberStonePosition
     local ChanceForGemsToday = math.random(1,100)
+    local noLuckForGemsToday
     if ChanceForGemsToday <= 10 or char:getQuestProgress(681) == 0 then
         noLuckForGemsToday = true
     else
@@ -420,14 +422,13 @@ end
 
 
 function StartVision(char,AmountStory,TypeStory)
-    find, myEffect = char.effects:find(83)
+    local find = char.effects:find(83)
     if find then
         return
-    else
-        myEffect = LongTimeEffect(83,50)
-        myEffect:addValue("AmountStory",AmountStory)
-        myEffect:addValue("TypeStory",TypeStory)
     end
+    local myEffect = LongTimeEffect(83,50)
+    myEffect:addValue("AmountStory",AmountStory)
+    myEffect:addValue("TypeStory",TypeStory)
     char.effects:addEffect(myEffect)
 end
 
@@ -451,7 +452,7 @@ end)
 
 
 function M.executePortalLeverRiddle:execute()
-    char=self.player
+    local char=self.player
     PortalLeverRiddle(char)
 end
 

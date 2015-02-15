@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- tinderbox
 -- light a fire
@@ -25,7 +25,7 @@ WoodIds = {544,543,2560,3};
 BC = base.common;
 
 function M.UseItem(User, SourceItem)
-	
+
 	-- item in hand?
 	if not BC.IsItemInHands(SourceItem) then
 		BC.InformNLS(User,
@@ -33,9 +33,9 @@ function M.UseItem(User, SourceItem)
 			"You have to hold the tinderbox in your hands.");
 		return;
 	end
-	
+
 	local frontPos = BC.GetFrontPosition(User);
-	
+
 	-- check front position for proper ground tile
 	local groundType = BC.GetGroundType(world:getField(frontPos).tile);
 	if groundType == BC.GroundType.water or groundType == BC.GroundType.unknown then
@@ -44,11 +44,11 @@ function M.UseItem(User, SourceItem)
 			"You can't light a fire on this ground.");
 		return;
 	end
-	
+
 	-- check front position for wood, a kettle or if it's clear
 	local foundWood = false;
-	local frontItem = nil;
-	local posOkay = true;
+	local frontItem
+	local posOkay
 	if world:isItemOnField(frontPos) then
 		frontItem = BC.GetFrontItem(User);
 		if frontItem and frontItem.id == 2488 then -- a kettle
@@ -82,7 +82,7 @@ function M.UseItem(User, SourceItem)
 		--tryWildfire(User, SourceItem);
 		return;
 	end
-	
+
 	-- first check the hand slot
 	local woodItem = BC.GetTargetItem(User, SourceItem);
 	if IsWood(woodItem) then
@@ -117,17 +117,17 @@ function IsWood(item)
 	if not item then
 		return false;
 	end
-	
+
 	if item.id == 0 then
 		return false;
 	end
-	
+
 	for _,id in pairs(WoodIds) do
 		if id == item.id then
 			return true;
 		end
 	end
-	
+
 	return false;
 end
 
@@ -141,7 +141,7 @@ end
 function tryWildfire(User, SourceItem)
 	local logStrg=os.date()..": "..User.name.." tried "..SourceItem.pos.x.."/"..SourceItem.pos.y.."/"..SourceItem.pos.z.."\n";
 	logToFile(logStrg);
-	
+
 	if (math.random(1,100)==0) and (User.pos.z~=100 and User.pos.z~=101) then      -- Random wildfires deactivated. No fire on Noobia!
 		local fld=world:getField(SourceItem.pos);
 		local cnt=fld:countItems();

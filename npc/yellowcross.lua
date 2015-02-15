@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Basiscript für die Kreuze
 
@@ -22,7 +22,7 @@ local M = {}
 
 function M.nextCycle(thisNPC)
 
-    EffectArea = 5;
+    local EffectArea = 5;
 
     -- Suche nach Monstern
     local monsters = world:getMonstersInRangeOf(thisNPC.pos,EffectArea+2) -- Suche Nach Monstern zum Wegschleudern
@@ -31,11 +31,11 @@ function M.nextCycle(thisNPC)
 			table.remove(monsters,posi);
 		end
 	end
-	
+
     if (#monsters>0) then -- Monster gefunden
         CreateCircle(46,thisNPC.pos,EffectArea+2); -- Lustiger Leuchtkreis
         for i, monster in pairs(monsters) do
-            newPos = CalcNewPos(thisNPC.pos,monster.pos,EffectArea+2); -- Ziel des Abflugs
+            local newPos = CalcNewPos(thisNPC.pos,monster.pos,EffectArea+2); -- Ziel des Abflugs
             world:gfx(37,monster.pos); -- Effekt am Anfang
             monster:warp(newPos); -- guten Flug!
             monster.movepoints=monster.movepoints - 20; -- Monster festhalten
@@ -56,11 +56,11 @@ function M.nextCycle(thisNPC)
                     player:increaseAttrib("foodlevel",-(player:increaseAttrib("foodlevel",0)-10000))
                 end
                 player:setPoisonValue(0);
-                langSkill = player:getSkill(Character.commonLanguage);
+                local langSkill = player:getSkill(Character.commonLanguage);
                 if ((langSkill > 0) and (langSkill < 100 )) then
                     player:increaseSkill(Character.commonLanguage,100-langSkill);
                 end
-                SkillName = LangSkillName(player:getRace());
+                local SkillName = LangSkillName(player:getRace());
                 langSkill = player:getSkill(SkillName);
                 if ((langSkill > 0) and (langSkill < 100 )) then
                     player:increaseSkill(SkillName,100-langSkill);
@@ -166,17 +166,18 @@ function CalcNewPos(StartPosi,TargetPosi,MoveRange)
 end
 
 function CreateLineofFligth(StartPos,TargetPos,GFXID)
-    XDiff=StartPos.x-TargetPos.x;
-    YDiff=StartPos.y-TargetPos.y;
-    XDiff2=math.max(StartPos.x,TargetPos.x)-math.min(StartPos.x,TargetPos.x);
-    YDiff2=math.max(StartPos.y,TargetPos.y)-math.min(StartPos.y,TargetPos.y);
-    PriDiff=math.max(XDiff2,YDiff2);
-    SecDiff=math.min(YDiff2,XDiff2);
+    local XDiff=StartPos.x-TargetPos.x;
+    local YDiff=StartPos.y-TargetPos.y;
+    local  XDiff2=math.max(StartPos.x,TargetPos.x)-math.min(StartPos.x,TargetPos.x);
+    local YDiff2=math.max(StartPos.y,TargetPos.y)-math.min(StartPos.y,TargetPos.y);
+    local PriDiff=math.max(XDiff2,YDiff2);
+    local SecDiff=math.min(YDiff2,XDiff2);
     for i=1,PriDiff do
-        XMod=1;
-        YMod=1;
+        local XMod=1;
+        local YMod=1;
         if (XDiff<0) then XMod=-1 end
         if (YDiff<0) then YMod=-1 end
+        local PathPos
         if (PriDiff==XDiff2) then
             PathPos=position(StartPos.x-XMod*i,StartPos.y-YMod*math.floor(i/PriDiff*SecDiff),StartPos.z)
         elseif (PriDiff==YDiff2) then

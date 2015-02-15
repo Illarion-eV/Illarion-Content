@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local M = {}
@@ -24,7 +24,7 @@ end);
 
 function M.deleteItem:execute()
     if (world:isItemOnField(self.pos)==true) then
-        item=world:getItemOnField(self.pos);
+        local item = world:getItemOnField(self.pos)
         if (item.id==self.deleteItemId or self.deleteItemId==0) then
             world:erase(item,1);
             return 1;
