@@ -88,7 +88,7 @@ itemShoes = 369
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Could you lower your voice? But be greeted anyway!", "Hmm...Can I help you?", "Be greeted as well, but now let me continue my research."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Könnt ihr nicht leiser sprechen? Aber seid trotzdem gegrüßt!", "Hmm...Kann ich euch helfen?", "Seid auch gegrüßt, aber nun last mich doch weiter forschen!"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Könnt ihr nicht leiser sprechen? Aber seid trotzdem gegrüßt!", "Hmm...Kann ich euch helfen?", "Seid auch gegrüßt, aber nun last mich doch weiter forschen!"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Are you lost?", "Leave me alone!", "Who is disturbing my work?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Habt ihr euch verlaufen?", "Raus hier aber schnell!", "Wer stört mich hier bei der Arbeit?"
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell.", "Good bye.", "Don't forget to close the door!"
@@ -98,7 +98,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Get out!", "Finally!", "...
 "How are you", "How feel", "How do you do" -> "If nobody disturbed me, it would be better!", "Could you keep silent please?", "Fine, fine, but let me continue my work now."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Würde man mich nicht stören, würde es mir besser gehen.", "Könnt ihr bitte leise sein?", "Gut, Gut, aber nun lasst mich weiterarbeiten."
 "your name", "who are you", "who art thou" -> "Who asks?", "Sir Fludnar Yednos.", "Why do you need to know?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Wer fragt?", "Sir Fludnar Yednos.", "Ist das von belang zu wissen?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Wer fragt?", "Sir Fludnar Yednos.", "Ist das von belang zu wissen?"
 
 -- quest - player has gained tasks from Nobarg
 queststatus(603) < 8, queststatus(603) > 0, english, ".*" -> inform("[Hint] You have to fulfil NPC Nobarg' tasks before you can continue here."), "Are you not busy with other tasks? Please do not interrupt me until you are done with them."

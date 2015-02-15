@@ -85,7 +85,7 @@ itemShoes = 771
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings, it is a lovely day.", "Greetings in the name of the Queen. Have you come to serve the kingdom?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße, es ist ein schöner Tag.", "Sei gegrüßt im Namen der Königin. Bist du gekommen um ihrem Reich zu dienen?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße, es ist ein schöner Tag.", "Sei gegrüßt im Namen der Königin. Bist du gekommen um ihrem Reich zu dienen?"
 english, "Hiho", "Hallo", "Hey", "Greeb", "Hi" -> "Greetings, it is a lovely day.", "Greetings in the name of the Queen. Have you come to serve the kingdom?"
 "Hiho", "Hallo", "Hey", "Greeb" ->"Grüße, es ist ein schöner Tag.", "Sei gegrüßt im Namen der Königin. Bist du gekommen um ihrem Reich zu dienen?"
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell, until we meet again.", "May the sun of the desert keep you warm til we meet again."
@@ -95,7 +95,7 @@ english, "Ciao", "Adieu", "Au revoir" -> "Farewell, until we meet again.", "May 
 "How are you", "How feel", "How do you do" -> "I am quite well."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es gut."
 "your name", "who are you", "who art thou" -> "My name is Jeremiah Horanfeld, I am the Queen's own Vermin Monitor."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Jeremiah Horanfeld. Ich bin der Rattenfänger der Königin."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Mein Name ist Jeremiah Horanfeld. Ich bin der Rattenfänger der Königin."
 
 -- Catching quest triggers of other factions' members.
 english, town = none, "quest", "mission" -> "I do not have work for you outsider."

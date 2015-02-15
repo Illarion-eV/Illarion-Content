@@ -80,7 +80,7 @@ itemShoes = 369
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings to you!", "Nargun bless you, do you want a game?", "I'm always pleased to see a lucky face. Let's roll the dice!"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt!", "Nargun zum Gruße, wollen wir ein Spielchen wagen?", "Ich freue mich, dich zu sehen. Komm, wir lassen die Würfel tanzen."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt!", "Nargun zum Gruße, wollen wir ein Spielchen wagen?", "Ich freue mich, dich zu sehen. Komm, wir lassen die Würfel tanzen."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "What do you want? A game? I can't refuse that.", "Greetings.", "Hello, I'd say rolling the dice is a good choice for you today."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Was wollt ihr? Ein Spielchen? Da kann ich nicht Nein sagen", "Grüße.", "Hallo. Glaubt mir, auch dir bringen die Würfel Glück."
 english, "Ciao", "Adieu", "Au revoir", "Farebba", "Farewell", "Bye", "Fare well", "See you" -> "Take care and come back.", "Nargun be with you!", "Until next time!", "You really don't want to leave yet."
@@ -88,7 +88,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba", "Farewell", "Bye", "Fare well"
 "How are you", "How feel", "How do you do" -> "Can't say anything's bothering me and you?", "So-so, but I'm fine right now."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich kann nicht klagen und du?", "Ganz gut und selbst?", "Mal so, mal so, aber gerade geht es mir ganz gut."
 "your name", "who are you", "who art thou" -> "I'm Xiao, and who are you?", "I'm called Xiao, Xiao Gongyou, and what's your name?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin der Xiao und wer bist du?", "Man nennt mich Xiao, Xiao Gongyou und wie nennt man dich?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin der Xiao und wer bist du?", "Man nennt mich Xiao, Xiao Gongyou und wie nennt man dich?"
 
 -- Quest related
 "rule" -> "Quite simple. There are two games. The dice game and the coin game. For the coin game, you select a side. If it is shown, you win two silver for each silver stake. Otherwise I get the money. In the dice game, you also select a side. You can win five and a half silver for each silver you put on the table."

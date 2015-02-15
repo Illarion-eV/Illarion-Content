@@ -86,7 +86,7 @@ itemShoes = 699
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Arr!!! Greetins.", "Greetin's in da name of da father Irmorom. Ye be here ta help?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Arr!!! Grüße.", "Grüße in Imoroms Namen. Du bist hier zum Helfen?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Arr!!! Grüße.", "Grüße in Imoroms Namen. Du bist hier zum Helfen?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Arr!!! Greetins.", "Greetin's in da name of da father Irmorom. Ye be here ta help?"
 "Hiho", "Hallo", "Hey", "Greeb" ->"Arr!!! Grüße.", "Grüße in Imoroms Namen. Du bist hier zum Helfen?"
 "Farewell", "Bye", "Fare well", "See you" -> "Go on with you, I have work to do.", "#me drinks from his beer 'Yes, yes goodbye.'"
@@ -96,7 +96,7 @@ english, "Ciao", "Adieu", "Au revoir" -> "Go on with you, I have work to do.", "
 "How are you", "How feel", "How do you do" -> "I could use a beer."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich könnte ein Bier vertragen."
 "your name", "who are you", "who art thou" -> "Arr!! Call me Fokous, Fokous Onyxbrow."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Arr!! Ich bin Fokous, Fokous Onyxbrow."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Arr!! Ich bin Fokous, Fokous Onyxbrow."
 
 -- Catching quest triggers of other factions' members.
 english, town = none, "quest", "mission" -> "#me looks at you with suspicious eyes, 'I do not have work for non citizens, you could be a spy!'"

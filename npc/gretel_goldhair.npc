@@ -89,7 +89,7 @@ itemShoes = 369
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings!", "#me nods.", "Speak louder, I can't hear you!"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße!", "#me nickt.'", "Sprecht lauter, ich kann Euch nicht hören."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße!", "#me nickt.'", "Sprecht lauter, ich kann Euch nicht hören."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hm?", "Speak louder, I can't hear you!", "Hello."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hm?", "Sprecht lauter, ich kann Euch nicht hören.", "Hallo."
 "Farewell", "Bye", "Fare well", "See you" -> "#me nods", "Speak louder, I can't hear you!"
@@ -100,7 +100,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Take care!", "May the Five 
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Sprecht lauter, Ich kann Euch nicht hören."
 "How do you do" -> "Shoe? Just drop your shoe on the field here!"
 "your name", "who are you", "who art thou" -> "I am Gretel. And you are...?", "Gretel Goldhair. I once was famous, maybe you heard of me?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Gretel Goldhair. Und Ihr seid?", "Gretel Goldhair. Ich war mal berühmt. Vielleicht habt Ihr von mir gehört?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Gretel Goldhair. Und Ihr seid?", "Gretel Goldhair. Ich war mal berühmt. Vielleicht habt Ihr von mir gehört?"
 
 -- OPTIONAL TRIGGERS
 
@@ -110,7 +110,7 @@ queststatus(702) = 7, "charwis", "irongate", "Hämmer", "Sammlung" -> queststatus
 
 -- Optional: Trade Hooks, use only for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I do not sell anything. But I take donations...or well, the Don does. Just bring the things here and place them on the field."
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich verkaufe nichts. Aber ich nehme Spenden entgegen... nun ja, eigentlich sind es Spenden für den Don. Bringt die Sachen ruhig her und legt sie auf das Feld."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich verkaufe nichts. Aber ich nehme Spenden entgegen... nun ja, eigentlich sind es Spenden für den Don. Bringt die Sachen ruhig her und legt sie auf das Feld."
 
 -- fix
 queststatus(206) > 0, queststatus(712) = 11, english, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 12, "Ah Joey send you but you already ask me for something to do."

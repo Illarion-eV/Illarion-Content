@@ -23,12 +23,11 @@ local licence = require("base.licence")
 local M = {}
 
  -- Cadomyr, Runewick, Galmair
-M.townManagmentItemPos={position(116,527,0),position(899,772,2),position(344,223,0)}
-requiredRank={8,8,8}
+M.townManagmentItemPos = {position(116, 527, 0), position(899, 772, 2), position(344, 223, 0)}
+local requiredRank = {8,8,8}
 
-toolUseNameDE={"Wache","Lizenz","Schlüssel"}
-toolUseNameEN={"Guard","Licence","Key"}
-
+local toolUseNameDE = {"Wache","Lizenz","Schlüssel"}
+local toolUseNameEN = {"Guard","Licence","Key"}
 
 
 function M.townManagmentUseItem(User, SourceItem)
@@ -47,7 +46,7 @@ function M.townManagmentUseItem(User, SourceItem)
 	end
 
 	local callback = function(dialog)
-		success = dialog:getSuccess()
+		local success = dialog:getSuccess()
 		if success then
 			selected = dialog:getSelectedIndex()
 			if selected == 0 then
@@ -80,14 +79,6 @@ function M.townManagmentUseItem(User, SourceItem)
 		return
 	end
 end
-
-
-function townOfficial(User,toolTown)
-	if User:getQuestProgress(680) == toolTown and User:getQuestProgress(680) >= 8 then
-
-	end
-end
-
 
 function TownGuard(User,toolTown)
 
@@ -151,7 +142,6 @@ function TownGuard(User,toolTown)
 
 end
 
-
 function TownLicence(User,toolTown)
 
 	local factionIds = {0,1,2,3};
@@ -206,18 +196,18 @@ function TownLicence(User,toolTown)
 end
 
 
-keyID={}
+local keyID = {}
 keyID[1]={3054,3054,3054,2558,2558,2558,2558,2558,2558,2558,2558}
 keyID[2]={2558,2558,2558,2558,2558,2558,2558}
 keyID[3]={3056,3055,2558,2558,2558,2558,2558,2558,2558,2558,2558}
 
-keydoorsID={}
+local keydoorsID = {}
 keydoorsID[1]={310,311,312,320,321,322,323,324,325,326,327}
 keydoorsID[2]={201,202,210,211,220,221,222}
 keydoorsID[3]={110,111,120,121,122,123,124,125,126,127,128}
 
-keydoorsnameDE={}
-keydoorsnameEN={}
+local keydoorsnameDE = {}
+local keydoorsnameEN = {}
 keydoorsnameDE[1]={"Villa Rosaline","Villa Edward","Villa Reginald","Wohnungsquartier - Verantwortung","Wohnungsquartier - Glaube & Gehorsam","Wohnungsquartier - Ehre & Abstammung","Wohnungsquartier - Ehrlichkeit & Gerechtigkeit","Wohnungsquartier - Courage","Wohnungsquartier - Patriarchat","Wohnungsquartier - Besitz","Wohnungsquartier - Wachsamkeit"}
 keydoorsnameEN[1]={"Villa Rosaline","Villa Edward","Villa Reginald","Flat quarter - Responsibility","Flat quarter - Faith & Obedience","Flat quarter - Honour & Lineage","Flat quarter - Truth & Justice","Flat quarter - Courage","Flat quarter - Patriarchy","Flat quarter - Property","Flat quarter - Alertness"}
 keydoorsnameDE[2]={"Turm des Feuers Appartement 1","Turm des Feuers Appartement 2","Turm der Luft Appartement 1","Turm der Luft Appartement 2","Turm der Erde Appartement 1","Turm der Erde Appartement 2","Turm der Erde Appartement 3"}
@@ -238,14 +228,10 @@ function TownKey(User,toolTown)
 		end
 	end
 
-	if not User:getQuestProgress(680) == toolTown and User:getQuestProgress(680) >= 7 and User:isAdmin() == true then
-		return
-	end
-
 	local callback = function(dialog)
-		success = dialog:getSuccess()
+		local success = dialog:getSuccess()
 		if success then
-			selected = dialog:getSelectedIndex() + 1
+			local selected = dialog:getSelectedIndex() + 1
 			User:createItem(keyID[toolTown][selected],1,999,{["lockId"]=keydoorsID[toolTown][selected],["descriptionDe"]=keydoorsnameDE[toolTown][selected],["descriptionEn"]=keydoorsnameEN[toolTown][selected]})
 			User:logAdmin("creates a key for " .. keydoorsnameEN[toolTown][selected]);
 		end

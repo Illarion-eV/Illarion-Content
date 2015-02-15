@@ -33,9 +33,9 @@ function StartGathering(User, SourceItem, ltstate)
 	local stonecutting = gathering.stonecutting;
 	-- we have to distinguish if we work on raw stones or stone blocks
 	-- otherwise we would not be able to detect when to stop working on raw stones and the script would continue to work on stone blocks
-	if ( WorkOnStone == nil ) then
-		WorkOnStone = {}; -- an array that holds the id of the item we're working on for each user
-		Stones = {};
+
+		local WorkOnStone = {}; -- an array that holds the id of the item we're working on for each user
+		local Stones = {};
 		Stones[735] = {};
 		Stones[735].productId = 733;
 		Stones[735].amount = 1;
@@ -47,18 +47,11 @@ function StartGathering(User, SourceItem, ltstate)
 		Stones[733].amount = 10;
 		Stones[733].nameDE = "Steinquader";
 		Stones[733].nameEN = "stone blocks";
-	end
+
 
 	common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
-		if (User:increaseAttrib("sex",0) == 0) then
-			gText = "seine";
-			eText = "his";
-		else
-			gText = "ihre";
-			eText = "her";
-		end
-		User:talk(Character.say, "#me unterbricht "..gText.." Arbeit.", "#me interrupts "..eText.." work.")
+        User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
 		return
 	end
 

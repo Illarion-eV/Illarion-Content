@@ -77,14 +77,31 @@ function M.resetMapitem()
     local lever1 = world:getItemOnField(position(720, 258, -9))
     local lever2 = world:getItemOnField(position(781, 188, -9))
 
-    if ( lever1.id == 436 or lever2.id == 436) then
+
+
+    if (lever1.id == 436 or lever2.id == 436) then
+        local trippingTime1 = tonumber(lever1:getData("LastUseTime")) or 0
+        local trippingTime2 = tonumber(lever2:getData("LastUseTime")) or 0
+        local serverTime = world:getTime("unix")
+
+        --check if 10min are over
+        if math.max(trippingTime1, trippingTime2) + 600 > serverTime then
+                return
+        end
+
         -- switch back levers
         lever1.id = 434
         world:changeItem(lever1)
+        local plyList = world:getPlayersInRangeOf(lever1.pos, 10)
+        for _, char in pairs(plyList) do
+            common.InformNLS(char, "Du hörst ein klicken von dem Hebel.", "You hear a click from the lever.")
+        end
         lever2.id = 434
         world:changeItem(lever2)
-
-        -- xxx: handle chars on the bridge!
+        local plyList = world:getPlayersInRangeOf(lever2.pos, 10)
+        for _, char in pairs(plyList) do
+            common.InformNLS(char, "Du hörst ein klicken von dem Hebel.", "You hear a click from the lever.")
+        end
 
         -- delete bridge
         for xx = 722, 723 do
@@ -92,6 +109,12 @@ function M.resetMapitem()
                 local pos = position(xx, yy, -9)
                 local bridge = world:getItemOnField(pos)
                 if bridge.id == 614 or bridge.id == 615 or bridge.id == 617 then
+                    -- port out characters on the bridge
+                    if  world:isCharacterOnField(pos) then
+                        local char = world:getCharacterOnField(pos)
+                        char:warp(position(721, 260, -9))
+                        common.InformNLS(char, "Du wirst ans Ufer gespült als die Brücke verschwindet.", "You are flushed to the shore as the bridge disappears.")
+                    end
                     world:erase(bridge, bridge.number)
                 end
             end

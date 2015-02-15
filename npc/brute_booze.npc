@@ -74,7 +74,7 @@ itemShoes = 53
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings! Are you travelling as well?", "Good day to you. Are you on a great journey? ", "I welcome you!"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid mir gerüßet! Ihr seid wohl auch auf Reise?", "Guten Tag, wünsche iche. Befindigt Ihr Euch auf grosser Fahrt?", "Seid mir willkommen!"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid mir gerüßet! Ihr seid wohl auch auf Reise?", "Guten Tag, wünsche iche. Befindigt Ihr Euch auf grosser Fahrt?", "Seid mir willkommen!"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings! Are you travelling as well?", "Good day to you. Are you on a great journey?", "I welcome you!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Seid mir gerüßet! Ihr seid wohl auch auf Reise?", "Guten Tag, wünsche iche. Befindigt Ihr Euch auf grosser Fahrt?", "Seid mir willkommen!"
 "Farewell", "Bye", "Fare well", "See you" -> "Save Travel!", "...or like the southern lizard folk say: May clear waters surround you.", "May your feet walk in good shoes."
@@ -84,7 +84,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Save Travel!", "...or like 
 "How are you", "How feel", "How do you do" -> "Yes! Old Brute is feeling great. Sometime I will leave for a new adventure.", "Oh, it is not important how I'm feeling! Tell me, how are you?", "I feel like I felt on great days, back then, when I was still a young orc."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Ja-h! Dem alten Brute geht's prächtigens. Irgendwann werde iche wohl zu einem neuen Abenteuer aufbrechen.", "Ach, das iset doch nicht wichti-hig, wie's mir geht! Sagt mir, wie gehthigt's Euch?", "Es geht mir wie an großen Tagen. Einst als iche noch Orkling war."
 "your name", "who are you", "who art thou" -> "I am the famous Brute Booze! A living legend and famous aswell! I'm sure you have heard of my deeds."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Iche binne der berühmte Brute Booze! Lebendihige Legende und Berühmtheit! Sicherheitlich habt ihr von meinen Taten gehöright."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Iche binne der berühmte Brute Booze! Lebendihige Legende und Berühmtheit! Sicherheitlich habt ihr von meinen Taten gehöright."
 
 -- Catching quest triggers
 english, "quest", "mission" -> "Oh, yes! Keep asking people for work and tasks, and one day you will become great hero, just like myself. However I dont have any work for you at the moment."

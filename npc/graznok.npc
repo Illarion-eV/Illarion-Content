@@ -91,7 +91,7 @@ queststatus(3) > 21, ".+" -> inform("[Error] Something went wrong, please inform
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greebas! Yoos be lookin' like yoos could help mes on mes mission."
-"Gr¸ﬂ", "Gruﬂ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Greebas! Du sehen aus. Wie helfen mirr, bei Aufgabs meine."
+"Gr¸ﬂ", "Gruﬂ", "Gr¸ss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Greebas! Du sehen aus. Wie helfen mirr, bei Aufgabs meine."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greebas! Yoos be lookin' like yoos could help mes on mes mission."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Greebas! Du sehen aus. Wie helfen mirr, bei Aufgabs meine."
 "Farewell", "Bye", "Fare well", "See you" -> "Go wid dat Moshi, and when come back, den bring lotsa shinies fer mes, hurr, hurr."
@@ -101,7 +101,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go wid dat Moshi, and when 
 "How are you", "How feel", "How do you do" -> "Mes be feelin' gud, mes be on important mission fer clan. Mes be realleh sure yoos can do task fer mes."
 "Wie geht", "Wie f¸hlst", "Wie ist es ergangen" -> "Mir gutt! Mir Gutt. Mirr auf wichtige Mission. Yubba. F¸r mein Klan! Fallleicht du machst Aufgabe, mirr?"
 "your name", "who are you", "who art thou" -> "Mes be mighty Graznok, explorer op dem Clan op dem Bonegnawers, dat mes."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiﬂt" -> "Mirr m‰chtig Graznok sein! Kundschafter von Klan d' Knochenbeiﬂer. Mirr ist."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiﬂt", "wie heisst" -> "Mirr m‰chtig Graznok sein! Kundschafter von Klan d' Knochenbeiﬂer. Mirr ist."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 -- 1st quest: Provide a torch.

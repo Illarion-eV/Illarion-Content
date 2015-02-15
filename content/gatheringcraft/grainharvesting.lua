@@ -31,14 +31,7 @@ function StartGathering(User, SourceItem, ltstate)
 
 	common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
-		if (User:increaseAttrib("sex",0) == 0) then
-			gText = "seine";
-			eText = "his";
-		else
-			gText = "ihre";
-			eText = "her";
-		end
-		User:talk(Character.say, "#me unterbricht "..gText.." Arbeit.", "#me interrupts "..eText.." work.")
+        User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
 		return
 	end
 
@@ -124,7 +117,7 @@ end
 -- @return TargetItem The fully grown grain or nil if nothing was found
 -- @return foundYoungGrain True if not fully grown grain was found (not reliable if TargetItem~=nil !!!)
 function GetNearbyGrain(User)
-	local TargetItem = nil;
+	local TargetItem
 	local foundYoungGrain = false; -- check if we only find not fully grown grain
 	for x=-1,1 do
 		for y=-1,1 do

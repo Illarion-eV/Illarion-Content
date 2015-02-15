@@ -67,7 +67,7 @@ itemShoes = 369
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted. Have you come to be of assistance?", "Greets to you too.", "Greetings, its a beautiful day."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Einen wunderschönen guten Tag.", "Grüßt Euch, ihr kommt um zu helfen?", "Ich grüß euch auch."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Einen wunderschönen guten Tag.", "Grüßt Euch, ihr kommt um zu helfen?", "Ich grüß euch auch."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted. Have you come to be of assistance?", "Greets to you too.", "Greetings, its a beautiful day."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Einen wunderschönen guten Tag.", "Grüßt Euch, ihr kommt um zu helfen?", "Ich grüß euch auch."
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell for now, may the five watch over you.", "Farewell."
@@ -77,7 +77,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell for now, may the f
 "How are you", "How feel", "How do you do" -> "I am quite well, busy working.", "I am fine thank you for asking.  How are you?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Danke der Nachfrage. Mir geht es gut und euch?", "Es geht schon, ... wenn nicht die viele Arbeit wäre."
 "your name", "who are you", "who art thou" -> "My name is Maelyrra Umrielyth, I work as a researcher for the Archmage."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Maelyrra Umrielyth und forsche für den Erzmagier."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Maelyrra Umrielyth und forsche für den Erzmagier."
 
 -- OPTIONAL TRIGGERS
 

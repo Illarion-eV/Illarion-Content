@@ -82,7 +82,7 @@ queststatus(630) = 1, english, ".*" -> inform("[Quest End 'Find Lotta'] You rece
 queststatus(630) = 1, ".*" -> inform("[Quest Ende 'Finde Lotta'] Du hast 10 Silberstücke erhalten."), money + 1000, queststatus(630) = 2, "Tach. Endlich hast du mich gefunden. Iradona hat mich bereits informiert über deinen Besuch. Hier hast du deine wohlverdienten Münzen."
 
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day, my dear. Can I help you with some information?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Tach, die Herrschaft, darf ich behilflich sein mit einer Auskunft?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Tach, die Herrschaft, darf ich behilflich sein mit einer Auskunft?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Good day, my dear. Can I help you with some information?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Tach, die Herrschaft, darf ich behilflich sein mit einer Auskunft?"
 "Farewell", "Bye", "Fare well", "See you" -> "See ya soon."
@@ -92,7 +92,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "See ya soon."
 "How are you", "How feel", "How do you do" -> "My head hurts, because of these thousands of questions from the people of Galmair here."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mein Kopf schmerzt von der vielen Fragerei der Leute von Galmair hier."
 "your name", "who are you", "who art thou" -> "Lotta Medborgar, the hunter."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Lotta Medborgar die Jägerin"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Lotta Medborgar die Jägerin"
 
 -- OPTIONAL TRIGGERS
 

@@ -74,7 +74,7 @@ itemShoes = 53
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Ah, hello and welcome to my garden.", "Do not stomp on the flowers, will you? You came here to help me, right?", "Oh, hiho! I was lost in thoughts - my garden is so beautiful that one tends to forget about the rest of this cruel world."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ah, hallo, willkommen in meinem Garten.", "Trampelt bitte nicht auf den Blumen herum, danke. Ihr seid hier um mir zu helfen, richtig?", "Oh, hiho! Ich muss geträumt haben, mein Garten ist so schön, dass man leicht mal die grausame Welt da draußen vergisst."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ah, hallo, willkommen in meinem Garten.", "Trampelt bitte nicht auf den Blumen herum, danke. Ihr seid hier um mir zu helfen, richtig?", "Oh, hiho! Ich muss geträumt haben, mein Garten ist so schön, dass man leicht mal die grausame Welt da draußen vergisst."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ah, hello and welcome to my garden.", "Do not stomp on the flowers, will you? You came here to help me, right?", "Oh, hiho! I was lost in thoughts - my garden is so beautiful that one tends to forget about the rest of this cruel world."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Ah, hallo, willkommen in meinem Garten.", "Trampelt bitte nicht auf den Blumen herum, danke. Ihr seid hier um mir zu helfen, richtig?", "Oh, hiho! Ich muss geträumt haben, mein Garten ist so schön, dass man leicht mal die grausame Welt da draußen vergisst."
 "Farewell", "Bye", "Fare well", "See you" -> "Have a nice day and do not stomp on any flowers!", "You are always welcome in my garden... so will you come back?", "Oh, you have to leave? That's sad! I don't get visitors here that often."
@@ -84,7 +84,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a nice day and do not 
 "How are you", "How feel", "How do you do" -> "I feel lonely, really, but the hedges are always here with me.", "Will you stay a while to talk to me? That would be so great!", "Maybe I should go to the market of Runewick. At least I see some people there..."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich bin wirklich einsam. Aber die Hecken sind ja hier bei mir.", "Bleibt ihr noch etwas zum Reden?", "Vielleicht sollte ich mal auf den Markt von Runewick gehen. Wenigstens kann ich dort mal Leute sehen."
 "your name", "who are you", "who art thou" -> "My name is Baldo, Baldo Proudtoe. I'm the local gardener!", "Proudtoe. Baldo Proudtoe.", "I'm Baldo, the gardener. A garden requires a lot of attention."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Baldo, Baldo Proudtoe. Ich bin hier der Gärtner!", "Proudtoe. Baldo Proudtoe.", "Ich bin Baldo, der Gärtner. So ein Garten verlangt nach einer Menge Pflege."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Mein Name ist Baldo, Baldo Proudtoe. Ich bin hier der Gärtner!", "Proudtoe. Baldo Proudtoe.", "Ich bin Baldo, der Gärtner. So ein Garten verlangt nach einer Menge Pflege."
 
 -- fix
 queststatus(118) > 0, queststatus(820) = 9, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 10, "Ah Florain send you but you already ask me for something to do."

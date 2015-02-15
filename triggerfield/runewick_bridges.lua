@@ -93,6 +93,8 @@ function M.MoveToField( User )
         for xpos = 943, 948, 1 do
             for ypos = 770, 772, 1 do
                 if User.pos == position(xpos,ypos+displacement,1) then
+                    local flametype
+
                     if displacement%2 == 0 then
                         flametype = 359
                     else

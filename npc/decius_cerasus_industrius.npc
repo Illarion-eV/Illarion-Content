@@ -75,7 +75,7 @@ queststatus(160) > 25, ".+" -> inform("[Error] Something went wrong, please info
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted.", "Be greeted in the name of Elara."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Elara zum Gruße.", "Seid gegrüßt."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Elara zum Gruße.", "Seid gegrüßt."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted.", "Be greeted in the name of Elara."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Elara zum Gruße.", "Seid gegrüßt."
 "Farewell", "Bye", "Fare well", "See you" -> "Safe path.", "May you be guarded by the gods."
@@ -85,7 +85,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Safe path.", "May you be gu
 "How are you", "How feel", "How do you do" -> "My spine it hurts, my eyes are getting weaker, and my joints are stiff."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mein Rücken schmerzt, meine Augen werden schwach und meine Gelenke sind steif."
 "your name", "who are you", "who art thou" -> "I am Decius Cerasus Industrius, majordomo of Runewick."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Decius Cerasus Industrius. Ich bin der Majordomus hier in Runewick."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Mein Name ist Decius Cerasus Industrius. Ich bin der Majordomus hier in Runewick."
 
 -- Catching quest triggers of other factions' members
 english, town = Galmair, "quest", "mission" -> "Tramp! Why would I have a quest for you? You would sell me only low-grade products."

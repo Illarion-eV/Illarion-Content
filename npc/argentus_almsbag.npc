@@ -102,7 +102,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adieu."
 "How are you", "How feel", "How do you do" -> "I'm always happy when I'm trading."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es immer gut, wenn ich mit jemandem handeln kann."
 "your name", "who are you", "who art thou" -> "I am Argentus Almsbag! Don't you know me?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Argentus Almsbag. Kennt Ihr mich etwa nicht?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Argentus Almsbag. Kennt Ihr mich etwa nicht?"
 
 -- Quest
 -- Quest by Zassaria Riverbank (Ask for me II)
@@ -113,7 +113,7 @@ queststatus(701) = 4, "Zassaria", "lizzard", "fisch", "Bestellung", "riverbank" 
 
 -- Optional: Trade Hooks, use only for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, a customer, welcome!", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, werte Kundschaft, seid willkommen.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ah, werte Kundschaft, seid willkommen.", trade
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I love money, but I hate my job."

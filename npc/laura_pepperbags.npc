@@ -92,7 +92,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greeting to you. Did you come here to exchange money?", "Greetings. Do you need money?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßt. Seid ihr hier um Geld zu wechseln?", "Grüße. Braucht ihr Geld?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßt. Seid ihr hier um Geld zu wechseln?", "Grüße. Braucht ihr Geld?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings.", "Hello."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüße.", "Hallo."
 "Farewell", "Bye", "Fare well", "See you" -> "Safe Paths.", "Farewell."
@@ -102,13 +102,13 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Safe Paths.", "Farewell."
 "How are you", "How feel", "How do you do" -> "I'm fine, thank you. Do you want to change money?"
 "Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke der Nachfrage. Möchtet Ihr Geld eintauchen?"
 "your name", "who are you", "who art thou" -> "My name is Laura Pepperbags, I'm the best money changer in Galmair.", "My name is Laura Pepperbags, I'm the the only money changer in Galmair."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich heiße Laura Pepperbags, ich bin die beste Geldwechslerin in Galmair.", "Ich heiße Laura Pepperbags, ich bin die einzige Geldwechslerin in Galmair."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich heiße Laura Pepperbags, ich bin die beste Geldwechslerin in Galmair.", "Ich heiße Laura Pepperbags, ich bin die einzige Geldwechslerin in Galmair."
 
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I'm a money changer. Want to change some?", "You can change your money here.", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich bin Geldwechsler. Mögt Ihr wechseln?", "Ihr könnt hier Münzen eintauschen.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin Geldwechsler. Mögt Ihr wechseln?", "Ihr könnt hier Münzen eintauschen.", trade
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I like my job, I like money."

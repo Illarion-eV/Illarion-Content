@@ -132,7 +132,7 @@ hitPlayerMsg "#me verpasst dem Eindringlich einen Hieb 'Verschwinde!'", "#me hit
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Good day. You have arrived at the City of Galmair.", "May your walk in justice bring you peace."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Guten Tag. Ihr seid in Galmair angekommen.", "Betretet Galmair, doch überschreitet nicht die Gesetze."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Guten Tag. Ihr seid in Galmair angekommen.", "Betretet Galmair, doch überschreitet nicht die Gesetze."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "If you are in peace come through these doors.", "Good day. You have arrived at the City of Galmair.", "May your walk in justice bring you peace."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Guten Tag. Ihr seid in Galmair angekommen.", "Betretet Galmair, doch überschreitet nicht die Gesetze."
 "Farewell", "Bye", "Fare well", "See you" -> "Be wary of danger on your travels.", "Alert me if there is any trouble in Galmair.", "The Civil Watch is always watching. Walk in peace and justice."
@@ -142,7 +142,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Be wary of danger on your t
 "How are you", "How feel", "How do you do" -> "I relinquished such cares in the pursuit of peace and justice.", "As long as you don't cause any trouble in Galmair my day is correct", "Galmair is at peace. That is my state of being."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich kümmere mich nicht darum, Frieden und Gerechtigkeit sind weitauf wichtiger", "Solange Ihr mir keinen Ärger macht, ist alles in Ordnung.", "Glamair ist friedlich und mir geht es gut."
 "your name", "who are you", "who art thou" -> "Gavin Northstar.", "Gavin Northstar. Now please move along.", "Gavin Northstar. I guard this bridge."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Gavin Northstar.", "Gavin Northstar. Bitte geht weiter.", "Gavin Northstar. Ich bewache die Brücke."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Gavin Northstar.", "Gavin Northstar. Bitte geht weiter.", "Gavin Northstar. Ich bewache die Brücke."
 
 -- OPTIONAL TRIGGERS
 

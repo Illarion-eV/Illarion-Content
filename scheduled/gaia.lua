@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 
@@ -101,7 +101,7 @@ function M.plantdrop()
 	for i=1,35 do -- normal plants
 	   PutPlantOnField(false)
 	end
-    
+
 	for i=1,5 do -- rare plants
 	   PutPlantOnField(true)
 	end
@@ -116,28 +116,28 @@ function PutPlantOnField(rare)
 	    myList = RarePlantByGround
 	else -- normal herb
         myList = NormalPlantByGround
-    end	
+    end
 	if theTile then
 		local groundType = common.GetGroundType( theTile:tile() )
 		local gt = common.GroundType
-		
+
 		if theTile:countItems() > 0 then -- check if no item is on that field
 		    return
-		end	
+		end
 		if myList[groundType] == nil then -- check if this ground has any herbs
 		    return
 		end
 		if (groundType == gt.sand) then
 		    if not Random.uniform(1,3)==1 then -- "Frickelfactor" for sand herbs (we have too many sand fields!)
 			    return
-			end	
+			end
         elseif (groundType == gt.grass or groundType == gt.forest) then
 		    if not Random.uniform(1,2)==1 then -- "Frickelfactor" for grass and forest herbs (we have slightly too many fields of those)
 			    return
-			end	
+			end
         end
-		
-		myPlant = myList[groundType][math.random(1,#myList[groundType])]
+
+		local myPlant = myList[groundType][math.random(1,#myList[groundType])]
 		world:createItemFromId(myPlant,1,myPos,false,333,nil)
 		return true
 	end

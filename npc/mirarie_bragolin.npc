@@ -99,7 +99,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Farewell! Farewe
 "How are you", "How feel", "How do you do" -> "I'm fine. And you? How are you?", "I am happy. I'm always happy, except for the times when I'm sad.", "I have no reason to complain. I'm fine."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Mir geht es gut. Wie geht es dir?", "Ich bin immer glücklich, außer wenn ich mal traurig bin.", "Ich kann nicht klagen. Mir geht es gut."
 "your name", "who are you", "who art thou" -> "I am Mirarie Bragolin.", "Mirarie Bragolin, that's my name.", "My Name is Mirarie Bragolin. Who are you?"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Mirarie Bragolin.", "Mirarie Bragolin, so heiße ich.", "Mein Name ist Mirarie Bragolin. Wer bist du?"
+"dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Mirarie Bragolin.", "Mirarie Bragolin, so heiße ich.", "Mein Name ist Mirarie Bragolin. Wer bist du?"
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I'm no trader. I'm an explorer.", "I do not want to trade, but I do want to learn about other cultures.", "I am not a merchant. I write books."

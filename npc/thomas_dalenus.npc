@@ -97,7 +97,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 5% Leather goods: 48, 53, 89, 97, 356, 362, 363, 364, 365, 366, 367, 369, 526, 527, 697, 698, 2113, 2114, 97
 -- 5% Hats: 357, 358, 370, 371, 828, 829, 830, 831, 832
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Robes, dresses, capes, shirts, trousers... what do you need, I have everything.", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Roben, Kleider, Umhänge, Hemden, Hosen,... was braucht ihr, ich habe alles.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Roben, Kleider, Umhänge, Hemden, Hosen,... was braucht ihr, ich habe alles.", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the tailor Thomas Dalenus. Keywords: buy, sell, trade, Hello, tailor, Cadomyr, needle, dye.")
@@ -105,7 +105,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day. Do you need a coat?", "Greetings. How are you?", "Hello. I have all kinds of clothes."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Guten Tag. Braucht ihr einen Umhang?", "Seid gegrüßt. Wie geht es euch?", "Hallo. Ich habe vielerlei Stoffe."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Guten Tag. Braucht ihr einen Umhang?", "Seid gegrüßt. Wie geht es euch?", "Hallo. Ich habe vielerlei Stoffe."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Good day. Do you need a coat?", "Greetings. How are you?", "Hello. I have all kinds of clothes."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Guten Tag. Braucht ihr einen Umhang?", "Seid gegrüßt. Wie geht es euch?", "Hallo. Ich habe vielerlei Stoffe."
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell, go with the gods.", "Good bye, my customer."
@@ -115,7 +115,7 @@ english, "Ciao", "Adieu", "Au revoir" -> "Farewell, go with the gods.", "Good by
 "How are you", "How feel", "How do you do" -> "I just finished this robe. Maybe you want to take a look at it?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich habe gerade diese Robe fertiggestellt. Wollt ihr sie euch ansehen?"
 "your name", "who are you", "who art thou" -> "My name is Thomas, Thomas Dalenus. I'm a tailor.", "Dalenus' tailored goods - that is my business.", "Thomas Dalenus. And do not call me Tom or I'll sting my needle into your eye."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Thomas, Thomas Dalenus. Ich bin ein Schneider.", "Dalenus Schneiderwaren - das ist mein Geschäft.", "Thomas Dalenus. Und nennt mich nicht Tom, sonst stech ich euch die Augen mit meiner Nadel aus."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Mein Name ist Thomas, Thomas Dalenus. Ich bin ein Schneider.", "Dalenus Schneiderwaren - das ist mein Geschäft.", "Thomas Dalenus. Und nennt mich nicht Tom, sonst stech ich euch die Augen mit meiner Nadel aus."
 
 -- Catching quest triggers
 english, "quest", "mission" -> "If you are searching for a quest, go to Cape Farewell or the Oasis of Stars. There are people who need your help."

@@ -44,14 +44,7 @@ function StartGathering(User, SourceItem, ltstate)
 
 	common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
-		if (User:increaseAttrib("sex",0) == 0) then
-			gText = "seine";
-			eText = "his";
-		else
-			gText = "ihre";
-			eText = "her";
-		end
-		User:talk(Character.say, "#me unterbricht "..gText.." Arbeit.", "#me interrupts "..eText.." work.")
+        User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
 		return
 	end
 
@@ -85,7 +78,7 @@ function StartGathering(User, SourceItem, ltstate)
 
 	-- any other checks?
 
-	local dye = nil;
+	local dye
 	for _,d in pairs(dyersList) do
 		if (User:countItemAt("all",d[1])>0 and (User:countItemAt("all",d[2][1])>0 or User:countItemAt("all",d[2][2])>0)) then
 			dye = d;

@@ -56,7 +56,7 @@ Coordina[11]={170,620,0};
 Location[12]="Cadomyr Blood Circle Arena";
 Coordina[12]={258,668,0};
 Location[13]="Galmair Balckhole Mine";
-Coordina[13]={338,157,-3};
+Coordina[13]={388,157,-3};
 Location[14]="Galmair Malachite Mine";
 Coordina[14]={400,355,0};
 Location[15]="Galmair Game Room";
@@ -100,10 +100,10 @@ local function akalutCadomyrBlockade(User, SourceItem, ltstate)
 
     local foundValue, value = ScriptVars:find("akalutCadomyrBlockade")
     local newValue
-    local titel
+    local title
     local description
     local informMessage
-    
+
     if foundValue and tonumber(value) == 1then
         newValue = 0
         title = "Akalut: Cadomyr blockade. Do you want to deactivate it?"
@@ -115,7 +115,7 @@ local function akalutCadomyrBlockade(User, SourceItem, ltstate)
         description = "This special event renders Cadomyr's teleporter useless. You cannot travel to it or from it. Furthermore, portal books do not work in Cadomyr and cannot be used to get to Cadomyr. Do you really want to activate this?"
         informMessage = "You activated the Cadomyr blockade for the Akalut quest."
     end
-    
+
     local yesOrNo = {"Yes", "No"}
 	local cbQuestEvents = function (dialog)
 		if (not dialog:getSuccess()) then
@@ -498,7 +498,7 @@ function godMode(User, SourceItem, ltstate)
 end
 
 function M.LookAtItem(User, Item)
-	lookat.SetSpecialDescription(Item, "Verwende die Dietriche zum aufrufen der Funktionen.", "Use the lockpicks to pick a function.");
+	lookat.SetSpecialDescription(Item, "Verwende die Dietriche zum Aufrufen der Funktionen.", "Use the lockpicks to pick a function.");
 	lookat.SetSpecialName(Item, "Dietriche", "Lockpicks");
 	return lookat.GenerateLookAt(User, Item, lookat.METAL)
 end

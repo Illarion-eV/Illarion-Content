@@ -81,7 +81,7 @@ itemShoes = 53
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Ah, one of the living visits me. What brought you here - you want to honour your ancestors in the crypt?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ah, einer der Lebenden besucht mich. Was hat euch hergebracht - wollt ihr in der Gruft eure Vorfahren ehren?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ah, einer der Lebenden besucht mich. Was hat euch hergebracht - wollt ihr in der Gruft eure Vorfahren ehren?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ah, one of the living visits me. What brought you here - you want to honour your ancestors in the crypt?"
 "Hiho", "Hallo", "Hey", "Greeb" -> ", einer der Lebenden besucht mich. Was hat euch hergebracht - wollt ihr in der Gruft eure Vorfahren ehren?"
 "Farewell", "Bye", "Fare well", "See you" -> "Go with the blessing of the Gods, and do not return again too soon, if you know what I mean?"
@@ -91,7 +91,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go with the blessing of the
 "How are you", "How feel", "How do you do" -> "I bury those who died. How do you suppose I feel? To appreciate the value of life is indeed not easy."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich beerdige diejenigen, die starben. Wie meint ihr wohl, fühle ich mich dabei? Den Wert eines Lebens zu schätzen ist fürwahr nicht einfach."
 "your name", "who are you", "who art thou" -> "My name is Gregor Remethar, I am delighted to meet you and to be able to - still - talk to you."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Gregor Remethar, es freut mich, mit mich euch - noch -unterhalten zu können."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Mein Name ist Gregor Remethar, es freut mich, mit mich euch - noch -unterhalten zu können."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 -- Quest 1: Take lamp oil (390) and make sure that the light in the tomb is burning

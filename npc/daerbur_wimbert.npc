@@ -86,7 +86,7 @@ itemShoes = 53
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Huh?", "Hah?", "Heh?", "Hih?", "Hoh?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Huh?", "Hah?", "Heh?", "Hih?", "Hoh?", "Häh?", "Höh?", "Hüh?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Huh?", "Hah?", "Heh?", "Hih?", "Hoh?", "Häh?", "Höh?", "Hüh?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Huh?", "Hah?", "Heh?", "Hih?", "Hoh?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Huh?", "Hah?", "Heh?", "Hih?", "Hoh?", "Häh?", "Höh?", "Hüh?"
 "Farewell", "Bye", "Fare well", "See you" -> "So, you are leaving. That is interesting, that means, you go somewhere else. Exciting!", "Why did you come if you wanted to leave anyway? You like change to your life, I assume.", "Bye"
@@ -96,7 +96,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "So, you are leaving. That i
 "How are you", "How feel", "How do you do" -> "I feel good and bad, all at once. Sometimes, I feel a bit more bad than good, sometimes vice versa.", "I feel just like you, maybe a bit more sad or lucky, who knows.", "How do you feel? Alas, why don't we all have a sense for feelings, then all these stupid questions would be unnecessary."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Gut und schlecht gleichzeitig, so fühl ich mich. Manchmal ein bisschen mehr schlecht als gut, manchmal genau anders herum.", "Ich fühl mich genauso wie du, vielleicht ein wenig schlechter oder besser, wer weiß das schon.", "Wie fühlst du dich denn so? Ach, warum haben Leute kein Gefühlssinn, dann würde das dusselige Fragen entfallen."
 "your name", "who are you", "who art thou" -> "Daerbur Wimbert.", "Daerbur.", "Daerbur Wimbert, son of Dimbur Wimbert and Klemka Jebmil, brother of Turgen Wimbert and Nadla Wimbert. That's me."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Daerbur Wimbert.", "Daerbur.", "Daerbur Wimbert, Sohn von Dimbur Wimbert und Klemka Jebmil, Bruder von Turgen Wimbert und Nadla Wimbert. Das bin ich."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Daerbur Wimbert.", "Daerbur.", "Daerbur Wimbert, Sohn von Dimbur Wimbert und Klemka Jebmil, Bruder von Turgen Wimbert und Nadla Wimbert. Das bin ich."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 -- Quest 108: A message from Hector Valerion

@@ -100,7 +100,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- she thinks she is. She is constantly watching her weight. She thinks the only good thing about her is the size of her boobs.
 -- Alysa wishes more than anything that should could be a fairy of legend because unlike dwarves like her Faries are pretty.
 
-"kauf", "waren", "preis", "handel", "veräußer", "erwerb" -> "Lass uns handeln!", trade
+"kauf", "waren", "preis", "handel", "veräußer", "veräusser", "erwerb" -> "Lass uns handeln!", trade
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Let's trade!", trade
 
 -- Help
@@ -109,7 +109,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, would you like something to eat? My wares are pretty tasty!", " Nice to meet you, I'm Alysa Lorthelia.", "Ah, you startled me! Hello, my apologies."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, mögt Ihr etwas essen?Ich finde das Essen welches ich hergestellt habe schmeckt.", "Freut mich euch zu treffen. Ich bin Alysa Lorthelia.", "Ah! Ihr habt mich erschreckt, Hallo, tut mir leid."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, mögt Ihr etwas essen?Ich finde das Essen welches ich hergestellt habe schmeckt.", "Freut mich euch zu treffen. Ich bin Alysa Lorthelia.", "Ah! Ihr habt mich erschreckt, Hallo, tut mir leid."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, would you like something to eat? My wares are pretty tasty!", " Nice to meet you, I'm Alysa Lorthelia.", "Ah, you startled me! Hello, my apologies."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, mögt Ihr etwas essen?Ich finde das Essen welches ich hergestellt habe schmeckt.", "Freut mich euch zu treffen. Ich bin Alysa Lorthelia.", "Ah! Ihr habt mich erschreckt, Hallo, tut mir leid."
 "Farewell", "Bye", "Fare well", "See you" -> "Will I ever see you again? ", "Thank you so, so much for talking to me.", "Please have a good day. Can you visit again please?"
@@ -120,7 +120,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Will I ever see you again? 
 "How are you", "How feel", "How do you do" -> "I don't feel great today. My stomach hurts but it's not because of my food! Please don't think my food is bad!", "My head is all dizzy.", "I think I ate too much. I shouldn't eat for another few days."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich fühle mich heute nicht gut. Ich habe Magenschmerzen. Aber das liegt nicht an meinem Essen. Bitte denkt nicht, es läge an meinem Essen!", "Mir ist schwindelig.", "Ich habe zuviel gegessen. Ich sollte die nächsten zwei Tage nichts Essen."
 "your name", "who are you", "who art thou" -> "I'm the daughter of the sword crafter Asha Lorthelia.", "I'm the oldest Lorthelia daughter, but no: I can't craft ornate weapons like my mother. Instead I bake.", "I am Alysa Lorthelia, the baker... at least for now."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin die Tochter der Waffenschmiedin Asha Lorthelai.", "Ich bin die älteste Tochter der Lotheila, aber ich kann keine verzierten Waffen herstellen. Daher backe ich.", "Ich bin Alysa Lothelia, die Bäckerin, zumondest zur Zeit noch."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin die Tochter der Waffenschmiedin Asha Lorthelai.", "Ich bin die älteste Tochter der Lotheila, aber ich kann keine verzierten Waffen herstellen. Daher backe ich.", "Ich bin Alysa Lothelia, die Bäckerin, zumondest zur Zeit noch."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I bake all kinds of fresh goods.", "I sell people the food that myself and old John Sights bake.", "I started working as a baker many moons ago."

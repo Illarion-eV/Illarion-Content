@@ -90,7 +90,7 @@ itemShoes = 369
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Welcome! Interested in a higher rank of your town?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen! Interessiert an einen höhren Rang?."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen! Interessiert an einen höhren Rang?."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Welcome! Interested in a higher rank of your town?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Willkommen! Interessiert an einen höhren Rang?"
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell!"
@@ -100,7 +100,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell!"
 "How are you", "How feel", "How do you do" -> "#w Psst. Very good, haven't got caught yet counterfeiting documents."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "#w Psst. Sehr gut, ich wurde noch nie beim Fälschen von Dokumenten erwischt."
 "your name", "who are you", "who art thou" -> "#w Psst. Arno Unterland, famous for counterfeiting documents. *grins*"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "#w Psst. Arno Unterland, berühmt für das Fälschen von Dokumenten. *grinst*"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "#w Psst. Arno Unterland, berühmt für das Fälschen von Dokumenten. *grinst*"
 
 -- OPTIONAL TRIGGERS
 

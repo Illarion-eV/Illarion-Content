@@ -63,14 +63,7 @@ function StartGathering(User, SourceItem, ltstate)
 
 	common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
-		if (User:increaseAttrib("sex",0) == 0) then
-			gText = "seine";
-			eText = "his";
-		else
-			gText = "ihre";
-			eText = "her";
-		end
-		User:talk(Character.say, "#me unterbricht "..gText.." Arbeit.", "#me interrupts "..eText.." work.")
+        User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
 
 		if (SourceItem.id == 2834) then --swapping
 			SourceItem.id = 2837;
@@ -142,15 +135,15 @@ function StartGathering(User, SourceItem, ltstate)
 
   -- NOTE: we assume here that the user's items do not change while working.
   -- => the ore that we found at the beginning is the same as in the end.
-  local oreItem = nil;
+  local oreItem
   for _,i in pairs(OreList) do
     if (User:countItemAt("all",i.ore.id)>=i.ore.amount) then
         oreItem = i;
         break;
     end
   end
-  
-  
+
+
   if (oreItem == nil) then
 		common.HighInformNLS( User,
 		"Du brauchst Eisenerz, Kupfererz, Silbererz, Goldnuggets oder Meriniumerz um es zu schmelzen.",

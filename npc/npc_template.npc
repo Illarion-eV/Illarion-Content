@@ -67,7 +67,7 @@ sellItems = 1, 2, 3
 buyPrimaryItems = 1
 buySecondaryItems = 2, 3
 
--- Template Version 1.11, 05/14/2014 by Estralis Seborian
+-- Template Version 1.12, 02/13/2015 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
 -- Style of triggers: Keywords are preferred. Avoid usage of phrases such as "tell me more"
@@ -87,7 +87,7 @@ buySecondaryItems = 2, 3
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Farewell", "Bye", "Fare well", "See you" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -97,13 +97,13 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "ENGLISH1.", "ENGLISH2.", "E
 "How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3.", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", trade
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 english, "quest", "mission" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."

@@ -808,6 +808,8 @@ end
 
 function ChangeRankpoints(User, modifier, value, faction, radius)
 	--check if the points shall be added or removed
+    local text
+    local playerText
 	if modifier == "add" then
 		text = "added";
 		playerText = {"steigt.","advance"};
@@ -821,10 +823,10 @@ function ChangeRankpoints(User, modifier, value, faction, radius)
 	if radius == nil then
 		radius = 5;
 	end
-	player_list=world:getPlayersInRangeOf(User.pos, radius);
+	local player_list = world:getPlayersInRangeOf(User.pos, radius);
 	if player_list[1]~=nil then
 		for i=1, #(player_list) do
-			Factionvalues = factions.getFaction(player_list[i]);
+			local Factionvalues = factions.getFaction(player_list[i]);
 			if faction == nil or faction == 99 then
 				factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value);
 				User:inform("You just "..text.." "..value.." rankpoints to everyone in a radius of ".. radius.." ("..player_list[i].name..").");

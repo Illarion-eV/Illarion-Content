@@ -95,7 +95,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "G'day. I just came ashore."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Tag. Bin gerade von großer Fahrt zurück."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Tag. Bin gerade von großer Fahrt zurück."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "G'day. I just came ashore."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Tag. Bin gerade von großer Fahrt zurück."
 "Farewell", "Bye", "Fare well", "See you" -> "Good trip.", "Farewell."
@@ -105,11 +105,11 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Good trip.", "Farewell."
 "How are you", "How feel", "How do you do" -> "Fine, thank you."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Gut, danke der Nachfrage."
 "your name", "who are you", "who art thou" -> "Fredericus. That's me."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Fredericus. Das bin ich."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Fredericus. Das bin ich."
 
 -- Optional: Trade Hooks, use only for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Ya want to trade? Aye, have a look!", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Du willst handeln? Da schau her was ich hab!", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Du willst handeln? Da schau her was ich hab!", trade
 
 -- Catching quest triggers
 english, "quest", "mission" -> "I do not issue any quests."

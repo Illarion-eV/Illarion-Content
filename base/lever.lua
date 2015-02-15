@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 
@@ -24,10 +24,10 @@ M.Lever = class(function(lev, posi, twoState)    -- defines a class
     lev.twoState = (twoState == true);          -- left-middle-right or just l-r
     lev.broken = false;                         -- broken lever? bring someone to repair!
     lev.minStrength = 0;                        -- need a strong man to handle stuff?
-    lev.state, lev.type, lev.movingTo = lev:findType(posi);   
+    lev.state, lev.type, lev.movingTo = lev:findType(posi);
                                                 -- state=0: zero position ("left"); 1=middle etc.
                                                 -- movingTo: 0 moves from N->S/E->W, 1 other direction
-                                                
+
  	lev.itemstruct = world:getItemOnField(posi);
  	if (lev.itemstruct~=nil) then
 		lev.itemstruct.quality = 333; --defined quality to prevent "unfinished levers"
@@ -42,9 +42,9 @@ function M.Lever:findType(lpos)                   -- returns leverstate, leverty
         leverItem=world:getItemOnField(lpos);
         itemid=leverItem.id;
         itemData=tonumber(leverItem:getData("leverMvTo"))
-		if itemData == nil then 
+		if itemData == nil then
 		    itemData = 0
-		end	
+		end
         mvTo=itemData;                          -- default: 0 (moves standard), else 1. Shouldn't happen, as the mapeditor can't set data, but who knows.
         if (itemid>=434 and itemid<=436) then   -- NS-lever
             if (itemid==436) then mvTo=1 end;   -- set moveTo;
@@ -81,7 +81,7 @@ function M.Lever:switchLever(Char)                    -- switch the lever; retur
         if (chrStr>=self.minStrength) then
             if (self.twoState~=true) then
                 if ((thisState==0) or (thisState==2)) then  -- switch to m (3-state)
-                    if (thisState==0) then 
+                    if (thisState==0) then
                         newMovingTo=0;
                     else
                         newMovingTo=1;
@@ -112,6 +112,7 @@ function M.Lever:switchLever(Char)                    -- switch the lever; retur
             leverItem=world:getItemOnField(self.pos);
             leverItem.id=newItemid;
             leverItem:setData("leverMvTo",newMovingTo)
+            leverItem:setData("LastUseTime",world:getTime("unix"))
             world:changeItem(leverItem);
                                                         -- loop through bindings?
             key=self.pos.x*1024*1024+self.pos.y*1024+self.pos.z;
@@ -126,15 +127,15 @@ function M.Lever:switchLever(Char)                    -- switch the lever; retur
 
             return thisState;
         end
-        
+
         return newState;
     else
         return -1;           -- broken!
-    end 
+    end
 end
 
 function M.Lever:bind(levState, action)                       -- bind an action to a specific state
-    if (bindList==nil) then 
+    if (bindList==nil) then
         bindList={};
     end
     key=self.pos.x*1024*1024+self.pos.y*1024+self.pos.z;

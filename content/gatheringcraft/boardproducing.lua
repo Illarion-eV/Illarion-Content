@@ -50,25 +50,16 @@ function StartGathering(User, SourceItem, ltstate)
 	gathering.InitGathering();
 	local boardproducing = gathering.boardproducing;
 
-	if (craftList == nil) then
-		craftList = {
+	local craftList = {
 			CreateCraftItem(CreateItem(3), CreateItem(2543)),             -- conifer
 			CreateCraftItem(CreateItem(543), CreateItem(545)),            -- cherry
 			CreateCraftItem(CreateItem(544), CreateItem(546)),            -- naldor
 			CreateCraftItem(CreateItem(2560), CreateItem(2716))           -- apple/deciduous
-		};
-	end
+	}
 
 	common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
-		if (User:increaseAttrib("sex",0) == 0) then
-			gText = "seine";
-			eText = "his";
-		else
-			gText = "ihre";
-			eText = "her";
-		end
-		User:talk(Character.say, "#me unterbricht "..gText.." Arbeit.", "#me interrupts "..eText.." work.")
+		User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
 		return
 	end
 
@@ -101,7 +92,7 @@ function StartGathering(User, SourceItem, ltstate)
 	common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 
 	-- any other checks?
-	local craftItem = nil;
+	local craftItem
 	for _,entry in pairs(craftList) do
 		if (User:countItemAt("all",entry.source.id)>=entry.source.amount) then
 			craftItem = entry;

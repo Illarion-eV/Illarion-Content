@@ -97,7 +97,7 @@ queststatus(111) > 18, ".+" -> inform("[Error] Something went wrong, please info
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Ha! A new recruit. You came here to get your orders for today, right?", "Attention! The Queen has issued new orders, and her Majesty will not tolerate delay! Report for duty!"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ha! Ein neuer Rekrut. Du bist hier, um deinen Tagesbefehl zu erhalten, richtig?", "Hergehört! Die Königin hat neue Befehle ausgegeben. Und ihre Majestät mag keine Verzögerungen in ihrer Ausführung."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ha! Ein neuer Rekrut. Du bist hier, um deinen Tagesbefehl zu erhalten, richtig?", "Hergehört! Die Königin hat neue Befehle ausgegeben. Und ihre Majestät mag keine Verzögerungen in ihrer Ausführung."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ha! A new recruit. You came here to get your orders for today, right?", "Ha! A new recruit, bet your looking for orders aren't you, greenhorn?", "Attention! The Queen has issued new orders, and her Majesty will not tolerate delay! Report for duty!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Ha! Ein neuer Rekrut. Du bist hier, um deinen Tagesbefehl zu erhalten, richtig?", "Hergehört! Die Königin hat neue Befehle ausgegeben. Und ihre Majestät mag keine Verzögerungen in ihrer Ausführung."
 "Farewell", "Bye", "Fare well", "See you" -> "Dismissed.", "Best of luck.", "Move out!"
@@ -107,7 +107,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Dismissed.", "Best of luck.
 "How are you", "How feel", "How do you do" -> "Casual conversation? Small talk? Do you think Cadomyr was built by words!?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Eine entspannte Unterhaltung? Klatsch und Tratsch? Denkst du, Cadomyr wurde mit Worten gebaut!?"
 "your name", "who are you", "who art thou" -> "I am the royal quartermaster, Beror Oakaxe, and yes, I am a dwarf. An angry dwarf!"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin der königliches Quartiermeister Beror Oakaxe. Und ja, ich bin ein Zwerg. Ein zorniger Zwerg!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin der königliches Quartiermeister Beror Oakaxe. Und ja, ich bin ein Zwerg. Ein zorniger Zwerg!"
 
 -- Catching quest triggers of other factions' members
 english, town = Galmair, "quest", "mission" -> "I do not issue quests to honourless commoners, sorry."

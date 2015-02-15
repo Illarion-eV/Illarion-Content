@@ -133,7 +133,7 @@ function M.MoveToField(User)
             User:setQuestProgress(121,queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+ queststatuslist[5]*10+ queststatuslist[6]*1) --saving the new queststatus
 
             --The actual event
-            monsterpos=position(679,441,-3)
+            local monsterpos=position(679,441,-3)
             world:gfx(41,monsterpos) --swirly
             world:createMonster(203,monsterpos,0) --Unholy akolyth (demon skeleton)
             world:makeSound(25,monsterpos) --MWHAHAHA!
