@@ -79,7 +79,7 @@ function StartGathering(User, SourceItem, ltstate)
 	common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 
 	-- any other checks?
-  local craftItem = nil;
+  local craftItem
   for _,entry in pairs(craftList) do
     if (User:countItemAt("all",entry.source.id)>=entry.source.amount) then
       craftItem = entry;

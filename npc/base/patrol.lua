@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- base script for patrolling npcs or monsters
 local waypoints = require("npc.base.waypoints")
@@ -72,12 +72,12 @@ function PatrolInit(guard)
 		end
 		-- fill in the spaces, if not all positions could be assigned to a wp
 		if not nospace then
-			local free = nil;
+			local free
 			for j,pos in ipairs(patrol) do
 				if pos==-1 then
 					if not free then
 						free = j;
-					end	
+					end
 				elseif free then
 					patrol[free] = pos;
 					free = free + 1;

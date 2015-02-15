@@ -26,7 +26,7 @@ function StartGathering(User, SourceItem, ltstate)
 
 	gathering.InitGathering();
 	local fruitgathering = gathering.fruitgathering
-    
+
     common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
 		if (User:increaseAttrib("sex",0) == 0) then
@@ -52,15 +52,14 @@ function StartGathering(User, SourceItem, ltstate)
 
 	-- any other checks?
 	-- check if there is a harvestable item or any item at all
-	local harvestItem = nil;
-	harvestItem = HarvestItems[SourceItem.id];
+	local harvestItem = HarvestItems[SourceItem.id];
 	if ( harvestItem == nil) then
 		User:inform("[ERROR] Unknown harvest item, id: " .. SourceItem.id .. ". Please inform a developer.");
 		return;
 	end
 	-- there is a harvestable item, but does the ground fit?
 	local GroundType = common.GetGroundType(world:getField(SourceItem.pos):tile());
-	local harvestProduct = nil;
+	local harvestProduct
 	for _,hp in pairs(harvestItem) do
 		if (hp.groundType == nil or GroundType == hp.groundType) then
 			harvestProduct = hp;

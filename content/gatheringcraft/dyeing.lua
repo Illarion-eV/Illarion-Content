@@ -85,7 +85,7 @@ function StartGathering(User, SourceItem, ltstate)
 
 	-- any other checks?
 
-	local dye = nil;
+	local dye
 	for _,d in pairs(dyersList) do
 		if (User:countItemAt("all",d[1])>0 and (User:countItemAt("all",d[2][1])>0 or User:countItemAt("all",d[2][2])>0)) then
 			dye = d;

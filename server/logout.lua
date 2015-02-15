@@ -14,11 +14,20 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local keys = require("base.keys")
-local common = require("base.common")
+
 local factionLeader = require("scheduled.factionLeader")
 
 local M = {}
+
+-- Function to exchange the faction leader of a town.
+local function exchangeFactionLeader( playerName )
+    for i=1, #(factionLeader.informationTable) do
+        if playerName == factionLeader.informationTable[i].npcName then
+            factionLeader.updatePosition(factionLeader.informationTable[i].newPosition,
+                factionLeader.informationTable[i].usualPosition)
+        end
+    end
+end
 
 function M.onLogout( theChar )
 
@@ -34,24 +43,13 @@ function M.onLogout( theChar )
 		Tying:addValue("loghours",world:getTime("hour"));
 		Tying:addValue("logminutes",world:getTime("minute")+3);
 		Tying:addValue("logseconds",world:getTime("second"));
-		foundCapturer, Capturer = Tying:findValue("Capturer");
+		local foundCapturer, Capturer = Tying:findValue("Capturer");
 		log("[Rope]: Tied up character "..theChar.name.." has logged out."..(foundCapturer and " Capturer: "..Capturer or ""))
 	end
 	-- end tying
 
 	if theChar.name == "Valerio Guilianni" or theChar.name == "Rosaline Edwards" or theChar.name == "Elvaine Morgan" then
 		exchangeFactionLeader( theChar.name )
-	end
-
-end
-
--- Function to exchange the faction leader of a town.
-function exchangeFactionLeader( playerName )
-	for i=1, #(factionLeader.informationTable) do
-		if playerName == factionLeader.informationTable[i].npcName then
-			factionLeader.updatePosition(factionLeader.informationTable[i].newPosition,
-				factionLeader.informationTable[i].usualPosition)
-		end
 	end
 end
 

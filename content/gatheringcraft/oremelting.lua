@@ -142,15 +142,15 @@ function StartGathering(User, SourceItem, ltstate)
 
   -- NOTE: we assume here that the user's items do not change while working.
   -- => the ore that we found at the beginning is the same as in the end.
-  local oreItem = nil;
+  local oreItem
   for _,i in pairs(OreList) do
     if (User:countItemAt("all",i.ore.id)>=i.ore.amount) then
         oreItem = i;
         break;
     end
   end
-  
-  
+
+
   if (oreItem == nil) then
 		common.HighInformNLS( User,
 		"Du brauchst Eisenerz, Kupfererz, Silbererz, Goldnuggets oder Meriniumerz um es zu schmelzen.",

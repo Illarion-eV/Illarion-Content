@@ -493,7 +493,7 @@ function M.generateTasteMessage(Character,dataZList)
 end
 
 function M.CheckIfGemDust(itemId)
-local retVal = nil;
+local retVal
 for i,checkId in pairs(gemDustList) do
     if itemId == checkId then
     retVal = itemId
@@ -524,7 +524,7 @@ function M.CheckIfPlant(itemId)
 end
 
 function M.CheckIfPotionBottle(SourceItem, User)
-local retVal = nil;
+local retVal
 for i,checkId in pairs(M.bottleList) do
     theItem = SourceItem
 	if theItem.id == checkId then
@@ -536,7 +536,7 @@ return retVal
 end
 
 function M.GetCauldronInfront(User,Item)
-    local retVal = nil
+    local retVal
     Item = common.GetFrontItem(User)
 	if (Item ~= nil) and (Item.id >= 1008) and (Item.id <= 1018) then
 	    retVal = Item
@@ -665,7 +665,8 @@ function M.CauldronDestruction(User,cauldron,effectId)
 	    effectId = 1
 	end
 
-	local textDE = nil; local textEN = nil
+	local textDE
+    local textEN
 	if effectId == 1 then
 	    world:gfx(1,cauldron.pos)
 		world:makeSound(5,cauldron.pos)
