@@ -30,7 +30,7 @@ local M = {}
 function M.UseItem(User, SourceItem, ltstate)
 
   -- look for cauldron
-  TargetItem = GetCauldron(User);
+  local TargetItem = GetCauldron(User);
   if (TargetItem ~= nil) then
 	common.TurnTo( User, TargetItem.pos ); -- turn if necessary
     WaterIntoCauldron(User,SourceItem,TargetItem,ltstate);

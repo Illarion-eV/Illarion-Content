@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local lookat = require("base.lookat")
@@ -21,9 +21,9 @@ local M = {}
 
 -- UPDATE items SET itm_script='item.paintings' WHERE itm_id IN (264, 265, 748, 749, 750, 751, 1914, 1915);
 
-PaintingListGerman = 
+PaintingListGerman =
 {
-"Das Gemälde zeigt eine Waldlichtung mit einem Schrein, voller Tiere und Feen.", 
+"Das Gemälde zeigt eine Waldlichtung mit einem Schrein, voller Tiere und Feen.",
 "Das Gemälde zeigt einen jungen Mann beim Experimentieren mit der Alchemie.",
 "Das Gemälde zeigt den weiten Ozean, rasende Wellen und ein Sturm breiten sich dort aus.",
 "Das Gemälde zeigt das Abbild eines Halblings bei der Gartenarbeit.",
@@ -68,7 +68,7 @@ PaintingListGerman =
 "Das Gemälde zeigt wie eine Echse aus dem Wasser auftaucht."
 };
 
-PaintingListEnglish = 
+PaintingListEnglish =
 {
 "The painting shows a clearing with a shrine that's full of animals and fairies.",
 "The painting shows a young man, experimenting with alchemy.",
@@ -77,7 +77,7 @@ PaintingListEnglish =
 "The painting shows halflings laughing and dancing together at a party.",
 "The painting shows a woman who covers her body in silk cloth." ,
 "The painting shows a group of musicians on a lively marketplace." ,
-"The painting shows an old man with a walking cane going through the forest, looking out for herbs.", 
+"The painting shows an old man with a walking cane going through the forest, looking out for herbs.",
 "The painting shows a naked elfess in a shell." ,
 "The painting shows a lonely elfess walking along the beach." ,
 "The painting shows the panorama of a great fortress." ,
@@ -107,20 +107,20 @@ PaintingListEnglish =
 "The painting shows a group of dwarves in a drinking contest." ,
 "The painting shows a dwarf examining a ruby. Another dwarf seems to wait for an answer and waggles with a pouch." ,
 "The painting shows the panorama of an ancient ruin." ,
-"The painting shows a group of Goblins at night, staring at you.", 
+"The painting shows a group of Goblins at night, staring at you.",
 "The painting shows a Goblin negotiating with a human in Gynk." ,
 "The painting shows two Gnomes working on a big construct, you are not able to make out what it could be." ,
 "The painting shows a smeared painting. It appears as if a fairy is placed in the middle of the picture." ,
 "The painting shows an elf who stares into the forest and you recognize that something is hiding and lurking inside." ,
 "The painting shows a lizard coming up from the water.",
-};    
-			  
+};
+
 
 function M.LookAtItem(User, Item)
-    
+
     local lookAt = lookat.GenerateLookAt(User, Item)
     if lookAt.description == "" then
-        val = ((Item.pos.x + Item.pos.y + Item.pos.z) % #PaintingListGerman)+1;
+        local val = ((Item.pos.x + Item.pos.y + Item.pos.z) % #PaintingListGerman)+1;
         lookAt.description = common.GetNLS(User, PaintingListGerman[val], PaintingListEnglish[val])
     end
 

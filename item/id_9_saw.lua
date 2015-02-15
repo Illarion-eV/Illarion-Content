@@ -27,7 +27,7 @@ local M = {}
 M.LookAtItem = metal.LookAtItem
 
 function getWorkbench(User)
-	workbenches = {}
+	local workbenches = {}
 	workbenches[724] = true
 	workbenches[725] = true
 

@@ -50,7 +50,7 @@ local function Evilrockentrance(User, SourceItem, ltstate)
     if checkBucket.id == 51 and SourceItem.id == 2496 then
         local foundSource
         -- check for empty bucket
-        TargetItem = common.GetItemInArea(User.pos, 51);
+        local TargetItem = common.GetItemInArea(User.pos, 51);
         if (TargetItem ~= nil) then
             common.TurnTo( User, position(997,199,2) ); -- turn if necessary
             foundSource=true

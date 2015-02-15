@@ -86,7 +86,7 @@ function M.UseItem(User, SourceItem)
 	end
 
 	local AmountGrave = #graveSourceItemPos
-	UserHasAlreadyThisGame=false
+	local UserHasAlreadyThisGame=false
 	for i = 1,AmountGrave do
 		if (SourceItem.pos == graveSourceItemPos[i]) then
 			local AmountGemsAlreadyFound = #gemsAlreadyFound[i]

@@ -30,7 +30,7 @@ local M = {}
 -- Wassereimer fuellen
 function M.UseItem(User, SourceItem, ltstate)
   -- check for cauldron
-  TargetItem = GetCauldron(User);
+  local TargetItem = GetCauldron(User);
   if (TargetItem ~= nil) then
 	common.TurnTo( User, TargetItem.pos ); -- turn if necessary
     FillFromCauldron(User,SourceItem,TargetItem,ltstate);

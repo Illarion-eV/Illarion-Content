@@ -229,7 +229,7 @@ table.insert(slots, Character.belt_pos_5)
 table.insert(slots, Character.belt_pos_6)
 
 function getSocketablePositions(user, filter)
-    socketableTable = {}
+    local socketableTable = {}
 
     for i=1,#slots do
         local slot = slots[i]
@@ -248,7 +248,7 @@ function getSocketablePositions(user, filter)
 end
 
 function getUnsocketablePositions(user, filter)
-    socketableTable = {}
+    local socketableTable = {}
 
     for i=1,#slots do
         local slot = slots[i]
@@ -289,10 +289,10 @@ end
 
 function M.magicSmith(npc, player)
     local callback = function(dialog)
-        success = dialog:getSuccess()
+        local success = dialog:getSuccess()
 
         if success then
-            selected = dialog:getSelectedIndex()
+            local selected = dialog:getSelectedIndex()
 
             if selected == 0 then
                 gemCraft:showDialog(player, npc)
@@ -339,7 +339,7 @@ function unsocketGems(user)
                         local level = tonumber(item:getData(itemKey))
 
                         if level and level > 0 then
-                            notCreated = user:createItem(gemItem[i], 1, 999, {[levelDataKey] = level})
+                            local notCreated = user:createItem(gemItem[i], 1, 999, {[levelDataKey] = level})
                             if notCreated > 0 then
                                 world:createItemFromId(gemItem[i], 1, user.pos, true, 999, {[levelDataKey] = level})
                             end

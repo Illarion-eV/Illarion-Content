@@ -88,7 +88,7 @@ function M.UseItem(User, SourceItem, ltstate)
 
             if User:getQuestProgress(310)==3 and SourceItem.id==391 and User:isInRangeToPosition((position (52,24,100)),20) then --only invoked if the user has the quest, uses a torch and is in range of the NPC
 				User:setQuestProgress(310,4); --Connection to easyNPC
-				NPCList=world:getNPCSInRangeOf(position(52,24,100),1); --Let's be tolerant, the NPC might move a tile.
+				local NPCList=world:getNPCSInRangeOf(position(52,24,100),1); --Let's be tolerant, the NPC might move a tile.
 				for i, Aldania in pairs(NPCList) do
 					common.TalkNLS(Aldania, Character.say, "Die Finsternis verheißt meist nichts Gutes. Du solltest immer eine Lichtquelle dabei haben, wenn du in die Dunkelheit hinaus reist oder alte Gemäuer untersuchst. Hier trennen sich nun unsere Wege, lauf einfach weiter die Straße hinunter zu diesem Wilden, Groknar. Er wird dich in die Kriegskunst einführen.", "The darkness can be a real obstacle in Illarion. You should remember to carry a light source when travelling by night, and when exploring caves and dungeons. Well, this is where we part company. Run along to that savage, Groknar, down the road. He will train you in the art of combat.");
 				end
@@ -299,7 +299,7 @@ function M.MoveItemAfterMove(User,SourceItem,TargetItem)
 
     if User:getQuestProgress(310)==2 and TargetItem.id==391 and User:isInRangeToPosition((position (51,30,100)),20) and TargetItem:getType() == 4 then --only invoked if the user has the quest, moves a torch to a hand slot and is in range of the NPC
 		User:setQuestProgress(310,3); --Connection to easyNPC
-		NPCList=world:getNPCSInRangeOf(position(52,24,100),1); --Let's be tolerant, the NPC might move a tile.
+		local NPCList=world:getNPCSInRangeOf(position(52,24,100),1); --Let's be tolerant, the NPC might move a tile.
 		for i, Aldania in pairs(NPCList) do
 		    common.TalkNLS(Aldania, Character.say, "Sehr gut, nun weißt du, wie man mit Ausrüstung umgeht. Helme, Schuhe und ähnliches werden genauso angelegt. In meiner nächsten Lektion wirst du lernen, wie man Gegenstände benutzt. Entzünde die Fackel mit einem Doppelklick.", "Very good, you know how to properly handle your equipment now. Helmets, shoes and the like are equipped in the same way. My next lesson will allow you to use your items. Ignite the torch with a double click.");
 	    end
@@ -327,6 +327,7 @@ function M.LookAtItem(User, Item)
 
 	if TimeLeftI then
 
+        local TimeLeft
 		if(TimeLeftI == 255) then
 			TimeLeft = common.GetNLS(User, "Sie wird nie ausbrennen.", "It will never burn down.");
 		elseif (TimeLeftI == 0) then

@@ -241,6 +241,7 @@ function LabourCamp(User, SourceItem)
 					world:gfx(41,thePrisoner.pos)
 
 					local callbackLabour = function(dialogLabour) end
+					local dialogLabour
 		            if thePrisoner:getPlayerLanguage() == 0 then
 			            dialogLabour = MessageDialog("Arbeitslager","Du wurdest verurteilt "..workLoad.." Rohstoffe aus der Mine abzubauen. Erfülle deine Strafe und du darfst wieder gehen. Spitzhacke und Essen bekommst du beim Aufseher.", callbackLabour)
 		            else

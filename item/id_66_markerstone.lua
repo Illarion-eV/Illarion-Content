@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_66_markerstone' WHERE itm_id IN (66);
 
@@ -27,6 +27,7 @@ local M = {}
 function M.UseItem(User, SourceItem, ltstate)  -- DONT EDIT THIS LINE!
 	local stonedata=SourceItem:getData("markerstone");
 	if tonumber(stonedata) then
+        local DisplayText
 		if not explorersguild.CheckStone(User,tonumber(stonedata)) then
 			--debug("Stone used. stonedata: "..stonedata)
 			DisplayText = common.GetNLS( User, "Du hast einen Markierungsstein der Abenteurergilde entdeckt; er trägt die Nummer "..stonedata,"You found a marker stone of the Explorers' Guild; it has the number "..stonedata);
@@ -50,7 +51,7 @@ function M.LookAtItem(User,Item)
 			lookat.SetSpecialDescription( Item, "Du hast diesen Markierungsstein der Abenteurergilde bereits früher gefunden; er trägt die Nummer "..stonedata,"You have already found that marker stone of the Explorers' Guild earlier; it has the number "..stonedata);
 		end
     end
-	return lookat.GenerateLookAt(User, Item, lookat.NONE)  
+	return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
 
 return M

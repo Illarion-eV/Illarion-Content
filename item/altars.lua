@@ -135,7 +135,7 @@ local function checkAudience(god, position)
     local theCandidates=world:getPlayersInRangeOf(position,10);
     local counter=0;
     for i=1,#theCandidates do
-        candidate=theCandidates[i];
+        local candidate=theCandidates[i];
         if candidate:getQuestProgress(401) == god then
             counter=counter+1;
         end

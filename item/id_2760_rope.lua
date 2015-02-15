@@ -82,8 +82,8 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 
 	-- check for abort
 	if (ltstate == Action.abort) then
-		gText = GetRaceGenderText(0,Target);
-		eText = GetRaceGenderText(1,Target);
+		local gText = GetRaceGenderText(0,Target);
+		local eText = GetRaceGenderText(1,Target);
 		common.InformNLS ( User,
 			"Dir gelingt es nicht "..gText.." zu fesseln.",
 			"You don't succeed in tying up "..eText..".");
@@ -149,7 +149,7 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 			"Unfortunately your hands are tied.");
 		return;
 	end
-
+    local TargetPosList = {};
 	local foundEffectTarget = Target.effects:find(24);
 	-- Check ltstate, 5 sec for first, 2 sec for another capturer or freezed target
 	if (ltstate == Action.none) then
@@ -169,8 +169,8 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 
 		User:startAction(Time,0,0,0,0);
 
-		gText = GetRaceGenderText(0,Target);
-		eText = GetRaceGenderText(1,Target);
+		local gText = GetRaceGenderText(0,Target);
+		local eText = GetRaceGenderText(1,Target);
 		User:talk(Character.say, "#me versucht "..gText.." zu fesseln.", "#me tries to tie up "..eText..".")
 
 		common.InformNLS(Target,
@@ -178,13 +178,11 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 			"Someone tries to tie you up!");
 
 		-- save target's position
-		if not TargetPosList then
-			TargetPosList = {};
-		end
+
 		TargetPosList[Target.id] = common.CopyPosition( Target.pos );
 
 		local logText = common.GetRealDateTimeString()..": "..User.name.." tries to capture "..Target.name
-		coldLog,errMsg=io.open("/home/nitram/logs/tying_log.txt","a");
+		local coldLog = io.open("/home/nitram/logs/tying_log.txt","a");
 		if (coldLog~=nil) then
 			coldLog:write(logText.."\n");
 			coldLog:close();
@@ -201,7 +199,7 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 
 	-- tie up!
 	local logText = common.GetRealDateTimeString()..": "..User.name.." has captured "..Target.name
-	coldLog,errMsg=io.open("/home/nitram/logs/tying_log.txt","a");
+	local coldLog = io.open("/home/nitram/logs/tying_log.txt","a");
 	if (coldLog~=nil) then
 		coldLog:write(logText.."\n");
 		coldLog:close();
@@ -209,7 +207,7 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 	SourceItem:setData("tyingStatus", "tied");
 	world:changeItem(SourceItem);
 	if not foundEffectTarget then
-		Tying = LongTimeEffect(24,1);
+		local Tying = LongTimeEffect(24,1);
 		Target.effects:addEffect(Tying);
 		Tying:addValue("Capturer",User.id);
 --[[
@@ -229,7 +227,7 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 ]]
 	end
 
-	foundTying, Tying = User.effects:find(26);
+	local foundTying, Tying = User.effects:find(26);
 	if not foundTying then
 		Tying = LongTimeEffect(26,1);
 		User.effects:addEffect(Tying);
@@ -237,14 +235,14 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 	Tying:addValue("Captive",Target.id);
 
 	if not foundEffectTarget then
-		gText = "#me hat ein festes Seil um die Hände.";
-		eText = "#me has a tight rope around the hands.";
+		local gText = "#me hat ein festes Seil um die Hände.";
+		local eText = "#me has a tight rope around the hands.";
 		common.InformNLS(User,
 			"Der Gefangene folgt nun dir.",
 			"Now the captive follows you.");
 	else
-		gText = "#me ist nun mit einem weiteren Seil gefesselt.";
-		eText = "#me is now tied up with another rope.";
+		local gText = "#me ist nun mit einem weiteren Seil gefesselt.";
+		local eText = "#me is now tied up with another rope.";
 	end
 	Target:talk(Character.say, gText, eText)
 	if Target.effects:find(26) then
@@ -266,8 +264,8 @@ function StrengthenKnot(User, Rope, TargetItem)
 	if TargetItem then
 		if TargetItem.id == 2760 then
 			if TargetItem:getData("tyingStatus") == "tied" and Rope:getData("tyingStatus") == "untied" then
-				foundCaptive, Captive = Tying:findValue("Captive");
-				Target = tying_capturer.IsCharidInRangeOf(Captive,User.pos,5);
+				local _, Captive = Tying:findValue("Captive");
+				local Target = tying_capturer.IsCharidInRangeOf(Captive,User.pos,5);
 				if Target then
 					local AttribOffset = tying_capturer.GetBestAttribOffset(User,Target,{"strength","dexterity"});
 					local Quality = math.min(600,120+math.random(25,35)*AttribOffset);
@@ -296,7 +294,7 @@ function TyingRopeHandler(User, Rope, Target)
 	end
 
 	-- check if User has tied up someone
-	foundCaptive, Captive = Tying:findValue("Captive");
+	local foundCaptive, Captive = Tying:findValue("Captive");
 	if foundCaptive then
 		if Tying:findValue("logout") then
 			common.InformNLS(User,
@@ -326,8 +324,8 @@ function TyingRopeHandler(User, Rope, Target)
 
 		if Target.id == Captive then
 			-- target is captive, so untie him
-			gText = GetRaceGenderText(0,Target);
-			eText = GetRaceGenderText(1,Target);
+			local gText = GetRaceGenderText(0,Target);
+			local eText = GetRaceGenderText(1,Target);
 			User:talk(Character.say, "#me bindet "..gText.." los.", "#me unties "..eText..".")
 			foundEffect, Tying = Target.effects:find(24);
 			if foundEffect then
@@ -342,16 +340,16 @@ function TyingRopeHandler(User, Rope, Target)
 				local foundValue, CaptiveTarget = Tying:findValue("Captive");
 				if foundValue then
 					if Captive == CaptiveTarget then -- Target char has the same captive!
-						CaptiveChar = tying_capturer.IsCharidInRangeOf(Captive,User.pos,5);
+						local CaptiveChar = tying_capturer.IsCharidInRangeOf(Captive,User.pos,5);
 						if CaptiveChar then
 							foundEffect, Tying = CaptiveChar.effects:find(24);
 							if foundEffect then
-								foundCapturer, Capturer = Tying:findValue("Capturer");
+								local foundCapturer, Capturer = Tying:findValue("Capturer");
 								if foundCapturer then
 									if Capturer == User.id then -- User is leading capturer!
 										Tying:addValue("Capturer", Target.id);
-										gText = GetRaceGenderText(0,Target);
-										eText = GetRaceGenderText(1,Target);
+										local gText = GetRaceGenderText(0,Target);
+										local eText = GetRaceGenderText(1,Target);
 										User:talk(Character.say, "#me übergibt das Seil an "..gText..".", "#me hands the rope to "..eText..".")
 										common.InformNLS(User,
 											"Der Gefangene folgt dir nun nicht mehr.",
@@ -375,16 +373,15 @@ end
 -- Language=0 for German, otherwise English
 function GetRaceGenderText( Language, Character )
 
-	if not InitRaceGenderText then
-		InitRaceGenderText = true;
-		articleGerman={"den","die"};
-		descriptionGerman={"Mensch","Zwerg","Halbling","Elf","Ork","Echsenmensch","Menschendame","Zwergenmaid","Halblingsdame","Elfendame","Orkfrau","Echse"};
-		descriptionEnglish={"human","dwarf","halfling","elf","orc","lizard","human lady","dwarven maid","halfling lady","elven lady","orcess","female lizard"};
-	end
+	local articleGerman={"den","die"};
+	local descriptionGerman={"Mensch","Zwerg","Halbling","Elf","Ork","Echsenmensch","Menschendame","Zwergenmaid","Halblingsdame","Elfendame","Orkfrau","Echse"};
+	local descriptionEnglish={"human","dwarf","halfling","elf","orc","lizard","human lady","dwarven maid","halfling lady","elven lady","orcess","female lizard"};
 
-	race=Character:getRace();
-	gender=Character:increaseAttrib("sex",0);
 
+	local race=Character:getRace();
+	local gender=Character:increaseAttrib("sex",0);
+
+    local outText
 	if Language == 0 then
 		if race > 5 or gender > 1 then
 			outText = "das Wesen"

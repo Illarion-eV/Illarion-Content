@@ -148,7 +148,7 @@ function tryWildfire(User, SourceItem)
 		local SaveFireplace=false;
 		local i;
 		for i=0, cnt-1 do
-			TheItem=fld:getStackItem(i);
+			local TheItem=fld:getStackItem(i);
 			if (TheItem.id==1008) or (TheItem.id==2488) then --Kessel oder Feuerstelle
 				SaveFireplace=true;
 			end
@@ -165,10 +165,10 @@ end
 function callFireMan(User, fireItem)
 
     --User:inform("checking NPC");
-    Npcs=world:getNPCSInRangeOf(position(-105,-84,0),1);
+    local Npcs=world:getNPCSInRangeOf(position(-105,-84,0),1);
     for i,fireMaster  in Npcs do
         --User:inform("Name: "..fireMaster.name);
-        fndFir, firEffect = fireMaster.effects:find(8);
+        local fndFir, firEffect = fireMaster.effects:find(8);
         if not fndFir then                                  -- if not...
             firEffect = LongTimeEffect(8,300);              -- add effect
             firEffect:addValue("fireX1",fireItem.pos.x+100000);
@@ -180,8 +180,8 @@ function callFireMan(User, fireItem)
             fireMaster.effects:addEffect( firEffect );
             --User:inform("NPC angesteckt");
         else            -- if he has the effect already...
-            a, lastNumber = firEffect:findValue("lastNumber");
-            nextFree = lastNumber + 1;
+            local _, lastNumber = firEffect:findValue("lastNumber");
+            local nextFree = lastNumber + 1;
             firEffect:addValue("fireX"..nextFree,fireItem.pos.x+100000);
             firEffect:addValue("fireY"..nextFree,fireItem.pos.y+100000);
             firEffect:addValue("fireZ"..nextFree,fireItem.pos.z+100000);
@@ -194,8 +194,8 @@ function callFireMan(User, fireItem)
 end
 
 function logToFile(theString)
-    retVal=false;
-    coldLog,errMsg=io.open("/home/martin/brandstifter.txt","a");
+    local retVal=false;
+    local coldLog = io.open("/home/martin/brandstifter.txt","a");
     if (coldLog~=nil) then
         coldLog:write(theString);
         coldLog:close();

@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local lookat = require("base.lookat")
@@ -37,28 +37,28 @@ end;
 
 function M.UseItem(User, SourceItem, ltstate)
     -- list with jewles and the functions belonging to them
-    UseMe={}
+    local UseMe = {}
 	-- UseMe[ITEMID] = function(...) UseJewl_ITEMID(...) end
-	
+
 	if not UseMe[SourceItem.id] then -- security check
 	    return -- if the jewel is not defined yet, we return
     else
-        UseMe[SourceItem.id](User, SourceItem, TargetItem, ltstate)
+        UseMe[SourceItem.id](User, SourceItem, nil, ltstate)
     end
 end
 
 function M.MoveItemBeforeMove(User,SourceItem,TargetItem)
 
 	if TargetItem:getType() == 4 then --inventory, not belt
-	
+
 		return checks.checkLevel(User,SourceItem);
-		
+
 	else
-	
+
 		return true;
-		
+
 	end
-	
+
 	return true; --just in case
 end
 return M

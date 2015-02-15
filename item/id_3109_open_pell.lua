@@ -299,7 +299,7 @@ function RecipeInform( User, SourceItem)
 	else
         language = 2
     end
-	myNPC = getNPC(SourceItem)
+	local myNPC = getNPC(SourceItem)
 	if myNPC == false then
 	    return
 	end
@@ -308,7 +308,7 @@ function RecipeInform( User, SourceItem)
 	local callback = function(dialog)
 		local success = dialog:getSuccess()
 		if success then
-			selected = dialog:getSelectedIndex()
+			local selected = dialog:getSelectedIndex()
 			local orgPos = originalPos[selected+1]
             local effectId = myListEffectId[orgPos]
 			if User:getQuestProgress(effectId+1000) == 0 then
@@ -407,6 +407,7 @@ function TellRecipe(User, effectId)
     if recipeDE and recipeEN then
 		-- message box for the results
 		local callback = function(dialog) end
+		local dialog
 		if User:getPlayerLanguage() == 0 then
 			dialog = MessageDialog("Erlerntes Rezept", recipeDE, callback)
 		else

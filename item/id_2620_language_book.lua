@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local lookat = require("base.lookat")
@@ -23,11 +23,11 @@ local M = {}
 function M.UseItem(User, SourceItem, ltstate)
 	if SourceItem:getData("langcode") == "" then
 		SourceItem:setData("langcode", 11)
-	end	
+	end
 
     local langcode = math.floor(tonumber(SourceItem:getData("langcode"))/10);
     local modecode = tonumber(SourceItem:getData("langcode")) - (langcode * 10);
-    
+
     if (modecode == 2) then
         if (User:getSkill(Character.ancientLanguage) < 60) then return end
         if ( ltstate == nil or ltstate == Action.success ) then
@@ -39,21 +39,21 @@ function M.UseItem(User, SourceItem, ltstate)
             User:talk(Character.say, "#me hört auf in dem Buch zu lesen.", "#me stops reading in the book.")
         end
         return
-    end 
-    
+    end
+
     local Skillname = GetSkillName(langcode,true);
-    
+
     local Skill=User:getSkill(Skillname);
     if (Skill==0 and modecode==1) then
         User:increaseSkill(Skillname,1);
         SourceItem:setData("langcode", tonumber(SourceItem:getData("langcode"))-1);
         world:changeItem(SourceItem);
     end
-    
+
     if (User:increaseAttrib("intelligence",0) < GetDifficulty(langcode)) then
         common.InformNLS(User,"Du verstehst nichts von dem, was hier steht","You understand nothing from the things, written in this book");
     end
-           
+
     if (Skill<1) then
         common.InformNLS(User,"Du verstehst nichts von dem, was hier steht","You understand nothing from the things, written in this book");
     elseif (Skill>59) then
@@ -96,7 +96,7 @@ function M.UseItem(User, SourceItem, ltstate)
                 end
             else
                 common.InformNLS(User,"Das was hier steht kannst du schon","The things written here, you know allready");
-            end            
+            end
         elseif (Counter==4) then
             if (Skill>30) then
                 if Learning(User,60,Skillname) then
@@ -110,13 +110,13 @@ function M.UseItem(User, SourceItem, ltstate)
         end
     end
 	local frontItem = common.GetFrontItem(User);
-	
+
     if frontItem and ((frontItem.id == 266) or (frontItem.id == 267)) then
         world:erase(SourceItem,1)
         --printerr("Erase aus skript ausgefuehrt");
 		return;
 	end
-	
+
 	-- obsolet?
 	--[[local TargetItem = common.GetTargetItem(User, SourceItem);
     if (TargetItem.id == 329 and tonumber(TargetItem:getData("langcode")) == 0) then
@@ -131,13 +131,13 @@ function M.UseItem(User, SourceItem, ltstate)
         end
     end]]
     --User:learn(4,"library research",2,100)
-	--Replace with new learn function, see learn.lua 
+	--Replace with new learn function, see learn.lua
 end
 
 function M.LookAtItem(User,Item)
 	if Item:getData("langcode") == "" then
 		Item:setData("langcode", 11)
-	end	
+	end
 
     local langcode = math.floor(tonumber(Item:getData("langcode"))/10);
     local modecode = tonumber(Item:getData("langcode")) - (langcode * 10);
@@ -150,7 +150,7 @@ function M.LookAtItem(User,Item)
 end
 
 function Learning(User,Value,Skillname)
-    MC=User:getMentalCapacity();
+    local MC=User:getMentalCapacity();
     if (MC>100) then
         return false
     else

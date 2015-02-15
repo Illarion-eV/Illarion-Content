@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- I_92 Oel-Lampe
 
@@ -23,7 +23,7 @@ local common = require("base.common")
 local M = {}
 
 function M.UseItem(User, SourceItem)
-    x=math.random(99);
+    local x=math.random(99);
     if x < 6 then
         common.InformNLS(User,"Du bist nicht sicher, aber es scheint als würde die Lampe etwas leuchten","You are not sure, but it seems the lamp starts to glow a little.");
     elseif x < 16 then

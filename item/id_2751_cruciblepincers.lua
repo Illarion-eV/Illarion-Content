@@ -28,7 +28,7 @@ local M = {}
 M.LookAtItem = metal.LookAtItem
 
 function getFurnace(User)
-	furnaces = {}
+	local furnaces = {}
 	furnaces[2834] = true
 	furnaces[2835] = true
 	furnaces[2836] = true

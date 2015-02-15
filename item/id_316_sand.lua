@@ -12,18 +12,18 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local common = require("base.common")
-
 
 local M = {}
 
 -- UPDATE items SET itm_script='item.id_316_sand' WHERE itm_id = 316;
 
+local deleteIt
+
 function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
     deleteIt=false;
-    GroundItem=world:getItemOnField(TargetItem.pos);
+    local GroundItem = world:getItemOnField(TargetItem.pos)
     if (GroundItem.id==10) then
         world:erase(GroundItem,1);
         deleteIt=true
