@@ -105,6 +105,7 @@ FoodList:add( 552,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true
 FoodList:add( 553,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true,true,true,true,true}); -- rabbit meat (orc)
 FoodList:add(2934,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true,true,true,true,true}); -- lamb meat (orc)
 FoodList:add(1151,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true,true,true,true,true}); -- chicken meat (orc)
+FoodList:add(2940,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true,true,true,true,true}); -- raw steak (orc)
 FoodList:add(1209,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,true,false,true,true,true,true}); -- horse mackerel (lizard)
 FoodList:add(1210,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,true,false,true,true,true,true}); -- rose fish (lizard)
 -- Simple Food
@@ -114,7 +115,7 @@ FoodList:add( 455,	 VALUE_XLARGE,	   0); -- smoked fish
 -- Crafted Food
 FoodList:add(3051,	nil,	   0,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- sausage
 FoodList:add( 191,	nil,	   0,	 1,	{1,1,1,1,1,0.5,1,1,1,1}); -- bread roll
-FoodList:add(2940,	nil,	   0,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- steak
+FoodList:add(3606,	nil,	   0,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- cooked steak
 FoodList:add(2456,	nil,	2935,	 2,	{1,1,1,1,0.5,1,1,1,1,1}); -- mushroom soup
 FoodList:add( 453,	nil,	   0,	 2,	{1,1,2,1,0.5,0.5,1,2,1,1}); -- cookies
 FoodList:add(2923,	nil,	2935,	 2,	{1,1,1,1,0.5,1,1,1,1,1}); -- onion soup

@@ -161,9 +161,9 @@ product:addIngredient(290) -- Step 5: Cabbage (290) 1x
 ---------------- STEAK DISH - 557 ----------------------
 product = cooking:addProduct(catId, 557, 65, 85, 84, 168)
 product:addIngredient(2952) -- Step 1: Plate(2952) 1x
-product:addIngredient(2940) -- Step 2: Steak(2940) 1x
+product:addIngredient(3606) -- Step 2: Steak(3606) 1x
 product:addIngredient(201) -- Step 3: Onion (201) 1x
-product:addIngredient(200) -- Step 4: Tomatoe(200) 1x
+product:addIngredient(200) -- Step 4: Tomato (200) 1x
 -------------- STEAK DISH - DONE ----------------
 
 ---------------- SAUSAGE DISH - 2922 ----------------------
@@ -211,10 +211,15 @@ product:addIngredient(2502, 2) -- Step 1: Milk (2502) 2x
 product:addRemnant(2498, 2) -- Remnant: Empty Bottle (2498) 2x
 -------------- CHEESE - DONE ----------------
 
----------------- STEAK - 2940 ----------------------
+---------------- COOKED STEAK - 3606 ----------------------
+product = cooking:addProduct(catId, 3606, 5, 25, 6, 12)
+product:addIngredient(2940) -- Step 1: Raw Steak(2940) 1x
+-------------- COOKED STEAK - DONE ----------------
+
+---------------- RAW STEAK - 2940 ----------------------
 product = cooking:addProduct(catId, 2940, 5, 25, 6, 12)
 product:addIngredient(307) -- Step 1: Pork(307) 1x
--------------- STEAK - DONE ----------------
+-------------- RAW STEAK - DONE ----------------
 
 ---------------- SAUSAGE - 3051 ----------------------
 product = cooking:addProduct(catId, 3051, 0, 20, 10, 20, 2)
