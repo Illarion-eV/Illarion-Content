@@ -20,7 +20,7 @@ local gathering = require("content.gathering")
 
 module("content.gatheringcraft.sowing", package.seeall)
 
-seedPlantList = {};
+local seedPlantList = {};
 seedPlantList[259] = 246; -- grain
 seedPlantList[291] = 288; --cabbage
 seedPlantList[534] = 535; --onions
@@ -74,14 +74,7 @@ function StartGathering(User, SourceItem, ltstate)
 
 	common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
-		if (User:increaseAttrib("sex",0) == 0) then
-			gText = "seine";
-			eText = "his";
-		else
-			gText = "ihre";
-			eText = "her";
-		end
-		User:talk(Character.say, "#me unterbricht "..gText.." Arbeit.", "#me interrupts "..eText.." work.")
+        User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
 		return
 	end
 

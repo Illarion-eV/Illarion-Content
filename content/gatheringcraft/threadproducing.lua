@@ -31,14 +31,7 @@ function StartGathering(User, SourceItem, ltstate)
 
 	common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
-		if (User:increaseAttrib("sex",0) == 0) then
-			gText = "seine";
-			eText = "his";
-		else
-			gText = "ihre";
-			eText = "her";
-		end
-		User:talk(Character.say, "#me unterbricht "..gText.." Arbeit.", "#me interrupts "..eText.." work.")
+        User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
 		return
 	end
 
@@ -101,11 +94,11 @@ function StartGathering(User, SourceItem, ltstate)
 		User:inform("[ERROR] Not enough wool. Please inform a developer.");
 		return;
 	end
-	
+
 	User:eraseItem( itemId, eraseCount ); -- erase the item we're working on
 
 	local notCreated = User:createItem( 50, 1, 333, nil ); -- create the new produced items
-	
+
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 50, notCreated, User.pos, true, 333, nil );
 		common.HighInformNLS(User,

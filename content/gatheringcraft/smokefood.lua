@@ -29,7 +29,7 @@ module("content.gatheringcraft.smokefood", package.seeall)
 -- creates a simple item struct that specifies the id and the amount that is needed
 -- @param itemId  The ID of that item.
 -- @param itemAmount  The amount of that item. Default is 1.
-function CreateItem(itemId, itemAmount)
+local function CreateItem(itemId, itemAmount)
   if (itemAmount == nil) then
     itemAmount = 1;
   end
@@ -38,11 +38,11 @@ end
 
 -- @param sourceItem  Item struct of the source. The amount specifies how many are required.
 -- @param productItem  Item struct of the product. The amount specifies how many are produced.
-function CreateCraftItem(sourceItem, productItem)
+local function CreateCraftItem(sourceItem, productItem)
   return {source = sourceItem, product = productItem};
 end
 
-craftList = {
+local craftList = {
   CreateCraftItem(CreateItem(307), CreateItem(306)),
   CreateCraftItem(CreateItem(73), CreateItem(455)),
   CreateCraftItem(CreateItem(355), CreateItem(455)),
@@ -57,14 +57,7 @@ function StartGathering(User, SourceItem, ltstate)
 
 	common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
-		if (User:increaseAttrib("sex",0) == 0) then
-			gText = "seine";
-			eText = "his";
-		else
-			gText = "ihre";
-			eText = "her";
-		end
-		User:talk(Character.say, "#me unterbricht "..gText.." Arbeit.", "#me interrupts "..eText.." work.")
+        User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
 		return
 	end
 
