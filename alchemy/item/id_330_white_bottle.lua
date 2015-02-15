@@ -12,98 +12,93 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ds_330_weisse_flasche_neu.lua
---Druidensystem in Arbeit
---Temporäre Einzelwirkungen
---Falk
--- reworked by Merung 
+-- language potions
 local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
-local id_165_blue_bottle = require("alchemy.item.id_165_blue_bottle")
 local lookat = require("base.lookat")
 local M = {}
 
 -- UPDATE common SET com_script='alchemy.item.id_330_white_bottle' WHERE com_itemid = 330;
 
 
---- NO EFFECT 
+--- NO EFFECT
 local function DrinkPotion(User,SourceItem)
 
-    potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
+    local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
 
-    if potionEffectId == 0 or potionEffectId == nil  then -- no effect	
-	    common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", 
-		"You don't have the feeling that something happens.")
-	    return
-    
-	elseif (potionEffectId >= 600) and (potionEffectId <= 699) then -- language potion
-            
-		local ListLanguages={Character.commonLanguage,Character.humanLanguage,Character.dwarfLanguage,Character.elfLanguage,Character.lizardLanguage,Character.orcLanguage,Character.halflingLanguage,Character.ancientLanguage}
-		
-        local find, myEffect = User.effects:find(330)
-		
-		local findLID,languageId,skillName,findOS,oldSkill,findNS,newSkill,effectRemoved
-		if find then --  there is already an effect, we remove it, only one language at a time
+    if potionEffectId == 0 or potionEffectId == nil  then -- no effect
+        common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.",
+                               "You don't have the feeling that something happens.")
+        return
+
+    elseif (potionEffectId >= 600) and (potionEffectId <= 699) then -- language potion
+        --[[
+        local ListLanguages={Character.commonLanguage,Character.humanLanguage,Character.dwarfLanguage,Character.elfLanguage,Character.lizardLanguage,Character.orcLanguage,Character.halflingLanguage,Character.ancientLanguage}
+        ]]
+        local find = User.effects:find(330)
+
+        local findLID,languageId,skillName,findOS,oldSkill,findNS,newSkill,effectRemoved
+        if find then --  there is already an effect, we remove it, only one language at a time
             --[[
-			findLID,languageId = myEffect:findValue("languageId")
-			skillName = ListLanguages[languageId]
-			findOS,oldSkill = myEffect:findValue( "oldSkill")
-			findNS,newSkill = myEffect:findValue( "newSkill")
-			--User:increaseSkill(skillName,(-(newSkill-oldSkill))) -- old skill level restored]]
-		    effectRemoved = User.effects:removeEffect(330)
-			if not effectRemoved then
-				common.InformNLS( User,"Fehler: informiere einen dev. lte nicht entfernt. white bottle script", "Error: inform dev. Lte not removed. white bottle script.")
-				return
-			end
-		end
-		--[[
-		oldSkill = User:getSkill(ListLanguages[potionEffectId-599])
-		if oldSkill == nil then
-		   oldSkill = 0
-		end
-		newSkill = 100
-        
-		myEffect:addValue( "oldSkill",oldSkill )
-		myEffect:addValue( "newSkill",newSkill )
-	    myEffect:addValue( "languageId",potionEffectId-599)
+            findLID,languageId = myEffect:findValue("languageId")
+            skillName = ListLanguages[languageId]
+            findOS,oldSkill = myEffect:findValue( "oldSkill")
+            findNS,newSkill = myEffect:findValue( "newSkill")
+            --User:increaseSkill(skillName,(-(newSkill-oldSkill))) -- old skill level restored]]
+            effectRemoved = User.effects:removeEffect(330)
+            if not effectRemoved then
+                common.InformNLS( User,"Fehler: informiere einen dev. lte nicht entfernt. white bottle script", "Error: inform dev. Lte not removed. white bottle script.")
+                return
+            end
+        end
+        --[[
+        oldSkill = User:getSkill(ListLanguages[potionEffectId-599])
+        if oldSkill == nil then
+           oldSkill = 0
+        end
+        newSkill = 100
+
+        myEffect:addValue( "oldSkill",oldSkill )
+        myEffect:addValue( "newSkill",newSkill )
+        myEffect:addValue( "languageId",potionEffectId-599)
         myEffect:addValue("counterWhite",10)
-	  
-	    User:increaseSkill(ListLanguages[potionEffectId-599],newSkill)]]
- 		local duration = math.floor(SourceItem.quality/100)*600*10 
-		local myEffect = LongTimeEffect(330,duration)
-		User.effects:addEffect(myEffect);
+
+        User:increaseSkill(ListLanguages[potionEffectId-599],newSkill)]]
+        local duration = math.floor(SourceItem.quality/100)*600*10
+        local myEffect = LongTimeEffect(330,duration)
+        User.effects:addEffect(myEffect);
     end
   end
-    
+
 function M.UseItem(User, SourceItem, ltstate)
     -- repair potion in case it's broken
-	alchemy.repairPotion(SourceItem)
-	-- repair end
-	
-	if not ((SourceItem:getData("filledWith")=="potion") or (SourceItem:getData("filledWith") =="essenceBrew")) then
-		return -- no potion, no essencebrew, something else
-	end
-	
-	local cauldron = alchemy.GetCauldronInfront(User)
-	if cauldron then -- infront of a cauldron?
-	    alchemy.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
-	
-	else -- not infront of a cauldron, therefore drink!
+    alchemy.repairPotion(SourceItem)
+    -- repair end
+
+    if not ((SourceItem:getData("filledWith")=="potion") or (SourceItem:getData("filledWith") =="essenceBrew")) then
+        return -- no potion, no essencebrew, something else
+    end
+
+    local cauldron = alchemy.GetCauldronInfront(User)
+    if cauldron then -- infront of a cauldron?
+        alchemy.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
+
+    else -- not infront of a cauldron, therefore drink!
         if User.attackmode then
-		   common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während du kämpfst.", "You cannot use the potion while fighting.")
-		else
-			User:talk(Character.say, "#me trinkt eine weiße Flüssigkeit.", "#me drinks a white liquid.")
-			User.movepoints=User.movepoints - 20
-			DrinkPotion(User,SourceItem) -- call effect
-			alchemy.EmptyBottle(User,SourceItem)
-	    end
-	end  
+           common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während du kämpfst.", "You cannot use the potion while fighting.")
+        else
+            User:talk(Character.say, "#me trinkt eine weiße Flüssigkeit.", "#me drinks a white liquid.")
+            User.movepoints=User.movepoints - 20
+            DrinkPotion(User,SourceItem) -- call effect
+            alchemy.EmptyBottle(User,SourceItem)
+        end
+    end
 end
 
 function M.LookAtItem(User,Item)
-	return lookat.GenerateLookAt(User, Item, 0)
+    return lookat.GenerateLookAt(User, Item, 0)
 end
 
 return M

@@ -294,7 +294,7 @@ function checkHit( User, Item )
 
     factor = common.Limit( factor, 0, 100 );
 
-    maxPosiModify = common.Scale( 5, 0, factor );
+    local maxPosiModify = common.Scale( 5, 0, factor );
 
     if maxPosiModify == 0 then
         return Item.pos;

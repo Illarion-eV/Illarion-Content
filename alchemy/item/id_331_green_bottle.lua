@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Testskript 1 für Weiterentwicklung Druidenmagie
 -- 2007 by Falk
@@ -32,89 +32,90 @@ local M = {}
 
 
 function M.UseItem(User, SourceItem, ltstate)
-    
-	if SourceItem:getData("filledWith") ~= "stock" then -- no stock, something else
-	    return
-	
-	else
-        -- infront of a cauldron?
-		local cauldron = alchemy.GetCauldronInfront(User)
-        if cauldron then
-	        
-			-- is the char an alchemist?
-	        local anAlchemist = alchemy.CheckIfAlchemist(User)
-			if not anAlchemist then
-				User:inform("Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
-				return
-			end
-			
-			if not alchemy.checkFood(User) then
-				return
-			end
-		
-			if ( ltstate == Action.abort ) then
-				common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
-			   return
-			end
-		
-			if ( ltstate == Action.none ) then
-				if (SourceItem:getData("filledWith") =="stock") and (cauldron:getData("filledWith") == "essenceBrew") then
-					actionDuration = 80 -- when we combine a stock and an essence brew, it takes longer
-				else
-					actionDuration = 20
-				end				
-				User:startAction( actionDuration, 21, 5, 10, 45)
-				return
-			end	  
 
-			FillStockIn(User,SourceItem,cauldron)
-			alchemy.EmptyBottle(User,SourceItem)
-			alchemy.lowerFood(User)
-		else
-		    DrinkIt(User, SourceItem)
-			alchemy.EmptyBottle(User,SourceItem)
-		end
-	end
+    if SourceItem:getData("filledWith") ~= "stock" then -- no stock, something else
+        return
+
+    else
+        -- infront of a cauldron?
+        local cauldron = alchemy.GetCauldronInfront(User)
+        if cauldron then
+
+            -- is the char an alchemist?
+            local anAlchemist = alchemy.CheckIfAlchemist(User)
+            if not anAlchemist then
+                User:inform("Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
+                return
+            end
+
+            if not alchemy.checkFood(User) then
+                return
+            end
+
+            if ( ltstate == Action.abort ) then
+                common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+               return
+            end
+
+            if ( ltstate == Action.none ) then
+                local actionDuration
+                if (SourceItem:getData("filledWith") =="stock") and (cauldron:getData("filledWith") == "essenceBrew") then
+                    actionDuration = 80 -- when we combine a stock and an essence brew, it takes longer
+                else
+                    actionDuration = 20
+                end
+                User:startAction( actionDuration, 21, 5, 10, 45)
+                return
+            end
+
+            FillStockIn(User,SourceItem,cauldron)
+            alchemy.EmptyBottle(User,SourceItem)
+            alchemy.lowerFood(User)
+        else
+            DrinkIt(User, SourceItem)
+            alchemy.EmptyBottle(User,SourceItem)
+        end
+    end
 end
 
 function DrinkIt(User, SourceItem)
     if User.attackmode then
-		common.InformNLS(User, "Du kannst nichts trinken, während du kämpfst.", "You cannot drink while fighting.", Player.lowPriority)
-	else
-		User:talk(Character.say, "#me trinkt eine grüne Flüssigkeit.", "#me drinks a green liquid.")
-		common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", "You don't have the feeling that something happens.")
-		User.movepoints=User.movepoints - 20
-	end
+        common.InformNLS(User, "Du kannst nichts trinken, während du kämpfst.", "You cannot drink while fighting.", Player.lowPriority)
+    else
+        User:talk(Character.say, "#me trinkt eine grüne Flüssigkeit.", "#me drinks a green liquid.")
+        common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", "You don't have the feeling that something happens.")
+        User.movepoints=User.movepoints - 20
+    end
 end
 
 function FillStockIn(User,SourceItem, cauldron)
     -- water, stock or potion is in the cauldron; leads to a failure
-	if cauldron:getData("filledWith") == "water" then
-		alchemy.CauldronDestruction(User,cauldron,1)
+    if cauldron:getData("filledWith") == "water" then
+        alchemy.CauldronDestruction(User,cauldron,1)
 
-	elseif cauldron:getData("filledWith") == "stock" then
-		alchemy.CauldronDestruction(User,cauldron,2)
-	
-	elseif cauldron:getData("filledWith") == "potion" then
-		if cauldron.id == 1013 then -- support potion
-			 id_165_blue_bottle.SupportStock(User,cauldron,SourceItem)
-		else
-			alchemy.CauldronExplosion(User,cauldron,2)
-		end
-	
-	elseif cauldron:getData("filledWith") == "essenceBrew" then 
-		local check = alchemy.CombineStockEssence( User, SourceItem, cauldron)
+    elseif cauldron:getData("filledWith") == "stock" then
+        alchemy.CauldronDestruction(User,cauldron,2)
+
+    elseif cauldron:getData("filledWith") == "potion" then
+        if cauldron.id == 1013 then -- support potion
+             id_165_blue_bottle.SupportStock(User,cauldron,SourceItem)
+        else
+            alchemy.CauldronExplosion(User,cauldron,2)
+        end
+
+    elseif cauldron:getData("filledWith") == "essenceBrew" then
+        local check = alchemy.CombineStockEssence( User, SourceItem, cauldron)
         if check == false then
-		    return
-		end	
-	elseif cauldron.id == 1008 then -- nothing in the cauldron, we just fill in the stock
-		alchemy.FillFromTo(SourceItem,cauldron)
-		world:changeItem(cauldron)
-	end
+            return
+        end
+    elseif cauldron.id == 1008 then -- nothing in the cauldron, we just fill in the stock
+        alchemy.FillFromTo(SourceItem,cauldron)
+        world:changeItem(cauldron)
+    end
 end
 
 function M.LookAtItem(User,Item)
     return lookat.GenerateLookAt(User, Item, 0)
-end 
+end
 return M
 
