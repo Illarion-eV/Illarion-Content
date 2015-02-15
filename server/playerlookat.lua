@@ -35,7 +35,7 @@ function M.lookAtPlayer( SourceCharacter, TargetCharacter, mode)
   uniquechardescription.InitPlayerDesc();
     -- here we go the lookat
     -- Generate the looking at value
-    LookingAt = mode * 50;
+    local LookingAt = mode * 50;
     LookingAt = LookingAt + SourceCharacter:increaseAttrib( "perception", 0 ) * 2;
     LookingAt = LookingAt + ( SourceCharacter:distanceMetric( TargetCharacter ) - 2 ) * ( -8 );
     -- Looking at value is ready
@@ -56,8 +56,8 @@ function M.lookAtPlayer( SourceCharacter, TargetCharacter, mode)
 
     local lang = SourceCharacter:getPlayerLanguage();
     -- inform about stats
-    qual,dura=getClothesFactor(TargetCharacter);
-    output = "";
+    local qual,dura=getClothesFactor(TargetCharacter);
+    local output = "";
     if ( LookingAt > 40 ) then
         -- Er ist |alt, |sehr kräftig |und |trägt |noble |Kleidung, |ein Serinjah-Schwert| und |ein Schild.
         if ( TargetCharacter:increaseAttrib( "sex", 0 ) == 0 ) then
@@ -69,7 +69,7 @@ function M.lookAtPlayer( SourceCharacter, TargetCharacter, mode)
         --output=output .. " ! ";
         output=output .. getClothesQualText(qual, lang);
         --output=output .. " ! ";
-        strength = TargetCharacter:increaseAttrib( "strength", 0 );
+        local strength = TargetCharacter:increaseAttrib( "strength", 0 );
         --output = output .. getText( "intro_attrib", lang );
         --[[ if ( LookingAt < 45 and strength < 10 ) then
             output = output .. getText( "strength_2", lang ) .. " ";
@@ -84,8 +84,8 @@ function M.lookAtPlayer( SourceCharacter, TargetCharacter, mode)
         else
             output = output .. getText( "strength_4", lang ) .. " ";
         end--]]
-        h=TargetCharacter:increaseAttrib("body_height",0)
-        m=TargetCharacter:increaseAttrib("weight",0)
+        local h=TargetCharacter:increaseAttrib("body_height",0)
+        local m=TargetCharacter:increaseAttrib("weight",0)
         output=output..getFigure(h,m,strength,lang)
 
         --output = output .. getText( "outro_attrib", lang );
@@ -120,7 +120,8 @@ function M.lookAtPlayer( SourceCharacter, TargetCharacter, mode)
     output=output..getWeaponText( TargetCharacter, lang, SourceCharacter );
 
         --faction additions
-    Faction = factions.get(TargetCharacter);
+    local Faction = factions.get(TargetCharacter);
+    local factiontext
     if Faction.rankTown == 0 then
         factiontext = ( lang ==0 and " ("..factions.TownRankList[Faction.rankTown].gRank..")" or " ("..factions.TownRankList[Faction.rankTown].eRank..")" );
     else
@@ -172,7 +173,7 @@ function checkCoat( TargetCharacter, lang, SourceCharacter )
     local coat = TargetCharacter:getItemAt( Character.coat );
     if ( coat ~= nil ) and ( coat.id > 0 ) then
         -- The dude has a coat!
-        output = output .. getText( "genus_"..genus.GenusData( coat.id ), lang );
+        local output = output .. getText( "genus_"..genus.GenusData( coat.id ), lang );
         output = output .. world:getItemName( coat.id, lang );
         handleCustomLookat( TargetCharacter, SourceCharacter, coat );
         return true;
@@ -184,6 +185,7 @@ function checkArmor( TargetCharacter, lang, modify, belowcoat, SourceCharacter )
     if ( LookingAt > modify ) then
         local breast = TargetCharacter:getItemAt( Character.breast );
         if ( breast ~= nil ) and ( breast.id > 0 ) then
+            local output
             if belowcoat then
                 output = output .. " " .. getText( "below_coat", lang );
             end
@@ -199,10 +201,10 @@ end
 function checkBelt( TargetCharacter, lang, modify, withend, SourceCharacter )
     if ( LookingAt > ( 25 + modify ) ) then
         -- now lets check the bloody belt
-        got_money = false;
-        first_item = true;
+        local got_money = false;
+        local first_item = true;
         for i=12,17 do
-            item = TargetCharacter:getItemAt( i );
+            local item = TargetCharacter:getItemAt( i );
             handleCustomLookat( TargetCharacter, SourceCharacter, item );
             item = ( item == nil and 0 or item.id );
             if ( item ~= 0 and item ~= 228 and item ~= 93 and item ~= 99 and item ~= 100 and item ~= 382 ) then
@@ -239,7 +241,7 @@ end
 
 function getText( identifier, language )
     if initMod==nil then
-        textModule={};
+        local textModule={};
         textModule[0]={};
         textModule[1]={};
         textModule[0]["intro_attrib"]="sieht ";
@@ -282,7 +284,7 @@ end
 
 function getHPText(HP,language, char)
     if iniHPT==nil then
-        HPText={};
+        local HPText={};
         HPText[0]={};
         HPText[1]={};
         HPText[0][6]="gesund.";

@@ -100,10 +100,10 @@ local function akalutCadomyrBlockade(User, SourceItem, ltstate)
 
     local foundValue, value = ScriptVars:find("akalutCadomyrBlockade")
     local newValue
-    local titel
+    local title
     local description
     local informMessage
-    
+
     if foundValue and tonumber(value) == 1then
         newValue = 0
         title = "Akalut: Cadomyr blockade. Do you want to deactivate it?"
@@ -115,7 +115,7 @@ local function akalutCadomyrBlockade(User, SourceItem, ltstate)
         description = "This special event renders Cadomyr's teleporter useless. You cannot travel to it or from it. Furthermore, portal books do not work in Cadomyr and cannot be used to get to Cadomyr. Do you really want to activate this?"
         informMessage = "You activated the Cadomyr blockade for the Akalut quest."
     end
-    
+
     local yesOrNo = {"Yes", "No"}
 	local cbQuestEvents = function (dialog)
 		if (not dialog:getSuccess()) then

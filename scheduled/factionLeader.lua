@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --Checks if the playable faction leaders is logged in and thus the NPC needs to be out of player sight
 
@@ -27,7 +27,7 @@ M.informationTable = {
 
 function M.checkFactionLeader()
 	for i=1, #(M.informationTable) do
-		charObject = common.CheckIfOnline(M.informationTable[i].npcName)
+		local charObject = common.CheckIfOnline(M.informationTable[i].npcName)
 		if charObject ~= nil then
 			M.updatePosition(M.informationTable[i].usualPosition, M.informationTable[i].newPosition)
 		else
@@ -38,7 +38,7 @@ end
 
 function M.updatePosition(usualPosition, newPosition)
 	if world:isCharacterOnField(usualPosition) == true then
-		npcCharObject = world:getCharacterOnField(usualPosition);
+		local npcCharObject = world:getCharacterOnField(usualPosition);
 		if npcCharObject:getType() == Character.npc then
 			npcCharObject:forceWarp(newPosition);
 		end

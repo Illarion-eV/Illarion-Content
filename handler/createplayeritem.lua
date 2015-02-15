@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local M = {}
@@ -25,7 +25,7 @@ M.createPlayerItem = class(function(creplitem, ply, ID, qual, amnt)
 end);
 
 function M.createPlayerItem:execute()
-    person=self.player
+    local person = self.player
     person:createItem(self.itemId, self.amount,self.quality,nil);
 end
 

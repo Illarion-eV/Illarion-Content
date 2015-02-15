@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local common = require("base.common")
@@ -27,9 +27,9 @@ M.warpGroup = class(function(warpgr, centerpos, radius, destpos,gfx)
 end);
 
 function M.warpGroup:execute()   --warps all players within a range radius from centerpos to destpos
-    plyList = common.ExtgetPlayersInRangeOf(self.startpos, self.range);
+    local plyList = common.ExtgetPlayersInRangeOf(self.startpos, self.range)
 
-	for i, player in pairs(plyList) do
+	for _, player in pairs(plyList) do
 		local dest = position(	self.destpos.x - (self.startpos.x - player.pos.x) ,
 								self.destpos.y - (self.startpos.y - player.pos.y),
 								self.destpos.z );

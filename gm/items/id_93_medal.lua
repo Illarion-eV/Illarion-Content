@@ -103,7 +103,7 @@ function monsterCreation(User, SourceItem, TargetPos)
 		end
 
 		for i = 1, ammount do
-			monPos = common.getFreePos( TargetPos, radius );
+			local monPos = common.getFreePos( TargetPos, radius );
 			world:createMonster(number, monPos, 20);
 			if gfxId ~= 0 then
 				world:gfx(gfxId, monPos);

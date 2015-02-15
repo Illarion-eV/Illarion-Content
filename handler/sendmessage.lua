@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local common = require("base.common")
@@ -26,8 +26,8 @@ M.sendMessage = class(function(sndMsg, posi, msgde, msgen, rad)
 end);
 
 function M.sendMessage:execute()
-    plyList=world:getPlayersInRangeOf(self.pos, self.radius);
-    for i, player in pairs(plyList) do
+    local plyList = world:getPlayersInRangeOf(self.pos, self.radius)
+    for _, player in pairs(plyList) do
         common.InformNLS(player,self.messageDe,self.messageEn)
     end
 end

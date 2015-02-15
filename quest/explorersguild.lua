@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 -- This module holds the core functions for the explorers guild.
@@ -41,15 +41,15 @@ end
 
 function M.CheckStone(Char,StoneNumber)
     --Char:inform("*** CHECK ***");
-	retVal=false;
-    StoneBase=130+math.floor((StoneNumber-1)/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
+	local retVal=false;
+    local StoneBase=130+math.floor((StoneNumber-1)/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
 	--Char:inform("Stonebase: "..StoneBase);
-    StoneBaseOffset=math.fmod(StoneNumber-1,32);  -- StoneNr inside range
+    local StoneBaseOffset=math.fmod(StoneNumber-1,32);  -- StoneNr inside range
 	--Char:inform("Offset: "..StoneBaseOffset);
-    HasStones=M.QuestprogressToStones(Char:getQuestProgress(StoneBase));
+    local HasStones=M.QuestprogressToStones(Char:getQuestProgress(StoneBase));
 	--Char:inform("HasStones: "..HasStones);
 	--Char:inform("thisstone: "..2^(StoneBaseOffset));
-    GotStone=LuaAnd(2^(StoneBaseOffset),HasStones);
+    local GotStone=LuaAnd(2^(StoneBaseOffset),HasStones);
 	--Char:inform("GotStone: "..GotStone);
     if GotStone>0 then
         retVal=true;
@@ -58,9 +58,10 @@ function M.CheckStone(Char,StoneNumber)
 end
 
 function M.CountStones(Char)
-    nrStones=0;
-    StoneBase=130;
-    StoneEnd=149;
+    local nrStones=0;
+    local StoneBase=130;
+    local StoneEnd=149;
+    local stones
     for i=StoneBase,StoneEnd do
         stones=M.QuestprogressToStones(Char:getQuestProgress(i));
 		--debug("In Countstones, questid "..i.." and stones "..stones)
@@ -73,12 +74,12 @@ function M.CountStones(Char)
 end
 
 function M.WriteStone(Char,StoneNumber)
-    StoneBase=130+math.floor((StoneNumber-1)/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
+    local StoneBase=130+math.floor((StoneNumber-1)/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
 	--Char:inform("Base: "..StoneBase);
-    StoneBaseOffset=math.fmod(StoneNumber-1,32);  -- StoneNr inside range
+    local StoneBaseOffset=math.fmod(StoneNumber-1,32);  -- StoneNr inside range
     --Char:inform("Offset: "..StoneBaseOffset);
 	--Char:inform("Base offset: " .. StoneBase .. " Stone Nr "..StoneBaseOffset .. " for stone "..StoneNumber);
-    currentStones=M.QuestprogressToStones(Char:getQuestProgress(StoneBase));
+    local currentStones=M.QuestprogressToStones(Char:getQuestProgress(StoneBase));
     --Char:inform("currently: "..currentStones);
 	Char:setQuestProgress(StoneBase,M.StoneToQuestprogress(LuaOr(2^StoneBaseOffset,currentStones)));
 	--Char:inform("new: "..(2^StoneBaseOffset).." in total: "..(LuaOr(2^StoneBaseOffset,currentStones)-2^31));
@@ -110,21 +111,21 @@ function M.getReward(Char)
 		end
 	end
 end
-	
+
 function M.rewardDialog(Char, nrStones)
 	local title = common.GetNLS(Char,"Entdeckergilde Belohnung","Explorerguild reward")
 	local text = common.GetNLS(Char,"Du hast "..nrStones.." Markierungssteine entdeckt, daher kannst du dir nun eine Belohnung aussuchen.", "You discovered "..nrStones.." marker stones, therefore you can pick a reward.")
-	
-	local callback = function(dialog) 
-		local success = dialog:getSuccess() 
+
+	local callback = function(dialog)
+		local success = dialog:getSuccess()
 		if success then
-			selected = dialog:getSelectedIndex()+1
-			Char:createItem(reward[nrStones][selected][1],reward[nrStones][selected][2], 699, nil);	
+			local selected = dialog:getSelectedIndex()+1
+			Char:createItem(reward[nrStones][selected][1],reward[nrStones][selected][2], 699, nil);
 		end
 	end
 
 	local dialog = SelectionDialog(title, text, callback);
-	
+
 	local itemName;
 	local language = Char:getPlayerLanguage();
 	for i=1, #(reward[nrStones]) do
