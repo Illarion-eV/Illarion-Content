@@ -86,7 +86,7 @@ function getSeasonTemp(actMonth)                    -- cold in winter (-10) warm
 end
 
 function setFog(actFog, actCloud, thisMonth) -- in autumn and early winter
-    local fogProbability=math.floor(5-5*math.cos(month*math.pi/8-3));        -- ~0 in summer (6), 10% in month 11
+    local fogProbability=math.floor(5-5*math.cos(thisMonth*math.pi/8-3));        -- ~0 in summer (6), 10% in month 11
     local fogTest=math.random(1,80);
     local retFog
     if actFog>0 then                        -- if there already is fog: change it a little
