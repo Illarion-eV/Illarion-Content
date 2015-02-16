@@ -1348,7 +1348,7 @@ function M.Hour_To_String(hour)
     elseif (hour >= 2 and hour < 4) then
         return "nach Mitternacht", "after midnight";
     elseif (hour >= 4 and hour < 6) then
-        return "vor Sonnenaufgang", "before sunset";
+        return "vor Sonnenaufgang", "before sunrise";
     elseif (hour >= 6 and hour < 8) then
         return "früher Morgen", "in the early morning";
     elseif (hour >= 8 and hour < 10) then
@@ -1648,16 +1648,16 @@ end
 -- @param npcName Name of the npc to search for
 -- @return Returns the NPC in case it was found else false
 function getNpc(centerPosition, radius, npcId, npcName)
-    
+
     local npcs = world:getNPCSInRangeOf(centerPosition, radius)
     for _, candidateNpc in pairs(npcs) do
         if (npcName and candidateNpc.name == npcName) or (npcId and candidateNpc.name == npcName) then
             return candidateNpc
         end
     end
-    
+
     return false
-    
+
 end
 
 function M.PositionToText(pos)
