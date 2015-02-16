@@ -27,6 +27,8 @@ local gathering = require("content.gathering")
 
 module("content.gatheringcraft.stonecutting", package.seeall)
 
+local WorkOnStone = {} -- an array that holds the id of the item we're working on for each user
+
 function StartGathering(User, SourceItem, ltstate)
 
 	gathering.InitGathering();
@@ -34,7 +36,6 @@ function StartGathering(User, SourceItem, ltstate)
 	-- we have to distinguish if we work on raw stones or stone blocks
 	-- otherwise we would not be able to detect when to stop working on raw stones and the script would continue to work on stone blocks
 
-		local WorkOnStone = {}; -- an array that holds the id of the item we're working on for each user
 		local Stones = {};
 		Stones[735] = {};
 		Stones[735].productId = 733;
