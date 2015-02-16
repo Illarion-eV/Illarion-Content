@@ -12,11 +12,10 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local lookat = require("base.lookat")
-local common = require("base.common")
 local checks = require("item.general.checks")
 
 local M = {}
@@ -32,21 +31,15 @@ local M = {}
 
 function M.LookAtItem(user, item)
     return lookat.GenerateLookAt(user, item, lookat.CLOTH)
-end;
-
-function M.MoveItemBeforeMove(User,SourceItem,TargetItem)
-
-	if TargetItem:getType() == 4 then --inventory, not belt
-	
-		return checks.checkLevel(User,SourceItem);
-		
-	else
-	
-		return true;
-		
-	end
-	
-	return true; --just in case
 end
-return M
 
+function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
+
+    if TargetItem:getType() == 4 then --inventory, not belt
+        return checks.checkLevel(User, SourceItem)
+    end
+
+    return true
+end
+
+return M

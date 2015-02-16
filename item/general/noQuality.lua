@@ -12,37 +12,24 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE common SET com_script='item.id_293_throwing_spear' WHERE com_itemid IN (293);
 
-local lookat = require("base.lookat")
-local common = require("base.common")
 local checks = require("item.general.checks")
 
 local M = {}
 
---This script can limit equipping e.g. throwing weapons without having to show the quality
+-- This script can limit equipping e.g. throwing weapons without having to show the quality
+-- No lookAt with quality, e.g. for stackable items
 
---No lookAt with quality, e.g. for stackable items
+function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
 
-function M.MoveItemBeforeMove(User,SourceItem,TargetItem)
+    if TargetItem:getType() == 4 then --inventory, not belt
+        return checks.checkLevel(User, SourceItem)
+    end
 
-	if TargetItem:getType() == 4 then --inventory, not belt
-	
-		return checks.checkLevel(User,SourceItem);
-		
-	else
-	
-		return true;
-		
-	end
-	
-	return true; --just in case
+    return true
 end
 
-	
-
-
 return M
-

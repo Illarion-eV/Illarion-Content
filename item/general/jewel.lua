@@ -16,7 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local lookat = require("base.lookat")
-local common = require("base.common")
 local checks = require("item.general.checks")
 
 local M = {}
@@ -32,34 +31,15 @@ local M = {}
 
 function M.LookAtItem(user, item)
     return lookat.GenerateLookAt(user, item, lookat.JEWELLERY)
-end;
+end
 
+function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
 
-function M.UseItem(User, SourceItem, ltstate)
-    -- list with jewles and the functions belonging to them
-    local UseMe = {}
-	-- UseMe[ITEMID] = function(...) UseJewl_ITEMID(...) end
-
-	if not UseMe[SourceItem.id] then -- security check
-	    return -- if the jewel is not defined yet, we return
-    else
-        UseMe[SourceItem.id](User, SourceItem, nil, ltstate)
+    if TargetItem:getType() == 4 then --inventory, not belt
+        return checks.checkLevel(User, SourceItem)
     end
+
+    return true
 end
 
-function M.MoveItemBeforeMove(User,SourceItem,TargetItem)
-
-	if TargetItem:getType() == 4 then --inventory, not belt
-
-		return checks.checkLevel(User,SourceItem);
-
-	else
-
-		return true;
-
-	end
-
-	return true; --just in case
-end
 return M
-
