@@ -185,8 +185,12 @@ function M.UseItem(user, item)
     for i = 1, maximumBooksPerShelf do
         local book = item:getData("book" .. i)
         if book ~= "" then
-            dialog:addOption(M.bookList[book].bookGraphic, common.GetNLS(user, M.bookList[book].german, M.bookList[book].english))
-            table.insert(bookIds, M.bookList[book].bookId)
+            if M.bookList[book] ~= nil then
+                dialog:addOption(M.bookList[book].bookGraphic, common.GetNLS(user, M.bookList[book].german, M.bookList[book].english))
+                table.insert(bookIds, M.bookList[book].bookId)
+            else
+                log("Illegal book '" .. book .. "' at position " .. tostring(item.pos) .. " detected.")
+            end
         end
     end
 
@@ -203,8 +207,12 @@ function M.LookAtItem(user, item)
     for i = 1, maximumBooksPerShelf do
         local book = item:getData("book" .. i)
         if book ~= "" then
-            table.insert(bookTitles.german, M.bookList[book].german)
-            table.insert(bookTitles.english, M.bookList[book].english)
+            if M.bookList[book] ~= nil then
+                table.insert(bookTitles.german, M.bookList[book].german)
+                table.insert(bookTitles.english, M.bookList[book].english)
+            else
+                log("Illegal book '" .. book .. "' at position " .. tostring(item.pos) .. " detected.")
+            end
         end
     end
 
