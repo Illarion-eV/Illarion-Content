@@ -12,43 +12,42 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local M = {}
 function M.addEffect( theEffect, User )
-    User.isinvisible = true;
+    User.isinvisible = true
 end
 
 function M.callEffect(theEffect, User )
-    theEffect.nextCalled = 10; --erneut in 1 sec
-    ringItemL = User:getItemAt( 7 );
-    ringItemR = User:getItemAt( 8 );
+    theEffect.nextCalled = 10 --erneut in 1 sec
+    local ringItemL = User:getItemAt( 7 )
+    local ringItemR = User:getItemAt( 8 )
     --reduce the quality of the cloak
     if ( ringItemL.id == 235 and tonumber(ringItemL:getData("ringData")) == 100) then
-        world:changeQuality( ringItemL, -1 );
+        world:changeQuality( ringItemL, -1 )
     elseif ( ringItemR.id == 235 and tonumber(ringItemR:getData("ringData")) == 100) then
-        world:changeQuality( ringItemR, -1 );
+        world:changeQuality( ringItemR, -1 )
     end
-    
+
     --check if the cloak is on the right place
-    ringItemL = User:getItemAt( 7 );
-    ringItemR = User:getItemAt( 8 );
+    ringItemL = User:getItemAt( 7 )
+    ringItemR = User:getItemAt( 8 )
     if ( ringItemL.id == 235  and tonumber(ringItemL:getData("ringData"))== 100) then
-        return true;
+        return true
     elseif ( ringItemR.id == 235  and tonumber(ringItemR:getData("ringData")) == 100) then
-        return true;
+        return true
     else
-        return false;
+        return false
     end
 end
 
 function M.removeEffect( theEffect, User )
-    User.isinvisible = false;
+    User.isinvisible = false
 end
 
 function M.loadEffect( theEffect, User)
-    User.isinvisible = true;
+    User.isinvisible = true
 end
 
 return M
-

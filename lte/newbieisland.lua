@@ -12,52 +12,46 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Long Time Effect Script: Newbie Island
 -- Effect ID: 13
 -- Values: newbiePosX, newbiePosY, newbiePosZ, itemid_1, itemnumber_1, itemdata_1, itemquality_1 (1-18)
--- Reworked by Merung for NewNoobia
--- Pimped by Estralis
 
-local common = require("base.common")
 local M = {}
-
-
 
 function M.addEffect(newbieEffect, Character)
 end
 
 function M.callEffect(newbieEffect,Character)
-    
-	if (Character.pos.z ~= 100) and (Character.pos.z ~= 101) then
-	    return false; --removing the effect
-	end	
-	
-	foundRoundCount, roundCount = newbieEffect:findValue("roundCount"); 
 
-	if foundRoundCount then 
-		
-		roundCount = roundCount + 1; --Counting
-		
-		if roundCount == 30 then --Let us check for players that required more than thirty minutes for Noobia.
+    if (Character.pos.z ~= 100) and (Character.pos.z ~= 101) then
+        return false --removing the effect
+    end
 
-            Character:pageGM("This player could use assistance on Noobia.");
-				
-		end
-		
-	else
-	    roundCount = 1;
-	end
-	
-	newbieEffect:addValue("roundCount",roundCount); --whatever this is. Merung, learn to use comments ;-)
-	newbieEffect.nextCalled=600; --One minute
-	return true; --bailing out in any case
-	
+    local foundRoundCount, roundCount = newbieEffect:findValue("roundCount")
+
+    if foundRoundCount then
+
+        roundCount = roundCount + 1 --Counting
+
+        if roundCount == 30 then --Let us check for players that required more than thirty minutes for Noobia.
+
+            Character:pageGM("This player could use assistance on Noobia.")
+
+        end
+
+    else
+        roundCount = 1
+    end
+
+    newbieEffect:addValue("roundCount",roundCount) --whatever this is. Merung, learn to use comments -)
+    newbieEffect.nextCalled=600 --One minute
+    return true --bailing out in any case
+
 end
 
 function M.removeEffect(newbieEffect, Character)
 end
 
 return M
-

@@ -12,70 +12,46 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local common = require("base.common")
+
 local M = {}
 
----------------------------
--------- Character lernt eine Rune
----------------------------------
 function M.addEffect(teachEffect, Character)
-    Character:inform("AddEffect ausgeführt");
 
-    
-    year=world:getTime("year");
-    year=(year-1)*31536000;					-- (year-1)*((15*24) + 5)*24*60*60;
-    month=world:getTime("month");
-    month=(month-1)*2073600;					-- (month-1)*24*24*60*60;
-    day=world:getTime("day");
-    day=(day-1)*86400;							-- (day-1)*24*60*60;
-    hour=world:getTime("hour");
-    hour=hour*3600;								-- hour*60*60;
-    minute=world:getTime("minute");
-    minute=minute*60;
-    second=world:getTime("second");
-    second=second;
-            
-    waittime=1814400;
-	 
-	timestamp=year+month+day+hour+minute+second+waittime;
+    local year=world:getTime("year")
+    year=(year-1)*31536000					-- (year-1)*((15*24) + 5)*24*60*60
+    local month=world:getTime("month")
+    month=(month-1)*2073600					-- (month-1)*24*24*60*60
+    local day=world:getTime("day")
+    day=(day-1)*86400							-- (day-1)*24*60*60
+    local hour=world:getTime("hour")
+    hour=hour*3600								-- hour*60*60
+    local minute=world:getTime("minute")
+    minute=minute*60
+    local second=world:getTime("second")
+    second=second
 
-	
- 	teachEffect:addValue("Rune1Index",timestamp);
-	teachEffect:addValue("Rune2Index",1);
-	--Character:inform("moep->AddEffect erfolgreich");
-	
+    local waittime=1814400
 
+    local timestamp=year+month+day+hour+minute+second+waittime
+
+    teachEffect:addValue("Rune1Index",timestamp)
+    teachEffect:addValue("Rune2Index",1)
 end
 
------------------------------------------------
------- Character is affected 
------------------------------------------------
 function M.callEffect(teachEffect, Character)    -- Effect wird ausgeführt
 
-
-   	teachEffect.nextCalled =99999999999999;       -- call it again in öhm...never!
-
-
-    return true;
+    teachEffect.nextCalled =99999999999999       -- call it again in öhm...never!
+    return true
 end
-
-
-
-
-----------------------------------------------
----- Character lost effect
-----------------------------------------------
 
 function M.removeEffect( Effect, Character )
-  	-- Character:inform("moep->Und weiter gehts!");
-end
 
+end
 
 function M.loadEffect(Effect, Character)
 
 end
 
 return M
-

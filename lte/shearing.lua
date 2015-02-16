@@ -17,8 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Long Time Effect Script: Shearing sheep
 -- Effect ID: 402
 
-
-local common = require("base.common")
 local M = {}
 
 function M.addEffect(shearingEffect, Animal)
@@ -27,25 +25,23 @@ end
 
 function M.callEffect(shearingEffect, Animal)
 
-	local foundAmount, gatherAmount = shearingEffect:findValue("gatherAmount");
-	if (not foundAmount) then
-		return false;
-	end
-	if (gatherAmount <= 0) then
-		return false;
-	end
-	
-	if gatherAmount >= 20 then
-		newAmount=0; --Restock wool
-		shearingEffect:addValue("gatherAmount", newAmount);
-		world:makeSound(2, Animal.pos); --Baah!
-	end
-	
-	shearingEffect.nextCalled = 7200; -- call every 12 minutes
-	
-	return true;
-	
+    local foundAmount, gatherAmount = shearingEffect:findValue("gatherAmount")
+    if (not foundAmount) then
+        return false
+    end
+    if (gatherAmount <= 0) then
+        return false
+    end
+
+    if gatherAmount >= 20 then
+        local newAmount=0 --Restock wool
+        shearingEffect:addValue("gatherAmount", newAmount)
+        world:makeSound(2, Animal.pos) --Baah!
+    end
+
+    shearingEffect.nextCalled = 7200 -- call every 12 minutes
+
+    return true
 end
 
 return M
-

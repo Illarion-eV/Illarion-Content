@@ -21,8 +21,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local M = {}
 
-TextDE={};
-TextEN={};
+local TextDE={};
+local TextEN={};
 TextDE[1]="Es sieht nicht danach aus als würde eine Fee heute ein Element verlieren.";
 TextEN[1]="It does not look like as any fairy would drop an element today.";
 TextDE[2]="Ah! Eine Fee hat pure Luft verloren";
@@ -34,8 +34,8 @@ TextEN[4]="Ah! A fairy lost pure fire";
 TextDE[5]="Ah! Eine Fee hat pures Wasser verloren";
 TextEN[5]="Ah! A fairy lost pure water";
 
-PosItemDE={};
-PosItemEN={};
+local PosItemDE={};
+local PosItemEN={};
 PosItemDE[1]=" nordwestlich von dir.";
 PosItemEN[1]=" northwest of you.";
 PosItemDE[2]=" südwestlich von dir.";
@@ -55,46 +55,46 @@ PosItemEN[8]=" south of you.";
 PosItemDE[9]=" unter deinen Beinen.";
 PosItemEN[9]=" underneath your feet.";
 
-createItemTimeB={}
-createItemTimeBB={}
-createItemText={}
-createItemTimeA={}
-createItemTimeAA={}
-informplayeraboutunsuccess={}
-createRepeatA={}
-createRepeatB={}
-createRepeatX={}
-createItemID={}
-createItemIDB={}
-createItemAmountA={}
-createItemAmountB={}
-createItemAmount={}
-createItemXA={}
-createItemXB={}
-createItemYA={}
-createItemYB={}
-createItemZA={}
-createItemZB={}
-createItemX={}
-createItemY={}
-createItemZ={}
-posOfItem={}
-createItemQualA={}
-createItemQualB={}
-createItemQual={}
-testforaccessabletile={}
-createItemFieldAccess={}
-createGfx={}
-createSound={}
-PoscreatedItemX={}
-PoscreatedItemY={}
-createAfter1={}
-createAfterA1={}
-createAfterB1={}
-createAfter2={}
-createAfterA2={}
-createAfterB2={}
-createItemPos={}
+local createItemTimeB={}
+local createItemTimeBB={}
+local createItemText={}
+local createItemTimeA={}
+local createItemTimeAA={}
+local informplayeraboutunsuccess={}
+local createRepeatA={}
+local createRepeatB={}
+local createRepeatX={}
+local createItemID={}
+local createItemIDB={}
+local createItemAmountA={}
+local createItemAmountB={}
+local createItemAmount={}
+local createItemXA={}
+local createItemXB={}
+local createItemYA={}
+local createItemYB={}
+local createItemZA={}
+local createItemZB={}
+local createItemX={}
+local createItemY={}
+local createItemZ={}
+local posOfItem={}
+local createItemQualA={}
+local createItemQualB={}
+local createItemQual={}
+local testforaccessabletile={}
+local createItemFieldAccess={}
+local createGfx={}
+local createSound={}
+local PoscreatedItemX={}
+local PoscreatedItemY={}
+local createAfter1={}
+local createAfterA1={}
+local createAfterB1={}
+local createAfter2={}
+local createAfterA2={}
+local createAfterB2={}
+local createItemPos={}
 
 function M.addEffect(Effect, Character)
 
@@ -191,7 +191,7 @@ if createItemTimeB[Character.name] ~= 0 then
         findCreateAfterB1, createAfterB1[Character.name] = Effect:findValue("createAfterB") --find variable
         if createItemTimeA[Character.name]==0 then
             createAfter1[Character.name]=createAfterA1[Character.name]
-        else    
+        else
             createAfter1[Character.name]=math.random(createAfterA1[Character.name],createAfterB1[Character.name]);  --create random value between variables
         end
 --debug("createAfter_1a: "..Character.name.."..."..createAfter1[Character.name])
@@ -299,7 +299,7 @@ elseif findCreateItemTimeBB then
         findCreateAfterB2, createAfterB2[Character.name] = Effect:findValue("createAfterB") --find variable
         if createItemTimeAA[Character.name]==0 then
             createAfter2[Character.name]=createAfterA2[Character.name]
-        else    
+        else
             createAfter2[Character.name]=math.random(createAfterA2[Character.name],createAfterB2[Character.name]);  --create random value between variables
         end
 --debug("createAfter_2b: "..Character.name.."..."..createAfter2[Character.name])
