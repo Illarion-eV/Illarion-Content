@@ -71,7 +71,7 @@ M.bookList["galmair_on_runewick"] = {english = "Runewick, by Torbus Nonak", germ
 M.bookList["runewick_on_cadomyr"] = {english = "Cadomyr, Cottages of Blood and Honour", german = "Cadomyr, Hütten des Blutes und der Ehre", bookId = 7, bookGraphic = bookBlueSilverLong}
 M.bookList["runewick_on_galmair"] = {english = "Galmair, Burrow of Lies and Coins", german = "Galmair, Erdhöhle der Lügen und Münzen", bookId = 8, bookGraphic = bookBlueSilverLong}
 M.bookList["runewick_on_runewick"] = {english = "Runewick, Towers of Wisdom and Power", german = "Runewick, Türme der Weisheit und Macht", bookId = 9, bookGraphic = bookBlueSilverLong}
-M.bookList["gods1"] = {english = "The big lore ofIllarion's Gods", german = "Almanach der Götter Illarions", bookId = 10, bookGraphic = bookRedHeavy}
+M.bookList["gods1"] = {english = "The big lore of Illarion's Gods", german = "Almanach der Götter Illarions", bookId = 10, bookGraphic = bookRedHeavy}
 M.bookList["gods2"] = {english = "Gods of Illarion", german = "Illarions Götterwelt", bookId = 11, bookGraphic = bookRedLight}
 M.bookList["gods3"] = {english = "My first lore of the Gods", german = "Meine erste Götterkunde", bookId = 12, bookGraphic = bookletBlue}
 M.bookList["statute_book_of_runewick"] = {english = "Statute Book of Runewick (35)", german = "Gesetzesbuch von Runewick (35)", bookId = 13, bookGraphic = bookBlueOrnament}
