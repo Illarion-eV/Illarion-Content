@@ -74,33 +74,32 @@ function changeItems(User, SourceItem, TargetItem)
 
 		local input = dialog:getInput();
 
-		if (string.find(input,"setdata (%a+) (.+)")~=nil) then
-			local a,b,dataString,newdata = string.find(input,"setdata (%a+) (.+)");
+		if (string.find(input,"setdata (%w+) (.+)")~=nil) then
+			local a,b,dataString,newdata = string.find(input,"setdata (%w+) (.+)");
 			TargetItem:setData(dataString,newdata);
 			world:changeItem(TargetItem);
 			User:inform("Data of "..world:getItemName(TargetItem.id, Player.english).." set to key: " ..dataString.." value: "..TargetItem:getData(dataString));
 			User:logAdmin("changed data of "..world:getItemName(TargetItem.id, Player.english).."("..TargetItem.id..") to key: " ..dataString.." value: "..TargetItem:getData(dataString));
-		end
-		if (string.find(input,"setqual (%d)(%d)(%d)")~=nil) then
+		elseif (string.find(input,"setqual (%d)(%d)(%d)")~=nil) then
 			local a,b,newqual=string.find(input,"setqual (%d+)");
 			TargetItem.quality=tonumber(newqual);
 			world:changeItem(TargetItem);
 			User:inform("Quality of "..world:getItemName(TargetItem.id, Player.english).." set to "..TargetItem.quality);
 			User:logAdmin("changed quality of "..world:getItemName(TargetItem.id, Player.english).."("..TargetItem.id..") to "..TargetItem.quality);
-		end
-		if (string.find(input,"setwear (%d+)")~=nil) then
+		elseif (string.find(input,"setwear (%d+)")~=nil) then
 			local a,b,newwear = string.find(input,"setwear (%d+)");
 			TargetItem.wear=tonumber(newwear);
 			world:changeItem(TargetItem);
 			User:inform("Wear of "..world:getItemName(TargetItem.id, Player.english).." set to "..TargetItem.wear);
 			User:logAdmin("changed wear of "..world:getItemName(TargetItem.id, Player.english).."("..TargetItem.id..") to "..TargetItem.wear);
-		end
-		if (string.find(input,"setnumber (%d+)")~=nil) then
+		elseif (string.find(input,"setnumber (%d+)")~=nil) then
 			local a,b,newwear = string.find(input,"setnumber (%d+)");
 			TargetItem.number=math.min(250,tonumber(newwear));
 			world:changeItem(TargetItem);
 			User:inform("Amount of "..world:getItemName(TargetItem.id, Player.english).." set to "..TargetItem.number);
 			User:logAdmin("changed number of "..world:getItemName(TargetItem.id, Player.english).."("..TargetItem.id..") to "..TargetItem.number);
+        else
+            User:inform("Sorry, I didn't understand you.");
 		end
 	end
 	User:requestInputDialog(InputDialog("Set an option for the Item", "Possible actions:  setdata <key> <value>, setqual <value>, setwear <value>, setnumber <value>" ,false, 255, cbInputDialog));
