@@ -21,7 +21,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local gathering = require("content.gathering")
-local placeShoal = require("scheduled.placeShoal")
 
 module("content.gatheringcraft.fishing", package.seeall)
 
@@ -124,10 +123,12 @@ function StartGathering(User, SourceItem, ltstate)
         end
     end
     if amount == 0 then
-        placeShoal.registerShoal(Random.uniform(15,20), SourceItem.pos)
-        world:erase(SourceItem,1)
+        SourceItem:setData("amount","")
+        SourceItem.id = 1244
+        SourceItem.wear = 4
+        world:changeItem(SourceItem)
         User:inform("Du scheinst hier alles leergefischt zu haben.",
-                    "You seem to have caught all the fish here.",Player.highPriority)
+                    "You seem to have caught all the fish here.",Character.highPriority)
         return
     end
 
