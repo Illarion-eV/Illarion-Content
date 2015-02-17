@@ -266,6 +266,8 @@ english, "Gobaith", "Gobiath" -> "I do not like to sail so I have never been to 
 "Kult" -> "Ich bekämpfe den Kult der Salavesh, ein Haufen böser Blutmagier. Die Diener des Kultes haben mir aufgelauert, als ich mich auf dem Weg zu ihrem Unterschlupf befand. Gerüchten zufolge ist er in einer Höhle."
 english, "Salavesh" -> "The cult I am fighting is the Cult of Salavesh. Evil blood mages, they are. Their minions ambushed me on my way to their stronghold. Rumours say it is within a cave."
 "Salavesh" -> "Ich bekämpfe den Kult der Salavesh, ein Haufen böser Blutmagier. Die Diener des Kultes haben mir aufgelauert, als ich mich auf dem Weg zu ihrem Unterschlupf befand. Gerüchten zufolge ist er in einer Höhle."
+english, "Akaltut" -> "Akaltut, the abomination! Eradicate its existence!"
+"Akaltut" -> "Akaltut, die Abscheulichkeit! Löscht dessen Existenz aus!"
 "Drache" -> "Drachen sind majestätische Wesen und ich bin stolz darauf, einst einen gesehen zu haben. Gerüchten zufolge macht der Kult der Salavesh Jagd auf Drachen."
 "Blutmagie", "totenbeschwör" -> "Blutmagie ist das Böse in Reinform. Die alten Sitten verbieten es, solche Praktiken auch nur in Erwägung zu ziehen."
 "Höhle", "Unterschlupf" -> "Ich bin mir sicher, dass der Unterschlupf des Kults der Salavesh sich in einer Höhle, nordöstlich von hier und südlich des Gasthofes zur Hanfschlinge, befindet."
@@ -321,7 +323,7 @@ english, "Bragon", "Brágon" -> "Did you know that Brágon is the father of all dr
 "Bragon", "Brágon" -> "Wußtet ihr, dass Brágon der Vater aller Drachen ist? Nein? Dachte ich mir."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "The code of my order forbids me from pursuing mudane wealth, thus I do notthings with you.", trade
+"what sell", "what buy", "list wares", "price of" -> "The code of my order forbids me from pursuing mudane wealth, thus I do nothings with you.", trade
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Der Codex meines Ordens verbietet es, weltlichem Reichtum nachzustreben. Daher werde ich nicht mit euch handeln."
 "tale", "story", "tell something" -> "I have an interesting tale to tell. It is about an evil cult of blood mages. Seen my wounds? They tell the story."
 "geschichte", "erzähl was", "erzähl etwas" -> "Ich habe eine interessante Geschichte zu erzählen, sie handelt von einem bösen Kult von Blutmagiern. Seht ihr meine Wunden? Sie erzählen die Geschichte."
@@ -345,12 +347,13 @@ cycletext "#mes prunkvolle Rüstung zeigt das Wappen eines sich aufbäumenden Silb
 cycletext "Nur durch einen gemeinen Hinterhalt konnte ich besiegt werden - denn auf den Schlachtfeldern der Ehre bin ich ungeschlagen.", "Only a sneaky ambush could defeat me - for I am unmatched on the battlefield of honour."
 cycletext "#me hebt vorsichtig einen Verband an seinem Arm mit schmerzverzerrtem Gesicht an.", "#me carefully lifts a bandage on his arm, grimacing with pain."
 cycletext "Nieder mit den Salavesh!", "Down with Salavesh!"
+cycletext "Nieder mit den Akaltut!", "Down with Akaltut!"
 cycletext "#me streicht sich verzweifelt durch das blutverkrustete Haar.", "#me combs his blood stained hair desperately."
 cycletext "Für die Ehre des Ordens der Silberdragon und die alten Sitten streite ich.", "I fight for the honour of the Order of the Silver Dragon and the old customs."
 cycletext "Es ist nicht die Zeit der Worte, sondern die der Taten.", "It is not the time for speech, but for deeds."
 cycletext "#me streicht über sein verletztes Bein.", "#me strokes his bruised leg."
 cycletext "Fremder, hättet ihr einen Augenblick Zeit...", "Stranger, please, a moment of your time..."
-cycletext "#me hält sein reich verziehrtes Schwert fest in der Hand und schwingt es durch die Luft.", "#me holds his ornate sword firmly with one hand, swinging it idly into the air."
+cycletext "#me hält sein reich verziertes Schwert fest in der Hand und schwingt es durch die Luft.", "#me holds his ornate sword firmly with one hand, swinging it idly into the air."
 cycletext "#me schreibt einige Worte ein in Leder gebundenes Buch und versteckt es hinterher sorgfältig unter seiner Robe.", "#me writes some words into a leather covered book, carefully tucking it under his robe afterwards."
 cycletext "Wir leben in merkwürdigen Zeiten...", "Strange times we live in..."
 cycletext "Verdammte Kultisten! Wenn ich nur...", "Blasted cultists... if only I weren't..."
