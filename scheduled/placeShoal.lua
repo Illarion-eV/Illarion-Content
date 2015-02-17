@@ -12,29 +12,33 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO scheduledscripts VALUES('scheduled.placeShoal', 60, 60, 'placeShoal')
 
 local M = {}
 
-M.shoalPositions = {}
+local shoalPositions = {}
+
+function M.registerShoal(counter, shoalPosition)
+    table.insert(shoalPositions,{counter = counter,shoalPosition = shoalPosition})
+end
 
 function M.placeShoal()
 
-	if #M.shoalPositions == 0 then
-		return
-	end
-	for i=#M.shoalPositions,1,-1 do
-		if M.shoalPositions[i]["counter"] == 0 then
-			if not world:isItemOnField(M.shoalPositions[i]["shoalPosition"]) or world:getItemOnField(M.shoalPositions[i]["shoalPosition"]).id ~= 1170 then
-				local shoal = world:createItemFromId(1170,1,M.shoalPositions[i]["shoalPosition"],true,333,{amount = 20})
-			end
-			table.remove(M.shoalPositions,i)
-		else
-			M.shoalPositions[i]["counter"] = M.shoalPositions[i]["counter"] - 1
-		end
-	end
+    if #shoalPositions == 0 then
+        return
+    end
+    for i = #shoalPositions, 1, -1 do
+        if shoalPositions[i]["counter"] == 0 then
+            if not world:isItemOnField(shoalPositions[i]["shoalPosition"]) or world:getItemOnField(shoalPositions[i]["shoalPosition"]).id ~= 1170 then
+                world:createItemFromId(1170, 1, shoalPositions[i]["shoalPosition"], true, 333, {amount = 20})
+            end
+            table.remove(shoalPositions, i)
+        else
+            shoalPositions[i]["counter"] = shoalPositions[i]["counter"] - 1
+        end
+    end
 end
 
 return M
