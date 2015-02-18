@@ -106,5 +106,12 @@ function M.spawnTreasure()
 		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chess
     end
 	
+    local treasurePos=position(701,626,-3); --Volcano
+		
+    if #world:getPlayersInRangeOf(treasurePos,20) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
+	
+		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chess
+    end
+	
 	end
 return M
