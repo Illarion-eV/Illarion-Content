@@ -77,7 +77,7 @@ function M.UseItem(User, SourceItem, ltstate)
     if not shoalItem then
         shoalItem = getShoal(User, 1244)
         if shoalItem then
-            User:inform("Die wenigen Fische hier scheinen nicht anbeiﬂen zu wollen. Finde einen anderen Schwarm oder warte, bis sich hier mehr angesiedelt haben.","The few fish here don't seem willing to be caught. Look out for an other shoal or what until there are mor fishes here again.",Character.highPriority)
+            User:inform("Die wenigen Fische hier scheinen nicht anbeiﬂen zu wollen. Finde einen anderen Schwarm oder warte, bis sich hier mehr angesiedelt haben.","The few fish here donít seem willing to be caught. Look for another shoal or wait until there are more fish here.",Character.highPriority)
             return
         end
     end
