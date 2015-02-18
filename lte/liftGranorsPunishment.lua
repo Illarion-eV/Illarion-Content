@@ -19,6 +19,10 @@ local common = require("base.common")
 -- Long time effect (6)
 local M = {}
 
+function M.addEffect(theEffect, user)
+    user:increaseAttrib("perception", -10)
+end
+
 function M.callEffect(theEffect, user)
     return false
 end
@@ -27,7 +31,7 @@ function M.loadEffect(theEffect, user)
     user:increaseAttrib("perception", -10)
 end
 
-function M.removeEffect (theEffect, user)
+function M.removeEffect(theEffect, user)
     user:inform("Die Blendung, die du in Granors Hütte erfahren hast, verliert ihre Wirkung.", "The blinding that were inflicted on you in Granor's hut vanishes.")
     user:increaseAttrib("perception", 10)
 end

@@ -144,13 +144,13 @@ function M.potionReplacer()
     local redPotionPos = position(14, 683, 1)
     local pinkPotionPos = position(15, 683, 1)
 
-    local repeatRepalcer
+    local repeatReplacer
 
     local pinkPotionThere, emptyTable = cleanTable(pinkPotionPos, 166)
     if pinkPotionThere then
         repeatReplacer = false
     elseif emptyTable then
-        repeatPlacer = false
+        repeatReplacer = false
         world:createItemFromId(166, 1, pinkPotionPos, true, 111, {filledWith = "potion", potionEffectId = "35555555", granorsHut = "true"})
     else
         repeatReplacer = true
@@ -160,7 +160,7 @@ function M.potionReplacer()
     if redPotionThere then
         repeatReplacer = false
     elseif emptyTable then
-        repeatPlacer = false
+        repeatReplacer = false
         world:createItemFromId(59, 1, redPotionPos, true, 111, {filledWith = "potion", potionEffectId = "44444444", granorsHut = "true"})
     else
         repeatReplacer = true
@@ -173,11 +173,10 @@ end
 
 -- Hook for using Granor's book
 function M.readingBook(user)
-    local foundEffect, myEffect = user.effects:find(6)
+    local foundEffect = user.effects:find(6)
     if foundEffect then
         return
     end
-    user:increaseAttrib("perception", -10)
     user.effects:addEffect(LongTimeEffect(6, 18000))
     user:inform("Als du das Buch aufschl‰gst, leuchten die Buchstaben gar gr‰ﬂlich grellend auf. Du bist vollkommen geblendet und die Welt um dich herum, wird zu einem kaum wahrnehmbaren milchigen Schleier. Deine Wahrnehmung hat sich radikal verschlechtert.","As you open the book, the letters glare horribly brightly. You are completely blinded and the world around your becomes a barely visible foggy veil. Your perception got a lot worse.")
 
