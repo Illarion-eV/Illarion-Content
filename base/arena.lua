@@ -58,7 +58,7 @@ M.monsterIDsByLevel = {
 
 M.arenaInformation = {{playerPos=nil, monsterPos=position(255,668,0), newPlayerPos=nil, npcName="Dale Daeon", town="Cadomyr", quest=801},
 					{playerPos=nil, monsterPos=position(995,784,-3), newPlayerPos=nil, npcName="Manuel Salan", town="Runewick", quest=802},
-					{playerPos=nil, monsterPos=position(334,160,-6), newPlayerPos=nil, npcName="Angelo Rothman", town="Galmair", quest=803}}
+					{playerPos=nil, monsterPos=position(336,156,-7), newPlayerPos=nil, npcName="Angelo Rothman", town="Galmair", quest=803}}
 
 function M.requestMonster(User, NPC)
 	local cbChooseLevel = function (dialog)
