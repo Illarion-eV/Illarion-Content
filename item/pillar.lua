@@ -72,7 +72,7 @@ local function PillarLookAt(User, Item)
     local itemLookat = lookat.GenerateLookAt(User, Item, lookat.NONE)
     itemLookat.name = common.GetNLS(User, "Zzarn'K'Ska Pfeiler", "Zzarn'K'Ska Pillar")
     itemLookat.description = common.GetNLS(User,
-        "Replace",
+        "Der Griff einer Waffe schaut aus der Säule raus.",
         "The handle of a weapon can be seen sticking out from the pillar.")
     return itemLookat
 end
@@ -208,14 +208,15 @@ function M.UseItem(User, SourceItem, ltstate)
       --Quest
         if User:getQuestProgress(503) == 0 then -- start the quest
             User:setQuestProgress(503, 1); -- get an inform
-            User:inform("", "Take this weapon to join us, or die where you stand.")
+			User:setQuestProgress(507, 4); -- set cooldown
+            User:inform("Nimm diese Waffe und schließe dich uns an oder sterbe sogleich.", "Take this weapon to join us, or die where you stand.")
 			
 		elseif User:getQuestProgress(503) == 1 then -- taking the weapon
 		    local queststatus = User:getQuestProgress(506) -- here, we save which events were triggered
             local queststatuslist = {}
 			queststatuslist = common.Split_number(queststatus, 6) -- reading the digits of the queststatus as table
 			if queststatuslist[1] == 0 then -- sword, only triggered once by each char
-			User:inform("", "You take the sword and join the Zzarn'K'Ska.")
+			User:inform("Du nimmst das Schwert an dich und schließt sich dem Zzarn'K'Ska an.", "You take the sword and join the Zzarn'K'Ska.")
                 local notCreated = User:createItem(2655, 1, 866, {descriptionEn = "Holy Sword of the Zzarn'K'Ska of Zelphia", descriptionDe = "", rareness = "4"}) -- create the item
                 if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
                 world:createItemFromId(2655, notCreated, User.pos, true, 866, {descriptionEn = "Holy Sword of the Zzarn'K'Ska of Zelphia", descriptionDe = "", rareness = "4"})
