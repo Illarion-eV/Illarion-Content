@@ -331,6 +331,29 @@ function M.callEffect( Effect, Char ) -- Effect is called
     end
     --Addition end
 
+	        --Addition by Evie: Quest 503/507 Pillar quest and cooldown
+	theQuestStatus=Char:getQuestProgress(507)
+
+    if theQuestStatus == 1 then --Time over!
+
+        common.InformNLS(Char,"[Quest Status] Du hast darin versagt, das Schwert an dich zu nehmen und dem Zzarn'K'Ska Zelphias beizutreten. Du bezahlst mit deinem Leben.","[Quest status] You failed to take the sword and join the Zzarn'K'Ska of Zelphia, you pay with your life.") -- Feedback!
+        User:increaseAttrib("hitpoints",-10000)
+		Char:setQuestProgress(503,2)
+
+    end
+
+    if theQuestStatus == 3 then --Ten minutes left!
+
+        common.InformNLS(Char,"[Quest Status] Du hast zehn Minuten, um das Schwert an dich zunehmen und sich dem Zzarn'K'Ska Zelphias anzuschließen oder die Konsequenzen zu ertragen.","[Quest status] You have ten minutes to take the sword and join the Zzarn'K'Ska of Zelphia or suffer the consequences.") -- Feedback!
+
+    end
+
+    if theQuestStatus > 0 then --Is there a countdown? Will be reduced even if the player is AFK/idle
+        Char:setQuestProgress(507,theQuestStatus-1) --counting down!
+
+    end
+    --Addition end
+	
     Effect.nextCalled = 3000 --Effect gets called each 5 minutes
 
     return true --No idea why!
