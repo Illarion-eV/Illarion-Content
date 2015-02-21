@@ -208,7 +208,7 @@ function M.UseItem(User, SourceItem, ltstate)
       --Quest
         if User:getQuestProgress(503) == 0 then -- start the quest
             User:setQuestProgress(503, 1); -- get an inform
-			User:setQuestProgress(507, 4); -- set cooldown
+			User:setQuestProgress(507, 7); -- set cooldown
             User:inform("Nimm diese Waffe und schlieﬂe dich uns an oder sterbe sogleich.", "Take this weapon to join us, or die where you stand.")
 			
 		elseif User:getQuestProgress(503) == 1 then -- taking the weapon

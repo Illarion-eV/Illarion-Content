@@ -337,7 +337,9 @@ function M.callEffect( Effect, Char ) -- Effect is called
     if theQuestStatus == 1 then --Time over!
 
         common.InformNLS(Char,"[Quest Status] Du hast darin versagt, das Schwert an dich zu nehmen und dem Zzarn'K'Ska Zelphias beizutreten. Du bezahlst mit deinem Leben.","[Quest status] You failed to take the sword and join the Zzarn'K'Ska of Zelphia, you pay with your life.") -- Feedback!
-        Char:increaseAttrib("hitpoints",-10000)
+        world:gfx(2,User.pos)
+		world:makeSound(13,User.pos)
+		Char:increaseAttrib("hitpoints",-10000)
 		Char:setQuestProgress(503,2)
 
     end
@@ -348,6 +350,12 @@ function M.callEffect( Effect, Char ) -- Effect is called
 
     end
 
+	if theQuestStatus == 6 then --Twenty minutes left!
+
+        common.InformNLS(Char,"[Quest Status] Du hast zwanzig Minuten, um das Schwert an dich zunehmen und sich dem Zzarn'K'Ska Zelphias anzuschließen oder die Konsequenzen zu ertragen.","[Quest status] You have twenty minutes to take the sword and join the Zzarn'K'Ska of Zelphia or suffer the consequences.") -- Feedback!
+
+    end
+	
     if theQuestStatus > 0 then --Is there a countdown? Will be reduced even if the player is AFK/idle
         Char:setQuestProgress(507,theQuestStatus-1) --counting down!
 
