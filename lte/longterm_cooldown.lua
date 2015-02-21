@@ -340,7 +340,7 @@ function M.callEffect( Effect, Char ) -- Effect is called
         world:gfx(2,User.pos)
 		world:makeSound(13,User.pos)
 		Char:increaseAttrib("hitpoints",-10000)
-		Char:setQuestProgress(503,2)
+		Char:setQuestProgress(503,3)
 
     end
 
@@ -350,7 +350,7 @@ function M.callEffect( Effect, Char ) -- Effect is called
 
     end
 
-	if theQuestStatus == 6 then --Twenty minutes left!
+	if theQuestStatus == 5 then --Twenty minutes left!
 
         common.InformNLS(Char,"[Quest Status] Du hast zwanzig Minuten, um das Schwert an dich zunehmen und sich dem Zzarn'K'Ska Zelphias anzuschlieﬂen oder die Konsequenzen zu ertragen.","[Quest status] You have twenty minutes to take the sword and join the Zzarn'K'Ska of Zelphia or suffer the consequences.") -- Feedback!
 

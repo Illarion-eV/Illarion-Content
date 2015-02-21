@@ -208,7 +208,7 @@ function M.UseItem(User, SourceItem, ltstate)
       --Quest
         if User:getQuestProgress(503) == 0 then -- start the quest
             User:setQuestProgress(503, 1); -- get an inform
-			User:setQuestProgress(507, 7); -- set cooldown
+			User:setQuestProgress(507, 6); -- set cooldown
             User:inform("Nimm diese Waffe und schlieﬂe dich uns an oder sterbe sogleich.", "Take this weapon to join us, or die where you stand.")
 			
 		elseif User:getQuestProgress(503) == 1 then -- taking the weapon
@@ -228,9 +228,14 @@ function M.UseItem(User, SourceItem, ltstate)
             User:setQuestProgress(506, queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+queststatuslist[5]*10+queststatuslist[6]*1) --saving the new queststatus
             User:setQuestProgress(503, 2) 
 	        end
-		end
-    end
-
+		
+		elseif User:getQuestProgress(503) == 2 then -- you already took the sword.
+			User:inform("Du haben das Schwert an dich und schlieﬂt sich dem Zzarn'K'Ska an.", "You took the sword and joined the Zzarn'K'Ska.")
+			
+		elseif User:getQuestProgress(503) == 3 then -- you lost your chance.
+		    User:inform("Du hast darin versagt, das Schwert an dich zu nehmen und dem Zzarn'K'Ska Zelphias beizutreten.","You failed to take the sword and join the Zzarn'K'Ska of Zelphia.")
+        end
+	end
 end
 
 return M
