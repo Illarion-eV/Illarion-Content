@@ -337,7 +337,7 @@ function M.callEffect( Effect, Char ) -- Effect is called
     if theQuestStatus == 1 then --Time over!
 
         common.InformNLS(Char,"[Quest Status] Du hast darin versagt, das Schwert an dich zu nehmen und dem Zzarn'K'Ska Zelphias beizutreten. Du bezahlst mit deinem Leben.","[Quest status] You failed to take the sword and join the Zzarn'K'Ska of Zelphia, you pay with your life.") -- Feedback!
-        User:increaseAttrib("hitpoints",-10000)
+        Char:increaseAttrib("hitpoints",-10000)
 		Char:setQuestProgress(503,2)
 
     end
