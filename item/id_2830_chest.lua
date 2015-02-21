@@ -23,7 +23,8 @@ local lookat = require("base.lookat")
 local M = {}
 
 function M.LookAtItem(User, Item)
-    local nameDe, nameEn = treasureContent.getTreasureName(tonumber(Item:getData("trsCat")))
+    --local nameDe, nameEn = treasureContent.getTreasureName(tonumber(Item:getData("trsCat")))
+	local nameDe, nameEn = "Eine kunstvoll verzierte Schatzkiste. Welche Reichtümer mag sie wohl enthalten?", "An ornated treasure chest. What riches will it contain?"
 	lookat.SetSpecialDescription(Item, nameDe, nameEn);
 	return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
