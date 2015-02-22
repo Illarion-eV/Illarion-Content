@@ -191,7 +191,6 @@ english, "Nik", "Nilo" -> "Everyone calls me Big Nik. Well, my friends do. Every
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Auf diese Steine können sie bauen!", "Build yourself a fortune, buy your bricks here!"
 cycletext "Auch mit wenig Schotter bekommst du deine Steine hier billig!", "My prices are cheap as rocks, get your stones here!"
 cycletext "Wenn ihr anderen eine Grube graben wollt, hier gibt es die Schaufeln dafür!", "Don't dig around, get your shovel here!"
 cycletext "Mein Erz ist was dein Herz begehrt!", "Need some ore? I've got it and more!"
