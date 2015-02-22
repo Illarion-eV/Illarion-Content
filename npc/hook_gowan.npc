@@ -63,8 +63,8 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 101, 324, 2194, 2359, 2444, 1057, 325, 2117, 202, 4, 367, 2295, 384, 182, 34, 359, 363, 369, 2664, 39, 230, 27, 1046, 64, 1266, 89, 65, 2445, 17, 78, 2776, 88, 25, 191, 453, 49, 2456, 306, 3051, 802, 841, 196, 97, 2760, 391, 2567
-buySecondaryItems = 101, 324, 2194, 2359, 2444, 1057, 325, 2117, 202, 4, 367, 2295, 384, 182, 34, 359, 363, 369, 2664, 39, 230, 27, 1046, 64, 1266, 89, 65, 2445, 17, 78, 2776, 88, 25, 191, 453, 49, 2456, 306, 3051, 802, 841, 196, 2760, 391, 2567
+sellItems = 101, 324, 2194, 2359, 2444, 1057, 325, 2117, 202, 4, 367, 2295, 384, 182, 34, 356, 363, 369, 2664, 39, 230, 27, 1046, 64, 1266, 89, 65, 2445, 17, 2776, 88, 25, 191, 453, 49, 2456, 306, 3051, 802, 841, 196, 97, 2760, 391, 24
+buySecondaryItems = 101, 324, 2194, 2359, 2444, 1057, 325, 2117, 202, 4, 367, 2295, 384, 182, 34, 356, 363, 369, 2664, 39, 230, 27, 1046, 64, 1266, 89, 65, 2445, 17, 78, 2776, 88, 25, 191, 453, 49, 2456, 306, 3051, 802, 841, 196, 2760, 391, 24
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
 tradeFinishedWithoutTradingMsg "Auf bald!", "Farewell!"
@@ -73,7 +73,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- Armour level 0-10: 101, 324, 2194, 2359, 2444, 1057, 325, 2117, 202, 4, 367, 2295, 384, 182, 34, 356, 363, 369
 -- Weapons Level 0-10: 2664, 39, 230, 27, 1046, 64, 1266, 89, 65, 2445, 17, 78, 2776, 88, 25
 -- Food low level: 191, 453, 49, 2456, 306, 3051
--- Misc items: 802, 841, 196, 97, 276, 391, 2567
+-- Misc items: 802, 841, 196, 97, 276, 391, 24
 
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
