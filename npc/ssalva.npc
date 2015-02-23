@@ -106,9 +106,9 @@ english, "Cadomyr" -> "Ssalva only hass alliance to zze Mozzer. Zze otherss are 
 
 -- Quests
 --Find the entrance to the Lake of Life Dungeon
-queststatus(501) = 0, english, "quest", "mission" -> inform("[New quest] Zzarn'K'Ska of Zelphia I"), queststatus(501) = 1, "Ksss. Ssomewhere easst of here iss zze Underground Lake of Life. It iss an area zzat hass been taken over by radical religiouss zealotss of ze Mozzer. Find a way to zzeir sstronghold. We musst errradicate zzem."
+queststatus(501) = 0, english, "quest", "mission" -> inform("[New quest] Zzarn'K'Ska of Zelphia I"), queststatus(501) = 1, "Ksss. Ssomewhere easst of here iss zze Underground Lake of Life. It iss an area zzat hass been taken over by radical religiouss zealotss of zze Mozzer. Find a way to zzeir sstronghold. We musst errradicate zzem."
 queststatus(501) = 0, "quest", "mission" -> inform("[Neue Quest] Zzarn'K'Ska von Zelphia I"), queststatus(501) = 1, "Ksss. Irgendwo östlich von hier ist der Ssee des Lebenss. Der Bereich wird beherrscht von einer Gruppe radikal religiöser Fanatiker der Mutter. Finde einen Weg in ihre Festung. Wir müssen sie ausmerzen."
-queststatus(501) = 0, "task", "adventure", "order" -> inform("[New quest] Zzarn'K'Ska of Zelphia I"), queststatus(501) = 1, "Ksss. Ssomewhere easst of here iss zze Underground Lake of Life. It iss an area zzat hass been taken over by radical religiouss zealotss of ze Mozzer. Find a way to zzeir sstronghold. We musst errradicate zzem."
+queststatus(501) = 0, "task", "adventure", "order" -> inform("[New quest] Zzarn'K'Ska of Zelphia I"), queststatus(501) = 1, "Ksss. Ssomewhere easst of here iss zze Underground Lake of Life. It iss an area zzat hass been taken over by radical religiouss zealotss of zze Mozzer. Find a way to zzeir sstronghold. We musst errradicate zzem."
 queststatus(501) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Zzarn'K'Ska von Zelphia I"), queststatus(501) = 1, "Ksss. Irgendwo östlich von hier ist der Ssee des Lebenss. Der Bereich wird beherrscht von einer Gruppe radikal religiöser Fanatiker der Mutter. Finde einen Weg in ihre Festung. Wir müssen sie ausmerzen."
 --if not done
 queststatus(501) = 1, english, ".+" -> "Ksss. *Swishes her tail agitatedly* Zze must find a way to zze stronghold."
@@ -189,9 +189,9 @@ queststatus(501) = 30, ".+" -> inform("[Quest gelöst] Du erhältst einhundertfünf
 
 --Receive seventh quest
 --Kill Lizard Templar warrior
-queststatus(501) = 31, english, "quest", "mission"-> inform("[New quest] Zzarn'K'Ska of Zelphia VII"), queststatus(501) = 32, "It'z time to take out zzeir leader. Kill ze temple warrior to break zzeir morale."
+queststatus(501) = 31, english, "quest", "mission"-> inform("[New quest] Zzarn'K'Ska of Zelphia VII"), queststatus(501) = 32, "It'z time to take out zzeir leader. Kill zze temple warrior to break zzeir morale."
 queststatus(501) = 31, "quest", "mission"-> inform("[Neue Quest] Zzarn'K'Ska von Zelphia VII"), queststatus(501) = 32, "Es wird Zeit ihren Anführer zu beseitigen. Töte den Tempelkrieger, um ihre Moral zu brechen."
-queststatus(501) = 31, "task", "adventure", "order" -> inform("[New quest] Zzarn'K'Ska of Zelphia VII"), queststatus(501) = 32, "It'z time to take out zzeir leader. Kill ze temple warrior to break zzeir morale."
+queststatus(501) = 31, "task", "adventure", "order" -> inform("[New quest] Zzarn'K'Ska of Zelphia VII"), queststatus(501) = 32, "It'z time to take out zzeir leader. Kill zze temple warrior to break zzeir morale."
 queststatus(501) = 31, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Zzarn'K'Ska von Zelphia VII"), queststatus(501) = 32, "Es wird Zeit ihren Anführer zu beseitigen. Töte den Tempelkrieger, um ihre Moral zu brechen."
 --if not done
 queststatus(501) > 31, queststatus(501) < 33, english, ".+" -> "Ksss! If zze leader issn't killed zzey will not break. Kill zze temple warrior to break zzeir morale."
