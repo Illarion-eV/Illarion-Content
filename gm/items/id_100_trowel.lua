@@ -20,38 +20,40 @@ local common = require("base.common")
 local M = {}
 
 function M.UseItem(User, SourceItem)
-    local TargetItem = common.GetTargetItem(User, SourceItem);
+    local TargetItem = common.GetTargetItem(User, SourceItem)
     if not TargetItem then
-        TargetItem = common.GetFrontItem(User);
+        TargetItem = common.GetFrontItem(User)
     end
     if (TargetItem ~= nil and TargetItem.id > 0) then
             if string.find(string.lower(User.lastSpokenText), "setnumber (%d+)") then
-            local _, _, value = string.find(string.lower(User.lastSpokenText), "setnumber (%d+)");
-            world:increase(TargetItem, value - TargetItem.number);
-            User:logAdmin("modifies stack size of item " .. world:getItemName(TargetItem.id, Player.english) .. "(" .. TargetItem.id .. ") from " .. TargetItem.number .. " to " .. value)
+            local _, _, value = string.find(string.lower(User.lastSpokenText), "setnumber (%d+)")
+            local oldvalue = TargetItem.number
+            TargetItem.number = math.min(1000, tonumber(value))
+            world:changeItem(TargetItem)
+            User:logAdmin("modifies stack size of item " .. world:getItemName(TargetItem.id, Player.english) .. "(" .. TargetItem.id .. ") from " .. oldvalue .. " to " .. TargetItem.number)
             return
         end
     end
 
     -- check if a number was said, if not: don't do anything
-    local _, _, value = string.find(User.lastSpokenText, "(%d+)");
+    local _, _, value = string.find(User.lastSpokenText, "(%d+)")
     if value == nil or tonumber(value) == nil then
         return
     end
 
-    local target = common.GetFrontPosition(User);
+    local target = common.GetFrontPosition(User)
 
-    local itemId = tonumber(value);
-    local itemQual = 333;
-    local newItem = world:createItemFromId(itemId, 1, target, true, itemQual, nil);
-    newItem.wear = 255;
-    world:changeItem(newItem);
+    local itemId = tonumber(value)
+    local itemQual = 333
+    local newItem = world:createItemFromId(itemId, 1, target, true, itemQual, nil)
+    newItem.wear = 255
+    world:changeItem(newItem)
     User:logAdmin("creates static item " .. world:getItemName(itemId, Player.english) .. "(" .. itemId .. ") at " .. tostring(target))
 end
 
 function M.LookAtItem(User, Item)
-    lookat.SetSpecialDescription(Item, "Verwende die Kelle zum aufrufen der Funktionen (create items).", "Use the trowel to pick a function (create items).");
-    lookat.SetSpecialName(Item, "Kelle", "Trowel");
+    lookat.SetSpecialDescription(Item, "Verwende die Kelle zum aufrufen der Funktionen (create items).", "Use the trowel to pick a function (create items).")
+    lookat.SetSpecialName(Item, "Kelle", "Trowel")
     return lookat.GenerateLookAt(User, Item, lookat.METAL)
 end
 
