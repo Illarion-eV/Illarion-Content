@@ -88,45 +88,15 @@ local function DigForNothing(User)
 
 end
 
-local function getSandPit(User)
-    local SAND_PIT = 1208
+local function getPit(User, itemId)
     local pitItem = common.GetFrontItem(User)
-    if (pitItem ~= nil and pitItem.id == SAND_PIT) then
+    if (pitItem ~= nil and pitItem.id == itemId) then
         return pitItem
     end
-    pitItem = common.GetItemInArea(User.pos, SAND_PIT)
+    pitItem = common.GetItemInArea(User.pos, itemId)
     return pitItem
 end
 
-local function getSandPitempty(User)
-    local SAND_PIT = 3632
-    local pitItem = common.GetFrontItem(User)
-    if (pitItem ~= nil and pitItem.id == SAND_PIT) then
-        return pitItem
-    end
-    pitItem = common.GetItemInArea(User.pos, SAND_PIT)
-    return pitItem
-end
-
-local function getClayPit(User)
-    local CLAY_PIT = 1206
-    local pitItem = common.GetFrontItem(User)
-    if (pitItem ~= nil and pitItem.id == CLAY_PIT) then
-        return pitItem
-    end
-    pitItem = common.GetItemInArea(User.pos, CLAY_PIT)
-    return pitItem
-end
-
-local function getEmptyClayPit(User)
-    local CLAY_PIT = 3633
-    local pitItem = common.GetFrontItem(User)
-    if (pitItem ~= nil and pitItem.id == CLAY_PIT) then
-        return pitItem
-    end
-    pitItem = common.GetItemInArea(User.pos, CLAY_PIT)
-    return pitItem
-end
 
 function M.UseItem(User, SourceItem, ltstate)
 
@@ -144,7 +114,7 @@ function M.UseItem(User, SourceItem, ltstate)
     if not common.FitForWork( User ) then -- check minimal food points
         return
     end
-    
+
     -- check for alchemy scroll
     if transformation_dog.DigForTeachingScroll(User) then
         return
@@ -158,26 +128,30 @@ function M.UseItem(User, SourceItem, ltstate)
     local pitItem
 
     -- check for sand pit
-    pitItem = getSandPit(User)
+    local SAND_PIT = 1208
+    pitItem = getPit(User, SAND_PIT)
     if (pitItem ~= nil) then
         sanddigging.StartGathering(User, pitItem, ltstate)
         return
     end
 
-	pitItem = getSandPitempty(User)
+    local EMPTY_SAND_PIT = 3632
+    pitItem = getPit(User, EMPTY_SAND_PIT)
     if (pitItem ~= nil) then
        User:inform( "An dieser Stelle gibt es nicht mehrs zu holen.", "There isn't anything left in this pit.", Character.highPriority);
        return
     end
-	
+
     -- check for clay pit
-    pitItem = getClayPit(User)
+    local CLAY_PIT = 1206
+    pitItem = getPit(User, CLAY_PIT)
     if (pitItem ~= nil) then
         claydigging.StartGathering(User, pitItem, ltstate)
         return
     end
 
-	pitItem = getEmptyClayPit(User)
+    local EMPTY_CLAY_PIT = 3633
+    pitItem = getPit(User, EMPTY_CLAY_PIT)
     if (pitItem ~= nil) then
         User:inform( "An dieser Stelle gibt es nicht mehrs zu holen.", "There isn't anything left in this pit.", Character.highPriority);
         return
