@@ -98,8 +98,28 @@ local function getSandPit(User)
     return pitItem
 end
 
+local function getSandPitempty(User)
+    local SAND_PIT = 3632
+    local pitItem = common.GetFrontItem(User)
+    if (pitItem ~= nil and pitItem.id == SAND_PIT) then
+        return pitItem
+    end
+    pitItem = common.GetItemInArea(User.pos, SAND_PIT)
+    return pitItem
+end
+
 local function getClayPit(User)
     local CLAY_PIT = 1206
+    local pitItem = common.GetFrontItem(User)
+    if (pitItem ~= nil and pitItem.id == CLAY_PIT) then
+        return pitItem
+    end
+    pitItem = common.GetItemInArea(User.pos, CLAY_PIT)
+    return pitItem
+end
+
+local function getEmptyClayPit(User)
+    local CLAY_PIT = 3633
     local pitItem = common.GetFrontItem(User)
     if (pitItem ~= nil and pitItem.id == CLAY_PIT) then
         return pitItem
@@ -144,10 +164,22 @@ function M.UseItem(User, SourceItem, ltstate)
         return
     end
 
+	pitItem = getSandPitempty(User)
+    if (pitItem ~= nil) then
+       User:inform( "An dieser Stelle gibt es nicht mehrs zu holen.", "There isn't anything left in this pit.", Character.highPriority);
+       return
+    end
+	
     -- check for clay pit
     pitItem = getClayPit(User)
     if (pitItem ~= nil) then
         claydigging.StartGathering(User, pitItem, ltstate)
+        return
+    end
+
+	pitItem = getEmptyClayPit(User)
+    if (pitItem ~= nil) then
+        User:inform( "An dieser Stelle gibt es nicht mehrs zu holen.", "There isn't anything left in this pit.", Character.highPriority);
         return
     end
 

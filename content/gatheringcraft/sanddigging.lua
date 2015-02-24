@@ -71,51 +71,10 @@ function StartGathering(User, SourceItem, ltstate)
 	if ( amountStr ~= "" ) then
 		amount = tonumber(amountStr);
 	elseif ( SourceItem.wear == 255 ) then
-		-- first time that a (static!) herb item is harvested
 		amount = MaxAmount;
-		SourceItem:setData("amount","" .. MaxAmount);
-		changeItem = true;
 	end
-	if ( amount < 0 ) then
-		-- this should never happen...
-		User:inform("[ERROR] Negative amount " .. amount .. " for item id " .. SourceItem.id .. ". Please inform a developer.");
-		return;
-	end
-	if ( amount <= 1 ) then
-		-- check for regrow even at amount==1, so a continuous working is guaranteed
-		-- only non farming items regrow
-		local serverTime = world:getTime("unix");
-		for i=1,MaxAmount do
-			local t = SourceItem:getData("next_regrow_" .. i);
-			if ( t ~= "" and tonumber(t) <= serverTime ) then
-				-- regrow
-				amount = amount + 1;
-				SourceItem:setData("next_regrow_" .. i, "");
-				changeItem = true;
-			end
-		end
-		if ( amount == 0 ) then
-			-- not regrown...
-			common.HighInformNLS( User,
-			"An dieser Stelle gibt es nicht mehrs zu holen.",
-			"There isn't anything left in this pit." );
-			if ( changeItem ) then
-				world:changeItem(SourceItem);
-			end
-			return;
-		elseif ( amount > MaxAmount ) then
-			-- this should never happen
-			User:inform("[ERROR] Too high amount " .. amount .. " for item id " .. SourceItem.id .. ". Please inform a developer.");
-			if ( changeItem ) then
-				world:changeItem(SourceItem);
-			end
-			return;
-		else
-			SourceItem:setData("amount", "" .. amount);
-			changeItem = true;
-		end
-	end
-
+	
+	
 	-- currently not working -> let's go
 	if ( ltstate == Action.none ) then
 		sanddigging.SavedWorkTime[User.id] = sanddigging:GenWorkTime(User,toolItem);
@@ -132,37 +91,13 @@ function StartGathering(User, SourceItem, ltstate)
 		end
 		return
 	end
-
+	
+	User:learn( sanddigging.LeadSkill, sanddigging.SavedWorkTime[User.id], sanddigging.LearnLimit);
 	amount = amount - 1;
 	-- update the amount
 	SourceItem:setData("amount", "" .. amount);
-	changeItem = true;
-	-- and update the next regrow
-	local regrowOk = false;
-	for i=1,MaxAmount do
-		local t = SourceItem:getData("next_regrow_" .. i);
-		-- look for a free slot
-		if ( t == "") then
-			SourceItem:setData("next_regrow_" .. i, "" .. world:getTime("unix") + 300);
-			regrowOk = true;
-			changeItem = true;
-			break;
-		end
-	end
-	if ( not regrowOk ) then
-		-- there was no free slot, this should never happen
-		User:inform("[ERROR] There was no regrow slot for item id " .. SourceItem.id .. ". Please inform a developer.");
-		if ( changeItem ) then
-			world:changeItem(SourceItem);
-		end
-		return;
-	end
-
-  if ( changeItem ) then
-		world:changeItem(SourceItem);
-	end
-
-	User:learn( sanddigging.LeadSkill, sanddigging.SavedWorkTime[User.id], sanddigging.LearnLimit);
+	world:changeItem(SourceItem)
+	
 	local notCreated = User:createItem( 726, 1, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 726, notCreated, User.pos, true, 333, nil );
@@ -170,11 +105,22 @@ function StartGathering(User, SourceItem, ltstate)
 		"Du kannst nichts mehr halten.",
 		"You can't carry any more.");
 	else -- character can still carry something
-		sanddigging.SavedWorkTime[User.id] = sanddigging:GenWorkTime(User,toolItem);
-		User:changeSource(SourceItem);
-		User:startAction( sanddigging.SavedWorkTime[User.id], 0, 0, 0, 0);
+		if amount > 0 then
+		    sanddigging.SavedWorkTime[User.id] = sanddigging:GenWorkTime(User,toolItem)
+		    User:changeSource(SourceItem);
+		User:startAction( sanddigging.SavedWorkTime[User.id], 0, 0, 0, 0)
+		end
 	end
 
+	if amount == 0 then
+        SourceItem:setData("amount","")
+        SourceItem.id = 3632
+        SourceItem.wear = 4
+		world:changeItem(SourceItem)
+	    User:inform( "An dieser Stelle gibt es nicht mehrs zu holen.", "There isn't anything left in this pit.", Character.highPriority);
+		return
+	end
+	
 	if common.GatheringToolBreaks( User, toolItem, sanddigging:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
 		common.HighInformNLS(User,
 		"Deine alte Schaufel zerbricht.",
