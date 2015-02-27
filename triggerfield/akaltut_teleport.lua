@@ -145,10 +145,10 @@ function M.MoveToField( User )
         User:warp(position(509, 805, -9))
         world:gfx(11, User.pos)
         world:makeSound(9, User.pos)
-    elseif User.pos == position(490, 884, -9) then -- exit from Akultut's Lair to surface
+    elseif User.pos == position(490, 884, -9) then -- exit from Akultut's Lair to Dungeon
         world:gfx(41, User.pos)
         world:makeSound(13, User.pos)
-        User:warp(position(454, 770, 0))
+        User:warp(position(483, 858, -9))
         world:gfx(41, User.pos)
         world:makeSound(13, User.pos)
     elseif User.pos == position(440, 777, -9) then -- Movement from lev -9 to -6 (Trap)
