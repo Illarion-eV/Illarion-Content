@@ -157,6 +157,20 @@ function M.MoveToField( User )
         User:warp(position(538, 754, -6))
         world:gfx(41, User.pos)
         world:makeSound(13, User.pos)
+	elseif User.pos == position(491, 859, -9) then -- exit from Akultut's Lair to Dungeon
+        world:gfx(41, User.pos)
+        world:makeSound(13, User.pos)
+        User:warp(position(483, 858, -9))
+        world:gfx(41, User.pos)
+        world:makeSound(13, User.pos)
+	elseif User.pos == position(484, 856, -9) and User:getQuestProgress(530) == 27 then -- entrance to Akaltut's lair for those who completed Defensor Quests
+        world:gfx(41, User.pos)
+        world:makeSound(13, User.pos)
+        User:warp(position(494, 860, -9))
+        world:gfx(41, User.pos)
+        world:makeSound(13, User.pos)
+	elseif User.pos == position(484, 856, -9) then -- entrance to Akaltut's lair but you haven't passed tests
+	    common.InformNLS(User, "Du hast den Eingang zu Akaltuts Versteck gefunden aber nur jene können eintreten, die alle Prüfungen bestanden haben.", "You have found the entrance to Akaltut's Lair but only those who have passed all the tests may enter.")
     end
 
 end
