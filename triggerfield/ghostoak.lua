@@ -32,7 +32,7 @@ function M.MoveToField(User)
         return
     elseif User:getType() == Character.monster then
         -- Dont let Bone Ghost escape from quest area
-        if User:getMosterType() ~= 743 then -- Bone Ghost
+        if User:getMonsterType() ~= 743 then -- Bone Ghost
             return
         end
 
