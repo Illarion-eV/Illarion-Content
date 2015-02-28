@@ -14,26 +14,25 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---Teleporters in the Akaltut Chambers Dungeon
---Evie Pryler
+-- Teleporters in the Akaltut Chambers Dungeon
 
 local common = require("base.common")
 
 local M = {}
 
-function M.MoveToField( User )
+function M.MoveToField(User)
 
     if User:getType() ~= Character.player then
         return
     end
 
-    if User.pos == position(466, 798, -6) then --To the beginning of level.
+    if User.pos == position(466, 798, -6) then -- To the beginning of level
         world:gfx(41, User.pos)
         world:makeSound(13, User.pos)
         User:warp(position(466, 740, -6))
         world:gfx(41, User.pos)
         world:makeSound(13, User.pos)
-    elseif User.pos == position(503, 780, -6) then -- Wind 1 -
+    elseif User.pos == position(503, 780, -6) then -- Wind 1
         common.InformNLS(User, "Eine heftige Böe reißt dich um und wirbelt dich durch die Luft.", "Strong winds lift you off your feet and send you flying through the air.")
         world:gfx(7, User.pos)
         world:makeSound(27, User.pos)
@@ -157,23 +156,23 @@ function M.MoveToField( User )
         User:warp(position(538, 754, -6))
         world:gfx(41, User.pos)
         world:makeSound(13, User.pos)
-	elseif User.pos == position(491, 859, -9) then -- exit from Akultut's Lair to Dungeon
+    elseif User.pos == position(491, 859, -9) then -- exit from Akultut's Lair to Dungeon
         world:gfx(41, User.pos)
         world:makeSound(13, User.pos)
         User:warp(position(483, 858, -9))
         world:gfx(41, User.pos)
         world:makeSound(13, User.pos)
-	elseif User.pos == position(484, 856, -9) and User:getQuestProgress(530) == 27 then -- entrance to Akaltut's lair for those who completed Defensor Quests
+    elseif User.pos == position(484, 856, -9) and User:getQuestProgress(530) == 27 then -- entrance to Akaltut's lair for those who completed Defensor Quests
         world:gfx(41, User.pos)
         world:makeSound(13, User.pos)
         User:warp(position(494, 860, -9))
         world:gfx(41, User.pos)
         world:makeSound(13, User.pos)
-	elseif User.pos == position(484, 856, -9) then -- entrance to Akaltut's lair but you haven't passed tests
-	    common.InformNLS(User, "Du hast den Eingang zu Akaltuts Versteck gefunden aber nur jene können eintreten, die alle Prüfungen bestanden haben.", "You have found the entrance to Akaltut's Lair but only those who have passed all the tests may enter.")
+    elseif User.pos == position(484, 856, -9) then -- entrance to Akaltut's lair but you haven't passed tests
+        common.InformNLS(User,
+            "Du hast den Eingang zu Akaltuts Versteck gefunden aber nur jene können eintreten, die alle Prüfungen bestanden haben.",
+            "You have found the entrance to Akaltut's Lair but only those who have passed all the tests may enter.")
     end
-
 end
 
 return M
-
