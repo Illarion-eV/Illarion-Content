@@ -74,7 +74,7 @@ M.bookList["runewick_on_runewick"] = {english = "Runewick, Towers of Wisdom and 
 M.bookList["gods1"] = {english = "The big lore of Illarion's Gods", german = "Almanach der Götter Illarions", bookId = 10, bookGraphic = bookRedHeavy}
 M.bookList["gods2"] = {english = "Gods of Illarion", german = "Illarions Götterwelt", bookId = 11, bookGraphic = bookRedLight}
 M.bookList["gods3"] = {english = "My first lore of the Gods", german = "Meine erste Götterkunde", bookId = 12, bookGraphic = bookletBlue}
-M.bookList["statute_book_of_runewick"] = {english = "Statute Book of Runewick (35)", german = "Gesetzesbuch von Runewick (35)", bookId = 13, bookGraphic = bookBlueOrnament}
+M.bookList["statute_book_of_runewick"] = {english = "Statute Book of Runewick", german = "Gesetzesbuch von Runewick", bookId = 13, bookGraphic = bookBlueOrnament}
 M.bookList["chronicles_of_galmair"] = {english = "The Chronicles of Galmair", german = "Die Chroniken von Galmair", bookId = 14, bookGraphic = bookBlackSmallHeavy}
 M.bookList["history_of_runewick"] = {english = "History of Runewick", german = "Geschichte von Runewick", bookId = 15, bookGraphic = bookBlueSilverLong}
 M.bookList["calendar"] = {english = "Something about the Calendar", german = "Einiges Wissenswertes über den Kalender", bookId = 16, bookGraphic = bookGreyLargeHeavy}
