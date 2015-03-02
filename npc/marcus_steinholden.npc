@@ -1,0 +1,175 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+------------------------------------------------------------------------------AC
+-- NPC Name: Marcus Steinholden                                               --
+-- NPC Job:  Apprentice                                                       --
+--                                                                            --
+-- NPC Race: Human                      NPC Position:  486, 859, -9           --
+-- NPC Sex:  male                       NPC Direction: southwest              --
+--                                                                            --
+-- Author:   Evie                                                             --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+name = "Marcus Steinholden"
+race = human
+sex = male
+position = 486, 859, -9
+direction = southwest
+job = "Mage Apprentice"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Evie"
+
+lookatDE = "Dies ist Marcus Steinholden."
+lookatUS = "This is Marcus Steinholden."
+useMsgDE = "V.v.v.verletzte Marcus nicht."
+useMsgUS = "Don't h.h.hurt Marcus."
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 1
+colorHair = 0, 0, 0
+colorSkin = 230, 217, 193
+itemChest = 182
+itemMainHand = 323
+itemSecondHand =2447
+itemHands = 531
+itemTrousers = 34
+itemShoes = 1054
+
+-- QuestID=532
+--  0: No Quest taken
+--  1: Quest taken - Kill twenty drow, reward 30000cp
+-- 21: Quest 1 solved
+-- 23: Quest taken - Kill Akaltut
+-- 24: Quest 2 solved.
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is Marcus Steinholden, ask for a task. Keywords: quest, Akaltut, drow, Defensor, name, punishment.")
+"Hilfe" -> inform("[Spielhilfe] Dies ist NPC Marcus Steinholden, frage nach einer Aufgebe. Schlüsselwörter: Quest, Akaltut, Drow, Defensor, Name, Bestrafung")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Mar..Marcus does greet you."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Mar..Marcus grüßet euch."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Mar..Marcus does greet you."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Mar..Marcus grüßet euch."
+"Farewell", "Bye", "Fare well", "See you" -> "Marcus wishes you safe travels. He hopes you come back again to help him."
+"Tschüß", "Tschüss", "Wiedersehen" -> "Marcus wünscht euch eine sichere Reise. Er hofft, dass ihr zurück kommt um ihm zu helfen."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Marcus wishes you safe travels. He hopes you come back again to help him."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Marcus wünscht euch eine sichere Reise. Er hofft, dass ihr zurück kommt um ihm zu helfen."
+"who are you", "who art thou" -> "Mar.. Marcus is Marcus.  He is the apprentice to the great Master Akaltut."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Mar..Marcus ist Marcus. Er ist Zauberlehrling der großen Meisterin Akaltut."
+english, "your name", "name" -> "Mar.. Marcus is Marcus.  He is the apprentice to the great Master Akaltut."
+"ihr name", "Name" -> "Mar..Marcus ist Marcus. Er ist Zauberlehrling der großen Meisterin Akaltut."
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "Marcus does stu..study magic when his Master is not busy punishing him.  For now he guards the doors because I failed to acquire Cadomyr for Master."
+"beruf" -> "Marcus stu..studiert die Zauberei when seine Meisterin nicht damit beschäftigt ist ihn zu bestrafen. Momentan behütet er die Tore, da er Cadomyr nicht für seine Meisterin erobern konnte."
+english, "job" -> "Marcus does stu..study magic when his Master is not busy punishing him.  For now he guards the doors because I failed to acquire Cadomyr for Master."
+"job" -> "Marcus stu..studiert die Zauberei when seine Meisterin nicht damit beschäftigt ist ihn zu bestrafen. Momentan behütet er die Tore, da er Cadomyr nicht für seine Meisterin erobern konnte."
+"Sister" -> "Master has practised her arts sacrificing many children, including my own sister."
+"Schwester" -> "Die Meisterin übte sich in ihrer Kunst mit der Opferung vieler Kinder, auch meiner Schwester."
+
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
+english, "Defensor" -> "The Defensors were animated by Master to test the mettle of all those wishing to seek her."
+"Defensor" -> "Die Defensoren wurden von der Meisterin belebt um alle zu prüfen die nach ihr suchen."
+english, "Drow" -> "The Drow are some of Masters most loyal servants. She aided them with her dark magic when they sought revenge."
+"Drow" -> "Die Drow sind der Meisterin loyalste Diener. Sie half ihnen mit schwarzer Zauberei als sie Rache suchten."
+english, "Akaltut", "Master" -> "Ma..Master Akaltuts is a power mage.  She .. she bonded with a Spider Queen.. now she is neither one nor the other."
+"Akaltut" -> "Meisterin Akaltut ist ein Großmeister der Zauberei. Sie.. sie vereinigte sich mit einer Spinnenkönigin.. jetzt ist sie weder die eine noch die andere."
+
+-- Faction stuff. Please remove if you send the template to outsiders!
+"archmage" -> "The Archmage is no match for Master in magical talent."
+"Erzmagier" -> "Der Erzmagier ist nichts verglichen mit der Meisterins magischem Talent."
+english, "Elvaine", "Morgan" -> "The Archmage is no match for Master in magical talent."
+"Elvaine", "Morgan" -> "Der Erzmagier ist nichts verglichen mit der Meisterins magischem Talent."
+english, "Runewick" -> "Master planned on taking this town second on her siege of the mortal plane.  The occupants there would have fell easily."
+"Runewick" -> "Die Meisterin hatte vor diese Stadt  als zweites einzunehmen während ihrer Belagerung der Ebene der Sterblichen. Die Stadt wäre leicht gefallen."
+english, "Valerio", "Guilianni", "Don" -> "Marcus never met the Don, but he did hope to do business with him till Master was betrayed by the town."
+"Valerio", "Guilianni", "Don" -> "Marcus hat den Don niemals getroffen, aber er hoffte mit ihm Geschäfte zu machen. Bevor seine Meisterin von der Stadt betrogen wurde."
+english, "Galmair" -> "Marcus travelled to Galmair many times on Master's business. He thought he made friends, but they turned on him trying to poison Master."
+"Galmair" -> "Marcus unternahm viele Geschäftsreisen nach Galmair auf Geheiß der Meisterin. Er dachte dort Freunde gefunden zu haben, jedoch betrogen sie ihn und versuchten seine Meisterin zu vergiften."
+"Queen" -> "The Queen looked lovely in Masters webs and the runes. I wish Master would have taken her not the lizardman."
+"Königin" -> "Die Königin sah lieblich aus, eingehüllt in Netze und Runen. Ich wünschte die Meisterin hätte sie mitgenommen anstatt des Echsenmenschen."
+english, "rosaline", "edwards" -> "The Queen looked lovely in Masters webs and the runes. I wish Master would have taken her not the lizardman."
+"rosaline", "edwards" -> "Die Königin sah lieblich aus, eingehüllt in Netze und Runen. Ich wünschte die Meisterin hätte sie mitgenommen anstatt des Echsenmenschen."
+english, "Cadomyr" -> "Marcus did fail to take Cadomyr for Master. One day he will be stronger."
+"Cadomyr" -> "Marcus ist gescheitert Cadomyr für seine Meisterin zu erobern. Eines Tages wird er stärker sein."
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "Marcus does not follow any gods, only Master."
+"Götter" -> "Marcus folgt keinen Göttern, nur seiner Meisterin."
+
+-- Quests
+-- Marcus task one.  Kill twenty drow.
+-- If haven't completed previous Defensors tasks
+queststatus(530) < 27, english, "quest", "mission", "test" -> "Marcus can not let you pass if you don't finish the Defensor's test.  He has no chose, Master won't let him."
+queststatus(530) < 27, "quest", "mission", "Test" -> "Marcus kann dich nicht vorbeilassen solange ihr die Probe des Defensors nicht erledigt habt. Es hat keine Wahl, die Meisterin erlaubt es nicht."
+queststatus(530) < 27, "task", "adventure", "order" -> "Marcus can not let you pass if you don't finish the Defensor's test.  He has no chose, Master won't let him."
+queststatus(530) < 27, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Marcus kann dich nicht vorbeilassen solange ihr die Probe des Defensors nicht erledigt habt. Es hat keine Wahl, die Meisterin erlaubt es nicht."
+-- Receiving the task of Killing twenty drow
+queststatus(530) = 27, queststatus(532) = 0, english, "quest", "mission", "test" -> inform("[New quest] Akaltut's Chambers Boss Fight 1"), queststatus(532) = 1, "Marcus made a foolish mistake when he .. he did sign Master contract. To help me escape first you need to kill off twenty of the drow that are protecting Akaltut in her lair."
+queststatus(530) = 27, queststatus(532) = 0, "quest", "mission", "Test" -> inform("[Neue Quest] Kampf in Akaltuts Kammern 1"), queststatus(532) = 1, "Marcus machte einen dummen Fehler, dass er...dass er den Vertrag mit der Meisterin einging. Um mir bei meiner Flucht zu helfen müsst ihr als erstes zwanzig Drow erledigen, die Akaltut in ihrem Unterschlupf beschützen."
+queststatus(530) = 27, queststatus(532) = 0, "task", "adventure", "order" -> inform("[New quest] Akaltut's Chambers Boss Fight 1"), queststatus(532) = 1, "Marcus made a foolish mistake when he .. he did sign Master contract. To help me escape first you need to kill off twenty of the drow that are protecting Akaltut in her lair."
+queststatus(530) = 27, queststatus(532) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Kampf in Akaltuts Kammern 1"), queststatus(532) = 1, "Marcus machte einen dummen Fehler, dass er...dass er den Vertrag mit der Meisterin einging. Um mir bei meiner Flucht zu helfen müsst ihr als erstes zwanzig Drow erledigen, die Akaltut in ihrem Unterschlupf beschützen."
+-- If quest received but task not finished
+queststatus(532) > 0, queststatus(532) < 21, english,"quest", "mission", "test" -> "Marcus can not escape if you do not eliminate twenty drow in the Lair. Please help me."
+queststatus(532) > 0, queststatus(532) < 21, "quest", "mission", "Test" -> "Marcus kann nicht entkommen, wenn ihr nicht die zwanzig Drow im Unterschlupf erledigt. Bitte helft mir."
+queststatus(532) > 0, queststatus(532) < 21, "task", "adventure", "order" -> "Marcus can not escape if you do not eliminate twenty drow in the Lair. Please help me."
+queststatus(532) > 0, queststatus(532) < 21, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Marcus kann nicht entkommen, wenn ihr nicht die zwanzig Drow im Unterschlupf erledigt. Bitte helft mir."
+-- If test is finished
+queststatus(532) = 21, english, ".+" -> inform("[Quest solved] You are awarded 300 silver coins."), money + 30000, queststatus(532) = 22, "Marcus does thank you. Please take these coins for your work. I have one last task if you are ready."
+queststatus(532) = 21, ".+" -> inform("[Quest gelöst] Du erhältst 300 Silberstücke."), money + 30000, queststatus(532) = 22, "Marcus dankt euch. Nehmt bitte diese Münzen an für eure Tat. Ich habe eine letzte Aufgabe für euch wenn ihr bereit seid."
+
+-- Marcus task two: Kill Akaltut.
+-- Receiving the task of Killing Akaltut
+queststatus(532) = 22, english, "quest", "mission", "test" -> inform("[New quest] Akaltut's Chambers Boss Fight 2"), queststatus(532) = 23, "Marcus has one last request. Can..can you kill Master Akaltut for me?  Marcus thinks only that will break the bond she has over him."
+queststatus(532) = 22, "quest", "mission", "Test" -> inform("[Neue Quest] Kampf in Akaltuts Kammern 2"), queststatus(532) = 23, "Marcus hat eine letzte Aufgabe. Könn..Könnt ihr die Meisterin Akaltut für mich töten? Marcus denkt, dass nur dieser Akt den Bund brechen wird, der ihr Macht über ihn verleiht."
+queststatus(532) = 22, "task", "adventure", "order" -> inform("[New quest] Akaltut's Chambers Boss Fight 2"), queststatus(532) = 23, "Marcus has one last request. Can..can you kill Master Akaltut for me?  Marcus thinks only that will break the bond she has over him."
+queststatus(532) = 22, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Kampf in Akaltuts Kammern 2"), queststatus(532) = 23, "Marcus hat eine letzte Aufgabe. Könn..Könnt ihr die Meisterin Akaltut für mich töten? Marcus denkt, dass nur dieser Akt den Bund brechen wird, der ihr Macht über ihn verleiht."
+-- If quest received but task not finished
+queststatus(532) > 22, queststatus(532) < 24, english,"quest", "mission", "test" -> "Please kill Master Akaltut for Marcus to break their bond."
+queststatus(532) > 22, queststatus(532) < 24, "quest", "mission", "Test" -> "Bitte tötet Meisterin Akaltut für Marcus um den Bund zu brechen."
+queststatus(532) > 22, queststatus(532) < 24, "task", "adventure", "order" -> "Please kill Master Akaltut for Marcus to break their bond."
+queststatus(532) > 22, queststatus(532) < 24, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte tötet Meisterin Akaltut für Marcus um den Bund zu brechen."
+-- If test is finished
+queststatus(532) = 24, english, ".+" -> inform("[Quest solved] You are awarded a limited topaz."), item(198, 1, 333, "gemLevel" = "2"), queststatus(532) = 25, "I feel the bond weakening even now. Marcus hopes in time he will get away. Marcus could not have done this without you. Take this gem as a thank you token."
+queststatus(532) = 24, ".+" -> inform("[Quest gelöst] "), item(198, 1, 333, "gemLevel" = "2"), queststatus(532) = 2, "Ich fühle wir der Bund vergeht. Marcus hofft, dass er bald verschwunden ist. Marcus hätte es ohne euch nicht geschafft. Nehmt diesen Edelstein als Stück meines Dankes."
+
+-- All done.
+queststatus(532) = 25, english, "quest", "mission", "test" -> "You have done all Marcus could have expected.  Marcus must make his way on his own now."
+queststatus(532) = 25, "quest", "mission", "Test" -> "Ihr habt alles getan was Marcus erhoffen konnte. Marcus muss nun seinen Weg alleine gehen."
+queststatus(532) = 25, "task", "adventure", "order" -> "You have done all Marcus could have expected.  Marcus must make his way on his own now."
+queststatus(532) = 25, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr habt alles getan was Marcus erhoffen konnte. Marcus muss nun seinen Weg alleine gehen."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me ritzt blutige Runen in seinen Arm.", "#me draws runes in blood on his arm."
+cycletext "Die Mei..Mei..Meisterin ist wütend auf Marcus.", "Ma..Ma..Master is mad at Marcus."
+cycletext "Marcus wird es nächstes mal besser machen.", "Marcus will do better next time."
+cycletext "Die Meisterin ist die Größte.", "Master is the greatest."
+cycletext "#me zuckt zusammen.", "#me twitches involuntarily."
+cycletext "#me macht eine Notiz in einem Tagebuch.", "#me makes notes in a diary."
+cycletext "Marcus scheiterte daran bei der Unterwerfung Cadomyrs zu helfen. Er wird jetzt bestraft.", "Marcus failed to help Master seize Cadomyr and is being punished."
+cycletext "Die Meisterin lässt Marcus nicht sterben. Sie sagt er sei ihres für immer.", "Master won't let Marcus die. She says he is hers forever."
+cycletext "Eines Tages wenn Marcus sich würdig erweist, dann wird die Meisterin ihm alles lehren was sie weiß.", "One day when Marcus is worthy, Master will teach him all she knows."
+cycletext "#me schaut unsicher umher und spricht wenig überzeugend 'Schließt euch der Meisterin an und helft ihr'", "#me looks about nervously 'Join Master and aide her.' speaks unconvincingly."
