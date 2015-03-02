@@ -26,6 +26,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (782, 293, -9,'triggerfield.lakeoflife_triggers');
 -- INSERT INTO triggerfields VALUES (779, 293, -9,'triggerfield.lakeoflife_triggers');
 -- INSERT INTO triggerfields VALUES (786, 294, -9,'triggerfield.lakeoflife_triggers');
+-- INSERT INTO triggerfields VALUES (781, 290, -9,'triggerfield.lakeoflife_triggers');
+-- INSERT INTO triggerfields VALUES (748, 274, -9,'triggerfield.lakeoflife_triggers');
 
 --Triggerfield events in the Lake of Life dungeon
 
@@ -72,7 +74,11 @@ function M.MoveToField( User )
             User:warp(position(784, 291, -9))
             world:gfx(41, User.pos)
             world:makeSound(13, User.pos)
-        end
+	    elseif User.pos == position(781, 290, -9) then -- inform
+	        common.InformNLS(User,"Etwas scheint anders zu sein mit dem Teil des Eisgebirges in Deiner Nähe.","Something about this ice mountain near you seems different.")
+        elseif User.pos == position(748, 274, -9) then -- inform
+	        common.InformNLS(User,"Du rutscht auf etwas feuchtem Gras aus und stolperst beinahe in das eiskalte Wasser.","You slip on some wet grass and nearly stumble into the freezing cold water.")
+		end
 	end
 
 end
