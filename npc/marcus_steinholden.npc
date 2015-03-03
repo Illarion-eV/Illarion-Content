@@ -79,11 +79,11 @@ english, "your name", "name" -> "Mar.. Marcus is Marcus.  He is the apprentice t
 "ihr name", "Name" -> "Mar..Marcus ist Marcus. Er ist Zauberlehrling der großen Meisterin Akaltut."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "Marcus does stu..study magic when his Master is not busy punishing him.  For now he guards the doors because I failed to acquire Cadomyr for Master."
+"profession" -> "Marcus does stu..study magic when his Master is not busy punishing him.  For now he guards the doors because he failed to acquire Cadomyr for Master."
 "beruf" -> "Marcus stu..studiert die Zauberei when seine Meisterin nicht damit beschäftigt ist ihn zu bestrafen. Momentan behütet er die Tore, da er Cadomyr nicht für seine Meisterin erobern konnte."
-english, "job" -> "Marcus does stu..study magic when his Master is not busy punishing him.  For now he guards the doors because I failed to acquire Cadomyr for Master."
+english, "job" -> "Marcus does stu..study magic when his Master is not busy punishing him.  For now he guards the doors because he failed to acquire Cadomyr for Master."
 "job" -> "Marcus stu..studiert die Zauberei when seine Meisterin nicht damit beschäftigt ist ihn zu bestrafen. Momentan behütet er die Tore, da er Cadomyr nicht für seine Meisterin erobern konnte."
-"Sister" -> "Master has practised her arts sacrificing many children, including my own sister."
+"Sister" -> "Master has practised her arts, sacrificing many children, including my own sister."
 "Schwester" -> "Die Meisterin übte sich in ihrer Kunst mit der Opferung vieler Kinder, auch meiner Schwester."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
@@ -99,15 +99,15 @@ english, "Akaltut", "Master" -> "Ma..Master Akaltuts is a power mage.  She .. sh
 "Erzmagier" -> "Der Erzmagier ist nichts verglichen mit der Meisterins magischem Talent."
 english, "Elvaine", "Morgan" -> "The Archmage is no match for Master in magical talent."
 "Elvaine", "Morgan" -> "Der Erzmagier ist nichts verglichen mit der Meisterins magischem Talent."
-english, "Runewick" -> "Master planned on taking this town second on her siege of the mortal plane.  The occupants there would have fell easily."
+english, "Runewick" -> "Master planned on taking this town second on her siege of the mortal plane.  The occupants there would have fallen easily."
 "Runewick" -> "Die Meisterin hatte vor diese Stadt  als zweites einzunehmen während ihrer Belagerung der Ebene der Sterblichen. Die Stadt wäre leicht gefallen."
 english, "Valerio", "Guilianni", "Don" -> "Marcus never met the Don, but he did hope to do business with him till Master was betrayed by the town."
 "Valerio", "Guilianni", "Don" -> "Marcus hat den Don niemals getroffen, aber er hoffte mit ihm Geschäfte zu machen. Bevor seine Meisterin von der Stadt betrogen wurde."
 english, "Galmair" -> "Marcus travelled to Galmair many times on Master's business. He thought he made friends, but they turned on him trying to poison Master."
 "Galmair" -> "Marcus unternahm viele Geschäftsreisen nach Galmair auf Geheiß der Meisterin. Er dachte dort Freunde gefunden zu haben, jedoch betrogen sie ihn und versuchten seine Meisterin zu vergiften."
-"Queen" -> "The Queen looked lovely in Masters webs and the runes. I wish Master would have taken her not the lizardman."
+"Queen" -> "The Queen looked lovely in Master's webs and runes. I wish Master would have taken her not the lizardman."
 "Königin" -> "Die Königin sah lieblich aus, eingehüllt in Netze und Runen. Ich wünschte die Meisterin hätte sie mitgenommen anstatt des Echsenmenschen."
-english, "rosaline", "edwards" -> "The Queen looked lovely in Masters webs and the runes. I wish Master would have taken her not the lizardman."
+english, "rosaline", "edwards" -> "The Queen looked lovely in Master's webs and runes. I wish Master would have taken her not the lizardman."
 "rosaline", "edwards" -> "Die Königin sah lieblich aus, eingehüllt in Netze und Runen. Ich wünschte die Meisterin hätte sie mitgenommen anstatt des Echsenmenschen."
 english, "Cadomyr" -> "Marcus did fail to take Cadomyr for Master. One day he will be stronger."
 "Cadomyr" -> "Marcus ist gescheitert Cadomyr für seine Meisterin zu erobern. Eines Tages wird er stärker sein."
@@ -119,19 +119,19 @@ english, "Cadomyr" -> "Marcus did fail to take Cadomyr for Master. One day he wi
 -- Quests
 -- Marcus task one.  Kill twenty drow.
 -- If haven't completed previous Defensors tasks
-queststatus(530) < 27, english, "quest", "mission", "test" -> "Marcus can not let you pass if you don't finish the Defensor's test.  He has no chose, Master won't let him."
+queststatus(530) < 27, english, "quest", "mission", "test" -> "Marcus can not let you pass if you don't finish the Defensor's test.  He has no choice, Master won't let him."
 queststatus(530) < 27, "quest", "mission", "Test" -> "Marcus kann dich nicht vorbeilassen solange ihr die Probe des Defensors nicht erledigt habt. Es hat keine Wahl, die Meisterin erlaubt es nicht."
-queststatus(530) < 27, "task", "adventure", "order" -> "Marcus can not let you pass if you don't finish the Defensor's test.  He has no chose, Master won't let him."
+queststatus(530) < 27, "task", "adventure", "order" -> "Marcus can not let you pass if you don't finish the Defensor's test.  He has no choice, Master won't let him."
 queststatus(530) < 27, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Marcus kann dich nicht vorbeilassen solange ihr die Probe des Defensors nicht erledigt habt. Es hat keine Wahl, die Meisterin erlaubt es nicht."
 -- Receiving the task of Killing twenty drow
-queststatus(530) = 27, queststatus(532) = 0, english, "quest", "mission", "test" -> inform("[New quest] Akaltut's Chambers Boss Fight 1"), queststatus(532) = 1, "Marcus made a foolish mistake when he .. he did sign Master contract. To help me escape first you need to kill off twenty of the drow that are protecting Akaltut in her lair."
+queststatus(530) = 27, queststatus(532) = 0, english, "quest", "mission", "test" -> inform("[New quest] Akaltut's Chambers Boss Fight 1"), queststatus(532) = 1, "Marcus made a foolish mistake when he .. he did sign Master's contract. To help me escape, first you need to kill off twenty of the drow that are protecting Akaltut in her lair."
 queststatus(530) = 27, queststatus(532) = 0, "quest", "mission", "Test" -> inform("[Neue Quest] Kampf in Akaltuts Kammern 1"), queststatus(532) = 1, "Marcus machte einen dummen Fehler, dass er...dass er den Vertrag mit der Meisterin einging. Um mir bei meiner Flucht zu helfen müsst ihr als erstes zwanzig Drow erledigen, die Akaltut in ihrem Unterschlupf beschützen."
-queststatus(530) = 27, queststatus(532) = 0, "task", "adventure", "order" -> inform("[New quest] Akaltut's Chambers Boss Fight 1"), queststatus(532) = 1, "Marcus made a foolish mistake when he .. he did sign Master contract. To help me escape first you need to kill off twenty of the drow that are protecting Akaltut in her lair."
+queststatus(530) = 27, queststatus(532) = 0, "task", "adventure", "order" -> inform("[New quest] Akaltut's Chambers Boss Fight 1"), queststatus(532) = 1, "Marcus made a foolish mistake when he .. he did sign Master's contract. To help me escape, first you need to kill off twenty of the drow that are protecting Akaltut in her lair."
 queststatus(530) = 27, queststatus(532) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Kampf in Akaltuts Kammern 1"), queststatus(532) = 1, "Marcus machte einen dummen Fehler, dass er...dass er den Vertrag mit der Meisterin einging. Um mir bei meiner Flucht zu helfen müsst ihr als erstes zwanzig Drow erledigen, die Akaltut in ihrem Unterschlupf beschützen."
 -- If quest received but task not finished
-queststatus(532) > 0, queststatus(532) < 21, english,"quest", "mission", "test" -> "Marcus can not escape if you do not eliminate twenty drow in the Lair. Please help me."
+queststatus(532) > 0, queststatus(532) < 21, english,"quest", "mission", "test" -> "Marcus can not escape if you do not eliminate twenty drow in Akaltut's Lair. Please help me."
 queststatus(532) > 0, queststatus(532) < 21, "quest", "mission", "Test" -> "Marcus kann nicht entkommen, wenn ihr nicht die zwanzig Drow im Unterschlupf erledigt. Bitte helft mir."
-queststatus(532) > 0, queststatus(532) < 21, "task", "adventure", "order" -> "Marcus can not escape if you do not eliminate twenty drow in the Lair. Please help me."
+queststatus(532) > 0, queststatus(532) < 21, "task", "adventure", "order" -> "Marcus can not escape if you do not eliminate twenty drow in Akaltut's Lair. Please help me."
 queststatus(532) > 0, queststatus(532) < 21, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Marcus kann nicht entkommen, wenn ihr nicht die zwanzig Drow im Unterschlupf erledigt. Bitte helft mir."
 -- If test is finished
 queststatus(532) = 21, english, ".+" -> inform("[Quest solved] You are awarded 300 silver coins."), money + 30000, queststatus(532) = 22, "Marcus does thank you. Please take these coins for your work. I have one last task if you are ready."
@@ -172,4 +172,4 @@ cycletext "#me macht eine Notiz in einem Tagebuch.", "#me makes notes in a diary
 cycletext "Marcus scheiterte daran bei der Unterwerfung Cadomyrs zu helfen. Er wird jetzt bestraft.", "Marcus failed to help Master seize Cadomyr and is being punished."
 cycletext "Die Meisterin lässt Marcus nicht sterben. Sie sagt er sei ihres für immer.", "Master won't let Marcus die. She says he is hers forever."
 cycletext "Eines Tages wenn Marcus sich würdig erweist, dann wird die Meisterin ihm alles lehren was sie weiß.", "One day when Marcus is worthy, Master will teach him all she knows."
-cycletext "#me schaut unsicher umher und spricht wenig überzeugend 'Schließt euch der Meisterin an und helft ihr'", "#me looks about nervously 'Join Master and aide her.' speaks unconvincingly."
+cycletext "#me schaut unsicher umher und spricht wenig überzeugend 'Schließt euch der Meisterin an und helft ihr'", "#me looks about nervously 'Join Master and aide her.' Speaks unconvincingly."
