@@ -1,15 +1,15 @@
 -- Illarion Server
--- 
+--
 -- This program is free software: you can redistribute it and/or modify it under
 -- the terms of the GNU Affero General Public License as published by the Free
 -- Software Foundation, either version 3 of the License, or (at your option) any
 -- later version.
--- 
+--
 -- This program is distributed in the hope that it will be useful, but WITHOUT
 -- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
 -- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 -- details.
--- 
+--
 -- You should have received a copy of the GNU Affero General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
@@ -171,8 +171,8 @@ queststatus(160) = 0, chance(4.55), town = Runewick, "task", "adventure", "order
 queststatus(160) = 0, chance(4.55), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 4, "Unser Erzmagier arbeitet bis spät in die Nacht. Deshalb benötigt er einen Kerzenhalter. Bring mir bitte einen."
 
 -- Quest 4 solved, reward: 5 lamp oil, 3 rankpoints, delay: 5h
-queststatus(160) = 4, item(399, all) > 0, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded five bottles of lamp oil."), deleteItem(399, 1), item(390, 5, 599), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Our Archmage will be happy about this. Take this lamp oil for it, he doesn't need it anymore."
-queststatus(160) = 4, item(399, all) > 0, town = Runewick, ".*" -> inform("[Quest gelöst] Du erhältst fünf Lampenöl."), deleteItem(399, 1), item(390, 5, 599), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Da wird sich unser Erzmagier freuen. Nehmt doch das Lampenöl dafür, das braucht er jetzt nicht mehr."
+queststatus(160) = 4, item(399, all) > 0, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded five bottles of lamp oil."), deleteItem(399, 1), item(469, 5, 599), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Our Archmage will be happy about this. Take this lamp oil for it, he doesn't need it anymore."
+queststatus(160) = 4, item(399, all) > 0, town = Runewick, ".*" -> inform("[Quest gelöst] Du erhältst fünf Lampenöl."), deleteItem(399, 1), item(469, 5, 599), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Da wird sich unser Erzmagier freuen. Nehmt doch das Lampenöl dafür, das braucht er jetzt nicht mehr."
 
 -- Quest 4 taken but not solved, repeat the instructions
 queststatus(160) = 4, item(399, all) < 1, english, town = Runewick, "quest", "mission" -> "Have you not organized a candlestick? Do you know how hard it is to study in the dark?"

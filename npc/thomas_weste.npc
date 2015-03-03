@@ -1,15 +1,15 @@
 -- Illarion Server
--- 
+--
 -- This program is free software: you can redistribute it and/or modify it under
 -- the terms of the GNU Affero General Public License as published by the Free
 -- Software Foundation, either version 3 of the License, or (at your option) any
 -- later version.
--- 
+--
 -- This program is distributed in the hope that it will be useful, but WITHOUT
 -- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
 -- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 -- details.
--- 
+--
 -- You should have received a copy of the GNU Affero General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
@@ -117,12 +117,12 @@ queststatus(716) = 6, town = Runewick, english, "quest", "mission" -> "Ah..yes o
 queststatus(716) = 6, town = Runewick, "quest", "mission" -> "Ah..ja natürlich. Nun wollen wir etwas Lampenöl machen. Das ist sehr einfach. Ihr braucht dazu lediglich schwarze Disteln. Diese könnt Ihr auf felsigem Boden auf Grasbüscheln finden. Sammelt vier Disteln und bringt mir 2 Flaschen Öl mit, wenn Ihr fertig seid. Die Ölpresse steht gleich neben mir. Hier habt Ihr meine alte Sichel, um die Disteln zu sammeln.", item(126, 1, 333), queststatus(716) = 7
 queststatus(716) = 6, town = Runewick, "task", "adventure", "order" -> "Ah..yes of course. Well now we are going to produce some lamp oil. It's very easy to make oil, you just need black thistles. You can find them on rocky ground if you search amongst the grass tussocks. Please collect four thistles and bring me at least two bottles with oil. The oil press is next me. Take this sickle to gather the thistles.", item(126, 1, 333), queststatus(716) = 7
 queststatus(716) = 6, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ah..ja natürlich. Nun wollen wir etwas Lampenöl machen. Das ist sehr einfach. Ihr braucht dazu lediglich schwarze Disteln. Diese könnt Ihr auf felsigem Boden auf Grasbüscheln finden. Sammelt vier Disteln und bringt mir 2 Flaschen Öl mit, wenn Ihr fertig seid. Die Ölpresse steht gleich neben mir. Hier habt Ihr meine alte Sichel, um die Disteln zu sammeln.", item(126, 1, 333), queststatus(716) = 7
-queststatus(716) = 7, item(390, all) > 1, town = Runewick, english, "quest", "mission", "oil", "lamp" -> "Well done, thank you very much. I hope I was able to teach you the basic things about candle making.", deleteItem(390, 2), queststatus(716) = 8
-queststatus(716) = 7, item(390, all) > 1, town = Runewick, "quest", "mission","öl", "lampe" -> "Gut gemacht, vielen Dank. Ich hoffe, ich konnte Euch die Grundlagen des Kerzenmachens beibringen.", deleteItem(390, 2), queststatus(716) = 8
-queststatus(716) = 7, item(390, all) > 1, town = Runewick, "task", "adventure", "order" -> "Well done, thank you very much. I hope I was able to teach you the basic things about candle making.", deleteItem(390, 2), queststatus(716) = 8
-queststatus(716) = 7, item(390, all) > 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, vielen Dank. Ich hoffe, ich konnte Euch die Grundlagen des Kerzenmachens beibringen.", deleteItem(390, 2), queststatus(716) = 8
-queststatus(716) = 7, item(390, all) < 2, town = Runewick, english, ".+" -> "I want two bottles of lamp oil, please come back once you are done with this task."
-queststatus(716) = 7, item(390, all) < 2, town = Runewick, ".+" -> "Ich wollte zwei Flaschen mit Lampenöl. Bitte kommt wieder, wenn Ihr fertig seid."
+queststatus(716) = 7, item(469, all) > 1, town = Runewick, english, "quest", "mission", "oil", "lamp" -> "Well done, thank you very much. I hope I was able to teach you the basic things about candle making.", deleteItem(469, 2), queststatus(716) = 8
+queststatus(716) = 7, item(469, all) > 1, town = Runewick, "quest", "mission","öl", "lampe" -> "Gut gemacht, vielen Dank. Ich hoffe, ich konnte Euch die Grundlagen des Kerzenmachens beibringen.", deleteItem(469, 2), queststatus(716) = 8
+queststatus(716) = 7, item(469, all) > 1, town = Runewick, "task", "adventure", "order" -> "Well done, thank you very much. I hope I was able to teach you the basic things about candle making.", deleteItem(469, 2), queststatus(716) = 8
+queststatus(716) = 7, item(469, all) > 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut gemacht, vielen Dank. Ich hoffe, ich konnte Euch die Grundlagen des Kerzenmachens beibringen.", deleteItem(469, 2), queststatus(716) = 8
+queststatus(716) = 7, item(469, all) < 2, town = Runewick, english, ".+" -> "I want two bottles of lamp oil, please come back once you are done with this task."
+queststatus(716) = 7, item(469, all) < 2, town = Runewick, ".+" -> "Ich wollte zwei Flaschen mit Lampenöl. Bitte kommt wieder, wenn Ihr fertig seid."
 
 -- Response after quest is done
 queststatus(716) = 8, english, town = Runewick, "quest", "mission" -> "I don't have anything more for you to do. Thank you for the help though!"
