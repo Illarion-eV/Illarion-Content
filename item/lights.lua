@@ -49,10 +49,10 @@ LightsOn[2852] = { off = 2854 };
 LightsOff[399] = { on = 400, req = { id = 43, num = 1 } };
 LightsOn[400] = { off = 399, portable = true };
 -- oil lamp
-LightsOff[92] = { on = 397, req = { id = 390, num = 1 } };
+LightsOff[92] = { on = 397, req = { id = 469, num = 1 } };
 LightsOn[397] = { off = 92, portable = true };
 -- oil lamp holder
-LightsOff[395] = { on = 396, req = { id = 390, num = 1 } };
+LightsOff[395] = { on = 396, req = { id = 469, num = 1 } };
 LightsOn[396] = { off = 395 };
 -- lantern
 LightsOff[393] = { on = 394, req = { id = 43, num = 1 } }; -- black, portable
@@ -61,8 +61,8 @@ LightsOff[2856] = { on = 2855, req = { id = 43, num = 1 } }; -- grey, static
 LightsOn[2855] = { off = 2856 };
 
 ReqTexts = {};
-ReqTexts.german = { [392] = "Fackeln", [43] = "Kerzen", [390] = "Lampenöl" };
-ReqTexts.english = { [392] = "torches", [43] = "candles", [390] = "lamp oil" };
+ReqTexts.german = { [392] = "Fackeln", [43] = "Kerzen", [469] = "Lampenöl" };
+ReqTexts.english = { [392] = "torches", [43] = "candles", [469] = "lamp oil" };
 
 function M.UseItem(User, SourceItem, ltstate)
 

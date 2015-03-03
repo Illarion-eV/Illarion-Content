@@ -46,7 +46,11 @@ product = glassblowing:addProduct(catId, 2498, 15, 40, 7, 14)
 product:addIngredient(41, 2) -- Glass Ingot: 2x
 
 --Small Empty Bottle
-product = glassblowing:addProduct(catId, 1317, 10, 30, 7, 14)
+product = glassblowing:addProduct(catId, 1317, 10, 35, 7, 14)
+product:addIngredient(41) -- Glass Ingot: 1x
+
+--Empty Oil Bottle (390) (Lamp Oil)
+product = glassblowing:addProduct(catId, 390, 5, 30, 6, 12)
 product:addIngredient(41) -- Glass Ingot: 1x
 
 --Empty Juice Bottle (790) (Smoothies :p)
