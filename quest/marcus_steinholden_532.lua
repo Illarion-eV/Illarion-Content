@@ -103,7 +103,7 @@ monsterQuests.addQuest{
     queststatus = {from = 1, to = 21},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Dunkelelfen", english = "drows"},
-    npcName = "Marcus",
+    npcName = "Marcus Steinholden",
     monsterGroupIds = {6} -- all drows
 }
 monsterQuests.addQuest{
@@ -112,7 +112,7 @@ monsterQuests.addQuest{
     queststatus = {from = 23, to = 24},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Akaltut", english = "Akaltut"},
-    npcName = "Marcus",
+    npcName = "Marcus Steinholden",
     monsterIds = {1141} -- Akaltut
 }
 
