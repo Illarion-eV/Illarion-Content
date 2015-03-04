@@ -81,7 +81,7 @@ function M.MoveToField( User )
         elseif User.pos == position(748, 274, -9) then -- inform
 	        common.InformNLS(User,"Du rutscht auf etwas feuchtem Gras aus und stolperst beinahe in das eiskalte Wasser.","You slip on some wet grass and nearly stumble into the freezing cold water.")
 		elseif User.pos == position(721, 244, -9) or User.pos == position(721, 243, -9)  then -- bridge inform
-            common.InformNLS(User,"Eine seltsames mechanisches Gerät scheint sich im Wasser nahe der Stütztpfeiler zu befinden. Vielleicht gibt es einen Weg es zu bedienen und herauszufinden, was es bewirkt.", "There appears to be a strange mechanical device in the water near the support posts. Perhaps a way can be found to operate it and see what it does.")
+            common.InformNLS(User,"Ein seltsames mechanisches Gerät scheint sich im Wasser nahe der Stütztpfeiler zu befinden. Vielleicht gibt es einen Weg, es zu bedienen und herauszufinden, was es bewirkt.", "There appears to be a strange mechanical device in the water near the support posts. Perhaps a way can be found to operate it and see what it does.")
 		end
 	end
 
