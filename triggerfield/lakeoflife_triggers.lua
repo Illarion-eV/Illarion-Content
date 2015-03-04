@@ -28,6 +28,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (786, 294, -9,'triggerfield.lakeoflife_triggers');
 -- INSERT INTO triggerfields VALUES (781, 290, -9,'triggerfield.lakeoflife_triggers');
 -- INSERT INTO triggerfields VALUES (748, 274, -9,'triggerfield.lakeoflife_triggers');
+-- INSERT INTO triggerfields VALUES (721, 244, -9,'triggerfield.lakeoflife_triggers');
+-- INSERT INTO triggerfields VALUES (721, 243, -9,'triggerfield.lakeoflife_triggers');
 
 --Triggerfield events in the Lake of Life dungeon
 
@@ -78,6 +80,8 @@ function M.MoveToField( User )
 	        common.InformNLS(User,"Etwas scheint anders zu sein mit dem Teil des Eisgebirges in Deiner Nähe.","Something about this ice mountain near you seems different.")
         elseif User.pos == position(748, 274, -9) then -- inform
 	        common.InformNLS(User,"Du rutscht auf etwas feuchtem Gras aus und stolperst beinahe in das eiskalte Wasser.","You slip on some wet grass and nearly stumble into the freezing cold water.")
+		elseif User.pos == position(721, 244, -9) or User.pos == position(721, 243, -9)  then -- bridge inform
+            common.InformNLS(User,"Eine seltsames mechanisches Gerät scheint sich im Wasser nahe der Stütztpfeiler zu befinden. Vielleicht gibt es einen Weg es zu bedienen und herauszufinden, was es bewirkt.", "There appears to be a strange mechanical device in the water near the support posts. Perhaps a way can be found to operate it and see what it does.")
 		end
 	end
 
