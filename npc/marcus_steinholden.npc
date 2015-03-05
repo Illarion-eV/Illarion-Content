@@ -1,15 +1,15 @@
 -- Illarion Server
--- 
+--
 -- This program is free software: you can redistribute it and/or modify it under
 -- the terms of the GNU Affero General Public License as published by the Free
 -- Software Foundation, either version 3 of the License, or (at your option) any
 -- later version.
--- 
+--
 -- This program is distributed in the hope that it will be useful, but WITHOUT
 -- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
 -- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 -- details.
--- 
+--
 -- You should have received a copy of the GNU Affero General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
@@ -38,7 +38,7 @@ author = "Evie"
 
 lookatDE = "Dies ist Marcus Steinholden."
 lookatUS = "This is Marcus Steinholden."
-useMsgDE = "V.v.v.verletzte Marcus nicht."
+useMsgDE = "V.v.v.verletze Marcus nicht."
 useMsgUS = "Don't h.h.hurt Marcus."
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
@@ -73,15 +73,15 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Mar..Marcus does greet you."
 "Tschüß", "Tschüss", "Wiedersehen" -> "Marcus wünscht euch eine sichere Reise. Er hofft, dass ihr zurück kommt um ihm zu helfen."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Marcus wishes you safe travels. He hopes you come back again to help him."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Marcus wünscht euch eine sichere Reise. Er hofft, dass ihr zurück kommt um ihm zu helfen."
-"who are you", "who art thou" -> "Mar.. Marcus is Marcus.  He is the apprentice to the great Master Akaltut."
+"who are you", "who art thou" -> "Mar.. Marcus is Marcus. He is the apprentice to the great Master Akaltut."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Mar..Marcus ist Marcus. Er ist Zauberlehrling der großen Meisterin Akaltut."
-english, "your name", "name" -> "Mar.. Marcus is Marcus.  He is the apprentice to the great Master Akaltut."
+english, "your name", "name" -> "Mar.. Marcus is Marcus. He is the apprentice to the great Master Akaltut."
 "ihr name", "Name" -> "Mar..Marcus ist Marcus. Er ist Zauberlehrling der großen Meisterin Akaltut."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "Marcus does stu..study magic when his Master is not busy punishing him.  For now he guards the doors because he failed to acquire Cadomyr for Master."
+"profession" -> "Marcus does stu..study magic when his Master is not busy punishing him. For now he guards the doors because he failed to acquire Cadomyr for Master."
 "beruf" -> "Marcus stu..studiert die Zauberei when seine Meisterin nicht damit beschäftigt ist ihn zu bestrafen. Momentan behütet er die Tore, da er Cadomyr nicht für seine Meisterin erobern konnte."
-english, "job" -> "Marcus does stu..study magic when his Master is not busy punishing him.  For now he guards the doors because he failed to acquire Cadomyr for Master."
+english, "job" -> "Marcus does stu..study magic when his Master is not busy punishing him. For now he guards the doors because he failed to acquire Cadomyr for Master."
 "job" -> "Marcus stu..studiert die Zauberei when seine Meisterin nicht damit beschäftigt ist ihn zu bestrafen. Momentan behütet er die Tore, da er Cadomyr nicht für seine Meisterin erobern konnte."
 "Sister" -> "Master has practised her arts, sacrificing many children, including my own sister."
 "Schwester" -> "Die Meisterin übte sich in ihrer Kunst mit der Opferung vieler Kinder, auch meiner Schwester."
@@ -91,7 +91,7 @@ english, "Defensor" -> "The Defensors were animated by Master to test the mettle
 "Defensor" -> "Die Defensoren wurden von der Meisterin belebt um alle zu prüfen die nach ihr suchen."
 english, "Drow" -> "The Drow are some of Masters most loyal servants. She aided them with her dark magic when they sought revenge."
 "Drow" -> "Die Drow sind der Meisterin loyalste Diener. Sie half ihnen mit schwarzer Zauberei als sie Rache suchten."
-english, "Akaltut", "Master" -> "Ma..Master Akaltuts is a powerful mage.  She .. she bonded with a Spider Queen.. now she is neither one nor the other."
+english, "Akaltut", "Master" -> "Ma..Master Akaltut is a powerful mage. She.. she bonded with a Spider Queen.. now she is neither one nor the other."
 "Akaltut" -> "Meisterin Akaltut ist ein Großmeister der Zauberei. Sie.. sie vereinigte sich mit einer Spinnenkönigin.. jetzt ist sie weder die eine noch die andere."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
@@ -99,7 +99,7 @@ english, "Akaltut", "Master" -> "Ma..Master Akaltuts is a powerful mage.  She ..
 "Erzmagier" -> "Der Erzmagier ist nichts verglichen mit der Meisterins magischem Talent."
 english, "Elvaine", "Morgan" -> "The Archmage is no match for Master in magical talent."
 "Elvaine", "Morgan" -> "Der Erzmagier ist nichts verglichen mit der Meisterins magischem Talent."
-english, "Runewick" -> "Master planned on taking this town second on her siege of the mortal plane.  The occupants there would have fallen easily."
+english, "Runewick" -> "Master planned on taking this town second on her siege of the mortal plane. The occupants there would have fallen easily."
 "Runewick" -> "Die Meisterin hatte vor diese Stadt  als zweites einzunehmen während ihrer Belagerung der Ebene der Sterblichen. Die Stadt wäre leicht gefallen."
 english, "Valerio", "Guilianni", "Don" -> "Marcus never met the Don, but he did hope to do business with him till Master was betrayed by the town."
 "Valerio", "Guilianni", "Don" -> "Marcus hat den Don niemals getroffen, aber er hoffte mit ihm Geschäfte zu machen. Bevor seine Meisterin von der Stadt betrogen wurde."
@@ -119,14 +119,14 @@ english, "Cadomyr" -> "Marcus did fail to take Cadomyr for Master. One day he wi
 -- Quests
 -- Marcus task one.  Kill twenty drow.
 -- If haven't completed previous Defensors tasks
-queststatus(530) < 27, english, "quest", "mission", "test" -> "Marcus can not let you pass if you don't finish the Defensor's test.  He has no choice, Master won't let him."
+queststatus(530) < 27, english, "quest", "mission", "test" -> "Marcus can not let you pass if you don't finish the Defensor's test. He has no choice, Master won't let him."
 queststatus(530) < 27, "quest", "mission", "Test" -> "Marcus kann dich nicht vorbeilassen solange ihr die Probe des Defensors nicht erledigt habt. Es hat keine Wahl, die Meisterin erlaubt es nicht."
-queststatus(530) < 27, "task", "adventure", "order" -> "Marcus can not let you pass if you don't finish the Defensor's test.  He has no choice, Master won't let him."
+queststatus(530) < 27, "task", "adventure", "order" -> "Marcus can not let you pass if you don't finish the Defensor's test. He has no choice, Master won't let him."
 queststatus(530) < 27, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Marcus kann dich nicht vorbeilassen solange ihr die Probe des Defensors nicht erledigt habt. Es hat keine Wahl, die Meisterin erlaubt es nicht."
 -- Receiving the task of Killing twenty drow
-queststatus(530) = 27, queststatus(532) = 0, english, "quest", "mission", "test" -> inform("[New quest] Akaltut's Chambers Boss Fight 1"), queststatus(532) = 1, "Marcus made a foolish mistake when he .. he did sign Master's contract. To help me escape, first you need to kill off twenty of the drow that are protecting Akaltut in her lair."
+queststatus(530) = 27, queststatus(532) = 0, english, "quest", "mission", "test" -> inform("[New quest] Akaltut's Chambers Boss Fight 1"), queststatus(532) = 1, "Marcus made a foolish mistake when he.. he did sign Master's contract. To help me escape, first you need to kill off twenty of the drow that are protecting Akaltut in her lair."
 queststatus(530) = 27, queststatus(532) = 0, "quest", "mission", "Test" -> inform("[Neue Quest] Kampf in Akaltuts Kammern 1"), queststatus(532) = 1, "Marcus machte einen dummen Fehler, dass er...dass er den Vertrag mit der Meisterin einging. Um mir bei meiner Flucht zu helfen müsst ihr als erstes zwanzig Drow erledigen, die Akaltut in ihrem Unterschlupf beschützen."
-queststatus(530) = 27, queststatus(532) = 0, "task", "adventure", "order" -> inform("[New quest] Akaltut's Chambers Boss Fight 1"), queststatus(532) = 1, "Marcus made a foolish mistake when he .. he did sign Master's contract. To help me escape, first you need to kill off twenty of the drow that are protecting Akaltut in her lair."
+queststatus(530) = 27, queststatus(532) = 0, "task", "adventure", "order" -> inform("[New quest] Akaltut's Chambers Boss Fight 1"), queststatus(532) = 1, "Marcus made a foolish mistake when he.. he did sign Master's contract. To help me escape, first you need to kill off twenty of the drow that are protecting Akaltut in her lair."
 queststatus(530) = 27, queststatus(532) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Kampf in Akaltuts Kammern 1"), queststatus(532) = 1, "Marcus machte einen dummen Fehler, dass er...dass er den Vertrag mit der Meisterin einging. Um mir bei meiner Flucht zu helfen müsst ihr als erstes zwanzig Drow erledigen, die Akaltut in ihrem Unterschlupf beschützen."
 -- If quest received but task not finished
 queststatus(532) > 0, queststatus(532) < 21, english,"quest", "mission", "test" -> "Marcus can not escape if you do not eliminate twenty drow in Akaltut's Lair. Please help me."
@@ -139,9 +139,9 @@ queststatus(532) = 21, ".+" -> inform("[Quest gelöst] Du erhältst 300 Silberstüc
 
 -- Marcus task two: Kill Akaltut.
 -- Receiving the task of Killing Akaltut
-queststatus(532) = 22, english, "quest", "mission", "test" -> inform("[New quest] Akaltut's Chambers Boss Fight 2"), queststatus(532) = 23, "Marcus has one last request. Can..can you kill Master Akaltut for me?  Marcus thinks only that will break the bond she has over him."
+queststatus(532) = 22, english, "quest", "mission", "test" -> inform("[New quest] Akaltut's Chambers Boss Fight 2"), queststatus(532) = 23, "Marcus has one last request. Can..can you kill Master Akaltut for me? Marcus thinks only that will break the bond she has over him."
 queststatus(532) = 22, "quest", "mission", "Test" -> inform("[Neue Quest] Kampf in Akaltuts Kammern 2"), queststatus(532) = 23, "Marcus hat eine letzte Aufgabe. Könn..Könnt ihr die Meisterin Akaltut für mich töten? Marcus denkt, dass nur dieser Akt den Bund brechen wird, der ihr Macht über ihn verleiht."
-queststatus(532) = 22, "task", "adventure", "order" -> inform("[New quest] Akaltut's Chambers Boss Fight 2"), queststatus(532) = 23, "Marcus has one last request. Can..can you kill Master Akaltut for me?  Marcus thinks only that will break the bond she has over him."
+queststatus(532) = 22, "task", "adventure", "order" -> inform("[New quest] Akaltut's Chambers Boss Fight 2"), queststatus(532) = 23, "Marcus has one last request. Can..can you kill Master Akaltut for me? Marcus thinks only that will break the bond she has over him."
 queststatus(532) = 22, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Kampf in Akaltuts Kammern 2"), queststatus(532) = 23, "Marcus hat eine letzte Aufgabe. Könn..Könnt ihr die Meisterin Akaltut für mich töten? Marcus denkt, dass nur dieser Akt den Bund brechen wird, der ihr Macht über ihn verleiht."
 -- If quest received but task not finished
 queststatus(532) > 22, queststatus(532) < 24, english,"quest", "mission", "test" -> "Please kill Master Akaltut for Marcus to break their bond."
@@ -153,9 +153,9 @@ queststatus(532) = 24, english, ".+" -> inform("[Quest solved] You are awarded a
 queststatus(532) = 24, ".+" -> inform("[Quest gelöst] "), item(198, 1, 333, "gemLevel" = "2"), queststatus(532) = 2, "Ich fühle wir der Bund vergeht. Marcus hofft, dass er bald verschwunden ist. Marcus hätte es ohne euch nicht geschafft. Nehmt diesen Edelstein als Stück meines Dankes."
 
 -- All done.
-queststatus(532) = 25, english, "quest", "mission", "test" -> "You have done all Marcus could have expected.  Marcus must make his way on his own now."
+queststatus(532) = 25, english, "quest", "mission", "test" -> "You have done all Marcus could have expected. Marcus must make his way on his own now."
 queststatus(532) = 25, "quest", "mission", "Test" -> "Ihr habt alles getan was Marcus erhoffen konnte. Marcus muss nun seinen Weg alleine gehen."
-queststatus(532) = 25, "task", "adventure", "order" -> "You have done all Marcus could have expected.  Marcus must make his way on his own now."
+queststatus(532) = 25, "task", "adventure", "order" -> "You have done all Marcus could have expected. Marcus must make his way on his own now."
 queststatus(532) = 25, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr habt alles getan was Marcus erhoffen konnte. Marcus muss nun seinen Weg alleine gehen."
 
 ------------------------------------------------------------------------------AC
