@@ -47,8 +47,8 @@ Description[ENGLISH][4] = "Collect 10 logs for Zenia to help her and gather supp
 Description[GERMAN][5] = "Rede mit Zenia, sie hat vielleicht eine weitere Aufgabe für dich."
 Description[ENGLISH][5] = "Check with Zenia, she may have another task for you."
 
-Description[GERMAN][6] = "Sammle 20 Batzen Schlamm, um Zenia dabei zu helfen, das Material für das Floß zu sammeln."
-Description[ENGLISH][6] = "Collect 20 shovels full of mud for Zenia to help her and gather supplies for your raft."
+Description[GERMAN][6] = "Sammle 10 Batzen Schlamm, um Zenia dabei zu helfen, das Material für das Floß zu sammeln."
+Description[ENGLISH][6] = "Collect 10 shovels full of mud for Zenia to help her and gather supplies for your raft."
 Description[GERMAN][7] = "Rede mit Zenia, sie hat vielleicht eine weitere Aufgabe für dich."
 Description[ENGLISH][7] = "Check with Zenia, she may have another task for you."
 

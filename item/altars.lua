@@ -152,10 +152,10 @@ local function ZeniaAltar(User, SourceItem)
     if User:getQuestProgress(502) == 1 then
         User:setQuestProgress(502, 2) --Prayer done
         User:inform("[Quest status] Du hast gebetet und hoffentlich Zenia damit erfreut. Kehre zu ihr zurück", "[Quest status] You feel as if you have prayed sufficient to please Zenia. Please return to her.")
-    elseif User:getQuestProgress(502) == 8 and User:countItemAt("all", 2760) >= 4 and User:countItemAt("all", 3) >= 5 and User:countItemAt("all", 26) >= 10 and User:countItemAt("all", 73) >= 10 then -- Take raft items
-        User:eraseItem(2760, 4)
+    elseif User:getQuestProgress(502) == 8 and User:countItemAt("all", 2760) >= 2 and User:countItemAt("all", 3) >= 5 and User:countItemAt("all", 26) >= 5 and User:countItemAt("all", 73) >= 10 then -- Take raft items
+        User:eraseItem(2760, 2)
 		User:eraseItem(3, 5)
-		User:eraseItem(26, 10)
+		User:eraseItem(26, 5)
 		User:eraseItem(73, 10)
 		User:setQuestProgress(502, 9) --  You made a raft.
 		User:inform("[Quest status] Du sieht, nach dem Beten, dass die Materialien sich von selbst zu einem kleinen Floss zusammenfügen.  Du klettert darauf und wird zu einer kleinen Insel transportiert.", "[Quest status] After praying, you see the items magically form a small raft.  You climb on board and are transported to a small island.")
