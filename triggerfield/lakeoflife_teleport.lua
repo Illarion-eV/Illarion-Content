@@ -19,6 +19,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (559, 258, 0,'triggerfield.lakeoflife_teleport');
 -- INSERT INTO triggerfields VALUES (727, 324, -9,'triggerfield.lakeoflife_teleport');
 -- INSERT INTO triggerfields VALUES (756, 351, -9,'triggerfield.lakeoflife_teleport');
+-- INSERT INTO triggerfields VALUES (753, 333, -9,'triggerfield.lakeoflife_teleport');
+
 
 --Teleporters in the Lake of Life dungeon
 
@@ -58,6 +60,12 @@ function M.MoveToField( User )
         User:warp(position(734, 323, -9))
         world:gfx(11, User.pos)
         world:makeSound(9, User.pos)
+    elseif User.pos == position(753, 333, -9) then -- trapped on Zenia island so out to Hempty
+	    world:gfx(41, User.pos)
+	    world:makeSound(13, User.pos)
+        User:warp(position(384, 307, 0))
+	    world:gfx(41, User.pos)
+	    world:makeSound(13, User.pos)
 	end
 
 end
