@@ -56,8 +56,8 @@ Description[ENGLISH][7] = "Count the bridges in the Underground Lake of Life and
 Description[GERMAN][8] = "Rede mit Ssalva, sie hat vielleicht eine weitere Aufgabe für dich."
 Description[ENGLISH][8] = "Check with Ssalva, she may have another task for you."
 
-Description[GERMAN][9] = "Finde die Opferstelle im See des Lebens und opfere Tanora dort eine Wasserblüte. Danach kehre zu Salva zurück, um weitere Anweisungen zu erhalten."
-Description[ENGLISH][9] = "Find the offering plate in the Lake of Life and leave an offering of one waterblossom for Tanora.  After doing so, report back to Ssalva for further instructions."
+Description[GERMAN][9] = "Finde die Opferstelle im See des Lebens und opfere Tanora dort eine Wasserblüte. *Lege den Gegenstand auf die Opferplatte im Verlies.* Danach kehre zu Salva zurück, um weitere Anweisungen zu erhalten."
+Description[ENGLISH][9] = "Find the offering plate in the Lake of Life and leave an offering of one waterblossom for Tanora. *Place the item on the offering plate inside the dungeon.* After doing so, report back to Ssalva for further instructions."
 Description[GERMAN][10] = "Kehre zu Ssalva zurück. Du hast ihre Aufgabe erledigt."
 Description[ENGLISH][10] = "Return to Ssalva, you have finished her task."
 
