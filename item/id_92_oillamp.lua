@@ -23,15 +23,17 @@ local common = require("base.common")
 local M = {}
 
 function M.UseItem(User, SourceItem)
-    local x=math.random(99);
-    if x < 6 then
-        common.InformNLS(User,"Du bist nicht sicher, aber es scheint als würde die Lampe etwas leuchten","You are not sure, but it seems the lamp starts to glow a little.");
-    elseif x < 16 then
-        common.InformNLS(User,"Du glaubst zu fühlen, dass die Lampe wärmer wird","You think the lamp gets warmer!");
-    else
-        common.InformNLS(User,"Du reibst an der Lampe, doch nichts passiert.","You rub the lamp but nothing happens.");
 
+    local randomValue = Random.uniform(1,99)
+    
+    if randomValue < 6 then
+        User:inform("Du bist nicht sicher, aber es scheint als würde die Lampe etwas leuchten","You are not sure, but it seems the lamp starts to glow a little.")
+    elseif randomValue < 16 then
+        User:inform("Du glaubst zu fühlen, dass die Lampe wärmer wird","You think the lamp gets warmer!")
+    else
+        User:inform("Du reibst an der Lampe, doch nichts passiert.","You rub the lamp but nothing happens.")
     end
+    
 end
 
 return M
