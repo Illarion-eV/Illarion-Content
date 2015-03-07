@@ -16,6 +16,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Quest: Zzarn'K Ska of Zelphia (501) - Saving Triggerfield events.
 -- INSERT INTO triggerfields VALUES (638, 271, 0,'triggerfield.zzarnkskaofzelphia');
+-- INSERT INTO triggerfields VALUES (636, 271, 0,'triggerfield.zzarnkskaofzelphia');
+-- INSERT INTO triggerfields VALUES (636, 272, 0,'triggerfield.zzarnkskaofzelphia');
+-- INSERT INTO triggerfields VALUES (636, 273, 0,'triggerfield.zzarnkskaofzelphia');
+-- INSERT INTO triggerfields VALUES (636, 274, 0,'triggerfield.zzarnkskaofzelphia');
 -- INSERT INTO triggerfields VALUES (722, 244, -9,'triggerfield.zzarnkskaofzelphia');
 -- INSERT INTO triggerfields VALUES (723, 244, -9,'triggerfield.zzarnkskaofzelphia');
 -- INSERT INTO triggerfields VALUES (782, 297, -9,'triggerfield.zzarnkskaofzelphia');
@@ -26,14 +30,13 @@ local M = {}
 
 function M.MoveToField(User)
 
-    if  User.pos == position(638, 271, 0)  and User:getQuestProgress(501) == 1 then -- Player found Lake of Life Dungeon entrance.
-        User:setQuestProgress(501, 2)
+    if  User.pos == position(638, 271, 0) then -- Player found Lake of Life Dungeon entrance.
         User:warp(position(638, 271, -9))
+    
+	elseif User.pos == position(636, 271, 0)  or User.pos == position(636, 272, 0) or User.pos == position(636, 273, 0) or User.pos == position(636, 274, 0)  and User:getQuestProgress(501) == 1 then -- Player found Lake of Life Dungeon entrance.
+        User:setQuestProgress(501, 2)
         common.InformNLS(User, "Du hast den Eingang zum See des Lebens gefunden. Kehre zu Salva zurück, du hast ihre Aufgabe erfüllt.", "You have found the entrance to the Lake of Life. Return to Ssalva, you have finished her task.")
 		
-	elseif User.pos == position(638, 271, 0)  and User:getQuestProgress(501) ~= 1 then -- Going to dungeon Lake of Life Dungeon entrance.
-        User:warp(position(638, 271, -9))
-
 	elseif User:isInRangeToPosition((position (722 , 244, -9)), 2) and User:getQuestProgress(501) == 4 then -- Player found Lake of Life Dungeon second Island.
 	    User:setQuestProgress(501, 5)
         common.InformNLS(User, "Du hast die zweite Insel gefunden. Kehre zu Salva zurück, du hast ihre Aufgabe erfüllt.", "You have found the second island. Return to Ssalva, you have finished her task.")

@@ -30,6 +30,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (748, 274, -9,'triggerfield.lakeoflife_triggers');
 -- INSERT INTO triggerfields VALUES (721, 244, -9,'triggerfield.lakeoflife_triggers');
 -- INSERT INTO triggerfields VALUES (721, 243, -9,'triggerfield.lakeoflife_triggers');
+-- INSERT INTO triggerfields VALUES (720, 243, -9,'triggerfield.lakeoflife_triggers');
 
 --Triggerfield events in the Lake of Life dungeon
 
@@ -79,8 +80,8 @@ function M.MoveToField( User )
 	        common.InformNLS(User,"Etwas scheint anders zu sein mit dem Teil des Eisgebirges in Deiner Nähe.","Something about this ice mountain near you seems different.")
         elseif Random.uniform(1, 4) == 1 and User.pos == position(748, 274, -9) then -- inform
 	        common.InformNLS(User,"Du rutscht auf etwas feuchtem Gras aus und stolperst beinahe in das eiskalte Wasser.","You slip on some wet grass and nearly stumble into the freezing cold water.")
-		elseif User.pos == position(721, 244, -9) or User.pos == position(721, 243, -9)  then -- bridge inform
-            common.InformNLS(User,"Ein seltsames mechanisches Gerät scheint sich im Wasser nahe der Stütztpfeiler zu befinden. Vielleicht gibt es einen Weg, es zu bedienen und herauszufinden, was es bewirkt.", "There appears to be a strange mechanical device in the water near the support posts. Perhaps a way can be found to operate it and see what it does.")
+		elseif User.pos == position(721, 244, -9) or User.pos == position(721, 243, -9) or User.pos == position(720, 243, -9)  then -- bridge inform
+            common.InformNLS(User,"Über das Wasser aus dem Teilbrücken Sie einen Hebel sehen, vielleicht gibt es einen irgendwo auf dieser Seite ebenso.", "Across the water from the partial bridge you see a lever, maybe there is one somewhere on this side as well.")
 	end
 
 end
