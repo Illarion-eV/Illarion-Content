@@ -81,7 +81,7 @@ function M.MoveToField( User )
         elseif Random.uniform(1, 4) == 1 and User.pos == position(748, 274, -9) then -- inform
 	        common.InformNLS(User,"Du rutscht auf etwas feuchtem Gras aus und stolperst beinahe in das eiskalte Wasser.","You slip on some wet grass and nearly stumble into the freezing cold water.")
 		elseif User.pos == position(721, 244, -9) or User.pos == position(721, 243, -9) or User.pos == position(720, 243, -9)  then -- bridge inform
-            common.InformNLS(User,"Über das Wasser aus dem Teilbrücken Sie einen Hebel sehen, vielleicht gibt es einen irgendwo auf dieser Seite ebenso.", "Across the water from the partial bridge you see a lever, maybe there is one somewhere on this side as well.")
+            common.InformNLS(User,"Gegenüber des Wassers von der unvollständigen Brücke siehst Du einen Hebel. Vielleicht gibt es auf dieser Seite auch einen.", "Across the water from the partial bridge you see a lever, maybe there is one somewhere on this side as well.")
 	end
 
 end
