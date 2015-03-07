@@ -362,6 +362,22 @@ function M.callEffect( Effect, Char ) -- Effect is called
     end
     --Addition end
 	
+	        --Addition by Evie: Quest 508/509 Lake of Life Fountains and cool down
+	theQuestStatus=Char:getQuestProgress(509)
+
+    if theQuestStatus == 1 then --Time over!
+
+        common.InformNLS(Char,"Alles Nässe der Reinigung ist wieder weg und du bist trocken.","You have fully dried off from your cleansing.") -- Feedback!  You dried off!
+		Char:setQuestProgress(508,0)
+		
+    end
+	
+    if theQuestStatus > 0 then --Is there a countdown? Will be reduced even if the player is AFK/idle
+        Char:setQuestProgress(509,theQuestStatus-1) --counting down!
+
+    end
+    --Addition end
+	
     Effect.nextCalled = 3000 --Effect gets called each 5 minutes
 
     return true --No idea why!

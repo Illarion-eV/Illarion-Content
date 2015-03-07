@@ -40,6 +40,8 @@ for i = 1, #lakeOfLifeFountainPos do
             world:gfx(16, User.pos) -- nice GFX
 	        world:makeSound(10, User.pos) -- nice SFX
 	        common.InformNLS(User, "Du wäschst dich.", "You start to cleanse.")
+			User:setQuestProgress(508,1)
+			User:setQuestProgress(509,2) -- timer
         end
     end
 end
