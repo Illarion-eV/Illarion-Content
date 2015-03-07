@@ -43,11 +43,11 @@ function M.MoveToField( User )
 		return
 	end
 
-    if User.pos == position(641, 266, -9) then -- inform
+    if Random.uniform(1, 4) == 1 and User.pos == position(641, 266, -9) then -- inform
 	        common.InformNLS(User,"Wenn Du den Eisfluß umgangen hast kannst Du eine Stelle in der Eismauer ausmachen welche weggeschlagen wurde.","As you round the iceflow, you can see a section of ice wall has been chisled away.")
-        elseif User.pos == position(640, 266, -9) then -- inform
+        elseif Random.uniform(1, 4) == 1 and User.pos == position(640, 266, -9) then -- inform
 	        common.InformNLS(User,"Ein unheimliches Glühen scheint aus dem Eisboden und den Eiswänden hervorzukommen.","An eerie glow seems to come up through the ice floor and emanate out the ice walls.")
-        elseif User.pos == position(639, 245, -9) then -- inform
+        elseif Random.uniform(1, 4) == 1 and User.pos == position(639, 245, -9) then -- inform
 	        common.InformNLS(User,"Ein lautes Zerreißen ist aus einiger Entfernung zu hören, gefolgt von Knacken und Krachen.","A loud cracking can be heard in the distance, followed by some crashing and splashing.")
 		    world:makeSound(5, User.pos)
             world:makeSound(9, User.pos)
@@ -58,7 +58,7 @@ function M.MoveToField( User )
             User:warp(position(767, 305, -9))
             world:gfx(11, User.pos)
             world:makeSound(9, User.pos)
-        elseif User.pos == position(666, 235, -9) then -- inform
+        elseif Random.uniform(1, 4) == 1 and User.pos == position(666, 235, -9) then -- inform
 	        common.InformNLS(User,"In der Nähe hörst Du etwas laut etwas unter Wasser rutschen.","You hear something loud slip under the water nearby.")
 		    world:makeSound(5, User.pos)
         elseif Random.uniform(1, 4) == 1 and User.pos == position(770, 293, -9) or User.pos == position(769, 300, -9) then -- Ice Entrapment #1
@@ -75,9 +75,9 @@ function M.MoveToField( User )
             User:warp(position(784, 291, -9))
             world:gfx(41, User.pos)
             world:makeSound(13, User.pos)
-	    elseif User.pos == position(781, 290, -9) then -- inform
+	    elseif Random.uniform(1, 4) == 1 and User.pos == position(781, 290, -9) then -- inform
 	        common.InformNLS(User,"Etwas scheint anders zu sein mit dem Teil des Eisgebirges in Deiner Nähe.","Something about this ice mountain near you seems different.")
-        elseif User.pos == position(748, 274, -9) then -- inform
+        elseif Random.uniform(1, 4) == 1 and User.pos == position(748, 274, -9) then -- inform
 	        common.InformNLS(User,"Du rutscht auf etwas feuchtem Gras aus und stolperst beinahe in das eiskalte Wasser.","You slip on some wet grass and nearly stumble into the freezing cold water.")
 		elseif User.pos == position(721, 244, -9) or User.pos == position(721, 243, -9)  then -- bridge inform
             common.InformNLS(User,"Ein seltsames mechanisches Gerät scheint sich im Wasser nahe der Stütztpfeiler zu befinden. Vielleicht gibt es einen Weg, es zu bedienen und herauszufinden, was es bewirkt.", "There appears to be a strange mechanical device in the water near the support posts. Perhaps a way can be found to operate it and see what it does.")
