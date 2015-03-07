@@ -22,14 +22,25 @@ local lookat = require("base.lookat")
 
 local M = {}
 
-local lakeOfLifeFountainPos = {position(660, 238, -9), position(744, 203, -9), position(777, 186, -9), position(705, 262, -9), position(725, 286, -9), position(759, 303, -9), position(777, 283, -9), position(763, 262, -9)}
+local lakeOfLifeFountainPos = {
+    position(660, 238, -9),
+	position(744, 203, -9),
+	position(777, 186, -9),
+	position(705, 262, -9),
+	position(725, 286, -9),
+	position(759, 303, -9),
+	position(777, 283, -9),
+	position(763, 262, -9)
+	}
 
 function M.UseItem(User, SourceItem, ltstate)
 
-    if SourceItem.pos == lakeOfLifeFountainPos then
-       world:gfx(16, User.pos) -- nice GFX
-	   world:sfx(10, User.pos) -- nice SFX
-	   common.InformNLS(User, "Du wäschst dich.", "You start to cleanse.")
+for i = 1, #lakeOfLifeFountainPos do
+        if (SourceItem.pos == lakeOfLifeFountainPos[i]) then
+            world:gfx(16, User.pos) -- nice GFX
+	        world:makeSound(10, User.pos) -- nice SFX
+	        common.InformNLS(User, "Du wäschst dich.", "You start to cleanse.")
+        end
     end
 end
 
@@ -37,11 +48,11 @@ function M.LookAtItem(User, Item)
 
   local lookAt = lookat.GenerateLookAt(User, Item)
 
-  if Item.pos == lakeOfLifeFountainPos then
-    lookAt.name = common.GetNLS(User, "Badebrunnen", "Cleansing Fountain")
-  end
-
-  return lookAt
+  for i = 1, #lakeOfLifeFountainPos do
+        if (Item.pos == lakeOfLifeFountainPos[i]) then
+        lookAt.name = common.GetNLS(User, "Badebrunnen", "Cleansing Fountain")
+       end
+    return lookAt
+    end
 end
-
 return M
