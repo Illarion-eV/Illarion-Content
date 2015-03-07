@@ -149,8 +149,8 @@ queststatus(502) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Ne
 queststatus(502) = 6, item(26, all) < 10, english, ".+" -> "Ksss. If you do not wish to leave you can stay here. I can always use another fisherman. Ozzerwize, gazzer ten shovels full of mud."
 queststatus(502) = 6, item(26, all) < 10, ".+" -> "Zss. Wenn du nicht gehen willsst, kannsst du auch hier bleiben. Zzenia kann auch einen anderen Fischer fragen. Anssonssten hole zhen Schaufeln voll Lehm."
 --if done
-queststatus(502) = 6, item(26, all) > 5, english, ".+" -> deleteItem(26, 5), queststatus(502) = 7, item(3572, 2, 333), "Yess you are getting zzere. Take zziss ssoup to nourish your body wizz zze giftss of zze Mozzer. Good, zziss mud iz perfect for my bed nesst. You may keep half zze mud."
-queststatus(502) = 6, item(26, all) > 5, ".+" -> deleteItem(26, 5), queststatus(502) = 7, item(3572, 2, 333), "Ja, du kommsst da hin. Nimm diesse Ssuppe, um deinen Körper mit den Geschenken der Mutter zzu ernähren. Gut, diesser Lehm isst perfekt für Zzeniass Schlafnesst. Du kannsst die Hälfte dess Lehmss behalten. "
+queststatus(502) = 6, item(26, all) > 9, english, ".+" -> deleteItem(26, 5), queststatus(502) = 7, item(3572, 2, 333), "Yess you are getting zzere. Take zziss ssoup to nourish your body wizz zze giftss of zze Mozzer. Good, zziss mud iz perfect for my bed nesst. You may keep half zze mud."
+queststatus(502) = 6, item(26, all) > 9, ".+" -> deleteItem(26, 5), queststatus(502) = 7, item(3572, 2, 333), "Ja, du kommsst da hin. Nimm diesse Ssuppe, um deinen Körper mit den Geschenken der Mutter zzu ernähren. Gut, diesser Lehm isst perfekt für Zzeniass Schlafnesst. Du kannsst die Hälfte dess Lehmss behalten. "
 
 --Recieve fourth quest
 --finally the raft
