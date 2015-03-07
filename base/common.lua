@@ -1511,8 +1511,7 @@ end
 -- @param id The ID of the monster in question
 -- @return true if monster is docile
 function M.IsMonsterDocile( id )
-	local docileList = {6,16,26,36,46,56,86,107,116,136,191,201,226,236,291,292,293,294,295,296,361,371,372,373,391,
-        401};
+	local docileList = {6,16,26,36,46,56,96,106,116,181,182,241,242,243,244,371,372,373,396,581,584,591,615,616,621,1054,1131,1132,1133,1134,1135,1136,1151,1152,1161,1162,1163,1164,1165}
 	for i,v in pairs(docileList) do
 		if id == v then
 			return true;
