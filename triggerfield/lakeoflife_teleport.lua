@@ -63,7 +63,7 @@ function M.MoveToField( User )
     elseif User.pos == position(753, 333, -9) then -- trapped on Zenia island so out to Hempty
 	    world:gfx(41, User.pos)
 	    world:makeSound(13, User.pos)
-        User:warp(position(384, 307, 0))
+        User:warp(position(680, 473, 0))
 	    world:gfx(41, User.pos)
 	    world:makeSound(13, User.pos)
 	end
