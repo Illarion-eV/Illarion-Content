@@ -280,18 +280,9 @@ function M.MoveItemAfterMove(User,SourceItem,TargetItem)
 end
 
 function M.LookAtItem(User, Item)
-    local TimeLeftI
-    if(LightsOn[Item.id]) then
-        TimeLeftI = Item.wear
-    elseif (LightsOff[Item.id]) then
-        if (getLightData(Item) >= 1000) then
-            TimeLeftI = getLightData(Item) - 1000
-        else
-            TimeLeftI = PORTABLE_WEAR
-        end
-    end
 
-    if TimeLeftI then
+    if(LightsOn[Item.id]) then
+        local TimeLeftI = Item.wear
         local TimeLeft
         if(TimeLeftI == 255) then
             TimeLeft = common.GetNLS(User, "Sie wird nie ausbrennen.", "It will never burn down.")
@@ -309,6 +300,8 @@ function M.LookAtItem(User, Item)
             TimeLeft = common.GetNLS(User, "Sie wird nach langer Zeit ausbrennen.", "It will burn down in a long time.")
         end
         lookat.SetSpecialDescription(Item, TimeLeft, TimeLeft)
+    elseif (LightsOff[Item.id]) then
+        lookat.SetSpecialDescription(Item, "Sie ist nicht angezündet.", "It is not lit, yet.")
     end
 
     return lookat.GenerateLookAt(User, Item, lookat.NONE)
