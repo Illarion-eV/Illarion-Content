@@ -19,7 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --				if data is <1000, set to default wear or keep current (if there's no requirement, e.g. for a torch)
 -- on items: save old wear value in data (+500)
 --				if data is <500, set wear to 255 or default portable wear
--- special data for on items: 2 => do not give anything back (e.g. a night watchman has put it on)
+
 local common = require("base.common")
 local lookat = require("base.lookat")
 
@@ -168,35 +168,28 @@ end
 -- CURRENTLY DEACTIVATED
 -- give something back
 function giveBack(User, Item, this)
-    if tonumber(Item:getData("lightData"))==2 then -- a night watchman has put on that light, give nothing back
-        common.InformNLS(User,
-            "Das Licht erlischt in dem Moment, als du danach greifst.",
-            "The light goes off in the very moment you reach out for it.")
-        return
-    end
-    local myItem
+
+    -- This all is an ugly hack
     local finalItem
-    if User:createItem(this.back,1,333,15734) == 0 then
+    local magicNum = 15734
+    if User:createItem(this.back,1,333,{lightData=magicNum}) == 0 then
         for i=1,17 do
-            myItem = User:getItemAt( i )
-            if ( myItem.id == this.back and tonumber(myItem:getData("lightData"))==15734 ) then
+            local myItem = User:getItemAt( i )
+            if ( myItem.id == this.back and tonumber(myItem:getData("lightData"))==magicNum ) then
                 finalItem = myItem
                 break
             end
-            myItem = nil
         end
         if not finalItem then
             -- Item is in backpack. Erase it and create an unlit item with proper data value
             local theBackpack=User:getBackPack()
             if theBackpack~=nil then
                 local i = 0
-                local worked = true
-                local thisCont
                 repeat
                     i = i + 1
-                    worked,myItem,thisCont=theBackpack:viewItemNr(i)
+                    local worked,myItem = theBackpack:viewItemNr(i)
                     if worked then
-                        if ( myItem.id == this.back and tonumber(myItem:getData("lightData"))==15734 ) then
+                        if ( myItem.id == this.back and tonumber(myItem:getData("lightData"))==magicNum ) then
                             theBackpack:takeItemNr(i,1)
                             User:createItem(LightsOn[this.back].off,1,333,Item.wear+1000)
                             break
@@ -283,23 +276,21 @@ function M.LookAtItem(User, Item)
 
     if(LightsOn[Item.id]) then
         local TimeLeftI = Item.wear
-        local TimeLeft
         if(TimeLeftI == 255) then
-            TimeLeft = common.GetNLS(User, "Sie wird nie ausbrennen.", "It will never burn down.")
+            lookat.SetSpecialDescription(Item, "Sie wird nie ausbrennen.", "It will never burn down.")
         elseif (TimeLeftI == 0) then
-            TimeLeft = common.GetNLS(User, "Sie wird sofort ausbrennen.", "It will burn down immediately.")
+            lookat.SetSpecialDescription(Item, "Sie wird sofort ausbrennen.", "It will burn down immediately.")
         elseif (TimeLeftI == 1) then
-            TimeLeft = common.GetNLS(User, "Sie wird demnächst ausbrennen.", "It will burn down anytime soon.")
+            lookat.SetSpecialDescription(Item, "Sie wird demnächst ausbrennen.", "It will burn down anytime soon.")
         elseif (TimeLeftI == 2) then
-            TimeLeft = common.GetNLS(User, "Sie wird bald ausbrennen.", "It will burn down soon.")
+            lookat.SetSpecialDescription(Item, "Sie wird bald ausbrennen.", "It will burn down soon.")
         elseif (TimeLeftI <= 4) then
-            TimeLeft = common.GetNLS(User, "Sie wird nach einer Weile ausbrennen.", "It will burn down in a while.")
+            lookat.SetSpecialDescription(Item, "Sie wird nach einer Weile ausbrennen.", "It will burn down in a while.")
         elseif (TimeLeftI <= PORTABLE_WEAR) then
-            TimeLeft = common.GetNLS(User, "Sie wird nicht allzu bald ausbrennen.", "It will not burn down anytime soon.")
-        elseif (TimeLeftI >= PORTABLE_WEAR) then
-            TimeLeft = common.GetNLS(User, "Sie wird nach langer Zeit ausbrennen.", "It will burn down in a long time.")
+            lookat.SetSpecialDescription(Item, "Sie wird nicht allzu bald ausbrennen.", "It will not burn down anytime soon.")
+        elseif (TimeLeftI > PORTABLE_WEAR) then
+            lookat.SetSpecialDescription(Item, "Sie wird nach langer Zeit ausbrennen.", "It will burn down in a long time.")
         end
-        lookat.SetSpecialDescription(Item, TimeLeft, TimeLeft)
     elseif (LightsOff[Item.id]) then
         lookat.SetSpecialDescription(Item, "Sie ist nicht angezündet.", "It is not lit, yet.")
     end
