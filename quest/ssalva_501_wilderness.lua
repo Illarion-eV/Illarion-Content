@@ -50,72 +50,82 @@ Description[ENGLISH][5] = "Return to Ssalva, you have finished her task."
 Description[GERMAN][6] = "Rede mit Ssalva, sie hat vielleicht eine weitere Aufgabe für dich."
 Description[ENGLISH][6] = "Check with Ssalva, she may have another task for you."
 
-Description[GERMAN][7] = "Zähle die Brücken des im Untergrund liegenden Sees des Lebens und berichte die Zahl an Salva"
-Description[ENGLISH][7] = "Count the bridges in the Underground Lake of Life and give the number to Ssalva."
+Description[GERMAN][7] = "Töte die friedlichen Untoten am See des Lebens für Ssalva. Du musst noch fünf töten."
+Description[ENGLISH][7] = "Kill the peaceful undead at the Lake of Life for Ssalva. You still need five."
+Description[GERMAN][8] = "Töte die friedlichen Untoten am See des Lebens für Ssalva. Du musst noch vier töten."
+Description[ENGLISH][8] = "Kill the peaceful undead at the Lake of Life for Ssalva. You still need four."
+Description[GERMAN][9] = "Töte die friedlichen Untoten am See des Lebens für Ssalva. Du musst noch drei töten."
+Description[ENGLISH][9] = "Kill the peaceful undead at the Lake of Life for Ssalva. You still need three."
+Description[GERMAN][10] = "Töte die friedlichen Untoten am See des Lebens für Ssalva. Du musst noch zwei töten."
+Description[ENGLISH][10] = "Kill the peaceful undead at the Lake of Life for Ssalva. You still need two."
+Description[GERMAN][11] = "Töte die friedlichen Untoten am See des Lebens für Ssalva. Du musst noch einen töten."
+Description[ENGLISH][11] = "Kill the peaceful undead at the Lake of Life for Ssalva. You still need one."
+Description[GERMAN][12] = "Kehre zu Ssalva zurück. Du hast ihre Aufgabe erledigt."
+Description[ENGLISH][12] = "Return to Ssalva, you have finished her task."
 
-Description[GERMAN][8] = "Rede mit Ssalva, sie hat vielleicht eine weitere Aufgabe für dich."
-Description[ENGLISH][8] = "Check with Ssalva, she may have another task for you."
+Description[GERMAN][13] = "Rede mit Ssalva, sie hat vielleicht eine weitere Aufgabe für dich."
+Description[ENGLISH][13] = "Check with Ssalva, she may have another task for you."
 
-Description[GERMAN][9] = "Finde die Opferstelle im See des Lebens und opfere Tanora dort eine Wasserblüte. *Lege den Gegenstand auf die Opferplatte im Verlies.* Danach kehre zu Salva zurück, um weitere Anweisungen zu erhalten."
-Description[ENGLISH][9] = "Find the offering plate in the Lake of Life and leave an offering of one waterblossom for Tanora. *Place the item on the offering plate inside the dungeon.* After doing so, report back to Ssalva for further instructions."
-Description[GERMAN][10] = "Kehre zu Ssalva zurück. Du hast ihre Aufgabe erledigt."
-Description[ENGLISH][10] = "Return to Ssalva, you have finished her task."
+Description[GERMAN][14] = "Finde die Opferstelle im See des Lebens und opfere Tanora dort eine Wasserblüte. *Lege den Gegenstand auf die Opferplatte im Verlies.* Danach kehre zu Salva zurück, um weitere Anweisungen zu erhalten."
+Description[ENGLISH][14] = "Find the offering plate in the Lake of Life and leave an offering of one waterblossom for Tanora. *Place the item on the offering plate inside the dungeon.* After doing so, report back to Ssalva for further instructions."
+Description[GERMAN][15] = "Kehre zu Ssalva zurück. Du hast ihre Aufgabe erledigt."
+Description[ENGLISH][15] = "Return to Ssalva, you have finished her task."
 
-Description[GERMAN][11] = "Rede mit Ssalva, sie hat vielleicht eine weitere Aufgabe für dich."
-Description[ENGLISH][11] = "Check with Ssalva, she may have another task for you."
+Description[GERMAN][16] = "Rede mit Ssalva, sie hat vielleicht eine weitere Aufgabe für dich."
+Description[ENGLISH][16] = "Check with Ssalva, she may have another task for you."
 
-Description[GERMAN][12] = "Beschaffe fünf Fische jeder Art (Lachs, Forelle, Stachelmakrele und Rotbarsch), zwanzig Eier, eine Eiercremetorte und zwei Fischsuppen. Finde Zenia und tausche die Gegenstände gegen Informationen und berichte diese an Salva."
-Description[ENGLISH][12] = "Gather five of each fish (trout, salmon, horse mackerel, and rose fish), 20 eggs, one custard pie, two fish soups. Find Zenia and exchange the items for some information and report back to Ssalva."
-Description[GERMAN][13] = "Kehre zu Ssalva zurück. Du hast ihre Aufgabe erledigt."
-Description[ENGLISH][13] = "Return to Ssalva, you have finished her task."
+Description[GERMAN][17] = "Beschaffe fünf Fische jeder Art (Lachs, Forelle, Stachelmakrele und Rotbarsch), zwanzig Eier, eine Eiercremetorte und zwei Fischsuppen. Finde Zenia und tausche die Gegenstände gegen Informationen und berichte diese an Salva."
+Description[ENGLISH][17] = "Gather five of each fish (trout, salmon, horse mackerel, and rose fish), 20 eggs, one custard pie, two fish soups. Find Zenia and exchange the items for some information and report back to Ssalva."
+Description[GERMAN][18] = "Kehre zu Ssalva zurück. Du hast ihre Aufgabe erledigt."
+Description[ENGLISH][18] = "Return to Ssalva, you have finished her task."
 
-Description[GERMAN][14] = "Rede mit Ssalva, sie hat vielleicht eine weitere Aufgabe für dich."
-Description[ENGLISH][14] = "Check with Ssalva, she may have another task for you."
+Description[GERMAN][19] = "Rede mit Ssalva, sie hat vielleicht eine weitere Aufgabe für dich."
+Description[ENGLISH][19] = "Check with Ssalva, she may have another task for you."
 
-Description[GERMAN][15] = "Töte die Renegaten für Ssalva. Du musst noch fünfzehn erledigen."
-Description[ENGLISH][15] = "Kill renegades for Ssalva. You still need fifteen."
-Description[GERMAN][16] = "Töte die Renegaten für Ssalva. Du musst noch vierzehn erledigen."
-Description[ENGLISH][16] = "Kill renegades for Ssalva. You still need fourteen."
-Description[GERMAN][17] = "Töte die Renegaten für Ssalva. Du musst noch dreizehn erledigen."
-Description[ENGLISH][17] = "Kill renegades for Ssalva. You still need thirteen."
-Description[GERMAN][18] = "Töte die Renegaten für Ssalva. Du musst noch zwölf erledigen."
-Description[ENGLISH][18] = "Kill renegades for Ssalva. You still need twelve."
-Description[GERMAN][19] = "Töte die Renegaten für Ssalva. Du musst noch elf erledigen."
-Description[ENGLISH][19] = "Kill renegades for Ssalva. You still need eleven."
-Description[GERMAN][20] = "Töte die Renegaten für Ssalva. Du musst noch zehn erledigen."
-Description[ENGLISH][20] = "Kill renegades for Ssalva. You still need ten."
-Description[GERMAN][21] = "Töte die Renegaten für Ssalva. Du musst noch neun erledigen."
-Description[ENGLISH][21] = "Kill renegades for Ssalva. You still need nine."
-Description[GERMAN][22] = "Töte die Renegaten für Ssalva. Du musst noch acht erledigen."
-Description[ENGLISH][22] = "Kill renegades for Ssalva. You still need eight."
-Description[GERMAN][23] = "Töte die Renegaten für Ssalva. Du musst noch sieben erledigen."
-Description[ENGLISH][23] = "Kill renegades for Ssalva. You still need seven."
-Description[GERMAN][24] = "Töte die Renegaten für Ssalva. Du musst noch sechs erledigen."
-Description[ENGLISH][24] = "Kill renegades for Ssalva. You still need six."
-Description[GERMAN][25] = "Töte die Renegaten für Ssalva. Du musst noch fünf erledigen."
-Description[ENGLISH][25] = "Kill renegades for Ssalva. You still need five."
-Description[GERMAN][26] = "Töte die Renegaten für Ssalva. Du musst noch vier erledigen."
-Description[ENGLISH][26] = "Kill renegades for Ssalva. You still need four."
-Description[GERMAN][27] = "Töte die Renegaten für Ssalva. Du musst noch drei erledigen."
-Description[ENGLISH][27] = "Kill renegades for Ssalva. You still need three."
-Description[GERMAN][28] = "Töte die Renegaten für Ssalva. Du musst noch zwei erledigen."
-Description[ENGLISH][28] = "Kill renegades for Ssalva. You still need two."
-Description[GERMAN][29] = "Töte die Renegaten für Ssalva. Du musst noch einen erledigen."
-Description[ENGLISH][29] = "Kill renegades for Ssalva. You still need one."
-Description[GERMAN][30] = "Kehre zu Ssalva zurück. Du hast ihre Aufgabe erledigt."
-Description[ENGLISH][30] = "Return to Ssalva, you have finished her task."
+Description[GERMAN][20] = "Töte die Renegaten für Ssalva. Du musst noch fünfzehn erledigen."
+Description[ENGLISH][20] = "Kill renegades for Ssalva. You still need fifteen."
+Description[GERMAN][21] = "Töte die Renegaten für Ssalva. Du musst noch vierzehn erledigen."
+Description[ENGLISH][21] = "Kill renegades for Ssalva. You still need fourteen."
+Description[GERMAN][22] = "Töte die Renegaten für Ssalva. Du musst noch dreizehn erledigen."
+Description[ENGLISH][22] = "Kill renegades for Ssalva. You still need thirteen."
+Description[GERMAN][23] = "Töte die Renegaten für Ssalva. Du musst noch zwölf erledigen."
+Description[ENGLISH][23] = "Kill renegades for Ssalva. You still need twelve."
+Description[GERMAN][24] = "Töte die Renegaten für Ssalva. Du musst noch elf erledigen."
+Description[ENGLISH][24] = "Kill renegades for Ssalva. You still need eleven."
+Description[GERMAN][25] = "Töte die Renegaten für Ssalva. Du musst noch zehn erledigen."
+Description[ENGLISH][25] = "Kill renegades for Ssalva. You still need ten."
+Description[GERMAN][26] = "Töte die Renegaten für Ssalva. Du musst noch neun erledigen."
+Description[ENGLISH][26] = "Kill renegades for Ssalva. You still need nine."
+Description[GERMAN][27] = "Töte die Renegaten für Ssalva. Du musst noch acht erledigen."
+Description[ENGLISH][27] = "Kill renegades for Ssalva. You still need eight."
+Description[GERMAN][28] = "Töte die Renegaten für Ssalva. Du musst noch sieben erledigen."
+Description[ENGLISH][28] = "Kill renegades for Ssalva. You still need seven."
+Description[GERMAN][29] = "Töte die Renegaten für Ssalva. Du musst noch sechs erledigen."
+Description[ENGLISH][29] = "Kill renegades for Ssalva. You still need six."
+Description[GERMAN][30] = "Töte die Renegaten für Ssalva. Du musst noch fünf erledigen."
+Description[ENGLISH][30] = "Kill renegades for Ssalva. You still need five."
+Description[GERMAN][31] = "Töte die Renegaten für Ssalva. Du musst noch vier erledigen."
+Description[ENGLISH][31] = "Kill renegades for Ssalva. You still need four."
+Description[GERMAN][32] = "Töte die Renegaten für Ssalva. Du musst noch drei erledigen."
+Description[ENGLISH][32] = "Kill renegades for Ssalva. You still need three."
+Description[GERMAN][33] = "Töte die Renegaten für Ssalva. Du musst noch zwei erledigen."
+Description[ENGLISH][33] = "Kill renegades for Ssalva. You still need two."
+Description[GERMAN][34] = "Töte die Renegaten für Ssalva. Du musst noch einen erledigen."
+Description[ENGLISH][34] = "Kill renegades for Ssalva. You still need one."
+Description[GERMAN][35] = "Kehre zu Ssalva zurück. Du hast ihre Aufgabe erledigt."
+Description[ENGLISH][35] = "Return to Ssalva, you have finished her task."
 
-Description[GERMAN][31] = "Rede mit Ssalva, sie hat vielleicht eine weitere Aufgabe für dich."
-Description[ENGLISH][31] = "Check with Ssalva, she may have another task for you."
+Description[GERMAN][36] = "Rede mit Ssalva, sie hat vielleicht eine weitere Aufgabe für dich."
+Description[ENGLISH][36] = "Check with Ssalva, she may have another task for you."
 
-Description[GERMAN][32] = "Töte den Anführer der Echsen-Tempelgarde und brich die Moral der Extremistengruppe."
-Description[ENGLISH][32] = "Kill the lizard temple warrior leader and break the morale of the extremist group."
+Description[GERMAN][37] = "Töte den Anführer der Echsen-Tempelgarde und brich die Moral der Extremistengruppe."
+Description[ENGLISH][37] = "Kill the lizard temple warrior leader and break the morale of the extremist group."
 
-Description[GERMAN][33] = "Kehre zu Ssalva zurück. Du hast ihre Aufgabe erledigt."
-Description[ENGLISH][33] = "Return to Ssalva, you have finished her task."
+Description[GERMAN][38] = "Kehre zu Ssalva zurück. Du hast ihre Aufgabe erledigt."
+Description[ENGLISH][38] = "Return to Ssalva, you have finished her task."
 
-Description[GERMAN][34] = "Du hast alle Aufgaben für Ssalva erledigt."
-Description[ENGLISH][34] = "You have completed all tasks of Ssalva."
+Description[GERMAN][39] = "Du hast alle Aufgaben für Ssalva erledigt."
+Description[ENGLISH][39] = "You have completed all tasks of Ssalva."
 
 local npcPos = position(567, 230, -0);
 
@@ -124,21 +134,31 @@ local Start = npcPos;
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-for i = 1, 34 do
+for i = 1, 39 do
   QuestTarget[i] = {npcPos};
 end
 
 -- Insert the quest status which is reached at the end of the quest
-local FINAL_QUEST_STATUS = 34
+local FINAL_QUEST_STATUS = 39
 
 -- Register the monster kill parts of the quest.
+monsterQuests.addQuest{
+    questId = 501,
+    locations = {position = position(716, 200, -9), radius = 100},
+    queststatus = {from = 7, to = 12},
+    questTitle = {german = "Zzarn'K'Ska von Zelphia", english = "Zzarn'K'Ska of Zelphia"},
+    monsterName = {german = "friedlichen Untoten", english = "peaceful undead"},
+    npcName = "Ssalva",
+    monsterIds = {116,106} -- worker mummies and friendly skeletons
+}	
+	
 monsterQuests.addQuest{
     questId = 501,
     locations = {
         {position = position(748, 245, -9), radius = 150},
         {position = position(557, 263, 0), radius = 25}
     },
-    queststatus = {from = 15, to = 30},
+    queststatus = {from = 20, to = 35},
     questTitle = {german = "Zzarn'K'Ska von Zelphia", english = "Zzarn'K'Ska of Zelphia"},
     monsterName = {german = "Echsenmenschen", english = "Lizards"},
     npcName = "Ssalva",
@@ -147,7 +167,7 @@ monsterQuests.addQuest{
 monsterQuests.addQuest{
     questId = 501,
     location = {position =  position(557, 263, 0), radius = 25},
-    queststatus = {from = 32, to = 33},
+    queststatus = {from = 37, to = 38},
     questTitle = {german = "Zzarn'K'Ska von Zelphia", english = "Zzarn'K'Ska of Zelphia"},
     monsterName = {german = "Echsen-Tempelkrieger", english = "Lizard Templar Warrior"},
     npcName = "Ssalva",
