@@ -144,7 +144,7 @@ local FINAL_QUEST_STATUS = 39
 -- Register the monster kill parts of the quest.
 monsterQuests.addQuest{
     questId = 501,
-    locations = {position = position(716, 200, -9), radius = 100},
+    location = {position = position(716, 200, -9), radius = 100},
     queststatus = {from = 7, to = 12},
     questTitle = {german = "Zzarn'K'Ska von Zelphia", english = "Zzarn'K'Ska of Zelphia"},
     monsterName = {german = "friedlichen Untoten", english = "peaceful undead"},
