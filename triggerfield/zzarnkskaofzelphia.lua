@@ -49,7 +49,7 @@ local altarPlate = position(782, 297, -9)
 
 
 function M.PutItemOnField(Item,User)
-    if  User:getQuestProgress(501) == 9 and Item.pos == altarPlate and Item.id == 767 then --  doing the quest - water blossom on the altar
+    if  User:getQuestProgress(501) == 14 and Item.pos == altarPlate and Item.id == 767 then --  doing the quest - water blossom on the altar
 	    world:gfx(46, Item.pos) -- nice GFX
         world:erase(Item, 1) -- delete the item
 	    User:setQuestProgress(501, 10)
