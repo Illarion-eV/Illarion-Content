@@ -51,6 +51,8 @@ Ronagan: 414,275,-6
 Irmorom: 312,232,1
 Ushara: 657,681,0
 Tanora: 630,594,0
+Tanora: 763,336,-9
+Tanora: 783,299,-9
 Eldan: 959,790,0
 Findari: 899,835,5
 Elara: 909,829,2
