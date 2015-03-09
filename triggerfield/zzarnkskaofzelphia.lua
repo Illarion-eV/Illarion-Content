@@ -49,10 +49,10 @@ local altarPlate = position(782, 297, -9)
 
 
 function M.PutItemOnField(Item,User)
-    if  User:getQuestProgress(501) == 9 and Item.pos == altarPlate and Item.id == 767 then --  doing the quest - water blossom on the altar
+    if  User:getQuestProgress(501) == 14 and Item.pos == altarPlate and Item.id == 767 then --  doing the quest - water blossom on the altar
 	    world:gfx(46, Item.pos) -- nice GFX
         world:erase(Item, 1) -- delete the item
-	    User:setQuestProgress(501, 10)
+	    User:setQuestProgress(501, 15)
 		common.InformNLS(User, "Du hast deine Gabe dargebracht. Kehre zu Salva zurück, du hast ihre Aufgabe erfüllt.", "You have placed your offering. Return to Ssalva, you have finished her task.")
         end
 	end
