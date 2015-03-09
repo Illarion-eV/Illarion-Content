@@ -19,6 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local fruitgathering = require("content.gatheringcraft.fruitgathering")
+local woodchopping = require("content.gatheringcraft.woodchopping")
 
 local M = {}
 
@@ -28,8 +29,10 @@ function M.UseItem(User, SourceItem, ltstate)
 		fruitgathering.StartGathering(User, SourceItem, ltstate);
 	elseif SourceItem.id == 386 or SourceItem.id == 3612 then
 		common.HighInformNLS( User,"Diese Pflanze trägt keine Früchte.","This plant bears no fruits." );
-	elseif SourceItem.id == 11 or SourceItem.id == 299 or SourceItem.id == 1193 or SourceItem.id == 1194 then
+	elseif SourceItem.id == 1193 or SourceItem.id == 1194 then
 		common.HighInformNLS( User,"Dieser Baum trägt keine Früchte.","This tree bears no fruits." );
+    elseif SourceItem.id == 11 or SourceItem.id == 299 then
+		woodchopping.StartGathering(User, SourceItem, ltstate);
 	else
 		common.HighInformNLS( User,"[FEHLER] Unbekannter Baum/Strauch, bitte informiere einen Entwickler.","[ERROR] Unknown bush/tree, please inform a developer." );
 	end
