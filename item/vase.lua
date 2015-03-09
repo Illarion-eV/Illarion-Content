@@ -48,16 +48,4 @@ for i = 1, #lakeOfLifeVasePos do
 end
 end
 
-function M.LookAtItem(User, Item)
-
-  local lookAt = lookat.GenerateLookAt(User, Item)
-
-  for i = 1, #lakeOfLifeVasePos do
-    if (Item.pos == lakeOfLifeVasePos[i]) then
-        lookAt.name = common.GetNLS(User, "Dunkles Pulver", "Caliginous Powder")
-    end
-
-  return lookAt
-end
-end
 return M

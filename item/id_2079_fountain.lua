@@ -45,16 +45,4 @@ for i = 1, #lakeOfLifeFountainPos do
         end
     end
 end
-
-function M.LookAtItem(User, Item)
-
-  local lookAt = lookat.GenerateLookAt(User, Item)
-
-  for i = 1, #lakeOfLifeFountainPos do
-        if (Item.pos == lakeOfLifeFountainPos[i]) then
-        lookAt.name = common.GetNLS(User, "Badebrunnen", "Cleansing Fountain")
-       end
-    return lookAt
-    end
-end
 return M
