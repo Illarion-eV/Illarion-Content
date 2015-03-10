@@ -295,7 +295,7 @@ function M.UseItem(User, SourceItem, ltstate)
     "Du bekommst kaum noch was runter und dir wird schlecht.",
     "You hardly manage to eat something more and get sick!");
     -- check for newbie state
-    if (not common.IsOnNoobia(User.pos) and not (User:increaseAttrib("hitpoints",0) < 2000)) then
+    if (not common.isOnNoobia(User.pos) and not (User:increaseAttrib("hitpoints",0) < 2000)) then
       User:increaseAttrib("hitpoints",-1000);
     end
     SetNewFoodLevel(User, 50000);

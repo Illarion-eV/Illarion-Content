@@ -1869,7 +1869,7 @@ end
 -- Checks if a given position is located on the tutorial island Noobia.
 -- @param posStruct Pos  The position to check.
 -- @return bool  True if position is located on Noobia, false otherwise.
-function M.IsOnNoobia(Pos)
+function M.isOnNoobia(Pos)
   if (Pos.z == 100) then
     return true;
   end

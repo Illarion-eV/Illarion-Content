@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local doors = require("base.doors")
@@ -24,33 +24,33 @@ local M = {}
 
 function M.UseItem(User, SourceItem)
 
-	if User.pos.z==100 or User.pos.z==101 then --On Noobia: Doors must not be closed.
-		
+	if common.isOnNoobia(User.pos) then --On Noobia: Doors must not be closed.
+
 	    common.InformNLS(User,"Die Tür klemmt und kann nicht geschlossen werden.","The door is jammed and won't close.");
 	    return; --bailing out
-			
+
 	end --Noobia end
-		
+
     if doors.CloseDoor(SourceItem) then
-		
+
 	    common.InformNLS(User,"Du schließt die Tür.","You close the door.");
-     
+
 	else
-		
+
 		local OpenDoor,OpenOK=doors.OpenDoor(SourceItem);
-		
+
         if OpenOK then
-		
+
             common.InformNLS(User,"Du öffnest die Tür.","You open the door.");
-			
+
         elseif OpenDoor then
-		
+
             common.InformNLS(User,"Du versuchst die Tür zu öffnen, doch sie ist verschlossen.","You try to open the door, but the door is locked.");
-			
+
         end
-		
+
     end
-	
+
 end
 
 function M.LookAtItem(User,Item)

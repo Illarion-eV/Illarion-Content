@@ -42,14 +42,14 @@ function M.playerDeath(deadPlayer)
         common.HighInformNLS(deadPlayer, "[Wiederbelebung] Admins sterben nicht.", "[Respawn] Admins don't die.")
         return --bailing out!
 
-    elseif deadPlayer.pos.z == 100 or deadPlayer.pos.z == 101 then --someone died on Noobia!
+    elseif common.isOnNoobia(deadPlayer.pos) then --someone died on Noobia!
 
         deadPlayer:increaseAttrib("hitpoints", 10000) -- Respawn
         world:gfx(53, deadPlayer.pos)
         common.HighInformNLS(deadPlayer, "[Wiederbelebung] Während des Tutorials bist du 'unsterblich'. Im Hauptspiel ist die Wiederbelebung mit merklichen Konsequenzen für deinen Charakter verbunden.", "[Respawn] During the tutorial, you are 'immortal'. In the main game, serious consequences for your character are triggered upon respawn.")
         return --bailing out!
 
-    elseif deadPlayer.pos.z == -40 then -- death in the prison mine; no kill taxi!
+    elseif common.isInPrison(deadPlayer.pos) then -- death in the prison mine; no kill taxi!
 
         deadPlayer:increaseAttrib("hitpoints", 10000) -- Respawn
         world:gfx(53, deadPlayer.pos)

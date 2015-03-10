@@ -258,7 +258,7 @@ function M.onLogin( player )
     end
 
     --Noobia handling
-    if (common.IsOnNoobia(player.pos)) then --On Noobia
+    if (common.isOnNoobia(player.pos)) then --On Noobia
         local found = player.effects:find(13) --Noob effect
         if not found then --new player!
             player.effects:addEffect(LongTimeEffect(13, 1))

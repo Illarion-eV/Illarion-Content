@@ -21,7 +21,7 @@ local common = require("base.common")
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-    if User.pos.z == -40 then
+    if common.isInPrison(User.pos) then
         User:inform("Nichts passiert.", "Nothing happens.")
         return
     end

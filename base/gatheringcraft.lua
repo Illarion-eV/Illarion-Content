@@ -124,10 +124,10 @@ function GatheringCraft:FindRandomItem(User)
   end
 
 	-- check for Noobia
-	if (common.IsOnNoobia(User.pos)) then
+	if (common.isOnNoobia(User.pos)) then
 		return false;
 	end
-	
+
 	-- check for Prison Mine
 	if (common.isInPrison(User.pos)) then
        return false
