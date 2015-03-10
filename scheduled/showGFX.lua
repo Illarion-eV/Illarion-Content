@@ -39,6 +39,11 @@ function M.CreateGFX()
 		end
 	end
 	-- Glutinous Seedling end
+	
+	--Lake of Life water drip
+	world:gfx(11, position(707, 279, -10)) -- water drip
+	world:makeSound(9, position(707, 279, -10)) -- sound effect
+	-- Lake of Life water drip end
 end
 
 return M
