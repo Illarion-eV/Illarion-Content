@@ -21,7 +21,7 @@ local M = {}
 
 -- UPDATE items SET itm_script='item.paintings' WHERE itm_id IN (264, 265, 748, 749, 750, 751, 1914, 1915);
 
-PaintingListGerman =
+local PaintingListGerman =
 {
 "Das Gemälde zeigt eine Waldlichtung mit einem Schrein, voller Tiere und Feen.",
 "Das Gemälde zeigt einen jungen Mann beim Experimentieren mit der Alchemie.",
@@ -40,13 +40,13 @@ PaintingListGerman =
 "Das Gemälde zeigt einen Herzog auf seinem Thron, um ihm sein Gefolge.",
 "Das Gemälde zeigt einen Taschendieb, der sich während eines Festes an die Habseligkeiten anderer hermacht.",
 "Das Gemälde zeigt eine nackte Elfenfrau, umhüllt mit Sträuchern und Blättern des Waldes.",
-"Das Gemälde zeigt einen zersausten Propheten, der von einer Menschenmenge umgeben ist.",
+"Das Gemälde zeigt einen zerzausten Propheten, der von einer Menschenmenge umgeben ist.",
 "Das Gemälde zeigt eine blutige Schlacht zwischen Orks und Menschen.",
 "Das Gemälde zeigt zwei Orks beim Zweikampf um ein Orkweibchen.",
-"Das Gemälde zeigt einen Orkschamanen beim Zubereiten eines geheimnissvolllen Trankes.",
+"Das Gemälde zeigt einen Orkschamanen beim Zubereiten eines geheimnisvollen Trankes.",
 "Das Gemälde zeigt eine Schatzkammer voller Juwelen und Gold, eine Ratte schleicht sich durch ein Loch herein.",
 "Das Gemälde zeigt einen Magier der einen Feuerball zu dir wirft.",
-"Das Gemälde zeigt einen Gelehrten beim durchstöbern einer Bibiliothek.",
+"Das Gemälde zeigt einen Gelehrten beim durchstöbern einer Bibliothek.",
 "Das Gemälde zeigt eine Horde Untote aus ihrem ewigen Schlaf auferstehen, ein gebrechlicher Nekromant steht in der Mitte mit einer befehlenden Geste.",
 "Das Gemälde zeigt eine Halblingsdame beim Angeln, der Fisch wehrt sich gewaltig und die Halblingsdame setzt eine große Kraft ein.",
 "Das Gemälde zeigt die Landkarte Gobaiths.",
@@ -64,11 +64,11 @@ PaintingListGerman =
 "Das Gemälde zeigt wie ein Goblin in Gynk mit einem Menschen verhandelt.",
 "Das Gemälde zeigt wie zwei Gnome an einem großem Konstrukt arbeiten, du erkennst nicht, was es darstellen soll.",
 "Das Gemälde zeigt ein verlaufenes Bild, es scheint so, als ob eine Fee zentriert im Bild wäre.",
-"Das Gemälde zeigt wie ein Elf in den Wald hineinstarrt, du erkennst, dass sich im Wald etwas versteckt, das Ausschau nach dem Elfen hält.",
+"Das Gemälde zeigt wie ein Elf in den Wald hinein starrt, du erkennst, dass sich im Wald etwas versteckt, das Ausschau nach dem Elfen hält.",
 "Das Gemälde zeigt wie eine Echse aus dem Wasser auftaucht."
-};
+}
 
-PaintingListEnglish =
+local PaintingListEnglish =
 {
 "The painting shows a clearing with a shrine that's full of animals and fairies.",
 "The painting shows a young man, experimenting with alchemy.",
@@ -113,18 +113,18 @@ PaintingListEnglish =
 "The painting shows a smeared painting. It appears as if a fairy is placed in the middle of the picture." ,
 "The painting shows an elf who stares into the forest and you recognize that something is hiding and lurking inside." ,
 "The painting shows a lizard coming up from the water.",
-};
+}
 
 
 function M.LookAtItem(User, Item)
 
     local lookAt = lookat.GenerateLookAt(User, Item)
     if lookAt.description == "" then
-        local val = ((Item.pos.x + Item.pos.y + Item.pos.z) % #PaintingListGerman)+1;
+        local val = ((Item.pos.x + Item.pos.y + Item.pos.z) % #PaintingListGerman) + 1
         lookAt.description = common.GetNLS(User, PaintingListGerman[val], PaintingListEnglish[val])
     end
 
     return lookAt
 end
-return M
 
+return M
