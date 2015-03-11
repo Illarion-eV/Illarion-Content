@@ -145,7 +145,10 @@ function GatheringCraft:FindRandomItem(User)
 		local ra = math.random(#self.Monsters);
 		local pa = math.random();
 		if (pa < self.Monsters[ra].Probability*self.FastActionFactor) then
-			local TargetPos = common.getFreePos(User.pos, 1)
+            local TargetPos = common.getFreePositions(User.pos, 1, true, true)
+            if TargetPos == nil then
+                return true
+            end
 			world:createMonster(self.Monsters[ra].MonsterID, TargetPos, 20);
 			if ( self.Monsters[ra].GFX ~= nil ) then
 				world:gfx(self.Monsters[ra].GFX, TargetPos);
