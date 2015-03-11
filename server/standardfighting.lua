@@ -69,6 +69,8 @@ local chr_reg = require("lte.chr_reg")
 -- for gem bonus
 local gems = require("base.gems")
 
+local monsterHooks = require("monster.base.hooks")
+
 local M = {}
 
 local firstTimeList = {}
@@ -1258,6 +1260,8 @@ function CoupDeGrace(Attacker, Defender)
     return false;
 end;
 
+local monsterArrowDrop = {}
+
 --- Drops the used ammo in case there is any ammo. This functions placed the
 -- used ammunition under the character in case the target character is a player,
 -- else the ammunition is dropped into the inventory of the target.
@@ -1283,30 +1287,37 @@ function DropAmmo(Attacker, Defender, GroundOnly)
         end;
 
         if not GroundOnly and (Defender:getType() == 1) then -- monsters get the ammo into the inventory
-            Defender:createItem(AmmoItem.id, 1, AmmoItem.quality, nil);
+            local monsterId = Defender.id
+            if not monsterArrowDrop[monsterId] then
+                monsterArrowDrop[monsterId] = {}
+            end
+            if monsterArrowDrop[monsterId][AmmoItem.id] then
+                monsterArrowDrop[monsterId][AmmoItem.id] = monsterArrowDrop[monsterId][AmmoItem.id] + 1
+            else
+                monsterArrowDrop[monsterId][AmmoItem.id] = 1
+                local function dropAmmo(monster)
+                    for ammoId, ammoAmount in pairs(monsterArrowDrop[monster.id]) do
+                        world:createItemFromId(ammoId, ammoAmount, monster.pos, true, 333, nil)
+                    end 
+                end
+                monsterHooks.registerOnDeath(Defender, dropAmmo)
+            end
         else
             if world:isItemOnField(Defender.pos) then
-                local oldItem = world:getItemOnField(Defender.pos);
-                if (oldItem.wear < 255 and oldItem.id == AmmoItem.id
-                    and oldItem.quality == AmmoItem.quality
-                    and oldItem:getData("ammoData") == AmmoItem:getData("ammoData")) then
+                local oldItem = world:getItemOnField(Defender.pos)
+                if oldItem.wear < 255 and oldItem.id == AmmoItem.id then
+                    oldItem.number = oldItem.number + 1
+                    oldItem.wear = 5
+                    world:changeItem( oldItem )
+                    return
+                end
+            end
 
-                    oldItem.number = oldItem.number + 1;
-                    oldItem.wear = 5;
-                    world:changeItem( oldItem );
-                    return;
-                elseif (oldItem.wear == 255) then
-                    return;
-                end;
-            end;
-
-            tmpItem = world:createItemFromId(AmmoItem.id, 1, Defender.pos, true, AmmoItem.quality, nil);
-			if AmmoItem:getData("ammoData") ~= "" then
-				tmpItem:setData("ammoData",AmmoItem:getData("ammoData"));
-			end;
-        end;
-    end;
-end;
+            world:createItemFromId(AmmoItem.id, 1, Defender.pos, true, AmmoItem.quality, nil)
+			
+        end
+    end
+end
 
 --- Drop a blood spot on the ground at a specified location.
 -- @param Posi The location where the blood spot is placed
