@@ -390,16 +390,6 @@ function M.getTargetInformation(player, mapItem)
     return result
 end
 
-local function isAlivePlayerInRangeOf(pos, range)
-    local players = world:getPlayersInRangeOf(pos, range)
-    for _, player in pairs(players) do
-        if not character.IsDead(player) then
-            return true
-        end
-    end
-    return false
-end
-
 local function notifyTreasureFoundStatistic(player)
     local lastValue = player:getQuestProgress(60)
     player:setQuestProgress(60, lastValue + 1)
@@ -513,77 +503,6 @@ function M.performDiggingForTreasure(treasureHunter, diggingLocation, additional
         error("Treasure system malfunction. Removing the treasure map failed..")
     end
 
-    local remainingMonsters = #monsterList
-
-    local function handleMonsterDeath(monster)
-        remainingMonsters = remainingMonsters - 1
-        for index, monsterInList in pairs(monsterList) do
-            if monsterInList.id == monster.id then
-                monsterList[index] = nil
-                break
-            end
-        end
-        if remainingMonsters == 0 then
-            local players = world:getPlayersInRangeOf(diggingLocation, 12)
-            local treasureHunterIsInformed = false
-            for _, player in pairs(players) do
-                player:inform(msgGuardiansBeatenDe, msgGuardiansBeatenEn)
-                notifyTreasureFoundStatistic(player)
-                if player.id == treasureHunter.id then
-                    treasureHunterIsInformed = true
-                end
-            end
-            if not treasureHunterIsInformed and isValidChar(treasureHunter) then
-                treasureHunter:inform(msgGuardiansBeatenDe, msgGuardiansBeatenEn)
-                notifyTreasureFoundStatistic(treasureHunter)
-            end
-            M.dropTreasureItems(diggingLocation, treasureLevel)
-        end
-    end
-
-    for _, monster in pairs(monsterList) do
-        monsterHooks.registerOnDeath(monster, handleMonsterDeath)
-    end
-
-    local checkTreasureHunters
-    function checkTreasureHunters()
-        -- First check monsters that wandered off and retrieve them
-        for _, monster in pairs(monsterList) do
-            if monster ~= nil and isValidChar(monster) then
-                if not monster:isInRangeToPosition(diggingLocation, 30) then
-                    if not isAlivePlayerInRangeOf(monster.pos, 20) then
-                        -- The monster is all alone
-                        local targetPos = common.getFreePos(diggingLocation, 5)
-                        monster:warp(targetPos)
-                        world:gfx(41, targetPos)
-                    end
-                end
-            end
-        end
-
-        if isAlivePlayerInRangeOf(diggingLocation, 20) then
-            -- found a player who seems to be still looking for the treasure. Let's keep it alive.
-            scheduledFunction.registerFunction(30, checkTreasureHunters)
-            return
-        end
-
-        for _, monster in pairs(monsterList) do
-            if monster ~= nil and isValidChar(monster) then
-                -- only valid chars, else the monster is likely already dead.
-                if isAlivePlayerInRangeOf(diggingLocation, 20) then
-                    -- found a player who seems to be still looking for the treasure. Let's keep it alive.
-                    scheduledFunction.registerFunction(30, checkTreasureHunters)
-                    return
-                end
-            end
-        end
-
-        -- no more active monsters. Let's end this.
-        remainingMonsters = math.huge -- Ensuring that the treasure is not dropped when murdering the monsters
-        killMonsters(monsterList)
-    end
-
-    scheduledFunction.registerFunction(30, checkTreasureHunters)
     return true
 end
 
