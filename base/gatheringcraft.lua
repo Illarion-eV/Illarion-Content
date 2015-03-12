@@ -144,10 +144,10 @@ function GatheringCraft:FindRandomItem(User)
 	if (#self.Monsters > 0) then
 		local ra = math.random(#self.Monsters);
 		local pa = math.random();
-		if (pa < self.Monsters[ra].Probability*self.FastActionFactor) then
-            local TargetPos = common.getFreePositions(User.pos, 1, true, true)
+		if (pa < self.Monsters[ra].Probability*self.FastActionFactor) then 
+            local TargetPos = common.GetFreePositions(User.pos, 1, true, true)()
             if TargetPos == nil then
-                return true
+                return false
             end
 			world:createMonster(self.Monsters[ra].MonsterID, TargetPos, 20);
 			if ( self.Monsters[ra].GFX ~= nil ) then

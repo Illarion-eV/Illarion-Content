@@ -27,6 +27,12 @@ local licence = require("base.licence")
 
 local M = {}
 
+local GetCauldron
+local WaterIntoCauldron
+local CreateEmptyBucket
+local PourOnCharacter
+
+
 function M.UseItem(User, SourceItem, ltstate)
 
     -- item should not be static
@@ -108,7 +114,7 @@ function M.UseItem(User, SourceItem, ltstate)
   CreateEmptyBucket(User, SourceItem, SourceItem.number)
 end
 
-function PourOnCharacter (TargetCharacter, SourceItem )
+function PourOnCharacter(TargetCharacter, SourceItem)
   world:makeSound( 9, TargetCharacter.pos )
   world:swap(SourceItem, 51, 333)
     common.InformNLS(TargetCharacter,
@@ -228,7 +234,7 @@ function GetCauldron(User)
   local Radius = 1
   for x=-Radius,Radius do
     for y=-Radius,Radius do
-      local targetPos = position(User.pos.x + x, User.pos.y, User.pos.z)
+      local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z)
       if (world:isItemOnField(targetPos)) then
         local item = world:getItemOnField(targetPos)
         if (item.id > 1007 and item.id < 1019) then

@@ -19,8 +19,8 @@ local crafts = require("item.base.crafts")
 module("content.craft.dyemaking", package.seeall)
 
 dyemaking = crafts.Craft:new{
-                    craftEN = "tailoring",
-                    craftDE = "Schneidern",
+                    craftEN = "Dyemaking",
+                    craftDE = "Farbenherstellung",
                     handTool = 58,
                     leadSkill = Character.tailoring,
                     defaultFoodConsumption = 100,
