@@ -166,6 +166,8 @@ M.bookList["magic_gems"] = {english = "Ranks and Magical Gems", german = "Ränge 
 M.bookList["poems_marina"] = {english = "Poems from Marina", german = "Marinas Gedichtbuch", bookId = 357, bookGraphic = bookGreenLong}
 M.bookList["celegails_songbook"] = {english = "Celegails songbook", german = "Celagails Liederbuch", bookId = 358, bookGraphic = bookBlueRedLong}
 M.bookList["ZzarnKSka"] = {english = "The Zzarn'K'Ska of Zelphia", german = "Die Zzarn'K'Ska von Zelphia", bookId = 361, bookGraphic = bookletBlue}
+M.bookList["onionball"] = {english = "Onionball - The best game in Gobaith", german = "Zwiebelball - Das beste Spiel auf Gobaith", bookId = 360, bookGraphic = bookGreenLight}
+M.bookList["marriage_broker"] = {english = "Marriage Broking of the Races", german = "Brautwerbung im Spiegel der Völker", bookId = 359, bookGraphic = bookBlackSilverSquare}
 
 function M.UseItem(user, item)
     local bookIds = {}
