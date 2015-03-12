@@ -19,7 +19,7 @@ local crafts = require("item.base.crafts")
 module("content.craft.glassblowing", package.seeall)
 
 glassblowing = crafts.Craft:new{
-                          craftEN = "glass blowing",
+                          craftEN = "Glass Blowing",
                           craftDE = "Glasblasen",
                           handTool = 311,
                           leadSkill = Character.glassBlowing,

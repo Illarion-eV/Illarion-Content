@@ -19,7 +19,7 @@ local crafts = require("item.base.crafts")
 module("content.craft.gemcutting", package.seeall)
 
 gemcutting = crafts.Craft:new{
-                          craftEN = "gemcutting",
+                          craftEN = "Gemcutting",
                           craftDE = "Edelsteine schleifen",
                           handTool = 2140,
                           leadSkill = Character.gemcutting,

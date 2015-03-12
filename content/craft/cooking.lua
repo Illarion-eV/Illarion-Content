@@ -20,7 +20,7 @@ local brewing = require("content.craft.brewing")
 module("content.craft.cooking", package.seeall)
 
 cooking = crafts.Craft:new{
-                     craftEN = "cooking",
+                     craftEN = "Cooking",
                      craftDE = "Kochen",
                      handTool = 227,
                      leadSkill = Character.cookingAndBaking,

@@ -19,7 +19,7 @@ local crafts = require("item.base.crafts")
 module("content.craft.goldsmithing", package.seeall)
 
 goldsmithing = crafts.Craft:new{
-                      craftEN = "goldsmithing",
+                      craftEN = "Goldsmithing",
                       craftDE = "Goldschmieden",
                       handTool = 122,
                       leadSkill = Character.goldsmithing,
