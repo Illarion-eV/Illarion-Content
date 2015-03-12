@@ -561,20 +561,11 @@ function M.performDiggingForTreasure(treasureHunter, diggingLocation, additional
             end
         end
 
-        if isAlivePlayerInRangeOf(diggingLocation, 20) then
-            -- found a player who seems to be still looking for the treasure. Let's keep it alive.
-            scheduledFunction.registerFunction(30, checkTreasureHunters)
-            return
-        end
-
         for _, monster in pairs(monsterList) do
             if monster ~= nil and isValidChar(monster) then
-                -- only valid chars, else the monster is likely already dead.
-                if isAlivePlayerInRangeOf(diggingLocation, 20) then
-                    -- found a player who seems to be still looking for the treasure. Let's keep it alive.
-                    scheduledFunction.registerFunction(30, checkTreasureHunters)
-                    return
-                end
+                -- Mosters left. Let's keep it alive.
+                scheduledFunction.registerFunction(30, checkTreasureHunters)
+                return
             end
         end
 
