@@ -545,8 +545,7 @@ function M.performDiggingForTreasure(treasureHunter, diggingLocation, additional
         monsterHooks.registerOnDeath(monster, handleMonsterDeath)
     end
 
-    local checkTreasureHunters
-    function checkTreasureHunters()
+    local function checkHuntFinished()
         -- First check monsters that wandered off and retrieve them
         for _, monster in pairs(monsterList) do
             if monster ~= nil and isValidChar(monster) then
@@ -563,18 +562,14 @@ function M.performDiggingForTreasure(treasureHunter, diggingLocation, additional
 
         for _, monster in pairs(monsterList) do
             if monster ~= nil and isValidChar(monster) then
-                -- Mosters left. Let's keep it alive.
-                scheduledFunction.registerFunction(30, checkTreasureHunters)
+                -- Monsters left. Let's keep the hunt going.
+                scheduledFunction.registerFunction(30, checkHuntFinished)
                 return
             end
         end
-
-        -- no more active monsters. Let's end this.
-        remainingMonsters = math.huge -- Ensuring that the treasure is not dropped when murdering the monsters
-        killMonsters(monsterList)
     end
 
-    scheduledFunction.registerFunction(30, checkTreasureHunters)
+    scheduledFunction.registerFunction(30, checkHuntFinished)
     return true
 end
 
