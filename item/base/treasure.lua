@@ -545,10 +545,12 @@ function M.performDiggingForTreasure(treasureHunter, diggingLocation, additional
         monsterHooks.registerOnDeath(monster, handleMonsterDeath)
     end
 
-    local function checkHuntFinished()
+    local function retrieveMonsters()
         -- First check monsters that wandered off and retrieve them
+        local foundActiveMonster = false
         for _, monster in pairs(monsterList) do
             if monster ~= nil and isValidChar(monster) then
+                foundActiveMonster = true
                 if not monster:isInRangeToPosition(diggingLocation, 30) then
                     if not isAlivePlayerInRangeOf(monster.pos, 20) then
                         -- The monster is all alone
@@ -560,16 +562,14 @@ function M.performDiggingForTreasure(treasureHunter, diggingLocation, additional
             end
         end
 
-        for _, monster in pairs(monsterList) do
-            if monster ~= nil and isValidChar(monster) then
-                -- Monsters left. Let's keep the hunt going.
-                scheduledFunction.registerFunction(30, checkHuntFinished)
-                return
-            end
+        if foundActiveMonster then
+            -- Monsters left. Let's keep the hunt going.
+            scheduledFunction.registerFunction(30, retrieveMonsters)
+            return
         end
     end
 
-    scheduledFunction.registerFunction(30, checkHuntFinished)
+    scheduledFunction.registerFunction(30, retrieveMonsters)
     return true
 end
 
