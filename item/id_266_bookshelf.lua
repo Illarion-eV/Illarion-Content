@@ -128,7 +128,7 @@ M.bookList["akaltut_entry_riddle"] = {english = "Akaltut Entry Riddle",german = 
 M.bookList["the_read_wolf_and_the_bear"] = {english = "The fable of the red wolve and the bear",german =  "Das Märchen vom roten Wolf und dem Bär", bookId = 336, bookGraphic = bookBlackSilverLong}
 M.bookList["ritual_waterelemental_wascher"] = {english = "Summoning of the water elemental Pran Xixuan",german =  "Über die Beschwörung des Wasserelementars Pran Xixuan", bookId = 337, bookGraphic = bookletPink}
 M.bookList["resists_the_stake"] = {english = "Resist the stake!",german =  "Wider dem Scheiterhaufen", bookId = 338, bookGraphic = bookBlackRedRuneHeavy}
-M.bookList["lecture_runewick_history"] = {english = "Lecture Runewick’s history",german =  "Vortrag zur Geschichte Runewicks", bookId = 339, bookGraphic = bookRedLight}
+M.bookList["lecture_runewick_history"] = {english = "Lecture Runewicks history",german =  "Vortrag zur Geschichte Runewicks", bookId = 339, bookGraphic = bookRedLight}
 M.bookList["in_the_name_of_nargun_or_not"] = {english = "In the Name of Nargun!.. or not?",german =  "Im Namen von Nargun! .. oder auch nicht?", bookId = 340, bookGraphic = bookYellow}
 M.bookList["dragon_dreams"] = {english = "Dragon dreams",german =  "Drachenträume", bookId = 341, bookGraphic = bookBlackValuable}
 M.bookList["about_flame_orks"] = {english = "About Flame Orcs",german =  "Über die Flammenorks", bookId = 342, bookGraphic = bookBlueSilverLong}
