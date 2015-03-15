@@ -107,7 +107,7 @@ function M.buildAggroManager(params)
             local indexAndAggro = {}
             local highestAbsoluteAggro = 0
             local highestAggroIndex = 0
-            for index, targetCandidate in candidateList do
+            for index, targetCandidate in pairs(candidateList) do
                 local candidateAddAggro = addAggroForTarget(monster, targetCandidate)
                 local candidateAggro = addAggro(monster, targetCandidate, candidateAddAggro)
 
