@@ -63,6 +63,9 @@ function M.UseItem(User, SourceItem, ltstate)
 		if (TargetItem == nil) then
 			TargetItem = common.GetItemInArea(User.pos, 2079);
 		end
+		if (TargetItem == nil) then
+			TargetItem = common.GetItemInArea(User.pos, 1079);
+		end
 	end
 	if (TargetItem ~= nil) then
 		common.TurnTo( User, TargetItem.pos ); -- turn if necessary
