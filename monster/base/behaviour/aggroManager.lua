@@ -90,7 +90,7 @@ function M.buildAggroManager(params)
         return 0
     end
 
-    local function addAggro(monster, target, value)
+    function manager.addAggro(monster, target, value)
         if aggroTable[monster.id] == nil then
             aggroTable[monster.id] = {}
         end
@@ -127,7 +127,7 @@ function M.buildAggroManager(params)
             local highestAggroIndex = 0
             for index, targetCandidate in pairs(candidateList) do
                 local candidateAddAggro = addAggroForTarget(monster, targetCandidate)
-                local candidateAggro = addAggro(monster, targetCandidate, candidateAddAggro)
+                local candidateAggro = manager.addAggro(monster, targetCandidate, candidateAddAggro)
 
                 indexAndAggro[index] = candidateAggro
 
@@ -152,7 +152,7 @@ function M.buildAggroManager(params)
             end
 
             local candidateAddAggro = addAggroForAttack(monster, attacker)
-            addAggro(monster, attacker, candidateAddAggro)
+            manager.addAggro(monster, attacker, candidateAddAggro)
         end
 
         local orgOnCasted = t.onCasted
@@ -162,7 +162,7 @@ function M.buildAggroManager(params)
             end
 
             local candidateAddAggro = addAggroForAttack(monster, attacker)
-            addAggro(monster, attacker, candidateAddAggro)
+            manager.addAggro(monster, attacker, candidateAddAggro)
         end
 
         local orgOnDeath = t.onDeath

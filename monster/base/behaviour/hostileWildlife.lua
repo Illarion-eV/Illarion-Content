@@ -29,9 +29,9 @@ local aggroManager = ag.buildAggroManager{
         if character.IsPlayer(target) then
             local distance = monster:distanceMetric(target)
             if distance > 4 then
-                return -20
+                return -5
             else
-                return math.pow(6 - distance, 2)
+                return math.pow(6 - distance, 3)
             end
         end
         return 0
@@ -59,7 +59,8 @@ function M.addCallbacks(t)
             return true
         elseif absAggro < 100 then
             -- critical aggro, observe the target.
-            monster:turn(common.GetDirection(monster.pos, enemy.pos))
+            common.TurnTo(monster, enemy.pos)
+            enemy:inform("Monster " .. monster.name .. " is watching you.")
             character.ChangeMovepoints(monster, -10)
             return true
         else
@@ -69,16 +70,44 @@ function M.addCallbacks(t)
                 return false
             else
                 -- negative aggro. Lets run for the hills.
-                local enemyDir = common.GetDirection(monster.pos, enemy.pos)
-                local revDir = (enemyDir + 4) % 8
-                local vX, vY = common.GetDirectionVector(revDir)
+                local enemyDir = common.GetDirection(enemy.pos, monster.pos)
+                local vX, vY = common.GetDirectionVector(enemyDir)
 
                 local d = math.min(1, 8 - monster:distanceMetric(enemy))
+                local runAwayTarget = position(monster.pos.x + vX * d, monster.pos.y + vY * d, monster.pos.z)
+                local runAwayFreePositions = common.GetFreePositions(runAwayTarget, d, true, true)
+                local runAwayFreePosition
+                local runAwayFreePositionDist = math.huge;
+                for freePosition in runAwayFreePositions do
+                    local dX = runAwayTarget.x - freePosition.x
+                    local dY = runAwayTarget.y - freePosition.y
+                    local dist = math.sqrt(dX * dX + dY * dY)
+                    if dist < runAwayFreePositionDist then
+                        runAwayFreePositionDist = dist
+                        runAwayFreePosition = freePosition
+                    end
+                end
 
-                monster.waypoints:clear()
-                monster.waypoints:addWaypoint(position(monster.pos.x + vX * d, monster.pos.y + vY * d, monster.pos.z))
-                monster:setOnRoute(true)
-                return false
+                if runAwayFreePosition == nil then
+                    -- No way to escape!
+                    local distance = monster:distanceMetric(enemy)
+                    if distance > 4 then
+                        monster:move(Random.uniform(0, 7), true)
+                        return true
+                    else
+                        local aggroToAdd = math.min(0, math.pow(6 - distance, 4))
+                        aggroManager.addAggro(monster, enemy, aggroToAdd)
+                        common.TurnTo(monster, enemy.pos)
+                        character.ChangeMovepoints(monster, -5)
+                        return true
+                    end
+                else
+                    monster:talk(Character.say, "Running away!", "Running away!")
+                    monster.waypoints:clear()
+                    monster.waypoints:addWaypoint(runAwayFreePosition)
+                    monster:setOnRoute(true)
+                    return false
+                end
             end
         end
     end
