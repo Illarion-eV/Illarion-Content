@@ -47,6 +47,14 @@ local aggroManager = ag.buildAggroManager{
     minAggro = -200
 }
 
+local function doRandomMove(monster)
+    if Random:uniform() < 0.15 then
+        monster:move(Random.uniform(0, 7), true)
+    else
+        character.ChangeMovepoints(monster, -10)
+    end
+end
+
 function M.addCallbacks(t)
     t = aggroManager.addCallbacks(t)
 
@@ -55,7 +63,7 @@ function M.addCallbacks(t)
         local absAggro = math.abs(enemyAggro)
         if absAggro < 20 then
             -- low aggro on the target. Ignore the target.
-            monster:move(Random.uniform(0, 7), true)
+            doRandomMove(monster)
             return true
         elseif absAggro < 100 then
             -- critical aggro, observe the target.
@@ -92,7 +100,7 @@ function M.addCallbacks(t)
                     -- No way to escape!
                     local distance = monster:distanceMetric(enemy)
                     if distance > 4 then
-                        monster:move(Random.uniform(0, 7), true)
+                        doRandomMove(monster)
                         return true
                     else
                         local aggroToAdd = math.min(0, math.pow(6 - distance, 4))

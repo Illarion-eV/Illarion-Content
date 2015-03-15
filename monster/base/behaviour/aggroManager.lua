@@ -31,13 +31,13 @@ local function _isNumber(value)
     return type(value) == "number"
 end
 
-local function decreaseAggro(aggroTable, aggroReduction)
+local function decreaseAggro(aggroTable, aggroReduction, delta)
     for charId, aggro in pairs(aggroTable) do
         local newAggro = 0
         if aggro < 0 then
-            newAggro = math.min(0, aggro + aggroReduction)
+            newAggro = math.min(0, aggro + aggroReduction * delta)
         elseif aggro > 0 then
-            newAggro = math.max(0, aggro - aggroReduction)
+            newAggro = math.max(0, aggro - aggroReduction * delta)
         end
         if newAggro == 0 then
             aggroTable[charId] = nil;
@@ -77,7 +77,7 @@ function M.buildAggroManager(params)
         minAggro = tonumber(params.minAggro)
     end
 
-
+    local lastAggroUpdate = -1
     local aggroTable = {}
     local manager = {}
 
@@ -116,11 +116,19 @@ function M.buildAggroManager(params)
                 result = orgSetTarget(monster, candidateList)
             end
 
+            local currentUnixTime = world:getTime("unix")
+
             if aggroTable[monster.id] == nil then
                 aggroTable[monster.id] = {}
             else
-                decreaseAggro(aggroTable[monster.id], aggroReduction)
+                local dt = 1
+                if lastAggroUpdate > -1 then
+                    dt = currentUnixTime - lastAggroUpdate
+                end
+                decreaseAggro(aggroTable[monster.id], aggroReduction, dt)
             end
+
+            lastAggroUpdate = currentUnixTime
 
             local indexAndAggro = {}
             local highestAbsoluteAggro = 0
