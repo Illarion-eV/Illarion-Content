@@ -80,6 +80,10 @@ function M.buildAggroManager(params)
     end
 
     local function addAggro(monster, target, value)
+        if aggroTable[monster.id] == nil then
+            aggroTable[monster.id] = {}
+        end
+
         local currentAggro = aggroTable[monster.id][target.id]
         if currentAggro == nil then
             currentAggro = 0
