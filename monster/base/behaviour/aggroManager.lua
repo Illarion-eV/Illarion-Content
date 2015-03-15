@@ -101,7 +101,12 @@ function M.buildAggroManager(params)
         end
 
         local candidateAggro = math.min(maxAggro, math.max(minAggro, currentAggro + value))
-        aggroTable[monster.id][target.id] = candidateAggro
+
+        if candidateAggro == 0 then
+            aggroTable[monster.id][target.id] = nil
+        else
+            aggroTable[monster.id][target.id] = candidateAggro
+        end
 
         target:inform("Your aggro from " .. monster.name .. " is now: " .. candidateAggro)
 

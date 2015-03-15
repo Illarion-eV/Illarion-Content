@@ -28,7 +28,9 @@ local aggroManager = ag.buildAggroManager{
     addAggroForTarget = function(monster, target)
         if character.IsPlayer(target) then
             local distance = monster:distanceMetric(target)
-            if distance > 4 then
+            if distance > 6 then
+                return 0
+            elseif distance > 4 then
                 return -15
             else
                 return math.pow(6 - distance, 3)
@@ -51,7 +53,7 @@ local function doRandomMove(monster)
     if Random.uniform() < 0.15 then
         monster:move(Random.uniform(0, 7), true)
     else
-        character.ChangeMovepoints(monster, -30)
+        character.ChangeMovepoints(monster, -15)
     end
 end
 
@@ -69,7 +71,7 @@ function M.addCallbacks(t)
             -- critical aggro, observe the target.
             common.TurnTo(monster, enemy.pos)
             enemy:inform("Monster " .. monster.name .. " is watching you.")
-            character.ChangeMovepoints(monster, -10)
+            character.ChangeMovepoints(monster, -15)
             return true
         else
             -- aggro is high. Act on it.
@@ -107,6 +109,7 @@ function M.addCallbacks(t)
                 else
                     monster:talk(Character.say, "Running away!", "Running away!")
                     monster:move(runAwayDirection, true)
+                    common.TurnTo(monster, enemy.pos)
                     return true
                 end
             end
