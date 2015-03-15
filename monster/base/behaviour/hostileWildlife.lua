@@ -28,7 +28,7 @@ local aggroManager = ag.buildAggroManager{
     addAggroForTarget = function(monster, target)
         if character.IsPlayer(target) then
             local distance = monster:distanceMetric(target)
-            if distance > 6 then
+            if distance > 4 then
                 return -20
             else
                 return math.pow(6 - distance, 2)
@@ -40,9 +40,11 @@ local aggroManager = ag.buildAggroManager{
         local monsterHP = character.GetHP(monster)
         local attackerHP = character.GetHP(attacker)
 
-        return 500 - attackerHP + monsterHP
+        return 500 - (attackerHP / 10) + (monsterHP / 10)
     end,
-    aggroReduction = 5
+    aggroReduction = 5,
+    maxAggro = 500,
+    minAggro = -200
 }
 
 function M.addCallbacks(t)

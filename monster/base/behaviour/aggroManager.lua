@@ -67,6 +67,17 @@ function M.buildAggroManager(params)
     end
     local aggroReduction = tonumber(params.aggroReduction)
 
+    local maxAggro = 100
+    if _isNumber(params.maxAggro) then
+        maxAggro = tonumber(params.maxAggro)
+    end
+
+    local minAggro = 100
+    if _isNumber(params.minAggro) then
+        minAggro = tonumber(params.minAggro)
+    end
+
+
     local aggroTable = {}
     local manager = {}
 
@@ -89,8 +100,11 @@ function M.buildAggroManager(params)
             currentAggro = 0
         end
 
-        local candidateAggro = currentAggro + value
+        local candidateAggro = math.min(maxAggro, math.max(minAggro, currentAggro + value))
         aggroTable[monster.id][target.id] = candidateAggro
+
+        target:inform("Your aggro from " .. monster.name .. " is now: " .. candidateAggro)
+
         return candidateAggro
     end
 
