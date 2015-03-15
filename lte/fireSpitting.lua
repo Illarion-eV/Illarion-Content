@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- fireSpitting, id 60
 
+local common = require("base.common")
 local M = {}
 
 function M.addEffect(Effect, User)

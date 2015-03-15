@@ -20,8 +20,8 @@ local monstermagic = require("monster.base.monstermagic")
 local elves = require("monster.race_3_elf.base")
 
 local magic = monstermagic()
-magic.addSummon{probability = 0.0249, monsters = {252, 582, 622}} -- some animals
-magic.addSummon{probability = 0.0050, monsters = {253, 583}} -- stronger animals
+magic.addSummon{probability = 0.0249, monsters = {242, 582, 622}} -- some animals
+magic.addSummon{probability = 0.0050, monsters = {244, 583}} -- stronger animals
 magic.addSummon{probability = 0.0001, monsters = {584}} -- even strong animal
 
 local M = elves.generateCallbacks()
