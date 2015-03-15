@@ -64,7 +64,7 @@ function M.UseItem(User, SourceItem, ltstate)
 			TargetItem = common.GetItemInArea(User.pos, 2079);
 		end
 		if (TargetItem == nil) then
-			TargetItem = common.GetItemInArea(User.pos, 1079);
+			TargetItem = common.GetItemInArea(User.pos, 1097);
 		end
 	end
 	if (TargetItem ~= nil) then
