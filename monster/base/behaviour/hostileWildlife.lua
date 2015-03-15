@@ -29,7 +29,7 @@ local aggroManager = ag.buildAggroManager{
         if character.IsPlayer(target) then
             local distance = monster:distanceMetric(target)
             if distance > 4 then
-                return -5
+                return -15
             else
                 return math.pow(6 - distance, 3)
             end
@@ -48,10 +48,10 @@ local aggroManager = ag.buildAggroManager{
 }
 
 local function doRandomMove(monster)
-    if Random:uniform() < 0.15 then
+    if Random.uniform() < 0.15 then
         monster:move(Random.uniform(0, 7), true)
     else
-        character.ChangeMovepoints(monster, -10)
+        character.ChangeMovepoints(monster, -30)
     end
 end
 
@@ -126,7 +126,16 @@ function M.addCallbacks(t)
             return true
         end
 
-        return reactOnAggro(monster, enemy)
+        if reactOnAggro(monster, enemy) then
+            return true
+        end
+
+        if Random.uniform() < 0.03 then
+            character.ChangeMovepoints(monster, -20)
+            return true
+        end
+
+        return false
     end
 
     local oldEnemyNear = t.enemyNear
