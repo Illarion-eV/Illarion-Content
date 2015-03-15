@@ -79,24 +79,19 @@ function M.addCallbacks(t)
             else
                 -- negative aggro. Lets run for the hills.
                 local enemyDir = common.GetDirection(enemy.pos, monster.pos)
-                local vX, vY = common.GetDirectionVector(enemyDir)
 
-                local d = math.min(1, 8 - monster:distanceMetric(enemy))
-                local runAwayTarget = position(monster.pos.x + vX * d, monster.pos.y + vY * d, monster.pos.z)
-                local runAwayFreePositions = common.GetFreePositions(runAwayTarget, d, true, true)
-                local runAwayFreePosition
-                local runAwayFreePositionDist = math.huge;
-                for freePosition in runAwayFreePositions do
-                    local dX = runAwayTarget.x - freePosition.x
-                    local dY = runAwayTarget.y - freePosition.y
-                    local dist = math.sqrt(dX * dX + dY * dY)
-                    if dist < runAwayFreePositionDist then
-                        runAwayFreePositionDist = dist
-                        runAwayFreePosition = freePosition
+                local runAwayDirection = -1
+                for _, runDir in pairs({enemyDir, enemyDir - 1, enemyDir + 1}) do
+                    local vX, vY = common.GetDirectionVector((runDir + 8) % 8)
+                    local runAwayTarget = position(monster.pos.x + vX, monster.pos.y + vY, monster.pos.z)
+                    local runAwayField = world:getField(runAwayTarget)
+                    if runAwayField ~= nil and runAwayField:isPassable() then
+                        runAwayDirection = runDir
+                        break
                     end
                 end
 
-                if runAwayFreePosition == nil then
+                if runAwayDirection == -1 then
                     -- No way to escape!
                     local distance = monster:distanceMetric(enemy)
                     if distance > 4 then
@@ -111,10 +106,8 @@ function M.addCallbacks(t)
                     end
                 else
                     monster:talk(Character.say, "Running away!", "Running away!")
-                    monster.waypoints:clear()
-                    monster.waypoints:addWaypoint(runAwayFreePosition)
-                    monster:setOnRoute(true)
-                    return false
+                    monster:move(runAwayDirection, true)
+                    return true
                 end
             end
         end
