@@ -18,4 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --ID 512, Young Grizzly Bear, Level: 4, Armourtype: heavy, Weapontype: wrestling
 
 local bears = require("monster.race_51_bear.base")
-return bears.generateCallbacks()
+local hostileWildlife = require("monster.base.behaviour.hostileWildlife")
+
+local M = bears.generateCallbacks()
+return hostileWildlife.addCallbacks(M)

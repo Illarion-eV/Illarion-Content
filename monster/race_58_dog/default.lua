@@ -20,4 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --ID 584, Docile Stray Dog
 
 local dogs = require("monster.race_58_dog.base")
-return dogs.generateCallbacks()
+local hostileWildlife = require("monster.base.behaviour.hostileWildlife")
+
+local M = dogs.generateCallbacks()
+return hostileWildlife.addCallbacks(M)

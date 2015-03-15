@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local base = require("monster.base.base")
 local wolves = require("monster.race_40_wolf.base")
+local hostileWildlife = require("monster.base.behaviour.hostileWildlife")
 local M = wolves.generateCallbacks()
 
 local orgOnSpawn = M.onSpawn
@@ -29,4 +30,4 @@ function M.onSpawn(monster)
     base.setColor{monster = monster, target = base.SKIN_COLOR, red = 130, green = 130, blue = 130}
 end
 
-return M
+return hostileWildlife.addCallbacks(M)

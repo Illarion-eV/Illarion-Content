@@ -22,4 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --ID 396, Peaceful Wolf
 
 local wolves = require("monster.race_39_wolf.base")
-return wolves.generateCallbacks()
+local hostileWildlife = require("monster.base.behaviour.hostileWildlife")
+
+local M = wolves.generateCallbacks()
+return hostileWildlife.addCallbacks(M)
