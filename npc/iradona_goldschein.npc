@@ -16,7 +16,7 @@
 -- NPC Name: Iradona Goldschein                                       Galmair --
 -- NPC Job:  Informant                                                        --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  428, 248, 0            --
+-- NPC Race: dwarf                      NPC Position:  430, 247, 0            --
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   envi                                                             --
@@ -26,7 +26,7 @@
 name = "Iradona Goldschein"
 race = dwarf
 sex = female
-position = 428, 248, 0
+position = 430, 247, 0
 direction = west
 affiliation = "Galmair"
 job = "Informant"
