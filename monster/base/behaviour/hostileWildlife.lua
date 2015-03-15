@@ -24,11 +24,17 @@ local ag = require("monster.base.behaviour.aggroManager")
 
 local M = {}
 
-local aggroManager = ag.buildAggroManager{
+local aggroManager
+aggroManager = ag.buildAggroManager{
     addAggroForTarget = function(monster, target)
         if character.IsPlayer(target) then
             local distance = monster:distanceMetric(target)
             if distance > 6 then
+                local currentAggro = aggroManager.getAggro(monster, target)
+                if currentAggro > 0 then
+                    return math.max(-25 - (20 * (distance - 6)), -currentAggro)
+                end
+
                 return 0
             elseif distance > 4 then
                 return -15
