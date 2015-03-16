@@ -713,7 +713,7 @@ function CauseDamage(Attacker, Defender, Globals)
         common.TalkNLS(Defender.Char, Character.say,
             "#me stolpert zurück und geht zu Boden.",
             "#me stumbles back and falls to the ground.")
-        Attacker.Char.attackmode = false
+
         if not Defender.Char:isAdmin() then --Admins don't want to get paralysed!
             common.ParalyseCharacter(Defender.Char, 2, false, true)
             local TimeFactor=1 -- See lte.chr_reg
