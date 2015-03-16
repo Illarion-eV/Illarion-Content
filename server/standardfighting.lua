@@ -1694,15 +1694,10 @@ end
 -- @param Defender The character who is attacked
 -- @return true in case the attack can go on, else it has to be stopped
 function NewbieIsland(Attacker, Defender)
-    -- Newbie Island is on z-level 100 and aboth. if that does not fit we are
     -- not in the newbie island and the Attack is okay.
-    if (Attacker.pos.z < 100 or Attacker.pos.z > 105) then
+    if not common.isOnNoobia(Attacker.pos) then
         return true
     end
-
-    --if (Attacker.pos.z) ~= -40 then     -- same for the prisons
-    --    return true;
-    --end;
 
     -- in case the character it not a other player character, the Attack is
     -- okay anyway.
