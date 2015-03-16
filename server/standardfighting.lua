@@ -1111,10 +1111,6 @@ function CoupDeGrace(Attacker, Defender)
         return false
     end
 
-    if (Attacker.AttackKind == 4) then -- Not done for distance weapons
-        return false
-    end
-
     if fighting.IsTrainingWeapon(Attacker.WeaponItem.id) then
         -- not done for training weapons
         return false
