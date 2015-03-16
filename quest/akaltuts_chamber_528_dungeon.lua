@@ -130,7 +130,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 528,
-    location = {position = position(470, 802, -9), radius = 100},
+    location = {position = position(949, 396,  0), radius = 175},
     queststatus = {from = 27, to = 28},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "den unheiligen Erzmagier", english = "the unholy archmage"},
