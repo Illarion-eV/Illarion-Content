@@ -422,16 +422,6 @@ function ArmourAbsorption(Attacker, Defender, Globals)
         armourValue = armourValue/Noobmessupmalus
     end
 
-    local Rarity = NotNil(tonumber(Globals.HittedItem:getData("RareArmour")))
-
-    if(Rarity<0) then -- Armour is broken
-        armourValue = armourValue/2
-    elseif(Rarity>0) then -- Armour is a rare artifact
-        --Each bonus is equivalent to 20 skill levels of equipment.
-        local RarityBonus = 20*Rarity
-        armourValue = armourValue+RarityBonus
-    end
-
     if(Globals.criticalHit==6) then
         --Armour pierce
         armourValue=0
@@ -471,31 +461,7 @@ function ArmourDegrade(Defender, Globals)
         return
     end
 
-    --WHAT IS THIS? Pleae use comments. ~Estralis
-    local Rarity = NotNil(tonumber(Globals.HittedItem:getData("RareArmour")))
-
-    if(Rarity<0) then
-        local durability = math.fmod(Globals.HittedItem.quality, 100)
-        local quality = (Globals.HittedItem.quality - durability) / 100
-        local nameText=world:getItemName(Globals.HittedItem.id,Defender.Char:getPlayerLanguage())
-
-        durability = durability - 20
-        if (durability <= 0) then
-            common.InformNLS(Defender.Char,
-          "Dein Artefakt '"..nameText.."' zerbricht. Das nächste Mal solltest du dich besser darum kümmern.",
-          "Your artifact '"..nameText.."' shatters. You should take better care of it next time.")
-          world:erase(Globals.HittedItem, 1)
-          return true
-        end
-
-        Globals.HittedItem.quality = quality * 100 + durability
-        --world:changeItem(Globals.HittedItem.WeaponItem);
-        world:changeItem(Globals.HittedItem)
-
-        common.InformNLS(Defender.Char,
-        "Du solltest dein kaputtes Artefakt '"..nameText.."' ablegen bevor es zerbricht!",
-        "You should take off your broken artifact '"..nameText.."' before it shatters!")
-    elseif (common.Chance(Globals.Damage, 12000)) and (Globals.HittedItem.id ~= 0) then -- do not damage non existing items
+    if (common.Chance(Globals.Damage, 12000)) and (Globals.HittedItem.id ~= 0) then -- do not damage non existing items
         local durability = math.fmod(Globals.HittedItem.quality, 100)
         local quality = (Globals.HittedItem.quality - durability) / 100
         local nameText=world:getItemName(Globals.HittedItem.id,Defender.Char:getPlayerLanguage())
@@ -526,30 +492,8 @@ end
 -- @param Defender The table that stores the data of the defender
 -- @param ParryWeapon The item which was used to parry
 function WeaponDegrade(Attacker, Defender, ParryWeapon)
-    local Rarity = NotNil(tonumber(Attacker.WeaponItem:getData("RareWeapon")))
-    local nameText=world:getItemName(Attacker.WeaponItem.id,Attacker.Char:getPlayerLanguage())
-
-    if(Rarity<0) and Attacker.Char:getType() == Character.player then
-        local durability = math.fmod(Attacker.WeaponItem.quality, 100)
-        local quality = (Attacker.WeaponItem.quality - durability) / 100
-
-        durability = durability - 20
-        if (durability <= 0) then
-            common.InformNLS(Attacker.Char,
-          "Dein Artefakt '"..nameText.."' zerbricht. Das nächste Mal solltest du dich besser darum kümmern.",
-          "Your artifact '"..nameText.."' shatters. You should take better care of it next time.")
-          world:erase(Attacker.WeaponItem, 1)
-          return true
-        end
-
-        Attacker.WeaponItem.quality = quality * 100 + durability
-        --world:changeItem(Globals.HittedItem.WeaponItem);
-        world:changeItem(Attacker.WeaponItem)
-
-        common.InformNLS(Defender.Char,
-        "Du solltest aufhören, dein kaputtes Artefakt '"..nameText.."' zu verwenden, bevor es zerbricht!",
-        "You should stop wielding your broken artifact '"..nameText.."' before it shatters!")
-    elseif (common.Chance(1, 20)) and (Attacker.WeaponItem.id ~= 0) and Attacker.Char:getType() == Character.player then
+    local nameText = world:getItemName(Attacker.WeaponItem.id,Attacker.Char:getPlayerLanguage())
+    if (common.Chance(1, 20)) and (Attacker.WeaponItem.id ~= 0) and Attacker.Char:getType() == Character.player then
         local durability = math.fmod(Attacker.WeaponItem.quality, 100)
         local quality = (Attacker.WeaponItem.quality - durability) / 100
 
@@ -572,30 +516,8 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
         end
     end
 
-    Rarity = NotNil(tonumber(ParryWeapon:getData("RareWeapon")))
     local nameText=world:getItemName(ParryWeapon.id,Defender.Char:getPlayerLanguage())
-
-    if(Rarity<0) and Defender.Char:getType() == Character.player then
-        local durability = math.fmod(ParryWeapon.quality, 100)
-        local quality = (ParryWeapon.quality - durability) / 100
-
-        durability = durability - 20
-        if (durability <= 0) then
-            common.InformNLS(Defender.Char,
-          "Dein Artefakt '"..nameText.."' zerbricht. Das nächste Mal solltest du dich besser darum kümmern.",
-          "Your artifact '"..nameText.."' shatters. You should take better care of it next time.")
-          world:erase(ParryWeapon, 1)
-          return true
-        end
-
-        ParryWeapon.quality = quality * 100 + durability
-        --world:changeItem(Globals.HittedItem.WeaponItem);
-        world:changeItem(ParryWeapon)
-
-        common.InformNLS(Defender.Char,
-        "Du solltest aufhören, dein kaputtes Artefakt '"..nameText.."' zu verwenden, bevor es zerbricht!",
-        "You should stop wielding your broken artifact '"..nameText.."' before it shatters!")
-    elseif (common.Chance(1, 60)) and (ParryWeapon.id ~= 0) and Defender.Char:getType() == Character.player then
+    if (common.Chance(1, 60)) and (ParryWeapon.id ~= 0) and Defender.Char:getType() == Character.player then
         local durability = math.fmod(ParryWeapon.quality, 100)
         local quality = (ParryWeapon.quality - durability) / 100
 
@@ -636,17 +558,6 @@ function CalculateDamage(Attacker, Globals)
 
     if Attacker.IsWeapon then
         BaseDamage = Attacker.Weapon.Attack * 10
-
-        -- If it has RareWeapon data 1, 2 or 3 it's a special version. Has more attack.
-        local Rarity = NotNil(tonumber(Attacker.WeaponItem:getData("RareWeapon")))
-        if (Rarity>0) then
-            --This "20" corresponds to how many skill levels it should boost by. 20 is the value for now. Might be OP. If so, lower.
-            local RarityBonus = 20*Rarity
-            --This "6" value isn't a frickelfactor. It comes from the fact that attack for eachh weapon is derived by:
-            --AP/Accuracy*(150+ASL*6), where ASL is Associated Skill Level. This means a level 100 weapon is 5x as good as a base one.
-            --This formula is used because the base WF values are based on 1.5+ASL*6/100
-            BaseDamage = BaseDamage + Attacker.Weapon.ActionPoints/Attacker.Weapon.Accuracy*6*RarityBonus
-        end
     else
         BaseDamage = fighting.GetWrestlingAttack( Attacker.Race ) * 10
     end
@@ -839,12 +750,8 @@ function HitChance(Attacker, Defender, Globals)
 
     --The Shield Scaling Factor (SSF). Changes how much the top shield is better than the worse one.
     local ShieldScalingFactor =5 --For what do we have database numbers!? ~Estralis
-    local Rarity = NotNil(tonumber(parryItem:getData("RareWeapon")))
-    if (parryWeapon.WeaponType~=14) then
-        Rarity = 0
-    end
 
-    local parryweapondefense = parryWeapon.Defence+Rarity*20
+    local parryweapondefense = parryWeapon.Defence
     local defenderdefense = (100/ShieldScalingFactor) + parryweapondefense*(1-1/ShieldScalingFactor)
 
     --THIS IS SHIT!!! EITHER YOU TAKE THE DB VALUES OR NOT! ~Estralis
@@ -890,11 +797,6 @@ function CheckAttackOK(CharStruct)
     if (CharStruct.Char.effects:find(24)) then -- Attacker is tied up
         return false
     end
-
-    --Uncomment this line if rares should be unuseable
-    --[[if (NotNil(tonumber(CharStruct.WeaponItem:getData("RareWeapon")))<0) then -- Item is a broken artifact
-        return false;
-    end;]]
 
     if (CharStruct.SecIsWeapon) then
         -- there is something in the second hand
