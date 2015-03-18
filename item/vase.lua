@@ -39,6 +39,7 @@ local dragonCaveVasePos = {
 	position(670, 634, -3),
 	position(675, 640, -3),
 	position(676, 627, -3),
+	position(678, 610, -3),
 	position(678, 617, -3),
 	position(676, 633, -3),
 	position(676, 635, -3),
@@ -66,6 +67,9 @@ local dragonCaveVasePos = {
 	position(694, 637, -3),
 	position(701, 627, -3),
 	position(691, 611, -3),
+	position(698, 622, -6),
+	position(702, 615, -6),
+	position(707, 615, -6),
 	}
 
 local dragongem = {} --a list with positions
