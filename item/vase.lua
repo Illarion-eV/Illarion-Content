@@ -170,8 +170,8 @@ function VaseContents(User, vaseItem)
 		local monPos = common.getFreePos(vaseItem.pos, 2) -- radius 2 around vase
             world:createMonster(222, monPos, -20)
             world:gfx(41, monPos) -- swirly
-            User:inform("Schlechte Wahl, Abenteuerer! Etwas springt aus dem Totenschädel heraus und greift dich an.",
-                "Wrong choice traveler! Something hops out of the skull and attacks you.")
+            User:inform("Schlechte Wahl, Abenteuerer! Etwas springt aus dem vase heraus und greift dich an.",
+                "Wrong choice traveler! Something hops out of the vase and attacks you.")
 	   end
     end
 
