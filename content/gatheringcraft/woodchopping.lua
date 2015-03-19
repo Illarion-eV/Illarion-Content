@@ -31,8 +31,7 @@ function StartGathering(User, SourceItem, ltstate)
 
 	common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
-        User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
-		return
+        return
 	end
 
 	if not common.CheckItem( User, SourceItem ) then -- security check
@@ -96,7 +95,6 @@ function StartGathering(User, SourceItem, ltstate)
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,toolItem);
 		User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 6, 0);
-		User:talk(Character.say, "#me beginnt Holz zu hacken.", "#me starts to chop wood.")
 		if ( changeItem ) then
 			world:changeItem(SourceItem);
 		end

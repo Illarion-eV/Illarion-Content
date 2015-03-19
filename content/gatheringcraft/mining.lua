@@ -31,8 +31,7 @@ function StartGathering(User, SourceItem, ltstate)
 
 	common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
-        User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
-		return
+        return
 	end
 
 	if not common.CheckItem( User, SourceItem ) then -- security check
@@ -66,7 +65,6 @@ function StartGathering(User, SourceItem, ltstate)
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		mining.SavedWorkTime[User.id] = mining:GenWorkTime(User, toolItem);
 		User:startAction( mining.SavedWorkTime[User.id], 0, 0, 18, 15);
-		User:talk(Character.say, "#me beginnt mit einer Spitzhacke auf den Stein zu schlagen.", "#me starts to hit the stone with a pick-axe.")
 		User:performAnimation(14);
 		return
 	end
