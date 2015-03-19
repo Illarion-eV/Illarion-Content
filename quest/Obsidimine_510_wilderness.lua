@@ -145,7 +145,7 @@ monsterQuests.addQuest{
     location = {position = position(805, 632, 0), radius = 50},
     queststatus = {from = 3, to = 5},
     questTitle = {german = "Höhlenforscher II", english = "Spelunker II"},
-    monsterName = {german = "??", english = "hell hound"},
+    monsterName = {german = "Höllenhund", english = "hell hound"},
     npcName = "Obsidimine",
     monsterIds = {861, 883} -- bloodsniffer and crippled ghost beast
 }
@@ -163,7 +163,7 @@ monsterQuests.addQuest{
     location = {position = position(686, 635, -6), radius = 50},
     queststatus = {from = 30, to = 31},
     questTitle = {german = "Höhlenforscher XI", english = "Spelunker XI"},
-    monsterName = {german = "??", english = "Dragon of Death"},
+    monsterName = {german = "Todesdrachen", english = "Dragon of Death"},
     npcName = "Obsidimine",
     monsterIds = {1123} -- dragon of death
 }

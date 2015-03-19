@@ -82,13 +82,13 @@ dragongem[6] = position(685, 641, -3) --6: Dragon diamond
 dragongem[7] = position(694, 637, -3) --7: Dragon obsidian
 
 local messageG = {}
-messageG[1] = "[Queststatus] "
-messageG[2] = "[Queststatus] "
-messageG[3] = "[Queststatus] "
-messageG[4] = "[Queststatus] "
-messageG[5] = "[Queststatus] "
-messageG[6] = "[Queststatus] "
-messageG[7] = "[Queststatus] "
+messageG[1] = "[Queststatus] Du findest einen großen Smaragd in dem in Drachenkopf eingeschliffen ist. Wahrscheinlich hat Obsidimine hiervon gesprochen."
+messageG[2] = "[Queststatus] Du findest einen großen Rubin in dem in Drachenkopf eingeschliffen ist. Wahrscheinlich hat Obsidimine hiervon gesprochen."
+messageG[3] = "[Queststatus] Du findest einen großen Amethyst in dem in Drachenkopf eingeschliffen ist. Wahrscheinlich hat Obsidimine hiervon gesprochen."
+messageG[4] = "[Queststatus] Du findest einen großen Saphir in dem in Drachenkopf eingeschliffen ist. Wahrscheinlich hat Obsidimine hiervon gesprochen."
+messageG[5] = "[Queststatus] Du findest einen großen Topas in dem in Drachenkopf eingeschliffen ist. Wahrscheinlich hat Obsidimine hiervon gesprochen."
+messageG[6] = "[Queststatus] Du findest einen großen Diamant in dem in Drachenkopf eingeschliffen ist. Wahrscheinlich hat Obsidimine hiervon gesprochen."
+messageG[7] = "[Queststatus] Du findest einen großen Obsidian in dem in Drachenkopf eingeschliffen ist. Wahrscheinlich hat Obsidimine hiervon gesprochen."
 
 local messageE = {}
 messageE[1] = "[Quest status] You have discovered a large emerald engraved with a dragon head.  This must be what Obsidimine was speaking about."
@@ -126,7 +126,7 @@ function M.UseItem(User, SourceItem)
                 queststatus = User:getQuestProgress(512) --and reading it again
                 if queststatus == 1111111 then --found all dragongem
                     User:setQuestProgress(510, 14) --Quest solved!
-                    common.InformNLS(User, "[Queststatus] ", "[Quest status] You have found all the dragon gems.  Take them back to Obsidimine.")
+                    common.InformNLS(User, "[Queststatus] Du hast alle Drachensteine gefunden. Bring sie zurück zu Obsidimine.", "[Quest status] You have found all the dragon gems.  Take them back to Obsidimine.")
                     return --more than solving isn't possible, bailing out
                 end
             end
@@ -158,11 +158,11 @@ function VaseContents(User, vaseItem)
         
 	local random_number = math.random(1,100)
 	if random_number >= 0 and random_number <= 35 then
-	    User:inform("", "A small spider scampers out of the vase and towards your hand, before running the other way.")
+	    User:inform("Eine kleine Spinne krabbelt aus der Vase auf deine Hand und sucht dann das Weite.", "A small spider scampers out of the vase and towards your hand, before running the other way.")
 	elseif random_number >= 36 and random_number <= 70 then
-	    User:inform("", "A cloud of dust escapes into the air.")
+	    User:inform("Staub wirbelt auf.", "A cloud of dust escapes into the air.")
 	elseif random_number >= 71 and random_number <= 90 then
-        User:inform("","You discover a raw diamond.")
+        User:inform("Du findest einen ungeschliffenen Diamanten.","You discover a raw diamond.")
 		local notCreated = User:createItem(254, 1, 333, nil) -- raw diamond
         if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
             world:createItemFromId(254, notCreated, User.pos, true, 333, nil)
