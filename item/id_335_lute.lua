@@ -32,6 +32,12 @@ music.addTalkText("#me plays some nice sounding tunes on a lute.","#me spielt ei
 music.addTalkText("#me plays a lilting melody on a lute.","#me spielt eine trällernde Melodie auf der Laute.",  skill);
 
 function M.UseItem(User, SourceItem)
+
+	if (User:getQuestProgress(510) == 27) and  SourceItem.pos == position(701, 614, -6) then --Dragon Lair loot and you do the quest
+        User:talk(Character.say"", "#me reaches forward to carefully take a golden string from the lute to take back to Obsidimine.")
+		User:setQuestProgress(510, 28)
+    end
+	
     music.PlayInstrument(User,SourceItem, skill);
 end
 
