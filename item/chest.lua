@@ -17,6 +17,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.chest' WHERE itm_id IN (1362,8,1367,1360,1362,1361);
 
+local common = require("base.common")
+
 local M = {}
 
 local dragonCaveChestPos= {

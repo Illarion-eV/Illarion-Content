@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_220_barrel' WHERE itm_id IN (220);
 
+local common = require("base.common")
 local licence = require("base.licence")
 local dyeing = require("content.gatheringcraft.dyeing")
 

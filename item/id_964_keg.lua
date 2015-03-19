@@ -17,6 +17,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_964_keg' WHERE itm_id IN (964);
 
+local common = require("base.common")
+
 local M = {}
 
 local dragonCaveKegPos= {
