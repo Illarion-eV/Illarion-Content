@@ -365,13 +365,11 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     GetArmourType(Defender, Globals)
 
     local armourfound, armour = world:getArmorStruct(Globals.HittedItem.id)
-    local armourValue = 0
+    local armourValue
     local skillmod = 1
     local qualitymod = 0.82+0.02*math.floor(Globals.HittedItem.quality/100)
 
     --Essentially what this does is choose how much the values are divided. So stroke is half as effective as punc is half as effective as thrust for one type etc.
-
-    -- B I G mistake below: Level 0 armours have a armourValue of exactly 0. A dude in plate armour has the same armorValue as a naked moron- FIX!!! ~Estralis
     local ArmourDefenseScalingFactor = 2
     local GeneralScalingFactor = 2.8
 
@@ -424,15 +422,18 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 
     if(Globals.criticalHit==6) then
         --Armour pierce
-        armourValue=0
+        armourValue = nil
     end
 
     -- This Armour Scaling Factor (ASF) is important. You can think of it like this:
     -- If ASF = 5, the top armour in the game is 5x as good as the worst armour in the game
     local ArmourScalingFactor = 5
 
-    if(armourValue>0) then
+    -- Naked means value 0, whereas armour level 0 scales higher
+    if armourValue ~= nil then
         armourValue = (100/ArmourScalingFactor) + armourValue*(1-1/ArmourScalingFactor)
+    else
+        armourValue = 0
     end
 
     --Race armour for monsters

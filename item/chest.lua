@@ -15,43 +15,53 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE items SET itm_script='item.id_220_barrel' WHERE itm_id IN (220);
+-- UPDATE items SET itm_script='item.chest' WHERE itm_id IN (1362,8,1367,1360,1362,1361);
 
 local common = require("base.common")
-local licence = require("base.licence")
-local dyeing = require("content.gatheringcraft.dyeing")
 
 local M = {}
 
-local dragonCaveBarrelPos = {
-    position(660, 634, -3),
-    position(786, 653, -3),
-    position(821, 655, -3),
-    position(821, 656, -3),
-    position(786, 635, -3),
-    position(786, 634, -3),
+local dragonCaveChestPos= {
+    position(819, 676, -3),
+    position(819, 674, -3),
+    position(827, 655, -3),
+    position(812, 650, -3),
+    position(795, 617, -3),
+    position(787, 631, -3),
+	position(787, 632, -3),
+	position(783, 640, -3),
+	position(785, 657, -3),
+	position(794, 668, -3), 
+	position(783, 630, -3),
+	position(782, 630, -3),
+	position(664, 617, -3),
+	position(662, 617, -3),
+	position(705, 613, -6),
+	position(703, 616, -6),
+	position(704, 617, -6),
 	}
 	
 function M.UseItem(User, SourceItem, ltstate)
-	if licence.licence(User) then --checks if user is citizen or has a licence
-		return -- avoids crafting if user is neither citizen nor has a licence
-	end
-
-	for i = 1, #dragonCaveBarrelPos do
-            if (SourceItem.pos == dragonCaveBarrelPos[i]) then
-                BarrelContents(User, SourceItem)
+	
+	if (User:getQuestProgress(510) == 24) and  SourceItem.pos == position(783, 640, -3) then --OK, the player does the quest
+        User:inform("", "Inside the chest lays a golden amulet adorned with a large emerald. On the stone is a golden Dwarven coat of arms.  This is what Obsidimine was inquiring about.")
+		User:setQuestProgress(510, 25)
+    end
+	
+	for i = 1, #dragonCaveChestPos do
+            if (SourceItem.pos == dragonCaveChestPos[i]) then
+                ChestContents(User, SourceItem)
                 return
             end
     end	
 	
-	dyeing.StartGathering(User, SourceItem, ltstate);
 end
 
-function BarrelContents(User, barrelItem)
+function ChestContents(User, chestItem)
 
     -- skip if already tripped in the last 5 minutes
     local serverTime = world:getTime("unix")
-    local trippingTime = barrelItem:getData("tripping_time")
+    local trippingTime = chestItem:getData("tripping_time")
 
     if (trippingTime ~= "" and ((tonumber(trippingTime) + 300) > serverTime)) then
         User:inform("Du findest nichts in diesem Fass.",
@@ -59,8 +69,8 @@ function BarrelContents(User, barrelItem)
         return
     end
     -- safe tripping time
-    barrelItem:setData("tripping_time", serverTime)
-    world:changeItem(barrelItem)
+    chestItem:setData("tripping_time", serverTime)
+    world:changeItem(chestItem)
         
 	local random_number = math.random(1,100)
 	if random_number >= 0 and random_number <= 35 then
@@ -77,7 +87,7 @@ function BarrelContents(User, barrelItem)
                 "You can't carry any more.")
 			end
 	elseif random_number >= 91 and random_number <=100 then
-		local monPos = common.getFreePos(barrelItem.pos, 2) -- radius 2 around vase
+		local monPos = common.getFreePos(chestItem.pos, 2) -- radius 2 around vase
             world:createMonster(211, monPos, -20)
             world:gfx(41, monPos) -- swirly
             User:inform("",

@@ -15,15 +15,13 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE items SET itm_script='item.id_220_barrel' WHERE itm_id IN (220);
+-- UPDATE items SET itm_script='item.id_964_keg' WHERE itm_id IN (964);
 
 local common = require("base.common")
-local licence = require("base.licence")
-local dyeing = require("content.gatheringcraft.dyeing")
 
 local M = {}
 
-local dragonCaveBarrelPos = {
+local dragonCaveKegPos= {
     position(660, 634, -3),
     position(786, 653, -3),
     position(821, 655, -3),
@@ -33,25 +31,21 @@ local dragonCaveBarrelPos = {
 	}
 	
 function M.UseItem(User, SourceItem, ltstate)
-	if licence.licence(User) then --checks if user is citizen or has a licence
-		return -- avoids crafting if user is neither citizen nor has a licence
-	end
-
-	for i = 1, #dragonCaveBarrelPos do
-            if (SourceItem.pos == dragonCaveBarrelPos[i]) then
-                BarrelContents(User, SourceItem)
+	
+	for i = 1, #dragonCaveKegPos do
+            if (SourceItem.pos == dragonCaveKegPos[i]) then
+                KegContents(User, SourceItem)
                 return
             end
     end	
 	
-	dyeing.StartGathering(User, SourceItem, ltstate);
 end
 
-function BarrelContents(User, barrelItem)
+function KegContents(User, kegItem)
 
     -- skip if already tripped in the last 5 minutes
     local serverTime = world:getTime("unix")
-    local trippingTime = barrelItem:getData("tripping_time")
+    local trippingTime = kegItem:getData("tripping_time")
 
     if (trippingTime ~= "" and ((tonumber(trippingTime) + 300) > serverTime)) then
         User:inform("Du findest nichts in diesem Fass.",
@@ -59,8 +53,8 @@ function BarrelContents(User, barrelItem)
         return
     end
     -- safe tripping time
-    barrelItem:setData("tripping_time", serverTime)
-    world:changeItem(barrelItem)
+    kegItem:setData("tripping_time", serverTime)
+    world:changeItem(kegItem)
         
 	local random_number = math.random(1,100)
 	if random_number >= 0 and random_number <= 35 then
@@ -77,7 +71,7 @@ function BarrelContents(User, barrelItem)
                 "You can't carry any more.")
 			end
 	elseif random_number >= 91 and random_number <=100 then
-		local monPos = common.getFreePos(barrelItem.pos, 2) -- radius 2 around vase
+		local monPos = common.getFreePos(kegItem.pos, 2) -- radius 2 around vase
             world:createMonster(211, monPos, -20)
             world:gfx(41, monPos) -- swirly
             User:inform("",
