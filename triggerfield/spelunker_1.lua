@@ -27,11 +27,11 @@ waypoint[4] = position(822, 622, -3) --4: east entrance of level -3 underground
 waypoint[5] = position(668, 658, -6) --5: entrance of the lowest level of dragon cave
 
 local messageG = {}
-messageG[1] = "[Queststatus] "
-messageG[2] = "[Queststatus] "
-messageG[3] = "[Queststatus] "
-messageG[4] = "[Queststatus] "
-messageG[5] = "[Queststatus] "
+messageG[1] = "[Queststatus] Du hast die höchste Ebene des Vulkans erreicht."
+messageG[2] = "[Queststatus] Du hast die mittlere Ebene des Vulkans erreicht."
+messageG[3] = "[Queststatus] Du hast den westlichen Eingang zur unteren Ebene entdeckt."
+messageG[4] = "[Queststatus] Du hast den östlichen Eingang zur unteren Ebene entdeckt."
+messageG[5] = "[Queststatus] Du hast die unterste Ebene der DrachenhÃ¶hle gefunden."
 local messageE = {}
 messageE[1] = "[Quest status] You have reached the uppermost level of the volcano."
 messageE[2] = "[Quest status] You have reached the middle level of the volcano."
@@ -53,7 +53,7 @@ function M.MoveToField(User)
                 queststatus = User:getQuestProgress(511) --and reading it again
                 if queststatus == 11111 then --found all waypoints
                     User:setQuestProgress(510, 11) --Quest solved!
-                    common.InformNLS(User, "[Queststatus] ", "[Quest status] You completed the quest and found all levels.")
+                    common.InformNLS(User, "[Queststatus] Du hast die Aufgabe erledigt und alle Ebenen gefunden.", "[Quest status] You completed the quest and found all levels.")
                     return --more than solving isn't possible, bailing out
                 end
             end
