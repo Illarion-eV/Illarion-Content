@@ -14,7 +14,13 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- Quest: A Question of Honour (510)/(511)
+-- INSERT INTO triggerfields VALUES (826, 643, 2,'triggerfield.spelunker_1');
+-- INSERT INTO triggerfields VALUES (821, 661, 1,'triggerfield.spelunker_1');
+-- INSERT INTO triggerfields VALUES (657, 701, -3,'triggerfield.spelunker_1');
+-- INSERT INTO triggerfields VALUES (822, 622, -3,'triggerfield.spelunker_1');
+-- INSERT INTO triggerfields VALUES (668, 658, -6,'triggerfield.spelunker_1');
+
+-- Quest: Spelunker (510)/(511)
 local common = require("base.common")
 
 local M = {}
