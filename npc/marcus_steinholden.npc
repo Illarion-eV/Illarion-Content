@@ -60,8 +60,8 @@ itemShoes = 1054
 -- 24: Quest 2 solved.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Marcus Steinholden, ask for a task. Keywords: quest, Akaltut, drow, Defensor, name, punishment.")
-"Hilfe" -> inform("[Spielhilfe] Dies ist NPC Marcus Steinholden, frage nach einer Aufgebe. Schlüsselwörter: Quest, Akaltut, Drow, Defensor, Name, Bestrafung")
+"Help" -> inform("[Game Help] This NPC is Marcus Steinholden, ask for a task. Keywords: quest, Akaltut, drow, Defensor, name, sister.")
+"Hilfe" -> inform("[Spielhilfe] Dies ist NPC Marcus Steinholden, frage nach einer Aufgebe. Schlüsselwörter: Quest, Akaltut, Drow, Defensor, Name, Schwester")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Mar..Marcus does greet you."
