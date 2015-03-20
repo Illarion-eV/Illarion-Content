@@ -86,7 +86,7 @@ M.bookList["lizardmen_history_and_culture"] = {english = "Lizardmen History and 
 M.bookList["orcish_history_and_culture"] = {english = "Orcish History and Culture",german =  "Orkische Geschichte und Kultur", bookId = 22, bookGraphic = bookBlackValuable}
 M.bookList["god_malachin"] = {english = "Malachín",german =  "Malachín", bookId = 23, bookGraphic = Pell}
 M.bookList["god_sirani"] = {english = "Sirani",german =  "Sirani", bookId = 24, bookGraphic = Pell}
-M.bookList["god_zhambra"] = {english = "Zhambia",german =  "Zhambia", bookId = 25, bookGraphic = Pell}
+M.bookList["god_zhambra"] = {english = "Zhambra",german =  "Zhambra", bookId = 25, bookGraphic = Pell}
 M.bookList["zodiac_sign"] = {english = "The zodiac sign of Illarion",german =  "Die Tierkreiszeichen", bookId = 26, bookGraphic = bookYellowVeryHeavy}
 M.bookList["alchemy"] = {english = "Book of Alchemy",german =  "Buch der Alchemie", bookId = 101, bookGraphic = bookWhiteRune}
 M.bookList["journal_of_abbot_elzechiel"] = {english = "Journal of Abbot Elzechiel",german =  "Tagebuch des Abtes Elzechiel", bookId = 201, bookGraphic = Pell}
