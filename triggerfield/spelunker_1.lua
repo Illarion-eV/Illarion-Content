@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (826, 643, 2,'triggerfield.spelunker_1');
 -- INSERT INTO triggerfields VALUES (821, 661, 1,'triggerfield.spelunker_1');
 -- INSERT INTO triggerfields VALUES (657, 701, -3,'triggerfield.spelunker_1');
--- INSERT INTO triggerfields VALUES (822, 622, -3,'triggerfield.spelunker_1');
+-- INSERT INTO triggerfields VALUES (822, 662, -3,'triggerfield.spelunker_1');
 -- INSERT INTO triggerfields VALUES (668, 658, -6,'triggerfield.spelunker_1');
 
 -- Quest: Spelunker (510)/(511)
@@ -29,7 +29,7 @@ local waypoint = {} --a list with positions
 waypoint[1] = position(826, 643, 2) --1: second level of volcano
 waypoint[2] = position(821, 661, 1) --2: first level of volcano
 waypoint[3] = position(657, 701, -3) --3: west entrance of level -3 underground
-waypoint[4] = position(822, 622, -3) --4: east entrance of level -3 underground
+waypoint[4] = position(822, 662, -3) --4: east entrance of level -3 underground
 waypoint[5] = position(668, 658, -6) --5: entrance of the lowest level of dragon cave
 
 local messageG = {}
