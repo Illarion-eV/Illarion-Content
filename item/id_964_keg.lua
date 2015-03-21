@@ -22,12 +22,10 @@ local common = require("base.common")
 local M = {}
 
 local dragonCaveKegPos= {
-    position(660, 634, -3),
-    position(786, 653, -3),
-    position(821, 655, -3),
-    position(821, 656, -3),
-    position(786, 635, -3),
-    position(786, 634, -3),
+    position(710, 632, -3),
+    position(685, 610, -3),
+    position(684, 610, -3),
+    position(677, 615, -3),
 	}
 	
 function M.UseItem(User, SourceItem, ltstate)
