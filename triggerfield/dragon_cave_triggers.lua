@@ -62,14 +62,14 @@ function M.MoveToField( User )
             end
         end
 		
-        if Random.uniform(1, 3) == 1 and theWaypoint >= 1 and theWaypoint <=  4 then  -- trigger fire
+        if Random.uniform(1, 3) == 1 and firetrigger >= 1 and firetrigger <=  4 then  -- trigger fire
 	        
 			common.InformNLS(User,"Flammen schießen neben dir in die Höhe. Die Hitze wird fast unerträglich.","Flames shoot up nearby, giving off an unexpected wall of heat.")
 			
 			world:gfx(38, position(700, 615, -3)) --a flame
 			world:makeSound(5, position(700, 615, -3)) --a flame
 				
-        elseif Random.uniform(1, 3) == 1 and theWaypoint>= 5 and theWaypoint <= 8 then -- trigger fire
+        elseif Random.uniform(1, 3) == 1 and firetrigger>= 5 and firetrigger <= 8 then -- trigger fire
 	        common.InformNLS(User,"Ein riesiges Feuer explodiert in der Nähe. Funken und Feuerbälle prasseln hernieder.","Giant flames explode nearby, shooting sparks and fireballs all over the area.")
 			
 			world:gfx(38, position(699, 655, -6)) --a flame
