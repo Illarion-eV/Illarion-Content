@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- barrel (220)
 
 -- white dye (2683) + gray cloth (176) --> white cloth (178)
--- color dye + (white cloth (178) or grey cloth (176) --> colored cloth (see below for details)
+-- color dye + grey cloth (176) --> colored cloth (see below for details)
 
 -- additional tool: dyeing rod (2781)
 
@@ -80,7 +80,7 @@ function StartGathering(User, SourceItem, ltstate)
 
 	local dye
 	for _,d in pairs(dyersList) do
-		if (User:countItemAt("all",d[1])>0 and (User:countItemAt("all",d[2][1])>0 or User:countItemAt("all",d[2][2])>0)) then
+		if (User:countItemAt("all",d[1])>0 and (User:countItemAt("all",d[2][1])>4 or User:countItemAt("all",d[2][2])>4)) then
 			dye = d;
 			break;
 		end
@@ -88,8 +88,8 @@ function StartGathering(User, SourceItem, ltstate)
 
 	if (dye == nil) then -- check for items to work on
 		common.HighInformNLS( User,
-		"Du brauchst grauen Stoff und Färbemittel um zu färben.",
-		"You need grey cloth and dye for dyeing." );
+		"Du brauchst fünf Ballen grauen Stoff und Färbemittel um zu färben.",
+		"You need five bales of grey cloth and dye for dyeing." );
 		return;
 	end
 
@@ -134,7 +134,7 @@ function StartGathering(User, SourceItem, ltstate)
 	if (notCreated == 0) then -- character can go on
 		dye = nil;
 		for _,d in pairs(dyersList) do
-			if (User:countItemAt("all",d[1])>0 and (User:countItemAt("all",d[2][1])>0 or User:countItemAt("all",d[2][2])>0)) then
+			if (User:countItemAt("all",d[1])>0 and (User:countItemAt("all",d[2][1])>4 or User:countItemAt("all",d[2][2])>4)) then
 				dye = d;
 				break;
 			end
