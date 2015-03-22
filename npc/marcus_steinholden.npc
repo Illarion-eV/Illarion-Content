@@ -44,6 +44,7 @@ wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
 hairID = 1
+beardID = 0
 colorHair = 0, 0, 0
 colorSkin = 230, 217, 193
 itemChest = 182
