@@ -188,7 +188,7 @@ function M.LookAtItem( User, Item )
 
   --Tell the user who's altar that is
   if thisGod==gods.GOD_NONE  or thisGod>gods.GOD_THEFIVE then --undedicated altar
-    lookat.SetSpecialName(Item, "Ungeweihter Altar","Undedicated altar")
+    lookat.SetSpecialName(Item, "Altar","Altar")
   elseif thisGod > gods.GOD_NONE then --dedicated altar
     lookat.SetSpecialName(Item,
     "Altar "..gods.GOD_DE[thisGod].."s, "..gods.DESCRIPTION_DE[thisGod]..".",
