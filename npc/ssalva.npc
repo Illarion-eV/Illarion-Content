@@ -170,8 +170,8 @@ queststatus(501) = 16, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[N
 queststatus(501) = 17, english, ".+" -> "Takess zzese gifts to Zenia and get informations from her."
 queststatus(501) = 17, ".+" -> "Nimm diesse Geschenke für Zzenia und hole die Informationen von ihr."
 --if done
-queststatus(501) = 18, english, ".+" -> inform("[Quest solved] You are awarded a red steel shield and 150 silvercoins."), money + 150000, item(2388, 1, 799), queststatus(501) = 19, "Ksss. Zat iss mosst interessting newss. If you can helpss me more, we will erradicate zzem."
-queststatus(501) = 18, ".+" -> inform("[Quest gelöst] Du erhältst ein rotes Stahlschild und einhundertfünfzig Silberstücke."), money + 150000, item(2388, 1, 799), queststatus(501) = 19, "Zsss. Dass ssind ssehr interesssante Neuigkeiten. Wenn du mir weiterhin helfen kannsst, dann werden wir ssie ausslöschen."
+queststatus(501) = 18, english, ".+" -> inform("[Quest solved] You are awarded a red steel shield and one hundred fifty silvercoins."), money + 15000, item(2388, 1, 799), queststatus(501) = 19, "Ksss. Zat iss mosst interessting newss. If you can helpss me more, we will erradicate zzem."
+queststatus(501) = 18, ".+" -> inform("[Quest gelöst] Du erhältst ein rotes Stahlschild und einhundertfünfzig Silberstücke."), money + 15000, item(2388, 1, 799), queststatus(501) = 19, "Zsss. Dass ssind ssehr interesssante Neuigkeiten. Wenn du mir weiterhin helfen kannsst, dann werden wir ssie ausslöschen."
 
 --Receive sixth quest
 --Kill 15 lizards in Lake of Life
