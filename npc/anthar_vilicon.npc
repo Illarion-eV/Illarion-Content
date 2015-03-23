@@ -121,9 +121,9 @@ town = Runewick, "task", "adventure", "order", "order" -> "When you get back to 
 town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wenn ihr wieder nach Runewick kommt, so grüßt doch Elvaine Morgan von mir. Er möge nochmal über mein Angebot nachdenken, dass ich im vor zwölf Jahren machte."
 
 -- Catching quest triggers of those who have to wait for a new quest
-queststatus(120) ~= 0, english, town = Cadomyr, "quest", "mission" -> "I don't have a mission for you at this moment. Please come back later.", "I appreciate that you want to do deeds in the name of her Majesty, but currently, there are no orders for you.", "Your words honour you and the day will come when you can prove your loyality to the throne by deeds, but this day is not today. Please come back later."
+queststatus(120) ~= 0, english, town = Cadomyr, "quest", "mission" -> "I don't have a mission for you at this moment. Please come back later.", "I appreciate that you want to do deeds in the name of her Majesty, but currently, there are no orders for you.", "Your words honour you and the day will come when you can prove your loyalty to the throne by deeds, but this day is not today. Please come back later."
 queststatus(120) ~= 0, town = Cadomyr, "quest", "mission" -> "Derzeit gibt es keine Mission für euch. Kommt bitte später wieder.", "Ich schätze eure Bereitschaft, Taten im Namen der Königin zu vollbringen. Derzeit habe ich jedoch keine Befehle für euch.", "Eure Worte ehren euch und der Tag wird kommen, an dem ihr euren Worten Taten folgen lassen könnt und eure Loyalität dem Thron gegenüber beweisen könnt. Aber dieser Tag ist nicht heute, kommt bitte später wieder."
-queststatus(120) ~= 0, town = Cadomyr, "task", "adventure", "order" -> "I don't have a mission for you at this moment. Please come back later.", "I appreciate that you want to do deeds in the name of her majesty, but currently, there are no orders for you.", "Your words honour you and the day will come when you can prove your loyality to the throne by deeds, but this day is not today. Please come back later."
+queststatus(120) ~= 0, town = Cadomyr, "task", "adventure", "order" -> "I don't have a mission for you at this moment. Please come back later.", "I appreciate that you want to do deeds in the name of her majesty, but currently, there are no orders for you.", "Your words honour you and the day will come when you can prove your loyalty to the throne by deeds, but this day is not today. Please come back later."
 queststatus(120) ~= 0, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Derzeit gibt es keine Mission für euch. Kommt bitte später wieder.", "Ich schätze eure Bereitschaft, Taten im Namen der Königin zu vollbringen. Derzeit habe ich jedoch keine Befehle für euch.", "Eure Worte ehren euch und der Tag wird kommen, an dem ihr euren Worten Taten folgen lassen könnt und eure Loyalität dem Thron gegenüber beweisen könnt. Aber dieser Tag ist nicht heute, kommt bitte später wieder."
 
 -- A quest is chosen at random!
@@ -435,9 +435,9 @@ queststatus(119) = 19, item(94, all) < 1, town = Cadomyr, "task", "adventure", "
 queststatus(119) = 19, item(94, all) < 1, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Schaut mich mal an. Sehe ich aus, als wenn ich scherzen würde? Wenn Baron Hastings Männer unsere Wache unvorbereitet vorfinden werdet ihr mit eurem Kopf bezahlen. Also holt jetzt diesen Topfhelm für unseren Rekruten!"
 
 -- Quest 20: Gather a gold ingot (236)
-queststatus(119) = 0, english, chance(100.0), town = Cadomyr, "quest", "mission" -> inform("[New Quest] Do a good turn daily for Cadomyr"), queststatus(119) = 20, "Today, I have a personal request rather than an order. Could you please bring me a gold ingot - I want to forge a special gift, a bracelet, for my Queen to prove my loyality."
+queststatus(119) = 0, english, chance(100.0), town = Cadomyr, "quest", "mission" -> inform("[New Quest] Do a good turn daily for Cadomyr"), queststatus(119) = 20, "Today, I have a personal request rather than an order. Could you please bring me a gold ingot - I want to forge a special gift, a bracelet, for my Queen to prove my loyalty."
 queststatus(119) = 0, german, chance(100.0), town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), queststatus(119) = 20, "Heute habe ich keinen Befehl für euch sondern eine persönliche Bitte. Könntet ihr mir bitte einen Goldbarren bringen - ich möchte der Königin ein besonderes Geschenk, einen Armreif, schmieden um ihr meine Ergebenheit zu beweisen."
-queststatus(119) = 0, chance(100.0), town = Cadomyr, "task", "adventure", "order" -> inform("[New Quest] Do a good turn daily for Cadomyr"), queststatus(119) = 20, "Today, I have a personal request rather than an order. Could you please bring me a gold ingot - I want to forge a special gift, a bracelet, for my Queen to prove my loyality."
+queststatus(119) = 0, chance(100.0), town = Cadomyr, "task", "adventure", "order" -> inform("[New Quest] Do a good turn daily for Cadomyr"), queststatus(119) = 20, "Today, I have a personal request rather than an order. Could you please bring me a gold ingot - I want to forge a special gift, a bracelet, for my Queen to prove my loyalty."
 queststatus(119) = 0, chance(100.0), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), queststatus(119) = 20, "Heute habe ich keinen Befehl für euch sondern eine persönliche Bitte. Könntet ihr mir bitte einen Goldbarren bringen - ich möchte der Königin ein besonderes Geschenk, einen Armreif, schmieden um ihr meine Ergebenheit zu beweisen."
 
 -- Quest 20 solved, reward: 500cp, 5 rankpoints, delay: 5h
@@ -479,9 +479,9 @@ english, "loyal" -> "I am loyal to Rosaline as I was loyal to Reginald and all t
 "loyal" -> "Ich bin Rosaline so loyal, wie ich es Reginald war und allen ihren Vorvätern. Genauso werde ich ihren Erben dienen bis zum Ende aller Tage."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
-"archmage" -> "Elvaine Morgan, the archmage of Runewick, is a noble elf. I respect him and his words. However, he lacks a sense of honour; sometimes, loyality is more important than rationality."
+"archmage" -> "Elvaine Morgan, the archmage of Runewick, is a noble elf. I respect him and his words. However, he lacks a sense of honour; sometimes, loyalty is more important than rationality."
 "Erzmagier" -> "Elvaine Morgan, der Erzmagier Runewicks, ist ein ehrbarer Elf. Ich schätze ihn und sein Wort. Allerdings fehlt es ihm an Ehrgefühl, denn manchmal ist Loyalität wichtiger als Vernunft."
-english, "Elvaine", "Morgan" -> "Elvaine Morgan, the archmage of Runewick, is a noble elf. I respect him and his words. However, he lacks a sense of honour; sometimes, loyality is more important than rationality."
+english, "Elvaine", "Morgan" -> "Elvaine Morgan, the archmage of Runewick, is a noble elf. I respect him and his words. However, he lacks a sense of honour; sometimes, loyalty is more important than rationality."
 "Elvaine", "Morgan" -> "Elvaine Morgan, der Erzmagier Runewicks, ist ein ehrbarer Elf. Ich schätze ihn und sein Wort. Allerdings fehlt es ihm an Ehrgefühl, denn manchmal ist Loyalität wichtiger als Vernunft."
 english, "Runewick" -> "Runewick consists of four magnificient towers in the ocean, deemed the most beautiful buildings in these lands, only second to the palace of the Edwards."
 "Runewick" -> "Runewick besteht aus vier beeindruckenden Türmen im Meer, die schönsten Bauwerke in diesen Landen, nur noch in den Schatten gestellt durch den Palast der Edwards."
@@ -509,7 +509,7 @@ english, "salkama" -> "I have high hopes that one day, the people of Salkamar wi
 "Gott", "Götter" -> "Meine Hand wird von Malachín geführt, meine Füße gehen auf Zhambras Wegen und mein Herz schlägt für meine Königin."
 english, "Malachin", "Malachín" -> "Malachín is the god of war one could say. But I regard his ways to be just and noble while a war isn't always noble. Want to know more about unnoble deeds? Ask Don Valerio!"
 "Malachin", "Malachín" -> "Malachín ist der Gott des Krieges, wie manche sagen. Ich hingegen sehe seine Wege als gerecht und ehrlich an, ein Krieg hingegen ist dies nicht immer. Wollt ihr mehr über unrühmliche Taten erfahren? Fragt Don Valerio!"
-english, "Zhambra" -> "Zhambra is the god of loyality. And I am loyal to my Queen and her family, the Edwards'. I've been in their services longer than a dozen human lives."
+english, "Zhambra" -> "Zhambra is the god of loyalty. And I am loyal to my Queen and her family, the Edwards'. I've been in their services longer than a dozen human lives."
 "Zhambra" -> "Zhambra ist der Gott der Loyalität und ich bin loyal gegenüber meiner Königin und ihrer Familie, den Edwards. Ich stehe in ihren Diensten schon seit einem Dutzend Menschenleben."
 
 -- Catching typical NPC phrases
