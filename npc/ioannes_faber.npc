@@ -138,7 +138,7 @@ english, "Gobaith", "Gobiath" -> "Well, I heard many refugees came from Gobaith 
 "mein Name" -> "Willkommen im Palast. Ich hoffe, ihr seid nicht hier, um die Schatzkammer zu plündern."
 
 -- More small talk; add at least five triggers
-"treasurer", "treasury" -> "The office of treasurer requires loyality, integrity and meekness, and you won't find anyone in Cadomyr who suits the office better than Ioannes Faber."
+"treasurer", "treasury" -> "The office of treasurer requires loyalty, integrity and meekness, and you won't find anyone in Cadomyr who suits the office better than Ioannes Faber."
 english, "gold" -> "Gold is important for Cadomyr's wealth, but more important is our honour. For honour, you cannot buy but just sell."
 "jewel" -> "Jewels, gems, diamonds, only the brightest ones for the crown of Cadomyr. Got some?"
 english, "glas" -> "The Queen uses to have banquets with her nobley from time to time, thus, the finest tableware is needed frequently."

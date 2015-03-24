@@ -161,7 +161,7 @@ english, "Reginald" -> "My father, Sir Reginald Edwards, was the King of Cadomyr
 "lizard" -> "The lizardmen have proven loyal subjects. Most of them call Cape Farewell home."
 "orc" -> "You might presume that a queen of Albarian origin would dislike orcs, but he who swears loyalty to me and follows the old customs is my subject, even if green."
 english, "Ioannes", "Faber" -> "Ah, you are speaking about my royal treasurer. He serves me right and just. I trust him to manage the treasury of Cadomyr."
-english, "Anthar", "Vilicon" -> "My loyal chancellor; you are surprised he's an elf? He's a perfect example of loyality to the throne!"
+english, "Anthar", "Vilicon" -> "My loyal chancellor; you are surprised he's an elf? He's a perfect example of loyalty to the throne!"
 
 -- More small talk; add at least five triggers - german
 "Hexe", "Schlampe" -> "Was? Jemand behauptet, ich sei eine Hexe? Auf den Scheiterhaufen mit ihm!"

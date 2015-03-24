@@ -90,7 +90,7 @@ Description[GERMAN][19] = "Gerüchten zufolge planen Baron Hastings Männer einen 
 Description[ENGLISH][19] = "I got word of planned sabotage by Baron Hastings' men. All our guards are well equipped and prepared, except for a missing helmet for one recruit. Obey and deliver a pot helmet to my hands."
 
 Description[GERMAN][20] = "Heute habe ich keinen Befehl für euch sondern eine persönliche Bitte. Könntet ihr mir bitte einen Goldbarren bringen - ich möchte der Königin ein besonderes Geschenk, einen Armreif, schmieden um ihr meine Ergebenheit zu beweisen."
-Description[ENGLISH][20] = "Today, I have a personal request rather than an order. Could you please bring me a gold ingot - I want to forge a special gift, a bracelet, for my Queen to prove my loyality."
+Description[ENGLISH][20] = "Today, I have a personal request rather than an order. Could you please bring me a gold ingot - I want to forge a special gift, a bracelet, for my Queen to prove my loyalty."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 Start = {117, 528, 0}
