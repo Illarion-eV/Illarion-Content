@@ -277,7 +277,7 @@ function M.onAttack(Attacker, Defender)
     LoadAttribsSkills(Attacker, true)
 
     -- Check aiming time for player archers
-    if Attacker.AttackKind==4 and Attacker.Char:getType() == Character.player and not CheckAimingTime(Attacker,Defender.Char,CheckRange(Attacker, Defender.Char)) then
+    if Attacker.AttackKind==4 and character.IsPlayer(Attacker.Char) and not CheckAimingTime(Attacker,Defender.Char,CheckRange(Attacker, Defender.Char)) then
         return false
     end
 
@@ -373,7 +373,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     local ArmourDefenseScalingFactor = 2
     local GeneralScalingFactor = 2.8
 
-    if not (Defender.Char:getType() == 1) then --if not monster
+    if character.IsPlayer(Defender.Char) then
         if armourfound then
             skillmod = 1-Defender.DefenseSkill/250
             if (Attacker.AttackKind == 0 or Attacker.AttackKind == 2) then --wrestling/conc
@@ -413,13 +413,12 @@ function ArmourAbsorption(Attacker, Defender, Globals)
         skillmod = 1-thingvalue/250
         armourValue = thingvalue
     end
-
+--[[
     local Noobmessupmalus = 5 -- Amount that armour value is divided by if your skill isn't high enough to use this armour.
-
-    if(armour.Level>Defender.DefenseSkill and not Defender.Char:getType() == 1 ) then
+    if armour.Level > Defender.DefenseSkill and character.isPlayer(Defender.Char) then
         armourValue = armourValue/Noobmessupmalus
     end
-
+]]
     if(Globals.criticalHit==6) then
         --Armour pierce
         armourValue = nil
@@ -458,33 +457,31 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 end
 
 function ArmourDegrade(Defender, Globals)
-    if Defender.Char:getType() ~= Character.player then
+    if not character.IsPlayer(Defender.Char) then
         return
     end
 
     if (common.Chance(Globals.Damage, 12000)) and (Globals.HittedItem.id ~= 0) then -- do not damage non existing items
         local durability = math.fmod(Globals.HittedItem.quality, 100)
         local quality = (Globals.HittedItem.quality - durability) / 100
-        local nameText=world:getItemName(Globals.HittedItem.id,Defender.Char:getPlayerLanguage())
+        local nameText = world:getItemName(Globals.HittedItem.id, Defender.Char:getPlayerLanguage())
 
         durability = durability - 1
-
         if (durability == 0) then
             common.InformNLS(Defender.Char,
-          "Dein Rüstungsteil '"..nameText.."' zerbricht. Glücklicherweise tritt kein Splitter in deinen Körper ein.",
-          "Your armour piece '"..nameText.."' shatters. Thankfully, no fragments end up in your body.")
+                "Dein Rüstungsteil '"..nameText.."' zerbricht. Glücklicherweise tritt kein Splitter in deinen Körper ein.",
+                "Your armour piece '"..nameText.."' shatters. Thankfully, no fragments end up in your body.")
           world:erase(Globals.HittedItem, 1)
           return true
         end
 
         Globals.HittedItem.quality = quality * 100 + durability
-        --world:changeItem(Globals.HittedItem.WeaponItem);
         world:changeItem(Globals.HittedItem)
 
         if (durability < 10) then
-          common.InformNLS(Defender.Char,
-          "Dein Rüstungsteil '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du es reparieren.",
-          "Your armour piece '"..nameText.."' has seen better days. You may want to repair it.")
+            common.InformNLS(Defender.Char,
+                "Dein Rüstungsteil '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du es reparieren.",
+                "Your armour piece '"..nameText.."' has seen better days. You may want to repair it.")
         end
     end
 end
@@ -493,51 +490,51 @@ end
 -- @param Defender The table that stores the data of the defender
 -- @param ParryWeapon The item which was used to parry
 function WeaponDegrade(Attacker, Defender, ParryWeapon)
-    local nameText = world:getItemName(Attacker.WeaponItem.id,Attacker.Char:getPlayerLanguage())
-    if (common.Chance(1, 20)) and (Attacker.WeaponItem.id ~= 0) and Attacker.Char:getType() == Character.player then
+    if (common.Chance(1, 20)) and (Attacker.WeaponItem.id ~= 0) and character.IsPlayer(Attacker.Char) then
         local durability = math.fmod(Attacker.WeaponItem.quality, 100)
         local quality = (Attacker.WeaponItem.quality - durability) / 100
+        local nameText = world:getItemName(Attacker.WeaponItem.id, Attacker.Char:getPlayerLanguage())
 
         durability = durability - 1
         if (durability == 0) then
             common.InformNLS(Attacker.Char,
-          "Deine Waffe '"..nameText.."' zerbricht. Du vergießt eine bitter Träne und sagst lebe wohl, als sie in das nächste Leben übergeht.",
-          "Your weapon '"..nameText.."' shatters. You shed a single tear and bid it farewell as it moves onto its next life.")
-          world:erase(Attacker.WeaponItem, 1)
-          return true
+                "Deine Waffe '"..nameText.."' zerbricht. Du vergießt eine bitter Träne und sagst lebe wohl, als sie in das nächste Leben übergeht.",
+                "Your weapon '"..nameText.."' shatters. You shed a single tear and bid it farewell as it moves onto its next life.")
+            world:erase(Attacker.WeaponItem, 1)
+            return true
         end
 
         Attacker.WeaponItem.quality = quality * 100 + durability
         world:changeItem(Attacker.WeaponItem)
 
         if (durability < 10) then
-          common.InformNLS(Attacker.Char,
-          "Deine Waffe '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du sie reparieren.",
-          "Your weapon '"..nameText.."' has seen better days. You may want to repair it.")
+            common.InformNLS(Attacker.Char,
+                "Deine Waffe '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du sie reparieren.",
+                "Your weapon '"..nameText.."' has seen better days. You may want to repair it.")
         end
     end
 
-    local nameText=world:getItemName(ParryWeapon.id,Defender.Char:getPlayerLanguage())
-    if (common.Chance(1, 60)) and (ParryWeapon.id ~= 0) and Defender.Char:getType() == Character.player then
+    if (common.Chance(1, 60)) and (ParryWeapon.id ~= 0) and character.IsPlayer(Defender.Char) then
         local durability = math.fmod(ParryWeapon.quality, 100)
         local quality = (ParryWeapon.quality - durability) / 100
+        local nameText = world:getItemName(ParryWeapon.id, Defender.Char:getPlayerLanguage())
 
         durability = durability - 1
         if (durability == 0) then
             common.InformNLS(Defender.Char,
-          "Dein Gegenstand '"..nameText.."' zerbricht, dies erschwert es dir, dich zu verteidigen.",
-          "Your item '"..nameText.."' shatters, making it more difficult for you to defend yourself.")
-          world:erase(ParryWeapon, 1)
-          return true
+                "Dein Gegenstand '"..nameText.."' zerbricht, dies erschwert es dir, dich zu verteidigen.",
+                "Your item '"..nameText.."' shatters, making it more difficult for you to defend yourself.")
+            world:erase(ParryWeapon, 1)
+            return true
         end
 
         ParryWeapon.quality = quality * 100 + durability
         world:changeItem(ParryWeapon)
 
         if (durability < 10) then
-          common.InformNLS(Defender.Char,
-          "Dein Gegenstand '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du ihn reparieren.",
-          "Your item '"..nameText.."' has seen better days. You may want to repair it.")
+            common.InformNLS(Defender.Char,
+                "Dein Gegenstand '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du ihn reparieren.",
+                "Your item '"..nameText.."' has seen better days. You may want to repair it.")
         end
     end
 end
@@ -562,14 +559,12 @@ function CalculateDamage(Attacker, Globals)
     else
         BaseDamage = fighting.GetWrestlingAttack( Attacker.Race ) * 10
     end
-
-    -- Noob messup malus
-    local Noobmessupmalus = 5 -- Amount that armour value is divided by if your skill isn't high enough to use this armour.
-
-    if(Attacker.Weapon.Level>Attacker.skill and not Attacker.Char:getType() == 1 ) then
+--[[
+    local Noobmessupmalus = 5 -- Amount that damage value is divided by if your skill isn't high enough to use this weapon.
+    if Attacker.Weapon.Level>Attacker.skill and character.isPlayer(Attacker.Char) then
         BaseDamage = BaseDamage/Noobmessupmalus
     end
-
+]]
     StrengthBonus = (Attacker.strength - 6) * 3
     PerceptionBonus = (Attacker.perception - 6) * 1
     DexterityBonus = (Attacker.dexterity - 6) * 1
@@ -577,7 +572,7 @@ function CalculateDamage(Attacker, Globals)
 
     local GemBonus = gems.getGemBonus(Attacker.WeaponItem)
 
-    --Quality Bonus: Multiplies final value by 0.91-1.09
+    --Quality Bonus: Multiplies final value by 0.93-1.09
     QualityBonus = 0.91+0.02*math.floor(Attacker.WeaponItem.quality/100)
 
     --Crit bonus
@@ -596,12 +591,12 @@ end
 -- @param Defender The table of the attacked Character
 -- @param Globals The table of the global values
 function CauseDamage(Attacker, Defender, Globals)
-    if(Attacker.AttackKind == 4) and Attacker.Char:getType() == Character.player then -- reste counter for archers
+    if(Attacker.AttackKind == 4) and character.IsPlayer(Attacker.Char) then -- reset counter for archers
         AIMING_TIME_LIST[Attacker.Char.id]["counter"] = 1
         AIMING_TIME_LIST[Attacker.Char.id]["started"] = world:getTime("unix")
     end
 
-    Globals.Damage=Globals.Damage*(math.random(9,10)/10) --Damage is randomised: 80-120%
+    Globals.Damage=Globals.Damage*(math.random(9,10)/10) --Damage is randomised: 90-100%
     Globals.Damage=math.min(Globals.Damage,4999) --Damage is capped at 4999 Hitpoints to prevent "one hit kills"
     Globals.Damage=math.floor(Globals.Damage) --Hitpoints are an integer
 
@@ -663,7 +658,7 @@ function CauseDamage(Attacker, Defender, Globals)
         character.ChangeHP(Defender.Char,-Globals.Damage) -- Finally dealing the damage.
 
         if (Attacker.AttackKind == 4) then -- Ranged attack
-            if Defender.Char:getType() == Character.monster and Attacker.Char:getType() == Character.player then
+            if not character.IsPlayer(Defender.Char) and character.IsPlayer(Attacker.Char) then
                 Defender.Char.movepoints = Defender.Char.movepoints - 5
             end
             DropAmmo(Attacker, Defender.Char, false)
@@ -761,16 +756,18 @@ function HitChance(Attacker, Defender, Globals)
     end
 
     local parryChance
+    --Quality Bonus: Multiplies final value by 0.93-1.09
     local qualitymod = 0.91+0.02*math.floor(parryItem.quality/100)
     parryChance = (Defender.parry / 5) --0-20% by the skill
     parryChance = parryChance * (0.5 + (Defender.agility) / 20) --Skill value gets multiplied by 0.5-1.5 (+/-50% of a normal player) scaled by agility
     parryChance = parryChance + (defenderdefense) / 5 --0-20% bonus by the weapon/shield
     parryChance = parryChance * qualitymod
-
-    if(parryWeapon.Level>Defender.parry and not Attacker.Char:getType() == 1 ) then
-        parryChance = parryChance/5
+--[[
+    local Noobmessupmalus = 5 -- Amount that parry chance is divided by if your skill isn't high enough to use this weapon.
+    if parryWeapon.Level>Defender.parry and character.isPlayer(Attacker.Char) then
+        parryChance = parryChance/Noobmessupmalus
     end
-
+]]
      -- Min and max parry are 5% and 95% respectively
     parryChance = common.Limit(parryChance, 5, 95)
 
@@ -823,7 +820,7 @@ end
 function CheckRange(AttackerStruct, Defender)
     local distance = AttackerStruct.Char:distanceMetric(Defender)
 
-    if(AttackerStruct.AttackKind == 4 and  AttackerStruct.Char:getType() == 1) then -- if a monster with a bow and large distance
+    if AttackerStruct.AttackKind == 4 and not character.IsPlayer(AttackerStruct.Char) then -- if a monster with a bow and large distance
         if(distance<=2) then
             setArcherMonsterOnRoute(AttackerStruct,Defender,distance)
         else
@@ -1034,7 +1031,7 @@ end
 -- @param Defender The table of the attacked character
 -- @return true if a coup de gráce was done
 function CoupDeGrace(Attacker, Defender)
-    if (Attacker.Char:getType() ~= 0) then -- Only for player characters
+    if not character.IsPlayer(Attacker.Char) then -- Only for player characters
         return false
     end
 
@@ -1075,14 +1072,13 @@ local monsterArrowDrop = {}
 -- @param GroundOnly true in case the item is supposed to be dropped only on the
 --                  ground
 function DropAmmo(Attacker, Defender, GroundOnly)
-    if ( Attacker.AttackKind ~= 4 ) then -- no distanz Attack --> no ammo
+    if ( Attacker.AttackKind ~= 4 ) then -- no distance attack --> no ammo
         return
     end
 
     if common.Chance(0.33) then
         local AmmoItem
-        if (Attacker.Weapon.AmmunitionType
-            == Attacker.SecWeapon.WeaponType) then
+        if (Attacker.Weapon.AmmunitionType == Attacker.SecWeapon.WeaponType) then
             AmmoItem = Attacker.SecWeaponItem
         elseif (Attacker.Weapon.AmmunitionType == 255) then
             AmmoItem = Attacker.WeaponItem
@@ -1090,7 +1086,7 @@ function DropAmmo(Attacker, Defender, GroundOnly)
             return false
         end
 
-        if not GroundOnly and (Defender:getType() == 1) then -- monsters get the ammo into the inventory
+        if not GroundOnly and not character.IsPlayer(Defender.Char) then -- monsters get the ammo into the inventory
             local monsterId = Defender.id
             if not monsterArrowDrop[monsterId] then
                 monsterArrowDrop[monsterId] = {}
@@ -1220,7 +1216,7 @@ end
 function Specials(Attacker, Defender, Globals)
     local hisher =  common.GetGenderText(Attacker.Char,"his","her")
     local seinihr = common.GetGenderText(Attacker.Char,"sein","ihr")
-    if(Attacker.Char:getType() == Character.monster) then
+    if not character.IsPlayer(Attacker.Char) then
         if(Globals.criticalHit==1) then -- 1HS
             common.TalkNLS(Attacker.Char, Character.say,
                     "#me schlägt schnell zu und teilt rasch zwei Hiebe aus.",
@@ -1408,7 +1404,7 @@ end
 -- @param Attacker The table that stores the data of the attacking char
 -- @return true in case the attack is good to go
 function HandleAmmunition(Attacker)
-    if (Attacker.Char:getType() == Character.monster) then -- Monsters do not use ammo
+    if not character.IsPlayer(Attacker.Char) then -- Monsters do not use ammo
         return true
     end
 
@@ -1461,13 +1457,13 @@ function HandleMovepoints(Attacker, Globals)
     -- For player archers, we remove the normal reduction and leave only the reduction because of criticals.
     -- They have a count BEFORE the shoot.
     local archerAdjustment = 0
-    if Attacker.AttackKind==4 and Attacker.Char:getType() == Character.player then
+    if Attacker.AttackKind==4 and character.IsPlayer(Attacker.Char) then
         archerAdjustment = fightPointsBeforeCritical
     end
 
     character.ChangeFightingpoints(Attacker.Char,-math.floor(reduceFightpoints-archerAdjustment))
 
-    if Attacker.Char:getType() == Character.monster then
+    if not character.IsPlayer(Attacker.Char) then
     --This is merely a hack. Without this, monsters just "fly" over tiles while attacking because they do not invest movepoints. Strangely, if we do the same for players, they get stalled. A profound solution is needed, most probably, this is a server issue. The line below does the job for now, but it's not a clean solution. ~Estralis
         character.ChangeMovepoints(Attacker.Char,-math.floor(reduceFightpoints-archerAdjustment))
     end
@@ -1556,16 +1552,13 @@ function LoadWeapons(CharStruct)
     local rAttFound, rAttWeapon = world:getWeaponStruct(rItem.id)
     local lAttFound, lAttWeapon = world:getWeaponStruct(lItem.id)
 
-    --CharStruct.Char:inform("R: "..rItem.id .. " L: "..lItem.id);
-
     -- the right item is ALWAYS used as the weapon now!
     local isRWp = 1
     local isLWp = 1
-    local rWType
-    local lWType
+
     if rAttFound then
-        rWType=rAttWeapon.WeaponType
-        if rWType==10 or rWType==11 or rWType==12 or rWType==14 then -- Ammo or shield in right hand: switch r and l hand!
+        local WType = rAttWeapon.WeaponType
+        if WType==10 or WType==11 or WType==12 or WType==14 then -- Ammo or shield in right hand: switch r and l hand!
             isRWp=0
         end
     else
@@ -1573,8 +1566,8 @@ function LoadWeapons(CharStruct)
     end
 
     if lAttFound then
-        lWType=lAttWeapon.WeaponType
-        if lWType==10 or lWType==11 or lWType==12 or lWType==14 then -- Ammo or shield in right hand: switch r and l hand!
+        local WType = lAttWeapon.WeaponType
+        if WType==10 or WType==11 or WType==12 or WType==14 then -- Ammo or shield in right hand: switch r and l hand!
             isLWp=0
         end
     else
@@ -1609,9 +1602,8 @@ function NewbieIsland(Attacker, Defender)
         return true
     end
 
-    -- in case the character it not a other player character, the Attack is
-    -- okay anyway.
-    if (Defender:getType() ~= 0) then
+    -- in case the character it not a other player character, the Attack is okay anyway.
+    if not character.IsPlayer(Defender) then
         return true
     end
 
