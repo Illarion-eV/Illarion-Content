@@ -44,7 +44,7 @@ local dragonCaveChestPos= {
 function M.UseItem(User, SourceItem, ltstate)
 	
 	if (User:getQuestProgress(510) == 24) and  SourceItem.pos == position(783, 640, -3) then --OK, the player does the quest
-        User:inform("In der Truhe liegt eine goldenes Amulet, das mit einem groÃŸen Smaragd geschmÃ¼ckt ist. Auf dem Stein ist ein goldenes ein Zwergenwappen. Danach hatte Obsidimine gefragt.", "Inside the chest lays a golden amulet adorned with a large emerald. On the stone is a golden Dwarven coat of arms.  This is what Obsidimine was inquiring about.")
+        User:inform("In der Truhe liegt eine goldenes Amulet, das mit einem großen Smaragd geschmückt ist. Auf dem Stein ist ein goldenes Ein Zwergenwappen. Danach hatte Obsidimine gefragt.", "Inside the chest lays a golden amulet adorned with a large emerald. On the stone is a golden Dwarven coat of arms.  This is what Obsidimine was inquiring about.")
 		User:setQuestProgress(510, 25)
     end
 	
@@ -76,7 +76,7 @@ function ChestContents(User, chestItem)
 	if random_number >= 0 and random_number <= 35 then
 	    User:inform("Du suchst bis zum Boden, findest aber nicht als Rattenkot.", "You search to the bottom but find nothing but rat droppings.")
 	elseif random_number >= 36 and random_number <= 70 then
-	    User:inform("Als Du suchst, findest Du einen Stapel Geldbörsen - aber alle sind leer.", "As you search you find a stash of money bags, that are all empty.")
+	    User:inform("Als Du suchst, findest Du einen Stapel Geldbörsen - aber alle sind leer.", "As you search, you find a stash of money bags, that are all empty.")
 	elseif random_number >= 71 and random_number <= 90 then
         User:inform("Du findest eine Silbermünze.","You discover a silver coin.")
 		local notCreated = User:createItem(3077, 1, 333, nil) -- silver coin
