@@ -140,7 +140,7 @@ function M.UseItem(User, SourceItem)
 	end
 	
 	if (User:getQuestProgress(510) == 21) and  SourceItem.pos == position(703, 612, -3) then --OK, the player does the quest at dragon cave
-        User:inform("", "Inside the coffin you find the remains of the dwarf from the vision.  You take the detached skull as proof for Obsidimine.")
+        User:inform("Im Sarg findest Du die Überreste des Zwerges aus Deiner Vision. Du nimmst den losgelösten Schädel als Beweis für Obsidimine.", "Inside the coffin you find the remains of the dwarf from the vision.  You take the detached skull as proof for Obsidimine.")
 		User:setQuestProgress(510, 22)
         end
 	
@@ -168,11 +168,11 @@ function CoffinContents(User, coffinItem)
         
 	local random_number = math.random(1,100)
 	if random_number >= 0 and random_number <= 35 then
-	    User:inform("", "The smell hits your nose before you can see inside, you drop the lid unable to open it any further.")
+	    User:inform("Bevor Du hineischauen kannst, schlägt Dir übler Geruch entgegen. Du schließt den Deckel, unfähig ihn wieder zu öffnen.", "The smell hits your nose before you can see inside, you drop the lid unable to open it any further.")
 	elseif random_number >= 36 and random_number <= 70 then
-	    User:inform("", "The remains in the coffin are ancient and mummified.  Who or what they once were is unknown.")
+	    User:inform("Die Überreste im Sarg sind uralt und mumifiziert. Wer oder was es mal war ist unbekannt.", "The remains in the coffin are ancient and mummified.  Who or what they once were is unknown.")
 	elseif random_number >= 71 and random_number <= 90 then
-        User:inform("","You quickly glance in the coffin and discover a simple dagger which you take for your own.")
+        User:inform("Du blickst kurz in den Sarg und entdeckst einen einfachen Dolch, den Du für dich mitnimmst.","You quickly glance in the coffin and discover a simple dagger which you take for your own.")
 		local notCreated = User:createItem(27, 1, 333, nil) -- simple dagger
         if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
             world:createItemFromId(27, notCreated, User.pos, true, 333, nil)
@@ -182,7 +182,7 @@ function CoffinContents(User, coffinItem)
 		local monPos = common.getFreePos(coffinItem.pos, 2) -- radius 2 around vase
             world:createMonster(754, monPos, -20)
             world:gfx(41, monPos) -- swirly
-            User:inform("",
+            User:inform("Die störst die Ruhe der Überreste im Sarg und plötzlich greifen sie dich an!",
                 "You disturb the remains in the coffin and they attack!")
 	   end
     end	

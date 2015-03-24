@@ -34,7 +34,7 @@ music.addTalkText("#me plays a lilting melody on a lute.","#me spielt eine träll
 function M.UseItem(User, SourceItem)
 
 	if (User:getQuestProgress(510) == 27) and  SourceItem.pos == position(701, 614, -6) then --Dragon Lair loot and you do the quest
-        User:talk(Character.say, "", "#me reaches forward to carefully take a golden string from the lute to take back to Obsidimine.")
+        User:talk(Character.say, "#me greift nach vorn, um vorsichtig eine goldene Seite von der Laute zu entfernen, um sie dann Obsidimine zurück zu bringen.", "#me reaches forward to carefully take a golden string from the lute to take back to Obsidimine.")
 		User:setQuestProgress(510, 28)
     end
 	
