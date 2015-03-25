@@ -33,44 +33,44 @@ local lakeOfLifeVasePos = {
 }
 local dragonCaveVasePos = {
     position(658, 610, -3),
-	position(661, 639, -3),
-	position(663, 610, -3),
-	position(665, 634, -3),
-	position(670, 634, -3),
-	position(675, 640, -3),
-	position(676, 627, -3),
-	position(678, 610, -3),
-	position(678, 617, -3),
-	position(676, 633, -3),
-	position(676, 635, -3),
-	position(678, 644, -3),
-	position(681, 620, -3),
-	position(683, 620, -3),
-	position(684, 620, -3),
-	position(685, 628, -3),
-	position(685, 637, -3),
-	position(687, 610, -3),
-	position(691, 612, -3),
-	position(685, 639, -3),
-	position(692, 643, -3),
-	position(697, 637, -3),
-	position(701, 623, -3),
-	position(659, 610, -3),
-	position(660, 620, -3),
-	position(669, 616, -3),
-	position(669, 623, -3),
-	position(674, 610, -3),
-	position(675, 616, -3),
-	position(677, 642, -3),
-	position(685, 641, -3),
-	position(691, 620, -3),
-	position(694, 637, -3),
-	position(701, 627, -3),
-	position(691, 611, -3),
-	position(698, 622, -6),
-	position(702, 615, -6),
-	position(707, 615, -6),
-	}
+    position(661, 639, -3),
+    position(663, 610, -3),
+    position(665, 634, -3),
+    position(670, 634, -3),
+    position(675, 640, -3),
+    position(676, 627, -3),
+    position(678, 610, -3),
+    position(678, 617, -3),
+    position(676, 633, -3),
+    position(676, 635, -3),
+    position(678, 644, -3),
+    position(681, 620, -3),
+    position(683, 620, -3),
+    position(684, 620, -3),
+    position(685, 628, -3),
+    position(685, 637, -3),
+    position(687, 610, -3),
+    position(691, 612, -3),
+    position(685, 639, -3),
+    position(692, 643, -3),
+    position(697, 637, -3),
+    position(701, 623, -3),
+    position(659, 610, -3),
+    position(660, 620, -3),
+    position(669, 616, -3),
+    position(669, 623, -3),
+    position(674, 610, -3),
+    position(675, 616, -3),
+    position(677, 642, -3),
+    position(685, 641, -3),
+    position(691, 620, -3),
+    position(694, 637, -3),
+    position(701, 627, -3),
+    position(691, 611, -3),
+    position(698, 622, -6),
+    position(702, 615, -6),
+    position(707, 615, -6),
+}
 
 local dragongem = {} --a list with positions
 dragongem[1] = position(658, 610, -3) --1: Dragon emerald
@@ -99,6 +99,8 @@ messageE[5] = "[Quest status] You have discovered a large topaz engraved with a 
 messageE[6] = "[Quest status] You have discovered a large diamond engraved with a dragon head.  This must be what Obsidimine was speaking about."
 messageE[7] = "[Quest status] You have discovered a large obsidian engraved with a dragon head.  This must be what Obsidimine was speaking about."
 
+local VaseContents
+
 function M.UseItem(User, SourceItem)
 
     for i = 1, #lakeOfLifeVasePos do
@@ -112,8 +114,8 @@ function M.UseItem(User, SourceItem)
             common.InformNLS(User, "Du musst dich für diese Arbeit erst reinigen.", "You must cleanse first for this to work.")
         end
     end
-	
-	if (User:getQuestProgress(510) == 13) then --OK, the player does the quest
+
+    if (User:getQuestProgress(510) == 13) then --OK, the player does the quest
         local queststatus = User:getQuestProgress(512) --here, we save which gems have been found
         local queststatuslist = {}
         queststatuslist = common.Split_number(queststatus, 7) --reading the digits of the queststatus as table
@@ -126,19 +128,20 @@ function M.UseItem(User, SourceItem)
                 queststatus = User:getQuestProgress(512) --and reading it again
                 if queststatus == 1111111 then --found all dragongem
                     User:setQuestProgress(510, 14) --Quest solved!
-                    common.InformNLS(User, "[Queststatus] Du hast alle Drachensteine gefunden. Bring sie zurück zu Obsidimine.", "[Quest status] You have found all the dragon gems.  Take them back to Obsidimine.")
+                    common.InformNLS(User, "[Queststatus] Du hast alle Drachensteine gefunden. Bring sie zurück zu Obsidimine.",
+                        "[Quest status] You have found all the dragon gems.  Take them back to Obsidimine.")
                     return --more than solving isn't possible, bailing out
                 end
             end
         end
     end
-	
-	for i = 1, #dragonCaveVasePos do
-            if (SourceItem.pos == dragonCaveVasePos[i]) then
-                VaseContents(User, SourceItem)
-                return
-            end
-        end	
+
+    for i = 1, #dragonCaveVasePos do
+        if (SourceItem.pos == dragonCaveVasePos[i]) then
+            VaseContents(User, SourceItem)
+            return
+        end
+    end
 end
 
 function VaseContents(User, vaseItem)
@@ -155,28 +158,29 @@ function VaseContents(User, vaseItem)
     -- safe tripping time
     vaseItem:setData("tripping_time", serverTime)
     world:changeItem(vaseItem)
-        
-	local random_number = math.random(1,100)
-	if random_number >= 0 and random_number <= 35 then
-	    User:inform("Eine kleine Spinne krabbelt aus der Vase auf deine Hand und sucht dann das Weite.", "A small spider scampers out of the vase and towards your hand, before running the other way.")
-	elseif random_number >= 36 and random_number <= 70 then
-	    User:inform("Staub wirbelt auf.", "A cloud of dust escapes into the air.")
-	elseif random_number >= 71 and random_number <= 90 then
+
+    local random_number = math.random(1,100)
+    if random_number >= 0 and random_number <= 35 then
+        User:inform("Eine kleine Spinne krabbelt aus der Vase auf deine Hand und sucht dann das Weite.",
+            "A small spider scampers out of the vase and towards your hand, before running the other way.")
+    elseif random_number >= 36 and random_number <= 70 then
+        User:inform("Staub wirbelt auf.", "A cloud of dust escapes into the air.")
+    elseif random_number >= 71 and random_number <= 90 then
         User:inform("Du findest einen ungeschliffenen Diamanten.","You discover a raw diamond.")
-		local notCreated = User:createItem(254, 1, 333, nil) -- raw diamond
+        local notCreated = User:createItem(254, 1, 333, nil) -- raw diamond
         if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
             world:createItemFromId(254, notCreated, User.pos, true, 333, nil)
             common.HighInformNLS(User,
                 "Du kannst nichts mehr halten.",
                 "You can't carry any more.")
-			end
-	elseif random_number >= 91 and random_number <=100 then
-		local monPos = common.getFreePos(vaseItem.pos, 2) -- radius 2 around vase
-            world:createMonster(222, monPos, -20)
-            world:gfx(41, monPos) -- swirly
-            User:inform("Schlechte Wahl, Abenteuerer! Etwas springt aus dem vase heraus und greift dich an.",
-                "Wrong choice traveler! Something hops out of the vase and attacks you.")
-	   end
+        end
+    elseif random_number >= 91 and random_number <=100 then
+        local monPos = common.getFreePos(vaseItem.pos, 2) -- radius 2 around vase
+        world:createMonster(222, monPos, -20)
+        world:gfx(41, monPos) -- swirly
+        User:inform("Schlechte Wahl, Abenteuerer! Etwas springt aus dem vase heraus und greift dich an.",
+            "Wrong choice traveler! Something hops out of the vase and attacks you.")
     end
+end
 
 return M

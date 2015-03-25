@@ -12,9 +12,8 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- I_335 Laute spielen
 
 -- UPDATE items SET itm_script='item.id_335_lute' WHERE itm_id=335;
 
@@ -25,23 +24,24 @@ local M = {}
 
 local skill = Character.lute
 
-music.addTalkText("#me makes a terrible noise on the lute.","#me macht ein furchtbares Geräusch mit der Laute.",  skill);
-music.addTalkText("#me plays some halting tunes.","#me spielt einige unsichere Töne auf der Laute.",  skill);
-music.addTalkText("#me plays some nice tunes on the lute.","#me spielt einige schöne Töne auf der Laute.",  skill);
-music.addTalkText("#me plays some nice sounding tunes on a lute.","#me spielt einige gute klingende Töne auf der Laute.",  skill);
-music.addTalkText("#me plays a lilting melody on a lute.","#me spielt eine trällernde Melodie auf der Laute.",  skill);
+music.addTalkText("#me makes a terrible noise on the lute.","#me macht ein furchtbares Geräusch mit der Laute.",  skill)
+music.addTalkText("#me plays some halting tunes.","#me spielt einige unsichere Töne auf der Laute.",  skill)
+music.addTalkText("#me plays some nice tunes on the lute.","#me spielt einige schöne Töne auf der Laute.",  skill)
+music.addTalkText("#me plays some nice sounding tunes on a lute.","#me spielt einige gute klingende Töne auf der Laute.",  skill)
+music.addTalkText("#me plays a lilting melody on a lute.","#me spielt eine trällernde Melodie auf der Laute.",  skill)
 
 function M.UseItem(User, SourceItem)
 
-	if (User:getQuestProgress(510) == 27) and  SourceItem.pos == position(701, 614, -6) then --Dragon Lair loot and you do the quest
-        User:talk(Character.say, "#me greift nach vorn, um vorsichtig eine goldene Seite von der Laute zu entfernen, um sie dann Obsidimine zurück zu bringen.", "#me reaches forward to carefully take a golden string from the lute to take back to Obsidimine.")
-		User:setQuestProgress(510, 28)
+    if (User:getQuestProgress(510) == 27) and  SourceItem.pos == position(701, 614, -6) then --Dragon Lair loot and you do the quest
+        User:talk(Character.say,
+            "#me greift nach vorn, um vorsichtig eine goldene Seite von der Laute zu entfernen, um sie dann Obsidimine zurück zu bringen.",
+            "#me reaches forward to carefully take a golden string from the lute to take back to Obsidimine.")
+        User:setQuestProgress(510, 28)
     end
-	
-    music.PlayInstrument(User,SourceItem, skill);
+
+    music.PlayInstrument(User,SourceItem, skill)
 end
 
 M.LookAtItem = wood.LookAtItem
 
 return M
-
