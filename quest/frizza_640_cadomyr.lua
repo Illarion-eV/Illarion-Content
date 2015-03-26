@@ -39,7 +39,7 @@ Description[ENGLISH][2] = "You have found Ruzuss. If you like, you can talk with
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {121, 643, 0}
+Start = {117, 599, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there

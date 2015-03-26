@@ -32,16 +32,16 @@ Title[ENGLISH] = "A good beginning in Runewick"
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Gehe zu Daniel Brock und frag ihn nach einer Aufgabe. Er ist im Turm der Luft zu finden.\n Von Florain aus, einfach über die lange Brücke nach Osten und durch das blaue Portal gehen. Am Marktplatz angekommen, ist der Turm der Luft das Gebäude im Süden. Dort einfach eine Etage nach unten und durch die Tür gehen. Du brauchst seine Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
-Description[ENGLISH][1] = "Go to Daniel Brock and ask him for a task. \n From Florain's position just go over the long bridge to the east and through the blue portal. When you arrived on the marketplace, the tower of air is the building to the south. There just go one floor down and through the door. You don't have to finish his tasks before you come back to me for another job."
+Description[GERMAN][1] = "Gehe zu Daniel Brock und frag ihn nach einer Aufgabe. Er ist im Turm der Luft zu finden.\n Am Marktplatz angekommen, ist der Turm der Luft das Gebäude im Süden. Dort einfach eine Etage nach unten und durch die Tür gehen. Du brauchst seine Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
+Description[ENGLISH][1] = "Go to Daniel Brock and ask him for a task. \n When you arrived at the marketplace, the tower of air is the building to the south. There just go one floor down and through the door. You don't have to finish his tasks before you come back to me for another job."
 Description[GERMAN][2] = "Gehe zu Florain zurück, wenn du weitere Aufgaben benötigst."
 Description[ENGLISH][2] = "Go back to Florain if you need more tasks."
 Description[GERMAN][3] = "Gehe zu Judith Tanner und frag sie nach einer Aufgabe. Sie ist im Turm des Feuers zu finden.\n Vom Marktplatz aus einfach in das Gebäude im Norden gehen, dem Turm des Feuers, und gleich nach dem Betreten nach links um ins Untergeschoss zu gelanden. Dort direkt durch die Tür rechts von der kleinen Taverne gehen. Du brauchst ihre Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
 Description[ENGLISH][3] = "Go to Judith Tanner and ask her for a task. She can be found in the tower of fire.\n From the marketplace just go to the building in the north, the tower of fire, and after entering to the left to go down one floor. There just go through the door on the right of the small tavern. You don't have to finish her tasks before you come back to me for another job."
 Description[GERMAN][4] = "Gehe zu Florain zurück, wenn du weitere Aufgaben benötigst."
 Description[ENGLISH][4] = "Go back to Florain if you need more tasks."
-Description[GERMAN][5] = "Gehe zu Zassaria Riverbank und frag sie nach einer Aufgabe. Sie ist auf dem Marktplatz von Runewick zu finden.\n Von Florain aus, einfach über die lange Brücke nach Osten gehen und am Ende durch das blaue Portal. Zassaria ist eine Echse, du kannst sie also nicht verpassen. Du brauchst ihre Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
-Description[ENGLISH][5] = "Go to Zassaria Riverbank and ask her for a task. She can be found on Runewick's marketplace.\n From Florain's position just go over the long bridge to the east and through the blue portal at the end of the path. Zassaria is a lizard, so you can't miss her. You don't have to finish her tasks before you come back to me for another job."
+Description[GERMAN][5] = "Gehe zu Zassaria Riverbank und frag sie nach einer Aufgabe. Sie ist auf dem Marktplatz von Runewick zu finden.\n Zassaria ist eine Echse, du kannst sie also nicht verpassen. Du brauchst ihre Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
+Description[ENGLISH][5] = "Go to Zassaria Riverbank and ask her for a task. She can be found on Runewick's marketplace.\n Zassaria is a lizard, so you can't miss her. You don't have to finish her tasks before you come back to me for another job."
 Description[GERMAN][6] = "Gehe zu Florain zurück, wenn du weitere Aufgaben benötigst."
 Description[ENGLISH][6] = "Go back to Florain if you need more tasks."
 Description[GERMAN][7] = "Gehe zu Neiran El Nayale und frag ihn nach einer Aufgabe. Er ist im Turm des Feuers im Obergeschoss zu finden.\n Gehe vom Marktplatz nach Norden in den Turm des Feuers, dort rechts durch die Tür und die Treppe nach oben. Dort gehe durch die Tür im Süden. Du brauchst seine Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
@@ -52,8 +52,8 @@ Description[GERMAN][9] = "Gehe zu Baldo Proudtoe und frag ihn nach einer Aufgabe
 Description[ENGLISH][9] = "Go to Baldo Proudtoe and ask him for a task. He can be found in the gardens of Runewick.\n The gardens of Runewick can be found through the red portal from Runewick's marketplace. You don't have to finish his tasks before you come back to me for another job."
 Description[GERMAN][10] = "Gehe zu Florain zurück, wenn du weitere Aufgaben benötigst."
 Description[ENGLISH][10] = "Go back to Florain if you need more tasks."
-Description[GERMAN][11] = "Gehe zu Nana Winterbutter und frag sie nach einer Aufgabe. Sie ist gleich westen von Florain in Yewdale zu finden. Sie wird wohl am Feuer vor ihrem Haus sitzen und kochen. Du brauchst ihre Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
-Description[ENGLISH][11] = "Go to Nana Winterbutter and ask her for a task. She can be found to the west of Florain in Yewdale. She will be sitting cooking at the fire in front of her house. You don't have to finish her tasks before you come back to me for another job."
+Description[GERMAN][11] = "Gehe zu Nana Winterbutter und frag sie nach einer Aufgabe. Sie ist gleich in Yewdale zu finden. Sie wird wohl am Feuer vor ihrem Haus sitzen und kochen. Du brauchst ihre Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
+Description[ENGLISH][11] = "Go to Nana Winterbutter and ask her for a task. She can be found in Yewdale. She will be sitting cooking at the fire in front of her house. You don't have to finish her tasks before you come back to me for another job."
 Description[GERMAN][12] = "Gehe zu Florain zurück, wenn du weitere Aufgaben benötigst."
 Description[ENGLISH][12] = "Go back to Florain if you need more tasks."
 Description[GERMAN][13] = "Gehe zu Madeline Clarbelis und frag sie nach einer Aufgabe. Sie ist im Turm der Erde. Der Turm der Erde kann vom Runewick Marktplatz erreicht werden, indem man durch den Turm des Feuers im Norden geht und diesen zum Osten hin verlässt. Madeline wird in ihre Bücher vertieft sein. Du brauchst ihre Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
@@ -78,7 +78,7 @@ Description[GERMAN][22] = "Florain Dreyndel kannn dir nun nicht mehr weiterhelfe
 Description[ENGLISH][22] = "Florain Dreyndel cannot help you any further now. Just ask everyone you meet for tasks and you will get around just fine."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {833, 815, 0}
+Start = {901, 787, 1}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}

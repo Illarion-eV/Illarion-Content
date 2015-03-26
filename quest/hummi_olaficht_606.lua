@@ -32,8 +32,8 @@ Title[ENGLISH] = "Find Iradona Goldschein in Galmair"
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Finde Iradona Goldschein beim Teleporter in Galmair and sprich mit ihr."
-Description[ENGLISH][1] = "Find Iradona Goldschein at the teleporter in Galmair and talk to her."
+Description[GERMAN][1] = "Finde Iradona Goldschein beim Marktplatz in Galmair and sprich mit ihr."
+Description[ENGLISH][1] = "Find Iradona Goldschein at the marketplace in Galmair and talk to her."
 Description[GERMAN][2] = "Da kannst nun mit Iradona sprechen. Frage nach 'Hilfe' wenn du nicht weißt, wonach du fragen sollst!\nDu kannst auch zurück zu Hummi gehen um deine Belohnung abzuholen und später nochmals vorbei kommen. Iradona hat nämlich auch mindestens eine Aufgabe für dich."
 Description[ENGLISH][2] = "You can talk with Iradona now. Ask for 'help' if you do not know what to say!\nYou can also go back to Hummi to collect your reward and come back later. Iradona also has at least one task for you."
 Description[GERMAN][3] = "Hast du bereits nach den beiden anderen NPCs die Hummi erwähnt hat gefragt und sie auch besucht? Frizza and Elesil? Wenn nein, dann solltest du das jetzt tun. Wenn ja, dann hat Hummi einen zusätzlichen Auftrag für dich."
@@ -46,7 +46,7 @@ Start = {681, 318, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(428, 248, 0)} -- Iradona
+QuestTarget[1] = {position(369, 256, 0)} -- Iradona
 QuestTarget[2] = {position(681, 318, 0)} -- Hummi
 
 -- Insert the quest status which is reached at the end of the quest

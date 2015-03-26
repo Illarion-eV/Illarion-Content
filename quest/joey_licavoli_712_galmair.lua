@@ -37,12 +37,12 @@ Description[GERMAN][1] = "Suche Hannah Shepard bei den Feldern außerhalb von Gal
 Description[ENGLISH][1] = "Search for Hannah Shepard at the fields just outside Galmair. Then return back to Joey if you want more tasks from him. The fields are a few steps to the east of Joey's position. You don't have to finish her tasks before you come back to me for another job."
 Description[GERMAN][2] = "Geh zu Joey Licavoli beim Teleporter in Galmair. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][2] = "Go to Joey Licavoli at the teleporter of Galmair, he is sure to have another task for you."
-Description[GERMAN][3] = "Suche Thorgrem Silverbeard, den Zwergen, in der Werkstatt von Galmair und frag ihn nach einer Aufgabe. Die Werkstatt findest du, wenn du die Stadt im Westen betrittst. Dann folgst du der Straße nach Südwesten, bis du ein Haus mit einem gelblich-braunem Dach findest. Das ist die Werkstatt. Du brauchst seine Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
-Description[ENGLISH][3] = "Search for the dwarf Thorgrem Silverbeard at the workshop in Galmair and ask him for a task. You can find the workshop if you enter the city and follow the street south west until you see a building with a yellow-brown roof. That's the workshop. You don't have to finish his tasks before you come back to me for another job."
+Description[GERMAN][3] = "Suche Thorgrem Silverbeard, den Zwergen, in der Werkstatt von Galmair und frag ihn nach einer Aufgabe. Du brauchst seine Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
+Description[ENGLISH][3] = "Search for the dwarf Thorgrem Silverbeard at the workshop in Galmair and ask him for a task. You don't have to finish his tasks before you come back to me for another job."
 Description[GERMAN][4] = "Geh zu Joey Licavoli beim Teleporter in Galmair. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][4] = "Go to Joey Licavoli at the teleporter of Galmair, he is sure to have another task for you."
-Description[GERMAN][5] = "Suche den Zwergen Miggs in 'Galmairs Krone', dem Palast von Galmair. Den Palast findest du, wenn du die Stadt betrittst und der Straße nach Westen folgst. Miggs hält sich in der Bibliothek im Palast auf. Du brauchst seine Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
-Description[ENGLISH][5] = "Search for the dwarf Miggs in 'Galmair's Crest', the Palace of Galmair. You can find the palace if you enter the city and follow the street to the west. Miggs can be found in the library. You don't have to finish his tasks before you come back to me for another job."
+Description[GERMAN][5] = "Suche den Zwergen Miggs in 'Galmairs Krone', dem Palast von Galmair. Miggs hält sich in der Bibliothek im Palast auf. Du brauchst seine Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
+Description[ENGLISH][5] = "Search for the dwarf Miggs in 'Galmair's Crest', the Palace of Galmair. Miggs can be found in the library. You don't have to finish his tasks before you come back to me for another job."
 Description[GERMAN][6] = "Geh zu Joey Licavoli beim Teleporter in Galmair. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][6] = "Go to Joey Licavoli at the teleporter of Galmair, he is sure to have another task for you."
 Description[GERMAN][7] = "Finde Charwis Irongate und frag ihn, ob er eine Aufgabe für dich hat. Charwis Irongate hält sich am Marktplatz von Galmair auf. Der Marktplatz ist südlich des Palastes. Du brauchst seine Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
@@ -72,28 +72,28 @@ Description[ENGLISH][18] = "You have fulfilled all the tasks for Joey Licavoli."
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {425, 247, 0}
+Start = {365, 256, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(425, 247, 0), position(434, 257, 0)} -- Hannah Shepard
-QuestTarget[2] = {position(425, 247, 0)}
-QuestTarget[3] = {position(425, 247, 0), position(387, 273, 0)} -- Thorgrem Silverbeard
-QuestTarget[4] = {position(425, 247, 0)}
-QuestTarget[5] = {position(425, 247, 0), position(374, 216, 0)} -- Miggs
-QuestTarget[6] = {position(425, 247, 0)}
-QuestTarget[7] = {position(425, 247, 0), position(360, 281, 0)} -- Charwis Irongate
-QuestTarget[8] = {position(425, 247, 0)}
-QuestTarget[9] = {position(425, 247, 0), position(439, 359, 0)} -- Bruno Blackhole
-QuestTarget[10] = {position(425, 247, 0)}
-QuestTarget[11] = {position(425, 247, 0), position(341, 218, 0)} -- Gretel Goldhair
-QuestTarget[12] = {position(425, 247, 0)}
-QuestTarget[13] = {position(425, 247, 0), position(388, 238, 0)} -- Groktan Flintsplit
-QuestTarget[14] = {position(425, 247, 0)}
-QuestTarget[15] = {position(425, 247, 0), position(405, 248, 0)} -- Pipillo
-QuestTarget[16] = {position(425, 247, 0)}
-QuestTarget[17] = {position(425, 247, 0), position(348, 273, 0)} -- Fokous Onyxbrow
-QuestTarget[18] = {position(425, 247, 0)}
+QuestTarget[1] = {position(365, 256, 0), position(434, 257, 0)} -- Hannah Shepard
+QuestTarget[2] = {position(365, 256, 0)}
+QuestTarget[3] = {position(365, 256, 0), position(387, 273, 0)} -- Thorgrem Silverbeard
+QuestTarget[4] = {position(365, 256, 0)}
+QuestTarget[5] = {position(365, 256, 0), position(374, 216, 0)} -- Miggs
+QuestTarget[6] = {position(365, 256, 0)}
+QuestTarget[7] = {position(365, 256, 0), position(360, 281, 0)} -- Charwis Irongate
+QuestTarget[8] = {position(365, 256, 0)}
+QuestTarget[9] = {position(365, 256, 0), position(439, 359, 0)} -- Bruno Blackhole
+QuestTarget[10] = {position(365, 256, 0)}
+QuestTarget[11] = {position(365, 256, 0), position(341, 218, 0)} -- Gretel Goldhair
+QuestTarget[12] = {position(365, 256, 0)}
+QuestTarget[13] = {position(365, 256, 0), position(388, 238, 0)} -- Groktan Flintsplit
+QuestTarget[14] = {position(365, 256, 0)}
+QuestTarget[15] = {position(365, 256, 0), position(412, 243, 0)} -- Pipillo
+QuestTarget[16] = {position(365, 256, 0)}
+QuestTarget[17] = {position(365, 256, 0), position(348, 273, 0)} -- Fokous Onyxbrow
+QuestTarget[18] = {position(365, 256, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 18

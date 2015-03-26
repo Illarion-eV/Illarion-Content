@@ -16,8 +16,8 @@
 -- NPC Name: Jakob Lindorn              Cadomyr                               --
 -- NPC Job:  Helper                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  124, 649, 0            --
--- NPC Sex:  male                       NPC Direction: west                   --
+-- NPC Race: human                      NPC Position:  126, 598, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
 --                                                     easyNPC Parser v1.23.1 --
@@ -26,8 +26,8 @@
 name = "Jakob Lindorn"
 race = human
 sex = male
-position = 124, 649, 0
-direction = west
+position = 126, 598, 0
+direction = south
 affiliation = "Cadomyr"
 job = "Helper"
 
@@ -61,7 +61,7 @@ itemShoes = 679
 -- Help
 "Help" -> inform("[Game Help] This NPC is Jakob Lindorn the helper. Keywords: quest, craft, market, workshop, Frizza, food, fighting, Cadomyr")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Jakob Lindorn der Helfer. Schlüsselwörter: Quest, Handwerke, Markt, Werkstatt, Frizza, Essen, Kämpfen, Cadomyr")
-queststatus(703) = 0, town = Cadomyr, english, ".+" -> queststatus(703) = 1, "Welcome to Cadomyr. Please find my friend Berri Firegold, I'm sure he has a task for you. You won't miss him if you enter the city, he wears golden armour and can usually be found in the workshop. Once the task is finished, come back to me as I'm sure to have more tasks for you."
+queststatus(703) = 0, town = Cadomyr, english, ".+" -> queststatus(703) = 1, "Welcome to Cadomyr. Please find my friend Berri Firegold, I'm sure he has a task for you. You won't miss him, he wears golden armour and can usually be found in the workshop. Once the task is finished, come back to me as I'm sure to have more tasks for you."
 queststatus(703) = 0, town = Cadomyr, ".+" -> queststatus(703) = 1, "Willkommen in Cadomyr. Sucht doch bitte Berri Firegold. Er hat bestimmt eine Aufgabe für Euch. Ihr könnt ihn nicht übersehen: Er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum. Wenn Ihr diese Aufgabe erfüllt habt, kommt zurück. Ich hab sicher noch etwas für Euch zu tun."
 
 -- General speech
@@ -85,8 +85,6 @@ english, "job" -> "My mission is to help, so if you need something to do, just a
 "job" -> "Meine Berufung ist zu helfen. Also wenn Ihr etwas zu tun sucht, fragt einfach."
 
 -- help triggers
-english, "market" -> "Just follow the street to your right and go through the gate, you won't miss the marketplace. Ask Frizza over there if you want to know more about the places around Cadomyr."
-"markt" -> "Folgt einfach der Straße zur Eurer Rechten und geht durch das Tor. Ihr werdet den Marktplatz kaum übersehen können. Fragt Frizza dort drüben, wenn Ihr mehr über die Orte um Cadomyr herum wissen wollt."
 english, "Frizza" -> "She is right over there, just go over and talk to her. She knows a lot about Cadomyr."
 "Frizza" -> "Sie ist gleich dort drüben. Geht einfach zu ihr rüber und sprecht sie an. Sie weiß eine Menge über Cadomyr."
 "food", "eat" -> "You can find food all around you. There are fruits on the trees and bushes or you can ask other people for something to eat."
@@ -95,16 +93,14 @@ english, "fighting", "monster" -> "There are a few wild animals in the wildernes
 "kämpfen", "monster" -> "Es gibt einige wilde Tiere in der Wildness, also seid vorsichtig. Wenn Ihr trainieren wollt, fragt nach einem Trainingspartner herum."
 english, "Cadomyr" -> "This is Cadomyr, my home. We are a realm of honourable and kind people, I'm sure you will enjoy it here."
 "Cadomyr" -> "Dies is Cadomyr, mein Zuhause. Wir sind ein Reich von ehrenvollen und aufrichtigen Leuten. Ich bin mir sicher, dass Ihr es hier mögen werdet."
-english, "work" -> "You can find the workshop really easily. Go through the main gate north from here, then turn right and follow the street, go through the gate, turn left and go through the next gate. From here you go north until you reach a building to your right with a little garden and some tools outside."
-german, "Werk" -> "Die Werkstatt könnt Ihr ganz leicht finden. Geht durch das Haupttor im Norden, dann biegt nach rechts ab, geht durch das Tor, nun erneut nach Norden, dann öffnet Ihr das Tor zu eurer Linken und geht nach Norden. Die Werkstatt ist kurz vor dem Palast auf der rechten Seite."
 english, "craft" -> "You want to know more about the crafts of Cadomyr? Well then go and visit Berri Firegold, Gerald Deloid, Lilli Gallfing or Zlatxhol, they can tell you more about the crafts than me. You can find them in the workshop in the north of the city."
 german, "hand" -> "Ihr wollt mehr über die Handwerke in Cadomyr wissen? Dann besucht Berri Firegold, Gerald Deloid, Lilli Gallfing oder Zlatxhol. Sie können Euch sicher mehr darüber erzählen als ich. Ihr könnt sie alle in der Werkstatt im Norden der Stadt finden."
 
 -- Quests
 -- Berri
-queststatus(703) = 1, town = Cadomyr, english, "quest", "mission" -> "Please find my friend Berri Firegold, I'm sure he has a task for you. You won't miss him if you enter the city, he wears golden armour and can usually be found in the workshop. You don't have to finish his tasks before you come back to me for another job."
+queststatus(703) = 1, town = Cadomyr, english, "quest", "mission" -> "Please find my friend Berri Firegold, I'm sure he has a task for you. You won't miss him, he wears golden armour and can usually be found in the workshop. You don't have to finish his tasks before you come back to me for another job."
 queststatus(703) = 1, town = Cadomyr, "quest", "mission" -> "Sucht doch bitte Berri Firegold. Er hat bestimmt eine Aufgabe für Euch. Ihr könnt ihn nicht übersehen: Er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum. Du brauchst seine Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
-queststatus(703) = 1, town = Cadomyr, "task", "adventure", "order" -> "Please find my friend Berri Firegold, I'm sure he has a task for you. You won't miss him if you enter the city, he wears golden armour and can usually be found in the workshop. You don't have to finish his tasks before you come back to me for another job."
+queststatus(703) = 1, town = Cadomyr, "task", "adventure", "order" -> "Please find my friend Berri Firegold, I'm sure he has a task for you. You won't miss him, he wears golden armour and can usually be found in the workshop. You don't have to finish his tasks before you come back to me for another job."
 queststatus(703) = 1, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Sucht doch bitte Berri Firegold. Er hat bestimmt eine Aufgabe für Euch. Ihr könnt ihn nicht übersehen: Er trägt eine goldene Rüstung und treibt sich meist in der Werkstatt herum. Du brauchst seine Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
 
 -- Grakamesh
@@ -118,14 +114,14 @@ queststatus(703) = 3, town = Cadomyr, "task", "adventure", "order" -> "You're ba
 queststatus(703) = 3, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr seid zurück. Schön. Ich habe gehört, dass Grakamesh Eure Hilfe gebrauchen könnte. Ihr könnt ihn gleich da vorne bei Sir Reginalds Gruft finden. Du brauchst seine Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
 
 -- Mirarie Bragolin
-queststatus(703) = 4, town = Cadomyr, english, "quest", "mission" -> queststatus(703) = 5, "A friend of mine, Mirarie Bragolin, always needs some help. You can find her if you follow the street into the city, she is at the inner gate which leads to the marketplace. You don't have to finish her tasks before you come back to me for another job."
-queststatus(703) = 4, town = Cadomyr, "quest", "mission" -> queststatus(703) = 5, "Eine Freundin, Mirarie Bragolin, kann auch immer etwas Hilfe benötigen. Ihr könnt sie finden, wenn Ihr in die Stadt hinein geht. Sie steht beim Tor Richtung Marktplatz. Du brauchst ihre Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
-queststatus(703) = 4, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 5, "A friend of mine, Mirarie Bragolin, always needs some help. You can find her if you follow the street into the city, she is at the inner gate which leads to the marketplace. You don't have to finish her tasks before you come back to me for another job."
-queststatus(703) = 4, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 5, "Eine Freundin, Mirarie Bragolin, kann auch immer etwas Hilfe benötigen. Ihr könnt sie finden, wenn Ihr in die Stadt hinein geht. Sie steht beim Tor Richtung Marktplatz. Du brauchst ihre Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
-queststatus(703) = 5, town = Cadomyr, english, "quest", "mission" -> "A friend of mine, Mirarie Bragolin, always needs some help. You can find her if you follow the street into the city, she is at the inner gate which leads to the marketplace. You don't have to finish her tasks before you come back to me for another job."
-queststatus(703) = 5, town = Cadomyr, "quest", "mission" -> "Eine Freundin, Mirarie Bragolin, kann auch immer etwas Hilfe benötigen. Ihr könnt sie finden, wenn Ihr in die Stadt hinein geht. Sie steht beim Tor Richtung Marktplatz. Du brauchst ihre Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
-queststatus(703) = 5, town = Cadomyr, "task", "adventure", "order" -> "A friend of mine, Mirarie Bragolin, always needs some help. You can find her if you follow the street into the city, she is at the inner gate which leads to the marketplace. You don't have to finish her tasks before you come back to me for another job."
-queststatus(703) = 5, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Eine Freundin, Mirarie Bragolin, kann auch immer etwas Hilfe benötigen. Ihr könnt sie finden, wenn Ihr in die Stadt hinein geht. Sie steht beim Tor Richtung Marktplatz. Du brauchst ihre Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
+queststatus(703) = 4, town = Cadomyr, english, "quest", "mission" -> queststatus(703) = 5, "A friend of mine, Mirarie Bragolin, always needs some help. She is at the inner gate which leads to the marketplace. You don't have to finish her tasks before you come back to me for another job."
+queststatus(703) = 4, town = Cadomyr, "quest", "mission" -> queststatus(703) = 5, "Eine Freundin, Mirarie Bragolin, kann auch immer etwas Hilfe benötigen. Sie steht beim Tor Richtung Marktplatz. Du brauchst ihre Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
+queststatus(703) = 4, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 5, "A friend of mine, Mirarie Bragolin, always needs some help. She is at the inner gate which leads to the marketplace. You don't have to finish her tasks before you come back to me for another job."
+queststatus(703) = 4, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 5, "Eine Freundin, Mirarie Bragolin, kann auch immer etwas Hilfe benötigen. Sie steht beim Tor Richtung Marktplatz. Du brauchst ihre Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
+queststatus(703) = 5, town = Cadomyr, english, "quest", "mission" -> "A friend of mine, Mirarie Bragolin, always needs some help. She is at the inner gate which leads to the marketplace. You don't have to finish her tasks before you come back to me for another job."
+queststatus(703) = 5, town = Cadomyr, "quest", "mission" -> "Eine Freundin, Mirarie Bragolin, kann auch immer etwas Hilfe benötigen. Sie steht beim Tor Richtung Marktplatz. Du brauchst ihre Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
+queststatus(703) = 5, town = Cadomyr, "task", "adventure", "order" -> "A friend of mine, Mirarie Bragolin, always needs some help. She is at the inner gate which leads to the marketplace. You don't have to finish her tasks before you come back to me for another job."
+queststatus(703) = 5, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Eine Freundin, Mirarie Bragolin, kann auch immer etwas Hilfe benötigen. Sie steht beim Tor Richtung Marktplatz. Du brauchst ihre Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
 
 -- Hassan
 queststatus(703) = 6, town = Cadomyr, english, "quest", "mission" -> queststatus(703) = 7, "Hassan, the royal fan-waver, is sure to have a little task for you. You can find him in the 'Unicorn Lion' tavern, if he isn't at the palace. The tavern is north of the marketplace. You don't have to finish his tasks before you come back to me for another job."
@@ -149,7 +145,7 @@ queststatus(703) = 9, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl
 
 -- Reret Odohir - note: skipped quest steps are due to an npc changing realms, this skipping allows for people who are in the steps for the moved npc to carry on without problems.
 queststatus(703) > 9, queststatus(703) <=12, town = Cadomyr, english, "quest", "mission" -> queststatus(703) = 13, "Reret Odohir, our notary, told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colourful pillar. You don't have to finish her tasks before you come back to me for another job."
-queststatus(703) > 9, queststatus(703) <=12, town = Cadomyr, "quest", "mission" -> queststatus(703) = 13, "Reret Odohir, unsere Notarin, sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr. Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor. Du brauchst ihre Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen." 
+queststatus(703) > 9, queststatus(703) <=12, town = Cadomyr, "quest", "mission" -> queststatus(703) = 13, "Reret Odohir, unsere Notarin, sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr. Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor. Du brauchst ihre Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
 queststatus(703) > 9, queststatus(703) <=12, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 13, "Reret Odohir, our notary, told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colourful pillar. You don't have to finish her tasks before you come back to me for another job."
 queststatus(703) > 9, queststatus(703) <=12, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 13, "Reret Odohir, unsere Notarin, sagte mir, dass sie Euch sehen will. Bitte geht doch zu ihr. Ihr könnt sie in dem Haus nordwestlich von der Taverne finden. Es ist das Haus mit der bunten Säule davor. Du brauchst ihre Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
 queststatus(703) = 13, town = Cadomyr, english, "quest", "mission" -> "Reret Odohir, our notary, told me that she is looking for you. Please go to her, you can find her in the building northwest of the tavern. It's the house with the colourful pillar. You don't have to finish her tasks before you come back to me for another job."
@@ -204,4 +200,4 @@ cycletext "Möge Zhambra euch geleiten!", "May Zhambra guide you!"
 cycletext "Cadomyr, hier leben jene mit Ehre und Stolz in ihren Herzen.", "Cadomyr, herein resides those with honour and pride in their hearts."
 cycletext "#me starrt in die Wüste mit einem Ausdruck der Entschlossenheit in seinen Augen.", "#me stares off into the desert with a look of determination in his eyes"
 cycletext "Lang lebe die Königin!", "All hail the Queen!"
-cycletext "Innerhalb dieser Tore findet ihr eure Zukunft.", "Beyond these gates you will find your future."
+cycletext "Innen dieser Tore findet ihr eure Zukunft.", "Inside these gates you will find your future."

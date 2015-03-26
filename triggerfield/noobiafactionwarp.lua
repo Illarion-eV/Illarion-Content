@@ -40,9 +40,13 @@ function M.MoveToField(Character)
     end
 
     local destination, factionID, dialogNewbieText, dialogNewbieTaskText, dialogNewbieTaskTitle
-    if Character.pos == position(56,96,100) then --Cadomyr
+    if Character.pos == position(56,96,100) and oldPlayer then --Cadomyr for old player
 
         destination = position(127,647,0)
+    
+    elseif Character.pos == position(56,96,100) and find then --Cadomyr for new player
+        
+        destination = position(126,596,0)
         factionID = 1
 
         dialogNewbieText = common.GetNLS(Character,
@@ -52,9 +56,9 @@ function M.MoveToField(Character)
             "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. Jakob Lindorn ist ein freundlicher und hilfsbereiter Mensch, der Neuankömmlingen hilft. Geh zu ihm herüber und sprich mit ihm, wenn du Hilfe am Beginn deines neuen Lebens wünscht!",
             "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Jakob Lindorn is a friendly and helpful person, who is happy to help newcomers. Go and talk to him if you want to get some help at the beginning of your new life!")
 
-    elseif Character.pos == position(20,99,100) then --Runewick
+    elseif Character.pos == position(20,99,100) and find then --Runewick for new player
 
-        destination = position(836, 813, 0)
+        destination = position(902, 790, 1)
         factionID = 2
 
         dialogNewbieText = common.GetNLS(Character,
@@ -64,9 +68,13 @@ function M.MoveToField(Character)
             "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. Florain Dreyndel ist ein freundlicher und hilfsbereiter Mensch, der Neuankömmlingen hilft. Geh zu ihm herüber und sprich mit ihm, wenn du Hilfe am Beginn deines neuen Lebens wünscht!",
             "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Florain Dreyndel is a friendly and helpful person, who is happy to help newcomers. Go and talk to him if you want to get some help at the beginning of your new life!")
 
-    elseif Character.pos == position(40,111,100) then --Galmair
+    elseif Character.pos == position(20,99,100) and oldPlayer then --Runewick for old player
 
-        destination = position(424,245,0)
+        destination = position(836, 813, 0)
+        
+    elseif Character.pos == position(40,111,100) and find then --Galmair for new player
+
+        destination = position(367,258,0)
         factionID = 3
 
         dialogNewbieText = common.GetNLS(Character,
@@ -76,6 +84,9 @@ function M.MoveToField(Character)
             "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. Joey Licavoli ist ein freundlicher und hilfsbereiter Mensch, der Neuankömmlingen hilft. Geh zu ihm herüber und sprich mit ihm, wenn du Hilfe am Beginn deines neuen Lebens wünscht!",
             "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Joey Licavoli is a friendly and helpful person, who is happy to help newcomers. Go and talk to him if you want to get some help at the beginning of your new life!")
 
+    elseif Character.pos == position(40,111,100) and oldPlayer then --Galmair old player
+
+        destination = position(424,245,0)
     end
 
     --Warping the character

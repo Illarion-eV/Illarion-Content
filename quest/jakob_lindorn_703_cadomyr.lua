@@ -37,8 +37,8 @@ Description[GERMAN][1] = "Such Berri Firegold in der Werkstatt von Cadomyr und f
 Description[ENGLISH][1] = "Search for the dwarf, Berri Firegold, at the workshop in Cadomyr. Then return back to Jakob if you want more tasks from him. You can find the workshop really easily. Go through the main gate north from here, then turn right and follow the street, go through the gate, turn left and go through the next gate. From here you go north until you reach a building to your right with a little garden and some tools outside. You don't have to finish his tasks before you come back to me for another job."
 Description[GERMAN][2] = "Geh zu Jakob Lindorn beim Teleporter in Cadomyr, er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][2] = "Go to Jakob Lindorn at the teleporter of Cadomyr, he is sure to have another task for you."
-Description[GERMAN][3] = "Such Grakamesh den Ork bei Sir Reginalds Gruft und frag ihn nach einer Aufgabe. Die Gruft ist gleich hinter Jakob bei dem kleinen Eingang. Du brauchst seine Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
-Description[ENGLISH][3] = "Search for the orc, Grakamesh at Sir Reginald's Tomb and ask him for a task. The tomb is right behind Jakob at the little entrance. You don't have to finish his tasks before you come back to me for another job."
+Description[GERMAN][3] = "Such Grakamesh den Ork bei Sir Reginalds Gruft und frag ihn nach einer Aufgabe. Du brauchst seine Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
+Description[ENGLISH][3] = "Search for the orc, Grakamesh at Sir Reginald's Tomb and ask him for a task. You don't have to finish his tasks before you come back to me for another job."
 Description[GERMAN][4] = "Geh zu Jakob Lindorn beim Teleporter in Cadomyr, er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][4] = "Go to Jakob Lindorn at the teleporter of Cadomyr, he is sure to have another task for you."
 Description[GERMAN][5] = "Such die Zwergendame Mirarie Bragolin und frag sie, ob du ihr helfen kannst. Mirarie Bragolin ist beim Tor kurz vor dem Marktplatz. Du brauchst ihre Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
@@ -71,28 +71,28 @@ Description[GERMAN][18] = "Du hast alle Aufgaben von Jakob Lindorn erfüllt."
 Description[ENGLISH][18] = "You have fulfilled all the tasks for Jakob Lindorn."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {124, 649, 0}
+Start = {126, 598, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(124, 649, 0), position(141, 582, 0)} -- Berri Firegold
-QuestTarget[2] = {position(124, 649, 0)}
-QuestTarget[3] = {position(124, 649, 0), position(133, 638, 0)} -- Grakamesh
-QuestTarget[4] = {position(124, 649, 0)}
-QuestTarget[5] = {position(124, 649, 0), position(128, 621, 0)} -- Mirarie Bragolin
-QuestTarget[6] = {position(124, 649, 0)}
-QuestTarget[7] = {position(124, 649, 0), position(110, 574, 0)} -- Hassan
-QuestTarget[8] = {position(124, 649, 0)}
-QuestTarget[9] = {position(124, 649, 0), position(116, 576, 0)} -- Linda Rabon
-QuestTarget[10] = {position(124, 649, 0)}
-QuestTarget[11] = {position(124, 649, 0)}  -- Zerarisa removed from npc b/c moved to new realm.
-QuestTarget[12] = {position(124, 649, 0)}
-QuestTarget[13] = {position(124, 649, 0), position(106, 553, 0)} -- Reret Odohir
-QuestTarget[14] = {position(124, 649, 0)}
-QuestTarget[15] = {position(124, 649, 0), position(139, 622, 0)} -- Evera
-QuestTarget[16] = {position(124, 649, 0)}
-QuestTarget[17] = {position(124, 649, 0), position(104, 600, 0)} -- Jeremiah Horanfeld
-QuestTarget[18] = {position(124, 649, 0)}
+QuestTarget[1] = {position(126, 598, 0), position(141, 582, 0)} -- Berri Firegold
+QuestTarget[2] = {position(126, 598, 0)}
+QuestTarget[3] = {position(126, 598, 0), position(133, 638, 0)} -- Grakamesh
+QuestTarget[4] = {position(126, 598, 0)}
+QuestTarget[5] = {position(126, 598, 0), position(128, 621, 0)} -- Mirarie Bragolin
+QuestTarget[6] = {position(126, 598, 0)}
+QuestTarget[7] = {position(126, 598, 0), position(110, 574, 0)} -- Hassan
+QuestTarget[8] = {position(126, 598, 0)}
+QuestTarget[9] = {position(126, 598, 0), position(116, 576, 0)} -- Linda Rabon
+QuestTarget[10] = {position(126, 598, 0)}
+QuestTarget[11] = {position(126, 598, 0)}  -- Zerarisa removed from npc b/c moved to new realm.
+QuestTarget[12] = {position(126, 598, 0)}
+QuestTarget[13] = {position(126, 598, 0), position(106, 553, 0)} -- Reret Odohir
+QuestTarget[14] = {position(126, 598, 0)}
+QuestTarget[15] = {position(126, 598, 0), position(139, 622, 0)} -- Evera
+QuestTarget[16] = {position(126, 598, 0)}
+QuestTarget[17] = {position(126, 598, 0), position(104, 600, 0)} -- Jeremiah Horanfeld
+QuestTarget[18] = {position(126, 598, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 18

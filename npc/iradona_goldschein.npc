@@ -16,8 +16,8 @@
 -- NPC Name: Iradona Goldschein                                       Galmair --
 -- NPC Job:  Informant                                                        --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  430, 247, 0            --
--- NPC Sex:  female                     NPC Direction: west                   --
+-- NPC Race: dwarf                      NPC Position:  369, 256, 0            --
+-- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                       easyNPC Parser v1.21 --
@@ -26,8 +26,8 @@
 name = "Iradona Goldschein"
 race = dwarf
 sex = female
-position = 430, 247, 0
-direction = west
+position = 369, 256, 0
+direction = south
 affiliation = "Galmair"
 job = "Informant"
 
@@ -131,8 +131,6 @@ english, "Lotta", "Medborgar" -> "She's a hunter that has explored several locat
 "ruler" -> "We have had only two rulers so far. Our Don Valerio Guilianni and his father Tommaso Guilianni. You can find more information about the latter in the notes of the Don, our new history book."
 "Herrscher" -> "Wir hatten lediglich zwei Herrscher bisher. Unseren Don Valerio Guilianni und seinen Vater Tommaso Guilianni. Informationen über letzteren findest du in den Aufzeichnungen des Don, unserem neuem Geschichtsbuch."
 
-"market" -> "Argh, everything has to be explained to you. Just run through the town to the Well of Dreams and you will see it. You cannot miss it. *points to the town gate*"
-"Markt" -> "Argh, alles muss man dir erklären. Lauf einfach durch die Stadt zur Quelle der Träume und du wirst ihn sehen. Du kannst ihn nicht verfehlen. *zeigt auf das Stadttor*"
 "temple" -> inform("[Keywords] Temple of Irmorom, Temple of Ronagan, Temple of Nargun"), "We have temples for each of our three gods here: Temple of Irmorom, Temple of Ronagan and Temple of Nargun."
 "Tempel" -> inform("[Schlüsselwörter] Tempel des Irmorom, Tempel des Ronagan, Tempel des Nargun"), "Wir haben je einen Tempel für unsere drei Götter hier. Tempel des Irmorom, Tempel des Ronagan and Tempel des Nargun."
 --"Donkey stable", "stable" -> "Through the town gate and then right. *nods*"

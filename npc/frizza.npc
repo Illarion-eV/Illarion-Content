@@ -16,7 +16,7 @@
 -- NPC Name: Frizza                                                   Cadomyr --
 -- NPC Job:  Informant                                                        --
 --                                                                            --
--- NPC Race: lizardman                  NPC Position:  121, 643, 0            --
+-- NPC Race: lizardman                  NPC Position:  117, 599, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   envi                                                             --
@@ -26,7 +26,7 @@
 name = "Frizza"
 race = lizardman
 sex = female
-position = 121, 643, 0
+position = 117, 599, 0
 direction = south
 affiliation = "Cadomyr"
 job = "Informant"
@@ -95,8 +95,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Sssee you again, when you n
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe oder kaufe gar nichtsss. Aber wir haben einen Marktplatz. Versuch dein Glück doch dort."
 "tell something" -> "I can tell you many things about Cadomyr. Just asssk me about buildingsss, locationsss, eventsss, people, history or godsss of Cadomyr. Additionally, I have a little tasssk."
 "erzähl was", "erzähl etwas" -> "Ich kann dir viele Dinge über Cadomyr erzählen. Frag nur nach Gebäude, Orte, Ereignissse, Leute, Gessschichte oder Götter von Cadomyr. Zusssätzlich hätte ich noch eine kleine Aufgabe."
-english, "teleport" -> "A possibility to teleport yourself to Runewick, Galmair or the Hemp Necktie Inn isss here asss yoo ssshould sssee. *points to the teleporter*"
-"teleport" -> "Eine Möglichkeit sich nach Runewick, Galmair oder zum Gasthof zur Hanfschlinge zu teleportieren findet man hier wie du sssehen kannssst. *Zeigt auf den Teleporter*"
+english, "teleport" -> "A possibility to teleport yourself to Runewick, Galmair or the Hemp Necktie Inn isss here asss yoo ssshould sssee."
+"teleport" -> "Eine Möglichkeit sich nach Runewick, Galmair oder zum Gasthof zur Hanfschlinge zu teleportieren findet man hier wie du sssehen kannssst."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 english, "inform" -> inform("[Keywords] building, location, events, people, history, god, ruler, law."), "I have information about buildingsss, locationsss, eventsss, people, hissstory, lawsss, our ruler, lawsss and godsss of Cadomyr. Just asssk me!"
