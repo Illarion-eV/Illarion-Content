@@ -23,8 +23,9 @@ local monstermagic = require("monster.base.monstermagic")
 local magic = monstermagic()
 magic.addWarping{probability = 0.15, usage = magic.ONLY_NEAR_ENEMY}
 
-magic.addFireball{probability = 0.025,  damage = {from = 500, to = 1500}}
-magic.addIceball{ probability = 0.025,  damage = {from = 500, to = 1500}}
+magic.addFireball{probability = 0.06,  damage = {from = 750, to = 1500}}
+magic.addIceball{ probability = 0.025,  damage = {from = 750, to = 1500}}
+magic.addFlamestrike{probability = 0.005, damage = {from = 375, to = 875}, targetCount = 4}
 
 local M = imps.generateCallbacks()
 M = magic.addCallbacks(M)
