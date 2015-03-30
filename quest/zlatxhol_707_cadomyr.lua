@@ -61,7 +61,7 @@ Start = {134, 593, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(134, 593, 0), position(106, 645, 0)} -- Clay Pit
+QuestTarget[1] = {position(134, 593, 0), position(106, 644, 0)} -- Clay Pit
 QuestTarget[2] = {position(134, 593, 0)} 
 QuestTarget[3] = {position(134, 593, 0), position(142, 587, 0)} -- Glass melting oven
 QuestTarget[4] = {position(134, 593, 0)} 

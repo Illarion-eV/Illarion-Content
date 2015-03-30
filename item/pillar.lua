@@ -173,8 +173,8 @@ function M.UseItem(User, SourceItem, ltstate)
         --Dialog
         local dialogTitle = common.GetNLS(User, "Liste der Galmarianischen Kanzler", "List of Galmairian Chancellors")
         local dialogText = common.GetNLS(User,
-            "Arcia im Jahr 44\nEvie Pryler im Jahr 43\nOxiana im Jahr42\nOxiana im Jahr 41",
-            "Arcia in the year 44\nEvie Pryler in the year 43\nOxiana in the year 42\nOxiana in the year 41")
+            "Artimer Fault im Jahr 45\nArcia im Jahr 44\nEvie Pryler im Jahr 43\nOxiana im Jahr42\nOxiana im Jahr 41",
+            "Artimer Fault in the year 45\nArcia in the year 44\nEvie Pryler in the year 43\nOxiana in the year 42\nOxiana in the year 41")
         local callbackChancellor1 = function(nothing) end --empty callback
         local dialogChancellor1 = MessageDialog(dialogTitle, dialogText, callbackChancellor1)
 
@@ -185,8 +185,8 @@ function M.UseItem(User, SourceItem, ltstate)
         --Dialog
         local dialogTitle = common.GetNLS(User, "Liste der Galmarianischen Kanzler", "List of Galmairian Chancellors")
         local dialogText = common.GetNLS(User,
-            "Kyre im Jahr 44\nVelisai im Jahr 43\nKyre im Jahr42\nKyre im Jahr 41",
-            "Kyre in the year 44\nVelisai in the year 43\nKyre in the year 42\nKyre in the year 41")
+            "Kyre im Jahr 45\nKyre im Jahr 44\nVelisai im Jahr 43\nKyre im Jahr42\nKyre im Jahr 41",
+            "Kyre in the year 45\nKyre in the year 44\nVelisai in the year 43\nKyre in the year 42\nKyre in the year 41")
         local callbackChancellor2 = function(nothing) end --empty callback
         local dialogChancellor2 = MessageDialog(dialogTitle, dialogText, callbackChancellor2)
 
@@ -197,8 +197,8 @@ function M.UseItem(User, SourceItem, ltstate)
         --Dialog
         local dialogTitle = common.GetNLS(User, "Liste der Galmarianischen Kanzler", "List of Galmairian Chancellors")
         local dialogText = common.GetNLS(User,
-            "Sarangerel (Ufedhin Copperhand) im Jahr 44\nSarangerel im Jahr 43\nUhuru Pryler im Jahr42\nPurple im Jahr 41",
-            "Sarangerel (Ufedhin Copperhand) in the year 44\nSarangerel in the year 43\nUhuru Pryler in the year 42\nPurple in the year 41")
+            "Tialdin im Jahr 45\nSarangerel (Ufedhin Copperhand) im Jahr 44\nSarangerel im Jahr 43\nUhuru Pryler im Jahr42\nPurple im Jahr 41",
+            "Tialdin in the year 45\nSarangerel (Ufedhin Copperhand) in the year 44\nSarangerel in the year 43\nUhuru Pryler in the year 42\nPurple in the year 41")
         local callbackChancellor3 = function(nothing) end --empty callback
         local dialogChancellor3 = MessageDialog(dialogTitle, dialogText, callbackChancellor3)
 
