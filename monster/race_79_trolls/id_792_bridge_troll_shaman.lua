@@ -37,7 +37,7 @@ magic.addWarping{probability = 0.15, usage = magic.ONLY_NEAR_ENEMY}
 
 magic.addIcestrike{probability = 0.07, damage = {from = 1000, to = 1500}}
 magic.addIcestrike{probability = 0.001, damage = {from =  750, to = 1000}, targetCount = 4}
-magic.addLighting{probability = 0.05, damage = {from =  1200, to = 1800}}
+magic.addLighting{probability = 0.005, damage = {from =  1200, to = 1800}}
 magic.addLighting{probability = 0.001, damage = {from =  500, to = 1100}, targetCount = 3}
 
 M = magic.addCallbacks(M)
