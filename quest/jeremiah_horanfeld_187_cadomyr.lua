@@ -26,7 +26,7 @@ local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}
-Title[GERMAN] = "Schädlingswächter"
+Title[GERMAN] = "Rattenfänger"
 Title[ENGLISH] = "Vermin Monitor"
 
 -- Insert an extensive description of each status here, in both languages
@@ -47,7 +47,7 @@ Description[ENGLISH][5] = "Kill five rats in the Cistern, you still have one lef
 Description[GERMAN][6] = "Kehre zu Jeremiah Horanfeld für Deine Belohnung zurück."
 Description[ENGLISH][6] = "Return to Jeremiah Horanfeld for your reward."
 
-Description[GERMAN][7] = "Gehe zurück zum Schädlingswächter Jeremiah Horanfeld, er hat vielleicht noch eine weitere Aufgabe für Dich."
+Description[GERMAN][7] = "Gehe zurück zum Rattenfänger Jeremiah Horanfeld, er hat vielleicht noch eine weitere Aufgabe für Dich."
 Description[ENGLISH][7] = "Check back with Vermin Monitor Jeremiah Horanfeld, he may have another task for you."
 
 Description[GERMAN][8] = "Sammle zehn Rattenfelle und bringe sie als Beweis zu Jeremiah Horanfeld."
@@ -78,7 +78,7 @@ Description[ENGLISH][19] = "Kill ten rats in the Cistern, you still have one lef
 Description[GERMAN][20] = "Kehre zu Jeremiah Horanfeld für Deine Belohnung zurück."
 Description[ENGLISH][20] = "Return to Jeremiah Horanfeld for your reward."
 
-Description[GERMAN][21] = "Gehe zurück zum Schädlingswächter Jeremiah Horanfeld, er hat vielleicht noch eine weitere Aufgabe für Dich."
+Description[GERMAN][21] = "Gehe zurück zum Rattenfänger Jeremiah Horanfeld, er hat vielleicht noch eine weitere Aufgabe für Dich."
 Description[ENGLISH][21] = "Check back with Vermin Monitor Jeremiah Horanfeld, he may have another task for you."
 
 Description[GERMAN][22] = "Sammle fünfzehn Rattenfelle und bringe sie als Beweis zu Jeremiah Horanfeld."
@@ -109,7 +109,7 @@ Description[ENGLISH][33] = "Kill ten rats in the Cistern, you still have one lef
 Description[GERMAN][34] = "Kehre zu Jeremiah Horanfeld für Deine Belohnung zurück."
 Description[ENGLISH][34] = "Return to Jeremiah Horanfeld for your reward."
 
-Description[GERMAN][35] = "Gehe zurück zum Schädlingswächter Jeremiah Horanfeld, er hat vielleicht noch eine weitere Aufgabe für Dich."
+Description[GERMAN][35] = "Gehe zurück zum Rattenfänger Jeremiah Horanfeld, er hat vielleicht noch eine weitere Aufgabe für Dich."
 Description[ENGLISH][35] = "Check back with Vermin Monitor Jeremiah Horanfeld, he may have another task for you."
 
 Description[GERMAN][36] = "Töte in der Zisterne den Rattenmenschen"
