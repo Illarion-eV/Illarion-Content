@@ -350,8 +350,69 @@ end
 --  @param char the character who is looking at the NPC
 --  @param mode the mode used to look at the NPC (no effect)
 function baseNPC:use(npcChar, char)
+
     npcChar.activeLanguage = self._defaultLanguage
-    npcChar:talk(Character.say, self._useMsgDE, self._useMsgUS)
+    --npcChar:talk(Character.say, self._useMsgDE, self._useMsgUS)
+	
+	local getText = function(deText,enText) return common.GetNLS(char, deText, enText) end
+	 
+    local callback = function(dialog)
+	
+        local success = dialog:getSuccess()
+		
+        if success then
+		
+            local selected = dialog:getSelectedIndex()
+			
+			if selected == 5 then
+			
+			    local callbackInput = function(dialogInput)
+				
+					if not dialogInput:getSuccess() then
+						return;
+					else
+						local text = dialogInput:getInput()
+						char:talk(Character.say, text, text)
+					end
+				end
+				
+				local dialogInput
+				dialogInput = InputDialog(npcChar.name, getText("Über welches Thema möchtest du sprechen?","Enter the topic you want to talk about."), false, 255, callbackInput)
+				char:requestInputDialog(dialogInput)
+			
+			else
+			
+				textDE={}
+				textEN={}
+				textDE[0]="Seid gegrüßt."
+				textEN[0]="Be greeted."
+				textDE[1]="Bitte helft mir."
+				textEN[1]="Please help me."			
+				textDE[2]="Habt Ihr eine Aufgabe für mich?"
+				textEN[2]="Do you have a task for me?"
+				textDE[3]="Ich möchte Waren handeln."
+				textEN[3]="I'd like to trade some goods."
+				textDE[4]="Auf wiedersehen."
+				textEN[4]="Farewell."
+				char:talk(Character.say, textDE[selected], textEN[selected])
+				
+			end
+        end
+    end
+
+    local dialog
+
+    dialog = SelectionDialog(npcChar.name, getText("Über welches Thema möchtest du sprechen?","Enter the topic you want to talk about."), callback)
+    dialog:setCloseOnMove()
+    dialog:addOption(0, getText("Begrüßen", "Greetings"))
+	dialog:addOption(0, getText("Hilfe", "Help"))
+	dialog:addOption(0, getText("Quest", "Quest"))
+	dialog:addOption(0, getText("Handel", "Trade"))
+	dialog:addOption(0, getText("Verabschieden", "Farewell"))
+	dialog:addOption(0, getText("(Etwas anderes)", "(Other)"))
+    
+    char:requestSelectionDialog(dialog)
+		
 end
 
 --- This equipment sets the equipment an NPC gets at first start. This is needed
