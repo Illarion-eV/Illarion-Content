@@ -67,7 +67,7 @@ sellItems = 1, 2, 3
 buyPrimaryItems = 1
 buySecondaryItems = 2, 3
 
--- Template Version 1.12, 02/13/2015 by Estralis Seborian
+-- Template Version 1.13, 04/02/2015 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
 -- Style of triggers: Keywords are preferred. Avoid usage of phrases such as "tell me more"
@@ -99,17 +99,17 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "ENGLISH1.", "ENGLISH2.", "E
 "your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- OPTIONAL TRIGGERS
-
--- Optional: Trade Hooks, use only for traders
+-- Mandatory: Trade Hooks, use the trade consequence for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3.", trade
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", trade
 
--- Optional: Catching quest triggers. Modify if the NPC does quests
+-- Mandatory: Catching quest triggers. Modify if the NPC does quests
 english, "quest", "mission" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "task", "adventure", "order" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- OPTIONAL TRIGGERS
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."

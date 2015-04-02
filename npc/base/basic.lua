@@ -377,7 +377,7 @@ function baseNPC:use(npcChar, char)
 				end
 				
 				local dialogInput
-				dialogInput = InputDialog(npcChar.name, getText("Über welches Thema möchtest du sprechen?","Select the topic you want to talk about."), false, 255, callbackInput)
+				dialogInput = InputDialog(npcChar.name, getText("Über welches Thema möchtest du sprechen?","Select the topic you want to talk about."), false, 250, callbackInput)
 				char:requestInputDialog(dialogInput)
 			
 			else
