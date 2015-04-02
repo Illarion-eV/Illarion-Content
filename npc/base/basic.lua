@@ -402,7 +402,7 @@ function baseNPC:use(npcChar, char)
 
     local dialog
 
-    dialog = SelectionDialog(npcChar.name, getText("Über welches Thema möchtest du sprechen?","Enter the topic you want to talk about."), callback)
+    dialog = SelectionDialog(npcChar.name, getText("Über welches Thema möchtest du sprechen?","Select the topic you want to talk about."), callback)
     dialog:setCloseOnMove()
     dialog:addOption(0, getText("Begrüßen", "Greetings"))
 	dialog:addOption(0, getText("Hilfe", "Help"))
