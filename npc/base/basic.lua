@@ -364,7 +364,7 @@ function baseNPC:use(npcChar, char)
 		
             local selected = dialog:getSelectedIndex()
 			
-			if selected == 5 then
+			if selected == 5 then --free input
 			
 			    local callbackInput = function(dialogInput)
 				
@@ -377,7 +377,7 @@ function baseNPC:use(npcChar, char)
 				end
 				
 				local dialogInput
-				dialogInput = InputDialog(npcChar.name, getText("Über welches Thema möchtest du sprechen?","Enter the topic you want to talk about."), false, 255, callbackInput)
+				dialogInput = InputDialog(npcChar.name, getText("Über welches Thema möchtest du sprechen?","Select the topic you want to talk about."), false, 255, callbackInput)
 				char:requestInputDialog(dialogInput)
 			
 			else
@@ -386,7 +386,7 @@ function baseNPC:use(npcChar, char)
 				textEN={}
 				textDE[0]="Seid gegrüßt."
 				textEN[0]="Be greeted."
-				textDE[1]="Bitte helft mir."
+				textDE[1]="Ich benötige Hilfe."
 				textEN[1]="Please help me."			
 				textDE[2]="Habt Ihr eine Aufgabe für mich?"
 				textEN[2]="Do you have a task for me?"
