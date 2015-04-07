@@ -20,11 +20,12 @@ local monstermagic = require("monster.base.monstermagic")
 local blueSpiders = require("monster.race_23_blue_spider.base")
 
 local magic = monstermagic()
-magic.addPoisonball{probability = 0.02,  damage = {from = 2000, to = 4000}}
-magic.addPoisonball{probability = 0.005, damage = {from = 1000, to = 2000}, targetCount = 3}
-
-magic.addIcestrike{probability = 0.02,  damage = {from = 2000, to = 4000}}
-magic.addIcestrike{probability = 0.005, damage = {from = 1000, to = 2000}, targetCount = 3}
+magic.addIceball{probability = 0.02, damage = {from = 1500, to = 1800}}
+magic.addIceball{probability = 0.001, damage = {from = 1900, to = 2300}}
+magic.addIceball{probability = 0.005, damage = {from = 750, to = 1200}, targetCount = 5}
+magic.addIceball{probability = 0.0001, damage = {from = 2200, to = 2700}}
+magic.addIcestrike{probability = 0.09,  damage = {from = 1700, to = 2000}}
+magic.addIcestrike{probability = 0.001, damage = {from = 1200, to = 1850}, targetCount = 3}
 
 local M = blueSpiders.generateCallbacks()
 return magic.addCallbacks(M)

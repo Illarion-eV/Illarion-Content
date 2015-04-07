@@ -34,13 +34,11 @@ end
 local magic = monstermagic()
 magic.addWarping{probability = 0.15, usage = magic.ONLY_NEAR_ENEMY}
 
-magic.addFireball{probability = 0.03,  damage = {from = 1500, to = 2500}}
-magic.addFireball{probability = 0.015, damage = {from =  500, to = 1000}, targetCount = 4}
-magic.addFlamestrike{probability = 0.02,  damage = {from = 2000, to = 2500}}
-magic.addFlamestrike{probability = 0.015, damage = {from =  700, to = 1400}, targetCount = 3}
-
-magic.addHealing{probability = 0.05, damage = {from = 1000, to = 2000}}
-magic.addHealing{probability = 0.05, damage = {from =  500, to = 1000}, targetCount = 3}
+magic.addFireball{probability = 0.03,  damage = {from = 1500, to = 1800}}
+magic.addFireball{probability = 0.015, damage = {from =  750, to = 1200}, targetCount = 5}
+magic.addFlamestrike{probability = 0.009,  damage = {from = 1700, to = 2000}}
+magic.addFlamestrike{probability = 0.001, damage = {from =  1200, to = 1850}, targetCount = 3}
+magic.addFireball{probability = 0.001,  damage = {from = 1900, to = 2300}}
 
 M = magic.addCallbacks(M)
 return mageBehaviour.addCallbacks(magic, M)

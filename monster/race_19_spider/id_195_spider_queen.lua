@@ -23,8 +23,11 @@ local scheduledFunction = require("scheduled.scheduledFunction")
 local spiders = require("monster.race_19_spider.base")
 
 local magic = monstermagic()
-magic.addPoisonball{probability = 0.04, damage = {from = 2000, to = 4000}}
-magic.addPoisonball{probability = 0.01, damage = {from = 1000, to = 2000}, targetCount = 3}
+magic.addPoisonball{probability = 0.04, damage = {from = 1500, to = 1800}}
+magic.addPoisonball{probability = 0.009, damage = {from = 1700, to = 2000}}
+magic.addPoisonball{probability = 0.001, damage = {from = 1900, to = 2300}}
+magic.addPoisonball{probability = 0.001, damage = {from = 1200, to = 1850}, targetCount = 3}
+magic.addPoisonball{probability = 0.01, damage = {from = 750, to = 1200}, targetCount = 5}
 
 local M = spiders.generateCallbacks()
 M = magic.addCallbacks(M)

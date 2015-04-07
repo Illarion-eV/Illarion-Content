@@ -21,17 +21,14 @@ local mageBehaviour = require("monster.base.behaviour.mage")
 local monstermagic = require("monster.base.monstermagic")
 
 local magic = monstermagic()
-magic.addWarping{probability = 0.20, usage = magic.ONLY_NEAR_ENEMY}
+magic.addWarping{probability = 0.15, usage = magic.ONLY_NEAR_ENEMY}
 
-magic.addFireball{   probability = 0.06,  damage = {from = 2000, to = 4000}}
-magic.addIceball{    probability = 0.015, damage = {from = 2500, to = 4500}}
-magic.addVioletFlame{probability = 0.002, damage = {from = 3500, to = 5000}}
-
-magic.addFlamestrike{probability = 0.01, damage = {from = 1000, to = 2000}, targetCount = 5}
-magic.addExplosion{probability = 0.005, damage = {from = 1500, to = 3000}, targetCount = 5}
-
-magic.addHealing{probability = 0.05, damage = {from = 1500, to = 2500}}
-magic.addHealing{probability = 0.05, damage = {from = 1000, to = 1500}, targetCount = 2}
+magic.addIceball{probability = 0.015, damage = {from = 1800, to = 2300}}
+magic.addIcestrike{probability = 0.009, damage = {from = 2300, to = 2800}}
+magic.addIceball{probability = 0.01, damage = {from = 875, to = 1200}, targetCount = 6}
+magic.addIceball{probability = 0.0001, damage = {from = 2500, to = 3000}}
+magic.addIcestrike{probability = 0.075,  damage = {from = 1750, to = 2000}}
+magic.addIcestrike{probability = 0.001, damage = {from = 1000, to = 2000}, targetCount = 4}
 
 local M = blackBeholders.generateCallbacks()
 M = magic.addCallbacks(M)

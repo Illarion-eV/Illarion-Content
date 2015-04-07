@@ -33,9 +33,13 @@ function M.onSpawn(monster)
 end
 
 local magic = monstermagic()
-magic.addIcecone{probability = 0.13, damage = {from = 1500, to = 3000}, range = 6,
-    itemProbability = 0.055, quality = {from = 2, to = 5}}
-    
+magic.addIcecone{probability = 0.13, damage = {from = 1500, to = 1800}, range = 6,
+    itemProbability = 0.055, quality = {from = 2, to = 3}}
+magic.addIcecone{probability = 0.009, damage = {from = 1700, to = 2000}, range = 6,
+    itemProbability = 0.025, quality = {from = 3, to = 4}}
+magic.addIcecone{probability = 0.001, damage = {from = 1900, to = 2300}, range = 6,
+    itemProbability = 0.012, quality = {from = 4, to = 5}}
+
 icefield.setIceImmunity(monsterId)
 
 return magic.addCallbacks(M)

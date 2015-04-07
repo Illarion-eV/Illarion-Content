@@ -19,7 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local base = require("monster.base.base")
 local monstermagic = require("monster.base.monstermagic")
 local fleshDragons = require("monster.race_112_flesh_dragon.base")
-
+local poisonfield = require("item.id_372_poisonfield")
 local M = fleshDragons.generateCallbacks()
 
 local orgOnSpawn = M.onSpawn
@@ -30,8 +30,15 @@ function M.onSpawn(monster)
 end
 
 local magic = monstermagic()
-magic.addVioletFlame{probability = 0.10, damageRange =  {1500, 3000}, range = 8}
-magic.addWarping{probability = 0.10}
+
+magic.addPoisoncone{probability = 0.075, damage = {from = 1750, to = 2000}, range = 6,
+    itemProbability = 0.055, quality = {from = 2, to = 3}}
+magic.addPoisoncone{probability = 0.003, damage = {from = 1800, to = 2500}, range = 6,
+    itemProbability = 0.025, quality = {from = 3, to = 4}}
+magic.addPoisoncone{probability = 0.009, damage = {from = 2300, to = 3000}, range = 6,
+    itemProbability = 0.012, quality = {from = 4, to = 5}}
+
+poisonfield.setPoisonImmunity(monsterId)
 
 return magic.addCallbacks(M)
 

@@ -33,9 +33,11 @@ function M.onSpawn(monster)
 end
 
 local magic = monstermagic()
-magic.addFirecone{probability = 0.005, damage = {from = 700, to = 1000}, range = 4, angularAperture = 60,
+magic.addFirecone{probability = 0.09, damage = {from = 1250, to = 1400}, range = 6, angularAperture = 60,
+    itemProbability = 0.08, quality = {from = 1, to = 2}}
+magic.addFirecone{probability = 0.009, damage = {from = 1300, to = 1700}, range = 3, angularAperture = 60,
     itemProbability = 0.08, quality = {from = 2, to = 3}}
-    
+
 firefield.setFlameImmunity(monsterId)
 
 return magic.addCallbacks(M)
