@@ -84,12 +84,12 @@ M.bookList["halfling_culture_and_history"] = {english = "Halfling Culture and Hi
 M.bookList["dwarven_history_and_culture"] = {english = "Dwarven History and Culture",german =  "Die Geschichte und Kultur der Zwerge", bookId = 20, bookGraphic = bookletBlueRed}
 M.bookList["lizardmen_history_and_culture"] = {english = "Lizardmen History and Culture",german =  "Die Gemeinschaft der Echsenmenschen", bookId = 21, bookGraphic = bookRedBooklet}
 M.bookList["orcish_history_and_culture"] = {english = "Orcish History and Culture",german =  "Orkische Geschichte und Kultur", bookId = 22, bookGraphic = bookBlackValuable}
-M.bookList["god_malachin"] = {english = "Malachín",german =  "Malachín", bookId = 23, bookGraphic = Pell}
-M.bookList["god_sirani"] = {english = "Sirani",german =  "Sirani", bookId = 24, bookGraphic = Pell}
-M.bookList["god_zhambra"] = {english = "Zhambra",german =  "Zhambra", bookId = 25, bookGraphic = Pell}
+M.bookList["god_malachin"] = {english = "Malachín",german =  "Malachín", bookId = 23, bookGraphic = pell}
+M.bookList["god_sirani"] = {english = "Sirani",german =  "Sirani", bookId = 24, bookGraphic = pell}
+M.bookList["god_zhambra"] = {english = "Zhambra",german =  "Zhambra", bookId = 25, bookGraphic = pell}
 M.bookList["zodiac_sign"] = {english = "The zodiac sign of Illarion",german =  "Die Tierkreiszeichen", bookId = 26, bookGraphic = bookYellowVeryHeavy}
 M.bookList["alchemy"] = {english = "Book of Alchemy",german =  "Buch der Alchemie", bookId = 101, bookGraphic = bookWhiteRune}
-M.bookList["journal_of_abbot_elzechiel"] = {english = "Journal of Abbot Elzechiel",german =  "Tagebuch des Abtes Elzechiel", bookId = 201, bookGraphic = Pell}
+M.bookList["journal_of_abbot_elzechiel"] = {english = "Journal of Abbot Elzechiel",german =  "Tagebuch des Abtes Elzechiel", bookId = 201, bookGraphic = pell}
 M.bookList["a_hermit_on_the_lookout_for_eldan"] = {english = "A hermit on the lookout for Eldan",german =  "Einsiedler auf der Suche nach Eldan", bookId = 301, bookGraphic = bookletPink}
 M.bookList["a_question_of_honour"] = {english = "A Question of Honour",german =  "Eine Frage der Ehre", bookId = 302, bookGraphic = bookBlackSmallHeavy}
 M.bookList["a_tale_of_brothers"] = {english = "A tale of brothers",german =  "Die Geschichte zweier Brüder", bookId = 303, bookGraphic = bookCyanBooklet}
@@ -99,32 +99,32 @@ M.bookList["brewyn_the_liar"] = {english = "Brewyn the Liar",german =  "Brewyn d
 M.bookList["chronicle_recording_of_the_blumfussens_family_tree"] = {english = "Chronicle recording of the Blumfußens family tree",german =  "Die Stammbaumaufzeichnung der Blumfußens", bookId = 307, bookGraphic = bookGreenLight}
 M.bookList["diary_of_noira_liv"] = {english = "The diary of Noira Liv",german =  "Das Tagebuch von Noira Liv", bookId = 308, bookGraphic = bookletBlue}
 M.bookList["findaril_daughter_of_the_wind"] = {english = "Findaril, Daughter of the wind",german =  "Findaril, Tochter des Windes", bookId = 309, bookGraphic = bookBlueSilverLandscape}
-M.bookList["petition_in_the_name_of_findari"] = {english = "Petition in the name of Findari",german =  "Gebet im Namen Findari", bookId = 310, bookGraphic = Pell}
+M.bookList["petition_in_the_name_of_findari"] = {english = "Petition in the name of Findari",german =  "Gebet im Namen Findari", bookId = 310, bookGraphic = pell}
 M.bookList["story_of_urubur"] = {english = "The Story of Urubur",german =  "Die Geschichte Urubur", bookId = 311, bookGraphic = bookWhiteRune}
-M.bookList["parchment_of_the_priests_of_eldan"] = {english = "Parchment of the priests of Eldan",german =  "Das Pergament der Priester Eldans", bookId = 312, bookGraphic = Pell}
-M.bookList["making_candles"] = {english = "Making Candles",german =  "Kerzenherstellung", bookId = 313, bookGraphic = Pell}
+M.bookList["parchment_of_the_priests_of_eldan"] = {english = "Parchment of the priests of Eldan",german =  "Das Pergament der Priester Eldans", bookId = 312, bookGraphic = pell}
+M.bookList["making_candles"] = {english = "Making Candles",german =  "Kerzenherstellung", bookId = 313, bookGraphic = pell}
 M.bookList["blud_an_fiar_ork_magik"] = {english = "Blud an Fiar, Ork Magik",german =  "Blut und Feuer, orkische Magie", bookId = 314, bookGraphic = bookBlackRedRuneHeavy}
 M.bookList["book_of_jokes"] = {english = "The book of jokes",german =  "Das Buch der Witze", bookId = 315, bookGraphic = bookletYellow}
 M.bookList["fragment_of_the_manrok_chronicles"] = {english = "Fragment of the Manrok Chronicles",german =  "Fragment der Manrok-Chroniken", bookId = 316, bookGraphic = bookBlackSmallLong}
-M.bookList["the_one"] = {english = "The One!",german =  "Der Eine!", bookId = 317, bookGraphic = Pell}
+M.bookList["the_one"] = {english = "The One!",german =  "Der Eine!", bookId = 317, bookGraphic = pell}
 M.bookList["art_of_trade"] = {english = "The art of trade",german =  "Die Kunst des Handels", bookId = 318, bookGraphic = bookBlackSilverSquare}
 M.bookList["articles_greenbriar"] = {english = "The Articles of Greenbriar",german =  "Die Satzung Greenbriars", bookId = 319, bookGraphic = bookYellow}
 M.bookList["craftman_story"] = {english = "A craftman story",german =  "Eine Handwerker Geschichte", bookId = 320, bookGraphic = bookRedHigh}
 M.bookList["demonologist"] = {english = "The Demonologist",german =  "Der Dämonologe", bookId = 321, bookGraphic = bookBlackLong}
 M.bookList["dwarven_poems"] = {english = "Dwarven Poems",german =  "Zwergisches Liedgut", bookId = 322, bookGraphic = bookBlackSilverSquare}
 M.bookList["fairy"] = {english = "Fairies",german =  "Feen", bookId = 323, bookGraphic = bookRedBooklet}
-M.bookList["glorification_to_irmorom"] = {english = "Glorification to Irmorom",german =  "Lobpreis an Irmorom", bookId = 324, bookGraphic = PellOpen}
+M.bookList["glorification_to_irmorom"] = {english = "Glorification to Irmorom",german =  "Lobpreis an Irmorom", bookId = 324, bookGraphic = pellOpen}
 M.bookList["lor_angur"] = {english = "Lor-Angur",german =  "Lor-Angur", bookId = 325, bookGraphic = bookBrownSmall}
-M.bookList["petition_for_zelphia"] = {english = "Petition for Zelphia",german =  "Gebet für Zelphia", bookId = 326, bookGraphic = Pell}
+M.bookList["petition_for_zelphia"] = {english = "Petition for Zelphia",german =  "Gebet für Zelphia", bookId = 326, bookGraphic = pell}
 M.bookList["tales_of_a_traveller"] = {english = "Tales of a traveller",german =  "Geschichten eines Reisenden", bookId = 327, bookGraphic = bookBlueSilverLong}
 M.bookList["tihgoracs_book_of_combat"] = {english = "Book of Combat",german =  "Buch der Kampfeskunst", bookId = 328, bookGraphic = bookBlackLong}
 M.bookList["epos_ignis"] = {english = "Epos Ignis",german =  "Epos Ignis", bookId = 329, bookGraphic = bookBlackSilverLong}
 M.bookList["h_evergreen"] = {english = "History of the Evergreen Halflings",german =  "Geschichte der Evergreen Halflings", bookId = 330, bookGraphic = bookBlueRedLandscape}
 M.bookList["the_reign_of_akaltut"] = {english = "The Reign of Akaltut: Diary of a Naive Apprentice",german =  "Die Herrschaft Akaltuts: Tagebuch eines ahnungslosen Lehrlings", bookId = 331, bookGraphic = bookBlackSilverSquare}
 M.bookList["slimes"] = {english = "Slimes: A brief history",german =  "Schleim: Ein kurzer Abriss", bookId = 332, bookGraphic = bookGreenLong}
-M.bookList["a_friend_in_need"] = {english = "A Friend in Need",german =  "Ein Freund in Not", bookId = 333, bookGraphic = Pell}
-M.bookList["abomination_runs_and_hides"] = {english = "An Abomination Runs and Hides",german =  "Ein abscheuliches Monster versteckt sich", bookId = 334, bookGraphic = Pell}
-M.bookList["akaltut_entry_riddle"] = {english = "Akaltut Entry Riddle",german =  "Akaltuts erstes Rätsel", bookId = 335, bookGraphic = Pell}
+M.bookList["a_friend_in_need"] = {english = "A Friend in Need",german =  "Ein Freund in Not", bookId = 333, bookGraphic = pell}
+M.bookList["abomination_runs_and_hides"] = {english = "An Abomination Runs and Hides",german =  "Ein abscheuliches Monster versteckt sich", bookId = 334, bookGraphic = pell}
+M.bookList["akaltut_entry_riddle"] = {english = "Akaltut Entry Riddle",german =  "Akaltuts erstes Rätsel", bookId = 335, bookGraphic = pell}
 M.bookList["the_read_wolf_and_the_bear"] = {english = "The fable of the red wolve and the bear",german =  "Das Märchen vom roten Wolf und dem Bär", bookId = 336, bookGraphic = bookBlackSilverLong}
 M.bookList["ritual_waterelemental_wascher"] = {english = "Summoning of the water elemental Pran Xixuan",german =  "Über die Beschwörung des Wasserelementars Pran Xixuan", bookId = 337, bookGraphic = bookletPink}
 M.bookList["resists_the_stake"] = {english = "Resist the stake!",german =  "Wider dem Scheiterhaufen", bookId = 338, bookGraphic = bookBlackRedRuneHeavy}
@@ -142,7 +142,7 @@ M.bookList["constitution_runewick_44"] = {english = "Constitution of the Academy
 M.bookList["see_of_life"] = {english = "Letters Regarding the Lake of Life",german =  "Briefe bezüglich des Sees des Lebens", bookId = 350, bookGraphic = bookRedLight}
 M.bookList["clansmen"] = {english = "The Clansmen by Thomas Dix on the Rock",german =  "Die Sippen von Thomas Dix on the Rock", bookId = 351, bookGraphic = bookBlueSilverLong}
 M.bookList["barhead_kings"] = {english = "Letters from Rufus the Longfinger",german =  "Briefe von Rufus Langfinger", bookId = 352, bookGraphic = bookCyanBooklet}
-M.bookList["druid_parchment"] = {english = "The fall of the Eldan monastery",german =  "Die Zerstörung des Kloster Eldan", bookId = 353, bookGraphic = PellOpen}
+M.bookList["druid_parchment"] = {english = "The fall of the Eldan monastery",german =  "Die Zerstörung des Kloster Eldan", bookId = 353, bookGraphic = pellOpen}
 M.bookList["festival_relationships"] = {english = "The Festival Of Relationship",german =  "Das Fest der Bindung", bookId = 354, bookGraphic = bookBlackOrdinary}
 M.bookList["chronicles_of_galmair_2"] = {english = "The Chronicles of Galmair (38-42)",german =  "Die Chroniken von Galmair (38-42)", bookId = 355, bookGraphic = bookBlackSmallHeavy}
 M.bookList["magic_gems"] = {english = "Ranks and Magical Gems",german =  "Ränge und magische Edelsteine", bookId = 356, bookGraphic = bookBlackValuable}
@@ -161,20 +161,20 @@ M.bookList["broken_wreath"] = {english = "The broken wreath",german =  "Der zerb
 M.bookList["statute_hamlet_greenbriar"] = {english = "Laws of the Hamlet Greenbriar (23)",german =  "Gesetze des Hamlets Greenbriar (23)", bookId = 369, bookGraphic = bookRedHeavy}
 M.bookList["law_fairyland"] = {english = "Law of Fairyland",german =  "Gesetze des Feenreiches", bookId = 370, bookGraphic = bookletPink}
 M.bookList["rules_galmair"] = {english = "The rules of Galmair",german =  "Die Regeln Galmairs", bookId = 371, bookGraphic = bookRedBooklet}
-M.bookList["cadomyr_order1"] = {english = "Order 04. Findos 38 AW",german =  "Befehl 04. Findos 38 n.VdH", bookId = 501, bookGraphic = Pell}
-M.bookList["speech_rosaline_32_11_05"] = {english = "Speech 04. Findos 38 AW",german =  "Rede 05. Findos 38 n.VdH", bookId = 502, bookGraphic = Pell}
-M.bookList["galmair_adjutant"] = {english = "Wanted! Adjutant",german =  "Gesucht! Adjutant", bookId = 506, bookGraphic = Pell}
-M.bookList["galmair_charge"] = {english = "Wanted! Person in Charge",german =  "Gesucht! Ansprechpartner", bookId = 507, bookGraphic = Pell}
-M.bookList["galmair_cia"] = {english = "Wanted! Spies",german =  "Gesucht! Spione", bookId = 508, bookGraphic = Pell}
-M.bookList["galmair_diplomants"] = {english = "Wanted! Diplomats",german =  "Gesucht! Diplomaten", bookId = 509, bookGraphic = Pell}
-M.bookList["galmair_entertainment"] = {english = "Wanted! Entertainment",german =  "Gesucht! Unterhaltung", bookId = 510, bookGraphic = Pell}
-M.bookList["galmair_forces"] = {english = "Wanted! Armed Forces",german =  "Gesucht! Streitmacht", bookId = 511, bookGraphic = Pell}
-M.bookList["galmair_hangman"] = {english = "Wanted! Hangmans",german =  "Gesucht! Henker", bookId = 512, bookGraphic = Pell}
-M.bookList["galmair_headhunter"] = {english = "Wanted! Headhunters",german =  "Gesucht! Kopfgeldjäger", bookId = 513, bookGraphic = Pell}
-M.bookList["galmair_merchants"] = {english = "Wanted! Merchants",german =  "Gesucht! Kaufleute", bookId = 514, bookGraphic = Pell}
-M.bookList["galmair_priester"] = {english = "Wanted! Priests",german =  "Gesucht! Priester", bookId = 515, bookGraphic = Pell}
-M.bookList["galmair_translator"] = {english = "Wanted! Interpreter",german =  "Gesucht! Dolmetscher", bookId = 516, bookGraphic = Pell}
-M.bookList["galmair_quartermaster"] = {english = "Wanted! Quatermaster",german =  "Gesucht! Quartiermeister", bookId = 517, bookGraphic = Pell}
+M.bookList["cadomyr_order1"] = {english = "Order 04. Findos 38 AW",german =  "Befehl 04. Findos 38 n.VdH", bookId = 501, bookGraphic = pell}
+M.bookList["speech_rosaline_32_11_05"] = {english = "Speech 04. Findos 38 AW",german =  "Rede 05. Findos 38 n.VdH", bookId = 502, bookGraphic = pell}
+M.bookList["galmair_adjutant"] = {english = "Wanted! Adjutant",german =  "Gesucht! Adjutant", bookId = 506, bookGraphic = pell}
+M.bookList["galmair_charge"] = {english = "Wanted! Person in Charge",german =  "Gesucht! Ansprechpartner", bookId = 507, bookGraphic = pell}
+M.bookList["galmair_cia"] = {english = "Wanted! Spies",german =  "Gesucht! Spione", bookId = 508, bookGraphic = pell}
+M.bookList["galmair_diplomants"] = {english = "Wanted! Diplomats",german =  "Gesucht! Diplomaten", bookId = 509, bookGraphic = pell}
+M.bookList["galmair_entertainment"] = {english = "Wanted! Entertainment",german =  "Gesucht! Unterhaltung", bookId = 510, bookGraphic = pell}
+M.bookList["galmair_forces"] = {english = "Wanted! Armed Forces",german =  "Gesucht! Streitmacht", bookId = 511, bookGraphic = pell}
+M.bookList["galmair_hangman"] = {english = "Wanted! Hangmans",german =  "Gesucht! Henker", bookId = 512, bookGraphic = pell}
+M.bookList["galmair_headhunter"] = {english = "Wanted! Headhunters",german =  "Gesucht! Kopfgeldjäger", bookId = 513, bookGraphic = pell}
+M.bookList["galmair_merchants"] = {english = "Wanted! Merchants",german =  "Gesucht! Kaufleute", bookId = 514, bookGraphic = pell}
+M.bookList["galmair_priester"] = {english = "Wanted! Priests",german =  "Gesucht! Priester", bookId = 515, bookGraphic = pell}
+M.bookList["galmair_translator"] = {english = "Wanted! Interpreter",german =  "Gesucht! Dolmetscher", bookId = 516, bookGraphic = pell}
+M.bookList["galmair_quartermaster"] = {english = "Wanted! Quatermaster",german =  "Gesucht! Quartiermeister", bookId = 517, bookGraphic = pell}
 
 
 function M.UseItem(user, item)
