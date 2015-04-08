@@ -128,7 +128,7 @@ M.bookList["akaltut_entry_riddle"] = {english = "Akaltut Entry Riddle",german = 
 M.bookList["the_read_wolf_and_the_bear"] = {english = "The fable of the red wolve and the bear",german =  "Das Märchen vom roten Wolf und dem Bär", bookId = 336, bookGraphic = bookBlackSilverLong}
 M.bookList["ritual_waterelemental_wascher"] = {english = "Summoning of the water elemental Pran Xixuan",german =  "Über die Beschwörung des Wasserelementars Pran Xixuan", bookId = 337, bookGraphic = bookletPink}
 M.bookList["resists_the_stake"] = {english = "Resist the stake!",german =  "Wider dem Scheiterhaufen", bookId = 338, bookGraphic = bookBlackRedRuneHeavy}
-M.bookList["lecture_runewick_history"] = {english = "Lecture Runewicks history",german =  "Vortrag zur Geschichte Runewicks", bookId = 339, bookGraphic = bookRedLight}
+M.bookList["lecture_runewick_history"] = {english = "Lecture Runewicks History",german =  "Vortrag zur Geschichte Runewicks", bookId = 339, bookGraphic = bookRedLight}
 M.bookList["in_the_name_of_nargun_or_not"] = {english = "In the Name of Nargun!.. or not?",german =  "Im Namen von Nargun! .. oder auch nicht?", bookId = 340, bookGraphic = bookYellow}
 M.bookList["dragon_dreams"] = {english = "Dragon dreams",german =  "Drachenträume", bookId = 341, bookGraphic = bookBlackValuable}
 M.bookList["about_flame_orks"] = {english = "About Flame Orcs",german =  "Über die Flammenorks", bookId = 342, bookGraphic = bookBlueSilverLong}
@@ -143,7 +143,7 @@ M.bookList["see_of_life"] = {english = "Letters Regarding the Lake of Life",germ
 M.bookList["clansmen"] = {english = "The Clansmen by Thomas Dix on the Rock",german =  "Die Sippen von Thomas Dix on the Rock", bookId = 351, bookGraphic = bookBlueSilverLong}
 M.bookList["barhead_kings"] = {english = "Letters from Rufus the Longfinger",german =  "Briefe von Rufus Langfinger", bookId = 352, bookGraphic = bookCyanBooklet}
 M.bookList["druid_parchment"] = {english = "The fall of the Eldan monastery",german =  "Die Zerstörung des Kloster Eldan", bookId = 353, bookGraphic = PellOpen}
-M.bookList["festival_relationship"] = {english = "The Festival Of Relationship",german =  "Das Fest der Bindung", bookId = 354, bookGraphic = bookBlackOrdinary}
+M.bookList["festival_relationships"] = {english = "The Festival Of Relationship",german =  "Das Fest der Bindung", bookId = 354, bookGraphic = bookBlackOrdinary}
 M.bookList["chronicles_of_galmair_2"] = {english = "The Chronicles of Galmair (38-42)",german =  "Die Chroniken von Galmair (38-42)", bookId = 355, bookGraphic = bookBlackSmallHeavy}
 M.bookList["magic_gems"] = {english = "Ranks and Magical Gems",german =  "Ränge und magische Edelsteine", bookId = 356, bookGraphic = bookBlackValuable}
 M.bookList["poems_marina"] = {english = "Poems from Marina",german =  "Marinas Gedichtbuch", bookId = 357, bookGraphic = bookGreenLong}
@@ -159,6 +159,8 @@ M.bookList["cadoson_letnason"] = {english = "Coadoson and Letnason",german =  "C
 M.bookList["the_pointy_end"] = {english = "The pointy end - manual for a recruit",german =  "Das spitze Ende - Handbuch des Rekruten", bookId = 367, bookGraphic = bookBrownSmall}
 M.bookList["broken_wreath"] = {english = "The broken wreath",german =  "Der zerbrochene Kranz", bookId = 368, bookGraphic = bookBlackLong}
 M.bookList["statute_hamlet_greenbriar"] = {english = "Laws of the Hamlet Greenbriar (23)",german =  "Gesetze des Hamlets Greenbriar (23)", bookId = 369, bookGraphic = bookRedHeavy}
+M.bookList["law_fairyland"] = {english = "Law of Fairyland",german =  "Gesetze des Feenreiches", bookId = 370, bookGraphic = bookletPink}
+M.bookList["rules_galmair"] = {english = "The rules of Galmair",german =  "Die Regeln Galmairs", bookId = 371, bookGraphic = bookRedBooklet}
 M.bookList["cadomyr_order1"] = {english = "Order 04. Findos 38 AW",german =  "Befehl 04. Findos 38 n.VdH", bookId = 501, bookGraphic = Pell}
 M.bookList["speech_rosaline_32_11_05"] = {english = "Speech 04. Findos 38 AW",german =  "Rede 05. Findos 38 n.VdH", bookId = 502, bookGraphic = Pell}
 M.bookList["galmair_adjutant"] = {english = "Wanted! Adjutant",german =  "Gesucht! Adjutant", bookId = 506, bookGraphic = Pell}
