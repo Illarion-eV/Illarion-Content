@@ -20,7 +20,7 @@ local monstermagic = require("monster.base.monstermagic")
 local blueSpiders = require("monster.race_23_blue_spider.base")
 
 local magic = monstermagic()
-magic.addIceball{probability = 0.02, damage = {from = 1500, to = 1800}}
+magic.addIceball{probability = 0.06, damage = {from = 1500, to = 1800}}
 magic.addIceball{probability = 0.001, damage = {from = 1900, to = 2300}}
 magic.addIceball{probability = 0.005, damage = {from = 750, to = 1200}, targetCount = 5}
 magic.addIceball{probability = 0.0001, damage = {from = 2200, to = 2700}}
