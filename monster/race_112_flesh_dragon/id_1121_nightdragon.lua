@@ -29,8 +29,6 @@ function M.onSpawn(monster)
     if orgOnSpawn ~= nil then
         orgOnSpawn(monster)
     end
-
-    base.setColor{monster = monster, target = base.SKIN_COLOR, red = 30, green = 185, blue = 213}
 end
 
 local magic = monstermagic()
