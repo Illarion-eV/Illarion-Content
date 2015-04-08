@@ -15,6 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- ID 1121, Night Dragon, Level 6, Armourtype: heavy, Weapontype: concussion
+local monsterId = 1121
 
 local base = require("monster.base.base")
 local monstermagic = require("monster.base.monstermagic")
@@ -28,6 +29,8 @@ function M.onSpawn(monster)
     if orgOnSpawn ~= nil then
         orgOnSpawn(monster)
     end
+
+    base.setColor{monster = monster, target = base.SKIN_COLOR, red = 30, green = 185, blue = 213}
 end
 
 local magic = monstermagic()
