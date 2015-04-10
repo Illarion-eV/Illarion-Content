@@ -59,13 +59,13 @@ function M.climbDown(User)
             User:warp(position(518, 559, -3));
         elseif (TargetItem.pos == position(105, 600, 0)) then --Cadomyr
             User:talk(Character.say, "#me klettert an einem Seil den Brunnen hinunter.", "#me climbs down into the well on a rope.")
-            User:warp(position(106, 582, -6));
+            User:warp(position(109, 581, -6));
         elseif (TargetItem.pos == position(357, 272, 0)) then --Galmair
             User:talk(Character.say, "#me klettert an einem Seil den Brunnen hinunter.", "#me climbs down into the well on a rope.")
-            User:warp(position(359, 481, -6));
+            User:warp(position(357, 473, -6));
         elseif (TargetItem.pos == position(849, 841, 0)) then --Runewick
             User:talk(Character.say, "#me klettert an einem Seil den Brunnen hinunter.", "#me climbs down into the well on a rope.")
-            User:warp(position(838, 823, -3));
+            User:warp(position(838, 822, -3));
         else
             common.InformNLS( User,
                 "Das Wasser steht recht hoch im Brunnen. Hier hinein zu klettern bringt nichts.",

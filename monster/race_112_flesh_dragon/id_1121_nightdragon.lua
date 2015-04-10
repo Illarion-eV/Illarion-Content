@@ -15,10 +15,12 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- ID 1121, Night Dragon, Level 6, Armourtype: heavy, Weapontype: concussion
+local monsterId = 1121
 
 local base = require("monster.base.base")
 local monstermagic = require("monster.base.monstermagic")
 local fleshDragons = require("monster.race_112_flesh_dragon.base")
+local icefield = require("item.id_360_icefield")
 
 local M = fleshDragons.generateCallbacks()
 
@@ -30,7 +32,13 @@ function M.onSpawn(monster)
 end
 
 local magic = monstermagic()
-magic.addVioletFlame{probability = 0.10, damageRange =  {1500, 3000}, range = 6}
+
+magic.addIcecone{probability = 0.09, damage = {from = 1250, to = 2000}, range = 6,
+    itemProbability = 0.055, quality = {from = 1, to = 2}}
+magic.addIcecone{probability = 0.009, damage = {from = 1500, to = 2300}, range = 3,
+    itemProbability = 0.055, quality = {from = 2, to = 3}}
+
+icefield.setIceImmunity(monsterId)
 
 return magic.addCallbacks(M)
 

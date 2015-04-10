@@ -21,12 +21,13 @@ local mageBehaviour = require("monster.base.behaviour.mage")
 local monstermagic = require("monster.base.monstermagic")
 
 local magic = monstermagic()
-magic.addWarping{probability = 0.18, usage = magic.ONLY_NEAR_ENEMY}
+magic.addWarping{probability = 0.15, usage = magic.ONLY_NEAR_ENEMY}
 
-magic.addFireball{   probability = 0.02,  damage = {from = 1500, to = 3000}}
-magic.addFireball{   probability = 0.02,  damage = {from = 1000, to = 1500}, targetCount = 3}
-magic.addIceball{    probability = 0.009, damage = {from = 2000, to = 3000}}
-magic.addFlamestrike{probability = 0.001, damage = {from = 1000, to = 1500}, targetCount = 7}
+magic.addFireball{probability = 0.09,  damage = {from = 1250, to = 1500}}
+magic.addFireball{   probability = 0.03,  damage = {from = 625, to = 1000}, targetCount = 5}
+magic.addIceball{probability = 0.009, damage = {from = 1700, to = 2000}}
+magic.addVioletFlame{probability = 0.001, damage = {from = 1000, to = 1500}, targetCount = 3}
+magic.addIcestrike{probability = 0.001, damage = {from = 2000, to = 2500}}
 
 local M = demonSkeletons.generateCallbacks()
 M = magic.addCallbacks(M)

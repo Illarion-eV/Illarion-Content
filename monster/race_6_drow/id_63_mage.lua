@@ -23,10 +23,13 @@ local monstermagic = require("monster.base.monstermagic")
 local magic = monstermagic()
 magic.addWarping{probability = 0.15, usage = magic.ONLY_NEAR_ENEMY}
 
-magic.addFireball{probability = 0.05, damage = {from = 2000, to = 3000}}
-magic.addFireball{probability = 0.03, damage = {from =  700, to = 1500}, targetCount = 3}
+magic.addFireball{probability = 0.09, damage = {from = 1250, to = 1500}}
+magic.addVioletFlame{probability = 0.009, damage = {from = 1700, to = 2000}}
+magic.addLighting{probability = 0.001, damage = {from =  2000, to =  2500}}
 
-magic.addFirefield{probability = 0.05, quality = {from = 3, to = 5}, durability = {from = 0, to = 99}}
+magic.addFireball{probability = 0.03, damage = {from = 625, to = 1000}, targetCount = 5}
+
+magic.addFirefield{probability = 0.001, quality = {from = 1, to = 2}, durability = {from = 0, to = 50}}
 
 local M = drows.generateCallbacks()
 M = magic.addCallbacks(M)
