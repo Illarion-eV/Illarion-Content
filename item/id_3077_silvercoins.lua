@@ -59,14 +59,12 @@ function M.UseItem(User, SourceItem)
         end
     end
 
-    local face
     if math.random(2) == 1 then
-        face = common.GetNLS(User, "Kopf", "head")
+		User:talk(Character.say, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt Kopf.", "#me throws a coin in the air and catches it again. It shows head.")
     else
-        face = common.GetNLS(User, "Zahl","tail")
+        User:talk(Character.say, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt Zahl.", "#me throws a coin in the air and catches it again. It shows tail.")
     end
-
-    User:talk(Character.say, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt "..face..".", "#me throws a coin in the air and catches it again. It shows "..face..".")
+	
     TimeList[User.id] = world:getTime("second")
 end
 
