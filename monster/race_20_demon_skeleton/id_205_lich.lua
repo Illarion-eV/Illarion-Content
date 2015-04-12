@@ -23,19 +23,11 @@ local monstermagic = require("monster.base.monstermagic")
 local scheduledFunction = require("scheduled.scheduledFunction")
 
 local magic = monstermagic()
-magic.addWarping{probability = 0.18, usage = magic.ONLY_NEAR_ENEMY}
+magic.addWarping{probability = 0.10, usage = magic.ONLY_NEAR_ENEMY}
 
-magic.addFireball{   probability = 0.01,  damage = {from = 1500, to = 3000}}
-magic.addFireball{   probability = 0.01,  damage = {from = 1000, to = 1500}, targetCount = 3}
-magic.addIceball{    probability = 0.009, damage = {from = 2000, to = 3000}}
-magic.addFlamestrike{probability = 0.001, damage = {from = 3000, to = 4900}}
-
-magic.addHealing{probability = 0.05, damage = {from = 2000, to = 3500}}
-magic.addHealing{probability = 0.05, damage = {from = 1000, to = 2000}, targetCount = 3 }
-
-magic.addSummon{probability = 0.0249, monsters = {103, 763}} -- summon simple mummies and skeltons
-magic.addSummon{probability = 0.0050, monsters = {104, 107, 113}} -- surprise spawn. Stronger mummies and skeletons
-magic.addSummon{probability = 0.0001, monsters = {115, 201}} -- rare summon. Magic skeleton or a demon skeleton
+magic.addSummon{probability = 0.0249, monsters = {113, 111, 112}} -- summon simple skeltons
+magic.addSummon{probability = 0.0050, monsters = {741, 754, 751}} -- surprise spawn. Stronger skeletons
+magic.addSummon{probability = 0.0001, monsters = {201, 202}} -- rare summon. Magic demon skeleton or a demon skeleton
 
 local M = demonSkeletons.generateCallbacks()
 M = magic.addCallbacks(M)

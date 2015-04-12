@@ -30,8 +30,10 @@ function M.onSpawn(monster)
 end
 
 local magic = monstermagic()
-magic.addVioletFlame{probability = 0.10, damageRange =  {1500, 3000}, range = 7}
-magic.addSummon{probability = 0.0250, monsters = {903}} -- Shadow Dancer
+
+magic.addSummon{probability = 0.0250, monsters = {881, 871,882,883}} -- Level 3 and 4 hellhounds
+magic.addSummon{probability = 0.0050, monsters = {861, 851, 873}} -- Level 5 Hellhounds
+magic.addSummon{probability = 0.0001, monsters = {1121}} -- night Dragon
 
 return magic.addCallbacks(M)
 
