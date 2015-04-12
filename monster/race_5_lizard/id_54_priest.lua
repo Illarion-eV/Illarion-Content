@@ -23,11 +23,11 @@ local monstermagic = require("monster.base.monstermagic")
 local magic = monstermagic()
 magic.addWarping{probability = 0.15, usage = magic.ONLY_NEAR_ENEMY}
 
-magic.addIceball{probability = 0.05, damage = {from = 1000, to = 2000}}
-magic.addLighting{probability = 0.03, damage = {from =  500, to = 1000}, targetCount = 5}
-
 magic.addHealing{probability = 0.05, damage = {from = 1000, to = 2000}}
-magic.addHealing{probability = 0.05, damage = {from =  500, to = 1000}, targetCount = 3}
+magic.addHealing{probability = 0.03, damage = {from =  500, to = 1000}, targetCount = 3}
+
+magic.addHealing{probability = 0.005, damage = {from = 1200, to = 2000}}
+magic.addHealing{probability = 0.002, damage = {from = 650, to = 1200}, targetCount = 5}
 
 local M = lizards.generateCallbacks()
 M = magic.addCallbacks(M)

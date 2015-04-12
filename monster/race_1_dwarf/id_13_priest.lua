@@ -23,11 +23,11 @@ local monstermagic = require("monster.base.monstermagic")
 local magic = monstermagic()
 magic.addWarping{probability = 0.15, usage = magic.ONLY_NEAR_ENEMY}
 
-magic.addFireball{probability = 0.05, damage = {from = 1000, to = 2000}}
-magic.addLighting{probability = 0.03, damage = {from =  500, to = 1000}, targetCount = 5}
+magic.addHealing{probability = 0.07, damage = {from = 1000, to = 1500}}
+magic.addHealing{probability = 0.001, damage = {from =  750, to = 1000}, targetCount = 5}
 
-magic.addHealing{probability = 0.05, damage = {from = 1000, to = 2000}}
-magic.addHealing{probability = 0.05, damage = {from =  500, to = 1000}, targetCount = 3}
+magic.addHealing{probability = 0.005, damage = {from = 1200, to = 2000}}
+magic.addHealing{probability = 0.001, damage = {from =  500, to = 1100}, targetCount = 3}
 
 local M = dwarfs.generateCallbacks()
 M = magic.addCallbacks(M)

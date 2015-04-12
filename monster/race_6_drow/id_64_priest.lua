@@ -23,11 +23,13 @@ local monstermagic = require("monster.base.monstermagic")
 local magic = monstermagic()
 magic.addWarping{probability = 0.15, usage = magic.ONLY_NEAR_ENEMY}
 
-magic.addSummon{probability = 0.0249, monsters = {551, 535}} -- imp, black zombie
-magic.addSummon{probability = 0.0050, monsters = {551, 552}} -- surprise spawn. Some black hellhounds
-magic.addSummon{probability = 0.0001, monsters = {893}} -- rare summon. Magic fire imp
+magic.addHealing{probability = 0.09, damage = {from = 1250, to = 1500}}
+magic.addHealing{probability = 0.009, damage = {from = 1700, to = 2000}}
+magic.addHealing{probability = 0.001, damage = {from =  2000, to =  2500}}
 
-magic.addVioletFlame{probability = 0.02, damage = {from = 1000, to = 2000}}
+magic.addHealing{probability = 0.03, damage = {from = 625, to = 1000}, targetCount = 5}
+
+magic.addHealing{probability = 0.001, damage = {from = 800, to = 1500}, targetCount = 3}
 
 local M = drows.generateCallbacks()
 M = magic.addCallbacks(M)

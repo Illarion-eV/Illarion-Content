@@ -37,8 +37,8 @@ end
 local magic = monstermagic()
 magic.addWarping{probability = 0.15, usage = magic.ONLY_NEAR_ENEMY}
 
-magic.addIcestrike{probability = 0.05, damage = {from = 500, to = 750}}
-magic.addIceball{  probability = 0.03, damage = {from = 100, to = 300}, targetCount = 5}
+magic.addHealing{probability = 0.05, damage = {from = 500, to = 1500}}
+magic.addHealing{probability = 0.005, damage = {from = 250, to = 750}, targetCount = 3}
 
 M = magic.addCallbacks(M)
 return mageBehaviour.addCallbacks(magic, M)

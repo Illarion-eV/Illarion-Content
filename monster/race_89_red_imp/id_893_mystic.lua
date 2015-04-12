@@ -23,9 +23,9 @@ local redImps = require("monster.race_89_red_imp.base")
 local magic = monstermagic()
 magic.addWarping{probability = 0.15, usage = magic.ONLY_NEAR_ENEMY}
 
-magic.addSummon{probability = 0.03, monsters = {622, 1032}} -- slimes
-
-magic.addFireball{probability = 0.05, damage = {from = 250, to = 750}}
+magic.addHealing{probability = 0.06, damage = {from = 750, to = 1500}}
+magic.addHealing{probability = 0.025, damage = {from = 750, to = 1500}}
+magic.addHealing{probability = 0.05, damage = {from = 375, to = 875}, targetCount = 4}
 
 local M = redImps.generateCallbacks()
 M = magic.addCallbacks(M)
