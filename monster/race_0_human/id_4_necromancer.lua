@@ -22,7 +22,7 @@ local monstermagic = require("monster.base.monstermagic")
 local magic = monstermagic()
 magic.addWarping{probability = 0.15, usage = magic.ONLY_NEAR_ENEMY}
 
-magic.addSummon{probability = 0.0249, monsters = {101, 111}} -- summon simple mummies and skeltons
+magic.addSummon{probability = 0.05, monsters = {101, 111}} -- summon simple mummies and skeltons
 magic.addSummon{probability = 0.0050, monsters = {104, 113}} -- surprise spawn. Stronger mummies and skeletons
 magic.addSummon{probability = 0.0001, monsters = {115, 752}} -- rare summon. Magic skeleton or a mystic grave guard
 
