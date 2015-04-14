@@ -119,10 +119,6 @@ english, "job" -> "I am a fortune teller. You know what a fortune teller does?",
 english, "Findari" -> "Oh, the Goddess of air, all my prayers are for her.", "Yes, the Goddess of air, all my doing is done to serve her."
 "Findari" -> "Oh, die Göttin der Luft. All meine Gebete gelten ihr.", "Ja, die Göttin der Luft, alle mein Tun ist getan um ihr zu dienen."
 
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "I feel the wind...", "Can you hear the wind?", "#me closes her eyes for a moment."
-german, chance(20.0), ".*" -> "Ich spüre den Wind...", "Kannst du den Wind hören?", "#me schließt für einen Moment ihre Augen."
-
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.

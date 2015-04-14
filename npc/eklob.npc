@@ -190,14 +190,6 @@ german, chance(10.0), "Bragon", "Brágon" -> "#me schaut beunruhigt umher.", "#me
 english, chance(10.0), "Irmorom" -> "#me looks around."
 german, chance(10.0), "Irmorom" -> "#me schaut sich um."
 
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "#me turns his head away.", "#me scratches at the ground.", "#me bares his teeth."
-english, town = Runewick, chance(20.0), ".*" -> "#me growls angrily.", "#s Grrr!"
-english, town = Cadomyr, chance(20.0), ".*" -> "#me growls angrily.", "#s Grrr!"
-german, chance(20.0), ".*" -> "#me schaut weg.", "#me kratzt im Boden.", "#me zeigt seine Zähne."
-german, town = Runewick, chance(20.0), ".*" -> "#me knurrt verärgert.", "#s Grrr!"
-german, town = Cadomyr, chance(20.0), ".*" -> "#me knurrt verärgert.", "#s Grrr!"
-
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.

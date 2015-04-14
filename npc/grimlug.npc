@@ -197,14 +197,6 @@ state = 24, "weiter" -> state = 0, "...Bragon ist Gott der heiligen Flammen. Sei
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Grimlug" -> "How, the shaman 's able to help you?", "Hurr! What's your desire?"
 "Grimlug" -> "Wie kann dir der Schamane helfigen?", "Hurr! Was issigt dein Begehr?"
-"Yes" -> "So shall it beings.", "Well then...", "Good - Mes feel the spirits arround you are kin of happy."
-"Ja" -> "So es sein solle.", "Gut....", "Ich spüre die Geister um dich herum... sie heiter sind."
-"No" -> "Hrmpf. Maybes you change your mind, eh?", "Is that' so?", "I don't think so."
-"Nein" -> "Hrmpf. Vielleicht du änderst deine Meinung, eh?", "Ist das so'?", "Das glaub ich nicht, nein."
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Châ. What you said?", "#me grunts and nods. 'Mh-hm.'", "Tagtha. - Tell mes more about that. Will you?"
-german, chance(20.0), ".*" -> "Châ. Was du gesagt hast?", "#me grunzt und nickt. 'Mh-hm'", "Tagtha. - Erzähl mehr davon, tja-ha?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

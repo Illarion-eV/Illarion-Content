@@ -212,16 +212,6 @@ english, "Zhambra" -> "Aye, that's true, but I prefer Elara and Findari."
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Fronita", "Emery" -> "...and did I mention I sell glass goods?", "Buy something or get...", "Fronita Emery, at your service."
 "Fronita", "Emery" -> "...und erwähnte ich, dass ich Glaswaren verkaufe?", "Kauf etwas oder...", "Fronita Emery, stets zu Diensten."
-"Yes" -> "Yes. True. Absolutely... and now buy my stuff!"
-"Ja" -> "Ja. Richtig. Aber wirklich. Und jetzt kauf was!", "Sehr schön. Jetzt einigen wir uns noch was du kaufst.", "Ich weiß, wunderbar nicht?"
-"No" -> "No? My heart just shattered like a piece of glass.", "Well whatever, bah!", "You're stealing my time!"
-"Nein" -> "Nein? Mein Herz ist grad wie ein Stück Glas zerbrochen.", "Na dann halt nicht, pah!", "Du stiehlst nur meine Zeit!"
-
--- Absolutely last catch: Everything a player says and is not caught earlier
--- This response should give the player a hint about what to ask the NPC
--- Optional Trigger /  Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Listen, I don't want to be rude, either you buy something or you leave, aye?", "If you go on rambling like this you'll spoil my buisiness.", "Yes. Aye. Absolutely... and now buy my stuff!"
-german, chance(20.0), ".*" -> "Hör mal, ich will nicht unhöflich sein. Aber entweder kaufste was oder verschwindest, aye?", "Wenn du hier weiter so rumbrabbelst vermiest du mir das Geschäft.", "Ja. Aye. Absolut. Und jetzt kauf mir was ab!"
 
 -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
 

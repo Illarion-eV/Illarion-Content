@@ -176,16 +176,6 @@ english, "Zhambra" -> "On the battlefield I count on a sharp blade and my closes
 "tell something" -> "Nowhere are the codes of honour followed like here in Cadomyr. For the colours of our town! Zhambra bless it."
 "erzähl was", "erzähl etwas" -> "Nirgendwo hat man so viel Gespür für wahre Ehre wie wir, in Cadomyr. Bei den Farben unserer Stadt! Zhambra möge sie bewaren."
 
--- Last catch: Think about keywords the player might say and that are not caught until here
-"Yes" -> "Proceed! Zak-zak!", "#me salutes.", "May be Zhambra with you."
-"Ja" -> "Weitermachen! Zak-zak!", "#me salutiert.", "Möge Zhambra euch beistehen."
-"No" -> "Understood.", "Oh... alright.", "#me gives a stiff nod."
-"Nein" -> "Verstanden.", "Oh... nun gut.", "#me nickt steif."
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "I'm a guard. I guard people.", "Hmh - what? Pirates. Aha.", "Yes for sure. Proceed!"
-german, chance(20.0), ".*" -> "Ich bin eine Wache. Ich bewache Leute.", "Hmh - was? Piraten. Aha.", "Ja Genau. - Weitermachen!"
-
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
@@ -200,3 +190,4 @@ cycletext "#me kratzt sich unauffällig am Hinterteil.", "#me has a inconspicuous
 cycletext "#me blickt leicht verträumt in den Himmel.", "#me glances up at the sky in slightly dreamy way."
 cycletext "#me kaut nachdenklich an den Fingernägeln.", "#me gnaws at his fingernails, a thoughtful gaze on his face."
 cycletext "#me fasst sich mit der Hand an die Seite: 'Ghn! Meine alte Verletzung schmerzt...'", "#me grabs his side and moans: 'Ghn! My old wound hurts again...'"
+cycletext "Ich bin eine Wache. Ich bewache Leute.", "I'm a guard. I guard people."

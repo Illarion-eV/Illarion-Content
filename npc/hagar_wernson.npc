@@ -211,14 +211,6 @@ english, "Zhambra" -> "Bless my brothers and my friends, Zhambra."
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Hagar", "Wernson" -> "Beer or wine?", "The usual?", "Hrmpf?"
 "Hagar", "Wernson", "Wirt" -> "Was darf's sein?", "S' übliche?", "Hrmpf?"
-"Yes" -> "Aye!", "Whatever.", "Alright."
-"Ja" -> "Aye!", "Was auch immer.", "Alles klar."
-"No" -> "Aye!", "Whatever.", "Alright."
-"Nein" -> "Aye!", "Was auch immer.", "Alles klar."
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "The Gods may bless you.", "Have fun in my tavern.", "Aye."
-german, chance(20.0), ".*" -> "Dann sag ich mal Prost.", "Viel Spass in meiner Taverne!", "Aye."
 
 -- Cycletext
 
@@ -239,3 +231,5 @@ cycletext "#me riecht nach vergammeltem Fleisch und feuchtem Schafsfell.", "#me 
 cycletext "#me kratzt sich abwesend unter dem Kilt.", "#me absently scratches himself under his kilt."
 cycletext "#me trocknet sich mit dem Geschirrtuch unter den Achseln.", "#me dries his armpits with the dishrag."
 cycletext "#mes Atem riecht nach schalem Bier.", "#me's breath smells of stale beer."
+cycletext "Dann sag ich mal Prost.", "The Gods may bless you."
+cycletext "Viel Spass in meiner Taverne!", "Have fun in my tavern."

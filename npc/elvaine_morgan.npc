@@ -212,14 +212,6 @@ english, "Zhambra" -> "Friendship and loyalty are the most precious traits of Zh
 "Erzmagier" -> "Auf ein Wort?", "Welches Anliegen führt Euch zu mir?", "Bitte fasst Euch kurz."
 english, "Elvaine", "Morgan" -> "You want a word?", "You desire to speak?", "Please make it short."
 "Elvaine", "Morgan" -> "Auf ein Wort?", "Welches Anliegen führt Euch zu mir?", "Bitte fasst Euch kurz."
-"Yes" -> "#me gives a gentle, but serious nod.", "Good. Are we done?", "May Elara's wisdom enlighten you."
-"Ja" -> "#me nickt sanft aber bestimmt.", "War das alles?", "Elaras Weisheit möge Euch erleuchten."
-"No" -> "#me smiles slightly and remains silent.", "Often, when someone thinks they want something, it is not something they require.", "Why not?"
-"Nein" -> "#me lächelt ein wenig und schweigt.", "Jene Dinge von denen einer glauben mag, er wolle sie, sind oft nicht die die einer braucht.", "Warum nicht?"
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "And why do you think that?", "I see.", "If you prefer to put it like that.", "Virtue needs some cheaper thrills."
-german, chance(20.0), ".*" -> "Weshalb? Was ist der Grund dafür?", "Ich verstehe.", "Wenn Ihr das auf diese Art ausdrücken wollt...", "Tugend bedarf einiger billigerer Vergnügen."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -240,3 +232,5 @@ cycletext "#mes graue Augen scheinen für einen Moment hell auf zu leuchten.", "#
 cycletext "#mes lächelt gutmütig und für einen Augenblick ist ein merkwürdiges Glitzern in seinen Pupillen zu sehen.", "#me smiles contentedly. For a brief a moment, a shiny sparkle appears in his eyes."
 cycletext "#me dreht seinen Kopf ein wenig und für kurze Zeit scheinen seine Gedanken in der Ferne zu verweilen.", "#me turns his head. For a short while, his thoughts seem distant."
 cycletext "#me murmelt leise. 'Das Problem mit der Zukunft ist, dass sie zur Gegenwart wird...'", "#me mumbles quietly. 'The problem with the future is that it keeps turning into the present.'"
+cycletext "Tugend bedarf einiger billigerer Vergnügen.", "Virtue needs some cheaper thrills."
+cycletext "Elaras Weisheit möge Euch erleuchten.", "May Elara's wisdom enlighten you."

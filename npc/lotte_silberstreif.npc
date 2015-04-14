@@ -219,10 +219,6 @@ english, "oldra" -> "Thanks to Oldra there has been a rich harvest this past yea
 english, "Silberstreif" -> "Yes, that is my name, but how about buying a ticket?"
 "Silberstreif" -> "Ja, das ist mein Name. Aber warum wollt ihr kein Los haben?"
 
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Really? Sometimes it is hard to believe what people say.", "The luck favours yourself. Buy a ticket you could become the luckiest person in Illarion."
-german, chance(20.0), ".*" -> "Was ihr nicht sagt!", "Das Glück ist auf Eurer Seite. Mit einem Los könntet ihr die glücklichste Person in Illarion werden."
-
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
@@ -240,3 +236,4 @@ cycletext "#me richtet sich die Haare mit den Fingern als Kamm.", "#me corrects 
 cycletext "Kauft ein Los der Lotterie von Galmair!", "Buy a ticket for the Galmairian lottery!"
 cycletext "#me schaut sich unbeteiligt die Leute an.", "#me examines the people around."
 cycletext "#me wischt gedankenverloren mit den Fingern über die Vase.", "#me strokes the vase with her fingers."
+cycletext "Das Glück ist auf Eurer Seite. Mit einem Los könntet ihr die glücklichste Person in Illarion werden.", "The luck favours you. Buy a ticket you could become the luckiest person in Illarion."
