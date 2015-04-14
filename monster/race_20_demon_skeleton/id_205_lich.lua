@@ -25,8 +25,8 @@ local scheduledFunction = require("scheduled.scheduledFunction")
 local magic = monstermagic()
 magic.addWarping{probability = 0.05, usage = magic.ONLY_NEAR_ENEMY}
 
-magic.addSummon{probability = 0.05, monsters = {113, 111, 112}} -- summon simple skeltons
-magic.addSummon{probability = 0.01, monsters = {741, 754, 751}} -- surprise spawn. Stronger skeletons
+magic.addSummon{probability = 0.045, monsters = {113, 111, 112}} -- summon simple skeltons
+magic.addSummon{probability = 0.008, monsters = {741, 754, 751}} -- surprise spawn. Stronger skeletons
 magic.addSummon{probability = 0.0001, monsters = {201, 202}} -- rare summon. Magic demon skeleton or a demon skeleton
 
 local M = demonSkeletons.generateCallbacks()
