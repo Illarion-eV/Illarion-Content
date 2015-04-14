@@ -33,10 +33,10 @@ function M.onSpawn(monster)
 end
 
 local magic = monstermagic()
-magic.addWarping{probability = 0.10, usage = magic.ONLY_NEAR_ENEMY}
+magic.addWarping{probability = 0.05, usage = magic.ONLY_NEAR_ENEMY}
 
-magic.addSummon{probability = 0.03, monsters = {103, 593, 536, 102}} -- summon mummy and scarab
-magic.addSummon{probability = 0.0050, monsters = {108, 109,}} -- palace guard and forgotten mummy
+magic.addSummon{probability = 0.055, monsters = {103, 593, 536, 102}} -- summon mummy and scarab
+magic.addSummon{probability = 0.01, monsters = {108, 109,}} -- palace guard and forgotten mummy
 magic.addSummon{probability = 0.0001, monsters = {231}} -- Kings Fright
 
 M = magic.addCallbacks(M)

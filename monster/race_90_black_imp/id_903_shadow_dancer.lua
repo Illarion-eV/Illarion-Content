@@ -21,10 +21,10 @@ local blackImps = require("monster.race_90_black_imp.base")
 
 local magic = monstermagic()
 
-magic.addWarping{probability = 0.15, usage = magic.ONLY_NEAR_ENEMY}
+magic.addWarping{probability = 0.05, usage = magic.ONLY_NEAR_ENEMY}
 
-magic.addSummon{probability = 0.04, monsters = {891, 551, 622, 623}} -- Angry chicken, Crazy Chicken, Fireimp, Imp (level 1-3)
-magic.addSummon{probability = 0.0050, monsters = {552, 901, 902}} -- Satyr, Shadow Imp, Shadow Wimp
+magic.addSummon{probability = 0.055, monsters = {891, 551, 622, 623}} -- Angry chicken, Crazy Chicken, Fireimp, Imp (level 1-3)
+magic.addSummon{probability = 0.010, monsters = {552, 901, 902}} -- Satyr, Shadow Imp, Shadow Wimp
 magic.addSummon{probability = 0.0001, monsters = {903}} -- Another Shadow Dancer
 
 local M = blackImps.generateCallbacks()

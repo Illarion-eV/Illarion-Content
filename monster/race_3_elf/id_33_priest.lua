@@ -26,8 +26,8 @@ magic.addWarping{probability = 0.15, usage = magic.ONLY_NEAR_ENEMY}
 magic.addHealing{probability = 0.05, damage = {from = 1000, to = 1500}}
 magic.addHealing{probability = 0.005, damage = {from =  500, to = 1000}, targetCount = 3}
 
-magic.addHealing{probability = 0.005, damage = {from = 1200, to = 2000}}
-magic.addHealing{probability = 0.002, damage = {from = 650, to = 1200}, targetCount = 3}
+magic.addHealing{probability = 0.005, damage = {from = 1200, to = 1700}}
+magic.addHealing{probability = 0.002, damage = {from = 650, to = 850}, targetCount = 3}
 
 local M = elves.generateCallbacks()
 return magic.addCallbacks(M)
