@@ -228,15 +228,7 @@ english, "Cadomyr" -> "Cadomyr? If you want to become Baron or Baroness, I can h
 "my name" -> "#w Psst, nice name. For your information, I counterfeit documents. Interested? Say 'deal' and I will promote you to the next rank of your town. Say 'counterfeit' and I will provide you with more details."
 "mein Name" -> "#w Psst, netter Name. Zu euer Information. Ich fälsche Dokumente. Interessiert? Sagt 'Deal' und ich werde euch zum nächsten Rang eurer Stadt verhelfen. Sagt 'Fälschung' und ich werde euch in die Details einweihen."
 english, "Arno", "Unterland" -> "This is my name. Do you want my service?"
-"Arno", "Unterland" -> "Das ist mein Name. Wünscht ihr meinen Service"
-"Yes" -> "So, then show me your documents."
-"Ja" -> "Dann zeigt mir mal eure Dokumente."
-"No" -> "Well, do not tell anyone else."
-"Nein" -> "Schon gut, aber nicht weitersagen."
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "#w Psst, I counterfeit documents. Interested? Say 'deal' and I will promote you to the next rank of your town. Say 'counterfeit' and I provide you with more details."
-german, chance(20.0), ".*" -> "#w Psst, ich fälsche Dokumente. Interessiert? Sagt 'Deal' und ich werde euch zum nächsten Rang eurer Stadt verhelfen. Sagt 'Fälschung' und ich werde euch in die Details einweihen."
+"Arno", "Unterland" -> "Das ist mein Name. Wünscht ihr meine Dienste?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

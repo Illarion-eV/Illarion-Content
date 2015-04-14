@@ -466,14 +466,6 @@ english, "Zhambra" -> "There shall be people who pray to this god.", "I do not b
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "sir", "fludnar", "yednos" -> "That's my name.", "Impressing, you can pronounce my name correctly!"
 "sir", "fludnar", "yednos" -> end, "Das ist mein Name.", "Beeindruckihr könnt meinen Namen richtig aussprechen!"
-"Yes" -> "And what shall I do now?", "Can you give a proper answer?"
-"Ja" -> "Und was soll ich jetzt tun?", "Könnt ihr eine angebrachte Antwort geben?"
-"No" -> "And what shall I do now?", "Can you give a proper answer?"
-"Nein" -> "Und was soll ich jetzt tun?", "Könnt ihr eine angebrachte Antwort geben?"
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "#me covers his nose and mumbles 'Maybe you should consider to clean your teeth. You have a very smelly breath'."
-german, chance(20.0), ".*" -> "#me hält sich die Nase zu und murmelt 'Vielleicht solltet ihr euch die Zähne putzen. Ihr habt einen üblen Mundgeruch'."
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
 

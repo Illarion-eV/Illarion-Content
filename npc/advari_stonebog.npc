@@ -170,14 +170,6 @@ english, "Ronagan" -> "Aye, I give a good chunk of what I earn to the Lord of sh
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "advari", "stonebog" -> "Arr, pillownose! You think that's my real name? Whatever... you want to sell somethin'?"
 "advari", "stonebog" -> "Arr, Weichzwerg! So denkt Ihr das ich heiß, nicht war? Wie auch immer. Was wollt Ihr handeln?"
-"Yes" -> "Aye. I agree!", "Arr, that's the way I like it!", "Arrr! Tell me about it!"
-"Ja" -> "Aye. Da stimm ich zu!", "Arr, so gefällt mir das!", "Aargk... - sprich was ist's?"
-"No" -> "Well, well. An old dwarf like meself 'as to take one for the team.", "If that's the way you want it...", "I can bear it. Hopefully you can too."
-"Nein" -> "Fein-fein. Ein alter Zwerg wie ich findet sich einfach damit ab.", "Wenn's ihr so wollt.", "Damit kann ich leben. Ich hoffe, ihr auch."
-
--- Absolutely last catch: Everything a player says and is not caught earlier
-english, chance(20.0), ".*" -> "Aye, is that so? Never heard about it.", "#me gives a throaty chuckle, running his fingers through his beard.", "Well, well!", "Arrr!"
-german, chance(20.0), ".*" -> "Aye, ist das so? Das ist mir neu.", "#me lacht kehlig und streicht sich über den Bart. 'Na gut, ist ja gut.'", "Arr!"
 
 -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
 

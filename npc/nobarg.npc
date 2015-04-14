@@ -291,14 +291,6 @@ english, "quest", "mission" -> "I do not have a task for you. I recommend you pr
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Nobarg" -> "Yes? How can I help you? Do you wish to know more about gods?"
 "Nobarg" -> "Ja? Wie kann ich euch behilflich sein? Wollt ihr etwas über Götter wissen?"
-"Yes" -> "Very well. I feared you would say no."
-"Ja" -> "Sehr gut. Ich fürchtete ihr sagt nein."
-"No" -> "No? Are you sure?"
-"Nein" -> "Nein? Seid ihr sicher?"
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Don't you think it is time for another prayer now?"
-german, chance(20.0), ".*" -> "Denkt ihr nicht es ist an der Zeit für ein weiteres Gebet?"
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
 

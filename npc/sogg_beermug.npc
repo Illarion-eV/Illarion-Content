@@ -166,14 +166,6 @@ english, "adron" -> "Geerht sei Adron, der fette Mann mit roter Nase! Yubba. Mög
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "sogg", "beermug" -> "Hurr-hurr... want a beer, eh?", "Hu!?... - Mesch Sogg Beermug, whut do you want?"
 "sogg", "beermug" -> "Hurr-hurr... wilscht n' Bier, eh?", "Hu!?... - Isch bin Sogg Beermug, wasch wollscht ihr von mir?"
-"Yes" -> "Skoal!", "Hurr-hurr. Should be good with me.", "Alrighty-right!"
-"Ja" -> "Prost.", "Hurr-hurr. Solls mir recht sein.", "Alles-klarklar!"
-"No" -> "Gosch!", "Skeschmat! S' that your final answer?", "#me burps."
-"Nein" -> "Gosch!", "Skeschmat! Gneh... is das den letztes Wort?", "#me rülpst."
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Beer after Wine, is a no go. Better try Wine after Beer!", "Hurr hurr! That's it.", "Daily special... Bean's Booze!"
-german, chance(20.0), ".*" -> "Bier auf Wein, lasch das sein! Aber Wein auf Bier, das rat isch dier!", "Hehe! So ist's.", "Heut empfehl isch... Bohnenschnaps!"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -193,3 +185,6 @@ cycletext "#me schnaubt ein wenig.", "#me snorts quietly."
 cycletext "#me rülpst, Duft von schalem Bier und gebratenen Fleisch entschwebt in die Nasen der Umgebung.", "#me burps, the scent of stale beer and roasted meat floats into the noses of anyone in the surrounding area."
 cycletext "Fokous! Bring mir ein neues Fass des feinen Gebräus!", "Fokous! Bring meh 'nother barrel ub ta finest brew!"
 cycletext "Bring das Bier! Yubba, unser Bier darf nicht alle werden.", "Guard ta beer, stumpy! Yubba, yoo canna have our beer runnin' low!"
+cycletext "Prost!", "Skoal!"
+cycletext "Heut empfehl isch... Bohnenschnaps!", "Daily special... Bean's Booze!"
+cycletext "Bier auf Wein, lasch das sein! Aber Wein auf Bier, das rat isch dier!", "Beer after Wine, is a no go. Better try Wine after Beer!"

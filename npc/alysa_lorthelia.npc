@@ -38,7 +38,7 @@ autointroduce = on
 
 author = "Regallo"
 
-lookatDE = "Eine große, edele Frau steht hinter der Theke und bereitet emsig Essen zu."
+lookatDE = "Eine große, edle Frau steht hinter der Theke und bereitet emsig Essen zu."
 lookatUS = "A tall, proud woman stands behind the counter, preparing food quickly."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Hands off!"
@@ -187,14 +187,6 @@ english, "salkama" -> "My father says that they only care about faction related 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Alysa ", "Lorthelia" -> "That's me, Alysa Lorthelia."
 "Alysa", "Lorthelia" -> "Das bin ich, Alysa Lorthelia."
-"Yes" -> "Okay."
-"Ja" -> "In Ordnung."
-"No" -> "Oh no!"
-"Nein" -> "Oh..nein!"
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "That has nothing to do with me. I'm sorry."
-german, chance(20.0), ".*" -> "Das hat nichts mit mir zu tun, entschuldigt."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

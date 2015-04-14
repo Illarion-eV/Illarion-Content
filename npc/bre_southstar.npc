@@ -231,14 +231,6 @@ english, "Gobaith", "Gobiath" -> "What is that?"
 "mein Name" -> "Seid ihr das?", "Ja?", "Braucht ihr was?"
 english, "Bre", "Southstar" -> "I am her."
 "Bre", "Southstar" -> "Das bin ich."
-"Yes" -> "Yes to what?", "Pardon?"
-"Ja" -> "Ja?", "Pardon?"
-"No" -> "Sorry, I did not ask a question."
-"Nein" -> "Entschuldigt, ich habe gar nicht gefragt."
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "I am the merely a guard of Galmair.", "Tell that somebody else.", "Move along.", "Pass along", "Do not loiter!", "In or out?"
-german, chance(20.0), ".*" -> "Ich bin in erster Linie eine Wache Galmairs.", "Erzählt das irgendwem, nur nicht mir.", "Weitergehen.", "Geht weiter.", "Lungert hier nicht so rum!", "Rein oder raus?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -255,3 +247,7 @@ cycletext "Ich brauche keinen Mann.", "I'm not looking for a man."
 cycletext "In der Bürgerwehr zu sein ist der beste Beruf von allen.", "Civil watch is the best job ever."
 cycletext "Aye, Galvin hat immer recht.", "Aye, Gavin is always right."
 cycletext "Ich wünschte, Galvin wäre manchmal etwas besser gelaunt.", "I wish Gavin would lighten up every now and then."
+cycletext "Weitergehen.", "Move along."
+cycletext "Geht weiter.", "Pass along."
+cycletext "Lungert hier nicht so rum!", "Do not loiter!"
+cycletext "Rein oder raus?", "In or out?"

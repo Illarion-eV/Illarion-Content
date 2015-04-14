@@ -266,14 +266,6 @@ english, "Zhambra" -> "The God of Friendship and Loyalty is one of my patron dei
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Brassius", "Meres" -> "My apologies, I am on duty. Perhaps someone else can help you.", "I should be getting back to my work.", "I am quite busy at the moment, sorry."
 "Brassius", "Meres" -> "Entschuldigt, aber ich bin im Dienst. Vielleicht kann euch jemand anderes helfen.", "Ich sollte wieder an meinen Dienst denken.", "Ich bin derzeit recht beschäftigt."
-"Yes" -> "My apologies, I am on duty. Perhaps someone else can help you.", "I should be getting back to my work.", "I am quite busy at the moment, sorry."
-"Ja" -> "Entschuldigt, aber ich bin im Dienst. Vielleicht kann euch jemand anderes helfen.", "Ich sollte wieder an meinen Dienst denken.", "Ich bin derzeit recht beschäftigt."
-"No" -> "My apologies, I am on duty. Perhaps someone else can help you.", "I should be getting back to my work.", "I am quite busy at the moment, sorry."
-"Nein" -> "Entschuldigt, aber ich bin im Dienst. Vielleicht kann euch jemand anderes helfen.", "Ich sollte wieder an meinen Dienst denken.", "Ich bin derzeit recht beschäftigt."
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "I should really be returning to my work.", "If the Archmage catches me chatting away, he will not be pleased.", "Please, you shall get me into trouble if I am caught standing here chatting."
-german, chance(20.0), ".*" -> "Ich sollte mich wieder um meinen Dienst kümmern.", "Wenn der Erzmagier mich dabei erwischt, wie ich herumklöne, wird er nicht zufrieden sein.", "Bitte, ich bekomme noch Ärger, wenn man mich hier tratschen sieht."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -291,3 +283,4 @@ cycletext "Dann geht mal weiter.", "Move along, then."
 cycletext "Macht hier keinen Ärger.", "Don't go causing any trouble 'round here."
 cycletext "Wir sehen alles.", "We're watching."
 cycletext "Bleibt nicht länger auf der Brücke als nötig.", "Don't stay on the bridge longer than necessary."
+cycletext "Ich sollte mich wieder um meinen Dienst kümmern.", "I should really be returning to my duty."

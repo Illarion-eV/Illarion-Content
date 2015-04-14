@@ -203,14 +203,6 @@ english, "Zhambra" -> "I don't care about your gods. All I care about is that yo
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Percy", "Dryless" -> "I am your master from now on. Obey or be whipped. Your choice."
 "Percy", "Dryless" -> "Ich bin jetzt dein Herr und Meister. Gehorche oder werde ausgepeitscht. Du hast die Wahl."
-"Yes" -> "Yes? Fine, work on.", "Yes? You wanted to say 'Yes Master'!"
-"Ja" -> "Ja? Gut. Arbeite weiter.", "Ja? Das heißt 'Ja, Meister'!"
-"No" -> "No? You dare to disobey?", "#me barks commandingly, 'I will teach you to say 'no'!'"
-"Nein" -> "Nein? Wagst du etwa, zu widersprechen?", "#me bellt: 'Ich werde dich lehren, 'Nein' zu sagen!'"
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Shut up, and keep working.", "Scum! - Obey!", "#me laughs diabolically.", "Mwahaha!"
-german, chance(20.0), ".*" -> "Halt's Maul und arbeite weiter.", "Abschaum! - Gehorche!", "#me lacht dreckig.", "Mwahaha!"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

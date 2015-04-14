@@ -168,14 +168,6 @@ english, "Cadomyr" -> "I do not think you will find any treasure there."
 "mein Name" -> "Ich verkaufe Schatzkarten für fünf Goldmünzen. Interessiert? Sage 'Deal' und eine Schatzkarte ist dein."
 english, "Paula", "Bronzeblatt" -> "Yes, this is my name, but do you want to buy my treasure map for just five gold coins? Say 'deal' and it is yours!"
 "Paula", "Bronzeblatt" -> "Ja, das ist mein Name. Aber willst du meine Schatzkarte für nur fünf Goldstücke kaufen. Sage 'Deal' und sie gehört dir."
-"Yes" -> "Yes, you want to buy my treasure map for just five gold coins? Say 'deal' and it belongs to you."
-"Ja" -> "Ja, du willst meine Schatzkarte für nur fünf Goldstücke kaufen? Sage 'Deal' und sie gehört dir."
-"No" -> "No, you do not want to buy my treasure map for only five gold coins? You should change your mind."
-"Nein" -> "Nein, du willst nicht meine Schatzkarte für nur fünf Goldstücke kaufen? Überlege es dir nochmals."
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "I sell treasure maps for five gold coins. Interested? Say 'deal' and a treasure map is yours."
-german, chance(20.0), ".*" -> "Ich verkaufe Schatzkarten für fünf Goldmünzen. Interessiert? Sage 'Deal' und eine Schatzkarte ist dein."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
