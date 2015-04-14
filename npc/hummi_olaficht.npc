@@ -337,14 +337,6 @@ english, "Zhambra" -> "He is the God of friendship and loyalty, and many of his 
 -- Last catch: Think about keywords the player might say and that are not caught until here.
 english, "hummi", "olaficht" -> "That's me! If you're after information look no further!"
 "hummi", "olaficht" -> "Das bin ich und ich weiß viele wichtige Dinge."
-"Yes" -> "Yes?", "'Yes' is the opposite of 'no'. *Giggles*", "'Yes' means 'Ja' in the old language. *Giggles*"
-"Ja" -> "Ja?", "'Ja' ist das Gegenteil von 'Nein'. *kichert*", "'Ja' bedeutet 'Yes' in der neuen Sprache. *kichert*"
-"No" -> "No?", "'No' is the opposite of 'Yes'. *Giggles*", "'No' means 'Nein' in the old language. *Giggles*"
-"Nein" -> "Nein?", "'Nein' ist das Gegenteil von 'Ja'. *kichert*", "'Nein' bedeutet 'No' in der neuen Sprache. *kichert*"
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Duddli, do-da, ask me for help."
-german, chance(20.0), ".*" -> "Duddli, duddla, frag mich nach Hilfe."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

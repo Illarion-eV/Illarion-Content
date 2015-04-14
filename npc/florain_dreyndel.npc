@@ -206,12 +206,6 @@ queststatus(820) = 22, "quest", "mission" -> "Ich bin sicher, Ihr kommt nun auch
 queststatus(820) = 22, "task", "adventure", "order" -> "I'm sure you can find your way around here without my help now. Just ask the people you meet if they have tasks for you and you will be fine."
 queststatus(820) = 22, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute, die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
 
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), town = Runewick, ".*" -> "I cannot help you with that. Why not ask a fellow citizen you meet, I'm sure someone has the answer."
-german, chance(20.0), town = Runewick, ".*" -> "Ich kann Euch damit nicht helfen. Wieso fragt Ihr nicht einen anderen Bürger, ich bin mir sicher das jemand eine Antwort hat."
-english, chance(20.0), ".*" -> "I cannot help you with that. Why not ask Elesil Daelwon over there, I'm sure she has the answer."
-german, chance(20.0), ".*" -> "Ich kann Euch damit nicht helfen. Wieso fragt Ihr nicht Elesil Daelwon dort drüben, ich bin mir sicher sie hat eine Antwort."
-
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.

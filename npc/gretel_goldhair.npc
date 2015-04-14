@@ -207,14 +207,6 @@ english, "Gobaith", "Gobiath" -> "Speak louder, I can't hear you!"
 "mein Name" -> "Sprecht lauter, ich kann Euch nicht hören!", "Habe ich Euch nicht schon einmal gesehen?"
 english, "Gretel", "Goldhair" -> "You asked for me?", "Who asked?", "Did you say something?"
 "Gretel", "Goldhair" -> "Ihr fragt nach mir?", "Wer fragt?", "Habt Ihr was gesagt?"
-"Yes" -> "#me grins showing a set of yellow teeth.", "Very well."
-"Ja" -> "#me grinst und zeigt ein paar gelber Zähne.", " Schön. Schön."
-"No" -> "Oh... that's too sad.", "Speak louder, I can't hear you!"
-"Nein" -> "Oh, das ist jammerschade...", "#me hebt eine Augenbraue.", "Sprecht lauter, ich kann Euch nicht hören!"
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Speak louder, I can't hear you!", "Did you say something?", "#me looks around"
-german, chance(20.0), ".*" -> "Sprecht lauter, ich kann Euch nicht hören!", "Habt Ihr was gesagt?", "#me schaut sich um."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

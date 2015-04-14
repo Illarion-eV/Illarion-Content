@@ -293,14 +293,6 @@ english, "Gobaith", "Gobiath" -> "Arrr, what will that be?"
 "mein Name" -> "Mein Name klingt besser! Ich hoffe deine Fragen klingen besser!"
 english, "Iradona", "Goldschein" -> "Yes, that is my name. What do you want information about?"
 "Iradona", "Goldschein" -> "Ja, das ist mein Name. Über was wollt ihr Information?"
-"Yes" -> "Ah I see, you can say one word, but what about a whole sentence?"
-"Ja" -> "Wie ich merke, kannst du schon ein Wort sagen. Aber wie sieht es mit einem ganzen Satz aus?"
-"No" -> "Ah I see, you can say one word, but what about a whole sentence?"
-"Nein" -> "Wie ich merke, kannst du schon ein Wort sagen. Aber wie sieht es mit einem ganzen Satz aus?"
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Huh, what shall I give you information about? Do you mind just asking for help as a first step?"
-german, chance(20.0), ".*" -> "Huh, über was wünscht ihr Information? Vielleicht begnügt ihr euch erst mal nach Hilfe zu fragen?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

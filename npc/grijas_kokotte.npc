@@ -320,14 +320,6 @@ english, "Irmorom" -> "Smithing is the craft of the dwarves, but a hungry smith 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Grijas", "Kokotte" -> "What's up?", "Aye?", "#me nods once and raises an eyebrow."
 "Grijas", "Kokotte" -> "Aye?", "Wat gibt's?", "#me nickt dir zu und zieht eine Braue hoch."
-"Yes" -> "Aye, then go and collect those things I asked you for.", "If ya say so.", "Alright, have fun!"
-"Ja" -> "Aye, dann mach dich auf den Weg und sammle, was ich von dir wollte!", "Na, wenn du meinst.", "Is gut, viel Vergnügen!"
-"No" -> "What did ya say? I hope I didn't hear ya correctly!", "You say no... no to me, who do ya think your speaking to?", "With that attitude, ya won't become a good cook."
-"Nein" -> "Wat sachste, ich hoffe, ich habe mich verhört?!", "Du sagst Nein...nein zu mir, wat denkst du, mit wem du sprichst!", "Dann nich, so wird nie was aus dir!"
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Eh..what did you just say about my soup?", "What are you jabbering about?", "Nah, I don't wanna buy that!"
-german, chance(20.0), ".*" -> "Eh..wat hast du grad über meine Suppe gesagt?", "Wat quasselst du da?", "Nay, ich will dat nich kaufen!"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

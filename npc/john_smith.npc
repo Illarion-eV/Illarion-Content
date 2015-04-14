@@ -189,14 +189,6 @@ english, "Gobaith", "Gobiath" -> "Ehm...?", "Really?", "Sorry, I never heard abo
 "mein Name" -> "Freut mich.", "Ganz meinerseits.", "Willkommen. Wie kann ich Euch helfen?"
 english, "John", "Smith" -> "That's me!", "Yes?", "#me waves."
 "John", "Smith" -> "Das bin ich!", "Ja?", "#me winkt."
-"Yes" -> "#me nods.", "Exactly!"
-"Ja" -> "#me nickt.", "Genau!"
-"No" -> "Oh no!", "...but why?"
-"Nein" -> "Oh nein!", "...aber warum?"
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "#me nods.", "Welcome. How can I help you?", "Ehm...?", "Really?", "#me shrugs his shoulders."
-german, chance(20.0), ".*" -> "#me nickt.", "Willkommen. Wie kann ich Euch helfen?", "Ähm...?", "Wirklich?", "#me zuckt mit den Schultern."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

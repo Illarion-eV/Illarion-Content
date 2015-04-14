@@ -167,9 +167,6 @@ english, "Villa" -> inform("[Keywords] Villa Edward, Villa Rosaline, Villa Regin
 "Sir Reginald Tomb" -> "Sir Reginald's Tomb issss right in front of the entrance to the town wall and honours one of our former kingsss. It can become quite bloody down there."
 "Sir Reginald Gruft" -> "Die Sir Regniald Gruft issst rechtsss vor dem Eingang zur Ssstadtmauer zu Ehren einesss unssserer früheren Könige. Esss kann sssehr blutig da unten werden."
 
--- "Rooms" -> "" --placeholder for rooms if they can be rent
--- "Guild" -> ""
-
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 -- quest information_cadomyr_1.quest belongs to this NPC: Quest-ID.: 641
 queststatus(640) < 1, english, "quest", "mission" -> inform("[New Quest 'Find Ruzusss' started] Try to find Ruzusss and get your reward."), queststatus(640) = 1, "I do not have a tasssk for you yet. Probably in two or three monthsss. If you like you can try to find Ruzusss, but if you desssire a real tasssk you would be better asssking other people in Cadomyr *points to the gate*. Otherwissse, you are very welcome to come back here in two or three monthsss when I will have definitely sssome tasks for you."
@@ -252,14 +249,6 @@ english, "Gobaith", "Gobiath" -> "I have never heard that name."
 "mein Name" -> "Ssschön dich zu kennenzulernen. Wie kann ich dir helfen?"
 english, "Frizza" -> "Yes, that isss my name. About what do you want information?"
 "Frizza" -> "Ja, dasss ist mein Name. Über wasss wollt ihr Information?"
-"Yes" -> "A bit more concrete, pleassse!"
-"Ja" -> "Etwas konkreter wenn ich bitten darf!"
-"No" -> "A bit more concrete, pleassse!"
-"Nein" -> "Etwas konkreter wenn ich bitten darf!"
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Huh, what ssshall I give you information about? Do you mind just asssking for help asss a firssst ssstep?"
-german, chance(20.0), ".*" -> "Huh, über wasss wünssscht du Informationen? Vielleicht begnügssst du dich erssst mal nach Hilfe zu fragen?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

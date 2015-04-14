@@ -259,14 +259,6 @@ english, "Zhambra" -> "It is through Zhambra that I am able to serve Cadomyr."
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Horatio", "Milenus" -> "That is I. State your business."
 "Horatio", "Milenus" -> "Das bin ich. Was ist euer Begehr?"
-"Yes" -> "Yes to what?", "Pardon?"
-"Ja" -> "Ja?", "Pardon?"
-"No" -> "Leave me now or suffer to be arrested."
-"Nein" -> "Geht nun oder ich werde euch unter Arrest stellen."
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "I am the merely a guard of Cadomyr.", "Tell that somebody else.", "Move along.", "Pass along", "Do not loiter!", "In or out?"
-german, chance(20.0), ".*" -> "Ich bin in erster Linie der Wächter Cadomyrs.", "Erzählt das jemanden anderes.", "Geht weiter.", "Weitergehen.", "Lungert hier nicht herum.", "Rein oder raus?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

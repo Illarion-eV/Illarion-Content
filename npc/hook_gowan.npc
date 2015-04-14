@@ -162,14 +162,6 @@ english, "Ronagan" -> "Ronagan, the God of thieves and shadows! He promises shel
 english, "Gowan", "Hook", "hand" -> "Yes, I've got a hook instead of a hand. What's the matter?", "No I'm not a pirate, I don't even like the sea... Too much sway and swinging... makes me sick.", "The old King of Cadomyr chopped my hand off. True Story, lad."
 "Gowan", "Hook" -> "Ja, ich hab einen Haken an der Hand. Was wollt Ihr?", "Nein ich bin kein Pirat. Ich mag nicht mal das Meer, von zu viel Geschaukle wird mir nämlich immer übel.", "Der alte König, Cadomyrs hat mir damals noch die Hand abgehackt. Ist wahr - ist wahr."
 "haken", "hand" -> "Ja, ich hab einen Haken an der Hand. Was wollt Ihr?", "Nein ich bin kein Pirat. Ich mag nicht mal das Meer, von zu viel Geschaukle wird mir nämlich immer übel.", "Der alte König, Cadomyrs hat mir damals noch die Hand abgehackt. Ist wahr - ist wahr."
-"Yes" -> "Awesome, that's in my interest.", "Yes! Yes-yes. There we go.", "Superb!"
-"Ja" -> "Fein! Das kommt mir eigentlich ganz gelegen.", "Ja! Ja-ja, so machen wir das.", "Ausgezeichnet."
-"No" -> "Aye.", "Are you sure?", "Really? Is that true?"
-"Nein" -> "Aye.", "Seid ihr sicher?", "Tatsächlich?"
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Listen, if you don't ask any questions I will not lie to you. Agreed?", "Aha? Good to know.", "Oh, that's quite interesting."
-german, chance(20.0), ".*" -> "Wenn Ihr keine Fragen stellt, werde ich Euch auch nicht belügen.", "Soso? - Gut zu wissen.", "Oh, das ist ja interessant.", "Ein Schritt im Schatten und Einer über die Rinne..."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

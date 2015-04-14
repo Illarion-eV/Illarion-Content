@@ -396,16 +396,8 @@ english, "Zhambra" -> "There are 16 gods. Five created Illarion. One god is evil
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Frederik", "Silvereye" -> "Yes, that's me!", "Who? Me?", "#me waves."
 "Frederik ", "Silvereye" -> "Ja, das bin ich!", "Wer? Ich?", "#me winkt"
-"Yes" -> "#me nods."
-"Ja" -> "#me nickt."
-"No" -> "#me shakes his head."
-"Nein" -> "#me schüttelt den Kopf."
 "bless you" -> "Thanks."
 "gesundheit" -> "Danke."
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "...pardon?", "Well...", "#me looks around."
-german, chance(20.0), ".*" -> "...bitte?", "Mhm....", "#me schaut sich um."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

@@ -150,14 +150,6 @@ english, "Cadomyr" -> "Believe me. Greatest cowards ever!"
 "mein Name" -> "Kannst du die Tür bitte öffnen?"
 english, "George", "Backstab" -> "Oh, you know my name. Can you open the door please?"
 "George", "Backstab" -> "Oh, du kennst meinen Namen. Kannst du die Tür bitte öffnen?"
-"Yes" -> "I don't care. Open this damn door!"
-"Ja" -> "Mir egal. Mach diese verdammte Tür auf!"
-"No" -> "I don't care. Open this damn door!"
-"Nein" -> "Mir egal. Mach diese verdammte Tür auf!"
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Damn! Open this door. We can talk afterwards."
-german, chance(20.0), ".*" -> "Die Tür sollst du aufmachen, verdammt! Den Rest können wir später bereden."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

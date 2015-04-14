@@ -191,12 +191,6 @@ queststatus(712) = 18, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befeh
 queststatus(712) < 18, english, town = Galmair, ".*" -> "I could use some help, just ask me for a task."
 queststatus(712) < 18, german, town = Galmair, ".*" -> "Ich könnte etwas Hilfe gebrauchen, fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun."
 
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), town = Galmair, ".*" -> "I don't have anything for you to do.", "Have a good day!", "There is nothing you can do for me but go forward and prosper."
-german, chance(20.0), town = Galmair, ".*" -> "Ich habe nichts für Euch zu tun.", "Ich wünsche euch einen schönen Tag.", "Es gibt nichts, was Ihr tun könntet für mich. Möge euch Wohlstand anheim fallen."
-english, chance(20.0), ".*" -> "You are not a citizen of Galmair. I don't have anything for you to do."
-german, chance(20.0), ".*" -> "Ihr scheint kein Bürger Galmairs zu sein. Ich habe nichts für Euch zu tun."
-
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.

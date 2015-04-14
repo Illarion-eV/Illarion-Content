@@ -182,12 +182,6 @@ queststatus(703) = 18, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befeh
 queststatus(703) < 18, town = Cadomyr, english, ".*" -> "I could use some help, just ask me for a task."
 queststatus(703) < 18, town = Cadomyr, german, ".*" -> "Ich könnte etwas Hilfe gebrauchen. Fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun."
 
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), town = Cadomyr, ".*" -> "I don't have anything for you to do.", "Have a good day!", "There is nothing you can do for me but go forward and prosper."
-german, chance(20.0), town = Cadomyr, ".*" -> "Ich habe nichts für Euch zu tun.", "Ich wünsche euch einen schönen Tag.", "Es gibt nichts, was Ihr tun könntet für mich. Möge euch Wohlstand anheim fallen."
-english, chance(20.0), ".*" -> "You are not a citizen of Cadomyr. I don't have anything for you to do."
-german, chance(20.0), ".*" -> "Ihr scheint kein Bürger Cadomyr zu sein. Ich habe nichts für Euch zu tun."
-
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
