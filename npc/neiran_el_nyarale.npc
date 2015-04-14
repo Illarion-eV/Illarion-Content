@@ -204,14 +204,6 @@ english, "Gobaith", "Gobiath" -> " I've never been to this place.", "It was...a 
 "mein Name" -> "Feut mich!", "Schön euch zu treffen!", "#me lächelt freundlich."
 english, "Neiran", "el Nyarale", "Nyarale" -> "That's me. How can I help you?", "#me raises a hand and waves.", "#me looks around, 'Who called for me?'", "#me smiles friendly"
 "Neiran", "el Nyarale", "Nyarale" -> "Das bin ich. Was kann ich für Euch tun?", "#me hebt eine Hand und winkt.", "#me blickt sich um: 'Wer rief nach mir?'", "#me lächelt freundlich."
-"Yes" -> "#me nods slowly.", "#me smiles.", "I am happy to hear you say so!"
-"Ja" -> "#me nickt langsam.", "#me lächelt.", "Es freut mich, dass ihr das sagt.."
-"No" -> "I didn't expect that answer.", "#me raises an eyebrow.", "I shall give you some more time to consider your answer, but at the moment you seem to be...still inexperienced."
-"Nein" -> "Ich hätte eine andere Antwort erwartet.", "#me hebt eine Augenbraue.", "Ich werde euch mehr Zeit geben eure Antwort zu bedenken. Zur Zeit scheint ihr noch...unerfahren zu sein."
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Ah...pardon? What did you say?", "#me raises an eyebrow."
-german, chance(20.0), ".*" -> "Ah... verzeiht. Was sagtet ihr?", "#me hebt eine Augenbraue."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

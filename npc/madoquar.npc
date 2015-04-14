@@ -323,14 +323,6 @@ english, "dik" -> "Dik-Diks are cute, aren't they?"
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Madoquar" -> "Good day, how are you?", "The weather is fine today is it not?", "I think you might have dropped something, haha, I was kidding."
 "Madoquar" -> "Guten Tag, wie geht es euch?", "Das Wetter ist ganz nett, oder?", "Ich glaube, ihr habt da was verloren, haha."
-"Yes" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait what?"
-"Ja" -> "Ich habe eigentlich nichts gesagt.", "Ich glaube nicht, dass ich eine Frage gestellt habe, die mit 'Ja' oder 'Nein' zu beantworten wäre.", "Moment, wie bitte?"
-"No" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait what?"
-"Nein" -> "Ich habe eigentlich nichts gesagt.", "Ich glaube nicht, dass ich eine Frage gestellt habe, die mit 'Ja' oder 'Nein' zu beantworten wäre.", "Moment, wie bitte?"
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "This discussion is not relevant to me.", "Maybe say something about quests or tasks. People respond well to those words.", "I have no intention of buying your chicken."
-german, chance(20.0), ".*" -> "Das geht mich nichts an.", "Erzählt doch mal etwas über Abenteuer und Aufgaben. Die Leute mögen sowas hören.", "Mir ist nicht danach, euch einen Bären aufzubinden."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

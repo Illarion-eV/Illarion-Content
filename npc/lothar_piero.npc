@@ -172,14 +172,6 @@ english, "Oldra" -> "Oldra, I thank thee for my wood, for the trees and for all 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Lothar", "Piero" -> "Hiho! What goods may I offer you?"
 "Lothar", "Piero" -> "Hiho! Welche meiner Güter vermögen Euch zu begeistern?"
-"Yes" -> "Yes, very well.", "Indeed, just what I wanted to say.", "How marvellous, we have the same opinion."
-"Ja" -> "Ja, das ist mir auch Recht.", "Bestimmt, das denke ich auch.", "Wie fantastisch, wir sind einer Meinung."
-"No" -> "If you think that's good...", "I meant it the way I said it.", "No? Maybe we should discuss that at Elara's shrine."
-"Nein" -> "So denn ihr das für weise haltet.", "Das meine ich wie ich es sagte.", "Nein? Vielleicht sollten wir uns an Elaras Altar beratschlagen."
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Oldra's blessing for your gardens.", "Elara's wisdom may guide you.", "Hiho, that's funny!"
-german, chance(20.0), ".*" -> "Oldras Segen über Eure Gärten.", "Elaras Weisheit sei mit Euch.", "Hiho, das gefällt mir."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -196,3 +188,6 @@ cycletext "Rosen sind Rot, Veilchen sind Blau, ich mag den Himmel, und meine Fra
 cycletext "#me verengt mit einem Lächeln die Augen und mustert seine Umgebung.", "#me blinks with one eye and inspects his surrounding."
 cycletext "#me lehnt sich zufrieden lächelnd zurück.", "#me leans back, smiling contently."
 cycletext "#me steckt seine Hand in die Tasche neben dem Stuhl und zieht ein Brötchen heraus. Dann beginnt er daran zu knabbern.", "#me puts his hand into the bag near his chair, pulling out a bread roll, and starts nibbling on it."
+cycletext "Oldras Segen über Eure Gärten.", "Oldra's blessing for your gardens."
+cycletext "Elaras Weisheit sei mit Euch.", "Elara's wisdom may guide you."
+

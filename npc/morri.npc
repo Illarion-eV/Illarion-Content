@@ -166,14 +166,6 @@ english, "Ushara" -> "Honor to you, Mother of the rock, stone and soil."
 -- Last catch: Think about keywords the player might say and that are not caught until here
 "morri" -> "Arr. Bura'zak-ka! - Welches Essen wollt Ihr mir abkaufen?"
 english, "morri" -> "Arr. Bura'zak-ka! What meal would you like to buy?"
-"Yes" -> "Arr. It's good.", "D'kraga...so, and not otherwise!", "It should be fine by me."
-"Ja" -> "Arr. Ist gut!", "D'kraga... so, und nicht anders!", "Mir soll's auch recht sein."
-"No" -> "Hrm, is this your last word?", "Arr. If that's what you want..", "Of course."
-"Nein" -> "Hrm, ist das Euer letztes Wort?", "Arr. Wenn Ihr's so wollt.", "Natürlich."
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Arr.", "#me wrinkles his nose and shows his tongue in disgust, 'Do you smell that too?'"
-german, chance(20.0), ".*" -> "Arr.", "#me rümpft die Nase und streckt angewidert die Zunge heraus: 'Riecht ihr das auch?'"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

@@ -178,14 +178,6 @@ german, "cherga", "icy witch", "eis Hex" -> "Hurr. Eisig Hexe, Gottin von Ahnen 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Krudash" -> "Hurr Hurr. Ciamar a'seibh! How goin?", "Hurr Hurr. Do you need an axe, huh?"
 "Krudash" -> "Hurr Hurr. Ciamar a'seibh! Wie geht's?", "Hurr Hurr. Brauchst ne Axt, hä?"
-"Yes" -> "Taghtha? Is good! Yes.", "There we go. Alrighty-right.", "Hurr, hurr. Wahtever you say."
-"Ja" -> "Taghta? Iss gut! Ja-h.", "So machen wir's!", "Hurr, hurr. Alles was du sagst."
-"No" -> "Grâth! Are you sure?", "Then... no, isn't it?", "#me chuckles. 'Is all right.'"
-"Nein" -> "Grâth! Bisst du sicher?", "Dann nicht, nicht wahr?", "#me kichert. 'Ist gut, is' gu-ht.'"
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Taghta!", "Puny little maggot! What do you want?.", "Uh-h?"
-german, chance(20.0), ".*" -> "Taghta!", "Winzig kleine Made, was willst du?.", "Uh-h?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

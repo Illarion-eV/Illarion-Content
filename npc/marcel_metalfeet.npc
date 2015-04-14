@@ -142,10 +142,6 @@ english, "Oldra" -> "I pray to Ushara. Cake is made of grain."
 english, "Marcel", "Metalfeet" -> "You want me to repair something for you?"
 "Metalfeet", "Metalfeet" -> "Ich soll etwas für Euch reparieren?"
 
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Did you say cake?", "Did I hear you say cookies?", "Pardon?"
-german, chance(20.0), ".*" -> "Hast du Kuchen gesagt?.", "Hast du eben Kekse gesagt?", "Wie bitte?"
-
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.

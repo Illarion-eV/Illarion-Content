@@ -136,14 +136,6 @@ english, "Gobaith", "Gobiath" -> "Hmm...ask someone else if you want know about 
 "mein Name" -> "Was für ein schöner Name, mein Freund."
 english, "Laramir", "Silverwood" -> "Yes, that is my name."
 "Laramir", "Silverwood" -> "Ja, das ist mein Name."
-"Yes" -> "A bit more concrete, please!"
-"Ja" -> "Etwas konkreter wenn ich bitten darf!"
-"No" -> "A bit more concrete, please!"
-"Nein" -> "Etwas konkreter wenn ich bitten darf!"
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Huh, what are you talking about, my friend?"
-german, chance(20.0), ".*" -> "Huh, was sagt ihr dort, mein Freund?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

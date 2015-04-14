@@ -226,10 +226,6 @@ english, "police" -> "I'm afraid we only have town guards."
 english, "ambulance", "hospital", "nhs" -> "I'm not sure such a sophisticated system is in place. An alchemist might have a potion for you!"
 english, "fire" -> "Well go and get a bucket, quick!"
 
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "#me smiles.", "#me listens attentively.", "I see."
-german, chance(20.0), ".*" -> "#me lächelt.", "#me hört aufmerksam zu.", "Ich verstehe."
-
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.

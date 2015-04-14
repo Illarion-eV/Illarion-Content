@@ -205,14 +205,6 @@ english, "Gobaith", "Gobiath" -> "Haven't heard 'bout that."
 "mein Name" -> "Nett dich kennen zu leren. Aber sach ma', willst nich' was aus magischen Edelsteinen gemacht haben?"
 english, "Marianne", "Forgeron" -> "#me raises a hand.", "Me? Here!", "Marianne Forgeron, the magical blacksmith, what do ya want?"
 "Marianne", "Forgeron" -> "#me hebt eine Hand.", "Ich? Hier!", "Marinanne Forgeron, die magische Schmiedin. Watt willste?"
-"Yes" -> "That's what I told ya!", "Exactly!", "#me nods eagerly."
-"Ja" -> "Datt sach ich doch!", "Janz jenau!", "#me nickt eifrig."
-"No" -> "What? No?", "That not nice of ya."
-"Nein" -> "Wie? Nicht?", "Dat is jez aber nicht nett."
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "What?", "What ya wanna say with that?", "I dont understand ya."
-german, chance(20.0), ".*" -> "Watt?", "Watt meinste damit?", "Datt versteh' ich nich'."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

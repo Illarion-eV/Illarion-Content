@@ -245,14 +245,6 @@ english, "Zhambra" -> "Aurora hasn't taught me much about that God yet.", "Auror
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Madeline", "Clarbelis" -> "I need a nap.", "Gosh, I am so tired.", "I suppose I should go visit Aurora soon."
 "Madeline", "Clarbelis" -> "Ich möchte ein Nickerchen machen.", "Uff, ich bin so müde.", "Ich denke, ich sollte bald mal Aurora besuchen."
-"Yes" -> "I need a nap.", "Gosh, I am so tired.", "I suppose I should go visit Aurora soon."
-"Ja" -> "Ich möchte ein Nickerchen machen.", "Uff, ich bin so müde.", "Ich denke, ich sollte bald mal Aurora besuchen."
-"No" -> "I need a nap.", "Gosh, I am so tired.", "I suppose I should go visit Aurora soon."
-"Nein" -> "Ich möchte ein Nickerchen machen.", "Uff, ich bin so müde.", "Ich denke, ich sollte bald mal Aurora besuchen."
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "I need a nap.", "Gosh, I am so tired.", "I suppose I should go visit Aurora soon."
-german, chance(20.0), ".*" -> "Ich möchte ein Nickerchen machen.", "Uff, ich bin so müde.", "Ich denke, ich sollte bald mal Aurora besuchen."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -269,3 +261,6 @@ cycletext "#me klatscht in die Hände.", "#me claps her hands together."
 cycletext "#me flüstert sich selbst etwas zu.", "#me whispers to herself."
 cycletext "Ähm.", "Erm."
 cycletext "Hm...", "Hm..."
+cycletext "Ich möchte ein Nickerchen machen.", "I need a nap."
+cycletext "Uff, ich bin so müde.", "Gosh, I am so tired."
+cycletext "Ich denke, ich sollte bald mal Aurora besuchen.", "I suppose I should go visit Aurora soon."
