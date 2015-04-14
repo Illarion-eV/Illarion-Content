@@ -237,14 +237,6 @@ english, "Cadomyr" -> "Cadomyr is in the southwest. If you are stupid enough and
 "mein Name" -> "Hmm... und ihr wünscht nach Information? Aber welche?"
 english, "Wulfgorda" -> "Yes, that is my name. Which places do you want information about?"
 "Wulfgorda" -> "Ja, das ist mein Name. Über welche Orte wollt ihr Information?"
-"Yes" -> "A bit more precise, please!"
-"Ja" -> "Etwas konkreter wenn ich bitten darf!"
-"No" -> "A bit more precise, please!"
-"Nein" -> "Etwas konkreter wenn ich bitten darf!"
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Huh, which places shall I give you information about? Do you mind just asking for help as a first step?"
-german, chance(20.0), ".*" -> "Huh, über welche Orte wünscht ihr Information? Vielleicht begnügt ihr euch erstmal nach Hilfe zu fragen?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

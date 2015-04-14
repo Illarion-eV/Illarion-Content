@@ -209,14 +209,6 @@ english, "Gobaith", "Gobiath" -> "Aye, I went there for a loot trip, once. But I
 "mein Name" -> "Spitzen Name, Kumpel!"
 english, "Tobis", "Vunu" -> "Aye - that's me! What's up matee?"
 "Tobis", "Vunu" -> "Aye - 's bin ich. Was gibt's Kumpel?"
-"Yes" -> "Aye.", "Shiver me timbers, matee!", "Well. - Eh you got a bottle of rum?"
-"Ja" -> "Aye.", "Bei meinen wankenden Masten, Kumpel!", "Gut. - Eh, du hass nich ne Flasche Rum übrich oder?"
-"No" -> "Nevermind.", "Of Course.", "Arr-h!"
-"Nein" -> "Vergiss, dass ich was gesagt hab.", "Selbstverständlich.", "Arr-h!"
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "We're drinking rum all night long.- Ho! Ho! Ho! The waves are high, the wind is strong.- Ho! Ho! Ho!", "We are the lords of the sea. - Ho! Ho! Ho! Drink rum and beer, but never tea.- Ho! Ho! Ho!", "Thirteen men on a dead man´s chest! - Ho! Ho! Ho! Every man has got the pest! - Ho! Ho! Ho!"
-german, chance(20.0), ".*" -> "Dreizehn Mann saßen auf einem Sarg, Ho! Ho! Ho! -  Sie soffen drei Tage, der Schnaps war stark. - Ho! Ho! Ho!", "Sie liebten das Meer und den Schnaps und das Gold. Ho! Ho! Ho! -  Bis einst alle dreizehn n' Dämon holt. - Ho! Ho! Ho!", "Wir sind die Herrn der See. - Ho! Ho! Ho! Drinken Rum und Bier, aber niemals Tee! Ho! Ho! Ho!"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -231,3 +223,9 @@ cycletext "#me reibt seine rauen Hände an einander.", "#me rubs his rude hands t
 cycletext "#me kaut auf einem schwarzen Kraut herum.", "#me chews a black haulm."
 cycletext "Alles klar zum kentern? Aye!", "Ready to capsizal? Aye!"
 cycletext "Auf der See... da steht man sein' Mann. Oder ersäuft!", "At the sea you have to stand your man, or got drown."
+cycletext "Arr-h!", "Arr-h!"
+cycletext "Bei meinen wankenden Masten, Kumpel!", "Shiver me timbers, matee!"
+cycletext "Eh, du hass nich ne Flasche Rum übrich oder?", "Eh you got a bottle of rum?"
+cycletext "Dreizehn Mann saßen auf einem Sarg, Ho! Ho! Ho! - Sie soffen drei Tage, der Schnaps war stark. - Ho! Ho! Ho!", "We're drinking rum all night long.- Ho! Ho! Ho! The waves are high, the wind is strong.- Ho! Ho! Ho!"
+cycletext "Sie liebten das Meer und den Schnaps und das Gold. Ho! Ho! Ho! - Bis einst alle dreizehn n' Dämon holt. - Ho! Ho! Ho!", "We are the lords of the sea. - Ho! Ho! Ho! Drink rum and beer, but never tea.- Ho! Ho! Ho!"
+cycletext "Wir sind die Herrn der See. - Ho! Ho! Ho! Drinken Rum und Bier, aber niemals Tee! Ho! Ho! Ho!", "Thirteen men on a dead man´s chest! - Ho! Ho! Ho! Every man has got the pest! - Ho! Ho! Ho!"

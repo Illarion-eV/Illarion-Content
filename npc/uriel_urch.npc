@@ -204,14 +204,6 @@ english, "Zhambra" -> "I only have room for two gods. As a soldier I pray to Irm
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Uriel", "Urch" -> "Hrmpf? What do you want?", "That's me. What's the matter?", "#me sighs and peeks into his beer mug."
 "Uriel", "Urch" -> "Hrmpf? Was wollt Ihr?", "Das bin ich. Was ist?", "#me seufzt und wirft einen Blick in seinen Bierkrug."
-"Yes" -> "I see.", "Aha?", "Sure."
-"Ja" -> "Ich verstehe.", "Aha?", "Sicher."
-"No" -> "Well then.", "Hrm, why?", "Ehh... what's this about?"
-"Nein" -> "Na gut.", "Hrm, warum?", "Ehh... worum geht's?"
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Are you from the Serinjah folks? - You like quite strange to me...", "Damn it, I hate Greenskins!", "Leave me alone..."
-german, chance(20.0), ".*" -> "Seid ihr ein Serinjah? - Ihr seht wahrlich seltsam aus...", "Verdammt, ich hasse Grünhäute.", "Lasst mich in Frieden..."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -227,3 +219,5 @@ cycletext "#me setzt sich aufrecht hin, seine Rüstung quietscht leise, sie macht
 cycletext "#me blickt skeptisch auf den Boden seines Kruges und verengt die Augen zu Schlitzen.", "#me looks into his empty beer mug."
 cycletext "#me starrt dich an.", "#me glares at you."
 cycletext "#me pfeift ein altes Soldatenlied.", "#me whistles an old military tune."
+cycletext "Lasst mich in Frieden...", "Leave me alone..."
+cycletext "Verdammt, ich hasse Grünhäute.", "Damn it, I hate Greenskins!"

@@ -530,14 +530,6 @@ english, "friedl", "Friedwulfa", "Silberklinge" -> "Stumpie queen Friedwulfa bec
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Tronruk" -> "Yubba, dat mah name! *hits his chest and grunts*"
 "Tronruk" -> "Yubba, das mein Name! *schlägt sich auf die Brust*"
-"Yes" -> "Hurr! Hurr!"
-"Ja" -> "Hurr! Hurr!"
-"No" -> "#me looks confused 'how yoo can say no?'"
-"Nein" -> "#me schaut verwirrt 'wie du sagen können nein?'"
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Meh tink it be betta now dat yoo go and annoy someone else."
-german, chance(20.0), ".*" -> "Mich denken du besser gehen nun und anderen ärgern."
 
 -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
@@ -556,3 +548,4 @@ cycletext "Wer wolla hören Geschicht?", "Who want hear storeh?"
 cycletext "Mich wissen viele Geschichten von Ehre.", "Me know maneh storeh about honour."
 cycletext "#me öffnet seine Augen und schließt sie wieder nach einer Weile.", "#me opens his eyes and closes them again after while."
 cycletext "Bringt Ehre der Stadt.", "Bring honour to our town."
+cycletext "Hurr! Hurr!", "Hurr! Hurr!"

@@ -198,14 +198,6 @@ english, "Gobaith", "Gobiath" -> "Goba.. Gobi-what? I've never heard of that her
 "mein Name" -> "Es ist eine Freude Eure Bekanntschaft zu machen, %CHARNAME."
 english, "William", "Deloire" -> "Yes, that's me. I'm William Deloire, at you service."
 "William", "Deloire" -> "Ja, das bin ich. William Deloire, was kann ich für Euch tun?"
-"Yes" -> "I should think so too!", "Perhaps..."
-"Ja" -> "Das sehe ich genau so.", "Nun..."
-"No" -> "Ah. Alright, I suppose.", "Ah.."
-"Nein" -> "Ah. Das verstehe ich ...", "Nun..."
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "I fear I didn't catch your drift."
-german, chance(20.0), ".*" -> "Ich fürchte, ich habe Euch nicht verstanden."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

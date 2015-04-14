@@ -239,7 +239,7 @@ queststatus(679) = 100, "normal", money>999 -> inform("[Münzspiel] Münze werfen 
 queststatus(679) = 100, "many", money>9999 -> inform("[Coin Game] Flipping coin for one gold. Use 'heads', 'tails', 'other' or break up the game by 'stop' or 'end'."), queststatus(679) = 103, "Interesting, interesting. What's your tip?", "More is better. Which side of the coin is your choice?"
 queststatus(679) = 100, "viel", money>9999 -> inform("[Münzspiel] Münze werfen um ein Goldstück. Sage 'Kopf', 'Zahl', 'Rand' oder brich das Spiel ab mit 'Stop' oder 'Ende'."), queststatus(679) = 103, "Sehr interessant. Auf welche Zahl tippst du?", "Nur so kann man zu etwas kommen. Was willst du tippen?"
 -- !!!Delete for Final!!! Wir können noch mal überlegen, ob ein Abbruch bei sonstigem Text Sinn macht. Ich denke mal, als Sicherheit ja
-queststatus(679) = 100, english, ".*" -> inform("[Coin Game] game aborted."), queststatus(679) = 0, "What a pity. You could win a lot of money.", "Are you sure?", "Come please, just one game?"
+queststatus(679) = 100, english, ".*" -> inform("[Coin Game] Game aborted."), queststatus(679) = 0, "What a pity. You could win a lot of money.", "Are you sure?", "Come please, just one game?"
 queststatus(679) = 100, ".*" -> inform("[Münzspiel] Spiel abgebrochen."), queststatus(679) = 0, "Wie schade. Du hättest eine Menge Geld gewinnen können.", "Bist du dir sicher?", "Ach komm schon, nur ein Spielchen, bitte."
 
 -- coin 1 silver
@@ -360,14 +360,6 @@ english, "temple" -> "Nargun's temple is in Galmair. It's not far away from here
 "mein Name" -> "Schön... und willst du ein Spiel wagen? Würfel oder Münze?"
 english, "Xiao Gongzou" -> "Yes, that is my name. But how about a game?"
 "Xiao Gongzou" -> "Ja, das ist mein Name. Aber warum wollen wir nicht ein Spielchen wagen?"
-"Yes" -> "A bit more precise, please!", "Nargun would like this answer."
-"Ja" -> "Etwas konkreter, wenn ich bitten darf!", "Eine Antwort, die Nargun gefallen würde."
-"No" -> "A bit more precise, please!", "Nargun would like this answer."
-"Nein" -> "Etwas konkreter, wenn ich bitten darf!", "Eine Antwort, die Nargun gefallen würde."
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Pitch-and-toss ... let Nargun decide if we play!", "The luck favours you. Why not try to roll the dice?"
-german, chance(20.0), ".*" -> "Kopf oder Zahl ... lasst Nargun entscheiden, ob du spielst.", "Das Glück ist auf deiner Seite. Warum nicht einfach mal würfeln?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -386,3 +378,5 @@ cycletext "#me untersucht einen Würfel.", "#me examines a dice."
 cycletext "#me würfelt für sich selber.", "#me rolls the dice for himself."
 cycletext "#me schaut sich unbeteiligt die Leute an.", "#me examines the people around."
 cycletext "#me stapelt einige Münzen vor sich", "#me stacks some coins in front of himself on the table."
+cycletext "Kopf oder Zahl ... lasst Nargun entscheiden, ob du spielst.", "Pitch-and-toss ... let Nargun decide if we play!"
+cycletext "Das Glück ist auf deiner Seite. Warum nicht einfach mal würfeln?", "The luck favours you. Why not try to roll the dice?"

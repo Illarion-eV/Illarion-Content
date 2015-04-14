@@ -240,14 +240,6 @@ english, "Bragon", "Brágon" -> "The flame of Brágon warms the living as a part o
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Truciolo", "Pialla" -> "What's up?", "Sorry?", "#me nods once and raises an eyebrow."
 "Truciolo", "Pialla" -> "Ja?", "Was wollt ihr?", "#me nickt dir zu und zieht eine Braue hoch."
-"Yes" -> "Sure, then go and collect those things I asked you for.", "If you say so.", "All right, have fun!"
-"Ja" -> "Aber nun mal los. Mach dich auf den Weg und sammel was ich von dir wollte!", "Na wenn du meinst", "Ist gut, viel Vergnügen!"
-"No" -> "What did you say? I hope I didn't hear you correctly!", "You say no... no to me, who do you think you're speaking to?", "With that attitude, you won't become a good carver."
-"Nein" -> "Was sagst du da. Ich hoffe ich habe mich verhört?!", "Du sagst Nein...nein zu mir? Was denkst du mit wem du sprichst?!", "Dann nicht. So wird nie was aus dir!"
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Eh..what did you just say about my brothers and sisters?", "What are you jabbering about?", "No, I don't want to buy that!"
-german, chance(20.0), ".*" -> "Eh..was hast du grad über meine Geschwister gesagt?", "Was quasselst du da?", "Nein, ich will das nicht kaufen!"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
