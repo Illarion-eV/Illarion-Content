@@ -31,8 +31,8 @@ end
 
 local magic = monstermagic()
 
-magic.addSummon{probability = 0.0250, monsters = {43,44,41}} -- orcs
-magic.addSummon{probability = 0.0050, monsters = {45,42}} -- orcs
+magic.addSummon{probability = 0.0350, monsters = {43, 44, 41}} -- orcs
+magic.addSummon{probability = 0.0090, monsters = {45, 42}} -- orcs
 magic.addSummon{probability = 0.0001, monsters = {1121, 903}} -- night Dragon, shadow imp
 
 return magic.addCallbacks(M)
