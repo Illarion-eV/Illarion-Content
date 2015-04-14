@@ -1086,7 +1086,7 @@ function DropAmmo(Attacker, Defender, GroundOnly)
             return false
         end
 
-        if not GroundOnly and not character.IsPlayer(Defender.Char) then -- monsters get the ammo into the inventory
+        if not GroundOnly and not character.IsPlayer(Defender) then -- monsters get the ammo into the inventory
             local monsterId = Defender.id
             if not monsterArrowDrop[monsterId] then
                 monsterArrowDrop[monsterId] = {}
