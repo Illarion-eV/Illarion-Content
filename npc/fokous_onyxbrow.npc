@@ -97,6 +97,8 @@ english, "Ciao", "Adieu", "Au revoir" -> "Go on with you, I have work to do.", "
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich könnte ein Bier vertragen."
 "your name", "who are you", "who art thou" -> "Arr!! Call me Fokous, Fokous Onyxbrow."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Arr!! Ich bin Fokous, Fokous Onyxbrow."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 
 -- Catching quest triggers of other factions' members.
 english, town = none, "quest", "mission" -> "#me looks at you with suspicious eyes, 'I do not have work for non citizens, you could be a spy!'"

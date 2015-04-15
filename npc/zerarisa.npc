@@ -98,6 +98,8 @@ english, "Ciao", "Adieu", "Au revoir" -> "Goodbye", "Farewell", "#me nods slowly
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Zerarisa issst gut, ja, aber Krallensss ssschmerzensss."
 "your name", "who are you", "who art thou" -> "I be Zerarisa, would you like to do a job for me?"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich sindss Zerarisa, machenss du Aufgabe für michss?"
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 
 -- Tool hints
 queststatus(71) = 0, "rod" -> "You'll need a fissshing rod, you can get one from Advari."

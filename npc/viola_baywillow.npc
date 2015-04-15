@@ -91,6 +91,8 @@ english, "quest", "mission" -> "Alas, another bold traveler! Unfortunately, I ha
 "quest", "mission" -> "Hoi, noch ein tapferer Reisender! Leider habe ich keine Arbeit für euch. Das soll euch nicht entmutigen, da die Reiche immer nach Abenteuerer und Arbeitern suchen!"
 "task", "adventure", "order" -> "Ahh, a case of idle hands, I see. Be assured, traveler, if you're willing to look around there are folks out there that could use a hand or two. Best start with one of the realms!"
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ahh, ein unbeschäftigtes Wesen. Aber keine Angst, es gibt hier und da genug Leute die Unterstützung suchen. Am besten sucht ihr nach ihnen in einem der Reiche!"
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I don't have a specific profession.", "I only pass along information, but I don't have profession, per se."

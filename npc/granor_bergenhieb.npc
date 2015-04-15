@@ -77,6 +77,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go!", "Couldn't care less."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Geh!", "Könnte mich nicht weniger interessieren.", "Endlich kann ich mich wieder der Arbeit widmen.", "Stör mich nicht nochmal!"
 "your name", "who are you", "who art thou" ->  "Granor Bergenhieb. And you? Oh, wait. I don't care."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Granor Bergenhieb. Und du? Halt warte. Interessiert mich nicht."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "It's none for your business what I do."

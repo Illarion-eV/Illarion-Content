@@ -95,6 +95,8 @@ itemShoes = 0
 -- Help
 "Help" -> "[Game Help] This NPC is the bear of Galmair. Keywords: quest, food, dinner, breakfast, lunch, Grijas Kokotte."
 "Hilfe" -> "[Spielhilfe] Dieser NPC ist der Bär von Galmair. Schlüsselwörter: Quest, Futter, Essen, Frühstück, Abendbrot, Grijas Kokotte."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "#me shakes himself."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "#me schüttelt sich."
 
 -- 1st quest
 queststatus(671) = 2, skill(cookingAndBaking) >= 20, item(15, all) > 4, english, town = Galmair, ".+" -> inform("[Bear Quest finished!]"), "#me eats the apples and grumbles satisfied.", deleteItem(15, 5), queststatus(671) = 3, rankpoints + 5

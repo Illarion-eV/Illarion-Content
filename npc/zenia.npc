@@ -75,6 +75,8 @@ english, "Ciao", "Adieu", "Au revoir" -> "Clear waterss on your travelss."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Zzenia geht ess gut. Mutter gibt ihr alless, wass ssie braucht, auch die Hilfe, um ihr Schlafnesst in gutem Zzustand zzu halten."
 "your name", "who are you", "who art thou" -> "Sshe is Zenia, sservant of zze Mozzer."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ssie ist Zzenia, Dienerin der Mutter."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "water" -> "Zze water iz life giving, iz all. *She smiles and bows her head, obviously deep in thought*"

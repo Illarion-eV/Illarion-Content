@@ -75,6 +75,8 @@ english, "Ciao", "Adieu", "Au revoir" -> "Goodbye", "Farewell", "#me nods slowly
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Zlatxhol issst gut, ja.."
 "your name", "who are you", "who art thou" -> "I be Zlatxhol, would you like to do a job for me?"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich sindss Zlatxhol, machenss du Aufgabe für michss?"
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a glassz blower and bricksss maker, do you wantssz to help Zlatxhol?"

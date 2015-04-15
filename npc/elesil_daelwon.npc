@@ -89,6 +89,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Au revoir. *Closes her eyes
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Elesil Daelwon. *Schließt ihre Augen*"
 
 -- OPTIONAL TRIGGERS
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "If necessary, I'm an informant. If asked, I will tell you about Runewick... the buildings, locations, events, people, history or gods. If you require even more, I have at least one task pending."

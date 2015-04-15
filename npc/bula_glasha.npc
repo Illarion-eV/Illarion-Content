@@ -90,6 +90,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebbas"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Hurr! Wir sein gut."
 "your name", "who are you", "who art thou" -> "Joo can calls mes Bula Glasha. Mes have special job yubba."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Du sagen Bula Glasha zu mir, ich Dir geben besonderen Auftrag."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 
 -- OPTIONAL TRIGGERS
 

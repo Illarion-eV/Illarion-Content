@@ -99,6 +99,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell.", "Good bye.", "B
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Wenn Brágon mich heute erhört, besser.", "Möchtet ihr mit mir beten?", "Gut, Brágon zu Ehren!"
 "your name", "who are you", "who art thou" -> "Nobarg.", "Nobarg, priest of Brágon"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Nobarg", "Nobarg, Priester von Brágon"
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- 3st quest: final Question.
 queststatus(600) = 11, queststatus(603) = 8, "age" -> inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos. Your keyword is 'Concord'."), queststatus(600) = 21, "That is not difficult, of course. It was in the Age of Concord! *sings a few lines to himself* The world is perfect. You cannot improve her. La, la,....well, I hope you are satisfied! Farewell! *lowers his head and starts praying*"

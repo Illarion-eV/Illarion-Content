@@ -77,6 +77,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Come back, if you dare."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin ein Defensor von Akaltuts Versteck. Bestehe meinen Test um zu zeigen das Du ein Verbündeter bist und ich werde Dir den Weg öffnen."
 english, "your name", "name" -> "I am Defensor Robur."
 "ihr name", "Name" -> "Ich bin Defensor Robur."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "My job is a Defensor, I make sure only the worthy move on."

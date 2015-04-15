@@ -82,6 +82,8 @@ queststatus(75) > 2, ".*" -> "Error! Something went wrong, please inform a devel
 -- Help
 "Help" -> inform("[Game help] This NPC is the royal fan-waver Hassan. Keywords: Greetings, Profession, Tavern.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der königliche Fächelwedler Hassan. Schlüsselwörter: Seid gegrüßt, Beruf, Taverne.")
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- fix
 

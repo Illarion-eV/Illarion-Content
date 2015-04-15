@@ -92,6 +92,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Oh, won't you please visit 
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Hach, ich weiß schon gar nicht mehr, wie sich ein schlechter Tag anfühlt.", "Heute ist ein toller Tag.", "Ich bin ein bisschen müde, wie geht es euch?", "Ich hab die Sonne im Herzen.", "Ich bin etwas beschäftigt und kann jetzt nicht plaudern."
 "your name", "who are you", "who art thou" -> "I am Linda Rabon, the cook for this tavern.", "I am Linda Rabon, Severus' daughter.", "I'm Linda Rabon. I may not look it, but I am the best cook in Cadomyr.", "I am Linda. Haha, I'm sorry, you made a funny face.", "I'm Linda, I'll cook you something special if you ask."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Linda Rabon, die Köchin dieser Taverne.", "Ich bin Linda Rabon, die Tochter des Severus.", "Ich bin Linda Rabon. Es mag nicht so aussehen, aber ich bin Cadomyrs beste Köchin.", "Ich bin Linda. Haha, entschuldigt, aber ihr seht lustig aus.", "Ich bin Linda und ich koche euch was besonders gutes, wenn ihr darum bittet."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 
 -- fix
 queststatus(126) > 0, queststatus(703) = 9, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 10, "Ah, Jakob sent you, but you have already asked me for something to do."

@@ -83,6 +83,8 @@ english, "your name", "name" -> "I am Defensor Affligo."
 "beruf" -> "Meine Aufgabe ist die eines Defensor, ich stelle sicher das nur die Würdigen weiterkommen."
 english, "job" -> "My job is a Defensor, I make sure only the worthy move on."
 "job" -> "Meine Aufgabe ist die eines Defensor, ich stelle sicher das nur die Würdigen weiterkommen."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 english, "Defensor" -> "My job is a Defensor, I make sure only the worthy move on.", "I am Defensor Affligo."

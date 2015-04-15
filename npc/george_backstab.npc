@@ -91,6 +91,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#s Don't leave me alone her
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Schlecht natürlich. Wie würdest du dich fühlen, wenn du eingeperrt wärst?"
 "your name", "who are you", "who art thou" -> "George Backstab, now open the door!"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "George Backstab und nun öffne die Tür!"
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- OPTIONAL TRIGGERS
 

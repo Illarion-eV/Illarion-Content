@@ -143,6 +143,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Be wary of danger on your t
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich kümmere mich nicht darum, Frieden und Gerechtigkeit sind weitauf wichtiger", "Solange Ihr mir keinen Ärger macht, ist alles in Ordnung.", "Glamair ist friedlich und mir geht es gut."
 "your name", "who are you", "who art thou" -> "Gavin Northstar.", "Gavin Northstar. Now please move along.", "Gavin Northstar. I guard this bridge."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Gavin Northstar.", "Gavin Northstar. Bitte geht weiter.", "Gavin Northstar. Ich bewache die Brücke."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 
 -- OPTIONAL TRIGGERS
 

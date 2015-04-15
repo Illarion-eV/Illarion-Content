@@ -75,6 +75,8 @@ itemShoes = 369
 -- 6: Secret Message delivered. Player earns a Pirate map. And a ace slouch hat. Quest Ends.
 "Help" -> inform("[Game Help] This NPC is Tobis Vunu the pirate. Keywords: Adventure, Gods."), state = 0, "Help? I won't help you. Get rid, Jack!"
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Tobis Vunu der Pirat. Schlüsselwörter: Abenteuer, Götter."), state = 0, "Helfen? Ich werd dir nich helfen. Verschwinde, Leichtmatrose!"
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- create script at tobacco field. [[use 'lighted toarch' & 'tobaccofield tile = spawn flames (item wich disapear by time) over whole tobacco field tiles. + set queststauts=3 + inform( You destroyed the tabacco field. Well done. Talk to Tobis Vunu now. ) // inform( Du hast das Tabakfeld zerstört. gut gemacht. Spreche nun mit Tobis Vunu. ) ]]
 queststatus(305) = 1, "Botschaft", "verdienen", "aufgabe", "abenteuer" -> inform("Tobis Vunu reicht dir ein Bündel Gewand und einen Schlapphut. Du sollst alles anziehen und das Tabakfeld suchen um es mit einer Fackel unbemerkt zu zerstören."), item(356, 1, 550), item(180, 1, 550), item(181, 1, 550), item(391, 1, 550), queststatus(305) = 2, "Aye. Piero schickt dich? Also gut, du ziehst jetzt dieses Zeug an. Nimmst eine Fackel und brennst das Tabakfeld der Piraten ab. Lass dich aber nicht dabei beobachten!"

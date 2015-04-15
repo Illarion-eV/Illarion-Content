@@ -95,6 +95,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "See ya soon."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Lotta Medborgar die Jägerin"
 
 -- OPTIONAL TRIGGERS
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 english, "inform" -> inform("[Keywords] Illarion, northeast, northwest, southwest, southeast"), "I can give you information about places near Galmair. Just ask me!"

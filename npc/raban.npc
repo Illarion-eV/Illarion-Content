@@ -97,6 +97,8 @@ english, "Ciao", "Adieu", "Au revoir" -> "Ushara may guide your way.", "Farewell
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Umgeben von Pflanzen und Bäumen fühle ich mich immer beruhigt.", "Es würde mir weit besser gehen, wenn ein Jeder die Wälder achten würde. Sind diese Bäume nicht wunderbar?", "Ich kann mich nicht beklagen. Meine Bäume wachsen wunderbar und der kleine dort ist gerade zehn geworden. Ich erinnere mich, wie ich ihn gepflanzt habe, als wenn es gestern wäre."
 "your name", "who are you", "who art thou" -> "They used to call me Raban when people still came here.", "Raban.", "I am an old man without use for a name. The trees and plants have their own word for me. You may call me Raban."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Sie haben mich Raban genannt, damals, als noch von Zeit zu Zeit Leute hierher kamen.", "Raban.", "Ich bin ein alter Mann, ohne Bedarf für einen Namen. Die Bäume und Pflanzen haben ihre eigene Bezeichnung für mich. Du kannst mich hingegen Raban nennen."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- 1st quest: Take a tool and gather 10 raw materials for 500cp.
 queststatus(66) = 0, english, "quest", "mission" -> inform("[New quest] Raban's Grove I"), item(126, 1, 399), queststatus(66) = 1, "So, you want to help me and the forest? Here, take this sickle and bring me ten fir tree seedling from the trees around."

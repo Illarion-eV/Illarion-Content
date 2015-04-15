@@ -85,6 +85,8 @@ itemShoes = 53
 -- Help
 "Help" -> inform("[Game Help] This NPC is Ruggero Bloom, a scruffy pirate. Keywords: Job, Tobacco, Entrance, Corporal Piero."), "Help? I won't help you. Get out, Jack!"
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Ruggero Bloom, ein lottriger Pirat . Schlüsselwörter: Beruf, Tabak, Zutritt, Corporal Piero."), "Helfen? ich werd dir nich helfen. Verschwinde du Leichtmatrose!"
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- language: human, common
 state = 5, english, ".*" -> state = 6, attrib(hitpoints) - 5000, attrib(hitpoints) + 1, "#me swings his fist into your stomach.'Do you have cheese beetween your ears? I don't want to see you again here!'"

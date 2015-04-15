@@ -110,6 +110,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Aye, take care.", "Irmorom 
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich kann nich klagen und du?", "Ganz gut und selbst?", "Mal so, mal so, aber gerade geht es mir ganz gut."
 "your name", "who are you", "who art thou" -> "I'm Grijas and who are you?", "I'm called Grijas, Grijas Kokotte, and what's your name?"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Grijas und wer bist du?", "Man nennt mich Grijas, Grijas Kokotte und wie nennt man dich?"
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- Straight to repeated quest
 skill(cookingAndBaking) > 79, queststatus(671) = 0, english, town = Galmair, "quest", "mission", "task", "adventure" -> inform("[Bear Quest] Feed a salmon!"), queststatus(671) = 13, queststatus(673) = 18, "I see. You are a good cook and interested in our town. Could you please feed the Bear of Galmair a salmon."

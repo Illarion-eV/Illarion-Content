@@ -117,6 +117,8 @@ english, "Hastings", "Baron" -> "Hush! Not in public."
 -- Optional: Catching typical NPC phrases
 "what sell", "what buy", "list wares" -> "I am not a trader but I can repair your items."
 "was verkauf", "was kauf", "warenliste" -> "Ich bin kein Händler aber ich kann eure Gegenstände reparieren."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Irmorom, the god of crafting, is the only god I really pray to. I respect them all, though. Even Oldra!"

@@ -74,6 +74,8 @@ english, "Gobaith", "Gobiath" -> "I know nothing of that land."
 "mein Name" -> "Ich bin Gorgophone, die grimmige Schlächterin."
 english, "exit", "way out", "escape" -> "There is an exit somewhere. Maybe you will find it before you die."
 "Ausgang" -> "Es gibt einen Ausgang irgendwo. Vielleicht findet ihr ihn, bevor ihr hier zugrunde geht."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his environment
 "mother", "spider" -> "I am mother of many... hundreds... maybe thousands?"

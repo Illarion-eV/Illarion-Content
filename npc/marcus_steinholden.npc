@@ -77,6 +77,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Marcus wishes you safe trav
 "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Mar..Marcus ist Marcus. Er ist Zauberlehrling der großen Meisterin Akaltut."
 english, "your name", "name" -> "Mar.. Marcus is Marcus. He is the apprentice to the great Master Akaltut."
 "ihr name", "Name" -> "Mar..Marcus ist Marcus. Er ist Zauberlehrling der großen Meisterin Akaltut."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Marcus does stu..study magic when his Master is not busy punishing him. For now he guards the doors because he failed to acquire Cadomyr for Master."

@@ -96,6 +96,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ronagan's blessing and watc
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Abgesehen von meinem Rücken geht es mir gut, danke sehr! Vielleicht könnte Ihr mir ja bei einer Aufgabe helfen."
 "your name", "who are you", "who art thou" -> "In front of you stands the smuggler Ehrom Goldhammer, aye!"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Vor Euch steht der Schmuggler Ehrom Goldhammer, aye!"
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 -- 1st quest: Get five copper goblets.

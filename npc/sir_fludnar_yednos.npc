@@ -99,6 +99,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Get out!", "Finally!", "...
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Würde man mich nicht stören, würde es mir besser gehen.", "Könnt ihr bitte leise sein?", "Gut, Gut, aber nun lasst mich weiterarbeiten."
 "your name", "who are you", "who art thou" -> "Who asks?", "Sir Fludnar Yednos.", "Why do you need to know?"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Wer fragt?", "Sir Fludnar Yednos.", "Ist das von belang zu wissen?"
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- quest - player has gained tasks from Nobarg
 queststatus(603) < 8, queststatus(603) > 0, english, ".*" -> inform("[Hint] You have to fulfil NPC Nobarg' tasks before you can continue here."), "Are you not busy with other tasks? Please do not interrupt me until you are done with them."

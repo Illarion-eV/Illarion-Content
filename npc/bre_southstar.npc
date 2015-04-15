@@ -151,6 +151,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May Justice and peace make 
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, auch wenn ich gar nicht weiß, wieso.", "Heute ist ein guter Tag, eigentlich ist jeder neue Tag ein guter.", "Ich bin mit mir im Einklang... denke ich."
 "your name", "who are you", "who art thou" -> "I'm Bre Southstar.", "I am the pretty dwarf warrior, Bre Southstar.", "I prefer the name 'Amazing Battle Dwarf Bre the Southstar'."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Bre Southstar.", "Ich bin die schicke Zwergenkriegerin, Bre Southstar.", "Ich würde die Anrede 'Großartige Zwergenkriegerin Bre der Southstar' vorziehen."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
+
 
 -- OPTIONAL TRIGGERS
 

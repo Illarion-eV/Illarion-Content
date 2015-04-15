@@ -161,6 +161,8 @@ english, "Gobaith", "Gobiath" -> "Leave me in peace about that!"
 "Gobaith", "Gobiath" -> "Lasst mich doch damit in Frieden!"
 "my name" -> "That information is too vital to me. I'll write it down immediatly... after my next beer."
 "mein Name" -> "Diese Information ist so weltbewegend für mich, dass ich sie sofort niederschreiben werde... nach meinem nächsten Bier."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 english, "tavern" -> "Did you ever wonder where all this booze comes from? No? Good!"

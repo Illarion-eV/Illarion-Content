@@ -90,6 +90,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Bye bye, take care.", "The 
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich kann nicht klagen und du?", "Ganz gut und selbst?", "Mal so, mal so, aber gerade geht es mir ganz gut."
 "your name", "who are you", "who art thou" -> "I'm Truciolo and who are you?", "I'm called Truciolo, and what's your name?"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin der Schnitzer Truciolo und wer bist du?", "Man nennt mich Truciolo und wie nennt man dich?"
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- 1st quest
 queststatus(670) = 0, english, town = Galmair, "quest", "mission" -> "I could help you if you want to become a carver as well, but first bring me ten logs of apple wood, along with ten boughs, and don't forget to bring a saw. Here is a hatchet for you to get the wood.", item(74, 1, 333), queststatus(670) = 1

@@ -97,6 +97,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a nice day!", "Goodbye
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie befind" -> "Ich habe Sand ins Auge bekommen - wie würdest du dich fühlen!?", "Gut, gut.", "Ich kann nur sagen, ich hoffe es geht dir so gut wie mir!"
 "your name", "who are you", "who art thou" -> "I am Rutrus and who are you?", "Be greeted, I am the digger Rutrus.", "I am Rutrus and this here is my shovel."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Rutrus und wer bist du?", "Grüße dich, ich bin der Gräber Rutrus.", "Ich bin Rutrus und das in meinen Händen ist meine Schaufel."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- 1st quest: Take a tool and gather 10 raw materials for 50cp.
 queststatus(67) = 0, english, "quest", "mission" -> inform("[New quest] Oasis of Stars I"), item(24, 1, 399), queststatus(67) = 1, "Oh! You want to help me? Take this shovel and get ten piles of coarse sand. Dig for it nat sand pits in the desert. Your reward will be five silver coins."

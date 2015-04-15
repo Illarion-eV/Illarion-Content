@@ -90,6 +90,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Fareebas."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Tronruk", "Tronruk, alter Ork mich bin. Hurr."
 english, "Tronruk" -> "Yubba, dat meh name! *hits his chest and grunts*"
 "Tronruk" -> "Yubba, das mein Name! *schlägt sich auf die Brust*"
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 queststatus(602) = 0, english, "quest", "mission" -> inform("[Quest 'Beer for Tronuk' started] Take Tronuk a full bottle beer."), queststatus(602) = 1, "A mission you wish. Hurr, onlhe little task. Bring Tronruk bottle beer. Beer beh alwaehs guud. But nub warm stumpie beer!"

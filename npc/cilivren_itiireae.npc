@@ -96,6 +96,8 @@ english, "Ciao", "Adieu", "Au revoir" -> "May the five guide you.", "Farewell an
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich bin reich gesegnet."
 "your name", "who are you", "who art thou" -> "My name is Cilivren Itiireae, I am the Guardian of the Fields."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Mein Name ist Cilivren Itiireae, Ich bin der Wächter der Felder."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 
 -- Catching quest triggers of other factions' members.
 english, town = none, "quest", "mission" -> "Only those from the realm of wisdom will find work here."

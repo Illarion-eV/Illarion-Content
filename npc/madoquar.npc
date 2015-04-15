@@ -135,6 +135,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Leaving so soon? Please be 
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> end, end, "Gestern habe ich einen Sonnenuntergang gesehen, der mir die Sprache verschlagen hat. Ich habe die Sonne schon tauszehntausvielleicht einhundertausend mal schon versinken gesehen, aber noch nie so.", "Jedesmal, wenn ich das letzte Licht des Morgensterns zwischen die Finger der Welt verblassen sehe, lerne ich etwas neues über Illarion und mich selbst.", "Ich fühle mich großartig, danke.", "Mir geht es wie immer. Mir geht nun schon seit wie vielen Jahren so? Ich denke, es ist ganz normal."
 "your name", "who are you", "who art thou" -> "Madoquar, it's a bit old fashioned, I know.", "Madoquar, a pleasure to meet you.", "Madoquar, the Ageless."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Madoquar, ich weiß, ein altmodischer Name.", "Madoquar, schön euch zu treffen.", "Madoquar, die Alterslose."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 
 -- 1st quest: Find the ghost oak. Tell the player where to go
 

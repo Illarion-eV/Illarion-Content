@@ -96,6 +96,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Don't swallow too much sand
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Philipp Molitor, der Karawanenmeister."
 
 -- OPTIONAL TRIGGERS
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 -- Catching quest triggers of other factions' members. Outlaws are ignored.

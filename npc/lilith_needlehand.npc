@@ -86,6 +86,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me waves excitedly.", "Goo
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich bin in Eile. Der Erzmagier hat eine Robe bestellt und ich habe sie noch nicht fertig."
 "your name", "who are you", "who art thou" -> "My name is Lilith Needlehand, and I am a tailor. It is a pleasure to meet you!"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Mein Name ist Lilith Needlehand und ich bin eine Schneiderin. Es ist schön, deine Bekanntschaft zu machen."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 
 -- fix
 queststatus(73) > 0, queststatus(820) = 17, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 18, "Ah Florain sent you but you already asked me for something to do."

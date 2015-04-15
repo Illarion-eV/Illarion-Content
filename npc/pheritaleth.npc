@@ -94,6 +94,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Happy mining.", "Farewell."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich werde Pheritaleth genannt und bin eine Edelsteinkünstlerin."
 
 -- OPTIONAL TRIGGERS
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 
 -- Gemcraft
 "gem", "magical smithing", "smithing", "gemcraft", "transmute", "combine", "enchant" -> gemcraft, "Let me take a look at your gems..."

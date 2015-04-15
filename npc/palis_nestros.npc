@@ -90,6 +90,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Just go away."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Lasst uns mit diesem sinnbefreiten Palaver aufhören und ein paar Orks jagen!"
 "your name", "who are you", "who art thou" -> "My name is Palis Nestros. I enforce the decrees of Her Majesty when it comes to death penalties."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Mein Name ist Palis Nestros. Ich vollstrecke die Urteile ihrer Majestät, soweit sie tödlich sind."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- OPTIONAL TRIGGERS
 
