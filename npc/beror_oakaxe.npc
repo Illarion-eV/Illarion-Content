@@ -109,6 +109,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Dismissed.", "Best of luck.
 "your name", "who are you", "who art thou" -> "I am the royal quartermaster, Beror Oakaxe, and yes, I am a dwarf. An angry dwarf!"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin der königliches Quartiermeister Beror Oakaxe. Und ja, ich bin ein Zwerg. Ein zorniger Zwerg!"
 
+--Optional Triggers
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
+
 -- Catching quest triggers of other factions' members
 english, town = Galmair, "quest", "mission" -> "I do not issue quests to honourless commoners, sorry."
 town = Galmair, "quest", "mission" -> "Ich vergebe keine Aufgaben an ehrloses Gesindel."

@@ -87,6 +87,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell... and come back a
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Mein Name ist Alexis Dostas, ich bin hier der königliche Stallmeister."
 
 -- OPTIONAL TRIGGERS
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- 1st quest: Gather 10 bundles of grain (249)
 queststatus(125) = 0, english, "quest", "mission" -> inform("[New quest] The Royal Stables I"), queststatus(125) = 1, "As you may know, Cadomyr is not blessed with much fertile farmland, hence the stables always lack hay. Could you please bring ten bundles of grain? My gratitude is guaranteed."

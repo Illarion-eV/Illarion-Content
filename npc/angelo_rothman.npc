@@ -99,6 +99,8 @@ english, "Cadomyr" -> "Where is that?"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe nur meine Biester an Kämpfer, die es Wert sind und sich beweisen sollen."
 "tale", "story", "tell something" -> "Start to write your own story by fighting in my arena."
 "geschichte", "erzähl was", "erzähl etwas" -> "Schreib deine eigene Geschichte, indem du in meiner Arena kämpft."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- arena phrases
 "fight" -> "What beast would you like to fight against today?", arena(requestMonster)

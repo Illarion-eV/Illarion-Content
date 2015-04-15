@@ -81,6 +81,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "I wish you a nice day.", "I
 "beruf" -> "Ich bin natürlich ein Schmied. Vielleicht habe ich später eine kleine Aufgabe für Euch."
 english, "job" -> "I'm a smith of course, maybe I'll have a little task for you later."
 "job" -> "Ich bin natürlich ein Schmied. Vielleicht habe ich später eine kleine Aufgabe für Euch."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- help triggers
 english, "mine" -> "If you leave the town and follow the street to the south you will reach the 'Cornerstone of Candour', you can find coal there. If you leave the town and go northeast you will reach the 'Liberty Quarry', you can find iron and copper ore there, and sometimes even gold nuggets."
