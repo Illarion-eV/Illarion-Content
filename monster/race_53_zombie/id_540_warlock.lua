@@ -35,8 +35,8 @@ end
 local magic = monstermagic()
 magic.addWarping{probability = 0.15, usage = magic.ONLY_NEAR_ENEMY}
 
-magic.addSummon{probability = 0.05, monsters = {536, 535}} -- Ragged Bog Body, Bog Body (level 3 and 4 monsters)
-magic.addSummon{probability = 0.002, monsters = {537, 532}} -- Poltergeist, Limping Zombie (level 5)
+magic.addSummon{probability = 0.05, monsters = {1031, 1032, 1041, 1042}} -- slimes
+magic.addSummon{probability = 0.002, monsters = {1033, 1043}} -- Poltergeist, Limping Zombie (level 5)
 magic.addSummon{probability = 0.0001, monsters = {540}} -- rare summon. Another warlock. Twice the fun.
 
 
