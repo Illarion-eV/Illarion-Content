@@ -35,9 +35,9 @@ end
 local magic = monstermagic()
 magic.addWarping{probability = 0.05, usage = magic.ONLY_NEAR_ENEMY}
 
-magic.addSummon{probability = 0.045, monsters = {103, 593, 536, 102}} -- summon mummy and scarab
+magic.addSummon{probability = 0.045, monsters = {103, 593, 172, 102}} -- summon mummy and scarab
 magic.addSummon{probability = 0.008, monsters = {108, 109,}} -- palace guard and forgotten mummy
-magic.addSummon{probability = 0.0001, monsters = {231}} -- Kings Fright
+magic.addSummon{probability = 0.0001, monsters = {110}} -- clone spell
 
 M = magic.addCallbacks(M)
 return mageBehaviour.addCallbacks(magic, M)
