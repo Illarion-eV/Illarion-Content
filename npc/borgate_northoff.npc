@@ -176,18 +176,8 @@ english, "Ronagan" -> "I don't know much about Ronagan, only that I'll become en
 "erzähl was", "erzähl etwas" -> "Ich höre viel und weiss eigentlich fast alles. Ich erzähl' dir aber nichts davon, das geht dich nunmal nichts an."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"Borgate", "bar", "Northoff" -> "Indeed, I'm the bartender here. What's your order?"
-"Borgate", "wirt", "Northoff" -> "Genau, ich bin hier der Wirt. Was willst du trinken?"
-"Yes" -> "Arr-h!", "That's the way it's supposed to be!", "Well then!"
-"Ja" -> "Arr-h!", "So soll's sein!", "Aye, das hab ich gern.", "Wenn's unbedingt notwenig ist."
-"No" -> "Arr-h?", "Nevermind.", "Anything else?"
-"Nein" -> "Arr-h?", "Dann eben nicht.", "Was wollt ihr dann von mir?"
-
--- Absolutely last catch: Everything a player says and is not caught earlier
--- This response should give the player a hint about what to ask the NPC
--- Optional Trigger /  Response is only given 1/5 of the time
-english, chance(80.0), ".*" -> "#me nods slowly. 'Aha..?'", "#me slowly shakes his head. 'Hmpf.'", "#me starts to comb his long beard with his figners. 'Is that true?'", "#me wrinkles his big chubby nose. 'Ye-h. I just came to same conclusion.'", "#me takes a sip out of his beer mug. '... incredible!'", "#me rises a brow. 'Honestly?'", "Aye, heard something similar once before. You wouldn't believe it.", "Honestly? I'm amazed!", "#me crosses his hands behind his back. 'Hm-hm.'", "If it's Irmoroms will...", "#me picks the hair of his beard with two fingers. 'That sounds kind of curious. Don't you think so?'", "#me scratches his chin. 'Interesting, isn't it?'"
-german, chance(80.0), ".*" -> "#me nickt langsam. 'Aha..?'", "#me legt den Kopf schief. 'Hmpf.'", "#me greift sich mit den Fingern in den langen Bart und zieht sie hindurch. 'Ist das so?'", "#me rümpft seine große felischige Nase. 'So etwas dachte ich mir schon.'", "#me nimmt einen Schluck von seinem Bierkrug. '... unglaublich!'", "Aye, so etwas ähnliches hab ich schonmal gehört. Das würde dich wundern.", "Tatsächlich!? Ich bin erstaunt.", "#me verschränkt die Hände im Nacken. 'Hm-hm.'", "Sodar es Irmoroms Wille ist...", "#me zupft mit zwei Fingern an seinem Bart. 'Das ist seltsam. Findest du das nicht auch?'", "#me hebt eine Augenbraue. 'Wirklich?'", "#me kratzt sich nachdenklich am Kinn. 'Was Ihr nicht sagt..?"
+"Borgate", "bar", "Northoff" -> "Indeed, I'm the bartender here. What's your order?", "#me nods slowly. 'Aha..?'", "#me slowly shakes his head. 'Hmpf.'", "#me starts to comb his long beard with his figners. 'Is that true?'", "#me wrinkles his big chubby nose. 'Ye-h. I just came to same conclusion.'", "#me takes a sip out of his beer mug. '... incredible!'", "#me rises a brow. 'Honestly?'", "Aye, heard something similar once before. You wouldn't believe it.", "Honestly? I'm amazed!", "#me crosses his hands behind his back. 'Hm-hm.'", "If it's Irmoroms will...", "#me picks the hair of his beard with two fingers. 'That sounds kind of curious. Don't you think so?'", "#me scratches his chin. 'Interesting, isn't it?'"
+"Borgate", "wirt", "Northoff" -> "Genau, ich bin hier der Wirt. Was willst du trinken?", "#me nickt langsam. 'Aha..?'", "#me legt den Kopf schief. 'Hmpf.'", "#me greift sich mit den Fingern in den langen Bart und zieht sie hindurch. 'Ist das so?'", "#me rümpft seine große felischige Nase. 'So etwas dachte ich mir schon.'", "#me nimmt einen Schluck von seinem Bierkrug. '... unglaublich!'", "Aye, so etwas ähnliches hab ich schonmal gehört. Das würde dich wundern.", "Tatsächlich!? Ich bin erstaunt.", "#me verschränkt die Hände im Nacken. 'Hm-hm.'", "Sodar es Irmoroms Wille ist...", "#me zupft mit zwei Fingern an seinem Bart. 'Das ist seltsam. Findest du das nicht auch?'", "#me hebt eine Augenbraue. 'Wirklich?'", "#me kratzt sich nachdenklich am Kinn. 'Was Ihr nicht sagt..?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
