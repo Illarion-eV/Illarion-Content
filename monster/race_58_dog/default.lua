@@ -23,4 +23,5 @@ local dogs = require("monster.race_58_dog.base")
 local hostileWildlife = require("monster.base.behaviour.hostileWildlife")
 
 local M = dogs.generateCallbacks()
-return hostileWildlife.addCallbacks(M)
+--return hostileWildlife.addCallbacks(M)
+return M

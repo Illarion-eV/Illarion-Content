@@ -31,4 +31,5 @@ function M.onSpawn(monster)
     base.setColor{monster = monster, target = base.SKIN_COLOR, red = 110, green = 110, blue = 110}
 end
 
-return hostileWildlife.addCallbacks(M)
+--return hostileWildlife.addCallbacks(M)
+return M
