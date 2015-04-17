@@ -251,12 +251,8 @@ english, "Malachin" -> "Mala-dingy guide mes smasher. When hunt, den Mala-dingy 
 "erzähl was", "erzähl etwas" -> "Es gewesen Ork. Und gewesen Drache. Ork zermatscht Drache! Gutt Geschicht, eh?"
 
 -- Last catch: Think about keywords the player might say and that are not caught until here.
-english, "Graznok" -> "Hurr? Whub want!?"
-"Graznok" -> "Hurr? Wat woll?"
-"Yes", "yub" -> "Whub want, yoos?", "Whubeva.", "Mes nub understand whub yoos be meanin'."
-"Ja" -> "Wat woll, yoos?", "Watauchimma.", "Mir nix versteh wat yoos meinen."
-"No", "nub" -> "Nub?", "Why nub?", "Whubeva."
-"Nein" -> "Nub?", "Wieso nub?", "Watauchimma."
+english, "Graznok" -> "Hurr? Whub want!?", "Whub want, yoos?"
+"Graznok" -> "Hurr? Wat woll?", "Wat woll, yoos?"
 
 -- Cycletext: Add as many random messages as possible
 

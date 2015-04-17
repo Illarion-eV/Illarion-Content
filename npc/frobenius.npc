@@ -176,10 +176,6 @@ english, "Sirani" -> "Oh, come on, you don't want to talk to a person like me ab
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Frobenius" -> "That's me.", "Frobenius is my name and I am the local blacksmith.", "My weapons bring doom over the foes of Cadomyr."
 "Frobenius" -> "Das bin ich.", "Frobenius ist meine Name und ich bin der Schmied hier.", "Meine Waffen bringen Verderben über die Feinde Cadomyrs."
-"Yes" -> "What do you mean?", "What do you need?", "I have a good weapon for you."
-"Ja" -> "Was meint ihr?", "Was braucht ihr?", "Ich habe eine gute Waffe für euch."
-"No" -> "As you like.", "Per chance you want a helmet?", "My swords never go blunt."
-"Nein" -> "Wie ihr wollt.", "Vielleicht wollt ihr einen Helm?", "Meine Schwerter werden niemals stumpf."
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
@@ -198,3 +194,6 @@ cycletext "Ihr da! Eure Waffe ist der letzte Schrott. Ich hätte da was im Angebo
 cycletext "#me poliert eine Schwertklinge.", "#me polishes the blade of a sword."
 cycletext "Jeden Tag eine gute Tat.", "An axe a day keeps the raptor away."
 cycletext "Heute ist ein guter Tag zum Sterben... für die Feinde der Königin!", "Today is a good day to die fighting the foes of the Queen."
+cycletext "Meine Schwerter werden niemals stumpf.", "My swords never go blunt."
+cycletext "Ich habe eine gute Waffe für euch.", "I have a good weapon for you."
+cycletext "Vielleicht wollt ihr einen Helm?", "Per chance you want a helmet?"

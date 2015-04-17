@@ -179,10 +179,6 @@ english, "Adron" -> "Truly, Adron is my saviour. Without him, nobody would enjoy
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Jonathan", "Cyrus" -> "No, my daughter is not called Miley."
 "Jonathan", "Cyrus" -> "Nein, meine Tochter heißt nicht Miley."
-"Yes" -> "The Queen's favourite word, 'Yes'.", "Fine.", "You may want to take a look at my goods."
-"Ja" -> "Das Lieblingswort der Königin: 'Ja'.", "Fein.", "Vielleicht wollt ihr einen Blick auf meine Waren werfen."
-"No" -> "Well, maybe I can delight you with some candles instead?", "No?", "Why do you resist?", "You can say 'no', until you meet the Queen."
-"Nein" -> "Nun, kann ich euch stattdessen mit einigen Kerzen beglücken?", "Nein?", "Wieso widersprecht ihr?", "Ihr könnt solange 'Nein' sagen, bis ihr der Königin gegenübersteht."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -199,3 +195,4 @@ cycletext "#me schnüffelt an einer Kerze: 'Bestes Bienenwachs!'.", "#me sniffs a
 cycletext "Ich habe beste Kerzen im Angebot. Mögen sie euch ein Leuchtfeuer in der Dunkelheit sein.", "I have the best candles on sale. May they be a beacon of light in the darkest night."
 cycletext "Bierkrüge für Zwergenbier, feinste Kelche für Elfenwein - aus meinen Gütern schmeckt jedes Gebräu.", "Beer mugs for dwarven beer, fine goblets for elven wine, out of my goods any brew is tastier."
 cycletext "Das transparente Gold Cadomyrs: Glas!", "The transparent gold of Cadomyr: Glass!"
+cycletext "Vielleicht wollt ihr einen Blick auf meine Waren werfen.", "You may want to take a look at my goods."

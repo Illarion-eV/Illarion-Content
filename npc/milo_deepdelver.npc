@@ -280,10 +280,6 @@ english, "my name" -> "My Name is Milo Deepdelver. I am a herbalist from Runewic
 "mein name" -> "Mein Name ist Milo Deepdelver. Ich bin ein Kräuterkundiger aus Runewick. So die Götter es wollen, bin ich auf dem Weg nach Hause mit meinem unnützen Ochsen hier!"
 english, "Milo", "Deepdelver" -> "Yes, this is my name. If you need some information on the Gods or herb lore just talk to me."
 "Milo", "Deepdelver" -> "Ja, so heiße ich. Falls ihr ein paar Informationen zu den Göttern oder Kräuterkunde benötigt, stehe ich zu eurer Verfügung."
-"Yes" -> "Pardon?", "Could you rephrase that?", "Good to hear that.", "Sure?"
-"Ja" -> "Pardon?", "Könntet ihr das anders ausdrücken?", "Gut zu hören!", "Sicher?"
-"No" -> "Pardon?", "Could you rephrase that?", "Oh, I see.", "Sure?"
-"Nein" -> "Pardon?", "Könntet ihr das anders ausdrücken?", "Nun, ich verstehe.", "Sicher?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

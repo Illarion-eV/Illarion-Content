@@ -258,12 +258,8 @@ english, "Sirani" -> "Sirani, Sirani... The Don mentioned something about Sirani
 "Freibeuter" -> "Schickt euch Mr. Lynch?"
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-english, "Miggs" -> "Aye?", "Shut it!", "What!"
-"Miggs" -> "Ja?", "Schnauze!", "Was!"
-"Yes" -> "Interesting. Now stop talking to me unless you want to work for the Don.", "Ah. So, what?", "You are a 'yes-man', aren't you? We need such people here in Galmair."
-"Ja" -> "Interessant. Nun haltet den Schnabel, es sei denn, ihr wollt für den Don arbeiten.", "Ah. Und nun?", "Ihr seid wohl ein Jasager. Gut, solche Leute können wir hier in Galmair gebrauchen."
-"No" -> "Shall I... 'convince' you?", "Whatever.", "If you say 'no' to the Don, you say 'no' to your... security."
-"Nein" -> "Soll ich euch... 'überzeugen'?", "Wie auch immer.", "Sagt ihr 'nein' zum Don, sagt ich 'nein' zu eurer... Unversehrtheit."
+english, "Miggs" -> "Aye?", "Shut it!", "What!", "Now stop talking to me unless you want to work for the Don.", "Shall I... 'convince' you?", "Whatever."
+"Miggs" -> "Ja?", "Schnauze!", "Was!", "Nun haltet den Schnabel, es sei denn, ihr wollt für den Don arbeiten.", "Soll ich euch... 'überzeugen'?", "Wie auch immer."
 
 -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
@@ -284,3 +280,4 @@ cycletext "Ich halte die Straßen sauber... von den falschen Leuten.", "I keep th
 cycletext "Was guckt ihr!?", "What are ye lookin' at!?"
 cycletext "Macht den Mund zu, es zieht!", "Shut your mouth, there's a terrible draught!"
 cycletext "Unsere Vorräte an Teppichen gehen zur Neige, ich sollte welche ordern.", "We're running low on carpets, I should order some."
+cycletext "Sagt ihr 'nein' zum Don, sagt ich 'nein' zu eurer... Unversehrtheit.", "If you say 'no' to the Don, you say 'no' to your... security."

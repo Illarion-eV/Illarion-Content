@@ -179,10 +179,6 @@ english, "Irmorom" -> "Irmorom helps me to do good business, but my fate is in t
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 english, "Fredericus" -> "I am merely a humble fisherman. But I could tell you about the Gods, shall I?"
 "Fredericus" -> "Ich bin nur ein einfacher Fischer, aber ich könnte euch etwas über die Götter erzählen, wenn ihr Zeit habt."
-"Yes" -> "That's good."
-"Ja" -> "Das ist gut auch so."
-"No" -> "Will bloaters make you content?"
-"Nein" -> "Würde euch ein Bückling zufriedenstellen?"
 "stinkt" -> "Das stimmt nicht."
 "stinks" -> "It does not!"
 

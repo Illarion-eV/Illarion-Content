@@ -178,10 +178,6 @@ english, "Zhambra" -> "Zhambra is the God of friendship, and what token is more 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Jacobus" -> "Jacobus' jewellery is the best from here to Salkamar!"
 "Jacobus" -> "Die Geschmeide von Jakobus sind die besten von hier bis Salkamar!"
-"Yes" -> "Yes?", "Indeed.", "Interesting.", "Huh?", "But why?"
-"Ja" -> "Ja?", "In der Tat.", "Interessant.", "Huh?", "Aber wieso?"
-"No" -> "Not?", "How comes?", "But why not?"
-"Nein" -> "Nicht?", "Warum das?", "Aber warum nicht?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

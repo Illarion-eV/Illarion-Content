@@ -263,10 +263,6 @@ english, "Gobaith", "Gobiath" -> "It is a shame what happened to the Gobaithians
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Hassan" -> "So, who sent you?", "Yes, yes, I know, I should be in the Palace.", "No."
 "Hassan" -> "So, wer schickt euch?", "Ja, ja, ich weiß, ich sollte im Palast sein.", "Nein."
-"Yes" -> "No.", "Not really.", "Peon!"
-"Ja" -> "Nein.", "Nicht wirklich.", "Peon!"
-"No" -> "Oh, I could tell you so many secrets of the Queen, but I am loyal to her.", "Did I mention that I am thirsty?", "Wine is divine."
-"Nein" -> "Oh, ich könnte so viele Geheimnisse der Königin ausplaudern, aber ich bin ihr treu ergeben.", "Erwähnte ich, dass ich Durst habe?", "Wein ist fein."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -284,3 +280,4 @@ cycletext "Ich arbeite im königlichen Palast. Nichts geschieht dort, ohne das ic
 cycletext "#me knurrt beim Anblick seines leeren Glases: 'Warum erfreu ich euch Bauern mit meiner Anwesenheit? Ich, der Liebling der Königin! Sie hat mich gestern sogar angesehen.'", "#me frowns at the empty glass of wine, 'Why do I bless you peasants with my presence? I, who am the Queen's favourite! She even looked at me two days ago!'"
 cycletext "Ich fächere der Königin Luft, damit sie einen ruhigen Kopf bewahren kann. Das nenn' ich eine wichtige Tätigkeit.", "I wave my fan over the Queen, keeping her blue blood cool in this desert heat. Now that is an important duty!"
 cycletext "Wein ist fein.", "Wine is divine."
+cycletext "Oh, ich könnte so viele Geheimnisse der Königin ausplaudern, aber ich bin ihr treu ergeben.", "Oh, I could tell you so many secrets of the Queen, but I am loyal to her."

@@ -325,10 +325,6 @@ english, "Zhambra" -> "I am loyal, for Zhambra smiled upon me. I wouldn't do any
 -- Last catch: Think about keywords the player might say and that are not caught until here.
 english, "Hector", "Valerion" -> "I am proud of being a Valerion. Are you proud to be a...?", "Hector Valerion, at your service.", "I am the royal ambassador and my name is indeed Hector Valerion."
 "Hector", "Valerion" -> "Ich bin stolz darauf, ein Valerion zu sein. Seid ihr stolz darauf ein... was genau nochmal... zu sein?", "Hector Valerion, stets zu Diensten.", "Ich bin der königliche Botschafter und meine Name ist in der Tat Hector Valerion."
-"Yes" -> "Well, no.", "Alright, indeed.", "Who said this?", "#me shrugs.", "I am trying to read!", "#me sighs."
-"Ja" -> "Ja, ne.", "Sicherlich, klar!", "Wer sagt denn sowas?", "#me zuckt mit den Schultern.", "Ich versuche hier zu lesen!", "#me seufzt."
-"No" -> "I guess I forgot which page I was on.", "My book is really interesting. Does the same hold for what you just said?", "Shh!", "Pardon?"
-"Nein" -> "Ich fürchte, ich hab vergessen, auf welcher Seite ich war.", "Mein Buch ist wirklich spannend. Gilt das auch für das, was ihr gerade gesagt habt?", "Psst!", "Pardon?"
 
 -- Cycletext: Add as many random messages as possible
 
@@ -349,3 +345,6 @@ cycletext "Ich hätte heiraten sollen als noch die Zeit dafür war.", "I should ha
 cycletext "Wenn das Leben nicht so läuft, wie man will, sollte man was dagegen tun.", "If life does not turn out how you'd like it, one should do something about it."
 cycletext "Ruhe! Ich lese!", "Silence! I am reading!"
 cycletext "#me betrachtet missmutig eine Schriftrolle, die das königliche Siegel Cadomyrs trägt.", "#me stares morosely at a scroll that bears the royal seal of Cadomyr."
+cycletext "Ich versuche hier zu lesen!", "I am trying to read!"
+cycletext "#me seufzt.", "#me sighs."
+cycletext "Psst!", "Shh!"

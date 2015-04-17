@@ -225,10 +225,6 @@ english, "Cherga" -> "I do not love Cherga, but I honour her. Her acts as Guardi
 -- Last catch: Think about keywords the player might say and that are not caught until here.
 english, "Gregor", "Remethar" -> "I am the local mortician. Nobody loves me, but everyone needs me - eventually."
 "Gregor", "Remethar" -> "Ich bin hier der Leichenbestatter. Niemand liebt mich, aber jeder braucht mich - eines Tages."
-"Yes" -> "Really.", "By Cherga, could you put that differently?", "Honour the dead."
-"Ja" -> "Wirklich.", "Bei Cherga, könntet ihr das anders ausdrücken?", "Ehret die Toten."
-"No" -> "Should I take your measurements for a coffin now or later?", "I do not quite understand. I would have some?", "Pardon?"
-"Nein" -> "Soll ich eure Maße für einen Sarg jetzt aufnehmen oder später?", "Ich verstehe nicht recht. Müßte ich etwa?", "Pardon?"
 
 -- Cycletext: Add as many random messages as possible
 
@@ -247,3 +243,4 @@ cycletext "#me rollt bedächtig ein Maßband aus.", "#me slowly rolls out a measur
 cycletext "Soll ich eure Maße jetzt oder später aufnehmen?", "Should I take your measurements now or later?"
 cycletext "Mein Geschäft ist sicher - gestorben wird immer!", "My business is safe - there will always be death."
 cycletext "#me keucht wiederholt auf.", "#me coughs repeatedly."
+cycletext "Ehret die Toten.", "Honour the dead."

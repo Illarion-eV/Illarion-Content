@@ -230,10 +230,6 @@ english, "Ushara" -> "Ushara is the body."
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Bathelor" -> "My name is not that important, you can call me your 'Highness' or 'Excellency'."
 "Bathelor" -> "Mein Name ist nicht so wichtig, ihr könnt mich auch 'Durchlaucht' oder 'Exzellenz' nennen."
-"Yes" -> "Hail Brágon!", "Blessed be Brágon!", "Praise Brágon!", "Honour Brágon!"
-"Ja" -> "Gelobet sei Brágon!", "Lobet Brágon!", "Ehret Brágon!"
-"No" -> "Hail Brágon!", "Blessed be Brágon!", "Praise Brágon!", "Honour Brágon!"
-"Nein" -> "Gelobet sei Brágon!", "Lobet Brágon!", "Ehret Brágon!"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -251,3 +247,5 @@ cycletext "Gelobt sei Brágon!", "Hail Brágon!"
 cycletext "Träume ich oder ist dieses Feuer die ewige Flamme?", "Am I only dreaming or is this burning an eternal flame?"
 cycletext "Vollbringt Taten im Namen Brágons.", "Do deeds to honour Brágon."
 cycletext "Ich diene dem Gott des Feuers. Und er bringt euch... Feuer!", "I serve the god of fire. And he brings you... fire!"
+cylcetext "Lobet Brágon!", "Blessed be Brágon!"
+cycletext "Ehret Brágon!", "Honour Brágon!"

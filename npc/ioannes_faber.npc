@@ -200,10 +200,6 @@ english, "Irmorom" -> "The dwarves pray to Irmorom to gain wealth, so far, so go
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Ioannes", "Faber" -> "I am the royal treasurer Ioannes Faber. I obey Her Majesty and only Her Majesty."
 "Ioannes", "Faber" -> "Ich bin der königliche Kämmerer Ioannes Faber. Ich gehorche ihrer Majestät und nur ihrere Majestät."
-"Yes" -> "Good to hear.", "Pardon me?", "Indeed.", "I agree."
-"Ja" -> "Gut zu wissen.", "Entschuldigt?", "So, so.", "Meine vollste Zustimmung."
-"No" -> "Maybe you reconsider.", "An interesting point of view.", "How comes?"
-"Nein" -> "Vielleicht überlegt ihr es euch nochmal.", "Eine interessante Sichtweise.", "Wieso das?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

@@ -340,10 +340,6 @@ english, "Zhambra" -> "The doctrines of Zhambra's followers are also mine. Does 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Beror", "Oakaxe" -> "At your service?", "What is it?", "Is this supposed to be a report!?"
 "Beror", "Oakaxe" -> "Stets zu Diensten?", "Was gibt es?", "Soll das eine Meldung sein?"
-"Yes" -> "Acknowledged.", "Affirmative.", "Confirmed."
-"Ja" -> "Zur Kenntnis genommen.", "Verstanden.", "Bestätigt."
-"No" -> "Acknowledged.", "Affirmative.", "Confirmed."
-"Nein" -> "Zur Kenntnis genommen.", "Verstanden.", "Bestätigt."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

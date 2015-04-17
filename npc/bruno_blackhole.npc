@@ -275,10 +275,6 @@ english, "Ushara" -> "Us dwarves honour Ushara. Maybe not every day and with hig
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Bruno", "Blackhole" -> "Aye, that's me I suppose!"
 "Bruno", "Blackhole" -> "Aye, dat bin ich!"
-"Yes" -> "Good for you.", "Aye, I see.", "Are you sure?", "If you say so."
-"Ja" -> "Gut für dich.", "Aye, in Ordnung.", "Bist du dir sicher?", "Wenn du das sagst."
-"No" -> "What a shame.", "Maybe you'll change your mind.", "Well..."
-"Nein" -> "Schade.", "Vielleicht änderst du deine Meinung noch.", "Nun..."
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
 

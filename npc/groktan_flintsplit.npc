@@ -338,10 +338,6 @@ english, "Zhambra" -> "Zhambra is the most overrated god of them all. Friendship
 -- Last catch: Think about keywords the player might say and that are not caught until here.
 english, "Groktan", "Flintsplit" -> "Who asks for me?", "Arr!", "What do you want? Bruises?"
 "Groktan", "Flintsplit" -> "Wer fragt nach mir?", "Arr!", "Was wollt ihr? Ne Abreibung?"
-"Yes" -> "There is something I wanted to say, but I forgot...", "Can you rephrase that?", "Don't try to fool me or I fool you... in your face!"
-"Ja" -> "Ich wollte gerade noch etwas sagen, aber ich hab es vergessen.", "Kannst das anders ausdrücken?", "Veräppel mich und ich veräppel... dein Gesicht!"
-"No" -> "Whatever, I do what the Don wants.", "That is pretty interesting, why don't you tell me more about that?", "What!?", "Eh?"
-"Nein" -> "Na und, ich mach was der Don mir sagt.", "Das ist sehr interessant, warum erzählst du nicht mehr darüber?", "Was!?", "Eh?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

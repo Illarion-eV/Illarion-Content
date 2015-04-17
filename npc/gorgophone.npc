@@ -254,10 +254,6 @@ english, "Oldra" -> "Oldra is the All-Mother, the goddess of fertility, who bles
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Gorgophone" -> "That is me, the grim slayer."
 "Gorgophone" -> "Das bin ich, die grimmige Schlächterin."
-"Yes" -> "#me scampers happily."
-"Ja" -> "#me huscht glücklich hin und her."
-"No" -> "#me glares evilly."
-"Nein" -> "#me starrt böse."
 
 -- Cycle Texts - Messages spoken automatically in random intervals.
 

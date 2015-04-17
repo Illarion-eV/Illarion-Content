@@ -267,10 +267,6 @@ english, "Moshran" -> "Yoos dink bruddahs all pray to Moshran? Yoos hab lotsa le
 -- Last catch: Think about keywords the player might say and that are not caught until here.
 english, "Grakamesh" -> "Dat be mes, yubba!"
 "Grakamesh" -> "Das sein mir, yubba!"
-"Yes" -> "#me starts to dance wildly.", "#me grunts: 'Whub?'", "Whub?"
-"Ja" -> "#me beginnt wild zu tanzen.", "#me grunzt: 'Whas?'", "Whas?"
-"No" -> "Whub now?", "#me stomps on the ground rhythmically.", "Mes gottur dance more so old oomie chief hab peace again."
-"Nein" -> "Whas jetz'?", "#me stampft rhytmisch auf den Boden.", "Ich werdige tanzen, weiter für alte Oomie Häuptling."
 
 -- Cycletext: Add as many random messages as possible
 
@@ -289,3 +285,6 @@ cycletext "Ich bin dein Tänzer! Ein Tänzer der Götter, das ist es was sie von mi
 cycletext "Dort ist böser Spuk in der Gruft! Tanzt mit mir und es wird vergehen!", "Dere be spooks in tomb! Come, dance wid mes to banish dat!"
 cycletext "#me atmet laut aus.", "#me exhales loudly."
 cycletext "#me tanzt einen wilden, unkoordinierten Tanz und singt unverständlich.", "#me dances a wild, uncoordinated dance, singing unintelligibly."
+cycletext "#me beginnt wild zu tanzen.", "#me starts to dance wildly."
+cycletext "#me stampft rhytmisch auf den Boden.", "#me stomps on the ground rhythmically."
+cycletext "Ich werd tanzen, weiter für alten Oomie Häuptling.", "Mes gottur dance more so old oomie chief hab peace again."
