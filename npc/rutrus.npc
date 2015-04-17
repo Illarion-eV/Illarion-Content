@@ -245,10 +245,6 @@ english, "Tanora", "Zelphia" -> "The Kantabi desert is Tanoraforsaken!"
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Rutrus" -> "Rutrus, that's me, most probably. State your business!"
 "Rutrus" -> "Rutrus, das bin wahrscheinlich ich. Was gibt es denn?"
-"Yes" -> "I do not agree.", "Indeed!", "Really?", "Why?", "Ah, yes.", "Whatever."
-"Ja" -> "Dem kann ich nicht zustimmen.", "In der Tat.", "Wirklich?", "Warum?", "Ahja.", "Mir egal."
-"No" -> "I agree.", "Indeed!", "Really?", "Why?", "Ah, yes.", "Whatever."
-"Nein" -> "Dem muss ich zustimmen.", "In der Tat.", "Wirklich?", "Warum?", "Ahja.", "Mir egal."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

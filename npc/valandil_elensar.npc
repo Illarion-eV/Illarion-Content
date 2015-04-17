@@ -256,10 +256,6 @@ english, "Oldra" -> "Oldra is the only young goddess that does not deal too much
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Valandil", "Elensar" -> "Us elves have interesting names, don't we?"
 "Valandil", "Elensar" -> "Wir Elfen haben interessante Namen, nicht wahr?"
-"Yes" -> "Really?", "#me looks confused", "Can your repeat that?"
-"Ja" -> "Wirklich?", "#me schaut etwas verwirrt", "Könnt ihr das wiederholen?"
-"No" -> "No?", "Why not?", "#me shakes his head slowly", "I don't understand..."
-"Nein" -> "Nein?", "Weshalb nicht?", "#me schüttelt seinen Kopf bedächtig", "Ich verstehe nicht ganz..."
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
 

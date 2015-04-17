@@ -314,10 +314,6 @@ english, "Sirani" -> "Why I pray to Sirani? Good friends become even better frie
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Nana", "Winterbutter" -> "That's me!", "Oh, indeed, I am Nana Winterbutter.", "At your service."
 "Nana", "Winterbutter" -> "Das bin ich!", "Oh, ja, ich bin Nana Winterbutter.", "Stets zu Diensten."
-"Yes" -> "Pardon, I don't understand what you are referring to.", "What do you mean with 'Yes'?"
-"Ja" -> "Verzeiht, aber ich verstehe nicht, worauf Ihr Euch bezieht.", "Was meint Ihr mit 'Ja'?"
-"No" -> "Pardon, I don't understand what you are referring to.", "What do you mean with 'No'?"
-"Nein" -> "Verzeiht, aber ich verstehe nicht, worauf Ihr Euch bezieht.", "Was meint Ihr mit 'Nein'?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

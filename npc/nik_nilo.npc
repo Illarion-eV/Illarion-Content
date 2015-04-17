@@ -179,10 +179,6 @@ english, "obi" -> "What did you say?"
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Nik", "Nilo" -> "Everyone calls me Big Nik. Well, my friends do. Everyone is my friend here in Galmair."
 "Nik", "Nilo" -> "Jeder nennt mich Big Nik. Jedenfalls tun das meine Freunde. Und hier in Galmair ist jeder mein Freund."
-"Yes" -> "Aye, now come and buy my wares!"
-"Ja" -> "Richtig, und jetzt kauf meine Waren!"
-"Nein" -> "Na dann nicht. Kauft trotzdem meine Waren."
-"No" -> "Well, whatever. Want to buy my wares?"
 
 -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
 

@@ -259,10 +259,6 @@ english, "Falkner" -> "What did you say?", "That's not my name... anymore."
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Raban" -> "Raban... yes, that's what they used to call me."
 "Raban" -> "Raban... ja, so hat man mich mal genannt."
-"Yes" -> "Yes?", "Probably.", "I thought so.", "Are you sure?", "Maybe.", "What makes you so sure about this?", "Definitely.", "Whatever..."
-"Ja" -> "Ja?", "Wahrscheinlich.", "Hab ich mir gedacht.", "Seid ihr sicher?", "Vielleicht.", "Was macht euch so sicher?", "Sicherlich.", "Wie auch immer..."
-"No" -> "No?", "But on the other hand...", "Well...", "Maybe you should reconsider this?", "Is that all you have to say about this?", "I disagree."
-"Nein" -> "Nein?", "Aber andererseits...", "Nun...", "Vielleicht ändert ihr eure Meinung noch einmal?", "Ist das alles, was ihr dazu sagen wollt?", "Ich muss widersprechen."
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
 

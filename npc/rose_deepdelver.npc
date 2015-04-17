@@ -121,10 +121,6 @@ english, "my name" -> "My Name is Rose Deepdelver. If you are hungry or thirsty,
 "mein name" -> "Mein Name ist Rose Deepdelver. Wenn du hungrig oder durstig bist, dann komm zu mir!"
 english, "Rose", "Deepdelver" -> "Yes, this is my name. If you need something to drink, just ask me!"
 "Rose", "Deepdelver" -> "Ja, so heiße ich. Falls ihr etwas trinken wollt, fragt nur mich!"
-"Yes" -> "Pardon?", "Could you rephrase that?", "Good to hear that.", "Sure?"
-"Ja" -> "Pardon?", "Könntet ihr das anders ausdrücken?", "Gut zu hören!", "Sicher?"
-"No" -> "Pardon?", "Could you rephrase that?", "Oh, I see.", "Sure?"
-"Nein" -> "Pardon?", "Könntet ihr das anders ausdrücken?", "Nun, ich verstehe.", "Sicher?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

@@ -213,10 +213,6 @@ english, "Ushara" -> "Ushara, did you know that some call her Ushi, hihi? Actual
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Baldo", "Proudtoe" -> "Us Proudtoes are very proud of our toes!", "An ancestor of mine had a very big toe. Thus, my family has the name Proudtoe!", "I'm not proud of what I am or do - but I am proud of my toes!"
 "Baldo", "Proudtoe" -> "Wir Proudtoes sind sehr stolz auf unsere Zehen!", "Einer meiner Vorfahren hatte einen riesigen Zeh. Also ist der Name meiner Familie Proudtoe!", "Ich bin nicht stolz darauf, was ich bin oder mache - aber ich bin auf meine Zehen stolz!"
-"Yes" -> "Oh yes, indeed.", "Absolutely.", "I couldn't agree more!"
-"Ja" -> "Oh ja, wirklich.", "Absolut.", "Ich bin vollkommen überzeugt."
-"No" -> "Oh no, not really.", "Seriously?", "I couldn't agree less."
-"Nein" -> "Oh, nicht wirklich, oder?", "Im Ernst?", "Das sehe ich aber anders."
 
 -- Easteregg
 english, "Samwise" -> "How come everyone asks me about a 'Samwise'?", "My name is not 'Samwise'! Who is that, anyway?", "Pardon me? 'Samwise', who's that? "

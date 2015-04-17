@@ -178,10 +178,6 @@ english, "Irmorom" -> "He keeps me at the top of my craft, which makes me money,
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Francois", "Delacroix" -> "Do you need something? Chances are I sell it."
 "Francois", "Delacroix" -> "Bracht Ihr etwas? Die Chancen stehen gut, dass ich es verkaufe."
-"Yes" -> "Please be more specific. "
-"Ja" -> "Bitte seid etwas genauer in Eurer Wortwahl."
-"No" -> " Please be more specific."
-"Nein" -> "Bitte seid etwas genauer in Eurer Wortwahl."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

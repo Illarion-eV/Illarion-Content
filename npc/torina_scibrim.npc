@@ -299,10 +299,6 @@ english, "Zhambra" -> "Pray to Zhambar, so he'll protect your friends during bat
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Torina", "Scibrim" -> "Did I hear someone call my name? How can I help you?", "Yes? That's me!"
 "Torina", "Scibrim" -> "Habe ich jemanden nach mir rufen hören? Was kann ich für Euch tun?", "Ja? Das bin ich!"
-"Yes" -> "I see, we agree on that."
-"Ja" -> "I sehe, wir sind uns einig."
-"No" -> "So you don't think that way?", "Well...I wouldn't say it that way."
-"Nein" -> "Ihr seht dies also anders?", "Nun ja... so würde ich das nicht sagen."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

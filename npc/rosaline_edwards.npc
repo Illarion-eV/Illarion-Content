@@ -273,12 +273,6 @@ english, "STFU" -> "I heard that, scum!"
 "tell something" -> "I will tell you something, my realm is named Cadomyr and I will do anything to make it prosper."
 "erzähl was", "erzähl etwas" -> "Lasst euch das gesagt sein; mein Reich nennt sich Cadomyr und ich werde alles in meiner Macht liegende tun, um es gedeihen zu lassen."
 
--- Last catch: Think about keywords the player might say and that are not caught until here
-"Yes" -> "Good.", "Wonderful.", "Right."
-"Ja" -> "Gut.", "Wunderbar.", "Recht so."
-"No" -> "You dare to disagree with me?", "'No'? That word is unfamiliar to me.", "You must mean, 'Yes, my Queen!'"
-"Nein" -> "Wagt ihr es, zu widersprechen?", "'Nein', dieses Wort ist mir unbekannt.", "Wolltet ihr nicht vielmehr sagen: 'Ja, meine Königin!'"
-
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.

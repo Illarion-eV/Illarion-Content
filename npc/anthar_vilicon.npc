@@ -521,10 +521,6 @@ english, "Zhambra" -> "Zhambra is the god of loyalty. And I am loyal to my Queen
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Anthar", "Vilicon" -> "I am the royal chancellor, Anthar Vilicon. Treat me with respect and I will treat you likewise. Treat me without respect and you'll end up beheaded."
 "Anthar", "Vilicon" -> "Ich bin der königliche Kanzler, Anthar Vilicon. Erweißt mir Respekt und ich werde euch entsprechend behandeln. Seid respektlos und ihr werdet geköpft."
-"Yes" -> "Very well.", "I assume you agree.", "What do you mean?", "Pardon?"
-"Ja" -> "Sehr gut.", "Ich nehme an, ihr stimmt mir zu.", "Wie meinen?", "Pardon?"
-"No" -> "You dare to disagree?", "I do not know that word: 'No'.", "Obey!", "Pardon?"
-"Nein" -> "Ihr wagt es, zu widersprechen?", "Das Wort kenne ich nicht: 'Nein'.", "Gehorcht!", "Pardon?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

@@ -180,10 +180,6 @@ english, "Irmorom" -> "Only dwarves really pray to Irmorom. Everyone else takes 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Timotheus" -> "Yes, I am Timotheus. Ti-mo-the-us."
 "Timotheus" -> "Ja, ich bin Timotheus. Ti-mo-the-us."
-"Yes" -> "Yes? Yes to what?", "Yes? I'm happy you agree..."
-"Ja" -> "Ja? Wozu ja?", "Ja? Freut mich, dass ihr zustimmt."
-"No" -> "No to what?", "No? You don't like my robes?"
-"Nein" -> "Nein zu was?", "Nein? Ihr mögt meine Roben nicht?"
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
 

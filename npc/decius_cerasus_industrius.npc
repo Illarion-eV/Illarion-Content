@@ -636,10 +636,6 @@ english, "Zhambra" -> "Friendship and faithfulness. You don't have to think abou
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Decius", "Cerasus", "Industrius" -> "Yes?", "How can I help you?"
 "Decius", "Cerasus", "Industrius" -> "Ja?", "Den Namen hat mir der Erzmagier gegeben. Passt besser zu meiner Aufgabe als mein alter Name.", "Wie kann ich ihnen weiterhelfen?"
-"Yes" -> "When you think so."
-"Ja" -> "Wenn ihr das denkt."
-"No" -> "When you think so."
-"Nein" -> "Wenn ihr das denkt."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

@@ -331,10 +331,6 @@ english, "Bragon", "Brágon" -> "Did you know that Brágon is the father of all dr
 -- Last catch: Think about keywords the player might say and that are not caught until here.
 english, "Arenius", "Batavius" -> "I am a crusader of the Order of the Silver Dragon."
 "Arenius", "Batavius" -> "Ich bin ein Kreuzritter des Ordens der Silberdrachen."
-"Yes", "yub" -> "Pardon?", "What do you mean?", "I don't quite know..."
-"Ja" -> "Pardon?", "Wie meinen?", "Ich weiß nicht recht..."
-"No", "nub" -> "Sorry?", "I cannot understand your words.", "What was that again?"
-"Nein" -> "Entschuldigt?", "Ich kann euch nicht folgen.", "Wie bitte?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

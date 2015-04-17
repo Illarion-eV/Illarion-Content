@@ -281,10 +281,6 @@ english, "Oldra" -> "Oldra didn't do me any good. So, she is a goddess, but not 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Eugene", "Burton" -> "Us Burtons aren't rich or noble but we refuse to be poor and dishonourable."
 "Eugene", "Burton" -> "Wir Burtons sind weder reich noch edel. Und wir weigern uns, arm und unredlich zu sein."
-"Yes" -> "Indeed?", "So, what?", "#me shakes his head slightly: 'Sorry, can you rephrase that?'"
-"Ja" -> "Ist dem so?", "Gut, und nun?", "#me schüttelt seinen Kopf: 'Entschuldigt, könnt ihr das anders ausdrücken?'"
-"No" -> "I don't quite understand, sorry.", "Pardon me?", "What?!"
-"Nein" -> "Ich verstehe nicht recht...", "Entschuldigt?", "Was?!"
 
 -- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
 "easter", "egg" -> "I once found a strange egg in the Elstree forest. It was huge! But I left it where it was, who knows what hatches from such eggs?"

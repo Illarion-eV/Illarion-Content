@@ -188,10 +188,6 @@ english, "Malachin", "Malachín" -> "Malachin is the god of battles and hunting. 
 "erzähl was", "erzähl etwas" -> "Handelt niemals mit Galmair, sage ich."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"Yes" -> "Pardon?", "I don't understand you.", "Sorry?"
-"Ja" -> "Pardon?", "Ich hab das nicht verstanden.", "Entschuldigt?"
-"No" -> "What?", "How...", "Could you rephrase that?"
-"Nein" -> "Was?", "Wie jetzt...", "Könntet ihr das anders beschreiben?"
 english, "Thomas", "Dalenus" -> "There are many by the name of Thomas, but few of the name Dalenus. And only one Thomas Dalenus, best tailor of Cadomyr!"
 "Thomas", "Dalenus" -> "Es gibt viele, die Thomas heißen, aber nur wenige namens Dalenus. Und nur einen Thomas Dalenus, den besten Schneider Cadomyrs!"
 

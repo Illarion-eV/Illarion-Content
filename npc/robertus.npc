@@ -186,10 +186,6 @@ english, "Cherga" -> "I'll never let Cherga take away our Queen. If she departs 
 "bob der baumeister" -> "Ich ziehe den Namen Robertus vor, bitte schön."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"Yes" -> "It's good that you said this. Hail the Queen!", "Really? I should tell the Queen about this."
-"Ja" -> "Es ist gut, dass ihr dies gesagt habt. Lang lebe die Königin!", "Wirklich? Ich sollte dies der Königin mitteilen."
-"No" -> "Do you have any further information?", "You make me curious. Should I report to the Queen?"
-"Nein" -> "Habt ihr weitere Informationen?", "Ihr macht mich neugierig. Sollte ich dies der Königin berichten?"
 "ass", "arse" -> "Same to you."
 "arsch" -> "Ihr mich auch."
 english, "Robertus" -> "Indeed, I am Robertus, the royal builder. And no, I don't have a nickname."

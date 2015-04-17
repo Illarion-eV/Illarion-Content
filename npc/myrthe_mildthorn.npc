@@ -247,10 +247,6 @@ english, "Ariel", "Sunil", "Persil", "Tandil", "Unamat" -> "I prefer soap."
 -- Last catch: Think about keywords the player might say and that are not caught until here.
 english, "Myrthe", "Mildthorn" -> "Yes, I am Myrthe. My last name is Mildthorn. Because my parents' name was also Mildthorn."
 "Myrthe", "Mildthorn" -> "Ja, ich bin die Myrthe. Mein Nachname ist Mildthorn. Das ist so, weil das auch der Nachname meiner Eltern war."
-"Yes" -> "Yes, no.", "Sure, clear.", "Everything is wonderful!"
-"Ja" -> "Ja, ne.", "Sicherlich, klar.", "Alles wunderbar!"
-"No" -> "Nothing is clear.", "Who is Regor?", "What the heck?"
-"Nein" -> "Nichts ist klar.", "Wer ist Regor?", "Wer verdammt nochmal?"
 
 -- Cycletext: Add as many random messages as possible
 

@@ -252,10 +252,6 @@ queststatus(68) = 0, "hacke" -> "Du siehst aus wie jemand, der eine Spitzhacke s
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Daerbur", "Wimbert" -> "Us Wimberts have a long tradition as miners and gravediggers. Digging holes is our business!"
 "Daerbur", "Wimbert" -> "Wir Wimberts haben eine lange Tradition als Bergarbeiter und Totengräber. Löchergraben ist genau unser Ding!"
-"Yes" -> "What was first, yes or no? I mean, did people first think about how to agree or how to disagree?", "Indeed.", "Yes?"
-"Ja" -> "Was war wohl zuerst da, ja oder nein? Ich meine, haben sich die Leute zuerst überlegt, zuzustimmen oder abzulehnen?", "Jawohl.", "Ja?"
-"No" -> "I say yes, you say no, I say goodbye, you say hello!", "No?", "Why?"
-"Nein" -> "Ich sage ja, du sagst nein, ich sage tschüß, du sagst hallo!", "Nein?", "Wieso?"
 "nuts", "nutty", "strange", "weird", "loony" -> "I am what I am... and what are you, something else?", "That's all a matter of perspective.", "Points of view!"
 "komisch", "bescheuert", "dussel" -> "Ich bin, was ich bin. Und was bist du, was anderes?", "Das ist alles Ansichtssache.", "Meinungen."
 "ROFL", "LOL" -> "#me laughes out loud."

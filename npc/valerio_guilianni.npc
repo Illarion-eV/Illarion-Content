@@ -220,10 +220,6 @@ english, "Zhambra" -> "Family is all that matters, you remember that. You rely o
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Valerio", "Guilianni", "Don" -> "#me bows ever so slightly. 'That's me. How can I help you, %CHARNAME ?'", "You've heard about me I see very good, very good. Ask and the Don will help you.", "What do you want from him? Who sent you? Guards! Has this meat bag been searched for weapons?"
 "Valerio", "Guilianni", "Don" -> "#me deutet eine Verbeugung an. 'Das bin ich. Wie kann ich euch helfen, %CHARNAME ?'", "Ihr habt also von mir gehört. Sehr schön, sehr schön. Bittet und der Don wird euch helfen.", "Was wollt ihr von ihm? Wer hat euch geschickt? Wache! Wurde diese Person auf Waffen untersucht?"
-"Yes" -> "Good to hear, Good to hear.", "The Don approves."
-"Ja" -> "In der Tat.", "Der Don stimmt zu.", "Der Don heißt dies gut."
-"No" -> "'No'? Don't force the Don to make the impossible possible.", "'No'? Well, you may keep your opinion. One can sell everything else with a profit anyway.", "And this negative attitude divides success from failure. That's why you're just a petitioner before the Don."
-"Nein" -> "'Nein'? Zwingt den Don nicht das unmögliche möglich zu machen.", "'Nein'? Nun gut ihr könnt eure Meinung behalten. Alles andere kann man ja mit Gewinn verkaufen.", "Und genau diese negative Einstellung entscheidet über Erfolg und Misserfolg. Deswegen seid ihr nur ein Bittsteller vor dem Don."
 
 -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
 

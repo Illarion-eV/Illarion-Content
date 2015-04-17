@@ -315,14 +315,10 @@ english, "Gobaith", "Gobiath" -> "I don't know this town, do they have notaries 
 "Gobaith", "Gobiath" -> "Ich kenne diese Stadt nicht, haben die da auch Notare?"
 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
-"my name" -> "A pleasure, I am Redet Odohir."
-"mein Name" -> "Freut mich, ich bin Redet Odohir."
-english, "Redet", "Odohir" -> "That's me. How can I help you?"
-"Redet", "Odohir" -> "Das bin ich. Was kann ich für Euch tun?"
-"Yes" -> "#me smiles.", "That's what I expected to hear from you."
-"Ja" -> "#me lächelt.", "Das habe ich von Euch zu hören erwartet."
-"No" -> "No? That's sad.", "No? Well, you'll have a reason for saying so."
-"Nein" -> "Nein? Das ist schade.", "Nein? Nun, Ihr werde Eure Gründe für diese Antwort haben."
+"my name" -> "A pleasure, I am Reret Odohir."
+"mein Name" -> "Freut mich, ich bin Reret Odohir."
+english, "Reret", "Odohir" -> "That's me. How can I help you?"
+"Reret", "Odohir" -> "Das bin ich. Was kann ich für Euch tun?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

@@ -231,10 +231,6 @@ english, "Ronagan" -> "I pray to Ronagan, but it is more a matter of respect tha
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Ehrom", "Goldhammer" -> "Ehrom Goldhammer is indeed my name. Who told you? Me?"
 "Ehrom", "Goldhammer" -> "Ehrom Goldhammer ist in der Tat mein Name. Wer hat euch den verraten? Ich etwa?"
-"Yes" -> "Pardon, I don't understand what you are referring to.", "What do you mean with 'Yes'?"
-"Ja" -> "Verzeiht, ich verstehe nicht, worauf Ihr Euch bezieht.", "Was meint Ihr mit 'Ja'?"
-"No" -> "Pardon, I don't understand what you are referring to.", "What do you mean with 'No'?"
-"Nein" -> "Verzeiht, ich verstehe nicht, worauf Ihr Euch bezieht.", "Was meint Ihr mit 'Nein'?"
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
 

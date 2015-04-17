@@ -217,10 +217,6 @@ english, "Eldan" -> "I respect Eldan, but a smart mind alone does not learn by i
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Arimedus", "Dalahorn" -> "I study the runes of magic. State your business."
 "Arimedus", "Dalahorn" -> "Ich studiere die magischen Runen. Was begehrt ihr?"
-"Yes" -> "YES? I do not know that rune."
-"Ja" -> "JA? Die Rune kenne ich nicht."
-"No" -> "'No' is one of the most powerful, non magical words. Think about that."
-"Nein" -> "'Nein' ist eines der machtvollsten, nichtmagischen Worte. Denkt mal drüber nach."
 english, "STFU", "WTF", "GTFO" -> "That's also quite a powerful rune."
 "STFU", "WTF", "GTFO" -> "Das ist auch eine mächtige Rune."
 
