@@ -352,8 +352,8 @@ end
 function baseNPC:use(npcChar, char)
 
     npcChar.activeLanguage = self._defaultLanguage
-    npcChar:talk(Character.say, self._useMsgDE, self._useMsgUS)
-	--[[
+    --npcChar:talk(Character.say, self._useMsgDE, self._useMsgUS)
+	
 	local getText = function(deText,enText) return common.GetNLS(char, deText, enText) end
 	 
     local callback = function(dialog)
@@ -411,7 +411,7 @@ function baseNPC:use(npcChar, char)
 	dialog:addOption(0, getText("Verabschieden", "Farewell"))
 	dialog:addOption(0, getText("(Etwas anderes)", "(Other)"))
     
-    char:requestSelectionDialog(dialog)]]
+    char:requestSelectionDialog(dialog)
 		
 end
 
