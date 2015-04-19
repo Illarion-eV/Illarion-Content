@@ -48,17 +48,17 @@ Description[ENGLISH][6] = "You have fulfilled all the tasks for Tony Spirotelli.
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {383, 269, 0}
+Start = {380, 269, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(383, 269, 0), position(436, 250, 0)} -- Apple tree
-QuestTarget[2] = {position(383, 269, 0)} 
-QuestTarget[3] = {position(383, 269, 0), position(381, 269, 0)} -- Work bench
-QuestTarget[4] = {position(383, 269, 0)} 
-QuestTarget[5] = {position(383, 269, 0), position(381, 269, 0)} -- Work bench
-QuestTarget[6] = {position(383, 269, 0)} 
+QuestTarget[1] = {position(380, 269, 0), position(436, 250, 0)} -- Apple tree
+QuestTarget[2] = {position(380, 269, 0)} 
+QuestTarget[3] = {position(380, 269, 0), position(382, 269, 0)} -- Work bench
+QuestTarget[4] = {position(380, 269, 0)} 
+QuestTarget[5] = {position(380, 269, 0), position(382, 269, 0)} -- Work bench
+QuestTarget[6] = {position(380, 269, 0)} 
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 6
