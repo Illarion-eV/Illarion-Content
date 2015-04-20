@@ -16,8 +16,8 @@
 -- NPC Name: Judith Tanner                                           Runewick --
 -- NPC Job:  Tailor                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  905, 780, 0            --
--- NPC Sex:  female                     NPC Direction: south                  --
+-- NPC Race: human                      NPC Position:  950, 818, 0            --
+-- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
 --                                                     easyNPC Parser v1.23.1 --
@@ -26,8 +26,8 @@
 name = "Judith Tanner"
 race = human
 sex = female
-position = 905, 780, 0
-direction = south
+position = 950, 818, 0
+direction = west
 affiliation = "Runewick"
 job = "Tailor"
 
@@ -107,9 +107,9 @@ queststatus(715) = 1, item(170, all) > 19, town = Runewick, "Auftrag", "Aufgabe"
 queststatus(715) = 1, item(170, all) < 20, town = Runewick, english, ".+" -> "That isn't twenty bales of wool yet, please come back once you've finished this task."
 queststatus(715) = 1, item(170, all) < 20, town = Runewick, ".+" -> "Das sind noch keine 20 Wollballen, die ich haben wollte. Kommt wieder, wenn Ihr die Aufgabe erledigt habt."
 queststatus(715) = 2, town = Runewick, english, "quest", "mission" -> "You want another task? Alright, please go to the loom over there and make two sheets of grey cloth. Furthermore, go to the spinning wheel and produce five spools of thread from the remaining wool.", queststatus(715) = 3
-queststatus(715) = 2, town = Runewick, "quest", "mission" -> "Ihr wollt noch eine Aufgabe? Von mir aus gerne. Bitte geht zum Webstuhl da vorne und macht aus den zwei übrigen Knäueln grauen Stoff und aus den anderen zehn Knäueln beim Spinnrad daneben Garn.", queststatus(715) = 3
+queststatus(715) = 2, town = Runewick, "quest", "mission" -> "Ihr wollt noch eine Aufgabe? Von mir aus gerne. Bitte geht zum Webstuhl da drüben und macht aus den zwei übrigen Knäueln grauen Stoff und aus den anderen zehn Knäueln beim Spinnrad Garn.", queststatus(715) = 3
 queststatus(715) = 2, town = Runewick, "task", "adventure", "order" -> "You want another task? Alright, please go to the loom over there and make two sheets of grey cloth. Furthermore, go to the spinning wheel and produce five spools of thread from the remaining wool.", queststatus(715) = 3
-queststatus(715) = 2, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr wollt noch eine Aufgabe? Von mir aus gerne. Bitte geht zum Webstuhl da vorne und macht aus den zwei übrigen Knäueln grauen Stoff und aus den anderen zehn Knäueln beim Spinnrad daneben Garn.", queststatus(715) = 3
+queststatus(715) = 2, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr wollt noch eine Aufgabe? Von mir aus gerne. Bitte geht zum Webstuhl da drüben und macht aus den zwei übrigen Knäueln grauen Stoff und aus den anderen zehn Knäueln beim Spinnrad Garn.", queststatus(715) = 3
 queststatus(715) = 3, item(176, all) > 1, item(50, all) > 4, town = Runewick, english, "quest", "mission", "thread", "cloth", "grey" -> "Well done, thank you. Do you want another task?", deleteItem(176, 2), deleteItem(50, 5), queststatus(715) = 4
 queststatus(715) = 3, item(176, all) > 1, item(50, all) > 4, town = Runewick, "quest", "mission", "garn", "stoff", "grau" -> "Gut gemacht, danke. Wollt Ihr eine weitere Aufgabe?", deleteItem(176, 2), deleteItem(50, 5), queststatus(715) = 4
 queststatus(715) = 3, item(176, all) > 1, item(50, all) > 4, town = Runewick, "task", "adventure", "order" -> "Well done, thank you. Do you want another task?", deleteItem(176, 2), deleteItem(50, 5), queststatus(715) = 4
@@ -167,7 +167,7 @@ english, "quest", "mission" -> "You are not a citizen of Runewick. I don't have 
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "Wenn Ihr Hilfe beim Schneidern braucht, dann fragt nur mich!", "If you need any help tailoring, just ask me!"
-cycletext "Ich kenne mich aus mit feinsten Gewändern.", "I know everything about finest garments."
+cycletext "Ich kenne mich aus mit feinsten Gewändern.", "Ich know everything about finest garments."
 cycletext "#me rollt eine Spule Garn auf.", "#me rolls up a clew of yarn."
 cycletext "Die besten Schneider arbeiten hier in dieser Schneiderei!", "The best tailors use to work in this tailor's shop!"
 cycletext "#me legt bunte Hemden zusammen.", "#me folds coloured shirts."

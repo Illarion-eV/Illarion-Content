@@ -479,12 +479,12 @@ english, "loyal" -> "I am loyal to Rosaline as I was loyal to Reginald and all t
 "loyal" -> "Ich bin Rosaline so loyal, wie ich es Reginald war und allen ihren Vorvätern. Genauso werde ich ihren Erben dienen bis zum Ende aller Tage."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
-"archmage" -> "Elvaine Morgan, the archmage of Runewick, is a noble elf. I respect him and his words. However, he lacks a sense of honour; sometimes, loyalty is more important than rationality."
+"archmage" -> "Elvaine Morgan, the archmage of Runewick, is a noble elf. I respect him and his words. However, he lacks a sense of honour; sometimes, loyality is more important than rationality."
 "Erzmagier" -> "Elvaine Morgan, der Erzmagier Runewicks, ist ein ehrbarer Elf. Ich schätze ihn und sein Wort. Allerdings fehlt es ihm an Ehrgefühl, denn manchmal ist Loyalität wichtiger als Vernunft."
-english, "Elvaine", "Morgan" -> "Elvaine Morgan, the archmage of Runewick, is a noble elf. I respect him and his words. However, he lacks a sense of honour; sometimes, loyalty is more important than rationality."
+english, "Elvaine", "Morgan" -> "Elvaine Morgan, the archmage of Runewick, is a noble elf. I respect him and his words. However, he lacks a sense of honour; sometimes, loyality is more important than rationality."
 "Elvaine", "Morgan" -> "Elvaine Morgan, der Erzmagier Runewicks, ist ein ehrbarer Elf. Ich schätze ihn und sein Wort. Allerdings fehlt es ihm an Ehrgefühl, denn manchmal ist Loyalität wichtiger als Vernunft."
-english, "Runewick" -> "Runewick consists of four magnificient towers in the ocean, deemed the most beautiful buildings in these lands, only second to the palace of the Edwards."
-"Runewick" -> "Runewick besteht aus vier beeindruckenden Türmen im Meer, die schönsten Bauwerke in diesen Landen, nur noch in den Schatten gestellt durch den Palast der Edwards."
+english, "Runewick" -> "Runewick consists of some small islands in the ocean, deemed to be the most beautiful places in these lands, second only to the palace of the Edwards." 
+"Runewick" -> "Runewick besteht aus einigen kleinen Inseln im Meer, die schönsten Orte in diesen Landen, nur noch in den Schatten gestellt durch den Palast der Edwards."
 english, "Valerio", "Guilianni", "Don" -> "Don Valerio is a honourless bastard who even dared to propose to my Queen - my scimitar will prevent a second attempt."
 "Valerio", "Guilianni", "Don" -> "Don Valerio ist ein ehrloser Bastard, der es wagte, um die Hand meiner Königin anzuhalten. Einen zweiten Versuch wird mein Säbel zu verhindern wissen!"
 english, "Galmair" -> "One thing is good about Galmair: Gold. Do not ask how they get it though, you might learn sad stories."

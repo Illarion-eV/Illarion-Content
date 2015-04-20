@@ -180,8 +180,8 @@ german, "rot" -> "Eine einzige rote Kugel gibt es und die ist der Hauptgewinn. F
 "glück" -> "Nargun ist verantwortlich für euer Glück. Aber nur, wenn ihr ihn ehrt. Zum Beispiel mit einem Los.", "Mit etwas Glück könnt ihr den Umfang eurer Geldbörse vervielfachen."
 
 -- Faction stuff
-english, "archmage", "Elvaine", "Morgan" -> "The Archmage bought a ticket but he took it home with him. I'm sure he doesn't study magic. He's sitting in his tower trying to find out how to win the first prize, but I tell you he has no chance."
-"Erzmagier", "Elvaine", "Morgan" -> "Der Erzmagier hat auch schon ein Los gekauft und mitgenommen. Ich glaube fast, der studiert in seinem Turm keine Magie, sondern versucht herauszubekommen, wie er den Hauptgewinn in unserer Lotterie ziehen kann. Aber ich sag ihnen gleich, da hat er keine Chance!"
+english, "archmage", "Elvaine", "Morgan" -> "The Archmage bought a ticket but he took it home with him. I'm sure he doesn't study magic. He's trying to find out how to win the first prize, but I tell you he has no chance."
+"Erzmagier", "Elvaine", "Morgan" -> "Der Erzmagier hat auch schon ein Los gekauft und mitgenommen. Ich glaube fast, der studiert keine Magie, sondern versucht herauszubekommen, wie er den Hauptgewinn in unserer Lotterie ziehen kann. Aber ich sag ihnen gleich, da hat er keine Chance!"
 english, "Runewick" -> "Runewick is in the southeast. They don't have a lottery because the Archmage always suspects the other mages might find out how to win with every ticket."
 "Runewick" -> "Runewick ist im Südosten zu finden. Es gibt dort keine Lotterie, weil der Erzmagier befürchtet, dass seine Magier herausfinden könnten, wie man bei jedem Los den Hauptgewinn zieht."
 english, "Valerio", "Guilianni", "Don" -> "The Don doesn't like to lose money. He is not going to buy a ticket but would accept if you buy one."
@@ -198,8 +198,8 @@ english, "nargun" -> "No a lottery isn't strictly a game, but if you praise Narg
 "nargun" -> "Nein, genau gesehen ist eine Lotterie kein Spiel. Aber es ist sicher nicht verkehrt, dass man Nargun lobt, wenn man gewinnen will.","Überall Chaos. Das will keiner und so sollte man ihn nicht zu stark werden lassen.", "Wer seine Kiste aufräumt, lässt nur zu, dass Nargun Chaos erzeugen kann. Was soll er denn machen, wenn in euren Sachen bereits das Chaos regiert?"
 english, "temple" -> "Nargun's temple is in Galmair. It's not far away from here."
 "Tempel" -> "Narguns Tempel ist in Galmair, unweit von hier."
-english, "oldra" -> "Thanks to Oldra there has been a rich harvest this past year.", "A shrine to Oldra can be found in Yewdale, that's the village in the shadow of the four towers of Runewick.", "If you believe it or not, the year before last I sacrificed the the best tomatoes to Oldra and last year the harvest was been beyond belief. So what would you say?"
-"oldra" -> "Wegen Oldra hatten wir letztes Jahr eine reiche Ernte.", "Einen Altar, der Oldra geweiht ist, findet ihr in Yewdale. Das ist das Dorf im Schatten der vier Türme von Runewick.", "Ob ihr mir glaubt oder nicht, vorletztes Jahr habe ich Oldra die besten Tomaten geopfert. Und letztes Jahr konnte ich unglaublich viel ernten. Was sagt ihr nun?"
+english, "oldra" -> "Thanks to Oldra there has been a rich harvest this past year.", "A shrine to Oldra can be found in Yewdale, that's the village near Runewick.", "If you believe it or not, the year before last I sacrificed the the best tomatoes to Oldra and last year the harvest was been beyond belief. So what would you say?"
+"oldra" -> "Wegen Oldra hatten wir letztes Jahr eine reiche Ernte.", "Einen Altar, der Oldra geweiht ist, findet ihr in Yewdale. Das ist das Dorf in der Nähe von Runewick.", "Ob ihr mir glaubt oder nicht, vorletztes Jahr habe ich Oldra die besten Tomaten geopfert. Und letztes Jahr konnte ich unglaublich viel ernten. Was sagt ihr nun?"
 "god" -> "If you want to know something about the gods, look for priests or ask in one of the towns."
 "Gott", "Götter" -> "Wenn ihr etwas über die Götter wissen möchtet, dann sucht einen Priester oder fragt jemanden in den Städten."
 
@@ -235,5 +235,3 @@ cycletext "#me spielt mit den Bändern ihres Kleides.", "#me plays with the cords
 cycletext "#me richtet sich die Haare mit den Fingern als Kamm.", "#me corrects her hair with her fingers."
 cycletext "Kauft ein Los der Lotterie von Galmair!", "Buy a ticket for the Galmairian lottery!"
 cycletext "#me schaut sich unbeteiligt die Leute an.", "#me examines the people around."
-cycletext "#me wischt gedankenverloren mit den Fingern über die Vase.", "#me strokes the vase with her fingers."
-cycletext "Das Glück ist auf Eurer Seite. Mit einem Los könntet ihr die glücklichste Person in Illarion werden.", "The luck favours you. Buy a ticket you could become the luckiest person in Illarion."

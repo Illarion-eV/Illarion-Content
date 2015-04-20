@@ -16,7 +16,7 @@
 -- NPC Name: John Smith                                              Runewick --
 -- NPC Job:  Craftsman                                                        --
 --                                                                            --
--- NPC Race: human                      NPC Position:  907, 770, 0            --
+-- NPC Race: human                      NPC Position:  901, 808, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Miriam                                                           --
@@ -26,7 +26,7 @@
 name = "John Smith"
 race = human
 sex = male
-position = 907, 770, 0
+position = 901, 808, 0
 direction = west
 affiliation = "Runewick"
 job = "Craftsman"

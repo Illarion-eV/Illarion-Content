@@ -65,25 +65,25 @@ Description[GERMAN][15] = "Du hast alle Aufgaben von Zassaria Riverbank erfüllt.
 Description[ENGLISH][15] = "You have fulfilled all tasks of Zassaria Riverbank."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {900, 800, 1}
+local Start = {910, 849, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(910, 801, 1)} -- Nizar
-QuestTarget[2] = {position(900, 800, 1)}
-QuestTarget[3] = {position(900, 800, 1)}
-QuestTarget[4] = {position(908, 812, 1)} -- Argentus Almsbag
-QuestTarget[5] = {position(900, 800, 1)}
-QuestTarget[6] = {position(900, 800, 1)}
-QuestTarget[7] = {position(897, 781, 2)} -- Neiran el Nyarale
-QuestTarget[8] = {position(900, 800, 1)}
-QuestTarget[9] = {position(900, 800, 1)}
+QuestTarget[1] = {position(943, 827, 0)} -- Nizar
+QuestTarget[2] = {position(910, 849, 0)}
+QuestTarget[3] = {position(910, 849, 0)}
+QuestTarget[4] = {position(956, 829, 0)} -- Argentus Almsbag
+QuestTarget[5] = {position(910, 849, 0)}
+QuestTarget[6] = {position(910, 849, 0)}
+QuestTarget[7] = {position(944, 784, 1)} -- Neiran el Nyarale
+QuestTarget[8] = {position(910, 849, 0)}
+QuestTarget[9] = {position(910, 849, 0)}
 QuestTarget[10] = {position(382, 249, 0)} -- Marianne Forgeron
-QuestTarget[11] = {position(900, 800, 1)}
-QuestTarget[12] = {position(900, 800, 1)}
+QuestTarget[11] = {position(910, 849, 0)}
+QuestTarget[12] = {position(910, 849, 0)}
 QuestTarget[13] = {position(122, 521, 0)} -- Rosaline Edwards
-QuestTarget[14] = {position(900, 800, 1)}
-QuestTarget[15] = {position(900, 800, 1)}
+QuestTarget[14] = {position(910, 849, 0)}
+QuestTarget[15] = {position(910, 849, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 15

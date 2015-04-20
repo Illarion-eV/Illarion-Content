@@ -16,8 +16,8 @@
 -- NPC Name: Francois Delacroix                                      Runewick --
 -- NPC Job:  trader                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  911, 798, 1            --
--- NPC Sex:  male                       NPC Direction: north                  --
+-- NPC Race: human                      NPC Position:  939, 822, 0            --
+-- NPC Sex:  male                       NPC Direction: east                  --
 --                                                                            --
 -- Author:   Regallo                                                          --
 --                                                    Illarion easyNPC Editor --
@@ -26,8 +26,8 @@
 name = "Francois Delacroix"
 race = human
 sex = male
-position = 911, 798, 1
-direction = north
+position = 939, 822, 0
+direction = east
 affiliation = "Runewick"
 job = "trader"
 

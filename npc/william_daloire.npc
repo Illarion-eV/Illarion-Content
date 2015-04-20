@@ -16,8 +16,8 @@
 -- NPC Name: William Daloire                                             None --
 -- NPC Job:  herbalist                                                        --
 --                                                                            --
--- NPC Race: human                      NPC Position:  897, 794, 1            --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: human                      NPC Position:  952, 828, 0            --
+-- NPC Sex:  male                       NPC Direction: southwest              --
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                     easyNPC Parser v1.23.1 --
@@ -26,8 +26,8 @@
 name = "William Daloire"
 race = human
 sex = male
-position = 897, 794, 1
-direction = south
+position = 952, 828, 0
+direction = southwest
 affiliation = "None"
 job = "herbalist"
 

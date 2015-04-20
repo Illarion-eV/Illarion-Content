@@ -215,8 +215,8 @@ english, "clan" -> "Mes clan be dat clan op dem Bonegnawers. Gnawin' bone all da
 "Erzmagier" -> "Dummig Zauberleuts! Machen Spukh, mirr sein sicher. Zermatsch besser, die!"
 english, "Elvaine", "Morgan" -> "Stoopid majik oomie! Dat be makin' spooks, mes be sure. Bedda smash, dat mes say."
 "Elvaine", "Morgan" -> "Dummig Zauberleuts! Machen Spukh, mirr sein sicher. Zermatsch besser, die!"
-english, "Runewick" -> "Bedda stay away from dat tree town wid lotsa tower. Nub gud dere, nub gud fer orcis fer dwellin'."
-"Runewick" -> "Bleibs weg von Baumdorf mit lauters Turms. Nix gutt da, nix gutt für Orks."
+english, "Runewick" -> "Bedda stay away from dat tree town wid lotsa water. Nub gud dere, nub gud fer orcis fer dwellin'."
+"Runewick" -> "Bleibs weg von Baumdorf mit lauters Wasser. Nix gutt da, nix gutt für Orks."
 english, "Valerio", "Guilianni", "Don" -> "Dat Don be mighty, rich and fat. Mes want become like dat Don, yubba!"
 "Valerio", "Guilianni", "Don" -> "Das Don mächtig, reich und fett. Mirr wollen werden wie das Don, yubba!"
 english, "Galmair" -> "Sum orcis hab say, dat dat be old tent op stumpies. Urgs! Neva gonna dwell in tent op stumpies."
@@ -251,8 +251,8 @@ english, "Malachin" -> "Mala-dingy guide mes smasher. When hunt, den Mala-dingy 
 "erzähl was", "erzähl etwas" -> "Es gewesen Ork. Und gewesen Drache. Ork zermatscht Drache! Gutt Geschicht, eh?"
 
 -- Last catch: Think about keywords the player might say and that are not caught until here.
-english, "Graznok" -> "Hurr? Whub want!?", "Whub want, yoos?"
-"Graznok" -> "Hurr? Wat woll?", "Wat woll, yoos?"
+english, "Graznok" -> "Hurr? Whub want!?"
+"Graznok" -> "Hurr? Wat woll?"
 
 -- Cycletext: Add as many random messages as possible
 

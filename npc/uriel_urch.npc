@@ -16,7 +16,7 @@
 -- NPC Name: Uriel Urch                                              Runewick --
 -- NPC Job:  retired soldier                                                  --
 --                                                                            --
--- NPC Race: human                      NPC Position:  902, 773, 0            --
+-- NPC Race: human                      NPC Position:  940, 766, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Authors:  Ryan Williams/Alexander Knight                                   --
@@ -27,7 +27,7 @@
 name = "Uriel Urch"
 race = human
 sex = male
-position = 902, 773, 0
+position = 940, 766, 0
 direction = west
 affiliation = "Runewick"
 job = "retired soldier"
@@ -80,7 +80,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Just go stranger.", "#me no
 "How are you", "How feel", "How do you do" -> "All the worse for having you in my face.", "Better if I had a bloody drink."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "All der Ärger... und dann auch noch Euer Gesicht sehn. Das ist mir zu viel.", "Weiß nicht. Aber sicher besser - wenn ich was zu saufen hätt."
 "your name", "who are you", "who art thou" -> "My name is Uriel Urch, Why do you ask?!", "An old soldier.", "A man trying to have a quiet drink!"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Mein name ist Uriel Urch, warum fragt Ihr?", "Ich bin nur ein alter Soldat.", "Ein Mann, der versucht in Ruhe zu trinken, damit er vergisst was er gesehen hat. - Der bin ich."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Mein name ist Uriel Urch, warum fragt Ihr?", "Ich bin nur ein alter Soldat.", "Ein Mann, der versucht in Ruhe zu trinken, damit er vergisst, was er gesehen hat. - Der bin ich."
 
 -- Quest
 -- fix
@@ -210,14 +210,12 @@ english, "Uriel", "Urch" -> "Hrmpf? What do you want?", "That's me. What's the m
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me gähnt ausgiebig, und lehnt sich an die Lehne seines Sessels.", "#me sits on the chair, yawning."
+cycletext "#me gähnt ausgiebig.", "#me yawns."
 cycletext "#me blickt auf das Wappen an seiner Brustplatte, ein sanftes Lächeln umspielt seine Lippen für einen kurzen Moment.", "#me looks at the crest on his chest place, a soft smile playing across his lips."
 cycletext "#me schüttelt den Kopf und murmelt zu sich selbst. 'Verdammte Albarianer.'", "#me sighs, muttering to himself. 'Bloody Albarians.'"
 cycletext "#me kratzt sich an der Nase.", "#me scratches his nose."
 cycletext "#me kratzt sich kurz zwischen den Beinen.", "#me has a quick scratch between his legs."
 cycletext "#me setzt sich aufrecht hin, seine Rüstung quietscht leise, sie macht einen sperrigen Eindruck.", "#me repositions himself, his armour seeming quite heavy."
 cycletext "#me blickt skeptisch auf den Boden seines Kruges und verengt die Augen zu Schlitzen.", "#me looks into his empty beer mug."
-cycletext "#me starrt dich an.", "#me glares at you."
+cycletext "#me starrt ins Feuer.", "#me glares in the flames."
 cycletext "#me pfeift ein altes Soldatenlied.", "#me whistles an old military tune."
-cycletext "Lasst mich in Frieden...", "Leave me alone..."
-cycletext "Verdammt, ich hasse Grünhäute.", "Damn it, I hate Greenskins!"

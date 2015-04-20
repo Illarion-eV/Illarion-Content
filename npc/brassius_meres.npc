@@ -28,8 +28,8 @@
 name = "Brassius Meres"
 race = human
 sex = male
-position = 841, 819, 0
-direction = south
+position = 865, 814, 0
+direction = west
 affiliation = "Runewick"
 job = "Guard"
 
@@ -282,5 +282,3 @@ cycletext "#me schaut düster drein.", "#me looks around suspiciously."
 cycletext "Dann geht mal weiter.", "Move along, then."
 cycletext "Macht hier keinen Ärger.", "Don't go causing any trouble 'round here."
 cycletext "Wir sehen alles.", "We're watching."
-cycletext "Bleibt nicht länger auf der Brücke als nötig.", "Don't stay on the bridge longer than necessary."
-cycletext "Ich sollte mich wieder um meinen Dienst kümmern.", "I should really be returning to my duty."

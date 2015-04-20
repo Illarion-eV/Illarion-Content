@@ -70,6 +70,9 @@ tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please com
 tradeFinishedWithoutTradingMsg "Auf bald!", "Farewell!"
 tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
+
+
+
 -- Armour level 0-10: 101, 324, 2194, 2359, 2444, 1057, 325, 2117, 202, 4, 367, 2295, 384, 182, 34, 356, 363, 369
 -- Weapons Level 0-10: 2664, 39, 230, 27, 1046, 64, 1266, 89, 65, 2445, 17, 78, 2776, 88, 25
 -- Food low level: 191, 453, 49, 2456, 306, 3051
@@ -77,7 +80,6 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
-
 -- Help
 "Help" -> inform("[Game Help] This NPC is Hook Gowan a trader of The Hemp Necktie Inn . Keywords: buy, sell, trade, Nubris, Ronagan, King Edwards, tell something")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hook Gowan ein Händler im Gasthof zur Hanfschlinge. Schlüsselwörter: kaufe, verkaufe, Handel, Nubris, Ronagan, König Edwards, erzähl etwas")
@@ -127,7 +129,7 @@ english, "Elvaine", "Morgan", "archmage", "Erzmagier" -> "Those treehugers, look
 "Elvaine", "Morgan", "archmage", "Erzmagier" -> "Diese Baumkuschler, sehen alle aus wie Weibsvolk. Fällt mir immer schwer n' Elfen von ner Elfin zu unterscheiden. - Alle so Weibisch."
 english, "Elvaine", "Morgan", "archmage", "Erzmagier" -> "Those treehugers, looking like females, every single one of them. Are you able to differ elf and elfess?"
 "Elvaine", "Morgan", "archmage", "Erzmagier" -> "Diese Baumkuschler, sehen alle aus wie Weibsvolk. Fällt mir immer schwer n' Elfen von ner Elfin zu unterscheiden. - Alle so Weibisch."
-english, "Runewick" -> "Hmm, let me think. I'm wanted in Runewick for three different crimes, so well, no more trips to the four towers for the man called Hook."
+english, "Runewick" -> "Hmm, let me think. I'm wanted in Runewick for three different crimes, so well, no more trips to this town for the man called Hook."
 "Runewick" -> "Hm-h, lasst mich nachdenken. In Runewick werde ich wegen drei verschiedener Verstöße gesucht. - Ich denke ich werde mich erst einmal eine Weile von dort fern halten. Ihr nicht auch?"
 english, "Valerio", "Guilianni", "Don" -> "Ha! That tiny lecher should get a red cap so you can't oversee him while walking through grass anymore."
 "Valerio", "Guilianni", "Don" -> "Ha! Diesem zu klein geratenen Lustmolch sollte man eine rote Mütze aufsetzen, damit man ihn nicht mehr so leicht übersieht wenn er durchs Gras läuft."

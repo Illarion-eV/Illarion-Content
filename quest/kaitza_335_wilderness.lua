@@ -33,25 +33,25 @@ Title[ENGLISH] = "Fishing For Lizards"
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Besorge zehn Forellen und bringe sie zu Kaitza. Stelle dich ans Wasser und benutze die Angel um Fische zu fangen."
-Description[ENGLISH][1] = "Obtain ten trout and take them back to Kaitza. To fish, place yourself next to the water and use a fishing rod."
+Description[GERMAN][1] = "Besorge zehn Forellen und bringe sie zu Kaitza. Stelle dich vor einem Fischschwarm im Wasser und benutze die Angel um Fische zu fangen."
+Description[ENGLISH][1] = "Obtain ten trout and take them back to Kaitza. To fish, place yourself next to some fish in the water and use a fishing rod."
 Description[GERMAN][2] = "Kehre zurück zu Kaitza und frage, ob er noch eine Aufgabe für dich hat."
 Description[ENGLISH][2] = "Go back to Kaitza, he will certainly have another task for you." 
-Description[GERMAN][3] = "Besorge fünf Lachse und bringe sie zu Kaitza. Stelle dich ans Wasser und benutze die Angel um Fische zu fangen."
-Description[ENGLISH][3] = "Obtain five salmon and take them back to Kaitza. To fish, place yourself next to the water and use a fishing rod."
+Description[GERMAN][3] = "Besorge fünf Lachse und bringe sie zu Kaitza. Stelle dich vor einem Fischschwarm im Wasser und benutze die Angel um Fische zu fangen."
+Description[ENGLISH][3] = "Obtain five salmon and take them back to Kaitza. To fish, place yourself next to some fish in the water and use a fishing rod."
 Description[GERMAN][4] = "Du hast alle Aufgaben von Kaitza erfüllt."
 Description[ENGLISH][4] = "You have fulfilled all the tasks for Kaitza." 
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {841, 743, 0}
+local Start = {841, 743, 0}
 
    
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(841, 743, 0), position(791, 798, 0)} -- Angelpunkt
+QuestTarget[1] = {position(841, 743, 0), position(765, 805, 0)} -- Angelpunkt
 QuestTarget[2] = {position(841, 743, 0)} 
-QuestTarget[3] = {position(841, 743, 0), position(791, 798, 0)} -- Angelpunkt
+QuestTarget[3] = {position(841, 743, 0), position(765, 805, 0)} -- Angelpunkt
 QuestTarget[4] = {position(841, 743, 0)} 
 
      

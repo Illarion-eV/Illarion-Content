@@ -16,7 +16,7 @@
 -- NPC Name: Daniel Brock                                            Runewick --
 -- NPC Job:  Carpenter                                                        --
 --                                                                            --
--- NPC Race: human                      NPC Position:  904, 827, 0            --
+-- NPC Race: human                      NPC Position:  959, 825, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
@@ -26,7 +26,7 @@
 name = "Daniel Brock"
 race = human
 sex = male
-position = 904, 827, 0
+position = 959, 825, 0
 direction = west
 affiliation = "Runewick"
 job = "Carpenter"
@@ -77,7 +77,6 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me chuckles, 'I'll be seei
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Daniel Brock, wer bist du?"
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
-
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a carpenter, if you want to know more about it, ask me for a task. I'm sure I have something for you to do."
 "beruf" -> "Ich bin Schreiner. Falls du mehr darüber erfahren möchtest, frag mich nach einer Aufgabe. Ich hab sicher etwas für dich zu tun."

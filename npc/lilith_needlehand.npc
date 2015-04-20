@@ -16,8 +16,8 @@
 -- NPC Name: Lilith Needlehand                                       Runewick --
 -- NPC Job:  Tailor                                                           --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  894, 762, 0            --
--- NPC Sex:  female                     NPC Direction: north                  --
+-- NPC Race: halfling                   NPC Position:  943, 817, 0            --
+-- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                     easyNPC Parser v1.23.1 --
@@ -26,8 +26,8 @@
 name = "Lilith Needlehand"
 race = halfling
 sex = female
-position = 894, 762, 0
-direction = north
+position = 943, 817, 0
+direction = west
 affiliation = "Runewick"
 job = "Tailor"
 
@@ -233,7 +233,6 @@ english, "Lilith", "Needlehand" -> "That's me! Lilith! Do you like my name?"
 
 cycletext "#me summt ein Liedchen.", "#me hums a sweet song."
 cycletext "#me schaut zum Himmel und murmelt: 'Fast schon Zeit für ein Stück Kuchen.'", "#me looks at the sky, and mumbles, 'Nearly time for pie...'"
-cycletext "#me streichelt ein Schaf.", "#me pats a sheep."
 cycletext "Oh, ist schon wieder Essenszeit?", "Oh, is it nearly time to eat again?"
 cycletext "Hallo da drüben!", "Hello over there!"
 cycletext "#me kichert freudig.", "#me giggles."

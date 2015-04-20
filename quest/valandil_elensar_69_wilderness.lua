@@ -50,7 +50,7 @@ Description[GERMAN][8] = "Du hast alle Aufgaben von Valandil Elensar erfüllt."
 Description[ENGLISH][8] = "You have fulfilled all the tasks for Valandil Elensar."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {840, 470, 0}
+local Start = {840, 470, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
@@ -61,7 +61,7 @@ QuestTarget[3] = {position(840, 470, 0), position(855, 463, 0)} -- Kirschbaum
 QuestTarget[4] = {position(840, 470, 0)} 
 QuestTarget[5] = {position(840, 470, 0), position(855, 463, 0)} -- Kirschbaum
 QuestTarget[6] = {position(840, 470, 0)} 
-QuestTarget[7] = {position(840, 470, 0), position(791, 798, 0), position(847, 828, 0), position(911, 798, 1), position(430, 261, 0), position(361, 266,0)} 
+QuestTarget[7] = {position(840, 470, 0), position(791, 798, 0), position(847, 828, 0), position(959, 842, 0), position(430, 261, 0), position(361, 266,0)}
 QuestTarget[8] = {position(840, 470, 0)} 
 
 -- Insert the quest status which is reached at the end of the quest

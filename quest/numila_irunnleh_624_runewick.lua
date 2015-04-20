@@ -43,7 +43,7 @@ local Start = {}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(942, 765, 1)} -- Numila
+QuestTarget[1] = {position(970, 787, 1)} -- Numila
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 2

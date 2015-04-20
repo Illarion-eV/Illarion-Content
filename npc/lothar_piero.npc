@@ -16,8 +16,8 @@
 -- NPC Name: Lothar Piero                                                None --
 -- NPC Job:  trader                                                           --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  896, 816, 1            --
--- NPC Sex:  male                       NPC Direction: east                   --
+-- NPC Race: halfling                   NPC Position:  945, 829, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
@@ -27,8 +27,8 @@
 name = "Lothar Piero"
 race = halfling
 sex = male
-position = 896, 816, 1
-direction = east
+position = 945, 829, 0
+direction = south
 affiliation = "None"
 job = "trader"
 
@@ -140,8 +140,8 @@ english, "Gobaith", "Gobiath" -> "Gobaith, isn't that a tiny a island in the oce
 "Erzmagier" -> "Niemals würde ich unserem Erzmagier widersprechen. Ist doch jedem hier bewusst, dass sein Plan niemals fehlt.", "Erzmagier Morgan, ihm gebührt mein Vertrauen und all meine Hoffnungen. Die Zukunft Runewicks liegt in seinen fähigen Händen!", "Der Erzmagier ist der Weiseste von uns. Wie könnte ich jemals an seinen Worten zweifeln?"
 english, "Elvaine", "Morgan" -> "I'd never disagree with the Archmage. Everyone knows he has the master plan!", "I trust Archmage Morgan, he is my guide. His able hands will forge Runewick's future.", "The Archmage is the most wise person of all of us. Who dares to think they know better?"
 "Elvaine", "Morgan" -> "Niemals würde ich unserem Erzmagier widersprechen. Ist doch jedem hier bewusst, das sein Plan niemals fehlt.", "Erzmagier Morgan, ihm gebührt mein Vertrauen und all meine Hoffnungen. Die Zukunft Runewicks liegt in seinen fähigen Händen!", "Der Erzmagier ist der Weiseste von uns. Wie könnte ich jemals an seinen Worten zweifeln?"
-english, "Runewick" -> "May Elara bless Runewick. The four towers are built to honour the Gods and to demonstrate our might to our neighbours."
-"Runewick" -> "Elara möge Runewick bewahren. Die vier Türme sollen den Göttern schmeicheln und benachbarten Städten unsere Macht demonstrieren."
+english, "Runewick" -> "May Elara bless Runewick. The islands are create to honour the Gods and to demonstrate our might to our neighbours."
+"Runewick" -> "Elara möge Runewick bewahren. Die Inseln sollen den Göttern schmeicheln und benachbarten Städten unsere Macht demonstrieren."
 english, "Valerio", "Guilianni", "Don" -> "He is stubborn I was told. All he cares for is gold. It is only a matter time until another thug takes over Galmair."
 "Valerio", "Guilianni", "Don" -> "Ein wahrer Dickkopf, habe ich mir sagen lassen. Ihm ist nur daran gelegen Gold zu häufen. Es ist nur eine Frage der Zeit bis einer seiner Konkurenten das Ruder Galmairs aus seinen Händen reißt."
 english, "Galmair" -> "Us traders have a proverb: Do not trust Galmair, gold opens the door of the stupid, but if you want to walk into the house of wisdom, you have to open a book instead."
@@ -188,6 +188,3 @@ cycletext "Rosen sind Rot, Veilchen sind Blau, ich mag den Himmel, und meine Fra
 cycletext "#me verengt mit einem Lächeln die Augen und mustert seine Umgebung.", "#me blinks with one eye and inspects his surrounding."
 cycletext "#me lehnt sich zufrieden lächelnd zurück.", "#me leans back, smiling contently."
 cycletext "#me steckt seine Hand in die Tasche neben dem Stuhl und zieht ein Brötchen heraus. Dann beginnt er daran zu knabbern.", "#me puts his hand into the bag near his chair, pulling out a bread roll, and starts nibbling on it."
-cycletext "Oldras Segen über Eure Gärten.", "Oldra's blessing for your gardens."
-cycletext "Elaras Weisheit sei mit Euch.", "Elara's wisdom may guide you."
-

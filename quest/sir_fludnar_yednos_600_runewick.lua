@@ -79,7 +79,7 @@ Description[ENGLISH][40] = "Your task for Sir Fludnar Yednos is over."
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {896, 757, 1}
+local Start = {959, 788, 0}
 
 
 
@@ -95,16 +95,16 @@ QuestTarget[17] = {position(475, 795, 0)} -- Nobarg
 QuestTarget[18] = {position(475, 795, 0)} -- Nobarg
 QuestTarget[19] = {position(475, 795, 0)} -- Nobarg
 QuestTarget[20] = {position(475, 795, 0)} -- Nobarg
-QuestTarget[21] = {position(896, 757, 1)} -- Sir Fludnar Yednos
-QuestTarget[22] = {position(896, 757, 1)} -- Sir Fludnar Yednos
-QuestTarget[23] = {position(896, 757, 1)} -- Sir Fludnar Yednos
-QuestTarget[24] = {position(896, 757, 1)} -- Sir Fludnar Yednos
-QuestTarget[25] = {position(896, 757, 1)} -- Sir Fludnar Yednos
-QuestTarget[26] = {position(896, 757, 1)} -- Sir Fludnar Yednos
-QuestTarget[27] = {position(896, 757, 1)} -- Sir Fludnar Yednos
-QuestTarget[28] = {position(896, 757, 1)} -- Sir Fludnar Yednos
-QuestTarget[29] = {position(896, 757, 1)} -- Sir Fludnar Yednos
-QuestTarget[30] = {position(896, 757, 1)} -- Sir Fludnar Yednos
+QuestTarget[21] = {position(959, 788, 0)} -- Sir Fludnar Yednos
+QuestTarget[22] = {position(959, 788, 0)} -- Sir Fludnar Yednos
+QuestTarget[23] = {position(959, 788, 0)} -- Sir Fludnar Yednos
+QuestTarget[24] = {position(959, 788, 0)} -- Sir Fludnar Yednos
+QuestTarget[25] = {position(959, 788, 0)} -- Sir Fludnar Yednos
+QuestTarget[26] = {position(959, 788, 0)} -- Sir Fludnar Yednos
+QuestTarget[27] = {position(959, 788, 0)} -- Sir Fludnar Yednos
+QuestTarget[28] = {position(959, 788, 0)} -- Sir Fludnar Yednos
+QuestTarget[29] = {position(959, 788, 0)} -- Sir Fludnar Yednos
+QuestTarget[30] = {position(959, 788, 0)} -- Sir Fludnar Yednos
 
 
 -- Insert the quest status which is reached at the end of the quest

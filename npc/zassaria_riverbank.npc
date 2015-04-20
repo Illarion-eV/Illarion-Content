@@ -16,8 +16,8 @@
 -- NPC Name: Zassaria Riverbank                                      Runewick --
 -- NPC Job:  Fisher                                                           --
 --                                                                            --
--- NPC Race: lizardman                  NPC Position:  908, 812, 1            --
--- NPC Sex:  female                     NPC Direction: east                   --
+-- NPC Race: lizardman                  NPC Position:  910, 849, 0            --
+-- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                    Illarion easyNPC Editor --
@@ -26,8 +26,8 @@
 name = "Zassaria Riverbank"
 race = lizardman
 sex = female
-position = 908, 812, 1
-direction = east
+position = 910, 849, 0
+direction = south
 affiliation = "Runewick"
 job = "Fisher"
 
@@ -106,13 +106,13 @@ queststatus(701) > 0, queststatus(820) = 5, town = Runewick, "Auftrag", "Aufgabe
 -- 1st quest starts, if you are citizen of Runewick and come from florain
 queststatus(701) = 0, queststatus(820) = 5, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> inform("[New quest] Ask for me I"), queststatus(701) = 1, queststatus(820) = 6, "Could you help me jussst a little? Sss... Nizar assked me for an oil lamp some time ago. Tsss. I found one while fissshing just yesssterday. Zss. Can you tell him he ssshould talk to me?"
 queststatus(701) = 0, queststatus(820) = 5, town = Runewick, "quest", "mission", "florain", "dreyndel" -> inform("[Neues Quest] Frag für mich I"), queststatus(701) = 1, queststatus(820) = 6, "Könntet Ihr mit Helfen? Sss ... Nizar fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss."
-queststatus(701) = 0, queststatus(820) = 5, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Ask for me I"), queststatus(701) = 1, queststatus(820) = 6, "Could you help me jussst a little? Sss... Nizar assked me for an oil lamp some time ago. Tsss. I found one while fissshing just yesssterday. Zss. Can you tell him he ssshould talk to me?"
+queststatus(701) = 0, queststatus(820) = 5, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Frag für mich I"), queststatus(701) = 1, queststatus(820) = 6, "Could you help me jussst a little? Sss... Nizar assked me for an oil lamp some time ago. Tsss. I found one while fissshing just yesssterday. Zss. Can you tell him he ssshould talk to me?"
 queststatus(701) = 0, queststatus(820) = 5, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag für mich I"), queststatus(701) = 1, queststatus(820) = 6, "Könntet Ihr mit Helfen? Sss ... Nizar fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss."
 
 -- 1st quest starts, if you are citizen of Runewick
 queststatus(701) = 0, english, town = Runewick, "quest", "mission" -> inform("[New quest] Ask for me I"), queststatus(701) = 1, "Could you help me jussst a little? Sss... Nizar assked me for an oil lamp some time ago. Tsss. I found one while fissshing just yesssterday. Zss. Can you tell him he ssshould talk to me?"
 queststatus(701) = 0, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Frag für mich I"), queststatus(701) = 1, "Könntet Ihr mit Helfen? Sss ... Nizar fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss."
-queststatus(701) = 0, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Ask for me I"), queststatus(701) = 1, "Could you help me jussst a little? Sss... Nizar assked me for an oil lamp some time ago. Tsss. I found one while fissshing just yesssterday. Zss. Can you tell him he ssshould talk to me?"
+queststatus(701) = 0, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Frag für mich I"), queststatus(701) = 1, "Could you help me jussst a little? Sss... Nizar assked me for an oil lamp some time ago. Tsss. I found one while fissshing just yesssterday. Zss. Can you tell him he ssshould talk to me?"
 queststatus(701) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag für mich I"), queststatus(701) = 1, "Könntet Ihr mit Helfen? Sss ... Nizar fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss."
 
 -- 1st quest not solved, repeat the instructions
@@ -143,10 +143,10 @@ queststatus(701) = 5, town = Runewick, ".+" -> inform("[Quest gelöst] Du hast da
 
 -- 3nd quest talk to Neiran el Nyarale
 -- 3nd , talk to Neiran el Nyarale
-queststatus(701) = 6, english, town = Runewick, "quest", "mission" -> inform("[New quest] Ask for me III"), queststatus(701) = 7, "Pleassse asssk Neiran el Nyarale what happened to my collection of oil lampsss. I sssaw him carrying them away. You can find him upstairs in the tower of fire, the building right there to the north. Zss Zss."
-queststatus(701) = 6, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Frag für mich III"), queststatus(701) = 7, "Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung Öllampen gemacht hat. Ich sssah wie er ssie davon trug. Ihr könnt ihn oben im Turm des Feuers finden, es ist das Gebäude gleich dort im Norden. Zss Zss."
-queststatus(701) = 6, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Ask for me III"), queststatus(701) = 7, "Pleassse asssk Neiran el Nyarale what happened to my collection of oil lampsss. I sssaw him carrying them away. You can find him upstairs in the tower of fire, the building right there to the north. Zss Zss."
-queststatus(701) = 6, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag für mich III"), queststatus(701) = 7, "Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung Öllampen gemacht hat. Ich sssah wie er ssie davon trug.  Ihr könnt ihn oben im Turm des Feuers finden, es ist das Gebäude gleich dort im Norden. Zss Zss."
+queststatus(701) = 6, english, town = Runewick, "quest", "mission" -> inform("[New quest] Ask for me III"), queststatus(701) = 7, "Pleassse asssk Neiran el Nyarale what happened to my collection of oil lampsss. I sssaw him carrying them away. You can find him in the library, the building right there to the easst. Zss Zss."
+queststatus(701) = 6, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Frag für mich III"), queststatus(701) = 7, "Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung Öllampen gemacht hat. Ich sssah wie er ssie davon trug. Ihr könnt ihn in der Bibliothek finden, es ist dass Gebäude im Ossten. Zss Zss."
+queststatus(701) = 6, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Ask for me III"), queststatus(701) = 7, "Pleassse asssk Neiran el Nyarale what happened to my collection of oil lampsss. I sssaw him carrying them away. You can find him in the library, the building right there to the easst. Zss Zss."
+queststatus(701) = 6, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag für mich III"), queststatus(701) = 7, "Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung Öllampen gemacht hat. Ich sssah wie er ssie davon trug. Ihr könnt ihn in der Bibliothek finden, es ist dass Gebäude im Ossten. Zss Zss."
 
 -- 3dr quest not solved, repeat instruction, talk to Neiran el Nyarale
 queststatus(701) = 7, english, town = Runewick, "quest", "mission" -> "Pleassse asssk Neiran el Nyarale what happened to my collection of oil lampsss. I sssaw him carrying them away. Zss Zss."

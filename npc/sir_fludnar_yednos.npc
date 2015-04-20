@@ -16,7 +16,7 @@
 -- NPC Name: Sir Fludnar Yednos                                      Runewick --
 -- NPC Job:  Scholar                                                          --
 --                                                                            --
--- NPC Race: human                      NPC Position:  896, 757, 1            --
+-- NPC Race: human                      NPC Position:  959, 788, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   envi                                                             --
@@ -26,7 +26,7 @@
 name = "Sir Fludnar Yednos"
 race = human
 sex = male
-position = 896, 757, 1
+position = 959, 788, 0
 direction = south
 affiliation = "Runewick"
 job = "Scholar"
@@ -360,14 +360,14 @@ english, "Gobaith" -> "Oh yes, the good, old times. *sigh*", "It was a small isl
 "Ich bin", "mein Name" -> "Schön euch kennen zu lernen.", "Schön, was wollt ihr von mir?", "Interessant, interessant, aber ich habe noch nie so einen lächerlichen Namen gehört."
 
 -- More small talk; add at least five triggers
-"five" -> "Chapel of the Five? Ask people like Numila Irunnleh in the Tower of Earth. I am sure someone knows it.", "Chapel of the Five? I think it is in the west. But you should ask Numila Irunnleh in the Tower of Earth"
-"chapel" -> "I would recommend the Chapel of the Five. Ask people like Numila Irunnleh in the Tower of Earth. I am sure someone knows it.", "I would recommend the Chapel of the Five. I think it is in the west. But you should ask Numila Irunnleh in the Tower of Earth."
+"five" -> "Chapel of the Five? Ask people like Numila Irunnleh in the library. I am sure someone knows it.", "Chapel of the Five? I think it is in the west. But you should ask Numila Irunnleh in the library."
+"chapel" -> "I would recommend the Chapel of the Five. Ask people like Numila Irunnleh in the library. I am sure someone knows it.", "I would recommend the Chapel of the Five. I think it is in the west. But you should ask Numila Irunnleh in the library."
 english, "priest" -> "I have no idea where they are hiding. Better you ask someone else or you look for a chapel like the Chapel of the Five at least."
 english, "Northern", "Mountains", "krest" -> "A mighty clan. Some members of them live here now. Better avoid to bother them.", "They had a very honourable chief.", "Their warlord destroyed a whole dwarves army once. Probably one of the orcs knows more about that."
 "halfing" -> "Halfings...the favourite food of orcs.", "Orcs have several recipes for them.", "Halflings are also very useful as slaves for orcs."
 "bloodgod" -> "I don't want mention is right name. It would be heresey", "Orcs celebrating and following him, because he created them.", "Beware of those who follow him. Those are lost as he is."
-"Fünf" -> "Die Kapelle der Fünf? Fragt herum. Ich bin sicher jemand kann euch helfen. Versucht es mal bei Numila Irunnleh im Turm der Erde.", "Die Kapelle der Fünf? Ich denke die liegt im Westen. Aber fragt Numila Irunnleh im Turm der Erde."
-"Kapelle" -> "Die Kapelle der Fünf würde ich vorschlagen. Fragt herum. Ich bin sicher jemand kann euch helfen. Versucht es mal bei Numila Irunnleh im Turm der Erde.", "Die Kapelle der Fünf würde ich vorschlagen. Ich denke die liegt im Westen. Aber fragt Numila Irunnleh im Turm der Erde."
+"Fünf" -> "Die Kapelle der Fünf? Fragt herum. Ich bin sicher jemand kann euch helfen. Versucht es mal bei Numila Irunnleh in der Bibliothek.", "Die Kapelle der Fünf? Ich denke die liegt im Westen. Aber fragt Numila Irunnleh in der Bibliothek."
+"Kapelle" -> "Die Kapelle der Fünf würde ich vorschlagen. Fragt herum. Ich bin sicher jemand kann euch helfen. Versucht es mal bei Numila Irunnleh in der Bibliothek.", "Die Kapelle der Fünf würde ich vorschlagen. Ich denke die liegt im Westen. Aber fragt Numila Irunnleh in der Bibliothek."
 "priest" -> "Ich habe keine wo sich die verstecken. Besser ihr fragt jemand anderen oder sucht wenigstens nach einer Kapelle wie die Kapelle der Fünf zum Beispiel."
 "Northern", "Mountains", "krest" -> "Ein mächtiger Klan einst. Einige von denen leben nun hier. Besser ihr vermeidet diese zu ärgern.", "Die hatten einen ehrenhaften Chief.", "Deren Kriegsherr zerstörte eine ganze Armee von Zwergen einst. Vielleicht weiß einer der Orks mehr."
 "Halbling" -> "Halblinge...das favorisierte Essen der Orks.", "Orks haben verschiedene Rezepte für sie.", "Orks verwenden sie auch als Sklaven."
@@ -400,8 +400,8 @@ english, "Kantabi" -> "The Kantabi-Desert can be found in the west. In this case
 "Erzmagier" -> "Er hat so viel Wissen.", "Ich habe noch nie jemanden gesehen der so schlau ist.", "Wenn ihr eine Frage habt, es gibt niemanden der es besser beantworten kann."
 english, "Elvaine", "Morgan" -> "He has so much knowledge.", "I have not seen anyone who is smarter than he.", "If you have a question, nobody can answer it better than him."
 "Elvaine", "Morgan" -> "Er hat so viel Wissen.", "Ich habe noch nie jemanden gesehen der so schlau ist.", "Wenn ihr eine Frage habt, es gibt niemanden der es besser beantworten kann."
-english, "Runewick" -> "Nice towers do we have, haven't we? And many great books. Take a look.", "Our forest is so beautiful, isn't it?", "I enjoy it to live here."
-"Runewick" -> "Schöne Türme haben wir, nicht wahr? Und viele tolle Bücher. Werft einen Blick rein.", "Unser Wald ist so wunderhübsch, oder?", "Ich genieße es hier zu leben."
+english, "Runewick" -> "Nice islands do we have, haven't we? And many great books. Take a look.", "Our forest is so beautiful, isn't it?", "I enjoy it to live here."
+"Runewick" -> "Schöne Inseln haben wir, nicht wahr? Und viele tolle Bücher. Werft einen Blick rein.", "Unser Wald ist so wunderhübsch, oder?", "Ich genieße es hier zu leben."
 english, "Valerio", "Guilianni", "Don" -> "Watch his daggers if you ever meet him!", "He has only one aim: more wealth!", "I think he believes in Nargun."
 "Valerio", "Guilianni", "Don" -> "Achte auf seine Dolche wenn du ihn jemals treffen solltest!", "Er hat nur ein einziges Interesse: mehr Reichtum!", "Ich denke er glaubt an Nargun."
 english, "Galmair" -> "Only one word: Criminals.", "They are all greedy and moody.", "A disgusting place.", "Huuu, why do remember me that I still have to pay my debts there."

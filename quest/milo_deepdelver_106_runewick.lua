@@ -39,12 +39,12 @@ Description[ENGLISH][2] = "You brought Milo the carrots. Now he can go home."
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {883, 634, 0}
+local Start = {883, 634, 0}
 
  
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(847, 828, 0), position(911, 798, 0), position (883, 634, 0)} -- Feld, HÃ¤ndler
+QuestTarget[1] = {position(883, 634, 0), position(858, 832, 0), position (939, 822, 0)} -- Feld, Händler
 QuestTarget[2] = {position(883, 634, 0)}
      
 -- Insert the quest status which is reached at the end of the quest

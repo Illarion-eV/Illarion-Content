@@ -44,14 +44,14 @@ Description[ENGLISH][3] = "You have already donated to Runewick but nevertheless
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {897, 781, 2}
+local Start = {944, 784, 1}
 
  
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(897, 779, 2), position(897, 781, 2)} 
-QuestTarget[2] = {position(897, 781, 2)}
-QuestTarget[3] = {position(897, 781, 2)}
+QuestTarget[1] = {position(943, 784, 1), position(944, 784, 1)} 
+QuestTarget[2] = {position(944, 784, 1)}
+QuestTarget[3] = {position(944, 784, 1)}
 
      
 -- Insert the quest status which is reached at the end of the quest

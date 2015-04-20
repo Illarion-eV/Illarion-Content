@@ -16,8 +16,8 @@
 -- NPC Name: Nizar                                                   Runewick --
 -- NPC Job:  magical blacksmith                                               --
 --                                                                            --
--- NPC Race: human                      NPC Position:  910, 801, 1            --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: human                      NPC Position:  943, 827, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                     easyNPC Parser v1.23.1 --
@@ -26,8 +26,8 @@
 name = "Nizar"
 race = human
 sex = male
-position = 910, 801, 1
-direction = south
+position = 943, 827, 0
+direction = west
 affiliation = "Runewick"
 job = "magical blacksmith"
 
@@ -114,7 +114,7 @@ queststatus(701) = 1, "Zassaria", "echse", "öllampe", "lampe", "riverbank" -> qu
 
 -- Optional: Trade Hooks, use only for traders
 -- "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader, but I will gladly help you with your magical gems.",  gemcraft
--- "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler, aber ich helfe Euch gerne was diese magischen Edelsteinen betrifft!", gemcraft
+-- "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich bin kein Händler, aber ich helfe Euch gerne was diese magischen Edelsteinen betrifft!", gemcraft
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 english, "quest", "mission" -> "I'd love to make you happy by giving you something to do, but I'm afraid I can't help you there. Try asking someone else."

@@ -16,7 +16,7 @@
 -- NPC Name: Torina Scibrim                                          Runewick --
 -- NPC Job:  Notary                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  899, 776, 1            --
+-- NPC Race: human                      NPC Position:  947, 784, 1            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Ardian                                                           --
@@ -26,7 +26,7 @@
 name = "Torina Scibrim"
 race = human
 sex = female
-position = 899, 776, 1
+position = 947, 784, 1
 direction = south
 affiliation = "Runewick"
 job = "Notary"

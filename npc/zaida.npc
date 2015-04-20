@@ -16,8 +16,8 @@
 -- NPC Name: Zaida                                                   Runewick --
 -- NPC Job:  Apprentice                                                       --
 --                                                                            --
--- NPC Race: human                      NPC Position:  900, 768, 0            --
--- NPC Sex:  female                     NPC Direction: south                  --
+-- NPC Race: human                      NPC Position:  909, 822, 0            --
+-- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Authors:  Cromwell                                                         --
 --           Estralis                                                         --
@@ -27,8 +27,8 @@
 name = "Zaida"
 race = human
 sex = female
-position = 900, 768, 0
-direction = south
+position = 909, 822, 0
+direction = west
 affiliation = "Runewick"
 job = "Apprentice"
 
@@ -204,6 +204,7 @@ queststatus(76) = 2, "Eldan" -> "Manche sagen, Eldan sei Elaras Vater. Aber das 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Zaida" -> "Zaida is my name. Zaida the Apprentice."
 "Zaida" -> "Zaida ist mein Name. Zaida, die Anwärterin."
+
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

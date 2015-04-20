@@ -216,10 +216,10 @@ english, "Eugene", "Burton" -> "Burton. Eugene Burton. If I ever catch this drea
 "Eugene", "Burton" -> "Burton. Eugene Burton. Wenn ich diesen verdammten Wilderer je erwische, werde ich genau das mit ihm machen, was er mit den friedlichen Tieren des Elsbaumwaldes zu tun pflegt."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
-"archmage" -> "Elvaine is a friend of the forest; still, his pride is towers made of stone."
-"Erzmagier" -> "Elvaine Morgan ist ein Freund des Waldes. Dennoch sind Türme aus Stein sein ganzer Stolz."
-english, "Elvaine", "Morgan" -> "Elvaine is a friend of the forest; still, his pride is towers made of stone."
-"Elvaine", "Morgan" -> "Elvaine Morgan ist ein Freund des Waldes. Dennoch sind Türme aus Stein sein ganzer Stolz."
+"archmage" -> "Elvaine is a friend of the forest; still, his pride is a town made of stone."
+"Erzmagier" -> "Elvaine Morgan ist ein Freund des Waldes. Dennoch ist Runewick aus Stein und sein ganzer Stolz."
+english, "Elvaine", "Morgan" -> "Elvaine is a friend of the forest; still, his pride is a town made of stone."
+"Elvaine", "Morgan" -> "Elvaine Morgan ist ein Freund des Waldes. Dennoch ist Runewick aus Stein und sein ganzer Stolz."
 english, "Runewick" -> "Only the people of Runewick honour the forest like a treasure. Due to wisdom or their hearts, I do not know."
 "Runewick" -> "Nur die Leute aus Runewick ehren den Wald wie ein Kleinod. Sei es wegen ihrer Weisheit oder von ganzem Herzen, wer weiß das schon."
 english, "Valerio", "Guilianni", "Don" -> "This dwarf doesn't honour wood, but then he is crazy."

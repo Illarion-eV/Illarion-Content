@@ -33,32 +33,33 @@ Title[ENGLISH] = "The carpentry craft"
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Sammel zehn Apfelholzbretter und zeig diese Daniel Brock im Untergeschoss des Luftturms. Sammel erstmal mit dem Beil an einem Apfelbaum in Yewdale zehn Apfelholzscheite. Dazu nimmst du das Beil in die Hand und benutzt es, während du vor einem Apfelbaum stehst. Hast du das erstmal gemacht, geh zurück zu Daniel und säge die Scheite mit der Säge in der Hand bei der Werkbank zu Brettern. Yewdale ist bei der goldenen Brücke nördlich des Teleporters."
-Description[ENGLISH][1] = "Collect ten applewood boards for Daniel Brock in the basement of the Wind Tower. You should start by collecting ten applewood in Yewdale by using the hatchet in your hand, whilst standing in front of an apple tree. Once you have the applewood you can saw it into boards in the workshop by using the workbench as you stand in front of it, with the saw in your hand. Yewdale is at the golden bridge north of the teleporter."
-Description[GERMAN][2] = "Geh zu Daniel Brock, der sich im Untergeschoss des Windturms aufhält. Er hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][2] = "Go back to Daniel Brock in the basement of the Wind Tower, he is sure to have another task for you."
-Description[GERMAN][3] = "Stell zehn Teller für Daniel Brock im Untergeschoss des Luftturms. Um die Teller herzustellen, brauchst du Apfelholzbretter. Hast du diese, nimmst du den Hobel in die Hand und benutzt ihn, während du vor einer Werkbank stehst."
-Description[ENGLISH][3] = "Produce ten plates for Daniel Brock in the basement of the Wind Tower. To produce the plates you need applewood boards. Once you have them, take the plane in your hand and use it whilst standing in front of the workbench."
-Description[GERMAN][4] = "Geh zu Daniel Brock, der sich im Untergeschoss des Windturms aufhält. Er hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][4] = "Go back to Daniel Brock in the basement of the Wind Tower, he is sure to have another task for you."
-Description[GERMAN][5] = "Stell für Daniel Brock, der sich im Untergeschoss des Luftturms aufhält, 25 Nägel und Keile her. Um die Nägel und Keile herzustellen, brauchst du Äste und Nägel. Nägel können von Schmieden hergestellt werden. Äste findest du manchmal beim Fällen von Apfelbäumen. Hast du erstmal fünf Äste gefunden, kehr zur Werkstatt zurück und fertige mit dem Schnitzmesser in der Hand bei der Werkbank 25 Nägel und Keile."
-Description[ENGLISH][5] = "Produce twenty five pins and cotters for Daniel Brock in the basement of the Wind Tower. To produce the pins and cotters you need five boughs and the pins first of all. You can get boughs by chopping down an apple tree; pins can be made by a smith. Once you have the boughs return to the workshop and produce twenty five pins and cotters by using the carving tools in your hand whilst at the workbench."
+Description[GERMAN][1] = "Sammel zehn Apfelholzbretter und zeig diese Daniel Brock in der Schreinerei. Sammel erstmal mit dem Beil an einem Apfelbaum in Yewdale zehn Apfelholzscheite. Dazu nimmst du das Beil in die Hand und benutzt es, während du vor einem Apfelbaum stehst. Hast du das erstmal gemacht, geh zurück zu Daniel und säge die Scheite mit der Säge in der Hand bei der Werkbank zu Brettern. Yewdale ist bei der goldenen Brücke nördlich des Teleporters."
+Description[ENGLISH][1] = "Collect ten applewood boards for Daniel Brock in the carpenter's shop. You should start by collecting ten applewood in Yewdale by using the hatchet in your hand, whilst standing in front of an apple tree. Once you have the applewood you can saw it into boards in the workshop by using the workbench as you stand in front of it, with the saw in your hand. Yewdale is at the golden bridge north of the teleporter."
+Description[GERMAN][2] = "Geh zu Daniel Brock, der sich in der Schreinerei aufhält. Er hat bestimmt noch eine Aufgabe für dich."
+Description[ENGLISH][2] = "Go back to Daniel Brock in the carpenter's shop, he is sure to have another task for you."
+Description[GERMAN][3] = "Stell zehn Teller für Daniel Brock in der Schreinerei her. Um die Teller herzustellen, brauchst du Apfelholzbretter. Hast du diese, nimmst du den Hobel in die Hand und benutzt ihn, während du vor einer Werkbank stehst."
+Description[ENGLISH][3] = "Produce ten plates for Daniel Brock in the carpenter's shop. To produce the plates you need applewood boards. Once you have them, take the plane in your hand and use it whilst standing in front of the workbench."
+Description[GERMAN][4] = "Geh zu Daniel Brock, der sich in der Schreinerei aufhält. Er hat bestimmt noch eine Aufgabe für dich."
+Description[ENGLISH][4] = "Go back to Daniel Brock in the carpenter's shop, he is sure to have another task for you."
+Description[GERMAN][5] = "Stell für Daniel Brock, der sich in der Schreinerei aufhält, 25 Nägel und Keile her. Um die Nägel und Keile herzustellen, brauchst du Äste und Nägel. Nägel können von Schmieden hergestellt werden. Äste findest du manchmal beim Fällen von Apfelbäumen. Hast du erstmal fünf Äste gefunden, kehr zur Werkstatt zurück und fertige mit dem Schnitzmesser in der Hand bei der Werkbank 25 Nägel und Keile."
+Description[ENGLISH][5] = "Produce twenty five pins and cotters for Daniel Brock in the carpenter's shop. To produce the pins and cotters you need five boughs and the pins first of all. You can get boughs by chopping down an apple tree; pins can be made by a smith. Once you have the boughs return to the workshop and produce twenty five pins and cotters by using the carving tools in your hand whilst at the workbench."
 Description[GERMAN][6] = "Du hast alle Aufgaben von Daniel Brock erfüllt."
 Description[ENGLISH][6] = "You have fulfilled all the tasks for Daniel Brock."
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {904, 827, 0}
+local Start = {959, 825, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(904, 827, 0), position(792, 819, 0)} -- Apple tree
-QuestTarget[2] = {position(904, 827, 0)} 
-QuestTarget[3] = {position(904, 827, 0), position(902, 825, 0)} -- Work bench
-QuestTarget[4] = {position(904, 827, 0)} 
-QuestTarget[5] = {position(904, 827, 0), position(902, 825, 0)} -- Work bench
-QuestTarget[6] = {position(904, 827, 0)} 
+QuestTarget[1] = {position(959, 825, 0), position(792, 819, 0)} -- Apple tree
+QuestTarget[2] = {position(959, 825, 0)} 
+QuestTarget[3] = {position(959, 825, 0), position(957, 823, 0)} -- Work bench
+QuestTarget[4] = {position(959, 825, 0)} 
+QuestTarget[5] = {position(959, 825, 0), position(957, 823, 0)} -- Work bench
+QuestTarget[6] = {position(959, 825, 0)} 
+
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 6

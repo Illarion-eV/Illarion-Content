@@ -16,7 +16,7 @@
 -- NPC Name: Alysa Lorthelia                                         Runewick --
 -- NPC Job:  Baker                                                            --
 --                                                                            --
--- NPC Race: human                      NPC Position:  907, 794, 1            --
+-- NPC Race: human                      NPC Position:  939, 826, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Regallo                                                          --
@@ -26,8 +26,8 @@
 name = "Alysa Lorthelia"
 race = human
 sex = female
-position = 907, 794, 1
-direction = south
+position = 939, 826, 0
+direction = east
 affiliation = "Runewick"
 job = "Baker"
 
@@ -187,6 +187,7 @@ english, "salkama" -> "My father says that they only care about faction related 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Alysa ", "Lorthelia" -> "That's me, Alysa Lorthelia."
 "Alysa", "Lorthelia" -> "Das bin ich, Alysa Lorthelia."
+
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

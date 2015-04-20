@@ -184,10 +184,10 @@ queststatus(107) = 7, ".+" -> inform("[Quest gelöst] Du erhältst einen Kriegsham
 -- 4th quest: Take a message to Fronita Emery.
 
 -- Give out quest 4
-queststatus(107) = 8, english, "quest", "mission" -> inform("[New quest] The Reminder IV: You receive a message for Fronita Emery."), queststatus(107) = 9, "She thinks she's smart! Fronita Emery, an artisan of Runewick thinks she can hide in that wicked tower town and avoid paying back her dues. Take her this payment reminder!"
-queststatus(107) = 8, "quest", "mission" -> inform("[Neues Quest] Die Erinnerung IV: Du hast eine Nachricht für Fronita Emery erhalten."), queststatus(107) = 9, "Sie denkt, sie ist schlau! Fronita Emery, eine Handwerkerin Runewicks, denkt sie kann sich in der Turmstadt verstecken und ihre Schulden nicht bezahlen. Bring ihr diese letzte Mahnung!"
-queststatus(107) = 8, "Task", "Adventure", "Message" -> inform("[New quest] The Reminder IV: You receive a message for Fronita Emery."), queststatus(107) = 9, "She thinks she's smart! Fronita Emery, an artisan of Runewick thinks she can hide in that wicked tower town and avoid paying back her dues. Take her this payment reminder!"
-queststatus(107) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Die Erinnerung IV: Du hast eine Nachricht für Fronita Emery erhalten."), queststatus(107) = 9, "Sie denkt, sie ist schlau! Fronita Emery, eine Handwerkerin Runewicks, denkt sie kann sich in der Turmstadt verstecken und ihre Schulden nicht bezahlen. Bring ihr diese letzte Mahnung!"
+queststatus(107) = 8, english, "quest", "mission" -> inform("[New quest] The Reminder IV: You receive a message for Fronita Emery."), queststatus(107) = 9, "She thinks she's smart! Fronita Emery, an artisan of Runewick thinks she can hide in that wicked island town and avoid paying back her dues. Take her this payment reminder!"
+queststatus(107) = 8, "quest", "mission" -> inform("[Neues Quest] Die Erinnerung IV: Du hast eine Nachricht für Fronita Emery erhalten."), queststatus(107) = 9, "Sie denkt, sie ist schlau! Fronita Emery, eine Handwerkerin Runewicks, denkt sie kann sich in der Inselstadt verstecken und ihre Schulden nicht bezahlen. Bring ihr diese letzte Mahnung!"
+queststatus(107) = 8, "Task", "Adventure", "Message" -> inform("[New quest] The Reminder IV: You receive a message for Fronita Emery."), queststatus(107) = 9, "She thinks she's smart! Fronita Emery, an artisan of Runewick thinks she can hide in that wicked island town and avoid paying back her dues. Take her this payment reminder!"
+queststatus(107) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Die Erinnerung IV: Du hast eine Nachricht für Fronita Emery erhalten."), queststatus(107) = 9, "Sie denkt, sie ist schlau! Fronita Emery, eine Handwerkerin Runewicks, denkt sie kann sich in der Inselstadt verstecken und ihre Schulden nicht bezahlen. Bring ihr diese letzte Mahnung!"
 
 -- Quest 4 taken but not solved, repeat the instructions
 queststatus(107) = 9, english, "quest", "mission" -> "Fronita Emery owes the Don a lot and her business isn't doing well. Glass goods don't pay off, keep that in mind when giving her my message."
@@ -270,8 +270,8 @@ english, "Snickers" -> "Could take a while..."
 "Erzmagier" -> "Ich kenne den Erzmagier Morgan nicht recht. Man sagt, er sei etwas... sonderbar. Wenns dich interessiert, besuch in doch."
 english, "Elvaine", "Morgan" -> "I don't really know Archmage Morgan. Word is that he's a bit... quirky. If you are so interested, why don't you visit him?"
 "Elvaine", "Morgan" -> "Ich kenne den Erzmagier Morgan nicht recht. Man sagt, er sei etwas... sonderbar. Wenns dich interessiert, besuch in doch."
-english, "Runewick" -> "Runewick is not a town but a joke. I mean, who would be so stupid to build towers in the ocean?"
-"Runewick" -> "Runewick ist keine Stadt, sondern ein Witz. Ich meine, wer ist so dämlich und baut Türme im Ozean?"
+english, "Runewick" -> "Runewick is not a town but a joke. I mean, who would be so stupid to build a town in the ocean?"
+"Runewick" -> "Runewick ist keine Stadt, sondern ein Witz. Ich meine, wer ist so dämlich und baut eine Stadt im Ozean?"
 english, "Valerio", "Guilianni", "Don" -> "Don Valerio is like a father to me, one could say, like a godfather.", "Say a bad word about the Don and risk a tooth, say another and you risk your tongue.", "Don Valerio built up what you see here, not by brick by brick, but coin by coin. Wealth is what made Galmair strong."
 "Valerio", "Guilianni", "Don" -> "Don Valerio ist wie ein Vater für mich. Wie ein Pate, könnte man auch sagen.", "Sag ein böses Wort über den Don und du riskierst einen Zahn. Sage ein weiteres und du riskierst deine Zunge.", "Don Valerio hat all dies hier aufgebaut. Nicht Stein für Stein, sondern Münze für Münze. Reichtum hat Galmair stark gemacht."
 english, "Galmair" -> "Actually, Galmair is my home, and yes, in this valley, there was once a dwarven stronghold. I'm a dwarf, so I feel quite comfortable here."

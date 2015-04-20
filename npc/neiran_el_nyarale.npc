@@ -16,7 +16,7 @@
 -- NPC Name: Neiran el Nyarale                                       Runewick --
 -- NPC Job:  guard                                                            --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  897, 781, 2            --
+-- NPC Race: elf                        NPC Position:  944, 784, 1            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
@@ -26,7 +26,7 @@
 name = "Neiran el Nyarale"
 race = elf
 sex = male
-position = 897, 781, 2
+position = 944, 784, 1
 direction = south
 affiliation = "Runewick"
 job = "guard"

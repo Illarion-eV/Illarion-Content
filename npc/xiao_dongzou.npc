@@ -241,7 +241,7 @@ queststatus(679) = 100, "normal", money>999 -> inform("[Münzspiel] Münze werfen 
 queststatus(679) = 100, "many", money>9999 -> inform("[Coin Game] Flipping coin for one gold. Use 'heads', 'tails', 'other' or break up the game by 'stop' or 'end'."), queststatus(679) = 103, "Interesting, interesting. What's your tip?", "More is better. Which side of the coin is your choice?"
 queststatus(679) = 100, "viel", money>9999 -> inform("[Münzspiel] Münze werfen um ein Goldstück. Sage 'Kopf', 'Zahl', 'Rand' oder brich das Spiel ab mit 'Stop' oder 'Ende'."), queststatus(679) = 103, "Sehr interessant. Auf welche Zahl tippst du?", "Nur so kann man zu etwas kommen. Was willst du tippen?"
 -- !!!Delete for Final!!! Wir können noch mal überlegen, ob ein Abbruch bei sonstigem Text Sinn macht. Ich denke mal, als Sicherheit ja
-queststatus(679) = 100, english, ".*" -> inform("[Coin Game] Game aborted."), queststatus(679) = 0, "What a pity. You could win a lot of money.", "Are you sure?", "Come please, just one game?"
+queststatus(679) = 100, english, ".*" -> inform("[Coin Game] game aborted."), queststatus(679) = 0, "What a pity. You could win a lot of money.", "Are you sure?", "Come please, just one game?"
 queststatus(679) = 100, ".*" -> inform("[Münzspiel] Spiel abgebrochen."), queststatus(679) = 0, "Wie schade. Du hättest eine Menge Geld gewinnen können.", "Bist du dir sicher?", "Ach komm schon, nur ein Spielchen, bitte."
 
 -- coin 1 silver
@@ -288,7 +288,7 @@ queststatus(679) = 102, chance(50), "Rand", "Zahl", money>999 -> inform("[Münzsp
 -- coin 10 silver tail
 queststatus(679) = 102, "tail", money>999 -> inform("[Coin Game] You won."), money + 1000, queststatus(679) = 0, "#me flips the coin. It shows a number. 'I'd be wrong, if I said I'd won.'", "#me can't stop the coin before it falls from the table, ending with a tail on top. 'I would have won, if it had stopped on the table, but now, you have an additonal twenty silver.'", "#me's coin ends standing but he hits the table and it falls to a tail on top. 'Hrm! Not really my day today.'"
 queststatus(679) = 102, "Zahl", money>999 -> inform("[Münzspiel] Du hast gewonnen."), money + 1000, queststatus(679) = 0, "#me wirft die Münze. Sie zeigt eine Zahl. 'Ich würde lügen, wenn ich sage, ich habe gewonnen.'", "#me kann die Münze nicht daran hindern herunterzufallen. Sie zeigt eine Zahl. 'Wäre sie oben geblieben, hätte ich gewonnen. Ganz bestimmt!'", "#mes Münze bleibt auf dem Rand stehen. Als er den Tisch berührt kippt sie auf Zahl. 'Nicht wirklich mein Tag heute.'"
-queststatus(679) = 102, "other", "head", money>999 -> inform("[Coin Game] You loose."), money - 1000, queststatus(679) = 0, "#me flips the coin. It shows a tail and he takes the money. 'Another turn?'", "#me looks as your coin ends tail on top. 'Don't worry. Ten silver only. Another turn and you get it back.'", "#me's coin falls to the floor and shows a tail. 'Your bet was different.'"
+queststatus(679) = 102, "other", "head", money>999 -> inform("[Coin Game] You loose."), money - 1000, queststatus(679) = 0, "#me flips the coin. It shows a head and he takes the money. 'Another turn?'", "#me looks as your coin ends tail on top. 'Don't worry. Ten silver only. Another turn and you get it back.'", "#me's coin falls to the floor and shows a tail. 'Your bet was different.'"
 queststatus(679) = 102, "Rand", "Kopf", money>999 -> inform("[Münzspiel] Du hast verloren."), money - 1000, queststatus(679) = 0, "#me wirft Zahl mit der Münze. Er steckt das Geld ein. 'Noch einmal?'", "#me schaut zu, wie deine Münze mit Zahl oben endet. 'Gräm dich nicht. Die 10 Silber hast du schnell wieder drin.'", "#mes Münze fällt zu Boden und zeigt aber deutlich Zahl. 'Dein Tipp war anders!'"
 -- coin 10 silver other text
 queststatus(679) = 102, english, ".*" -> inform("[Coin Game] open. Use 'heads', 'tails', 'other' or break game using 'stop' or 'end'."), "A simple game for ten silver. What's you problem?", "Just say if the coin ends up heads or tails."
@@ -332,10 +332,10 @@ queststatus(679) = 103, ".*" -> inform("[Münzspiel] offen. Sage 'Kopf', 'Zahl', 
 "glück" -> "Nargun ist verantwortlich für dein Glück. Aber nur, wenn du ihn ehrst. Zum Beispiel mit einem kleinen Spielchen.", "Mit etwas Glück kannst du den Inhalt deiner Geldbörse vervielfachen."
 
 -- Faction stuff
-"archmage" -> "The Archmage is far away and he does not play, except with magic. You can see the results of that by the collapsed tower."
-"Erzmagier" -> "Der Erzmagier ist weit weg. Und er spielt höchstens mit Magie. Was dabei rauskommt, kannst du an dem eingestürzten Turm sehen."
-english, "Elvaine", "Morgan" -> "The Archmage is far away and he does not play, except with magic. You can see the results of that by the collapsed tower."
-"Elvaine", "Morgan" -> "Der Erzmagier ist weit weg. Und er spielt höchstens mit Magie. Was dabei rauskommt, kannst du an dem eingestürzten Turm sehen."
+"archmage" -> "The Archmage is far away and he does not play, except with magic."
+"Erzmagier" -> "Der Erzmagier ist weit weg. Und er spielt höchstens mit Magie."
+english, "Elvaine", "Morgan" -> "The Archmage is far away and he does not play, except with magic."
+"Elvaine", "Morgan" -> "Der Erzmagier ist weit weg. Und er spielt höchstens mit Magie."
 english, "Runewick" -> "Runewick is in the southeast. If you are stupid enough and want to walk there, look for the signposts at least. Smart people earn money for the teleporter with a little game."
 "Runewick" -> "Runewick ist im Südosten zu finden. Wenn du dumm genug bist, wirst du dort hin zu Fuß gehen. Aber orientierte dich wenigstens nach den Wegschildern. Schlaue Leute würden sich das Geld für den Teleporter bei einem Spielchen verdienen.."
 english, "Valerio", "Guilianni", "Don" -> "The Don doesn't like to lose money. I have no idea if this is legal or not, but it doesn't matter."

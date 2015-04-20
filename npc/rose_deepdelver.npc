@@ -16,8 +16,8 @@
 -- NPC Name: Rose Deepdelver                                         Runewick --
 -- NPC Job:  Barkeeper                                                        --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  899, 772, 0            --
--- NPC Sex:  female                     NPC Direction: east                   --
+-- NPC Race: halfling                   NPC Position:  919, 823, 0            --
+-- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
 --                                                     easyNPC Parser v1.23.1 --
@@ -26,8 +26,8 @@
 name = "Rose Deepdelver"
 race = halfling
 sex = female
-position = 899, 772, 0
-direction = east
+position = 919, 823, 0
+direction = south
 affiliation = "Runewick"
 job = "Barkeeper"
 

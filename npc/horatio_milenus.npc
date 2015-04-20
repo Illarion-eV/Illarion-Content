@@ -183,12 +183,12 @@ english, "Tomb" -> "The resting place of the greatest of our people is the tomb.
 "Gefreite" -> "Ich bin kein Gefreiter mehr! Die Königin hat mich befördert, haha!"
 
 -- Faction stuff. Please remove if you send the template to outsiders!
-"archmage" -> "He's quite a merry fellow.", "The towers the archmage of Runewick built must be easy to defend.", "The archmage of Runewick; I better keep my mouth shut now."
-"Erzmagier" -> "Er ist ein ziemlich freundlicher Kerl.", "Die Türme, die der Erzmagier von Runewick hat bauen lassen, sind wohl recht einfach zu verteidigen.", "Der Erzmagier von Runewick; ich sag jetzt besser nichts mehr."
-english, "Elvaine", "Morgan" -> "He's quite a merry fellow.", "The towers the archmage of Runewick built must be easy to defend.", "The archmage of Runewick; I better keep my mouth shut now."
-"Elvaine", "Morgan" -> "Er ist ein ziemlich freundlicher Kerl.", "Die Türme, die der Erzmagier von Runewick hat bauen lassen, sind wohl recht einfach zu verteidigen.", "Der Erzmagier von Runewick; ich sag jetzt besser nichts mehr."
-english, "Runewick" -> "Runewick is a stronghold of magicians, consisting of four magnificent towers, built in the ocean.", "Runewick is a strong city, but the inhabitants have no honour. They do whatever it takes to get what they want."
-"Runewick" -> "Runewick ist eine Feste der Magie, vier mächtige Türme, die in das Meer gebaut wurden.", "Runewick ist eine beeindruckende Stadt, aber ihre Einwohner sind ehrlos. Sie tun, was immer nötig ist, um ihre Ziele zu erreichen."
+"archmage" -> "He's quite a merry fellow.", "The islands must be easy to defend.", "The archmage of Runewick; I better keep my mouth shut now."
+"Erzmagier" -> "Er ist ein ziemlich freundlicher Kerl.", "Die Inseln sind wohl recht einfach zu verteidigen.", "Der Erzmagier von Runewick; ich sag jetzt besser nichts mehr."
+english, "Elvaine", "Morgan" -> "He's quite a merry fellow.", "The islands must be easy to defend.", "The archmage of Runewick; I better keep my mouth shut now."
+"Elvaine", "Morgan" -> "Er ist ein ziemlich freundlicher Kerl.", "Die Inseln sind wohl recht einfach zu verteidigen.", "Der Erzmagier von Runewick; ich sag jetzt besser nichts mehr."
+english, "Runewick" -> "Runewick is a stronghold of magicians built in the ocean.", "Runewick is a strong city, but the inhabitants have no honour. They do whatever it takes to get what they want."
+"Runewick" -> "Runewick ist eine Feste der Magie, die in das Meer gebaut wurden.", "Runewick ist eine beeindruckende Stadt, aber ihre Einwohner sind ehrlos. Sie tun, was immer nötig ist, um ihre Ziele zu erreichen."
 english, "Valerio", "Guilianni", "Don" -> "I overheard the crest of the Don is a pig. That fits!"
 "Valerio", "Guilianni", "Don" -> "Ich habe gehört, dass Wappen des Dons zeigt ein Schwein. Wie passend!"
 english, "Galmair" -> "Galmair is a dirty town where money washes hands clean from any sin."

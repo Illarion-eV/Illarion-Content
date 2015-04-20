@@ -1,22 +1,22 @@
 -- Illarion Server
---
+-- 
 -- This program is free software: you can redistribute it and/or modify it under
 -- the terms of the GNU Affero General Public License as published by the Free
 -- Software Foundation, either version 3 of the License, or (at your option) any
 -- later version.
---
+-- 
 -- This program is distributed in the hope that it will be useful, but WITHOUT
 -- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
 -- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 -- details.
---
+-- 
 -- You should have received a copy of the GNU Affero General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Decius Cerasus Industrius                               Runewick --
 -- NPC Job:  Majordomus                                                       --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  906, 828, 3            --
+-- NPC Race: halfling                   NPC Position:  896,849, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Rakaya                                                           --
@@ -26,8 +26,8 @@
 name = "Decius Cerasus Industrius"
 race = halfling
 sex = male
-position = 906, 828, 3
-direction = west
+position = 896, 849, 0
+direction = east
 affiliation = "Runewick"
 job = "Majordomus"
 
@@ -548,28 +548,26 @@ english, "Gobaith", "Gobiath" -> "Ask a cartographer or someone else. I have no 
 "mein Name" -> "Seh ich aus, als hätte ich Zeit euren Namen herauszusuchen?"
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"management" -> "I manage the town, an important business. Everything has to be in the right place and the towers have to be kept in good condition."
-"Verwaltung" -> "Ich verwalte diese Stadt, eine wichtige Aufgabe. Es muss alles dort sein, wo es gebraucht wird und die Türme müssen instandgehalten werden."
-"tower" -> "Runewick consists of four towers: the Fire Tower, the Wind Tower, the Earth Tower and the Water Tower.", "Runewick consists of four towers. One for each of the high arts."
-"Türme" -> "Runewick besteht aus vier Türmen. Den Feuerturm, Windturm, Erdturm und Wasserturm.", "Runewick besteht aus vier Türmen. Für jeden der hohen Künste einer."
-"magic" -> "One of the high arts. Best ask a mage or our Archmage when he has time.", "Once the Fire Tower was dedicated to it because sometimes things liked to catch fire."
-"Magie" -> "Eine der hohen Künste. Frag am besten einen Magier oder unseren Erzmagier, wenn er Zeit hat.", "Ursprünlich wurde ihr der Feuerturm zugeordnet, weil gerne mal was in Flammen aufging."
-english, "bard" -> "The high art of singing and storytelling.", "The Water Tower was once dedicated to it, because there was a tavern and an altar dedicated to Adron."
-"Barden" -> "Die hohe Kunst der Geschichtenerzählung und Gesangs.", "Ursprünlich wurde ihr der Wasserturm zugeordnet, weil dort auch der Adronaltar und die Taverne ist."
-english, "priest" -> "They serve the gods. Depending on origin and race that often ends up in many different views.", "Once the Tower of Wind was dedicated to them. There is also the altar of Elara."
-"Priester" -> "Sie dienen den Göttern. Je nach Herkunft und Rasse sind das oft sehr unterschiedliche Ansichten.", "Ursprünlich wurde ihnen der Windturm zugeordnet. Dort steht auch der Elaraaltar."
-english, "alchemist", "alchemy" -> "The high art of alchemy and potion brewing.", "The Tower of Earth is dedicated to alchemy. If you get there you will know why.", "A small potion often helped me over one affliction or another."
-"Alchemist", "Alchemie" -> "Die hohe Kunst der Alchmie und des Trankmischens.", "Ihr wird der Erdturm zugeordnet. Wenn du hinkommst, weißt du warum.", "Ein kleiner Trank hat mir schon oft bei unterschiedlichen Beschwerden geholfen."
+"management" -> "I manage the town, an important business. Everything has to be in the right place and the buildings have to be kept in good condition."
+"Verwaltung" -> "Ich verwalte diese Stadt, eine wichtige Aufgabe. Es muss alles dort sein, wo es gebraucht wird und die Gebäude müssen instandgehalten werden."
+"magic" -> "One of the high arts. Best ask a mage or our Archmage when he has time." 
+"Magie" -> "Eine der hohen Künste. Frag am besten einen Magier oder unseren Erzmagier, wenn er Zeit hat." 
+english, "bard" -> "The high art of singing and storytelling."
+"Barden" -> "Die hohe Kunst der Geschichtenerzählung und Gesangs."
+english, "priest" -> "They serve the gods. Depending on origin and race that often ends up in many different views."
+"Priester" -> "Sie dienen den Göttern. Je nach Herkunft und Rasse sind das oft sehr unterschiedliche Ansichten." 
+english, "alchemist", "alchemy" -> "The high art of alchemy and potion brewing.", "A small potion often helped me over one affliction or another."
+"Alchemist", "Alchemie" -> "Die hohe Kunst der Alchmie und des Trankmischens.", "Ein kleiner Trank hat mir schon oft bei unterschiedlichen Beschwerden geholfen."
 "craft", "handcraft", "artisanry" -> "There are many crafts and craftsmen in Runewick. Cooks, bakers, farmers, tailors, carpenters just to name a few."
 "Handwerk" -> "Es gibt viele Handwerke und Handwerker in Runewick. Köche, Bäcker, Feldarbeiter, Schneider, Schreiner um nur ein paar zu nennen."
 "knowledge" -> "Knowledge is the true power!"
 "Wissen" -> "Wissen ist die wahre Macht!"
 
 -- Faction stuff. Please remove if you send the template to outsiders!
-"archmage" -> "Our illustrious and wise Archmage Elvaine Morgan is the beating heart of Runewick. The towers praise him.", "He is the father of Runewick and all of its inhabitants, honourably."
-"Erzmagier" -> "Unser erhabener und weiser Erzmagier Elvaine Morgan ist das schlagende Herz Runewicks. Ihn preisen die Türme.", "Er ist der Vater Runewicks und alle seiner Bewohner, ehrenhalber."
-english, "Elvaine", "Morgan" -> "Our illustrious and wise Archmage Elvaine Morgan is the beating heart of Runewick. The towers praise him.", "He is the father of Runewick and all of its inhabitants, honourably."
-"Elvaine", "Morgan" -> "Unser erhabener und weißer Erzmagier Elvaine Morgan ist das schlagende Herz Runewicks. Ihn preisen die Türme.", "Er ist der Vater Runewicks und alle seiner Bewohner, ehrenhalber."
+"archmage" -> "Our illustrious and wise Archmage Elvaine Morgan is the beating heart of Runewick. The town praise him.", "He is the father of Runewick and all of its inhabitants, honourably."
+"Erzmagier" -> "Unser erhabener und weiser Erzmagier Elvaine Morgan ist das schlagende Herz Runewicks. Ihn preist die Stadt.", "Er ist der Vater Runewicks und alle seiner Bewohner, ehrenhalber."
+english, "Elvaine", "Morgan" -> "Our illustrious and wise Archmage Elvaine Morgan is the beating heart of Runewick. The town praise him.", "He is the father of Runewick and all of its inhabitants, honourably."
+"Elvaine", "Morgan" -> "Unser erhabener und weißer Erzmagier Elvaine Morgan ist das schlagende Herz Runewicks. Ihn preisen die Stadt", "Er ist der Vater Runewicks und alle seiner Bewohner, ehrenhalber."
 english, "Runewick" -> "This here is Runewick. Worked all my life to make it as magnificient and lofty as it stands now.", "After Lor-Angur it is the most beautiful town on Illarion. And I am to know that."
 "Runewick" -> "Dies hier ist Runewick. Hab mein ganzes Leben daran gearbeite sie so prächtig und erhaben zu machen, wie es jetzt dasteht.", "Nach Lor-Angur die schönste Stadt auf Illarion. Und ich muss das wissen."
 english, "Valerio", "Guilianni", "Don" -> "Pah.. a crook is this Don Valerio.", "He's the first and the worst of Galmair's crooks."
@@ -596,16 +594,16 @@ english, "salkamar" -> "Religious fanatics take care that it doesn't become like
 "Gott", "Götter" -> "Als viel beschäftigter Halbling, hab ich keine Zeit über die Götter und die Welt zu reden."
 english, "Adron" -> "Wine and celebrations. Thereby you forgot the shards and the clearing up the next day."
 "Adron" -> "Wein und Feste. Dabei vergisst man meistens die Scherben und das Aufräumen am nächsten Tag."
-english, "Bragon", "Brágon" -> "He is an Old God.", "His altar stands in the Tower of Fire.", "Ask a priest or an elf."
-"Bragon", "Brágon" -> "Er ist einer der alten Gottheiten.", "Sein Altar steht am Feuerturm.", "Frag am besten einen Priester oder einen Elfen."
+english, "Bragon", "Brágon" -> "He is an Old God.", "His altar stands on the Island of Fire.", "Ask a priest or an elf."
+"Bragon", "Brágon" -> "Er ist einer der alten Gottheiten.", "Sein Altar steht auf der Insel des Feuers.", "Frag am besten einen Priester oder einen Elfen."
 english, "Cherga" -> "#me shudders."
 "Cherga" -> "#me schüttelt sich."
 english, "Elara" -> "Knowledge and wisdom. She is a keystone of our town."
 "Elara" -> "Wissen und Weisheit. Sie ist ein Grundpfeiler dieserer Stadt."
-english, "Eldan" -> "He is an Old God.", "His altar is in the garden between the Earth Tower and the Water Tower. A really nice place.", "Ask a priest or an elf."
-"Eldan" -> "Er ist einer der alten Gottheiten.", "Sein Altar steht im Garten zwischen dem Erdturm und den Wasserturm. Ein wirklich schöner Garten", "Frag am besten einen Priester oder einen Elfen."
-english, "Findari" -> "She is an Old Goddess.", "Her altar stands in the Tower of Air, where else?", "Ask a priest or an elf."
-"Findari" -> "Sie ist eine der alten Gottheiten.", "Ihr Altar steht auf dem Windturm, wo sonst.", "Frag am besten einen Priester oder einen Elfen."
+english, "Eldan" -> "He is an Old God.", "His altar is on Morgans island. A really nice place.", "Ask a priest or an elf."
+"Eldan" -> "Er ist einer der alten Gottheiten.", "Sein Altar steht auf Morgans Insel.", "Frag am besten einen Priester oder einen Elfen."
+english, "Findari" -> "She is an Old Goddess.", "Her altar stands on the Island of Wind, where else?", "Ask a priest or an elf."
+"Findari" -> "Sie ist eine der alten Gottheiten.", "Ihr Altar steht auf der Insel des Windes, wo sonst.", "Frag am besten einen Priester oder einen Elfen."
 english, "Irmorom" -> "Lord of craft and trade."
 "Irmorom" -> "Herr den Handwerks und des Handels."
 english, "Malachin", "Malachín" -> "As a hunter he is also worshipped here."

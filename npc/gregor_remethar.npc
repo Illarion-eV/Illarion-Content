@@ -1,23 +1,23 @@
 -- Illarion Server
---
+-- 
 -- This program is free software: you can redistribute it and/or modify it under
 -- the terms of the GNU Affero General Public License as published by the Free
 -- Software Foundation, either version 3 of the License, or (at your option) any
 -- later version.
---
+-- 
 -- This program is distributed in the hope that it will be useful, but WITHOUT
 -- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
 -- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 -- details.
---
+-- 
 -- You should have received a copy of the GNU Affero General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Gregor Remethar                                         Runewick --
 -- NPC Job:  mortician                                                        --
 --                                                                            --
--- NPC Race: human                      NPC Position:  907, 804, 0            --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: human                      NPC Position:  862, 789, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                       easyNPC Parser v1.23 --
@@ -26,8 +26,8 @@
 name = "Gregor Remethar"
 race = human
 sex = male
-position = 907, 804, 0
-direction = south
+position = 862, 789, 0
+direction = west
 affiliation = "Runewick"
 job = "mortician"
 
@@ -91,7 +91,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go with the blessing of the
 "How are you", "How feel", "How do you do" -> "I bury those who died. How do you suppose I feel? To appreciate the value of life is indeed not easy."
 "Wie geht", "Wie f¸hlst", "Wie ist es ergangen" -> "Ich beerdige diejenigen, die starben. Wie meint ihr wohl, f¸hle ich mich dabei? Den Wert eines Lebens zu sch‰tzen ist f¸rwahr nicht einfach."
 "your name", "who are you", "who art thou" -> "My name is Gregor Remethar, I am delighted to meet you and to be able to - still - talk to you."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiﬂt", "wie heisst" -> "Mein Name ist Gregor Remethar, es freut mich, mit mich euch - noch -unterhalten zu kˆnnen."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heiﬂt", "wie heisst" -> "Mein Name ist Gregor Remethar, es freut mich, mich mit Euch - noch - unterhalten zu kˆnnen."
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
 "kauf", "waren", "preis", "Handel", "ver‰uﬂer", "ver‰usser", "erwerb" -> "Ich bin kein H‰ndler."
 
@@ -243,4 +243,3 @@ cycletext "#me rollt bed‰chtig ein Maﬂband aus.", "#me slowly rolls out a measur
 cycletext "Soll ich eure Maﬂe jetzt oder sp‰ter aufnehmen?", "Should I take your measurements now or later?"
 cycletext "Mein Gesch‰ft ist sicher - gestorben wird immer!", "My business is safe - there will always be death."
 cycletext "#me keucht wiederholt auf.", "#me coughs repeatedly."
-cycletext "Ehret die Toten.", "Honour the dead."

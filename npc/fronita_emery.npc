@@ -1,22 +1,22 @@
 -- Illarion Server
---
+-- 
 -- This program is free software: you can redistribute it and/or modify it under
 -- the terms of the GNU Affero General Public License as published by the Free
 -- Software Foundation, either version 3 of the License, or (at your option) any
 -- later version.
---
+-- 
 -- This program is distributed in the hope that it will be useful, but WITHOUT
 -- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
 -- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 -- details.
---
+-- 
 -- You should have received a copy of the GNU Affero General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Fronita Emery                                           Runewick --
 -- NPC Job:  Trader, glassblower                                              --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  893, 799, 1            --
+-- NPC Race: dwarf                      NPC Position:  943, 837, 0            --
 -- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
 -- Authors:  Faladron                                                         --
@@ -27,7 +27,7 @@
 name = "Fronita Emery"
 race = dwarf
 sex = female
-position = 893, 799, 1
+position = 943, 837, 0
 direction = east
 affiliation = "Runewick"
 job = "Trader, glassblower"
@@ -136,16 +136,16 @@ english, "Gobaith", "Gobiath" -> "I'm just a humble crafter, ask a scholar about
 "Runenmagie" -> "Da musst du einen Zwerg fragen der sich genauer damit auskennt."
 "Magie", "Zauber" -> "Ach, ich zuck noch ein wenig wenn die Zaubersprüche fliegen, aber man gewöhnt sich dran.", "Wir Zwerge kennen ja auch die Runenmagie. Also warum soll mich Magie stören?"
 "Problem", "Ärger" -> "Cadomyr passt genau auf, wieviel feiner Sand aus der Wüste entnommen wird. Nicht genug für anständige Arbeit sag ich!", "Cadomyr ärgert uns. Wenn sie es mal erlauben und Sand nach Runewick kommt ist er feucht und fast unbrauchbar.", "'Ich herrsche über jedes Sandkorn!' sagt die Königin. Man kann auch übereifrig sein."
-"LOCATION" -> "You're in Runewick, enjoy the marvellous sights!", "#me grins and winks: 'I'm taking a wild guess here, but you might be at the market.'"
-"ORT" -> "Du bist in Runewick, der Stadt mit der schönsten Aussicht!", "#me schmunzelt und zwinkert: 'Wenn ichs nicht besser wüsste, würd ich sagen du stehst am Markt.'"
+"Runewick", english -> "You're in Runewick, enjoy the marvellous sights!", "#me grins and winks: 'I'm taking a wild guess here, but you might be at the market.'"
+"Runewick" -> "Du bist in Runewick, der Stadt mit der schönsten Aussicht!", "#me schmunzelt und zwinkert: 'Wenn ichs nicht besser wüsste, würd ich sagen du stehst am Markt.'"
 "trader", "merchant", "collegue", "vendor", "market" -> "Speak right up. Just ask around and you'll find the wares you're looking for.", "I'm sure it won't be hard for you to find the other merchants of Runewick."
 "händler", "kollege", "höker", "markt" -> "Seid nur nicht auf den Mund gefallen. Fragt und ihr findet was ihr an Waren sucht.", "Es wird euch sicher nicht schwer fallen, die anderen Händler in Runewick zu finden."
 
 -- Faction stuff
 "archmage" -> "It's a great comfort to have such a smart man rule over Runewick.", "I've given him wine glasses as a present, enough for many guests, even though he never has any."
-"Erzmagier" -> end, "Ich finde es beruhigdass so ein schlauer Mann über Runewick bestimmt.", "Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt."
+"Erzmagier" -> "Ich finde es beruhigend, dass so ein schlauer Mann über Runewick bestimmt.", "Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt."
 english, "Elvaine", "Morgan" -> "It's a great comfort to have such a smart man rule over Runewick.", "I have given him wine glasses as a present, enough for many guests, even though he never has any."
-"Elvaine", "Morgan" -> end, "Ich finde es beruhigdass so ein schlauer Mann über Runewick bestimmt.", "Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt."
+"Elvaine", "Morgan" -> "Ich finde es beruhigend, dass so ein schlauer Mann über Runewick bestimmt.", "Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt."
 english, "Runewick" -> "What a wonderful town! You take a few steps away from the furnace and the cool sea air refreshes you.", "We have the greenest meadows, the tastiest food and the best beer here in Runewick!"
 "Runewick" -> "Eine wunderbare Stadt! Man tritt einige Schritte weg vom Schmelzofen und die kühle Seeluft erfrischt einen.", "Wir haben die grünsten Wiesen, das leckerste Essen und das beste Bier hier in Runewick!"
 english, "Valerio", "Guilianni", "Don" -> "Imagine a little goblin with the beard of a dwarf. That's him.", "Even if I admire Archmage Morgan, I don't understand why he doesn't do anything against this fiend!"

@@ -64,7 +64,7 @@ Description[ENGLISH][14] = "You have fulfilled all the tasks for Groktan Flintsp
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {388, 238, 0}
+local Start = {388, 238, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
@@ -77,7 +77,7 @@ QuestTarget[5] = {position(388, 238, 0)}
 QuestTarget[6] = {position(439, 359, 0)} 
 QuestTarget[7] = {position(388, 238, 0)} 
 QuestTarget[8] = {position(388, 238, 0)} 
-QuestTarget[9] = {position(893, 799, 1)} 
+QuestTarget[9] = {position(943, 837, 0)}  
 QuestTarget[10] = {position(388, 238, 0)} 
 QuestTarget[11] = {position(388, 238, 0)} 
 QuestTarget[12] = {position(122, 521, 0)} 

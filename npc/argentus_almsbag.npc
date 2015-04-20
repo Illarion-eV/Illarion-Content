@@ -16,7 +16,7 @@
 -- NPC Name: Argentus Almsbag                                        Runewick --
 -- NPC Job:  Money changer                                                    --
 --                                                                            --
--- NPC Race: human                      NPC Position:  908, 812, 1            --
+-- NPC Race: human                      NPC Position:  956, 829, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
@@ -26,7 +26,7 @@
 name = "Argentus Almsbag"
 race = human
 sex = male
-position = 908, 812, 1
+position = 956, 829, 0
 direction = south
 affiliation = "Runewick"
 job = "Money changer"

@@ -16,8 +16,8 @@
 -- NPC Name: Madeline Clarbelis                                      Runewick --
 -- NPC Job:  Druid Apprentice                                                 --
 --                                                                            --
--- NPC Race: human                      NPC Position:  951, 766, 1            --
--- NPC Sex:  female                     NPC Direction: west                   --
+-- NPC Race: human                      NPC Position:  903, 757, 0            --
+-- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                Illarion easyNPC Editor 2.1.12.2-32-gea8f6d0 --
@@ -26,8 +26,8 @@
 name = "Madeline Clarbelis"
 race = human
 sex = female
-position = 951, 766, 1
-direction = west
+position = 903, 757, 0
+direction = south
 affiliation = "Runewick"
 job = "Druid Apprentice"
 
@@ -57,17 +57,6 @@ itemSecondHand = 0
 itemHands = 48
 itemTrousers = 34
 itemShoes = 53
-
--- ---------------------------------------------------------------------------AC
--- NPC Name: Madeline Clarbelis                                      Runewick --
--- NPC Job:  Druid Apprentice                                                 --
--- --
--- NPC Race: human                      NPC Position:  951, 766, 1            --
--- NPC Sex:  female                     NPC Direction: west                  --
--- --
--- Author:   Grokk                                                            --
--- easyNPC Parser v1.21 --
--- ------------------------------------------------------------------------------
 
 -- Template Version 1.03 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.

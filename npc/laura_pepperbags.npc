@@ -125,8 +125,8 @@ english, "Ronagan" -> "Ronagan is almost as evil as the unnamed one, but that's 
 "Ronagan" -> "Ronagan ist fast so schlimm wie der Ungenannte, aber das ist bloß meine Meinung."
 
 -- Optional: Faction stuff
-english, "Runewick" -> "Runewick? Where there are five towers filled with those crazy spellcasters."
-"Runewick" -> "Runewick? Das sind fünf Türme voll mit so verrückten Zauberern."
+english, "Runewick" -> "Runewick? Where there are islands filled with those crazy spellcasters."
+"Runewick" -> "Runewick? Das sind Inseln voll mit so verrückten Zauberern."
 english, "Galmair" -> "Yes, here you are in Galmair."
 "Galmair" -> "Ganz recht, hier seid Ihr in Galmair."
 english, "Cadomyr" -> "Cadomyr is Cadomyr, right?"

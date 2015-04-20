@@ -50,19 +50,19 @@ Description[ENGLISH][7] = "You have brought beer to Uriel and have listened his 
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {902, 773, 0}
+local Start = {940, 766, 0}
 
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(902, 773, 0), position(899, 772, 0), position (906, 841, 0)}
-QuestTarget[2] = {position(902, 773, 0)} 
-QuestTarget[3] = {position(902, 773, 0), position(899, 772, 0), position (906, 841, 0)} 
-QuestTarget[4] = {position(902, 773, 0)} 
-QuestTarget[5] = {position(902, 773, 0), position(899, 772, 0), position (906, 841, 0)} 
-QuestTarget[6] = {position(902, 773, 0)} 
-QuestTarget[7] = {position(902, 773, 0)}
+QuestTarget[1] = {position(940, 766, 0), position(919, 823, 0), position (920, 822, 0)}
+QuestTarget[2] = {position(940, 766, 0)} 
+QuestTarget[3] = {position(940, 766, 0), position(919, 823, 0), position (920, 822, 0)} 
+QuestTarget[4] = {position(940, 766, 0)} 
+QuestTarget[5] = {position(940, 766, 0), position(919, 823, 0), position (920, 822, 0)} 
+QuestTarget[6] = {position(940, 766, 0)} 
+QuestTarget[7] = {position(940, 766, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 7

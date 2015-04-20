@@ -47,9 +47,9 @@ Start = {141, 637, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(141, 637, 0), position(847, 828, 0), position(911, 798, 1), position(430, 261, 0), position(361, 266,0)} -- felder, händler
+QuestTarget[1] = {position(141, 637, 0), position(847, 828, 0), position(939, 822, 0), position(430, 261, 0), position(361, 266,0)} -- felder, händler
 QuestTarget[2] = {position(141, 637, 0)} 
-QuestTarget[3] = {position(141, 637, 0), position(847, 828, 0), position(911, 798, 1), position(430, 261, 0), position(361, 266,0)} -- felder, händler
+QuestTarget[3] = {position(141, 637, 0), position(847, 828, 0), position(939, 822, 0), position(430, 261, 0), position(361, 266,0)} -- felder, händler
 QuestTarget[4] = {position(141, 637, 0)} 
 
 

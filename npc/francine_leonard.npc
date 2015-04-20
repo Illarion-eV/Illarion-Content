@@ -16,8 +16,8 @@
 -- NPC Name: Francine Leonard           Runewick                            --
 -- NPC Job:  Cook and farmer                                                  --
 --                                                                            --
--- NPC Race: human                      NPC Position:  897, 836, 0            --
--- NPC Sex:  female                     NPC Direction: south                   --
+-- NPC Race: human                      NPC Position:  959, 824, 0            --
+-- NPC Sex:  female                     NPC Direction: north                  --
 --                                                                            --
 -- Author:   Zot                                                              --
 --                                                     easyNPC Parser v1.23.1 --
@@ -26,8 +26,8 @@
 name = "Francine Leonard"
 race = human
 sex = female
-position = 897, 836, 0
-direction = south
+position = 959, 842, 0
+direction = north
 affiliation = "Runewick"
 job = "Cook and farmer"
 
@@ -98,10 +98,10 @@ queststatus(714) = 1, item(249, all) > 9, town = Runewick, "Auftrag", "Aufgabe",
 queststatus(714) = 1, item(249, all) < 10, town = Runewick, english, ".+" -> "That isn't ten bundles of grain yet, please come back once you've finished this task."
 queststatus(714) = 1, item(249, all) < 10, town = Runewick, ".+" -> "Das sind noch keine zehn Getreidemündel die ich haben wollte. Kommt wieder wenn Ihr die Aufgabe erledigt habt."
 
-queststatus(714) = 2, town = Runewick, english, "quest", "mission" -> "You want another task? Alright, thresh the bundles of grain using this flail I give you, to produce grain. Once you have done that, make five sacks of flour using the wooden shovel I give you at the millstone over there to the left of me. Then return and show me the result.", item(258, 1, 333), item(312, 1, 333), queststatus(714) = 3
-queststatus(714) = 2, town = Runewick, "quest", "mission" -> "Ihr wollt noch eine Aufgabe? Nun macht Ihr mit einem Dreschflegel aus den übrigen Getreidebündeln Getreide. Sobald Ihr damit fertig seid, geht zum Mühlstein da vorne links und macht mit der Holzkelle von mir fünf Säcke Mehl. Kommt anschließend zurück zu mir.", item(258, 1, 333), item(312, 1, 333), queststatus(714) = 3
-queststatus(714) = 2, town = Runewick, "task", "adventure", "order" -> "You want another task? Alright, thresh the bundles of grain using this flail I give you, to produce grain. Once you have done that, make five sacks of flour using the wooden shovel I give you at the millstone over there to the left of me. Then return and show me the result.", item(258, 1, 333), item(312, 1, 333), queststatus(714) = 3
-queststatus(714) = 2, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr wollt noch eine Aufgabe? Nun macht Ihr mit einem Dreschflegel aus den übrigen Getreidebündeln Getreide. Sobald Ihr damit fertig seid, geht zum Mühlstein da vorne links und macht mit der Holzkelle von mir fünf Säcke Mehl. Kommt anschließend zurück zu mir.", item(258, 1, 333), item(312, 1, 333), queststatus(714) = 3
+queststatus(714) = 2, town = Runewick, english, "quest", "mission" -> "You want another task? Alright, thresh the bundles of grain using this flail I give you, to produce grain. Once you have done that, make five sacks of flour using the wooden shovel I give you at the millstone on the forecourt. Then return and show me the result.", item(258, 1, 333), item(312, 1, 333), queststatus(714) = 3
+queststatus(714) = 2, town = Runewick, "quest", "mission" -> "Ihr wollt noch eine Aufgabe? Nun macht Ihr mit einem Dreschflegel aus den übrigen Getreidebündeln Getreide. Sobald Ihr damit fertig seid, geht zum Mühlstein, der auf dem Vorplatz steht, und macht mit der Holzkelle von mir fünf Säcke Mehl. Kommt anschließend zurück zu mir.", item(258, 1, 333), item(312, 1, 333), queststatus(714) = 3
+queststatus(714) = 2, town = Runewick, "task", "adventure", "order" -> "You want another task? Alright, thresh the bundles of grain using this flail I give you, to produce grain. Once you have done that, make five sacks of flour using the wooden shovel I give you at the millstone on the forecourt. Then return and show me the result.", item(258, 1, 333), item(312, 1, 333), queststatus(714) = 3
+queststatus(714) = 2, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr wollt noch eine Aufgabe? Nun macht Ihr mit einem Dreschflegel aus den übrigen Getreidebündeln Getreide. Sobald Ihr damit fertig seid, geht zum Mühlstein, der auf dem Vorplatz steht, und macht mit der Holzkelle von mir fünf Säcke Mehl. Kommt anschließend zurück zu mir.", item(258, 1, 333), item(312, 1, 333), queststatus(714) = 3
 
 queststatus(714) = 3, item(2, all) > 4, town = Runewick, english, "quest", "mission", "flour" -> "Well done. Please keep the flour for your next task.", queststatus(714) = 4
 queststatus(714) = 3, item(2, all) > 4, town = Runewick, "quest", "mission", "mehl" -> "Gut gemacht. Bitte behaltet den Mehl für Eure nächste Aufgabe.", queststatus(714) = 4
@@ -110,10 +110,10 @@ queststatus(714) = 3, item(2, all) > 4, town = Runewick, "Auftrag", "Aufgabe", "
 queststatus(714) = 3, item(2, all) < 5, town = Runewick, english, ".+" -> "I wanted five sacks of flour, come back once you have fulfilled this task."
 queststatus(714) = 3, item(2, all) < 5, town = Runewick, ".+" -> "Ich wollte fünf Säcke Mehl von Euch, kommt wieder wenn Ihr die Aufgabe erfüllt habt."
 
-queststatus(714) = 4, town = Runewick, english, "quest", "mission" -> "Alright, now we will make some bread rolls. You will need a peel, the flour and of course some buckets of water to make the bread rolls. I'll give you my old peel and five buckets of water so you can practise a little bit. Now go to the other room to find the baking oven and bake five bread rolls. Show me the result once you are done.", item(121, 1, 333), item(52, 5, 333), queststatus(714) = 5
-queststatus(714) = 4, town = Runewick, "quest", "mission" -> "Gut, nun machen wir einige Brötchen. Dafür braucht Ihr einen Brotschieber, den Mehl den Ihr bereits habt und natürlich Eimer mit Wasser. Ich gebe Euch meinen alten Backofenschieber und fünf Eimer damit Ihr etwas üben könnt. Nun geht zum Backofen in dem anderen Raum und backt mir fünf Brötchen.", item(121, 1, 333), item(52, 5, 333), queststatus(714) = 5
-queststatus(714) = 4, town = Runewick, "task", "adventure", "order" -> "Alright, now we will make some bread rolls. You will need a peel, the flour and of course some buckets of water to make the bread rolls. I'll give you my old peel and five buckets of water so you can practise a little bit. Now go to the other room to find the baking oven and bake five bread rolls. Show me the result once you are done.", item(121, 1, 333), item(52, 5, 333), queststatus(714) = 5
-queststatus(714) = 4, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut, nun machen wir einige Brötchen. Dafür braucht Ihr einen Brotschieber, den Mehl den Ihr bereits habt und natürlich Eimer mit Wasser. Ich gebe Euch meinen alten Backofenschieber und fünf Eimer damit Ihr etwas üben könnt. Nun geht zum Backofen in dem anderen Raum und backt mir fünf Brötchen.", item(121, 1, 333), item(52, 5, 333), queststatus(714) = 5
+queststatus(714) = 4, town = Runewick, english, "quest", "mission" -> "Alright, now we will make some bread rolls. You will need a peel, the flour and of course some buckets of water to make the bread rolls. I'll give you my old peel and five buckets of water so you can practise a little bit. Now go to the baking oven and bake five bread rolls. Show me the result once you are done.", item(121, 1, 333), item(52, 5, 333), queststatus(714) = 5
+queststatus(714) = 4, town = Runewick, "quest", "mission" -> "Gut, nun machen wir einige Brötchen. Dafür braucht Ihr einen Brotschieber, den Mehl den Ihr bereits habt und natürlich Eimer mit Wasser. Ich gebe Euch meinen alten Backofenschieber und fünf Eimer damit Ihr etwas üben könnt. Nun geht zum Backofen und backt mir fünf Brötchen.", item(121, 1, 333), item(52, 5, 333), queststatus(714) = 5
+queststatus(714) = 4, town = Runewick, "task", "adventure", "order" -> "Alright, now we will make some bread rolls. You will need a peel, the flour and of course some buckets of water to make the bread rolls. I'll give you my old peel and five buckets of water so you can practise a little bit. Now go to the baking oven and bake five bread rolls. Show me the result once you are done.", item(121, 1, 333), item(52, 5, 333), queststatus(714) = 5
+queststatus(714) = 4, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gut, nun machen wir einige Brötchen. Dafür braucht Ihr einen Brotschieber, den Mehl den Ihr bereits habt und natürlich Eimer mit Wasser. Ich gebe Euch meinen alten Backofenschieber und fünf Eimer damit Ihr etwas üben könnt. Nun geht zum Backofen und backt mir fünf Brötchen.", item(121, 1, 333), item(52, 5, 333), queststatus(714) = 5
 
 queststatus(714) = 5, item(191, all) > 4, town = Runewick, english, "quest", "mission", "bread", "roll" -> "Well done, thank you very much. If you have more time I can give you another task.", deleteItem(191, 5), queststatus(714) = 6
 queststatus(714) = 5, item(191, all) > 4, town = Runewick, "quest", "mission", "bröt" -> "Gut gemacht, vielen Dank. Wenn Ihr noch etwas Zeit erübrigen könnt, hätte ich eine weitere Aufgabe für Euch.", deleteItem(191, 5), queststatus(714) = 6

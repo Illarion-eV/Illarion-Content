@@ -41,12 +41,12 @@ Description[ENGLISH][2] = "You have fulfilled the task for Madeline Clarbelis."
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {951, 766, 1}
+local Start = {903, 757, 0}
  
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(951, 766, 1), position (857, 821, 0), position (851, 826, 0)} -- NPC Ausgangspunkt
-QuestTarget[2] = {position(951, 766, 1)} --NPC Questabgabe
+QuestTarget[1] = {position(903, 757, 0), position (857, 821, 0), position (851, 826, 0)} -- NPC Ausgangspunkt
+QuestTarget[2] = {position(903, 757, 0)} --NPC Questabgabe
 
      
 -- Insert the quest status which is reached at the end of the quest

@@ -16,8 +16,8 @@
 -- NPC Name: Timotheus                                               Runewick --
 -- NPC Job:  Tailor                                                           --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  912, 813, 1            --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: halfling                   NPC Position:  952, 835, 0            --
+-- NPC Sex:  male                       NPC Direction: west                  --
 --                                                                            --
 -- Authors:  Estralis Seborian                                                --
 --           Mesha                                                            --
@@ -27,8 +27,8 @@
 name = "Timotheus"
 race = halfling
 sex = male
-position = 912, 813, 1
-direction = south
+position = 952, 835, 0
+direction = west
 affiliation = "Runewick"
 job = "Tailor"
 

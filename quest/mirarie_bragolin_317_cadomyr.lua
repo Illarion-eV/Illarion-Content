@@ -64,7 +64,7 @@ Description[ENGLISH][14] = "You have fulfilled all the tasks for Mirarie Bragoli
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {128, 621, 0}
+local Start = {128, 621, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
@@ -77,7 +77,7 @@ QuestTarget[5] = {position(128, 621, 0)}
 QuestTarget[6] = {position(128, 621, 0), position(133, 638, 0)}
 QuestTarget[7] = {position(128, 621, 0)} 
 QuestTarget[8] = {position(128, 621, 0)} 
-QuestTarget[9] = {position(128, 621, 0), position(897, 794, 1)} 
+QuestTarget[9] = {position(128, 621, 0), position(952, 828, 0)} 
 QuestTarget[10] = {position(128, 621, 0)} 
 QuestTarget[11] = {position(128, 621, 0)}
 QuestTarget[12] = {position(128, 621, 0), position(337, 215, 0)} 

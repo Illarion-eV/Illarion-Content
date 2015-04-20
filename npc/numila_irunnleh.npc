@@ -16,8 +16,8 @@
 -- NPC Name: Numila Irunnleh                                         Runewick --
 -- NPC Job:  scholar                                                          --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  942, 765, 1            --
--- NPC Sex:  female                     NPC Direction: north                  --
+-- NPC Race: elf                        NPC Position:  970, 787, 1            --
+-- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                     easyNPC Parser v1.23.1 --
@@ -26,8 +26,8 @@
 name = "Numila Irunnleh"
 race = elf
 sex = female
-position = 942, 765, 1
-direction = north
+position = 970, 787, 1
+direction = south
 affiliation = "Runewick"
 job = "scholar"
 
