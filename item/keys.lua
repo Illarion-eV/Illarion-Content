@@ -19,6 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local keys = require("base.keys")
 local common = require("base.common")
+local doors = require("base.doors")
 local factions = require("base.factions")
 local lookat = require("base.lookat")
 
@@ -29,8 +30,29 @@ local GuardBehaviourTowardsChar
 local SelectTargetChar
 local LabourCamp
 
+local function getDoor(User)
+
+    local targetItem = common.GetFrontItem(User)
+    if targetItem ~= nil and (doors.CheckClosedDoor(targetItem.id) or doors.CheckOpenDoor(targetItem.id)) then
+        return targetItem
+    end
+
+    local Radius = 1
+    for x = -Radius ,Radius do
+        for y = -Radius, Radius do
+            local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z)
+            if (world:isItemOnField(targetPos)) then
+                local targetItem = world:getItemOnField(targetPos)
+                if targetItem ~= nil and (doors.CheckClosedDoor(targetItem.id) or doors.CheckOpenDoor(targetItem.id)) then
+                    return targetItem
+                end
+            end
+        end
+    end
+    return nil
+end
+
 function M.UseItem(User, SourceItem)
-    local DoorItem = common.GetFrontItem(User)
 
     if SourceItem:getData("townKeyOf") ~= "" then
         -- sentence char to forced labour
@@ -38,10 +60,16 @@ function M.UseItem(User, SourceItem)
         return
     end
 
-    if keys.CheckKey(SourceItem,DoorItem,User) then
-        if keys.LockDoor(DoorItem) then
+    local doorItem = getDoor(User)
+    if not doorItem then
+        return
+    end
+
+    common.TurnTo(User, doorItem.pos)
+    if keys.CheckKey(SourceItem, doorItem, User) then
+        if keys.LockDoor(doorItem) then
             common.InformNLS(User,"Du sperrst die Tür ab.","You lock the door.")
-        elseif keys.UnlockDoor(DoorItem) then
+        elseif keys.UnlockDoor(doorItem) then
             common.InformNLS(User,"Du sperrst die Tür auf.","You unlock the door.")
         end
     else
