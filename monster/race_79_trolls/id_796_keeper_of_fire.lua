@@ -43,7 +43,7 @@ magic.addFlamestrike{probability = 0.009,  damage = {from = 1700, to = 2000}}
 magic.addFlamestrike{probability = 0.001, damage = {from =  1200, to = 1850}, targetCount = 3}
 magic.addFireball{probability = 0.001,  damage = {from = 1900, to = 2300}}
 magic.addFirering{probability = 0.009, damage = {from = 2200, to = 2700}, range  = 6,
-    itemProbability = 0.25, quality = {from = 4, to = 5}}
+    itemProbability = 0.15, quality = {from = 4, to = 5}}
 
 firefield.setFlameImmunity(monsterId)
 

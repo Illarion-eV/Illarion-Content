@@ -32,7 +32,7 @@ magic.addFlamestrike{probability = 0.001, damage = {from = 1900, to = 2300}}
 magic.addIcestrike{probability = 0.001,  damage = {from = 1200, to = 1850}, targetCount = 3}
 magic.addExplosion{probability = 0.005, damage = {from = 2300, to = 2600}}
 magic.addIcering{probability = 0.009, damage = {from = 2200, to = 2700}, range  = 6,
-    itemProbability = 0.25, quality = {from = 4, to = 5}}
+    itemProbability = 0.15, quality = {from = 4, to = 5}}
     
 icefield.setIceImmunity(monsterId)
 
