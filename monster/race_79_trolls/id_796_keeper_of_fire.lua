@@ -39,6 +39,8 @@ magic.addFireball{probability = 0.015, damage = {from =  750, to = 1200}, target
 magic.addFlamestrike{probability = 0.009,  damage = {from = 1700, to = 2000}}
 magic.addFlamestrike{probability = 0.001, damage = {from =  1200, to = 1850}, targetCount = 3}
 magic.addFireball{probability = 0.001,  damage = {from = 1900, to = 2300}}
-
+magic.addFirering{probability = 0.001, damage = {from = 2200, to = 2700},
+    itemProbability = 0.012, quality = {from = 4, to = 5}}
+    
 M = magic.addCallbacks(M)
 return mageBehaviour.addCallbacks(magic, M)
