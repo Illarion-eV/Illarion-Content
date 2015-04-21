@@ -20,6 +20,7 @@ local base = require("monster.base.base")
 local mageBehaviour = require("monster.base.behaviour.mage")
 local monstermagic = require("monster.base.monstermagic")
 local trolls = require("monster.race_79_trolls.base")
+local firefield = require("item.id_359_firefield")
 local M = trolls.generateCallbacks()
 
 local orgOnSpawn = M.onSpawn
@@ -40,7 +41,9 @@ magic.addFlamestrike{probability = 0.009,  damage = {from = 1700, to = 2000}}
 magic.addFlamestrike{probability = 0.001, damage = {from =  1200, to = 1850}, targetCount = 3}
 magic.addFireball{probability = 0.001,  damage = {from = 1900, to = 2300}}
 magic.addFirering{probability = 0.009, damage = {from = 2200, to = 2700}, range  = 6,
-    itemProbability = 0.05, quality = {from = 4, to = 5}}
-    
+    itemProbability = 0.25, quality = {from = 4, to = 5}}
+
+firefield.setFlameImmunity(monsterId)
+
 M = magic.addCallbacks(M)
 return mageBehaviour.addCallbacks(magic, M)
