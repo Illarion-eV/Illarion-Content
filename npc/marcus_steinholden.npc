@@ -91,9 +91,9 @@ english, "job" -> "Marcus does stu..study magic when his Master is not busy puni
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 english, "Defensor" -> "The Defensors were animated by Master to test the mettle of all those wishing to seek her."
 "Defensor" -> "Die Defensoren wurden von der Meisterin belebt um alle zu prüfen die nach ihr suchen."
-english, "Drow" -> "The Drow are some of Masters most loyal servants. She aided them with her dark magic when they sought revenge."
+english, "Drow" -> "The drow are some of Masters most loyal servants. She aided them with her dark magic when they sought revenge."
 "Drow" -> "Die Drow sind der Meisterin loyalste Diener. Sie half ihnen mit schwarzer Zauberei als sie Rache suchten."
-english, "Akaltut", "Master" -> "Ma..Master Akaltut is a powerful mage. She.. she bonded with a Spider Queen.. now she is neither one nor the other."
+english, "Akaltut", "Master" -> "Ma..Master Akaltut is a powerful mage. She.. she bonded with a spider queen.. now she is neither one nor the other."
 "Akaltut" -> "Meisterin Akaltut ist ein Großmeister der Zauberei. Sie.. sie vereinigte sich mit einer Spinnenkönigin.. jetzt ist sie weder die eine noch die andere."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
@@ -121,9 +121,9 @@ english, "Cadomyr" -> "Marcus did fail to take Cadomyr for Master. One day he wi
 -- Quests
 -- Marcus task one.  Kill twenty drow.
 -- If haven't completed previous Defensors tasks
-queststatus(530) < 27, english, "quest", "mission", "test" -> "Marcus can not let you pass if you don't finish the Defensor's test. He has no choice, Master won't let him."
+queststatus(530) < 27, english, "quest", "mission", "test" -> "Marcus can not let you pass if you don't finish the Defensor's tests. He has no choice, Master won't let him."
 queststatus(530) < 27, "quest", "mission", "Test" -> "Marcus kann dich nicht vorbeilassen solange ihr die Probe des Defensors nicht erledigt habt. Es hat keine Wahl, die Meisterin erlaubt es nicht."
-queststatus(530) < 27, "task", "adventure", "order" -> "Marcus can not let you pass if you don't finish the Defensor's test. He has no choice, Master won't let him."
+queststatus(530) < 27, "task", "adventure", "order" -> "Marcus can not let you pass if you don't finish the Defensor's tests. He has no choice, Master won't let him."
 queststatus(530) < 27, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Marcus kann dich nicht vorbeilassen solange ihr die Probe des Defensors nicht erledigt habt. Es hat keine Wahl, die Meisterin erlaubt es nicht."
 -- Receiving the task of Killing twenty drow
 queststatus(530) = 27, queststatus(532) = 0, english, "quest", "mission", "test" -> inform("[New quest] Akaltut's Chambers Boss Fight 1"), queststatus(532) = 1, "Marcus made a foolish mistake when he.. he did sign Master's contract. To help me escape, first you need to kill off twenty of the drow that are protecting Akaltut in her lair."
