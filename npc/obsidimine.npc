@@ -1,0 +1,267 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+------------------------------------------------------------------------------AC
+-- NPC Name: Obsidimine                                                  None --
+-- NPC Job:  Spelunker                                                        --
+--                                                                            --
+-- NPC Race: Dwarf                      NPC Position:  809, 676, 0            --
+-- NPC Sex:  Male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   Evie                                                             --
+--                                                    Illarion easyNPC Editor --
+--------------------------------------------------------------------------------
+
+name = "Spelunker"
+race = dwarf
+sex = male
+position = 809, 676, 0
+direction = south
+affiliation = "None"
+job = "Spelunker"
+
+language = common
+defaultLanguage = common
+autointroduce = on
+
+author = "Evie"
+
+lookatDE = "Dieser NPC ist Obisidimine."
+lookatUS = "This NPC is Obsidimine."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 0
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is the Obsidimine. Keywords: Hello, quest, brother, cave.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist ")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Arrrr! Greetings to ye, it has been awhile since I seen anyone about."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> ""
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Arrrr! Greetings to ye, it has been awhile since I seen anyone about."
+"Hiho", "Hallo", "Hey", "Greeb" -> ""
+"Farewell", "Bye", "Fare well", "See you" -> "Arrrr. Don't be a stranger."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> ""
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Arrrr. Don't be a stranger."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> ""
+"How are you", "How feel", "How do you do" -> "Missin' me brother, Emeramine, me sure is."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> ""
+"your name", "who are you", "who art thou" -> "Me be Obsidimine, but most just calls me Obsidi."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> ""
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "That's me hobby, don't ya know? Explorin' caves. Bein' a spelunker is serious work."
+"beruf" -> ""
+english, "job" -> "That's me hobby, don't ya know? Explorin' caves. Bein' a spelunker is serious work."
+"job" -> ""
+"my name" -> "Me be Obsidimine, but most just calls me Obsidi."
+"mein Name" -> ""
+
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his environment
+english, "brother", "Eme" -> "Me brother, Emeramine or Eme, he be lost inside! We were explorin' inside when me was looking down.  I was adjustin' me boot ya see, when me heard a loud noise  It was a roarin' like sound me'd swear it be!  Me looked up and me borther was gone in a puff of smoke! Me really thinks Eme just wanted to be the first to explore this grand cave we found, but me ain't sure."
+"bruder", "Eme" -> ""
+english, "spelunker", "cave" -> "That's me hobby, don't ya know? Explorin' caves. Bein' a spelunker is serious work."
+"Höhlenforscher","Höhlen" -> ""
+english, "volcano" -> "Volcano's be a grand source for new and interestin' rocks."
+"Vulkan" -> ""
+english, "Iromorom" -> "Irmorom be da Father of all creation."
+"Iromorom" -> ""
+
+-- Quests
+
+-- Quest 1: bring Obsidimine 2 bottles of beer.
+queststatus(510) = 0, english, "quest", "mission" -> inform("[New quest] Spelunker"), queststatus(510) = 1, "A body sure gets parched by all this here lava. Be a good sport and bring me two bottles of beer will ya?"
+queststatus(510) = 0, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher"), queststatus(510) = 1, ""
+queststatus(510) = 0, "task", "adventure", "order" -> inform("[New quest] Spelunker"), queststatus(510) = 1, "A body sure gets parched by all this here lava. Be a good sport and bring me two bottles of beer will ya?"
+queststatus(510) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher"), queststatus(510) = 1, ""
+
+queststatus(510) = 1, item(2501, all) < 2, english, "quest", "mission" -> "Me throat is too dry. I can't talk more until I get some beer."
+queststatus(510) = 1, item(2501, all) < 2, "quest", "mission" -> ""
+queststatus(510) = 1, item(2501, all) < 2, "task", "adventure", "order" -> "Me throat is too dry. I can't talk more until I get some beer."
+queststatus(510) = 1, item(2501, all) < 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+
+queststatus(510) = 1, english, item(2501, all) > 2, ".+" -> inform("[Quest solved] You are awarded 30 silver coins."), deleteItem(2501, 2), money + 3000, queststatus(510) = 2, "#me tips a bottle back and takes a long pull of the drink before coming up for air. 'Ah... that be the good stuff that is. Thank ye.'"
+queststatus(510) = 1, item(2501, all) > 2, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), deleteItem(2501, 2), money + 3000, queststatus(510) = 2, ""
+
+-- Quest 2: kill two hellhounds
+queststatus(510) = 2, english, "quest", "mission" -> inform("[New quest] Spelunker II"), queststatus(510) = 3, "Me needs to look at the rocks inside that castle there. Kill two of the hell hounds around the volcano base so me can work faster!"
+queststatus(510) = 2, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher II"), queststatus(510) = 3, ""
+queststatus(510) = 2, "task", "adventure", "order" -> inform("[New quest] Spelunker II"), queststatus(510) = 3, "Me needs to look at the rocks inside that castle there. Kill two of the hell hounds around the volcano base so me can work faster!"
+queststatus(510) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher II"), queststatus(510) = 3, ""
+--not done
+queststatus(510) > 2, queststatus(510) < 5, english, "quest", "mission" -> "Be a good soul and kill two of the hell hounds around the volcano base.  Me can not explore til you do."
+queststatus(510) > 2, queststatus(510) < 5, "quest", "mission" -> ""
+queststatus(510) > 2, queststatus(510) < 5, "task", "adventure", "order" -> "Be a good soul and kill two of the hell hounds around the volcano base.  Me can not explore til you do."
+queststatus(510) > 2, queststatus(510) < 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+-- finished
+queststatus(510) = 5, english, ".+" -> inform("[Quest solved] You are awarded 30 silver coins."), money + 3000, queststatus(510) = 6, "Ya did a fine job, lettin' me sneak in and poke around the rocks for a bit. Take these here coins."
+queststatus(510) = 5, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), money + 3000, queststatus(510) = 6, ""
+
+-- Quest 3: kill the firespitter
+queststatus(510) = 6, english, "quest", "mission" -> inform("[New quest] Spelunker III"), queststatus(510) = 7, "By Irmorom! There are trolls on the mountain top! That one there nearly set me ablaze while I was on me beer break!! Kill the Firespitter so me can explore more!"
+queststatus(510) = 6, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher III"), queststatus(510) = 7, ""
+queststatus(510) = 6, "task", "adventure", "order" -> inform("[New quest] Spelunker III"), queststatus(510) = 7, "By Irmorom! There are trolls on the mountain top! That one there nearly set me ablaze while I was on me beer break!! Kill the Firespitter so me can explore more!"
+queststatus(510) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher III"), queststatus(510) = 7, ""
+
+queststatus(510) > 7, queststatus(510) < 8, english, "quest", "mission" -> "Arr!! The Firespitter has to go!! Kill it for me and I will reward you."
+queststatus(510) > 7, queststatus(510) < 8, "quest", "mission" -> ""
+queststatus(510) > 7, queststatus(510) < 8, "task", "adventure", "order" -> "Arr!! The Firespitter has to go!! Kill it for me and I will reward you."
+queststatus(510) > 7, queststatus(510) < 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+
+queststatus(510) = 8, english, ".+" -> inform("[Quest solved] You are awarded 45 silver coins."), money + 4500, queststatus(510) = 9, "Tall volcano! So much to explore and you be a big help! *Tosses you a coin bag.*"
+queststatus(510) = 8, ".+" -> inform("[Quest gelöst] Du erhältst 45 Silberstücke."), money + 4500, queststatus(510) = 9, ""
+
+-- Quest 4: Visit all the volcano levels
+queststatus(510) = 9, english, "quest", "mission" -> inform("[New quest] Spelunker IV"), queststatus(510) = 10, "Me don't like to explore without me brother... would you go inside and see what you can find out. Go to all of the levels. (Each level must be visited)"
+queststatus(510) = 9, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher IV"), queststatus(510) = 10, ""
+queststatus(510) = 9, "task", "adventure", "order" -> inform("[New quest] Spelunker IV"), queststatus(510) = 10,  "Me don't like to explore without me brother... would you go inside and see what you can find out. Go to all of the levels. (Each level must be visited)"
+queststatus(510) = 9, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher IV"), queststatus(510) = 10, ""
+
+queststatus(510) = 10, english, "quest", "mission" -> "Me need you to explore all the levels of the cave for me. Me don't like to go without my brother."
+queststatus(510) = 10, "quest", "mission" -> ""
+queststatus(510) = 10, "task", "adventure", "order" -> "Me need you to explore all the levels of the cave for me. Me don't like to go without my brother."
+queststatus(510) = 10, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+
+queststatus(510) = 11, english, ".+" -> inform("[Quest solved] You are awarded 65 silver coins."), money + 6500, queststatus(510) = 12, "You ain't blowin' smoke up me... are you being real with me? So many levels. Can't recall the last... All righty then!"
+queststatus(510) = 11, ".+" -> inform("[Quest gelöst] Du erhältst 654 Silberstücke."), money + 6500, queststatus(510) = 12, ""
+
+-- Quest 5: 60 grain bundles; 100 silver
+queststatus(510) = 68, english, "quest", "mission" -> inform("[New quest] Spelunker"), queststatus(510) = 69, "#me skitters towards you and looks around. 'It seems to be getting colder. I need bundles of grain to spread around on the floor. Please bring me sixty grain bundles.'"
+queststatus(510) = 68, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher"), queststatus(510) = 69, "#me krabbelt auf dich zu und mustert die Gegend. 'Es scheint kälter zu werden. Ich brauche Getreidebündel um den Boden auszulegen. Bring mir bitte 60 Getreidebündel.'"
+queststatus(510) = 68, "task", "adventure", "order" -> inform("[New quest] Spelunker"), queststatus(510) = 69, "#me skitters towards you and looks around. 'It seems to be getting colder. I need bundles of grain to spread around on the floor. Please bring me sixty grain bundles.'"
+queststatus(510) = 68, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher"), queststatus(510) = 69, "#me krabbelt auf dich zu und mustert die Gegend. 'Es scheint kälter zu werden. Ich brauche Getreidebündel um den Boden auszulegen. Bring mir bitte 60 Getreidebündel.'"
+
+queststatus(510) = 69, item(249, all) < 60, english, "quest", "mission" -> "My offspring will be in trouble without a warm place. I still need sixty grain bundles to cover the cold rocks."
+queststatus(510) = 69, item(249, all) < 60, "quest", "mission" -> "Meine Nachkommen werden Schwierigkeiten haben ohne einen warmen Platz. Ich brauche immer noch 60 Getreidebündel um die kalten Steine zu bedecken."
+queststatus(510) = 69, item(249, all) < 60, "task", "adventure", "order" -> "My offspring will be in trouble without a warm place. I still need sixty grain bundles to cover the cold rocks."
+queststatus(510) = 69, item(249, all) < 60, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Meine Nachkommen werden Schwierigkeiten haben ohne einen warmen Platz. Ich brauche immer noch 60 Getreidebündel um die kalten Steine zu bedecken."
+
+queststatus(510) = 69, item(249, all) > 59, english, ".+" -> inform("[Quest solved] You are awarded one hundred silver coins."), money + 10000, deleteItem(249, 60), queststatus(510) = 70, "#me gives you a blank look through her black eyes as she takes the bundles and tucks them away for later use, 'Thank you and here is a small reward. Alas, I noticed I need more help if you are willing?'"
+queststatus(510) = 69, item(249, all) > 59, ".+" -> inform("[Quest gelöst] Du erhältst 100 Silberstücke."), money + 10000, deleteItem(249, 60), queststatus(510) = 70, "#me starrt dich mit ihren pechschwarzen Augen lange an, bevor sie die Bündel wegpackt. 'Danke und hier eine kleine Belohnung. Ach, ich stellte fest, dass noch mehr Hilfe von Nöten sein wird, wenn es dir beliebt.'"
+
+-- Quest 6: 75 spools of thread; 100 silver
+queststatus(510) = 70, english, "quest", "mission" -> inform("[New quest] Spelunker"), queststatus(510) = 71, "I need to make immediate repairs to my web and hope thread will help. Bring me 75 spools of thread."
+queststatus(510) = 70, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher"), queststatus(510) = 71, "Ich muss dringend Reparaturen am Netz ausführen und Garn wird helfen. Bring mir 75 Rollen Garn."
+queststatus(510) = 70, "task", "adventure", "order" -> inform("[New quest] Spelunker"), queststatus(510) = 71, "I need to make immediate repairs to my web and hope thread will help. Bring me 75 spools of thread."
+queststatus(510) = 70, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher"), queststatus(510) = 71, "Ich muss dringend Reparaturen am Netz ausführen und Garn wird helfen. Bring mir 75 Rollen Garn."
+
+queststatus(510) = 71, item(50, all) < 75, english, "quest", "mission" -> "My offspring will be in trouble without a protective web. I still need 75 spools of thread for repairs."
+queststatus(510) = 71, item(50, all) < 75, "quest", "mission" -> "Meine Nachkommen werden Schwierigkeiten haben ohne ein schützendes Netz. Ich brauche immer noch 75 Rollen Garn für Reparaturen."
+queststatus(510) = 71, item(50, all) < 75, "task", "adventure", "order" -> "My offspring will be in trouble without a protective web. I still need 75 spools of thread for repairs."
+queststatus(510) = 71, item(50, all) < 75, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Meine Nachkommen werden Schwierigkeiten haben ohne ein schützendes Netz. Ich brauche immer noch 75 Rollen Garn für Reparaturen."
+
+queststatus(510) = 71, item(50, all) > 74, english, ".+" -> inform("[Quest solved] You are awarded one hundred silver coins."), money + 10000, deleteItem(50, 75), queststatus(510) = 72, "Ah, thank you! *She says in a rather quiet and raspy voice as she takes the thread and partially unravels one spool, testing the strength of the line* Perhaps you would help me again when you have time?"
+queststatus(510) = 71, item(50, all) > 74, ".+" -> inform("[Quest gelöst] Du erhältst 100 Silberstücke."), money + 10000, deleteItem(50, 75), queststatus(510) = 72, "Ich danke dir! *sie murmelt leise vor sich hin während sie eine Spule Garn abrollt und die deren Stärke testet.* Vielleicht würdest du mir abermals helfen, wenn die Zeit es erlaubt?"
+
+-- Quest 7: divine voulge spear; 150 silver
+queststatus(510) = 72, english, "quest", "mission" -> inform("[New quest] Spelunker"), queststatus(510) = 73, "My web grows too large, please bring me a divine voulge spear, which can be placed in the ground as a support. Don't be cheap, make sure it isn't weak."
+queststatus(510) = 72, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher"), queststatus(510) = 73, "Mein Netz wird immer größer, bring mir doch eine Heilige Voulge, die ich als Mast verwenden kann. Kein einfacher Stock oder Stab kann das leisten!"
+queststatus(510) = 72, "task", "adventure", "order" -> inform("[New quest] Spelunker"), queststatus(510) = 73, "My web grows too large, please bring me a divine voulge spear, which can be placed in the ground as a support. Don't be cheap, make sure it isn't weak."
+queststatus(510) = 72, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher"), queststatus(510) = 73, "Mein Netz wird immer größer, bring mir doch eine Heilige Voulge, die ich als Mast verwenden kann. Kein einfacher Stock oder Stab kann das leisten!"
+
+queststatus(510) = 73, item(1053, all) < 1, english, "quest", "mission" -> "My offspring will be in trouble without a protective web. I still need a divine voulge to support my large web."
+queststatus(510) = 73, item(1053, all) < 1, "quest", "mission" -> "Meine Nachkommen werden Schwierigkeiten haben ohne ein schützendes Netz. Ich brauche immer noch eine Heilige Voulge um mein großes Netz abzustützen."
+queststatus(510) = 73, item(1053, all) < 1, "task", "adventure", "order" -> "My offspring will be in trouble without a protective web. I still need a divine voulge to support my large web."
+queststatus(510) = 73, item(1053, all) < 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Meine Nachkommen werden Schwierigkeiten haben ohne ein schützendes Netz. Ich brauche immer noch eine Heilige Voulge um mein großes Netz abzustützen."
+-- tbd: handle a spear of too bad quality
+queststatus(510) = 73, item(1053, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded one hundred and fifty silver coins."), money + 15000, deleteItem(1053, 1), queststatus(510) = 74, "#me takes the spear and looks it over through her pitch black eyes.  She tests it by pushing one end into the ground and nods. 'This will do. Ready to proceed?'"
+queststatus(510) = 73, item(1053, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst 150 Silberstücke."), money + 15000, deleteItem(1053, 1), queststatus(510) = 74, "#me nimmt den Speer und begutachtet ihn mit ihren pechschwarzen Augen. Sie rammt die Spitze in den Boden un nickt dann zufrieden 'Der wird taugen. Bereit für weitere Taten?'"
+
+-- Quest 8: kill 5 spider queen; 180 silver
+queststatus(510) = 74, english, "quest", "mission" -> inform("[New quest] Spelunker"), queststatus(510) = 75, "Before my offspring come forth into the world, you must kill five spider queens. They hunt my young as a delicacy and to ensure there is more food for themselves."
+queststatus(510) = 74, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher"), queststatus(510) = 75, "Bevor meine Nachkommen das Licht der Welt erblicken musst du fünf Spinnenköniginnen töten. Sie jagen nach meiner Brut wie nach einer Delikatesse."
+queststatus(510) = 74, "task", "adventure", "order" -> inform("[New quest] Spelunker"), queststatus(510) = 75,  "Before my offspring come forth into the world, you must kill five spider queens. They hunt my young as a delicacy and to ensure there is more food for themselves."
+queststatus(510) = 74, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher"), queststatus(510) = 75, "Bevor meine Nachkommen das Licht der Welt erblicken musst du fünf Spinnenköniginnen töten. Sie jagen nach meiner Brut wie nach einer Delikatesse."
+
+queststatus(510) > 74, queststatus(510) < 80, english, "quest", "mission" -> "You haven't killed the spider queens yet? Please go ahead, I need your help!"
+queststatus(510) > 74, queststatus(510) < 80, "quest", "mission" -> "Du hast die Spinnenköniginnen noch nicht beseitigt? Bitte erledige die Sache, ich brauch doch deine Hilfe!"
+queststatus(510) > 74, queststatus(510) < 80, "task", "adventure", "order" -> "You haven't killed the spider queens yet? Please go ahead, I need your help!"
+queststatus(510) > 74, queststatus(510) < 80, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du hast die Spinnenköniginnen noch nicht beseitigt? Bitte erledige die Sache, ich brauch doch deine Hilfe!"
+
+queststatus(510) = 80, english, ".+" -> inform("[Quest solved] You are awarded one hundred and eighty silver coins."), money + 18000, queststatus(510) = 81, "#me tosses a bag of silver at you. 'Those queens think they can just take over my territory. Thank you for showing them they are wrong. You have improved your stamina now and are ready for your final task.'"
+queststatus(510) = 80, ".+" -> inform("[Quest gelöst] Du erhältst 180 Silberstücke."), money + 18000, queststatus(510) = 81, "#me wirft dir einen Beutel mit Silbermünzen zu. 'Diese Königinnen denken wohl , dass sie mein Territorium haben können. Danke, dass du ihnen das Gegenteil bewiesen hast. Wenn du soweit bist, dann wird es Zeit für die letzte Aufgabe.'"
+
+-- Quest 9: kill 50 Tarantulas, Spider Queens, Kings fright, Gynkese Widow or Shadow muncher; gems
+queststatus(510) = 81, english, "quest", "mission" -> inform("[New quest] Spelunker"), queststatus(510) = 82, "#me looks around at her offspring, which wander all around her, before looking up at you.  In her quiet raspy voice she says, 'As you can see, my offspring have come forth into the world. You must ensure their safety by killing fifty more of the largest spiders. They are the species Tarantula, Gynkese Widow, Kings Fright, Spider Queen, and Shadow Munchers.'"
+queststatus(510) = 81, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher"), queststatus(510) = 82, "#me beobachtet ihre Nachkommen, die um sie herum krabbeln, bevor sie dir einen Blick zuwirft. In ihrer rauen, leisen Stimme sagt sie dir: 'Wie du siehst sind meine Nachkommen ausgeschlüpft. Du musst ihre Sicherheit gewährleisten, töte 50 größten Spinnen. Sie sind die Spezies Schattenmampfer, Tarantel, Spinnenkönigin, Ritterfurcht, oder Gynkesische Witwe.'"
+queststatus(510) = 81, "task", "adventure", "order" -> inform("[New quest] Spelunker"), queststatus(510) = 82,  "#me looks around at her offspring, which wander all around her, before looking up at you.  In her quiet raspy voice she says, 'As you can see, my offspring have come forth into the world. You must ensure their safety by killing fifty more of the largest spiders. They are the species Tarantula, Gynkese Widow, Kings Fright, Spider Queen, and Shadow Munchers.'"
+queststatus(510) = 81, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher"), queststatus(510) = 82, "#me beobachtet ihre Nachkommen, die um sie herum krabbeln, bevor sie dir einen Blick zuwirft. In ihrer rauen, leisen Stimme sagt sie dir: 'Wie du siehst sind meine Nachkommen ausgeschlüpft. Du musst ihre Sicherheit gewährleisten, töte 50 50 größten Spinnen. Sie sind die Spezies Schattenmampfer, Tarantel, Spinnenkönigin, Ritterfurcht, oder Gynkesische Witwe.'"
+
+queststatus(510) > 81, queststatus(510) < 132, english, "quest", "mission" -> "You haven't killed the spider army yet? Please go ahead, I need your help! Kill fifty Soulpain."
+queststatus(510) > 81, queststatus(510) < 132, "quest", "mission" -> "Du hast die Armeen der Spinnen noch nicht beseitigt? Bitte erledige die Sache, ich brauch doch deine Hilfe! Töte 50 Seelenpein."
+queststatus(510) > 81, queststatus(510) < 132, "task", "adventure", "order" -> "You haven't killed the spider army yet? Please go ahead, I need your help! Kill fifty Soulpain."
+queststatus(510) > 81, queststatus(510) < 132, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du hast die Armeen der Spinnen noch nicht beseitigt? Bitte erledige die Sache, ich brauch doch deine Hilfe! Töte 50 Seelenpein."
+-- tbd: offer a choice dialog for gem reward
+queststatus(510) = 132, english, ".+" -> inform("[Quest solved] You are rewarded with gems."), item(285, 160), queststatus(510) = 133, "#me skitters over her web, rushing over to you. 'You have far exceeded my best hopes for clearing the area. For your dedicated help, I will give you some of my greatest treasures.'"
+queststatus(510) = 132, ".+" -> inform("[Quest gelöst] Du erhältst Edelsteine."), item(285, 160), queststatus(510) = 133, "#me krabbelt übers Netz und eilt zu dir. 'Du hast meine Erwartungen bei Weitem übertroffen. Für deine hingebungsvolle Hilfe werde ich dich mit meinen wertvollsten Schätzen belohnen.'"
+
+-- No more regular quests
+queststatus(510) = 133, english, "quest" -> "Guardian of my Brood, I have no more tasks for you."
+queststatus(510) = 133, "quest", "mission" -> "Hüter meiner Brut, ich habe keine weiteren Aufgaben für dich."
+queststatus(510) = 133, "task", "adventure", "order" -> "Guardian of my Brood, I have no more tasks for you."
+queststatus(510) = 133, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hüter meiner Brut, ich habe keine weiteren Aufgaben für dich."
+
+-- Faction stuff. Please remove if you send the template to outsiders!
+"archmage" -> "#me just looks at you with disinterest."
+"Erzmagier" -> "#me sieht dich voller Desinteresse an."
+english, "Elvaine", "Morgan" -> "#me just looks at you with disinterest."
+"Elvaine", "Morgan" -> "#me sieht dich voller Desinteresse an."
+english, "Runewick" -> "#me just looks at you with disinterest."
+"Runewick" -> "#me sieht dich voller Desinteresse an."
+english, "Valerio", "Guilianni", "Don" -> "#me just looks at you with disinterest."
+"Valerio", "Guilianni", "Don" -> "#me sieht dich voller Desinteresse an."
+english, "Galmair" -> "#me just looks at you with disinterest."
+"Galmair" -> "#me sieht dich voller Desinteresse an."
+"Queen" -> "#me just looks at you with disinterest."
+"Königin" -> "#me sieht dich voller Desinteresse an."
+english, "rosaline", "edwards" -> "#me just looks at you with disinterest."
+"rosaline", "edwards" -> "#me sieht dich voller Desinteresse an."
+english, "Cadomyr" -> "#me just looks at you with disinterest."
+"Cadomyr" -> "#me sieht dich voller Desinteresse an."
+
+-- Gods - use the triggers of the god the NPC worships or fights
+english, "Oldra" -> "Oldra is the All-Mother, the goddess of fertility, who blesses us with many healthy offspring."
+"Oldra" -> "Oldra ist die All-Mutter, die Göttin der Fruchtbarkeit, die uns mit vielen gesunden Nachkommen segnet."
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "I do not sell or buy anything."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich kaufe und verkaufe nichts."
+"tell something" -> "#me builds a large irregular, funnel-like web of sticky silk."
+"erzähl was", "erzähl etwas" -> "#me baut eine große unregelmäßige, trichterförmige Bahn aus klebrigen Spinnseide."
+
+-- Last catch: Think about keywords the player might say and that are not caught until here
+english, "Gorgophone" -> "That is me, the grim slayer."
+"Gorgophone" -> "Das bin ich, die grimmige Schlächterin."
+"Yes" -> "#me scampers happily."
+"Ja" -> "#me huscht glücklich hin und her."
+"No" -> "#me glares evilly."
+"Nein" -> "#me starrt böse."
+
+-- Cycle Texts - Messages spoken automatically in random intervals.
+
+cycletext "#me flitzt herum und pflegt ihr Netz.", "#me rushes around, tending to her web."
+cycletext "#me krabbelt schnell über ihr Netz, um Beute festzuhalten, die zappelnd und sich windend versucht zu flüchten.", "#me scrabbles quickly over her web to capture prey that is wriggling and writhing around, trying to escape."
+cycletext "#me erzeugt seidige Spinnfäden und webt ein kompliziertes Netz in der Umgebung.", "#me produces silky thread, making an intricate web around the area."
+cycletext "#me betastet einen Strang der sich im Netz bewegt und eilt hinaus, um ihre Beute zu erfassen.", "#me feels a strand move on her web and rushes out to capture her prey."
+cycletext "#me findet einen Edelstein und schiebt ihn herum, um ihn zu verstecken.", "#me finds a gemstone and pushes it around to hide it away."
+cycletext "#me durchsticht ihre Beute mit ihren Reißzähnen und verspritzt ihre Verdauungsenzyme.", "#me punctures her prey with her fangs and administers her digestive enzymes."
+cycletext "#me prüft ihren Eiersack, der aussieht wie ein Kokon und an ihrem Netz hängt.", "#me checks her egg sac, which looks like a cocoon and is suspended from her web."
+cycletext "#me benutzt ihre knirschenden Fänge, um die Überreste des Körpers ihrer Beute vollständig zu verflüssigen und saugt ihre Mahlzeit auf.", "#me uses her gnashing fangs to complete the liquefaction of the remains of her prey's body and sucks up her meal."
+cycletext "#me flitzt herum, um ihr Netz zu reparieren und nach ihrer nächsten Mahlzeit zu suchen.", "#me skitters around, repairing her large web and searching for her next meal."
+cycletext "#me reinigt ihre Zähne, während sie alle anstarrt, die in der Nähe sind", "#me cleans her fangs as she glares at all who come near."
+cycletext "#me läuft herum und vergrößert ihr Netz.", "#me runs around enlarging her web."
+cycletext "#me hängt an einem seidenen Faden und schaukelt sanft hin und her.", "#me hangs from a silky thread and is gently rocked back and forth on a breeze."

@@ -29,7 +29,7 @@ magic.addIceball{probability = 0.009, damage = {from = 1800, to = 2300}}
 magic.addIcestrike{probability = 0.001, damage = {from = 2300, to = 2800}}
 magic.addIceball{probability = 0.01, damage = {from = 875, to = 1200}, targetCount = 6}
 magic.addIceball{probability = 0.0001, damage = {from = 2500, to = 3000}}
-magic.addIcestrike{probability = 0.06,  damage = {from = 1750, to = 2000}}
+magic.addIcestrike{probability = 0.03,  damage = {from = 1750, to = 2000}}
 magic.addIcestrike{probability = 0.001, damage = {from = 1000, to = 2000}, targetCount = 4}
 magic.addIcering{probability = 0.009, damage = {from = 2500, to = 3000}, range  = 7,
     itemProbability = 0.10, quality = {from = 4, to = 5}}
