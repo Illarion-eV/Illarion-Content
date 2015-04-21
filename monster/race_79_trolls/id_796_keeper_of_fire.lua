@@ -15,12 +15,14 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 796, Keeper of fire, Level: 7, Armourtype: heavy, Weapontype: slashing
+local monsterId = 796
 
 local base = require("monster.base.base")
 local mageBehaviour = require("monster.base.behaviour.mage")
 local monstermagic = require("monster.base.monstermagic")
 local trolls = require("monster.race_79_trolls.base")
 local firefield = require("item.id_359_firefield")
+
 local M = trolls.generateCallbacks()
 
 local orgOnSpawn = M.onSpawn
