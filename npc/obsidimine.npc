@@ -139,53 +139,51 @@ queststatus(510) = 10, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
 queststatus(510) = 11, english, ".+" -> inform("[Quest solved] You are awarded 65 silver coins."), money + 6500, queststatus(510) = 12, "You ain't blowin' smoke up me... are you being real with me? So many levels. Can't recall the last... All righty then!"
 queststatus(510) = 11, ".+" -> inform("[Quest gelöst] Du erhältst 654 Silberstücke."), money + 6500, queststatus(510) = 12, ""
 
--- Quest 5: 60 grain bundles; 100 silver
-queststatus(510) = 68, english, "quest", "mission" -> inform("[New quest] Spelunker"), queststatus(510) = 69, "#me skitters towards you and looks around. 'It seems to be getting colder. I need bundles of grain to spread around on the floor. Please bring me sixty grain bundles.'"
-queststatus(510) = 68, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher"), queststatus(510) = 69, "#me krabbelt auf dich zu und mustert die Gegend. 'Es scheint kälter zu werden. Ich brauche Getreidebündel um den Boden auszulegen. Bring mir bitte 60 Getreidebündel.'"
-queststatus(510) = 68, "task", "adventure", "order" -> inform("[New quest] Spelunker"), queststatus(510) = 69, "#me skitters towards you and looks around. 'It seems to be getting colder. I need bundles of grain to spread around on the floor. Please bring me sixty grain bundles.'"
-queststatus(510) = 68, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher"), queststatus(510) = 69, "#me krabbelt auf dich zu und mustert die Gegend. 'Es scheint kälter zu werden. Ich brauche Getreidebündel um den Boden auszulegen. Bring mir bitte 60 Getreidebündel.'"
+-- Quest 5: Find Obsidimine a Dragon Gem of every color
+queststatus(510) = 12, english, "quest", "mission" -> inform("[New quest] Spelunker V"), queststatus(510) = 13, "Me heards that dragons hoard their wealth. Before Eme disappeared he was talkin' of vases bein' stuffed with gems. Search the vases and find me a gem of every color from the dragons stash."
+queststatus(510) = 12, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher V"), queststatus(510) = 13, ""
+queststatus(510) = 12, "task", "adventure", "order" -> inform("[New quest] Spelunker V"), queststatus(510) = 13, "Me heards that dragons hoard their wealth. Before Eme disappeared he was talkin' of vases bein' stuffed with gems. Search the vases and find me a gem of every color from the dragons stash."
+queststatus(510) = 12, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher V"), queststatus(510) = 13, ""
 
-queststatus(510) = 69, item(249, all) < 60, english, "quest", "mission" -> "My offspring will be in trouble without a warm place. I still need sixty grain bundles to cover the cold rocks."
-queststatus(510) = 69, item(249, all) < 60, "quest", "mission" -> "Meine Nachkommen werden Schwierigkeiten haben ohne einen warmen Platz. Ich brauche immer noch 60 Getreidebündel um die kalten Steine zu bedecken."
-queststatus(510) = 69, item(249, all) < 60, "task", "adventure", "order" -> "My offspring will be in trouble without a warm place. I still need sixty grain bundles to cover the cold rocks."
-queststatus(510) = 69, item(249, all) < 60, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Meine Nachkommen werden Schwierigkeiten haben ohne einen warmen Platz. Ich brauche immer noch 60 Getreidebündel um die kalten Steine zu bedecken."
+queststatus(510) = 13, queststatus(510) < 14, english, "quest", "mission" -> "Gems, Gems .. search the vases! A dwarf is not complete without a gem of every color.  I only want those from inside here, don't try and cheat me!"
+queststatus(510) = 13, queststatus(510) < 14, "quest", "mission" -> ""
+queststatus(510) = 13, queststatus(510) < 14, "task", "adventure", "order" -> "Gems, Gems .. search the vases! A dwarf is not complete without a gem of every color.  I only want those from inside here, don't try and cheat me!"
+queststatus(510) = 13, queststatus(510) < 14, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
 
-queststatus(510) = 69, item(249, all) > 59, english, ".+" -> inform("[Quest solved] You are awarded one hundred silver coins."), money + 10000, deleteItem(249, 60), queststatus(510) = 70, "#me gives you a blank look through her black eyes as she takes the bundles and tucks them away for later use, 'Thank you and here is a small reward. Alas, I noticed I need more help if you are willing?'"
-queststatus(510) = 69, item(249, all) > 59, ".+" -> inform("[Quest gelöst] Du erhältst 100 Silberstücke."), money + 10000, deleteItem(249, 60), queststatus(510) = 70, "#me starrt dich mit ihren pechschwarzen Augen lange an, bevor sie die Bündel wegpackt. 'Danke und hier eine kleine Belohnung. Ach, ich stellte fest, dass noch mehr Hilfe von Nöten sein wird, wenn es dir beliebt.'"
+queststatus(510) = 14, english, ".+" -> inform("[Quest solved] You are awarded seventy-five silver coins."), money + 7500, queststatus(510) = 15, "#me pokes through the cut gemstones, counting them and looking over the dazzling aray of colors with a sparkle in his eye as he passes you some coins."
+queststatus(510) = 14, ".+" -> inform("[Quest gelöst] Du erhältst 75 Silberstücke."), money + 7500, queststatus(510) = 15, ""
 
--- Quest 6: 75 spools of thread; 100 silver
-queststatus(510) = 70, english, "quest", "mission" -> inform("[New quest] Spelunker"), queststatus(510) = 71, "I need to make immediate repairs to my web and hope thread will help. Bring me 75 spools of thread."
-queststatus(510) = 70, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher"), queststatus(510) = 71, "Ich muss dringend Reparaturen am Netz ausführen und Garn wird helfen. Bring mir 75 Rollen Garn."
-queststatus(510) = 70, "task", "adventure", "order" -> inform("[New quest] Spelunker"), queststatus(510) = 71, "I need to make immediate repairs to my web and hope thread will help. Bring me 75 spools of thread."
-queststatus(510) = 70, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher"), queststatus(510) = 71, "Ich muss dringend Reparaturen am Netz ausführen und Garn wird helfen. Bring mir 75 Rollen Garn."
+-- Quest 6: Find the name of the Bunny eater Dragon
+queststatus(510) = 15, english, "quest", "mission" -> inform("[New quest] Spelunker VI"), queststatus(510) = 16, "There seems to be tombstones with dragon names on them inside. Right peculiar if you ask me. One was even called the 'Eater of Bunnies,' but I can't recall.  Can you go look for me and let me know? What is this dragon's name?"
+queststatus(510) = 15, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher VI"), queststatus(510) = 16, ""
+queststatus(510) = 15, "task", "adventure", "order" -> inform("[New quest] Spelunker VI"), queststatus(510) = 16, "There seems to be tombstones with dragon names on them inside. Right peculiar if you ask me. One was even called the 'Eater of Bunnies,' but I can't recall.  Can you go look for me and let me know? What is this dragon's name?"
+queststatus(510) = 15, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher VI"), queststatus(510) = 16, ""
 
-queststatus(510) = 71, item(50, all) < 75, english, "quest", "mission" -> "My offspring will be in trouble without a protective web. I still need 75 spools of thread for repairs."
-queststatus(510) = 71, item(50, all) < 75, "quest", "mission" -> "Meine Nachkommen werden Schwierigkeiten haben ohne ein schützendes Netz. Ich brauche immer noch 75 Rollen Garn für Reparaturen."
-queststatus(510) = 71, item(50, all) < 75, "task", "adventure", "order" -> "My offspring will be in trouble without a protective web. I still need 75 spools of thread for repairs."
-queststatus(510) = 71, item(50, all) < 75, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Meine Nachkommen werden Schwierigkeiten haben ohne ein schützendes Netz. Ich brauche immer noch 75 Rollen Garn für Reparaturen."
+queststatus(510) = 16, english, "Sira" -> inform("[Quest solved] You are awarded five rabbit dishes."), item(555, 5, 999), queststatus(510) = 17, "Hrm, Sirath, me heard of a Sirath once. She was a terror of the skies. Aye... Aye! The bunnies did flee from her they did! Whenever anyone seen bunnies runnin', this was a sign for all to run for their lives! Take these meals and think of her!"
+queststatus(510) = 16, german, "Sira" -> inform("[Quest gelöst] Du erhältst 100 Silberstücke."), item(555, 5, 999), queststatus(510) = 17, ""
 
-queststatus(510) = 71, item(50, all) > 74, english, ".+" -> inform("[Quest solved] You are awarded one hundred silver coins."), money + 10000, deleteItem(50, 75), queststatus(510) = 72, "Ah, thank you! *She says in a rather quiet and raspy voice as she takes the thread and partially unravels one spool, testing the strength of the line* Perhaps you would help me again when you have time?"
-queststatus(510) = 71, item(50, all) > 74, ".+" -> inform("[Quest gelöst] Du erhältst 100 Silberstücke."), money + 10000, deleteItem(50, 75), queststatus(510) = 72, "Ich danke dir! *sie murmelt leise vor sich hin während sie eine Spule Garn abrollt und die deren Stärke testet.* Vielleicht würdest du mir abermals helfen, wenn die Zeit es erlaubt?"
+queststatus(510) = 16, english, ".*" -> "Me don't know why its important right now, me just needs to know the name of the dragon who ate bunnies.  Please check all the tombstones inside."
+queststatus(510) = 16, german, ".*" -> "."
 
--- Quest 7: divine voulge spear; 150 silver
-queststatus(510) = 72, english, "quest", "mission" -> inform("[New quest] Spelunker"), queststatus(510) = 73, "My web grows too large, please bring me a divine voulge spear, which can be placed in the ground as a support. Don't be cheap, make sure it isn't weak."
-queststatus(510) = 72, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher"), queststatus(510) = 73, "Mein Netz wird immer größer, bring mir doch eine Heilige Voulge, die ich als Mast verwenden kann. Kein einfacher Stock oder Stab kann das leisten!"
-queststatus(510) = 72, "task", "adventure", "order" -> inform("[New quest] Spelunker"), queststatus(510) = 73, "My web grows too large, please bring me a divine voulge spear, which can be placed in the ground as a support. Don't be cheap, make sure it isn't weak."
-queststatus(510) = 72, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher"), queststatus(510) = 73, "Mein Netz wird immer größer, bring mir doch eine Heilige Voulge, die ich als Mast verwenden kann. Kein einfacher Stock oder Stab kann das leisten!"
+-- Quest 7: Check the hedge maze for a vision of what happened to Eme
+queststatus(510) = 17, english, "quest", "mission" -> inform("[New quest] Spelunker VII"), queststatus(510) = 18, "The hedge maze inside, me is not one for magic, but its said to have visionary tendencies.  Reckon you can travel inside thinkin' about me brother Eme and see where he has got to?"
+queststatus(510) = 17, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher VII"), queststatus(510) = 18, ""
+queststatus(510) = 17, "task", "adventure", "order" -> inform("[New quest] Spelunker VII"), queststatus(510) = 18, "The hedge maze inside, me is not one for magic, but its said to have visionary tendencies.  Reckon you can travel inside thinkin' about me brother Eme and see where he has got to?"
+queststatus(510) = 17, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher VII"), queststatus(510) = 18, ""
 
-queststatus(510) = 73, item(1053, all) < 1, english, "quest", "mission" -> "My offspring will be in trouble without a protective web. I still need a divine voulge to support my large web."
-queststatus(510) = 73, item(1053, all) < 1, "quest", "mission" -> "Meine Nachkommen werden Schwierigkeiten haben ohne ein schützendes Netz. Ich brauche immer noch eine Heilige Voulge um mein großes Netz abzustützen."
-queststatus(510) = 73, item(1053, all) < 1, "task", "adventure", "order" -> "My offspring will be in trouble without a protective web. I still need a divine voulge to support my large web."
-queststatus(510) = 73, item(1053, all) < 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Meine Nachkommen werden Schwierigkeiten haben ohne ein schützendes Netz. Ich brauche immer noch eine Heilige Voulge um mein großes Netz abzustützen."
--- tbd: handle a spear of too bad quality
-queststatus(510) = 73, item(1053, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded one hundred and fifty silver coins."), money + 15000, deleteItem(1053, 1), queststatus(510) = 74, "#me takes the spear and looks it over through her pitch black eyes.  She tests it by pushing one end into the ground and nods. 'This will do. Ready to proceed?'"
-queststatus(510) = 73, item(1053, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst 150 Silberstücke."), money + 15000, deleteItem(1053, 1), queststatus(510) = 74, "#me nimmt den Speer und begutachtet ihn mit ihren pechschwarzen Augen. Sie rammt die Spitze in den Boden un nickt dann zufrieden 'Der wird taugen. Bereit für weitere Taten?'"
+queststatus(510) = 18, queststatus(510) < 19, english, "quest", "mission" -> "Explore the hedge maze til ye gets a vision of what happened to Eme."
+queststatus(510) = 18, queststatus(510) < 19, "quest", "mission" -> ""
+queststatus(510) = 18, queststatus(510) < 19, "task", "adventure", "order" -> "Explore the hedge maze til ye gets a vision of what happened to Eme."
+queststatus(510) = 18, queststatus(510) < 19, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+-- if complete
+queststatus(510) = 19, english, ".+" -> inform("[Quest solved] You are awarded 85 silver coins."), money + 8500, queststatus(510) = 20, "#me sniffles loudly before tears start streaming down his face as he hands you a sack of coins. 'I was affeared of this!'"
+queststatus(510) = 19, ".+" -> inform("[Quest gelöst] Du erhältst 85 Silberstücke."), money + 8500, queststatus(510) = 20, ""
 
--- Quest 8: kill 5 spider queen; 180 silver
-queststatus(510) = 74, english, "quest", "mission" -> inform("[New quest] Spelunker"), queststatus(510) = 75, "Before my offspring come forth into the world, you must kill five spider queens. They hunt my young as a delicacy and to ensure there is more food for themselves."
-queststatus(510) = 74, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher"), queststatus(510) = 75, "Bevor meine Nachkommen das Licht der Welt erblicken musst du fünf Spinnenköniginnen töten. Sie jagen nach meiner Brut wie nach einer Delikatesse."
-queststatus(510) = 74, "task", "adventure", "order" -> inform("[New quest] Spelunker"), queststatus(510) = 75,  "Before my offspring come forth into the world, you must kill five spider queens. They hunt my young as a delicacy and to ensure there is more food for themselves."
-queststatus(510) = 74, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher"), queststatus(510) = 75, "Bevor meine Nachkommen das Licht der Welt erblicken musst du fünf Spinnenköniginnen töten. Sie jagen nach meiner Brut wie nach einer Delikatesse."
+-- Quest 8: search the coffins for evidence of Eme's body.
+queststatus(510) = 20, english, "quest", "mission" -> inform("[New quest] Spelunker VIII"), queststatus(510) = 75, "Before my offspring come forth into the world, you must kill five spider queens. They hunt my young as a delicacy and to ensure there is more food for themselves."
+queststatus(510) = 20, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher VIII"), queststatus(510) = 75, "Bevor meine Nachkommen das Licht der Welt erblicken musst du fünf Spinnenköniginnen töten. Sie jagen nach meiner Brut wie nach einer Delikatesse."
+queststatus(510) = 20, "task", "adventure", "order" -> inform("[New quest] Spelunker VIII"), queststatus(510) = 75,  "Before my offspring come forth into the world, you must kill five spider queens. They hunt my young as a delicacy and to ensure there is more food for themselves."
+queststatus(510) = 20, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher VIII"), queststatus(510) = 75, "Bevor meine Nachkommen das Licht der Welt erblicken musst du fünf Spinnenköniginnen töten. Sie jagen nach meiner Brut wie nach einer Delikatesse."
 
 queststatus(510) > 74, queststatus(510) < 80, english, "quest", "mission" -> "You haven't killed the spider queens yet? Please go ahead, I need your help!"
 queststatus(510) > 74, queststatus(510) < 80, "quest", "mission" -> "Du hast die Spinnenköniginnen noch nicht beseitigt? Bitte erledige die Sache, ich brauch doch deine Hilfe!"
