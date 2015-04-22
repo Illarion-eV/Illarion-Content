@@ -180,86 +180,88 @@ queststatus(510) = 19, english, ".+" -> inform("[Quest solved] You are awarded 8
 queststatus(510) = 19, ".+" -> inform("[Quest gelöst] Du erhältst 85 Silberstücke."), money + 8500, queststatus(510) = 20, ""
 
 -- Quest 8: search the coffins for evidence of Eme's body.
-queststatus(510) = 20, english, "quest", "mission" -> inform("[New quest] Spelunker VIII"), queststatus(510) = 75, "Before my offspring come forth into the world, you must kill five spider queens. They hunt my young as a delicacy and to ensure there is more food for themselves."
-queststatus(510) = 20, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher VIII"), queststatus(510) = 75, "Bevor meine Nachkommen das Licht der Welt erblicken musst du fünf Spinnenköniginnen töten. Sie jagen nach meiner Brut wie nach einer Delikatesse."
-queststatus(510) = 20, "task", "adventure", "order" -> inform("[New quest] Spelunker VIII"), queststatus(510) = 75,  "Before my offspring come forth into the world, you must kill five spider queens. They hunt my young as a delicacy and to ensure there is more food for themselves."
-queststatus(510) = 20, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher VIII"), queststatus(510) = 75, "Bevor meine Nachkommen das Licht der Welt erblicken musst du fünf Spinnenköniginnen töten. Sie jagen nach meiner Brut wie nach einer Delikatesse."
+queststatus(510) = 20, english, "quest", "mission" -> inform("[New quest] Spelunker VIII"), queststatus(510) = 21, "If Eme is gone.. me wants proof. Me can not live not knowin' for sure.  Search the bodies in the coffins and bring me back somethin' of his."
+queststatus(510) = 20, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher VIII"), queststatus(510) = 21, ""
+queststatus(510) = 20, "task", "adventure", "order" -> inform("[New quest] Spelunker VIII"), queststatus(510) = 21, "If Eme is gone.. me wants proof. Me can not live not knowin' for sure.  Search the bodies in the coffins and bring me back somethin' of his."
+queststatus(510) = 20, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher VIII"), queststatus(510) = 21, ""
 
-queststatus(510) > 74, queststatus(510) < 80, english, "quest", "mission" -> "You haven't killed the spider queens yet? Please go ahead, I need your help!"
-queststatus(510) > 74, queststatus(510) < 80, "quest", "mission" -> "Du hast die Spinnenköniginnen noch nicht beseitigt? Bitte erledige die Sache, ich brauch doch deine Hilfe!"
-queststatus(510) > 74, queststatus(510) < 80, "task", "adventure", "order" -> "You haven't killed the spider queens yet? Please go ahead, I need your help!"
-queststatus(510) > 74, queststatus(510) < 80, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du hast die Spinnenköniginnen noch nicht beseitigt? Bitte erledige die Sache, ich brauch doch deine Hilfe!"
+queststatus(510) = 21, queststatus(510) < 22, english, "quest", "mission" -> "Find me proof of what happened to Eme inside a coffin, so me don'ts go out of me mind!"
+queststatus(510) = 21, queststatus(510) < 22, "quest", "mission" -> ""
+queststatus(510) = 21, queststatus(510) < 22, "task", "adventure", "order" -> "Find me proof of what happened to Eme inside a coffin, so me don'ts go out of me mind!"
+queststatus(510) = 21, queststatus(510) < 22, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
 
-queststatus(510) = 80, english, ".+" -> inform("[Quest solved] You are awarded one hundred and eighty silver coins."), money + 18000, queststatus(510) = 81, "#me tosses a bag of silver at you. 'Those queens think they can just take over my territory. Thank you for showing them they are wrong. You have improved your stamina now and are ready for your final task.'"
-queststatus(510) = 80, ".+" -> inform("[Quest gelöst] Du erhältst 180 Silberstücke."), money + 18000, queststatus(510) = 81, "#me wirft dir einen Beutel mit Silbermünzen zu. 'Diese Königinnen denken wohl , dass sie mein Territorium haben können. Danke, dass du ihnen das Gegenteil bewiesen hast. Wenn du soweit bist, dann wird es Zeit für die letzte Aufgabe.'"
+queststatus(510) = 22, english, ".+" -> inform("[Quest solved] You are awarded one hundred silver coins."), money + 10000, queststatus(510) = 23, "#me takes the skull gently wrapping it in a cloth as tears fall down his eyes. 'Me knows this is him. He had the biggest head of all the family. He were famous. I will bury it with the family deep in the mountain at home. Take these coins as a thank you.'"
+queststatus(510) = 22, ".+" -> inform("[Quest gelöst] Du erhältst 100 Silberstücke."), money + 10000, queststatus(510) = 23, ""
 
--- Quest 9: kill 50 Tarantulas, Spider Queens, Kings fright, Gynkese Widow or Shadow muncher; gems
-queststatus(510) = 81, english, "quest", "mission" -> inform("[New quest] Spelunker"), queststatus(510) = 82, "#me looks around at her offspring, which wander all around her, before looking up at you.  In her quiet raspy voice she says, 'As you can see, my offspring have come forth into the world. You must ensure their safety by killing fifty more of the largest spiders. They are the species Tarantula, Gynkese Widow, Kings Fright, Spider Queen, and Shadow Munchers.'"
-queststatus(510) = 81, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher"), queststatus(510) = 82, "#me beobachtet ihre Nachkommen, die um sie herum krabbeln, bevor sie dir einen Blick zuwirft. In ihrer rauen, leisen Stimme sagt sie dir: 'Wie du siehst sind meine Nachkommen ausgeschlüpft. Du musst ihre Sicherheit gewährleisten, töte 50 größten Spinnen. Sie sind die Spezies Schattenmampfer, Tarantel, Spinnenkönigin, Ritterfurcht, oder Gynkesische Witwe.'"
-queststatus(510) = 81, "task", "adventure", "order" -> inform("[New quest] Spelunker"), queststatus(510) = 82,  "#me looks around at her offspring, which wander all around her, before looking up at you.  In her quiet raspy voice she says, 'As you can see, my offspring have come forth into the world. You must ensure their safety by killing fifty more of the largest spiders. They are the species Tarantula, Gynkese Widow, Kings Fright, Spider Queen, and Shadow Munchers.'"
-queststatus(510) = 81, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher"), queststatus(510) = 82, "#me beobachtet ihre Nachkommen, die um sie herum krabbeln, bevor sie dir einen Blick zuwirft. In ihrer rauen, leisen Stimme sagt sie dir: 'Wie du siehst sind meine Nachkommen ausgeschlüpft. Du musst ihre Sicherheit gewährleisten, töte 50 50 größten Spinnen. Sie sind die Spezies Schattenmampfer, Tarantel, Spinnenkönigin, Ritterfurcht, oder Gynkesische Witwe.'"
+-- Quest 9: Find family Heirloom that Eme would have hid.
+queststatus(510) = 23, english, "quest", "mission" -> inform("[New quest] Spelunker IX"), queststatus(510) = 24, "Eme wouldn't have gone down before hidin' a family heirloom of our pappy's. It's a specially engraved emerald amulet. He's bound to have tossed it into a barrel, chest, or something down there. Please find it for me?"
+queststatus(510) = 23, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher IX"), queststatus(510) = 24, ""
+queststatus(510) = 23, "task", "adventure", "order" -> inform("[New quest] Spelunker IX"), queststatus(510) = 24, "Eme wouldn't have gone down before hidin' a family heirloom of our pappy's. It's a specially engraved emerald amulet. He's bound to have tossed it into a barrel, chest, or something down there. Please find it for me?"
+queststatus(510) = 23, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher IX"), queststatus(510) = 24, ""
 
-queststatus(510) > 81, queststatus(510) < 132, english, "quest", "mission" -> "You haven't killed the spider army yet? Please go ahead, I need your help! Kill fifty Soulpain."
-queststatus(510) > 81, queststatus(510) < 132, "quest", "mission" -> "Du hast die Armeen der Spinnen noch nicht beseitigt? Bitte erledige die Sache, ich brauch doch deine Hilfe! Töte 50 Seelenpein."
-queststatus(510) > 81, queststatus(510) < 132, "task", "adventure", "order" -> "You haven't killed the spider army yet? Please go ahead, I need your help! Kill fifty Soulpain."
-queststatus(510) > 81, queststatus(510) < 132, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du hast die Armeen der Spinnen noch nicht beseitigt? Bitte erledige die Sache, ich brauch doch deine Hilfe! Töte 50 Seelenpein."
--- tbd: offer a choice dialog for gem reward
-queststatus(510) = 132, english, ".+" -> inform("[Quest solved] You are rewarded with gems."), item(285, 160), queststatus(510) = 133, "#me skitters over her web, rushing over to you. 'You have far exceeded my best hopes for clearing the area. For your dedicated help, I will give you some of my greatest treasures.'"
-queststatus(510) = 132, ".+" -> inform("[Quest gelöst] Du erhältst Edelsteine."), item(285, 160), queststatus(510) = 133, "#me krabbelt übers Netz und eilt zu dir. 'Du hast meine Erwartungen bei Weitem übertroffen. Für deine hingebungsvolle Hilfe werde ich dich mit meinen wertvollsten Schätzen belohnen.'"
+queststatus(510) = 24, queststatus(510) < 25, english, "quest", "mission" -> "Find Pappy's heirloom amulet. I am sure Eme would have tossed it into a barrel or chest below."
+queststatus(510) = 24, queststatus(510) < 25, "quest", "mission" -> ""
+queststatus(510) = 24, queststatus(510) < 25, "task", "adventure", "order" -> "Find Pappy's heirloom amulet. I am sure Eme would have tossed it into a barrel or chest below."
+queststatus(510) = 24, queststatus(510) < 25, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+
+queststatus(510) = 25, english, ".+" -> inform("[Quest solved] You are rewarded a latent emerald."), item(45, 1, 333, "gemLevel" = "1"), queststatus(510) = 26, "Me thanks you for this as it's worth more to me than most items.  Have this gem me found earlier as a reward."
+queststatus(510) = 25, ".+" -> inform("[Quest gelöst] Du erhältst ???."), item(45, 1, 333, "gemLevel" = "1"), queststatus(510) = 26, ""
+
+-- Quest 10: Retrieve a golden string from the Dragon's Lair
+queststatus(510) = 26, english, "quest", "mission" -> inform("[New quest] Spelunker X"), queststatus(510) = 27, "Eme is gone, *sighs deeply.* Reckon me could ask you one more favour.  On the lowest level there is a lute in the dragon's lair.   Me wants one of its golden strings. Me plans on giving it as an offering to Irmorom for Eme's soul."
+queststatus(510) = 26, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher X"), queststatus(510) = 27, ""
+queststatus(510) = 26, "task", "adventure", "order" -> inform("[New quest] Spelunker X"), queststatus(510) = 27, "Eme is gone, *sighs deeply.* Reckon me could ask you one more favour.  On the lowest level there is a lute in the dragon's lair.   Me wants one of its golden strings. Me plans on giving it as an offering to Irmorom for Eme's soul."
+queststatus(510) = 26, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher X"), queststatus(510) = 27, ""
+
+queststatus(510) = 27, queststatus(510) < 28, english, "quest", "mission" -> "Me needs this golden string from the Dragon's lute, to give as an offering for Eme's soul."
+queststatus(510) = 27, queststatus(510) < 28, "quest", "mission" -> ""
+queststatus(510) = 27, queststatus(510) < 28, "task", "adventure", "order" -> "Me needs this golden string from the Dragon's lute, to give as an offering for Eme's soul."
+queststatus(510) = 27, queststatus(510) < 28, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+
+queststatus(510) = 28, english, ".+" -> inform("[Quest solved] You are awarded 125 silver coins."), money + 12500, queststatus(510) = 29, "This is the offering me needs to properly put Eme to rest. Me doesn't know how to thank you. Have these here coins."
+queststatus(510) = 28, ".+" -> inform("[Quest gelöst] Du erhältst 125 Silberstücke."),money + 12500, queststatus(510) = 29, ""
+
+-- Last quest.  Quest 11: Kill the Dragon of Death
+queststatus(510) = 29, english, "quest", "mission" -> inform("[New quest] Spelunker XI"), queststatus(510) = 30, "Me blames that Dragon of Death for Eme's passin'.  Kill it and me thinks me may be able to move on."
+queststatus(510) = 29, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher XI"), queststatus(510) = 30, ""
+queststatus(510) = 29, "task", "adventure", "order" -> inform("[New quest] Spelunker XI"), queststatus(510) = 30, "Me blames that Dragon of Death for Eme's passin'.  Kill it and me thinks me may be able to move on."
+queststatus(510) = 29, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher XI"), queststatus(510) = 30, ""
+
+queststatus(510) = 30, queststatus(510) < 31, english, "quest", "mission" -> "Kill that Dragon of Death and me will go on with me life."
+queststatus(510) = 30, queststatus(510) < 31, "quest", "mission" -> ""
+queststatus(510) = 30, queststatus(510) < 31, "task", "adventure", "order" -> "Kill that Dragon of Death and me will go on with me life."
+queststatus(510) = 30, queststatus(510) < 31, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+
+queststatus(510) = 31, english, ".+" -> inform("[Quest solved] You are awarded 125 silver coins."), money + 12500, queststatus(510) = 32, "Me thanks you for all your effort for me and and me dearly departed brother. Irmorom will surely have a special place waitin' for you. *offers you a sword*"
+queststatus(510) = 31, ".+" -> inform("[Quest gelöst] Du erhältst 125 Silberstücke."),money + 12500, queststatus(510) = 32, ""
 
 -- No more regular quests
-queststatus(510) = 133, english, "quest" -> "Guardian of my Brood, I have no more tasks for you."
-queststatus(510) = 133, "quest", "mission" -> "Hüter meiner Brut, ich habe keine weiteren Aufgaben für dich."
-queststatus(510) = 133, "task", "adventure", "order" -> "Guardian of my Brood, I have no more tasks for you."
-queststatus(510) = 133, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hüter meiner Brut, ich habe keine weiteren Aufgaben für dich."
+queststatus(510) = 32, english, "quest" -> "Ye have honoured me family. Me can ask no more of you. Go with Irmorom's blessing and remember us spelunkers dig deep and explore far."
+queststatus(510) = 32, "quest", "mission" -> ""
+queststatus(510) = 32, "task", "adventure", "order" -> "Ye have honoured me family. Me can ask no more of you. Go with Irmorom's blessing and remember us spelunkers dig deep and explore far."
+queststatus(510) = 32, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
 
 -- Faction stuff. Please remove if you send the template to outsiders!
-"archmage" -> "#me just looks at you with disinterest."
-"Erzmagier" -> "#me sieht dich voller Desinteresse an."
-english, "Elvaine", "Morgan" -> "#me just looks at you with disinterest."
-"Elvaine", "Morgan" -> "#me sieht dich voller Desinteresse an."
-english, "Runewick" -> "#me just looks at you with disinterest."
-"Runewick" -> "#me sieht dich voller Desinteresse an."
-english, "Valerio", "Guilianni", "Don" -> "#me just looks at you with disinterest."
-"Valerio", "Guilianni", "Don" -> "#me sieht dich voller Desinteresse an."
-english, "Galmair" -> "#me just looks at you with disinterest."
-"Galmair" -> "#me sieht dich voller Desinteresse an."
-"Queen" -> "#me just looks at you with disinterest."
-"Königin" -> "#me sieht dich voller Desinteresse an."
-english, "rosaline", "edwards" -> "#me just looks at you with disinterest."
-"rosaline", "edwards" -> "#me sieht dich voller Desinteresse an."
-english, "Cadomyr" -> "#me just looks at you with disinterest."
-"Cadomyr" -> "#me sieht dich voller Desinteresse an."
-
--- Gods - use the triggers of the god the NPC worships or fights
-english, "Oldra" -> "Oldra is the All-Mother, the goddess of fertility, who blesses us with many healthy offspring."
-"Oldra" -> "Oldra ist die All-Mutter, die Göttin der Fruchtbarkeit, die uns mit vielen gesunden Nachkommen segnet."
+english, "Runewick" -> "Hm, haven't heard about any caves in that area."
+"Runewick" -> ""
+english, "Galmair" -> "Some right fine caves around them there parts."
+"Galmair" -> ""
+english, "Cadomyr" -> "Can't say as mes been there as it's a might hot fer me."
+"Cadomyr" -> ""
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I do not sell or buy anything."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich kaufe und verkaufe nichts."
-"tell something" -> "#me builds a large irregular, funnel-like web of sticky silk."
-"erzähl was", "erzähl etwas" -> "#me baut eine große unregelmäßige, trichterförmige Bahn aus klebrigen Spinnseide."
-
--- Last catch: Think about keywords the player might say and that are not caught until here
-english, "Gorgophone" -> "That is me, the grim slayer."
-"Gorgophone" -> "Das bin ich, die grimmige Schlächterin."
-"Yes" -> "#me scampers happily."
-"Ja" -> "#me huscht glücklich hin und her."
-"No" -> "#me glares evilly."
-"Nein" -> "#me starrt böse."
 
 -- Cycle Texts - Messages spoken automatically in random intervals.
 
-cycletext "#me flitzt herum und pflegt ihr Netz.", "#me rushes around, tending to her web."
-cycletext "#me krabbelt schnell über ihr Netz, um Beute festzuhalten, die zappelnd und sich windend versucht zu flüchten.", "#me scrabbles quickly over her web to capture prey that is wriggling and writhing around, trying to escape."
-cycletext "#me erzeugt seidige Spinnfäden und webt ein kompliziertes Netz in der Umgebung.", "#me produces silky thread, making an intricate web around the area."
-cycletext "#me betastet einen Strang der sich im Netz bewegt und eilt hinaus, um ihre Beute zu erfassen.", "#me feels a strand move on her web and rushes out to capture her prey."
-cycletext "#me findet einen Edelstein und schiebt ihn herum, um ihn zu verstecken.", "#me finds a gemstone and pushes it around to hide it away."
-cycletext "#me durchsticht ihre Beute mit ihren Reißzähnen und verspritzt ihre Verdauungsenzyme.", "#me punctures her prey with her fangs and administers her digestive enzymes."
-cycletext "#me prüft ihren Eiersack, der aussieht wie ein Kokon und an ihrem Netz hängt.", "#me checks her egg sac, which looks like a cocoon and is suspended from her web."
-cycletext "#me benutzt ihre knirschenden Fänge, um die Überreste des Körpers ihrer Beute vollständig zu verflüssigen und saugt ihre Mahlzeit auf.", "#me uses her gnashing fangs to complete the liquefaction of the remains of her prey's body and sucks up her meal."
-cycletext "#me flitzt herum, um ihr Netz zu reparieren und nach ihrer nächsten Mahlzeit zu suchen.", "#me skitters around, repairing her large web and searching for her next meal."
-cycletext "#me reinigt ihre Zähne, während sie alle anstarrt, die in der Nähe sind", "#me cleans her fangs as she glares at all who come near."
-cycletext "#me läuft herum und vergrößert ihr Netz.", "#me runs around enlarging her web."
-cycletext "#me hängt an einem seidenen Faden und schaukelt sanft hin und her.", "#me hangs from a silky thread and is gently rocked back and forth on a breeze."
+cycletext "", "#me looks curiously at a stone in his hand."
+cycletext "", "Me likes rocks!"
+cycletext "", "Where be me brother, Eme?"
+cycletext "", "#me beats dust off his clothing."
+cycletext "", "Hey you!! Do you know of any new caves in the area?"
+cycletext "", "#s Eme?? Where are you? Me is getting lonely."
+cycletext "", "#me drinks a mug of beer."
+cycletext "", "#me sings 'There once was Dwarven lass, she had plenty of sass, one day when I went to pass, me reached out and pinched her on the arm.'"
+cycletext "", "#me sings 'That Dwarven lass of mine, she is mighty fine, she don't drink that fancy wine, it's beer for her as we dine.'"
+cycletext "", "Thank the blessed Irmorom for these here rocks he created."
