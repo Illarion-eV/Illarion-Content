@@ -112,7 +112,7 @@ local FINAL_QUEST_STATUS = 22
 -- Register the monster kill parts of the quest.
 monsterQuests.addQuest{
     questId = 77,
-    location = {position = position(298, 352, -6), radius = 65},
+    location = {position = position(310, 319, -6), radius = 100},
     queststatus = {from = 1, to = 11},
     questTitle = {german = "Die Kanalisation von Galmair I", english = "Galmair Sewers I"},
     monsterName = {german = "Schleime", english = "slimes"},
@@ -121,7 +121,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 77,
-    location = {position = position(298, 352, -6), radius = 65},
+    location = {position = position(310, 315, -6), radius = 100},
     queststatus = {from = 13, to = 18},
     questTitle = {german = "Die Kanalisation von Galmair II", english = "Galmair Sewers II"},
     monsterName = {german = "stinkige Gullimumien", english = "smelly sewer mummies"},
@@ -130,7 +130,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 77,
-    location = {position = position(298, 352, -6), radius = 65},
+    location = {position = position(310, 315, -6), radius = 100},
     queststatus = {from = 20, to = 21},
     questTitle = {german = "Die Kanalisation von Galmair III", english = "Galmair Sewers III"},
     monsterName = {german = "den Halblingsdieb", english = "the halfling thief"},
