@@ -16,7 +16,7 @@
 -- NPC Name: Angelo Rothman                                           Galmair --
 -- NPC Job:  Arena Master                                                     --
 --                                                                            --
--- NPC Race: human                      NPC Position:  336, 150, -7           --
+-- NPC Race: human                      NPC Position:  338, 187, -7           --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot                                                              --
@@ -26,7 +26,7 @@
 name = "Angelo Rothman"
 race = human
 sex = male
-position = 336, 150, -7
+position = 338, 187, -7
 direction = south
 affiliation = "Galmair"
 job = "Arena Master"

@@ -16,7 +16,7 @@
 -- NPC Name: Grimlug                                                  Galmair --
 -- NPC Job:  Shaman                                                           --
 --                                                                            --
--- NPC Race: orc                        NPC Position:  385, 176, -6           --
+-- NPC Race: orc                        NPC Position:  362, 183, -6           --
 -- NPC Sex:  male                       NPC Direction: southwest              --
 --                                                                            --
 -- Author:   Rincewind                                                        --
@@ -26,7 +26,7 @@
 name = "Grimlug"
 race = orc
 sex = male
-position = 385, 176, -6
+position = 362, 183, -6
 direction = southwest
 affiliation = "Galmair"
 job = "Shaman"

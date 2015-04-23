@@ -16,7 +16,7 @@
 -- NPC Name: Lotta Medborgar                                          Galmair --
 -- NPC Job:  hunter                                                           --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  393, 326, -5           --
+-- NPC Race: dwarf                      NPC Position:  380, 303, -5           --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   envi                                                             --
@@ -26,7 +26,7 @@
 name = "Lotta Medborgar"
 race = dwarf
 sex = female
-position = 393, 326, -5
+position = 380, 303, -5
 direction = south
 affiliation = "Galmair"
 job = "hunter"

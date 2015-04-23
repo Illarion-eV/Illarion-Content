@@ -16,7 +16,7 @@
 -- NPC Name: Paula Bronzeblatt                                        Galmair --
 -- NPC Job:  Insert profession here                                           --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  256, 304, -6           --
+-- NPC Race: dwarf                      NPC Position:  300, 276, -6           --
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   envi	                                                          --
@@ -26,7 +26,7 @@
 name = "Paula Bronzeblatt"
 race = dwarf
 sex = female
-position = 256, 304, -6
+position = 300, 276, -6
 direction = west
 affiliation = "Galmair"
 job = "Map trader"

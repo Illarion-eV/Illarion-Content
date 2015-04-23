@@ -16,7 +16,7 @@
 -- NPC Name: Hagar Wernson                                            Galmair --
 -- NPC Job:  Barkeeper                                                        --
 --                                                                            --
--- NPC Race: human                      NPC Position:  391, 344, -6           --
+-- NPC Race: human                      NPC Position:  378, 311, -6           --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Authors:  kormkormsen                                                      --
@@ -27,7 +27,7 @@
 name = "Hagar Wernson"
 race = human
 sex = male
-position = 391, 344, -6
+position = 378, 311, -6
 direction = west
 affiliation = "Galmair"
 job = "Barkeeper"

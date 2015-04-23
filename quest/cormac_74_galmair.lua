@@ -39,11 +39,11 @@ Description[ENGLISH][2] = "Now Cormac is feeling a bit more talkative you can as
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {392, 327, -6}
+Start = {379, 304, -6}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(392, 327, -6)} -- Cormac
+QuestTarget[1] = {position(379, 304, -6)} -- Cormac
 
 
 -- Insert the quest status which is reached at the end of the quest
