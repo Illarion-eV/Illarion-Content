@@ -36,7 +36,7 @@ end
 function M.UseItem(User, SourceItem)
     local frontItem = common.GetFrontItem(User)
     if frontItem then
-        if frontItem.id == 2805 and frontItem.pos == position(415, 273, -6) then --if frontItem is questpillar
+        if frontItem.id == 2805 and frontItem.pos == position(386, 260, -6) then --if frontItem is quest pillar
             if User:getQuestProgress(170) == 0 then
                 User:setQuestProgress (170, 1)
                 User:inform('Die Münze fällt durch den Schlitz und mit einem metallischen Klicken öffnet sich eine versteckte Klappe in der Säule, aus der ein Schild fällt.', 'The coin falls into the slit and with a metallic click a hidden hatch opens and a shield drops out.')
