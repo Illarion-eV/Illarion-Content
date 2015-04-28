@@ -49,10 +49,10 @@ LightsOn[2852] = { off = 2854 }
 LightsOff[399] = { on = 400, req = { id = 43, num = 1 } }
 LightsOn[400] = { off = 399, portable = true }
 -- oil lamp
-LightsOff[92] = { on = 397, req = { id = 469, num = 1 } }
+LightsOff[92] = { on = 397, req = { id = 469, num = 1, remnant = 390} }
 LightsOn[397] = { off = 92, portable = true }
 -- oil lamp holder
-LightsOff[395] = { on = 396, req = { id = 469, num = 1 } }
+LightsOff[395] = { on = 396, req = { id = 469, num = 1, remnant = 390 } }
 LightsOn[396] = { off = 395 }
 -- lantern
 LightsOff[393] = { on = 394, req = { id = 43, num = 1 } } -- black, portable
@@ -151,6 +151,15 @@ function checkReq(User, Item, this)
                     if itemRest == 0 then
                         break
                     end
+                end
+            end
+            if this.req.remnant then
+                local notCreated = User:createItem(this.req.remnant, this.req.num, 333, nil)
+                if (notCreated > 0) then -- too many items -> character can't carry anymore
+                    world:createItemFromId(this.req.remnant, notCreated, User.pos, true, 333, nil)
+                    common.HighInformNLS(User,
+                        "Du kannst nichts mehr halten.",
+                        "You can't carry any more.")
                 end
             end
             if this.req.id~=392 then
