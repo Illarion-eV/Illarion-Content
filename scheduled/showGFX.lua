@@ -22,9 +22,33 @@ local M = {}
 
 -- INSERT INTO scheduledscripts VALUES('scheduled.showGFX', 10, 10, 'CreateGFX');
 
+local function NargunBlinkenlights()
+    local lamps = {}
+    lamps[1] = position(294, 259, -5)
+    lamps[2] = position(291, 259, -5)
+    lamps[3] = position(299, 263, -5)
+    lamps[4] = position(299, 267, -5)
+    lamps[5] = position(293, 264, -5)
+
+    -- if math.random(1, 1) == 1 then
+        local lampIdx = math.random(1, #lamps)
+        local lamp = world:getItemOnField(lamps[lampIdx])
+
+        if lamp.id == 395 then
+            lamp.id = 396
+        elseif lamp.id == 396 then
+            lamp.id = 395
+        end
+        world:changeItem(lamp)
+    -- end
+end
+
 function M.CreateGFX()
     granorsHut.spawnPoisonClouds()
-    
+
+    -- flickering lamps at NArgun altar in Galmair underground
+    NargunBlinkenlights()
+
     world:gfx(1, position(75, 651, 0)) -- thinking stone
 	world:gfx(11, position(873, 878, 0)) -- recognizing spring
     world:gfx(7, position(432, 238, 0)) -- knowing tree
@@ -39,7 +63,7 @@ function M.CreateGFX()
 		end
 	end
 	-- Glutinous Seedling end
-	
+
 	--Lake of Life water drip
 	world:gfx(11, position(707, 279, -10)) -- water drip
 	world:makeSound(9, position(707, 279, -10)) -- sound effect
