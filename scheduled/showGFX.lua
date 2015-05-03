@@ -56,6 +56,7 @@ function M.CreateGFX()
 	-- Glutinous Seedling
 	local myPos = position(math.random(375, 377), math.random(287, 289), 0)
 	world:gfx(11, myPos)
+    world:makeSound(9, myPos)
 	if world:isCharacterOnField(myPos) then
 		local myChar = world:getCharacterOnField(myPos)
 		if character.IsPlayer(myChar) then
