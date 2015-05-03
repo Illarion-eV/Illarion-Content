@@ -114,7 +114,7 @@ function M.LookAtItem(User, Item)
     end
 
     -- Chancellor Statue 3
-    if Item.pos == position(374, 282, 0) then
+    if Item.pos == position(371, 277, 0) then
         itemLookat = Chancellor3LookAt(User, Item)
     end
 
@@ -192,7 +192,7 @@ function M.UseItem(User, SourceItem, ltstate)
 
         User:requestMessageDialog(dialogChancellor2)
 
-    elseif SourceItem.pos == position(374, 282, 0) then --Chancellor Statue 3
+    elseif SourceItem.pos == position(371, 277, 0) then --Chancellor Statue 3
 
         --Dialog
         local dialogTitle = common.GetNLS(User, "Liste der Galmarianischen Kanzler", "List of Galmairian Chancellors")
