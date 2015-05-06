@@ -220,6 +220,14 @@ function M.callEffect( Effect, Char ) -- Effect is called
             Char:setQuestProgress(186,theQuestStatus-1) --cooling!
         end
         --Addition end
+        
+        --Addition by Evie: Quest 541 Viridian Needles Lair Potion effect Cooldown
+        theQuestStatus=Char:getQuestProgress(541)
+
+        if theQuestStatus > 0 then --Is there a cooldown? Will only be reduced if the player isn't AFK/idle
+            Char:setQuestProgress(541,theQuestStatus-1) --cooling!
+        end
+        --Addition end
 
     end --all above is only conducted for players that aren't afk for more than five minutes
 
