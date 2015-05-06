@@ -27,7 +27,6 @@ function M.UseItem(User, SourceItem)
         User:inform(
             "Als du etwas auf dem Schreibtisch berührst, kippt eine Flasche um und zerbricht mit einer Explosion, die dich für einen Moment blendet.",
             "As you move something on the desk, a bottle is jostled around and breaks, causing an explosion that temporarily blinds you.")
-        return
         world:gfx(31, SourceItem.pos) -- bright star gfx
         local foundEffect, myEffect = User.effects:find(100); -- perception debuff
         if foundEffect then
