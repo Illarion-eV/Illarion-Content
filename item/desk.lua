@@ -19,7 +19,7 @@ local lookat = require("base.lookat")
 
 local M = {}
 
--- UPDATE items SET itm_script='item.desk' WHERE itm_id IN (550, 551, 1219, 1220, 1221, 1222);
+-- UPDATE items SET itm_script='item.desk' WHERE itm_id IN (550, 551, 1063, 1065, 1066, 1067, 1068, 1069, 1219, 1220, 1221, 1222);
 
 function M.UseItem(User, SourceItem)
 
