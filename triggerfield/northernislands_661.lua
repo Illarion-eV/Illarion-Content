@@ -21,6 +21,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (360,73,0,'triggerfield.northernislands_661');
 -- INSERT INTO triggerfields VALUES (356,71,0,'triggerfield.northernislands_661');
 -- INSERT INTO triggerfields VALUES (359,66,0,'triggerfield.northernislands_661');
+
 -- INSERT INTO triggerfields VALUES (415,85,0,'triggerfield.northernislands_661');
 -- INSERT INTO triggerfields VALUES (415,79,0,'triggerfield.northernislands_661');
 -- INSERT INTO triggerfields VALUES (416,79,0,'triggerfield.northernislands_661');
@@ -50,7 +51,7 @@ local createNorthItemID={2553,2554,2551}
 local createNorthItemIDB={359,360,372}
 local createNorthGfx={9,4,8}
 
-function M.MoveFromField(char) 
+function M.MoveFromField(char)
     for i = 1,3 do
         local AmountPos = #NorthPos[i]
         for j = 1,AmountPos do
