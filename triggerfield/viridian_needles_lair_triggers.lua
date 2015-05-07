@@ -69,7 +69,7 @@ local M = {}
 --This script handles scripted events on "Viridian Needles Lair" map
 --Various events and fields are handled here for a better overview
 
-local ratmanTrigger={} --a list with positions of the event triggers
+local ratmanTrigger = {} --a list with positions of the event triggers
 ratmanTrigger[1] = position(605, 205, -3) -- Laughter triggers
 ratmanTrigger[2] = position(605, 204, -3)
 ratmanTrigger[3] = position(605, 206, -3)
@@ -162,23 +162,12 @@ local smellDe = {
     "frisch geprägte Münzen",
 }
 
-local messageG = {} --German informs
-messageG[1] = "Du hörst lautes Gelächter als du um die Ecke biegst. Vorsicht, Nargun wandelt heute."
-messageG[2] = "Als du hindurch gehst, weht dir aus dem Nichts Luft entgegen, die nach " .. smellDe[math.random(1, #smellDe)] .. " riecht, während Nargun dir Streiche spielt."
-messageG[3] = "Eine Flasche fliegt plötzlich von einem der Regale in der Nähe in die Luft und landet auf deinem Kopf. Nargun muss hier wohl heute Streiche spielen."
-
-local messageE = {} --English informs
-messageE[1] = "You hear loud laughter as you round the corner. Be wary, Nargun is about today."
-messageE[2] = "As you walk through, air blows through out of nowhere, which smells like " .. smellEng[math.random(1, #smellEng)] .. ", as Nargun plays tricks on you."
-messageE[3] = "A bottle suddenly takes off from the nearby shelves and lands on top of your head. Nargun must be playing tricks in here today."
-
 function M.MoveToField(User)
     if User:getType() ~= Character.player then
         return
     end
 
     if Random.uniform(1, 4) == 1 then --only player characters trigger the triggerfield at a chance of 20%
-
         local theRatmantrigger
         for i = 1, #ratmanTrigger do
             if User.pos == ratmanTrigger[i] then
@@ -188,13 +177,19 @@ function M.MoveToField(User)
         end
 
         if theRatmantrigger >= 1 and theRatmantrigger <= 8 then -- simple inform
-            common.InformNLS(User, messageG[1], messageE[1]) --sending a message
+            common.InformNLS(User,
+                "Du hörst lautes Gelächter als du um die Ecke biegst. Vorsicht, Nargun wandelt heute.",
+                "You hear loud laughter as you round the corner. Be wary, Nargun is about today.")
             world:makeSound(25, User.pos) --a laughter
         elseif theRatmantrigger >= 9 and theRatmantrigger <= 33 then -- random inform
-            common.InformNLS(User, messageG[2], messageE[2]) --sending a message
+            common.InformNLS(User,
+                "Als du hindurch gehst, weht dir aus dem Nichts Luft entgegen, die nach " .. smellDe[math.random(1, #smellDe)] .. " riecht, während Nargun dir Streiche spielt.",
+                "As you walk through, air blows through out of nowhere, which smells like " .. smellEng[math.random(1, #smellEng)] .. ", as Nargun plays tricks on you.")
             world:makeSound(27, User.pos) --a wind
-        elseif theRatmantrigger >= 34 and theRatmantrigger <= 47 then -- random inform
-            common.InformNLS(User, messageG[3], messageE[3]) --sending a message
+        elseif theRatmantrigger >= 34 and theRatmantrigger <= 47 then -- simple inform
+            common.InformNLS(User,
+                "Eine Flasche fliegt plötzlich von einem der Regale in der Nähe in die Luft und landet auf deinem Kopf. Nargun muss hier wohl heute Streiche spielen.",
+                "A bottle suddenly takes off from the nearby shelves and lands on top of your head. Nargun must be playing tricks in here today.")
         end --all events handled
     end --triggerfield
 end
