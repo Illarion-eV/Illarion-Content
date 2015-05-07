@@ -29,6 +29,8 @@ brewing = crafts.Craft:new{
                    };
 
 brewing:addTool(339) -- barrel
+brewing:addTool(1410) -- barrel
+brewing:addTool(1411) -- barrel
 
 local catId = brewing:addCategory("Light alcohol", "Leichter Alkohol") -- Bierflasche(2501), Leichte Alkoholika
 
