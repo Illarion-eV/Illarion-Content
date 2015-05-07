@@ -14,7 +14,10 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-
+-- INSERT INTO triggerfields VALUES (809,443,0,'triggerfield.elstree_spirit_661');
+-- INSERT INTO triggerfields VALUES (814,448,0,'triggerfield.elstree_spirit_661');
+-- INSERT INTO triggerfields VALUES (819,443,0,'triggerfield.elstree_spirit_661');
+-- INSERT INTO triggerfields VALUES (814,438,0,'triggerfield.elstree_spirit_661');
 
 local elementDrop = require("content.elementDrop")
 local M = {}
