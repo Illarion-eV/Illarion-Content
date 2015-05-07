@@ -1377,7 +1377,7 @@ end;
 ]]
 function M.Month_To_String(month)
 
-	MonthNames = {"Elos", "Tanos", "Zhas", "Ushos", "Siros", "Ronas", "Bras", "Eldas", "Irmas", "Malas", "Findas", "Olos", "Adras", "Naras", "Chos", "Mas"}; --List of our abstruse months
+	MonthNames = {"Elos", "Tanos", "Zhas", "Ushos", "Siros", "Ronas", "Bras", "Eldas", "Irmas", "Malas", "Findos", "Olos", "Adras", "Naras", "Chos", "Mas"}; --List of our months
 
     if (month >= 1) and (month <= 16) then --only valid months
         return MonthNames[month]; --return the month as string
