@@ -189,10 +189,10 @@ function M.MoveToField(User)
 
         if theRatmantrigger >= 1 and theRatmantrigger <= 8 then -- simple inform
             common.InformNLS(User, messageG[1], messageE[1]) --sending a message
-            world:makeSound(25, position(551,143,0)) --a laughter
+            world:makeSound(25, User.pos) --a laughter
         elseif theRatmantrigger >= 9 and theRatmantrigger <= 33 then -- random inform
             common.InformNLS(User, messageG[2], messageE[2]) --sending a message
-            world:makeSound(27, position(551,143,0)) --a wind
+            world:makeSound(27, User.pos) --a wind
         elseif theRatmantrigger >= 34 and theRatmantrigger <= 47 then -- random inform
             common.InformNLS(User, messageG[3], messageE[3]) --sending a message
         end --all events handled
