@@ -61,7 +61,7 @@ local common = require("base.common")
 local class = require("base.class")
 local character = require("base.character")
 local areas = require("content.areas")
---local vision = require("content.vision")
+
 local M = {}
 
 
@@ -76,7 +76,6 @@ local EvilRockAreaNames={"evilrock1","evilrock2","evilrock3","evilrock4","evilro
 
 local attendants={}
 local attendants2={}
---evilrockStory={}
 local advantureslist={}
 
 
@@ -84,27 +83,17 @@ function M.MoveToField(char)
     if char:getType() ~= Character.player then --Monsters will be ingored
         return
     end
-    if char.pos == triggerFlameFire[i] then
-        if player:getQuestProgress(680) ~= 0 then
-            return true
-        end
-    end
-
-    local find, myEffect = char.effects:find(80)
 
     local AmountFlameFire = #triggerFlameFire
     for i = 1,AmountFlameFire do
         if char.pos == triggerFlameFire[i] then
             if char:getQuestProgress(683) == 0 and find == false then
-                character.CreateAfterTime (char,100,120,359,nil,1,1,988,998,225,235,0,0,600,600,1,1,nil,4,1,3,nil,nil,1)
+                -- character.CreateAfterTime (char,100,120,359,nil,1,1,988,998,225,235,0,0,600,600,1,1,nil,4,1,3,nil,nil,1)
                 local adventurers = world:getPlayersInRangeOf(char.pos, 15)
                             advantureslist[char.name] = adventurers
                 for i,player in ipairs(advantureslist[char.name]) do
                     player:setQuestProgress(683,1)
                 end
-            end
-            if char:getQuestProgress(680) ~= 0 then
-                common.InformNLS(char,"Denkst du wirklich, du hättest heute mehr Glück?","Do you really think you will have more luck today?")
             end
         end
     end
@@ -113,7 +102,7 @@ function M.MoveToField(char)
     for i = 1,AmountFlameIce do
         if char.pos == triggerFlameIce[i] then
             if char:getQuestProgress(683) == 0 and find == false then
-                character.CreateAfterTime (char,100,120,360,nil,1,1,988,998,225,235,0,0,600,600,1,1,nil,5,1,3,nil,nil,1)
+                -- character.CreateAfterTime (char,100,120,360,nil,1,1,988,998,225,235,0,0,600,600,1,1,nil,5,1,3,nil,nil,1)
                 local adventurers = world:getPlayersInRangeOf(char.pos, 15)
                             advantureslist[char.name] = adventurers
                 for i,player in ipairs(advantureslist[char.name]) do
@@ -127,7 +116,7 @@ function M.MoveToField(char)
     for i = 1,AmountFlamePoison do
         if char.pos == triggerFlamePoison[i] then
             if char:getQuestProgress(683) == 0 and find == false then
-                character.CreateAfterTime (char,100,120,372,nil,1,1,986,998,211,223,0,0,600,600,1,1,nil,13,1,3,nil,nil,1)
+                -- character.CreateAfterTime (char,100,120,372,nil,1,1,986,998,211,223,0,0,600,600,1,1,nil,13,1,3,nil,nil,1)
                 local adventurers = world:getPlayersInRangeOf(char.pos, 15)
                             advantureslist[char.name] = adventurers
                 for i,player in ipairs(advantureslist[char.name]) do
@@ -146,7 +135,6 @@ function M.MoveToField(char)
                 world:makeSound(5,char.pos)
             end
             local CheckBucket = world:getItemOnField(position(997,199,2))
---debug("CheckBucket: "..CheckBucket.id)
             if CheckBucket.id == 51 then
             else
                 world:erase(CheckBucket,CheckBucket.number)
@@ -186,7 +174,6 @@ function M.MoveToField(char)
             end
             char:setQuestProgress(664,1)
             StartVision(char,AmountStory,TypeStory)
--- debug("StartVision: "..char.name)
         end
     end
     if char.pos == position(977,173,-6) and world:getItemOnField(position(977,173,-6)).id == 10 then
