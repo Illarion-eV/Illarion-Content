@@ -28,6 +28,7 @@ function M.UseItem(User, SourceItem)
             "Als du etwas auf dem Schreibtisch berührst, kippt eine Flasche um und zerbricht mit einer Explosion, die dich für einen Moment blendet.",
             "As you move something on the desk, a bottle is jostled around and breaks, causing an explosion that temporarily blinds you.")
         world:gfx(31, SourceItem.pos) -- bright star gfx
+        world:makeSound(5, SourceItem.pos) --a loud boom
         local foundEffect, myEffect = User.effects:find(100); -- perception debuff
         if foundEffect then
             myEffect.nextCalled = 5 * 600;

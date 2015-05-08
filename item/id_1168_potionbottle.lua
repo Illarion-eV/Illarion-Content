@@ -75,9 +75,9 @@ function M.UseItem(User, SourceItem)
             "Although you have had previous success with this combination, the luck of Nargun is no longer with you.")
         User:setQuestProgress(537, 0)
     elseif SourceItem.pos == position(607, 177, -3) and (User:getQuestProgress(537) == 1) then -- player adding yellow potion to the dark blue
-        local notCreated = User:createItem(329, 1, 222, {["potionEffectId"] = 521}) -- halfing transformation potion
+        local notCreated = User:createItem(329, 1, 222, {["potionEffectId"] = 521, descriptionEn = "Halfling female transformation potion", descriptionDe = "Wandeltrank Halblingsfrau"}) -- halfing transformation potion
                 if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-                world:createItemFromId(329, notCreated, User.pos, true, 222, {["potionEffectId"] = 521})
+                world:createItemFromId(329, notCreated, User.pos, true, 222, {["potionEffectId"] = 521, descriptionEn = "Halfling female transformation potion", descriptionDe = "Wandeltrank Halblingsfrau"})
                 common.HighInformNLS(User,
                     "Du kannst nichts mehr halten.",
                     "You can't carry any more.")
