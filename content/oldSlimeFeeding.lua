@@ -138,7 +138,7 @@ end
 function M.useLever(user, sourceItem)
 
     if sourceItem.id == blockedLever then
-        User:inform("Der Hebel scheint blockiert. Du kannst ihn nicht bewegen.", "The lever seems blocked. You cannot move it.")
+        user:inform("Der Hebel scheint blockiert. Du kannst ihn nicht bewegen.", "The lever seems blocked. You cannot move it.")
         return
     end
     
@@ -152,10 +152,10 @@ function M.useLever(user, sourceItem)
         world:gfx(46, acceptFeedingField)
         world:createItemFromItem(feedingItem, acceptFeedingField,true)
         world:erase(feedingItem, feedingItem.number)
-        if factions.isRunewickCitizen(User) then
-			factions.setRankpoints(User, factions.getRankpoints(User)+3)
+        if factions.isRunewickCitizen(user) then
+			factions.setRankpoints(user, factions.getRankpoints(user)+3)
 		end
-        User:setQuestProgress(450, world:getTime("year")*100 + world:getTime("month"))
+        user:setQuestProgress(450, world:getTime("year")*100 + world:getTime("month"))
         feedingInProgress = true
         local oldSlime = world:createMonster(oldSlimeId, caveEntrance, 0)
         oldSlime:talk(Character.say, "#me fließt aus der Höhlennische und beginnt sich in Richtung des Futters zu bewegen.",
