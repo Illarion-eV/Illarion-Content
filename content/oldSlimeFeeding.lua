@@ -81,7 +81,7 @@ local rewardList = {
 {itemId = 2668, amount = 1, quality = 444, data = nil} --[[poisoned simple dagger]]
 }
 
-function M.setSignText()
+function M.setSignText(signSlimeFeeding)
 	
 	local day = world:getTime("day")
     local itemId = slimeDietItems[day]["itemId"]
