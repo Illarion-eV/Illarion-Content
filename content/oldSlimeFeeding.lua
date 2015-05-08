@@ -92,9 +92,9 @@ function M.setSignText(signSlimeFeeding)
 	
 end
 
-local function newMonth(User)
+local function newMonth(u)
 
-	local questStatus = User:getQuestProgress(450)
+	local questStatus = user:getQuestProgress(450)
 	local year = math.floor(questStatus/100)
 	local month = questStatus - (year*100)
 	
@@ -117,7 +117,7 @@ local function checkFeeding(user)
 	local neededId = slimeDietItems[day]["itemId"]
 	local neededAmount = slimeDietItems[day]["amount"]
     
-    if feeding.id == neededId and feeding.number == neededAmount and feedingInProgress == false and newMonth(User) then
+    if feeding.id == neededId and feeding.number == neededAmount and feedingInProgress == false and newMonth(user) then
         return true, feeding
     else
         return false, feeding
