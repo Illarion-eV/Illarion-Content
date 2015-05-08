@@ -127,4 +127,14 @@ function M.LookAtItem(User, Item)
     return lookAt
 end
 
+function M.UseItem(User, SourceItem)
+
+    if SourceItem.pos == position(592, 189, -3) then --then player used the picture and an inform will happen
+        User:inform(
+            "Das Bild fängt an sanft zu leuchten und man kann sehen, wie das Gebräu im Kessel anfängt dunkelgrün zu werden und ein bösartiger Schädel steigt aus dem Kessel empor.",
+            "The picture begins to glow slightly and one can see that the potion inside the cauldron turns a dark green and an evil skull rises up out of the cauldon.")
+        return
+    end
+end
+
 return M

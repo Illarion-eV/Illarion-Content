@@ -1,0 +1,267 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+------------------------------------------------------------------------------AC
+-- NPC Name: Obsidimine                                                  None --
+-- NPC Job:  Spelunker                                                        --
+--                                                                            --
+-- NPC Race: Dwarf                      NPC Position:  809, 676, 0            --
+-- NPC Sex:  Male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   Evie                                                             --
+--                                                    Illarion easyNPC Editor --
+--------------------------------------------------------------------------------
+
+name = "Spelunker"
+race = dwarf
+sex = male
+position = 809, 676, 0
+direction = south
+affiliation = "None"
+job = "Spelunker"
+
+language = common
+defaultLanguage = common
+autointroduce = on
+
+author = "Evie"
+
+lookatDE = "Dieser NPC ist Obisidimine."
+lookatUS = "This NPC is Obsidimine."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 0
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is the Obsidimine. Keywords: Hello, quest, brother, cave.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist ")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Arrrr! Greetings to ye, it has been awhile since I seen anyone about."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> ""
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Arrrr! Greetings to ye, it has been awhile since I seen anyone about."
+"Hiho", "Hallo", "Hey", "Greeb" -> ""
+"Farewell", "Bye", "Fare well", "See you" -> "Arrrr. Don't be a stranger."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> ""
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Arrrr. Don't be a stranger."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> ""
+"How are you", "How feel", "How do you do" -> "Missin' me brother, Emeramine, me sure is."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> ""
+"your name", "who are you", "who art thou" -> "Me be Obsidimine, but most just calls me Obsidi."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> ""
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "That's me hobby, don't ya know? Explorin' caves. Bein' a spelunker is serious work."
+"beruf" -> ""
+english, "job" -> "That's me hobby, don't ya know? Explorin' caves. Bein' a spelunker is serious work."
+"job" -> ""
+"my name" -> "Me be Obsidimine, but most just calls me Obsidi."
+"mein Name" -> ""
+
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his environment
+english, "brother", "Eme" -> "Me brother, Emeramine or Eme, he be lost inside! We were explorin' inside when me was looking down.  I was adjustin' me boot ya see, when me heard a loud noise  It was a roarin' like sound me'd swear it be!  Me looked up and me borther was gone in a puff of smoke! Me really thinks Eme just wanted to be the first to explore this grand cave we found, but me ain't sure."
+"bruder", "Eme" -> ""
+english, "spelunker", "cave" -> "That's me hobby, don't ya know? Explorin' caves. Bein' a spelunker is serious work."
+"Höhlenforscher","Höhlen" -> ""
+english, "volcano" -> "Volcano's be a grand source for new and interestin' rocks."
+"Vulkan" -> ""
+english, "Iromorom" -> "Irmorom be da Father of all creation."
+"Iromorom" -> ""
+
+-- Quests
+
+-- Quest 1: bring Obsidimine 2 bottles of beer.
+queststatus(510) = 0, english, "quest", "mission" -> inform("[New quest] Spelunker"), queststatus(510) = 1, "A body sure gets parched by all this here lava. Be a good sport and bring me two bottles of beer will ya?"
+queststatus(510) = 0, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher"), queststatus(510) = 1, ""
+queststatus(510) = 0, "task", "adventure", "order" -> inform("[New quest] Spelunker"), queststatus(510) = 1, "A body sure gets parched by all this here lava. Be a good sport and bring me two bottles of beer will ya?"
+queststatus(510) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher"), queststatus(510) = 1, ""
+
+queststatus(510) = 1, item(2501, all) < 2, english, "quest", "mission" -> "Me throat is too dry. I can't talk more until I get some beer."
+queststatus(510) = 1, item(2501, all) < 2, "quest", "mission" -> ""
+queststatus(510) = 1, item(2501, all) < 2, "task", "adventure", "order" -> "Me throat is too dry. I can't talk more until I get some beer."
+queststatus(510) = 1, item(2501, all) < 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+
+queststatus(510) = 1, english, item(2501, all) > 2, ".+" -> inform("[Quest solved] You are awarded 30 silver coins."), deleteItem(2501, 2), money + 3000, queststatus(510) = 2, "#me tips a bottle back and takes a long pull of the drink before coming up for air. 'Ah... that be the good stuff that is. Thank ye.'"
+queststatus(510) = 1, item(2501, all) > 2, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), deleteItem(2501, 2), money + 3000, queststatus(510) = 2, ""
+
+-- Quest 2: kill two hellhounds
+queststatus(510) = 2, english, "quest", "mission" -> inform("[New quest] Spelunker II"), queststatus(510) = 3, "Me needs to look at the rocks inside that castle there. Kill two of the hell hounds around the volcano base so me can work faster!"
+queststatus(510) = 2, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher II"), queststatus(510) = 3, ""
+queststatus(510) = 2, "task", "adventure", "order" -> inform("[New quest] Spelunker II"), queststatus(510) = 3, "Me needs to look at the rocks inside that castle there. Kill two of the hell hounds around the volcano base so me can work faster!"
+queststatus(510) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher II"), queststatus(510) = 3, ""
+--not done
+queststatus(510) > 2, queststatus(510) < 5, english, "quest", "mission" -> "Be a good soul and kill two of the hell hounds around the volcano base.  Me can not explore til you do."
+queststatus(510) > 2, queststatus(510) < 5, "quest", "mission" -> ""
+queststatus(510) > 2, queststatus(510) < 5, "task", "adventure", "order" -> "Be a good soul and kill two of the hell hounds around the volcano base.  Me can not explore til you do."
+queststatus(510) > 2, queststatus(510) < 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+-- finished
+queststatus(510) = 5, english, ".+" -> inform("[Quest solved] You are awarded 30 silver coins."), money + 3000, queststatus(510) = 6, "Ya did a fine job, lettin' me sneak in and poke around the rocks for a bit. Take these here coins."
+queststatus(510) = 5, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), money + 3000, queststatus(510) = 6, ""
+
+-- Quest 3: kill the firespitter
+queststatus(510) = 6, english, "quest", "mission" -> inform("[New quest] Spelunker III"), queststatus(510) = 7, "By Irmorom! There are trolls on the mountain top! That one there nearly set me ablaze while I was on me beer break!! Kill the Firespitter so me can explore more!"
+queststatus(510) = 6, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher III"), queststatus(510) = 7, ""
+queststatus(510) = 6, "task", "adventure", "order" -> inform("[New quest] Spelunker III"), queststatus(510) = 7, "By Irmorom! There are trolls on the mountain top! That one there nearly set me ablaze while I was on me beer break!! Kill the Firespitter so me can explore more!"
+queststatus(510) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher III"), queststatus(510) = 7, ""
+
+queststatus(510) > 7, queststatus(510) < 8, english, "quest", "mission" -> "Arr!! The Firespitter has to go!! Kill it for me and I will reward you."
+queststatus(510) > 7, queststatus(510) < 8, "quest", "mission" -> ""
+queststatus(510) > 7, queststatus(510) < 8, "task", "adventure", "order" -> "Arr!! The Firespitter has to go!! Kill it for me and I will reward you."
+queststatus(510) > 7, queststatus(510) < 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+
+queststatus(510) = 8, english, ".+" -> inform("[Quest solved] You are awarded 45 silver coins."), money + 4500, queststatus(510) = 9, "Tall volcano! So much to explore and you be a big help! *Tosses you a coin bag.*"
+queststatus(510) = 8, ".+" -> inform("[Quest gelöst] Du erhältst 45 Silberstücke."), money + 4500, queststatus(510) = 9, ""
+
+-- Quest 4: Visit all the volcano levels
+queststatus(510) = 9, english, "quest", "mission" -> inform("[New quest] Spelunker IV"), queststatus(510) = 10, "Me don't like to explore without me brother... would you go inside and see what you can find out. Go to all of the levels. (Each level must be visited)"
+queststatus(510) = 9, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher IV"), queststatus(510) = 10, ""
+queststatus(510) = 9, "task", "adventure", "order" -> inform("[New quest] Spelunker IV"), queststatus(510) = 10,  "Me don't like to explore without me brother... would you go inside and see what you can find out. Go to all of the levels. (Each level must be visited)"
+queststatus(510) = 9, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher IV"), queststatus(510) = 10, ""
+
+queststatus(510) = 10, english, "quest", "mission" -> "Me need you to explore all the levels of the cave for me. Me don't like to go without my brother."
+queststatus(510) = 10, "quest", "mission" -> ""
+queststatus(510) = 10, "task", "adventure", "order" -> "Me need you to explore all the levels of the cave for me. Me don't like to go without my brother."
+queststatus(510) = 10, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+
+queststatus(510) = 11, english, ".+" -> inform("[Quest solved] You are awarded 65 silver coins."), money + 6500, queststatus(510) = 12, "You ain't blowin' smoke up me... are you being real with me? So many levels. Can't recall the last... All righty then!"
+queststatus(510) = 11, ".+" -> inform("[Quest gelöst] Du erhältst 654 Silberstücke."), money + 6500, queststatus(510) = 12, ""
+
+-- Quest 5: Find Obsidimine a Dragon Gem of every color
+queststatus(510) = 12, english, "quest", "mission" -> inform("[New quest] Spelunker V"), queststatus(510) = 13, "Me heards that dragons hoard their wealth. Before Eme disappeared he was talkin' of vases bein' stuffed with gems. Search the vases and find me a gem of every color from the dragons stash."
+queststatus(510) = 12, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher V"), queststatus(510) = 13, ""
+queststatus(510) = 12, "task", "adventure", "order" -> inform("[New quest] Spelunker V"), queststatus(510) = 13, "Me heards that dragons hoard their wealth. Before Eme disappeared he was talkin' of vases bein' stuffed with gems. Search the vases and find me a gem of every color from the dragons stash."
+queststatus(510) = 12, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher V"), queststatus(510) = 13, ""
+
+queststatus(510) = 13, queststatus(510) < 14, english, "quest", "mission" -> "Gems, Gems .. search the vases! A dwarf is not complete without a gem of every color.  I only want those from inside here, don't try and cheat me!"
+queststatus(510) = 13, queststatus(510) < 14, "quest", "mission" -> ""
+queststatus(510) = 13, queststatus(510) < 14, "task", "adventure", "order" -> "Gems, Gems .. search the vases! A dwarf is not complete without a gem of every color.  I only want those from inside here, don't try and cheat me!"
+queststatus(510) = 13, queststatus(510) < 14, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+
+queststatus(510) = 14, english, ".+" -> inform("[Quest solved] You are awarded seventy-five silver coins."), money + 7500, queststatus(510) = 15, "#me pokes through the cut gemstones, counting them and looking over the dazzling aray of colors with a sparkle in his eye as he passes you some coins."
+queststatus(510) = 14, ".+" -> inform("[Quest gelöst] Du erhältst 75 Silberstücke."), money + 7500, queststatus(510) = 15, ""
+
+-- Quest 6: Find the name of the Bunny eater Dragon
+queststatus(510) = 15, english, "quest", "mission" -> inform("[New quest] Spelunker VI"), queststatus(510) = 16, "There seems to be tombstones with dragon names on them inside. Right peculiar if you ask me. One was even called the 'Eater of Bunnies,' but I can't recall.  Can you go look for me and let me know? What is this dragon's name?"
+queststatus(510) = 15, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher VI"), queststatus(510) = 16, ""
+queststatus(510) = 15, "task", "adventure", "order" -> inform("[New quest] Spelunker VI"), queststatus(510) = 16, "There seems to be tombstones with dragon names on them inside. Right peculiar if you ask me. One was even called the 'Eater of Bunnies,' but I can't recall.  Can you go look for me and let me know? What is this dragon's name?"
+queststatus(510) = 15, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher VI"), queststatus(510) = 16, ""
+
+queststatus(510) = 16, english, "Sira" -> inform("[Quest solved] You are awarded five rabbit dishes."), item(555, 5, 999), queststatus(510) = 17, "Hrm, Sirath, me heard of a Sirath once. She was a terror of the skies. Aye... Aye! The bunnies did flee from her they did! Whenever anyone seen bunnies runnin', this was a sign for all to run for their lives! Take these meals and think of her!"
+queststatus(510) = 16, german, "Sira" -> inform("[Quest gelöst] Du erhältst 100 Silberstücke."), item(555, 5, 999), queststatus(510) = 17, ""
+
+queststatus(510) = 16, english, ".*" -> "Me don't know why its important right now, me just needs to know the name of the dragon who ate bunnies.  Please check all the tombstones inside."
+queststatus(510) = 16, german, ".*" -> "."
+
+-- Quest 7: Check the hedge maze for a vision of what happened to Eme
+queststatus(510) = 17, english, "quest", "mission" -> inform("[New quest] Spelunker VII"), queststatus(510) = 18, "The hedge maze inside, me is not one for magic, but its said to have visionary tendencies.  Reckon you can travel inside thinkin' about me brother Eme and see where he has got to?"
+queststatus(510) = 17, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher VII"), queststatus(510) = 18, ""
+queststatus(510) = 17, "task", "adventure", "order" -> inform("[New quest] Spelunker VII"), queststatus(510) = 18, "The hedge maze inside, me is not one for magic, but its said to have visionary tendencies.  Reckon you can travel inside thinkin' about me brother Eme and see where he has got to?"
+queststatus(510) = 17, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher VII"), queststatus(510) = 18, ""
+
+queststatus(510) = 18, queststatus(510) < 19, english, "quest", "mission" -> "Explore the hedge maze til ye gets a vision of what happened to Eme."
+queststatus(510) = 18, queststatus(510) < 19, "quest", "mission" -> ""
+queststatus(510) = 18, queststatus(510) < 19, "task", "adventure", "order" -> "Explore the hedge maze til ye gets a vision of what happened to Eme."
+queststatus(510) = 18, queststatus(510) < 19, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+-- if complete
+queststatus(510) = 19, english, ".+" -> inform("[Quest solved] You are awarded 85 silver coins."), money + 8500, queststatus(510) = 20, "#me sniffles loudly before tears start streaming down his face as he hands you a sack of coins. 'I was affeared of this!'"
+queststatus(510) = 19, ".+" -> inform("[Quest gelöst] Du erhältst 85 Silberstücke."), money + 8500, queststatus(510) = 20, ""
+
+-- Quest 8: search the coffins for evidence of Eme's body.
+queststatus(510) = 20, english, "quest", "mission" -> inform("[New quest] Spelunker VIII"), queststatus(510) = 21, "If Eme is gone.. me wants proof. Me can not live not knowin' for sure.  Search the bodies in the coffins and bring me back somethin' of his."
+queststatus(510) = 20, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher VIII"), queststatus(510) = 21, ""
+queststatus(510) = 20, "task", "adventure", "order" -> inform("[New quest] Spelunker VIII"), queststatus(510) = 21, "If Eme is gone.. me wants proof. Me can not live not knowin' for sure.  Search the bodies in the coffins and bring me back somethin' of his."
+queststatus(510) = 20, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher VIII"), queststatus(510) = 21, ""
+
+queststatus(510) = 21, queststatus(510) < 22, english, "quest", "mission" -> "Find me proof of what happened to Eme inside a coffin, so me don'ts go out of me mind!"
+queststatus(510) = 21, queststatus(510) < 22, "quest", "mission" -> ""
+queststatus(510) = 21, queststatus(510) < 22, "task", "adventure", "order" -> "Find me proof of what happened to Eme inside a coffin, so me don'ts go out of me mind!"
+queststatus(510) = 21, queststatus(510) < 22, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+
+queststatus(510) = 22, english, ".+" -> inform("[Quest solved] You are awarded one hundred silver coins."), money + 10000, queststatus(510) = 23, "#me takes the skull gently wrapping it in a cloth as tears fall down his eyes. 'Me knows this is him. He had the biggest head of all the family. He were famous. I will bury it with the family deep in the mountain at home. Take these coins as a thank you.'"
+queststatus(510) = 22, ".+" -> inform("[Quest gelöst] Du erhältst 100 Silberstücke."), money + 10000, queststatus(510) = 23, ""
+
+-- Quest 9: Find family Heirloom that Eme would have hid.
+queststatus(510) = 23, english, "quest", "mission" -> inform("[New quest] Spelunker IX"), queststatus(510) = 24, "Eme wouldn't have gone down before hidin' a family heirloom of our pappy's. It's a specially engraved emerald amulet. He's bound to have tossed it into a barrel, chest, or something down there. Please find it for me?"
+queststatus(510) = 23, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher IX"), queststatus(510) = 24, ""
+queststatus(510) = 23, "task", "adventure", "order" -> inform("[New quest] Spelunker IX"), queststatus(510) = 24, "Eme wouldn't have gone down before hidin' a family heirloom of our pappy's. It's a specially engraved emerald amulet. He's bound to have tossed it into a barrel, chest, or something down there. Please find it for me?"
+queststatus(510) = 23, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher IX"), queststatus(510) = 24, ""
+
+queststatus(510) = 24, queststatus(510) < 25, english, "quest", "mission" -> "Find Pappy's heirloom amulet. I am sure Eme would have tossed it into a barrel or chest below."
+queststatus(510) = 24, queststatus(510) < 25, "quest", "mission" -> ""
+queststatus(510) = 24, queststatus(510) < 25, "task", "adventure", "order" -> "Find Pappy's heirloom amulet. I am sure Eme would have tossed it into a barrel or chest below."
+queststatus(510) = 24, queststatus(510) < 25, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+
+queststatus(510) = 25, english, ".+" -> inform("[Quest solved] You are rewarded a latent emerald."), item(45, 1, 333, "gemLevel" = "1"), queststatus(510) = 26, "Me thanks you for this as it's worth more to me than most items.  Have this gem me found earlier as a reward."
+queststatus(510) = 25, ".+" -> inform("[Quest gelöst] Du erhältst ???."), item(45, 1, 333, "gemLevel" = "1"), queststatus(510) = 26, ""
+
+-- Quest 10: Retrieve a golden string from the Dragon's Lair
+queststatus(510) = 26, english, "quest", "mission" -> inform("[New quest] Spelunker X"), queststatus(510) = 27, "Eme is gone, *sighs deeply.* Reckon me could ask you one more favour.  On the lowest level there is a lute in the dragon's lair.   Me wants one of its golden strings. Me plans on giving it as an offering to Irmorom for Eme's soul."
+queststatus(510) = 26, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher X"), queststatus(510) = 27, ""
+queststatus(510) = 26, "task", "adventure", "order" -> inform("[New quest] Spelunker X"), queststatus(510) = 27, "Eme is gone, *sighs deeply.* Reckon me could ask you one more favour.  On the lowest level there is a lute in the dragon's lair.   Me wants one of its golden strings. Me plans on giving it as an offering to Irmorom for Eme's soul."
+queststatus(510) = 26, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher X"), queststatus(510) = 27, ""
+
+queststatus(510) = 27, queststatus(510) < 28, english, "quest", "mission" -> "Me needs this golden string from the Dragon's lute, to give as an offering for Eme's soul."
+queststatus(510) = 27, queststatus(510) < 28, "quest", "mission" -> ""
+queststatus(510) = 27, queststatus(510) < 28, "task", "adventure", "order" -> "Me needs this golden string from the Dragon's lute, to give as an offering for Eme's soul."
+queststatus(510) = 27, queststatus(510) < 28, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+
+queststatus(510) = 28, english, ".+" -> inform("[Quest solved] You are awarded 125 silver coins."), money + 12500, queststatus(510) = 29, "This is the offering me needs to properly put Eme to rest. Me doesn't know how to thank you. Have these here coins."
+queststatus(510) = 28, ".+" -> inform("[Quest gelöst] Du erhältst 125 Silberstücke."),money + 12500, queststatus(510) = 29, ""
+
+-- Last quest.  Quest 11: Kill the Dragon of Death
+queststatus(510) = 29, english, "quest", "mission" -> inform("[New quest] Spelunker XI"), queststatus(510) = 30, "Me blames that Dragon of Death for Eme's passin'.  Kill it and me thinks me may be able to move on."
+queststatus(510) = 29, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher XI"), queststatus(510) = 30, ""
+queststatus(510) = 29, "task", "adventure", "order" -> inform("[New quest] Spelunker XI"), queststatus(510) = 30, "Me blames that Dragon of Death for Eme's passin'.  Kill it and me thinks me may be able to move on."
+queststatus(510) = 29, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher XI"), queststatus(510) = 30, ""
+
+queststatus(510) = 30, queststatus(510) < 31, english, "quest", "mission" -> "Kill that Dragon of Death and me will go on with me life."
+queststatus(510) = 30, queststatus(510) < 31, "quest", "mission" -> ""
+queststatus(510) = 30, queststatus(510) < 31, "task", "adventure", "order" -> "Kill that Dragon of Death and me will go on with me life."
+queststatus(510) = 30, queststatus(510) < 31, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+
+queststatus(510) = 31, english, ".+" -> inform("[Quest solved] You are awarded 125 silver coins."), money + 12500, queststatus(510) = 32, "Me thanks you for all your effort for me and and me dearly departed brother. Irmorom will surely have a special place waitin' for you. *offers you a sword*"
+queststatus(510) = 31, ".+" -> inform("[Quest gelöst] Du erhältst 125 Silberstücke."),money + 12500, queststatus(510) = 32, ""
+
+-- No more regular quests
+queststatus(510) = 32, english, "quest" -> "Ye have honoured me family. Me can ask no more of you. Go with Irmorom's blessing and remember us spelunkers dig deep and explore far."
+queststatus(510) = 32, "quest", "mission" -> ""
+queststatus(510) = 32, "task", "adventure", "order" -> "Ye have honoured me family. Me can ask no more of you. Go with Irmorom's blessing and remember us spelunkers dig deep and explore far."
+queststatus(510) = 32, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+
+-- Faction stuff. Please remove if you send the template to outsiders!
+english, "Runewick" -> "Hm, haven't heard about any caves in that area."
+"Runewick" -> ""
+english, "Galmair" -> "Some right fine caves around them there parts."
+"Galmair" -> ""
+english, "Cadomyr" -> "Can't say as mes been there as it's a might hot fer me."
+"Cadomyr" -> ""
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "I do not sell or buy anything."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich kaufe und verkaufe nichts."
+
+-- Cycle Texts - Messages spoken automatically in random intervals.
+
+cycletext "", "#me looks curiously at a stone in his hand."
+cycletext "", "Me likes rocks!"
+cycletext "", "Where be me brother, Eme?"
+cycletext "", "#me beats dust off his clothing."
+cycletext "", "Hey you!! Do you know of any new caves in the area?"
+cycletext "", "#s Eme?? Where are you? Me is getting lonely."
+cycletext "", "#me drinks a mug of beer."
+cycletext "", "#me sings 'There once was Dwarven lass, she had plenty of sass, one day when I went to pass, me reached out and pinched her on the arm.'"
+cycletext "", "#me sings 'That Dwarven lass of mine, she is mighty fine, she don't drink that fancy wine, it's beer for her as we dine.'"
+cycletext "", "Thank the blessed Irmorom for these here rocks he created."

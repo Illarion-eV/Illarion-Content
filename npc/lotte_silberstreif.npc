@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 -- Illarion Server
 -- 
 -- This program is free software: you can redistribute it and/or modify it under
@@ -16,7 +17,7 @@
 -- NPC Name: Lotte Silberstreif                                       Galmair --
 -- NPC Job:  gambler                                                          --
 --                                                                            --
--- NPC Race: halfling                      NPC Position:  251, 311, -6        --
+-- NPC Race: halfling                      NPC Position:  295, 283, -6        --
 -- NPC Sex:  female                        NPC Direction: east                --
 --                                                                            --
 -- Author:  Baylamon                                                          --
@@ -26,7 +27,7 @@
 name = "Lotte Silberstreif"
 race = halfling
 sex = female
-position = 251, 311, -6
+position = 295, 283, -6
 direction = east
 affiliation = "Galmair"
 job = "Lottery trader"

@@ -43,10 +43,10 @@ Description[ENGLISH][20] = "Bring five cherries to Lotte Silberstreif."
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(685, 315, 0)} -- Lotte
-QuestTarget[2] = {position(685, 315, 0)} -- Lotte
-QuestTarget[10] = {position(685, 315, 0)} -- Lotte
-QuestTarget[20] = {position(685, 315, 0)} -- Lotte
+QuestTarget[1] = {position(295, 283, -6)} -- Lotte
+QuestTarget[2] = {position(295, 283, -6)} -- Lotte
+QuestTarget[10] = {position(295, 283, -6)} -- Lotte
+QuestTarget[20] = {position(295, 283, -6)} -- Lotte
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 0

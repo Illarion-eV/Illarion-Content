@@ -15,12 +15,14 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 195, Spider Queen, Level: 7, Armourtype: heavy, Weapontype: slashing
+local monsterId = 195
 
 local common = require("base.common")
 local lookat = require("base.lookat")
 local monstermagic = require("monster.base.monstermagic")
 local scheduledFunction = require("scheduled.scheduledFunction")
 local spiders = require("monster.race_19_spider.base")
+local poisonfield = require("item.id_372_poisonfield")
 
 local magic = monstermagic()
 magic.addPoisonball{probability = 0.06, damage = {from = 1500, to = 1800}}
@@ -28,6 +30,10 @@ magic.addPoisonball{probability = 0.009, damage = {from = 1700, to = 2000}}
 magic.addPoisonball{probability = 0.001, damage = {from = 1900, to = 2300}}
 magic.addPoisonball{probability = 0.001, damage = {from = 1200, to = 1850}, targetCount = 3}
 magic.addPoisonball{probability = 0.01, damage = {from = 750, to = 1200}, targetCount = 5}
+magic.addPoisonring{probability = 0.009, damage = {from = 2200, to = 2700}, range  = 6,
+    itemProbability = 0.15, quality = {from = 4, to = 5}}
+
+    poisonfield.setPoisonImmunity(monsterId)
 
 local M = spiders.generateCallbacks()
 M = magic.addCallbacks(M)

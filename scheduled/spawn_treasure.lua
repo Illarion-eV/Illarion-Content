@@ -48,7 +48,7 @@ function M.spawnTreasure()
 		
 	end
 	
-	local treasurePos=position(308,355,-6); --Galmair sewers
+	local treasurePos=position(336,326,-6); --Galmair sewers
 	
     if #world:getPlayersInRangeOf(treasurePos,20) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
 	

@@ -52,7 +52,7 @@ OreList = {
   CreateOre(CreateItem(2536), CreateItem(2550)),                            -- copper
   CreateOre(CreateItem(234), CreateItem(236)),                              -- gold
   CreateOre(CreateItem(1062), CreateItem(104)),  							-- silver
-  CreateOre(CreateItem(2534), CreateItem(2571))                             -- merinium (pure fire required)
+  CreateOre(CreateItem(2534), CreateItem(2571))                             -- merinium
 };
 CoalItem = CreateItem(21);
 

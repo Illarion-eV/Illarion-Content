@@ -20,15 +20,18 @@ local common = require("base.common")
 local explosionSpell = require("monster.base.spells.explosion")
 local fireballSpell = require("monster.base.spells.fireball")
 local fireconeSpell = require("monster.base.spells.firecone")
+local fireringSpell = require("monster.base.spells.firering")
 local firefieldSpell = require("monster.base.spells.firefield")
 local flamestrikeSpell = require("monster.base.spells.flamestrike")
 local healSpell = require("monster.base.spells.heal")
 local iceballSpell = require("monster.base.spells.iceball")
 local iceconeSpell = require("monster.base.spells.icecone")
+local iceringSpell = require("monster.base.spells.icering")
 local icestrikeSpell = require("monster.base.spells.icestrike")
 local lightingSpell = require("monster.base.spells.lighting")
 local poisonballSpell = require("monster.base.spells.poisonball")
 local poisonconeSpell = require("monster.base.spells.poisoncone")
+local poisonringSpell = require("monster.base.spells.poisonring")
 local summonSpell = require("monster.base.spells.summon")
 local violetSpell = require("monster.base.spells.violet")
 local warpSpell = require("monster.base.spells.warp")
@@ -100,6 +103,9 @@ return function()
         self.addSpell(fireconeSpell(params), params)
     end
 
+    function self.addFirering(params)
+        self.addSpell(fireringSpell(params), params)
+    end
     function self.addFirefield(params)
         self.addSpell(firefieldSpell(params), params)
     end
@@ -124,6 +130,10 @@ return function()
         self.addSpell(icestrikeSpell(params), params)
     end
 
+    function self.addIcering(params)
+        self.addSpell(iceringSpell(params), params)
+    end
+
     function self.addLighting(params)
         self.addSpell(lightingSpell(params), params)
     end
@@ -134,6 +144,10 @@ return function()
 
     function self.addPoisoncone(params)
         self.addSpell(poisonconeSpell(params), params)
+    end
+
+    function self.addPoisonring(params)
+        self.addSpell(poisonringSpell(params), params)
     end
 
     function self.addSummon(params)

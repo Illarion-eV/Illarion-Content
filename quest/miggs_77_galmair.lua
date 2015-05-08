@@ -83,26 +83,26 @@ local Start = {374, 216, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(303, 338, -6)} 
-QuestTarget[2] = {position(303, 338, -6)} 
-QuestTarget[3] = {position(303, 338, -6)} 
-QuestTarget[4] = {position(303, 338, -6)}
-QuestTarget[5] = {position(303, 338, -6)} 
-QuestTarget[6] = {position(303, 338, -6)}
-QuestTarget[7] = {position(303, 338, -6)} 
-QuestTarget[8] = {position(303, 338, -6)} 
-QuestTarget[9] = {position(303, 338, -6)} 
-QuestTarget[10] = {position(303, 338, -6)}
+QuestTarget[1] = {position(332, 302, -6)} 
+QuestTarget[2] = {position(332, 302, -6)} 
+QuestTarget[3] = {position(332, 302, -6)} 
+QuestTarget[4] = {position(332, 302, -6)}
+QuestTarget[5] = {position(332, 302, -6)} 
+QuestTarget[6] = {position(332, 302, -6)}
+QuestTarget[7] = {position(332, 302, -6)} 
+QuestTarget[8] = {position(332, 302, -6)} 
+QuestTarget[9] = {position(332, 302, -6)} 
+QuestTarget[10] = {position(332, 302, -6)}
 QuestTarget[11] = {position(374, 216, 0)} 
 QuestTarget[12] = {position(374, 216, 0)}
-QuestTarget[13] = {position(303, 338, -6)} 
-QuestTarget[14] = {position(303, 338, -6)} 
-QuestTarget[15] = {position(303, 338, -6)} 
-QuestTarget[16] = {position(303, 338, -6)}
-QuestTarget[17] = {position(303, 338, -6)} 
+QuestTarget[13] = {position(332, 302, -6)} 
+QuestTarget[14] = {position(332, 302, -6)} 
+QuestTarget[15] = {position(332, 302, -6)} 
+QuestTarget[16] = {position(332, 302, -6)}
+QuestTarget[17] = {position(332, 302, -6)} 
 QuestTarget[18] = {position(374, 216, 0)}
 QuestTarget[19] = {position(374, 216, 0)} 
-QuestTarget[20] = {position(293, 328, -6)} 
+QuestTarget[20] = {position(332, 302, -6)} 
 QuestTarget[21] = {position(374, 216, 0)} 
 QuestTarget[22] = {position(374, 216, 0)}
 
@@ -112,7 +112,7 @@ local FINAL_QUEST_STATUS = 22
 -- Register the monster kill parts of the quest.
 monsterQuests.addQuest{
     questId = 77,
-    location = {position = position(298, 352, -6), radius = 65},
+    location = {position = position(310, 319, -6), radius = 100},
     queststatus = {from = 1, to = 11},
     questTitle = {german = "Die Kanalisation von Galmair I", english = "Galmair Sewers I"},
     monsterName = {german = "Schleime", english = "slimes"},
@@ -121,7 +121,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 77,
-    location = {position = position(298, 352, -6), radius = 65},
+    location = {position = position(310, 315, -6), radius = 100},
     queststatus = {from = 13, to = 18},
     questTitle = {german = "Die Kanalisation von Galmair II", english = "Galmair Sewers II"},
     monsterName = {german = "stinkige Gullimumien", english = "smelly sewer mummies"},
@@ -130,7 +130,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 77,
-    location = {position = position(298, 352, -6), radius = 65},
+    location = {position = position(310, 315, -6), radius = 100},
     queststatus = {from = 20, to = 21},
     questTitle = {german = "Die Kanalisation von Galmair III", english = "Galmair Sewers III"},
     monsterName = {german = "den Halblingsdieb", english = "the halfling thief"},

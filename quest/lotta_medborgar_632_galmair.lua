@@ -39,7 +39,7 @@ Description[ENGLISH][2] = "You now know where you can find Don Valerio Guilianni
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {393, 326, -5}
+Start = {380, 303, -5}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}

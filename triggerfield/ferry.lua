@@ -43,17 +43,17 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (79,981,0,'triggerfield.ferry');----
 -- INSERT INTO triggerfields VALUES (86,988,0,'triggerfield.ferry');
 -- INSERT INTO triggerfields VALUES (96,988,0,'triggerfield.ferry');
--- INSERT INTO triggerfields VALUES (389,272,-6,'triggerfield.ferry');
--- INSERT INTO triggerfields VALUES (389,273,-6,'triggerfield.ferry');
--- INSERT INTO triggerfields VALUES (404,275,-6,'triggerfield.ferry');
--- INSERT INTO triggerfields VALUES (404,276,-6,'triggerfield.ferry');
+-- INSERT INTO triggerfields VALUES (360,259,-6,'triggerfield.ferry');
+-- INSERT INTO triggerfields VALUES (360,260,-6,'triggerfield.ferry');
+-- INSERT INTO triggerfields VALUES (375,262,-6,'triggerfield.ferry');
+-- INSERT INTO triggerfields VALUES (375,263,-6,'triggerfield.ferry');
 -- INSERT INTO triggerfields VALUES (355,864,2,'triggerfield.ferry');
 
 local common = require("base.common")
 
 local M = {}
 
-local ferrySourcePos={position(614,863,0),position(615,863,0),position(616,863,0),position(614,855,0),position(615,855,0),position(616,855,0),position(987,257,0),position(988,257,0),position(475,33,0),position(475,34,0),position(482,33,0),position(482,34,0),position(412,84,0),position(412,85,0),position(419,84,0),position(419,85,0),position(361,49,0),position(361,50,0),position(367,49,0),position(367,50,0),position(86,988,0),position(96,988,0),position(289,283,0),position(275,275,0),position(288,292,0),position(274,275,0),position(389,272,-6),position(389,273,-6),position(404,275,-6),position(404,276,-6),position(355,864,2)}
+local ferrySourcePos={position(614,863,0),position(615,863,0),position(616,863,0),position(614,855,0),position(615,855,0),position(616,855,0),position(987,257,0),position(988,257,0),position(475,33,0),position(475,34,0),position(482,33,0),position(482,34,0),position(412,84,0),position(412,85,0),position(419,84,0),position(419,85,0),position(361,49,0),position(361,50,0),position(367,49,0),position(367,50,0),position(86,988,0),position(96,988,0),position(289,283,0),position(275,275,0),position(288,292,0),position(274,275,0),position(360,259,-6),position(360,260,-6),position(375,262,-6),position(375,263,-6),position(355,864,2)}
 
 local ferryDE={}
 local ferryEN={}
@@ -180,10 +180,10 @@ ferryTargetPos[23]={position(275,274,0)}
 ferryTargetPos[24]={position(290,283,0)}
 ferryTargetPos[25]={position(274,274,0)}
 ferryTargetPos[26]={position(289,292,0)}
-ferryTargetPos[27]={position(404,275,-6)}
-ferryTargetPos[28]={position(404,276,-6)}
-ferryTargetPos[29]={position(389,272,-6)}
-ferryTargetPos[30]={position(389,273,-6)}
+ferryTargetPos[27]={position(375,262,-6)}
+ferryTargetPos[28]={position(375,262,-6)}
+ferryTargetPos[29]={position(360,259,-6)}
+ferryTargetPos[30]={position(360,260,-6)}
 ferryTargetPos[31]={position(355,864,2)}
 
 local ferryFactionHarborPos={position(690,320,0),position(101,790,0),position(727,809,0),position(451,95,0)}

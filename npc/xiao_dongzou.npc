@@ -16,7 +16,7 @@
 -- NPC Name: Xiao Dongzou                                                Free --
 -- NPC Job:  gambler                                                          --
 --                                                                            --
--- NPC Race: human                      NPC Position:  251, 291,-6            --
+-- NPC Race: human                      NPC Position:  295, 263,-6            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Banduk                                                           --
@@ -26,7 +26,7 @@
 name = "Xiao Dongzou"
 race = human
 sex = male
-position = 251, 291, -6
+position = 295, 263, -6
 direction = west
 affiliation = "Galmair"
 job = "gambler"

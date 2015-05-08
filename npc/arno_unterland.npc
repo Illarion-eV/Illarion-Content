@@ -16,7 +16,7 @@
 -- NPC Name: Arno Unterland                                           Galmair --
 -- NPC Job:  Insert profession here                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  252, 298, -6           --
+-- NPC Race: human                      NPC Position:  296, 270, -6           --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   envi                                                             --
@@ -26,7 +26,7 @@
 name = "Arno Unterland"
 race = human
 sex = male
-position = 252, 298, -6
+position = 296, 270, -6
 direction = south
 affiliation = "Galmair"
 job = "counterfeiter"

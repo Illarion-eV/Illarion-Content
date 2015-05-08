@@ -61,7 +61,7 @@ itemShoes = 679
 "Help" -> inform("[Game Help] This NPC is Joey Licavoli the helper. Keywords: quest, craft, workshop, Iradona Goldschein, food, fighting, Galmair")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Joey Licavoli der Helfer. Schlüsselwörter: Quest, Handwerke, Werkstatt, Iradona Goldschein, Essen, Kämpfen, Galmair")
 queststatus(712) = 0, english, town = Galmair, ".+" -> queststatus(712) = 1, "Welcome to Galmair. Please find Hannah Shepard, I'm sure she has a task for you. You won't miss her, she sits at the camp fire near the fields behind me. Once the task is finished, you can come back to me I'm sure I'll have more tasks for you."
-queststatus(712) = 0, town = Galmair, ".+" -> queststatus(712) = 1, "Willkommen in Galmair. Sucht doch bitte Hannah Shepard. Sie hat bestimmt eine Aufgabe für Euch. Ihr könnt sie nicht übersehen, sie sitzt an der Kochstelle bei den Feldern hinter mir. Nachdem Ihr die Aufgabe erfüllt habt, kommt zurück wenn Ihr weitere Aufgaben von mir wollt."
+queststatus(712) = 0, town = Galmair, ".+" -> queststatus(712) = 1, "Willkommen in Galmair. Sucht doch bitte Hannah Shepard. Sie hat bestimmt eine Aufgabe für Euch. Ihr könnt sie nicht übersehen, sie sitzt an der Kochstelle bei den Feldern. Nachdem Ihr die Aufgabe erfüllt habt, kommt zurück wenn Ihr weitere Aufgaben von mir wollt."
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Be greeted.", "Nice to meet you, I'm Joey Licavoli"

@@ -1082,7 +1082,7 @@ QualityText = { {ger = "furchtbar",eng = "horrible"},
                 {ger = "perfekt",eng = "perfect"}, 
               };
 
-MonthNames = { "Elos", "Zahnos", "Thas", "Ushos", "Siros", "Ronas" , "Bras", "Eldas" , "Irmas", "Malas", "Findas" , "Olos", "Adras", "Naras", "Chos", "Mas"};
+MonthNames = {"Elos", "Tanos", "Zhas", "Ushos", "Siros", "Ronas", "Bras", "Eldas", "Irmas", "Malas", "Findos", "Olos", "Adras", "Naras", "Chos", "Mas"}; --List of our months
                 
 function Order:lookAt(Char)
     local text = "";
