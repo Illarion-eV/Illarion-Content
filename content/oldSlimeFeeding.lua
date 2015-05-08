@@ -33,6 +33,7 @@ local teleportPlatform = position(894, 775, 0)
 local refuseFeedingField = position(894, 779, 0)
 local acceptFeedingField = position(887, 775, 0)
 local caveEntrance = position(890, 770, 0)
+local rewardPosition = position(893, 776, 0)
 
 local feedingInProgress = false
 
@@ -199,7 +200,7 @@ function M.oldSlimeAbortRoute(oldSlime)
             local feeding = world:getItemOnField(acceptFeedingField)
             world:erase(feeding, feeding.number)
             local reward = rewardList[Random.uniform(1, #rewardList)]
-            world:createItemFromId(rewardList.itemId, rewardList.amount, slimeFeeding.REWARD_POSITION, true, rewardList.quality, rewardList.data)
+            world:createItemFromId(rewardList.itemId, rewardList.amount, rewardPosition, true, rewardList.quality, rewardList.data)
             oldSlime.movepoints = oldSlime.movepoints -50
         end
         oldSlime.waypoints:addWaypoint(caveEntrance)
