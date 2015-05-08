@@ -71,7 +71,7 @@ function M.UseItem(User, SourceItem)
         User:setQuestProgress(538, 0)
     elseif SourceItem.pos == position(607, 177, -3) and (User:getQuestProgress(537) == 1) and (User:getQuestProgress(540) == 1) then -- player adding yellow potion to the dark blue  and has already got the special potion
         User:inform(
-            "",
+            "Obwohl die mit dieser Mischung schon einmal Erfolg hattest, scheint Narguns Glück nicht länger auf deiner Seite zu sein.",
             "Although you have had previous success with this combination, the luck of Nargun is no longer with you.")
         User:setQuestProgress(537, 0)
     elseif SourceItem.pos == position(607, 177, -3) and (User:getQuestProgress(537) == 1) then -- player adding yellow potion to the dark blue
@@ -83,8 +83,8 @@ function M.UseItem(User, SourceItem)
                     "You can't carry any more.")
                  end
         User:inform(
-            "",
-            "You have combined these potions to and somehow manage to make a halfling transformation potion. You will likely never create this again!")
+            "Du hast diese Tränke vermischt und es irgendwie geschafft, einen Halblingsverwandlungstrank zu erschaffen. Das wirst du wahrscheinlich nie wieder hinbekommen!",
+            "You have combined these potions and somehow manage to make a halfling transformation potion. You will likely never create this again!")
         User:setQuestProgress(537, 0)
         User:setQuestProgress(540, 1)
     end
