@@ -19,6 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local factions = require("base.factions")
 local scheduledFunction = require("scheduled.scheduledFunction")
+local lookat = require("base.lookat")
 
 local M = {}
 
