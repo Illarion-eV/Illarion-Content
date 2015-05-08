@@ -92,7 +92,7 @@ function M.setSignText(signSlimeFeeding)
 	
 end
 
-local function newMonth(u)
+local function newMonth(user)
 
 	local questStatus = user:getQuestProgress(450)
 	local year = math.floor(questStatus/100)
