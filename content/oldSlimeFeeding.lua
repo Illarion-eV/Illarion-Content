@@ -24,8 +24,8 @@ local M = {}
 
 local oldSlimeId = 616
 
-local blockedLever = 435
-local normalLever = 789
+local blockedLever = 434
+local normalLever = 435
 local leverPosition = position(895, 774, 0)
 
 local teleportPlatform = position(894, 775, 0)
@@ -80,7 +80,7 @@ local rewardList = {
 {itemId = 2668, amount = 1, quality = 444, data = nil} --[[poisoned simple dagger]]
 }
 
-function setSignText()
+function M.setSignText()
 	
 	local day = world:getTime("day")
     local itemId = slimeDietItems[day]["itemId"]
