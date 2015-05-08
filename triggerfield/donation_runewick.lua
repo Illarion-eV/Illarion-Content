@@ -14,10 +14,10 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- INSERT INTO triggerfields VALUES (897,779,2,'triggerfield.donation_runewick');
--- INSERT INTO triggerfields VALUES (897,780,2,'triggerfield.donation_runewick');
--- INSERT INTO triggerfields VALUES (896,779,2,'triggerfield.donation_runewick');
--- INSERT INTO triggerfields VALUES (896,780,2,'triggerfield.donation_runewick');
+-- INSERT INTO triggerfields VALUES (943,784,1,'triggerfield.donation_runewick');
+-- INSERT INTO triggerfields VALUES (943,785,1,'triggerfield.donation_runewick');
+-- INSERT INTO triggerfields VALUES (942,784,1,'triggerfield.donation_runewick');
+-- INSERT INTO triggerfields VALUES (942,785,1,'triggerfield.donation_runewick');
 
 local common = require("base.common")
 local donation_base = require("triggerfield.base.donation")

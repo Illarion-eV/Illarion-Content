@@ -22,11 +22,13 @@ local alchemy = require("alchemy.base.alchemy")
 local areas = require("content.areas")
 local lever = require("item.lever")
 local granorsHut = require("content.granorsHut")
+local oldSlimeFeeding = require("content.oldSlimeFeeding")
 
 local M = {}
 
 function M.onReload()
-
+    
+    oldSlimeFeeding.resetLever()
     alchemy.InitAlchemy()
     areas.Init()
     lever.init()

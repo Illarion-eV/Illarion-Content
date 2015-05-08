@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue")
-VALUES (0, 903, 806, 1, 4, 'Trainer El Cycib', 'npc.attribute_trainer', 0, 1, 5, 200, 200, 0, 140, 100, 10);
+VALUES (0, 898, 801, 0, 4, 'Trainer El Cycib', 'npc.attribute_trainer', 0, 1, 5, 200, 200, 0, 140, 100, 10);
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue")
 VALUES (0, 124, 581, 0, 6, 'Trainer David', 'npc.attribute_trainer', 0, 1, 5, 200, 200, 0, 140, 100, 10);
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue")

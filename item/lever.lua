@@ -36,6 +36,7 @@ local createmonster = require("handler.createmonster")
 local eraseplayeritem = require("handler.eraseplayeritem")
 local createplayeritem = require("handler.createplayeritem")
 local evilrock = require("triggerfield.evilrock")
+local oldSlimeFeeding = require("content.oldSlimeFeeding")
 
 local M = {}
 
@@ -183,6 +184,10 @@ function M.init()
 end
 
 function M.UseItem(User, SourceItem)
+    
+    if SourceItem:getData("oldSlimeFeeding") == "true" then
+        oldSlimeFeeding.useLever(User, SourceItem)
+    end
 
     local key = SourceItem.pos.x * 1024 * 1024 + SourceItem.pos.y * 1024 + SourceItem.pos.z
     if leverList[key] ~= nil then

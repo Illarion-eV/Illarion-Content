@@ -23,7 +23,7 @@ local licence = require("base.licence")
 local M = {}
 
  -- Cadomyr, Runewick, Galmair
-M.townManagmentItemPos = {position(116, 527, 0), position(899, 772, 2), position(344, 223, 0)}
+M.townManagmentItemPos = {position(116, 527, 0), position(951, 786, 1), position(344, 223, 0)}
 local requiredRank = {8,8,8}
 
 local toolUseNameDE = {"Wache","Lizenz","Schlüssel"}
