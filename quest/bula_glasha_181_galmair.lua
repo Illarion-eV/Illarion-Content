@@ -142,32 +142,32 @@ Description[GERMAN][105] = "Auskunfsberichte werden gebraucht um Galmair's Siche
 Description[GERMAN][106] = "Auskunfsberichte werden gebraucht um Galmair's Sicherheit zu gewähren. Erkundschafte die Gegend nach Informationen und töte zwölf Füchse. Die Belohnung ist zwölf Silbermünzen."
 Description[GERMAN][107] = "Auskunfsberichte werden gebraucht um Galmair's Sicherheit zu gewähren. Erkundschafte die Gegend nach Informationen und töte zwölf Füchse. Die Belohnung ist zwölf Silbermünzen."
 Description[GERMAN][108] = "Kehre zu Bula Glasha zurück um deine Belohnung zu erhalten."
-Description[GERMAN][109] = "Der Don benötigt Information. Erkundschafte die Gegend nach Informationen und töte vier Ratten. Die Belohnung ist sechs Silbermünzen."
-Description[GERMAN][110] = "Der Don benötigt Information. Erkundschafte die Gegend nach Informationen und töte vier Ratten. Die Belohnung ist sechs Silbermünzen."
-Description[GERMAN][111] = "Der Don benötigt Information. Erkundschafte die Gegend nach Informationen und töte vier Ratten. Die Belohnung ist sechs Silbermünzen."
-Description[GERMAN][112] = "Der Don benötigt Information. Erkundschafte die Gegend nach Informationen und töte vier Ratten. Die Belohnung ist sechs Silbermünzen."
+Description[GERMAN][109] = "Der Don benötigt Information. Erkundschafte die Gegend nach Informationen und töte vier Rattenmenschen. Die Belohnung ist sechs Silbermünzen."
+Description[GERMAN][110] = "Der Don benötigt Information. Erkundschafte die Gegend nach Informationen und töte vier Rattenmenschen. Die Belohnung ist sechs Silbermünzen."
+Description[GERMAN][111] = "Der Don benötigt Information. Erkundschafte die Gegend nach Informationen und töte vier Rattenmenschen. Die Belohnung ist sechs Silbermünzen."
+Description[GERMAN][112] = "Der Don benötigt Information. Erkundschafte die Gegend nach Informationen und töte vier Rattenmenschen. Die Belohnung ist sechs Silbermünzen."
 Description[GERMAN][113] = "Kehre zu Bula Glasha zurück um deine Belohnung zu erhalten."
-Description[GERMAN][114] = "Die Gegend um Galmair wird stetig gefährlicher und das gefährdet die Einnahmen des Dons. Erkundschafte die Gegend nach Informationen und töte acht Ratten. Die Belohnung ist zwölf Silbermünzen."
-Description[GERMAN][115] = "Die Gegend um Galmair wird stetig gefährlicher und das gefährdet die Einnahmen des Dons. Erkundschafte die Gegend nach Informationen und töte acht Ratten. Die Belohnung ist zwölf Silbermünzen."
-Description[GERMAN][116] = "Die Gegend um Galmair wird stetig gefährlicher und das gefährdet die Einnahmen des Dons. Erkundschafte die Gegend nach Informationen und töte acht Ratten. Die Belohnung ist zwölf Silbermünzen."
-Description[GERMAN][117] = "Die Gegend um Galmair wird stetig gefährlicher und das gefährdet die Einnahmen des Dons. Erkundschafte die Gegend nach Informationen und töte acht Ratten. Die Belohnung ist zwölf Silbermünzen."
-Description[GERMAN][118] = "Die Gegend um Galmair wird stetig gefährlicher und das gefährdet die Einnahmen des Dons. Erkundschafte die Gegend nach Informationen und töte acht Ratten. Die Belohnung ist zwölf Silbermünzen."
-Description[GERMAN][119] = "Die Gegend um Galmair wird stetig gefährlicher und das gefährdet die Einnahmen des Dons. Erkundschafte die Gegend nach Informationen und töte acht Ratten. Die Belohnung ist zwölf Silbermünzen."
-Description[GERMAN][120] = "Die Gegend um Galmair wird stetig gefährlicher und das gefährdet die Einnahmen des Dons. Erkundschafte die Gegend nach Informationen und töte acht Ratten. Die Belohnung ist zwölf Silbermünzen."
-Description[GERMAN][121] = "Die Gegend um Galmair wird stetig gefährlicher und das gefährdet die Einnahmen des Dons. Erkundschafte die Gegend nach Informationen und töte acht Ratten. Die Belohnung ist zwölf Silbermünzen."
+Description[GERMAN][114] = "Die Gegend um Galmair wird stetig gefährlicher und das gefährdet die Einnahmen des Dons. Erkundschafte die Gegend nach Informationen und töte acht Rattenmenschen. Die Belohnung ist zwölf Silbermünzen."
+Description[GERMAN][115] = "Die Gegend um Galmair wird stetig gefährlicher und das gefährdet die Einnahmen des Dons. Erkundschafte die Gegend nach Informationen und töte acht Rattenmenschen. Die Belohnung ist zwölf Silbermünzen."
+Description[GERMAN][116] = "Die Gegend um Galmair wird stetig gefährlicher und das gefährdet die Einnahmen des Dons. Erkundschafte die Gegend nach Informationen und töte acht Rattenmenschen. Die Belohnung ist zwölf Silbermünzen."
+Description[GERMAN][117] = "Die Gegend um Galmair wird stetig gefährlicher und das gefährdet die Einnahmen des Dons. Erkundschafte die Gegend nach Informationen und töte acht Rattenmenschen. Die Belohnung ist zwölf Silbermünzen."
+Description[GERMAN][118] = "Die Gegend um Galmair wird stetig gefährlicher und das gefährdet die Einnahmen des Dons. Erkundschafte die Gegend nach Informationen und töte acht Rattenmenschen. Die Belohnung ist zwölf Silbermünzen."
+Description[GERMAN][119] = "Die Gegend um Galmair wird stetig gefährlicher und das gefährdet die Einnahmen des Dons. Erkundschafte die Gegend nach Informationen und töte acht Rattenmenschen. Die Belohnung ist zwölf Silbermünzen."
+Description[GERMAN][120] = "Die Gegend um Galmair wird stetig gefährlicher und das gefährdet die Einnahmen des Dons. Erkundschafte die Gegend nach Informationen und töte acht Rattenmenschen. Die Belohnung ist zwölf Silbermünzen."
+Description[GERMAN][121] = "Die Gegend um Galmair wird stetig gefährlicher und das gefährdet die Einnahmen des Dons. Erkundschafte die Gegend nach Informationen und töte acht Rattenmenschen. Die Belohnung ist zwölf Silbermünzen."
 Description[GERMAN][122] = "Kehre zu Bula Glasha zurück um deine Belohnung zu erhalten."
-Description[GERMAN][123] = "Auskunfsberichte werden gebraucht um Galmair's Sicherheit zu gewähren. Erkundschafte die Gegend nach Informationen und töte zwölf Ratten. Die Belohnung ist achtzehn Silbermünzen."
-Description[GERMAN][124] = "Auskunfsberichte werden gebraucht um Galmair's Sicherheit zu gewähren. Erkundschafte die Gegend nach Informationen und töte zwölf Ratten. Die Belohnung ist achtzehn Silbermünzen."
-Description[GERMAN][125] = "Auskunfsberichte werden gebraucht um Galmair's Sicherheit zu gewähren. Erkundschafte die Gegend nach Informationen und töte zwölf Ratten. Die Belohnung ist achtzehn Silbermünzen."
-Description[GERMAN][126] = "Auskunfsberichte werden gebraucht um Galmair's Sicherheit zu gewähren. Erkundschafte die Gegend nach Informationen und töte zwölf Ratten. Die Belohnung ist achtzehn Silbermünzen."
-Description[GERMAN][127] = "Auskunfsberichte werden gebraucht um Galmair's Sicherheit zu gewähren. Erkundschafte die Gegend nach Informationen und töte zwölf Ratten. Die Belohnung ist achtzehn Silbermünzen."
-Description[GERMAN][128] = "Auskunfsberichte werden gebraucht um Galmair's Sicherheit zu gewähren. Erkundschafte die Gegend nach Informationen und töte zwölf Ratten. Die Belohnung ist achtzehn Silbermünzen."
-Description[GERMAN][129] = "Auskunfsberichte werden gebraucht um Galmair's Sicherheit zu gewähren. Erkundschafte die Gegend nach Informationen und töte zwölf Ratten. Die Belohnung ist achtzehn Silbermünzen."
-Description[GERMAN][130] = "Auskunfsberichte werden gebraucht um Galmair's Sicherheit zu gewähren. Erkundschafte die Gegend nach Informationen und töte zwölf Ratten. Die Belohnung ist achtzehn Silbermünzen."
-Description[GERMAN][131] = "Auskunfsberichte werden gebraucht um Galmair's Sicherheit zu gewähren. Erkundschafte die Gegend nach Informationen und töte zwölf Ratten. Die Belohnung ist achtzehn Silbermünzen."
-Description[GERMAN][132] = "Auskunfsberichte werden gebraucht um Galmair's Sicherheit zu gewähren. Erkundschafte die Gegend nach Informationen und töte zwölf Ratten. Die Belohnung ist achtzehn Silbermünzen."
-Description[GERMAN][133] = "Auskunfsberichte werden gebraucht um Galmair's Sicherheit zu gewähren. Erkundschafte die Gegend nach Informationen und töte zwölf Ratten. Die Belohnung ist achtzehn Silbermünzen."
-Description[GERMAN][134] = "Auskunfsberichte werden gebraucht um Galmair's Sicherheit zu gewähren. Erkundschafte die Gegend nach Informationen und töte zwölf Ratten. Die Belohnung ist achtzehn Silbermünzen."
+Description[GERMAN][123] = "Auskunfsberichte werden gebraucht um Galmair's Sicherheit zu gewähren. Erkundschafte die Gegend nach Informationen und töte zwölf Rattenmenschen. Die Belohnung ist achtzehn Silbermünzen."
+Description[GERMAN][124] = "Auskunfsberichte werden gebraucht um Galmair's Sicherheit zu gewähren. Erkundschafte die Gegend nach Informationen und töte zwölf Rattenmenschen. Die Belohnung ist achtzehn Silbermünzen."
+Description[GERMAN][125] = "Auskunfsberichte werden gebraucht um Galmair's Sicherheit zu gewähren. Erkundschafte die Gegend nach Informationen und töte zwölf Rattenmenschen. Die Belohnung ist achtzehn Silbermünzen."
+Description[GERMAN][126] = "Auskunfsberichte werden gebraucht um Galmair's Sicherheit zu gewähren. Erkundschafte die Gegend nach Informationen und töte zwölf Rattenmenschen. Die Belohnung ist achtzehn Silbermünzen."
+Description[GERMAN][127] = "Auskunfsberichte werden gebraucht um Galmair's Sicherheit zu gewähren. Erkundschafte die Gegend nach Informationen und töte zwölf Rattenmenschen. Die Belohnung ist achtzehn Silbermünzen."
+Description[GERMAN][128] = "Auskunfsberichte werden gebraucht um Galmair's Sicherheit zu gewähren. Erkundschafte die Gegend nach Informationen und töte zwölf Rattenmenschen. Die Belohnung ist achtzehn Silbermünzen."
+Description[GERMAN][129] = "Auskunfsberichte werden gebraucht um Galmair's Sicherheit zu gewähren. Erkundschafte die Gegend nach Informationen und töte zwölf Rattenmenschen. Die Belohnung ist achtzehn Silbermünzen."
+Description[GERMAN][130] = "Auskunfsberichte werden gebraucht um Galmair's Sicherheit zu gewähren. Erkundschafte die Gegend nach Informationen und töte zwölf Rattenmenschen. Die Belohnung ist achtzehn Silbermünzen."
+Description[GERMAN][131] = "Auskunfsberichte werden gebraucht um Galmair's Sicherheit zu gewähren. Erkundschafte die Gegend nach Informationen und töte zwölf Rattenmenschen. Die Belohnung ist achtzehn Silbermünzen."
+Description[GERMAN][132] = "Auskunfsberichte werden gebraucht um Galmair's Sicherheit zu gewähren. Erkundschafte die Gegend nach Informationen und töte zwölf Rattenmenschen. Die Belohnung ist achtzehn Silbermünzen."
+Description[GERMAN][133] = "Auskunfsberichte werden gebraucht um Galmair's Sicherheit zu gewähren. Erkundschafte die Gegend nach Informationen und töte zwölf Rattenmenschen. Die Belohnung ist achtzehn Silbermünzen."
+Description[GERMAN][134] = "Auskunfsberichte werden gebraucht um Galmair's Sicherheit zu gewähren. Erkundschafte die Gegend nach Informationen und töte zwölf Rattenmenschen. Die Belohnung ist achtzehn Silbermünzen."
 Description[GERMAN][135] = "Kehre zu Bula Glasha zurück um deine Belohnung zu erhalten."
 Description[GERMAN][136] = "Der Don benötigt Information. Erkundschafte die Gegend nach Informationen und töte vier Bären. Die Belohnung ist acht Silbermünzen."
 Description[GERMAN][137] = "Der Don benötigt Information. Erkundschafte die Gegend nach Informationen und töte vier Bären. Die Belohnung ist acht Silbermünzen."
@@ -332,32 +332,32 @@ Description[ENGLISH][105] = "Intelligence reports are needed for the safety of G
 Description[ENGLISH][106] = "Intelligence reports are needed for the safety of Galmair.  Scout the area for information and kill twelve foxes, your reward is twelve silver coins."
 Description[ENGLISH][107] = "Intelligence reports are needed for the safety of Galmair.  Scout the area for information and kill twelve foxes, your reward is twelve silver coins."
 Description[ENGLISH][108] = "Return to Bula Glasha to claim your reward."
-Description[ENGLISH][109] = "There is information to be gathered for the Don. Scout the area for information and kill four rats your reward is six silver coins."
-Description[ENGLISH][110] = "There is information to be gathered for the Don. Scout the area for information and kill four rats your reward is six silver coins."
-Description[ENGLISH][111] = "There is information to be gathered for the Don. Scout the area for information and kill four rats your reward is six silver coins."
-Description[ENGLISH][112] = "There is information to be gathered for the Don. Scout the area for information and kill four rats your reward is six silver coins."
+Description[ENGLISH][109] = "There is information to be gathered for the Don. Scout the area for information and kill four ratmen your reward is six silver coins."
+Description[ENGLISH][110] = "There is information to be gathered for the Don. Scout the area for information and kill four ratmen your reward is six silver coins."
+Description[ENGLISH][111] = "There is information to be gathered for the Don. Scout the area for information and kill four ratmen your reward is six silver coins."
+Description[ENGLISH][112] = "There is information to be gathered for the Don. Scout the area for information and kill four ratmen your reward is six silver coins."
 Description[ENGLISH][113] = "Return to Bula Glasha to claim your reward."
-Description[ENGLISH][114] = "The area around Galmair has become increasing violent and this is hindering the Don's profits.  Scout the area for information and kill eight rats, your reward is twelve silver coins."
-Description[ENGLISH][115] = "The area around Galmair has become increasing violent and this is hindering the Don's profits.  Scout the area for information and kill eight rats, your reward is twelve silver coins."
-Description[ENGLISH][116] = "The area around Galmair has become increasing violent and this is hindering the Don's profits.  Scout the area for information and kill eight rats, your reward is twelve silver coins."
-Description[ENGLISH][117] = "The area around Galmair has become increasing violent and this is hindering the Don's profits.  Scout the area for information and kill eight rats, your reward is twelve silver coins."
-Description[ENGLISH][118] = "The area around Galmair has become increasing violent and this is hindering the Don's profits.  Scout the area for information and kill eight rats, your reward is twelve silver coins."
-Description[ENGLISH][119] = "The area around Galmair has become increasing violent and this is hindering the Don's profits.  Scout the area for information and kill eight rats, your reward is twelve silver coins."
-Description[ENGLISH][120] = "The area around Galmair has become increasing violent and this is hindering the Don's profits.  Scout the area for information and kill eight rats, your reward is twelve silver coins."
-Description[ENGLISH][121] = "The area around Galmair has become increasing violent and this is hindering the Don's profits.  Scout the area for information and kill eight rats, your reward is twelve silver coins."
+Description[ENGLISH][114] = "The area around Galmair has become increasing violent and this is hindering the Don's profits.  Scout the area for information and kill eight ratmen, your reward is twelve silver coins."
+Description[ENGLISH][115] = "The area around Galmair has become increasing violent and this is hindering the Don's profits.  Scout the area for information and kill eight ratmen, your reward is twelve silver coins."
+Description[ENGLISH][116] = "The area around Galmair has become increasing violent and this is hindering the Don's profits.  Scout the area for information and kill eight ratmen, your reward is twelve silver coins."
+Description[ENGLISH][117] = "The area around Galmair has become increasing violent and this is hindering the Don's profits.  Scout the area for information and kill eight ratmen, your reward is twelve silver coins."
+Description[ENGLISH][118] = "The area around Galmair has become increasing violent and this is hindering the Don's profits.  Scout the area for information and kill eight ratmen, your reward is twelve silver coins."
+Description[ENGLISH][119] = "The area around Galmair has become increasing violent and this is hindering the Don's profits.  Scout the area for information and kill eight ratmen, your reward is twelve silver coins."
+Description[ENGLISH][120] = "The area around Galmair has become increasing violent and this is hindering the Don's profits.  Scout the area for information and kill eight ratmen, your reward is twelve silver coins."
+Description[ENGLISH][121] = "The area around Galmair has become increasing violent and this is hindering the Don's profits.  Scout the area for information and kill eight ratmen, your reward is twelve silver coins."
 Description[ENGLISH][122] = "Return to Bula Glasha to claim your reward."
-Description[ENGLISH][123] = "Intelligence reports are needed for the safety of Galmair.  Scout the area for information and kill twelve rats, your reward is eighteen silver coins."
-Description[ENGLISH][124] = "Intelligence reports are needed for the safety of Galmair.  Scout the area for information and kill twelve rats, your reward is eighteen silver coins."
-Description[ENGLISH][125] = "Intelligence reports are needed for the safety of Galmair.  Scout the area for information and kill twelve rats, your reward is eighteen silver coins."
-Description[ENGLISH][126] = "Intelligence reports are needed for the safety of Galmair.  Scout the area for information and kill twelve rats, your reward is eighteen silver coins."
-Description[ENGLISH][127] = "Intelligence reports are needed for the safety of Galmair.  Scout the area for information and kill twelve rats, your reward is eighteen silver coins."
-Description[ENGLISH][128] = "Intelligence reports are needed for the safety of Galmair.  Scout the area for information and kill twelve rats, your reward is eighteen silver coins."
-Description[ENGLISH][129] = "Intelligence reports are needed for the safety of Galmair.  Scout the area for information and kill twelve rats, your reward is eighteen silver coins."
-Description[ENGLISH][130] = "Intelligence reports are needed for the safety of Galmair.  Scout the area for information and kill twelve rats, your reward is eighteen silver coins."
-Description[ENGLISH][131] = "Intelligence reports are needed for the safety of Galmair.  Scout the area for information and kill twelve rats, your reward is eighteen silver coins."
-Description[ENGLISH][132] = "Intelligence reports are needed for the safety of Galmair.  Scout the area for information and kill twelve rats, your reward is eighteen silver coins."
-Description[ENGLISH][133] = "Intelligence reports are needed for the safety of Galmair.  Scout the area for information and kill twelve rats, your reward is eighteen silver coins."
-Description[ENGLISH][134] = "Intelligence reports are needed for the safety of Galmair.  Scout the area for information and kill twelve rats, your reward is eighteen silver coins."
+Description[ENGLISH][123] = "Intelligence reports are needed for the safety of Galmair.  Scout the area for information and kill twelve ratmen, your reward is eighteen silver coins."
+Description[ENGLISH][124] = "Intelligence reports are needed for the safety of Galmair.  Scout the area for information and kill twelve ratmen, your reward is eighteen silver coins."
+Description[ENGLISH][125] = "Intelligence reports are needed for the safety of Galmair.  Scout the area for information and kill twelve ratmen, your reward is eighteen silver coins."
+Description[ENGLISH][126] = "Intelligence reports are needed for the safety of Galmair.  Scout the area for information and kill twelve ratmen, your reward is eighteen silver coins."
+Description[ENGLISH][127] = "Intelligence reports are needed for the safety of Galmair.  Scout the area for information and kill twelve ratmen, your reward is eighteen silver coins."
+Description[ENGLISH][128] = "Intelligence reports are needed for the safety of Galmair.  Scout the area for information and kill twelve ratmen, your reward is eighteen silver coins."
+Description[ENGLISH][129] = "Intelligence reports are needed for the safety of Galmair.  Scout the area for information and kill twelve ratmen, your reward is eighteen silver coins."
+Description[ENGLISH][130] = "Intelligence reports are needed for the safety of Galmair.  Scout the area for information and kill twelve ratmen, your reward is eighteen silver coins."
+Description[ENGLISH][131] = "Intelligence reports are needed for the safety of Galmair.  Scout the area for information and kill twelve ratmen, your reward is eighteen silver coins."
+Description[ENGLISH][132] = "Intelligence reports are needed for the safety of Galmair.  Scout the area for information and kill twelve ratmen, your reward is eighteen silver coins."
+Description[ENGLISH][133] = "Intelligence reports are needed for the safety of Galmair.  Scout the area for information and kill twelve ratmen, your reward is eighteen silver coins."
+Description[ENGLISH][134] = "Intelligence reports are needed for the safety of Galmair.  Scout the area for information and kill twelve ratmen, your reward is eighteen silver coins."
 Description[ENGLISH][135] = "Return to Bula Glasha to claim your reward."
 Description[ENGLISH][136] = "There is information to be gathered for the Don. Scout the area for information and kill four bears your reward is eight silver coins."
 Description[ENGLISH][137] = "There is information to be gathered for the Don. Scout the area for information and kill four bears your reward is eight silver coins."
@@ -724,7 +724,10 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 181,
-    location = {position = position(564, 178, 0), radius = 450},
+    location = {
+        {position = position(564, 178, 0), radius = 450},
+        {position = position(576, 192, -3), radius = 100}
+    },
     queststatus = {from = 109, to = 113},
     questTitle = {german = "Spitzel Informant", english = "Spy Informant"},
     monsterName = {german = "Rattenmenschen", english = "ratmen"},
@@ -733,7 +736,10 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 181,
-    location = {position = position(564, 178, 0), radius = 450},
+    location = {
+        {position = position(564, 178, 0), radius = 450},
+        {position = position(576, 192, -3), radius = 100}
+    },
     queststatus = {from = 114, to = 122},
     questTitle = {german = "Spitzel Informant", english = "Spy Informant"},
     monsterName = {german = "Rattenmenschen", english = "ratmen"},
@@ -742,7 +748,10 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 181,
-    location = {position = position(564, 178, 0), radius = 450},
+    location = {
+        {position = position(564, 178, 0), radius = 450},
+        {position = position(576, 192, -3), radius = 100}
+    },
     queststatus = {from = 123, to = 135},
     questTitle = {german = "Spitzel Informant", english = "Spy Informant"},
     monsterName = {german = "Rattenmenschen", english = "ratmen"},
