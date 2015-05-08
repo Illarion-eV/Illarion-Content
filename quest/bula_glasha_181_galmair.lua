@@ -724,7 +724,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 181,
-    location = {
+    locations = {
         {position = position(564, 178, 0), radius = 450},
         {position = position(576, 192, -3), radius = 100}
     },
@@ -736,7 +736,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 181,
-    location = {
+    locations = {
         {position = position(564, 178, 0), radius = 450},
         {position = position(576, 192, -3), radius = 100}
     },
@@ -748,7 +748,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 181,
-    location = {
+    locations = {
         {position = position(564, 178, 0), radius = 450},
         {position = position(576, 192, -3), radius = 100}
     },
