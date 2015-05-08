@@ -142,7 +142,7 @@ function M.useLever(user, sourceItem)
         return
     end
     
-    local feedingAccepted, feedingItem = checkFeeding()
+    local feedingAccepted, feedingItem = checkFeeding(user)
     if not feedingAccepted then
         if feedingItem then
             M.refuseItem(feedingItem)
