@@ -58,7 +58,7 @@ function M.MoveToField(Character)
 
     elseif Character.pos == position(20,99,100) and find then --Runewick for new player
 
-        destination = position(902, 790, 1)
+        destination = position(931, 818, 0)
         factionID = 2
 
         dialogNewbieText = common.GetNLS(Character,
