@@ -27,15 +27,16 @@ local function gatherFromHolyVine(user)
     
         local datas = {nameDe = "Heilige Trauben", nameEn = "Holy Grapes", descriptionDe = "Die Weintrauben geben einen sehr angenehmen süßlichen Géruch von sich.", descriptionEn = "The grapes have a very pleasant, sweet scent."}
         
-        local notCreated = User:createItem(388, 1, 333, datas)
+        local notCreated = user:createItem(388, 1, 333, datas)
         if notCreated then
-            world:createItemFromId(388, notCreated, User.pos, true, 333, datas)
+            world:createItemFromId(388, notCreated, user.pos, true, 333, datas)
             common.HighInformNLS(User,
             "Du kannst nichts mehr halten und der Rest fällt zu Boden.",
             "You can't carry any more and the rest drops to the ground.")
         end
         
         user:inform("Du sammelst ein einzelne Rebe von dem Weinstock.","You collect a single vine from the plant.")
+        user:setQuestProgress(451) = world:getTime("day")
     else
         user:inform("Jedes mal, als du eine Rebe zu greifen versuchts, greifst du daneben. So sehr du dich auch anstrengst, deine Hand geht vorbei.", "Everytime you try to get hold of a vine, you miss. No matter how hard you try, your hand seems always to be to far to the left of to the right of the vine.")
     end
