@@ -20,7 +20,33 @@ local gathering = require("content.gathering")
 
 module("content.gatheringcraft.fruitgathering", package.seeall)
 
+local function gatherFromHolyVine(user)
+    local questStatus, lastSet = user:getQuestProgress(451)
+    
+    if questStatus == 0 or questStatus < world:getTime("day") or world:getTime("unix") - lastSet > 30000 then
+    
+        local datas = {nameDe = "Heilige Trauben", nameEn = "Holy Grapes", descriptionDe = "Die Weintrauben geben einen sehr angenehmen süßlichen Géruch von sich.", descriptionEn = "The grapes have a very pleasant, sweet scent."}
+        
+        local notCreated = User:createItem(388, 1, 333, datas)
+        if notCreated then
+            world:createItemFromId(388, notCreated, User.pos, true, 333, datas)
+            common.HighInformNLS(User,
+            "Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+            "You can't carry any more and the rest drops to the ground.")
+        end
+        
+        user:inform("Du sammelst ein einzelne Rebe von dem Weinstock.","You collect a single vine from the plant.")
+    else
+        user:inform("Jedes mal, als du eine Rebe zu greifen versuchts, greifst du daneben. So sehr du dich auch anstrengst, deine Hand geht vorbei.", "Everytime you try to get hold of a vine, you miss. No matter how hard you try, your hand seems always to be to far to the left of to the right of the vine.")
+    end
+end
+
 function StartGathering(User, SourceItem, ltstate)
+
+    if SourceItem:getData("nameEn") == "Holy Vine" then
+        gatherFromHolyVine(User)
+        return
+    end
 
 	InitHarvestItems();
 
