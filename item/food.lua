@@ -173,7 +173,7 @@ end
 local Init
 function M.UseItem(User, SourceItem, ltstate)
     if SourceItem:getData("nameEn") == "Holy Grapes" then
-        holyGrapes(User, SourceItem
+        holyGrapes(User, SourceItem)
         return
     end
     
