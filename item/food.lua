@@ -169,7 +169,7 @@ local function holyGrapes(user, sourceItem)
     user:increaseAttrib("foodlevel",2000)
     user:inform("Die Trauben haben einen vollen Geschmack und füllen deinen ganzen Mund mit ihrem süßlichen Saft. Köstlich! Doch sie umspielen nicht nur deine Geschmacksknospen, sondern auch deinen Geist. Du bist leicht angetrunken.","The grapes have a rich, sweet taste that lingers on your tongue as their flavorful juice fills your entire mouth. Delicious! However, they not only play with your taste buds but also with your mind. You feel slightly drunk.")
     
-    world:erase(SourceItem,1)
+    world:erase(sourceItem,1)
 end
 
 local Init
