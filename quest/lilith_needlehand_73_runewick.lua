@@ -50,17 +50,17 @@ Description[ENGLISH][6] = "You have fulfilled all the tasks for Lilith Needlehan
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {943, 817, 0}
+Start = {940, 817, 0}
 
 
     
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(852, 792, 0), position(943, 817, 0)} -- Sheep
+QuestTarget[1] = {position(852, 792, 0), position(940, 817, 0)} -- Sheep
 QuestTarget[2] = {position(940, 817, 0)} -- Lilith Needlehand 
-QuestTarget[3] = {position(943, 817, 0), position(948, 816, 0)} -- spinning wheel
+QuestTarget[3] = {position(940, 817, 0), position(948, 816, 0)} -- spinning wheel
 QuestTarget[4] = {position(940, 817, 0)} -- Lilith Needlehand 
-QuestTarget[5] = {position(943, 817, 0), position(953, 813, 0)} -- barrel
+QuestTarget[5] = {position(940, 817, 0), position(953, 813, 0)} -- barrel
 QuestTarget[6] = {position(940, 817, 0)} -- Lilith Needlehand 
      
 -- Insert the quest status which is reached at the end of the quest
