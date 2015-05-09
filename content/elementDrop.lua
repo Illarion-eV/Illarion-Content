@@ -29,7 +29,7 @@ local function fairyBlinkenlights(centerPos, counter)
     local radius = 15
 
     -- show a few fairy lights around
-    for i = 1, amount do
+    for _ = 1, amount do
         local posX = centerPos.x + math.random(-radius, radius)
         local posY = centerPos.y + math.random(-radius, radius)
         world:gfx(53, position(posX, posY, centerPos.z)) -- light (blue glitter)
@@ -85,12 +85,10 @@ local function elementDrop(User, itemID)
         world:createItemFromId(itemID, 1, dropPos, true, 333, nil)
         world:gfx(46, dropPos) -- light (beam me up)
 
-        local directionText = {}
-        directionText.de, directionText.en = getTextForDirection(common.GetDirection(User.pos, dropPos))
-        local dropText = common.GetNLS(User,
-            "Ah! Eine Fee hat " .. world:getItemName(itemID, Player.german) .. " " .. directionText.de .. " verloren.",
-            "Ah! A fairy lost " .. world:getItemName(itemID, Player.english) .. " " .. directionText.en .. ".")
-        User:inform(dropText)
+        local directionTextDe, directionTextEn = getTextForDirection(common.GetDirection(User.pos, dropPos))
+        User:inform(
+            "Ah! Eine Fee hat " .. world:getItemName(itemID, Player.german) .. " " .. directionTextDe .. " verloren.",
+            "Ah! A fairy lost " .. world:getItemName(itemID, Player.english) .. " " .. directionTextEn .. ".")
     end)
 end
 
