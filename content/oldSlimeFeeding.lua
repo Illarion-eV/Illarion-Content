@@ -110,6 +110,9 @@ local function checkFeeding(user)
     local feeding
     if world:isItemOnField(teleportPlatform) then
         feeding = world:getItemOnField(teleportPlatform)
+        if feeding.id == 432 or feeding.id == 433 then -- items used to mark the field. Do not remove them.
+            return false, nil
+        end
     else
         return false, nil
     end
