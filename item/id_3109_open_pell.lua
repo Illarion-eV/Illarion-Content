@@ -252,7 +252,7 @@ AddPotion("Galmair",
 
 function getTownOfPell(SourceItem)
 
-    if SourceItem.pos == position(952,767,5) then
+    if SourceItem.pos == position(911,771,0) then
 	    return "Runewick"
 	elseif SourceItem.pos == position(137,542,0) then
 	    return "Cadomyr"
