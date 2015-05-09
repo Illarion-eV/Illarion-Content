@@ -27,7 +27,7 @@ crossPosition={};
 
 crossPosition[0]= position(690,324,0);       -- Wilderland
 crossPosition[1]= position(102,562,0);       -- Cadomyr
-crossPosition[2]= position(854,804,0);       -- Runewick
+crossPosition[2]= position(918,775,0);       -- Runewick
 crossPosition[3]= position(345,266,0);       -- Galmair
 
 TimeFactor = 1; -- Time between two effect calls in seconds. All effects scale with this number. Attention: If you change this number, also change it in server.standardfighting

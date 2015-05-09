@@ -101,7 +101,7 @@ function M.UseItem(User, SourceItem, ltstate)
             --Noobia end
 
             --Quest 105: NPC Gregor Remethar "A light at the end of the tunnel"
-            if SourceItem.id == 395 and (SourceItem.pos == position (906, 823, -3) or SourceItem.pos == position (906, 825, -3) ) and User:getQuestProgress(105) == 1 then
+            if SourceItem.id == 395 and (SourceItem.pos == position (873, 796, -3) or SourceItem.pos == position (873, 798, -3) ) and User:getQuestProgress(105) == 1 then
                 common.InformNLS(User, "[Queststatus] Du entfachst die Ehrenfeuer von Runewick. Kehre zu Gregor Remethar zurück, um deine Belohnung einzufordern.", "[Quest status] You lit the lights of honour of Runewick. Return to Gregor Remethar to claim your reward.")
                 User:setQuestProgress(105,2)
                 putOn(SourceItem,math.random(20,60),false) --these lights burn quite long
