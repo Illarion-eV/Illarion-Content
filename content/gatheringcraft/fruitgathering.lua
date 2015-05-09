@@ -25,12 +25,12 @@ local function gatherFromHolyVine(user)
     
     if questStatus == 0 or questStatus < world:getTime("day") or world:getTime("unix") - lastSet > 30000 then
     
-        local datas = {nameDe = "Heilige Trauben", nameEn = "Holy Grapes", descriptionDe = "Die Weintrauben geben einen sehr angenehmen süßlichen Géruch von sich.", descriptionEn = "The grapes have a very pleasant, sweet scent."}
+        local datas = {nameDe = "Heilige Trauben", nameEn = "Holy Grapes", descriptionDe = "Die Weintrauben geben einen sehr angenehmen süßlichen Geruch von sich.", descriptionEn = "The grapes have a very pleasant, sweet scent."}
         
         local notCreated = user:createItem(388, 1, 333, datas)
-        if notCreated then
+        if notCreated > 0 then
             world:createItemFromId(388, notCreated, user.pos, true, 333, datas)
-            common.HighInformNLS(User,
+            common.HighInformNLS(user,
             "Du kannst nichts mehr halten und der Rest fällt zu Boden.",
             "You can't carry any more and the rest drops to the ground.")
         end
