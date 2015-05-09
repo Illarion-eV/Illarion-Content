@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (718, 'quest.alwin_sommerkorn_718_runewick');
 
 local common = require("base.common")
-local faction = require("base.factions")
+local factions = require("base.factions")
 local M = {}
 
 local GERMAN = Player.german
@@ -93,7 +93,7 @@ function M.QuestFinalStatus()
 end
 
 function M.QuestAvailability(user, status)
-    if base.factions.isCadomyrCitizen(user) and status == 0 then
+    if factions.isRunewickCitizen(user) and status == 0 then
         return Player.questAvailable
     else
         return Player.questNotAvailable
