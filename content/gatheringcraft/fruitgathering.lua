@@ -36,7 +36,7 @@ local function gatherFromHolyVine(user)
         end
         
         user:inform("Du sammelst ein einzelne Rebe von dem Weinstock.","You collect a single vine from the plant.")
-        user:setQuestProgress(451) = world:getTime("day")
+        user:setQuestProgress(451, world:getTime("day"))
     else
         user:inform("Jedes mal, als du eine Rebe zu greifen versuchts, greifst du daneben. So sehr du dich auch anstrengst, deine Hand geht vorbei.", "Everytime you try to get hold of a vine, you miss. No matter how hard you try, your hand seems always to be to far to the left of to the right of the vine.")
     end
