@@ -133,10 +133,10 @@ queststatus(718) = 2, "quest", "mission" -> inform("[Neues Quest] Entspanntes Fi
 queststatus(718) = 2, "task", "adventure", "order" -> inform("[New quest] Unstressed fishing in Runewick II"), queststatus(718) = 3, "Other than the trouts you can also fish salmon, horse mackerel and rose fish. Bring me ten salmons and five horse mackerels."
 queststatus(718) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Entspanntes Fischen in Runewick II"), queststatus(718) = 3, "Neben Forellen gibt es auch noch Lachse, Stachelmakrelen und Rotbarsche. Fang mir doch zehn Lachse und fünf Stachelmakrelen."
 
-queststatus(718) = 3, item(355, all) < 20, english, "quest", "mission" -> "#me pushes his straw hat out of his face 'I'm awaiting ten salmons and five horse mackerels'."
-queststatus(718) = 3, item(355, all) < 20, "quest", "mission" -> "#me schiebt den Hut aus dem Gesicht 'Ich warte auf die zehn Lachse und die fünf Stachelmakrelen'."
-queststatus(718) = 3, item(355, all) < 20, "task", "adventure", "order" -> "#me pushes his straw hat out of his face 'I'm awaiting ten salmons and five horse mackerels'."
-queststatus(718) = 3, item(355, all) < 20, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me schiebt den Hut aus dem Gesicht 'Ich warte auf die zehn Lachse und die fünf Stachelmakrelen'."
+queststatus(718) = 3, item(355, all) < 15, item(1209, all) <5, english, "quest", "mission" -> "#me pushes his straw hat out of his face 'I'm awaiting ten salmons and five horse mackerels'."
+queststatus(718) = 3, item(355, all) < 15, item(1209, all) <5, "quest", "mission" -> "#me schiebt den Hut aus dem Gesicht 'Ich warte auf die zehn Lachse und die fünf Stachelmakrelen'."
+queststatus(718) = 3, item(355, all) < 15, item(1209, all) <5, "task", "adventure", "order" -> "#me pushes his straw hat out of his face 'I'm awaiting ten salmons and five horse mackerels'."
+queststatus(718) = 3, item(355, all) < 15, item(1209, all) <5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me schiebt den Hut aus dem Gesicht 'Ich warte auf die zehn Lachse und die fünf Stachelmakrelen'."
 
 skill(fishing) < 90, queststatus(718) = 3, item(355, all) > 9, item(1209, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your fishing skill increases."), skill(fishing) + 1, money + 1000, deleteItem(355, 10), deleteItem(1209, 5), queststatus(718) = 4, "Now you can tell the different kinds of fish apart. I have some coins for you."
 queststatus(718) = 3, item(355, all) > 9, item(1209, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins."), money + 1000, deleteItem(355, 10), deleteItem(1209, 5), queststatus(718) = 4, "Now you can tell the different kinds of fish apart. I have some coins for you."
