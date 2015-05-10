@@ -28,7 +28,7 @@ local M = {}
 function M.MoveToField(Character)
 
     -- Cadomyr: 127 647 0
-    -- Runewick: 788 826 0
+    -- Runewick: 931 818 0
     -- Galmair: 424 245 0
 
     -- we define our destination
