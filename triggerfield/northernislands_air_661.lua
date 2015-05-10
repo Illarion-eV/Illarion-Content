@@ -27,12 +27,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local elementDrop = require("content.elementDrop")
 local M = {}
 
-local createNorthItemIDB={372}
-local createNorthGfx={8}
-
 function M.MoveFromField(char)
     -- pure air will be created
-    elementDrop.chanceForElementDrop(char, 2551)
+    elementDrop.chanceForElementDrop(char, {successItemID = 2551, failItemID = 372, failGfxID = 8})
 end
 
 return M

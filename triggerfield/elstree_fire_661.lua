@@ -36,7 +36,7 @@ local M = {}
 
 function M.MoveToField(char)
     -- pure fire will be created
-    elementDrop.chanceForElementDrop(char, 2553)
+    elementDrop.chanceForElementDrop(char, {successItemID = 2553})
 end
 
 return M

@@ -24,12 +24,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local elementDrop = require("content.elementDrop")
 local M = {}
 
-local createNorthItemIDB={360}
-local createNorthGfx={4}
-
 function M.MoveFromField(char)
     -- pure water will be created
-    elementDrop.chanceForElementDrop(char, 2554)
+    elementDrop.chanceForElementDrop(char, {successItemID = 2554, failItemID = 360, failGfxID = 4})
 end
 
 return M

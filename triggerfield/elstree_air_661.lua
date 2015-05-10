@@ -24,7 +24,7 @@ local M = {}
 
 function M.MoveToField(char)
     -- pure air will be created
-    elementDrop.chanceForElementDrop(char, 2551)
+    elementDrop.chanceForElementDrop(char, {successItemID = 2551})
 end
 
 return M

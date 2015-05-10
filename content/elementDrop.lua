@@ -23,26 +23,41 @@ local scheduledFunction = require("scheduled.scheduledFunction")
 
 local M = {}
 
-local function fairyBlinkenlights(centerPos, counter)
+local function _isNumber(value)
+    return type(value) == "number"
+end
+
+local function _isTable(value)
+    return type(value) == "table"
+end
+
+local function fairyBlinkenlights(centerPos, counter, itemID, gfxID)
 
     local amount = math.random(3, 7)
     local radius = 15
 
     -- show a few fairy lights around
     for _ = 1, amount do
-        local posX = centerPos.x + math.random(-radius, radius)
-        local posY = centerPos.y + math.random(-radius, radius)
-        world:gfx(53, position(posX, posY, centerPos.z)) -- light (blue glitter)
+        local dropPos = common.getFreePos(centerPos, radius)
+        world:gfx(gfxID, dropPos)
+    end
+
+    -- create a random item (i.e. flame)
+    if itemID ~= nil then
+        local dropPos = common.getFreePos(centerPos, radius)
+        local item = world:createItemFromId(itemID, 1, dropPos, true, 333, nil)
+        item.wear = 1
+        world:changeItem(item)
     end
 
     -- repeat effect a few times
     counter = counter - 1
     if counter > 0 then
-        scheduledFunction.registerFunction(math.random(2, 5), function() fairyBlinkenlights(centerPos, counter) end)
+        scheduledFunction.registerFunction(math.random(2, 5), function() fairyBlinkenlights(centerPos, counter, itemID, gfxID) end)
     end
 end
 
-local function elementNoDrop(User)
+local function elementNoDrop(User, itemID, gfxID)
     -- player get informed s/he missed chance after a while
     scheduledFunction.registerFunction(math.random(5, 10), function()
         User:inform("Es sieht nicht danach aus als würde eine Fee heute ein Element verlieren.", "It does not look like as any fairy would drop an element today.")
@@ -51,7 +66,7 @@ local function elementNoDrop(User)
     -- register effect
     local centerPos = position(User.pos.x, User.pos.y, User.pos.z) -- deep copy original position
     local counter =  math.random(10, 20)
-    scheduledFunction.registerFunction(math.random(2, 5), function() fairyBlinkenlights(centerPos, counter) end)
+    scheduledFunction.registerFunction(math.random(2, 5), function() fairyBlinkenlights(centerPos, counter, itemID, gfxID) end)
 end
 
 local function getTextForDirection(direction)
@@ -76,14 +91,14 @@ local function getTextForDirection(direction)
     end
 end
 
-local function elementDrop(User, itemID)
+local function elementDrop(User, itemID, gfxID)
     local radius = 10
     local dropPos = common.getFreePos(User.pos, radius)
 
     -- drop item after a while and inform user
     scheduledFunction.registerFunction(math.random(1, 4), function()
         world:createItemFromId(itemID, 1, dropPos, true, 333, nil)
-        world:gfx(46, dropPos) -- light (beam me up)
+        world:gfx(gfxID, dropPos)
 
         local directionTextDe, directionTextEn = getTextForDirection(common.GetDirection(User.pos, dropPos))
         User:inform(
@@ -92,20 +107,81 @@ local function elementDrop(User, itemID)
     end)
 end
 
-function M.chanceForElementDrop(User, itemID)
+function M.chanceForElementDrop(User, params)
+
+    if params ~= nil and not _isTable(params) then
+        error("The function requires parameters as a table.")
+    end
+
     -- chance check if quest cooled down and character is player
     if User:getType() ~= Character.player or User:getQuestProgress(661) ~= 0  then
         return
     end
-
     -- set cooldown
     User:setQuestProgress(661, math.random(60, 100))
 
-    -- 10% chance to receive a nice item
-    if math.random(1, 10) == 1 then
-        elementDrop(User, itemID)
+    -- fill default parameters
+    local probability
+    local successItemID
+    local successGfxID
+    local failItemID
+    local failGfxID
+
+    if params.probability ~= nil then
+        if _isNumber(params.probability) then
+            probability = tonumber(params.probability)
+            if (probability <= 0) or (probability > 1) then
+                error("The probability is set to a illegal value.")
+            end
+        else
+            error("The probability was set to something, but not to a number.")
+        end
     else
-        elementNoDrop(User)
+        probability = 0.1 -- 10%
+    end
+    if params.successItemID ~= nil then
+        if _isNumber(params.successItemID) then
+            successItemID = tonumber(params.successItemID)
+        else
+            error("successItemID was set to something, but not to a number.")
+        end
+    else
+        local elements = {2551, 2552, 2553, 2554, 3607}
+        successItemID = elements[math.random(1, #elements)] -- random pure element
+    end
+    if params.successGfxID ~= nil then
+        if _isNumber(params.successGfxID) then
+            successGfxID = tonumber(params.successGfxID)
+        else
+            error("successGfxID was set to something, but not to a number.")
+        end
+    else
+        successGfxID = 46  -- light (beam me up)
+    end
+    if params.failItemID ~= nil then
+        if _isNumber(params.failItemID) then
+            failItemID = tonumber(params.failItemID)
+        else
+            error("failItemID was set to something, but not to a number.")
+        end
+    else
+       -- nothing
+    end
+    if params.failGfxID ~= nil then
+        if _isNumber(params.failGfxID) then
+            failGfxID = tonumber(params.failGfxID)
+        else
+            error("failGfxID was set to something, but not to a number.")
+        end
+    else
+        failGfxID = 53  -- light (blue glitter)
+    end
+
+    -- chance to receive a nice item
+    if math.random() <= probability then
+        elementDrop(User, successItemID, successGfxID)
+    else
+        elementNoDrop(User, failItemID, failGfxID)
     end
 end
 
