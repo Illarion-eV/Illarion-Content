@@ -138,10 +138,14 @@ queststatus(718) = 3, item(355, all) > 9, item(1209, all) > 4, english, ".+" -> 
 skill(fishing) < 90, queststatus(718) = 3, item(355, all) > 9, item(1209, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Fischereifertigkeit steigt."), skill(fishing) + 1, money + 1000, deleteItem(355, 10), deleteItem(1209, 5), queststatus(718) = 4, "Jetzt kannst du auch die einzelnen Fischarten auseinanderhalten. Ich geb dir ein paar Münzen dafür."
 queststatus(718) = 3, item(355, all) > 9, item(1209, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke."), money + 1000, deleteItem(355, 10), deleteItem(1209, 5), queststatus(718) = 4, "Jetzt kannst du auch die einzelnen Fischarten auseinanderhalten. Ich geb dir ein paar Münzen dafür."
 
-queststatus(718) = 3, item(355, all) < 10, item(1209, all) <5, english, "quest", "mission" -> "#me pushes his straw hat out of his face 'I'm awaiting ten salmons and five horse mackerels'."
-queststatus(718) = 3, item(355, all) < 10, item(1209, all) <5, "quest", "mission" -> "#me schiebt den Hut aus dem Gesicht 'Ich warte auf die zehn Lachse und die fünf Stachelmakrelen'."
-queststatus(718) = 3, item(355, all) < 10, item(1209, all) <5, "task", "adventure", "order" -> "#me pushes his straw hat out of his face 'I'm awaiting ten salmons and five horse mackerels'."
-queststatus(718) = 3, item(355, all) < 10, item(1209, all) <5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me schiebt den Hut aus dem Gesicht 'Ich warte auf die zehn Lachse und die fünf Stachelmakrelen'."
+queststatus(718) = 3, item(355, all) < 10, english, "quest", "mission" -> "#me pushes his straw hat out of his face 'I'm awaiting ten salmons and five horse mackerels'."
+queststatus(718) = 3, item(355, all) < 10, "quest", "mission" -> "#me schiebt den Hut aus dem Gesicht 'Ich warte auf die zehn Lachse und die fünf Stachelmakrelen'."
+queststatus(718) = 3, item(355, all) < 10, "task", "adventure", "order" -> "#me pushes his straw hat out of his face 'I'm awaiting ten salmons and five horse mackerels'."
+queststatus(718) = 3, item(355, all) < 10, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me schiebt den Hut aus dem Gesicht 'Ich warte auf die zehn Lachse und die fünf Stachelmakrelen'."
+queststatus(718) = 3, item(1209, all) <5, english, "quest", "mission" -> "#me pushes his straw hat out of his face 'I'm awaiting ten salmons and five horse mackerels'."
+queststatus(718) = 3, item(1209, all) <5, "quest", "mission" -> "#me schiebt den Hut aus dem Gesicht 'Ich warte auf die zehn Lachse und die fünf Stachelmakrelen'."
+queststatus(718) = 3, item(1209, all) <5, "task", "adventure", "order" -> "#me pushes his straw hat out of his face 'I'm awaiting ten salmons and five horse mackerels'."
+queststatus(718) = 3, item(1209, all) <5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me schiebt den Hut aus dem Gesicht 'Ich warte auf die zehn Lachse und die fünf Stachelmakrelen'."
 
 -- 3rd quest
 queststatus(718) = 4, english, "quest", "mission" -> inform("[New quest] Unstressed fishing in Runewick III"), queststatus(718) = 5, "Go to town and smoke the fish, so they don't get stinky. Bring me five smoked fish."
