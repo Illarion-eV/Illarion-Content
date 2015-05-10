@@ -187,7 +187,7 @@ english, "quest", "mission" -> "You aren't from here, are you? Nadime can't teac
 cycletext "Feuer, Feuer, Flamme!", "Fire, fire, flame!"
 cycletext "Nadime kann dir viel über das Glasblasen lehren.", "Nadime can teach you glass blowing."
 cycletext "Möge das Feuer, das du in deinem Ofen schürst, nie verlöschen!", "May the fire that you poke in your oven never go out!"
-cycletext "#mes Augen scheinen zu glühen.", "#me's eyes seems to glow."
+cycletext "#mes Augen scheinen zu glühen.", "#me's eyes seem to glow."
 cycletext "#me kaut auf einer glühenden Kohle herum.", "#me chews fervently on a piece of coal."
 cycletext "#me hüpft grinsend um den Ofen.", "#me jumps around the oven grinning."
 cycletext "#me formt ein komplexen Kolben aus Glas.", "#me shapes a complex piece of glass."
