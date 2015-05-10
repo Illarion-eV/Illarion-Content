@@ -22,7 +22,7 @@ local ranklist = require("base.ranklist")
 local M = {}
 
 local function isRanklistLocation(pos)
-	return pos == position(138, 551, 0) or pos == position(358, 217, 0) or pos == position(896, 761, 1)
+	return pos == position(138, 551, 0) or pos == position(358, 217, 0) or pos == position(960, 791, 0)
 end
 
 function M.UseItem(user, sourceItem)
