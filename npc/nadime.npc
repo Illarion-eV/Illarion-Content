@@ -142,9 +142,9 @@ queststatus(717) = 3, item(2588, all) < 10, town = Runewick, english, ".+" -> "N
 queststatus(717) = 3, item(2588, all) < 10, town = Runewick, ".+" -> "Nadime brauche noch die Pottasche. Zehn Stäck. Sonst kann Nadime dir nicht mehr beibringen."
 
 -- 3rd quest
-queststatus(717) = 4, town = Runewick, english, "quest", "mission" -> "Taka a glass blow pipe and make ten glass ingots for Nadime. Take the sand and the potash in equal parts. Bring them back to Nadime.", item(311, 1, 777), queststatus(717) = 5
+queststatus(717) = 4, town = Runewick, english, "quest", "mission" -> "Take a glass blow pipe and make ten glass ingots for Nadime. Take the sand and the potash in equal parts. Bring them back to Nadime.", item(311, 1, 777), queststatus(717) = 5
 queststatus(717) = 4, town = Runewick, "quest", "mission" -> "Nimm jetzt das Glasblasrohr und mach Nadime am Schmelzofen zehn Glasblöcke. Nimm dazu den Sand und die Asche zu gleichen Teilen. Bring sie dann zu Nadime zurück.", item(311, 1, 777), queststatus(717) = 5
-queststatus(717) = 4, town = Runewick, "task", "adventure", "order" -> "Taka a glass blow pipe and make ten glass ingots for Nadime. Take the sand and the potash in equal parts. Bring them back to Nadime.", item(311, 1, 777), queststatus(717) = 5
+queststatus(717) = 4, town = Runewick, "task", "adventure", "order" -> "Take a glass blow pipe and make ten glass ingots for Nadime. Take the sand and the potash in equal parts. Bring them back to Nadime.", item(311, 1, 777), queststatus(717) = 5
 queststatus(717) = 4, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nimm jetzt das Glasblasrohr und mach Nadime am Schmelzofen zehn Glasblöcke. Nimm dazu den Sand und die Asche zu gleichen Teilen. Bring sie dann zu Nadime zurück.", item(311, 1, 777), queststatus(717) = 5
 
 skill(glassBlowing) < 90, queststatus(717) = 5, item(41, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your glass blowing skill increases."), skill(glassBlowing) + 1, deleteItem(41, 5), money + 1000, queststatus(717) = 6, "Nadime likes glass melt. The glass ingots are fine. Keep five of them for the next step."
