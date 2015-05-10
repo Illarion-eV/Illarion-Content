@@ -21,7 +21,7 @@ local M = {}
 
 
 licencePosCad={position(105,550,0),position(105,595,0)}; --Cadomyr
-licencePosRun={position(910,800,0),position(790,800,0),position(870,890,0),position(910,800,1),position(910,800,3)}; --Runewick
+licencePosRun={position(932,801,0),position(790,800,0),position(870,890,0),position(932,801,1)}; --Runewick
 licencePosGal={position(360,235,0),position(345,280,0),position(390,330,-6),position(400,220,-6)}; --Galmair 
 
 M.PERMISSION_NONE = 0	-- Permission for static tools is restricted
@@ -44,7 +44,7 @@ function M.licence(char)
 		for i= 1,AmountRun do
 			local licencePos = licencePosRun[i]
 			local licenceDistance = char:distanceMetricToPosition (licencePos)
-			if licenceDistance < 66 then
+			if licenceDistance < 100 then
 				licencerequired = 2
 				licenceQuestID = 812
 				return licenceCheck(char)
