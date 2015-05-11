@@ -65,7 +65,7 @@ itemShoes = 0
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho.", "Greetings."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße.", "Hiho."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho.", "Greeteings."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho.", "Greetings."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüße.", "Hiho."
 
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell."
@@ -80,20 +80,20 @@ english, "Ciao", "Adieu", "Au revoir" -> "Farewell.", "Goodbye."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a fisherman and fish fish, sitting in the sun.", "Fishing is the best job in the world, sitting on the bank and dangle the soul."
-"beruf" -> "Ich bin Fischer und fange Fische und sitze hier beqeum in der Sonne.", "Fischen ist der tollste Job der Welt. Einfach nur am Ufer sitzen und die Seele baumeln lassen."
+"beruf" -> "Ich bin Fischer und fange Fische und sitze hier bequem in der Sonne.", "Fischen ist der tollste Job der Welt. Einfach nur am Ufer sitzen und die Seele baumeln lassen."
 english, "job" -> "I'm a fisherman and fish fish, sitting in the sun.", "Fishing is the best job in the world, sitting on the bank and dangle the soul."
-"job" -> "Ich bin Fischer und fange Fische und sitze hier beqeum in der Sonne.", "Fischen ist der tollste Job der Welt. Einfach nur am Ufer sitzen und die Seele baumeln lassen."
+"job" -> "Ich bin Fischer und fange Fische und sitze hier bequem in der Sonne.", "Fischen ist der tollste Job der Welt. Einfach nur am Ufer sitzen und die Seele baumeln lassen."
 
 
 "archmage" -> "A kind gentleman, always studying, but he always have an open ear for his citizens.", "He is very clever and wise. Once he came to me and we discussed fishing."
 "Erzmagier" -> "Netter Herr, studiert viel, hat aber immer ein offenes Ohr für seine Bürger.", "Er ist sehr weise und klug. Kam einmal sogar zu mir heraus und wir haben uns über Fische unterhalten."
-english, "Elvaine", "Morgan" -> "A kind gentleman, always studying, but he always have an open ear for his citizens.", "He is very clever and wise. Once he came to me and we discussed fiscing."
+english, "Elvaine", "Morgan" -> "A kind gentleman, always studying, but he always have an open ear for his citizens.", "He is very clever and wise. Once he came to me and we discussed fishing."
 "Elvaine", "Morgan" -> "Netter Herr, studiert viel, hat aber immer ein offenes Ohr für seine Bürger.", "Er ist sehr weise und klug. Kam einmal sogar zu mir heraus und wir haben uns über Fische unterhalten."
 english, "Runewick" -> "A nice town. You can live here unhurriedly."
 "Runewick" -> "Eine schöne Stadt. Hier kann man in Ruhe leben."
 
 -- Gods
-"god" -> "Oldra for the fish and Ardon for the rest."
+"god" -> "Oldra for the fish and Adron for the rest."
 "Gott", "Götter" -> "Oldra für die Fische und Adron für den Rest."
 english, "Oldra" -> "Oldra takes care about the fruits of the fields and the richness in fish of the water."
 "Oldra" -> "Oldra sorgt für die Früchte des Feldes und den Fischreichtum des Wassers."
@@ -160,8 +160,8 @@ queststatus(718) = 5, item(455, all) < 5, "Auftrag", "Aufgabe", "Abenteuer", "Be
 
 skill(fishing) < 90, queststatus(718) = 5, item(455, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded five silver coins and your fishing skill increases."), skill(fishing) + 1, money + 500, deleteItem(455, 5), queststatus(718) = 6, "#me smiles broadly 'Keep the smoked fish, I don't like them. Take the coins for your effort.'"
 queststatus(718) = 5, item(455, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded five silver coins."), money + 500, deleteItem(455, 5), queststatus(718) = 6, "#me smiles broadly 'Keep the smoked fish, I don't like them. Take the coins for your effort.'"
-skill(fishing) < 90, queststatus(718) = 5, item(455, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und deine Fischereifertigkeit steigt."), skill(fishing) + 1, money + 500, deleteItem(455, 5), queststatus(718) = 6, "#me grinst breit 'Behalten den geräucherten Fisch, ich mag ihn wiso nicht. Nimm die Münzen für den Aufwand.'"
-queststatus(718) = 5, item(455, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), money + 500, deleteItem(455, 5), queststatus(718) = 6, "#me grinst breit 'Behalten den geräucherten Fisch, ich mag ihn wiso nicht. Nimm die Münzen für den Aufwand.'"
+skill(fishing) < 90, queststatus(718) = 5, item(455, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und deine Fischereifertigkeit steigt."), skill(fishing) + 1, money + 500, deleteItem(455, 5), queststatus(718) = 6, "#me grinst breit 'Behalten den geräucherten Fisch, ich mag ihn sowieso nicht. Nimm die Münzen für den Aufwand.'"
+queststatus(718) = 5, item(455, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), money + 500, deleteItem(455, 5), queststatus(718) = 6, "#me grinst breit 'Behalten den geräucherten Fisch, ich mag ihn sowieso nicht. Nimm die Münzen für den Aufwand.'"
 
 -- 4th quest
 queststatus(718) = 6, english, "quest", "mission" -> inform("[New quest] Unstressed fishing in Runewick IV"), queststatus(718) = 7, "You also have to hold your fishing rod in a good repair. Bring ten spools of thread to me, than I will teach you how to repair your fishing rod."
@@ -186,11 +186,11 @@ queststatus(718) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe n
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 
-cycletext "Der Köder muss dem Fisch schmecken, nicht dem Angler", "The bait has to taste good for the fish, not for the fisherman."
-cycletext "#me betrachtet einen Wurm", "#me looks at a worm"
-cycletext "#me summt ein Liedchen", "#me hums a ditty"
+cycletext "Der Köder muss dem Fisch schmecken, nicht dem Angler.", "The bait has to taste good for the fish, not for the fisherman."
+cycletext "#me betrachtet einen Wurm.", "#me looks at a worm."
+cycletext "#me summt ein Liedchen.", "#me hums a ditty."
 cycletext "Fischlein, Fischlein du musst beißen...", "Fishy, fishy, you shall bite..."
-cycletext "#me schiebt seinen Strohhut ins Gesicht", "#me moves his straw hat into his face."
-cycletext "#me kaut auf einen abgerissenen Strohhalm", "#me chews on a ragged straws"
+cycletext "#me schiebt seinen Strohhut ins Gesicht.", "#me moves his straw hat into his face."
+cycletext "#me kaut auf einen abgerissenen Strohhalm.", "#me chews on a ragged straws."
 cycletext "Angeln ist eine angenehme Aufgabe.", "Fishing is comfortable work."
 cycletext "In der Ruhe liegt die Kraft, mein Freund.", "Strength lies in calmness, buddy."

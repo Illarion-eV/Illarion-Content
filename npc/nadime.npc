@@ -139,7 +139,7 @@ skill(glassBlowing) < 90, queststatus(717) = 3, item(314, all) > 9, ".+" -> info
 queststatus(717) = 3, item(314, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), money + 500, queststatus(717) = 4, "Du hast guten Pottasche für Nadime geholt. Die Asche muss sauber sein. Wir brauchen den Pottasche gleich, also behalte sie erstmal."
 
 queststatus(717) = 3, item(2588, all) < 10, town = Runewick, english, ".+" -> "Nadime needs potash. Ten piles. Otherwise Nadime cannot teach you more."
-queststatus(717) = 3, item(2588, all) < 10, town = Runewick, ".+" -> "Nadime brauche noch die Pottasche. Zehn Stäck. Sonst kann Nadime dir nicht mehr beibringen."
+queststatus(717) = 3, item(2588, all) < 10, town = Runewick, ".+" -> "Nadime brauche noch die Pottasche. Zehn Stück. Sonst kann Nadime dir nicht mehr beibringen."
 
 -- 3rd quest
 queststatus(717) = 4, town = Runewick, english, "quest", "mission" -> "Take a glass blow pipe and make ten glass ingots for Nadime. Use the sand and the potash in equal parts. Bring the ingots back to Nadime.", item(311, 1, 444), queststatus(717) = 5
@@ -167,7 +167,7 @@ skill(glassBlowing) < 90, queststatus(717) = 7, item(790, all) > 4, ".+" -> info
 queststatus(717) = 7, item(790, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke."), money + 1000, queststatus(717) = 8, "Du hast es geschafft. Nadime ist stolz auf dich. Behalte die Flaschen und noch viel Spaß beim Glasbearbeiten."
 
 queststatus(717) = 7, item(790, all) < 5, town = Runewick, english, ".+" -> "Nadime likes molten glass as well, but Nadime still needs five empty juice bottles."
-queststatus(717) = 7, item(790, all) < 5, town = Runewick, ".+" -> "Nadime mag zwar Glasschmelze auch, aber Nadime will immernoch fünf Saftflaschen von dir, um zu sehen ob du was gelernt hast."
+queststatus(717) = 7, item(790, all) < 5, town = Runewick, ".+" -> "Nadime mag zwar Glasschmelze auch, aber Nadime will immer noch fünf Saftflaschen von dir, um zu sehen ob du was gelernt hast."
 
 --
 queststatus(717) = 8, town = Runewick, english, "quest", "mission" -> "You have to practise on your own, if you want to learn more."
@@ -176,9 +176,9 @@ queststatus(717) = 8, town = Runewick, "task", "adventure", "order" -> "You have
 queststatus(717) = 8, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du musst selber üben, wenn du mehr lernen willst."
 
 english, "quest", "mission" -> "You aren't from here, are you? Nadime can't teach you anything."
-"quest", "mission" -> "Du bist noch von hier, oder. Nadime kann dir nichts beibringen."
+"quest", "mission" -> "Du bist nicht von hier, oder. Nadime kann dir nichts beibringen."
 "task", "adventure", "order" -> "You aren't from here, are you? Nadime can't teach you anything."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du bist noch von hier, oder. Nadime kann dir nichts beibringen."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du bist nicht von hier, oder. Nadime kann dir nichts beibringen."
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
