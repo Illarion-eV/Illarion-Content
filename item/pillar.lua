@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local lookat = require("base.lookat")
 local vision = require("content.vision")
+local altars = require("item.altars")
 
 local M = {}
 
@@ -79,6 +80,10 @@ end
 
 function M.LookAtItem(User, Item)
 
+    if Item:getData("elaraStatueRunewick") == "true" then
+        altars.LookAtItem(User, Item)
+    end
+
     -- Endurance Cave Quest
     if Item.pos == position(7, 11, -15) then
         local stage = User:getQuestProgress(204)
@@ -132,6 +137,10 @@ end
 
 
 function M.UseItem(User, SourceItem, ltstate)
+
+    if Item:getData("elaraStatueRunewick") == "true" then
+        altars.UseItem(User, Item)
+    end
 
     vision.UseDarkColumnsPuzzle(User, SourceItem, ltstate)
     vision.UseDarkColumns(User, SourceItem, ltstate)
