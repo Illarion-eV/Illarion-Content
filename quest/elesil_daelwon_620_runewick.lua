@@ -39,7 +39,7 @@ Description[ENGLISH][2] = "You have found Numila. If you like, you can talk with
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-local Start = {839, 816, 0}
+local Start = {894, 817, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
