@@ -16,8 +16,8 @@
 -- NPC Name: Zaida                                                   Runewick --
 -- NPC Job:  Apprentice                                                       --
 --                                                                            --
--- NPC Race: human                      NPC Position:  909, 822, 0            --
--- NPC Sex:  female                     NPC Direction: west                   --
+-- NPC Race: human                      NPC Position:  907, 822, 0            --
+-- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
 -- Authors:  Cromwell                                                         --
 --           Estralis                                                         --
@@ -27,8 +27,8 @@
 name = "Zaida"
 race = human
 sex = female
-position = 909, 822, 0
-direction = west
+position = 907, 822, 0
+direction = east
 affiliation = "Runewick"
 job = "Apprentice"
 

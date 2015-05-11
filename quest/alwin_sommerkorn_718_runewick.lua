@@ -46,7 +46,7 @@ Description[ENGLISH][5] = "Obtain five smoked fish and take them back to Alwin S
 Description[GERMAN][6] = "Geh zu Alwin Sommerkorn, der sich im Eibental aufhält. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][6] = "Go back to Alwin Sommerkorn in Yewdale, he will certainly have another task for you."
 Description[GERMAN][7] = "Besorge zehn Spulen Garn und bringe sie Alwin Sommerkorn. Du kannst Garn beim Händler kaufen oder du kannst sie aus Wolle an einem Spinnrad herstellen."
-Description[ENGLISH][7] = "Obtain ten reels of thread and take them back to Alwin Sommerkorn. You can buy thread from a merchant or produce it with a spinning wheel out of wool."
+Description[ENGLISH][7] = "Obtain ten spools of thread and take them back to Alwin Sommerkorn. You can buy thread from a merchant or produce it with a spinning wheel from wool."
 Description[GERMAN][8] = "Du hast alle Aufgaben von Alwin Sommerkorn erfüllt. "
 Description[ENGLISH][8] = "You have fulfilled all the tasks for Alwin Sommerkorn."
 

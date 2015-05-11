@@ -24,7 +24,7 @@ local M = {}
 
 function M.MoveToField(char)
     -- pure spirit will be created
-    elementDrop.chanceForElementDrop(char, 3607)
+    elementDrop.chanceForElementDrop(char, {successItemID = 3607})
 end
 
 return M

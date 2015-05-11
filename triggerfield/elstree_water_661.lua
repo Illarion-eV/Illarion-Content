@@ -49,7 +49,7 @@ local M = {}
 
 function M.MoveToField(char)
     -- pure water will be created
-    elementDrop.chanceForElementDrop(char, 2554)
+    elementDrop.chanceForElementDrop(char, {successItemID = 2554})
 end
 
 return M

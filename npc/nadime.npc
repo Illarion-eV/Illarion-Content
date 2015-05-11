@@ -70,34 +70,34 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Nadime greets you.", "Greetings, Gr
 
 "Farewell", "Bye", "Fare well", "See you" -> "Revisit Nadime again.", "Bye, Bye."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Besuch Nadime bald wieder.", "Bis bald."
-english, "Ciao", "Adieu", "Au revoir" -> "Revisit Nadime again.", "Bye, Bye."
+english, "Ciao", "Adieu", "Au revoir" -> "Visit Nadime again.", "Bye, Bye."
 "Ciao", "Adieu", "Au revoir" -> "Besuch Nadime bald wieder.", "Bis bald."
 
-"How are you", "How feel", "How do you do" -> "Great, its warm enough here.", "Good, good."
+"How are you", "How feel", "How do you do" -> "Great, it's warm enough here.", "Good, good."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Toll, alles schön warm hier.", "Gut, gut."
 "your name", "who are you", "who art thou" -> "I'm Nadime. Nadime is a glass blower."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Nadime. Nadime ist Glasbläser hier."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "Nadime melts glass. Nadime forms glass to wonderful things."
+"profession" -> "Nadime melts glass. Nadime forms glass into wonderful things."
 "beruf" -> "Nadime schmelzt Glas. Nadime formt schöne Glasdinge."
-english, "job" -> "Nadime melts glass. Nadime forms glass to wonderful things."
+english, "job" -> "Nadime melts glass. Nadime forms glass into wonderful things."
 "job" -> "Nadime schmelzt Glas. Nadime formt schöne Glasdinge."
 
 "sand" -> "Sand ist eine wichtige Grundlage für das Glasblasen.", "Nadime besorgt ihren Sand von den Gruben um Runewick herum."
-english, "sand" -> "Sand is an important base for glass blowing.", "Nadime find her sand around Runewick. "
+english, "sand" -> "Sand is an important base for glass blowing.", "Nadime finds her sand around Runewick. "
 "Asche" -> "Asche ist eine wichtige Grundlage für das Glasblasen, ja ist es.", "Nadime nutzt besondere Asche, Nadime weiß wie sie sie herstellt."
 "ash" -> "Ash is an important base for glass blowing.", "Nadime uses special ash. Nadime knows how to produce it."
 
-english, "Casimir" -> "Casimir is a friend of Nadime and of the archmage.", "Casimir helped Nadime to live here."
+english, "Casimir" -> "Casimir is a friend of Nadime and of the Archmage.", "Casimir helped Nadime to live here."
 "Casimir" -> "Casimir ist ein Freund von Nadime und vom Erzmagier.", "Casimir hat Nadine geholfen hier eine Bleibe zu finden."
 english, "imp" -> "Nadime is a fire imp.", "Most fire imps live isolated in warm volcanoes. They don't like other people there."
 "imp", "kobold" -> "Nadime ist ein Feuerkobold.", "Die meisten Feuerkobolde leben abgeschieden in schön warmen Vulkanen. Dort mögen sie keine Eindringlinge."
 
 -- Gods
-"god" -> "Nadime only knows fire father."
+"god" -> "Nadime only knows Fire Father."
 "Gott", "Götter" -> "Nadime kennt nur Feuervater."
-english, "Bragon", "Brágon" -> "Fire father makes big fires. It is very important for Nadime and the glass blowing."
+english, "Bragon", "Brágon" -> "Fire Father makes big fires. It is very important for Nadime and her glass blowing."
 "Bragon", "Brágon", "Feuervater" -> "Feuervater macht große und heiße Feuer. Sehr wichtig für Nadime und Glasblasen."
 
 -- Quests
@@ -108,65 +108,65 @@ queststatus(717) > 0, queststatus(820) = 23, town = Runewick, "quest", "mission"
 queststatus(717) > 0, queststatus(820) = 23, town = Runewick, "task", "adventure", "order" -> queststatus(820) = 24, "Ah Florain sent you, but you have already asked Nadime for something to do."
 queststatus(717) > 0, queststatus(820) = 23, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 24, "Ah, Florain hat dich geschickt. Aber du hast Nadime bereits nach einer Aufgabe gefragt."
 
-queststatus(717) = 0, queststatus(820) = 23, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> item(312, 1, 555), item(24, 1, 555), queststatus(717) = 1, queststatus(820) = 24, "You want a quest from Nadime? Nadime can teach you something about glass blowing. First we need sand. Go to a sandpit and dig ten loads of sand with a shovel. Then take a wooden shovel and sieve the sand for Nadime."
-queststatus(717) = 0, queststatus(820) = 23, town = Runewick, "quest", "mission", "florain", "dreyndel" -> item(312, 1, 555), item(24, 1, 555), queststatus(717) = 1, queststatus(820) = 24, "Du willst eine Aufgabe von Nadime? Nadime kann dir ein wenig die Kunst des Glasblasens lehren. Zuerst brauchen wir Quarzsand. Geh zu einer Sandgrube und grabe mit der Schaufel nach zehn Ladungen. Nimm dann eine Holzkelle und siebe ihn für Nadime, sieben bis er sauber ist."
-queststatus(717) = 0, queststatus(820) = 23, town = Runewick, "task", "adventure", "order" -> item(312, 1, 555), item(24, 1, 555), queststatus(717) = 1, queststatus(820) = 24, "You want a quest from Nadime? Nadime can teach you something about glass blowing. First we need sand. Go to a sandpit and dig ten loads of sand with a shovel. Then take a wooden shovel and sieve the sand for Nadime."
-queststatus(717) = 0, queststatus(820) = 23, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(312, 1, 555), item(24, 1, 555), queststatus(717) = 1, queststatus(820) = 24, "Du willst eine Aufgabe von Nadime? Nadime kann dir ein wenig die Kunst des Glasblasens lehren. Zuerst brauchen wir Quarzsand. Geh zu einer Sandgrube und grabe mit der Schaufel nach zehn Ladungen. Nimm dann eine Holzkelle und siebe ihn für Nadime, sieben bis er sauber ist."
+queststatus(717) = 0, queststatus(820) = 23, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> item(312, 1, 444), item(24, 1, 444), queststatus(717) = 1, queststatus(820) = 24, "You want a quest from Nadime? Nadime can teach you something about glass blowing. First we need sand. Go to a sandpit and dig ten loads of sand with a shovel. Then take a wooden shovel and sieve the sand for Nadime."
+queststatus(717) = 0, queststatus(820) = 23, town = Runewick, "quest", "mission", "florain", "dreyndel" -> item(312, 1, 444), item(24, 1, 444), queststatus(717) = 1, queststatus(820) = 24, "Du willst eine Aufgabe von Nadime? Nadime kann dir ein wenig die Kunst des Glasblasens lehren. Zuerst brauchen wir Quarzsand. Geh zu einer Sandgrube und grabe mit der Schaufel nach zehn Ladungen. Nimm dann eine Holzkelle und siebe ihn für Nadime, sieben bis er sauber ist."
+queststatus(717) = 0, queststatus(820) = 23, town = Runewick, "task", "adventure", "order" -> item(312, 1, 444), item(24, 1, 444), queststatus(717) = 1, queststatus(820) = 24, "You want a quest from Nadime? Nadime can teach you something about glass blowing. First we need sand. Go to a sandpit and dig ten loads of sand with a shovel. Then take a wooden shovel and sieve the sand for Nadime."
+queststatus(717) = 0, queststatus(820) = 23, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(312, 1, 444), item(24, 1, 444), queststatus(717) = 1, queststatus(820) = 24, "Du willst eine Aufgabe von Nadime? Nadime kann dir ein wenig die Kunst des Glasblasens lehren. Zuerst brauchen wir Quarzsand. Geh zu einer Sandgrube und grabe mit der Schaufel nach zehn Ladungen. Nimm dann eine Holzkelle und siebe ihn für Nadime, sieben bis er sauber ist."
 
 -- 1st quest
-queststatus(717) = 0, town = Runewick, english, "quest", "mission" -> "You want a quest from Nadime? Nadime can teach you something about glass blowing. First we need sand. Go to a sandpit and dig ten loads of sand with a shovel. Then take a wooden shovel and sieve the sand for Nadime.", item(312, 1, 555), item(24, 1, 555), queststatus(717) = 1
-queststatus(717) = 0, town = Runewick, "quest", "mission" -> "Du willst eine Aufgabe von Nadime? Nadime kann dir ein wenig die Kunst des Glasblasens lehren. Zuerst brauchen wir Quarzsand. Geh zu einer Sandgrube und grabe mit der Schaufel nach zehn Ladungen. Nimm dann eine Holzkelle und siebe ihn für Nadime, sieben bis er sauber ist.", item(312, 1, 555), item(24, 1, 555), queststatus(717) = 1
-queststatus(717) = 0, town = Runewick, "task", "adventure", "order" -> "You want a quest from Nadime? Nadime can teach you something about glass blowing. First we need sand. Go to a sandpit and dig ten loads of sand with a shovel. Then take a wooden shovel and sieve the sand for Nadime.", item(312, 1, 555), item(24, 1, 555), queststatus(717) = 1
-queststatus(717) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du willst eine Aufgabe von Nadime? Nadime kann dir ein wenig die Kunst des Glasblasens lehren. Zuerst brauchen wir Quarzsand. Geh zu einer Sandgrube und grabe mit der Schaufel nach zehn Ladungen. Nimm dann eine Holzkelle und siebe ihn für Nadime, bis er sauber ist.", item(312, 1, 555), item(24, 1, 555), queststatus(717) = 1
+queststatus(717) = 0, town = Runewick, english, "quest", "mission" -> "You want a quest from Nadime? Nadime can teach you something about glass blowing. First we need sand. Go to a sandpit and dig ten loads of sand with a shovel. Then take a wooden shovel and sieve the sand for Nadime.", item(312, 1, 444), item(24, 1, 444), queststatus(717) = 1
+queststatus(717) = 0, town = Runewick, "quest", "mission" -> "Du willst eine Aufgabe von Nadime? Nadime kann dir ein wenig die Kunst des Glasblasens lehren. Zuerst brauchen wir Quarzsand. Geh zu einer Sandgrube und grabe mit der Schaufel nach zehn Ladungen. Nimm dann eine Holzkelle und siebe ihn für Nadime, sieben bis er sauber ist.", item(312, 1, 444), item(24, 1, 444), queststatus(717) = 1
+queststatus(717) = 0, town = Runewick, "task", "adventure", "order" -> "You want a quest from Nadime? Nadime can teach you something about glass blowing. First we need sand. Go to a sandpit and dig ten loads of sand with a shovel. Then take a wooden shovel and sieve the sand for Nadime.", item(312, 1, 444), item(24, 1, 444), queststatus(717) = 1
+queststatus(717) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du willst eine Aufgabe von Nadime? Nadime kann dir ein wenig die Kunst des Glasblasens lehren. Zuerst brauchen wir Quarzsand. Geh zu einer Sandgrube und grabe mit der Schaufel nach zehn Ladungen. Nimm dann eine Holzkelle und siebe ihn für Nadime, bis er sauber ist.", item(312, 1, 444), item(24, 1, 444), queststatus(717) = 1
 
-skill(glassBlowing) < 90, queststatus(717) = 1, item(316, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins and your glass blowing skill increases."), skill(glassBlowing) + 1, money + 500, queststatus(717) = 2, "You got enough sand for Nadime. We will need it later so you better keep it."
-queststatus(717) = 1, item(316, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins."), money + 500, queststatus(717) = 2, "You got enough sand for Nadime. We will need it later so you better keep it."
+skill(glassBlowing) < 90, queststatus(717) = 1, item(316, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins and your glass blowing skill increases."), skill(glassBlowing) + 1, money + 500, queststatus(717) = 2, "You have got enough sand for Nadime. We will need it later so you better keep it."
+queststatus(717) = 1, item(316, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins."), money + 500, queststatus(717) = 2, "You have got enough sand for Nadime. We will need it later so you better keep it."
 skill(glassBlowing) < 90, queststatus(717) = 1, item(316, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und deine Glasblasfertigkeit steigt."), skill(glassBlowing) + 1, money + 500, queststatus(717) = 2, "Du hast guten gesiebten Sand für Nadime geholt. Wir brauchen den Sand später, also behalte ihn erstmal."
 queststatus(717) = 1, item(316, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), money + 500, queststatus(717) = 2, "Du hast guten gesiebten Sand für Nadime geholt. Wir brauchen den Sand später, also behalte ihn erstmal."
 
-queststatus(717) = 1, item(316, all) < 10, town = Runewick, english, ".+" -> "We need sand, otherwise Nadime can not teach you more."
+queststatus(717) = 1, item(316, all) < 10, town = Runewick, english, ".+" -> "We need sand, otherwise Nadime cannot teach you more."
 queststatus(717) = 1, item(316, all) < 10, town = Runewick, ".+" -> "Wir brauchen noch Sand, sonst kann Nadime dir nicht mehr beibringen."
 
 -- 2nd quest
-queststatus(717) = 2, town = Runewick, english, "quest", "mission" -> "The second resource we need is ten potashes. Take a hatchet and cut a tree. Then make a camp fire and burn the wood until you have good, clean potash. Bring it to Nadime.", item(74, 1, 555), queststatus(717) = 3
-queststatus(717) = 2, town = Runewick, "quest", "mission" -> "Der zweite Rohstoff den wir brauchen sind zehn Säcke Pottasche. Nimm das Beil und fälle einen Baum. Dann mach ein Lagerfeuer und verbrenne das Holz, bis du schöne, saubere Asche hast. Die bringst du Nadime dann.", item(74, 1, 555), queststatus(717) = 3
-queststatus(717) = 2, town = Runewick, "task", "adventure", "order" -> "The second resource we need is ten potashes. Take a hatchet and cut a tree. Then make a camp fire and burn the wood until you have good, clean potash. Bring it to Nadime.", item(74, 1, 555), queststatus(717) = 3
-queststatus(717) = 2, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der zweite Rohstoff den wir brauchen sind zehn Säcke Pottasche. Nimm das Beil und fälle einen Baum. Dann mach ein Lagerfeuer und verbrenne das Holz, bis du schöne, saubere Asche hast. Die bringst du Nadime dann.", item(74, 1, 555), queststatus(717) = 3
+queststatus(717) = 2, town = Runewick, english, "quest", "mission" -> "The second resource we need is ten piles of potash. Take a hatchet and cut down a tree. Then make a camp fire and burn the wood until you have good, clean potash. Bring it to Nadime.", item(74, 1, 444), queststatus(717) = 3
+queststatus(717) = 2, town = Runewick, "quest", "mission" -> "Der zweite Rohstoff den wir brauchen sind zehn Säcke Pottasche. Nimm das Beil und fälle einen Baum. Dann mach ein Lagerfeuer und verbrenne das Holz, bis du schöne, saubere Asche hast. Die bringst du Nadime dann.", item(74, 1, 444), queststatus(717) = 3
+queststatus(717) = 2, town = Runewick, "task", "adventure", "order" -> "The second resource we need is ten piles of potash. Take a hatchet and cut down a tree. Then make a camp fire and burn the wood until you have good, clean potash. Bring it to Nadime.", item(74, 1, 444), queststatus(717) = 3
+queststatus(717) = 2, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der zweite Rohstoff den wir brauchen sind zehn Säcke Pottasche. Nimm das Beil und fälle einen Baum. Dann mach ein Lagerfeuer und verbrenne das Holz, bis du schöne, saubere Asche hast. Die bringst du Nadime dann.", item(74, 1, 444), queststatus(717) = 3
 
-skill(glassBlowing) < 90, queststatus(717) = 3, item(314, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins and your glass blowing skill increases."), skill(glassBlowing) + 1, money + 500, queststatus(717) = 4, "You have brought good potash to Nadime. The potash needs to be clean. We need the potash in a moment, so keep it."
-queststatus(717) = 3, item(314, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins."), money + 500, queststatus(717) = 4, "You have brought good potash to Nadime. The potash needs to be clean. We need the potash in a moment, so keep it."
+skill(glassBlowing) < 90, queststatus(717) = 3, item(314, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins and your glass blowing skill increases."), skill(glassBlowing) + 1, money + 500, queststatus(717) = 4, "You have brought good potash to Nadime. The potash needs to be clean. We will need the potash in a moment, so keep it."
+queststatus(717) = 3, item(314, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins."), money + 500, queststatus(717) = 4, "You have brought good potash to Nadime. The potash needs to be clean. We will need the potash in a moment, so keep it."
 skill(glassBlowing) < 90, queststatus(717) = 3, item(314, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und deine Glasblasfertigkeit steigt."), skill(glassBlowing) + 1, money + 500, queststatus(717) = 4, "Du hast guten Pottasche für Nadime geholt. Die Asche muss sauber sein. Wir brauchen den Pottasche gleich, also behalte sie erstmal."
 queststatus(717) = 3, item(314, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), money + 500, queststatus(717) = 4, "Du hast guten Pottasche für Nadime geholt. Die Asche muss sauber sein. Wir brauchen den Pottasche gleich, also behalte sie erstmal."
 
-queststatus(717) = 3, item(2588, all) < 10, town = Runewick, english, ".+" -> "Nadime needs potash. Ten of them. Otherwise Nadime can not teach you more."
+queststatus(717) = 3, item(2588, all) < 10, town = Runewick, english, ".+" -> "Nadime needs potash. Ten piles. Otherwise Nadime cannot teach you more."
 queststatus(717) = 3, item(2588, all) < 10, town = Runewick, ".+" -> "Nadime brauche noch die Pottasche. Zehn Stäck. Sonst kann Nadime dir nicht mehr beibringen."
 
 -- 3rd quest
-queststatus(717) = 4, town = Runewick, english, "quest", "mission" -> "Take a glass blow pipe and make ten glass ingots for Nadime. Take the sand and the potash in equal parts. Bring them back to Nadime.", item(311, 1, 777), queststatus(717) = 5
-queststatus(717) = 4, town = Runewick, "quest", "mission" -> "Nimm jetzt das Glasblasrohr und mach Nadime am Schmelzofen zehn Glasblöcke. Nimm dazu den Sand und die Asche zu gleichen Teilen. Bring sie dann zu Nadime zurück.", item(311, 1, 777), queststatus(717) = 5
-queststatus(717) = 4, town = Runewick, "task", "adventure", "order" -> "Take a glass blow pipe and make ten glass ingots for Nadime. Take the sand and the potash in equal parts. Bring them back to Nadime.", item(311, 1, 777), queststatus(717) = 5
-queststatus(717) = 4, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nimm jetzt das Glasblasrohr und mach Nadime am Schmelzofen zehn Glasblöcke. Nimm dazu den Sand und die Asche zu gleichen Teilen. Bring sie dann zu Nadime zurück.", item(311, 1, 777), queststatus(717) = 5
+queststatus(717) = 4, town = Runewick, english, "quest", "mission" -> "Take a glass blow pipe and make ten glass ingots for Nadime. Use the sand and the potash in equal parts. Bring the ingots back to Nadime.", item(311, 1, 444), queststatus(717) = 5
+queststatus(717) = 4, town = Runewick, "quest", "mission" -> "Nimm jetzt das Glasblasrohr und mach Nadime am Schmelzofen zehn Glasblöcke. Nimm dazu den Sand und die Asche zu gleichen Teilen. Bring sie dann zu Nadime zurück.", item(311, 1, 444), queststatus(717) = 5
+queststatus(717) = 4, town = Runewick, "task", "adventure", "order" -> "Take a glass blow pipe and make ten glass ingots for Nadime. Use the sand and the potash in equal parts. Bring the ingots back to Nadime.", item(311, 1, 444), queststatus(717) = 5
+queststatus(717) = 4, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nimm jetzt das Glasblasrohr und mach Nadime am Schmelzofen zehn Glasblöcke. Nimm dazu den Sand und die Asche zu gleichen Teilen. Bring sie dann zu Nadime zurück.", item(311, 1, 444), queststatus(717) = 5
 
-skill(glassBlowing) < 90, queststatus(717) = 5, item(41, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your glass blowing skill increases."), skill(glassBlowing) + 1, deleteItem(41, 5), money + 1000, queststatus(717) = 6, "Nadime likes glass melt. The glass ingots are fine. Keep five of them for the next step."
-queststatus(717) = 5, item(41, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins."), deleteItem(41, 5), money + 1000, queststatus(717) = 6, "Nadime likes glass melt. The glass ingots are fine. Keep five of them for the next step."
+skill(glassBlowing) < 90, queststatus(717) = 5, item(41, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your glass blowing skill increases."), skill(glassBlowing) + 1, deleteItem(41, 5), money + 1000, queststatus(717) = 6, "Nadime likes molten glass. The glass ingots are fine. Keep five of them for the next step."
+queststatus(717) = 5, item(41, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins."), deleteItem(41, 5), money + 1000, queststatus(717) = 6, "Nadime likes molten glass. The glass ingots are fine. Keep five of them for the next step."
 skill(glassBlowing) < 90, queststatus(717) = 5, item(41, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Glasblasfertigkeit steigt."), skill(glassBlowing) + 1, deleteItem(41, 5), money + 1000, queststatus(717) = 6, "Nadime mag Glasschmelze. Sind doch schon ganz gut geworden. Behalte diese fünf Glasbarren für den nächsten Schritt."
 queststatus(717) = 5, item(41, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke."), deleteItem(41, 5), money + 1000, queststatus(717) = 6, "Nadime mag Glasschmelze. Sind doch schon ganz gut geworden. Behalte diese fünf Glasbarren für den nächsten Schritt."
 
-queststatus(717) = 5, item(316, all) < 10, town = Runewick, english, ".+" -> "Working on the oven is so nicely warm. It is not so hard to make ten glass ingots for Nadime."
+queststatus(717) = 5, item(316, all) < 10, town = Runewick, english, ".+" -> "Working at the oven is so nice and warm. It is not so hard to make ten glass ingots for Nadime."
 queststatus(717) = 5, item(316, all) < 10, town = Runewick, ".+" -> "Arbeiten am Ofen ist so schön warm. Ist nicht schwer aus Potasche und Quarzsand zehn Glasblöcke zu schmelzen."
 
 -- 4th quest
-queststatus(717) = 6, town = Runewick, english, "quest", "mission" -> "Now we are making the main work. Take the glass ingots and the glass blow pipe and produce five empty juice bottles at the glass melting oven. It's nicely warm near the oven.", queststatus(717) = 7
+queststatus(717) = 6, town = Runewick, english, "quest", "mission" -> "Now we are making the main product. Take the glass ingots and the glass blow pipe and produce five empty juice bottles at the glass melting oven. It's nicely warm near the oven.", queststatus(717) = 7
 queststatus(717) = 6, town = Runewick, "quest", "mission" -> "Jetzt kommen wir zu der eigentlichen Arbeit. Nimm die Glasblöcke und das Glasblasrohr und stelle am Glasschmelzofen fünf leere Saftflaschen her. Es ist schön warm am Ofen.", queststatus(717) = 7
-queststatus(717) = 6, town = Runewick, "task", "adventure", "order" -> "Now we are making the main work. Take the glass ingots and the glass blow pipe and produce five empty juice bottles at the glass melting oven. It's nicely warm near the oven.", queststatus(717) = 7
+queststatus(717) = 6, town = Runewick, "task", "adventure", "order" -> "Now we are making the main product. Take the glass ingots and the glass blow pipe and produce five empty juice bottles at the glass melting oven. It's nicely warm near the oven.", queststatus(717) = 7
 queststatus(717) = 6, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Jetzt kommen wir zu der eigentlichen Arbeit. Nimm die Glasblöcke und das Glasblasrohr und stelle am Glasschmelzofen fünf leere Saftflaschen her. Es ist schön warm am Ofen.", queststatus(717) = 7
 
-skill(glassBlowing) < 90, queststatus(717) = 7, item(790, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your glass blowing skill increases."), skill(glassBlowing) + 1, money + 1000, queststatus(717) = 8, "You managed it. Nadime is proud of you. Keep the bottles and have many fun with glass blowing."
-queststatus(717) = 7, item(790, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins."), money + 1000, queststatus(717) = 8, "You managed it. Nadime is proud of you. Keep the bottles and have many fun with glass blowing."
+skill(glassBlowing) < 90, queststatus(717) = 7, item(790, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your glass blowing skill increases."), skill(glassBlowing) + 1, money + 1000, queststatus(717) = 8, "You managed it. Nadime is proud of you. Keep the bottles and have much fun with glass blowing."
+queststatus(717) = 7, item(790, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins."), money + 1000, queststatus(717) = 8, "You managed it. Nadime is proud of you. Keep the bottles and have much fun with glass blowing."
 skill(glassBlowing) < 90, queststatus(717) = 7, item(790, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Glasblasfertigkeit steigt."), skill(glassBlowing) + 1, money + 1000, queststatus(717) = 8, "Du hast es geschafft. Nadime ist stolz auf dich. Behalte die Flaschen und noch viel Spaß beim Glasbearbeiten."
 queststatus(717) = 7, item(790, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke."), money + 1000, queststatus(717) = 8, "Du hast es geschafft. Nadime ist stolz auf dich. Behalte die Flaschen und noch viel Spaß beim Glasbearbeiten."
 
-queststatus(717) = 7, item(790, all) < 5, town = Runewick, english, ".+" -> "Nadime likes glass melt too, but Nadime still needs five empty juice bottles."
+queststatus(717) = 7, item(790, all) < 5, town = Runewick, english, ".+" -> "Nadime likes molten glass as well, but Nadime still needs five empty juice bottles."
 queststatus(717) = 7, item(790, all) < 5, town = Runewick, ".+" -> "Nadime mag zwar Glasschmelze auch, aber Nadime will immernoch fünf Saftflaschen von dir, um zu sehen ob du was gelernt hast."
 
 --
@@ -175,9 +175,9 @@ queststatus(717) = 8, town = Runewick, "quest", "mission" -> "Du musst selber üb
 queststatus(717) = 8, town = Runewick, "task", "adventure", "order" -> "You have to practise on your own, if you want to learn more."
 queststatus(717) = 8, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du musst selber üben, wenn du mehr lernen willst."
 
-english, "quest", "mission" -> "You aren't from here, are you? Nadime can't teach you something."
+english, "quest", "mission" -> "You aren't from here, are you? Nadime can't teach you anything."
 "quest", "mission" -> "Du bist noch von hier, oder. Nadime kann dir nichts beibringen."
-"task", "adventure", "order" -> "You aren't from here, are you? Nadime can't teach you something."
+"task", "adventure", "order" -> "You aren't from here, are you? Nadime can't teach you anything."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du bist noch von hier, oder. Nadime kann dir nichts beibringen."
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -185,12 +185,12 @@ english, "quest", "mission" -> "You aren't from here, are you? Nadime can't teac
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "Feuer, Feuer, Flamme!", "Fire, fire, flame!"
-cycletext "Nadime kann dir viel über das Glasblasen lehren.", "Nadime can teach you in glass blowing."
-cycletext "Möge das Feuer, das du in deinem Ofen schürst, nie verlöschen!", "May the fire, that you poke in your oven, never go out!"
-cycletext "#mes Augen scheinen zu glühen ", "#me's eyes seems to glow"
-cycletext "#me kaut auf einer glühenden Kohle herum", "#me chews on a fervent piece of coal"
-cycletext "#me hüpft grinsend um den Ofen", "#me jump around the oven smirking"
-cycletext "#me formt ein komplexen Kolben aus Glas", "#me shapes a complex piece of glass"
-cycletext "#me spuckt etwas Feuer", "#me spits fire"
-cycletext "#me läst ein paar Funken fliegen", "#me lets fly some sparks"
-cycletext "#me trinkt einen Schluck Glasschmelze", "#me drinks a slug of melted glass"
+cycletext "Nadime kann dir viel über das Glasblasen lehren.", "Nadime can teach you glass blowing."
+cycletext "Möge das Feuer, das du in deinem Ofen schürst, nie verlöschen!", "May the fire that you poke in your oven never go out!"
+cycletext "#mes Augen scheinen zu glühen.", "#me's eyes seem to glow."
+cycletext "#me kaut auf einer glühenden Kohle herum.", "#me chews fervently on a piece of coal."
+cycletext "#me hüpft grinsend um den Ofen.", "#me jumps around the oven grinning."
+cycletext "#me formt ein komplexen Kolben aus Glas.", "#me shapes a complex piece of glass."
+cycletext "#me spuckt etwas Feuer.", "#me spits fire."
+cycletext "#me läst ein paar Funken fliegen.", "#me lets some sparks fly."
+cycletext "#me trinkt einen Schluck Glasschmelze.", "#me drinks a slug of melted glass."

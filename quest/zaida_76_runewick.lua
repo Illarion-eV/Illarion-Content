@@ -38,12 +38,12 @@ Description[GERMAN][2] = "Rede mit Zaida, sie kann dir einiges Erzählen."
 Description[ENGLISH][2] = "Talk to Zaida, she can tell you a lot."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-local Start = {909, 822, 0}
+local Start = {907, 822, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(909, 822, 0), position(919, 823, 0), position (920, 821, 0)} -- Händler, Weinfass
-QuestTarget[2] = {position(909, 822, 0)}
+QuestTarget[1] = {position(907, 822, 0), position(919, 823, 0), position (920, 821, 0)} -- Händler, Weinfass
+QuestTarget[2] = {position(907, 822, 0)}
 
 
 -- Insert the quest status which is reached at the end of the quest

@@ -25,12 +25,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local elementDrop = require("content.elementDrop")
 local M = {}
 
-local createNorthItemIDB={359}
-local createNorthGfx={9}
-
 function M.MoveFromField(char)
     -- pure fire will be created
-    elementDrop.chanceForElementDrop(char, 2553)
+    elementDrop.chanceForElementDrop(char, {successItemID = 2553, failItemID = 359, failGfxID = 9})
 end
 
 return M
