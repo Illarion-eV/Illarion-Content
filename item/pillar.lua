@@ -138,7 +138,7 @@ end
 
 function M.UseItem(User, SourceItem, ltstate)
 
-    if Item:getData("elaraStatueRunewick") == "true" then
+    if SourceItem:getData("elaraStatueRunewick") == "true" then
         altars.UseItem(User, SourceItem)
         return
     end
