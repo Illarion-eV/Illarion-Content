@@ -22,7 +22,7 @@ local altars = require("item.altars")
 
 local M = {}
 
--- UPDATE items SET itm_script='item.pillar' WHERE itm_id IN (272, 440, 441, 442, 443, 467, 692, 693, 694, 695, 2805);
+-- UPDATE items SET itm_script='item.pillar' WHERE itm_id IN (272, 440, 441, 442, 443, 464, 467, 692, 693, 694, 695, 2805);
 
 local function RosalineLookAt(User, Item)
     local itemLookat = lookat.GenerateLookAt(User, Item, lookat.NONE)
