@@ -81,7 +81,7 @@ end
 function M.LookAtItem(User, Item)
 
     if Item:getData("elaraStatueRunewick") == "true" then
-        altars.LookAtItem(User, Item)
+        return altars.LookAtItem(User, Item)
     end
 
     -- Endurance Cave Quest
@@ -139,7 +139,8 @@ end
 function M.UseItem(User, SourceItem, ltstate)
 
     if Item:getData("elaraStatueRunewick") == "true" then
-        altars.UseItem(User, Item)
+        altars.UseItem(User, SourceItem)
+        return
     end
 
     vision.UseDarkColumnsPuzzle(User, SourceItem, ltstate)
