@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 -- This handles everything needed to control the quest of feeding the Old Slime in Runewick.
@@ -66,7 +66,7 @@ local slimeDietItems = {
 
 local rewardList = {
 {itemId = 164, amount = 1, quality = 333, data = nil}, --[[empty bottle]]
-{itemId = 59, amount = 1, quality = 333, data = {potionEffectId = 59555555, filledWith = "potion", descriptionDe = "Idiotenheilmitte. Idiot's treatment", descriptionEn = "Idiotenheilmitte. Idiot's treatment"}}, --[[potion, increase int]]
+{itemId = 59, amount = 1, quality = 333, data = {potionEffectId = 59555555, filledWith = "potion", descriptionDe = "Idiotenheilmittel. Idiot's treatment", descriptionEn = "Idiotenheilmittel. Idiot's treatment"}}, --[[potion, increase int]]
 {itemId = 126, amount = 1, quality = 666, data = nil}, --[[sickel]]
 {itemId = 3077, amount = 25, quality = 333, data = nil}, --[[silver coin]]
 {itemId = 1318, amount = 1, quality = 333, data = nil}, --[[bottle of Elven wine]]
@@ -83,14 +83,14 @@ local rewardList = {
 }
 
 function M.setSignText(signSlimeFeeding)
-	
+
 	local day = world:getTime("day")
     local itemId = slimeDietItems[day]["itemId"]
     local amount = slimeDietItems[day]["amount"]
     lookat.SetSpecialName(signSlimeFeeding, "Regeln für das Füttern des alten Schleims", "Rules for feeding the old slime")
     lookat.SetSpecialDescription(signSlimeFeeding,"Heutiges Futter: "..world:getItemName(itemId,Player.german)..", Anzahl: "..amount.." // Beachten: Nur Gegenstandsteleporter nutzen; pro Person nur einmal im Monat füttern (Überfressungsprävention); nur vorgegebenes Futter verwenden (Nährstoffversorgungssicherstellung); niemals sollen zwei Personen gleichzeitig füttern (Unentscheidbarkeitssyndromverhinderung); KEINE FÜTTERUNG IM MAS!",
     "Today's feeding: "..world:getItemName(itemId,Player.english)..", amount: "..amount.." // Keep in mind: Use only the object teleporter; every person may feed the slime only once a month (prevention of overeating); use only the food allowed on the current day (securing of nutrient supply); two people should never ever feed simultaneously (prevention of undecidability syndrome); NO FEEDING DURING MAS!")
-	
+
 end
 
 local function newMonth(user)
@@ -98,11 +98,11 @@ local function newMonth(user)
 	local questStatus = user:getQuestProgress(450)
 	local year = math.floor(questStatus/100)
 	local month = questStatus - (year*100)
-	
+
 	if questStatus == 0 or month < world:getTime("month") or year < world:getTime("year") then
 		return true
 	end
-	return false	
+	return false
 end
 
 local function checkFeeding(user)
@@ -116,11 +116,11 @@ local function checkFeeding(user)
     else
         return false, nil
     end
-    
+
     local day = world:getTime("day")
 	local neededId = slimeDietItems[day]["itemId"]
 	local neededAmount = slimeDietItems[day]["amount"]
-    
+
     if feeding.id == neededId and feeding.number == neededAmount and feedingInProgress == false and newMonth(user) then
         return true, feeding
     else
@@ -132,7 +132,7 @@ end
 -- Called from the reload script (also used by the function useLever)
 function M.resetLever()
     if world:isItemOnField(leverPosition) then
-        lever = world:getItemOnField(leverPosition)
+        local lever = world:getItemOnField(leverPosition)
         lever.id = normalLever
         world:changeItem(lever)
     end
@@ -145,7 +145,7 @@ function M.useLever(user, sourceItem)
         user:inform("Der Hebel scheint blockiert. Du kannst ihn nicht bewegen.", "The lever seems blocked. You cannot move it.")
         return
     end
-    
+
     local feedingAccepted, feedingItem = checkFeeding(user)
     if not feedingAccepted then
         if feedingItem then
@@ -161,7 +161,8 @@ function M.useLever(user, sourceItem)
 		end
         user:setQuestProgress(450, world:getTime("year")*100 + world:getTime("month"))
         feedingInProgress = true
-        local oldSlime = world:createMonster(oldSlimeId, caveEntrance, 0)
+        local oldSlime = world:createMonster(oldSlimeId, position(1,1,0), 0)
+        oldSlime:warp(caveEntrance) -- hack to show model, to work around a client issue
         oldSlime:talk(Character.say, "#me fließt aus der Höhlennische und beginnt sich in Richtung des Futters zu bewegen.",
         "#me flows out from the small hole and starts to move towards the feed.")
         oldSlime.movepoints = oldSlime.movepoints - 50
@@ -170,7 +171,7 @@ function M.useLever(user, sourceItem)
     end
     sourceItem.id = blockedLever
     world:changeItem(sourceItem)
-    
+
     scheduledFunction.registerFunction(2, function() M.resetLever() end)
 end
 
@@ -185,7 +186,7 @@ end
 
 -- Called from triggerfield script (also by useLever function in this script)
 function M.refuseItem(refusedItem)
-    
+
     world:gfx(45,refusedItem.pos)
     world:gfx(46,refuseFeedingField)
     world:createItemFromItem(refusedItem,refuseFeedingField,true)
@@ -214,7 +215,7 @@ function M.oldSlimeAbortRoute(oldSlime)
         oldSlime:increaseAttrib("hitpoints", -10000)
         feedingInProgress = false
     end
-    
+
 end
 
 return M
