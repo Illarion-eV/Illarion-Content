@@ -284,12 +284,12 @@ function IsEffectInLogoutTime( Effect, Character )
     local foundMinutes, minutes = Effect:findValue("logminutes")
     local foundSeconds, seconds = Effect:findValue("logseconds")
     if foundYears and foundMonths and foundDays and foundHours and foundMinutes then
-        curYear = world:getTime("year")
-        curMonth = world:getTime("month")
-        curDay = world:getTime("day")
-        curHour = world:getTime("hour")
-        curMinute = world:getTime("minute")
-        curSecond = world:getTime("second")
+        local curYear = world:getTime("year")
+        local curMonth = world:getTime("month")
+        local curDay = world:getTime("day")
+        local curHour = world:getTime("hour")
+        local curMinute = world:getTime("minute")
+        local curSecond = world:getTime("second")
         if minutes >= 60 then
             minutes = minutes-60
             hours = hours+1

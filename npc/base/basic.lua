@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --- Base NPC script for basic NPCs
 --
@@ -31,7 +31,7 @@ local displayLanguageConfusion
 --- Constructor for the baseNPC. This does not take any paramters.
 --
 -- The sole purpose is to prepare all required values in the NPC script.
-local baseNPC = class(function(self)	
+local baseNPC = class(function(self)
     --- Constant for the state value of the NPC.
     --- If this constant is set the NPC is currently in the normal mode.
     self.stateNormal = 0
@@ -44,69 +44,69 @@ local baseNPC = class(function(self)
     -- The state of the NPC. This value can be used to have the special parts
     -- of the NPC communicating with each other.
     self["state"] = self.stateNormal
-    
+
     -- The cycle functions are called during the next cycle method of this base
     -- NPC struct. Each special NPC class is able to register functions in this
     -- class.
     self["_cycleFunctions"] = nil
-    
+
     -- The receive text functions are called during the receive text method of
-    -- the NPC. Each special NPC class is able to register functions in this 
+    -- the NPC. Each special NPC class is able to register functions in this
     -- class.
     self["_receiveTextFunctions"] = nil
-    
+
     -- The cycle counter counts the calls of the next cycle method in order to
     -- find out when to execute the next time all the next cycle methods. This
     -- is used to reduce the server load caused by this method.
     self["_cycleCounter"] = 0
-    
+
     -- This variable stores then to call the cycle methods the next time in
     -- order to execute all functions of the NPC properly.
     self["_nextCycleCalls"] = 0
-    
+
     -- This variable holds a list that stores the constants of the languages
     -- the NPC is able to use.
     self["_npcLanguages"] = {}
-    
+
     -- This variable holds the amount of languages added to the list of
     -- languages of this NPC.
     self["_npcLanguageCount"] = 0
-    
+
     -- This variable stores the language the NPC is expected to use by default.
     self["_defaultLanguage"] = 0
-    
+
     -- This variable stores the german lookAt message of the NPC.
     self["_lookAtMsgDE"] = ""
-    
+
     -- This variable stores the english lookAt message of the NPC.
     self["_lookAtMsgUS"] = ""
-    
+
     -- This variable stores the german message that is said by the NPC in case
     -- the player performs a use operation on the NPC.
     self["_useMsgDE"] = ""
-    
+
     -- This variable stores the english message that is said by the NPC in case
     -- the player performs a use operation on the NPC.
     self["_useMsgUS"] = ""
-    
+
     -- This variable stores the german message that is shown in case the players
     -- talk to the NPC in a language the NPC does not understand.
     self["_confusedDE"] = ""
-    
+
     -- This variable stores the english message that is shown in case the
     -- players talk to the NPC in a language the NPC does not understand.
     self["_confusedUS"] = ""
-    
+
     -- This variable stores the last Unix timestamp when a confusion message
     -- was displayed. This is needed to avoid spamming with this messages.
     self["_lastConfusionTimestamp"] = 0
-    
+
     -- This list is used to store the equipment that shall be set to the NPC at
     -- the first run. Once the equipment is set, the list is destroyed.
     self["_equipmentList"] = {}
-	
-	-- The town this NPC is affiliated to.
-	self["_affiliation"] = 0
+
+    -- The town this NPC is affiliated to.
+    self["_affiliation"] = 0
 end)
 
 --- This method adds one function to the functions that are called during the
@@ -122,15 +122,15 @@ function baseNPC:addCycle(receiver)
     if (type(receiver) ~= "table") then
         return
     end
-    
+
     if (type(receiver.nextCycle) ~= "function") then
         return
     end
-    
+
     if (self._cycleFunctions == nil) then
         self._cycleFunctions = {}
     end
-    
+
     table.insert(self._cycleFunctions, receiver)
 end
 
@@ -148,15 +148,15 @@ function baseNPC:addRecvText(receiver)
     if (type(receiver) ~= "table") then
         return
     end
-    
+
     if (type(receiver.receiveText) ~= "function") then
         return
     end
-    
+
     if (self._receiveTextFunctions == nil) then
         self._receiveTextFunctions = {}
     end
-    
+
     table.insert(self._receiveTextFunctions, receiver)
 end
 
@@ -170,20 +170,20 @@ function baseNPC:nextCycle(npcChar)
     if (self.initLanguages ~= nil) then
         self:initLanguages(npcChar)
     end
-    
+
     if (self._equipmentList ~= nil) then
         local tempList = self._equipmentList
         self["_equipmentList"] = nil
-        
+
         for _, value in pairs(tempList) do
             npcChar:createAtPos(value[1], value[2], 1)
             local item = npcChar:getItemAt(value[1])
             item.wear = 255
             item.quality = 999
-            world:changeItem(item)            
+            world:changeItem(item)
         end
     end
-    
+
     self.nextCycle = self.nextCycle2
     self.nextCycle2 = nil
 end
@@ -193,22 +193,22 @@ end
 --- copied to baseNPC:nextCycle() once the initialization is done.
 --
 --  @param npcChar the NPC character
-function baseNPC:nextCycle2(npcChar)    
+function baseNPC:nextCycle2(npcChar)
     if (self._cycleFunctions == nil) then
         return
     end
-    
+
     if (self._cycleCounter < self._nextCycleCalls) then
         self._cycleCounter = self._cycleCounter + 1
         return
     end
-    
+
     npcChar.activeLanguage = self._defaultLanguage
-    
+
     local oldCycle = self._cycleCounter
     self._cycleCounter = 0
     self._nextCycleCalls = 2147483648
-    
+
     local nextRequestedCall = 0
     for _, value in pairs(self._cycleFunctions) do
         nextRequestedCall = value:nextCycle(npcChar, oldCycle)
@@ -218,7 +218,7 @@ function baseNPC:nextCycle2(npcChar)
     end
 end
 
---- This method should be called at each call of the receive text method. This 
+--- This method should be called at each call of the receive text method. This
 --- method will maintain all functions registered to this class and call them
 --- properly in case its needed.
 --
@@ -231,13 +231,13 @@ function baseNPC:receiveText(npcChar, texttype, speaker, text)
     if (self._receiveTextFunctions == nil) then
         return false
     end
-    
+
     --No talking if there is a GM "possessing" the NPC - Flux
     local stackedChar = world:getCharacterOnField(npcChar.pos)
     if stackedChar:isAdmin() then
       return false
     end
-    
+
     if not npcChar:isInRange(speaker, 2) then
         return false
     end
@@ -256,13 +256,13 @@ function baseNPC:receiveText(npcChar, texttype, speaker, text)
     end
     npcChar.activeLanguage = speaker.activeLanguage
     text = string.lower(text)
-    
+
     for _, value in pairs(self._receiveTextFunctions) do
         if (value:receiveText(npcChar, texttype, speaker, text)) then
             return true
         end
     end
-    
+
     return false
 end
 
@@ -275,13 +275,13 @@ function baseNPC:checkLanguageOK(speaker)
     if (speaker.activeLanguage == self._defaultLanguage) then
         return true
     end
-    
+
     for i=1, self._npcLanguageCount do
         if (speaker.activeLanguage == self._npcLanguages[i]) then
             return true
         end
     end
-    
+
     return false
 end
 
@@ -353,66 +353,54 @@ function baseNPC:use(npcChar, char)
 
     npcChar.activeLanguage = self._defaultLanguage
     --npcChar:talk(Character.say, self._useMsgDE, self._useMsgUS)
-	
-	local getText = function(deText,enText) return common.GetNLS(char, deText, enText) end
-	 
+
+    local getText = function(deText,enText) return common.GetNLS(char, deText, enText) end
+
     local callback = function(dialog)
-	
         local success = dialog:getSuccess()
-		
         if success then
-		
             local selected = dialog:getSelectedIndex()
-			
-			if selected == 5 then --free input
-			
-			    local callbackInput = function(dialogInput)
-				
-					if not dialogInput:getSuccess() then
-						return;
-					else
-						local text = dialogInput:getInput()
-						char:talk(Character.say, text, text)
-					end
-				end
-				
-				local dialogInput
-				dialogInput = InputDialog(npcChar.name, getText("Über welches Thema möchtest du sprechen?","Select the topic you want to talk about."), false, 250, callbackInput)
-				char:requestInputDialog(dialogInput)
-			
-			else
-			
-				textDE={}
-				textEN={}
-				textDE[0]="Seid gegrüßt."
-				textEN[0]="Be greeted."
-				textDE[1]="Ich benötige Hilfe."
-				textEN[1]="Please help me."			
-				textDE[2]="Habt Ihr eine Aufgabe für mich?"
-				textEN[2]="Do you have a task for me?"
-				textDE[3]="Ich möchte Waren handeln."
-				textEN[3]="I'd like to trade some goods."
-				textDE[4]="Auf wiedersehen."
-				textEN[4]="Farewell."
-				char:talk(Character.say, textDE[selected], textEN[selected])
-				
-			end
+            if selected == 5 then --free input
+                local callbackInput = function(dialogInput)
+                    if not dialogInput:getSuccess() then
+                        return;
+                    else
+                        local text = dialogInput:getInput()
+                        char:talk(Character.say, text, text)
+                    end
+                end
+
+                local dialogInput
+                dialogInput = InputDialog(npcChar.name, getText("Über welches Thema möchtest du sprechen?","Select the topic you want to talk about."), false, 250, callbackInput)
+                char:requestInputDialog(dialogInput)
+            else
+                local textDE={}
+                local textEN={}
+                textDE[0]="Seid gegrüßt."
+                textEN[0]="Be greeted."
+                textDE[1]="Ich benötige Hilfe."
+                textEN[1]="Please help me."
+                textDE[2]="Habt Ihr eine Aufgabe für mich?"
+                textEN[2]="Do you have a task for me?"
+                textDE[3]="Ich möchte Waren handeln."
+                textEN[3]="I'd like to trade some goods."
+                textDE[4]="Auf wiedersehen."
+                textEN[4]="Farewell."
+                char:talk(Character.say, textDE[selected], textEN[selected])
+            end
         end
     end
 
-    local dialog
-
-    dialog = SelectionDialog(npcChar.name, getText("Über welches Thema möchtest du sprechen?","Select the topic you want to talk about."), callback)
+    local dialog = SelectionDialog(npcChar.name, getText("Über welches Thema möchtest du sprechen?","Select the topic you want to talk about."), callback)
     dialog:setCloseOnMove()
     dialog:addOption(0, getText("Begrüßen", "Greetings"))
-	dialog:addOption(0, getText("Hilfe", "Help"))
-	dialog:addOption(0, getText("Quest", "Quest"))
-	dialog:addOption(0, getText("Handel", "Trade"))
-	dialog:addOption(0, getText("Verabschieden", "Farewell"))
-	dialog:addOption(0, getText("(Etwas anderes)", "(Other)"))
-    
+    dialog:addOption(0, getText("Hilfe", "Help"))
+    dialog:addOption(0, getText("Quest", "Quest"))
+    dialog:addOption(0, getText("Handel", "Trade"))
+    dialog:addOption(0, getText("Verabschieden", "Farewell"))
+    dialog:addOption(0, getText("(Etwas anderes)", "(Other)"))
+
     char:requestSelectionDialog(dialog)
-		
 end
 
 --- This equipment sets the equipment an NPC gets at first start. This is needed
@@ -428,7 +416,7 @@ end
 --
 -- @param affiliation the index of the town this NPC is assigned to
 function baseNPC:setAffiliation(affiliation)
-	self["_affiliation"] = affiliation
+    self["_affiliation"] = affiliation
 end
 
 --- This is a cleanup function that should be called once the initialization of

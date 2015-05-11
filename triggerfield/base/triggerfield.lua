@@ -25,7 +25,7 @@ function M.getEvent(messages)
 	local ran = math.random(maxv);
 
 	-- Choose which of the messages from the array to output.
-	for i,v in ipairs(messages) do
+	for _,v in ipairs(messages) do
 		ran = ran - v[2];
 		if ran <= 0 then
 			return v[1];

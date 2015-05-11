@@ -292,6 +292,7 @@ local playerWithWrongWeight={}
 local playerWithRightWeight={}
 local clicksAmountDe={"einmaliges","dreimaliges","zweimaliges"}
 local clicksAmountEn={"a click","three clicks","two clicks"}
+local playerHasCorrectWeight
 
 function RightWeight(char,clicksAmountVar)
     playerWithRightWeight[char.name] = world:getPlayersInRangeOf(position(960,173,-6), 50)
