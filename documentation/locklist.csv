@@ -1,0 +1,131 @@
+"Besides descriptions, there are two data for locks:",,,,
+lockId - that is needed to check whether a key fits to a door lock. Doors with the same lockId can be opened with the same key.,,,,
+doorLock - that can be either locked or unlocked. It handles the state of the door lock and for you it is important that this determines whether a door is locked after a map reload or not.,,,,
+"If you set a lockId but not dooLock, the default behaviour is used (that is, locked).",,,,
+Doors with no locks do not needed either of those two data.,,,,
+,,,,
+Position List,lockId,English Description,German Description,locked on reload [false = open after reload; otherewise closed]
+-- Galmair 1xx,,,,
+"{341, 207, 0}",100,"Golden Dreams, the private chamber of the Don","Goldträume, die Privatkammer des Dons",
+"{352, 213, 0}",101,Treasury,Schatzkammer,
+"{352, 214, 0}",101,Treasury,Schatzkammer,
+"{352, 215, 0}",101,Treasury,Schatzkammer,
+"{417, 249, 0}",102,Galmair Towngate,Galmair Stadttor,FALSE
+"{417, 250, 0}",102,Galmair Towngate,Galmair Stadttor,FALSE
+"{342, 238,-6}",103,Hog Dens-Cameo Pit,Schweinebaue-Gemmenschacht,FALSE
+"{342, 238,-6}",103,Hog Dens-Cameo Pit,Schweinebaue-Gemmenschacht,FALSE
+"{341, 253,-6}",103,Temple of Ronagan-Winged Sow Taverne,Tempel des Ronagan-Taverne zur Geflügelten Sau,FALSE
+"{342, 253,-6}",103,Temple of Ronagan-Winged Sow Taverne,Tempel des Ronagan-Taverne zur Geflügelten Sau,FALSE
+"{366, 302,-6}",103,Winged Sow Taverne,Taverne zur Geflügelten Sau,FALSE
+"{367, 302,-6}",103,Winged Sow Taverne,Taverne zur Geflügelten Sau,FALSE
+"{332, 253,-6}",103,Sewers,AbwasserschÃ¤chte,FALSE
+"{333, 253,-6}",103,Sewers,AbwasserschÃ¤chte,FALSE
+"{327, 251,-6}",103,Flicker Swale,Schimmersenke,FALSE
+"{327, 252,-6}",103,Flicker Swale,Schimmersenke,FALSE
+"{292, 267,-6}",103,Game room,Spielraum,FALSE
+"{293, 267,-6}",103,Game room,Spielraum,FALSE
+"{293, 269,-5}",103,Temple of Nargun,Tempel des Nargun,FALSE
+"{294, 269,-5}",103,Temple of Nargun,Tempel des Nargun,FALSE
+"{335, 238,-6}",103,Arena,Arena,FALSE
+"{334, 238,-6}",103,Arena,Arena,FALSE
+"{367, 255, 0}",104,",Galmair's Crest",Galmairs Krone,FALSE
+"{368, 255, 0}",104,",Galmair's Crest",Galmairs Krone,FALSE
+"{367, 244, 0}",104,",Galmair's Crest",Galmairs Krone,FALSE
+"{368, 244, 0}",104,",Galmair's Crest",Galmairs Krone,FALSE
+"{355, 221, 0}",104,Library,Bibilothek,FALSE
+"{370, 221, 0}",104,Library,Bibilothek,FALSE
+"{370, 232, 0}",104,Exchange + Kitchen,Wechselstube + Küche,FALSE
+"{364, 236, 0}",104,Council Chamber,Konzil Kammer,FALSE
+"{348, 229, 0}",104,Guilianni Residence,Guilianni Residenz,FALSE
+"{308, 238, 1}",104,Temple of Irmorom,Tempel des Irmorom,FALSE
+"{309, 238, 1}",104,Temple of Irmorom,Tempel des Irmorom,FALSE
+"{378, 272, 0}",104,Workshop,Werkstatt,FALSE
+"{383, 284, 0}",104,Workshop,Werkstatt,FALSE
+"{408, 295, 0}",104,Sleepy Bujhaar Inn,Gasthaus zum Schlafenden Bujhaar,FALSE
+"{404, 269, 1}",104,Census office,Zensusbüro,FALSE
+"{401, 263, 0}",104,Herbs room,Kräuterkammer,FALSE
+"{394, 247, 0}",104,Guardroom,Wachstube,FALSE
+"{391, 241, 0}",104,Guardroom,Wachstube,FALSE
+"{387, 246, 0}",104,Debt-collector,Schuldeneintreiber,FALSE
+"{392, 159, 0}",105,Copperhand-Tunnel,Copperhand-Tunnel,FALSE
+"{393, 159, 0}",105,Copperhand-Tunnel,Copperhand-Tunnel,FALSE
+"{373, 323, 0}",110,House of Malachite,Malachite Haus,
+"{301, 280, 0}",111,Villa Goldvein,Villa Goldader,
+"{304, 274, 0}",111,Villa Goldvein,Villa Goldader,
+"{414, 298, 0}",112,Bedroom,Schlafraum,FALSE
+"{412, 293, 1}",113,Lucky Copper,Glückskupfer,
+"{414, 209, 1}",113,Balcony,Balkon,
+"{419, 296, 1}",114,Silver Profit,Silberner Verdienst,
+"{418, 301, 1}",114,Balcony,Balkon,
+"{419, 290, 1}",115,Golden Deal,Goldener Abschluss,
+"{375, 215,-6}",120,Flat Irmorom,Wohnung Irmorom,
+"{384, 220,-6}",121,Flat Elara,Wohnung Elara,
+"{383, 229,-6}",122,Flat Adron,Wohnung Adron,
+"{383, 238,-6}",123,Flat Malachin,Wohnung Malachin,
+"{375, 237,-6}",124,Flat Oldra,Wohnung Oldra,
+"{425, 241,-5}",125,Flat Nargun,Wohnung Nargun,
+"{425, 241,-5}",126,Flat Ronagan,Wohnung Ronagan,
+"{425, 241,-5}",127,Flat Sirani,Wohnung Sirani,
+"{425, 241,-5}",128,Flat Zhambra,Wohnung Zhambra,
+-- Runewick 2xx,,,,
+"{995, 815, 0)",200,Archmage's Villa,Villa des Erzmagiers,FALSE
+"{996, 815, 0)",200,Archmage's Villa,Villa des Erzmagiers,FALSE
+"{1002, 816, 0)",200,Archmage's Bedroom,Schlafzimmer des Erzmagiers,
+"{956, 797, 1)",201,Professor Office 1,Professorenbüro 1,
+"{964, 797, 1)",202,Professor Office 2,Professorenbüro 2,
+"{959, 837, 1)",210,Island of Air Apartment 1,Insel der Luft Appartement 2,
+"{959, 838, 1)",210,Island of Air Apartment 1,Insel der Luft Appartement 1,
+"{957, 834, 1)",211,Island of Air Apartment 2,Insel der Luft Appartement 1,
+"{897, 811, 0)",220,Guard House,Wachhaus,FALSE
+"{898, 811, 0)",220,Guard House,Wachhaus,FALSE
+"{903, 805, 0)",220,Guard House,Wachhaus,FALSE
+"{903, 806, 0)",220,Guard House,Wachhaus,FALSE
+"{906, 802, 0)",220,Prison Cell,Gefängniszelle,FALSE
+"{906, 803, 0)",220,Prison Cell,Gefängniszelle,FALSE
+"{905, 803, 1)",221,Captain of the Town Guard,Hauptmann der Stadtwache,
+"{905, 804, 1)",221,Captain of the Town Guard,Hauptmann der Stadtwache,
+"{902, 761, 1)",230,Island of Earth Apartment 1,Insel der Erde Appartement 1,
+"{903, 764, 1)",231,Island of Earth Apartment 2,Insel der Erde Appartement 2,
+"{891, 756, 1)",232,Professor of Alchemy,Professor der Alchemie,
+"{900, 760, -3)",233,Island of Earth Apartment 3,Insel der Erde Appartement 3,
+"{900, 770, -3)",234,Island of Earth Apartment 4,Insel der Erde Appartement 4,
+"{897, 767, -3)",235,Island of Earth Apartment 5,Insel der Erde Appartement 5,
+"{897, 759, -3)",236,Island of Earth Apartment 6,Insel der Erde Appartement 6,
+"{946, 755, 0}",240,Island of Fire Apartment 1,Insel des Feuers Appartement 1,
+"{951, 755, 0}",241,Island of Fire Apartment 2,Insel des Feuers Appartement 2,
+"{959, 757, 0}",242,Island of Fire Apartment 3,Insel des Feuers Appartement 3,
+"{959, 757, 1}",243,Island of Fire Apartment 4.,Insel des Feuers Appartement 4,
+"{748, 802, 0}",250,Quadruped Red Bird,Vierbeiniger Roter Vogel,
+"{749, 802, 0}",250,Quadruped Red Bird,Vierbeiniger Roter Vogel,
+"{790, 794, 0}",251,Cottage,Landhaus,
+"{789, 794, 0}",251,Cottage,Landhaus,
+-- Cadomyr 3xx,,,,
+"{128, 520, 0},",300,Royal Chamber,Königliche Kammer,
+"{128, 519, 0}",300,Royal Chamber,Königliche Kammer,
+"{ 94, 612, 0}",310,Villa Rosaline,Villa Rosaline,
+"{ 94, 613, 0}",310,Villa Rosaline,Villa Rosaline,
+"{ 90, 605, 0}",311,Villa Edward,Villa Edward,
+"{ 91, 605, 0}",311,Villa Edward,Villa Edward,
+"{ 93, 560, 0}",312,Villa Reginald,Villa Reginald,
+"{141, 626, 0}",320,Flat quarter - Responsibility,Wohnungsquartier - Verantwortung,
+"{138, 604, 0}",321,Flat quarter - Faith & Obedience,Wohnungsquartier - Glaube & Gehorsam,
+"{139, 604, 1}",322,Flat quarter - Honour & Lineage,Wohnungsquartier - Ehre & Abstammung,
+"{137, 610, 0}",323,Flat quarter - Truth & Justice,Wohnungsquartier - Ehrlichkeit & Gerechtigkeit,
+"{138, 610, 1}",324,Flat quarter - Courage,Wohnungsquartier - Courage,
+"{136, 615, 0}",325,Flat quarter - Patriarchy,Wohnungsquartier - Patriarchat,
+"{137, 615, 1}",326,Flat quarter - Property,Wohnungsquartier - Besitz,
+"{144, 627, 1}",327,Flat quarter - Alertness,Wohnungsquartier - Wachsamkeit,
+"{141, 592, 1}",328,lock for gate by training room.,lock for gate by training room.,
+"{140, 592, 1}",328,lock for gate by training room.,lock for gate by training room.,
+--Hemptie Necktie Inn 4xx,,,,
+"{699, 311, 1}",401,Troll's Bane,Troll's Bane,
+"{699, 323, 1}",402,Silberbrand,Silberbrand,
+"{709, 315, 1}",403,Greenbriar,Greenbriar,
+"{709, 319, 1}",404,Varshikar,Varshikar,
+--Dungeons 5xx,,,,
+"{766, 632, 0}",501,Dragon Cave,Drachenhort,
+"{766, 633, 0}",501,Dragon Cave,Drachenhort,
+"{947, 376, 0}",502,Field trip to various graveyards. Will be back when we will be back. - Pauldron house,"Exkursion zu verschiedenen Friedhofen. Sind zurück, wenn wir zurück sind",
+"{954, 386, 0}",502,Field trip to various graveyards. Will be back when we will be back. - Pauldron house,"Exkursion zu verschiedenen Friedhofen. Sind zurück, wenn wir zurück sind",
+-- Gm Castle 6xx,,,,
+"{223, 103, 0}",600,Divine Prison,Göttliches Gefängnis,
