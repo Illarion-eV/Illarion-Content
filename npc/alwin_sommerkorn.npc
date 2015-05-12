@@ -79,23 +79,23 @@ english, "Ciao", "Adieu", "Au revoir" -> "Farewell.", "Goodbye."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Nenn mich Alwin."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I'm a fisherman and fish fish, sitting in the sun.", "Fishing is the best job in the world, sitting on the bank and dangle the soul."
-"beruf" -> "Ich bin Fischer und fange Fische und sitze hier bequem in der Sonne.", "Fischen ist der tollste Job der Welt. Einfach nur am Ufer sitzen und die Seele baumeln lassen."
-english, "job" -> "I'm a fisherman and fish fish, sitting in the sun.", "Fishing is the best job in the world, sitting on the bank and dangle the soul."
-"job" -> "Ich bin Fischer und fange Fische und sitze hier bequem in der Sonne.", "Fischen ist der tollste Job der Welt. Einfach nur am Ufer sitzen und die Seele baumeln lassen."
+"profession" -> "I'm a fisherman and fish fish, sitting in the sun.", "Fishing is the best job in the world, sitting on the bank and dangling the soul."
+"beruf" -> "Ich bin Fischer und fange Fische und sitze hier beqeum in der Sonne.", "Fischen ist der tollste Job der Welt. Einfach nur am Ufer sitzen und die Seele baumeln lassen."
+english, "job" -> "I'm a fisherman and fish fish, sitting in the sun.", "Fishing is the best job in the world, sitting on the bank and dangling the soul."
+"job" -> "Ich bin Fischer und fange Fische und sitze hier beqeum in der Sonne.", "Fischen ist der tollste Job der Welt. Einfach nur am Ufer sitzen und die Seele baumeln lassen."
 
 
-"archmage" -> "A kind gentleman, always studying, but he always have an open ear for his citizens.", "He is very clever and wise. Once he came to me and we discussed fishing."
+"archmage" -> "A kind gentleman, always studying, but he always has an open ear for his citizens.", "He is very clever and wise. Once he came to me and we discussed fishing."
 "Erzmagier" -> "Netter Herr, studiert viel, hat aber immer ein offenes Ohr für seine Bürger.", "Er ist sehr weise und klug. Kam einmal sogar zu mir heraus und wir haben uns über Fische unterhalten."
-english, "Elvaine", "Morgan" -> "A kind gentleman, always studying, but he always have an open ear for his citizens.", "He is very clever and wise. Once he came to me and we discussed fishing."
+english, "Elvaine", "Morgan" -> "A kind gentleman, always studying, but he always has an open ear for his citizens.", "He is very clever and wise. Once he came to me and we discussed fiscing."
 "Elvaine", "Morgan" -> "Netter Herr, studiert viel, hat aber immer ein offenes Ohr für seine Bürger.", "Er ist sehr weise und klug. Kam einmal sogar zu mir heraus und wir haben uns über Fische unterhalten."
-english, "Runewick" -> "A nice town. You can live here unhurriedly."
+english, "Runewick" -> "A nice town. You can live here in peace."
 "Runewick" -> "Eine schöne Stadt. Hier kann man in Ruhe leben."
 
 -- Gods
 "god" -> "Oldra for the fish and Adron for the rest."
 "Gott", "Götter" -> "Oldra für die Fische und Adron für den Rest."
-english, "Oldra" -> "Oldra takes care about the fruits of the fields and the richness in fish of the water."
+english, "Oldra" -> "Oldra takes care of the fruits of the fields and the richness in fish of the water."
 "Oldra" -> "Oldra sorgt für die Früchte des Feldes und den Fischreichtum des Wassers."
 english, "Adron" -> "What is better than drinking beer and smoking a pipe in the evening after a day full of work?"
 "Adron" -> "Es gibt kaum etwas schöneres als Abends bei einem Bier und einem Pfeifchen den Tag ausklingen zu lassen."
@@ -107,30 +107,30 @@ queststatus(718) > 0, queststatus(820) = 25, town = Runewick, "task", "adventure
 queststatus(718) > 0, queststatus(820) = 25, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 26, "Der Florain schickt dich? Du hast aber schon nach einer Aufgabe gefragt."
 
 -- 1st quest
-queststatus(718) = 0, queststatus(820) = 25, english, town = Runewick, "quest", "mission", "Florain", "dreyndel" -> inform("[New quest] Unstressed fishing in Runewick I"), item(72, 1, 444, "descriptionEn" = "Alwin's old fishing rod.", "descriptionDe" = "Alwins alte Angel."), queststatus(718) = 1, queststatus(820) = 26, "You want to learn how to fish, do you? Try to fish ten trouts. I give you my old fishing rod for that."
+queststatus(718) = 0, queststatus(820) = 25, english, town = Runewick, "quest", "mission", "Florain", "dreyndel" -> inform("[New quest] Relaxed fishing in Runewick I"), item(72, 1, 444, "descriptionEn" = "Alwin's old fishing rod.", "descriptionDe" = "Alwins alte Angel."), queststatus(718) = 1, queststatus(820) = 26, "You want to learn how to fish, do you? Try to fish for ten trout. I give you my old fishing rod for that."
 queststatus(718) = 0, queststatus(820) = 25, town = Runewick, "quest", "mission", "Florain", "dreyndel" -> inform("[Neues Quest] Entspanntes Fischen in Runewick I"), item(72, 1, 444, "descriptionEn" = "Alwin's old fishing rod.", "descriptionDe" = "Alwins alte Angel."), queststatus(718) = 1, queststatus(820) = 26, "Du willst das Angeln lernen, nich wahr? Probier mal zehn Forellen zu fangen. Hier nimm meine alte Angel dafür."
-queststatus(718) = 0, queststatus(820) = 25, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Unstressed fishing in Runewick I"), item(72, 1, 444, "descriptionEn" = "Alwin's old fishing rod.", "descriptionDe" = "Alwins alte Angel."), queststatus(718) = 1, queststatus(820) = 26, "You want to learn how to fish, do you? Try to fish ten trouts. I give you my old fishing rod for that."
+queststatus(718) = 0, queststatus(820) = 25, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Relaxed fishing in Runewick I"), item(72, 1, 444, "descriptionEn" = "Alwin's old fishing rod.", "descriptionDe" = "Alwins alte Angel."), queststatus(718) = 1, queststatus(820) = 26, "You want to learn how to fish, do you? Try to fish for ten trout. I give you my old fishing rod for that."
 queststatus(718) = 0, queststatus(820) = 25, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Entspanntes Fischen in Runewick I"), item(72, 1, 444, "descriptionEn" = "Alwin's old fishing rod.", "descriptionDe" = "Alwins alte Angel."), queststatus(718) = 1, queststatus(820) = 26, "Du willst das Angeln lernen, nich wahr? Probier mal zehn Forellen zu fangen. Hier nimm meine alte Angel dafür."
 -- 1st quest
-queststatus(718) = 0, english, town = Runewick, "quest", "mission", "Florain", "dreyndel" -> inform("[New quest] Unstressed fishing in Runewick I"), item(72, 1, 444, "descriptionEn" = "Alwin's old fishing rod.", "descriptionDe" = "Alwins alte Angel."), queststatus(718) = 1, queststatus(820) = 26, "You want to learn how to fish, do you? Try to fish ten trouts. I give you my old fishing rod for that."
+queststatus(718) = 0, english, town = Runewick, "quest", "mission", "Florain", "dreyndel" -> inform("[New quest] Relaxed fishing in Runewick I"), item(72, 1, 444, "descriptionEn" = "Alwin's old fishing rod.", "descriptionDe" = "Alwins alte Angel."), queststatus(718) = 1, queststatus(820) = 26, "You want to learn how to fish, do you? Try to fish for ten trout. I give you my old fishing rod for that."
 queststatus(718) = 0, town = Runewick, "quest", "mission", "Florain", "dreyndel" -> inform("[Neues Quest] Entspanntes Fischen in Runewick I"), item(72, 1, 444, "descriptionEn" = "Alwin's old fishing rod.", "descriptionDe" = "Alwins alte Angel."), queststatus(718) = 1, queststatus(820) = 26, "Du willst das Angeln lernen, nich wahr? Probier mal zehn Forellen zu fangen. Hier nimm meine alte Angel dafür."
-queststatus(718) = 0, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Unstressed fishing in Runewick I"), item(72, 1, 444, "descriptionEn" = "Alwin's old fishing rod.", "descriptionDe" = "Alwins alte Angel."), queststatus(718) = 1, queststatus(820) = 26, "You want to learn how to fish, do you? Try to fish ten trouts. I give you my old fishing rod for that."
+queststatus(718) = 0, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Relaxed fishing in Runewick I"), item(72, 1, 444, "descriptionEn" = "Alwin's old fishing rod.", "descriptionDe" = "Alwins alte Angel."), queststatus(718) = 1, queststatus(820) = 26, "You want to learn how to fish, do you? Try to fish for ten trout. I give you my old fishing rod for that."
 queststatus(718) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Entspanntes Fischen in Runewick I"), item(72, 1, 444, "descriptionEn" = "Alwin's old fishing rod.", "descriptionDe" = "Alwins alte Angel."), queststatus(718) = 1, queststatus(820) = 26, "Du willst das Angeln lernen, nich wahr? Probier mal zehn Forellen zu fangen. Hier nimm meine alte Angel dafür."
 
-queststatus(718) = 1, item(73, all) < 10, english, "quest", "mission" -> ".", "Try the places where you can see the fish. There you don't need a long time to fish ten trouts."
+queststatus(718) = 1, item(73, all) < 10, english, "quest", "mission" -> ".", "Try the places where you can see the fish. There you don't need a long time to fish for ten trout."
 queststatus(718) = 1, item(73, all) < 10, "quest", "mission" -> "Probier die Stellen wo die Fische aus dem Wasser springen, da sind zehn Forellen schnell gefangen."
-queststatus(718) = 1, item(73, all) < 10, "task", "adventure", "order" -> ".", "Try the places where you can see the fish. There you don't need a long time to fish ten trouts."
+queststatus(718) = 1, item(73, all) < 10, "task", "adventure", "order" -> ".", "Try the places where you can see the fish. There you don't need a long time to fish for ten trout."
 queststatus(718) = 1, item(73, all) < 10, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Probier die Stellen wo die Fische aus dem Wasser springen, da sind zehn Forellen schnell gefangen."
 
-skill(fishing) < 90, queststatus(718) = 1, item(73, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins and your fishing skill increases."), skill(fishing) + 1, money + 500, deleteItem(73, 10), queststatus(718) = 2, "Yep, those are trouts. Not bad for the beginning. Take these coins for them. Do you want another task?"
-queststatus(718) = 1, item(73, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins."), money + 500, deleteItem(73, 10), queststatus(718) = 2, "Yep, those are trouts. Not bad for the beginning. Take these coins for them. Do you want another task?"
+skill(fishing) < 90, queststatus(718) = 1, item(73, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins and your fishing skill increases."), skill(fishing) + 1, money + 500, deleteItem(73, 10), queststatus(718) = 2, "Yep, those are trout. Not bad for starters. Take these coins for them. Do you want another task?"
+queststatus(718) = 1, item(73, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins."), money + 500, deleteItem(73, 10), queststatus(718) = 2, "Yep, those are trout. Not bad for starters. Take these coins for them. Do you want another task?"
 skill(fishing) < 90, queststatus(718) = 1, item(73, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und deine Fischereifertigkeit steigt."), skill(fishing) + 1, money + 500, deleteItem(73, 10), queststatus(718) = 2, "Yep, das sind Forellen. Für den Anfang nicht schlecht, nimm die Münzen dafür. Willst du noch eine Aufgabe?"
 queststatus(718) = 1, item(73, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), money + 500, deleteItem(73, 10), queststatus(718) = 2, "Yep, das sind Forellen. Für den Anfang nicht schlecht, nimm die Münzen dafür. Willst du noch eine Aufgabe?"
 
 -- 2nd quest
-queststatus(718) = 2, english, "quest", "mission" -> inform("[New quest] Unstressed fishing in Runewick II"), queststatus(718) = 3, "Other than the trouts you can also fish salmon, horse mackerel and rose fish. Bring me ten salmons and five horse mackerels."
+queststatus(718) = 2, english, "quest", "mission" -> inform("[New quest] Relaxed fishing in Runewick II"), queststatus(718) = 3, "Other than the trout, you can also fish for salmon, horse mackerel and rose fish. Bring me ten salmon and five horse mackerels."
 queststatus(718) = 2, "quest", "mission" -> inform("[Neues Quest] Entspanntes Fischen in Runewick II"), queststatus(718) = 3, "Neben Forellen gibt es auch noch Lachse, Stachelmakrelen und Rotbarsche. Fang mir doch zehn Lachse und fünf Stachelmakrelen."
-queststatus(718) = 2, "task", "adventure", "order" -> inform("[New quest] Unstressed fishing in Runewick II"), queststatus(718) = 3, "Other than the trouts you can also fish salmon, horse mackerel and rose fish. Bring me ten salmons and five horse mackerels."
+queststatus(718) = 2, "task", "adventure", "order" -> inform("[New quest] Relaxed fishing in Runewick II"), queststatus(718) = 3, "Other than the trout, you can also fish for salmon, horse mackerel and rose fish. Bring me ten salmon and five horse mackerels."
 queststatus(718) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Entspanntes Fischen in Runewick II"), queststatus(718) = 3, "Neben Forellen gibt es auch noch Lachse, Stachelmakrelen und Rotbarsche. Fang mir doch zehn Lachse und fünf Stachelmakrelen."
 
 skill(fishing) < 90, queststatus(718) = 3, item(355, all) > 9, item(1209, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your fishing skill increases."), skill(fishing) + 1, money + 1000, deleteItem(355, 10), deleteItem(1209, 5), queststatus(718) = 4, "Now you can tell the different kinds of fish apart. I have some coins for you."
@@ -138,24 +138,24 @@ queststatus(718) = 3, item(355, all) > 9, item(1209, all) > 4, english, ".+" -> 
 skill(fishing) < 90, queststatus(718) = 3, item(355, all) > 9, item(1209, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Fischereifertigkeit steigt."), skill(fishing) + 1, money + 1000, deleteItem(355, 10), deleteItem(1209, 5), queststatus(718) = 4, "Jetzt kannst du auch die einzelnen Fischarten auseinanderhalten. Ich geb dir ein paar Münzen dafür."
 queststatus(718) = 3, item(355, all) > 9, item(1209, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke."), money + 1000, deleteItem(355, 10), deleteItem(1209, 5), queststatus(718) = 4, "Jetzt kannst du auch die einzelnen Fischarten auseinanderhalten. Ich geb dir ein paar Münzen dafür."
 
-queststatus(718) = 3, item(355, all) < 10, english, "quest", "mission" -> "#me pushes his straw hat out of his face 'I'm awaiting ten salmons and five horse mackerels'."
+queststatus(718) = 3, item(355, all) < 10, english, "quest", "mission" -> "#me pushes his straw hat out of his face, 'I'm awaiting ten salmon and five horse mackerels'."
 queststatus(718) = 3, item(355, all) < 10, "quest", "mission" -> "#me schiebt den Hut aus dem Gesicht 'Ich warte auf die zehn Lachse und die fünf Stachelmakrelen'."
-queststatus(718) = 3, item(355, all) < 10, "task", "adventure", "order" -> "#me pushes his straw hat out of his face 'I'm awaiting ten salmons and five horse mackerels'."
+queststatus(718) = 3, item(355, all) < 10, "task", "adventure", "order" -> "#me pushes his straw hat out of his face, 'I'm awaiting ten salmon and five horse mackerels'."
 queststatus(718) = 3, item(355, all) < 10, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me schiebt den Hut aus dem Gesicht 'Ich warte auf die zehn Lachse und die fünf Stachelmakrelen'."
-queststatus(718) = 3, item(1209, all) <5, english, "quest", "mission" -> "#me pushes his straw hat out of his face 'I'm awaiting ten salmons and five horse mackerels'."
+queststatus(718) = 3, item(1209, all) <5, english, "quest", "mission" -> "#me pushes his straw hat out of his face, 'I'm awaiting ten salmon and five horse mackerels'."
 queststatus(718) = 3, item(1209, all) <5, "quest", "mission" -> "#me schiebt den Hut aus dem Gesicht 'Ich warte auf die zehn Lachse und die fünf Stachelmakrelen'."
-queststatus(718) = 3, item(1209, all) <5, "task", "adventure", "order" -> "#me pushes his straw hat out of his face 'I'm awaiting ten salmons and five horse mackerels'."
+queststatus(718) = 3, item(1209, all) <5, "task", "adventure", "order" -> "#me pushes his straw hat out of his face, 'I'm awaiting ten salmon and five horse mackerels'."
 queststatus(718) = 3, item(1209, all) <5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me schiebt den Hut aus dem Gesicht 'Ich warte auf die zehn Lachse und die fünf Stachelmakrelen'."
 
 -- 3rd quest
-queststatus(718) = 4, english, "quest", "mission" -> inform("[New quest] Unstressed fishing in Runewick III"), queststatus(718) = 5, "Go to town and smoke the fish, so they don't get stinky. Bring me five smoked fish."
+queststatus(718) = 4, english, "quest", "mission" -> inform("[New quest] Relaxed fishing in Runewick III"), queststatus(718) = 5, "Go to town and smoke the fish, so they don't get stinky. Bring me five smoked fish."
 queststatus(718) = 4, "quest", "mission" -> inform("[Neues Quest] Entspanntes Fischen in Runewick III"), queststatus(718) = 5, "Frischer Fisch hält sich nich lang. Gehe in die Stadt und räucher ihn. Bringe mir dann fünf geräucherte Fische."
-queststatus(718) = 4, "task", "adventure", "order" -> inform("[New quest] Unstressed fishing in Runewick III"), queststatus(718) = 5, "Go to town and smoke the fish, so they don't get stinky. Bring me five smoked fish."
+queststatus(718) = 4, "task", "adventure", "order" -> inform("[New quest] Relaxed fishing in Runewick III"), queststatus(718) = 5, "Go to town and smoke the fish, so they don't get stinky. Bring me five smoked fish."
 queststatus(718) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Entspanntes Fischen in Runewick III"), queststatus(718) = 5, "Frischer Fisch hält sich nich lang. Gehe in die Stadt und räucher ihn. Bringe mir dann fünf geräucherte Fische."
 
-queststatus(718) = 5, item(455, all) < 5, english, "quest", "mission" -> "The simplest way is to use the smoke oven in town to make five smoked fish for me."
+queststatus(718) = 5, item(455, all) < 5, english, "quest", "mission" -> "The simplest way is to use the smoke oven in town to smoke five fish for me."
 queststatus(718) = 5, item(455, all) < 5, "quest", "mission" -> "Am einfachsten nutzt du die Räucherhütte in der Stadt um mir fünf Fische zu räuchern."
-queststatus(718) = 5, item(455, all) < 5, "task", "adventure", "order" -> "The simplest way is to use the smoke oven in town to make five smoked fish for me."
+queststatus(718) = 5, item(455, all) < 5, "task", "adventure", "order" -> "The simplest way is to use the smoke oven in town to smoke five fish for me."
 queststatus(718) = 5, item(455, all) < 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "job" -> "Am einfachsten nutzt du die Räucherhütte in der Stadt um mir fünf Fische zu räuchern."
 
 skill(fishing) < 90, queststatus(718) = 5, item(455, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded five silver coins and your fishing skill increases."), skill(fishing) + 1, money + 500, deleteItem(455, 5), queststatus(718) = 6, "#me smiles broadly 'Keep the smoked fish, I don't like them. Take the coins for your effort.'"
@@ -164,18 +164,18 @@ skill(fishing) < 90, queststatus(718) = 5, item(455, all) > 4, ".+" -> inform("[
 queststatus(718) = 5, item(455, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), money + 500, deleteItem(455, 5), queststatus(718) = 6, "#me grinst breit 'Behalten den geräucherten Fisch, ich mag ihn sowieso nicht. Nimm die Münzen für den Aufwand.'"
 
 -- 4th quest
-queststatus(718) = 6, english, "quest", "mission" -> inform("[New quest] Unstressed fishing in Runewick IV"), queststatus(718) = 7, "You also have to hold your fishing rod in a good repair. Bring ten spools of thread to me, than I will teach you how to repair your fishing rod."
+queststatus(718) = 6, english, "quest", "mission" -> inform("[New quest] Relaxed fishing in Runewick IV"), queststatus(718) = 7, "You also have to keep your fishing rod in a good repair. Bring ten spools of thread to me, then I will teach you how to repair your fishing rod."
 queststatus(718) = 6, "quest", "mission" -> inform("[Neues Quest] Entspanntes Fischen in Runewick IV"), queststatus(718) = 7, "Zum Fischen gehört auch seine Angel in Schuss zu halten. Bringe mir zehn Spulen Garn, dann zeig ich dir, wie man seine Angelschnur repariert."
-queststatus(718) = 6, "task", "adventure", "order" -> inform("[New quest] Unstressed fishing in Runewick IV"), queststatus(718) = 7, "You als have to hold your fishing rod in a good repair. Bring ten spools of thread to me, than I will teach you how to repair your fishing rod."
+queststatus(718) = 6, "task", "adventure", "order" -> inform("[New quest] Relaxed fishing in Runewick IV"), queststatus(718) = 7, "You also have to keep your fishing rod in a good repair. Bring ten spools of thread to me, then I will teach you how to repair your fishing rod."
 queststatus(718) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Entspanntes Fischen in Runewick IV"), queststatus(718) = 7, "Zum Fischen gehört auch seine Angel in Schuss zu halten. Bringe mir zehn Spulen Garn, dann zeig ich dir, wie man seine Angelschnur repariert."
 
-queststatus(718) = 7, item(50, all) < 10, english, "quest", "mission" -> "Do you know how many fish you can fish with a riven fishing line? Nary! Bring ten spools of thread to me."
+queststatus(718) = 7, item(50, all) < 10, english, "quest", "mission" -> "Do you know how many fish you can fish with a broken fishing line? None! Bring ten spools of thread to me."
 queststatus(718) = 7, item(50, all) < 10, "quest", "mission" -> "Weißt du was man mit einer kaputten Angel Fischen kann? Genau, Nichts! Also bringe mir zehn Spulen Garn."
-queststatus(718) = 7, item(50, all) < 10, "task", "adventure", "order" -> ".", "Do you know how many fish you can fish with a riven fishing line? Nary! Bring ten spools of thread to me."
+queststatus(718) = 7, item(50, all) < 10, "task", "adventure", "order" -> ".", "Do you know how many fish you can fish with a broken fishing line? None! Bring ten spools of thread to me."
 queststatus(718) = 7, item(50, all) < 10, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Weißt du was man mit einer kaputten Angel Fischen kann? Genau, Nichts! Also bringe mir zehn Spulen Garn."
 
-skill(fishing) < 90, queststatus(718) = 7, item(50, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 20 silver coins and your fishing skill increases."), skill(fishing) + 1, money + 2000, deleteItem(50, 10), queststatus(718) = 8, "#me takes the thread and fixes it skilfully to the fishing rod"
-queststatus(718) = 7, item(50, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, deleteItem(50, 10), queststatus(718) = 8, "#me takes the thread and fixes it skilfully to the fishing rod"
+skill(fishing) < 90, queststatus(718) = 7, item(50, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 20 silver coins and your fishing skill increases."), skill(fishing) + 1, money + 2000, deleteItem(50, 10), queststatus(718) = 8, "#me takes the thread and fixes it skilfully to the fishing rod."
+queststatus(718) = 7, item(50, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, deleteItem(50, 10), queststatus(718) = 8, "#me takes the thread and fixes it skilfully to the fishing rod."
 skill(fishing) < 90, queststatus(718) = 7, item(50, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke und deine Fischereifertigkeit steigt."), skill(fishing) + 1, money + 2000, deleteItem(50, 10), queststatus(718) = 8, "#me nimmt das Garn und befestigt es gekonnt an einer Angel"
 queststatus(718) = 7, item(50, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, deleteItem(50, 10), queststatus(718) = 8, "#me nimmt das Garn und befestigt es gekonnt an einer Angel"
 
@@ -186,11 +186,11 @@ queststatus(718) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe n
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 
-cycletext "Der Köder muss dem Fisch schmecken, nicht dem Angler.", "The bait has to taste good for the fish, not for the fisherman."
+cycletext "Der Köder muss dem Fisch schmecken, nicht dem Angler", "The bait has to taste good for the fish, not for the fisherman."
 cycletext "#me betrachtet einen Wurm.", "#me looks at a worm."
 cycletext "#me summt ein Liedchen.", "#me hums a ditty."
 cycletext "Fischlein, Fischlein du musst beißen...", "Fishy, fishy, you shall bite..."
-cycletext "#me schiebt seinen Strohhut ins Gesicht.", "#me moves his straw hat into his face."
-cycletext "#me kaut auf einen abgerissenen Strohhalm.", "#me chews on a ragged straws."
+cycletext "#me schiebt seinen Strohhut ins Gesicht.", "#me moves his straw hat over his face."
+cycletext "#me kaut auf einen abgerissenen Strohhalm.", "#me chews on a ragged straw."
 cycletext "Angeln ist eine angenehme Aufgabe.", "Fishing is comfortable work."
-cycletext "In der Ruhe liegt die Kraft, mein Freund.", "Strength lies in calmness, buddy."
+cycletext "In der Ruhe liegt die Kraft, mein Freund.", "Strength lies in calmness, my friend."

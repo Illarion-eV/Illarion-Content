@@ -26,7 +26,7 @@ local ENGLISH = Player.english
 -- Insert the quest title here, in both languages
 local Title = {}
 Title[GERMAN] = "Entspanntes Fischen in Runewick"
-Title[ENGLISH] = "Unstressed fishing in Runewick"
+Title[ENGLISH] = "Relaxed fishing in Runewick"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
