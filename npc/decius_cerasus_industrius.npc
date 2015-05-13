@@ -630,6 +630,8 @@ english, "Zhambra" -> "Friendship and faithfulness. You don't have to think abou
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Wenn ich auch noch Sachen verkaufen würde, würde ich hier nie fertig werden.", "Seh ich aus wie ein Händler?"
 "tell something", "tale" -> "And then all the work lies still and I'll get scolded."
 "erzähl was", "erzähl etwas" -> "Und wärenddessen bleibt die ganze Arbeit liegen und ich bekomm Ärger."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Decius", "Cerasus", "Industrius" -> "Yes?", "How can I help you?"

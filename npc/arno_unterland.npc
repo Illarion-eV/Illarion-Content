@@ -101,6 +101,11 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell!"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "#w Psst. Sehr gut, ich wurde noch nie beim Fälschen von Dokumenten erwischt."
 "your name", "who are you", "who art thou" -> "#w Psst. Arno Unterland, famous for counterfeiting documents. *grins*"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "#w Psst. Arno Unterland, berühmt für das Fälschen von Dokumenten. *grinst*"
+english, "quest", "mission" -> "I don't have any tasks for you."
+"quest", "mission" -> "Ich vergebe keine Aufgaben."
+"task", "adventure", "order" -> "I don't have any tasks for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich vergebe keine Aufgaben."
+
 
 -- OPTIONAL TRIGGERS
 

@@ -78,6 +78,12 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go with pride in your heart
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
+-- Mandatory: Catching quest triggers. Modify if the NPC does quests
+english, "quest", "mission" -> "I don't have any tasks for you."
+"quest", "mission" -> "Ich vergebe keine Aufgaben."
+"task", "adventure", "order" -> "I don't have any tasks for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich vergebe keine Aufgaben."
+
 -- Faction stuff
 "archmage" -> "That old, wand waving wimp. Has no guts, that man."
 "Erzmagier" -> "Der alte, stabschwingende Feigling. Der hat einfach kein Courage, dieser Mann."

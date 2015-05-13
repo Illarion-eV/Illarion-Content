@@ -65,8 +65,6 @@ itemShoes = 0
 -- Help
 "Help" -> inform("[Game Help] This NPC is named Egon. There is not much to be learnt from that half-smart ratman.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC heißt Egon. Von diesem halbklugen Rattenmenschen ist nur wenig zu erfahren.")
-"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 queststatus(504) = 5, english, chance(5), ".+" -> queststatus(504) = 6, item(138, 1, 999), item(138, 1, 999), "#me squeaks loudly and takes two herbs from the chest, which he then pushes into the person's hands standing in front of him.", inform("[Quest solved] You got your reward. You were handed the following plants: night angels blossom, night angels blossom")
 queststatus(504) = 5, german, chance(5), ".+" -> queststatus(504) = 6, item(138, 1, 999), item(138, 1, 999),  "#me quiekt laut und holt zwei Kräuter aus der Kiste, die er der Person vor sich in die Hand drückt.", inform("[Quest gelöst] Du hast deine Belohnung abgeholt. Folgende Pflanzen hast du erhalten: Nachtengelsblüte, Nachtengelsblüte")

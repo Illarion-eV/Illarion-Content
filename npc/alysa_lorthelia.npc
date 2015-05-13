@@ -122,6 +122,12 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Will I ever see you again? 
 "your name", "who are you", "who art thou" -> "I'm the daughter of the sword crafter Asha Lorthelia.", "I'm the oldest Lorthelia daughter, but no: I can't craft ornate weapons like my mother. Instead I bake.", "I am Alysa Lorthelia, the baker... at least for now."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin die Tochter der Waffenschmiedin Asha Lorthelai.", "Ich bin die älteste Tochter der Lotheila, aber ich kann keine verzierten Waffen herstellen. Daher backe ich.", "Ich bin Alysa Lothelia, die Bäckerin, zumondest zur Zeit noch."
 
+-- Mandatory: Catching quest triggers. Modify if the NPC does quests
+english, "quest", "mission" -> "I don't have any tasks for you."
+"quest", "mission" -> "Ich vergebe keine Aufgaben."
+"task", "adventure", "order" -> "I don't have any tasks for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich vergebe keine Aufgaben."
+
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I bake all kinds of fresh goods.", "I sell people the food that myself and old John Sights bake.", "I started working as a baker many moons ago."
 "beruf" -> "Ich backe die verschiedensten Waren.", "Ich verkaufe das Essen, dass ich und  John Sighs backen.", "Ich arbeite seit ein paar Monaten als Bäckerin."

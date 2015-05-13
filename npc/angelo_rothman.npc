@@ -102,6 +102,12 @@ english, "Cadomyr" -> "Where is that?"
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
+-- Mandatory: Catching quest triggers. Modify if the NPC does quests
+english, "quest", "mission" -> "I don't have any tasks for you."
+"quest", "mission" -> "Ich vergebe keine Aufgaben."
+"task", "adventure", "order" -> "I don't have any tasks for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich vergebe keine Aufgaben."
+
 -- arena phrases
 "fight" -> "What beast would you like to fight against today?", arena(requestMonster)
 "kämpfen" -> "Gegen welches Biest willst du heute kämpfen?", arena(requestMonster)

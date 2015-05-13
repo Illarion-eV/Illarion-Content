@@ -78,6 +78,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Thank you so, so much for t
 "beruf" -> "Meine Berufung ist zu helfen. Also wenn Ihr etwas zu tun sucht, fragt einfach."
 english, "job" -> "My mission is to help, so if you need something to do, just ask."
 "job" -> "Meine Berufung ist zu helfen. Also wenn Ihr etwas zu tun sucht, fragt einfach."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- help triggers
 "market" -> "Just follow the bridgs to the eastward island. If you want to know more about the places around Runewick, ask Elesil Dealwon, who you can find by the town gate."

@@ -263,7 +263,8 @@ english, "Moshran" -> "Yoos dink bruddahs all pray to Moshran? Yoos hab lotsa le
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Wars? Mirr nix handelt, mir tanzt und betet! Mirr ist Schamane, nicht Höker."
 "tell something" -> "Hab hear dat legend ob Reginald oomie? Dat be old chief op Cadomyr, honourable oomie. Died and now daughter be Queen - nub usual, eh?"
 "erzähl was", "erzähl etwas" -> "Du gehört hast Legende von Oomie Reginald? Den alte Häuptling von Cadomyr. Ehrenhafter Oomie. Er gestorben, nun Tochter ist Häuptling - witzig, eh?"
-
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 -- Last catch: Think about keywords the player might say and that are not caught until here.
 english, "Grakamesh" -> "Dat be mes, yubba!"
 "Grakamesh" -> "Das sein mir, yubba!"

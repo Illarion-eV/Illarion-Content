@@ -388,10 +388,12 @@ english, "Zhambra" -> "There are 16 gods. Five created Illarion. One god is evil
 "Zhambra" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I am not a trader, but if you give me money, you can become a citizen of Galmair.", trade
+"what sell", "what buy", "list wares", "price of" -> "I am not a trader, but if you give me money, you can become a citizen of Galmair."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin kein Händler. Wenn du mir Geld gibst, kannst du Bürger von Galmair werden."
 "tell something" -> "Everyone should become a citizen of Galmair, that way I can make lots of money!"
 "erzähl was", "erzähl etwas" -> "Jeder sollte Bürger Glamairs werden, so kann ich viel Geld verdienen!"
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Frederik", "Silvereye" -> "Yes, that's me!", "Who? Me?", "#me waves."

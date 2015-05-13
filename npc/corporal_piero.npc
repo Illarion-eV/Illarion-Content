@@ -95,6 +95,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell.", "Have a good da
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Corporal Piero. Diener der Königin von Cadomyr."
 
 -- Catching quest triggers. Modify if the NPC does quests.
+english, "quest", "mission" -> "I don't have any tasks for you."
+"quest", "mission" -> "Ich vergebe keine Aufgaben."
+"task", "adventure", "order" -> "I don't have any tasks for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich vergebe keine Aufgaben."
 
 -- language: human, common
 queststatus(305) = 6, "Botschaft", "verdienen", "aufgabe", "abenteuer" -> "Nochmals... Habt Dank. Ihr habt Cadomyr sehr geholfen. Zhambra soll Euch schützen."
@@ -175,6 +179,8 @@ english, "Zhambra" -> "On the battlefield I count on a sharp blade and my closes
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin Wächter. Kein Händler. Sicherlich könnt Ihr hinter den Toren der Stadt handeln."
 "tell something" -> "Nowhere are the codes of honour followed like here in Cadomyr. For the colours of our town! Zhambra bless it."
 "erzähl was", "erzähl etwas" -> "Nirgendwo hat man so viel Gespür für wahre Ehre wie wir, in Cadomyr. Bei den Farben unserer Stadt! Zhambra möge sie bewaren."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

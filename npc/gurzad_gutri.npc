@@ -513,6 +513,8 @@ english, "Ronagan" -> "In Galmair, we don't lose. Ronagan helps ensure this!"
 "erzähl was", "erzähl etwas" -> "Ich weiß so einiges über Galmair und die anderen Städte in der Nähe."
 english, "Gurzad", "Gutri" -> "I am the Head Clerk! I oversee the flow of goods and maintain the Don's storage!"
 "Gurzad", "Gutri" -> "Ich bin der oberste Sekretär! Ich überwache den Strom an Gütern und erhalte das Lager des Dons."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

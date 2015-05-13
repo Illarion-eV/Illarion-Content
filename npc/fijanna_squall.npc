@@ -82,6 +82,14 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May Findari watch over you.
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich spüre den Wind. Ich weiß woher er kam und wohin er geht. Spürst du den Wind?", "Ich fühle mich so leicht wie Luft."
 "your name", "who are you", "who art thou" -> "I am Fijanna Spuall, a travelling Seer.", "I am a travelling priest of the Goddess of air. My name is Fijanna. Nice to meet you.", "My Name is Fijanna. Nice to meet you."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Fijanna Spuall, eine wandernde Seherin.", "Ich bin eine reisende Priesterin der Göttin der Luft. Ich heiße Fijanna. Es freut mich dich zu treffen.", "Ich heiße Fijanna. Freut mich dich zu sehen."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
+
+-- Mandatory: Catching quest triggers. Modify if the NPC does quests
+english, "quest", "mission" -> "I don't have any tasks for you."
+"quest", "mission" -> "Ich vergebe keine Aufgaben."
+"task", "adventure", "order" -> "I don't have any tasks for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich vergebe keine Aufgaben."
 
 -- Fortune telling phrases
 state = 1, money >= 100, "Yes" -> state = 2, money - 300, "Very well. I shall tell your fortune. What do you want to hear?"
