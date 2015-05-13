@@ -331,6 +331,12 @@ queststatus(679) = 103, ".*" -> inform("[Münzspiel] offen. Sage 'Kopf', 'Zahl', 
 "luck" -> "Nargun is responsible for your luck. But you have to praise him. Maybe with a little game.", "With a little luck, you could multiply your wealth!"
 "glück" -> "Nargun ist verantwortlich für dein Glück. Aber nur, wenn du ihn ehrst. Zum Beispiel mit einem kleinen Spielchen.", "Mit etwas Glück kannst du den Inhalt deiner Geldbörse vervielfachen."
 
+-- Mandatory: Catching quest triggers. Modify if the NPC does quests
+english, "quest", "mission" -> "I don't have any tasks for you."
+"quest", "mission" -> "Ich vergebe keine Aufgaben."
+"task", "adventure", "order" -> "I don't have any tasks for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich vergebe keine Aufgaben."
+
 -- Faction stuff
 "archmage" -> "The Archmage is far away and he does not play, except with magic."
 "Erzmagier" -> "Der Erzmagier ist weit weg. Und er spielt höchstens mit Magie."

@@ -91,6 +91,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf Wiedersehen. Und erlebt
 -- repair triggers
 "repair", "fix", "polish", "mend", "patch", "darn" -> "Let's have a look at this.", repair
 "reparier", "instand", "heil", "polier", "flick" -> "Schauen wir nach, was wir hier haben.", repair
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- OPTIONAL TRIGGERS
 

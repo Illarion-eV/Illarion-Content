@@ -237,6 +237,8 @@ english, "Tanora", "Zelphia" -> "I pray to Tanora every morning for leaving the 
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich kann eure Schmutzwäsche waschen, aber ich handele nicht mit Waren."
 "tell something" -> "First, you have to soak the laundry. Wait an hour, but not more. Then, wash it! And do not forget to rinse it twice."
 "erzähl was", "erzähl etwas" -> "Zunächst müßt ihr die Wäsche einweichen. Wartet eine Stunde, aber nicht mehr. Dann wascht sie! Vergesst nicht, sie hinterher zweimal zu spülen."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
 "moan" -> "I do not moan! I just... notice things."

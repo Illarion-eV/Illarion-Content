@@ -82,6 +82,8 @@ english, "Ciao", "Adieu", "Au revoir" -> "Farewell my friend. May Oldra guide yo
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "#me seufzt: 'Ach, wisst ihr, ich war auf dem Weg nach Hause, aber die Götter haben mich mit diesem alten Ochsen bedacht, der sich nicht mehr bewegen will.'"
 "your name", "who are you", "who art thou" -> "My Name is Milo Deepdelver. I am a herbalist from Runewick. If the Gods are with me, I will be on my way home with this no good ox of mine!"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Mein Name ist Milo Deepdelver. Ich bin ein Kräuterkundiger aus Runewick. So die Götter es wollen, bin ich auf dem Weg nach Hause mit meinem unnützen Ochsen hier!"
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- quest: give out the mission
 queststatus(106) = 0, english, "problem", "mission", "quest" -> inform("[New quest] Milo's ox"), queststatus(106) = 1, "This stupid ox of mine doesn't move a single step and I am late returning to my family. My ox will do anything for carrots, but a few miles back I ran out. If you could get me ten carrots, I could show you a few tricks with herb lore, as I am quite proficient in this art."

@@ -101,6 +101,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Fare thee well.", "Tata!", 
 "your name", "who are you", "who art thou" -> "I'm Hummi, the local guide around these parts.", "I'm Hummi. Need help with anything?"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Hummi und weiß alle wichtigen Dinge über diesen Platz hier. So, frag mich was!", "Ich bin Hummi und du? Möchtest du etwas wissen?"
 
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
+
 -- Catching quest triggers. Modify if the NPC does quests.
 queststatus(604) = 3, queststatus(605) = 3, queststatus(606) = 3, queststatus(607) < 1, english, "quest", "mission" -> inform("[Quest 'Tournament Champion' started] Find Tronuk and ask him about a 'story' in order to get the name of the tournament winner. Hint: He can be found close to Cadomyr."), queststatus(607) = 1, "I have something more challenging for you now. Find the orc Tronuk. He can be found in front of a mine but I won't tell you which one. He tells you two stories, one is about a tournament. Come back if you know the winner and tell me his name."
 queststatus(604) = 3, queststatus(605) = 3, queststatus(606) = 3, queststatus(607) < 1, "quest", "mission" -> inform("[Quest 'Turniergewinner' gestartet] Finde Tronuk und frage ihn nach 'Geschichte' um den Namen des Gewinner zu erfahren. Hinweis: Er kann in der Nähe von Cadomyr gefunden werden."), queststatus(607) = 1, "Ich habe etwas schwierigeres nun. Finde den Ork Tronuk. Er kann vor einer Mine gefunden werden. Ich sage dir aber nicht welcher. Er erzählt zwei Geschichten. Eine handelt von einem Turnier. Komm zurück wenn du weißt wer der Gewinner ist und nenne mir seinen Namen."

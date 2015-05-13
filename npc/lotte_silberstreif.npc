@@ -85,6 +85,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba", "Farewell", "Bye", "Fare well"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich kann nicht klagen und ihr?", "Ganz gut und selbst?", "Mal so, mal so, aber gerade geht es mir ganz gut."
 "your name", "who are you", "who art thou" -> "I'm Lotte and who are you?", "I'm called Lotte, Lotte Silberstreif, and what's your name?"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin die Lotte und wer seid ihr?", "Man nennt mich Lotte, Lotte Silberstreif und wie nennt man euch?"
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 
 -- abort at queststatus 0
 queststatus(672) = 0, english, "stop" -> inform("[Lottery] You have to buy a lottery ticket first. You can buy one ticket by saying 'one ticket', or five tickets by saying 'five tickets'. After you have received your ticket, you trigger the draw with any spoken word or emote. 'Stop', however, will not trigger the draw but returns your money to you."), "What at Nargun should we should stop? You do not have a ticket at the moment.", "As you demand, let's stop before we start. That's Nargun like.", "Come on, a lottery ticket costs ten silver and the first prize in our lottery is five gold."

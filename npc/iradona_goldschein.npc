@@ -247,6 +247,9 @@ english, "Cadomyr" -> "Don't waste your time there, but if you look for fisherme
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe oder kaufe gar nichts. Aber wir haben einen Marktplatz. Versuch dein Glück doch dort."
 "tell something" -> "I can tell you many things about Galmair. Just ask me about the buildings, locations, events, people, history or gods of Galmair. Additionally, I have a little task."
 "erzähl was", "erzähl etwas" -> "Ich kann dir viele Dinge über Galmair erzählen. Frage nur nach Gebäude, Orte, Ereignisse, Leute, Geschichte oder Götter von Galmair. Zusätzlich hätte ich noch eine kleine Aufgabe."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
+
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Primarily, we pray to three gods in Galmair. They are Ronagan, Nargun and Irmorom of course, my favorite god."
@@ -263,7 +266,7 @@ english, "Eldan" -> "One of the Elder Gods, but we do not care about this god he
 "Eldan" -> "Einer der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
 english, "Findari" -> "One of the Elder Gods, but we do not care about this god here. Better you do not waste your time with this god."
 "Findari" -> "Eine der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
-english, "Irmorom" -> "Most dwarves, businessmen and craftsmen, like blacksmiths, pray to Irmorom. They believe that in life, they will be rewarded for their doings with wealth, and they pray for enchantment of crafted things, for riches, and things like this.", trade
+english, "Irmorom" -> "Most dwarves, businessmen and craftsmen, like blacksmiths, pray to Irmorom. They believe that in life, they will be rewarded for their doings with wealth, and they pray for enchantment of crafted things, for riches, and things like this."
 "Irmorom" -> "Die meisten seiner Anhänger sind Zwerge, Händler, Handwerker und Schmiede. Sie glauben, wenn sie Irmoron anbeten, gelangen sie zu Wohlstand und Reichtum. Angeblich gewährt er auch Kräfte, um Waffen und Gegenstände zu verzaubern."
 english, "Malachin", "Malachín" -> "One of the weak Younger Gods. You can find followers in Cadomyr."
 "Malachin", "Malachín" -> "Einer der schwachen jüngeren Götter. Du kann Anhänger in Cadomyr finden."

@@ -230,6 +230,8 @@ english, "Zhambra" -> "Aurora hasn't taught me much about that God yet.", "Auror
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich möchte nicht handeln.", "Ich wünsche heute nicht zu handeln, habt Dank.", "Entschuldigt, aber Aurora hat gesagt ich solle mich nicht von materiellen Dingen verführen lassen."
 "tell something" -> "You should go for a walk through the forest. It's quiet, and very pretty. Watch out for wild animals, though.", "Sometimes you can find herbs that have blown across the land. Aurora gets me to pick them up for her.", "If you want to become a druid, you should find someone to take you as their apprentice. I don't recommend an Elf, though."
 "erzähl was", "erzähl etwas" -> "Ihr solltet im Wald spazieren gehen. Dort ist es ruhig und sehr schön. Gebt nur Acht auf wilde Tiere.", "Manchmal findet man Kräuter die der Wind über dem Land verstreut hat. Aurora lässt mich diese Kräuter für sie sammeln", "Wenn Ihr Druide werden wollt so such jemanden, er euch als Schüler annimmt. Ich rate euch, wählt keinen Elfen als Lehrmeister."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Madeline", "Clarbelis" -> "I need a nap.", "Gosh, I am so tired.", "I suppose I should go visit Aurora soon."

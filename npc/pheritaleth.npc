@@ -101,6 +101,12 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Happy mining.", "Farewell."
 "gem", "magical smithing", "smithing", "gemcraft", "transmute", "combine", "enchant" -> gemcraft, "Let me take a look at your gems..."
 "Edelstein", "magisches Schmieden", "Schmieden", "verwandel", "verein", "kombinier", "verzauber" -> gemcraft, "Dann lasst mal eure Edelsteine sehen..."
 
+-- Mandatory: Catching quest triggers. Modify if the NPC does quests
+english, "quest", "mission" -> "I don't have any tasks for you."
+"quest", "mission" -> "Ich vergebe keine Aufgaben."
+"task", "adventure", "order" -> "I don't have any tasks for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich vergebe keine Aufgaben."
+
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "My profession is to transmute magical gems. I have several aeons of experience, so do not question my expertise."
 "beruf" -> "Mein Beruf ist es, magische Edelsteine zu vereinen. Ich habe mehrere Zeitalter an Erfahrung, also stellt meine Kompetenz nicht in Frage."

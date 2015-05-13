@@ -200,6 +200,8 @@ queststatus(76) = 2, "Eldan" -> "Manche sagen, Eldan sei Elaras Vater. Aber das 
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin kein Händler."
 "tell something" -> "The wine is marvellous, isn't it?"
 "erzähl was", "erzähl etwas" -> "Der Wein hier ist wunderbar, nicht wahr?"
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Zaida" -> "Zaida is my name. Zaida the Apprentice."

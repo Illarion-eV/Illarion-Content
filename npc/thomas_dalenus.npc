@@ -118,10 +118,10 @@ english, "Ciao", "Adieu", "Au revoir" -> "Farewell, go with the gods.", "Good by
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Mein Name ist Thomas, Thomas Dalenus. Ich bin ein Schneider.", "Dalenus Schneiderwaren - das ist mein Geschäft.", "Thomas Dalenus. Und nennt mich nicht Tom, sonst stech ich euch die Augen mit meiner Nadel aus."
 
 -- Catching quest triggers
-english, "quest", "mission" -> "If you are searching for a quest, go to Cape Farewell or the Oasis of Stars. There are people who need your help."
-"quest", "mission" -> "Wenn ihr nach einem Abenteuer sucht, geht zum Kap des Abschiedes oder der Sternenoase. Dort wird eure Hilfe gebraucht."
-"task", "adventure", "order" -> "If you are searching for a quest, go to Cape Farewell or the Oasis of Stars. There are people who need your help."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wenn ihr nach einem Abenteuer sucht, geht zum Kap des Abschiedes oder der Sternenoase. Dort wird eure Hilfe gebraucht."
+english, "quest", "mission" -> "If you are searching for a quest, go to the Oasis of Stars. There are people who need your help."
+"quest", "mission" -> "Wenn ihr nach einem Abenteuer sucht, geht zum der Sternenoase. Dort wird eure Hilfe gebraucht."
+"task", "adventure", "order" -> "If you are searching for a quest, go to the Oasis of Stars. There are people who need your help."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wenn ihr nach einem Abenteuer sucht, geht zum der Sternenoase. Dort wird eure Hilfe gebraucht."
 
 -- Quest by NPC mirarie Bragolin (Writing history )
 queststatus(317) = 3, english, "Mirarie", "Bragolin", "letter", "message" -> queststatus(317) = 4, "I'm sorry, I don't have time. I still need to finish that dress. Please tell Lady Bragolin that I'll notify her soon."

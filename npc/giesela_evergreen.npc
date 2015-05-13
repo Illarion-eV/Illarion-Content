@@ -80,7 +80,7 @@ english, "Ciao", "Adieu", "Au revoir" -> "Have a good day!"
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 
-- Mandatory: Catching quest triggers. Modify if the NPC does quests
+-- Mandatory: Catching quest triggers. Modify if the NPC does quests
 english, "quest", "mission" -> "I don't have any tasks for you."
 "quest", "mission" -> "Ich vergebe keine Aufgaben."
 "task", "adventure", "order" -> "I don't have any tasks for you."

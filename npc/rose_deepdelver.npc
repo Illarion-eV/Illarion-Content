@@ -94,6 +94,12 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "See you!", "Toodles!", "Far
 "your name", "who are you", "who art thou" -> "Rose Deepdelver, barkeeper. That's me.", "I am the barkeeper Rose Deepdelver.", "Rose Deepdelver is my name, owner of this lovely tavern."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Rose Deepdelver, die Bedienung. Das bin ich.", "Ich bin die Bedienung Rose Deepdelver", "Rose Deepdelver mein Name, Besitzerin dieser großartigen Taverne."
 
+-- Mandatory: Catching quest triggers. Modify if the NPC does quests
+english, "quest", "mission" -> "I don't have any tasks for you."
+"quest", "mission" -> "Ich vergebe keine Aufgaben."
+"task", "adventure", "order" -> "I don't have any tasks for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich vergebe keine Aufgaben."
+
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the owner and also the barkeeper of this tavern."
 "beruf" -> "Ich bin die Besiterin und auch die Bedienung dieser Taverne."

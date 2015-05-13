@@ -199,6 +199,8 @@ english, "Zhambra" -> "I don't care about your gods. All I care about is that yo
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich kann dir ein paar Peitschenhiebe anbieten. Interesse?!", "Ich handel mit Schmerzen.", "Hör auf, rumzufeilschen und arbeite oder ich vergesse mich!"
 "tell something" -> "Shut up and work!", "No talking!", "Shut up and swing the pick, you punk!"
 "erzähl was", "erzähl etwas" -> "Halt deinen Mund und arbeite!", "Hier wird nicht geplaudert!", "Klappe halten, Hacke schwingen, du Gauner!"
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I could sell you some lashes from my whip. Interested!?", "I trade pain.", "Stop bartering and get to work before I lose my patience."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich kann dir ein paar Peitschenhiebe anbieten. Interesse?!", "Ich handel mit Schmerzen.", "Hör auf, rumzufeilschen und arbeite oder ich vergesse mich!"
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Percy", "Dryless" -> "I am your master from now on. Obey or be whipped. Your choice."

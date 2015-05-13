@@ -67,7 +67,6 @@ sellItems = 1
 buyPrimaryItems = 1
 buySecondaryItems = 2
 
--- fur trousers
 
 -- Template Version 1.08, 10/18/2012 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.

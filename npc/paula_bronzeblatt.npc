@@ -123,6 +123,12 @@ german, chance(100.0), "deal" -> money - 50000, inform ("[Schatzkarten-Händler] 
 english, "deal" -> inform ("[Treasure map-trader] Something went wrong. Please try again."), "What did you say? Can you repeat it?"
 "deal" -> inform ("[Schatzkarten-Händler] Irgendetwas ist schief gelaufen. Bitte versuche es nochmals."), "Was hast du gesagt? Kannst du es wiederholen?"
 
+-- Mandatory: Catching quest triggers. Modify if the NPC does quests
+english, "quest", "mission" -> "I don't have any tasks for you."
+"quest", "mission" -> "Ich vergebe keine Aufgaben."
+"task", "adventure", "order" -> "I don't have any tasks for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich vergebe keine Aufgaben."
+
 -- Optional: Trade Hooks, use only for traders
 "sell", "wares", "price", "trade" -> "I sell treasure maps for five gold coins. Interested? Say 'deal' and a treasure map is yours."
 "verkauf", "waren", "preis", "Handel" -> "Ich verkaufe Schatzkarten für fünf Goldmünzen. Interessiert? Sage 'Deal' und eine Schatzkarte ist dein."

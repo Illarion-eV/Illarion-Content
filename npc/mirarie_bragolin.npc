@@ -106,6 +106,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Farewell! Farewe
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin kein Händler. Ich bin eine Entdeckerin.", "Ich mag nicht handeln. Aber ich mag es über fremde Kulturen zu lernen.", "Ich bin keine Händlerin. Ich schreibe Bücher."
 "tell something" -> "I was invited to come here and write about Cadomyr. I feel honoured. I'll do my best to write a book that makes the Queen happy."
 "erzähl was", "erzähl etwas" -> "Ich wurde eingeladen um über Cadomyr zu schreiben. Ich fühle mich geehrt und ich werde mich anstrengen um ein Buch zu schreiben, dass der Königin gefällt."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I came to Cadomyr learn to what life is like here. Well, I do not like the sun, but it is very interesting to see how people live in this environment.", "I'll write a book about the Cadomyrian knighthood, before I go home to my clan."

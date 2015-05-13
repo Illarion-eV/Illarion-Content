@@ -112,6 +112,12 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Thank you please come again
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Your order, please?", "What can I serve you today?", "Yes?", trade
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ihre Bestellung, bitte.", "Was kann ich ihnen bringen?", "Jawohl?", trade
 
+-- Mandatory: Catching quest triggers. Modify if the NPC does quests
+english, "quest", "mission" -> "I don't have any tasks for you."
+"quest", "mission" -> "Ich vergebe keine Aufgaben."
+"task", "adventure", "order" -> "I don't have any tasks for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich vergebe keine Aufgaben."
+
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I own this place here. So what would I call myself? Bartender, waiter? I don't know, just call me Severus.", "Right now I am the waiter and I used to be the cook, but my beautiful and talented daughter has been given a gift from the gods. She is now the cook."
 "beruf" -> "Mir gehört diese Taverne. Was bin ich also - ein Barmann, ein Ober? Eigentlich auch egal, nennt mich Severus.", "Ich bin hier der Ober, ich war auch mal der Koch, aber meine schöne und talentierte Tochter ist von den Göttern gesegnet. Sie ist nun die Köchin."

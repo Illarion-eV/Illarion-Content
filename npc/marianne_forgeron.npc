@@ -83,6 +83,8 @@ buySecondaryItems = 2
 -- The trader should buy all items he sells. Primary items are bought at 10% of the worth, secondary items yield only 5%
 
 -- MANDATORY TRIGGERS
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 
 -- Mandatory: Help
 "Help" -> inform("[Game Help] This NPC is Marianne Forgeron the magical blacksmith. Keywords: Gem, Smithing, Profession, Greetings.")

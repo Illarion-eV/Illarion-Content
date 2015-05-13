@@ -62,7 +62,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Arrrr. Don't be a stranger.
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> ""
 "your name", "who are you", "who art thou" -> "Me be Obsidimine, but most just calls me Obsidi."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> ""
-
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "That's me hobby, don't ya know? Explorin' caves. Bein' a spelunker is serious work."
 "beruf" -> ""
@@ -252,6 +253,8 @@ english, "Cadomyr" -> "Can't say as mes been there as it's a might hot fer me."
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I do not sell or buy anything."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich kaufe und verkaufe nichts."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- Cycle Texts - Messages spoken automatically in random intervals.
 

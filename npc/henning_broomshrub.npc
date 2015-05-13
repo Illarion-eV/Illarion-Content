@@ -83,6 +83,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Yes, yes, and come back wit
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Das geht dich nichts an.", "Es würde mir weit besser gehen mit deinem Geld in meiner Tasche.", "Mir ist nach Zocken. Zeit für ein kleines Hütchenspiel?"
 "your name", "who are you", "who art thou" -> "Henning, yes, that's me. My friends call me Henni.", "Who wants to know? Nevermind, let's play!", "Well, I am Henning. Are you happy now?"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Henning, ja, das bin ich. Meine Freunde nennen mich Henni.", "Wer will das wissen? Ach, was solls, lass uns spielen.", "Also ich bin Henning. Bist du jetzt glücklich?"
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> "Let me see... I can send you on an epic quest to choose the right nut! Care to bet?", "No quest today, my money has gone away. The nuts stand forlorn, a symbol of the dawn.", "You are the hero, I am the thimblerig!"
