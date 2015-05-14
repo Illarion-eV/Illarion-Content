@@ -41,8 +41,8 @@ local messageE = {} --English informs
 messageE[1] = "You've sprung a trap!"
 messageE[2] = "The last step you took was by far the worst today..."
 messageE[3] = "Getting ambushed by mindless creatures of doom sucks, doesn't it?"
-messageE[4] = "You've triggered a paralysing icetrap. Imps jump at you out of the darkness!"
-messageE[5] = "Out of the darkness, you see the faint gleeming of a dark presence limping towards you..."
+messageE[4] = "You've triggered a paralysing ice trap. Imps jump at you out of the darkness!"
+messageE[5] = "Out of the darkness, you see the faint gleaming of a dark presence limping towards you..."
 messageE[6] = "A disgusting stench reaches your nose. Out of the muddy water in this flooded tunnel, formless creatures approach you."
 
 function M.MoveToField(User)

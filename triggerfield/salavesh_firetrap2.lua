@@ -27,7 +27,7 @@ function M.MoveToField(User)
         return
     end
 
-    common.InformNLS(User, "Ein Feuerball schieﬂt aus einem kleinen Loch in der Wand die Halle entlang!", "A firewall is shot from a small hole in the wall down the hallway!")
+    common.InformNLS(User, "Ein Feuerball schieﬂt aus einem kleinen Loch in der Wand die Halle entlang!", "A fireball is shot from a small hole in the wall down the hallway!")
 
     local ycord = User.pos.y --The y-coordinate of the triggerfield
 
