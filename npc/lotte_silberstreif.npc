@@ -17,7 +17,7 @@
 -- NPC Job:  gambler                                                          --
 --                                                                            --
 -- NPC Race: halfling                      NPC Position:  295, 283, -6        --
--- NPC Sex:  female                        NPC Direction: east                --
+-- NPC Sex:  female                        NPC Direction: west                --
 --                                                                            --
 -- Author:  Baylamon                                                          --
 --                                                     easyNPC Parser v1.23.1 --
@@ -27,7 +27,7 @@ name = "Lotte Silberstreif"
 race = halfling
 sex = female
 position = 295, 283, -6
-direction = east
+direction = west
 affiliation = "Galmair"
 job = "Lottery trader"
 
