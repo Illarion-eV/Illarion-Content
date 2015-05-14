@@ -155,6 +155,12 @@ queststatus(222) = 4, town = Cadomyr, "quest", "mission" -> "Heute gibt es nicht
 queststatus(222) = 4, town = Cadomyr, "task", "adventure" -> "I have nothing left for you today, you have taken care of me admirably."
 queststatus(222) = 4, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> "Heute gibt es nichts mehr für dich zu tun, du hast dich wunderbar um mich gekümmert."
 
+-- If not of the realm
+english, "quest", "mission" -> "I do not issue any quests to people not of this realm, but I can sell you books to go to other places."
+"quest", "mission" -> "Ich vergebe keine Aufgaben an Leute, die nicht aus diesem Reich kommen. Aber ihr könnt von mir Bücher kaufen, die euch an andere Orte bringen."
+"task", "adventure", "order" -> "I do not issue any quests to people not of this realm, but I can sell you books to go to other places."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich vergebe keine Aufgaben an Leute, die nicht aus diesem Reich kommen. Aber ihr könnt von mir Bücher kaufen, die euch an andere Orte bringen."
+
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a merchant of portal books."
 "beruf" -> "Ich handle mit Portalbüchern."
