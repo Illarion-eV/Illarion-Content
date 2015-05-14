@@ -1,0 +1,561 @@
+Stone Number,X if used,Map Name or Area
+1,X,Noobia
+2,X,Noobia
+3,X,Northeast Surface
+4,X,Northeast Surface
+5,X,Northeast Surface
+6,X,Northeast Surface
+7,X,Northeast Surface
+8,X,Northeast Surface
+9,X,Northeast Surface
+10,X,Northeast Surface
+11,X,Northeast Surface
+12,X,Northeast Surface
+13,X,Northeast Surface
+14,X,Northeast Surface
+15,X,Northeast Surface
+16,X,Northeast Surface
+17,X,Northeast Surface
+18,X,Northeast Surface
+19,X,Northeast Surface
+20,X,Northeast Surface
+21,X,Northeast Surface
+22,X,Northeast Surface
+23,,
+24,X,Northeast Surface
+25,X,Northeast Surface
+26,X,Northeast Surface
+27,X,Northeast Surface
+28,X,Northeast Surface
+29,X,Northeast Surface
+30,X,Northeast Surface
+31,X,Northeast Surface
+32,X,Northeast Surface
+33,X,Northeast Surface
+34,X,Northeast Surface
+35,X,Northeast Surface
+36,X,Northeast Surface
+37,X,Northeast Surface
+38,X,Northeast Surface
+39,X,Northeast Surface
+40,X,Northeast Surface
+41,X,Northeast Surface
+42,X,Northeast Surface
+43,X,Northeast Surface
+44,X,Northeast Surface
+45,X,Northeast Surface
+46,X,Northeast Surface
+47,X,Northeast Surface
+48,X,Northeast Surface
+49,X,Northeast Surface
+50,X,Northeast Surface
+51,X,Northeast Surface
+52,X,Northeast Surface
+53,X,Northeast Surface
+54,X,Northeast Surface
+55,X,Northeast Surface
+56,X,Northeast Surface
+57,X,Northeast Surface
+58,X,Northeast Surface
+59,X,Northeast Surface
+60,X,Northeast Surface
+61,X,Northeast Surface
+62,X,Northeast Surface
+63,X,Northeast Surface
+64,X,Northeast Surface
+65,X,Northeast Surface
+66,X,Northeast Surface
+67,X,Northeast Surface
+68,X,Northeast Surface
+69,X,Northeast Surface
+70,X,Northeast Surface
+71,X,Northeast Surface
+72,X,Northeast Surface
+73,X,Northeast Surface
+74,X,Northeast Surface
+75,X,Northeast Surface
+76,X,Northeast Surface
+77,X,Northeast Surface
+78,X,Northeast Surface
+79,X,Northeast Surface
+80,X,Northeast Surface
+81,X,Northeast Surface
+82,X,Northeast Surface
+83,X,Northeast Surface
+84,X,Northeast Surface
+85,X,Northeast Surface
+86,X,Northeast Roof 1
+87,X,Northeast Roof 1
+88,X,Northeast Roof 1
+89,X,Northeast Roof 1
+90,X,Northeast Roof 1
+91,X,Northeast Roof 1
+92,X,Northeast Roof 1
+93,X,Northeast Roof 2
+94,X,Northeast Roof 2
+95,X,Northeast Roof 2
+96,X,Northeast Roof 2
+97,X,Northeast Roof 2
+98,X,Northeast Undergound -3
+99,X,Northeast Undergound -3
+100,X,Northeast Undergound -3
+101,X,Northeast Undergound -3
+102,X,Northeast Undergound -3
+103,X,Northeast Undergound -3
+104,X,Northeast Undergound -3
+105,X,Northeast Undergound -3
+106,X,Northeast Undergound -3
+107,X,Northeast Undergound -3
+108,X,Northeast Undergound -3
+109,X,Galmair Roof and Mountains 1
+110,X,Galmair Roof and Mountains 1
+111,X,Galmair Roof and Mountains 1
+112,X,Galmair Roof and Mountains 1
+113,X,Galmair Roof and Mountains 1
+114,X,Galmair Roof and Mountains 1
+115,X,Galmair Roof and Mountains 1
+116,X,Dark Hole Mine
+117,,
+118,X,Buccanneers Lurk
+119,,
+120,,
+121,X,Hammerfall
+122,,
+123,X,Hammerfall
+124,X,Hammerfall
+125,X,Hammerfall
+126,X,Galmair sewers
+127,X,Galmair sewers
+128,X,Galmair sewers
+129,X,Galmair sewers
+130,X,Galmair sewers
+131,X,Galmair sewers
+132,X,Galmair sewers
+133,X,Galmair sewers
+134,X,Northwest Surface
+135,X,Northwest Surface
+136,X,Northwest Surface
+137,X,Northwest Surface
+138,X,Northwest Surface
+139,X,Northwest Surface
+140,X,Northwest Surface
+141,X,Northwest Surface
+142,X,Northwest Surface
+143,X,Northwest Surface
+144,X,Northwest Surface
+145,X,Northwest Surface
+146,X,Northwest Surface
+147,X,Northwest Surface
+148,X,Northwest Surface
+149,X,Northwest Surface
+150,X,Northwest Surface
+151,X,Northwest Surface
+152,X,Northwest Surface
+153,X,Northwest Surface
+154,X,Northwest Surface
+155,X,Northwest Surface
+156,X,Northwest Surface
+157,X,Northwest Surface
+158,X,Northwest Surface
+159,X,Northwest Surface
+160,X,Northwest Surface
+161,X,Northwest Surface
+162,X,Northwest Surface
+163,X,Northwest Surface
+164,X,Northwest Surface
+165,X,Northwest Surface
+166,X,Northwest Surface
+167,X,Northwest Surface
+168,X,Southeast Roof 1
+169,X,Castlerock
+170,X,Castlerock
+171,X,Castlerock
+172,X,Castlerock
+173,X,Castlerock
+174,X,Castlerock
+175,X,Castlerock
+176,X,Castlerock
+177,X,Castlerock
+178,X,Southeast Roof 1
+179,X,Dragon Cave
+180,X,Dragon Cave
+181,X,Dragon Cave
+182,X,Dragon Cave
+183,X,Dragon Cave
+184,X,Dragon Cave
+185,X,Dragon Cave
+186,X,Dragon Cave
+187,X,Dragon Cave
+188,X,Dragon Cave
+189,X,Dragon Cave
+190,X,Southeast Underground -3
+191,X,Southeast Underground -3
+192,X,Southeast Roof 2
+193,X,Southeast Hills 1
+194,X,Southeast Hills 1
+195,X,Southeast Hills 1
+196,X,Necro Hideout
+197,X,Necro Hideout
+198,X,Southeast Surface
+199,X,Southeast Surface
+200,X,Southeast Surface
+201,X,Southeast Surface
+202,X,Southeast Surface
+203,X,Southeast Surface
+204,X,Southeast Surface
+205,X,Southeast Surface
+206,X,Southeast Surface
+207,X,Southeast Surface
+208,X,Southeast Surface
+209,X,Southeast Surface
+210,X,Southeast Surface
+211,X,Southeast Surface
+212,X,Southeast Surface
+213,X,Southeast Surface
+214,X,Southeast Surface
+215,X,Southeast Surface
+216,X,Southeast Surface
+217,X,Southeast Surface
+218,X,Southeast Surface
+219,X,Southeast Surface
+220,X,Southeast Surface
+221,X,Southeast Surface
+222,X,Southeast Surface
+223,X,Southeast Surface
+224,X,Southeast Surface
+225,X,Southeast Surface
+226,X,Southeast Surface
+227,X,Southeast Surface
+228,X,Southeast Surface
+229,X,Southeast Surface
+230,X,Southeast Surface
+231,X,Southeast Surface
+232,X,Southeast Surface
+233,X,Southeast Surface
+234,X,Southeast Surface
+235,,
+236,,
+237,X,Southeast Surface
+238,X,Southeast Surface
+239,X,Southeast Surface
+240,,
+241,X,Southeast Surface
+242,X,Southeast Surface
+243,X,Southeast Surface
+244,X,Southeast Surface
+245,X,Southeast Surface
+246,X,Southeast Surface
+247,X,Southeast Surface
+248,X,Southeast Surface
+249,X,Southeast Surface
+250,,
+251,X,Southeast Surface
+252,X,Southeast Surface
+253,X,Southeast Surface
+254,X,Southeast Surface
+255,X,Runewick 1
+256,X,Southeast Surface
+257,X,Southeast Surface
+258,X,Southeast Surface
+259,X,Runewick 2
+260,X,Runewick Underground -3
+261,X,Southeast Surface
+262,X,Runewick 1
+263,X,Runewick Tomb
+264,X,Volcano
+265,X,Volcano
+266,X,Volcano
+267,X,Cadomyr
+268,X,Akaltuts
+269,,
+270,X,Akaltuts
+271,,
+272,X,Southwest Mountains 1
+273,X,Cursed Place
+274,X,Cursed Place
+275,X,Cursed Place
+276,X,Southwest Roofs 1
+277,X,Letma
+278,X,Letma
+279,X,Letma
+280,X,Letma
+281,X,Letma
+282,X,Letma
+283,X,Letma
+284,X,Letma
+285,X,Shadowlands Mountains 1
+286,X,Shadowlands Mountains 1
+287,X,Shadowlands Mountains 1
+288,X,Kheshra
+289,X,Kheshra
+290,X,Kheshra
+291,X,Kheshra
+292,X,Kheshra
+293,X,Kheshra
+294,X,Kheshra
+295,X,Kheshra
+296,X,Kheshra
+297,X,Kheshra
+298,X,Kheshra
+299,X,Kheshra
+300,X,Kheshra
+301,X,Kheshra
+302,X,Kheshra
+303,X,Kheshra
+304,X,Kheshra
+305,X,Kheshra
+306,X,Southwest Surface
+307,X,Southwest Surface
+308,X,Southwest Surface
+309,X,Southwest Surface
+310,X,Southwest Surface
+311,X,Southwest Surface
+312,X,Southwest Surface
+313,X,Southwest Surface
+314,X,Southwest Surface
+315,X,Southwest Surface
+316,X,Southwest Surface
+317,X,Southwest Surface
+318,,
+319,X,Southwest Surface
+320,X,Southwest Surface
+321,X,Southwest Surface
+322,X,Southwest Surface
+323,X,Southwest Surface
+324,X,Southwest Surface
+325,X,Southwest Surface
+326,X,Southwest Surface
+327,X,Southwest Surface
+328,X,Southwest Surface
+329,X,Southwest Surface
+330,X,Southwest Surface
+331,X,Southwest Surface
+332,X,Southwest Surface
+333,X,Southwest Surface
+334,X,Southwest Surface
+335,X,Southwest Surface
+336,X,Southwest Surface
+337,X,Southwest Surface
+338,X,Southwest Surface
+339,X,Southwest Surface
+340,X,Southwest Surface
+341,X,Southwest Surface
+342,X,Southwest Surface
+343,X,Southwest Surface
+344,X,Southwest Surface
+345,X,Southwest Surface
+346,X,Southwest Surface
+347,X,Southwest Surface
+348,X,Southwest Surface
+349,X,Southwest Surface
+350,X,Southwest Surface
+351,X,Southwest Surface
+352,X,Southwest Surface
+353,X,Southwest Surface
+354,X,Southwest Surface
+355,X,Southwest Surface
+356,X,Southwest Surface
+357,X,Southwest Surface
+358,X,Southwest Surface
+359,X,Southwest Surface
+360,X,Southwest Surface
+361,X,Southwest Surface
+362,X,Southwest Surface
+363,X,Southwest Surface
+364,X,Southwest Surface
+365,X,Southwest Surface
+366,X,Southwest Surface
+367,X,Southwest Surface
+368,X,Southwest Surface
+369,X,Southwest Surface
+370,X,Southwest Surface
+371,X,Southwest Surface
+372,X,Southwest Surface
+373,X,Southwest Surface
+374,X,Southwest Surface
+375,X,Southwest Surface
+376,X,Southwest Surface
+377,X,Southwest Surface
+378,X,Southwest Surface
+379,X,Southwest Surface
+380,X,Southwest Surface
+381,X,Southwest Surface
+382,X,Southwest Surface
+383,X,Southwest Underground -3
+384,,
+385,,
+386,,
+387,,
+388,,
+389,,
+390,,
+391,,
+392,,
+393,,
+394,,
+395,,
+396,,
+397,,
+398,,
+399,X,Shadowlands Mountains 1
+400,,
+401,,
+402,,
+403,,
+404,,
+405,,
+406,,
+407,,
+408,,
+409,,
+410,,
+411,,
+412,,
+413,,
+414,,
+415,,
+416,,
+417,,
+418,,
+419,,
+420,,
+421,,
+422,,
+423,,
+424,,
+425,,
+426,,
+427,,
+428,,
+429,,
+430,,
+431,,
+432,,
+433,,
+434,,
+435,,
+436,,
+437,,
+438,,
+439,,
+440,,
+441,,
+442,,
+443,,
+444,,
+445,X,Runewick Arena
+446,,
+447,,
+448,,
+449,,
+450,,
+451,,
+452,,
+453,,
+454,,
+455,,
+456,,
+457,,
+458,,
+459,,
+460,,
+461,,
+462,,
+463,,
+464,,
+465,,
+466,,
+467,,
+468,,
+469,,
+470,,
+471,,
+472,,
+473,,
+474,,
+475,,
+476,,
+477,,
+478,,
+479,,
+480,,
+481,,
+482,,
+483,,
+484,,
+485,,
+486,,
+487,,
+488,,
+489,,
+490,,
+491,,
+492,,
+493,,
+494,,
+495,,
+496,,
+497,,
+498,,
+499,,
+500,,
+501,,
+502,,
+503,,
+504,,
+505,,
+506,,
+507,,
+508,,
+509,,
+510,,
+511,,
+512,,
+513,,
+514,,
+515,,
+516,,
+517,,
+518,,
+519,,
+520,,
+521,,
+522,,
+523,,
+524,,
+525,,
+526,,
+527,,
+528,,
+529,,
+530,,
+531,,
+532,,
+533,,
+534,,
+535,,
+536,X,Southwest Roof 1
+537,X,Sir Reginalds Tomb
+538,X,Sir Reginalds Tomb
+539,X,Sir Reginalds Tomb
+540,X,Sir Reginalds Tomb
+541,X,Prisonmine
+542,X,Akaltuts
+543,X,Cistern
+544,X,Cistern
+545,X,Cistern
+546,X,Spidernest
+547,X,Lake of Life
+548,X,Lake of Life
+549,X,Northeast Surface
+550,X,Akaltuts
+551,X,Bandit Hideout
+552,X,Northeast Surface
+553,X,Northeast Surface
+554,X,Northeast Underground -3
+555,X,Northeast Underground -3
+556,X,Southwest Surface
+557,X,Volcano
+558,X,Northeast Roof 2
+559,X,Northeast Surface
+560,X,Northeast Underground -3
