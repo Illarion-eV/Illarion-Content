@@ -79,9 +79,9 @@ local function PillarLookAt(User, Item)
     end
 local function BridgeCanalLookAt(User, Item)
     local itemLookat = lookat.GenerateLookAt(User, Item, lookat.NONE)
-    itemLookat.name = common.GetNLS(User, "", "Service Recognition Statue")
+    itemLookat.name = common.GetNLS(User, "Kanaldenkmal.", "Channel monument")
     itemLookat.description = common.GetNLS(User,
-        "",
+        "Die Namer derer, die am Bau beteiligt waren, sind in den Sockel eingraviert.",
         "The names of those who contributed are engraved on the statue.")
     return itemLookat
 end
@@ -262,10 +262,10 @@ function M.UseItem(User, SourceItem, ltstate)
 
     elseif SourceItem.pos == position(596, 150, 0) or SourceItem.pos == position(607, 150, 0) or SourceItem.pos == position(588, 182, 0) or SourceItem.pos == position(600, 183, 0) or SourceItem.pos == position(755, 252, 1) or SourceItem.pos == position(760, 338, 1) then -- statues of recognition
             --Dialog
-        local dialogTitle = common.GetNLS(User, "In Anerkennung seiner & ihrer Dienste für Kanal, Brücke und Fähre:", "In recognition of his & her services for Canal, Bridge and Ferry:")
+        local dialogTitle = common.GetNLS(User, "Kanaldenkmal", "Channel monument")
         local dialogText = common.GetNLS(User,
-            "Sarangerel\nEvie Pryler & Ihr Clan\nRakaya & Her Bearer\nJulia da Silva\nJerem Elessar\nBanduk Robberhauf el Luastelay\nAlrik Grimler\nSammy Goldlieb\nArtimer Fault",
-            "Sarangerel\nEvie Pryler & Her Clan\nRakaya & Ihre Träger\nJulia da Silva\nJerem Elessar\nBanduk Robberhauf el Luastelay\nAlrik Grimler\nSammy Goldlieb\nArtimer Fault")
+            "In Anerkennung seiner & ihrer Dienste für Kanal, Brücke und Fähre:\nSarangerel\nEvie Pryler & Ihr Clan\nRakaya & Ihre Träger\nJulia da Silva\nJerem Elessar\nBanduk Robberhauf el Luastelay\nAlrik Grimler\nSammy Goldlieb\nArtimer Fault",
+            "In recognition of his & her services for Canal, Bridge and Ferry:\nSarangerel\nEvie Pryler & Her Clan\nRakaya & Her Bearer\nJulia da Silva\nJerem Elessar\nBanduk Robberhauf el Luastelay\nAlrik Grimler\nSammy Goldlieb\nArtimer Fault")
         local callbackBridgeCanal = function(nothing) end --empty callback
         local dialogBridgeCanal = MessageDialog(dialogTitle, dialogText, callbackBridgeCanal)
 
