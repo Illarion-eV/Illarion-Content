@@ -76,6 +76,14 @@ local function PillarLookAt(User, Item)
         "Der Griff einer Waffe schaut aus der Säule raus.",
         "The handle of a weapon can be seen sticking out from the pillar.")
     return itemLookat
+    end
+local function BridgeCanalLookAt(User, Item)
+    local itemLookat = lookat.GenerateLookAt(User, Item, lookat.NONE)
+    itemLookat.name = common.GetNLS(User, "", "Service Recognition Statue")
+    itemLookat.description = common.GetNLS(User,
+        "",
+        "The names of those who contributed are engraved on the statue.")
+    return itemLookat
 end
 
 function M.LookAtItem(User, Item)
@@ -123,11 +131,16 @@ function M.LookAtItem(User, Item)
         itemLookat = Chancellor3LookAt(User, Item)
     end
 
-	    -- Zzarn'K'Ska Pillar
+    -- Zzarn'K'Ska Pillar
     if Item.pos == position(563, 260, 0) then
         itemLookat = PillarLookAt(User, Item)
     end
-	
+
+    -- Service Recognition Statues Canal, Ferry, Bridge
+    if Item.pos == position(596, 150, 0) or Item.pos == position(607, 150, 0) or Item.pos == position(588, 182, 0) or Item.pos == position(600, 183, 0) or Item.pos == position(755, 252, 1) or Item.pos == position(760, 338, 1) then
+        itemLookat = BridgeCanalLookAt(User, Item)
+    end
+    
     if itemLookat then
         return itemLookat --Send the custom lookAt
     else
@@ -213,40 +226,56 @@ function M.UseItem(User, SourceItem, ltstate)
         local dialogChancellor3 = MessageDialog(dialogTitle, dialogText, callbackChancellor3)
 
         User:requestMessageDialog(dialogChancellor3)
-		
+
     elseif SourceItem.pos == position(563, 260, 0) then --Zzarn'K'Ska Pillar
       --Quest
         if User:getQuestProgress(503) == 0 then -- start the quest
             User:setQuestProgress(503, 1); -- get an inform
-			User:setQuestProgress(507, 6); -- set cooldown
+            User:setQuestProgress(507, 6); -- set cooldown
             User:inform("Nimm diese Waffe und schließe dich uns an oder sterbe sogleich.", "Take this weapon to join us, or die where you stand.")
-			
-		elseif User:getQuestProgress(503) == 1 then -- taking the weapon
-		    local queststatus = User:getQuestProgress(506) -- here, we save which events were triggered
+
+        elseif User:getQuestProgress(503) == 1 then -- taking the weapon
+            local queststatus = User:getQuestProgress(506) -- here, we save which events were triggered
             local queststatuslist = {}
-			queststatuslist = common.Split_number(queststatus, 6) -- reading the digits of the queststatus as table
-			if queststatuslist[1] == 0 then -- sword, only triggered once by each char
-			User:inform("Du nimmst das Schwert an dich und schließt sich dem Zzarn'K'Ska an.", "You take the sword and join the Zzarn'K'Ska.")
+            queststatuslist = common.Split_number(queststatus, 6) -- reading the digits of the queststatus as table
+            if queststatuslist[1] == 0 then -- sword, only triggered once by each char
+            User:inform("Du nimmst das Schwert an dich und schließt sich dem Zzarn'K'Ska an.", "You take the sword and join the Zzarn'K'Ska.")
                 local notCreated = User:createItem(2655, 1, 866, {descriptionEn = "Holy Sword of the Zzarn'K'Ska of Zelphia", descriptionDe = "Das heilge Schwert der ZzarnK'Ska von Zelphia", rareness = "4"}) -- create the item
                 if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
                 world:createItemFromId(2655, notCreated, User.pos, true, 866, {descriptionEn = "Holy Sword of the Zzarn'K'Ska of Zelphia", descriptionDe = "Das heilge Schwert der ZzarnK'Ska von Zelphia", rareness = "4"})
                 common.HighInformNLS(User,
                     "Du kannst nichts mehr tragen.",
                     "You can't carry any more.")
-	            end
-			queststatuslist[1] = 1
+                end
+            queststatuslist[1] = 1
             User:setQuestProgress(506, queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+queststatuslist[5]*10+queststatuslist[6]*1) --saving the new queststatus
             User:setQuestProgress(503, 2)
-			User:setQuestProgress(507, 0)
-			end
-			
-		elseif User:getQuestProgress(503) == 2 then -- you already took the sword.
-			User:inform("Du haben das Schwert an dich und schließt sich dem Zzarn'K'Ska an.", "You took the sword and joined the Zzarn'K'Ska.")
-			
-		elseif User:getQuestProgress(503) == 3 then -- you lost your chance.
-		    User:inform("Du hast darin versagt, das Schwert an dich zu nehmen und dem Zzarn'K'Ska Zelphias beizutreten.","You failed to take the sword and join the Zzarn'K'Ska of Zelphia.")
+            User:setQuestProgress(507, 0)
         end
-	end
+
+        elseif User:getQuestProgress(503) == 2 then -- you already took the sword.
+            User:inform("Du haben das Schwert an dich und schließt sich dem Zzarn'K'Ska an.", "You took the sword and joined the Zzarn'K'Ska.")
+
+        elseif User:getQuestProgress(503) == 3 then -- you lost your chance.
+            User:inform("Du hast darin versagt, das Schwert an dich zu nehmen und dem Zzarn'K'Ska Zelphias beizutreten.","You failed to take the sword and join the Zzarn'K'Ska of Zelphia.")
+        end
+
+    elseif SourceItem.pos == position(596, 150, 0) or SourceItem.pos == position(607, 150, 0) or SourceItem.pos == position(588, 182, 0) or SourceItem.pos == position(600, 183, 0) or SourceItem.pos == position(755, 252, 1) or SourceItem.pos == position(760, 338, 1) then -- statues of recognition
+            --Dialog
+        local dialogTitle = common.GetNLS(User, "In Anerkennung ihrer Dienste für Kanal, Brücke und Fähre:", "In recognition of her services for Canal, Bridge and Ferry:")
+        local dialogText = common.GetNLS(User,
+            "Sarangerel\nEvie Pryler & Ihr Clan\nRakaya & Her Bearer\nJulia da Silva",
+            "Sarangerel\nEvie Pryler & Her Clan\nRakaya & Ihre Träger\nJulia da Silva")
+        local dialogTitle = common.GetNLS(User, "In Anerkennung seiner Dienste für Kanal, Brücke und Fähre:", "In recognition of his services for Canal, Bridge and Ferry:")
+        local dialogText = common.GetNLS(User,
+            "Jerem Elessar\nBanduk Robberhauf el Luastelay\nAlrik Grimler\nSammy Goldlieb\nArtimer Fault",
+            "Jerem Elessar\nBanduk Robberhauf el Luastelay\nAlrik Grimler\nSammy Goldlieb\nArtimer Fault")
+        local callbackBridgeCanal = function(nothing) end --empty callback
+        local dialogBridgeCanal = MessageDialog(dialogTitle, dialogText, callbackBridgeCanal)
+
+        User:requestMessageDialog(dialogBridgeCanal)
+
+    end
 end
 
 return M
