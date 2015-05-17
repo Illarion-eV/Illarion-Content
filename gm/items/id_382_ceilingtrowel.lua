@@ -708,7 +708,7 @@ function spawnIntervalsPerSpawn(User, SourceItem)
             world:changeItem(SourceItem)
         end
     end
-    User:requestInputDialog(InputDialog("Set number of Intervals.", "Usage: Set numer of 5 second intervals per Spawn." ,false, 255, cbInputDialog))
+    User:requestInputDialog(InputDialog("Set number of intervals.", "Usage: Set numer of 5 second intervals per spawn." ,false, 255, cbInputDialog))
 end
 
 function spawnAmount(User, SourceItem)
@@ -740,7 +740,7 @@ function spawnTime(User, SourceItem)
             world:changeItem(SourceItem)
         end
     end
-    User:requestInputDialog(InputDialog("Set how long the spawn shall take place.", "Usage: Set the ammounts of total Intervals." ,false, 255, cbInputDialog))
+    User:requestInputDialog(InputDialog("Set how long the spawn shall take place.", "Usage: Set the amounts of total intervals." ,false, 255, cbInputDialog))
 end
 
 function spawnEffects(User, SourceItem)

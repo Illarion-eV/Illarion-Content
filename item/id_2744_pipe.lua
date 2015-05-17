@@ -24,8 +24,8 @@ local M = {}
 M.LookAtItem = wood.LookAtItem
 
 function M.UseItem(User, SourceItem)
-	--local ammountSib = User:countItemAt("belt",155);
-	--local ammountTob = User:countItemAt("belt",772);
+	--local amountSib = User:countItemAt("belt",155);
+	--local amountTob = User:countItemAt("belt",772);
 	if (User:countItemAt("belt",155) == 0 and User:countItemAt("belt",772) == 0) then
 		common.InformNLS( User,
         "Du benötigst Sibanac-Blätter oder Tabak, um Pfeife rauchen zu können.",

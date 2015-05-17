@@ -63,37 +63,37 @@ function monsterCreation(User, TargetPos)
             return
         end
 
-        local number, ammount, radius, gfxId, sfxId
+        local number, amount, radius, gfxId, sfxId
         local inputNumber = dialog:getInput()
         if (string.find(inputNumber,"(%d+) (%d+) (%d+) (%d+) (%d+)") ~= nil) then
             local _
-            _, _, number, ammount, radius, gfxId, sfxId = string.find(inputNumber,"(%d+) (%d+) (%d+) (%d+) (%d+)")
+            _, _, number, amount, radius, gfxId, sfxId = string.find(inputNumber,"(%d+) (%d+) (%d+) (%d+) (%d+)")
             number = tonumber(number)
-            ammount = tonumber(ammount)
+            amount = tonumber(amount)
             radius = tonumber(radius)
             gfxId = tonumber(gfxId)
             sfxId = tonumber(sfxId)
         elseif (string.find(inputNumber,"(%d+) (%d+) (%d+) (%d+)") ~= nil) then
             local _
-            _, _, number, ammount, radius, gfxId = string.find(inputNumber,"(%d+) (%d+) (%d+) (%d+)")
+            _, _, number, amount, radius, gfxId = string.find(inputNumber,"(%d+) (%d+) (%d+) (%d+)")
             number = tonumber(number)
-            ammount = tonumber(ammount)
+            amount = tonumber(amount)
             radius = tonumber(radius)
             gfxId = tonumber(gfxId)
             sfxId = 0
         elseif (string.find(inputNumber,"(%d+) (%d+) (%d+)") ~= nil) then
             local _
-            _, _, number, ammount, radius = string.find(inputNumber,"(%d+) (%d+) (%d+)")
+            _, _, number, amount, radius = string.find(inputNumber,"(%d+) (%d+) (%d+)")
             number = tonumber(number)
-            ammount = tonumber(ammount)
+            amount = tonumber(amount)
             radius = tonumber(radius)
             gfxId = 0
             sfxId = 0
         elseif (string.find(inputNumber,"(%d+) (%d+)") ~= nil) then
             local _
-            _, _, number, ammount = string.find(inputNumber,"(%d+) (%d+)")
+            _, _, number, amount = string.find(inputNumber,"(%d+) (%d+)")
             number = tonumber(number)
-            ammount = tonumber(ammount)
+            amount = tonumber(amount)
             radius = 0
             gfxId = 0
             sfxId = 0
@@ -101,7 +101,7 @@ function monsterCreation(User, TargetPos)
             local _
             _, _, number = string.find(inputNumber,"(%d+)")
             number = tonumber(number)
-            ammount = 1
+            amount = 1
             radius = 0
             gfxId = 0
             sfxId = 0
@@ -109,11 +109,11 @@ function monsterCreation(User, TargetPos)
             User:inform("No number")
         end
 
-        if ammount > 100 then
-            ammount = 100
+        if amount > 100 then
+            amount = 100
         end
 
-        for _ = 1, ammount do
+        for _ = 1, amount do
             local monPos = common.getFreePos( TargetPos, radius )
             world:createMonster(number, monPos, 20)
             if gfxId ~= 0 then
@@ -121,14 +121,14 @@ function monsterCreation(User, TargetPos)
             end
         end
 
-        User:inform("Creating "..ammount.. " monsters with ID "..number.." (radius = "..radius..")")
-        User:logAdmin("creates "..ammount.. " monsters with ID "..number.." at "..tostring(TargetPos).." (radius = "..radius..")")
+        User:inform("Creating "..amount.. " monsters with ID "..number.." (radius = "..radius..")")
+        User:logAdmin("creates "..amount.. " monsters with ID "..number.." at "..tostring(TargetPos).." (radius = "..radius..")")
 
         if sfxId ~= 0 then
             world:makeSound(sfxId,TargetPos)
         end
     end
-    User:requestInputDialog(InputDialog("Spawn a monster.", "Usage enter: MonsterID [ammount] [radius] [GFX] [SFX]" ,false, 255, cbInputDialog))
+    User:requestInputDialog(InputDialog("Spawn a monster.", "Usage enter: MonsterID [amount] [radius] [GFX] [SFX]" ,false, 255, cbInputDialog))
 end
 
 function gfx(User, TargetPos)
