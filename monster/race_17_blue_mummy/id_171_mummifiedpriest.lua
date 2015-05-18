@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 171, Mummified Priest, Level: 3
+--ID 171, Mummiefied Priest, Level: 3, Armourtype: light, Weapontype: slashing
 
 local base = require("monster.base.base")
 local mageBehaviour = require("monster.base.behaviour.mage")

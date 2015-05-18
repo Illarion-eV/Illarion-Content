@@ -14,18 +14,19 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 753, Mystic Grave Guard, Level: 3
+--ID 764, Mystic Swamphorror,   Level: 4, Armourtype: medium, Weapontype: concussion
 
-local blueskeleton = require("monster.race_75_blue_skeleton.base")
 local mageBehaviour = require("monster.base.behaviour.mage")
 local monstermagic = require("monster.base.monstermagic")
+local greenskeleton = require("monster.race_76_green_skeleton.base")
 
 local magic = monstermagic()
 magic.addWarping{probability = 0.15, usage = magic.ONLY_NEAR_ENEMY}
 
-magic.addIceball{probability = 0.05,  damage = {from = 500, to = 1500}}
-magic.addIcestrike{probability = 0.005, damage = {from = 375, to = 875}, targetCount = 3}
+magic.addPoisonball{probability = 0.06,  damage = {from = 750, to = 1500}}
+magic.addPoisonball{ probability = 0.025,  damage = {from = 750, to = 1500}}
+magic.addPoisonball{probability = 0.005, damage = {from = 375, to = 875}, targetCount = 4}
 
-local M = blueskeleton.generateCallbacks()
+local M = greenskeleton.generateCallbacks()
 M = magic.addCallbacks(M)
 return mageBehaviour.addCallbacks(magic, M)
