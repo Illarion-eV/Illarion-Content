@@ -15,7 +15,6 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 751, Graveguard,         Level: 5, Armourtype: medium, Weapontype: puncture
---ID 752, Mystic Graveguard,  Level: 3, Armourtype: light,  Weapontype: slashing
 --ID 753, Graveguard Archer,  Level: 3, Armourtype: heavy,  Weapontype: distance
 --ID 754, Ancient Graveguard, Level: 4, Armourtype: light,  Weapontype: concussion
 

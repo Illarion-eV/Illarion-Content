@@ -16,7 +16,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 173, Mummiefied Highpriest, Level: 4, Armourtype: light, Weapontype: concussion
 
-local base = require("monster.base.base")
 local mageBehaviour = require("monster.base.behaviour.mage")
 local monstermagic = require("monster.base.monstermagic")
 local bluemummy = require("monster.race_17_blue_mummy.base")

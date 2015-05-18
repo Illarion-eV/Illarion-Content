@@ -14,9 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 171, Mummiefied Priest,        Level: 3, Armourtype: light, Weapontype: slashing
 --ID 172, Mummiefied Templeservant, Level: 2, Armourtype: light, Weapontype: slashing
---ID 173, Mummiefied Highpriest,    Level: 4, Armourtype: light, Weapontype: concussion
 
 local blueMummies = require("monster.race_17_blue_mummy.base")
 return blueMummies.generateCallbacks()
