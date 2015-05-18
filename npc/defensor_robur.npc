@@ -113,7 +113,7 @@ queststatus(525) > 5, queststatus(525) < 11, "task", "adventure", "order" -> "Ha
 queststatus(525) > 5, queststatus(525) < 11,"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hast Du fünf Drowschützen getötet? Wenn Du den Test nicht bestehst kannst Du nicht weitergehen."
 -- If test is finished
 queststatus(525) = 11, english, ".+" -> inform("[Quest solved] You are awarded an elven shortbow."), item(2685, 1, 699), queststatus(525) = 12, "You have passed this test and are awarded an elven shortbow."
-queststatus(525) = 11, ".+" -> inform("[Quest gelöst] Du erhältst ein Elbenkurzbogen."), item(2685, 1, 699), queststatus(525) = 12, "Du hast den Test bestanden. Du bekommst ein Elbenkurzbogen."
+queststatus(525) = 11, ".+" -> inform("[Quest gelöst] Du erhältst ein Elfenkurzbogen."), item(2685, 1, 699), queststatus(525) = 12, "Du hast den Test bestanden. Du bekommst ein Elfenkurzbogen."
 --If finished with the Defensor
 queststatus(525) = 12, english, "quest", "mission", "test" -> "You have passed, please see Defensor Impetus."
 queststatus(525) = 12, "quest", "mission", "Test" -> "Du hast bestanden. Gehe zum Defensor Impetus."

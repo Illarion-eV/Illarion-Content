@@ -103,14 +103,14 @@ queststatus(527) < 16, "task", "adventure", "order" -> "The skill testing must b
 queststatus(527) < 16, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Die Proben deiner Fähigkeiten müssen der Reihe nach erfolgen. Bitte suche den zuständigen Defensor vor mir."
 -- Receiving the task of Collecting 5 elven rainbow swords.
 queststatus(527) = 16, english, "quest", "mission", "test" -> inform("[New quest] Akaltut's Chamber 11"), queststatus(527) = 17, "I am Defensor Depello, to pass my test you must collect five elven rainbow swords."
-queststatus(527) = 16,  "quest", "mission", "Test" -> inform("[Neue Quest] Die Kammer von Akaltut 11"), queststatus(527) = 17, "Ich bin Defensor Depello, um meinen Test zu bestehen musst du fünf Elbenregenbogenschwerter von den Drows, welche hier herum schweifen sammeln."
+queststatus(527) = 16,  "quest", "mission", "Test" -> inform("[Neue Quest] Die Kammer von Akaltut 11"), queststatus(527) = 17, "Ich bin Defensor Depello, um meinen Test zu bestehen musst du fünf Elfenregenbogenschwerter von den Drows, welche hier herum schweifen sammeln."
 queststatus(527) = 16, "task", "adventure", "order" -> inform("[New quest] Akaltut's Chamber 11"), queststatus(527) = 17, "I am Defensor Depello, to pass my test you must collect five elven rainbow swords."
-queststatus(527) = 16, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Die Kammer von Akaltut 11"), queststatus(527) = 17, "Ich bin Defensor Depello, um meinen Test zu bestehen musst du fünf Elbenregenbogenschwerter von den Drows, welche hier herum schweifen sammeln."
+queststatus(527) = 16, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Die Kammer von Akaltut 11"), queststatus(527) = 17, "Ich bin Defensor Depello, um meinen Test zu bestehen musst du fünf Elfenregenbogenschwerter von den Drows, welche hier herum schweifen sammeln."
 -- If quest received but task not finished
 queststatus(527) = 17, item(2775, all) < 5, english,"quest", "mission", "test" ->"Do you have five elven rainbow swords? If you do not pass this test you can't continue."
-queststatus(527) = 17, item(2775, all) < 5, "quest", "mission", "Test" ->"Hast Du fünf Elbenregenbogenschwerter? Wenn Du diesen Test nicht bestehst kannst Du nicht weitergehen."
+queststatus(527) = 17, item(2775, all) < 5, "quest", "mission", "Test" ->"Hast Du fünf Elfenregenbogenschwerter? Wenn Du diesen Test nicht bestehst kannst Du nicht weitergehen."
 queststatus(527) = 17, item(2775, all) < 5, "task", "adventure", "order" -> "Do you have five elven rainbowswords? If you do not pass this test you can't continue."
-queststatus(527) = 17, item(2775, all) < 5,"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hast Du fünf Elbenregenbogenschwerter? Wenn Du diesen Test nicht bestehst kannst Du nicht weitergehen."
+queststatus(527) = 17, item(2775, all) < 5,"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hast Du fünf Elfenregenbogenschwerter? Wenn Du diesen Test nicht bestehst kannst Du nicht weitergehen."
 -- If test is finished
 queststatus(527) = 17, item(2775, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded 175 silver coins."), money + 17500, deleteItem(2775, 5), queststatus(527) = 18, "You have passed this test and are awarded 175 silver coins."
 queststatus(527) = 17, item(2775, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 175 Silberstücke."), money + 17500, deleteItem(2775, 5), queststatus(527) = 18, "Du hast den Test bestanden. Du bekommst 175 Silberstücke."

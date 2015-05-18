@@ -105,7 +105,7 @@ product:addIngredient(52)
 product:addRemnant(51) -- Schritt 5: Eimer mit Wasser(52) 1x
 ------------------- FLASCHE MIT KIRSCHSCHNAPS - FERTIG ---------------------------
 
-------------------- FLASCHE MIT ELBENWEIN - 1318 ---------------------------
+------------------- FLASCHE MIT ELFENWEIN - 1318 ---------------------------
 product = brewing:addProduct(catId, 1318, 87, 100, 135, 270)
 product:addIngredient(1317) -- Schritt 1: leere Flasche(1317) 1x
 product:addIngredient(759, 2) -- Schritt 2 - 2: Nüsse(759) x1
@@ -113,7 +113,7 @@ product:addIngredient(80, 3) -- Schritt 3: Bananen(80) x3
 product:addIngredient(2529, 2) -- Schritt 4: Honig(2529) x2
 product:addIngredient(52) -- Schritt 5: Eimer mit Wasser(52) 1x
 product:addRemnant(51)
-------------------- FLASCHE MIT ELBENWEIN - FERTIG ---------------------------
+------------------- FLASCHE MIT ELFENWEIN - FERTIG ---------------------------
 
 
 catId = brewing:addCategory("Juices", "Säfte") -- Tee, Smoothies, Saft :p

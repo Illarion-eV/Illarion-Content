@@ -68,7 +68,7 @@ Description[ENGLISH][15] = "Report back to Defensor Profligo, you have finished 
 Description[GERMAN][16] = "Der Defensor Depello hat vielleicht eine Aufgabe für dich."
 Description[ENGLISH][16] = "The Defensor Depello may have a task for you."
 
-Description[GERMAN][17] = "Sammle fünf Elbenregenbogenschwerter und bringe sie zum Defensor Depello."
+Description[GERMAN][17] = "Sammle fünf Elfenregenbogenschwerter und bringe sie zum Defensor Depello."
 Description[ENGLISH][17] = "Collect five elven rainbow swords for Defensor Depello."
 Description[GERMAN][18] = "Der Defensor Venenatus hat vielleicht eine Aufgabe für dich."
 Description[ENGLISH][18] = "The Defensor Venenatus may have a task for you."
