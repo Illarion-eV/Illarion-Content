@@ -380,7 +380,7 @@ itemList = {
 2711 ,--Halblingsaxt halfling axe
 2714 ,--Jagdbogen hunting bow
 2717 ,--Nägel und Keile pins and cotters
-2718 ,--Elben-Kompositlangbogen elven composite longbow
+2718 ,--Elfen-Kompositlangbogen elven composite longbow
 2719 ,--Kamm comb
 2745 ,--Pergament parchment
 2746 ,--Rasierklinge razor blade
@@ -401,7 +401,7 @@ itemList = {
 124 ,--vergoldete Kriegsaxt gilded battle axe
 771 ,--albarische Stahlstiefel albarian steel boots
 192 ,--verkupferte Kriegsaxt coppered battle axe
-209 ,--Elben-Magierstab elven mage's staff
+209 ,--Elfen-Magierstab elven mage's staff
 229 ,--versilberte Kriegsaxt silvered battle axe
 296 ,--merinium-beschichtete Axt merinium-plated battle axe
 389 ,--versilberter Dolch silvered dagger
@@ -470,10 +470,10 @@ itemList = {
 1001 ,--Teller plate
 1860 ,--goblet with wine goblet with wine
 2111 ,--Kettenhose chain pants
-2775 ,--Elben-Regenbogenschwert elven rainbowsword
+2775 ,--Elfen-Regenbogenschwert elven rainbowsword
 2776 ,--Kurzschwert short sword
 2777 ,--Drow-Klinge drow blade
-2778 ,--Elbenschwert elvensword
+2778 ,--Elfenschwert elvensword
 2784 ,--Stab des Wassers wand of water
 2786 ,--Zweig branch
 2788 ,--Schlangenschwert snake sword
