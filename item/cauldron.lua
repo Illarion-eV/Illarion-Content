@@ -29,22 +29,73 @@ function M.UseItem(User, SourceItem)
         cauldronContents(User, SourceItem)
     end
     
-    if (User:getQuestProgress(539) == 3) and  SourceItem.pos == position(594, 172, -3) then --OK, the player does the quest 2
+    if (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) == 0) and SourceItem.pos == position(594, 172, -3) then --OK, the player does the quest 2 yellow
         User:inform(
             "I",
             "You manage somehow to steal a bottle of the yellow potion from Kaefity, You should take it to Pasinn.")
         User:setQuestProgress(542, 1)
         return
+    elseif (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) == 0) and (User:getQuestProgress(542) >= 0) and SourceItem.pos == position(594, 172, -3) then --player has a bottle
+            User:inform(
+            "I",
+            "You already have a bottle, you should show it to Pasinn before collecting more.")
+        return
     end
     
-    if (User:getQuestProgress(539) == 3) and  SourceItem.pos == position(596, 173, -3) then --OK, the player does the quest 2
+    if (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) == 0) and SourceItem.pos == position(596, 173, -3) then --OK, the player does the quest 2 orange
         User:inform(
             "I",
             "You look on in amazement as the bottle dissolves in your hands. There will be no obtaining this potion you should try elsewhere.")
         world:gfx(52, User.pos) -- swirly
+        world:makeSound(13, User.pos)
+        return
+    elseif (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) >= 0) and SourceItem.pos == position(596, 173, -3) then --player has a bottle
+            User:inform(
+            "I",
+            "You already have a bottle, you should show it to Pasinn before collecting more.")
         return
     end
     
+    if (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) == 0) and SourceItem.pos == position(598, 175, -3) then --OK, the player does the quest 2 blue
+        User:inform(
+            "I",
+            "When the contents of the cauldron hit your bottle the potion bubbles then causes an explosion. Glass shards fly causing you harm.")
+        world:gfx(44, User.pos) -- explosion gfx
+        world:makeSound(5, User.pos) --a loud boom
+        User:increaseAttrib("hitpoints", -1000) -- player loses health
+        return
+    elseif (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) >= 0) and SourceItem.pos == position(598, 175, -3) then -- player has a bottle
+            User:inform(
+            "I",
+            "You already have a bottle, you should show it to Pasinn before collecting more.")
+        return
+    end
+    
+    if (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) == 0) and SourceItem.pos == position(598, 177, -3) then --OK, the player does the quest 2 dark green
+        User:inform(
+            "I",
+            "You manage somehow to steal a bottle of the dark green potion from Kaefity, You should take it to Pasinn.")
+        User:setQuestProgress(542, 3)
+        return
+    elseif (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) >= 0) and SourceItem.pos == position(598, 177, -3) then -- player has a bottle
+                User:inform(
+            "I",
+            "You already have a bottle, you should show it to Pasinn before collecting more.")
+        return
+    end
+    
+    if (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) == 0) and SourceItem.pos == position(597, 180, -3) then --OK, the player does the quest 2 pink
+        User:inform(
+            "I",
+            "You manage somehow to steal a bottle of the pink potion from Kaefity, You should take it to Pasinn.")
+        User:setQuestProgress(542, 1)
+        return
+    elseif (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) == 0) and SourceItem.pos == position(597, 180, -3) then --player has a bottle
+        User:inform(
+            "I",
+            "You already have a bottle, you should show it to Pasinn before collecting more.")
+        return
+    end
 end
 
 function cauldronContents(User, chestItem)
