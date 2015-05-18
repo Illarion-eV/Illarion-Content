@@ -32,24 +32,24 @@ Title[ENGLISH] = "Viridian Needles Lair"
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = ""
+Description[GERMAN][1] = "Sammle fünfzehn vergiftete Münzen in Viridian Needles' Schlupfwinkel, wo der Alchemist Kaefity arbeitet."
 Description[ENGLISH][1] = "Collect fifteen poisoned coins from Viridian Needles Lair where the Alchemist Kaefity is working."
-Description[GERMAN][2] = ""
+Description[GERMAN][2] = "Kehre zu Pasinn zurück, er wird sicher noch eine Aufgabe für dich haben."
 Description[ENGLISH][2] = "Go back to Pasinn, he will certainly have another task for you."
-Description[GERMAN][3] = ""
+Description[GERMAN][3] = "Finde den richtigen Trank aus den Kesseln in Viridian Needles' Schlupfwinkel, den Pasinn haben möchte."
 Description[ENGLISH][3] = "Find the proper potion that Pasinn is wanting from the Cauldrons in Viridian Needles Lair."
-Description[GERMAN][4] = ""
+Description[GERMAN][4] = "Kehre zu Pasinn zurück, er wird sicher noch eine Aufgabe für dich haben."
 Description[ENGLISH][4] = "Go back to Pasinn, he will certainly have another task for you."
-Description[GERMAN][5] = ""
+Description[GERMAN][5] = "Such nach Kaefitys Rezept für den Trank, den du für Pasinn gefunden hast. Es sollte irgendwo im Schlupfwinkel herumliegen."
 Description[ENGLISH][5] = "Locate Kaefity's recipe for the potion that you found for Pasinn. It should be laying around the lair somewhere."
-Description[GERMAN][6] = ""
+Description[GERMAN][6] = "Kehre zu Pasinn zurück, er wird sicher noch eine Aufgabe für dich haben."
 Description[ENGLISH][6] = "Go back to Pasinn, he will certainly have another task for you."
-Description[GERMAN][7] = ""
-Description[ENGLISH][7] = "Kill Kaefity and his pet swamp beast for Pasinn. You still need to kill two."
-Description[GERMAN][8] = "."
-Description[ENGLISH][8] = "Kill Kaefity and his pet swamp beast for Pasinn. You still need to kill one."
-Description[GERMAN][9] = ""
-Description[ENGLISH][9] = "Returned to Pasinn, you have finished his task."
+Description[GERMAN][7] = "Töte Kaefity und sein Haustier das Sumpfmonster für Pasinn. Du musst immernoch beide umbringen."
+Description[ENGLISH][7] = "Kill Kaefity and his pet swamp beast for Pasinn. You still need to kill both of them."
+Description[GERMAN][8] = "Töte Kaefity und sein Haustier das Sumpfmonster für Pasinn. Du musst immernoch einen von ihnen umbringen."
+Description[ENGLISH][8] = "Kill Kaefity and his pet swamp beast for Pasinn. You still need to kill one of them."
+Description[GERMAN][9] = "Kehre zu Pasinn zurück, du hast seine Aufgabe erfüllt."
+Description[ENGLISH][9] = "Return to Pasinn, you have finished his task."
 Description[GERMAN][10] = "Du hast alle Aufgaben von Pasinn erfüllt."
 Description[ENGLISH][10] = "You have fulfilled all the tasks for Pasinn."
 
@@ -87,7 +87,7 @@ end
 
 function M.QuestStart()
     return Start
-	end
+    end
 
 function M.QuestTargets(user, status)
     return QuestTarget[status]
