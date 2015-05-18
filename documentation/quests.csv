@@ -235,6 +235,7 @@ ID,"Title","NPCs","Status","Responsible Author","Description"
 539,"Viridian Needles Lair Npc Quest,,,"Evie","Npc quest in Viridian Needles Lair"
 540,"Viridian Needles Lair Events",,,"Evie","potion quests-success recorder"
 541,"Viridian Needles Lair Events cooldown",,,"Evie","lte counter for boosts."
+542,"Viridian Needles Lair Quest counter",,,"Evie","counter for quest two"
 557,"The way of the ham",,,"martin/Nitram","A npc sends you to get a delievery of ham"
 558,"flora??? But alos Fredegar Bumbleroot",,,,
 560,"Dog Transformation",,,"Merung","Used for dog transformation quest"
