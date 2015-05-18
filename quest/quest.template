@@ -38,7 +38,7 @@ monsterQuests.addQuest{
     questTitle = {german = "Deutscher Titel des Quests", english = "English title of the quest"},
     monsterName = {german = "Monster Name", english = "monster name"},
     npcName = "Name of the NPC to return to",
-    raceIds = {0, 1} -- all monsters with races 0 (humans) or 1 (dwarfs)
+    raceIds = {0, 1} -- all monsters with races 0 (humans) or 1 (dwarves)
 }
 monsterQuests.addQuest{
     questId = 123,
