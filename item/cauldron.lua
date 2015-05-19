@@ -31,34 +31,34 @@ function M.UseItem(User, SourceItem)
     
     if (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) == 0) and SourceItem.pos == position(594, 172, -3) then --OK, the player does the quest 2 yellow
         User:inform(
-            "I",
+            "Irgendwie schaffst du es, eine Flasche mit dem gelben Trank von Kaefity zu klauen. Du solltest sie zu Pasinn bringen.",
             "You manage somehow to steal a bottle of the yellow potion from Kaefity, You should take it to Pasinn.")
         User:setQuestProgress(542, 1)
         return
     elseif (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) == 0) and (User:getQuestProgress(542) >= 0) and SourceItem.pos == position(594, 172, -3) then --player has a bottle
             User:inform(
-            "I",
+            "Du hast bereits eine Flasche, du solltest sie Pasinn zeigen, ehe du mehr sammelst.",
             "You already have a bottle, you should show it to Pasinn before collecting more.")
         return
     end
     
     if (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) == 0) and SourceItem.pos == position(596, 173, -3) then --OK, the player does the quest 2 orange
         User:inform(
-            "I",
+            "Du siehst verdutzt zu, wie sich die Flasche in deinen Händen auflöst. Diesen Trank wirst du wohl nicht abfüllen können. Du solltest es woanders versuchen.",
             "You look on in amazement as the bottle dissolves in your hands. There will be no obtaining this potion you should try elsewhere.")
         world:gfx(52, User.pos) -- swirly
         world:makeSound(13, User.pos)
         return
     elseif (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) >= 0) and SourceItem.pos == position(596, 173, -3) then --player has a bottle
             User:inform(
-            "I",
+            "Du hast bereits eine Flasche, du solltest sie Pasinn zeigen, ehe du mehr sammelst.",
             "You already have a bottle, you should show it to Pasinn before collecting more.")
         return
     end
     
     if (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) == 0) and SourceItem.pos == position(598, 175, -3) then --OK, the player does the quest 2 blue
         User:inform(
-            "I",
+            "Als der Inhalt des Kessels deine Flasche berührt, fängt der Trank an, Blasen zu werfen und explodiert. Glasscherben fliegen durch die Gegend und verletzen dich.",
             "When the contents of the cauldron hit your bottle the potion bubbles then causes an explosion. Glass shards fly causing you harm.")
         world:gfx(44, User.pos) -- explosion gfx
         world:makeSound(5, User.pos) --a loud boom
@@ -66,33 +66,33 @@ function M.UseItem(User, SourceItem)
         return
     elseif (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) >= 0) and SourceItem.pos == position(598, 175, -3) then -- player has a bottle
             User:inform(
-            "I",
+            "Du hast bereits eine Flasche, du solltest sie Pasinn zeigen, ehe du mehr sammelst.",
             "You already have a bottle, you should show it to Pasinn before collecting more.")
         return
     end
     
     if (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) == 0) and SourceItem.pos == position(598, 177, -3) then --OK, the player does the quest 2 dark green
         User:inform(
-            "I",
+            "Irgendwie schaffst du es, eine Flasche des dunkelgrünen Tranks von Kaefity zu stehlen. Du solltest sie zu Pasinn bringen.",
             "You manage somehow to steal a bottle of the dark green potion from Kaefity, You should take it to Pasinn.")
         User:setQuestProgress(542, 3)
         return
     elseif (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) >= 0) and SourceItem.pos == position(598, 177, -3) then -- player has a bottle
                 User:inform(
-            "I",
+            "Du hast bereits eine Flasche, du solltest sie Pasinn zeigen, ehe du mehr sammelst.",
             "You already have a bottle, you should show it to Pasinn before collecting more.")
         return
     end
     
     if (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) == 0) and SourceItem.pos == position(597, 180, -3) then --OK, the player does the quest 2 pink
         User:inform(
-            "I",
+            "Irgendwie schaffst du es, eine Flasche des rosanen Tranks von Kaefity zu klauen. Du solltest sie zu Pasinn bringen.",
             "You manage somehow to steal a bottle of the pink potion from Kaefity, You should take it to Pasinn.")
         User:setQuestProgress(542, 1)
         return
     elseif (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) == 0) and SourceItem.pos == position(597, 180, -3) then --player has a bottle
         User:inform(
-            "I",
+            "Du hast bereits eine Flasche, du solltest sie Pasinn zeigen, ehe du mehr sammelst.",
             "You already have a bottle, you should show it to Pasinn before collecting more.")
         return
     end
