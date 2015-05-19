@@ -42,16 +42,22 @@ Description[GERMAN][4] = "Kehre zu Pasinn zurück, er wird sicher noch eine Aufga
 Description[ENGLISH][4] = "Go back to Pasinn, he will certainly have another task for you."
 Description[GERMAN][5] = "Such nach Kaefitys Rezept für den Trank, den du für Pasinn gefunden hast. Es sollte irgendwo im Schlupfwinkel herumliegen."
 Description[ENGLISH][5] = "Locate Kaefity's recipe for the potion that you found for Pasinn. It should be laying around the lair somewhere."
-Description[GERMAN][6] = "Kehre zu Pasinn zurück, er wird sicher noch eine Aufgabe für dich haben."
-Description[ENGLISH][6] = "Go back to Pasinn, he will certainly have another task for you."
-Description[GERMAN][7] = "Töte Kaefity und sein Haustier das Sumpfmonster für Pasinn. Du musst immernoch beide umbringen."
-Description[ENGLISH][7] = "Kill Kaefity and his pet swamp beast for Pasinn. You still need to kill both of them."
-Description[GERMAN][8] = "Töte Kaefity und sein Haustier das Sumpfmonster für Pasinn. Du musst immernoch einen von ihnen umbringen."
-Description[ENGLISH][8] = "Kill Kaefity and his pet swamp beast for Pasinn. You still need to kill one of them."
+Description[GERMAN][6] = "Kehre zu Pasinn zurück, du hast seine Aufgabe erfüllt."
+Description[ENGLISH][6] = "Return to Pasinn, you have finished his task."
+Description[GERMAN][7] = "Kehre zu Pasinn zurück, er wird sicher noch eine Aufgabe für dich haben."
+Description[ENGLISH][7] = "Go back to Pasinn, he will certainly have another task for you."
+Description[GERMAN][8] = "Töte Kaefity Haustier das Sumpfmonster für Pasinn."
+Description[ENGLISH][8] = "Kill Kaefity's pet swamp beast for Pasinn."
 Description[GERMAN][9] = "Kehre zu Pasinn zurück, du hast seine Aufgabe erfüllt."
 Description[ENGLISH][9] = "Return to Pasinn, you have finished his task."
-Description[GERMAN][10] = "Du hast alle Aufgaben von Pasinn erfüllt."
-Description[ENGLISH][10] = "You have fulfilled all the tasks for Pasinn."
+Description[GERMAN][10] = "Kehre zu Pasinn zurück, er wird sicher noch eine Aufgabe für dich haben."
+Description[ENGLISH][10] = "Go back to Pasinn, he will certainly have another task for you."
+Description[GERMAN][11] = "Töte die Rattenalchemist Kaefity für Pasinn."
+Description[ENGLISH][11] = "Kill Kaefity the Rat Alchemist for Pasinn."
+Description[GERMAN][12] = "Kehre zu Pasinn zurück, du hast seine Aufgabe erfüllt."
+Description[ENGLISH][12] = "Return to Pasinn, you have finished his task."
+Description[GERMAN][13] = "Du hast alle Aufgaben von Pasinn erfüllt."
+Description[ENGLISH][13] = "You have fulfilled all the tasks for Pasinn."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 local Start = {523, 205, 0}
@@ -65,14 +71,36 @@ QuestTarget[3] = {position(523, 205, 0), position(522, 205, 0)} -- Viridian Need
 QuestTarget[4] = {position(840, 470, 0)} 
 QuestTarget[5] = {position(523, 205, 0), position(522, 205, 0)} -- Viridian Needles Lair
 QuestTarget[6] = {position(840, 470, 0)} 
-QuestTarget[7] = {position(523, 205, 0), position(522, 205, 0)} -- Viridian Needles Lair
+QuestTarget[7] = {position(523, 205, 0)}
 QuestTarget[8] = {position(523, 205, 0), position(522, 205, 0)} -- Viridian Needles Lair
 QuestTarget[9] = {position(523, 205, 0)} 
 QuestTarget[10] = {position(523, 205, 0)} 
+QuestTarget[11] = {position(523, 205, 0), position(522, 205, 0)} -- Viridian Needles Lair
+QuestTarget[12] = {position(523, 205, 0)} 
+QuestTarget[13] = {position(523, 205, 0)} 
 
 -- Insert the quest status which is reached at the end of the quest
-local FINAL_QUEST_STATUS = 10
+local FINAL_QUEST_STATUS = 13
 
+-- Register the monster kill parts of the quest.
+monsterQuests.addQuest{
+    questId = 539,
+    location = {position = position(575, 190, -3), radius = 75},
+    queststatus = {from = 8, to = 9},
+    questTitle = {german = "Viridian Nadeln Höhle IV", english = "Viridian Needles Lair IV"},
+    monsterName = {german = "Sumpfmonster", english = "Swamp Monster"},
+    npcName = "Pasinn",
+    raceIds = {872} -- swamp beast
+}
+monsterQuests.addQuest{
+    questId = 539,
+    location = {position = position(575, 190, -3), radius = 75},
+    queststatus = {from = 11, to = 12},
+    questTitle = {german = "Viridian Nadeln Höhle V", english = "Viridian Needles Lair V"},
+    monsterName = {german = "Rattenalchemist", english = "Rat Alchemist"},
+    npcName = "Pasinn",
+    raceIds = {877} -- Rat Alchemist
+}
 
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])

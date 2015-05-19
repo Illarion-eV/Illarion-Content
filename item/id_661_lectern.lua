@@ -29,6 +29,19 @@ function M.UseItem(user, sourceItem)
 	if isRanklistLocation(sourceItem.pos) then
 		ranklist.getRanklist(user, "explorerRanklist", true)
 	end
+    
+    if (User:getQuestProgress(539) == 5) and SourceItem.pos == position(613, 188, -3) then --OK, the player does the quest 3
+        User:inform(
+        "Das Rezept ist für Kaefitys absolute Lebensauslöschungsbombe, aber die meisten können den Kauderwelsch nicht entziffern. Die wenigen, die es lesen können, werden feststellen, dass an entscheidenden Stellen wichtige Zutaten fehlen.",
+        "The recipe is for Kaefity's Total Life Annihilator Bomb, but most cannot read the gibberish. The few who can read it will find that there are important ingredients missing in key places.")
+        User:setQuestProgress(539, 6)
+        return
+    elseif SourceItem.pos == position(613, 188, -3) then
+        User:inform(
+        "Das Rezept ist für Kaefitys absolute Lebensauslöschungsbombe, aber die meisten können den Kauderwelsch nicht entziffern. Die wenigen, die es lesen können, werden feststellen, dass an entscheidenden Stellen wichtige Zutaten fehlen.",
+        "The recipe is for Kaefity's Total Life Annihilator Bomb, but most cannot read the gibberish. The few who can read it will find that there are important ingredients missing in key places.")
+        return
+    end
 end
 
 function M.LookAtItem(user, item)
