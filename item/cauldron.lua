@@ -90,7 +90,7 @@ function M.UseItem(User, SourceItem)
             "You manage somehow to steal a bottle of the pink potion from Kaefity, You should take it to Pasinn.")
         User:setQuestProgress(542, 1)
         return
-    elseif (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) == 0) and SourceItem.pos == position(597, 180, -3) then --player has a bottle
+    elseif (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) >= 0) and SourceItem.pos == position(597, 180, -3) then --player has a bottle
         User:inform(
             "Du hast bereits eine Flasche, du solltest sie Pasinn zeigen, ehe du mehr sammelst.",
             "You already have a bottle, you should show it to Pasinn before collecting more.")
