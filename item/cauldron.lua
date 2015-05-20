@@ -98,7 +98,7 @@ function M.UseItem(User, SourceItem)
     end
 end
 
-function cauldronContents(User, chestItem)
+function cauldronContents(User, cauldronItem)
 
     -- skip if already tripped in the last 5 minutes
     local serverTime = world:getTime("unix")
