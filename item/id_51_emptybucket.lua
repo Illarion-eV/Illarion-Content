@@ -61,6 +61,12 @@ function M.UseItem(User, SourceItem, ltstate)
         foundSource = true
     end
 
+    local itemData
+    local isDragoncaveSpring = TargetItem:getData("dragoncaveSpring")
+    if (isDragoncaveSpring == "true") then
+        itemData = {dragoncaveBucket = "true", descriptionDe = "Vulkanisches Quellwasser", descriptionEn = "Vulcanic Springwater"}
+    end
+
     -- check for water tile
     local targetPos = GetWaterTilePosition(User)
     if (targetPos ~= nil) then
@@ -87,25 +93,34 @@ function M.UseItem(User, SourceItem, ltstate)
         return
     end
 
-    local notCreated = User:createItem( 52, 1, 333, nil ) -- create the new produced items
+    if isDragoncaveSpring then
+        common.InformNLS(User,
+            "Als Du einen Eimer voll klaren, kühlen Wassers aus dem Becken herausgezogen hast, siehst Du dich nach Verwendungsmöglichkeiten für das Wasser um.",
+            "As you pull a bucket of water from the clear cool waters of the pool, you look around to see what uses can be had with the water.")
+    end
+    
+    local notCreated = User:createItem(52, 1, 333, itemData) -- create the new produced items
     if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-    world:createItemFromId( 52, notCreated, User.pos, true, 333, nil )
-    common.HighInformNLS(User,
-        "Du kannst nichts mehr halten.",
-        "You can't carry any more.")
-    world:erase(SourceItem,1)
-    return
-    else -- character can still carry something
-    if SourceItem.number == 1 then
+        world:createItemFromId(52, notCreated, User.pos, true, 333, itemData)
+        common.HighInformNLS(User,
+            "Du kannst nichts mehr halten.",
+            "You can't carry any more.")
         world:erase(SourceItem,1)
         return
-    else
-        world:erase(SourceItem,1)
-        SourceItem.number = SourceItem.number-1
-        world:changeItem(SourceItem)
-        User:changeSource(SourceItem)
-        User:startAction( 20, 21, 5, 10, 25)
-    end
+    else -- character can still carry something
+        if SourceItem.number == 1 then
+            world:erase(SourceItem,1)
+            return
+        else
+            world:erase(SourceItem,1)
+            SourceItem.number = SourceItem.number-1
+            world:changeItem(SourceItem)
+            if isDragoncaveSpring then
+                return
+            end
+            User:changeSource(SourceItem)
+            User:startAction( 20, 21, 5, 10, 25)
+        end
     end
 end
 
