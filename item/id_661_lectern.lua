@@ -25,9 +25,9 @@ local function isRanklistLocation(pos)
 	return pos == position(138, 551, 0) or pos == position(358, 217, 0) or pos == position(960, 791, 0)
 end
 
-function M.UseItem(user, sourceItem)
-	if isRanklistLocation(sourceItem.pos) then
-		ranklist.getRanklist(user, "explorerRanklist", true)
+function M.UseItem(User, SourceItem)
+	if isRanklistLocation(SourceItem.pos) then
+		ranklist.getRanklist(User, "explorerRanklist", true)
 	end
     
     if (User:getQuestProgress(539) == 5) and SourceItem.pos == position(613, 188, -3) then --OK, the player does the quest 3
@@ -44,11 +44,11 @@ function M.UseItem(user, sourceItem)
     end
 end
 
-function M.LookAtItem(user, item)
+function M.LookAtItem(User, item)
 	if isRanklistLocation(item.pos) then
 		lookat.SetSpecialDescription(item, "Rangliste der Entdeckergilde.", "Ranklist of the explorer guild")
 	end
-	return lookat.GenerateLookAt(user, item, lookat.NONE)
+	return lookat.GenerateLookAt(User, item, lookat.NONE)
 end
 
 return M
