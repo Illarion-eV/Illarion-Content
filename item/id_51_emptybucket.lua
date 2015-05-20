@@ -187,7 +187,7 @@ function GetWaterTilePosition(User)
     local Radius = 1
     for x=-Radius,Radius do
         for y=-Radius,Radius do
-            targetPos = position(User.pos.x + x, User.pos.y, User.pos.z)
+            targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z)
             if (common.GetGroundType(world:getField(targetPos):tile()) == common.GroundType.water) then
                 return targetPos
             end
