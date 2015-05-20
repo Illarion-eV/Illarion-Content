@@ -98,7 +98,7 @@ function M.UseItem(User, SourceItem, ltstate)
             "Als Du einen Eimer voll klaren, kühlen Wassers aus dem Becken herausgezogen hast, siehst Du dich nach Verwendungsmöglichkeiten für das Wasser um.",
             "As you pull a bucket of water from the clear cool waters of the pool, you look around to see what uses can be had with the water.")
     end
-    
+
     local notCreated = User:createItem(52, 1, 333, itemData) -- create the new produced items
     if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
         world:createItemFromId(52, notCreated, User.pos, true, 333, itemData)

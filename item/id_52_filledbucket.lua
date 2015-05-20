@@ -31,7 +31,7 @@ local GetCauldron
 local WaterIntoCauldron
 local CreateEmptyBucket
 local PourOnCharacter
-
+local getDragoncaveBush
 
 function M.UseItem(User, SourceItem, ltstate)
 
@@ -51,6 +51,37 @@ function M.UseItem(User, SourceItem, ltstate)
     return
   end
 
+    -- look for Dragoncave bush
+    TargetItem = getDragoncaveBush(User)
+    if TargetItem ~= nil then
+        if SourceItem:getData("dragoncaveBucket") == "true" then
+            local serverTime = world:getTime("unix")
+            local trippingTime = TargetItem:getData("tripping_time")
+
+            if (trippingTime ~= "" and ((tonumber(trippingTime) + 5 * 60 * 60) > serverTime)) then -- 5 hours cooldown
+                common.InformNLS(User,
+                    "Der Farn saugt das Wasser auf, allerdings scheint er schon vollständig genährt.",
+                    "The fern soaks up the water, but seems to be already fully nourished.")
+            else
+                TargetItem:setData("tripping_time", serverTime)
+                world:changeItem(TargetItem)
+                for _ = 1, 11 do
+                    local dropPos = common.getFreePos(TargetItem.pos, 10)
+                    world:createItemFromId(80, math.random(5,10), dropPos, true, 333, nil)
+                    world:gfx(46, dropPos) -- light
+                end
+
+                common.InformNLS(User,
+                    "Der Farn wächst und gedeiht, als ob er von den Nährstoffe des vulcanischen Quellwassers genährt wird. Vor deinen Augen wachsen Bananen.",
+                    "The fern flourishes as it is nourished with the nutrients from the vulcanic spring water and seems to grow and sprout bananas before your eyes.")
+            end
+            common.TurnTo(User, TargetItem.pos) -- turn if necessary
+            world:gfx(11, TargetItem.pos)
+            CreateEmptyBucket(User, SourceItem, true)
+            return
+        end
+    end
+
   -- look for forge
   TargetItem = common.GetItemInArea(User.pos, 2835, 1, true)
   if (TargetItem ~= nil) then
@@ -60,7 +91,7 @@ function M.UseItem(User, SourceItem, ltstate)
     "Du löschst das Feuer in der Esse.",
     "You extinguish the fire in the forge.")
     world:gfx(11,TargetItem.pos)
-    CreateEmptyBucket(User, SourceItem,1)
+    CreateEmptyBucket(User, SourceItem)
     return
   end
 
@@ -89,7 +120,7 @@ function M.UseItem(User, SourceItem, ltstate)
       end
     end
     world:gfx(11,FireItem.pos)
-    CreateEmptyBucket(User, SourceItem,1)
+    CreateEmptyBucket(User, SourceItem)
     return
   end
 
@@ -105,13 +136,13 @@ function M.UseItem(User, SourceItem, ltstate)
         "You pour the water on the person in front of you.")
         PourOnCharacter(TargetChar, SourceItem)
         world:gfx(11,TargetChar.pos)
-        CreateEmptyBucket(User, SourceItem,1)
+        CreateEmptyBucket(User, SourceItem)
         return
       end
     end
   end
   -- nothing; we empty all buckets
-  CreateEmptyBucket(User, SourceItem, SourceItem.number)
+  CreateEmptyBucket(User, SourceItem)
 end
 
 function PourOnCharacter(TargetCharacter, SourceItem)
@@ -192,12 +223,12 @@ function M.FillIn(User, SourceItem, cauldron, noRepeat) -- do not remove noRepea
         cauldron.id = 1010
         noRepeat = true -- only once, dont let cauldron run over
     end
-    CreateEmptyBucket(User, SourceItem, 1, noRepeat)
+    CreateEmptyBucket(User, SourceItem, noRepeat)
     world:changeItem(cauldron)
 
 end
 
-function CreateEmptyBucket(User, SourceItem,amount, noRepeat) -- do not remove noRepeat
+function CreateEmptyBucket(User, SourceItem, noRepeat) -- do not remove noRepeat
     local notCreated = User:createItem( 51, 1, 333, nil ) -- create the new produced items
     if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
         world:createItemFromId( 51, notCreated, User.pos, true, 333, nil )
@@ -244,6 +275,22 @@ function GetCauldron(User)
     end
   end
   return nil
+end
+
+function getDragoncaveBush(User)
+    local Radius = 1
+    for  x= -Radius, Radius do
+        for y = -Radius, Radius do
+            local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z)
+            if (world:isItemOnField(targetPos)) then
+                local item = world:getItemOnField(targetPos)
+                if (item.id == 1813 and item:getData("dragoncaveBush") == "true") then
+                    return item
+                end
+            end
+        end
+    end
+    return nil
 end
 
 return M
