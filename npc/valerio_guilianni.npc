@@ -39,7 +39,7 @@ autointroduce = on
 author = "Faladron"
 
 lookatDE = "Aufgrund seines noblen Gebahrens und Auftretens muss dies Don Valerio Guilianni höchst persönlich sein."
-lookatUS = "Judging by his noble attire and overall demeanor this must be Don Valerio Guilianni."
+lookatUS = "Judging by his noble attire and overall demeanour this must be Don Valerio Guilianni."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
@@ -73,7 +73,7 @@ itemShoes = 697
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Don Valerio Guilianni von Galmair. Schlüsselwörter: Aufgabe, Götter, Reiche, Galmair.")
 
 --quest
-queststatus(632) = 1, item(61, all) > 0, english, "."  -> queststatus(632) = 2, deleteItem(61, 1), rankpoints + 5, inform("[Quest 'Find Don Valerio Guilianni' end]"), "Arrr, gold! The best gift, you could chose. I appreciate it."
+queststatus(632) = 1, item(61, all) > 0, english, "."  -> queststatus(632) = 2, deleteItem(61, 1), rankpoints + 5, inform("[Quest 'Find Don Valerio Guilianni' end]"), "Arrr, gold! The best gift, you could choose. I appreciate it."
 queststatus(632) = 1, item(61, all) > 0, "."  -> queststatus(632) = 2, deleteItem(61, 1), rankpoints + 5, inform("[Quest 'Finde Don Valerio Guilianni' Ende]"), "Arrr, Gold! Das beste Geschenk, dass du wählen konntet. Perfekt!"
 
 -- General speech
@@ -99,7 +99,7 @@ queststatus(317) = 12, "task", "adventure", "order", "letter", "message" -> ques
 queststatus(317) = 12, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Brief", "Nachricht" -> queststatus(317) = 13, "Ein Brief aus Cadomyr? Oh, vielen Dank... Was? Ah, ich verstehe. Ich werde mich darum kümmern. Ihr könnt nun gehen."
 
 -- Catching quest triggers
-english, "quest", "mission" -> "The day will come, when the Don will ask you for a favor. Ask Miggs if that day is today."
+english, "quest", "mission" -> "The day will come, when the Don will ask you for a favour. Ask Miggs if that day is today."
 "quest", "mission" -> "Es wird der Tag kommen, an dem dich der Don um einen Gefallen bittet. Frage Miggs, ob heute dieser Tag ist."
 "task", "adventure", "order" -> "You know, the Don likes you for some reason, ya gotta look about ya. Maybe I gotta task for ya; go and ask Miggs how you can earn the Don's favor."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Weißt du, der Don mag dich. Und der Don wird dir auch eine Arbeit verschaffen. Frage Miggs, wie du in der Gunst des Don steigen kannst."
@@ -141,7 +141,7 @@ english, "Rosie" -> "She doesn't like the name, what can I say? Prefers Rosaline
 "Rosie" -> "Sie mag den Namen nicht, ihr werdet sie eher als Königin Rosaline kennen.", "Glaubt mir, das Privileg sie so zu nennen ist allein mir vorbestimmt. Versucht es erst gar nicht."
 english, "Miggs" -> "Every successful businessman need two things: A supportive wife and a muscle to do his biding. If only I had Rosie, I'd have both in one person.", "Miggs is like a second left hand for me, but enough jokes. See him if you need a task."
 "Miggs" -> "Jeder erfolgreiche Geschäftsmann braucht zwei Dinge: Eine unterstützende Frau und einen Mann fürs Grobe. Ach, mit Rosie hätte ich beides in einem.", "Miggs ist wie eine zweite linke Hand, aber genug gescherzt. Geh zu ihm wenn du eine Aufgabe suchst."
-"protect", "fee" -> "You wanna be in the know? So do about a thousand other people. Don't talk about things that don't concern you.", "You talking about protection fees? You need some protection? You might if you keep talking about things that don't concern you.", "A business has to have protection from a lot things. Also, has to pay a lot fees. That's about all you need to know."
+"protect", "fee" -> "You wanna be in the know? So do about a thousand other people. Don't talk about things that don't concern you.", "You talking about protection fees? You need some protection? You might if you keep talking about things that don't concern you.", "A business has to have protection from a lot of things. Also, has to pay a lot of fees. That's about all you need to know."
 "Schutz", "Protekt", "Gebühr" -> " Was wollt Ihr wissen? - Sprecht nicht über Dinge die Euch nichts angehen.", "Sprecht Ihr über die Protektionsgebühren? Braucht ihr etwa Schutz? Vermutlich schon... sprecht Ihr immerhin über Dinge die Euch nicht im gerningsten zu interessieren haben.", "Ein Laden muss vor vielen Dingen geschützt werden. - Und muss viele Gebühren zahlen. Das ist alles was Ihr wissen müsst."
 
 -- Easter egg
@@ -163,7 +163,7 @@ english, "Queen" -> "Oh Rosie! That's my kind of woman. Such fire, such a fierce
 "Königin" -> "Oh Rosie! Das ist eine richtige Frau! Voll Feuer, voll Temperament!", "Sie ist mir vollkommen verfallen! Leider würde sie ihre wahren Gefühle für mich nie offen zeigen."
 english, "rosaline", "edwards" -> "Oh Rosie! That's my kind of woman. Such fire, such a fierce temper!", "She fell for me completely! Sadly, she would never show her true feelings openly."
 "rosaline", "edwards" -> "Oh Rosie! Das ist eine richtige Frau! Voll Feuer, voll Temperament!", "Sie ist mir vollkommen verfallen! Leider würde sie ihre wahren Gefühle für mich nie offen zeigen."
-english, "Cadomyr" -> "A nice place. Maybe it lacks the proper nightlife, but Rosie does a good job overall."
+english, "Cadomyr" -> "A nice place. Maybe it lacks the proper night life, but Rosie does a good job overall."
 "Cadomyr" -> "Ein hübscher Ort. Das Nachtleben lässt vielleicht etwas zu wünschen übrig, aber Rosie macht ihre Sache gut."
 
 -- Main land factions
@@ -180,7 +180,7 @@ english, "god" -> "You got faith, %CHARNAME? Don't let the priests and zealots f
 "gott", "götter" -> "Glaubt Ihr, %CHARNAME? Habt Ihr vertrauen? - Lasst Euch von den Priestern und Mönchen nicht an der Nase herumführen, wenn ihr nach ein paar aufrichtige Worte über die Götter sucht, seid Ihr bei mit genau an den Richtigen geraten."
 english, "Adron" -> "Ahh, what would a tavern be without him? How could tempers run high over a game of cards if not due to Adron's gifts?"
 "Adron" -> "Ahh, was wäre eine Taverne ohne ihn? Wie könnten sich sonst die Gemüter so beim Kartenspiel erhitzen wenn nicht durch Adrons Gaben?"
-english, "Bragon", "Brágon" -> "I wonder if he takes offense to my dragon hide boots, but didn't he leave this world already? If you can't stand the heat, stay outta the hearth, I always say."
+english, "Bragon", "Brágon" -> "I wonder if he takes offence to my dragon hide boots, but didn't he leave this world already? If you can't stand the heat, stay outta the hearth, I always say."
 "Bragon", "Brágon" -> "Ich frage mich ob er meine Stiefel aus Drachenleder anstößig findet. Aber hat er diese Welt nicht schon verlassen? Und was er nicht weiß macht ihn nicht heiß."
 english, "Cherga" -> "If you had to wake up with a dagger poking your throat every other night you'd also respect the lady in black."
 "Cherga" -> "Würdet ihr jede zweite Nacht mit einem Messer an der Kehle aufwachen, ihr hättet auch Respekt vor der schwarzen Dame."
@@ -194,17 +194,17 @@ english, "Irmorom" -> "As Galmair's wealth comes from the mining and processing 
 "Irmorom" -> "Da Galmair vorallem vom Bergbau und Weiterverarbeitung von Metallen lebt, wäre es töricht, nicht regelmäßig einen Krug Bier für den großen Handwerker mitzutrinken, nicht?"
 english, "Malachin", "Malachín" -> "Hah, noble that one, jumping in front of an arrow to save a comrade in battle. Doesn't he know how much that hurts!?"
 "Malachin", "Malachín" -> "Hah, ehrenhaft ist, wer einen Pfeil abfängt um seinen Kameraden in der Schlacht zu retten. Weiß er nicht wie weh sowas tut!?"
-english, "Moshran" -> "Maybe not all of my decisions in life were 'right', but I do know the thin line between twilight and eternal darkness. You cross that line and your just a foolish bastard."
+english, "Moshran" -> "Maybe not all of my decisions in life were 'right', but I do know the thin line between twilight and eternal darkness. You cross that line and you're just a foolish bastard."
 "Moshran" -> "Ich mag nicht immer das 'Richtige' getan haben, aber ich kenne die feine Linie zwischen dem Zwielicht und der ewigen Dunkelheit. Ich werde diese Linie nicht übertreten."
-english, "Nargun", "Nargún" -> "Nargún blessed me many a times when I had to play my cards right. On the other hand there's no reason not to tip luck into your favor, he's pretty unreliable after all."
+english, "Nargun", "Nargún" -> "Nargún blessed me many a times when I had to play my cards right. On the other hand there's no reason not to tip luck into your favour, he's pretty unreliable after all."
 "Nargun", "Nargún" -> "Schon oft war mir Nargún hold, als es darum ging auf die richtige Karte zu setzen. Anderenseits spricht nichts dagegen dem Glück auch nachzuhelfen, immerhin ist er nicht sehr verlässlich."
 english, "Oldra" -> "We live amidst a scarce mountain range and I shall pay reverence to Oldra? Forget about it..."
 "Oldra" -> "Wir leben inmitten eines kargen Gebirges, und da soll ich Oldra Respekt erweisen? Pfft... also bitte."
 english, "Ronagan" -> "No coins, no wares leave my possession without being blessed in the face of Ronagan. You can figure out why I'd do that ya'self."
 "Ronagan" -> "Kein Geldstück, keine Ware verlässt meinen Besitz bevor sie nicht in Gebete zu Ronagan mit eingeschlossen wurde. Spekulationen, warum ich das mache, seien euch selbst überlassen."
-english, "Sirani" -> "I would have the most beautiful temple carved into the mountains, if only Rosie wouldn't be so abrasive. Sirani is gunna to have to settle for less until that happens."
+english, "Sirani" -> "I would have the most beautiful temple carved into the mountains, if only Rosie wouldn't be so abrasive. Sirani is gunna have to settle for less until that happens."
 "Sirani" -> "Den schönsten Tempel würde ich in das Gebirge hauen lassen, wenn nur Rosie nicht immer so abweisend zu mir wäre. Bis dahin muss Sirani sich mit weniger begnügen."
-english, "Tanora" -> "In spring after the snow has melted I sometimes think we don't pay enough respect to her. Then after the floods are under control I disregard those thoughts again."
+english, "Tanora" -> "In spring, after the snow has melted, I sometimes think we don't pay enough respect to her. Then, after the floods are under control, I disregard those thoughts again."
 "Tanora" -> "Nach der Schneeschmelze im Frühling glaube ich manchmal dass wir Tanora nicht genug huldigen. Wenn die Überschwemmungen aber beseitigt sind, verdränge ich diese Gedanken wieder."
 english, "Ushara" -> "Some of the dwarves pray to her. They say if we don't, the mountain will collapse upon us. Whatever, let the superstitious believe what they wanna."
 "Ushara" -> "Einige der Zwerge beten zu ihr. Sie sagen sonst stürzt uns der Berg auf den Kopf, was auch immer."
@@ -212,7 +212,7 @@ english, "Zhambra" -> "Family is all that matters, you remember that. You rely o
 "Zhambra" -> "Wenn man lacht, lacht die Welt mit einem mit, aber weine und du weinst allein. Ich hatte nie eine Verwendung für Freunde."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I don't sell anything, I grant favors."
+"what sell", "what buy", "list wares", "price of" -> "I don't sell anything, I grant favours."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe nichts, ich gewähre Gefälligkeiten."
 "tell something" -> "Money gets you everywhere in Galmair. Even those places you probably shouldn't be.", "My father once said: 'Son, stay honest and upright, you'll be rewarded.' Oh how we laughed that day.", "#me winks knowingly, 'If there's one habit I broke out of doing, it's telling others about something.'"
 "erzähl was", "erzähl etwas" -> "In Galmair bringt Geld euch überall hin. Wohl auch an Orte die ihr meiden solltet.", "Mein Vater sagte einmal: 'Sohn, bleib ehrbar und anständig, es wird dir gelohnt.' Oh was haben wir an diesem Tag gelacht.", "#me zwinkert wissend. 'Wenn es eine Sache gibt die ich mir abgewöhnt habe, dann anderen Dinge zu erzählen."
