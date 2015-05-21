@@ -24,6 +24,49 @@ local gathering = require("content.gathering")
 
 module("content.gatheringcraft.woodchopping", package.seeall)
 
+
+local TreeItems = {}
+local function AddTree(TreeId, TrunkId, LogId, BoughId, Amount, BoughProbability)
+    local treeTable = {};
+    treeTable.TrunkId = TrunkId;
+    treeTable.LogId = LogId;
+    treeTable.BoughId = BoughId;
+    treeTable.Amount = Amount;
+    treeTable.BoughProbability = BoughProbability;
+    TreeItems[TreeId] = treeTable
+end
+
+AddTree(  11,125,2560,  56,10,0.4); -- apple tree
+AddTree(  14,125,2560,  56,10,0.4); -- apple tree
+AddTree( 299,541, 543,2786,15,0.4); -- cherry tree
+AddTree( 300,541, 543,2786,15,0.4); -- cherry tree
+AddTree( 308,309,   3,   56,12,0.4); -- fir tree
+AddTree( 586,587, 544,  56,10,0.4); -- cachdern tree
+AddTree(1804,542, 544,  56,15,0.4); -- naldor tree
+AddTree(1809,584, 544,  56,24,0.4); -- eldan oak
+AddTree(1817,585,   3,   56,19,0.4); -- scandrel pine
+
+local unchoppableTrees = {}
+unchoppableTrees[203] = true
+unchoppableTrees[892] = true
+unchoppableTrees[893] = true
+unchoppableTrees[894] = true
+unchoppableTrees[910] = true
+unchoppableTrees[911] = true
+unchoppableTrees[912] = true
+unchoppableTrees[913] = true
+unchoppableTrees[959] = true
+unchoppableTrees[960] = true
+unchoppableTrees[961] = true
+unchoppableTrees[962] = true
+unchoppableTrees[963] = true
+unchoppableTrees[1193] = true
+unchoppableTrees[1194] = true
+unchoppableTrees[1195] = true
+unchoppableTrees[1198] = true
+unchoppableTrees[1807] = true
+unchoppableTrees[1808] = true
+
 function StartGathering(User, SourceItem, ltstate)
 
 	gathering.InitGathering();
@@ -149,54 +192,6 @@ function StartGathering(User, SourceItem, ltstate)
 
 end
 
-function InitTreeItems()
-	if ( TreeItems ~= nil ) then
-		return;
-	end
-	TreeItems = {};
-
-	AddTree(  11,125,2560,  56,10,0.4); -- apple tree
-    AddTree(  14,125,2560,  56,10,0.4); -- apple tree
-    AddTree( 299,541, 543,2786,15,0.4); -- cherry tree
-    AddTree( 300,541, 543,2786,15,0.4); -- cherry tree
-    AddTree( 308,309,   3,   56,12,0.4); -- fir tree
-    AddTree( 586,587, 544,  56,10,0.4); -- cachdern tree
-    AddTree(1804,542, 544,  56,15,0.4); -- naldor tree
-    AddTree(1809,584, 544,  56,24,0.4); -- eldan oak
-    AddTree(1817,585,   3,   56,19,0.4); -- scandrel pine
-end
-
-function AddTree(TreeId, TrunkId, LogId, BoughId, Amount, BoughProbability)
-	local treeTable = {};
-	treeTable.TrunkId = TrunkId;
-	treeTable.LogId = LogId;
-	treeTable.BoughId = BoughId;
-	treeTable.Amount = Amount;
-	treeTable.BoughProbability = BoughProbability;
-	table.insert(TreeItems, TreeId, treeTable);
-end
-
-unchoppableTrees = {}
-unchoppableTrees[203] = true
-unchoppableTrees[892] = true
-unchoppableTrees[893] = true
-unchoppableTrees[894] = true
-unchoppableTrees[910] = true
-unchoppableTrees[911] = true
-unchoppableTrees[912] = true
-unchoppableTrees[913] = true
-unchoppableTrees[959] = true
-unchoppableTrees[960] = true
-unchoppableTrees[961] = true
-unchoppableTrees[962] = true
-unchoppableTrees[963] = true
-unchoppableTrees[1193] = true
-unchoppableTrees[1194] = true
-unchoppableTrees[1195] = true
-unchoppableTrees[1198] = true
-unchoppableTrees[1807] = true
-unchoppableTrees[1808] = true
-
 function preventCutting(User, theAxe, theTree)
 
 	local effectType = theTree:getData("treeProtectionType")
@@ -223,8 +218,6 @@ function preventCutting(User, theAxe, theTree)
 end
 
 function isChoppableTree(targetItem)
-	InitTreeItems();
-
 	if targetItem ~= nil and TreeItems[targetItem.id] ~= nil then
 		return true;
 	end
