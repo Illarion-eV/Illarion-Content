@@ -50,14 +50,13 @@ function M.UseItem(User, SourceItem, ltstate)
         climbable = true
     end
 
-    if climbable then
+    if climbable and climbing.hasRope(User) then
+        climbing.climbDown(User)
+        return
+    elseif climbable then
         common.HighInformNLS(User,
             "Du brauchst ein Seil um hier hinab zu klettern.",
             "You need a rope to climb down here.")
-        if climbing.hasRope(User) then
-            climbing.climbDown(User)
-        end
-        return
     end
   -- TODO: select diaolg water scooping + climbing
 
