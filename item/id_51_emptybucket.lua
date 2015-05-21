@@ -62,8 +62,8 @@ function M.UseItem(User, SourceItem, ltstate)
     end
 
     local itemData
-    local isDragoncaveSpring = TargetItem:getData("dragoncaveSpring")
-    if (isDragoncaveSpring == "true") then
+    local isDragoncaveSpring = (TargetItem:getData("dragoncaveSpring") == "true")
+    if (isDragoncaveSpring) then
         itemData = {dragoncaveBucket = "true", descriptionDe = "Vulkanisches Quellwasser", descriptionEn = "Vulcanic Springwater"}
     end
 
