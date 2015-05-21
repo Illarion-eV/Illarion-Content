@@ -149,9 +149,9 @@ queststatus(539) = 6, english, ".+" -> inform("[Quest solved] You are awarded on
 queststatus(539) = 6, ".+" -> inform("[Quest gelöst] Du erhältst einhundert Silberstücke."), money + 10000, queststatus(539) = 7, ""
 
 -- Quest 3 not solved, repeat the instructions
-queststatus(539) = 5, english, "quest", "mission" -> "I need to see more of what that alchemist ratman is up to. Steal a potion from one of the filled cauldrons from below. He won't like it, so watch yourself."
+queststatus(539) = 5, english, "quest", "mission" -> "It is important that I see Kaefity's recipe for this potion. Please try and find it for me."
 queststatus(539) = 5, "quest", "mission" -> ""
-queststatus(539) = 5, "task", "adventure", "order" -> "I need to see more of what that alchemist ratman is up to. Steal a potion from one of the filled cauldrons from below. He won't like it, so watch yourself."
+queststatus(539) = 5, "task", "adventure", "order" -> "It is important that I see Kaefity's recipe for this potion. Please try and find it for me."
 queststatus(539) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
 
 -- 4th quest: Kill Kaefity's pet the swamp beast.
@@ -177,7 +177,7 @@ queststatus(539) = 10, "task", "adventure", "order" -> inform("[New quest] Virid
 queststatus(539) = 10, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Viridian Nadeln Höhle IV"), queststatus(539) = 11, ""
 
 -- Quest 4 solved
-queststatus(539) = 12, english, ".+" -> inform("[Quest solved] You are awarded  150 silver coins."), money + 15000, queststatus(539) = 13, "It is great news the beast is destroyed. Now we can work on destroying Kaefity."
+queststatus(539) = 12, english, ".+" -> inform("[Quest solved] You are awarded  150 silver coins."), money + 15000, queststatus(539) = 13, "I am glad he is gone. I will work on destroying the last of his work."
 queststatus(539) = 12, ".+" -> inform("[Quest gelöst] Du erhältst 150  Silberstücke."), money + 15000, queststatus(539) = 13, ""
 
 -- Quest 4 not solved, repeat the instructions
