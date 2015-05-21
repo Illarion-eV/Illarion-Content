@@ -48,13 +48,14 @@ firetrigger[6] = position(696, 655, -6)
 firetrigger[7] = position(699, 659, -6)
 firetrigger[8] = position(699, 660, -6)
 
+
 function M.MoveToField( User )
 
 	if User:getType() ~= Character.player then
 		return
 	end
 	
-     local theFiretrigger
+     local theFiretrigger = 0
         for i = 1, #firetrigger do
             if User.pos == firetrigger[i] then
                 theFiretrigger = i
