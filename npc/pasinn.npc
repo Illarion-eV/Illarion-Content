@@ -1,0 +1,241 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+------------------------------------------------------------------------------AC
+-- NPC Name: Pasinn                                                      None --
+-- NPC Job:  alchemist                                                        --
+--                                                                            --
+-- NPC Race: elf                        NPC Position:  523, 205, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Authors:  Evie                                                             --
+--                                                                            --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+
+name = "Pasinn"
+race = elf
+sex = male
+position = 523, 205, 0
+direction = south
+affiliation = "None"
+job = "alchemist"
+
+language = common
+language = elf
+defaultLanguage = common
+autointroduce = on
+
+author = "Evie"
+
+lookatDE = "Dieser NPC ist der Alchemist Pasinn."
+lookatUS = "This NPC is the alchemist Pasinn."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt drein."
+wrongLangUS = "#me looks around confused."
+hairID = 2
+beardID = 0
+colorHair = 130, 130, 130
+colorSkin = 230, 210, 210
+itemHead = 0
+itemChest = 816
+itemCoat = 55
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 367
+itemShoes = 53
+
+-- Template Version 1.03, 01/05/2011 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- NPC by Zak and Estralis Seborian
+
+-- queststatus(539) Overview
+-- QuestID=539
+-- 0: No Quest taken
+-- 1: Quest 1 taken - gather 15 poison coins for 50 silver coins
+-- 2: Quest 1 solved
+-- 3: Quest 2 taken - find the proper potion for Pasinn from the lair for  75s ilver coins
+-- 4: Quest 2 solved
+-- 5: Quest 3 taken - Locate the potion recipe for 100 silver coins
+-- 6: Quest 3 solved
+-- 8: Quest 4 taken - kill swamp beast for 100 silver coins
+-- 9: Quest 4 solved
+-- 11: Quest 5 taken -  kill rat alchemist for 100 silver coins and inscribed robe
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is the alchemist Pasinn. Keywords: Hello, quest, alchemy, Kaefity.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Alchemist Pasinn. Schlüsselwörter: Hallo, Quest, Alchemy, Kaefity.")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" ->"Be Greeted in the name of the Five."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> ""
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be Greeted in the name of the Five."
+"Hiho", "Hallo", "Hey", "Greeb" -> ""
+"Farewell", "Bye", "Fare well", "See you" -> "May the Five watch over you."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> ""
+english, "Ciao", "Adieu", "Au revoir" -> "May the Five watch over you."
+"Ciao", "Adieu", "Au revoir" -> ""
+"How are you", "How feel", "How do you do" -> "I am well, but I would be better if my chore here was done."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> ""
+"your name", "who are you", "who art thou" -> "I am Pasinn the Alchemist."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Pasinn der Alchemist."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
+
+-- 1st quest: Find 15 poison coins in the cauldrons of Viridians Needles Lair 50 silver coins.
+queststatus(539) = 0, english, "quest", "mission" -> inform("[New quest] Viridian Needles Lair I"), queststatus(539) = 1, "There is an area here below ground ran by a ratman Alchemist Kaefity.  He calls the place Viridian Needles Lair.  I have heard of some poisoned coins these ratmen have. I need to study some to see if I can use this process in my poison making. Would you please get me 15 of them?"
+queststatus(539) = 0, "quest", "mission" -> inform("[Neues Quest] Viridian Nadeln Höhle I"), queststatus(539) = 1, ""
+queststatus(539) = 0, "task", "adventure", "order" -> inform("[New quest] Viridian Needles Lair I"), queststatus(539) = 1, "There is an area here below ground ran by a ratman Alchemist Kaefity.  He calls the place Viridian Needles Lair.  I have heard of some poisoned coins these ratmen have. I need to study some to see if I can use this process in my poison making. Would you please get me 15 of them?"
+queststatus(539) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Viridian Nadeln Höhle I"), queststatus(539) = 1, ""
+
+-- Quest 1 solved
+queststatus(539) = 1, item(3078, all) > 14, english, ".+" -> inform("[Quest solved] You are awarded fifty silver coins."), money + 5000, deleteItem(3078, 15), queststatus(539) = 2, "Oh, thank you. Here, take this reward for your efforts."
+queststatus(539) = 1, item(3078, all) > 14, ".+" -> inform("[Quest gelöst] Du erhältst fünfzig Silberstücke."), money + 5000, deleteItem(3078, 15), queststatus(539) = 2, "Oh, vielen Dank. Hier, eine kleine Entschädigung für eure Mühen."
+
+-- Quest 1 not solved, repeat the instructions
+queststatus(539) = 1, english, "quest", "mission" -> "Please locate me 15 poison coins that the ratman alchemist Kaefity is making below in the cauldrons."
+queststatus(539) = 1, "quest", "mission" -> ""
+queststatus(539) = 1, "task", "adventure", "order" -> "Please locate me 15 poison coins that the ratman alchemist Kaefity is making below in the cauldrons."
+queststatus(539) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+
+-- 2nd quest: Find a certain potion for Pasinn in the filled cauldrons below for 75 silver coins
+queststatus(539) = 2, english, "quest", "mission" -> inform("[New quest] Viridian Needles Lair II"), queststatus(539) = 3, "I need to see more of what that alchemist ratman is up to. Steal a potion from one of the filled cauldrons from below. He won't like it, so watch yourself."
+queststatus(539) = 2, "quest", "mission" -> inform("[Neues Quest] Viridian Nadeln Höhle II"), queststatus(539) = 3, ""
+queststatus(539) = 2, "task", "adventure", "order" -> inform("[New quest] Viridian Needles Lair II"), queststatus(539) = 3, "I need to see more of what that alchemist ratman is up to. Steal a potion from one of the filled cauldrons from below. He won't like it, so watch yourself."
+queststatus(539) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Viridian Nadeln Höhle II"), queststatus(539) = 3, ""
+
+-- Quest 2 solved
+queststatus(539) = 3, queststatus(542) = 3, english, ".+" -> inform("[Quest solved] You are awarded seventy five silver coins."), money + 7500, queststatus(539) = 4, "This potion is something I have been dreading. It has the potential to annihilate all life as we know it if completed properly!"
+queststatus(539) = 3, queststatus(542) = 3, ".+" -> inform("[Quest gelöst] Du erhältst fünfundsiebzig Silberstücke."), money + 7500, deleteItem(543, 20), queststatus(539) = 4, ""
+
+-- Quest 2 not solved, repeat the instructions
+queststatus(539) = 3, queststatus(542) = 1, english, ".+" -> queststatus(542) = 0, "#me sniffs at the potion and then dumps it on the ground. 'Coloured water, please try one more time.' "
+queststatus(539) = 3, queststatus(542) = 1, ".+" -> queststatus(542) = 0, ""
+queststatus(539) = 3, queststatus(542) = 2, english, ".+" -> queststatus(542) = 0, "This seems to be a simple healing potion. Please go back and try to find something else. "
+queststatus(539) = 3, queststatus(542) = 2, ".+" -> queststatus(542) = 0, ""
+
+queststatus(539) = 3, english, "quest", "mission" -> "I need to see more of what that alchemist ratman is up to. Steal a potion from one of the filled cauldrons from below. He won't like it, so watch yourself."
+queststatus(539) = 3, "quest", "mission" -> ""
+queststatus(539) = 3, "task", "adventure", "order" -> "I need to see more of what that alchemist ratman is up to. Steal a potion from one of the filled cauldrons from below. He won't like it, so watch yourself."
+queststatus(539) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+
+-- 3rd quest: Find the recipe for the potion you located for 100 silver coins
+queststatus(539) = 4, english, "quest", "mission" -> inform("[New quest] Viridian Needles Lair III"), queststatus(539) = 5, "It is important that I see Kaefity's recipe for this potion. Please try and find it for me."
+queststatus(539) = 4, "quest", "mission" -> inform("[Neues Quest] Viridian Nadeln Höhle III"), queststatus(539) = 5, ""
+queststatus(539) = 4, "task", "adventure", "order" -> inform("[New quest] Viridian Needles Lair III"), queststatus(539) = 5, "It is important that I see Kaefity's recipe for this potion. Please try and find it for me."
+queststatus(539) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Viridian Nadeln Höhle III"), queststatus(539) = 5, ""
+
+-- Quest 3 solved
+queststatus(539) = 6, english, ".+" -> inform("[Quest solved] You are awarded one hundred silver coins"), money + 10000, queststatus(539) = 7, "Thank you for finding this recipe! I will need some time to review it."
+queststatus(539) = 6, ".+" -> inform("[Quest gelöst] Du erhältst einhundert Silberstücke."), money + 10000, queststatus(539) = 7, ""
+
+-- Quest 3 not solved, repeat the instructions
+queststatus(539) = 5, english, "quest", "mission" -> "I need to see more of what that alchemist ratman is up to. Steal a potion from one of the filled cauldrons from below. He won't like it, so watch yourself."
+queststatus(539) = 5, "quest", "mission" -> ""
+queststatus(539) = 5, "task", "adventure", "order" -> "I need to see more of what that alchemist ratman is up to. Steal a potion from one of the filled cauldrons from below. He won't like it, so watch yourself."
+queststatus(539) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+
+-- 4th quest: Kill Kaefity's pet the swamp beast.
+queststatus(539) = 7, english, "quest", "mission" -> inform("[New quest] Viridian Needles Lair IV"), queststatus(539) = 8, "Kill Kaefity's pet for I fear they are somehow tied together!  After he is destroyed we can stop his owners work."
+queststatus(539) = 7, "quest", "mission" -> inform("[Neues Quest] Viridian Nadeln Höhle IV"), queststatus(539) = 8, ""
+queststatus(539) = 7, "task", "adventure", "order" -> inform("[New quest] Viridian Needles Lair IV"), queststatus(539) = 8, "Kill Kaefity's pet for I fear they are somehow tied together!  After he is destroyed we can stop his owners work."
+queststatus(539) = 7, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Viridian Nadeln Höhle IV"), queststatus(539) = 8, ""
+
+-- Quest 4 solved
+queststatus(539) = 9, english, ".+" -> inform("[Quest solved] You are awarded one hundred silver coins."), money + 10000, queststatus(539) = 10, "It is great news the beast is destroyed. Now we can work on destroying Kaefity."
+queststatus(539) = 9, ".+" -> inform("[Quest gelöst] Du erhältst einhundert  Silberstücke."), money + 10000, queststatus(539) = 10, ""
+
+-- Quest 4 not solved, repeat the instructions
+queststatus(539) = 8, english, "quest", "mission" -> "Kill Kaefity's pet for I fear they are somehow tied together!  After he is destroyed we can stop his owners work."
+queststatus(539) = 8, "quest", "mission" -> ""
+queststatus(539) = 8, "task", "adventure", "order" -> "Kill Kaefity's pet for I fear they are somehow tied together!  After he is destroyed we can stop his owners work."
+queststatus(539) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+
+-- 5th quest: Kill Kaefity's
+queststatus(539) = 10, english, "quest", "mission" -> inform("[New quest] Viridian Needles Lair IV"), queststatus(539) = 11, "This recipe must not be completed! Kaefity must be killed before he can deduce the missing ingredients!"
+queststatus(539) = 10, "quest", "mission" -> inform("[Neues Quest] Viridian Nadeln Höhle IV"), queststatus(539) = 11, ""
+queststatus(539) = 10, "task", "adventure", "order" -> inform("[New quest] Viridian Needles Lair IV"), queststatus(539) = 11, "This recipe must not be completed! Kaefity must be killed before he can deduce the missing ingredients!"
+queststatus(539) = 10, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Viridian Nadeln Höhle IV"), queststatus(539) = 11, ""
+
+-- Quest 4 solved
+queststatus(539) = 12, english, ".+" -> inform("[Quest solved] You are awarded  150 silver coins."), money + 15000, queststatus(539) = 13, "It is great news the beast is destroyed. Now we can work on destroying Kaefity."
+queststatus(539) = 12, ".+" -> inform("[Quest gelöst] Du erhältst 150  Silberstücke."), money + 15000, queststatus(539) = 13, ""
+
+-- Quest 4 not solved, repeat the instructions
+queststatus(539) = 11, english, "quest", "mission" -> "This recipe must not be completed! Kaefity must be killed before he can deduce the missing ingredients!"
+queststatus(539) = 11, "quest", "mission" -> ""
+queststatus(539) = 11, "task", "adventure", "order" -> "This recipe must not be completed! Kaefity must be killed before he can deduce the missing ingredients!"
+queststatus(539) = 11, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+
+-- Final dialogue: No more quests, just nice hints
+queststatus(539) = 13, english, "quest", "mission" -> "You have been a great assistance. Now I must finish studying this paper to make sure no one finishes this potion. May the Five guide you."
+queststatus(539) = 13, "quest", "mission" -> ""
+queststatus(539) = 13, "task", "adventure", "order" -> "You have been a great assistance. Now I must finish studying this paper to make sure no one finishes this potion. May the Five guide you."
+queststatus(539) = 13, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am an alchemist, working for the Don right now."
+"beruf" -> ""
+english, "job" -> "I am an alchemist, working for the Don right now."
+"job" -> ""
+english, "Gobaith", "Gobiath" -> "I never heard of such a place."
+"Gobaith", "Gobiath" -> "Davon habe ich noch nie gehört."
+"my name" -> "Nice to meet you."
+"mein Name" -> "Es freut mich, eure Bekanntschaft zu machen."
+english, "alchemist" -> "An alchemist works with the structures of plants to create formulations."
+"alchemist" -> ""
+
+-- Faction stuff. Please remove if you send the template to outsiders!
+"archmage" -> "I have little use for the Archmage and his magics, but the forests around Runewick are nice for collecting herbs."
+"Erzmagier" -> ""
+english, "Elvaine", "Morgan" -> "I have little use for the Archmage and his magics, but the forests around Runewick are nice for collecting herbs."
+"Elvaine", "Morgan" -> ""
+english, "Runewick" -> "I have little use for the Archmage and his magics, but the forests around Runewick are nice for collecting herbs."
+"Runewick" -> ""
+english, "Valerio", "Guilianni", "Don" -> "The Don is a tough taskmaster for Galmair, but he is fair. I just hope to finish this job he sent me to do soon."
+"Valerio", "Guilianni", "Don" -> ""
+english, "Galmair" -> "The Don is a tough taskmaster for Galmair, but he is fair. I just hope to finish this job he sent me to do soon."
+"Galmair" -> ""
+"Queen" -> "Cadomyr is ruled by the Queen. Ruled by a Woman. Nothing more needs said."
+"Königin" -> ""
+english, "rosaline", "edwards" -> "Cadomyr is ruled by the Queen. Ruled by a Woman. Nothing more needs said."
+"rosaline", "edwards" -> ""
+english, "Cadomyr" -> "Cadomyr is ruled by the Queen. Ruled by a Woman. Nothing more needs said."
+"Cadomyr" -> ""
+
+-- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "", "I have heard they feed their pet hellhound sugarcane. Odd thing, that is."
+cycletext "", "So much to learn yet."
+cycletext "", "Where are my spectacles?"
+cycletext ".", "Kaefity may know too much already... *the rest is mumbled to himself.*"
+cycletext "'", "#me reads a very thick and old looking book."
+cycletext "", "#me blows his nose rather loudly into a clean cloth."
+cycletext "", "I should be gathering more herbs and testing new potions instead of this madness."
+cycletext "", "#me carefully sorts through a large bag of herbs. "
+cycletext "", "#me looks down at his shoes for a time before returning to his studies."
+cycletext "", "#me gazes at the clouds as if searching for something there."
