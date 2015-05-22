@@ -20,48 +20,54 @@ local sowing = require("content.gatheringcraft.sowing")
 
 local M = {}
 
--- UPDATE items SET itm_script='item.seeds' WHERE itm_id IN (259,291,534,2494,2917,728,773,779);
+-- UPDATE items SET itm_script='item.seeds' WHERE itm_id IN (259,291,534,2494,2917,728,773,779,3566);
 
--- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 247 WHERE itm_id = 246;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 247 WHERE itm_id = 246; -- grain
 -- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 248 WHERE itm_id = 247;
--- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 246 WHERE itm_id = 248;
--- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 259 WHERE itm_id = 259;
+-- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 246 WHERE itm_id = 248; -- this step no longer happens
+-- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 259 WHERE itm_id = 259; -- grown grain rots away on the ground 
 
--- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 289 WHERE itm_id = 288;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 289 WHERE itm_id = 288; -- cabbage
 -- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 290 WHERE itm_id = 289;
 -- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 291 WHERE itm_id = 290;
 -- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 291 WHERE itm_id = 291;
 
--- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 536 WHERE itm_id = 535;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 536 WHERE itm_id = 535; -- onion
 -- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 537 WHERE itm_id = 536;
 -- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 534 WHERE itm_id = 537;
 -- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 534 WHERE itm_id = 534;
 
--- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 2491 WHERE itm_id = 2490;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 2491 WHERE itm_id = 2490; -- carrot
 -- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 2492 WHERE itm_id = 2491;
 -- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 2494 WHERE itm_id = 2492;
 -- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 2494 WHERE itm_id = 2494;
 
--- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 539 WHERE itm_id = 538;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 539 WHERE itm_id = 538; --tomato
 -- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 540 WHERE itm_id = 539;
 -- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 2917 WHERE itm_id = 540;
 -- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 2917 WHERE itm_id = 2917;
 
--- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 730 WHERE itm_id = 729;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 730 WHERE itm_id = 729; --hops
 -- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 731 WHERE itm_id = 730;
 -- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 732 WHERE itm_id = 731;
 -- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 732 WHERE itm_id = 732;
 
--- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 775 WHERE itm_id = 774;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 775 WHERE itm_id = 774; --tobacco
 -- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 776 WHERE itm_id = 775;
 -- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 777 WHERE itm_id = 776;
 -- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 773 WHERE itm_id = 777;
 -- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 773 WHERE itm_id = 773;
 
--- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 781 WHERE itm_id = 780;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 781 WHERE itm_id = 780; -- sugarcane
 -- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 782 WHERE itm_id = 781;
 -- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 779 WHERE itm_id = 782;
 -- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 779 WHERE itm_id = 779;
+
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 3563 WHERE itm_id = 3562; -- potato
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 3564 WHERE itm_id = 3563; 
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 3565 WHERE itm_id = 3564;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 3566 WHERE itm_id = 3565;
+-- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 3566 WHERE itm_id = 3566;
 
 
 
