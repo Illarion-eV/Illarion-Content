@@ -728,7 +728,7 @@ function HitChance(Attacker, Defender, Globals)
         return true
     end
 
-    --Choose which weapon has the largest defense
+    --Choose which weapon has the largest defence
     if Defender.IsWeapon then
         parryItem = Defender.WeaponItem
         parryWeapon = Defender.Weapon
@@ -1498,7 +1498,7 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
     -- Defender learns parry skill
     local parryWeapon
 
-    --Choose which weapon has the largest defense
+    --Choose which weapon has the largest defence
     if Defender.IsWeapon then
         parryWeapon = Defender.Weapon
     end

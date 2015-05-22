@@ -84,8 +84,8 @@ hitPlayerMsg "#me verpasst dem Eindringlich einen Hieb 'Verschwinde!'", "#me hit
 -- Hair: Black, shaven
 -- Height: Tall
 -- Body: Broad shoulders, heavily muscular
--- Weapon: huge scimitar, in sand colored leather sheath
--- Cloth: Heavy sand colored armour, quite unusual in the area
+-- Weapon: huge scimitar, in sand coloured leather sheath
+-- Cloth: Heavy sand coloured armour, quite unusual in the area
 
 -- Personality:
 -- Horatio is a solid rock amidst an endless sea of sand. Horatio is a man raised to
@@ -177,7 +177,7 @@ english, "Tomb" -> "The resting place of the greatest of our people is the tomb.
 "Familie" -> "Das geht euch nichts an."
 "Palace" -> "If you have no business at the palace, stay away from there."
 "Palast" -> "Wenn ihr im Palast nichts zu suchen habt, dann haltet euch fern von ihm."
-"Guard" -> "I guard the gate of this city. That it is the mission the queen assigned to me and I am proud to fulfill."
+"Guard" -> "I guard the gate of this city. That it is the mission the queen assigned to me and I am proud to fulfil."
 "Wache" -> "Ich bewache das Tor dieser Stadt. Das ist die Aufgabe, die die Königin mir übertragen hat und es erfüllt mich mit Stolz, sie zu erfüllen."
 
 -- Easter egg

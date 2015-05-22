@@ -252,7 +252,7 @@ english, "Cadomyr" -> "Don't waste your time there, but if you look for fisherme
 
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
-"god" -> "Primarily, we pray to three gods in Galmair. They are Ronagan, Nargun and Irmorom of course, my favorite god."
+"god" -> "Primarily, we pray to three gods in Galmair. They are Ronagan, Nargun and Irmorom of course, my favourite god."
 "Gott", "Götter" -> "Bevorzugt beten wir drei Götter in Galmair an. Die wären Ronagan, Nargun und Irmorom, meine bevorzugte Gottheit."
 english, "Adron" -> "One of the weak Younger Gods. You can find followers in Runewick."
 "Adron" -> "Einer der schwachen jüngeren Götter. Du kann Anhänger in Runewick finden."

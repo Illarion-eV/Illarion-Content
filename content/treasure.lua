@@ -199,7 +199,7 @@ treasureContents[4] = {
     {285, 5},
     -- Tools: scissors, saw, hammer, shovel, needle, bucket, mortar, fishing rod, hatchet, rolling pin, peel, finesmithing hammer, sickle,  cooking spoon, flail, scythe, glass blow pipe, wooden shovel,
     6, 9, 23, 24, 47, 51, 58, 72, 74, 118, 121, 122, 126, 227, 258, 271, 311, 312,
-    -- Tools: candle mold, brick mould, chisel, tongs, plane, razor blade, crucible-pincers, carving tools rope, pick-axe, dying rod,
+    -- Tools: candle mould, brick mould, chisel, tongs, plane, razor blade, crucible-pincers, carving tools rope, pick-axe, dying rod,
     429, 734, 737, 2140, 2715,  2746, 2751, 2752, 2760, 2763, 2781,
     -- Misc: wicker basket, flute, panpipe, drum, oil lamp, mirror, lantern, ( lit oil lamp, )
     799, 90, 532, 533, 92, 336, 393, --397,

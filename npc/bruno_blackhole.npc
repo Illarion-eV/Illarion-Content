@@ -217,7 +217,7 @@ english, "Gobaith", "Gobiath" -> "I remember a young lad telling me 'bout a dwar
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "miner" -> "Aye, that's what I am. Da very best miner of Galmair.", "A miner mines in da mines of Galmair for ore and coal.", "Miners are important to smiths, because they sell ore and coal to them."
 "Bergarbeiter" -> "Aye, das bin ich. Der beste Bergarbeiter von Galmair.", "Ein Bergarbeiter sucht in den Minen Galmairs nach Erz und Kohle.", "Bergarbeiter sind wichtig für Schmiede, weil sie Erz und Kohle an sie verkaufen."
-english, "Malachit" -> "The Malachite mine belongs to Galmair and one can mine for copper and iron here.", "Copper and iron are the most common ores here, but when ya get lucky ya might find gold nuggets as well.", "The Malachite mine is mah favorite spot. Isn't it nice here?"
+english, "Malachit" -> "The Malachite mine belongs to Galmair and one can mine for copper and iron here.", "Copper and iron are the most common ores here, but when ya get lucky ya might find gold nuggets as well.", "The Malachite mine is mah favourite spot. Isn't it nice here?"
 "Malachit" -> "Die Malachitmine gehört zu Galmair und man findet Kupfer- und Eisenerz hier.", "Kupfer- und Eisenerz kommt hier am meisten vor, aber wenn du Glück hast, findest du auch Goldnuggets.", "Die Malachitmine ist mein liebster Platz, ist es nicht toll hier?"
 english, "nugget" -> "You might find some down here. But you know my wife is my most precious gold nugget for meh. Are you married?"
 "nugget" -> "Vielleicht findest du welche hier unten. Doch für mich ist meine Frau mein wertwollstes Goldnugget. Bist du verheiratet?"

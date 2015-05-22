@@ -156,7 +156,7 @@ german, "moshran", "god" -> "Gosh! Nicht sagst diese Name! Bessa fragen einen Sc
 english, "moshran", "god" -> "Gosh! Nub say tha name! Bettu talk to Shaman about tha fatha."
 german, "cherga", "icy witch", "eis Hex" -> "Hurr. Eisig Hexe, Göttin von Ahnen ist. Du fragst Grimlug!"
 english, "cherga", "icy witch", "eis Hex" -> "Hurr. Tha icy witch, be god ob ancestors. Ask Grimlug about her!"
-german, "adron" -> "Honor to Adron, tha fat man with red nose! Yubba. May he help me, guarding all those barrels 'nd bottles!"
+german, "adron" -> "Honour to Adron, tha fat man with red nose! Yubba. May he help me, guarding all those barrels 'nd bottles!"
 english, "adron" -> "Geerht sei Adron, der fette Mann mit roter Nase! Yubba. Möge er helfen, zu bewachen alle meine Flasch und Fässa!"
 
 -- Catching typical NPC phrases

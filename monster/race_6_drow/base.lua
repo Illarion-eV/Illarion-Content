@@ -45,7 +45,7 @@ function M.generateCallbacks()
             orgOnSpawn(monster)
         end
 
-        -- Drows are just elves with with a very dark skin color and very bright hair
+        -- Drows are just elves with with a very dark skin colour and very bright hair
         base.setColor{monster = monster, target = base.SKIN_COLOR,
             hue = 0, saturation = 0, value = {min = 0.23, max = 0.55}}
         base.setColor{monster = monster, target = base.HAIR_COLOR,

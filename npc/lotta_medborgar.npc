@@ -259,7 +259,7 @@ english, "Cadomyr" -> "That's in the southwest. Follow the road through Nargun's
 "Cadomyr" -> "Das liegt im Südwesten. Einfach der Straße entlang durch die Narguns Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südwestlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
-"god" -> "Primarily, we pray to three gods here in Galmair. They are Irmorom, Nargun, and Ronagan of course, my favorite god."
+"god" -> "Primarily, we pray to three gods here in Galmair. They are Irmorom, Nargun, and Ronagan of course, my favourite god."
 "Gott", "Götter" -> "Bevorzugt betten wir drei Götter in Galmair an. Die wären Irmorom, Nargun und natürlich Ronagan, meine bevorzugte Gottheit."
 english, "Adron" -> "If you would like to know more about this god ask someone else, for example, Iradona Goldschein outside at the teleporter."
 "Adron" -> "Wenn du mehr über diese Gottheit zu wissen möchtest, dann fragt jemand anderen. Zum Beispiel Iradona Goldschein draußen beim Teleporter."

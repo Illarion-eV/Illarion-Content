@@ -170,7 +170,7 @@ english, "Wulfgorda" -> "Wulfgorda is a hunter who knows almost every place in t
 "Schattentor" -> "Das ist ein Teil der Frischen Sümpfe. Es war einst ein Ort für Experimente. Wir versuchten ein permanentes Portal zu fernen Ländern zu öffnen. Aber wir scheiterten und so ist dort lediglich eine Ruine nun zu finden."
 "Merryglade" -> "It was once the home of a stable hand who disappeared to Galmair after he failed to protect his animals. It is northeast from Yewdale."
 "Fröhliche Lichtung" -> "Es war einst das Haus eines Stalljungen, welcher nach Galmair verschwand nachdem es ihm nicht gelungen ist seine Tiere zu behüten. Es liegt nordöstlich von Eibental."
-"Oldra's Tower", "Oldras Tower" -> "It is northeast from Yewdale close to Merryglade. Druids and Alchemists are often traveling there. Ask them for further information."
+"Oldra's Tower", "Oldras Tower" -> "It is northeast from Yewdale close to Merryglade. Druids and Alchemists are often travelling there. Ask them for further information."
 "Oldras Turm" -> "Der liegt nordöstlich von Eibental in der Nähe der Fröhlichen Lichtung. Druiden und Alchemisten reisen oft dorthin. Fragt die wenn ihr weitere Information wünscht."
 "Coward last stand" -> "It is northeast from Yewdale on the way to Merryglade. The coward was none other than Sir Edward from Cadomyr. There is a rumour that he ran faster than an arrow of Malachin when he was attacked by Galmair supporters."
 "Feiglings letztes Gefecht" -> "Dieser Ort liegt nordöstlich von Eibental am Weg zur Fröhlichen Lichtung. Der angesprochene Feigling war Sir Edward von Cadomyr. Es heißt, er lief schneller als ein Pfeil von Malachin als er dort von Galmair Anhängern angegriffen wurde."
@@ -178,7 +178,7 @@ english, "Wulfgorda" -> "Wulfgorda is a hunter who knows almost every place in t
 "Außenposten" -> "Dieser Außernposten liegt nordöstlich von Yewdale an einer Brücke. Wir verwendeten ihn in der Vergangenheit um uns zu schützen."
 "Anthill Brook" -> "Anthill Brook is north of Yewdale. You will find there some sign of our glorious victory during the Halfling-war against Galmair years ago."
 "Ameisenhügelbach" -> "Der Ameisenhügelbach liegt nördlich von Eibental. Du findest dort Hinweise zu unserem glorreichen Sieg im Halblingkrieg über Glamair vor einigen Jahren."
-"Bear cave" -> "The Bear cave is north of Anthill Brook. The cave was used by bears until warriors from Galmair killed them. Nowadays you can find some wolves and other animals there. A good place to practice some combat skills for inexperienced warriors."
+"Bear cave" -> "The Bear cave is north of Anthill Brook. The cave was used by bears until warriors from Galmair killed them. Nowadays you can find some wolves and other animals there. A good place to practise some combat skills for inexperienced warriors."
 "Bärenhöhle" -> "Die Bärenhöhle ist nördlich vom Ameisenhügelbach. Die Höhle wurde einst von Bären bewohnt bis sie alle von Kriegern aus Galmair getötet wurden. Nun leben dort Wölfe und andere Tiere. Ein guter Ort für unerfahrene Krieger um sich an ihre Waffe zu gewöhnen."
 "Adron's Covert", "Adrons Covert" -> "This place is west of Anthill Brook. A blind and cowardly person will have trouble finding it."
 "Adrons Versteck" -> "Dieser Ort liegt westlich vom Ameisenhügelbach. Eine blinde und feige Person wird Probleme haben ihn zu finden."
@@ -265,7 +265,7 @@ english, "Cadomyr" -> "Cadomyr is in the west. If you are stupid enough and want
 "Cadomyr" -> "Cadomyr ist im Westen zu finden. Wenn ihr dumm genug seid, werdet ihr dort hin zu Fuß gehen. Aber orientiert euch wenigstens nach dne Wegschildern. Schlaue Leute werden ohnehin den Teleportet benützen."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
-"god" -> "Primarly, we pray to three gods in Runewick. They are Adron, Elara and Oldra of course, my favorite god."
+"god" -> "Primarly, we pray to three gods in Runewick. They are Adron, Elara and Oldra of course, my favourite god."
 "Gott", "Götter" -> "Bevorzugt betten wir drei Götter in Runewick an. Die wären Adron, Elara und natürlich Oldra, meine bevorzugte Gottheit."
 english, "Adron" -> "You may find a temple dedicated to him in the North, behind the Hemp Necktie Inn. You can either use the teleporter or you walk following the signposts, but you will need companions."
 "Adron" -> "Ihr möget den Tempel von ihm im Norden hinter dem Gasthof zur Hanfschlinge finden. Hierzu könnt ihr entweder einen Teleporter verwenden oder entlang der Wegweiser wandern. Ohne Begleitung werdet ihr ihn aber nicht erlangen."

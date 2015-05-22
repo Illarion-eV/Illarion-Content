@@ -317,7 +317,7 @@ local function ChangeRankpoints(User, modifier, value, faction, radius)
                 User:inform("You just "..text.." "..value.." rankpoints to "..player_list[i].name.." of the faction "..factions.getTownNameByID(Factionvalues.tid).." in a radius of ".. radius..".")
                 User:logAdmin(text .. " " ..value.. " rankpoints to character " .. player_list[i].name .. " of the faction " .. factions.getTownNameByID(Factionvalues.tid))
             else
-                --				return  --bad return, since it would break up as soon someone does not fulfill requirements even if there are more players to be checked.
+                --				return  --bad return, since it would break up as soon someone does not fulfil requirements even if there are more players to be checked.
             end
         end
     end

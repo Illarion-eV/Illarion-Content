@@ -196,7 +196,7 @@ queststatus(69) = 0, "Beil" -> "Wenn ihr ein Beil wollt, könnte ich euch eines g
 "Beil" -> "Wenn ihr ein Beil kaufen wollt, solltet ihr einen Händler in Runewick aufsuchen."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"forester" -> "I am a forester, if you want you can assist me and fulfill a task.", "As a forester, I care for the forest, yes.", "Being a forester is exhausting but also you get to be in touch with the trees a lot."
+"forester" -> "I am a forester, if you want you can assist me and fulfil a task.", "As a forester, I care for the forest, yes.", "Being a forester is exhausting but also you get to be in touch with the trees a lot."
 "Förster" -> "Ich bin ein Förster und wenn ihr helfen wollt, gebe ich euch eine Aufgabe.", "Als Förster kümmere ich mich um die Bäume, richtig.", "Förster zu sein strengt an aber man ist auch viel an der frischen Luft."
 english, "Nana", "Winterbutter" -> "Nana is a cute and kind person, living in Yewdale. I used to travel there once in a while, before the bark beetles came."
 "Nana", "Winterbutter" -> "Nana ist eine liebliche und nette Person. Sie lebt im Eibenthal, wohin ich früher oft gereist bin - bevor die Borkenkäfer kamen."

@@ -17,8 +17,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local base = require("monster.base.base")
 local mummies = require("monster.race_10_mummy.base")
 
--- The brown mummies are normal mummies with altered skin color. We can use the default script of the mummies
--- and only overwrite the spawn function to apply the correct color.
+-- The brown mummies are normal mummies with altered skin colour. We can use the default script of the mummies
+-- and only overwrite the spawn function to apply the correct colour.
 
 local M = {}
 

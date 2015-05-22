@@ -131,7 +131,7 @@ queststatus(76) = 1, item(2057, all) < 1, ".+" -> "Wo bleibt mein Wein?"
 
 -- Questions (english)
 queststatus(76) = 2, "town" -> "#me smiles: 'This town is one where the clear minds may learn and become wise amongst their peers. We are the pinnacle of knowledge, a beacon of civilization in the land. All thanks to the wisdom of Archmage Morgan.'"
-queststatus(76) = 2, "knowledge", "wisdom" -> "Knowledge and wisdom are the two most important qualities of a person. The sharpness of one's mind and the judgment to use the mind well are the true makers of a great man... or a woman."
+queststatus(76) = 2, "knowledge", "wisdom" -> "Knowledge and wisdom are the two most important qualities of a person. The sharpness of one's mind and the judgement to use the mind well are the true makers of a great man... or a woman."
 queststatus(76) = 2, "like[s]" -> "Our Archmage likes order... so behave yourself and he will bless you with his kindness. Altough, I must admit that he has a weakness for magical trinkets and books."
 queststatus(76) = 2, "gift" -> "A Gift? For the Archmage? Well, if you manage to find a rare book or a magical artifact, then I think such extraordinary items are what please him the most."
 queststatus(76) = 2, "wine" -> "#me smiles lightly: 'My thanks for the wine, traveler. Do you have some questions you wish that I answer?'"

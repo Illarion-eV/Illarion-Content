@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local base = require("monster.base.base")
 local spiders = require("monster.race_19_spider.base")
 
--- The green spiders are just spiders with a special skin color
+-- The green spiders are just spiders with a special skin colour
 
 local M = {}
 

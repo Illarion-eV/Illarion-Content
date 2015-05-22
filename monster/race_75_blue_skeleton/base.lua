@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local base = require("monster.base.base")
 local skeletons = require("monster.race_11_skeleton.base")
 
--- The blue skeletons are just skeletons with a special skin color
+-- The blue skeletons are just skeletons with a special skin colour
 
 local M = {}
 

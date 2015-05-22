@@ -301,7 +301,7 @@ function StaticTeleporter(User, SourceItem)
     if User:getPlayerLanguage() == Player.german then
         dialog = SelectionDialog("Teleporter", "Eine Reise kostet fünf Silberstücke; doch das Reisen zwischen dem Gasthof zur Schlinge und deiner Heimatstadt ist kostenlos. Wähle eine Ziel aus.", callback)
     else
-        dialog = SelectionDialog("Teleporter", "A journey costs five silver coins; but traveling between the Hemp Necktie Inn and your home town is free. Choose a destination.", callback)
+        dialog = SelectionDialog("Teleporter", "A journey costs five silver coins; but travelling between the Hemp Necktie Inn and your home town is free. Choose a destination.", callback)
     end
     dialog:setCloseOnMove()
 

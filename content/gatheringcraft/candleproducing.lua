@@ -19,7 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- additional static tool: chandler table (428)
 
--- additional tool: candlemold(429)
+-- additional tool: candle mould(429)
 
 local common = require("base.common")
 local gathering = require("content.gathering")
@@ -45,7 +45,7 @@ function StartGathering(User, SourceItem, ltstate)
 	if (User:countItemAt("all",429)==0) then
 		common.HighInformNLS( User,
 		"Du brauchst eine Kerzenform um Kerzen herzustellen.",
-		"You need a candle mold for producing candles." );
+		"You need a candle mould for producing candles." );
 		return
 	end
 	local toolItem = User:getItemAt(5);
@@ -54,7 +54,7 @@ function StartGathering(User, SourceItem, ltstate)
 		if ( toolItem.id ~= 429 ) then
 			common.HighInformNLS( User,
 			"Du musst die Kerzenform in der Hand haben!",
-			"You have to hold the candle mold in your hand!" );
+			"You have to hold the candle mould in your hand!" );
 			return
 		end
 	end
@@ -110,7 +110,7 @@ function StartGathering(User, SourceItem, ltstate)
 	if common.GatheringToolBreaks( User, toolItem, candleproducing:GenWorkTime(User, toolItem) ) then -- damage and possibly break the tool
 		common.HighInformNLS(User,
 		"Deine alte Kerzenform zerbricht.",
-		"Your old candle mold breaks.");
+		"Your old candle mould breaks.");
 		return
 	end
 end

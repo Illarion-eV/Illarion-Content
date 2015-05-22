@@ -17,8 +17,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local base = require("monster.base.base")
 local beholders = require("monster.race_12_beholder.base")
 
--- The transparent beholder is a normal beholder with altered skin color. We can use the default script of the beholders
--- and only overwrite the spawn function to apply the correct color.
+-- The transparent beholder is a normal beholder with altered skin colour. We can use the default script of the beholders
+-- and only overwrite the spawn function to apply the correct colour.
 
 local M = {}
 

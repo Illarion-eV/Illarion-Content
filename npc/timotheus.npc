@@ -174,7 +174,7 @@ english, "Irmorom" -> "Only dwarves really pray to Irmorom. Everyone else takes 
 "Irmorom" -> "Nur Zwerge beten wirklich zu Irmorom. Anscheinend nimmt Jedermann seine Gaben als selbstverständlich hin."
 
 -- Catching typical NPC phrases
-"tell something" -> "Did you know only we from Runewick have such marvelous clothing? I wonder what rags the people of Galmair wear.", "My robes are the finest in the land!"
+"tell something" -> "Did you know only we from Runewick have such marvellous clothing? I wonder what rags the people of Galmair wear.", "My robes are the finest in the land!"
 "erzähl was", "erzähl etwas" -> "Wußtet ihr, dass nur wir in Runewick hier so feine Kleidung haben? Ich frage mich, in was für Lumpen die Leute in Galmair rumrennen.", "Meine Roben sind die besten im ganzen Land."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here

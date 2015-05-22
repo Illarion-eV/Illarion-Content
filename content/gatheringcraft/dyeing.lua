@@ -17,8 +17,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- barrel (220)
 
--- white dye (2683) + gray cloth (176) --> white cloth (178)
--- color dye + grey cloth (176) --> colored cloth (see below for details)
+-- white dye (2683) + Gray cloth (176) --> white cloth (178)
+-- colour dye + grey cloth (176) --> coloured cloth (see below for details)
 
 -- additional tool: dyeing rod (2781)
 

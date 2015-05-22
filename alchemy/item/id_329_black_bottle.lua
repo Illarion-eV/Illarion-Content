@@ -30,7 +30,7 @@ local M = {}
 --lists for HUMANS, DWARVES, HALFLINGS, ELVES, ORCS and LIZARDS
 -- apperance lists with the different values for the six races
 -- 0 = human; 1 = dwarf; 2 = halfling; 3 = elf; 4 = orc; 5 = lizard
--- the color sets are seperated by ; while the three values of each set are seperated by ,
+-- the colour sets are seperated by ; while the three values of each set are seperated by ,
 local ListSkinColor = {}
 ListSkinColor[0] = {246, 218, 181;243, 185, 111; 210, 146, 110;172, 116, 59;69, 42, 21;250, 199, 168}
 ListSkinColor[1] = {246, 218, 181;243, 185, 111; 210, 146, 110;172, 116, 59;69, 42, 21;250, 199, 168}

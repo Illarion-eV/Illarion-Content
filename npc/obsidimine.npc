@@ -140,15 +140,15 @@ queststatus(510) = 10, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
 queststatus(510) = 11, english, ".+" -> inform("[Quest solved] You are awarded 65 silver coins."), money + 6500, queststatus(510) = 12, "You ain't blowin' smoke up me... are you being real with me? So many levels. Can't recall the last... All righty then!"
 queststatus(510) = 11, ".+" -> inform("[Quest gelöst] Du erhältst 654 Silberstücke."), money + 6500, queststatus(510) = 12, ""
 
--- Quest 5: Find Obsidimine a Dragon Gem of every color
-queststatus(510) = 12, english, "quest", "mission" -> inform("[New quest] Spelunker V"), queststatus(510) = 13, "Me heards that dragons hoard their wealth. Before Eme disappeared he was talkin' of vases bein' stuffed with gems. Search the vases and find me a gem of every color from the dragons stash."
+-- Quest 5: Find Obsidimine a Dragon Gem of every colour
+queststatus(510) = 12, english, "quest", "mission" -> inform("[New quest] Spelunker V"), queststatus(510) = 13, "Me heards that dragons hoard their wealth. Before Eme disappeared he was talkin' of vases bein' stuffed with gems. Search the vases and find me a gem of every colour from the dragons stash."
 queststatus(510) = 12, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher V"), queststatus(510) = 13, ""
-queststatus(510) = 12, "task", "adventure", "order" -> inform("[New quest] Spelunker V"), queststatus(510) = 13, "Me heards that dragons hoard their wealth. Before Eme disappeared he was talkin' of vases bein' stuffed with gems. Search the vases and find me a gem of every color from the dragons stash."
+queststatus(510) = 12, "task", "adventure", "order" -> inform("[New quest] Spelunker V"), queststatus(510) = 13, "Me heards that dragons hoard their wealth. Before Eme disappeared he was talkin' of vases bein' stuffed with gems. Search the vases and find me a gem of every colour from the dragons stash."
 queststatus(510) = 12, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher V"), queststatus(510) = 13, ""
 
-queststatus(510) = 13, queststatus(510) < 14, english, "quest", "mission" -> "Gems, Gems .. search the vases! A dwarf is not complete without a gem of every color.  I only want those from inside here, don't try and cheat me!"
+queststatus(510) = 13, queststatus(510) < 14, english, "quest", "mission" -> "Gems, Gems .. search the vases! A dwarf is not complete without a gem of every colour.  I only want those from inside here, don't try and cheat me!"
 queststatus(510) = 13, queststatus(510) < 14, "quest", "mission" -> ""
-queststatus(510) = 13, queststatus(510) < 14, "task", "adventure", "order" -> "Gems, Gems .. search the vases! A dwarf is not complete without a gem of every color.  I only want those from inside here, don't try and cheat me!"
+queststatus(510) = 13, queststatus(510) < 14, "task", "adventure", "order" -> "Gems, Gems .. search the vases! A dwarf is not complete without a gem of every colour.  I only want those from inside here, don't try and cheat me!"
 queststatus(510) = 13, queststatus(510) < 14, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
 
 queststatus(510) = 14, english, ".+" -> inform("[Quest solved] You are awarded seventy-five silver coins."), money + 7500, queststatus(510) = 15, "#me pokes through the cut gemstones, counting them and looking over the dazzling aray of colors with a sparkle in his eye as he passes you some coins."

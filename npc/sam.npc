@@ -152,7 +152,7 @@ german, "salkama" -> "Ich komm aus Salkamar. Aber was sollt mich dort gehaltn ha
 
 state = 1, english, "Moshran" -> attrib(hitpoints) - 9999, attrib(hitpoints) + 1, "#me draws a dagger and mumbles, 'I warned you, but you did not listen. For the grey rose!'"
 state = 1, "Moshran" -> attrib(hitpoints) - 9999, attrib(hitpoints) + 1, "#me zieht einen Dolch und murmelt: 'Wer nicht hören will muss fühlen! Für die Graue Rose!"
-english, "Moshran" -> state = 1, "One more word about HIM and you will have to visit the cross! I have a spark of honor in my old bones."
+english, "Moshran" -> state = 1, "One more word about HIM and you will have to visit the cross! I have a spark of honour in my old bones."
 "Moshran" -> state = 1, "Ein weiteres Wort über DEN und du wirst es büsen! Ich hab auch noch einen Funken Ehre in den alten Knochen."
 
 -- Catching quest triggers

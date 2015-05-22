@@ -42,7 +42,7 @@ product:addIngredient(2716, 2) -- Apple Wooden Boards: 2x1
 product = carpentry:addProduct(catId, 51, 18, 38, 27, 54)
 product:addIngredient(2716, 3) -- Apple Wooden Boards: 3x1
 
---Candle Mold
+--Candle Mould
 product = carpentry:addProduct(catId, 429, 15, 35, 18, 36)
 product:addIngredient(2716, 2) -- Apple Wooden Boards: 2x1
 
