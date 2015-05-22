@@ -435,6 +435,10 @@ function ArmourAbsorption(Attacker, Defender, Globals)
         armourValue = 0
     end
 
+    local GemBonus = gems.getGemBonus(Globals.HittedItem)
+    armourValue = armourValue + armourValue * GemBonus / 100
+    --Defender.Char:inform("armorValue: " .. armourValue)
+
     --Race armour for monsters
     armourfound, armour = world:getNaturalArmor(Defender.Race)
     if armourfound then
