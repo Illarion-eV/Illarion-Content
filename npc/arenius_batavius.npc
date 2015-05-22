@@ -90,7 +90,7 @@ itemShoes = 53
 -- 32: Quest 5 solved, reward: steel tower shield with magical sapphire (96), 500cp, 15 rankpoints if Cadomyr
 -- 33: Quest 6 taken: Kill 1 Ancient Fire Dragon(264)
 -- 34: Killing 1 Ancient Fire Dragon(264)
--- 35: Quest 6 solved, reward: albarian noble's armor with magical topaz (2367), 2000cp, 20 rankpoints if Cadomyr
+-- 35: Quest 6 solved, reward: albarian noble's armour with magical topaz (2367), 2000cp, 20 rankpoints if Cadomyr
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the crusader Arenius Batavius. Keywords: Hello, quest, profession, crusader, order, orcs, cult, Cherga.")
@@ -230,7 +230,7 @@ queststatus(104) = 32, "quest", "mission" -> inform("[Neues Quest] Der fehlgelei
 queststatus(104) = 32, "task", "adventure" -> inform("[New quest] The Errant Crusade VI"), queststatus(104) = 33, "I studied the scroll the boy found thoroughly and I came to the conclusion that the demon skeleton must have been guarding something. Might it be the source of all evil? Set out and eliminate it!"
 queststatus(104) = 32, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der fehlgeleitete Kreuzzug VI"), queststatus(104) = 33, "Ich habe die Schriftrolle, die der Junge gefunden hat, gründlichst studiert und bin zu dem Schluss gekommen, dass das Dämonenskelett etwas bewacht haben muss. Etwas die Quelle allen Übels? Zieht aus und eleminiert sie!"
 
--- Quest 6 solved, reward: albarian noble's armor, magical topaz, 2000cp, 20 rankpoints if Cadomyr
+-- Quest 6 solved, reward: albarian noble's armour, magical topaz, 2000cp, 20 rankpoints if Cadomyr
 queststatus(104) = 34, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded two gold coins, a magical topaz and an albarian noble's armour."), money + 20000, item(2367, 1, 988), item(198, 1, 333, "gemLevel" = "2"), queststatus(104) = 35, rankpoints + 20, "You did what? You ended the life of one of the most noble creatures of Illarion? How dare you? How... did I dare to send you on this mission? I have to resign as knight of the Order of the Silver Dragon - I surrender my armour and my belongings to you."
 queststatus(104) = 34, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst zwei Goldstücke, einen magischen Topas und eine albarische Adeligenrüstung."), money + 20000, item(2367, 1, 988), item(198, 1, 333, "gemLevel" = "2"), queststatus(104) = 35, rankpoints + 20, "Ihr habt was getan? Ihr habt das Leben eines der edelsten Kreaturen von ganz Illarion beendet? Was fällt euch ein! Was... fiel mir ein, euch auf diese Mission zu schicken. Ich werde als Ritter des Ordens der Silberdrachen abdanken müssen. Ich überantworte euch meine Rüstung und meinen weltlichen Besitz."
 queststatus(104) = 34, english, ".+" -> inform("[Quest solved] You are awarded two gold coins, a magical topaz and an albarian noble's armour."), money + 20000, item(2367, 1, 988), item(198, 1, 333, "gemLevel" = "2"), queststatus(104) = 35, "You did what? You ended the life of one of the most noble creatures of Illarion? How dare you? How... did I dare to send you on this mission? I have to resign as knight of the Order of the Silver Dragon - I surrender my armour and my belongings to you."

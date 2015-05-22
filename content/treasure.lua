@@ -189,7 +189,7 @@ treasureContents[3] = {
     97, 384, 828, 829, 830, 831, 832, 356, 2295,
     -- Clothes:leather shoes, black trousers, green trousers, red trousers, yellow trousers, blue trousers, blue trousers, yellow trousers, grey trousers, green trousers, red trousers, black trousers, white trousers,
     369, 34, 183, 459, 460, 461, 821, 822, 823, 824, 825, 826, 827,
-    -- Shields/Armor: small wooden shield, wooden shield, light metal shield, chain helmet, round steel hat,
+    -- Sheilds/Armour:small wooden shield, wooden shield, light metal shield, chain helmet, round steel hat,
     2445, 17, 18, 324, 2290,
     -- Weapons: club, simple dagger, skull staff, poisoned halfling axe, poisoned simple dagger, halfling axe
     2664, 27, 39, 2635, 2668, 2711
@@ -203,7 +203,7 @@ treasureContents[4] = {
     429, 734, 737, 2140, 2715,  2746, 2751, 2752, 2760, 2763, 2781,
     -- Misc: wicker basket, flute, panpipe, drum, oil lamp, mirror, lantern, ( lit oil lamp, )
     799, 90, 532, 533, 92, 336, 393, --397,
-    -- Shields/Armor: horned helmet,  steel boots, short leather legs, round metal shield,
+    -- Sheilds/Armour:horned helmet,  steel boots, short leather legs, round metal shield,
     7, 326, 367, 186,
     -- Weapons: executioner's axe, poisened executioner's axe, serinjah-sword, poisoned serinjah-sword, shortsword, sling, cleric's staff, short bow, mace,
     2723, 2725, 1, 2694, 78, 89, 40, 65, 230,
@@ -215,7 +215,7 @@ treasureContents[5] = {
     {446, 5}, {449, 5}, {448, 5}, {451, 5}, {452, 5},
     -- Jewellery: sapphire amulet, obsidian amulet, emerald amulet, ruby ring, topaz amulet, amethyst ring, obsidian ring, sapphire ring,
     71, 82, 62, 68, 83, 277, 278, 279,
-    -- Shields/Armor: steel cap, steel gloves, large metal shield, leather boots, leather gloves, short hardwood greaves, gynkese mercenary's helmet, knight shield, orc helmet, steel hat,
+    -- Sheilds/Armour:steel cap, steel gloves, large metal shield, leather boots, leather gloves, short hardwood greaves, gynkese mercenary's helmet, knight shield, orc helmet, steel hat,
     202, 325, 19, 53, 48, 2194, 2302, 20, 16, 187,
     -- Weapons: battle axe, dagger, poisened dagger,  orc axe
     2946, 189, 2672, 2642,
@@ -223,7 +223,7 @@ treasureContents[5] = {
     196, 335, 357, 358, 385, 800, 801, 802, 803, 804, 805, 806, 833, 834, 835, 836, 837, 838, 839, 840, 841, 842, 843, 844, 845, 846, 847, 848, 849, 850, 851, 852, 2380, 2384,
 }
 treasureContents[6] = {
-    -- Shields/Armor: leather legs, albarian steel gloves, salkamarian steel boots, cursed shield, short iron greaves, leather scale armor, hardwood greaves, serinjah helmet,
+    -- Shields/Armour: leather legs, albarian steel gloves, salkamarian steel boots, cursed shield, short iron greaves, leather scale armour, hardwood greaves, serinjah helmet,
     366, 530, 699, 917, 2117, 363, 2193, 2444,
     -- Weapons: simple mage's staff, serinjah-rider's bow, morning star, sabre, hunting bow, longaxe, ornate dagger, gilded dagger, silvered dagger, coppered dagger, merinium-plated dagger, poisoned ornate dagger,  scimitar
     57, 2646, 2737, 25, 2714, 88, 190, 297, 389, 398, 444, 2689, 2757,
@@ -235,7 +235,7 @@ treasureContents[6] = {
 treasureContents[7] = {
     -- Jewellery: smaragd ring, topaz ring, diamond ring, diadem,
     281, 282, 280, 465,
-    --Shields/Armor: red steel shield, studded leather gloves, fur boots, chain shirt, half leather armor, dwarfen metal gloves, albarian soldier's helmet, legionaire's tower shield, pot helmet, plate armor, heraldic shield, dwarven state armor,
+    --Sheilds/Armour:red steel shield, studded leather gloves, fur boots, chain shirt, half leather armour, dwarfen metal gloves, albarian soldier's helmet, legionaire's tower shield, pot helmet, plate armour, heraldic shield, dwarven state armour,
     2388, 526, 697, 101, 365, 529, 2287, 2448, 94, 4, 95, 2390,
     -- Weapons: halberd, mage's staff, bastard sword, poisened broadsword, broadsword, fire-hunters bow, red dagger, magical poisonbow, waraxe, morning star, mage's staff, long bow
     77, 76, 204, 2655, 2658, 2727, 2740, 2780, 383, 231, 323, 2708,
@@ -245,7 +245,7 @@ treasureContents[7] = {
     2551, 2552, 2553, 2554, 3607
 }
 treasureContents[8] = {
-    -- Shields/Armor: albarian steel boots, short fur trousers, drow helmet, storm cap, steel tower shield, light hunting armor, albarian steelgloves, heavy steel greaves, steel plate,
+    -- Sheilds/Armour:albarian steel boots, short fur trousers, drow helmet, storm cap, steel tower shield, light hunting armour, albarian steelgloves, heavy steel greaves, steel plate,
     771, 2114, 2303, 2441, 96, 364, 530, 2172, 2364,
     -- Weapons: gilded longsword, coppered longsword, silvered longsword, merinium-plated longsword, elven mage's staff, rapier, longsword, poisoned longsword, gilded battle axe, coppered battle axe, ornate mage's staff, silvered battle axe, merinium-plated battle axe, light battleaxe, two-handed sword, elvensword
     84, 85, 98, 123, 209, 2675, 2701, 2705, 124, 192, 1044, 229, 296, 2629, 2731, 2778,
@@ -255,7 +255,7 @@ treasureContents[8] = {
 treasureContents[9] = {
     -- Jewellery: crown,
     225,
-    --Shields/Armor: visored helmet, serinjah leather boots, serinjah leather gloves, ornate tower shield, short chain pants, flame helmet, elven silversteel armor, black visored helmet, full leatherarmor, Shield of the Sky, albarian steel plate, cloud shield, knight boots, brass greaves
+    --Sheilds/Armour:visored helmet, serinjah leather boots, serinjah leather gloves, ornate tower shield, short chain pants, flame helmet, elven silversteel armour, black visored helmet, full leatherarmour, Shield of the Sky, albarian steel plate, cloud shield, knight boots, brass greaves
     184, 698, 527, 916, 2112, 2286, 2403, 185, 362, 2284, 2369, 2439, 770, 2113,
     -- Weapons: large waraxe, battle staff, dwarven axe, elven composite longbow, war hammer, snake sword, elven rainbowsword, double axe, poisoned longaxe,
     188, 207, 2660, 2718, 226, 2788, 2775, 205, 2636
@@ -263,7 +263,7 @@ treasureContents[9] = {
 treasureContents[10] = {
     -- Jewellery: charm of the icebird,
     334,
-    -- Shields/Armor: knight gloves, lizard armor, iron greaves, chain pants, Lor-Angur guardian's armor, light breastplate, dwarvenplate, salkamaerian armor, mercenary armor, elven state armor,
+    -- Sheilds/Armour:knight gloves, lizard armour, iron greaves, chain pants, Lor-Angur guardian's armour, light breastplate, dwarvenplate, salkamaerian armour, mercenary armour, elven state armour,
     531, 696, 2116, 2111, 2360, 2407, 2395, 2389, 2359, 2400,
     -- Weapons: drow blade, drow sword, malachin dagger, elven shortbow, magical icebow, red fire dagger, fire broadsword, fire longsword, fire waraxe, large fire-waraxe, magical dagger, magical serinjah-sword, magical broadsword, magical longsword,
     2777, 3035, 91, 2685, 2742, 2656, 206, 2627, 2640, 2671, 2693, 2654, 2704,
@@ -275,7 +275,7 @@ treasureContents[10] = {
 treasureContents[11] = {
     -- Jewellery: ring of the archmage,
     2559,
-    -- Shields/Armor: nightplate, salkamaerian officer's armor, light elven armor, drow armor, shadowplate, albarian noble's armor, heavy plate armor,
+    -- Sheilds/Armour:nightplate, salkamaerian officer's armour, light elven armour, drow armour, shadowplate, albarian noble's armour, heavy plate armour,
     2363, 2365, 2399, 2402, 2357, 2367, 2393,
     -- Weapons: magical waraxe, magical dwarven axe,
     2626, 2662,

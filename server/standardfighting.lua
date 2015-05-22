@@ -330,7 +330,7 @@ function M.onAttack(Attacker, Defender)
     -- Calculate the damage caused by the attack
     CalculateDamage(Attacker, Globals)
 
-    -- Reduce the damage due the absorbtion of the armor
+    -- Reduce the damage due the absorbtion of the armour
     ArmourAbsorption(Attacker, Defender, Globals)
 
     -- The effect of the constitution. After this the final damage is avaiable.
@@ -355,8 +355,8 @@ end
 -- calculations to perform a proper fight.                                    --
 --------------------------------------------------------------------------------
 
---- Calculate the damage that is absorbed by the armor and reduce the stored
--- armor value by this amount.
+--- Calculate the damage that is absorbed by the armour and reduce the stored
+-- armour value by this amount.
 -- @param Attacker The table that stores the data of the attacker
 -- @param Defender The table that stores the data of the defender
 -- @param Globals The table that stores the global values
@@ -541,7 +541,7 @@ end
 
 --- Calculate the damage that is caused by the attack. This function calculates
 -- the raw damage and stores it in the globals table. The damage calculated here
--- has to be lowered by the armor and the constitution of the attacked
+-- has to be lowered by the armour and the constitution of the attacked
 -- character.
 -- @param Attacker The table of the character who is attacking
 -- @param Globals The global data table

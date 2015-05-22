@@ -104,7 +104,7 @@ priestItems[11]={2421,20,391,2291,78}; --Malachín: White priest robe, Large meta
 priestItems[12]={2418,226,74,2763,2752}; --Irmorom: Gray priest robe, War Hammer, Hatchet, Pickaxe, Carving tools
 priestItems[13]={2421,40,280,354,222}; --Sirani: White priest robe, Cleric's staff, Diamond ring, Strawberry cake, Amulet
 priestItems[14]={368,20,2701,40,333}; --Zhambra: Yellow priest robe, Large metal shield, Longsword, Cleric's staff, Horn
-priestItems[15]={2420,2689,384,365,285}; --Ronagan: Black priest robe, Poisoned ornate dagger, Thieves gloves, Half leather armor, Diamond
+priestItems[15]={2420,2689,384,365,285}; --Ronagan: Black priest robe, Poisoned ornate dagger, Thieves gloves, Half leather armour, Diamond
 priestItems[16]={2420,552,39,69,2746}; --Moshran: Black priest robe, Deer meat, Skull staff, Raw leather, razor blade
 
 

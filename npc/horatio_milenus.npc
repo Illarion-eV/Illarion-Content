@@ -43,7 +43,7 @@ author = "Estralis Seborian"
 author = "Nitram"
 
 lookatDE = "Dieser NPC ist Horatio Milenus der Torwächter, ein großer Mann, eingehüllt in eine schwere Rüstung."
-lookatUS = "This NPC is Horatio Milenus the gate guardian, a tall man encombered in heavy armor."
+lookatUS = "This NPC is Horatio Milenus the gate guardian, a tall man encombered in heavy armour."
 useMsgDE = "Zurück!"
 useMsgUS = "Back up!"
 wrongLangDE = "#me schaut verwirrt umher."
@@ -85,7 +85,7 @@ hitPlayerMsg "#me verpasst dem Eindringlich einen Hieb 'Verschwinde!'", "#me hit
 -- Height: Tall
 -- Body: Broad shoulders, heavily muscular
 -- Weapon: huge scimitar, in sand colored leather sheath
--- Cloth: Heavy sand colored armor, quite unusual in the area
+-- Cloth: Heavy sand colored armour, quite unusual in the area
 
 -- Personality:
 -- Horatio is a solid rock amidst an endless sea of sand. Horatio is a man raised to
@@ -105,7 +105,7 @@ hitPlayerMsg "#me verpasst dem Eindringlich einen Hieb 'Verschwinde!'", "#me hit
 -- sister.
 
 -- Horatio earnestly fought for his city. He gained renowned status from battle. With huge stature and his rare
--- choice in using heavy armor Horatio has taken down up to twenty people by himself. In the process of stopping
+-- choice in using heavy armour Horatio has taken down up to twenty people by himself. In the process of stopping
 -- liquor smuggling operation against 14 bandits an arrow pierced his foot severing the fourth toe on his left foot.
 
 -- While serving as city guard, a young tree cutter's daughter caught his eye. Horatio paid the dowry for her hand in
