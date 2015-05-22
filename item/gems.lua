@@ -279,12 +279,23 @@ function isSocketable(itemId)
         end
     end
 
+    -- armors can also be socketed
+    local armorfound, armorItem = world:getArmorStruct(itemId)
+    if armorfound then
+        local armortype = armorItem.Type
+        if armortype ==  ArmorStruct.clothing or armortype == ArmorStruct.general or armortype == ArmorStruct.juwellery then
+            return false
+        else
+            return true
+        end
+    end
+
     return false
 end
 
 function isUnsocketable(itemId)
-    -- currently only weapons can be socketed
-    return world:getWeaponStruct(itemId)
+    -- currently only weapons and armors can be socketed
+    return world:getWeaponStruct(itemId) or world:getArmorStruct(itemId)
 end
 
 function M.magicSmith(npc, player)
