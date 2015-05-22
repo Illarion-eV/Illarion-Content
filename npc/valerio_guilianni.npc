@@ -101,7 +101,7 @@ queststatus(317) = 12, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Brief", "Na
 -- Catching quest triggers
 english, "quest", "mission" -> "The day will come, when the Don will ask you for a favour. Ask Miggs if that day is today."
 "quest", "mission" -> "Es wird der Tag kommen, an dem dich der Don um einen Gefallen bittet. Frage Miggs, ob heute dieser Tag ist."
-"task", "adventure", "order" -> "You know, the Don likes you for some reason, ya gotta look about ya. Maybe I gotta task for ya; go and ask Miggs how you can earn the Don's favor."
+"task", "adventure", "order" -> "You know, the Don likes you for some reason, ya gotta look about ya. Maybe I gotta task for ya; go and ask Miggs how you can earn the Don's favour."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Weißt du, der Don mag dich. Und der Don wird dir auch eine Arbeit verschaffen. Frage Miggs, wie du in der Gunst des Don steigen kannst."
 
 -- Reward for quest 622
