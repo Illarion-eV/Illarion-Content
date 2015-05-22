@@ -370,7 +370,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     local qualitymod = 0.82+0.02*math.floor(Globals.HittedItem.quality/100)
 
     --Essentially what this does is choose how much the values are divided. So stroke is half as effective as punc is half as effective as thrust for one type etc.
-    local ArmourDefenseScalingFactor = 2
+    local ArmourDefenseScalingFactor = 1.33
     local GeneralScalingFactor = 2.8
 
     if character.IsPlayer(Defender.Char) then
