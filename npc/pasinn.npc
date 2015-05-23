@@ -66,8 +66,6 @@ itemShoes = 53
 -- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
 -- When you are done, please hit the "Rebuild Script" button.
 
--- NPC by Zak and Estralis Seborian
-
 -- queststatus(539) Overview
 -- QuestID=539
 -- 0: No Quest taken
@@ -140,9 +138,9 @@ queststatus(539) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich muss m
 
 -- 3rd quest: Find the recipe for the potion you located for 100 silver coins
 queststatus(539) = 4, english, "quest", "mission" -> inform("[New quest] Viridian Needles Lair III"), queststatus(539) = 5, "It is important that I see Kaefity's recipe for this potion. Please try and find it for me."
-queststatus(539) = 4, "quest", "mission" -> inform("[Neues Quest] Viridian Nadeln Höhle III"), queststatus(539) = 5, "Ich muss mehr darüber wissen, was der Rattenalchemist vor hat. Stehlt einen Trank aus einem der vollen Kessel dort unten. Es wird ihm nicht gefallen, also seid vorsichtig."
+queststatus(539) = 4, "quest", "mission" -> inform("[Neues Quest] Viridian Nadeln Höhle III"), queststatus(539) = 5, "Es ist wichtig, dass ich Kaefitys Rezept für diesen Trank sehen kann. Bitte versucht es für mich zu finden."
 queststatus(539) = 4, "task", "adventure", "order" -> inform("[New quest] Viridian Needles Lair III"), queststatus(539) = 5, "It is important that I see Kaefity's recipe for this potion. Please try and find it for me."
-queststatus(539) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Viridian Nadeln Höhle III"), queststatus(539) = 5, "Ich muss mehr darüber wissen, was der Rattenalchemist vor hat. Stehlt einen Trank aus einem der vollen Kessel dort unten. Es wird ihm nicht gefallen, also seid vorsichtig."
+queststatus(539) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Viridian Nadeln Höhle III"), queststatus(539) = 5, "Es ist wichtig, dass ich Kaefitys Rezept für diesen Trank sehen kann. Bitte versucht es für mich zu finden."
 
 -- Quest 3 solved
 queststatus(539) = 6, english, ".+" -> inform("[Quest solved] You are awarded one hundred silver coins"), money + 10000, queststatus(539) = 7, "Thank you for finding this recipe! I will need some time to review it."
