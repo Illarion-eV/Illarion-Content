@@ -204,7 +204,7 @@ function handleSocketing(user, gem)
 
     local language = user:getPlayerLanguage()
     local caption = common.GetNLS(user, "Sockeln", "Socketing")
-    local description = common.GetNLS(user, "Bitte wähle eine Waffe die gesockelt werden soll:", "Please select a weapon to insert the gem into:")
+    local description = common.GetNLS(user, "Bitte wähle einen Gegenstand der gesockelt werden soll:", "Please select an item to insert the gem into:")
     local dialog = SelectionDialog(caption, description, callback)
     dialog:setCloseOnMove()
 
@@ -221,6 +221,11 @@ end
 local slots = {}
 table.insert(slots, Character.left_tool)
 table.insert(slots, Character.right_tool)
+table.insert(slots, Character.head)
+table.insert(slots, Character.breast)
+table.insert(slots, Character.hands)
+table.insert(slots, Character.legs)
+table.insert(slots, Character.feet)
 table.insert(slots, Character.belt_pos_1)
 table.insert(slots, Character.belt_pos_2)
 table.insert(slots, Character.belt_pos_3)
