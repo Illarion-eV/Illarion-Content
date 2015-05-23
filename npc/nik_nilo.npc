@@ -65,7 +65,7 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 23, 24, 2763, 737, 733, 735, 1266, 21, 22, 234, 1062, 2536, 310, 469, 391, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
+sellItems = 23, 24, 2763, 737, 733, 735, 1266, 21, 22, 234, 1062, 2536, 310, 469, 391, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760, 2751
 buyPrimaryItems = 734, 23, 24, 2763, 737, 733, 735, 1266, 21, 22, 234, 1062, 2536
 buySecondaryItems = 310, 469, 391, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you cannot afford that."
@@ -76,7 +76,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 -- This NPC is supposed to trade (all goods are sold and bought, percentage indicates ratio of price bought/sold):
 
--- 10% Tools : 23(hammer), 24(shovel), 2763(pickaxe), 737(chisel)
+-- 10% Tools : 23(hammer), 24(shovel), 2763(pickaxe), 737(chisel), 2751 pincers
 -- 10% Stones: 733, 735, 1266
 -- 10% Coal, Ores, Nuggets: 21, 22, 234, 2536
 -- 5% Stuff: 310, 469, 391, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
