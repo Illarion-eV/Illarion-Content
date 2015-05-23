@@ -370,7 +370,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     local qualitymod = 0.82+0.02*math.floor(Globals.HittedItem.quality/100)
 
     --Essentially what this does is choose how much the values are divided. So stroke is half as effective as punc is half as effective as thrust for one type etc.
-    local ArmourDefenseScalingFactor = 1.33
+    local ArmourDefenseScalingFactor = 4 / 3
     local GeneralScalingFactor = 2.8
 
     if character.IsPlayer(Defender.Char) then
@@ -437,7 +437,6 @@ function ArmourAbsorption(Attacker, Defender, Globals)
 
     local GemBonus = gems.getGemBonus(Globals.HittedItem)
     armourValue = armourValue + armourValue * GemBonus / 100
-    --Defender.Char:inform("armorValue: " .. armourValue)
 
     --Race armour for monsters
     armourfound, armour = world:getNaturalArmor(Defender.Race)
