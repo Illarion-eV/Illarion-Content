@@ -87,15 +87,15 @@ itemShoes = 53
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" ->"Be Greeted in the name of the Five."
-"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> ""
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ich grüße euch im Namen der Fünf."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be Greeted in the name of the Five."
-"Hiho", "Hallo", "Hey", "Greeb" -> ""
+"Hiho", "Hallo", "Hey", "Greeb" -> "Ich grüße euch im Namen der Fünf."
 "Farewell", "Bye", "Fare well", "See you" -> "May the Five watch over you."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> ""
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Mögen die Fünf über euch wachen."
 english, "Ciao", "Adieu", "Au revoir" -> "May the Five watch over you."
-"Ciao", "Adieu", "Au revoir" -> ""
+"Ciao", "Adieu", "Au revoir" -> "Mögen die Fünf über euch wachen."
 "How are you", "How feel", "How do you do" -> "I am well, but I would be better if my chore here was done."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> ""
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Es geht mir gut, aber es ginge mir besser, wäre meine Aufgabe hier bereits erledigt."
 "your name", "who are you", "who art thou" -> "I am Pasinn the Alchemist."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Pasinn der Alchemist."
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
@@ -103,9 +103,9 @@ english, "Ciao", "Adieu", "Au revoir" -> "May the Five watch over you."
 
 -- 1st quest: Find 15 poison coins in the cauldrons of Viridians Needles Lair 50 silver coins.
 queststatus(539) = 0, english, "quest", "mission" -> inform("[New quest] Viridian Needles Lair I"), queststatus(539) = 1, "There is an area here below ground ran by a ratman Alchemist Kaefity.  He calls the place Viridian Needles Lair.  I have heard of some poisoned coins these ratmen have. I need to study some to see if I can use this process in my poison making. Would you please get me 15 of them?"
-queststatus(539) = 0, "quest", "mission" -> inform("[Neues Quest] Viridian Nadeln Höhle I"), queststatus(539) = 1, ""
+queststatus(539) = 0, "quest", "mission" -> inform("[Neues Quest] Viridian Nadeln Höhle I"), queststatus(539) = 1, "Es gibt hier ein Gebiet im Untergrund, das von einem Rattenalchemisten namens Kaefity kontrolliert wird. Er nennt den Ort Viridian Needles Unterschlupf. Ich habe von einigen Gifttalern gehört, die diese Rattenmenschen haben sollen. Ich muss mir ein paar davon genauer ansehen, um festzustellen, ob das für meine Giftherstellung interessant ist. Würdet ihr mir bitte 15 davon besorgen?"
 queststatus(539) = 0, "task", "adventure", "order" -> inform("[New quest] Viridian Needles Lair I"), queststatus(539) = 1, "There is an area here below ground ran by a ratman Alchemist Kaefity.  He calls the place Viridian Needles Lair.  I have heard of some poisoned coins these ratmen have. I need to study some to see if I can use this process in my poison making. Would you please get me 15 of them?"
-queststatus(539) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Viridian Nadeln Höhle I"), queststatus(539) = 1, ""
+queststatus(539) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Viridian Nadeln Höhle I"), queststatus(539) = 1, "Es gibt hier ein Gebiet im Untergrund, das von einem Rattenalchemisten namens Kaefity kontrolliert wird. Er nennt den Ort Viridian Needles Unterschlupf. Ich habe von einigen Gifttalern gehört, die diese Rattenmenschen haben sollen. Ich muss mir ein paar davon genauer ansehen, um festzustellen, ob das für meine Giftherstellung interessant ist. Würdet ihr mir bitte 15 davon besorgen?"
 
 -- Quest 1 solved
 queststatus(539) = 1, item(3078, all) > 14, english, ".+" -> inform("[Quest solved] You are awarded fifty silver coins."), money + 5000, deleteItem(3078, 15), queststatus(539) = 2, "Oh, thank you. Here, take this reward for your efforts."
@@ -113,114 +113,114 @@ queststatus(539) = 1, item(3078, all) > 14, ".+" -> inform("[Quest gelöst] Du er
 
 -- Quest 1 not solved, repeat the instructions
 queststatus(539) = 1, english, "quest", "mission" -> "Please locate me 15 poison coins that the ratman alchemist Kaefity is making below in the cauldrons."
-queststatus(539) = 1, "quest", "mission" -> ""
+queststatus(539) = 1, "quest", "mission" -> "Bitte sucht 15 der Gifttaler, die der Rattenalchemist Kaefity im Untergrund in seinen Kesseln herstellt."
 queststatus(539) = 1, "task", "adventure", "order" -> "Please locate me 15 poison coins that the ratman alchemist Kaefity is making below in the cauldrons."
-queststatus(539) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+queststatus(539) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte sucht 15 der Gifttaler, die der Rattenalchemist Kaefity im Untergrund in seinen Kesseln herstellt."
 
 -- 2nd quest: Find a certain potion for Pasinn in the filled cauldrons below for 75 silver coins
 queststatus(539) = 2, english, "quest", "mission" -> inform("[New quest] Viridian Needles Lair II"), queststatus(539) = 3, "I need to see more of what that alchemist ratman is up to. Steal a potion from one of the filled cauldrons from below. He won't like it, so watch yourself."
-queststatus(539) = 2, "quest", "mission" -> inform("[Neues Quest] Viridian Nadeln Höhle II"), queststatus(539) = 3, ""
+queststatus(539) = 2, "quest", "mission" -> inform("[Neues Quest] Viridian Nadeln Höhle II"), queststatus(539) = 3, "Ich muss mehr darüber wissen, was der Rattenmensch vor hat. Stehlt einen Trank aus einem der vollen Kessel dort unten. Es wird ihm nicht gefallen, also seid vorsichtig."
 queststatus(539) = 2, "task", "adventure", "order" -> inform("[New quest] Viridian Needles Lair II"), queststatus(539) = 3, "I need to see more of what that alchemist ratman is up to. Steal a potion from one of the filled cauldrons from below. He won't like it, so watch yourself."
-queststatus(539) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Viridian Nadeln Höhle II"), queststatus(539) = 3, ""
+queststatus(539) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Viridian Nadeln Höhle II"), queststatus(539) = 3, "Ich muss mehr darüber wissen, was der Rattenmensch vor hat. Stehlt einen Trank aus einem der vollen Kessel dort unten. Es wird ihm nicht gefallen, also seid vorsichtig."
 
 -- Quest 2 solved
 queststatus(539) = 3, queststatus(542) = 3, english, ".+" -> inform("[Quest solved] You are awarded seventy five silver coins."), money + 7500, queststatus(539) = 4, "This potion is something I have been dreading. It has the potential to annihilate all life as we know it if completed properly!"
-queststatus(539) = 3, queststatus(542) = 3, ".+" -> inform("[Quest gelöst] Du erhältst fünfundsiebzig Silberstücke."), money + 7500, deleteItem(543, 20), queststatus(539) = 4, ""
+queststatus(539) = 3, queststatus(542) = 3, ".+" -> inform("[Quest gelöst] Du erhältst fünfundsiebzig Silberstücke."), money + 7500, deleteItem(543, 20), queststatus(539) = 4, "Dieser Trank ist etwas, vor dem mir gegraut hat. Er könnte womöglich alles Leben, so wie wir es kennen auslöschen, wenn er korrekt vollendet wird."
 
 -- Quest 2 not solved, repeat the instructions
 queststatus(539) = 3, queststatus(542) = 1, english, ".+" -> queststatus(542) = 0, "#me sniffs at the potion and then dumps it on the ground. 'Coloured water, please try one more time.' "
-queststatus(539) = 3, queststatus(542) = 1, ".+" -> queststatus(542) = 0, ""
+queststatus(539) = 3, queststatus(542) = 1, ".+" -> queststatus(542) = 0, "#me schnuppert an dem Trank und leert ihn dann auf den Boden. 'Gefärbtes Wasser, bitte versucht es noch einmal.'"
 queststatus(539) = 3, queststatus(542) = 2, english, ".+" -> queststatus(542) = 0, "This seems to be a simple healing potion. Please go back and try to find something else. "
-queststatus(539) = 3, queststatus(542) = 2, ".+" -> queststatus(542) = 0, ""
+queststatus(539) = 3, queststatus(542) = 2, ".+" -> queststatus(542) = 0, "Dies scheint ein einfacher Heiltrank zu sein. Bitte geht zurück und versucht, etwas anderes zu finden."
 
 queststatus(539) = 3, english, "quest", "mission" -> "I need to see more of what that alchemist ratman is up to. Steal a potion from one of the filled cauldrons from below. He won't like it, so watch yourself."
-queststatus(539) = 3, "quest", "mission" -> ""
+queststatus(539) = 3, "quest", "mission" -> "Ich muss mehr darüber wissen, was der Rattenmensch vor hat. Stehlt einen Trank aus einem der vollen Kessel dort unten. Es wird ihm nicht gefallen, also seid vorsichtig."
 queststatus(539) = 3, "task", "adventure", "order" -> "I need to see more of what that alchemist ratman is up to. Steal a potion from one of the filled cauldrons from below. He won't like it, so watch yourself."
-queststatus(539) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+queststatus(539) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich muss mehr darüber wissen, was der Rattenmensch vor hat. Stehlt einen Trank aus einem der vollen Kessel dort unten. Es wird ihm nicht gefallen, also seid vorsichtig."
 
 -- 3rd quest: Find the recipe for the potion you located for 100 silver coins
 queststatus(539) = 4, english, "quest", "mission" -> inform("[New quest] Viridian Needles Lair III"), queststatus(539) = 5, "It is important that I see Kaefity's recipe for this potion. Please try and find it for me."
-queststatus(539) = 4, "quest", "mission" -> inform("[Neues Quest] Viridian Nadeln Höhle III"), queststatus(539) = 5, ""
+queststatus(539) = 4, "quest", "mission" -> inform("[Neues Quest] Viridian Nadeln Höhle III"), queststatus(539) = 5, "Ich muss mehr darüber wissen, was der Rattenalchemist vor hat. Stehlt einen Trank aus einem der vollen Kessel dort unten. Es wird ihm nicht gefallen, also seid vorsichtig."
 queststatus(539) = 4, "task", "adventure", "order" -> inform("[New quest] Viridian Needles Lair III"), queststatus(539) = 5, "It is important that I see Kaefity's recipe for this potion. Please try and find it for me."
-queststatus(539) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Viridian Nadeln Höhle III"), queststatus(539) = 5, ""
+queststatus(539) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Viridian Nadeln Höhle III"), queststatus(539) = 5, "Ich muss mehr darüber wissen, was der Rattenalchemist vor hat. Stehlt einen Trank aus einem der vollen Kessel dort unten. Es wird ihm nicht gefallen, also seid vorsichtig."
 
 -- Quest 3 solved
 queststatus(539) = 6, english, ".+" -> inform("[Quest solved] You are awarded one hundred silver coins"), money + 10000, queststatus(539) = 7, "Thank you for finding this recipe! I will need some time to review it."
-queststatus(539) = 6, ".+" -> inform("[Quest gelöst] Du erhältst einhundert Silberstücke."), money + 10000, queststatus(539) = 7, ""
+queststatus(539) = 6, ".+" -> inform("[Quest gelöst] Du erhältst einhundert Silberstücke."), money + 10000, queststatus(539) = 7, "Vielen Dank, dass ihr dieses Rezept für mich gefunden habt! Ich werde einige Zeit brauchen, um es mir genauer anzusehen."
 
 -- Quest 3 not solved, repeat the instructions
 queststatus(539) = 5, english, "quest", "mission" -> "It is important that I see Kaefity's recipe for this potion. Please try and find it for me."
-queststatus(539) = 5, "quest", "mission" -> ""
+queststatus(539) = 5, "quest", "mission" -> "Ich muss unbedingt Kaefitys Rezept für diesen Trank sehen. Bitte versucht es für mich zu finden."
 queststatus(539) = 5, "task", "adventure", "order" -> "It is important that I see Kaefity's recipe for this potion. Please try and find it for me."
-queststatus(539) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+queststatus(539) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich muss unbedingt Kaefitys Rezept für diesen Trank sehen. Bitte versucht es für mich zu finden."
 
 -- 4th quest: Kill Kaefity's pet the swamp beast.
-queststatus(539) = 7, english, "quest", "mission" -> inform("[New quest] Viridian Needles Lair IV"), queststatus(539) = 8, "Kill Kaefity's pet for I fear they are somehow tied together!  After he is destroyed we can stop his owners work."
-queststatus(539) = 7, "quest", "mission" -> inform("[Neues Quest] Viridian Nadeln Höhle IV"), queststatus(539) = 8, ""
-queststatus(539) = 7, "task", "adventure", "order" -> inform("[New quest] Viridian Needles Lair IV"), queststatus(539) = 8, "Kill Kaefity's pet for I fear they are somehow tied together!  After he is destroyed we can stop his owners work."
-queststatus(539) = 7, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Viridian Nadeln Höhle IV"), queststatus(539) = 8, ""
+queststatus(539) = 7, english, "quest", "mission" -> inform("[New quest] Viridian Needles Lair IV"), queststatus(539) = 8, "Kill Kaefity's pet for I fear they are somehow tied together! After he is destroyed we can stop his owners work."
+queststatus(539) = 7, "quest", "mission" -> inform("[Neues Quest] Viridian Nadeln Höhle IV"), queststatus(539) = 8, "Tötet Kaefitys Schoßtier, denn ich fürchte, dass sie irgendwie zusammenhängen. Nachdem es vernichtet ist, können wir die Machenschaften seines Meisters beenden."
+queststatus(539) = 7, "task", "adventure", "order" -> inform("[New quest] Viridian Needles Lair IV"), queststatus(539) = 8, "Kill Kaefity's pet for I fear they are somehow tied together! After he is destroyed we can stop his owners work."
+queststatus(539) = 7, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Viridian Nadeln Höhle IV"), queststatus(539) = 8, "Tötet Kaefitys Schoßtier, denn ich fürchte, dass sie irgendwie zusammenhängen. Nachdem es vernichtet ist, können wir die Machenschaften seines Meisters beenden."
 
 -- Quest 4 solved
 queststatus(539) = 9, english, ".+" -> inform("[Quest solved] You are awarded one hundred silver coins."), money + 10000, queststatus(539) = 10, "It is great news the beast is destroyed. Now we can work on destroying Kaefity."
-queststatus(539) = 9, ".+" -> inform("[Quest gelöst] Du erhältst einhundert  Silberstücke."), money + 10000, queststatus(539) = 10, ""
+queststatus(539) = 9, ".+" -> inform("[Quest gelöst] Du erhältst einhundert  Silberstücke."), money + 10000, queststatus(539) = 10, "Es sind wunderbare Nachrichten, dass das Biest vernichtet wurde. Nun können wir uns darauf konzentrieren, Kaefity selbst zu töten."
 
 -- Quest 4 not solved, repeat the instructions
-queststatus(539) = 8, english, "quest", "mission" -> "Kill Kaefity's pet for I fear they are somehow tied together!  After he is destroyed we can stop his owners work."
-queststatus(539) = 8, "quest", "mission" -> ""
-queststatus(539) = 8, "task", "adventure", "order" -> "Kill Kaefity's pet for I fear they are somehow tied together!  After he is destroyed we can stop his owners work."
-queststatus(539) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+queststatus(539) = 8, english, "quest", "mission" -> "Kill Kaefity's pet for I fear they are somehow tied together! After he is destroyed we can stop his owners work."
+queststatus(539) = 8, "quest", "mission" -> "Tötet Kaefitys Schoßtier, denn ich fürchte, dass sie irgendwie zusammenhängen. Nachdem es vernichtet ist, können wir die Machenschaften seines Meisters beenden."
+queststatus(539) = 8, "task", "adventure", "order" -> "Kill Kaefity's pet for I fear they are somehow tied together! After he is destroyed we can stop his owners work."
+queststatus(539) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Tötet Kaefitys Schoßtier, denn ich fürchte, dass sie irgendwie zusammenhängen. Nachdem es vernichtet ist, können wir die Machenschaften seines Meisters beenden."
 
 -- 5th quest: Kill Kaefity's
 queststatus(539) = 10, english, "quest", "mission" -> inform("[New quest] Viridian Needles Lair IV"), queststatus(539) = 11, "This recipe must not be completed! Kaefity must be killed before he can deduce the missing ingredients!"
-queststatus(539) = 10, "quest", "mission" -> inform("[Neues Quest] Viridian Nadeln Höhle IV"), queststatus(539) = 11, ""
+queststatus(539) = 10, "quest", "mission" -> inform("[Neues Quest] Viridian Nadeln Höhle IV"), queststatus(539) = 11, "Dieses Rezept darf auf keinen Fall vollendet werden! Kaefity muss vernichtet werden, ehe es ihm gelingt, die fehlenden Zutaten zu finden!"
 queststatus(539) = 10, "task", "adventure", "order" -> inform("[New quest] Viridian Needles Lair IV"), queststatus(539) = 11, "This recipe must not be completed! Kaefity must be killed before he can deduce the missing ingredients!"
-queststatus(539) = 10, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Viridian Nadeln Höhle IV"), queststatus(539) = 11, ""
+queststatus(539) = 10, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Viridian Nadeln Höhle IV"), queststatus(539) = 11, "Dieses Rezept darf auf keinen Fall vollendet werden! Kaefity muss vernichtet werden, ehe es ihm gelingt, die fehlenden Zutaten zu finden!"
 
 -- Quest 4 solved
 queststatus(539) = 12, english, ".+" -> inform("[Quest solved] You are awarded  150 silver coins."), money + 15000, queststatus(539) = 13, "I am glad he is gone. I will work on destroying the last of his work."
-queststatus(539) = 12, ".+" -> inform("[Quest gelöst] Du erhältst 150  Silberstücke."), money + 15000, queststatus(539) = 13, ""
+queststatus(539) = 12, ".+" -> inform("[Quest gelöst] Du erhältst 150  Silberstücke."), money + 15000, queststatus(539) = 13, "Ich bin froh darüber, dass er getötet wurde. Ich werde mich daran machen, den letzten Rest seiner Arbeit zu vernichten."
 
 -- Quest 4 not solved, repeat the instructions
 queststatus(539) = 11, english, "quest", "mission" -> "This recipe must not be completed! Kaefity must be killed before he can deduce the missing ingredients!"
-queststatus(539) = 11, "quest", "mission" -> ""
+queststatus(539) = 11, "quest", "mission" -> "Dieses Rezept darf auf keinen Fall vollendet werden! Kaefity muss vernichtet werden, ehe es ihm gelingt, die fehlenden Zutaten zu finden!"
 queststatus(539) = 11, "task", "adventure", "order" -> "This recipe must not be completed! Kaefity must be killed before he can deduce the missing ingredients!"
-queststatus(539) = 11, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+queststatus(539) = 11, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Dieses Rezept darf auf keinen Fall vollendet werden! Kaefity muss vernichtet werden, ehe es ihm gelingt, die fehlenden Zutaten zu finden!"
 
 -- Final dialogue: No more quests, just nice hints
 queststatus(539) = 13, english, "quest", "mission" -> "You have been a great assistance. Now I must finish studying this paper to make sure no one finishes this potion. May the Five guide you."
-queststatus(539) = 13, "quest", "mission" -> ""
+queststatus(539) = 13, "quest", "mission" -> "Ihr habt großartige Arbeit geleistet. Nun muss ich meine Studien dieses Rezepts weiterführen, um sicher zu gehen, dass niemand diesen Trank vollendet. Mögen die Fünf über euch wachen."
 queststatus(539) = 13, "task", "adventure", "order" -> "You have been a great assistance. Now I must finish studying this paper to make sure no one finishes this potion. May the Five guide you."
-queststatus(539) = 13, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+queststatus(539) = 13, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr habt großartige Arbeit geleistet. Nun muss ich meine Studien dieses Rezepts weiterführen, um sicher zu gehen, dass niemand diesen Trank vollendet. Mögen die Fünf über euch wachen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am an alchemist, working for the Don right now."
-"beruf" -> ""
+"beruf" -> "Ich bin ein Alchemist und arbeite derzeit für den Don."
 english, "job" -> "I am an alchemist, working for the Don right now."
-"job" -> ""
+"job" -> "Ich bin ein Alchemist und arbeite derzeit für den Don."
 english, "Gobaith", "Gobiath" -> "I never heard of such a place."
 "Gobaith", "Gobiath" -> "Davon habe ich noch nie gehört."
 "my name" -> "Nice to meet you."
 "mein Name" -> "Es freut mich, eure Bekanntschaft zu machen."
 english, "alchemist" -> "An alchemist works with the structures of plants to create formulations."
-"alchemist" -> ""
+"alchemist" -> "Ein Alchemist arbeitet mit den Strukturen von Pflanzen um Formeln zu kreieren."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "I have little use for the Archmage and his magics, but the forests around Runewick are nice for collecting herbs."
-"Erzmagier" -> ""
+"Erzmagier" -> "Ich weiß nur wenig mit dem Erzmagier und seiner Magie anzufangen, aber der Wald um Runewick eignet sich hervorragend, um Kräuter zu sammeln."
 english, "Elvaine", "Morgan" -> "I have little use for the Archmage and his magics, but the forests around Runewick are nice for collecting herbs."
-"Elvaine", "Morgan" -> ""
+"Elvaine", "Morgan" -> "Ich weiß nur wenig mit dem Erzmagier und seiner Magie anzufangen, aber der Wald um Runewick eignet sich hervorragend, um Kräuter zu sammeln."
 english, "Runewick" -> "I have little use for the Archmage and his magics, but the forests around Runewick are nice for collecting herbs."
-"Runewick" -> ""
+"Runewick" -> "Ich weiß nur wenig mit dem Erzmagier und seiner Magie anzufangen, aber der Wald um Runewick eignet sich hervorragend, um Kräuter zu sammeln."
 english, "Valerio", "Guilianni", "Don" -> "The Don is a tough taskmaster for Galmair, but he is fair. I just hope to finish this job he sent me to do soon."
-"Valerio", "Guilianni", "Don" -> ""
+"Valerio", "Guilianni", "Don" -> "Der Don ist ein strenger Herr für Galmair, aber auch fair. Ich hoffe nur, dass ich die Aufgabe, die er mir aufgetragen hat, bald vollenden kann."
 english, "Galmair" -> "The Don is a tough taskmaster for Galmair, but he is fair. I just hope to finish this job he sent me to do soon."
-"Galmair" -> ""
+"Galmair" -> "Der Don ist ein strenger Herr für Galmair, aber auch fair. Ich hoffe nur, dass ich die Aufgabe, die er mir aufgetragen hat, bald vollenden kann."
 "Queen" -> "Cadomyr is ruled by the Queen. Ruled by a Woman. Nothing more needs said."
-"Königin" -> ""
+"Königin" -> "Der Don ist ein strenger Herr für Galmair, aber auch fair. Ich hoffe nur, dass ich die Aufgabe, die er mir aufgetragen hat, bald vollenden kann."
 english, "rosaline", "edwards" -> "Cadomyr is ruled by the Queen. Ruled by a Woman. Nothing more needs said."
-"rosaline", "edwards" -> ""
+"rosaline", "edwards" -> "Cadomyr wird von einer Königin regiert. Einer Frau. Dem ist nichts hinzuzufügen."
 english, "Cadomyr" -> "Cadomyr is ruled by the Queen. Ruled by a Woman. Nothing more needs said."
-"Cadomyr" -> ""
+"Cadomyr" -> "Cadomyr wird von einer Königin regiert. Einer Frau. Dem ist nichts hinzuzufügen."
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
@@ -229,13 +229,13 @@ english, "Cadomyr" -> "Cadomyr is ruled by the Queen. Ruled by a Woman. Nothing 
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "", "I have heard they feed their pet hellhound sugarcane. Odd thing, that is."
-cycletext "", "So much to learn yet."
-cycletext "", "Where are my spectacles?"
-cycletext ".", "Kaefity may know too much already... *the rest is mumbled to himself.*"
-cycletext "'", "#me reads a very thick and old looking book."
-cycletext "", "#me blows his nose rather loudly into a clean cloth."
-cycletext "", "I should be gathering more herbs and testing new potions instead of this madness."
-cycletext "", "#me carefully sorts through a large bag of herbs. "
-cycletext "", "#me looks down at his shoes for a time before returning to his studies."
-cycletext "", "#me gazes at the clouds as if searching for something there."
+cycletext "Ich habe gehört, dass sie ihr Schoßtier, einen Höllenhund, mit Zuckerrohr füttern. Eine seltsame Sache ist das.", "I have heard they feed their pet hellhound sugarcane. Odd thing, that is."
+cycletext "Es gibt noch so viel zu lernen.", "So much to learn yet."
+cycletext "Wo ist meine Brille?", "Where are my spectacles?"
+cycletext "Kaefity weiß womöglich schon zu viel... *den Rest murmelt er zu sich selbst.*", "Kaefity may know too much already... *the rest is mumbled to himself.*"
+cycletext "#me liest in einem sehr dicken, alt aussehenden Buch.", "#me reads a very thick and old looking book."
+cycletext "#me putzt sich geräuschvoll mit einem sauberen Tuch die Nase.", "#me blows his nose rather loudly into a clean cloth."
+cycletext "Ich sollte mehr Kräuter sammeln und neue Tränke ausprobieren, statt diesem Wahnsinn hier!", "I should be gathering more herbs and testing new potions instead of this madness."
+cycletext "#me sortiert sorgfältig Kräuter in einer großen Ledertasche.", "#me carefully sorts through a large bag of herbs. "
+cycletext "#me blickt für einige Augenblicke auf seine Schuhe hinunter, ehe er mit seinen Studien fortfährt.", "#me looks down at his shoes for a time before returning to his studies."
+cycletext "#me sieht hinauf zu den Wolken, als würde er dort nach etwas suchen.", "#me gazes at the clouds as if searching for something there."
