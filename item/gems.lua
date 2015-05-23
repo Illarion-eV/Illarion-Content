@@ -279,7 +279,7 @@ function isSocketable(itemId)
         end
     end
 
-    -- armors can also be socketed
+    -- armours can also be socketed
     local armorfound, armorItem = world:getArmorStruct(itemId)
     if armorfound then
         local armortype = armorItem.Type
@@ -294,7 +294,7 @@ function isSocketable(itemId)
 end
 
 function isUnsocketable(itemId)
-    -- currently only weapons and armors can be socketed
+    -- currently only weapons and armours can be socketed
     return world:getWeaponStruct(itemId) or world:getArmorStruct(itemId)
 end
 
