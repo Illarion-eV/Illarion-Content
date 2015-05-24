@@ -53,7 +53,39 @@ local common = require("base.common")
 
 local M = {}
 
-local ferrySourcePos={position(614,863,0),position(615,863,0),position(616,863,0),position(614,855,0),position(615,855,0),position(616,855,0),position(987,257,0),position(988,257,0),position(475,33,0),position(475,34,0),position(482,33,0),position(482,34,0),position(412,84,0),position(412,85,0),position(419,84,0),position(419,85,0),position(361,49,0),position(361,50,0),position(367,49,0),position(367,50,0),position(86,988,0),position(96,988,0),position(289,283,0),position(275,275,0),position(288,292,0),position(274,275,0),position(360,259,-6),position(360,260,-6),position(375,262,-6),position(375,263,-6),position(355,864,2)}
+local ferrySourcePos = {
+    position(614,863,0),
+    position(615,863,0),
+    position(616,863,0),
+    position(614,855,0),
+    position(615,855,0),
+    position(616,855,0),
+    position(987,257,0),
+    position(988,257,0),
+    position(475,33,0),
+    position(475,34,0),
+    position(482,33,0),
+    position(482,34,0),
+    position(412,84,0),
+    position(412,85,0),
+    position(419,84,0),
+    position(419,85,0),
+    position(361,49,0),
+    position(361,50,0),
+    position(367,49,0),
+    position(367,50,0),
+    position(86,988,0),
+    position(96,988,0),
+    position(289,283,0),
+    position(275,275,0),
+    position(288,292,0),
+    position(274,275,0),
+    position(360,259,-6),
+    position(360,260,-6),
+    position(375,262,-6),
+    position(375,263,-6),
+    position(355,864,2)
+}
 
 local ferryDE={}
 local ferryEN={}
@@ -212,7 +244,6 @@ function M.MoveToField(User)
     local items
     local targetPos
     local Amountferry = #ferrySourcePos
-    local AmountWrapDirectly = 9
     for j = 1,Amountferry do
         if User.pos == ferrySourcePos[j] then
             for _,n in ipairs(noChoiceAndWrapDirectly) do
@@ -234,17 +265,17 @@ function M.MoveToField(User)
     local callback = function(dialog)
         local success = dialog:getSuccess()
         if success then
-            local selected = dialog:getSelectedIndex()
-            if (targetPos[selected+1].x - User.pos.x) * (targetPos[selected+1].x - User.pos.x) < 6 then
-                User:inform("Du befindest dich bereits in " ..names[selected+1]..".", "You are already in "..names[selected+1]..".")
+            local selected = dialog:getSelectedIndex() + 1
+            if (targetPos[selected].x - User.pos.x) * (targetPos[selected].x - User.pos.x) < 6 then
+                User:inform("Du befindest dich bereits in " ..names[selected]..".", "You are already in "..names[selected]..".")
             else
                 local travelers = world:getPlayersInRangeOf(User.pos, 5);
 
-                for i,player in ipairs(travelers) do
-                    player:inform("Du hast dich dazu entschlossen nach " ..names[selected+1].. " zu Reisen.", "You have chosen to travel to " ..names[selected+1]..".")
+                for _,player in ipairs(travelers) do
+                    player:inform("Du hast dich dazu entschlossen nach " ..names[selected].. " zu Reisen.", "You have chosen to travel to " ..names[selected]..".")
                     world:gfx(1,player.pos)
                     world:makeSound(9,player.pos);
-                    player:warp(targetPos[selected+1])
+                    player:warp(targetPos[selected])
                     world:gfx(11,player.pos)
                     world:makeSound(9,player.pos);
                 end
