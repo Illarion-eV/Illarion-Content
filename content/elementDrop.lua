@@ -113,6 +113,11 @@ function M.chanceForElementDrop(User, params)
         error("The function requires parameters as a table.")
     end
 
+    -- check if character has already logged out
+    if not isValidChar(User) then
+        return
+    end
+    
     -- chance check if quest cooled down and character is player
     if User:getType() ~= Character.player or User:getQuestProgress(661) ~= 0  then
         return
