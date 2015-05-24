@@ -280,9 +280,9 @@ queststatus(181) ~= 0, queststatus(181) < 81, town = Galmair, "Auftrag", "Aufgab
 
 -- Information 82: Kill four foxes in three hours
 -- 82: Information 82 taken, kill four foxes, reward: four sp, 2 rankpoints
-queststatus(181) = 0, english, chance(8.333333333), town = Galmair, "quest", "mission" -> inform("[New Information] Kill four foxes."), "Da Don needs information. Scout da area and smash foor foxes, yus reward bes foor silber coins.", queststatus(181) = 82, queststatus(163) = 36
+queststatus(181) = 0, english, chance(8.333333333), town = Galmair, "quest", "mission" -> inform("[New Information] Kill four foxes."), "Da Don needs information. Scout da area and smash foor foxes, yus reward bes foor silber coins.", queststatus(181) = 82, queststatus(182) = 36
 queststatus(181) = 0, german, chance(8.333333333), town = Galmair, "quest", "mission" -> inform("[Neues Informationen] Töte vier Füchse."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau vier Füchse zu Brei! Ich dir geben vier Silberstücke zur Belohnung!", queststatus(181) = 82, queststatus(182) = 36
-queststatus(181) = 0, chance(8.333333333), town = Galmair, "task", "adventure", "order" -> inform("[New Information] Kill four foxes."), "Da Don needs information. Scout da area and smash foor foxes, yus reward bes foor silber coins.", queststatus(181) = 82, queststatus(163) = 36
+queststatus(181) = 0, chance(8.333333333), town = Galmair, "task", "adventure", "order" -> inform("[New Information] Kill four foxes."), "Da Don needs information. Scout da area and smash foor foxes, yus reward bes foor silber coins.", queststatus(181) = 82, queststatus(182) = 36
 queststatus(181) = 0, chance(8.333333333), town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Informationen] Töte vier Füchse."), "Der Don braucht Informationen. Du erkundschaften Gegend und hau vier Füchse zu Brei! Ich dir geben vier Silberstücke zur Belohnung!", queststatus(181) = 82, queststatus(182) = 36
 
 -- Information 82 solved, reward: four sp, 5 rankpoints, delay: 5h

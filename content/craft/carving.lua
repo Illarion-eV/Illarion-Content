@@ -159,7 +159,7 @@ catId = carving:addCategory("Weapons", "Waffen") --weapons
 
 --Dwarfen Stormhammer
 product = carving:addProduct(catId, 1052, 99, 100, 199, 398, 1);
-product:addIngredient(2786,2) -- Bough: 1x1
+product:addIngredient(2786,2) -- Branch: 2x1
 product:addIngredient(545, 2) -- Cherry Wooden Boards: 2x1
 product:addIngredient(2573) -- Large Staff Handle: 1x1
 product:addIngredient(452) -- diamond dust
