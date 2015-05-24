@@ -138,7 +138,7 @@ english, "dog", "wolves", "wolf" -> "Those four legged, furry creatures are quit
 
 cycletext "#mes prunkvolle Rüstung zeigt das Wappen von Galmair.", "#me's shining armour shows the coat of arms of Galmair."
 cycletext "Nieder mit den Feiglingen aus Cadomyr und Runewick!", "Down with the cowards of Cadomyr and Runewick!"
-cycletext "#me hält sein reich verziertes Schwert fest in der Hand und schwingt es durch die Luft.", "#me holds his ornate sword firmly with one hand, swinging it idly through the air."
+cycletext "#me hält seine reich verzierte Axt fest in der Hand und schwingt sie durch die Luft", "#me holds his ornate axe firmly with one hand, swinging it idly through the air."
 cycletext "#me schreibt einige Worte in ein in Leder gebundenes Buch.", "#me writes some words into a leather covered book."
 cycletext "Wir leben in merkwürdigen Zeiten...", "Strange times we live in..."
 cycletext "Es ist nicht die Zeit der Worte, sondern die der Taten. Beweist Euch gegen meine Biester!", "It is not the time for talk, but for deeds. Prove yourself against my beasts!"
