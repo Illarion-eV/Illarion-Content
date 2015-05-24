@@ -26,7 +26,7 @@ local M = {}
 
 function M.MoveFromField(char)
     -- pure earth will be created
-    elementDrop.chanceForElementDrop(char, {successItemID = 2552, failItemID = 915, failGfxID = 3})
+    elementDrop.chanceForElementDrop(char, {successItemID = 2552, failItemID = 1246, failGfxID = 3})
 end
 
 return M
