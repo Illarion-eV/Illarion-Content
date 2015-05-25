@@ -14,12 +14,10 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- INSERT INTO triggerfields VALUES (415,85,0,'triggerfield.northernislands_water_661');
--- INSERT INTO triggerfields VALUES (415,79,0,'triggerfield.northernislands_water_661');
--- INSERT INTO triggerfields VALUES (416,79,0,'triggerfield.northernislands_water_661');
--- INSERT INTO triggerfields VALUES (478,34,0,'triggerfield.northernislands_water_661');
--- INSERT INTO triggerfields VALUES (478,30,0,'triggerfield.northernislands_water_661');
--- INSERT INTO triggerfields VALUES (479,30,0,'triggerfield.northernislands_water_661');
+-- INSERT INTO triggerfields VALUES (415,81,0,'triggerfield.northernislands_water_661');
+-- INSERT INTO triggerfields VALUES (416,81,0,'triggerfield.northernislands_water_661');
+-- INSERT INTO triggerfields VALUES (415,82,0,'triggerfield.northernislands_water_661');
+-- INSERT INTO triggerfields VALUES (416,82,0,'triggerfield.northernislands_water_661');
 
 local elementDrop = require("content.elementDrop")
 local M = {}
