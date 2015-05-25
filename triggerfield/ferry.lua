@@ -45,6 +45,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (375,262,-6,'triggerfield.ferry');
 -- INSERT INTO triggerfields VALUES (375,263,-6,'triggerfield.ferry');
 
+-- INSERT INTO triggerfields VALUES (424,21,0,'triggerfield.ferry');
+-- INSERT INTO triggerfields VALUES (425,21,0,'triggerfield.ferry');
+-- INSERT INTO triggerfields VALUES (424,28,0,'triggerfield.ferry');
+-- INSERT INTO triggerfields VALUES (425,28,0,'triggerfield.ferry');
+-- INSERT INTO triggerfields VALUES (386,38,0,'triggerfield.ferry');
+-- INSERT INTO triggerfields VALUES (386,39,0,'triggerfield.ferry');
+-- INSERT INTO triggerfields VALUES (393,38,0,'triggerfield.ferry');
+-- INSERT INTO triggerfields VALUES (393,39,0,'triggerfield.ferry');
+
 local common = require("base.common")
 
 local M = {}
@@ -58,15 +67,15 @@ local ferrySourcePos = {
     position(616,855,0),
     position(987,257,0),
     position(988,257,0),
-    position(475,33,0),
+    position(475,33,0), -- YEG
     position(475,34,0),
     position(482,33,0),
     position(482,34,0),
-    position(412,84,0),
+    position(412,84,0), -- HEPT
     position(412,85,0),
     position(419,84,0),
     position(419,85,0),
-    position(361,49,0),
+    position(361,49,0), -- RA
     position(361,50,0),
     position(367,49,0),
     position(367,50,0),
@@ -79,7 +88,15 @@ local ferrySourcePos = {
     position(360,259,-6),
     position(360,260,-6),
     position(375,262,-6),
-    position(375,263,-6)
+    position(375,263,-6),
+    position(424,21,0), -- SOHL
+    position(425,21,0),
+    position(424,28,0),
+    position(425,28,0),
+    position(386,38,0), -- PEN
+    position(386,39,0),
+    position(393,38,0),
+    position(393,39,0)
 }
 
 local ferryDE={}
@@ -100,30 +117,30 @@ ferryDE[7]={"Nördlicher Hafen"}
 ferryEN[7]={"Northern Harbour"}
 ferryDE[8]={"Nördlicher Hafen"}
 ferryEN[8]={"Northern Harbour"}
-ferryDE[9]={"Galmair Hafen","Nördliche Inseln -  Ra","Nördliche Inseln -  Hept"}
-ferryEN[9]={"Galmair Harbour","Northern Islands -  Ra","Northern Islands -  Hept"}
-ferryDE[10]={"Galmair Hafen","Nördliche Inseln -  Ra","Nördliche Inseln -  Hept"}
-ferryEN[10]={"Galmair Harbour","Northern Islands -  Ra","Northern Islands -  Hept"}
-ferryDE[11]={"Galmair Hafen","Nördliche Inseln -  Ra","Nördliche Inseln -  Hept"}
-ferryEN[11]={"Galmair Harbour","Northern Islands -  Ra","Northern Islands -  Hept"}
-ferryDE[12]={"Galmair Hafen","Nördliche Inseln -  Ra","Nördliche Inseln -  Hept"}
-ferryEN[12]={"Galmair Harbour","Northern Islands -  Ra","Northern Islands -  Hept"}
-ferryDE[13]={"Galmair Hafen","Nördliche Inseln -  Ra","Northern Islands -  Yeg"}
-ferryEN[13]={"Galmair Harbour","Northern Islands -  Ra","Northern Islands -  Yeg"}
-ferryDE[14]={"Galmair Hafen","Nördliche Inseln -  Ra","Nördliche Inseln -  Yeg"}
-ferryEN[14]={"Galmair Harbour","Northern Islands -  Ra","Northern Islands -  Yeg"}
-ferryDE[15]={"Galmair Hafen","Nördliche Inseln -  Ra","Nördliche Inseln -  Yeg"}
-ferryEN[15]={"Galmair Harbour","Northern Islands -  Ra","Northern Islands -  Yeg"}
-ferryDE[16]={"Galmair Hafen","Nördliche Inseln -  Ra","Nördliche Inseln -  Yeg"}
-ferryEN[16]={"Galmair Harbour","Nördliche Inseln -  Ra","Northern Islands -  Yeg"}
-ferryDE[17]={"Galmair Hafen","Nördliche Inseln -  Hept","Nördliche Inseln -  Yeg"}
-ferryEN[17]={"Galmair Harbour","Northern Islands -  Hept","Northern Islands -  Yeg"}
-ferryDE[18]={"Galmair Hafen","Nördliche Inseln -  Hept","Nördliche Inseln -  Yeg"}
-ferryEN[18]={"Galmair Harbour","Northern Islands -  Hept","Northern Islands -  Yeg"}
-ferryDE[19]={"Galmair Hafen","Nördliche Inseln -  Hept","Nördliche Inseln -  Yeg"}
-ferryEN[19]={"Galmair Harbour","Northern Islands -  Hept","Northern Islands -  Yeg"}
-ferryDE[20]={"Galmair Hafen","Nördliche Inseln -  Hept","Nördliche Inseln -  Yeg"}
-ferryEN[20]={"Galmair Harbour","Northern Islands -  Hept","Northern Islands -  Yeg"}
+ferryDE[9]={"Galmair Hafen","Nördliche Inseln -  Ra","Nördliche Inseln -  Hept","Nördliche Inseln -  Sohl","Nördliche Inseln -  Pen"}
+ferryEN[9]={"Galmair Harbour","Northern Islands -  Ra","Northern Islands -  Hept","Northern Islands -  Sohl","Northern Islands -  Pen"}
+ferryDE[10]={"Galmair Hafen","Nördliche Inseln -  Ra","Nördliche Inseln -  Hept","Nördliche Inseln -  Sohl","Nördliche Inseln -  Pen"}
+ferryEN[10]={"Galmair Harbour","Northern Islands -  Ra","Northern Islands -  Hept","Northern Islands -  Sohl","Northern Islands -  Pen"}
+ferryDE[11]={"Galmair Hafen","Nördliche Inseln -  Ra","Nördliche Inseln -  Hept","Nördliche Inseln -  Sohl","Nördliche Inseln -  Pen"}
+ferryEN[11]={"Galmair Harbour","Northern Islands -  Ra","Northern Islands -  Hept","Northern Islands -  Sohl","Northern Islands -  Pen"}
+ferryDE[12]={"Galmair Hafen","Nördliche Inseln -  Ra","Nördliche Inseln -  Hept","Nördliche Inseln -  Sohl","Nördliche Inseln -  Pen"}
+ferryEN[12]={"Galmair Harbour","Northern Islands -  Ra","Northern Islands -  Hept","Northern Islands -  Sohl","Northern Islands -  Pen"}
+ferryDE[13]={"Galmair Hafen","Nördliche Inseln -  Ra","Northern Islands -  Yeg","Nördliche Inseln -  Sohl","Nördliche Inseln -  Pen"}
+ferryEN[13]={"Galmair Harbour","Northern Islands -  Ra","Northern Islands -  Yeg","Northern Islands -  Sohl","Northern Islands -  Pen"}
+ferryDE[14]={"Galmair Hafen","Nördliche Inseln -  Ra","Nördliche Inseln -  Yeg","Nördliche Inseln -  Sohl","Nördliche Inseln -  Pen"}
+ferryEN[14]={"Galmair Harbour","Northern Islands -  Ra","Northern Islands -  Yeg","Northern Islands -  Sohl","Northern Islands -  Pen"}
+ferryDE[15]={"Galmair Hafen","Nördliche Inseln -  Ra","Nördliche Inseln -  Yeg","Nördliche Inseln -  Sohl","Nördliche Inseln -  Pen"}
+ferryEN[15]={"Galmair Harbour","Northern Islands -  Ra","Northern Islands -  Yeg","Northern Islands -  Sohl","Northern Islands -  Pen"}
+ferryDE[16]={"Galmair Hafen","Nördliche Inseln -  Ra","Nördliche Inseln -  Yeg","Nördliche Inseln -  Sohl","Nördliche Inseln -  Pen"}
+ferryEN[16]={"Galmair Harbour","Nördliche Inseln -  Ra","Northern Islands -  Yeg","Northern Islands -  Sohl","Northern Islands -  Pen"}
+ferryDE[17]={"Galmair Hafen","Nördliche Inseln -  Hept","Nördliche Inseln -  Yeg","Nördliche Inseln -  Sohl","Nördliche Inseln -  Pen"}
+ferryEN[17]={"Galmair Harbour","Northern Islands -  Hept","Northern Islands -  Yeg","Northern Islands -  Sohl","Northern Islands -  Pen"}
+ferryDE[18]={"Galmair Hafen","Nördliche Inseln -  Hept","Nördliche Inseln -  Yeg","Nördliche Inseln -  Sohl","Nördliche Inseln -  Pen"}
+ferryEN[18]={"Galmair Harbour","Northern Islands -  Hept","Northern Islands -  Yeg","Northern Islands -  Sohl","Northern Islands -  Pen"}
+ferryDE[19]={"Galmair Hafen","Nördliche Inseln -  Hept","Nördliche Inseln -  Yeg","Nördliche Inseln -  Sohl","Nördliche Inseln -  Pen"}
+ferryEN[19]={"Galmair Harbour","Northern Islands -  Hept","Northern Islands -  Yeg","Northern Islands -  Sohl","Northern Islands -  Pen"}
+ferryDE[20]={"Galmair Hafen","Nördliche Inseln -  Hept","Nördliche Inseln -  Yeg","Nördliche Inseln -  Sohl","Nördliche Inseln -  Pen"}
+ferryEN[20]={"Galmair Harbour","Northern Islands -  Hept","Northern Islands -  Yeg","Northern Islands -  Sohl","Northern Islands -  Pen"}
 ferryDE[21]={"Cadomyr Hafen","Runewick Hafen"}
 ferryEN[21]={"Cadomyr Harbour","Runewick Harbour"}
 ferryDE[22]={"Cadomyr Hafen","Runewick Hafen"}
@@ -144,6 +161,22 @@ ferryDE[29]={"Schlackengrube"}
 ferryEN[29]={"Scoria Mine"}
 ferryDE[30]={"Schlackengrube"}
 ferryEN[30]={"Scoria Mine"}
+ferryDE[31]={"Galmair Hafen","Nördliche Inseln -  Hept","Nördliche Inseln -  Yeg","Nördliche Inseln -  Ra","Nördliche Inseln -  Pen"}
+ferryEN[31]={"Galmair Harbour","Northern Islands -  Hept","Northern Islands -  Yeg","Northern Islands -  Ra","Northern Islands -  Pen"}
+ferryDE[32]={"Galmair Hafen","Nördliche Inseln -  Hept","Nördliche Inseln -  Yeg","Nördliche Inseln -  Ra","Nördliche Inseln -  Pen"}
+ferryEN[32]={"Galmair Harbour","Northern Islands -  Hept","Northern Islands -  Yeg","Northern Islands -  Ra","Northern Islands -  Pen"}
+ferryDE[33]={"Galmair Hafen","Nördliche Inseln -  Hept","Nördliche Inseln -  Yeg","Nördliche Inseln -  Ra","Nördliche Inseln -  Pen"}
+ferryEN[33]={"Galmair Harbour","Northern Islands -  Hept","Northern Islands -  Yeg","Northern Islands -  Ra","Northern Islands -  Pen"}
+ferryDE[34]={"Galmair Hafen","Nördliche Inseln -  Hept","Nördliche Inseln -  Yeg","Nördliche Inseln -  Ra","Nördliche Inseln -  Pen"}
+ferryEN[34]={"Galmair Harbour","Northern Islands -  Hept","Northern Islands -  Yeg","Northern Islands -  Ra","Northern Islands -  Pen"}
+ferryDE[35]={"Galmair Hafen","Nördliche Inseln -  Hept","Nördliche Inseln -  Yeg","Nördliche Inseln -  Ra","Nördliche Inseln -  Sohl"}
+ferryEN[35]={"Galmair Harbour","Northern Islands -  Hept","Northern Islands -  Yeg","Northern Islands -  Ra","Northern Islands -  Sohl"}
+ferryDE[36]={"Galmair Hafen","Nördliche Inseln -  Hept","Nördliche Inseln -  Yeg","Nördliche Inseln -  Ra","Nördliche Inseln -  Sohl"}
+ferryEN[36]={"Galmair Harbour","Northern Islands -  Hept","Northern Islands -  Yeg","Northern Islands -  Ra","Northern Islands -  Sohl"}
+ferryDE[37]={"Galmair Hafen","Nördliche Inseln -  Hept","Nördliche Inseln -  Yeg","Nördliche Inseln -  Ra","Nördliche Inseln -  Sohl"}
+ferryEN[37]={"Galmair Harbour","Northern Islands -  Hept","Northern Islands -  Yeg","Northern Islands -  Ra","Northern Islands -  Sohl"}
+ferryDE[38]={"Galmair Hafen","Nördliche Inseln -  Hept","Nördliche Inseln -  Yeg","Nördliche Inseln -  Ra","Nördliche Inseln -  Sohl"}
+ferryEN[38]={"Galmair Harbour","Northern Islands -  Hept","Northern Islands -  Yeg","Northern Islands -  Ra","Northern Islands -  Sohl"}
 
 local ferryItem={}
 ferryItem[1]={2701,105}
@@ -154,18 +187,18 @@ ferryItem[5]={2701,105}
 ferryItem[6]={2701,105}
 ferryItem[7]={308}
 ferryItem[8]={308}
-ferryItem[9]={61,359,360}
-ferryItem[10]={61,359,360}
-ferryItem[11]={61,359,360}
-ferryItem[12]={61,359,360}
-ferryItem[13]={61,359,372}
-ferryItem[14]={61,359,372}
-ferryItem[15]={61,359,372}
-ferryItem[16]={61,359,372}
-ferryItem[17]={61,360,372}
-ferryItem[18]={61,360,372}
-ferryItem[19]={61,360,372}
-ferryItem[20]={61,360,372}
+ferryItem[9]={61,359,360,1272,467}
+ferryItem[10]={61,359,360,1272,467}
+ferryItem[11]={61,359,360,1272,467}
+ferryItem[12]={61,359,360,1272,467}
+ferryItem[13]={61,359,372,1272,467}
+ferryItem[14]={61,359,372,1272,467}
+ferryItem[15]={61,359,372,1272,467}
+ferryItem[16]={61,359,372,1272,467}
+ferryItem[17]={61,360,372,1272,467}
+ferryItem[18]={61,360,372,1272,467}
+ferryItem[19]={61,360,372,1272,467}
+ferryItem[20]={61,360,372,1272,467}
 ferryItem[21]={2701,105}
 ferryItem[22]={2701,105}
 ferryItem[23]={61}
@@ -176,6 +209,14 @@ ferryItem[27]={61}
 ferryItem[28]={61}
 ferryItem[29]={61}
 ferryItem[30]={61}
+ferryItem[31]={61,360,372,359,467}
+ferryItem[32]={61,360,372,359,467}
+ferryItem[33]={61,360,372,359,467}
+ferryItem[34]={61,360,372,359,467}
+ferryItem[35]={61,360,372,359,1272}
+ferryItem[36]={61,360,372,359,1272}
+ferryItem[37]={61,360,372,359,1272}
+ferryItem[38]={61,360,372,359,1272}
 
 local ferryTargetPos={}
 ferryTargetPos[1]={position(102,790,0),position(728,809,0)}
@@ -186,18 +227,18 @@ ferryTargetPos[5]={position(102,790,0),position(728,809,0)}
 ferryTargetPos[6]={position(102,790,0),position(728,809,0)}
 ferryTargetPos[7]={position(870,286,0)}
 ferryTargetPos[8]={position(870,286,0)}
-ferryTargetPos[9]={position(450,95,0),position(364,49,0),position(415,85,0)}
-ferryTargetPos[10]={position(450,95,0),position(364,49,0),position(415,85,0)}
-ferryTargetPos[11]={position(450,95,0),position(364,49,0),position(415,85,0)}
-ferryTargetPos[12]={position(450,95,0),position(364,49,0),position(415,85,0)}
-ferryTargetPos[13]={position(450,95,0),position(364,49,0),position(478,34,0)}
-ferryTargetPos[14]={position(450,95,0),position(364,49,0),position(478,34,0)}
-ferryTargetPos[15]={position(450,95,0),position(364,49,0),position(478,34,0)}
-ferryTargetPos[16]={position(450,95,0),position(364,49,0),position(478,34,0)}
-ferryTargetPos[17]={position(450,95,0),position(415,85,0),position(478,34,0)}
-ferryTargetPos[18]={position(450,95,0),position(415,85,0),position(478,34,0)}
-ferryTargetPos[19]={position(450,95,0),position(415,85,0),position(478,34,0)}
-ferryTargetPos[20]={position(450,95,0),position(415,85,0),position(478,34,0)}
+ferryTargetPos[9]={position(450,95,0),position(364,49,0),position(415,85,0),position(424,24,0),position(389,39,0)}
+ferryTargetPos[10]={position(450,95,0),position(364,49,0),position(415,85,0),position(424,24,0),position(389,39,0)}
+ferryTargetPos[11]={position(450,95,0),position(364,49,0),position(415,85,0),position(424,24,0),position(389,39,0)}
+ferryTargetPos[12]={position(450,95,0),position(364,49,0),position(415,85,0),position(424,24,0),position(389,39,0)}
+ferryTargetPos[13]={position(450,95,0),position(364,49,0),position(478,34,0),position(424,24,0),position(389,39,0)}
+ferryTargetPos[14]={position(450,95,0),position(364,49,0),position(478,34,0),position(424,24,0),position(389,39,0)}
+ferryTargetPos[15]={position(450,95,0),position(364,49,0),position(478,34,0),position(424,24,0),position(389,39,0)}
+ferryTargetPos[16]={position(450,95,0),position(364,49,0),position(478,34,0),position(424,24,0),position(389,39,0)}
+ferryTargetPos[17]={position(450,95,0),position(415,85,0),position(478,34,0),position(424,24,0),position(389,39,0)}
+ferryTargetPos[18]={position(450,95,0),position(415,85,0),position(478,34,0),position(424,24,0),position(389,39,0)}
+ferryTargetPos[19]={position(450,95,0),position(415,85,0),position(478,34,0),position(424,24,0),position(389,39,0)}
+ferryTargetPos[20]={position(450,95,0),position(415,85,0),position(478,34,0),position(424,24,0),position(389,39,0)}
 ferryTargetPos[21]={position(102,790,0),position(728,809,0)}
 ferryTargetPos[22]={position(102,790,0),position(728,809,0)}
 ferryTargetPos[23]={position(275,274,0)}
@@ -208,6 +249,14 @@ ferryTargetPos[27]={position(375,262,-6)}
 ferryTargetPos[28]={position(375,262,-6)}
 ferryTargetPos[29]={position(360,259,-6)}
 ferryTargetPos[30]={position(360,260,-6)}
+ferryTargetPos[31]={position(450,95,0),position(415,85,0),position(478,34,0),position(364,49,0),position(389,39,0)}
+ferryTargetPos[32]={position(450,95,0),position(415,85,0),position(478,34,0),position(364,49,0),position(389,39,0)}
+ferryTargetPos[33]={position(450,95,0),position(415,85,0),position(478,34,0),position(364,49,0),position(389,39,0)}
+ferryTargetPos[34]={position(450,95,0),position(415,85,0),position(478,34,0),position(364,49,0),position(389,39,0)}
+ferryTargetPos[35]={position(450,95,0),position(415,85,0),position(478,34,0),position(364,49,0),position(424,24,0)}
+ferryTargetPos[36]={position(450,95,0),position(415,85,0),position(478,34,0),position(364,49,0),position(424,24,0)}
+ferryTargetPos[37]={position(450,95,0),position(415,85,0),position(478,34,0),position(364,49,0),position(424,24,0)}
+ferryTargetPos[38]={position(450,95,0),position(415,85,0),position(478,34,0),position(364,49,0),position(424,24,0)}
 
 local ferryFactionHarborPos={position(690,320,0),position(101,790,0),position(727,809,0),position(451,95,0)}
 
