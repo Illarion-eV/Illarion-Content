@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local doors = require("base.doors")
@@ -24,8 +24,8 @@ local M = {}
 
 M.ferrySourceItemPos={position(101,790,0),position(727,809,0),position(888,485,0),position(870,285,0),position(451,95,0),position(105,833,0),position(554,658,0)}
 
-ferryDE={}
-ferryEN={}
+local ferryDE={}
+local ferryEN={}
 --ferryDE[1]={"Bauerninsel","Cadomyr - Verlorener Hafen","Leuchtturm","Einsame Inseln ","Runewick Hafen","Ostland Hafen","Nördlicher Hafen"} --for the future with farmer island & lonely islands
 --ferryEN[1]={"Farmer Island","Cadomyr - Lost Harbour","Lighthouse","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour"} --for the future with farmer island & lonely islands
 ferryDE[1]={"Cadomyr - Verlorener Hafen","Leuchtturm","Runewick Hafen","Ostland Hafen","Nördlicher Hafen"}  ---replace this with the one above
@@ -40,8 +40,8 @@ ferryEN[3]={"Cadomyr Harbour","Runewick Harbour","Northern Harbour"}
 --ferryEN[4]={"Cadomyr Harbour","Runewick Harbour","Eastland Harbour","Evil Rock"}  ---for the future with Evil Rock
 ferryDE[4]={"Cadomyr Hafen","Runewick Hafen","Ostland Hafen"}  ---replace this with the one above
 ferryEN[4]={"Cadomyr Harbour","Runewick Harbour","Eastland Harbour"}  ---replace this with the one above
-ferryDE[5]={"Nördliche Inseln - Ra","Nördliche Inseln - Hept","Nördliche Inseln - Yeg","Unüberwindbarer Limes"}
-ferryEN[5]={"Northern Islands - Ra","Northern Islands - Hept","Northern Islands - Yeg","Insurmountable Limes"}
+ferryDE[5]={"Nördliche Inseln - Ra","Nördliche Inseln - Hept","Nördliche Inseln - Yeg","Nördliche Inseln - Sohl","Nördliche Inseln - Pen","Unüberwindbarer Limes"}
+ferryEN[5]={"Northern Islands - Ra","Northern Islands - Hept","Northern Islands - Yeg","Northern Islands - Sohl","Northern Islands - Pen","Insurmountable Limes"}
 --ferryDE[6]={"Bauerninsel","Cadomyr Hafen","Leuchtturm","Einsame Inseln ","Runewick Hafen","Ostland Hafen","Nördlicher Hafen"} --for the future with farmer island & lonely islands
 --ferryEN[6]={"Farmer Island","Cadomyr Harbour","Lighthouse","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour"} --for the future with farmer island & lonely islands
 ferryDE[6]={"Cadomyr Hafen","Leuchtturm","Runewick Hafen","Ostland Hafen","Nördlicher Hafen"}  ---replace this with the one above
@@ -52,11 +52,11 @@ ferryDE[7]={"Cadomyr Hafen","Cadomyr - Verlorener Hafen","Runewick Hafen","Ostla
 ferryEN[7]={"Cadomyr Harbour","Cadomyr - Lost Harbour","Runewick Harbour","Eastland Harbour","Northern Harbour"}  ---replace this with the one above
 
 
-ferrytravelDE={}
-ferrytravelEN={}
+local ferrytravelDE={}
+local ferrytravelEN={}
 --ferrytravelDE[1]={"der Bauerninsel","nach Cadomyr - Verlorener Hafen","zum Leuchtturm","zu den Einsamen Inseln","nach Runewick Hafen","nach Ostland Hafen","zum Nördlichen Hafen"} --for the future with farmer island & lonely islands
 --ferrytravelEN[1]={"Farmer Island","Cadomyr - Lost Harbour","Lighthouse","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour"} --for the future with farmer island & lonely islands
-ferrytravelDE[1]={"nach Cadomyr - Verlorener Hafen","zum Leuchtturm","nach Runewick Hafen","nach Ostland Hafen","zum Nördlichen Hafen"}  ---replace this with the one above 
+ferrytravelDE[1]={"nach Cadomyr - Verlorener Hafen","zum Leuchtturm","nach Runewick Hafen","nach Ostland Hafen","zum Nördlichen Hafen"}  ---replace this with the one above
 ferrytravelEN[1]={"Cadomyr - Lost Harbour","Lighthouse","Runewick Harbour","Eastland Harbour","Northern Harbour"}  ---replace this with the one above
 --ferrytravelDE[2]={"nach Cadomyr Hafen","der Bauern Insel","nach Cadomyr - Verlorener Hafen","zum  Leuchtturm","zu den Einsamen Inseln","zum Ostland Hafen","zum Nördlichen Hafen"} --for the future with farmer island & lonely islands
 --ferrytravelEN[2]={"Cadomyr Harbour","Farmer Island","Cadomyr - Lost Harbour","Lighthouse","Lonely Islands","Eastland Harbour","Northern Harbour"} --for the future with farmer island & lonely islands
@@ -68,20 +68,20 @@ ferrytravelEN[3]={"Cadomyr Harbour","Runewick Harbour","Northern Harbour"}
 --ferrytravelEN[4]={"Cadomyr Harbour","Runewick Harbour","Eastland Harbour","Evil Rock"}  ---for the future with Evil Rock
 ferrytravelDE[4]={"nach Cadomyr Hafen","nach Runewick Hafen","zum Ostland Hafen"}  ---replace this with the one above
 ferrytravelEN[4]={"Cadomyr Harbour","Runewick Harbour","Eastland Harbour"}  ---replace this with the one above
-ferrytravelDE[5]={"zu den Nördlichen Inseln -  Ra","zu den Nördlichen Inseln -  Hept","zu den Nördlichen Inseln -  Yeg","zum Unüberwindbaren Limes"}
-ferrytravelEN[5]={"Northern Islands -  Ra","Northern Islands -  Hept","Northern Islands -  Yeg","Insurmountable Limes"}
+ferrytravelDE[5]={"zu den Nördlichen Inseln -  Ra","zu den Nördlichen Inseln -  Hept","zu den Nördlichen Inseln -  Yeg","zu den Nördlichen Inseln -  Sohl","zu den Nördlichen Inseln -  Pen","zum Unüberwindbaren Limes"}
+ferrytravelEN[5]={"Northern Islands -  Ra","Northern Islands -  Hept","Northern Islands -  Yeg","zu den Nördlichen Inseln -  Sohl","zu den Nördlichen Inseln -  Pen","Insurmountable Limes"}
 --ferrytravelDE[6]={"der Bauerninsel","nach Cadomyr Hafen","zum Leuchtturm","zu den Einsamen Inseln","nach Runewick Hafen","nach Ostland Hafen","zum Nördlichen Hafen"} --for the future with farmer island & lonely islands
 --ferrytravelEN[6]={"Farmer Island","Cadomyr Harbour","Lighthouse","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour"} --for the future with farmer island & lonely islands
-ferrytravelDE[6]={"nach Cadomyr Hafen","zum Leuchtturm","nach Runewick Hafen","nach Ostland Hafen","zum Nördlichen Hafen"}  ---replace this with the one above 
+ferrytravelDE[6]={"nach Cadomyr Hafen","zum Leuchtturm","nach Runewick Hafen","nach Ostland Hafen","zum Nördlichen Hafen"}  ---replace this with the one above
 ferrytravelEN[6]={"Cadomyr Harbour","Lighthouse","Runewick Harbour","Eastland Harbour","Northern Harbour"}  ---replace this with the one above
 --ferrytravelDE[7]={"der Bauerninsel","nach Cadomyr Hafen","nach Cadomyr - Verlorener Hafen","zu den Einsamen Inseln","nach Runewick Hafen","nach Ostland Hafen","zum Nördlichen Hafen"} --for the future with farmer island & lonely islands
 --ferrytravelEN[7]={"Farmer Island","Cadomyr Harbour","Cadomyr - Lost Harbour","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour"} --for the future with farmer island & lonely islands
-ferrytravelDE[7]={"nach Cadomyr Hafen","nach Cadomyr - Verlorener Hafen","nach Runewick Hafen","nach Ostland Hafen","zum Nördlichen Hafen"}  ---replace this with the one above 
+ferrytravelDE[7]={"nach Cadomyr Hafen","nach Cadomyr - Verlorener Hafen","nach Runewick Hafen","nach Ostland Hafen","zum Nördlichen Hafen"}  ---replace this with the one above
 ferrytravelEN[7]={"Cadomyr Harbour","Cadomyr - Lost Harbour","Runewick Harbour","Eastland Harbour","Northern Harbour"}  ---replace this with the one above
 
 
 
-ferryItem={}
+local ferryItem={}
 --ferryItem[1]={259,272,467,3099,105,2760,308} --for the future with farmer island & lonely islands
 ferryItem[1]={272,467,105,2760,308}  ---replace this with the one above
 --ferryItem[2]={2701,259,272,467,3099,2760,308} --for the future with farmer island & lonely islands
@@ -89,7 +89,7 @@ ferryItem[2]={2701,272,467,2760,308}  ---replace this with the one above
 ferryItem[3]={2701,105,308}
 --ferryItem[4]={2701,105,2760,915}  ---for the future with Evil Rock
 ferryItem[4]={2701,105,2760}  ---replace this with the one above
-ferryItem[5]={359,360,372,474}
+ferryItem[5]={359,360,372,1272,467,474}
 --ferryItem[6]={259,2701,467,3099,105,2760,308} --for the future with farmer island & lonely islands
 ferryItem[6]={2701,467,105,2760,308}  ---replace this with the one above
 --ferryItem[7]={259,2701,272,3099,105,2760,308} --for the future with farmer island & lonely islands
@@ -97,7 +97,7 @@ ferryItem[7]={2701,272,105,2760,308}  ---replace this with the one above
 
 
 
-ferryTargetPos={}
+local ferryTargetPos={}
 --ferryTargetPos[1]={position(86,980,0),position(105,832,0),position(553,658,0),position(616,859,0),position(728,809,0),position(888,486,0),position(870,286,0)} --for the future with farmer island & lonely islands
 ferryTargetPos[1]={position(105,832,0),position(553,658,0),position(728,809,0),position(888,486,0),position(870,286,0)}  ---replace this with the one above
 --ferryTargetPos[2]={position(102,790,0),position(86,980,0),position(105,832,0),position(553,658,0),position(616,859,0),position(888,486,0),position(870,286,0) --for the future with farmer island & lonely islands
@@ -105,40 +105,40 @@ ferryTargetPos[2]={position(102,790,0),position(105,832,0),position(553,658,0),p
 ferryTargetPos[3]={position(102,790,0),position(728,809,0),position(870,286,0)}
 --ferryTargetPos[4]={position(102,790,0),position(728,809,0),position(888,486,0),position(987,256,0)}  ---for the future with Evil Rock
 ferryTargetPos[4]={position(102,790,0),position(728,809,0),position(888,486,0),}  ---replace this with the one above
-ferryTargetPos[5]={position(364,49,0),position(415,85,0),position(478,34,0),position(682,45,0)}
+ferryTargetPos[5]={position(364,49,0),position(415,85,0),position(478,34,0),position(424,24,0),position(389,39,0),position(682,45,0)}
 --ferryTargetPos[6]={position(86,980,0),position(102,790,0),position(553,658,0),position(616,859,0),position(728,809,0),position(888,486,0),position(870,286,0)} --for the future with farmer island & lonely islands
 ferryTargetPos[6]={position(102,790,0),position(553,658,0),position(728,809,0),position(888,486,0),position(870,286,0)}  ---replace this with the one above
 --ferryTargetPos[7]={position(86,980,0),position(102,790,0),position(105,832,0),position(616,859,0),position(728,809,0),position(888,486,0),position(870,286,0)} --for the future with farmer island & lonely islands
 ferryTargetPos[7]={position(102,790,0),position(105,832,0),position(728,809,0),position(888,486,0),position(870,286,0)}  ---replace this with the one above
 
 
-pirateOptionsDE={"Kämpfe gegen die Piraten","Fliehe vor den Piraten (25% Erfolgschance, ansonsten wartet der Kampf)","Zahle ein Goldstück, um verschont zu bleiben."}
-pirateOptionsEN={"Fight against the pirates","Flee from the pirates (25% chance of success, otherwise you have to fight)","Pay a gold coin in order to be spared"}
+local pirateOptionsDE={"Kämpfe gegen die Piraten","Fliehe vor den Piraten (25% Erfolgschance, ansonsten wartet der Kampf)","Zahle ein Goldstück, um verschont zu bleiben."}
+local pirateOptionsEN={"Fight against the pirates","Flee from the pirates (25% chance of success, otherwise you have to fight)","Pay a gold coin in order to be spared"}
 
-pirateItem={1,53,61}
+local pirateItem={1,53,61}
 
 
-monster={}; ---monster, numbers are archers -> excluded currently
+local monster={}; ---monster, numbers are archers -> excluded currently
 monster[1]={1,2,3,4,5}; --human
 monster[2]={11,12,13,14}; --dwarf 15
 monster[3]={21,22,23,24}; --halfling 25
 monster[4]={31,32,33,34}; --elf 35
 monster[5]={41,42,43,45}; --orc 44
-monster[6]={51,53,53,54,55}; -- lizard 
+monster[6]={51,53,53,54,55}; -- lizard
 monster[7]={91,92,93,95,791,792,793,796}; -- troll 94,794,795
 monster[8]={101,102,103,104,106,151,152,171,172,173}; -- mummy
 monster[9]={111,112,113,114,115}; --skeleton
 monster[10]={573,574,576,577,578}; --rats 575
 monster[11]={891,892,893,901,902,903}; --Imp
 monster[12]={782,783}; --golden skeleton 784
-monster[13]={301,311,321,331,341}; --golem 
+monster[13]={301,311,321,331,341}; --golem
 monster[14]={851,852,853,861,862,863,871,872,873,881,882,883}; --hellhound
 monster[15]={62,63,64,65}; -- drow 61
-monster[16]={201,202,203,204}; --demon skeleton 205 
+monster[16]={201,202,203,204}; --demon skeleton 205
 
 
-piratesSpawnGround={position(349,869,1),position(349,873,1),position(350,881,1),position(352,884,1),position(356,885,1),position(359,882,1),position(359,879,1),position(359,871,1)}
-piratesSpawnTop={position(351,863,2),position(355,862,2),position(357,863,2)}
+local piratesSpawnGround={position(349,869,1),position(349,873,1),position(350,881,1),position(352,884,1),position(356,885,1),position(359,882,1),position(359,879,1),position(359,871,1)}
+local piratesSpawnTop={position(351,863,2),position(355,862,2),position(357,863,2)}
 
 M.pirateDoors={position(354,873,0),position(355,873,0)}
 
@@ -148,7 +148,9 @@ function M.Ferry(User, SourceItem)
     local chanceforpirateattack = math.random(1,100)
     local names
     local namestravel
-    local Amountferry = #M.ferrySourceItemPos    
+    local items
+    local targetPos
+    local Amountferry = #M.ferrySourceItemPos
     for j = 1,Amountferry do
        if (SourceItem.pos == M.ferrySourceItemPos[j]) then
         if  User:getPlayerLanguage() == Player.german then
@@ -161,25 +163,25 @@ function M.Ferry(User, SourceItem)
 
         items = ferryItem[j]
         targetPos = ferryTargetPos[j]
-           end
+       end
     end
 
     local callback = function(dialog)
-    
-        success = dialog:getSuccess()
+
+        local success = dialog:getSuccess()
         if success then
             local selected = dialog:getSelectedIndex()
             if  money.CharHasMoney(User,1000) then
-                
+
                     money.TakeMoneyFromChar(User,1000)
-                    local travlers = world:getPlayersInRangeOf(SourceItem.pos, 5) 
+                    local travlers = world:getPlayersInRangeOf(SourceItem.pos, 5)
                     M.travlerslist[User.name] = travlers
 
                     if chanceforpirateattack < 6 and SomeoneThere(User) ~= true then --chance of 5% and noone else is there
                         M.previousselected = {}
-                        for i,player in ipairs(M.travlerslist[User.name]) do                        
+                        for i,player in ipairs(M.travlerslist[User.name]) do
                             M.previousselected[player.name] = selected
-			end
+                        end
                         portalremoveforleftovers(User)
                         piratesAttack(User)
                         for i,player in ipairs(M.travlerslist[User.name]) do
@@ -206,7 +208,7 @@ function M.Ferry(User, SourceItem)
             end
         end
     end
-        
+
     local dialog
     if User:getPlayerLanguage() == Player.german then
         dialog = SelectionDialog("Fähre", "Eine Reise kostet zehn Silberstücke für die ganze Gruppe. Wähle eine Ziel aus.", callback)
@@ -214,20 +216,18 @@ function M.Ferry(User, SourceItem)
         dialog = SelectionDialog("Ferry", "A journey costs ten silver coins for the group. Choose a destination.", callback)
     end
     dialog:setCloseOnMove()
-    
+
     for i=1,#items do
         dialog:addOption(items[i], names[i])
     end
     User:requestSelectionDialog(dialog)
 end
 
-
-
 function piratesAttack(User)
-    local options
-    local Amountoptions = #pirateOptionsDE    
+    local pirateOptions
+    local Amountoptions = #pirateOptionsDE
     for j = 1,Amountoptions do
-           if  User:getPlayerLanguage() == Player.german then
+        if  User:getPlayerLanguage() == Player.german then
             pirateOptions = pirateOptionsDE
         else
             pirateOptions = pirateOptionsEN
@@ -235,9 +235,9 @@ function piratesAttack(User)
     end
 
     local callback = function(dialog)
-        success = dialog:getSuccess() 
+        local success = dialog:getSuccess()
         if success then
-            local selected = dialog:getSelectedIndex() 
+            local selected = dialog:getSelectedIndex()
             if (selected == 0) then
                 piratesFight(User)
             elseif (selected == 1) then
@@ -256,8 +256,7 @@ function piratesAttack(User)
     else
         dialog = SelectionDialog("Pirates attack", "Pirates are coming closer to your ship. You can choose between the following options.", callback)
     end
---dialog:setCloseOnMove()
-    
+
     for i=1,Amountoptions do
         dialog:addOption(pirateItem[i],pirateOptions[i])
     end
@@ -271,10 +270,8 @@ function piratesAttack(User)
     end
 end
 
-
-
 function piratesFight(User)
-    local travlers = world:getPlayersInRangeOf(User.pos, 40) 
+    local travlers = world:getPlayersInRangeOf(User.pos, 40)
     M.travlerslist[User.name] = travlers
     for i,player in ipairs(M.travlerslist[User.name]) do
         if player:isInRangeToPosition(position(352,870,0), 30) or player:isInRangeToPosition(position(352,870,1), 30) or player:isInRangeToPosition(position(352,870,2), 30) then
@@ -288,6 +285,8 @@ function piratesFight(User)
     end
     local countplayers = #M.travlerslist[User.name]
     local monsterTyp = math.random(1,16)
+    local monsterAmountDown
+    local monsterAmountUp
     if countplayers >= 6 then
         monsterAmountDown = 8
         monsterAmountUp = math.random(1,3)
@@ -311,8 +310,8 @@ function piratesFight(User)
     for i,player in ipairs(M.travlerslist[User.name]) do
         player:setQuestProgress(662,30)
         player:setQuestProgress(663,30)
-        find, myEffect = player.effects:find(82)
-        if find then 
+        local find, myEffect = player.effects:find(82)
+        if find then
             return
         else
             myEffect = LongTimeEffect(82,10)
@@ -321,16 +320,12 @@ function piratesFight(User)
     end
 end
 
-
-
 function M.piratesPiratesAreThere(User)
     local monsters = world:getMonstersInRangeOf(position(352,870,1), 30); --get all monster in player range
     for i,mon in ipairs(monsters) do
         return true
     end
 end
-
-
 
 function SomeoneThere(User)
     local someone
@@ -343,15 +338,13 @@ function SomeoneThere(User)
     end
 end
 
-
-
 function M.piratesGeorgeBackstabRocks(User)
-    local monsters = world:getMonstersInRangeOf(position(352,870,1), 30); --get all monster in player range 
+    local monsters = world:getMonstersInRangeOf(position(352,870,1), 30); --get all monster in player range
     for i,mon in ipairs(monsters) do
         mon:warp(position(5,5,0))
         character.DeathAfterTime(mon,math.random(10,30),0,33,true) --kill all monsters
     end
-    local travlers = world:getPlayersInRangeOf(User.pos, 40) 
+    local travlers = world:getPlayersInRangeOf(User.pos, 40)
     M.travlerslist[User.name] = travlers
     for i,player in ipairs(M.travlerslist[User.name]) do
         if player:isInRangeToPosition(position(352,870,0), 30) or player:isInRangeToPosition(position(352,870,1), 30) or player:isInRangeToPosition(position(352,870,2), 30) then
@@ -373,10 +366,8 @@ function M.piratesGeorgeBackstabRocks(User)
     portalcreateforleftovers(User)
 end
 
-
-
 function M.piratesPiratesKill(User)
-    local travlers = world:getPlayersInRangeOf(User.pos, 40) 
+    local travlers = world:getPlayersInRangeOf(User.pos, 40)
     M.travlerslist[User.name] = travlers
     for i,player in ipairs(M.travlerslist[User.name]) do
         if player:isInRangeToPosition(position(352,870,0), 30) or player:isInRangeToPosition(position(352,870,1), 30) or player:isInRangeToPosition(position(352,870,2), 30) then
@@ -394,10 +385,8 @@ function M.piratesPiratesKill(User)
     portalcreateforleftovers(User)
 end
 
-
-
 function M.piratesPiratesRule(User)
-    local travlers = world:getPlayersInRangeOf(User.pos, 40) 
+    local travlers = world:getPlayersInRangeOf(User.pos, 40)
     M.travlerslist[User.name] = travlers
     for i,player in ipairs(M.travlerslist[User.name]) do
         if player:isInRangeToPosition(position(352,870,0), 30) or player:isInRangeToPosition(position(352,870,1), 30) or player:isInRangeToPosition(position(352,870,2), 30) then
@@ -411,28 +400,24 @@ function M.piratesPiratesRule(User)
     end
     local monsters = world:getMonstersInRangeOf(position(352,870,1), 30); --get all monster in player range
     for i,mon in ipairs(monsters) do
-        mon:warp(position(5,5,0))        
+        mon:warp(position(5,5,0))
         character.DeathAfterTime(mon,100) --kill all monsters
     end
     portalcreateforleftovers(User)
 end
 
-
-
 function M.piratesTimeWarning(User)
-    local travlers = world:getPlayersInRangeOf(User.pos, 40) 
+    local travlers = world:getPlayersInRangeOf(User.pos, 40)
     M.travlerslist[User.name] = travlers
     for i,player in ipairs(M.travlerslist[User.name]) do
         if player:isInRangeToPosition(position(352,870,0), 30) or player:isInRangeToPosition(position(352,870,1), 30) or player:isInRangeToPosition(position(352,870,2), 30) then
             player:inform("[Hinweis] Es ist nur noch eine Minute übrig, das Schiff von den Piraten zu säubern. Vielleicht sollte die Hilfe von George Backstab doch in Anspruch genommen werden. Hierzu einfach die Verliestür unten im Schiffsbauch öffnen.", "[Hint] There is only one minute left to clear the boat of pirates. You should probably consider using the help of George Backstab. Just open the door down in the ship's hold.")
-        end    
+        end
     end
 end
 
-
-
 function piratesFlee(User)
-    local travlers = world:getPlayersInRangeOf(User.pos, 40) 
+    local travlers = world:getPlayersInRangeOf(User.pos, 40)
     M.travlerslist[User.name] = travlers
     if math.random(1,100)< 26 then
         for i,player in ipairs(M.travlerslist[User.name]) do
@@ -454,15 +439,13 @@ function piratesFlee(User)
             if player:isInRangeToPosition(position(352,870,0), 30) or player:isInRangeToPosition(position(352,870,1), 30) or player:isInRangeToPosition(position(352,870,2), 30) then
                 player:inform("Oh nein, zu langsam!", "Oh no, too slow!")
             end
-        end        
+        end
         piratesFight(User)
     end
 end
 
-
-
 function piratesPay(User)
-    local travlers = world:getPlayersInRangeOf(User.pos, 40) 
+    local travlers = world:getPlayersInRangeOf(User.pos, 40)
     M.travlerslist[User.name] = travlers
     if money.CharHasMoney(User,10000) then
         money.TakeMoneyFromChar(User,10000)
@@ -490,8 +473,6 @@ function piratesPay(User)
     end
 end
 
-
-
 function portalcreateforleftovers(User)
     repeat
         local checkleftovers = world:getItemOnField(position(355,864,2))
@@ -505,8 +486,6 @@ function portalcreateforleftovers(User)
     checkPortalforleftovers.wear = 255
     world:changeItem(checkPortalforleftovers)
 end
-
-
 
 function portalremoveforleftovers(User)
     repeat
