@@ -38,16 +38,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (275,275,0,'triggerfield.ferry');
 -- INSERT INTO triggerfields VALUES (288,292,0,'triggerfield.ferry');
 -- INSERT INTO triggerfields VALUES (289,283,0,'triggerfield.ferry');
--- INSERT INTO triggerfields VALUES (79,979,0,'triggerfield.ferry');----
--- INSERT INTO triggerfields VALUES (79,980,0,'triggerfield.ferry');----
--- INSERT INTO triggerfields VALUES (79,981,0,'triggerfield.ferry');----
 -- INSERT INTO triggerfields VALUES (86,988,0,'triggerfield.ferry');
 -- INSERT INTO triggerfields VALUES (96,988,0,'triggerfield.ferry');
 -- INSERT INTO triggerfields VALUES (360,259,-6,'triggerfield.ferry');
 -- INSERT INTO triggerfields VALUES (360,260,-6,'triggerfield.ferry');
 -- INSERT INTO triggerfields VALUES (375,262,-6,'triggerfield.ferry');
 -- INSERT INTO triggerfields VALUES (375,263,-6,'triggerfield.ferry');
--- INSERT INTO triggerfields VALUES (355,864,2,'triggerfield.ferry');
 
 local common = require("base.common")
 
@@ -83,8 +79,7 @@ local ferrySourcePos = {
     position(360,259,-6),
     position(360,260,-6),
     position(375,262,-6),
-    position(375,263,-6),
-    position(355,864,2)
+    position(375,263,-6)
 }
 
 local ferryDE={}
@@ -100,57 +95,55 @@ ferryEN[4]={"Cadomyr Harbour","Runewick Harbour"}
 ferryDE[5]={"Cadomyr Hafen","Runewick Hafen"}
 ferryEN[5]={"Cadomyr Harbour","Runewick Harbour"}
 ferryDE[6]={"Cadomyr Hafen","Runewick Hafen"}
-ferryEN[6]={"Cadomyr Harbour","Runewick Harbour"}
+ferryEN[6]={"Cadomyr Harbour","Runewick Harbour" }
+ferryDE[7]={"Nördlicher Hafen"}
+ferryEN[7]={"Northern Harbour"}
 ferryDE[8]={"Nördlicher Hafen"}
 ferryEN[8]={"Northern Harbour"}
-ferryDE[9]={"Nördlicher Hafen"}
-ferryEN[9]={"Northern Harbour"}
+ferryDE[9]={"Galmair Hafen","Nördliche Inseln -  Ra","Nördliche Inseln -  Hept"}
+ferryEN[9]={"Galmair Harbour","Northern Islands -  Ra","Northern Islands -  Hept"}
 ferryDE[10]={"Galmair Hafen","Nördliche Inseln -  Ra","Nördliche Inseln -  Hept"}
 ferryEN[10]={"Galmair Harbour","Northern Islands -  Ra","Northern Islands -  Hept"}
 ferryDE[11]={"Galmair Hafen","Nördliche Inseln -  Ra","Nördliche Inseln -  Hept"}
 ferryEN[11]={"Galmair Harbour","Northern Islands -  Ra","Northern Islands -  Hept"}
 ferryDE[12]={"Galmair Hafen","Nördliche Inseln -  Ra","Nördliche Inseln -  Hept"}
 ferryEN[12]={"Galmair Harbour","Northern Islands -  Ra","Northern Islands -  Hept"}
-ferryDE[13]={"Galmair Hafen","Nördliche Inseln -  Ra","Nördliche Inseln -  Hept"}
-ferryEN[13]={"Galmair Harbour","Northern Islands -  Ra","Northern Islands -  Hept"}
-ferryDE[14]={"Galmair Hafen","Nördliche Inseln -  Ra","Northern Islands -  Yeg"}
+ferryDE[13]={"Galmair Hafen","Nördliche Inseln -  Ra","Northern Islands -  Yeg"}
+ferryEN[13]={"Galmair Harbour","Northern Islands -  Ra","Northern Islands -  Yeg"}
+ferryDE[14]={"Galmair Hafen","Nördliche Inseln -  Ra","Nördliche Inseln -  Yeg"}
 ferryEN[14]={"Galmair Harbour","Northern Islands -  Ra","Northern Islands -  Yeg"}
 ferryDE[15]={"Galmair Hafen","Nördliche Inseln -  Ra","Nördliche Inseln -  Yeg"}
 ferryEN[15]={"Galmair Harbour","Northern Islands -  Ra","Northern Islands -  Yeg"}
 ferryDE[16]={"Galmair Hafen","Nördliche Inseln -  Ra","Nördliche Inseln -  Yeg"}
-ferryEN[16]={"Galmair Harbour","Northern Islands -  Ra","Northern Islands -  Yeg"}
-ferryDE[17]={"Galmair Hafen","Nördliche Inseln -  Ra","Nördliche Inseln -  Yeg"}
-ferryEN[17]={"Galmair Harbour","Nördliche Inseln -  Ra","Northern Islands -  Yeg"}
+ferryEN[16]={"Galmair Harbour","Nördliche Inseln -  Ra","Northern Islands -  Yeg"}
+ferryDE[17]={"Galmair Hafen","Nördliche Inseln -  Hept","Nördliche Inseln -  Yeg"}
+ferryEN[17]={"Galmair Harbour","Northern Islands -  Hept","Northern Islands -  Yeg"}
 ferryDE[18]={"Galmair Hafen","Nördliche Inseln -  Hept","Nördliche Inseln -  Yeg"}
 ferryEN[18]={"Galmair Harbour","Northern Islands -  Hept","Northern Islands -  Yeg"}
 ferryDE[19]={"Galmair Hafen","Nördliche Inseln -  Hept","Nördliche Inseln -  Yeg"}
 ferryEN[19]={"Galmair Harbour","Northern Islands -  Hept","Northern Islands -  Yeg"}
 ferryDE[20]={"Galmair Hafen","Nördliche Inseln -  Hept","Nördliche Inseln -  Yeg"}
 ferryEN[20]={"Galmair Harbour","Northern Islands -  Hept","Northern Islands -  Yeg"}
-ferryDE[21]={"Galmair Hafen","Nördliche Inseln -  Hept","Nördliche Inseln -  Yeg"}
-ferryEN[21]={"Galmair Harbour","Northern Islands -  Hept","Northern Islands -  Yeg"}
+ferryDE[21]={"Cadomyr Hafen","Runewick Hafen"}
+ferryEN[21]={"Cadomyr Harbour","Runewick Harbour"}
 ferryDE[22]={"Cadomyr Hafen","Runewick Hafen"}
 ferryEN[22]={"Cadomyr Harbour","Runewick Harbour"}
-ferryDE[23]={"Cadomyr Hafen","Runewick Hafen"}
-ferryEN[23]={"Cadomyr Harbour","Runewick Harbour"}
-ferryDE[24]={"Quelle der Träume - Höhle"}
-ferryEN[24]={"Well of dreams - Cave"}
-ferryDE[25]={"Galmair"}
-ferryEN[25]={"Galmair"}
-ferryDE[26]={"Quelle der Träume - Höhle"}
-ferryEN[26]={"Well of dreams - Cave"}
-ferryDE[27]={"Galmair"}
-ferryEN[27]={"Galmair"}
+ferryDE[23]={"Quelle der Träume - Höhle"}
+ferryEN[23]={"Well of dreams - Cave"}
+ferryDE[24]={"Galmair"}
+ferryEN[24]={"Galmair"}
+ferryDE[25]={"Quelle der Träume - Höhle"}
+ferryEN[25]={"Well of dreams - Cave"}
+ferryDE[26]={"Galmair"}
+ferryEN[26]={"Galmair"}
+ferryDE[27]={"Ronagan Schrein"}
+ferryEN[27]={"Ronagan Shrine"}
 ferryDE[28]={"Ronagan Schrein"}
 ferryEN[28]={"Ronagan Shrine"}
-ferryDE[29]={"Ronagan Schrein"}
-ferryEN[29]={"Ronagan Shrine"}
+ferryDE[29]={"Schlackengrube"}
+ferryEN[29]={"Scoria Mine"}
 ferryDE[30]={"Schlackengrube"}
 ferryEN[30]={"Scoria Mine"}
-ferryDE[31]={"Schlackengrube"}
-ferryEN[31]={"Scoria Mine"}
-ferryDE[32]={"Fähre"}
-ferryEN[32]={"Ferry"}
 
 local ferryItem={}
 ferryItem[1]={2701,105}
@@ -183,7 +176,6 @@ ferryItem[27]={61}
 ferryItem[28]={61}
 ferryItem[29]={61}
 ferryItem[30]={61}
-ferryItem[31]={50}
 
 local ferryTargetPos={}
 ferryTargetPos[1]={position(102,790,0),position(728,809,0)}
@@ -216,11 +208,10 @@ ferryTargetPos[27]={position(375,262,-6)}
 ferryTargetPos[28]={position(375,262,-6)}
 ferryTargetPos[29]={position(360,259,-6)}
 ferryTargetPos[30]={position(360,260,-6)}
-ferryTargetPos[31]={position(355,864,2)}
 
 local ferryFactionHarborPos={position(690,320,0),position(101,790,0),position(727,809,0),position(451,95,0)}
 
-local noChoiceAndWrapDirectly={23,24,25,26,27,28,29,30,31}
+local noChoiceAndWrapDirectly={23,24,25,26,27,28,29,30}
 
 function M.MoveToField(User)
     if User:getType() ~= Character.player then
