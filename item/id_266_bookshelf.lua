@@ -74,7 +74,7 @@ M.bookList["runewick_on_runewick"] = {english = "Runewick, Towers of Wisdom and 
 M.bookList["gods1"] = {english = "The big lore of Illarion's Gods",german =  "Almanach der Götter Illarions", bookId = 10, bookGraphic = bookRedHeavy}
 M.bookList["gods2"] = {english = "Gods of Illarion",german =  "Illarions Götterwelt", bookId = 11, bookGraphic = bookRedLight}
 M.bookList["gods3"] = {english = "My first lore of the Gods",german =  "Meine erste Götterkunde", bookId = 12, bookGraphic = bookletBlue}
-M.bookList["statute_book_of_runewick"] = {english = "Statute Book of Runewick (35)",german =  "Gesetzesbuch von Runewick (35)", bookId = 13, bookGraphic = bookBlueOrnament}
+M.bookList["statute_book_of_runewick"] = {english = "Statute Book of Runewick (outdated)",german =  "Gesetzesbuch von Runewick (veraltet)", bookId = 13, bookGraphic = bookBlueOrnament}
 M.bookList["chronicles_of_galmair"] = {english = "The Chronicles of Galmair",german =  "Die Chroniken von Galmair", bookId = 14, bookGraphic = bookBlackSmallHeavy}
 M.bookList["history_of_runewick"] = {english = "History of Runewick",german =  "Geschichte von Runewick", bookId = 15, bookGraphic = bookBlueSilverLong}
 M.bookList["calendar"] = {english = "Something about the Calendar",german =  "Einiges Wissenswertes über den Kalender", bookId = 16, bookGraphic = bookGreyLargeHeavy}
@@ -128,7 +128,7 @@ M.bookList["akaltut_entry_riddle"] = {english = "Akaltut Entry Riddle",german = 
 M.bookList["the_read_wolf_and_the_bear"] = {english = "The fable of the red wolve and the bear",german =  "Das Märchen vom roten Wolf und dem Bär", bookId = 336, bookGraphic = bookBlackSilverLong}
 M.bookList["ritual_waterelemental_wascher"] = {english = "Summoning of the water elemental Pran Xixuan",german =  "Über die Beschwörung des Wasserelementars Pran Xixuan", bookId = 337, bookGraphic = bookletPink}
 M.bookList["resists_the_stake"] = {english = "Resist the stake!",german =  "Wider dem Scheiterhaufen", bookId = 338, bookGraphic = bookBlackRedRuneHeavy}
-M.bookList["lecture_runewick_history"] = {english = "Lecture Runewicks History",german =  "Vortrag zur Geschichte Runewicks", bookId = 339, bookGraphic = bookRedLight}
+M.bookList["lecture_runewick_history"] = {english = "Lecture Runewick’s history",german =  "Vortrag zur Geschichte Runewicks", bookId = 339, bookGraphic = bookRedLight}
 M.bookList["in_the_name_of_nargun_or_not"] = {english = "In the Name of Nargun!.. or not?",german =  "Im Namen von Nargun! .. oder auch nicht?", bookId = 340, bookGraphic = bookYellow}
 M.bookList["dragon_dreams"] = {english = "Dragon dreams",german =  "Drachenträume", bookId = 341, bookGraphic = bookBlackValuable}
 M.bookList["about_flame_orks"] = {english = "About Flame Orcs",german =  "Über die Flammenorks", bookId = 342, bookGraphic = bookBlueSilverLong}
@@ -161,6 +161,11 @@ M.bookList["broken_wreath"] = {english = "The broken wreath",german =  "Der zerb
 M.bookList["statute_hamlet_greenbriar"] = {english = "Laws of the Hamlet Greenbriar (23)",german =  "Gesetze des Hamlets Greenbriar (23)", bookId = 369, bookGraphic = bookRedHeavy}
 M.bookList["law_fairyland"] = {english = "Law of Fairyland",german =  "Gesetze des Feenreiches", bookId = 370, bookGraphic = bookletPink}
 M.bookList["rules_galmair"] = {english = "The rules of Galmair",german =  "Die Regeln Galmairs", bookId = 371, bookGraphic = bookRedBooklet}
+M.bookList["Ways_to_cherga"] = {english = "Ways to visit Cherga",german =  "Reisen auf Chergas Pfaden", bookId = 372, bookGraphic = bookRedHigh}
+M.bookList["Snakehead"] = {english = "The Stone Gaze",german =  "Der steinerne Blick", bookId = 373, bookGraphic = bookYellow}
+M.bookList["Cumunculus"] = {english = "Cumunculus",german =  "Cumunculus", bookId = 374, bookGraphic = bookBrown}
+M.bookList["Vuzembi_sacred_tree"] = {english = "Sacred Tree of the Vuzembi",german =  "Der heilige Baum der Vuzembi", bookId = 375, bookGraphic = bookBlackSilverLong}
+M.bookList["banana_receipes"] = {english = "Cooking with bananas",german =  "Kochen mit Bananen", bookId = 376, bookGraphic = bookGreenLight}
 M.bookList["cadomyr_order1"] = {english = "Order 04. Findos 38 AW",german =  "Befehl 04. Findos 38 n.VdH", bookId = 501, bookGraphic = pell}
 M.bookList["speech_rosaline_32_11_05"] = {english = "Speech 04. Findos 38 AW",german =  "Rede 05. Findos 38 n.VdH", bookId = 502, bookGraphic = pell}
 M.bookList["galmair_adjutant"] = {english = "Wanted! Adjutant",german =  "Gesucht! Adjutant", bookId = 506, bookGraphic = pell}
