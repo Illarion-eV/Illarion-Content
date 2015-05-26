@@ -1,15 +1,15 @@
 -- Illarion Server
--- 
+--
 -- This program is free software: you can redistribute it and/or modify it under
 -- the terms of the GNU Affero General Public License as published by the Free
 -- Software Foundation, either version 3 of the License, or (at your option) any
 -- later version.
--- 
+--
 -- This program is distributed in the hope that it will be useful, but WITHOUT
 -- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
 -- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 -- details.
--- 
+--
 -- You should have received a copy of the GNU Affero General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
@@ -153,9 +153,9 @@ queststatus(539) = 5, "task", "adventure", "order" -> "It is important that I se
 queststatus(539) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich muss unbedingt Kaefitys Rezept für diesen Trank sehen. Bitte versucht es für mich zu finden."
 
 -- 4th quest: Kill Kaefity's pet the swamp beast.
-queststatus(539) = 7, english, "quest", "mission" -> inform("[New quest] Viridian Needles Lair IV"), queststatus(539) = 8, "Kill Kaefity's pet for I fear they are somehow tied together! After he is destroyed we can stop his owners work."
+queststatus(539) = 7, english, "quest", "mission" -> inform("[New quest] Viridian Needles Lair IV"), queststatus(539) = 8, "Kill Kaefity's pet for I fear they are somehow tied together! After it is destroyed we can stop its owner's work."
 queststatus(539) = 7, "quest", "mission" -> inform("[Neues Quest] Viridian Nadeln Höhle IV"), queststatus(539) = 8, "Tötet Kaefitys Schoßtier, denn ich fürchte, dass sie irgendwie zusammenhängen. Nachdem es vernichtet ist, können wir die Machenschaften seines Meisters beenden."
-queststatus(539) = 7, "task", "adventure", "order" -> inform("[New quest] Viridian Needles Lair IV"), queststatus(539) = 8, "Kill Kaefity's pet for I fear they are somehow tied together! After he is destroyed we can stop his owners work."
+queststatus(539) = 7, "task", "adventure", "order" -> inform("[New quest] Viridian Needles Lair IV"), queststatus(539) = 8, "Kill Kaefity's pet for I fear they are somehow tied together! After it is destroyed we can stop its owner's work."
 queststatus(539) = 7, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Viridian Nadeln Höhle IV"), queststatus(539) = 8, "Tötet Kaefitys Schoßtier, denn ich fürchte, dass sie irgendwie zusammenhängen. Nachdem es vernichtet ist, können wir die Machenschaften seines Meisters beenden."
 
 -- Quest 4 solved
@@ -163,9 +163,9 @@ queststatus(539) = 9, english, ".+" -> inform("[Quest solved] You are awarded on
 queststatus(539) = 9, ".+" -> inform("[Quest gelöst] Du erhältst einhundert  Silberstücke."), money + 10000, queststatus(539) = 10, "Es sind wunderbare Nachrichten, dass das Biest vernichtet wurde. Nun können wir uns darauf konzentrieren, Kaefity selbst zu töten."
 
 -- Quest 4 not solved, repeat the instructions
-queststatus(539) = 8, english, "quest", "mission" -> "Kill Kaefity's pet for I fear they are somehow tied together! After he is destroyed we can stop his owners work."
+queststatus(539) = 8, english, "quest", "mission" -> "Kill Kaefity's pet for I fear they are somehow tied together! After it is destroyed we can stop its owner's work."
 queststatus(539) = 8, "quest", "mission" -> "Tötet Kaefitys Schoßtier, denn ich fürchte, dass sie irgendwie zusammenhängen. Nachdem es vernichtet ist, können wir die Machenschaften seines Meisters beenden."
-queststatus(539) = 8, "task", "adventure", "order" -> "Kill Kaefity's pet for I fear they are somehow tied together! After he is destroyed we can stop his owners work."
+queststatus(539) = 8, "task", "adventure", "order" -> "Kill Kaefity's pet for I fear they are somehow tied together! After it is destroyed we can stop its owner's work."
 queststatus(539) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Tötet Kaefitys Schoßtier, denn ich fürchte, dass sie irgendwie zusammenhängen. Nachdem es vernichtet ist, können wir die Machenschaften seines Meisters beenden."
 
 -- 5th quest: Kill Kaefity's
@@ -213,11 +213,11 @@ english, "Valerio", "Guilianni", "Don" -> "The Don is a tough taskmaster for Gal
 "Valerio", "Guilianni", "Don" -> "Der Don ist ein strenger Herr für Galmair, aber auch fair. Ich hoffe nur, dass ich die Aufgabe, die er mir aufgetragen hat, bald vollenden kann."
 english, "Galmair" -> "The Don is a tough taskmaster for Galmair, but he is fair. I just hope to finish this job he sent me to do soon."
 "Galmair" -> "Der Don ist ein strenger Herr für Galmair, aber auch fair. Ich hoffe nur, dass ich die Aufgabe, die er mir aufgetragen hat, bald vollenden kann."
-"Queen" -> "Cadomyr is ruled by the Queen. Ruled by a Woman. Nothing more needs said."
+"Queen" -> "Cadomyr is ruled by the Queen. Ruled by a woman. Nothing more needs said."
 "Königin" -> "Der Don ist ein strenger Herr für Galmair, aber auch fair. Ich hoffe nur, dass ich die Aufgabe, die er mir aufgetragen hat, bald vollenden kann."
-english, "rosaline", "edwards" -> "Cadomyr is ruled by the Queen. Ruled by a Woman. Nothing more needs said."
+english, "rosaline", "edwards" -> "Cadomyr is ruled by the Queen. Ruled by a woman. Nothing more needs said."
 "rosaline", "edwards" -> "Cadomyr wird von einer Königin regiert. Einer Frau. Dem ist nichts hinzuzufügen."
-english, "Cadomyr" -> "Cadomyr is ruled by the Queen. Ruled by a Woman. Nothing more needs said."
+english, "Cadomyr" -> "Cadomyr is ruled by the Queen. Ruled by a woman. Nothing more needs said."
 "Cadomyr" -> "Cadomyr wird von einer Königin regiert. Einer Frau. Dem ist nichts hinzuzufügen."
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
