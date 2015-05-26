@@ -167,7 +167,7 @@ english, "quest", "mission" -> "You are not a citizen of Runewick. I don't have 
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "Wenn Ihr Hilfe beim Schneidern braucht, dann fragt nur mich!", "If you need any help tailoring, just ask me!"
-cycletext "Ich kenne mich aus mit feinsten Gewändern.", "Ich know everything about finest garments."
+cycletext "Ich kenne mich aus mit feinsten Gewändern.", "I know everything about finest garments."
 cycletext "#me rollt eine Spule Garn auf.", "#me rolls up a clew of yarn."
 cycletext "Die besten Schneider arbeiten hier in dieser Schneiderei!", "The best tailors use to work in this tailor's shop!"
 cycletext "#me legt bunte Hemden zusammen.", "#me folds coloured shirts."
