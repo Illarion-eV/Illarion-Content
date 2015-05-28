@@ -116,9 +116,9 @@ english, "inform" -> inform("[Keywords] building, location, event, people, histo
 "location" -> inform("[Keywords] Hinterland, Numila Irunnleh"), "Locations? Which locations of the hinterland do you mean? I recommend also talking to a geographer about them. I suggest Numila Irunnleh, who can be found in the Library of Earth."
 "Ort" -> inform("[Schlüsselwörter] Hinterland, Numila Irunnleh"), "Orte? Welche Orte des Hinterlandes meint ihr? Ich empfehle auch mit einem Geograph darüber zu sprechen. Ich kann euch eine in der Bibliothek der Erde empfehlen. Sie wird Numila Irunnleh genannt."
 queststatus(620) < 1, english, "Numila", "Irunnleh" -> inform("[New Quest 'Find Numila' started] Try to find Numila Irunnleh and get your reward."), "She is a geographer and can be found in the Library on the Island of Spirit. She will tell you information about locations outside of Runewick like Yewdale, Bear cave, Snakehead Bay, Illarion, Shadowland and other places you might like to know.", queststatus(620) = 1
-queststatus(620) < 1, "Numila", "Irunnleh" -> inform("[Neues Quest 'Finde Numila' gestartet] Finde Numila Irunnleh und erhalte deine Belohnung."), "Sie ist eine Geographin und kann in der Bibliothek auf der Insel des Geistes gefunden werden. Sie wird euch über Orte wie Eibental, Bärenhöhle, Schlangekopfbucht, Illarion, Schattenland und andere Orte informieren über die ihr gerne mehr wissen möchtet.", queststatus(620) = 1
+queststatus(620) < 1, "Numila", "Irunnleh" -> inform("[Neues Quest 'Finde Numila' gestartet] Finde Numila Irunnleh und erhalte deine Belohnung."), "Sie ist eine Geographin und kann in der Bibliothek auf der Insel des Geistes gefunden werden. Sie wird euch über Orte wie Eibenthal, Bärenhöhle, Schlangekopfbucht, Illarion, Schattenland und andere Orte informieren über die ihr gerne mehr wissen möchtet.", queststatus(620) = 1
 english, "Numila", "Irunnleh" -> "She is a geographer and can be found in the Central Library. She will tell you information about locations outside of Runewick like Yewdale, Bear cave, Snakehead Bay, Illarion, Shadowland and other places you might like to know."
-"Numila", "Irunnleh" -> "Sie ist eine Geographin und kann in der Zentralbibliothek gefunden werden. Sie wird euch über Orte wie Eibental, Bärenhöhle, Schlangekopfbucht, Illarion, Schattenland und andere Orte erzählen über die ihr gerne mehr wissen möchtet."
+"Numila", "Irunnleh" -> "Sie ist eine Geographin und kann in der Zentralbibliothek gefunden werden. Sie wird euch über Orte wie Eibenthal, Bärenhöhle, Schlangekopfbucht, Illarion, Schattenland und andere Orte erzählen über die ihr gerne mehr wissen möchtet."
 "people" -> "People? Whom else do you desire to talk with other than our Archmage? I do not think anyone else has more wisdom, therefore do not waste your time with other people and more importantly, do not bother me with questions about them."
 "Leute" -> "Leute? Mit wem außer dem Erzmagier möchtet ihr ansonsten sprechen? Ich kenne niemanden der größere Weisheit als er besitzt. Daher verschwendet nicht eure Zeit und ärgert mich nicht mit Fragen über andere Leute."
 "history" -> "I do not think that you have time to listen to all my knowledge about our history, therefore, I recommend the history book in our libraries."
@@ -140,9 +140,9 @@ town = Runewick, "Zensusbüro" -> "Das Zensusbüro im zweiten Stock im Gebäude auf
 "Zensusbüro" -> "Das Zensusbüro im zweiten Stock im Gebäude auf der Insel des Geistes gefunden werden. Dort könnt ihr dem Reich der Weisheit beitreten."
 
 "Yewdale" -> "Yewdale is the village west of Runewick. For more detailsask Numila Irunnleh."
-"Eibental" -> "Das Eibental ist das dorf westlich von Runewick. Befragt Numila Irunnleh um nähere Information zu erhalten."
+"Eibenthal" -> "Das Eibenthal ist das dorf westlich von Runewick. Befragt Numila Irunnleh um nähere Information zu erhalten."
 "Shrine.*Oldra", "Findari Oldra" -> "The Shrine of Oldra can be found in Yewdale."
-"Schrein.*Oldra", "Findari Oldra" -> "Der Schrein der Oldra kann in Eibental gefunden werden."
+"Schrein.*Oldra", "Findari Oldra" -> "Der Schrein der Oldra kann in Eibenthal gefunden werden."
 english, "Tomb" -> inform("[Keywords] Room of Light, Room of Darkness, Room of  Twilight"), "To reach the tomb you have to leave the town and go north. The tomb is divided in three rooms: Room of Light, Room of Darkness, and Room of Twilight."
 "Gruft" -> inform("[Schlüsselwörter] Raum des Lichts, Raum der Finsternis, Raum des Zwielichts"), "Um die Gruft zu erreichen müsst ihr aus der Stadt wieder heraus und dann gleich nach Norden. Die Gruft ist unterteilt in drei Räume: Raum des Lichts, Raum der Finsternis, und Raum des Zwielichts."
 "Room.*Twilight" -> "The Room of Twilight is the place for those who were neither at the top or on the bottom of the god given hierarchy. Gregor, a human whom you should find on your way to the tomb, will tell you more."
@@ -229,7 +229,7 @@ english, "Hinterland" -> inform("[Keywords] Fire of Triumph, Holy Oak, Twin Eyes
 "Mermaid" -> "Just follow the west coast to the south after the Lurnord Bridge and you will find this place with a statue of a beautiful woman. This place is also used by fishers who are waiting to get in touch with the mermaid."
 "Meerjungfrau" -> "Folget der Westküste in den Süden nach der Lurnord Brücke und ihr werdet diesen Ort mit einer Statue einer schönen Frau finden. Dieser Ort wird auch von vielen Fischern verwendet, die auf die Meerjungfrau warten."
 "Lurnord bridge" -> "This is the bridge between Runewick and Yewdale. It was destroyed years ago after a war with Galmair and rebuilt by a friend of mine who left afterwards. Lunord was his name."
-"Lurnord Brücke" -> "Das ist die Brücke zwischen Runewick und dem Eibental. Sie war einige Jahre zuvor zerstört durch einen Krieg mit Galmair und wurde von einen Freund von mir wiederaufgebaut, welcher nun gegangen ist. Sein Name war Lunord."
+"Lurnord Brücke" -> "Das ist die Brücke zwischen Runewick und dem Eibenthal. Sie war einige Jahre zuvor zerstört durch einen Krieg mit Galmair und wurde von einen Freund von mir wiederaufgebaut, welcher nun gegangen ist. Sein Name war Lunord."
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 -- quest information_runewick_1.quest belongs to this NPC: Quest-ID.: 621
@@ -294,7 +294,7 @@ english, "Moshran" -> "#me narrows her eyes and takes a blade which she swings i
 english, "Nargun", "Nargún", "Nargùn" -> "One of the unimportant Younger Gods. You can find followers in Galmair."
 "Nargun", "Nargún", "Nargùn" -> "Einer der unwichtigen jüngeren Götter. Man kann Anhänger in Galmair finden."
 english, "Oldra" -> "Most of her priests are female, who serve the Goddess into old age. They think that when they die, they will be brought to a big garden gate. If they have been good, they can enjoy the wonders of the never ending garden. There is a shrine dedicated to her here in Yewdale on the coast."
-"Oldra" -> "Die meisten Ihrer Priester sind weiblich und dienen der Gottheit bis ins hohe Alter. Sie glauben wenn sie sterben, werden sie zu einem prachtvollen Gartentor gebracht, und wenn sie gut waren dürfen sie an diesem wunderbaren Ort leben. Wie dem auch sei, im Eibental an der Küste findet ihr einen Schrein."
+"Oldra" -> "Die meisten Ihrer Priester sind weiblich und dienen der Gottheit bis ins hohe Alter. Sie glauben wenn sie sterben, werden sie zu einem prachtvollen Gartentor gebracht, und wenn sie gut waren dürfen sie an diesem wunderbaren Ort leben. Wie dem auch sei, im Eibenthal an der Küste findet ihr einen Schrein."
 english, "Ronagan" -> "One of the unimportant Younger Gods. You can find followers in Galmair."
 "Ronagan" -> "Einer der unwichtigen jüngeren Götter. Man kann Anhänger in Galmair finden."
 english, "Sirani" -> "One of the unimportant Younger Gods. You can find followers in Cadomyr."
