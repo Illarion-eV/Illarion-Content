@@ -23,12 +23,12 @@ local townTreasure = require("base.townTreasure")
 local gems = require("item.gems")
 local factionLeader = require("scheduled.factionLeader")
 
--- called after every player login
+-- Called after every player login
 
 local M = {}
 
 -- Load messages of the day
---German
+-- German
 local messageG = {}
 messageG[1]="[Tipp] Leichte Rüstungen aus Leder schützen sehr gut gegen stumpfe Waffen aber schlecht gegen Hiebwaffen."
 messageG[2]="[Tipp] Mittlere Rüstungen wie Kettenhemden schützen sehr gut gegen Hiebwaffen aber schlecht gegen Stich- und Distanzwaffen."
@@ -111,7 +111,7 @@ messageG[78]="[Tipp] Es ist nicht nötig, den ganzen Tag hart zu arbeiten, um dei
 messageG[79]="[Tipp] Die Steuerungstaste schaltet zwischen Gehen und Laufen um."
 --messageG[XX]="[Tipp] Um die Sprache deines Charakters umzustellen, schreibe '!l' gefolgt von der gewünschten Sprache: Common, Elf, Human, Dwarf, Halfling, Lizard."
 
---English
+-- English
 local messageE = {}
 messageE[1]="[Hint] Light armours, such as those made of leather, offer good protection against blunt weapons but perform poorly against slashing weapons."
 messageE[2]="[Hint] Medium armours, such as chain mail, offer good protection against slashing weapons but are more vulnerable to stabbing weapons."
@@ -194,7 +194,7 @@ messageE[78]="[Hint] It is not necessary to work all day long to raise your skil
 messageE[79]="[Hint] CTRL toggles walking/running."
 --messageE[XX]="[Hint] To switch the language of your character, type '!l' followed by the desired language: Common, Elf, Human, Dwarf, Halfling, Lizard."
 
--- messages of the day - END
+-- Messages of the day - END
 
 local welcomeNewPlayer
 local informPlayeraboutTaxandGems
@@ -211,7 +211,7 @@ function M.onLogin( player )
 
     welcomeNewPlayer(player)
 
-    world:gfx(31, player.pos) --A nice GFX that announces clearly: A player logged in.
+    world:gfx(31, player.pos) --A GFX that announces clearly: A player logged in.
 
     --General welcome message
     local players = world:getPlayersOnline() --Reading all players online so we can count them
@@ -240,10 +240,10 @@ function M.onLogin( player )
         common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist "..hourStringG.." am "..datum..". "..monthString..". Ein Spieler ist online.","[Login] Welcome to Illarion! It is "..hourStringE.." on the "..datum..""..extensionString.." of "..monthString..". One player is online.") --sending a message
     end
 
-    --Taxes (has to be redone by "someone")
+    --Taxes
     if not player:isAdmin() then --Admins don't pay taxes or get gems.
-        if not (player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan") then --leader don't pay taxes or get gems
-            -- So let there be taxes!
+        if not (player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan") then --Leader don't pay taxes or get gems
+
             local taxText = payTaxes(player)
             local gemText = receiveGems(player)
             if gemText ~= nil or taxText ~= nil then
@@ -283,7 +283,7 @@ function M.onLogin( player )
     end
     --TEMPORARY SOLUTION END
 
-    --IMO a dirty hack to display bars correctly
+    --A hack to display bars correctly
     player:increaseAttrib("foodlevel", -1)
 
     --Check regeneration script
