@@ -24,7 +24,7 @@ local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}
-Title[GERMAN] = "Finde Borgate Northoff im Gasthaus zur Hanfschlinge (Spinnen Maul)"
+Title[GERMAN] = "Finde Borgate Northoff im Gasthaus zur Hanfschlinge (Spinnenmaul)"
 Title[ENGLISH] = "Find Borgate Northoff in the Hemp Necktie Inn (Spider's Mouth)"
 
 -- Insert an extensive description of each status here, in both languages
