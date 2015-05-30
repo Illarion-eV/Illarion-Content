@@ -60,6 +60,13 @@ function M.UseItem(User, SourceItem)
         return
     end
 
+    local itemData
+    local isronaganTrap = (SourceItem:getData("ronaganTrap") == "true")
+    if (isronaganTrap) then
+        User:inform("Ein Dieb hat dich in eine Falle gelockt. Er springt aus einem der Schatten und stielt dir ein paar Münzen.", "A thief has lured you into a trap, jumping out from a shadow, he steals some coins from you.")
+        User:erase(3077, 5)
+   end
+    
     local doorItem = getDoor(User)
     if not doorItem then
         return
