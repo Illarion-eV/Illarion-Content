@@ -67,7 +67,7 @@ function M.resetMapitem()
 
   -- reset the fires at Ronagan Dungeon
   if (world:getItemOnField(ronaganFirePos).id == 12) then
-    world:createItemFromId(298, 1, pos, true, 333, nil); --unlit fire
+    world:createItemFromId(298, 1, ronaganFirePos, true, 333, nil); --unlit fire
     end
     
   -- reset akultut burning room
