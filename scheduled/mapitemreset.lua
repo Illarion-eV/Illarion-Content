@@ -53,40 +53,40 @@ function M.resetMapitem()
   -- reset the fires at Ronagan Dungeon
 
     if (world:getItemOnField(position(898, 600, -9)).id ~= 298) then
-        world:erase(12, 1, position(898, 600, -9), true, 333, nil); --lit fire
+        wworld:erase(deleteItem,1); --lit fire
         world:createItemFromId(298, 1, position(898, 600, -9), true, 333, nil); --unlit fire
     elseif (world:getItemOnField(position(898, 597, -9)).id ~= 298) then
-        world:erase(12, 1, position(898, 597, -9), true, 333, nil); --lit fire
+        world:erase(deleteItem,1); --lit fire
         world:createItemFromId(298, 1, position(898, 597, -9), true, 333, nil); --unlit fire
     elseif (world:getItemOnField(position(894, 600. -9)).id ~= 298) then
-        world:erase(12, 1,position(894, 600. -9), true, 333, nil); --lit fire
+        world:erase(deleteItem,1); --lit fire
         world:createItemFromId(298, 1, position(894, 600. -9), true, 333, nil); --unlit fire
     elseif (world:getItemOnField(position(894, 597, -9)).id ~= 298) then
-        world:erase(12, 1, position(894, 597, -9), true, 333, nil); --lit fire
+        world:erase(deleteItem,1); --lit fire
         world:createItemFromId(298, 1, position(894, 597, -9), true, 333, nil); --unlit fire
     elseif (world:getItemOnField(position(898, 594, -9)).id ~= 298) then
-        world:erase(12, 1, position(898, 594, -9), true, 333, nil); --lit fire
+        world:erase(deleteItem,1); --lit fire
         world:createItemFromId(298, 1, position(898, 594, -9), true, 333, nil); --unlit fire
     elseif (world:getItemOnField(position(894, 594, -9)).id ~= 298) then
-        world:erase(12, 1, position(894, 594, -9), true, 333, nil); --lit fire
+        world:erase(deleteItem,1); --lit fire
         world:createItemFromId(298, 1, position(894, 594, -9), true, 333, nil); --unlit fire
     elseif (world:getItemOnField(position(894, 591, -9)).id ~= 298) then
-        world:erase(12, 1, position(894, 591, -9), true, 333, nil); --lit fire
+        world:erase(deleteItem,1); --lit fire
         world:createItemFromId(298, 1, position(894, 591, -9), true, 333, nil); --unlit fire
     elseif (world:getItemOnField(position(898, 588, -9)).id ~= 298) then
-        world:erase(12, 1, position(898, 588, -9), true, 333, nil); --lit fire
+        world:erase(deleteItem,1); --lit fire
         world:createItemFromId(298, 1, position(898, 588, -9), true, 333, nil); --unlit fire
     elseif (world:getItemOnField( position(894, 588, -9)).id ~= 298) then
-        world:erase(12, 1,  position(894, 588, -9), true, 333, nil); --lit fire
+        world:erase(deleteItem,1); --lit fire
         world:createItemFromId(298, 1,  position(894, 588, -9), true, 333, nil); --unlit fire
     elseif (world:getItemOnField(position(898, 585, -9)).id ~= 298) then
         world:erase(12, 1, position(898, 585, -9), true, 333, nil); --lit fire
         world:createItemFromId(298, 1, position(898, 585, -9), true, 333, nil); --unlit fire
     elseif (world:getItemOnField(position(894, 585, -9)).id ~= 298) then
-        world:erase(12, 1, position(894, 585, -9), true, 333, nil); --lit fire
+        world:erase(deleteItem,1); --lit fire
         world:createItemFromId(298, 1, position(894, 585, -9), true, 333, nil); --unlit fire
     elseif (world:getItemOnField(position(898, 591, -9)).id ~= 298) then
-        world:erase(12, 1, position(898, 591, -9), true, 333, nil); --lit fire
+        world:erase(deleteItem,1); --lit fire
         world:createItemFromId(298, 1, position(898, 591, -9), true, 333, nil); --unlit fire
         end
     
