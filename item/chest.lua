@@ -59,6 +59,13 @@ function M.UseItem(User, SourceItem)
                 return
             end
     end
+    
+    local itemData
+    local isronaganChest = (TargetItem:getData("ronaganChest") == "true")
+    if (isronaganChest) then
+        ronaganContents(User, SourceItem)
+        return
+    end
 end
 
 function ChestContents(User, chestItem)
@@ -68,8 +75,8 @@ function ChestContents(User, chestItem)
     local trippingTime = chestItem:getData("tripping_time")
 
     if (trippingTime ~= "" and ((tonumber(trippingTime) + 300) > serverTime)) then
-        User:inform("Du findest nichts in diesem Fass.",
-                    "You find nothing inside this barrel.")
+        User:inform("Du findest nichts in diesem Truhe.",
+                    "You find nothing inside this chest.")
         return
     end
     -- safe tripping time
@@ -96,6 +103,44 @@ function ChestContents(User, chestItem)
         world:gfx(41, monPos) -- swirly
         User:inform("Während Du suchst, schleicht irgendwas aus den Schatten um dich herum.",
             "As you are searching, something sneaks in from the shadows around you.")
+    end
+end
+
+function ronaganContents(User, ronaganItem)
+
+    -- skip if already tripped in the last 5 minutes
+    local serverTime = world:getTime("unix")
+    local trippingTime = ronaganItem:getData("tripping_time")
+
+    if (trippingTime ~= "" and ((tonumber(trippingTime) + 300) > serverTime)) then
+        User:inform("Du findest nichts in diesem Truhe.",
+                    "You find nothing inside this chest.")
+        return
+    end
+    -- safe tripping time
+    ronaganItem:setData("tripping_time", serverTime)
+    world:changeItem(ronaganItem)
+
+    local random_number = math.random(1,100)
+    if random_number >= 0 and random_number <= 30 then
+        User:inform("", "You search to the bottom but find nothing but rat droppings.")
+    elseif random_number >= 31 and random_number <= 60 then
+        User:inform("", "As you search, you find a stash of money bags, that are all empty.")
+    elseif random_number >= 61 and random_number <= 85 then
+        User:inform("Du findest eine Silbermünzen.","You discover a five silver coins.")
+        local notCreated = User:createItem(3077, 5, 333, nil) -- silver coin
+        if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+            world:createItemFromId(3077, notCreated, User.pos, true, 333, nil)
+            common.HighInformNLS(User,
+                "Du kannst nichts mehr halten.",
+                "You can't carry any more.")
+        end
+    elseif random_number >= 86 and random_number <=100 then
+        local monPos = common.getFreePos(chestItem.pos, 4) -- radius 4 around chest
+        world:createMonster(5, monPos, -20)
+        world:gfx(41, monPos) -- swirly
+        User:inform("",
+            "Your attempts at theft have been discovered.")
     end
 end
 
