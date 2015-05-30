@@ -66,7 +66,8 @@ function M.resetMapitem()
   end
 
   -- reset the fires at Ronagan Dungeon
-  if (world:getItemOnField(ronaganFirePos).id == 12) then
+  if (world:getItemOnField(ronaganFirePos).id ~= 298) then
+    world:eraseItemFromId(12, 1, ronaganFirePos, true, 333, nil); --lit fire
     world:createItemFromId(298, 1, ronaganFirePos, true, 333, nil); --unlit fire
     end
     
