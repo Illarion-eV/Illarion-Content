@@ -178,7 +178,7 @@ function ronaganTreasureContents(User, ronaganTreasureItem)
                 "You can't carry any more.")
         end
     elseif random_number >= 5 then
-        local monPos = common.getFreePos(ronaganItem.pos, 4) -- radius 4 around chest
+        local monPos = common.getFreePos(ronagantreasureItem.pos, 4) -- radius 4 around chest
         world:createMonster(43, monPos, -20)
         world:gfx(41, monPos) -- swirly
         User:inform("Du wurdest bei deinen Diebstahlversuchen ertappt.",
