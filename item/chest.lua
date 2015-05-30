@@ -136,7 +136,7 @@ function ronaganContents(User, ronaganItem)
                 "You can't carry any more.")
         end
     elseif random_number >= 86 and random_number <=100 then
-        local monPos = common.getFreePos(chestItem.pos, 4) -- radius 4 around chest
+        local monPos = common.getFreePos(ronaganItem.pos, 4) -- radius 4 around chest
         world:createMonster(5, monPos, -20)
         world:gfx(41, monPos) -- swirly
         User:inform("",
