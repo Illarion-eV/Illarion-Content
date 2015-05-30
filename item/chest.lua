@@ -66,6 +66,12 @@ function M.UseItem(User, SourceItem)
         ronaganContents(User, SourceItem)
         return
     end
+    
+    local isronaganTreasurechest = (SourceItem:getData("ronaganTreasurechest") == "true")
+    if (isronaganTreasurechest) then
+        ronaganTreasureContents(User, SourceItem)
+        return
+    end
 end
 
 function ChestContents(User, chestItem)
@@ -123,11 +129,11 @@ function ronaganContents(User, ronaganItem)
 
     local random_number = math.random(1,100)
     if random_number >= 0 and random_number <= 30 then
-        User:inform("", "You search to the bottom but find nothing but rat droppings.")
+        User:inform("", "The chest is full of various stolen items, but nothing you want.")
     elseif random_number >= 31 and random_number <= 60 then
-        User:inform("", "As you search, you find a stash of money bags, that are all empty.")
+        User:inform("Als Du suchst, findest Du einen Stapel Geldbörsen - aber alle sind leer.", "As you search, you find a stash of money bags, that are all empty.")
     elseif random_number >= 61 and random_number <= 85 then
-        User:inform("Du findest eine Silbermünzen.","You discover a five silver coins.")
+        User:inform("Du findest fünf Silbermünzen.","You discover a five silver coins.")
         local notCreated = User:createItem(3077, 5, 333, nil) -- silver coin
         if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
             world:createItemFromId(3077, notCreated, User.pos, true, 333, nil)
@@ -139,7 +145,43 @@ function ronaganContents(User, ronaganItem)
         local monPos = common.getFreePos(ronaganItem.pos, 4) -- radius 4 around chest
         world:createMonster(5, monPos, -20)
         world:gfx(41, monPos) -- swirly
-        User:inform("",
+        User:inform("Du wurdest bei deinen Diebstahlversuchen ertappt.",
+            "Your attempts at theft have been discovered.")
+    end
+end
+
+function ronaganTreasureContents(User, ronaganTreasureItem)
+
+    -- skip if already tripped in the last 1 hours
+    local serverTime = world:getTime("unix")
+    local trippingTime = ronaganTreasureItem:getData("tripping_time")
+
+    if (trippingTime ~= "" and ((tonumber(trippingTime) + 3600) > serverTime)) then
+        User:inform("Du findest nichts in diesem Truhe.",
+                    "You find nothing inside this chest.")
+        return
+    end
+    -- safe tripping time
+    ronaganTreasureItem:setData("tripping_time", serverTime)
+    world:changeItem(ronaganTreasureItem)
+
+    local random_number = math.random(1,5)
+    if random_number >= 0 and random_number <= 2 then
+        User:inform("Du findest nichts in diesem Truhe.", "This chest is currently empty.")
+    elseif random_number >= 3 and random_number <= 4 then
+        User:inform("Du findest eine Topaskette.","You discover a topaz amulet.")
+        local notCreated = User:createItem(83, 1, 899, nil) -- topaz amulet
+        if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+            world:createItemFromId(83, notCreated, User.pos, true, 899, nil)
+            common.HighInformNLS(User,
+                "Du kannst nichts mehr halten.",
+                "You can't carry any more.")
+        end
+    elseif random_number >= 5 then
+        local monPos = common.getFreePos(ronaganItem.pos, 4) -- radius 4 around chest
+        world:createMonster(43, monPos, -20)
+        world:gfx(41, monPos) -- swirly
+        User:inform("Du wurdest bei deinen Diebstahlversuchen ertappt.",
             "Your attempts at theft have been discovered.")
     end
 end
