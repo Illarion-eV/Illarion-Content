@@ -129,11 +129,11 @@ function ronaganContents(User, ronaganItem)
 
     local random_number = math.random(1,100)
     if random_number >= 0 and random_number <= 30 then
-        User:inform("", "The chest is full of various stolen items, but nothing you want.")
+        User:inform("Die Truhe ist voll mit verschiedenstem Diebesgut, aber es ist nichts dabei, was du möchtest.", "The chest is full of various stolen items, but nothing you want.")
     elseif random_number >= 31 and random_number <= 60 then
-        User:inform("Als Du suchst, findest Du einen Stapel Geldbörsen - aber alle sind leer.", "As you search, you find a stash of money bags, that are all empty.")
+        User:inform("Du stößt im Inneren auf eine Falle, kannst ihr aber gerade noch ausweichen.", "You find a trap inside, but are able to narrowly avoid it.")
     elseif random_number >= 61 and random_number <= 85 then
-        User:inform("Du findest fünf Silbermünzen.","You discover a five silver coins.")
+        User:inform("Du findest fünf Silbermünzen.","You discover five silver coins.")
         local notCreated = User:createItem(3077, 5, 333, nil) -- silver coin
         if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
             world:createItemFromId(3077, notCreated, User.pos, true, 333, nil)
@@ -165,10 +165,10 @@ function ronaganTreasureContents(User, ronaganTreasureItem)
     ronaganTreasureItem:setData("tripping_time", serverTime)
     world:changeItem(ronaganTreasureItem)
 
-    local random_number = math.random(1,5)
-    if random_number >= 0 and random_number <= 2 then
+    local random_number = math.random(1,100)
+    if random_number >= 0 and random_number <= 45 then
         User:inform("Du findest nichts in diesem Truhe.", "This chest is currently empty.")
-    elseif random_number >= 3 and random_number <= 3 then
+    elseif random_number >= 46 and random_number <= 50 then
         User:inform("Du findest eine Topaskette.","You discover a topaz amulet.")
         local notCreated = User:createItem(83, 1, 899, nil) -- topaz amulet
         if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
@@ -177,7 +177,7 @@ function ronaganTreasureContents(User, ronaganTreasureItem)
                 "Du kannst nichts mehr halten.",
                 "You can't carry any more.")
         end
-    elseif random_number >= 4 and random_number <= 5 then
+    elseif random_number >= 51 and random_number <= 100 then
         local monPos = common.getFreePos(ronaganTreasureItem.pos, 2) -- radius 2 around chest
         world:createMonster(43, monPos, -20)
         world:gfx(41, monPos) -- swirly
