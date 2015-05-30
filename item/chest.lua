@@ -61,7 +61,7 @@ function M.UseItem(User, SourceItem)
     end
     
     local itemData
-    local isronaganChest = (TargetItem:getData("ronaganChest") == "true")
+    local isronaganChest = (SourceItem:getData("ronaganChest") == "true")
     if (isronaganChest) then
         ronaganContents(User, SourceItem)
         return
