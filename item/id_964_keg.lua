@@ -42,7 +42,7 @@ function M.UseItem(User, SourceItem)
     local itemData
     local isronaganKeg = (SourceItem:getData("ronaganKeg") == "true")
     if (isronaganKeg) then
-        ronaganContents(User, SourceItem)
+        ronagankegContents(User, SourceItem)
         return
     end
 end
@@ -85,11 +85,11 @@ function KegContents(User, kegItem)
     end
 end
 
-function ronaganContents(User, ronaganItem)
+function ronagankegContents(User, ronagankegItem)
 
     -- skip if already tripped in the last 5 minutes
     local serverTime = world:getTime("unix")
-    local trippingTime = ronaganItem:getData("tripping_time")
+    local trippingTime = ronagankegItem:getData("tripping_time")
 
     if (trippingTime ~= "" and ((tonumber(trippingTime) + 300) > serverTime)) then
         User:inform("Du findest nichts in diesem Fass.",
@@ -97,8 +97,8 @@ function ronaganContents(User, ronaganItem)
         return
     end
     -- safe tripping time
-    ronaganItem:setData("tripping_time", serverTime)
-    world:changeItem(ronaganItem)
+    ronagankegItem:setData("tripping_time", serverTime)
+    world:changeItem(ronagankegItem)
 
     local random_number = math.random(1,100)
     if random_number >= 0 and random_number <= 30 then
@@ -115,7 +115,7 @@ function ronaganContents(User, ronaganItem)
                 "You can't carry any more.")
         end
     elseif random_number >= 86 and random_number <=100 then
-        local monPos = common.getFreePos(ronaganItem.pos, 4) -- radius 4 around chest
+        local monPos = common.getFreePos(ronagankegItem.pos, 4) -- radius 4 around chest
         world:createMonster(23, monPos, -20)
         world:gfx(41, monPos) -- swirly
         User:inform("Du wurdest bei deinen Diebstahlversuchen ertappt.",
