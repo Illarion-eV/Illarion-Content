@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE items SET itm_script='item.chest' WHERE itm_id IN (1362,8,1367,1360,1362,1361);
+-- UPDATE items SET itm_script='item.chest' WHERE itm_id IN (1362,8,1367,1360,1362,1361,649,650);
 
 local common = require("base.common")
 
@@ -142,7 +142,7 @@ function ronaganContents(User, ronaganItem)
                 "You can't carry any more.")
         end
     elseif random_number >= 86 and random_number <=100 then
-        local monPos = common.getFreePos(ronaganItem.pos, 4) -- radius 4 around chest
+        local monPos = common.getFreePos(ronaganItem.pos, 2) -- radius 2 around chest
         world:createMonster(5, monPos, -20)
         world:gfx(41, monPos) -- swirly
         User:inform("Du wurdest bei deinen Diebstahlversuchen ertappt.",
@@ -168,7 +168,7 @@ function ronaganTreasureContents(User, ronaganTreasureItem)
     local random_number = math.random(1,5)
     if random_number >= 0 and random_number <= 2 then
         User:inform("Du findest nichts in diesem Truhe.", "This chest is currently empty.")
-    elseif random_number >= 3 and random_number <= 4 then
+    elseif random_number >= 3 and random_number <= 3 then
         User:inform("Du findest eine Topaskette.","You discover a topaz amulet.")
         local notCreated = User:createItem(83, 1, 899, nil) -- topaz amulet
         if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
@@ -177,8 +177,8 @@ function ronaganTreasureContents(User, ronaganTreasureItem)
                 "Du kannst nichts mehr halten.",
                 "You can't carry any more.")
         end
-    elseif random_number >= 5 then
-        local monPos = common.getFreePos(ronaganTreasureItem.pos, 4) -- radius 4 around chest
+    elseif random_number >= 4 and random_number <= 5 then
+        local monPos = common.getFreePos(ronaganTreasureItem.pos, 2) -- radius 2 around chest
         world:createMonster(43, monPos, -20)
         world:gfx(41, monPos) -- swirly
         User:inform("Du wurdest bei deinen Diebstahlversuchen ertappt.",
