@@ -105,7 +105,6 @@ function StartGathering(User, SourceItem, ltstate)
 
 	common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 
-
 	-- check if it is a special and therefore uncuttable tree
 	if SourceItem:getData("treeProtectionType") ~= "" then
 	    preventCutting(User, toolItem, SourceItem)
@@ -135,6 +134,9 @@ function StartGathering(User, SourceItem, ltstate)
 		return;
 	end
 
+    -- user feedback per nice animation
+    User:performAnimation(5)
+
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,toolItem);
 		User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 6, 0);
@@ -145,7 +147,6 @@ function StartGathering(User, SourceItem, ltstate)
 	end
 
 	-- since we're here, we're working
-	User:performAnimation(5);
 	if theCraft:FindRandomItem(User) then
 		if ( changeItem ) then
 			world:changeItem(SourceItem);

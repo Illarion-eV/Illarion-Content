@@ -62,16 +62,16 @@ function StartGathering(User, SourceItem, ltstate)
 
 	common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 
+    -- user feedback per nice animation
+    User:performAnimation(14)
+
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		mining.SavedWorkTime[User.id] = mining:GenWorkTime(User, toolItem);
 		User:startAction( mining.SavedWorkTime[User.id], 0, 0, 18, 15);
-		User:performAnimation(14);
 		return
 	end
 
 	-- since we're here, we're working
-
-	User:performAnimation(14);
 	if mining:FindRandomItem(User) then
 		return
 	end
