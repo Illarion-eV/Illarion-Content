@@ -26,7 +26,7 @@ local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}
-Title[GERMAN] = "Elstree Waldläuferin"
+Title[GERMAN] = "Waldläufer des Elsbaumwaldes"
 Title[ENGLISH] = "Elstree Ranger"
 
 -- Insert an extensive description of each status here, in both languages
@@ -154,7 +154,7 @@ monsterQuests.addQuest{
     questId = 500,
     location = {position = position(786, 474, 0), radius = 50},
     queststatus = {from = 3, to = 13},
-    questTitle = {german = "Elstree Waldläuferin II", english = "Elstree Ranger II"},
+    questTitle = {german = "Waldläufer des Elsbaumwaldes II", english = "Elstree Ranger II"},
     monsterName = {german = "Wildschweine", english = "boars"},
     npcName = "Melanie Meadowlark",
     raceIds = {24} -- all pigs

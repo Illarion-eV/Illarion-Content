@@ -78,9 +78,9 @@ itemShoes = 698
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted!", "Welcome to Elstree Forest.", "Greetings, please mind the fairies and stay away from their cakes!"
-"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Gruß!", "Willkommen im Elstree Wald", "Grüße, bitte gebt auf die Feen Acht und bleibt weg von ihrem Kuchen!"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Gruß!", "Willkommen im Elsbaumwald", "Grüße, bitte gebt auf die Feen Acht und bleibt weg von ihrem Kuchen!"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted!", "Welcome to Elstree Forest.", "Greetings, please mind the fairies and stay away from their cakes!"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Tach, mein Freund!", "Willkommen im Elstree Wald", "Grüße, bitte gebt auf die Feen Acht und bleibt weg von ihrem Kuchen!"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Tach, mein Freund!", "Willkommen im Elsbaumwald", "Grüße, bitte gebt auf die Feen Acht und bleibt weg von ihrem Kuchen!"
 "Farewell", "Bye", "Fare well", "See you" -> "Look at the wonderful world the gods have made for us, honour them in your travels.", "Please visit again.", "Farewell."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Schaut Euch die wunderbare Welt an, welche die Götter für uns gemacht haben und ehrt sie auf eueren Reisen.", "Bitte besucht uns erneut.", "Gehabt euch wohl."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Look at the wonderful world the gods have made for us, honour them in your travels.", "Please visit again.", "Farewell."
@@ -94,9 +94,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Look at the wonderful world
 
 -- Quest 1: gather 10 honeycombs for 500cp
 queststatus(500) = 0, english, "quest", "mission" -> inform("[New quest] Elstree Ranger I"), queststatus(500) = 1, "Help! We need assistance in the fairy bakery. We are short of honey, please bring me ten honeycombs."
-queststatus(500) = 0, "quest", "mission" -> inform("[Neue Quest] Elstree Waldläufer I"), queststatus(500) = 1, "Helft uns! Wir brauchen Unterstützung in der Feenbäckerei. Honig ist knapp. So bringt mir bitte zehn Honigwaben."
+queststatus(500) = 0, "quest", "mission" -> inform("[Neue Quest] Waldläufer des Elsbaumwaldes I"), queststatus(500) = 1, "Helft uns! Wir brauchen Unterstützung in der Feenbäckerei. Honig ist knapp. So bringt mir bitte zehn Honigwaben."
 queststatus(500) = 0, "task", "adventure", "order" -> inform("[New quest] Elstree Ranger I"), queststatus(500) = 1, "Help! We need assistance in the fairy bakery. We are short of honey, please bring me ten honeycombs."
-queststatus(500) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Elstree Waldläufer I"), queststatus(500) = 1, "Helft uns! Wir brauchen Unterstützung in der Feenbäckerei. Honig ist knapp. So bringt mir bitte zehn Honigwaben."
+queststatus(500) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Waldläufer des Elsbaumwaldes I"), queststatus(500) = 1, "Helft uns! Wir brauchen Unterstützung in der Feenbäckerei. Honig ist knapp. So bringt mir bitte zehn Honigwaben."
 queststatus(500) = 1, item(2529, all) < 10, english, "quest", "mission" -> "Do you have the honeycombs yet? Without it the baking stalls, which would be horrible."
 queststatus(500) = 1, item(2529, all) < 10, "quest", "mission" -> "Habt ihr die Honigwaben schon? Ohne diese ist das Kuchenbacken unmöglich. Das wäre schrecklich."
 queststatus(500) = 1, item(2529, all) < 10, "task", "adventure", "order" -> "Do you have the honeycombs yet? Without it the baking stalls, which would be horrible."
@@ -118,9 +118,9 @@ queststatus(500) > 12, queststatus(500) < 29, ".+" -> inform("[Quest gelöst] Du 
 
 -- Quest 3: visit Nargun's altar, for a cake
 queststatus(500) = 29, english, "quest", "mission" -> inform("[New quest] Elstree Ranger III"), queststatus(500) = 30, "There is a disturbance at the Altar of Nargun, please check it out."
-queststatus(500) = 29, "quest", "mission" -> inform("[Neue Quest] Elstree Waldläufer III"), queststatus(500) = 30, "Etwas ist ungewöhnlich an Narguns Altar. Könnt ihr Euch das ansehen?"
+queststatus(500) = 29, "quest", "mission" -> inform("[Neue Quest] Waldläufer des Elsbaumwaldes III"), queststatus(500) = 30, "Etwas ist ungewöhnlich an Narguns Altar. Könnt ihr Euch das ansehen?"
 queststatus(500) = 29, "task", "adventure", "order" -> inform("[New quest] Elstree Ranger III"), queststatus(500) = 30, "There is a disturbance at the Altar of Nargun, please check it out."
-queststatus(500) = 29, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Elstree Waldläufer III"), queststatus(500) = 30, "Etwas ist ungewöhnlich an Narguns Altar. Könnt ihr Euch das ansehen?"
+queststatus(500) = 29, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Waldläufer des Elsbaumwaldes III"), queststatus(500) = 30, "Etwas ist ungewöhnlich an Narguns Altar. Könnt ihr Euch das ansehen?"
 queststatus(500) = 30, english, "quest", "mission" -> "Have you looked over the altar yet? Something is wrong there."
 queststatus(500) = 30, "quest", "mission" -> "Habt ihr den Altar schon kontrolliert? Etwas Seltsames geht dort vor."
 queststatus(500) = 30, "task", "adventure", "order" -> "Have you looked over the altar yet? Something is wrong there."
@@ -132,9 +132,9 @@ queststatus(500) = 31, ".+" -> inform("[Quest gelöst] Du erhältst einen Apfelkuc
 
 -- Quest 4: gather 20 flamegoblet blossoms for 2000cp
 queststatus(500) = 32, english, "quest", "mission" -> inform("[New quest] Elstree Ranger IV"), queststatus(500) = 33, "Oh great, you're here. We need some flowers for the arrangements. Please bring me twenty flamegoblet blossoms."
-queststatus(500) = 32, "quest", "mission" -> inform("[Neue Quest] Elstree Waldläufer IV"), queststatus(500) = 33, "Oh, gut, dass Ihr da seid! Wir brauchen Blumen für den Tischschmuck. Bitte bringt mir 20 Flammenkelchblüten."
+queststatus(500) = 32, "quest", "mission" -> inform("[Neue Quest] Waldläufer des Elsbaumwaldes IV"), queststatus(500) = 33, "Oh, gut, dass Ihr da seid! Wir brauchen Blumen für den Tischschmuck. Bitte bringt mir 20 Flammenkelchblüten."
 queststatus(500) = 32, "task", "adventure", "order" -> inform("[New quest] Elstree Ranger IV"), queststatus(500) = 33, "Oh great, you're here. We need some flowers for the arrangements. Please bring me twenty flamegoblet blossoms."
-queststatus(500) = 32, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Elstree Waldläufer IV"), queststatus(500) = 33, "Oh, gut, dass Ihr da seid! Wir brauchen Blumen für den Tischschmuck. Bitte bringt mir 20 Flammenkelchblüten."
+queststatus(500) = 32, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Waldläufer des Elsbaumwaldes IV"), queststatus(500) = 33, "Oh, gut, dass Ihr da seid! Wir brauchen Blumen für den Tischschmuck. Bitte bringt mir 20 Flammenkelchblüten."
 queststatus(500) = 33, item(137, all) < 20, english, "quest", "mission" -> "Have you found enough flowers yet? We need them urgently."
 queststatus(500) = 33, item(137, all) < 20, "quest", "mission" -> "Habt Ihr schon genung Blumen gefunden? Wir brauchen sie dringend."
 queststatus(500) = 33, item(137, all) < 20, "task", "adventure", "order" -> "Have you found enough flowers yet? We need them urgently."
@@ -162,7 +162,7 @@ english, "Gobaith", "Gobiath" -> "Gobaith needed more Rangers."
 "Ranger" -> "My job is to protect the forest and its inhabitants.", "All of Ushara's creatures are under my protection.", "My job is important to the life of the forest."
 "Waldläufer" -> "Meine Aufgabe ist es, den Wald und seine Bewohner zu schützen.", "Alle Geschöpfe Usharas stehen unter meinem Schutz.", "Meine Aufgabe ist wichtig für das Leben des Waldes."
 english, "Elstree" -> "Elstree Forest is the home of the fairies.", "Many plants and animals are at home here.", "I find peace in the Elstree Forest."
-"Elstree" -> "Der Elsbaumwald ist die Heimat der Feen.", "Viele Pflanzen und Tiere sind hier zu Hause.", "Ich finde Frieden im Elsbaumwald."
+"Elstree", "Elsbaum" -> "Der Elsbaumwald ist die Heimat der Feen.", "Viele Pflanzen und Tiere sind hier zu Hause.", "Ich finde Frieden im Elsbaumwald."
 english, "Fairies" -> "Fairies are delightfully fun creatures."
 "Fee" -> "Feen sind herrlich lustige Kreaturen."
 english, "Flower" -> "The forest is filled with flowers that are not only pretty but useful."
@@ -192,7 +192,7 @@ english, "Cadomyr" -> "I think honour is serving the forest, however they say Ca
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "In Elstree forest, gifts of the gods are everywhere."
-"Gott", "Götter" -> "Im Elstree Wald sind überall die Gaben der Götter."
+"Gott", "Götter" -> "Im Elsbaumwald sind überall die Gaben der Götter."
 english, "Oldra" -> "May Oldra continue to bless the forest!"
 "Oldra" -> "Möge Oldra weiterhin den Wald segnen!"
 english, "Ushara" -> "Ushara blessed us with this rich and fertile land."
