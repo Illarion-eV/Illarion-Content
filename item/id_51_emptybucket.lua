@@ -44,7 +44,11 @@ function M.UseItem(User, SourceItem, ltstate)
         return
     end
 
+    -- waterscooping
+    local itemData
+    local isDragoncaveSpring
     local foundSource = false
+
     -- check for well or fountain
     TargetItem = common.GetItemInArea(User.pos, 2207)
     if (TargetItem == nil) then
@@ -59,12 +63,12 @@ function M.UseItem(User, SourceItem, ltstate)
     if (TargetItem ~= nil) then
         common.TurnTo(User, TargetItem.pos) -- turn if necessary
         foundSource = true
-    end
 
-    local itemData
-    local isDragoncaveSpring = (TargetItem:getData("dragoncaveSpring") == "true")
-    if (isDragoncaveSpring) then
-        itemData = {dragoncaveBucket = "true", descriptionDe = "Vulkanisches Quellwasser", descriptionEn = "Vulcanic Springwater"}
+        -- check if we found a quest fountain in dragon cave
+        isDragoncaveSpring = (TargetItem:getData("dragoncaveSpring") == "true")
+        if (isDragoncaveSpring) then
+            itemData = {dragoncaveBucket = "true", descriptionDe = "Vulkanisches Quellwasser", descriptionEn = "Vulcanic Springwater"}
+        end
     end
 
     -- check for water tile
@@ -181,7 +185,7 @@ function GetCauldron(User)
     local Radius = 1
     for x=-Radius,Radius do
         for y=-Radius,Radius do
-            local targetPos = position(User.pos.x + x, User.pos.y, User.pos.z)
+            local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z)
             if (world:isItemOnField(targetPos)) then
                 local item = world:getItemOnField(targetPos)
                 if (item.id == 1010 and item:getData("filledWith") == "water") then
