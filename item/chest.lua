@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE items SET itm_script='item.chest' WHERE itm_id IN (1362,8,1367,1360,1362,1361,649,650);
+-- UPDATE items SET itm_script='item.chest' WHERE itm_id IN (8,649,650,1360,1361,1362,1367);
 
 local common = require("base.common")
 
@@ -59,14 +59,14 @@ function M.UseItem(User, SourceItem)
                 return
             end
     end
-    
+
     local itemData
     local isronaganChest = (SourceItem:getData("ronaganChest") == "true")
     if (isronaganChest) then
         ronaganContents(User, SourceItem)
         return
     end
-    
+
     local isronaganTreasurechest = (SourceItem:getData("ronaganTreasurechest") == "true")
     if (isronaganTreasurechest) then
         ronaganTreasureContents(User, SourceItem)
