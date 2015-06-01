@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local lookat = require("base.lookat")
 local checks = require("item.general.checks")
+local money = require("base.money")
 
 local M = {}
 
@@ -54,5 +55,16 @@ function M.UseItem(User, SourceItem)
         world:gfx(41, position(899,574,-9)) -- swirly
         world:gfx(41, position(902,574,-9)) -- swirly
         end
+
+    local itemData
+    local isRonaganTrap = (SourceItem:getData("ronaganTrap") == "true")
+    if (isRonaganTrap == true) then
+        User:inform("Ein Dieb hat dich in eine Falle gelockt. Er springt aus einem der Schatten und stielt dir ein paar Münzen.", "A thief has lured you into a trap, jumping out from a shadow, he steals some coins from you.")
+
+        -- steal 1% - 5% of characters money in inventroy
+        local wealth = money.CharCoinsToMoney(User)
+        money.TakeMoneyFromChar(User, math.random(math.floor(wealth / 100), math.floor(wealth / 20)))
+        return
+   end
 end
 return M

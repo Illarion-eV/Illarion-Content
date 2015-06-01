@@ -17,10 +17,22 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script = 'item.id_1059_dice' WHERE itm_id = 1059 ;
 
 local common = require("base.common")
+local money = require("base.money")
 
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
+    local itemData
+    local isRonaganTrap = (SourceItem:getData("ronaganTrap") == "true")
+    if (isRonaganTrap == true) then
+        User:inform("Ein Dieb hat dich in eine Falle gelockt. Er springt aus einem der Schatten und stielt dir ein paar Münzen.", "A thief has lured you into a trap, jumping out from a shadow, he steals some coins from you.")
+
+        -- steal 1% - 5% of characters money in inventroy
+        local wealth = money.CharCoinsToMoney(User)
+        money.TakeMoneyFromChar(User, math.random(math.floor(wealth / 100), math.floor(wealth / 20)))
+        return
+   end
+
 	chooseTypeOfDice(User)
 end
 
