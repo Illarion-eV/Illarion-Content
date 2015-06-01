@@ -167,7 +167,7 @@ function ronaganTreasureContents(User, ronaganTreasureItem)
 
     local random_number = math.random(1,100)
     if random_number >= 0 and random_number <= 45 then
-        User:inform("Du findest nichts in diesem Truhe.", "This chest is currently empty.")
+        User:inform("Die Truhe ist voll mit verschiedenstem Diebesgut, aber es ist nichts dabei, was du möchtest.", "The chest is full of various stolen items, but nothing you want.")
     elseif random_number >= 46 and random_number <= 50 then
         User:inform("Du findest eine Topaskette.","You discover a topaz amulet.")
         local notCreated = User:createItem(83, 1, 899, nil) -- topaz amulet
