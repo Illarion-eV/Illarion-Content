@@ -107,7 +107,7 @@ monsterQuests.addQuest{
     queststatus = {from = 1, to = 21},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Dunkelelfen", english = "drows"},
-    npcName = "Defensor Impetus",
+    npcName = "Defensor Volnus",
     monsterGroupIds = {6} -- all drows
 }
 monsterQuests.addQuest{
