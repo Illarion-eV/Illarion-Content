@@ -49,9 +49,7 @@ function M.CheckStone(Char,StoneNumber)
     local HasStones=M.QuestprogressToStones(Char:getQuestProgress(StoneBase));
 	--Char:inform("HasStones: "..HasStones);
 	--Char:inform("thisstone: "..2^(StoneBaseOffset));
-    local GotStone=LuaAnd(2^(StoneBaseOffset),HasStones);
-	--Char:inform("GotStone: "..GotStone);
-    if GotStone>0 then
+    if bit32.btest(bit32.lshift(1, StoneBaseOffset), HasStones) then
         retVal=true;
     end
     return retVal;
@@ -81,8 +79,8 @@ function M.WriteStone(Char,StoneNumber)
 	--Char:inform("Base offset: " .. StoneBase .. " Stone Nr "..StoneBaseOffset .. " for stone "..StoneNumber);
     local currentStones=M.QuestprogressToStones(Char:getQuestProgress(StoneBase));
     --Char:inform("currently: "..currentStones);
-	Char:setQuestProgress(StoneBase,M.StoneToQuestprogress(LuaOr(2^StoneBaseOffset,currentStones)));
-	--Char:inform("new: "..(2^StoneBaseOffset).." in total: "..(LuaOr(2^StoneBaseOffset,currentStones)-2^31));
+	Char:setQuestProgress(StoneBase,M.StoneToQuestprogress(bit32.bor(2^StoneBaseOffset,currentStones)));
+	--Char:inform("new: "..(2^StoneBaseOffset).." in total: "..(bit32.bor(2^StoneBaseOffset,currentStones)-2^31));
 	--Char:inform("CHeck: "..CheckStone(Char,StoneNumber));
 end
 

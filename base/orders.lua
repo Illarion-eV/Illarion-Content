@@ -86,9 +86,9 @@ end
 function M.setThrustWorthyness(user,ntwn,ngoodorders)
     local qp = user:getQuestProgress(61);
     --Vertrauenswürdigkeit herausmasken
-    twn = LuaAnd(qp,255);
+    twn = bit32.band(qp, 255);
     --Lieferfï¿½higkeit herausmasken
-    goodorders = LuaAnd(LuaRShift32(qp,8),255);
+    goodorders = bit32.band(bit32.rshift(qp, 8), 255);
     if ( twn == 0 ) then
         twn = 50;
     end
@@ -99,8 +99,8 @@ function M.setThrustWorthyness(user,ntwn,ngoodorders)
     goodorders = math.max(1,goodorders);
     goodorders = math.min(100,goodorders);
     qp = 0;
-    qp = LuaOr(qp,LuaLShift32(goodorders,8));
-    qp = LuaOr(qp,twn);
+    qp = bit32.bor(qp,bit32.lshift(goodorders,8));
+    qp = bit32.bor(qp,twn);
     user:setQuestProgress(61,qp);
 end
 
@@ -122,9 +122,9 @@ end
 local function getThrustWorthyness(user)
     local qp = user:getQuestProgress(61);
     --Vertrauenswürdigkeit herausmasken
-    local twn = LuaAnd(qp,255);
+    local twn = bit32.band(qp,255);
     --Lieferfï¿½higkeit herausmasken
-    local goodorders = LuaAnd(LuaRShift32(qp,8),255);
+    local goodorders = bit32.band(bit32.rshift(qp,8),255);
     if ( qp == 0 ) then
         twn = 50;
         user:setQuestProgress(61,twn);
@@ -991,23 +991,23 @@ end
 
 function Order:getDataString()
     local retstring = "";
-    local order = LuaLShift32(LuaAnd(tonumber(self.state),7),29);  --nur 3 Bit stehen lassen und nach links shiften
+    local order = bit32.lshift(bit32.band(tonumber(self.state),7),29);  --nur 3 Bit stehen lassen und nach links shiften
     if ( self.items ~= nil) then 
-        order = LuaOr(order,LuaLShift32(LuaAnd(#self.items,7),26)); --Anzahl der Items auf 3 Bit beschrï¿½nken und links shiften
+        order = bit32.bor(order,bit32.lshift(bit32.band(#self.items,7),26)); --Anzahl der Items auf 3 Bit beschrï¿½nken und links shiften
     end
-    order = LuaOr(order,LuaLShift32(LuaAnd(self.quality,15),22)); --Qualitï¿½t auf 4 Bit beschrï¿½nken und nach links shiften
-    order = LuaOr(order, LuaLShift32(LuaAnd(self.time.day,31),17)); --Tag auf 5 Bit beschrï¿½nken und nach links shiften.
-    order = LuaOr(order,LuaLShift32(LuaAnd(self.time.month,15),13)); --Tag auf 4 Bit beschrï¿½nken und nach links shiften.
-    order = LuaOr(order,LuaLShift32(LuaAnd(self.time.year,255),5)); --Jarh auf 8 Bit beschrï¿½nken und nach links shiften.
-    order = LuaOr(order,LuaAnd(self.time.hour,31)); -- Stunde in den letzten 5 Bit codieren
+    order = bit32.bor(order,bit32.lshift(bit32.band(self.quality,15),22)); --Qualitï¿½t auf 4 Bit beschrï¿½nken und nach links shiften
+    order = bit32.bor(order, bit32.lshift(bit32.band(self.time.day,31),17)); --Tag auf 5 Bit beschrï¿½nken und nach links shiften.
+    order = bit32.bor(order,bit32.lshift(bit32.band(self.time.month,15),13)); --Tag auf 4 Bit beschrï¿½nken und nach links shiften.
+    order = bit32.bor(order,bit32.lshift(bit32.band(self.time.year,255),5)); --Jarh auf 8 Bit beschrï¿½nken und nach links shiften.
+    order = bit32.bor(order,bit32.band(self.time.hour,31)); -- Stunde in den letzten 5 Bit codieren
     retstring = tostring(order);
     local coins = self.coins;
     retstring = retstring .. "," .. tostring(coins);
     local coinsmod = 0;
-    coinsmod = LuaLShift32(LuaAnd(tonumber(self.qualitymodcoins.mod),15),28);
-    coinsmod = LuaOr(coinsmod,LuaLShift32(LuaAnd(self.qualitymodcoins.value,1023),18));
-    coinsmod = LuaOr(coinsmod,LuaLShift32(LuaAnd(self.timemodcoins.mod,255),10));
-    coinsmod = LuaOr(coinsmod,LuaAnd(self.timemodcoins.value,1023));
+    coinsmod = bit32.lshift(bit32.band(tonumber(self.qualitymodcoins.mod),15),28);
+    coinsmod = bit32.bor(coinsmod,bit32.lshift(bit32.band(self.qualitymodcoins.value,1023),18));
+    coinsmod = bit32.bor(coinsmod,bit32.lshift(bit32.band(self.timemodcoins.mod,255),10));
+    coinsmod = bit32.bor(coinsmod,bit32.band(self.timemodcoins.value,1023));
     retstring = retstring .. "," ..tostring(coinsmod);
     local npcname = self.npcname;
     retstring = retstring .. "," ..npcname;
@@ -1015,8 +1015,8 @@ function Order:getDataString()
     retstring = retstring .. "," .. curquali;
     for i,item in ipairs(self.items) do    
         local itemnr = 0;
-        itemnr = LuaLShift32(item.id, 8);
-        itemnr = LuaOr(itemnr,LuaAnd(item.count,255));
+        itemnr = bit32.lshift(item.id, 8);
+        itemnr = bit32.bor(itemnr,bit32.band(item.count,255));
         retstring = retstring .. "," .. tostring(itemnr);
     end
     return retstring;
@@ -1040,13 +1040,13 @@ function Order:get()
         table.remove(fields,1);
         table.remove(fields,1);
         --order
-        self.type = LuaRShift32(order,29);
-        local itemcount = LuaAnd(LuaRShift32(order,26),7); --unnï¿½tige Werte herausshiften und letzten 3 Bit maskieren
-        self.quality = LuaAnd(LuaRShift32(order,22),15); --nach rechts shifte und 4 Bit maskieren
-        self.time.day = LuaAnd(LuaRShift32(order,17),31); --nach rechts shiften und 5 Bit Maskieren
-        self.time.month = LuaAnd(LuaRShift32(order,13),15);--nach rechts shiften und 4 Bit maskieren
-        self.time.year = LuaAnd(LuaRShift32(order,5),255);--nach rechts shiften und 8 Bit maskieren
-        self.time.hour = LuaAnd(order,31);
+        self.type = bit32.rshift(order,29);
+        local itemcount = bit32.band(bit32.rshift(order,26),7); --unnï¿½tige Werte herausshiften und letzten 3 Bit maskieren
+        self.quality = bit32.band(bit32.rshift(order,22),15); --nach rechts shifte und 4 Bit maskieren
+        self.time.day = bit32.band(bit32.rshift(order,17),31); --nach rechts shiften und 5 Bit Maskieren
+        self.time.month = bit32.band(bit32.rshift(order,13),15);--nach rechts shiften und 4 Bit maskieren
+        self.time.year = bit32.band(bit32.rshift(order,5),255);--nach rechts shiften und 8 Bit maskieren
+        self.time.hour = bit32.band(order,31);
         --coins
         self.coins = coins;
         --npc
@@ -1054,16 +1054,16 @@ function Order:get()
         --curquali
         self.curquality = curquali;
         --coinsmod
-        self.qualitymodcoins.mod = LuaRShift32(coinsmod,28);
-        self.qualitymodcoins.value = LuaAnd(LuaRShift32(coinsmod,18),1023);
-        self.timemodcoins.mod = LuaAnd(LuaRShift32(coinsmod,10),255);
-        self.timemodcoins.value = LuaAnd(coinsmod,1023);
+        self.qualitymodcoins.mod = bit32.rshift(coinsmod,28);
+        self.qualitymodcoins.value = bit32.band(bit32.rshift(coinsmod,18),1023);
+        self.timemodcoins.mod = bit32.band(bit32.rshift(coinsmod,10),255);
+        self.timemodcoins.value = bit32.band(coinsmod,1023);
         --items
         self.items = {};
         for i,numberstr in pairs(fields) do
             local number = tonumber(numberstr);
-            local itemid = LuaRShift32(number,8);
-            local nitemcount = LuaAnd(number,255);
+            local itemid = bit32.rshift(number,8);
+            local nitemcount = bit32.band(number,255);
             table.insert(self.items,OrderItemStruct(itemid,nitemcount));
         end
         return true;
