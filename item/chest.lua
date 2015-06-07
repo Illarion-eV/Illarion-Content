@@ -59,9 +59,9 @@ function M.UseItem(User, SourceItem)
             "Inside the chest lays a copper goblet that you take. This could be one of Brigette's lost belongings.")
         User:setQuestProgress(545, 1)
 
-        local notCreated = User:createItem(1084, 1, 801, nil) -- create the item
+        local notCreated = User:createItem(1840, 1, 851, nil) -- create the item
         if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-            world:createItemFromId(1084, notCreated, User.pos, true, 801, nil)
+            world:createItemFromId(1840, notCreated, User.pos, true, 851, nil)
             common.HighInformNLS(User,
                "Du kannst nichts mehr tragen.",
                 "You can't carry any more.")
@@ -75,9 +75,9 @@ if (User:getQuestProgress(543) == 1 and User:getQuestProgress(546) >= 0 and Sour
             "Inside the chest lays a golden ring that you take. This could be one of Brigette's lost belongings.")
         User:setQuestProgress(546, 1)
 
-        local notCreated = User:createItem(235, 1, 801, nil) -- create the item
+        local notCreated = User:createItem(235, 1, 860, nil) -- create the item
         if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-            world:createItemFromId(235, notCreated, User.pos, true, 801, nil)
+            world:createItemFromId(235, notCreated, User.pos, true, 860, nil)
             common.HighInformNLS(User,
                "Du kannst nichts mehr tragen.",
                 "You can't carry any more.")
@@ -91,9 +91,9 @@ if (User:getQuestProgress(543) == 1 and User:getQuestProgress(547) >= 0 and Sour
             "Inside the chest lays a ruby gold ring that you take. This could be one of Brigette's lost belongings.")
         User:setQuestProgress(547, 1)
 
-        local notCreated = User:createItem(68, 1, 801, nil) -- create the item
+        local notCreated = User:createItem(68, 1, 740, nil) -- create the item
         if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-            world:createItemFromId(68, notCreated, User.pos, true, 801, nil)
+            world:createItemFromId(68, notCreated, User.pos, true, 740, nil)
             common.HighInformNLS(User,
                "Du kannst nichts mehr tragen.",
                 "You can't carry any more.")
@@ -107,9 +107,9 @@ if (User:getQuestProgress(543) == 1 and User:getQuestProgress(548) >= 0 and Sour
             "Inside the chest lays a plate that you take. This could be one of Brigette's lost belongings.")
         User:setQuestProgress(548, 1)
 
-        local notCreated = User:createItem(1001, 1, 801, nil) -- create the item
+        local notCreated = User:createItem(1001, 1, 650, nil) -- create the item
         if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-            world:createItemFromId(1001, notCreated, User.pos, true, 801, nil)
+            world:createItemFromId(1001, notCreated, User.pos, true, 650, nil)
             common.HighInformNLS(User,
                "Du kannst nichts mehr tragen.",
                 "You can't carry any more.")
@@ -123,9 +123,9 @@ if (User:getQuestProgress(543) == 1 and User:getQuestProgress(549) >= 0 and Sour
             "Inside the chest lays a flute that you take. This could be one of Brigette's lost belongings.")
         User:setQuestProgress(549, 1)
 
-        local notCreated = User:createItem(90, 1, 801, nil) -- create the item
+        local notCreated = User:createItem(90, 1, 950, nil) -- create the item
         if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-            world:createItemFromId(90, notCreated, User.pos, true, 801, nil)
+            world:createItemFromId(90, notCreated, User.pos, true, 950, nil)
             common.HighInformNLS(User,
                "Du kannst nichts mehr tragen.",
                 "You can't carry any more.")
