@@ -351,42 +351,11 @@ function Craft:loadDialog(dialog, user)
         
         if productRequirement <= skill then
             
-            local continue = true;
-            --[[if isTestserver() then
-                
-                Don't delete this. It's necessary for the unique items.
+            dialog:addCraftable(i, categoryListId[product.category], product.item, self:getLookAt(user, product).name, self:getCraftingTime(product, skill), product.quantity)
 
-                local special = product.data.RareWeapon;
-                if(special==nil) then
-                    special = product.data.RareArmour;
-                end
-
-                if special~=nil then
-                    special=tonumber(special);
-                    if not RareItems(user,product.item,-special) then
-                        continue=false;
-                    elseif(zero) then
-                        zero=false;
-                        if user:getPlayerLanguage() == Player.german then
-                            dialog:addGroup(self.categories[#self.categories].nameDE)
-                        else
-                            dialog:addGroup(self.categories[#self.categories].nameEN)
-                        end
-
-                        categoryListId[#self.categories] = listId;
-                        listId = listId + 1;
-                    end
-                end
-
-            end]]
-
-            if(continue) then
-                dialog:addCraftable(i, categoryListId[product.category], product.item, self:getLookAt(user, product).name, self:getCraftingTime(product, skill), product.quantity)
-
-                for j = 1, #product.ingredients do
-                    local ingredient = product.ingredients[j]
-                    dialog:addCraftableIngredient(ingredient.item, ingredient.quantity)
-                end
+            for j = 1, #product.ingredients do
+                local ingredient = product.ingredients[j]
+                dialog:addCraftableIngredient(ingredient.item, ingredient.quantity)
             end
         end
     end
