@@ -56,7 +56,7 @@ return function()
 
     self.ONLY_ON_SIGHT = 1
     self.ONLY_NEAR_ENEMY = 2
-    self.ALWAYS = LuaOr(self.ONLY_ON_SIGHT, self.ONLY_NEAR_ENEMY)
+    self.ALWAYS = bit32.bor(self.ONLY_ON_SIGHT, self.ONLY_NEAR_ENEMY)
 
     function self.addSpell(spell, params)
         if not _isTable(spell) then
@@ -82,11 +82,11 @@ return function()
             end
         end
 
-        if LuaAnd(usageFlag, self.ONLY_ON_SIGHT) == self.ONLY_ON_SIGHT then
+        if bit32.btest(usageFlag, self.ONLY_ON_SIGHT) then
             table.insert(spellsEnemyOnSight, spell)
         end
 
-        if LuaAnd(usageFlag, self.ONLY_NEAR_ENEMY) == self.ONLY_NEAR_ENEMY then
+        if bit32.btest(usageFlag, self.ONLY_NEAR_ENEMY) then
             table.insert(spellsEnemyNear, spell)
         end
     end

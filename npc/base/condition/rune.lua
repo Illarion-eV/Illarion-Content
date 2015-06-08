@@ -30,7 +30,7 @@ end)
 function _rune_helper(self, npcChar, texttype, player)
     local magicType = player:getMagicType()
     local magicFlags = player:getMagicFlags(magicType)
-    return (LuaAnd(magicFlags, self.value) ~= 0)
+    return bit32.btest(magicFlags, self.value)
 end
 
 return rune

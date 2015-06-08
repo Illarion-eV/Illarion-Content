@@ -24,34 +24,32 @@ local common = require("base.common")
 local M = {}
 
 function M.StoneToQuestprogress(StoneNumber)
-	if StoneNumber < 2^31 then
-		return StoneNumber
-	else
-		return 2^31- 1 - StoneNumber
-	end
+    if StoneNumber < 2^31 then
+        return StoneNumber
+    else
+        return 2^31- 1 - StoneNumber
+    end
 end
 
 function M.QuestprogressToStones(qpg)
-	if qpg<0 then
-		return 2^31-1-qpg
-	else
-		return qpg
-	end
+    if qpg<0 then
+        return 2^31-1-qpg
+    else
+        return qpg
+    end
 end
 
 function M.CheckStone(Char,StoneNumber)
     --Char:inform("*** CHECK ***");
-	local retVal=false;
+    local retVal=false;
     local StoneBase=130+math.floor((StoneNumber-1)/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
-	--Char:inform("Stonebase: "..StoneBase);
+    --Char:inform("Stonebase: "..StoneBase);
     local StoneBaseOffset=math.fmod(StoneNumber-1,32);  -- StoneNr inside range
-	--Char:inform("Offset: "..StoneBaseOffset);
+    --Char:inform("Offset: "..StoneBaseOffset);
     local HasStones=M.QuestprogressToStones(Char:getQuestProgress(StoneBase));
-	--Char:inform("HasStones: "..HasStones);
-	--Char:inform("thisstone: "..2^(StoneBaseOffset));
-    local GotStone=LuaAnd(2^(StoneBaseOffset),HasStones);
-	--Char:inform("GotStone: "..GotStone);
-    if GotStone>0 then
+    --Char:inform("HasStones: "..HasStones);
+    --Char:inform("thisstone: "..2^(StoneBaseOffset));
+    if bit32.btest(bit32.lshift(1, StoneBaseOffset), HasStones) then
         retVal=true;
     end
     return retVal;
@@ -64,7 +62,7 @@ function M.CountStones(Char)
     local stones
     for i=StoneBase,StoneEnd do
         stones=M.QuestprogressToStones(Char:getQuestProgress(i));
-		--debug("In Countstones, questid "..i.." and stones "..stones)
+        --debug("In Countstones, questid "..i.." and stones "..stones)
         while stones~=0 do
             nrStones=nrStones+math.fmod(stones,2);
             stones=math.floor(stones/2);
@@ -75,15 +73,15 @@ end
 
 function M.WriteStone(Char,StoneNumber)
     local StoneBase=130+math.floor((StoneNumber-1)/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
-	--Char:inform("Base: "..StoneBase);
+    --Char:inform("Base: "..StoneBase);
     local StoneBaseOffset=math.fmod(StoneNumber-1,32);  -- StoneNr inside range
     --Char:inform("Offset: "..StoneBaseOffset);
-	--Char:inform("Base offset: " .. StoneBase .. " Stone Nr "..StoneBaseOffset .. " for stone "..StoneNumber);
+    --Char:inform("Base offset: " .. StoneBase .. " Stone Nr "..StoneBaseOffset .. " for stone "..StoneNumber);
     local currentStones=M.QuestprogressToStones(Char:getQuestProgress(StoneBase));
     --Char:inform("currently: "..currentStones);
-	Char:setQuestProgress(StoneBase,M.StoneToQuestprogress(LuaOr(2^StoneBaseOffset,currentStones)));
-	--Char:inform("new: "..(2^StoneBaseOffset).." in total: "..(LuaOr(2^StoneBaseOffset,currentStones)-2^31));
-	--Char:inform("CHeck: "..CheckStone(Char,StoneNumber));
+    Char:setQuestProgress(StoneBase,M.StoneToQuestprogress(bit32.bor(2^StoneBaseOffset,currentStones)));
+    --Char:inform("new: "..(2^StoneBaseOffset).." in total: "..(bit32.bor(2^StoneBaseOffset,currentStones)-2^31));
+    --Char:inform("CHeck: "..CheckStone(Char,StoneNumber));
 end
 
 -- reward[x] = {y,z} - x = stones to have collected, y = item id , z= amount of y
@@ -100,40 +98,40 @@ reward[500] = {{61,7},{2551,14},{2552,14},{2553,14},{2554,14},{3607,14}} -- item
 reward[750] = {{61,10},{1052,1},{2400,1},{2662,1},{1155,20}} -- items worth 10 gold coins - gold coins, dwarven stormhammer, elven state armour, magical dwarven axe, chicken dish
 
 function M.getReward(Char)
-	local nrStones = M.CountStones(Char)
-	if reward[nrStones] ~= nil then
-		if #reward[nrStones] == 1 then
-			Char:createItem(reward[nrStones][1][1],reward[nrStones][1][2],699,nil);
-			Char:inform("Du hast 2 Silberstücke erhalten, da du den ersten Markierungsstein entdeckt hast. Weiter so!", "You have received two silver coins for discovering the first marker stone. Keep it up!");
-			Char:setQuestProgress(320,2)
-		else
-			M.rewardDialog(Char, nrStones)
-		end
-	end
+    local nrStones = M.CountStones(Char)
+    if reward[nrStones] ~= nil then
+        if #reward[nrStones] == 1 then
+            Char:createItem(reward[nrStones][1][1],reward[nrStones][1][2],699,nil);
+            Char:inform("Du hast 2 Silberstücke erhalten, da du den ersten Markierungsstein entdeckt hast. Weiter so!", "You have received two silver coins for discovering the first marker stone. Keep it up!");
+            Char:setQuestProgress(320,2)
+        else
+            M.rewardDialog(Char, nrStones)
+        end
+    end
 end
 
 function M.rewardDialog(Char, nrStones)
-	local title = common.GetNLS(Char,"Entdeckergilde Belohnung","Explorerguild reward")
-	local text = common.GetNLS(Char,"Du hast "..nrStones.." Markierungssteine entdeckt, daher kannst du dir nun eine Belohnung aussuchen.", "You discovered "..nrStones.." marker stones, therefore you can pick a reward.")
+    local title = common.GetNLS(Char,"Entdeckergilde Belohnung","Explorerguild reward")
+    local text = common.GetNLS(Char,"Du hast "..nrStones.." Markierungssteine entdeckt, daher kannst du dir nun eine Belohnung aussuchen.", "You discovered "..nrStones.." marker stones, therefore you can pick a reward.")
 
-	local callback = function(dialog)
-		local success = dialog:getSuccess()
-		if success then
-			local selected = dialog:getSelectedIndex()+1
-			Char:createItem(reward[nrStones][selected][1],reward[nrStones][selected][2], 699, nil);
-		end
-	end
+    local callback = function(dialog)
+        local success = dialog:getSuccess()
+        if success then
+            local selected = dialog:getSelectedIndex()+1
+            Char:createItem(reward[nrStones][selected][1],reward[nrStones][selected][2], 699, nil);
+        end
+    end
 
-	local dialog = SelectionDialog(title, text, callback);
+    local dialog = SelectionDialog(title, text, callback);
 
-	local itemName;
-	local language = Char:getPlayerLanguage();
-	for i=1, #(reward[nrStones]) do
-		itemName = world:getItemName(reward[nrStones][i][1],language);
-		dialog:addOption(reward[nrStones][i][1], reward[nrStones][i][2].." "..itemName);
-	end
+    local itemName;
+    local language = Char:getPlayerLanguage();
+    for i=1, #(reward[nrStones]) do
+        itemName = world:getItemName(reward[nrStones][i][1],language);
+        dialog:addOption(reward[nrStones][i][1], reward[nrStones][i][2].." "..itemName);
+    end
 
-	Char:requestSelectionDialog(dialog);
+    Char:requestSelectionDialog(dialog);
 end
 
 return M

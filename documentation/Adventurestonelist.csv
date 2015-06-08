@@ -233,12 +233,12 @@ Stone Number,X if used,Map Name or Area
 232,X,Southeast Surface
 233,X,Southeast Surface
 234,X,Southeast Surface
-235,,
-236,,
+235,X,Fox Den
+236,X,Northern Islands
 237,X,Southeast Surface
 238,X,Southeast Surface
 239,X,Southeast Surface
-240,,
+240,X,northern Islands
 241,X,Southeast Surface
 242,X,Southeast Surface
 243,X,Southeast Surface
@@ -248,7 +248,7 @@ Stone Number,X if used,Map Name or Area
 247,X,Southeast Surface
 248,X,Southeast Surface
 249,X,Southeast Surface
-250,,
+250,X,Ronagan dungeon
 251,X,Southeast Surface
 252,X,Southeast Surface
 253,X,Southeast Surface
@@ -267,7 +267,7 @@ Stone Number,X if used,Map Name or Area
 266,X,Volcano
 267,X,Cadomyr
 268,X,Akaltuts
-269,,
+269,X,Ronagan Dungeon
 270,X,Akaltuts
 271,,
 272,X,Southwest Mountains 1

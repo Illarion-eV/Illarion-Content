@@ -99,7 +99,7 @@ local FINAL_QUEST_STATUS = 25
 -- Register the monster kill parts of the quest.
 monsterQuests.addQuest{
     questId = 532,
-    location = {position = position(480, 897, -9), radius = 50},
+    location = {position = position(480, 897, -9), radius = 35},
     queststatus = {from = 1, to = 21},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Dunkelelfen", english = "drows"},
@@ -108,7 +108,7 @@ monsterQuests.addQuest{
 }
 monsterQuests.addQuest{
     questId = 532,
-    location = {position = position(480, 897, -9), radius = 50},
+    location = {position = position(480, 897, -9), radius = 35},
     queststatus = {from = 23, to = 24},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Akaltut", english = "Akaltut"},

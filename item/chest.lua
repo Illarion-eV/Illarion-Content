@@ -53,6 +53,103 @@ function M.UseItem(User, SourceItem)
         return
     end
 
+    if (User:getQuestProgress(543) == 1 and User:getQuestProgress(545) >= 0 and SourceItem.pos == position(901, 586, -3)) then --OK, the player does the quest 1 for Brigette Russ
+        User:inform(
+            "Im Inneren der Truhe liegt ein Kupferkelch, den du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
+            "Inside the chest lays a copper goblet that you take. This could be one of Brigette's lost belongings.")
+        User:setQuestProgress(545, 1)
+
+        local notCreated = User:createItem(1840, 1, 851, nil) -- create the item
+        if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+            world:createItemFromId(1840, notCreated, User.pos, true, 851, nil)
+            common.HighInformNLS(User,
+               "Du kannst nichts mehr tragen.",
+                "You can't carry any more.")
+        end
+        checkIfGotAllItems(User)
+        
+    elseif (User:getQuestProgress(543) == 1 and User:getQuestProgress(546) >= 0 and SourceItem.pos == position(902, 586, -3)) then --OK, the player does the quest 1 for Brigette Russ
+        User:inform(
+            "Im Inneren der Truhe liegt ein goldener Ring, den du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
+            "Inside the chest lays a golden ring that you take. This could be one of Brigette's lost belongings.")
+        User:setQuestProgress(546, 1)
+
+        local notCreated = User:createItem(235, 1, 860, nil) -- create the item
+        if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+            world:createItemFromId(235, notCreated, User.pos, true, 860, nil)
+            common.HighInformNLS(User,
+               "Du kannst nichts mehr tragen.",
+                "You can't carry any more.")
+        end
+        checkIfGotAllItems(User)
+
+    elseif (User:getQuestProgress(543) == 1 and User:getQuestProgress(547) >= 0 and SourceItem.pos == position(897, 593, -3)) then --OK, the player does the quest 1 for Brigette Russ
+        User:inform(
+            "Im Inneren der Truhe liegt ein goldener Rubinring, den du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
+            "Inside the chest lays a ruby gold ring that you take. This could be one of Brigette's lost belongings.")
+        User:setQuestProgress(547, 1)
+
+        local notCreated = User:createItem(68, 1, 740, nil) -- create the item
+        if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+            world:createItemFromId(68, notCreated, User.pos, true, 740, nil)
+            common.HighInformNLS(User,
+               "Du kannst nichts mehr tragen.",
+                "You can't carry any more.")
+        end
+        checkIfGotAllItems(User)
+
+    elseif (User:getQuestProgress(543) == 1 and User:getQuestProgress(548) >= 0 and SourceItem.pos == position(897, 594, -3)) then --OK, the player does the quest 1 for Brigette Russ
+        User:inform(
+            "Im Inneren der Truhe liegt ein Teller, den du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
+            "Inside the chest lays a plate that you take. This could be one of Brigette's lost belongings.")
+        User:setQuestProgress(548, 1)
+
+        local notCreated = User:createItem(1001, 1, 650, nil) -- create the item
+        if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+            world:createItemFromId(1001, notCreated, User.pos, true, 650, nil)
+            common.HighInformNLS(User,
+               "Du kannst nichts mehr tragen.",
+                "You can't carry any more.")
+        end
+        checkIfGotAllItems(User)
+
+    elseif (User:getQuestProgress(543) == 1 and User:getQuestProgress(549) >= 0 and SourceItem.pos == position(902, 588, -3)) then --OK, the player does the quest 1 for Brigette Russ
+        User:inform(
+            "Im Inneren der Truhe liegt eine Flöte, die du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
+            "Inside the chest lays a flute that you take. This could be one of Brigette's lost belongings.")
+        User:setQuestProgress(549, 1)
+
+        local notCreated = User:createItem(90, 1, 950, nil) -- create the item
+        if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+            world:createItemFromId(90, notCreated, User.pos, true, 950, nil)
+            common.HighInformNLS(User,
+               "Du kannst nichts mehr tragen.",
+                "You can't carry any more.")
+        end
+        checkIfGotAllItems(User)
+
+    elseif (User:getQuestProgress(543) == 1 and User:getQuestProgress(550) >= 0 and SourceItem.pos == position(902, 589, -3)) then --OK, the player does the quest 1 for Brigette Russ
+        User:inform(
+            "Im Inneren der Truhe liegt ein grauer Hut mit einer Feder, den du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
+            "Inside the chest lays a grey hat with a feather that you take. This could be one of Brigette's lost belongings.")
+        User:setQuestProgress(550, 1)
+
+        local notCreated = User:createItem(830, 1, 801, nil) -- create the item
+        if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+            world:createItemFromId(830, notCreated, User.pos, true, 801, nil)
+            common.HighInformNLS(User,
+               "Du kannst nichts mehr tragen.",
+                "You can't carry any more.")
+        end
+        checkIfGotAllItems(User)
+        
+    local itemData
+    local isronaganChest = (SourceItem:getData("ronaganChest") == "true")
+    elseif (isronaganChest) then
+        ronaganContents(User, SourceItem)
+        return
+    end
+
     for i = 1, #dragonCaveChestPos do
             if (SourceItem.pos == dragonCaveChestPos[i]) then
                 ChestContents(User, SourceItem)
@@ -60,17 +157,19 @@ function M.UseItem(User, SourceItem)
             end
     end
 
-    local itemData
-    local isronaganChest = (SourceItem:getData("ronaganChest") == "true")
-    if (isronaganChest) then
-        ronaganContents(User, SourceItem)
-        return
-    end
-
     local isronaganTreasurechest = (SourceItem:getData("ronaganTreasurechest") == "true")
     if (isronaganTreasurechest) then
         ronaganTreasureContents(User, SourceItem)
         return
+    end
+end 
+
+function checkIfGotAllItems(User)
+    if (User:getQuestProgress(545) == 1 and User:getQuestProgress(546) == 1 and User:getQuestProgress(547) == 1 and User:getQuestProgress(548) == 1 and User:getQuestProgress(549) == 1 and User:getQuestProgress(550) == 1) then
+        User:setQuestProgress(543, 2)
+        User:inform(
+            "Du hast mehrere Gegenstände gefunden, die Brigette gehören könnten. Du solltest zu ihr zurückkehren und mit ihr sprechen.",
+            "You have found several items that could be Brigette's. You should check back in with her.")
     end
 end
 

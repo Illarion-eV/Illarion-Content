@@ -153,7 +153,7 @@ english, "quest", "mission" -> "You are not a citizzsen of Galmairss. I don't ha
 
 cycletext "#me schaut sich gelangweilt um.", "#me looks around bored."
 cycletext "#me kratzt sich am Kopf.", "#me scratches his head."
-cycletext "Wenns du Hilfe beim Edelsssteinsschleifen, Sssteine behauen oder Zzziegelbrennen brauchst dann frag michss!", "If yous need any help in gem grinding, masssonry or bricksss making, jussst asssk me!"
+cycletext "Wenns du Hilfe beim Edelsssteinsschleifen dann frag michss!", "If yous need any help in gem grinding jussst asssk me!"
 cycletext "Zsss...", "Zsss..."
 cycletext "Zsss!", "Zsss!"
 cycletext "Zsss?", "Zsss?"
