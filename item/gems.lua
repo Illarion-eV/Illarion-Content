@@ -276,9 +276,10 @@ function isSocketable(itemId)
     local weaponfound, weaponitem = world:getWeaponStruct(itemId)
     if weaponfound then
         local weapontype=weaponitem.WeaponType
-        if weapontype== WeaponStruct.firearm or weapontype==WeaponStruct.arrow or weapontype==WeaponStruct.bolt
-                or weapontype==WeaponStruct.stone or weapontype==WeaponStruct.shield then
-            return false  -- Throwing weapon, ammo or shield. Not socketable
+        if weapontype == WeaponStruct.arrow or weapontype == WeaponStruct.bolt or weapontype == WeaponStruct.stone or weapontype == WeaponStruct.shield then
+            return false  -- Ammo or shield. Not socketable
+        elseif weapontype == WeaponStruct.firearm and weaponitem.AmmunitionType == 255 then
+            return false -- Throwing weapons. Not socketable. (Bows and Crossbows allowed)
         else
             return true
         end
