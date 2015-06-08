@@ -166,11 +166,11 @@ function Craft:showDialog(user, source)
         local result = dialog:getResult()
         if result == CraftingDialog.playerCrafts then
             local productId = dialog:getCraftableId()
-			local neededFood = 0
-			local foodOK = false
-			local product = self.products[productId]
-			foodOK, neededFood = self:checkRequiredFood(user, product.foodConsumption, product.difficulty)
-			local canWork = self:allowCrafting(user, source) and self:checkMaterial(user, productId) and foodOK
+            local neededFood = 0
+            local foodOK = false
+            local product = self.products[productId]
+            foodOK, neededFood = self:checkRequiredFood(user, product.foodConsumption, product.difficulty)
+            local canWork = self:allowCrafting(user, source) and self:checkMaterial(user, productId) and foodOK
             if canWork then
                 self:swapToActiveItem(user)
             end
@@ -330,86 +330,55 @@ function Craft:loadDialog(dialog, user)
         local category = self.categories[i]
         local categoryRequirement = category.minSkill
         if categoryRequirement and categoryRequirement <= skill then
-			if(category.nameEN~="Rare Items") then
-				if user:getPlayerLanguage() == Player.german then
-					dialog:addGroup(category.nameDE)
-				else
-					dialog:addGroup(category.nameEN)
-				end
+            if(category.nameEN~="Rare Items") then
+                if user:getPlayerLanguage() == Player.german then
+                    dialog:addGroup(category.nameDE)
+                else
+                    dialog:addGroup(category.nameEN)
+                end
 
-				categoryListId[i] = listId
-				listId = listId + 1
-			end
+                categoryListId[i] = listId
+                listId = listId + 1
+            end
         end
     end
 
-	local zero=true;
+    local zero=true;
 
     for i = 1,#self.products do
         local product = self.products[i]
         local productRequirement = product.difficulty
         
         if productRequirement <= skill then
-			
-			local continue = true;
-			--[[if isTestserver() then
-				
-				Don't delete this. It's necessary for the unique items.
+            
+            dialog:addCraftable(i, categoryListId[product.category], product.item, self:getLookAt(user, product).name, self:getCraftingTime(product, skill), product.quantity)
 
-				local special = product.data.RareWeapon;
-				if(special==nil) then
-					special = product.data.RareArmour;
-				end
-
-				if special~=nil then
-					special=tonumber(special);
-					if not RareItems(user,product.item,-special) then
-						continue=false;
-					elseif(zero) then
-						zero=false;
-						if user:getPlayerLanguage() == Player.german then
-							dialog:addGroup(self.categories[#self.categories].nameDE)
-						else
-							dialog:addGroup(self.categories[#self.categories].nameEN)
-						end
-
-						categoryListId[#self.categories] = listId;
-						listId = listId + 1;
-					end
-				end
-
-			end]]
-
-			if(continue) then
-				dialog:addCraftable(i, categoryListId[product.category], product.item, self:getLookAt(user, product).name, self:getCraftingTime(product, skill), product.quantity)
-
-				for j = 1, #product.ingredients do
-					local ingredient = product.ingredients[j]
-					dialog:addCraftableIngredient(ingredient.item, ingredient.quantity)
-				end
-			end
+            for j = 1, #product.ingredients do
+                local ingredient = product.ingredients[j]
+                dialog:addCraftableIngredient(ingredient.item, ingredient.quantity)
+            end
         end
     end
 end
 
 function RareItems(user, comparisonid, dataId)
 
-	local itemsOnChar = {};
-	for i=17,0,-1 do 
-		local item = user:getItemAt(i);
-		local itemId = item.id
-		if (itemId > 0) then
-			if itemId==comparisonid then
-				if (tonumber(item:getData("RareArmour"))==dataId) then
-					return true;
-				elseif (tonumber(item:getData("RareWeapon"))==dataId) then
-					return true
-				end
+    local itemsOnChar = {};
+    for i=17,0,-1 do 
+        local item = user:getItemAt(i);
+        local itemId = item.id
+        if (itemId > 0) then
+            if itemId==comparisonid then
+                if (tonumber(item:getData("RareArmour"))==dataId) then
+                    return true;
+                elseif (tonumber(item:getData("RareWeapon"))==dataId) then
+                    return true
+                end
             end
-		end
-	end
+        end
+    end
 
-	return false;
+    return false;
 end
 
 function Craft:refreshDialog(dialog, user)
@@ -515,7 +484,7 @@ function Craft:checkMaterial(user, productId)
     
     for i = 1, #product.ingredients do
         local ingredient = product.ingredients[i]
-		local available = user:countItemAt("all", ingredient.item, ingredient.data)
+        local available = user:countItemAt("all", ingredient.item, ingredient.data)
         
         if available < ingredient.quantity then
             materialsAvailable = false
@@ -549,16 +518,16 @@ function Craft:generateQuality(user, productId, toolItem)
     local toolQuality = math.floor(toolItem.quality/100)
     
     quality = quality + math.random(math.min(0,((toolQuality-5)/2)),math.max(0,((toolQuality-5)/2))); -- +2 for a perfect tool, -2 for a crappy tool
-	    
+        
     quality = math.floor(quality)
-	quality = common.Limit(quality, 1, 9)
-	
-	quality = quality + math.random(-1,1); -- Final scatter!
-	quality = common.Limit(quality, 1, 9)
-	    
+    quality = common.Limit(quality, 1, 9)
+    
+    quality = quality + math.random(-1,1); -- Final scatter!
+    quality = common.Limit(quality, 1, 9)
+        
     local durability = 99
     return quality * 100 + durability
-	
+    
 end
 
 function Craft:locationFine(user)

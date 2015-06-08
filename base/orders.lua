@@ -86,9 +86,9 @@ end
 function M.setThrustWorthyness(user,ntwn,ngoodorders)
     local qp = user:getQuestProgress(61);
     --Vertrauenswürdigkeit herausmasken
-    twn = LuaAnd(qp,255);
+    twn = bit32.band(qp, 255);
     --Lieferfï¿½higkeit herausmasken
-    goodorders = LuaAnd(LuaRShift32(qp,8),255);
+    goodorders = bit32.band(bit32.rshift(qp, 8), 255);
     if ( twn == 0 ) then
         twn = 50;
     end
@@ -99,14 +99,14 @@ function M.setThrustWorthyness(user,ntwn,ngoodorders)
     goodorders = math.max(1,goodorders);
     goodorders = math.min(100,goodorders);
     qp = 0;
-    qp = LuaOr(qp,LuaLShift32(goodorders,8));
-    qp = LuaOr(qp,twn);
+    qp = bit32.bor(qp,bit32.lshift(goodorders,8));
+    qp = bit32.bor(qp,twn);
     user:setQuestProgress(61,qp);
 end
 
 local function activateRetentionPeriod(user)
     local retentionperiod = LongTimeEffect(31,OrderRetentionPeriod * 600);
-	user.effects:addEffect(retentionperiod);
+    user.effects:addEffect(retentionperiod);
 end
 
 local function checkRetentionPeriod(usr)
@@ -122,9 +122,9 @@ end
 local function getThrustWorthyness(user)
     local qp = user:getQuestProgress(61);
     --Vertrauenswürdigkeit herausmasken
-    local twn = LuaAnd(qp,255);
+    local twn = bit32.band(qp,255);
     --Lieferfï¿½higkeit herausmasken
-    local goodorders = LuaAnd(LuaRShift32(qp,8),255);
+    local goodorders = bit32.band(bit32.rshift(qp,8),255);
     if ( qp == 0 ) then
         twn = 50;
         user:setQuestProgress(61,twn);
@@ -343,7 +343,7 @@ function OrderNPC:receiveText(who,text)
             return;
         end
     end
-	for i, ttext in pairs(self.triggerSeeOrder) do
+    for i, ttext in pairs(self.triggerSeeOrder) do
         if ( string.find(text,ttext) ) then
             number = getNumberInString(text);
             local ordercount = #self.openOrders
@@ -451,15 +451,15 @@ function OrderNPC:payBoni(user,order)
     end
    -- give some rankpoints as reward
    if NpcLocation[thisNPC.id] == nil then
-   		factions.setLocation(thisNPC);
+           factions.setLocation(thisNPC);
    end
    local Factionvalues = factions.get(user);
    
-	Factionvalues[ DigitToIndex[NpcLocation[thisNPC.id]+RANKPOINTS_OFFSET] ]= 
-		     Factionvalues[ DigitToIndex[NpcLocation[thisNPC.id]+RANKPOINTS_OFFSET] ] +5;--add 5 rankpoints for this town
-	
-	factions.put(user,Factionvalues);
-	------------------
+    Factionvalues[ DigitToIndex[NpcLocation[thisNPC.id]+RANKPOINTS_OFFSET] ]= 
+             Factionvalues[ DigitToIndex[NpcLocation[thisNPC.id]+RANKPOINTS_OFFSET] ] +5;--add 5 rankpoints for this town
+    
+    factions.put(user,Factionvalues);
+    ------------------
     --user:inform("payboni end");
 end
 
@@ -487,7 +487,7 @@ function OrderNPC:checkOrder(user)
                 if ( self.lastOrderString ~= order:getDataString() ) then
                     --es ist noch nie versucht worden eine teillieferung zu veranlassen
                     order:partDelivery(user,orderstruct);
-					common.TalkNLS( self.npc, Character.say, self.textSomeItems.ger, self.textSomeItems.eng );
+                    common.TalkNLS( self.npc, Character.say, self.textSomeItems.ger, self.textSomeItems.eng );
                     self.lastOrderString = order:getDataString();
                     return true;
                 else
@@ -711,19 +711,19 @@ function Order:getInHandForNPC(Character,npc)
     end
     
     for i=12,17 do --checks the whole belt
-		local item = Character:getItemAt( i );
-	    if ( item.id == OrderItem ) then
-	        local data = item:getValue(1);
-	        if ( data:len() > 0 ) then
-	            local order = Order:new();
-	            order.orderitem = item;
-	            if ( order:get() ) then
-	                if ( order.npcname == npc.name) then
-	                    return order;
-	                end
-	            end
-	        end
-	    end
+        local item = Character:getItemAt( i );
+        if ( item.id == OrderItem ) then
+            local data = item:getValue(1);
+            if ( data:len() > 0 ) then
+                local order = Order:new();
+                order.orderitem = item;
+                if ( order:get() ) then
+                    if ( order.npcname == npc.name) then
+                        return order;
+                    end
+                end
+            end
+        end
     end
     return nil;
 end
@@ -732,7 +732,7 @@ end
 function Order:setTime()
     --stunden timestmap
     local curtime = world:getTime("illarion")/3600;
-	--offset aufaddieren
+    --offset aufaddieren
     curtime = curtime + self.reltime;
     local year,month,day,hour,minute,second = common.TimestampToDate(curtime*3600);
     self.time.day = day;
@@ -753,11 +753,11 @@ function Order:createOrderItem(Character)
         scriptitem = Character:getItemAt( Character.left_tool);
     end
     for i=12,17 do --checks the whole belt
-		if ( scriptitem.id ~= 0 ) then
-		    scriptitem = Character:getItemAt(i);
-		end
-	end
-	if ( scriptitem.id ~= 0 ) then 
+        if ( scriptitem.id ~= 0 ) then
+            scriptitem = Character:getItemAt(i);
+        end
+    end
+    if ( scriptitem.id ~= 0 ) then 
         common.InformNLS(Character,"Du brauchst eine freie Hand um einen Auftrag anzunehmen.","You need a free hand to get a contract.");
         return false;
     end
@@ -795,9 +795,9 @@ function Order:checkOrder(Character,npc)
     ret.someItems= false;
     for i,item in pairs(self.items) do    
         local itemlist = Character:getItemList(item.id);
-		--nach qualitï¿½t sortieren
+        --nach qualitï¿½t sortieren
         table.sort(itemlist, function(itema,itemb) return (itema.quality > itemb.quality); end);
-			
+            
         local curcount = 0;
         --durch alle items iterieren
         for y,charitem in pairs(itemlist) do
@@ -818,8 +818,8 @@ function Order:checkOrder(Character,npc)
             ret.allItems = false;
         end
         if Character:countItem(item.id) > 0 then
-        	ret.someItems=true;
-		end
+            ret.someItems=true;
+        end
         
     end
     averquali = math.floor((curquali / allcount) + 0.5);
@@ -914,8 +914,8 @@ function Order:partDelivery(character,orderstatestruct)
             end
         end
         if itemdeleted then
-			break; -- one item type collected, use npc again for the other items
-		end
+            break; -- one item type collected, use npc again for the other items
+        end
     end
     --lï¿½schen aller fertigen items
     for i,del in ipairs (toremove) do
@@ -955,7 +955,7 @@ function Order:doOrder(character,orderstatestruct)
         --Wert für schlecht erfüllten auftrag.
         M.setThrustWorthyness(character,ThrustworthynessChangeAfterNotSuccessOrder,GoodOrderChangeAfterNotSuccessOrder);
     end
-	common.InformNLS(character, "[Quest gelöst] Du erhältst "..price.." Kupferstücke.", "[Quest solved] You are awarded "..price.." copper coins.")
+    common.InformNLS(character, "[Quest gelöst] Du erhältst "..price.." Kupferstücke.", "[Quest solved] You are awarded "..price.." copper coins.")
 end
 
 
@@ -991,23 +991,23 @@ end
 
 function Order:getDataString()
     local retstring = "";
-    local order = LuaLShift32(LuaAnd(tonumber(self.state),7),29);  --nur 3 Bit stehen lassen und nach links shiften
+    local order = bit32.lshift(bit32.band(tonumber(self.state),7),29);  --nur 3 Bit stehen lassen und nach links shiften
     if ( self.items ~= nil) then 
-        order = LuaOr(order,LuaLShift32(LuaAnd(#self.items,7),26)); --Anzahl der Items auf 3 Bit beschrï¿½nken und links shiften
+        order = bit32.bor(order,bit32.lshift(bit32.band(#self.items,7),26)); --Anzahl der Items auf 3 Bit beschrï¿½nken und links shiften
     end
-    order = LuaOr(order,LuaLShift32(LuaAnd(self.quality,15),22)); --Qualitï¿½t auf 4 Bit beschrï¿½nken und nach links shiften
-    order = LuaOr(order, LuaLShift32(LuaAnd(self.time.day,31),17)); --Tag auf 5 Bit beschrï¿½nken und nach links shiften.
-    order = LuaOr(order,LuaLShift32(LuaAnd(self.time.month,15),13)); --Tag auf 4 Bit beschrï¿½nken und nach links shiften.
-    order = LuaOr(order,LuaLShift32(LuaAnd(self.time.year,255),5)); --Jarh auf 8 Bit beschrï¿½nken und nach links shiften.
-    order = LuaOr(order,LuaAnd(self.time.hour,31)); -- Stunde in den letzten 5 Bit codieren
+    order = bit32.bor(order,bit32.lshift(bit32.band(self.quality,15),22)); --Qualitï¿½t auf 4 Bit beschrï¿½nken und nach links shiften
+    order = bit32.bor(order, bit32.lshift(bit32.band(self.time.day,31),17)); --Tag auf 5 Bit beschrï¿½nken und nach links shiften.
+    order = bit32.bor(order,bit32.lshift(bit32.band(self.time.month,15),13)); --Tag auf 4 Bit beschrï¿½nken und nach links shiften.
+    order = bit32.bor(order,bit32.lshift(bit32.band(self.time.year,255),5)); --Jarh auf 8 Bit beschrï¿½nken und nach links shiften.
+    order = bit32.bor(order,bit32.band(self.time.hour,31)); -- Stunde in den letzten 5 Bit codieren
     retstring = tostring(order);
     local coins = self.coins;
     retstring = retstring .. "," .. tostring(coins);
     local coinsmod = 0;
-    coinsmod = LuaLShift32(LuaAnd(tonumber(self.qualitymodcoins.mod),15),28);
-    coinsmod = LuaOr(coinsmod,LuaLShift32(LuaAnd(self.qualitymodcoins.value,1023),18));
-    coinsmod = LuaOr(coinsmod,LuaLShift32(LuaAnd(self.timemodcoins.mod,255),10));
-    coinsmod = LuaOr(coinsmod,LuaAnd(self.timemodcoins.value,1023));
+    coinsmod = bit32.lshift(bit32.band(tonumber(self.qualitymodcoins.mod),15),28);
+    coinsmod = bit32.bor(coinsmod,bit32.lshift(bit32.band(self.qualitymodcoins.value,1023),18));
+    coinsmod = bit32.bor(coinsmod,bit32.lshift(bit32.band(self.timemodcoins.mod,255),10));
+    coinsmod = bit32.bor(coinsmod,bit32.band(self.timemodcoins.value,1023));
     retstring = retstring .. "," ..tostring(coinsmod);
     local npcname = self.npcname;
     retstring = retstring .. "," ..npcname;
@@ -1015,8 +1015,8 @@ function Order:getDataString()
     retstring = retstring .. "," .. curquali;
     for i,item in ipairs(self.items) do    
         local itemnr = 0;
-        itemnr = LuaLShift32(item.id, 8);
-        itemnr = LuaOr(itemnr,LuaAnd(item.count,255));
+        itemnr = bit32.lshift(item.id, 8);
+        itemnr = bit32.bor(itemnr,bit32.band(item.count,255));
         retstring = retstring .. "," .. tostring(itemnr);
     end
     return retstring;
@@ -1040,13 +1040,13 @@ function Order:get()
         table.remove(fields,1);
         table.remove(fields,1);
         --order
-        self.type = LuaRShift32(order,29);
-        local itemcount = LuaAnd(LuaRShift32(order,26),7); --unnï¿½tige Werte herausshiften und letzten 3 Bit maskieren
-        self.quality = LuaAnd(LuaRShift32(order,22),15); --nach rechts shifte und 4 Bit maskieren
-        self.time.day = LuaAnd(LuaRShift32(order,17),31); --nach rechts shiften und 5 Bit Maskieren
-        self.time.month = LuaAnd(LuaRShift32(order,13),15);--nach rechts shiften und 4 Bit maskieren
-        self.time.year = LuaAnd(LuaRShift32(order,5),255);--nach rechts shiften und 8 Bit maskieren
-        self.time.hour = LuaAnd(order,31);
+        self.type = bit32.rshift(order,29);
+        local itemcount = bit32.band(bit32.rshift(order,26),7); --unnï¿½tige Werte herausshiften und letzten 3 Bit maskieren
+        self.quality = bit32.band(bit32.rshift(order,22),15); --nach rechts shifte und 4 Bit maskieren
+        self.time.day = bit32.band(bit32.rshift(order,17),31); --nach rechts shiften und 5 Bit Maskieren
+        self.time.month = bit32.band(bit32.rshift(order,13),15);--nach rechts shiften und 4 Bit maskieren
+        self.time.year = bit32.band(bit32.rshift(order,5),255);--nach rechts shiften und 8 Bit maskieren
+        self.time.hour = bit32.band(order,31);
         --coins
         self.coins = coins;
         --npc
@@ -1054,16 +1054,16 @@ function Order:get()
         --curquali
         self.curquality = curquali;
         --coinsmod
-        self.qualitymodcoins.mod = LuaRShift32(coinsmod,28);
-        self.qualitymodcoins.value = LuaAnd(LuaRShift32(coinsmod,18),1023);
-        self.timemodcoins.mod = LuaAnd(LuaRShift32(coinsmod,10),255);
-        self.timemodcoins.value = LuaAnd(coinsmod,1023);
+        self.qualitymodcoins.mod = bit32.rshift(coinsmod,28);
+        self.qualitymodcoins.value = bit32.band(bit32.rshift(coinsmod,18),1023);
+        self.timemodcoins.mod = bit32.band(bit32.rshift(coinsmod,10),255);
+        self.timemodcoins.value = bit32.band(coinsmod,1023);
         --items
         self.items = {};
         for i,numberstr in pairs(fields) do
             local number = tonumber(numberstr);
-            local itemid = LuaRShift32(number,8);
-            local nitemcount = LuaAnd(number,255);
+            local itemid = bit32.rshift(number,8);
+            local nitemcount = bit32.band(number,255);
             table.insert(self.items,OrderItemStruct(itemid,nitemcount));
         end
         return true;
@@ -1090,37 +1090,37 @@ function Order:lookAt(Char)
     local enghour="";
     local ItemAmount;
     local RemainingHours;
-	gerhour,enghour = common.Hour_To_String(self.time.hour);
+    gerhour,enghour = common.Hour_To_String(self.time.hour);
     if (Char:getPlayerLanguage() == 0) then --deutsch
         text = "Auftrag von "..self.npcname.." ï¿½ber ";
         for key,item in pairs(self.items) do
             if item.id~=0 and item.count~=0 then --don't include the Item "nothing"
-				if item.count<10 then
-				    ItemAmount = getDigitName(item.count,0);
-				else
-					ItemAmount = item.count;
-				end
-				
-				text = text .. ItemAmount .. " " .. world:getItemName(item.id,0) .. ", ";
-			end
+                if item.count<10 then
+                    ItemAmount = getDigitName(item.count,0);
+                else
+                    ItemAmount = item.count;
+                end
+                
+                text = text .. ItemAmount .. " " .. world:getItemName(item.id,0) .. ", ";
+            end
         end
         if (self.quality+1)>6 then --ask for quality only if the NPC wants good wares or better
-			text = text .. " mit mindestens " .. QualityText[self.quality+1].ger.." Qualitï¿½t";
-		end
+            text = text .. " mit mindestens " .. QualityText[self.quality+1].ger.." Qualitï¿½t";
+        end
         
-		if ( self.orderitem ~= nil ) then
+        if ( self.orderitem ~= nil ) then
             RemainingHours = ConvertDateToHourOffset(self.time.year, self.time.month+1, self.time.day, self.time.hour);
-		    text = text .. " abzuliefern in " ..RemainingHours .. " Stunden";
-			--text = text .. ", abzuliefern am " .. self.time.day .. "." .. MonthNames[self.time.month+1] .. "." .. self.time.year .. " " .. gerhour;
-        else		
-		    text = text .. " abzuliefern in " ..self.reltime .. " Stunden";
+            text = text .. " abzuliefern in " ..RemainingHours .. " Stunden";
+            --text = text .. ", abzuliefern am " .. self.time.day .. "." .. MonthNames[self.time.month+1] .. "." .. self.time.year .. " " .. gerhour;
+        else        
+            text = text .. " abzuliefern in " ..self.reltime .. " Stunden";
         end
         g,s,c = CoinsToGSC(self.coins);
         if g == 0 then
-			text = text .. " für " .. s .. " Silber und " .. c .. " Kupfermünzen."; 
-		else
-			text = text .. " für " .. g .. " Gold " .. s .. " Silber und " .. c .. " Kupfermünzen.";
-		end  
+            text = text .. " für " .. s .. " Silber und " .. c .. " Kupfermünzen."; 
+        else
+            text = text .. " für " .. g .. " Gold " .. s .. " Silber und " .. c .. " Kupfermünzen.";
+        end  
         if ( Char:isAdmin() ) then
             text = text .. " Wertverlust Zeit: " .. self.timemodcoins.value .. " Kupfer in " ..self.timemodcoins.mod.." Stunden,"
             text = text .. " Wertverlust Qualität: "..self.qualitymodcoins.value .. " Kupfer pro "..self.qualitymodcoins.mod.." Qualität." 
@@ -1130,30 +1130,30 @@ function Order:lookAt(Char)
         text = "Contract from "..self.npcname.." over ";
         for key,item in pairs(self.items) do
             if item.id~=0 and item.count~=0 then --don't include the Item "nothing"
-            	if item.count<10 then
-				    ItemAmount = getDigitName(item.count,1);
-				else
-					ItemAmount = item.count;
-				end
-            	text = text .. ItemAmount .. " " .. world:getItemName(item.id,1) .. ",";
+                if item.count<10 then
+                    ItemAmount = getDigitName(item.count,1);
+                else
+                    ItemAmount = item.count;
+                end
+                text = text .. ItemAmount .. " " .. world:getItemName(item.id,1) .. ",";
             end
         end
         if (self.quality+1)>6 then --ask for quality only if the NPC wants good wares or better
-        	text = text .. " of at least " .. QualityText[self.quality+1].eng.." quality";
+            text = text .. " of at least " .. QualityText[self.quality+1].eng.." quality";
         end
         if ( self.orderitem ~= nil ) then
             RemainingHours = ConvertDateToHourOffset(self.time.year, self.time.month+1, self.time.day, self.time.hour);
-			text = text .. " to deliver in " ..RemainingHours.." hours";
-		--    text = text .. ", to deliver at " .. self.time.day .. "." .. MonthNames[self.time.month+1] .. "." .. self.time.year .. " " .. enghour;
+            text = text .. " to deliver in " ..RemainingHours.." hours";
+        --    text = text .. ", to deliver at " .. self.time.day .. "." .. MonthNames[self.time.month+1] .. "." .. self.time.year .. " " .. enghour;
         else
             text = text .. " to deliver in " ..self.reltime.." hours";
         end    
         g,s,c = CoinsToGSC(self.coins);
         if g == 0 then
-			text = text .. " for " .. s .. " silver and " .. c .. " copper coins."; 
-		else
-        	text = text .. " for " .. g .. " gold " .. s .. " silver and " .. c .. " copper coins."; 
-		end  
+            text = text .. " for " .. s .. " silver and " .. c .. " copper coins."; 
+        else
+            text = text .. " for " .. g .. " gold " .. s .. " silver and " .. c .. " copper coins."; 
+        end  
         if ( Char:isAdmin() ) then
             text = text .. " Valueloss time: " .. self.timemodcoins.value .. " copper in " ..self.timemodcoins.mod.." hours,"
             text = text .. " Valueloss quality: "..self.qualitymodcoins.value .. " copper per "..self.qualitymodcoins.mod.." quality." 
@@ -1383,16 +1383,16 @@ function OrderPool:generateOrder()
     for i,item in pairs(itemsfororder) do
         item.concretenumber = math.random(item.mincount,item.maxcount);
         
-		if item.concretenumber>5 and item.concretenumber<50 then --modification part of the item number to get only orders for 1,2,3,4,5,10,15,...
-			item.concretenumber = item.concretenumber/5;
-			item.concretenumber = 5* math.floor(item.concretenumber+0.5);
-		elseif item.concretenumber>50 and item.concretenumber<100 then
-			item.concretenumber = item.concretenumber/10;
-			item.concretenumber = 10* math.floor(item.concretenumber+0.5);
-		elseif item.concretenumber>100 then
-			item.concretenumber = item.concretenumber/50;
-			item.concretenumber = 50* math.floor(item.concretenumber+0.5);
-		end	
+        if item.concretenumber>5 and item.concretenumber<50 then --modification part of the item number to get only orders for 1,2,3,4,5,10,15,...
+            item.concretenumber = item.concretenumber/5;
+            item.concretenumber = 5* math.floor(item.concretenumber+0.5);
+        elseif item.concretenumber>50 and item.concretenumber<100 then
+            item.concretenumber = item.concretenumber/10;
+            item.concretenumber = 10* math.floor(item.concretenumber+0.5);
+        elseif item.concretenumber>100 then
+            item.concretenumber = item.concretenumber/50;
+            item.concretenumber = 50* math.floor(item.concretenumber+0.5);
+        end    
         
         ordertime = ordertime + (item.time * item.concretenumber);
         ordercoins = ordercoins + (item.price * item.concretenumber);
@@ -1424,28 +1424,28 @@ end
 function getDigitName(number,lang) --returns a digit from 0-9 as text
 
 if number<10 then
-	if not InitDigitNames then
-		InitDigitNames = true;
-		digit_de = {"eins", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun"};
-		digit_de[0] = "null";
-		digit_eng ={"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-		digit_eng[0] = "zero";
-	end
-	
-	if lang == 0 then
-		return digit_de[number];
-	else
-		return digit_eng[number];
-	end
+    if not InitDigitNames then
+        InitDigitNames = true;
+        digit_de = {"eins", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun"};
+        digit_de[0] = "null";
+        digit_eng ={"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+        digit_eng[0] = "zero";
+    end
+    
+    if lang == 0 then
+        return digit_de[number];
+    else
+        return digit_eng[number];
+    end
 end
 
 end
 
 function ConvertDateToHourOffset(year, month, day, hour)
-	DeliverTimestamp = (year*365+(month-1)*24+day)*24+hour;
-	curHourTimestamp = (world:getTime("year")*365+(world:getTime("month")-1)*24+world:getTime("day"))*24+world:getTime("hour");
-	HoursTillInvalidOrder = DeliverTimestamp - curHourTimestamp;  
-	return HoursTillInvalidOrder;
-end		
-		
+    DeliverTimestamp = (year*365+(month-1)*24+day)*24+hour;
+    curHourTimestamp = (world:getTime("year")*365+(world:getTime("month")-1)*24+world:getTime("day"))*24+world:getTime("hour");
+    HoursTillInvalidOrder = DeliverTimestamp - curHourTimestamp;  
+    return HoursTillInvalidOrder;
+end        
+        
 return M
