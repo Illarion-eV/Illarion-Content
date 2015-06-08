@@ -55,7 +55,7 @@ function M.UseItem(User, SourceItem)
 
     if (User:getQuestProgress(543) == 1 and User:getQuestProgress(545) >= 0 and SourceItem.pos == position(901, 586, -3)) then --OK, the player does the quest 1 for Brigette Russ
         User:inform(
-            "",
+            "Im Inneren der Truhe liegt ein Kupferkelch, den du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
             "Inside the chest lays a copper goblet that you take. This could be one of Brigette's lost belongings.")
         User:setQuestProgress(545, 1)
 
@@ -67,11 +67,10 @@ function M.UseItem(User, SourceItem)
                 "You can't carry any more.")
         end
         checkIfGotAllItems(User)
-    end
-
-if (User:getQuestProgress(543) == 1 and User:getQuestProgress(546) >= 0 and SourceItem.pos == position(902, 586, -3)) then --OK, the player does the quest 1 for Brigette Russ
+        
+    elseif (User:getQuestProgress(543) == 1 and User:getQuestProgress(546) >= 0 and SourceItem.pos == position(902, 586, -3)) then --OK, the player does the quest 1 for Brigette Russ
         User:inform(
-            "",
+            "Im Inneren der Truhe liegt ein goldener Ring, den du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
             "Inside the chest lays a golden ring that you take. This could be one of Brigette's lost belongings.")
         User:setQuestProgress(546, 1)
 
@@ -83,11 +82,10 @@ if (User:getQuestProgress(543) == 1 and User:getQuestProgress(546) >= 0 and Sour
                 "You can't carry any more.")
         end
         checkIfGotAllItems(User)
-end
 
-if (User:getQuestProgress(543) == 1 and User:getQuestProgress(547) >= 0 and SourceItem.pos == position(897, 593, -3)) then --OK, the player does the quest 1 for Brigette Russ
+    elseif (User:getQuestProgress(543) == 1 and User:getQuestProgress(547) >= 0 and SourceItem.pos == position(897, 593, -3)) then --OK, the player does the quest 1 for Brigette Russ
         User:inform(
-            "",
+            "Im Inneren der Truhe liegt ein goldener Rubinring, den du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
             "Inside the chest lays a ruby gold ring that you take. This could be one of Brigette's lost belongings.")
         User:setQuestProgress(547, 1)
 
@@ -99,11 +97,10 @@ if (User:getQuestProgress(543) == 1 and User:getQuestProgress(547) >= 0 and Sour
                 "You can't carry any more.")
         end
         checkIfGotAllItems(User)
-end
 
-if (User:getQuestProgress(543) == 1 and User:getQuestProgress(548) >= 0 and SourceItem.pos == position(897, 594, -3)) then --OK, the player does the quest 1 for Brigette Russ
+    elseif (User:getQuestProgress(543) == 1 and User:getQuestProgress(548) >= 0 and SourceItem.pos == position(897, 594, -3)) then --OK, the player does the quest 1 for Brigette Russ
         User:inform(
-            "",
+            "Im Inneren der Truhe liegt ein Teller, den du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
             "Inside the chest lays a plate that you take. This could be one of Brigette's lost belongings.")
         User:setQuestProgress(548, 1)
 
@@ -115,11 +112,10 @@ if (User:getQuestProgress(543) == 1 and User:getQuestProgress(548) >= 0 and Sour
                 "You can't carry any more.")
         end
         checkIfGotAllItems(User)
-end
 
-if (User:getQuestProgress(543) == 1 and User:getQuestProgress(549) >= 0 and SourceItem.pos == position(902, 588, -3)) then --OK, the player does the quest 1 for Brigette Russ
+    elseif (User:getQuestProgress(543) == 1 and User:getQuestProgress(549) >= 0 and SourceItem.pos == position(902, 588, -3)) then --OK, the player does the quest 1 for Brigette Russ
         User:inform(
-            "",
+            "Im Inneren der Truhe liegt eine Flöte, die du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
             "Inside the chest lays a flute that you take. This could be one of Brigette's lost belongings.")
         User:setQuestProgress(549, 1)
 
@@ -131,12 +127,11 @@ if (User:getQuestProgress(543) == 1 and User:getQuestProgress(549) >= 0 and Sour
                 "You can't carry any more.")
         end
         checkIfGotAllItems(User)
-end
 
-if (User:getQuestProgress(543) == 1 and User:getQuestProgress(550) >= 0 and SourceItem.pos == position(902, 589, -3)) then --OK, the player does the quest 1 for Brigette Russ
+    elseif (User:getQuestProgress(543) == 1 and User:getQuestProgress(550) >= 0 and SourceItem.pos == position(902, 589, -3)) then --OK, the player does the quest 1 for Brigette Russ
         User:inform(
-            "",
-            "Inside the chest lays a gray hat with a feather that you take. This could be one of Brigette's lost belongings.")
+            "Im Inneren der Truhe liegt ein grauer Hut mit einer Feder, den du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
+            "Inside the chest lays a grey hat with a feather that you take. This could be one of Brigette's lost belongings.")
         User:setQuestProgress(550, 1)
 
         local notCreated = User:createItem(830, 1, 801, nil) -- create the item
@@ -147,20 +142,19 @@ if (User:getQuestProgress(543) == 1 and User:getQuestProgress(550) >= 0 and Sour
                 "You can't carry any more.")
         end
         checkIfGotAllItems(User)
-end
+        
+    local itemData
+    local isronaganChest = (SourceItem:getData("ronaganChest") == "true")
+    elseif (isronaganChest) then
+        ronaganContents(User, SourceItem)
+        return
+    end
 
     for i = 1, #dragonCaveChestPos do
             if (SourceItem.pos == dragonCaveChestPos[i]) then
                 ChestContents(User, SourceItem)
                 return
             end
-    end
-
-    local itemData
-    local isronaganChest = (SourceItem:getData("ronaganChest") == "true")
-    if (isronaganChest) then
-        ronaganContents(User, SourceItem)
-        return
     end
 
     local isronaganTreasurechest = (SourceItem:getData("ronaganTreasurechest") == "true")
@@ -174,7 +168,7 @@ function checkIfGotAllItems(User)
     if (User:getQuestProgress(545) == 1 and User:getQuestProgress(546) == 1 and User:getQuestProgress(547) == 1 and User:getQuestProgress(548) == 1 and User:getQuestProgress(549) == 1 and User:getQuestProgress(550) == 1) then
         User:setQuestProgress(543, 2)
         User:inform(
-            "",
+            "Du hast mehrere Gegenstände gefunden, die Brigette gehören könnten. Du solltest zu ihr zurückkehren und mit ihr sprechen.",
             "You have found several items that could be Brigette's. You should check back in with her.")
     end
 end
