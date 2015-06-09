@@ -14,6 +14,8 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+-- INSERT INTO triggerfields VALUES (249,99,0,'triggerfield.hairdresser');
+
 local common = require("base.common")
 local hair = require("base.hair")
 local money = require("base.money")
@@ -228,8 +230,8 @@ function selectHaircolor(User, NPC)
                 User:setHairColour(colour(r, g, b));
                 selectChoice(User, NPC);
             else
-                User:setHairColour(colour(hairColorSimple[selected-1].red, hairColorSimple[selected-1].green,
-                    hairColorSimple[selected-1].blue));
+                User:setHairColour(colour(hairColorSimple[selected-1].r, hairColorSimple[selected-1].g,
+                    hairColorSimple[selected-1].b))
                 selectChoice(User, NPC);
             end
         end
