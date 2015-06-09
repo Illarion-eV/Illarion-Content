@@ -1,0 +1,174 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+------------------------------------------------------------------------------AC
+-- NPC Name: Erza                                                             --
+-- NPC Job: Barber                                                            --
+--                                                                            --
+-- NPC Race: human                             NPC Position: 249 98 0         --
+-- NPC Sex: female                             NPC Direction: west            --
+--                                                                            --
+-- Author: HeXiS                                                              --
+--                                                      easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+
+name = "Erza"
+race = human
+sex = female
+position = 249, 98, 0
+direction = west
+affiliation = "Galmair"
+job = "Barber"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "HeXiS"
+
+lookatDE = "Dieser NPC ist Erza."
+lookatUS = "This NPC is Erza."
+useMsgDE = ""
+useMsgUS = "#me snips her scissors. 'Like your fingers? Keep them off me!'"
+wrongLangDE = ""
+wrongLangUS = "#me arches her eyebrow."
+radius = 0
+hairID = 7
+beardID = 0
+colorHair = 198, 0, 0
+colorSkin = 232, 214, 199
+itemHead = 0
+itemChest = 834
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 0
+itemTrousers = 0
+itemShoes = 369
+
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+-- sellItems =
+-- buyPrimaryItems = 1
+-- buySecondaryItems = 2, 3
+
+-- Template Version 1.08, 10/18/2012 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
+-- Style of triggers: Keywords are preferred. Avoid usage of phrases such as "tell me more"
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change anything your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Equipment: You can find a graphical item list here: http://illarion.org/~martin/itemlist.pdf
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly
+-- When you are done, please hit the "Rebuild Script" button and save the LUA script. Both, this npc file and the LUA file have to be uploaded to the script repository
+-- After uploading, your NPC needs to be submitted to the database and a developer has to perform a full reload (!fr) of the server
+
+-- TRADING
+-- The trader should buy all items he sells. Primary items are bought at 10% of the worth, secondary items yield only 5%
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Erza. Keywords: Profession, Haircut, Trim, Shave, Dye, Eye.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Erza. Schlüsselwörter: ")
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Mhmm. Get in the chair.", "Hello, Its a grand day to change your appearance!"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße!", ""
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Mhmm. Get in the chair.", "Hello, Its a grand day to change your appearance!"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Grüße!", ""
+"Farewell", "Bye", "Fare well", "See you" -> "Farewell! Come see me again for your next hair change!", "Good bye. Next!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "", ""
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell! Come see me again for your next hair change!", "Good bye. Next!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "", ""
+"How are you", "How feel", "How do you do" -> "Me? Oh im fine snip snip here snip snip there!", "Shave, Haircut? or Dye?"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "", ""
+"your name", "who are you", "who art thou" -> "I am Erza. And you are...?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> ""
+
+-- Optional: Trade Hooks, use only for traders
+"sell", "buy", "wares", "price", "trade", "purchase", "Haircut", "Trim", "Shave", "Dye" -> "Let's freshen you up!", ""
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb", "", "", "", "" -> "", ""
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am Just sharpening my razor for the next customer.", "I'm the barber, care for a trim?"
+"beruf" -> "", ""
+english, "job" -> "I am sharpening my razor for the next customer.", "I'm the barber, care for a trim?"
+"job" -> "", ""
+"tell something" -> "I once was a well known, beautiful warrior, but I lost an eye. The Archmage made me a new one from glass.", "You're hair is all wrong! let me fix it!"
+"erzähl was", "erzähl etwas" -> "", ""
+
+-- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"barber" -> "I'm the barber, care for a trim?"
+"Bader" -> ""
+"eye" -> "I once was a well known, beautiful warrior, but I lost an eye. The Archmage made me a new one from glass."
+"Auge" -> ""
+
+-- Optional: Faction stuff
+"archmage" -> "The Archmage needs a haircut!  Send him to me!"
+"Erzmagier" -> ""
+english, "Elvaine", "Morgan" -> "The Archmage needs a haircut!  Send him to me!"
+"Elvaine", "Morgan" -> ""
+english, "Runewick" -> "Runewick doesn't have a barber as good as me!"
+"Runewick" -> ""
+english, "Valerio", "Guilianni", "Don" -> "The Don has a fine head of hair and lovely beard!"
+"Valerio", "Guilianni", "Don" -> ""
+english, "Galmair" -> "I am the best barber in Galmair!"
+"Galmair" -> ""
+"Queen" -> "I would love to do the Queens hair!"
+"Königin" -> ""
+english, "rosaline", "edwards" -> "I would love to do the Queens hair!"
+"rosaline", "edwards" -> ""
+english, "Cadomyr" -> "Cadomyr doesn't have a good as barber as me!"
+"Cadomyr" -> ""
+
+-- Optional: Gobaith
+english, "Gobaith", "Gobiath" -> "It's gone! Like Yeasterday!"
+"Gobaith", "Gobiath" -> "Sprecht lauter, ich kann Euch nicht hören!"
+
+-- Optional: Last catch - Think about keywords the player might say and that are not caught until here
+"my name" -> "Nice to meet you %CHARNAME", "Right, right. Well %CHARNAME, just hold still while I fix what ever it is you did to your hair, face. Eh.. youre head area!"
+"mein Name" -> "", ""
+english, "Erza" -> "You asked for me?", "Yes??"
+"Erza" -> "", "Ja?"
+"Yes" -> "Great let me get to work!", "You won't regret your choice!"
+"Ja" -> "", ""
+"No" -> "Oh, thats to bad.", "Hmm, If you think that wise."
+"Nein" -> "", ""
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+english, chance(20.0), ".*" -> "Get closer, I can't see you!", "Get in the chair or go away.", "#me spins her scissors on her finger whistling.", "#me runs her razor across a peice of old leather."
+german, chance(20.0), ".*" -> "", "", "", ""
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "!", "Snip snip here! Snip snip there, and a couple of Tra La Las!"
+cycletext "#me .", "#me eyes a passerby and shouts. 'Get a hair cut hippy!'"
+cycletext "#me .", "#me brushes off her apron."
+cycletext "#me .", "#me plucks hairs from her comb."
+cycletext "#me . ", "#me checks the edge of her scissors."
+cycletext "#me .", "#me smiles looking at her reflection."
+cycletext "#me .", "#me stares at her razor."
+cycletext "#me .", "#me breaths on her mirror and cleans it with her sleeve."
+cycletext ".", "Hair one moment. Gone the next!"
+cycletext ".", "Some Warrior once told me, 'Aim the for the flat-top.' Whatever that means."
+cycletext "", "Time for a shave yes?!"
+cycletext "", "Oh my gods! There's a dead rat on your head!."
+cycletext "#w ", "#w I'll kill the next fellar that.. Oh hello ther care for a shave?"
