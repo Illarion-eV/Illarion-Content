@@ -53,7 +53,7 @@ function M.UseItem(User, SourceItem)
         return
     end
 
-    if (User:getQuestProgress(543) == 1 and User:getQuestProgress(545) >= 0 and SourceItem.pos == position(901, 586, -3)) then --OK, the player does the quest 1 for Brigette Russ
+    if (User:getQuestProgress(543) == 1 and User:getQuestProgress(545) <= 0 and SourceItem.pos == position(901, 586, -3)) then --OK, the player does the quest 1 for Brigette Russ
         User:inform(
             "Im Inneren der Truhe liegt ein Kupferkelch, den du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
             "Inside the chest lays a copper goblet that you take. This could be one of Brigette's lost belongings.")
@@ -68,7 +68,7 @@ function M.UseItem(User, SourceItem)
         end
         checkIfGotAllItems(User)
         
-    elseif (User:getQuestProgress(543) == 1 and User:getQuestProgress(546) >= 0 and SourceItem.pos == position(902, 586, -3)) then --OK, the player does the quest 1 for Brigette Russ
+    elseif (User:getQuestProgress(543) == 1 and User:getQuestProgress(546) <= 0 and SourceItem.pos == position(902, 586, -3)) then --OK, the player does the quest 1 for Brigette Russ
         User:inform(
             "Im Inneren der Truhe liegt ein goldener Ring, den du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
             "Inside the chest lays a golden ring that you take. This could be one of Brigette's lost belongings.")
@@ -83,7 +83,7 @@ function M.UseItem(User, SourceItem)
         end
         checkIfGotAllItems(User)
 
-    elseif (User:getQuestProgress(543) == 1 and User:getQuestProgress(547) >= 0 and SourceItem.pos == position(897, 593, -3)) then --OK, the player does the quest 1 for Brigette Russ
+    elseif (User:getQuestProgress(543) == 1 and User:getQuestProgress(547) <= 0 and SourceItem.pos == position(897, 593, -3)) then --OK, the player does the quest 1 for Brigette Russ
         User:inform(
             "Im Inneren der Truhe liegt ein goldener Rubinring, den du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
             "Inside the chest lays a ruby gold ring that you take. This could be one of Brigette's lost belongings.")
@@ -98,7 +98,7 @@ function M.UseItem(User, SourceItem)
         end
         checkIfGotAllItems(User)
 
-    elseif (User:getQuestProgress(543) == 1 and User:getQuestProgress(548) >= 0 and SourceItem.pos == position(897, 594, -3)) then --OK, the player does the quest 1 for Brigette Russ
+    elseif (User:getQuestProgress(543) == 1 and User:getQuestProgress(548) <= 0 and SourceItem.pos == position(897, 594, -3)) then --OK, the player does the quest 1 for Brigette Russ
         User:inform(
             "Im Inneren der Truhe liegt ein Teller, den du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
             "Inside the chest lays a plate that you take. This could be one of Brigette's lost belongings.")
@@ -113,7 +113,7 @@ function M.UseItem(User, SourceItem)
         end
         checkIfGotAllItems(User)
 
-    elseif (User:getQuestProgress(543) == 1 and User:getQuestProgress(549) >= 0 and SourceItem.pos == position(902, 588, -3)) then --OK, the player does the quest 1 for Brigette Russ
+    elseif (User:getQuestProgress(543) == 1 and User:getQuestProgress(549) <= 0 and SourceItem.pos == position(902, 588, -3)) then --OK, the player does the quest 1 for Brigette Russ
         User:inform(
             "Im Inneren der Truhe liegt eine Flöte, die du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
             "Inside the chest lays a flute that you take. This could be one of Brigette's lost belongings.")
@@ -128,7 +128,7 @@ function M.UseItem(User, SourceItem)
         end
         checkIfGotAllItems(User)
 
-    elseif (User:getQuestProgress(543) == 1 and User:getQuestProgress(550) >= 0 and SourceItem.pos == position(902, 589, -3)) then --OK, the player does the quest 1 for Brigette Russ
+    elseif (User:getQuestProgress(543) == 1 and User:getQuestProgress(550) <= 0 and SourceItem.pos == position(902, 589, -3)) then --OK, the player does the quest 1 for Brigette Russ
         User:inform(
             "Im Inneren der Truhe liegt ein grauer Hut mit einer Feder, den du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
             "Inside the chest lays a grey hat with a feather that you take. This could be one of Brigette's lost belongings.")
