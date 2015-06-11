@@ -34,10 +34,10 @@ end
 
 local magic = monstermagic()
 
-magic.addFirecone{probability = 0.05,  damage = {from = 1250, to = 1500}, range = 6, angularAperture = 25,
+magic.addFirecone{probability = 0.05,  damage = {from = 1250, to = 1500}, range = 6, angularAperture = 30,
     itemProbability = 0.1, quality = {from = 0, to = 1}}
-magic.addFirecone{probability = 0.005,  damage = {from = 1400, to = 1800}, range = 3, angularAperture = 15,
-    itemProbability = 0.01, quality = {from = 1, to = 2}}
+magic.addFirecone{probability = 0.005,  damage = {from = 1400, to = 1800}, range = 3, angularAperture = 30,
+    itemProbability = 0.05, quality = {from = 1, to = 2}}
 
 
 firefield.setFlameImmunity(monsterId)
