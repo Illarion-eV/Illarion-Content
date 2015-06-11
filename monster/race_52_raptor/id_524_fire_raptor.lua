@@ -38,7 +38,8 @@ magic.addFirecone{probability = 0.05,  damage = {from = 1250, to = 1500}, range 
     itemProbability = 0.1, quality = {from = 0, to = 1}}
 magic.addFirecone{probability = 0.005,  damage = {from = 1400, to = 1800}, range = 3, angularAperture = 15,
     itemProbability = 0.01, quality = {from = 1, to = 2}}
-	
+
+
 firefield.setFlameImmunity(monsterId)
 
 return magic.addCallbacks(M)
