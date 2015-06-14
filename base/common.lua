@@ -1770,7 +1770,7 @@ function M.GetLeadAttributeName(Skill)
 
     leadAttribTable={};
 
-	--Dexterity: All crafting skills for final products and instruments (please remove these skills in future)
+	--Dexterity: All crafting skills for final products
 	leadAttribTable[Character.tailoring]="dexterity"
 	leadAttribTable[Character.smithing]="dexterity"
 	leadAttribTable[Character.gemcutting]="dexterity"
@@ -1778,6 +1778,8 @@ function M.GetLeadAttributeName(Skill)
 	leadAttribTable[Character.cookingAndBaking]="dexterity"
 	leadAttribTable[Character.goldsmithing]="dexterity"
 	leadAttribTable[Character.glassBlowing]="dexterity"
+	
+	--Dexterity: Instruments (please remove these skills in future)
 	leadAttribTable[Character.harp]="dexterity"
 	leadAttribTable[Character.horn]="dexterity"
 	leadAttribTable[Character.flute]="dexterity"
@@ -1824,6 +1826,45 @@ function M.GetLeadAttributeName(Skill)
   end
 
   return leadAttribTable[Skill]
+
+end
+
+--- Looks up the lead attribute value of a given skill name.
+-- @param Skill  The name of the skill.
+-- @param user   The character whose attributes are evaluated
+-- @return The value of the corresponding lead attribute.
+--                 NOTE: in case there is no lead attribute, 10 will be returned.
+
+function M.GetLeadAttrib(user, Skill)
+
+  local leadAttribName = M.GetLeadAttributeName(Skill)
+  
+  if leadAttribName ~= nil then
+  
+    return user:increaseAttrib(leadAttribName, 0)
+	
+  end
+    
+  return 10 --10 should be default
+  
+end
+
+--- Calculates an universal attribute bonus
+-- Recommendation: Use together with GetLeadAttrib to calculate the bonus of a lead attribute on a skill related action
+-- @param attribute  The value of the attribute
+-- @param range   The range of the bonus (1 +/- range)
+-- @return  The value of the bonus
+--                 NOTE: 1 will be returned if something goes wrong
+
+function M.GetAttributeBonus (attribute,range)
+
+    if attribute ~= nil and attribute ~= 0 then
+	    bonus=math.min(1+2*range, (1-range) + range * (attribute / 10)) --1 +/- range for attributes 0-20. Bonus capped at attribute 30
+	else
+	    bonus=1 --default
+	end
+	
+    return bonus
 
 end
 

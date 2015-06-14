@@ -277,12 +277,6 @@ function M.onLogin( player )
         exchangeFactionLeader(player.name)
     end
 
-    --TEMPORARY SOLUTION TO CATCH BUGGED PLAYERS
-    if player:getMentalCapacity() < 1999 then --Mental Capacity CANNOT drop below 1999 -> Bugged player or cheater
-        player:increaseMentalCapacity(2000000) --This is default for new players.
-    end
-    --TEMPORARY SOLUTION END
-
     --A hack to display bars correctly
     player:increaseAttrib("foodlevel", -1)
 

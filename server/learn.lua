@@ -18,14 +18,6 @@ local common = require("base.common")
 
 local M = {}
 
-local function getLeadAttrib(Char, Skill)
-  local leadAttribName = common.GetLeadAttributeName(Skill)
-  if leadAttribName ~= nil then
-    return Char:increaseAttrib(leadAttribName, 0)
-  end
-  return 10 --10 should be default
-end
-
 -- called by the server when user:learn(...) is issued by a script
 
 --[[
@@ -37,20 +29,20 @@ learnLimit: Maximum skill level the user can reach with the triggering action.
 
 ]]
 
+--Learning speed - Change here if you're unhappy with the learning speed. Skillgain scales in a linear way.
+local scalingFactor = 500 --Here, you can mod the learning speed. Higher value=faster
+
+--Constants - Do not change unless you know exactly what you're doing!
+local amplification = 100 --An 'abritrary' value that governs the 'resolution' of the MC function.
+local damping = 0.0001
+local lowerBorder = 0.5 * amplification / damping --below 0.5% of time spent online, no additional bonus is granted
+local normalMC = 10 * lowerBorder --A 'normal' player invests 10x the time (=5%) into skill related actions
+local normalAP = 50 --How many movepoints does a 'normal' action take? Default=50
+--Constants - end
+	
 function M.learn(user, skill, actionPoints, learnLimit)
 
-    local leadAttrib = getLeadAttrib(user, skill) --reading the lead attribute
-
-    --Learning speed - Change here if you're unhappy with the learning speed. Skillgain scales in a linear way.
-    local scalingFactor = 500 --Here, you can mod the learning speed. Higher value=faster
-
-    --Constants - Do not change unless you know exactly what you're doing!
-    local amplification = 100 --An 'abritrary' value that governs the 'resolution' of the MC function.
-    local lowerBorder = 0.5 * amplification / 0.00025 --below 0.5% of time spent online, no additional bonus is granted
-    local normalMC = 10 * lowerBorder --A 'normal' player invests 10x the time (=5%) into skill related actions
-    local normalAP = 50 --How many movepoints does a 'normal' action take? Default=50
-    --Constants - end
-
+    local leadAttrib = common.GetLeadAttrib(user, skill) --reading the lead attribute
     local skillValue = user:getSkill(skill) --reading the skill points
     local minorSkill = user:getMinorSkill(skill) --reading the minor skill points; 10000=1 skill point
     local MCvalue = math.max(lowerBorder, user:getMentalCapacity()) --below 0.5% of time spent online, no additional bonus is granted
@@ -62,29 +54,29 @@ function M.learn(user, skill, actionPoints, learnLimit)
         if math.random(0, 99) < chanceForSkillGain then --Success?
 
             local MCfactor = normalMC / math.max(MCvalue, 1) --5% of time spent online is considered "normal" -> MCfactor is 1
-            local attributeFactor = math.min(1.5, 0.5 + 0.5 * (leadAttrib / 10)) --0.5 to 1.5, depending on attribute, limited to 1.5 (no bonus for insane attributes, balancing!)
+			local attributeFactor = common.GetAttributeBonus(leadAttrib,0.5); --0.5 to 1.5, depending on attribute, limited to 2
+			local intelligenceFactor = common.GetAttributeBonus(user:increaseAttrib("intelligence", 0),0.1); --0.9 to 1.1, depending on attribute, limited to 1.2
             local actionpointFactor = actionPoints / normalAP --An action with 50AP is "normal"
-            local minorIncrease = math.floor(scalingFactor * attributeFactor * actionpointFactor * MCfactor)
-
+			local minorIncrease = math.floor(scalingFactor * attributeFactor * actionpointFactor * MCfactor)
 
             --For debugging, use the following line.
-            --user:inform("Skill= "..user:getSkillName(skill)..", actionPoints="..actionPoints..", MCfactor="..MCfactor..", attributeFactor="..attributeFactor..", actionpointFactor="..actionpointFactor..", minorIncrease="..minorIncrease.."!");
+            --user:inform("Skill="..user:getSkillName(skill)..", actionPoints="..actionPoints..", MCfactor="..MCfactor..", attributeFactor="..attributeFactor..", intelligenceFactor="..intelligenceFactor..", actionpointFactor="..actionpointFactor..", minorIncrease="..minorIncrease..".");
 
-            while minorIncrease > 0 do --for the rare case that an action results in two swirlies, we have this loop
+            while minorIncrease > 0 do --for the rare case that an action results in two level ups, we have this loop
 
-                local realIncrease = math.min(minorIncrease, 10000) --to prevent overflow, we cannot gain more than one level per action anyway
+                local realIncrease = math.min(minorIncrease, 10000) --to prevent overflow
 
                 if minorSkill + realIncrease < 10000 then
-                    user:increaseMinorSkill(skill, realIncrease) --minimum of 10 actions of 50AP for a swirlie at 5% activity
+                    user:increaseMinorSkill(skill, realIncrease) --Minimum of 10 actions of 50 AP for a swirlie at 5% activity
 
                 else --Level up!
-                    user:increaseMinorSkill(skill, realIncrease) --this is why we do all this grinding!
+                    user:increaseMinorSkill(skill, realIncrease) --Increase the skill
 
                     if user:getType() == 0 and user:getQuestProgress(154) ~= 1 then --Only players get an inform once
 
                         local skillstring = user:getSkillName(skill)
                         common.InformNLS(user, "[Levelaufstieg] Deine Fertigkeit '"..skillstring.."' hat sich soeben erhöht. Drücke 'C' um deine Fertigkeiten anzeigen zu lassen.", "[Level up] Your skill '"..skillstring.."' just increased. Hit 'C' to review your skills.")
-                        user:setQuestProgress(154, 1) --Remember that we already spammed the player
+                        user:setQuestProgress(154, 1) --Remember that we already informed the player
 
                     elseif user:getType() == 0 then
 
@@ -104,13 +96,21 @@ function M.learn(user, skill, actionPoints, learnLimit)
 end
 
 
--- invoked every 10s on every user; to be used to reduce MC on a regular basis
+-- invoked every 10 s on every user; to be used to reduce MC on a regular basis
 -- user:idleTime() can be used to get the number of seconds a user has been idle to check for inactivity
 
 function M.reduceMC(user)
 
     if user:idleTime() < 300 then --Has the user done any action or spoken anything within the last five minutes?
-        user:increaseMentalCapacity(-1 * math.floor(user:getMentalCapacity() * 0.00025 + 0.5)) --reduce MC-points by 0.025%, rounded correctly.
+	
+        user:increaseMentalCapacity(-1 * math.floor(user:getMentalCapacity() * damping + 0.5)) --reduce MC-points by 0.01%, rounded correctly.
+		
+        if user:getMentalCapacity() < ((0.5/damping)-1) then --Mental Capacity cannot drop below 4999 -> Bugged player or cheater
+            user:increaseMentalCapacity(normalMC) --This is default for new players.
+        end
+	
+		--For debugging, use the following line.
+		--user:inform("MC="..user:getMentalCapacity()..", idleTime="..user:idleTime()..".");
     end
 end
 
