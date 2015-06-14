@@ -119,7 +119,7 @@ end;
 -- @param the variable to check
 -- @return true in case the text is nil or equal to a empty string
 function M.IsNilOrEmpty(text)
-	return ((text == nil) or (text == ""));
+    return ((text == nil) or (text == ""));
 end;
 
 --- Determine the direction from one position to another one
@@ -466,7 +466,7 @@ end;
 -- @return Strength of the second gem
 function M.GetBonusFromTool(toolItem)
     local dataValue=0; --toolItem.data;
-		-- TODO get correct bonus
+        -- TODO get correct bonus
     if ((dataValue > 9) and (dataValue < 100)) then
         local str1 = math.fmod(dataValue, 10) + 1;
         dataValue = dataValue - str1 + 1;
@@ -572,12 +572,12 @@ end
 -- false if the cooldown is still valid
 function M.ItemCooldown(User,Item, dataKey, cooldownDuration)
     local timeNow = M.GetCurrentTimestamp()
-	local timeThen = tonumber(Item:getData(dataKey))
-	if (timeThen == nil) or ((timeNow - timeThen) >= cooldownDuration) then
-	    Item:setData(dataKey,timeNow)
-		world:changeItem(Item)
-		return true
-	else
+    local timeThen = tonumber(Item:getData(dataKey))
+    if (timeThen == nil) or ((timeNow - timeThen) >= cooldownDuration) then
+        Item:setData(dataKey,timeNow)
+        world:changeItem(Item)
+        return true
+    else
         return false
     end
 end
@@ -728,57 +728,57 @@ function M.NormalRnd2(minVal, maxVal, count)
 end;
 
 --[[
-	DeleteItemFromStack
-	Searches for an item with given properties in a stack and deletes it.
-	@param PositionStruct - Position of the stack
-	@param List - A list containing the properties of the item to be deleted
-	@return boolean
+    DeleteItemFromStack
+    Searches for an item with given properties in a stack and deletes it.
+    @param PositionStruct - Position of the stack
+    @param List - A list containing the properties of the item to be deleted
+    @return boolean
 
 ]]
 function M.DeleteItemFromStack(stackPosition, itemProperties)
 
-	if not world:isItemOnField(stackPosition) then
-		return false
-	end
+    if not world:isItemOnField(stackPosition) then
+        return false
+    end
 
-	local theField = world:getField(stackPosition)
-	local counter = 1
-	local foundItem = false
-	while counter <= theField:countItems() do
-		local checkItem = theField:getStackItem(theField:countItems()- counter )
-		if (itemProperties.itemId == checkItem.id) and (not itemProperties.deleteAmount or checkItem.number <= itemProperties.deleteAmount) and (not itemProperties.quality or checkItem.number == itemProperties.deleteAmount) then
-			if itemProperties.data then
-				for i=1,#itemProperties.data do
-					if not checkItem:getData(itemProperties["data"][1]["dataKey"]) == itemProperties["data"][1]["dataValue"] then
-						break
-					end
-				end
-			end
-			foundItem = true
-			break
-	    end
-		counter = counter + 1
-	end
+    local theField = world:getField(stackPosition)
+    local counter = 1
+    local foundItem = false
+    while counter <= theField:countItems() do
+        local checkItem = theField:getStackItem(theField:countItems()- counter )
+        if (itemProperties.itemId == checkItem.id) and (not itemProperties.deleteAmount or checkItem.number <= itemProperties.deleteAmount) and (not itemProperties.quality or checkItem.number == itemProperties.deleteAmount) then
+            if itemProperties.data then
+                for i=1,#itemProperties.data do
+                    if not checkItem:getData(itemProperties["data"][1]["dataKey"]) == itemProperties["data"][1]["dataValue"] then
+                        break
+                    end
+                end
+            end
+            foundItem = true
+            break
+        end
+        counter = counter + 1
+    end
 
-	if not foundItem then
-		return false
-	end
+    if not foundItem then
+        return false
+    end
 
-	local deletedItems = {}
-	for i=1,counter do
-		local deleteItem = world:getItemOnField(stackPosition)
-		if i ~= counter then
-			table.insert(deletedItems,1,deleteItem)
-			world:erase(deleteItem, deleteItem.number)
-		else
-			world:increase(deleteItem, -(itemProperties.deleteAmount or deleteItem.number))
-		end
-	end
-	for i=1,#deletedItems do
-		world:createItemFromItem(deletedItems[i],stackPosition,true)
-	end
+    local deletedItems = {}
+    for i=1,counter do
+        local deleteItem = world:getItemOnField(stackPosition)
+        if i ~= counter then
+            table.insert(deletedItems,1,deleteItem)
+            world:erase(deleteItem, deleteItem.number)
+        else
+            world:increase(deleteItem, -(itemProperties.deleteAmount or deleteItem.number))
+        end
+    end
+    for i=1,#deletedItems do
+        world:createItemFromItem(deletedItems[i],stackPosition,true)
+    end
 
-	return true
+    return true
 
 end
 
@@ -852,13 +852,13 @@ function M.GetStiffness(Character)
     local counter;
 
     for counter = 1, #Equipmentposition do
-				Item = Character:getItemAt(Equipmentposition[counter]);
-				if Item and (Item.id ~= 0 ) then
-						found, Armor=world:getArmorStruct(Item.id);
-						if found then
+                Item = Character:getItemAt(Equipmentposition[counter]);
+                if Item and (Item.id ~= 0 ) then
+                        found, Armor=world:getArmorStruct(Item.id);
+                        if found then
                 StiffnessVal = StiffnessVal + Armor.Stiffness
-						end;
-				end;
+                        end;
+                end;
 
     end
 
@@ -1286,31 +1286,31 @@ end
     @return pat - the pattern around what the string should be splittet
     example = split("hello:my:split:world",":") returns {"hello","my","split","world"}
 
-	In case the pattern is only one character it is better to use string.gmatch.
+    In case the pattern is only one character it is better to use string.gmatch.
 ]]
 function M.split(str, pat)
     local t = {}
-	if (string.len(pat) == 1) then
-		for element in string.gmatch(str, "([^" .. pat .. "]+)[" .. pat .. "]?") do
-			table.insert(t, element);
-		end;
-	else
-		local fpat = "(.-)" .. pat
-		local last_end = 1
-		local s, e, cap = str:find(fpat, 1)
-		while s do
-			if s ~= 1 or cap ~= "" then
-				table.insert(t, cap);
-			end;
-			last_end = e + 1;
-			s, e, cap = str:find(fpat, last_end);
-		end;
-		if (last_end <= str:len()) then
-			cap = str:sub(last_end);
-			table.insert(t, cap);
-		end;
-	end;
-	return t;
+    if (string.len(pat) == 1) then
+        for element in string.gmatch(str, "([^" .. pat .. "]+)[" .. pat .. "]?") do
+            table.insert(t, element);
+        end;
+    else
+        local fpat = "(.-)" .. pat
+        local last_end = 1
+        local s, e, cap = str:find(fpat, 1)
+        while s do
+            if s ~= 1 or cap ~= "" then
+                table.insert(t, cap);
+            end;
+            last_end = e + 1;
+            s, e, cap = str:find(fpat, last_end);
+        end;
+        if (last_end <= str:len()) then
+            cap = str:sub(last_end);
+            table.insert(t, cap);
+        end;
+    end;
+    return t;
 end
 
 
@@ -1318,22 +1318,22 @@ end
     Split_number
     Splits a digit chain into digits and returns it in a table
     Example: split_number(3015,4) returns following table: table = {3, 0, 1, 5}
-	@param Number - the number chain that shall be splitted
+    @param Number - the number chain that shall be splitted
     @param AmountOfDigits - the amount of digits the number chain has
 
     @return table - the splitted number chain into digits
 ]]
 function M.Split_number(Number, AmountOfDigits)
 
-	local temptable = {};
-	local tempcnt = 0;
+    local temptable = {};
+    local tempcnt = 0;
 
 
-	for i = (AmountOfDigits-1), 0, -1 do
-		tempcnt = tempcnt + 1;
-		temptable[tempcnt] = math.floor(math.fmod((Number / (10^i)), 10) + 0.5);
-	end
-	return temptable;
+    for i = (AmountOfDigits-1), 0, -1 do
+        tempcnt = tempcnt + 1;
+        temptable[tempcnt] = math.floor(math.fmod((Number / (10^i)), 10) + 0.5);
+    end
+    return temptable;
 end
 
 
@@ -1377,7 +1377,7 @@ end;
 ]]
 function M.Month_To_String(month)
 
-	MonthNames = {"Elos", "Tanos", "Zhas", "Ushos", "Siros", "Ronas", "Bras", "Eldas", "Irmas", "Malas", "Findos", "Olos", "Adras", "Naras", "Chos", "Mas"}; --List of our months
+    MonthNames = {"Elos", "Tanos", "Zhas", "Ushos", "Siros", "Ronas", "Bras", "Eldas", "Irmas", "Malas", "Findos", "Olos", "Adras", "Naras", "Chos", "Mas"}; --List of our months
 
     if (month >= 1) and (month <= 16) then --only valid months
         return MonthNames[month]; --return the month as string
@@ -1460,35 +1460,35 @@ end
 --[[
     ExtgetPlayersInRangeOf
     An extended Version of the world - function getPlayersInRangeOf
-	includes players who are in the diagonal direction in range of the radius
+    includes players who are in the diagonal direction in range of the radius
 
-	@param pos - the center position struct from where there shall be looked at
+    @param pos - the center position struct from where there shall be looked at
     @param radius - the range at which we want to look for players
 
     @return struct table - a table with players or nil
 ]]
 function M.ExtgetPlayersInRangeOf(posi, radius)
 
-	local ext = 2;
-	plyList=world:getPlayersInRangeOf(posi, radius+ext);
+    local ext = 2;
+    plyList=world:getPlayersInRangeOf(posi, radius+ext);
 
-	for i, player in pairs(plyList) do
-	    -- player not in rect, remove from list
-		if not M.isInRect(player.pos, posi, radius) then
-			plyList[i] = nil;
-	    end
-	end
+    for i, player in pairs(plyList) do
+        -- player not in rect, remove from list
+        if not M.isInRect(player.pos, posi, radius) then
+            plyList[i] = nil;
+        end
+    end
 
-	return plyList;
+    return plyList;
 
 end
 
 --[[
     isInRect
-	checks whether targetpos is within a rect with distance "range"
-	and center position "posi"
+    checks whether targetpos is within a rect with distance "range"
+    and center position "posi"
 
-	@param targetpos - the target pos that shall be looked for
+    @param targetpos - the target pos that shall be looked for
     @param posi - center position of the rect
     @param range - distance of the rect borders from the center
 
@@ -1496,41 +1496,41 @@ end
 ]]
 function M.isInRect(targetpos, posi, range)
 
-	if targetpos.x>=(posi.x-range) and targetpos.x<=(posi.x+range) then         --checks the x-Coordinates with the borders
-	    if targetpos.y>=(posi.y-range) and targetpos.y<=(posi.y+range) then     --checks the y-Coordinates with the borders
-	        return true;
-		else
-		    return false;
-		end
-	else
-	    return false;
-	end
+    if targetpos.x>=(posi.x-range) and targetpos.x<=(posi.x+range) then         --checks the x-Coordinates with the borders
+        if targetpos.y>=(posi.y-range) and targetpos.y<=(posi.y+range) then     --checks the y-Coordinates with the borders
+            return true;
+        else
+            return false;
+        end
+    else
+        return false;
+    end
 end
 
 --- Check if a given monster is docile
 -- @param id The ID of the monster in question
 -- @return true if monster is docile
 function M.IsMonsterDocile( id )
-	local docileList = {6,16,26,36,46,56,96,106,116,181,182,241,242,243,244,371,372,373,396,581,584,591,615,616,621,1054,1131,1132,1133,1134,1135,1136,1151,1152,1161,1162,1163,1164,1165}
-	for i,v in pairs(docileList) do
-		if id == v then
-			return true;
-		end
-	end
-	return false;
+    local docileList = {6,16,26,36,46,56,96,106,116,181,182,241,242,243,244,371,372,373,396,581,584,591,615,616,621,1054,1131,1132,1133,1134,1135,1136,1151,1152,1161,1162,1163,1164,1165}
+    for i,v in pairs(docileList) do
+        if id == v then
+            return true;
+        end
+    end
+    return false;
 end
 
 --- Checks if an item is in the hand tools slots
 -- @param item The item to check
 -- @return true if the item is in a hand tools slot, false otherwise
 function M.IsItemInHands( item )
-	if item:getType() == 4 then
-		local itempos = item.itempos;
-		if itempos == 5 or itempos == 6 then
-			return true;
-		end
-	end
-	return false;
+    if item:getType() == 4 then
+        local itempos = item.itempos;
+        if itempos == 5 or itempos == 6 then
+            return true;
+        end
+    end
+    return false;
 end
 
 --- Gets the target item for Use-With like commands. Both, source and target items have to be in hand tool slots.
@@ -1538,58 +1538,58 @@ end
 -- @param source The source item that is "used with" the target item
 -- @return The target item (in the other hand slot than the source) or nil if no target is found
 function M.GetTargetItem( character, source )
-	if not M.IsItemInHands(source) then
-		return nil;
-	end
-	local tpos = 11 - source.itempos; -- either 5 or 6
-	local target = character:getItemAt(tpos);
-	if target.id == 0 then
-		return nil;
-	end
-	return target;
+    if not M.IsItemInHands(source) then
+        return nil;
+    end
+    local tpos = 11 - source.itempos; -- either 5 or 6
+    local target = character:getItemAt(tpos);
+    if target.id == 0 then
+        return nil;
+    end
+    return target;
 end
 
 --- Returns the real date and time as a String
 -- @return date and time in format: YYYY-MM-DD | hh:mm:ss
 function M.GetRealDateTimeString()
-	local year, month, day, hour, minute, second = M.GetRealDate();
-	local timeString =
-		function(int)
-			if int < 10 then
-				return "0"..int;
-			end
-			return ""..int;
-		end
-	return timeString(year) .."-".. timeString(month) .."-"..
-	timeString(day) .." | ".. timeString(hour) ..":".. timeString(minute) ..":".. timeString(second);
+    local year, month, day, hour, minute, second = M.GetRealDate();
+    local timeString =
+        function(int)
+            if int < 10 then
+                return "0"..int;
+            end
+            return ""..int;
+        end
+    return timeString(year) .."-".. timeString(month) .."-"..
+    timeString(day) .." | ".. timeString(hour) ..":".. timeString(minute) ..":".. timeString(second);
 end
 
 --- Returns the real date as a String
 -- @return date in format: YYYY-MM-DD
 function M.GetRealDateString()
-	local year, month, day, hour, minute, second = M.GetRealDate();
-	local timeString =
-		function(int)
-			if int < 10 then
-				return "0"..int;
-			end
-			return ""..int;
-		end
-	return timeString(year) .."-".. timeString(month) .."-".. timeString(day);
+    local year, month, day, hour, minute, second = M.GetRealDate();
+    local timeString =
+        function(int)
+            if int < 10 then
+                return "0"..int;
+            end
+            return ""..int;
+        end
+    return timeString(year) .."-".. timeString(month) .."-".. timeString(day);
 end
 
 --- Returns the real time as a String
 -- @return time in format: hh:mm:ss
 function M.GetRealTimeString()
-	local year, month, day, hour, minute, second = M.GetRealDate();
-	local timeString =
-		function(int)
-			if int < 10 then
-				return "0"..int;
-			end
-			return ""..int;
-		end
-	return timeString(hour) ..":".. timeString(minute) ..":".. timeString(second);
+    local year, month, day, hour, minute, second = M.GetRealDate();
+    local timeString =
+        function(int)
+            if int < 10 then
+                return "0"..int;
+            end
+            return ""..int;
+        end
+    return timeString(hour) ..":".. timeString(minute) ..":".. timeString(second);
 end
 
 --- Converts the unix timestamp to a real date (GMT 0)
@@ -1600,44 +1600,44 @@ end
 -- @return minute
 -- @return second
 function M.GetRealDate()
-	local timestamp = world:getTime("unix");
+    local timestamp = world:getTime("unix");
 
-	local year, month, day, hour, minute, second, tmp;
-	year = math.floor(timestamp / 31557600) -- (365.25*24*60*60)
-	local leapDays = math.floor( (year+1) / 4 ); -- without the current year
-	timestamp = timestamp - (year*365 + leapDays)*86400; -- 24*60*60
+    local year, month, day, hour, minute, second, tmp;
+    year = math.floor(timestamp / 31557600) -- (365.25*24*60*60)
+    local leapDays = math.floor( (year+1) / 4 ); -- without the current year
+    timestamp = timestamp - (year*365 + leapDays)*86400; -- 24*60*60
 
-	local leapYear = 0;
-	if (year % 4) == 2 then
-		leapYear = 1; -- this year is a leap year
-	end
-	year = year + 1970; -- unix time starts there
+    local leapYear = 0;
+    if (year % 4) == 2 then
+        leapYear = 1; -- this year is a leap year
+    end
+    year = year + 1970; -- unix time starts there
 
-	local dayList = {0,31,59,90,120,151,181,212,243,273,304,334};
-	tmp = math.floor(timestamp / 86400); -- days so far this year
-	month = 1;
-	for i=12,2,-1 do
-		local check = tmp-dayList[i];
-		if i>2 then
-			check = check - leapYear;
-		end
-		if check > 0 then
-			month = i;
-			break;
-		end
-	end
-	tmp = dayList[month]; -- days without current month
-	if month > 2 then
-		tmp = tmp + leapYear;
-	end
-	timestamp = timestamp - ((tmp-1) * 86400); -- days this month (in seconds)
-	day = math.floor(timestamp / 86400);
-	timestamp = timestamp - (day * 86400);
-	hour = math.floor(timestamp / 3600);
-	timestamp = timestamp - (hour * 3600);
-	minute = math.floor(timestamp / 60);
-	second = timestamp - (minute * 60);
-	return year, month, day, hour, minute, second;
+    local dayList = {0,31,59,90,120,151,181,212,243,273,304,334};
+    tmp = math.floor(timestamp / 86400); -- days so far this year
+    month = 1;
+    for i=12,2,-1 do
+        local check = tmp-dayList[i];
+        if i>2 then
+            check = check - leapYear;
+        end
+        if check > 0 then
+            month = i;
+            break;
+        end
+    end
+    tmp = dayList[month]; -- days without current month
+    if month > 2 then
+        tmp = tmp + leapYear;
+    end
+    timestamp = timestamp - ((tmp-1) * 86400); -- days this month (in seconds)
+    day = math.floor(timestamp / 86400);
+    timestamp = timestamp - (day * 86400);
+    hour = math.floor(timestamp / 3600);
+    timestamp = timestamp - (hour * 3600);
+    minute = math.floor(timestamp / 60);
+    second = timestamp - (minute * 60);
+    return year, month, day, hour, minute, second;
 end
 
 -- Returns an NPC in case it is found within a given range of a give position
@@ -1703,18 +1703,18 @@ end
     @return The shuffled list
 ]]
 function M.Shuffle(List)
-	local j = 0
-	local minIndex = 1
-	local maxIndex = #List
-	if (List[0] ~= nil) then -- check if zero index is used
-		minIndex = 0
-		maxIndex = maxIndex - 1
-	end
-	for i = maxIndex, minIndex+1, -1 do -- shuffle all elements
-		j = Random.uniform(minIndex, i)
+    local j = 0
+    local minIndex = 1
+    local maxIndex = #List
+    if (List[0] ~= nil) then -- check if zero index is used
+        minIndex = 0
+        maxIndex = maxIndex - 1
+    end
+    for i = maxIndex, minIndex+1, -1 do -- shuffle all elements
+        j = Random.uniform(minIndex, i)
         List[i], List[j] = List[j], List[i]
-	end
-	return List
+    end
+    return List
 end
 
 --[[
@@ -1734,9 +1734,9 @@ function M.CreateRandomNumberList(AmntElements, minval, maxval)
 
    for i = 1, AmntElements do
 
-		reslist[i] = math.random(minval, maxval);
+        reslist[i] = math.random(minval, maxval);
 
-		if (reslist[i] == reslist[i-1]) then -- same number like before, try getting a new number
+        if (reslist[i] == reslist[i-1]) then -- same number like before, try getting a new number
         reslist[i] = math.random(minval, maxval);
       end
 
@@ -1746,18 +1746,18 @@ function M.CreateRandomNumberList(AmntElements, minval, maxval)
 end
 
 --[[Searches the Online List for a Player by name
-	if a player was found it returns: true, Char Struct
--- 	if not, nil]]
+    if a player was found it returns: true, Char Struct
+--     if not, nil]]
 
 function M.CheckIfOnline(playername)
-	playerlist = world:getPlayersOnline();
+    playerlist = world:getPlayersOnline();
 
-	for i = 1, #(playerlist) do
-		if playerlist[i].name == playername then
-		return playerlist[i]
-		end
-	end
-	return nil
+    for i = 1, #(playerlist) do
+        if playerlist[i].name == playername then
+        return playerlist[i]
+        end
+    end
+    return nil
 end
 
 --- Looks up the name of the defined lead attribute of a given skill name.
@@ -1770,58 +1770,58 @@ function M.GetLeadAttributeName(Skill)
 
     leadAttribTable={};
 
-	--Dexterity: All crafting skills for final products
-	leadAttribTable[Character.tailoring]="dexterity"
-	leadAttribTable[Character.smithing]="dexterity"
-	leadAttribTable[Character.gemcutting]="dexterity"
-	leadAttribTable[Character.carpentry]="dexterity"
-	leadAttribTable[Character.cookingAndBaking]="dexterity"
-	leadAttribTable[Character.goldsmithing]="dexterity"
-	leadAttribTable[Character.glassBlowing]="dexterity"
-	
-	--Dexterity: Instruments (please remove these skills in future)
-	leadAttribTable[Character.harp]="dexterity"
-	leadAttribTable[Character.horn]="dexterity"
-	leadAttribTable[Character.flute]="dexterity"
-	leadAttribTable[Character.lute]="dexterity"
+    --Dexterity: All crafting skills for final products
+    leadAttribTable[Character.tailoring]="dexterity"
+    leadAttribTable[Character.smithing]="dexterity"
+    leadAttribTable[Character.gemcutting]="dexterity"
+    leadAttribTable[Character.carpentry]="dexterity"
+    leadAttribTable[Character.cookingAndBaking]="dexterity"
+    leadAttribTable[Character.goldsmithing]="dexterity"
+    leadAttribTable[Character.glassBlowing]="dexterity"
+    
+    --Dexterity: Instruments (please remove these skills in future)
+    leadAttribTable[Character.harp]="dexterity"
+    leadAttribTable[Character.horn]="dexterity"
+    leadAttribTable[Character.flute]="dexterity"
+    leadAttribTable[Character.lute]="dexterity"
 
-	--Constitution: All gathering skills
-	leadAttribTable[Character.herblore]="constitution"
-	leadAttribTable[Character.mining]="constitution"
-	leadAttribTable[Character.fishing]="constitution"
-	leadAttribTable[Character.firingBricks]="constitution"
-	leadAttribTable[Character.farming]="constitution"
-	leadAttribTable[Character.woodcutting]="constitution"
+    --Constitution: All gathering skills
+    leadAttribTable[Character.herblore]="constitution"
+    leadAttribTable[Character.mining]="constitution"
+    leadAttribTable[Character.fishing]="constitution"
+    leadAttribTable[Character.firingBricks]="constitution"
+    leadAttribTable[Character.farming]="constitution"
+    leadAttribTable[Character.woodcutting]="constitution"
 
-	--Agility: Defensive fighting skills
-	leadAttribTable[Character.parry]="agility"
-	leadAttribTable[Character.heavyArmour]="agility"
-	leadAttribTable[Character.mediumArmour]="agility"
-	leadAttribTable[Character.lightArmour]="agility"
+    --Agility: Defensive fighting skills
+    leadAttribTable[Character.parry]="agility"
+    leadAttribTable[Character.heavyArmour]="agility"
+    leadAttribTable[Character.mediumArmour]="agility"
+    leadAttribTable[Character.lightArmour]="agility"
 
-	--Perception: Archery
-	leadAttribTable[Character.distanceWeapons]="perception"
+    --Perception: Archery
+    leadAttribTable[Character.distanceWeapons]="perception"
 
-	--Strength: Offensive fighting skills
-	leadAttribTable[Character.slashingWeapons]="strength"
-	leadAttribTable[Character.wrestling]="strength"
-	leadAttribTable[Character.concussionWeapons]="strength"
-	leadAttribTable[Character.punctureWeapons]="strength"
+    --Strength: Offensive fighting skills
+    leadAttribTable[Character.slashingWeapons]="strength"
+    leadAttribTable[Character.wrestling]="strength"
+    leadAttribTable[Character.concussionWeapons]="strength"
+    leadAttribTable[Character.punctureWeapons]="strength"
 
-	--Essence: Alchemy
-	leadAttribTable[Character.alchemy]="essence"
+    --Essence: Alchemy
+    leadAttribTable[Character.alchemy]="essence"
 
-	--Intelligence: Magic
-	--No skills yet
+    --Intelligence: Magic
+    --No skills yet
 
-	--Willpower: Priests
-	--No skills yet
+    --Willpower: Priests
+    --No skills yet
 
-	--Deactivated skills
-	--leadAttribTable[Character.dodge]="agility" --deactivated
-	--leadAttribTable[Character.tactics]="perception" --deactivated
-	--leadAttribTable[Character.magicResistance]="wilpower" --please reconsider once you work on magic
-	--leadAttribTable[Character.poisoning]="perception" --deactivated
+    --Deactivated skills
+    --leadAttribTable[Character.dodge]="agility" --deactivated
+    --leadAttribTable[Character.tactics]="perception" --deactivated
+    --leadAttribTable[Character.magicResistance]="wilpower" --please reconsider once you work on magic
+    --leadAttribTable[Character.poisoning]="perception" --deactivated
 
   end
 
@@ -1842,7 +1842,7 @@ function M.GetLeadAttrib(user, Skill)
   if leadAttribName ~= nil then
   
     return user:increaseAttrib(leadAttribName, 0)
-	
+    
   end
     
   return 10 --10 should be default
@@ -1859,11 +1859,11 @@ end
 function M.GetAttributeBonus (attribute,range)
 
     if attribute ~= nil and attribute ~= 0 then
-	    bonus=math.min(1+2*range, (1-range) + range * (attribute / 10)) --1 +/- range for attributes 0-20. Bonus capped at attribute 30
-	else
-	    bonus=1 --default
-	end
-	
+        bonus=math.min(1+2*range, (1-range) + range * (attribute / 10)) --1 +/- range for attributes 0-20. Bonus capped at attribute 30
+    else
+        bonus=1 --default
+    end
+    
     return bonus
 
 end
@@ -1896,8 +1896,8 @@ function M.GetItemInArea(CenterPos, ItemId, Radius, OnlyWriteable)
         for i=0,itemCount-1 do
           local item = field:getStackItem(i);
           if (item.id == ItemId) then
-			item.pos.x = CenterPos.x + x;
-			item.pos.y = CenterPos.y + y;
+            item.pos.x = CenterPos.x + x;
+            item.pos.y = CenterPos.y + y;
             return item, (i==0);
           end
         end

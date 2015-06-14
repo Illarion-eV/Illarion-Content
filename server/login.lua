@@ -63,7 +63,7 @@ messageG[30]="[Tipp] Hiebwaffen sind gut gegen leichte Rüstungen, aber schlecht 
 messageG[31]="[Tipp] Stichwaffen sind gut gegen mittlere Rüstungen, aber schlecht gegen schwere Rüstungen."
 messageG[32]="[Tipp] Stumpfe Waffen sind gut gegen schwere Rüstungen, aber schlecht gegen leichte Rüstungen."
 messageG[33]="[Tipp] Ein Silberstück entspricht einhundert Kupferstücken. Einhundert Silberstücke entsprechen einem Goldstück."
-messageG[34]="[Tipp] Die besten Alchemisten	leben in Runewick."
+messageG[34]="[Tipp] Die besten Alchemisten leben in Runewick."
 messageG[35]="[Tipp] Die besten Kerzenzieher leben in Runewick."
 messageG[36]="[Tipp] Die besten Schreiner leben in Runewick."
 messageG[37]="[Tipp] Die besten Köche leben in Runewick."
@@ -448,7 +448,7 @@ function PayOutWage(Recipient, town)
 
     if tonumber(totalPayers)>0 then
         if tonumber(totalTaxes)>0 then
-            local baseWageUnit=totalTaxes/(totalPayers*10000)		-- 10000: "base unit" change accordingly if necessary.
+            local baseWageUnit=totalTaxes/(totalPayers*10000)        -- 10000: "base unit" change accordingly if necessary.
             local RecipientRk=factions.getRankAsNumber(Recipient)
 
             --If the recipient is level 1 they don't get anything.
@@ -588,7 +588,7 @@ function payNow(User)
 
     for i=1, #(depNr) do
         valDepot[i]=money.DepotCoinsToMoney(User,depNr[i])
-        val = val + valDepot[i] 	--how much money is in the depots combined
+        val = val + valDepot[i]     --how much money is in the depots combined
     end
 
     val = val + money.CharCoinsToMoney(User) -- total wealth

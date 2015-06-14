@@ -39,7 +39,7 @@ local lowerBorder = 0.5 * amplification / damping --below 0.5% of time spent onl
 local normalMC = 10 * lowerBorder --A 'normal' player invests 10x the time (=5%) into skill related actions
 local normalAP = 50 --How many movepoints does a 'normal' action take? Default=50
 --Constants - end
-	
+    
 function M.learn(user, skill, actionPoints, learnLimit)
 
     local leadAttrib = common.GetLeadAttrib(user, skill) --reading the lead attribute
@@ -54,10 +54,10 @@ function M.learn(user, skill, actionPoints, learnLimit)
         if math.random(0, 99) < chanceForSkillGain then --Success?
 
             local MCfactor = normalMC / math.max(MCvalue, 1) --5% of time spent online is considered "normal" -> MCfactor is 1
-			local attributeFactor = common.GetAttributeBonus(leadAttrib,0.5); --0.5 to 1.5, depending on attribute, limited to 2
-			local intelligenceFactor = common.GetAttributeBonus(user:increaseAttrib("intelligence", 0),0.1); --0.9 to 1.1, depending on attribute, limited to 1.2
+            local attributeFactor = common.GetAttributeBonus(leadAttrib,0.5); --0.5 to 1.5, depending on attribute, limited to 2
+            local intelligenceFactor = common.GetAttributeBonus(user:increaseAttrib("intelligence", 0),0.1); --0.9 to 1.1, depending on attribute, limited to 1.2
             local actionpointFactor = actionPoints / normalAP --An action with 50AP is "normal"
-			local minorIncrease = math.floor(scalingFactor * attributeFactor * actionpointFactor * MCfactor)
+            local minorIncrease = math.floor(scalingFactor * attributeFactor * actionpointFactor * MCfactor)
 
             --For debugging, use the following line.
             --user:inform("Skill="..user:getSkillName(skill)..", actionPoints="..actionPoints..", MCfactor="..MCfactor..", attributeFactor="..attributeFactor..", intelligenceFactor="..intelligenceFactor..", actionpointFactor="..actionpointFactor..", minorIncrease="..minorIncrease..".");
@@ -102,15 +102,15 @@ end
 function M.reduceMC(user)
 
     if user:idleTime() < 300 then --Has the user done any action or spoken anything within the last five minutes?
-	
+    
         user:increaseMentalCapacity(-1 * math.floor(user:getMentalCapacity() * damping + 0.5)) --reduce MC-points by 0.01%, rounded correctly.
-		
+        
         if user:getMentalCapacity() < ((0.5/damping)-1) then --Mental Capacity cannot drop below 4999 -> Bugged player or cheater
             user:increaseMentalCapacity(normalMC) --This is default for new players.
         end
-	
-		--For debugging, use the following line.
-		--user:inform("MC="..user:getMentalCapacity()..", idleTime="..user:idleTime()..".");
+    
+        --For debugging, use the following line.
+        --user:inform("MC="..user:getMentalCapacity()..", idleTime="..user:idleTime()..".");
     end
 end
 
