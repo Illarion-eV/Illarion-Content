@@ -59,8 +59,8 @@ itemSecondHand = 95
 itemHands = 530
 itemTrousers = 367
 itemShoes = 771
-guardWarpTarget = 386, 335, 0
-guardRange = 1, 4, 2, 4
+guardWarpTarget = 386, 338, 0
+guardRange = 2, 8, 4, 8
 warpedMonsterMsg "Weg mit dir, widerliche Kreatur!", "Go away, nasty creature!"
 warpedPlayerMsg "Pass bloß auf! Wir brauchen hier kein Gesindel.", "You'd better watch out! We don't need such lowlifes here."
 hitPlayerMsg "#me verpasst dem Eindringlich einen Hieb 'Verschwinde!'", "#me hits the intruder 'Get lost!'"
@@ -164,13 +164,13 @@ english, "job" -> "I am guard of Galmair's bridge.", "I am a Silverstone in the 
 "Bre" -> "Why do you want to know?"
 "Civil Watch" -> "They are the people dedicated to keeping people in Galmair safe from criminals, monsters and invaders."
 "Man", "husband", "Family" -> "Please dont ask me personal questions."
-"Sister" -> "Bre of the south gate is my sister."
+"Sister" -> "Bre of the east gate is my sister."
 "Dwarf" -> "Yes I am tall for being a dwarf. Please move on."
 "Woman", "Girl", "Female" -> "Being a woman has never deterred me from reaching my goal of being in the Civil Watch because the hate of others has never overshadowed my own fire for justice."
 "Bre" -> "Warum fragt Ihr?"
 "Stadtwache" -> "Das sind alles Leute die die Bürger von Galmair vor Monstern, Dieben und Angreifer schützt."
 "Mann", "Ehemann", "Familie" -> "Stellt mir keine persönliche Fragen."
-"Schwester" -> "Bre vom Südtor ist meine Schwester."
+"Schwester" -> "Bre vom Osten ist meine Schwester."
 "Zwerg" -> "Ja, ich bin groß für einen Zwerg. Weiter gehen!"
 "Frau", "Mädchen", "weib" -> "Eine Frau zu sein hat mich nicht aufgehalten meine Ziele in der Stadtwache zu erreichen, denn der Hass auf andere hat niemals mein eigenes Feuer der Gerechtigkeit überschattet."
 
