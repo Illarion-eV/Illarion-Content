@@ -16,7 +16,7 @@
 -- NPC Name: Nizar                                                   Runewick --
 -- NPC Job:  magical blacksmith                                               --
 --                                                                            --
--- NPC Race: human                      NPC Position:  943, 827, 0            --
+-- NPC Race: human                      NPC Position:  947, 845, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Miriam                                                           --
@@ -26,7 +26,7 @@
 name = "Nizar"
 race = human
 sex = male
-position = 943, 827, 0
+position = 947, 845, 0
 direction = west
 affiliation = "Runewick"
 job = "magical blacksmith"
@@ -228,8 +228,7 @@ english, "fire" -> "Well go and get a bucket, quick!"
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "#me lächelt.", "#me smiles brightly."
-cycletext "#me leht sich gegen eine Säule.", "#me leans against the pillar, glancing around quietly."
-cycletext "#me scheint in die Sonne zu starren.", "#me seems to stare off into the realms through the portals."
+cycletext "Magische Edelseine sind janz nett. Aber ich kann se noch mehr veredeln!", "Magical gems are nice. I can make yours even nicer!"
 cycletext "Kommt zu Nizar, wenn Ihr etwas über magische Steine wissen wollt!", "Talk to Nizar if you want to know about magical gems!"
 cycletext "Magische Steine: Je magischer desto besser! Ich mache sie besser!", "Magical stones: more magic means better stuff! I make everything better!"
 cycletext "#me schließt seine Augen.", "#me closes his eyes, thinking quietly."
