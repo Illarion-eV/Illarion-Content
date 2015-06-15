@@ -24,94 +24,94 @@ local M = {}
 
 function M.spawnTreasure()
 
-	local treasurePos=position(703,421,-3); --Salavesh dungeon
-	
+    local treasurePos=position(703,421,-3); --Salavesh dungeon
+    
     if #world:getPlayersInRangeOf(treasurePos,20) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
-	
-		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(1,4)}); --spawn the chest
-		
-	end
-	
-	local treasurePos=position(161,666,-4); --Sir Reginald's tomb
-	
+    
+        world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(1,4)}); --spawn the chest
+        
+    end
+    
+    local treasurePos=position(161,666,-4); --Sir Reginald's tomb
+    
     if #world:getPlayersInRangeOf(treasurePos,20) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
-	
-		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
-		
-	end
-	
-	local treasurePos=position(769,705,0); --A cave in the woods
-	
+    
+        world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
+        
+    end
+    
+    local treasurePos=position(769,705,0); --A cave in the woods
+    
     if #world:getPlayersInRangeOf(treasurePos,20) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
-	
-		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
-		
-	end
-	
-	local treasurePos=position(336,326,-6); --Galmair sewers
-	
+    
+        world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
+        
+    end
+    
+    local treasurePos=position(336,326,-6); --Galmair sewers
+    
     if #world:getPlayersInRangeOf(treasurePos,20) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
-	
-		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
-		
-	end
-	
-	local treasurePos=position(907,574,0); --Wonderland
-	
+    
+        world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
+        
+    end
+    
+    local treasurePos=position(907,574,0); --Wonderland
+    
     if #world:getPlayersInRangeOf(treasurePos,20) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
-	
-		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
-		
-	end
-
-	local treasurePos=position(531,804,-6); --Akaltuts level 2
-	
-    if #world:getPlayersInRangeOf(treasurePos,20) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
-	
-		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
+    
+        world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
+        
     end
 
-	local treasurePos=position(222,479,-3); --Buccaneer Lurk
-	
+    local treasurePos=position(531,804,-6); --Akaltuts level 2
+    
     if #world:getPlayersInRangeOf(treasurePos,20) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
-	
-		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
+    
+        world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
     end
 
-	local treasurePos=position(841,524,-12); --Bandit Hideout
-	
+    local treasurePos=position(222,479,-3); --Buccaneer Lurk
+    
     if #world:getPlayersInRangeOf(treasurePos,20) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
-	
-		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
+    
+        world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
     end
-	
-	local treasurePos=position(202,415,-3); --Fortress Hammerfall
-	
+
+    local treasurePos=position(841,524,-12); --Bandit Hideout
+    
     if #world:getPlayersInRangeOf(treasurePos,20) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
-	
-		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
+    
+        world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
     end
-	
-	local treasurePos=position(847,503,-6); --Spider Nest
-	
+    
+    local treasurePos=position(202,415,-3); --Fortress Hammerfall
+    
     if #world:getPlayersInRangeOf(treasurePos,20) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
-	
-		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
+    
+        world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
     end
-	
-	local treasurePos=position(785,273,-9); --Lake of life
-	
+    
+    local treasurePos=position(847,503,-6); --Spider Nest
+    
     if #world:getPlayersInRangeOf(treasurePos,20) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
-	
-		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
+    
+        world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
     end
-	
+    
+    local treasurePos=position(785,273,-9); --Lake of life
+    
+    if #world:getPlayersInRangeOf(treasurePos,20) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
+    
+        world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
+    end
+    
     local treasurePos=position(701,626,-3); --Volcano
-		
+        
     if #world:getPlayersInRangeOf(treasurePos,20) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
-	
-		world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
+    
+        world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
     end
-	
-	end
+    
+    end
 return M
