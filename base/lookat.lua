@@ -24,7 +24,7 @@ local M = {}
 
 local TitleCase
 local AddWeaponOrArmourType
-local AddTypeAndLevel
+local AddTypeAndUsable
 local GetGemLevel
 local GetItemDescription
 
@@ -135,6 +135,9 @@ function M.GenerateLookAt(user, item, material)
     else
         lookAt.description = usedDescription
     end
+
+    local level = itemCommon.Level
+    lookAt.level = level
     
     if itemCommon.AgeingSpeed < 255 and itemCommon.Weight < 30000 then
         local craftedByData = item:getData("craftedBy")
@@ -180,7 +183,7 @@ function M.GenerateLookAt(user, item, material)
             lookAt.durabilityValue = itemDura + 1
         end
 
-        lookAt = AddWeaponOrArmourType(lookAt, user, item.id)
+        lookAt = AddWeaponOrArmourType(lookAt, user, item.id, level)
 
         lookAt.diamondLevel = GetGemLevel(item, "magicalDiamond")
         lookAt.emeraldLevel = GetGemLevel(item, "magicalEmerald")
@@ -235,8 +238,11 @@ function M.GenerateItemLookAtFromId(user, itemId, stackSize, data)
     local itemCommon = world:getItemStatsFromId(itemId)
     lookAt.weight = stackSize * itemCommon.Weight
     lookAt.worth = 20*stackSize * itemCommon.Worth
+
+    local level = itemCommon.Level
+    lookAt.level = level
     
-    lookAt = AddWeaponOrArmourType(lookAt, user, itemId)
+    lookAt = AddWeaponOrArmourType(lookAt, user, itemId, level)
 
     return lookAt
 end
@@ -249,23 +255,22 @@ function TitleCase(name)
     return name:gsub("([%aäöüÄÖÜ])([%wäöüÄÖÜß_']*)", tchelper)
 end
 
-function AddWeaponOrArmourType(lookAt, user, itemId)
+function AddWeaponOrArmourType(lookAt, user, itemId, itemLevel)
     local armourfound, armour = world:getArmorStruct(itemId)
     local weaponfound, weapon = world:getWeaponStruct(itemId)
 
     if weaponfound then
-        lookAt = AddTypeAndLevel(lookAt, user, WeaponType, weapon.WeaponType, weapon.Level)
+        lookAt = AddTypeAndUsable(lookAt, user, WeaponType, weapon.WeaponType, itemLevel)
     else
         if armourfound then
-            lookAt = AddTypeAndLevel(lookAt, user, ArmourType, armour.Type, armour.Level)
+            lookAt = AddTypeAndUsable(lookAt, user, ArmourType, armour.Type, itemLevel)
         end
     end
     
     return lookAt
 end
 
-function AddTypeAndLevel(lookAt, user, nameAndSkillTable, itemType, itemLevel)
-    lookAt.level = itemLevel
+function AddTypeAndUsable(lookAt, user, nameAndSkillTable, itemType, itemLevel)
     local nameAndSkill = nameAndSkillTable[itemType]
     local skill = 100
     

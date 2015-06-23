@@ -365,6 +365,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     GetArmourType(Defender, Globals)
 
     local armourfound, armour = world:getArmorStruct(Globals.HittedItem.id)
+    local itemLevel = world:getItemStatsFromId(Globals.HittedItem.id).Level
     local armourValue
     local skillmod = 1
     local qualitymod = 0.82+0.02*math.floor(Globals.HittedItem.quality/100)
@@ -378,33 +379,33 @@ function ArmourAbsorption(Attacker, Defender, Globals)
             skillmod = 1-Defender.DefenseSkill/250
             if (Attacker.AttackKind == 0 or Attacker.AttackKind == 2) then --wrestling/conc
                 if (armour.Type==2) then -- Light armour
-                    armourValue = armour.Level
+                    armourValue = itemLevel
                 elseif(armour.Type==3) then -- Medium armour
-                    armourValue = armour.Level/(ArmourDefenseScalingFactor)
+                    armourValue = itemLevel/(ArmourDefenseScalingFactor)
                 elseif(armour.Type==4) then -- Heavy armour
-                    armourValue = armour.Level/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor)
+                    armourValue = itemLevel/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor)
                 elseif(armour.Type==1) then -- General armour
-                    armourValue = armour.Level/GeneralScalingFactor
+                    armourValue = itemLevel/GeneralScalingFactor
                 end
             elseif (Attacker.AttackKind == 1) then -- Slash
                 if (armour.Type==2) then -- Light armour
-                    armourValue = armour.Level/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor)
+                    armourValue = itemLevel/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor)
                 elseif(armour.Type==3) then -- Medium armour
-                    armourValue = armour.Level
+                    armourValue = itemLevel
                 elseif(armour.Type==4) then -- Heavy armour
-                    armourValue = armour.Level/(ArmourDefenseScalingFactor)
+                    armourValue = itemLevel/(ArmourDefenseScalingFactor)
                 elseif(armour.Type==1) then -- General armour
-                    armourValue = armour.Level/GeneralScalingFactor
+                    armourValue = itemLevel/GeneralScalingFactor
                 end
             elseif (Attacker.AttackKind == 3 or Attacker.AttackKind == 4) then -- Puncture
                 if (armour.Type==2) then -- Light armour
-                    armourValue = armour.Level/(ArmourDefenseScalingFactor)
+                    armourValue = itemLevel/(ArmourDefenseScalingFactor)
                 elseif(armour.Type==3) then -- Medium armour
-                    armourValue = armour.Level/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor)
+                    armourValue = itemLevel/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor)
                 elseif(armour.Type==4) then -- Heavy armour
-                    armourValue = armour.Level
+                    armourValue = itemLevel
                 elseif(armour.Type==1) then -- General armour
-                    armourValue = armour.Level/GeneralScalingFactor
+                    armourValue = itemLevel/GeneralScalingFactor
                 end
             end
         end
@@ -415,7 +416,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     end
 --[[
     local Noobmessupmalus = 5 -- Amount that armour value is divided by if your skill isn't high enough to use this armour.
-    if armour.Level > Defender.DefenseSkill and character.isPlayer(Defender.Char) then
+    if itemLevel > Defender.DefenseSkill and character.isPlayer(Defender.Char) then
         armourValue = armourValue/Noobmessupmalus
     end
 ]]
@@ -833,9 +834,9 @@ function CheckRange(AttackerStruct, Defender)
 
     if distance > 1 then
         local blockList = world:LoS( AttackerStruct.Char.pos, Defender.pos )
-        local next = next	-- make next-iterator local
-        if (next(blockList)~=nil) then	-- see if there is a "next" (first) object in blockList!
-                return false				-- something blocks
+        local next = next -- make next-iterator local
+        if (next(blockList)~=nil) then -- see if there is a "next" (first) object in blockList!
+                return false -- something blocks
         end
     end
 
@@ -1417,7 +1418,7 @@ function HandleAmmunition(Attacker)
 
     if (Attacker.Weapon.AmmunitionType == Attacker.SecWeapon.WeaponType) then
         Attacker.Char:increaseAtPos(Attacker.SecWeaponItem.itempos, -1)
-    elseif (Attacker.Weapon.AmmunitionType == 255) then		-- throwing axes, spears and throwing stars, thus they ARE the ammunition!
+    elseif (Attacker.Weapon.AmmunitionType == 255) then -- throwing axes, spears and throwing stars, thus they ARE the ammunition!
         Attacker.Char:increaseAtPos(Attacker.WeaponItem.itempos, -1)
     else
         return false
@@ -1577,7 +1578,7 @@ function LoadWeapons(CharStruct)
         isLWp=0
     end
 
-    if isRWp==0 and isLWp==1 then 	-- switch weapons
+    if isRWp==0 and isLWp==1 then -- switch weapons
         rItem,lItem = lItem,rItem
         rAttFound,lAttFound = lAttFound,rAttFound
         rAttWeapon,lAttWeapon = lAttWeapon,rAttWeapon

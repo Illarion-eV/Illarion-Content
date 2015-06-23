@@ -52,17 +52,18 @@ end
 local function checkSkill(User, Item)
     local isWeapon, weapon = world:getWeaponStruct(Item.id) --Is it a weapon? Loads the struct.
     local isArmour, armour = world:getArmorStruct(Item.id) --Is it an armour? Loads the struct.
+    local itemLevel = world:getItemStatsFromId(Item.id).Level
 
     if isWeapon then
         local skillValue, skillString = weaponSkillLevel(User, weapon)
-        if  skillValue < weapon.Level then
+        if  skillValue < itemLevel then
             return false, skillString --level too low
         else
             return true, skillString --level is high enough
         end
     elseif isArmour then
         local skillValue, skillString = armourSkillLevel(User, armour)
-        if skillValue < armour.Level then
+        if skillValue < itemLevel then
             return false, skillString --level too low
         else
             return true, skillString --level is high enough
