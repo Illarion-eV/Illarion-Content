@@ -69,203 +69,203 @@ unchoppableTrees[1808] = true
 
 function StartGathering(User, SourceItem, ltstate)
 
-	gathering.InitGathering();
-	local theCraft = gathering.woodchopping;
+    gathering.InitGathering();
+    local theCraft = gathering.woodchopping;
 
-	common.ResetInterruption( User, ltstate );
-	if ( ltstate == Action.abort ) then -- work interrupted
+    common.ResetInterruption( User, ltstate );
+    if ( ltstate == Action.abort ) then -- work interrupted
         return
-	end
+    end
 
-	if not common.CheckItem( User, SourceItem ) then -- security check
-		return
-	end
+    if not common.CheckItem( User, SourceItem ) then -- security check
+        return
+    end
 
-	-- additional tool item is needed
-	if (User:countItemAt("all",74)==0) then
-		common.HighInformNLS( User,
-		"Du brauchst ein Beil um Holz zu hacken.",
-		"You need a hatchet to chop wood." );
-		return
-	end
-	local toolItem = User:getItemAt(5);
-	if ( toolItem.id ~= 74 ) then
-		toolItem = User:getItemAt(6);
-		if ( toolItem.id ~= 74 ) then
-			common.HighInformNLS( User,
-			"Du musst das Beil in der Hand haben!",
-			"You have to hold the hatchet in your hand!" );
-			return
-		end
-	end
+    -- additional tool item is needed
+    if (User:countItemAt("all",74)==0) then
+        common.HighInformNLS( User,
+        "Du brauchst ein Beil um Holz zu hacken.",
+        "You need a hatchet to chop wood." );
+        return
+    end
+    local toolItem = User:getItemAt(5);
+    if ( toolItem.id ~= 74 ) then
+        toolItem = User:getItemAt(6);
+        if ( toolItem.id ~= 74 ) then
+            common.HighInformNLS( User,
+            "Du musst das Beil in der Hand haben!",
+            "You have to hold the hatchet in your hand!" );
+            return
+        end
+    end
 
-	if not common.FitForWork( User ) then -- check minimal food points
-		return
-	end
+    if not common.FitForWork( User ) then -- check minimal food points
+        return
+    end
 
-	common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+    common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 
-	-- check if it is a special and therefore uncuttable tree
-	if SourceItem:getData("treeProtectionType") ~= "" then
-	    preventCutting(User, toolItem, SourceItem)
-		return
-	end
+    -- check if it is a special and therefore uncuttable tree
+    if SourceItem:getData("treeProtectionType") ~= "" then
+        preventCutting(User, toolItem, SourceItem)
+        return
+    end
 
-	local tree = TreeItems[SourceItem.id];
+    local tree = TreeItems[SourceItem.id];
 
-	-- check the amount
-	local changeItem = false;
-	local amount = SourceItem:getData("wood_amount");
-	if ( amount == "" ) then
-		amount = tree.Amount;
-		SourceItem:setData("wood_amount", "" .. amount);
-		changeItem = true;
-	else
-		amount = tonumber(amount);
-	end
+    -- check the amount
+    local changeItem = false;
+    local amount = SourceItem:getData("wood_amount");
+    if ( amount == "" ) then
+        amount = tree.Amount;
+        SourceItem:setData("wood_amount", "" .. amount);
+        changeItem = true;
+    else
+        amount = tonumber(amount);
+    end
 
-	if ( amount <= 0 ) then
-		-- should never happen, but handle it nevertheless
-		world:erase(SourceItem, SourceItem.number);
-		world:createItemFromId(tree.TrunkId, 1, SourceItem.pos, true, 333, nil);
-		common.HighInformNLS( User,
-		"Hier gibt es kein Holz mehr zu holen. Gib dem Baum Zeit um nachzuwachsen.",
-		"There is no wood anymore that you can chop. Give the tree time to grow again." );
-		return;
-	end
+    if ( amount <= 0 ) then
+        -- should never happen, but handle it nevertheless
+        world:erase(SourceItem, SourceItem.number);
+        world:createItemFromId(tree.TrunkId, 1, SourceItem.pos, true, 333, nil);
+        common.HighInformNLS( User,
+        "Hier gibt es kein Holz mehr zu holen. Gib dem Baum Zeit um nachzuwachsen.",
+        "There is no wood anymore that you can chop. Give the tree time to grow again." );
+        return;
+    end
 
     -- user feedback per nice animation
     User:performAnimation(5)
 
-	if ( ltstate == Action.none ) then -- currently not working -> let's go
-		theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,toolItem);
-		User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 6, 0);
-		if ( changeItem ) then
-			world:changeItem(SourceItem);
-		end
-		return;
-	end
+    if ( ltstate == Action.none ) then -- currently not working -> let's go
+        theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,toolItem);
+        User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 6, 0);
+        if ( changeItem ) then
+            world:changeItem(SourceItem);
+        end
+        return;
+    end
 
-	-- since we're here, we're working
-	if theCraft:FindRandomItem(User) then
-		if ( changeItem ) then
-			world:changeItem(SourceItem);
-		end
-		return
-	end
+    -- since we're here, we're working
+    if theCraft:FindRandomItem(User) then
+        if ( changeItem ) then
+            world:changeItem(SourceItem);
+        end
+        return
+    end
 
-	User:learn( theCraft.LeadSkill, theCraft.SavedWorkTime[User.id], theCraft.LearnLimit);
-	amount = amount - 1;
-	SourceItem:setData("wood_amount", "" .. amount);
-	world:changeItem(SourceItem);
+    User:learn( theCraft.LeadSkill, theCraft.SavedWorkTime[User.id], theCraft.LearnLimit);
+    amount = amount - 1;
+    SourceItem:setData("wood_amount", "" .. amount);
+    world:changeItem(SourceItem);
 
-	local producedItemId = tree.LogId;
-	if (math.random() <= tree.BoughProbability ) then
-		producedItemId = tree.BoughId;
-	end
-	local notCreated = User:createItem( producedItemId, 1, 333, nil ); -- create the new produced items
-	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-		world:createItemFromId( producedItemId, notCreated, User.pos, true, 333, nil );
-		common.HighInformNLS(User,
-		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
-		"You can't carry any more and the rest drops to the ground.");
-	else -- character can still carry something
-		if (amount > 0) then  -- there are still items we can work on
-			theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,toolItem);
-			User:changeSource(SourceItem);
-			User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 6, 0);
-		end
-	end
+    local producedItemId = tree.LogId;
+    if (math.random() <= tree.BoughProbability ) then
+        producedItemId = tree.BoughId;
+    end
+    local notCreated = User:createItem( producedItemId, 1, 333, nil ); -- create the new produced items
+    if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+        world:createItemFromId( producedItemId, notCreated, User.pos, true, 333, nil );
+        common.HighInformNLS(User,
+        "Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+        "You can't carry any more and the rest drops to the ground.");
+    else -- character can still carry something
+        if (amount > 0) then  -- there are still items we can work on
+            theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,toolItem);
+            User:changeSource(SourceItem);
+            User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 6, 0);
+        end
+    end
 
-	if common.GatheringToolBreaks( User, toolItem, theCraft:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
-		common.HighInformNLS(User,
-		"Dein altes Beil zerbricht.",
-		"Your old hatchet breaks.");
-	end
-	if ( amount <= 0 ) then
-		world:erase(SourceItem, SourceItem.number);
-		world:createItemFromId(tree.TrunkId, 1, SourceItem.pos, true, 333, nil);
-		common.HighInformNLS( User,
-		"Hier gibt es kein Holz mehr zu holen. Gib dem Baum Zeit um nachzuwachsen.",
-		"There is no wood anymore that you can chop. Give the tree time to grow again." );
-		return;
-	end
+    if common.GatheringToolBreaks( User, toolItem, theCraft:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
+        common.HighInformNLS(User,
+        "Dein altes Beil zerbricht.",
+        "Your old hatchet breaks.");
+    end
+    if ( amount <= 0 ) then
+        world:erase(SourceItem, SourceItem.number);
+        world:createItemFromId(tree.TrunkId, 1, SourceItem.pos, true, 333, nil);
+        common.HighInformNLS( User,
+        "Hier gibt es kein Holz mehr zu holen. Gib dem Baum Zeit um nachzuwachsen.",
+        "There is no wood anymore that you can chop. Give the tree time to grow again." );
+        return;
+    end
 
 end
 
 function preventCutting(User, theAxe, theTree)
 
-	local effectType = theTree:getData("treeProtectionType")
+    local effectType = theTree:getData("treeProtectionType")
 
-	if effectType == "lightning" then
-	    world:gfx(2,User.pos)
-		world:makeSound(13,User.pos)
-		User:inform("Aus heiterem Himmel wirst du von einem Blitz getroffen!", "Out of the blue, you are struck by lightning!", Character.highPriority)
-		User:increaseAttrib("hitpoints",-3000)
-	elseif effectType == "axeSlippingOff" then
+    if effectType == "lightning" then
+        world:gfx(2,User.pos)
+        world:makeSound(13,User.pos)
+        User:inform("Aus heiterem Himmel wirst du von einem Blitz getroffen!", "Out of the blue, you are struck by lightning!", Character.highPriority)
+        User:increaseAttrib("hitpoints",-3000)
+    elseif effectType == "axeSlippingOff" then
         User:inform("Als du zum Fällen ausholst, rutscht dir das Beil fast aus der Hand. Du kannst es gerade noch so festhalten.", "As you strike out, you nearly drop the hatchet. You barely keep hold of it.", Character.highPriority)
-	elseif effectType == "slimyAcid" then
-		world:gfx(8,User.pos)
-		world:gfx(11,User.pos)
-		world:makeSound(9,User.pos)
-		User:increaseAttrib("hitpoints",-1000)
-		User:talk(Character.say, "#me wird, bevor die Axt den berühren kann, von einem dicken Batzen Schleim getroffen, der aus der Baumkrone heraustropfte.", "#me is, before the hatchet touches the tree, hit by a big blob of slime which dropped down from the treetrop.")
-		User:inform("Der Schleim verursacht ein überaus schmerzhaftes Brennen auf deiner Haut.", "The slime causes very painful burning to your skin.", Character.highPriority)
-	else
-		User:inform("Als du zum Fällen ausholst, rutscht dir das Beil fast aus der Hand. Du kannst es gerade noch so festhalten.", "As you strike out, you nearly drop the hatchet. You barely keep hold of it.", Character.highPriority)
-		debug("Tree at " .. theTree.x .. ", " .. theTree.y .. ", " .. theTree.z .. " is missing a proper data value for the data key treeProtectionType")
-	end
+    elseif effectType == "slimyAcid" then
+        world:gfx(8,User.pos)
+        world:gfx(11,User.pos)
+        world:makeSound(9,User.pos)
+        User:increaseAttrib("hitpoints",-1000)
+        User:talk(Character.say, "#me wird, bevor die Axt den berühren kann, von einem dicken Batzen Schleim getroffen, der aus der Baumkrone heraustropfte.", "#me is, before the hatchet touches the tree, hit by a big blob of slime which dropped down from the treetrop.")
+        User:inform("Der Schleim verursacht ein überaus schmerzhaftes Brennen auf deiner Haut.", "The slime causes very painful burning to your skin.", Character.highPriority)
+    else
+        User:inform("Als du zum Fällen ausholst, rutscht dir das Beil fast aus der Hand. Du kannst es gerade noch so festhalten.", "As you strike out, you nearly drop the hatchet. You barely keep hold of it.", Character.highPriority)
+        debug("Tree at " .. theTree.x .. ", " .. theTree.y .. ", " .. theTree.z .. " is missing a proper data value for the data key treeProtectionType")
+    end
 
 end
 
 function isChoppableTree(targetItem)
-	if targetItem ~= nil and TreeItems[targetItem.id] ~= nil then
-		return true;
-	end
+    if targetItem ~= nil and TreeItems[targetItem.id] ~= nil then
+        return true;
+    end
 
-	return false;
+    return false;
 end
 
 function isUnchoppableTree(targetItem,User)
 
-	if targetItem ~= nil and unchoppableTrees[targetItem.id] ~= nil then
-		common.TurnTo( User, targetItem.pos )
-		User:inform("Diese Baumart kann nicht gefällt werden.","This kind of tree cannot be cut down.")
-		return true;
-	end
+    if targetItem ~= nil and unchoppableTrees[targetItem.id] ~= nil then
+        common.TurnTo( User, targetItem.pos )
+        User:inform("Diese Baumart kann nicht gefällt werden.","This kind of tree cannot be cut down.")
+        return true;
+    end
 
 end
 
 function getTree(User)
 
-	local tree = checkForTree(User,isChoppableTree)
-	if not tree then
-		if checkForTree(User,isUnchoppableTree) then
-			return false
-		end
-	end
+    local tree = checkForTree(User,isChoppableTree)
+    if not tree then
+        if checkForTree(User,isUnchoppableTree) then
+            return false
+        end
+    end
 
-	return tree
+    return tree
 end
 
 function checkForTree(User,theFunction)
 
-	local targetItem = common.GetFrontItem(User);
-	if theFunction(targetItem,User) then
-		return targetItem;
-	end
+    local targetItem = common.GetFrontItem(User);
+    if theFunction(targetItem,User) then
+        return targetItem;
+    end
 
-	for x=-1,1 do
-		for y=-1,1 do
-			local pos = position(User.pos.x+x,User.pos.y+y,User.pos.z);
-			if ( world:isItemOnField(pos) ) then
-				targetItem = world:getItemOnField(pos);
-				if theFunction(targetItem,User) then
-					return targetItem;
-				end
-			end
-		end
-	end
-	return nil;
+    for x=-1,1 do
+        for y=-1,1 do
+            local pos = position(User.pos.x+x,User.pos.y+y,User.pos.z);
+            if ( world:isItemOnField(pos) ) then
+                targetItem = world:getItemOnField(pos);
+                if theFunction(targetItem,User) then
+                    return targetItem;
+                end
+            end
+        end
+    end
+    return nil;
 
 end
