@@ -57,7 +57,7 @@ function M.learn(user, skill, actionPoints, learnLimit)
             local attributeFactor = common.GetAttributeBonus(leadAttrib,0.5); --0.5 to 1.5, depending on attribute, limited to 2
             local intelligenceFactor = common.GetAttributeBonus(user:increaseAttrib("intelligence", 0),0.1); --0.9 to 1.1, depending on attribute, limited to 1.2
             local actionpointFactor = actionPoints / normalAP --An action with 50AP is "normal"
-            local minorIncrease = math.floor(scalingFactor * attributeFactor * actionpointFactor * MCfactor)
+            local minorIncrease = math.floor(scalingFactor * attributeFactor * intelligenceFactor * actionpointFactor * MCfactor)
 
             --For debugging, use the following line.
             --user:inform("Skill="..user:getSkillName(skill)..", actionPoints="..actionPoints..", MCfactor="..MCfactor..", attributeFactor="..attributeFactor..", intelligenceFactor="..intelligenceFactor..", actionpointFactor="..actionpointFactor..", minorIncrease="..minorIncrease..".");
