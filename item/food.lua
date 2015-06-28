@@ -75,83 +75,83 @@ FoodList = { add = function (self,id,Value,Leftover,BuffType,RacialFactor,UnEata
 }
 
 -- Free Food
-FoodList:add(  15,	 VALUE_LARGE,	   0); -- apple
-FoodList:add(  80,	 VALUE_LARGE,	   0); -- banana
-FoodList:add(  81,	 VALUE_MEDIUM,	   0); -- berries
-FoodList:add( 142,	 VALUE_MEDIUM,	   0); -- sand berry
-FoodList:add( 143,	 VALUE_SMALL,	   0); -- red elder
-FoodList:add( 147,	 VALUE_MEDIUM,	   0); -- black berry
-FoodList:add( 151,	 VALUE_MEDIUM,	   0); -- strawberries
-FoodList:add( 160,	 VALUE_SMALL,	   0); -- redhead
-FoodList:add( 161,	 VALUE_SMALL,	   0); -- herders mushroom
-FoodList:add( 163,	 VALUE_SMALL,	   0); -- champignon
-FoodList:add( 199,	 VALUE_SMALL,	   0); -- tangerine
-FoodList:add( 200,	 VALUE_MEDIUM,	   0); -- tomato
-FoodList:add( 201,	 VALUE_SMALL,	   0); -- onion
-FoodList:add( 302,	 VALUE_SMALL,	   0); -- cherry
-FoodList:add( 388,	 VALUE_MEDIUM,	   0); -- grapes
-FoodList:add( 759,	 VALUE_LARGE,	   0); -- nuts
-FoodList:add(2493,	 VALUE_LARGE,	   0); -- carrots
-FoodList:add(1149,	 VALUE_SMALL,	   0); -- brown egg
-FoodList:add(1150,	 VALUE_SMALL,	   0); -- white egg
-FoodList:add(1207,	 VALUE_LARGE,	   0); -- orange
-FoodList:add(3567,	 VALUE_MEDIUM,	   0); -- potato
+FoodList:add(  15,VALUE_LARGE,0); -- apple
+FoodList:add(  80,VALUE_LARGE,0); -- banana
+FoodList:add(  81,VALUE_MEDIUM,0); -- berries
+FoodList:add( 142,VALUE_MEDIUM,0); -- sand berry
+FoodList:add( 143,VALUE_SMALL,0); -- red elder
+FoodList:add( 147,VALUE_MEDIUM,0); -- black berry
+FoodList:add( 151,VALUE_MEDIUM,0); -- strawberries
+FoodList:add( 160,VALUE_SMALL,0); -- redhead
+FoodList:add( 161,VALUE_SMALL,0); -- herders mushroom
+FoodList:add( 163,VALUE_SMALL,0); -- champignon
+FoodList:add( 199,VALUE_SMALL,0); -- tangerine
+FoodList:add( 200,VALUE_MEDIUM,0); -- tomato
+FoodList:add( 201,VALUE_SMALL,0); -- onion
+FoodList:add( 302,VALUE_SMALL,0); -- cherry
+FoodList:add( 388,VALUE_MEDIUM,0); -- grapes
+FoodList:add( 759,VALUE_LARGE,0); -- nuts
+FoodList:add(2493,VALUE_LARGE,0); -- carrots
+FoodList:add(1149,VALUE_SMALL,0); -- brown egg
+FoodList:add(1150,VALUE_SMALL,0); -- white egg
+FoodList:add(1207,VALUE_LARGE,0); -- orange
+FoodList:add(3567,VALUE_MEDIUM,0); -- potato
 
 -- Racial Food
-FoodList:add(  73,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,true,false,true,true,true,true}); -- trout (lizard)
-FoodList:add( 307,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true,true,true,true,true}); -- pork (orc)
-FoodList:add( 355,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,true,false,true,true,true,true}); -- salmon (lizard)
-FoodList:add( 552,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true,true,true,true,true}); -- deer meat (orc)
-FoodList:add( 553,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true,true,true,true,true}); -- rabbit meat (orc)
-FoodList:add(2934,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true,true,true,true,true}); -- lamb meat (orc)
-FoodList:add(1151,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true,true,true,true,true}); -- chicken meat (orc)
-FoodList:add(2940,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true,true,true,true,true}); -- raw steak (orc)
-FoodList:add(1209,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,true,false,true,true,true,true}); -- horse mackerel (lizard)
-FoodList:add(1210,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,true,false,true,true,true,true}); -- rose fish (lizard)
+FoodList:add(  73,VALUE_LARGE,0,nil,nil,{true,true,true,true,true,false,true,true,true,true}); -- trout (lizard)
+FoodList:add( 307,VALUE_LARGE,0,nil,nil,{true,true,true,true,false,true,true,true,true,true}); -- pork (orc)
+FoodList:add( 355,VALUE_LARGE,0,nil,nil,{true,true,true,true,true,false,true,true,true,true}); -- salmon (lizard)
+FoodList:add( 552,VALUE_LARGE,0,nil,nil,{true,true,true,true,false,true,true,true,true,true}); -- deer meat (orc)
+FoodList:add( 553,VALUE_LARGE,0,nil,nil,{true,true,true,true,false,true,true,true,true,true}); -- rabbit meat (orc)
+FoodList:add(2934,VALUE_LARGE,0,nil,nil,{true,true,true,true,false,true,true,true,true,true}); -- lamb meat (orc)
+FoodList:add(1151,VALUE_LARGE,0,nil,nil,{true,true,true,true,false,true,true,true,true,true}); -- chicken meat (orc)
+FoodList:add(2940,VALUE_LARGE,0,nil,nil,{true,true,true,true,false,true,true,true,true,true}); -- raw steak (orc)
+FoodList:add(1209,VALUE_LARGE,0,nil,nil,{true,true,true,true,true,false,true,true,true,true}); -- horse mackerel (lizard)
+FoodList:add(1210,VALUE_LARGE,0,nil,nil,{true,true,true,true,true,false,true,true,true,true}); -- rose fish (lizard)
 -- Simple Food
-FoodList:add( 306,	 VALUE_XLARGE,	   0); -- ham
-FoodList:add( 455,	 VALUE_XLARGE,	   0); -- smoked fish
+FoodList:add( 306,VALUE_XLARGE,0); -- ham
+FoodList:add( 455,VALUE_XLARGE,0); -- smoked fish
 
 -- Crafted Food
-FoodList:add(3051,	nil,	   0,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- sausage
-FoodList:add( 191,	nil,	   0,	 1,	{1,1,1,1,1,0.5,1,1,1,1}); -- bread roll
-FoodList:add(3606,	nil,	   0,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- cooked steak
-FoodList:add(2456,	nil,	2935,	 2,	{1,1,1,1,0.5,1,1,1,1,1}); -- mushroom soup
-FoodList:add( 453,	nil,	   0,	 2,	{1,1,2,1,0.5,0.5,1,2,1,1}); -- cookies
-FoodList:add(2923,	nil,	2935,	 2,	{1,1,1,1,0.5,1,1,1,1,1}); -- onion soup
-FoodList:add(2459,	nil,	2952,	 1,	{1,1,0.5,1,1,2,1,0.5,1,1}); -- fish filet dish
-FoodList:add(  49,	nil,	   0,	 1,	{1,1,1,1,1,0.5,1,1,1,1}); -- bread
-FoodList:add(2278,	nil,	2935,	 2,	{1,1,1,1,0.5,1,1,1,1,1}); -- cabbage stew
-FoodList:add( 556,	nil,	2952,	 1,	{1,1,0.5,1,1,2,1,0.5,1,1}); -- salmon dish
-FoodList:add(2276,	nil,	2935,	 2,	{1,1,1,1,0.5,1,1,1,1,1}); -- mulligan
-FoodList:add( 454,	nil,	   0,	 2,	{1,1,2,1,0.5,0.5,1,2,1,1}); -- muffin
-FoodList:add(2277,	nil,	2952,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- meat dish
-FoodList:add( 353,	nil,	   0,	 2,	{1,1,2,1,0.5,0.5,1,2,1,1}); -- applecake
-FoodList:add(2922,	nil,	2952,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- sausages dish
-FoodList:add( 557,	nil,	2952,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- steak dish
-FoodList:add( 303,	nil,	   0,	 2,	{1,1,2,1,0.5,0.5,1,2,1,1}); -- cherrycake
-FoodList:add( 555,	nil,	2952,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- rabbit dish
-FoodList:add( 354,	nil,	   0,	 2,	{1,1,2,1,0.5,0.5,1,2,1,1}); -- strawberry cake
-FoodList:add( 559,	nil,	2952,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- lamb dish
-FoodList:add( 554,	nil,	2952,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- venison dish
-FoodList:add(1152,	nil,	2935,	 2,	{1,1,1,1,0.5,1,1,1,1,1}); -- chicken soup
-FoodList:add(1153,	nil,	   0,	 3,	{1,1,2,1,0.5,0.5,1,2,1,1}); -- custard pie
-FoodList:add(1154,	nil,	2952,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- egg dish
-FoodList:add(1155,	nil,	2952,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- chicken dish
-FoodList:add( 3568,	nil,	   0,	 1,	{1,1,1,1,1,1,1,1,1,1}); -- Baked potato
+FoodList:add(3051,nil,0,1,{1,1,1,1,2,1,1,0.5,1,1}); -- sausage
+FoodList:add( 191,nil,0,1,{1,1,1,1,1,0.5,1,1,1,1}); -- bread roll
+FoodList:add(3606,nil,0,1,{1,1,1,1,2,1,1,0.5,1,1}); -- cooked steak
+FoodList:add(2456,nil,2935,2,{1,1,1,1,0.5,1,1,1,1,1}); -- mushroom soup
+FoodList:add( 453,nil,0,2,{1,1,2,1,0.5,0.5,1,2,1,1}); -- cookies
+FoodList:add(2923,nil,2935,2,{1,1,1,1,0.5,1,1,1,1,1}); -- onion soup
+FoodList:add(2459,nil,2952,1,{1,1,0.5,1,1,2,1,0.5,1,1}); -- fish filet dish
+FoodList:add(  49,nil,0,1,{1,1,1,1,1,0.5,1,1,1,1}); -- bread
+FoodList:add(2278,nil,2935,2,{1,1,1,1,0.5,1,1,1,1,1}); -- cabbage stew
+FoodList:add( 556,nil,2952,1,{1,1,0.5,1,1,2,1,0.5,1,1}); -- salmon dish
+FoodList:add(2276,    nil,    2935,     2,    {1,1,1,1,0.5,1,1,1,1,1}); -- mulligan
+FoodList:add( 454,    nil,       0,     2,    {1,1,2,1,0.5,0.5,1,2,1,1}); -- muffin
+FoodList:add(2277,    nil,    2952,     1,    {1,1,1,1,2,1,1,0.5,1,1}); -- meat dish
+FoodList:add( 353,    nil,       0,     2,    {1,1,2,1,0.5,0.5,1,2,1,1}); -- applecake
+FoodList:add(2922,    nil,    2952,     1,    {1,1,1,1,2,1,1,0.5,1,1}); -- sausages dish
+FoodList:add( 557,    nil,    2952,     1,    {1,1,1,1,2,1,1,0.5,1,1}); -- steak dish
+FoodList:add( 303,    nil,       0,     2,    {1,1,2,1,0.5,0.5,1,2,1,1}); -- cherrycake
+FoodList:add( 555,    nil,    2952,     1,    {1,1,1,1,2,1,1,0.5,1,1}); -- rabbit dish
+FoodList:add( 354,    nil,       0,     2,    {1,1,2,1,0.5,0.5,1,2,1,1}); -- strawberry cake
+FoodList:add( 559,    nil,    2952,     1,    {1,1,1,1,2,1,1,0.5,1,1}); -- lamb dish
+FoodList:add( 554,    nil,    2952,     1,    {1,1,1,1,2,1,1,0.5,1,1}); -- venison dish
+FoodList:add(1152,    nil,    2935,     2,    {1,1,1,1,0.5,1,1,1,1,1}); -- chicken soup
+FoodList:add(1153,    nil,       0,     3,    {1,1,2,1,0.5,0.5,1,2,1,1}); -- custard pie
+FoodList:add(1154,    nil,    2952,     1,    {1,1,1,1,2,1,1,0.5,1,1}); -- egg dish
+FoodList:add(1155,    nil,    2952,     1,    {1,1,1,1,2,1,1,0.5,1,1}); -- chicken dish
+FoodList:add( 3568,    nil,       0,     1,    {1,1,1,1,1,1,1,1,1,1}); -- Baked potato
 FoodList:add( 3569, nil,    2935,    1, {2,2,2,1,1,1,1,1,1,1}); -- Potato soup
 FoodList:add( 3570, nil,    2935,    1, {2,2,2,1,1,2,1,1,1,1}); -- Egg Salad
 FoodList:add( 3571, nil,    0,    1, {2,2,2,1,1,2,1,1,1,1}); -- Egg Salad Sandwich
 FoodList:add( 3572, nil,    2935,    1, {1,1,1,1,1,2,1,1,1,1}); -- Fish Soup
-FoodList:add( 3573,	nil,	   0,	 1,	{1,1,1,1,1,1,1,1,1,1}); -- cheese
-FoodList:add( 3609,	nil,	   0,	 1,	{1,1,1,1,1,1,1,1,1,1}); -- banana bread
-FoodList:add( 3610,	nil,	   0,	 1,	{1,1,1,1,1,1,1,1,1,1}); -- elderberry pie
-FoodList:add( 3631,	nil,	   0,	 1,	{1,1,1,1,1,1,1,1,1,1}); -- sausage on bread
+FoodList:add( 3573,    nil,       0,     1,    {1,1,1,1,1,1,1,1,1,1}); -- cheese
+FoodList:add( 3609,    nil,       0,     1,    {1,1,1,1,1,1,1,1,1,1}); -- banana bread
+FoodList:add( 3610,    nil,       0,     1,    {1,1,1,1,1,1,1,1,1,1}); -- elderberry pie
+FoodList:add( 3631,    nil,       0,     1,    {1,1,1,1,1,1,1,1,1,1}); -- sausage on bread
 
 -- Poisoned Food
-FoodList:add( 162,	 VALUE_SMALL,	   0,	nil,	nil,	nil,	 600); -- birth mushroom
-FoodList:add( 158,	 VALUE_SMALL,	   0,	nil,	nil,	nil,	 400); -- bulbsponge mushroom
-FoodList:add( 159,	 VALUE_MEDIUM,	   0,	nil,	nil,	nil,	1000); -- toadstool
+FoodList:add( 162,     VALUE_SMALL,       0,    nil,    nil,    nil,     600); -- birth mushroom
+FoodList:add( 158,     VALUE_SMALL,       0,    nil,    nil,    nil,     400); -- bulbsponge mushroom
+FoodList:add( 159,     VALUE_MEDIUM,       0,    nil,    nil,    nil,    1000); -- toadstool
 
 local function SetNewFoodLevel(User, NewFoodLevel)
   NewFoodLevel = common.Limit(NewFoodLevel, 0, 60000);
@@ -168,7 +168,6 @@ end
 local function holyGrapes(user, sourceItem)
     user:increaseAttrib("foodlevel",2000)
     user:inform("Die Trauben haben einen vollen Geschmack und füllen deinen ganzen Mund mit ihrem süßlichen Saft. Köstlich! Doch sie umspielen nicht nur deine Geschmacksknospen, sondern auch deinen Geist. Du bist leicht angetrunken.","The grapes have a rich, sweet taste that lingers on your tongue as their flavorful juice fills your entire mouth. Delicious! However, they not only play with your taste buds but also with your mind. You feel slightly drunk.")
-    
     world:erase(sourceItem,1)
 end
 
@@ -177,6 +176,12 @@ function M.UseItem(User, SourceItem, ltstate)
     if SourceItem:getData("nameEn") == "Holy Grapes" then
         holyGrapes(User, SourceItem)
         return
+    end
+    
+    if SourceItem:getData("nameEn") == "Thieves Dinner" and User:getQuestProgress(543) == 7 and User:countItemAt("all", 1323) >= 0 then
+        User:eraseItem(1323, 1)
+        User:inform("Du hast den Inhalt des Fläschchens unbemerkt unter das Essen gemischt. Kehre zu Brigette zurück, um deine Belohnung abzuholen.","You successfully sneak the contents of the vial Brigette gave you into the food, return to her for a reward.")
+        User:setQuestProgress(543, 8) --  You poisoned the food.
     end
     
     if (Init == nil) then
