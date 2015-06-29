@@ -155,7 +155,7 @@ M.bookList["dictionary_orc"] = {english = "A Simple Orcish Dictionary",german = 
 M.bookList["dragon_bone_lord"] = {english = "The Dragons of the Bone Lord",german =  "Die Drachen des Knochenfürsten", bookId = 363, bookGraphic = bookBlackSmallHeavy}
 M.bookList["revelations_of_tialdin"] = {english = "The Revelations of Tialdin",german =  "Tialdins Offenbarungen", bookId = 364, bookGraphic = bookBlueOrnament}
 M.bookList["origin_halflings_race"] = {english = "The origin of the Halfling Race",german =  "Die Entstehung der Halblinge", bookId = 365, bookGraphic = bookGreenLight}
-M.bookList["cadoson_letnason"] = {english = "Coadoson and Letnason",german =  "Cadoson und Letnason", bookId = 366, bookGraphic = bookBlackLong}
+M.bookList["cadoson_letnason"] = {english = "Cadoson and Letnason",german =  "Cadoson und Letnason", bookId = 366, bookGraphic = bookBlackLong}
 M.bookList["the_pointy_end"] = {english = "The pointy end - manual for a recruit",german =  "Das spitze Ende - Handbuch des Rekruten", bookId = 367, bookGraphic = bookBrownSmall}
 M.bookList["broken_wreath"] = {english = "The broken wreath",german =  "Der zerbrochene Kranz", bookId = 368, bookGraphic = bookBlackLong}
 M.bookList["statute_hamlet_greenbriar"] = {english = "Laws of the Hamlet Greenbriar (23)",german =  "Gesetze des Hamlets Greenbriar (23)", bookId = 369, bookGraphic = bookRedHeavy}
