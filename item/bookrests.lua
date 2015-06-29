@@ -46,6 +46,7 @@ local salaveshBookrest = position(741, 406, -3)
 local akaltutBookrest = position(430, 815, -9)
 local evilrockBookrest = position(975, 173, 0)
 local wonderlandBookrest = position(864, 550, 0)
+local ronaganBookrest = position(904, 585, -6)
 
 function M.LookAtItem(User,Item)
 
@@ -157,8 +158,8 @@ function ronaganLookAt(User, Item)
     lookAt.rareness = ItemLookAt.rareItem
 
     if (User:getPlayerLanguage()==0) then
-        lookAt.name = ""
-        lookAt.description = ""
+        lookAt.name = "Pergament"
+        lookAt.description = "Das Pergament trägt einen Stempel im Eck, der einen Fuchs darstellt."
     else
         lookAt.name = "Parchment"
         lookAt.description = "The parchment has a stamp of the fox on the corner."
@@ -189,10 +190,10 @@ function M.UseItem(User, SourceItem)
             -- Bookrest for Ronagan dungeon
     if (SourceItem.pos == ronaganBookrest) then
         if User:getQuestProgress(543) == 4 then
-            User:inform("", "The paper has a few words. 'Speak fox then push the rock.' You have found the mysterious parchment for Brigette.")
+            User:inform("Auf dem Stück Papier stehen ein paar Worte. 'Sprich Fuchs und drück gegen den Stein.' Du hast das mysteriöse Pergament für Brigette gefunden.", "The paper has a few words. 'Speak fox then push the rock.' You have found the mysterious parchment for Brigette.")
             User:setQuestProgress(543, 5)
         else
-            User:inform("", "The paper has a few words. 'Speak fox then push the rock.'")
+            User:inform("Auf dem Stück Papier stehen ein paar Worte. 'Sprich Fuchs und drück gegen den Stein.' ", "The paper has a few words. 'Speak fox then push the rock.'")
         end
     end
 
