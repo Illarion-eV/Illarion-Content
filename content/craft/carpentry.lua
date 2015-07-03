@@ -213,8 +213,8 @@ product:addIngredient(2716, 3); -- Deciduous Wood Boards
 product:addIngredient(2547, 3); -- Leather
 product:addIngredient(2535, 1); -- Iron Ingot
 product:addIngredient(2571, 2); -- Merinium Ingot
-product:addIngredient(45); -- Pure Air
-product:addIngredient(104); -- Emerald
+product:addIngredient(45); -- Emerald
+product:addIngredient(104); -- Silver Ingots
 
 -- ornate tower shield
 product = carpentry:addProduct(catId, 916, 94, 100, 171, 342, 1);
