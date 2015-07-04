@@ -1,15 +1,15 @@
 -- Illarion Server
---
+-- 
 -- This program is free software: you can redistribute it and/or modify it under
 -- the terms of the GNU Affero General Public License as published by the Free
 -- Software Foundation, either version 3 of the License, or (at your option) any
 -- later version.
---
+-- 
 -- This program is distributed in the hope that it will be useful, but WITHOUT
 -- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
 -- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 -- details.
---
+-- 
 -- You should have received a copy of the GNU Affero General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
@@ -84,9 +84,9 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Alchemist Pasinn. Schlüsselwörter: Hallo, Quest, Alchemy, Kaefity.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" ->"Be Greeted in the name of the Five."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" ->"Be greeted in the name of the Five."
 "Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ich grüße euch im Namen der Fünf."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be Greeted in the name of the Five."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted in the name of the Five."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Ich grüße euch im Namen der Fünf."
 "Farewell", "Bye", "Fare well", "See you" -> "May the Five watch over you."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Mögen die Fünf über euch wachen."
@@ -98,6 +98,36 @@ english, "Ciao", "Adieu", "Au revoir" -> "May the Five watch over you."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Pasinn der Alchemist."
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am an alchemist, working for the Don right now."
+"beruf" -> "Ich bin ein Alchemist und arbeite derzeit für den Don."
+english, "job" -> "I am an alchemist, working for the Don right now."
+"job" -> "Ich bin ein Alchemist und arbeite derzeit für den Don."
+english, "Gobaith", "Gobiath" -> "I never heard of such a place."
+"Gobaith", "Gobiath" -> "Davon habe ich noch nie gehört."
+"my name" -> "Nice to meet you."
+"mein Name" -> "Es freut mich, eure Bekanntschaft zu machen."
+english, "alchemist" -> "An alchemist works with the structures of plants to create formulations."
+"alchemist" -> "Ein Alchemist arbeitet mit den Strukturen von Pflanzen um Formeln zu kreieren."
+
+-- Faction stuff. Please remove if you send the template to outsiders!
+"archmage" -> "I have little use for the Archmage and his magics, but the forests around Runewick are nice for collecting herbs."
+"Erzmagier" -> "Ich weiß nur wenig mit dem Erzmagier und seiner Magie anzufangen, aber der Wald um Runewick eignet sich hervorragend, um Kräuter zu sammeln."
+english, "Elvaine", "Morgan" -> "I have little use for the Archmage and his magics, but the forests around Runewick are nice for collecting herbs."
+"Elvaine", "Morgan" -> "Ich weiß nur wenig mit dem Erzmagier und seiner Magie anzufangen, aber der Wald um Runewick eignet sich hervorragend, um Kräuter zu sammeln."
+english, "Runewick" -> "I have little use for the Archmage and his magics, but the forests around Runewick are nice for collecting herbs."
+"Runewick" -> "Ich weiß nur wenig mit dem Erzmagier und seiner Magie anzufangen, aber der Wald um Runewick eignet sich hervorragend, um Kräuter zu sammeln."
+english, "Valerio", "Guilianni", "Don" -> "The Don is a tough taskmaster for Galmair, but he is fair. I just hope to finish this job he sent me to do soon."
+"Valerio", "Guilianni", "Don" -> "Der Don ist ein strenger Herr für Galmair, aber auch fair. Ich hoffe nur, dass ich die Aufgabe, die er mir aufgetragen hat, bald vollenden kann."
+english, "Galmair" -> "The Don is a tough taskmaster for Galmair, but he is fair. I just hope to finish this job he sent me to do soon."
+"Galmair" -> "Der Don ist ein strenger Herr für Galmair, aber auch fair. Ich hoffe nur, dass ich die Aufgabe, die er mir aufgetragen hat, bald vollenden kann."
+"Queen" -> "Cadomyr is ruled by the Queen. Ruled by a woman. Nothing more needs said."
+"Königin" -> "Der Don ist ein strenger Herr für Galmair, aber auch fair. Ich hoffe nur, dass ich die Aufgabe, die er mir aufgetragen hat, bald vollenden kann."
+english, "rosaline", "edwards" -> "Cadomyr is ruled by the Queen. Ruled by a woman. Nothing more needs said."
+"rosaline", "edwards" -> "Cadomyr wird von einer Königin regiert. Einer Frau. Dem ist nichts hinzuzufügen."
+english, "Cadomyr" -> "Cadomyr is ruled by the Queen. Ruled by a woman. Nothing more needs said."
+"Cadomyr" -> "Cadomyr wird von einer Königin regiert. Einer Frau. Dem ist nichts hinzuzufügen."
 
 -- 1st quest: Find 15 poison coins in the cauldrons of Viridians Needles Lair 50 silver coins.
 queststatus(539) = 0, english, "quest", "mission" -> inform("[New quest] Viridian Needles Lair I"), queststatus(539) = 1, "There is an area here below ground ran by a ratman Alchemist Kaefity.  He calls the place Viridian Needles Lair.  I have heard of some poisoned coins these ratmen have. I need to study some to see if I can use this process in my poison making. Would you please get me 15 of them?"
@@ -189,36 +219,6 @@ queststatus(539) = 13, english, "quest", "mission" -> "You have been a great ass
 queststatus(539) = 13, "quest", "mission" -> "Ihr habt großartige Arbeit geleistet. Nun muss ich meine Studien dieses Rezepts weiterführen, um sicher zu gehen, dass niemand diesen Trank vollendet. Mögen die Fünf über euch wachen."
 queststatus(539) = 13, "task", "adventure", "order" -> "You have been a great assistance. Now I must finish studying this paper to make sure no one finishes this potion. May the Five guide you."
 queststatus(539) = 13, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr habt großartige Arbeit geleistet. Nun muss ich meine Studien dieses Rezepts weiterführen, um sicher zu gehen, dass niemand diesen Trank vollendet. Mögen die Fünf über euch wachen."
-
--- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I am an alchemist, working for the Don right now."
-"beruf" -> "Ich bin ein Alchemist und arbeite derzeit für den Don."
-english, "job" -> "I am an alchemist, working for the Don right now."
-"job" -> "Ich bin ein Alchemist und arbeite derzeit für den Don."
-english, "Gobaith", "Gobiath" -> "I never heard of such a place."
-"Gobaith", "Gobiath" -> "Davon habe ich noch nie gehört."
-"my name" -> "Nice to meet you."
-"mein Name" -> "Es freut mich, eure Bekanntschaft zu machen."
-english, "alchemist" -> "An alchemist works with the structures of plants to create formulations."
-"alchemist" -> "Ein Alchemist arbeitet mit den Strukturen von Pflanzen um Formeln zu kreieren."
-
--- Faction stuff. Please remove if you send the template to outsiders!
-"archmage" -> "I have little use for the Archmage and his magics, but the forests around Runewick are nice for collecting herbs."
-"Erzmagier" -> "Ich weiß nur wenig mit dem Erzmagier und seiner Magie anzufangen, aber der Wald um Runewick eignet sich hervorragend, um Kräuter zu sammeln."
-english, "Elvaine", "Morgan" -> "I have little use for the Archmage and his magics, but the forests around Runewick are nice for collecting herbs."
-"Elvaine", "Morgan" -> "Ich weiß nur wenig mit dem Erzmagier und seiner Magie anzufangen, aber der Wald um Runewick eignet sich hervorragend, um Kräuter zu sammeln."
-english, "Runewick" -> "I have little use for the Archmage and his magics, but the forests around Runewick are nice for collecting herbs."
-"Runewick" -> "Ich weiß nur wenig mit dem Erzmagier und seiner Magie anzufangen, aber der Wald um Runewick eignet sich hervorragend, um Kräuter zu sammeln."
-english, "Valerio", "Guilianni", "Don" -> "The Don is a tough taskmaster for Galmair, but he is fair. I just hope to finish this job he sent me to do soon."
-"Valerio", "Guilianni", "Don" -> "Der Don ist ein strenger Herr für Galmair, aber auch fair. Ich hoffe nur, dass ich die Aufgabe, die er mir aufgetragen hat, bald vollenden kann."
-english, "Galmair" -> "The Don is a tough taskmaster for Galmair, but he is fair. I just hope to finish this job he sent me to do soon."
-"Galmair" -> "Der Don ist ein strenger Herr für Galmair, aber auch fair. Ich hoffe nur, dass ich die Aufgabe, die er mir aufgetragen hat, bald vollenden kann."
-"Queen" -> "Cadomyr is ruled by the Queen. Ruled by a woman. Nothing more needs said."
-"Königin" -> "Der Don ist ein strenger Herr für Galmair, aber auch fair. Ich hoffe nur, dass ich die Aufgabe, die er mir aufgetragen hat, bald vollenden kann."
-english, "rosaline", "edwards" -> "Cadomyr is ruled by the Queen. Ruled by a woman. Nothing more needs said."
-"rosaline", "edwards" -> "Cadomyr wird von einer Königin regiert. Einer Frau. Dem ist nichts hinzuzufügen."
-english, "Cadomyr" -> "Cadomyr is ruled by the Queen. Ruled by a woman. Nothing more needs said."
-"Cadomyr" -> "Cadomyr wird von einer Königin regiert. Einer Frau. Dem ist nichts hinzuzufügen."
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
