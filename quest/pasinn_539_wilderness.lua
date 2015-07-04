@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (539, 'quest.pasinn_539_wilderness');
 
 local common = require("base.common")
+local monsterQuests = require("monster.base.quests")
 local M = {}
 
 local GERMAN = Player.german
@@ -116,7 +117,7 @@ end
 
 function M.QuestStart()
     return Start
-    end
+end
 
 function M.QuestTargets(user, status)
     return QuestTarget[status]
@@ -124,6 +125,10 @@ end
 
 function M.QuestFinalStatus()
     return FINAL_QUEST_STATUS
+end
+
+function M.QuestAvailability(user, status)
+    return Player.questAvailable
 end
 
 return M
