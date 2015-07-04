@@ -60,7 +60,7 @@ Description[GERMAN][13] = "Du hast alle Aufgaben von Pasinn erfüllt."
 Description[ENGLISH][13] = "You have fulfilled all the tasks for Pasinn."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-local Start = {523, 205, 0}
+local Start = {}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
