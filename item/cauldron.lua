@@ -86,6 +86,7 @@ function M.UseItem(User, SourceItem)
             common.HighInformNLS(User,"Du kannst nichts mehr halten.","You can't carry any more.")
         end
         User:setQuestProgress(542, 3)
+        return
     elseif (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) >= 0) and SourceItem.pos == position(598, 177, -3) then -- player has a bottle
                 User:inform(
             "Du hast bereits eine Flasche, du solltest sie Pasinn zeigen, ehe du mehr sammelst.",
@@ -102,7 +103,8 @@ function M.UseItem(User, SourceItem)
             world:createItemFromId(2503, notCreated, User.pos, true, 333, {descriptionEn = "Mysterious Violet Potion", descriptionDe = "Geheimnisvoller Violett Trank "})
             common.HighInformNLS(User,"Du kannst nichts mehr halten.","You can't carry any more.")
          end
-        endUser:setQuestProgress(542, 2)
+        User:setQuestProgress(542, 2)
+        return
     elseif (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) >= 0) and SourceItem.pos == position(597, 180, -3) then --player has a bottle
         User:inform(
             "Du hast bereits eine Flasche, du solltest sie Pasinn zeigen, ehe du mehr sammelst.",
