@@ -154,14 +154,14 @@ queststatus(539) = 2, "task", "adventure", "order" -> inform("[New quest] Viridi
 queststatus(539) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Viridian Nadeln Höhle II"), queststatus(539) = 3, "Ich muss mehr darüber wissen, was der Rattenmensch vor hat. Stehlt einen Trank aus einem der vollen Kessel dort unten. Es wird ihm nicht gefallen, also seid vorsichtig."
 
 -- Quest 2 solved
-queststatus(539) = 3, queststatus(542) = 3, english, ".+" -> inform("[Quest solved] You are awarded seventy five silver coins."), money + 7500, queststatus(539) = 4, "This potion is something I have been dreading. It has the potential to annihilate all life as we know it if completed properly!"
-queststatus(539) = 3, queststatus(542) = 3, ".+" -> inform("[Quest gelöst] Du erhältst fünfundsiebzig Silberstücke."), money + 7500, deleteItem(543, 20), queststatus(539) = 4, "Dieser Trank ist etwas, vor dem mir gegraut hat. Er könnte womöglich alles Leben, so wie wir es kennen auslöschen, wenn er korrekt vollendet wird."
+queststatus(539) = 3, queststatus(542) = 3, item(2506,all) > 0, english, ".+" -> inform("[Quest solved] You are awarded seventy five silver coins."), money + 7500, deleteItem(2506, 1), queststatus(539) = 4, "This potion is something I have been dreading. It has the potential to annihilate all life as we know it if completed properly!"
+queststatus(539) = 3, queststatus(542) = 3, item(2506,all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst fünfundsiebzig Silberstücke."), money + 7500, deleteItem(2506, 1), queststatus(539) = 4, "Dieser Trank ist etwas, vor dem mir gegraut hat. Er könnte womöglich alles Leben, so wie wir es kennen auslöschen, wenn er korrekt vollendet wird."
 
 -- Quest 2 not solved, repeat the instructions
-queststatus(539) = 3, queststatus(542) = 1, english, ".+" -> queststatus(542) = 0, "#me sniffs at the potion and then dumps it on the ground. 'Coloured water, please try one more time.' "
-queststatus(539) = 3, queststatus(542) = 1, ".+" -> queststatus(542) = 0, "#me schnuppert an dem Trank und leert ihn dann auf den Boden. 'Gefärbtes Wasser, bitte versucht es noch einmal.'"
-queststatus(539) = 3, queststatus(542) = 2, english, ".+" -> queststatus(542) = 0, "This seems to be a simple healing potion. Please go back and try to find something else. "
-queststatus(539) = 3, queststatus(542) = 2, ".+" -> queststatus(542) = 0, "Dies scheint ein einfacher Heiltrank zu sein. Bitte geht zurück und versucht, etwas anderes zu finden."
+queststatus(539) = 3, queststatus(542) = 1, item(2504,all) > 0, english, ".+" -> deleteItem(2504, 1), queststatus(542) = 0, "#me sniffs at the potion and then dumps it on the ground. 'Coloured water, please try one more time.' "
+queststatus(539) = 3, queststatus(542) = 1, item(2504,all) > 0, ".+" -> deleteItem(2504, 1), queststatus(542) = 0, "#me schnuppert an dem Trank und leert ihn dann auf den Boden. 'Gefärbtes Wasser, bitte versucht es noch einmal.'"
+queststatus(539) = 3, queststatus(542) = 2, item(2503,all) > 0, english, ".+" -> deleteItem(2503, 1), queststatus(542) = 0, "This seems to be a simple healing potion. Please go back and try to find something else. "
+queststatus(539) = 3, queststatus(542) = 2, item(2503,all) > 0, ".+" -> deleteItem(2503, 1), queststatus(542) = 0, "Dies scheint ein einfacher Heiltrank zu sein. Bitte geht zurück und versucht, etwas anderes zu finden."
 
 queststatus(539) = 3, english, "quest", "mission" -> "I need to see more of what that alchemist ratman is up to. Steal a potion from one of the filled cauldrons from below. He won't like it, so watch yourself."
 queststatus(539) = 3, "quest", "mission" -> "Ich muss mehr darüber wissen, was der Rattenmensch vor hat. Stehlt einen Trank aus einem der vollen Kessel dort unten. Es wird ihm nicht gefallen, also seid vorsichtig."
