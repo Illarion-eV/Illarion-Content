@@ -101,7 +101,7 @@ monsterQuests.addQuest{
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Rattenalchemist", english = "Rat Alchemist"},
     npcName = "Pasinn",
-    monsterIds = {877} -- Rat Alchemist
+    monsterIds = {577} -- Rat Alchemist
 }
 
 function M.QuestTitle(user)
