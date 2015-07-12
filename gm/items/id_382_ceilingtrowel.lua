@@ -319,7 +319,7 @@ local function ChangeRankpoints(User, modifier, value, faction, radius)
                 User:inform("You just "..text.." "..value.." rankpoints to "..player_list[i].name.." of the faction "..factions.getTownNameByID(Factionvalues.tid).." in a radius of ".. radius..".")
                 User:logAdmin(text .. " " ..value.. " rankpoints to character " .. player_list[i].name .. " of the faction " .. factions.getTownNameByID(Factionvalues.tid))
             else
-                --				return  --bad return, since it would break up as soon someone does not fulfil requirements even if there are more players to be checked.
+                --                return  --bad return, since it would break up as soon someone does not fulfil requirements even if there are more players to be checked.
             end
         end
     end
@@ -812,7 +812,7 @@ function sapwnStartStop(User, SourceItem)
             local a, b, monsterId = string.find(monsters,"(%d+)",fin)
             fin = b + 1
             counter = counter +1
-            monsterIds[counter]	= tonumber(monsterId)
+            monsterIds[counter]    = tonumber(monsterId)
         else
             User:inform("Enter MonsterID")
             fin = string.len(inputNumber)
