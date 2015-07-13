@@ -97,6 +97,9 @@ german, "hand" -> "Ihr wollt mehr über die Handwerke in Galmair wissen? Dann bes
 
 -- Quests
 -- Hannah Shepard
+queststatus(712) = 0, english, town = Galmair, ".+" -> queststatus(712) = 1, "Please find Hannah Shepard, I'm sure she has a task for you. You won't miss her, she sits at the camp fire near the fields. You don't have to finish her tasks before you come back to me for another job."
+queststatus(712) = 0, town = Galmair, ".+" -> queststatus(712) = 1, "Sucht doch bitte Hannah Shepard. Sie hat bestimmt eine Aufgabe für Euch. Ihr könnt sie nicht übersehen, sie sitzt an der Kochstelle bei den Feldern. Du brauchst ihre Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
+
 queststatus(712) = 1, english, town = Galmair, "quest", "mission" -> "Please find Hannah Shepard, I'm sure she has a task for you. You won't miss her, she sits at the camp fire near the fields. You don't have to finish her tasks before you come back to me for another job."
 queststatus(712) = 1, town = Galmair, "quest", "mission" -> "Sucht doch bitte Hannah Shepard. Sie hat bestimmt eine Aufgabe für Euch. Ihr könnt sie nicht übersehen, sie sitzt an der Kochstelle bei den Feldern. Du brauchst ihre Aufgabe nicht zu erfüllen, wenn sie dir nicht behagt. Komm dann einfach hierher zurück, um eine weitere Aufgabe zu bekommen."
 queststatus(712) = 1, town = Galmair, "task", "adventure", "order" -> "Please find Hannah Shepard, I'm sure she has a task for you. You won't miss her, she sits at the camp fire near the fields. You don't have to finish her tasks before you come back to me for another job."
