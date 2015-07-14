@@ -1,0 +1,213 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+------------------------------------------------------------------------------AC
+-- NPC Name: Brigette Russ                                               None --
+-- NPC Job:  Thief                                                            --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  897, 616, 0            --
+-- NPC Sex:  female                     NPC Direction: west                   --
+--                                                                            --
+-- Author:   Evie                                                             --
+--                                                    Illarion easyNPC Editor --
+--------------------------------------------------------------------------------
+
+name = "Brigette Russ"
+race = human
+sex = female
+position = 897, 616, 0
+direction = west
+affiliation = "None"
+job = "Thief"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Evie"
+
+lookatDE = "Dieser NPC ist die Dieb Brigette Russ."
+lookatUS = "This NPC is the thief Brigette Russ."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 7
+colorHair = 10, 10, 10
+colorSkin = 200, 135, 10
+itemChest = 819
+itemCoat = 194
+itemMainHand = 2668
+itemHands = 384
+itemTrousers = 826
+itemShoes = 1054
+
+-- NPC by Evie
+
+-- queststatus(543) Overview
+-- QuestID=543
+-- 0: No Quest taken
+-- 1: Quest 1 taken - find Brigette's lost items in the Den
+-- 2: Quest 1 solved
+-- 4: Quest 2 taken - Locate the Mysterious document in the dungeon
+-- 5: Quest 2 solved
+-- 7: Quest 3 taken - poison the thieves food
+-- 8: Quest 3 solved
+-- 10: Quest 4 taken - Kill 10 dungeon monsters
+-- 21: Quest 4 solved
+-- 22: Quest 5 taken -  Kill the Elven Warrior
+-- 23: Quest 5 solved
+
+-- Help
+"Help" -> inform("[Game Help] This is NPC Brigett Russ the thief. Keywords are: hello, profession, task, Ronagan, fox, coin.")
+"Hilfe" ->""
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings to you. Would you be willing to help a lady down on her luck?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> ""
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings to you. Would you be willing to help a lady down on her luck?"
+"Hiho", "Hallo", "Hey", "Greeb" -> ""
+"Farewell", "Bye", "Fare well", "See you" -> "May the Fox guide you to safe paths.", "Farewell."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "", "Gehabt euch wohl."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May the Fox guide you to safe paths.", "Farewell."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "", "Gehabt euch wohl."
+"How are you", "How feel", "How do you do" -> "I was much better before the thieves took my items."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> ""
+"your name", "who are you", "who art thou" -> "Brigette Russ is my name, though please don't tell it around."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> ""
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
+
+-- Quest 1: Find Bridgette's lost items, reward 50 silver coins and a perfect golden ring
+queststatus(543) = 0, english, "quest", "mission" -> inform("[New quest] The Path of the Fox I"), queststatus(543) = 1, "I've been robbed! It's unbelieveable! I'm giving a reward to the one what be bringing me back my things! The rotten thief stole my hat, two rings, a plate and a goblet, along with my flute, which he has likely hidden in the chests below.*points north* Bring them back to me for your reward."
+queststatus(543) = 0, "quest", "mission" -> inform("[Neue Quest] Der Pfad des Fuchses I"), queststatus(543) = 1, ""
+queststatus(543) = 0, "task", "adventure", "order" -> inform("[New quest] The Path of the Fox I"), queststatus(543) = 1, "I've been robbed! It's unbelieveable! I'm giving a reward to the one what be bringing me back my things! The rotten thief stole my hat, two rings, a plate and a goblet, along with my flute, which he has likely hidden in the chests below.*points north* Bring them back to me for your reward."
+queststatus(543) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Der Pfad des Fuchses I"), queststatus(543) = 1, ""
+--Did not find all the items
+queststatus(543) = 1, english, "quest", "mission" -> "Have you found my belongings yet? I look for my hat, two rings, a flute, plate, and a goblet."
+queststatus(543) = 1, "quest", "mission" -> ""
+queststatus(543) = 1, "task", "adventure", "order" -> "Have you found my belongings yet? I look for my hat, two rings, a flute, plate, and a goblet."
+queststatus(543) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+--Found the items but do not have them on you.
+queststatus(543) = 2, item(2535, all) < 1, item(68, all) < 1, item(1840, all) < 1, item(830, all) < 1, item(1001, all) < 1, item(90, all) < 1, english, "quest", "mission" -> "My spies tell me you have my things. So where are they? I want my Grey hat, a gold ring, a ruby ring , a flute, a plate, and a goblet."
+queststatus(543) = 2, item(2535, all) < 1, item(68, all) < 1, item(1840, all) < 1, item(830, all) < 1, item(1001, all) < 1, item(90, all) < 1, "quest", "mission" -> ""
+queststatus(543) = 2, item(2535, all) < 1, item(68, all) < 1, item(1840, all) < 1, item(830, all) < 1, item(1001, all) < 1, item(90, all) < 1, "task", "adventure", "order" -> "My spies tell me you have my things. So where are they? I want my Grey hat, a gold ring, a ruby ring , a flute, a plate, and a goblet."
+queststatus(543) = 2, item(2535, all) < 1, item(68, all) < 1, item(1840, all) < 1, item(830, all) < 1, item(1001, all) < 1, item(90, all) < 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+--Found items and have them, success
+queststatus(543) = 2, item(2535, all) > 0, item(68, all) > 0, item(1840, all) > 0, item(830, all) > 0, item(1001, all) > 0, item(90, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded five silver coins and a gold ring."), deleteItem(2535, 1), deleteItem(68, 1), deleteItem(1840, 1), deleteItem(830, 1), deleteItem(1001, 1), deleteItem(90, 1), money + 5000, item(235, 1, 999), queststatus(543) = 3, "You found them all! Here's your reward and a little something extra for not asking me how I came by them all in the first place. *she winks at you as she hands you 50 silver and the golden ring*"
+queststatus(543) = 2, item(2535, all) > 0, item(68, all) > 0, item(1840, all) > 0, item(830, all) > 0, item(1001, all) > 0, item(90, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), deleteItem(2535, 1), deleteItem(68, 1), deleteItem(1840, 1), deleteItem(830, 1), deleteItem(1001, 1), deleteItem(90, 1), money + 5000, item(235, 1, 999), queststatus(543) = 3, ""
+
+-- Quest 2: Locate a document in the dungeon for Bridgette
+queststatus(543) = 3, english, "quest", "mission" -> inform("[New quest] The Path of the Fox II"), queststatus(543) = 4, "Those thieving traitors. They have turned from the path of Ronagan. I have heard in their home they have a 'Mysterious Document' that contains some information I need. Please find it!"
+queststatus(543) = 3, "quest", "mission" -> inform("[Neue Quest] Der Pfad des Fuchses II"), queststatus(543) = 4, ""
+queststatus(543) = 3, "task", "adventure", "order" -> inform("[New quest] The Path of the Fox II"), queststatus(543) = 4, "Those thieving traitors. They have turned from the path of Ronagan. I have heard in their home they have a 'Mysterious Document' that contains some information I need. Please find it!"
+queststatus(543) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Der Pfad des Fuchses II"), queststatus(543) = 4, ""
+--Object not found
+queststatus(543) = 4, english, "quest", "mission" -> "I really need the information contained on the 'Mysterious document' that they have below in their dungeon. Locate it and tell me at once!"
+queststatus(543) = 4, "quest", "mission" -> ""
+queststatus(543) = 4, "task", "adventure", "order" -> "I really need the information contained on the 'Mysterious document' that they have below in their dungeon. Locate it and tell me at once!"
+queststatus(543) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+--Object found
+queststatus(543) = 5, english, ".+" -> inform("[Quest solved] You are awarded 75 silver coins."), money + 750, queststatus(543) = 6, "That is curious information *her eyes glint*. Thank you for finding that for me. As for anther task if you wish one."
+queststatus(543) = 5, ".+" -> inform("[Quest gelöst] Du erhältst 75 Silberstücke."), money + 750, queststatus(543) = 6, ""
+
+-- Quest 3: Poison the food for 5 strawberry cakes
+queststatus(543) = 6, english, "quest", "mission" -> inform("[New quest] The Path of the Fox III"), item(1323, 1, 399), queststatus(543) = 7, "We need to weaken their resolve through their bellies. Take this vial and slip it into their food. It should keep them running for the pit latrine for hours.."
+queststatus(543) = 6, "quest", "mission" -> inform("[Neue Quest] Der Pfad des Fuchses III"), item(1323, 1, 399), queststatus(543) = 7, ""
+queststatus(543) = 6, "task", "adventure", "order" -> inform("[New quest] The Path of the Fox III"), item(1323, 1, 399), queststatus(543) = 7, "We need to weaken their resolve through their bellies. Take this vial and slip it into their food. It should keep them running for the pit latrine for hours."
+queststatus(543) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Der Pfad des Fuchses III"), item(1323, 1, 399), queststatus(543) = 7, ""
+--food not poisoned
+queststatus(543) = 7, english, "quest", "mission" -> "I have a plan. They keep recruiting more and more thieves. But if they can't eat, they can't talk! Take this vial, and slip it into the 'Thieves dinner'."
+queststatus(543) = 7, "quest", "mission" -> ""
+queststatus(543) = 7, "task", "adventure", "order" -> "I have a plan. They keep recruiting more and more thieves. But if they can't eat, they can't talk! Take this vial, and slip it into the 'Thieves dinner'."
+queststatus(543) = 7, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+-- Food has been poisoned
+queststatus(543) = 8, english, ".+" -> inform("[Quest solved] You are awarded five strawberry cakes."), item(354, 5, 333), queststatus(543) = 9, ""
+queststatus(543) = 8, ".+" -> inform("[Quest gelöst] Du erhältst fünf Erdbeertorte."), item(354, 5, 333), queststatus(543) = 9, ""
+
+-- Quest 4: Kill ten of the members for 100 silver coins
+queststatus(543) = 9, english, "quest", "mission" -> inform("[New quest] The Path of the Fox IV"), queststatus(543) = 10, "Now is the time to act quickly. Take out the mass of the renegades while they are weak, killing at least ten."
+queststatus(543) = 9, "quest", "mission" -> inform("[Neue Quest] Der Pfad des Fuchses IV"), queststatus(543) = 10, ""
+queststatus(543) = 9, "task", "adventure", "order" -> inform("[New quest] The Path of the Fox IV"), queststatus(543) = 10, "Now is the time to act quickly. Take out the mass of the renegades while they are weak, killing at least ten."
+queststatus(543) = 9, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Der Pfad des Fuchses IV"), queststatus(543) = 10, ""
+--not done
+queststatus(543) > 9, queststatus(543) < 20, english, "quest", "mission" -> "Now is the time to act quickly. Take out the mass of the renegades while they are weak, killing at least ten."
+queststatus(543) > 9, queststatus(543) < 20, "quest", "mission" -> ""
+queststatus(543) > 9, queststatus(543) < 20, "task", "adventure", "order" -> "Now is the time to act quickly. Take out the mass of the renegades while they are weak, killing at least ten."
+queststatus(543) > 9, queststatus(543) < 20, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+--done
+queststatus(543) = 20, english, ".+" -> inform("[Quest solved] You are awarded 100 silver coins."), money + 10000, queststatus(543) = 21, "Excellent news. We only have left to take out their leader, they should be properly broken by then."
+queststatus(543) = 20, ".+" -> inform("[Quest gelöst] Du erhältst 100 Silberstücke."), money + 10000, queststatus(543) = 21, ""
+
+-- Quest 5: Kill boss for 100 silver coins and special thieves gloves
+queststatus(543) = 21, english, "quest", "mission" -> inform("[New quest] The Path of the Fox IV"), queststatus(543) = 22, "This is enough of their turncoat ways. Get in there, take out their leader, and if you happen to find an especially nice dagger for me, I've a special bonus for you."
+queststatus(543) = 21, "quest", "mission" -> inform("[Neue Quest] Der Pfad des Fuchses IV"), queststatus(543) = 22, ""
+queststatus(543) = 21, "task", "adventure", "order" -> inform("[New quest] The Path of the Fox IV"), queststatus(543) = 22, "This is enough of their turncoat ways. Get in there, take out their leader, and if you happen to find an especially nice dagger for me, I've a special bonus for you."
+queststatus(543) = 21, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Der Pfad des Fuchses IV"), queststatus(543) = 22, ""
+--not done
+queststatus(543) > 21, queststatus(543) < 22, english, "quest", "mission" -> "This is enough of their turncoat ways. Get in there, take out their leader, and if you happen to find an especially nice dagger for me, I've a special bonus for you."
+queststatus(543) > 21, queststatus(543) < 22, "quest", "mission" -> ""
+queststatus(543) > 21, queststatus(543) < 22, "task", "adventure", "order" -> "This is enough of their turncoat ways. Get in there, take out their leader, and if you happen to find an especially nice dagger for me, I've a special bonus for you."
+queststatus(543) > 21, queststatus(543) < 22, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+--done
+queststatus(543) = 23, english, ".+" -> inform("[Quest solved] You are awarded 100 silver coins."), money + 10000, queststatus(543) = 24, "The elven warrior is dead but you didn't manage to bring me a glowing dagger? Such a shame, but thank you for clearing the way for me! *She tosses you some coins before quickly sneaking into the hole*"
+queststatus(543) = 23, ".+" -> inform("[Quest gelöst] Du erhältst 100 Silberstücke."), money + 10000, queststatus(543) = 24, ""
+
+-- No more quests, just nice words of gratitude
+queststatus(543) = 24, english, "quest", "mission" -> "You have done well and now I may plunder them at my leisure.  You have succeed where the others failed. I have no more need of you."
+queststatus(543) = 24, "quest", "mission" -> ""
+queststatus(543) = 24, "task", "adventure", "order" -> "You have done well and now I may plunder them at my leisure.  You have succeed where the others failed. I have no more need of you."
+queststatus(543) = 24, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "A true thief of Ronagan am I, I steal from the rich and give to the poor."
+"beruf" -> ""
+english, "job" ->"A true thief of Ronagan am I, I steal from the rich and give to the poor."
+"job" -> ""
+"my name" -> "Brigette Russ is my name."
+"mein Name" -> ""
+
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
+english, "coin" -> "A true thief of Ronagan am I, I steal from the rich and give to the poor."
+"Münze" -> ""
+"fox" -> "Ronagan is known as the fox."
+"Fuchs" -> ""
+
+-- Gods - use the triggers of the god the NPC worships or fights
+english, "Ronagan" -> "Ronagan is the patron god of thieves and shadows.  The thieves below do not follow his beliefs. I am the true believer."
+"Ronagan" -> ""
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "I do not sell or buy anything."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich kaufe und verkaufe nichts."
+
+-- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "", "Honour the Fox."
+cycletext "", "#me shifts into the shadows and scans the area."
+cycletext "", "Never trust a thief."
+cycletext "", "#me talks to herself quietly, 'Can't wait to get in there myself.'"
+cycletext "", "Treasure... mine."
+cycletext "", "#me tries to hide in the shadow of the mountain."
+cycletext "", "A fox is always clever."
+cycletext "", "#me mutters to herself.'I will get them to believe me.'"
+cycletext "", "How to get inside?"
+cycletext "", "None are poorer than me."
