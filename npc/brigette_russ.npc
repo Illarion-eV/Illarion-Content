@@ -88,8 +88,6 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May the Fox guide you to sa
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> ""
 "your name", "who are you", "who art thou" -> "Brigette Russ is my name, though please don't tell it around."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> ""
-"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 
 -- Quest 1: Find Bridgette's lost items, reward 50 silver coins and a perfect golden ring
 queststatus(543) = 0, english, "quest", "mission" -> inform("[New quest] The Path of the Fox I"), queststatus(543) = 1, "I've been robbed! It's unbelieveable! I'm giving a reward to the one what be bringing me back my things! The rotten thief stole my hat, two rings, a plate and a goblet, along with my flute, which he has likely hidden in the chests below.*points north* Bring them back to me for your reward."
@@ -125,7 +123,7 @@ queststatus(543) = 5, english, ".+" -> inform("[Quest solved] You are awarded 75
 queststatus(543) = 5, ".+" -> inform("[Quest gelöst] Du erhältst 75 Silberstücke."), money + 750, queststatus(543) = 6, ""
 
 -- Quest 3: Poison the food for 5 strawberry cakes
-queststatus(543) = 6, english, "quest", "mission" -> inform("[New quest] The Path of the Fox III"), item(1323, 1, 399), queststatus(543) = 7, "We need to weaken their resolve through their bellies. Take this vial and slip it into their food. It should keep them running for the pit latrine for hours.."
+queststatus(543) = 6, english, "quest", "mission" -> inform("[New quest] The Path of the Fox III"), item(1323, 1, 399), queststatus(543) = 7, "We need to weaken their resolve through their bellies. Take this vial and slip it into their food. It should keep them running for the pit latrine for hours."
 queststatus(543) = 6, "quest", "mission" -> inform("[Neue Quest] Der Pfad des Fuchses III"), item(1323, 1, 399), queststatus(543) = 7, ""
 queststatus(543) = 6, "task", "adventure", "order" -> inform("[New quest] The Path of the Fox III"), item(1323, 1, 399), queststatus(543) = 7, "We need to weaken their resolve through their bellies. Take this vial and slip it into their food. It should keep them running for the pit latrine for hours."
 queststatus(543) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Der Pfad des Fuchses III"), item(1323, 1, 399), queststatus(543) = 7, ""
@@ -135,7 +133,7 @@ queststatus(543) = 7, "quest", "mission" -> ""
 queststatus(543) = 7, "task", "adventure", "order" -> "I have a plan. They keep recruiting more and more thieves. But if they can't eat, they can't talk! Take this vial, and slip it into the 'Thieves dinner'."
 queststatus(543) = 7, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
 -- Food has been poisoned
-queststatus(543) = 8, english, ".+" -> inform("[Quest solved] You are awarded five strawberry cakes."), item(354, 5, 333), queststatus(543) = 9, ""
+queststatus(543) = 8, english, ".+" -> inform("[Quest solved] You are awarded five strawberry cakes."), item(354, 5, 333), queststatus(543) = 9, "Excellent work, here are a few cakes I 'acquired' from the halfling in the south. I am sure they have not been tampered with."
 queststatus(543) = 8, ".+" -> inform("[Quest gelöst] Du erhältst fünf Erdbeertorte."), item(354, 5, 333), queststatus(543) = 9, ""
 
 -- Quest 4: Kill ten of the members for 100 silver coins
