@@ -178,18 +178,18 @@ function M.MoveToField(User)
 
         if theRatmantrigger >= 1 and theRatmantrigger <= 8 then -- simple inform
             common.InformNLS(User,
-                "Du hörst lautes Gelächter als du um die Ecke biegst. Vorsicht, Nargun wandelt heute.",
-                "You hear loud laughter as you round the corner. Be wary, Nargun is about today.")
+                "Du hörst lautes Gelächter als du um die Ecke biegst. Vorsicht, Nargùn wandelt heute.",
+                "You hear loud laughter as you round the corner. Be wary, Nargùn is about today.")
             world:makeSound(25, User.pos) --a laughter
         elseif theRatmantrigger >= 9 and theRatmantrigger <= 33 then -- random inform
             common.InformNLS(User,
-                "Als du hindurch gehst, weht dir aus dem Nichts Luft entgegen, die nach " .. smellDe[math.random(1, #smellDe)] .. " riecht, während Nargun dir Streiche spielt.",
-                "As you walk through, air blows through out of nowhere, which smells like " .. smellEng[math.random(1, #smellEng)] .. ", as Nargun plays tricks on you.")
+                "Als du hindurch gehst, weht dir aus dem Nichts Luft entgegen, die nach " .. smellDe[math.random(1, #smellDe)] .. " riecht, während Nargùn dir Streiche spielt.",
+                "As you walk through, air blows through out of nowhere, which smells like " .. smellEng[math.random(1, #smellEng)] .. ", as Nargùn plays tricks on you.")
             world:makeSound(27, User.pos) --a wind
         elseif theRatmantrigger >= 34 and theRatmantrigger <= 47 then -- simple inform
             common.InformNLS(User,
-                "Eine Flasche fliegt plötzlich von einem der Regale in der Nähe in die Luft und landet auf deinem Kopf. Nargun muss hier wohl heute Streiche spielen.",
-                "A bottle suddenly takes off from the nearby shelves and lands on top of your head. Nargun must be playing tricks in here today.")
+                "Eine Flasche fliegt plötzlich von einem der Regale in der Nähe in die Luft und landet auf deinem Kopf. Nargùn muss hier wohl heute Streiche spielen.",
+                "A bottle suddenly takes off from the nearby shelves and lands on top of your head. Nargùn must be playing tricks in here today.")
         end --all events handled
     end --triggerfield
 end

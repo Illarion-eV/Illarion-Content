@@ -71,17 +71,17 @@ itemShoes = 53
 -- 0: No Quest taken
 -- 1: Quest 1 taken - gather 15 poison coins for 50 silver coins
 -- 2: Quest 1 solved
--- 3: Quest 2 taken - find the proper potion for Pasinn from the lair for  75s ilver coins
+-- 3: Quest 2 taken - find the proper potion for Pasinn from the lair for 75s ilver coins
 -- 4: Quest 2 solved
 -- 5: Quest 3 taken - Locate the potion recipe for 100 silver coins
 -- 6: Quest 3 solved
 -- 8: Quest 4 taken - kill swamp beast for 100 silver coins
 -- 9: Quest 4 solved
--- 11: Quest 5 taken -  kill rat alchemist for 100 silver coins and inscribed robe
+-- 11: Quest 5 taken - kill rat alchemist for 100 silver coins and inscribed robe
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the alchemist Pasinn. Keywords: Hello, quest, alchemy, Kaefity.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Alchemist Pasinn. Schlüsselwörter: Hallo, Quest, Alchemy, Kaefity.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Alchemist Pasinn. Schlüsselwörter: Hallo, Quest, Alchemie, Kaefity.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" ->"Be greeted in the name of the Five."
@@ -109,8 +109,8 @@ english, "Gobaith", "Gobiath" -> "I never heard of such a place."
 "my name" -> "Nice to meet you."
 "mein Name" -> "Es freut mich, eure Bekanntschaft zu machen."
 english, "alchemist", "alchemy" -> "An alchemist works with the structures of plants to create formulations."
-"alchemist", "alchemy" -> "Ein Alchemist arbeitet mit den Strukturen von Pflanzen um Formeln zu kreieren."
-english, "kaefity" -> "Kaefity is a Rat Alchemist that lives below. The area is called Viridian Needles Lair, its named after a crazy old dwarf that used to live there I have heard.  Kaefity is up to something, we must discover what."
+"alchemist", "alchemie" -> "Ein Alchemist arbeitet mit den Strukturen von Pflanzen um Formeln zu kreieren."
+english, "kaefity" -> "Kaefity is a Rat Alchemist that lives below. The area is called Viridian Needles Lair, its named after a crazy old dwarf that used to live there I have heard. Kaefity is up to something, we must discover what."
 "kaefity" -> "Kaefity ist ein Rattenalchemist, der im Untergrund lebt. Das Gebiet wird als Viridian Needles Unterschlupf bezeichnet und ist, wie ich gehört habe, nach einem verrückten alten Zwergen benannt, der einst hier lebte. Kaefity hat irgendetwas vor, wir müssen herausfinden was."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
@@ -132,9 +132,9 @@ english, "Cadomyr" -> "Cadomyr is ruled by the Queen. Ruled by a woman. Nothing 
 "Cadomyr" -> "Cadomyr wird von einer Königin regiert. Einer Frau. Dem ist nichts hinzuzufügen."
 
 -- 1st quest: Find 15 poison coins in the cauldrons of Viridians Needles Lair 50 silver coins.
-queststatus(539) = 0, english, "quest", "mission" -> inform("[New quest] Viridian Needles Lair I"), queststatus(539) = 1, "There is an area here below ground ran by a ratman alchemist Kaefity.  He calls the place Viridian Needles Lair.  I have heard of some poisoned coins these ratmen have. I need to study some to see if I can use this process in my poison making. Please locate me 15 poison coins that the ratman alchemist Kaefity is making below in the cauldrons."
+queststatus(539) = 0, english, "quest", "mission" -> inform("[New quest] Viridian Needles Lair I"), queststatus(539) = 1, "There is an area here below ground ran by a ratman alchemist Kaefity. He calls the place Viridian Needles Lair. I have heard of some poisoned coins these ratmen have. I need to study some to see if I can use this process in my poison making. Please locate me 15 poison coins that the ratman alchemist Kaefity is making below in the cauldrons."
 queststatus(539) = 0, "quest", "mission" -> inform("[Neues Quest] Viridian Nadeln Höhle I"), queststatus(539) = 1, "Es gibt hier ein Gebiet im Untergrund, das von einem Rattenalchemisten namens Kaefity kontrolliert wird. Er nennt den Ort Viridian Needles Unterschlupf. Ich habe von einigen Gifttalern gehört, die diese Rattenmenschen haben sollen. Ich muss mir ein paar davon genauer ansehen, um festzustellen, ob das für meine Giftherstellung interessant ist. Bitte sucht 15 der Gifttaler, die der Rattenalchemist Kaefity im Untergrund in seinen Kesseln herstellt."
-queststatus(539) = 0, "task", "adventure", "order" -> inform("[New quest] Viridian Needles Lair I"), queststatus(539) = 1, "There is an area here below ground ran by a ratman alchemist Kaefity.  He calls the place Viridian Needles Lair.  I have heard of some poisoned coins these ratmen have. I need to study some to see if I can use this process in my poison making. Please locate me 15 poison coins that the ratman alchemist Kaefity is making below in the cauldrons."
+queststatus(539) = 0, "task", "adventure", "order" -> inform("[New quest] Viridian Needles Lair I"), queststatus(539) = 1, "There is an area here below ground ran by a ratman alchemist Kaefity. He calls the place Viridian Needles Lair. I have heard of some poisoned coins these ratmen have. I need to study some to see if I can use this process in my poison making. Please locate me 15 poison coins that the ratman alchemist Kaefity is making below in the cauldrons."
 queststatus(539) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Viridian Nadeln Höhle I"), queststatus(539) = 1, "Es gibt hier ein Gebiet im Untergrund, das von einem Rattenalchemisten namens Kaefity kontrolliert wird. Er nennt den Ort Viridian Needles Unterschlupf. Ich habe von einigen Gifttalern gehört, die diese Rattenmenschen haben sollen. Ich muss mir ein paar davon genauer ansehen, um festzustellen, ob das für meine Giftherstellung interessant ist. Bitte sucht 15 der Gifttaler, die der Rattenalchemist Kaefity im Untergrund in seinen Kesseln herstellt."
 
 -- Quest 1 solved
@@ -185,20 +185,20 @@ queststatus(539) = 5, "task", "adventure", "order" -> "It is important that I se
 queststatus(539) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich muss unbedingt Kaefitys Rezept für diesen Trank sehen. Bitte versucht es für mich zu finden."
 
 -- 4th quest: Kill Kaefity's pet the swamp beast.
-queststatus(539) = 7, english, "quest", "mission" -> inform("[New quest] Viridian Needles Lair IV"), queststatus(539) = 8, "Kill Kaefity's pet for I fear they are somehow tied together! After it is destroyed we can stop its owner's work."
-queststatus(539) = 7, "quest", "mission" -> inform("[Neues Quest] Viridian Nadeln Höhle IV"), queststatus(539) = 8, "Tötet Kaefitys Schoßtier, denn ich fürchte, dass sie irgendwie zusammenhängen. Nachdem es vernichtet ist, können wir die Machenschaften seines Meisters beenden."
-queststatus(539) = 7, "task", "adventure", "order" -> inform("[New quest] Viridian Needles Lair IV"), queststatus(539) = 8, "Kill Kaefity's pet for I fear they are somehow tied together! After it is destroyed we can stop its owner's work."
-queststatus(539) = 7, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Viridian Nadeln Höhle IV"), queststatus(539) = 8, "Tötet Kaefitys Schoßtier, denn ich fürchte, dass sie irgendwie zusammenhängen. Nachdem es vernichtet ist, können wir die Machenschaften seines Meisters beenden."
+queststatus(539) = 7, english, "quest", "mission" -> inform("[New quest] Viridian Needles Lair IV"), queststatus(539) = 8, "Kill Kaefity's pet, the swamp beast, for I fear they are somehow tied together! After it is destroyed we can stop its owner's work."
+queststatus(539) = 7, "quest", "mission" -> inform("[Neues Quest] Viridian Nadeln Höhle IV"), queststatus(539) = 8, "Tötet Kaefitys Schoßtier der Sumpfmonster, denn ich fürchte, dass sie irgendwie zusammenhängen. Nachdem es vernichtet ist, können wir die Machenschaften seines Meisters beenden."
+queststatus(539) = 7, "task", "adventure", "order" -> inform("[New quest] Viridian Needles Lair IV"), queststatus(539) = 8, "Kill Kaefity's pet, the swamp beast, for I fear they are somehow tied together! After it is destroyed we can stop its owner's work."
+queststatus(539) = 7, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Viridian Nadeln Höhle IV"), queststatus(539) = 8, "Tötet Kaefitys Schoßtier der Sumpfmonster, denn ich fürchte, dass sie irgendwie zusammenhängen. Nachdem es vernichtet ist, können wir die Machenschaften seines Meisters beenden."
 
 -- Quest 4 solved
 queststatus(539) = 9, english, ".+" -> inform("[Quest solved] You are awarded one hundred silver coins."), money + 10000, queststatus(539) = 10, "It is great news the beast is destroyed. Now we can work on destroying Kaefity."
-queststatus(539) = 9, ".+" -> inform("[Quest gelöst] Du erhältst einhundert  Silberstücke."), money + 10000, queststatus(539) = 10, "Es sind wunderbare Nachrichten, dass das Biest vernichtet wurde. Nun können wir uns darauf konzentrieren, Kaefity selbst zu töten."
+queststatus(539) = 9, ".+" -> inform("[Quest gelöst] Du erhältst einhundert Silberstücke."), money + 10000, queststatus(539) = 10, "Es sind wunderbare Nachrichten, dass das Biest vernichtet wurde. Nun können wir uns darauf konzentrieren, Kaefity selbst zu töten."
 
 -- Quest 4 not solved, repeat the instructions
-queststatus(539) = 8, english, "quest", "mission" -> "Kill Kaefity's pet for I fear they are somehow tied together! After it is destroyed we can stop its owner's work."
-queststatus(539) = 8, "quest", "mission" -> "Tötet Kaefitys Schoßtier, denn ich fürchte, dass sie irgendwie zusammenhängen. Nachdem es vernichtet ist, können wir die Machenschaften seines Meisters beenden."
-queststatus(539) = 8, "task", "adventure", "order" -> "Kill Kaefity's pet for I fear they are somehow tied together! After it is destroyed we can stop its owner's work."
-queststatus(539) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Tötet Kaefitys Schoßtier, denn ich fürchte, dass sie irgendwie zusammenhängen. Nachdem es vernichtet ist, können wir die Machenschaften seines Meisters beenden."
+queststatus(539) = 8, english, "quest", "mission" -> "Kill Kaefity's pet, the swamp beast, for I fear they are somehow tied together! After it is destroyed we can stop its owner's work."
+queststatus(539) = 8, "quest", "mission" -> "Tötet Kaefitys Schoßtier der Sumpfmonster, denn ich fürchte, dass sie irgendwie zusammenhängen. Nachdem es vernichtet ist, können wir die Machenschaften seines Meisters beenden."
+queststatus(539) = 8, "task", "adventure", "order" -> "Kill Kaefity's pet, the swamp beast, for I fear they are somehow tied together! After it is destroyed we can stop its owner's work."
+queststatus(539) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Tötet Kaefitys Schoßtier der Sumpfmonster, denn ich fürchte, dass sie irgendwie zusammenhängen. Nachdem es vernichtet ist, können wir die Machenschaften seines Meisters beenden."
 
 -- 5th quest: Kill Kaefity's
 queststatus(539) = 10, english, "quest", "mission" -> inform("[New quest] Viridian Needles Lair IV"), queststatus(539) = 11, "This recipe must not be completed! Kaefity must be killed before he can deduce the missing ingredients!"
@@ -206,11 +206,11 @@ queststatus(539) = 10, "quest", "mission" -> inform("[Neues Quest] Viridian Nade
 queststatus(539) = 10, "task", "adventure", "order" -> inform("[New quest] Viridian Needles Lair IV"), queststatus(539) = 11, "This recipe must not be completed! Kaefity must be killed before he can deduce the missing ingredients!"
 queststatus(539) = 10, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Viridian Nadeln Höhle IV"), queststatus(539) = 11, "Dieses Rezept darf auf keinen Fall vollendet werden! Kaefity muss vernichtet werden, ehe es ihm gelingt, die fehlenden Zutaten zu finden!"
 
--- Quest 4 solved
-queststatus(539) = 12, english, ".+" -> inform("[Quest solved] You are awarded  150 silver coins."), money + 15000, queststatus(539) = 13, "I am glad he is gone. I will work on destroying the last of his work."
-queststatus(539) = 12, ".+" -> inform("[Quest gelöst] Du erhältst 150  Silberstücke."), money + 15000, queststatus(539) = 13, "Ich bin froh darüber, dass er getötet wurde. Ich werde mich daran machen, den letzten Rest seiner Arbeit zu vernichten."
+-- Quest 5 solved
+queststatus(539) = 12, english, ".+" -> inform("[Quest solved] You are awarded 150 silver coins."), money + 15000, queststatus(539) = 13, "I am glad he is gone. I will work on destroying the last of his work."
+queststatus(539) = 12, ".+" -> inform("[Quest gelöst] Du erhältst 150 Silberstücke."), money + 15000, queststatus(539) = 13, "Ich bin froh darüber, dass er getötet wurde. Ich werde mich daran machen, den letzten Rest seiner Arbeit zu vernichten."
 
--- Quest 4 not solved, repeat the instructions
+-- Quest 5 not solved, repeat the instructions
 queststatus(539) = 11, english, "quest", "mission" -> "This recipe must not be completed! Kaefity must be killed before he can deduce the missing ingredients!"
 queststatus(539) = 11, "quest", "mission" -> "Dieses Rezept darf auf keinen Fall vollendet werden! Kaefity muss vernichtet werden, ehe es ihm gelingt, die fehlenden Zutaten zu finden!"
 queststatus(539) = 11, "task", "adventure", "order" -> "This recipe must not be completed! Kaefity must be killed before he can deduce the missing ingredients!"
