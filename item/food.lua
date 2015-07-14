@@ -182,6 +182,8 @@ function M.UseItem(User, SourceItem, ltstate)
         User:eraseItem(1323, 1)
         User:inform("Du hast den Inhalt des Fläschchens unbemerkt unter das Essen gemischt. Kehre zu Brigette zurück, um deine Belohnung abzuholen.","You successfully sneak the contents of the vial Brigette gave you into the food, return to her for a reward.")
         User:setQuestProgress(543, 8) --  You poisoned the food.
+    elseif SourceItem:getData("nameEn") == "Thieves Dinner" and User:getQuestProgress(543) == 7 and User:countItemAt("all", 1323) == 0 then
+        User:inform(".","You need the poison to tamper with the food.")
     end
     
     if (Init == nil) then
