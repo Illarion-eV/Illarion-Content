@@ -191,7 +191,7 @@ function M.UseItem(User, SourceItem)
     if (SourceItem.pos == ronaganBookrest) then
         if User:getQuestProgress(543) == 4 then
             User:inform("Auf dem Stück Papier stehen ein paar Worte. 'Sprich Fuchs und drück gegen den Stein.' Du hast das mysteriöse Pergament für Brigette gefunden.", "The paper has a few words. 'Speak fox then push the rock.' You have found the mysterious parchment for Brigette.")
-            User:setQuestProgress(543, 5)
+            User:setQuestProgress(543, 5) 
         else
             User:inform("Auf dem Stück Papier stehen ein paar Worte. 'Sprich Fuchs und drück gegen den Stein.' ", "The paper has a few words. 'Speak fox then push the rock.'")
         end
