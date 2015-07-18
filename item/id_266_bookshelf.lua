@@ -170,6 +170,9 @@ M.bookList["longbeard"] = {english = "The Brothers Longbeard",german =  "Die Brü
 M.bookList["daemons"] = {english = "Demons and their Kind",german =  "Dämonen und ihresgleichen", bookId = 378, bookGraphic = bookBlackHeavy}
 M.bookList["artifacts"] = {english = "Basics of Artifact Magic",german =  "Grundwerk der Artefaktmagie", bookId = 379, bookGraphic = bookBlackRedRune}
 M.bookList["tanoras_secret"] = {english = "Tanora's Secret - The Great Ocean",german =  "Tanoras Geheimnis - Der Große Ozean", bookId = 380, bookGraphic = bookBlueSilverLong}
+M.bookList["good_evil"] = {english = "Good or Evil",german =  "Gut oder Böse", bookId = 381, bookGraphic = bookGreyLandscape}
+M.bookList["mana_streams"] = {english = "Mana Streams",german =  "Manaströme", bookId = 382, bookGraphic = bookBlackRedRune}
+M.bookList["elstree_battle"] = {english = "The Battle for the Elstree Forest",german =  "Die Schlacht um den Elsbaumwald", bookId = 383, bookGraphic = bookletBlueRed}
 M.bookList["cadomyr_order1"] = {english = "Order 04. Findos 38 AW",german =  "Befehl 04. Findos 38 n.VdH", bookId = 501, bookGraphic = pell}
 M.bookList["speech_rosaline_32_11_05"] = {english = "Speech 04. Findos 38 AW",german =  "Rede 05. Findos 38 n.VdH", bookId = 502, bookGraphic = pell}
 M.bookList["galmair_adjutant"] = {english = "Wanted! Adjutant",german =  "Gesucht! Adjutant", bookId = 506, bookGraphic = pell}
