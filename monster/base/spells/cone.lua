@@ -272,7 +272,7 @@ return function(params)
             --in there.
             local coneFields = {}
             for _, pos in pairs(lineLocations) do
-               common.CreateLine(originPos, pos,
+               common.CreateLine(monster.pos, pos,
                    function(pos)
                        local field = world:getField(pos)
                        if field == nil then
