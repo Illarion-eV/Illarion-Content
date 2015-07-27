@@ -222,6 +222,12 @@ english, "quest", "mission" -> "As I said, you should ask other people in Galmai
 "task", "adventure", "order" -> "As I said, you should ask other people in Galmair *points to the gate*, or if you come back in two or three months I will have definitely some tasks for you."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wie ich sagte, du solltest besser die Leute in Galmair fragen *zeigt zum Tor*. Oder du kommst in zwei oder drei Monaten zurück. Dann sollte ich einige Aufgaben für dich haben."
 
+-- Optional: Last catch - Think about keywords the player might say and that are not caught until here
+"my name" -> "My name sounds better! I hope your questions sound better!"
+"mein Name" -> "Mein Name klingt besser! Ich hoffe deine Fragen klingen besser!"
+english, "Iradona", "Goldschein" -> "Yes, that is my name. What do you want information about?"
+"Iradona", "Goldschein" -> "Ja, das ist mein Name. Über was wollt ihr Information?"
+
 -- Faction stuff
 "town" -> "There are three towns: Our town Galmair, ruled by our rich leader Don Valerio Guilianni. Then the two poor towns of Runewick and Cadomyr, ruled by Archmage Elvaine Morgan and Queen Rosaline Edwards."
 "stadt" -> "Es gibt drei Städte: Unsere Stadt Galmair, geführt von unserem reichen Herrscher Don Valerio Guilianni. Dann diese zwei armen Städte Runewick und Cadomyr, geführt von Erzmagier Elvaine Morgan und Königin Rosaline Edwards."
@@ -231,16 +237,16 @@ english, "Elvaine", "Morgan" -> "Arrgh! The ruler of Runewick. I do not care abo
 "Elvaine", "Morgan" -> "Arrgh! Der Herrscher von Runewick und der interessiert mich auch nicht. Bring einfach seinen Kopf dem Don."
 english, "Runewick" -> "Don't waste your time there, but if you look for alchemists, candle makers, carpenters, lumberjacks, cooks, bakers, farmers, herb gatherers, or tailors, tanners and dyers, you will find some there."
 "Runewick" -> "Verschwende deine Zeit dort nicht, aber wenn du Alchemisten, Kerzenmacher, Schreiner, Holzfäller, Köche, Bäcker, Bauern, Kräutersammler, Schneider, Gerber oder Färber suchst, kannst du dort welche finden."
-english, "Valerio", "Guilianni", "Don" -> "Our ruler. You can find him at his residence in the Galmair's Crest. Just follow the road to the Well of Dreams. *points to the town gate*"
-"Valerio", "Guilianni", "Don" -> "Unser Herrscher. Du findest ihn in seiner Residenz in Galmairs Krone. Folge einfach der Straße zur Quelle der Träume. *deutet auf das Stadttor"
+english, "Valerio", "Guilianni", "Don" -> "Our ruler. You can find him at his residence in the Galmair's Crest. Just follow the road."
+"Valerio", "Guilianni", "Don" -> "Unser Herrscher. Du findest ihn in seiner Residenz in Galmairs Krone. Folge einfach der Straße."
 english, "Galmair" -> "Here at Galmair, we are interested in blacksmiths, brick makers, masons, miners, and brewers."
 "Galmair" -> "Hier in Galmair suchen wir immer nach einem Schmied, Ziegelmacher, Steinmetz, Schürfer oder Brauer."
 "Queen" -> "#me shudders, 'This ugly face rules Cadomyr. If you bring her hair to the Don he will probably like that.'"
 "Königin" -> "#me schaudert 'Dieses hässliche Gesicht regiert Cadomyr. Wenn du ihr Haar dem Don bringst wird er das viellecht mögen.'"
 english, "rosaline", "edwards" -> "#me shudders, 'This ugly face rules Cadomyr. If you bring her hair to the Don he will probably like that.'"
 "rosaline", "edwards" -> "#me schaudert 'Dieses hässliche Gesicht regiert Cadomyr. Wenn du ihr Haar dem Don bringst wird er das vielleicht mögen.'"
-english, "Cadomyr" -> "Don't waste your time there, but if you look for fishermen, glass blowers, diggers, finesmiths, and gem grinders, you will find some there."
-"Cadomyr" -> "Verschwende deine Zeit dort nicht, aber wenn du Fischer, Glasblässer, Sandräber, Goldschmied oder Edelsteinschleifer suchst, kannst du dort welche finden."
+english, "Cadomyr" -> "Don't waste your time there, but if you look for tailors, glass blowers, diggers, finesmiths, and gem grinders, you will find some there."
+"Cadomyr" -> "Verschwende deine Zeit dort nicht, aber wenn du Schneider, Glasbläser, Sandgräber, Goldschmiede oder Edelsteinschleifer suchst, kannst du dort welche finden."
 
 -- Optional: Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I don't sell or buy anything, but we have a marketplace. You can try your luck there."
@@ -250,18 +256,17 @@ english, "Cadomyr" -> "Don't waste your time there, but if you look for fisherme
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 
-
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Primarily, we pray to three gods in Galmair. They are Ronagan, Nargun and Irmorom of course, my favourite god."
 "Gott", "Götter" -> "Bevorzugt beten wir drei Götter in Galmair an. Die wären Ronagan, Nargun und Irmorom, meine bevorzugte Gottheit."
 english, "Adron" -> "One of the weak Younger Gods. You can find followers in Runewick."
-"Adron" -> "Einer der schwachen jüngeren Götter. Du kann Anhänger in Runewick finden."
+"Adron" -> "Einer der schwachen jüngeren Götter. Du kannst Anhänger in Runewick finden."
 english, "Bragon", "Brágon" -> "One of the Elder Gods, but we do not care about this god here. Better you do not waste your time with this god."
 "Bragon", "Brágon" -> "Einer der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
 english, "Cherga" -> "Goddess of Spirits and the Underworld. She appears as a black dressed, ageless woman with grey skin and grey hair. Her face appears as though life disgusted her."
 "Cherga" -> "Die Göttin der Geister und der Unterwelt. Sie erscheint als schwarz gekleidete alterlose Frau mit grauer Hautfarbe und grauen Haaren. Ihr Gesicht wirkt als würde das Leben sie anwidern."
 english, "Elara" -> "One of the weak Younger Gods. You can find followers in Runewick."
-"Elara" -> "Eine der schwachen jüngeren Götter. Du kann Anhänger in Runewick finden."
+"Elara" -> "Eine der schwachen jüngeren Götter. Du kannst Anhänger in Runewick finden."
 english, "Eldan" -> "One of the Elder Gods, but we do not care about this god here. Better youdo not waste your time with this god."
 "Eldan" -> "Einer der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
 english, "Findari" -> "One of the Elder Gods, but we do not care about this god here. Better you do not waste your time with this god."
@@ -269,33 +274,27 @@ english, "Findari" -> "One of the Elder Gods, but we do not care about this god 
 english, "Irmorom" -> "Most dwarves, businessmen and craftsmen, like blacksmiths, pray to Irmorom. They believe that in life, they will be rewarded for their doings with wealth, and they pray for enchantment of crafted things, for riches, and things like this."
 "Irmorom" -> "Die meisten seiner Anhänger sind Zwerge, Händler, Handwerker und Schmiede. Sie glauben, wenn sie Irmoron anbeten, gelangen sie zu Wohlstand und Reichtum. Angeblich gewährt er auch Kräfte, um Waffen und Gegenstände zu verzaubern."
 english, "Malachin", "Malachín" -> "One of the weak Younger Gods. You can find followers in Cadomyr."
-"Malachin", "Malachín" -> "Einer der schwachen jüngeren Götter. Du kann Anhänger in Cadomyr finden."
+"Malachin", "Malachín" -> "Einer der schwachen jüngeren Götter. Du kannst Anhänger in Cadomyr finden."
 english, "Moshran" -> "What do you want with the Blood God? I don't like him, we don't like him and you should also avoid him!"
 "Moshran" -> "Was willst du mit dem Blutgott? Ich mag ihn nicht, wir mögen ihn nicht und du solltest ihn besser auch nicht mögen!"
 english, "Nargun", "Nargún", "Nargùn" -> "His followers are few, and most people simply do not mention his name so as not to attract his attention. They believe that everything happens accidentally, and to make a fortune, one must play with high risk to have fun."
 "Nargun", "Nargún", "Nargùn" -> "Seine Gefolgsleute sind nur gering an der Zahl und die meisten Leute sprechen seinen Namen nicht aus, um nicht seine Aufmerksamkeit zu erregen. Sie glauben, dass alles zufällig geschieht, und dass das Glück nur jenen winkt, die mit Risiko spielen."
 english, "Oldra" -> "One of the weak Younger Gods. You can find followers in Runewick."
-"Oldra" -> "Eine der schwachen jüngeren Götter. Du kann Anhänger in Runewick finden."
+"Oldra" -> "Eine der schwachen jüngeren Götter. Du kannst Anhänger in Runewick finden."
 english, "Ronagan" -> "Ronagan's followers are mostly poor people who grow up on the streets, and most become thieves, spies or assassins. They believe that perhaps Ronagan will help them to steal and to protect them from the authorities of the rich."
 "Ronagan" -> "Ronagan's Anhänger sind zumeist arme Leute aus denen häufig Diebe, Spione oder gedungene Mörder werden. Sie glauben daran, dass Ronagan ihnen bei der Ausführung ihrer Taten helfen wird oder sie vor dem Zugriff der Justiz bewahrt."
 english, "Sirani" -> "One of the weak Younger Gods. You can find followers in Cadomyr."
-"Sirani" -> "Eine der schwachen jüngeren Götter. Du kann Anhänger in Cadomyr finden"
+"Sirani" -> "Eine der schwachen jüngeren Götter. Du kannst Anhänger in Cadomyr finden."
 english, "Tanora", "Zelphia" -> "One of the Elder Gods, but we do not care about this god here. Better you do not waste your time with this god."
 "Tanora", "Zelphia" -> "Eine der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
 english, "Ushara" -> "One of the Elder Gods, but we do not care about this god here. Better you do not waste your time with this god."
 "Ushara" -> "Eine der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
 english, "Zhambra" -> "One of the weak Younger Gods. You can find followers in Cadomyr."
-"Zhambra" -> "Einer der schwachen jüngeren Götter. Du kann Anhänger in Cadomyr finden"
+"Zhambra" -> "Einer der schwachen jüngeren Götter. Du kannst Anhänger in Cadomyr finden."
 
 -- Optional: Gobaith
 english, "Gobaith", "Gobiath" -> "Arrr, what will that be?"
 "Gobaith", "Gobiath" -> "Arrr, was soll das sein?"
-
--- Optional: Last catch - Think about keywords the player might say and that are not caught until here
-"my name" -> "My name sounds better! I hope your questions sound better!"
-"mein Name" -> "Mein Name klingt besser! Ich hoffe deine Fragen klingen besser!"
-english, "Iradona", "Goldschein" -> "Yes, that is my name. What do you want information about?"
-"Iradona", "Goldschein" -> "Ja, das ist mein Name. Über was wollt ihr Information?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
