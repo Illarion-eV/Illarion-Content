@@ -373,7 +373,7 @@ english, "Northern", "Mountains", "krest" -> "A mighty clan. Some members of the
 "Halbling" -> "Halblinge...das favorisierte Essen der Orks.", "Orks haben verschiedene Rezepte für sie.", "Orks verwenden sie auch als Sklaven."
 "Blutgott" -> "Ich möchte seinen Namen nicht nennen. Es wäre Häresie.", "Orks feiern und folgen ihm, weil er sie erschaffen hat.", "Hütet euch von jenen die ihm folgen. Verloren wie er, sind auch sie."
 "orc" -> "There is a great settlement of orcs close to the Death Marsh. But you should be careful if you go there, because they have a powerful shaman.", "Green, strong, bloody. These are my words for the orcs in Kantabi-Desert. Also known as Moshran's Brood.", "An interesting race for research, isn't?", "Better you show some respect if you meet one! You never know if the enslave you otherwise!"
-"ork" -> "Da ist eine große Siedlung von Orks nahe dem Todessumpf. Aber ihr solltet vorsichtig sein, wenn ihr dort hingeht, weil die einen mächtigen Schamanen haben.", "Grün, stark, Blutig. Das sind meine Worte für die Orks in der Kantabi Wüste. Auch bekann als Moshran's Brut.", "Eine interessante Rasse zum forschen, oder?", "Besser ihr zeigt ihnen gegenüber etwas Respekt. Man weiß nie, ob sie einen sonst versklaven?"
+"ork" -> "Da ist eine große Siedlung von Orks nahe dem Todessumpf. Aber ihr solltet vorsichtig sein, wenn ihr dort hingeht, weil die einen mächtigen Schamanen haben.", "Grün, stark, Blutig. Das sind meine Worte für die Orks in der Kantabiwüste. Auch bekann als Moshran's Brut.", "Eine interessante Rasse zum forschen, oder?", "Besser ihr zeigt ihnen gegenüber etwas Respekt. Man weiß nie, ob sie einen sonst versklaven?"
 "marsh" -> "The Death Marsh is in the north from here, beyond the dragon's lair. But be careful!"
 "sumpf" -> "Der Todessumpf ist nördlich von hier, hinter der Drachenhöhle. Aber sei vorsichtig!"
 "dragon" -> "You have not been here for a long them, haven't you? Ask someone else if you want know more about that."
@@ -391,9 +391,9 @@ english, "Igruk" -> "A very powerful shaman. Don't go alone to his cave. Otherwi
 "invade", "hundred" -> "Orcs invaded in this area some years ago and crashed almost everything they met. But we could stand their attack even they got a lot of supply from Galmair."
 "dring", "drang", "hundert" -> "Orks drangen in diesen Teil vor einigen Jahren ein und töteten beinahe jeden den sie getroffen haben. Aber wir konnten ihren Angriff abwehren, obwohl sie Unterstützung aus Galmair bekamen."
 "brood" -> "Moshran's Brood... Rather dumb than evil orcs in the Kantabi Desert on the way to Cadomyr."
-"brut" -> "Moshran's Brut... Eher dämliche als bösartige Orks in der Kantabi Wüste am Weg nach Cadomyr."
+"brut" -> "Moshran's Brut... Eher dämliche als bösartige Orks in der Kantabiwüste am Weg nach Cadomyr."
 english, "Kantabi" -> "The Kantabi-Desert can be found in the west. In this case you will be close to Cadomyr."
-"Kantabi" -> "Die Kantabi Wüste kann im Westen gefunden werden. Sprich, in der Nähe von Cadomyr."
+"Kantabi" -> "Die Kantabiwüste kann im Westen gefunden werden. Sprich, in der Nähe von Cadomyr."
 
 -- Faction stuff
 "archmage" -> "He has so much knowledge.", "I have not seen anyone who is smarter than he.", "If you have a question, nobody can answer it better than him."
