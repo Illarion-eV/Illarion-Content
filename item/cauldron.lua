@@ -28,7 +28,11 @@ function M.UseItem(User, SourceItem)
     if (User:getQuestProgress(539) == 1) and SourceItem:getData("ratmanCauldron") ~= "" then--OK, the player does the quest 1
         cauldronContents(User, SourceItem)
     end
-    
+    if (User:getQuestProgress(539) == 1) and SourceItem.pos == position(598, 177, -3) then -- player tries to get coins from green cauldron
+        User:inform(
+            "Bis auf eine Flüssigkeit, vermutlich die Reste eines Trankes, ist der Kessel leer.",
+            "You find nothing in this cauldron but a liquid, most likely residuals of an unknown potion.")
+    end
     if (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) == 0) and SourceItem.pos == position(594, 172, -3) then --OK, the player does the quest 2 yellow
         User:inform(
             "Irgendwie schaffst du es, eine Flasche mit dem gelben Trank von Kaefity zu klauen. Du solltest sie zu Pasinn bringen.",
