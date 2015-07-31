@@ -81,9 +81,9 @@ english, "Ciao", "Adieu", "Au revoir" -> "Farewell.", "Goodbye."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a fisherman and fish fish, sitting in the sun.", "Fishing is the best job in the world, sitting on the bank and dangling the soul."
-"beruf" -> "Ich bin Fischer und fange Fische und sitze hier beqeum in der Sonne.", "Fischen ist der tollste Job der Welt. Einfach nur am Ufer sitzen und die Seele baumeln lassen."
+"beruf" -> "Ich bin Fischer und fange Fische und sitze hier bequem in der Sonne.", "Fischen ist der tollste Job der Welt. Einfach nur am Ufer sitzen und die Seele baumeln lassen."
 english, "job" -> "I'm a fisherman and fish fish, sitting in the sun.", "Fishing is the best job in the world, sitting on the bank and dangling the soul."
-"job" -> "Ich bin Fischer und fange Fische und sitze hier beqeum in der Sonne.", "Fischen ist der tollste Job der Welt. Einfach nur am Ufer sitzen und die Seele baumeln lassen."
+"job" -> "Ich bin Fischer und fange Fische und sitze hier bequem in der Sonne.", "Fischen ist der tollste Job der Welt. Einfach nur am Ufer sitzen und die Seele baumeln lassen."
 
 
 "archmage" -> "A kind gentleman, always studying, but he always has an open ear for his citizens.", "He is very clever and wise. Once he came to me and we discussed fishing."
