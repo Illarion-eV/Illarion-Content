@@ -53,8 +53,8 @@ Description[GERMAN][9] = "Kehre zu Pasinn zurück, du hast seine Aufgabe erfüllt.
 Description[ENGLISH][9] = "Return to Pasinn, you have finished his task."
 Description[GERMAN][10] = "Kehre zu Pasinn zurück, er wird sicher noch eine Aufgabe für dich haben."
 Description[ENGLISH][10] = "Go back to Pasinn, he will certainly have another task for you."
-Description[GERMAN][11] = "Töte die Rattenalchemisten Kaefity für Pasinn."
-Description[ENGLISH][11] = "Kill Kaefity the Rat Alchemist for Pasinn."
+Description[GERMAN][11] = "Töte die Verrückter Rattenalchemisten Kaefity für Pasinn."
+Description[ENGLISH][11] = "Kill Kaefity the Crazy Rat Alchemist for Pasinn."
 Description[GERMAN][12] = "Kehre zu Pasinn zurück, du hast seine Aufgabe erfüllt."
 Description[ENGLISH][12] = "Return to Pasinn, you have finished his task."
 Description[GERMAN][13] = "Du hast alle Aufgaben von Pasinn erfüllt."
@@ -99,7 +99,7 @@ monsterQuests.addQuest{
     location = {position = position(575, 190, -3), radius = 75},
     queststatus = {from = 11, to = 12},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
-    monsterName = {german = "Rattenalchemist", english = "Rat Alchemist"},
+    monsterName = {german = "Kaefity der Verrückter Rattenalchemist", english = "Kaefity the Crazy Rat Alchemist"},
     npcName = "Pasinn",
     monsterIds = {577} -- Rat Alchemist
 }

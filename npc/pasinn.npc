@@ -201,20 +201,20 @@ queststatus(539) = 8, "task", "adventure", "order" -> "Kill Kaefity's pet, the s
 queststatus(539) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Tötet Kaefitys Schoßtier der Sumpfmonster, denn ich fürchte, dass sie irgendwie zusammenhängen. Nachdem es vernichtet ist, können wir die Machenschaften seines Meisters beenden."
 
 -- 5th quest: Kill Kaefity's
-queststatus(539) = 10, english, "quest", "mission" -> inform("[New quest] Viridian Needles Lair IV"), queststatus(539) = 11, "This recipe must not be completed! Kaefity must be killed before he can deduce the missing ingredients!"
-queststatus(539) = 10, "quest", "mission" -> inform("[Neues Quest] Viridian Nadeln Höhle IV"), queststatus(539) = 11, "Dieses Rezept darf auf keinen Fall vollendet werden! Kaefity muss vernichtet werden, ehe es ihm gelingt, die fehlenden Zutaten zu finden!"
-queststatus(539) = 10, "task", "adventure", "order" -> inform("[New quest] Viridian Needles Lair IV"), queststatus(539) = 11, "This recipe must not be completed! Kaefity must be killed before he can deduce the missing ingredients!"
-queststatus(539) = 10, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Viridian Nadeln Höhle IV"), queststatus(539) = 11, "Dieses Rezept darf auf keinen Fall vollendet werden! Kaefity muss vernichtet werden, ehe es ihm gelingt, die fehlenden Zutaten zu finden!"
+queststatus(539) = 10, english, "quest", "mission" -> inform("[New quest] Viridian Needles Lair IV"), queststatus(539) = 11, "This recipe must not be completed! Kaefity, the Crazy Rat Alchemist, must be killed before he can deduce the missing ingredients!"
+queststatus(539) = 10, "quest", "mission" -> inform("[Neues Quest] Viridian Nadeln Höhle IV"), queststatus(539) = 11, "Dieses Rezept darf auf keinen Fall vollendet werden! Kaefity der Verrückter Rattenalchemist muss vernichtet werden, ehe es ihm gelingt, die fehlenden Zutaten zu finden!"
+queststatus(539) = 10, "task", "adventure", "order" -> inform("[New quest] Viridian Needles Lair IV"), queststatus(539) = 11, "This recipe must not be completed! Kaefity, the Crazy Rat Alchemist, must be killed before he can deduce the missing ingredients!"
+queststatus(539) = 10, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Viridian Nadeln Höhle IV"), queststatus(539) = 11, "Dieses Rezept darf auf keinen Fall vollendet werden! Kaefity der Verrückter Rattenalchemist muss vernichtet werden, ehe es ihm gelingt, die fehlenden Zutaten zu finden!"
 
 -- Quest 5 solved
 queststatus(539) = 12, english, ".+" -> inform("[Quest solved] You are awarded 150 silver coins."), money + 15000, queststatus(539) = 13, "I am glad he is gone. I will work on destroying the last of his work."
 queststatus(539) = 12, ".+" -> inform("[Quest gelöst] Du erhältst 150 Silberstücke."), money + 15000, queststatus(539) = 13, "Ich bin froh darüber, dass er getötet wurde. Ich werde mich daran machen, den letzten Rest seiner Arbeit zu vernichten."
 
 -- Quest 5 not solved, repeat the instructions
-queststatus(539) = 11, english, "quest", "mission" -> "This recipe must not be completed! Kaefity must be killed before he can deduce the missing ingredients!"
-queststatus(539) = 11, "quest", "mission" -> "Dieses Rezept darf auf keinen Fall vollendet werden! Kaefity muss vernichtet werden, ehe es ihm gelingt, die fehlenden Zutaten zu finden!"
-queststatus(539) = 11, "task", "adventure", "order" -> "This recipe must not be completed! Kaefity must be killed before he can deduce the missing ingredients!"
-queststatus(539) = 11, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Dieses Rezept darf auf keinen Fall vollendet werden! Kaefity muss vernichtet werden, ehe es ihm gelingt, die fehlenden Zutaten zu finden!"
+queststatus(539) = 11, english, "quest", "mission" -> "This recipe must not be completed! Kaefity, the Crazy Rat Alchemist, must be killed before he can deduce the missing ingredients!"
+queststatus(539) = 11, "quest", "mission" -> "Dieses Rezept darf auf keinen Fall vollendet werden! Kaefity der Verrückter Rattenalchemist muss vernichtet werden, ehe es ihm gelingt, die fehlenden Zutaten zu finden!"
+queststatus(539) = 11, "task", "adventure", "order" -> "This recipe must not be completed! Kaefity, the Crazy Rat Alchemist, must be killed before he can deduce the missing ingredients!"
+queststatus(539) = 11, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Dieses Rezept darf auf keinen Fall vollendet werden! Kaefity der Verrückter Rattenalchemist muss vernichtet werden, ehe es ihm gelingt, die fehlenden Zutaten zu finden!"
 
 -- Final dialogue: No more quests, just nice hints
 queststatus(539) = 13, english, "quest", "mission" -> "You have been a great assistance. Now I must finish studying this paper to make sure no one finishes this potion. May the Five guide you."
