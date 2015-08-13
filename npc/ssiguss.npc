@@ -1,0 +1,167 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+--
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+------------------------------------------------------------------------------AC
+-- NPC Name: Ssiguss                                                     none --
+-- NPC Job: Apprentice                                                        --
+--                                                                            --
+-- NPC Race: lizardman                  NPC Position:  564, 233, 0            --
+-- NPC Sex:  male                         NPC Direction: north                --
+--                                                                            --
+-- Author:   Artimer                                                          --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+
+name = "Ssiguss"
+race = lizardman
+sex = male
+position = 564, 233, 0
+direction = north
+affiliation = "None"
+job = "Apprentice"
+
+language = common
+language = lizard
+defaultLanguage = common
+autointroduce = on
+
+author = "Artimer"
+
+lookatDE = "Dieser NPC ist Ssiguss"
+lookatUS = "This is NPC Ssiguss."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Hands off!"
+wrongLangDE = "#me blinkt langsam, versuchen zu verstehen."
+wrongLangUS = "#me blinks slowly, trying to understand."
+radius = 0
+hairID = 4
+beardID = 0
+colorHair = 181, 230, 29
+colorSkin = 34, 177, 76
+itemHead = 0
+itemChest = 820
+itemCoat = 2418
+itemMainHand = 2784
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 34
+itemShoes = 53
+
+-- Help
+"Help" -> inform("[Game Help] This is NPC Ssiguss. Keywords are: Quest, task, Tanora, Zelphia, mother, water, and prayer.")
+"Hilfe" -> inform("[Spielhilfe] Dies ist NPC Ssiguss. Stichworte sind: Aufgabe, Tanora, Zelphia, Mutter, Wasser, und Gebet.")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Mother'ss rain on you, traveler."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Möge Mutter euch am heutigen Tage ssegnen.", "Mutterss Barmherzigkeit ssei euch gewisss."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Blessings of the Mother, upon you today.", "The Mother's mercy upon you."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Möge Mutter euch am heutigen Tage ssegnen.", "Mutterss Barmherzigkeit ssei euch gewisss."
+"Farewell", "Bye", "Fare well", "See you" -> "Farewell, may ze tide guide you home."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Lebt wohl, mögen die Gezeiten euch nach Hausse geleiten."
+"How are you", "How feel", "How do you do" -> "Ssiguss doess well, by her blessing."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ssiguss tut Gutess, mit Ihrem Ssegen."
+"your name", "who are you", "who art thou" -> "I am Ssiguss, orphan and nessst tender."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst", "wie heißen", "wie heisst", "wie heissen" -> "Ich bin Ssiguss, Waisse und Nessthüter."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"water" -> "Water iss where lizzardss swim and Mozzer ssmiless, where our young are raissed."
+"Wasser" -> "Wasser isst, wo die Echssen sschwimmen, Mutter lächelt und unssere Jungen aufgezogen werden."
+"prayer", "worship" -> "My prayerss to the Mozzer are for the orphanss."
+"Gebet", "Andacht" -> "Meine Gebete an die Mutter gelten den Waissen."
+english, "Tanora", "Zelphia", "Mother", "Mozzer" -> "Zze Mozzer iss merciful, tending to zee losst children."
+"Tanora", "Zelphia", "Mozzer", "Mutter" -> "Die Mutter isst sso barmherzig, dasss ssie ssich der verlorenen Kinder annimmt."
+
+-- Faction
+"archmage" -> "Ssiguss knowss thiss one not."
+"Erzmagier" -> "Ssiguss kennt diesssse nicht."
+english, "Elvaine", "Morgan" -> "Ssiguss knowss thiss one not."
+"Elvaine", "Morgan" -> "Ssiguss kennt diesssse nicht."
+english, "Runewick" -> "Ssiguss caress not for townss, but only ssmall oness."
+"Runewick" -> "Ssiguss sschert ssich nicht um Grosssssstädte, nur um sseine Kleinen."
+english, "Valerio", "Guilianni", "Don" -> "Ssiguss knowss thiss one not."
+"Valerio", "Guilianni", "Don" -> "Ssiguss kennt diesssse nicht."
+english, "Galmair" -> "Ssiguss knowss thiss place. Ssiguss was hatched in ze field zere, by ze magess."
+"Galmair" -> "Ssiguss kennt diessen Ort. Ssiguss wurde in diessem Feld dort aussgebrütet, von den Magier."
+"Queen" -> "Ssiguss knowss thiss one not."
+"Königin" -> "Ssiguss kennt diesssse nicht."
+english, "rosaline", "edwards" -> "Ssiguss knowss thiss one not."
+"rosaline", "edwards" -> "Ssiguss kennt diesssse nicht."
+english, "Cadomyr" -> "Ssiguss caress not for townss, but only ssmall oness."
+"Cadomyr" -> "Ssiguss sschert ssich nicht um Grosssssstädte, nur um sseine Kleinen."
+
+-- Quests
+--Gather Materials for the Nest
+queststatus(171) = 0, english, "quest", "mission" -> inform("[New quest] Materials for the Nest"), queststatus(171) = 1, "I need sssome materials for a nessst, for eggs! Get me 20 clay, 10 boughss, and 10 wheat. For the lizardlingss!"
+queststatus(171) = 0, "quest", "mission" -> inform("[Neue Quest] Materialien für das Nest"), queststatus(171) = 1, "Ich benötige einige Materialien für ein Nesst für die Eier! Bringt mir 20 Klumpen Lehm, 10 Ässte und 10 Bündel Getreide. Für die Echssenkinder!"
+queststatus(171) = 0, "task", "adventure", "order" -> inform("[New quest] Materials for the Nest"), queststatus(171) = 1, "I need sssome materials for a nessst, for eggs! Get me 20 clay, 10 boughss, and 10 wheat. For the lizardlingss!"
+queststatus(171) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Materialien für das Nest"), queststatus(171) = 1, "Ich benötige einige Materialien für ein Nesst für die Eier! Bringt mir 20 Klumpen Lehm, 10 Ässte und 10 Bündel Getreide. Für die Echssenkinder!"
+-- if done
+queststatus(171) = 1, item(26, all) > 19, item(56, all) > 9, item(249, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded forty silver coins."), money + 4000, deleteItem(26, 20), deleteItem(56, 10), deleteItem(249, 10), queststatus(171) = 2, "Sksk! Good you gathered the nest materials. Take thiss as payment. Now for the eggs!"
+queststatus(171) = 1, item(26, all) > 19, item(56, all) > 9, item(249, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst vierzig Silberstücke."), money + 4000, deleteItem(26, 20), deleteItem(56, 10), deleteItem(249, 10), queststatus(171) = 2, "Sksk! Gut, ihr habt die Materialien für dass Nesst gesssammelt. Nehmt diess alss Bezahlung. Nun zu den Eiern!"
+--if not done
+queststatus(171) = 1, english, ".+" -> "#me clicks his tongue anxiously, 'We need those materials soon!'"
+queststatus(171) = 1, ".+" -> "#me schnalzt nervös mit der Zunge: 'Wir benötigen diesse Materialien, sschnell!'"
+
+--Receive second quest
+--find eggs to hatch
+queststatus(171) = 2, english, "quest", "mission" -> inform("[New quest] Get Eggs for Ssiguss"), queststatus(171) = 3, "Tssk tssk. Sssome lizardss abandon their eggs in chicken nesssts, or chickenss ssteal them. Bring me thirty eggs!"
+queststatus(171) = 2, "quest", "mission" -> inform("[Neue Quest] Bring Eier zu Sigus"), queststatus(171) = 3, "Tssk tssk, manche Echssen legen ihre Eier in Hühnernessst oder die Hühner sstehlen ssie sselbsst. Bringt mir dreisssig ssolcher Eier!"
+queststatus(171) = 2, "task", "adventure", "order" -> inform("[New quest] Get Eggs for Ssiguss"), queststatus(171)= 3, "Tssk tssk. Sssome lizardss abandon their eggs in chicken nesssts, or chickenss ssteal them. Bring me thirty eggs!"
+queststatus(171) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Bring Eier zu Sigus"), queststatus(171) = 3, "Tssk tssk, manche Echssen legen ihre Eier in Hühnernessst oder die Hühner sstehlen ssie sselbsst. Bringt mir dreisssig ssolcher Eier!"
+
+-- if done
+queststatus(171) = 3, item(1150, all) > 29, english, ".+" -> inform("[Quest solved] You are awarded fifty silver coins."), money + 5000, deleteItem(1150, 30), queststatus(171) = 4, "Exxcellent! Zey will know a parentss love, unlike me... We need to get zem food!"
+queststatus(171) = 3, item(1150, all) > 29, ".+" -> inform("[Quest gelöst] Du erhältst fünfzig Silberstücke."), money + 5000, deleteItem(1150, 30), queststatus(171) = 4, "Echsszellent! Nun werden ssie Elternliebe erfahren können, anderss alss ich.. ssie benötigen jedoch noch Futter!"
+
+-- if not done
+queststatus(171) = 3, english, ".+" -> "Ksss. Zze Mozzer'ss children are waiting! Find zem!"
+queststatus(171) = 3, ".+" -> "Ksss. Mutterss Kinder warten, findet ssie!"
+
+--Receive third quest
+--Collect fish
+queststatus(171) = 4, english, "quest", "mission" -> inform("[New quest] For the Hatchlings!"), queststatus(171) = 5, "Ssss. Zze hatchlingss will need food. Collect for me fifty trout! Ze Mozzer watchess!"
+queststatus(171) = 4, "quest", "mission" -> inform("[Neue Quest] Für die Jungen!"), queststatus(171) = 5, "Ssss. Die Jungen werden Futter brauchen. Fisscht mir fünfzig Forellen. Mutter ssieht zu!"
+queststatus(171) = 4, "task", "adventure", "order" -> inform("[New quest] For the Hatchlings!"), queststatus(171) = 5, "Ssss. Zze hatchlingss will need food. Collect for me fifty trout! Ze Mozzer watchess!"
+queststatus(171) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Für die Jungen!"), queststatus(171) = 5, "Ssss. Die Jungen werden Futter brauchen. Fisscht mir fünfzig Forellen. Mutter ssieht zu!"
+
+--if done
+queststatus(171) = 5, item(73, all) > 49, english, ".+" -> inform("[Quest solved] You are awarded seventy-five silver coins."), money + 7500, deleteItem(73, 50), queststatus(171) = 6, "Ssiguss iss thankful. Ze Mozzer bless you for this. I did not have a Mozzer, azide from ze Mozzer. Zank you. I require no more help."
+queststatus(171) = 5, item(73, all) > 49, ".+" -> inform("[Quest gelöst] Du erhältst fünfundsiebzig Silberstücke."), money + 7500, deleteItem(73, 50), queststatus(171) = 6, "Ssiguss isst dankbar. Die Mutter möge euch für eure Hilfe ssegnen. Ich hatte nie eine Mutter, aussser DER Mutter. Habt Dank, ich benötige nun keine Hilfe mehr."
+-- if not done
+queststatus(171) = 5, english, ".+" -> "Zeek out fifty trout for ze hatchlings, zere cries under ze water are deafening."
+queststatus(171) = 5, ".+" -> "Finde fünfzig Forellen für die Jungen, ihre Rufe unter Wassser ssind ohrenbetäubend."
+
+-- After finished
+queststatus(171) = 6, english, "quest", "mission" -> "Zzey hatchlings are chirping happily! Zince I am ze fazzer, I muzt keep zem ssafe. Zank you for ze help."
+queststatus(171) = 6, "quest", "mission" -> "Die Jungen zwitsschern überglücklich! Da ich der Vater bin, mussss ich ssie besschützen. Habt Dank für eure Hilfe."
+queststatus(171) = 6, "task", "adventure", "order" -> "Zzey hatchlings are chirping happily! Zince I am ze fazzer, I muzt keep zem ssafe. Zank you for ze help."
+queststatus(171) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Die Jungen zwitsschern überglücklich! Da ich der Vater bin, mussss ich ssie besschützen. Habt Dank für eure Hilfe."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Möge Mutter uns schützen.", "May zze Mozzer sssave uss."
+cycletext "#me starrt nachdenklich in das Feuer", "#me stares into the fire thoughtfully."
+cycletext "Ein Ei, zwei Eier, drei Eier, vier! Wieviele Jungen wird ess geben?", "One egg, two eggss, three eggss, four! How many hatchlingss are in sstore? "
+cycletext "Die Mutter issst die Mutter einess Jeden. Helft mir, den Waisseneiern zu helfen!", "Ze Mozzer is Mozzer to all! Help me help ze orphanss eggs!"
+cycletext "Wussstet ihr, dasss Füchssse Eier sstehlen? Welch Albtraum!", "Did you know foxes steal eggsss?! Ze horror!"
+cycletext "#me zerkleinert eine Forelle 'Kleinere Bissssen für kleinere Mäuler.'", "#me crushes a trout, 'Ssmaller bitesss for sssmaller mouthss."
+cycletext "#me blickt auf den Ozean hinaus, in ein Gebebt an Zelphia vertieft", "#me looks to the ocean in prayer to Zelphia."
+cycletext "#me schnalzt mit der Zunge, als er über die Gewässer hinweg sieht", "#me clicks his tongue, looking at the waters."
+cycletext "#me gähnt laut und zähnefletschend", "#me releases a loud, toothy yawn."
+cycletext "#mes Schwanz zuckt etwas.", "#me's tail wiggles a bit."
