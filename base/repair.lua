@@ -120,7 +120,7 @@ function repair(npcChar, speaker, theItem, language)
                 speaker:inform(successRepair[language+1]);
                 money.TakeMoneyFromChar(speaker,price); --pay!
                 theItem.quality=theItem.quality+toRepair; --repair!
-                world:swap(theItem,theItem.id,theItem.quality);
+                world:changeItem(theItem);
             end --price/repair
         end --there is an item
     else
