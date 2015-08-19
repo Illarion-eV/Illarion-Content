@@ -99,19 +99,10 @@ end
 
 -- Repairs theItem. The NPC speaks if the repair was successful or the char has not enough money
 function repair(npcChar, speaker, theItem, language)
-    local theItemStats=world:getItemStats(theItem);
 
-    --Check all the items the char has on him, without the stuff in the backpack. Is the item still around?
-    local itemsOnChar = {};
-    local itemPosOnChar = {};
-    for i=17,0,-1 do
-        local item = speaker:getItemAt(i);
-        if (item==theItem) then --if the item is around...
-            found=true;
-        end
-    end
+    local theItemStats=world:getItemStats(theItem);
     
-    if theItem and found then
+    if theItem then
         local durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
         local toRepair=99-durability; --the amount of durability points that has to repaired
         local price=math.ceil(0.5*theItemStats.Worth*toRepair/1000)*10;
@@ -129,7 +120,7 @@ function repair(npcChar, speaker, theItem, language)
                 speaker:inform(successRepair[language+1]);
                 money.TakeMoneyFromChar(speaker,price); --pay!
                 theItem.quality=theItem.quality+toRepair; --repair!
-                world:changeItem(theItem);
+                world:swap(theItem,theItem.id,theItem.quality);
             end --price/repair
         end --there is an item
     else
