@@ -72,121 +72,121 @@ itemShoes = 1054
 -- 23: Quest 5 solved
 
 -- Help
-"Help" -> inform("[Game Help] This is NPC Brigett Russ the thief. Keywords are: hello, profession, task, Ronagan, fox, coin.")
-"Hilfe" ->""
+"Help" -> inform("[Game Help] This is NPC Brigette Russ the thief. Keywords are: hello, profession, task, Ronagan, fox, coin.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Brigette Russ, die Diebin. Schlüsselwörter sind: Hallo, Beruf, Aufgabe, Ronagan, Fuchs, Münze.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings to you. Would you be willing to help a lady down on her luck?"
-"Gr��", "Gru�", "Gr�ss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> ""
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt! Wäret Ihr bereit, einer Frau zu helfen, die vom Glück verlassen wurde?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings to you. Would you be willing to help a lady down on her luck?"
-"Hiho", "Hallo", "Hey", "Greeb" -> ""
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt! Wäret Ihr bereit, einer Frau zu helfen, die vom Glück verlassen wurde?"
 "Farewell", "Bye", "Fare well", "See you" -> "May the Fox guide you to safe paths.", "Farewell."
-"Tsch��", "Tsch�ss", "Wiedersehen", "Gehab wohl" -> "", "Gehabt euch wohl."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Möge der Fuchs Euch auf sichere Pfade führen.", "Gehabt Euch wohl."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May the Fox guide you to safe paths.", "Farewell."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "", "Gehabt euch wohl."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Möge der Fuchs Euch auf sichere Pfade führen.", "Gehabt Euch wohl."
 "How are you", "How feel", "How do you do" -> "I was much better before the thieves took my items."
-"Wie geht", "Wie f�hlst", "Wie ist es ergangen" -> ""
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir ging es bedeutend besser, bevor die Diebe meine Sachen gestohlen haben!"
 "your name", "who are you", "who art thou" -> "Brigette Russ is my name, though please don't tell it around."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie hei�t", "wie heisst" -> ""
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Brigette Russ heiße ich.. aber erzählt es bitte nicht herum.."
 
 -- Quest 1: Find Bridgette's lost items, reward 50 silver coins and a perfect golden ring
-queststatus(543) = 0, english, "quest", "mission" -> inform("[New quest] The Path of the Fox I"), queststatus(543) = 1, "I've been robbed! It's unbelieveable! I'm giving a reward to the one what be bringing me back my things! The rotten thief stole my hat,�two rings, a plate and a goblet, along with my flute,�which he has likely hidden in the chests below.*points north* Bring them back to me for your reward."
-queststatus(543) = 0, "quest", "mission" -> inform("[Neue Quest] Der Pfad des Fuchses I"), queststatus(543) = 1, ""
-queststatus(543) = 0, "task", "adventure", "order" -> inform("[New quest] The Path of the Fox I"), queststatus(543) = 1, "I've been robbed! It's unbelieveable! I'm giving a reward to the one what be bringing me back my things! The rotten thief stole my hat,�two rings, a plate and a goblet, along with my flute,�which he has likely hidden in the chests below.*points north* Bring them back to me for your reward."
-queststatus(543) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Der Pfad des Fuchses I"), queststatus(543) = 1, ""
+queststatus(543) = 0, english, "quest", "mission" -> inform("[New quest] The Path of the Fox I"), queststatus(543) = 1, "I've been robbed! It's unbelieveable! I'm giving a reward to the one what be bringing me back my things! The rotten thief stole my hat, two rings, a plate and a goblet, along with my flute, which he has likely hidden in the chests below.*points north* Bring them back to me for your reward."
+queststatus(543) = 0, "quest", "mission" -> inform("[Neue Quest] Der Pfad des Fuchses I"), queststatus(543) = 1, "Ich bin bestohlen worden! Unglaublich! Ich gebe demjenigen eine Belohnung, der mir meine Sachen wiederbringt! Der verfaulte Dieb stahl meinen Hut, zwei Ringe, einen Teller und einen Kelch, außerdem meine Flöte. Er oder sie hat den Kram vermutlich in einer Kiste im Untergrund versteckt. *Sie zeigt nach Norden* Beschafft mir alles für eine Belohnung wieder."
+queststatus(543) = 0, "task", "adventure", "order" -> inform("[New quest] The Path of the Fox I"), queststatus(543) = 1, "I've been robbed! It's unbelieveable! I'm giving a reward to the one what be bringing me back my things! The rotten thief stole my hat, two rings, a plate and a goblet, along with my flute, which he has likely hidden in the chests below.*points north* Bring them back to me for your reward."
+queststatus(543) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Der Pfad des Fuchses I"), queststatus(543) = 1, "Ich bin bestohlen worden! Unglaublich! Ich gebe demjenigen eine Belohnung, der mir meine Sachen wiederbringt! Der verfaulte Dieb stahl meinen Hut, zwei Ringe, einen Teller und einen Kelch, außerdem meine Flöte. Er oder sie hat den Kram vermutlich in einer Kiste im Untergrund versteckt. *Sie zeigt nach Norden* Beschafft mir alles für eine Belohnung wieder."
 --Did not find all the items
 queststatus(543) = 1, english, "quest", "mission" -> "Have you found my belongings yet? I look for my hat, two rings, a flute, plate, and a goblet."
-queststatus(543) = 1, "quest", "mission" -> ""
+queststatus(543) = 1, "quest", "mission" -> "Habt Ihr meine Sachen bereits gefunden? Es fehlt mein Hut, zwei Ringe, eine Flöte und ein Teller und ein Krug."
 queststatus(543) = 1, "task", "adventure", "order" -> "Have you found my belongings yet? I look for my hat, two rings, a flute, plate, and a goblet."
-queststatus(543) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+queststatus(543) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Habt Ihr meine Sachen bereits gefunden? Es fehlt mein Hut, zwei Ringe, eine Flöte und ein Teller und ein Krug."
 --Found the items but do not have them on you.
 queststatus(543) = 2, item(2535, all) < 1, item(68, all) < 1, item(1840, all) < 1, item(830, all) < 1, item(1001, all) < 1, item(90, all) < 1, english, "quest", "mission" -> "My spies tell me you have my things. So where are they? I want my Grey hat, a gold ring, a ruby ring , a flute, a plate, and a goblet."
-queststatus(543) = 2, item(2535, all) < 1, item(68, all) < 1, item(1840, all) < 1, item(830, all) < 1, item(1001, all) < 1, item(90, all) < 1, "quest", "mission" -> ""
+queststatus(543) = 2, item(2535, all) < 1, item(68, all) < 1, item(1840, all) < 1, item(830, all) < 1, item(1001, all) < 1, item(90, all) < 1, "quest", "mission" -> "Meine Spione sagen, Ihr habt meine Sachen gefunden. Aber wo sind sie jetzt? Es fehlt mein Hut, zwei Ringe, eine Flöte und ein Teller und ein Krug."
 queststatus(543) = 2, item(2535, all) < 1, item(68, all) < 1, item(1840, all) < 1, item(830, all) < 1, item(1001, all) < 1, item(90, all) < 1, "task", "adventure", "order" -> "My spies tell me you have my things. So where are they? I want my Grey hat, a gold ring, a ruby ring , a flute, a plate, and a goblet."
-queststatus(543) = 2, item(2535, all) < 1, item(68, all) < 1, item(1840, all) < 1, item(830, all) < 1, item(1001, all) < 1, item(90, all) < 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+queststatus(543) = 2, item(2535, all) < 1, item(68, all) < 1, item(1840, all) < 1, item(830, all) < 1, item(1001, all) < 1, item(90, all) < 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Meine Spione sagen, Ihr habt meine Sachen gefunden. Aber wo sind sie jetzt? Es fehlt mein Hut, zwei Ringe, eine Flöte und ein Teller und ein Krug."
 --Found items and have them, success
-queststatus(543) = 2, item(2535, all) > 0, item(68, all) > 0, item(1840, all) > 0, item(830, all) > 0, item(1001, all) > 0, item(90, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded five silver coins and a gold ring."), deleteItem(2535, 1), deleteItem(68, 1), deleteItem(1840, 1), deleteItem(830, 1), deleteItem(1001, 1), deleteItem(90, 1), money + 5000, item(235, 1, 999), queststatus(543) = 3, "You found them all! Here's your reward and a little something extra for not asking me how I came by them all in the first place. *she winks at you as she hands you 50 silver and the golden ring*"
-queststatus(543) = 2, item(2535, all) > 0, item(68, all) > 0, item(1840, all) > 0, item(830, all) > 0, item(1001, all) > 0, item(90, all) > 0, ".+" -> inform("[Quest gel�st] Du erh�ltst f�nf Silberst�cke."), deleteItem(2535, 1), deleteItem(68, 1), deleteItem(1840, 1), deleteItem(830, 1), deleteItem(1001, 1), deleteItem(90, 1), money + 5000, item(235, 1, 999), queststatus(543) = 3, ""
+queststatus(543) = 2, item(2535, all) > 0, item(68, all) > 0, item(1840, all) > 0, item(830, all) > 0, item(1001, all) > 0, item(90, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded fifty silver coins and a gold ring."), deleteItem(2535, 1), deleteItem(68, 1), deleteItem(1840, 1), deleteItem(830, 1), deleteItem(1001, 1), deleteItem(90, 1), money + 5000, item(235, 1, 999), queststatus(543) = 3, "You found them all! Here's your reward and a little something extra for not asking me how I came by them all in the first place. *she winks at you as she hands you 50 silver and the golden ring*"
+queststatus(543) = 2, item(2535, all) > 0, item(68, all) > 0, item(1840, all) > 0, item(830, all) > 0, item(1001, all) > 0, item(90, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst fünfzig Silberstücke und einen Goldring."), deleteItem(2535, 1), deleteItem(68, 1), deleteItem(1840, 1), deleteItem(830, 1), deleteItem(1001, 1), deleteItem(90, 1), money + 5000, item(235, 1, 999), queststatus(543) = 3, "Ihr habt alles gefunden! Hier ist Eure Belohnung und ein kleines Extra, da Ihr so diskret wart und nicht gefragt habt, wo ich die Sachen ursprünglich her habe. *Sie zwinkert Euch zu, als Sie Euch 50 Silberlinge und einen Goldring überreicht*"
 
 -- Quest 2: Locate a document in the dungeon for Bridgette
 queststatus(543) = 3, english, "quest", "mission" -> inform("[New quest] The Path of the Fox II"), queststatus(543) = 4, "Those thieving traitors. They have turned from the path of Ronagan. I have heard in their home they have a 'Mysterious Document' that contains some information I need. Please find it!"
-queststatus(543) = 3, "quest", "mission" -> inform("[Neue Quest] Der Pfad des Fuchses II"), queststatus(543) = 4, ""
+queststatus(543) = 3, "quest", "mission" -> inform("[Neue Quest] Der Pfad des Fuchses II"), queststatus(543) = 4, "Diese diebischen Verräter. Sie haben sich vom Weg Ronagans entfernt. Ich habe gehört, dass sie ein mysteriöses Dokument besitzen, welches einige Informationen enthält, die ich brauche. Bitte findet das Dokument für mich! Es sollte unten bei ohrem Versteck sein."
 queststatus(543) = 3, "task", "adventure", "order" -> inform("[New quest] The Path of the Fox II"), queststatus(543) = 4, "Those thieving traitors. They have turned from the path of Ronagan. I have heard in their home they have a 'Mysterious Document' that contains some information I need. Please find it!"
-queststatus(543) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Der Pfad des Fuchses II"), queststatus(543) = 4, ""
+queststatus(543) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Der Pfad des Fuchses II"), queststatus(543) = 4, "Diese diebischen Verräter. Sie haben sich vom Weg Ronagans entfernt. Ich habe gehört, dass sie ein mysteriöses Dokument besitzen, welches einige Informationen enthält, die ich brauche. Bitte findet das Dokument für mich! Es sollte unten bei ohrem Versteck sein."
 --Object not found
 queststatus(543) = 4, english, "quest", "mission" -> "I really need the information contained on the 'Mysterious document' that they have below in their dungeon. Locate it and tell me at once!"
-queststatus(543) = 4, "quest", "mission" -> ""
+queststatus(543) = 4, "quest", "mission" -> "Ich brauchte wirklich die Informationen aus dem mysteriösen Dokument, welches die Diebe unten in ihrem Versteck haben. Findet es und berichtet mir dann sofort!"
 queststatus(543) = 4, "task", "adventure", "order" -> "I really need the information contained on the 'Mysterious document' that they have below in their dungeon. Locate it and tell me at once!"
-queststatus(543) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+queststatus(543) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich brauchte wirklich die Informationen aus dem mysteriösen Dokument, welches die Diebe unten in ihrem Versteck haben. Findet es und berichtet mir dann sofort!"
 --Object found
-queststatus(543) = 5, english, ".+" -> inform("[Quest solved] You are awarded 75 silver coins."), money + 750, queststatus(543) = 6, "That is curious information *her eyes glint*. Thank you for finding that for me. As for anther task if you wish one."
-queststatus(543) = 5, ".+" -> inform("[Quest gel�st] Du erh�ltst 75 Silberst�cke."), money + 750, queststatus(543) = 6, ""
+queststatus(543) = 5, english, ".+" -> inform("[Quest solved] You are awarded 75 silver coins."), money + 750, queststatus(543) = 6, "That is curious information *her eyes glint*. Thank you for finding that for me. Ask for another task if you wish one."
+queststatus(543) = 5, ".+" -> inform("[Quest gelöst] Du erhältst 75 Silberstücke."), money + 750, queststatus(543) = 6, "Das sind wirklich aufregende Informationen. *Ihre Augen funkeln* Danke, dass Ihr sie für mich gefunden habt. Ich habe noch eine Aufgabe für Euch, wenn Ihr Interesse habt.."
 
 -- Quest 3: Poison the food for 5 strawberry cakes
 queststatus(543) = 6, english, "quest", "mission" -> inform("[New quest] The Path of the Fox III"), item(1323, 1, 399), queststatus(543) = 7, "We need to weaken their resolve through their bellies. Take this vial and slip it into their food. It should keep them running for the pit latrine for hours."
-queststatus(543) = 6, "quest", "mission" -> inform("[Neue Quest] Der Pfad des Fuchses III"), item(1323, 1, 399), queststatus(543) = 7, ""
+queststatus(543) = 6, "quest", "mission" -> inform("[Neue Quest] Der Pfad des Fuchses III"), item(1323, 1, 399), queststatus(543) = 7, "Wir müssen die Entschlossenheit dieser Bande durch ihren Magen schwächen. Hier, nehmt dieses Fläschchen und entleert es auf ihrem Essen. Sie dürften danach eine Weile auf der Latrine beschäftigt sein."
 queststatus(543) = 6, "task", "adventure", "order" -> inform("[New quest] The Path of the Fox III"), item(1323, 1, 399), queststatus(543) = 7, "We need to weaken their resolve through their bellies. Take this vial and slip it into their food. It should keep them running for the pit latrine for hours."
-queststatus(543) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Der Pfad des Fuchses III"), item(1323, 1, 399), queststatus(543) = 7, ""
+queststatus(543) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Der Pfad des Fuchses III"), item(1323, 1, 399), queststatus(543) = 7, "Wir müssen die Entschlossenheit dieser Bande durch ihren Magen schwächen. Hier, nehmt dieses Fläschchen und entleert es auf ihrem Essen. Sie dürften danach eine Weile auf der Latrine beschäftigt sein."
 --food not poisoned
 queststatus(543) = 7, english, "quest", "mission" -> "I have a plan. They keep recruiting more and more thieves. But if they can't eat, they can't talk! Take this vial, and slip it into the 'Thieves dinner'."
-queststatus(543) = 7, "quest", "mission" -> ""
+queststatus(543) = 7, "quest", "mission" -> "Mein Plan zielt darauf ab, dass die Bande nicht immer weiter neue Diebe rekrutiert! Aber wenn sie nach dem Essen auf der Latrine festsitzen, können sie mit niemandem sprechen. Nehmt das Fläschchen und behandelt das 'Abendessen der Diebe' damit."
 queststatus(543) = 7, "task", "adventure", "order" -> "I have a plan. They keep recruiting more and more thieves. But if they can't eat, they can't talk! Take this vial, and slip it into the 'Thieves dinner'."
-queststatus(543) = 7, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+queststatus(543) = 7, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Mein Plan zielt darauf ab, dass die Bande nicht immer weiter neue Diebe rekrutiert! Aber wenn sie nach dem Essen auf der Latrine festsitzen, können sie mit niemandem sprechen. Nehmt das Fläschchen und behandelt das 'Abendessen der Diebe' damit."
 -- Food has been poisoned
 queststatus(543) = 8, english, ".+" -> inform("[Quest solved] You are awarded five strawberry cakes."), item(354, 5, 333), queststatus(543) = 9, "Excellent work, here are a few cakes I 'acquired' from the halfling in the south. I am sure they have not been tampered with."
-queststatus(543) = 8, ".+" -> inform("[Quest gel�st] Du erh�ltst f�nf Erdbeertorte."), item(354, 5, 333), queststatus(543) = 9, ""
+queststatus(543) = 8, ".+" -> inform("[Quest gelöst] Du erhältst fünf Erdbeertorten."), item(354, 5, 333), queststatus(543) = 9, "Hervorragende Arbeit. Hier, einige Kuchen, die ich von einem Halbling im Süden.. ähm.. 'beschafft' habe. Oh und.. ich bin sicher, man kann diese Kuchen gefahrlos essen."
 
 -- Quest 4: Kill ten of the members for 100 silver coins
-queststatus(543) = 9, english, "quest", "mission" -> inform("[New quest] The Path of the Fox IV"), queststatus(543) = 10, "Now is the time to act quickly. Take out the mass of the renegades�while they are weak, killing at least ten."
-queststatus(543) = 9, "quest", "mission" -> inform("[Neue Quest] Der Pfad des Fuchses IV"), queststatus(543) = 10, ""
-queststatus(543) = 9, "task", "adventure", "order" -> inform("[New quest] The Path of the Fox IV"), queststatus(543) = 10, "Now is the time to act quickly. Take out the mass of the renegades�while they are weak, killing at least ten."
-queststatus(543) = 9, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Der Pfad des Fuchses IV"), queststatus(543) = 10, ""
+queststatus(543) = 9, english, "quest", "mission" -> inform("[New quest] The Path of the Fox IV"), queststatus(543) = 10, "Now is the time to act quickly. Take out the mass of the renegades while they are weak, killing at least ten."
+queststatus(543) = 9, "quest", "mission" -> inform("[Neue Quest] Der Pfad des Fuchses IV"), queststatus(543) = 10, "Es gilt jetzt, schnell zu handeln. Tötet den Großteil der Bande, während sie geschwächt sind, zehn von ihnen, um genau zu sein!"
+queststatus(543) = 9, "task", "adventure", "order" -> inform("[New quest] The Path of the Fox IV"), queststatus(543) = 10, "Now is the time to act quickly. Take out the mass of the renegades while they are weak, killing at least ten."
+queststatus(543) = 9, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Der Pfad des Fuchses IV"), queststatus(543) = 10, "Es gilt jetzt, schnell zu handeln. Tötet den Großteil der Bande, während sie geschwächt sind, zehn von ihnen, um genau zu sein!"
 --not done
-queststatus(543) > 9, queststatus(543) < 20, english, "quest", "mission" -> "Now is the time to act quickly. Take out the mass of the renegades�while they are weak, killing at least ten."
-queststatus(543) > 9, queststatus(543) < 20, "quest", "mission" -> ""
-queststatus(543) > 9, queststatus(543) < 20, "task", "adventure", "order" -> "Now is the time to act quickly. Take out the mass of the renegades�while they are weak, killing at least ten."
-queststatus(543) > 9, queststatus(543) < 20, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+queststatus(543) > 9, queststatus(543) < 20, english, "quest", "mission" -> "Now is the time to act quickly. Take out the mass of the renegades while they are weak, killing at least ten."
+queststatus(543) > 9, queststatus(543) < 20, "quest", "mission" -> "Es gilt jetzt, schnell zu handeln. Tötet den Großteil der Bande, während sie geschwächt sind, zehn von ihnen, um genau zu sein!"
+queststatus(543) > 9, queststatus(543) < 20, "task", "adventure", "order" -> "Now is the time to act quickly. Take out the mass of the renegades while they are weak, killing at least ten."
+queststatus(543) > 9, queststatus(543) < 20, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Es gilt jetzt, schnell zu handeln. Tötet den Großteil der Bande, während sie geschwächt sind, zehn von ihnen, um genau zu sein!"
 --done
 queststatus(543) = 20, english, ".+" -> inform("[Quest solved] You are awarded 100 silver coins."), money + 10000, queststatus(543) = 21, "Excellent news. We only have left to take out their leader, they should be properly broken by then."
-queststatus(543) = 20, ".+" -> inform("[Quest gel�st] Du erh�ltst 100 Silberst�cke."), money + 10000, queststatus(543) = 21, ""
+queststatus(543) = 20, ".+" -> inform("[Quest gelöst] Du erhältst 100 Silberstücke."), money + 10000, queststatus(543) = 21, "Sehr gute Neuigkeiten. Nun müssen wir nur noch ihren Anführer ausschalten, dann dürfte die Bande ordentlich zermürbt sein."
 
 -- Quest 5: Kill boss for 100 silver coins and special thieves gloves
-queststatus(543) = 21, english, "quest", "mission" -> inform("[New quest] The Path of the Fox IV"), queststatus(543) = 22, "This is enough of their turncoat ways. Get in there, take out their leader, and if you happen to find�an especially nice dagger�for me, I've a special bonus for you."
-queststatus(543) = 21, "quest", "mission" -> inform("[Neue Quest] Der Pfad des Fuchses IV"), queststatus(543) = 22, ""
-queststatus(543) = 21, "task", "adventure", "order" -> inform("[New quest] The Path of the Fox IV"), queststatus(543) = 22, "This is enough of their turncoat ways. Get in there, take out their leader, and if you happen to find�an especially nice dagger�for me, I've a special bonus for you."
-queststatus(543) = 21, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Der Pfad des Fuchses IV"), queststatus(543) = 22, ""
+queststatus(543) = 21, english, "quest", "mission" -> inform("[New quest] The Path of the Fox IV"), queststatus(543) = 22, "This is enough of their turncoat ways. Get in there, take out their leader, and if you happen to find an especially nice dagger for me, I've a special bonus for you."
+queststatus(543) = 21, "quest", "mission" -> inform("[Neue Quest] Der Pfad des Fuchses IV"), queststatus(543) = 22, "Es reicht mit der Bande und ihrem verräterischen Verhalten. Geht hin und tötet ihren Anführer. Und wenn Ihr dabei noch einen besonderen Dolch für mich findet, habe ich eine besondere Belohnung für Euch.."
+queststatus(543) = 21, "task", "adventure", "order" -> inform("[New quest] The Path of the Fox IV"), queststatus(543) = 22, "This is enough of their turncoat ways. Get in there, take out their leader, and if you happen to find an especially nice dagger for me, I've a special bonus for you."
+queststatus(543) = 21, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Der Pfad des Fuchses IV"), queststatus(543) = 22, "Es reicht mit der Bande und ihrem verräterischen Verhalten. Geht hin und tötet ihren Anführer. Und wenn Ihr dabei noch einen besonderen Dolch für mich findet, habe ich eine besondere Belohnung für Euch.."
 --not done
-queststatus(543) > 21, queststatus(543) < 22, english, "quest", "mission" -> "This is enough of their turncoat ways. Get in there, take out their leader, and if you happen to find�an especially nice dagger�for me, I've a special bonus for you."
-queststatus(543) > 21, queststatus(543) < 22, "quest", "mission" -> ""
-queststatus(543) > 21, queststatus(543) < 22, "task", "adventure", "order" -> "This is enough of their turncoat ways. Get in there, take out their leader, and if you happen to find�an especially nice dagger�for me, I've a special bonus for you."
-queststatus(543) > 21, queststatus(543) < 22, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+queststatus(543) > 21, queststatus(543) < 22, english, "quest", "mission" -> "This is enough of their turncoat ways. Get in there, take out their leader, and if you happen to find an especially nice dagger for me, I've a special bonus for you."
+queststatus(543) > 21, queststatus(543) < 22, "quest", "mission" -> "Es reicht mit der Bande und ihrem verräterischen Verhalten. Geht hin und tötet ihren Anführer. Und wenn Ihr dabei noch einen besonderen Dolch für mich findet, habe ich eine besondere Belohnung für Euch.."
+queststatus(543) > 21, queststatus(543) < 22, "task", "adventure", "order" -> "This is enough of their turncoat ways. Get in there, take out their leader, and if you happen to find an especially nice dagger for me, I've a special bonus for you."
+queststatus(543) > 21, queststatus(543) < 22, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Es reicht mit der Bande und ihrem verräterischen Verhalten. Geht hin und tötet ihren Anführer. Und wenn Ihr dabei noch einen besonderen Dolch für mich findet, habe ich eine besondere Belohnung für Euch.."
 --done
-queststatus(543) = 23, english, ".+" -> inform("[Quest solved] You are awarded 100 silver coins."), money + 10000, queststatus(543) = 24, "The elven warrior is dead but you didn't manage to bring me a glowing dagger? Such a shame, but thank you for clearing the way for me!�*She tosses you some coins before quickly�sneaking into the hole*"
-queststatus(543) = 23, ".+" -> inform("[Quest gel�st] Du erh�ltst 100 Silberst�cke."), money + 10000, queststatus(543) = 24, ""
+queststatus(543) = 23, english, ".+" -> inform("[Quest solved] You are awarded 100 silver coins."), money + 10000, queststatus(543) = 24, "The elven warrior is dead but you didn't manage to bring me a glowing dagger? Such a shame, but thank you for clearing the way for me! *She tosses you some coins before quickly sneaking into the hole*"
+queststatus(543) = 23, ".+" -> inform("[Quest gelöst] Du erhältst 100 Silberstücke."), money + 10000, queststatus(543) = 24, "Der Elfenkrieger ist tot, aber Ihr konntet keinen besonderen schimmernden Dolch finden? Wie schade, aber Danke trotzdem, dass Ihr mir den Weg freigeräumt habt! *Sie wirft Euch einen kleinen Sack mit Münzen zu, bevor sie schnell und leise im Loch verschwindet*"
 
 -- No more quests, just nice words of gratitude
 queststatus(543) = 24, english, "quest", "mission" -> "You have done well and now I may plunder them at my leisure.  You have succeed where the others failed. I have no more need of you."
-queststatus(543) = 24, "quest", "mission" -> ""
+queststatus(543) = 24, "quest", "mission" -> "Ihr habt Eure Sache gut gemacht, ich kann sie jetzt ausrauben, soviel ich will. Ihr habt gesiegt, wo andere versagt haben. Ich brauche Eure Dienste nicht länger."
 queststatus(543) = 24, "task", "adventure", "order" -> "You have done well and now I may plunder them at my leisure.  You have succeed where the others failed. I have no more need of you."
-queststatus(543) = 24, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> ""
+queststatus(543) = 24, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr habt Eure Sache gut gemacht, ich kann sie jetzt ausrauben, soviel ich will. Ihr habt gesiegt, wo andere versagt haben. Ich brauche Eure Dienste nicht länger."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "A true thief of Ronagan am I, I steal from the rich and give to the poor."
-"beruf" -> ""
+"Beruf" -> "Ich bin ein wahrer Dieb Ronagans, ich stehle von den Reichen und gebe es den Armen."
 english, "job" ->"A true thief of Ronagan am I, I steal from the rich and give to the poor."
-"job" -> ""
+"Job" -> "Ich bin ein wahrer Dieb Ronagans, ich stehle von den Reichen und gebe es den Armen."
 "my name" -> "Brigette Russ is my name."
-"mein Name" -> ""
+"mein Name" -> "Mein Name ist Brigette Russ."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 english, "coin" -> "A true thief of Ronagan am I, I steal from the rich and give to the poor."
-"M�nze" -> ""
+"Münze" -> "Als wahrer Dieb Ronagans, man muss von den Reichen nehmen und den Armen etwas geben."
 "fox" -> "Ronagan is known as the fox."
-"Fuchs" -> ""
+"Fuchs" -> "Ronagan ist auch bekannt als der Fuchs."
 
 -- Gods - use the triggers of the god the NPC worships or fights
-english, "Ronagan" -> "Ronagan is the patron god of thieves and shadows.  The thieves below do not follow his beliefs. I am the true believer."
-"Ronagan" -> ""
+english, "Ronagan" -> "Ronagan is the patron god of thieves and shadows. The thieves below do not follow his beliefs. I am the true believer."
+"Ronagan" -> "Ronagan ist der Schutzpatron der Diebe und Schatten. Die Diebesbande im Untergrund folgte seinen Wegen nicht. Ich selbst bin eine wahre Gläubige."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I do not sell or buy anything."
@@ -209,3 +209,8 @@ cycletext "", "A fox is always clever."
 cycletext "", "#me mutters to herself.'I will get them to believe me.'"
 cycletext "", "How to get inside?"
 cycletext "", "None are poorer than me."
+cycletext "", "#me versucht sich im Schatten des berges zu verstecken.."
+cycletext "", "Ein Fuchs ist immer pfiffig."
+cycletext "", "#me grummelt zu sich selbst: Ich werde sie dazu bringen, mir zu glauben.."
+cycletext "", "Wie soll ich da nur reinkommen..?"
+cycletext "", "Niemand ist ärmer dran als ich.."
