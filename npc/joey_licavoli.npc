@@ -55,7 +55,7 @@ itemMainHand = 2701
 itemSecondHand = 0
 itemHands = 0
 itemTrousers = 460
-itemShoes = 679
+itemShoes = 1054
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Joey Licavoli the helper. Keywords: quest, craft, workshop, Iradona Goldschein, food, fighting, Galmair")
