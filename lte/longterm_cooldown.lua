@@ -229,6 +229,14 @@ function M.callEffect( Effect, Char ) -- Effect is called
         end
         --Addition end
 
+        --Addition by Evie: Quest 561 Fox Den feeding cooldown
+        theQuestStatus=Char:getQuestProgress(561)
+
+        if theQuestStatus > 0 then --Is there a cooldown? Will only be reduced if the player isn't AFK/idle
+            Char:setQuestProgress(561,theQuestStatus-1) --cooling!
+        end
+        --Addition end
+
     end --all above is only conducted for players that aren't afk for more than five minutes
 
     --Addition by Estralis: Quest 127/128/129 Caravan of Honour (Phillip Molitor) Countdown
@@ -339,16 +347,16 @@ function M.callEffect( Effect, Char ) -- Effect is called
     end
     --Addition end
 
-	        --Addition by Evie: Quest 503/507 Pillar quest and cooldown
-	theQuestStatus=Char:getQuestProgress(507)
+            --Addition by Evie: Quest 503/507 Pillar quest and cooldown
+    theQuestStatus=Char:getQuestProgress(507)
 
     if theQuestStatus == 1 then --Time over!
 
         common.InformNLS(Char,"[Quest Status] Du hast darin versagt, das Schwert an dich zu nehmen und dem Zzarn'K'Ska Zelphias beizutreten. Du bezahlst mit deinem Leben.","[Quest status] You failed to take the sword and join the Zzarn'K'Ska of Zelphia, you pay with your life.") -- Feedback!
         world:gfx(2,Char.pos)
-		world:makeSound(5,Char.pos)
-		Char:increaseAttrib("hitpoints",-10000)
-		Char:setQuestProgress(503,3)
+        world:makeSound(5,Char.pos)
+        Char:increaseAttrib("hitpoints",-10000)
+        Char:setQuestProgress(503,3)
 
     end
 
@@ -358,34 +366,50 @@ function M.callEffect( Effect, Char ) -- Effect is called
 
     end
 
-	if theQuestStatus == 5 then --Twenty minutes left!
+    if theQuestStatus == 5 then --Twenty minutes left!
 
         common.InformNLS(Char,"[Quest Status] Du hast zwanzig Minuten, um das Schwert an dich zunehmen und sich dem Zzarn'K'Ska Zelphias anzuschließen oder die Konsequenzen zu ertragen.","[Quest status] You have twenty minutes to take the sword and join the Zzarn'K'Ska of Zelphia or suffer the consequences.") -- Feedback!
 
     end
-	
+
     if theQuestStatus > 0 then --Is there a countdown? Will be reduced even if the player is AFK/idle
         Char:setQuestProgress(507,theQuestStatus-1) --counting down!
 
     end
     --Addition end
-	
-	        --Addition by Evie: Quest 508/509 Lake of Life Fountains and cool down
-	theQuestStatus=Char:getQuestProgress(509)
+
+        --Addition by Evie: Quest 508/509 Lake of Life Fountains and cool down
+    theQuestStatus=Char:getQuestProgress(509)
 
     if theQuestStatus == 1 then --Time over!
 
         common.InformNLS(Char,"Alles Nässe der Reinigung ist wieder weg und du bist trocken.","You have fully dried off from your cleansing.") -- Feedback!  You dried off!
-		Char:setQuestProgress(508,0)
-		
+        Char:setQuestProgress(508,0)
+        
     end
-	
+
     if theQuestStatus > 0 then --Is there a countdown? Will be reduced even if the player is AFK/idle
         Char:setQuestProgress(509,theQuestStatus-1) --counting down!
 
     end
     --Addition end
-	
+
+    --Addition by Evie: Quest 561 Fox Den Feeding Cooldown
+    theQuestStatus=Char:getQuestProgress(561)
+
+    if theQuestStatus == 1 then --Time over!
+
+        common.InformNLS(Char,"Es ist einige Zeit vergangen. Die kleinen Füchse haben wieder Hunger.","Enough time has passed that the fox pups are hungry again.") -- Feedback!  Time to feed the Pups again.
+        Char:setQuestProgress(559,0)
+        
+    end
+
+    if theQuestStatus > 0 then --Is there a countdown? Will be reduced even if the player is AFK/idle
+        Char:setQuestProgress(561,theQuestStatus-1) --counting down!
+
+    end
+    --Addition end
+    
     Effect.nextCalled = 3000 --Effect gets called each 5 minutes
 
     return true --No idea why!
