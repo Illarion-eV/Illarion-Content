@@ -75,7 +75,7 @@ function M.UseItem(User, SourceItem)
     -- item should not be static
     if SourceItem.wear == 255 then
         common.HighInformNLS(User,
-            "Das kannst du nicht drinken.",
+            "Das kannst du nicht trinken.",
             "You can't drink that.")
         return
     end
