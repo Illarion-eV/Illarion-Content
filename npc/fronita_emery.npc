@@ -66,7 +66,7 @@ itemShoes = 369
 -- the merchant dialog.
 
 sellItems = 311, 312, 2672, 164, 315, 1317, 1908, 2055, 2457, 2498, 41, 314, 316, 726, 310, 469, 390, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760, 736, 2588, 734, 24, 26
-buySecondaryItems = 311, 312, 2672, 164, 518, 790, 315, 1317, 1908, 2055, 2457, 2498, 41, 314, 316, 726, 310, 469, 390, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760, 736, 2588, 734, 24, 26
+buySecondaryItems = 311, 312, 2672, 164, 518, 790, 315, 1317, 1908, 2055, 2457, 2498, 41, 314, 316, 726, 310, 469, 390, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760, 736, 2588, 734, 24, 26
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
 tradeFinishedWithoutTradingMsg "Auf bald!", "Farewell!"
@@ -78,7 +78,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 5% Tools (Glass blower and brickmaking): 311, 312, 734, 24
 -- 5% Glass products: 75, 164, 292, 315, 1317, 1908, 2055, 2457, 2498
 -- 5% Glass resources: 41, 314, 316, 726
--- 5% Stuff: 310, 469, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
+-- 5% Stuff: 310, 469, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
 -- 5% Brick making: 736, 2588
 -- 5% Clay: 26
 -- Quest triggers currently blank, to be added at a later date
