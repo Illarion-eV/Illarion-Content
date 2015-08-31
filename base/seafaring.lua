@@ -22,94 +22,86 @@ local money = require("base.money")
 
 local M = {}
 
-M.ferrySourceItemPos={position(101,790,0),position(727,809,0),position(888,485,0),position(870,285,0),position(451,95,0),position(105,833,0),position(554,658,0)}
+M.ferrySourceItemPos={position(101,790,0),position(451,95,0),position(727,809,0),position(683,284,0),position(105,833,0),position(554,658,0),position(888,485,0),position(870,285,0),position(678,46,0)} --Cadomyr,Galmair,Runewick,Hemptie,Lost Harbour,Lighthouse,Eastland,Northern,Limes
 
 local ferryDE={}
 local ferryEN={}
---ferryDE[1]={"Bauerninsel","Cadomyr - Verlorener Hafen","Leuchtturm","Einsame Inseln ","Runewick Hafen","Ostland Hafen","Nördlicher Hafen"} --for the future with farmer island & lonely islands
---ferryEN[1]={"Farmer Island","Cadomyr - Lost Harbour","Lighthouse","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour"} --for the future with farmer island & lonely islands
-ferryDE[1]={"Cadomyr - Verlorener Hafen","Leuchtturm","Runewick Hafen","Ostland Hafen","Nördlicher Hafen"}  ---replace this with the one above
-ferryEN[1]={"Cadomyr - Lost Harbour","Lighthouse","Runewick Harbour","Eastland Harbour","Northern Harbour"}  ---replace this with the one above
---ferryDE[2]={"Cadomyr Hafen","Bauern Insel","Cadomyr - Verlorener Hafen","Leuchtturm","Einsame Inseln","Ostland Hafen","Nördlicher Hafen"} --for the future with farmer island & lonely islands
---ferryEN[2]={"Cadomyr Harbour","Farmer Island","Cadomyr - Lost Harbour","Lighthouse","Lonely Islands","Eastland Harbour","Northern Harbour"} --for the future with farmer island & lonely islands
-ferryDE[2]={"Cadomyr Hafen","Cadomyr - Verlorener Hafen","Leuchtturm","Ostland Hafen","Nördlicher Hafen"}  ---replace this with the one above
-ferryEN[2]={"Cadomyr Harbour","Cadomyr - Lost Harbour","Lighthouse","Eastland Harbour","Northern Harbour"}  ---replace this with the one above
-ferryDE[3]={"Cadomyr Hafen","Runewick Hafen","Nördlicher Hafen"}
-ferryEN[3]={"Cadomyr Harbour","Runewick Harbour","Northern Harbour"}
---ferryDE[4]={"Cadomyr Hafen","Runewick Hafen","Ostland Hafen","Böser Fels"}  ---for the future with Evil Rock
---ferryEN[4]={"Cadomyr Harbour","Runewick Harbour","Eastland Harbour","Evil Rock"}  ---for the future with Evil Rock
-ferryDE[4]={"Cadomyr Hafen","Runewick Hafen","Ostland Hafen"}  ---replace this with the one above
-ferryEN[4]={"Cadomyr Harbour","Runewick Harbour","Eastland Harbour"}  ---replace this with the one above
-ferryDE[5]={"Nördliche Inseln - Ra","Nördliche Inseln - Hept","Nördliche Inseln - Yeg","Nördliche Inseln - Sohl","Nördliche Inseln - Pen","Unüberwindbarer Limes"}
-ferryEN[5]={"Northern Islands - Ra","Northern Islands - Hept","Northern Islands - Yeg","Northern Islands - Sohl","Northern Islands - Pen","Insurmountable Limes"}
---ferryDE[6]={"Bauerninsel","Cadomyr Hafen","Leuchtturm","Einsame Inseln ","Runewick Hafen","Ostland Hafen","Nördlicher Hafen"} --for the future with farmer island & lonely islands
---ferryEN[6]={"Farmer Island","Cadomyr Harbour","Lighthouse","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour"} --for the future with farmer island & lonely islands
-ferryDE[6]={"Cadomyr Hafen","Leuchtturm","Runewick Hafen","Ostland Hafen","Nördlicher Hafen"}  ---replace this with the one above
-ferryEN[6]={"Cadomyr Harbour","Lighthouse","Runewick Harbour","Eastland Harbour","Northern Harbour"}  ---replace this with the one above
---ferryDE[7]={"Bauerninsel","Cadomyr Hafen","Cadomyr - Verlorener Hafen","Einsame Inseln ","Runewick Hafen","Ostland Hafen","Nördlicher Hafen"} --for the future with farmer island & lonely islands
---ferryEN[7]={"Farmer Island","Cadomyr Harbour","Cadomyr - Lost Harbour","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour"} --for the future with farmer island & lonely islands
-ferryDE[7]={"Cadomyr Hafen","Cadomyr - Verlorener Hafen","Runewick Hafen","Ostland Hafen","Nördlicher Hafen"}  ---replace this with the one above
-ferryEN[7]={"Cadomyr Harbour","Cadomyr - Lost Harbour","Runewick Harbour","Eastland Harbour","Northern Harbour"}  ---replace this with the one above
-
+--"Bauerninsel","Einsame Inseln","Böser Fels"
+--"Farmer Island","Lonely Islands","Evil Rock"
+ferryDE[1]={"Galmair Hafen","Runewick Hafen","Gasthof zur Hanfschlinge","Cadomyr - Verlorener Hafen","Leuchtturm","Ostland Hafen","Nördlicher Hafen","Unüberwindbarer Limes","Nördliche Inseln - Ra","Nördliche Inseln - Hept","Nördliche Inseln - Yeg","Nördliche Inseln - Sohl","Nördliche Inseln - Pen"} 
+ferryEN[1]={"Galmair Harbour","Runewick Harbour","Hemp Necktie Inn","Cadomyr - Lost Harbour","Lighthouse","Eastland Harbour","Northern Harbour","Insurmountable Limes","Northern Islands - Ra","Northern Islands - Hept","Northern Islands - Yeg","Northern Islands - Sohl","Northern Islands - Pen"} 
+ferryDE[2]={"Cadomyr Hafen","Runewick Hafen","Gasthof zur Hanfschlinge","Cadomyr - Verlorener Hafen","Leuchtturm","Ostland Hafen","Nördlicher Hafen","Unüberwindbarer Limes","Nördliche Inseln - Ra","Nördliche Inseln - Hept","Nördliche Inseln - Yeg","Nördliche Inseln - Sohl","Nördliche Inseln - Pen"} 
+ferryEN[2]={"Cadomyr Harbour","Runewick Harbour","Hemp Necktie Inn","Cadomyr - Lost Harbour","Lighthouse","Eastland Harbour","Northern Harbour","Insurmountable Limes","Northern Islands - Ra","Northern Islands - Hept","Northern Islands - Yeg","Northern Islands - Sohl","Northern Islands - Pen"} 
+ferryDE[3]={"Cadomyr Hafen","Galmair Hafen","Gasthof zur Hanfschlinge","Cadomyr - Verlorener Hafen","Leuchtturm","Ostland Hafen","Nördlicher Hafen","Unüberwindbarer Limes","Nördliche Inseln - Ra","Nördliche Inseln - Hept","Nördliche Inseln - Yeg","Nördliche Inseln - Sohl","Nördliche Inseln - Pen"} 
+ferryEN[3]={"Cadomyr Harbour","Galmair Harbour","Hemp Necktie Inn","Cadomyr - Lost Harbour","Lighthouse","Eastland Harbour","Northern Harbour","Insurmountable Limes","Northern Islands - Ra","Northern Islands - Hept","Northern Islands - Yeg","Northern Islands - Sohl","Northern Islands - Pen"} 
+ferryDE[4]={"Cadomyr Hafen","Galmair Hafen","Runewick Hafen","Cadomyr - Verlorener Hafen","Leuchtturm","Ostland Hafen","Nördlicher Hafen"," Unüberwindbarer Limes","Nördliche Inseln - Ra","Nördliche Inseln - Hept","Nördliche Inseln - Yeg","Nördliche Inseln - Sohl","Nördliche Inseln - Pen"} 
+ferryEN[4]={"Cadomyr Harbour","Galmair Harbour","Runewick Harbour","Cadomyr - Lost Harbour","Lighthouse","Eastland Harbour","Northern Harbour","Insurmountable Limes","Northern Islands - Ra","Northern Islands - Hept","Northern Islands - Yeg","Northern Islands - Sohl","Northern Islands - Pen"} 
+ferryDE[5]={"Cadomyr Hafen","Galmair Hafen","Runewick Hafen","Gasthof zur Hanfschlinge","Leuchtturm","Ostland Hafen","Nördlicher Hafen","Unüberwindbarer Limes","Nördliche Inseln - Ra","Nördliche Inseln - Hept","Nördliche Inseln - Yeg","Nördliche Inseln - Sohl","Nördliche Inseln - Pen"} 
+ferryEN[5]={"Cadomyr Harbour","Galmair Harbour","Runewick Harbour","Hemp Necktie Inn","Lighthouse","Eastland Harbour","Northern Harbour","Insurmountable Limes","Northern Islands - Ra","Northern Islands - Hept","Northern Islands - Yeg","Northern Islands - Sohl","Northern Islands - Pen"} 
+ferryDE[6]={"Cadomyr Hafen","Galmair Hafen","Runewick Hafen","Gasthof zur Hanfschlinge","Cadomyr - Verlorener Hafen","Ostland Hafen","Nördlicher Hafen","Unüberwindbarer Limes","Nördliche Inseln - Ra","Nördliche Inseln - Hept","Nördliche Inseln - Yeg","Nördliche Inseln - Sohl","Nördliche Inseln - Pen"} 
+ferryEN[6]={"Cadomyr Harbour","Galmair Harbour","Runewick Harbour","Hemp Necktie Inn","Cadomyr - Lost Harbour","Eastland Harbour","Northern Harbour","Insurmountable Limes","Northern Islands - Ra","Northern Islands - Hept","Northern Islands - Yeg","Northern Islands - Sohl","Northern Islands - Pen"} 
+ferryDE[7]={"Cadomyr Hafen","Galmair Hafen","Runewick Hafen","Gasthof zur Hanfschlinge","Cadomyr - Verlorener Hafen","Leuchtturm","Nördlicher Hafen","Unüberwindbarer Limes","Nördliche Inseln - Ra","Nördliche Inseln - Hept","Nördliche Inseln - Yeg","Nördliche Inseln - Sohl","Nördliche Inseln - Pen"} 
+ferryEN[7]={"Cadomyr Harbour","Galmair Harbour","Runewick Harbour","Hemp Necktie Inn","Cadomyr - Lost Harbour","Lighthouse","Northern Harbour","Insurmountable Limes","Northern Islands - Ra","Northern Islands - Hept","Northern Islands - Yeg","Northern Islands - Sohl","Northern Islands - Pen"} 
+ferryDE[8]={"Cadomyr Hafen","Galmair Hafen","Runewick Hafen","Gasthof zur Hanfschlinge","Cadomyr - Verlorener Hafen","Leuchtturm","Ostland Hafen","zum Unüberwindbaren Limes","Nördliche Inseln - Ra","Nördliche Inseln - Hept","Nördliche Inseln - Yeg","Nördliche Inseln - Sohl","Nördliche Inseln - Pen"} 
+ferryEN[8]={"Cadomyr Harbour","Galmair Harbour","Runewick Harbour","Hemp Necktie Inn","Cadomyr - Lost Harbour","Lighthouse","Eastland Harbour","Insurmountable Limes","Northern Islands - Ra","Northern Islands - Hept","Northern Islands - Yeg","Northern Islands - Sohl","Northern Islands - Pen"} 
+ferryDE[9]={"Cadomyr Hafen","Galmair Hafen","Runewick Hafen","Gasthof zur Hanfschlinge","Cadomyr - Verlorener Hafen","Leuchtturm","Ostland Hafen","Nördlicher Hafen","Nördliche Inseln - Ra","Nördliche Inseln - Hept","Nördliche Inseln - Yeg","Nördliche Inseln - Sohl","Nördliche Inseln - Pen"} 
+ferryEN[9]={"Cadomyr Harbour","Galmair Harbour","Runewick Harbour","Hemp Necktie Inn","Cadomyr - Lost Harbour","Lighthouse","Eastland Harbour","Northern Harbour","Northern Islands - Ra","Northern Islands - Hept","Northern Islands - Yeg","Northern Islands - Sohl","Northern Islands - Pen"} 
+--ferryDE[9]={"Cadomyr Hafen","Galmair Hafen","Runewick Hafen","Gasthof zur Hanfschlinge","Cadomyr - Verlorener Hafen","Leuchtturm","Ostland Hafen","Nördlicher Hafen","Unüberwindbarer Limes","Nördliche Inseln - Ra","Nördliche Inseln - Hept","Nördliche Inseln - Yeg","Nördliche Inseln - Sohl","Nördliche Inseln - Pen"} 
+--ferryEN[9]={"Cadomyr Harbour","Galmair Harbour","Runewick Harbour","Hemp Necktie Inn","Cadomyr - Lost Harbour","Lighthouse","Eastland Harbour","Northern Harbour","Insurmountable Limes","Northern Islands - Ra","Northern Islands - Hept","Northern Islands - Yeg","Northern Islands - Sohl","Northern Islands - Pen"} 
 
 local ferrytravelDE={}
 local ferrytravelEN={}
---ferrytravelDE[1]={"der Bauerninsel","nach Cadomyr - Verlorener Hafen","zum Leuchtturm","zu den Einsamen Inseln","nach Runewick Hafen","nach Ostland Hafen","zum Nördlichen Hafen"} --for the future with farmer island & lonely islands
---ferrytravelEN[1]={"Farmer Island","Cadomyr - Lost Harbour","Lighthouse","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour"} --for the future with farmer island & lonely islands
-ferrytravelDE[1]={"nach Cadomyr - Verlorener Hafen","zum Leuchtturm","nach Runewick Hafen","nach Ostland Hafen","zum Nördlichen Hafen"}  ---replace this with the one above
-ferrytravelEN[1]={"Cadomyr - Lost Harbour","Lighthouse","Runewick Harbour","Eastland Harbour","Northern Harbour"}  ---replace this with the one above
---ferrytravelDE[2]={"nach Cadomyr Hafen","der Bauern Insel","nach Cadomyr - Verlorener Hafen","zum  Leuchtturm","zu den Einsamen Inseln","zum Ostland Hafen","zum Nördlichen Hafen"} --for the future with farmer island & lonely islands
---ferrytravelEN[2]={"Cadomyr Harbour","Farmer Island","Cadomyr - Lost Harbour","Lighthouse","Lonely Islands","Eastland Harbour","Northern Harbour"} --for the future with farmer island & lonely islands
-ferrytravelDE[2]={"nach Cadomyr Hafen","nach Cadomyr - Verlorener Hafen","zum  Leuchtturm","zum Ostland Hafen","zum Nördlichen Hafen"}  ---replace this with the one above
-ferrytravelEN[2]={"Cadomyr Harbour","Cadomyr - Lost Harbour","Lighthouse","Eastland Harbour","Northern Harbour"}  ---replace this with the one above
-ferrytravelDE[3]={"nach Cadomyr Hafen","nach Runewick Hafen","zum Nördlichen Hafen"}
-ferrytravelEN[3]={"Cadomyr Harbour","Runewick Harbour","Northern Harbour"}
---ferrytravelDE[4]={"nach Cadomyr Hafen","nach Runewick Hafen","nach Ostland Hafen","zum Bösen Fels"}  ---for the future with Evil Rock
---ferrytravelEN[4]={"Cadomyr Harbour","Runewick Harbour","Eastland Harbour","Evil Rock"}  ---for the future with Evil Rock
-ferrytravelDE[4]={"nach Cadomyr Hafen","nach Runewick Hafen","zum Ostland Hafen"}  ---replace this with the one above
-ferrytravelEN[4]={"Cadomyr Harbour","Runewick Harbour","Eastland Harbour"}  ---replace this with the one above
-ferrytravelDE[5]={"zu den Nördlichen Inseln -  Ra","zu den Nördlichen Inseln -  Hept","zu den Nördlichen Inseln -  Yeg","zu den Nördlichen Inseln -  Sohl","zu den Nördlichen Inseln -  Pen","zum Unüberwindbaren Limes"}
-ferrytravelEN[5]={"Northern Islands -  Ra","Northern Islands -  Hept","Northern Islands -  Yeg","zu den Nördlichen Inseln -  Sohl","zu den Nördlichen Inseln -  Pen","Insurmountable Limes"}
---ferrytravelDE[6]={"der Bauerninsel","nach Cadomyr Hafen","zum Leuchtturm","zu den Einsamen Inseln","nach Runewick Hafen","nach Ostland Hafen","zum Nördlichen Hafen"} --for the future with farmer island & lonely islands
---ferrytravelEN[6]={"Farmer Island","Cadomyr Harbour","Lighthouse","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour"} --for the future with farmer island & lonely islands
-ferrytravelDE[6]={"nach Cadomyr Hafen","zum Leuchtturm","nach Runewick Hafen","nach Ostland Hafen","zum Nördlichen Hafen"}  ---replace this with the one above
-ferrytravelEN[6]={"Cadomyr Harbour","Lighthouse","Runewick Harbour","Eastland Harbour","Northern Harbour"}  ---replace this with the one above
---ferrytravelDE[7]={"der Bauerninsel","nach Cadomyr Hafen","nach Cadomyr - Verlorener Hafen","zu den Einsamen Inseln","nach Runewick Hafen","nach Ostland Hafen","zum Nördlichen Hafen"} --for the future with farmer island & lonely islands
---ferrytravelEN[7]={"Farmer Island","Cadomyr Harbour","Cadomyr - Lost Harbour","Lonely Islands","Runewick Harbour","Eastland Harbour","Northern Harbour"} --for the future with farmer island & lonely islands
-ferrytravelDE[7]={"nach Cadomyr Hafen","nach Cadomyr - Verlorener Hafen","nach Runewick Hafen","nach Ostland Hafen","zum Nördlichen Hafen"}  ---replace this with the one above
-ferrytravelEN[7]={"Cadomyr Harbour","Cadomyr - Lost Harbour","Runewick Harbour","Eastland Harbour","Northern Harbour"}  ---replace this with the one above
-
+--"der Bauerninsel","zu den Einsamen Inseln"
+--"Farmer Island","Lonely Islands"
+ferrytravelDE[1]={"nach Galmair Hafen","nach Runewick Hafen","zum Gasthof zur Hanfschlinge","nach Cadomyr - Verlorener Hafen","zum Leuchtturm","nach Ostland Hafen","zum Nördlichen Hafen","zum Unüberwindbaren Limes","zu den Nördlichen Inseln -  Ra","zu den Nördlichen Inseln -  Hept","zu den Nördlichen Inseln -  Yeg","zu den Nördlichen Inseln -  Sohl","zu den Nördlichen Inseln -  Pen"}
+ferrytravelEN[1]={"Galmair Harbour","Runewick Harbour","Hemp Necktie Inn","Cadomyr - Lost Harbour","Lighthouse","Eastland Harbour","Northern Harbour","Insurmountable Limes","Northern Islands -  Ra","Northern Islands -  Hept","Northern Islands -  Yeg","zu den Nördlichen Inseln -  Sohl","zu den Nördlichen Inseln -  Pen"} 
+ferrytravelDE[2]={"nach Cadomyr Hafen","nach Runewick Hafen","zum Gasthof zur Hanfschlinge","nach Cadomyr - Verlorener Hafen","zum Leuchtturm","nach Ostland Hafen","zum Nördlichen Hafen","zum Unüberwindbaren Limes","zu den Nördlichen Inseln -  Ra","zu den Nördlichen Inseln -  Hept","zu den Nördlichen Inseln -  Yeg","zu den Nördlichen Inseln -  Sohl","zu den Nördlichen Inseln -  Pen"}
+ferrytravelEN[2]={"Cadomyr Harbour","Runewick Harbour","Hemp Necktie Inn","Cadomyr - Lost Harbour","Lighthouse","Eastland Harbour","Northern Harbour","Insurmountable Limes","Northern Islands -  Ra","Northern Islands -  Hept","Northern Islands -  Yeg","zu den Nördlichen Inseln -  Sohl","zu den Nördlichen Inseln -  Pen"} 
+ferrytravelDE[3]={"nach Cadomyr Hafen","nach Galmair Hafen","zum Gasthof zur Hanfschlinge","nach Cadomyr - Verlorener Hafen","zum Leuchtturm","nach Ostland Hafen","zum Nördlichen Hafen","zum Unüberwindbaren Limes","zu den Nördlichen Inseln -  Ra","zu den Nördlichen Inseln -  Hept","zu den Nördlichen Inseln -  Yeg","zu den Nördlichen Inseln -  Sohl","zu den Nördlichen Inseln -  Pen"}
+ferrytravelEN[3]={"Cadomyr Harbour","Galmair Harbour","Hemp Necktie Inn","Cadomyr - Lost Harbour","Lighthouse","Eastland Harbour","Northern Harbour","Insurmountable Limes","Northern Islands -  Ra","Northern Islands -  Hept","Northern Islands -  Yeg","zu den Nördlichen Inseln -  Sohl","zu den Nördlichen Inseln -  Pen"} 
+ferrytravelDE[4]={"nach Cadomyr Hafen","nach Galmair Hafen","nach Runewick Hafen","nach Cadomyr - Verlorener Hafen","zum Leuchtturm","nach Ostland Hafen","zum Nördlichen Hafen","zum Unüberwindbaren Limes","zu den Nördlichen Inseln -  Ra","zu den Nördlichen Inseln -  Hept","zu den Nördlichen Inseln -  Yeg","zu den Nördlichen Inseln -  Sohl","zu den Nördlichen Inseln -  Pen"}
+ferrytravelEN[4]={"Cadomyr Harbour","Galmair Harbour","Runewick Harbour","Cadomyr - Lost Harbour","Lighthouse","Eastland Harbour","Northern Harbour","Insurmountable Limes","Northern Islands -  Ra","Northern Islands -  Hept","Northern Islands -  Yeg","zu den Nördlichen Inseln -  Sohl","zu den Nördlichen Inseln -  Pen"} 
+ferrytravelDE[5]={"nach Cadomyr Hafen","nach Galmair Hafen","nach Runewick Hafen","zum Gasthof zur Hanfschlinge","zum Leuchtturm","nach Ostland Hafen","zum Nördlichen Hafen","zum Unüberwindbaren Limes","zu den Nördlichen Inseln -  Ra","zu den Nördlichen Inseln -  Hept","zu den Nördlichen Inseln -  Yeg","zu den Nördlichen Inseln -  Sohl","zu den Nördlichen Inseln -  Pen"}
+ferrytravelEN[5]={"Cadomyr Harbour","Galmair Harbour","Runewick Harbour","Hemp Necktie Inn","Lighthouse","Eastland Harbour","Northern Harbour","Insurmountable Limes","Northern Islands -  Ra","Northern Islands -  Hept","Northern Islands -  Yeg","zu den Nördlichen Inseln -  Sohl","zu den Nördlichen Inseln -  Pen"} 
+ferrytravelDE[6]={"nach Cadomyr Hafen","nach Galmair Hafen","nach Runewick Hafen","zum Gasthof zur Hanfschlinge","nach Cadomyr - Verlorener Hafen","nach Ostland Hafen","zum Nördlichen Hafen","zum Unüberwindbaren Limes","zu den Nördlichen Inseln -  Ra","zu den Nördlichen Inseln -  Hept","zu den Nördlichen Inseln -  Yeg","zu den Nördlichen Inseln -  Sohl","zu den Nördlichen Inseln -  Pen"}
+ferrytravelEN[6]={"Cadomyr Harbour","Galmair Harbour","Runewick Harbour","Hemp Necktie Inn","Cadomyr - Lost Harbour","Eastland Harbour","Northern Harbour","Insurmountable Limes","Northern Islands -  Ra","Northern Islands -  Hept","Northern Islands -  Yeg","zu den Nördlichen Inseln -  Sohl","zu den Nördlichen Inseln -  Pen"} 
+ferrytravelDE[7]={"nach Cadomyr Hafen","nach Galmair Hafen","nach Runewick Hafen","zum Gasthof zur Hanfschlinge","nach Cadomyr - Verlorener Hafen","zum Leuchtturm","zum Nördlichen Hafen","zum Unüberwindbaren Limes","zu den Nördlichen Inseln -  Ra","zu den Nördlichen Inseln -  Hept","zu den Nördlichen Inseln -  Yeg","zu den Nördlichen Inseln -  Sohl","zu den Nördlichen Inseln -  Pen"}
+ferrytravelEN[7]={"Cadomyr Harbour","Galmair Harbour","Runewick Harbour","Hemp Necktie Inn","Cadomyr - Lost Harbour","Lighthouse","Northern Harbour","Insurmountable Limes","Northern Islands -  Ra","Northern Islands -  Hept","Northern Islands -  Yeg","zu den Nördlichen Inseln -  Sohl","zu den Nördlichen Inseln -  Pen"} 
+ferrytravelDE[8]={"nach Cadomyr Hafen","nach Galmair Hafen","nach Runewick Hafen","zum Gasthof zur Hanfschlinge","nach Cadomyr - Verlorener Hafen","zum Leuchtturm","nach Ostland Hafen","zum Unüberwindbaren Limes","zu den Nördlichen Inseln -  Ra","zu den Nördlichen Inseln -  Hept","zu den Nördlichen Inseln -  Yeg","zu den Nördlichen Inseln -  Sohl","zu den Nördlichen Inseln -  Pen"}
+ferrytravelEN[8]={"Cadomyr Harbour","Galmair Harbour","Runewick Harbour","Hemp Necktie Inn","Cadomyr - Lost Harbour","Lighthouse","Eastland Harbour","Insurmountable Limes","Northern Islands -  Ra","Northern Islands -  Hept","Northern Islands -  Yeg","zu den Nördlichen Inseln -  Sohl","zu den Nördlichen Inseln -  Pen"} 
+ferrytravelDE[9]={"nach Cadomyr Hafen","nach Galmair Hafen","nach Runewick Hafen","zum Gasthof zur Hanfschlinge","nach Cadomyr - Verlorener Hafen","zum Leuchtturm","nach Ostland Hafen","zum Nördlichen Hafen","zu den Nördlichen Inseln -  Ra","zu den Nördlichen Inseln -  Hept","zu den Nördlichen Inseln -  Yeg","zu den Nördlichen Inseln -  Sohl","zu den Nördlichen Inseln -  Pen"}
+ferrytravelEN[9]={"Cadomyr Harbour","Galmair Harbour","Runewick Harbour","Hemp Necktie Inn","Cadomyr - Lost Harbour","Lighthouse","Eastland Harbour","Northern Harbour","Northern Islands -  Ra","Northern Islands -  Hept","Northern Islands -  Yeg","zu den Nördlichen Inseln -  Sohl","zu den Nördlichen Inseln -  Pen"}
+--ferrytravelDE[9]={"nach Cadomyr Hafen","nach Galmair Hafen","nach Runewick Hafen","zum Gasthof zur Hanfschlinge","nach Cadomyr - Verlorener Hafen","zum Leuchtturm","nach Ostland Hafen","zum Nördlichen Hafen","zum Unüberwindbaren Limes","zu den Nördlichen Inseln -  Ra","zu den Nördlichen Inseln -  Hept","zu den Nördlichen Inseln -  Yeg","zu den Nördlichen Inseln -  Sohl","zu den Nördlichen Inseln -  Pen"}
+--ferrytravelEN[9]={"Cadomyr Harbour","Galmair Harbour","Runewick Harbour","Hemp Necktie Inn","Cadomyr - Lost Harbour","Lighthouse","Eastland Harbour","Northern Harbour","Insurmountable Limes","Northern Islands -  Ra","Northern Islands -  Hept","Northern Islands -  Yeg","zu den Nördlichen Inseln -  Sohl","zu den Nördlichen Inseln -  Pen"}  
 
 
 local ferryItem={}
---ferryItem[1]={259,272,467,3099,105,2760,308} --for the future with farmer island & lonely islands
-ferryItem[1]={272,467,105,2760,308}  ---replace this with the one above
---ferryItem[2]={2701,259,272,467,3099,2760,308} --for the future with farmer island & lonely islands
-ferryItem[2]={2701,272,467,2760,308}  ---replace this with the one above
-ferryItem[3]={2701,105,308}
---ferryItem[4]={2701,105,2760,915}  ---for the future with Evil Rock
-ferryItem[4]={2701,105,2760}  ---replace this with the one above
-ferryItem[5]={359,360,372,1272,467,474}
---ferryItem[6]={259,2701,467,3099,105,2760,308} --for the future with farmer island & lonely islands
-ferryItem[6]={2701,467,105,2760,308}  ---replace this with the one above
---ferryItem[7]={259,2701,272,3099,105,2760,308} --for the future with farmer island & lonely islands
-ferryItem[7]={2701,272,105,2760,308}  ---replace this with the one above
+--259,3099,915 --for the future with farmer island & lonely islands & evil rock
+ferryItem[1]={61,105,155,272,509,2760,308,474,359,360,372,1272,467}
+ferryItem[2]={2701,105,155,272,509,2760,308,474,359,360,372,1272,467}
+ferryItem[3]={2701,61,155,272,509,2760,308,474,359,360,372,1272,467}
+ferryItem[4]={2701,61,105,272,509,2760,308,474,359,360,372,1272,467}
+ferryItem[5]={2701,61,105,155,509,2760,308,474,359,360,372,1272,467}
+ferryItem[6]={2701,61,105,155,272,2760,308,474,359,360,372,1272,467}
+ferryItem[7]={2701,61,105,155,272,509,308,474,359,360,372,1272,467}
+ferryItem[8]={2701,61,105,155,272,509,2760,474,359,360,372,1272,467}
+ferryItem[9]={2701,61,105,155,272,509,2760,308,359,360,372,1272,467}
+--ferryItem[9]={2701,61,105,155,272,509,2760,308,474,359,360,372,1272,467}
 
 
 
 local ferryTargetPos={}
---ferryTargetPos[1]={position(86,980,0),position(105,832,0),position(553,658,0),position(616,859,0),position(728,809,0),position(888,486,0),position(870,286,0)} --for the future with farmer island & lonely islands
-ferryTargetPos[1]={position(105,832,0),position(553,658,0),position(728,809,0),position(888,486,0),position(870,286,0)}  ---replace this with the one above
---ferryTargetPos[2]={position(102,790,0),position(86,980,0),position(105,832,0),position(553,658,0),position(616,859,0),position(888,486,0),position(870,286,0) --for the future with farmer island & lonely islands
-ferryTargetPos[2]={position(102,790,0),position(105,832,0),position(553,658,0),position(888,486,0),position(870,286,0)}  ---replace this with the one above
-ferryTargetPos[3]={position(102,790,0),position(728,809,0),position(870,286,0)}
---ferryTargetPos[4]={position(102,790,0),position(728,809,0),position(888,486,0),position(987,256,0)}  ---for the future with Evil Rock
-ferryTargetPos[4]={position(102,790,0),position(728,809,0),position(888,486,0),}  ---replace this with the one above
-ferryTargetPos[5]={position(364,49,0),position(415,85,0),position(478,34,0),position(424,24,0),position(389,39,0),position(682,45,0)}
---ferryTargetPos[6]={position(86,980,0),position(102,790,0),position(553,658,0),position(616,859,0),position(728,809,0),position(888,486,0),position(870,286,0)} --for the future with farmer island & lonely islands
-ferryTargetPos[6]={position(102,790,0),position(553,658,0),position(728,809,0),position(888,486,0),position(870,286,0)}  ---replace this with the one above
---ferryTargetPos[7]={position(86,980,0),position(102,790,0),position(105,832,0),position(616,859,0),position(728,809,0),position(888,486,0),position(870,286,0)} --for the future with farmer island & lonely islands
-ferryTargetPos[7]={position(102,790,0),position(105,832,0),position(728,809,0),position(888,486,0),position(870,286,0)}  ---replace this with the one above
+--position(86,980,0),position(616,859,0) --for the future with farmer island & lonely islands
+ferryTargetPos[1]={position(450,95,0),position(728,809,0),position(682,284,0),position(105,832,0),position(553,658,0),position(888,486,0),position(870,286,0),position(678,45,0),position(364,49,0),position(415,85,0),position(478,34,0),position(424,24,0),position(389,39,0)} 
+ferryTargetPos[2]={position(102,790,0),position(728,809,0),position(682,284,0),position(105,832,0),position(553,658,0),position(888,486,0),position(870,286,0),position(678,45,0),position(364,49,0),position(415,85,0),position(478,34,0),position(424,24,0),position(389,39,0)} 
+ferryTargetPos[3]={position(102,790,0),position(450,95,0),position(682,284,0),position(105,832,0),position(553,658,0),position(888,486,0),position(870,286,0),position(678,45,0),position(364,49,0),position(415,85,0),position(478,34,0),position(424,24,0),position(389,39,0)} 
+ferryTargetPos[4]={position(102,790,0),position(450,95,0),position(728,809,0),position(105,832,0),position(553,658,0),position(888,486,0),position(870,286,0),position(678,45,0),position(364,49,0),position(415,85,0),position(478,34,0),position(424,24,0),position(389,39,0)} 
+ferryTargetPos[5]={position(102,790,0),position(450,95,0),position(728,809,0),position(682,284,0),position(553,658,0),position(888,486,0),position(870,286,0),position(678,45,0),position(364,49,0),position(415,85,0),position(478,34,0),position(424,24,0),position(389,39,0)} 
+ferryTargetPos[6]={position(102,790,0),position(450,95,0),position(728,809,0),position(682,284,0),position(105,832,0),position(888,486,0),position(870,286,0),position(678,45,0),position(364,49,0),position(415,85,0),position(478,34,0),position(424,24,0),position(389,39,0)} 
+ferryTargetPos[7]={position(102,790,0),position(450,95,0),position(728,809,0),position(682,284,0),position(105,832,0),position(553,658,0),position(870,286,0),position(678,45,0),position(364,49,0),position(415,85,0),position(478,34,0),position(424,24,0),position(389,39,0)} 
+ferryTargetPos[8]={position(102,790,0),position(450,95,0),position(728,809,0),position(682,284,0),position(105,832,0),position(553,658,0),position(888,486,0),position(678,45,0),position(364,49,0),position(415,85,0),position(478,34,0),position(424,24,0),position(389,39,0)} 
+ferryTargetPos[9]={position(102,790,0),position(450,95,0),position(5728,809,0),position(682,284,0),position(105,832,0),position(553,658,0),position(888,486,0),position(870,286,0),position(364,49,0),position(415,85,0),position(478,34,0),position(424,24,0),position(389,39,0)} 
+--ferryTargetPos[9]={position(102,790,0),position(450,95,0),position(728,809,0),position(682,284,0),position(105,832,0),position(553,658,0),position(888,486,0),position(870,286,0),position(678,45,0),position(364,49,0),position(415,85,0),position(478,34,0),position(424,24,0),position(389,39,0)}
 
 
 local pirateOptionsDE={"Kämpfe gegen die Piraten","Fliehe vor den Piraten (25% Erfolgschance, ansonsten wartet der Kampf)","Zahle ein Goldstück, um verschont zu bleiben."}
@@ -131,7 +123,7 @@ monster[9]={111,112,113,114,115}; --skeleton
 monster[10]={573,574,576,577,578}; --rats 575
 monster[11]={891,892,893,901,902,903}; --Imp
 monster[12]={782,783}; --golden skeleton 784
-monster[13]={301,311,321,331,341}; --golem
+monster[13]={301,311,321,331}; --golem
 monster[14]={851,852,853,861,862,863,871,872,873,881,882,883}; --hellhound
 monster[15]={62,63,64,65}; -- drow 61
 monster[16]={201,202,203,204}; --demon skeleton 205
@@ -149,7 +141,7 @@ function M.Ferry(User, SourceItem)
     local names
     local namestravel
     local items
-    local targetPos
+--    local targetPos
     local Amountferry = #M.ferrySourceItemPos
     for j = 1,Amountferry do
        if (SourceItem.pos == M.ferrySourceItemPos[j]) then
@@ -162,7 +154,7 @@ function M.Ferry(User, SourceItem)
         end
 
         items = ferryItem[j]
-        targetPos = ferryTargetPos[j]
+        M.targetPos = ferryTargetPos[j]
        end
     end
 
@@ -176,7 +168,6 @@ function M.Ferry(User, SourceItem)
                     money.TakeMoneyFromChar(User,1000)
                     local travlers = world:getPlayersInRangeOf(SourceItem.pos, 5)
                     M.travlerslist[User.name] = travlers
-
                     if chanceforpirateattack < 6 and SomeoneThere(User) ~= true then --chance of 5% and noone else is there
                         M.previousselected = {}
                         for i,player in ipairs(M.travlerslist[User.name]) do
@@ -198,7 +189,7 @@ function M.Ferry(User, SourceItem)
                             player:inform("Du hast dich dazu entschlossen, " ..namestravel[selected+1].. " zu Reisen.", "You have chosen to travel to " ..namestravel[selected+1]..".")
                             world:gfx(1,player.pos)
                             world:makeSound(9,player.pos)
-                            player:warp(targetPos[selected+1])
+                            player:warp(M.targetPos[selected+1])
                             world:makeSound(9,player.pos)
                         end
                     end
@@ -306,7 +297,6 @@ function piratesFight(User)
               world:createMonster(enemy,piratesSpawnTop[pp],0);
         world:makeSound(1,User.pos)
     end
-
     for i,player in ipairs(M.travlerslist[User.name]) do
         player:setQuestProgress(662,30)
         player:setQuestProgress(663,30)
@@ -357,7 +347,7 @@ function M.piratesGeorgeBackstabRocks(User)
                 end
                 world:gfx(1,player.pos)
                 world:makeSound(9,player.pos)
-                player:warp(targetPos[M.previousselected[User.name]+1])
+                player:warp(M.targetPos[M.previousselected[User.name]+1])
                 world:gfx(11,player.pos)
                 world:makeSound(9,player.pos)
             end
@@ -376,7 +366,7 @@ function M.piratesPiratesKill(User)
                 player:inform("Nachdem die Piratenmeute zurückgeschlagen werden konnte, wird das gewünschte Ziel sicher erreicht.", "After all the pirates were pushed back, you reach your final destination safely.")
                 world:gfx(1,player.pos)
                 world:makeSound(9,player.pos)
-                player:warp(targetPos[M.previousselected[User.name]+1])
+                player:warp(M.targetPos[M.previousselected[User.name]+1])
                 world:gfx(11,player.pos)
                 world:makeSound(9,player.pos)
             end
@@ -393,7 +383,7 @@ function M.piratesPiratesRule(User)
             if M.previousselected == nil then
             else
                 player:inform("Malachín war wohl mit den Piraten. Sie sind in der Lage das Schiff zu überlaufen und setzen alle Anwesenden ihrem Glück mit Cherga aus. Wird Cherga Gnade haben?", "Malachín was obviously with the pirates. They overrun the ship and all passenger have to face Cherga. Will Cherga have mercy on you?")
-                player:warp(targetPos[M.previousselected[User.name]+1])
+                player:warp(M.targetPos[M.previousselected[User.name]+1])
                 character.DeathAfterTime(player,math.random(10,30),0,27,true) --kill all players
             end
         end
@@ -427,7 +417,7 @@ function piratesFlee(User)
                     player:inform("Die Bemühungen zahlen sich aus und die Flucht gelingt. Sicher wird das gewünschte Ziel erreicht.", "Your effort is rewarded. You are able to flee successfully and reach your final destination safely.")
                     world:gfx(1,player.pos)
                     world:makeSound(9,player.pos)
-                    player:warp(targetPos[M.previousselected[User.name]+1])
+                    player:warp(M.targetPos[M.previousselected[User.name]+1])
                     world:gfx(11,player.pos)
                     world:makeSound(9,player.pos)
                 end
@@ -437,7 +427,7 @@ function piratesFlee(User)
     else
         for i,player in ipairs(M.travlerslist[User.name]) do
             if player:isInRangeToPosition(position(352,870,0), 30) or player:isInRangeToPosition(position(352,870,1), 30) or player:isInRangeToPosition(position(352,870,2), 30) then
-                player:inform("Oh nein, zu langsam!", "Oh no, too slow!")
+                player:inform("Oh nein, zu langsam für eine erfolgreiche Flucht!", "Oh no, too slow for a successful escape!")
             end
         end
         piratesFight(User)
@@ -456,7 +446,7 @@ function piratesPay(User)
                     player:inform("Das Gold ist weg, aber dafür das gewünschte Ziel erreicht.", "The gold is gone but in return you reach your final destination safely.")
                     world:gfx(1,player.pos)
                     world:makeSound(9,player.pos)
-                    player:warp(targetPos[M.previousselected[User.name]+1])
+                    player:warp(M.targetPos[M.previousselected[User.name]+1])
                     world:gfx(11,player.pos)
                     world:makeSound(9,player.pos)
                 end
@@ -474,6 +464,7 @@ function piratesPay(User)
 end
 
 function portalcreateforleftovers(User)
+--debug("portalcreateforleftovers_a: "..User.name)
     repeat
         local checkleftovers = world:getItemOnField(position(355,864,2))
         world:erase(checkleftovers,1)
@@ -484,6 +475,9 @@ function portalcreateforleftovers(User)
     checkPortalforleftovers.id = 10
     checkPortalforleftovers.quality = 999
     checkPortalforleftovers.wear = 255
+    checkPortalforleftovers:setData("destinationCoordsX",682)
+    checkPortalforleftovers:setData("destinationCoordsY",284)
+    checkPortalforleftovers:setData("destinationCoordsZ",0)
     world:changeItem(checkPortalforleftovers)
 end
 
