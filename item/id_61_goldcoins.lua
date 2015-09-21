@@ -20,6 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local lookat = require("base.lookat")
 local money = require("base.money")
+local goldenGoblet = require("item.id_224_goldengoblet")
 
 local M = {}
 
@@ -35,6 +36,10 @@ function M.LookAtItem(User, Item)
 end
 
 function M.UseItem(User, SourceItem)
+
+    if goldenGoblet.putCoinsInGoblet(User, SourceItem) then
+        return
+    end
 
     if TimeList[User.id] ~= nil then
         if (math.abs(world:getTime("second") - TimeList[User.id])) <= 3 then  -- 1 Rl. second delay

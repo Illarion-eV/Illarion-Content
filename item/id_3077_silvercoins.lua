@@ -19,6 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local lookat = require("base.lookat")
+local goldenGoblet = require("item.id_224_goldengoblet")
 
 local M = {}
 
@@ -34,6 +35,11 @@ function M.LookAtItem(User, Item)
 end
 
 function M.UseItem(User, SourceItem)
+
+    if goldenGoblet.putCoinsInGoblet(User, SourceItem) then
+        return
+    end
+    
     local frontItem = common.GetFrontItem(User)
     if frontItem then
         if frontItem.id == 2805 and frontItem.pos == position(386, 260, -6) then --if frontItem is quest pillar

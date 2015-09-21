@@ -2011,4 +2011,14 @@ function M.HSVtoRGB(hue, saturation, value)
     return fixValue(red), fixValue(green), fixValue(blue)
 end
 
+-- Checks wether an item has a special name, description or the specialItem data set
+-- @param the item to be checked
+-- @return bool  True if it is special, else false
+function M.isSpecialItem(item)
+    if item:getData("nameEn") ~= "" or item:getData("descriptionEn") ~= "" or item:getData("specialItem") ~= "" then
+        return true
+    end
+    return false
+end
+
 return M
