@@ -14,9 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local character = require("base.character")
-local common = require("base.common")
-
 local explosionSpell = require("monster.base.spells.explosion")
 local fireballSpell = require("monster.base.spells.fireball")
 local fireconeSpell = require("monster.base.spells.firecone")
