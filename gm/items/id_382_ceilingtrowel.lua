@@ -637,7 +637,6 @@ end
 
 function spawnRemove(User, SourceItem)
 
-    local sp = scheduled.spawnpoint
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -656,7 +655,7 @@ function spawnRemove(User, SourceItem)
 end
 
 function spawnPause(User, SourceItem)
-    local sp = scheduled.spawnpoint
+    
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -782,7 +781,6 @@ end
 
 function sapwnStartStop(User, SourceItem)
 
-    local sp = scheduled.spawnpoint
     local spawnPos = common.GetFrontPosition(User)
 
     checkData(SourceItem,"intervals")
