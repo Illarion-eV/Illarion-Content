@@ -167,6 +167,7 @@ monsterQuests.addQuest{
     npcName = "Obsidimine",
     monsterIds = {1123} -- dragon of death
 }
+
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])
 end
@@ -191,11 +192,7 @@ function M.QuestFinalStatus()
 end
 
 function M.QuestAvailability(user, status)
-    if factions.isCadomyrCitizen(user) and status == 0 then
-        return Player.questAvailable
-    else
-        return Player.questNotAvailable
-    end
+    return Player.questAvailable
 end
 
 return M
