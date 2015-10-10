@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local factions = require("base.factions")
+local monsterQuests = require("monster.base.quests")
 local M = {}
 
 local GERMAN = Player.german
