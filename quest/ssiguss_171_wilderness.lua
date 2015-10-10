@@ -50,22 +50,22 @@ Description[GERMAN][6] = "Sie haben alle Ssiguss Aufgaben fertig!"
 Description[ENGLISH][6] = "You have finished all of Ssiguss's tasks!"
 
 
-local npcPos = position(564, 232, 0);
+local npcPos = position(564, 233, 0);
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 local Start = npcPos;
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {564, 232, 0}
-QuestTarget[2] = {564, 232, 0}
-QuestTarget[4] = {564, 232, 0}
-QuestTarget[5] = {564, 232, 0}
-QuestTarget[7] = {564, 232, 0}
-QuestTarget[8] = {564, 232, 0}
-QuestTarget[10] = {564, 232, 0}
-QuestTarget[11] = {564, 232, 0}
-QuestTarget[12] = {564, 232, 0}
+QuestTarget[1] = {564, 233, 0}
+QuestTarget[2] = {564, 233, 0}
+QuestTarget[4] = {564, 233, 0}
+QuestTarget[5] = {564, 233, 0}
+QuestTarget[7] = {564, 233, 0}
+QuestTarget[8] = {564, 233, 0}
+QuestTarget[10] = {564, 233, 0}
+QuestTarget[11] = {564, 233, 0}
+QuestTarget[12] = {564, 233, 0}
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 6
