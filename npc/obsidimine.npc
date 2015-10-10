@@ -44,6 +44,18 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
+hairID = 3
+beardID = 2
+colorHair = 200, 200, 200
+colorSkin = 255, 215, 180
+itemHead = 0
+itemChest = 818
+itemCoat = 0
+itemMainHand = 2763
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 366
+itemShoes = 53
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Obsidimine. Keywords: Hello, quest, brother, cave.")
