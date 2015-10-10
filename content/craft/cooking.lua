@@ -216,11 +216,6 @@ product = cooking:addProduct(catId, 3606, 5, 25, 6, 12)
 product:addIngredient(2940) -- Step 1: Raw Steak(2940) 1x
 -------------- COOKED STEAK - DONE ----------------
 
----------------- RAW STEAK - 2940 ----------------------
-product = cooking:addProduct(catId, 2940, 5, 25, 6, 12)
-product:addIngredient(307) -- Step 1: Pork(307) 1x
--------------- RAW STEAK - DONE ----------------
-
 ---------------- SAUSAGE - 3051 ----------------------
 product = cooking:addProduct(catId, 3051, 0, 20, 10, 20, 2)
 product:addIngredient(307) -- Step 1: Pork(307) 1x
