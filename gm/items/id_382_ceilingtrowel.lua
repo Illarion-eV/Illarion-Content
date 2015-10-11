@@ -664,7 +664,7 @@ function spawnRemove(User, SourceItem)
 end
 
 function spawnPause(User, SourceItem)
-    debug("table elements in pause: " .. #gmSpawnpointSettings)
+    
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
