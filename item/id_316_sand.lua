@@ -26,12 +26,13 @@ function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
     deleteIt=false;
     local GroundItem = world:getItemOnField(TargetItem.pos)
     if (GroundItem.id==10) then
+        local removePos = TargetItem.pos
         world:erase(GroundItem,1)
         deleteIt=true
         world:gfx(45,TargetItem.pos)
         
         -- In case the portal is on a gm set spawnpoint, we remove the spawnpoint
-        local removePos = tostring(TargetItem.pos.x) .. " " .. tostring(TargetItem.pos.y) .. " " .. tostring(TargetItem.pos.z)
+        
         id_382_ceilingtrowel.saveRemovePosition(removePos)
     end
     return true

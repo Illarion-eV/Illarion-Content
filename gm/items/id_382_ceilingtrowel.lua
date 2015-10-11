@@ -35,8 +35,8 @@ local checkValue
 local updateMonsters
 
 local SPAWNDATAS = {}
-local gmSpawnpointSettings = {}
-local gmMonsters = {}
+gmSpawnpointSettings = {}
+gmMonsters = {}
 local SPAWNDATA = {}
 local removePositions = {}
 
@@ -898,7 +898,7 @@ function spawnGM()
             table.remove(gmSpawnpointSettings, i)
             table.remove(gmMonsters, i)
             removed = true
-        end
+       end
         --sets/checks 8 array pos as counter
         if checkValue(pause) == false and removed == false then
         if gmSpawnpointSettings[i][8] == nil then
@@ -967,7 +967,18 @@ function updateMonsters(array,number)
 end
 
 function M.saveRemovePosition(thePos)
-    removePositions[thePos] = true
+    if gmSpawnpointSettings[1] == nil then
+        return
+    end
+    
+    for i=1, #gmSpawnpointSettings do
+        local position = gmSpawnpointSettings[i][2];
+        if thePos == position then
+            world:makeSound(4,position)
+            table.remove(gmSpawnpointSettings, i)
+            table.remove(gmMonsters, i)
+        end
+    end
 end
 
 return M
