@@ -110,8 +110,8 @@ function M.MoveToField(User)
         world:makeSound(11, User.pos)
     elseif User:getQuestProgress(510) == 18 and User.pos == position(731, 616, -3) then -- vision for quest
         common.InformNLS(User,
-            "Dir erscheint die Vision eines Zwerges, der von einem Drachen angegriffen wird. Der Zwerg ist in Flammen eingehüllt, ehe er von den Krallen des Drachens vom Boden gepflückt wird.",
-            "You see a vision of a dwarf being attacked by a dragon. The dwarf is engulfed in flames before he is plucked from the ground by the talons of the dragon.")
+            "Dir erscheint die Vision eines Zwerges, der von einem Drachen angegriffen wird. Der Zwerg ist in Flammen eingehüllt, ehe er von den Krallen des Drachens vom Boden gepflückt wird. Gehen Sie zurück und sagen, Obsidimine.",
+            "You see a vision of a dwarf being attacked by a dragon. The dwarf is engulfed in flames before he is plucked from the ground by the talons of the dragon. Go back and tell Obsidimine.")
         User:setQuestProgress(510, 19)
         world:gfx(5, position(728, 616, -3))
         world:makeSound(13, position(728, 616, -3))
