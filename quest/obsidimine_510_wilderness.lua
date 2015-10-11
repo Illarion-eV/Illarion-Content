@@ -113,7 +113,7 @@ QuestTarget[6] = {position(809, 676, 0)}
 QuestTarget[7] = {position(809, 676, 0), position(826, 643, 2)} -- Upper level of volcano
 QuestTarget[8] = {position(809, 676, 0)} 
 QuestTarget[9] = {position(809, 676, 0)} 
-QuestTarget[10] = {position(809, 676, 0), position(826, 643, 2), position(821, 661, 1), position(657, 701, -3), position(822, 622, -3), position(668, 658, -6)} --checkpoints for looking at all levels
+QuestTarget[10] = {position(809, 676, 0), position(826, 643, 2), position(821, 661, 1), position(659, 701, -3), position(822, 662, -3), position(668, 658, -6)} --checkpoints for looking at all levels
 QuestTarget[11] = {position(809, 676, 0)}  
 QuestTarget[12] = {position(809, 676, 0)}
 QuestTarget[13] = {position(809, 676, 0)} 
@@ -168,7 +168,6 @@ monsterQuests.addQuest{
     npcName = "Obsidimine",
     monsterIds = {1123} -- dragon of death
 }
-
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])
 end
