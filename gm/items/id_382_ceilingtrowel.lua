@@ -21,7 +21,7 @@ local common = require("base.common")
 local licence = require("base.licence")
 local alchemy = require("scheduled.alchemy")
 local specialeggs = require("content.specialeggs")
-local spawnpointScript = require("scheduled.spawnpoint")
+local scheduledFunction = require("scheduled.scheduledFunction")
 
 local M = {}
 
@@ -30,6 +30,14 @@ local weather
 local factionHandling
 local spawnPoint
 local specialEggs
+local spawnGM
+local checkValue
+local updateMonsters
+
+local SPAWNDATAS = {}
+local gmSpawnpointSettings = {}
+local gmMonsters = {}
+local SPAWNDATA = {}
 
 function M.UseItem(User, SourceItem)
 
@@ -642,13 +650,13 @@ function spawnRemove(User, SourceItem)
             return
         end
         local index = dialog:getSelectedIndex() + 1
-        User:inform("You removed the spawnpoint at " ..tostring(spawnpointScript.gmMonsters[index][1]))
-        User:logAdmin("removed the spawnpoint at " ..tostring(spawnpointScript.gmMonsters[index][1]))
-        table.remove(spawnpointScript.gmSpawnpointSettings, index)
-        table.remove(spawnpointScript.gmMonsters, index)
+        User:inform("You removed the spawnpoint at " ..tostring(gmMonsters[index][1]))
+        User:logAdmin("removed the spawnpoint at " ..tostring(gmMonsters[index][1]))
+        table.remove(gmSpawnpointSettings, index)
+        table.remove(gmMonsters, index)
     end
     local sd = SelectionDialog("Pick a spawnpoint to delete", "To which point do you want to delete?", cbSetMode)
-    for _,m in ipairs(spawnpointScript.gmSpawnpointSettings) do
+    for _,m in ipairs(gmSpawnpointSettings) do
         sd:addOption(0,tostring(m[2]))
     end
     User:requestSelectionDialog(sd)
@@ -661,18 +669,18 @@ function spawnPause(User, SourceItem)
             return
         end
         local index = dialog:getSelectedIndex() + 1
-        if spawnpointScript.gmSpawnpointSettings[index][9] == 0 then
-            User:inform("You paused the spawnpoint at " ..tostring(spawnpointScript.gmMonsters[index][1]))
-            User:logAdmin("paused the spawnpoint at " ..tostring(spawnpointScript.gmMonsters[index][1]))
-            spawnpointScript.gmSpawnpointSettings[index][9] = 1
+        if gmSpawnpointSettings[index][9] == 0 then
+            User:inform("You paused the spawnpoint at " ..tostring(gmMonsters[index][1]))
+            User:logAdmin("paused the spawnpoint at " ..tostring(gmMonsters[index][1]))
+            gmSpawnpointSettings[index][9] = 1
         else
-            User:inform("You reactivated the spawnpoint at " ..tostring(spawnpointScript.gmMonsters[index][1]))
-            User:logAdmin("reactivated the spawnpoint at " ..tostring(spawnpointScript.gmMonsters[index][1]))
-            spawnpointScript.gmSpawnpointSettings[index][9] = 0
+            User:inform("You reactivated the spawnpoint at " ..tostring(gmMonsters[index][1]))
+            User:logAdmin("reactivated the spawnpoint at " ..tostring(gmMonsters[index][1]))
+            gmSpawnpointSettings[index][9] = 0
         end
     end
     local sd = SelectionDialog("Pick a spawnpoint to pause/reactivate", "To which point do you want to pause/reactivate?", cbSetMode)
-    for _,m in ipairs(spawnpointScript.gmSpawnpointSettings) do
+    for _,m in ipairs(gmSpawnpointSettings) do
         sd:addOption(0,tostring(m[2]))
     end
     User:requestSelectionDialog(sd)
@@ -709,7 +717,7 @@ function spawnIntervalsPerSpawn(User, SourceItem)
             world:changeItem(SourceItem)
         end
     end
-    User:requestInputDialog(InputDialog("Set number of intervals.", "Usage: Set numer of 5 second intervals per spawn." ,false, 255, cbInputDialog))
+    User:requestInputDialog(InputDialog("Set number of intervals.", "Usage: Set numer of (roughly) 7 second intervals per spawn." ,false, 255, cbInputDialog))
 end
 
 function spawnAmount(User, SourceItem)
@@ -796,7 +804,7 @@ function sapwnStartStop(User, SourceItem)
     local sfxId = tonumber(SourceItem:getData("sfxId"))
     local monsters = tostring(SourceItem:getData("monsters"))
 
-    local length = #spawnpointScript.gmSpawnpointSettings +1
+    local length = #gmSpawnpointSettings +1
 
     --Converts monsters String into monsterIds Array
     local counter = 0
@@ -819,10 +827,11 @@ function sapwnStartStop(User, SourceItem)
     end
 
     if checkData(SourceItem,"monsters") == true then
-        table.insert(spawnpointScript.gmSpawnpointSettings, length, {monsterIds, spawnPos, amount, intervals, endurance, gfxId, sfxId,0 ,0})
-        table.insert(spawnpointScript.gmMonsters, length, {spawnPos})
-        User:inform("You added a spawnpoint at " .. tostring(spawnpointScript.gmSpawnpointSettings[length][2]))
-        User:logAdmin("added a spawnpoint at " .. tostring(spawnpointScript.gmSpawnpointSettings[length][2]))
+        table.insert(gmSpawnpointSettings, length, {monsterIds, spawnPos, amount, intervals, endurance, gfxId, sfxId,0 ,0})
+        table.insert(gmMonsters, length, {spawnPos})
+        User:inform("You added a spawnpoint at " .. tostring(gmSpawnpointSettings[length][2]))
+        User:logAdmin("added a spawnpoint at " .. tostring(gmSpawnpointSettings[length][2]))
+        scheduledFunction.registerFunction(2, function() spawnGM() end)
     else
         User:inform("Enter MonsterID")
     end
@@ -865,6 +874,86 @@ function specialEggs(User)
     end
     User:requestInputDialog(InputDialog("Egg creation", "How many special eggs to you want to create? (Notice: Eggs will have a normal wear of 3. Increase manually if needed." ,false, 255, cbInputDialog))
 
+end
+
+function spawnGM()
+	local mon;
+	if gmSpawnpointSettings[1] == nil then
+		return
+	end
+	for i=1, #gmSpawnpointSettings do
+		local monsterIds = gmSpawnpointSettings[i][1];
+		local position = gmSpawnpointSettings[i][2];
+		local amount = gmSpawnpointSettings[i][3];
+		local intervals = gmSpawnpointSettings[i][4];
+		local endurance = gmSpawnpointSettings[i][5];
+		local gfxId = gmSpawnpointSettings[i][6];
+		local sfxId = gmSpawnpointSettings[i][7];
+		local pause = gmSpawnpointSettings[i][9];
+		--sets/checks 8 array pos as counter
+		if checkValue(pause) == false then
+		if gmSpawnpointSettings[i][8] == nil then
+			gmSpawnpointSettings[i][8] = 0;
+		else
+			gmSpawnpointSettings[i][8] = gmSpawnpointSettings[i][8]+1;
+		end
+		if checkValue(intervals) == false then
+			intervals = 1
+		end
+		if gmSpawnpointSettings[i][8] % intervals == 0 then
+			--keeps counter from overflow
+			if checkValue(endurance) == false then
+				gmSpawnpointSettings[i][8] = 0
+			end
+			if #gmMonsters[i]-1 < amount then
+				updateMonsters(gmMonsters,i);
+				mon = world:createMonster(monsterIds[Random.uniform(1,#monsterIds)], position,10);
+				if isValidChar(mon) then
+					table.insert(gmMonsters[i],mon);
+					--does GFX with spawn
+					if checkValue(gfxId) == true then
+						world:gfx(gfxId,position)
+					end
+					--Does SFX with spawn
+					if  checkValue(sfxId) == true then
+						world:makeSound(sfxId,position)
+					end
+				end
+			else
+				updateMonsters(gmMonsters,i);
+			end
+		end
+		--Removes spawnpoint if he reaches the maximum number of cycles
+		if checkValue(endurance) == true then
+			if gmSpawnpointSettings[i][8] >= endurance then
+				table.remove(gmSpawnpointSettings, i)
+				table.remove(gmMonsters, i)
+			end
+		end
+		end
+	end
+    if #gmSpawnpointSettings > 0 then
+        scheduledFunction.registerFunction(2, function() spawnGM() end)
+    end
+end
+
+function checkValue(input)
+	if input == 0 then
+		return false
+	else
+		return true
+	end
+end
+
+function updateMonsters(array,number)
+	if #array[number] > 1 then
+		for i = #array[number], 2, -1 do
+			local mon = array[number][i];
+			if not isValidChar(mon) then
+				table.remove(array[number], i)
+			end
+		end
+	end
 end
 
 return M
