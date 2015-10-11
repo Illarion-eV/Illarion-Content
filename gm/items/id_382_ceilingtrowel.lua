@@ -733,7 +733,7 @@ function spawnAmount(User, SourceItem)
             world:changeItem(SourceItem)
         end
     end
-    User:requestInputDialog(InputDialog("Set how limit for monster present at the same time.", "Usage: Set the amount of total Intervals." ,false, 255, cbInputDialog))
+    User:requestInputDialog(InputDialog("Set limit for monsters", "Set max. number of monsters present at the same time" ,false, 255, cbInputDialog))
 end
 
 function spawnTime(User, SourceItem)
