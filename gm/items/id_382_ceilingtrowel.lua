@@ -877,83 +877,83 @@ function specialEggs(User)
 end
 
 function spawnGM()
-	local mon;
-	if gmSpawnpointSettings[1] == nil then
-		return
-	end
-	for i=1, #gmSpawnpointSettings do
-		local monsterIds = gmSpawnpointSettings[i][1];
-		local position = gmSpawnpointSettings[i][2];
-		local amount = gmSpawnpointSettings[i][3];
-		local intervals = gmSpawnpointSettings[i][4];
-		local endurance = gmSpawnpointSettings[i][5];
-		local gfxId = gmSpawnpointSettings[i][6];
-		local sfxId = gmSpawnpointSettings[i][7];
-		local pause = gmSpawnpointSettings[i][9];
-		--sets/checks 8 array pos as counter
-		if checkValue(pause) == false then
-		if gmSpawnpointSettings[i][8] == nil then
-			gmSpawnpointSettings[i][8] = 0;
-		else
-			gmSpawnpointSettings[i][8] = gmSpawnpointSettings[i][8]+1;
-		end
-		if checkValue(intervals) == false then
-			intervals = 1
-		end
-		if gmSpawnpointSettings[i][8] % intervals == 0 then
-			--keeps counter from overflow
-			if checkValue(endurance) == false then
-				gmSpawnpointSettings[i][8] = 0
-			end
-			if #gmMonsters[i]-1 < amount then
-				updateMonsters(gmMonsters,i);
-				mon = world:createMonster(monsterIds[Random.uniform(1,#monsterIds)], position,10);
-				if isValidChar(mon) then
-					table.insert(gmMonsters[i],mon);
-					--does GFX with spawn
-					if checkValue(gfxId) == true then
-						world:gfx(gfxId,position)
-					end
-					--Does SFX with spawn
-					if  checkValue(sfxId) == true then
-						world:makeSound(sfxId,position)
-					end
-				end
-			else
-				updateMonsters(gmMonsters,i);
-			end
-		end
-		--Removes spawnpoint if he reaches the maximum number of cycles
-		if checkValue(endurance) == true then
-			if gmSpawnpointSettings[i][8] >= endurance then
-				table.remove(gmSpawnpointSettings, i)
-				table.remove(gmMonsters, i)
-			end
-		end
-		end
-	end
+    local mon;
+    if gmSpawnpointSettings[1] == nil then
+        return
+    end
+    for i=1, #gmSpawnpointSettings do
+        local monsterIds = gmSpawnpointSettings[i][1];
+        local position = gmSpawnpointSettings[i][2];
+        local amount = gmSpawnpointSettings[i][3];
+        local intervals = gmSpawnpointSettings[i][4];
+        local endurance = gmSpawnpointSettings[i][5];
+        local gfxId = gmSpawnpointSettings[i][6];
+        local sfxId = gmSpawnpointSettings[i][7];
+        local pause = gmSpawnpointSettings[i][9];
+        --sets/checks 8 array pos as counter
+        if checkValue(pause) == false then
+        if gmSpawnpointSettings[i][8] == nil then
+            gmSpawnpointSettings[i][8] = 0;
+        else
+            gmSpawnpointSettings[i][8] = gmSpawnpointSettings[i][8]+1;
+        end
+        if checkValue(intervals) == false then
+            intervals = 1
+        end
+        if gmSpawnpointSettings[i][8] % intervals == 0 then
+            --keeps counter from overflow
+            if checkValue(endurance) == false then
+                gmSpawnpointSettings[i][8] = 0
+            end
+            if #gmMonsters[i]-1 < amount then
+                updateMonsters(gmMonsters,i);
+                mon = world:createMonster(monsterIds[Random.uniform(1,#monsterIds)], position,10);
+                if isValidChar(mon) then
+                    table.insert(gmMonsters[i],mon);
+                    --does GFX with spawn
+                    if checkValue(gfxId) == true then
+                        world:gfx(gfxId,position)
+                    end
+                    --Does SFX with spawn
+                    if  checkValue(sfxId) == true then
+                        world:makeSound(sfxId,position)
+                    end
+                end
+            else
+                updateMonsters(gmMonsters,i);
+            end
+        end
+        --Removes spawnpoint if he reaches the maximum number of cycles
+        if checkValue(endurance) == true then
+            if gmSpawnpointSettings[i][8] >= endurance then
+                table.remove(gmSpawnpointSettings, i)
+                table.remove(gmMonsters, i)
+            end
+        end
+        end
+    end
     if #gmSpawnpointSettings > 0 then
         scheduledFunction.registerFunction(2, function() spawnGM() end)
     end
 end
 
 function checkValue(input)
-	if input == 0 then
-		return false
-	else
-		return true
-	end
+    if input == 0 then
+        return false
+    else
+        return true
+    end
 end
 
 function updateMonsters(array,number)
-	if #array[number] > 1 then
-		for i = #array[number], 2, -1 do
-			local mon = array[number][i];
-			if not isValidChar(mon) then
-				table.remove(array[number], i)
-			end
-		end
-	end
+    if #array[number] > 1 then
+        for i = #array[number], 2, -1 do
+            local mon = array[number][i];
+            if not isValidChar(mon) then
+                table.remove(array[number], i)
+            end
+        end
+    end
 end
 
 return M
