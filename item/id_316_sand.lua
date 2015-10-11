@@ -31,12 +31,14 @@ function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
         world:gfx(45,TargetItem.pos)
         
         -- In case the portal is on a gm set spawnpoint, we remove the spawnpoint
-        local removeCounter = 0
-        for i = 1, #id_382_ceilingtrowel.gmSpawnpointSettings do
-            local position = gmSpawnpointSettings[i - removeCounter][2]
-            if position == TargetItem.pos then
-                table.remove(id_382_ceilingtrowel.gmSpawnpointSettings, i - removeCounter)
-                removeCounter = removecounter + 1
+        if id_382_ceilingtrowel.gmSpawnpointSettings then
+            local removeCounter = 0
+            for i = 1, #id_382_ceilingtrowel.gmSpawnpointSettings do
+                local position = gmSpawnpointSettings[i - removeCounter][2]
+                if position == TargetItem.pos then
+                    table.remove(id_382_ceilingtrowel.gmSpawnpointSettings, i - removeCounter)
+                    removeCounter = removecounter + 1
+                end
             end
         end
     end
