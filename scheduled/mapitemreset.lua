@@ -56,6 +56,7 @@ function M.resetMapitem()
         if (item.id == 12) then
             world:erase(item, 1) --lit fire
             world:createItemFromId(298, 1, pos, true, 333, nil) --unlit fire
+        elseif (item.id ~= 12) then
         end
     end
     unlightFire(position(898, 600, -9))
