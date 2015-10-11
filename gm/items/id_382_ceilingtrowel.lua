@@ -38,6 +38,7 @@ local SPAWNDATAS = {}
 local gmSpawnpointSettings = {}
 local gmMonsters = {}
 local SPAWNDATA = {}
+local removePositions = {}
 
 function M.UseItem(User, SourceItem)
 
@@ -663,7 +664,7 @@ function spawnRemove(User, SourceItem)
 end
 
 function spawnPause(User, SourceItem)
-    
+    debug("table elements in pause: " .. #gmSpawnpointSettings)
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -877,6 +878,7 @@ function specialEggs(User)
 end
 
 function spawnGM()
+
     local mon;
     if gmSpawnpointSettings[1] == nil then
         return
@@ -890,8 +892,15 @@ function spawnGM()
         local gfxId = gmSpawnpointSettings[i][6];
         local sfxId = gmSpawnpointSettings[i][7];
         local pause = gmSpawnpointSettings[i][9];
+        
+        local removed = false -- remove spawnpoints with portals destoyed by sand
+        if removePositions[tostring(position.x) .. " " .. tostring(position.y) .. " " .. tostring(position.z)] then
+            table.remove(gmSpawnpointSettings, i)
+            table.remove(gmMonsters, i)
+            removed = true
+        end
         --sets/checks 8 array pos as counter
-        if checkValue(pause) == false then
+        if checkValue(pause) == false and removed == false then
         if gmSpawnpointSettings[i][8] == nil then
             gmSpawnpointSettings[i][8] = 0;
         else
@@ -932,6 +941,7 @@ function spawnGM()
         end
         end
     end
+    removePositions = {}
     if #gmSpawnpointSettings > 0 then
         scheduledFunction.registerFunction(2, function() spawnGM() end)
     end
@@ -954,6 +964,10 @@ function updateMonsters(array,number)
             end
         end
     end
+end
+
+function M.saveRemovePosition(thePos)
+    removePositions[thePos] = true
 end
 
 return M
