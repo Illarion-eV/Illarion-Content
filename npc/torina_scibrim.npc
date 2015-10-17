@@ -87,18 +87,18 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Zhambra with you.", "Farewe
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 
 -- Player is already citizen
-english, town = Runewick, "become citizen", "gain citizenship" -> "Ehm...you are already a citizen of Runewick. Didn't you know?"
+english, town = Runewick, "become citizen", "gain citizenship" -> "Ehm... you are already a citizen of Runewick. Didn't you know?"
 town = Runewick, "Bürger werden", "Bürgerschaft beantragen" -> "Ehm... Ihr seid schon Bürger in Runewick. Wusstet Ihr das nicht?"
 
 -- Becoming citizen in Runewick
-english, town = Cadomyr, "become citizen", "gain citizenship" -> town = Runewick, "Let me prepare the documents...", "Welcome to Runewick!"
-town = Cadomyr, "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten...", "Willkommen in Runewick!"
-english, town = Galmair, "become citizen", "gain citizenship" -> town = Runewick, "Let me prepare the documents...", "Welcome to Runewick!"
-town = Galmair, "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten...", "Willkommen in Runewick!"
-english, town = None, "become citizen", "gain citizenship" -> town = Runewick, "Let me prepare the documents...", "Welcome to Runewick!"
-town = None, "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten...", "Willkommen in Runewick!"
-english, "become citizen", "gain citizenship" -> town = Runewick, "Let me prepare the documents...", "Welcome to Runewick!"
-"Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten...", "Willkommen in Runewick!"
+english, town = Cadomyr, "become citizen", "gain citizenship" -> town = Runewick, "Let me prepare the documents... Welcome to Runewick! You are now a citizen."
+town = Cadomyr, "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten... Willkommen in Runewick! Ihr seid jetzt ein Mitbürger."
+english, town = Galmair, "become citizen", "gain citizenship" -> town = Runewick, "Let me prepare the documents... Welcome to Runewick! You are now a citizen."
+town = Galmair, "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten... Willkommen in Runewick! Ihr seid jetzt ein Mitbürger."
+english, town = None, "become citizen", "gain citizenship" -> town = Runewick, "Let me prepare the documents... Welcome to Runewick! You are now a citizen."
+town = None, "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten... Willkommen in Runewick! Ihr seid jetzt ein Mitbürger."
+english, "become citizen", "gain citizenship" -> town = Runewick, "Let me prepare the documents... Welcome to Runewick! You are now a citizen."
+"Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten... Willkommen in Runewick! Ihr seid jetzt ein Mitbürger."
 
 -- leaving Runewick (207)
 english, town = Runewick, "give up citizenship", "terminating citizen ship", "leave", "leaving" -> queststatus(207) = 1, "So, you realy want to leave Runewick and live elsewhere? Are you sure?"
