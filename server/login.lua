@@ -111,6 +111,7 @@ messageG[78]="[Tipp] Es ist nicht nötig, den ganzen Tag hart zu arbeiten, um dei
 messageG[79]="[Tipp] Die Steuerungstaste schaltet zwischen Gehen und Laufen um."
 messageG[80]="[Tipp] Je mehr Aktionen du ohne Pause durchführst, desto weniger lernst du von jeder Aktion."
 messageG[81]="[Tipp] Hast du eine Problem mit dem Spiel? Auf der Homepage www.illarion.org sind häufig gestellte Fragen (FAQ) beantwortet."
+messageG[82]="[Tipp] Ein Doppelklick auf einen NPC öffnet eine Liste üblicher Dialogoptionen."
 
 --messageG[XX]="[Tipp] Um die Sprache deines Charakters umzustellen, schreibe '!l' gefolgt von der gewünschten Sprache: Common, Elf, Human, Dwarf, Halfling, Lizard."
 
@@ -197,6 +198,7 @@ messageE[78]="[Hint] It is not necessary to work all day long to raise your skil
 messageE[79]="[Hint] CTRL toggles walking/running."
 messageE[80]="[Hint] The more actions you do over time, the less you learn from each action."
 messageE[81]="[Hint] Got a problem? On the website, you can find frequently asked questions (FAQ) answered."
+messageE[82]="[Hint] Double clicking an NPC opens a list with common dialog options."
 
 --messageE[XX]="[Hint] To switch the language of your character, type '!l' followed by the desired language: Common, Elf, Human, Dwarf, Halfling, Lizard."
 
