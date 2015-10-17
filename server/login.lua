@@ -109,6 +109,9 @@ messageG[76]="[Tipp] Eine Übersicht aller Kommandos kannst du dir mit F1 anzeige
 messageG[77]="[Tipp] Wie schnell deine Fertigkeiten steigen, hängt vor allem davon ab, wie viel Zeit du im Spiel verbringst."
 messageG[78]="[Tipp] Es ist nicht nötig, den ganzen Tag hart zu arbeiten, um deine Fertigkeiten zu steigern. Mach auch mal eine Pause um dich zu unterhalten oder die Welt zu erkunden."
 messageG[79]="[Tipp] Die Steuerungstaste schaltet zwischen Gehen und Laufen um."
+messageG[80]="[Tipp] Je mehr Aktionen du ohne Pause durchführst, desto weniger lernst du von jeder Aktion."
+messageG[81]="[Tipp] Hast du eine Problem mit dem Spiel? Auf der Homepage www.illarion.org sind häufig gestellte Fragen (FAQ) beantwortet."
+
 --messageG[XX]="[Tipp] Um die Sprache deines Charakters umzustellen, schreibe '!l' gefolgt von der gewünschten Sprache: Common, Elf, Human, Dwarf, Halfling, Lizard."
 
 -- English
@@ -192,6 +195,9 @@ messageE[76]="[Hint] To see an overview of all commands, hit F1."
 messageE[77]="[Hint] The speed of skillgain is mainly determined by the time you spend in the game."
 messageE[78]="[Hint] It is not necessary to work all day long to raise your skills. Take a break to chat or explore the world!"
 messageE[79]="[Hint] CTRL toggles walking/running."
+messageE[80]="[Hint] The more actions you do over time, the less you learn from each action."
+messageE[81]="[Hint] Got a problem? On the website, you can find frequently asked questions (FAQ) answered."
+
 --messageE[XX]="[Hint] To switch the language of your character, type '!l' followed by the desired language: Common, Elf, Human, Dwarf, Halfling, Lizard."
 
 -- Messages of the day - END
@@ -311,9 +317,9 @@ function showNewbieDialog(player)
 
             else --continue the tutorial
                 if player:getPlayerLanguage() == 0 then
-                    dialogPostSkip = MessageDialog("Einführung", "Gehe zum Menschen am Ende des Piers um mit dem Tutorial zu beginnen. Klicke mit der linken Maustaste auf ein Feld neben dem Menschen. Alternativ kannst du deinen Charakter auch mit WASD, dem Ziffernblock oder den Pfeiltasten bewegen. Bei gehaltener Steuerungstaste läuft dein Charakter.\n\nEine Übersicht aller Kommandos kannst du dir mit F1 anzeigen lassen.", callbackPostSkip)
+                    dialogPostSkip = MessageDialog("Einführung", "Gehe zum Menschen am Ende des Piers um mit dem Tutorial zu beginnen. Klicke mit der linken Maustaste auf ein Feld neben dem Menschen. Alternativ kannst du deinen Charakter auch mit WASD, dem Ziffernblock oder den Pfeiltasten bewegen. Durch Drücken der Steuerungstaste läuft dein Charakter.\n\nEine Übersicht aller Kommandos kannst du dir mit F1 anzeigen lassen. Auf der Homepage www.illarion.org findest du zudem eine Auflistung häufig gestellter Fragen (FAQ).", callbackPostSkip)
                 else
-                    dialogPostSkip = MessageDialog("Tutorial", "To start the tutorial, please walk to the human at the end of the pier. To move, click with the left mouse button on a spot close to the human. Alternatively, you can walk using the num pad, the arrow keys or WASD. Holding down the control key makes your character run.\n\nTo see an overview of all commands, hit F1.", callbackPostSkip)
+                    dialogPostSkip = MessageDialog("Tutorial", "To start the tutorial, please walk to the human at the end of the pier. To move, click with the left mouse button on a spot close to the human. Alternatively, you can walk using the num pad, the arrow keys or WASD. Pressing the control key makes your character run.\n\nTo see an overview of all commands, hit F1. On the website www.illarion.org, you can find frequently asked question (FAQ) answered.", callbackPostSkip)
                 end
             end
 
