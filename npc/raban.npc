@@ -100,6 +100,10 @@ english, "Ciao", "Adieu", "Au revoir" -> "Ushara may guide your way.", "Farewell
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
+-- foreign quest Alberto Dicker
+queststatus(674) = 2, german, ".+" -> inform("[Die Bilder Alberto Dickers] Gehe zurück nach Runewick und sprich mit Numila Irunnleh."), "Danke, der Erzmagier steht wirklich zu seinem Wort. Sage Numila Irunnleh, dass ich ihm für die Nachricht danke. Und schau dir ruhig den Hahn an. Man könnte meinen er kräht gleich.", queststatus(674) = 3
+queststatus(674) = 2, english, ".+" -> inform("[The pictures Alberto Dickers] Go back to Runewick and talk to Numila Irunnleh."), "Thank you, the Archemage keeps his promise really. Please tell Numila Irunnleh I'm glad about that message. And look to the rooster in the house. You may believe he starts crowing soon.", queststatus(674) = 3
+
 -- 1st quest: Take a tool and gather 10 raw materials for 500cp.
 queststatus(66) = 0, english, "quest", "mission" -> inform("[New quest] Raban's Grove I"), item(126, 1, 399), queststatus(66) = 1, "So, you want to help me and the forest? Here, take this sickle and bring me ten fir tree seedling from the trees around."
 queststatus(66) = 0, "quest", "mission" -> inform("[Neues Quest] Rabans Hain I"), item(126, 1, 399), queststatus(66) = 1, "So, so, du willst mir und dem Wald also helfen? Nimm doch diese Sichel und bringe mir zehn Sprösslinge von den Tannen des Hains."
