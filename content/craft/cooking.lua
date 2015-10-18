@@ -211,10 +211,20 @@ product:addIngredient(2502, 2) -- Step 1: Milk (2502) 2x
 product:addRemnant(2498, 2) -- Remnant: Empty Bottle (2498) 2x
 -------------- CHEESE - DONE ----------------
 
----------------- COOKED STEAK - 3606 ----------------------
+---------------- GRILLED LAMB - 3713 ----------------------
+product = cooking:addProduct(catId, 3713, 5, 25, 6, 12)
+product:addIngredient(2934) -- Step 1: Raw LAMB(2934) 1x
+-------------- GRILLED LAMB - DONE ----------------
+
+---------------- GRILLED VENISON - 3714 ----------------------
+product = cooking:addProduct(catId, 3714, 5, 25, 6, 12)
+product:addIngredient(552) -- Step 1: Raw DEER MEET(552) 1x
+-------------- GRILLED VENISON - DONE ----------------
+
+---------------- GRILLED STEAK - 3606 ----------------------
 product = cooking:addProduct(catId, 3606, 5, 25, 6, 12)
 product:addIngredient(2940) -- Step 1: Raw Steak(2940) 1x
--------------- COOKED STEAK - DONE ----------------
+-------------- GRILLED STEAK - DONE ----------------
 
 ---------------- SAUSAGE - 3051 ----------------------
 product = cooking:addProduct(catId, 3051, 0, 20, 10, 20, 2)

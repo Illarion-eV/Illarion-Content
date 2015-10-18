@@ -20,6 +20,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- pork (307) --> ham (306)
 -- trout (73) --> smoked fish (455)
 -- salmon (355) --> smoked fish (455)
+-- horse mackerel (1209) --> smoked fish (455)
+-- rose fish (1210) --> smoked fish (455)
+-- chicken (1151) --> smoked chicken (3709)
+-- rabit (553) --> smoked rabbit (3710)
+
 
 local common = require("base.common")
 local gathering = require("content.gathering")
@@ -47,31 +52,33 @@ local craftList = {
   CreateCraftItem(CreateItem(73), CreateItem(455)),
   CreateCraftItem(CreateItem(355), CreateItem(455)),
   CreateCraftItem(CreateItem(1209), CreateItem(455)),
+  CreateCraftItem(CreateItem(1151), CreateItem(3709)),
+  CreateCraftItem(CreateItem(553), CreateItem(3710)),
   CreateCraftItem(CreateItem(1210), CreateItem(455))
 };
 
 function StartGathering(User, SourceItem, ltstate)
 
-	gathering.InitGathering();
-	local smokefood = gathering.smokefood;
+    gathering.InitGathering();
+    local smokefood = gathering.smokefood;
 
-	common.ResetInterruption( User, ltstate );
-	if ( ltstate == Action.abort ) then -- work interrupted
+    common.ResetInterruption( User, ltstate );
+    if ( ltstate == Action.abort ) then -- work interrupted
         User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
-		return
-	end
+        return
+    end
 
-	if not common.CheckItem( User, SourceItem ) then -- security check
-		return
-	end
+    if not common.CheckItem( User, SourceItem ) then -- security check
+        return
+    end
 
-	if not common.FitForWork( User ) then -- check minimal food points
-		return
-	end
+    if not common.FitForWork( User ) then -- check minimal food points
+        return
+    end
 
-	common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+    common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 
-	-- any other checks?
+    -- any other checks?
   local craftItem
   for _,entry in pairs(craftList) do
     if (User:countItemAt("all",entry.source.id)>=entry.source.amount) then
@@ -79,36 +86,36 @@ function StartGathering(User, SourceItem, ltstate)
       break;
     end
   end
-	if (craftItem == nil) then -- check for items to work on
-		common.HighInformNLS( User,
-		"Du brauchst Forellen, Lachs oder rohen Schinken um diese zu räuchern.",
-		"You need trouts, salmons or ham for smoking them." );
-		return;
-	end
+    if (craftItem == nil) then -- check for items to work on
+        common.HighInformNLS( User,
+    "Du brauchst Forellen, Lachs oder rohen Schinken um diese zu räuchern.",
+        "You need trouts, salmons or ham for smoking them." );
+        return;
+    end
 
-	if ( ltstate == Action.none ) then -- currently not working -> let's go
-		smokefood.SavedWorkTime[User.id] = smokefood:GenWorkTime(User,nil);
-		User:startAction( smokefood.SavedWorkTime[User.id], 0, 0, 0, 0);
-		User:talk(Character.say, "#me beginnt an der Räucherhütte zu arbeiten.", "#me starts to work at the smoke oven.")
-		return
-	end
+    if ( ltstate == Action.none ) then -- currently not working -> let's go
+        smokefood.SavedWorkTime[User.id] = smokefood:GenWorkTime(User,nil);
+        User:startAction( smokefood.SavedWorkTime[User.id], 0, 0, 0, 0);
+        User:talk(Character.say, "#me beginnt an der Räucherhütte zu arbeiten.", "#me starts to work at the smoke oven.")
+        return
+    end
 
-	-- since we're here, we're working
+    -- since we're here, we're working
 
-	if smokefood:FindRandomItem(User) then
-		return
-	end
+    if smokefood:FindRandomItem(User) then
+        return
+    end
 
-	User:learn( smokefood.LeadSkill, smokefood.SavedWorkTime[User.id], smokefood.LearnLimit);
-	User:eraseItem( craftItem.source.id, craftItem.source.amount ); -- erase the item we're working on
-	local amount = craftItem.product.amount; -- set the amount of items that are produced
-	local notCreated = User:createItem( craftItem.product.id, amount, 333, nil ); -- create the new produced items
-	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-		world:createItemFromId( craftItem.product.id, notCreated, User.pos, true, 333, nil );
-		common.HighInformNLS(User,
-		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
-		"You can't carry any more and the rest drops to the ground.");
-	else -- character can still carry something
+    User:learn( smokefood.LeadSkill, smokefood.SavedWorkTime[User.id], smokefood.LearnLimit);
+    User:eraseItem( craftItem.source.id, craftItem.source.amount ); -- erase the item we're working on
+    local amount = craftItem.product.amount; -- set the amount of items that are produced
+    local notCreated = User:createItem( craftItem.product.id, amount, 333, nil ); -- create the new produced items
+    if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+        world:createItemFromId( craftItem.product.id, notCreated, User.pos, true, 333, nil );
+        common.HighInformNLS(User,
+        "Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+        "You can't carry any more and the rest drops to the ground.");
+    else -- character can still carry something
     craftItem = nil;
     for _,entry in pairs(craftList) do
       if (User:countItemAt("all",entry.source.id)>=entry.source.amount) then
@@ -116,13 +123,13 @@ function StartGathering(User, SourceItem, ltstate)
         break;
       end
     end
-		if (craftItem ~= nil) then  -- there are still items we can work on
-			smokefood.SavedWorkTime[User.id] = smokefood:GenWorkTime(User,nil);
-			User:startAction( smokefood.SavedWorkTime[User.id], 0, 0, 0, 0);
-		else -- no items left
-			common.HighInformNLS(User,
-			"Du brauchst Forellen, Lachs oder rohen Schinken um diese zu räuchern.",
-      "You need trouts, salmons or ham for smoking them." );
-		end
-	end
+        if (craftItem ~= nil) then  -- there are still items we can work on
+            smokefood.SavedWorkTime[User.id] = smokefood:GenWorkTime(User,nil);
+            User:startAction( smokefood.SavedWorkTime[User.id], 0, 0, 0, 0);
+        else -- no items left
+            common.HighInformNLS(User,
+            "Du brauchst Forellen, Lachs oder rohen Schinken um diese zu räuchern.",
+            "You need trouts, salmons or ham for smoking them." );
+        end
+    end
 end

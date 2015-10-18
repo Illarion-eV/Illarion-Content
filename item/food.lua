@@ -111,6 +111,10 @@ FoodList:add(1210,VALUE_LARGE,0,nil,nil,{true,true,true,true,true,false,true,tru
 -- Simple Food
 FoodList:add( 306,VALUE_XLARGE,0); -- ham
 FoodList:add( 455,VALUE_XLARGE,0); -- smoked fish
+FoodList:add( 3709,VALUE_XLARGE,0); -- smoked chicken
+FoodList:add( 3710,VALUE_XLARGE,0); -- smoked rabbit
+FoodList:add( 3713,VALUE_XLARGE,0); -- grilled lamb
+FoodList:add( 3714,VALUE_XLARGE,0); -- grilled venison
 
 -- Crafted Food
 FoodList:add(3051,nil,0,1,{1,1,1,1,2,1,1,0.5,1,1}); -- sausage
