@@ -88,8 +88,8 @@ function StartGathering(User, SourceItem, ltstate)
   end
     if (craftItem == nil) then -- check for items to work on
         common.HighInformNLS( User,
-    "Du brauchst Forellen, Lachs oder rohen Schinken um diese zu räuchern.",
-        "You need trouts, salmons or ham for smoking them." );
+        "Du brauchst Forellen, Lachs,Stachelmakrele, Rotbarsch, Hühnchenfleisch, Hasenfleisch oder Schweinefleisch  um diese zu räuchern.",
+        "You need trouts, salmons, horse mackerel, rose fish, chicken meat, rabbit meat or pork for smoking them." );
         return;
     end
 
@@ -128,8 +128,8 @@ function StartGathering(User, SourceItem, ltstate)
             User:startAction( smokefood.SavedWorkTime[User.id], 0, 0, 0, 0);
         else -- no items left
             common.HighInformNLS(User,
-            "Du brauchst Forellen, Lachs oder rohen Schinken um diese zu räuchern.",
-            "You need trouts, salmons or ham for smoking them." );
+            "Du brauchst Forellen, Lachs,Stachelmakrele, Rotbarsch, Hühnchenfleisch, Hasenfleisch oder Schweinefleisch  um diese zu räuchern.",
+            "You need trouts, salmons, horse mackerel, rose fish, chicken meat, rabbit meat or pork for smoking them." );
         end
     end
 end
