@@ -61,6 +61,30 @@ function M.callEffect(Effect,User)
    return true
 end
 
+local function TransformBack(Effect,User)  
+	local findOldSkincolor1, oldSkincolor1 = Effect:findValue("oldSkincolor1")
+	local findOldSkincolor2, oldSkincolor2 = Effect:findValue("oldSkincolor2")
+	local findOldSkincolor3, oldSkincolor3 = Effect:findValue("oldSkincolor3")
+	local findOldHaircolor1, oldHaircolor1 = Effect:findValue("oldHaircolor1")
+	local findOldHaircolor2, oldHaircolor2 = Effect:findValue("oldHaircolor2")
+	local findOldHaircolor3, oldHaircolor3 = Effect:findValue("oldHaircolor3")
+	local findOldBeard, oldBeard = Effect:findValue("oldBeard")
+	local findOldHair, oldHair = Effect:findValue("oldHair")
+	local findOldSex, oldSex = Effect:findValue("oldSex")
+    local findOldRace, oldRace = Effect:findValue("oldRace")
+	local findOldHeight, oldHeight = Effect:findValue("oldHeight")
+    
+    User:setRace(oldRace)
+    User:setAttrib("body_height",oldHeight) 
+	
+	User:setSkinColour(colour(oldSkincolor1,oldSkincolor2,oldSkincolor3))
+	User:setHairColour(colour(oldHaircolor1,oldHaircolor2,oldHaircolor3))
+	User:setBeard(oldBeard)
+	User:setHair(oldHair)
+	User:setAttrib("sex",oldSex)
+
+ end
+
 function M.removeEffect(Effect,User)         
     TransformBack(Effect,User)
 end
@@ -105,28 +129,6 @@ function M.loadEffect(Effect,User)
    end 
 end 
 
-function TransformBack(Effect,User)  
-	local findOldSkincolor1, oldSkincolor1 = Effect:findValue("oldSkincolor1")
-	local findOldSkincolor2, oldSkincolor2 = Effect:findValue("oldSkincolor2")
-	local findOldSkincolor3, oldSkincolor3 = Effect:findValue("oldSkincolor3")
-	local findOldHaircolor1, oldHaircolor1 = Effect:findValue("oldHaircolor1")
-	local findOldHaircolor2, oldHaircolor2 = Effect:findValue("oldHaircolor2")
-	local findOldHaircolor3, oldHaircolor3 = Effect:findValue("oldHaircolor3")
-	local findOldBeard, oldBeard = Effect:findValue("oldBeard")
-	local findOldHair, oldHair = Effect:findValue("oldHair")
-	local findOldSex, oldSex = Effect:findValue("oldSex")
-	
-	User:setSkinColour(colour(oldSkincolor1,oldSkincolor2,oldSkincolor3))
-	User:setHairColour(colour(oldHaircolor1,oldHaircolor2,oldHaircolor3))
-	User:setBeard(oldBeard)
-	User:setHair(oldHair)
-	User:setAttrib("sex",oldSex)
 
-	local findOldRace, oldRace = Effect:findValue("oldRace")
-	local findOldHeight, oldHeight = Effect:findValue("oldHeight")
-
-	User:setRace(oldRace)
-	User:setAttrib("body_height",oldHeight) 
- end
 return M
 
