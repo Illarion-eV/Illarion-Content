@@ -135,12 +135,12 @@ function M.UseItem(User, SourceItem)
             "The picture begins to glow slightly and one can see that the potion inside the cauldron turns a dark green and an evil skull rises up out of the cauldon.")
         return
     end
-	local pictureno=SourceItem:getData("dickerquest");
-	if tonumber(pictureno) and User:getQuestProgress(674) == 100 then
+	local picturenumber=SourceItem:getData("dickerquest");
+	if tonumber(picturenumber) ~= nil and User:getQuestProgress(674) == 100 then
 		if bit.band (User:getQuestProgress(676),tonumber(picturenumber)) == 0 then
 			User:setQuestProgress(676) = User:getQuestProgress(676) + tonumber(picturenumber)
 			if User:getQuestProgress(676) == 31 then
-				User:setQuestProgress(674) = 105
+				User:setQuestProgress(674, 105)
 				User:inform(
 					"[Die Bilder Alberto Dickers] Du hast alle Bilder Alberto Dickers gefunden. Gehe zurück zu Numila Irunnleh für deine Belohnung.",
 					"[The pictures Alberto Dickers] You found all pictures of Alberto Dicker. Go to Numila Irunnleh and ask for a reward.")
