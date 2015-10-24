@@ -25,6 +25,7 @@ local potionToTeacher = require("triggerfield.potionToTeacher")
 local recipe_creation = require("alchemy.base.recipe_creation")
 local lookat = require("base.lookat")
 local licence = require("base.licence")
+local shipmasterParchments = require("content.shipmasterParchments")
 local M = {}
 
 -- important: do not remove the fourth parameter "checkVar".
@@ -453,6 +454,10 @@ function M.LookAtItem(User, Item)
 
     return lookat.GenerateLookAt(User, Item, lookat.NONE)
 
+end
+
+function M.MoveItemAfterMove(user, sourceItem, targetItem)
+    shipmasterParchments.parchmentWasMoved(sourceItem)
 end
 
 return M
