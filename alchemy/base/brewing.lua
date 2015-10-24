@@ -24,9 +24,20 @@ local herbs = require("alchemy.base.herbs")
 local gemdust = require("alchemy.base.gemdust")
 local transformation_dog = require("alchemy.teaching.transformation_dog")
 local lookat = require("base.lookat")
+local shipmasterParchments = require("content.shipmasterParchments")
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
+    if SourceItem:getData("parchmentMode") == "register" then
+        shipmasterParchments.setParchment(User, SourceItem)
+        return
+    elseif SourceItem:getData("parchmentMode") == "remove" then
+        shipmasterParchments.removeAll(User)
+        return
+    elseif SourceItem:getData("parchmentMode") == "found" then
+        shipmasterParchments.whatWasFound(User)
+        return
+    end
     -- no map items
 	if SourceItem.wear == 255 then
 	    return
