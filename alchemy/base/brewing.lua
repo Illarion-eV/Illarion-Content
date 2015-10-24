@@ -28,13 +28,13 @@ local shipmasterParchments = require("content.shipmasterParchments")
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-    if SourceItem:getData("parchmentMode") == "register" then
+    if SourceItem:getData("parchmentMode") == "register" and User.name == "Teflon" then
         shipmasterParchments.setParchment(User, SourceItem)
         return
-    elseif SourceItem:getData("parchmentMode") == "remove" then
+    elseif SourceItem:getData("parchmentMode") == "remove" and User.name == "Teflon" then
         shipmasterParchments.removeAll(User)
         return
-    elseif SourceItem:getData("parchmentMode") == "found" then
+    elseif SourceItem:getData("parchmentMode") == "found" and User.name == "Teflon" then
         shipmasterParchments.whatWasFound(User)
         return
     end
