@@ -39,24 +39,24 @@ function M.UseItem(User, SourceItem, ltstate)
         return
     end
     -- no map items
-	if SourceItem.wear == 255 then
-	    return
-	end	
-	local isPlant, ignoreIt = alchemy.getPlantSubstance(SourceItem.id, User)
-	local isGemDust = alchemy.CheckIfGemDust(SourceItem.id, User)
-	if isPlant  or SourceItem.id == 157 then
-	    herbs.UseItem(User, SourceItem, ltstate)
-	elseif isGemDust then
-	    gemdust.UseItem(User, SourceItem, ltstate)
-	end
+    if SourceItem.wear == 255 then
+        return
+    end    
+    local isPlant, ignoreIt = alchemy.getPlantSubstance(SourceItem.id, User)
+    local isGemDust = alchemy.CheckIfGemDust(SourceItem.id, User)
+    if isPlant  or SourceItem.id == 157 then
+        herbs.UseItem(User, SourceItem, ltstate)
+    elseif isGemDust then
+        gemdust.UseItem(User, SourceItem, ltstate)
+    end
 end
 
 function M.LookAtItem(User, Item)
 
-	if Item.id == 140 and Item:getData("teachDogTransformationPotion") ~= "" then
-		return transformation_dog.LookAtDonfbladeMap(User, Item)
-	end
-	return lookat.GenerateLookAt(User, Item, lookat.NONE)
+    if Item.id == 140 and Item:getData("teachDogTransformationPotion") ~= "" then
+        return transformation_dog.LookAtDonfbladeMap(User, Item)
+    end
+    return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
 return M
 

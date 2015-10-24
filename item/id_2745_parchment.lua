@@ -300,7 +300,7 @@ function CallBrewFunctionAndDeleteItem(User,deleteItem, deleteId,cauldron)
             -- here, we could need a check if the bucket has no datas
             id_52_filledbucket.FillIn(User, buckets[1], cauldron, true)
 
-        elseif alchemy.CheckIfGemDust(deleteId) then	--gemdust
+        elseif alchemy.CheckIfGemDust(deleteId) then    --gemdust
             gemdust.BrewingGemDust(User,deleteId,cauldron)
             local data = {}
             User:eraseItem(deleteId,1,data)
