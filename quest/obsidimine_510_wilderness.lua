@@ -106,8 +106,8 @@ local Start = {809, 676, 0}
 local QuestTarget = {}
 QuestTarget[1] = {position(809, 676, 0)} -- npc
 QuestTarget[2] = {position(809, 676, 0)} 
-QuestTarget[3] = {position(809, 676, 0), position(805, 632, 0)} -- volcano base
-QuestTarget[4] = {position(809, 676, 0), position(805, 632, 0)} -- volcano base
+QuestTarget[3] = {position(809, 676, 0), position(783, 663, 0)} -- volcano base
+QuestTarget[4] = {position(809, 676, 0), position(783, 663, 0)} -- volcano base
 QuestTarget[5] = {position(809, 676, 0)}  
 QuestTarget[6] = {position(809, 676, 0)}  
 QuestTarget[7] = {position(809, 676, 0), position(826, 643, 2)} -- Upper level of volcano
@@ -146,7 +146,7 @@ monsterQuests.addQuest{
     location = {position = position(805, 632, 0), radius = 50},
     queststatus = {from = 3, to = 5},
     questTitle = {german = "Höhlenforscher II", english = "Spelunker II"},
-    monsterName = {german = "Höllenhund", english = "Hell Hound"},
+    monsterName = {german = "Höllenhunds", english = "Hell Hounds"},
     npcName = "Obsidimine",
     monsterIds = {861, 883} -- bloodsniffer and crippled ghost beast
 }
