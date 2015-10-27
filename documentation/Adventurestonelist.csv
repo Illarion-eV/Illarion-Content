@@ -382,8 +382,8 @@ Stone Number,X if used,Map Name or Area
 381,X,Southwest Surface
 382,X,Southwest Surface
 383,X,Southwest Underground -3
-384,,
-385,,
+384,X,Northeast Underground -3
+385,X,Northeast Underground -3
 386,,
 387,,
 388,,
