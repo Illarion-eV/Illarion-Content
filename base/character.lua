@@ -104,20 +104,20 @@ end;
 -- @param blood Boolean determining if blood is dropped or not
 function M.DeathAfterTime(Character,deathAfter,deathGfx,deathSound,blood)
     local find, myEffect = Character.effects:find(36)
-	if find then
-	    return
-	else
-	    myEffect = LongTimeEffect(36,deathAfter)
-		if deathGfx ~= nil then
-		    myEffect:addValue("deathGfx",deathGfx)
+    if find then
+        return
+    else
+        myEffect = LongTimeEffect(36,deathAfter)
+        if deathGfx ~= nil then
+            myEffect:addValue("deathGfx",deathGfx)
         end
-		if deathSound ~= nil then
-		    myEffect:addValue("deathSound",deathSound)
-		end
-	    if blood then
-			myEffect:addValue("blood",1)
-		end
-		Character.effects:addEffect(myEffect)
+        if deathSound ~= nil then
+            myEffect:addValue("deathSound",deathSound)
+        end
+        if blood then
+            myEffect:addValue("blood",1)
+        end
+        Character.effects:addEffect(myEffect)
     end
 end
 
@@ -125,7 +125,7 @@ end
 -- @param character the character
 -- @return the reference string to the character for the logfile
 function M.LogText(character)
-	return string.format("%s (%u)", character.name, character.id);
+    return string.format("%s (%u)", character.name, character.id);
 end
 
 return M
