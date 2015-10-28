@@ -357,14 +357,14 @@ function leadToCross( Char , Effect )
         Effect:addValue("cycleCounter",1); --Start counting
     end
 
-    if cycleCounter>=(60/TimeFactor) then --One minute is over!
+    if cycleCounter>=(10/TimeFactor) then --(One minute is over!) changing to 10 sec til we get magic and priests to resurrect-- Evie
         world:gfx(31,Char.pos); --GFX, alternatively 16
         world:makeSound(13,Char.pos); --Healing sound
         local factionValues=factions.getFaction(Char); --reading the faction values
         Char:warp(crossPosition[factionValues.tid]); --warp to home cross
         Effect:removeValue("cycleCounter"); --stop counting
         showRespawnDialog(Char)
-    elseif cycleCounter<(60/TimeFactor) then
+    elseif cycleCounter<(10/TimeFactor) then
         Effect:addValue("cycleCounter",cycleCounter+1); --Counting
     end
 end
