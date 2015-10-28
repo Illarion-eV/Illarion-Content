@@ -58,9 +58,9 @@ function M.playerDeath(deadPlayer)
 
     else --valid death
 
-	    common.TalkNLS(deadPlayer, Character.say,"#me stirbt.","#me dies.")
+        common.TalkNLS(deadPlayer, Character.say,"#me stirbt.","#me dies.")
         world:makeSound(25, deadPlayer.pos)
-		showDeathDialog(deadPlayer)
+        showDeathDialog(deadPlayer)
 
         local DURABILITY_LOSS = 10
         local BLOCKED_ITEM = 228
