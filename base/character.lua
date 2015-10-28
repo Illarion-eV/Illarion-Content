@@ -68,6 +68,7 @@ end;
 -- @param User The character to kill
 -- @return true in case the player was killed successfully
 function M.Kill(User)
+    common.TalkNLS(User, Character.say,"#me geht tödlich getroffen zu Boden.","#me goes down, fataly injured.")
     M.ChangeHP(User, -10000);
     return true;
 end;
