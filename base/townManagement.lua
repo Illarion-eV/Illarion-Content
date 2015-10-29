@@ -26,8 +26,8 @@ local M = {}
 M.townManagmentItemPos = {position(116, 527, 0), position(951, 786, 1), position(344, 223, 0)}
 local requiredRank = {8,8,8}
 
-local toolUseNameDE = {"Wache","Lizenz","Schlüssel"}
-local toolUseNameEN = {"Guard","Licence","Key"}
+local toolUseNameDE = {"Verbannung","Lizenz","Schlüssel"}
+local toolUseNameEN = {"Ban a character","Licence","Key"}
 
 
 function M.townManagmentUseItem(User, SourceItem)
@@ -120,7 +120,7 @@ function TownGuard(User,toolTown)
 					end
 				end
 				if not theChar then
-					common.InformNLS(User,"Charakter wurde nicht gefunden.","Character has not been found.")
+					common.InformNLS(User,"Charakter wurde nicht gefunden.","Character was not found.")
 				else
 					local townId = toolTown
 					factions.setIndividualPlayerRelation(theChar, townId, factions.RELATION_HOSTILE, 3);
@@ -133,10 +133,10 @@ function TownGuard(User,toolTown)
 		end
 	end
 	if  User:getPlayerLanguage() == Player.german then
-		local dialog = InputDialog("Charakter, der gebannt werden soll.","Gib an: [Name|ID] Beispiel: Max Mustermann",false,255,callback)
+		local dialog = InputDialog("Charakter bannen","Um einen Charakter einen Zwergentag zu bannen, gib folgendes an: [Name|ID] Beispiel: Max Mustermann",false,255,callback)
 		User:requestInputDialog(dialog)
 	else
-		local dialog = InputDialog("Character that should be banned.","Insert: [Name|ID] Example: John Doe",false,255,callback)
+		local dialog = InputDialog("Ban a character","To ban a character for one dwarven day, please insert: [Name|ID] Example: John Doe",false,255,callback)
 		User:requestInputDialog(dialog)
 	end
 
