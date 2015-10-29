@@ -357,8 +357,8 @@ function leadToCross( Char , Effect )
         Effect:addValue("cycleCounter",1); --Start counting
     end
 
-	respawnTime=10; --10 seconds until we get priests to resurrect (60 seconds is default)
-	
+    respawnTime=10; --10 seconds until we get priests to resurrect (60 seconds is default)
+    
     if cycleCounter>=(respawnTime/TimeFactor) then 
     
         world:gfx(31,Char.pos); --GFX, alternatively 16
