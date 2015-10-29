@@ -358,22 +358,22 @@ function leadToCross( Char , Effect )
     end
 
     if cycleCounter>=(10/TimeFactor) then --10 sec until we get priests to resurrect
-	
+    
         world:gfx(31,Char.pos); --GFX, alternatively 16
         world:makeSound(13,Char.pos); --Healing sound
-		
+        
         local factionValues=factions.getFaction(Char); --reading the faction values
-		local relation = factions.getPlayerRelation(Char, factionValues.tid)
-		
-		if (relation == factions.RELATION_AGGRESSIVE) or (relation == factions.RELATION_HOSTILE) then
+        local relation = factions.getPlayerRelation(Char, factionValues.tid)
+        
+        if (relation == factions.RELATION_AGGRESSIVE) or (relation == factions.RELATION_HOSTILE) then
             Char:warp(crossPosition[0]); --warp to default cross
-		else
-			Char:warp(crossPosition[factionValues.tid]);
-		end
-		
+        else
+            Char:warp(crossPosition[factionValues.tid]);
+        end
+        
         Effect:removeValue("cycleCounter"); --stop counting
         showRespawnDialog(Char)
-		
+        
     elseif cycleCounter<(10/TimeFactor) then
         Effect:addValue("cycleCounter",cycleCounter+1); --Counting
     end
