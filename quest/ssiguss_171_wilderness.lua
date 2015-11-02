@@ -35,7 +35,7 @@ local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Sammeln Sie 20 Klumpen Lehm, 10 Ässte und 10 Bündel Getreide. Dann Ssiguss zurückzukehren."
-Description[ENGLISH][1] = "Collect 20 clay, 10 boughs, and 10 wheat. Then return to Ssiguss."
+Description[ENGLISH][1] = "Collect 20 clay, 10 boughs, and 10 wheat bundles. Then return to Ssiguss."
 Description[GERMAN][2] = "Ssiguss hat mehr Arbeit für Sie."
 Description[ENGLISH][2] = "Check with Ssiguss, he may have another task for you."
 
