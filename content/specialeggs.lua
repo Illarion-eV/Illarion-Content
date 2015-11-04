@@ -260,7 +260,7 @@ itemList = {
 2185 ,--Holzbecher wooden cup
 2456 ,--Pilzsuppe mushroom soup
 2457 ,--Weinglas wine glass
-2459 ,--Fischfilet mit Beilage fish filet dish
+2459 ,--Forellenfilet mit Beilage trout fillet dish
 2656 ,--Feuerbreitschwert fire broadsword
 2365 ,--salkamaersche Offiziersrüstung salkamaerian officer's armour
 2367 ,--albarische Adeligenrüstung albarian noble's armour

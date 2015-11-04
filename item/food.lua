@@ -123,7 +123,7 @@ FoodList:add(3606,nil,0,1,{1,1,1,1,2,1,1,0.5,1,1}); -- cooked steak
 FoodList:add(2456,nil,2935,2,{1,1,1,1,0.5,1,1,1,1,1}); -- mushroom soup
 FoodList:add( 453,nil,0,2,{1,1,2,1,0.5,0.5,1,2,1,1}); -- cookies
 FoodList:add(2923,nil,2935,2,{1,1,1,1,0.5,1,1,1,1,1}); -- onion soup
-FoodList:add(2459,nil,2952,1,{1,1,0.5,1,1,2,1,0.5,1,1}); -- fish filet dish
+FoodList:add(2459,nil,2952,1,{1,1,0.5,1,1,2,1,0.5,1,1}); -- trout fillet dish
 FoodList:add(  49,nil,0,1,{1,1,1,1,1,0.5,1,1,1,1}); -- bread
 FoodList:add(2278,nil,2935,2,{1,1,1,1,0.5,1,1,1,1,1}); -- cabbage stew
 FoodList:add( 556,nil,2952,1,{1,1,0.5,1,1,2,1,0.5,1,1}); -- salmon dish
