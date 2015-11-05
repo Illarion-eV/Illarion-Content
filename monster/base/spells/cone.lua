@@ -41,6 +41,15 @@ local function isCarryingShield(char)
     return isCarryingShieldInSlot(char, Character.right_tool) or isCarryingShieldInSlot(char, Character.left_tool)
 end
 
+local function containsPosition(list, position)
+    for pos, _ in pairs(list) do
+        if pos == position then
+            return true
+        end
+    end
+    return false
+end
+
 return function(params)
     local self = {}
     local damageRange = {1000, 2000}
@@ -278,7 +287,10 @@ return function(params)
                        if field == nil then
                            return false
                        end
-                       coneFields[pos] = true
+                       
+                       if not containsPosition(coneFields, pos) then 
+                           coneFields[pos] = true
+                       end
 
                        if world:isCharacterOnField(pos) then
 
