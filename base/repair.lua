@@ -59,10 +59,10 @@ function M.repairDialog(npcChar, speaker)
         if (not dialog:getSuccess()) then
             return;
         end
-		
+        
         local index = dialog:getSelectedIndex()+1;
         local chosenItem = itemsOnChar[index]
-		
+        
         if chosenItem ~= nil then
             chosenItemUID=chosenItem:getData("uniqueID")
             chosenPos=chosenItem:getData("repairPos")
@@ -109,14 +109,14 @@ function repair(npcChar, speaker, theItem, theItemUID, theItemPos, language)
 
     local theItemStats=world:getItemStats(theItem);
     local found=false;
-			
-	for i=17,0,-1 do
+            
+    for i=17,0,-1 do
         local item = speaker:getItemAt(i);
         if (item.id > 0) and (item.number == 1) and (getRepairPrice(item,speaker) ~= 0) and (item:getData("uniqueID") == theItemUID) and (tonumber(theItemPos) == i) then --check for valid item
             found=true;
         end
     end
-	
+    
     if theItem and found then
         local durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
         local toRepair=99-durability; --the amount of durability points that has to repaired
