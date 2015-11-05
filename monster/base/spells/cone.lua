@@ -281,6 +281,7 @@ return function(params)
                        coneFields[pos] = true
 
                        if world:isCharacterOnField(pos) then
+
                            -- There is a character on this field.
                            local blockingChar = world:getCharacterOnField(pos)
                            if common.IsLookingAt(blockingChar, originPos) then
