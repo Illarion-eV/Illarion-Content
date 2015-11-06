@@ -15,6 +15,9 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Collection of helper functions for the handling of characters
+
+local common = require("base.common")
+
 local M = {}
 
 local HITPOINTS = "hitpoints"
@@ -68,6 +71,7 @@ end;
 -- @param User The character to kill
 -- @return true in case the player was killed successfully
 function M.Kill(User)
+    common.TalkNLS(User, Character.say,"#me geht tödlich getroffen zu Boden.","#me goes down, fatally injured.")
     M.ChangeHP(User, -10000);
     return true;
 end;
@@ -103,20 +107,20 @@ end;
 -- @param blood Boolean determining if blood is dropped or not
 function M.DeathAfterTime(Character,deathAfter,deathGfx,deathSound,blood)
     local find, myEffect = Character.effects:find(36)
-	if find then
-	    return
-	else
-	    myEffect = LongTimeEffect(36,deathAfter)
-		if deathGfx ~= nil then
-		    myEffect:addValue("deathGfx",deathGfx)
+    if find then
+        return
+    else
+        myEffect = LongTimeEffect(36,deathAfter)
+        if deathGfx ~= nil then
+            myEffect:addValue("deathGfx",deathGfx)
         end
-		if deathSound ~= nil then
-		    myEffect:addValue("deathSound",deathSound)
-		end
-	    if blood then
-			myEffect:addValue("blood",1)
-		end
-		Character.effects:addEffect(myEffect)
+        if deathSound ~= nil then
+            myEffect:addValue("deathSound",deathSound)
+        end
+        if blood then
+            myEffect:addValue("blood",1)
+        end
+        Character.effects:addEffect(myEffect)
     end
 end
 
@@ -124,7 +128,7 @@ end
 -- @param character the character
 -- @return the reference string to the character for the logfile
 function M.LogText(character)
-	return string.format("%s (%u)", character.name, character.id);
+    return string.format("%s (%u)", character.name, character.id);
 end
 
 return M

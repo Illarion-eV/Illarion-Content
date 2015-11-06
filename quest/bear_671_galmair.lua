@@ -54,8 +54,8 @@ Description[ENGLISH][8] = "Take one sausage and a loaf of bread to the bear."
 Description[GERMAN][9] = "Vielleicht solltest du Grijas Kokotte nochmal ansprechen, er hat sicher noch mehr für dich zu tun."
 Description[ENGLISH][9] = "Perhaps you should talk to Grijas Kokotte again, he is sure to have more for you to do."
 -- Quest 4
-Description[GERMAN][10] = "Bring 15 Brötchen, 10 Zwiebelsuppen, 10 Fischgerichte und 2 Apfelkuchen zu Grijas Kokotte."
-Description[ENGLISH][10] = "Take fifteen bread rolls, ten bowls of onion soup, ten fish dishes and two apple pies to Grijas Kokotte"
+Description[GERMAN][10] = "Bring 15 Brötchen, 10 Zwiebelsuppen, 10 Forellenfilet mit Beilage und 2 Apfelkuchen zu Grijas Kokotte."
+Description[ENGLISH][10] = "Take fifteen bread rolls, ten bowls of onion soup, ten trout fillet dishes and two apple pies to Grijas Kokotte"
 Description[GERMAN][11] = "Bring 1 Apfelkuchen zum Bären."
 Description[ENGLISH][11] = "Take an apple pie to the bear."
 -- Quest 5 - repeated

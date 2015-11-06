@@ -260,7 +260,7 @@ itemList = {
 2185 ,--Holzbecher wooden cup
 2456 ,--Pilzsuppe mushroom soup
 2457 ,--Weinglas wine glass
-2459 ,--Fischfilet mit Beilage fish filet dish
+2459 ,--Forellenfilet mit Beilage trout fillet dish
 2656 ,--Feuerbreitschwert fire broadsword
 2365 ,--salkamaersche Offiziersrüstung salkamaerian officer's armour
 2367 ,--albarische Adeligenrüstung albarian noble's armour
@@ -685,32 +685,32 @@ eggIds = {
 
 function M.createSpecialEgg(user, amount)
 
-	user:createItem(eggIds[Random.uniform(1,#eggIds)],amount,333,{nameDe="Buntes Ei",nameEn="Coloured Egg",descriptionDe="Das Ei ist mir verschiedenen bunten Verzierungen versehen worden.",descriptionEn="There are various colourful decorations on the egg.",rareness=ItemLookAt.uncommonItem,specialEgg="true"})
+    user:createItem(eggIds[Random.uniform(1,#eggIds)],amount,333,{nameDe="Buntes Ei",nameEn="Coloured Egg",descriptionDe="Das Ei ist mir verschiedenen bunten Verzierungen versehen worden.",descriptionEn="There are various colourful decorations on the egg.",rareness=ItemLookAt.uncommonItem,specialEgg="true"})
 
 end
 
 function M.checkSpecialEgg(theItem, user)
 
-	if theItem:getData("specialEgg") == "true" then
-		openSpecialEgg(theItem, user)
-		return true
-	end
-	
+    if theItem:getData("specialEgg") == "true" then
+        openSpecialEgg(theItem, user)
+        return true
+    end
+    
 end
 
 function openSpecialEgg(egg, user)
 
-	user:talk(Character.say, "#me öffnet ein bunt bemaltes Ei.","#me opens a colourfully painted egg.")
-	world:erase(egg,1)
-	local itemId = itemList[Random.uniform(1,#itemList)]
-	local itemQuality = Random.uniform(111,999)
-	user:inform("Als du das Ei öffnest, findest du etwas: "..world:getItemName(itemId,Player.german), "You find something in the open egg: "..world:getItemName(itemId,Player.english),Player.mediumPriority)
-	local notCreated = user:createItem(itemId,1,itemQuality,nil)
-	if notCreated > 0 then
-		user:inform("Du kannst nichts mehr halten und der Gegenstand fällt zu Boden", "You can't carry any more and the object drops to the ground.")
-		world:createItemFromId(itemId,1,user.pos,true,itemQuality,nil)
-	end
-	world:gfx(gfxList[Random.uniform(1,#gfxList)],user.pos)
+    user:talk(Character.say, "#me öffnet ein bunt bemaltes Ei.","#me opens a colourfully painted egg.")
+    world:erase(egg,1)
+    local itemId = itemList[Random.uniform(1,#itemList)]
+    local itemQuality = Random.uniform(111,999)
+    user:inform("Als du das Ei öffnest, findest du etwas: "..world:getItemName(itemId,Player.german), "You find something in the open egg: "..world:getItemName(itemId,Player.english),Player.mediumPriority)
+    local notCreated = user:createItem(itemId,1,itemQuality,nil)
+    if notCreated > 0 then
+        user:inform("Du kannst nichts mehr halten und der Gegenstand fällt zu Boden", "You can't carry any more and the object drops to the ground.")
+        world:createItemFromId(itemId,1,user.pos,true,itemQuality,nil)
+    end
+    world:gfx(gfxList[Random.uniform(1,#gfxList)],user.pos)
 end
 
 return M

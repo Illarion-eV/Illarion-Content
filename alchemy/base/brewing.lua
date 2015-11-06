@@ -24,28 +24,39 @@ local herbs = require("alchemy.base.herbs")
 local gemdust = require("alchemy.base.gemdust")
 local transformation_dog = require("alchemy.teaching.transformation_dog")
 local lookat = require("base.lookat")
+local shipmasterParchments = require("content.shipmasterParchments")
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
+    if SourceItem:getData("parchmentMode") == "register" and User.name == "Teflon" then
+        shipmasterParchments.setParchment(User, SourceItem)
+        return
+    elseif SourceItem:getData("parchmentMode") == "remove" and User.name == "Teflon" then
+        shipmasterParchments.removeAll(User)
+        return
+    elseif SourceItem:getData("parchmentMode") == "found" and User.name == "Teflon" then
+        shipmasterParchments.whatWasFound(User)
+        return
+    end
     -- no map items
-	if SourceItem.wear == 255 then
-	    return
-	end	
-	local isPlant, ignoreIt = alchemy.getPlantSubstance(SourceItem.id, User)
-	local isGemDust = alchemy.CheckIfGemDust(SourceItem.id, User)
-	if isPlant  or SourceItem.id == 157 then
-	    herbs.UseItem(User, SourceItem, ltstate)
-	elseif isGemDust then
-	    gemdust.UseItem(User, SourceItem, ltstate)
-	end
+    if SourceItem.wear == 255 then
+        return
+    end    
+    local isPlant, ignoreIt = alchemy.getPlantSubstance(SourceItem.id, User)
+    local isGemDust = alchemy.CheckIfGemDust(SourceItem.id, User)
+    if isPlant  or SourceItem.id == 157 then
+        herbs.UseItem(User, SourceItem, ltstate)
+    elseif isGemDust then
+        gemdust.UseItem(User, SourceItem, ltstate)
+    end
 end
 
 function M.LookAtItem(User, Item)
 
-	if Item.id == 140 and Item:getData("teachDogTransformationPotion") ~= "" then
-		return transformation_dog.LookAtDonfbladeMap(User, Item)
-	end
-	return lookat.GenerateLookAt(User, Item, lookat.NONE)
+    if Item.id == 140 and Item:getData("teachDogTransformationPotion") ~= "" then
+        return transformation_dog.LookAtDonfbladeMap(User, Item)
+    end
+    return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
 return M
 

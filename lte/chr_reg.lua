@@ -357,14 +357,26 @@ function leadToCross( Char , Effect )
         Effect:addValue("cycleCounter",1); --Start counting
     end
 
-    if cycleCounter>=(60/TimeFactor) then --One minute is over!
+    respawnTime=10; --10 seconds until we get priests to resurrect (60 seconds is default)
+    
+    if cycleCounter>=(respawnTime/TimeFactor) then 
+    
         world:gfx(31,Char.pos); --GFX, alternatively 16
         world:makeSound(13,Char.pos); --Healing sound
+        
         local factionValues=factions.getFaction(Char); --reading the faction values
-        Char:warp(crossPosition[factionValues.tid]); --warp to home cross
+        local relation = factions.getPlayerRelation(Char, factionValues.tid)
+        
+        if (relation == factions.RELATION_AGGRESSIVE) or (relation == factions.RELATION_HOSTILE) then --Character is banned from his home town
+            Char:warp(crossPosition[0]); --warp to default cross
+        else
+            Char:warp(crossPosition[factionValues.tid]); --warp to home cross
+        end
+        
         Effect:removeValue("cycleCounter"); --stop counting
         showRespawnDialog(Char)
-    elseif cycleCounter<(60/TimeFactor) then
+        
+    elseif cycleCounter<(respawnTime/TimeFactor) then
         Effect:addValue("cycleCounter",cycleCounter+1); --Counting
     end
 end

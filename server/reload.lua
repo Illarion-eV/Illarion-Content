@@ -23,6 +23,7 @@ local areas = require("content.areas")
 local lever = require("item.lever")
 local granorsHut = require("content.granorsHut")
 local oldSlimeFeeding = require("content.oldSlimeFeeding")
+local shipmasterParchments = require("content.shipmasterParchments")
 
 local M = {}
 
@@ -33,6 +34,7 @@ function M.onReload()
     areas.Init()
     lever.init()
     granorsHut.potionReplacer()
+    shipmasterParchments.checkParchments()
 
     return true
 end

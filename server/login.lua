@@ -41,7 +41,7 @@ messageG[8]="[Tipp] Brágon ist der Gott des Feuers."
 messageG[9]="[Tipp] Eldan ist der Gott des Geistes."
 messageG[10]="[Tipp] Findari ist die Göttin der Luft."
 messageG[11]="[Tipp] Tanora/Zelphia ist die Göttin des Wassers."
-messageG[12]="[Tipp] Ushara ist die Göttin der Erde ."
+messageG[12]="[Tipp] Ushara ist die Göttin der Erde."
 messageG[13]="[Tipp] Adron ist der Gott des Weines und der Feste."
 messageG[14]="[Tipp] Cherga ist die Göttin der Geister und der Unterwelt."
 messageG[15]="[Tipp] Elara ist die Göttin des Wissens und der Weisheit."
@@ -58,11 +58,12 @@ messageG[25]="[Tipp] Runewick ist das Reich der Weisheit."
 messageG[26]="[Tipp] Galmair ist das Reich des Reichtums."
 messageG[27]="[Tipp] Manchen Monstern sollte man lieber nicht alleine begegnen."
 messageG[28]="[Tipp] Gegenstände von geringer Haltbarkeit drohen zu zerbrechen. Ein Fachmann kann sie ausbessern."
-messageG[29]="[Tipp] Fernwaffen werden nicht umsonst so genannt: stark auf Distanz nutzlos im Nahkampf."
-messageG[30]="[Tipp] Hiebwaffen sind gut gegen leichte Rüstungen, aber schlecht gegen mittlere Rüstungen."
-messageG[31]="[Tipp] Stichwaffen sind gut gegen mittlere Rüstungen, aber schlecht gegen schwere Rüstungen."
-messageG[32]="[Tipp] Stumpfe Waffen sind gut gegen schwere Rüstungen, aber schlecht gegen leichte Rüstungen."
+messageG[29]="[Tipp] Fernwaffen werden nicht umsonst so genannt: Stark auf Distanz, nutzlos im Nahkampf."
+messageG[30]="[Tipp] Hiebwaffen sind gut gegen leichte Lederrüstungen, aber schlecht gegen mittlere Rüstungen aus Schuppen und Ketten."
+messageG[31]="[Tipp] Stichwaffen sind gut gegen mittlere Rüstungen aus Schuppen und Ketten, aber schlecht gegen schwere Plattenrüstungen."
+messageG[32]="[Tipp] Stumpfe Waffen sind gut gegen schwere Plattenrüstungen, aber schlecht gegen leichte Lederrüstungen."
 messageG[33]="[Tipp] Ein Silberstück entspricht einhundert Kupferstücken. Einhundert Silberstücke entsprechen einem Goldstück."
+--These hints need to be updated with Milestone II
 messageG[34]="[Tipp] Die besten Alchemisten leben in Runewick."
 messageG[35]="[Tipp] Die besten Kerzenzieher leben in Runewick."
 messageG[36]="[Tipp] Die besten Schreiner leben in Runewick."
@@ -77,9 +78,10 @@ messageG[44]="[Tipp] Die besten Bergarbeiter leben in Galmair."
 messageG[45]="[Tipp] Die besten Brauer leben in Galmair."
 messageG[46]="[Tipp] Die besten Fischer leben in Runewick."
 messageG[47]="[Tipp] Die besten Glasbläser leben in Cadomyr."
-messageG[48]="[Tipp] Die besten Sandgräber leben in Cadomyr."
+messageG[48]="[Tipp] Die besten Gräber leben in Cadomyr."
 messageG[49]="[Tipp] Die besten Kunstschmiede leben in Cadomyr."
 messageG[50]="[Tipp] Die besten Edelsteinschleifer leben in Cadomyr."
+--End of hints that require an update
 messageG[51]="[Tipp] Jedes Reich ist auf bestimmte Handwerke spezialisiert. Wenn es das, was du benötigst, nicht auf dem örtlichen Markt gibt, wirst du wohl reisen müssen."
 messageG[52]="[Tipp] Wenn du Probleme bei der Kommunikation mit einem NPC hast, sage 'Hilfe' um eine Liste der Schlüsselwörter aufzurufen."
 messageG[53]="[Tipp] Obstbäume haben schon so manchen hungrigen Abenteurer gerettet. Allerdings ist ein schmackhafteres Mahl stets vorzuziehen."
@@ -95,7 +97,7 @@ messageG[62]="[Tipp] Wenn du auf Reisen gehst, nimm stets Proviant mit. Deine Le
 messageG[63]="[Tipp] Die meisten NPCs reagieren auf 'Hilfe' mit der Ausgabe einer Liste ihrer wichtigsten Schlüsselwörter."
 messageG[64]="[Tipp] Die Fertigkeiten deines Charakters kannst du aufrufen, indem du 'C' drückst."
 messageG[65]="[Tipp] Ein Stapel von Gegenständen läßt sich durch Halten der Shift-Taste beim Bewegen auflösen."
-messageG[66]="[Tipp] Hast du dir schon Gedanken zum Hintergrund und zur Vergangenheit deines Charakters gemnacht? Die Illarion-Homepage enthält eine Menge nützliche Informationen über Rassen, Götter und die Geschichte Illarions."
+messageG[66]="[Tipp] Hast du dir schon Gedanken zum Hintergrund und zur Vergangenheit deines Charakters gemnacht? Die Homepage www.illarion.org enthält eine Menge nützliche Informationen über Rassen, Götter und die Geschichte Illarions."
 messageG[67]="[Tipp] Sollte dein Charakter Hunger bekommen, so pflücke ein paar Früchte indem du einen Obstbaum benutzt. Früchte werden gegessen, indem man sie benutzt."
 messageG[68]="[Tipp] Brauchst du Hilfe? Schreibe '!gm Deine Frage' und drücke Return. Sobald ein Gamemaster verfügbar ist wird er dir helfen."
 messageG[69]="[Tipp] Um laut zu rufen, schreibe #s vor deine Nachricht. Um zu flüstern, verwende #w. Für den 'Out-of-character'-Modus verwendest du #o."
@@ -109,6 +111,10 @@ messageG[76]="[Tipp] Eine Übersicht aller Kommandos kannst du dir mit F1 anzeige
 messageG[77]="[Tipp] Wie schnell deine Fertigkeiten steigen, hängt vor allem davon ab, wie viel Zeit du im Spiel verbringst."
 messageG[78]="[Tipp] Es ist nicht nötig, den ganzen Tag hart zu arbeiten, um deine Fertigkeiten zu steigern. Mach auch mal eine Pause um dich zu unterhalten oder die Welt zu erkunden."
 messageG[79]="[Tipp] Die Steuerungstaste schaltet zwischen Gehen und Laufen um."
+messageG[80]="[Tipp] Je mehr Aktionen du ohne Pause durchführst, desto weniger lernst du von jeder Aktion."
+messageG[81]="[Tipp] Hast du eine Problem mit dem Spiel? Auf der Homepage www.illarion.org sind häufig gestellte Fragen (FAQ) beantwortet."
+messageG[82]="[Tipp] Ein Doppelklick auf einen NPC öffnet eine Liste üblicher Dialogoptionen."
+
 --messageG[XX]="[Tipp] Um die Sprache deines Charakters umzustellen, schreibe '!l' gefolgt von der gewünschten Sprache: Common, Elf, Human, Dwarf, Halfling, Lizard."
 
 -- English
@@ -141,11 +147,12 @@ messageE[25]="[Hint] Runewick is the realm of wisdom."
 messageE[26]="[Hint] Galmair is the realm of wealth."
 messageE[27]="[Hint] There are some monsters which you should avoid while adventuring alone."
 messageE[28]="[Hint] Items of low durability might break any time. A specialist can repair them."
-messageE[29]="[Hint] Ranged weapons have their name for a reason they are useful for distant targets, but useless in a melee."
-messageE[30]="[Hint] Slashing weapons are good against light armour but bad against medium armour."
-messageE[31]="[Hint] Stabbing weapons are good against medium armour but bad against heavy armour."
-messageE[32]="[Hint] Blunt weapons are good against heavy armour but bad against light armour."
+messageE[29]="[Hint] Ranged weapons have their name for a reason: They are useful for distant targets, but useless in a melee."
+messageE[30]="[Hint] Slashing weapons are good against light leather armour but bad against medium chain and scale armour."
+messageE[31]="[Hint] Stabbing weapons are good against medium chain and scale armour but bad against heavy plate armour."
+messageE[32]="[Hint] Blunt weapons are good against heavy plate armour but bad against light leather armour."
 messageE[33]="[Hint] A single silver coin equals a hundred copper coins. One hundred silver coins equal one gold coin."
+--These hints need to be updated with Milestone II
 messageE[34]="[Hint] The best alchemists are living in Runewick."
 messageE[35]="[Hint] The best candle makers are living in Runewick."
 messageE[36]="[Hint] The best carpenters are living in Runewick."
@@ -160,9 +167,10 @@ messageE[44]="[Hint] The best miners are living in Galmair."
 messageE[45]="[Hint] The best brewers are living in Galmair."
 messageE[46]="[Hint] The best fishers are living in Runewick."
 messageE[47]="[Hint] The best glass blowers are living in Cadomyr."
-messageE[48]="[Hint] The best sand diggers are living in Cadomyr."
+messageE[48]="[Hint] The best diggers are living in Cadomyr."
 messageE[49]="[Hint] The best finesmiths are living in Cadomyr."
 messageE[50]="[Hint] The best gem grinders are living in Cadomyr."
+--End of hints that require an update
 messageE[51]="[Hint] Each realm specialises in certain crafts. If you can't find what you are looking for in your home market, you may need to travel abroad."
 messageE[52]="[Hint] If you ever get stuck while communicating with an NPC, the 'help' command will provide you with a list of useful topics."
 messageE[53]="[Hint] Fruit trees have saved the lives of countless starving travellers. You will soon find yourself needing a more filling meal, though."
@@ -170,7 +178,7 @@ messageE[54]="[Hint] There are many ways to move your character around in Illari
 messageE[55]="[Hint] Asking an NPC whether they have a 'quest' for you to carry out can be a good way to earn a quick coin or two."
 messageE[56]="[Hint] Don't be afraid to ask the other players around you for help if you encounter difficulties. But make sure to remain respectful and to use OOC chat (#o), where appropriate."
 messageE[57]="[Hint] If you want to introduce your character to other players, type #i in the chatbox and hit return. The other players will then be able to see your character's name."
-messageE[58]="[Hint] The Illarion chat is linked on the homepage. It is useful for technical assistance and for simply getting to know your fellow players."
+messageE[58]="[Hint] The Illarion chat is linked on the website www.illarion.org. It is useful for technical assistance and for simply getting to know your fellow players."
 messageE[59]="[Hint] Fullscreen mode can be activated in the options menu when the client is started."
 messageE[60]="[Hint] You will receive a notification when a new player chooses to join your realm. Give them a friendly welcome!"
 messageE[61]="[Hint] In order to donate something to your realm's treasury, just place the item on the donation square close to your leader."
@@ -178,7 +186,7 @@ messageE[62]="[Hint] If you go on a journey, always have some rations with you. 
 messageE[63]="[Hint] Most NPCs react on 'help' with a list of their most important keywords."
 messageE[64]="[Hint] You can review the skills of your character by hitting 'C'."
 messageE[65]="[Hint] To split a stack of items, hold shift while moving it."
-messageE[66]="[Hint] Did you already think about the background and past of your character? The illarion.org homepage contains a lot of information on the races, the gods, and the lore of Illarion."
+messageE[66]="[Hint] Did you already think about the background and past of your character? The website www.illarion.org contains a lot of information on the races, the gods, and the lore of Illarion."
 messageE[67]="[Hint] If your character ever gets hungry, just harvest some fruits by using a fruit tree. You can then eat the fruits by using them."
 messageE[68]="[Hint] Do you need help? Type '!gm <your question>' and hit enter. As soon as a Gamemaster is available, they will assist you."
 messageE[69]="[Hint] To shout, type #s in front of your message. To whisper, use #w. And use #o for the out of character mode."
@@ -192,6 +200,10 @@ messageE[76]="[Hint] To see an overview of all commands, hit F1."
 messageE[77]="[Hint] The speed of skillgain is mainly determined by the time you spend in the game."
 messageE[78]="[Hint] It is not necessary to work all day long to raise your skills. Take a break to chat or explore the world!"
 messageE[79]="[Hint] CTRL toggles walking/running."
+messageE[80]="[Hint] The more actions you do over time, the less you learn from each action."
+messageE[81]="[Hint] Got a problem? On the website, you can find frequently asked questions (FAQ) answered."
+messageE[82]="[Hint] Double clicking an NPC opens a list with common dialog options."
+
 --messageE[XX]="[Hint] To switch the language of your character, type '!l' followed by the desired language: Common, Elf, Human, Dwarf, Halfling, Lizard."
 
 -- Messages of the day - END
@@ -311,9 +323,9 @@ function showNewbieDialog(player)
 
             else --continue the tutorial
                 if player:getPlayerLanguage() == 0 then
-                    dialogPostSkip = MessageDialog("Einführung", "Gehe zum Menschen am Ende des Piers um mit dem Tutorial zu beginnen. Klicke mit der linken Maustaste auf ein Feld neben dem Menschen. Alternativ kannst du deinen Charakter auch mit WASD, dem Ziffernblock oder den Pfeiltasten bewegen. Bei gehaltener Steuerungstaste läuft dein Charakter.\n\nEine Übersicht aller Kommandos kannst du dir mit F1 anzeigen lassen.", callbackPostSkip)
+                    dialogPostSkip = MessageDialog("Einführung", "Gehe zum Menschen am Ende des Piers um mit dem Tutorial zu beginnen. Klicke mit der linken Maustaste auf ein Feld neben dem Menschen. Alternativ kannst du deinen Charakter auch mit WASD, dem Ziffernblock oder den Pfeiltasten bewegen. Durch Drücken der Steuerungstaste läuft dein Charakter.\n\nEine Übersicht aller Kommandos kannst du dir mit F1 anzeigen lassen. Auf der Homepage www.illarion.org findest du zudem eine Auflistung häufig gestellter Fragen (FAQ).", callbackPostSkip)
                 else
-                    dialogPostSkip = MessageDialog("Tutorial", "To start the tutorial, please walk to the human at the end of the pier. To move, click with the left mouse button on a spot close to the human. Alternatively, you can walk using the num pad, the arrow keys or WASD. Holding down the control key makes your character run.\n\nTo see an overview of all commands, hit F1.", callbackPostSkip)
+                    dialogPostSkip = MessageDialog("Tutorial", "To start the tutorial, please walk to the human at the end of the pier. To move, click with the left mouse button on a spot close to the human. Alternatively, you can walk using the num pad, the arrow keys or WASD. Pressing the control key makes your character run.\n\nTo see an overview of all commands, hit F1. On the website www.illarion.org, you can find frequently asked question (FAQ) answered.", callbackPostSkip)
                 end
             end
 

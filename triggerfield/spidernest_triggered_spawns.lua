@@ -160,6 +160,11 @@ function M.MoveToField(User)
         -- skip if already tripped in the last 5 minutes
         if (world:isItemOnField(User.pos) == true) then
             local skele = world:getItemOnField(User.pos)
+            
+            if skele.id ~= 2937 then
+                return
+            end
+            
             local serverTime = world:getTime("unix")
             local trippingTime = skele:getData("tripping_time")
 
@@ -169,6 +174,8 @@ function M.MoveToField(User)
             -- safe tripping time
             skele:setData("tripping_time", serverTime)
             world:changeItem(skele)
+        else
+            return
         end
 
         if theWaypoint >= 1 and theWaypoint <= 21 then -- small spider swarm

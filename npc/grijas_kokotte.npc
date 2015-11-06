@@ -172,22 +172,22 @@ queststatus(671) = 7, item(3051, all) < 5, english, ".+" -> "Arr, there are stil
 queststatus(671) = 7, item(3051, all) < 5, ".+" -> " Arr, da fehlt aber noch was. Ick wollte zehn Tomaten, zehn Säckchen Mehl, fünf frische Würstchen und vier gut gebackene Brote, aye!"
 
 -- 4th quest
--- "Bring 15 Brötchen, 10 Zwiebelsuppen, 10 Fischgerichte und 2 Apfelkuchen zu Grijas Kokotte."
--- "Bring 15 bread rolls, 10 onion soup, 10 fish dishes and 2 apple cakes to Grijas Kokotte"
-queststatus(671) = 9, english, town = Galmair, "quest", "mission", "mission", "task", "adventure" -> queststatus(671) = 10, "Arr, you are looking for some work? Aye, I can help you with that! I need fifteen bread rolls, ten bowls of onion soup, ten fish dishes and two apple pies."
-queststatus(671) = 9, town = Galmair, "quest", "Auftrag", "Aufgabe", "Abenteuer", "task", "adventure" -> queststatus(671) = 10, "Arr, du willst ne Aufgabe? Aye, damit kann ich helfen! Ick brauche 15 Brötchen, zehn Zwiebelsuppen, zehn Fischgerichte und zwei Apfelkuchen."
+-- "Bring 15 Brötchen, 10 Zwiebelsuppen, 10 Forellenfilet mit Beilage und 2 Apfelkuchen zu Grijas Kokotte."
+-- "Bring 15 bread rolls, 10 onion soup, 10 trout fillet dishes and 2 apple cakes to Grijas Kokotte"
+queststatus(671) = 9, english, town = Galmair, "quest", "mission", "mission", "task", "adventure" -> queststatus(671) = 10, "Arr, you are looking for some work? Aye, I can help you with that! I need fifteen bread rolls, ten bowls of onion soup, ten trout fillet dishes and two apple pies."
+queststatus(671) = 9, town = Galmair, "quest", "Auftrag", "Aufgabe", "Abenteuer", "task", "adventure" -> queststatus(671) = 10, "Arr, du willst ne Aufgabe? Aye, damit kann ich helfen! Ick brauche 15 Brötchen, zehn Zwiebelsuppen, zehn Forellenfilet mit Beilage und zwei Apfelkuchen."
 
 -- return
 queststatus(671) = 10, item(191, all) > 14, item(2923, all) > 9, item(2459, all) > 9, item(353, all) > 1, english, town = Galmair, ".+" -> inform("[Bear Quest continues!]"), deleteItem(191, 15), deleteItem(2923, 10), deleteItem(2459, 10), deleteItem(353, 1), queststatus(671) = 11, "Well done, thank you very much! And one pie you should feed the bear."
 queststatus(671) = 10, item(191, all) > 14, item(2923, all) > 9, item(2459, all) > 9, item(353, all) > 1, town = Galmair, ".+" -> inform("[Bären Quest geht weiter!]"), deleteItem(191, 15), deleteItem(2923, 10), deleteItem(2459, 10), deleteItem(353, 1), queststatus(671) = 11, "Sehr gut gemacht, ich wusste, man kann sich auf dich verlassen. Und einen Kuchen lassen wir für den Bären."
-queststatus(671) = 10, item(191, all) < 15, english, ".+" -> "You were supposed to bring me fifteen bread rolls, ten bowls of onion soup, ten fish dishes and two apple pies."
-queststatus(671) = 10, item(191, all) < 15, ".+" -> "Die Sachen die du mir bringen solltest waren 15 Brötchen, zehn Zwiebelsuppen, zehn Fischgerichte und zwei Apfelkuchen."
-queststatus(671) = 10, item(2923, all) < 10, english, ".+" -> "You were supposed to bring me fifteen bread rolls, ten bowls of onion soup, ten fish dishes and two apple pies."
-queststatus(671) = 10, item(2923, all) < 10, ".+" -> "Die Sachen die du mir bringen solltest waren 15 Brötchen, zehn Zwiebelsuppen, zehn Fischgerichte und zwei Apfelkuchen."
-queststatus(671) = 10, item(2459, all) < 10, english, ".+" -> "You were supposed to bring me fifteen bread rolls, ten bowls of onion soup, ten fish dishes and two apple pies."
-queststatus(671) = 10, item(2459, all) < 10, ".+" -> "Die Sachen die du mir bringen solltest waren 15 Brötchen, zehn Zwiebelsuppen, zehn Fischgerichte und zwei Apfelkuchen."
-queststatus(671) = 10, item(353, all) < 2, english, ".+" -> "You were supposed to bring me fifteen bread rolls, ten bowls of onion soup, ten fish dishes and two apple pies."
-queststatus(671) = 10, item(353, all) < 2, ".+" -> "Die Sachen die du mir bringen solltest waren 15 Brötchen, zehn Zwiebelsuppen, zehn Fischgerichte und zwei Apfelkuchen."
+queststatus(671) = 10, item(191, all) < 15, english, ".+" -> "You were supposed to bring me fifteen bread rolls, ten bowls of onion soup, ten trout fillet dishes and two apple pies."
+queststatus(671) = 10, item(191, all) < 15, ".+" -> "Die Sachen die du mir bringen solltest waren 15 Brötchen, zehn Zwiebelsuppen, zehn Forellenfilet mit Beilage und zwei Apfelkuchen."
+queststatus(671) = 10, item(2923, all) < 10, english, ".+" -> "You were supposed to bring me fifteen bread rolls, ten bowls of onion soup, ten trout fillet dishes and two apple pies."
+queststatus(671) = 10, item(2923, all) < 10, ".+" -> "Die Sachen die du mir bringen solltest waren 15 Brötchen, zehn Zwiebelsuppen, zehn Forellenfilet mit Beilage und zwei Apfelkuchen."
+queststatus(671) = 10, item(2459, all) < 10, english, ".+" -> "You were supposed to bring me fifteen bread rolls, ten bowls of onion soup, ten trout fillet dishes and two apple pies."
+queststatus(671) = 10, item(2459, all) < 10, ".+" -> "Die Sachen die du mir bringen solltest waren 15 Brötchen, zehn Zwiebelsuppen, zehn Forellenfilet mit Beilage und zwei Apfelkuchen."
+queststatus(671) = 10, item(353, all) < 2, english, ".+" -> "You were supposed to bring me fifteen bread rolls, ten bowls of onion soup, ten trout fillet dishes and two apple pies."
+queststatus(671) = 10, item(353, all) < 2, ".+" -> "Die Sachen die du mir bringen solltest waren 15 Brötchen, zehn Zwiebelsuppen, zehn Forellenfilet mit Beilage und zwei Apfelkuchen."
 
 -- repeated quest
 -- wait

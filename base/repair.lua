@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local money = require("base.money")
 
-itemPos = {{en="Head", de="Kopf"},{en="Neck", de="Hals"},{en="Breast", de="Brust"},{en="Both Hands", de="Beide Hände"},{en="Left Hand", de="Linke Hand"}, {en="Right Tool", de="Rechte Hand"},
+itemPos = {{en="Head", de="Kopf"},{en="Neck", de="Hals"},{en="Breast", de="Brust"},{en="Both Hands", de="Beide Hände"},{en="Left Hand", de="Linke Hand"}, {en="Right Hand", de="Rechte Hand"},
     {en="Left Finger", de="Linker Finger"},{en="Right Finger", de="Rechter Finger"} ,{en="Legs", de="Beine"}, {en="Feet", de="Füße"}, {en="Coat", de="Umhang"},{en="Belt 1", de="Gürtel 1"},
     {en="Belt 2", de="Gürtel 2"},{en="Belt 3", de="Gürtel 3"},{en="Belt 4", de="Gürtel 4"},{en="Belt 5", de="Gürtel 5"},{en="Belt 6", de="Gürtel 6"}}
 itemPos[0] = {en="Backpack", de="Rucksack"}
@@ -49,6 +49,9 @@ function M.repairDialog(npcChar, speaker)
         if (item.id > 0) and (item.number == 1) and (getRepairPrice(item,speaker) ~= 0) then --only add items which are single items and repairable
             table.insert(itemsOnChar, item);
             table.insert(itemPosOnChar, itemPos[i])
+            item:setData("uniqueID", tostring(math.random())); --tag the item with a unique ID
+            item:setData("repairPos", tostring(i)); --tag the item its position in the inventory
+            world:changeItem(item);
         end
     end
 
@@ -56,10 +59,14 @@ function M.repairDialog(npcChar, speaker)
         if (not dialog:getSuccess()) then
             return;
         end
+        
         local index = dialog:getSelectedIndex()+1;
         local chosenItem = itemsOnChar[index]
+        
         if chosenItem ~= nil then
-            repair(npcChar, speaker, chosenItem, language); -- let's repair
+            chosenItemUID=chosenItem:getData("uniqueID")
+            chosenPos=chosenItem:getData("repairPos")
+            repair(npcChar, speaker, chosenItem, chosenItemUID, chosenPos, language); -- let's repair
             M.repairDialog(npcChar, speaker); -- call dialog recursively, to allow further repairs
         else
             speaker:inform("[ERROR] Something went wrong, please inform a developer.");
@@ -98,11 +105,18 @@ function getRepairPrice(theItem, speaker)
 end
 
 -- Repairs theItem. The NPC speaks if the repair was successful or the char has not enough money
-function repair(npcChar, speaker, theItem, language)
+function repair(npcChar, speaker, theItem, theItemUID, theItemPos, language)
 
     local theItemStats=world:getItemStats(theItem);
+    local found=false;
+            
+    local item = speaker:getItemAt(tonumber(theItemPos));
+    if (item:getData("uniqueID") == theItemUID) then --check for valid item
+        found=true;
+    end
+
     
-    if theItem then
+    if theItem and found then
         local durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
         local toRepair=99-durability; --the amount of durability points that has to repaired
         local price=math.ceil(0.5*theItemStats.Worth*toRepair/1000)*10;
@@ -124,7 +138,7 @@ function repair(npcChar, speaker, theItem, language)
             end --price/repair
         end --there is an item
     else
-        speaker:inform("[ERROR] Item not found.","[FEHLER] Gegenstand nicht gefunden.");
+        speaker:inform("[FEHLER] Gegenstand nicht gefunden. Verändere nicht dein Inventar während der Reparatur.","[ERROR] Item not found. Do not change your equipment during repair.", Character.highPriority);
     end --item exists
 end;
 

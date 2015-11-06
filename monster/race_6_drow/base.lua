@@ -26,12 +26,12 @@ msgs:addMessage("Brüder, Schwestern! Lasst uns Jagd auf die Schwachen machen.", 
 msgs:addMessage("Dein Unbehagen amüsiert mich.", "Your discomfort amuses me.")
 msgs:addMessage("Deine Schmerzen sind meine Freude.", "Your pain my pleasure.")
 msgs:addMessage("Deine Schreie werden wie Musik in meinen Ohren klingen.", "Your screams shall be music to my ears.")
-msgs:addMessage("Der Blutgott soll heute nacht nicht hungrig bleiben.", "The Blood-God shall not hunger on this night.")
+msgs:addMessage("Meine Klinge dürstet nach deinem Blut!.", "My blade is thirsty for your blood.")
 msgs:addMessage("Du hast jahrelang darauf gewartet vom Tod begrüßt zu werden... was machen da ein paar Stunden mehr?", "You have waited years for death to greet you... what is a few more hours?")
-msgs:addMessage("Geduld, Sterblicher... Geduld. Du wirst früh genug mit der Gegenwart des Blutgottes gesegnet werden.", "Patience, mortal… patience. You shall be blessed with the Blood-God's company soon enough.")
+msgs:addMessage("Geduld, Sterblicher... Geduld. Deine Ende ist schon nah genug.", "Patience, mortal… patience. Your end is already close enough.")
 msgs:addMessage("Ich finde dein Leiden... unterhaltsam.", "I find your suffering... enchanting.")
 msgs:addMessage("Langsam und schmerzhaft, so wird dein Tod sein.", "Slow and painful, so your death shall be.")
-msgs:addMessage("Moshran! Empfange diesen Sterblichen!", "Moshran! Receive this mortal!")
+msgs:addMessage("Unser Volk dient nur sich selbst!", "We serve only ourselves!")
 msgs:addMessage("Schreist du etwa? Das solltest du.", "Do you scream? You shall.")
 
 local M = {}

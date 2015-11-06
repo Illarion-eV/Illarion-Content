@@ -109,4 +109,4 @@ queststatus(310) = 4, ".*" -> "Dies ist der Zeitpunkt, um getrennte Wege zu gehe
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Aldania Elthewan zu Euren Diensten. Ich unterrichte das Ausrüsten und Benutzen von Gegenständen.", "Aldania Elthelwan, at your service. Equipping and using items is what I teach."
+cycletext "Aldania Elthewan zu Euren Diensten. Ich unterrichte das Ausrüsten und Benutzen von Gegenständen.", "Aldania Elthewan, at your service. Equipping and using items is what I teach."
