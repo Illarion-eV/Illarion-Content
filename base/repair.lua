@@ -110,12 +110,11 @@ function repair(npcChar, speaker, theItem, theItemUID, theItemPos, language)
     local theItemStats=world:getItemStats(theItem);
     local found=false;
             
-    for i=17,0,-1 do
-        local item = speaker:getItemAt(i);
-        if (item.id > 0) and (item.number == 1) and (getRepairPrice(item,speaker) ~= 0) and (item:getData("uniqueID") == theItemUID) and (tonumber(theItemPos) == i) then --check for valid item
-            found=true;
-        end
+    local item = speaker:getItemAt(tonumber(theItemPos));
+    if (item:getData("uniqueID") == theItemUID) then --check for valid item
+        found=true;
     end
+
     
     if theItem and found then
         local durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
