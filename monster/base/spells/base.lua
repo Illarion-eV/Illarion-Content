@@ -44,6 +44,7 @@ function M.dealMagicDamage(target, damange)
         end
     else
         target:increaseAttrib("hitpoints", -damange)
+		target:inform("Dmg: "..damange.."!");
     end
 end
 
