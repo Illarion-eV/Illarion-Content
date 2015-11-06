@@ -65,9 +65,9 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 23, 24, 2763, 737, 733, 735, 1266, 21, 22, 234, 1062, 2536, 310, 469, 391, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760, 2751
+sellItems = 23, 24, 2763, 737, 733, 735, 1266, 21, 22, 234, 1062, 2536, 310, 469, 391, 2185, 2717, 2719, 2738, 2744, 2760, 2751
 buyPrimaryItems = 734, 23, 24, 2763, 737, 733, 735, 1266, 21, 22, 234, 1062, 2536
-buySecondaryItems = 310, 469, 391, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
+buySecondaryItems = 310, 469, 391, 2185, 2717, 2719, 2738, 2744, 2760
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you cannot afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
 tradeFinishedWithoutTradingMsg "Auf bald!", "Farewell!"
