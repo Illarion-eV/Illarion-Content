@@ -173,6 +173,7 @@ M.bookList["tanoras_secret"] = {english = "Tanora's Secret - The Great Ocean",ge
 M.bookList["good_evil"] = {english = "Good or Evil",german =  "Gut oder Böse", bookId = 381, bookGraphic = bookGreyLandscape}
 M.bookList["mana_streams"] = {english = "Mana Streams",german =  "Manaströme", bookId = 382, bookGraphic = bookBlackRedRune}
 M.bookList["elstree_battle"] = {english = "The Battle for the Elstree Forest",german =  "Die Schlacht um den Elsbaumwald", bookId = 383, bookGraphic = bookletBlueRed}
+M.bookList["weightsandmeasures"] = {english = "Weights and Measures in Gynk",german =  "Maßeinheiten in Gynk", bookId = 384, bookGraphic = bookGreenLong}
 M.bookList["cadomyr_order1"] = {english = "Order 04. Findos 38 AW",german =  "Befehl 04. Findos 38 n.VdH", bookId = 501, bookGraphic = pell}
 M.bookList["speech_rosaline_32_11_05"] = {english = "Speech 04. Findos 38 AW",german =  "Rede 05. Findos 38 n.VdH", bookId = 502, bookGraphic = pell}
 M.bookList["galmair_adjutant"] = {english = "Wanted! Adjutant",german =  "Gesucht! Adjutant", bookId = 506, bookGraphic = pell}
