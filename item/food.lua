@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE items SET itm_script='item.food' WHERE itm_id IN (15,49,73,80,81,142,143,147,151,158,159,160,161,162,163,191,199,200,201,302,303,306,307,353,354,355,388,453,454,455,552,553,554,555,556,557,559,1207,2276,2277,2278,2456,2459,2493,2922,2923,2934,2940,3051,3711,3712,3716,3715,3709,3710,3713,3714);
+-- UPDATE items SET itm_script='item.food' WHERE itm_id IN (15,49,73,80,81,142,143,147,151,158,159,160,161,162,163,191,199,200,201,302,303,306,307,353,354,355,388,453,454,455,552,553,554,555,556,557,559,1207,2276,2277,2278,2456,2459,2493,2922,2923,2934,2940,3051,3711,3712,3716,3715,3709,3710,3713,3714,3723);
 
 local common = require("base.common")
 local furtunecookies = require("content.furtunecookies")
@@ -155,6 +155,7 @@ FoodList:add(3711,    nil,    2935,     2,    {1,1,1,1,0.5,1,1,1,1,1}); -- goula
 FoodList:add(3712,    nil,    2935,     2,    {1,1,1,1,0.5,1,1,1,1,1}); -- beer soup
 FoodList:add( 3715,    nil,    2952,     1,    {1,1,1,1,2,1,1,0.5,1,1}); -- Mystery Meat
 FoodList:add( 3716,    nil,    2952,     1,    {1,1,1,1,2,1,1,0.5,1,1}); -- Veggie hash
+FoodList:add( 3723,    nil,       0,     2,    {1,1,2,1,0.5,0.5,1,2,1,1}); -- Nut Bread
 
 -- Poisoned Food
 FoodList:add( 162,     VALUE_SMALL,       0,    nil,    nil,    nil,     600); -- birth mushroom
