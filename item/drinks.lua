@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE items SET itm_script='item.drinks' WHERE itm_id IN (2189, 2188, 2187, 2186, 2059, 2058, 2057, 2056, 1910, 1909, 1907, 1906, 1861, 2502, 1841, 1842, 1843, 1844, 1853, 1854, 1855, 1856, 1857, 1859, 1860, 517, 1315, 1316, 1318,1319);
+-- UPDATE items SET itm_script='item.drinks' WHERE itm_id IN (2189, 2188, 2187, 2186, 2059, 2058, 2057, 2056, 1910, 1909, 1907, 1906, 1861, 2502, 1841, 1842, 1843, 1844, 1853, 1854, 1855, 1856, 1857, 1859, 1860, 517, 1315, 1316, 1318,1319,1320,1321,1322,1323,3720,3721,3722);
 
 local common = require("base.common")
 local lookat = require("base.lookat")
@@ -63,6 +63,13 @@ drinkList[788] = {500, 790, 0} -- bottle of carrot juice
 drinkList[789] = {500, 790, 0} -- bottle of strawberry juice
 drinkList[791] = {500, 790, 0} -- bottle of grape juice
 drinkList[3611] =  {500, 790, 0}  -- bottle of orange juice
+drinkList[1320] = {  400, 1317,  35} -- bottle of stone face
+drinkList[1321] = {  400, 1317,  35} -- bottle of absinthe
+drinkList[1322] = {  400, 1317,  35} -- bottle of orange schnapps
+drinkList[1323] = {  400, 1317,  35} -- bottle of mulled wine
+drinkList[3720] = {500, 790, 0} -- bottle of fir needle tea
+drinkList[3721] = {500, 790, 0} -- bottle of green tea
+drinkList[3722] = {500, 790, 0} -- bottle of druids tea
 
 function M.UseItem(User, SourceItem)
 
