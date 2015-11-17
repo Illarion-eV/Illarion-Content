@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local lookat = require("base.lookat")
-
+local commandPost = require("gm.commandPost")
 
 local M = {}
 
@@ -338,7 +338,7 @@ function RecipeInform( User, SourceItem)
 end
 
 function M.UseItem(User, SourceItem, ltstate)
-
+    commandPost.UseItem( User, SourceItem)
 	if SourceItem:getData("teachDogTransformationPotion") == "true" then
 		dogScroll(User, SourceItem)
 		return
@@ -365,7 +365,7 @@ function M.UseItem(User, SourceItem, ltstate)
 	else
 	    RecipeInform( User, SourceItem)
 	end
-
+    
 end
 
 function dogScroll(User, SourceItem)
