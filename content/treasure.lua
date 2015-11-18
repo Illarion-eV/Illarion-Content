@@ -159,8 +159,8 @@ treasureContents[1] = {
     {545, 10}, {546, 10}, {2543, 10}, {2716, 10}, {3, 10}, {543, 10}, {544, 10}, {2560, 10},
     -- Misc: pins and cotters, pins, unfired bricks, stone block,
     {2717, 10}, {2738, 10}, {736, 10}, {733, 10},
-    -- Trash: clay, thread, bough, ball of wool, wool, quartz sand, wax, branch, potash, horn, coarse sand, raw stone, honeycomb,
-    26, 50, 56, 168, 170, 316, 431, 2786, 314, 333, 726, 735, 2529,
+    -- Trash: clay, thread, bough, wool, quartz sand, wax, branch, potash, horn, coarse sand, raw stone, honeycomb,
+    26, 50, 56, 170, 316, 431, 2786, 314, 333, 726, 735, 2529,
 }
 treasureContents[2] = {
     -- Ore/Gems: raw obsidian, raw sapphire, raw smaragd, raw topaz, ruby, amethyst,
