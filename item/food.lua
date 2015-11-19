@@ -188,10 +188,10 @@ function M.UseItem(User, SourceItem, ltstate)
     end
     
     if SourceItem:getData("nameEn") == "Thieves Dinner" and User:getQuestProgress(543) == 7 and User:countItemAt("all", 1323) == 0 then
-        User:inform("Du benötigst das Gift, um das Essen zu verderben.","You need the poison to tamper with the food.")
+        User:inform("Du benötigst das Gift, um es unter das Essen zu mischen.","You need the poison to tamper with the food.")
     elseif SourceItem:getData("nameEn") == "Thieves Dinner" and User:getQuestProgress(543) == 7 and User:countItemAt("all", 1323) >= 0 then
         User:eraseItem(1323, 1)
-        User:inform("Du hast den Inhalt des Fläschchens unbemerkt unter das Essen gemischt. Kehre zu Brigette zurück, um deine Belohnung abzuholen.","You successfully sneak the contents of the vial Brigette gave you into the food, return to her for a reward.")
+        User:inform("Du hast den Inhalt des Fläschchens unbemerkt um es unter das Essen zu mischen. Kehre zu Brigette zurück, um deine Belohnung abzuholen.","You successfully sneak the contents of the vial Brigette gave you into the food, return to her for a reward.")
         User:setQuestProgress(543, 8) --  You poisoned the food.
     end
     
