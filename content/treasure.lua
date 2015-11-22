@@ -153,8 +153,8 @@ treasureContents[1] = {
     {21, 10}, {22, 10}, {2536, 10}, 2534, {1062, 5}, {234, 5}, {251, 5}, {255, 5},
     -- Ingots: copper ingot, iron ingot, glass ingot, silver ingot,
     {2550, 5}, {2535, 5}, {41, 5}, {104, 5},
-    -- Cloth: raw leather, leather, fur, green cloth, red cloth, black cloth, grey cloth, yellow cloth, white cloth, blue cloth, (yellow cloth, green cloth, )
-    {69, 10}, {2547, 10}, {2586, 10}, {54, 5}, {174, 5}, {175, 5}, {176, 5}, {177, 5}, {178, 5}, {179, 5}, -- 2577, 2579,
+    -- Cloth: raw leather, leather, fur, green cloth, red cloth, black cloth, grey cloth, yellow cloth, white cloth, blue cloth
+    {69, 10}, {2547, 10}, {2586, 10}, {54, 5}, {174, 5}, {175, 5}, {176, 5}, {177, 5}, {178, 5}, {179, 5},
     -- Wood: cherry boards, naldor boards, conifer boards, apple boards, conifer wood, cherry wood, naldor wood, applewood,
     {545, 10}, {546, 10}, {2543, 10}, {2716, 10}, {3, 10}, {543, 10}, {544, 10}, {2560, 10},
     -- Misc: pins and cotters, pins, unfired bricks, stone block,

@@ -605,8 +605,6 @@ itemList = {
 2570 ,--Sichelgriff sickle handle
 2571 ,--Meriniumbarren merinium ingot
 2572 ,--Stabgriff staff handle
-2577 ,--gelber Stoff yellow cloth
-2579 ,--grüner Stoff green cloth
 2584 ,--Schwertgriff sword handle
 2585 ,--großer Schwertgriff big sword handle
 2588 ,--Ziegelsteine bricks
