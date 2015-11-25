@@ -29,7 +29,16 @@ function M.UseItem(User, SourceItem)
         if User:isAdmin() == true then
             gmSelection(User, SourceItem)
         else
-            pauseCommandPost(User,SourceItem,commandPostPos)
+            if SourceItem:getData("test") == "true" then
+                gmSelection(User, SourceItem)
+                return
+            end
+            if commandPosts[tostring(commandPostPos)] == nil then
+                return
+            end
+
+                pauseCommandPost(User,SourceItem,commandPostPos)
+
         end
     end
 
@@ -43,7 +52,7 @@ function gmSelection(User, SourceItem)
         return
     end
     
-    local modes = {"Set Number of Spawn", "Locate Spawns", "Select Monsters", "Number of Monsters", "Effects", "Spawn Marker","Spawn Intervals","Cooldown Time", "Start Spawnpoint","Capture"}
+    local modes = {"Set Number of Spawn", "Locate Spawns", "Select Monsters", "Number of Monsters", "Effects", "Spawn Marker","Spawn Intervals","Cooldown Time", "Start Command Post","Capture","Remove Command Post"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -68,6 +77,8 @@ function gmSelection(User, SourceItem)
             setCommandPostCooldown(User, SourceItem, commandPostPos)
         elseif index == 10 then
             pauseCommandPost(User,SourceItem,commandPostPos)
+        elseif index == 11 then
+            deleteCommandPost(User,SourceItem,commandPostPos)
         else
             local check = checkCommandPost(User, SourceItem, commandPostPos)
            
@@ -103,6 +114,17 @@ function pauseCommandPost(User,SourceItem,targetPosition)
     User:inform("Der Befehlsstand ist bereits eingenommen.")
 
     
+    end
+end
+
+-- Remove a commandPost
+function deleteCommandPost(User,SourceItem,commandPostPos)
+    for i=#spawnInformations,1,-1 do
+        if spawnInformations[i] == commandPosts[tostring(commandPostPos)] then
+            table.remove(spawnInformations, i)
+            table.remove(commandMonsters, i)
+            commandPosts[tostring(commandPostPos)] = nil
+        end
     end
 end
 
