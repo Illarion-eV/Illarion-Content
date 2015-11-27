@@ -59,7 +59,7 @@ function M.UseItem(User, SourceItem)
     local itemData
     local isRonaganTrap = (SourceItem:getData("ronaganTrap") == "true")
     if (isRonaganTrap == true) then
-        User:inform("Ein Dieb hat dich in eine Falle gelockt. Er springt aus einem der Schatten und stielt dir ein paar Münzen.", "A thief has lured you into a trap, jumping out from a shadow, he steals some coins from you.")
+        User:inform("Ein Dieb hat dich in eine Falle gelockt. Er springt aus einem der Schatten und stiehlt dir ein paar Münzen.", "A thief has lured you into a trap, jumping out from a shadow, he steals some coins from you.")
 
         -- steal 1% - 5% of characters money in inventroy
         local wealth = money.CharCoinsToMoney(User)
