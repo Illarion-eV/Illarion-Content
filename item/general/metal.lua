@@ -44,6 +44,9 @@ function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
 end
 
 function M.UseItem(User, SourceItem)
+
+--[[quest code, to be removed from here
+
     if SourceItem.pos == position(897, 577, -9) then -- your trying to steal the dagger
         User:inform("Als du versuchst, den Dolch herauszuziehen, verwandeln sich die Schatzwächter und untote Skelette erscheinen.", "As you try and pull out the dagger, the guardians of the treasure transform and undead skeletons emerge.")
         world:createMonster(782, position(893,574,-9), -20)
@@ -66,5 +69,7 @@ function M.UseItem(User, SourceItem)
         money.TakeMoneyFromChar(User, math.random(math.floor(wealth / 100), math.floor(wealth / 20)))
         return
    end
+--]]
 end
+
 return M
