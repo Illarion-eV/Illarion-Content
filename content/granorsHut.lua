@@ -32,13 +32,13 @@ function M.fillingFromCauldron(user, ltstate)
     end
 
     if ltstate == Action.none then
-       local granorBergenhieb = common.getNpc(position(15, 685, 1), 5, "Granor Bergenhieb")
+       granorBergenhieb = common.getNpc(position(15, 685, 1), 5, "Granor Bergenhieb")
        granorBergenhieb:talk(Character.say, "#me spricht mit d¸sterer Stimme: 'Mach weiter und du erlebst, wenn Egon einen seiner Momente hat, Drecksau.'", "#me whispers in a dark voice: 'Keep going and you will experience one of Egon's special moments, shit-head.'")
        user:startAction(50,21,5,15,25)
     end
 
     if ltstate == Action.success then
-        local egon = common.getNpc(position(15, 685, 1), 5, "Egon")
+        egon = common.getNpc(position(15, 685, 1), 5, "Egon")
         egon:talk(Character.say, "#me kreischt laut auf und wirft in einer sehr schnellen Bewegungen einen schweren Stein in Richtung Kessel.", "#me cries out very loudly and throws a heavy stone into the direction of the cauldron.")
         user:talk(Character.say, "#me wird von einem Stein am Kopf getroffen.", "#me's head is hit by a stone.")
         world:gfx(13, user.pos)
@@ -59,7 +59,7 @@ local timeLastMessage
 function M.doorCheck(user)
     if user:getFaceTo() == Character.south and world:getItemOnField(position(13, 689, 1)).id ~= 3314 then
         if (not timeLastMessage) or world:getTime("unix") - timeLastMessage > 60 then
-            local granorBergenhieb = common.getNpc(position(15, 685, 1), 5, "Granor Bergenhieb")
+            granorBergenhieb = common.getNpc(position(15, 685, 1), 5, "Granor Bergenhieb")
             local messageNumber = Random.uniform(1, #closeTheDoorMessages)
             granorBergenhieb:talk(Character.yell, closeTheDoorMessages[messageNumber][Player.german], closeTheDoorMessages[messageNumber][Player.english])
             timeLastMessage = world:getTime("unix")
@@ -170,7 +170,7 @@ function M.readingBook(user)
     user.effects:addEffect(LongTimeEffect(6, 18000))
     user:inform("Als du das Buch aufschl‰gst, leuchten die Buchstaben gar gr‰ﬂlich grellend auf. Du bist vollkommen geblendet und die Welt um dich herum, wird zu einem kaum wahrnehmbaren milchigen Schleier. Deine Wahrnehmung hat sich radikal verschlechtert.","As you open the book, the letters glare horribly brightly. You are completely blinded and the world around your becomes a barely visible foggy veil. Your perception got a lot worse.")
 
-    local granorBergenhieb = common.getNpc(position(15, 685, 1), 5, "Granor Bergenhieb")
+    granorBergenhieb = common.getNpc(position(15, 685, 1), 5, "Granor Bergenhieb")
     granor:talk(Character.say, "#me lacht dreckig auf. 'Sowas passiert, wenn man ungefragt anderer Leute Dinge anf‰sst. Aber h‰lt ja nur leider 'ne halbe Stunde an...'", "#me laughs maliciously. 'Well, that happens to those who touch other peoples' things without being allowed. Yet, it will only last half an hour...'")
 end
 
