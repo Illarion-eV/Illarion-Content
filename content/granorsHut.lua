@@ -170,7 +170,7 @@ function M.readingBook(user)
     user.effects:addEffect(LongTimeEffect(6, 18000))
     user:inform("Als du das Buch aufschl‰gst, leuchten die Buchstaben gar gr‰ﬂlich grellend auf. Du bist vollkommen geblendet und die Welt um dich herum, wird zu einem kaum wahrnehmbaren milchigen Schleier. Deine Wahrnehmung hat sich radikal verschlechtert.","As you open the book, the letters glare horribly brightly. You are completely blinded and the world around your becomes a barely visible foggy veil. Your perception got a lot worse.")
 
-    local granor = getNpc("Granor Bergenhieb")
+    local granorBergenhieb = common.getNpc(position(15, 685, 1), 5, "Granor Bergenhieb")
     granor:talk(Character.say, "#me lacht dreckig auf. 'Sowas passiert, wenn man ungefragt anderer Leute Dinge anf‰sst. Aber h‰lt ja nur leider 'ne halbe Stunde an...'", "#me laughs maliciously. 'Well, that happens to those who touch other peoples' things without being allowed. Yet, it will only last half an hour...'")
 end
 
