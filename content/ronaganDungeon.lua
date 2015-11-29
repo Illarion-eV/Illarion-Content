@@ -28,7 +28,7 @@ function M.questCheck(User, SourceItem)
     if (SourceItem.pos == position(897, 577, -9)) and (SourceItem.id == 2671) then -- You are trying to steal the dagger
     
         if User:getQuestProgress(551) == 0 then 
-            User:setQuestProgress(551,1)
+            User:setQuestProgress(551,1) --Avoid mass spawning
             User:inform("Als du versuchst, den Dolch herauszuziehen, verwandeln sich die Schatzwächter und untote Skelette erscheinen.", "As you try and pull out the dagger, the guardians of the treasure transform and undead skeletons emerge.")
             guardians = {position(893,574,-9), position(896,574,-9), position(899,574,-9), position(902,574,-9)}
             for _, guardianpos in pairs (guardians) do

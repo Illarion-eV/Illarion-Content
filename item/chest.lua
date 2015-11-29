@@ -47,8 +47,8 @@ function M.UseItem(User, SourceItem)
 
     if (User:getQuestProgress(510) == 24) and  SourceItem.pos == position(783, 640, -3) then --OK, the player does the quest
         User:inform(
-            "In der Truhe liegt eine goldenes Amulet, das mit einem großen Smaragd geschmückt ist. Auf dem Stein ist ein goldenes Ein Zwergenwappen. Danach hatte Obsidimine gefragt.",
-            "Inside the chest lays a golden amulet adorned with a large emerald. On the stone is a golden Dwarven coat of arms.  This is what Obsidimine was inquiring about.")
+            "In der Truhe liegt eine goldenes Amulet, das mit einem großen Smaragd geschmückt ist. Auf dem Stein ist ein goldenes Zwergenwappen. Danach hatte Obsidimine gefragt.",
+            "Inside the chest lays a golden amulet adorned with a large emerald. On the stone is a golden Dwarven coat of arms. This is what Obsidimine was inquiring about.")
         User:setQuestProgress(510, 25)
         return
     end
