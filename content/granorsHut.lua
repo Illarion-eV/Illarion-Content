@@ -38,7 +38,7 @@ end
 function M.fillingFromCauldron(user, ltstate)
 
     if ltstate == Action.abort then
-        uer:inform("Du brichst deine Arbeit ab.", "You abort your work.")
+        user:inform("Du brichst deine Arbeit ab.", "You abort your work.")
     end
 
     if ltstate == Action.none then
