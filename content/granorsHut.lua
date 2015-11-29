@@ -59,7 +59,7 @@ local timeLastMessage
 function M.doorCheck(user)
     if user:getFaceTo() == Character.south and world:getItemOnField(position(13, 689, 1)).id ~= 3314 then
         if (not timeLastMessage) or world:getTime("unix") - timeLastMessage > 60 then
-            local granorBergenhieb = getNpc("Granor Bergenhieb")
+            local granorBergenhieb = common.getNpc(position(15, 685, 1), 5, "Granor Bergenhieb")
             local messageNumber = Random.uniform(1, #closeTheDoorMessages)
             granorBergenhieb:talk(Character.yell, closeTheDoorMessages[messageNumber][Player.german], closeTheDoorMessages[messageNumber][Player.english])
             timeLastMessage = world:getTime("unix")
