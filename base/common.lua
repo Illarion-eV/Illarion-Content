@@ -856,27 +856,12 @@ function M.GetStiffness(Character)
                 if Item and (Item.id ~= 0 ) then
                         found, Armor=world:getArmorStruct(Item.id);
                         if found then
-                StiffnessVal = StiffnessVal + Armor.Stiffness
+                            StiffnessVal = StiffnessVal + Armor.Stiffness
                         end;
                 end;
 
     end
 
-
-    --Old system
---[[
-    if not InventoryFieds then
-        InventoryFieds = {Character.Head, Character.Coat, Character.breast, Character.hands, Character.legs, Character.feet};
-    end;
-    for _, place in pairs(InventoryFieds) do
-        Item=Character:getItemAt( place );
-        if Item and (Item.id ~= 0) then
-            found, Armor=world:getArmorStruct(Item.id);
-            if found then
-                StiffnessVal = StiffnessVal + Armor.Stiffness;
-            end;
-        end;
-    end;]]
     return StiffnessVal;
 end;
 
