@@ -25,7 +25,7 @@ local M = {}
 
 function M.questCheck(User, SourceItem)
 
-    if SourceItem.pos == position(897, 577, -9) then -- You are trying to steal the dagger
+    if (SourceItem.pos == position(897, 577, -9)) and (SourceItem.id == 2671) then -- You are trying to steal the dagger
     
         if User:getQuestProgress(551) == 0 then 
             User:setQuestProgress(551,1)
