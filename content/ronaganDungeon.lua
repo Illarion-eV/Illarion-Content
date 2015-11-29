@@ -26,20 +26,20 @@ local M = {}
 function M.questCheck(User, SourceItem)
 
     if SourceItem.pos == position(897, 577, -9) then -- You are trying to steal the dagger
-	
-	if User:getQuestProgress(551) == 0 then 
-	    User:setQuestProgress(551,1)
-        User:inform("Als du versuchst, den Dolch herauszuziehen, verwandeln sich die Schatzwächter und untote Skelette erscheinen.", "As you try and pull out the dagger, the guardians of the treasure transform and undead skeletons emerge.")
-        guardians = {position(893,574,-9), position(896,574,-9), position(899,574,-9), position(902,574,-9)}
-        for _, guardianpos in pairs (guardians) do
-            world:createMonster(782, guardianpos, -20)
-            world:gfx(41, guardianpos) -- swirly
+    
+        if User:getQuestProgress(551) == 0 then 
+            User:setQuestProgress(551,1)
+            User:inform("Als du versuchst, den Dolch herauszuziehen, verwandeln sich die Schatzwächter und untote Skelette erscheinen.", "As you try and pull out the dagger, the guardians of the treasure transform and undead skeletons emerge.")
+            guardians = {position(893,574,-9), position(896,574,-9), position(899,574,-9), position(902,574,-9)}
+            for _, guardianpos in pairs (guardians) do
+                world:createMonster(782, guardianpos, -20)
+                world:gfx(41, guardianpos) -- swirly
+            end
+        else
+            User:inform("Der Dolch bewegt sich kein bisschen.", "The dagger won't move a bit.")
         end
-	else
-	    User:inform("Der Dolch bewegt sich kein bisschen.", "The dagger won't move a bit.")
     end
     
-    local itemData
     local isRonaganTrap = (SourceItem:getData("ronaganTrap") == "true")
     if (isRonaganTrap == true) then
         User:inform("Ein Dieb hat dich in eine Falle gelockt. Er springt aus einem der Schatten und stiehlt dir ein paar Münzen.", "A thief has lured you into a trap, jumping out from a shadow, he steals some coins from you.")
