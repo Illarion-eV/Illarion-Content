@@ -1643,14 +1643,13 @@ end
 -- Returns an NPC in case it is found within a given range of a give position
 -- @param centerPosition Position structure that is the center of the search area.
 -- @param radius Radius within which is searched
--- @param npcId The id of the npc to search for
 -- @param npcName Name of the npc to search for
 -- @return Returns the NPC in case it was found else false
-function getNpc(centerPosition, radius, npcId, npcName)
+function getNpc(centerPosition, radius, npcName)
 
     local npcs = world:getNPCSInRangeOf(centerPosition, radius)
     for _, candidateNpc in pairs(npcs) do
-        if (npcName and candidateNpc.name == npcName) or (npcId and candidateNpc.name == npcName) then
+        if (npcName and candidateNpc.name == npcName) then
             return candidateNpc
         end
     end

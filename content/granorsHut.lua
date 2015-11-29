@@ -20,19 +20,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local lookat = require("base.lookat")
 local scheduledFunction = require("scheduled.scheduledFunction")
+local common = require("base.common")
 
 local M = {}
-
-local function getNpc(npcName)
-    local npcs = world:getNPCSInRangeOf(position(15, 685, 1), 5)
-    for _, candidateNpc in pairs(npcs) do
-        if candidateNpc.name == npcName then
-            return candidateNpc
-        end
-    end
-end
-
-
 
 -- Hook for the bottle script; trying to fill up Granor's potion in the cauldron
 function M.fillingFromCauldron(user, ltstate)
@@ -42,13 +32,13 @@ function M.fillingFromCauldron(user, ltstate)
     end
 
     if ltstate == Action.none then
-       local granorBergenhieb = getNpc("Granor Bergenhieb")
+       local granorBergenhieb = common.getNpc(position(15, 685, 1), 5, "Granor Bergenhieb")
        granorBergenhieb:talk(Character.say, "#me spricht mit düsterer Stimme: 'Mach weiter und du erlebst, wenn Egon einen seiner Momente hat, Drecksau.'", "#me whispers in a dark voice: 'Keep going and you will experience one of Egon's special moments, shit-head.'")
        user:startAction(50,21,5,15,25)
     end
 
     if ltstate == Action.success then
-        local egon = getNpc("Egon")
+        local egon = common.getNpc(position(15, 685, 1), 5, "Egon")
         egon:talk(Character.say, "#me kreischt laut auf und wirft in einer sehr schnellen Bewegungen einen schweren Stein in Richtung Kessel.", "#me cries out very loudly and throws a heavy stone into the direction of the cauldron.")
         user:talk(Character.say, "#me wird von einem Stein am Kopf getroffen.", "#me's head is hit by a stone.")
         world:gfx(13, user.pos)
