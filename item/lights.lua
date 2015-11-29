@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- script to put lights on and off
 -- off items: save old wear value in data (+1000)
---				if data is <1000, set to default wear or keep current (if there's no requirement, e.g. for a torch)
+--                if data is <1000, set to default wear or keep current (if there's no requirement, e.g. for a torch)
 -- on items: save old wear value in data (+500)
---				if data is <500, set wear to 255 or default portable wear
+--                if data is <500, set wear to 255 or default portable wear
 
 local common = require("base.common")
 local lookat = require("base.lookat")
@@ -91,12 +91,10 @@ function M.UseItem(User, SourceItem, ltstate)
         local ok, wear = checkReq(User,SourceItem,this)
         if ok then
             --Noobia addition by Estralis: Lighting a torch is a task of NPC Aldania
-            if User:getQuestProgress(310)==3 and SourceItem.id==391 and User:isInRangeToPosition((position (52,24,100)),20) then --only invoked if the user has the quest, uses a torch and is in range of the NPC
+            if User:getQuestProgress(310) == 3 and SourceItem.id == 391 and User:isInRangeToPosition((position (52,24,100)),20) then --only invoked if the user has the quest, uses a torch and is in range of the NPC
                 User:setQuestProgress(310,4) --Connection to easyNPC
-                local NPCList=world:getNPCSInRangeOf(position(52,24,100),1) --Let's be tolerant, the NPC might move a tile.
-                for _, Aldania in pairs(NPCList) do
-                    common.TalkNLS(Aldania, Character.say, "Die Finsternis verheißt meist nichts Gutes. Du solltest immer eine Lichtquelle dabei haben, wenn du in die Dunkelheit hinaus reist oder alte Gemäuer untersuchst. Hier trennen sich nun unsere Wege, lauf einfach weiter die Straße hinunter zu diesem Wilden, Groknar. Er wird dich in die Kriegskunst einführen.", "The darkness can be a real obstacle in Illarion. You should remember to carry a light source when travelling by night, and when exploring caves and dungeons. Well, this is where we part company. Run along to that savage, Groknar, down the road. He will train you in the art of combat.")
-                end
+                local Aldania = common.getNpc(position(52,24,100),1,"Aldania Elthewan")
+                common.TalkNLS(Aldania, Character.say, "Die Finsternis verheißt meist nichts Gutes. Du solltest immer eine Lichtquelle dabei haben, wenn du in die Dunkelheit hinaus reist oder alte Gemäuer untersuchst. Hier trennen sich nun unsere Wege, lauf einfach weiter die Straße hinunter zu diesem Wilden, Groknar. Er wird dich in die Kriegskunst einführen.", "The darkness can be a real obstacle in Illarion. You should remember to carry a light source when travelling by night, and when exploring caves and dungeons. Well, this is where we part company. Run along to that savage, Groknar, down the road. He will train you in the art of combat.")
             end
             --Noobia end
 
@@ -116,17 +114,7 @@ function M.UseItem(User, SourceItem, ltstate)
                 "You need ".. ReqTexts.english[this.req.id] .. " in your belt or hands to do that.")
         end
     elseif LightsOn[SourceItem.id] then
-        --Issue #6881: Estralis removed the option to put out lights. Reason: New rot system restores wear value after moving the item. Could be abused.
-        --[[
-         this = LightsOn[SourceItem.id];
-        if this.back then
-            giveBack(User,SourceItem,this)
-        end
-        putOff(SourceItem,this);
-        ]]
-        --Replacement: An inform. Remove this if you re-enable putting out fires.
         common.InformNLS(User,"Du verbrennst dir die Finger beim Versuch, das Feuer zu ersticken.","You burn your fingers while trying to extinguish the flames.")
-        --Issue #6881 END
     end
 end
 
