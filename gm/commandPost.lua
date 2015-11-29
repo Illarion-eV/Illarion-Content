@@ -19,16 +19,21 @@ local commandPosts = {}
 local spawnInformations = {}
 local commandMonsters = {}
 local scheduledFunction = require("scheduled.scheduledFunction")
-
 local M = {}
 -- Present in Item scripts of:
 -- Item: id_3109_open_pell
 function M.UseItem(User, SourceItem)
     local commandPostPos = SourceItem.pos
     if SourceItem:getData("commandPost") == "true" then
+        if SourceItem.itempos ~= 255 then 
+            User:inform("Place the command Post on the ground to use it.")
+            --User:inform(tostring(SourceItem.itempos))
+            return
+        end
         if User:isAdmin() == true then
             gmSelection(User, SourceItem)
         else
+        
             if SourceItem:getData("test") == "true" then
                 gmSelection(User, SourceItem)
                 return
@@ -100,18 +105,18 @@ end
 function pauseCommandPost(User,SourceItem,targetPosition)
     if SourceItem:getData("descriptionDe") == "Aktiver Befehlsstand" then
     if User:getPlayerLanguage() == Player.english then
-    User:inform("You have captured the Command Post.")
+    User:inform("You have captured the Command Post. It will take a while till an enemy will appear here.")
     else
-    User:inform("Du hast den Befehlsstand eingenommen.")
+    User:inform("Du hast den Befehlsstand eingenommen. Es wird wohl eine Weile dauern bis sich wieder ein Feind hier her wagen wird.")
     end
     commandPosts[tostring(targetPosition)][1]["time"]= world:getTime("unix")+commandPosts[tostring(targetPosition)][1]["cooldown"]*60
     SourceItem:setData("descriptionDe","Eingenommener Befehlsstand")
     SourceItem:setData("descriptionEn","Captured Command Post")
     world:changeItem(SourceItem)
     elseif User:getPlayerLanguage() == Player.english then
-    User:inform("The Command Post is already captured.")
+    User:inform("The Command Post is already captured. It will take a while till an enemy will appear here.")
     else
-    User:inform("Der Befehlsstand ist bereits eingenommen.")
+    User:inform("Der Befehlsstand ist bereits eingenommen. Es wird wohl eine Weile dauern bis sich wieder ein Feind hier her wagen wird.")
 
     
     end
@@ -279,7 +284,7 @@ function checkCommandPost(User, SourceItem, targetPosition)
         elseif identifyer == "gfx" then
             User:inform("Opdtional " .. identifyer .." is not set!")
         elseif identifyer == "sfx" then
-            User:inform("Opdtional " .. identifyer .." is not set!")
+            User:inform("Optional " .. identifyer .." is not set!")
         else
             User:inform(identifyer .. " is not set!")
             flag=false
@@ -412,7 +417,7 @@ function setCommandPostCooldown(User, SourceItem, targetPosition)
             commandPosts[tostring(targetPosition)][1]["cooldown"] = tonumber(cooldown)
         end
     end
-    User:requestInputDialog(InputDialog("Cooldown Time", "Usage: Enter a Cooldown Time in Minutes" ,false, 255, cbInputDialog))
+    User:requestInputDialog(InputDialog("Cooldown Time", "Usage: Enter a the time the spawn will stop after the post is captured" ,false, 255, cbInputDialog))
 end
 
 -- Setter for the SpawnIntervals
@@ -482,7 +487,20 @@ function setSpawnCoordinates(User, SourceItem, targetPosition, index)
         if (string.find(input,"(%d+) (%d+) (%d+)") ~= nil) then
             local a, b, xCoords, yCoords, zCoords = string.find(input,"(%d+) (%d+) (%d+)")
             local target = position(tonumber(xCoords),tonumber(yCoords),tonumber(zCoords))
-            commandPosts[tostring(targetPosition)][index]["Coordinates"] = target
+            local targetField = world:getField(target)
+            
+            if targetField ~= nil then
+            local check = targetField:isPassable()
+                if check == true then
+                commandPosts[tostring(targetPosition)][index]["Coordinates"] = target
+                return
+                else
+                User:inform('Please enter coordinates of a passable tile.')
+                end
+            else
+            User:inform('Please enter coordinates of a valid tile.')
+            end
+            
            
         end
     end
