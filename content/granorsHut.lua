@@ -18,9 +18,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- This script handles all the small features of the alchemy hut of Granor Bergenhieb.
 -- The functions are hooked in the various scripts with the actual entry points.
 
+local common = require("base.common")
 local lookat = require("base.lookat")
 local scheduledFunction = require("scheduled.scheduledFunction")
-local common = require("base.common")
 
 local M = {}
 

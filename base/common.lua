@@ -1645,7 +1645,7 @@ end
 -- @param radius Radius within which is searched
 -- @param npcName Name of the npc to search for
 -- @return Returns the NPC in case it was found else false
-function getNpc(centerPosition, radius, npcName)
+function M.getNpc(centerPosition, radius, npcName)
 
     local npcs = world:getNPCSInRangeOf(centerPosition, radius)
     for _, candidateNpc in pairs(npcs) do
