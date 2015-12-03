@@ -112,7 +112,7 @@ Stone Number,X if used,Map Name or Area
 111,X,Galmair Roof and Mountains 1
 112,X,Galmair Roof and Mountains 1
 113,X,Galmair Roof and Mountains 1
-114,X,Galmair Roof and Mountains 1
+114,X,Northwest Surface
 115,X,Galmair Roof and Mountains 1
 116,X,Dark Hole Mine
 117,X,Dragorg Dungeon Galmair Roof and Mountains 2
@@ -384,7 +384,7 @@ Stone Number,X if used,Map Name or Area
 383,X,Southwest Underground -3
 384,X,Northeast Underground -3
 385,X,Northeast Underground -3
-386,,
+386,X,Northwest Surface
 387,,
 388,,
 389,,
