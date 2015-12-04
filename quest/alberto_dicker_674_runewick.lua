@@ -16,14 +16,14 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (674, 'quest.alberto_dicker_674_runewick');
 
-require("base.common")
-module("quest.alberto_dicker_674_runewick", package.seeall)
+local common = require("base.common")
+local M = {}
 
-GERMAN = Player.german
-ENGLISH = Player.english
+local GERMAN = Player.german
+local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
-Title = {}
+local Title = {}
 Title[GERMAN] = "Die Bilder Alberto Dickers"
 Title[ENGLISH] = "The Pictures Alberto Dickers"
 
@@ -40,7 +40,7 @@ Title[ENGLISH] = "The Pictures Alberto Dickers"
 -- 202: talk to Anthar (Cadomyr only)
 -- 203: End
 
-Description = {}
+local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 -- Quests
@@ -64,9 +64,10 @@ Description[GERMAN][202] = "Gehe zu Anthar Vilicon und berichte ihm von dem kopi
 Description[ENGLISH][202] = "Go to Anthar Vilicon and report about the copied picture."
 
 
+-- Insert the position of the quest start here (probably the position of an NPC or item)
+Start = {970, 787, 1} -- Numilia
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
--- noch machen! --
 QuestTarget = {}
 QuestTarget[1] = {970, 787, 1} -- Numilia
 QuestTarget[2] = {819, 104, 0} -- Raban
@@ -79,24 +80,30 @@ QuestTarget[202] = {117, 528, 0} -- Anthar
 
 
 -- Insert the quest status which is reached at the end of the quest
-FINAL_QUEST_STATUS = 203
+local FINAL_QUEST_STATUS = 203
 
 
-function QuestTitle(user)
-    return base.common.GetNLS(user, Title[GERMAN], Title[ENGLISH])
+function M.QuestTitle(user)
+    return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])
 end
 
-function QuestDescription(user, status)
+function M.QuestDescription(user, status)
     local german = Description[GERMAN][status] or ""
     local english = Description[ENGLISH][status] or ""
 
-    return base.common.GetNLS(user, german, english)
+    return common.GetNLS(user, german, english)
 end
 
-function QuestTargets(user, status)
+function M.QuestStart()
+    return Start
+end
+
+function M.QuestTargets(user, status)
     return QuestTarget[status]
 end
 
-function QuestFinalStatus()
+function M.QuestFinalStatus()
     return FINAL_QUEST_STATUS
 end
+
+return M
