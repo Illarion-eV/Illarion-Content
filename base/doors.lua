@@ -108,7 +108,10 @@ AddToDoorList(3284, 3200);
 AddToDoorList(3285, 3201);
 AddToDoorList(3202, 3282);
 AddToDoorList(3203, 3283);
-
+AddToDoorList(3761, 3760);
+AddToDoorList(3759, 3758);
+AddToDoorList(3757, 3756);
+AddToDoorList(3755, 3754);
 AddToDoorList = nil;
 
 --[[
