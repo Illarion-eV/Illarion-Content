@@ -137,7 +137,7 @@ function M.UseItem(User, SourceItem)
     end
     local picturenumber=SourceItem:getData("dickerquest");
     if tonumber(picturenumber) ~= nil and User:getQuestProgress(674) == 100 then
-        if bit.band (User:getQuestProgress(676),tonumber(picturenumber)) == 0 then
+        if bit32.band (User:getQuestProgress(676),tonumber(picturenumber)) == 0 then
             User:setQuestProgress(676, User:getQuestProgress(676) + tonumber(picturenumber))
             if User:getQuestProgress(676) == 31 then
                 User:setQuestProgress(674, 105)
