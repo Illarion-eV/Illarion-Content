@@ -112,7 +112,7 @@ messageG[77]="[Tipp] Wie schnell deine Fertigkeiten steigen, hängt vor allem dav
 messageG[78]="[Tipp] Es ist nicht nötig, den ganzen Tag hart zu arbeiten, um deine Fertigkeiten zu steigern. Mach auch mal eine Pause um dich zu unterhalten oder die Welt zu erkunden."
 messageG[79]="[Tipp] Die Steuerungstaste schaltet zwischen Gehen und Laufen um."
 messageG[80]="[Tipp] Je mehr Aktionen du ohne Pause durchführst, desto weniger lernst du von jeder Aktion."
-messageG[81]="[Tipp] Hast du eine Problem mit dem Spiel? Auf der Homepage www.illarion.org sind häufig gestellte Fragen (FAQ) beantwortet."
+messageG[81]="[Tipp] Hast du ein Problem mit dem Spiel? Auf der Homepage www.illarion.org sind häufig gestellte Fragen (FAQ) beantwortet."
 messageG[82]="[Tipp] Ein Doppelklick auf einen NPC öffnet eine Liste üblicher Dialogoptionen."
 
 --messageG[XX]="[Tipp] Um die Sprache deines Charakters umzustellen, schreibe '!l' gefolgt von der gewünschten Sprache: Common, Elf, Human, Dwarf, Halfling, Lizard."
