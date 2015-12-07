@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE items SET itm_script='item.chest' WHERE itm_id IN (8,649,650,1360,1361,1362,1367);
+-- UPDATE items SET itm_script='item.chest' WHERE itm_id IN (8,649,650,1360,1361,1362,1367,3788,3789);
 
 local common = require("base.common")
 
