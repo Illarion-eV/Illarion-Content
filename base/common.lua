@@ -856,27 +856,12 @@ function M.GetStiffness(Character)
                 if Item and (Item.id ~= 0 ) then
                         found, Armor=world:getArmorStruct(Item.id);
                         if found then
-                StiffnessVal = StiffnessVal + Armor.Stiffness
+                            StiffnessVal = StiffnessVal + Armor.Stiffness
                         end;
                 end;
 
     end
 
-
-    --Old system
---[[
-    if not InventoryFieds then
-        InventoryFieds = {Character.Head, Character.Coat, Character.breast, Character.hands, Character.legs, Character.feet};
-    end;
-    for _, place in pairs(InventoryFieds) do
-        Item=Character:getItemAt( place );
-        if Item and (Item.id ~= 0) then
-            found, Armor=world:getArmorStruct(Item.id);
-            if found then
-                StiffnessVal = StiffnessVal + Armor.Stiffness;
-            end;
-        end;
-    end;]]
     return StiffnessVal;
 end;
 
@@ -1643,14 +1628,13 @@ end
 -- Returns an NPC in case it is found within a given range of a give position
 -- @param centerPosition Position structure that is the center of the search area.
 -- @param radius Radius within which is searched
--- @param npcId The id of the npc to search for
 -- @param npcName Name of the npc to search for
 -- @return Returns the NPC in case it was found else false
-function getNpc(centerPosition, radius, npcId, npcName)
+function M.getNpc(centerPosition, radius, npcName)
 
     local npcs = world:getNPCSInRangeOf(centerPosition, radius)
     for _, candidateNpc in pairs(npcs) do
-        if (npcName and candidateNpc.name == npcName) or (npcId and candidateNpc.name == npcName) then
+        if (npcName and candidateNpc.name == npcName) then
             return candidateNpc
         end
     end
@@ -2009,6 +1993,16 @@ function M.HSVtoRGB(hue, saturation, value)
     end
 
     return fixValue(red), fixValue(green), fixValue(blue)
+end
+
+-- Checks wether an item has a special name, description or the specialItem data set
+-- @param the item to be checked
+-- @return bool  True if it is special, else false
+function M.isSpecialItem(item)
+    if item:getData("nameEn") ~= "" or item:getData("descriptionEn") ~= "" or item:getData("specialItem") ~= "" then
+        return true
+    end
+    return false
 end
 
 return M

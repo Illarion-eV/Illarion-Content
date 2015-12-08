@@ -19,6 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local lookat = require("base.lookat")
+local goldenGoblet = require("item.id_224_goldengoblet")
 
 local M = {}
 
@@ -35,6 +36,10 @@ end
 
 function M.UseItem(User, SourceItem)
 
+    if goldenGoblet.putCoinsInGoblet(User, SourceItem) then
+        return
+    end
+
     if TimeList[User.id] ~= nil then
         if (math.abs(world:getTime("second") - TimeList[User.id])) <= 3 then  -- 1 Rl. second delay
             return
@@ -42,7 +47,7 @@ function M.UseItem(User, SourceItem)
     end
 
     if math.random(2) == 1 then
-		User:talk(Character.say, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt Kopf.", "#me throws a coin in the air and catches it again. It shows head.")
+User:talk(Character.say, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt Kopf.", "#me throws a coin in the air and catches it again. It shows head.")
     else
         User:talk(Character.say, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt Zahl.", "#me throws a coin in the air and catches it again. It shows tail.")
     end

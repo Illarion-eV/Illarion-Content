@@ -142,7 +142,7 @@ english, "quest", "mission" -> "You are not a citizen of Runewick. I don't have 
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me verstaut eine Flasche in seinem Beutel.", "#me stores a bottle in their bag."
+cycletext "#me verstaut eine Flasche in seinem Beutel.", "#me stores a bottle in his bag."
 cycletext "#me kratzt sich am Kopf.", "#me scratches his head."
 cycletext "Wenn ihr Hilfe beim kerzenmachen braucht dann fragt nur mich!", "If you need any help with candle making, just ask me!"
 cycletext "#me gähnt verhalten.", "#me yawns restrained."

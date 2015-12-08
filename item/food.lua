@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE items SET itm_script='item.food' WHERE itm_id IN (15,49,73,80,81,142,143,147,151,158,159,160,161,162,163,191,199,200,201,302,303,306,307,353,354,355,388,453,454,455,552,553,554,555,556,557,559,1207,2276,2277,2278,2456,2459,2493,2922,2923,2934,2940,3051);
+-- UPDATE items SET itm_script='item.food' WHERE itm_id IN (15,49,73,80,81,142,143,147,151,158,159,160,161,162,163,191,199,200,201,302,303,306,307,353,354,355,388,453,454,455,552,553,554,555,556,557,559,1207,2276,2277,2278,2456,2459,2493,2922,2923,2934,2940,3051,3711,3712,3716,3715,3709,3710,3713,3714,3723);
 
 local common = require("base.common")
 local furtunecookies = require("content.furtunecookies")
@@ -111,6 +111,10 @@ FoodList:add(1210,VALUE_LARGE,0,nil,nil,{true,true,true,true,true,false,true,tru
 -- Simple Food
 FoodList:add( 306,VALUE_XLARGE,0); -- ham
 FoodList:add( 455,VALUE_XLARGE,0); -- smoked fish
+FoodList:add( 3709,VALUE_XLARGE,0); -- smoked chicken
+FoodList:add( 3710,VALUE_XLARGE,0); -- smoked rabbit
+FoodList:add( 3713,VALUE_XLARGE,0); -- grilled lamb
+FoodList:add( 3714,VALUE_XLARGE,0); -- grilled venison
 
 -- Crafted Food
 FoodList:add(3051,nil,0,1,{1,1,1,1,2,1,1,0.5,1,1}); -- sausage
@@ -119,7 +123,7 @@ FoodList:add(3606,nil,0,1,{1,1,1,1,2,1,1,0.5,1,1}); -- cooked steak
 FoodList:add(2456,nil,2935,2,{1,1,1,1,0.5,1,1,1,1,1}); -- mushroom soup
 FoodList:add( 453,nil,0,2,{1,1,2,1,0.5,0.5,1,2,1,1}); -- cookies
 FoodList:add(2923,nil,2935,2,{1,1,1,1,0.5,1,1,1,1,1}); -- onion soup
-FoodList:add(2459,nil,2952,1,{1,1,0.5,1,1,2,1,0.5,1,1}); -- fish filet dish
+FoodList:add(2459,nil,2952,1,{1,1,0.5,1,1,2,1,0.5,1,1}); -- trout fillet dish
 FoodList:add(  49,nil,0,1,{1,1,1,1,1,0.5,1,1,1,1}); -- bread
 FoodList:add(2278,nil,2935,2,{1,1,1,1,0.5,1,1,1,1,1}); -- cabbage stew
 FoodList:add( 556,nil,2952,1,{1,1,0.5,1,1,2,1,0.5,1,1}); -- salmon dish
@@ -147,6 +151,11 @@ FoodList:add( 3573,    nil,       0,     1,    {1,1,1,1,1,1,1,1,1,1}); -- cheese
 FoodList:add( 3609,    nil,       0,     1,    {1,1,1,1,1,1,1,1,1,1}); -- banana bread
 FoodList:add( 3610,    nil,       0,     1,    {1,1,1,1,1,1,1,1,1,1}); -- elderberry pie
 FoodList:add( 3631,    nil,       0,     1,    {1,1,1,1,1,1,1,1,1,1}); -- sausage on bread
+FoodList:add(3711,    nil,    2935,     2,    {1,1,1,1,0.5,1,1,1,1,1}); -- goulash
+FoodList:add(3712,    nil,    2935,     2,    {1,1,1,1,0.5,1,1,1,1,1}); -- beer soup
+FoodList:add( 3715,    nil,    2952,     1,    {1,1,1,1,2,1,1,0.5,1,1}); -- Mystery Meat
+FoodList:add( 3716,    nil,    2952,     1,    {1,1,1,1,2,1,1,0.5,1,1}); -- Veggie hash
+FoodList:add( 3723,    nil,       0,     2,    {1,1,2,1,0.5,0.5,1,2,1,1}); -- Nut Bread
 
 -- Poisoned Food
 FoodList:add( 162,     VALUE_SMALL,       0,    nil,    nil,    nil,     600); -- birth mushroom
@@ -179,7 +188,7 @@ function M.UseItem(User, SourceItem, ltstate)
     end
     
     if SourceItem:getData("nameEn") == "Thieves Dinner" and User:getQuestProgress(543) == 7 and User:countItemAt("all", 1323) == 0 then
-        User:inform(".","You need the poison to tamper with the food.")
+        User:inform("Du benötigst das Gift, um es unter das Essen zu mischen.","You need the poison to tamper with the food.")
     elseif SourceItem:getData("nameEn") == "Thieves Dinner" and User:getQuestProgress(543) == 7 and User:countItemAt("all", 1323) >= 0 then
         User:eraseItem(1323, 1)
         User:inform("Du hast den Inhalt des Fläschchens unbemerkt unter das Essen gemischt. Kehre zu Brigette zurück, um deine Belohnung abzuholen.","You successfully sneak the contents of the vial Brigette gave you into the food, return to her for a reward.")

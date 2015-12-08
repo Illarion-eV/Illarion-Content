@@ -75,7 +75,7 @@ function M.learn(user, skill, actionPoints, learnLimit)
                     if user:getType() == 0 and user:getQuestProgress(154) ~= 1 then --Only players get an inform once
 
                         local skillstring = user:getSkillName(skill)
-                        common.InformNLS(user, "[Levelaufstieg] Deine Fertigkeit '"..skillstring.."' hat sich soeben erhöht. Drücke 'C' um deine Fertigkeiten anzeigen zu lassen.", "[Level up] Your skill '"..skillstring.."' just increased. Hit 'C' to review your skills.")
+                        common.InformNLS(user, "[Levelaufstieg] Deine Fertigkeit '"..skillstring.."' hat sich soeben erhöht. Drücke 'C' um deine Fertigkeiten anzeigen zu lassen. Denke daran, dass es nicht nötig ist, ununterbrochen zu arbeiten, um schneller in Fertigkeiten aufzusteigen.", "[Level up] Your skill '"..skillstring.."' just increased. Hit 'C' to review your skills. Keep in mind that it is not necessary to work continously without rest to advance faster in skills.")
                         user:setQuestProgress(154, 1) --Remember that we already informed the player
 
                     elseif user:getType() == 0 then

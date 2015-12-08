@@ -104,12 +104,12 @@ english, town = Cadomyr, "join Cadomyr", "become citizen", "gain citizenship" ->
 town = Cadomyr, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Oh! Ihr seid bereits Bürger von Cadomyr."
 
 -- Becoming citizen in Cadomyr
-english, town = Galmair, "join Cadomyr", "become citizen", "gain citizenship" -> town = Cadomyr, "Let me prepare the documents..."
-town = Galmair, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Lasst mich die Urkunde vorbereiten..."
-english, town = Runewick, "join Cadomyr", "become citizen", "gain citizenship" -> town = Cadomyr, "Let me prepare the documents..."
-town = Runewick, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Lasst mich die Urkunde vorbereiten..."
-english, town = None, "join Cadomyr", "become citizen", "gain citizenship" -> town = Cadomyr, "Let me prepare the documents..."
-town = None, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Lasst mich die Urkunde vorbereiten..."
+english, town = Galmair, "join Cadomyr", "become citizen", "gain citizenship" -> town = Cadomyr, "Let me prepare the documents... Welcome to Cadomyr! You are now a subject of Her Majesty."
+town = Galmair, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Lasst mich die Urkunde vorbereiten... Willkommen in Runewick! Ihr seid jetzt ein Untertan Ihrer Majestät."
+english, town = Runewick, "join Cadomyr", "become citizen", "gain citizenship" -> town = Cadomyr, "Let me prepare the documents... Welcome to Cadomyr! You are now a subject of Her Majesty."
+town = Runewick, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Lasst mich die Urkunde vorbereiten... Willkommen in Runewick! Ihr seid jetzt ein Untertan Ihrer Majestät."
+english, town = None, "join Cadomyr", "become citizen", "gain citizenship" -> town = Cadomyr, "Let me prepare the documents... Welcome to Cadomyr! You are now a subject of Her Majesty."
+town = None, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Lasst mich die Urkunde vorbereiten... Willkommen in Runewick! Ihr seid jetzt ein Untertan Ihrer Majestät."
 
 -- terminating citiienship, leaving in Cadomyr (209)
 english, town = Cadomyr, "give up citizenship", "terminate", "leave", "leaving" -> queststatus(209) = 1, "You want to give up citizenship in Cadomyr. Are you sure?"

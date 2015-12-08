@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE items SET itm_script='item.chest' WHERE itm_id IN (8,649,650,1360,1361,1362,1367);
+-- UPDATE items SET itm_script='item.chest' WHERE itm_id IN (8,649,650,1360,1361,1362,1367,3788,3789);
 
 local common = require("base.common")
 
@@ -47,8 +47,8 @@ function M.UseItem(User, SourceItem)
 
     if (User:getQuestProgress(510) == 24) and  SourceItem.pos == position(783, 640, -3) then --OK, the player does the quest
         User:inform(
-            "In der Truhe liegt eine goldenes Amulet, das mit einem großen Smaragd geschmückt ist. Auf dem Stein ist ein goldenes Ein Zwergenwappen. Danach hatte Obsidimine gefragt.",
-            "Inside the chest lays a golden amulet adorned with a large emerald. On the stone is a golden Dwarven coat of arms.  This is what Obsidimine was inquiring about.")
+            "In der Truhe liegt eine goldenes Amulet, das mit einem großen Smaragd geschmückt ist. Auf dem Stein ist ein goldenes Zwergenwappen. Danach hatte Obsidimine gefragt.",
+            "Inside the chest lays a golden amulet adorned with a large emerald. On the stone is a golden Dwarven coat of arms. This is what Obsidimine was inquiring about.")
         User:setQuestProgress(510, 25)
         return
     end

@@ -26,8 +26,8 @@ local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}
-Title[GERMAN] = "Ssiguss's Orphans"
-Title[ENGLISH] = "Ssiguss Waisenkinder"
+Title[GERMAN] = "Ssiguss Waisenkinder"
+Title[ENGLISH] = "Ssiguss's Orphans"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
@@ -35,7 +35,7 @@ local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Sammeln Sie 20 Klumpen Lehm, 10 Ässte und 10 Bündel Getreide. Dann Ssiguss zurückzukehren."
-Description[ENGLISH][1] = "Collect 20 clay, 10 boughs, and 10 wheat. Then return to Ssiguss."
+Description[ENGLISH][1] = "Collect 20 clay, 10 boughs, and 10 wheat bundles. Then return to Ssiguss."
 Description[GERMAN][2] = "Ssiguss hat mehr Arbeit für Sie."
 Description[ENGLISH][2] = "Check with Ssiguss, he may have another task for you."
 
@@ -50,22 +50,22 @@ Description[GERMAN][6] = "Sie haben alle Ssiguss Aufgaben fertig!"
 Description[ENGLISH][6] = "You have finished all of Ssiguss's tasks!"
 
 
-local npcPos = position(564, 232, 0);
+local npcPos = position(564, 233, 0);
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 local Start = npcPos;
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {564, 232, 0}
-QuestTarget[2] = {564, 232, 0}
-QuestTarget[4] = {564, 232, 0}
-QuestTarget[5] = {564, 232, 0}
-QuestTarget[7] = {564, 232, 0}
-QuestTarget[8] = {564, 232, 0}
-QuestTarget[10] = {564, 232, 0}
-QuestTarget[11] = {564, 232, 0}
-QuestTarget[12] = {564, 232, 0}
+QuestTarget[1] = {564, 233, 0}
+QuestTarget[2] = {564, 233, 0}
+QuestTarget[4] = {564, 233, 0}
+QuestTarget[5] = {564, 233, 0}
+QuestTarget[7] = {564, 233, 0}
+QuestTarget[8] = {564, 233, 0}
+QuestTarget[10] = {564, 233, 0}
+QuestTarget[11] = {564, 233, 0}
+QuestTarget[12] = {564, 233, 0}
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 6

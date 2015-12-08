@@ -19,6 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local lookat = require("base.lookat")
+local goldenGoblet = require("item.id_224_goldengoblet")
 
 local M = {}
 
@@ -34,6 +35,11 @@ function M.LookAtItem(User, Item)
 end
 
 function M.UseItem(User, SourceItem)
+
+    if goldenGoblet.putCoinsInGoblet(User, SourceItem) then
+        return
+    end
+    
     local frontItem = common.GetFrontItem(User)
     if frontItem then
         if frontItem.id == 2805 and frontItem.pos == position(386, 260, -6) then --if frontItem is quest pillar
@@ -60,11 +66,11 @@ function M.UseItem(User, SourceItem)
     end
 
     if math.random(2) == 1 then
-		User:talk(Character.say, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt Kopf.", "#me throws a coin in the air and catches it again. It shows head.")
+User:talk(Character.say, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt Kopf.", "#me throws a coin in the air and catches it again. It shows head.")
     else
         User:talk(Character.say, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt Zahl.", "#me throws a coin in the air and catches it again. It shows tail.")
     end
-	
+
     TimeList[User.id] = world:getTime("second")
 end
 

@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local M = {}
+local id_382_ceilingtrowel = require("gm.items.id_382_ceilingtrowel")
 
 -- UPDATE items SET itm_script='item.id_316_sand' WHERE itm_id = 316;
 
@@ -25,9 +26,14 @@ function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
     deleteIt=false;
     local GroundItem = world:getItemOnField(TargetItem.pos)
     if (GroundItem.id==10) then
-        world:erase(GroundItem,1);
+        local removePos = TargetItem.pos
+        world:erase(GroundItem,1)
         deleteIt=true
-        world:gfx(45,TargetItem.pos);
+        world:gfx(45,TargetItem.pos)
+        
+        -- In case the portal is on a gm set spawnpoint, we remove the spawnpoint
+        
+        id_382_ceilingtrowel.saveRemovePosition(removePos)
     end
     return true
 end
@@ -37,4 +43,3 @@ function M.MoveItemAfterMove(User, SourceItem, TargetItem)
 end
 
 return M
-

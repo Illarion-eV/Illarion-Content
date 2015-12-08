@@ -16,43 +16,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ID 107, Mummy of Madness, Level: 2, Armourtype: -, Weapontype: slashing
 
-local common = require("base.common")
-local hooks = require("monster.base.hooks")
+local madness = require("monster.base.madness")
 local mummies = require("monster.race_10_mummy.base")
+
 local M = mummies.generateCallbacks()
+local mummyMadness = madness{monsterId = 107}
 
-local function isSpecialTime()
-    if world:getTime("month") == 16 then
-        return true -- It is Mas!
-    end
-    local hour = world:getTime("hour")
-    -- "Special time" from 20:00 to 3:59
-    return hour >= 20 or hour <= 3
-end
-
-local function spawnNewMummy(pos)
-    local newMummy = world:createMonster(107, pos, 0)
-    if newMummy ~= nil and isValidChar(newMummy) then
-        world:gfx(5, pos);
-    end
-end
-
--- The mummy of madness needs to spawn two new monsters of the same kind upon it's death.
-local orgOnDeath = M.onDeath
-
-function M.onDeath(monster)
-    if isSpecialTime() and not hooks.isForcedDeath(monster) then
-        local spawnPositions = common.GetFreePositions(monster.pos, 1, true, true)
-        -- Special time! Respawn two new mummies to create more fun!
-        for _ = 1, 2 do
-            spawnNewMummy(spawnPositions() or monster.pos)
-        end
-        hooks.setNoDrop(monster)
-    end
-
-    if orgOnDeath ~= nil then
-        orgOnDeath(monster)
-    end
-end
-
-return M
+return mummyMadness.addCallbacks(M)

@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local factions = require("base.factions")
+local monsterQuests = require("monster.base.quests")
 local M = {}
 
 local GERMAN = Player.german
@@ -99,20 +100,20 @@ Description[GERMAN][32] = "Du hast alle Aufgaben für Obsidimine erledigt."
 Description[ENGLISH][32] = "You have completed all tasks for Obsidimine."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {809, 676, 0}
+local Start = {809, 676, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
 QuestTarget[1] = {position(809, 676, 0)} -- npc
 QuestTarget[2] = {position(809, 676, 0)} 
-QuestTarget[3] = {position(809, 676, 0), position(805, 632, 0)} -- volcano base
-QuestTarget[4] = {position(809, 676, 0), position(805, 632, 0)} -- volcano base
+QuestTarget[3] = {position(809, 676, 0), position(783, 663, 0)} -- volcano base
+QuestTarget[4] = {position(809, 676, 0), position(783, 663, 0)} -- volcano base
 QuestTarget[5] = {position(809, 676, 0)}  
 QuestTarget[6] = {position(809, 676, 0)}  
 QuestTarget[7] = {position(809, 676, 0), position(826, 643, 2)} -- Upper level of volcano
 QuestTarget[8] = {position(809, 676, 0)} 
 QuestTarget[9] = {position(809, 676, 0)} 
-QuestTarget[10] = {position(809, 676, 0), position(826, 643, 2), position(821, 661, 1), position(657, 701, -3), position(822, 622, -3), position(668, 658, -6)} --checkpoints for looking at all levels
+QuestTarget[10] = {position(809, 676, 0), position(826, 643, 2), position(821, 661, 1), position(659, 701, -3), position(822, 662, -3), position(668, 658, -6)} --checkpoints for looking at all levels
 QuestTarget[11] = {position(809, 676, 0)}  
 QuestTarget[12] = {position(809, 676, 0)}
 QuestTarget[13] = {position(809, 676, 0)} 
@@ -145,7 +146,7 @@ monsterQuests.addQuest{
     location = {position = position(805, 632, 0), radius = 50},
     queststatus = {from = 3, to = 5},
     questTitle = {german = "Höhlenforscher II", english = "Spelunker II"},
-    monsterName = {german = "Höllenhund", english = "Hell Hound"},
+    monsterName = {german = "Höllenhunds", english = "Hell Hounds"},
     npcName = "Obsidimine",
     monsterIds = {861, 883} -- bloodsniffer and crippled ghost beast
 }
@@ -191,11 +192,7 @@ function M.QuestFinalStatus()
 end
 
 function M.QuestAvailability(user, status)
-    if factions.isCadomyrCitizen(user) and status == 0 then
-        return Player.questAvailable
-    else
-        return Player.questNotAvailable
-    end
+    return Player.questAvailable
 end
 
 return M

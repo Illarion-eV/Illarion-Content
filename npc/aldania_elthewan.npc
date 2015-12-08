@@ -92,7 +92,7 @@ queststatus(310) = 2, ".*" -> "Bitte nehmt die Spitzhacke in die Hand. Zu lernen
 
 --Dialog for next task is in lights.lua
 
--- Player seems to have a problem with using items AND lost his torch. Vollnoob.
+-- Player seems to have a problem with using items AND lost his torch.
 queststatus(310) = 3, english, ".*", item(391, all) = 0 -> item(391, 1, 333), "What is the purpose of owning an item if you cannot use it properly? Here, have another torch and ignite it with a double click. Light sources are quite important when travelling by night."
 queststatus(310) = 3, ".*", item(391, all) = 0 -> item(391, 1, 333), "Was ist der Nutzen von einem Gegenstand, wenn man ihn nicht richtig benutzen kann? Hier, nehmt diese Fackel und entzündet sie mit einem Doppelklick. Wenn man Nachts unterwegs ist, sind Lichtquellen sehr wichtig."
 
@@ -109,4 +109,4 @@ queststatus(310) = 4, ".*" -> "Dies ist der Zeitpunkt, um getrennte Wege zu gehe
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Aldania Elthewan zu Euren Diensten. Ich unterrichte das Ausrüsten und Benutzen von Gegenständen.", "Aldania Elthelwan, at your service. Equipping and using items is what I teach."
+cycletext "Aldania Elthewan zu Euren Diensten. Ich unterrichte das Ausrüsten und Benutzen von Gegenständen.", "Aldania Elthewan, at your service. Equipping and using items is what I teach."

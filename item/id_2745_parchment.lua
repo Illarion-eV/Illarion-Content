@@ -25,6 +25,7 @@ local potionToTeacher = require("triggerfield.potionToTeacher")
 local recipe_creation = require("alchemy.base.recipe_creation")
 local lookat = require("base.lookat")
 local licence = require("base.licence")
+local shipmasterParchments = require("content.shipmasterParchments")
 local M = {}
 
 -- important: do not remove the fourth parameter "checkVar".
@@ -299,7 +300,7 @@ function CallBrewFunctionAndDeleteItem(User,deleteItem, deleteId,cauldron)
             -- here, we could need a check if the bucket has no datas
             id_52_filledbucket.FillIn(User, buckets[1], cauldron, true)
 
-        elseif alchemy.CheckIfGemDust(deleteId) then	--gemdust
+        elseif alchemy.CheckIfGemDust(deleteId) then    --gemdust
             gemdust.BrewingGemDust(User,deleteId,cauldron)
             local data = {}
             User:eraseItem(deleteId,1,data)
@@ -453,6 +454,10 @@ function M.LookAtItem(User, Item)
 
     return lookat.GenerateLookAt(User, Item, lookat.NONE)
 
+end
+
+function M.MoveItemAfterMove(user, sourceItem, targetItem)
+    shipmasterParchments.parchmentWasMoved(sourceItem)
 end
 
 return M

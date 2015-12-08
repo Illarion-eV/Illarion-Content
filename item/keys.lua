@@ -158,7 +158,7 @@ function SelectTargetChar(User, SourceItem, behaviour)
 
     local callback = function(dialog)
         if not dialog:getSuccess() then
-            User:inform("Abortion. No one was sentenced to anything.")
+            User:inform("Aborted. No one was sentenced to anything.")
             return
         else
             local myString = dialog:getInput()
@@ -237,7 +237,7 @@ function LabourCamp(User, SourceItem)
 
     local callback = function(dialog)
         if not dialog:getSuccess() then
-            User:inform("Abortion. No one was sentenced to anything.")
+            User:inform("Aborted. No one was sentenced to anything.")
             return
         else
             local myString = dialog:getInput()

@@ -104,9 +104,9 @@ english, "Cadomyr" -> "Ssiguss caress not for townss, but only ssmall oness."
 
 -- Quests
 --Gather Materials for the Nest
-queststatus(171) = 0, english, "quest", "mission" -> inform("[New quest] Materials for the Nest"), queststatus(171) = 1, "I need sssome materials for a nessst, for eggs! Get me 20 clay, 10 boughss, and 10 wheat. For the lizardlingss!"
+queststatus(171) = 0, english, "quest", "mission" -> inform("[New quest] Materials for the Nest"), queststatus(171) = 1, "I need sssome materials for a nessst, for eggs! Get me 20 clay, 10 boughss, and 10 wheat bundles. For the lizardlingss!"
 queststatus(171) = 0, "quest", "mission" -> inform("[Neue Quest] Materialien für das Nest"), queststatus(171) = 1, "Ich benötige einige Materialien für ein Nesst für die Eier! Bringt mir 20 Klumpen Lehm, 10 Ässte und 10 Bündel Getreide. Für die Echssenkinder!"
-queststatus(171) = 0, "task", "adventure", "order" -> inform("[New quest] Materials for the Nest"), queststatus(171) = 1, "I need sssome materials for a nessst, for eggs! Get me 20 clay, 10 boughss, and 10 wheat. For the lizardlingss!"
+queststatus(171) = 0, "task", "adventure", "order" -> inform("[New quest] Materials for the Nest"), queststatus(171) = 1, "I need sssome materials for a nessst, for eggs! Get me 20 clay, 10 boughss, and 10 wheat bundles. For the lizardlingss!"
 queststatus(171) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Materialien für das Nest"), queststatus(171) = 1, "Ich benötige einige Materialien für ein Nesst für die Eier! Bringt mir 20 Klumpen Lehm, 10 Ässte und 10 Bündel Getreide. Für die Echssenkinder!"
 -- if done
 queststatus(171) = 1, item(26, all) > 19, item(56, all) > 9, item(249, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded forty silver coins."), money + 4000, deleteItem(26, 20), deleteItem(56, 10), deleteItem(249, 10), queststatus(171) = 2, "Sksk! Good you gathered the nest materials. Take thiss as payment. Now for the eggs!"

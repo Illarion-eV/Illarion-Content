@@ -648,8 +648,8 @@ function CauseDamage(Attacker, Defender, Globals)
         end
 
         common.TalkNLS(Defender.Char, Character.say,
-            "#me stolpert zurück und geht zu Boden.",
-            "#me stumbles back and falls to the ground.")
+            "#me taumelt zurück.",
+            "#me stumbles back.")
 
         if not Defender.Char:isAdmin() then --Admins don't want to get paralysed!
             common.ParalyseCharacter(Defender.Char, 2, false, true)
@@ -1035,7 +1035,7 @@ end
 -- @param Defender The table of the attacked character
 -- @return true if a coup de gráce was done
 function CoupDeGrace(Attacker, Defender)
-    if not character.IsPlayer(Attacker.Char) then -- Only for player characters
+    if not character.IsPlayer(Defender.Char) then -- Only for player characters
         return false
     end
 
@@ -1046,12 +1046,12 @@ function CoupDeGrace(Attacker, Defender)
 
     if (character.AtBrinkOfDeath(Defender.Char)) then
         -- character nearly down
-        local gText = common.GetGenderText(Attacker.Char, "seinem", "ihrem")
+        --[[local gText = common.GetGenderText(Attacker.Char, "seinem", "ihrem")
         local eText = common.GetGenderText(Attacker.Char, "his", "her")
         Attacker.Char:talk(Character.say,
                 string.format("#me gibt %s Gegner den Gnadenstoß.", gText),
                 string.format("#me gives %s enemy the coup de gráce.", eText))
-
+        --]]
         -- Kill character and notify other scripts about the death
         if not character.Kill(Defender.Char) then
             -- something interrupted the kill

@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO triggerfields VALUES (826, 643, 2,'triggerfield.spelunker_1');
 -- INSERT INTO triggerfields VALUES (821, 661, 1,'triggerfield.spelunker_1');
--- INSERT INTO triggerfields VALUES (657, 701, -3,'triggerfield.spelunker_1');
+-- INSERT INTO triggerfields VALUES (659, 701, -3,'triggerfield.spelunker_1');
 -- INSERT INTO triggerfields VALUES (822, 662, -3,'triggerfield.spelunker_1');
 -- INSERT INTO triggerfields VALUES (668, 658, -6,'triggerfield.spelunker_1');
 
@@ -28,7 +28,7 @@ local M = {}
 local waypoint = {} --a list with positions
 waypoint[1] = position(826, 643, 2) --1: second level of volcano
 waypoint[2] = position(821, 661, 1) --2: first level of volcano
-waypoint[3] = position(657, 701, -3) --3: west entrance of level -3 underground
+waypoint[3] = position(659, 701, -3) --3: west entrance of level -3 underground
 waypoint[4] = position(822, 662, -3) --4: east entrance of level -3 underground
 waypoint[5] = position(668, 658, -6) --5: entrance of the lowest level of dragon cave
 
@@ -37,7 +37,7 @@ messageG[1] = "[Queststatus] Du hast die höchste Ebene des Vulkans erreicht."
 messageG[2] = "[Queststatus] Du hast die mittlere Ebene des Vulkans erreicht."
 messageG[3] = "[Queststatus] Du hast den westlichen Eingang zur unteren Ebene entdeckt."
 messageG[4] = "[Queststatus] Du hast den östlichen Eingang zur unteren Ebene entdeckt."
-messageG[5] = "[Queststatus] Du hast die unterste Ebene der DrachenhÃ¶hle gefunden."
+messageG[5] = "[Queststatus] Du hast die unterste Ebene der Drachenhöhle gefunden."
 local messageE = {}
 messageE[1] = "[Quest status] You have reached the uppermost level of the volcano."
 messageE[2] = "[Quest status] You have reached the middle level of the volcano."
