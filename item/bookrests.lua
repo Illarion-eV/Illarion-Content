@@ -310,7 +310,7 @@ function StaticTeleporter(User, SourceItem)
                 else
 
                     User:inform("Ihr habt euch dazu entschlossen nach " ..names[selected].. " zu Reisen.", "You have chosen to travel to " ..names[selected]..".")
-		    money.TakeMoneyFromChar(User,500)
+                    money.TakeMoneyFromChar(User,500)
                     world:gfx(46,User.pos)
                     world:makeSound(13,User.pos);
 
