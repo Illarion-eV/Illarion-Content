@@ -303,16 +303,14 @@ function StaticTeleporter(User, SourceItem)
             end
             local userFaction = factions.getMembershipByName(User)
             -- Check wether the char has enough money or travels from necktie to hometown or vice versa
-            if (money.CharHasMoney(User,500) or NecktieHomeTravel(User,names,targetPos,selected)) then
+            if (money.CharHasMoney(User,500)) then 
 
                 if User:distanceMetricToPosition(targetPos[selected]) < 5 then
                     User:inform("Ihr befindet euch bereits in " ..names[selected]..".", "You are already in "..names[selected]..".")
                 else
 
                     User:inform("Ihr habt euch dazu entschlossen nach " ..names[selected].. " zu Reisen.", "You have chosen to travel to " ..names[selected]..".")
-                    if not NecktieHomeTravel(User,names,targetPos,selected) then
-                        money.TakeMoneyFromChar(User,500)
-                    end
+		    money.TakeMoneyFromChar(User,500)
                     world:gfx(46,User.pos)
                     world:makeSound(13,User.pos);
 
@@ -329,9 +327,9 @@ function StaticTeleporter(User, SourceItem)
 
     local dialog
     if User:getPlayerLanguage() == Player.german then
-        dialog = SelectionDialog("Teleporter", "Eine Reise kostet fünf Silberstücke; doch das Reisen zwischen dem Gasthof zur Schlinge und deiner Heimatstadt ist kostenlos. Wähle eine Ziel aus.", callback)
+        dialog = SelectionDialog("Teleporter", "Eine Reise kostet fünf Silberstücke. Wähle eine Ziel aus.", callback)
     else
-        dialog = SelectionDialog("Teleporter", "A journey costs five silver coins; but travelling between the Hemp Necktie Inn and your home town is free. Choose a destination.", callback)
+        dialog = SelectionDialog("Teleporter", "A journey costs five silver coins. Choose a destination.", callback)
     end
     dialog:setCloseOnMove()
 
