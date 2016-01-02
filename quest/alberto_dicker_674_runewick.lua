@@ -24,7 +24,7 @@ local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}
-Title[GERMAN] = "Die Bilder Alberto Dickers"
+Title[GERMAN] = "Die Gemälde Alberto Dickers"
 Title[ENGLISH] = "The Pictures Alberto Dickers"
 
 -- Insert an extensive description of each status here, in both languages
@@ -44,23 +44,23 @@ local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 -- Quests
-Description[GERMAN][1] = "Schau dir das Bild des Hahnes genau an. Sage Numila Irunnleh was nicht stimmt. Du kannst in der Bücherei über den Maler nachlesen, dort findest du die Antwort."
-Description[ENGLISH][1] = "See over the picture of the rooster. Tell Numila Irunnleh what is maybe not right. You find in the library a book about the painter. It contains hints for your answer."
+Description[GERMAN][1] = "Schau dir das Gemälde des Hahnes genau an. Sage Numila Irunnleh was nicht stimmt. Fällt dir an der Unterschrift was auf? Du kannst in der Bücherei über den Maler nachlesen, dort findest du die Antwort."
+Description[ENGLISH][1] = "See over the picture of the rooster. Tell Numila Irunnleh what is maybe not right. Take a closer look to the signature. You find in the library a book about the painter. It contains hints for your answer."
 Description[GERMAN][2] = "Gehe zu Rabans Hain im Nordwald und sprich mit Raban."
 Description[ENGLISH][2] = "Go to Rabans Hain in the northern forest and talk to Raban."
 Description[GERMAN][3] = "Kehre zu Numila Irunnleh zurück und sprich mit ihr."
 Description[ENGLISH][3] = "Go back to Numila Irunnleh zurück and talk to her."
-Description[GERMAN][4] = "Befrage den Besitzer der Taverne zur Hanfschlinge nach dem Verbleib des Bildes 'Oldras Altar'."
+Description[GERMAN][4] = "Befrage den Besitzer der Taverne zur Hanfschlinge nach dem Verbleib des Gemäldes 'Oldras Altar'."
 Description[ENGLISH][4] = "Interview the owner of the Hempty Neckty Inn whereabout the pichture 'Oldras Shrine'."
 Description[GERMAN][5] = "Kehre zu Numila Irunnleh zurück und sprich mit ihr."
 Description[ENGLISH][5] = "Go back to Numila Irunnleh zurück and talk to her."
-Description[GERMAN][100] = "Finde 5 weitere Bilder des Malers. Zwei in Cadomyr, eins in Galmair und zwei in Runewick."
+Description[GERMAN][100] = "Finde 5 weitere Gemälde des Malers. Zwei in Cadomyr, eins in Galmair und zwei in Runewick."
 Description[ENGLISH][100] = "Find 5 more pictures of the painter. Two in Cadomyr, one in Galmair and two in Runewick."
-Description[GERMAN][105] = "Du hast alle Bilder gefunden. Kehre zu Numila Irunnleh zurück."
+Description[GERMAN][105] = "Du hast alle Gemälde gefunden. Kehre zu Numila Irunnleh zurück."
 Description[ENGLISH][105] = "You found all pictures. Go back to Numila Irunnleh."
-Description[GERMAN][201] = "Gehe zu Miggs und berichte ihm von dem kopierten Bild."
+Description[GERMAN][201] = "Gehe zu Miggs und berichte ihm von dem kopierten Gemälde."
 Description[ENGLISH][201] = "Go to Miggs and report about the copied picture."
-Description[GERMAN][202] = "Gehe zu Anthar Vilicon und berichte ihm von dem kopierten Bild."
+Description[GERMAN][202] = "Gehe zu Anthar Vilicon und berichte ihm von dem kopierten Gemälde."
 Description[ENGLISH][202] = "Go to Anthar Vilicon and report about the copied picture."
 
 

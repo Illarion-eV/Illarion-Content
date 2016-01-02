@@ -142,11 +142,11 @@ function M.UseItem(User, SourceItem)
             if User:getQuestProgress(676) == 31 then
                 User:setQuestProgress(674, 105)
                 User:inform(
-                    "[Die Bilder Alberto Dickers] Du hast alle Bilder Alberto Dickers gefunden. Gehe zurück zu Numila Irunnleh für deine Belohnung.",
+                    "[Die Gemälde Alberto Dickers] Du hast alle Gemälde Alberto Dickers gefunden. Gehe zurück zu Numila Irunnleh für deine Belohnung.",
                     "[The pictures Alberto Dickers] You found all the pictures of Alberto Dicker. Go to Numila Irunnleh and ask for a reward.")
             else
                 User:inform(
-                    "[Die Bilder Alberto Dickers] Du hast eins von 5 Bildern Alberto Dickers gefunden. Es fehlt mindestens noch ein weiteres.",
+                    "[Die Gemälde Alberto Dickers] Du hast eins von 5 Gemälden Alberto Dickers gefunden. Es fehlt mindestens noch ein weiteres.",
                     "[The pictures Alberto Dickers] You found one of the 5 pictures of Alberto Dicker. There is at least one more to locate.")
             end
         end
