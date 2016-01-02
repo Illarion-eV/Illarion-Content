@@ -165,10 +165,14 @@ queststatus(673) > 8, queststatus(671) = 20, english, town = Galmair, ".+" -> in
 queststatus(673) > 8, queststatus(671) = 20, town = Galmair, ".+" -> inform("[Bären Quest ] Besucht!"), "#me legt sich auf den Rücken und wälzt sich zufrieden im Wasser. Als er sich schüttelt, bekommst du einige Tropfen ab.", "#me hebt die Pfote als ob er winkt und trollt sich mit einem Purzelbaum." , "#me legt den Kopf auf einen warmen Stein, blinzelt und brummt zufrieden.", queststatus(671) = 12
 
 -- Quest hints
-english, town = Galmair, "quest", "mission", "task", "adventure" -> "#me's compound shows a sign, 'Please ask Grijas Kokotte about feeding the bear'.", "#me's compound is signed, 'Bear of Galmair'.", "#me looks around with a begging gaze. Then he looks to the direction of Grijas Kokotte."
-english, "quest", "mission", "task", "adventure" -> "#me's compound shows a sign, 'Don't feed!'", "#me's compound is signed, 'Bear of Galmair'.", "#me turns away."
-german, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer" -> "#me's Gehege hat ein Schild 'Fütterung nur in Abstimmung mit Grijas Kokotte'.", "#me's Gehege hat ein Schild 'Bär von Galmair'", "#me schaut dich bettelnd an. Dann schweift sein Blick zu Grijas Kokotte."
-german, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer" -> "#me's Gehege hat ein Schild 'Bitte nicht Füttern'.", "#me's Gehege hat ein Schild 'Bär von Galmair'", "#me dreht sich weg."
+english, town = Galmair, "quest", "mission" -> "#me's compound shows a sign, 'Please ask Grijas Kokotte about feeding the bear'.", "#me's compound is signed, 'Bear of Galmair'.", "#me looks around with a begging gaze. Then he looks to the direction of Grijas Kokotte."
+"task", "adventure", "order", town = Galmair -> "#me's compound shows a sign, 'Please ask Grijas Kokotte about feeding the bear'.", "#me's compound is signed, 'Bear of Galmair'.", "#me looks around with a begging gaze. Then he looks to the direction of Grijas Kokotte."
+english, "quest", "mission" -> "#me's compound shows a sign, 'Don't feed!'", "#me's compound is signed, 'Bear of Galmair'.", "#me turns away."
+"task", "adventure", "order" -> "#me's compound shows a sign, 'Don't feed!'", "#me's compound is signed, 'Bear of Galmair'.", "#me turns away."
+town = Galmair, "quest", "mission" -> -> "#me's Gehege hat ein Schild 'Fütterung nur in Abstimmung mit Grijas Kokotte'.", "#me's Gehege hat ein Schild 'Bär von Galmair'", "#me schaut dich bettelnd an. Dann schweift sein Blick zu Grijas Kokotte."
+town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "#me's Gehege hat ein Schild 'Fütterung nur in Abstimmung mit Grijas Kokotte'.", "#me's Gehege hat ein Schild 'Bär von Galmair'", "#me schaut dich bettelnd an. Dann schweift sein Blick zu Grijas Kokotte."
+"quest", "mission" -> "#me's Gehege hat ein Schild 'Bitte nicht Füttern'.", "#me's Gehege hat ein Schild 'Bär von Galmair'", "#me dreht sich weg."
+"Auftrag", "Aufgabe", "Abenteuer" -> "#me's Gehege hat ein Schild 'Bitte nicht Füttern'.", "#me's Gehege hat ein Schild 'Bär von Galmair'", "#me dreht sich weg."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "food", "dinner", "breakfast", "lunch" -> "#me sniffs at a muddy apple.", "#me begs for food.", "#me licks his chops."
