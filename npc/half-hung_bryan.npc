@@ -81,7 +81,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Au revoir.", "Farewell, and
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- Foreign quest Alberto Dicker
-queststatus(674) = 4, german, "Oldra", "Altar", "Bild", "Alberto", "Dicker" -> inform("[Die Bilder Alberto Dickers] Gehe zurück nach Runewick und sprich mit Pillipo."), "Was get es dich an, dass ich das Bild aus der Gaststube genommen und in das Hospital gehängt hab? Ich denke da passt es besser. Außerdem kann der Raum abgeschlossen werden.", queststatus(674) = 5
+queststatus(674) = 4, german, "Oldra", "Altar", "Bild", "Alberto", "Dicker" -> inform("[Die Bilder Alberto Dickers] Gehe zurück nach Runewick und sprich mit Pillipo."), "Was geht es dich an, dass ich das Bild aus der Gaststube genommen und in das Hospital gehängt hab? Ich denke, da passt es besser. Außerdem kann der Raum abgeschlossen werden.", queststatus(674) = 5
 queststatus(674) = 4, english, "Oldra", "shrine", "picture", "Alberto", "Dicker" -> inform("[The pictures Alberto Dickers] Go back to Runewick and talk to Numila Irunnleh."), "What's that to you? I removed the picture from the lounge and hung it into the Hospital. I believe it belongs better into that location. And I can lock the room.", queststatus(674) = 5
  
 -- Catching quest triggers

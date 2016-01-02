@@ -107,8 +107,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Be well! An' careful that n
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Hagar Wernson, der Wirt."
 
 -- Catching quest triggers
-english, "quest" -> "I haven't any tasks for you."
-german, "quest" -> "Ich hab keine Arbeit für Euch."
+english, "quest", "mission" -> "I haven't any tasks for you."
+"quest", "mission" -> "Ich hab keine Arbeit für Euch."
 "task", "adventure", "order" -> "I haven't any tasks for you."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keine Arbeit für Euch."
 
