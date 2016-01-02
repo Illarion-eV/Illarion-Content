@@ -169,7 +169,7 @@ english, town = Galmair, "quest", "mission" -> "#me's compound shows a sign, 'Pl
 "task", "adventure", "order", town = Galmair -> "#me's compound shows a sign, 'Please ask Grijas Kokotte about feeding the bear'.", "#me's compound is signed, 'Bear of Galmair'.", "#me looks around with a begging gaze. Then he looks to the direction of Grijas Kokotte."
 english, "quest", "mission" -> "#me's compound shows a sign, 'Don't feed!'", "#me's compound is signed, 'Bear of Galmair'.", "#me turns away."
 "task", "adventure", "order" -> "#me's compound shows a sign, 'Don't feed!'", "#me's compound is signed, 'Bear of Galmair'.", "#me turns away."
-town = Galmair, "quest", "mission" -> -> "#me's Gehege hat ein Schild 'Fütterung nur in Abstimmung mit Grijas Kokotte'.", "#me's Gehege hat ein Schild 'Bär von Galmair'", "#me schaut dich bettelnd an. Dann schweift sein Blick zu Grijas Kokotte."
+town = Galmair, "quest", "mission" -> "#me's Gehege hat ein Schild 'Fütterung nur in Abstimmung mit Grijas Kokotte'.", "#me's Gehege hat ein Schild 'Bär von Galmair'", "#me schaut dich bettelnd an. Dann schweift sein Blick zu Grijas Kokotte."
 town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "#me's Gehege hat ein Schild 'Fütterung nur in Abstimmung mit Grijas Kokotte'.", "#me's Gehege hat ein Schild 'Bär von Galmair'", "#me schaut dich bettelnd an. Dann schweift sein Blick zu Grijas Kokotte."
 "quest", "mission" -> "#me's Gehege hat ein Schild 'Bitte nicht Füttern'.", "#me's Gehege hat ein Schild 'Bär von Galmair'", "#me dreht sich weg."
 "Auftrag", "Aufgabe", "Abenteuer" -> "#me's Gehege hat ein Schild 'Bitte nicht Füttern'.", "#me's Gehege hat ein Schild 'Bär von Galmair'", "#me dreht sich weg."
