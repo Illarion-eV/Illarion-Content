@@ -74,7 +74,7 @@ itemShoes = 53
 "Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me raises his hand and waves. 'Greetings...'", "#me exhales thickly. 'Greets.'"
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "#me hebt seine Hand und winkt. 'Grüße dich...'", "#me atmet erschöpft aus. 'H-h...Tag.'"
 english, "Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "#me raises his hand and waves. 'Greetings...'", "#me exhales thickly. 'Greets.'"
-german, "Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "#me hebt seine Hand und winkt. 'Grüße dich...'", "#me atmet erschöpft aus. 'H-h...Tag.'"
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "#me hebt seine Hand und winkt. 'Grüße dich...'", "#me atmet erschöpft aus. 'H-h...Tag.'"
 
 "Farewell", "Good bye", "Bye", "Fare thee well" -> "#me nods a bit.", "Bye..."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "#me nickt ein wenig.", "Tschüss..."
@@ -110,17 +110,18 @@ english, "Gobaith", "Gobiath" -> "Yeah! Everything was pretty nice in Gobaith. N
 "Ich bin", "mein Name" -> "#me zuckt mit den Schultern"
 
 -- More small talk; add at least five triggers
-english, "Borgate", "barkeeper", "innkeeper", "Northoff" -> "Borgate is an old chum. He always knows what he has to do. Borgate, me and Eliza are left. I heard she lives in the swamp now."
+english, "Borgate", "Northoff" -> "Borgate is an old chum. He always knows what he has to do. Borgate, me and Eliza are left. I heard she lives in the swamp now."
+"Borgate", "Northoff" -> "Borgate kenn ich von damals, als wir auf Gobaith warn. Wie immer hat er sein Ding gemacht, als wir alle weg musten von dort.Wir zwe' und Eliza sin übrich gebliebn. Die soll jetz im Sumpf lebn."
+"barkeeper", "innkeeper" -> "Borgate is an old chum. He always knows what he has to do. Borgate, me and Eliza are left. I heard she lives in the swamp now."
+"wirt" -> "Borgate kenn ich von damals, als wir auf Gobaith warn. Wie immer hat er sein Ding gemacht, als wir alle weg musten von dort.Wir zwe' und Eliza sin übrich gebliebn. Die soll jetz im Sumpf lebn."
 "refuge", "grey" -> "The Order of the Grey Light and Grey Rose. Yessh! Once the most powerful knights and landowners. I will esteem them."
-english, "sam" -> "Huh? Did someone call me?", "#me raises his head. 'I am Sam!'"
-"market", "shop", "market", "store" -> "Yes, my old store is gone. Far away..and I am here and ... Who can tell what's happening there?!"
-english, "eliza" -> "Eliza lives in the swamp. Alone, you know? - We both lost our stores. But you can't do anything about it.. but now i try a recommencement."
-
-german, "Borgate", "wirt", "Northoff" -> "Borgate kenn ich von damals, als wir auf Gobaith warn. Wie immer hat er sein Ding gemacht, als wir alle weg musten von dort.Wir zwe' und Eliza sin übrich gebliebn. Die soll jetz im Sumpf lebn."
 "Zuflucht", "grau" -> "Der Orden des graun Lichts und die Graue Rose. Jeh-nau. Einst bestimmten die mächtigsten Ritter und Meister über deren Lande. Ich halte sie in Ehren."
-"laden", "schop", "Gesch[aeä]ft", "Markt" -> "Ja mein alter Laden is weg. Weit weg und ich bin hier. Verdien mir ein paar Münzen mit der Reperatur."
+english, "sam" -> "Huh? Did someone call me?", "#me raises his head. 'I am Sam!'"
 "sam" -> "#me hebt zackig seinen Kopf. 'Ich bin Sam!'"
-"eliza" -> "Eliza soll irgendwo im Sumpf lebn. Ganz allein. Weiste? - Wir habn beide unsern Laden verloren. Aber da kann man jetz nicht dagegen machen... dachte ich jedenfalls immer."
+"market", "shop", "market", "store" -> "Yes, my old store is gone. Far away..and I am here and ... Who can tell what's happening there?!"
+"laden", "schop", "Gesch[aeä]ft", "Markt" -> "Ja mein alter Laden is weg. Weit weg und ich bin hier. Verdien mir ein paar Münzen mit der Reperatur."
+english, "eliza" -> "Eliza lives in the swamp. Alone, you know? - We both lost our stores. But you can't do anything about it.. but now i try a recommencement."
+"eliza" -> "Eliza soll irgendwo im Sumpf lebn. Ganz allein. Weiste? Wir habn beide unsern Laden verloren. Aber da kann man jetz nicht dagegen machen... dachte ich jedenfalls immer."
 
 -- Faction stuff
 english, "Elvaine", "Morgan", "archmage", "Erzmagier" -> "Morgan is a self-important snob. That toad can eat my pants!"
@@ -140,11 +141,11 @@ english, "Cadomyr" -> "...scumbags, pigs, horse's arses, slimeballs! Thats what 
 
 -- Main land factions
 english, "albar" -> "Albarian scrumbags! Speared my father on the battlefield!"
-german, "albar" -> "Albarische Drecksäcke! Habn mein' Papa aufn Schlachtfeld aufgespist! Flusch! Jawohl - FLUCH über 'n König Albars!"
+"albar" -> "Albarische Drecksäcke! Habn mein' Papa aufn Schlachtfeld aufgespist! Flusch! Jawohl - FLUCH über 'n König Albars!"
 english, "gynk", "gync" -> "Too hot there right now. - Actually , it's always too hot in Gynk. I heard it doesn't snow during winter there."
-german, "gync", "gynk" -> "Ist viel zu heis dort, um die Jahreszeit. - Eigentlis um jede Jahreszeit. Im Winter soll nichtmal Schnee falln."
+"gync", "gynk" -> "Ist viel zu heis dort, um die Jahreszeit. - Eigentlis um jede Jahreszeit. Im Winter soll nichtmal Schnee falln."
 english, "salkama" -> "I am from Salkamar. But why should I have stayed there? And why should I go back there?"
-german, "salkama" -> "Ich komm aus Salkamar. Aber was sollt mich dort gehaltn habn? Und warum solt ich zurückehrn??"
+"salkama" -> "Ich komm aus Salkamar. Aber was sollt mich dort gehaltn habn? Und warum solt ich zurückehrn??"
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "I only talk about gods with friends."
@@ -157,7 +158,7 @@ english, "Moshran" -> state = 1, "One more word about HIM and you will have to v
 
 -- Catching quest triggers
 english, "quest" -> "When you can get new informations about Gobaith, I will be very grateful."
-german, "quest" -> "Wenn du heraufinden könntest, was von Gobaith übrig ist, wäre ich dir sehr dankbar."
+"quest" -> "Wenn du heraufinden könntest, was von Gobaith übrig ist, wäre ich dir sehr dankbar."
 "task", "adventure", "order" -> "When you can get new informations about Gobaith, I will be very grateful."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wenn du heraufinden könntest, was von Gobaith übrig ist, wäre ich dir sehr dankbar."
 
