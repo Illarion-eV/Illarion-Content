@@ -161,7 +161,7 @@ english, "red" -> "This wins the first prize. With one ticket you will win five 
 "grey" -> "Nun, you can't win with every colour, and grey really isn't a colour, is it?"
 english, "vase", "ball" -> "There are two hundred and fifty balls in that vase. You draw a single ball and depending on the colour you can win.", "The balls are made by a highly skilled dwarven stone cutter and it is absolutely impossible to feel what colour you have in your hand."
 "regel", "ticket", "Lotterie" -> inform("[Lotterie Information] Du kannst dir ein Los mittels 'ein Los' oder fünf Lose mittels 'fünf Lose' kaufen. Anschließend bewirkst du die Ziehung mit jeglichen gesprochenen Wort oder Emote. 'Stop' wird jedoch nicht die Ziehung auslösen, sondern dir dein Geld wieder geben."),"Ganz einfach. Ihr kauft ein Los und holt dann eine Kugel von 250 aus der Vase hier. Es gibt graue, weiße, gelbe, grüne, blaue und rote Kugeln. Je nach Farbe kann man gewinnen. Die rote Kugel ist der Hauptgewinn. Ihr gewinnt fünf Goldstücke für ein Los, das nur zehn Silberstücke kostet. Ihr könnt sogar fünf Lose auf einmal ziehen und damit 25 Goldstücke gewinnen."
-german, "rot" -> "Eine einzige rote Kugel gibt es und die ist der Hauptgewinn. Für jedes Los bekommt ihr fünf Goldstücke, wenn ihr sie erwischt."
+"rot" -> "Eine einzige rote Kugel gibt es und die ist der Hauptgewinn. Für jedes Los bekommt ihr fünf Goldstücke, wenn ihr sie erwischt."
 "grün" -> "Eine grüne Kugel ist fast wie ein Hauptgewinn. Zwei sind in der Vase und zwei Goldstücke bekommt man dafür."
 "blau" -> "Zieht ihr eine der zehn blauen Kugeln ist euch ein halbes Goldstück sicher."
 "gelb" -> "Für eine gelbe Kugel bekommt ihr das doppelte des Einsatzes zurück. Insgesamt sind zwölf davon in der Vase."
