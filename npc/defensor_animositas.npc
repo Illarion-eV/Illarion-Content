@@ -105,7 +105,7 @@ queststatus(525) = 1, english, "theresa" -> inform("[Quest solved] You are award
 queststatus(525) = 1, "theresa" -> inform("[Quest gelöst] Du erhältst fünfzig Silberstücke."), money + 5000, queststatus(525) = 2, "Ja, die Magierin starb als erste. Du hast den Test bestanden. Du bekommst 50 Silberstücke."
 -- Quest received but not finished
 queststatus(525) = 1, english, ".*" -> "What is the name of the first adventurer to die? You must know this information to pass my test."
-queststatus(525) = 1, german, ".*" -> "Wie lautet der Name des ersten Abenteurers, der starb? Du musst dies wissen, um meine Prüfung zu bestehen."
+queststatus(525) = 1, ".*" -> "Wie lautet der Name des ersten Abenteurers, der starb? Du musst dies wissen, um meine Prüfung zu bestehen."
 -- If finished with the Defensor
 queststatus(525) = 2, english, "quest", "mission", "test" -> "You have passed, please see Defensor Iracundia."
 queststatus(525) = 2, "quest", "mission", "Test" -> "Du hast bestanden. Gehe zum Defensor Iracundia."
@@ -119,7 +119,7 @@ queststatus(525) > 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du hast de
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 queststatus(525) < 1, english, ".*" -> "Finish our tests in order and you will be rewarded."
-queststatus(525) < 1, german, ".*" -> "Beende unsere Aufgaben und Du wirst eine Belohnung erhalten."
+queststatus(525) < 1, ".*" -> "Beende unsere Aufgaben und Du wirst eine Belohnung erhalten."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
