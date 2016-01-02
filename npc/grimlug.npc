@@ -131,8 +131,8 @@ state = 16, "continue" -> state = 0, "...It beh important, dhat dha green skin s
 "job" -> inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."), state = 15, "Der Schamane, weiß über die Geister im Ork. Und nutzt sie. Sein Geist ist groß und stark. Die Ahnen hören die Stimme von ihren Erben. Aber nur Schamanen werdigen, mächtige fremde Geister um Hilfe bittigen..."
 state = 15, "weiter" -> state = 16, "...Und so, er hilft kranke Orks. Und tut sein Wirken als Schamane. So ist es wichtig, das die Stärke des Orkes Geist, ist groß. Er wird gesund und stark sein wenn..."
 state = 16, "weiter" -> state = 0, "...Ork ehrt seine Ahnen und die Geister um ihn im herum."
-german, "olokwa" -> "Uh, Olokwa! Er alte blind Ork ist. Aba viel klugg. Viel Weiß.", "Olokwa Seher ist. Yubba. Is beeindruckend... aba imma bisschen gruselig.", "Wenn mir getroffen Olokwa, erstes mal, er erraten mein Name! Er gesehen hat. Ahnen, es ihm geflüstert haben.", "Olokwa große Kraft von Wissenheit hatt. Von geistiges Aug. Er blindt. Aber sehen mehr als viele andere."
 english, "olokwa" -> "Uh, Olokwa! He be old blind orc, is very smart 'nd prudent.", "Olokwa be a seer. Yubba. As impressive is... it still kind ob scary.", "First tjem mes met Olokwa, 'e guessed mes Name. He saw it...Tha ancestors told 'im.", "Olokwa hab great powa ob wisdom. ob ghostly eye. Altough he blind, he see more than most othas."
+"olokwa" -> "Uh, Olokwa! Er alte blind Ork ist. Aba viel klugg. Viel Weiß.", "Olokwa Seher ist. Yubba. Is beeindruckend... aba imma bisschen gruselig.", "Wenn mir getroffen Olokwa, erstes mal, er erraten mein Name! Er gesehen hat. Ahnen, es ihm geflüstert haben.", "Olokwa große Kraft von Wissenheit hatt. Von geistiges Aug. Er blindt. Aber sehen mehr als viele andere."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "He's this wizard, this elf... Hurr! Me feel his powers from far away. Gosh."
