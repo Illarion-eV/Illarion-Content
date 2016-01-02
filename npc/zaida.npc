@@ -140,7 +140,7 @@ queststatus(76) = 2, "apprentice" -> "I am indeed an apprentice-mage, but I can 
 
 -- Questions (german)
 queststatus(76) = 2, "Stadt" -> "#me lächelt: 'Diese Stadt ist Ort, an dem erleuchtete Seelen lernen und weise werden können. Wir sind die Zinne des Wissens, der Leuchtturm der Zivilisation in diesen Landen. All das verdanken wir Erzmagier Morgan.'"
-queststatus(76) = 2, german, "wissen", "weisheit" -> "Wissen und Weisheit sind die beiden wichtigstens Eigenschaften einer Person. Die Schärfe des Verstandes und das Können, den Verstand auch einzusetzen sind die wahren Adelszeichen eines Mannes... oder einer Frau."
+queststatus(76) = 2, "wissen", "weisheit" -> "Wissen und Weisheit sind die beiden wichtigstens Eigenschaften einer Person. Die Schärfe des Verstandes und das Können, den Verstand auch einzusetzen sind die wahren Adelszeichen eines Mannes... oder einer Frau."
 queststatus(76) = 2, "Vorliebe" -> "Unser Erzmagier mag die Ordnung. Also behnehmt euch und er wird euch mit Wohlwollen segnen. Allerdings muss ich eingestehen, dass er eine Vorliebe für magische Dinge und Bücher hat."
 queststatus(76) = 2, "geschenk", "präsent" -> "Ein Geschenk? Für den Erzmagier? Nun, wenn ihr ein seltenes Buch oder ein magisches Artefakt findet, dann denke ich, dass so ein seltenes Etwas ihm sehe gefallen würde."
 queststatus(76) = 2, "Wein" -> "#me lächelt sanft: 'Vielen Dank für den Wein, Reisender. Habt ihr Fragen, die ich euch beantworten kann?'"
