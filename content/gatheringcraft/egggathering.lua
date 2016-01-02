@@ -50,6 +50,12 @@ function StartGathering(User, SourceItem, ltstate)
     -- end
     common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 
+        -- check if it is a special and therefore unharvestable nest
+    if SourceItem:getData("eggProtectionType") ~= "" then
+        preventGathering(User, SourceItem)
+        return
+    end
+
     if SourceItem.id == EMPTY_NEST  then
       User:inform("Hier befinden sich keine Eier.","There are no eggs here.",Player.highPriority)
       return;
@@ -122,4 +128,17 @@ function StartGathering(User, SourceItem, ltstate)
     SourceItem:setData("amount","" .. amount);
     world:changeItem(SourceItem);
     User:changeSource(SourceItem);
+end
+
+function preventGathering(User, theNest)
+
+    local effectType = theNest:getData("eggProtectionType")
+
+    if effectType == "ssigus" then
+        world:gfx(21,User.pos)
+        world:makeSound(31,User.pos)
+        User:inform("", "As you attempt to steal his eggs, Ssigus turns and swipes at you with a claw.", Character.highPriority)
+        User:increaseAttrib("hitpoints",-2000)
+    end
+
 end
