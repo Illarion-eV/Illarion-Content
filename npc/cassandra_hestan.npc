@@ -136,8 +136,6 @@ english, "rosaline", "edwards" -> "Queen Rosaline just tolerates my profession -
 "rosaline", "edwards" -> "Königin Rosaline toleriert lediglich meine Tätigkeit - Geld zu wechseln ist nicht sonderlich ehrbar."
 english, "Cadomyr" -> "Cadomyr is my home and I love it. Whether Cadomyr loves me or not... I do not know."
 "Cadomyr" -> "Cadomyr ist meine Heimat und ich liebe es. Ob nun Cadomyr mich auch liebt oder nicht - das weiß ich nicht."
-english, ".*" -> "I don't want to talk about it."
-german, ".*" -> "Ich will nicht darüber reden."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
