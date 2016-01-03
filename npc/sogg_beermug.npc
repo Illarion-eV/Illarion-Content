@@ -108,16 +108,17 @@ english, "Gobaith", "Gobiath" -> "I don' know some Gobiaths! But my granny was n
 "mein Name" -> "Duhu, mirr dich mögen! Willschte wa' zu saufn?"
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-german, "murgo" -> "Yubba... - Murgo ischn fener Kerl. Treibt sich aber imma rum, scheiner Frau der Krudash... gefällt dasch gar nich. *hick*"
 english, "murgo" -> "Yubba... - Murgo is no good fella. He's always roaming the streets and his woman, Krudash, doesn't like it. *hic*"
-german, "er hja", "erhja", "er'hja" -> "Eh, Er'hja? Sie's Tochta von Murgo 'nd Krudash. Ne feine Orkling, würd isch sage. Hu, die Eltern sin 'ute Freunde von misch."
+"murgo" -> "Yubba... - Murgo ischn fener Kerl. Treibt sich aber imma rum, scheiner Frau der Krudash... gefällt dasch gar nich. *hick*"
 english, "er hja", "erhja", "er'hja" -> "Eh, Er'hja? She's daughter of Murgo 'nd Krudash. She's a good orcling, mes say. Hu, 'er parents be good friends ob mine!"
-german, "ali[czs]", "ali[czs]e", "stout", "jack", "tom", "berry", "thomas", "berryard" -> "Skeschmath! Nerv misch nich, mit diese Snagas. Isch bin Sogg! Misch gibt sich nicht ab mit Snagas."
+"er hja", "erhja", "er'hja" -> "Eh, Er'hja? Sie's Tochta von Murgo 'nd Krudash. Ne feine Orkling, würd isch sage. Hu, die Eltern sin 'ute Freunde von misch."
 english, "ali[czs]", "ali[czs]e", "stout", "jack", "tom", "berry", "thomas", "berryard" -> "Skeschmath! Don't annoy mes with this snagas. Meesh, Sogg! Meesh don't hang around with snagas."
-german, "krudash", "Hack", "sack", "Hacken", "plündern" -> "Yûk. Krudash's Laden, 'Hacken un Plündern' is gleich da drübn. Guter Name für'n Waffnladen, findesch du nich?"
-english, "krudash", "Hack", "sack", "Hacken", "plündern" -> "Yûk. Krudash's shop, ish right there! 'Hack an Sack', good name for an arms dealer, ishn't it?"
-german, "morurt", "mo'rurt", "mor'urt", "olokwa", "thud", "grimlug", "ol hja", "olhja", "ol'hja" -> "#me klopft sich mit der Faust schlecht gezielt auf die Brust. 'Hurr, Sogg steht zu scheinem Klan.'"
+"ali[czs]", "ali[czs]e", "stout", "jack", "tom", "berry", "thomas", "berryard" -> "Skeschmath! Nerv misch nich, mit diese Snagas. Isch bin Sogg! Misch gibt sich nicht ab mit Snagas."
+english, "krudash", "Hack", "sack" -> "Yûk. Krudash's shop, ish right there! 'Hack an Sack', good name for an arms dealer, ishn't it?"
+"krudash", "Hack", "sack" -> "Yûk. Krudash's Laden, 'Hacken un Plündern' is gleich da drübn. Guter Name für'n Waffnladen, findesch du nich?"
+"Hacken", "plündern" -> "Yûk. Krudash's Laden, 'Hacken un Plündern' is gleich da drübn. Guter Name für'n Waffnladen, findesch du nich?"
 english, "morurt", "mo'rurt", "mor'urt", "olokwa", "thud", "grimlug", "ol hja", "olhja", "ol'hja" -> "#me claps his chest with his left hand. 'Hurr, Sogg honour our clan!'"
+"morurt", "mo'rurt", "mor'urt", "olokwa", "thud", "grimlug", "ol hja", "olhja", "ol'hja" -> "#me klopft sich mit der Faust schlecht gezielt auf die Brust. 'Hurr, Sogg steht zu scheinem Klan.'"
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Uh! Mes bet this Longear is under the table after two beers. Bah-Gosch!"
@@ -145,9 +146,9 @@ english, "gynk", "gync" -> "Hurr-hurr! There's the besht Sibanac there."
 english, "salkama" -> "I heard in Salkamar the people piss into their beer to make it taste better. *laughs*"
 "salkama" -> "Isch hab gehört, in Salkamar, pissen schie ins Bier, damits bescher schmeckt. *gluckst lachend*"
 "wo .* her" -> "Kroch'Gurak! Ist, wo meißte Orks von uns komme her von."
-german, "kroch", "gurak", "Kroch'gurak" -> "Kroch'Gurak! Ist, wo meiste Orks von uns komme her von."
 "where .* com" -> "Kroch'Gurak! Is where most ob us orcs come from."
 english, "kroch", "gurak", "Kroch'gurak" -> "Kroch'Gurak! Is where most ob us orcs come from."
+"kroch", "gurak", "Kroch'gurak" -> "Kroch'Gurak! Ist, wo meiste Orks von uns komme her von."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Me praise Adron! 'nd mes Ancestors for shure!"

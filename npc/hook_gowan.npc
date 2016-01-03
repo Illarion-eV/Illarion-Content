@@ -144,11 +144,11 @@ english, "Cadomyr" -> "I was banned from Cadomyr years ago. I loved the town, af
 
 -- Main land factions
 english, "albar" -> "Well Albar... I know some Albarians but each single one of them is a doltish louts or blockheads."
-german, "albar" -> "Ach Albar... Ich kenne einige Albarer, aber es sind allesamt dumme Rüpel und Bauernköpfe."
+"albar" -> "Ach Albar... Ich kenne einige Albarer, aber es sind allesamt dumme Rüpel und Bauernköpfe."
 english, "gynk", "gync" -> "The swamplands stink, Gynk stinks and Gnykese stink as well... Isn't that obvious?"
-german, "gync", "gynk" -> "Die Sumpflande stinken, Gynk stinkt und Gynkesen stinken ebenso. - Wie könnte es auch anders sein?"
+"gync", "gynk" -> "Die Sumpflande stinken, Gynk stinkt und Gynkesen stinken ebenso. - Wie könnte es auch anders sein?"
 english, "salkama" -> "In Salkamar the sun shines every single month of the year someone told me, of course not out of the sky but rather out of the buttocks of the Salkamarians!"
-german, "salkama" -> "In Salkamar soll das liebe lange Jahr die Sonne scheinen, hat man mir gesagt. Allerdings nicht vom Himmel herab, sondern aus den Hinterteilen der Salkamarer."
+"salkama" -> "In Salkamar soll das liebe lange Jahr die Sonne scheinen, hat man mir gesagt. Allerdings nicht vom Himmel herab, sondern aus den Hinterteilen der Salkamarer."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "I would love to speak about Ronagan, so feel free to ask me about the Shadow Lord, whatever you want to know."

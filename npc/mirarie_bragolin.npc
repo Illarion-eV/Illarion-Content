@@ -91,7 +91,7 @@ queststatus(317) > 14, ".+" -> inform("[Error] Something went wrong, please info
 "Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greetings. Greetings!", "Greetings. How are you today?", "Greetings. Isn't the weather nice today?"
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Grüße, grüße!", "Grüße. Wie geht es dir?", "Grüße. Haben wir heute nicht schönes Wetter?"
 english, "Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "Greetings, greetings!", "Greetings. How are you today?", "Greetings. Isn't the weather nice today?"
-german, "Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "Grüße, grüße!", "Grüße. Wie geht es dir?", "Grüße. Haben wir heute nicht schönes Wetter?"
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "Grüße, grüße!", "Grüße. Wie geht es dir?", "Grüße. Haben wir heute nicht schönes Wetter?"
 "Farewell", "Good bye", "Bye", "Fare thee well" -> "Farewell! Farewell!", "Adieu Adieu!", "#me waves at you with a happy grin on her face."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Auf bald! Auf bald!", "Adieu! Adieu!", "#me winkt dir mit einem vergnügten Grinsen."
 english, "Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Farewell! Farewell!", "Adieu Adieu!", "#me waves at you with a happy grin on her face."
