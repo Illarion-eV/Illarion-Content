@@ -146,8 +146,8 @@ function M.UseItem(User, SourceItem)
                     "[The pictures Alberto Dickers] You found all the pictures of Alberto Dicker. Go to Numila Irunnleh and ask for a reward.")
             else
                 User:inform(
-                    "[Die Gemälde Alberto Dickers] Du hast eins von 5 Gemälden Alberto Dickers gefunden. Es fehlt mindestens noch ein weiteres.",
-                    "[The pictures Alberto Dickers] You found one of the 5 pictures of Alberto Dicker. There is at least one more to locate.")
+                    "[Die Gemälde Alberto Dickers] Du hast eins von fünf Gemälden Alberto Dickers gefunden. Es fehlt mindestens noch ein weiteres.",
+                    "[The pictures Alberto Dickers] You found one of the five pictures of Alberto Dicker. There is at least one more to locate.")
             end
         end
     end

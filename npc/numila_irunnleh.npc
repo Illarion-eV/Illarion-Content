@@ -103,9 +103,9 @@ queststatus(674) = 0, "task", "adventure", "order" -> inform("[The pictures Albe
 queststatus(674) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Die Gemälde Alberto Dickers] Sage Numila Irunnleh was am Bild 'Der Hahn' nicht stimmen kann. Schau dir auch die Unterschrift an."), "Du interessiertst dich für Gemälde? Schau dir mal das Bild mit dem Hahn dort genau an. Fällt dir was auf?", queststatus(674) = 1
 
 -- Alberto Dicker 1 -> Raban
-queststatus(674) = 1, "false", "copy", "signature", "Logo", "fake" -> inform("[The pictures Alberto Dickers] Go to Raban in Rabans Hain and talk with him."), "You have eyes like an eagle. This is not the original. The right picture you can see at Raban. And if you meet him, tell him the Archmage will fulfil his part of the agreement.", queststatus(674) = 2
+queststatus(674) = 1, "false", "copy", "signature", "Logo", "fake" -> inform("[The pictures Alberto Dickers] Go to Raban in Rabans Grove and talk with him."), "You have eyes like an eagle. This is not the original. The right picture you can see at Raban. And if you meet him, tell him the Archmage will fulfil his part of the agreement.", queststatus(674) = 2
 queststatus(674) = 1, "falsch", "Kopie", "Unterschrift", "Logo", "Fälsch" -> inform("[Die Gemälde Alberto Dickers] Gehe zu Raban in Rabans Hain und sprich mit ihm."), "Du hast ein scharfes Auge. Genau, das ist gar nicht das Original. Das hat zur Zeit Raban. Du kannst es dir ja ansehen, wenn du Raban mitteilst, dass der Erzmagier zu seiner Zusage steht.", queststatus(674) = 2
-queststatus(674) = 1, english, "Logo" -> inform("[The pictures Alberto Dickers] Go to Raban in Rabans Hain and talk with him."), "You have eyes like an eagle. This is not the original. The right picture you can see at Raban. And if you meet him, tell him the Archmage will fulfil his part of the agreement.", queststatus(674) = 2
+queststatus(674) = 1, english, "Logo" -> inform("[The pictures Alberto Dickers] Go to Raban in Rabans Grove and talk with him."), "You have eyes like an eagle. This is not the original. The right picture you can see at Raban. And if you meet him, tell him the Archmage will fulfil his part of the agreement.", queststatus(674) = 2
 queststatus(674) = 1, "Logo" -> inform("[Die Gemälde Alberto Dickers] Gehe zu Raban in Rabans Hain und sprich mit ihm."), "Du hast ein scharfes Auge. Genau, das ist gar nicht das Original. Das hat zur Zeit Raban. Du kannst es dir ja ansehen, wenn du Raban mitteilst, dass der Erzmagier zu seiner Zusage steht.", queststatus(674) = 2
 
 -- Alberto Dicker - didn't find solution -> Investigate more or read book
@@ -113,26 +113,26 @@ queststatus(674) = 1, english, ".+" -> inform("[The pictures Alberto Dickers] Lo
 queststatus(674) = 1, ".+" -> inform("[Die Gemälde Alberto Dickers] Was stimmt mit dem Bild 'Der Hahn' nicht? Schau dir auch die Unterschrift an und und lies im Buch über den Maler nach."), "Na schau mal genau hin, manchmal hilft es auch ein Buch zu lesen. Du findest es in der Bücherei.", "Schau dir das Bild doch mal genau an.", "Lies doch mal im Buch über Alberto Dicker nach."
 
 -- Alberto Dicker - not yet visited Raban -> Go to Raban
-queststatus(674) = 2, english, "quest", "mission" -> inform("[The pictures Alberto Dickers] Go to Raban in Rabans Hain and talk with him."), "Have you been in northern forest and elivered the message yet?", "Please forward the message before we talk again."
+queststatus(674) = 2, english, "quest", "mission" -> inform("[The pictures Alberto Dickers] Go to Raban in Rabans Hain and talk with him."), "Have you been in northern forest and delivered the message yet?", "Please forward the message before we talk again."
 queststatus(674) = 2, "quest", "mission" -> inform("[Die Gemälde Alberto Dickers] Gehe zu Raban in Rabans Hain und sprich mit ihm."), "Warst du schon im Nordwald und hast die Nachricht überbracht?", "Bring erst mal die Nachricht zu Raban im Nordwald, dann reden wir weiter."
-queststatus(674) = 2, "task", "adventure", "order" -> inform("[The pictures Alberto Dickers] Go to Raban in Rabans Hain and talk with him."), "Have you been in northern forest and elivered the message yet?", "Please forward the message before we talk again."
+queststatus(674) = 2, "task", "adventure", "order" -> inform("[The pictures Alberto Dickers] Go to Raban in Rabans Grove and talk with him."), "Have you been in northern forest and elivered the message yet?", "Please forward the message before we talk again."
 queststatus(674) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Die Gemälde Alberto Dickers] Gehe zu Raban in Rabans Hain und sprich mit ihm."), "Warst du schon im Nordwald und hast die Nachricht überbracht?", "Bring erst mal die Nachricht zu Raban im Nordwald, dann reden wir weiter."
 
--- Alberto Dicker 3 -> Half-hung Brian
-queststatus(674) = 3, english, ".+" -> inform("[The pictures Alberto Dickers] Go to the Hempty Neckty and talk to the owner of the Inn."), "Thank you. But since you are here, would you please find out where the owner of Hempty Neckty Inn put 'Oldras Shrine'? I've heard the picture disappeared from the guest hall.", queststatus(674) = 4
+-- Alberto Dicker 3 -> Half-hung Bryan
+queststatus(674) = 3, english, ".+" -> inform("[The pictures Alberto Dickers] Go to the Hemp Necktie and talk to the owner of the Inn."), "Thank you. But since you are here, would you please find out where the owner of Hemp Necktie Inn put 'Oldras Shrine'? I've heard the picture disappeared from the guest hall.", queststatus(674) = 4
 queststatus(674) = 3, ".+" -> inform("[Die Gemälde Alberto Dickers] Gehe zur Hanfschlinge und sprich mit dem Besitzer der Taverne."), "Ist schon gut. Und da du gerade da bist, kannst du bitte in Erfahrung bringen, wo der Besitzer der Hanfschlinge 'Oldras Altar' hängen hat. Man sagt es sei aus der Gaststube verschwunden.", queststatus(674) = 4
 
--- Alberto Dicker 4 - not yet visited Brian -> Go to Brian
-queststatus(674) = 4, english, "quest", "mission" -> inform("[The pictures Alberto Dickers] Go to the Hempty Neckty and talk to the owner of the Inn."), "Please find out what happend to 'Oldras Altar'. It's a famous picture."
+-- Alberto Dicker 4 - not yet visited Bryan -> Go to Bryan
+queststatus(674) = 4, english, "quest", "mission" -> inform("[The pictures Alberto Dickers] Go to the Hemp Necktie and talk to the owner of the Inn."), "Please find out what happend to 'Oldras Altar'. It's a famous picture."
 queststatus(674) = 4, "quest", "mission" -> inform("[Die Gemälde Alberto Dickers] Gehe zur Hanfschlinge und sprich mit dem Besitzer der Taverne."), "Hast du schon herausgefunden, was mit 'Oldras Altar' ist?"
-queststatus(674) = 4, "task", "adventure", "order" -> inform("[The pictures Alberto Dickers] Go to the Hempty Neckty and talk to the owner of the Inn."), "Please find out what happend to 'Oldras Altar'. It's a famous picture."
+queststatus(674) = 4, "task", "adventure", "order" -> inform("[The pictures Alberto Dickers] Go to the Hemp Necktie and talk to the owner of the Inn."), "Please find out what happend to 'Oldras Altar'. It's a famous picture."
 queststatus(674) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Die Gemälde Alberto Dickers] Gehe zur Hanfschlinge und sprich mit dem Besitzer der Taverne."), "Hast du schon herausgefunden, was mit 'Oldras Altar' ist?"
-queststatus(674) = 4, "Besitzer", "Eigner" -> inform("[Die Gemälde Alberto Dickers] Gehe zur Hanfschlinge und sprich mit dem Besitzer der Taverne Halfhung Brian."), "Die Taverne zur Hanfschlinge gehört meines Wissens Halfhung Brian."
-queststatus(674) = 4, "owner", "belong" -> inform("[The pictures Alberto Dickers] Go to the Hempty Neckty and talk to the owner of the Inn Halfhung Brian."), "The Hempty Neckty Inn belongs to Halfhung Brian I think."
+queststatus(674) = 4, "Besitzer", "Eigner" -> inform("[Die Gemälde Alberto Dickers] Gehe zur Hanfschlinge und sprich mit dem Besitzer der Taverne Halfhung Bryan."), "Die Taverne zur Hanfschlinge gehört meines Wissens Halfhung Bryan."
+queststatus(674) = 4, "owner", "belong" -> inform("[The pictures Alberto Dickers] Go to the Hemp Necktie and talk to the owner of the Inn Halfhung Bryan."), "The Hemp Necktie Inn belongs to Half-hung Bryan I think."
 
 -- Alberto Dicker 5 -> find the last 5 pictures
-queststatus(674) = 5, english, ".+" -> inform("[The pictures Alberto Dickers] Find 5 more pictures Alberto Dickers."), "Sometimes rude fellows surprise one. A picture is handled with velvet gloves. Would you please be so kind and find out where the other pictures of Alberto Dicker are located?", queststatus(674) = 100
-queststatus(674) = 5, ".+" -> inform("[Die Gemälde Alberto Dickers] Finde weitere 5 Gemälde Alberto Dickers."), "Manchmal staunt man über ungehobelte Burschen. Ein Bild fassen sie mit Samthandschuhen an. Kannst du bitte noch in Erfahrung bringen, wo die restlichen Gemälde des Alberto Dicker hängen?", queststatus(674) = 100
+queststatus(674) = 5, english, ".+" -> inform("[The pictures Alberto Dickers] Find five more pictures Alberto Dickers."), "Sometimes rude fellows surprise one. A picture is handled with velvet gloves. Would you please be so kind and find out where the other pictures of Alberto Dicker are located?", queststatus(674) = 100
+queststatus(674) = 5, ".+" -> inform("[Die Gemälde Alberto Dickers] Finde weitere fünf Gemälde Alberto Dickers."), "Manchmal staunt man über ungehobelte Burschen. Ein Bild fassen sie mit Samthandschuhen an. Kannst du bitte noch in Erfahrung bringen, wo die restlichen Gemälde des Alberto Dicker hängen?", queststatus(674) = 100
 
 -- Alberto Dicker 6 -> Search for paintings
 queststatus(674) = 100, english, "quest", "mission" -> inform("[The pictures Alberto Dickers] Find five more pictures Alberto Dickers."), "Would you please so kind and find out where the other pictures of Alberto Dicker are located?", queststatus(674) = 100
