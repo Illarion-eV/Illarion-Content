@@ -127,7 +127,7 @@ queststatus(527) > 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du hast de
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 queststatus(525) < 1, english, ".*" -> "Finish our tests in order and you will be rewarded."
-queststatus(525) < 1, german, ".*" -> "Beende unsere Aufgaben und Du wirst eine Belohnung erhalten."
+queststatus(525) < 1, ".*" -> "Beende unsere Aufgaben und Du wirst eine Belohnung erhalten."
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
