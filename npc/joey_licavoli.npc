@@ -194,7 +194,7 @@ queststatus(712) = 18, town = Galmair, "task", "adventure", "order" -> "I'm sure
 queststatus(712) = 18, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
 
 queststatus(712) < 18, english, town = Galmair, ".*" -> "I could use some help, just ask me for a task."
-queststatus(712) < 18, german, town = Galmair, ".*" -> "Ich könnte etwas Hilfe gebrauchen, fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun."
+queststatus(712) < 18, town = Galmair, ".*" -> "Ich könnte etwas Hilfe gebrauchen, fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

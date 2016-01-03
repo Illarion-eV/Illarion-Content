@@ -184,7 +184,7 @@ queststatus(703) = 18, town = Cadomyr, "task", "adventure", "order" -> "I'm sure
 queststatus(703) = 18, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute, die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen."
 
 queststatus(703) < 18, town = Cadomyr, english, ".*" -> "I could use some help, just ask me for a task."
-queststatus(703) < 18, town = Cadomyr, german, ".*" -> "Ich könnte etwas Hilfe gebrauchen. Fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun."
+queststatus(703) < 18, town = Cadomyr, ".*" -> "Ich könnte etwas Hilfe gebrauchen. Fragt mich ruhig nach einer Aufgabe. Ich habe sicher etwas für Euch zu tun."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
