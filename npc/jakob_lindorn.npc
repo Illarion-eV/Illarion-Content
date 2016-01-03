@@ -91,12 +91,14 @@ english, "Frizza" -> "She is right over there, just go over and talk to her. She
 "Frizza" -> "Sie ist gleich dort drüben. Geht einfach zu ihr rüber und sprecht sie an. Sie weiß eine Menge über Cadomyr."
 "food", "eat" -> "You can find food all around you. There are fruits on the trees and bushes or you can ask other people for something to eat."
 "essen", "nahrung" -> "Ihr könnt überall etwas zu essen finden. Früchte wachsen an Bäumen und Büschen, oder Ihr fragt andere Leute nach etwas zu essen."
-english, "fighting", "monster" -> "There are a few wild animals in the wilderness so be careful. If you want to train, ask around for a sparring partner."
-"kämpfen", "monster" -> "Es gibt einige wilde Tiere in der Wildness, also seid vorsichtig. Wenn Ihr trainieren wollt, fragt nach einem Trainingspartner herum."
+"fight" -> "There are a few wild animals in the wilderness so be careful. If you want to train, ask around for a sparring partner."
+"kämpfen" -> "Es gibt einige wilde Tiere in der Wildnis, also seid vorsichtig. Wenn Ihr trainieren wollt, fragt herum nach einem Trainingspartner."
+english, "monster" -> "There are a few wild animals in the wilderness so be careful. If you want to train, ask around for a sparring partner."
+"monster" -> "Es gibt einige wilde Tiere in der Wildnis, also seid vorsichtig. Wenn Ihr trainieren wollt, fragt herum nach einem Trainingspartner."
 english, "Cadomyr" -> "This is Cadomyr, my home. We are a realm of honourable and kind people, I'm sure you will enjoy it here."
 "Cadomyr" -> "Dies is Cadomyr, mein Zuhause. Wir sind ein Reich von ehrenvollen und aufrichtigen Leuten. Ich bin mir sicher, dass Ihr es hier mögen werdet."
-english, "craft" -> "You want to know more about the crafts of Cadomyr? Well then go and visit Berri Firegold, Gerald Deloid, Lilli Gallfing or Zlatxhol, they can tell you more about the crafts than me. You can find them in the workshop in the north of the city."
-german, "hand" -> "Ihr wollt mehr über die Handwerke in Cadomyr wissen? Dann besucht Berri Firegold, Gerald Deloid, Lilli Gallfing oder Zlatxhol. Sie können Euch sicher mehr darüber erzählen als ich. Ihr könnt sie alle in der Werkstatt im Norden der Stadt finden."
+"craft" -> "You want to know more about the crafts of Cadomyr? Well then go and visit Berri Firegold, Gerald Deloid, Lilli Gallfing or Zlatxhol, they can tell you more about the crafts than me. You can find them in the workshop in the north of the city."
+"handwerk" -> "Ihr wollt mehr über die Handwerke in Cadomyr wissen? Dann besucht Berri Firegold, Gerald Deloid, Lilli Gallfing oder Zlatxhol. Sie können Euch sicher mehr darüber erzählen als ich. Ihr könnt sie alle in der Werkstatt im Norden der Stadt finden."
 
 -- Quests
 -- Berri

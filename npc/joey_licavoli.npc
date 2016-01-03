@@ -88,12 +88,14 @@ english, "Iradona", "Goldschein" -> "She is right over there, just go over and t
 "Iradona", "Goldschein" -> "Sie ist gleich dort drüben, geht einfach zu ihr rüber und sprecht sie an. Sie weiß eine Menge über Galmair."
 "food", "eat" -> "You can find food all around you. There are fruits on the trees and bushes, or you can ask other people for something to eat."
 "essen", "nahrung" -> "Ihr könnt überall etwas zu essen finden. Früchte wachsen an Bäumen und Büschen oder Ihr fragt andere Leute nach etwas zu essen."
-english, "fighting", "monster" -> "There are a few wild animals in the wilderness so be careful. If you want to train, ask around for a sparring partner."
-"kämpfen", "monster" -> "Es gibt einige wilde Tiere in der Wildnis, also seid vorsichtig. Wenn Ihr trainieren wollt, fragt herum nach einem Trainingspartner."
-english, "work" -> "You can find the workshop really easily. Go through the main gate and follow the street until you see a building with a yellow-brown looking roof. That's the workshop."
-german, "Werk" -> "Die Werkstatt könnt Ihr ganz leicht finden. Geht durch das Haupttor und folgt der Straße bis Ihr ein Gebäude mit einem gelb-braunen Dach findet. Das ist die Werkstatt."
-english, "craft" -> "You want to know more about the crafts of Galmair? Well then go and visit Thorgrem Silverbeard, Seleseth, Tony Spirotelli or Hannah Shepard, they can tell you more about the crafts than me. You can find all of them except Hannah Shepard in the workshop. Hannah is by the fields behind me."
-german, "hand" -> "Ihr wollt mehr über die Handwerke in Galmair wissen? Dann besucht Thorgrem Silverbeard, Seleseth, Tony Spirotelli oder Hannah Shepard, sie können Euch sicher mehr darüber erzählen als ich. Ihr könnt alle bis auf Hannah Shepard in der Werkstatt finden. Hannah ist bei den Feldern gleich hinter mir."
+"fight" -> "There are a few wild animals in the wilderness so be careful. If you want to train, ask around for a sparring partner."
+"kämpfen" -> "Es gibt einige wilde Tiere in der Wildnis, also seid vorsichtig. Wenn Ihr trainieren wollt, fragt herum nach einem Trainingspartner."
+english, "monster" -> "There are a few wild animals in the wilderness so be careful. If you want to train, ask around for a sparring partner."
+"monster" -> "Es gibt einige wilde Tiere in der Wildnis, also seid vorsichtig. Wenn Ihr trainieren wollt, fragt herum nach einem Trainingspartner."
+"work" -> "You can find the workshop really easily. Go through the main gate and follow the street until you see a building with a yellow-brown looking roof. That's the workshop."
+"Werkstatt" -> "Die Werkstatt könnt Ihr ganz leicht finden. Geht durch das Haupttor und folgt der Straße bis Ihr ein Gebäude mit einem gelb-braunen Dach findet. Das ist die Werkstatt."
+"craft" -> "You want to know more about the crafts of Galmair? Well then go and visit Thorgrem Silverbeard, Seleseth, Tony Spirotelli or Hannah Shepard, they can tell you more about the crafts than me. You can find all of them except Hannah Shepard in the workshop. Hannah is by the fields behind me."
+"handwerk" -> "Ihr wollt mehr über die Handwerke in Galmair wissen? Dann besucht Thorgrem Silverbeard, Seleseth, Tony Spirotelli oder Hannah Shepard, sie können Euch sicher mehr darüber erzählen als ich. Ihr könnt alle bis auf Hannah Shepard in der Werkstatt finden. Hannah ist bei den Feldern gleich hinter mir."
 
 -- Quests
 -- Hannah Shepard

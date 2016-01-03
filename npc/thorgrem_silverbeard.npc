@@ -88,8 +88,7 @@ english, "job" -> "I'm a smith of course, maybe I'll have a little task for you 
 "smith" -> "If you want to smith you need ingots and a hammer of course. Blacksmiths need a normal hammer, finesmiths need a finesmithing hammer, though."
 "schmied" -> "Wenn du schmieden willt dann brauchst du Barren und natürlich einen Hammer. Schmiede benutzen einen gewöhnlichen Hammer, Goldschmiede dagegen brauchen einen Feinschmiedehammer."
 "craft" -> "If you need help with smithing, ask me for a task."
-"hand", english -> "If you need help with smithing, ask me for a task."
-"hand" -> "Wenn du Hilfe beim Schmieden brauchst frag mich nach einer Aufgabe."
+"handwerk" -> "Wenn du Hilfe beim Schmieden brauchst frag mich nach einer Aufgabe."
 
 -- Quests
 queststatus(708) > 0, queststatus(712) = 3, english, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 4, "Ah Joey sent you, but you have already asked me for something to do. If you want to learn something about gem grinding or brick making, talk with Seleseth at the grinder next me. You can ask Tony Spirotelli at the workbench over there if you want to know more about carpentry though."
