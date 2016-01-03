@@ -121,16 +121,18 @@ english, "Cadomyr" -> "You think I am an idiot? In Cadomyr, I found protection. 
 -- Gods - use the triggers of the god the NPC worships or fights
 "g[öo]tt" -> "Geht dich einen feuchten Dreck an, wann ich zu den Göttern bete und wann nicht."
 "god" -> "It's none of your god damn business when I pray to the gods and when not."
-german, "Tanora", "Zelphia", "Ushara", "Br[aà]gon", "Eldan", "Findari", "Narg[uù]n", "Elara", "Adron", "Oldra", "Cherga", "Malach[iì]n", "Irmorom", "Sirani", "Zhambra", "Ronagan" -> "Geht dich einen feuchten Dreck an, wann ich zu den Göttern bete und wann nicht."
 english, "Tanora", "Zelphia", "Ushara", "Br[aà]gon", "Eldan", "Findari", "Narg[uù]n", "Elara", "Adron", "Oldra", "Cherga", "Malach[iì]n", "Irmorom", "Sirani", "Zhambra", "Ronagan" -> "It's none of your god damn business when I pray to the gods and when not."
+"Tanora", "Zelphia", "Ushara", "Br[aà]gon", "Eldan", "Findari", "Narg[uù]n", "Elara", "Adron", "Oldra", "Cherga", "Malach[iì]n", "Irmorom", "Sirani", "Zhambra", "Ronagan" -> "Geht dich einen feuchten Dreck an, wann ich zu den Göttern bete und wann nicht."
 
 -- This is a small trick to prevent the npc to respond on a forced auto emote by the player
 "s head is hit by a stone." -> money+0
 "wird von einem Stein am Kopf getroffen." -> money+0
 
 -- No new month; no new task yet
-queststatus(504) = 6, english, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> "Next month! I'm sure I have something else to do for you then. Until then, I don't want to see your face again."
-queststatus(504) = 6, german, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> "Nächsten Monat! Dann hab ich bestimmt wieder was zu tun für dich. Vorher will dich dein Gesicht nicht wiedersehen."
+queststatus(504) = 6, english, "quest", "mission" -> "Next month! I'm sure I have something else to do for you then. Until then, I don't want to see your face again."
+queststatus(504) = 6, "quest", "mission" -> "Nächsten Monat! Dann hab ich bestimmt wieder was zu tun für dich. Vorher will dich dein Gesicht nicht wiedersehen."
+queststatus(504) = 6, "task", "adventure", "order" -> "Next month! I'm sure I have something else to do for you then. Until then, I don't want to see your face again."
+queststatus(504) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nächsten Monat! Dann hab ich bestimmt wieder was zu tun für dich. Vorher will dich dein Gesicht nicht wiedersehen."
 
 -- Task finished; reward not taken yet
 queststatus(504) = 5, english, ".*" -> "What? What? I told you you can get your herbs from Egon. Now stop disturbing me!"
@@ -149,8 +151,10 @@ queststatus(504) = 1, item(164, all) < 10, german, ".*" -> "Quassel mich nicht v
 queststatus(504) = 1, item(164, all) < 10, ".*" -> "Stop jabbering! I want ten bottles for my potions. Go, get them! Get lost!"
 
 -- Task 2: 30 sun herbs
-queststatus(504) = 0, chance(33.33333333), german, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> inform("[Neues Quest] Alchemistischer Bedarf"), queststatus(504) = 2, "Hohlkopf Egon hat mal wieder seinen Beutel mit Sonnenkraut verloren. Bring 30 neue. Der dämliche Rattschenmensch bekommt die nur noch von mir, wenn er sie braucht. Du kriegt ein paar selten Pflanzen im Austausch."
-queststatus(504) = 0, chance(33.33333333), english, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> inform("[New Quest] Alchemical needs"), queststatus(504) = 2, "Deadhead Egon lost his bag with sun herbs again. Bring me a 30 new ones. From now on, I will give that stupid ratman the sun herbs only when he needs it. You will get some rare herbs in exchange."
+queststatus(504) = 0, chance(33.33333333), english, "quest", "mission" -> inform("[New Quest] Alchemical needs"), queststatus(504) = 2, "Deadhead Egon lost his bag with sun herbs again. Bring me a 30 new ones. From now on, I will give that stupid ratman the sun herbs only when he needs it. You will get some rare herbs in exchange."
+queststatus(504) = 0, chance(33.33333333), "quest", "mission" -> inform("[Neues Quest] Alchemistischer Bedarf"), queststatus(504) = 2, "Hohlkopf Egon hat mal wieder seinen Beutel mit Sonnenkraut verloren. Bring 30 neue. Der dämliche Rattschenmensch bekommt die nur noch von mir, wenn er sie braucht. Du kriegt ein paar selten Pflanzen im Austausch."
+queststatus(504) = 0, chance(33.33333333), "task", "adventure", "order" -> inform("[New Quest] Alchemical needs"), queststatus(504) = 2, "Deadhead Egon lost his bag with sun herbs again. Bring me a 30 new ones. From now on, I will give that stupid ratman the sun herbs only when he needs it. You will get some rare herbs in exchange."
+queststatus(504) = 0, chance(33.33333333), "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Alchemistischer Bedarf"), queststatus(504) = 2, "Hohlkopf Egon hat mal wieder seinen Beutel mit Sonnenkraut verloren. Bring 30 neue. Der dämliche Rattschenmensch bekommt die nur noch von mir, wenn er sie braucht. Du kriegt ein paar selten Pflanzen im Austausch."
 
 -- Task 2: solved
 queststatus(504) = 2, item(133, all) > 29, german, ".*" -> deleteItem(133, 30), queststatus(504) = 5, "Wurd ja aber auch mal Zeit, nicht? Geh zu Egon und hol dir deine Kräuter. Dann mach, dass du verschwindest."
@@ -161,8 +165,10 @@ queststatus(504) = 2, item(133, all) < 30, german, ".*" -> "Quassel mich nicht v
 queststatus(504) = 2, item(133, all) < 30, ".*" -> "Stop jabbering! I want 30 sun herbs. Go, get them! Get lost!"
 
 -- Task 3: 2 ruby powder
-queststatus(504) = 0, chance(50.0), german, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> inform("[Neues Quest] Alchemistischer Bedarf"), queststatus(504) = 3, "Die häßliche Ratte hat doch tatsächlich meine letzten Beutel Rubinstaub aufgefressen! Hol mir zwei neue und du bekommst ein paar selten Kräuter."
-queststatus(504) = 0, chance(50.0), english, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> inform("[New Quest] Alchemical needs" ), queststatus(504) = 3, "That ugly rat guzzled my last sacks of ruby powder! Get me two sacks of ruby powder and you will get some rare herbs."
+queststatus(504) = 0, chance(50.0), english, "quest", "mission" -> inform("[New Quest] Alchemical needs" ), queststatus(504) = 3, "That ugly rat guzzled my last sacks of ruby powder! Get me two sacks of ruby powder and you will get some rare herbs."
+queststatus(504) = 0, chance(50.0), "quest", "mission" -> inform("[Neues Quest] Alchemistischer Bedarf"), queststatus(504) = 3, "Die häßliche Ratte hat doch tatsächlich meine letzten Beutel Rubinstaub aufgefressen! Hol mir zwei neue und du bekommst ein paar selten Kräuter."
+queststatus(504) = 0, chance(50.0), "task", "adventure", "order" -> inform("[New Quest] Alchemical needs" ), queststatus(504) = 3, "That ugly rat guzzled my last sacks of ruby powder! Get me two sacks of ruby powder and you will get some rare herbs."
+queststatus(504) = 0, chance(50.0), "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[New Quest] Alchemical needs" ), queststatus(504) = 3, "That ugly rat guzzled my last sacks of ruby powder! Get me two sacks of ruby powder and you will get some rare herbs."
 
 -- Task 3: solved
 queststatus(504) = 3, item(447, all) > 1, german, ".*" -> deleteItem(447, 2), queststatus(504) = 5, "Wurd ja aber auch mal Zeit, nicht? Geh zu Egon und hol dir deine Kräuter. Dann mach, dass du verschwindest."
@@ -173,8 +179,10 @@ queststatus(504) = 3, item(447, all) < 1, german, ".*" -> "Quassel mich nicht vo
 queststatus(504) = 3, item(447, all) < 1, ".*" -> "Stop jabbering! I want two sacks of ruby powder. Go, get them! Get lost!"
 
 -- Task 4: 1 mortar
-queststatus(504) = 0, chance(100.0), german, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> inform("[Neues Quest] Alchemistischer Bedarf"), queststatus(504) = 4, "Egon hat seinen Mörser nach einem Vogel geworfen. Jetzt brauch ich einen neuen! Bring mir einen und du kannst dir ein paar seltene Kräuter von der schwachsinnigen Ratte holen."
-queststatus(504) = 0, chance(100.0), english, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "task", "adventure", "order", "quest", "mission" -> inform("[New Quest] Alchemical needs" ), queststatus(504) = 4, "Egon threw his mortar at a bird. Now he needs a new one! Get me one and you can get some rare from that imbecile rat."
+queststatus(504) = 0, chance(100.0), english, "quest", "mission" -> inform("[New Quest] Alchemical needs" ), queststatus(504) = 4, "Egon threw his mortar at a bird. Now he needs a new one! Get me one and you can get some rare from that imbecile rat."
+queststatus(504) = 0, chance(100.0), "quest", "mission" -> inform("[Neues Quest] Alchemistischer Bedarf"), queststatus(504) = 4, "Egon hat seinen Mörser nach einem Vogel geworfen. Jetzt brauch ich einen neuen! Bring mir einen und du kannst dir ein paar seltene Kräuter von der schwachsinnigen Ratte holen."
+queststatus(504) = 0, chance(100.0), "task", "adventure", "order" -> inform("[New Quest] Alchemical needs" ), queststatus(504) = 4, "Egon threw his mortar at a bird. Now he needs a new one! Get me one and you can get some rare from that imbecile rat."
+queststatus(504) = 0, chance(100.0), "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Alchemistischer Bedarf"), queststatus(504) = 4, "Egon hat seinen Mörser nach einem Vogel geworfen. Jetzt brauch ich einen neuen! Bring mir einen und du kannst dir ein paar seltene Kräuter von der schwachsinnigen Ratte holen."
 
 -- Task 4: solved
 queststatus(504) = 4, item(58, all) > 0, german, ".*" -> deleteItem(58, 1), queststatus(504) = 5, "Wurd ja aber auch mal Zeit, nicht? Geh zu Egon und hol dir deine Kräuter. Dann mach, dass du verschwindest."
