@@ -73,9 +73,24 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Numila Irunnleh die Wissenschaftlerin. Schlüsselwörter: Auskunft, Information, Runewick, Orte.")
 
 -- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hail Oldra. *Turns back to her book*"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Heil Oldra. *Wendet sich wieder ihrem Buch zu*"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hail Oldra. *Turns back to her book*"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Heil Oldra. *Wendet sich wieder ihrem Buch zu*"
+"Farewell", "Bye", "Fare well", "See you" -> "Au revoir. *Turns back to her book*"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Au revoir. *Wendet sich wieder ihrem Buch zu*"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Au revoir. *Turns back to her book*"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Au revoir. *Wendet sich wieder ihrem Buch zu*"
+"How are you", "How feel", "How do you do" -> "Fine, fine. *Turns back to her book*"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Fein, fein. *Wendet sich wieder ihrem Buch zu*"
+"your name", "who are you", "who art thou" -> "Numila Irunnleh the scholar. *Turns back to her book*"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Numila Irunnleh die Wissenschaftlerin. *Wendet sich wieder ihrem Buch zu*"
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
+
+-- Quest triggers
 queststatus(624) = 1, english, ".*" -> inform("[Quest End  'Find Numila 2'] You receive 10 silver coins."), money + 1000, deleteItem(155, 10), queststatus(624) = 2, rankpoints + 5, "Hail Oldra. Finally you found me! I had already been informed about your visit. There, have some silver coins for finding me."
 queststatus(624) = 1, ".*" -> inform("[Quest Ende 'Find Numila 2'] Du hast 10 Silberstücke erhalten."), money + 1000, deleteItem(155, 10), queststatus(624) = 2, rankpoints + 5, "Heil Oldra. Endlich hast du mich gefunden. Ich wurde bereits informiert über deinen Besuch. Hier hast du deine wohlverdienten Münzen."
-
 queststatus(620) = 1, english, town = Runewick, ".*" -> inform("[Quest End 'Find Numila'] You received 10 silvercoins."), money + 1000, queststatus(620) = 2, rankpoints + 5, "Hail Oldra. Finally you found me! Elesil has already informed me about your visit. *Offers some silver coins and turns back to her book*"
 queststatus(620) = 1, town = Runewick, ".*" -> inform("[Quest Ende 'Finde Numila'] Du hast 10 Silberstücke erhalten."), money + 1000, queststatus(620) = 2, rankpoints + 5, "Heil Oldra. Endlich habt ihr mich gefunden. Elesil hat mich bereits informiert über euren Besuch. *Überreicht einige Silbermünzen und wendet sich wieder ihrem Buch zu*"
 queststatus(620) = 1, english, ".*" -> inform("[Quest End 'Find Numila'] You received 10 silvercoins."), money + 1000, queststatus(620) = 2, "Hail Oldra. Finally you found me! Elesil has already informed me about your visit. *Offers some silver coins and turns back to her book*"
@@ -84,38 +99,46 @@ queststatus(620) = 1, ".*" -> inform("[Quest Ende 'Finde Numila'] Du hast 10 Sil
 -- Alberto Dicker Start ->Investigate picture
 queststatus(674) = 0, german, "quest", "Auftrag", "Aufgabe" -> inform("[Die Gemälde Alberto Dickers] Sage Numila Irunnleh was am Bild 'Der Hahn' nicht stimmen kann. Schau dir auch die Unterschrift an."), "Du interessiertst dich für Gemälde? Schau dir mal das Bild mit dem Hahn dort genau an. Fällt dir was auf?", queststatus(674) = 1
 queststatus(674) = 0, english, "quest", "task", "mission" -> inform("[The pictures Alberto Dickers] Tell Numila Irunnleh what's not right with the picture 'The rooster'. Take a closer look to the signature."), "You are interested in paintings? Look to the picture of the rooster over there. Can you notice anything?", queststatus(674) = 1
+
 -- Alberto Dicker 1 -> Raban
 queststatus(674) = 1, german, "falsch", "Kopie", "Unterschrift", "Logo", "Fälsch" -> inform("[Die Gemälde Alberto Dickers] Gehe zu Raban in Rabans Hain und sprich mit ihm."), "Du hast ein scharfes Auge. Genau, das ist gar nicht das Original. Das hat zur Zeit Raban. Du kannst es dir ja ansehen, wenn du Raban mitteilst, dass der Erzmagier zu seiner Zusage steht.", queststatus(674) = 2
 queststatus(674) = 1, english, "fals", "copy", "signature", "Logo", "fake" -> inform("[The pictures Alberto Dickers] Go to Raban in Rabans Hain and talk with him."), "You have eyes like an eagle. This is not the original. The right picture you can see at Raban. And if you meet him, tell him the Archmage will fulfil his part of the agreement.", queststatus(674) = 2
--- Alberto Dicker - don't found solution -> Investigate more or read book
+
+-- Alberto Dicker - didn't find solution -> Investigate more or read book
 queststatus(674) = 1, german, ".+" -> inform("[Die Gemälde Alberto Dickers] Was stimmt mit dem Bild 'Der Hahn' nicht? Schau dir auch die Unterschrift an und und lies im Buch über den Maler nach."), "Na schau mal genau hin, manchmal hilft es auch ein Buch zu lesen. Du findest es in der Bücherei.", "Schau dir das Bild doch mal genau an.", "Lies doch mal im Buch über Alberto Dicker nach."
 queststatus(674) = 1, english, ".+" -> inform("[The pictures Alberto Dickers] Look carefully at the picture especially the signature. It may help reading the book about the painter."), "Hey look at the picture. Sometimes it may help if you read the right book. You may find it in the library.", "Please see over the picture carefully.", "You find in the library a book of the painter. It might help you to find the solution."
+
 -- Alberto Dicker - not yet visited Raban -> Go to Raban
 queststatus(674) = 2, german, "quest", "Auftrag", "Aufgabe" -> inform("[Die Gemälde Alberto Dickers] Gehe zu Raban in Rabans Hain und sprich mit ihm."), "Warst du schon im Nordwald und hast die Nachricht überbracht?", "Bring erst mal die Nachricht zu Raban im Nordwald, dann reden wir weiter."
 queststatus(674) = 2, english, "quest", "task", "mission" -> inform("[The pictures Alberto Dickers] Go to Raban in Rabans Hain and talk with him."), "Have you been in northern forest and elivered the message yet?", "Please forward the message before we talk again."
--- Alberto Dicker 3 -> Halfhung Brian
+
+-- Alberto Dicker 3 -> Half-hung Brian
 queststatus(674) = 3, german, ".+" -> inform("[Die Gemälde Alberto Dickers] Gehe zur Hanfschlinge und sprich mit dem Besitzer der Taverne."),  "Ist schon gut. Und da du gerade da bist, kannst du bitte in Erfahrung bringen, wo der Besitzer der Hanfschlinge 'Oldras Altar' hängen hat. Man sagt es sei aus der Gaststube verschwunden.", queststatus(674) = 4
 queststatus(674) = 3, english, ".+" -> inform("[The pictures Alberto Dickers] Go to the Hempty Neckty and talk to the owner of the Inn."),  "Thank you. But since you are here, would you please find out where the owner of Hempty Neckty Inn put 'Oldras Shrine'? I've heard the picture disappeared from the guest hall.", queststatus(674) = 4
+
 -- Alberto Dicker 4 - not yet visited Brian -> Go to Brian
 queststatus(674) = 4, german, "quest", "Auftrag", "Aufgabe" -> inform("[Die Gemälde Alberto Dickers] Gehe zur Hanfschlinge und sprich mit dem Besitzer der Taverne."),  "Hast du schon herausgefunden, was mit 'Oldras Altar' ist?"
 queststatus(674) = 4, english, "quest", "task", "mission" -> inform("[The pictures Alberto Dickers] Go to the Hempty Neckty and talk to the owner of the Inn."),  "Please find out what happend to 'Oldras Altar'. It's a famous picture."
 queststatus(674) = 4, german, "Besitzer", "Eigner" -> inform("[Die Gemälde Alberto Dickers] Gehe zur Hanfschlinge und sprich mit dem Besitzer der Taverne Halfhung Brian."),  "Die Taverne zur Hanfschlinge gehört meines Wissens Halfhung Brian."
 queststatus(674) = 4, english, "owner", "belong" -> inform("[The pictures Alberto Dickers] Go to the Hempty Neckty and talk to the owner of the Inn Halfhung Brian."),  "The Hempty Neckty Inn belongs to Halfhung Brian I think."
--- Alberto Dicker 5 -> find the lasting 5 pictures
+
+-- Alberto Dicker 5 -> find the last 5 pictures
 queststatus(674) = 5, german, ".+" -> inform("[Die Gemälde Alberto Dickers] Finde weitere 5 Gemälde Alberto Dickers."),  "Manchmal staunt man über ungehobelte Burschen. Ein Bild fassen sie mit Samthandschuhen an. Kannst du bitte noch in Erfahrung bringen, wo die restlichen Gemälde des Alberto Dicker hängen?", queststatus(674) = 100
 queststatus(674) = 5, english, ".+" -> inform("[The pictures Alberto Dickers] Find 5 more pictures Alberto Dickers."),  "Sometimes rude fellows surprise one. A picture is handled with velvet gloves. Would you please be so kind and find out where the other pictures of Alberto Dicker are located?", queststatus(674) = 100
--- Alberto Dicker 6 -> Searching for paintings
+
+-- Alberto Dicker 6 -> Search for paintings
 queststatus(674) = 100, german, "quest", "Auftrag", "Aufgabe" -> inform("[Die Gemälde Alberto Dickers] Finde weitere 5 Gemälde Alberto Dickers."),  "Kannst du bitte noch in Erfahrung bringen, wo die restlichen Gemälde des Alberto Dicker hängen?"
 queststatus(674) = 100, english, "quest", "task", "mission" -> inform("[The pictures Alberto Dickers] Find 5 more pictures Alberto Dickers."),  "Would you please so kind and find out where the other pictures of Alberto Dicker are located?", queststatus(674) = 100
--- Alberto Dicker 7 -> Rankpoints for Runewick other sent to town
+
+-- Alberto Dicker 7 -> Rankpoints for Runewick, other sent to town
 queststatus(674) = 105, german, town = Runewick, "quest", "Auftrag", "Aufgabe", "Bild", "Gemälde", "find" -> inform("[Die Gemälde Alberto Dickers] Dein Ansehen bei Elvain Morgan steigt. Frage Numila Irunnleh noch nach einer Belohnung."),  "Gut gemacht.", queststatus(674) = 203, queststatus(675) = 1, rankpoints + 15
 queststatus(674) = 105, english, town = Runewick, "quest", "task", "mission", "picture", "found" -> inform("[The pictures Alberto Dickers] You advance in Archmage Elvain Morgans's favour. Ask for more reward."),  "Well done.", queststatus(674) = 203, queststatus(675) = 1, rankpoints + 15
 queststatus(674) = 105, german, town = Galmair, "quest", "Auftrag", "Aufgabe", "Bild", "Gemälde", "find" -> inform("[Die Gemälde Alberto Dickers] Vielleicht solltest du doch Miggs Bescheid geben? Frag Numila Irunnleh auch nach einer Belohnung."),  "Gut gemacht. Aber erzähl in Galmair nicht, dass der Erzmagier Schulden mit Bildern bezahlt.", queststatus(674) = 201, queststatus(675) = 1
 queststatus(674) = 105, english, town = Galmair, "quest", "task", "mission", "picture", "found" -> inform("[The pictures Alberto Dickers] Maybe you should tell Miggs about the copied picture? Ask Numila Irunnleh for more reward."),  "Well done. But don't tell in Galmair how the Archmage pais his debts.", queststatus(674) = 201, queststatus(675) = 1
 queststatus(674) = 105, german, town = Cadomyr, "quest", "Auftrag", "Aufgabe", "Bild", "Gemälde", "find" -> inform("[Die Gemälde Alberto Dickers] Vielleicht solltest du doch Anthar Vilicon Bescheid geben? Frag Numila Irunnleh auch nach einer Belohnung."),  "Gut gemacht. Aber erzähl in Cadomyr nicht, dass der Erzmagier Schulden mit Bildern bezahlt.", queststatus(674) = 202, queststatus(675) = 1
 queststatus(674) = 105, english, town = Cadomyr, "quest", "task", "mission", "picture", "found" -> inform("[The pictures Alberto Dickers] Maybe you should tell Anthar Vilicon about the copied picture? Ask Numila Irunnleh for more reward."),  "Well done. But don't tell in Cadomyr how the Archmage pais his debts.", queststatus(674) = 202, queststatus(675) = 1
-queststatus(674) = 105, german, "quest", "Auftrag", "Aufgabe", "Bild", "Gemälde", "find" -> inform("[Die Gemälde Alberto Dickers] Frag Numila Irunnleh nach einer Belohnung."),  "Gut gemacht. Aber erzähl nicht, dass der Erzmagier Schulden mit Bildern bezahlt.", queststatus(674) = 203, queststatus(675) = 1
-queststatus(674) = 105, english, "quest", "task", "mission", "picture", "found" -> inform("[The pictures Alberto Dickers] Ask Numila Irunnleh for a reward."),  "Well done. But don't tell anybody how the Archmage pais his debts.", queststatus(674) = 203, queststatus(675) = 1
+queststatus(674) = 105, german, "quest", "Auftrag", "Aufgabe", "Bild", "Gemälde", "find" -> inform("[Die Gemälde Alberto Dickers] Frag Numila Irunnleh nach einer Belohnung."), "Gut gemacht. Aber erzähl nicht, dass der Erzmagier Schulden mit Bildern bezahlt.", queststatus(674) = 203, queststatus(675) = 1
+queststatus(674) = 105, english, "quest", "task", "mission", "picture", "found" -> inform("[The pictures Alberto Dickers] Ask Numila Irunnleh for a reward."), "Well done. But don't tell anybody how the Archmage pais his debts.", queststatus(674) = 203, queststatus(675) = 1
 
 -- Alberto Dicker Reward
 queststatus(675) = 1, german, ".+", chance (6.25) -> inform("[Die Gemälde Alberto Dickers] Belohnung - Du bekommst ein Original Kupferstich mit einem Bild Alberto Dickers."), "Na wenn du so fragtst. Schau ich hab hier ein Kupferstich von Alberto Dicker.", queststatus(675) = 2, item(2745, 1, 666, "nameDe" = "Kupferstich mit den Initialien A D", "nameEn" = "Copper engraving with the initials A D", "rareness" = "2", "descriptionEn" = "A clearly dark skinned woman walking over a plain out of nothing than stone and soil. Even her long hair looks like stone. There is neither a weed nor any animal to see.", "descriptionDe" = "Eine offensichtlich dunkelhäutige Frau mit langen schwarzen, wie erstarrt wirkenden Haaren, schreitet würdevoll über eine Ebene, welche  aus nichts als Steinen und Erde zu bestehen scheint. Keine einzige Pflanze und kein Tier sind zu sehen.")
@@ -151,21 +174,6 @@ queststatus(675) = 1, english, ".+", chance (33.3333333333333) -> inform("[The p
 queststatus(675) = 1, english, ".+", chance (50) -> inform("[The pictures Alberto Dickers] Reward - You get an copper engraving with a picture Alberto Dickers."), "Nun I might have something. See there is a copper engraving by Alberto Dicker.", queststatus(675) = 2, item(2745, 1, 666, "nameDe" = "Kupferstich mit den Initialien A D", "nameEn" = "Copper engraving with the initials A D", "rareness" = "2", "descriptionEn" = "A dark haired beau is explaining a vagabond anything that must be outside of the picture. The coat of the beau is a huge black area. Just a few lines indicate the drapes. The uneven pair is bathing in fog.", "descriptionDe" = "Ein dunkelhaariger Galan weist einen Vagabunden auf etwas hin, was sich außerhalb des Bildes befindet. Der Mantel des Galans ist vollflächig schwarz mit wenigen stehengelassenen, die Falten andeutenden Stegen. Nebel umwallt das ungleiche Paar.")
 queststatus(675) = 1, english, ".+" -> inform("[The pictures Alberto Dickers] Reward - You get an copper engraving with a picture Alberto Dickers."), "Nun I might have something. See there is a copper engraving by Alberto Dicker.", queststatus(675) = 2, item(2745, 1, 666, "nameDe" = "Kupferstich mit den Initialien A D", "nameEn" = "Copper engraving with the initials A D", "rareness" = "2", "descriptionEn" = "The fangs on the skeleton skull clearly identify it as an orc. A stream of blood flows from the ornamented heavy war axe into a sea of blood. Bones poke out of the blood. The parchment is partially damaged.", "descriptionDe" = "Die Hauer am Schädel des Skeletts weisen es eindeutig als Ork aus. Ein Blutstrom ergießt sich von der schweren verzierten Kriegsaxt ausgehend in einen Blutsee, aus dem vereinzelte Knochen ragen. Das Blatt weist einige Beschädigungen auf.")
 
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hail Oldra. *Turns back to her book*"
-"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Heil Oldra. *Wendet sich wieder ihrem Buch zu*"
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hail Oldra. *Turns back to her book*"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Heil Oldra. *Wendet sich wieder ihrem Buch zu*"
-"Farewell", "Bye", "Fare well", "See you" -> "Au revoir. *Turns back to her book*"
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Au revoir. *Wendet sich wieder ihrem Buch zu*"
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Au revoir. *Turns back to her book*"
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Au revoir. *Wendet sich wieder ihrem Buch zu*"
-"How are you", "How feel", "How do you do" -> "Fine, fine. *Turns back to her book*"
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Fein, fein. *Wendet sich wieder ihrem Buch zu*"
-"your name", "who are you", "who art thou" -> "Numila Irunnleh the scholar. *Turns back to her book*"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Numila Irunnleh die Wissenschaftlerin. *Wendet sich wieder ihrem Buch zu*"
-"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
-
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 english, "inform" -> inform("[Keywords] Illarion, northeast, northwest, southwest, southeast"), "I have information about places close to Runewick for you, if you want to know about them?"
 "inform" -> inform("[Schlüsselwörter] Illarion, Nordosten, Nordwesten, Südwesten, Südosten"), "Ich habe für euch Informationen zu den Orten in der Nähe von Runewick wenn ihr wünscht."
@@ -173,7 +181,6 @@ english, "inform" -> inform("[Keywords] Illarion, northeast, northwest, southwes
 "Frage", "Auskunft" -> inform("[Schlüsselwörter] Illarion, Nordosten, Nordwesten, Südwesten, Südosten"), "Ich habe für euch Informationen zu den Orten in der Nähe von Runewick wenn ihr wünscht."
 "place" -> inform("[Keywords] Illarion, northeast, northwest, southwest, southeast"), "Places? Which places to you mean? These could be in the northeast, northwest, southwest or southeast of Illarion?"
 "Orte" -> inform("[Schlüsselwörter] Illarion, Nordosten, Nordwesten, Südwesten, Südosten"), "Orte? Welche Orte meint ihr? Diese könnten sein im Nordosten, Nordwesten, Südwesten oder Südosten von Illarion?"
-
 english, "Elesil", "Daelwon" -> "You can find her outside of the town, close to the teleporter. She has a lot of information and some tasks for you."
 "Elesil", "Daelwon" -> "Ihr findet sie draußen vor der Stadt, nahe am Teleporter. Sie hat eine Menge Informationen und Aufträge für euch."
 
@@ -309,7 +316,6 @@ english, "quest", "mission" -> "Nothing to do for you yet, but soon I will have 
 "quest", "mission" -> "Ich habe nichts für euch zu tun momentan aber bald habe ich einige Aufgaben für euch."
 "task", "adventure", "order" -> "Nothing to do for you yet, but soon I will have plenty of tasks for you."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für euch zu tun momentan aber bald habe ich einige Aufgaben für euch."
-
 english, "lost" -> "A lot of knowledge get lost. But here, in the encyclopedia of ruin towns just a single page is missing. It would be complete if the page 23 was not needed due to an emergency once. For years I have tried to find a copy."
 "verloren" -> "Wissen geht immer mal wieder verloren. Aber schau doch, in dieser Enzyklopädie der Ruinenstädte fehlt Seite 23. Die ist vor Jahren durch einen Notfall verlorengegangen. Ich suche schon ewig, kann aber keine Kopie auftreiben."
 
@@ -321,8 +327,6 @@ english, "Elvaine", "Morgan" -> "The Archmage owns two stones of power, an emera
 
 english, "Runewick" -> "That is here and if you want to know more about it ask Elesil Daelwon at the teleporter outside for further information."
 "Runewick" -> "Das ist hier und wenn du mehr darüber wissen möchtest, dann frag Elesil Daelwon beim Teleporter draußen nach weiterer Information."
---english, "Runewick" -> "That is here and if you want to know more about it ask around."
---"Runewick" -> "Das ist hier und wenn du mehr darüber wissen möchtest, dann fragt herum."
 english, "Valerio", "Guilianni", "Don" -> "The Don owns two stones of power, a aspphire and an obsidian. They protect Galmair against being beaten by our forces."
 "Valerio", "Guilianni", "Don" -> "Der Don besitzt zwei Steine der Macht. Einen Saphir und einen Obsidian. Die beschützen Galmair vor der Übernahme durch unsere Streitkräfte."
 english, "Galmair" -> "Galmair is in the northwest. If you are stupid enough and want to walk there, look for signposts at least. Smart people use the teleporter."
