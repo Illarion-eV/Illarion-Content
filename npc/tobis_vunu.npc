@@ -72,7 +72,8 @@ itemShoes = 369
 -- 3: Player burned the tabaco field
 -- 4: Tobis Vunu hands you 3 silver.
 -- 5: Secret Message told.
--- 6: Secret Message delivered. Player earns a Pirate map. And a ace slouch hat. Quest Ends.
+-- 6: Secret Message delivered. Player earns a Pirate map. And a ace slouch hat. Quest ends.
+
 "Help" -> inform("[Game Help] This NPC is Tobis Vunu the pirate. Keywords: Adventure, Gods."), state = 0, "Help? I won't help you. Get rid, Jack!"
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Tobis Vunu der Pirat. Schlüsselwörter: Abenteuer, Götter."), state = 0, "Helfen? Ich werd dir nich helfen. Verschwinde, Leichtmatrose!"
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
@@ -148,15 +149,17 @@ english, "job" -> "I'm a scary Pirate! Arr!"
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 english, "Pirat" -> "Hey - pirates ho! Ho-h! We're mean guys, ho!", "Arr! We're robbing an' invade an' slitting an' ... uh robbin'! Aye."
-english, "Reginald", "king" -> "Oh... good old King Reginald. I'm sad he's dead now."
-german, "Reginald", "king" -> "Oh... guter alter König Reginald. Schade, dass er jetzt tot ist."
-german, "Piero" -> "Ich kenne keinen Piero."
-english, "Piero" -> "I don't know any Pieros."
-german, "ruggero", "bloom" -> "Aye, Ruggero ist ein guter Kumpel von mir. Leg dich lieber nicht mit ihm an, er ist leicht reizbar."
-english, "ruggero", "bloom" -> "Aye Ruggero is my matee! Don't annoy him, he's kind of bullsish."
 "Pirat" -> "Hey - Pirat'n ho! Ho-h! Wir sin' üble Kerle, ho!", "Arr! Wirr raub'n und entern und schlitzn und ... äh raubn! Aye."
+english, "Reginald" -> "Oh... good old King Reginald. I'm sad he's dead now."
+"Reginald" -> "Oh... guter alter König Reginald. Schade, dass er jetzt tot ist."
+"king" -> "Oh... good old King Reginald. I'm sad he's dead now."
+"König" -> "Oh... guter alter König Reginald. Schade, dass er jetzt tot ist."
+english, "Piero" -> "I don't know any Pieros."
+"Piero" -> "Ich kenne keinen Piero."
+english, "ruggero", "bloom" -> "Aye Ruggero is my matee! Don't annoy him, he's kind of bullsish."
+"ruggero", "bloom" -> "Aye, Ruggero ist ein guter Kumpel von mir. Leg dich lieber nicht mit ihm an, er ist leicht reizbar."
 english, "murgo" -> "Also under the flags of us pirates is the orc Murgo well known. They say he is able to rip a tree out of the ground with his bare hands!"
-german, "murgo" -> "Auch unter den Falggen von uns Piraten ist der Ork Murgo bestens bekannt. Man sagt, er könne einen Baum mit seinen bloßen Händen entwurzeln!"
+"murgo" -> "Auch unter den Flaggen von uns Piraten ist der Ork Murgo bestens bekannt. Man sagt, er könne einen Baum mit seinen bloßen Händen entwurzeln!"
 
 -- Optional: Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "Har, Har! I'm a pirate! I don't BUY stuff! I take it! Aye?"
