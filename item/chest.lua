@@ -179,7 +179,7 @@ function ChestContents(User, chestItem)
     local serverTime = world:getTime("unix")
     local trippingTime = chestItem:getData("tripping_time")
 
-    if (trippingTime ~= "" and ((tonumber(trippingTime) + 300) > serverTime)) then
+    if (trippingTime ~= "" and ((tonumber(trippingTime) + 1800) > serverTime)) then
         User:inform("Du findest nichts in diesem Truhe.",
                     "You find nothing inside this chest.")
         return
@@ -217,7 +217,7 @@ function ronaganContents(User, ronaganItem)
     local serverTime = world:getTime("unix")
     local trippingTime = ronaganItem:getData("tripping_time")
 
-    if (trippingTime ~= "" and ((tonumber(trippingTime) + 300) > serverTime)) then
+    if (trippingTime ~= "" and ((tonumber(trippingTime) + 1800) > serverTime)) then
         User:inform("Du findest nichts in diesem Truhe.",
                     "You find nothing inside this chest.")
         return
