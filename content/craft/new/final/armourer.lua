@@ -20,7 +20,7 @@ local Product = require("base.crafting.Product")
 local Ingredient = require("base.crafting.Ingredient")
 
 local armourer = Craft {
-    name = {english = "Armourer", german = "GERMAN"}
+    name = {english = "Armourer", german = "GERMAN"},
     handTool = "HTOOL",
     -- for single static tool:
     staticTool = "STOOL",
@@ -28,8 +28,7 @@ local armourer = Craft {
     staticTool = {inactive = "STOOL1", active = "STOOL2"}
     skill = "SKILL",
     defaultFoodConsumption = NO_DEFAULT,
-    [sfx = ID,
-    sfxDuration = TIME,]
+    sfx = ID, sfxDuration = TIME,
 
 ProductGroup {name = {english = "Chain boots", german = "Kettenstiefel"},
 Product {item = "simpleJackboots", Ingredient {item = "ironIngot", amount = 1}, Ingredient {item = "leather", amount = 1}},
@@ -174,5 +173,7 @@ Product {item = "albarianNoblesArmour", Ingredient {item = "ironIngot", amount =
 Product {item = "heavyPlateArmour", Ingredient {item = "ironIngot", amount = 18}, Ingredient {item = "ironPlate", amount = 6}, Ingredient {item = "meriniumIngot", amount = 3}, Ingredient {item = "topaz", amount = 1}, Ingredient {item = "goldIngot", amount = 4}},
 Product {item = "nightplate", Ingredient {item = "ironIngot", amount = 20}, Ingredient {item = "ironPlate", amount = 7}, Ingredient {item = "meriniumIngot", amount = 2}, Ingredient {item = "diamond", amount = 1}, Ingredient {item = "pureEarth", amount = 1}}
 }
+
 }
+
 return armourer
