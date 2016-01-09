@@ -25,7 +25,7 @@ local armourer = Craft {
     -- for single static tool:
     staticTool = "STOOL",
     -- or for static tool with active and inactive state:
-    staticTool = {inactive = "STOOL1", active = "STOOL2"}
+    staticTool = {inactive = "STOOL1", active = "STOOL2"},
     skill = "SKILL",
     defaultFoodConsumption = NO_DEFAULT,
     sfx = ID, sfxDuration = TIME,
