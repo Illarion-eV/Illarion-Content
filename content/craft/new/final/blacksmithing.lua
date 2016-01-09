@@ -45,7 +45,7 @@ Product {item = "MalachínDagger", Ingredient {item = "ironIngot", amount = 4}, I
 Product {item = "meriniumplatedDagger", Ingredient {item = "ironIngot", amount = 4}, Ingredient {item = "daggerHandle", amount = 1}, Ingredient {item = "meriniumIngot", amount = 2}, Ingredient {item = "pureAir", amount = 1}, Ingredient {item = "goldIngot", amount = 2}},
 Product {item = "magicalDagger", Ingredient {item = "ironIngot", amount = 5}, Ingredient {item = "daggerHandle", amount = 1}, Ingredient {item = "meriniumIngot", amount = 2}, Ingredient {item = "pureWater", amount = 1}, Ingredient {item = "goldIngot", amount = 2}},
 Product {item = "redFireDagger", Ingredient {item = "ironIngot", amount = 5}, Ingredient {item = "daggerHandle", amount = 1}, Ingredient {item = "meriniumIngot", amount = 2}, Ingredient {item = "pureFire", amount = 1}, Ingredient {item = "goldIngot", amount = 2}}
-}
+},
 
 ProductGroup {name = {english = "One handed axes", german = "Einhändige Äxte"},
 Product {item = "lightBattleAxe", Ingredient {item = "ironIngot", amount = 3}, Ingredient {item = "axeHandle", amount = 1}},
@@ -58,7 +58,7 @@ Product {item = "orcAxe", Ingredient {item = "ironIngot", amount = 6}, Ingredien
 Product {item = "dwarvenAxe", Ingredient {item = "ironIngot", amount = 6}, Ingredient {item = "axeHandle", amount = 1}, Ingredient {item = "meriniumIngot", amount = 2}, Ingredient {item = "diamondPowder", amount = 1}, Ingredient {item = "goldIngot", amount = 2}},
 Product {item = "meriniumplatedBattleAxe", Ingredient {item = "ironIngot", amount = 7}, Ingredient {item = "axeHandle", amount = 1}, Ingredient {item = "meriniumIngot", amount = 2}, Ingredient {item = "pureAir", amount = 1}, Ingredient {item = "goldIngot", amount = 2}},
 Product {item = "magicalDwarvenAxe", Ingredient {item = "ironIngot", amount = 7}, Ingredient {item = "axeHandle", amount = 1}, Ingredient {item = "meriniumIngot", amount = 2}, Ingredient {item = "pureWater", amount = 1}, Ingredient {item = "goldIngot", amount = 2}}
-}
+},
 
 ProductGroup {name = {english = "One handed swords", german = "Einhändige Schwerter"},
 Product {item = "machete", Ingredient {item = "ironIngot", amount = 3}, Ingredient {item = "swordHandle", amount = 1}},
@@ -80,19 +80,19 @@ Product {item = "magicalSerinjahsword", Ingredient {item = "ironIngot", amount =
 Product {item = "magicalLongsword", Ingredient {item = "ironIngot", amount = 7}, Ingredient {item = "swordHandle", amount = 1}, Ingredient {item = "meriniumIngot", amount = 2}, Ingredient {item = "pureWater", amount = 1}, Ingredient {item = "goldIngot", amount = 2}},
 Product {item = "magicalBroadsword", Ingredient {item = "ironIngot", amount = 7}, Ingredient {item = "swordHandle", amount = 1}, Ingredient {item = "meriniumIngot", amount = 2}, Ingredient {item = "pureWater", amount = 1}, Ingredient {item = "goldIngot", amount = 2}},
 Product {item = "fireBroadsword", Ingredient {item = "ironIngot", amount = 7}, Ingredient {item = "swordHandle", amount = 1}, Ingredient {item = "meriniumIngot", amount = 2}, Ingredient {item = "pureFire", amount = 1}, Ingredient {item = "goldIngot", amount = 2}}
-}
+},
 
 ProductGroup {name = {english = "Other", german = "Sonstiges"},
 Product {item = "pins", Ingredient {item = "ironIngot", amount = 1}},
 Product {item = "ironPlate", Ingredient {item = "ironIngot", amount = 2}},
 Product {item = "lockpicks", Ingredient {item = "ironIngot", amount = 2}, Ingredient {item = "ironPlate", amount = 1}},
 Product {item = "handcuffs", Ingredient {item = "ironIngot", amount = 2}, Ingredient {item = "ironPlate", amount = 2}}
-}
+},
 
 ProductGroup {name = {english = "Throwing weapons", german = "Wurfwaffen"},
 Product {item = "throwingAxe", Ingredient {item = "ironIngot", amount = 1}, Ingredient {item = "axeHandle", amount = 1}},
 Product {item = "throwingStar", Ingredient {item = "ironIngot", amount = 1}, Ingredient {item = "ironPlate", amount = 1}}
-}
+},
 
 ProductGroup {name = {english = "Tools", german = "Werkzeuge"},
 Product {item = "scissors", Ingredient {item = "ironIngot", amount = 1}, Ingredient {item = "ironPlate", amount = 1}},
@@ -115,7 +115,7 @@ Product {item = "razorBlade", Ingredient {item = "ironIngot", amount = 1}, Ingre
 Product {item = "cruciblePincers", Ingredient {item = "ironIngot", amount = 1}, Ingredient {item = "smallHandle", amount = 1}},
 Product {item = "carvingTools", Ingredient {item = "ironIngot", amount = 1}, Ingredient {item = "smallHandle", amount = 1}},
 Product {item = "pickaxe", Ingredient {item = "ironIngot", amount = 2}, Ingredient {item = "axeHandle", amount = 1}}
-}
+},
 
 ProductGroup {name = {english = "Two handed axes", german = "Zweihändige Äxte"},
 Product {item = "executionersAxe", Ingredient {item = "ironIngot", amount = 4}, Ingredient {item = "axeHandle", amount = 1}},
@@ -127,7 +127,7 @@ Product {item = "doubleAxe", Ingredient {item = "ironIngot", amount = 10}, Ingre
 Product {item = "fireWaraxe", Ingredient {item = "ironIngot", amount = 11}, Ingredient {item = "axeHandle", amount = 1}, Ingredient {item = "meriniumIngot", amount = 2}, Ingredient {item = "pureFire", amount = 1}, Ingredient {item = "goldIngot", amount = 2}},
 Product {item = "largeFirewaraxe", Ingredient {item = "ironIngot", amount = 12}, Ingredient {item = "axeHandle", amount = 1}, Ingredient {item = "meriniumIngot", amount = 3}, Ingredient {item = "pureFire", amount = 1}, Ingredient {item = "goldIngot", amount = 2}},
 Product {item = "magicalWaraxe", Ingredient {item = "ironIngot", amount = 12}, Ingredient {item = "axeHandle", amount = 1}, Ingredient {item = "meriniumIngot", amount = 4}, Ingredient {item = "pureWater", amount = 1}, Ingredient {item = "goldIngot", amount = 2}}
-}
+},
 
 ProductGroup {name = {english = "Two handed swords", german = "Zweihändige Schwerte"},
 Product {item = "flamberge", Ingredient {item = "ironIngot", amount = 6}, Ingredient {item = "bigSwordHandle", amount = 1}, Ingredient {item = "copperIngot", amount = 1}, Ingredient {item = "amethystPowder", amount = 1}},

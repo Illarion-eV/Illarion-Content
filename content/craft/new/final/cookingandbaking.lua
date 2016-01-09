@@ -45,7 +45,7 @@ Product {item = "strawberryCake", Ingredient {item = "flour", amount = 4}, Ingre
 Product {item = "nutbread", Ingredient {item = "flour", amount = 4}, Ingredient {item = "honeycomb", amount = 3}, Ingredient {item = "nuts", amount = 20}, Ingredient {item = "whiteEgg", amount = 3}, Ingredient {item = "bucketOfWater", amount = 1},Remnant {item = "bucket", amount = 1}},
 Product {item = "custardPie", Ingredient {item = "flour", amount = 2}, Ingredient {item = "whiteEgg", amount = 10}, Ingredient {item = "sugarcane", amount = 4}, Ingredient {item = "bottleOfMilk", amount = 1}, Ingredient {item = "bucketOfWater", amount = 1},Remnant {item = "bucket", amount = 1},Remnant {item = "largeEmptyBottle", amount = 1}},
 Product {item = "elderberryPie", Ingredient {item = "flour", amount = 6}, Ingredient {item = "redElder", amount = 20}, Ingredient {item = "berries", amount = 5}, Ingredient {item = "orange", amount = 5}, Ingredient {item = "sugarcane", amount = 4}, Ingredient {item = "bucketOfWater", amount = 1},Remnant {item = "bucket", amount = 1}}
-}
+},
 
 ProductGroup {name = {english = "Brewing", german = "Getränke"},
 Product {item = "bottleOfCider", Ingredient {item = "largeEmptyBottle", amount = 1}, Ingredient {item = "apple", amount = 6}},
@@ -73,7 +73,7 @@ Product {item = "bottleOfOrangeSchnapps", Ingredient {item = "emptyLiquorBottle"
 Product {item = "bottleOfCherrySchnapps", Ingredient {item = "emptyLiquorBottle", amount = 1}, Ingredient {item = "cherries", amount = 5}, Ingredient {item = "sugarcane", amount = 3}},
 Product {item = "bottleOfMulledWine", Ingredient {item = "emptyLiquorBottle", amount = 1}, Ingredient {item = "grapes", amount = 5}, Ingredient {item = "sugarcane", amount = 3}},
 Product {item = "bottleOfElvenWine", Ingredient {item = "emptyLiquorBottle", amount = 1}, Ingredient {item = "banana", amount = 5}, Ingredient {item = "sugarcane", amount = 1}, Ingredient {item = "nuts", amount = 3}}
-}
+},
 
 ProductGroup {name = {english = "Dishes", german = "Gerichte"},
 Product {item = "sausage", Ingredient {item = "entrails", amount = 1}, Ingredient {item = "pork", amount = 1}},
@@ -94,7 +94,7 @@ Product {item = "rabbitDish", Ingredient {item = "plate", amount = 1}, Ingredien
 Product {item = "lambDish", Ingredient {item = "plate", amount = 1}, Ingredient {item = "grilledLamb", amount = 1}, Ingredient {item = "tomato", amount = 2}, Ingredient {item = "carrots", amount = 2}, Ingredient {item = "onion", amount = 2}},
 Product {item = "venisonDish", Ingredient {item = "plate", amount = 1}, Ingredient {item = "grilledVenison", amount = 2}, Ingredient {item = "berries", amount = 5}, Ingredient {item = "carrots", amount = 3}, Ingredient {item = "cabbage", amount = 3}},
 Product {item = "chickenDish", Ingredient {item = "plate", amount = 1}, Ingredient {item = "smokedChicken", amount = 1}, Ingredient {item = "cabbage", amount = 2}, Ingredient {item = "carrots", amount = 2}, Ingredient {item = "bottleOfRum", amount = 1},Remnant {item = "emptyRumBottle", amount = 1}}
-}
+},
 
 ProductGroup {name = {english = "Soups", german = "Suppen"},
 Product {item = "mushroomSoup", Ingredient {item = "soupBowl", amount = 1}, Ingredient {item = "champignon", amount = 2}, Ingredient {item = "bucketOfWater", amount = 1},Remnant {item = "bucket", amount = 1}},

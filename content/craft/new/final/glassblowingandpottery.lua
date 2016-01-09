@@ -38,17 +38,17 @@ Product {item = "emptyRumBottle", Ingredient {item = "glassIngot", amount = 1}},
 Product {item = "oilBottle", Ingredient {item = "glassIngot", amount = 1}},
 Product {item = "emptyPotion", Ingredient {item = "glassIngot", amount = 2}},
 Product {item = "emptyLiquorBottle", Ingredient {item = "glassIngot", amount = 2}}
-}
+},
 
 ProductGroup {name = {english = "Glasses", german = "Gläser"},
 Product {item = "glassMug", Ingredient {item = "glassIngot", amount = 2}},
 Product {item = "glass", Ingredient {item = "glassIngot", amount = 2}},
 Product {item = "wineGlass", Ingredient {item = "glassIngot", amount = 4}}
-}
+},
 
 ProductGroup {name = {english = "Other", german = "Sonstiges"},
 Product {item = "emptySalveJar", Ingredient {item = "glassIngot", amount = 5}}
-}
+},
 
 ProductGroup {name = {english = "Pottery", german = "Töpfern"},
 Product {item = "bricks", Ingredient {item = "clay", amount = 2}},

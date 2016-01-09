@@ -34,7 +34,7 @@ ProductGroup {name = {english = "Arrows and bolts", german = "Pfeile und Bolzen"
 Product {item = "arrow", Ingredient {item = "bough", amount = 2}},
 Product {item = "crossbowBolt", Ingredient {item = "bough", amount = 2}, Ingredient {item = "ironIngot", amount = 1}},
 Product {item = "windArrows", Ingredient {item = "bough", amount = 2}, Ingredient {item = "goldIngot", amount = 1}}
-}
+},
 
 ProductGroup {name = {english = "Blunt weapons", german = "Stumpfe Waffen"},
 Product {item = "woodenSword", Ingredient {item = "cherryWoodBoards", amount = 2}, Ingredient {item = "swordHandle", amount = 1}},
@@ -51,7 +51,7 @@ Product {item = "heavyHammer", Ingredient {item = "cherryWoodBoards", amount = 4
 Product {item = "spikedMace", Ingredient {item = "cherryWoodBoards", amount = 4}, Ingredient {item = "maceHandle", amount = 1}, Ingredient {item = "heartwood", amount = 3}, Ingredient {item = "ironIngot", amount = 2}},
 Product {item = "dwarvenHammer", Ingredient {item = "cherryWoodBoards", amount = 5}, Ingredient {item = "hammerHandle", amount = 1}, Ingredient {item = "heartwood", amount = 3}, Ingredient {item = "meriniumIngot", amount = 2}},
 Product {item = "dwarvenStormhammer", Ingredient {item = "cherryWoodBoards", amount = 5}, Ingredient {item = "hammerHandle", amount = 1}, Ingredient {item = "heartwood", amount = 2}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "pureAir", amount = 1}}
-}
+},
 
 ProductGroup {name = {english = "Bows", german = "Bögen"},
 Product {item = "shortBow", Ingredient {item = "naldorWoodBoards", amount = 3}, Ingredient {item = "thread", amount = 2}, Ingredient {item = "ironIngot", amount = 1}},
@@ -64,7 +64,7 @@ Product {item = "elvenShortbow", Ingredient {item = "naldorWoodBoards", amount =
 Product {item = "ebonyWoodBow", Ingredient {item = "naldorWoodBoards", amount = 4}, Ingredient {item = "thread", amount = 2}, Ingredient {item = "heartwood", amount = 4}},
 Product {item = "elvenCompositeLongbow", Ingredient {item = "naldorWoodBoards", amount = 5}, Ingredient {item = "thread", amount = 2}, Ingredient {item = "heartwood", amount = 5}},
 Product {item = "fireHuntersBow", Ingredient {item = "naldorWoodBoards", amount = 5}, Ingredient {item = "thread", amount = 2}, Ingredient {item = "heartwood", amount = 3}, Ingredient {item = "pureFire", amount = 1}}
-}
+},
 
 ProductGroup {name = {english = "Handles", german = "Griffe"},
 Product {item = "axeHandle", Ingredient {item = "appleWoodBoards", amount = 1}},
@@ -83,7 +83,7 @@ Product {item = "largeOrnamentedHandle", Ingredient {item = "appleWoodBoards", a
 Product {item = "largeHandle", Ingredient {item = "appleWoodBoards", amount = 3}},
 Product {item = "morningStarHandle", Ingredient {item = "appleWoodBoards", amount = 3}},
 Product {item = "longStaffHandle", Ingredient {item = "appleWoodBoards", amount = 3}}
-}
+},
 
 ProductGroup {name = {english = "Music", german = "Instrumente"},
 Product {item = "flute", Ingredient {item = "naldorWoodBoards", amount = 2}, Ingredient {item = "ruby", amount = 1}},
@@ -91,7 +91,7 @@ Product {item = "panpipe", Ingredient {item = "naldorWoodBoards", amount = 2}, I
 Product {item = "drum", Ingredient {item = "naldorWoodBoards", amount = 3}, Ingredient {item = "heartwood", amount = 1}},
 Product {item = "lute", Ingredient {item = "naldorWoodBoards", amount = 3}, Ingredient {item = "heartwood", amount = 2}},
 Product {item = "harp", Ingredient {item = "naldorWoodBoards", amount = 4}, Ingredient {item = "heartwood", amount = 4}}
-}
+},
 
 ProductGroup {name = {english = "Other", german = "Sonstiges"},
 Product {item = "woodenCup", Ingredient {item = "appleWoodBoards", amount = 1}},
@@ -101,7 +101,7 @@ Product {item = "comb", Ingredient {item = "appleWoodBoards", amount = 1}, Ingre
 Product {item = "pipe", Ingredient {item = "appleWoodBoards", amount = 1}, Ingredient {item = "heartwood", amount = 1}},
 Product {item = "diceCup", Ingredient {item = "appleWoodBoards", amount = 1}, Ingredient {item = "heartwood", amount = 1}},
 Product {item = "trapSet", Ingredient {item = "appleWoodBoards", amount = 3}, Ingredient {item = "ironIngot", amount = 2}, Ingredient {item = "heartwood", amount = 1}}
-}
+},
 
 ProductGroup {name = {english = "Shields", german = "Schilde"},
 Product {item = "smallWoodenShield", Ingredient {item = "coniferWoodBoards", amount = 2}, Ingredient {item = "ironPlate", amount = 1}},
@@ -119,7 +119,7 @@ Product {item = "ornateTowerShield", Ingredient {item = "coniferWoodBoards", amo
 Product {item = "shieldOfTheSky", Ingredient {item = "coniferWoodBoards", amount = 7}, Ingredient {item = "ironPlate", amount = 2}, Ingredient {item = "heartwood", amount = 2}, Ingredient {item = "pureAir", amount = 1}},
 Product {item = "mosaicShield", Ingredient {item = "coniferWoodBoards", amount = 7}, Ingredient {item = "ironPlate", amount = 2}, Ingredient {item = "heartwood", amount = 2}, Ingredient {item = "pureSpirit", amount = 1}},
 Product {item = "cloudShield", Ingredient {item = "coniferWoodBoards", amount = 8}, Ingredient {item = "ironPlate", amount = 2}, Ingredient {item = "heartwood", amount = 3}, Ingredient {item = "pureAir", amount = 1}}
-}
+},
 
 ProductGroup {name = {english = "Spears", german = "Speere"},
 Product {item = "simpleSpear", Ingredient {item = "appleWoodBoards", amount = 2}, Ingredient {item = "longStaffHandle", amount = 1}},
@@ -134,7 +134,7 @@ Product {item = "divineVoulge", Ingredient {item = "appleWoodBoards", amount = 8
 Product {item = "twinbladeRanseur", Ingredient {item = "appleWoodBoards", amount = 8}, Ingredient {item = "longStaffHandle", amount = 1}, Ingredient {item = "heartwood", amount = 2}, Ingredient {item = "meriniumIngot", amount = 2}},
 Product {item = "shadowRanseur", Ingredient {item = "appleWoodBoards", amount = 9}, Ingredient {item = "longStaffHandle", amount = 1}, Ingredient {item = "heartwood", amount = 1}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "pureEarth", amount = 1}},
 Product {item = "partisanOfLight", Ingredient {item = "appleWoodBoards", amount = 10}, Ingredient {item = "longStaffHandle", amount = 1}, Ingredient {item = "heartwood", amount = 2}, Ingredient {item = "meriniumIngot", amount = 2}, Ingredient {item = "pureSpirit", amount = 1}}
-}
+},
 
 ProductGroup {name = {english = "Staffs", german = "Stäbe"},
 Product {item = "walkingStick", Ingredient {item = "cherryWoodBoards", amount = 3}, Ingredient {item = "staffHandle", amount = 1}},
@@ -148,17 +148,17 @@ Product {item = "elvenMagesStaff", Ingredient {item = "cherryWoodBoards", amount
 Product {item = "battleStaff", Ingredient {item = "cherryWoodBoards", amount = 8}, Ingredient {item = "staffHandle", amount = 1}, Ingredient {item = "heartwood", amount = 3}, Ingredient {item = "pureEarth", amount = 1}},
 Product {item = "ornateMagesStaff", Ingredient {item = "cherryWoodBoards", amount = 9}, Ingredient {item = "staffHandle", amount = 1}, Ingredient {item = "heartwood", amount = 4}, Ingredient {item = "pureSpirit", amount = 1}},
 Product {item = "mastersStaff", Ingredient {item = "cherryWoodBoards", amount = 10}, Ingredient {item = "staffHandle", amount = 1}, Ingredient {item = "heartwood", amount = 4}, Ingredient {item = "pureEarth", amount = 1}}
-}
+},
 
 ProductGroup {name = {english = "Tableware", german = "Geschirr"},
 Product {item = "plate", Ingredient {item = "coniferWoodBoards", amount = 2}},
 Product {item = "soupBowl", Ingredient {item = "coniferWoodBoards", amount = 2}},
 Product {item = "woodenPlate", Ingredient {item = "coniferWoodBoards", amount = 2}}
-}
+},
 
 ProductGroup {name = {english = "Throwing weapons", german = "Wurfwaffen"},
 Product {item = "javelin", Ingredient {item = "appleWoodBoards", amount = 1}, Ingredient {item = "longStaffHandle", amount = 1}}
-}
+},
 
 ProductGroup {name = {english = "Tools", german = "Werkzeuge"},
 Product {item = "fishingRod", Ingredient {item = "coniferWoodBoards", amount = 1}, Ingredient {item = "longStaffHandle", amount = 1}, Ingredient {item = "thread", amount = 1}},
@@ -171,7 +171,7 @@ Product {item = "brickMould", Ingredient {item = "coniferWoodBoards", amount = 4
 Product {item = "dyeingRod", Ingredient {item = "coniferWoodBoards", amount = 2}, Ingredient {item = "staffHandle", amount = 1}},
 Product {item = "bucket", Ingredient {item = "coniferWoodBoards", amount = 4}},
 Product {item = "woodenShovel", Ingredient {item = "coniferWoodBoards", amount = 1}, Ingredient {item = "smallHandle", amount = 1}}
-}
+},
 
 ProductGroup {name = {english = "Wands", german = "Zauberstäbe"},
 Product {item = "wand", Ingredient {item = "naldorWoodBoards", amount = 7}, Ingredient {item = "largeOrnamentedHandle", amount = 1}, Ingredient {item = "heartwood", amount = 2}},

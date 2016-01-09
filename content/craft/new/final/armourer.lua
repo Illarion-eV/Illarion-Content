@@ -40,7 +40,7 @@ Product {item = "silveredGuardiansBoots", Ingredient {item = "ironIngot", amount
 Product {item = "gildedGuardiansBoots", Ingredient {item = "ironIngot", amount = 5}, Ingredient {item = "leather", amount = 2}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "emerald", amount = 1}, Ingredient {item = "silverIngot", amount = 1}},
 Product {item = "salkamaerianSteelShoes", Ingredient {item = "ironIngot", amount = 6}, Ingredient {item = "leather", amount = 2}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "topaz", amount = 1}, Ingredient {item = "goldIngot", amount = 1}},
 Product {item = "mastersSteelShoes", Ingredient {item = "ironIngot", amount = 6}, Ingredient {item = "leather", amount = 2}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "diamond", amount = 1}, Ingredient {item = "pureEarth", amount = 1}}
-}
+},
 
 ProductGroup {name = {english = "Chain gloves", german = "Kettenhandschuhe"},
 Product {item = "simpleChainGloves", Ingredient {item = "ironIngot", amount = 1}, Ingredient {item = "greyCloth", amount = 1}},
@@ -54,7 +54,7 @@ Product {item = "guardsChainGloves", Ingredient {item = "ironIngot", amount = 5}
 Product {item = "gladiatorsChainGloves", Ingredient {item = "ironIngot", amount = 5}, Ingredient {item = "greyCloth", amount = 2}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "emerald", amount = 1}, Ingredient {item = "silverIngot", amount = 1}},
 Product {item = "meriniumPlatedChainGloves", Ingredient {item = "ironIngot", amount = 6}, Ingredient {item = "greyCloth", amount = 2}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "topaz", amount = 1}, Ingredient {item = "goldIngot", amount = 1}},
 Product {item = "templarsChainGloves", Ingredient {item = "ironIngot", amount = 7}, Ingredient {item = "greyCloth", amount = 2}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "diamond", amount = 1}, Ingredient {item = "pureWater", amount = 1}}
-}
+},
 
 ProductGroup {name = {english = "Chain greaves", german = "Kettenhosen"},
 Product {item = "simpleShortScaleGreaves", Ingredient {item = "ironIngot", amount = 2}, Ingredient {item = "leather", amount = 1}},
@@ -68,7 +68,7 @@ Product {item = "shortChainTrousers", Ingredient {item = "ironIngot", amount = 8
 Product {item = "reinforcedChainTrousers", Ingredient {item = "ironIngot", amount = 8}, Ingredient {item = "leather", amount = 3}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "emerald", amount = 1}, Ingredient {item = "silverIngot", amount = 2}},
 Product {item = "chainPants", Ingredient {item = "ironIngot", amount = 9}, Ingredient {item = "leather", amount = 3}, Ingredient {item = "meriniumIngot", amount = 2}, Ingredient {item = "topaz", amount = 1}, Ingredient {item = "goldIngot", amount = 2}},
 Product {item = "holyChainPants", Ingredient {item = "ironIngot", amount = 10}, Ingredient {item = "leather", amount = 3}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "diamond", amount = 1}, Ingredient {item = "pureWater", amount = 1}}
-}
+},
 
 ProductGroup {name = {english = "Chain helmets", german = "Kettenhelme"},
 Product {item = "chainHelmet", Ingredient {item = "ironIngot", amount = 2}, Ingredient {item = "greyCloth", amount = 1}},
@@ -82,7 +82,7 @@ Product {item = "gynkeseMercenarysHelmet", Ingredient {item = "ironIngot", amoun
 Product {item = "chainHelmetOfDarkness", Ingredient {item = "ironIngot", amount = 6}, Ingredient {item = "greyCloth", amount = 2}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "emerald", amount = 1}, Ingredient {item = "silverIngot", amount = 2}},
 Product {item = "salkamaerianPaladinsHelmet", Ingredient {item = "ironIngot", amount = 7}, Ingredient {item = "greyCloth", amount = 2}, Ingredient {item = "meriniumIngot", amount = 2}, Ingredient {item = "topaz", amount = 1}, Ingredient {item = "goldIngot", amount = 2}},
 Product {item = "flameHelmet", Ingredient {item = "ironIngot", amount = 8}, Ingredient {item = "greyCloth", amount = 3}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "diamond", amount = 1}, Ingredient {item = "pureFire", amount = 1}}
-}
+},
 
 ProductGroup {name = {english = "Chain torso armour", german = "Kettenhemden"},
 Product {item = "chainMail", Ingredient {item = "ironIngot", amount = 4}, Ingredient {item = "leather", amount = 1}},
@@ -97,7 +97,7 @@ Product {item = "salkamaerianArmour", Ingredient {item = "ironIngot", amount = 1
 Product {item = "gildedScaleArmour", Ingredient {item = "ironIngot", amount = 17}, Ingredient {item = "leather", amount = 6}, Ingredient {item = "meriniumIngot", amount = 2}, Ingredient {item = "emerald", amount = 1}, Ingredient {item = "silverIngot", amount = 4}},
 Product {item = "salkamaerianOfficersArmour", Ingredient {item = "ironIngot", amount = 18}, Ingredient {item = "leather", amount = 6}, Ingredient {item = "meriniumIngot", amount = 3}, Ingredient {item = "topaz", amount = 1}, Ingredient {item = "goldIngot", amount = 4}},
 Product {item = "stateArmour", Ingredient {item = "ironIngot", amount = 20}, Ingredient {item = "leather", amount = 7}, Ingredient {item = "meriniumIngot", amount = 2}, Ingredient {item = "diamond", amount = 1}, Ingredient {item = "pureSpirit", amount = 1}}
-}}
+},
 
 ProductGroup {name = {english = "Plate boots", german = "Plattenstiefel"},
 Product {item = "ironBoots", Ingredient {item = "ironIngot", amount = 1}, Ingredient {item = "ironPlate", amount = 1}},
@@ -112,7 +112,7 @@ Product {item = "gildedSteelBoots", Ingredient {item = "ironIngot", amount = 5},
 Product {item = "paladinsSteelBoots", Ingredient {item = "ironIngot", amount = 5}, Ingredient {item = "ironPlate", amount = 2}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "emerald", amount = 1}, Ingredient {item = "silverIngot", amount = 1}},
 Product {item = "knightBoots", Ingredient {item = "ironIngot", amount = 6}, Ingredient {item = "ironPlate", amount = 2}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "topaz", amount = 1}, Ingredient {item = "goldIngot", amount = 1}},
 Product {item = "knightBootsOfSwiftness", Ingredient {item = "ironIngot", amount = 6}, Ingredient {item = "ironPlate", amount = 2}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "diamond", amount = 1}, Ingredient {item = "pureAir", amount = 1}}
-}
+},
 
 ProductGroup {name = {english = "Plate gloves", german = "Plattenhandschuhe"},
 Product {item = "simpleSteelGloves", Ingredient {item = "ironIngot", amount = 1}, Ingredient {item = "ironPlate", amount = 1}},
@@ -127,7 +127,7 @@ Product {item = "AlbarianSteelGloves", Ingredient {item = "ironIngot", amount = 
 Product {item = "knightGloves", Ingredient {item = "ironIngot", amount = 5}, Ingredient {item = "ironPlate", amount = 2}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "emerald", amount = 1}, Ingredient {item = "silverIngot", amount = 1}},
 Product {item = "meriniumPlatedSteelGloves", Ingredient {item = "ironIngot", amount = 6}, Ingredient {item = "ironPlate", amount = 2}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "topaz", amount = 1}, Ingredient {item = "goldIngot", amount = 1}},
 Product {item = "grandMastersGloves", Ingredient {item = "ironIngot", amount = 7}, Ingredient {item = "ironPlate", amount = 2}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "diamond", amount = 1}, Ingredient {item = "pureEarth", amount = 1}}
-}
+},
 
 ProductGroup {name = {english = "Plate greaves", german = "Plattenhosen"},
 Product {item = "simpleShortIronGreaves", Ingredient {item = "ironIngot", amount = 2}, Ingredient {item = "ironPlate", amount = 1}},
@@ -141,7 +141,7 @@ Product {item = "steelGreaves", Ingredient {item = "ironIngot", amount = 8}, Ing
 Product {item = "reinforcedSteelGreaves", Ingredient {item = "ironIngot", amount = 8}, Ingredient {item = "ironPlate", amount = 3}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "emerald", amount = 1}, Ingredient {item = "silverIngot", amount = 2}},
 Product {item = "knightsSteelGreaves", Ingredient {item = "ironIngot", amount = 9}, Ingredient {item = "ironPlate", amount = 3}, Ingredient {item = "meriniumIngot", amount = 2}, Ingredient {item = "topaz", amount = 1}, Ingredient {item = "goldIngot", amount = 2}},
 Product {item = "steelGreavesOfEternalNight", Ingredient {item = "ironIngot", amount = 10}, Ingredient {item = "ironPlate", amount = 3}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "diamond", amount = 1}, Ingredient {item = "pureEarth", amount = 1}}
-}
+},
 
 ProductGroup {name = {english = "Plate helmets", german = "Plattenhelme"},
 Product {item = "steelCap", Ingredient {item = "ironIngot", amount = 1}, Ingredient {item = "ironPlate", amount = 1}},
@@ -155,7 +155,7 @@ Product {item = "albarianMercenarysHelmet", Ingredient {item = "ironIngot", amou
 Product {item = "albarianSoldiersHelmet", Ingredient {item = "ironIngot", amount = 6}, Ingredient {item = "ironPlate", amount = 2}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "emerald", amount = 1}, Ingredient {item = "silverIngot", amount = 2}},
 Product {item = "visoredHelmet", Ingredient {item = "ironIngot", amount = 7}, Ingredient {item = "ironPlate", amount = 2}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "topaz", amount = 1}, Ingredient {item = "goldIngot", amount = 2}},
 Product {item = "visoredHelmetOfDarkness", Ingredient {item = "ironIngot", amount = 8}, Ingredient {item = "ironPlate", amount = 3}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "diamond", amount = 1}, Ingredient {item = "pureEarth", amount = 1}}
-}
+},
 
 ProductGroup {name = {english = "Plate torso armour", german = "Plattenrüstungen"},
 Product {item = "plateArmour", Ingredient {item = "ironIngot", amount = 4}, Ingredient {item = "ironPlate", amount = 1}},
@@ -173,7 +173,6 @@ Product {item = "albarianNoblesArmour", Ingredient {item = "ironIngot", amount =
 Product {item = "heavyPlateArmour", Ingredient {item = "ironIngot", amount = 18}, Ingredient {item = "ironPlate", amount = 6}, Ingredient {item = "meriniumIngot", amount = 3}, Ingredient {item = "topaz", amount = 1}, Ingredient {item = "goldIngot", amount = 4}},
 Product {item = "nightplate", Ingredient {item = "ironIngot", amount = 20}, Ingredient {item = "ironPlate", amount = 7}, Ingredient {item = "meriniumIngot", amount = 2}, Ingredient {item = "diamond", amount = 1}, Ingredient {item = "pureEarth", amount = 1}}
 }
-
 }
 
 return armourer

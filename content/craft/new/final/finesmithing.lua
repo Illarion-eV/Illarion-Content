@@ -57,21 +57,21 @@ Product {item = "copperDiamondAmulet", Ingredient {item = "copperIngot", amount 
 Product {item = "silverDiamondAmulet", Ingredient {item = "silverIngot", amount = 3}, Ingredient {item = "diamond", amount = 2}, Ingredient {item = "meriniumIngot", amount = 2}},
 Product {item = "charmOfTheIcebird", Ingredient {item = "goldIngot", amount = 3}, Ingredient {item = "diamond", amount = 2}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "pureWater", amount = 1}},
 Product {item = "goldenDiamondAmulet", Ingredient {item = "goldIngot", amount = 3}, Ingredient {item = "diamond", amount = 2}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "pureSpirit", amount = 1}}
-}
+},
 
 ProductGroup {name = {english = "Crowns", german = "Kronen"},
 Product {item = "diadem", Ingredient {item = "silverIngot", amount = 2}, Ingredient {item = "sapphire", amount = 1}},
 Product {item = "crown", Ingredient {item = "goldIngot", amount = 2}, Ingredient {item = "emerald", amount = 1}},
 Product {item = "queensCrown", Ingredient {item = "goldIngot", amount = 3}, Ingredient {item = "topaz", amount = 1}},
 Product {item = "kingssCrown", Ingredient {item = "goldIngot", amount = 3}, Ingredient {item = "diamond", amount = 1}}
-}
+},
 
 ProductGroup {name = {english = "Other", german = "Sonstiges"},
 Product {item = "smallCandlestick", Ingredient {item = "goldIngot", amount = 1}, Ingredient {item = "amethyst", amount = 1}},
 Product {item = "oilLamp", Ingredient {item = "goldIngot", amount = 2}, Ingredient {item = "ruby", amount = 1}},
 Product {item = "lantern", Ingredient {item = "goldIngot", amount = 2}, Ingredient {item = "obsidian", amount = 1}},
 Product {item = "mirror", Ingredient {item = "goldIngot", amount = 3}, Ingredient {item = "sapphire", amount = 1}, Ingredient {item = "meriniumIngot", amount = 2}}
-}
+},
 
 ProductGroup {name = {english = "Rings", german = "Ringe"},
 Product {item = "goldenRing", Ingredient {item = "goldIngot", amount = 1}},
@@ -99,7 +99,7 @@ Product {item = "copperDiamondRing", Ingredient {item = "copperIngot", amount = 
 Product {item = "silverDiamondRing", Ingredient {item = "silverIngot", amount = 3}, Ingredient {item = "diamond", amount = 2}, Ingredient {item = "meriniumIngot", amount = 2}},
 Product {item = "goldenDiamondRing", Ingredient {item = "goldIngot", amount = 3}, Ingredient {item = "diamond", amount = 2}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "pureSpirit", amount = 1}},
 Product {item = "archmageRing", Ingredient {item = "goldIngot", amount = 3}, Ingredient {item = "diamond", amount = 2}, Ingredient {item = "meriniumIngot", amount = 1}, Ingredient {item = "pureSpirit", amount = 1}}
-}
+},
 
 ProductGroup {name = {english = "Tableware", german = "Geschirr"},
 Product {item = "ironGoblet", Ingredient {item = "ironIngot", amount = 1}},
@@ -108,7 +108,7 @@ Product {item = "greenPlate", Ingredient {item = "copperIngot", amount = 1}},
 Product {item = "silverGoblet", Ingredient {item = "silverIngot", amount = 1}},
 Product {item = "goldenGoblet", Ingredient {item = "goldIngot", amount = 1}},
 Product {item = "cutlery", Ingredient {item = "copperIngot", amount = 3}}
-}
+},
 
 ProductGroup {name = {english = "Tools", german = "Werkzeuge"},
 Product {item = "glassBlowPipe", Ingredient {item = "copperIngot", amount = 3}}
