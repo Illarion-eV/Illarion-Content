@@ -16,15 +16,23 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local lookat = require("base.lookat")
+local id_266_bookshelf = require("item.id_266_bookshelf")
 local M = {}
 
 -- UPDATE items SET itm_script='item.id_2620_language_book' WHERE itm_id = 2620;
 
 function M.UseItem(User, SourceItem, ltstate)
-	if SourceItem:getData("langcode") == "" then
-		SourceItem:setData("langcode", 11)
-	end
+    if SourceItem:getData("langcode") == "" then
+        SourceItem:setData("langcode", 11)
+    end
 
+    local book = SourceItem:getData("book")
+    if book ~= "" then
+        if id_266_bookshelf.bookList[book] ~= nil then
+            User:sendBook(id_266_bookshelf.bookList[book].bookId)
+        end
+    end
+    
     local langcode = math.floor(tonumber(SourceItem:getData("langcode"))/10);
     local modecode = tonumber(SourceItem:getData("langcode")) - (langcode * 10);
 
@@ -109,16 +117,16 @@ function M.UseItem(User, SourceItem, ltstate)
             end
         end
     end
-	local frontItem = common.GetFrontItem(User);
+    local frontItem = common.GetFrontItem(User);
 
     if frontItem and ((frontItem.id == 266) or (frontItem.id == 267)) then
         world:erase(SourceItem,1)
         --printerr("Erase aus skript ausgefuehrt");
-		return;
-	end
+        return;
+    end
 
-	-- obsolet?
-	--[[local TargetItem = common.GetTargetItem(User, SourceItem);
+    -- obsolet?
+    --[[local TargetItem = common.GetTargetItem(User, SourceItem);
     if (TargetItem.id == 329 and tonumber(TargetItem:getData("langcode")) == 0) then
         if ( Skill > 50) then
             if (modecode==0) then
@@ -131,22 +139,31 @@ function M.UseItem(User, SourceItem, ltstate)
         end
     end]]
     --User:learn(4,"library research",2,100)
-	--Replace with new learn function, see learn.lua
+    --Replace with new learn function, see learn.lua
 end
 
 function M.LookAtItem(User,Item)
-	if Item:getData("langcode") == "" then
-		Item:setData("langcode", 11)
-	end
+    if Item:getData("langcode") == "" then
+        Item:setData("langcode", 11)
+    end
 
     local langcode = math.floor(tonumber(Item:getData("langcode"))/10);
     local modecode = tonumber(Item:getData("langcode")) - (langcode * 10);
     if (modecode == 2) then
-		lookat.SetSpecialName(Item, "Buch des Ephraim","Book of Ephraim");
+        lookat.SetSpecialName(Item, "Buch des Ephraim","Book of Ephraim");
     else
         lookat.SetSpecialName(Item, "Lehrbuch der "..GetLanguage(langcode,false),"Textbook of the "..GetLanguage(langcode,true));
     end
-	return lookat.GenerateLookAt(User, Item, lookat.NONE)
+    
+    local book = Item:getData("book")
+    if book ~= "" then
+        if book ~= nil then
+            if id_266_bookshelf.bookList[book] ~= nil then
+            lookat.SetSpecialName(Item,id_266_bookshelf.bookList[book].german,id_266_bookshelf.bookList[book].english)
+            end
+        end
+    end
+    return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
 
 function Learning(User,Value,Skillname)

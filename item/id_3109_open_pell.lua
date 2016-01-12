@@ -446,7 +446,7 @@ function M.LookAtItem(User, Item)
             end
         end
     end
-        return lookat.GenerateLookAt(User, Item, 0)
+    return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
 
 return M
