@@ -440,6 +440,7 @@ function M.LookAtItem(User, Item)
             if id_266_bookshelf.bookList[book] ~= nil then
             lookat.SetSpecialName(Item,id_266_bookshelf.bookList[book].german,id_266_bookshelf.bookList[book].english)
             end
+        return lookat.GenerateLookAt(User, Item, lookat.NONE)
         end
     else
         return lookat.GenerateLookAt(User, Item, lookat.NONE)
