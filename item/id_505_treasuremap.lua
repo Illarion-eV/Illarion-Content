@@ -85,19 +85,16 @@ function M.LookAtItem(User, Item)
 end
 
 function M.UseItem(User, SourceItem)
-    local book = Item:getData("book")
+    local book = SourceItem:getData("book")
     if book ~= "" then
-        if book ~= nil then
-            if id_266_bookshelf.bookList[book] ~= nil then
-            lookat.SetSpecialName(Item,id_266_bookshelf.bookList[book].german,id_266_bookshelf.bookList[book].english)
-            end
+        if id_266_bookshelf.bookList[book] ~= nil then
+            User:sendBook(id_266_bookshelf.bookList[book].bookId)
         end
-        return lookat.GenerateLookAt(User, Item, lookat.NONE)
+    
+    elseif book == nil then
+        local textDe, textEn = getText(User, SourceItem)
+        User:inform(textDe, textEn)
     end
-
-        
-    local textDe, textEn = getText(User, SourceItem)
-    User:inform(textDe, textEn)
 end
 
 return M

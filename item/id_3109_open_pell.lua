@@ -429,25 +429,21 @@ end
 function M.LookAtItem(User, Item)
 
     local town = getTownOfPell(Item)
+    local book = Item:getData("book")
     if town then
         local lookAt = lookat.GenerateLookAt(User, Item, lookat.NONE)
         lookAt.name = common.GetNLS(User, "Schriftrolle", "Scroll")
         lookAt.description = common.GetNLS(User, "Alchemierezepte", "Alchemy recipes")
         return lookAt
-    else
-        return lookat.GenerateLookAt(User, Item, lookat.NONE)
-    end
-    
-    local book = Item:getData("book")
-    if book ~= "" then
+    elseif book ~= "" then
         if book ~= nil then
             if id_266_bookshelf.bookList[book] ~= nil then
             lookat.SetSpecialName(Item,id_266_bookshelf.bookList[book].german,id_266_bookshelf.bookList[book].english)
             end
         end
+    else
         return lookat.GenerateLookAt(User, Item, lookat.NONE)
     end
-
 end
 
 return M
