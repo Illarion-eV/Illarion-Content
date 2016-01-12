@@ -18,6 +18,7 @@ local common = require("base.common")
 local treasureBase = require("item.base.treasure")
 local treasureContent = require("content.treasure")
 local lookat = require("base.lookat")
+local id_266_bookshelf = require("item.id_266_bookshelf")
 
 -- UPDATE items SET itm_script='item.id_505_treasuremap' WHERE itm_id IN (505);
 
@@ -66,6 +67,17 @@ local function getText(user, item)
 end
 
 function M.LookAtItem(User, Item)
+
+    local book = Item:getData("book")
+    if book ~= "" then
+        if book ~= nil then
+            if id_266_bookshelf.bookList[book] ~= nil then
+            lookat.SetSpecialName(Item,id_266_bookshelf.bookList[book].german,id_266_bookshelf.bookList[book].english)
+            end
+        end
+        return lookat.GenerateLookAt(User, Item, lookat.NONE)
+    end
+
     local textDe, textEn = getText(User, Item)
     local itemLookat = lookat.GenerateLookAt(User, Item, lookat.NONE)
     itemLookat.description = common.GetNLS(User, textDe, textEn)
@@ -73,6 +85,17 @@ function M.LookAtItem(User, Item)
 end
 
 function M.UseItem(User, SourceItem)
+    local book = Item:getData("book")
+    if book ~= "" then
+        if book ~= nil then
+            if id_266_bookshelf.bookList[book] ~= nil then
+            lookat.SetSpecialName(Item,id_266_bookshelf.bookList[book].german,id_266_bookshelf.bookList[book].english)
+            end
+        end
+        return lookat.GenerateLookAt(User, Item, lookat.NONE)
+    end
+
+        
     local textDe, textEn = getText(User, SourceItem)
     User:inform(textDe, textEn)
 end

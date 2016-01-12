@@ -445,8 +445,9 @@ function M.LookAtItem(User, Item)
             lookat.SetSpecialName(Item,id_266_bookshelf.bookList[book].german,id_266_bookshelf.bookList[book].english)
             end
         end
+        return lookat.GenerateLookAt(User, Item, lookat.NONE)
     end
-    return lookat.GenerateLookAt(User, Item, lookat.NONE)
+
 end
 
 return M
