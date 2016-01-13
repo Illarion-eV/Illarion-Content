@@ -69,8 +69,8 @@ itemShoes = 369
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Numila Irunnleh the scholar. Keywords: Question, information, Runewick, Places.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Numila Irunnleh die Wissenschaftlerin. Schlüsselwörter: Auskunft, Information, Runewick, Orte.")
+"Help" -> inform("[Game Help] This NPC is Numila Irunnleh the scholar. Keywords: Quest, Question, information, Runewick, Places.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Numila Irunnleh die Wissenschaftlerin. Schlüsselwörter: Quest, Auskunft, Information, Runewick, Orte.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hail Oldra. *Turns back to her book*"
@@ -97,8 +97,8 @@ queststatus(620) = 1, english, ".*" -> inform("[Quest End 'Find Numila'] You rec
 queststatus(620) = 1, ".*" -> inform("[Quest Ende 'Finde Numila'] Du hast 10 Silberstücke erhalten."), money + 1000, queststatus(620) = 2, "Heil Oldra. Endlich habt ihr mich gefunden. Elesil hat mich bereits informiert über euren Besuch. *Überreicht einige Silbermünzen und wendet sich wieder ihrem Buch zu*"
 
 -- Alberto Dicker Start ->Investigate picture
-queststatus(674) = 0, english, "quest", "mission" -> inform("[The pictures Alberto Dickers] Tell Numila Irunnleh what's not right with the picture 'The rooster'. Take a closer look to the signature."), "You are interested in paintings? Look to the picture of the rooster over there. Can you notice anything?", queststatus(674) = 1
-queststatus(674) = 0, "quest", "mission" -> inform("[Die Gemälde Alberto Dickers] Sage Numila Irunnleh was am Bild 'Der Hahn' nicht stimmen kann. Schau dir auch die Unterschrift an."), "Du interessiertst dich für Gemälde? Schau dir mal das Bild mit dem Hahn dort genau an. Fällt dir was auf?", queststatus(674) = 1
+queststatus(674) = 0, english, "quest", "mission" -> inform("[The pictures Alberto Dickers] Tell Numila Irunnleh what's not right with the picture 'The rooster'. Take a closer look to the signature."), "You are interested in paintings? Look to the picture of the rooster painted by Alberto Dicker over there. Can you notice anything?", queststatus(674) = 1
+queststatus(674) = 0, "quest", "mission" -> inform("[Die Gemälde Alberto Dickers] Sage Numila Irunnleh was am Bild 'Der Hahn' nicht stimmen kann. Schau dir auch die Unterschrift an."), "Du interessiertst dich für Gemälde? Schau dir mal das Bild mit dem Hahn von Alberto Dicker dort genau an. Fällt dir was auf?", queststatus(674) = 1
 queststatus(674) = 0, "task", "adventure", "order" -> inform("[The pictures Alberto Dickers] Tell Numila Irunnleh what's not right with the picture 'The rooster'. Take a closer look to the signature."), "You are interested in paintings? Look to the picture of the rooster over there. Can you notice anything?", queststatus(674) = 1
 queststatus(674) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Die Gemälde Alberto Dickers] Sage Numila Irunnleh was am Bild 'Der Hahn' nicht stimmen kann. Schau dir auch die Unterschrift an."), "Du interessiertst dich für Gemälde? Schau dir mal das Bild mit dem Hahn dort genau an. Fällt dir was auf?", queststatus(674) = 1
 
@@ -109,17 +109,19 @@ queststatus(674) = 1, english, "Logo" -> inform("[The pictures Alberto Dickers] 
 queststatus(674) = 1, "Logo" -> inform("[Die Gemälde Alberto Dickers] Gehe zu Raban in Rabans Hain und sprich mit ihm."), "Du hast ein scharfes Auge. Genau, das ist gar nicht das Original. Das hat zur Zeit Raban. Du kannst es dir ja ansehen, wenn du Raban mitteilst, dass der Erzmagier zu seiner Zusage steht.", queststatus(674) = 2
 
 -- Alberto Dicker - didn't find solution -> Investigate more or read book
-queststatus(674) = 1, english, ".+" -> inform("[The pictures Alberto Dickers] Look carefully at the picture especially the signature. It may help reading the book about the painter."), "Hey look at the picture. Sometimes it may help if you read the right book. You may find it in the library.", "Please see over the picture carefully.", "You find in the library a book of the painter. It might help you to find the solution."
+queststatus(674) = 1, english, ".+" -> inform("[The pictures Alberto Dickers] Look carefully at the picture especially the signature. It may help reading the book about the painter."), "Hey look at the picture. Sometimes it may help if you read the right book. You may find it in the library.", "Please see over the picture carefully.", "You find in the library a book about the painter. It might help you to find the solution."
 queststatus(674) = 1, ".+" -> inform("[Die Gemälde Alberto Dickers] Was stimmt mit dem Bild 'Der Hahn' nicht? Schau dir auch die Unterschrift an und und lies im Buch über den Maler nach."), "Na schau mal genau hin, manchmal hilft es auch ein Buch zu lesen. Du findest es in der Bücherei.", "Schau dir das Bild doch mal genau an.", "Lies doch mal im Buch über Alberto Dicker nach."
 
 -- Alberto Dicker - not yet visited Raban -> Go to Raban
-queststatus(674) = 2, english, "quest", "mission" -> inform("[The pictures Alberto Dickers] Go to Raban in Rabans Hain and talk with him."), "Have you been in northern forest and delivered the message yet?", "Please forward the message before we talk again."
+queststatus(674) = 2, english, "quest", "mission" -> inform("[The pictures Alberto Dickers] Go to Raban in Rabans Grove and talk with him."), "Have you been in northern forest and delivered the message yet?", "Please forward the message before we talk again."
 queststatus(674) = 2, "quest", "mission" -> inform("[Die Gemälde Alberto Dickers] Gehe zu Raban in Rabans Hain und sprich mit ihm."), "Warst du schon im Nordwald und hast die Nachricht überbracht?", "Bring erst mal die Nachricht zu Raban im Nordwald, dann reden wir weiter."
-queststatus(674) = 2, "task", "adventure", "order" -> inform("[The pictures Alberto Dickers] Go to Raban in Rabans Grove and talk with him."), "Have you been in northern forest and elivered the message yet?", "Please forward the message before we talk again."
+queststatus(674) = 2, "task", "adventure", "order" -> inform("[The pictures Alberto Dickers] Go to Raban in Rabans Grove and talk with him."), "Have you been in northern forest and delivered the message yet?", "Please forward the message before we talk again."
 queststatus(674) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Die Gemälde Alberto Dickers] Gehe zu Raban in Rabans Hain und sprich mit ihm."), "Warst du schon im Nordwald und hast die Nachricht überbracht?", "Bring erst mal die Nachricht zu Raban im Nordwald, dann reden wir weiter."
+queststatus(674) = 2, english, "Raban" -> inform("[The pictures Alberto Dickers] Go to Raban in Rabans Grove and talk with him."), "Rabans Grove you find in the centre of the northern forest. Travel to the Hemp Necktie Inn, pass the bay using the big bridge east of the inn and walk to the north."
+queststatus(674) = 2, "Raban" -> inform("[Die Gemälde Alberto Dickers] Gehe zu Raban in Rabans Hain und sprich mit ihm."), "Rabans Hain liegt mitten im Nordwald. Reise doch zum Gasthaus zur Hanfschlinge und überquere den Fluss auf der Brücke östlich davon. Geh dann einfach nach Norden."
 
 -- Alberto Dicker 3 -> Half-hung Bryan
-queststatus(674) = 3, english, ".+" -> inform("[The pictures Alberto Dickers] Go to the Hemp Necktie and talk to the owner of the Inn."), "Thank you. But since you are here, would you please find out where the owner of Hemp Necktie Inn put 'Oldras Shrine'? I've heard the picture disappeared from the guest hall.", queststatus(674) = 4
+queststatus(674) = 3, english, ".+" -> inform("[The pictures Alberto Dickers] Go to the Hemp Necktie and talk to the owner of the Inn."), "That's all right. But since you are here, would you please find out where the owner of Hemp Necktie Inn put 'Oldras Shrine'? I've heard the picture disappeared from the guest hall.", queststatus(674) = 4
 queststatus(674) = 3, ".+" -> inform("[Die Gemälde Alberto Dickers] Gehe zur Hanfschlinge und sprich mit dem Besitzer der Taverne."), "Ist schon gut. Und da du gerade da bist, kannst du bitte in Erfahrung bringen, wo der Besitzer der Hanfschlinge 'Oldras Altar' hängen hat. Man sagt es sei aus der Gaststube verschwunden.", queststatus(674) = 4
 
 -- Alberto Dicker 4 - not yet visited Bryan -> Go to Bryan
@@ -127,18 +129,39 @@ queststatus(674) = 4, english, "quest", "mission" -> inform("[The pictures Alber
 queststatus(674) = 4, "quest", "mission" -> inform("[Die Gemälde Alberto Dickers] Gehe zur Hanfschlinge und sprich mit dem Besitzer der Taverne."), "Hast du schon herausgefunden, was mit 'Oldras Altar' ist?"
 queststatus(674) = 4, "task", "adventure", "order" -> inform("[The pictures Alberto Dickers] Go to the Hemp Necktie and talk to the owner of the Inn."), "Please find out what happend to 'Oldras Altar'. It's a famous picture."
 queststatus(674) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Die Gemälde Alberto Dickers] Gehe zur Hanfschlinge und sprich mit dem Besitzer der Taverne."), "Hast du schon herausgefunden, was mit 'Oldras Altar' ist?"
-queststatus(674) = 4, "Besitzer", "Eigner" -> inform("[Die Gemälde Alberto Dickers] Gehe zur Hanfschlinge und sprich mit dem Besitzer der Taverne Halfhung Bryan."), "Die Taverne zur Hanfschlinge gehört meines Wissens Halfhung Bryan."
-queststatus(674) = 4, "owner", "belong" -> inform("[The pictures Alberto Dickers] Go to the Hemp Necktie and talk to the owner of the Inn Halfhung Bryan."), "The Hemp Necktie Inn belongs to Half-hung Bryan I think."
+queststatus(674) = 4, "Besitzer", "Eigner" -> inform("[Die Gemälde Alberto Dickers] Gehe zur Hanfschlinge und sprich mit dem Besitzer der Taverne Half-hung Bryan."), "Die Taverne zur Hanfschlinge gehört meines Wissens Half-hung Bryan."
+queststatus(674) = 4, "owner", "belong" -> inform("[The pictures Alberto Dickers] Go to the Hemp Necktie and talk to the owner of the Inn Half-hung Bryan."), "The Hemp Necktie Inn belongs to Half-hung Bryan I think."
 
 -- Alberto Dicker 5 -> find the last 5 pictures
 queststatus(674) = 5, english, ".+" -> inform("[The pictures Alberto Dickers] Find five more pictures Alberto Dickers."), "Sometimes rude fellows surprise one. A picture is handled with velvet gloves. Would you please be so kind and find out where the other pictures of Alberto Dicker are located?", queststatus(674) = 100
 queststatus(674) = 5, ".+" -> inform("[Die Gemälde Alberto Dickers] Finde weitere fünf Gemälde Alberto Dickers."), "Manchmal staunt man über ungehobelte Burschen. Ein Bild fassen sie mit Samthandschuhen an. Kannst du bitte noch in Erfahrung bringen, wo die restlichen Gemälde des Alberto Dicker hängen?", queststatus(674) = 100
 
 -- Alberto Dicker 6 -> Search for paintings
-queststatus(674) = 100, english, "quest", "mission" -> inform("[The pictures Alberto Dickers] Find five more pictures Alberto Dickers."), "Would you please so kind and find out where the other pictures of Alberto Dicker are located?", queststatus(674) = 100
+queststatus(674) = 100, english, "quest", "mission" -> inform("[The pictures Alberto Dickers] Find five more pictures Alberto Dickers."), "Would you please so kind and find out where the other pictures of Alberto Dicker are located?"
 queststatus(674) = 100, "quest", "mission" -> inform("[Die Gemälde Alberto Dickers] Finde weitere fünf Gemälde Alberto Dickers."), "Kannst du bitte noch in Erfahrung bringen, wo die restlichen Gemälde des Alberto Dicker hängen?"
-queststatus(674) = 100, "task", "adventure", "order" -> inform("[The pictures Alberto Dickers] Find five more pictures Alberto Dickers."), "Would you please so kind and find out where the other pictures of Alberto Dicker are located?", queststatus(674) = 100
+queststatus(674) = 100, "task", "adventure", "order" -> inform("[The pictures Alberto Dickers] Find five more pictures Alberto Dickers."), "Would you please so kind and find out where the other pictures of Alberto Dicker are located?"
 queststatus(674) = 100, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Die Gemälde Alberto Dickers] Finde weitere fünf Gemälde Alberto Dickers."), "Kannst du bitte noch in Erfahrung bringen, wo die restlichen Gemälde des Alberto Dicker hängen?"
+
+queststatus(674) = 101, english, "quest", "mission", "Alberto", "Dicker" -> inform("[The pictures Alberto Dickers] Find four more pictures Alberto Dickers."), "You found one? Would you please so kind and find out where the other pictures of Alberto Dicker are located?"
+queststatus(674) = 101, "quest", "mission", "Alberto", "Dicker" -> inform("[Die Gemälde Alberto Dickers] Finde weitere vier Gemälde Alberto Dickers."), "Du hast bereits eins gefunden? Kannst du bitte noch in Erfahrung bringen, wo die restlichen Gemälde des Alberto Dicker hängen?"
+queststatus(674) = 101, "task", "adventure", "order", "paint", "picture" -> inform("[The pictures Alberto Dickers] Find four more pictures Alberto Dickers."), "You found one? Would you please so kind and find out where the other pictures of Alberto Dicker are located?"
+queststatus(674) = 101, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Bild", "Gemälde" -> inform("[Die Gemälde Alberto Dickers] Finde weitere vier Gemälde Alberto Dickers."), "Du hast bereits eins gefunden? Kannst du bitte noch in Erfahrung bringen, wo die restlichen Gemälde des Alberto Dicker hängen?"
+
+
+queststatus(674) = 102, english, "quest", "mission", "Alberto", "Dicker" -> inform("[The pictures Alberto Dickers] Find three more pictures Alberto Dickers."), "There should be five pictures. Would you please so kind and find out where the other pictures of Alberto Dicker are located?"
+queststatus(674) = 102, "quest", "mission", "Alberto", "Dicker" -> inform("[Die Gemälde Alberto Dickers] Finde weitere drei Gemälde Alberto Dickers."), "Es müssten insgesamt fünf Gemälde sein. Kannst du bitte noch in Erfahrung bringen, wo die restlichen Gemälde des Alberto Dicker hängen?"
+queststatus(674) = 102, "task", "adventure", "order", "paint", "picture" -> inform("[The pictures Alberto Dickers] Find three more pictures Alberto Dickers."), "There should be five pictures. Would you please so kind and find out where the other pictures of Alberto Dicker are located?"
+queststatus(674) = 102, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Bild", "Gemälde" -> inform("[Die Gemälde Alberto Dickers] Finde weitere drei Gemälde Alberto Dickers."), "Es müssten insgesamt fünf Gemälde sein. Kannst du bitte noch in Erfahrung bringen, wo die restlichen Gemälde des Alberto Dicker hängen?"
+
+queststatus(674) = 103, english, "quest", "mission", "Alberto", "Dicker" -> inform("[The pictures Alberto Dickers] Find two more pictures Alberto Dickers."), "There should be five pictures. Would you please so kind and find out where the other pictures of Alberto Dicker are located?"
+queststatus(674) = 103, "quest", "mission", "Alberto", "Dicker" -> inform("[Die Gemälde Alberto Dickers] Finde weitere zwei Gemälde Alberto Dickers."), "Es müssten insgesamt fünf Gemälde sein. annst du bitte noch in Erfahrung bringen, wo die restlichen Gemälde des Alberto Dicker hängen?"
+queststatus(674) = 103, "task", "adventure", "order", "paint", "picture" -> inform("[The pictures Alberto Dickers] Find two more pictures Alberto Dickers."), "There should be five pictures. Would you please so kind and find out where the other pictures of Alberto Dicker are located?"
+queststatus(674) = 103, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Bild", "Gemälde" -> inform("[Die Gemälde Alberto Dickers] Finde weitere zwei Gemälde Alberto Dickers."), "Es müssten insgesamt fünf Gemälde sein. Kannst du bitte noch in Erfahrung bringen, wo die restlichen Gemälde des Alberto Dicker hängen?"
+
+queststatus(674) = 104, english, "quest", "mission", "Alberto", "Dicker" -> inform("[The pictures Alberto Dickers] Find one more pictures Alberto Dickers."), "One picture of Alberto Dicker is missing. Would you please so kind and find out where it is located?"
+queststatus(674) = 104, "quest", "mission", "Alberto", "Dicker" -> inform("[Die Gemälde Alberto Dickers] Finde noch ein Gemälde Alberto Dickers."), "Ein Gemälde von Alberto Dicker fehlt noch. Kannst du bitte noch in Erfahrung bringen, wo es hängt?"
+queststatus(674) = 104, "task", "adventure", "order", "paint", "picture" -> inform("[The pictures Alberto Dickers] Find one more pictures Alberto Dickers."), "One picture of Alberto Dicker is missing. Would you please so kind and find out where it is located?"
+queststatus(674) = 104, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Bild", "Gemälde" -> inform("[Die Gemälde Alberto Dickers] Finde noch ein Gemälde Alberto Dickers."), "Ein Gemälde von Alberto Dicker fehlt noch. Kannst du bitte noch in Erfahrung bringen, wo es hängt?"
 
 -- Alberto Dicker 7 -> Rankpoints for Runewick, other sent to town
 queststatus(674) = 105, english, town = Runewick, "quest", "mission" -> inform("[The pictures Alberto Dickers] You advance in Archmage Elvain Morgans's favour. Ask for more reward."), "Well done.", queststatus(674) = 203, queststatus(675) = 1, rankpoints + 15
@@ -403,6 +426,8 @@ english, "Zhambra" -> "If you would like to know more about this God ask somone 
 "mein Name" -> "Hmm...und ihr wünscht nach Information? Aber welche?"
 english, "Numila", "Irunnleh" -> "Yes, that is my name. Which places do you want information about?"
 "Numila", "Irunnleh" -> "Ja, das ist mein Name. Über welche Orte wollt ihr Information?"
+english, "Alberto", "Dicker" -> "Oh yes, the painter. You can find two pictures from him in the library.", "Dicker was a famous painter. His paintings are quite nice.", "In the first floor we have a book about the artist Alberto Dicker." 
+"Alberto", "Dicker" -> "Ach der Maler. Wir haben zwei Bilder von ihm in der Bücherei.", "Dicker war ein bekannter Maler. Seine Gemälde sind ganz hübsch.", "Im Erdgeschoß haben wir ein Buch über den Künstler Alberto Dicker."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

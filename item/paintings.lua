@@ -136,18 +136,36 @@ function M.UseItem(User, SourceItem)
         return
     end
     local picturenumber=SourceItem:getData("dickerquest");
-    if tonumber(picturenumber) ~= nil and User:getQuestProgress(674) == 100 then
+    if tonumber(picturenumber) ~= nil and User:getQuestProgress(674) > 99 and  User:getQuestProgress(674) < 105 then
         if bit32.band (User:getQuestProgress(676),tonumber(picturenumber)) == 0 then
             User:setQuestProgress(676, User:getQuestProgress(676) + tonumber(picturenumber))
+            User:setQuestProgress(674, User:getQuestProgress(674) + 1)
             if User:getQuestProgress(676) == 31 then
                 User:setQuestProgress(674, 105)
                 User:inform(
                     "[Die Gemälde Alberto Dickers] Du hast alle Gemälde Alberto Dickers gefunden. Gehe zurück zu Numila Irunnleh für deine Belohnung.",
                     "[The pictures Alberto Dickers] You found all the pictures of Alberto Dicker. Go to Numila Irunnleh and ask for a reward.")
             else
-                User:inform(
-                    "[Die Gemälde Alberto Dickers] Du hast eins von fünf Gemälden Alberto Dickers gefunden. Es fehlt mindestens noch ein weiteres.",
-                    "[The pictures Alberto Dickers] You found one of the five pictures of Alberto Dicker. There is at least one more to locate.")
+                if User:getQuestProgress(674) == 101 then
+                     User:inform(
+                        "[Die Gemälde Alberto Dickers] Du hast eins von fünf Gemälden Alberto Dickers gefunden. Es fehlen noch 4 weitere.",
+                        "[The pictures Alberto Dickers] You found one of the five pictures of Alberto Dicker. There are 4 more to locate.")
+                end
+                if User:getQuestProgress(674) == 102 then
+                     User:inform(
+                        "[Die Gemälde Alberto Dickers] Du hast eins von fünf Gemälden Alberto Dickers gefunden. Es fehlen noch 3 weitere.",
+                        "[The pictures Alberto Dickers] You found one of the five pictures of Alberto Dicker. There are 3 more to locate.")
+                end
+                if User:getQuestProgress(674) == 103 then
+                     User:inform(
+                        "[Die Gemälde Alberto Dickers] Du hast eins von fünf Gemälden Alberto Dickers gefunden. Es fehlen noch 2 weitere.",
+                        "[The pictures Alberto Dickers] You found one of the five pictures of Alberto Dicker. There are 2 more to locate.")
+                end
+                if User:getQuestProgress(674) == 104 then
+                     User:inform(
+                        "[Die Gemälde Alberto Dickers] Du hast eins von fünf Gemälden Alberto Dickers gefunden. Es fehlt noch eins.",
+                        "[The pictures Alberto Dickers] You found one of the five pictures of Alberto Dicker. There is one more to locate.")
+                end
             end
         end
     end
