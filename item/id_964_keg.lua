@@ -53,7 +53,7 @@ function KegContents(User, kegItem)
     local serverTime = world:getTime("unix")
     local trippingTime = kegItem:getData("tripping_time")
 
-    if (trippingTime ~= "" and ((tonumber(trippingTime) + 300) > serverTime)) then
+    if (trippingTime ~= "" and ((tonumber(trippingTime) + 1800) > serverTime)) then
         User:inform("Du findest nichts in diesem Fass.",
                     "You find nothing inside this barrel.")
         return
