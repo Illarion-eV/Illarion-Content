@@ -118,7 +118,7 @@ function repair(npcChar, speaker, theItem, theItemUID, theItemPos, theItemQual, 
     speaker:inform("data="..item:getData("repairQual").."!");
     
     
-    if (item:getData("uniqueID") == theItemUID) and (item:getData("repairQual") == item.quality) then --check for valid item
+    if (item:getData("uniqueID") == theItemUID) and (tonumber(item:getData("repairQual")) == item.quality) then --check for valid item
         found=true;
     end
     
