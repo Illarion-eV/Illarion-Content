@@ -51,7 +51,7 @@ function M.repairDialog(npcChar, speaker)
             table.insert(itemPosOnChar, itemPos[i])
             item:setData("uniqueID", tostring(math.random())); --tag the item with a unique ID
             item:setData("repairPos", tostring(i)); --tag the item with its position in the inventory
-			item:setData("repairQual", item.quality); --tag the item with its quality
+            item:setData("repairQual", item.quality); --tag the item with its quality
             world:changeItem(item);
         end
     end
@@ -67,7 +67,7 @@ function M.repairDialog(npcChar, speaker)
         if chosenItem ~= nil then
             chosenItemUID=chosenItem:getData("uniqueID")
             chosenPos=chosenItem:getData("repairPos")
-			chosenQual=chosenItem:getData("repairQual")
+            chosenQual=chosenItem:getData("repairQual")
             repair(npcChar, speaker, chosenItem, chosenItemUID, chosenPos, chosenQual, language); -- let's repair
             M.repairDialog(npcChar, speaker); -- call dialog recursively, to allow further repairs
         else
