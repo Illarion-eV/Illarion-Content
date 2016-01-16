@@ -389,7 +389,7 @@ function M.setSpecialRank(player, rank)
 		if rankpoints >= (M.highestRank-1)*100 then
 			player:setQuestProgress(200, tonumber(rank));
 			if rank == 0 then
-				inform = common.GetNLS(player,"Ihr wurdet degradiert und habt nun keinen spziellen Rang mehr.","You have been demoted and have no special rank anymore.")
+				inform = common.GetNLS(player,"Ihr wurdet degradiert und habt nun keinen speziellen Rang mehr.","You have been demoted and have no special rank anymore.")
 			else
 				inform = common.GetNLS(player,"Ihr wurdet befördert und seid nun "..M.getRank(player)..".","You have been promoted and are now "..M.getRank(player)..".");
 			end
@@ -505,10 +505,10 @@ end
 function informPlayerAboutRankpointchange(player, modifierTextarray)
 	local faction = M.getMembership(player);
 	local factionLeadersDE = {"Königin Rosaline Edwards", "Erzmagier Elvaine Morgan", "Don Valerio Guilianni"};
-	local factionLeadersEN = {"Queen Rosaline Edwards", "Archmage Elvaine Morgan", "Don Valerio Guilianni"};
+	local factionLeadersEN = {"Queen Rosaline Edwards'", "Archmage Elvaine Morgan's", "Don Valerio Guilianni's"};
 
 	if faction ~= 0 then
-		common.InformNLS(player, "Dein Ansehen bei "..factionLeadersDE[faction].." "..modifierTextarray[1], "You "..modifierTextarray[2].." in "..factionLeadersEN[faction].."'s favour.");
+		common.InformNLS(player, "Dein Ansehen bei "..factionLeadersDE[faction].." "..modifierTextarray[1], "You "..modifierTextarray[2].." in "..factionLeadersEN[faction].." favour.");
 	else
 		return;
 	end;
