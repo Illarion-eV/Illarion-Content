@@ -29,6 +29,16 @@ local gemgrinding = Craft {
     skill = "SKILL",
     defaultFoodConsumption = NO_DEFAULT,
     sfx = ID, sfxDuration = TIME,
+    
+ProductGroup {name = {english = "Gems", german = "Edelsteine"},
+Product {item = "ruby", Ingredient {item = "rawRuby", amount = 1}},
+Product {item = "amethyst", Ingredient {item = "rawAmethyst", amount = 1}},
+Product {item = "obsidian", Ingredient {item = "rawObsidian", amount = 1}},
+Product {item = "sapphire", Ingredient {item = "rawSapphire", amount = 1}},
+Product {item = "emerald", Ingredient {item = "rawEmerald", amount = 1}},
+Product {item = "topaz", Ingredient {item = "rawTopaz", amount = 1}},
+Product {item = "diamond", Ingredient {item = "rawDiamond", amount = 1}}
+},
 
 ProductGroup {name = {english = "Gem powder", german = "Edelsteinstaub"},
 Product {item = "rubyPowder", Ingredient {item = "ruby", amount = 2}},
@@ -38,16 +48,6 @@ Product {item = "obsidianPowder", Ingredient {item = "obsidian", amount = 2}},
 Product {item = "emeraldPowder", Ingredient {item = "emerald", amount = 2}},
 Product {item = "topazPowder", Ingredient {item = "topaz", amount = 2}},
 Product {item = "diamondPowder", Ingredient {item = "diamond", amount = 2}}
-}
-
-ProductGroup {name = {english = "Gems", german = "Edelsteine"},
-Product {item = "ruby", Ingredient {item = "rawRuby", amount = 1}},
-Product {item = "amethyst", Ingredient {item = "rawAmethyst", amount = 1}},
-Product {item = "obsidian", Ingredient {item = "rawObsidian", amount = 1}},
-Product {item = "sapphire", Ingredient {item = "rawSapphire", amount = 1}},
-Product {item = "emerald", Ingredient {item = "rawEmerald", amount = 1}},
-Product {item = "topaz", Ingredient {item = "rawTopaz", amount = 1}},
-Product {item = "diamond", Ingredient {item = "rawDiamond", amount = 1}}
 }
 }
 
