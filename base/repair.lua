@@ -50,7 +50,8 @@ function M.repairDialog(npcChar, speaker)
             table.insert(itemsOnChar, item);
             table.insert(itemPosOnChar, itemPos[i])
             item:setData("uniqueID", tostring(math.random())); --tag the item with a unique ID
-            item:setData("repairPos", tostring(i)); --tag the item its position in the inventory
+            item:setData("repairPos", tostring(i)); --tag the item with its position in the inventory
+            item:setData("repairQual", item.quality); --tag the item with its quality
             world:changeItem(item);
         end
     end
@@ -66,7 +67,8 @@ function M.repairDialog(npcChar, speaker)
         if chosenItem ~= nil then
             chosenItemUID=chosenItem:getData("uniqueID")
             chosenPos=chosenItem:getData("repairPos")
-            repair(npcChar, speaker, chosenItem, chosenItemUID, chosenPos, language); -- let's repair
+            chosenQual=chosenItem:getData("repairQual")
+            repair(npcChar, speaker, chosenItem, chosenItemUID, chosenPos, chosenQual, language); -- let's repair
             M.repairDialog(npcChar, speaker); -- call dialog recursively, to allow further repairs
         else
             speaker:inform("[ERROR] Something went wrong, please inform a developer.");
@@ -105,16 +107,16 @@ function getRepairPrice(theItem, speaker)
 end
 
 -- Repairs theItem. The NPC speaks if the repair was successful or the char has not enough money
-function repair(npcChar, speaker, theItem, theItemUID, theItemPos, language)
+function repair(npcChar, speaker, theItem, theItemUID, theItemPos, theItemQual, language)
 
     local theItemStats=world:getItemStats(theItem);
     local found=false;
             
     local item = speaker:getItemAt(tonumber(theItemPos));
-    if (item:getData("uniqueID") == theItemUID) then --check for valid item
+    
+    if (item:getData("uniqueID") == theItemUID) and (tonumber(item:getData("repairQual")) == item.quality) then --check for valid item
         found=true;
     end
-
     
     if theItem and found then
         local durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
@@ -138,7 +140,7 @@ function repair(npcChar, speaker, theItem, theItemUID, theItemPos, language)
             end --price/repair
         end --there is an item
     else
-        speaker:inform("[FEHLER] Gegenstand nicht gefunden. Verändere nicht dein Inventar während der Reparatur.","[ERROR] Item not found. Do not change your equipment during repair.", Character.highPriority);
+        speaker:inform("[FEHLER] Verändere nicht dein Inventar während der Reparatur.","[ERROR] Do not change your equipment during repair.", Character.highPriority);
     end --item exists
 end;
 

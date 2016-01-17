@@ -18,6 +18,7 @@ local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local lookat = require("base.lookat")
 local commandPost = require("gm.commandPost")
+local id_266_bookshelf = require("item.id_266_bookshelf")
 
 local M = {}
 
@@ -344,6 +345,13 @@ function M.UseItem(User, SourceItem, ltstate)
         return
     end
 
+    local book = SourceItem:getData("book")
+    if book ~= "" then
+        if id_266_bookshelf.bookList[book] ~= nil then
+            User:sendBook(id_266_bookshelf.bookList[book].bookId)
+        end
+    end
+    
     -- Akaltut Quest
     if SourceItem.pos == position(430, 767, -9) then
         User:inform("Ein Zauberspruch in unaussprechlicher Sprache steht in der Schriftrolle geschrieben.",
@@ -421,11 +429,19 @@ end
 function M.LookAtItem(User, Item)
 
     local town = getTownOfPell(Item)
+    local book = Item:getData("book")
     if town then
         local lookAt = lookat.GenerateLookAt(User, Item, lookat.NONE)
         lookAt.name = common.GetNLS(User, "Schriftrolle", "Scroll")
         lookAt.description = common.GetNLS(User, "Alchemierezepte", "Alchemy recipes")
         return lookAt
+    elseif book ~= "" then
+        if book ~= nil then
+            if id_266_bookshelf.bookList[book] ~= nil then
+            lookat.SetSpecialName(Item,id_266_bookshelf.bookList[book].german,id_266_bookshelf.bookList[book].english)
+            end
+        return lookat.GenerateLookAt(User, Item, lookat.NONE)
+        end
     else
         return lookat.GenerateLookAt(User, Item, lookat.NONE)
     end

@@ -52,8 +52,8 @@ Description[ENGLISH][6] = "Collect 10 shovels full of mud for Zenia to help her 
 Description[GERMAN][7] = "Rede mit Zenia, sie hat vielleicht eine weitere Aufgabe für dich."
 Description[ENGLISH][7] = "Check with Zenia, she may have another task for you."
 
-Description[GERMAN][8] = "Bringe alle Dinge für den Floßbau zum Altar und erbitte den Beistand der Mutter."
-Description[ENGLISH][8] = "Take all materials to the altar and pray to the Mother for help with your raft."
+Description[GERMAN][8] = "Bringe alle Dinge für den Floßbau zum Altar und erbitte den Beistand der Mutter. (2 Seil, 5 Nadelholz, 5 Lehm, 10 Forelle)"
+Description[ENGLISH][8] = "Take all materials to the altar and pray to the Mother for help with your raft. (2 ropes, 5 conifer wood, 5 clay, 10 trout)"
 
 Description[GERMAN][9] = "Mit Hilfe der Mutter ist es dir gelungen, ein Floß zu bauen und die Insel zu verlassen. Zenia kann dir sicher helfen, falls du wieder hier an Land gespült wirst."
 Description[ENGLISH][9] = "With the help of the Mother you have successfully built a raft and left the island.  Zenia may be able to assist should you land there again."

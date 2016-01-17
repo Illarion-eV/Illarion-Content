@@ -19,6 +19,20 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (659, 701, -3,'triggerfield.spelunker_1');
 -- INSERT INTO triggerfields VALUES (822, 662, -3,'triggerfield.spelunker_1');
 -- INSERT INTO triggerfields VALUES (668, 658, -6,'triggerfield.spelunker_1');
+-- INSERT INTO triggerfields VALUES (821, 660, 1,'triggerfield.spelunker_1');
+-- INSERT INTO triggerfields VALUES (822, 661, 1,'triggerfield.spelunker_1');
+-- INSERT INTO triggerfields VALUES (822, 662, 1,'triggerfield.spelunker_1');
+-- INSERT INTO triggerfields VALUES (825, 643, 2,'triggerfield.spelunker_1');
+-- INSERT INTO triggerfields VALUES (827, 643, 2,'triggerfield.spelunker_1');
+-- INSERT INTO triggerfields VALUES (828, 643, 2,'triggerfield.spelunker_1');
+-- INSERT INTO triggerfields VALUES (659, 702, -3,'triggerfield.spelunker_1');
+-- INSERT INTO triggerfields VALUES (660, 701, -3,'triggerfield.spelunker_1');
+-- INSERT INTO triggerfields VALUES (660, 702, -3,'triggerfield.spelunker_1');
+-- INSERT INTO triggerfields VALUES (821, 662, -3,'triggerfield.spelunker_1');
+-- INSERT INTO triggerfields VALUES (823, 662, -3,'triggerfield.spelunker_1');
+-- INSERT INTO triggerfields VALUES (824, 662, -3,'triggerfield.spelunker_1');
+-- INSERT INTO triggerfields VALUES (667, 658, -6,'triggerfield.spelunker_1');
+-- INSERT INTO triggerfields VALUES (669, 658, -6,'triggerfield.spelunker_1');
 
 -- Quest: Spelunker (510)/(511)
 local common = require("base.common")

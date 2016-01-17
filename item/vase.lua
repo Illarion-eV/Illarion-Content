@@ -150,7 +150,7 @@ function VaseContents(User, vaseItem)
     local serverTime = world:getTime("unix")
     local trippingTime = vaseItem:getData("tripping_time")
 
-    if (trippingTime ~= "" and ((tonumber(trippingTime) + 300) > serverTime)) then
+    if (trippingTime ~= "" and ((tonumber(trippingTime) + 1800) > serverTime)) then
         User:inform("Du findest nichts in diesem vase.",
                     "You find nothing inside this vase.")
         return

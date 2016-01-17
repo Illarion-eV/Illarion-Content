@@ -87,6 +87,14 @@ function M.UseItem(User, SourceItem)
         return
     end
 
+    -- Prevent the drinking of quest item  -  Path of the Fox by Brigette Russ
+    if SourceItem:getData("descriptionDe") == "Geheimnisvoller Violett Flasche" or SourceItem:getData("descriptionEn") == "Mysterious Violet Bottle" then
+         common.HighInformNLS(User,
+            "Das kannst du nicht trinken.",
+            "You can't drink that.")
+        return
+    end
+    
     local food = drinkList[SourceItem.id]
     if (food == nil) then
         User:inform("Unknown drinking Item: ID"..SourceItem.id.." Please Report this to a developer.")
