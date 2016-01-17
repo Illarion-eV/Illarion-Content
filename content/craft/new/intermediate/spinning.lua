@@ -28,7 +28,7 @@ local spinning = Craft {
     staticTool = {inactive = "STOOL1", active = "STOOL2"},
     skill = "SKILL",
     defaultFoodConsumption = NO_DEFAULT,
-    sfx = ID, sfxDuration = TIME,
+    sfx = ID, sfxDuration = 1.7,
 
 ProductGroup {name = {english = "Thread", german = "Faden"},
 Product {item = "thread", Ingredient {item = "baleOfWool", amount = 1}}

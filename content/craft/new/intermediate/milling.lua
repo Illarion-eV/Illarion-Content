@@ -28,7 +28,7 @@ local milling = Craft {
     staticTool = {inactive = "STOOL1", active = "STOOL2"},
     skill = "SKILL",
     defaultFoodConsumption = NO_DEFAULT,
-    sfx = ID, sfxDuration = TIME,
+    sfx = ID, sfxDuration = 1.7,
 
 ProductGroup {name = {english = "Flour", german = "Mehl"},
 Product {item = "flour", Ingredient {item = "grain", amount = 2}}

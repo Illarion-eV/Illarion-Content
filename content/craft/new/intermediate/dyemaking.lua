@@ -28,7 +28,7 @@ local dyemaking = Craft {
     staticTool = {inactive = "STOOL1", active = "STOOL2"},
     skill = "SKILL",
     defaultFoodConsumption = NO_DEFAULT,
-    sfx = ID, sfxDuration = TIME,
+    sfx = ID, sfxDuration = 1.7,
 
 ProductGroup {name = {english = "Dye", german = "Färbemittel"},
 Product {item = "blackDye", Ingredient {item = "bucketOfWater", amount = 1}, Ingredient {item = "angerBerry", amount = 2}},

@@ -28,7 +28,7 @@ local sieving = Craft {
     staticTool = {inactive = "STOOL1", active = "STOOL2"},
     skill = "SKILL",
     defaultFoodConsumption = NO_DEFAULT,
-    sfx = ID, sfxDuration = TIME,
+    sfx = ID, sfxDuration = 1.7,
 
 ProductGroup {name = {english = "Sand", german = "Sand"},
 Product {item = "quartzSand", Ingredient {item = "coarseSand", amount = 1}},

@@ -28,7 +28,7 @@ local casting = Craft {
     staticTool = {inactive = "STOOL1", active = "STOOL2"},
     skill = "SKILL",
     defaultFoodConsumption = NO_DEFAULT,
-    sfx = ID, sfxDuration = TIME,
+    sfx = ID, sfxDuration = 1.7,
 
 ProductGroup {name = {english = "Ingots", german = "Barren"},
 Product {item = "ironIngot", Ingredient {item = "ironOre", amount = 1}, Ingredient {item = "coal", amount = 1}},

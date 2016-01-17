@@ -28,7 +28,7 @@ local candlemaking = Craft {
     staticTool = {inactive = "STOOL1", active = "STOOL2"},
     skill = "SKILL",
     defaultFoodConsumption = NO_DEFAULT,
-    sfx = ID, sfxDuration = TIME,
+    sfx = ID, sfxDuration = 1.7,
 
 ProductGroup {name = {english = "Candles", german = "Kerzen"},
 Product {item = "candles", Ingredient {item = "wax", amount = 1}}

@@ -26,9 +26,9 @@ local gemgrinding = Craft {
     staticTool = "STOOL",
     -- or for static tool with active and inactive state:
     staticTool = {inactive = "STOOL1", active = "STOOL2"},
-    skill = "SKILL",
+    skill = "mining",
     defaultFoodConsumption = NO_DEFAULT,
-    sfx = ID, sfxDuration = TIME,
+    sfx = 16, sfxDuration = 1.7,
     
 ProductGroup {name = {english = "Gems", german = "Edelsteine"},
 Product {item = "ruby", Ingredient {item = "rawRuby", amount = 1}},

@@ -28,7 +28,7 @@ local dyeing = Craft {
     staticTool = {inactive = "STOOL1", active = "STOOL2"},
     skill = "SKILL",
     defaultFoodConsumption = NO_DEFAULT,
-    sfx = ID, sfxDuration = TIME,
+    sfx = ID, sfxDuration = 1.7,
 
 ProductGroup {name = {english = "Clothes", german = "Stoffe"},
 Product {item = "greenCloth", Ingredient {item = "greenDye", amount = 1}, Ingredient {item = "greyCloth", amount = 5}, Remnant {item = "bucket", amount = 1}},

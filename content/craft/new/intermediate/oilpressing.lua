@@ -28,7 +28,7 @@ local oilpressing = Craft {
     staticTool = {inactive = "STOOL1", active = "STOOL2"},
     skill = "SKILL",
     defaultFoodConsumption = NO_DEFAULT,
-    sfx = ID, sfxDuration = TIME,
+    sfx = 10, sfxDuration = 1.7,
 
 ProductGroup {name = {english = "Oil", german = "Öl"},
 Product {item = "lampOil", Ingredient {item = "blackThistle", amount = 2}, Ingredient {item = "oilBottle", amount = 1}}

@@ -28,7 +28,7 @@ local tanning = Craft {
     staticTool = {inactive = "STOOL1", active = "STOOL2"},
     skill = "SKILL",
     defaultFoodConsumption = NO_DEFAULT,
-    sfx = ID, sfxDuration = TIME,
+    sfx = ID, sfxDuration = 1.7,
 
 ProductGroup {name = {english = "Leather", german = "Leder"},
 Product {item = "leather", Ingredient {item = "rawLeather", amount = 1}}

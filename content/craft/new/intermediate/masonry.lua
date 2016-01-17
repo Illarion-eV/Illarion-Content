@@ -28,7 +28,7 @@ local masonry = Craft {
     staticTool = {inactive = "STOOL1", active = "STOOL2"},
     skill = "SKILL",
     defaultFoodConsumption = NO_DEFAULT,
-    sfx = ID, sfxDuration = TIME,
+    sfx = ID, sfxDuration = 1.7,
 
 ProductGroup {name = {english = "Stones", german = "Steine"},
 Product {item = "stone", Ingredient {item = "stoneBlock", amount = 1}},
