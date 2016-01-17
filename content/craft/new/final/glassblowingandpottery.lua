@@ -28,7 +28,7 @@ local glassblowingandpottery = Craft {
     staticTool = {inactive = "STOOL1", active = "STOOL2"},
     skill = "glassBlowingAndPottery",
     defaultFoodConsumption = NO_DEFAULT,
-    sfx = ID, sfxDuration = TIME,
+    sfx = 7, sfxDuration = 1.7,
 
 ProductGroup {name = {english = "Bottles", german = "Flaschen"},
 Product {item = "emptyInkBottle", Ingredient {item = "glassIngot", amount = 1}},

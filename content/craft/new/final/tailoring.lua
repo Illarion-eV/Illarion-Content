@@ -28,7 +28,7 @@ local tailoring = Craft {
     staticTool = {inactive = "STOOL1", active = "STOOL2"},
     skill = "tailoring",
     defaultFoodConsumption = NO_DEFAULT,
-    sfx = ID, sfxDuration = TIME,
+    --sfx = ID, sfxDuration = TIME,
 
 ProductGroup {name = {english = "Boots", german = "Stiefel"},
 Product {item = "simpleLeatherShoes", Ingredient {item = "thread", amount = 1}, Ingredient {item = "leather", amount = 1}},

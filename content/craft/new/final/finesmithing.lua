@@ -28,7 +28,7 @@ local finesmithing = Craft {
     staticTool = {inactive = "STOOL1", active = "STOOL2"},
     skill = "finesmithing",
     defaultFoodConsumption = NO_DEFAULT,
-    sfx = ID, sfxDuration = TIME,
+    sfx = 9, sfxDuration = 1.7,
 
 ProductGroup {name = {english = "Amulets", german = "Amulette"},
 Product {item = "ironAmulet", Ingredient {item = "ironIngot", amount = 2}},

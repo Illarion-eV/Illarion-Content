@@ -28,7 +28,7 @@ local cookingandbaking = Craft {
     staticTool = {inactive = "STOOL1", active = "STOOL2"},
     skill = "cookingAndBaking",
     defaultFoodConsumption = NO_DEFAULT,
-    sfx = ID, sfxDuration = TIME,
+    sfx = 7, sfxDuration = 1.7,
 
 ProductGroup {name = {english = "Baking", german = "Backwaren"},
 Product {item = "breadRoll", Ingredient {item = "flour", amount = 1}, Ingredient {item = "bucketOfWater", amount = 1},Remnant {item = "bucket", amount = 1}},

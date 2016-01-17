@@ -28,7 +28,7 @@ local blacksmithing = Craft {
     staticTool = {inactive = "STOOL1", active = "STOOL2"},
     skill = "blacksmithing",
     defaultFoodConsumption = NO_DEFAULT,
-    sfx = ID, sfxDuration = TIME,
+    sfx = 9, sfxDuration = 1.7,
 
 ProductGroup {name = {english = "Daggers", german = "Dolche"},
 Product {item = "simpleDagger", Ingredient {item = "ironIngot", amount = 3}, Ingredient {item = "daggerHandle", amount = 1}},

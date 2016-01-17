@@ -28,7 +28,7 @@ local carpentry = Craft {
     staticTool = {inactive = "STOOL1", active = "STOOL2"},
     skill = "carpentry",
     defaultFoodConsumption = NO_DEFAULT,
-    sfx = ID, sfxDuration = TIME,
+    sfx = 11, sfxDuration = 1.7,
 
 ProductGroup {name = {english = "Arrows and bolts", german = "Pfeile und Bolzen"},
 Product {item = "arrow", Ingredient {item = "bough", amount = 2}},
