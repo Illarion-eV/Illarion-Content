@@ -40,13 +40,17 @@ Position List,lockId,English Description,German Description,locked on reload [fa
 "{308, 238, 1}",104,Temple of Irmorom,Tempel des Irmorom,FALSE
 "{309, 238, 1}",104,Temple of Irmorom,Tempel des Irmorom,FALSE
 "{378, 272, 0}",104,Workshop,Werkstatt,FALSE
+"{378, 271, 0}",104,Workshop,Werkstatt,FALSE
 "{383, 284, 0}",104,Workshop,Werkstatt,FALSE
+"{384, 284, 0}",104,Workshop,Werkstatt,FALSE
 "{408, 295, 0}",104,Sleepy Bujhaar Inn,Gasthaus zum Schlafenden Bujhaar,FALSE
 "{404, 269, 1}",104,Census office,Zensusbüro,FALSE
 "{401, 263, 0}",104,Herbs room,Kräuterkammer,FALSE
 "{394, 247, 0}",104,Guardroom,Wachstube,FALSE
 "{391, 241, 0}",104,Guardroom,Wachstube,FALSE
 "{387, 246, 0}",104,Debt-collector,Schuldeneintreiber,FALSE
+"{415, 352, 0}",104,Magic of Malachite,Magie des Malachit, FALSE
+"{416, 352, 0}",104,Magic of Malachite,Magie des Malachit, FALSE
 "{392, 159, 0}",105,Copperhand-Tunnel,Copperhand-Tunnel,FALSE
 "{393, 159, 0}",105,Copperhand-Tunnel,Copperhand-Tunnel,FALSE
 "{373, 323, 0}",110,House of Malachite,Malachite Haus,
