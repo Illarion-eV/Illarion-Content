@@ -26,7 +26,7 @@ local oilpressing = Craft {
     staticTool = "STOOL",
     -- or for static tool with active and inactive state:
     staticTool = {inactive = "STOOL1", active = "STOOL2"},
-    skill = "SKILL",
+    skill = "husbandry",
     defaultFoodConsumption = NO_DEFAULT,
     sfx = 10, sfxDuration = 1.7,
 

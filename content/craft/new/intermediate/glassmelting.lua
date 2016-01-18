@@ -20,13 +20,13 @@ local Product = require("base.crafting.Product")
 local Ingredient = require("base.crafting.Ingredient")
 
 local glassmelting = Craft {
-    name = {english = "Glass melting", german = "GERMAN"},
+    name = {english = "Glass melting", german = "Glasschmelzen"},
     handTool = "HTOOL",
     -- for single static tool:
     staticTool = "STOOL",
     -- or for static tool with active and inactive state:
     staticTool = {inactive = "STOOL1", active = "STOOL2"},
-    skill = "SKILL",
+    skill = "digging",
     defaultFoodConsumption = NO_DEFAULT,
     sfx = 7, sfxDuration = 1.7,
 

@@ -20,15 +20,15 @@ local Product = require("base.crafting.Product")
 local Ingredient = require("base.crafting.Ingredient")
 
 local sieving = Craft {
-    name = {english = "Sieving", german = "GERMAN"},
+    name = {english = "Sieving", german = "Sieben"},
     handTool = "HTOOL",
     -- for single static tool:
     staticTool = "STOOL",
     -- or for static tool with active and inactive state:
     staticTool = {inactive = "STOOL1", active = "STOOL2"},
-    skill = "SKILL",
+    skill = "digging",
     defaultFoodConsumption = NO_DEFAULT,
-    sfx = ID, sfxDuration = 1.7,
+    --sfx = ID, sfxDuration = 1.7,
 
 ProductGroup {name = {english = "Sand", german = "Sand"},
 Product {item = "quartzSand", Ingredient {item = "coarseSand", amount = 1}},

@@ -24,11 +24,9 @@ local carpentry = Craft {
     handTool = "HTOOL",
     -- for single static tool:
     staticTool = "STOOL",
-    -- or for static tool with active and inactive state:
-    staticTool = {inactive = "STOOL1", active = "STOOL2"},
     skill = "carpentry",
     defaultFoodConsumption = NO_DEFAULT,
-    sfx = 11, sfxDuration = 1.7,
+    sfx = 14, sfxDuration = 1.7,
 
 ProductGroup {name = {english = "Arrows and bolts", german = "Pfeile und Bolzen"},
 Product {item = "arrow", Ingredient {item = "bough", amount = 2}},

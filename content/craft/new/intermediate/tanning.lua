@@ -26,9 +26,9 @@ local tanning = Craft {
     staticTool = "STOOL",
     -- or for static tool with active and inactive state:
     staticTool = {inactive = "STOOL1", active = "STOOL2"},
-    skill = "SKILL",
+    skill = "tanningAndWeaving",
     defaultFoodConsumption = NO_DEFAULT,
-    sfx = ID, sfxDuration = 1.7,
+    sfx = 13, sfxDuration = 1.7,
 
 ProductGroup {name = {english = "Leather", german = "Leder"},
 Product {item = "leather", Ingredient {item = "rawLeather", amount = 1}}

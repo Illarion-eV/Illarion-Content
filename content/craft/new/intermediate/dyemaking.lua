@@ -26,9 +26,9 @@ local dyemaking = Craft {
     staticTool = "STOOL",
     -- or for static tool with active and inactive state:
     staticTool = {inactive = "STOOL1", active = "STOOL2"},
-    skill = "SKILL",
+    skill = "tanningAndWeaving",
     defaultFoodConsumption = NO_DEFAULT,
-    sfx = ID, sfxDuration = 1.7,
+    sfx = 10, sfxDuration = 1.7,
 
 ProductGroup {name = {english = "Dye", german = "Färbemittel"},
 Product {item = "blackDye", Ingredient {item = "bucketOfWater", amount = 1}, Ingredient {item = "angerBerry", amount = 2}},

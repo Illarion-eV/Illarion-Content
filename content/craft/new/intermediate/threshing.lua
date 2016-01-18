@@ -26,9 +26,9 @@ local threshing = Craft {
     staticTool = "STOOL",
     -- or for static tool with active and inactive state:
     staticTool = {inactive = "STOOL1", active = "STOOL2"},
-    skill = "SKILL",
+    skill = "farming",
     defaultFoodConsumption = NO_DEFAULT,
-    sfx = ID, sfxDuration = 1.7,
+    sfx = 41, sfxDuration = 1.7,
 
 ProductGroup {name = {english = "Grain", german = "Getreide"},
 Product {item = "grain", Ingredient {item = "bundleOfGrain", amount = 1}}
