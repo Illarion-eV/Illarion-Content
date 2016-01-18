@@ -85,7 +85,6 @@ english, "Ciao", "Adieu", "Au revoir" -> "Farewell.", "Goodbye."
 english, "job" -> "I'm a fisherman and fish fish, sitting in the sun.", "Fishing is the best job in the world, sitting on the bank and dangling the soul."
 "job" -> "Ich bin Fischer und fange Fische und sitze hier bequem in der Sonne.", "Fischen ist der tollste Job der Welt. Einfach nur am Ufer sitzen und die Seele baumeln lassen."
 
-
 "archmage" -> "A kind gentleman, always studying, but he always has an open ear for his citizens.", "He is very clever and wise. Once he came to me and we discussed fishing."
 "Erzmagier" -> "Netter Herr, studiert viel, hat aber immer ein offenes Ohr für seine Bürger.", "Er ist sehr weise und klug. Kam einmal sogar zu mir heraus und wir haben uns über Fische unterhalten."
 english, "Elvaine", "Morgan" -> "A kind gentleman, always studying, but he always has an open ear for his citizens.", "He is very clever and wise. Once he came to me and we discussed fiscing."
@@ -182,7 +181,7 @@ queststatus(718) = 7, item(50, all) > 9, ".+" -> inform("[Quest gelöst] Du erhäl
 
 queststatus(718) = 8, english, "quest", "mission" -> "I don't have anything more for you to do. Thank you for the help though!"
 queststatus(718) = 8, "quest", "mission" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
-queststatus(718) = 8, "task", "adventure", "order" -> ".", "I don't have anything more for you to do. Thank you for the help though!"
+queststatus(718) = 8, "task", "adventure", "order" -> "I don't have anything more for you to do. Thank you for the help though!"
 queststatus(718) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
