@@ -43,7 +43,7 @@ msgs:addMessage("#me kreischt hysterisch mit schriller Stimme 'Na los, erlöse mi
 msgs:addMessage("#me breitet die Arme aus und ein blutrotes Leuchten geht von seinen Knochen aus. Ein Schaudern scheint das Skelett zu erfüllen, ehe es sich wie im Rausch auf sein Opfer stürzt.", "#me spreads its arms and a blood red glow is radiated from its bones. A shiver seems to overcome the skeleton before it charges its victim.")
 msgs:addMessage("Geht in die Knie, Sterblicher, und ich werde euch vielleicht verschonen… vielleicht werd ich euer Ende aber auch nur schneller bereiten!", "Kneel down, mortal, and I will spare you... or just make the end approach faster.")
 msgs:addMessage("#me krächzt verworren: 'Du dachtest, du hättest mich erledigt. Das wirst du nun büßen!'", "#me croaks abstrusely: 'You thought you were done with me. You shall regret this!'")
-msgs:addMessage("#me flüstert lockend: 'Begib dich in Cherga's Umarmung und werde einer von uns…'.", "#me whispers alluringly: 'Embrace Cherga and become one of us…'.")
+msgs:addMessage("Begib dich in Cherga's Umarmung und werde einer von uns…", "Embrace Cherga and become one of us…")
 
 local M = {}
 
