@@ -189,6 +189,7 @@ M.bookList["god_tanora"] = {english = "Tanora - Goddess of Water",german =  "Tan
 M.bookList["god_ushara"] = {english = "Ushara - Goddess of Earth",german =  "Ushara - Göttin der Erde", bookId = 397, bookGraphic = bookBlackSmallLong}
 M.bookList["arcania_basics"] = {english = "Basics of Arcane Theory",german =  "Grundlagen arkaner Theorie", bookId = 398, bookGraphic = bookGreyLargeHeavy}
 M.bookList["god_moshran"] = {english = "Moshran - God of Blood and Bones",german =  "Moshran - Gott des Blutes", bookId = 399, bookGraphic = bookBlackSmallLong}
+M.bookList["zaras_defeated"] = {english = "Zaras is Defeated",german =  "Zaras ist besiegt", bookId = 400, bookGraphic = bookBlueRedLong}
 M.bookList["cadomyr_order1"] = {english = "Order 04. Findos 38 AW",german =  "Befehl 04. Findos 38 n.VdH", bookId = 501, bookGraphic = pell}
 M.bookList["speech_rosaline_32_11_05"] = {english = "Speech 04. Findos 38 AW",german =  "Rede 05. Findos 38 n.VdH", bookId = 502, bookGraphic = pell}
 M.bookList["galmair_adjutant"] = {english = "Wanted! Adjutant",german =  "Gesucht! Adjutant", bookId = 506, bookGraphic = pell}
