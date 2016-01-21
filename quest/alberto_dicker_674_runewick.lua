@@ -33,9 +33,10 @@ Title[ENGLISH] = "The Pictures Alberto Dickers"
 -- 2: talk to Raban
 -- 3: talk to Numilia
 -- 4: talk to Halfhung Brian
--- 5: talk to Numilia
+-- 5: talk to Numila
+-- 6: talk to Numila
 -- 100: find 5 pictures
--- 105: talk to Numilia
+-- 105: talk to Numila
 -- 201: talk to Miggs (Galmair only)
 -- 202: talk to Anthar (Cadomyr only)
 -- 203: End
@@ -54,10 +55,12 @@ Description[GERMAN][4] = "Befrage den Besitzer des Gasthofes zur Hanfschlinge na
 Description[ENGLISH][4] = "Interview the owner of the Hemp Necktie Inn regarding the whereabouts of the picture 'Oldra's Shrine'."
 Description[GERMAN][5] = "Kehre zu Numila Irunnleh zurück und sprich mit ihr."
 Description[ENGLISH][5] = "Go back to Numila Irunnleh and talk to her."
-Description[GERMAN][100] = "Finde fünf weitere Gemälde des Malers. Zwei in Cadomyr, eins in Galmair und zwei in Runewick. Versuche es in den Büchereien und Alchemielaboratorien."
-Description[ENGLISH][100] = "Find five more pictures of the painter. Two in Cadomyr, one in Galmair and two in Runewick. Have a look in the libraries and laboratories."
-Description[GERMAN][101] = "Finde fünf weitere Gemälde des Malers. Zwei in Cadomyr, eins in Galmair und zwei in Runewick. Versuche es in den Büchereien und Alchemielaboratorien. Du hast 1 von 5 gefunden."
-Description[ENGLISH][101] = "Find five more pictures of the painter. Two in Cadomyr, one in Galmair and two in Runewick. Have a look in the libraries and laboratories. You found 1 of 5."
+Description[GERMAN][6] = "Frage Numila Irunnleh nach weiteren Aufgaben."
+Description[ENGLISH][6] = "Ask Numila Irunnleh for more tasks."
+Description[GERMAN][100] = "Finde fünf weitere Gemälde des Malers. Zwei in Cadomyr, eins in Galmair und zwei in Runewick. Versuche es in den Büchereien und Alchemielaboratorien. Wenn du ein Gemälde gefunden hast dann benutze es."
+Description[ENGLISH][100] = "Find five more pictures of the painter. Two in Cadomyr, one in Galmair and two in Runewick. Have a look in the libraries and laboratories. Once you find a picture use it."
+Description[GERMAN][101] = "Finde fünf weitere Gemälde des Malers. Zwei in Cadomyr, eins in Galmair und zwei in Runewick. Versuche es in den Büchereien und Alchemielaboratorien. Du hast 1 von 5 gefunden. Wenn du ein Bild gefunden hast dann benutze es."
+Description[ENGLISH][101] = "Find five more pictures of the painter. Two in Cadomyr, one in Galmair and two in Runewick. Have a look in the libraries and laboratories. You found 1 of 5. Once you find a picture use it."
 Description[GERMAN][102] = "Finde fünf weitere Gemälde des Malers. Zwei in Cadomyr, eins in Galmair und zwei in Runewick. Versuche es in den Büchereien und Alchemielaboratorien. Du hast 2 von 5 gefunden."
 Description[ENGLISH][102] = "Find five more pictures of the painter. Two in Cadomyr, one in Galmair and two in Runewick. Have a look in the libraries and laboratories. You found 2 of 5."
 Description[GERMAN][103] = "Finde fünf weitere Gemälde des Malers. Zwei in Cadomyr, eins in Galmair und zwei in Runewick. Versuche es in den Büchereien und Alchemielaboratorien. Du hast 1 von 5 gefunden."
@@ -77,12 +80,13 @@ Start = {970, 787, 1} -- Numilia
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
-QuestTarget[1] = {970, 787, 1} -- Numilia
+QuestTarget[1] = {970, 787, 1} -- Numila
 QuestTarget[2] = {819, 104, 0} -- Raban
-QuestTarget[3] = {970, 787, 1} -- Numilia
+QuestTarget[3] = {970, 787, 1} -- Numila
 QuestTarget[4] = {696, 317, 0} -- Half-hung Brian
-QuestTarget[5] = {970, 787, 1} -- Numilia
-QuestTarget[105] = {970, 787, 1} -- Numilia
+QuestTarget[5] = {970, 787, 1} -- Numila
+QuestTarget[6] = {970, 787, 1} -- Numila
+QuestTarget[105] = {970, 787, 1} -- Numila
 QuestTarget[201] = {374, 216, 0} -- Miggs
 QuestTarget[202] = {117, 528, 0} -- Anthar
 

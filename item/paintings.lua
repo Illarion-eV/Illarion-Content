@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local lookat = require("base.lookat")
+local money = require("base.money")
 
 local M = {}
 
@@ -143,8 +144,8 @@ function M.UseItem(User, SourceItem)
             if User:getQuestProgress(676) == 31 then
                 User:setQuestProgress(674, 105)
                 User:inform(
-                    "[Die Gemälde Alberto Dickers] Du hast alle Gemälde Alberto Dickers gefunden. Gehe zurück zu Numila Irunnleh für deine Belohnung.",
-                    "[The pictures Alberto Dickers] You found all the pictures of Alberto Dicker. Go to Numila Irunnleh and ask for a reward.")
+                    "[Die Gemälde Alberto Dickers] Du hast alle Gemälde Alberto Dickers gefunden. Gehe zurück zu Numila Irunnleh und berichte ihr, dass du alle Bilder gefunden hast.",
+                    "[The pictures Alberto Dickers] You found all the pictures of Alberto Dicker. Go to Numila Irunnleh and tell her you found all pictures.")
             else
                 if User:getQuestProgress(674) == 101 then
                      User:inform(
@@ -152,9 +153,10 @@ function M.UseItem(User, SourceItem)
                         "[The pictures Alberto Dickers] You found one of the five pictures of Alberto Dicker. There are 4 more to locate.")
                 end
                 if User:getQuestProgress(674) == 102 then
+                     money.GiveMoneyToChar(User, 4000)
                      User:inform(
-                        "[Die Gemälde Alberto Dickers] Du hast eins von fünf Gemälden Alberto Dickers gefunden. Es fehlen noch 3 weitere.",
-                        "[The pictures Alberto Dickers] You found one of the five pictures of Alberto Dicker. There are 3 more to locate.")
+                        "[Die Gemälde Alberto Dickers] Du hast 40 Silbermünzen hinter diesem Gemälde Alberto Dickers gefunden. Du musst noch 3 weitere Gemälde finden.",
+                        "[The pictures Alberto Dickers] You found 40 silver coins behind that pictures of Alberto Dicker. There are 3 more pictures to locate.")
                 end
                 if User:getQuestProgress(674) == 103 then
                      User:inform(
