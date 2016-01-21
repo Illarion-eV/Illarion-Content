@@ -83,23 +83,23 @@ local Start = {785, 748, 0}
  
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(784, 772, 0), position (782, 711, 0)} -- Cave
-QuestTarget[2] = {position(784, 772, 0), position (782, 711, 0)} -- Cave
-QuestTarget[3] = {position(784, 772, 0), position (782, 711, 0)} -- Cave
-QuestTarget[4] = {position(784, 772, 0), position (782, 711, 0)} -- Cave
-QuestTarget[5] = {position(784, 772, 0), position (782, 711, 0)} -- Cave
-QuestTarget[6] = {position(784, 772, 0), position (782, 711, 0)} -- Cave 
-QuestTarget[7] = {position(784, 772, 0), position (782, 711, 0)} -- Cave
-QuestTarget[8] = {position(784, 772, 0), position (782, 711, 0)} -- Cave
-QuestTarget[9] = {position(784, 772, 0), position (782, 711, 0)} -- Cave
-QuestTarget[10] = {position(784, 772, 0), position (782, 711, 0)} -- Cave
+QuestTarget[1] = {position(784, 772, 0), position (792, 716, 0)} -- Cave
+QuestTarget[2] = {position(784, 772, 0), position (792, 716, 0)} -- Cave
+QuestTarget[3] = {position(784, 772, 0), position (792, 716, 0)} -- Cave
+QuestTarget[4] = {position(784, 772, 0), position (792, 716, 0)} -- Cave
+QuestTarget[5] = {position(784, 772, 0), position (792, 716, 0)} -- Cave
+QuestTarget[6] = {position(784, 772, 0), position (792, 716, 0)} -- Cave 
+QuestTarget[7] = {position(784, 772, 0), position (792, 716, 0)} -- Cave
+QuestTarget[8] = {position(784, 772, 0), position (792, 716, 0)} -- Cave
+QuestTarget[9] = {position(784, 772, 0), position (792, 716, 0)} -- Cave
+QuestTarget[10] = {position(784, 772, 0), position (792, 716, 0)} -- Cave
 QuestTarget[11] = {position(784, 772, 0)}
 QuestTarget[12] = {position(784, 772, 0)}
-QuestTarget[13] = {position(784, 772, 0), position (753, 713, 0)} -- Cave
-QuestTarget[14] = {position(784, 772, 0), position (753, 713, 0)} -- Cave
-QuestTarget[15] = {position(784, 772, 0), position (753, 713, 0)} -- Cave
-QuestTarget[16] = {position(784, 772, 0), position (753, 713, 0)} -- Cave
-QuestTarget[17] = {position(784, 772, 0), position (753, 713, 0)} -- Cave
+QuestTarget[13] = {position(784, 772, 0), position (745, 710, 0)} -- Cave
+QuestTarget[14] = {position(784, 772, 0), position (745, 710, 0)} -- Cave
+QuestTarget[15] = {position(784, 772, 0), position (745, 710, 0)} -- Cave
+QuestTarget[16] = {position(784, 772, 0), position (745, 710, 0)} -- Cave
+QuestTarget[17] = {position(784, 772, 0), position (745, 710, 0)} -- Cave
 QuestTarget[18] = {position(784, 772, 0)}
 QuestTarget[19] = {position(784, 772, 0)}
 QuestTarget[20] = {position(785, 748, 0)}
@@ -111,7 +111,10 @@ local FINAL_QUEST_STATUS = 22
 -- Register the monster kill parts of the quest.
 monsterQuests.addQuest{
     questId = 79,
-    location = {position = position(774, 711, 0), radius = 40},
+    locations = {
+    {position = position(774, 711, 0), radius = 40},
+    {position = position(768, 710, 1), radius = 40}
+    },
     queststatus = {from = 1, to = 11},
     questTitle = {german = "Eine Höhle im Wald I", english = "A cave in the Woods I"},
     monsterName = {german = "Wölfe", english = "wolves"},
