@@ -96,7 +96,7 @@ M.bookList["a_tale_of_brothers"] = {english = "A Tale of Brothers",german =  "Di
 M.bookList["about_the_humans_by_thomas_berryard"] = {english = "About the Humans",german =  "‹ber die Menschen", bookId = 304, bookGraphic = bookGreenLong}
 M.bookList["baros_bigfoot_and_the_pride"] = {english = "Baros Bigfoot and the Pride",german =  "Baros Groﬂfuﬂ und der Hochmut", bookId = 305, bookGraphic = bookBlueRedLandscape}
 M.bookList["brewyn_the_liar"] = {english = "Brewyn the Liar",german =  "Brewyn der L¸gner", bookId = 306, bookGraphic = bookBlackSilverLong}
-M.bookList["chronicle_recording_of_the_blumfussens_family_tree"] = {english = "The Blumfuﬂens Family Tree",german =  "Der Stamm der Blumfuﬂens", bookId = 307, bookGraphic = bookGreenLight}
+M.bookList["chronicle_recording_of_the_blumfussens_family_tree"] = {english = "The Blumfussens Family Tree",german =  "Der Stamm der Blumfuﬂens", bookId = 307, bookGraphic = bookGreenLight}
 M.bookList["diary_of_noira_liv"] = {english = "The Diary of Noira Liv",german =  "Das Tagebuch von Noira Liv", bookId = 308, bookGraphic = bookletBlue}
 M.bookList["findaril_daughter_of_the_wind"] = {english = "Findaril, Daughter of the Wind",german =  "Findaril, Tochter des Windes", bookId = 309, bookGraphic = bookBlueSilverLandscape}
 M.bookList["petition_in_the_name_of_findari"] = {english = "Petition in the Name of Findari",german =  "Gebet im Namen Findari", bookId = 310, bookGraphic = pell}
@@ -128,7 +128,7 @@ M.bookList["akaltut_entry_riddle"] = {english = "Akaltut Entry Riddle",german = 
 M.bookList["the_read_wolf_and_the_bear"] = {english = "The Red Wolve and the Bear",german =  "Der rote Wolf und der B‰r", bookId = 336, bookGraphic = bookBlackSilverLong}
 M.bookList["ritual_waterelemental_wascher"] = {english = "Summoning of Pran Xixuan",german =  "Die Beschwˆrung von Pran Xixuan", bookId = 337, bookGraphic = bookletPink}
 M.bookList["resists_the_stake"] = {english = "Resist the Stake!",german =  "Wider dem Scheiterhaufen", bookId = 338, bookGraphic = bookBlackRedRuneHeavy}
-M.bookList["lecture_runewick_history"] = {english = "Lecture Runewickís History",german =  "Vortrag zur Geschichte Runewicks", bookId = 339, bookGraphic = bookRedLight}
+M.bookList["lecture_runewick_history"] = {english = "Lecture Runewicks History",german =  "Vortrag zur Geschichte Runewicks", bookId = 339, bookGraphic = bookRedLight}
 M.bookList["in_the_name_of_nargun_or_not"] = {english = "In the Name of Nargun!.. or not?",german =  "Im Namen von Nargun! .. oder nicht?", bookId = 340, bookGraphic = bookYellow}
 M.bookList["dragon_dreams"] = {english = "Dragon Dreams",german =  "Drachentr‰ume", bookId = 341, bookGraphic = bookBlackValuable}
 M.bookList["about_flame_orks"] = {english = "About Flame Orcs",german =  "‹ber die Flammenorks", bookId = 342, bookGraphic = bookBlueSilverLong}
