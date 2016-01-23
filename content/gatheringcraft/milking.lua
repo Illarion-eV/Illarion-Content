@@ -22,101 +22,101 @@ module("content.gatheringcraft.milking", package.seeall)
 
 function isMilkable(targetCharacter)
 
-	local milkableAnimals = {181, 371}; -- sheep, cow
+    local milkableAnimals = {181, 371}; -- sheep, cow
 
-	for i=1, #milkableAnimals do
-		if targetCharacter:getMonsterType() == milkableAnimals[i] then
-			return true;
-		end
-	end
-	return false;
+    for i=1, #milkableAnimals do
+        if targetCharacter:getMonsterType() == milkableAnimals[i] then
+            return true;
+        end
+    end
+    return false;
 end
 
 
 function StartGathering(User, SourceAnimal, ltstate)
 
-	gathering.InitGathering();
-	local milking = gathering.milking;
+    gathering.InitGathering();
+    local milking = gathering.milking;
 
-	common.ResetInterruption( User, ltstate );
-	if ( ltstate == Action.abort ) then -- work interrupted
+    common.ResetInterruption( User, ltstate );
+    if ( ltstate == Action.abort ) then -- work interrupted
         User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
-		return
-	end
+        return
+    end
 
-	if not common.FitForWork( User ) then -- check minimal food points
-		return
-	end
+    if not common.FitForWork( User ) then -- check minimal food points
+        return
+    end
 
-	common.TurnTo( User, SourceAnimal.pos ); -- turn if necessary
+    common.TurnTo( User, SourceAnimal.pos ); -- turn if necessary
 
-	if (User:countItemAt("all",2498) == 0) then -- check for items to work on
-		common.HighInformNLS( User,
-		"Du brauchst eine große leere Flasche um zu melken.",
-		"You need a large empty bottle for milking." );
-		return;
-	end
+    if (User:countItemAt("all",2498) == 0) then -- check for items to work on
+        common.HighInformNLS( User,
+        "Du brauchst eine große leere Flasche um zu melken.",
+        "You need a large empty bottle for milking." );
+        return;
+    end
 
-	-- should be fine already, but check it nevertheless
-	if ( SourceAnimal == nil or (SourceAnimal ~= nil and not isMilkable(SourceAnimal) )) then
-		common.HighInformNLS( User,
-		"Du musst vor einem Tier stehen, um es zu melken.",
-		"You have to stand in front of an animal for milk it." );
-		return;
-	end
+    -- should be fine already, but check it nevertheless
+    if ( SourceAnimal == nil or (SourceAnimal ~= nil and not isMilkable(SourceAnimal) )) then
+        common.HighInformNLS( User,
+        "Du musst vor einem Tier stehen, um es zu melken.",
+        "You have to stand in front of an animal for milk it." );
+        return;
+    end
 
-	-- check if animal still gives milk
-	local foundEffect, milkingEffect = SourceAnimal.effects:find(401);
+    -- check if animal still gives milk
+    local foundEffect, milkingEffect = SourceAnimal.effects:find(401);
     if (not foundEffect) then
-		milkingEffect = LongTimeEffect(401, 7200); -- call every 12 minutes
-		milkingEffect:addValue("gatherAmount", 0);
-		SourceAnimal.effects:addEffect(milkingEffect);
-	end
-	local foundAmount, gatherAmount = milkingEffect:findValue("gatherAmount");
+        milkingEffect = LongTimeEffect(401, 7200); -- call every 12 minutes
+        milkingEffect:addValue("gatherAmount", 0);
+        SourceAnimal.effects:addEffect(milkingEffect);
+    end
+    local foundAmount, gatherAmount = milkingEffect:findValue("gatherAmount");
 
-	-- currently not working, let's go
-	if ( ltstate == Action.none ) then
+    -- currently not working, let's go
+    if ( ltstate == Action.none ) then
 
-		if gatherAmount >= 2 then
-			common.HighInformNLS( User,
-			"Dieses Tier wurde erst kürzlich gemolken und gibt momentan keine Milch.",
-			"This animal was milked recently and doesn't give milk right now." );
-			return;
-		end
-		milking.SavedWorkTime[User.id] = milking:GenWorkTime(User, nil);
-		SourceAnimal.movepoints = -1 * milking.SavedWorkTime[User.id]; -- make sure the animal doesn't move away
-		User:startAction(milking.SavedWorkTime[User.id], 21, 5, 10, 25);
-		User:talk(Character.say, "#me beginnt ein Tier zu melken.", "#me starts to milk an animal.")
-		return;
-	end
+        if gatherAmount >= 2 then
+            common.HighInformNLS( User,
+            "Dieses Tier wurde erst kürzlich gemolken und gibt momentan keine Milch.",
+            "This animal was milked recently and doesn't give milk right now." );
+            return;
+        end
+        milking.SavedWorkTime[User.id] = milking:GenWorkTime(User, nil);
+        SourceAnimal.movepoints = -1 * milking.SavedWorkTime[User.id]; -- make sure the animal doesn't move away
+        User:startAction(milking.SavedWorkTime[User.id], 21, 5, 10, 25);
+        User:talk(Character.say, "#me beginnt ein Tier zu melken.", "#me starts to milk an animal.")
+        return;
+    end
 
-	-- since we're here, we're working
-	if milking:FindRandomItem(User) then
-		return
-	end
+    -- since we're here, we're working
+    if milking:FindRandomItem(User) then
+        return
+    end
 
-	User:learn( milking.LeadSkill, milking.SavedWorkTime[User.id], milking.LearnLimit);
+    User:learn( milking.LeadSkill, milking.SavedWorkTime[User.id], milking.LearnLimit);
 
-	gatherAmount = gatherAmount + 1
-	milkingEffect:addValue("gatherAmount", gatherAmount);
+    gatherAmount = gatherAmount + 1
+    milkingEffect:addValue("gatherAmount", gatherAmount);
 
-	User:eraseItem(2498, 1);
-	local notCreated = User:createItem( 2502, 1, 333, nil); -- create the new produced items
-	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-		world:createItemFromId( 2502, notCreated, User.pos, true, 333, nil);
-		common.HighInformNLS(User,
-		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
-		"You can't carry any more and the rest drops to the ground.");
-	elseif gatherAmount < 2 then  -- character can still carry something and more milk is available
-		if User:countItemAt("all",2498) == 0 then -- no empty bottles left
-			return
-		end
-		milking.SavedWorkTime[User.id] = milking:GenWorkTime(User, nil);
-		SourceAnimal.movepoints = -1 * milking.SavedWorkTime[User.id]; -- make sure the animal doesn't move away
-		User:startAction(milking.SavedWorkTime[User.id], 21, 5, 10, 25);
-	else
-		common.HighInformNLS( User,
-		"Dieses Tier ist ausreichend gemolken und gibt keine Milch mehr.",
-		"This animal is milked properly and doesn't give any more milk." );
-	end
+    User:eraseItem(2498, 1);
+    local notCreated = User:createItem( 2502, 1, 333, nil); -- create the new produced items
+    if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+        world:createItemFromId( 2502, notCreated, User.pos, true, 333, nil);
+        common.HighInformNLS(User,
+        "Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+        "You can't carry any more and the rest drops to the ground.");
+    elseif gatherAmount < 2 then  -- character can still carry something and more milk is available
+        if User:countItemAt("all",2498) == 0 then -- no empty bottles left
+            return
+        end
+        milking.SavedWorkTime[User.id] = milking:GenWorkTime(User, nil);
+        SourceAnimal.movepoints = -1 * milking.SavedWorkTime[User.id]; -- make sure the animal doesn't move away
+        User:startAction(milking.SavedWorkTime[User.id], 21, 5, 10, 25);
+    else
+        common.HighInformNLS( User,
+        "Dieses Tier ist ausreichend gemolken und gibt keine Milch mehr.",
+        "This animal is milked properly and doesn't give any more milk." );
+    end
 end
