@@ -79,7 +79,7 @@ function StartGathering(User, SourceAnimal, ltstate)
 
 		if gatherAmount >= 2 then
 			common.HighInformNLS( User,
-			"Dieses Tier wurde rest kürzlich gemolken und gibt momentan keine Milch.",
+			"Dieses Tier wurde erst kürzlich gemolken und gibt momentan keine Milch.",
 			"This animal was milked recently and doesn't give milk right now." );
 			return;
 		end
