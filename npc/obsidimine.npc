@@ -101,8 +101,8 @@ queststatus(510) = 0, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher"
 queststatus(510) = 0, "task", "adventure", "order" -> inform("[New quest] Spelunker"), queststatus(510) = 1, "A body sure gets parched by all this here lava. Be a good sport and bring me two bottles of beer, will ya?"
 queststatus(510) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher"), queststatus(510) = 1, "Ein Körper dörrt richtig aus bei all der Lava hier. Sei so gut und hol mir zwei Flaschen Bier, ja?"
 
-queststatus(510) = 1, english, item(2501, all) > 2, ".+" -> inform("[Quest solved] You are awarded 30 silver coins."), deleteItem(2501, 2), money + 3000, queststatus(510) = 2, "#me tips a bottle back and takes a long pull of the drink before coming up for air. 'Ah... that be the good stuff that is. Thank ye.'"
-queststatus(510) = 1, item(2501, all) > 2, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), deleteItem(2501, 2), money + 3000, queststatus(510) = 2, "#me hebt eine Flasche an und nimmt ein paar kräftige Schlücke, ehe er absetzt um Luft zu holen. 'Ah... das ist das gute Zeug! Dank' Dir!'"
+queststatus(510) = 1, english, item(2501, all) > 1, ".+" -> inform("[Quest solved] You are awarded 30 silver coins."), deleteItem(2501, 2), money + 3000, queststatus(510) = 2, "#me tips a bottle back and takes a long pull of the drink before coming up for air. 'Ah... that be the good stuff that is. Thank ye.'"
+queststatus(510) = 1, item(2501, all) > 1, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), deleteItem(2501, 2), money + 3000, queststatus(510) = 2, "#me hebt eine Flasche an und nimmt ein paar kräftige Schlücke, ehe er absetzt um Luft zu holen. 'Ah... das ist das gute Zeug! Dank' Dir!'"
 
 queststatus(510) = 1, item(2501, all) < 2, english, "quest", "mission" -> "Me throat is too dry. Me can't talk more until me gets some beer."
 queststatus(510) = 1, item(2501, all) < 2, "quest", "mission" -> "Meine Kehle ist zu trocken. Ich kann nicht mehr reden, bis ich ein paar Bier bekommen habe."
@@ -275,6 +275,6 @@ cycletext "#me klopft sich den Staub von seiner Kleidung.", "#me beats dust off 
 cycletext "Hey Du! Kennst du in dieser Gegend irgendwelche neuen Höhlen?", "Hey you! Do you know of any new caves in the area?"
 cycletext "#s Eme?? Wo bist du? Ich fühle mich so allein!", "#s Eme?? Where are you? Me is getting lonely."
 cycletext "#me trinkt einen Krug Bier.", "#me drinks a mug of beer."
-cycletext "#me singt 'Einst kannte ich ein fesches Zwergenmadl, die hatte so stramme Wadl und bei meinem nächsten Marsch, ging ich an ihr vorbei und zwickte sie in ihren .. Arm.'", "#me sings 'There once was a Dwarven lass, she had plenty of sass, one day when I went to pass, me reached out and pinched her on the arm.'"
+cycletext "#me singt 'Einst kannte ich ein fesches Zwergenmadl, die hatte so stramme Wadl und bei meinem nächsten Marsch, ging ich an ihr vorbei und zwickte sie in ihren... Arm.'", "#me sings 'There once was a Dwarven lass, she had plenty of sass, one day when I went to pass, me reached out and pinched her on the arm.'"
 cycletext "#me singt, 'Das Zwergenmadl von mir, säuft am liebsten Bier, doch edlen Wein, den trinkt sie garnicht gern, dem bleibt sie lieber fern!'", "#me sings 'That Dwarven lass of mine, she is mighty fine, she don't drink that fancy wine, it's beer for her as we dine.'"
 cycletext "Dank dem gesegneten Irmorom, der diese Felsen hier erschaffen hat.", "Thank the blessed Irmorom for these here rocks he created."
