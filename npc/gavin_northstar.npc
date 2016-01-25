@@ -17,7 +17,7 @@
 -- NPC Job:  Guard                                                            --
 --                                                                            --
 -- NPC Race: dwarf                      NPC Position:  384, 328, 0            --
--- NPC Sex:  female                     NPC Direction: east                   --
+-- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Authors:  Kawan Baxter                                                     --
 --           Nitram                                                           --
@@ -28,7 +28,7 @@ name = "Gavin Northstar"
 race = dwarf
 sex = female
 position = 384, 328, 0
-direction = east
+direction = south
 affiliation = "Galmair"
 job = "Guard"
 
