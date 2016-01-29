@@ -183,13 +183,15 @@ M.bookList["god_eldan"] = {english = "Eldan - God of Spirit",german =  "Eldan - 
 M.bookList["god_findari"] = {english = "Findari - Goddess of Air",german =  "Findari - Göttin der Luft", bookId = 391, bookGraphic = bookBlackSmallLong}
 M.bookList["god_irmorom"] = {english = "Irmorom - God of Craftsmanship",german =  "Irmorom - Gott des Handwerks", bookId = 392, bookGraphic = bookBlackSmallLong}
 M.bookList["god_nargun"] = {english = "Nargùn - God of Chaos",german =  "Nargùn - Gott des Chaos", bookId = 393, bookGraphic = bookBlackSmallLong}
-M.bookList["god_oldra"] = {english = "ldra - Goddess of Life and Fertility",german =  "Oldra - Göttin der Fruchtbarkeit", bookId = 394, bookGraphic = bookBlackSmallLong}
+M.bookList["god_oldra"] = {english = "Oldra - Goddess of Life and Fertility",german =  "Oldra - Göttin der Fruchtbarkeit", bookId = 394, bookGraphic = bookBlackSmallLong}
 M.bookList["god_ronagan"] = {english = "Ronagan - God of Shadows",german =  "Ronagan - Gott der Schatten", bookId = 395, bookGraphic = bookBlackSmallLong}
 M.bookList["god_tanora"] = {english = "Tanora - Goddess of Water",german =  "Tanora - Göttin des Wassers", bookId = 396, bookGraphic = bookBlackSmallLong}
 M.bookList["god_ushara"] = {english = "Ushara - Goddess of Earth",german =  "Ushara - Göttin der Erde", bookId = 397, bookGraphic = bookBlackSmallLong}
 M.bookList["arcania_basics"] = {english = "Basics of Arcane Theory",german =  "Grundlagen arkaner Theorie", bookId = 398, bookGraphic = bookGreyLargeHeavy}
 M.bookList["god_moshran"] = {english = "Moshran - God of Blood and Bones",german =  "Moshran - Gott des Blutes", bookId = 399, bookGraphic = bookBlackSmallLong}
 M.bookList["zaras_defeated"] = {english = "Zaras is Defeated",german =  "Zaras ist besiegt", bookId = 400, bookGraphic = bookBlueRedLong}
+M.bookList["arcane_planes"] = {english = "About the Planes",german =  "Von den Ebenen", bookId = 401, bookGraphic = bookGreyLandscape}
+M.bookList["dubbels"] = {english = "Handbook of Thaumathology",german =  "Taschenbuch der Thaumatologie", bookId = 402, bookGraphic = bookletBlueRed}
 M.bookList["cadomyr_order1"] = {english = "Order 04. Findos 38 AW",german =  "Befehl 04. Findos 38 n.VdH", bookId = 501, bookGraphic = pell}
 M.bookList["speech_rosaline_32_11_05"] = {english = "Speech 04. Findos 38 AW",german =  "Rede 05. Findos 38 n.VdH", bookId = 502, bookGraphic = pell}
 M.bookList["galmair_adjutant"] = {english = "Wanted! Adjutant",german =  "Gesucht! Adjutant", bookId = 506, bookGraphic = pell}
