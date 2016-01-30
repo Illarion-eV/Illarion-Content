@@ -280,7 +280,6 @@ cycletext "#me schüttelt eine Rassel und beginnt zu singen.", "#me starts to rat
 cycletext "#me beginnt unrhythmisch zu tanzen.", "#me starts to dance arrhythmically."
 cycletext "#me schlägt seine Hände auf eine Trommel und singt: 'Heya, heya! Heya, heya!'", "#me slams his hands on a drum, singing, 'Heya, heya! Heya, heya!'"
 cycletext "Hurrda, hurrda! Hurrda, hurrda!", "Hurrda, hurrda! Hurrda, hurrda!"
-cycletext "Waka, waka, eh, eh!", "Waka, waka, eh, eh!"
 cycletext "Ich will tanzen, tanzen, solange nichts zu mir fällt, was besser wäre.", "Mes feel like dancin', dancin', even if mes find sumding bedduh to do."
 cycletext "Ich bin dein Tänzer! Ein Tänzer der Götter, das ist es was sie von mir verlangigen.", "Mes be your faithful dancer, a dancer fer gods, dat whub yoos want me to do."
 cycletext "Dort ist böser Spuk in der Gruft! Tanzt mit mir und es wird vergehen!", "Dere be spooks in tomb! Come, dance wid mes to banish dat!"
