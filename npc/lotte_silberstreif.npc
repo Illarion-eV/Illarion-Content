@@ -99,10 +99,10 @@ queststatus(672) = 0, "los", chance(2) -> inform("[Quest Lotte Silberstreif 1] B
 queststatus(672) = 0, "los", chance(2) -> inform("[Quest Lotte Silberstreif 2] Bring ihr fünf Kirschen, um an der Lotterie teilnehmen zu können."), queststatus(672) = 20, "Hört ihr das Knurren? Das ist kein Monster, das hinter der Ecke lauert, sondern mein Magen. Könnt ihr mir bitte eine Handvoll Kirschen bringen?"
 
 -- return food
-queststatus(672) = 10, item(15, all) > 0,".", english -> inform("[Quest Lotte Silberstreif 1] Quest solved."), queststatus(672) = 0, deleteItem(15, 1), "Oh thank you, that's the best medicine. An apple a day keeps the doctor away!"
-queststatus(672) = 10, item(15, all) > 0,"." -> inform("[Quest Lotte Silberstreif 1] Quest abgeschlossen."), queststatus(672) = 0, deleteItem(15, 1), "Ich danke Euch, das ist die beste Medizin. Ein Apfel am Tag erspart den Arzt sagt man!"
-queststatus(672) = 20, item(302, all) > 4,".", english -> inform("[Quest Lotte Silberstreif 2] Quest solved."), queststatus(672) = 0, deleteItem(302, 5), "Cherry, cherry, I'm a lady and not hungry anymore!"
-queststatus(672) = 20, item(302, all) > 4,"." -> inform("[Quest Lotte Silberstreif 1] Quest abgeschlossen."), queststatus(672) = 0, deleteItem(302, 5), "Cherry, cherry. Ich bin eine Lady und nicht mehr hungrig... oder hieß das klein?"
+queststatus(672) = 10, item(15, all) > 0,".*", english -> inform("[Quest Lotte Silberstreif 1] Quest solved."), queststatus(672) = 0, deleteItem(15, 1), "Oh thank you, that's the best medicine. An apple a day keeps the doctor away!"
+queststatus(672) = 10, item(15, all) > 0,".*" -> inform("[Quest Lotte Silberstreif 1] Quest abgeschlossen."), queststatus(672) = 0, deleteItem(15, 1), "Ich danke Euch, das ist die beste Medizin. Ein Apfel am Tag erspart den Arzt sagt man!"
+queststatus(672) = 20, item(302, all) > 4,".*", english -> inform("[Quest Lotte Silberstreif 2] Quest solved."), queststatus(672) = 0, deleteItem(302, 5), "Cherry, cherry, I'm a lady and not hungry anymore!"
+queststatus(672) = 20, item(302, all) > 4,".*" -> inform("[Quest Lotte Silberstreif 1] Quest abgeschlossen."), queststatus(672) = 0, deleteItem(302, 5), "Cherry, cherry. Ich bin eine Lady und nicht mehr hungrig... oder hieß das klein?"
 queststatus(672) = 10, english, "ticket" -> inform("[Quest Lotte Silberstreif 1] Bring her an apple in order to participate in the lottery."), "Listen! What you hear is the sound of my stomach. I can't sell tickets until it has been filled."
 queststatus(672) = 20, english, "ticket" -> inform("[Quest Lotte Silberstreif 2] Bring her five cherries in order to participate in the lottery."), "I'm waiting for some cherries, then the lottery will start again."
 queststatus(672) = 10, "los" -> inform("[Quest Lotte Silberstreif 1] Bring ihr einen Apfel, um an der Lotterie teilnehmen zu können."), "Wenn ihr nicht so viel reden würdet, könntet ihr meinen Magen knurren hören. Der ist zu füllen, bevor ich hier weitermache."

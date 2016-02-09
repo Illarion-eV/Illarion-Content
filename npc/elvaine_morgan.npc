@@ -62,8 +62,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Erzmagier Elvaine Morgan, der Herrscher über Runewick. Schlüsselwörter: Runewick, Quest, Götter, Türme, Magie.")
 
 -- quest
-queststatus(622) = 1, item(3110, all) > 0, english, "." -> inform("[Quest 'Find Archmage Elvaine Morgan' end]"), deleteItem(3110, 1), queststatus(622) = 2, rankpoints + 5, "Hmm, a pell. Well, I can use it. Thank you."
-queststatus(622) = 1, item(3110, all) > 0, "." -> inform("[Quest 'Finde Erzmagier Elvaine Morgan' Ende]"), deleteItem(3110, 1), queststatus(622) = 2, rankpoints + 5, "Hmm, eine Schriftrolle. Nun, ich werde sie nutzen können. Danke euch."
+queststatus(622) = 1, item(3110, all) > 0, english, ".*" -> inform("[Quest 'Find Archmage Elvaine Morgan' end]"), deleteItem(3110, 1), queststatus(622) = 2, rankpoints + 5, "Hmm, a pell. Well, I can use it. Thank you."
+queststatus(622) = 1, item(3110, all) > 0, ".*" -> inform("[Quest 'Finde Erzmagier Elvaine Morgan' Ende]"), deleteItem(3110, 1), queststatus(622) = 2, rankpoints + 5, "Hmm, eine Schriftrolle. Nun, ich werde sie nutzen können. Danke euch."
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Elara may be with you. Is something urgent?", "Be greeted. What brings you here?", "Greeted be. Why do you wish to see me?"
