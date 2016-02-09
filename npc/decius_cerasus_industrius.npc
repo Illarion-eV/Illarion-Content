@@ -137,8 +137,8 @@ queststatus(160) = 0, chance(4.17), town = Runewick, "task", "adventure", "order
 queststatus(160) = 0, chance(4.17), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 2, "Unsere alchemistischen Vorräte gehen zur Neige. Bringe mir bitte 5 leere Flaschen."
 
 -- Quest 2 solved, reward: ice leaf, 3 rankpoints, delay: 5h
-queststatus(160) = 2, item(164, all) > 4, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded an ice leaf."), deleteItem(547, 5), item(760, 1, 599), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Five empty bottles for alchemy, check. Take this ice leaf in return."
-queststatus(160) = 2, item(164, all) > 4, town = Runewick, ".*" -> inform("[Quest gelöst] Du erhältst ein Eisblatt."), deleteItem(547, 5), item(760, 1, 599), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Fünf leere Flaschen für die Alchemie, abgehakt. Nimm dieses Eisblatt als Dank."
+queststatus(160) = 2, item(164, all) > 4, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded an ice leaf."), deleteItem(164, 5), item(760, 1, 599), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Five empty bottles for alchemy, check. Take this ice leaf in return."
+queststatus(160) = 2, item(164, all) > 4, town = Runewick, ".*" -> inform("[Quest gelöst] Du erhältst ein Eisblatt."), deleteItem(164, 5), item(760, 1, 599), queststatus(160) = 0, queststatus(161) = 60, rankpoints + 3, "Fünf leere Flaschen für die Alchemie, abgehakt. Nimm dieses Eisblatt als Dank."
 
 -- Quest 2 taken but not solved, repeat the instructions
 queststatus(160) = 2, item(164, all) < 5, english, town = Runewick, "quest", "mission" -> "Do you know what happens when some alchemists do not pour their potions into bottles? They explode in the cauldron!"
@@ -550,12 +550,12 @@ english, "Gobaith", "Gobiath" -> "Ask a cartographer or someone else. I have no 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "management" -> "I manage the town, an important business. Everything has to be in the right place and the buildings have to be kept in good condition."
 "Verwaltung" -> "Ich verwalte diese Stadt, eine wichtige Aufgabe. Es muss alles dort sein, wo es gebraucht wird und die Gebäude müssen instandgehalten werden."
-"magic" -> "One of the high arts. Best ask a mage or our Archmage when he has time." 
-"Magie" -> "Eine der hohen Künste. Frag am besten einen Magier oder unseren Erzmagier, wenn er Zeit hat." 
+"magic" -> "One of the high arts. Best ask a mage or our Archmage when he has time."
+"Magie" -> "Eine der hohen Künste. Frag am besten einen Magier oder unseren Erzmagier, wenn er Zeit hat."
 english, "bard" -> "The high art of singing and storytelling."
 "Barden" -> "Die hohe Kunst der Geschichtenerzählung und Gesangs."
 english, "priest" -> "They serve the gods. Depending on origin and race that often ends up in many different views."
-"Priester" -> "Sie dienen den Göttern. Je nach Herkunft und Rasse sind das oft sehr unterschiedliche Ansichten." 
+"Priester" -> "Sie dienen den Göttern. Je nach Herkunft und Rasse sind das oft sehr unterschiedliche Ansichten."
 english, "alchemist", "alchemy" -> "The high art of alchemy and potion brewing.", "A small potion often helped me over one affliction or another."
 "Alchemist", "Alchemie" -> "Die hohe Kunst der Alchmie und des Trankmischens.", "Ein kleiner Trank hat mir schon oft bei unterschiedlichen Beschwerden geholfen."
 "craft", "handcraft", "artisanry" -> "There are many crafts and craftsmen in Runewick. Cooks, bakers, farmers, tailors, carpenters just to name a few."
