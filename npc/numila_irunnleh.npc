@@ -133,7 +133,7 @@ queststatus(674) = 4, "Besitzer", "Eigner", "gehört" -> inform("[Die Gemälde Alb
 queststatus(674) = 4, "own", "belong" -> inform("[The pictures Alberto Dickers] Go to the Hemp Necktie and talk to the owner of the Inn Half-hung Bryan."), "The Hemp Necktie Inn belongs to Half-hung Bryan I think."
 
 -- Alberto Dicker 5 -> back from Hempty
-queststatus(674) = 5, english, ".+" -> inform("[The pictures Alberto Dickers] You get quill, ink and parchment."),  "Sometimes rude fellows surprise one. A picture is handled with velvet gloved. Please take this drawing tool for your own paintings", item(463, 1, 333), item(1118, 1, 333), item(2745, 1, 333), queststatus(674) = 6
+queststatus(674) = 5, english, ".+" -> inform("[The pictures Alberto Dickers] You get quill, ink and parchment."),  "Sometimes rude fellows surprise one. A picture is handled with velvet gloves. Please take this drawing tool for your own paintings.", item(463, 1, 333), item(1118, 1, 333), item(2745, 1, 333), queststatus(674) = 6
 queststatus(674) = 5, ".+" -> inform("[Die Bilder Alberto Dickers] Du bekommst Schreibfeder, Tinte und Pergament."),  "Manchmal staunt man über ungehobelte Burschen. Ein Bild fassen sie mit Samthandschuhen an. Nimm dieses Malzeug. Damit kannst du dich selber einmal versuchen.", item(463, 1, 333), item(1118, 1, 333), item(2745, 1, 333), queststatus(674) = 6
 
 -- Alberto Dicker 6 -> find the last 5 pictures
