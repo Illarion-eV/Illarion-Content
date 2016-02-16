@@ -157,7 +157,7 @@ function M.UseItem(User, SourceItem)
     local itemData
     local isletmaCoffin = (SourceItem:getData("letmaCoffin") == "true")
     if (isletmaCoffin) then
-        letmaContents(User, SourceItem)
+        letmaCoffin(User, SourceItem)
         return
     end
 end
@@ -200,11 +200,11 @@ function CoffinContents(User, coffinItem)
     end
 end
 
-function letmaContents(User, letmaItem)
+function letmaCoffin(User, letmaCoffinItem)
 
     -- skip if already tripped in the last 30 minutes
     local serverTime = world:getTime("unix")
-    local trippingTime = letmaItem:getData("tripping_time")
+    local trippingTime = letmaCoffinItem:getData("tripping_time")
 
     if (trippingTime ~= "" and ((tonumber(trippingTime) + 1800) > serverTime)) then
         User:inform("Du findest nichts in diesem Sarg.",
@@ -212,14 +212,14 @@ function letmaContents(User, letmaItem)
         return
     end
     -- safe tripping time
-    letmaItem:setData("tripping_time", serverTime)
-    world:changeItem(letmaItem)
+    letmaCoffinItem:setData("tripping_time", serverTime)
+    world:changeItem(letmaCoffinItem)
 
     local random_number = math.random(1,100)
     if random_number >= 0 and random_number <= 70 then
         User:inform("Im Sarg findest Du einen verfallenen Körper. Warum hast Du es erneut geöffnet?", "Inside the coffin you find a decayed corpse. Why did you open this again?")
     elseif random_number >= 71 and random_number <=90 then
-        local monPos = common.getFreePos(letmaItem.pos, 2) -- radius 2 around chest
+        local monPos = common.getFreePos(letmaCoffinItem.pos, 2) -- radius 2 around chest
         world:createMonster(981, monPos, -20)
         world:gfx(41, monPos) -- swirly
         User:inform("Ein Leichenfresser springt aus dem offenen Sarg und greift Dich an.",
