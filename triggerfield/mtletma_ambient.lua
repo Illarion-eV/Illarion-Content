@@ -42,7 +42,7 @@ INSERT INTO triggerfields VALUES (x,y,z,'triggerfield.mtletma_ambient');
 ]]
 
 
-local letmaList = ambient_base()
+local mtLetmaList = ambient_base()
 
 -- Mt Letma triggers using Ambient.lua as a guide
 mtLetmaList.add( position(228,769,0),nil,"Das Geräusch von etwas, das an den Steinen kratzt erreicht dein Ohr. Könnten es Käfer sein, oder etwas weit bedrohlicheres.","The sound of something scraping against the rocks reaches your ears. Could it be beetles or something far more menacing?",nil,nil,50);
