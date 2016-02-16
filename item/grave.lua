@@ -153,15 +153,22 @@ function M.UseItem(User, SourceItem)
             return
         end
     end
+    
+    local itemData
+    local isletmaCoffin = (SourceItem:getData("letmaCoffin") == "true")
+    if (isletmaCoffin) then
+        letmaContents(User, SourceItem)
+        return
+    end
 end
 
 function CoffinContents(User, coffinItem)
 
-    -- skip if already tripped in the last 5 minutes
+    -- skip if already tripped in the last 30 minutes
     local serverTime = world:getTime("unix")
     local trippingTime = coffinItem:getData("tripping_time")
 
-    if (trippingTime ~= "" and ((tonumber(trippingTime) + 300) > serverTime)) then
+    if (trippingTime ~= "" and ((tonumber(trippingTime) + 1800) > serverTime)) then
         User:inform("Du findest nichts in diesem Sarg.","You find nothing inside this coffin.")
         return
     end
@@ -193,4 +200,39 @@ function CoffinContents(User, coffinItem)
     end
 end
 
+function letmaContents(User, letmaItem)
+
+    -- skip if already tripped in the last 30 minutes
+    local serverTime = world:getTime("unix")
+    local trippingTime = ronaganItem:getData("tripping_time")
+
+    if (trippingTime ~= "" and ((tonumber(trippingTime) + 1800) > serverTime)) then
+        User:inform("Du findest nichts in diesem Sarg.",
+                    "You find nothing inside this coffin.")
+        return
+    end
+    -- safe tripping time
+    letmaItem:setData("tripping_time", serverTime)
+    world:changeItem(letmaItem)
+
+    local random_number = math.random(1,100)
+    if random_number >= 0 and random_number <= 70 then
+        User:inform("Im Sarg findest Du einen verfallenen Körper. Warum hast Du es erneut geöffnet?", "Inside the coffin you find a decayed corpse. Why did you open this again?")
+    elseif random_number >= 71 and random_number <=90 then
+        local monPos = common.getFreePos(letmaItem.pos, 2) -- radius 2 around chest
+        world:createMonster(981, monPos, -20)
+        world:gfx(41, monPos) -- swirly
+        User:inform("Ein Leichenfresser springt aus dem offenen Sarg und greift Dich an.",
+            "A corpseater jumps from an opened coffin and attacks you.")
+    elseif random_number >= 91 and random_number <= 100 then
+        User:inform("Im Sarg findest Du einen Rubinring an einem Knochenfinger. Jetzt ist er Dein.","On a bony finger inside the coffin you find a ruby ring. It's yours now.")
+        local notCreated = User:createItem(68, 1, 666, nil) -- gold ruby ring
+        if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+            world:createItemFromId(68, notCreated, User.pos, true, 666, nil)
+            common.HighInformNLS(User,
+                "Du kannst nichts mehr halten.",
+                "You can't carry any more.")
+        end
+    end
+end
 return M
