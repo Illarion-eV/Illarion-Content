@@ -259,7 +259,7 @@ function letmaContents(User, letmaItem)
 
     -- skip if already tripped in the last 30 minutes
     local serverTime = world:getTime("unix")
-    local trippingTime = ronaganItem:getData("tripping_time")
+    local trippingTime = letmaItem:getData("tripping_time")
 
     if (trippingTime ~= "" and ((tonumber(trippingTime) + 1800) > serverTime)) then
         User:inform("Du findest nichts in diesem Truhe.",
