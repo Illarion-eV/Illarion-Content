@@ -223,7 +223,7 @@ function letmaCoffin(User, letmaCoffinItem)
         world:createMonster(981, monPos, -20)
         world:gfx(41, monPos) -- swirly
         User:inform("Ein Leichenfresser springt aus dem offenen Sarg und greift Dich an.",
-            "A corpseater jumps from an opened coffin and attacks you.")
+            "A corpse eater jumps from an opened coffin and attacks you.")
     elseif random_number >= 91 and random_number <= 100 then
         User:inform("Im Sarg findest Du einen Rubinring an einem Knochenfinger. Jetzt ist er Dein.","On a bony finger inside the coffin you find a ruby ring. It's yours now.")
         local notCreated = User:createItem(68, 1, 666, nil) -- gold ruby ring
