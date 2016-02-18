@@ -50,7 +50,7 @@ function M.MoveToField(User)
 
     if math.random(1, 4) == 1 then --only player characters trigger the triggerfield at a chance of 20%
 
-        local theWaypoint
+        local theWaypoint = 0
         for i = 1, #waypoint do
             if User.pos == waypoint[i] then
                 theWaypoint = i
