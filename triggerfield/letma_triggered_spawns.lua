@@ -15,8 +15,8 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO triggerfields VALUES (247, 782, 1,'triggerfield.letma_triggered_spawns');
--- INSERT INTO triggerfields VALUES (225, 770, 1,'triggerfield.letma_triggered_spawns');
--- INSERT INTO triggerfields VALUES (269, 791, 1,'triggerfield.letma_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (228, 770, 1,'triggerfield.letma_triggered_spawns');
+-- INSERT INTO triggerfields VALUES (269, 784, 1,'triggerfield.letma_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (248, 811, 1,'triggerfield.letma_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (248, 809, 1,'triggerfield.letma_triggered_spawns');
 -- INSERT INTO triggerfields VALUES (239, 818, 1,'triggerfield.letma_triggered_spawns');
@@ -29,9 +29,9 @@ local M = {}
 --Various events and fields are handled here for a better overview
 
 local triggerpoint={} --a list with positions of the event triggers
-triggerpoint[1] = position(247, 782, 1) -- bettles or wasps
-triggerpoint[2] = position(225, 770, 1)
-triggerpoint[3] = position(269, 791, 1)
+triggerpoint[1] = position(247, 782, 1) -- beetles or wasps
+triggerpoint[2] = position(228, 770, 1) 
+triggerpoint[3] = position(269, 784, 1) 
 triggerpoint[4] = position(248, 811, 1)
 triggerpoint[5] = position(248, 809, 1)
 triggerpoint[6] = position(239, 818, 1)
@@ -62,7 +62,7 @@ function M.MoveToField(User)
         if (world:isItemOnField(User.pos) == true) then
             local fallenlog = world:getItemOnField(User.pos)
             
-            if fallenlog.id ~= 2169 or fallenlog.id ~= 2170 then
+            if fallenlog.id ~= 2169 then
                 return
             end
             
@@ -84,9 +84,12 @@ function M.MoveToField(User)
             common.InformNLS(User, messageG[1], messageE[1]) --sending a message
 
             local monList = {592, 982, 271, 272, 273} -- beetles and wasp
-            local monPos = common.getFreePos(triggerpoint[theTriggerpoint], 2) -- radius 2 around triggerfile
-            world:createMonster(monList[math.random(2, #monList)], monPos, -20) -- random spawn 2 monsters from list
-            world:gfx(41, monPos) -- swirly
+            local monID = monList[math.random(1, #monList)]
+            for i = 1, math.random(1, 3) do -- random count
+                local monPos = common.getFreePos(triggerpoint[theTriggerpoint], 2) -- radius 2 around triggerfield
+                world:createMonster(monID, monPos, -20) -- random spawn 2 monsters from list
+                world:gfx(41, monPos) -- swirly
+            end
             
         end --all events handled
 
