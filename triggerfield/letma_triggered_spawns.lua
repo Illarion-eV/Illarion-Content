@@ -84,11 +84,10 @@ function M.MoveToField(User)
             common.InformNLS(User, messageG[1], messageE[1]) --sending a message
 
             local monList = {592, 982, 271, 272, 273} -- beetles and wasp
-            for i = 1, math.random(1, 3) do -- random count
-                local monPos = common.getFreePos(waypoint[theWaypoint], 2) -- radius 2 around triggerfile
-                world:createMonster(monList[math.random(#monList)], monPos, -20) -- random monsters from list
-                world:gfx(41, monPos) -- swirly
-            end
+            local monPos = common.getFreePos(waypoint[theWaypoint], 2) -- radius 2 around triggerfile
+            world:createMonster(monList[math.random(2, #monList)], monPos, -20) -- random spawn 2 monsters from list
+            world:gfx(41, monPos) -- swirly
+            
         end --all events handled
 
     end --triggerfield
