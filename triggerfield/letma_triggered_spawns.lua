@@ -28,13 +28,13 @@ local M = {}
 --This script handles scripted events on "Letma" map
 --Various events and fields are handled here for a better overview
 
-local waypoint={} --a list with positions of the event triggers
-waypoint[1] = position(247, 782, 1) -- bettles or wasps
-waypoint[2] = position(225, 770, 1)
-waypoint[3] = position(269, 791, 1)
-waypoint[4] = position(248, 811, 1)
-waypoint[5] = position(248, 809, 1)
-waypoint[6] = position(239, 818, 1)
+local triggerpoint={} --a list with positions of the event triggers
+triggerpoint[1] = position(247, 782, 1) -- bettles or wasps
+triggerpoint[2] = position(225, 770, 1)
+triggerpoint[3] = position(269, 791, 1)
+triggerpoint[4] = position(248, 811, 1)
+triggerpoint[5] = position(248, 809, 1)
+triggerpoint[6] = position(239, 818, 1)
 
 local messageG = {} --German informs
 messageG[1] = "Als du über den Baumstamm steigst störst Du etwas was darunter verborgen war."
@@ -50,10 +50,10 @@ function M.MoveToField(User)
 
     if math.random(1, 4) == 1 then --only player characters trigger the triggerfield at a chance of 20%
 
-        local theWaypoint = 0
-        for i = 1, #waypoint do
-            if User.pos == waypoint[i] then
-                theWaypoint = i
+        local theTriggerpoint = 0
+        for i = 1, #triggerpoint do
+            if User.pos == triggerpoint[i] then
+                theTriggerpoint = i
                 break
             end
         end
@@ -79,12 +79,12 @@ function M.MoveToField(User)
             return
         end
 
-        if theWaypoint >= 1 and theWaypoint <= 6 then -- beetles and wasp spawns
+        if theTriggerpoint >= 1 and theTriggerpoint <= 6 then -- beetles and wasp spawns
 
             common.InformNLS(User, messageG[1], messageE[1]) --sending a message
 
             local monList = {592, 982, 271, 272, 273} -- beetles and wasp
-            local monPos = common.getFreePos(waypoint[theWaypoint], 2) -- radius 2 around triggerfile
+            local monPos = common.getFreePos(triggerpoint[theTriggerpoint], 2) -- radius 2 around triggerfile
             world:createMonster(monList[math.random(2, #monList)], monPos, -20) -- random spawn 2 monsters from list
             world:gfx(41, monPos) -- swirly
             
