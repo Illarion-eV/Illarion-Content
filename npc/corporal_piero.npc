@@ -188,7 +188,7 @@ english, "Zhambra" -> "On the battlefield I count on a sharp blade and my closes
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "Lang lebe Königin Rosaline Edwards.", "Long live Queen Rosaline Edwards."
-cycletext "#me kratzt sich am Nasenrücken.", "#me has a scratch of his nose."
+cycletext "#me kratzt sich am Nasenrücken.", "#me scratches his nose."
 cycletext "#me holt ein Stück Brot aus der Tasche und steckt es sich in den Mund.", "#me takes a piece bread out of his bag and eats it."
 cycletext "#me nimmt einen kräftigen Schluck aus seinen Trinkschlauch.", "#me takes a nip out of his water bottle."
 cycletext "#me blickt zur Seite. 'Halt! Wer da? War wohl doch nur der Wind.'", "#me turns to his side. 'Stop! Someone there? Seems the wind tricked me again.'"

@@ -277,7 +277,7 @@ english, "Grakamesh" -> "Dat be mes, yubba!"
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "#me schüttelt eine Rassel und beginnt zu singen.", "#me starts to rattle and sings."
-cycletext "#me beginnt unrhythmisch zu tanzen.", "#me starts to dance arrhythmically."
+cycletext "#me beginnt unrhythmisch zu tanzen.", "#me starts to dance unrhythmically."
 cycletext "#me schlägt seine Hände auf eine Trommel und singt: 'Heya, heya! Heya, heya!'", "#me slams his hands on a drum, singing, 'Heya, heya! Heya, heya!'"
 cycletext "Hurrda, hurrda! Hurrda, hurrda!", "Hurrda, hurrda! Hurrda, hurrda!"
 cycletext "Ich will tanzen, tanzen, solange nichts zu mir fällt, was besser wäre.", "Mes feel like dancin', dancin', even if mes find sumding bedduh to do."
