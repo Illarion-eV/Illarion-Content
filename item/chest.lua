@@ -150,6 +150,12 @@ function M.UseItem(User, SourceItem)
         return
     end
 
+    local isletmaChest = (SourceItem:getData("letmaChest") == "true")
+    if (isletmaChest) then
+        letmaContents(User, SourceItem)
+        return
+    end
+    
     for i = 1, #dragonCaveChestPos do
             if (SourceItem.pos == dragonCaveChestPos[i]) then
                 ChestContents(User, SourceItem)
@@ -175,7 +181,7 @@ end
 
 function ChestContents(User, chestItem)
 
-    -- skip if already tripped in the last 5 minutes
+    -- skip if already tripped in the last 30 minutes
     local serverTime = world:getTime("unix")
     local trippingTime = chestItem:getData("tripping_time")
 
@@ -213,7 +219,7 @@ end
 
 function ronaganContents(User, ronaganItem)
 
-    -- skip if already tripped in the last 5 minutes
+    -- skip if already tripped in the last 30 minutes
     local serverTime = world:getTime("unix")
     local trippingTime = ronaganItem:getData("tripping_time")
 
@@ -249,6 +255,41 @@ function ronaganContents(User, ronaganItem)
     end
 end
 
+function letmaContents(User, letmaItem)
+
+    -- skip if already tripped in the last 30 minutes
+    local serverTime = world:getTime("unix")
+    local trippingTime = letmaItem:getData("tripping_time")
+
+    if (trippingTime ~= "" and ((tonumber(trippingTime) + 1800) > serverTime)) then
+        User:inform("Du findest nichts in diesem Truhe.",
+                    "You find nothing inside this chest.")
+        return
+    end
+    -- safe tripping time
+    letmaItem:setData("tripping_time", serverTime)
+    world:changeItem(letmaItem)
+
+    local random_number = math.random(1,100)
+    if random_number >= 0 and random_number <= 70 then
+        User:inform("Der Deckel der Kiste springt laut auf bevor das Schanier zurückschlägt und der Deckel deine Hand fast einklemmt.", "The chest lid creaks open loudly before the hinges snap the lid shut again nearly closing your hand inside!")
+    elseif random_number >= 71 and random_number <=90 then
+        local monPos = common.getFreePos(letmaItem.pos, 2) -- radius 2 around chest
+        world:createMonster(141, monPos, -20)
+        world:gfx(41, monPos) -- swirly
+        User:inform("Manchmal ist es besser Dinge in Ruhe zu lassen. Während Du nach der Kiste suchst, kommt Ihr Besitzer von hinten auf Dich zu.",
+            "Sometimes it is better to leave things alone. As you are searching the chest its owner comes up behind you.")
+    elseif random_number >= 91 and random_number <= 100 then
+        User:inform("Unter einem Haufen von nutzlosen Dingen findest Du 5 Silberstücke in der Kiste.","Under a pile of rubbish in the chest you find five silver coins.")
+        local notCreated = User:createItem(3077, 5, 333, nil) -- silver coin
+        if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+            world:createItemFromId(3077, notCreated, User.pos, true, 333, nil)
+            common.HighInformNLS(User,
+                "Du kannst nichts mehr halten.",
+                "You can't carry any more.")
+        end
+    end
+end
 function ronaganTreasureContents(User, ronaganTreasureItem)
 
     -- skip if already tripped in the last 1 hours
