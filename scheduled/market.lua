@@ -21,6 +21,52 @@ local M = {}
 
 function M.market()
 
+    --Read date and time
+    month=world:getTime("month");
+    day=world:getTime("day");
+    hour=world:getTime("hour");
+    monthString=common.Month_To_String(world:getTime("month"));
+
+    --Market takes place the first day of each month except for Mas
+    if (month == 16) or (day ~= 1) then
+        return;
+    end
+
+    --Announce the market day one ingame hour before it takes place
+    if (hour == 11) and not announced then
+ 
+        --world:broadcast("XXX","Announce!");
+        announced=true;
+        started=false;
+        over=false;
+        return;
+        
+    --Invites the players        
+    elseif (hour == 12) and not started then
+    
+        --world:broadcast("XXX","Invite!");
+        announced=false;
+        started=true;
+        over=false;
+        M.placeMarketStands();
+        return;
+        
+    --Event is over. The market stands and depots will rot away   
+    elseif (hour == 14) and not over then
+    
+        --world:broadcast("XXX","Over!");
+        announced=false;
+        started=false;
+        over=true;
+        return;
+        
+    end
+        
+end
+
+function placeMarketStands()
+
+   
 end
 
 return M

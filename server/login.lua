@@ -335,7 +335,7 @@ function showNewbieDialog(player)
 
         end --end of callback of skip dialog
 
-        local dialogSkip = SelectionDialog(getText("Willkommen zu Illarion!","Welcome to Illarion!"), getText("Die Einführung ist für neue Spieler gedacht. Du kannst es ohne Nachteil auch überspringen. \n\nSage 'Überspringe die Einführung' zu einem NPC, wenn du die Einführung später abbrechen möchtest.", "The tutorial is recommended for new players. You may skip the tutorial without any disadvantage. \n\nSay 'skip tutorial' to any NPC if you want to abort the tutorial later on."), callbackSkip)
+        local dialogSkip = SelectionDialog(getText("Willkommen zu Illarion!","Welcome to Illarion!"), getText("Die Einführung ist für neue Spieler gedacht. Du kannst sie ohne Nachteil überspringen. \n\nSage 'Überspringe die Einführung' zu einem NPC, wenn du die Einführung später abbrechen möchtest.", "The tutorial is recommended for new players. You may skip the tutorial without any disadvantage. \n\nSay 'skip tutorial' to any NPC if you want to abort the tutorial later on."), callbackSkip)
         dialogSkip:addOption(0, getText("Einführung beginnen.","Start the tutorial."))
         dialogSkip:addOption(0, getText("Einführung überspringen.", "Skip the tutorial."))
         player:requestSelectionDialog(dialogSkip)
