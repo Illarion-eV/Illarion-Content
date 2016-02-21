@@ -21,12 +21,12 @@ local M = {}
 
 function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
 
-	if SourceItem:getData("spawnSpiders") == "true" then
-		User:inform("Das schleimige Spinnenei rutscht dir aus der Hand.","The slimy spider egg slips from your hands.")
-		return false
-	end
+    if SourceItem:getData("spawnSpiders") == "true" then
+        User:inform("Das schleimige Spinnenei rutscht dir aus der Hand.","The slimy spider egg slips from your hands.")
+        return false
+    end
 
-	return true
+    return true
 
 end
 return M
