@@ -87,7 +87,7 @@ english, "Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "Welcome to my inn.", "G
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Au revoir.", "Farewell, and don't forget my inn!", "Take care!"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Au revoir. Und vergesst nicht, mein Gasthof steht Euch immer offen.", "Macht's gut."
 "How are you", "How feel", "How do you do" -> "It's hard to breath...", "#me hisses slightly. 'My neck hurts.'", "#me touches his neck with a thoughtful gaze. 'Hm-hm... How's your neck?'"
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "#me macht einen kehlig würgendes Geräusch. 'Ich habe Nackenschmerzen...'", "#me inhaliert mit einem rasselnden Laut die stickige Luft. 'Das Atmen fällt mir Schwer...'", "#me betastet nachdenklich die dunkel verfärbte Narbe quer über seinem Hals: 'Hm-hm... - Und Euch? Wie fühlt sich Euer Hals an?'"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "#me macht einen kehlig würgendes Geräusch. 'Ich habe Nackenschmerzen...'", "#me inhaliert mit einem rasselnden Laut die stickige Luft. 'Das Atmen fällt mir schwer...'", "#me betastet nachdenklich die dunkel verfärbte Narbe quer über seinem Hals: 'Hm-hm... - Und Euch? Wie fühlt sich Euer Hals an?'"
 "your name", "who are you", "who art thou" -> "I am Bryan, and this my inn, The Hemp Necktie Inn. You like the name?", "I am Half-hung Bryan. What do you want?"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Bryan. Und das ist mein Gasthof. Der Gasthof zur Hanfschlinge. Gefällt Euch der Name?", "Ich bin Half-hung Bryan. Was wollt Ihr?"
 
@@ -108,7 +108,7 @@ english, "quest", "mission" -> "Half-hung Bryan doesn't have any work for you."
 "beruf" -> "Mir gehört dieser schmucke Gasthof, mitten in der Wildnis. Und doch! - Der Gasthof zur Hanfschlinge hat immer viele Gäste.", "Einst hab ich einfach am Feld geschuftet. Dann wurde ich n'Galgenvogel und danach, hatt ich Glück und könnte mir den Gasthof kaufen.", "Ich kümmere mich um meinen Gasthof. Wollt Ihr ein Zimmer mieten?"
 english, "job" -> "Well, this nice, beautiful inn here in the wilderness is mine. The Hemp Necktie Inn always has a lot of customers.", "I care for my inn. Do you want to rent a room?"
 "job" -> "Mir gehört dieser schmucke Gasthof, mitten in der Wildnis. Und doch! - Der Gasthof zur Hanfschlinge hat immer viele Gäste.", "Einst hab ich einfach am Feld geschuftet. Dann wurde ich n'Galgenvogel und danach, hatt ich Glück und könnte mir den Gasthof kaufen.", "Ich kümmere mich um meinen Gasthof. Wollt Ihr ein Zimmer mieten?"
-english, "Gobaith", "Gobiath" -> "What did you say?", " Gobaith? Never heard of it."
+english, "Gobaith", "Gobiath" -> "What did you say?", "Gobaith? Never heard of it."
 "Gobaith", "Gobiath" -> "Bitte was?", "Gobaith? Hab ich noch nie davon gehört."
 "my name" -> "Good. What do you want?", "#me laughs a bit, 'And I am Bryan. They've tried to hang me twice and yet here I stand in front of you.'"
 "mein Name" -> "Gut. Was wollt Ihr von mir?", "#me krächzt lachend: 'Und ich bin Bryan. Man hat mich zwei Mal gehängt und trotzdem steh ich vor Euch.'"
@@ -147,7 +147,7 @@ english, "Cadomyr" -> "Who is on this side? Who is on the other side? Half-hung 
 "Cadomyr" -> "Wer ist auf dieser Seite? Wer ist auf jener Seite? Half-hung Bryan ist auf seiner eigenen Seite. So wars schon immer und so wird es immer sein. Davon lebt der Gasthof und alle wissen woran sie mit mir sind.", "Hier in mitten der Wildnis, ist mein Hof unabhängig von allen politischen Intrigen. Das ist fast ein Segen, aber man muss selbst sehen wo man bleibt wenn die Wilden hier einfallen.", "Auf meinem Gasthof werden keine Fragen gestellt. Ich will nicht wissen wo Ihr herkommt, was ihr macht und was ihr vorhabt schon gar nicht."
 
 -- Main land factions
-english, "albar" -> "Albar - My homeland. Sometimes I miss the hard work in the fields...A man who has his hands deep in the dirt knows that he is doing honest work."
+english, "albar" -> "Albar - My homeland. Sometimes I miss the hard work in the fields... A man who has his hands deep in the dirt knows that he is doing honest work."
 "albar" -> "Albar - Meine Heimat. Es gibt Tage an denen vermisse ich es mir den Rücken krumm zu schuften, die harte Erde des Ackers zu Pflügen... Wenn ein Mann seine Finger tief im Dreck hat, weiß er, dass er eine gute Arbeit tut."
 english, "gynk", "gync" -> "What shall I tell you about Gynk? Snakes everywhere, the farmers grow sibanac instead of vegetables and the weather is bad."
 "gync", "gynk" -> "Was soll man über Gynk schon sagen? Die Erde dort ist voller Schlangen, die Bauern ernten Sibanac anstelle von ordentlichem Gemüse und das Wetter ist schrecklich."
@@ -193,7 +193,7 @@ english, "Zhambra" -> "#me clears his throat. 'There's only two people I talk ab
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "You can rent a room, or just a bed for the night. What do you want?"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ihr könnt Zimmer bei mir mieten. Oder auch nur n' Bett für die Nacht. Was darf es sein?"
-"tell something" -> "Everyone calls me Half-hung Bryan. Do you see the scar on my neck? That's from the noose.", "Hm. My neck wasn't always this crooked, but well..that was a long time ago.", "Years ago I was a servant in an Albarian court, I thought I had to leave and see the big world. Now my neck is snapped and people like you always want something from me."
+"tell something" -> "Everyone calls me Half-hung Bryan. Do you see the scar on my neck? That's from the noose.", "Hm. My neck wasn't always this crooked, but well, that was a long time ago.", "Years ago I was a servant in an Albarian court, I thought I had to leave and see the big world. Now my neck is snapped and people like you always want something from me."
 "erzähl was", "erzähl etwas" -> "Mann nennt mich Half-hung Bryan. Seht Ihr die Narbe an meinem Hals? Das war der Strick.", "Hm. Ich hatte nicht immer den schiefen Hals. Aber das war früher. Damals war viel anders.", "Früher war ich Knecht auf einem albarischem Hof. Und dann dachte ich ich muss ausziehen in die große Welt. Jetzt ist mein Hals schief und Leute wie Ihr wollen ständig etwas von mir."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
@@ -209,7 +209,7 @@ english, "Half-hung", "Bryan" -> "Half-hung Bryan. That's my name.", "Hrm?"
 
 cycletext "#me dreht langsam seinen Kopf bis ein unheilvolles knackendes Geräusch zu hören ist. Einmal in jede Richtung.", "#me turns his head left and right."
 cycletext "#me gibt einen kehligen Laut von sich, es klingt wie ein Keuchen.", "#me makes a strange gasping noise."
-cycletext "#me greift sich mit nachdenklicher Miene an die dunkel verfärbte Narbe an seinem Hals..", "#me touches the scar on his neck."
+cycletext "#me greift sich mit nachdenklicher Miene an die dunkel verfärbte Narbe an seinem Hals.", "#me touches the scar on his neck."
 cycletext "Hr-hrm.", "Hr-hrm."
 cycletext "#me reibt sich den Nacken.", "#me rubs his neck."
 cycletext "#me legt seine Hand auf den Schwertknauf, an seinem Gürtel und mustert mit finsterem Blick die Umgebung.", "#me's right hand touches his sword pommel at his belt and he glances around with a dirty look."
