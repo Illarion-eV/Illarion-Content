@@ -85,14 +85,14 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "'#me nods a bit.
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Nichts... es ist nichts. Allesch in beschter Ordnuch.", "Könnte einen Schluck Schnaps.. nein, nimmer mehr."
 
 "your name", "who are you", "who art thou" -> "Sam...I'm Sam. Just Sam.", "Sam. Yes - THAT Sam, from the Grey Refuge. But... nobody knows that anymore."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Sam... ich bin Sam. Einfach nur Sam.", "Sam. Ja DER Sam, von der Grauhen Zuflucht. Aba... das kennt heute natürlich keiner mehr."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Sam... ich bin Sam. Einfach nur Sam.", "Sam. Ja DER Sam, von der Grauen Zuflucht. Aba... das kennt heute natürlich keiner mehr."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I'm not a merchant anymore.. but i can repair some things."
+"what sell", "what buy", "list wares", "price of" -> "I'm not a merchant anymore... but I can repair some things."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin kein Händler mehr... ich repariere jetzt Dinge."
-"sell", "buy", "wares", "price", "trade", "purchase" -> "I'm not a merchant anymore.. but i can repair some things."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I'm not a merchant anymore... but I can repair some things."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler mehr... ich repariere jetzt Dinge."
-"tell something" -> "...good old friend Borgate.", "Yes. In former times I had my shop in the castle of the Grey Orders. But...like everything that's gone now!"
+"tell something" -> "...good old friend Borgate.", "Yes. In former times I had my shop in the castle of the Grey Orders. But... like everything that's gone now!"
 "erzähl was", "erzähl etwas" -> "Nach der Flucht von Gobaith ertrank ich meinen Kummer in Alkohol, aber ich kann ja nicht immer meinem alten Freund Borgate auf der Tasche liegen.", "Ja. Damals hat ich men Laden in der Burg des grauen Orden. Aber das ist jetzt vorbei..."
 
 -- repair triggers
