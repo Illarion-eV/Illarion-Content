@@ -60,9 +60,22 @@ itemShoes = 53
 
 -- Template Version 1.02, 12/02/2010 by Estralis Seborian
 
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+buyPrimaryItems = 505
+tradeNotEnoughMoneyMsg "Pleite, wah?", "Broke, eh?"
+tradeFinishedMsg "Half-hung Bryan dankt.", "Half-hung Bryan thanks you."
+tradeFinishedWithoutTradingMsg "Man sieht sich.", "See you around."
+tradeWrongItemMsg "Half-hung Bryan braucht euren Schrott nicht.", "Half-hung Bryan does not need your junk."
+"sell", "buy", "wares", "price", "trade", "purchase", "map", "treasure" -> "Half-hung Bryan wants treasures maps. Many soldiers of fortune come to the Hemp Necktie Inn, seeking wealth and adventure.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb", "Karte", "Schatz" -> "Half-hung Bryan will eure Schatzkarten. Viele Glücksritter kommen zum Gasthof zur Hanfschlinge auf der Suche nach Reichtum und Abenteuer.", trade
+
 -- Help
-"Help" -> inform("[Game Help] This NPC is Half-hung Bryan the innkeeper of The Hemp Necktie Inn. Keywords: Inn, Necktie, Law, Farmer")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Half-hung Bryan der Gastwirt vom Gasthof zur Hanfschlinge. Schlüsselwörter: Gasthof, Strick, Gesetz, Knecht")
+"Help" -> inform("[Game Help] This NPC is Half-hung Bryan the innkeeper of The Hemp Necktie Inn. Keywords: Inn, Necktie, Law, Farmer, Trade")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Half-hung Bryan der Gastwirt vom Gasthof zur Hanfschlinge. Schlüsselwörter: Gasthof, Strick, Gesetz, Knecht, Handel")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Welcome to my inn.", "Greetings, how may I help you?", "#me turns his stiff neck to look at you, 'Greetings'."
@@ -77,8 +90,6 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Au revoir.", "Farewell, and
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "#me macht einen kehlig würgendes Geräusch. 'Ich habe Nackenschmerzen...'", "#me inhaliert mit einem rasselnden Laut die stickige Luft. 'Das Atmen fällt mir Schwer...'", "#me betastet nachdenklich die dunkel verfärbte Narbe quer über seinem Hals: 'Hm-hm... - Und Euch? Wie fühlt sich Euer Hals an?'"
 "your name", "who are you", "who art thou" -> "I am Bryan, and this my inn, The Hemp Necktie Inn. You like the name?", "I am Half-hung Bryan. What do you want?"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Bryan. Und das ist mein Gasthof. Der Gasthof zur Hanfschlinge. Gefällt Euch der Name?", "Ich bin Half-hung Bryan. Was wollt Ihr?"
-"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- Foreign quest Alberto Dicker
 queststatus(674) = 4, english, "Oldra", "Altar", "Alberto", "Dicker", "quest", "mission" -> inform("[The pictures Alberto Dickers] Go back to Runewick and talk to Numila Irunnleh."), "What's it to you? I removed the picture from the lounge, and it should be hung in the Hospital. I believe it is better suited in that location and I can lock the room.", queststatus(674) = 5
