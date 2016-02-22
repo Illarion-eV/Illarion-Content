@@ -414,20 +414,20 @@ function M.callEffect( Effect, Char ) -- Effect is called
 
     if theQuestStatus == 1 then --Time over!
 
-        common.InformNLS(Char,"","You have failed to complete your quest for Anthar Vilicon in time. Try another quest if you wish to help the town of Cadomyr.") -- Feedback!
+        common.InformNLS(Char,"Du hast es nicht geschafft, die Aufgabe von Anthar Vilicon pünktlich zu lösen. Frage Anthar Vilicon nach einer neuen Aufgabe, wenn du Cadomyr helfen willst.","You have failed to complete your quest for Anthar Vilicon in time. Try another quest if you wish to help the town of Cadomyr.") -- Feedback!
         Char:setQuestProgress(119,0)
 
     end
 
     if theQuestStatus == 3 then --Ten minutes left!
 
-        common.InformNLS(Char,"","You have ten minutes left to finish your quest for Anthar Vilicon.") -- Feedback!
+        common.InformNLS(Char,"Dir bleiben noch zehn Minuten, um die Aufgabe von Anthar Vilicon zu erledigen.","You have ten minutes left to finish your quest for Anthar Vilicon.") -- Feedback!
 
     end
 
     if theQuestStatus == 13 then --One hour left
 
-        common.InformNLS(Char,"","You have one hour left to finish your quest for Anthar Vilicon.") -- Feedback!
+        common.InformNLS(Char,"Du hast noch eine Stunde Zeit, die Aufgabe von Anthar Vilicon zu erledigen.","You have one hour left to finish your quest for Anthar Vilicon.") -- Feedback!
 
     end
 
@@ -441,20 +441,20 @@ function M.callEffect( Effect, Char ) -- Effect is called
 
     if theQuestStatus == 1 then --Time over!
 
-        common.InformNLS(Char,"","You have failed to complete your quest for Decius Cerasus Industrius in time. Try another quest if you wish to help the town of Runewick.") -- Feedback!
+        common.InformNLS(Char,"Du hast es nicht geschafft, die Aufgabe von Decius Cerasus Industrius pünktlich zu lösen. Frage Decius Cerasus Industrius nach einer neuen Aufgabe, wenn du Runewick helfen willst.","You have failed to complete your quest for Decius Cerasus Industrius in time. Try another quest if you wish to help the town of Runewick.") -- Feedback!
         Char:setQuestProgress(160,0)
 
     end
 
     if theQuestStatus == 3 then --Ten minutes left!
 
-        common.InformNLS(Char,"","You have ten minutes left to finish your quest for Decius Cerasus Industrius.") -- Feedback!
+        common.InformNLS(Char,"Dir bleiben noch zehn Minuten, um die Aufgabe von Decius Cerasus Industrius zu erledigen.","You have ten minutes left to finish your quest for Decius Cerasus Industrius.") -- Feedback!
 
     end
 
     if theQuestStatus == 13 then --One hour left
 
-        common.InformNLS(Char,"","You have one hour left to finish your quest for Decius Cerasus Industrius.") -- Feedback!
+        common.InformNLS(Char,"Du hast noch eine Stunde Zeit, die Aufgabe von Decius Cerasus Industrius zu erledigen.","You have one hour left to finish your quest for Decius Cerasus Industrius.") -- Feedback!
 
     end
 
@@ -468,20 +468,20 @@ function M.callEffect( Effect, Char ) -- Effect is called
 
     if theQuestStatus == 1 then --Time over!
 
-        common.InformNLS(Char,"","You have failed to complete your quest for Gurzad Gutri in time. Try another quest if you wish to help the town of Galmair.") -- Feedback!
+        common.InformNLS(Char,"Du hast es nicht geschafft, die Aufgabe von Gurzad Gutri pünktlich zu lösen. Frage Gurzad Gutri nach einer neuen Aufgabe, wenn du Galmair helfen willst.","You have failed to complete your quest for Gurzad Gutri in time. Try another quest if you wish to help the town of Galmair.") -- Feedback!
         Char:setQuestProgress(152,0)
 
     end
 
     if theQuestStatus == 3 then --Ten minutes left!
 
-        common.InformNLS(Char,"","You have ten minutes left to finish your quest for Gurzad Gutri.") -- Feedback!
+        common.InformNLS(Char,"Dir bleiben noch zehn Minuten, um die Aufgabe von Gurzad Gutri zu erledigen.","You have ten minutes left to finish your quest for Gurzad Gutri.") -- Feedback!
 
     end
 
     if theQuestStatus == 13 then --One hour left
 
-        common.InformNLS(Char,"","You have one hour left to finish your quest for Gurzad Gutri.") -- Feedback!
+        common.InformNLS(Char,"Du hast noch eine Stunde Zeit, die Aufgabe von Gurzad Gutri zu erledigen.","You have one hour left to finish your quest for Gurzad Gutri.") -- Feedback!
 
     end
 
