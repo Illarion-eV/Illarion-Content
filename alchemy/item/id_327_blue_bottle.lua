@@ -33,52 +33,52 @@ local function Explode(User,TargetItem)
 local Item = TargetItem
 local potionEffectId = (tonumber(Item:getData("potionEffectId")))
 
-	if (potionEffectId >= 300) and (potionEffectId <= 399) then	-- bombs
-		
-		if (potionEffectId == 301) then
-			missile.effect_1( User, Item );
-		elseif (potionEffectId == 302) then
-			missile.effect_2( User, Item );
-		elseif (potionEffectId == 303) then
-			missile.effect_3( User, Item );
-		elseif (potionEffectId == 304) then
-			missile.effect_4( User, Item );
-		elseif (potionEffectId == 305) then
-			missile.effect_5( User, Item );
-		elseif (potionEffectId == 306) then
-			missile.effect_6( User, Item );
-		elseif (potionEffectId == 307) then
-			missile.effect_7( User, Item );
-		elseif (potionEffectId == 308) then
-			missile.effect_8( User, Item );
-		elseif (potionEffectId == 309) then
-			missile.effect_9( User, Item );
-		elseif (potionEffectId == 310) then
-			missile.effect_10( User, Item );
-		elseif (potionEffectId == 311) then 
-			missile.effect_11( User, Item );
-		elseif (potionEffectId == 312) then
-			missile.effect_12( User, Item );
-		elseif (potionEffectId == 313) then 
-			missile.effect_13( User, Item );
-		elseif (potionEffectId == 314) then
-			missile.effect_14( User, Item );
-		elseif (potionEffectId == 315) then
-			missile.effect_15( User, Item );
-		elseif (potionEffectId == 316) then
-			missile.effect_16( User, Item );
-		elseif (potionEffectId == 317) then 
-			missile.effect_17( User, Item );
-		elseif (potionEffectId == 318) then 
-		    missile.effect_18( User, Item );
-		else
-			-- unbekannter Trank
-		end
-		-- Deko-Effekte
-		world:gfx(36,Item.pos);
-		world:makeSound(5,Item.pos);
-		world:erase(Item,1);
-	end
+    if (potionEffectId >= 300) and (potionEffectId <= 399) then    -- bombs
+        
+        if (potionEffectId == 301) then
+            missile.effect_1( User, Item );
+        elseif (potionEffectId == 302) then
+            missile.effect_2( User, Item );
+        elseif (potionEffectId == 303) then
+            missile.effect_3( User, Item );
+        elseif (potionEffectId == 304) then
+            missile.effect_4( User, Item );
+        elseif (potionEffectId == 305) then
+            missile.effect_5( User, Item );
+        elseif (potionEffectId == 306) then
+            missile.effect_6( User, Item );
+        elseif (potionEffectId == 307) then
+            missile.effect_7( User, Item );
+        elseif (potionEffectId == 308) then
+            missile.effect_8( User, Item );
+        elseif (potionEffectId == 309) then
+            missile.effect_9( User, Item );
+        elseif (potionEffectId == 310) then
+            missile.effect_10( User, Item );
+        elseif (potionEffectId == 311) then 
+            missile.effect_11( User, Item );
+        elseif (potionEffectId == 312) then
+            missile.effect_12( User, Item );
+        elseif (potionEffectId == 313) then 
+            missile.effect_13( User, Item );
+        elseif (potionEffectId == 314) then
+            missile.effect_14( User, Item );
+        elseif (potionEffectId == 315) then
+            missile.effect_15( User, Item );
+        elseif (potionEffectId == 316) then
+            missile.effect_16( User, Item );
+        elseif (potionEffectId == 317) then 
+            missile.effect_17( User, Item );
+        elseif (potionEffectId == 318) then 
+            missile.effect_18( User, Item );
+        else
+            -- unbekannter Trank
+        end
+        -- Deko-Effekte
+        world:gfx(36,Item.pos);
+        world:makeSound(5,Item.pos);
+        world:erase(Item,1);
+    end
 end
 
 local function Drop(User,TargetItem)
@@ -92,18 +92,18 @@ local function Drop(User,TargetItem)
 end;
 
 function M.MoveItemAfterMove(User, SourceItem, TargetItem)
-	local missileStatus = (SourceItem:getData("missileStatus"));
+    local missileStatus = (SourceItem:getData("missileStatus"));
     
-	local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
-	if potionEffectId == nil then
-	    potionEffectId = 0
-	end	
-	
-	if not ((potionEffectId >= 300) and (potionEffectId <= 399)) then
+    local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
+    if potionEffectId == nil then
+        potionEffectId = 0
+    end    
+    
+    if not ((potionEffectId >= 300) and (potionEffectId <= 399)) then
         return true; -- no missile
     end
  
-	if (missileStatus == "deactivated") or (missileStatus == "") then
+    if (missileStatus == "deactivated") or (missileStatus == "") then
         return true; -- missile is deactivated
     end
 
@@ -121,17 +121,17 @@ function M.MoveItemAfterMove(User, SourceItem, TargetItem)
     Explode(User,TargetItem);
     User:talk(Character.say, "#me wirft eine Flasche, die zerplatzt.", "#me throws a bottle that splits.")
     User.movepoints=User.movepoints-30;
-	return true   
+    return true   
 end;
 
 function M.MoveItemBeforeMove( User, SourceItem, TargetItem )
-	local missileStatus = (SourceItem:getData("missileStatus"));
+    local missileStatus = (SourceItem:getData("missileStatus"));
     local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
-	if potionEffectId == nil then
-	    potionEffectId = 0
-	end	
-	
-	if not ((potionEffectId >= 300) and (potionEffectId <= 399)) then
+    if potionEffectId == nil then
+        potionEffectId = 0
+    end    
+    
+    if not ((potionEffectId >= 300) and (potionEffectId <= 399)) then
         return true; -- no missile
     end
     
@@ -144,72 +144,72 @@ function M.MoveItemBeforeMove( User, SourceItem, TargetItem )
         "Du musst den Wurfkörper aus der Hand werfen.",
         "You have to throw the missle out of your hand.");
         return false; -- not in the hand; only for activated missile
-	end
+    end
     return true;
 end
 
 local function DrinkPotion(User,SourceItem)
 -- no drink effect exists for bomb potions, yet
    common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", 
-		"You don't have the feeling that something happens.")
+        "You don't have the feeling that something happens.")
 end
 
 function M.UseItem(User, SourceItem, ltstate)
     -- repair potion in case it's broken
-	alchemy.repairPotion(SourceItem)
-	-- repair end
+    alchemy.repairPotion(SourceItem)
+    -- repair end
 
-	if SourceItem:getData("filledWith")=="meraldilised slime" then
-	    User:inform("Die Öffnung der Flasche ist von Klumpen verklebt, wodurch der zähflüssige Inhalt nicht ausfließen kann.",
-		            "The opening of the bottle is clotted by gobs, so that its semifluid content cannot flow out.")
-	end
-	
-	if not ((SourceItem:getData("filledWith")=="potion") or (SourceItem:getData("filledWith") =="essenceBrew")) then
-		return -- no potion, no essencebrew, something else
-	end
-	
-	local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
-	if potionEffectId == nil then
-	    potionEffectId = 0
-	end	
-	
-	local cauldron = alchemy.GetCauldronInfront(User)
-	if cauldron then -- infront of a cauldron?
-	    alchemy.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
-	   
-	else -- not infront of a cauldron, therefore use it
+    if SourceItem:getData("filledWith")=="meraldilised slime" then
+        User:inform("Die Öffnung der Flasche ist von Klumpen verklebt, wodurch der zähflüssige Inhalt nicht ausfließen kann.",
+                    "The opening of the bottle is clotted by gobs, so that its semifluid content cannot flow out.")
+    end
+    
+    if not ((SourceItem:getData("filledWith")=="potion") or (SourceItem:getData("filledWith") =="essenceBrew")) then
+        return -- no potion, no essencebrew, something else
+    end
+    
+    local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
+    if potionEffectId == nil then
+        potionEffectId = 0
+    end    
+    
+    local cauldron = alchemy.GetCauldronInfront(User)
+    if cauldron then -- infront of a cauldron?
+        alchemy.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
+       
+    else -- not infront of a cauldron, therefore use it
         if User.attackmode then
-		   common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während du kämpfst.", "You cannot use the potion while fighting.")
-		else
-			if (potionEffectId >= 300) and (potionEffectId <= 399) then -- a bomb
-			      
-				local missileStatus = SourceItem:getData("missileStatus")
-				if (missileStatus == "deactivated") or (missileStatus == "") then -- potion deactivated or status not set --> activate
-					common.InformNLS( User,
-					"Du entsicherst des Wurfkörper. Vorsicht damit.",
-					"You activate the missle. Careful with it.");
-					SourceItem:setData("missileStatus","activated")
-					world:changeItem( SourceItem );
-				else
-					common.InformNLS( User,
-					"Du sicherst den Wurfkörper.",
-					"You deactivate the missile.");
-					SourceItem:setData("missileStatus","deactivated")
-					world:changeItem( SourceItem );
-		        end
-			
-			else -- not a bomb
-				User:talk(Character.say, "#me trinkt eine dunkelblaue Flüssigkeit.", "#me drinks a dark blue liquid.")
-				User.movepoints=User.movepoints - 20
-				DrinkPotion(User,SourceItem)
-				alchemy.EmptyBottle(User,SourceItem)
-	        end
-		end
-	end  
+           common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während du kämpfst.", "You cannot use the potion while fighting.")
+        else
+            if (potionEffectId >= 300) and (potionEffectId <= 399) then -- a bomb
+                  
+                local missileStatus = SourceItem:getData("missileStatus")
+                if (missileStatus == "deactivated") or (missileStatus == "") then -- potion deactivated or status not set --> activate
+                    common.InformNLS( User,
+                    "Du entsicherst des Wurfkörper. Vorsicht damit.",
+                    "You activate the missle. Careful with it.");
+                    SourceItem:setData("missileStatus","activated")
+                    world:changeItem( SourceItem );
+                else
+                    common.InformNLS( User,
+                    "Du sicherst den Wurfkörper.",
+                    "You deactivate the missile.");
+                    SourceItem:setData("missileStatus","deactivated")
+                    world:changeItem( SourceItem );
+                end
+            
+            else -- not a bomb
+                User:talk(Character.say, "#me trinkt eine dunkelblaue Flüssigkeit.", "#me drinks a dark blue liquid.")
+                User.movepoints=User.movepoints - 20
+                DrinkPotion(User,SourceItem)
+                alchemy.EmptyBottle(User,SourceItem)
+            end
+        end
+    end  
 end
 
 function M.LookAtItem(User,Item)
-	return lookat.GenerateLookAt(User, Item, 0)  
+    return lookat.GenerateLookAt(User, Item, 0)  
 end
 
 return M
