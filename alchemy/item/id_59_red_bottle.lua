@@ -167,14 +167,10 @@ function M.UseItem(User, SourceItem, ltstate)
         alchemy.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
 
     else -- not infront of a cauldron, therefore drink!
-        if User.attackmode then
-           common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während du kämpfst.", "You cannot use the potion while fighting.")
-        else
-            User:talk(Character.say, "#me trinkt eine rote Flüssigkeit.", "#me drinks a red liquid.")
-            User.movepoints=User.movepoints - 20
-            DrinkPotion(User,SourceItem) -- call effect
-            alchemy.EmptyBottle(User,SourceItem)
-        end
+        User:talk(Character.say, "#me trinkt eine rote Flüssigkeit.", "#me drinks a red liquid.")
+        User.movepoints=User.movepoints - 20
+        DrinkPotion(User,SourceItem) -- call effect
+        alchemy.EmptyBottle(User,SourceItem)
     end
 end
 

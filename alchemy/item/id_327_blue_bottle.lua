@@ -178,32 +178,26 @@ function M.UseItem(User, SourceItem, ltstate)
         alchemy.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
        
     else -- not infront of a cauldron, therefore use it
-        if User.attackmode then
-           common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während du kämpfst.", "You cannot use the potion while fighting.")
-        else
-            if (potionEffectId >= 300) and (potionEffectId <= 399) then -- a bomb
-                  
-                local missileStatus = SourceItem:getData("missileStatus")
-                if (missileStatus == "deactivated") or (missileStatus == "") then -- potion deactivated or status not set --> activate
-                    common.InformNLS( User,
-                    "Du entsicherst des Wurfkörper. Vorsicht damit.",
-                    "You activate the missle. Careful with it.");
-                    SourceItem:setData("missileStatus","activated")
-                    world:changeItem( SourceItem );
-                else
-                    common.InformNLS( User,
-                    "Du sicherst den Wurfkörper.",
-                    "You deactivate the missile.");
-                    SourceItem:setData("missileStatus","deactivated")
-                    world:changeItem( SourceItem );
-                end
-            
-            else -- not a bomb
-                User:talk(Character.say, "#me trinkt eine dunkelblaue Flüssigkeit.", "#me drinks a dark blue liquid.")
-                User.movepoints=User.movepoints - 20
-                DrinkPotion(User,SourceItem)
-                alchemy.EmptyBottle(User,SourceItem)
+        if (potionEffectId >= 300) and (potionEffectId <= 399) then -- a bomb
+            local missileStatus = SourceItem:getData("missileStatus")
+            if (missileStatus == "deactivated") or (missileStatus == "") then -- potion deactivated or status not set --> activate
+                common.InformNLS( User,
+                "Du entsicherst des Wurfkörper. Vorsicht damit.",
+                "You activate the missle. Careful with it.");
+                SourceItem:setData("missileStatus","activated")
+                world:changeItem( SourceItem );
+            else
+                common.InformNLS( User,
+                "Du sicherst den Wurfkörper.",
+                "You deactivate the missile.");
+                SourceItem:setData("missileStatus","deactivated")
+                world:changeItem( SourceItem );
             end
+        else -- not a bomb
+            User:talk(Character.say, "#me trinkt eine dunkelblaue Flüssigkeit.", "#me drinks a dark blue liquid.")
+            User.movepoints=User.movepoints - 20
+            DrinkPotion(User,SourceItem)
+            alchemy.EmptyBottle(User,SourceItem)
         end
     end  
 end

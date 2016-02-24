@@ -79,13 +79,9 @@ function M.UseItem(User, SourceItem, ltstate)
 end
 
 function DrinkIt(User, SourceItem)
-    if User.attackmode then
-        common.InformNLS(User, "Du kannst nichts trinken, während du kämpfst.", "You cannot drink while fighting.", Player.lowPriority)
-    else
         User:talk(Character.say, "#me trinkt eine grüne Flüssigkeit.", "#me drinks a green liquid.")
         common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", "You don't have the feeling that something happens.")
         User.movepoints=User.movepoints - 20
-    end
 end
 
 function FillStockIn(User,SourceItem, cauldron)
