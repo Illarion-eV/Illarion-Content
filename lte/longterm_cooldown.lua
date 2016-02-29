@@ -409,6 +409,86 @@ function M.callEffect( Effect, Char ) -- Effect is called
 
     end
     --Addition end
+    --Addition by Evie: Quest 119/159/120 Cadmoyr Stockup Anthar Vilicon
+    theQuestStatus=Char:getQuestProgress(159)
+
+    if theQuestStatus == 1 then --Time over!
+
+        common.InformNLS(Char,"Du hast es nicht geschafft, die Aufgabe von Anthar Vilicon pünktlich zu lösen. Frage Anthar Vilicon nach einer neuen Aufgabe, wenn du Cadomyr helfen willst.","You have failed to complete your quest for Anthar Vilicon in time. Try another quest if you wish to help the town of Cadomyr.") -- Feedback!
+        Char:setQuestProgress(119,0)
+
+    end
+
+    if theQuestStatus == 3 then --Ten minutes left!
+
+        common.InformNLS(Char,"Dir bleiben noch zehn Minuten, um die Aufgabe von Anthar Vilicon zu erledigen.","You have ten minutes left to finish your quest for Anthar Vilicon.") -- Feedback!
+
+    end
+
+    if theQuestStatus == 13 then --One hour left
+
+        common.InformNLS(Char,"Du hast noch eine Stunde Zeit, die Aufgabe von Anthar Vilicon zu erledigen.","You have one hour left to finish your quest for Anthar Vilicon.") -- Feedback!
+
+    end
+
+    if theQuestStatus > 0 then --Is there a countdown? Will be reduced even if the player is AFK/idle
+        Char:setQuestProgress(159,theQuestStatus-1) --counting down!
+    end
+    --Addition end
+    
+    --Addition by Evie: Quest 160/260/161 Runewick Daily Quest Decius Cerasus Industrius
+    theQuestStatus=Char:getQuestProgress(260)
+
+    if theQuestStatus == 1 then --Time over!
+
+        common.InformNLS(Char,"Du hast es nicht geschafft, die Aufgabe von Decius Cerasus Industrius pünktlich zu lösen. Frage Decius Cerasus Industrius nach einer neuen Aufgabe, wenn du Runewick helfen willst.","You have failed to complete your quest for Decius Cerasus Industrius in time. Try another quest if you wish to help the town of Runewick.") -- Feedback!
+        Char:setQuestProgress(160,0)
+
+    end
+
+    if theQuestStatus == 3 then --Ten minutes left!
+
+        common.InformNLS(Char,"Dir bleiben noch zehn Minuten, um die Aufgabe von Decius Cerasus Industrius zu erledigen.","You have ten minutes left to finish your quest for Decius Cerasus Industrius.") -- Feedback!
+
+    end
+
+    if theQuestStatus == 13 then --One hour left
+
+        common.InformNLS(Char,"Du hast noch eine Stunde Zeit, die Aufgabe von Decius Cerasus Industrius zu erledigen.","You have one hour left to finish your quest for Decius Cerasus Industrius.") -- Feedback!
+
+    end
+
+    if theQuestStatus > 0 then --Is there a countdown? Will be reduced even if the player is AFK/idle
+        Char:setQuestProgress(260,theQuestStatus-1) --counting down!
+    end
+    --Addition end
+    
+    --Addition by Evie: Quest 152/252/153 Galmair Daily Quest Gurzad Gutri
+    theQuestStatus=Char:getQuestProgress(252)
+
+    if theQuestStatus == 1 then --Time over!
+
+        common.InformNLS(Char,"Du hast es nicht geschafft, die Aufgabe von Gurzad Gutri pünktlich zu lösen. Frage Gurzad Gutri nach einer neuen Aufgabe, wenn du Galmair helfen willst.","You have failed to complete your quest for Gurzad Gutri in time. Try another quest if you wish to help the town of Galmair.") -- Feedback!
+        Char:setQuestProgress(152,0)
+
+    end
+
+    if theQuestStatus == 3 then --Ten minutes left!
+
+        common.InformNLS(Char,"Dir bleiben noch zehn Minuten, um die Aufgabe von Gurzad Gutri zu erledigen.","You have ten minutes left to finish your quest for Gurzad Gutri.") -- Feedback!
+
+    end
+
+    if theQuestStatus == 13 then --One hour left
+
+        common.InformNLS(Char,"Du hast noch eine Stunde Zeit, die Aufgabe von Gurzad Gutri zu erledigen.","You have one hour left to finish your quest for Gurzad Gutri.") -- Feedback!
+
+    end
+
+    if theQuestStatus > 0 then --Is there a countdown? Will be reduced even if the player is AFK/idle
+        Char:setQuestProgress(252,theQuestStatus-1) --counting down!
+    end
+    --Addition end
     
     Effect.nextCalled = 3000 --Effect gets called each 5 minutes
 

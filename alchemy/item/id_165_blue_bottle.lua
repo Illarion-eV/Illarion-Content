@@ -69,14 +69,10 @@ function M.UseItem(User, SourceItem, ltstate)
 
         FillIn(User, SourceItem, cauldron)
     else -- not infront of a cauldron, therefore drink!
-        if User.attackmode then
-           common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während du kämpfst.", "You cannot use the potion while fighting.")
-        else
-            User:talk(Character.say, "#me trinkt eine hellblaue Flüssigkeit.", "#me drinks a light blue liquid.")
-            User.movepoints=User.movepoints - 20
-            DrinkPotion(User,SourceItem)
-            alchemy.EmptyBottle(User,SourceItem)
-        end
+        User:talk(Character.say, "#me trinkt eine hellblaue Flüssigkeit.", "#me drinks a light blue liquid.")
+        User.movepoints=User.movepoints - 20
+        DrinkPotion(User,SourceItem)
+        alchemy.EmptyBottle(User,SourceItem)
     end
 end
 

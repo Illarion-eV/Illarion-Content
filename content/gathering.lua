@@ -38,6 +38,7 @@ function InitGathering()
         fruitgathering = gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, FastActionFactor = 0.5}; -- harvest
         mining = gatheringcraft.GatheringCraft:new{LeadSkill = Character.mining, LearnLimit = 100}; -- id_2763_pickaxe
         sanddigging = gatheringcraft.GatheringCraft:new{LeadSkill = Character.mining, LearnLimit = 100}; -- id_24_shovel
+        snowballmaking = gatheringcraft.GatheringCraft:new{};
         claydigging = gatheringcraft.GatheringCraft:new{LeadSkill = Character.mining, LearnLimit = 100}; -- id_24_shovel
         herbgathering = gatheringcraft.GatheringCraft:new{LeadSkill = Character.herblore, LearnLimit = 100}; -- id_126_sickle
         fishing = gatheringcraft.GatheringCraft:new{LeadSkill = Character.fishing, LearnLimit = 100}; -- id_72_fishingrod
@@ -158,7 +159,10 @@ function InitGathering()
         sanddigging:AddInterruptMessage("Ein aufdringliches Insekt schwirrt um deinen Kopf heru Du schlägst mit der Hand danach und versuchst es zu vertreiben.", "An annoying bug buzzes around your head. You strike at it in order to drive it away.");
         sanddigging:AddInterruptMessage("Das Graben im Sand macht dich sehr durstig und du hältst kurz inne.", "Digging for sand makes you thirsty. You have to take a short break.");
         sanddigging:AddInterruptMessage("Du meinst du hättest etwas vor dir gesehen, aber es war wohl nur eine Luftspiegelung.", "Something in front of you catches your attention. Just a mirage...");
-
+ 
+        --snowballmaking
+        snowballmaking:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
+        
         --claydigging
         claydigging:AddRandomItem(2554,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Tanora, die Göttin des Wassers, mit einem Kleinod aus Reinem Wasser.","For your hard and honest labour Tanora, the Godess of Water, rewards you with a treasure of Pure Water."); --Pure water
         claydigging:AddRandomItem(gems.getMagicGemId(gems.AMETHYST),1,999,gems.getMagicGemData(1),prob_extremely_rarely,"Tief im Matsch stößt deine Schaufel auf etwas hartes. Du findest einen magischen Amethyst.","Deep in the mud your shovel hits on something hard. To your surprise it's a magical amethyst."); --Magical amethyst
