@@ -65,13 +65,14 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-buyPrimaryItems = 505
+sellItems = 463, 1118, 2745
+buyPrimaryItems = 463, 1118, 2745, 505
 tradeNotEnoughMoneyMsg "Pleite, wah?", "Broke, eh?"
 tradeFinishedMsg "Half-hung Bryan dankt.", "Half-hung Bryan thanks you."
 tradeFinishedWithoutTradingMsg "Man sieht sich.", "See you around."
 tradeWrongItemMsg "Half-hung Bryan braucht euren Schrott nicht.", "Half-hung Bryan does not need your junk."
-"sell", "buy", "wares", "price", "trade", "purchase", "map", "treasure" -> "Half-hung Bryan wants treasures maps. Many soldiers of fortune come to the Hemp Necktie Inn, seeking wealth and adventure.", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb", "Karte", "Schatz" -> "Half-hung Bryan will eure Schatzkarten. Viele Glücksritter kommen zum Gasthof zur Hanfschlinge auf der Suche nach Reichtum und Abenteuer.", trade
+"sell", "buy", "wares", "price", "trade", "purchase", "map", "treasure" -> "Half-hung Bryan wants treasures maps. Many soldiers of fortune come to the Hemp Necktie Inn, seeking wealth and adventure. I also trade stationery.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb", "Karte", "Schatz" -> "Half-hung Bryan will eure Schatzkarten. Viele Glücksritter kommen zum Gasthof zur Hanfschlinge auf der Suche nach Reichtum und Abenteuer. Ich handle auch mit Schreibwaren.", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Half-hung Bryan the innkeeper of The Hemp Necktie Inn. Keywords: Inn, Necktie, Law, Farmer, Trade")
