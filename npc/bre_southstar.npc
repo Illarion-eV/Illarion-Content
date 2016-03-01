@@ -100,21 +100,21 @@ hitPlayerMsg "#me verpasst dem Eindringlich einen Hieb 'Verschwinde!'", "#me hit
 
 -- The next day the tall dwarf came back. She had a seared lamb leg in hand she gave it to Bre and with a haughty voice said,
 -- "The street is no place for a girl, come with me. Bre shook her head. The tall dwarf walked away. Every day the tall dwarf came back asking
--- the same question. Bre would politely decline. It came to the point where Bre came to expect the tall dwarf, Gavin and then came to wanting
--- her to come. One day when it was raining and cold Gavin walked up and said, "It is cold and raining. This is no place for a young girl, come to my house.
+-- the same question. Bre would politely decline. It came to the point where Bre came to expect the tall dwarf, Gava and then came to wanting
+-- her to come. One day when it was raining and cold Gava walked up and said, "It is cold and raining. This is no place for a young girl, come to my house.
 -- "Bre answered "OK"
 
--- Gavin walked Bre to her little wooden home. Bre felt really awkward. Gavin boiled Bre some warm ale. Gavin then just went to her bed and instantly fell asleep.
--- Bre sat by the warm fire. Tiredness overcame here and she passed out almost near as instant as Gavin. Bre woke up to the aroma of fried goat strips and
--- boiled eagle eggs. Gavin gave Bre the perfect older sister smile, they talked and from that day on they were sisters. An important day is the day when
--- Gavin told Bre about the sister ritual she heard when she was little. And that was to use a dagger to make a prick on their left wrists, to tie them together
+-- Gava walked Bre to her little wooden home. Bre felt really awkward. Gava boiled Bre some warm ale. Gava then just went to her bed and instantly fell asleep.
+-- Bre sat by the warm fire. Tiredness overcame here and she passed out almost near as instant as Gava. Bre woke up to the aroma of fried goat strips and
+-- boiled eagle eggs. Gava gave Bre the perfect older sister smile, they talked and from that day on they were sisters. An important day is the day when
+-- Gava told Bre about the sister ritual she heard when she was little. And that was to use a dagger to make a prick on their left wrists, to tie them together
 -- and swear sisterhood to each other.
 
--- A painful day was when Gavin caught her using. Gavin came home early to bring Bre some sweat bread. She caught Bre using some drugs. Gavin started crying
--- and then Bre started crying. Bre ran out the house and slept on the street for four days. Gavin came back and told her she can stay back at the house again.
--- Bre still uses and she knows it eats Gavin up. It's a major source of her sadness. Bre and Gavin worked to keep her using a secret.
+-- A painful day was when Gava caught her using. Gava came home early to bring Bre some sweat bread. She caught Bre using some drugs. Gava started crying
+-- and then Bre started crying. Bre ran out the house and slept on the street for four days. Gava came back and told her she can stay back at the house again.
+-- Bre still uses and she knows it eats Gava up. It's a major source of her sadness. Bre and Gava worked to keep her using a secret.
 
--- Bre followed Gavin into being an officer in the city watch and because of Gavin's harsh training Bre despite being short and fat rose to the rank of Silverstone
+-- Bre followed Gava into being an officer in the city watch and because of Gava's harsh training Bre despite being short and fat rose to the rank of Silverstone
 -- and became a gate guard. A lot of the guys in the civil watch try to get with her, but she rejects them all.
 
 -- Goals:
@@ -135,8 +135,8 @@ hitPlayerMsg "#me verpasst dem Eindringlich einen Hieb 'Verschwinde!'", "#me hit
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Bre Southstar the gate guardian. Keywords: Hello, Gavin, Galmair, Guard.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Bre Southstar die Torwächterin. Schlüsselwörter: Hallo, Gavin, Galmair, Wache.")
+"Help" -> inform("[Game Help] This NPC is Bre Southstar the gate guardian. Keywords: Hello, Gava, Galmair, Guard.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Bre Southstar die Torwächterin. Schlüsselwörter: Hallo, Gava, Galmair, Wache.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day. I hope you are doing well.", "This is Galmair, have a pleasant time.", "I'm happy that you decided to choose this gate. Please have a pleasant trip."
@@ -170,28 +170,28 @@ english, "job" -> "I'm a Galmairian Gateguard.", "I am a Silverstone rank in the
 "job" -> "Ich bin eine Torwache Galmairs.", "Ich habe den Rang eines Silbersteins in der Bürgerwehr.", "Ich bewache Tore und schlag Leuten, wenn nötig, das Gesicht ein. Das kommt aber nicht so oft vor."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-english, "Gavin" -> "She is the prettiest, strongest, smartest person I know.", "She rescued me from being homeless.", "Gavin is too tall for a girl.", "Gavin of the other gate is my sister."
-"Sister" -> "She is the prettiest, strongest, smartest person I know.", "She rescued me from being homeless.", "Gavin is too tall for a girl.", "Gavin of the other gate is my sister."
+english, "Gava" -> "She is the prettiest, strongest, smartest person I know.", "She rescued me from being homeless.", "Gava is too tall for a girl.", "Gava of the other gate is my sister."
+"Sister" -> "She is the prettiest, strongest, smartest person I know.", "She rescued me from being homeless.", "Gava is too tall for a girl.", "Gava of the other gate is my sister."
 "Homeless" -> "It is no place for a girl... I can tell you that."
-"Peace", "Justice" -> "Gavin keeps telling me I need to do everything in peace and justice. I tell her that she needs to do everything in fun and sunshine."
+"Peace", "Justice" -> "Gava keeps telling me I need to do everything in peace and justice. I tell her that she needs to do everything in fun and sunshine."
 "guard", "Civil Watch", "gate" -> "My job. I never thought when I was a little girl, or a slightly older little homeless girl that I would become a watchman."
 "Drugs" -> "#me looks away silently."
 "men" -> "They are all as bad as Don. All of the male watchmen only hang out with me to try and get with me. It's truly annoying."
-"Weapon" -> "Gavin taught me the morning star. I practised with it every day until I became the second best morning star user in the watch."
-"Gavin" -> "Sie ist die schönste, stärkste und schlauste Person, die ich kenne.", "Sie hat mich aus der Obdachlosigkeit geholt.", "Gavin ist eindeutig zu groß für ein Weib.", "Gavin am anderen Tor, das ist meine Schwester."
-"Schwester" -> "Sie ist die schönste, stärkste und schlauste Person, die ich kenne.", "Sie hat mich aus der Obdachlosigkeit geholt.", "Gavin ist eindeutig zu groß für ein Weib.", "Gavin am anderen Tor, das ist meine Schwester."
+"Weapon" -> "Gava taught me the morning star. I practised with it every day until I became the second best morning star user in the watch."
+"Gava" -> "Sie ist die schönste, stärkste und schlauste Person, die ich kenne.", "Sie hat mich aus der Obdachlosigkeit geholt.", "Gava ist eindeutig zu groß für ein Weib.", "Gava am anderen Tor, das ist meine Schwester."
+"Schwester" -> "Sie ist die schönste, stärkste und schlauste Person, die ich kenne.", "Sie hat mich aus der Obdachlosigkeit geholt.", "Gava ist eindeutig zu groß für ein Weib.", "Gava am anderen Tor, das ist meine Schwester."
 "obdachlos" -> "Das ist nichts für ein Mädchen, glaubt mir."
-"Frieden", "Gerechtigkeit" -> "Gavin sagt immer, ich solle alles für Frieden und Gerechtigkeit tun. Ich sage ihr immer, sie solle alles mit Freude und der Sonne im Herzen tun."
+"Frieden", "Gerechtigkeit" -> "Gava sagt immer, ich solle alles für Frieden und Gerechtigkeit tun. Ich sage ihr immer, sie solle alles mit Freude und der Sonne im Herzen tun."
 "Wache", "Bürgerwehr", "Tor" -> "Meine Aufgabe. Nie habe ich gedacht, eine Wache zu werden, als ich noch jung war und auf der Straße lebte."
 "Drogen", "Rauschgift" -> "#me schaut verschämt zu Boden."
 "Männer" -> "Männer sind alles so wie der Don. Die Männer in der Bürgerwehr wollen alle immer nur mit mir Dienst schieben und bei mir sein. Das nervt!"
-"Waffe" -> "Gavin brachte mir bei, mit dem Morgenstern umzugehen. Ich übte jeden Tag, bis ich die zweitbeste in der Bürgerwehr damit war."
+"Waffe" -> "Gava brachte mir bei, mit dem Morgenstern umzugehen. Ich übte jeden Tag, bis ich die zweitbeste in der Bürgerwehr damit war."
 
 -- Optional: Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I don't want to buy or sell anything, sorry."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich will weder etwas kaufen noch verkaufen."
-"tell something" -> "I could tell you a lot about my sister, Gavin!"
-"erzähl was", "erzähl etwas" -> "Ich könnte euch eine Menge über meine Schwester Gavin erzählen!"
+"tell something" -> "I could tell you a lot about my sister, Gava!"
+"erzähl was", "erzähl etwas" -> "Ich könnte euch eine Menge über meine Schwester Gava erzählen!"
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "I serve Elara because that is my sister's chosen god."
@@ -210,8 +210,8 @@ english, "Valerio", "Guilianni", "Don" -> "I hear he is the worst womanizer, but
 "Valerio", "Guilianni", "Don" -> "Ich hörte, er ist der schlimmste Weiberhgeld, aber da er mein Gehalt zahlt, arbeite ich für ihn."
 english, "Galmair" -> "The streets are cold, the men are rude, but this is where my sister is and my job. I love it."
 "Galmair" -> "Die Straßen sind kalt, die Leute ungehobelt aber hier ist meine Schwester und meine Aufgabe, also liebe ich es."
-english, "Cadomyr" -> "I made Gavin promise she would take me there. She said on her next day off. That was two years ago."
-"Cadomyr" -> "Ich habe Gavin dazu gebracht, mir zu versprechen, dass wir dort mal hingehen. Sie meinte, dass wir das an ihrem nächsten freien Tag machen. Das war vor zwei Jahren."
+english, "Cadomyr" -> "I made Gava promise she would take me there. She said on her next day off. That was two years ago."
+"Cadomyr" -> "Ich habe Gava dazu gebracht, mir zu versprechen, dass wir dort mal hingehen. Sie meinte, dass wir das an ihrem nächsten freien Tag machen. Das war vor zwei Jahren."
 english, "rosaline", "edwards" -> "I hear she is the meanest witch, even compared to the ugly ferocious women of Cadomyr."
 "rosaline", "edwards" -> "Ich hörte, sie ist die böseste Hexe unter den gräßlichen Frauen Cadomyrs."
 "Queen" -> "I hear she is the meanest witch, even compared to the ugly ferocious women of Cadomyr."
@@ -240,16 +240,16 @@ english, "Bre", "Southstar" -> "I am her."
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Nun, ihr kennt ja die Geschichten über Recht und Unrecht. Gavin glaubt sogar daran.", "Well you know those stories about right and wrong. Gavin is one of the ones who believes in them."
+cycletext "Nun, ihr kennt ja die Geschichten über Recht und Unrecht. Gava glaubt sogar daran.", "Well you know those stories about right and wrong. Gava is one of the ones who believes in them."
 cycletext "Geht geordnet weiter, danke.", "Please pass in an orderly fashion. Thank you."
 cycletext "Ihr da! Macht keinen Ärger.", "Hey you! Don't cause any trouble."
 cycletext "Mir ist so langweilig. Ich wünscht, wir Wachen dürften im Dienst trinken.", "I'm so bored. I wish we could drink at work."
-cycletext "Ich bin so hungrig. Ich frage mich, was Gavin wohl heute wieder kocht.", "So very very hungry. I wonder what Gavin is cooking tonight?"
+cycletext "Ich bin so hungrig. Ich frage mich, was Gava wohl heute wieder kocht.", "So very very hungry. I wonder what Gava is cooking tonight?"
 cycletext "Roar, ich mach alles mit meinem Morgenstern platt.", "Roar! I will crush anyone with my morning star."
 cycletext "Ich brauche keinen Mann.", "I'm not looking for a man."
 cycletext "In der Bürgerwehr zu sein ist der beste Beruf von allen.", "Civil watch is the best job ever."
-cycletext "Aye, Galvin hat immer recht.", "Aye, Gavin is always right."
-cycletext "Ich wünschte, Galvin wäre manchmal etwas besser gelaunt.", "I wish Gavin would lighten up every now and then."
+cycletext "Aye, Galvin hat immer recht.", "Aye, Gava is always right."
+cycletext "Ich wünschte, Galvin wäre manchmal etwas besser gelaunt.", "I wish Gava would lighten up every now and then."
 cycletext "Weitergehen.", "Move along."
 cycletext "Geht weiter.", "Pass along."
 cycletext "Lungert hier nicht so rum!", "Do not loiter!"
