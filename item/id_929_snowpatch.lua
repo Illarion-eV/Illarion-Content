@@ -24,7 +24,7 @@ local snowballmaking = require("content.gatheringcraft.snowballmaking")
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-    User:inform("",
+    User:inform("Der Schnee reicht nicht mehr für einen weiteren Schneeball.",
             "There is insufficient snow in this pile to make snowballs.",Character.highPriority)
 end
 
