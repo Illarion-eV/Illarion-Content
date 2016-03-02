@@ -25,11 +25,11 @@ local oremelting = require("content.gatheringcraft.oremelting")
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-	if licence.licence(User) then --checks if user is citizen or has a licence
-		return -- avoids crafting if user is neither citizen nor has a licence
-	end
+    if licence.licence(User) then --checks if user is citizen or has a licence
+        return -- avoids crafting if user is neither citizen nor has a licence
+    end
 
-	oremelting.StartGathering(User, SourceItem, ltstate);
+    oremelting.StartGathering(User, SourceItem, ltstate);
 end
 
 return M
