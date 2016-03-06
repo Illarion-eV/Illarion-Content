@@ -19,8 +19,8 @@ local ProductGroup = require("base.crafting.ProductGroup")
 local Product = require("base.crafting.Product")
 local Ingredient = require("base.crafting.Ingredient")
 
-local glassblowingandpottery = Craft {
-    name = {english = "Glass blowing and pottery", german = "Glasblasen und Töpfern"},
+local glassblowing = Craft {
+    name = {english = "Glass blowing", german = "Glasblasen"},
     handTool = "HTOOL",
     -- for single static tool:
     staticTool = "STOOL",
@@ -48,15 +48,7 @@ Product {item = "wineGlass", Ingredient {item = "glassIngot", amount = 4}}
 
 ProductGroup {name = {english = "Other", german = "Sonstiges"},
 Product {item = "emptySalveJar", Ingredient {item = "glassIngot", amount = 5}}
-},
+}
 
-ProductGroup {name = {english = "Pottery", german = "Töpfern"},
-Product {item = "bricks", Ingredient {item = "clay", amount = 2}},
-Product {item = "mortar", Ingredient {item = "clay", amount = 2}, Ingredient {item = "amethystPowder", amount = 1}},
-Product {item = "clayMug", Ingredient {item = "clay", amount = 2}},
-Product {item = "clayCup", Ingredient {item = "clay", amount = 3}},
-Product {item = "mugWithLid", Ingredient {item = "clay", amount = 6}},
-Product {item = "vase", Ingredient {item = "clay", amount = 10}, Ingredient {item = "obsidianPowder", amount = 1}}
 }
-}
-return glassblowingandpottery
+return glassblowing
