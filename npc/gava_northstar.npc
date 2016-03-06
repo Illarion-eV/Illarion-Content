@@ -13,7 +13,7 @@
 -- You should have received a copy of the GNU Affero General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
--- NPC Name: Gavin Northstar                                          Galmair --
+-- NPC Name: Gava Northstar                                           Galmair --
 -- NPC Job:  Guard                                                            --
 --                                                                            --
 -- NPC Race: dwarf                      NPC Position:  384, 328, 0            --
@@ -24,7 +24,7 @@
 --                                                    Illarion easyNPC Editor --
 --------------------------------------------------------------------------------
 
-name = "Gavin Northstar"
+name = "Gava Northstar"
 race = dwarf
 sex = female
 position = 384, 328, 0
@@ -41,7 +41,7 @@ author = "Kawan Baxter"
 author = "Nitram"
 
 lookatDE = ""
-lookatUS = "This NPC is Gavin Daystar the gate guardian, a broad shouldered dwarf"
+lookatUS = "This NPC is Gava Daystar the gate guardian, a broad shouldered dwarf"
 useMsgDE = "Zurück!"
 useMsgUS = "Back up!"
 wrongLangDE = "#me schaut verwirrt umher."
@@ -73,7 +73,7 @@ hitPlayerMsg "#me verpasst dem Eindringlich einen Hieb 'Verschwinde!'", "#me hit
 -- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
 -- When you are done, please hit the "Rebuild Script" button.
 
--- Name: Gavin Northstar
+-- Name: Gava Northstar
 -- Race: Dwarf
 -- Age: 25: Human Years
 -- Sex: Female
@@ -95,25 +95,25 @@ hitPlayerMsg "#me verpasst dem Eindringlich einen Hieb 'Verschwinde!'", "#me hit
 -- "The funny thing about beliefs is that every now and then someone is stupid enough to
 -- believe in them."
 
--- While Gavin Northstar was a young girl her parents filled her mind with stories of dwarves and
--- dragons, good and evil, right and wrong. Gavin envisioned herself a hero and dedicated her
+-- While Gava Northstar was a young girl her parents filled her mind with stories of dwarves and
+-- dragons, good and evil, right and wrong. Gava envisioned herself a hero and dedicated her
 -- life to being so. There was no choice in her mind but to do what is right. She is always
 -- reconsidering her assumptions and carefully moulding herself to be a sharp axe for justice. She
 -- can't stand to be in the wrong. In the times she does mess up, she is quick to apologise;
--- though Gavin messing up is a one in 50 year event. Gavin honed her body by working out with
+-- though Gava messing up is a one in 50 year event. Gava honed her body by working out with
 -- the guys. She surpassed them in muscle and in height as if the gods were smiling on her
 -- determination.
 
 -- She joined the Civil Watch as a foot soldier. In her early days in the watch
--- Gavin saw a girl on the streets. There were a lot of homeless in the area. She had often spared
--- them some pocket copper, however seeing a young girl on the streets broke Gavin's heart.
--- She invited the girl to her house. The girl sheepishly declined several times. Gavin however did
--- not take no for an answer. She lifted the girl by her arm and led her to Gavin's house. She fed
+-- Gava saw a girl on the streets. There were a lot of homeless in the area. She had often spared
+-- them some pocket copper, however seeing a young girl on the streets broke Gava's heart.
+-- She invited the girl to her house. The girl sheepishly declined several times. Gava however did
+-- not take no for an answer. She lifted the girl by her arm and led her to Gava's house. She fed
 -- the girl and told her she can stay there for a while. The two became close friends. Bre, who
--- was more laid back and cheery, joined the Civil Watch in order to follow Gavin. They both rose
+-- was more laid back and cheery, joined the Civil Watch in order to follow Gava. They both rose
 -- in the ranks higher than most in the Civil Watch.
 
--- During their friendship Gavin and Bre slit open their wrists till blood wrung out. They tied their
+-- During their friendship Gava and Bre slit open their wrists till blood wrung out. They tied their
 -- arms together and from then on they considered each other sisters.
 
 -- Goals
@@ -127,8 +127,8 @@ hitPlayerMsg "#me verpasst dem Eindringlich einen Hieb 'Verschwinde!'", "#me hit
 -- Being a Galmair gate guard.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Gavin Northstar the bridge guardian. Keyphrases: Hello, Bridge, Galmair, Guard.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Gavin Northstar, die Brückenwächterin. Schlüsselwörter: Hallo, Brücke, Galmair, Wache.")
+"Help" -> inform("[Game Help] This NPC is Gava Northstar the bridge guardian. Keyphrases: Hello, Bridge, Galmair, Guard.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Gava Northstar, die Brückenwächterin. Schlüsselwörter: Hallo, Brücke, Galmair, Wache.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Good day. You have arrived at the City of Galmair.", "May your walk in justice bring you peace."
@@ -141,8 +141,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Be wary of danger on your t
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Nehm Euch auf Reise vor Gefahren in Acht.", "Die Stadtwache hält immer wacht. Seid friedlich und achtet das Recht."
 "How are you", "How feel", "How do you do" -> "I relinquished such cares in the pursuit of peace and justice.", "As long as you don't cause any trouble in Galmair my day is correct", "Galmair is at peace. That is my state of being."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich kümmere mich nicht darum, Frieden und Gerechtigkeit sind weitauf wichtiger", "Solange Ihr mir keinen Ärger macht, ist alles in Ordnung.", "Glamair ist friedlich und mir geht es gut."
-"your name", "who are you", "who art thou" -> "Gavin Northstar.", "Gavin Northstar. Now please move along.", "Gavin Northstar. I guard this bridge."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Gavin Northstar.", "Gavin Northstar. Bitte geht weiter.", "Gavin Northstar. Ich bewache die Brücke."
+"your name", "who are you", "who art thou" -> "Gava Northstar.", "Gava Northstar. Now please move along.", "Gava Northstar. I guard this bridge."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Gava Northstar.", "Gava Northstar. Bitte geht weiter.", "Gava Northstar. Ich bewache die Brücke."
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 

@@ -51,87 +51,87 @@ OreList = {
   CreateOre(CreateItem(22), CreateItem(2535)),                              -- iron
   CreateOre(CreateItem(2536), CreateItem(2550)),                            -- copper
   CreateOre(CreateItem(234), CreateItem(236)),                              -- gold
-  CreateOre(CreateItem(1062), CreateItem(104)),  							-- silver
+  CreateOre(CreateItem(1062), CreateItem(104)),                              -- silver
   CreateOre(CreateItem(2534), CreateItem(2571))                             -- merinium
 };
 CoalItem = CreateItem(21);
 
 function StartGathering(User, SourceItem, ltstate)
 
-	gathering.InitGathering();
-	local oremelting = gathering.oremelting;
+    gathering.InitGathering();
+    local oremelting = gathering.oremelting;
 
-	common.ResetInterruption( User, ltstate );
-	if ( ltstate == Action.abort ) then -- work interrupted
+    common.ResetInterruption( User, ltstate );
+    if ( ltstate == Action.abort ) then -- work interrupted
         User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
 
-		if (SourceItem.id == 2834) then --swapping
-			SourceItem.id = 2837;
-			SourceItem.wear = 255;
-			world:changeItem(SourceItem);
-			User:changeSource(SourceItem);
-		end
+        if (SourceItem.id == 2834) then --swapping
+            SourceItem.id = 2837;
+            SourceItem.wear = 255;
+            world:changeItem(SourceItem);
+            User:changeSource(SourceItem);
+        end
 
-		if (SourceItem.id == 2835) then --swapping
-			SourceItem.id = 2836;
-			SourceItem.wear = 255;
-			world:changeItem(SourceItem);
-			User:changeSource(SourceItem);
-		end
+        if (SourceItem.id == 2835) then --swapping
+            SourceItem.id = 2836;
+            SourceItem.wear = 255;
+            world:changeItem(SourceItem);
+            User:changeSource(SourceItem);
+        end
 
-		return
-	end
+        return
+    end
 
-	if not common.CheckItem( User, SourceItem ) then -- security check
-		return
-	end
+    if not common.CheckItem( User, SourceItem ) then -- security check
+        return
+    end
 
-	-- additional tool item is needed
-	if (User:countItemAt("all",2751)==0) then
-		common.HighInformNLS( User,
-		"Du brauchst eine Tiegelzange um Erz zu schmelzen.",
-		"You need a pair of crucible-pincers for melting ore." );
-		return
-	end
-	local toolItem = User:getItemAt(5);
-	if ( toolItem.id ~= 2751 ) then
-		toolItem = User:getItemAt(6);
-		if ( toolItem.id ~= 2751 ) then
-			common.HighInformNLS( User,
-			"Du musst die Tiegelzange in der Hand haben!",
-			"You have to hold the crucible-pincers in your hand!" );
-			return
-		end
-	end
+    -- additional tool item is needed
+    if (User:countItemAt("all",2751)==0) then
+        common.HighInformNLS( User,
+        "Du brauchst eine Tiegelzange um Erz zu schmelzen.",
+        "You need a pair of crucible-pincers for melting ore." );
+        return
+    end
+    local toolItem = User:getItemAt(5);
+    if ( toolItem.id ~= 2751 ) then
+        toolItem = User:getItemAt(6);
+        if ( toolItem.id ~= 2751 ) then
+            common.HighInformNLS( User,
+            "Du musst die Tiegelzange in der Hand haben!",
+            "You have to hold the crucible-pincers in your hand!" );
+            return
+        end
+    end
 
-	if not common.FitForWork( User ) then -- check minimal food points
-		if (SourceItem.id == 2835) then --turn it off
-			SourceItem.id = 2836;
-			SourceItem.wear = 255;
-			world:changeItem(SourceItem);
-			User:changeSource(SourceItem);
-		end
+    if not common.FitForWork( User ) then -- check minimal food points
+        if (SourceItem.id == 2835) then --turn it off
+            SourceItem.id = 2836;
+            SourceItem.wear = 255;
+            world:changeItem(SourceItem);
+            User:changeSource(SourceItem);
+        end
 
-		if (SourceItem.id == 2834) then
-			SourceItem.id = 2837;
-			SourceItem.wear = 255;
-			world:changeItem(SourceItem);
-			User:changeSource(SourceItem);
-		end
+        if (SourceItem.id == 2834) then
+            SourceItem.id = 2837;
+            SourceItem.wear = 255;
+            world:changeItem(SourceItem);
+            User:changeSource(SourceItem);
+        end
 
-		return
-	end
+        return
+    end
 
-	common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+    common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 
-	-- any other checks?
+    -- any other checks?
 
-	if (User:countItemAt("all",CoalItem.id)<CoalItem.amount) then -- check for items to work on
-		common.HighInformNLS( User,
-		"Du brauchst Kohle um an der Esse zu arbeiten.",
-		"You need coal for working at the forge." );
-		return;
-	end
+    if (User:countItemAt("all",CoalItem.id)<CoalItem.amount) then -- check for items to work on
+        common.HighInformNLS( User,
+        "Du brauchst Kohle um an der Esse zu arbeiten.",
+        "You need coal for working at the forge." );
+        return;
+    end
 
   -- NOTE: we assume here that the user's items do not change while working.
   -- => the ore that we found at the beginning is the same as in the end.
@@ -145,13 +145,13 @@ function StartGathering(User, SourceItem, ltstate)
 
 
   if (oreItem == nil) then
-		common.HighInformNLS( User,
-		"Du brauchst Eisenerz, Kupfererz, Silbererz, Goldnuggets oder Meriniumerz um es zu schmelzen.",
-		"You need iron ore, copper ore, silver ore, gold nuggets or merinium ore for melting it." );
+        common.HighInformNLS( User,
+        "Du brauchst Eisenerz, Kupfererz, Silbererz, Goldnuggets oder Meriniumerz um es zu schmelzen.",
+        "You need iron ore, copper ore, silver ore, gold nuggets or merinium ore for melting it." );
     return;
   end
 
-	if ( ltstate == Action.none ) then -- currently not working -> let's go
+    if ( ltstate == Action.none ) then -- currently not working -> let's go
     -- oh wait, check if someone else is working at the tool
     if (SourceItem.id == 2836) or (SourceItem.id == 2837) then
       -- alright, it's off
@@ -159,19 +159,19 @@ function StartGathering(User, SourceItem, ltstate)
       User:startAction( oremelting.SavedWorkTime[User.id], 0, 0, 0, 0);
       User:talk(Character.say, "#me beginnt an der Esse Erz zu schmelzen.", "#me starts to melt ore at the forge.")
 
-	     if (SourceItem.id == 2836) then --turn it on!
+         if (SourceItem.id == 2836) then --turn it on!
             SourceItem.id = 2835;
-			SourceItem.wear = 2;
+            SourceItem.wear = 2;
             world:changeItem(SourceItem);
             User:changeSource(SourceItem);
-	    end
+        end
 
-	    if (SourceItem.id == 2837) then --turn it on!
+        if (SourceItem.id == 2837) then --turn it on!
             SourceItem.id = 2834;
-			SourceItem.wear = 2;
+            SourceItem.wear = 2;
             world:changeItem(SourceItem);
             User:changeSource(SourceItem);
-	    end
+        end
 
     else
       -- it's on, can't work now.
@@ -179,44 +179,44 @@ function StartGathering(User, SourceItem, ltstate)
       "Jemand anderes arbeitet schon an der Esse.",
       "Someone else is already working at the forge." );
     end
-		return
-	end
+        return
+    end
 
-	-- since we're here, we're working
+    -- since we're here, we're working
 
-	if oremelting:FindRandomItem(User) then
+    if oremelting:FindRandomItem(User) then
 
     if (SourceItem.id == 2835) then --turn it off
       SourceItem.id = 2836;
-	  SourceItem.wear = 255;
+      SourceItem.wear = 255;
       world:changeItem(SourceItem);
       User:changeSource(SourceItem);
     end
 
-	if (SourceItem.id == 2834) then
+    if (SourceItem.id == 2834) then
       SourceItem.id = 2837;
-	  SourceItem.wear = 255;
+      SourceItem.wear = 255;
       world:changeItem(SourceItem);
       User:changeSource(SourceItem);
     end
 
-		return
+        return
 
-	end
+    end
 
-	User:learn( oremelting.LeadSkill, oremelting.SavedWorkTime[User.id], oremelting.LearnLimit);
-	User:eraseItem( oreItem.ore.id, oreItem.ore.amount ); -- erase the item we're working on
+    User:learn( oremelting.LeadSkill, oremelting.SavedWorkTime[User.id], oremelting.LearnLimit);
+    User:eraseItem( oreItem.ore.id, oreItem.ore.amount ); -- erase the item we're working on
   User:eraseItem( CoalItem.id, CoalItem.amount );
 
-	local amount = oreItem.product.amount; -- set the amount of items that are produced
-	local notCreated = User:createItem( oreItem.product.id, amount, 333, nil ); -- create the new produced items
+    local amount = oreItem.product.amount; -- set the amount of items that are produced
+    local notCreated = User:createItem( oreItem.product.id, amount, 333, nil ); -- create the new produced items
   local nextActionStarted = false;
-	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-		world:createItemFromId( oreItem.product.id, notCreated, User.pos, true, 333, nil );
-		common.HighInformNLS(User,
-		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
-		"You can't carry any more and the rest drops to the ground.");
-	else -- character can still carry something
+    if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+        world:createItemFromId( oreItem.product.id, notCreated, User.pos, true, 333, nil );
+        common.HighInformNLS(User,
+        "Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+        "You can't carry any more and the rest drops to the ground.");
+    else -- character can still carry something
     if (User:countItemAt("all",CoalItem.id)>=CoalItem.amount) then  -- there are still items we can work on
       if (User:countItemAt("all",oreItem.ore.id)>=oreItem.ore.amount) then
 
@@ -234,41 +234,41 @@ function StartGathering(User, SourceItem, ltstate)
       "Du hast nicht mehr genug Kohle.",
       "You don't have enough coal anymore." );
     end
-	end
+    end
 
-	if common.GatheringToolBreaks( User, toolItem, oremelting:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
-		common.HighInformNLS(User,
-		"Deine alte Tiegelzange zerbricht.",
-		"Your old crucible-pincers break.");
+    if common.GatheringToolBreaks( User, toolItem, oremelting:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
+        common.HighInformNLS(User,
+        "Deine alte Tiegelzange zerbricht.",
+        "Your old crucible-pincers break.");
 
     if (SourceItem.id == 2835) then --turn it off
       SourceItem.id = 2836;
-	  SourceItem.wear = 255;
+      SourceItem.wear = 255;
       world:changeItem(SourceItem);
       User:changeSource(SourceItem);
     end
 
-	if (SourceItem.id == 2834) then --turn it off
+    if (SourceItem.id == 2834) then --turn it off
       SourceItem.id = 2837;
-	  SourceItem.wear = 255;
+      SourceItem.wear = 255;
       world:changeItem(SourceItem);
       User:changeSource(SourceItem);
     end
 
-		return
-	end
+        return
+    end
   if (not nextActionStarted) then
 
     if (SourceItem.id == 2835) then --turn it off
       SourceItem.id = 2836;
-	  SourceItem.wear = 255;
+      SourceItem.wear = 255;
       world:changeItem(SourceItem);
       User:changeSource(SourceItem);
     end
 
-	if (SourceItem.id == 2834) then --turn it off
+    if (SourceItem.id == 2834) then --turn it off
       SourceItem.id = 2837;
-	  SourceItem.wear = 255;
+      SourceItem.wear = 255;
       world:changeItem(SourceItem);
       User:changeSource(SourceItem);
     end

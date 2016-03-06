@@ -59,7 +59,7 @@ function StartGathering(User, SourceItem, ltstate)
     if ( ltstate == Action.none ) then -- currently not working -> let's go
         snowballmaking.SavedWorkTime[User.id] = snowballmaking:GenWorkTime(User,toolItem)
         User:startAction( snowballmaking.SavedWorkTime[User.id], 0, 0, 0, 0)
-        User:talk(Character.say, "#me beginnt die Schneebälle zu machen.", "#me starts to make snowballs.")
+        User:talk(Character.say, "#me formt Schneebälle.", "#me forms snowballs.")
         return 
     end
 
@@ -86,8 +86,8 @@ function StartGathering(User, SourceItem, ltstate)
         SourceItem.id = 929
         SourceItem.wear = 4
         world:changeItem(SourceItem)
-        User:inform("Sie haben den snowpile erschöpft.",
-                    "You have depleted the snowpile.",Character.highPriority)
+        User:inform("Hier gibt es kaum noch Schnee.",
+                    "You have depleted the snow pile.",Character.highPriority)
         return
     end
 

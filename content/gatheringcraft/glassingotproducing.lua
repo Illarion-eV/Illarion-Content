@@ -28,88 +28,88 @@ module("content.gatheringcraft.glassingotproducing", package.seeall)
 
 function StartGathering(User, SourceItem, ltstate)
 
-	gathering.InitGathering();
-	local glassingotproducing = gathering.glassingotproducing;
+    gathering.InitGathering();
+    local glassingotproducing = gathering.glassingotproducing;
 
-	common.ResetInterruption( User, ltstate );
-	if ( ltstate == Action.abort ) then -- work interrupted
+    common.ResetInterruption( User, ltstate );
+    if ( ltstate == Action.abort ) then -- work interrupted
         User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
-		return
-	end
+        return
+    end
 
-	if not common.CheckItem( User, SourceItem ) then -- security check
-		return
-	end
+    if not common.CheckItem( User, SourceItem ) then -- security check
+        return
+    end
 
-	-- additional tool item is needed
-	if (User:countItemAt("all",311)==0) then
-		User:inform("[ERROR] No glass blowing pipe found. Please inform a developer.");
-		return
-	end
-	local toolItem = User:getItemAt(5);
-	if ( toolItem.id ~= 311 ) then
-		toolItem = User:getItemAt(6);
-		if ( toolItem.id ~= 311 ) then
-			common.HighInformNLS( User,
-			"Du musst das Glasblasrohr in der Hand haben!",
-			"You have to hold the glass blow pipe in your hand!" );
-			return
-		end
-	end
+    -- additional tool item is needed
+    if (User:countItemAt("all",311)==0) then
+        User:inform("[ERROR] No glass blowing pipe found. Please inform a developer.");
+        return
+    end
+    local toolItem = User:getItemAt(5);
+    if ( toolItem.id ~= 311 ) then
+        toolItem = User:getItemAt(6);
+        if ( toolItem.id ~= 311 ) then
+            common.HighInformNLS( User,
+            "Du musst das Glasblasrohr in der Hand haben!",
+            "You have to hold the glass blow pipe in your hand!" );
+            return
+        end
+    end
 
-	if not common.FitForWork( User ) then -- check minimal food points
-		return
-	end
+    if not common.FitForWork( User ) then -- check minimal food points
+        return
+    end
 
-	common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+    common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 
-	-- any other checks?
+    -- any other checks?
 
-	if (User:countItemAt("all",316)==0 or User:countItemAt("all",314)==0) then -- check for items to work on
-		common.HighInformNLS( User,
-		"Du brauchst Quarzsand und Pottasche um Glasblöcke herzustellen.",
-		"You need quartz sand and potash for producing glass ingots." );
+    if (User:countItemAt("all",316)==0 or User:countItemAt("all",314)==0) then -- check for items to work on
+        common.HighInformNLS( User,
+        "Du brauchst Quarzsand und Pottasche um Glasblöcke herzustellen.",
+        "You need quartz sand and potash for producing glass ingots." );
     return;
-	end
+    end
 
-	if ( ltstate == Action.none ) then -- currently not working -> let's go
-		glassingotproducing.SavedWorkTime[User.id] = glassingotproducing:GenWorkTime(User,toolItem);
-		User:startAction( glassingotproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
-		User:talk(Character.say, "#me beginnt Glasblöcke herzustellen.", "#me starts to produce glass ingots.")
-		return
-	end
+    if ( ltstate == Action.none ) then -- currently not working -> let's go
+        glassingotproducing.SavedWorkTime[User.id] = glassingotproducing:GenWorkTime(User,toolItem);
+        User:startAction( glassingotproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
+        User:talk(Character.say, "#me beginnt Glasblöcke herzustellen.", "#me starts to produce glass ingots.")
+        return
+    end
 
-	-- since we're here, we're working
+    -- since we're here, we're working
 
-	if glassingotproducing:FindRandomItem(User) then
-		return
-	end
+    if glassingotproducing:FindRandomItem(User) then
+        return
+    end
 
-	User:learn( glassingotproducing.LeadSkill, glassingotproducing.SavedWorkTime[User.id], glassingotproducing.LearnLimit);
-	User:eraseItem( 316, 1 ); -- erase the item we're working on
+    User:learn( glassingotproducing.LeadSkill, glassingotproducing.SavedWorkTime[User.id], glassingotproducing.LearnLimit);
+    User:eraseItem( 316, 1 ); -- erase the item we're working on
   User:eraseItem( 314, 1 ); -- erase the item we're working on
-	local amount = 1; -- set the amount of items that are produced
-	local notCreated = User:createItem( 41, amount, 333, nil ); -- create the new produced items
-	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-		world:createItemFromId( 41, notCreated, User.pos, true, 333, nil );
-		common.HighInformNLS(User,
-		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
-		"You can't carry any more and the rest drops to the ground.");
-	else -- character can still carry something
-		if (User:countItemAt("all",316)>0 and User:countItemAt("all",314)>0) then  -- there are still items we can work on
-			glassingotproducing.SavedWorkTime[User.id] = glassingotproducing:GenWorkTime(User,toolItem);
-			User:startAction( glassingotproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
-		else -- no items left
-			common.HighInformNLS(User,
-			"Du brauchst Quarzsand und Pottasche um Glasblöcke herzustellen.",
+    local amount = 1; -- set the amount of items that are produced
+    local notCreated = User:createItem( 41, amount, 333, nil ); -- create the new produced items
+    if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+        world:createItemFromId( 41, notCreated, User.pos, true, 333, nil );
+        common.HighInformNLS(User,
+        "Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+        "You can't carry any more and the rest drops to the ground.");
+    else -- character can still carry something
+        if (User:countItemAt("all",316)>0 and User:countItemAt("all",314)>0) then  -- there are still items we can work on
+            glassingotproducing.SavedWorkTime[User.id] = glassingotproducing:GenWorkTime(User,toolItem);
+            User:startAction( glassingotproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
+        else -- no items left
+            common.HighInformNLS(User,
+            "Du brauchst Quarzsand und Pottasche um Glasblöcke herzustellen.",
       "You need quartz sand and potash for producing glass ingots." );
-		end
-	end
+        end
+    end
 
-	if common.GatheringToolBreaks( User, toolItem, glassingotproducing:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
-		common.HighInformNLS(User,
-		"Dein altes Glasblasrohr zerbricht.",
-		"Your old glass blow pipe breaks.");
-		return
-	end
+    if common.GatheringToolBreaks( User, toolItem, glassingotproducing:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
+        common.HighInformNLS(User,
+        "Dein altes Glasblasrohr zerbricht.",
+        "Your old glass blow pipe breaks.");
+        return
+    end
 end

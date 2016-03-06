@@ -25,33 +25,33 @@ local glassingotproducing = require("content.gatheringcraft.glassingotproducing"
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-	if licence.licence(User) then --checks if user is citizen or has a licence
-		return -- avoids crafting if user is neither citizen nor has a licence
-	end
+   if licence.licence(User) then --checks if user is citizen or has a licence
+      return -- avoids crafting if user is neither citizen nor has a licence
+   end
 
-	if (User:countItemAt("all",311)==0 and User:countItemAt("all",734)==0) then
-		-- no tool at all
-		common.HighInformNLS( User,
-			"Du brauchst ein Glasblasrohr oder eine Ziegelform um hier zu arbeiten.",
-			"You need a glass blow pipe or a brick mould to work here." );
-	elseif (User:countItemAt("all",311)>0 and User:countItemAt("all",734)==0) then
-		-- only glass blow pipe
-		glassingotproducing.StartGathering(User, SourceItem, ltstate);
-	elseif (User:countItemAt("all",311)==0 and User:countItemAt("all",734)>0) then
-		-- only brick mould
-		bricksproducing.StartGathering(User, SourceItem, ltstate);
-	else
-		-- both tools
-		if (User:countItemAt("all",316)>0 and User:countItemAt("all",314)>0) then
-			glassingotproducing.StartGathering(User, SourceItem, ltstate);
-		elseif ( (User:countItemAt("all",736) > 4) or (User:countItemAt("all",26) > 0) ) then
-			bricksproducing.StartGathering(User, SourceItem, ltstate);
-		else
-			common.HighInformNLS( User,
-				"Für die Ziegelform brauchst du Lehm oder fünf ungebrannte Ziegel, für das Glasblasrohr brauchst du Quarzsand und Pottasche.",
-				"For the brick mould you need clay or five unfired bricks, for the glass blow pipe you need quartz sand and potash." );
-		end
-	end
+   if (User:countItemAt("all",311)==0 and User:countItemAt("all",734)==0) then
+      -- no tool at all
+      common.HighInformNLS( User,
+         "Du brauchst ein Glasblasrohr oder eine Ziegelform um hier zu arbeiten.",
+         "You need a glass blow pipe or a brick mould to work here." );
+   elseif (User:countItemAt("all",311)>0 and User:countItemAt("all",734)==0) then
+      -- only glass blow pipe
+      glassingotproducing.StartGathering(User, SourceItem, ltstate);
+   elseif (User:countItemAt("all",311)==0 and User:countItemAt("all",734)>0) then
+      -- only brick mould
+      bricksproducing.StartGathering(User, SourceItem, ltstate);
+   else
+      -- both tools
+      if (User:countItemAt("all",316)>0 and User:countItemAt("all",314)>0) then
+         glassingotproducing.StartGathering(User, SourceItem, ltstate);
+      elseif ( (User:countItemAt("all",736) > 4) or (User:countItemAt("all",26) > 0) ) then
+         bricksproducing.StartGathering(User, SourceItem, ltstate);
+      else
+         common.HighInformNLS( User,
+            "Für die Ziegelform brauchst du Lehm oder fünf ungebrannte Ziegel, für das Glasblasrohr brauchst du Quarzsand und Pottasche.",
+            "For the brick mould you need clay or five unfired bricks, for the glass blow pipe you need quartz sand and potash." );
+      end
+   end
 end
 
 return M
