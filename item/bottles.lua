@@ -55,11 +55,11 @@ local function Evilrockentrance(User, SourceItem, ltstate)
             foundSource=true
         end
 
-        if not foundSource then
+--[[        if not foundSource then
         -- nothing found to fill the bucket.
         common.InformNLS(User,"Du solltest schon einen anderen Eimer zum Umfüllen haben.","You should have another container to transfer the water.");
         return
-        end
+        end    mark out inform unneeded and throwing error]]
 
         if ( ltstate == Action.none ) then
             User:startAction( 20, 21, 5, 10, 25);
