@@ -45,45 +45,6 @@ local BottleQualEn = {"Brimfull ", "Full ", "Half full ", "Almost empty "}
 local BottleQualLm = {8, 6, 3, 1}
 
 
-local function Evilrockentrance(User, SourceItem, ltstate)
-    local checkBucket = world:getItemOnField(position(997,199,2))
-    if checkBucket.id == 51 and SourceItem.id == 2496 then
-        local foundSource
-        -- check for empty bucket
-        local TargetItem = common.GetItemInArea(User.pos, 51);
-        if (TargetItem ~= nil) then
-            common.TurnTo( User, position(997,199,2) ); -- turn if necessary
-            foundSource=true
-        end
-
-        if not foundSource then
-        -- nothing found to fill the bucket.
-        common.InformNLS(User,"Du solltest schon einen anderen Eimer zum Umfüllen haben.","You should have another container to transfer the water.");
-        return
-        end
-
-        if ( ltstate == Action.none ) then
-            User:startAction( 20, 21, 5, 10, 25);
-            User:talk(Character.say, "#me beginnt den Eimer zu befüllen.", "#me starts to fill bucket.")
-            return
-        end
-
-        world:swap(checkBucket,52,999)
---[[    local checkFullBucket = world:getItemOnField(position(997,199,3))
-        if checkFullBucket.id == 52 then
-            checkFullBucket.wear=255
-            world:changeItem(checkFullBucket)
-        end ]]
-        evilrock.RemoveEntranceTrap(User)
-
-        local notCreated = User:createItem( 2498, 1, 999, nil ); -- create the new produced items
-        if SourceItem.number == 1 then
-            world:erase(SourceItem,1)
-            return
-        end
-    end
-end
-
 function M.UseItem(User, SourceItem)
 
     local progress = User:getQuestProgress(1);
@@ -173,9 +134,44 @@ function M.LookAtItem(User, Item)
     return lookAt
 end
 
+local function Evilrockentrance(User, SourceItem, ltstate)
+    local checkBucket = world:getItemOnField(position(997,199,2))
+    if checkBucket.id == 51 and SourceItem.id == 2496 then
+        local foundSource
+        -- check for empty bucket
+        local TargetItem = common.GetItemInArea(User.pos, 51);
+        if (TargetItem ~= nil) then
+            common.TurnTo( User, position(997,199,2) ); -- turn if necessary
+            foundSource=true
+        end
 
+        if not foundSource then
+        -- nothing found to fill the bucket.
+        common.InformNLS(User,"Du solltest schon einen anderen Eimer zum Umfüllen haben.","You should have another container to transfer the water.");
+        return
+        end
 
+        if ( ltstate == Action.none ) then
+            User:startAction( 20, 21, 5, 10, 25);
+            User:talk(Character.say, "#me beginnt den Eimer zu befüllen.", "#me starts to fill bucket.")
+            return
+        end
 
+        world:swap(checkBucket,52,999)
+--[[    local checkFullBucket = world:getItemOnField(position(997,199,3))
+        if checkFullBucket.id == 52 then
+            checkFullBucket.wear=255
+            world:changeItem(checkFullBucket)
+        end ]]
+        evilrock.RemoveEntranceTrap(User)
+
+        local notCreated = User:createItem( 2498, 1, 999, nil ); -- create the new produced items
+        if SourceItem.number == 1 then
+            world:erase(SourceItem,1)
+            return
+        end
+    end
+end
 
 return M
 
