@@ -19,8 +19,12 @@ local messages = require("base.messages")
 
 --Random Messages
 local msgs = messages.Messages()
-msgs:addMessage("#me schaut sich aufmerksam um.", "#me looks around.")
-
+msgs:addMessage("#me lacht hämisch, als hätte sie den Verstand verloren.", "#me cackles like she's gone mad.")
+msgs:addMessage("#me huscht auf ihren acht Beinen schnell hin und her.", "#me scampers around quickly on her eight legs")
+msgs:addMessage("#me spinnt ein Netz und bessert ihren engmaschigen Umhang aus.", "#me spins a web, repairing her delicate cloak.")
+msgs:addMessage("#me erprobt ihren Kampfstab an den Drow Kriegern in ihrer Nähe.", "#me practices swinging her battlestaff with the nearby drow warriors.")
+msgs:addMessage("#me riecht Blut ... mmmmm.", "Smell the blood... mmmmm.")
+msgs:addMessage("#me richtet ihren Blick in den Stollen, nachdem sie von dort ein Geräusch gehört hat.", "#me trains her eyes down the tunnel after hearing a noise.")
 local M = {}
 
 function M.generateCallbacks()
