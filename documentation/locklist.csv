@@ -131,5 +131,8 @@ Position List,lockId,English Description,German Description,locked on reload [fa
 "{766, 633, 0}",501,Dragon Cave,Drachenhort,
 "{947, 376, 0}",502,Field trip to various graveyards. Will be back when we will be back. - Pauldron house,"Exkursion zu verschiedenen Friedhofen. Sind zurück, wenn wir zurück sind",
 "{954, 386, 0}",502,Field trip to various graveyards. Will be back when we will be back. - Pauldron house,"Exkursion zu verschiedenen Friedhofen. Sind zurück, wenn wir zurück sind",
+"{326, 500, 1}",503,Mt Zotmore,,
+"{326, 501, 1}",503,Mt Zotmore,,
+"{333, 507, 1}",503,Mt Zotmore,,
 -- Gm Castle 6xx,,,,
 "{223, 103, 0}",600,Divine Prison,Göttliches Gefängnis,
