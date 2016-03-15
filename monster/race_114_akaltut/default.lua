@@ -14,10 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 741, Phantom Skeleton, Level: 5, Armourtype: heavy,  Weapontype: slashing
---ID 742, Bone Schemes,     Level: 6, Armourtype: medium, Weapontype: concussion
---ID 743, Bone Ghost,       Level: 7, Armourtype: heavy,  Weapontype: concussion
---ID 744, Phantom Archer,   Level: 6, Armourtype: medium, Weapontype: distance
+--ID  1141, Akaltut, Level: 9, Armourtype: light, Weapontype: concussion
 
-local transparentSkeletons = require("monster.race_74_tranparent_skeleton.base")
-return transparentSkeletons.generateCallbacks()
+local akaltut = require("monster.race_114_akaltut.base")
+return akaltut.generateCallbacks()

@@ -420,20 +420,6 @@ function StartVision(char,AmountStory,TypeStory)
     char.effects:addEffect(myEffect)
 end
 
-
-
-function RemoveEntranceTrap(char)
-    for xx=992,996 do
-        local EntranceTrap = world:getItemOnField(position(xx,195,0))
-        if EntranceTrap.id == 3097 then
-            world:erase(EntranceTrap,EntranceTrap.number)
-            world:makeSound(4,char.pos)
-            world:makeSound(5,char.pos)
-        end
-    end
-end
-
-
 M.executePortalLeverRiddle = class(function(leverriddle, posi)
     leverriddle.pos=posi
 end)

@@ -136,7 +136,7 @@ function M.UseItem(User, SourceItem, ltstate)
         "You pour the water on the person in front of you.")
         PourOnCharacter(TargetChar, SourceItem)
         world:gfx(11,TargetChar.pos)
-        CreateEmptyBucket(User, SourceItem)
+        CreateEmptyBucket(User, SourceItem, true)
         return
       end
     end
@@ -147,8 +147,7 @@ end
 
 function PourOnCharacter(TargetCharacter, SourceItem)
   world:makeSound( 9, TargetCharacter.pos )
-  world:swap(SourceItem, 51, 333)
-    common.InformNLS(TargetCharacter,
+  common.InformNLS(TargetCharacter,
   "Du fühlst dich gleich viel sauberer.",
   "You feel much cleaner.")
 end

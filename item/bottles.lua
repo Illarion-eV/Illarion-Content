@@ -44,53 +44,71 @@ local BottleQualDe = {"Randvolle ", "Volle ", "Halbvolle ", "Fast leere "}
 local BottleQualEn = {"Brimfull ", "Full ", "Half full ", "Almost empty "}
 local BottleQualLm = {8, 6, 3, 1}
 
-
-local function Evilrockentrance(User, SourceItem, ltstate)
-    local checkBucket = world:getItemOnField(position(997,199,2))
-    if checkBucket.id == 51 and SourceItem.id == 2496 then
-        local foundSource
-        -- check for empty bucket
-        local TargetItem = common.GetItemInArea(User.pos, 51);
-        if (TargetItem ~= nil) then
-            common.TurnTo( User, position(997,199,2) ); -- turn if necessary
-            foundSource=true
-        end
-
-        if not foundSource then
-        -- nothing found to fill the bucket.
-        common.InformNLS(User,"Du solltest schon einen anderen Eimer zum Umfüllen haben.","You should have another container to transfer the water.");
-        return
-        end
-
-        if ( ltstate == Action.none ) then
-            User:startAction( 20, 21, 5, 10, 25);
-            User:talk(Character.say, "#me beginnt den Eimer zu befüllen.", "#me starts to fill bucket.")
-            return
-        end
-
-        world:swap(checkBucket,52,999)
---[[    local checkFullBucket = world:getItemOnField(position(997,199,3))
-        if checkFullBucket.id == 52 then
-            checkFullBucket.wear=255
-            world:changeItem(checkFullBucket)
-        end ]]
-        evilrock.RemoveEntranceTrap(User)
-
-        local notCreated = User:createItem( 2498, 1, 999, nil ); -- create the new produced items
-        if SourceItem.number == 1 then
-            world:erase(SourceItem,1)
-            return
+local function getEvilrockBucket(User)
+    local Radius = 1
+    for  x = -Radius, Radius do
+        for y = -Radius, Radius do
+            local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z)
+            if (world:isItemOnField(targetPos)) then
+                local item = world:getItemOnField(targetPos)
+                if (item.id == 51 and item:getData("evilrockBucket") == "true") then
+                    return item
+                end
+            end
         end
     end
+    return nil
 end
 
-function M.UseItem(User, SourceItem)
+local function Evilrockentrance(User, SourceItem, ltstate)
+    local evilrockBucket =  getEvilrockBucket(User)
+    if evilrockBucket ~= nil and SourceItem.id == 2496 then
+        common.TurnTo(User, evilrockBucket.pos) -- turn if necessary
 
-    local progress = User:getQuestProgress(1);
+        if ( ltstate == Action.none ) then
+            User:startAction( 20, 21, 5, 10, 25)
+            User:talk(Character.say, "#me beginnt den Eimer zu befüllen.", "#me starts to fill bucket.")
+            return true
+        end
+
+        if ( ltstate == Action.abort ) then
+            common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+            return true
+        end
+
+        world:swap(evilrockBucket, 52, 999)
+
+        world:erase(SourceItem, 1)
+        local notCreated = User:createItem(2498, 1, 333, nil) -- create the new produced items
+        if (notCreated > 0) then -- too many items -> character can't carry anymore
+            world:createItemFromId(2498, notCreated, User.pos, true, 333, nil)
+            common.HighInformNLS(User,
+                "Du kannst nichts mehr halten.",
+                "You can't carry any more.")
+        end
+
+        for xx = 992, 996 do
+            local EntranceTrap = world:getItemOnField(position(xx,195,0))
+            if EntranceTrap.id == 3097 then
+                world:erase(EntranceTrap,EntranceTrap.number)
+                world:makeSound(4,User.pos)
+                world:makeSound(5,User.pos)
+            end
+        end
+        common.InformNLS(User, "Du hörst ein seltsames Geräusch von unten.", "You hear a strange noise from below.")
+        return true
+    end
+    return false
+end
+
+function M.UseItem(User, SourceItem, ltstate)
 
     local food = drinkList[ SourceItem.id ];
     if (food ~= nil ) then
-        Evilrockentrance(User, SourceItem, ltstate)
+        if Evilrockentrance(User, SourceItem, ltstate) == true then
+            return
+        end
+
         local TargetItem = common.GetTargetItem(User, SourceItem);
         if( TargetItem ) then
             for i, combo in pairs(food[4]) do
@@ -139,7 +157,6 @@ function M.UseItem(User, SourceItem)
     end
 end
 
-
 function M.LookAtItem(User, Item)
     local lookAt = lookat.GenerateLookAt(User, Item)
     local food = drinkList[ Item.id ];
@@ -173,9 +190,4 @@ function M.LookAtItem(User, Item)
     return lookAt
 end
 
-
-
-
-
 return M
-
