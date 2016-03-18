@@ -414,12 +414,13 @@ function ArmourAbsorption(Attacker, Defender, Globals)
         skillmod = 1-thingvalue/250
         armourValue = thingvalue
     end
---[[
-    local Noobmessupmalus = 5 -- Amount that armour value is divided by if your skill isn't high enough to use this armour.
-    if itemLevel > Defender.DefenseSkill and character.isPlayer(Defender.Char) then
-        armourValue = armourValue/Noobmessupmalus
+
+    local messupmalus = 5 -- Amount that armour value is divided by if your skill isn't high enough to use this armour.
+    
+    if character.IsPlayer(Defender.Char) and itemLevel > Defender.DefenseSkill then
+        armourValue = armourValue/messupmalus
     end
-]]
+
     if(Globals.criticalHit==6) then
         --Armour pierce
         armourValue = nil
@@ -563,12 +564,13 @@ function CalculateDamage(Attacker, Globals)
     else
         BaseDamage = fighting.GetWrestlingAttack( Attacker.Race ) * 10
     end
---[[
-    local Noobmessupmalus = 5 -- Amount that damage value is divided by if your skill isn't high enough to use this weapon.
-    if Attacker.Weapon.Level>Attacker.skill and character.isPlayer(Attacker.Char) then
-        BaseDamage = BaseDamage/Noobmessupmalus
-    end
-]]
+
+    local messupmalus = 5 -- Amount that damage value is divided by if your skill isn't high enough to use this weapon.
+    
+--[[    if character.IsPlayer(Attacker.Char) and Attacker.Weapon.Level>Attacker.skill then
+        BaseDamage = BaseDamage/messupmalus
+    end]]
+    
     StrengthBonus = (Attacker.strength - 6) * 3
     PerceptionBonus = (Attacker.perception - 6) * 1
     DexterityBonus = (Attacker.dexterity - 6) * 1
@@ -749,12 +751,11 @@ function HitChance(Attacker, Defender, Globals)
     end
 
     --The Shield Scaling Factor (SSF). Changes how much the top shield is better than the worse one.
-    local ShieldScalingFactor =5 --For what do we have database numbers!? ~Estralis
+    local ShieldScalingFactor =5 
 
     local parryweapondefense = parryWeapon.Defence
     local defenderdefense = (100/ShieldScalingFactor) + parryweapondefense*(1-1/ShieldScalingFactor)
 
-    --THIS IS SHIT!!! EITHER YOU TAKE THE DB VALUES OR NOT! ~Estralis
     if(parryWeapon.WeaponType~=14) then
         defenderdefense = defenderdefense/2
     end
@@ -766,12 +767,13 @@ function HitChance(Attacker, Defender, Globals)
     parryChance = parryChance * (0.5 + (Defender.agility) / 20) --Skill value gets multiplied by 0.5-1.5 (+/-50% of a normal player) scaled by agility
     parryChance = parryChance + (defenderdefense) / 5 --0-20% bonus by the weapon/shield
     parryChance = parryChance * qualitymod
---[[
-    local Noobmessupmalus = 5 -- Amount that parry chance is divided by if your skill isn't high enough to use this weapon.
-    if parryWeapon.Level>Defender.parry and character.isPlayer(Attacker.Char) then
-        parryChance = parryChance/Noobmessupmalus
-    end
-]]
+
+    local messupmalus = 5 -- Amount that parry chance is divided by if your skill isn't high enough to use this weapon.
+    
+    --[[if character.IsPlayer(Attacker.Char) and parryWeapon.Level>Defender.parry then
+        parryChance = parryChance/messupmalus
+    end]]
+    
      -- Min and max parry are 5% and 95% respectively
     parryChance = common.Limit(parryChance, 5, 95)
 
