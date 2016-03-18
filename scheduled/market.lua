@@ -35,7 +35,7 @@ function M.market()
     --Announce the market day one ingame hour before it takes place
     if (hour == 11) and not announced then
  
-        --world:broadcast("Heute wird auf dem Gelände des Gasthofs zur Hanfschlinge der Markt des Monats "..monthString.." veranstaltet. Macht eure Waren bereit!","Today, the market of the month "..monthString.." will be held on the premises of the Hemp Necktie Inn. Get your goods ready!");
+        world:broadcast("Heute wird auf dem Gelände des Gasthofs zur Hanfschlinge der Markt des Monats "..monthString.." veranstaltet. Macht eure Waren bereit!","Today, the market of the month "..monthString.." will be held on the premises of the Hemp Necktie Inn. Get your goods ready!");
         announced=true;
         started=false;
         over=false;
@@ -44,17 +44,17 @@ function M.market()
     --Invites the players        
     elseif (hour == 12) and not started then
     
-        --world:broadcast("Der Markt des Monats "..monthString.." hat soeben auf dem Gelände des Gasthofs zur Hanfschlinge begonnen!","The market of the month "..monthString.." has started on the premises of the Hemp Necktie Inn!");
+        world:broadcast("Der Markt des Monats "..monthString.." hat soeben auf dem Gelände des Gasthofs zur Hanfschlinge begonnen!","The market of the month "..monthString.." has started on the premises of the Hemp Necktie Inn!");
         announced=false;
         started=true;
         over=false;
-        M.placeMarketStands();
+        placeMarketStands();
         return;
         
     --Event is over. The market stands and depots will rot away   
-    elseif (hour == 14) and not over then
+    elseif (hour == 15) and not over then
     
-        --world:broadcast("Der Markt des Monats "..monthString.." ist beendet. Die Marktstände werden in Kürze abgebaut.","The market of the month "..monthString.." is over. The market stands will be dismantled soon.");
+        world:broadcast("Der Markt des Monats "..monthString.." ist beendet. Die Marktstände werden in Kürze abgebaut.","The market of the month "..monthString.." is over. The market stands will be dismantled soon.");
         announced=false;
         started=false;
         over=true;
@@ -66,7 +66,22 @@ end
 
 function placeMarketStands()
 
-   
+    tablePositions={position(678, 319, 0), position(679, 319, 0), position(680, 319, 0), position(678, 325, 0), position(679, 325, 0), position(680, 325, 0), position(682, 321, 0), position(682, 322, 0), position(682, 323, 0), position(676, 321, 0), position(676, 322, 0), position(676, 323, 0)};
+    
+    for i,thisPos in pairs(tablePositions) do
+        theTable=world:createItemFromId( 320, 1, tablePositions[i], false, 333, nil );
+        theTable.wear=20;
+        world:changeItem(theTable)
+    end
+    
+    depotPositions={position(679, 319, 0), position(679, 325, 0), position(682, 322, 0), position(676, 322, 0)};
+    
+    for i,thisPos in pairs(depotPositions) do    
+        theDepot=world:createItemFromId( 321, 1, depotPositions[i], false, 333, {depot=tostring(100+i)});
+        theDepot.wear=20;
+        world:changeItem(theDepot)
+    end
+    
 end
 
 return M
