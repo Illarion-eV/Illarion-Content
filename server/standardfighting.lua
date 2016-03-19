@@ -1431,7 +1431,7 @@ function HandleAmmunition(Attacker)
         Attacker.Char:increaseAtPos(Attacker.WeaponItem.itempos, -1)
         
         if Attacker.Char:getItemAt(Attacker.WeaponItem.itempos).number == 0 then
-            Attacker.Char:inform("Du hast keine Munition mehr.", "You are out of ammunition.");
+            Attacker.Char:inform("Du hast kein Wurfgeschoss mehr.", "You are out of throwing weapons.");
         end
         
     else
