@@ -1419,9 +1419,21 @@ function HandleAmmunition(Attacker)
     end
 
     if (Attacker.Weapon.AmmunitionType == Attacker.SecWeapon.WeaponType) then
+        
         Attacker.Char:increaseAtPos(Attacker.SecWeaponItem.itempos, -1)
+        
+        if Attacker.Char:getItemAt(Attacker.SecWeaponItem.itempos).number == 0 then
+            Attacker.Char:inform("Du hast keine Munition mehr.", "You are out of ammunition.");
+        end
+        
     elseif (Attacker.Weapon.AmmunitionType == 255) then -- throwing axes, spears and throwing stars, thus they ARE the ammunition!
+    
         Attacker.Char:increaseAtPos(Attacker.WeaponItem.itempos, -1)
+        
+        if Attacker.Char:getItemAt(Attacker.WeaponItem.itempos).number == 0 then
+            Attacker.Char:inform("Du hast keine Munition mehr.", "You are out of ammunition.");
+        end
+        
     else
         return false
     end
