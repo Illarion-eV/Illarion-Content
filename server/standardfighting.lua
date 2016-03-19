@@ -485,8 +485,8 @@ function ArmourDegrade(Defender, Globals)
 
         if (durability < 10) then
             common.InformNLS(Defender.Char,
-                "Dein Rüstungsteil '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du es reparieren.",
-                "Your armour piece '"..nameText.."' has seen better days. You may want to repair it.")
+                "Dein Rüstungsteil '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du es reparieren lassen.",
+                "Your armour piece '"..nameText.."' has seen better days. You may want to get it repaired.")
         end
     end
 end
@@ -504,7 +504,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
         if (durability == 0) then
             common.InformNLS(Attacker.Char,
                 "Deine Waffe '"..nameText.."' zerbricht. Du vergießt eine bitter Träne und sagst lebe wohl, als sie in das nächste Leben übergeht.",
-                "Your weapon '"..nameText.."' shatters. You shed a single tear and bid it farewell as it moves onto its next life.")
+                "Your weapon '"..nameText.."' shatters. You shed a single tear and bid it farewell as it moves on to its next life.")
             world:erase(Attacker.WeaponItem, 1)
             return true
         end
@@ -514,8 +514,8 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 
         if (durability < 10) then
             common.InformNLS(Attacker.Char,
-                "Deine Waffe '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du sie reparieren.",
-                "Your weapon '"..nameText.."' has seen better days. You may want to repair it.")
+                "Deine Waffe '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du sie reparieren lassen.",
+                "Your weapon '"..nameText.."' has seen better days. You may want to get it repaired.")
         end
     end
 
