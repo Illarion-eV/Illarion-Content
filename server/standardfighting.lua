@@ -566,10 +566,10 @@ function CalculateDamage(Attacker, Globals)
     end
 
     local messupmalus = 5 -- Amount that damage value is divided by if your skill isn't high enough to use this weapon.
-    
---[[    if character.IsPlayer(Attacker.Char) and Attacker.Weapon.Level>Attacker.skill then
+        
+    if character.IsPlayer(Attacker.Char) and world:getItemStatsFromId(Attacker.WeaponItem.id).Level>Attacker.skill then
         BaseDamage = BaseDamage/messupmalus
-    end]]
+    end
     
     StrengthBonus = (Attacker.strength - 6) * 3
     PerceptionBonus = (Attacker.perception - 6) * 1
@@ -770,9 +770,9 @@ function HitChance(Attacker, Defender, Globals)
 
     local messupmalus = 5 -- Amount that parry chance is divided by if your skill isn't high enough to use this weapon.
     
-    --[[if character.IsPlayer(Attacker.Char) and parryWeapon.Level>Defender.parry then
+    if character.IsPlayer(Defender.Char) and world:getItemStatsFromId(parryItem.id).Level>Defender.parry then
         parryChance = parryChance/messupmalus
-    end]]
+    end
     
      -- Min and max parry are 5% and 95% respectively
     parryChance = common.Limit(parryChance, 5, 95)
