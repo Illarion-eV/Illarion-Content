@@ -475,7 +475,7 @@ function ArmourDegrade(Defender, Globals)
         if (durability == 0) then
             common.InformNLS(Defender.Char,
                 "Dein Rüstungsteil '"..nameText.."' zerbricht. Glücklicherweise tritt kein Splitter in deinen Körper ein.",
-                "Your armour piece '"..nameText.."' shatters. Thankfully, no fragments end up in your body.")
+                "Your armour piece '"..nameText.."' shatters. Fortunately, no fragments end up in your body.")
           world:erase(Globals.HittedItem, 1)
           return true
         end
