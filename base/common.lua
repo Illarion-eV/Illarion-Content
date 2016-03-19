@@ -454,36 +454,6 @@ function M.GetHungry(User, units)
     end;
 end;
 
---- Checks if are gems integrated in a item and returns the strength one or both
--- gems.<br />
--- Gem index:
--- <ol><li>dimond</li><li>smaragd</li><li>ruby</li><li>obsidian</li>
--- <li>sapphire</li><li>amethyst</li><li>topas</li></ol>
--- @param toolItem The item that shall be checked
--- @return Index value of the first gem
--- @return Strength of the first gem
--- @return Index value of the second gem
--- @return Strength of the second gem
-function M.GetBonusFromTool(toolItem)
-    local dataValue=0; --toolItem.data;
-        -- TODO get correct bonus
-    if ((dataValue > 9) and (dataValue < 100)) then
-        local str1 = math.fmod(dataValue, 10) + 1;
-        dataValue = dataValue - str1 + 1;
-        local stone1 = math.floor(dataValue / 10);
-        return stone1, str1, 0, 0;
-    elseif ((dataValue > 1009) and (dataValue < 10000)) then
-        local str1 = math.fmod(dataValue, 10) + 1;
-        dataValue = dataValue - str1 + 1;
-        local stone1 = math.fmod(dataValue, 100) / 10;
-        dataValue = dataValue - stone1 * 10;
-        local str2 = math.fmod(dataValue, 1000) / 100 + 1;
-        local stone2 = math.floor(dataValue / 1000);
-        return stone1, str1, stone2, str2;
-    end;
-    return 0, 0, 0, 0;
-end;
-
 function M.GatheringToolBreaks(user, item, workTime)
 
   if not user or not item then
