@@ -124,7 +124,7 @@ function repair(npcChar, speaker, theItem, theItemUID, theItemPos, theItemQual, 
         local price=math.ceil(0.5*theItemStats.Worth*toRepair/1000)*10;
         local priceMessage = getRepairPrice(theItem, speaker);
 
-        if theItemStats.Worth == 0 or theItemStats.isStackable or durability==99 then --Cannot repair perfect, priceless or stackable items
+        if theItemStats.Worth == 0 or theItemStats.MaxStack~=1 or durability==99 then --Cannot repair perfect, priceless or stackable items
             local notRepairable={"Entschuldigt, aber das kann ich nicht reparieren.", "I cannot repair this, sorry."}; --Priceless, perfect or stackable item
             npcChar:talk(Character.say, notRepairable[language+1]);
         else -- I can repair it!

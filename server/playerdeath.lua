@@ -67,7 +67,7 @@ function M.playerDeath(deadPlayer)
             local item = deadPlayer:getItemAt(i)
             local commonItem = world:getItemStats(item)
 
-            if item.id > 0 and item.id ~= BLOCKED_ITEM and item.quality > 100 and not commonItem.isStackable then
+            if item.id > 0 and item.id ~= BLOCKED_ITEM and item.quality > 100 and commonItem.maxStack == 1 then
                 local durability = item.quality % 100
                 local newbieModficator = 1
                 if deadPlayer:isNewPlayer() then

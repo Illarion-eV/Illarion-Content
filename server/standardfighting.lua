@@ -495,11 +495,15 @@ end
 -- @param Defender The table that stores the data of the defender
 -- @param ParryWeapon The item which was used to parry
 function WeaponDegrade(Attacker, Defender, ParryWeapon)
-    if (common.Chance(1, 20)) and (Attacker.WeaponItem.id ~= 0) and character.IsPlayer(Attacker.Char) then
+
+    commonAttackerWeapon=world:getItemStats(Attacker.WeaponItem);
+    commonParryWeapon=world:getItemStats(ParryWeapon);
+    
+    if (common.Chance(1, 20)) and (Attacker.WeaponItem.id ~= 0) and character.IsPlayer(Attacker.Char) and commonAttackerWeapon.MaxStack == 1 then
         local durability = math.fmod(Attacker.WeaponItem.quality, 100)
         local quality = (Attacker.WeaponItem.quality - durability) / 100
         local nameText = world:getItemName(Attacker.WeaponItem.id, Attacker.Char:getPlayerLanguage())
-
+    
         durability = durability - 1
         if (durability == 0) then
             common.InformNLS(Attacker.Char,
@@ -519,12 +523,13 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
         end
     end
 
-    if (common.Chance(1, 60)) and (ParryWeapon.id ~= 0) and character.IsPlayer(Defender.Char) then
+    if (common.Chance(1, 60)) and (ParryWeapon.id ~= 0) and character.IsPlayer(Defender.Char) and commonParryWeapon.MaxStack == 1 then
         local durability = math.fmod(ParryWeapon.quality, 100)
         local quality = (ParryWeapon.quality - durability) / 100
         local nameText = world:getItemName(ParryWeapon.id, Defender.Char:getPlayerLanguage())
 
         durability = durability - 1
+        
         if (durability == 0) then
             common.InformNLS(Defender.Char,
                 "Dein Gegenstand '"..nameText.."' zerbricht, dies erschwert es dir, dich zu verteidigen.",
@@ -1410,6 +1415,7 @@ end
 -- @param Attacker The table that stores the data of the attacking char
 -- @return true in case the attack is good to go
 function HandleAmmunition(Attacker)
+
     if not character.IsPlayer(Attacker.Char) then -- Monsters do not use ammo
         return true
     end
