@@ -490,6 +490,18 @@ function M.callEffect( Effect, Char ) -- Effect is called
     end
     --Addition end
     
+    --Addition by Evie: Quest 602/608 - Tronuk beer quest
+    theQuestStatus=Char:getQuestProgress(608)
+
+    if theQuestStatus == 1 then --Time over!
+        Char:setQuestProgress(602,0)
+    end
+
+    if theQuestStatus > 0 then --Is there a countdown? Will be reduced even if the player is AFK/idle
+        Char:setQuestProgress(608,theQuestStatus-1) --counting down!
+    end
+    --Addition end
+    
     Effect.nextCalled = 3000 --Effect gets called each 5 minutes
 
     return true --No idea why!
