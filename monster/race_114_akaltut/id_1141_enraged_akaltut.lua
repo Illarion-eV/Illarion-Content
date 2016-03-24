@@ -35,4 +35,37 @@ magic.addPoisonring{probability = 0.009, damage = {from = 2200, to = 2700}, rang
 
 local M = akaltut.generateCallbacks()
 M = magic.addCallbacks(M)
-return mageBehaviour.addCallbacks(magic, M)
+M = mageBehaviour.addCallbacks(magic, M)
+
+local function spawnEnragedAkaltut(pos)
+    if not common.DeleteItemFromStack(pos, {itemId = 1175}) then
+        debug("Failed to remove the spider eggs for split Akaltut")
+    end
+    local spawnPosition = common.GetFreePositions(pos, 1, true, true)() or pos
+    local spiderQueen = world:createMonster(195, spawnPosition, -5)
+    if spiderQueen ~= nil and isValidChar(spiderQueen) then
+        spiderQueen:talk(Character.say, "#me ", "#me bursts forth from the egg in it's natural state.")
+    end
+    local humanMage = world:createMonster(3, spawnPosition, -5)
+    if humanMage ~= nil and isValidChar(humanMage) then
+        humanMage:talk(Character.say, "#me ", "#me bursts forth from the egg in it's natural state.")
+    end
+end
+
+local orgOnDeath = M.onDeath
+function M.onDeath(monster)
+    if orgOnDeath ~= nil then
+        orgOnDeath(monster)
+    end
+
+    local pos = position(monster.pos.x, monster.pos.y, monster.pos.z)
+    monster:talk(Character.say, "", "A scream is heard as the monster falls.")
+    world:gfx(45, pos)
+    local spiderEgg = world:createItemFromId(1175, 1, pos, true, 333, nil)
+    spiderEgg.wear = 3
+    world:changeItem(spiderEgg)
+
+    scheduledFunction.registerFunction(8, function() spawnEnragedAkaltut(pos) end)
+end
+
+return M

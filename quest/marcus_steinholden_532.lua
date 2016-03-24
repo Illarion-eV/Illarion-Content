@@ -111,9 +111,9 @@ monsterQuests.addQuest{
     location = {position = position(480, 897, -9), radius = 35},
     queststatus = {from = 23, to = 24},
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
-    monsterName = {german = "Akaltut", english = "Akaltut"},
+    monsterName = {german = "Wütend Akaltut", english = "Enraged Akaltut"},
     npcName = "Marcus Steinholden",
-    monsterIds = {1141} -- Akaltut
+    monsterIds = {1142} -- Enraged Akaltut
 }
 
 function M.QuestTitle(user)

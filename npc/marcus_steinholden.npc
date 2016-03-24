@@ -139,20 +139,20 @@ queststatus(532) > 0, queststatus(532) < 21, "Auftrag", "Aufgabe", "Abenteuer", 
 queststatus(532) = 21, english, ".+" -> inform("[Quest solved] You are awarded 300 silver coins."), money + 30000, queststatus(532) = 22, "Marcus does thank you. Please take these coins for your work. I have one last task if you are ready."
 queststatus(532) = 21, ".+" -> inform("[Quest gelöst] Du erhältst 300 Silberstücke."), money + 30000, queststatus(532) = 22, "Marcus dankt euch. Nehmt bitte diese Münzen an für eure Tat. Ich habe eine letzte Aufgabe für euch, wenn ihr bereit seid."
 
--- Marcus task two: Kill Akaltut.
--- Receiving the task of Killing Akaltut
-queststatus(532) = 22, english, "quest", "mission", "test" -> inform("[New quest] Akaltut's Chambers Boss Fight 2"), queststatus(532) = 23, "Marcus has one last request. Can..can you kill Master Akaltut for me? Marcus thinks only that will break the bond she has over him."
-queststatus(532) = 22, "quest", "mission", "Test" -> inform("[Neue Quest] Kampf in Akaltuts Kammern 2"), queststatus(532) = 23, "Marcus hat eine letzte Aufgabe. Könn..Könnt ihr die Meisterin Akaltut für mich töten? Marcus denkt, dass nur dieser Akt den Bund brechen wird, der ihr Macht über ihn verleiht."
-queststatus(532) = 22, "task", "adventure", "order" -> inform("[New quest] Akaltut's Chambers Boss Fight 2"), queststatus(532) = 23, "Marcus has one last request. Can..can you kill Master Akaltut for me? Marcus thinks only that will break the bond she has over him."
-queststatus(532) = 22, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Kampf in Akaltuts Kammern 2"), queststatus(532) = 23, "Marcus hat eine letzte Aufgabe. Könn..Könnt ihr die Meisterin Akaltut für mich töten? Marcus denkt, dass nur dieser Akt den Bund brechen wird, der ihr Macht über ihn verleiht."
+-- Marcus task two: Kill Enraged Akaltut.
+-- Receiving the task of Killing Enraged Akaltut
+queststatus(532) = 22, english, "quest", "mission", "test" -> inform("[New quest] Akaltut's Chambers Boss Fight 2"), queststatus(532) = 23, "Marcus has one last request. Can..can you kill Enraged Akaltut for me? Marcus thinks only that will break the bond she has over him."
+queststatus(532) = 22, "quest", "mission", "Test" -> inform("[Neue Quest] Kampf in Akaltuts Kammern 2"), queststatus(532) = 23, "Marcus hat eine letzte Aufgabe. Könn..Könnt ihr die Wütend Akaltut für mich töten? Marcus denkt, dass nur dieser Akt den Bund brechen wird, der ihr Macht über ihn verleiht."
+queststatus(532) = 22, "task", "adventure", "order" -> inform("[New quest] Akaltut's Chambers Boss Fight 2"), queststatus(532) = 23, "Marcus has one last request. Can..can you kill Enraged Akaltut for me? Marcus thinks only that will break the bond she has over him."
+queststatus(532) = 22, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Kampf in Akaltuts Kammern 2"), queststatus(532) = 23, "Marcus hat eine letzte Aufgabe. Könn..Könnt ihr die Wütend Akaltut für mich töten? Marcus denkt, dass nur dieser Akt den Bund brechen wird, der ihr Macht über ihn verleiht."
 -- If quest received but task not finished
-queststatus(532) > 22, queststatus(532) < 24, english,"quest", "mission", "test" -> "Please kill Master Akaltut for Marcus to break their bond."
-queststatus(532) > 22, queststatus(532) < 24, "quest", "mission", "Test" -> "Bitte tötet Meisterin Akaltut für Marcus, um den Bund zu brechen."
-queststatus(532) > 22, queststatus(532) < 24, "task", "adventure", "order" -> "Please kill Master Akaltut for Marcus to break their bond."
-queststatus(532) > 22, queststatus(532) < 24, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte tötet Meisterin Akaltut für Marcus, um den Bund zu brechen."
+queststatus(532) > 22, queststatus(532) < 24, english,"quest", "mission", "test" -> "Please kill Enraged Akaltut for Marcus to break their bond."
+queststatus(532) > 22, queststatus(532) < 24, "quest", "mission", "Test" -> "Bitte tötet Wütend Akaltut für Marcus, um den Bund zu brechen."
+queststatus(532) > 22, queststatus(532) < 24, "task", "adventure", "order" -> "Please kill Enraged Akaltut for Marcus to break their bond."
+queststatus(532) > 22, queststatus(532) < 24, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte tötet Wütend Akaltut für Marcus, um den Bund zu brechen."
 -- If test is finished
-queststatus(532) = 24, english, ".+" -> inform("[Quest solved] You are awarded a limited topaz."), item(198, 1, 333, "gemLevel" = "2"), queststatus(532) = 25, "I feel the bond weakening even now. Marcus hopes in time he will get away. Marcus could not have done this without you. Take this gem as a thank you token."
-queststatus(532) = 24, ".+" -> inform("[Quest gelöst] "), item(198, 1, 333, "gemLevel" = "2"), queststatus(532) = 2, "Ich fühle, wie der Bund vergeht. Marcus hofft, dass er bald verschwunden ist. Marcus hätte es ohne euch nicht geschafft. Nehmt diesen Edelstein, als Zeichen meines Dankes."
+queststatus(532) = 24, english, ".+" -> inform("[Quest solved] You are awarded a slight topaz."), item(198, 1, 333, "gemLevel" = "3"), queststatus(532) = 25, "I feel the bond weakening even now. Marcus hopes in time he will get away. Marcus could not have done this without you. Take this gem as a thank you token."
+queststatus(532) = 24, ".+" -> inform("[Quest gelöst] "), item(198, 1, 333, "gemLevel" = "3"), queststatus(532) = 2, "Ich fühle, wie der Bund vergeht. Marcus hofft, dass er bald verschwunden ist. Marcus hätte es ohne euch nicht geschafft. Nehmt diesen Edelstein, als Zeichen meines Dankes."
 
 -- All done.
 queststatus(532) = 25, english, "quest", "mission", "test" -> "You have done all Marcus could have expected. Marcus must make his way on his own now."
