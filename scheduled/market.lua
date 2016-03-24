@@ -27,8 +27,8 @@ function M.market()
     hour=world:getTime("hour");
     monthString=common.Month_To_String(world:getTime("month"));
 
-    --Market takes place the first day of each month except for Mas
-    if (month == 16) or (day ~= 1) then
+    --Market takes place the first three days of each month except for Mas
+    if (month == 16) or (day > 3) then
         return;
     end
 
