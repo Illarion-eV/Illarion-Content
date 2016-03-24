@@ -21,6 +21,8 @@ local akaltut = require("monster.race_114_akaltut.base")
 local mageBehaviour = require("monster.base.behaviour.mage")
 local monstermagic = require("monster.base.monstermagic")
 local poisonfield = require("item.id_372_poisonfield")
+local scheduledFunction = require("scheduled.scheduledFunction")
+local common = require("base.common")
 
 local magic = monstermagic()
 magic.addPoisonball{probability = 0.06, damage = {from = 1500, to = 1800}}
