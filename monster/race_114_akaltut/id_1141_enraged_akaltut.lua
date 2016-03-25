@@ -46,11 +46,11 @@ local function spawnEnragedAkaltut(pos)
     local spawnPosition = common.GetFreePositions(pos, 1, true, true)() or pos
     local spiderQueen = world:createMonster(195, spawnPosition, -5)
     if spiderQueen ~= nil and isValidChar(spiderQueen) then
-        spiderQueen:talk(Character.say, "#me ", "#me bursts forth from the egg in it's natural state.")
+        spiderQueen:talk(Character.say, "#me zerbricht das Ei und erscheint in seinen normalen Aussehen.", "#me bursts forth from the egg in it's natural state.")
     end
     local humanMage = world:createMonster(3, spawnPosition, -5)
     if humanMage ~= nil and isValidChar(humanMage) then
-        humanMage:talk(Character.say, "#me ", "#me bursts forth from the egg in it's natural state.")
+        humanMage:talk(Character.say, "#me zerbricht das Ei und erscheint in seinen normalen Aussehen.", "#me bursts forth from the egg in it's natural state.")
     end
 end
 
@@ -61,7 +61,7 @@ function M.onDeath(monster)
     end
 
     local pos = position(monster.pos.x, monster.pos.y, monster.pos.z)
-    monster:talk(Character.say, "", "A scream is heard as the monster falls.")
+    monster:talk(Character.say, "Ein Schrei ist zu hören als das Monster fällt.", "A scream is heard as the monster falls.")
     world:gfx(45, pos)
     local spiderEgg = world:createItemFromId(1175, 1, pos, true, 333, nil)
     spiderEgg.wear = 3

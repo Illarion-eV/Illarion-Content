@@ -43,7 +43,7 @@ local function spawnEnragedAkaltut(pos)
     local spawnPosition = common.GetFreePositions(pos, 1, true, true)() or pos
     local enragedAkaltut = world:createMonster(1141, spawnPosition, -5)
     if enragedAkaltut ~= nil and isValidChar(enragedAkaltut) then
-        enragedAkaltut:talk(Character.say, "#me ", "#me bursts forth from the egg.")
+        enragedAkaltut:talk(Character.say, "#me verschwindet. Ein Ei ist zu sehen.", "#me vanishes and you see an egg.")
     end
 end
 
@@ -54,7 +54,7 @@ function M.onDeath(monster)
     end
 
     local pos = position(monster.pos.x, monster.pos.y, monster.pos.z)
-    monster:talk(Character.say, "", "#me vanishes and an egg appears.")
+    monster:talk(Character.say, "#me verschwindet und ein Ei erscheint.", "#me vanishes and an egg appears.")
     world:gfx(45, pos)
     local spiderEgg = world:createItemFromId(1174, 1, pos, true, 333, nil)
     spiderEgg.wear = 3
