@@ -48,7 +48,7 @@ local function spawnEnragedAkaltut(pos)
     if spiderQueen ~= nil and isValidChar(spiderQueen) then
         spiderQueen:talk(Character.say, "#me zerbricht das Ei und erscheint in seinen normalen Aussehen.", "#me bursts forth from the egg in it's natural state.")
     end
-    local humanMage = world:createMonster(3, spawnPosition, -5,increseAttrib("sex",0)==1)
+    local humanMage = world:createMonster(3,increseAttrib("sex",0)==1, spawnPosition, -5)
     if humanMage ~= nil and isValidChar(humanMage) then
         humanMage:talk(Character.say, "#me zerbricht das Ei und erscheint in seinen normalen Aussehen.", "#me bursts forth from the egg in it's natural state.")
     end
