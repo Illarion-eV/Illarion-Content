@@ -20,6 +20,7 @@ local messages = require("base.messages")
 --Random Messages
 local msgs = messages.Messages()
 msgs:addMessage("#me flattert umher.", "#me flutters around.")
+msgs:addMessage("#me überfliegt dich, einen glitzernden Schweif hinter sich her ziehend.", "#me flies about leaving a trail of sparkles.")
 
 local M = {}
 
