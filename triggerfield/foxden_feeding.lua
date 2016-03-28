@@ -14,28 +14,14 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- ID 601, Foxwhelp
--- ID 602, Redfox
--- ID 603, Fox Mother
--- ID 604, Fireridge
+--INSERT INTO triggerfields VALUES (814, 391, -3,'triggerfield.foxden_feeding');
 
-local base = require("monster.base.base")
-local foxes = require("monster.race_60_fox.base")
 local foxden = require("content.foxden")
 
-local M = foxes.generateCallbacks()
+local M = {}
 
-local orgOnSpawn = M.onSpawn
-function M.onSpawn(monster)
-    if orgOnSpawn ~= nil then
-        orgOnSpawn(monster)
-    end
-
-    base.setColor{monster = monster,  target = base.HAIR_COLOR, hue = 0, saturation = 0, value = 0.2, alpha = 180}
-end
-
-function M.abortRoute(monster)
-    foxden.foxAbortRoute(monster)
+function M.PutItemOnField(Item, char)
+    foxden.tryFeeding(Item, char)
 end
 
 return M
