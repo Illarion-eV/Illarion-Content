@@ -55,16 +55,16 @@ function tradeNPC:addItem(item)
     if (item._type == "sell") then
         table.insert(self._sellItems, item)
     else
-		if (item._itemId == 97 or item._itemId == 320 or item._itemId == 321
-			or item._itemId == 799 or item._itemId == 1367 or item._itemId == 2830) then
-			debug("NPC can't buy item " .. item._itemId .. " because its blacklisted (container).")
-		else
+        if (item._itemId == 97 or item._itemId == 320 or item._itemId == 321
+            or item._itemId == 799 or item._itemId == 1367 or item._itemId == 2830) then
+            debug("NPC can't buy item " .. item._itemId .. " because its blacklisted (container).")
+        else
             if item._type == "buyPrimary" then
                 table.insert(self._buyPrimaryItems, item)
             elseif item._type == "buySecondary" then
                 table.insert(self._buySecondaryItems, item)
             end
-		end
+        end
     end
 end
 
@@ -86,7 +86,7 @@ end
 
 function tradeNPC:showDialog(npcChar, player)
     local anyTradeAction = false
-    
+
     local callback = function(dialog)
         local result = dialog:getResult()
         if result == MerchantDialog.playerSells then
@@ -134,7 +134,7 @@ function isFittingItem(tradeItem, boughtItem)
 end
 
 function tradeNPC:buyItemFromPlayer(npcChar, player, boughtItem)
-	-- Buying at special price
+    -- Buying at special price
     local item
 
     for _, listItem in pairs(self._buyPrimaryItems) do
@@ -143,16 +143,16 @@ function tradeNPC:buyItemFromPlayer(npcChar, player, boughtItem)
             break
         end
     end
-    
+
     if item == nil then
-        for _, listItem in pairs(self._buySecondaryItems) do 
+        for _, listItem in pairs(self._buySecondaryItems) do
             if isFittingItem(listItem, boughtItem) then
                 item = listItem
                 break
             end
         end
     end
-    
+
     if item then
         local price = item._price * boughtItem.number
         local priceStringGerman, priceStringEnglish = money.MoneyToString(price)
@@ -165,15 +165,15 @@ function tradeNPC:buyItemFromPlayer(npcChar, player, boughtItem)
             common.InformNLS(player, "Ihr habt "..boughtItem.number.." "..itemName.." zu einem Preis von "..priceStringGerman.." verkauft.", "You sold "..boughtItem.number.." "..itemName.." at a price of "..priceStringEnglish..".")
             world:makeSound(24, player.pos)
         end
-        
+
         return
     end
 
-	-- Reject item
-	if (self._wrongItemMsg:hasMessages()) then
-		local msgGerman, msgEnglish = self._wrongItemMsg:getRandomMessage()
-		npcChar:talk(Character.say, msgGerman, msgEnglish)
-	end
+    -- Reject item
+    if (self._wrongItemMsg:hasMessages()) then
+        local msgGerman, msgEnglish = self._wrongItemMsg:getRandomMessage()
+        npcChar:talk(Character.say, msgGerman, msgEnglish)
+    end
 end
 
 function tradeNPC:sellItemToPlayer(npcChar, player, itemIndex, amount)
@@ -185,14 +185,15 @@ function tradeNPC:sellItemToPlayer(npcChar, player, itemIndex, amount)
 
     if (money.CharHasMoney(player, item._price * amount)) then
         money.TakeMoneyFromChar(player, item._price * amount)
-		local priceStringGerman, priceStringEnglish = money.MoneyToString(item._price * amount)
+        local priceStringGerman, priceStringEnglish = money.MoneyToString(item._price * amount)
         local notCreated = player:createItem(item._itemId, amount, item._quality, item._data)
-		local itemName = common.GetNLS(player, world:getItemName(item._itemId,0), world:getItemName(item._itemId,1))
-        if (notCreated > 0) then
-            world:createItemFromId(item._itemId, notCreated, player.pos, true, item._quality, item._data)
+        while (notCreated > 0) do
+            world:createItemFromId(item._itemId, math.min(notCreated, item._maxStack), player.pos, true, item._quality, item._data)
+            notCreated = notCreated - 1
         end
-		common.InformNLS(player, "Ihr habt "..amount.." "..itemName.." zu einem Preis von"..priceStringGerman.." gekauft.", "You bought "..amount.." "..itemName.." at a price of"..priceStringEnglish..".")
-		world:makeSound(24, player.pos)
+        local itemName = common.GetNLS(player, world:getItemName(item._itemId, 0), world:getItemName(item._itemId, 1))
+        common.InformNLS(player, "Ihr habt "..amount.." "..itemName.." zu einem Preis von"..priceStringGerman.." gekauft.", "You bought "..amount.." "..itemName.." at a price of"..priceStringEnglish..".")
+        world:makeSound(24, player.pos)
     elseif (self._notEnoughMoneyMsg:hasMessages()) then
         local msgGerman, msgEnglish = self._notEnoughMoneyMsg:getRandomMessage()
         npcChar:talk(Character.say, msgGerman, msgEnglish)
@@ -201,7 +202,7 @@ end
 
 function tradeNPC:playerLooksAtItem(player, list, index)
    local item
-   
+
    if list == MerchantDialog.listSell then
        item = self._sellItems[index + 1]
    elseif list == MerchantDialog.listBuyPrimary then
@@ -209,7 +210,7 @@ function tradeNPC:playerLooksAtItem(player, list, index)
    elseif list == MerchantDialog.listBuySecondary then
           item = self._buySecondaryItems[index + 1]
    end
-   
+
    return lookat.GenerateItemLookAtFromId(player, item._itemId, item._stack, item._data)
 end
 
@@ -224,6 +225,7 @@ tradeNPCItem = class(function(self, id, itemType, nameDe, nameEn, price, stack, 
 
     self["_itemId"] = id
     self["_type"] = itemType
+    self["_maxStack"] = world:getItemStatsFromId(id).MaxStack
 
     if (nameDe == nil or nameEn == nil) then
         self["_nameDe"] = world:getItemName(id, Player.german)
@@ -249,17 +251,17 @@ tradeNPCItem = class(function(self, id, itemType, nameDe, nameEn, price, stack, 
         self["_stack"] = stack
     else
         self["_stack"] = world:getItemStatsFromId(id).BuyStack
-		if (self["_stack"] == nil) then
-			debug("_stack is NIL, the server failed! Hard.")
-			self["_stack"] = 1
-		end
+        if (self["_stack"] == nil) then
+            debug("_stack is NIL, the server failed! Hard.")
+            self["_stack"] = 1
+        end
     end
 
-	if (itemType == "sell" and quality ~= nil) then
-		self["_quality"] = quality
-	else
+    if (itemType == "sell" and quality ~= nil) then
+        self["_quality"] = quality
+    else
         self["_quality"] = 580
-	end
+    end
 
     if (itemType == "sell") then
         self["_data"] = data
