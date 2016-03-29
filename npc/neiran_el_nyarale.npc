@@ -200,7 +200,7 @@ english, "Gobaith", "Gobiath" -> " I've never been to this place.", "It was...a 
 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "Nice to meet you! ", "Good to see you!", "#me smiles friendly."
-"mein Name" -> "Feut mich!", "Schön euch zu treffen!", "#me lächelt freundlich."
+"mein Name" -> "Freut mich!", "Schön euch zu treffen!", "#me lächelt freundlich."
 english, "Neiran", "el Nyarale", "Nyarale" -> "That's me. How can I help you?", "#me raises a hand and waves.", "#me looks around, 'Who called for me?'", "#me smiles friendly"
 "Neiran", "el Nyarale", "Nyarale" -> "Das bin ich. Was kann ich für Euch tun?", "#me hebt eine Hand und winkt.", "#me blickt sich um: 'Wer rief nach mir?'", "#me lächelt freundlich."
 
