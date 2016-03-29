@@ -189,7 +189,7 @@ function tradeNPC:sellItemToPlayer(npcChar, player, itemIndex, amount)
         local notCreated = player:createItem(item._itemId, amount, item._quality, item._data)
         while (notCreated > 0) do
             world:createItemFromId(item._itemId, math.min(notCreated, item._maxStack), player.pos, true, item._quality, item._data)
-            notCreated = notCreated - 1
+            notCreated = notCreated - math.min(notCreated, item._maxStack)
         end
         local itemName = common.GetNLS(player, world:getItemName(item._itemId, 0), world:getItemName(item._itemId, 1))
         common.InformNLS(player, "Ihr habt "..amount.." "..itemName.." zu einem Preis von"..priceStringGerman.." gekauft.", "You bought "..amount.." "..itemName.." at a price of"..priceStringEnglish..".")
