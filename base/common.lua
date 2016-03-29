@@ -24,8 +24,8 @@ local M = {}
 -- @return Text german or english text version
 
 function M.GetNLS(User, textInDe, textInEn)
-    return (User:getPlayerLanguage() == Player.german and textInDe or textInEn);
-end;
+    return (User:getPlayerLanguage() == Player.german and textInDe or textInEn)
+end
 
 --- Send a inform to the player in the language the player speaks
 -- @param User The character who receives the message
@@ -58,8 +58,8 @@ end
 -- @param textFemale The text returned in case the character is female
 -- @return textMale or textFemale, based on the gender of User
 function M.GetGenderText(User, textMale, textFemale)
-    return (User:increaseAttrib("sex", 0) == 1 and textFemale or textMale);
-end;
+    return (User:increaseAttrib("sex", 0) == 1 and textFemale or textMale)
+end
 
 --- This function uses the random value generator to produce a random chance.
 -- This function returns true in a specified amount of cases. The optional
@@ -73,18 +73,18 @@ end;
 -- @return true in (Value/Base*100)% of the calls
 function M.Chance(Value, Base)
     if (Base ~= nil and Value >= Base) or (Base == nil and Value >= 1) then
-        return true;
-    end;
+        return true
+    end
     if (Value <= 0) then
-        return false;
-    end;
+        return false
+    end
 
     if (Base ~= nil) and (Base ~= 1) then
-        Value = Value / Base;
-    end;
+        Value = Value / Base
+    end
 
-    return (math.random() <= Value);
-end;
+    return (math.random() <= Value)
+end
 
 --- Determine if a character is looking at a position or not
 -- @param User The character whos looking direction matters
@@ -92,14 +92,14 @@ end;
 -- @return true in case the character looks at the position, else false
 function M.IsLookingAt(User, Location)
     if not User or not Location then
-        return false;
-    end;
-
-    if User.pos == Location then
-        return true;
+        return false
     end
 
-    local richtung = User:getFaceTo();
+    if User.pos == Location then
+        return true
+    end
+
+    local richtung = User:getFaceTo()
 
     return (((richtung == Character.north) and (Location.y < User.pos.y)) or
             ((richtung == Character.northeast) and
@@ -112,15 +112,15 @@ function M.IsLookingAt(User, Location)
                 ((Location.y > User.pos.y) and (Location.x < User.pos.x))) or
             ((richtung == Character.west) and (Location.x < User.pos.x)) or
             ((richtung == Character.northwest) and
-                ((Location.y < User.pos.y) and (Location.x < User.pos.x))));
-end;
+                ((Location.y < User.pos.y) and (Location.x < User.pos.x))))
+end
 
 --- Check if a character sequence (string) is nil or empty.
 -- @param the variable to check
 -- @return true in case the text is nil or equal to a empty string
 function M.IsNilOrEmpty(text)
-    return ((text == nil) or (text == ""));
-end;
+    return ((text == nil) or (text == ""))
+end
 
 --- Determine the direction from one position to another one
 -- @param StartPosition The start position. The place you get the direction you have to look towards to see the target location
@@ -128,45 +128,45 @@ end;
 -- @return value for the direction, possible values are: Character.dir_north, Character.dir_northeast, Character.dir_east, Character.dir_southeast, Character.dir_south, Character.dir_southwest, Character.dir_west, Character.dir_northwest
 function M.GetDirection(StartPosition, TargetPosition)
     if (StartPosition.z < TargetPosition.z) then
-        return Character.dir_up;
+        return Character.dir_up
     elseif (StartPosition.z > TargetPosition.z) then
-        return Character.dir_down;
+        return Character.dir_down
     end
 
-    local phi = M.GetPhi(StartPosition, TargetPosition);
+    local phi = M.GetPhi(StartPosition, TargetPosition)
 
     if (phi < math.pi / 8) then
-        return Character.dir_east;
+        return Character.dir_east
     elseif (phi < 3 * math.pi / 8) then
-        return Character.dir_southeast;
+        return Character.dir_southeast
     elseif (phi < 5 * math.pi / 8) then
-        return Character.dir_south;
+        return Character.dir_south
     elseif (phi < 7 * math.pi / 8) then
-        return Character.dir_southwest;
+        return Character.dir_southwest
     elseif (phi < 9 * math.pi / 8) then
-        return Character.dir_west;
+        return Character.dir_west
     elseif (phi < 11 * math.pi / 8) then
-        return Character.dir_northwest;
+        return Character.dir_northwest
     elseif (phi < 13 * math.pi / 8) then
-        return Character.dir_north;
+        return Character.dir_north
     elseif (phi < 15 * math.pi / 8) then
-        return Character.dir_northeast;
+        return Character.dir_northeast
     else
-        return Character.dir_east;
-    end;
-end;
+        return Character.dir_east
+    end
+end
 
 --- Turn a character towards a location
 -- @param User The character who shall be turned
 -- @param Location The position the character shall turn to
 function M.TurnTo(User, Location)
-    local oldDir = User:getFaceTo();
-    local newDir = M.GetDirection(User.pos, Location);
+    local oldDir = User:getFaceTo()
+    local newDir = M.GetDirection(User.pos, Location)
 
     if (newDir ~= oldDir) then
-        User:turn(newDir);
-    end;
-end;
+        User:turn(newDir)
+    end
+end
 
 function M.GetDirectionVector(dir)
     if dir == Character.dir_up then
@@ -209,40 +209,40 @@ end
 -- @param User The character whos front area is searched
 -- @return The item that was found or nil
 function M.GetFrontItem(User, dir)
-    local Posi = M.GetFrontPosition(User, 1, dir);
+    local Posi = M.GetFrontPosition(User, 1, dir)
 
     if world:isItemOnField(Posi) then
-        return world:getItemOnField(Posi);
+        return world:getItemOnField(Posi)
     else
-        return nil;
-    end;
-end;
+        return nil
+    end
+end
 
 --- Get the ID of the item that is in front of the character in case there is one
 -- @param User The character whos front area is searched
 -- @return The ID of the item in front of the character or 0 in case there is none
 function M.GetFrontItemID(User, dir)
-    local theItem = M.GetFrontItem(User, dir);
+    local theItem = M.GetFrontItem(User, dir)
 
     if not theItem then
-        return 0;
+        return 0
     else
-        return theItem.id;
-    end;
-end;
+        return theItem.id
+    end
+end
 
 --- Get character who is in front of the character in case there is one
 -- @param User The character whos front area is searched
 -- @return The character in front of the parameter character or nil
 function M.GetFrontCharacter(User)
-    local Posi = M.GetFrontPosition(User);
+    local Posi = M.GetFrontPosition(User)
 
     if world:isCharacterOnField(Posi) then
-        return world:getCharacterOnField(Posi);
+        return world:getCharacterOnField(Posi)
     else
-        return nil;
-    end;
-end;
+        return nil
+    end
+end
 
 --- Get the position right behind a character
 -- @param User The character the back position is wanted
@@ -250,68 +250,68 @@ end;
 -- @return The position behind the character
 function M.GetBehindPosition(User, distance)
 
-    local d = distance or 1;
-    local direct = User:getFaceTo();
+    local d = distance or 1
+    local direct = User:getFaceTo()
 
     if (direct == Character.north) then
-        return position(User.pos.x, User.pos.y + d, User.pos.z);
+        return position(User.pos.x, User.pos.y + d, User.pos.z)
     elseif (direct == Character.northeast) then
-        return position(User.pos.x - d, User.pos.y + d, User.pos.z);
+        return position(User.pos.x - d, User.pos.y + d, User.pos.z)
     elseif (direct == Character.east) then
-        return position(User.pos.x - d, User.pos.y, User.pos.z);
+        return position(User.pos.x - d, User.pos.y, User.pos.z)
     elseif (direct == Character.southeast) then
-        return position(User.pos.x + d, User.pos.y - d, User.pos.z);
+        return position(User.pos.x + d, User.pos.y - d, User.pos.z)
     elseif (direct == Character.south) then
-        return position(User.pos.x, User.pos.y - d, User.pos.z);
+        return position(User.pos.x, User.pos.y - d, User.pos.z)
     elseif (direct == Character.southwest) then
-        return position(User.pos.x + d, User.pos.y - d, User.pos.z);
+        return position(User.pos.x + d, User.pos.y - d, User.pos.z)
     elseif (direct == Character.west) then
-        return position(User.pos.x + d, User.pos.y, User.pos.z);
+        return position(User.pos.x + d, User.pos.y, User.pos.z)
     elseif (direct == Character.northwest) then
-        return position(User.pos.x + d, User.pos.y + d, User.pos.z);
-    end;
+        return position(User.pos.x + d, User.pos.y + d, User.pos.z)
+    end
 
-    debug("Invalid user direction");
-end;
+    debug("Invalid user direction")
+end
 
 --- Get the item that is behind the character in case there is one
 -- @param User The character whos back area is searched
 -- @return The item that was found or nil
 function M.GetBehindItem(User)
-    local Posi = M.GetBehindPosition(User);
+    local Posi = M.GetBehindPosition(User)
 
     if world:isItemOnField(Posi) then
-        return world:getItemOnField(Posi);
+        return world:getItemOnField(Posi)
     else
-        return nil;
-    end;
-end;
+        return nil
+    end
+end
 
 --- Get the ID of the item that is behind the character in case there is one
 -- @param User The character whos back area is searched
 -- @return The ID of the item in front of the character or 0 in case there is none
 function M.GetBehindItemID(User)
-    local theItem = M.GetBehindItem(User);
+    local theItem = M.GetBehindItem(User)
 
     if not theItem then
-        return 0;
+        return 0
     else
-        return theItem.id;
-    end;
-end;
+        return theItem.id
+    end
+end
 
 --- Get character who is behind the character in case there is one
 -- @param User The character whos front area is searched
 -- @return The character in front of the parameter character or nil
 function M.GetBehindCharacter(User)
-    local Posi = M.GetBehindPosition(User);
+    local Posi = M.GetBehindPosition(User)
 
     if world:isCharacterOnField(Posi) then
-        return world:getCharacterOnField(Posi);
+        return world:getCharacterOnField(Posi)
     else
-        return nil;
-    end;
-end;
+        return nil
+    end
+end
 
 --- Check if a character is within a area determined with 2 positions. The
 -- rectangle of the area is determined by the grid of the tiles
@@ -322,15 +322,15 @@ end;
 function M.GetInArea(User, Pos1, Pos2)
     if (User.pos.x <= math.min(Pos1.x, Pos2.x) or
         User.pos.x >= math.max(Pos1.x, Pos2.x)) then
-        return false;
+        return false
     elseif (User.pos.y <= math.min(Pos1.y, Pos2.y) or
         User.pos.y >= math.max(Pos1.y, Pos2.y)) then
-        return false;
+        return false
     elseif (User.pos.z <= math.min(Pos1.z, Pos2.z) or
         User.pos.z >= math.max(Pos1.z, Pos2.z)) then
-        return false;
+        return false
     end
-    return true;
+    return true
 end
 
 --- Get all free positions at and around a center location. The search is performed with a square mask. So the search
@@ -416,15 +416,15 @@ function M.CheckItem(User, Item, altIDs)
         end
     end
     return false
-end;
+end
 
 --- Checks if the Character has a minimal default amount of food points. If not
 -- it prints out a inform message.
 -- @param User The character whos foodpoints are checked
 -- @return True in case the character has enougth food points, false if not
 function M.FitForWork(User)
-    return M.FitForHardWork(User, 1000);
-end;
+    return M.FitForHardWork(User, 1000)
+end
 
 --- Checks if the Character has a minimal amount of food points. If not it
 -- prints out a inform message-
@@ -435,55 +435,55 @@ function M.FitForHardWork(User, required)
     if (User:increaseAttrib("foodlevel", 0) < required) then
         M.InformNLS(User,
         "Du bist dafür zu erschöpft.",
-        "You are too exhausted for that.");
-        return false;
-    end;
-    return true;
-end;
+        "You are too exhausted for that.")
+        return false
+    end
+    return true
+end
 
 --- Decrease the foodpoints of a character and show a warning if the foodpoints
 -- are running low.
 -- @param User The character that loses foodpoints
 -- @param units The amount of foodpoints that are removed
 function M.GetHungry(User, units)
-    local food = User:increaseAttrib("foodlevel", -units);
+    local food = User:increaseAttrib("foodlevel", -units)
     if ((food > 1000 + units * 5) and (food <= 1000 + units * 6)) then
         M.InformNLS(User,
         "Die Arbeit macht Dich langsam müde und hungrig.",
-        "You are getting tired and hungry from your work.");
-    end;
-end;
+        "You are getting tired and hungry from your work.")
+    end
+end
 
 function M.GatheringToolBreaks(user, item, workTime)
 
   if not user or not item then
-    return false;
-  end;
+    return false
+  end
 
   -- WorkTime is between 12-60 cycles depending on skill, +/-20% is the tool influence
   -- Reduce durability at 4-20%, meaning a tool will last 500-2500 actions.
 
   if (math.random(1, 100) < (workTime/3)) then
 
-    local durability = math.fmod(item.quality, 100);
-    local quality = (item.quality - durability) / 100;
+    local durability = math.fmod(item.quality, 100)
+    local quality = (item.quality - durability) / 100
 
     if (durability == 0) then
-      world:erase(item, 1);
-      return true;
+      world:erase(item, 1)
+      return true
     end
 
-    durability = durability - 1;
-    item.quality = quality * 100 + durability;
-    world:changeItem(item);
+    durability = durability - 1
+    item.quality = quality * 100 + durability
+    world:changeItem(item)
 
     if (durability < 10) then
       M.InformNLS(user,
       "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
-      "The tool looks like it could break soon. You should try to get a new one.");
+      "The tool looks like it could break soon. You should try to get a new one.")
     end
   end
-  return false;
+  return false
 end
 
 --- Damage an item
@@ -492,8 +492,8 @@ end
 -- @return true if the item breaks, false if not
 function M.ToolBreaks(user, item)
     if not user or not item then
-        return false;
-    end;
+        return false
+    end
 
     local durability = math.fmod(item.quality, 100)
     local quality = (item.quality - durability) / 100
@@ -560,7 +560,7 @@ function M.GetCurrentTimestamp()
         world:getTime("day"),
         world:getTime("hour"),
         world:getTime("minute"),
-        world:getTime("second"));
+        world:getTime("second"))
 end
 
 --- Converts a date into a timestamp in with the resolution in RL seconds.
@@ -580,8 +580,8 @@ function M.GetCurrentTimestampForDate(year, month, day, hour, minute, second)
             minute       *       60 + -- minute*60
             second
            )/3
-     );
-end;
+     )
+end
 
 
 --- Convert a timestamp back into a full data. This is the inverse function of
@@ -594,47 +594,47 @@ end;
 -- @return The minute of the resulting data and time
 -- @return The second of the resulting data and time
 function M.TimestampToDate(timestamp)
-    local year = math.floor(timestamp / 31536000);
-    timestamp = timestamp - (year * 31536000);
+    local year = math.floor(timestamp / 31536000)
+    timestamp = timestamp - (year * 31536000)
 
     --Calculating day
     --86400 = 60*60*24
-    local day = math.floor(timestamp / 86400);
-    timestamp = timestamp - (day * 86400);
-    day = day + 1;
+    local day = math.floor(timestamp / 86400)
+    timestamp = timestamp - (day * 86400)
+    day = day + 1
 
     -- Calculating month
     -- 24 days per month
-    month = math.floor(day / 24);
-    day = day - (month * 24);
+    local month = math.floor(day / 24)
+    day = day - (month * 24)
 
     -- checking for range borders and fixing the date
     if (day == 0) then
         if (month > 0 and month < 16) then
-            day = 24;
+            day = 24
         else
-            day = 5;
+            day = 5
         end
     else
-        month=month+1;
+        month=month+1
     end
 
     if (month == 0) then
-        month = 16;
-        year = year - 1;
+        month = 16
+        year = year - 1
     end
 
 
     -- Calculate the time of day
     -- Calculating hour
     -- 3600 = 60 * 60
-    local hour = math.floor(timestamp / 3600);
-    timestamp = timestamp - (hour * 3600);
+    local hour = math.floor(timestamp / 3600)
+    timestamp = timestamp - (hour * 3600)
     --Calculating minute
-    local minute = math.floor(timestamp / 60);
+    local minute = math.floor(timestamp / 60)
     --seconds
-    timestamp = timestamp - (minute * 60);
-    return year,month,day,hour,minute,timestamp;
+    timestamp = timestamp - (minute * 60)
+    return year,month,day,hour,minute,timestamp
 end
 
 --- Determines the type of ground a tile has.
@@ -642,25 +642,25 @@ end
 -- @return The ground typ as one of the following constants:  GroundType.unknown, GroundType.field, GroundType.forest, GroundType.sand, GroundType.gras, GroundType.rocks, GroundType.water, GroundType.dirt
 function M.GetGroundType(TileID)
     if (TileID == 4) then -- field
-        return M.GroundType.field;
+        return M.GroundType.field
     elseif (TileID == 6) then -- water
-        return M.GroundType.water;
+        return M.GroundType.water
     elseif (TileID == 9) then -- forest
-        return M.GroundType.forest;
+        return M.GroundType.forest
     elseif (TileID == 3 or TileID == 12) then -- sand
-        return M.GroundType.sand;
+        return M.GroundType.sand
     elseif (TileID == 11) then -- grass
-        return M.GroundType.grass;
+        return M.GroundType.grass
     elseif (TileID == 2 or TileID == 15) then -- rocks
-        return M.GroundType.rocks;
+        return M.GroundType.rocks
     elseif (TileID == 8 or TileID == 16) then -- dirt
-        return M.GroundType.dirt;
+        return M.GroundType.dirt
     elseif (TileID == 10) then -- snow
-        return M.GroundType.snow;
-    end;
+        return M.GroundType.snow
+    end
 
-    return M.GroundType.unknown;
-end;
+    return M.GroundType.unknown
+end
 
 --- This list contains the constants that are returned by GetGroundType.
 -- @class Enumerator
@@ -674,15 +674,15 @@ M.GroundType = {
     ["water"] = 6,
     ["dirt"] = 7,
     ["snow"] = 8
-};
+}
 
 --- Create random number with normal distribution.
 -- @param minVal Minimal value of the random number range
 -- @param maxVal Maximal value of the random number range
 -- @return The random number
 function M.NormalRnd(minVal, maxVal)
-    return M.NormalRnd2(minVal, maxVal, 10);
-end;
+    return M.NormalRnd2(minVal, maxVal, 10)
+end
 
 --- Create random number with normal distribution.
 -- @param minVal Minimal value of the random number range
@@ -690,12 +690,12 @@ end;
 -- @param count How often will be diced
 -- @return The random number
 function M.NormalRnd2(minVal, maxVal, count)
-    local base = 0;
+    local base = 0
     for _ = 1, count do
-        base = base + math.random(maxVal - minVal + 1) - 1;
-    end;
-    return math.ceil(base / count) + minVal;
-end;
+        base = base + math.random(maxVal - minVal + 1) - 1
+    end
+    return math.ceil(base / count) + minVal
+end
 
 --[[
     DeleteItemFromStack
@@ -760,20 +760,20 @@ end
     @return List of ItemStructs - The list of all items on that field
 ]]
 function M.GetItemsOnField(Fieldpos)
-    local Field = world:getField(Fieldpos);
+    local Field = world:getField(Fieldpos)
     if (Field == nil) then
-        return {};
+        return {}
     end
-    local ItemsCount = Field:countItems();
-    local retList = {};
+    local ItemsCount = Field:countItems()
+    local retList = {}
     if (ItemsCount > 0) then
         for i=0, ItemsCount-1 do
-            Item = Field:getStackItem(i);
-            table.insert(retList, Item);
-        end;
-    end;
+            local Item = Field:getStackItem(i)
+            table.insert(retList, Item)
+        end
+    end
     return retList
-end;
+end
 
 --[[
     GetItemInInventory
@@ -785,24 +785,24 @@ end;
     @return mixed - The itemstruct of the first found item or nil.
 ]]
 function M.GetItemInInventory(User, ItemID, DataValues)
-  local ItemList = User:getItemList(ItemID);
+  local ItemList = User:getItemList(ItemID)
   if (DataValues == nil) then
-    DataValues = {};
+    DataValues = {}
   end
   for _, item in pairs(ItemList) do
-    local dataOk = true;
+    local dataOk = true
     for _,d in pairs(DataValues) do
       if (item:getData(d[1]) ~= d[2]) then
-        dataOk = false;
-        break;
+        dataOk = false
+        break
       end
     end
     if (dataOk) then
-      return item;
-    end;
-  end;
-  return nil;
-end;
+      return item
+    end
+  end
+  return nil
+end
 
 --[[
     GetStiffness
@@ -813,27 +813,27 @@ end;
 ]]
 function M.GetStiffness(Character)
 
-    local StiffnessVal = 0;
-    local Item;
-    local found;
-    local Armor;
+    local StiffnessVal = 0
+    local Item
+    local found
+    local Armor
 
-    local Equipmentposition = {1, 3, 4, 9, 10, 11};
-    local counter;
+    local Equipmentposition = {1, 3, 4, 9, 10, 11}
+    local counter
 
     for counter = 1, #Equipmentposition do
-                Item = Character:getItemAt(Equipmentposition[counter]);
+                Item = Character:getItemAt(Equipmentposition[counter])
                 if Item and (Item.id ~= 0 ) then
-                        found, Armor=world:getArmorStruct(Item.id);
+                        found, Armor=world:getArmorStruct(Item.id)
                         if found then
                             StiffnessVal = StiffnessVal + Armor.Stiffness
-                        end;
-                end;
+                        end
+                end
 
     end
 
-    return StiffnessVal;
-end;
+    return StiffnessVal
+end
 
 --[[
     ResetInterruption
@@ -843,9 +843,9 @@ end;
 ]]
 function M.ResetInterruption(Character, ltstate)
     if (ltstate ~= Action.success) and interruptTable then
-        interruptTable[Character.id] = nil;
-    end;
-end;
+        interruptTable[Character.id] = nil
+    end
+end
 
 --[[
     IsInterrupted
@@ -856,21 +856,21 @@ end;
 ]]
 function M.IsInterrupted(Character)
     if not interruptTable then
-        interruptTable = {};
-        interruptTable[Character.id] = 2;
-        return false;
+        interruptTable = {}
+        interruptTable[Character.id] = 2
+        return false
     elseif not interruptTable[Character.id] then
-        interruptTable[Character.id] = 2;
-        return false;
-    end;
-    local rnd = math.random(20, 50);
+        interruptTable[Character.id] = 2
+        return false
+    end
+    local rnd = math.random(20, 50)
     if ( interruptTable[Character.id] > rnd ) then
-        interruptTable[Character.id] = nil;
-        return true;
-    end;
-    interruptTable[Character.id] = interruptTable[Character.id] + 1;
-    return false;
-end;
+        interruptTable[Character.id] = nil
+        return true
+    end
+    interruptTable[Character.id] = interruptTable[Character.id] + 1
+    return false
+end
 
 --[[
     ParalyseCharacter
@@ -884,52 +884,52 @@ end;
 function M.ParalyseCharacter(Target, Time, Cumulative, forced)
 
     if not Time or (Time == 1) then
-        return false;
-    end;
+        return false
+    end
 
     if (forced == nil) then
-        forced = true;
-    end;
+        forced = true
+    end
 
     if not forced then
         if Cumulative then
-            Target.actionpoints = Target.actionpoints - ( Time * 10 );
+            Target.actionpoints = Target.actionpoints - ( Time * 10 )
         else
             Target.actionpoints = 30 - ( Time * 10 )
         end
-        return true;
-    end;
+        return true
+    end
 
-    local foundEffect, Paralysis = Target.effects:find(23);
-    local timeLeft = 0;
+    local foundEffect, Paralysis = Target.effects:find(23)
+    local timeLeft = 0
 
     if not foundEffect then
         if (Time < 1) then
-            return false;
+            return false
         end
-        Paralysis = LongTimeEffect(23, 1);
-        Target.effects:addEffect(Paralysis);
+        Paralysis = LongTimeEffect(23, 1)
+        Target.effects:addEffect(Paralysis)
     else
-        local foundTime;
-        foundTime, timeLeft = Paralysis:findValue("timeLeft");
+        local foundTime
+        foundTime, timeLeft = Paralysis:findValue("timeLeft")
         if not foundTime then
-            timeLeft=0;
+            timeLeft=0
         end
-    end;
+    end
 
     if (0 < Time and Cumulative) or (Time < 0) then
-        Time = Time + timeLeft;
+        Time = Time + timeLeft
     else
-        Time = math.max(Time, timeLeft);
-    end;
+        Time = math.max(Time, timeLeft)
+    end
 
     if (Time ~= timeLeft) then
-        Paralysis:addValue("timeLeft", math.max(0,Time));
-        return true;
-    end;
+        Paralysis:addValue("timeLeft", math.max(0,Time))
+        return true
+    end
 
-    return false;
-end;
+    return false
+end
 
 --[[
     IsCharacterParalysed
@@ -939,17 +939,17 @@ end;
 ]]
 function M.IsCharacterParalysed(Character)
 
-    local foundEffect, Paralysis = Character.effects:find(23);
+    local foundEffect, Paralysis = Character.effects:find(23)
     if not foundEffect then
-        return nil;
+        return nil
     else
-        local foundTime, timeLeft = Paralysis:findValue("timeLeft");
+        local foundTime, timeLeft = Paralysis:findValue("timeLeft")
         if foundTime then
-            return timeLeft;
-        end;
-    end;
-    return nil;
-end;
+            return timeLeft
+        end
+    end
+    return nil
+end
 
 local circleCache = {}
 --[[
@@ -965,35 +965,35 @@ function M.CreateCircle(CenterPos, Radius, Event)
         return
     end
     if not circleCache[Radius] then
-        local irad = math.ceil(Radius);
-        local dim = 2*(irad+1);
-        local map = {} ;
-        circleCache[Radius] = {};
+        local irad = math.ceil(Radius)
+        local dim = 2*(irad+1)
+        local map = {}
+        circleCache[Radius] = {}
 
         for x = -irad - 1, irad do
-            map[x] = {};
+            map[x] = {}
             for y = -irad - 1, irad do
-                map[x][y] = (x + 0.5) * (x + 0.5) + (y + 0.5) * (y + 0.5) - irad * irad > 0;
-            end;
-        end;
+                map[x][y] = (x + 0.5) * (x + 0.5) + (y + 0.5) * (y + 0.5) - irad * irad > 0
+            end
+        end
 
         for x = -irad, irad do
             for y = -irad, irad do
                 if not (map[x][y] and map[x-1][y] and map[x][y-1] and map[x-1][y-1])
                    and (map[x][y] or map[x-1][y] or map[x][y-1] or map[x-1][y-1]) then
-                    table.insert(circleCache[Radius], position(x, y, 0));
-                end;
-            end;
-        end;
-    end;
-    local go_on;
+                    table.insert(circleCache[Radius], position(x, y, 0))
+                end
+            end
+        end
+    end
+    local go_on
     for _, posi in pairs(circleCache[Radius]) do
-        go_on = Event(position(CenterPos.x + posi.x, CenterPos.y + posi.y, CenterPos.z));
+        go_on = Event(position(CenterPos.x + posi.x, CenterPos.y + posi.y, CenterPos.z))
         if (go_on == false and go_on ~= nil) then
-            return true;
-        end;
-    end;
-end;
+            return true
+        end
+    end
+end
 
 --[[
     CreateLine
@@ -1003,26 +1003,26 @@ end;
     @param function(PositionStruct) - Event function that is triggered for every position
 ]]
 function M.CreateLine(StartPos, TargetPos, Event)
-    local XDiff2 = math.abs(StartPos.x - TargetPos.x);
-    local YDiff2 = math.abs(StartPos.y - TargetPos.y);
-    local PriDiff = math.max(XDiff2, YDiff2);
-    local SecDiff = math.min(YDiff2, XDiff2);
-    local XMod = (StartPos.x < TargetPos.x and -1 or 1);
-    local YMod = (StartPos.y < TargetPos.y and -1 or 1);
-    local PathPos;
-    local go_on;
+    local XDiff2 = math.abs(StartPos.x - TargetPos.x)
+    local YDiff2 = math.abs(StartPos.y - TargetPos.y)
+    local PriDiff = math.max(XDiff2, YDiff2)
+    local SecDiff = math.min(YDiff2, XDiff2)
+    local XMod = (StartPos.x < TargetPos.x and -1 or 1)
+    local YMod = (StartPos.y < TargetPos.y and -1 or 1)
+    local PathPos
+    local go_on
     for i = 1, PriDiff do
         if (PriDiff == XDiff2) then
-            PathPos = position(StartPos.x - XMod * i, StartPos.y - YMod * math.floor(i / PriDiff * SecDiff), StartPos.z );
+            PathPos = position(StartPos.x - XMod * i, StartPos.y - YMod * math.floor(i / PriDiff * SecDiff), StartPos.z )
         else
-            PathPos = position(StartPos.x - XMod * math.floor(i / PriDiff * SecDiff), StartPos.y - YMod * i, StartPos.z );
-        end;
-        go_on = Event(PathPos);
+            PathPos = position(StartPos.x - XMod * math.floor(i / PriDiff * SecDiff), StartPos.y - YMod * i, StartPos.z )
+        end
+        go_on = Event(PathPos)
         if (go_on == false and go_on ~= nil) then
-            return true;
-        end;
-    end;
-end;
+            return true
+        end
+    end
+end
 
 --[[
     CreateTangentLine
@@ -1033,39 +1033,39 @@ end;
     @param function(PositionStruct) - Event function that is triggered for every position
 ]]
 function M.CreateTangentLine(CenterPos, TargetPos, ArmLength, Event)
-    local phi = M.GetPhi( CenterPos, TargetPos ) + math.pi/2;
+    local phi = M.GetPhi( CenterPos, TargetPos ) + math.pi/2
 
-    local xoffset = math.cos( phi );
-    local yoffset = math.sin( phi );
-    local maxoffset = math.max( math.abs( xoffset ), math.abs( yoffset ) );
+    local xoffset = math.cos( phi )
+    local yoffset = math.sin( phi )
+    local maxoffset = math.max( math.abs( xoffset ), math.abs( yoffset ) )
 
-    yoffset = yoffset * ( 1 / maxoffset );
-    xoffset = xoffset * ( 1 / maxoffset );
+    yoffset = yoffset * ( 1 / maxoffset )
+    xoffset = xoffset * ( 1 / maxoffset )
 
-    local go_on = Event( TargetPos );
+    local go_on = Event( TargetPos )
     if (go_on == false and go_on ~= nil) then
-        return;
+        return
     end
 
-    local posi;
-    local first_go_on = true;
-    local second_go_on = true;
+    local posi
+    local first_go_on = true
+    local second_go_on = true
     for i=1, ArmLength do
         if first_go_on then
             first_go_on = Event(position(M.Round(TargetPos.x + i * xoffset),
-                M.Round(TargetPos.y + i * yoffset), TargetPos.z));
-            first_go_on = (first_go_on ~= nil and first_go_on or true);
-        end;
+                M.Round(TargetPos.y + i * yoffset), TargetPos.z))
+            first_go_on = (first_go_on ~= nil and first_go_on or true)
+        end
         if second_go_on then
             second_go_on = Event(position(M.Round(TargetPos.x - i * xoffset),
-                M.Round(TargetPos.y - i * yoffset), TargetPos.z));
-            second_go_on = ( second_go_on ~= nil and second_go_on or true );
-        end;
+                M.Round(TargetPos.y - i * yoffset), TargetPos.z))
+            second_go_on = ( second_go_on ~= nil and second_go_on or true )
+        end
         if not first_go_on and not second_go_on then
-            return;
-        end;
-    end;
-end;
+            return
+        end
+    end
+end
 
 --[[
     Scale
@@ -1077,8 +1077,8 @@ end;
     @return integer - interpolated value
 ]]
 function M.Scale(ScBegin, ScEnd, value)
-    return M.ScaleUnlimited(ScBegin, ScEnd, M.Limit(value, 0, 100));
-end;
+    return M.ScaleUnlimited(ScBegin, ScEnd, M.Limit(value, 0, 100))
+end
 
 --[[
     ScaleUnlimited
@@ -1091,8 +1091,8 @@ end;
     @return integer - interpolated value
 ]]
 function M.ScaleUnlimited(ScBegin, ScEnd, value)
-    return (ScEnd - ScBegin) / 100 * value + ScBegin;
-end;
+    return (ScEnd - ScBegin) / 100 * value + ScBegin
+end
 
 --[[
     Limit
@@ -1104,13 +1104,13 @@ end;
 ]]
 function M.Limit(value, min, max)
     if min and (value < min) then
-        return min;
-    end;
+        return min
+    end
     if max and (value > max) then
-        return max;
-    end;
-    return value;
-end;
+        return max
+    end
+    return value
+end
 
 --[[
     Round
@@ -1121,20 +1121,20 @@ end;
 ]]
 function M.Round(value, precision)
     if not precision then
-        precision = 0;
-    end;
+        precision = 0
+    end
 
-    value = value * 10 ^ precision;
+    value = value * 10 ^ precision
 
     if (math.fmod(value, 1) >= 0.5) then
-        value = math.ceil( value );
+        value = math.ceil( value )
     else
-        value = math.floor( value );
-    end;
+        value = math.floor( value )
+    end
 
-    value = value / 10 ^ precision;
-    return value;
-end;
+    value = value / 10 ^ precision
+    return value
+end
 
 --[[
     GetPhi
@@ -1145,27 +1145,27 @@ end;
 ]]
 function M.GetPhi(StartPos, TargetPos)
     if StartPos == TargetPos then
-        return math.random()*2;
+        return math.random()*2
     end
-    local dx = TargetPos.x - StartPos.x;
-    local dy = TargetPos.y - StartPos.y;
-    local phi;
+    local dx = TargetPos.x - StartPos.x
+    local dy = TargetPos.y - StartPos.y
+    local phi
     if (dx == 0) then
         if (dy > 0) then
-            phi = math.pi / 2;
+            phi = math.pi / 2
         else
-            phi = math.pi + math.pi / 2;
-        end;
+            phi = math.pi + math.pi / 2
+        end
     elseif (dx > 0) then
         if (dy >= 0) then
-            phi = math.atan(dy / dx);
+            phi = math.atan(dy / dx)
         else
-            phi = math.atan(dy / dx) + 2 * math.pi;
-        end;
+            phi = math.atan(dy / dx) + 2 * math.pi
+        end
     else
-        phi = math.atan(dy / dx) + math.pi;
-    end;
-    return phi;
+        phi = math.atan(dy / dx) + math.pi
+    end
+    return phi
 end
 
 --[[
@@ -1180,30 +1180,30 @@ end
 ]]
 function M.ChangeAttribute( Character, attrib, value, bottomBorder, topBorder )
     if (value < -255 or value > 255) then
-        return 0;
-    end;
+        return 0
+    end
     if (bottomBorder <= 0 or bottomBorder >= 255) then
-        bottomBorder = 1;
-    end;
+        bottomBorder = 1
+    end
     if (topBorder <= 0 or topBorder >= 255) then
-        topBorder = 255;
-    end;
+        topBorder = 255
+    end
     if bottomBorder >= topBorder then
-        bottomBorder = 1;
-        topBorder = 255;
-    end;
-    local oldValue = Character:increaseAttrib(attrib, 0);
-    local newValue = oldValue + value;
+        bottomBorder = 1
+        topBorder = 255
+    end
+    local oldValue = Character:increaseAttrib(attrib, 0)
+    local newValue = oldValue + value
     if (newValue < bottomBorder) then
-        value = bottomBorder - newValue;
-        newValue = bottomBorder;
+        value = bottomBorder - newValue
+        newValue = bottomBorder
     elseif (newValue > topBorder) then
-        value = newValue - topBorder;
-        newValue = topBorder;
-    end;
-    Character:increaseAttrib(attrib, value);
-    return (value + 255);
-end;
+        value = newValue - topBorder
+        newValue = topBorder
+    end
+    Character:increaseAttrib(attrib, value)
+    return (value + 255)
+end
 
 --[[
     RevertAttribute
@@ -1215,14 +1215,14 @@ end;
 ]]
 function M.RevertAttribute(Character, attrib, value)
     if (value < 0 or value > 510) then
-        return false;
+        return false
     else
-        value = value - 255;
-    end;
+        value = value - 255
+    end
 
-    Character:increaseAttrib(attrib, -value);
-    return true;
-end;
+    Character:increaseAttrib(attrib, -value)
+    return true
+end
 
 --[[
     CopyPosition
@@ -1231,7 +1231,7 @@ end;
     @return position - the new position struct
 ]]
 function M.CopyPosition(Posi)
-    return position(Posi.x, Posi.y, Posi.z);
+    return position(Posi.x, Posi.y, Posi.z)
 end
 
 --[[
@@ -1247,25 +1247,25 @@ function M.split(str, pat)
     local t = {}
     if (string.len(pat) == 1) then
         for element in string.gmatch(str, "([^" .. pat .. "]+)[" .. pat .. "]?") do
-            table.insert(t, element);
-        end;
+            table.insert(t, element)
+        end
     else
         local fpat = "(.-)" .. pat
         local last_end = 1
         local s, e, cap = str:find(fpat, 1)
         while s do
             if s ~= 1 or cap ~= "" then
-                table.insert(t, cap);
-            end;
-            last_end = e + 1;
-            s, e, cap = str:find(fpat, last_end);
-        end;
+                table.insert(t, cap)
+            end
+            last_end = e + 1
+            s, e, cap = str:find(fpat, last_end)
+        end
         if (last_end <= str:len()) then
-            cap = str:sub(last_end);
-            table.insert(t, cap);
-        end;
-    end;
-    return t;
+            cap = str:sub(last_end)
+            table.insert(t, cap)
+        end
+    end
+    return t
 end
 
 
@@ -1280,15 +1280,15 @@ end
 ]]
 function M.Split_number(Number, AmountOfDigits)
 
-    local temptable = {};
-    local tempcnt = 0;
+    local temptable = {}
+    local tempcnt = 0
 
 
     for i = (AmountOfDigits-1), 0, -1 do
-        tempcnt = tempcnt + 1;
-        temptable[tempcnt] = math.floor(math.fmod((Number / (10^i)), 10) + 0.5);
+        tempcnt = tempcnt + 1
+        temptable[tempcnt] = math.floor(math.fmod((Number / (10^i)), 10) + 0.5)
     end
-    return temptable;
+    return temptable
 end
 
 
@@ -1299,31 +1299,31 @@ end
 ]]
 function M.Hour_To_String(hour)
     if (hour >= 0 and hour < 2 or hour == 24) then
-        return "gegen Mitternacht", "around midnight";
+        return "gegen Mitternacht", "around midnight"
     elseif (hour >= 2 and hour < 4) then
-        return "nach Mitternacht", "after midnight";
+        return "nach Mitternacht", "after midnight"
     elseif (hour >= 4 and hour < 6) then
-        return "vor Sonnenaufgang", "before sunrise";
+        return "vor Sonnenaufgang", "before sunrise"
     elseif (hour >= 6 and hour < 8) then
-        return "früher Morgen", "in the early morning";
+        return "früher Morgen", "in the early morning"
     elseif (hour >= 8 and hour < 10) then
-        return "morgens", "in the morning";
+        return "morgens", "in the morning"
     elseif (hour >= 10 and hour < 12) then
-        return "vormittags", "before noon";
+        return "vormittags", "before noon"
     elseif (hour >= 12 and hour < 14) then
-        return "gegen Mittag", "around noon";
+        return "gegen Mittag", "around noon"
     elseif (hour >= 14 and hour < 16) then
-        return "nachmittags", "in the afternoon";
+        return "nachmittags", "in the afternoon"
     elseif (hour >= 16 and hour < 18) then
-        return "früher Abend", "in the early evening";
+        return "früher Abend", "in the early evening"
     elseif (hour >= 18 and hour < 20) then
-        return "abends","in the evening";
+        return "abends","in the evening"
     elseif (hour >= 20 and hour < 22) then
-        return "später Abend", "in the late evening";
+        return "später Abend", "in the late evening"
     else
-        return "vor Mitternacht", "before midnight";
-    end;
-end;
+        return "vor Mitternacht", "before midnight"
+    end
+end
 
 --[[
     Converts a numeric month to a string like: Elos, Tanos,...
@@ -1332,29 +1332,29 @@ end;
 ]]
 function M.Month_To_String(month)
 
-    MonthNames = {"Elos", "Tanos", "Zhas", "Ushos", "Siros", "Ronas", "Bras", "Eldas", "Irmas", "Malas", "Findos", "Olos", "Adras", "Naras", "Chos", "Mas"}; --List of our months
+    local MonthNames = {"Elos", "Tanos", "Zhas", "Ushos", "Siros", "Ronas", "Bras", "Eldas", "Irmas", "Malas", "Findos", "Olos", "Adras", "Naras", "Chos", "Mas"} --List of our months
 
     if (month >= 1) and (month <= 16) then --only valid months
-        return MonthNames[month]; --return the month as string
+        return MonthNames[month] --return the month as string
     else
-        return "[ERROR] Corrupted date, please inform a developer.";
+        return "[ERROR] Corrupted date, please inform a developer."
     end
 
-end;
+end
 
 function M.fold(ar, f, neutral)
-    result = neutral;
+    local result = neutral
     for i,v in ipairs(ar) do
         result = f(result, v)
     end
-    return result;
+    return result
 end
 
 function M.map(ar, f)
     for i,v in ipairs(ar) do
-        ar[i] = f(v);
+        ar[i] = f(v)
     end
-    return ar;
+    return ar
 end
 
 --[[
@@ -1364,25 +1364,25 @@ end
 --]]
 function M.isItemIdInFieldStack( id, pos )
 
-    local stack = {};
-    local i = -1;
-    local found = false;
-    local itm;
+    local stack = {}
+    local i = -1
+    local found = false
+    local itm
     while( world:isItemOnField(pos) and (not found) ) do
-        itm = world:getItemOnField(pos);
+        itm = world:getItemOnField(pos)
         if( itm.id == id ) then
-            found = true;
+            found = true
         else
-            i = i + 1;
-            stack[i] = itm;
-            world:erase( itm, itm.number );
-        end;
-    end;
+            i = i + 1
+            stack[i] = itm
+            world:erase( itm, itm.number )
+        end
+    end
     while( i >= 0 ) do
-        world:createItemFromItem( stack[i], pos, true );
-        i = i - 1;
-    end;
-    return found;
+        world:createItemFromItem( stack[i], pos, true )
+        i = i - 1
+    end
+    return found
 end
 
 --[[
@@ -1392,24 +1392,24 @@ end
 --]]
 function M.removeItemIdFromFieldStack( id, pos )
 
-    local stack = {};
-    local i = -1;
-    local found = false;
-    local itm;
+    local stack = {}
+    local i = -1
+    local found = false
+    local itm
     while( world:isItemOnField(pos) and (not found) ) do
-        itm = world:getItemOnField(pos);
+        itm = world:getItemOnField(pos)
         if( itm.id == id ) then
-            found = true;
+            found = true
         else
-            i = i + 1;
-            stack[i] = itm;
-        end;
-        world:erase( itm, itm.number );
-    end;
+            i = i + 1
+            stack[i] = itm
+        end
+        world:erase( itm, itm.number )
+    end
     while( i >= 0 ) do
-        world:createItemFromItem( stack[i], pos, true );
-        i = i - 1;
-    end;
+        world:createItemFromItem( stack[i], pos, true )
+        i = i - 1
+    end
 end
 
 --[[
@@ -1424,17 +1424,17 @@ end
 ]]
 function M.ExtgetPlayersInRangeOf(posi, radius)
 
-    local ext = 2;
-    plyList=world:getPlayersInRangeOf(posi, radius+ext);
+    local ext = 2
+    local plyList = world:getPlayersInRangeOf(posi, radius+ext)
 
     for i, player in pairs(plyList) do
         -- player not in rect, remove from list
         if not M.isInRect(player.pos, posi, radius) then
-            plyList[i] = nil;
+            plyList[i] = nil
         end
     end
 
-    return plyList;
+    return plyList
 
 end
 
@@ -1453,12 +1453,12 @@ function M.isInRect(targetpos, posi, range)
 
     if targetpos.x>=(posi.x-range) and targetpos.x<=(posi.x+range) then         --checks the x-Coordinates with the borders
         if targetpos.y>=(posi.y-range) and targetpos.y<=(posi.y+range) then     --checks the y-Coordinates with the borders
-            return true;
+            return true
         else
-            return false;
+            return false
         end
     else
-        return false;
+        return false
     end
 end
 
@@ -1469,10 +1469,10 @@ function M.IsMonsterDocile( id )
     local docileList = {6,16,26,36,46,56,96,106,116,181,182,241,242,243,244,371,372,373,396,581,584,591,615,616,621,1054,1131,1132,1133,1134,1135,1136,1151,1152,1161,1162,1163,1164,1165}
     for i,v in pairs(docileList) do
         if id == v then
-            return true;
+            return true
         end
     end
-    return false;
+    return false
 end
 
 --- Checks if an item is in the hand tools slots
@@ -1480,12 +1480,12 @@ end
 -- @return true if the item is in a hand tools slot, false otherwise
 function M.IsItemInHands( item )
     if item:getType() == 4 then
-        local itempos = item.itempos;
+        local itempos = item.itempos
         if itempos == 5 or itempos == 6 then
-            return true;
+            return true
         end
     end
-    return false;
+    return false
 end
 
 --- Gets the target item for Use-With like commands. Both, source and target items have to be in hand tool slots.
@@ -1494,57 +1494,57 @@ end
 -- @return The target item (in the other hand slot than the source) or nil if no target is found
 function M.GetTargetItem( character, source )
     if not M.IsItemInHands(source) then
-        return nil;
+        return nil
     end
-    local tpos = 11 - source.itempos; -- either 5 or 6
-    local target = character:getItemAt(tpos);
+    local tpos = 11 - source.itempos -- either 5 or 6
+    local target = character:getItemAt(tpos)
     if target.id == 0 then
-        return nil;
+        return nil
     end
-    return target;
+    return target
 end
 
 --- Returns the real date and time as a String
 -- @return date and time in format: YYYY-MM-DD | hh:mm:ss
 function M.GetRealDateTimeString()
-    local year, month, day, hour, minute, second = M.GetRealDate();
+    local year, month, day, hour, minute, second = M.GetRealDate()
     local timeString =
         function(int)
             if int < 10 then
-                return "0"..int;
+                return "0"..int
             end
-            return ""..int;
+            return ""..int
         end
     return timeString(year) .."-".. timeString(month) .."-"..
-    timeString(day) .." | ".. timeString(hour) ..":".. timeString(minute) ..":".. timeString(second);
+    timeString(day) .." | ".. timeString(hour) ..":".. timeString(minute) ..":".. timeString(second)
 end
 
 --- Returns the real date as a String
 -- @return date in format: YYYY-MM-DD
 function M.GetRealDateString()
-    local year, month, day, hour, minute, second = M.GetRealDate();
+    local year, month, day, hour, minute, second = M.GetRealDate()
     local timeString =
         function(int)
             if int < 10 then
-                return "0"..int;
+                return "0"..int
             end
-            return ""..int;
+            return ""..int
         end
-    return timeString(year) .."-".. timeString(month) .."-".. timeString(day);
+    return timeString(year) .."-".. timeString(month) .."-".. timeString(day)
 end
 
 --- Returns the real time as a String
 -- @return time in format: hh:mm:ss
 function M.GetRealTimeString()
-    local year, month, day, hour, minute, second = M.GetRealDate();
+    local year, month, day, hour, minute, second = M.GetRealDate()
     local timeString =
         function(int)
             if int < 10 then
-                return "0"..int;
+                return "0"..int
             end
-            return ""..int;
+            return ""..int
         end
-    return timeString(hour) ..":".. timeString(minute) ..":".. timeString(second);
+    return timeString(hour) ..":".. timeString(minute) ..":".. timeString(second)
 end
 
 --- Converts the unix timestamp to a real date (GMT 0)
@@ -1555,44 +1555,44 @@ end
 -- @return minute
 -- @return second
 function M.GetRealDate()
-    local timestamp = world:getTime("unix");
+    local timestamp = world:getTime("unix")
 
-    local year, month, day, hour, minute, second, tmp;
+    local year, month, day, hour, minute, second, tmp
     year = math.floor(timestamp / 31557600) -- (365.25*24*60*60)
-    local leapDays = math.floor( (year+1) / 4 ); -- without the current year
-    timestamp = timestamp - (year*365 + leapDays)*86400; -- 24*60*60
+    local leapDays = math.floor( (year+1) / 4 ) -- without the current year
+    timestamp = timestamp - (year*365 + leapDays)*86400 -- 24*60*60
 
-    local leapYear = 0;
+    local leapYear = 0
     if (year % 4) == 2 then
-        leapYear = 1; -- this year is a leap year
+        leapYear = 1 -- this year is a leap year
     end
-    year = year + 1970; -- unix time starts there
+    year = year + 1970 -- unix time starts there
 
-    local dayList = {0,31,59,90,120,151,181,212,243,273,304,334};
-    tmp = math.floor(timestamp / 86400); -- days so far this year
-    month = 1;
+    local dayList = {0,31,59,90,120,151,181,212,243,273,304,334}
+    tmp = math.floor(timestamp / 86400) -- days so far this year
+    month = 1
     for i=12,2,-1 do
-        local check = tmp-dayList[i];
+        local check = tmp-dayList[i]
         if i>2 then
-            check = check - leapYear;
+            check = check - leapYear
         end
         if check > 0 then
-            month = i;
-            break;
+            month = i
+            break
         end
     end
-    tmp = dayList[month]; -- days without current month
+    tmp = dayList[month] -- days without current month
     if month > 2 then
-        tmp = tmp + leapYear;
+        tmp = tmp + leapYear
     end
-    timestamp = timestamp - ((tmp-1) * 86400); -- days this month (in seconds)
-    day = math.floor(timestamp / 86400);
-    timestamp = timestamp - (day * 86400);
-    hour = math.floor(timestamp / 3600);
-    timestamp = timestamp - (hour * 3600);
-    minute = math.floor(timestamp / 60);
-    second = timestamp - (minute * 60);
-    return year, month, day, hour, minute, second;
+    timestamp = timestamp - ((tmp-1) * 86400) -- days this month (in seconds)
+    day = math.floor(timestamp / 86400)
+    timestamp = timestamp - (day * 86400)
+    hour = math.floor(timestamp / 3600)
+    timestamp = timestamp - (hour * 3600)
+    minute = math.floor(timestamp / 60)
+    second = timestamp - (minute * 60)
+    return year, month, day, hour, minute, second
 end
 
 -- Returns an NPC in case it is found within a given range of a give position
@@ -1615,8 +1615,8 @@ end
 
 function M.PositionToText(pos)
     if pos ~= nil then
-        retString="("..pos.x..","..pos.y..","..pos.z..")";
-        return retString;
+        local retString = "("..pos.x..","..pos.y..","..pos.z..")"
+        return retString
     end
     return "nil","nil","nil"
 end
@@ -1634,16 +1634,16 @@ end
 ]]
 function M.ListToNumber(NumberList)
 
-   local result=NumberList[1];
+   local result=NumberList[1]
 
    for i = 2, #NumberList do
 
-      result = result ..NumberList[i];
+      result = result ..NumberList[i]
 
 
    end
-   result = tonumber(result);    --convert the string result   into a number
-   return result;
+   result = tonumber(result)    --convert the string result   into a number
+   return result
 
 end
 
@@ -1684,19 +1684,19 @@ end
 ]]
 function M.CreateRandomNumberList(AmntElements, minval, maxval)
 
-   local reslist = {};
+   local reslist = {}
 
    for i = 1, AmntElements do
 
-        reslist[i] = math.random(minval, maxval);
+        reslist[i] = math.random(minval, maxval)
 
         if (reslist[i] == reslist[i-1]) then -- same number like before, try getting a new number
-        reslist[i] = math.random(minval, maxval);
+        reslist[i] = math.random(minval, maxval)
       end
 
    end
 
-   return reslist;
+   return reslist
 end
 
 --[[Searches the Online List for a Player by name
@@ -1704,7 +1704,7 @@ end
 --     if not, nil]]
 
 function M.CheckIfOnline(playername)
-    playerlist = world:getPlayersOnline();
+    local playerlist = world:getPlayersOnline()
 
     for i = 1, #(playerlist) do
         if playerlist[i].name == playername then
@@ -1718,69 +1718,62 @@ end
 -- @param Skill  The name of the skill.
 -- @return String  The name of the corresponding lead attribute.
 --                 NOTE: in case there is no lead attribute, nil will be returned.
+local leadAttribTable = {}
+--Dexterity: All crafting skills for final products
+leadAttribTable[Character.tailoring]="dexterity"
+leadAttribTable[Character.smithing]="dexterity"
+leadAttribTable[Character.gemcutting]="dexterity"
+leadAttribTable[Character.carpentry]="dexterity"
+leadAttribTable[Character.cookingAndBaking]="dexterity"
+leadAttribTable[Character.goldsmithing]="dexterity"
+leadAttribTable[Character.glassBlowing]="dexterity"
+
+--Dexterity: Instruments (please remove these skills in future)
+leadAttribTable[Character.harp]="dexterity"
+leadAttribTable[Character.horn]="dexterity"
+leadAttribTable[Character.flute]="dexterity"
+leadAttribTable[Character.lute]="dexterity"
+
+--Constitution: All gathering skills
+leadAttribTable[Character.herblore]="constitution"
+leadAttribTable[Character.mining]="constitution"
+leadAttribTable[Character.fishing]="constitution"
+leadAttribTable[Character.firingBricks]="constitution"
+leadAttribTable[Character.farming]="constitution"
+leadAttribTable[Character.woodcutting]="constitution"
+
+--Agility: Defensive fighting skills
+leadAttribTable[Character.parry]="agility"
+leadAttribTable[Character.heavyArmour]="agility"
+leadAttribTable[Character.mediumArmour]="agility"
+leadAttribTable[Character.lightArmour]="agility"
+
+--Perception: Archery
+leadAttribTable[Character.distanceWeapons]="perception"
+
+--Strength: Offensive fighting skills
+leadAttribTable[Character.slashingWeapons]="strength"
+leadAttribTable[Character.wrestling]="strength"
+leadAttribTable[Character.concussionWeapons]="strength"
+leadAttribTable[Character.punctureWeapons]="strength"
+
+--Essence: Alchemy
+leadAttribTable[Character.alchemy]="essence"
+
+--Intelligence: Magic
+--No skills yet
+
+--Willpower: Priests
+--No skills yet
+
+--Deactivated skills
+--leadAttribTable[Character.dodge]="agility" --deactivated
+--leadAttribTable[Character.tactics]="perception" --deactivated
+--leadAttribTable[Character.magicResistance]="wilpower" --please reconsider once you work on magic
+--leadAttribTable[Character.poisoning]="perception" --deactivated
+
 function M.GetLeadAttributeName(Skill)
-
-  if leadAttribTable==nil then
-
-    leadAttribTable={};
-
-    --Dexterity: All crafting skills for final products
-    leadAttribTable[Character.tailoring]="dexterity"
-    leadAttribTable[Character.smithing]="dexterity"
-    leadAttribTable[Character.gemcutting]="dexterity"
-    leadAttribTable[Character.carpentry]="dexterity"
-    leadAttribTable[Character.cookingAndBaking]="dexterity"
-    leadAttribTable[Character.goldsmithing]="dexterity"
-    leadAttribTable[Character.glassBlowing]="dexterity"
-    
-    --Dexterity: Instruments (please remove these skills in future)
-    leadAttribTable[Character.harp]="dexterity"
-    leadAttribTable[Character.horn]="dexterity"
-    leadAttribTable[Character.flute]="dexterity"
-    leadAttribTable[Character.lute]="dexterity"
-
-    --Constitution: All gathering skills
-    leadAttribTable[Character.herblore]="constitution"
-    leadAttribTable[Character.mining]="constitution"
-    leadAttribTable[Character.fishing]="constitution"
-    leadAttribTable[Character.firingBricks]="constitution"
-    leadAttribTable[Character.farming]="constitution"
-    leadAttribTable[Character.woodcutting]="constitution"
-
-    --Agility: Defensive fighting skills
-    leadAttribTable[Character.parry]="agility"
-    leadAttribTable[Character.heavyArmour]="agility"
-    leadAttribTable[Character.mediumArmour]="agility"
-    leadAttribTable[Character.lightArmour]="agility"
-
-    --Perception: Archery
-    leadAttribTable[Character.distanceWeapons]="perception"
-
-    --Strength: Offensive fighting skills
-    leadAttribTable[Character.slashingWeapons]="strength"
-    leadAttribTable[Character.wrestling]="strength"
-    leadAttribTable[Character.concussionWeapons]="strength"
-    leadAttribTable[Character.punctureWeapons]="strength"
-
-    --Essence: Alchemy
-    leadAttribTable[Character.alchemy]="essence"
-
-    --Intelligence: Magic
-    --No skills yet
-
-    --Willpower: Priests
-    --No skills yet
-
-    --Deactivated skills
-    --leadAttribTable[Character.dodge]="agility" --deactivated
-    --leadAttribTable[Character.tactics]="perception" --deactivated
-    --leadAttribTable[Character.magicResistance]="wilpower" --please reconsider once you work on magic
-    --leadAttribTable[Character.poisoning]="perception" --deactivated
-
-  end
-
-  return leadAttribTable[Skill]
-
+    return leadAttribTable[Skill]
 end
 
 --- Looks up the lead attribute value of a given skill name.
@@ -1792,15 +1785,15 @@ end
 function M.GetLeadAttrib(user, Skill)
 
   local leadAttribName = M.GetLeadAttributeName(Skill)
-  
+
   if leadAttribName ~= nil then
-  
+
     return user:increaseAttrib(leadAttribName, 0)
-    
+
   end
-    
+
   return 10 --10 should be default
-  
+
 end
 
 --- Calculates an universal attribute bonus
@@ -1810,14 +1803,15 @@ end
 -- @return  The value of the bonus
 --                 NOTE: 1 will be returned if something goes wrong
 
-function M.GetAttributeBonus (attribute,range)
+function M.GetAttributeBonus(attribute, range)
 
+    local bonus
     if attribute ~= nil and attribute ~= 0 then
         bonus=math.min(1+2*range, (1-range) + range * (attribute / 10)) --1 +/- range for attributes 0-20. Bonus capped at attribute 30
     else
         bonus=1 --default
     end
-    
+
     return bonus
 
 end
@@ -1834,31 +1828,31 @@ end
 --               If none is found, nil is returned.
 function M.GetItemInArea(CenterPos, ItemId, Radius, OnlyWriteable)
   if (Radius == nil) then
-    Radius = 1;
+    Radius = 1
   end
   if (OnlyWriteable == nil) then
-    OnlyWriteable = false;
+    OnlyWriteable = false
   end
   for x=-Radius,Radius do
     for y=-Radius,Radius do
-      local field = world:getField(position(CenterPos.x + x, CenterPos.y + y, CenterPos.z));
-      local itemCount = field:countItems();
+      local field = world:getField(position(CenterPos.x + x, CenterPos.y + y, CenterPos.z))
+      local itemCount = field:countItems()
       if (itemCount > 0) then
         if (OnlyWriteable) then
-          itemCount = 1;
+          itemCount = 1
         end
         for i=0,itemCount-1 do
-          local item = field:getStackItem(i);
+          local item = field:getStackItem(i)
           if (item.id == ItemId) then
-            item.pos.x = CenterPos.x + x;
-            item.pos.y = CenterPos.y + y;
-            return item, (i==0);
+            item.pos.x = CenterPos.x + x
+            item.pos.y = CenterPos.y + y
+            return item, (i==0)
           end
         end
       end
     end
   end
-  return nil, nil;
+  return nil, nil
 end
 
 -- Checks if a given position is located on the tutorial island Noobia.
@@ -1866,9 +1860,9 @@ end
 -- @return bool  True if position is located on Noobia, false otherwise.
 function M.isOnNoobia(Pos)
   if (Pos.z == 100) then
-    return true;
+    return true
   end
-  return false;
+  return false
 end
 
 -- Checks if a given position is located in the prison mine.
@@ -1876,9 +1870,9 @@ end
 -- @return bool  True if position is located in Prison mine, false otherwise.
 function M.isInPrison(Pos)
   if (Pos.z == -40) then
-    return true;
+    return true
   end
-  return false;
+  return false
 end
 
 --- Convert a RGB color to a HSV color.
