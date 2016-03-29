@@ -186,11 +186,8 @@ function tradeNPC:sellItemToPlayer(npcChar, player, itemIndex, amount)
     if (money.CharHasMoney(player, item._price * amount)) then
         money.TakeMoneyFromChar(player, item._price * amount)
         local priceStringGerman, priceStringEnglish = money.MoneyToString(item._price * amount)
-        local notCreated = player:createItem(item._itemId, amount, item._quality, item._data)
-        while (notCreated > 0) do
-            world:createItemFromId(item._itemId, math.min(notCreated, item._maxStack), player.pos, true, item._quality, item._data)
-            notCreated = notCreated - math.min(notCreated, item._maxStack)
-        end
+
+        common.CreateItem(player, item._itemId, amount, item._quality, item._data)
         local itemName = common.GetNLS(player, world:getItemName(item._itemId, 0), world:getItemName(item._itemId, 1))
         common.InformNLS(player, "Ihr habt "..amount.." "..itemName.." zu einem Preis von"..priceStringGerman.." gekauft.", "You bought "..amount.." "..itemName.." at a price of"..priceStringEnglish..".")
         world:makeSound(24, player.pos)
@@ -225,7 +222,6 @@ tradeNPCItem = class(function(self, id, itemType, nameDe, nameEn, price, stack, 
 
     self["_itemId"] = id
     self["_type"] = itemType
-    self["_maxStack"] = world:getItemStatsFromId(id).MaxStack
 
     if (nameDe == nil or nameEn == nil) then
         self["_nameDe"] = world:getItemName(id, Player.german)

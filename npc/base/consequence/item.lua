@@ -12,9 +12,10 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
+local common = require("base.common")
 local consequence = require("npc.base.consequence.consequence")
 local tools = require("npc.base.tools")
 
@@ -23,7 +24,7 @@ local _item_helper
 local item = class(consequence,
 function(self, id, count, quality, data)
     consequence:init(self)
-    
+
     self["id"] = tonumber(id)
     self["count"], self["counttype"] = tools.set_value(count)
     self["quality"], self["qualitytype"] = tools.set_value(quality)
@@ -34,13 +35,7 @@ end)
 function _item_helper(self, npcChar, player)
     local count = tools.get_value(self.npc, self.count, self.counttype)
     local quality = tools.get_value(self.npc, self.quality, self.qualitytype)
-    local data = self.data
-    
-    local notcreated = player:createItem(self.id, count, quality, data)
-    
-    if (notcreated > 0) then
-        world:createItemFromId(self.id, notcreated, player.pos, true, quality, data)
-    end 
+    common.CreateItem(player, self.id, count, quality, self.data)
 end
 
 return item

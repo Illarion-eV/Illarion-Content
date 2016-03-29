@@ -698,6 +698,25 @@ function M.NormalRnd2(minVal, maxVal, count)
 end
 
 --[[
+    CreateItem
+    Safely create an item
+    @return boolean - true if all fits in player's inventory, false if something was created on the ground
+]]
+function M.CreateItem(character, itemId, amount, quality, data)
+    local notCreated = character:createItem(itemId, amount, quality, data)
+    if notCreated == 0 then
+        return true
+    end
+
+    local maxStack = world:getItemStatsFromId(itemId).MaxStack
+    while (notCreated > 0) do
+        world:createItemFromId(itemId, math.min(notCreated, maxStack), character.pos, true, quality, data)
+        notCreated = notCreated - math.min(notCreated, maxStack)
+    end
+    return false
+end
+
+--[[
     DeleteItemFromStack
     Searches for an item with given properties in a stack and deletes it.
     @param PositionStruct - Position of the stack
