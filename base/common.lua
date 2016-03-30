@@ -697,22 +697,63 @@ function M.NormalRnd2(minVal, maxVal, count)
     return math.ceil(base / count) + minVal
 end
 
+local function _isNumber(value)
+    return type(value) == "number"
+end
+
+local function _isTable(value)
+    return type(value) == "table"
+end
+
 --[[
     CreateItem
     Safely create an item
     @return boolean - true if all fits in player's inventory, false if something was created on the ground
 ]]
-function M.CreateItem(character, itemId, amount, quality, data)
-    local notCreated = character:createItem(itemId, amount, quality, data)
+function M.CreateItem(character, id, amount, quality, data)
+    if not isValidChar(character) then
+        error("The parameter 'character' is not a valid character as it was expected.")
+    end
+
+    if not _isNumber(id) then
+        error("The parameter 'id' is not a number as it was expected.")
+    elseif id < 1 then
+        error("The parameter 'id' must be a positive number.")
+    end
+
+    if not _isNumber(amount) then
+        error("The parameter 'amount' is not a number as it was expected.")
+    elseif amount < 1 then
+        error("The parameter 'amount' must be a positive number.")
+    end
+
+    if not _isNumber(quality) then
+        error("The parameter 'quality' is not a number as it was expected.")
+    elseif quality < 101 or quality > 999 then
+        error("The parameter 'quality' must be a number between 101 and 999.")
+    end
+
+    if data ~= nil and not _isTable(data) then
+        error("The parameter 'data' is not a table as it was expected.")
+    end
+
+    local notCreated = character:createItem(id, amount, quality, data)
     if notCreated == 0 then
         return true
     end
 
-    local maxStack = world:getItemStatsFromId(itemId).MaxStack
+    local maxStack = world:getItemStatsFromId(id).MaxStack
     while (notCreated > 0) do
-        world:createItemFromId(itemId, math.min(notCreated, maxStack), character.pos, true, quality, data)
-        notCreated = notCreated - math.min(notCreated, maxStack)
+        -- work around an issue to prevent creation of stacks of unstackable items
+        local minimum = math.min(notCreated, maxStack)
+        world:createItemFromId(id, minimum, character.pos, true, quality, data)
+        notCreated = notCreated - minimum
     end
+
+    character:inform(
+        "Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+        "You can't carry any more and the rest drops to the ground.",
+        Player.highPriority)
     return false
 end
 
