@@ -106,7 +106,7 @@ function M.FillIntoBottle(User, SourceItem, cauldron)
                 data.OrcanolConcentration=cauldron:getData("OrcanolConcentration")
                 data.FenolinConcentration=cauldron:getData("FenolinConcentration")
                 data.filledWith="stock"
-                common.CreateItem(User, reBottle, 1, 0, data)
+                common.CreateItem(User, reBottle, 1, 333, data)
 
             elseif cauldron:getData("filledWith") == "essenceBrew" then
                 local data = {}
@@ -119,7 +119,7 @@ function M.FillIntoBottle(User, SourceItem, cauldron)
                 data.essenceHerb7=cauldron:getData("essenceHerb7")
                 data.essenceHerb8=cauldron:getData("essenceHerb8")
                 data.filledWith="essenceBrew"
-                common.CreateItem(User, reBottle, 1, 0, data)
+                common.CreateItem(User, reBottle, 1, 333, data)
 
             elseif cauldron:getData("filledWith") == "potion" then
                     local data = {}
@@ -154,7 +154,8 @@ function GetSlimeFromTree(User, SourceItem, ltstate)
     if SourceItem.number > 1 then
         local data = {}
         data.filledWith="meraldilised slime"
-        common.CreateItem(User, 327, 1, 0, data)
+        common.CreateItem(User, 327, 1, 333, data)
+        User:eraseItem(SourceItem.id, 1)
     else
         SourceItem.id = 327
         SourceItem:setData("filledWith","meraldilised slime")
@@ -162,5 +163,5 @@ function GetSlimeFromTree(User, SourceItem, ltstate)
     end
 
 end
-return M
 
+return M
