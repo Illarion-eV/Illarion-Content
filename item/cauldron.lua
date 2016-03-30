@@ -37,11 +37,7 @@ function M.UseItem(User, SourceItem)
         User:inform(
             "Irgendwie schaffst du es, eine Flasche mit dem gelben Trank von Kaefity zu klauen. Du solltest sie zu Pasinn bringen.",
             "You manage somehow to steal a bottle of the yellow potion from Kaefity. You should take it to Pasinn.")
-            local notCreated = User:createItem(2504, 1, 333, {descriptionEn = "Mysterious Yellow Potion", descriptionDe = "Geheimnisvoller Gelber Trank "}) -- yellow potion
-        if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-            world:createItemFromId(2504, notCreated, User.pos, true, 333, {descriptionEn = "Mysterious Yellow Potion", descriptionDe = "Geheimnisvoller Gelber Trank "})
-            common.HighInformNLS(User,"Du kannst nichts mehr halten.","You can't carry any more.")
-        end
+        common.CreateItem(User, 2504, 1, 333, {descriptionEn = "Mysterious Yellow Potion", descriptionDe = "Geheimnisvoller Gelber Trank "}) -- yellow potion
         User:setQuestProgress(542, 1)
         return
     elseif (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) >= 0) and SourceItem.pos == position(594, 172, -3) then --player has a bottle
@@ -50,7 +46,7 @@ function M.UseItem(User, SourceItem)
             "You already have a bottle, you should show it to Pasinn before collecting more.")
         return
     end
-    
+
     if (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) == 0) and SourceItem.pos == position(596, 173, -3) then --OK, the player does the quest 2 orange
         User:inform(
             "Du siehst verdutzt zu, wie sich die Flasche in deinen Händen auflöst. Diesen Trank wirst du wohl nicht abfüllen können. Du solltest es woanders versuchen.",
@@ -64,7 +60,7 @@ function M.UseItem(User, SourceItem)
             "You already have a bottle, you should show it to Pasinn before collecting more.")
         return
     end
-    
+
     if (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) == 0) and SourceItem.pos == position(598, 175, -3) then --OK, the player does the quest 2 blue
         User:inform(
             "Als der Inhalt des Kessels deine Flasche berührt, fängt der Trank an, Blasen zu werfen und explodiert. Glasscherben fliegen durch die Gegend und verletzen dich.",
@@ -79,16 +75,12 @@ function M.UseItem(User, SourceItem)
             "You already have a bottle, you should show it to Pasinn before collecting more.")
         return
     end
-    
+
     if (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) == 0) and SourceItem.pos == position(598, 177, -3) then --OK, the player does the quest 2 dark green
         User:inform(
             "Irgendwie schaffst du es, eine Flasche des dunkelgrünen Tranks von Kaefity zu stehlen. Du solltest sie zu Pasinn bringen.",
             "You manage somehow to steal a bottle of the dark green potion from Kaefity. You should take it to Pasinn.")
-        local notCreated = User:createItem(2506, 1, 333, {descriptionEn = "Mysterious Green Potion", descriptionDe = "Geheimnisvoller Grün Trank "}) -- yellow potion
-        if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-            world:createItemFromId(2506, notCreated, User.pos, true, 333, {descriptionEn = "Mysterious Green Potion", descriptionDe = "Geheimnisvoller Grün Trank "})
-            common.HighInformNLS(User,"Du kannst nichts mehr halten.","You can't carry any more.")
-        end
+        common.CreateItem(User, 2506, 1, 333, {descriptionEn = "Mysterious Green Potion", descriptionDe = "Geheimnisvoller Grün Trank "}) -- yellow potion
         User:setQuestProgress(542, 3)
         return
     elseif (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) >= 0) and SourceItem.pos == position(598, 177, -3) then -- player has a bottle
@@ -97,16 +89,12 @@ function M.UseItem(User, SourceItem)
             "You already have a bottle, you should show it to Pasinn before collecting more.")
         return
     end
-    
+
     if (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) == 0) and SourceItem.pos == position(597, 180, -3) then --OK, the player does the quest 2 pink
         User:inform(
             "Irgendwie schaffst du es, eine Flasche des rosanen Tranks von Kaefity zu klauen. Du solltest sie zu Pasinn bringen.",
             "You manage somehow to steal a bottle of the pink potion from Kaefity. You should take it to Pasinn.")
-        local notCreated = User:createItem(2503, 1, 333, {descriptionEn = "Mysterious Violet Potion", descriptionDe = "Geheimnisvoller Violett Trank "}) -- yellow potion
-        if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-            world:createItemFromId(2503, notCreated, User.pos, true, 333, {descriptionEn = "Mysterious Violet Potion", descriptionDe = "Geheimnisvoller Violett Trank "})
-            common.HighInformNLS(User,"Du kannst nichts mehr halten.","You can't carry any more.")
-         end
+        common.CreateItem(User, 2503, 1, 333, {descriptionEn = "Mysterious Violet Potion", descriptionDe = "Geheimnisvoller Violett Trank "}) -- yellow potion
         User:setQuestProgress(542, 2)
         return
     elseif (User:getQuestProgress(539) == 3) and (User:getQuestProgress(542) >= 0) and SourceItem.pos == position(597, 180, -3) then --player has a bottle
@@ -133,13 +121,7 @@ function cauldronContents(User, cauldronItem)
     world:changeItem(cauldronItem)
 
     User:inform("Du findest eine Gifttaler.","You discover a poison coin.")
-        local notCreated = User:createItem(3078, 1, 333, nil) -- silver coin
-        if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-            world:createItemFromId(3078, notCreated, User.pos, true, 333, nil)
-            common.HighInformNLS(User,
-                "Du kannst nichts mehr halten.",
-                "You can't carry any more.")
-        end
+    common.CreateItem(User, 3078, 1, 333, nil)
 end
 
 return M

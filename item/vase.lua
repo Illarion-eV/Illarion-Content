@@ -167,13 +167,7 @@ function VaseContents(User, vaseItem)
         User:inform("Staub wirbelt auf.", "A cloud of dust escapes into the air.")
     elseif random_number >= 71 and random_number <= 90 then
         User:inform("Du findest einen ungeschliffenen Diamanten.","You discover a raw diamond.")
-        local notCreated = User:createItem(254, 1, 333, nil) -- raw diamond
-        if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-            world:createItemFromId(254, notCreated, User.pos, true, 333, nil)
-            common.HighInformNLS(User,
-                "Du kannst nichts mehr halten.",
-                "You can't carry any more.")
-        end
+        common.CreateItem(User, 254, 1, 333, nil) -- raw diamond
     elseif random_number >= 91 and random_number <=100 then
         local monPos = common.getFreePos(vaseItem.pos, 2) -- radius 2 around vase
         world:createMonster(222, monPos, -20)

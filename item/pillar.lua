@@ -140,7 +140,7 @@ function M.LookAtItem(User, Item)
     if Item.pos == position(596, 150, 0) or Item.pos == position(607, 150, 0) or Item.pos == position(588, 182, 0) or Item.pos == position(600, 183, 0) or Item.pos == position(755, 252, 1) or Item.pos == position(760, 338, 1) then
         itemLookat = BridgeCanalLookAt(User, Item)
     end
-    
+
     if itemLookat then
         return itemLookat --Send the custom lookAt
     else
@@ -240,13 +240,7 @@ function M.UseItem(User, SourceItem, ltstate)
             queststatuslist = common.Split_number(queststatus, 6) -- reading the digits of the queststatus as table
             if queststatuslist[1] == 0 then -- sword, only triggered once by each char
             User:inform("Du nimmst das Schwert an dich und schließt sich dem Zzarn'K'Ska an.", "You take the sword and join the Zzarn'K'Ska.")
-                local notCreated = User:createItem(2655, 1, 866, {descriptionEn = "Holy Sword of the Zzarn'K'Ska of Zelphia", descriptionDe = "Das heilge Schwert der ZzarnK'Ska von Zelphia", rareness = "4"}) -- create the item
-                if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-                world:createItemFromId(2655, notCreated, User.pos, true, 866, {descriptionEn = "Holy Sword of the Zzarn'K'Ska of Zelphia", descriptionDe = "Das heilge Schwert der ZzarnK'Ska von Zelphia", rareness = "4"})
-                common.HighInformNLS(User,
-                    "Du kannst nichts mehr tragen.",
-                    "You can't carry any more.")
-                end
+            common.CreateItem(User, 2655, 1, 866, {descriptionEn = "Holy Sword of the Zzarn'K'Ska of Zelphia", descriptionDe = "Das heilge Schwert der ZzarnK'Ska von Zelphia", rareness = "4"})
             queststatuslist[1] = 1
             User:setQuestProgress(506, queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+queststatuslist[5]*10+queststatuslist[6]*1) --saving the new queststatus
             User:setQuestProgress(503, 2)

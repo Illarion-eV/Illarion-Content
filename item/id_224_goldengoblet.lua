@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local common = require("base.common")
@@ -20,7 +20,7 @@ local common = require("base.common")
 local M = {}
 
 function M.UseItem(user, sourceItem)
-    
+
     -- A special and unique item. Do not create a second version of this goblet. Contact Jupiter if you want to do something with it or somethign similiar, please.
     if sourceItem:getData("coinDepot") then
         local coins = {copperCoins = 3076, silverCoins = 3077, goldCoins = 61}
@@ -28,11 +28,7 @@ function M.UseItem(user, sourceItem)
             local amount = tonumber(sourceItem:getData(coinData)) or 0
             if amount > 0 then
                 user:inform("Münzen fallen aus dem Kelch heraus.", "Coins fall out from the goblet.")
-                local notCreated = user:createItem(coinId, amount, 333, nil)
-                if notCreated > 0 then
-                    user:inform("Du kannst nichts mehr halten und der Rest fällt zu Boden.", "You can't carry any more and the rest drops to the ground.", Character.highPriority)
-                    world:createItemFromId(coinId, amount, user.pos, true, 333, nil)
-                end
+                common.CreateItem(user, coinId, amount, 333, nil)
                 sourceItem:setData(coinData, 0)
                 world:changeItem(sourceItem)
             end
@@ -46,11 +42,11 @@ function M.putCoinsInGoblet(user, sourceItem)
     if common.isSpecialItem(sourceItem) then
         return false
     end
-    
+
     if not (sourceItem.itempos == 5 or sourceItem.itempos == 6) then
         return false
-    end    
-    
+    end
+
     local goblet = user:getItemAt(Character.left_tool)
     if not (goblet and goblet.id == 224 and goblet:getData("coinDepot") == "true") then
         goblet = user:getItemAt(Character.right_tool)
@@ -58,11 +54,11 @@ function M.putCoinsInGoblet(user, sourceItem)
             return false
         end
     end
-    
+
     local coins = {[3076] = "copperCoins", [3077] = "silverCoins", [61] = "goldCoins"}
     goblet:setData(coins[sourceItem.id], (tonumber(sourceItem:getData(coins[sourceItem.id])) or 0) + sourceItem.number)
     world:changeItem(goblet)
-    
+
     world:erase(sourceItem, sourceItem.number)
     user:inform("Du tust die Münzen in den Kelch und sie verschwinden.", "You put the coins in the goblet and the disappear.")
     return true

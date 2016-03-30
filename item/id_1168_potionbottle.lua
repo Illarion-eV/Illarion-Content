@@ -23,7 +23,7 @@ local M = {}
 
 function M.UseItem(User, SourceItem)
 
-    if SourceItem.pos == position(607, 177, -3) and (User:getQuestProgress(533) == 0) and (User:getQuestProgress(534) == 0) and (User:getQuestProgress(535) == 0) and (User:getQuestProgress(536) == 0) 
+    if SourceItem.pos == position(607, 177, -3) and (User:getQuestProgress(533) == 0) and (User:getQuestProgress(534) == 0) and (User:getQuestProgress(535) == 0) and (User:getQuestProgress(536) == 0)
         and (User:getQuestProgress(537) == 0) and (User:getQuestProgress(538) == 0) then --then player has started combining potions
         User:inform(
             "Du nimmst die Flasche auf und blickst dich nach einem anderen Trank zum kombinieren um.",
@@ -75,13 +75,7 @@ function M.UseItem(User, SourceItem)
             "Although you have had previous success with this combination, the luck of Nargun is no longer with you.")
         User:setQuestProgress(537, 0)
     elseif SourceItem.pos == position(607, 177, -3) and (User:getQuestProgress(537) == 1) then -- player adding yellow potion to the dark blue
-        local notCreated = User:createItem(329, 1, 222, {["potionEffectId"] = 521, descriptionEn = "Halfling female transformation potion", descriptionDe = "Wandeltrank Halblingsfrau"}) -- halfing transformation potion
-                if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-                world:createItemFromId(329, notCreated, User.pos, true, 222, {["potionEffectId"] = 521, descriptionEn = "Halfling female transformation potion", descriptionDe = "Wandeltrank Halblingsfrau"})
-                common.HighInformNLS(User,
-                    "Du kannst nichts mehr halten.",
-                    "You can't carry any more.")
-                 end
+        common.CreateItem(User, 329, 1, 222, {["potionEffectId"] = 521, descriptionEn = "Halfling female transformation potion", descriptionDe = "Wandeltrank Halblingsfrau"}) -- halfing transformation potion
         User:inform(
             "Du hast diese Tränke vermischt und es irgendwie geschafft, einen Halblingsverwandlungstrank zu erschaffen. Das wirst du wahrscheinlich nie wieder hinbekommen!",
             "You have combined these potions and somehow manage to make a halfling transformation potion. You will likely never create this again!")

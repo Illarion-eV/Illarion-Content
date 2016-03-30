@@ -24,67 +24,67 @@ local M = {}
 
 function getAnimal(User)
 
-	-- check for sheep or cow in front
-	local targetCharacter = common.GetFrontCharacter(User);
-	if (targetCharacter ~= nil and milking.isMilkable(targetCharacter)) then
-		return targetCharacter;
-	end
+    -- check for sheep or cow in front
+    local targetCharacter = common.GetFrontCharacter(User);
+    if (targetCharacter ~= nil and milking.isMilkable(targetCharacter)) then
+        return targetCharacter;
+    end
 
-	-- look for a nearby sheep or cow
-	for x=-1,1 do
-		for y=-1,1 do
-			local pos = position(User.pos.x+x,User.pos.y+y,User.pos.z);
-			if ( world:isCharacterOnField(pos) ) then
-				targetCharacter = world:getCharacterOnField(pos);
-				if (milking.isMilkable(targetCharacter)) then
-					return targetCharacter;
-				end
-			end
-		end
-	end
-	return nil;
+    -- look for a nearby sheep or cow
+    for x=-1,1 do
+        for y=-1,1 do
+            local pos = position(User.pos.x+x,User.pos.y+y,User.pos.z);
+            if ( world:isCharacterOnField(pos) ) then
+                targetCharacter = world:getCharacterOnField(pos);
+                if (milking.isMilkable(targetCharacter)) then
+                    return targetCharacter;
+                end
+            end
+        end
+    end
+    return nil;
 end
 
 function M.UseItem(User, SourceItem, ltstate)
 
-	-- milking
-	local animal = getAnimal(User);
-	if animal ~= nil then
-		milking.StartGathering(User, animal, ltstate);
-		return
-	end
+    -- milking
+    local animal = getAnimal(User);
+    if animal ~= nil then
+        milking.StartGathering(User, animal, ltstate);
+        return
+    end
 
-	-- water scooping
+    -- water scooping
 
-	-- check for well or fountain
-	local TargetItem = common.GetItemInArea(User.pos, 2207);
-	if (TargetItem == nil) then
-		TargetItem = common.GetItemInArea(User.pos, 631);
-		if (TargetItem == nil) then
-			TargetItem = common.GetItemInArea(User.pos, 2079);
-		end
-		if (TargetItem == nil) then
-			TargetItem = common.GetItemInArea(User.pos, 1097);
-		end
-	end
-	if (TargetItem ~= nil) then
-		common.TurnTo( User, TargetItem.pos ); -- turn if necessary
-		UseItemScooping(User, SourceItem, ltstate);
-		return;
-	end
+    -- check for well or fountain
+    local TargetItem = common.GetItemInArea(User.pos, 2207);
+    if (TargetItem == nil) then
+        TargetItem = common.GetItemInArea(User.pos, 631);
+        if (TargetItem == nil) then
+            TargetItem = common.GetItemInArea(User.pos, 2079);
+        end
+        if (TargetItem == nil) then
+            TargetItem = common.GetItemInArea(User.pos, 1097);
+        end
+    end
+    if (TargetItem ~= nil) then
+        common.TurnTo( User, TargetItem.pos ); -- turn if necessary
+        UseItemScooping(User, SourceItem, ltstate);
+        return;
+    end
 
-	-- check for water tile
-	local targetPos = GetWaterTilePosition(User);
-	if (targetPos ~= nil) then
-		common.TurnTo( User, targetPos ); -- turn if necessary
-		UseItemScooping(User, SourceItem, ltstate);
-		return;
-	end
+    -- check for water tile
+    local targetPos = GetWaterTilePosition(User);
+    if (targetPos ~= nil) then
+        common.TurnTo( User, targetPos ); -- turn if necessary
+        UseItemScooping(User, SourceItem, ltstate);
+        return;
+    end
 
-	-- nothing found to fill the bottle
-	common.InformNLS(User,
-	  "Du kannst Flaschen an einem Brunnen oder an einem Gewässer füllen, oder ein geeignetes Tier melken. Lämmer und Bullen können aus naheliegenden Gründen nicht gemolken werden.",
-	  "You can fill bottles at a well or at some waters, or milk an adequate domestic animal. Lambs and bulls cannot be milked, obviously.");
+    -- nothing found to fill the bottle
+    common.InformNLS(User,
+      "Du kannst Flaschen an einem Brunnen oder an einem Gewässer füllen, oder ein geeignetes Tier melken. Lämmer und Bullen können aus naheliegenden Gründen nicht gemolken werden.",
+      "You can fill bottles at a well or at some waters, or milk an adequate domestic animal. Lambs and bulls cannot be milked, obviously.");
 
 end
 
@@ -103,37 +103,30 @@ end
 
 function UseItemScooping(User, SourceItem, ltstate)
 
-	common.ResetInterruption( User, ltstate );
-	if ( ltstate == Action.abort ) then -- work interrupted
+    common.ResetInterruption( User, ltstate );
+    if ( ltstate == Action.abort ) then -- work interrupted
       User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
       return
-	end
+    end
 
-	if not common.CheckItem( User, SourceItem ) then -- security check
-		return
-	end
+    if not common.CheckItem( User, SourceItem ) then -- security check
+        return
+    end
 
-	if not common.FitForWork( User ) then -- check minimal food points
-		return
-	end
+    if not common.FitForWork( User ) then -- check minimal food points
+        return
+    end
 
-	-- currently not working, let's go
+    -- currently not working, let's go
     if ( ltstate == Action.none ) then
-		User:startAction( 20, 21, 5, 10, 25);
-		User:talk(Character.say, "#me beginnt eine Flasche zu befüllen.", "#me starts to fill a bottle.")
-		return
-	end
+        User:startAction( 20, 21, 5, 10, 25);
+        User:talk(Character.say, "#me beginnt eine Flasche zu befüllen.", "#me starts to fill a bottle.")
+        return
+    end
 
-	-- actually do the work, but only once because nobody wants to fill multiple bottles
-	world:erase(SourceItem, 1);
-	local notCreated = User:createItem( 2496, 1, 999, nil ); -- create the new produced items
-	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-		world:createItemFromId( 2496, notCreated, User.pos, true, 999, nil );
-		common.HighInformNLS(User,
-		"Du kannst nichts mehr halten.",
-		"You can't carry any more.");
-	end
-
+    -- actually do the work, but only once because nobody wants to fill multiple bottles
+    world:erase(SourceItem, 1);
+    common.CreateItem(User, 2496, 1, 999, nil)
 end
 
 return M

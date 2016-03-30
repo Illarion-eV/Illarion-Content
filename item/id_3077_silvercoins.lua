@@ -39,7 +39,7 @@ function M.UseItem(User, SourceItem)
     if goldenGoblet.putCoinsInGoblet(User, SourceItem) then
         return
     end
-    
+
     local frontItem = common.GetFrontItem(User)
     if frontItem then
         if frontItem.id == 2805 and frontItem.pos == position(386, 260, -6) then --if frontItem is quest pillar
@@ -50,7 +50,7 @@ function M.UseItem(User, SourceItem)
                 local data = {}
                 data.descriptionDe = "Geweihter Schild Ronagans"
                 data.descriptionEn = "Blessed Shield of Ronagan"
-                User:createItem(17, 1, 799, data)
+                common.CreateItem(User, 17, 1, 799, data)
             else
                 User:inform('Die Münze verschwindet im Schlitz, aber nichts passiert.', 'The coin disappears but nothing happens.')
                 world:erase(SourceItem, 1)

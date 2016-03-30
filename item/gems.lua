@@ -356,11 +356,7 @@ function unsocketGems(user)
                         local level = tonumber(item:getData(itemKey))
 
                         if level and level > 0 then
-                            local notCreated = user:createItem(gemItem[i], 1, 999, {[levelDataKey] = level})
-                            if notCreated > 0 then
-                                world:createItemFromId(gemItem[i], 1, user.pos, true, 999, {[levelDataKey] = level})
-                            end
-
+                            common.CreateItem(user, gemItem[i], 1, 999, {[levelDataKey] = level})
                             item:setData(itemKey, "")
                         end
                     end

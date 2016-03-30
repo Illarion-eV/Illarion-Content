@@ -71,7 +71,7 @@ function M.UseItem(User, SourceItem)
         money.TakeMoneyFromChar(User, math.random(math.floor(wealth / 100), math.floor(wealth / 20)))
         return
    end
-    
+
     local doorItem = getDoor(User)
     if not doorItem then
         return
@@ -293,7 +293,7 @@ function LabourCamp(User, SourceItem)
                         dialogLabour = MessageDialog("Labour camp" ,"You have been sentenced to collect "..workLoad.." resources in the mine. If you have served your sentence, you are free to go. You can get a pick-axe and food from the guard.", callbackLabour)
                     end
                     thePrisoner:requestMessageDialog(dialogLabour)
-                    thePrisoner:createItem(2763,1,777,nil)
+                    common.CreateItem(thePrisoner, 2763, 1, 777, nil)
 
                     User:inform("You sentence character " .. thePrisoner.name .. " to collect " .. workLoad .. " resources.")
                     User:logAdmin("sentences character " .. thePrisoner.name .. " to collect " .. workLoad .. " resources.")

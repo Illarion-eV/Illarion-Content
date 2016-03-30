@@ -68,13 +68,7 @@ function M.UseItem(User, SourceItem)
     elseif questStep == 3 and SourceItem.pos == position(837, 524, -6) then
         User:talk(Character.say, "#me wird davon überrascht, dass bei Berührung mehrere Rubine aus dem Totenschädel kullern, leider ist keiner davon das gesuchte Zauberauge der Pein.",
                                 "#me becomes surprised, looking into the eyes of the skull several rubies come tumbling out, but, sadly, none is the Magical Torturous Eye.")
-        local notCreated = User:createItem(46, 25, 333, nil) -- 25 rubies
-        if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-            world:createItemFromId(46, notCreated, User.pos, true, 333, nil)
-            common.HighInformNLS(User,
-                "Du kannst nichts mehr halten.",
-                "You can't carry any more.")
-        end
+        common.CreateItem(User, 46, 25, 333, nil) -- 25 rubies
         User:inform("Ein Pfeil ist in die Seite des Schädels geritzt der nach Osten zeigt. Darunter ist eine große Pfütze und viele Totenschädel abgebildet.",
                     "An arrow can be seen scratched into the side of the skull, pointing east of here. Underneath is a large puddle of water or mud and many skulls on the drawing.")
         User:setQuestProgress(521, 4)
@@ -113,13 +107,7 @@ function M.UseItem(User, SourceItem)
     elseif questStep == 9 and SourceItem.pos == position(845, 464, -6) then
         User:inform("Du holst einen großen roten Edelstein aus dem Totenschädel hervor. Es ist das Zauberauge der Pein!",
                     "You retrieve a large red gem from the skull. It is the Torturous Eye!")
-        local notCreated = User:createItem(46, 1, 333, {["gemLevel"] = 1}) -- 1 latent ruby
-        if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-            world:createItemFromId(46, notCreated, User.pos, true, 333, {["gemLevel"] = 1})
-            common.HighInformNLS(User,
-                "Du kannst nichts mehr halten.",
-                "You can't carry any more.")
-        end
+        common.CreateItem(User, 46, 1, 333, {["gemLevel"] = 1}) -- 1 latent ruby
         User:setQuestProgress(521, 10)
 
     elseif questStep == 10 and SourceItem.pos == position(905, 515, -6) then

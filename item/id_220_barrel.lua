@@ -71,13 +71,7 @@ function BarrelContents(User, barrelItem)
         User:inform("Als Du suchst, findest Du einen Stapel Geldbörsen - aber alle sind leer.", "As you search you find a stash of money bags, that are all empty.")
     elseif random_number >= 71 and random_number <= 90 then
         User:inform("Du findest eine Silbermünze.","You discover a silver coin.")
-        local notCreated = User:createItem(3077, 1, 333, nil) -- silver coin
-        if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-            world:createItemFromId(3077, notCreated, User.pos, true, 333, nil)
-            common.HighInformNLS(User,
-                "Du kannst nichts mehr halten.",
-                "You can't carry any more.")
-        end
+        common.CreateItem(User, 3077, 1, 333, nil) -- silver coin
     elseif random_number >= 91 and random_number <=100 then
         local monPos = common.getFreePos(barrelItem.pos, 2) -- radius 2 around vase
         world:createMonster(211, monPos, -20)

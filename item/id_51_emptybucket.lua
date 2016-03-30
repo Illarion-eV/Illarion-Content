@@ -103,12 +103,8 @@ function M.UseItem(User, SourceItem, ltstate)
             "As you pull a bucket of water from the clear cool waters of the pool, you look around to see what uses can be had with the water.")
     end
 
-    local notCreated = User:createItem(52, 1, 333, itemData) -- create the new produced items
-    if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-        world:createItemFromId(52, notCreated, User.pos, true, 333, itemData)
-        common.HighInformNLS(User,
-            "Du kannst nichts mehr halten.",
-            "You can't carry any more.")
+    local created =  common.CreateItem(User, 52, 1, 333, itemData)
+    if not created then -- too many items -> character can't carry anymore
         world:erase(SourceItem,1)
         return
     else -- character can still carry something

@@ -94,7 +94,7 @@ function M.UseItem(User, SourceItem)
             "You can't drink that.")
         return
     end
-    
+
     local food = drinkList[SourceItem.id]
     if (food == nil) then
         User:inform("Unknown drinking Item: ID"..SourceItem.id.." Please Report this to a developer.")
@@ -108,11 +108,7 @@ function M.UseItem(User, SourceItem)
         common.InformNLS( User, "Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.")
     else
         local dataCopy = {descriptionDe=SourceItem:getData("descriptionDe"), descriptionEn=SourceItem:getData("descriptionEn")}
-        local notCreated = User:createItem(food[2], 1, 333, dataCopy) -- create the remnant item
-        if notCreated > 0 then -- too many items -> character can't carry anymore
-            world:createItemFromId(food[2], notCreated, User.pos, true, 333, dataCopy)
-            common.HighInformNLS(User, "Du kannst nichts mehr halten.", "You can't carry any more.")
-        end
+        common.CreateItem(User, food[2], 1, 333, dataCopy) -- create the remnant item
     end
     world:erase(SourceItem, 1)
 

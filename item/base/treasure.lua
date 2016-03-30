@@ -328,12 +328,7 @@ function M.createMap(player, mapLevel)
     end
     local quality = mapLevel * 100 + 99
 
-    if player:createItem(505, 1, quality, data) ~= 0 then
-        world:createItemFromId(505, 1, player.pos, true, quality, data)
-        common.InformNLS(player,
-            "Du kannst nichts mehr tragen.",
-            "You can't carry any more.")
-    end
+    common.CreateItem(player, 505, 1, quality, data)
     return true
 end
 

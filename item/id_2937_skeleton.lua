@@ -47,13 +47,7 @@ function M.UseItem(User, SourceItem, ltstate)
         queststatuslist = common.Split_number(queststatus, 6) -- reading the digits of the queststatus as table
         if queststatuslist[1] == 0 then -- sword, only triggered once by each char
             common.InformNLS(User, "Du findest ein Schwert bei der Leiche des Drow.", "You discover a sword by the corpse of the drow.")
-            local notCreated = User:createItem(3035, 1, 801, nil) -- create the item
-            if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-                world:createItemFromId(3035, notCreated, User.pos, true, 801, nil)
-                common.HighInformNLS(User,
-                    "Du kannst nichts mehr tragen.",
-                    "You can't carry any more.")
-            end
+            common.CreateItem(User, 3035, 1, 801, nil)
             queststatuslist[1] = 1
             User:setQuestProgress(522, queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+queststatuslist[5]*10+queststatuslist[6]*1) --saving the new queststatus
         end

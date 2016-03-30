@@ -38,7 +38,7 @@ function M.UseItem(User, SourceItem)
             return
         end
     end
-    
+
     local itemData
     local isronaganKeg = (SourceItem:getData("ronaganKeg") == "true")
     if (isronaganKeg) then
@@ -69,13 +69,7 @@ function KegContents(User, kegItem)
         User:inform("Als Du suchst, findest Du einen Stapel Geldbörsen - aber alle sind leer.", "As you search you find a stash of money bags, that are all empty.")
     elseif random_number >= 71 and random_number <= 90 then
         User:inform("Du findest eine Silbermünze.","You discover a silver coin.")
-        local notCreated = User:createItem(3077, 1, 333, nil) -- silver coin
-        if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-            world:createItemFromId(3077, notCreated, User.pos, true, 333, nil)
-            common.HighInformNLS(User,
-                "Du kannst nichts mehr halten.",
-                "You can't carry any more.")
-        end
+        common.CreateItem(User, 3077, 1, 333, nil) -- silver coin
     elseif random_number >= 91 and random_number <=100 then
         local monPos = common.getFreePos(kegItem.pos, 2) -- radius 2 around vase
         world:createMonster(211, monPos, -20)
@@ -107,13 +101,7 @@ function ronagankegContents(User, ronagankegItem)
         User:inform("Du stößt im Inneren auf eine Falle, kannst ihr aber gerade noch ausweichen.", "You find a trap inside, but are able to narrowly avoid it.")
     elseif random_number >= 61 and random_number <= 85 then
         User:inform("Du findest vier Silbermünzen.","You discover 4 silver coins.")
-        local notCreated = User:createItem(3077, 4, 333, nil) -- silver coin
-        if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-            world:createItemFromId(3077, notCreated, User.pos, true, 333, nil)
-            common.HighInformNLS(User,
-                "Du kannst nichts mehr halten.",
-                "You can't carry any more.")
-        end
+        common.CreateItem(User, 3077, 4, 333, nil) -- silver coin
     elseif random_number >= 86 and random_number <=100 then
         local monPos = common.getFreePos(ronagankegItem.pos, 2) -- radius 2 around chest
         world:createMonster(23, monPos, -20)

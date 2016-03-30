@@ -186,7 +186,7 @@ function M.UseItem(User, SourceItem, ltstate)
         holyGrapes(User, SourceItem)
         return
     end
-    
+
     if SourceItem:getData("nameEn") == "Thieves Dinner" and User:getQuestProgress(543) == 7 and User:countItemAt("all", 1323) == 0 then
         User:inform("Du benötigst das Gift, um es unter das Essen zu mischen.","You need the poison to tamper with the food.")
     elseif SourceItem:getData("nameEn") == "Thieves Dinner" and User:getQuestProgress(543) == 7 and User:countItemAt("all", 1323) >= 0 then
@@ -194,7 +194,7 @@ function M.UseItem(User, SourceItem, ltstate)
         User:inform("Du hast den Inhalt des Fläschchens unbemerkt unter das Essen gemischt. Kehre zu Brigette zurück, um deine Belohnung abzuholen.","You successfully sneak the contents of the vial Brigette gave you into the food, return to her for a reward.")
         User:setQuestProgress(543, 8) --  You poisoned the food.
     end
-    
+
     if (Init == nil) then
     Init = 1;
     -- import difficulties from crafts
@@ -295,13 +295,7 @@ function M.UseItem(User, SourceItem, ltstate)
     if( math.random( 50 ) <= 1 ) then
       common.HighInformNLS( User, "Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.");
     else
-        local notCreated = User:createItem( foodItem.leftover, 1, 333, nil);
-        if ( notCreated > 0 ) then
-            world:createItemFromId( foodItem.leftover, notCreated, User.pos, true, 333, nil );
-            common.HighInformNLS(User,
-            "Du kannst nichts mehr halten und lässt das Geschirr zu Boden fallen.",
-            "You can't carry any more and let the dishes drop to the ground.");
-        end
+        common.CreateItem(User, foodItem.leftover, 1, 333, nil)
     end
   end
 

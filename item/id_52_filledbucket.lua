@@ -228,12 +228,8 @@ function M.FillIn(User, SourceItem, cauldron, noRepeat) -- do not remove noRepea
 end
 
 function CreateEmptyBucket(User, SourceItem, noRepeat) -- do not remove noRepeat
-    local notCreated = User:createItem( 51, 1, 333, nil ) -- create the new produced items
-    if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-        world:createItemFromId( 51, notCreated, User.pos, true, 333, nil )
-        common.HighInformNLS(User,
-        "Du kannst nichts mehr halten.",
-        "You can't carry any more.")
+    local created = common.CreateItem(User, 51, 1, 333, nil)
+    if not created then -- too many items -> character can't carry anymore
         world:erase(SourceItem,1)
         return
     else -- character can still carry something

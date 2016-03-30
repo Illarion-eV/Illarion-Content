@@ -142,13 +142,7 @@ function checkReq(User, Item, this)
                 end
             end
             if this.req.remnant then
-                local notCreated = User:createItem(this.req.remnant, this.req.num, 333, nil)
-                if (notCreated > 0) then -- too many items -> character can't carry anymore
-                    world:createItemFromId(this.req.remnant, notCreated, User.pos, true, 333, nil)
-                    common.HighInformNLS(User,
-                        "Du kannst nichts mehr halten.",
-                        "You can't carry any more.")
-                end
+                common.CreateItem(User, this.req.remnant, this.req.num, 333, nil)
             end
             if this.req.id~=392 then
                 -- use default wear for all non-torch-requirements

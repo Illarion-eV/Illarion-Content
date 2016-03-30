@@ -89,13 +89,7 @@ function M.UseItem(User, SourceItem)
         queststatuslist = common.Split_number(queststatus, 6) -- reading the digits of the queststatus as table
         if queststatuslist[1] == 0 then -- gem, only triggered once by each char
             common.InformNLS(User, "Du entdeckst einen glitzernden Edelstein bei der Leiche.", "You discover a shiny gem with the corpse.")
-            local notCreated = User:createItem(198, 1, 333, {["gemLevel"] = 1}) -- create the item
-            if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-                world:createItemFromId(198, notCreated, User.pos, true, 333, {["gemLevel"] = 1})
-                common.HighInformNLS(User,
-                    "Du kannst nichts mehr tragen.",
-                    "You can't carry any more.")
-            end
+            common.CreateItem(User, 198, 1, 333, {["gemLevel"] = 1})
             queststatuslist[1] = 1
             User:setQuestProgress(531, queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+queststatuslist[5]*10+queststatuslist[6]*1) --saving the new queststatus
         end
@@ -125,7 +119,7 @@ function M.UseItem(User, SourceItem)
             if UserHasAlreadyThisGame ~= true then
                 User:talk(Character.say, "#me wischt Staub vom Grabstein und plötzlich beginnt die Hand zu schimmern in einem latenten " .. gemColourDE1[i],
                     "#me waves over the tombstone and suddenly the hand glimmers in a latent ".. gemColourEN1[i] .. " light.")
-                User:createItem(typoOfGem[i],2,999,{["gemLevel"]="1"})
+                common.CreateItem(User, typoOfGem[i], 2, 999, {["gemLevel"]="1"})
                 common.InformNLS(User,"~Im Staub finden sich zwei latente magische " .. gemColourDE2[i] .. ".",
                     "~The dust in your hand bears two latent magical " .. gemColourEN2[i] .. ".")
                 findPlayersForGems[User.name] = world:getPlayersInRangeOf(User.pos, 20)
@@ -153,7 +147,7 @@ function M.UseItem(User, SourceItem)
             return
         end
     end
-    
+
     local itemData
     local isletmaCoffin = (SourceItem:getData("letmaCoffin") == "true")
     if (isletmaCoffin) then
@@ -186,11 +180,7 @@ function CoffinContents(User, coffinItem)
     elseif random_number >= 71 and random_number <= 90 then
         User:inform("Du blickst kurz in den Sarg und entdeckst einen einfachen Dolch, den Du für dich mitnimmst.",
             "You quickly glance in the coffin and discover a simple dagger which you take for your own.")
-        local notCreated = User:createItem(27, 1, 333, nil) -- simple dagger
-        if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-            world:createItemFromId(27, notCreated, User.pos, true, 333, nil)
-            common.HighInformNLS(User,"Du kannst nichts mehr halten.","You can't carry any more.")
-        end
+        common.CreateItem(User, 27, 1, 333, nil) -- simple dagger
     elseif random_number >= 91 and random_number <=100 then
         local monPos = common.getFreePos(coffinItem.pos, 2) -- radius 2 around vase
         world:createMonster(754, monPos, -20)
@@ -226,13 +216,8 @@ function letmaCoffin(User, letmaCoffinItem)
             "A corpse eater jumps from an opened coffin and attacks you.")
     elseif random_number >= 91 and random_number <= 100 then
         User:inform("Im Sarg findest Du einen Rubinring an einem Knochenfinger. Jetzt ist er Dein.","On a bony finger inside the coffin you find a ruby ring. It's yours now.")
-        local notCreated = User:createItem(68, 1, 666, nil) -- gold ruby ring
-        if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-            world:createItemFromId(68, notCreated, User.pos, true, 666, nil)
-            common.HighInformNLS(User,
-                "Du kannst nichts mehr halten.",
-                "You can't carry any more.")
-        end
+        common.CreateItem(User, 68, 1, 666, nil) -- gold ruby ring
     end
 end
+
 return M

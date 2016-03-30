@@ -79,13 +79,7 @@ local function Evilrockentrance(User, SourceItem, ltstate)
         world:swap(evilrockBucket, 52, 999)
 
         world:erase(SourceItem, 1)
-        local notCreated = User:createItem(2498, 1, 333, nil) -- create the new produced items
-        if (notCreated > 0) then -- too many items -> character can't carry anymore
-            world:createItemFromId(2498, notCreated, User.pos, true, 333, nil)
-            common.HighInformNLS(User,
-                "Du kannst nichts mehr halten.",
-                "You can't carry any more.")
-        end
+        common.CreateItem(User, 2498, 1, 333, nil)
 
         for xx = 992, 996 do
             local EntranceTrap = world:getItemOnField(position(xx,195,0))
@@ -111,15 +105,15 @@ function M.UseItem(User, SourceItem, ltstate)
 
         local TargetItem = common.GetTargetItem(User, SourceItem);
         if( TargetItem ) then
-            for i, combo in pairs(food[4]) do
+            for _, combo in pairs(food[4]) do
                 if combo[1] == TargetItem.id then
                     -- fill drink
                     if (TargetItem.number > 1) then
-                        world:erase( TargetItem, 1 );
-                        User:createItem( combo[2], 1, 333,nil);
+                        world:erase(TargetItem, 1)
+                        common.CreateItem(User, combo[2], 1, 333, nil)
                     else
-                        TargetItem.id = combo[2];
-                        world:changeItem(TargetItem);
+                        TargetItem.id = combo[2]
+                        world:changeItem(TargetItem)
                     end
                     world:makeSound(10,User.pos)
 
@@ -134,13 +128,9 @@ function M.UseItem(User, SourceItem, ltstate)
                             "The empty bottle is broken and no longer usable.");
                         else
                             local dataCopy = {descriptionDe=SourceItem:getData("descriptionDe"), descriptionEn=SourceItem:getData("descriptionEn")};
-                            local notCreated = User:createItem( food[3], 1, 333, dataCopy); -- create the remnant item
-                            if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-                                world:createItemFromId(food[3], notCreated, User.pos, true, 333, dataCopy);
-                                common.HighInformNLS(User, "Du kannst nichts mehr halten.", "You can't carry any more.");
-                            end
+                            common.createItem(User, food[3], 1, 333, dataCopy)
                         end
-                        world:erase(SourceItem,1);
+                        world:erase(SourceItem, 1)
                     end
 
                     -- cancel after one found item
