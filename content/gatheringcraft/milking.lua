@@ -101,22 +101,19 @@ function StartGathering(User, SourceAnimal, ltstate)
     milkingEffect:addValue("gatherAmount", gatherAmount);
 
     User:eraseItem(2498, 1);
-    local notCreated = User:createItem( 2502, 1, 333, nil); -- create the new produced items
-    if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-        world:createItemFromId( 2502, notCreated, User.pos, true, 333, nil);
-        common.HighInformNLS(User,
-        "Du kannst nichts mehr halten und der Rest fällt zu Boden.",
-        "You can't carry any more and the rest drops to the ground.");
-    elseif gatherAmount < 2 then  -- character can still carry something and more milk is available
-        if User:countItemAt("all",2498) == 0 then -- no empty bottles left
-            return
+    local created = common.CreateItem(User, 2502, 1, 333, nil) -- create the new produced items
+    if created then -- character can still carry something
+        if gatherAmount < 2 then -- more milk is available
+            if User:countItemAt("all",2498) == 0 then -- no empty bottles left
+                return
+            end
+            milking.SavedWorkTime[User.id] = milking:GenWorkTime(User, nil);
+            SourceAnimal.movepoints = -1 * milking.SavedWorkTime[User.id]; -- make sure the animal doesn't move away
+            User:startAction(milking.SavedWorkTime[User.id], 21, 5, 10, 25);
+        else
+            common.HighInformNLS( User,
+            "Dieses Tier ist ausreichend gemolken und gibt keine Milch mehr.",
+            "This animal is milked properly and doesn't give any more milk." );
         end
-        milking.SavedWorkTime[User.id] = milking:GenWorkTime(User, nil);
-        SourceAnimal.movepoints = -1 * milking.SavedWorkTime[User.id]; -- make sure the animal doesn't move away
-        User:startAction(milking.SavedWorkTime[User.id], 21, 5, 10, 25);
-    else
-        common.HighInformNLS( User,
-        "Dieses Tier ist ausreichend gemolken und gibt keine Milch mehr.",
-        "This animal is milked properly and doesn't give any more milk." );
     end
 end

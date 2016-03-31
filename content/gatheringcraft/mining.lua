@@ -81,29 +81,26 @@ function StartGathering(User, SourceItem, ltstate)
 
     User:learn( mining.LeadSkill, mining.SavedWorkTime[User.id], mining.LearnLimit);
     local amount = 1; -- set the amount of items that are produced
-    local notCreated = User:createItem( productId, amount, 333, nil ); -- create the new produced items
+    local created = common.CreateItem(User, productId, amount, 333, nil) -- create the new produced items
     local rockBroken = breakRock(SourceItem);
-    if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-        world:createItemFromId( productId, notCreated, User.pos, true, 333, nil );
-        common.HighInformNLS(User,
-        "Du kannst nichts mehr halten und der Rest fällt zu Boden.",
-        "You can't carry any more and the rest drops to the ground.");
-    elseif (not rockBroken) then -- character can still carry something and rock is okay
-        SourceItem = getRock(User, areaId);
-        if (SourceItem ~= nil) then  -- there are still items we can work on
-            mining.SavedWorkTime[User.id] = mining:GenWorkTime(User, toolItem);
-            User:changeSource(SourceItem);
-            User:startAction( mining.SavedWorkTime[User.id], 0, 0, 18, 15);
-        else -- no items left (as the rock is still okay, this should never happen... handle it anyway)
+    if created then -- character can still carry something
+        if not rockBroken then -- rock is okay
+            SourceItem = getRock(User, areaId);
+            if (SourceItem ~= nil) then  -- there are still items we can work on
+                mining.SavedWorkTime[User.id] = mining:GenWorkTime(User, toolItem);
+                User:changeSource(SourceItem);
+                User:startAction( mining.SavedWorkTime[User.id], 0, 0, 18, 15);
+            else -- no items left (as the rock is still okay, this should never happen... handle it anyway)
+                common.HighInformNLS(User,
+                "Hier gibt es keine Steine mehr, an denen du arbeiten kannst.",
+                "There are no stones for mining anymore.");
+            end
+        else
+            -- rock is broken
             common.HighInformNLS(User,
             "Hier gibt es keine Steine mehr, an denen du arbeiten kannst.",
             "There are no stones for mining anymore.");
         end
-    else
-        -- rock is broken
-        common.HighInformNLS(User,
-        "Hier gibt es keine Steine mehr, an denen du arbeiten kannst.",
-        "There are no stones for mining anymore.");
     end
 
     if common.GatheringToolBreaks( User, toolItem, mining:GenWorkTime(User, toolItem) ) then -- damage and possibly break the tool

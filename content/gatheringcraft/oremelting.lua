@@ -206,72 +206,67 @@ function StartGathering(User, SourceItem, ltstate)
 
     User:learn( oremelting.LeadSkill, oremelting.SavedWorkTime[User.id], oremelting.LearnLimit);
     User:eraseItem( oreItem.ore.id, oreItem.ore.amount ); -- erase the item we're working on
-  User:eraseItem( CoalItem.id, CoalItem.amount );
+    User:eraseItem( CoalItem.id, CoalItem.amount );
 
     local amount = oreItem.product.amount; -- set the amount of items that are produced
-    local notCreated = User:createItem( oreItem.product.id, amount, 333, nil ); -- create the new produced items
-  local nextActionStarted = false;
-    if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-        world:createItemFromId( oreItem.product.id, notCreated, User.pos, true, 333, nil );
-        common.HighInformNLS(User,
-        "Du kannst nichts mehr halten und der Rest fällt zu Boden.",
-        "You can't carry any more and the rest drops to the ground.");
-    else -- character can still carry something
-    if (User:countItemAt("all",CoalItem.id)>=CoalItem.amount) then  -- there are still items we can work on
-      if (User:countItemAt("all",oreItem.ore.id)>=oreItem.ore.amount) then
+    local created = common.CreateItem(User, oreItem.product.id, amount, 333, nil) -- create the new produced items
+    local nextActionStarted = false;
+    if created then -- character can still carry something
+        if (User:countItemAt("all",CoalItem.id)>=CoalItem.amount) then  -- there are still items we can work on
+          if (User:countItemAt("all",oreItem.ore.id)>=oreItem.ore.amount) then
 
-          oremelting.SavedWorkTime[User.id] = oremelting:GenWorkTime(User,toolItem);
-          User:startAction( oremelting.SavedWorkTime[User.id], 0, 0, 0, 0);
-          nextActionStarted = true;
+              oremelting.SavedWorkTime[User.id] = oremelting:GenWorkTime(User,toolItem);
+              User:startAction( oremelting.SavedWorkTime[User.id], 0, 0, 0, 0);
+              nextActionStarted = true;
 
-      else -- no ore
-        common.HighInformNLS(User,
-        "Du brauchst Eisenerz, Kupfererz, Silbererz, Goldnuggets oder Meriniumerz um es zu schmelzen.",
-        "You need iron ore, copper ore, silver ore, gold nuggets or merinium ore for melting it." );
+          else -- no ore
+            common.HighInformNLS(User,
+            "Du brauchst Eisenerz, Kupfererz, Silbererz, Goldnuggets oder Meriniumerz um es zu schmelzen.",
+            "You need iron ore, copper ore, silver ore, gold nuggets or merinium ore for melting it." );
+          end
+        else -- no coal
+          common.HighInformNLS(User,
+          "Du hast nicht mehr genug Kohle.",
+          "You don't have enough coal anymore." );
+        end
+        end
+
+        if common.GatheringToolBreaks( User, toolItem, oremelting:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
+            common.HighInformNLS(User,
+            "Deine alte Tiegelzange zerbricht.",
+            "Your old crucible-pincers break.");
+
+        if (SourceItem.id == 2835) then --turn it off
+          SourceItem.id = 2836;
+          SourceItem.wear = 255;
+          world:changeItem(SourceItem);
+          User:changeSource(SourceItem);
+        end
+
+        if (SourceItem.id == 2834) then --turn it off
+          SourceItem.id = 2837;
+          SourceItem.wear = 255;
+          world:changeItem(SourceItem);
+          User:changeSource(SourceItem);
+        end
+
+            return
+        end
+      if (not nextActionStarted) then
+
+        if (SourceItem.id == 2835) then --turn it off
+          SourceItem.id = 2836;
+          SourceItem.wear = 255;
+          world:changeItem(SourceItem);
+          User:changeSource(SourceItem);
+        end
+
+        if (SourceItem.id == 2834) then --turn it off
+          SourceItem.id = 2837;
+          SourceItem.wear = 255;
+          world:changeItem(SourceItem);
+          User:changeSource(SourceItem);
+        end
+
       end
-    else -- no coal
-      common.HighInformNLS(User,
-      "Du hast nicht mehr genug Kohle.",
-      "You don't have enough coal anymore." );
-    end
-    end
-
-    if common.GatheringToolBreaks( User, toolItem, oremelting:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
-        common.HighInformNLS(User,
-        "Deine alte Tiegelzange zerbricht.",
-        "Your old crucible-pincers break.");
-
-    if (SourceItem.id == 2835) then --turn it off
-      SourceItem.id = 2836;
-      SourceItem.wear = 255;
-      world:changeItem(SourceItem);
-      User:changeSource(SourceItem);
-    end
-
-    if (SourceItem.id == 2834) then --turn it off
-      SourceItem.id = 2837;
-      SourceItem.wear = 255;
-      world:changeItem(SourceItem);
-      User:changeSource(SourceItem);
-    end
-
-        return
-    end
-  if (not nextActionStarted) then
-
-    if (SourceItem.id == 2835) then --turn it off
-      SourceItem.id = 2836;
-      SourceItem.wear = 255;
-      world:changeItem(SourceItem);
-      User:changeSource(SourceItem);
-    end
-
-    if (SourceItem.id == 2834) then --turn it off
-      SourceItem.id = 2837;
-      SourceItem.wear = 255;
-      world:changeItem(SourceItem);
-      User:changeSource(SourceItem);
-    end
-
-  end
 end

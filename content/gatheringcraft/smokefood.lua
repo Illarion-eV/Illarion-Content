@@ -109,20 +109,15 @@ function StartGathering(User, SourceItem, ltstate)
     User:learn( smokefood.LeadSkill, smokefood.SavedWorkTime[User.id], smokefood.LearnLimit);
     User:eraseItem( craftItem.source.id, craftItem.source.amount ); -- erase the item we're working on
     local amount = craftItem.product.amount; -- set the amount of items that are produced
-    local notCreated = User:createItem( craftItem.product.id, amount, 333, nil ); -- create the new produced items
-    if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-        world:createItemFromId( craftItem.product.id, notCreated, User.pos, true, 333, nil );
-        common.HighInformNLS(User,
-        "Du kannst nichts mehr halten und der Rest fällt zu Boden.",
-        "You can't carry any more and the rest drops to the ground.");
-    else -- character can still carry something
-    craftItem = nil;
-    for _,entry in pairs(craftList) do
-      if (User:countItemAt("all",entry.source.id)>=entry.source.amount) then
-        craftItem = entry;
-        break;
-      end
-    end
+    local created = common.CreateItem(User, craftItem.product.id, amount, 333, nil) -- create the new produced items
+    if created then -- character can still carry something
+        craftItem = nil;
+        for _,entry in pairs(craftList) do
+            if (User:countItemAt("all",entry.source.id)>=entry.source.amount) then
+                craftItem = entry;
+                break;
+            end
+        end
         if (craftItem ~= nil) then  -- there are still items we can work on
             smokefood.SavedWorkTime[User.id] = smokefood:GenWorkTime(User,nil);
             User:startAction( smokefood.SavedWorkTime[User.id], 0, 0, 0, 0);

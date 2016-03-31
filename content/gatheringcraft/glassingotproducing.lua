@@ -87,22 +87,17 @@ function StartGathering(User, SourceItem, ltstate)
 
     User:learn( glassingotproducing.LeadSkill, glassingotproducing.SavedWorkTime[User.id], glassingotproducing.LearnLimit);
     User:eraseItem( 316, 1 ); -- erase the item we're working on
-  User:eraseItem( 314, 1 ); -- erase the item we're working on
+    User:eraseItem( 314, 1 ); -- erase the item we're working on
     local amount = 1; -- set the amount of items that are produced
-    local notCreated = User:createItem( 41, amount, 333, nil ); -- create the new produced items
-    if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-        world:createItemFromId( 41, notCreated, User.pos, true, 333, nil );
-        common.HighInformNLS(User,
-        "Du kannst nichts mehr halten und der Rest fällt zu Boden.",
-        "You can't carry any more and the rest drops to the ground.");
-    else -- character can still carry something
+    local created = common.CreateItem(User, 41, amount, 333, nil) -- create the new produced items
+    if created then -- character can still carry something
         if (User:countItemAt("all",316)>0 and User:countItemAt("all",314)>0) then  -- there are still items we can work on
             glassingotproducing.SavedWorkTime[User.id] = glassingotproducing:GenWorkTime(User,toolItem);
             User:startAction( glassingotproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
         else -- no items left
             common.HighInformNLS(User,
             "Du brauchst Quarzsand und Pottasche um Glasblöcke herzustellen.",
-      "You need quartz sand and potash for producing glass ingots." );
+            "You need quartz sand and potash for producing glass ingots." );
         end
     end
 

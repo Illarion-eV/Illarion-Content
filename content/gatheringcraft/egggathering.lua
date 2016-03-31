@@ -100,13 +100,8 @@ function StartGathering(User, SourceItem, ltstate)
 
     User:learn( egggathering.LeadSkill, egggathering.SavedWorkTime[User.id], egggathering.LearnLimit);
     amount = amount - 1;
-    local notCreated = User:createItem( EGG, 1, 333, nil ); -- create the new produced items
-    if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-        world:createItemFromId( EGG, notCreated, User.pos, true, 333, nil );
-        common.HighInformNLS(User,
-        "Du kannst nichts mehr halten und der Rest fällt zu Boden.",
-        "You can't carry any more and the rest drops to the ground.");
-    else -- character can still carry something
+    local created = common.CreateItem(User, EGG, 1, 333, nil) -- create the new produced items
+    if created then -- character can still carry something
         if (amount>0) then  -- there are still fruits we can gather
             egggathering.SavedWorkTime[User.id] = egggathering:GenWorkTime(User,nil);
             User:startAction( egggathering.SavedWorkTime[User.id], 0, 0, 0, 0);

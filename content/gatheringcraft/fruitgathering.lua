@@ -22,19 +22,11 @@ module("content.gatheringcraft.fruitgathering", package.seeall)
 
 local function gatherFromHolyVine(user)
     local questStatus, lastSet = user:getQuestProgress(451)
-    
+
     if questStatus == 0 or questStatus < world:getTime("day") or world:getTime("unix") - lastSet > 30000 then
-    
+
         local datas = {nameDe = "Heilige Trauben", nameEn = "Holy Grapes", descriptionDe = "Die Weintrauben geben einen sehr angenehmen süßlichen Geruch von sich.", descriptionEn = "The grapes have a very pleasant, sweet scent."}
-        
-        local notCreated = user:createItem(388, 1, 333, datas)
-        if notCreated > 0 then
-            world:createItemFromId(388, notCreated, user.pos, true, 333, datas)
-            common.HighInformNLS(user,
-            "Du kannst nichts mehr halten und der Rest fällt zu Boden.",
-            "You can't carry any more and the rest drops to the ground.")
-        end
-        
+        common.CreateItem(user, 388, 1, 333, datas)
         user:inform("Du sammelst ein einzelne Rebe von dem Weinstock.","You collect a single vine from the plant.")
         user:setQuestProgress(451, world:getTime("day"))
     else
@@ -138,13 +130,8 @@ function StartGathering(User, SourceItem, ltstate)
 
     User:learn( fruitgathering.LeadSkill, fruitgathering.SavedWorkTime[User.id], fruitgathering.LearnLimit);
     amount = amount - 1;
-    local notCreated = User:createItem( harvestProduct.productId, 1, 333, nil ); -- create the new produced items
-    if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-        world:createItemFromId( harvestProduct.productId, notCreated, User.pos, true, 333, nil );
-        common.HighInformNLS(User,
-        "Du kannst nichts mehr halten und der Rest fällt zu Boden.",
-        "You can't carry any more and the rest drops to the ground.");
-    else -- character can still carry something
+    local created = common.CreateItem(User, harvestProduct.productId, 1, 333, nil) -- create the new produced items
+    if created then -- character can still carry something
         if (amount>0) then  -- there are still fruits we can gather
             fruitgathering.SavedWorkTime[User.id] = fruitgathering:GenWorkTime(User,nil);
             User:startAction( fruitgathering.SavedWorkTime[User.id], 0, 0, 0, 0);

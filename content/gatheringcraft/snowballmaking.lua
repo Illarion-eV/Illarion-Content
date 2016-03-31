@@ -60,7 +60,7 @@ function StartGathering(User, SourceItem, ltstate)
         snowballmaking.SavedWorkTime[User.id] = snowballmaking:GenWorkTime(User,toolItem)
         User:startAction( snowballmaking.SavedWorkTime[User.id], 0, 0, 0, 0)
         User:talk(Character.say, "#me formt Schneebälle.", "#me forms snowballs.")
-        return 
+        return
     end
 
     -- since we're here, we're working
@@ -68,13 +68,8 @@ function StartGathering(User, SourceItem, ltstate)
     SourceItem:setData("amount",amount)
     world:changeItem(SourceItem)
 
-    local notCreated = User:createItem( 456, 1, 333, nil ) -- create the new produced items
-    if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-        world:createItemFromId( 456, notCreated, User.pos, true, 333, nil )
-        common.HighInformNLS(User,
-        "Du kannst nichts mehr halten und der Rest fällt zu Boden.",
-        "You can't carry any more and the rest drops to the ground.")
-    else -- character can still carry something
+    local created = common.CreateItem(User, 456, 1, 333, nil) -- create the new produced items
+    if created then -- character can still carry something
         if amount > 0 then  -- there are still items we can work on
             snowballmaking.SavedWorkTime[User.id] = snowballmaking:GenWorkTime(User,toolItem)
             User:changeSource(SourceItem)

@@ -39,120 +39,106 @@ dyersList = {
 
 function StartGathering(User, SourceItem, ltstate)
 
-	gathering.InitGathering();
-	local dyeing = gathering.dyeing;
+    gathering.InitGathering();
+    local dyeing = gathering.dyeing;
 
-	common.ResetInterruption( User, ltstate );
-	if ( ltstate == Action.abort ) then -- work interrupted
+    common.ResetInterruption( User, ltstate );
+    if ( ltstate == Action.abort ) then -- work interrupted
         User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
-		return
-	end
+        return
+    end
 
-	if not common.CheckItem( User, SourceItem ) then -- security check
-		return
-	end
+    if not common.CheckItem( User, SourceItem ) then -- security check
+        return
+    end
 
-	-- additional tool item is needed
-	if (User:countItemAt("all",2781)==0) then
-		common.HighInformNLS( User,
-		"Du brauchst einen Färberstab um Stoffe zu färben.",
-		"You need a dyeing rod for dyeing cloth." );
-		return
-	end
-	local toolItem = User:getItemAt(5);
-	if ( toolItem.id ~= 2781 ) then
-		toolItem = User:getItemAt(6);
-		if ( toolItem.id ~= 2781 ) then
-			common.HighInformNLS( User,
-			"Du musst den Färberstab in der Hand haben!",
-			"You have to hold the dyeing rod in your hand!" );
-			return
-		end
-	end
+    -- additional tool item is needed
+    if (User:countItemAt("all",2781)==0) then
+        common.HighInformNLS( User,
+        "Du brauchst einen Färberstab um Stoffe zu färben.",
+        "You need a dyeing rod for dyeing cloth." );
+        return
+    end
+    local toolItem = User:getItemAt(5);
+    if ( toolItem.id ~= 2781 ) then
+        toolItem = User:getItemAt(6);
+        if ( toolItem.id ~= 2781 ) then
+            common.HighInformNLS( User,
+            "Du musst den Färberstab in der Hand haben!",
+            "You have to hold the dyeing rod in your hand!" );
+            return
+        end
+    end
 
-	if not common.FitForWork( User ) then -- check minimal food points
-		return
-	end
+    if not common.FitForWork( User ) then -- check minimal food points
+        return
+    end
 
-	common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+    common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 
-	-- any other checks?
+    -- any other checks?
 
-	local dye
-	for _,d in pairs(dyersList) do
-		if (User:countItemAt("all",d[1])>0 and (User:countItemAt("all",d[2][1])>4 or User:countItemAt("all",d[2][2])>4)) then
-			dye = d;
-			break;
-		end
-	end
+    local dye
+    for _,d in pairs(dyersList) do
+        if (User:countItemAt("all",d[1])>0 and (User:countItemAt("all",d[2][1])>4 or User:countItemAt("all",d[2][2])>4)) then
+            dye = d;
+            break;
+        end
+    end
 
-	if (dye == nil) then -- check for items to work on
-		common.HighInformNLS( User,
-		"Du brauchst fünf Ballen grauen Stoff und Färbemittel um zu färben.",
-		"You need five bales of grey cloth and dye for dyeing." );
-		return;
-	end
+    if (dye == nil) then -- check for items to work on
+        common.HighInformNLS( User,
+        "Du brauchst fünf Ballen grauen Stoff und Färbemittel um zu färben.",
+        "You need five bales of grey cloth and dye for dyeing." );
+        return;
+    end
 
-	if ( ltstate == Action.none ) then -- currently not working -> let's go
-		dyeing.SavedWorkTime[User.id] = dyeing:GenWorkTime(User,toolItem);
-		User:startAction( dyeing.SavedWorkTime[User.id], 0, 0, 0, 0);
-		User:talk(Character.say, "#me beginnt Stoff zu färben.", "#me starts to dye cloth.")
-		return
-	end
+    if ( ltstate == Action.none ) then -- currently not working -> let's go
+        dyeing.SavedWorkTime[User.id] = dyeing:GenWorkTime(User,toolItem);
+        User:startAction( dyeing.SavedWorkTime[User.id], 0, 0, 0, 0);
+        User:talk(Character.say, "#me beginnt Stoff zu färben.", "#me starts to dye cloth.")
+        return
+    end
 
-	-- since we're here, we're working
+    -- since we're here, we're working
 
-	if dyeing:FindRandomItem(User) then
-		return
-	end
+    if dyeing:FindRandomItem(User) then
+        return
+    end
 
-	User:learn( dyeing.LeadSkill, dyeing.SavedWorkTime[User.id], dyeing.LearnLimit);
-	User:eraseItem( dye[1], 1 ); -- erase the item we're working on
-	if User:countItemAt("all",dye[2][2]) == 0 then
-		User:eraseItem( dye[2][1], 5 ); -- erase the item we're working on
-	else
-		User:eraseItem( dye[2][2], 5 ); -- erase the item we're working on
-	end
-	local amount = 5; -- set the amount of items that are produced
-	local notCreated = User:createItem( dye[3], amount, 333, nil ); -- create the new produced items
-	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-		world:createItemFromId( dye[3], notCreated, User.pos, true, 333, nil );
-		world:createItemFromId( 51, 1, User.pos, true, 333, nil ); -- giving back the bucket
-		common.HighInformNLS(User,
-		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
-		"You can't carry any more and the rest drops to the ground.");
-	else -- character can still carry something
-		notCreated = User:createItem( 51, 1, 333, nil ); -- giving back the bucket
-		if ( notCreated > 0 ) then
-			world:createItemFromId( 51, 1, User.pos, true, 333, nil );
-			common.HighInformNLS(User,
-			"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
-			"You can't carry any more and the rest drops to the ground.");
-		end
-	end
+    User:learn( dyeing.LeadSkill, dyeing.SavedWorkTime[User.id], dyeing.LearnLimit);
+    User:eraseItem( dye[1], 1 ); -- erase the item we're working on
+    if User:countItemAt("all",dye[2][2]) == 0 then
+        User:eraseItem( dye[2][1], 5 ); -- erase the item we're working on
+    else
+        User:eraseItem( dye[2][2], 5 ); -- erase the item we're working on
+    end
+    local amount = 5; -- set the amount of items that are produced
+    local createdItem = common.CreateItem(User, dye[3], amount, 333, nil) -- create the new produced items
+    local createdRemnants = common.CreateItem(User, 51, 1, 333, nil) -- giving back the bucket
 
-	if (notCreated == 0) then -- character can go on
-		dye = nil;
-		for _,d in pairs(dyersList) do
-			if (User:countItemAt("all",d[1])>0 and (User:countItemAt("all",d[2][1])>4 or User:countItemAt("all",d[2][2])>4)) then
-				dye = d;
-				break;
-			end
-		end
-		if (dye ~= nil) then  -- there are still items we can work on
-			dyeing.SavedWorkTime[User.id] = dyeing:GenWorkTime(User,toolItem);
-			User:startAction( dyeing.SavedWorkTime[User.id], 0, 0, 0, 0);
-		else -- no items left
-			common.HighInformNLS(User,
-			"Du hast keine Farbe oder ausreichend Stoff mehr.",
-			"You have no dye or sufficient cloth anymore.");
-		end
-	end
+    if (createdItem and createdRemnants) then -- character can still carry something
+        dye = nil;
+        for _,d in pairs(dyersList) do
+            if (User:countItemAt("all",d[1])>0 and (User:countItemAt("all",d[2][1])>4 or User:countItemAt("all",d[2][2])>4)) then
+                dye = d;
+                break;
+            end
+        end
+        if (dye ~= nil) then  -- there are still items we can work on
+            dyeing.SavedWorkTime[User.id] = dyeing:GenWorkTime(User,toolItem);
+            User:startAction( dyeing.SavedWorkTime[User.id], 0, 0, 0, 0);
+        else -- no items left
+            common.HighInformNLS(User,
+            "Du hast keine Farbe oder ausreichend Stoff mehr.",
+            "You have no dye or sufficient cloth anymore.");
+        end
+    end
 
-	if common.GatheringToolBreaks( User, toolItem, dyeing:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
-		common.HighInformNLS(User,
-		"Dein alter Färberstab zerbricht.",
-		"Your old dyeing rod breaks.");
-		return
-	end
+    if common.GatheringToolBreaks( User, toolItem, dyeing:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
+        common.HighInformNLS(User,
+        "Dein alter Färberstab zerbricht.",
+        "Your old dyeing rod breaks.");
+        return
+    end
 end

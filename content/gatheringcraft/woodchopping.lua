@@ -163,13 +163,8 @@ function StartGathering(User, SourceItem, ltstate)
     if (math.random() <= tree.BoughProbability ) then
         producedItemId = tree.BoughId;
     end
-    local notCreated = User:createItem( producedItemId, 1, 333, nil ); -- create the new produced items
-    if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-        world:createItemFromId( producedItemId, notCreated, User.pos, true, 333, nil );
-        common.HighInformNLS(User,
-        "Du kannst nichts mehr halten und der Rest fällt zu Boden.",
-        "You can't carry any more and the rest drops to the ground.");
-    else -- character can still carry something
+    local created = common.CreateItem(User, producedItemId, 1, 333, nil) -- create the new produced items
+    if created then -- character can still carry something
         if (amount > 0) then  -- there are still items we can work on
             theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,toolItem);
             User:changeSource(SourceItem);

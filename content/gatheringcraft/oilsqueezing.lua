@@ -26,39 +26,39 @@ module("content.gatheringcraft.oilsqueezing", package.seeall)
 
 function StartGathering(User, SourceItem, ltstate)
 
-	gathering.InitGathering();
-	local oilsqueezing = gathering.oilsqueezing;
+    gathering.InitGathering();
+    local oilsqueezing = gathering.oilsqueezing;
 
-	common.ResetInterruption( User, ltstate );
-	if ( ltstate == Action.abort ) then -- work interrupted
+    common.ResetInterruption( User, ltstate );
+    if ( ltstate == Action.abort ) then -- work interrupted
         User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
-		return
-	end
+        return
+    end
 
-	if not common.CheckItem( User, SourceItem ) then -- security check
-		return
-	end
+    if not common.CheckItem( User, SourceItem ) then -- security check
+        return
+    end
 
-	if not common.FitForWork( User ) then -- check minimal food points
-		return
-	end
+    if not common.FitForWork( User ) then -- check minimal food points
+        return
+    end
 
-	common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+    common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 
-	-- any other checks?
+    -- any other checks?
 
-	if (User:countItemAt("all",141) < 2) then -- check for items to work on
-		if (User:countItemAt("all",141)==0) then
-			common.HighInformNLS( User,
-			"Du brauchst schwarze Disteln um daraus Öl zu pressen.",
-			"You need black thistles for squeezing oil." );
-		else
-			common.HighInformNLS( User,
-			"Du hast nicht genug schwarze Disteln um daraus Öl zu pressen.",
-			"You don't have enough black thistles for squeezing oil." );
-		end
-		return;
-	end
+    if (User:countItemAt("all",141) < 2) then -- check for items to work on
+        if (User:countItemAt("all",141)==0) then
+            common.HighInformNLS( User,
+            "Du brauchst schwarze Disteln um daraus Öl zu pressen.",
+            "You need black thistles for squeezing oil." );
+        else
+            common.HighInformNLS( User,
+            "Du hast nicht genug schwarze Disteln um daraus Öl zu pressen.",
+            "You don't have enough black thistles for squeezing oil." );
+        end
+        return;
+    end
     if (User:countItemAt("all",390) < 1) then
         common.HighInformNLS( User,
             "Du brauchst eine leere Ölflasche um Öl zu pressen.",
@@ -66,31 +66,26 @@ function StartGathering(User, SourceItem, ltstate)
         return
     end
 
-	if ( ltstate == Action.none ) then -- currently not working -> let's go
-		oilsqueezing.SavedWorkTime[User.id] = oilsqueezing:GenWorkTime(User,nil);
-		User:startAction( oilsqueezing.SavedWorkTime[User.id], 0, 0, 0, 0);
-		User:talk(Character.say, "#me beginnt Öl zu pressen.", "#me starts to squeeze oil.")
-		return
-	end
+    if ( ltstate == Action.none ) then -- currently not working -> let's go
+        oilsqueezing.SavedWorkTime[User.id] = oilsqueezing:GenWorkTime(User,nil);
+        User:startAction( oilsqueezing.SavedWorkTime[User.id], 0, 0, 0, 0);
+        User:talk(Character.say, "#me beginnt Öl zu pressen.", "#me starts to squeeze oil.")
+        return
+    end
 
-	-- since we're here, we're working
+    -- since we're here, we're working
 
-	if oilsqueezing:FindRandomItem(User) then
-		return
-	end
+    if oilsqueezing:FindRandomItem(User) then
+        return
+    end
 
-	User:learn( oilsqueezing.LeadSkill, oilsqueezing.SavedWorkTime[User.id], oilsqueezing.LearnLimit);
-	User:eraseItem( 141, 2 ); -- erase the item we're working on
+    User:learn( oilsqueezing.LeadSkill, oilsqueezing.SavedWorkTime[User.id], oilsqueezing.LearnLimit);
+    User:eraseItem( 141, 2 ); -- erase the item we're working on
     User:eraseItem( 390, 1 ); -- erase the item we're working on
-	local amount = 1; -- set the amount of items that are produced
-	local notCreated = User:createItem( 469, amount, 333, nil ); -- create the new produced items
-	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-		world:createItemFromId( 469, notCreated, User.pos, true, 333, nil );
-		common.HighInformNLS(User,
-		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
-		"You can't carry any more and the rest drops to the ground.");
-	else -- character can still carry something
-		if (User:countItemAt("all",141) < 2) then -- no items left
+    local amount = 1; -- set the amount of items that are produced
+    local created = common.CreateItem(User, 469, amount, 333, nil) -- create the new produced items
+    if created then -- character can still carry something
+        if (User:countItemAt("all",141) < 2) then -- no items left
             common.HighInformNLS(User,
                 "Du hast nicht mehr genug schwarze Disteln.",
                 "You don't have enough black thistles anymore.");
@@ -100,9 +95,9 @@ function StartGathering(User, SourceItem, ltstate)
                 "Du hast nicht mehr genug Ölflaschen.",
                 "You don't have enough oil bottles anymore." );
             return
-		else  -- there are still items we can work on
+        else  -- there are still items we can work on
             oilsqueezing.SavedWorkTime[User.id] = oilsqueezing:GenWorkTime(User,nil);
             User:startAction( oilsqueezing.SavedWorkTime[User.id], 0, 0, 0, 0);
-		end
-	end
+        end
+    end
 end

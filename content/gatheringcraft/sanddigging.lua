@@ -73,8 +73,8 @@ function StartGathering(User, SourceItem, ltstate)
     elseif ( SourceItem.wear == 255 ) then
         amount = MaxAmount;
     end
-    
-    
+
+
     -- currently not working -> let's go
     if ( ltstate == Action.none ) then
         sanddigging.SavedWorkTime[User.id] = sanddigging:GenWorkTime(User,toolItem);
@@ -91,24 +91,19 @@ function StartGathering(User, SourceItem, ltstate)
         end
         return
     end
-    
+
     User:learn( sanddigging.LeadSkill, sanddigging.SavedWorkTime[User.id], sanddigging.LearnLimit);
     amount = amount - 1;
     -- update the amount
     SourceItem:setData("amount", "" .. amount);
     world:changeItem(SourceItem)
-    
-    local notCreated = User:createItem( 726, 1, 333, nil ); -- create the new produced items
-    if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-        world:createItemFromId( 726, notCreated, User.pos, true, 333, nil );
-        common.HighInformNLS(User,
-        "Du kannst nichts mehr halten.",
-        "You can't carry any more.");
-    else -- character can still carry something
+
+    local created = common.CreateItem(User, 726, 1, 333, nil) -- create the new produced items
+    if created then -- character can still carry something
         if amount > 0 then
             sanddigging.SavedWorkTime[User.id] = sanddigging:GenWorkTime(User,toolItem)
             User:changeSource(SourceItem);
-        User:startAction( sanddigging.SavedWorkTime[User.id], 0, 0, 0, 0)
+            User:startAction( sanddigging.SavedWorkTime[User.id], 0, 0, 0, 0)
         end
     end
 
@@ -120,7 +115,7 @@ function StartGathering(User, SourceItem, ltstate)
         User:inform( "An dieser Stelle gibt es nicht mehrs zu holen.", "There isn't anything left in this pit.", Character.highPriority);
         return
     end
-    
+
     if common.GatheringToolBreaks( User, toolItem, sanddigging:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
         common.HighInformNLS(User,
         "Deine alte Schaufel zerbricht.",
