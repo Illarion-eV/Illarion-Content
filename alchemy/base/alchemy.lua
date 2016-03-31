@@ -130,34 +130,34 @@ idList = {}
 function InitPotions()
 
 -- body liquid potions
-    M.potionName[10]	= {"Dragon Breath","Drachenatem"}
+    M.potionName[10]    = {"Dragon Breath","Drachenatem"}
     setPotion(10, 450, 58325631, 755, 755, 141, 141, 141, 146, false, false) -- done
 -- body liquid end
 
 -- bombs
-    M.potionName[301]	= {"Small Explosion","Kleine Explosion"}
+    M.potionName[301] = {"Small Explosion","Kleine Explosion"}
     setPotion(301, 446, 34374416, 755, 755, 755, 146, 141 ,141, 141, 133)
-    M.potionName[302]	= {"Medium Explosion","Mittlere Explosion"}
+    M.potionName[302] = {"Medium Explosion","Mittlere Explosion"}
     setPotion(302, 446, 44156426, 755, 755, 146, 146, 141 ,141, 141, 133)
-    M.potionName[304]	= {"Big Explosion","Groﬂe Explosion"}
+    M.potionName[304] = {"Big Explosion","Groﬂe Explosion"}
     setPotion(304, 446, 22446419, 755, 146, 146, 146, 141 ,141, 141, 133) -- done
-    M.potionName[306]	= {"Small Mana Annihilator","Kleiner Manaannihilator"}
+    M.potionName[306] = {"Small Mana Annihilator","Kleiner Manaannihilator"}
     setPotion(306, 446, 22856451, 138, 138, 138, 146, 134, 134, 134, 133)
-    M.potionName[307]	= {"Medium Mana Annihilator","Mittlerer Manaannihilator"}
+    M.potionName[307] = {"Medium Mana Annihilator","Mittlerer Manaannihilator"}
     setPotion(307, 446, 21957432, 138, 138, 146, 146, 134, 134, 134, 133)
-    M.potionName[309]	= {"Big Mana Annihilator","Groﬂer Manaannihilator"}
+    M.potionName[309] = {"Big Mana Annihilator","Groﬂer Manaannihilator"}
     setPotion(309, 446, 22955451, 138, 146, 146, 146, 134, 134, 134, 133)
-    M.potionName[311]	= {"Small Nutrition Annihilator","Kleiner Nahrungsannihilator"}
+    M.potionName[311] = {"Small Nutrition Annihilator","Kleiner Nahrungsannihilator"}
     setPotion(311, 446, 26843821, 754, 754, 754, 146, 135, 135, 135, 133)
-    M.potionName[312]	= {"Medium Nutrition Annihilator","Mittlerer Nahrungsannihilator"}
+    M.potionName[312] = {"Medium Nutrition Annihilator","Mittlerer Nahrungsannihilator"}
     setPotion(312, 446, 15873523, 754, 754, 146, 146, 135, 135, 135, 133)
-    M.potionName[314]	= {"Big Nutrition Annihilator","Groﬂer Nahrungsannihilator"}
+    M.potionName[314] = {"Big Nutrition Annihilator","Groﬂer Nahrungsannihilator"}
     setPotion(314, 446, 15783424, 754, 146, 146, 146, 135, 135, 135, 133)
-    M.potionName[316]	= {"Small Slime Barrier","Kleine Schleimbarriere"}
+    M.potionName[316] = {"Small Slime Barrier","Kleine Schleimbarriere"}
     setPotion(316, 446, 86386546, 140, 140, 140, 152, 146, false, false, false)
-    M.potionName[317]	= {"Big Slime Barrier","Groﬂe Schleimbarriere"}
+    M.potionName[317] = {"Big Slime Barrier","Groﬂe Schleimbarriere"}
     setPotion(317, 446, 76576456, 140, 140, 140, 140, 152, 152, 146, 146)
-    M.potionName[318]	= {"Lennier's Dream","Lenniers Traum"}
+    M.potionName[318] = {"Lennier's Dream","Lenniers Traum"}
     setPotion(318, 446, 57932798, 765,146,146,146,148,15,151,764)
 -- bombs end
 
@@ -255,7 +255,7 @@ function setPotionIngredients(effect,gemdust,stock,essenceHerb1,essenceHerb2,ess
     if ingredientsList == nil then
         ingredientsList = {}
     end
-    ingredientsList[effect]	= {gemdust,stock,essenceHerb1,essenceHerb2,essenceHerb3,essenceHerb4,essenceHerb5,essenceHerb6,essenceHerb7,essenceHerb8}
+    ingredientsList[effect] = {gemdust,stock,essenceHerb1,essenceHerb2,essenceHerb3,essenceHerb4,essenceHerb5,essenceHerb6,essenceHerb7,essenceHerb8}
 end
 
 --- Get the effect of a potion

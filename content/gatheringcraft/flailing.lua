@@ -37,9 +37,9 @@ function StartGathering(User, SourceItem, ltstate)
         return
     end
 
---	if not common.CheckItem( User, SourceItem ) then -- security check
---		return
---	end
+--  if not common.CheckItem( User, SourceItem ) then -- security check
+--      return
+--  end
 
     -- additional tool item is needed
     if (User:countItemAt("all",258)==0) then

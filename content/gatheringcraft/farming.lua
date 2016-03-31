@@ -149,23 +149,23 @@ function InitFarmingItems()
     FarmingItems = {};
 
     -- field crops
-    FarmingItems[290] = 290									-- cabbage -> cabbage
-    FarmingItems[537] = 201									-- onion plant -> onion
-    FarmingItems[540] = 200									-- tomato plant -> tomato
-    FarmingItems[731] = 154									-- hop plant -> hop
-    FarmingItems[732] = 728									-- old hops -> hop seeds
-    FarmingItems[2492] = 2493								-- greens -> carrots
-    FarmingItems[782] = 778									-- sugarcane plant -> sugarcane
-    FarmingItems[777] = 772									-- withered tobacco plant -> tabacco
+    FarmingItems[290] = 29 -- cabbage -> cabbage
+    FarmingItems[537] = 201 -- onion plant -> onion
+    FarmingItems[540] = 200 -- tomato plant -> tomato
+    FarmingItems[731] = 154 -- hop plant -> hop
+    FarmingItems[732] = 728 -- old hops -> hop seeds
+    FarmingItems[2492] = 2493 -- greens -> carrots
+    FarmingItems[782] = 778 -- sugarcane plant -> sugarcane
+    FarmingItems[777] = 772 -- withered tobacco plant -> tabacco
     FarmingItems[3565] = 3567                               -- Final stage potato plant -> Potatoes
 
     -- TODO when bug in MoveItem functions is resolved, remove these
-    FarmingItems[779] = 779									-- sugarcane seeds
-    FarmingItems[773] = 773									-- tobacco seeds
-    FarmingItems[2917] = 2917								-- tomato seeds
-    FarmingItems[2494] = 2494								-- carrot seeds ("seeds")
-    FarmingItems[534] = 534									-- onion seeds
-    FarmingItems[291] = 291									-- withered cabbage (seeds)
+    FarmingItems[779] = 779 -- sugarcane seeds
+    FarmingItems[773] = 773 -- tobacco seeds
+    FarmingItems[2917] = 2917 -- tomato seeds
+    FarmingItems[2494] = 2494 -- carrot seeds ("seeds")
+    FarmingItems[534] = 534 -- onion seeds
+    FarmingItems[291] = 291 -- withered cabbage (seeds)
     FarmingItems[3566] = 3566                               -- Potato seeds
 
 end

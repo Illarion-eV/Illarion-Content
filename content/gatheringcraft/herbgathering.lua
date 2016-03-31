@@ -348,72 +348,72 @@ function InitHerbItems()
     }
 
     -- mushrooms
-    HerbItems[159] = {									-- toadstool
-    CreateHarvestProduct(159, nil)								-- toadstool
+    HerbItems[159] = {                                    -- toadstool
+    CreateHarvestProduct(159, nil)                                -- toadstool
     }
 
-    HerbItems[160] = {									-- red head
-    CreateHarvestProduct(160, nil)								-- red head
+    HerbItems[160] = {                                    -- red head
+    CreateHarvestProduct(160, nil)                                -- red head
     }
 
-    HerbItems[161] = {									-- herder's mushroom
-    CreateHarvestProduct(161, nil)								-- herder's mushroom
+    HerbItems[161] = {                                    -- herder's mushroom
+    CreateHarvestProduct(161, nil)                                -- herder's mushroom
     }
 
-    HerbItems[162] = {									-- birth mushroom
-    CreateHarvestProduct(162, nil)								-- birth mushroom
+    HerbItems[162] = {                                    -- birth mushroom
+    CreateHarvestProduct(162, nil)                                -- birth mushroom
     }
 
-    HerbItems[421] = {									-- bulbsponge mushroom
-    CreateHarvestProduct(158, nil)								-- bulbsponge mushroom
+    HerbItems[421] = {                                    -- bulbsponge mushroom
+    CreateHarvestProduct(158, nil)                                -- bulbsponge mushroom
     }
 
-    HerbItems[158] = {									-- bulbsponge mushroom
-    CreateHarvestProduct(158, nil)								-- bulbsponge mushroom
+    HerbItems[158] = {                                    -- bulbsponge mushroom
+    CreateHarvestProduct(158, nil)                                -- bulbsponge mushroom
     }
 
-    HerbItems[1790] = {									-- mushroom circle
-    CreateHarvestProduct(163, nil)								-- champignon
+    HerbItems[1790] = {                                    -- mushroom circle
+    CreateHarvestProduct(163, nil)                                -- champignon
     }
 
     -- helper herb
-    HerbItems[2169] = {									-- old log
-    CreateHarvestProduct(157, nil)								-- rotten tree bark
+    HerbItems[2169] = {                                    -- old log
+    CreateHarvestProduct(157, nil)                                -- rotten tree bark
     }
 
-    HerbItems[2170] = {									-- old log
-    CreateHarvestProduct(157, nil)  							-- rotten tree bark
+    HerbItems[2170] = {                                    -- old log
+    CreateHarvestProduct(157, nil)                              -- rotten tree bark
     }
 
-    HerbItems[1156] = {									-- old log
-    CreateHarvestProduct(157, nil)								-- rotten tree bark
+    HerbItems[1156] = {                                    -- old log
+    CreateHarvestProduct(157, nil)                                -- rotten tree bark
     }
 
-    HerbItems[1157] = {									-- old log
-    CreateHarvestProduct(157, nil)  							-- rotten tree bark
+    HerbItems[1157] = {                                    -- old log
+    CreateHarvestProduct(157, nil)                              -- rotten tree bark
     }
 
-    HerbItems[1158] = {									-- old log
-    CreateHarvestProduct(157, nil)								-- rotten tree bark
+    HerbItems[1158] = {                                    -- old log
+    CreateHarvestProduct(157, nil)                                -- rotten tree bark
     }
 
-    HerbItems[1159] = {									-- old log
-    CreateHarvestProduct(157, nil)  							-- rotten tree bark
+    HerbItems[1159] = {                                    -- old log
+    CreateHarvestProduct(157, nil)                              -- rotten tree bark
     }
 
 
     -- anything else
-    HerbItems[308] = {									-- fir tree
-    CreateHarvestProduct(149, nil)								-- fir tree sprout
+    HerbItems[308] = {                                    -- fir tree
+    CreateHarvestProduct(149, nil)                                -- fir tree sprout
     }
-    HerbItems[1812] = {									-- palm tree
-    CreateHarvestProduct(80, gt.sand)							-- banana
+    HerbItems[1812] = {                                    -- palm tree
+    CreateHarvestProduct(80, gt.sand)                            -- banana
     }
-    HerbItems[1813] = {									-- palm tree
-    CreateHarvestProduct(80, gt.sand)							-- banana
+    HerbItems[1813] = {                                    -- palm tree
+    CreateHarvestProduct(80, gt.sand)                            -- banana
     }
 
-    HerbItems[ 1809 ] = {								-- eldan oak
-    CreateHarvestProduct(759, nil, {0.5,0.5,0.5,0.5})			-- nuts (was actually in harvest.lua with 20 MaxAmount, so just let it regrow twice as fast)
+    HerbItems[ 1809 ] = {                                -- eldan oak
+    CreateHarvestProduct(759, nil, {0.5,0.5,0.5,0.5})            -- nuts (was actually in harvest.lua with 20 MaxAmount, so just let it regrow twice as fast)
     }
 end
