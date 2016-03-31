@@ -128,7 +128,7 @@ function M.UseItem(User, SourceItem, ltstate)
                             "The empty bottle is broken and no longer usable.");
                         else
                             local dataCopy = {descriptionDe=SourceItem:getData("descriptionDe"), descriptionEn=SourceItem:getData("descriptionEn")};
-                            common.createItem(User, food[3], 1, 333, dataCopy)
+                            common.CreateItem(User, food[3], 1, 333, dataCopy)
                         end
                         world:erase(SourceItem, 1)
                     end

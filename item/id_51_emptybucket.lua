@@ -153,14 +153,8 @@ function FillFromCauldron(User,SourceItem,TargetItem,ltstate)
     world:changeItem(TargetItem)
 
     if SourceItem.number > 1 then
-        world:erase(SourceItem,1)
-        local notCreated=User:createItem(52,1,333,nil)
-        if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-        world:createItemFromId(52,1,User.pos,true,333,nil)
-        common.HighInformNLS(User,
-            "Du kannst nichts mehr halten.",
-            "You can't carry any more.")
-        end
+        world:erase(SourceItem, 1)
+        common.CreateItem(User, 52, 1, 333, nil)
     else
         SourceItem.id = 52
         SourceItem.quality = 333
