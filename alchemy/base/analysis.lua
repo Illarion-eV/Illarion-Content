@@ -75,7 +75,7 @@ function CharacterAnalysis(User,theGem)
         world:erase(theGem,1)
         User:inform("Der Rubin zerspringt in Einzelteile.","The ruby brusts into pieces.",Player.highPriority)
     else
-        local descriptionDe = "Ein fester, gelblicher Überzug bedeckt Rubin." .. chargeText[newCharge][Player.german]
+        local descriptionDe = "Ein fester, gelblicher Überzug bedeckt den Rubin." .. chargeText[newCharge][Player.german]
         local descriptionEn = "A hard, yellowish film covers the ruby." .. chargeText[newCharge][Player.english]
         if theGem.number == 1 then
             theGem:setData("descriptionDe",descriptionDe)
@@ -83,8 +83,8 @@ function CharacterAnalysis(User,theGem)
             theGem:setData("analysingCharges",newCharge)
             world:changeItem(theGem)
         else
-            world:erase(theGem,1)
-            User:createItem(46,1,333,{descriptionDe = descriptionDe, descriptionEn = descriptionEn})
+            world:erase(theGem, 1)
+            common.CreateItem(User, 46, 1, 333, {descriptionDe = descriptionDe, descriptionEn = descriptionEn})
         end
         User:inform("Ein Sprung bildet sich im Edelstein.","A crack appears in the gem.",Player.highPriority)
     end

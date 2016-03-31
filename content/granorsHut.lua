@@ -82,10 +82,7 @@ end
 function M.searchInHedge(user)
     if user:getQuestProgress(505) == 0 then
         user:inform("Du findet in der Hecke eine Sichel mit einem scheinbar angeknabberten Griff, an dem noch ein bißchen Sabber hängt.", "As you search through the hedge, you find a sickle with a seemingly nibbled on handle. There is even some saliva still on it.")
-        local notCreated = user:createItem(126, 1, 666, {descriptionDe = "Der Holzgriff der Sichel wurde angeknabbert.", descriptionEn = "The wooden handle of the sickle has been nibbled at."})
-        if notCreated > 0 then
-            world:createItemFromId(126, 1, user.pos, true, 666, {descriptionDe = "Der Holzgriff der Sichel wurde angeknabbert.", descriptionEn = "The wooden handle of the sickle has been nibbled at."})
-        end
+        common.CreateItem(user, 126, 1, 666, {descriptionDe = "Der Holzgriff der Sichel wurde angeknabbert.", descriptionEn = "The wooden handle of the sickle has been nibbled at."})
         user:setQuestProgress(505, 1)
     end
 end

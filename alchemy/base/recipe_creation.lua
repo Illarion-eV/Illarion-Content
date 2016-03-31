@@ -610,11 +610,8 @@ function FinishRecipe(User, ListOfIngredients)
                 for i=1,#ListOfIngredients do
                     data["ingredient"..i] = ListOfIngredients[i]
                 end
-                world:erase(parchment,1)
-                local notCreated = User:createItem(2745,1,333,data)
-                if notCreated > 0 then
-                    world:createItemFromId(2745,notCreated,User.pos,true,333,data)
-                end
+                world:erase(parchment, 1)
+                common.CreateItem(User, 2745, 1, 333, data)
             else
                 parchment:setData("descriptionDe","Alchemistisches Rezept: "..dialog:getInput())
                 parchment:setData("descriptionEn","Alchemical recipe: "..dialog:getInput())

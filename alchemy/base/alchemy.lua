@@ -603,8 +603,8 @@ function M.EmptyBottle(User,Bottle)
        common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
     else
         if Bottle.number > 1 then -- if we empty a bottle (stock, potion or essence brew) it should normally never be a stack! but to be one the safe side, we check anyway
-            User:createItem(164,1,333,nil)
-            world:erase(Bottle,1)
+            common.CreateItem(User, 164, 1, 333, nil)
+            world:erase(Bottle, 1)
         else
             M.RemoveAll(Bottle)
             Bottle.id = 164

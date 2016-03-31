@@ -232,7 +232,7 @@ function TownKey(User,toolTown)
         local success = dialog:getSuccess()
         if success then
             local selected = dialog:getSelectedIndex() + 1
-            User:createItem(keyID[toolTown][selected],1,999,{["lockId"]=keydoorsID[toolTown][selected],["descriptionDe"]=keydoorsnameDE[toolTown][selected],["descriptionEn"]=keydoorsnameEN[toolTown][selected]})
+            common.CreateItem(User, keyID[toolTown][selected], 1, 999, {["lockId"]=keydoorsID[toolTown][selected],["descriptionDe"]=keydoorsnameDE[toolTown][selected],["descriptionEn"]=keydoorsnameEN[toolTown][selected]})
             User:logAdmin("creates a key for " .. keydoorsnameEN[toolTown][selected]);
         end
     end

@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local factions = require("base.factions")
@@ -36,7 +36,7 @@ ThrustworthynessChangeAfterSuccessOrder = 10;
 --Um welchen Wert wird die Vertrauenswürdigkeit erhöht wenn ein Auftrag erfüllt wird aber zu spät ist oder die Qualitï¿½t nicht stimmt
 ThrustworthynessChangeAfterNotSuccessOrder = 5;
 
---Untergrenze der Vertrauenswürdigkeit, hat ein char weniger vertrauenswürdigkeit wird eine Sperrfrist festegelegt. 
+--Untergrenze der Vertrauenswürdigkeit, hat ein char weniger vertrauenswürdigkeit wird eine Sperrfrist festegelegt.
 ThrustworthynessBorder = 10;
 
 --Um welchen Wert wird der Wert fï¿½r Gute Aufträge erhöht wenn ein Auftrag innerhalb der normalen Zeit erfüllt wird.
@@ -73,12 +73,12 @@ end
 --     fï¿½r je 2 Stunden ï¿½ber den Auftrag wï¿½rde 100 abgezogen werden
 --     bei 5 Stunden sind das 200 weniger also noch 800 Gold.
 function CoinsModStruct(qualmod,mvalue)
-    return {mod=qualmod,value=mvalue}; 
-end 
+    return {mod=qualmod,value=mvalue};
+end
 
 --[[
     ï¿½ndert den Vertrausenwürdigkeitsstatus eines Character
-    prï¿½ft dabei die einhaltung der Grenzen 
+    prï¿½ft dabei die einhaltung der Grenzen
     @param user der nutzer der geprï¿½ft werden soll
     @param ntwn der neue Vertrauenswürdigkeitswert
     @param ngoodorders der neue Wert fï¿½r Gute Aufträge
@@ -116,7 +116,7 @@ end
 
 --[[
     ï¿½ndert den Vertrausenwürdigkeitsstatus eines Character
-    prï¿½ft dabei die einhaltung der Grenzen 
+    prï¿½ft dabei die einhaltung der Grenzen
     @return Vertrauenswürdigkeit, Wert fï¿½r Gute Aufträge
 ]]--
 local function getThrustWorthyness(user)
@@ -243,7 +243,7 @@ function OrderNPC:new( onpc )
     onpc.generationCycle = -1;
     onpc.bonilist = { {min=0,max=0},{min=0,max=5},{min=5,max=10},{min=8,max=15},{min=10,max=20},{min=15,max=30},{min=20,max=35},{min=25,max=40},{min=30,max=50},{min=40,max=70}};
     return onpc;
-end    
+end
 
 --[[
     lï¿½sst den NPC einmal irgend einen text aus textOrderSay sagen
@@ -272,7 +272,7 @@ end
 --[[
     listet für den npc alle wichtigen daten auf
     ]]--
-function OrderNPC:showStats(who) 
+function OrderNPC:showStats(who)
    local text = "Open orders: "..#self.openOrders.." time min: "..self.generationTime.min.." max: "..self.generationTime.max.." next (1/10s): "..self.generationCycle;
    who:inform(text);
    self.orderPool:inform(who);
@@ -307,10 +307,10 @@ function OrderNPC:receiveText(who,text)
         elseif ( string.find(text,"set go.+-(%d+)") ) then
             local numb = getNumberInString(text);
             M.setThrustWorthyness(who,0,0-numb);
-            who:inform("go: "..numb);        
+            who:inform("go: "..numb);
         end
     end
-    
+
     local number = -1;
     for i, ttext in pairs(self.triggerGetOrder) do
         if ( string.find(text,ttext) ) then
@@ -387,12 +387,12 @@ end
 function OrderNPC:createOrder()
     local oocount = #self.openOrders;
     if ( oocount >= self.maxOpenOrders ) then
-        --ï¿½ltesten Eintrag lï¿½schen wenn mehr Aufträge als erlaubt da sind 
+        --ï¿½ltesten Eintrag lï¿½schen wenn mehr Aufträge als erlaubt da sind
         table.remove(self.openOrders,1);
     end
     --Auftrag aus liste generieren
     local order = self.orderPool:generateOrder();
-    
+
     --name des NPC's eintragen
     order.npcname = self.npc.name;
     --In liste mit offenen Aufträgen einfï¿½gen
@@ -429,7 +429,7 @@ end
 --[[
     Zahlt einen Bonus aufgrund einer gut ausgefï¿½hrten Bestellung
 ]]--
-function OrderNPC:payBoni(user,order) 
+function OrderNPC:payBoni(user,order)
     --user:inform("payBoni");
     local twn,boni = getThrustWorthyness(user);
     --user:inform("twn: "..twn.." bonival: "..boni);
@@ -444,9 +444,9 @@ function OrderNPC:payBoni(user,order)
         local GoldID=61;
         local SilberID=3077;
         local KupferID=3076;
-        user:createItem(KupferID,copper,333,0);
-        user:createItem(SilberID,silver,333,0);
-        user:createItem(GoldID,gold,333,0);
+        common.CreateItem(user, KupferID, copper, 333, nil)
+        common.CreateItem(user, SilberID, silver, 333, nil)
+        common.CreateItem(user, GoldID, gold, 333, nil)
         common.TalkNLS( self.npc, Character.say, self.textBoni.ger, self.textBoni.eng );
     end
    -- give some rankpoints as reward
@@ -454,10 +454,10 @@ function OrderNPC:payBoni(user,order)
            factions.setLocation(thisNPC);
    end
    local Factionvalues = factions.get(user);
-   
-    Factionvalues[ DigitToIndex[NpcLocation[thisNPC.id]+RANKPOINTS_OFFSET] ]= 
+
+    Factionvalues[ DigitToIndex[NpcLocation[thisNPC.id]+RANKPOINTS_OFFSET] ]=
              Factionvalues[ DigitToIndex[NpcLocation[thisNPC.id]+RANKPOINTS_OFFSET] ] +5;--add 5 rankpoints for this town
-    
+
     factions.put(user,Factionvalues);
     ------------------
     --user:inform("payboni end");
@@ -470,7 +470,7 @@ fï¿½hrt eine Bestellung zu einem Auftrag aus.
 ]]--
 function OrderNPC:checkOrder(user)
     local order = Order:getInHandForNPC(user,thisNPC);
-    if ( order == nil ) then 
+    if ( order == nil ) then
         return false;
     else
         local orderstruct = order:checkOrder(user,self.npc);
@@ -483,7 +483,7 @@ function OrderNPC:checkOrder(user)
                 common.TalkNLS( self.npc, Character.say, self.textNoItems.ger, self.textNoItems.eng );
                 return true;
             else
-                --einige der Items im Inventar 
+                --einige der Items im Inventar
                 if ( self.lastOrderString ~= order:getDataString() ) then
                     --es ist noch nie versucht worden eine teillieferung zu veranlassen
                     order:partDelivery(user,orderstruct);
@@ -498,9 +498,9 @@ function OrderNPC:checkOrder(user)
                     return true;
                 end
             end
-            
+
         end
-        --Korrekt ausgefï¿½hrter Auftrag, diesen ausfï¿½hren  
+        --Korrekt ausgefï¿½hrter Auftrag, diesen ausfï¿½hren
         if ( orderstruct.intime == true and orderstruct.inquality == true ) then
             --ausfï¿½hren der Bestellung
             order:doOrder(user,orderstruct);
@@ -517,7 +517,7 @@ function OrderNPC:checkOrder(user)
             order:doOrder(user,orderstruct);
             common.TalkNLS( self.npc, Character.say, self.textNotOk.ger, self.textNotOk.eng );
             return true;
-        end 
+        end
         local ger = "";
         local eng = "";
         local gold = 0;
@@ -558,7 +558,7 @@ end
 
 
 --Definition der Werte eines Basisauftrages
-Order = 
+Order =
 {
     --der Gegenstand welcher der auftrag ist
     orderitem = nil,
@@ -588,7 +588,7 @@ Order =
 function Order:addItem( it )
     table.insert(self.items, it);
 end
-    
+
 function Order:new( bo )
     bo = bo or {};
     setmetatable( bo, self);
@@ -597,7 +597,7 @@ function Order:new( bo )
     bo.state = OrderState.NormalOrder; --Order 3 Bit + 3 Bit wieviel Items enthalten sind
     bo.items = {}; --Item = 16 Bit id und 8 Bit Anzahl
     bo.time = TimeStruct(0,0,0,0); --Order: 17  5 Bit Tag, 4 Bit Monat, 8 Bit Jahr
-    bo.quality = 3; --Order: 4 Bit da nur 100 er stelle für Quality wichtig ist 
+    bo.quality = 3; --Order: 4 Bit da nur 100 er stelle für Quality wichtig ist
     bo.qualitymodcoins = CoinsModStruct(0,0); --Modnumber 4 Bit für den qualmod und 10 Bit für den Betragsmod
     bo.timemodcoins = CoinsModStruct(0,0); --Modnumber 8 Bit für den stundenmod und 10 Bit für den Betrag
     bo.coins = 0;
@@ -608,7 +608,7 @@ function Order:new( bo )
     return bo;
 end
 
---[[ 
+--[[
     Erzeugt ein auftrag aufgrund eines ï¿½bergebenen items
     @return null wenn der item kein entsprechendes richtige item war ansonsten den auftrag zum item
     ]]--
@@ -622,7 +622,7 @@ function Order:fromItem(item)
         end
     end
     return nil;
-end 
+end
 
 
 
@@ -647,7 +647,7 @@ function OrderStateStruct()
         --ist der NPC der richtige
         rightnpc = false;
     };
-    
+
 end
 
 --[[
@@ -709,7 +709,7 @@ function Order:getInHandForNPC(Character,npc)
             end
         end
     end
-    
+
     for i=12,17 do --checks the whole belt
         local item = Character:getItemAt( i );
         if ( item.id == OrderItem ) then
@@ -747,7 +747,7 @@ end
     @return true wenn der Auftrag erzeugt werden konnte
 ]]--
 function Order:createOrderItem(Character)
-    
+
     scriptitem = Character:getItemAt( Character.right_tool );
     if ( scriptitem.id ~= 0 ) then
         scriptitem = Character:getItemAt( Character.left_tool);
@@ -757,7 +757,7 @@ function Order:createOrderItem(Character)
             scriptitem = Character:getItemAt(i);
         end
     end
-    if ( scriptitem.id ~= 0 ) then 
+    if ( scriptitem.id ~= 0 ) then
         common.InformNLS(Character,"Du brauchst eine freie Hand um einen Auftrag anzunehmen.","You need a free hand to get a contract.");
         return false;
     end
@@ -765,7 +765,7 @@ function Order:createOrderItem(Character)
    scriptitem.id = OrderItem;
    scriptitem.quality = 300;
    self.orderitem = scriptitem;
-   --self.time = 
+   --self.time =
    --local data = self:toDataString();
    --scriptitem:setValue(1,data);
    self:set();
@@ -774,7 +774,7 @@ function Order:createOrderItem(Character)
 end
 
 --Prï¿½ft ob ein Char alle Items besitzt welche zum lieferumfang
---des Auftrags gehï¿½ren und liefert den Status des Auftrags zurï¿½ck. 
+--des Auftrags gehï¿½ren und liefert den Status des Auftrags zurï¿½ck.
 --@param Character der Character dessen Inventory geprï¿½ft werden soll
 --@npc der NPC mit dem der Handel geprï¿½ft werden soll
 --@return die durchschnittsabweichung von der Qualitï¿½t, eine Liste mit den Auftragsitems oder null wenn die Items nicht vorhanden waren
@@ -785,7 +785,7 @@ function Order:checkOrder(Character,npc)
     local allcount = 0;
     local curquali = self.curquality;
     --wenn schon eine qualitï¿½t aus vorhergehenden Werten vorhanden ist dann schon 1 als vorgabewert eingehen lassen
-    if ( curquali > 0 ) then 
+    if ( curquali > 0 ) then
         allcount = 1;
     end;
     if ( self.npcname == npc.name ) then
@@ -793,11 +793,11 @@ function Order:checkOrder(Character,npc)
     end
     ret.allItems = true;
     ret.someItems= false;
-    for i,item in pairs(self.items) do    
+    for i,item in pairs(self.items) do
         local itemlist = Character:getItemList(item.id);
         --nach qualitï¿½t sortieren
         table.sort(itemlist, function(itema,itemb) return (itema.quality > itemb.quality); end);
-            
+
         local curcount = 0;
         --durch alle items iterieren
         for y,charitem in pairs(itemlist) do
@@ -820,7 +820,7 @@ function Order:checkOrder(Character,npc)
         if Character:countItem(item.id) > 0 then
             ret.someItems=true;
         end
-        
+
     end
     averquali = math.floor((curquali / allcount) + 0.5);
     --durchschnittsqualitï¿½t vergleichen.
@@ -841,8 +841,8 @@ function Order:checkOrder(Character,npc)
     local curhours = math.floor(world:getTime("illarion") / 3600);
     --]]
     local curhours = math.floor(common.GetCurrentTimestamp() / 3600); --holds the current time as Timestamp
-    
-    --liefert ig timestamp 
+
+    --liefert ig timestamp
     local orderhours = math.floor(common.GetCurrentTimestampForDate(self.time.year,self.time.month+1,self.time.day,self.time.hour,0,0) / 3600);
     if ( curhours > orderhours ) then
         ret.intime = false;
@@ -883,7 +883,7 @@ local function removeItems(itemid,itemcount,itemlist,char)
             curcount = curcount + cnt;
         end
     end
-    
+
 end
 
 
@@ -928,7 +928,7 @@ function Order:partDelivery(character,orderstatestruct)
 end
 
 
---Fï¿½hrt eine Bestellung aus indem beim Character entsprechende Items gelöscht werden 
+--Fï¿½hrt eine Bestellung aus indem beim Character entsprechende Items gelöscht werden
 --und dannach entsprechende Belohnungen generiert werden.
 function Order:doOrder(character,orderstatestruct)
     local price = self:recalcPrice(orderstatestruct);
@@ -936,9 +936,9 @@ function Order:doOrder(character,orderstatestruct)
     local GoldID=61;
     local SilberID=3077;
     local KupferID=3076;
-    character:createItem(KupferID,copper,333,0);
-    character:createItem(SilberID,silver,333,0);
-    character:createItem(GoldID,gold,333,0);
+    common.CreateItem(character, KupferID, copper, 333, nil)
+    common.CreateItem(character, SilberID, silver, 333, nil)
+    common.CreateItem(character, GoldID, gold, 333, nil)
     --Auftrag selbst löschen
     if ( self.orderitem ~= nil ) then
         world:erase(self.orderitem,1);
@@ -976,7 +976,7 @@ end
 
 
 
---Codiert alle Daten in einen String welcher die Daten interprï¿½tiert und 
+--Codiert alle Daten in einen String welcher die Daten interprï¿½tiert und
 --Speichert diese im item
 function Order:set()
 --Order ist 32 Bit und enthält, 3 Bit (Type), 3 Bit (anzahl items), 4 Bit (Qualitï¿½t), 5 Bit (Tag), 4 Bit (monat), 8 Bit Jahr.
@@ -984,7 +984,7 @@ function Order:set()
         self.orderitem:setValue(1,self:getDataString());
         world:changeItem(self.orderitem);
         return true;
-    else 
+    else
         return false;
     end
 end
@@ -992,7 +992,7 @@ end
 function Order:getDataString()
     local retstring = "";
     local order = bit32.lshift(bit32.band(tonumber(self.state),7),29);  --nur 3 Bit stehen lassen und nach links shiften
-    if ( self.items ~= nil) then 
+    if ( self.items ~= nil) then
         order = bit32.bor(order,bit32.lshift(bit32.band(#self.items,7),26)); --Anzahl der Items auf 3 Bit beschrï¿½nken und links shiften
     end
     order = bit32.bor(order,bit32.lshift(bit32.band(self.quality,15),22)); --Qualitï¿½t auf 4 Bit beschrï¿½nken und nach links shiften
@@ -1013,7 +1013,7 @@ function Order:getDataString()
     retstring = retstring .. "," ..npcname;
     local curquali = self.curquality;
     retstring = retstring .. "," .. curquali;
-    for i,item in ipairs(self.items) do    
+    for i,item in ipairs(self.items) do
         local itemnr = 0;
         itemnr = bit32.lshift(item.id, 8);
         itemnr = bit32.bor(itemnr,bit32.band(item.count,255));
@@ -1070,7 +1070,7 @@ function Order:get()
     end
 end
 
-QualityText = { {ger = "furchtbar",eng = "horrible"}, 
+QualityText = { {ger = "furchtbar",eng = "horrible"},
                 {ger = "schrecklich",eng = "awful"},
                 {ger = "very bad",eng = "very bad"},
                 {ger = "schlecht",eng = "bad" },
@@ -1079,11 +1079,11 @@ QualityText = { {ger = "furchtbar",eng = "horrible"},
                 {ger = "gut", eng = "good"},
                 {ger = "sehr gut", eng = "very good"},
                 {ger = "exzellent", eng = "excellent"},
-                {ger = "perfekt",eng = "perfect"}, 
+                {ger = "perfekt",eng = "perfect"},
               };
 
 MonthNames = {"Elos", "Tanos", "Zhas", "Ushos", "Siros", "Ronas", "Bras", "Eldas", "Irmas", "Malas", "Findos", "Olos", "Adras", "Naras", "Chos", "Mas"}; --List of our months
-                
+
 function Order:lookAt(Char)
     local text = "";
     local gerhour="";
@@ -1100,30 +1100,30 @@ function Order:lookAt(Char)
                 else
                     ItemAmount = item.count;
                 end
-                
+
                 text = text .. ItemAmount .. " " .. world:getItemName(item.id,0) .. ", ";
             end
         end
         if (self.quality+1)>6 then --ask for quality only if the NPC wants good wares or better
             text = text .. " mit mindestens " .. QualityText[self.quality+1].ger.." Qualitï¿½t";
         end
-        
+
         if ( self.orderitem ~= nil ) then
             RemainingHours = ConvertDateToHourOffset(self.time.year, self.time.month+1, self.time.day, self.time.hour);
             text = text .. " abzuliefern in " ..RemainingHours .. " Stunden";
             --text = text .. ", abzuliefern am " .. self.time.day .. "." .. MonthNames[self.time.month+1] .. "." .. self.time.year .. " " .. gerhour;
-        else        
+        else
             text = text .. " abzuliefern in " ..self.reltime .. " Stunden";
         end
         g,s,c = CoinsToGSC(self.coins);
         if g == 0 then
-            text = text .. " für " .. s .. " Silber und " .. c .. " Kupfermünzen."; 
+            text = text .. " für " .. s .. " Silber und " .. c .. " Kupfermünzen.";
         else
             text = text .. " für " .. g .. " Gold " .. s .. " Silber und " .. c .. " Kupfermünzen.";
-        end  
+        end
         if ( Char:isAdmin() ) then
             text = text .. " Wertverlust Zeit: " .. self.timemodcoins.value .. " Kupfer in " ..self.timemodcoins.mod.." Stunden,"
-            text = text .. " Wertverlust Qualität: "..self.qualitymodcoins.value .. " Kupfer pro "..self.qualitymodcoins.mod.." Qualität." 
+            text = text .. " Wertverlust Qualität: "..self.qualitymodcoins.value .. " Kupfer pro "..self.qualitymodcoins.mod.." Qualität."
         end
         return text;
     else --english
@@ -1147,16 +1147,16 @@ function Order:lookAt(Char)
         --    text = text .. ", to deliver at " .. self.time.day .. "." .. MonthNames[self.time.month+1] .. "." .. self.time.year .. " " .. enghour;
         else
             text = text .. " to deliver in " ..self.reltime.." hours";
-        end    
+        end
         g,s,c = CoinsToGSC(self.coins);
         if g == 0 then
-            text = text .. " for " .. s .. " silver and " .. c .. " copper coins."; 
+            text = text .. " for " .. s .. " silver and " .. c .. " copper coins.";
         else
-            text = text .. " for " .. g .. " gold " .. s .. " silver and " .. c .. " copper coins."; 
-        end  
+            text = text .. " for " .. g .. " gold " .. s .. " silver and " .. c .. " copper coins.";
+        end
         if ( Char:isAdmin() ) then
             text = text .. " Valueloss time: " .. self.timemodcoins.value .. " copper in " ..self.timemodcoins.mod.." hours,"
-            text = text .. " Valueloss quality: "..self.qualitymodcoins.value .. " copper per "..self.qualitymodcoins.mod.." quality." 
+            text = text .. " Valueloss quality: "..self.qualitymodcoins.value .. " copper per "..self.qualitymodcoins.mod.." quality."
         end
         return text;
     end
@@ -1169,7 +1169,7 @@ end
     @param nprice der nosrmale Preis für diesen Gegensant.
     @param ntime die Zeit in der diese Gegenstï¿½nde normalerweise gefertigt werden.
     @param nchance chance das dieser Gegenstand in einen Auftrag aufgenommen wird.
-    @param mincount die minimal Anzahl an gegenstï¿½nden 
+    @param mincount die minimal Anzahl an gegenstï¿½nden
     @param maxcount die maximale Anzahl an gegenstï¿½nden
     @param mincoins die minimale anzahl an münzen die man für diesen gegenstand bekommt.
     Hinweis: mincount, maxcount bezieht sich auf nnumber d.h. mincount 5 bei nnumber = 10... d.H. minimal 50
@@ -1179,7 +1179,7 @@ end
 function OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount,nmincoins)
     ret =  {
         id = nid,
-        number = nnumber,        
+        number = nnumber,
         price = nprice,
         time = ntime,
         chance = nchance,
@@ -1187,7 +1187,7 @@ function OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount,nmin
         maxcount = nmaxcount,
         mincoins = nmincoins
     };
-    if ( ret.id == nil ) then 
+    if ( ret.id == nil ) then
         ret.id = 0;
         ret.number = 0;
         ret.price = 0;
@@ -1201,15 +1201,15 @@ function OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount,nmin
     if ( ret.mincoins < 1) then ret.mincoins = math.floor (ret.mincoins+0.5) end --round up or down
     return ret;
 end
-    
+
 -- Ein Auftragspool
-OrderPool = 
+OrderPool =
 {
     --pool mit auftragsitems nach schwierigkeitsstufen eingeordnet
     pool = {},
     --chance das ein auftrag aus einen bestimmten pool generiert wird
     poolchances = {},
-    --Chance für die Dringlichkeit der Aufträge 
+    --Chance für die Dringlichkeit der Aufträge
     timechances = {},
     --Chance für die Qualität der Aufträge
     qualitychances = {},
@@ -1230,7 +1230,7 @@ TimeTypes = { NORMAL=0,HASTY=1,URGENT=2,VERY_URGENT=3,INSTANT=4 };
 
 --Zeitmodifkikatoren: linker wert ist min Zeitwert, rechts max: 0.9,1.1 Bedeutet das Die Zeit von 90%-110% der normalen Zeit liegt
 --Bei einer Zeit von 10h also zwischen 9-11 h
---                NORMAL    HASTY     URGENT  VERY_URGENT INSTANT              
+--                NORMAL    HASTY     URGENT  VERY_URGENT INSTANT
 TimeModTable = { {90,110},{80,90},{65,80},{50,65},{30,50} };
 CoinsModTable = { {80,115},{90,115},{100,130},{120,170},{130,200} };
 --Wie groï¿½ ist der Werteverlust nach bestimmter Zeit die beiden Zahlen bedeuten
@@ -1239,8 +1239,8 @@ CoinsModTable = { {80,115},{90,115},{100,130},{120,170},{130,200} };
 --Dabei ist die kleinste Zeit immer 1 h... d.H. {1,100} wï¿½rde fast immer bedeuten das bei ï¿½berziehung des Auftrags hinterher kein
 --Gewinn abgegeben wï¿½rde. Bzw. nur der mindestgewinn.
 ValueLossTimeTable = { {30,30},{20,40},{15,50},{10,60},{10,80} };
---Wertverlust je Qualitätspunkt unter dem Geforderten {1,20} Wert wird um 20 % vermindert je 1 Qualitätspunkt weniger. 
---Bei geforderter Qualität von 6 und gelieferter Qualität von 4 = 40 % weniger Geld. 
+--Wertverlust je Qualitätspunkt unter dem Geforderten {1,20} Wert wird um 20 % vermindert je 1 Qualitätspunkt weniger.
+--Bei geforderter Qualität von 6 und gelieferter Qualität von 4 = 40 % weniger Geld.
 ValueLossQualityTable = { 1,20 }
 
 --[[
@@ -1256,7 +1256,7 @@ function OrderPool:new( op )
     op.poolchances = {};
     --chancen für NORMAL,HASTY,URGENT,VERY_URGENT,INSTANT
     op.timechances = { 35,30,20,10,5 };
-    --chancen für dabei benï¿½tigt jeder pool seine eigene liste aus je 10 Werten wobei der gesamtwert der 
+    --chancen für dabei benï¿½tigt jeder pool seine eigene liste aus je 10 Werten wobei der gesamtwert der
     --list immer 100 ergeben muss: {Qualitätslos,Qualität 1, Qualität 2,...,Qualität 9}.
     op.qualitychances = {};
     --chancen Aufträge mit einer bestimmten itemanzahl zu erstellen ( 1 item, 2 items, 3 items)
@@ -1293,7 +1293,7 @@ local function chanceToNumber(chancelist,lmax,notreuse)
         else
             curval = curval - cval;
             if ( curval <= 0 ) then
-                return i; 
+                return i;
             end
         end
     end
@@ -1307,7 +1307,7 @@ end
            dabei ist 0 ein Pool der nur Items enthält die keine Qualität benï¿½tigen
            1 sehr leichte Items die jeder noob herstellen kï¿½nnte. 2 Schwerere gegenstï¿½nde ....
     @param orderpoolitem der gegenstand der den pool hinzu gefï¿½gt werden soll
-]]--    
+]]--
 function OrderPool:addItemToPool(tpool,orderpoolitem)
     if ( self.pool[tpool] == nil ) then
         self.pool[tpool] = {};
@@ -1348,7 +1348,7 @@ function OrderPool:generateOrder()
     local maxchance = 0;
     if ( poolForItem ~= nil ) then
         for i,poolitem in pairs(poolForItem) do
-            table.insert(itemchances,poolitem.chance);        
+            table.insert(itemchances,poolitem.chance);
             maxchance = maxchance + poolitem.chance;
         end
     end
@@ -1363,7 +1363,7 @@ function OrderPool:generateOrder()
                 --eine id aus der liste wï¿½hlen
                 local poolitem = chanceToNumber(itemchances,maxchance,notreuselist);
                 --reine Fehlerkorrektur fals wirklich mal nil gezogen wird.
-                --if ( poolitem == nil ) then 
+                --if ( poolitem == nil ) then
                 --    poolitem = 1;
                 --end
                 --verhindern das das gleiche item erneut gezogen wird. indem es in die "nicht nochmal benutzen" liste eingefï¿½gt wird
@@ -1382,7 +1382,7 @@ function OrderPool:generateOrder()
     local ordermincoins=0;
     for i,item in pairs(itemsfororder) do
         item.concretenumber = math.random(item.mincount,item.maxcount);
-        
+
         if item.concretenumber>5 and item.concretenumber<50 then --modification part of the item number to get only orders for 1,2,3,4,5,10,15,...
             item.concretenumber = item.concretenumber/5;
             item.concretenumber = 5* math.floor(item.concretenumber+0.5);
@@ -1392,8 +1392,8 @@ function OrderPool:generateOrder()
         elseif item.concretenumber>100 then
             item.concretenumber = item.concretenumber/50;
             item.concretenumber = 50* math.floor(item.concretenumber+0.5);
-        end    
-        
+        end
+
         ordertime = ordertime + (item.time * item.concretenumber);
         ordercoins = ordercoins + (item.price * item.concretenumber);
         ordermincoins = ordermincoins + (item.mincoins * item.concretenumber);
@@ -1411,7 +1411,7 @@ function OrderPool:generateOrder()
     local timeloss = self.valuelossfortime[timechances];
     order.coins = ordercoins;
     order.timemodcoins = CoinsModStruct(math.ceil(ordertime*(timeloss[1]/100)),math.ceil(ordercoins*(timeloss[2]/100)));
-    if ( tpool == 1 or concretequality == 0) then 
+    if ( tpool == 1 or concretequality == 0) then
         order.quality = 0;
     else
         order.quality = quality;
@@ -1431,7 +1431,7 @@ if number<10 then
         digit_eng ={"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
         digit_eng[0] = "zero";
     end
-    
+
     if lang == 0 then
         return digit_de[number];
     else
@@ -1444,8 +1444,8 @@ end
 function ConvertDateToHourOffset(year, month, day, hour)
     DeliverTimestamp = (year*365+(month-1)*24+day)*24+hour;
     curHourTimestamp = (world:getTime("year")*365+(world:getTime("month")-1)*24+world:getTime("day"))*24+world:getTime("hour");
-    HoursTillInvalidOrder = DeliverTimestamp - curHourTimestamp;  
+    HoursTillInvalidOrder = DeliverTimestamp - curHourTimestamp;
     return HoursTillInvalidOrder;
-end        
-        
+end
+
 return M

@@ -101,7 +101,7 @@ function M.getReward(Char)
     local nrStones = M.CountStones(Char)
     if reward[nrStones] ~= nil then
         if #reward[nrStones] == 1 then
-            Char:createItem(reward[nrStones][1][1],reward[nrStones][1][2],699,nil);
+            common.CreateItem(Char, reward[nrStones][1][1], reward[nrStones][1][2], 699, nil)
             Char:inform("Du hast 2 Silberstücke erhalten, da du den ersten Markierungsstein entdeckt hast. Weiter so!", "You have received two silver coins for discovering the first marker stone. Keep it up!");
             Char:setQuestProgress(320,2)
         else
@@ -118,7 +118,7 @@ function M.rewardDialog(Char, nrStones)
         local success = dialog:getSuccess()
         if success then
             local selected = dialog:getSelectedIndex()+1
-            Char:createItem(reward[nrStones][selected][1],reward[nrStones][selected][2], 699, nil);
+            common.CreateItem(Char, reward[nrStones][selected][1], reward[nrStones][selected][2], 699, nil)
         end
     end
 

@@ -499,13 +499,7 @@ function PayOutWage(Recipient, town)
                     end
 
                     endname=endname.."\n"..basename
-                    local notCreated = Recipient:createItem( gemId, 1, 333, gemData )
-                    if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-                        world:createItemFromId( gemId, notCreated, Recipient.pos, true, 333, gemData )
-                        common.HighInformNLS(Recipient,
-                            "Du kannst nichts mehr halten und der Rest fällt zu Boden.",
-                            "You can't carry any more and the rest drops to the ground.")
-                    end
+                    common.CreateItem(Recipient, gemId, 1, 333, gemData)
                     RankedWage=RankedWage-3^(gemLevel-1)
                 end
 

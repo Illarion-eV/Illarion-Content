@@ -20,85 +20,85 @@ local treasure = require("item.base.treasure")
 module("base.gatheringcraft", package.seeall)
 
 RandomItem = {
-	ID = 0,
+    ID = 0,
     Quantity = 1,
     Quality = 333,
     Data = {},
-	Probability = 0,
+    Probability = 0,
     MessageDE = nil,
-	MessageEN = nil,
+    MessageEN = nil,
 };
 
 GatheringCraft = {
-	RandomItems = { },
-	InterruptMsg = { },
-	Monsters = { },
-	LeadSkill = 0,
-	SavedWorkTime = { },
-	Treasure = 0,
-	TreasureMsg = { },
-	FoodLevel = 100,
+    RandomItems = { },
+    InterruptMsg = { },
+    Monsters = { },
+    LeadSkill = 0,
+    SavedWorkTime = { },
+    Treasure = 0,
+    TreasureMsg = { },
+    FoodLevel = 100,
   FastActionFactor = 1,
   LearnLimit = 20
 };
 
 Monster = {
-	MonsterID = 0,
-	Probability = 100,
-	MessageDE = "",
-	MessageEN = "",
-	Sound = nil,
-	GFX = nil
+    MonsterID = 0,
+    Probability = 100,
+    MessageDE = "",
+    MessageEN = "",
+    Sound = nil,
+    GFX = nil
 };
 
 function GatheringCraft:new(gc)
     gc = gc or {};
     setmetatable(gc, self);
     self.__index = self;
-	gc.RandomItems = {};
-	gc.InterruptMsg = {};
-	gc.Monsters = {};
-	gc.TreasureMsg = {};
+    gc.RandomItems = {};
+    gc.InterruptMsg = {};
+    gc.Monsters = {};
+    gc.TreasureMsg = {};
     return gc;
 end
 
 function RandomItem:new(item)
-	item = item or {};
-	setmetatable(item, self);
-	self.__index = self;
-	return item;
+    item = item or {};
+    setmetatable(item, self);
+    self.__index = self;
+    return item;
 end
 
 function Monster:new(m)
-	m = m or {};
-	setmetatable(m, self);
-	self.__index = self;
-	return m;
+    m = m or {};
+    setmetatable(m, self);
+    self.__index = self;
+    return m;
 end
 
 function GatheringCraft:SetFoodLevel(FoodLevel)
-	self.FoodLevel = FoodLevel;
+    self.FoodLevel = FoodLevel;
 end
 
 function GatheringCraft:SetTreasureMap(Probability, MessageDE, MessageEN)
-	self.Treasure = Probability;
-	self.TreasureMsg[1] = MessageDE;
-	self.TreasureMsg[2] = MessageEN;
+    self.Treasure = Probability;
+    self.TreasureMsg[1] = MessageDE;
+    self.TreasureMsg[2] = MessageEN;
 end
 
 function GatheringCraft:AddInterruptMessage(MessageDE, MessageEN)
-	table.insert(self.InterruptMsg, { MessageDE, MessageEN });
-	return;
+    table.insert(self.InterruptMsg, { MessageDE, MessageEN });
+    return;
 end
 
 function GatheringCraft:AddMonster(MonsterID, Probability, MessageDE, MessageEN, Sound, GFX)
-	table.insert(self.Monsters, Monster:new{["MonsterID"] = MonsterID, ["Probability"] = Probability, ["MessageDE"] = MessageDE, ["MessageEN"] = MessageEN, ["Sound"] = Sound, ["GFX"] = GFX});
-	return;
+    table.insert(self.Monsters, Monster:new{["MonsterID"] = MonsterID, ["Probability"] = Probability, ["MessageDE"] = MessageDE, ["MessageEN"] = MessageEN, ["Sound"] = Sound, ["GFX"] = GFX});
+    return;
 end
 
 function GatheringCraft:AddRandomItem(ItemID, Quantity, Quality, Data, Probability, MessageDE, MessageEN)
-	table.insert(self.RandomItems, RandomItem:new{["ID"] = ItemID, ["Quantity"] = Quantity, ["Quality"] = Quality, ["Data"] = Data, ["Probability"] = Probability, ["MessageDE"] = MessageDE, ["MessageEN"] = MessageEN});
-	return;
+    table.insert(self.RandomItems, RandomItem:new{["ID"] = ItemID, ["Quantity"] = Quantity, ["Quality"] = Quality, ["Data"] = Data, ["Probability"] = Probability, ["MessageDE"] = MessageDE, ["MessageEN"] = MessageEN});
+    return;
 end
 
 -- @return If something was done
@@ -113,7 +113,7 @@ function GatheringCraft:FindRandomItem(User)
   end
 --]]
 
-	common.GetHungry(User, self.FoodLevel);
+    common.GetHungry(User, self.FoodLevel);
 
   -- FindRandomItem is called when the User is currently working. If there was
   -- a reload, the working time will be nil. Check for this case.
@@ -123,75 +123,69 @@ function GatheringCraft:FindRandomItem(User)
     self.SavedWorkTime[User.id] = self:GenWorkTime(User,nil);
   end
 
-	-- check for Noobia
-	if (common.isOnNoobia(User.pos)) then
-		return false;
-	end
+    -- check for Noobia
+    if (common.isOnNoobia(User.pos)) then
+        return false;
+    end
 
-	-- check for Prison Mine
-	if (common.isInPrison(User.pos)) then
+    -- check for Prison Mine
+    if (common.isInPrison(User.pos)) then
        return false
-	end
+    end
 
-	if (self.Treasure > 0) then
-		local rand = math.random();
-		if(rand < self.Treasure*self.FastActionFactor) and treasure.createMap(User) then
-			common.InformNLS(User, self.TreasureMsg[1], self.TreasureMsg[2]);
-			return true;
-		end
-	end
+    if (self.Treasure > 0) then
+        local rand = math.random();
+        if(rand < self.Treasure*self.FastActionFactor) and treasure.createMap(User) then
+            common.InformNLS(User, self.TreasureMsg[1], self.TreasureMsg[2]);
+            return true;
+        end
+    end
 
-	if (#self.Monsters > 0) then
-		local ra = math.random(#self.Monsters);
-		local pa = math.random();
-		if (pa < self.Monsters[ra].Probability*self.FastActionFactor) then 
+    if (#self.Monsters > 0) then
+        local ra = math.random(#self.Monsters);
+        local pa = math.random();
+        if (pa < self.Monsters[ra].Probability*self.FastActionFactor) then
             local TargetPos = common.GetFreePositions(User.pos, 1, true, true)()
             if TargetPos == nil then
                 return false
             end
-			world:createMonster(self.Monsters[ra].MonsterID, TargetPos, 20);
-			if ( self.Monsters[ra].GFX ~= nil ) then
-				world:gfx(self.Monsters[ra].GFX, TargetPos);
-			end
-			if(self.Monsters[ra].Sound ~= nil) then
-				world:makeSound(self.Monsters[ra].Sound, TargetPos);
-			end
-			common.InformNLS(User, self.Monsters[ra].MessageDE, self.Monsters[ra].MessageEN);
-			return true;
-		end
-	end
+            world:createMonster(self.Monsters[ra].MonsterID, TargetPos, 20);
+            if ( self.Monsters[ra].GFX ~= nil ) then
+                world:gfx(self.Monsters[ra].GFX, TargetPos);
+            end
+            if(self.Monsters[ra].Sound ~= nil) then
+                world:makeSound(self.Monsters[ra].Sound, TargetPos);
+            end
+            common.InformNLS(User, self.Monsters[ra].MessageDE, self.Monsters[ra].MessageEN);
+            return true;
+        end
+    end
 
-	if(#self.RandomItems > 0) then
+    if(#self.RandomItems > 0) then
 
-		-- check all items with same random number and choose any possible item again randomly
+        -- check all items with same random number and choose any possible item again randomly
 
-		local itemIndexList = {};
+        local itemIndexList = {};
 
-		-- list all items that are possible
-		for it = 1, #self.RandomItems, 1 do
-			local rand = math.random();
+        -- list all items that are possible
+        for it = 1, #self.RandomItems, 1 do
+            local rand = math.random();
 
-			if (rand <= self.RandomItems[it].Probability*self.FastActionFactor) then
+            if (rand <= self.RandomItems[it].Probability*self.FastActionFactor) then
 
-				table.insert(itemIndexList, it);
+                table.insert(itemIndexList, it);
 
-			end
-		end
-		if ( #itemIndexList > 0 ) then -- For the unlikely case that two items were found at once, we just give one to the player
-			local ind = itemIndexList[math.random(1,#itemIndexList)];
-			common.InformNLS(User, self.RandomItems[ind].MessageDE, self.RandomItems[ind].MessageEN);
-			local notCreated = User:createItem(self.RandomItems[ind].ID, self.RandomItems[ind].Quantity, self.RandomItems[ind].Quality, self.RandomItems[ind].Data);
-			if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-				world:createItemFromId( self.RandomItems[ind].ID, notCreated, User.pos, true, self.RandomItems[ind].Quality, self.RandomItems[ind].Data );
-				common.HighInformNLS(User,
-				"Du kannst nichts mehr halten.",
-				"You can't carry any more.");
-			end
-			return true;
-		end
+            end
+        end
+        if ( #itemIndexList > 0 ) then -- For the unlikely case that two items were found at once, we just give one to the player
+            local ind = itemIndexList[math.random(1,#itemIndexList)];
+            common.InformNLS(User, self.RandomItems[ind].MessageDE, self.RandomItems[ind].MessageEN);
+            common.CreateItem(User, self.RandomItems[ind].ID, self.RandomItems[ind].Quantity, self.RandomItems[ind].Quality, self.RandomItems[ind].Data)
+            return true;
+        end
 
-	end
-	return false;
+    end
+    return false;
 end
 
 -- Generate working time for gathering actions

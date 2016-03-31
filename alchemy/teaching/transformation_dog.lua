@@ -257,8 +257,8 @@ function M.DigForTeachingScroll(User)
             return true
         end
 
-        User:inform("Du entdeckts eine vergrabenen Schriftrolle. Wer sie da wohl verbuddelt hat?","You find a burried scrolls! Who may have hidden it there?")
-        User:createItem(3110,1,333,{teachDogTransformationPotion="true",learnerId=User.id,descriptionEn="The scroll is sealed with some kind of sticky mass, having a paw print on it.",descriptionDe="Die Schriftrolle ist meiner Art kelbrigen Masse versiegelt und ein Pfotenabdruck befindet sich darauf."})
+        User:inform("Du entdeckst eine vergrabene Schriftrolle. Wer sie da wohl verbuddelt hat?","You find a burried scrolls! Who may have hidden it there?")
+        common.CreateItem(User, 3110, 1, 333, {teachDogTransformationPotion="true",learnerId=User.id,descriptionEn="The scroll is sealed with some kind of sticky mass, having a paw print on it.",descriptionDe="Die Schriftrolle ist meiner Art kelbrigen Masse versiegelt und ein Pfotenabdruck befindet sich darauf."})
 
         donfblade:setData("teachDogTransformationPotion","")
         donfblade:setData("learnerId","")
