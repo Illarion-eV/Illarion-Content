@@ -43,12 +43,12 @@ Product {item = "salmonDish", Ingredient {item = "plate", amount = 1}, Ingredien
 Product {item = "eggDish", Ingredient {item = "plate", amount = 1}, Ingredient {item = "sausage", amount = 1}, Ingredient {item = "whiteEgg", amount = 2}},
 Product {item = "meatDish", Ingredient {item = "plate", amount = 1}, Ingredient {item = "ham", amount = 1}, Ingredient {item = "onion", amount = 1}, Ingredient {item = "carrots", amount = 1}},
 Product {item = "eggSalad", Ingredient {item = "soupBowl", amount = 1}, Ingredient {item = "whiteEgg", amount = 5}, Ingredient {item = "onion", amount = 1}, Ingredient {item = "cheese", amount = 1}},
-Product {item = "sausagesDish", Ingredient {item = "plate", amount = 1}, Ingredient {item = "sausage", amount = 2}, Ingredient {item = "cabbage", amount = 2}, Ingredient {item = "carrots", amount = 2}},
+Product {item = "sausagesDish", Ingredient {item = "plate", amount = 1}, Ingredient {item = "sausage", amount = 2}, Ingredient {item = "cabbage", amount = 2}, Ingredient {item = "carrots", amount = 3}},
 Product {item = "steakDish", Ingredient {item = "plate", amount = 1}, Ingredient {item = "grilledSteak", amount = 2}, Ingredient {item = "tomato", amount = 2}, Ingredient {item = "onion", amount = 2}},
-Product {item = "rabbitDish", Ingredient {item = "plate", amount = 1}, Ingredient {item = "smokedRabbit", amount = 3}, Ingredient {item = "cabbage", amount = 3}, Ingredient {item = "carrots", amount = 3}},
-Product {item = "lambDish", Ingredient {item = "plate", amount = 1}, Ingredient {item = "grilledLamb", amount = 1}, Ingredient {item = "tomato", amount = 2}, Ingredient {item = "carrots", amount = 2}, Ingredient {item = "onion", amount = 2}},
+Product {item = "rabbitDish", Ingredient {item = "plate", amount = 1}, Ingredient {item = "smokedRabbit", amount = 2}, Ingredient {item = "cabbage", amount = 2}, Ingredient {item = "carrots", amount = 3}},
+Product {item = "lambDish", Ingredient {item = "plate", amount = 1}, Ingredient {item = "grilledLamb", amount = 2}, Ingredient {item = "tomato", amount = 2}, Ingredient {item = "carrots", amount = 3}, Ingredient {item = "onion", amount = 2}},
 Product {item = "venisonDish", Ingredient {item = "plate", amount = 1}, Ingredient {item = "grilledVenison", amount = 2}, Ingredient {item = "berries", amount = 5}, Ingredient {item = "carrots", amount = 3}, Ingredient {item = "cabbage", amount = 3}},
-Product {item = "chickenDish", Ingredient {item = "plate", amount = 1}, Ingredient {item = "smokedChicken", amount = 1}, Ingredient {item = "cabbage", amount = 2}, Ingredient {item = "carrots", amount = 2}, Ingredient {item = "bottleOfRum", amount = 1},Remnant {item = "emptyRumBottle", amount = 1}}
+Product {item = "chickenDish", Ingredient {item = "plate", amount = 1}, Ingredient {item = "smokedChicken", amount = 2}, Ingredient {item = "cabbage", amount = 2}, Ingredient {item = "carrots", amount = 3}, Ingredient {item = "bottleOfRum", amount = 1},Remnant {item = "emptyRumBottle", amount = 1}}
 },
 
 ProductGroup {name = {english = "Soups", german = "Suppen"},
