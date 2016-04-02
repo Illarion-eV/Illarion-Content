@@ -35,7 +35,7 @@ function M.market()
     --Announce the market day one ingame hour before it takes place
     if (hour == 11) and not announced then
  
-        world:broadcast("Heute wird auf dem Gelände des Gasthofs zur Hanfschlinge der Markt des Monats "..monthString.." veranstaltet. Macht eure Waren bereit!","Today, the market of the month "..monthString.." will be held on the premises of the Hemp Necktie Inn. Get your goods ready!");
+        world:broadcast("In etwa zwanzig Minuten wird auf dem Gelände des Gasthofs zur Hanfschlinge der Markt des Monats "..monthString.." veranstaltet. Macht eure Waren bereit!","In around twenty minutes, the market of the month "..monthString.." will be held on the premises of the Hemp Necktie Inn. Get your goods ready!");
         announced=true;
         started=false;
         over=false;
@@ -70,7 +70,7 @@ function placeMarketStands()
     
     for i,thisPos in pairs(tablePositions) do
         theTable=world:createItemFromId( 320, 1, tablePositions[i], false, 333, nil );
-        theTable.wear=20;
+        theTable.wear=21;
         world:changeItem(theTable)
     end
     
@@ -78,7 +78,7 @@ function placeMarketStands()
     
     for i,thisPos in pairs(depotPositions) do    
         theDepot=world:createItemFromId( 321, 1, depotPositions[i], false, 333, {depot=tostring(100+i)});
-        theDepot.wear=20;
+        theDepot.wear=21;
         world:changeItem(theDepot)
     end
     
