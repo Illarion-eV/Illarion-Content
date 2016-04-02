@@ -36,19 +36,18 @@ Product {item = "largeEmptyBottle", Ingredient {item = "glassIngot", amount = 1}
 Product {item = "emptyJuiceBottle", Ingredient {item = "glassIngot", amount = 1}},
 Product {item = "emptyRumBottle", Ingredient {item = "glassIngot", amount = 1}},
 Product {item = "oilBottle", Ingredient {item = "glassIngot", amount = 1}},
-Product {item = "emptyPotion", Ingredient {item = "glassIngot", amount = 2}},
-Product {item = "emptyLiquorBottle", Ingredient {item = "glassIngot", amount = 2}}
+Product {item = "emptyLiquorBottle", Ingredient {item = "glassIngot", amount = 2}},
+Product {item = "emptyPotion", Ingredient {item = "glassIngot", amount = 2}}
 },
 
 ProductGroup {name = {english = "Glasses", german = "Gläser"},
-Product {item = "glassMug", Ingredient {item = "glassIngot", amount = 2}},
-Product {item = "glass", Ingredient {item = "glassIngot", amount = 2}},
-Product {item = "wineGlass", Ingredient {item = "glassIngot", amount = 4}}
+Product {item = "glassMug", Ingredient {item = "glassIngot", amount = 2}, Ingredient {item = "rubyPowder", amount = 1}},
+Product {item = "glass", Ingredient {item = "glassIngot", amount = 2}, Ingredient {item = "sapphirePowder", amount = 1}},
+Product {item = "wineGlass", Ingredient {item = "glassIngot", amount = 4}, Ingredient {item = "obsidianPowder", amount = 1}}
 },
 
 ProductGroup {name = {english = "Other", german = "Sonstiges"},
-Product {item = "emptySalveJar", Ingredient {item = "glassIngot", amount = 5}}
+Product {item = "emptySalveJar", Ingredient {item = "glassIngot", amount = 10}, Ingredient {item = "topazPowder", amount = 1}}
 }
-
 }
 return glassblowing

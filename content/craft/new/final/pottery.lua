@@ -33,10 +33,10 @@ local pottery = Craft {
 ProductGroup {name = {english = "Pottery", german = "Töpfern"},
 Product {item = "bricks", Ingredient {item = "clay", amount = 2}},
 Product {item = "mortar", Ingredient {item = "clay", amount = 2}, Ingredient {item = "amethystPowder", amount = 1}},
-Product {item = "clayMug", Ingredient {item = "clay", amount = 2}},
-Product {item = "clayCup", Ingredient {item = "clay", amount = 3}},
-Product {item = "mugWithLid", Ingredient {item = "clay", amount = 6}},
-Product {item = "vase", Ingredient {item = "clay", amount = 10}, Ingredient {item = "obsidianPowder", amount = 1}}
+Product {item = "clayMug", Ingredient {item = "clay", amount = 4}},
+Product {item = "clayCup", Ingredient {item = "clay", amount = 2}, Ingredient {item = "rubyPowder", amount = 1}},
+Product {item = "mugWithLid", Ingredient {item = "clay", amount = 4}, Ingredient {item = "sapphirePowder", amount = 1}},
+Product {item = "vase", Ingredient {item = "clay", amount = 10}, Ingredient {item = "emeraldPowder", amount = 1}}
 }
 }
 return pottery
