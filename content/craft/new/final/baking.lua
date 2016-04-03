@@ -21,7 +21,7 @@ local Ingredient = require("base.crafting.Ingredient")
 
 local baking = Craft {
     name = {english = "Baking", german = "Backen"},
-    handTool = "HTOOL",
+    handTool = "peel",
     -- for single static tool:
     staticTool = "STOOL",
     -- or for static tool with active and inactive state:
