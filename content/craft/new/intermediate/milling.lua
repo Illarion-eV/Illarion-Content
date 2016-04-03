@@ -21,11 +21,8 @@ local Ingredient = require("base.crafting.Ingredient")
 
 local milling = Craft {
     name = {english = "Milling", german = "Mahlen"},
-    handTool = "HTOOL",
-    -- for single static tool:
-    staticTool = "STOOL",
-    -- or for static tool with active and inactive state:
-    staticTool = {inactive = "STOOL1", active = "STOOL2"},
+    handTool = "woodenShovel",
+    staticTool = "millstone",
     skill = "farming",
     defaultFoodConsumption = NO_DEFAULT,
     sfx = 16, sfxDuration = 1.7,

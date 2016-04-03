@@ -21,11 +21,8 @@ local Ingredient = require("base.crafting.Ingredient")
 
 local spinning = Craft {
     name = {english = "Spinning", german = "Spinnen"},
-    handTool = "HTOOL",
-    -- for single static tool:
-    staticTool = "STOOL",
-    -- or for static tool with active and inactive state:
-    staticTool = {inactive = "STOOL1", active = "STOOL2"},
+    handTool = "scissors",
+    staticTool = "spinningWheel",
     skill = "tanningAndWeaving",
     defaultFoodConsumption = NO_DEFAULT,
     sfx = ID, sfxDuration = 1.7,
