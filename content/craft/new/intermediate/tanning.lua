@@ -21,11 +21,8 @@ local Ingredient = require("base.crafting.Ingredient")
 
 local tanning = Craft {
     name = {english = "Tanning", german = "Gerben"},
-    handTool = "HTOOL",
-    -- for single static tool:
-    staticTool = "STOOL",
-    -- or for static tool with active and inactive state:
-    staticTool = {inactive = "STOOL1", active = "STOOL2"},
+    handTool = "razorBlade",
+    staticTool = {inactive = "stretcherOff", active = "stretcherOn"},
     skill = "tanningAndWeaving",
     defaultFoodConsumption = NO_DEFAULT,
     sfx = 13, sfxDuration = 1.7,

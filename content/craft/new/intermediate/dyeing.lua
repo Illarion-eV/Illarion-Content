@@ -21,11 +21,8 @@ local Ingredient = require("base.crafting.Ingredient")
 
 local dyeing = Craft {
     name = {english = "Dyeing", german = "Färben"},
-    handTool = "HTOOL",
-    -- for single static tool:
-    staticTool = "STOOL",
-    -- or for static tool with active and inactive state:
-    staticTool = {inactive = "STOOL1", active = "STOOL2"},
+    handTool = "dyeingRod",
+    staticTool = "emptyDyeingBarrel",
     skill = "tanningAndWeaving",
     defaultFoodConsumption = NO_DEFAULT,
     sfx = 10, sfxDuration = 1.7,
