@@ -23,9 +23,7 @@ local waxmelting = Craft {
     name = {english = "Wax melting", german = "Wachsschmelzen"},
     handTool = "HTOOL",
     -- for single static tool:
-    staticTool = "STOOL",
-    -- or for static tool with active and inactive state:
-    staticTool = {inactive = "STOOL1", active = "STOOL2"},
+    staticTool = "press",
     skill = "husbandry",
     defaultFoodConsumption = NO_DEFAULT,
     sfx = 7, sfxDuration = 1.7,

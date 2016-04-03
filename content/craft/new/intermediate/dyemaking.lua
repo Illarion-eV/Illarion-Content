@@ -21,7 +21,7 @@ local Ingredient = require("base.crafting.Ingredient")
 
 local dyemaking = Craft {
     name = {english = "Dye making", german = "Färbemittelherstellung"},
-    handTool = "HTOOL",
+    handTool = "mortar",
     -- for single static tool:
     staticTool = "STOOL",
     -- or for static tool with active and inactive state:
