@@ -21,11 +21,8 @@ local Ingredient = require("base.crafting.Ingredient")
 
 local glassmelting = Craft {
     name = {english = "Glass melting", german = "Glasschmelzen"},
-    handTool = "HTOOL",
-    -- for single static tool:
-    staticTool = "STOOL",
-    -- or for static tool with active and inactive state:
-    staticTool = {inactive = "STOOL1", active = "STOOL2"},
+    handTool = "mould",
+    staticTool = "glassMeltingOven",
     skill = "digging",
     defaultFoodConsumption = NO_DEFAULT,
     sfx = 7, sfxDuration = 1.7,
