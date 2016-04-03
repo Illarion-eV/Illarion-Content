@@ -31,7 +31,7 @@ ProductGroup {name = {english = "Oil", german = "Öl"},
 Product {item = "lampOil", Ingredient {item = "blackThistle", amount = 2}, Ingredient {item = "oilBottle", amount = 1}}
 }
 ProductGroup {name = {english = "Wax", german = "Wachs"},
-Product {item = "wax", Ingredient {item = "honeycomb", amount = 1}},
+Product {item = "wax", Ingredient {item = "honeycomb", amount = 1}}
 }
 }
 
