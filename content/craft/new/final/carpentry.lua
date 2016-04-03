@@ -22,8 +22,8 @@ local Ingredient = require("base.crafting.Ingredient")
 local carpentry = Craft {
     name = {english = "Carpentry", german = "Schreinern"},
     handTool = "carvingTools",
-    -- for single static tool:
-    staticTool = "STOOL",
+    staticTool = "workbenchOne",
+    --staticTool = "workbenchTwo",
     skill = "carpentry",
     defaultFoodConsumption = NO_DEFAULT,
     sfx = 14, sfxDuration = 1.7,

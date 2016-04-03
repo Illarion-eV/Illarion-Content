@@ -22,10 +22,9 @@ local Ingredient = require("base.crafting.Ingredient")
 local brewing = Craft {
     name = {english = "Brewing", german = "Brauen"},
     handTool = "cookingSpoon",
-    -- for single static tool:
-    staticTool = "STOOL",
-    -- or for static tool with active and inactive state:
-    staticTool = {inactive = "STOOL1", active = "STOOL2"},
+    staticTool = "wineBarrelOne",
+    --staticTool = "wineBarrelTwo",
+    --staticTool = "wineBarrelThree",
     skill = "brewing",
     defaultFoodConsumption = NO_DEFAULT,
     sfx = 10, sfxDuration = 1.7,
