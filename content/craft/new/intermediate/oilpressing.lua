@@ -21,11 +21,8 @@ local Ingredient = require("base.crafting.Ingredient")
 
 local oilpressing = Craft {
     name = {english = "Oil pressing", german = "Ölpressen"},
-    handTool = "HTOOL",
-    -- for single static tool:
-    staticTool = "STOOL",
-    -- or for static tool with active and inactive state:
-    staticTool = {inactive = "STOOL1", active = "STOOL2"},
+    handTool = "bucket",
+    staticTool = "press",
     skill = "husbandry",
     defaultFoodConsumption = NO_DEFAULT,
     sfx = 10, sfxDuration = 1.7,
