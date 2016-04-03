@@ -21,11 +21,8 @@ local Ingredient = require("base.crafting.Ingredient")
 
 local armourer = Craft {
     name = {english = "Armourer", german = "Rüstmeister"},
-    handTool = "HTOOL",
-    -- for single static tool:
-    staticTool = "STOOL",
-    -- or for static tool with active and inactive state:
-    staticTool = {inactive = "STOOL1", active = "STOOL2"},
+    handTool = "armourersHammer",
+    staticTool = {inactive = "anvilOff", active = "anvilOn"},
     skill = "armourer",
     defaultFoodConsumption = NO_DEFAULT,
     sfx = 9, sfxDuration = 1.7,
