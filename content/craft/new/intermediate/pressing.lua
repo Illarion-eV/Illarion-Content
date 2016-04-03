@@ -19,18 +19,20 @@ local ProductGroup = require("base.crafting.ProductGroup")
 local Product = require("base.crafting.Product")
 local Ingredient = require("base.crafting.Ingredient")
 
-local waxmelting = Craft {
-    name = {english = "Wax melting", german = "Wachsschmelzen"},
-    handTool = "HTOOL",
-    -- for single static tool:
+local pressing = Craft {
+    name = {english = "Pressing", german = "Pressen"},
+    handTool = "bucket",
     staticTool = "press",
     skill = "husbandry",
     defaultFoodConsumption = NO_DEFAULT,
-    sfx = 7, sfxDuration = 1.7,
+    sfx = 10, sfxDuration = 1.7,
 
+ProductGroup {name = {english = "Oil", german = "Öl"},
+Product {item = "lampOil", Ingredient {item = "blackThistle", amount = 2}, Ingredient {item = "oilBottle", amount = 1}}
+}
 ProductGroup {name = {english = "Wax", german = "Wachs"},
 Product {item = "wax", Ingredient {item = "honeycomb", amount = 1}},
 }
 }
 
-return waxmelting
+return pressing
