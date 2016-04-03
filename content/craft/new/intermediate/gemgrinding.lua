@@ -21,11 +21,8 @@ local Ingredient = require("base.crafting.Ingredient")
 
 local gemgrinding = Craft {
     name = {english = "Gem grinding", german = "Edelsteinschleifen"},
-    handTool = "HTOOL",
-    -- for single static tool:
-    staticTool = "STOOL",
-    -- or for static tool with active and inactive state:
-    staticTool = {inactive = "STOOL1", active = "STOOL2"},
+    handTool = "tongs",
+    staticTool = "gemGrinder",
     skill = "mining",
     defaultFoodConsumption = NO_DEFAULT,
     sfx = 16, sfxDuration = 1.7,
