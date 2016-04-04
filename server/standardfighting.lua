@@ -416,7 +416,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     end
 
     local messupmalus = 5 -- Amount that armour value is divided by if your skill isn't high enough to use this armour.
-    
+
     if character.IsPlayer(Defender.Char) and itemLevel > Defender.DefenseSkill then
         armourValue = armourValue/messupmalus
     end
@@ -498,12 +498,12 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
 
     commonAttackerWeapon=world:getItemStats(Attacker.WeaponItem);
     commonParryWeapon=world:getItemStats(ParryWeapon);
-    
+
     if (common.Chance(1, 20)) and (Attacker.WeaponItem.id ~= 0) and character.IsPlayer(Attacker.Char) and commonAttackerWeapon.MaxStack == 1 then
         local durability = math.fmod(Attacker.WeaponItem.quality, 100)
         local quality = (Attacker.WeaponItem.quality - durability) / 100
         local nameText = world:getItemName(Attacker.WeaponItem.id, Attacker.Char:getPlayerLanguage())
-    
+
         durability = durability - 1
         if (durability == 0) then
             common.InformNLS(Attacker.Char,
@@ -529,7 +529,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
         local nameText = world:getItemName(ParryWeapon.id, Defender.Char:getPlayerLanguage())
 
         durability = durability - 1
-        
+
         if (durability == 0) then
             common.InformNLS(Defender.Char,
                 "Dein Gegenstand '"..nameText.."' zerbricht, dies erschwert es dir, dich zu verteidigen.",
@@ -571,11 +571,11 @@ function CalculateDamage(Attacker, Globals)
     end
 
     local messupmalus = 5 -- Amount that damage value is divided by if your skill isn't high enough to use this weapon.
-        
+
     if character.IsPlayer(Attacker.Char) and world:getItemStatsFromId(Attacker.WeaponItem.id).Level>Attacker.skill then
         BaseDamage = BaseDamage/messupmalus
     end
-    
+
     StrengthBonus = (Attacker.strength - 6) * 3
     PerceptionBonus = (Attacker.perception - 6) * 1
     DexterityBonus = (Attacker.dexterity - 6) * 1
@@ -756,7 +756,7 @@ function HitChance(Attacker, Defender, Globals)
     end
 
     --The Shield Scaling Factor (SSF). Changes how much the top shield is better than the worse one.
-    local ShieldScalingFactor =5 
+    local ShieldScalingFactor =5
 
     local parryweapondefense = parryWeapon.Defence
     local defenderdefense = (100/ShieldScalingFactor) + parryweapondefense*(1-1/ShieldScalingFactor)
@@ -774,11 +774,11 @@ function HitChance(Attacker, Defender, Globals)
     parryChance = parryChance * qualitymod
 
     local messupmalus = 5 -- Amount that parry chance is divided by if your skill isn't high enough to use this weapon.
-    
+
     if character.IsPlayer(Defender.Char) and world:getItemStatsFromId(parryItem.id).Level>Defender.parry then
         parryChance = parryChance/messupmalus
     end
-    
+
      -- Min and max parry are 5% and 95% respectively
     parryChance = common.Limit(parryChance, 5, 95)
 
@@ -1425,21 +1425,21 @@ function HandleAmmunition(Attacker)
     end
 
     if (Attacker.Weapon.AmmunitionType == Attacker.SecWeapon.WeaponType) then
-        
+
         Attacker.Char:increaseAtPos(Attacker.SecWeaponItem.itempos, -1)
-        
+
         if Attacker.Char:getItemAt(Attacker.SecWeaponItem.itempos).number == 0 then
             Attacker.Char:inform("Du hast keine Munition mehr.", "You are out of ammunition.");
         end
-        
+
     elseif (Attacker.Weapon.AmmunitionType == 255) then -- throwing axes, spears and throwing stars, thus they ARE the ammunition!
-    
+
         Attacker.Char:increaseAtPos(Attacker.WeaponItem.itempos, -1)
-        
+
         if Attacker.Char:getItemAt(Attacker.WeaponItem.itempos).number == 0 then
             Attacker.Char:inform("Du hast kein Wurfgeschoss mehr.", "You are out of throwing weapons.");
         end
-        
+
     else
         return false
     end
@@ -1613,8 +1613,6 @@ function LoadWeapons(CharStruct)
     CharStruct["SecWeapon"] = lAttWeapon
 end
 
-local _AntiSpamVar = {}
-
 --- Check if the character is on newbie island and reject the attack in that.
 -- This is required to allow newbie island to work correctly.
 -- @param Attacker The character who is attacking
@@ -1642,16 +1640,11 @@ function NewbieIsland(Attacker, Defender)
     end
 
     -- So now the character is on newbie island and not allowed to Attack.
-    -- Some lines to ensure the player is not spammed to death if messages
-    if (_AntiSpamVar[Attacker.id] == nil) then
-        _AntiSpamVar[Attacker.id] = 0
-    elseif (_AntiSpamVar[Attacker.id] < 280) then
-        _AntiSpamVar[Attacker.id] =_AntiSpamVar[Attacker.id] + 1
-    else
+    -- Protection to ensure the player is not spammed to death with messages.
+    if not common.spamProtect(Attacker, 5) then
         common.InformNLS(Attacker,
-        "[Tutorial] Du darfst während des Tutorials noch keine anderen Spieler angreifen. Klicke nochmals rechts auf deinen Gegner um den Kampf abzubrechen.",
-        "[Tutorial] You are not allowed to attack other players during the tutorial. Right click again on your enemy to cancel the attack.")
-        _AntiSpamVar[Attacker.id] = 0
+            "[Tutorial] Du darfst während des Tutorials noch keine anderen Spieler angreifen. Klicke nochmals rechts auf deinen Gegner um den Kampf abzubrechen.",
+            "[Tutorial] You are not allowed to attack other players during the tutorial. Right click again on your enemy to cancel the attack.")
     end
     return false
 end
