@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- basic function for craft handling
 -- Nitram
@@ -125,7 +125,7 @@ function Craft:addProduct(categoryId, itemId, difficulty, learnLimit, minTime, m
     learnLimit = math.min(learnLimit, 100)
     quantity = quantity or 1
     data = data or {}
-    
+
     if categoryId > 0 and categoryId <= #self.categories then
         table.insert(self.products, self.defaultProduct:new{
             ["category"] = categoryId,
@@ -215,11 +215,11 @@ end
 function Craft:allowUserCrafting(user, source)
     if source:getType() == scriptItem.field and self.tool[source.id] then
         common.TurnTo(user, source.pos)
-        
+
         if not self:userHasLicense(user) then
             return false
-        end    
-        
+        end
+
         if not self:isHandToolEquipped(user) then
             local germanTool = world:getItemName(self.handTool, Player.german)
             local englishTool = world:getItemName(self.handTool, Player.english)
@@ -232,7 +232,7 @@ function Craft:allowUserCrafting(user, source)
         if not self:locationFine(user) then
             return false
         end
-        
+
         if not self:userHasLicense(user) then
             return false
         end
@@ -256,7 +256,7 @@ end
 function Craft:isHandToolEquipped(user)
     local leftTool = user:getItemAt(Character.left_tool).id
     local rightTool = user:getItemAt(Character.right_tool).id
-    
+
     if leftTool == self.handTool or rightTool == self.handTool then
         return true
     end
@@ -298,7 +298,7 @@ function Craft:getLookAt(user, object)
     local quantity = object.quantity
     local data = object.data
     local lookAt = lookat.GenerateItemLookAtFromId(user, item, quantity, data)
-    
+
     if self.lookAtFilter then
         lookAt = self.lookAtFilter(user, lookAt, data)
     end
@@ -325,7 +325,7 @@ function Craft:loadDialog(dialog, user)
     local skill = self:getSkill(user)
     local categoryListId = {}
     local listId = 0
-    
+
     for i = 1,#self.categories do
         local category = self.categories[i]
         local categoryRequirement = category.minSkill
@@ -348,9 +348,9 @@ function Craft:loadDialog(dialog, user)
     for i = 1,#self.products do
         local product = self.products[i]
         local productRequirement = product.difficulty
-        
+
         if productRequirement <= skill then
-            
+
             dialog:addCraftable(i, categoryListId[product.category], product.item, self:getLookAt(user, product).name, self:getCraftingTime(product, skill), product.quantity)
 
             for j = 1, #product.ingredients do
@@ -364,7 +364,7 @@ end
 function RareItems(user, comparisonid, dataId)
 
     local itemsOnChar = {};
-    for i=17,0,-1 do 
+    for i=17,0,-1 do
         local item = user:getItemAt(i);
         local itemId = item.id
         if (itemId > 0) then
@@ -408,15 +408,15 @@ function Craft:swapToActiveItem(user)
     end
 
     local frontItem = common.GetFrontItem(user)
-    
+
     if not self.toolLink[frontItem.id] then
         return
     end
-    
+
     if not self.tool[frontItem.id] then
         return
     end
-    
+
     if self.activeTool[frontItem.id] then
         return
     end
@@ -432,19 +432,19 @@ function Craft:swapToInactiveItem(user)
     end
 
     local frontItem = common.GetFrontItem(user)
-    
+
     if not self.toolLink[frontItem.id] then
         return
     end
-    
+
     if self.tool[frontItem.id] then
         return
     end
-    
+
     if not self.activeTool[frontItem.id] then
         return
     end
-    
+
     if frontItem.id ~= self.toolLink[frontItem.id] then
         frontItem.id = self.toolLink[frontItem.id]
         frontItem.wear = 255
@@ -481,11 +481,11 @@ function Craft:checkMaterial(user, productId)
     end
 
     local materialsAvailable = true
-    
+
     for i = 1, #product.ingredients do
         local ingredient = product.ingredients[i]
         local available = user:countItemAt("all", ingredient.item, ingredient.data)
-        
+
         if available < ingredient.quantity then
             materialsAvailable = false
             local ingredientName = self:getLookAt(user, ingredient).name
@@ -501,7 +501,7 @@ function Craft:checkMaterial(user, productId)
             end
         end
     end
-    
+
     return materialsAvailable
 end
 
@@ -510,24 +510,24 @@ function Craft:generateQuality(user, productId, toolItem)
     if self.npcCraft then
         return 999
     end
-    
+
     local product = self.products[productId]
     local scalar = (self:getSkill(user) - product.difficulty) / (math.min(100, product.learnLimit) - product.difficulty) * 100
-     
+
     local quality = common.Scale(4, 8, scalar)
     local toolQuality = math.floor(toolItem.quality/100)
-    
+
     quality = quality + math.random(math.min(0,((toolQuality-5)/2)),math.max(0,((toolQuality-5)/2))); -- +2 for a perfect tool, -2 for a crappy tool
-        
+
     quality = math.floor(quality)
     quality = common.Limit(quality, 1, 9)
-    
+
     quality = quality + math.random(-1,1); -- Final scatter!
     quality = common.Limit(quality, 1, 9)
-        
+
     local durability = 99
     return quality * 100 + durability
-    
+
 end
 
 function Craft:locationFine(user)
@@ -559,7 +559,7 @@ function Craft:locationFine(user)
         end
         return false
     end
-    
+
     return true
 end
 
@@ -601,7 +601,7 @@ function Craft:craftItem(user, productId)
     local skillGain = false
 
     local toolItem = self:getHandToolEquipped(user)
-    
+
     if product.difficulty > skill then
         common.HighInformNLS(user,
         "Du bist nicht fähig genug um das zu tun.",
@@ -609,7 +609,7 @@ function Craft:craftItem(user, productId)
         self:swapToInactiveItem(user)
         return false
     end
-    
+
     local neededFood = 0
     if not self.npcCraft then
         local foodOK = false
@@ -622,13 +622,13 @@ function Craft:craftItem(user, productId)
 
     if self:checkMaterial(user, productId) then
         self:createItem(user, productId, toolItem)
-       
-        if not self.npcCraft then 
+
+        if not self.npcCraft then
             common.ToolBreaks(user, toolItem, true)
             common.GetHungry(user, neededFood)
         end
 
-        if type(self.leadSkill) == "number" then    
+        if type(self.leadSkill) == "number" then
             user:learn(self.leadSkill, product:getCraftingTime(skill), product.learnLimit)
             local newSkill = self:getSkill(user)
             skillGain = (newSkill > skill)
@@ -657,26 +657,10 @@ function Craft:createItem(user, productId, toolItem)
         product.data.craftedBy = nil
     end
 
-    local notCreatedAmount = user:createItem(product.item, product.quantity, quality, product.data)
-    local createdEverything = true
-
-    if (notCreatedAmount > 0) then
-        createdEverything = false
-        world:createItemFromId(product.item, notCreatedAmount, user.pos, true, quality, product.data)
-    end
+    common.CreateItem(user, product.item, product.quantity, quality, product.data)
 
     for i=1, #product.remnants do
         local remnant = product.remnants[i]
-        notCreatedAmount = user:createItem(remnant.item, remnant.quantity, 333, remnant.data)
-        if (notCreatedAmount > 0) then
-            createdEverything = false
-            world:createItemFromId(remnant.item, notCreatedAmount, user.pos, true, 333, remnant.data)
-        end
-    end
-
-    if not createdEverything then
-        common.HighInformNLS(user,
-        "Du kannst nichts mehr halten.",
-        "You cannot carry anything else.")
+       common.CreateItem(user, remnant.item, remnant.quantity, 333, remnant.data)
     end
 end
