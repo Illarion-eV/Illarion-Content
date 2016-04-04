@@ -501,7 +501,7 @@ function M.ToolBreaks(user, item)
     if durability == 0 then
         world:erase(item, 1)
 
-        if math.random(1, 100) == 1 then
+        if math.random(1, 100) <= 10 then
             if math.random(1, 2) == 1 then
                 M.InformNLS(user,
                     "Das Werkzeug zerbricht. Du bist am Boden zerstört und wirst es sehr vermissen.",
