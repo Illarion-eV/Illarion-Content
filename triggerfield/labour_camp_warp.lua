@@ -25,36 +25,19 @@ function M.MoveToField(User)
     if User:getQuestProgress(25) > 0 then -- char wants to go, but his work isn't done; makes the labour camp leader grumpy
 
         -- check for spam and put a new spam marker in case it is no spam
-        local noSpam = false
-        local foundEffect, myEffect = User.effects:find(55)
-        if foundEffect then
-            local findCounter, spamProtection_1 = myEffect:findValue("spamProtection_1")
-            if findCounter then
-                if spamProtection_1 < 1 then
-                    noSpam = true
-                    myEffect:addValue("spamProtection_1", 5)
-                end
-            else
-                noSpam = true
-                myEffect:addValue("spamProtection_1", 5)
-            end
-        else
-            noSpam = true
-            local myEffect = LongTimeEffect(55, 5)
-            myEffect:addValue("spamProtection_1", 5)
-            User.effects:addEffect(myEffect)
+        if common.spamProtect(User, 5) then
+            return
         end
 
-        if noSpam == true then -- we don't spam
-            local myNpc = world:getNPCSInRangeOf(position(-495, -484, -40), 10)
-            for i = 1, #myNpc do
-                if myNpc[i].name == "Percy Dryless" then -- check if it is the camp leader
-                    myNpc[i]:talk(Character.say, "#me wendet seinen Blick wütend zum Teleporter und schreit los:", "#me looks with anger to the teleporter and starts to shout:")
-                    myNpc[i]:talk(Character.say, "Mach gefälligst deine Arbeit zu Ende, du fauler Hund!", "Finish your work, you lazy bum!")
-                    break
-                end
+        local myNpc = world:getNPCSInRangeOf(position(-495, -484, -40), 10)
+        for i = 1, #myNpc do
+            if myNpc[i].name == "Percy Dryless" then -- check if it is the camp leader
+                myNpc[i]:talk(Character.say, "#me wendet seinen Blick wütend zum Teleporter und schreit los:", "#me looks with anger to the teleporter and starts to shout:")
+                myNpc[i]:talk(Character.say, "Mach gefälligst deine Arbeit zu Ende, du fauler Hund!", "Finish your work, you lazy bum!")
+                break
             end
         end
+
         common.InformNLS(User, "Der Teleporter scheint dir den Dienster zu verweigern, bis deine Strafe abgearbeitet ist.", "The teleporter seems to be not working for you as long as you haven't served your sentence.")
 
     else -- the char is allowed to leave
