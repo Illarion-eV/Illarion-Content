@@ -719,11 +719,11 @@ function M.spamProtect(character, delay)
     end
 
     if TimeList[character.id] ~= nil then
-        if (math.abs(world:getTime("second") - TimeList[character.id])) <= delay then
-        return true
+        if (math.abs(world:getTime("unix") - TimeList[character.id])) <= delay then
+            return true
         end
     end
-    TimeList[character.id] = world:getTime("second")
+    TimeList[character.id] = world:getTime("unix")
     return false
 end
 

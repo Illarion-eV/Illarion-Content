@@ -59,7 +59,7 @@ function M.UseItem(User, SourceItem)
         end
     end
 
-    if common.spamProtect(User, 15) then
+    if common.spamProtect(User, 5) then
         return
     end
 
