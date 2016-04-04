@@ -59,19 +59,15 @@ function M.UseItem(User, SourceItem)
         end
     end
 
-    if TimeList[User.id] ~= nil then
-        if (math.abs(world:getTime("second") - TimeList[User.id])) <= 3 then  -- 1 Rl. second delay
-            return
-        end
+    if common.spamProtect(User, 15) then
+        return
     end
 
     if math.random(2) == 1 then
-User:talk(Character.say, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt Kopf.", "#me throws a coin in the air and catches it again. It shows head.")
+        User:talk(Character.say, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt Kopf.", "#me throws a coin in the air and catches it again. It shows head.")
     else
         User:talk(Character.say, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt Zahl.", "#me throws a coin in the air and catches it again. It shows tail.")
     end
-
-    TimeList[User.id] = world:getTime("second")
 end
 
 return M
