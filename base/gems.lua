@@ -16,33 +16,32 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local M = {}
 
--- calculates the gem bonus and returns it in %
-function M.getGemBonus(item)
-    local gemStrength = {}
-    gemStrength[1]=extractNum(item:getData("magicalEmerald"));
-    gemStrength[2]=extractNum(item:getData("magicalRuby"));
-    gemStrength[3]=extractNum(item:getData("magicalTopaz"));
-    gemStrength[4]=extractNum(item:getData("magicalAmethyst"));
-    gemStrength[5]=extractNum(item:getData("magicalSapphire"));
-    gemStrength[6]=extractNum(item:getData("magicalObsidian"));
-
-    local gemSum=0;
-    local gemMin=1000;   -- arbitrarily high number
-
-    for _, gStrength in pairs(gemStrength) do
-        gemSum=gemSum+gStrength;
-        if gStrength<gemMin then gemMin=gStrength end;
-    end
-
-    return gemSum+gemMin*6;
-
-end
-
-function extractNum(text)
+local function extractNum(text)
     if text=="" then
         return 0
     end
     return tonumber(text)
+end
+-- calculates the gem bonus and returns it in %
+function M.getGemBonus(item)
+    local gemStrength = {}
+    gemStrength[1]=extractNum(item:getData("magicalEmerald"))
+    gemStrength[2]=extractNum(item:getData("magicalRuby"))
+    gemStrength[3]=extractNum(item:getData("magicalTopaz"))
+    gemStrength[4]=extractNum(item:getData("magicalAmethyst"))
+    gemStrength[5]=extractNum(item:getData("magicalSapphire"))
+    gemStrength[6]=extractNum(item:getData("magicalObsidian"))
+
+    local gemSum=0
+    local gemMin=1000   -- arbitrarily high number
+
+    for _, gStrength in pairs(gemStrength) do
+        gemSum=gemSum+gStrength
+        if gStrength<gemMin then gemMin=gStrength end
+    end
+
+    return gemSum+gemMin*6
+
 end
 
 return M
