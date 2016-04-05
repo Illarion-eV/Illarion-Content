@@ -25,7 +25,8 @@ local scheduledFunction = require("scheduled.scheduledFunction")
 
 local M = {}
 
-local changeItems
+local chooseItem
+local changeItem
 local weather
 local factionHandling
 local spawnPoint
@@ -51,16 +52,7 @@ function M.UseItem(User, SourceItem)
 
         local index = dialog:getSelectedIndex() + 1
         if  index == 1 then
-            local TargetItem = common.GetTargetItem(User, SourceItem)
-            if not TargetItem then
-                TargetItem = common.GetFrontItem(User)
-            end
-
-            if TargetItem == nil then
-                User:inform("Take an item in your hand or stand infront of an item.")
-            else
-                changeItems(User, SourceItem, TargetItem)
-            end
+            chooseItem(User)
         elseif index == 2 then
             weather(User, SourceItem)
         elseif index == 3 then
@@ -78,7 +70,61 @@ function M.UseItem(User, SourceItem)
     User:requestSelectionDialog(sd)
 end
 
-function changeItems(User, SourceItem, TargetItem)
+
+local itemPos = {{en="Head", de="Kopf"},{en="Neck", de="Hals"},{en="Breast", de="Brust"},{en="Both Hands", de="Beide Hände"},{en="Left Hand", de="Linke Hand"}, {en="Right Hand", de="Rechte Hand"},
+    {en="Left Finger", de="Linker Finger"},{en="Right Finger", de="Rechter Finger"} ,{en="Legs", de="Beine"}, {en="Feet", de="Füße"}, {en="Coat", de="Umhang"},{en="Belt 1", de="Gürtel 1"},
+    {en="Belt 2", de="Gürtel 2"},{en="Belt 3", de="Gürtel 3"},{en="Belt 4", de="Gürtel 4"},{en="Belt 5", de="Gürtel 5"},{en="Belt 6", de="Gürtel 6"}}
+itemPos[0] = {en="Backpack", de="Rucksack" }
+
+
+function chooseItem(User)
+
+    local dialogTitle = common.GetNLS(User, "Item wählen", "Choose Item")
+    local dialogInfoText = common.GetNLS(User, "Wähle den Gegenstand aus, den du bearbeiten möchtest:",  "Please choose an item you wish to edit:")
+
+
+    local itemsOnChar = {}
+    local itemPosOnChar = {}
+    local frontItem = common.GetFrontItem(User)
+    if (frontItem ~= nil and frontItem.id > 0) then
+        table.insert(itemsOnChar, frontItem)
+        table.insert(itemPosOnChar, {en="Item in front", de="Item vor dir" })
+    end
+    --get all the items the char has on him, without the stuff in the backpack
+    for i = 17, 0, -1 do
+        local item = User:getItemAt(i)
+        if item.id > 0 then
+            table.insert(itemsOnChar, item)
+            table.insert(itemPosOnChar, itemPos[i])
+        end
+    end
+
+    local cbChooseItem = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+
+        local index = dialog:getSelectedIndex() + 1
+        local chosenItem = itemsOnChar[index]
+
+        if chosenItem ~= nil then
+            changeItem(User, chosenItem)
+        else
+            User:inform("[ERROR] Something went wrong, please inform a developer.");
+        end
+    end
+    local sdItems = SelectionDialog(dialogTitle, dialogInfoText, cbChooseItem)
+    sdItems:setCloseOnMove()
+    local itemName, itemPosText
+    for i,item in ipairs(itemsOnChar) do
+        itemName = world:getItemName(item.id, User:getPlayerLanguage())
+        itemPosText = common.GetNLS(User, itemPosOnChar[i].de, itemPosOnChar[i].en)
+        sdItems:addOption(item.id,itemName .. " (" .. itemPosText .. ")\n")
+    end
+    User:requestSelectionDialog(sdItems)
+end
+
+function changeItem(User, TargetItem)
 
     if (TargetItem == nil or TargetItem.id == 0) then
         return
@@ -664,7 +710,7 @@ function spawnRemove(User, SourceItem)
 end
 
 function spawnPause(User, SourceItem)
-    
+
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -892,7 +938,7 @@ function spawnGM()
         local gfxId = gmSpawnpointSettings[i][6];
         local sfxId = gmSpawnpointSettings[i][7];
         local pause = gmSpawnpointSettings[i][9];
-        
+
         local removed = false -- remove spawnpoints with portals destoyed by sand
         if removePositions[tostring(position.x) .. " " .. tostring(position.y) .. " " .. tostring(position.z)] then
             table.remove(gmSpawnpointSettings, i)
@@ -970,7 +1016,7 @@ function M.saveRemovePosition(thePos)
     if gmSpawnpointSettings[1] == nil then
         return
     end
-    
+
     for i=1, #gmSpawnpointSettings do
         local position = gmSpawnpointSettings[i][2];
         if thePos == position then
