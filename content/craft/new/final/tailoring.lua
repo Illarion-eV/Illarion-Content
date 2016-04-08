@@ -113,6 +113,7 @@ Product {item = "yellowHatWithFeather", Ingredient {item = "thread", amount = 2}
 Product {item = "blueHatWithFeather", Ingredient {item = "thread", amount = 3}, Ingredient {item = "blueCloth", amount = 2}, Ingredient {item = "feathers", amount = 1}, Ingredient {item = "sapphire", amount = 1}},
 Product {item = "redWizardHat", Ingredient {item = "thread", amount = 3}, Ingredient {item = "redCloth", amount = 2}, Ingredient {item = "silk", amount = 1}},
 Product {item = "blueWizardHat", Ingredient {item = "thread", amount = 3}, Ingredient {item = "blueCloth", amount = 2}, Ingredient {item = "silk", amount = 2}},
+Product {item = "yellowWizardHat", Ingredient {item = "thread", amount = 3}, Ingredient {item = "yellowCloth", amount = 2}, Ingredient {item = "silk", amount = 2}},
 Product {item = "colourfulWizardHat", Ingredient {item = "thread", amount = 3}, Ingredient {item = "redCloth", amount = 2}, Ingredient {item = "silk", amount = 2}},
 Product {item = "witchHat", Ingredient {item = "thread", amount = 3}, Ingredient {item = "blackCloth", amount = 2}, Ingredient {item = "silk", amount = 2}},
 Product {item = "fineWizardHat", Ingredient {item = "thread", amount = 4}, Ingredient {item = "blueCloth", amount = 3}, Ingredient {item = "yellowCloth", amount = 1}, Ingredient {item = "silk", amount = 1}, Ingredient {item = "pureSpirit", amount = 1}}
