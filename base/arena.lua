@@ -61,29 +61,28 @@ M.arenaInformation = {{playerPos=nil, monsterPos=position(255,668,0), newPlayerP
                     {playerPos=nil, monsterPos=position(338,193,-7), newPlayerPos=nil, npcName="Angelo Rothman", town="Galmair", quest=803}}
 
 function M.requestMonster(User, NPC)
-    local cbChooseLevel = function (dialog)
+    local cbChooseLevel = function(dialog)
         if (not dialog:getSuccess()) then
-            return;
+            return
         end
 
-        local index = dialog:getSelectedIndex()+1;
-        local arena = M.getArena(User, NPC);
+        local index = dialog:getSelectedIndex() + 1
+        local arena = M.getArena(User, NPC)
         local paid = payforMonster(User, index, NPC)
-        local priceInCP;
-        local germanMoney, englishMoney;
+
         if paid then
             if M.arenaInformation[arena].playerPos ~= nil then
-                User:warp(M.arenaInformation[arena].playerPos);
+                User:warp(M.arenaInformation[arena].playerPos)
             end
             --add the effect to keep track of the monster
-            arenaEffect=LongTimeEffect(18,1);
-            arenaEffect:addValue("arenaID",arena);
-            arenaEffect:addValue("level",index);
+            local arenaEffect = LongTimeEffect(18,1)
+            arenaEffect:addValue("arenaID",arena)
+            arenaEffect:addValue("level",index)
             if isValidChar(User) then
-                User.effects:addEffect(arenaEffect);
+                User.effects:addEffect(arenaEffect)
             end
         else
-            return;
+            return
         end
     end
 
@@ -91,58 +90,50 @@ function M.requestMonster(User, NPC)
         return
     end
 
-    if User:getPlayerLanguage() == 0 then
-        sdMonster = SelectionDialog("Monsterstärke", "Wählt wie stark das Monster sein soll, gegen das Ihr kämpfen möchtet:", cbChooseLevel);
-        sdMonster:setCloseOnMove();
-        for i=1, #(M.monsterIDsByLevel) do
-            priceInCP = M.monsterIDsByLevel[i].price;
-            germanMoney, englishMoney = money.MoneyToString(priceInCP);
-            sdMonster:addOption(61,"Stärke "..i.." Monster ("..M.monsterIDsByLevel[i].points.." Punkte)\n Preis:"..germanMoney);
-        end
-    else
-        sdMonster = SelectionDialog("Monster strength", "Please choose how strong the monster you wish to fight against should be:", cbChooseLevel);
-        sdMonster:setCloseOnMove();
-        for i=1, #(M.monsterIDsByLevel) do
-            priceInCP = M.monsterIDsByLevel[i].price;
-            germanMoney, englishMoney = money.MoneyToString(priceInCP);
-            sdMonster:addOption(61,"Level "..i.." Monster ("..M.monsterIDsByLevel[i].points.." points)\n Price:"..englishMoney);
-        end
+    local dialogCaption = common.GetNLS(User, "Monsterstärke", "Monster strength")
+    local dialogText = common.GetNLS(User, "Wählt wie stark das Monster sein soll, gegen das Ihr kämpfen möchtet:", "Please choose how strong the monster you wish to fight against should be:")
+
+    local sdMonster = SelectionDialog(dialogCaption, dialogText, cbChooseLevel)
+    sdMonster:setCloseOnMove()
+    for i = 1, #(M.monsterIDsByLevel) do
+        local priceInCP = M.monsterIDsByLevel[i].price
+        local germanMoney, englishMoney = money.MoneyToString(priceInCP)
+        local option = common.GetNLS(User, "Stärke "..i.." Monster ("..M.monsterIDsByLevel[i].points.." Punkte)\n Preis:"..germanMoney, "Level "..i.." Monster ("..M.monsterIDsByLevel[i].points.." points)\n Price:"..englishMoney)
+        sdMonster:addOption(61, option)
     end
-    User:requestSelectionDialog(sdMonster);
+    User:requestSelectionDialog(sdMonster)
 end
 
 function payforMonster(User, MonsterLevel, NPC)
-    local priceInCP = M.monsterIDsByLevel[MonsterLevel].price;
-    local germanMoney, englishMoney = money.MoneyToString(priceInCP);
+    local priceInCP = M.monsterIDsByLevel[MonsterLevel].price
+    local germanMoney, englishMoney = money.MoneyToString(priceInCP)
 
     if not money.CharHasMoney(User,priceInCP) then --not enough money!
-        gText="Ihr habt nicht genug Geld dabei! Ihr benötigt"..germanMoney..".";
-        eText="You don't have enough money with you! You'll need"..englishMoney..".";
-        outText=common.GetNLS(User,gText,eText);
-        NPC:talk(Character.say, outText);
-        return false;
+        local outText = common.GetNLS(User, "Ihr habt nicht genug Geld dabei! Ihr benötigt"..germanMoney..".", "You don't have enough money with you! You'll need"..englishMoney..".")
+        NPC:talk(Character.say, outText)
+        return false
     end
-    money.TakeMoneyFromChar(User,priceInCP); --take money
-    User:inform("Ihr habt Euch ein Monster für"..germanMoney.." gekauft. Viel Erfolg!", "You bought a monster at the price of"..englishMoney..". Good luck!");
-    return true;
+    money.TakeMoneyFromChar(User,priceInCP) --take money
+    User:inform("Ihr habt Euch ein Monster für"..germanMoney.." gekauft. Viel Erfolg!", "You bought a monster at the price of"..englishMoney..". Good luck!")
+    return true
 end
 
-arenaMonster = {}
-arenaMonsterByMonsterId = {}
+local arenaMonster = {}
+local arenaMonsterByMonsterId = {}
 
 function M.spawnMonster(User, MonsterLevel, arena)
     if not arenaMonster[User.id] then
-        arenaMonster[User.id] = {};
+        arenaMonster[User.id] = {}
     end
 
-    local monster;
-    world:gfx(31,M.arenaInformation[arena].monsterPos);
-    monster = world:createMonster(getRandomMonster(MonsterLevel),M.arenaInformation[arena].monsterPos,0);
+    local monster
+    world:gfx(31,M.arenaInformation[arena].monsterPos)
+    monster = world:createMonster(getRandomMonster(MonsterLevel),M.arenaInformation[arena].monsterPos,0)
     if isValidChar(monster) then
-        table.insert( arenaMonster[User.id], monster );
+        table.insert( arenaMonster[User.id], monster )
 
         if not arenaMonsterByMonsterId[monster.id] then
-            arenaMonsterByMonsterId[monster.id] = {};
+            arenaMonsterByMonsterId[monster.id] = {}
         end
         table.insert( arenaMonsterByMonsterId[monster.id], true )
     end
@@ -160,78 +151,76 @@ end
 
 function M.checkMonster(User)
     if not arenaMonster[User.id] then
-        return true;
+        return true
     end
 
     for i,monster in pairs(arenaMonster[User.id]) do
         if isValidChar(monster) then
             if monster:increaseAttrib("hitpoints",0) > 0 then
-                return false;
+                return false
             end
         end
     end
-    arenaMonster[User.id] = nil;
-    return true;
+    arenaMonster[User.id] = nil
+    return true
 end
 
 function M.killMonster(User)
     if not arenaMonster[User.id] then
-        return true;
+        return true
     end
 
     for i,monster in pairs(arenaMonster[User.id]) do
         if isValidChar(monster) then
             if monster:increaseAttrib("hitpoints",0) > 0 then
-                monster:increaseAttrib("hitpoints",-10000);
+                monster:increaseAttrib("hitpoints",-10000)
             end
         end
     end
-    arenaMonster[User.id] = nil;
+    arenaMonster[User.id] = nil
 
-    return true;
+    return true
 end
 
 function getRandomMonster(level)
-    local randomNumber = math.random(1, #M.monsterIDsByLevel[level].monsters);
-    return M.monsterIDsByLevel[level].monsters[randomNumber];
+    local randomNumber = math.random(1, #M.monsterIDsByLevel[level].monsters)
+    return M.monsterIDsByLevel[level].monsters[randomNumber]
 end
 
 function M.getArena(User, NPC)
     for i=1, #(M.arenaInformation) do
         if M.arenaInformation[i].npcName == NPC.name then
-            return i;
+            return i
         end
     end
-    return "";
+    return ""
 end
 
 function isUserInList(User, ranklist)
     for i=1, #(ranklist), 2 do
         if ranklist[i] == User.name then
-            return true, i;
+            return true, i
         end
     end
-    return false, 0;
+    return false, 0
 end
 
 -- Returns the points of a present arena, which the player has earned so far
 function M.getArenastats(User, NPC)
-    local arena = M.getArena(User, NPC);
-    local quest = M.arenaInformation[arena].quest;
-    local points = User:getQuestProgress(quest);
+    local arena = M.getArena(User, NPC)
+    local quest = M.arenaInformation[arena].quest
+    local points = User:getQuestProgress(quest)
 
-    gText="Ihr habt bereits "..points.." gesammelt. Weiter so!";
-    eText="You have already earnt "..points.." points. Keep it up!";
-    outText=common.GetNLS(User,gText,eText);
-    NPC:talk(Character.say, outText);
+    local outText=common.GetNLS(User, "Ihr habt bereits "..points.." gesammelt. Weiter so!", "You have already earnt "..points.." points. Keep it up!")
+    NPC:talk(Character.say, outText)
 end
 
 function M.setArenastats(User, arena, points)
-    local quest = M.arenaInformation[arena].quest;
-    local oldPoints = User:getQuestProgress(quest);
+    local quest = M.arenaInformation[arena].quest
+    local oldPoints = User:getQuestProgress(quest)
 
-    points = points + oldPoints;
-    User:setQuestProgress(quest, points);
+    points = points + oldPoints
+    User:setQuestProgress(quest, points)
 end
 
 --Sorts a table deceanding by the value of every second entry
@@ -239,23 +228,23 @@ function sortTable(inputTable)
     local numberTable = {}
     local sortedTable = {}
     for i=2, #(inputTable), 2 do
-        table.insert(numberTable, inputTable[i]);
+        table.insert(numberTable, inputTable[i])
     end
-    table.sort(numberTable);
+    table.sort(numberTable)
     for i= 1, #(numberTable) do
         for j=2, #(inputTable), 2 do
             if inputTable[j] == numberTable[i] then
-                table.insert(sortedTable, 1, inputTable[j]);
-                table.insert(sortedTable, 1, inputTable[j-1]);
+                table.insert(sortedTable, 1, inputTable[j])
+                table.insert(sortedTable, 1, inputTable[j-1])
             end
         end
     end
-    return sortedTable;
+    return sortedTable
 end
 
 function checkLte(User,NPC)
 
-    local foundEffect, myEffect = User.effects:find(18)
+    local foundEffect = User.effects:find(18)
     if foundEffect then
         NPC:talk(Character.say,"Besiegt erstmal die erste Kreatur, bevor Ihr eine zweite verlangt!","Finish the first creature before you demand a second one!")
         return false
@@ -264,7 +253,7 @@ function checkLte(User,NPC)
 end
 
 -- reward[x] = {y,z} - x = reward points required, y = item id , z= amount of y
-reward = {
+local reward = {
     {61,15}, -- gold coins
     {446,69}, -- sapphire powder
     {447,103}, -- ruby powder
@@ -283,11 +272,11 @@ reward = {
 function M.getReward(User, quest)
     local numberOfRewards = User:getQuestProgress(quest+2)
     local currentPoints = User:getQuestProgress(quest)
-    local pointsNeededForNewReward = 50;
+    local pointsNeededForNewReward = 50
 
     -- give a reward at 50, 150, 350, 750, 1550, ..
     if  currentPoints >= pointsNeededForNewReward*((2^(numberOfRewards+1))-1) then
-        User:setQuestProgress(quest+2, numberOfRewards+1);
+        User:setQuestProgress(quest+2, numberOfRewards+1)
         rewardDialog(User, currentPoints)
     end
 end
@@ -300,20 +289,20 @@ function rewardDialog(User, points)
         local success = dialog:getSuccess()
         if success then
             local selected = dialog:getSelectedIndex()+1
-            common.CreateItem(User, reward[selected][1],reward[selected][2], 800, nil);
+            common.CreateItem(User, reward[selected][1],reward[selected][2], 800, nil)
         end
     end
 
-    local dialog = SelectionDialog(title, text, callback);
+    local dialog = SelectionDialog(title, text, callback)
 
-    local itemName;
-    local language = User:getPlayerLanguage();
+    local itemName
+    local language = User:getPlayerLanguage()
     for i=1, #(reward) do
-        itemName = world:getItemName(reward[i][1],language);
-        dialog:addOption(reward[i][1], reward[i][2].." "..itemName);
+        itemName = world:getItemName(reward[i][1],language)
+        dialog:addOption(reward[i][1], reward[i][2].." "..itemName)
     end
 
-    User:requestSelectionDialog(dialog);
+    User:requestSelectionDialog(dialog)
 end
 
 return M

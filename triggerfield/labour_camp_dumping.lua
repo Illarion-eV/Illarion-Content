@@ -84,34 +84,15 @@ function M.PutItemOnField(Item,User)
     end
 end
 
-function M.MoveToField(User)
-
+function M.MoveToField(User) 
     -- check for spam and put a new spam marker in case it is no spam
-    local noSpam = false
-    local foundEffect, myEffect = User.effects:find(55)
-    if foundEffect then
-        local findCounter, spamProtection_2 = myEffect:findValue("spamProtection_2")
-        if findCounter then
-            if spamProtection_2 < 1 then
-                noSpam = true
-                myEffect:addValue("spamProtection_2", 4)
-            end
-        else
-            noSpam = true
-            myEffect:addValue("spamProtection_2", 4)
-        end
-    else
-        noSpam = true
-        local myEffect = LongTimeEffect(55,5)
-        myEffect:addValue("spamProtection_2", 4)
-        User.effects:addEffect(myEffect)
+    if common.spamProtect(User, 5) then
+        return
     end
 
-    if noSpam == true then
-        common.InformNLS(User,
-            "Ein seltsames Kribbeln erfüllt dich. Auf dieser Plattform müssen die Rohstoffe scheinbar abgelegt werden.",
-            "You feel a strange prickling. This platform is the place where you have to bring the resources to.")
-    end
+    common.InformNLS(User,
+        "Ein seltsames Kribbeln erfüllt dich. Auf dieser Plattform müssen die Rohstoffe scheinbar abgelegt werden.",
+        "You feel a strange prickling. This platform is the place where you have to bring the resources to.")
 end
 
 return M

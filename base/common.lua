@@ -501,7 +501,7 @@ function M.ToolBreaks(user, item)
     if durability == 0 then
         world:erase(item, 1)
 
-        if math.random(1, 100) == 1 then
+        if math.random(1, 100) <= 10 then
             if math.random(1, 2) == 1 then
                 M.InformNLS(user,
                     "Das Werkzeug zerbricht. Du bist am Boden zerstört und wirst es sehr vermissen.",
@@ -705,6 +705,28 @@ local function _isTable(value)
     return type(value) == "table"
 end
 
+local TimeList = {}
+function M.spamProtect(character, delay)
+    if not isValidChar(character) then
+        error("The parameter 'character' is not a valid character as it was expected.")
+    end
+
+    delay = delay or 1
+    if not _isNumber(delay) then
+        error("The parameter 'delay' is not a number as it was expected.")
+    elseif delay < 1 then
+        error("The parameter 'delay' must be a positive number.")
+    end
+
+    if TimeList[character.id] ~= nil then
+        if (math.abs(world:getTime("unix") - TimeList[character.id])) <= delay then
+            return true
+        end
+    end
+    TimeList[character.id] = world:getTime("unix")
+    return false
+end
+
 --[[
     CreateItem
     Safely create an item
@@ -750,10 +772,12 @@ function M.CreateItem(character, id, amount, quality, data)
         notCreated = notCreated - minimum
     end
 
-    character:inform(
-        "Du kannst nichts mehr halten und der Rest fällt zu Boden.",
-        "You can't carry any more and the rest drops to the ground.",
-        Player.highPriority)
+    if not M.spamProtect(character) then
+        character:inform(
+            "Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+            "You can't carry any more and the rest drops to the ground.",
+            Player.highPriority)
+    end
     return false
 end
 

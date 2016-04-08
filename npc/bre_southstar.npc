@@ -1,15 +1,15 @@
 -- Illarion Server
--- 
+--
 -- This program is free software: you can redistribute it and/or modify it under
 -- the terms of the GNU Affero General Public License as published by the Free
 -- Software Foundation, either version 3 of the License, or (at your option) any
 -- later version.
--- 
+--
 -- This program is distributed in the hope that it will be useful, but WITHOUT
 -- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
 -- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 -- details.
--- 
+--
 -- You should have received a copy of the GNU Affero General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
@@ -64,6 +64,7 @@ itemShoes = 53
 guardWarpTarget = 427, 250, 0
 guardRange = 1, 4, 2, 1
 warpedMonsterMsg "Weg mit dir, widerliche Kreatur!", "Go away, nasty creature!"
+warpedMonsterMsg "Hinfort, du Monster!", "Begone, you monster!"
 warpedPlayerMsg "Pass bloﬂ auf! Wir brauchen hier kein Gesindel.", "You'd better watch out! We don't need such lowlifes here."
 hitPlayerMsg "#me verpasst dem Eindringlich einen Hieb 'Verschwinde!'", "#me hits the intruder 'Get lost!'"
 

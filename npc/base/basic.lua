@@ -97,10 +97,6 @@ local baseNPC = class(function(self)
     -- players talk to the NPC in a language the NPC does not understand.
     self["_confusedUS"] = ""
 
-    -- This variable stores the last Unix timestamp when a confusion message
-    -- was displayed. This is needed to avoid spamming with this messages.
-    self["_lastConfusionTimestamp"] = 0
-
     -- This list is used to store the equipment that shall be set to the NPC at
     -- the first run. Once the equipment is set, the list is destroyed.
     self["_equipmentList"] = {}
@@ -483,9 +479,7 @@ end
 --  @param npcChar the NPC character
 --  @param npc the baseNPC instance that is referred to
 function displayLanguageConfusion(npcChar, npc)
-    local currentUnix = world:getTime("unix")
-    if (currentUnix - npc._lastConfusionTimestamp > 59) then
-        npc._lastConfusionTimestamp = currentUnix
+    if not common.spamProtect(npcChar, 60) then
         npcChar.activeLanguage = npc._defaultLanguage
         npcChar:talk(Character.say, npc._confusedDE, npc._confusedUS)
     end
