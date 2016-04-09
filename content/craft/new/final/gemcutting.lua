@@ -19,8 +19,8 @@ local ProductGroup = require("base.crafting.ProductGroup")
 local Product = require("base.crafting.Product")
 local Ingredient = require("base.crafting.Ingredient")
 
-local gemgrinding = Craft {
-    name = {english = "Gem grinding", german = "Edelsteinschleifen"},
+local gemcutting = Craft {
+    name = {english = "Gem cutting", german = "Edelsteinschleifen"},
     handTool = "tongs",
     staticTool = "gemGrinder",
     skill = "mining",
@@ -48,4 +48,4 @@ Product {item = "diamondPowder", Ingredient {item = "diamond", amount = 2}}
 }
 }
 
-return gemgrinding
+return gemcutting
