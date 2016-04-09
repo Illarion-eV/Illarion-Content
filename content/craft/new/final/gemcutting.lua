@@ -23,7 +23,7 @@ local gemcutting = Craft {
     name = {english = "Gem cutting", german = "Edelsteinschleifen"},
     handTool = "tongs",
     staticTool = "gemGrinder",
-    skill = "mining",
+    skill = "gemcutting",
     defaultFoodConsumption = NO_DEFAULT,
     sfx = 16, sfxDuration = 1.7,
     
