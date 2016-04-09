@@ -28,23 +28,23 @@ local glassblowing = Craft {
     sfx = 7, sfxDuration = 1.7,
 
 ProductGroup {name = {english = "Bottles", german = "Flaschen"},
-Product {item = "emptyInkBottle", Ingredient {item = "glassIngot", amount = 1}},
-Product {item = "largeEmptyBottle", Ingredient {item = "glassIngot", amount = 1}},
-Product {item = "emptyJuiceBottle", Ingredient {item = "glassIngot", amount = 1}},
-Product {item = "emptyRumBottle", Ingredient {item = "glassIngot", amount = 1}},
-Product {item = "oilBottle", Ingredient {item = "glassIngot", amount = 1}},
-Product {item = "emptyLiquorBottle", Ingredient {item = "glassIngot", amount = 2}},
-Product {item = "emptyPotion", Ingredient {item = "glassIngot", amount = 2}}
+Product {item = "emptyInkBottle", Ingredient {item = "quartzSand", amount = 1}, Ingredient {item = "potash", amount = 1}},
+Product {item = "largeEmptyBottle", Ingredient {item = "quartzSand", amount = 1}, Ingredient {item = "potash", amount = 1}},
+Product {item = "emptyJuiceBottle", Ingredient {item = "quartzSand", amount = 1}, Ingredient {item = "potash", amount = 1}},
+Product {item = "emptyRumBottle", Ingredient {item = "quartzSand", amount = 1}, Ingredient {item = "potash", amount = 1}},
+Product {item = "oilBottle", Ingredient {item = "quartzSand", amount = 2}, Ingredient {item = "potash", amount = 2}},
+Product {item = "emptyLiquorBottle", Ingredient {item = "quartzSand", amount = 2}, Ingredient {item = "potash", amount = 2}},
+Product {item = "emptyPotion", Ingredient {item = "quartzSand", amount = 3}, Ingredient {item = "potash", amount = 3}}
 },
 
 ProductGroup {name = {english = "Glasses", german = "Gläser"},
-Product {item = "glassMug", Ingredient {item = "glassIngot", amount = 2}, Ingredient {item = "rubyPowder", amount = 1}},
-Product {item = "glass", Ingredient {item = "glassIngot", amount = 2}, Ingredient {item = "sapphirePowder", amount = 1}},
-Product {item = "wineGlass", Ingredient {item = "glassIngot", amount = 4}, Ingredient {item = "obsidianPowder", amount = 1}}
+Product {item = "glassMug", Ingredient {item = "quartzSand", amount = 2}, Ingredient {item = "potash", amount = 2}, Ingredient {item = "rubyPowder", amount = 1}},
+Product {item = "glass", Ingredient {item = "quartzSand", amount = 2}, Ingredient {item = "potash", amount = 2}, Ingredient {item = "sapphirePowder", amount = 1}},
+Product {item = "wineGlass", Ingredient {item = "quartzSand", amount = 4}, Ingredient {item = "potash", amount = 4}, Ingredient {item = "obsidianPowder", amount = 1}}
 },
 
 ProductGroup {name = {english = "Other", german = "Sonstiges"},
-Product {item = "emptySalveJar", Ingredient {item = "glassIngot", amount = 10}, Ingredient {item = "topazPowder", amount = 1}}
+Product {item = "emptySalveJar", Ingredient {item = "quartzSand", amount = 10}, Ingredient {item = "potash", amount = 10}, Ingredient {item = "topazPowder", amount = 1}, Ingredient {item = "amethystPowder", amount = 1}}
 }
 }
 return glassblowing
