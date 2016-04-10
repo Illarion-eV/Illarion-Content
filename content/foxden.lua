@@ -68,8 +68,8 @@ function M.tryFeeding(Item, char)
     end
 
     if  char:getQuestProgress(559) == 0 and Item.pos == emptyPlate and Item.number >= 5 then --  doing the quest -feeding the fox pups
-        --char:setQuestProgress(561, 720) -- set cooldown
-        --char:setQuestProgress(559, 1)
+        char:setQuestProgress(561, 720) -- set cooldown
+        char:setQuestProgress(559, 1)
         common.InformNLS(char, "Du hast den Welpen das richtige Futter gebracht. Sie kommen heraus um zu fressen.", "You have fed the fox pups an appropriate food and soon they appear to eat.")
 
         feedingInProgress = true
