@@ -62,7 +62,7 @@ function M.LookAtItem(User, Item)
 
     if mugId and mugs[mugId] then
         lookat.SetSpecialName(Item,"Verzierter Humpen","Decorated Mug")
-		lookat.SetSpecialDescription(Item,"Der Humpen zeigt folgendes Bild: ".. mugs[mugId]["pictureDe"] .." Unter dem Bild befindet sich eine Gravur: ".. mugs[mugId]["titleDe"], "The mug shows the following picture: ".. mugs[mugId]["pictureEn"] .." There is an engraving beneath the picture: ".. mugs[mugId]["titleEn"])
+        lookat.SetSpecialDescription(Item,"Der Humpen zeigt folgendes Bild: ".. mugs[mugId]["pictureDe"] .." Unter dem Bild befindet sich eine Gravur: ".. mugs[mugId]["titleDe"], "The mug shows the following picture: ".. mugs[mugId]["pictureEn"] .." There is an engraving beneath the picture: ".. mugs[mugId]["titleEn"])
     end
 
     return lookat.GenerateLookAt(User, Item, lookat.NONE)
@@ -176,4 +176,38 @@ addMug(15,
 "A hafling sits with a broad grin on his lips in front of a table with a big, steaming cake on it."
 )
 
+addMug(16,
+"Balzende Orks I",
+"Orcs Mating I",
+"Eine Orkfrau pult sich Fleisch aus den Zähnen. Bewundernd sieht ihr ein Ork dabei zu.",
+"An orcess is picking meat from her teeth while an orc admires her."
+)
+
+addMug(17,
+"Balzende Orks II",
+"Orcs Mating II",
+"Eine Orkfrau schlägt einem begehrten Ork mit einer Keule auf den Schädel, um ihn danach in ihre Höhle zu schleifen.",
+"An orcess uses a club to hit an admired orc over the head while preparing to drag him to her cave."
+)
+
+addMug(18,
+"Balzende Orks III",
+"Orcs Mating III",
+"Ein Ork läßt seine Muskeln spielen und knurrt gefährlich, um einer Orkfrau zu imponieren.",
+"An orc flexes his muscles and growls dangerously to impress an orcess."
+)
+
+addMug(19,
+"Balzende Orks IV",
+"Orcs Mating IV",
+"Ein Ork schlägt gegen seine Brust und lässt einen gewaltigen Brüller los. Weibliche Clanmitglieder beobachten ihn dabei mit Anerkennung.",
+"An orc beats on his chest giving a mighty roar, while female clan members watch with approval."
+)
+
+addMug(20,
+"Balzende Orks V",
+"Orcs Mating V",
+"Ein Ork glotzt eine Orkfrau lüstern an und gibt ihr dann ein zwinkert.",
+"An orc stares lustfully at an orcess and gives her a wink."
+)
 return M
