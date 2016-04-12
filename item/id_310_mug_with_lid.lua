@@ -179,14 +179,14 @@ addMug(15,
 addMug(16,
 "Balzende Orks I",
 "Orcs Mating I",
-"Eine Orkfrau pult sich Fleisch aus den Zähnen. Bewundernd sieht ihr ein Ork dabei zu.",
+"Eine Orkfrau pult sich Fleischreste aus den Zähnen. Bewundernd sieht ihr ein Ork dabei zu.",
 "An orcess is picking meat from her teeth while an orc admires her."
 )
 
 addMug(17,
 "Balzende Orks II",
 "Orcs Mating II",
-"Eine Orkfrau schlägt einem begehrten Ork mit einer Keule auf den Schädel, um ihn danach in ihre Höhle zu schleifen.",
+"Eine Orkfrau schlägt einem begehrten Ork mit einer Keule auf den Schädel und beginnt ihn in ihre Höhle zu schleifen.",
 "An orcess uses a club to hit an admired orc over the head while preparing to drag him to her cave."
 )
 
@@ -207,7 +207,7 @@ addMug(19,
 addMug(20,
 "Balzende Orks V",
 "Orcs Mating V",
-"Ein Ork glotzt eine Orkfrau lüstern an und gibt ihr dann ein zwinkert.",
+"Ein Ork glotzt eine Orkfrau lüstern an und schenkt ihr ein Zwinkern.",
 "An orc stares lustfully at an orcess and gives her a wink."
 )
 return M
