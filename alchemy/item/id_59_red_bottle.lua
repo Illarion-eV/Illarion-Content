@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --ds_059_rote_flasche
 --Druidensystem in Arbeit
@@ -80,9 +80,9 @@ local function DrinkPotion(User,SourceItem)
 
     elseif potionEffectId >= 11111111 and potionEffectId <= 99999999 then -- it's an attribute changer
           -- there is already an effect, we remove it
-        local foundEffect, myEffect = User.effects:find(59);
+        local foundEffect = User.effects:find(59)
         if foundEffect then
-            local findsight, sightpotion = myEffect:findValue("sightpotion")
+            local findsight = myEffect:findValue("sightpotion")
             if findsight then
                 common.InformNLS(User, "Deine Augen fühlen sich wieder normal an und der Stärkungstrank beginnt zu wirken.",
                 "Your eyes feel normal again and the strengthening potions starts to take effect.")
@@ -90,10 +90,10 @@ local function DrinkPotion(User,SourceItem)
                 common.InformNLS(User, "Du spürst, dass der alte Stärkungstrank seine Wirkung verliert und wie der neue zu wirken einsetzt.",
                 "You feel that the old strengthening potion looses its effect and how the new one takes effect.")
             end
-            local effectRemoved = User.effects:removeEffect(59)
+            User.effects:removeEffect(59)
         end
         local myEffectDuration = math.floor(SourceItem.quality/100)*600*4 -- quality 1 = 4 minutes duration, quality 9 = 36 minutes duration
-        local myEffect=LongTimeEffect(59,myEffectDuration) -- new effect
+        local myEffect = LongTimeEffect(59,myEffectDuration) -- new effect
 
         local dataZList = alchemy.SplitData(User,potionEffectId)
         alchemy.generateTasteMessage(User,dataZList) -- potion taste
@@ -103,51 +103,51 @@ local function DrinkPotion(User,SourceItem)
         local logmsg = ""..User.name.." ("..User.id..") used an attribute potion, giving: "
         for i=1,8 do
 
-            attribValue = User:increaseAttrib(M.attribList[i],0);
+            attribValue = User:increaseAttrib(M.attribList[i],0)
 
             bottomBorder = 1
 
             if (attribValue + dataZList[i] - 5) < bottomBorder then
-                dataZList[i] = (bottomBorder - attribValue) + 5;
+                dataZList[i] = (bottomBorder - attribValue) + 5
             end
 
             if dataZList[i] ~= 5 then
-                User:increaseAttrib(M.attribList[i],dataZList[i]-5);
-                local emptystring = " ";
+                User:increaseAttrib(M.attribList[i],dataZList[i]-5)
+                local emptystring = " "
                 if(dataZList[i]-5>0) then
-                    emptystring = " +";
+                    emptystring = " +"
                 end
                 logmsg = logmsg..emptystring..(dataZList[i]-5).." to ".. M.attribList[i]..", and"
-                myEffect:addValue("".. M.attribList[i],dataZList[i]);
+                myEffect:addValue("".. M.attribList[i],dataZList[i])
             end
 
         end
         logmsg = logmsg.." it will last for "..myEffectDuration/600 .. " minutes."
         log(logmsg)
-        local foundEffect, checkedEffect = User.effects:find(59) -- security check, there shouldn't be an effect at this point anymore
+        local foundEffect = User.effects:find(59) -- security check, there shouldn't be an effect at this point anymore
         if not foundEffect then
-           User.effects:addEffect( myEffect )
+            User.effects:addEffect(myEffect)
         end
     elseif potionEffectId >= 5911111111 and potionEffectId <= 5999999999 then
-        local foundEffect, myEffect = User.effects:find(59);
+        local foundEffect = User.effects:find(59)
         if foundEffect then
-            local effectRemoved = User.effects:removeEffect(59)
+            User.effects:removeEffect(59)
             common.InformNLS(User, "Du spürst, dass der Trank seine Wirkung verliert. Deine Augen beginnen sich seltsam anzufühlen.",
             "You feel that the old potion looses its effect. You eyes start to feel strange.")
         end
         local myEffectDuration = math.floor(SourceItem.quality/100)*600*4 -- quality 1 = 4 minutes duration, quality 9 = 36 minutes duration
-        local myEffect=LongTimeEffect(59,myEffectDuration) -- new effect
+        local myEffect = LongTimeEffect(59,myEffectDuration) -- new effect
 
         myEffect:addValue("sightpotion",potionEffectId-5900000000)
 
-        local foundEffect, checkedEffect = User.effects:find(59) -- security check, there shouldn't be an effect at this point anymore
+        local foundEffect = User.effects:find(59) -- security check, there shouldn't be an effect at this point anymore
         if not foundEffect then
-           User.effects:addEffect( myEffect )
+            User.effects:addEffect(myEffect)
         end
     else
         -- something else
     end
-    
+
     if SourceItem:getData("granorsHut") ~= "" then
         granorsHut.potionReplacer()
     end
