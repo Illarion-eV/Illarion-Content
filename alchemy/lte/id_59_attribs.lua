@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- LTE für das Druidensystem
 -- by Falk
@@ -22,53 +22,53 @@ local M = {}
 
 -- INSERT INTO longtimeeffects VALUES (59, 'alchemy_attribs', 'alchemy.lte.id_59_attribs');
 
-local attribList ={"strength","willpower","perception","intelligence","constitution","agility","dexterity","essence"};
-local bottomBorder = 1;
+local attribList ={"strength","willpower","perception","intelligence","constitution","agility","dexterity","essence"}
+
 
 function M.addEffect(Effect, User)
- 
+
 end
 
 function M.callEffect(Effect,User)
     -- callEffect is only called once; we just need to return false
-	local find_i,sight = Effect:findValue("sightpotion")
-	if find then
-	    common.InformNLS( User, "Deine Augen fühlen sich wieder normal an.", "Your eyes feel normal again.")
-	else
-		common.InformNLS( User, "Du fühlst, dass der Stärkungstrank seine Wirkung verliert.", "You feel that the strengthening potion looses its effect.")
-	end
-	return false
+    local find = Effect:findValue("sightpotion")
+    if find then
+        common.InformNLS( User, "Deine Augen fühlen sich wieder normal an.", "Your eyes feel normal again.")
+    else
+        common.InformNLS( User, "Du fühlst, dass der Stärkungstrank seine Wirkung verliert.", "You feel that the strengthening potion looses its effect.")
+    end
+    return false
 
 end
 
 function M.removeEffect(Effect,User)
     -- restore the attributes
-	
-	local find_i,sight = Effect:findValue("sightpotion")
-	if not find then
-		local find_i, attrib_i, attribValue
-		for i=1,8 do
-			find_i,attrib_i = Effect:findValue(""..attribList[i])
-			if find_i then
-				attribValue = attrib_i - 5 
-				User:increaseAttrib(attribList[i],-attribValue);
-			end
-		end
-	end
+
+    local find = Effect:findValue("sightpotion")
+    if not find then
+        local find_i, attrib_i, attribValue
+        for i=1,8 do
+            find_i,attrib_i = Effect:findValue(""..attribList[i])
+            if find_i then
+                attribValue = attrib_i - 5
+                User:increaseAttrib(attribList[i],-attribValue)
+            end
+        end
+    end
 end
 
 function M.loadEffect(Effect,User)
     -- login, we have to change the attributes again
-	local find_i,sight = Effect:findValue("sightpotion")
-	if not find then
-		local find_i, attrib_i
-		for i=1,8 do
-			find_i,attrib_i = Effect:findValue(""..attribList[i])
-			if find_i then
-				User:increaseAttrib(attribList[i],attrib_i - 5)
-			end	
-		end
-	end
+    local find = Effect:findValue("sightpotion")
+    if not find then
+        local find_i, attrib_i
+        for i=1,8 do
+            find_i,attrib_i = Effect:findValue(""..attribList[i])
+            if find_i then
+                User:increaseAttrib(attribList[i],attrib_i - 5)
+            end
+        end
+    end
 end
 return M
 
