@@ -51,7 +51,7 @@ local function GenerateEffectMessage(User,dataZList)
        end
     end
     if anyEffect == false then
-        effectMessageDE = "Du spührst keine Wirkung."
+        effectMessageDE = "Du spürst keine Wirkung."
         effectMessageEN = "You don't feel any effect."
     end
     common.InformNLS(User,effectMessageDE,effectMessageEN);
@@ -70,7 +70,7 @@ local function DrinkPotion(User,SourceItem)
         -- there is already an effect; sadly,therefore, the current potion will have no effect
         local foundEffect, myEffect = User.effects:find(166)
         if foundEffect then
-            common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert. Scheinbar verhindert der bereits wirkende Heiltranktrank weitere Effekte.",
+            common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert. Scheinbar verhindert der bereits wirkende Heiltrank weitere Effekte.",
             "You don't have the feeling that something happens. It seems that the already affecting healing potion prevents other effects.")
             return
         end
