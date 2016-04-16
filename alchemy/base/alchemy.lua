@@ -27,68 +27,68 @@ end
 
 function InitPlantSubstance()
 
-    setPlantSubstance(15,"","")
-    setPlantSubstance(80,"","")
-    setPlantSubstance(154,"","")
-    setPlantSubstance(200,"","")
-    setPlantSubstance(201,"","")
-    setPlantSubstance(259,"","")
-    setPlantSubstance(290,"","")
-    setPlantSubstance(302,"","")
-    setPlantSubstance(772,"","")
-    setPlantSubstance(778,"","")
-    setPlantSubstance(1207,"","")
-    setPlantSubstance(2493,"","")
+    setPlantSubstance(15,"","") --Apple
+    setPlantSubstance(80,"","") --Banana
+    setPlantSubstance(154,"","") --Hop
+    setPlantSubstance(200,"","") --Tomato
+    setPlantSubstance(201,"","") --Onion
+    setPlantSubstance(259,"","") --Grain
+    setPlantSubstance(290,"","") --Cabbage
+    setPlantSubstance(302,"","") --Cherries
+    setPlantSubstance(772,"","") --Tobacco
+    setPlantSubstance(778,"","") --Sugarcane
+    setPlantSubstance(1207,"","") --Orange
+    setPlantSubstance(2493,"","") --Carrots
 
-    setPlantSubstance(138,"","Dracolin")
-    setPlantSubstance(146,"","Echolon")
-    setPlantSubstance(152,"Echolon","")
-    setPlantSubstance(754,"","Caprazin")
-    setPlantSubstance(755,"","Illidrium")
-    setPlantSubstance(756,"Caprazin","")
-    setPlantSubstance(757,"Dracolin","")
-    setPlantSubstance(758,"Adrazin","")
-    setPlantSubstance(760,"","Fenolin")
-    setPlantSubstance(761,"Illidrium","")
-    setPlantSubstance(762,"","Orcanol")
-    setPlantSubstance(764,"","Adrazin")
-    setPlantSubstance(765,"Hyperborelium","")
-    setPlantSubstance(766,"","Hyperborelium")
-    setPlantSubstance(768,"Orcanol","")
-    setPlantSubstance(769,"Fenolin","")
+    setPlantSubstance(138,"","Dracolin") --Night angels blossom
+    setPlantSubstance(146,"","Echolon") --Desert sky capsule
+    setPlantSubstance(152,"Echolon","") --Life root
+    setPlantSubstance(754,"","Caprazin") --Oneleaved fourberry
+    setPlantSubstance(755,"","Illidrium") --Fire root
+    setPlantSubstance(756,"Caprazin","") --pious berry
+    setPlantSubstance(757,"Dracolin","") --tybalt star
+    setPlantSubstance(758,"Adrazin","") --heart blood
+    setPlantSubstance(760,"","Fenolin") --ice leaf
+    setPlantSubstance(761,"Illidrium","") --rain weed
+    setPlantSubstance(762,"","Orcanol") --gold crack herb
+    setPlantSubstance(764,"","Adrazin") --dark moss
+    setPlantSubstance(765,"Hyperborelium","") --daydream
+    setPlantSubstance(766,"","Hyperborelium") --con blossom
+    setPlantSubstance(768,"Orcanol","") --wolverine fern
+    setPlantSubstance(769,"Fenolin","") --desert berry
 
-    setPlantSubstance(81,"Illidrium","Orcanol")
-    setPlantSubstance(133,"Adrazin","Orcanol")
-    setPlantSubstance(134,"Fenolin","Illidrium")
-    setPlantSubstance(135,"Fenolin","Adrazin")
-    setPlantSubstance(136,"Adrazin","Fenolin")
-    setPlantSubstance(137,"Echolon","Illidrium")
-    setPlantSubstance(140,"Fenolin","Hyperborelium")
-    setPlantSubstance(141,"Caprazin","Echolon")
-    setPlantSubstance(142,"Hyperborelium","Dracolin")
-    setPlantSubstance(143,"Illidrium","Dracolin")
-    setPlantSubstance(144,"Adrazin","Dracolin")
-    setPlantSubstance(145,"Hyperborelium","Orcanol")
-    setPlantSubstance(147,"Echolon","Adrazin")
-    setPlantSubstance(148,"Echolon","Caprazin")
-    setPlantSubstance(149,"Hyperborelium","Echolon")
-    setPlantSubstance(151,"Caprazin","Dracolin")
-    setPlantSubstance(153,"Fenolin","Caprazin")
-    setPlantSubstance(155,"Illidrium","Echolon")
-    setPlantSubstance(156,"Orcanol","Adrazin")
-    setPlantSubstance(158,"Illidrium","Fenolin")
-    setPlantSubstance(159,"Dracolin","Hyperborelium")
-    setPlantSubstance(160,"Adrazin","Echolon")
-    setPlantSubstance(161,"Orcanol","Hyperborelium")
-    setPlantSubstance(162,"Hyperborelium","Fenolin")
-    setPlantSubstance(163,"Orcanol","Illidrium")
-    setPlantSubstance(199,"Caprazin","Orcanol")
-    setPlantSubstance(388,"Caprazin","Fenolin")
-    setPlantSubstance(752,"Orcanol","Caprazin")
-    setPlantSubstance(753,"Dracolin","Adrazin")
-    setPlantSubstance(759,"Dracolin","Illidrium")
-    setPlantSubstance(763,"Dracolin","Caprazin")
-    setPlantSubstance(767,"Echolon","Hyperborelium")
+    setPlantSubstance(81,"Illidrium","Orcanol") --berries
+    setPlantSubstance(133,"Adrazin","Orcanol") --sun herb
+    setPlantSubstance(134,"Fenolin","Illidrium") --fourleafed oneberry
+    setPlantSubstance(135,"Fenolin","Adrazin") --yellow weed
+    setPlantSubstance(136,"Adrazin","Fenolin") --anger berry
+    setPlantSubstance(137,"Echolon","Illidrium") --flamegoblet blossom
+    setPlantSubstance(140,"Fenolin","Hyperborelium") --donf blade
+    setPlantSubstance(141,"Caprazin","Echolon") --black thistle
+    setPlantSubstance(142,"Hyperborelium","Dracolin") --sandberry
+    setPlantSubstance(143,"Illidrium","Dracolin") --red elder
+    setPlantSubstance(144,"Adrazin","Dracolin") --virgin's weed
+    setPlantSubstance(145,"Hyperborelium","Orcanol") --heath flower
+    setPlantSubstance(147,"Echolon","Adrazin") --blackberry
+    setPlantSubstance(148,"Echolon","Caprazin") --firnis blossom
+    setPlantSubstance(149,"Hyperborelium","Echolon") --fir tree sprout
+    setPlantSubstance(151,"Caprazin","Dracolin") --strawberry
+    setPlantSubstance(153,"Fenolin","Caprazin") --foot leaf
+    setPlantSubstance(155,"Illidrium","Echolon") --sibanac leaf
+    setPlantSubstance(156,"Orcanol","Adrazin") --steppe fern
+    setPlantSubstance(158,"Illidrium","Fenolin") --bulbsponge mushroom
+    setPlantSubstance(159,"Dracolin","Hyperborelium") --toadstool
+    setPlantSubstance(160,"Adrazin","Echolon") --red head
+    setPlantSubstance(161,"Orcanol","Hyperborelium") --herder's mushroom
+    setPlantSubstance(162,"Hyperborelium","Fenolin") --birth mushroom
+    setPlantSubstance(163,"Orcanol","Illidrium") --champignon
+    setPlantSubstance(199,"Caprazin","Orcanol") --tangerine
+    setPlantSubstance(388,"Caprazin","Fenolin") --grapes
+    setPlantSubstance(752,"Orcanol","Caprazin") --mandrake
+    setPlantSubstance(753,"Dracolin","Adrazin") --blue birdsberry
+    setPlantSubstance(759,"Dracolin","Illidrium") --nuts
+    setPlantSubstance(763,"Dracolin","Caprazin") --marsh flower
+    setPlantSubstance(767,"Echolon","Hyperborelium") --water blossom
 
 end
 
