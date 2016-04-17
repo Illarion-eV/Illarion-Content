@@ -22,8 +22,8 @@ local Ingredient = require("base.crafting.Ingredient")
 local casting = Craft {
     name = {english = "Casting", german = "Gieﬂen"},
     handTool = "cruciblePincers",
-    staticTool = {inactive = "furnaceOneOff", active = "furnaceOneOn"},
-    --staticTool = {inactive = "furnaceTwoOff", active = "furnaceTwoOn"},
+    staticTool = "bloomeryOne",
+    --staticTool = "bloomeryTwo",
     skill = "mining",
     defaultFoodConsumption = NO_DEFAULT,
     sfx = 7, sfxDuration = 1.7,
