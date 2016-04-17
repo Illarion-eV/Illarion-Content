@@ -38,7 +38,7 @@ msgs:addMessage("#me zischt erbost: 'Ich bin nicht auferstanden, um mir von euch
 msgs:addMessage("#me lacht mit krachenden Kiefern und kleine Flammen züngeln aus seinen Augenhöhlen.", "#me laughs with snapping jaw, small flames glowing from its eyeholes.")
 msgs:addMessage("Du kannst mich nicht bezwingen, das vermochte nicht einmal der Tod zu erreichen.", "You will not succeed in what death failed in.")
 msgs:addMessage("Ich werde dich töten, Sterblicher, auf dass du die Qualen erleiden mögest, die ich durchgestanden habe!", "I will slay you, mortal, for you shall suffer as I did.")
-msgs:addMessage("#me schnarrt drohend und dreht den Kopf von einer Seite zur anderen.", "#me snares evilly and turns its head from side to side.")
+msgs:addMessage("#me schnarrt drohend und dreht den Kopf von einer Seite zur anderen.", "#me sneers evilly and turns its head from side to side.")
 msgs:addMessage("#me kreischt hysterisch mit schriller Stimme 'Na los, erlöse mich von meinem unseligen Dasein!'.", "#me screams in a shrill voice: 'Come on, relive me from my puny existance!'.")
 msgs:addMessage("#me breitet die Arme aus und ein blutrotes Leuchten geht von seinen Knochen aus. Ein Schaudern scheint das Skelett zu erfüllen, ehe es sich wie im Rausch auf sein Opfer stürzt.", "#me spreads its arms and a blood red glow is radiated from its bones. A shiver seems to overcome the skeleton before it charges its victim.")
 msgs:addMessage("Geht in die Knie, Sterblicher, und ich werde euch vielleicht verschonen… vielleicht werd ich euer Ende aber auch nur schneller bereiten!", "Kneel down, mortal, and I will spare you... or just make the end approach faster.")

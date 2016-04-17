@@ -564,8 +564,8 @@ function getLookAt(player,item)
     descriptionDE["Der Denkende Stein"] = "Der vom Wüstensand geschliffene Stein wird von einer seltsamen Atmosphäre umgeben und gelegentlich meint man ein Murmeln zu hören."
     descriptionDE["Die Erkennende Quelle"] = "Die sprudelnde Quelle wird von einer seltsamen Atmosphäre umgeben und gelegentlich mag man ein gedämpftes Flüstern vernehmen."
     local descriptionEN = {}
-    descriptionEN["The Knowing Tree"] = "The old Eldan oak is surrounded by a strange atmosphere and sometimes one may here something as if someone smacks their lips."
-    descriptionEN["The Thinking Stone"] = "The by the desert sand sharpend stone is surrounded by a strange atmosphere and sometimes one may here muttering."
+    descriptionEN["The Knowing Tree"] = "The old Eldan oak is surrounded by a strange atmosphere and sometimes one may hear something as if someone smacks their lips."
+    descriptionEN["The Thinking Stone"] = "The by the desert sand sharpend stone is surrounded by a strange atmosphere and sometimes one may hear muttering."
     descriptionEN["The Recognizing Spring"] = "The sputtering spring is surrounded by a strange atmosphere and sometimes one may hear a damped whispering."
 
 
