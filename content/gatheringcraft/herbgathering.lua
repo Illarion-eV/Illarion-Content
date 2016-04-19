@@ -406,13 +406,6 @@ function InitHerbItems()
     HerbItems[308] = {                                    -- fir tree
     CreateHarvestProduct(149, nil)                                -- fir tree sprout
     }
-    HerbItems[1812] = {                                    -- palm tree
-    CreateHarvestProduct(80, gt.sand)                            -- banana
-    }
-    HerbItems[1813] = {                                    -- palm tree
-    CreateHarvestProduct(80, gt.sand)                            -- banana
-    }
-
     HerbItems[ 1809 ] = {                                -- eldan oak
     CreateHarvestProduct(759, nil, {0.5,0.5,0.5,0.5})            -- nuts (was actually in harvest.lua with 20 MaxAmount, so just let it regrow twice as fast)
     }
