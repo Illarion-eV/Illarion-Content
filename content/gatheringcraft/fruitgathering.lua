@@ -178,6 +178,7 @@ function InitHarvestItems()
   IsTree[14] = true;
   IsTree[300] = true;
   IsTree[1195] = true;
+  IsTree[3867] = true;
 
     HarvestItems[ 14 ] = {                                    -- apple tree
     CreateHarvestProduct(15, nil, nil, 10, 11)                    -- apple
@@ -192,10 +193,13 @@ function InitHarvestItems()
     CreateHarvestProduct(388, gt.grass, nil, 10, 386)            -- grapes
     }
     HarvestItems[ 3613 ] = {
-        CreateHarvestProduct(199, gt.sand, nil, 7, 3612),            -- tangerine
+    CreateHarvestProduct(199, gt.sand, nil, 7, 3612),            -- tangerine
     }
     HarvestItems[ 3743 ] = {
-        CreateHarvestProduct(81, gt.forest, nil, 5, 3742),            -- berries
+    CreateHarvestProduct(81, gt.forest, nil, 5, 3742),            -- berries
+    }
+    HarvestItems[ 3867 ] = {                              -- Banana Tree
+    CreateHarvestProduct(80, nil, nil, 10, 3866),            -- Banana
     }
 end
 

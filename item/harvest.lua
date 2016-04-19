@@ -25,9 +25,9 @@ local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
 
-    if SourceItem.id == 14 or SourceItem.id == 300 or SourceItem.id == 387 or SourceItem.id == 1195 or SourceItem.id == 3613 or SourceItem.id == 3743 then
+    if SourceItem.id == 14 or SourceItem.id == 300 or SourceItem.id == 387 or SourceItem.id == 1195 or SourceItem.id == 3613 or SourceItem.id == 3743 or SourceItem.id ==3867 then
         fruitgathering.StartGathering(User, SourceItem, ltstate);
-    elseif SourceItem.id == 386 or SourceItem.id == 3612 or SourceItem.id == 3742 then
+    elseif SourceItem.id == 386 or SourceItem.id == 3612 or SourceItem.id == 3742 or SourceItem.id == 3866 then
         common.HighInformNLS( User,"Diese Pflanze trägt keine Früchte.","This plant bears no fruits." );
     elseif SourceItem.id == 1193 or SourceItem.id == 1194 then
         common.HighInformNLS( User,"Dieser Baum trägt keine Früchte.","This tree bears no fruits." );
