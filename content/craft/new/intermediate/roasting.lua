@@ -31,6 +31,9 @@ local roasting = Craft {
 ProductGroup {name = {english = "Food", german = "Essen"},
 Product {item = "ham", Ingredient {item = "pork", amount = 1}},
 Product {item = "smokedFish", Ingredient {item = "roseFish", amount = 1}},
+Product {item = "smokedFish", Ingredient {item = "salmon", amount = 1}},
+Product {item = "smokedFish", Ingredient {item = "horseMackerel", amount = 1}},
+Product {item = "smokedFish", Ingredient {item = "trout", amount = 1}},
 Product {item = "smokedChicken", Ingredient {item = "chickenMeat", amount = 1}},
 Product {item = "smokedRabbit", Ingredient {item = "rabbitMeat", amount = 1}},
 Product {item = "grilledLamb", Ingredient {item = "lambMeat", amount = 1}},
@@ -38,5 +41,5 @@ Product {item = "grilledVenison", Ingredient {item = "deerMeat", amount = 1}},
 Product {item = "grilledSteak", Ingredient {item = "rawSteak", amount = 1}}
 }
 }
-    
+
 return roasting
