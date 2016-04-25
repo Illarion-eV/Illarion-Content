@@ -27,6 +27,7 @@ local class = require("base.class")
 
 local langCodeToSkill
 local displayLanguageConfusion
+local isAdminOnField
 
 --- Constructor for the baseNPC. This does not take any paramters.
 --
@@ -194,6 +195,10 @@ function baseNPC:nextCycle2(npcChar)
         return
     end
 
+    if isAdminOnField(npcChar.pos) then
+        return
+    end
+
     if (self._cycleCounter < self._nextCycleCalls) then
         self._cycleCounter = self._cycleCounter + 1
         return
@@ -228,9 +233,7 @@ function baseNPC:receiveText(npcChar, texttype, speaker, text)
         return false
     end
 
-    --No talking if there is a GM "possessing" the NPC - Flux
-    local stackedChar = world:getCharacterOnField(npcChar.pos)
-    if stackedChar:isAdmin() then
+    if isAdminOnField(npcChar.pos) then
       return false
     end
 
@@ -346,6 +349,10 @@ end
 --  @param char the character who is looking at the NPC
 --  @param mode the mode used to look at the NPC (no effect)
 function baseNPC:use(npcChar, char)
+
+    if isAdminOnField(npcChar.pos) then
+        return
+    end
 
     npcChar.activeLanguage = self._defaultLanguage
     --npcChar:talk(Character.say, self._useMsgDE, self._useMsgUS)
@@ -483,6 +490,15 @@ function displayLanguageConfusion(npcChar, npc)
         npcChar.activeLanguage = npc._defaultLanguage
         npcChar:talk(Character.say, npc._confusedDE, npc._confusedUS)
     end
+end
+
+-- check if there is a GM "possessing" the NPC
+function isAdminOnField(pos)
+    local stackedChar = world:getCharacterOnField(pos)
+    if stackedChar:isAdmin() then
+        return true
+    end
+    return false
 end
 
 return baseNPC
