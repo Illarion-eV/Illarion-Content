@@ -41,12 +41,12 @@ function StartGathering(User, SourceItem, ltstate)
         return
     end
 
-    InitHarvestItems();
+    InitHarvestItems()
 
-    gathering.InitGathering();
+    gathering.InitGathering()
     local fruitgathering = gathering.fruitgathering
 
-    common.ResetInterruption( User, ltstate );
+    common.ResetInterruption( User, ltstate )
     if ( ltstate == Action.abort ) then -- work interrupted
         User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
         return
@@ -60,64 +60,64 @@ function StartGathering(User, SourceItem, ltstate)
     -- if not common.FitForWork( User ) then -- check minimal food points
         -- return
     -- end
-    common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+    common.TurnTo( User, SourceItem.pos ) -- turn if necessary
 
     -- any other checks?
     -- check if there is a harvestable item or any item at all
-    local harvestItem = HarvestItems[SourceItem.id];
+    local harvestItem = HarvestItems[SourceItem.id]
     if ( harvestItem == nil) then
-        User:inform("[ERROR] Unknown harvest item, id: " .. SourceItem.id .. ". Please inform a developer.");
-        return;
+        User:inform("[ERROR] Unknown harvest item, id: " .. SourceItem.id .. ". Please inform a developer.")
+        return
     end
     -- there is a harvestable item, but does the ground fit?
-    local GroundType = common.GetGroundType(world:getField(SourceItem.pos):tile());
+    local GroundType = common.GetGroundType(world:getField(SourceItem.pos):tile())
     local harvestProduct
     for _,hp in pairs(harvestItem) do
         if (hp.groundType == nil or GroundType == hp.groundType) then
-            harvestProduct = hp;
-            break;
+            harvestProduct = hp
+            break
         end
     end
     if ( harvestProduct == nil ) then
-    if (IsTree[SourceItem.id] == true) then
-      common.HighInformNLS( User,
-      "Dieser Baum trägt keine Früchte. Vielleicht wird diese Art Baum in einem anderen Boden besser gedeihen.",
-      "This tree bears no fruits. Maybe this type of tree will flourish better in another soil." );
-    else
-      common.HighInformNLS( User,
-      "Diese Pflanze trägt keine Früchte. Vielleicht wird diese Art Pflanze in einem anderen Boden besser gedeihen.",
-      "This plant bears no fruits. Maybe this type of plant will flourish better in another soil." );
-    end
-        return;
+        if (IsTree[SourceItem.id] == true) then
+          common.HighInformNLS( User,
+          "Dieser Baum trägt keine Früchte. Vielleicht wird diese Art Baum in einem anderen Boden besser gedeihen.",
+          "This tree bears no fruits. Maybe this type of tree will flourish better in another soil." )
+        else
+          common.HighInformNLS( User,
+          "Diese Pflanze trägt keine Früchte. Vielleicht wird diese Art Pflanze in einem anderen Boden besser gedeihen.",
+          "This plant bears no fruits. Maybe this type of plant will flourish better in another soil." )
+        end
+        return
     end
     -- check the amount
-    local amountStr = SourceItem:getData("amount");
-    local amount = 0;
+    local amountStr = SourceItem:getData("amount")
+    local amount
     if ( amountStr ~= "" ) then
-        amount = tonumber(amountStr);
+        amount = tonumber(amountStr)
     else
         -- first time that this item is harvested
-        amount = harvestProduct.maxAmount;
-        SourceItem:setData("amount","" .. harvestProduct.maxAmount);
-        world:changeItem(SourceItem);
-    User:changeSource(SourceItem);
+        amount = 10
+        SourceItem:setData("amount","" .. amount)
+        world:changeItem(SourceItem)
+        User:changeSource(SourceItem)
     end
     if ( amount < 0 ) then
         -- this should never happen...
-        User:inform("[ERROR] Negative amount " .. amount .. " for item id " .. SourceItem.id .. " at (" .. SourceItem.pos.x .. "," .. SourceItem.pos.y .. "," .. SourceItem.pos.z .. "). Please inform a developer.");
-        return;
+        User:inform("[ERROR] Negative amount " .. amount .. " for item id " .. SourceItem.id .. " at (" .. SourceItem.pos.x .. "," .. SourceItem.pos.y .. "," .. SourceItem.pos.z .. "). Please inform a developer.")
+        return
     end
     if ( amount == 0 ) then
         -- this should never happen...
-        User:inform("[ERROR] Zero amount for item id " .. SourceItem.id .. " at (" .. SourceItem.pos.x .. "," .. SourceItem.pos.y .. "," .. SourceItem.pos.z .. "). Please inform a developer.");
-        return;
+        User:inform("[ERROR] Zero amount for item id " .. SourceItem.id .. " at (" .. SourceItem.pos.x .. "," .. SourceItem.pos.y .. "," .. SourceItem.pos.z .. "). Please inform a developer.")
+        return
     end
 
     -- since we're here, there is something we can harvest
 
     if ( ltstate == Action.none ) then -- currently not working -> let's go
-        fruitgathering.SavedWorkTime[User.id] = fruitgathering:GenWorkTime(User,nil);
-        User:startAction( fruitgathering.SavedWorkTime[User.id], 0, 0, 0, 0);
+        fruitgathering.SavedWorkTime[User.id] = fruitgathering:GenWorkTime(User,nil)
+        User:startAction( fruitgathering.SavedWorkTime[User.id], 0, 0, 0, 0)
         User:talk(Character.say, "#me beginnt Früchte zu sammeln.", "#me starts to gather fruits.")
         return
     end
@@ -128,96 +128,94 @@ function StartGathering(User, SourceItem, ltstate)
         return
     end
 
-    User:learn( fruitgathering.LeadSkill, fruitgathering.SavedWorkTime[User.id], fruitgathering.LearnLimit);
-    amount = amount - 1;
+    User:learn( fruitgathering.LeadSkill, fruitgathering.SavedWorkTime[User.id], fruitgathering.LearnLimit)
+    amount = amount - 1
     local created = common.CreateItem(User, harvestProduct.productId, 1, 333, nil) -- create the new produced items
     if created then -- character can still carry something
         if (amount>0) then  -- there are still fruits we can gather
-            fruitgathering.SavedWorkTime[User.id] = fruitgathering:GenWorkTime(User,nil);
-            User:startAction( fruitgathering.SavedWorkTime[User.id], 0, 0, 0, 0);
+            fruitgathering.SavedWorkTime[User.id] = fruitgathering:GenWorkTime(User,nil)
+            User:startAction( fruitgathering.SavedWorkTime[User.id], 0, 0, 0, 0)
         end
     end
     if (amount<=0) then
     if (IsTree[SourceItem.id] == true) then
       common.HighInformNLS(User,
       "Dieser Baum ist schon komplett abgeerntet. Gib ihm Zeit um nachzuwachsen.",
-      "This tree is already completely harvested. Give it time to grow again." );
+      "This tree is already completely harvested. Give it time to grow again." )
     else
       common.HighInformNLS(User,
       "Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.",
-      "This plant is already completely harvested. Give it time to grow again." );
+      "This plant is already completely harvested. Give it time to grow again." )
     end
-        -- reset amount
-        amount = harvestProduct.maxAmount;
-    SourceItem:setData("amount","" .. amount);
-    world:changeItem(SourceItem);
+    -- reset amount
+    amount = 10
+    SourceItem:setData("amount","" .. amount)
+    world:changeItem(SourceItem)
         -- change item id
-    world:swap(SourceItem, harvestProduct.nextItemId, 333);
-    return;
+    world:swap(SourceItem, harvestProduct.nextItemId, 333)
+    return
     -- regrow according to season: currently deactivated
         -- local season = math.ceil(world:getTime("month")/4);
         -- SourceItem.wear = SourceItem.wear + harvestProduct.growCycles[season];
     end
-    SourceItem:setData("amount","" .. amount);
-    world:changeItem(SourceItem);
-  User:changeSource(SourceItem);
+    SourceItem:setData("amount","" .. amount)
+    world:changeItem(SourceItem)
+  User:changeSource(SourceItem)
 end
 
 function InitHarvestItems()
     if ( HarvestItems ~= nil ) then
-        return;
+        return
     end
-    HarvestItems = {};
+    HarvestItems = {}
 
-    RegrowTime = 300;
+    RegrowTime = 300
 
   -- just for short writing
-  local gt = common.GroundType;
+  local gt = common.GroundType
 
-  IsTree = {};
-  IsTree[14] = true;
-  IsTree[300] = true;
-  IsTree[1195] = true;
-  IsTree[3867] = true;
+  IsTree = {}
+  IsTree[14] = true
+  IsTree[300] = true
+  IsTree[1195] = true
+  IsTree[3867] = true
 
     HarvestItems[ 14 ] = {                                    -- apple tree
-    CreateHarvestProduct(15, nil, nil, 10, 11)                    -- apple
+    CreateHarvestProduct(15, nil, nil, 11)                    -- apple
     }
     HarvestItems[ 300 ] = {                                    -- cherry tree
-    CreateHarvestProduct(302, nil, nil, 10, 299)                -- cherry
+    CreateHarvestProduct(302, nil, nil, 299)                -- cherry
     }
     HarvestItems[ 1195 ] = {                                    -- orange tree
-    CreateHarvestProduct(1207, nil, nil, 10, 1193)                    -- orange
+    CreateHarvestProduct(1207, nil, nil, 1193)                    -- orange
     }
     HarvestItems[ 387 ] = {                                    -- bush
-    CreateHarvestProduct(388, gt.grass, nil, 10, 386)            -- grapes
+    CreateHarvestProduct(388, gt.grass, nil, 386)            -- grapes
     }
     HarvestItems[ 3613 ] = {
-    CreateHarvestProduct(199, gt.sand, nil, 10, 3612),            -- tangerine
+    CreateHarvestProduct(199, gt.sand, nil, 3612)            -- tangerine
     }
     HarvestItems[ 3743 ] = {
-    CreateHarvestProduct(81, gt.forest, nil, 10, 3742),            -- berries
+    CreateHarvestProduct(81, gt.forest, nil, 3742)            -- berries
     }
     HarvestItems[ 3867 ] = {                              -- Banana Tree
-    CreateHarvestProduct(80, nil, nil, 10, 3866),            -- Banana
+    CreateHarvestProduct(80, nil, nil, 3866)            -- Banana
     }
 end
 
 -- for GroundType, see common.GroundType. If it doesn't matter, just set it to nil
 -- GrowCycles define how fast the plants regrow in the 4 seasons. 1 cycle takes 3 minutes
-function CreateHarvestProduct(ProductId, GroundType, GrowCycles, MaxAmount, NextItemId)
-  local retValue = {};
-  retValue.productId = ProductId;
-  retValue.groundType = GroundType;
+function CreateHarvestProduct(ProductId, GroundType, GrowCycles, NextItemId)
+  local retValue = {}
+  retValue.productId = ProductId
+  retValue.groundType = GroundType
   -- NOTE: regrow according to season is currently deactivated, so growCycles is not used
-    retValue.growCycles = {1,1,1,1};
+    retValue.growCycles = {1,1,1,1}
   if (GrowCycles ~= nil) then
-        retValue.growCycles = GrowCycles;
+        retValue.growCycles = GrowCycles
   end
-    retValue.maxAmount = 10;
-    if ( MaxAmount ~= nil ) then
-        retValue.maxAmount = MaxAmount;
-    end
-    retValue.nextItemId = NextItemId;
-  return retValue;
+
+    retValue.nextItemId = NextItemId
+
+    return retValue
 end
