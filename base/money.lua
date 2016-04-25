@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --- This script contains a set of helper methods to work with money in the game.
 --  This functions should be used for any interaction with money.
@@ -49,8 +49,7 @@ end
 --  @param char - CharStruct - the char the money count is wanted from
 --  @return number - the total amount of money in copper coins the player has
 function M.CharCoinsToMoney(char)
-    return M.CoinsToMoney(char:countItem(GoldCoinsID),
-        char:countItem(SilverCoinsID), char:countItem(CopperCoinsID))
+    return M.CoinsToMoney(char:countItem(GoldCoinsID), char:countItem(SilverCoinsID), char:countItem(CopperCoinsID))
 end
 
 --- Get the coins a character has in his inventory.
@@ -62,8 +61,7 @@ end
 --  @note The values returned by this function are not normalized. So its
 --      possible that the values for silver and copper coins are greater 100
 function  M.CharCoins(char)
-    return char:countItem(GoldCoinsID), char:countItem(SilverCoinsID),
-        char:countItem(CopperCoinsID)
+    return char:countItem(GoldCoinsID), char:countItem(SilverCoinsID), char:countItem(CopperCoinsID)
 end
 
 --- This method returns the total amount of money in copper coins the char has
@@ -138,12 +136,12 @@ end
 --  @return boolean - true in case all items were created properly
 function M.GiveCoinsToChar(char, gCoins, sCoins, cCoins)
     if (gCoins > 0) then
-	    local notCreated = char:createItem(GoldCoinsID, gCoins, 333, nil)
-	    if (notCreated > 0) then
-	        char:eraseItem(GoldCoinsID, gCoins - notCreated)
-	        return false
-	    end
-	end
+        local notCreated = char:createItem(GoldCoinsID, gCoins, 333, nil)
+        if (notCreated > 0) then
+            char:eraseItem(GoldCoinsID, gCoins - notCreated)
+            return false
+        end
+    end
 
     if (sCoins > 0) then
         local notCreated = char:createItem(SilverCoinsID, sCoins, 333, nil)
@@ -196,32 +194,32 @@ end
 --  @param sCoins - number - the amount of silver coins to be created at pos
 --  @param cCoins - number - the amount of copper coins to be created at pos
 function M.GiveCoinsToPosition(pos, gCoins, sCoins, cCoins)
-	local maxStack = 1000
+    local maxStack = 1000
     local noData = {}
 
     while (cCoins > maxStack) do
         world:createItemFromId(CopperCoinsID, maxStack, pos, true, 333, noData)
         cCoins = cCoins - maxStack
     end
-	if (cCoins > 0) then
-		world:createItemFromId(CopperCoinsID, cCoins, pos, true, 333, noData)
+    if (cCoins > 0) then
+        world:createItemFromId(CopperCoinsID, cCoins, pos, true, 333, noData)
     end
 
     while (sCoins > maxStack) do
         world:createItemFromId(SilverCoinsID, maxStack, pos, true, 333, noData)
         sCoins = sCoins - maxStack
     end
-	if (sCoins > 0) then
-		world:createItemFromId(SilverCoinsID, sCoins, pos, true, 333, noData)
+    if (sCoins > 0) then
+        world:createItemFromId(SilverCoinsID, sCoins, pos, true, 333, noData)
     end
 
     while (gCoins > maxStack) do
         world:createItemFromId(GoldCoinsID, maxStack, pos, true, 333, noData)
         gCoins = gCoins - maxStack
     end
-	if (gCoins > 0) then
-		world:createItemFromId(GoldCoinsID, gCoins, pos, true, 333, noData)
-	end
+    if (gCoins > 0) then
+        world:createItemFromId(GoldCoinsID, gCoins, pos, true, 333, noData)
+    end
 end
 
 --- Give a amount of money to a specified position. This will create the money
@@ -300,7 +298,7 @@ function M.TakeCoinsFromDepot(char, gCoins, sCoins, cCoins, depotId)
         depot:eraseItem(CopperCoinsID, cCoins)
     end
 
-	if (gCoins < 0 or sCoins < 0 or cCoins < 0) then
+    if (gCoins < 0 or sCoins < 0 or cCoins < 0) then
         M.GiveCoinsToChar(char, math.min(0, gCoins) * (-1),
             math.min(0, sCoins) * (-1), math.min(0, cCoins) * (-1))
     end
@@ -453,46 +451,46 @@ end
 function M.MoneyToString(money)
     local gp, sp, cp = M.MoneyToCoins(money) --converting to gp, sp and cp
 
-	local estring = " "
-	local gstring = " "
+    local estring = " "
+    local gstring = " "
 
-	if gp ~= 0 then -- at least one gold coin
-		estring = estring..gp.." gold coin"
-		gstring = gstring..gp.." Goldstück"
-		if gp > 1 then
-			estring = estring.."s"
-			gstring = gstring.."e"
-		end
-		if sp ~= 0 and cp ~= 0 then
-			estring = estring..", "
-			gstring = gstring..", "
-		elseif sp ~= 0 or cp ~= 0 then
-			estring = estring.." and "
-			gstring = gstring.." und "
-		end
-	end
+    if gp ~= 0 then -- at least one gold coin
+        estring = estring..gp.." gold coin"
+        gstring = gstring..gp.." Goldstück"
+        if gp > 1 then
+            estring = estring.."s"
+            gstring = gstring.."e"
+        end
+        if sp ~= 0 and cp ~= 0 then
+            estring = estring..", "
+            gstring = gstring..", "
+        elseif sp ~= 0 or cp ~= 0 then
+            estring = estring.." and "
+            gstring = gstring.." und "
+        end
+    end
 
-	if sp ~= 0 then -- at least one silver coin
-		estring = estring..sp.." silver coin"
-		gstring = gstring..sp.." Silberstück"
-		if sp > 1 then
-			estring = estring.."s"
-			gstring = gstring.."e"
-		end
-		if cp ~= 0 then
-			estring = estring.." and "
-			gstring = gstring.." und "
-		end
-	end
+    if sp ~= 0 then -- at least one silver coin
+        estring = estring..sp.." silver coin"
+        gstring = gstring..sp.." Silberstück"
+        if sp > 1 then
+            estring = estring.."s"
+            gstring = gstring.."e"
+        end
+        if cp ~= 0 then
+            estring = estring.." and "
+            gstring = gstring.." und "
+        end
+    end
 
-	if cp ~= 0 then -- at least one copper coin
-		estring = estring..cp.." copper coin"
-		gstring = gstring..cp.." Kupferstück"
-		if cp > 1 then
-			estring = estring.."s"
-			gstring = gstring.."e"
-		end
-	end
+    if cp ~= 0 then -- at least one copper coin
+        estring = estring..cp.." copper coin"
+        gstring = gstring..cp.." Kupferstück"
+        if cp > 1 then
+            estring = estring.."s"
+            gstring = gstring.."e"
+        end
+    end
 
     return gstring, estring
 end
