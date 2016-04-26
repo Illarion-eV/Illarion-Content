@@ -279,7 +279,7 @@ function getDragoncaveBush(User)
             local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z)
             if (world:isItemOnField(targetPos)) then
                 local item = world:getItemOnField(targetPos)
-                if (item.id == 1813 and item:getData("dragoncaveBush") == "true") then
+                if (item.id == 3866 and item:getData("dragoncaveBush") == "true") then
                     return item
                 end
             end
