@@ -41,9 +41,9 @@ local MAX_DIFFICULTY = 0
 local MIN_CRAFTED_FOODVALUE = 6000
 local MAX_CRAFTED_FOODVALUE = 45000
 
-local VALUE_SMALL = 875
-local VALUE_MEDIUM = 1687
-local VALUE_LARGE = 2500
+local VALUE_SMALL = 800
+local VALUE_MEDIUM = 1200
+local VALUE_LARGE = 3000
 local VALUE_XLARGE = 4000
 
 --[[ create FoodList
@@ -75,27 +75,28 @@ FoodList = { add = function (self,id,Value,Leftover,BuffType,RacialFactor,UnEata
 }
 
 -- Free Food
-FoodList:add(  15,VALUE_LARGE,0); -- apple
-FoodList:add(  80,VALUE_LARGE,0); -- banana
+FoodList:add(  15,VALUE_MEDIUM,0); -- apple
+FoodList:add(  80,VALUE_MEDIUM,0); -- banana
 FoodList:add(  81,VALUE_MEDIUM,0); -- berries
-FoodList:add( 142,VALUE_MEDIUM,0); -- sand berry
+FoodList:add( 142,VALUE_SMALL,0); -- sand berry
 FoodList:add( 143,VALUE_SMALL,0); -- red elder
-FoodList:add( 147,VALUE_MEDIUM,0); -- black berry
-FoodList:add( 151,VALUE_MEDIUM,0); -- strawberries
+FoodList:add( 147,VALUE_SMALL,0); -- black berry
+FoodList:add( 151,VALUE_SMALL,0); -- strawberries
 FoodList:add( 160,VALUE_SMALL,0); -- redhead
 FoodList:add( 161,VALUE_SMALL,0); -- herders mushroom
 FoodList:add( 163,VALUE_SMALL,0); -- champignon
-FoodList:add( 199,VALUE_SMALL,0); -- tangerine
+FoodList:add( 199,VALUE_MEDIUM,0); -- tangerine
 FoodList:add( 200,VALUE_MEDIUM,0); -- tomato
-FoodList:add( 201,VALUE_SMALL,0); -- onion
-FoodList:add( 302,VALUE_SMALL,0); -- cherry
+FoodList:add( 201,VALUE_MEDIUM,0); -- onion
+FoodList:add( 302,VALUE_MEDIUM,0); -- cherry
 FoodList:add( 388,VALUE_MEDIUM,0); -- grapes
-FoodList:add( 759,VALUE_LARGE,0); -- nuts
-FoodList:add(2493,VALUE_LARGE,0); -- carrots
+FoodList:add( 759,VALUE_SMALL,0); -- nuts
+FoodList:add(2493,VALUE_MEDIUM,0); -- carrots
 FoodList:add(1149,VALUE_SMALL,0); -- brown egg
 FoodList:add(1150,VALUE_SMALL,0); -- white egg
-FoodList:add(1207,VALUE_LARGE,0); -- orange
+FoodList:add(1207,VALUE_MEDIUM,0); -- orange
 FoodList:add(3567,VALUE_MEDIUM,0); -- potato
+FoodList:add(290,VALUE_MEDIUM,0); -- Cabbage
 
 -- Racial Food
 FoodList:add(  73,VALUE_LARGE,0,nil,nil,{true,true,true,true,true,false,true,true,true,true}); -- trout (lizard)
@@ -160,7 +161,7 @@ FoodList:add( 3723,    nil,       0,     2,    {1,1,2,1,0.5,0.5,1,2,1,1}); -- Nu
 -- Poisoned Food
 FoodList:add( 162,     VALUE_SMALL,       0,    nil,    nil,    nil,     600); -- birth mushroom
 FoodList:add( 158,     VALUE_SMALL,       0,    nil,    nil,    nil,     400); -- bulbsponge mushroom
-FoodList:add( 159,     VALUE_MEDIUM,       0,    nil,    nil,    nil,    1000); -- toadstool
+FoodList:add( 159,     VALUE_SMALL,       0,    nil,    nil,    nil,    1000); -- toadstool
 
 local function SetNewFoodLevel(User, NewFoodLevel)
   NewFoodLevel = common.Limit(NewFoodLevel, 0, 60000);
