@@ -60,8 +60,8 @@ function M.UseItem(User, SourceItem, ltstate)
 
             if (trippingTime ~= "" and ((tonumber(trippingTime) + 5 * 60 * 60) > serverTime)) then -- 5 hours cooldown
                 common.InformNLS(User,
-                    "Der Farn saugt das Wasser auf, allerdings scheint er schon vollständig genährt.",
-                    "The fern soaks up the water, but seems to be already fully nourished.")
+                    "Der Baum saugt das Wasser auf, allerdings scheint er schon vollständig genährt.",
+                    "The tree soaks up the water, but seems to be already fully nourished.")
             else
                 TargetItem:setData("tripping_time", serverTime)
                 world:changeItem(TargetItem)
@@ -72,8 +72,8 @@ function M.UseItem(User, SourceItem, ltstate)
                 end
 
                 common.InformNLS(User,
-                    "Der Farn wächst und gedeiht, als ob er von den Nährstoffe des vulcanischen Quellwassers genährt wird. Vor deinen Augen wachsen Bananen.",
-                    "The fern flourishes as it is nourished with the nutrients from the vulcanic spring water and seems to grow and sprout bananas before your eyes.")
+                    "Der Baum wächst und gedeiht, als ob er von den Nährstoffe des vulcanischen Quellwassers genährt wird. Vor deinen Augen wachsen Bananen.",
+                    "The tree flourishes as it is nourished with the nutrients from the vulcanic spring water and seems to grow and sprout bananas before your eyes.")
             end
             common.TurnTo(User, TargetItem.pos) -- turn if necessary
             world:gfx(11, TargetItem.pos)
