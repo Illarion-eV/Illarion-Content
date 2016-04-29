@@ -38,7 +38,7 @@ autointroduce = on
 
 author = "Artimer"
 
-lookatDE = "Dieser NPC ist Boumaug Firemash, ein patrouillierender Wächter."
+lookatDE = "Dieser NPC ist Boumaug Firesmash, ein patrouillierender Wächter."
 lookatUS = "This NPC is Boumaug Firesmash the Patrol Guard."
 useMsgDE = "Nub mich anfassen!"
 useMsgUS = "Nub touch me!"
@@ -93,21 +93,21 @@ queststatus(111) > 18, ".+" -> inform("[Error] Something went wrong, please info
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Boumaug Firesmash the Patrol Guard. Keywords: Hello, Quest, Task, Orders, Gate.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Boumaug Firemash, ein patrouillierender Wächter. Schlüsselwörter: Hallo, Quest, Task, Befehle, Tor.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Boumaug Firesmash, ein patrouillierender Wächter. Schlüsselwörter: Hallo, Quest, Task, Befehle, Tor.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hurr! New one... bit small. Yous here for first task?", "You! Da Don needs some tasks done, on da double!"
-"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hurr! Du neu hier seien ...ein wenig schmächtig. Du hier für erste Aufgabe?", "Du da! Der Don braucht Dich für ein paar Dinge."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hurr! Du neu hier seien... Ein wenig schmächtig. Du hier für erste Aufgabe?", "Du da! Der Don braucht Dich für ein paar Dinge."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hurr! New one... bit small. Yous here for first task?", "You! Da Don needs some tasks done, on da double!"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Hurr! Du neu hier seien ...ein wenig schmächtig. Du hier für erste Aufgabe?", "Du da! Der Don braucht Dich für ein paar Dinge."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hurr! Du neu hier seien... Ein wenig schmächtig. Du hier für erste Aufgabe?", "Du da! Der Don braucht Dich für ein paar Dinge."
 "Farewell", "Bye", "Fare well", "See you" -> "See yous!", "May da fire burn in yous belly!", "Keep da eyes out!"
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Möge das Feuer in Deinem Hintern brennen!", "Laß Deine Augen wo sie sind!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Möge das Feuer in deinem Hintern brennen!", "Lass deine Augen wo sie sind!"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Dismissed.", "Best of luck.", "Move out!"
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Wegtreten", "Viel Glück", "Los geht"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Wegtreten.", "Viel Glück.", "Los geht."
 "How are you", "How feel", "How do you do" -> "Feel good. Fire Father good, da Don happy, da town safe!"
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Gut fühlen. Brand Vater gut, da Don glücklich, da der Stadt sicher!"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Gut fühlen. Brand Vater gut, da Don glücklich, da Stadt sicher!"
 "your name", "who are you", "who art thou" -> "I am the patrol guard, Boumaug Firesmash, da fire orc! Not blood orc!"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin der patrouillierende Wächter, Boumag Firemash, ein Feuerork, kein Blutclan Ork!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin der patrouillierende Wächter, Boumag Firesmash, ein Feuerork. Kein Blutclan Ork!"
 
 --Optional Triggers
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
@@ -130,25 +130,25 @@ town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bewache Deine e
 
 -- Outlaw answer
 english, town = None, "quest", "mission" -> "Yous wanderer! Yous come work for da Don, after you move to Galmair!"
-town = None, "quest", "mission" -> "Du Wanderer! Du kommst zu arbeiten für Don, erst wenn Du Gallmairer bist!"
+town = None, "quest", "mission" -> "Du Wanderer! Du kommst zu arbeiten für Don, erst wenn Du Galmairer bist!"
 town = None, "task", "adventure", "order" -> "Yous wanderer! Yous come work for da Don, after you move to Galmair!"
-town = None, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du Wanderer! Du kommst zu arbeiten für Don, erst wenn Du Gallmairer bist!"
+town = None, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du Wanderer! Du kommst zu arbeiten für Don, erst wenn Du Galmairer bist!"
 
 -- Quest 1: Read the Galmair laws
 queststatus(155) = 0, english, town = Galmair, "quest", "mission" -> inform("[New Quest] As a Galmair Guard I"), queststatus(155) = 1, queststatus(110) = 0, "Yous not been here much. Yous need to know da rules. Go to da statues, infront of da Crest, Don's house. Big building in da mountain. Read da rules. Know da rules."
-queststatus(155) = 0, town = Galmair, "quest", "mission" -> inform("[Neues Quest] als Wache Galmair´s I"), queststatus(155) = 1, queststatus(155) = 0, "Du nicht lange hier sein. Du mußt wissen Regeln. Geh´zu den Statuen vor Galmair´s Krone, Dons Haus, großes Haus am Berg. Lies die Regeln, wisse die Regeln."
+queststatus(155) = 0, town = Galmair, "quest", "mission" -> inform("[Neues Quest] als Wache Galmair´s I"), queststatus(155) = 1, queststatus(155) = 0, "Du nicht lange hier sein. Du musst wissen Regeln. Geh´zu den Statuen vor Galmairs Krone, Dons Haus, großes Haus am Berg. Lies die Regeln, wisse die Regeln."
 queststatus(155) = 0, town = Galmair, "task", "adventure", "order" -> inform("[New Quest] As a Galmair Guard I"), queststatus(155) = 1, queststatus(110) = 0, "Yous not been here much. Yous need to know da rules. Go to da statues, infront of da Crest, Don's house. Big building in da mountain. Read da rules. Know da rules."
-queststatus(155) = 0, town = Galmair, "Auftrag", "Aufgabe" -> inform("[Neues Quest] als Wache Galmair´s I"), queststatus(155) = 1, queststatus(155) = 0, "Du nicht lange hier sein. Du mußt wissen Regeln. Geh´zu den Statuen vor Galmair´s Krone, Dons Haus, großes Haus am Berg. Lies die Regeln, wisse die Regeln."
+queststatus(155) = 0, town = Galmair, "Auftrag", "Aufgabe" -> inform("[Neues Quest] als Wache Galmair´s I"), queststatus(155) = 1, queststatus(155) = 0, "Du nicht lange hier sein. Du musst wissen Regeln. Geh´zu den Statuen vor Galmairs Krone, Dons Haus, großes Haus am Berg. Lies die Regeln, wisse die Regeln."
 
 -- Quest 1 solved, reward: 5 rankpoints
 queststatus(155) = 2, english, town = Galmair, ".*" -> inform("[Quest solved] You learned the rules."), queststatus(155) = 3, rankpoints + 5, "Good, yous can read! Now you won't do bad! Time for real work!"
-queststatus(155) = 2, town = Galmair, ".*" -> inform("[Quest gelöst] Sie haben gelernt, die Regeln."), queststatus(155) = 3, rankpoints + 5, "Gut, Du können lesen. Nun Du nix kannst falsch machen. Zeit für richtige Arbeit!"
+queststatus(155) = 2, town = Galmair, ".*" -> inform("[Quest gelöst] Sie haben gelernt, die Regeln."), queststatus(155) = 3, rankpoints + 5, "Gut, du können lesen. Nun du nix kannst falsch machen. Zeit für richtige Arbeit!"
 
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(155) = 1, english, town = Galmair, "quest", "mission" -> "How yous know what to do, if yous do not read? Go to da Crest, look at statues."
-queststatus(155) = 1, town = Galmair, "quest", "mission" -> "Wie Du willst wissen was zu tun wenn Du nicht gelesen? Gehe zur Krone, betrachte die Statuen."
+queststatus(155) = 1, town = Galmair, "quest", "mission" -> "Wie du willst wissen was zu tun wenn Du nicht gelesen? Gehe zur Krone, betrachte die Statuen."
 queststatus(155) = 1, town = Galmair, "task", "adventure", "order" -> "How yous know what to do, if yous do not read? Go to da Crest, look at statues."
-queststatus(155) = 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wie Du willst wissen was zu tun wenn Du nicht gelesen? Gehe zur Krone, betrachte die Statuen."
+queststatus(155) = 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wie du willst wissen was zu tun wenn Du nicht gelesen? Gehe zur Krone, betrachte die Statuen."
 
 -- Quest 2: Patrol the palace, the notary's office and the town gate
 queststatus(155) = 3, english, town = Galmair, "quest", "mission" -> inform("[New Quest] As a Galmair Guard II"), queststatus(155) = 4, "#me nods sternly, 'First, joo go check da notary down da road and up da stairs, da south gate by Gavin, and den da Don! Come back when done!'"
@@ -162,25 +162,25 @@ queststatus(155) = 5, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst
 
 -- Quest 2 taken but not solved, repeat the instructions
 queststatus(155) = 4, english, town = Galmair, "quest", "mission" -> "Hurry! Go to da notary, south gate, and den check on da Don in da Crest!"
-queststatus(155) = 4, town = Galmair, "quest", "mission" -> "Los Beeilung! Geh´ zum Notar, Südtor und zum Don in der Krone!"
+queststatus(155) = 4, town = Galmair, "quest", "mission" -> "Los Beeilung! Geh zum Notar, Südtor und zum Don in der Krone!"
 queststatus(155) = 4, town = Galmair, "task", "adventure", "order" -> "Hurry! Go to da notary, south gate, and den check on da Don in da Crest!"
-queststatus(155) = 4, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Los Beeilung! Geh´ zum Notar, Südtor und zum Don in der Krone!"
+queststatus(155) = 4, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Los Beeilung! Geh zum Notar, Südtor und zum Don in der Krone!"
 
 -- Quest 3: Provide 20 stone block (733)
 queststatus(155) = 6, english, town = Galmair, "quest", "mission" -> inform("[New Quest] As a Galmair Guard III"), queststatus(155) = 7, "See small hole in gate? Yous should fix it! Bring me twenty stone blocks!"
-queststatus(155) = 6, town = Galmair, "quest", "mission" -> inform("[Neues Quest] als Wache Galmair´s III"), queststatus(155) = 7, "Siehst Du kleines Loch im Tor? Du mußt es schließen. Bring 20 Steinblöcke zu mir!"
+queststatus(155) = 6, town = Galmair, "quest", "mission" -> inform("[Neues Quest] als Wache Galmair´s III"), queststatus(155) = 7, "Siehst Du kleines Loch im Tor? Du musst es schließen. Bring 20 Steinblöcke zu mir!"
 queststatus(155) = 6, town = Galmair, "task", "adventure", "order" -> inform("[New Quest] As a Galmair Guard III"), queststatus(155) = 7, "See small hole in gate? Yous should fix it! Bring me twenty stone blocks!"
-queststatus(155) = 6, town = Galmair, "Auftrag", "Aufgabe" -> inform("[Neues Quest] als Wache Galmair´s III"), queststatus(155) = 7, "Siehst Du kleines Loch im Tor? Du mußt es schließen. Bring 20 Steinblöcke zu mir!"
+queststatus(155) = 6, town = Galmair, "Auftrag", "Aufgabe" -> inform("[Neues Quest] als Wache Galmair´s III"), queststatus(155) = 7, "Siehst Du kleines Loch im Tor? Du musst es schließen. Bring 20 Steinblöcke zu mir!"
 
 -- Quest 3 solved, reward: chisel (737), 10 rankpoints
 queststatus(155) = 7, item(733, all) > 19, english, town = Cadomyr, ".*" -> inform("[Quest solved] You are awarded a chisel."), deleteItem(733, 20), item(737, 1, 599), queststatus(155) = 8, rankpoints + 10, "Oops! Forgot da chisel! Good work. The walls help stop bad things from sneaking in!"
-queststatus(155) = 7, item(733, all) > 19, town = Cadomyr, ".*" -> inform("[Quest gelöst] Du erhältst eine Meißel."), deleteItem(733, 20), item(737, 1, 599), queststatus(155) = 8, rankpoints + 10, "Oh! Vergiß den Meißel. Gute Arbeit. Die Mauern helfen böse Dinge abzuhalten."
+queststatus(155) = 7, item(733, all) > 19, town = Cadomyr, ".*" -> inform("[Quest gelöst] Du erhältst eine Meißel."), deleteItem(733, 20), item(737, 1, 599), queststatus(155) = 8, rankpoints + 10, "Oh! Vergiss den Meißel. Gute Arbeit. Die Mauern helfen böse Dinge abzuhalten."
 
 -- Quest 3 taken but not solved, repeat the instructions
 queststatus(155) = 7, english, town = Galmair, "quest", "mission" -> "Twenty stone blocks for da south wall. If you need help, look in da market!"
-queststatus(155) = 7, town = Galmair, "quest", "mission" -> "Zwanzig Steinblöcke für den Südwall. Wenn Hilfe brauchen, geh´ zum Markt."
+queststatus(155) = 7, town = Galmair, "quest", "mission" -> "Zwanzig Steinblöcke für den Südwall. Wenn Hilfe brauchen, geh zum Markt."
 queststatus(155) = 7, town = Galmair, "task", "adventure", "order" -> "Twenty stone blocks for da south wall. If you need help, look in da market!"
-queststatus(155) = 7, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zwanzig Steinblöcke für den Südwall. Wenn Hilfe brauchen, geh´ zum Markt."
+queststatus(155) = 7, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zwanzig Steinblöcke für den Südwall. Wenn Hilfe brauchen, geh zum Markt."
 
 -- Quest 4: Patrol the harbour, Black Bridge (ambush), beehives
 queststatus(155) = 8, english, town = Galmair, "quest", "mission" -> inform("[New Quest] As a Galmair Guard IV"), queststatus(155) = 9, "Yous are going out now! Go check da tunnel to da Dark Hole Mine, da harbour to da north, da Black Bridge, and da honey houses far to da east, in da Plains of Nargun!"
@@ -200,19 +200,19 @@ queststatus(155) = 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl
 
 -- Quest 5: Reconnoitre the other factions and the neutral tavern
 queststatus(155) = 11, english, town = Galmair, "quest", "mission" -> inform("[New Quest] As a Galmair Guard V"), queststatus(155) = 12, "Now you sneak! Go see the Hemp Necktie Inn, and peek on the Queen of Cadomyr in her palace, and the Archmage's island in Runewick!"
-queststatus(155) = 11, town = Galmair, "quest", "mission" -> inform("[Neues Quest] als Wache Galmair´s V"), queststatus(155) = 12, "Nun Du schleichen. Gehe zum Hempty Neck Inn, dann wirf einen kurzen Blick auf die Königin von Cadomyr in ihrem Palast und dem Erzmagier auf seiner Insel in Runewick!"
+queststatus(155) = 11, town = Galmair, "quest", "mission" -> inform("[Neues Quest] als Wache Galmair´s V"), queststatus(155) = 12, "Nun Du schleichen. Gehe zum Hemp Necktie Inn, dann wirf einen kurzen Blick auf die Königin von Cadomyr in ihrem Palast und den Erzmagier auf seiner Insel in Runewick!"
 queststatus(155) = 11, town = Galmair, "task", "adventure", "order" -> inform("[New Quest]As a Galmair Guard V"), queststatus(155) = 12, "Now you sneak! Go see the Hemp Necktie Inn, and peek on the Queen of Cadomyr in her palace, and the Archmage's island in Runewick!"
-queststatus(155) = 11, town = Galmair, "Auftrag", "Aufgabe" -> inform("[Neues Quest] als Wache Galmair´s V"), queststatus(155) = 12, "Nun Du schleichen. Gehe zum Hempty Neck Inn, dann wirf einen kurzen Blick auf die Königin von Cadomyr in ihrem Palast und dem Erzmagier auf seiner Insel in Runewick!"
+queststatus(155) = 11, town = Galmair, "Auftrag", "Aufgabe" -> inform("[Neues Quest] als Wache Galmair´s V"), queststatus(155) = 12, "Nun Du schleichen. Gehe zum Hemp Necktie Inn, dann wirf einen kurzen Blick auf die Königin von Cadomyr in ihrem Palast und den Erzmagier auf seiner Insel in Runewick!"
 
 -- Quest 5 solved, reward: steelboots, 15 rankpoints
 queststatus(155) = 13, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded a pair of steel boots."), item(326, 1, 699), queststatus(155) = 14, rankpoints + 15, "Good! Yous made it! While you were gone, I got you new boots!"
-queststatus(155) = 13, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst ein Paar Stahlschuhe."), item(326, 1, 699), queststatus(155) = 14, rankpoints + 15, "Gut! Du hast es geschafft. Als Du weg warst habe ich neue Schuhe für Dich besorgt."
+queststatus(155) = 13, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst ein Paar Stahlschuhe."), item(326, 1, 699), queststatus(155) = 14, rankpoints + 15, "Gut! Du hast es geschafft. Als du weg warst habe ich neue Schuhe für dich besorgt."
 
 -- Quest 5 taken but not solved, repeat the instructions
 queststatus(155) = 12, english, town = Galmair, "quest", "mission" -> "Remember, yous go see the Hemp Necktie Inn, da Queen's Palace, and da island da Archmage lives in."
-queststatus(155) = 12, town = Galmair, "quest", "mission" -> "Erinnere Dich, Du aufsuchen Hemp Necktie Inn, den Palast der Königin, die Insel wo der Erzmagier lebt."
+queststatus(155) = 12, town = Galmair, "quest", "mission" -> "Erinnere dich, du aufsuchen Hemp Necktie Inn, den Palast der Königin, die Insel wo der Erzmagier lebt."
 queststatus(155) = 12, town = Galmair, "task", "adventure", "order" -> "Remember, yous go see the Hemp Necktie Inn, da Queen's Palace, and da island da Archmage lives in."
-queststatus(155) = 12, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Erinnere Dich, Du aufsuchen Hemp Necktie Inn, den Palast der Königin, die Insel wo der Erzmagier lebt."
+queststatus(155) = 12, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Erinnere dich, du aufsuchen Hemp Necktie Inn, den Palast der Königin, die Insel wo der Erzmagier lebt."
 
 -- Quest 6: Provide 20 grey cloth (176)
 queststatus(155) = 14, english, town = Galmair, "quest", "mission" -> inform("[New Quest] As a Galmair Guard VI"), queststatus(155) = 15, "Now we needs grey cloth. Need new covering for Irmorom temple, in da west of town. Go get 20 grey cloth and bring it to me."
@@ -226,31 +226,31 @@ queststatus(155) = 15, item(176, all) > 19, town = Galmair, ".*" -> inform("[Que
 
 -- Quest 6 taken but not solved, repeat the instructions
 queststatus(155) = 15, english, town = Galmair, "quest", "mission" -> "Irmorom is da god of da crafts and dwarves, a big deal in Galmair! We needs to make sure da craftsmen do good work!"
-queststatus(155) = 15, town = Galmair, "quest", "mission" -> "Irmorom ist Gott der Handwerker und Zwerge, ein großes Geschäft in Galmair. Wir sicherstellen müssen das Handwerker gute Arbeit machen."
+queststatus(155) = 15, town = Galmair, "quest", "mission" -> "Irmorom ist Gott der Handwerker und Zwerge, eine wichtige Sache in Galmair. Wir sicherstellen müssen, dass Handwerker gute Arbeit machen."
 queststatus(155) = 15, town = Galmair, "task", "adventure", "order" -> "Irmorom is da god of da crafts, a big deal in Galmair! We needs to make sure da craftsmen do good work!"
-queststatus(155) = 15, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Irmorom ist Gott der Handwerker und Zwerge, ein großes Geschäft in Galmair. Wir sicherstellen müssen das Handwerker gute Arbeit machen."
+queststatus(155) = 15, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Irmorom ist Gott der Handwerker und Zwerge, eine wichtige Sache in Galmair. Wir sicherstellen müssen, dass Handwerker gute Arbeit machen."
 
 -- Quest 7: Provide a rapier (2675) and a bottle of elven wine (1318)
 queststatus(155) = 16, english, town = Galmair, "quest", "mission" -> inform("[New Quest] As a Galmair Guard VII"), queststatus(155) = 17, "Da Don has new request! Bring me a rapier, and a bottle of elven wine. Small bottle. Yellow. Not big red bottle. Da Don very particular."
-queststatus(155) = 16, town = Galmair, "quest", "mission" -> inform("[Neues Quest] als Wache Galmair´s VII"), queststatus(155) = 17, "Der Don hat neue Aufgabe! Bring mir ein Rapier und Flasche Elbenwein, kleine Flasche. Gelb, nicht große rote Flasche. Der Don ist da sehr eigen."
+queststatus(155) = 16, town = Galmair, "quest", "mission" -> inform("[Neues Quest] als Wache Galmair´s VII"), queststatus(155) = 17, "Der Don hat neue Aufgabe! Bring mir einen Rapier und eine Flasche Elbenwein, kleine Flasche. Gelb, nicht große rote Flasche. Der Don ist da sehr eigen."
 queststatus(155) = 16, town = Galmair, "task", "adventure", "order" -> inform("[New Quest] As a Galmair Guard VII"), queststatus(155) = 17, "Da Don has new request! Bring me a rapier, and a bottle of elven wine. Small bottle. Yellow. Not big red bottle. Da Don very particular."
-queststatus(155) = 16, town = Galmair, "Auftrag", "Aufgabe" -> inform("[Neues Quest] als Wache Galmair´s VII"), queststatus(155) = 17, "Der Don hat neue Aufgabe! Bring mir ein Rapier und Flasche Elbenwein, kleine Flasche. Gelb, nicht große rote Flasche. Der Don ist da sehr eigen."
+queststatus(155) = 16, town = Galmair, "Auftrag", "Aufgabe" -> inform("[Neues Quest] als Wache Galmair´s VII"), queststatus(155) = 17, "Der Don hat neue Aufgabe! Bring mir einen Rapier und eine Flasche Elbenwein, kleine Flasche. Gelb, nicht große rote Flasche. Der Don ist da sehr eigen."
 
 -- Quest 7 solved, reward: legionnaire's tower shield (2448), magical sapphire (284), 20 rankpoints
 queststatus(155) = 17, item(2675, all) > 0, item(1318, all) > 0, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded a legionnaire's tower shield and a magical amethyst."), deleteItem(2675, 1), deleteItem(1318, 1), item(2448, 1, 999,"descriptionEn" = "This shield bears the crest of Galmair.", "descriptionDe" = "Dieses Schild trägt die Krone Galmairs.","rareness" = "3"), item(284, 1, 333, "gemLevel" = "2"), queststatus(155) = 18, rankpoints + 20, "Yous good friend of da Don. I am glad yous helped us. Thanks you!"
-queststatus(155) = 17, item(2675, all) > 0, item(1318, all) > 0, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst einen Legionärsturmschild und einen magischen Saphir."), deleteItem(2675, 1), deleteItem(1318, 1), item(2448, 1, 999,"descriptionEn" = "This shield bears the crest of Galmair.", "descriptionDe" = "Dieses Schild trägt die Krone Galmairs.","rareness" = "3"), item(284, 1, 333, "gemLevel" = "2"), queststatus(155) = 18, rankpoints + 20, "-"
+queststatus(155) = 17, item(2675, all) > 0, item(1318, all) > 0, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst einen Legionärsturmschild und einen magischen Amethyst."), deleteItem(2675, 1), deleteItem(1318, 1), item(2448, 1, 999,"descriptionEn" = "This shield bears the crest of Galmair.", "descriptionDe" = "Dieses Schild trägt die Krone Galmairs.","rareness" = "3"), item(284, 1, 333, "gemLevel" = "2"), queststatus(155) = 18, rankpoints + 20, "Du bist Freund von Don. Ich froh, dass du geholfen hast. Danks."
 
 -- Quest 7 taken but not solved, repeat the instructions
 queststatus(155) = 17, english, town = Galmair, "quest", "mission" -> "Da Don needs a rapier and a small bottle of yellow elven wine. Bring them back to me so I can inspect them."
-queststatus(155) = 17, town = Galmair, "quest", "mission" -> "Der Don brauchen ein Rapier und kleine Flasche gelben Elbenwein. Bring zu mir damit ich es ansehen kann."
+queststatus(155) = 17, town = Galmair, "quest", "mission" -> "Der Don brauchen einen Rapier und eine kleine Flasche gelben Elbenwein. Bring zu mir damit ich es ansehen kann."
 queststatus(155) = 17, town = Galmair, "task", "adventure", "order" -> "Da Don needs a rapier and a small bottle of yellow elven wine. Bring them back to me so I can inspect them."
-queststatus(155) = 17, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Don brauchen ein Rapier und kleine Flasche gelben Elbenwein. Bring zu mir damit ich es ansehen kann."
+queststatus(155) = 17, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Don brauchen einen Rapier und eine kleine Flasche gelben Elbenwein. Bring zu mir damit ich es ansehen kann."
 
 -- No more quests, just nice words of gratitude
 queststatus(155) = 18, english, town = Galmair, "quest", "mission" -> "Yous bring big money to town! Yous bring big money to yous! Da fire burns in your belly! No more work for yous!"
-queststatus(155) = 18, town = Galmair, "quest", "mission" -> "Du bringen viel Geld in Stadt. Du bringen viel Geld zu uns. Du haben Feuer im Hintern. Für uns keine Arbeit mehr."
+queststatus(155) = 18, town = Galmair, "quest", "mission" -> "Du bringen viel Geld in Stadt. Du bringen viel Geld zu uns. Du haben Feuer im Hintern. Ich keine Arbeit mehr für dich."
 queststatus(155) = 18, town = Galmair, "task", "adventure", "order" -> "Yous bring big money to town! Yous bring big money to yous! Da fire burns in your belly! No more work for yous!"
-queststatus(155) = 18, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du bringen viel Geld in Stadt. Du bringen viel Geld zu uns. Du haben Feuer im Hintern. Für uns keine Arbeit mehr."
+queststatus(155) = 18, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du bringen viel Geld in Stadt. Du bringen viel Geld zu uns. Du haben Feuer im Hintern. Ich keine Arbeit mehr für dich."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am da patrol guard! Da Don likes orcs for his muscle."
@@ -258,7 +258,7 @@ queststatus(155) = 18, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befeh
 english, "job" -> "I am da patrol guard! Da Don likes orcs for his muscle."
 "job" -> "Ich bin ein Wächter! Der Don bevorzugt Orks wegen ihrer Muskeln!"
 english, "Gobaith", "Gobiath" -> "Gobiath was tiny island in ocean. Dis is Illarion! Da Don welcomes da islanders!"
-"Gobaith", "Gobiath" -> "Gobaith war ne kleine Insel im Meer. Das ist Illarion! Der Don heißt euch Insulaner willkommen!"
+"Gobaith", "Gobiath" -> "Gobaith war ne kleine Insel im Meer. Das ist Illarion! Der Don heißt auch Insulaner willkommen!"
 "my name" -> "Good name. Bet yous real famous huh?"
 "mein Name" -> "Toller Name. Ich wette du bist richtig berühmt huh?"
 
@@ -293,11 +293,11 @@ english, "Cadomyr" -> "Cadomyr da desert place. Sometimes dey take brothers as s
 
 -- Main land factions
 english, "albar" -> "Da angry human clan. Our clans fought long ago, and the result... well. It was a draw, I'd say."
-"albar" -> "Ein zorniger Menschenstamm. Unsere Stämme haben vor langer zeit gegeneinander gekämpft und das Ergebnis...nunja, es war ein unentschieden würde ich sagen."
+"albar" -> "Ein zorniger Menschenstamm. Unsere Stämme haben vor langer Zeit gegeneinander gekämpft und das Ergebnis...nun ja. Es war ein Unentschieden würde ich sagen."
 english, "gynk", "gync" -> "A tough place, but good to find work. Sometimes messy work. Da Don is from there."
 "gync", "gynk" -> "Ein schwieriger Ort, aber gut um Arbeit zu finden. Manchmal schmutzige Arbeit. Der Don kommt dort her."
 english, "salkama" -> "Salkamar very clean, good place. Not many orcs. Not very welcome."
-"salkama" -> "Salkmar ist ein sehr sauberer, Guter Ort. Nicht viele Orks. Wir sind dort nicht sehr willkommen."
+"salkama" -> "Salkamar ist ein sehr sauberer, guter Ort. Nicht viele Orks. Wir sind dort nicht sehr willkommen."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Da god I follow is Bragon, but the younger ones are good too!"
@@ -333,13 +333,13 @@ english, "Tanora", "Zelphia" -> "Elder God. Temple of the Five in da Plains of S
 english, "Ushara" -> "Elder God. Temple of the Five in da Plains of Silence, northeast in mountain, across river."
 "Ushara" -> "Älterer Gott, Tempel der Fünf in der Ebene der Stille, nordöstlich, im Berg über dem Fluss."
 english, "Zhambra" -> "God of friends! God of brothers! Good for holding clans together, worshipped in Cadomyr."
-"Zhambra" -> "Gott der Freunschaft! Gott der Brüder! Nützlich um Stämme zusammen zuhalten, wird in Cadomyr angebetet."
+"Zhambra" -> "Gott der Freundschaft! Gott der Brüder! Nützlich um Stämme zusammen zuhalten, wird in Cadomyr angebetet."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I don't trade, I protect!"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich glaube nicht, zu handeln, ich schützen!"
 "tell something" -> "#me blinks, 'My brother tried fishing once. He fell in the lake.'"
-"erzähl was", "erzähl etwas" -> "#me blinkt, 'Mein Bruder versuchte die Fischerei sofort. Er fiel in den See.'"
+"erzähl was", "erzähl etwas" -> "#me blinkt, 'Mein Bruder versuchte einst die Fischerei. Er fiel in den See.'"
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 
@@ -351,7 +351,7 @@ english, "Zhambra" -> "God of friends! God of brothers! Good for holding clans t
 cycletext "Willkommen in Galmair!", "Welcome to Galmair!"
 cycletext "Der Don mag Orks! Wir sind seine Muskeln!", "Da Don likes da orcs! We are his muscle!"
 cycletext "#me schaut verträumt, 'Da gibt es Gava und Bula...und Bre..'", "#me stares off dreamily, 'Der is Gava, and Bula... and Bre..'"
-cycletext "#me hackt etwas von einer Liste ab, 'Noch soviel zu tuen..'", "#me checks off a list, 'So much more to do..'"
+cycletext "#me hackt etwas von einer Liste ab, 'Noch soviel zu tun..'", "#me checks off a list, 'So much more to do..'"
 cycletext "#me klopft sich auf den Bauch, 'Feuer im Magen!", "#me slaps his stomach, 'Fire in da belly!'"
 cycletext "#me grinst, 'Ich bade einmal im Monat, egal ob ich es brauche oder nicht!", "#me beams a grin, 'I bathe once a month, need it or not!'"
 cycletext "#me grunzt voller Respekt.", "#me grunts in respect."

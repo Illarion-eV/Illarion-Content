@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 -- Quest: As a Galmair Guard (155)/(158)
@@ -26,8 +26,8 @@ waypoint[2] = position(122, 530, 0) --2: Cadomyr
 waypoint[3] = position(995, 816, 0) --3: Runewick
 local messageG = {}
 messageG[1] = "[Queststatus] Du betrittst das Hemp Necktie Inn. Es ist langweilig heute, aber eine angenehme Atmosphäre."
-messageG[2] = "[Queststatus] Der Thronraum der Königin. Ein Ort, an welchem man die Aura der Königin und ihre erhabenen Auffassung verspürt."
-messageG[3] = "[Queststatus] Der Erzmagier scheint auf einige unbedeutende Geschichten fokussiert und macht sich nichtssagende Notizen. "
+messageG[2] = "[Queststatus] Der Thronraum der Königin. Ein Ort, an welchem man die Aura der Königin und ihre erhabene Selbstwahrnehmung verspürt."
+messageG[3] = "[Queststatus] Der Erzmagier scheint auf einige unbedeutende Geschichten fokussiert und macht sich nichtssagende Notizen."
 local messageE = {}
 messageE[1] = "[Quest status] You enter the Hemp Necktie Inn. It is rather dull today, but a good atmosphere."
 messageE[2] = "[Quest status] The Queen's throne room. A place where one should be mindful of her lofty opinion of herself."

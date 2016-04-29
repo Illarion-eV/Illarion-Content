@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Quest: As a Galmair Guard (155)/(156)
 local common = require("base.common")
@@ -26,7 +26,7 @@ waypoint[3] = position(348, 229, 0) --3: The Don
 local messageG = {}
 messageG[1] = "[Queststatus] Der Notar scheint in das Zählen von Münzen vertieft, sonst ist alles gut."
 messageG[2] = "[Queststatus] Am Südtor scheint alles in Ordnung."
-messageG[3] = "[Queststatus] Der Bergkamm ist ruhig abgesehen von den verschiedenen dahinschreitenden Arbeitern."
+messageG[3] = "[Queststatus] Der Bergkamm ist ruhig, abgesehen von den verschiedenen dahinschreitenden Arbeitern."
 local messageE = {}
 messageE[1] = "[Quest status] The Notary seems wrapped up in counting coins, but all is well."
 messageE[2] = "[Quest status] The South Gate stands well."

@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 -- Quest: As a Galmair Guard (155)/(157)
@@ -26,10 +26,10 @@ waypoint[2] = position(447, 121, 0) --2: Galmair Harbour
 waypoint[3] = position(497, 201, 0) --3: Black Bridge (ambush)
 waypoint[4] = position(628, 270, 0) --4: Eastern Lake of Life area
 local messageG = {}
-messageG[1] = "[Queststatus] Du horst den Klang der Spitzhacken, welche den Stein treffen und das Echo aus dem Tal."
-messageG[2] = "[Queststatus] Die Boote schauklen im Hafen, ansonsten ist der Hafen ruhig."
+messageG[1] = "[Queststatus] Du hörst den Klang der Spitzhacken, welche den Stein treffen und das Echo aus dem Tal."
+messageG[2] = "[Queststatus] Die Boote schaukeln im Hafen, ansonsten ist der Hafen ruhig."
 messageG[3] = "[Queststatus] Als Du die Schwarzbrücke überquerst ist ein lautes Zischen beim Angriff der Rattenmenschen zu hören. Ein Hinterhalt!"
-messageG[4] = "[Queststatus] Du hörst grölen von raspelnden Stimmen und klappernden Knochen von oben."
+messageG[4] = "[Queststatus] Du hörst Gröhlen von raspelnden Stimmen und klappernden Knochen von oben."
 local messageE = {}
 messageE[1] = "[Quest status] You hear the sound of pickaxes striking stone echoing up from below."
 messageE[2] = "[Quest status] The boats rock in the harbour, but the harbour is calm."
@@ -54,7 +54,7 @@ function M.MoveToField(User)
                     world:createMonster(571, position(239, 435, 0), -10) --snuffler
                     world:gfx(41, position(234, 430, 0))
                     world:createMonster(576, position(234, 430, 0), -10) --Contaminated Ratman
-                   
+
                 end
 
                 if queststatus == 1111 then --found all waypoints
