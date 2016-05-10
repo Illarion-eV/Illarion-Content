@@ -69,7 +69,7 @@ local Start = {910, 849, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(943, 827, 0)} -- Nizar
+QuestTarget[1] = {position(947, 845, 0)} -- Nizar
 QuestTarget[2] = {position(910, 849, 0)}
 QuestTarget[3] = {position(910, 849, 0)}
 QuestTarget[4] = {position(956, 829, 0)} -- Argentus Almsbag
