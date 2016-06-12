@@ -127,8 +127,7 @@ function TownGuard(User,toolTown)
     local dialogTitle = common.GetNLS(User, "Charakter bannen", "Ban a character")
     local dialogText = common.GetNLS(User, "Um einen Charakter einen Zwergentag zu bannen, gib folgendes an: [Name|ID] Beispiel: Max Mustermann", "To ban a character for one dwarven day, please insert: [Name|ID] Example: John Doe")
     local dialog = InputDialog(dialogTitle, dialogText, false, 255, callback)
-
-    dialog:setCloseOnMove()
+    
     User:requestInputDialog(dialog)
 end
 
