@@ -1,15 +1,15 @@
 -- Illarion Server
---
+-- 
 -- This program is free software: you can redistribute it and/or modify it under
 -- the terms of the GNU Affero General Public License as published by the Free
 -- Software Foundation, either version 3 of the License, or (at your option) any
 -- later version.
---
+-- 
 -- This program is distributed in the hope that it will be useful, but WITHOUT
 -- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
 -- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 -- details.
---
+-- 
 -- You should have received a copy of the GNU Affero General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
@@ -192,7 +192,7 @@ cycletext "Wenn ihr anderen eine Grube graben wollt, hier gibt es die Schaufeln 
 cycletext "Mein Erz ist was dein Herz begehrt!", "Need some ore? I've got it and more!"
 cycletext "Steine so günstig, dass eure Augen funkeln werden.", "Stones at a price that will make your eyes sparkle!"
 cycletext "Meine Spitzhacken gleiten durch den Stein wie durch Butter!", "Want a pick, mine cut through stone as if it was butter!"
-cycletext "#me winkt aufgeregt mit der Hand: 'Kommt her, kommt alle, hier gibt es Werkzeuge und Baumaterial.'", "#me waves his hand up, 'Come on, come all, get your tools and trade supplies here!'"
+cycletext "#me winkt aufgeregt mit der Hand: 'Kommt her, kommt alle, hier gibt es Werkzeuge und Baumaterial.'", "#me waves his hand up, 'Come one, come all, get your tools and trade supplies here!'"
 cycletext "#me wischt sich die Stirn ab.", "#me wipes his forehead with the back of an arm."
 cycletext "#me spielt mit einem Goldnugget, er wirft es hoch und fängt es anschließend.", "#me plays with a nugget, tossing it up then catching it"
 cycletext "#me formt mit seinen Händen einen Trichter und ruft: 'Nur keine Scheu, ich hab Geld wie Heu!'", "#me holds a hand to the side of his mouth as he calls, 'Don't be shy, come and buy!'"
