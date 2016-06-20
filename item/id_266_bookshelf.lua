@@ -197,6 +197,7 @@ M.bookList["arcania_lizzard"] = {english = "The Magic Water, Lizards and Magic",
 M.bookList["compositionworld"] = {english = "Helmynr's Composition of the World",german =  "Der Aufbau der Welt nach Helmynr", bookId = 405, bookGraphic = bookBlueSilverLandscape}
 M.bookList["letmasecret"] = {english = "Letma's Secret",german =  "Letma's Geheimnis", bookId = 406, bookGraphic = bookRedHigh}
 M.bookList["singingwell"] = {english = "The Singing Well",german =  "Der singende Brunnen", bookId = 407, bookGraphic = bookBlueRedLandscape}
+M.bookList["sky"] = {english = "The Sky Above Our Heads",german =  "Der Himmel über uns", bookId = 408, bookGraphic = bookBlackHeavy}
 M.bookList["cadomyr_order1"] = {english = "Order 04. Findos 38 AW",german =  "Befehl 04. Findos 38 n.VdH", bookId = 501, bookGraphic = pell}
 M.bookList["speech_rosaline_32_11_05"] = {english = "Speech 04. Findos 38 AW",german =  "Rede 05. Findos 38 n.VdH", bookId = 502, bookGraphic = pell}
 M.bookList["galmair_adjutant"] = {english = "Wanted! Adjutant",german =  "Gesucht! Adjutant", bookId = 506, bookGraphic = pell}
