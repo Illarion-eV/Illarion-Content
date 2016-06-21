@@ -74,28 +74,28 @@ Description[ENGLISH][18] = "You have fulfilled all the tasks for Boumaug Firesma
 -- These all need to change.
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {408, 247, 0}
+Start = {404, 248, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(408, 247, 0), position(125, 566, 0)} -- statue
-QuestTarget[2] = {position(405, 247, 0)}
-QuestTarget[3] = {position(405, 247, 0)}
-QuestTarget[4] = {position(405, 247, 0), position(404, 267, 1), position(385, 333, 0), position(348, 229, 0)} -- notary's office, the Don and the south gate
-QuestTarget[5] = {position(405, 247, 0)}
-QuestTarget[6] = {position(405, 247, 0)}
-QuestTarget[7] = {position(405, 247, 0)}
-QuestTarget[8] = {position(405, 247, 0)}
-QuestTarget[9] = {position(405, 247, 0), position(417, 188, 0), position(447, 121, 0), position(497, 201, 0), position(628, 270, 0)} --Black hole mine, north harbour, black bridge, and Lake of life area
-QuestTarget[10] = {position(405, 247, 0)}
-QuestTarget[11] = {position(405, 247, 0)}
-QuestTarget[12] = {position(405, 247, 0), position(698, 314, 0), position(347, 229, 0), position(1002, 813, 0)} -- Hanfschlinge,Galmair,Runewick
-QuestTarget[13] = {position(405, 247, 0)}
-QuestTarget[14] = {position(405, 247, 0)}
-QuestTarget[15] = {position(405, 247, 0), position(945, 829, 0), position(957, 823, 0), position(367, 277, 0), position(382, 269, 0)} --händler,werkbank
-QuestTarget[16] = {position(405, 247, 0)}
-QuestTarget[17] = {position(405, 247, 0), position(125, 603, 0), position(143, 586, 0), position(138, 589, 0)} --händler,Schmelzofen,amboss
-QuestTarget[18] = {position(405, 247, 0)}
+QuestTarget[1] = {position(404, 248, 0), position(125, 566, 0)} -- statue
+QuestTarget[2] = {position(404, 248, 0)}
+QuestTarget[3] = {position(404, 248, 0)}
+QuestTarget[4] = {position(404, 248, 0), position(404, 267, 1), position(385, 333, 0), position(348, 229, 0)} -- notary's office, the Don and the south gate
+QuestTarget[5] = {position(404, 248, 0)}
+QuestTarget[6] = {position(404, 248, 0)}
+QuestTarget[7] = {position(404, 248, 0)}
+QuestTarget[8] = {position(404, 248, 0)}
+QuestTarget[9] = {position(404, 248, 0), position(417, 188, 0), position(447, 121, 0), position(497, 201, 0), position(628, 270, 0)} --Black hole mine, north harbour, black bridge, and Lake of life area
+QuestTarget[10] = {position(404, 248, 0)}
+QuestTarget[11] = {position(404, 248, 0)}
+QuestTarget[12] = {position(404, 248, 0), position(698, 314, 0), position(347, 229, 0), position(1002, 813, 0)} -- Hanfschlinge,Galmair,Runewick
+QuestTarget[13] = {position(404, 248, 0)}
+QuestTarget[14] = {position(404, 248, 0)}
+QuestTarget[15] = {position(404, 248, 0), position(945, 829, 0), position(957, 823, 0), position(367, 277, 0), position(382, 269, 0)} --händler,werkbank
+QuestTarget[16] = {position(404, 248, 0)}
+QuestTarget[17] = {position(404, 248, 0), position(125, 603, 0), position(143, 586, 0), position(138, 589, 0)} --händler,Schmelzofen,amboss
+QuestTarget[18] = {position(404, 248, 0)}
 
 
 -- Insert the quest status which is reached at the end of the quest

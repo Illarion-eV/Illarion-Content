@@ -16,7 +16,7 @@
 -- NPC Name: Boumaug Firesmash                                        Galmair --
 -- NPC Job:  Quartermaster                                                    --
 --                                                                            --
--- NPC Race: Orc                      NPC Position:  408, 247, 0              --
+-- NPC Race: Orc                      NPC Position:  404, 248, 0              --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:  Artimer                                                           --
@@ -26,7 +26,7 @@
 name = "Boumaug Firesmash"
 race = orc
 sex = male
-position = 406, 249, 0
+position = 404, 248, 0
 direction = south
 affiliation = "Galmair"
 job = "Patrol Guard"
