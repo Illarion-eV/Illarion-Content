@@ -91,7 +91,7 @@ function StartGathering(User, SourceItem, ltstate)
     local fished = 1 -- set the amount of items that are produced
     local fishID = 0
     local chance = Random.uniform(1,100)
-    if chance <= 45 then
+    if chance <= 30 then
         fishID = 355 -- salmon
     elseif chance <= 75 then
         fishID =73 -- trout
