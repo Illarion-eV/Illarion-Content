@@ -64,7 +64,7 @@ function StartGathering(User, SourceItem, ltstate)
     common.TurnTo( User, SourceItem.pos ) -- turn if necessary
 
     -- check the amount
-    local MaxAmount = 20
+    local MaxAmount = 40
     local changeItem = false
     local amountStr = SourceItem:getData("amount")
     local amount = 0
