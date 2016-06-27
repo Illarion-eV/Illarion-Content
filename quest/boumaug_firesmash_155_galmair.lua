@@ -78,7 +78,7 @@ Start = {404, 248, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(404, 248, 0), position(125, 566, 0)} -- statue
+QuestTarget[1] = {position(404, 248, 0), position(368, 250, 0)} -- statues
 QuestTarget[2] = {position(404, 248, 0)}
 QuestTarget[3] = {position(404, 248, 0)}
 QuestTarget[4] = {position(404, 248, 0), position(404, 267, 1), position(385, 333, 0), position(348, 229, 0)} -- notary's office, the Don and the south gate
