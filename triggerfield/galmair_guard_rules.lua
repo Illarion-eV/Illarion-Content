@@ -19,7 +19,7 @@ local common = require("base.common")
 
 local M = {}
 
-function M.MoveToField(User)
+function M.MoveToField(char)
     if char:getType() ~= Character.player then
         return
     end
