@@ -21,7 +21,7 @@ local common = require("base.common")
 local M = {}
 
 local waypoint = {} --a list with positions
-waypoint[1] = position(697, 313, 0) --1: Hemp Necktie Inn
+waypoint[1] = position(696, 314, 0) --1: Hemp Necktie Inn
 waypoint[2] = position(122, 530, 0) --2: Cadomyr
 waypoint[3] = position(995, 816, 0) --3: Runewick
 local messageG = {}
