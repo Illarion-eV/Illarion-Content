@@ -177,10 +177,8 @@ queststatus(155) = 7, item(733, all) > 19, english, town = Galmair, ".*" -> info
 queststatus(155) = 7, item(733, all) > 19, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst eine Meißel."), deleteItem(733, 20), item(737, 1, 599), queststatus(155) = 8, rankpoints + 10, "Oh! Vergiss den Meißel. Gute Arbeit. Die Mauern helfen böse Dinge abzuhalten."
 
 -- Quest 3 taken but not solved, repeat the instructions
-queststatus(155) = 7, english, town = Galmair, "quest", "mission" -> "Twenty cut stone blocks for da South Wall. If you need help, look in da market!"
-queststatus(155) = 7, town = Galmair, "quest", "mission" -> "Zwanzig Steinquader für den Südwall. Wenn Hilfe brauchen, geh zum Markt."
-queststatus(155) = 7, town = Galmair, "task", "adventure", "order" -> "Twenty cut stone blocks for da South Wall. If you need help, look in da market!"
-queststatus(155) = 7, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zwanzig Steinquader für den Südwall. Wenn Hilfe brauchen, geh zum Markt."
+queststatus(155) = 7, english, town = Galmair,  ".*" -> "Twenty cut stone blocks for da South Wall. If you need help, look in da market!"
+queststatus(155) = 7, town = Galmair,  ".*" -> "Zwanzig Steinquader für den Südwall. Wenn Hilfe brauchen, geh zum Markt."
 
 -- Quest 4: Patrol the tunnel to the Dark Hole Mine, Harbour, Black Bridge (ambush), beehives
 queststatus(155) = 8, english, town = Galmair, "quest", "mission" -> inform("[New Quest] As a Galmair Guard IV"), queststatus(155) = 9, "Yous are going out now! Go check da tunnel to da Dark Hole Mine, Galmair Harbour to da north, da Black Bridge, and da honey houses far to da east in da Plains of Nargún!"
@@ -225,10 +223,8 @@ queststatus(155) = 15, item(176, all) > 19, english, town = Galmair, ".*" -> inf
 queststatus(155) = 15, item(176, all) > 19, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst einen Kriegshammer."), deleteItem(176, 20), item(226, 1, 799), queststatus(155) = 16, rankpoints + 20, "Gute Arbeit Rekrut. Du gute Taten für Don und Galmair getan. Dieser Hammer weist Dich als Verteidiger Galmairs aus."
 
 -- Quest 6 taken but not solved, repeat the instructions
-queststatus(155) = 15, english, town = Galmair, "quest", "mission" -> "Irmorom is da God of da crafts and dwarves, a big deal in Galmair! We needs to make sure da craftsmen do good work!"
-queststatus(155) = 15, town = Galmair, "quest", "mission" -> "Irmorom ist Gott der Handwerker und Zwerge, eine wichtige Sache in Galmair. Wir sicherstellen müssen, dass Handwerker gute Arbeit machen."
-queststatus(155) = 15, town = Galmair, "task", "adventure", "order" -> "Irmorom is da God of da crafts, a big deal in Galmair! We needs to make sure da craftsmen do good work!"
-queststatus(155) = 15, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Irmorom ist Gott der Handwerker und Zwerge, eine wichtige Sache in Galmair. Wir sicherstellen müssen, dass Handwerker gute Arbeit machen."
+queststatus(155) = 15, english, town = Galmair,  ".*" -> "Irmorom is da God of da crafts and dwarves, a big deal in Galmair! We needs to make sure da craftsmen do good work! Go get twenty grey cloth and bring it to me."
+queststatus(155) = 15, town = Galmair,  ".*" -> "Irmorom ist Gott der Handwerker und Zwerge, eine wichtige Sache in Galmair. Wir sicherstellen müssen, dass Handwerker gute Arbeit machen.  Geh, bring zwanzig Ballen grauen Stoff zu mir."
 
 -- Quest 7: Provide a rapier (2675) and a bottle of elven wine (1318)
 queststatus(155) = 16, english, town = Galmair, "quest", "mission" -> inform("[New Quest] As a Galmair Guard VII"), queststatus(155) = 17, "Da Don has new request! Bring me a rapier, and a bottle of elven wine. Small bottle. Yellow. Not big red bottle. Da Don very particular."
@@ -241,10 +237,8 @@ queststatus(155) = 17, item(2675, all) > 0, item(1318, all) > 0, english, town =
 queststatus(155) = 17, item(2675, all) > 0, item(1318, all) > 0, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst einen Legionärsturmschild und einen magischen Amethyst."), deleteItem(2675, 1), deleteItem(1318, 1), item(2448, 1, 999,"descriptionEn" = "This shield bears the crest of Galmair.", "descriptionDe" = "Dieses Schild trägt die Krone Galmairs.","rareness" = "3"), item(284, 1, 333, "gemLevel" = "2"), queststatus(155) = 18, rankpoints + 20, "Du bist Freund von Don. Ich froh, dass du geholfen hast. Danks."
 
 -- Quest 7 taken but not solved, repeat the instructions
-queststatus(155) = 17, english, town = Galmair, "quest", "mission" -> "Da Don needs a rapier and a small bottle of yellow elven wine. Bring them back to me so I can inspect them."
-queststatus(155) = 17, town = Galmair, "quest", "mission" -> "Der Don brauchen einen Rapier und eine kleine Flasche gelben Elbenwein. Bring zu mir damit ich es ansehen kann."
-queststatus(155) = 17, town = Galmair, "task", "adventure", "order" -> "Da Don needs a rapier and a small bottle of yellow elven wine. Bring them back to me so I can inspect them."
-queststatus(155) = 17, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Don brauchen einen Rapier und eine kleine Flasche gelben Elbenwein. Bring zu mir damit ich es ansehen kann."
+queststatus(155) = 17, english, town = Galmair,  ".*" -> "Da Don needs a rapier and a small bottle of yellow elven wine. Bring them back to me so I can inspect them."
+queststatus(155) = 17, town = Galmair,  ".*" -> "Der Don brauchen einen Rapier und eine kleine Flasche gelben Elbenwein. Bring zu mir damit ich es ansehen kann."
 
 -- No more quests, just nice words of gratitude
 queststatus(155) = 18, english, town = Galmair, "quest", "mission" -> "Yous bring big money to town! Yous bring big money to yous! Da fire burns in your belly! No more work for yous!"

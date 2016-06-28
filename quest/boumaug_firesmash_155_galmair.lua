@@ -89,12 +89,12 @@ QuestTarget[8] = {position(404, 248, 0)}
 QuestTarget[9] = {position(404, 248, 0), position(418, 187, 0), position(447, 121, 0), position(497, 205, 0), position(628, 270, 0)} --Black hole mine, north harbour, black bridge, and Lake of life area
 QuestTarget[10] = {position(404, 248, 0)}
 QuestTarget[11] = {position(404, 248, 0)}
-QuestTarget[12] = {position(404, 248, 0), position(698, 314, 0), position(347, 229, 0), position(1002, 813, 0)} -- Hanfschlinge,Galmair,Runewick
+QuestTarget[12] = {position(404, 248, 0), position(696, 314, 0), position(122, 530, 0), position(995, 816, 0)} -- Hanfschlinge,Cadomyr,Runewick
 QuestTarget[13] = {position(404, 248, 0)}
 QuestTarget[14] = {position(404, 248, 0)}
-QuestTarget[15] = {position(404, 248, 0), position(945, 829, 0), position(957, 823, 0), position(367, 277, 0), position(382, 269, 0)} --händler,werkbank
+QuestTarget[15] = {position(404, 248, 0), position(952, 835, 0), position(953, 815, 0), position(113, 611, 0), position(141, 575, 0)} --händler,werkbank
 QuestTarget[16] = {position(404, 248, 0)}
-QuestTarget[17] = {position(404, 248, 0), position(125, 603, 0), position(143, 586, 0), position(138, 589, 0)} --händler,Schmelzofen,amboss
+QuestTarget[17] = {position(404, 248, 0), position(120, 599, 0), position(273, 275, 0), position(378, 311, -6)} --händler
 QuestTarget[18] = {position(404, 248, 0)}
 
 
