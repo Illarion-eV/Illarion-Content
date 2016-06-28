@@ -135,10 +135,10 @@ town = None, "task", "adventure", "order" -> "Yous wanderer! Yous come work for 
 town = None, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du Wanderer! Du kommst zu arbeiten für Don, erst wenn Du Galmairer bist!"
 
 -- Quest 1: Read Galmair's rules
-queststatus(155) = 0, english, town = Galmair, "quest", "mission" -> inform("[New Quest] As a Galmair Guard I"), queststatus(155) = 1, queststatus(110) = 0, "Yous not been here much. Yous need to know da rules. Go to da statues in front of da Crest, da Don's house. Big building in da mountain. Read da rules. Know da rules."
-queststatus(155) = 0, town = Galmair, "quest", "mission" -> inform("[Neues Quest] als Wache Galmair´s I"), queststatus(155) = 1, queststatus(155) = 0, "Du nicht lange hier sein. Du musst wissen Regeln. Geh´zu den Statuen vor Galmairs Krone, Dons Haus, großes Haus am Berg. Lies die Regeln, wisse die Regeln."
-queststatus(155) = 0, town = Galmair, "task", "adventure", "order" -> inform("[New Quest] As a Galmair Guard I"), queststatus(155) = 1, queststatus(110) = 0, "Yous not been here much. Yous need to know da rules. Go to da statues in front of da Crest, da Don's house. Big building in da mountain. Read da rules. Know da rules."
-queststatus(155) = 0, town = Galmair, "Auftrag", "Aufgabe" -> inform("[Neues Quest] als Wache Galmair´s I"), queststatus(155) = 1, queststatus(155) = 0, "Du nicht lange hier sein. Du musst wissen Regeln. Geh´zu den Statuen vor Galmairs Krone, Dons Haus, großes Haus am Berg. Lies die Regeln, wisse die Regeln."
+queststatus(155) = 0, english, town = Galmair, "quest", "mission" -> inform("[New Quest] As a Galmair Guard I"), queststatus(155) = 1,"Yous not been here much. Yous need to know da rules. Go to da statues in front of da Crest, da Don's house. Big building in da mountain. Read da rules. Know da rules."
+queststatus(155) = 0, town = Galmair, "quest", "mission" -> inform("[Neues Quest] als Wache Galmair´s I"), queststatus(155) = 1, "Du nicht lange hier sein. Du musst wissen Regeln. Geh´zu den Statuen vor Galmairs Krone, Dons Haus, großes Haus am Berg. Lies die Regeln, wisse die Regeln."
+queststatus(155) = 0, town = Galmair, "task", "adventure", "order" -> inform("[New Quest] As a Galmair Guard I"), queststatus(155) = 1, "Yous not been here much. Yous need to know da rules. Go to da statues in front of da Crest, da Don's house. Big building in da mountain. Read da rules. Know da rules."
+queststatus(155) = 0, town = Galmair, "Auftrag", "Aufgabe" -> inform("[Neues Quest] als Wache Galmair´s I"), queststatus(155) = 1, "Du nicht lange hier sein. Du musst wissen Regeln. Geh´zu den Statuen vor Galmairs Krone, Dons Haus, großes Haus am Berg. Lies die Regeln, wisse die Regeln."
 
 -- Quest 1 solved, reward: 5 rank points
 queststatus(155) = 2, english, town = Galmair, ".*" -> inform("[Quest solved] You learned the rules."), queststatus(155) = 3, rankpoints + 5, "Good, yous can read! Now you won't do bad! Time for real work!"
@@ -167,20 +167,20 @@ queststatus(155) = 4, town = Galmair, "task", "adventure", "order" -> "Hurry! Go
 queststatus(155) = 4, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Los Beeilung! Geh zum Notar, Südtor und zum Don in der Krone!"
 
 -- Quest 3: Provide 20 stone block (733)
-queststatus(155) = 6, english, town = Galmair, "quest", "mission" -> inform("[New Quest] As a Galmair Guard III"), queststatus(155) = 7, "See small hole in wall? Yous should fix it! Bring me twenty stone blocks!"
-queststatus(155) = 6, town = Galmair, "quest", "mission" -> inform("[Neues Quest] als Wache Galmair´s III"), queststatus(155) = 7, "Siehst Du kleines Loch im Mauern? Du musst es schließen. Bring zwanzig Steinblöcke zu mir!"
-queststatus(155) = 6, town = Galmair, "task", "adventure", "order" -> inform("[New Quest] As a Galmair Guard III"), queststatus(155) = 7, "See small hole in wall? Yous should fix it! Bring me twenty stone blocks!"
-queststatus(155) = 6, town = Galmair, "Auftrag", "Aufgabe" -> inform("[Neues Quest] als Wache Galmair´s III"), queststatus(155) = 7, "Siehst Du kleines Loch im Mauern? Du musst es schließen. Bring zwanzig Steinblöcke zu mir!"
+queststatus(155) = 6, english, town = Galmair, "quest", "mission" -> inform("[New Quest] As a Galmair Guard III"), queststatus(155) = 7, "See small hole in wall? Yous should fix it! Bring me twenty cut stone blocks!"
+queststatus(155) = 6, town = Galmair, "quest", "mission" -> inform("[Neues Quest] als Wache Galmair´s III"), queststatus(155) = 7, "Siehst Du kleines Loch im Mauern? Du musst es schließen. Bring zwanzig Steinquader zu mir!"
+queststatus(155) = 6, town = Galmair, "task", "adventure", "order" -> inform("[New Quest] As a Galmair Guard III"), queststatus(155) = 7, "See small hole in wall? Yous should fix it! Bring me twenty cut stone blocks!"
+queststatus(155) = 6, town = Galmair, "Auftrag", "Aufgabe" -> inform("[Neues Quest] als Wache Galmair´s III"), queststatus(155) = 7, "Siehst Du kleines Loch im Mauern? Du musst es schließen. Bring zwanzig Steinquader zu mir!"
 
 -- Quest 3 solved, reward: chisel (737), 10 rankpoints
-queststatus(155) = 7, item(733, all) > 19, english, town = Cadomyr, ".*" -> inform("[Quest solved] You are awarded a chisel."), deleteItem(733, 20), item(737, 1, 599), queststatus(155) = 8, rankpoints + 10, "Oops! Forgot da chisel! Good work. The walls help stop bad things from sneaking in!"
-queststatus(155) = 7, item(733, all) > 19, town = Cadomyr, ".*" -> inform("[Quest gelöst] Du erhältst eine Meißel."), deleteItem(733, 20), item(737, 1, 599), queststatus(155) = 8, rankpoints + 10, "Oh! Vergiss den Meißel. Gute Arbeit. Die Mauern helfen böse Dinge abzuhalten."
+queststatus(155) = 7, item(733, all) > 19, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded a chisel."), deleteItem(733, 20), item(737, 1, 599), queststatus(155) = 8, rankpoints + 10, "Oops! Forgot da chisel! Good work. The walls help stop bad things from sneaking in!"
+queststatus(155) = 7, item(733, all) > 19, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst eine Meißel."), deleteItem(733, 20), item(737, 1, 599), queststatus(155) = 8, rankpoints + 10, "Oh! Vergiss den Meißel. Gute Arbeit. Die Mauern helfen böse Dinge abzuhalten."
 
 -- Quest 3 taken but not solved, repeat the instructions
-queststatus(155) = 7, english, town = Galmair, "quest", "mission" -> "Twenty stone blocks for da South Wall. If you need help, look in da market!"
-queststatus(155) = 7, town = Galmair, "quest", "mission" -> "Zwanzig Steinblöcke für den Südwall. Wenn Hilfe brauchen, geh zum Markt."
-queststatus(155) = 7, town = Galmair, "task", "adventure", "order" -> "Twenty stone blocks for da South Wall. If you need help, look in da market!"
-queststatus(155) = 7, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zwanzig Steinblöcke für den Südwall. Wenn Hilfe brauchen, geh zum Markt."
+queststatus(155) = 7, english, town = Galmair, "quest", "mission" -> "Twenty cut stone blocks for da South Wall. If you need help, look in da market!"
+queststatus(155) = 7, town = Galmair, "quest", "mission" -> "Zwanzig Steinquader für den Südwall. Wenn Hilfe brauchen, geh zum Markt."
+queststatus(155) = 7, town = Galmair, "task", "adventure", "order" -> "Twenty cut stone blocks for da South Wall. If you need help, look in da market!"
+queststatus(155) = 7, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zwanzig Steinquader für den Südwall. Wenn Hilfe brauchen, geh zum Markt."
 
 -- Quest 4: Patrol the tunnel to the Dark Hole Mine, Harbour, Black Bridge (ambush), beehives
 queststatus(155) = 8, english, town = Galmair, "quest", "mission" -> inform("[New Quest] As a Galmair Guard IV"), queststatus(155) = 9, "Yous are going out now! Go check da tunnel to da Dark Hole Mine, Galmair Harbour to da north, da Black Bridge, and da honey houses far to da east in da Plains of Nargún!"
