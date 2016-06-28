@@ -21,7 +21,7 @@ local common = require("base.common")
 local M = {}
 
 local waypoint = {} --a list with positions
-waypoint[1] = position(417, 188,0) --1: Dark Hole Mine
+waypoint[1] = position(418, 187,0) --1: Dark Hole Mine
 waypoint[2] = position(447, 121, 0) --2: Galmair Harbour
 waypoint[3] = position(497, 205, 0) --3: Black Bridge (ambush)
 waypoint[4] = position(628, 270, 0) --4: Eastern Lake of Life area
@@ -50,10 +50,10 @@ function M.MoveToField(User)
                 queststatus = User:getQuestProgress(157) --and reading it again
 
                 if i == 3 then --ambush!
-                    world:gfx(41, position(239, 435, 0))
-                    world:createMonster(571, position(239, 435, 0), -10) --snuffler
-                    world:gfx(41, position(234, 430, 0))
-                    world:createMonster(576, position(234, 430, 0), -10) --Contaminated Ratman
+                    world:gfx(41, position(497, 203, 0))
+                    world:createMonster(571, position(497, 203, 0), -10) --snuffler
+                    world:gfx(41, position(497, 207, 0))
+                    world:createMonster(576, position(497, 207, 0), -10) --Contaminated Ratman
 
                 end
 
