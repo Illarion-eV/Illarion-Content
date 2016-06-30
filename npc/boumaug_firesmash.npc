@@ -83,17 +83,17 @@ itemShoes = 770
 -- 12: Quest 5 taken, reconnoitre the other factions and the neutral tavern
 -- 13: All locations visited
 -- 14: Quest 5 solved, reward: Steel boots, +15 rankpoints
--- 15: Quest 6 taken, provide 20 naldor wood boards (546)
+-- 15: Quest 6 taken, provide 20 Grey cloth
 -- 16: Quest 6 solved, reward: War hammer, +20 rankpoints
 -- 17: Quest 7 taken, provide a rapier and a bottle of elven wine
 -- 18: Quest 7 solved, reward: Legionnaire's tower shield, magical sapphire, +20 rankpoints
 
 -- Debugging
-queststatus(111) > 18, ".+" -> inform("[Error] Something went wrong, please inform a developer.")
+queststatus(155) > 18, ".+" -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Boumaug Firesmash the Patrol Guard. Keywords: Hello, Quest, Task, Orders, Gate.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Boumaug Firesmash, ein patrouillierender Wächter. Schlüsselwörter: Hallo, Quest, Task, Befehle, Tor.")
+"Help" -> inform("[Game Help] This NPC is Boumaug Firesmash the Patrol Guard. Keywords: Hello, Quest, Task, Orders, Gate, fire, blood.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Boumaug Firesmash, ein patrouillierender Wächter. Schlüsselwörter: Hallo, Quest, Task, Befehle, Tor, blut, feuer.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hurr! New one... bit small. Yous here for first task?", "You! Da Don needs some tasks done, on da double!"
