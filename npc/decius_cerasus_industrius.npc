@@ -273,8 +273,8 @@ queststatus(160) = 0, chance(6.25), town = Runewick, "task", "adventure", "order
 queststatus(160) = 0, chance(6.25), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 10, queststatus(260) = 36, "Ich brauche eine Rubinkette. Wärt ihr so freundlich mir eine zu bringen?"
 
 -- Quest 10 solved, reward: topaz, 3 rankpoints, delay: 5h
-queststatus(160) = 10, item(67, all) > 0, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a topaz."), deleteItem(334, 1), item(198, 1, 599), queststatus(160) = 0, queststatus(260) = 0, queststatus(161) = 60, rankpoints + 3, "Thank you, she will like it. Take this topaz, I don't have any use for it."
-queststatus(160) = 10, item(67, all) > 0, town = Runewick, ".*" -> inform("[Quest gelöst] Du erhältst einen Topas."), deleteItem(334, 1), item(198, 1, 599), queststatus(160) = 0, queststatus(260) = 0, queststatus(161) = 60, rankpoints + 3, "Danke, sie wird ihr gefallen. Nehmt diesen Topas dafür, ich kann damit nichts anfangen."
+queststatus(160) = 10, item(67, all) > 0, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a topaz."), deleteItem(67, 1), item(198, 1, 599), queststatus(160) = 0, queststatus(260) = 0, queststatus(161) = 60, rankpoints + 3, "Thank you, she will like it. Take this topaz, I don't have any use for it."
+queststatus(160) = 10, item(67, all) > 0, town = Runewick, ".*" -> inform("[Quest gelöst] Du erhältst einen Topas."), deleteItem(67, 1), item(198, 1, 599), queststatus(160) = 0, queststatus(260) = 0, queststatus(161) = 60, rankpoints + 3, "Danke, sie wird ihr gefallen. Nehmt diesen Topas dafür, ich kann damit nichts anfangen."
 
 -- Quest 10 taken but not solved, repeat the instructions
 queststatus(160) = 10, item(67, all) < 1, english, town = Runewick, "quest", "mission" -> "I do not see a ruby amulet."
