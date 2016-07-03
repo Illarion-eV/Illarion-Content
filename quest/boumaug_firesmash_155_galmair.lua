@@ -25,7 +25,7 @@ local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}
-Title[GERMAN] = "als Wache Galmair´s"
+Title[GERMAN] = "Als Wache Galmairs"
 Title[ENGLISH] = "As a Galmair Guard"
 
 -- Insert an extensive description of each status here, in both languages
@@ -33,7 +33,7 @@ Title[ENGLISH] = "As a Galmair Guard"
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Lies die Regeln auf den Statuen des Dons die vor Galmairs Krone stehen."
+Description[GERMAN][1] = "Lies die Regeln auf den Statuen des Dons, die vor Galmairs Krone stehen."
 Description[ENGLISH][1] = "Read the rules on the Don's statues in front of the Crest of Galmair."
 Description[GERMAN][2] = "Kehre zu Boumaug zurück."
 Description[ENGLISH][2] = "Return to Boumaug."
@@ -67,7 +67,7 @@ Description[GERMAN][16] = "Gehe zu Boumaug Firesmash am Osttor Galmairs. Er hat 
 Description[ENGLISH][16] = "Go back to Boumaug Firesmash by the East Gate of Galmair, he will certainly have another task for you."
 Description[GERMAN][17] = "Produziere einen Rapier und eine Flasche Elfenwein und bring sie zu Boumaug. Ein Schmied und ein Koch sollte das können."
 Description[ENGLISH][17] = "Obtain a rapier and a bottle of elven wine and bring them to Boumaug. You can buy them from a merchant or produce them as blacksmith and cook respectively. To produce a rapier, use a hammer in your hand while standing in front of an anvil. To produce a bottle of elven wine use a cooking spoon in your hand while standing in front of a brewing barrel."
-Description[GERMAN][18] = "Du hast all Aufgaben von Boumaug Firesmash erledigt."
+Description[GERMAN][18] = "Du hast alle Aufgaben von Boumaug Firesmash erledigt."
 Description[ENGLISH][18] = "You have fulfilled all the tasks for Boumaug Firesmash."
 
 
