@@ -26,7 +26,7 @@ function M.MoveToField(char)
     
     if char.pos == position (368 , 250, 0) and char:getQuestProgress(155) == 1 then -- doing quest to read the rules of Galmair
         char:setQuestProgress(155, 2)
-        common.InformNLS(char,"[Queststatus] Du hast lesen die Regeln auf den Statuen des Dons die vor Galmairs Krone stehen. Kehre zu Boumaug zurück.", "[Quest status] You read the rules on the Don's statues in front of the Crest of Galmair. Return to Boumaug.")
+        common.InformNLS(char,"[Queststatus] Du hast die Regeln des Dons auf den Statuen vor Galmairs Krone gelesen. Kehre zu Boumaug zurück.", "[Quest status] You read the rules on the Don's statues in front of the Crest of Galmair. Return to Boumaug.")
     end
 end
 return M
