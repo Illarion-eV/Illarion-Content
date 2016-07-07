@@ -201,7 +201,7 @@ function InitPotions()
     setPotion(541, 449, 63584498, 766, 162, 764, 763, false, false, false, false)
     M.potionName[550] = {"Shape Shifter Male Lizardman","Verwandler Männlicher Echsenmensch"}
     setPotion(550, 449, 23417592, 766, 161, 760, 767, false, false, false, false)
-    M.potionName[551] = {"Shape Shifter Female Echsenmensch","Verwandler Weiblicher Echsenmensch"}
+    M.potionName[551] = {"Shape Shifter Female Lizardman","Verwandler Weiblicher Echsenmensch"}
     setPotion(551, 449, 23417592, 766, 162, 760, 767, false, false, false, false)
     M.potionName[560] = {"Shape Shifter Dog","Verwandler Hund"}
     setPotion(560, 449, 31397191, 766, 152, 81, 81, 762, false, false, false)
