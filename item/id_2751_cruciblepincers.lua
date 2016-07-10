@@ -29,10 +29,8 @@ M.LookAtItem = metal.LookAtItem
 
 function getFurnace(User)
     local furnaces = {}
-    furnaces[2834] = true
-    furnaces[2835] = true
-    furnaces[2836] = true
-    furnaces[2837] = true
+    furnaces[3869] = true
+    furnaces[3870] = true
 
     local targetItem = common.GetFrontItem(User);
     if (targetItem ~= nil and furnaces[targetItem.id] ~= nil) then

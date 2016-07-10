@@ -14,11 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- Forge off: 2836
--- Forge on: 2835
-
--- Forge off: 2837
--- Forge on: 2834
+-- Bloomery 3869, 3870
 
 -- coal (21) + { iron ore (22), copper ore (2536), gold nuggets (234), silver ore (1062), merinium ore (2534)}
 --          --> {iron (2535), copper (2550), silver (104), gold (236), merinium (2571)} ingot
@@ -64,21 +60,6 @@ function StartGathering(User, SourceItem, ltstate)
     common.ResetInterruption( User, ltstate );
     if ( ltstate == Action.abort ) then -- work interrupted
         User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
-
-        if (SourceItem.id == 2834) then --swapping
-            SourceItem.id = 2837;
-            SourceItem.wear = 255;
-            world:changeItem(SourceItem);
-            User:changeSource(SourceItem);
-        end
-
-        if (SourceItem.id == 2835) then --swapping
-            SourceItem.id = 2836;
-            SourceItem.wear = 255;
-            world:changeItem(SourceItem);
-            User:changeSource(SourceItem);
-        end
-
         return
     end
 
@@ -104,21 +85,7 @@ function StartGathering(User, SourceItem, ltstate)
         end
     end
 
-    if not common.FitForWork( User ) then -- check minimal food points
-        if (SourceItem.id == 2835) then --turn it off
-            SourceItem.id = 2836;
-            SourceItem.wear = 255;
-            world:changeItem(SourceItem);
-            User:changeSource(SourceItem);
-        end
-
-        if (SourceItem.id == 2834) then
-            SourceItem.id = 2837;
-            SourceItem.wear = 255;
-            world:changeItem(SourceItem);
-            User:changeSource(SourceItem);
-        end
-
+    if not common.FitForWork( User ) then -- check for minimal food points
         return
     end
 
@@ -152,56 +119,16 @@ function StartGathering(User, SourceItem, ltstate)
   end
 
     if ( ltstate == Action.none ) then -- currently not working -> let's go
-    -- oh wait, check if someone else is working at the tool
-    if (SourceItem.id == 2836) or (SourceItem.id == 2837) then
-      -- alright, it's off
       oremelting.SavedWorkTime[User.id] = oremelting:GenWorkTime(User,toolItem);
       User:startAction( oremelting.SavedWorkTime[User.id], 0, 0, 0, 0);
       User:talk(Character.say, "#me beginnt an der Esse Erz zu schmelzen.", "#me starts to melt ore at the forge.")
-
-         if (SourceItem.id == 2836) then --turn it on!
-            SourceItem.id = 2835;
-            SourceItem.wear = 2;
-            world:changeItem(SourceItem);
-            User:changeSource(SourceItem);
-        end
-
-        if (SourceItem.id == 2837) then --turn it on!
-            SourceItem.id = 2834;
-            SourceItem.wear = 2;
-            world:changeItem(SourceItem);
-            User:changeSource(SourceItem);
-        end
-
-    else
-      -- it's on, can't work now.
-      common.HighInformNLS( User,
-      "Jemand anderes arbeitet schon an der Esse.",
-      "Someone else is already working at the forge." );
-    end
-        return
+      return
     end
 
     -- since we're here, we're working
 
     if oremelting:FindRandomItem(User) then
-
-    if (SourceItem.id == 2835) then --turn it off
-      SourceItem.id = 2836;
-      SourceItem.wear = 255;
-      world:changeItem(SourceItem);
-      User:changeSource(SourceItem);
-    end
-
-    if (SourceItem.id == 2834) then
-      SourceItem.id = 2837;
-      SourceItem.wear = 255;
-      world:changeItem(SourceItem);
-      User:changeSource(SourceItem);
-    end
-
-        return
-
+       return
     end
 
     User:learn( oremelting.LeadSkill, oremelting.SavedWorkTime[User.id], oremelting.LearnLimit);
@@ -235,38 +162,5 @@ function StartGathering(User, SourceItem, ltstate)
             common.HighInformNLS(User,
             "Deine alte Tiegelzange zerbricht.",
             "Your old crucible-pincers break.");
-
-        if (SourceItem.id == 2835) then --turn it off
-          SourceItem.id = 2836;
-          SourceItem.wear = 255;
-          world:changeItem(SourceItem);
-          User:changeSource(SourceItem);
-        end
-
-        if (SourceItem.id == 2834) then --turn it off
-          SourceItem.id = 2837;
-          SourceItem.wear = 255;
-          world:changeItem(SourceItem);
-          User:changeSource(SourceItem);
-        end
-
-            return
-        end
-      if (not nextActionStarted) then
-
-        if (SourceItem.id == 2835) then --turn it off
-          SourceItem.id = 2836;
-          SourceItem.wear = 255;
-          world:changeItem(SourceItem);
-          User:changeSource(SourceItem);
-        end
-
-        if (SourceItem.id == 2834) then --turn it off
-          SourceItem.id = 2837;
-          SourceItem.wear = 255;
-          world:changeItem(SourceItem);
-          User:changeSource(SourceItem);
-        end
-
       end
 end

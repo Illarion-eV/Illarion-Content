@@ -15,9 +15,8 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE items SET itm_script='item.id_2836_forge' WHERE itm_id IN (2834,2835,2836,2837);
--- UPDATE items SET com_objectafterrot=2836 WHERE itm_id = 2835;
--- UPDATE items SET com_objectafterrot=2837 WHERE itm_id = 2834;
+-- UPDATE items SET itm_script='item.id_3869_bloomery' WHERE itm_id IN (3869,3870);
+
 
 local licence = require("base.licence")
 local oremelting = require("content.gatheringcraft.oremelting")
