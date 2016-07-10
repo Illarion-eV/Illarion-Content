@@ -28,74 +28,74 @@ local M = {}
 M.LookAtItem = metal.LookAtItem
 
 function getFurnace(User)
-	local furnaces = {}
-	furnaces[2834] = true
-	furnaces[2835] = true
-	furnaces[2836] = true
-	furnaces[2837] = true
+    local furnaces = {}
+    furnaces[2834] = true
+    furnaces[2835] = true
+    furnaces[2836] = true
+    furnaces[2837] = true
 
-	local targetItem = common.GetFrontItem(User);
-	if (targetItem ~= nil and furnaces[targetItem.id] ~= nil) then
-		return targetItem;
-	end
+    local targetItem = common.GetFrontItem(User);
+    if (targetItem ~= nil and furnaces[targetItem.id] ~= nil) then
+        return targetItem;
+    end
 
-	local Radius = 1;
-	for x=-Radius,Radius do
-		for y=-Radius,Radius do
-			local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
-			if (world:isItemOnField(targetPos)) then
-				local targetItem = world:getItemOnField(targetPos);
-				if (targetItem ~= nil and furnaces[targetItem.id] ~= nil) then
-					return targetItem;
-				end
-			end
-		end
-	end
-	return nil;
+    local Radius = 1;
+    for x=-Radius,Radius do
+        for y=-Radius,Radius do
+            local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
+            if (world:isItemOnField(targetPos)) then
+                local targetItem = world:getItemOnField(targetPos);
+                if (targetItem ~= nil and furnaces[targetItem.id] ~= nil) then
+                    return targetItem;
+                end
+            end
+        end
+    end
+    return nil;
 end
 
 function getChandlerTable(User)
 
-	local targetItem = common.GetFrontItem(User);
-	if (targetItem ~= nil and targetItem.id == 428) then
-		return targetItem;
-	end
+    local targetItem = common.GetFrontItem(User);
+    if (targetItem ~= nil and targetItem.id == 428) then
+        return targetItem;
+    end
 
-	local Radius = 1;
-	for x=-Radius,Radius do
-		for y=-Radius,Radius do
-			local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
-			if (world:isItemOnField(targetPos)) then
-				local targetItem = world:getItemOnField(targetPos);
-				if (targetItem ~= nil and targetItem.id == 428) then
-					return targetItem;
-				end
-			end
-		end
-	end
-	return nil;
+    local Radius = 1;
+    for x=-Radius,Radius do
+        for y=-Radius,Radius do
+            local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
+            if (world:isItemOnField(targetPos)) then
+                local targetItem = world:getItemOnField(targetPos);
+                if (targetItem ~= nil and targetItem.id == 428) then
+                    return targetItem;
+                end
+            end
+        end
+    end
+    return nil;
 end
 
 function M.UseItem(User, SourceItem, ltstate)
-	if licence.licence(User) then --checks if user is citizen or has a licence
-		return -- avoids crafting if user is neither citizen nor has a licence
-	end
+    if licence.licence(User) then --checks if user is citizen or has a licence
+        return -- avoids crafting if user is neither citizen nor has a licence
+    end
 
-	local furnaceItem = getFurnace(User);
-	if furnaceItem then
-		oremelting.StartGathering(User, furnaceItem, ltstate);
-		return
-	end
+    local furnaceItem = getFurnace(User);
+    if furnaceItem then
+        oremelting.StartGathering(User, furnaceItem, ltstate);
+        return
+    end
 
-	local chandlertableItem = getChandlerTable(User);
-	if chandlertableItem then
-		waxproducing.StartGathering(User, chandlertableItem, ltstate);
-		return
-	end
+    local chandlertableItem = getChandlerTable(User);
+    if chandlertableItem then
+        waxproducing.StartGathering(User, chandlertableItem, ltstate);
+        return
+    end
 
-	common.InformNLS(User,
-		"Du musst neben einem Schmelzofen oder Kerzenziehertisch stehen um die Tiegelzange zu benutzen.",
-		"You must stand next to a furnace or a chandler table to use the crucible-pincers.");
+    common.InformNLS(User,
+        "Du musst neben einem Schmelzofen oder Kerzenziehertisch stehen um die Tiegelzange zu benutzen.",
+        "You must stand next to a furnace or a chandler table to use the crucible-pincers.");
 end
 
 return M
