@@ -187,10 +187,10 @@ english, "Gobaith", "Gobiath" -> "Gobaith! Aye. My cousin fourth removed lived t
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his environment
 "dwarf" -> "Dwarves don't drink shandy, they drink it pure! Halflings mix wine with fruit juices and call it a spritzer. Ha'ak! A real dwarf would rather shave his beard. Arr."
 english, "Silverbrand" -> "Silverbrand? There's not much I know about. But my cousin lived there a while."
-"smith" -> "A smith needs a hammer and ore of course. You can buy everything at the market. With coal, ore is smelted to make ingots. Ingots, you can smith with. Got it?", "Search for an anvil to smith. The furnace you need to smelt ore."
+"smith" -> "A smith needs a hammer and ore of course. You can buy everything at the market. With coal, ore is smelted to make ingots. Ingots, you can smith with. Got it?", "Search for an anvil to smith. The bloomery you need to smelt ore."
 "pickaxe" -> "You can mine for ore with it, a merchant can surely sell ya one if you lose yours."
 "Spitzhacke" -> "Damit kannst du das Erz abbauen, ein Händler kann dir sicher eine verkaufen wenn du deine verlierst."
-"Schmied" -> "N' Schmied braucht nen Hammer. Und Erz natürlich. Das kannste alles am Markt kaufn. Erz schmilzt du mit Kohle zu Barren. Und die schmiedet man.", "Du musst zu einem Amboss gehn, wenn du schmieden willst. An der Esse kannst du Erz schmelzn."
+"Schmied" -> "N' Schmied braucht nen Hammer. Und Erz natürlich. Das kannste alles am Markt kaufn. Erz schmilzt du mit Kohle zu Barren. Und die schmiedet man.", "Du musst zu einem Amboss gehn, wenn du schmieden willst. An der Rennofen kannst du Erz schmelzn."
 "Silberbrand" -> "Silberbrand? Weiß ich nich viel von. Aber mein Cousin hat dort ne Weile gelebt."
 "Zwerg" -> "Ein Zwerg trinkt die Mischung pur! - Bei den Halblingen mischen sie Wein mit Fruchtsaft. Das nennen sie Schorle oder Spritzer. Ha'ak! Aber ein echter Zwerg trinkt nichts Gestrecktes!"
 english, "mine" -> "Arr, you can find the mine if you follow the path south of the workshop. That's the house with the brown roof!"

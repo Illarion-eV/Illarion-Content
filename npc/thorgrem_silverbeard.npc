@@ -119,10 +119,10 @@ queststatus(708) = 1, item(22, all) < 10, english, town = Galmair, "task", "adve
 queststatus(708) = 1, item(22, all) < 10, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "kohle", "eisen" -> "Da fehlt aber noch etwas. Ich wollte 10 Eisenerze und 10 Kohleklumpen von dir. Hast du das vergessen?"
 
 -- second quest
-queststatus(708) = 2, english, town = Galmair, "quest", "mission" -> item(2751, 1, 333), queststatus(708) = 3, "I have another task for you, aye. Could you smelt me ten iron ingots at the furnace over there? Here I'll even give you the crucible-pincers for smelting the ore."
-queststatus(708) = 2, town = Galmair, "quest", "mission" -> item(2751, 1, 333), queststatus(708) = 3, "Ich hätte einen weitere Aufgabe für dich, aye. Kannst du zehn Eisenbarren bei der Esse neben mir schmelzen? Hier, ich gebe dir sogar eine Tiegelzange zum schmelzen."
-queststatus(708) = 2, town = Galmair, "task", "adventure", "order" -> item(2751, 1, 333), queststatus(708) = 3, "I have another task for you, aye. Could you smelt me ten iron ingots at the furnace over there? Here I'll even give you the crucible-pincers for smelting the ore."
-queststatus(708) = 2, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(2751, 1, 333), queststatus(708) = 3, "Ich hätte einen weitere Aufgabe für dich, aye. Kannst du zehn Eisenbarren bei der Esse neben mir schmelzen? Hier, ich gebe dir sogar eine Tiegelzange zum schmelzen."
+queststatus(708) = 2, english, town = Galmair, "quest", "mission" -> item(2751, 1, 333), queststatus(708) = 3, "I have another task for you, aye. Could you smelt me ten iron ingots at the bloomery over there? Here I'll even give you the crucible-pincers for smelting the ore."
+queststatus(708) = 2, town = Galmair, "quest", "mission" -> item(2751, 1, 333), queststatus(708) = 3, "Ich hätte einen weitere Aufgabe für dich, aye. Kannst du zehn Eisenbarren bei der Rennofen neben mir schmelzen? Hier, ich gebe dir sogar eine Tiegelzange zum schmelzen."
+queststatus(708) = 2, town = Galmair, "task", "adventure", "order" -> item(2751, 1, 333), queststatus(708) = 3, "I have another task for you, aye. Could you smelt me ten iron ingots at the bloomery over there? Here I'll even give you the crucible-pincers for smelting the ore."
+queststatus(708) = 2, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(2751, 1, 333), queststatus(708) = 3, "Ich hätte einen weitere Aufgabe für dich, aye. Kannst du zehn Eisenbarren bei der Rennofen neben mir schmelzen? Hier, ich gebe dir sogar eine Tiegelzange zum schmelzen."
 
 -- second quest complete
 queststatus(708) = 3, item(2535, all) > 9, english, town = Galmair, "quest", "mission" -> queststatus(708) = 4, "Well done. Please keep the iron ingots for your next task."

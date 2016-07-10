@@ -167,8 +167,8 @@ english, "salkama" -> "Oh, please, do not talk about them in public. The Queen d
 -- Gods; each NPC should at react on at least one god, being a follower of said god
 "god" -> "I respect all of the Gods, but those I worship are Irmorom and Adron."
 "Gott", "Götter" -> "Ich respektiere alle Götter, aber die, die ich anbete, sind Irmorom und Adron."
-english, "Irmorom" -> "Of course I always pray to Irmorom before I fire up the furnace, but I really do adore Adron."
-"Irmorom" -> "Natürlich bete ich stets zu Irmorom, bevor ich den Schmelzofen anfeuere. Aber wirklich verehren tu ich Adron."
+english, "Irmorom" -> "Of course I always pray to Irmorom before I fire up the bloomery, but I really do adore Adron."
+"Irmorom" -> "Natürlich bete ich stets zu Irmorom, bevor ich den Rennofen anfeuere. Aber wirklich verehren tu ich Adron."
 english, "Adron" -> "Truly, Adron is my saviour. Without him, nobody would enjoy a good wine and I would no longer be able to sell anything."
 "Adron" -> "Fürwahr, Adron ist mein Heiland. Ohne ihn würde niemand mehr einen guten Tropfen Wein genießen und ich würde nichts mehr verkaufen."
 
