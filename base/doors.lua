@@ -122,6 +122,10 @@ AddToDoorList(3802, 3803)
 AddToDoorList(3804, 3805)
 AddToDoorList(3806, 3807)
 AddToDoorList(3808, 3809)
+AddToDoorList(3846, 3850)
+AddToDoorList(3847, 3851)
+AddToDoorList(3848, 3852)
+AddToDoorList(3849, 3853)
 
 --[[
     CheckOpenDoor
