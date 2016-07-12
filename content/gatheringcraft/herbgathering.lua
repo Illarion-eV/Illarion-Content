@@ -314,6 +314,14 @@ function InitHerbItems()
     CreateHarvestProduct(153, gt.grass),                         -- foot leaf
     CreateHarvestProduct(752, gt.rock)                         -- mandrake
     }
+    
+    HerbItems[1178] = {                                   -- fern
+    CreateHarvestProduct(140, gt.forest),                        -- donf blade
+    CreateHarvestProduct(156, gt.sand),                          -- steppe fern
+    CreateHarvestProduct(153, gt.grass),                         -- foot leaf
+    CreateHarvestProduct(752, gt.rock)                         -- mandrake
+    }
+
 
     HerbItems[301] = {                                   -- hedge
     CreateHarvestProduct(147, gt.forest),                        -- blackberry
@@ -323,6 +331,11 @@ function InitHerbItems()
     }
 
     HerbItems[338] = {                                   -- reed
+    CreateHarvestProduct(134, gt.grass),                         -- fourleafed oneberry
+    CreateHarvestProduct(155, gt.water)                         -- sibanac leaf
+    }
+    
+    HerbItems[1177] = {                                   -- reed
     CreateHarvestProduct(134, gt.grass),                         -- fourleafed oneberry
     CreateHarvestProduct(155, gt.water)                         -- sibanac leaf
     }
