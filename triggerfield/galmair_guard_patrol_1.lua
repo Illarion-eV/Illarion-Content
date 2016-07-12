@@ -20,7 +20,7 @@ local common = require("base.common")
 local M = {}
 
 local waypoint = {} --a list with positions
-waypoint[1] = position(404, 267, 1) --1: Notary
+waypoint[1] = position(404, 269, 1) --1: Notary
 waypoint[2] = position(385, 333, 0) --2: South Gate
 waypoint[3] = position(347, 229, 0) --3: The Don
 local messageG = {}
