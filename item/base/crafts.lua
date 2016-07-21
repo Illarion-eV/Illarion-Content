@@ -403,7 +403,7 @@ function Product:getCraftingTime(skill)
     local minimum = theItem.Worth * 0.015
     local maximum = theItem.Worth * 0.030
     local craftingTime = common.Scale(minimum, maximum, learnProgress)
-    local craftingTime = math.max (craftingItem,5)
+    local craftingTime = math.max (craftingTime,5)
     
     craftingTime = math.ceil(craftingTime)
     return craftingTime
