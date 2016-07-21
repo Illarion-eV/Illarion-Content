@@ -397,7 +397,14 @@ end
 function Product:getCraftingTime(skill)
     local requirement = self.difficulty
     local learnProgress = (skill - requirement) / (self.learnLimit - requirement) * 100
-    local craftingTime = common.Scale(self.maxTime, self.minTime, learnProgress)
+    --local craftingTime = common.Scale(self.maxTime, self.minTime, learnProgress)
+    
+    local theItem = world:getItemStatsFromId(self.item)
+    local minimum = theItem.Worth * 0.015
+    local maximum = theItem.Worth * 0.030
+    local craftingTime = common.Scale(minimum, maximum, learnProgress)
+    local craftingTime = math.max (craftingItem,5)
+    
     craftingTime = math.ceil(craftingTime)
     return craftingTime
 end
