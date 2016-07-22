@@ -434,8 +434,8 @@ end
 function M.FitForHardWork(User, required)
     if (User:increaseAttrib("foodlevel", 0) < required) then
         M.InformNLS(User,
-        "Du bist dafür zu erschöpft.",
-        "You are too exhausted for that.")
+        "Du bist dafür zu erschöpft. Du solltest etwas essen.",
+        "You are too exhausted for that. You should eat something.")
         return false
     end
     return true
@@ -449,7 +449,7 @@ function M.GetHungry(User, units)
     local food = User:increaseAttrib("foodlevel", -units)
     if ((food > 1000 + units * 5) and (food <= 1000 + units * 6)) then
         M.InformNLS(User,
-        "Die Arbeit macht Dich langsam müde und hungrig.",
+        "Die Arbeit macht dich langsam müde und hungrig.",
         "You are getting tired and hungry from your work.")
     end
 end
