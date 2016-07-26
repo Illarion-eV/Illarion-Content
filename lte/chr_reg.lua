@@ -101,7 +101,7 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
         end
     end
 
-    if ((Race ~= 10) and (Race ~= 11) and (Race ~= 20) and (Race ~= 26) and (Race ~= 29) and not Char:isAdmin()) and Char:getType()==Character.player then -- Admins and undeads don't get hungry
+    if ((Race ~= 10) and (Race ~= 11) and (Race ~= 20) and (Race ~= 26) and (Race ~= 29)) and Char:getType()==Character.player then -- Undeads don't get hungry
 
         if ( Foodvalue == 0 ) then -- Out of food - starvation!
 
@@ -206,11 +206,11 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
     -----------------------FOODPOINTS ANFANG----------------------------------
     if ((Race ~= 10) and (Race ~= 11) and (Race ~= 20) and (Race ~= 26) and (Race ~= 29)) and Char:getType()==Character.player then -- Undeads won't get hungry
 
-        if (Char:isAdmin() == false) then
+        if (Char:isAdmin() == false) or (Char.name == "Testserver One") then
 
             if ( Foodvalue > 0 ) then -- Consume food
 
-                Foodvalue = math.max( 0, Foodvalue - 1 * TimeFactor ); -- -- A filled foodbar lasts 2.8 hours of idle time
+                Foodvalue = math.max( 0, (Foodvalue - 1 * TimeFactor )); -- A filled foodbar lasts 16 hours 40 minutes of idle time
 
                 --------------- Warnings ---------------------------------
                 if ( ( Foodvalue < 15000 ) and ( Foodvalue > 6000 ) ) then
@@ -293,7 +293,7 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
     end
 
     ChangeAttrib( Char, "foodlevel", Foodvalue );
-
+    
     --------------ÄNDERUNGEN PRÜFEN UND DURCHFÜHREN FERTIG--------------------
 
 end -- All above is only conducted for players that aren't afk for more than five minutes
