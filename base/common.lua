@@ -460,83 +460,64 @@ function M.GetHungry(User, units)
     
 end
 
-function M.GatheringToolBreaks(user, item, workTime)
-
-  if not user or not item then
-    return false
-  end
-
-  -- WorkTime is between 12-60 cycles depending on skill, +/-20% is the tool influence
-  -- Reduce durability at 4-20%, meaning a tool will last 500-2500 actions.
-
-  if (math.random(1, 100) < (workTime/3)) then
-
-    local durability = math.fmod(item.quality, 100)
-    local quality = (item.quality - durability) / 100
-
-    if (durability == 0) then
-      world:erase(item, 1)
-      return true
-    end
-
-    durability = durability - 1
-    item.quality = quality * 100 + durability
-    world:changeItem(item)
-
-    if (durability < 10) then
-      M.InformNLS(user,
-      "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
-      "The tool looks like it could break soon. You should try to get a new one.")
-    end
-  end
-  return false
-end
-
 --- Damage an item
 -- @param user The character who has the item
 -- @param item The item that gets damaged
+-- @param workTime The time the item is used
 -- @return true if the item breaks, false if not
-function M.ToolBreaks(user, item)
-    if not user or not item then
+function M.ToolBreaks(user, item, workTime)
+
+    if not user or not item or not workTime then
         return false
+    end
+    
+    loss=math.floor(workTime/300) --Each durability point equals 30 seconds of crafting time. Hence, a new tool lasts 50 minutes.
+    remainder=workTime-loss
+    
+    if (math.random(1, 100) < (remainder/3)) then 
+        loss=loss+1
     end
 
     local durability = math.fmod(item.quality, 100)
     local quality = (item.quality - durability) / 100
 
-    if durability == 0 then
+    durability = durability - loss
+    
+    if (durability <= 0) then
+    
         world:erase(item, 1)
-
+      
         if math.random(1, 100) <= 10 then
             if math.random(1, 2) == 1 then
                 M.InformNLS(user,
-                    "Das Werkzeug zerbricht. Du bist am Boden zerstört und wirst es sehr vermissen.",
-                    "The tool breaks. You are devastated and will miss it very much.")
+                    "Das Werkzeug zerbricht. So ein Pech aber auch.",
+                    "The tool breaks. What a pity.")
             else
                 M.InformNLS(user,
-                    "Das Werkzeug zerbricht. Du hast mehr Drama erwartet, aber es ist einfach kaputt.",
-                    "The tool breaks. You expected more drama, but it is just broken.")
+                    "Das Werkzeug zerbricht. Welch ein Drama.",
+                    "The tool breaks. What a drama.")
             end
         else
             M.InformNLS(user,
                 "Das Werkzeug zerbricht.",
                 "The tool breaks.")
         end
-
-        return true
-    else
-        durability = durability - 1
-        item.quality = quality * 100 + durability
-        world:changeItem(item)
-
-        if durability < 10 then
-            M.InformNLS(user,
-                "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
-                "The tool looks like it could break soon. You should try to get a new one.")
-        end
+        
+      return true
+      
     end
 
-    return false
+    item.quality = quality * 100 + durability
+    world:changeItem(item)
+
+    if (durability <= 10) then
+      M.InformNLS(user,
+      "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
+      "The tool looks like it could break soon. You should try to get a new one.")
+    end
+
+  return false
+
 end
 
 -- Check if a cooldown for an item is expired (e.g. if using it)

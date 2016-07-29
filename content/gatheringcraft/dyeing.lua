@@ -135,7 +135,7 @@ function StartGathering(User, SourceItem, ltstate)
         end
     end
 
-    if common.GatheringToolBreaks( User, toolItem, dyeing:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
+    if common.ToolBreaks( User, toolItem, dyeing:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
         common.HighInformNLS(User,
         "Dein alter Färberstab zerbricht.",
         "Your old dyeing rod breaks.");

@@ -107,7 +107,7 @@ function StartGathering(User, SourceItem, ltstate)
         end
     end
 
-    if common.GatheringToolBreaks( User, toolItem, flailing:GenWorkTime(User, toolItem) ) then -- damage and possibly break the tool
+    if common.ToolBreaks( User, toolItem, flailing:GenWorkTime(User, toolItem) ) then -- damage and possibly break the tool
         common.HighInformNLS(User,
         "Dein alter Dreschflegel zerbricht.",
         "Your old flail breaks.");

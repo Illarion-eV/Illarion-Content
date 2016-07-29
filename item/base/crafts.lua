@@ -628,7 +628,7 @@ function Craft:craftItem(user, productId)
         self:createItem(user, productId, toolItem)
 
         if not self.npcCraft then
-            common.ToolBreaks(user, toolItem, true)
+            common.ToolBreaks(user, toolItem, product:getCraftingTime(skill))
             common.GetHungry(user, neededFood)
         end
 

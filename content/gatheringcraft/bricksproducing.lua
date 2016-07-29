@@ -111,7 +111,7 @@ function ProduceUnfiredBricks( User, SourceItem, ltstate )
         end
     end
 
-    if common.GatheringToolBreaks( User, toolItem, bricksproducing:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
+    if common.ToolBreaks( User, toolItem, bricksproducing:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
         common.HighInformNLS(User,
         "Deine alte Ziegelform zerbricht.",
         "Your old brick mould breaks.");
@@ -188,7 +188,7 @@ function ProduceBricks( User, SourceItem, ltstate )
         end
     end
 
-    if common.GatheringToolBreaks( User, toolItem, bricksproducing:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
+    if common.ToolBreaks( User, toolItem, bricksproducing:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
         common.HighInformNLS(User,
         "Deine alte Ziegelform zerbricht.",
         "Your old brick mould breaks.");
