@@ -458,7 +458,7 @@ end
 
 function Craft:checkRequiredFood(user, craftingTime)
     local neededFood=craftingTime*4 --One second of crafting takes 40 food points
-    if common.FitForHardWork(user, math.ceil(2*(neededFood+craftingTime*0.1))) then --Each second, one spends one food point per default. Require twice as much food as actually needed.
+    if common.FitForHardWork(user, math.ceil(neededFood+craftingTime*0.1)) then --Each second, one spends one food point per default.
         return true, neededFood
     else
         return false, 0
