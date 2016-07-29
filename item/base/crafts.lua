@@ -169,7 +169,7 @@ function Craft:showDialog(user, source)
             local neededFood = 0
             local foodOK = false
             local product = self.products[productId]
-            foodOK, neededFood = self:checkRequiredFood(user, product.foodConsumption, product.difficulty)
+            foodOK, neededFood = self:checkRequiredFood(user, product:getCraftingTime(self:getSkill(user)))
             local canWork = self:allowCrafting(user, source) and self:checkMaterial(user, productId) and foodOK
             if canWork then
                 self:swapToActiveItem(user)
@@ -456,10 +456,10 @@ function Craft:swapToInactiveItem(user)
     end
 end
 
-function Craft:checkRequiredFood(user, neededFood, difficulty)
-    local requiredFood = neededFood * (0.02*difficulty + 1)
-    if common.FitForHardWork(user, neededFood*2 + requiredFood) then
-        return true, requiredFood
+function Craft:checkRequiredFood(user, craftingTime)
+    local neededFood=craftingTime*4 --One second of crafting takes 40 food points
+    if common.FitForHardWork(user, math.ceil(2*(neededFood+craftingTime*0.1))) then --Each second, one spends one food point per default. Require twice as much food as actually needed.
+        return true, neededFood
     else
         return false, 0
     end
@@ -617,7 +617,7 @@ function Craft:craftItem(user, productId)
     local neededFood = 0
     if not self.npcCraft then
         local foodOK = false
-        foodOK, neededFood = self:checkRequiredFood(user, product.foodConsumption, product.difficulty)
+        foodOK, neededFood = self:checkRequiredFood(user, product:getCraftingTime(skill))
         if not foodOK then
             self:swapToInactiveItem(user)
             return false

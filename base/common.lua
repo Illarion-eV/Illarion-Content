@@ -432,13 +432,16 @@ end
 -- @param required Amount of foodpoints that are required
 -- @return True in case the character has enougth food points, false if not
 function M.FitForHardWork(User, required)
+
     if (User:increaseAttrib("foodlevel", 0) < required) then
         M.InformNLS(User,
         "Du bist dafür zu erschöpft. Du solltest etwas essen.",
         "You are too exhausted for that. You should eat something.")
         return false
     end
+    
     return true
+    
 end
 
 --- Decrease the foodpoints of a character and show a warning if the foodpoints
@@ -446,12 +449,15 @@ end
 -- @param User The character that loses foodpoints
 -- @param units The amount of foodpoints that are removed
 function M.GetHungry(User, units)
+
     local food = User:increaseAttrib("foodlevel", -units)
+    
     if ((food > 1000 + units * 5) and (food <= 1000 + units * 6)) then
         M.InformNLS(User,
         "Die Arbeit macht dich langsam müde und hungrig.",
         "You are getting tired and hungry from your work.")
     end
+    
 end
 
 function M.GatheringToolBreaks(user, item, workTime)

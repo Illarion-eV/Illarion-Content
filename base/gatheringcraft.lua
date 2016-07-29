@@ -37,7 +37,6 @@ GatheringCraft = {
     SavedWorkTime = { },
     Treasure = 0,
     TreasureMsg = { },
-    FoodLevel = 100,
   FastActionFactor = 1,
   LearnLimit = 20
 };
@@ -76,9 +75,6 @@ function Monster:new(m)
     return m;
 end
 
-function GatheringCraft:SetFoodLevel(FoodLevel)
-    self.FoodLevel = FoodLevel;
-end
 
 function GatheringCraft:SetTreasureMap(Probability, MessageDE, MessageEN)
     self.Treasure = Probability;
@@ -101,19 +97,7 @@ function GatheringCraft:AddRandomItem(ItemID, Quantity, Quality, Data, Probabili
     return;
 end
 
--- @return If something was done
 function GatheringCraft:FindRandomItem(User)
---[[Deactivate the call of interrupting messages.
-  if math.random(1,100) == 50 then --why complicated if you can solve it simple... 1% chance for an interruption
-    if(#self.InterruptMsg > 0) then
-      local m = math.random(#self.InterruptMsg);
-      common.InformNLS(User, self.InterruptMsg[m][1], self.InterruptMsg[m][2]);
-      return true;
-    end
-  end
---]]
-
-    common.GetHungry(User, self.FoodLevel);
 
   -- FindRandomItem is called when the User is currently working. If there was
   -- a reload, the working time will be nil. Check for this case.
@@ -123,6 +107,8 @@ function GatheringCraft:FindRandomItem(User)
     self.SavedWorkTime[User.id] = self:GenWorkTime(User,nil);
   end
 
+    common.GetHungry(User, self.SavedWorkTime[User.id]*4);
+        
     -- check for Noobia
     if (common.isOnNoobia(User.pos)) then
         return false;
@@ -203,7 +189,7 @@ function GatheringCraft:GenWorkTime(User, toolItem)
     workTime = workTime - workTime*0.20*((qual-5)/4); --+/-20% depending on tool quality
   end
 
-  workTime = workTime*self.FastActionFactor; --for fast actions.
+  workTime = math.ceil(workTime*self.FastActionFactor); --for fast actions.
 
-  return math.ceil(workTime);
+  return workTime;
 end
