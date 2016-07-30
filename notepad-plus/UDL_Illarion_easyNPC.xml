@@ -30,7 +30,7 @@
             <Keywords name="Keywords4">english&#x000D;&#x000A;german&#x000D;&#x000A;Runewick&#x000D;&#x000A;Galmair&#x000D;&#x000A;Cadomyr</Keywords>
             <Keywords name="Keywords5">,</Keywords>
             <Keywords name="Keywords6">all&#x000D;&#x000A;cookingAndBaking&#x000D;&#x000A;carpentry&#x000D;&#x000A;farming&#x000D;&#x000A;herblore&#x000D;&#x000A;mining&#x000D;&#x000A;smithing&#x000D;&#x000A;fishing&#x000D;&#x000A;tailoring&#x000D;&#x000A;woodcutting&#x000D;&#x000A;glassBlowing</Keywords>
-            <Keywords name="Keywords7">tradeNotEnoughMoneyMsg&#x000D;&#x000A;tradeFinishedMsg&#x000D;&#x000A;tradeFinishedWithoutTradingMsg&#x000D;&#x000A;tradeWrongItemMsg&#x000D;&#x000A;inform&#x000D;&#x000A;sellItems&#x000D;&#x000A;buySecondaryItems</Keywords>
+            <Keywords name="Keywords7">tradeNotEnoughMoneyMsg&#x000D;&#x000A;tradeFinishedMsg&#x000D;&#x000A;tradeFinishedWithoutTradingMsg&#x000D;&#x000A;tradeWrongItemMsg&#x000D;&#x000A;inform&#x000D;&#x000A;sellItems&#x000D;&#x000A;buySecondaryItems;&#x000A;buyPrimaryItems</Keywords>
             <Keywords name="Keywords8"></Keywords>
             <Keywords name="Delimiters">00( 01 02) 03&quot; 04 05&quot; 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23</Keywords>
         </KeywordLists>

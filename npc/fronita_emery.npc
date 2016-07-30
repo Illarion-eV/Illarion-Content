@@ -14,7 +14,7 @@
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Fronita Emery                                           Runewick --
--- NPC Job:  Trader, glassblower                                              --
+-- NPC Job:  Glassblower                                              --
 --                                                                            --
 -- NPC Race: dwarf                      NPC Position:  943, 837, 0            --
 -- NPC Sex:  female                     NPC Direction: east                   --
@@ -30,7 +30,7 @@ sex = female
 position = 943, 837, 0
 direction = east
 affiliation = "Runewick"
-job = "Trader, glassblower"
+job = "Glassblower"
 
 language = common
 language = dwarf
