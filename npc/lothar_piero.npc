@@ -29,7 +29,7 @@ race = halfling
 sex = male
 position = 945, 829, 0
 direction = south
-affiliation = "None"
+affiliation = "Runewick"
 job = "trader"
 
 language = common
