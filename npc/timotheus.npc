@@ -102,7 +102,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Welcome wise one.", "Why, greetings to you!", "Greetings elevated one."
 "Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen, mein weiser Freund.", "Wie jetzt, seid gegrüßt!", "Grüße, mein Großer."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Please don't be so informal!", "Well.. Greetings.", "Is that the way people talk on the street nowadays?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Please don't be so informal!", "Well... Greetings.", "Is that the way people talk on the street nowadays?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Na, nicht so schnodderig.", "Nun... seid gegrüßt.", "Redet man heutzutage so auf der Straße?"
 "Farewell", "Bye", "Fare well", "See you" -> "May Elara protect your knowledge!", "Insightful journey to you!", "Farewell now!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Möge Elara eure Weisheit bewahren.", "Eine aufschlussreiche Reise wünsche ich.", "Gehabt euch wohl."
