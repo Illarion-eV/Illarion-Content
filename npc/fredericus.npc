@@ -155,7 +155,7 @@ english, "Cadomyr" -> "Cadomyr is my home, where I return to after setting sails
 "Cadomyr" -> "Cadomyr ist meine Heimat, in die ich mit vollen Segeln zurückkehre.", "Ich liebe Cadomyr wie das weite, offene Meer.", "Cadomyr kriegt das beste, für die anderen bleiben nur Reste."
 
 -- Main land factions
-english, "albar" -> "Oh, Albar, how much I desire to sail there... A land of justice and honour"
+english, "albar" -> "Oh, Albar, how much I desire to sail there... A land of justice and honour."
 "albar" -> "Oh, Albar, wie sehr wünschte ich, ich könnte dorthin segeln. Ein Land der Gerechtigkeit und der Ehre."
 english, "gynk", "gync" -> "What did you say?", "I did not understand you.", "Pardon me?", "Shh, do not talk about this too loud."
 "gync", "gynk" -> "Was habt ihr gesagt?", "Ich habe euch nicht verstanden.", "Entschuldigung?", "Psst, sprecht darüber nicht so laut."
