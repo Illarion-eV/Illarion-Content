@@ -13,7 +13,7 @@
 -- You should have received a copy of the GNU Affero General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
--- NPC Name: Laramir Silverwood                                          None --
+-- NPC Name: Laramir Silverwood                                       Galmair --
 -- NPC Job:  Carpenter                                                        --
 --                                                                            --
 -- NPC Race: elf                        NPC Position:  373, 268, 0            --
@@ -28,7 +28,7 @@ race = elf
 sex = male
 position = 373, 268, 0
 direction = west
-affiliation = "None"
+affiliation = "Galmair"
 job = "Carpenter"
 
 language = common
@@ -128,8 +128,8 @@ english, "job" -> "I'm an elven trader, my friend.", "I'm an elven carpenter, my
 "erzähl was" -> "Magst du nette Plaudereinen, mein Freund? Wir müssen von klein auf lernen mit anderen zu reden."
 
 -- Optional: Gobaith
-english, "Gobaith", "Gobiath" -> "Hmm...ask someone else if you want know about it."
-"Gobaith", "Gobiath" -> "Hmm...fragt jemand anderen bezüglich dieses Ortes."
+english, "Gobaith", "Gobiath" -> "Hmm... ask someone else if you want know about it."
+"Gobaith", "Gobiath" -> "Hmm... fragt jemand anderen bezüglich dieses Ortes."
 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "What a fine name, my friend."
