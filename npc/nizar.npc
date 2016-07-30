@@ -58,17 +58,6 @@ itemHands = 527
 itemTrousers = 366
 itemShoes = 698
 
-------------------------------------------------------------------------------AC
--- Trading
--- Here are all items the NPCs is able to trade. They will be displayed inside
--- the merchant dialog.
-
-sellItems = 1
-buyPrimaryItems = 1
-buySecondaryItems = 2
-
--- 297
-
 -- Template Version 1.08, 10/18/2012 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
