@@ -197,7 +197,7 @@ function M.UseItem(User, SourceItem, ltstate)
         local dialogTitle = common.GetNLS(User, "Liste der Galmarianischen Kanzler", "List of Galmairian Chancellors")
         local dialogText = common.GetNLS(User,
             "Unbesetzt im Jahr 48\nEvie Pryler (Dranis) im Jahr 47\nEvie Pryler im Jahr 46\nArtimer Fault im Jahr 45\nArcia im Jahr 44\nEvie Pryler im Jahr 43\nOxiana im Jahr42\nOxiana im Jahr 41",
-            "Vacant in the year 48\nEvie Pryler in the year 46\nArtimer Fault in the year 45\nArcia in the year 44\nEvie Pryler in the year 43\nOxiana in the year 42\nOxiana in the year 41")
+            "Vacant in the year 48\nEvie Pryler (Dranis) in the year 47\nEvie Pryler in the year 46\nArtimer Fault in the year 45\nArcia in the year 44\nEvie Pryler in the year 43\nOxiana in the year 42\nOxiana in the year 41")
         local callbackChancellor1 = function(nothing) end --empty callback
         local dialogChancellor1 = MessageDialog(dialogTitle, dialogText, callbackChancellor1)
 
@@ -221,7 +221,7 @@ function M.UseItem(User, SourceItem, ltstate)
         local dialogTitle = common.GetNLS(User, "Liste der Galmarianischen Kanzler", "List of Galmairian Chancellors")
         local dialogText = common.GetNLS(User,
             "Banduk Robberhauf el Luastelay im Jahr 48\nArtimer Fault im Jahr 47\nUlquiorra Dreadhart im Jahr 46\nTialdin im Jahr 45\nSarangerel (Ufedhin Copperhand) im Jahr 44\nSarangerel im Jahr 43\nUhuru Pryler im Jahr42\nPurple im Jahr 41",
-            "Banduk Robberhauf el Luastelay in the year 48\nUlquiorra Dreadhart in the year 46\nTialdin in the year 45\nSarangerel (Ufedhin Copperhand) in the year 44\nSarangerel in the year 43\nUhuru Pryler in the year 42\nPurple in the year 41")
+            "Banduk Robberhauf el Luastelay in the year 48\nArtimer Fault in the year 47\nUlquiorra Dreadhart in the year 46\nTialdin in the year 45\nSarangerel (Ufedhin Copperhand) in the year 44\nSarangerel in the year 43\nUhuru Pryler in the year 42\nPurple in the year 41")
         local callbackChancellor3 = function(nothing) end --empty callback
         local dialogChancellor3 = MessageDialog(dialogTitle, dialogText, callbackChancellor3)
 
