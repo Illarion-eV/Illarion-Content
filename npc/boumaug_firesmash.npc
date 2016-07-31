@@ -333,7 +333,7 @@ english, "Zhambra" -> "God of friends! God of brothers! Good for holding clans t
 "what sell", "what buy", "list wares", "price of" -> "I don't trade, I protect!"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich glaube nicht, zu handeln. Ich schützen!"
 "tell something" -> "#me blinks, 'My brother tried fishing once. He fell in the lake.'"
-"erzähl was", "erzähl etwas" -> "#me blinkt, 'Mein Bruder versuchte einst die Fischerei. Er fiel in den See.'"
+"erzähl was", "erzähl etwas" ->"me blinzelt, 'Mein Bruderr versuchte einst die Fischerei. Er fiel in den See.'"
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 
