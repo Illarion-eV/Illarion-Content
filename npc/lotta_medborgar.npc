@@ -73,7 +73,7 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Lotta Medborgar die Jägerin. Schlüsselwörter: Auskunft, Information, Galmair, Orte.")
 
 -- Mandatory: General speech
-queststatus(634) = 1, english, ".*" -> inform("[Quest End  'Find Lotta 2'] You receive 10 silver coins."), money + 1000, deleteItem(155, 10), queststatus(634) = 2, rankpoints + 5, "Good day. Finally you found me! I had already been informed about your visit. There, have some silver coins for finding me."
+queststatus(634) = 1, english, ".*" -> inform("[Quest End 'Find Lotta 2'] You receive 10 silver coins."), money + 1000, deleteItem(155, 10), queststatus(634) = 2, rankpoints + 5, "Good day. Finally you found me! I had already been informed about your visit. There, have some silver coins for finding me."
 queststatus(634) = 1, ".*" -> inform("[Quest Ende 'Find Lotta 2'] Du hast 10 Silberstücke erhalten."), money + 1000, deleteItem(155, 10), queststatus(634) = 2, rankpoints + 5, "Tach. Endlich hast du mich gefunden. Ich wurde bereits informiert über deinen Besuch. Hier hast du deine wohlverdienten Münzen."
 
 queststatus(630) = 1, english, town = Galmair, ".*" -> inform("[Quest End 'Find Lotta'] You receive 10 silver coins."), money + 1000, queststatus(630) = 2, rankpoints + 5, "Good day. Finally you found me! Iradona has already informed me about your visit. There, you have some silver coins for finding me."
@@ -97,6 +97,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "See ya soon."
 -- OPTIONAL TRIGGERS
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
+
 -- Mandatory: Catching quest triggers. Modify if the NPC does quests
 english, "quest", "mission" -> "I don't have any tasks for you."
 "quest", "mission" -> "Ich vergebe keine Aufgaben."
@@ -152,11 +153,11 @@ english, "Wulfgorda" -> "Wulfgorda is a hunter who knows almost every place in t
 "Ebenen Stille" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
 "Northern Woods" -> "Well, as I said, they are in the northeast and you would be better asking someone who lives there, for example, Wulfgorda."
 "Nördliche Wälder", "Nördlichen Wälder" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
-"The Insurmountable Limes" -> "Well, as I said, it is in the northeast and you would be better asking someone who lives there, for example, Wulfgorda."
+"Insurmountable Limes" -> "Well, as I said, it is in the northeast and you would be better asking someone who lives there, for example, Wulfgorda."
 "Unüberwindbarer Limes", "Unüberwindbare Limes" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
 "Evilrock" -> "Well, as I said, it is in the northeast and you would be better asking someone who lives there, for example, Wulfgorda."
 "Böse Fels", "Böser Fels" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
-"Three Fingertips" -> "Well, as I said, they are in the northeast and you would be better asking someone who lives there, for example, Wulfgorda."
+"Three Finger" -> "Well, as I said, they are in the northeast and you would be better asking someone who lives there, for example, Wulfgorda."
 "Dreifingerspitzen" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
 
 -- southeast
@@ -186,8 +187,8 @@ english, "Numila", "Irunnleh" -> "You can find her in Runewick and she knows sev
 "Narguns Ebene" -> "Das ist das Gebiet östlich der Kupferbrücke über den Malachitbach zwischen Galmair und dem Spinnen Mund."
 "Swamp" -> "This is the area north from here, after the Black bridge over the Bounding Stream, where you can also find the harbour of Galmair."
 "Sumpf" -> "Das ist das Gebiet nördlich der Schwarzbrücke über den Grenzstrom, wo du auch den Hafen von Galmair finden kannst."
-"Temple five" -> "The Temple of the Five is east of the swamp."
-"Tempel Fünf" -> "Der Tempel der Fünf ist östlich vom Sumpf"
+"five" -> "The Temple of the Five is east of the swamp."
+"Fünf" -> "Der Tempel der Fünf ist östlich vom Sumpf"
 "Lonely Mountain" -> "These are the mountains around us."
 "Einsame Berge" -> "Das sind die Berge um uns."
 "Plateau" -> "The Galmair Plateau is south from Galmair and west of the Malachite Mine. You will find the bandits from Fort Schnellbeil there."
@@ -224,8 +225,6 @@ queststatus(644) < 1, english, "Ruzussss" -> inform("[New Quest 'Find Ruzussss 2
 queststatus(644) < 1, "Ruzussss" -> inform("[Neues Quest 'Finde Ruzussss 2' gestartet] Finde Ruzussss und bringe ihm die Sibanacblätter um deine Belohnung zur erhalten."), item(155, 10, 333), queststatus(644) = 1, "Den findet man in Cadomyr und der kennt sämtliche Orte im Südwesten, sprich um Cadomyr. Des weiteren kannst du ihm auch gleich diese Blätter hier bringen. *überreicht Sibanac Blätter*"
 english, "Ruzus" -> "You can find him in Cadomyr and he knows several places in the southwest, thus around Cadomyr."
 "Ruzus" -> "Den findet man in Cadomyr und der kennt sämtliche Orte im Südwesten, sprich um Cadomyr."
-"Chapel Five" -> "The Chapel of the Five is at the southern end of the Border Mountains, at the eastern border of the Kantabi Desert. Ask Ruzusss in Cadomyr if you cannot find it."
-"Kapelle Fünf" -> "Die Kapelle der Fünf ist am südlichen Ende der Grenzberge und an der östlichen Grenze der Kantabiwüste. Frage Ruzusss in Cadomyr falls du sie nicht finden kannst."
 "Chapel" -> "The Chapel of the Five is at the southern end of the Border Mountains, at the eastern border of the Kantabi Desert. Ask Ruzusss in Cadomyr if you cannot find it."
 "Kapelle" -> "Die Kapelle der Fünf ist am südlichen Ende der Grenzberge und an der östlichen Grenze der Kantabiwüste. Frage Ruzusss in Cadomyr falls du sie nicht finden kannst."
 
@@ -235,9 +234,9 @@ queststatus(632) < 1, town = Galmair, english, "quest", "mission" -> queststatus
 queststatus(632) < 1, town = Galmair, "quest", "mission" -> queststatus(632) = 1, item(61, 1, 777), inform("[Neues Quest 'Finde Don Valerio Guilianni' gestartet] Finde Don Valerio Guilianni und bringe ihm dein Geschenk."), "Hast du bereits den Don kennengelernt? Falls nicht, dann solltest du dich bei ihm mit einem Geschenk vorstellen. Er wird dieses Geschenk hier bestimmt mögen, da er ein Auge auf Gold geworfen hat. *überreicht eine Goldmünze*"
 queststatus(632) < 1, town = Galmair, "task", "adventure", "order" -> queststatus(632) = 1, item(61, 1, 777), inform("[New Quest 'Find Don Valerio Guilianni' started] Find Don Valerio Guilianni and take him your gift."), "Have you already met our Don? If not, you could introduce yourself with a gift to him. He will appreciate this gift here, since he loves gold. *hands over a gold coin.*"
 queststatus(632) < 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(632) = 1, item(61, 1, 777), inform("[Neues Quest 'Finde Don Valerio Guilianni' gestartet] Finde Don Valerio Guilianni und bringe ihm dein Geschenk."), "Hast du bereits den Don kennengelernt? Falls nicht, dann solltest du dich bei ihm mit einem Geschenk vorstellen. Er wird dieses Geschenk hier bestimmt mögen, da er ein Auge auf Gold geworfen hat. *überreicht eine Goldmünze*"
-english, "quest", "mission" -> "Nothing to do for you yet but soon I will have plenty of tasks for you."
+english, "quest", "mission" -> "I have nothing for you to do yet, but soon I will have plenty of tasks for you."
 "quest", "mission" -> "Ich habe nichts für dich zu tun momentan aber bald habe ich einige Aufgaben für dich."
-"task", "adventure", "order" -> "Nothing to do for you yet but soon I will have plenty of tasks for you."
+"task", "adventure", "order" -> "I have nothing for you to do yet, but soon I will have plenty of tasks for you."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für dich zu tun momentan aber bald habe ich einige Aufgaben für dich."
 
 -- Faction stuff
