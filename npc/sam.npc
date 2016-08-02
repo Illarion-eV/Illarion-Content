@@ -151,11 +151,6 @@ english, "salkama" -> "I am from Salkamar. But why should I have stayed there? A
 "god" -> "I only talk about gods with friends."
 "Gott", "Götter" -> "Ich red nur mit mein'n Freunden über Götter."
 
-state = 1, english, "Moshran" -> attrib(hitpoints) - 9999, attrib(hitpoints) + 1, "#me draws a dagger and mumbles, 'I warned you, but you did not listen. For the grey rose!'"
-state = 1, "Moshran" -> attrib(hitpoints) - 9999, attrib(hitpoints) + 1, "#me zieht einen Dolch und murmelt: 'Wer nicht hören will muss fühlen! Für die Graue Rose!"
-english, "Moshran" -> state = 1, "One more word about HIM and you will have to visit the cross! I have a spark of honour in my old bones."
-"Moshran" -> state = 1, "Ein weiteres Wort über DEN und du wirst es büsen! Ich hab auch noch einen Funken Ehre in den alten Knochen."
-
 -- Catching quest triggers
 english, "quest" -> "When you can get new informations about Gobaith, I will be very grateful."
 "quest" -> "Wenn du heraufinden könntest, was von Gobaith übrig ist, wäre ich dir sehr dankbar."
