@@ -182,9 +182,9 @@ queststatus(155) = 7, town = Galmair,  ".*" -> "Zwanzig Steinquader für den Südw
 
 -- Quest 4: Patrol the tunnel to the Dark Hole Mine, Harbour, Black Bridge (ambush), beehives
 queststatus(155) = 8, english, town = Galmair, "quest", "mission" -> inform("[New Quest] As a Galmair Guard IV"), queststatus(155) = 9, "Yous are going out now! Go check da tunnel to da Dark Hole Mine, Galmair Harbour to da north, da Black Bridge, and da honey houses far to da east in da Plains of Nargún!"
-queststatus(155) = 8, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Als Wache Galmairs IV"), queststatus(155) = 9, "Du jetzt gehen los! Kontrolliere den Hafen im Norden, die schwarze Brücke und den Bienenstock fern im Osten, in der Nargúnebene."
+queststatus(155) = 8, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Als Wache Galmairs IV"), queststatus(155) = 9, "Du jetzt gehen los! Kontrolliere Galmairs Hafen in nördlicher Richtung, die schwarze Brücke und den Bienenstock fern im Osten der Nargúnebene."
 queststatus(155) = 8, town = Galmair, "task", "adventure", "order" -> inform("[New Quest]As a Galmair Guard IV"), queststatus(155) = 9, "Yous are going out now! Go check da tunnel to da Darrk Hole Mine, Galmair Harbour to da north, da Black Bridge, and da honey houses far to da east in da Plains of Nargún!"
-queststatus(155) = 8, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Als Wache Galmairs IV"), queststatus(155) = 9, "Du jetzt gehen los! Kontrolliere den Hafen im Norden, die schwarze Brücke und den Bienenstock fern im Osten, in der Nargúnebene."
+queststatus(155) = 8, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Als Wache Galmairs IV"), queststatus(155) = 9, "Du jetzt gehen los! Kontrolliere Galmairs Hafen in nördlicher Richtung, die schwarze Brücke und den Bienenstock fern im Osten der Nargúnebene."
 
 -- Quest 4 solved, reward: Orc helmet (2287), 15 rankpoints
 queststatus(155) = 10, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded an orc helmet."), item(16, 1, 699), queststatus(155) = 11, rankpoints + 15, "Bad rats? Bah, they cause trouble again. I will tell da Don. Yous do good! Here, my spare helmet! One of us!"
