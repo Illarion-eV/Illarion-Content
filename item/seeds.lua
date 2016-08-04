@@ -73,7 +73,7 @@ local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
 
-	sowing.StartGathering(User, SourceItem, ltstate);
+    sowing.StartGathering(User, SourceItem, ltstate);
 end
 
 
@@ -97,8 +97,8 @@ function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
     -- world:erase(SourceItem, SourceItem.number);
     -- world:increase(SourceItem, -SourceItem.number);
     common.HighInformNLS(User,
-		"Du brauchst eine Sichel, um die Samen zu ernten.",
-		"You need a sickle to harvest the seeds.");
+        "Du brauchst eine Sichel, um die Samen zu ernten.",
+        "You need a sickle to harvest the seeds.");
     return false;
   end
   return true;
