@@ -28,8 +28,8 @@ local M = {}
 -- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 259 WHERE itm_id = 259; -- grown grain rots away on the ground 
 
 -- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 289 WHERE itm_id = 288; -- cabbage
--- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 290 WHERE itm_id = 289;
--- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 291 WHERE itm_id = 290;
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 3890 WHERE itm_id = 289;
+-- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 291 WHERE itm_id = 3890;
 -- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 291 WHERE itm_id = 291;
 
 -- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 536 WHERE itm_id = 535; -- onion
