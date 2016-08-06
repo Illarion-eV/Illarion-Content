@@ -149,7 +149,7 @@ function InitFarmingItems()
     FarmingItems = {};
 
     -- field crops
-    FarmingItems[290] = 290 -- cabbage -> cabbage
+    FarmingItems[3890] = 290 -- cabbage -> cabbage
     FarmingItems[537] = 201 -- onion plant -> onion
     FarmingItems[540] = 200 -- tomato plant -> tomato
     FarmingItems[731] = 154 -- hop plant -> hop
