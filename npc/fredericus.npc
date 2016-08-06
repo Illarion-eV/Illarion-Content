@@ -70,10 +70,10 @@ sellItems = 126, 136, 162, 141, 147, 753, 158, 163, 766, 764, 765, 769, 146, 140
 -- anger berry, birth mushroom, black thistle, blackberry, blue birdsberry, bulbsponge mushroom, champignon, con blossom, dark moss, daydream, desert berry, desert sky capsule, donf blade, elf caps, fairy ring mushroom, fir tree sprout, fire root, firnis blossom, flamegoblet blossom, foot leaf, fourleafed oneberry, gold crack herb, heart blood, heath flower, herder's mushroom, ice leaf, life root, mandrake, marsh flower, night angels blossom, nuts, oneleaved fourberry, pious berry, rain weed, red elder, red head, rotten tree bark, sandberry, sibanac leaf, steppe fern, stinkhorn, strawberry, sun herb, toadstool, tybalt star, virgin's weed, water blossom, wolverine fern, yellow weed, silk
 buyPrimaryItems = 136, 162, 141, 147, 753, 158, 163, 766, 764, 765, 769, 146, 140, 407, 405, 149, 755, 148, 137, 153, 134, 762, 758, 145, 161, 760, 152, 752, 763, 138, 759, 754, 756, 761, 143, 160, 157, 142, 155, 156, 406, 151, 133, 159, 757, 144, 767, 768, 135, 3787
 --anger berry, birth mushroom, black thistle, blackberry, blue birdsberry, bulbsponge mushroom, champignon, con blossom, dark moss, daydream, desert berry, desert sky capsule, donf blade, elf caps, fairy ring mushroom, fir tree sprout, fire root, firnis blossom, flamegoblet blossom, foot leaf, fourleafed oneberry, gold crack herb, heart blood, heath flower, herder's mushroom, ice leaf, life root, mandrake, marsh flower, night angels blossom, nuts, oneleaved fourberry, pious berry, rain weed, red elder, red head, rotten tree bark, sandberry, sibanac leaf, steppe fern, stinkhorn, strawberry, sun herb, toadstool, tybalt star, virgin's weed, water blossom, wolverine fern, yellow weed, silk
-tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
-tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeNotEnoughMoneyMsg "Ein bisschen zu teuer für dich.", "That's too expensive for you."
+tradeFinishedMsg "Und wieder ein zufriedener Kunde.", "And another satisfied customer."
 tradeFinishedWithoutTradingMsg "Auf bald!", "Farewell!"
-tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+tradeWrongItemMsg "Ich handle nur mit Kräutern.", "I trade only herbs."
 
 -- Template Version 1.03 by Estralis Seborian
 -- NPC by Estralis Seborian
