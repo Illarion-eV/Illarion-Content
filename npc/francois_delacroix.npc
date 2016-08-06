@@ -59,64 +59,38 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 51, 126, 258, 271, 312, 69, 2547, 2586, 2696, 154, 200, 201, 290, 249, 259, 772, 778, 2493, 291, 534, 728, 773, 779, 2494, 2917, 2502, 307, 552, 553, 2934, 1151, 2940, 1150, 15, 80, 81, 147, 151, 199, 302, 388, 72, 73, 355, 455, 3567, 3566, 1207, 1210, 1209
-buyPrimaryItems = 51, 126, 258, 271, 312, 69, 2547, 2586, 2696, 154, 200, 201, 290, 249, 259, 772, 778, 2493, 291, 534, 728, 773, 779, 2494, 2917, 2502, 307, 552, 553, 2934, 1151, 2940, 1150, 15, 80, 81, 147, 151, 199, 302, 388, 3567, 3566, 1207, 73, 355, 455, 1210, 1209, 72
-tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
-tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
-tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you like my wares?"
-tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+sellItems = 258, 312, 126, 271, 249, 290, 2493, 154, 201, 3567, 778, 772, 200, 2, 15, 80, 81, 302, 388, 1207, 199, 2494, 259, 728, 534, 3566, 779, 773, 2917, 291
+-- flail, wooden shovel, sickle, scythe
+buyPrimaryItems = 249, 290, 2493, 154, 201, 3567, 778, 772, 200, 2, 15, 80, 81, 302, 388, 1207, 199, 2494, 259, 728, 534, 3566, 779, 773, 2917, 291
+-- bundle of grain, cabbage, carrots, hop, onion, potato, sugarcane, tobacco, tomato, flour, apple, banana, berries, cherries, grapes, orange, tangerine, carrot seeds, grain, hop seeds, onion seeds, potato seeds, sugarcane seeds, tobacco seeds, tomato seeds, withered cabbage (seeds)
+
+tradeNotEnoughMoneyMsg "Schlechte Geschäfte in letzter Zeit, hmm?", "Bad business recently, hmm?"
+tradeFinishedMsg "Danke und bis bald.", "Thank you and see you soon."
+tradeFinishedWithoutTradingMsg "Dann eben nicht.", "Well, nevermind then."
+tradeWrongItemMsg "Sowas kaufe ich nicht.", "I don't buy such things."
 
 -- Template Version 1.02, 12/02/2010 by Estralis Seborian
--- This NPC is supposed to trade (all goods are sold and bought, percentage indicates ratio of price bought/sold):
-
--- 10% Tools (Farmer): 51, 126, 258, 271, 312
--- 10% Tools (Fisher): 72
--- 10% Animal skins: 69, 2547, 2586, 2696
--- 10% Crops: 154, 200, 201, 290, 249, 772, 778, 2493, 3567
--- 10% Fish: 73, 355, 455, 1210, 1209
--- 10% Seeds: 259, 291, 534, 728, 773, 779, 2494, 2917, 3566
--- 10% Milk: 330
--- 10% Raw meat: 307, 552, 553, 2934, 1151, 2940
--- 10% Eggs 1149
--- 10% Fruits: 15, 80, 81, 147, 151, 199, 302, 388, 1207
-
--- Take this hammer documentary
--- Names: Francois Delacroix
--- Race: Human
--- Sex: Male (really female)
--- Skin: Pale
--- Hieght: Tall
--- Weight: Skinny broad shoulders.
--- Eyes: Light brown
--- Hair: Long, blond
--- Age: 25
-
--- Background: Francois started out as a girl to a Short and robust merchant father and a mother who was tall and thin. Francois came out as tall and thin with broad shoulders. As she grew she got picked on for her height and then for her very tiny breast.
--- Her Father's only daughter she was raised to follow him in the merchant guild. From a young age she was given a tutor and received lessons every day. Her father often had visitors, usually old friends and clients. In Francois teens a female warrior was invited to the house. Mr. Delacroix ordered Francois to host the warrior, to show her around town and provide her with anything she needed. On the third night of the warrior's stay she showed François love. Over the week they repeatedly made love until Fancois's mother walked in on them.
--- The Warrior made a quick escape. Francois was then thrown out of the house. She left the village to shame. Francois got a job working in some field until she mustered enough money to follow be allowed to follow a caravan to Runewick. She did not speak to anyone on her trek. During her travel Francois got the epiphany to become a man. She binded what little breast she had, started speaking in a deeper tone and switched to guy clothes.. As a girl she was ugly, but as a guy she was quite pretty, with a feminine charm.
--- As a he Francois felt a never before felt wave of confidence. When Francois arrived in Runewick he let it known that he known that he was a skilled merchant. Once his knowledge was demonstrated he had no problem starting a debt to purchase goods.
--- Money wise Francois is doing good, but his youth is growing thin. He yearns for a mate and passively lingers the thought if she wants to be with a guy or a girl.
--- Personality: Gentle, sweet, talented sales person, charismatic, outgoing on the outside, but lonely and self-conscious on the inside.
-
-"kauf", "handel" -> "Lass uns handeln!", trade
-"buy", "sell", "trade" -> "Let's!", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Francois Delacroix the Trader. Keywords: Hello, Markets, Buy, Sell, Agriculture, Trade.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Händler Francois Delacroix. Schlüsselwörter: Hallo, Märkte, Handel, Ackerbau.")
 
+-- Trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Was soll's sein?", trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> "What do you want?", trade
+
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day.", "Greeted be.", "It's your lucky day! You've found the best farmer in town!"
 "Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Guten Tag.", "Wie geht es Euch?", "Heute scheint Euer Glückstag zu sein, warum? Ihr habt beschlossen bei mir einzukaufen."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Good day there.", "How fare you?", "It's your lucky day! You've found the best farmer in town!"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Guten Tagder Herr, die Dame.", "Wie geht es Euch?", "Heute scheint Euer Glückstag zu sein, warum? Ihr habt beschlossen bei mir einzukaufen."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Guten Tag der Herr, die Dame.", "Wie geht es Euch?", "Heute scheint Euer Glückstag zu sein, warum? Ihr habt beschlossen bei mir einzukaufen."
 "Farewell", "Bye", "Fare well", "See you" -> "Have a magnificent day today. Remember you are beautiful.", "Great tidings, friend! See you later.", "Remember to tell your friends to come and see Francois Delacroix for all their agricultural needs!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Einen schönen Tag wünsche ich Euch. Ihr seid wunderschön.", "Lächelt, bis später.", "Denkt dran euren Freunden zu sagen, sie sollen Francois Delacroix fragen, wenn sie Produkte aus der Landwirtschaft kaufen wollen."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a great day today! You deserve it!", "Great tidings! See you later.", "Remember to tell your friends to come and see Francois Delacroix for all their agricultural needs!"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Einen schönen Tag wünsche ich Euch. Ihr seid wunderschön.", "Lächelt, bis später.", "Denkt dran euren Freunden zu sagen, sie sollen Francois Delacroix fragen, wenn sie Produkte aus der Landwirtschaft kaufen wollen."
 "How are you", "How feel", "How do you do" -> "I'd feel better if you  brought something.", " I feel a lot better now that you've come!", "It's just one of those days, you know?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich würde mich besser fühlen, würdet ihr etwas einkaufen.", "Ich fühle mich viel besser jetzt wo ihr vorbei gekommen seid.", "Es ist einer dieser Tage, Ihr versteht?"
-"your name", "who are you", "who art thou" -> "Francois Delacroix , agricultural goods.", "My name is Francois. It's beyond a pleasure to be acquainted with you", "Francois Delacroix, it still feels weird every time I say it."
+"your name", "who are you", "who art thou" -> "Francois Delacroix, agricultural goods.", "My name is Francois. It's beyond a pleasure to be acquainted with you", "Francois Delacroix, it still feels weird every time I say it."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Francois Delacroix, Produke aus der Landwirtschaft.", "My Name ist Francois. Es ist mir eine Freude Eure Bekanntschaft zu machen", "Francois Delacroix. Es klingt noch immer jedes Mal seltsam es zu sagen."
 
 -- Mandatory: Catching quest triggers. Modify if the NPC does quests
@@ -136,8 +110,8 @@ english, "Gobaith", "Gobiath" -> "That's like asking what the sky is, honestly, 
 "mein Name" -> "Francois Delacroix, Produke aus der Landwirtschaft.", "My Name ist Francois. Es ist mir eine Freude Eure Bekanntschaft zu machen", "Francois Delacroix. Es klingt noch immer jedes Mal seltsam es zu sagen."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his environment
-"Business", "Markets", "Pepper" -> "Pepper is currently trading at three times the normal price. I'm looking forward to seeing when the price falls and I can count my big profit."
-"Geschäft", "Märkte", "Pfeffer" -> "Pfeffer wird derzeit zum dreifachen Preis gehandelt. Ich freu mich schon darauf, wenn der Preis wieder fällt und ich großen Profit abgreifen kann."
+"Business", "Markets", "Tobacco" -> "Tobacco is currently trading at three times the normal price. I'm looking forward to seeing when the price falls and I can count my big profit."
+"Geschäft", "Märkte", "Tabak" -> "Tabak wird derzeit zum dreifachen Preis gehandelt. Ich freu mich schon darauf, wenn der Preis wieder fällt und ich großen Profit abgreifen kann."
 "Agriculture", "Farming", "crops" -> "Harvesting crops and tending cattle is something that has always been and always will be. It's the most stable of markets."
 "Landwirtschaft", "Getreide", "Ackerbau" -> "Der Anbau von Feldfürchten und Viehhaltung ist etwas das es schon immer gegeben hat und das es immer geben wird. Das ist der beständigste Markt von allen."
 "Family" -> "I don't want to talk about them.", "Family is not a word that everyone is fond of."
@@ -190,10 +164,10 @@ english, "Francois", "Delacroix" -> "Do you need something? Chances are I sell i
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Braucht Ihr Werkzeuge? Ich, Francois Delacroix, verkaufe sowohl Werkzeuge für den Ackerbau, als auch für die Fischerei.", "Are you interested in new equipment? I, Francois Delacroix, offer both farming and fishing tools."
+cycletext "Braucht Ihr Werkzeuge? Ich, Francois Delacroix, verkaufe Werkzeuge für den Ackerbau.", "Are you interested in new equipment? I, Francois Delacroix, offer farming tools."
 cycletext "Ihr sucht wunderschön warme Felle um dem Winter zu trotzen oder Leder um jedem Schwerthieb standzuhalten? Wendet euch an mich, Francois Delacroix!", "Want beautiful furs to help you endure the coldest of winters? Or perhaps leather to withstand every possible assault! Francois Delacroix is your man!"
 cycletext "Habt Ihr Hunger? Leidet ihr an Skorbut? Ich, Francois Delacroix, habe ein riesiges Angebot an gesunden Früchten und Gemüse! Kommt vorbei!", "Are you hungry? Perhaps you're dying from scurvy? With fresh fruit and vegetables from Francois Delacroix , your gums won't ever be sore nor will you ever lose a tooth again!"
-cycletext "Ich habe Fisch, Ihr wollt Fisch? Kauft euren Fisch bei mir, Francois Delacroix!", "You want fish, I have fish, come get your fish from me, Francois Delacroix!"
+cycletext "Ich habe Früchte, Ihr wollt Früchte? Kauft euer Obst bei mir, Francois Delacroix!", "You want fruits, I have fruits, come get your fruits from me, Francois Delacroix!"
 cycletext "Ich verkaufe Saatgut für alle Jahreszeiten. Plant Ihr, einen neuen Hof und Familie zu gründen? Deckt euch zuerst hier ein, bei mir , Francois Delacroix.", "I offer seeds for any season! Are you about to settle down, start a new farm and found a family? First step, come here and prepare yourself with my help - I am Francois Delacroix!"
 cycletext "Ihr könnt Euch kein Fleisch leisten? Milch ist das perfekte Mittel, um Eure Familie ohne Fleisch durchzubringen. Wenn Ihr das Glück habt, euch Fleisch leisten zu können, es schmeckt auch zu Milch! Kauft bei mir ein, kauft bei Francois Delacroix!", "Can't afford meat? Milk is the perfect substitute to feed your family when you are broke! Get your fresh milk from me, Francois Delacroix."
 cycletext "Wie geht es Euch heute? Werft einen Blick auf meine neuesten Waren, Francois Delacroix bietet nur Feinste vom Feinsten an.", "How are you doing today? Check out the latest wares of mine, Francois Delacroix only offers the finest of the finest."
