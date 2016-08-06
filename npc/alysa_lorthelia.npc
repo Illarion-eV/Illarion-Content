@@ -63,23 +63,17 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
--- 10% Tools (Cook/Baker): 51, 121, 227 (buys also 118, 2495)
--- 10% Baked food: 1153, 354, 303, 353, 453, 454, 49, 191, 3568, 3571, 3609, 3610
--- 10% Baker's resources: 2, 2529 (buys also 5)
--- 5% Beer: 1909
--- 10% Dishes: 1155, 554, 559, 555, 557, 2922, 1154, 2277, 556, 2459, 1152, 2276, 2278, 2456, 2923, 306, 3051, 3606, 3569, 3570, 3572, 3573
-
-sellItems = 51, 121, 227, 1153, 354, 303, 353, 453, 454, 49, 191, 2, 2529, 1155, 554, 559, 555, 557, 2922, 1154, 2277, 556, 2459, 1152, 2276, 2278, 2456, 2923, 306, 3051, 3606, 1909, 3568, 3569, 3570, 3571, 3572, 3573, 3609, 3610
-buyPrimaryItems = 51, 121, 227, 118, 2495, 1153, 354, 303, 353, 453, 454, 49, 191, 2, 5, 2529, 1155, 554, 559, 555, 557, 2922, 1154, 2277, 556, 2459, 1152, 2276, 2278, 2456, 2923, 306, 3051, 3606, 3568, 3569, 3570, 3571, 3572, 3573, 3610, 3609
-buySecondaryItems = 1909
-tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
-tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
+sellItems = 121, 227, 72, 126, 429, 51, 2495, 51, 2499, 2500, 2497, 2501, 785, 3720, 787, 791, 786, 788, 517, 783, 3721, 784, 789, 3722, 3611, 1316, 1315, 1320, 1321, 1322, 1319, 1323, 1318, 191, 453, 3568, 49, 3631, 3609, 454, 353, 303, 3571, 354, 3723, 1153, 3610, 3051, 3573, 3715, 3716, 2459, 556, 1154, 2277, 3570, 2922, 557, 555, 559, 554, 1155, 2456, 2923, 2278, 2276, 3569, 3572, 3712, 3711, 1152, 1209, 1210, 355, 73, 1149, 307, 1150, 2586, 69, 2502, 469, 1151, 552, 2934, 553, 2940, 63, 2696, 333, 3713, 3606, 3714, 306, 3709, 455, 3710, 2529, 431, 43
+-- peel, cooking spoon, fishing rod, sickle, candle mould, bucket, pan, bucket
+-- bottle of cider, bottle of wine, bottle of mead, bottle of beer, bottle of banana juice, bottle of fir needle tea, bottle of virgins weed tea, bottle of grape juice, bottle of cabbage juice, bottle of carrot juice, bottle of rum, bottle of blackberry juice, bottle of green tea, bottle of tangerine juice, bottle of strawberry juice, bottle of druids tea, bottle of orange juice, bottle of bear slayer, bottle of berry booze, bottle of stone face, bottle of absinthe, bottle of orange schnapps, bottle of cherry schnapps, bottle of mulled wine, bottle of elven wine, bread roll, cookies, baked potato, bread, sausage on bread, banana bread, blackberry muffin, apple pie, cherry cake, egg salad sandwich, strawberry cake, nutbread, custard pie, elderberry pie, sausage, cheese, veggie hash, mystery meat, trout fillet dish, salmon dish, egg dish, meat dish, egg salad, sausages dish, steak dish, rabbit dish, lamb dish, venison dish, chicken dish, mushroom soup, onion soup, cabbage stew, mulligan, potato soup, fish soup, beer soup, goulash, chicken soup, horse mackerel, rose fish, salmon, trout, brown egg, pork, white egg, fur, raw leather, bottle of milk, lamp oil, chicken meat, deer meat, lamb meat, rabbit meat, raw steak, entrails, feathers, horn, grilled lamb, grilled steak, grilled venison, ham, smoked chicken, smoked fish, smoked rabbit, honeycomb, wax, candles
+buyPrimaryItems = 2499, 2500, 2497, 2501, 785, 3720, 787, 791, 786, 788, 517, 783, 3721, 784, 789, 3722, 3611, 1316, 1315, 1320, 1321, 1322, 1319, 1323, 1318, 191, 453, 3568, 49, 3631, 3609, 454, 353, 303, 3571, 354, 3723, 1153, 3610, 3051, 3573, 3715, 3716, 2459, 556, 1154, 2277, 3570, 2922, 557, 555, 559, 554, 1155, 2456, 2923, 2278, 2276, 3569, 3572, 3712, 3711, 1152, 1209, 1210, 355, 73, 1149, 307, 1150, 2586, 69, 2502, 469, 1151, 552, 2934, 553, 2940, 63, 2696, 333, 3713, 3606, 3714, 306, 3709, 455, 3710, 2529, 431, 43
+-- bottle of cider, bottle of wine, bottle of mead, bottle of beer, bottle of banana juice, bottle of fir needle tea, bottle of virgins weed tea, bottle of grape juice, bottle of cabbage juice, bottle of carrot juice, bottle of rum, bottle of blackberry juice, bottle of green tea, bottle of tangerine juice, bottle of strawberry juice, bottle of druids tea, bottle of orange juice, bottle of bear slayer, bottle of berry booze, bottle of stone face, bottle of absinthe, bottle of orange schnapps, bottle of cherry schnapps, bottle of mulled wine, bottle of elven wine, bread roll, cookies, baked potato, bread, sausage on bread, banana bread, blackberry muffin, apple pie, cherry cake, egg salad sandwich, strawberry cake, nutbread, custard pie, elderberry pie, sausage, cheese, veggie hash, mystery meat, trout fillet dish, salmon dish, egg dish, meat dish, egg salad, sausages dish, steak dish, rabbit dish, lamb dish, venison dish, chicken dish, mushroom soup, onion soup, cabbage stew, mulligan, potato soup, fish soup, beer soup, goulash, chicken soup, horse mackerel, rose fish, salmon, trout, brown egg, pork, white egg, fur, raw leather, bottle of milk, lamp oil, chicken meat, deer meat, lamb meat, rabbit meat, raw steak, entrails, feathers, horn, grilled lamb, grilled steak, grilled venison, ham, smoked chicken, smoked fish, smoked rabbit, honeycomb, wax, candles
+tradeNotEnoughMoneyMsg "Bist du sicher, dass du dir das leisten kannst?", "Are you sure you can afford this?"
+tradeFinishedMsg "Danke sehr!", "Thank you very much."
 tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you like my wares?"
-tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+tradeWrongItemMsg "Ich glaub, das werde ich nicht kaufen.", "I guess I do not buy this."
 
 -- Template Version 1.02, 12/02/2010 by Estralis Seborian
--- This NPC is supposed to trade (all goods are sold and bought, percentage indicates ratio of price bought/sold):
-
 -- Name: Alysa Lorthelia
 -- Occupation: Baker
 -- Race: Human
@@ -108,11 +102,11 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Alysa Lorthelia die Bäckerin. Schlüsselwörter: Handel, kaufe, verkaufe.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, would you like something to eat? My wares are pretty tasty!", " Nice to meet you, I'm Alysa Lorthelia.", "Ah, you startled me! Hello, my apologies."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, would you like something to eat? My wares are pretty tasty!", "Nice to meet you, I'm Alysa Lorthelia.", "Ah, you startled me! Hello, my apologies."
 "Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, mögt Ihr etwas essen?Ich finde das Essen welches ich hergestellt habe schmeckt.", "Freut mich euch zu treffen. Ich bin Alysa Lorthelia.", "Ah! Ihr habt mich erschreckt, Hallo, tut mir leid."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, would you like something to eat? My wares are pretty tasty!", " Nice to meet you, I'm Alysa Lorthelia.", "Ah, you startled me! Hello, my apologies."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, mögt Ihr etwas essen?Ich finde das Essen welches ich hergestellt habe schmeckt.", "Freut mich euch zu treffen. Ich bin Alysa Lorthelia.", "Ah! Ihr habt mich erschreckt, Hallo, tut mir leid."
-"Farewell", "Bye", "Fare well", "See you" -> "Will I ever see you again? ", "Thank you so, so much for talking to me.", "Please have a good day. Can you visit again please?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, would you like something to eat? My wares are pretty tasty!", "Nice to meet you, I'm Alysa Lorthelia.", "Ah, you startled me! Hello, my apologies."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, mögt Ihr etwas essen?Ich finde das Essen welches ich hergestellt habe schmeckt.", "Freut mich euch zu treffen. Ich bin Alysa Lorthelia.", "Ah, ihr habt mich erschreckt! Entschuldigt, hallo erstmal."
+"Farewell", "Bye", "Fare well", "See you" -> "Will I ever see you again?", "Thank you so, so much for talking to me.", "Please have a good day. Can you visit again please?"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Werde ich Euch wiedersehen?", "Vielen, vielen, vielen Dank, dass Ihr mit mir gesprochen habt.", "Ich wünsche Euch einen schönen Tag. Bitte kommt mal wieder vorbei."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Will I ever see you again? ", "Thank you so, so much for talking to me.", "Please have a good day. Can you visit again please?"
 "Farewell", "Bye", "Fare well", "See you" -> "Will I ever see you again? ", "Thank you so, so much for talking to me.", "Please have a good day. Can you visit again please?"
