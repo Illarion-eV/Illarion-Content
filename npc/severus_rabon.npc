@@ -92,7 +92,7 @@ tradeWrongItemMsg "Ich lehne dankend ab.", "I have to decline."
 
 -- Trade
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Was darf ich anbieten?", trade
-"sell", "buy", "wares", "price", "trade", "purchase" -> "`What is your choice?", trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> "What is your choice?", trade
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Please talk to my daughter. She will seat you and then I will take your order.", "If you're a regular please seat yourself. My tavern is your home.", "If I may be of service I would recommend the stew. It's our signature dish."
