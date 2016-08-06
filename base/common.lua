@@ -452,7 +452,7 @@ function M.GetHungry(User, units)
 
     local food = User:increaseAttrib("foodlevel", -units)
     
-    if food < 10000 then
+    if (food < 6000) and ((food + units) > 6000) then
         M.InformNLS(User,
         "Die Arbeit macht dich langsam müde und hungrig.",
         "You are getting tired and hungry from your work.")
@@ -512,8 +512,8 @@ function M.ToolBreaks(user, item, workTime)
 
     if (durability <= 10) then
       M.InformNLS(user,
-      "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
-      "The tool looks like it could break soon. You should try to get a new one.")
+      "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen oder es reparieren lassen.",
+      "The tool looks like it could break soon. You should try to get a new one or get it repaired.")
     end
 
   return false
