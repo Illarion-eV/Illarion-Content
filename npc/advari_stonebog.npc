@@ -59,31 +59,24 @@ itemShoes = 326
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 51, 126, 258, 271, 69, 2547, 2586, 2696, 154, 200, 201, 290, 249, 772, 778, 2493, 15, 80, 81, 147, 151, 199, 302, 388, 2502, 259, 291, 534, 728, 773, 779, 2494, 2917, 307, 552, 553, 2934, 1151, 2940, 1150, 3567, 3566, 1207, 73, 355, 455, 1210, 1209, 72
-buySecondaryItems = 51, 126, 258, 271, 69, 2547, 2586, 2696, 154, 200, 201, 290, 249, 772, 778, 2493, 15, 80, 81, 147, 151, 199, 302, 388, 2502, 259, 291, 534, 728, 773, 779, 2494, 2917, 307, 552, 553, 2934, 1151, 2940, 1150, 3567, 3566, 1207, 73, 355, 455, 1210, 1209, 72
-tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
-tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
-tradeFinishedWithoutTradingMsg "Auf bald!", "Farewell!"
-tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+sellItems = 72, 258, 312, 126, 271, 249, 290, 2493, 154, 201, 3567, 778, 772, 200, 2, 15, 80, 81, 302, 388, 1207, 199, 2494, 259, 728, 534, 3566, 779, 773, 2917, 291, 1209, 1210, 355, 73
+-- fishing rod, flail, wooden shovel, sickle, scythe
+-- bundle of grain, cabbage, carrots, hop, onion, potato, sugarcane, tobacco, tomato, flour, apple, banana, berries, cherries, grapes, orange, tangerine, carrot seeds, grain, hop seeds, onion seeds, potato seeds, sugarcane seeds, tobacco seeds, tomato seeds, withered cabbage (seeds), horse mackerel, rose fish, salmon, trout
+buySecondaryItems = 249, 290, 2493, 154, 201, 3567, 778, 772, 200, 2, 15, 80, 81, 302, 388, 1207, 199, 2494, 259, 728, 534, 3566, 779, 773, 2917, 291, 1209, 1210, 355, 73
+-- bundle of grain, cabbage, carrots, hop, onion, potato, sugarcane, tobacco, tomato, flour, apple, banana, berries, cherries, grapes, orange, tangerine, carrot seeds, grain, hop seeds, onion seeds, potato seeds, sugarcane seeds, tobacco seeds, tomato seeds, withered cabbage (seeds), horse mackerel, rose fish, salmon, trout 
 
--- Template Version 1.03, 01/05/2011 by Estralis Seborian
--- Trader Stock
--- Tools (Farmer): 51, 126, 258, 271
--- Animal skins: 69, 2547, 2586, 2696
--- Crops: 154, 200, 201, 290, 249, 772, 778, 2493, 3567
--- Fruits: 15, 80, 81, 147, 151, 199, 302, 388, 1207
--- Milk: 2502
--- Seeds: 259, 291, 534, 728, 773, 779, 2494, 2917, 3566
--- Raw meat: 307, 552, 553, 2934, 1151, 2940
--- 10% Eggs 1149
--- 5% Fish: 73, 355, 455, 1210, 1209
--- 5% Tools (Fisher): 72
-"sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
+tradeNotEnoughMoneyMsg "Eindeutig zu teuer für dich.", "That's clearly too expensive for you."
+tradeFinishedMsg "Und ab dafür.", "And off ye go."
+tradeFinishedWithoutTradingMsg "Hrmpf.", "Hrmpf."
+tradeWrongItemMsg "Brauch ich nicht, will ich nicht, kauf ich nicht.", "Don't want, don't need, don't buy."
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Advari Stonebog the trader. Buy, sell, trade, Dwarf, Beer, Orcs, Name.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Advari Stonebog der Händler. kaufe, verkaufe, Handel, Zwerg, Bier, Orks, Name.")
+
+-- Trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Fine, let's barter.", "Let's get to business.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Dann lass uns mal rumhökern.", "Denn man ran.", trade
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greeted be.", "Wealth and glory, friend.", "Hail Irmorom.", "Great day to be a dwarf!", "This 'ere be me stall. You want to buy some wares?"
