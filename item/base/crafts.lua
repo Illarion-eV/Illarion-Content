@@ -629,7 +629,7 @@ function Craft:craftItem(user, productId)
 
         if not self.npcCraft then
             if common.ToolBreaks(user, toolItem, product:getCraftingTime(skill)) then
-                common.HighInformNLS(user,"Dein altes Werkzeug zerbricht: " .. germanTool,"Your old tool breaks: " .. englishTool)
+                common.HighInformNLS(user,"Dein altes Werkzeug zerbricht.", "Your old tool breaks.")
             end
             common.GetHungry(user, neededFood)
         end
