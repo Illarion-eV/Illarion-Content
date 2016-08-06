@@ -59,7 +59,7 @@ itemShoes = 326
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 258, 312, 126, 271, 249, 72, 290, 2493, 154, 201, 3567, 778, 772, 200, 2, 15, 80, 81, 302, 388, 1207, 199, 2494, 259, 728, 534, 3566, 779, 773, 2917, 291, 1209, 1210, 355, 73
+sellItems = 258, 312, 126, 271, 72, 249, 290, 2493, 154, 201, 3567, 778, 772, 200, 2, 15, 80, 81, 302, 388, 1207, 199, 2494, 259, 728, 534, 3566, 779, 773, 2917, 291, 1209, 1210, 355, 73
 -- flail, wooden shovel, sickle, scythe, fishing rod
 -- bundle of grain, cabbage, carrots, hop, onion, potato, sugarcane, tobacco, tomato, flour, apple, banana, berries, cherries, grapes, orange, tangerine, carrot seeds, grain, hop seeds, onion seeds, potato seeds, sugarcane seeds, tobacco seeds, tomato seeds, withered cabbage (seeds), horse mackerel, rose fish, salmon, trout
 buySecondaryItems = 249, 290, 2493, 154, 201, 3567, 778, 772, 200, 2, 15, 80, 81, 302, 388, 1207, 199, 2494, 259, 728, 534, 3566, 779, 773, 2917, 291, 1209, 1210, 355, 73
