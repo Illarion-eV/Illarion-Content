@@ -65,21 +65,23 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 1059, 164, 191, 224, 353, 453, 454, 517, 518, 783, 784, 785, 786, 787, 788, 789, 790, 791, 1315, 1316, 1317, 1318, 1319, 1840, 1841, 1842, 1843, 1844, 1853, 1854, 1855, 1856, 1857, 1858, 1859, 1860, 1861, 1908, 1909, 2055, 2056, 2057, 2058, 2059, 2185, 2186, 2187, 2188, 2189, 2276, 2278, 2456, 2496, 2497, 2498, 2499, 2500, 2501, 2922, 2923, 2935, 2952, 3611
-buySecondaryItems = 164, 518, 790, 1317, 2498, 2501, 224, 1840, 1858, 1908, 2055, 2185
-tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
-tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
-tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you like my wares?"
-
--- Stock: dice cup, big empty bottle, bread roll, golden goblet, apple pie, cookies, muffin, bottle with rum, empty bottle, bottle of blackberry juice, bottle of tangerine juice, bottle of banana juice, bottle of cabbage juice, bottle of tea, bottle of carrot juice, bottle of strawberry juice, empty bottle, bottle of grape juice, bottle of berry booze, bottle of bear slayer, small empty bottle, bottle of Elven wine, bottle of cherry schnapps, (silver, copper, gold)goblet, goblet with water, goblet with wine, goblet with mead, goblet with cider, cider, (empty,full)beer mug, glass, glass with mead, glass with wine, glass with water, glass with cider, wooden cup, cup with water, cup with wine, cup with mead, cup with cider, mulligan, cabbage stew, mushroom soup, blue bottle, orange bottle, grey bottle, green bottle, red bottle, black bottle, sausages dish, onion soup,  soup bowl, plate
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Lass uns handeln!", trade
-"sell", "buy", "wares", "price", "trade", "purchase" -> "Let's trade!", trade
+sellItems = 2186, 2058, 1855, 2189, 2059, 1859, 2188, 2056, 1853, 2187, 2057, 1860, 1841, 1844, 1843, 2496, 1842, 1854, 1861, 1856, 1857, 1909
+--cup with water, glass with water, silver goblet with water, cup with cider, glass with cider, silver goblet with cider, cup with mead, glass with mead, silver goblet with mead, cup with wine, glass with wine, silver goblet with wine, copper goblet with water, copper goblet with cider, copper goblet with mead, bottle of water, copper goblet with wine, golden goblet with water, golden goblet with cider, golden goblet with mead, golden goblet with wine, beer mug
+buySecondaryItems = 2186, 2058, 1855, 2189, 2059, 1859, 2188, 2056, 1853, 2187, 2057, 1860, 1841, 1844, 1843, 2496, 1842, 1854, 1861, 1856, 1857, 1909
+--cup with water, glass with water, silver goblet with water, cup with cider, glass with cider, silver goblet with cider, cup with mead, glass with mead, silver goblet with mead, cup with wine, glass with wine, silver goblet with wine, copper goblet with water, copper goblet with cider, copper goblet with mead, bottle of water, copper goblet with wine, golden goblet with water, golden goblet with cider, golden goblet with mead, golden goblet with wine, beer mug
+tradeNotEnoughMoneyMsg "Kein Geld, keine Drinks.", "No money, no drinks."
+tradeFinishedMsg "Arr. Bitteschön.", "Arr. Here you are."
+tradeFinishedWithoutTradingMsg "Nicht gucken sondern schlucken!", "Don't look, swallow!"
 
 -- Template Version 1.02, 12/02/2010 by Estralis Seborian
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Borgate Northoff the innkeeper of The Hemp Necktie Inn. Keywords: Gods, Bragon, Adron, trade, mug.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Borgate Northoff der Wirt vom Gasthof zur Hanfschlinge. Schlüsselwörter: Götter, Bragon, Adron, Handel, Becher, Krug.")
+
+-- Trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Was willste?", trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Whatcha want?", trade
 
 --quest
 queststatus(652) = 1, item(1908, all) > 0, english, ".*"  -> queststatus(652) = 2, deleteItem(1908, 1), item(1909,1,777), inform("[Quest 'Find Borgate Northoff' end]"), "Aahr! Wulfgorda's mug! I wonder if she will ever bring her mug by herself. Anyway, one free beer for you!"
