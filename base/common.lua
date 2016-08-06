@@ -452,7 +452,7 @@ function M.GetHungry(User, units)
 
     local food = User:increaseAttrib("foodlevel", -units)
     
-    if (food < 6000) and ((food + units) > 6000) then
+    if (food <= 6000) and ((food + units) > 6000) then
         M.InformNLS(User,
         "Die Arbeit macht dich langsam müde und hungrig.",
         "You are getting tired and hungry from your work.")
