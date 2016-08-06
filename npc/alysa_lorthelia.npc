@@ -94,12 +94,13 @@ tradeWrongItemMsg "Ich glaub, das werde ich nicht kaufen.", "I guess I do not bu
 -- she thinks she is. She is constantly watching her weight. She thinks the only good thing about her is the size of her boobs.
 -- Alysa wishes more than anything that should could be a fairy of legend because unlike dwarves like her Faries are pretty.
 
-"kauf", "waren", "preis", "handel", "veräußer", "veräusser", "erwerb" -> "Lass uns handeln!", trade
-"sell", "buy", "wares", "price", "trade", "purchase" -> "Let's trade!", trade
-
 -- Help
 "Help" -> inform("[Game Help] This NPC is Alysa Lorthelia the baker. Keywords: buy, sell, trade.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Alysa Lorthelia die Bäckerin. Schlüsselwörter: Handel, kaufe, verkaufe.")
+
+-- Trade
+"kauf", "waren", "preis", "handel", "veräußer", "veräusser", "erwerb" -> "Lass uns handeln!", trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Let's trade!", trade
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, would you like something to eat? My wares are pretty tasty!", "Nice to meet you, I'm Alysa Lorthelia.", "Ah, you startled me! Hello, my apologies."
