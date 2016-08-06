@@ -63,11 +63,11 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 61, 3076, 3077
-tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
-tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
-tradeFinishedWithoutTradingMsg "Auf bald!", "Farewell!"
-tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+sellItems = 3076, 3077, 61
+tradeNotEnoughMoneyMsg "Ganz so viel Geld habt ihr auch wieder nicht.", "You don't have that much money."
+tradeFinishedMsg "Weiterhin gute Geschäfte.", "I wish you good business."
+tradeFinishedWithoutTradingMsg "Gehabt euch wohl.", "Godspeed."
+tradeWrongItemMsg "Ich wechsle nur Geld.", "I just change money."
 
 -- Template Version 1.06, 08/29/2012 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
