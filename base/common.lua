@@ -510,13 +510,13 @@ function M.ToolBreaks(user, item, workTime)
     item.quality = quality * 100 + durability
     world:changeItem(item)
 
-    if (durability <= 10) then
+    if (durability <= 10) and (loss > 0) then
       M.InformNLS(user,
       "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen oder es reparieren lassen.",
       "The tool looks like it could break soon. You should try to get a new one or get it repaired.")
     end
 
-  return false
+    return false
 
 end
 
