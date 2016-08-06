@@ -486,24 +486,7 @@ function M.ToolBreaks(user, item, workTime)
     if (durability <= 0) then
     
         world:erase(item, 1)
-      
-        if math.random(1, 100) <= 10 then
-            if math.random(1, 2) == 1 then
-                M.InformNLS(user,
-                    "Das Werkzeug zerbricht. So ein Pech aber auch.",
-                    "The tool breaks. What a pity.")
-            else
-                M.InformNLS(user,
-                    "Das Werkzeug zerbricht. Welch ein Drama.",
-                    "The tool breaks. What a drama.")
-            end
-        else
-            M.InformNLS(user,
-                "Das Werkzeug zerbricht.",
-                "The tool breaks.")
-        end
-        
-      return true
+        return true
       
     end
 
