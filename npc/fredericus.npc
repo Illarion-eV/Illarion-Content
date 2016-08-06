@@ -65,33 +65,22 @@ itemShoes = 369
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 126, 752, 753, 759, 763, 767, 133, 134, 135, 136, 137, 140, 141, 142, 143, 144, 145, 148, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163
-buySecondaryItems = 126, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 133, 134, 135, 136, 137, 138, 140, 141, 142, 143, 144, 145, 146, 148, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163
+sellItems = 126, 136, 162, 141, 147, 753, 158, 163, 766, 764, 765, 769, 146, 140, 407, 405, 149, 755, 148, 137, 153, 134, 762, 758, 145, 161, 760, 152, 752, 763, 138, 759, 754, 756, 761, 143, 160, 157, 142, 155, 156, 406, 151, 133, 159, 757, 144, 767, 768, 135, 3787
+-- sickle
+-- anger berry, birth mushroom, black thistle, blackberry, blue birdsberry, bulbsponge mushroom, champignon, con blossom, dark moss, daydream, desert berry, desert sky capsule, donf blade, elf caps, fairy ring mushroom, fir tree sprout, fire root, firnis blossom, flamegoblet blossom, foot leaf, fourleafed oneberry, gold crack herb, heart blood, heath flower, herder's mushroom, ice leaf, life root, mandrake, marsh flower, night angels blossom, nuts, oneleaved fourberry, pious berry, rain weed, red elder, red head, rotten tree bark, sandberry, sibanac leaf, steppe fern, stinkhorn, strawberry, sun herb, toadstool, tybalt star, virgin's weed, water blossom, wolverine fern, yellow weed, silk
+buyPrimaryItems = 136, 162, 141, 147, 753, 158, 163, 766, 764, 765, 769, 146, 140, 407, 405, 149, 755, 148, 137, 153, 134, 762, 758, 145, 161, 760, 152, 752, 763, 138, 759, 754, 756, 761, 143, 160, 157, 142, 155, 156, 406, 151, 133, 159, 757, 144, 767, 768, 135, 3787
+--anger berry, birth mushroom, black thistle, blackberry, blue birdsberry, bulbsponge mushroom, champignon, con blossom, dark moss, daydream, desert berry, desert sky capsule, donf blade, elf caps, fairy ring mushroom, fir tree sprout, fire root, firnis blossom, flamegoblet blossom, foot leaf, fourleafed oneberry, gold crack herb, heart blood, heath flower, herder's mushroom, ice leaf, life root, mandrake, marsh flower, night angels blossom, nuts, oneleaved fourberry, pious berry, rain weed, red elder, red head, rotten tree bark, sandberry, sibanac leaf, steppe fern, stinkhorn, strawberry, sun herb, toadstool, tybalt star, virgin's weed, water blossom, wolverine fern, yellow weed, silk
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
 tradeFinishedWithoutTradingMsg "Auf bald!", "Farewell!"
 tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Template Version 1.03 by Estralis Seborian
--- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
--- Valid races: human, elf, dwarf, lizardman, orc, halfling
--- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
--- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
--- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
--- When you are done, please hit the "Rebuild Script" button.
-
 -- NPC by Estralis Seborian
 
--- This NPC is supposed to trade (all goods are sold and bought, percentage indicates ratio of price bough/sold):
-
--- 5% Tools (Herb gatherer): 126
--- 5% Herbs II: 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769
--- 5% Herbs: 133, 134, 135, 136, 137, 138, 140, 141, 142, 143, 144, 145, 146, 148, 152, 153, 154, 155, 156, 157
--- 5% Mushrooms: 158, 159, 160, 161, 162, 163
-
 -- Help
-"Help" -> inform("[Game Help] This NPC is the fisherman Fredericus. Keyphrases: Hello, Tanora, trade.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Fischer Fredericus. Schlüsselwörter: Hallo, Tanora, Handel.")
+"Help" -> inform("[Game Help] This NPC is the herb trader Fredericus. Keyphrases: Hello, Tanora, trade.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Kräuterhändler Fredericus. Schlüsselwörter: Hallo, Tanora, Handel.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "G'day. I just came ashore."
@@ -117,24 +106,23 @@ english, "quest", "mission" -> "I do not issue any quests."
 "task", "adventure", "order" -> "I do not issue any quests."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich verteile keine Aufgaben."
 
--- Easter Egg
-"fischers fritze" -> "Fischt frische Fische!"
-
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I'm a fisherman. A hard job, but an honest and honourable job."
-"beruf" -> "Ich bin ein Fischer. Das ist ein hartes Geschäft, aber es ist ehrlich und ehrbar."
-english, "job" -> "I'm a fisherman. A hard job, but an honest and honourable job."
-"job" -> "Ich bin ein Fischer. Das ist ein hartes Geschäft, aber es ist ehrlich und ehrbar."
+"profession" -> "I'm a seafaring herb trader. A hard job, but an honest and honourable job."
+"beruf" -> "Ich bin ein zur See fahrender Kräuterhändler. Das ist ein hartes Geschäft, aber es ist ehrlich und ehrbar."
+english, "job" -> "I'm a seafaring herb trader. A hard job, but an honest and honourable job."
+"job" -> "Ich bin ein ein zur See fahrender Kräuterhändler. Das ist ein hartes Geschäft, aber es ist ehrlich und ehrbar."
 english, "Gobaith", "Gobiath" -> "I once sailed to Gobaith, the natives tossed onions at each other!"
 "Gobaith", "Gobiath" -> "Ich bin einmal nach Gobaith gesegelt, die Eingeborenen dort haben mit Zwiebeln aufeinander geworfen!"
-"my name" -> "Oh, interesting, and do you want to become a fisherman like me?", "A nice name, indeed."
-"mein Name" -> "Oh, interessant, wollt ihr auch ein Fischer wie ich werden?", "Ein netter Name."
+"my name" -> "Oh, interesting, and do you want to become a sailor like me?", "A nice name, indeed."
+"mein Name" -> "Oh, interessant, wollt ihr auch ein Seefahrer wie ich werden?", "Ein netter Name."
 
 -- More small talk; add at least five triggers
 "Cape", "Farewell" -> "Cape Farewell is to the south and west, land's end one could say."
 "Kap", "Abschied" -> "Das Kap des Abschiedes ist im Südwesten, am Ende der Welt könnte man sagen."
 "trader", "merchant", "collegue", "vendor", "market" -> "Here, at the marketplace, there are many traders. You can buy many goods here in Cadomyr."
 "händler", "kollege", "höker", "markt" -> "Hier auf dem Marktplatz gibt es einige Händler. Man kann viele Waren hier in Cadomyr kaufen."
+"Kraut", "Kräuter" -> "Kräuter, besonders unsere geschätzten Wüstenpflanzen, werden in Übersee mit Gold aufgewogen."
+"herb" -> "For herbs, especially our desert plants, you can get their weight in gold abroad."
 
 -- Faction stuff
 "archmage" -> "#me snorts angrily.", "Better avoid Runewick's leader. Whatever you say, it is wrong. Whatever you do, it is wrong."
@@ -163,8 +151,8 @@ english, "salkama" -> "Arrogant wise guys they are, and a hard working fisherman
 "salkama" -> "Arrogante Besserwisser sind das. Und ein hart arbeitender Fischer zählt nichts für die ach-so-noblen Leute dort."
 
 -- Gods; each NPC should at react on at least one god, being a follower of said god
-"god" -> "Goddesses aren't prayed to in Cadomyr, they say, but when you are at sea, you'll pray to Tanora and Findari, that's for sure."
-"Gott", "Götter" -> "In Cadomyr betet man keine Göttinnen an, so heißt es. Aber wenn ihr mal auf See seid, dann werdet ihr sicherlich Tanora und Findari anflehen."
+"god" -> "Goddesses aren't prayed to in Albar, they say, but when you are at sea, you'll pray to Tanora and Findari, that's for sure."
+"Gott", "Götter" -> "In Albar betet man keine Göttinnen an, so heißt es. Aber wenn ihr mal auf See seid, dann werdet ihr sicherlich Tanora und Findari anflehen."
 english, "Tanora", "Zelphia" -> "Tanora guides my boat, Tanora protects my boat, Tanora causes the waves that sink my boat.", "Hail Tanora!", "I obey Tanora, but if you want to meet people who adore her, go to Cape Farewell."
 "Tanora", "Zelphia" -> "Tanora lenkt mein Boot, Tanora schützt mein Boot, Tanora schickt die Wellen, die mein Boot zermalmen.", "Huldigt Tanora!", "Ich gehorche Tanora, aber wenn ihr Leute treffen wollt, die sie verehren, geht zum Kap des Abschiedes."
 english, "Findari" -> "Findari grants the devastating storm or the wind that blows the sail; depending on her mood."
@@ -177,10 +165,8 @@ english, "Irmorom" -> "Irmorom helps me to do good business, but my fate is in t
 "erzähl was", "erzähl etwas" -> "Ich schwöre, ich habe ein Seeungeheuer gesehen!", "Wenn ein böser Geist auf einem Schiff sein Unwesen treibt, dann ist es meist bald verloren."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-english, "Fredericus" -> "I am merely a humble fisherman. But I could tell you about the Gods, shall I?"
-"Fredericus" -> "Ich bin nur ein einfacher Fischer, aber ich könnte euch etwas über die Götter erzählen, wenn ihr Zeit habt."
-"stinkt" -> "Das stimmt nicht."
-"stinks" -> "It does not!"
+english, "Fredericus" -> "I am merely a humble sailor. But I could tell you about the Gods, shall I?"
+"Fredericus" -> "Ich bin nur ein einfacher Seefahrer, aber ich könnte euch etwas über die Götter erzählen, wenn ihr Zeit habt."
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
