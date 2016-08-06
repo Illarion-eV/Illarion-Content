@@ -72,6 +72,7 @@ buySecondaryItems = 2186, 2058, 1855, 2189, 2059, 1859, 2188, 2056, 1853, 2187, 
 tradeNotEnoughMoneyMsg "Kein Geld, keine Drinks.", "No money, no drinks."
 tradeFinishedMsg "Arr. Bitteschön.", "Arr. Here you are."
 tradeFinishedWithoutTradingMsg "Nicht gucken sondern schlucken!", "Don't look, swallow!"
+tradeWrongItemMsg "Behalt das mal.", "Keep it."
 
 -- Template Version 1.02, 12/02/2010 by Estralis Seborian
 
