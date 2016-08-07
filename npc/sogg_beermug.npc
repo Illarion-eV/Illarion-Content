@@ -68,7 +68,7 @@ buySecondaryItems = 2499, 2500, 2497, 2501, 785, 3720, 787, 791, 786, 788, 517, 
 -- bottle of cider, bottle of wine, bottle of mead, bottle of beer, bottle of banana juice, bottle of fir needle tea, bottle of virgins weed tea, bottle of grape juice, bottle of cabbage juice, bottle of carrot juice, bottle of rum, bottle of blackberry juice, bottle of green tea, bottle of tangerine juice, bottle of strawberry juice, bottle of druids tea, bottle of orange juice, bottle of bear slayer, bottle of berry booze, bottle of stone face, bottle of absinthe, bottle of orange schnapps, bottle of cherry schnapps, bottle of mulled wine, bottle of elven wine, 
 tradeNotEnoughMoneyMsg "Zu teuer!", "Too expensive!"
 tradeFinishedMsg "Whubeva.", "Whubeva."
-tradeFinishedWithoutTradingMsg "Farebaaaa...!", "Farebaaaa...!"
+tradeFinishedWithoutTradingMsg "Fareba!", "Fareba!"
 tradeWrongItemMsg "Nah.", "Nah."
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
