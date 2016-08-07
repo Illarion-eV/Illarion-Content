@@ -68,10 +68,10 @@ sellItems = 126, 136, 162, 141, 147, 753, 158, 163, 766, 764, 765, 769, 146, 140
 -- anger berry, birth mushroom, black thistle, blackberry, blue birdsberry, bulbsponge mushroom, champignon, con blossom, dark moss, daydream, desert berry, desert sky capsule, donf blade, elf caps, fairy ring mushroom, fir tree sprout, fire root, firnis blossom, flamegoblet blossom, foot leaf, fourleafed oneberry, gold crack herb, heart blood, heath flower, herder's mushroom, ice leaf, life root, mandrake, marsh flower, night angels blossom, nuts, oneleaved fourberry, pious berry, rain weed, red elder, red head, rotten tree bark, sandberry, sibanac leaf, steppe fern, stinkhorn, strawberry, sun herb, toadstool, tybalt star, virgin's weed, water blossom, wolverine fern, yellow weed, silk
 buyPrimaryItems = 136, 162, 141, 147, 753, 158, 163, 766, 764, 765, 769, 146, 140, 407, 405, 149, 755, 148, 137, 153, 134, 762, 758, 145, 161, 760, 152, 752, 763, 138, 759, 754, 756, 761, 143, 160, 157, 142, 155, 156, 406, 151, 133, 159, 757, 144, 767, 768, 135, 3787
 --anger berry, birth mushroom, black thistle, blackberry, blue birdsberry, bulbsponge mushroom, champignon, con blossom, dark moss, daydream, desert berry, desert sky capsule, donf blade, elf caps, fairy ring mushroom, fir tree sprout, fire root, firnis blossom, flamegoblet blossom, foot leaf, fourleafed oneberry, gold crack herb, heart blood, heath flower, herder's mushroom, ice leaf, life root, mandrake, marsh flower, night angels blossom, nuts, oneleaved fourberry, pious berry, rain weed, red elder, red head, rotten tree bark, sandberry, sibanac leaf, steppe fern, stinkhorn, strawberry, sun herb, toadstool, tybalt star, virgin's weed, water blossom, wolverine fern, yellow weed, silk
-tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
-tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
-tradeFinishedWithoutTradingMsg "Auf bald!", "Farewell!"
-tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+tradeNotEnoughMoneyMsg "Das könnt ihr euch nicht leisten.", "You can not afford that."
+tradeFinishedMsg "Vielen Dank.", "Thank you."
+tradeFinishedWithoutTradingMsg "Auf Wiedersehen.", "Goodbye."
+tradeWrongItemMsg "No thanks.", "Nein danke."
 
 -- Template Version 1.03 by Estralis Seborian
 
@@ -92,8 +92,8 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings.", "Be greeted."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Lebt wohl! Möge Oldra über Euch wachen!", "Lebt wohl! Und schaut mal wieder vorbei."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adé!", "A bientôt!", "May Oldra be with you."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adé!", "A bientôt!", "Möge Oldra über Euch wachen!"
-"How are you", "How feel", "How do you do" -> "Thank you for asking. Since I stopped smoking Sibanac I feel great!", " I drank some herbal tea for my headache, now I feel better."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Danke der Nachfrage. Seitdem ich kein Sibanac mehr rauche geht es mir ausgezeichnet!", "I trank Tee gegen meine Kopfschmerzen, und nun  geht es mir wieder gut."
+"How are you", "How feel", "How do you do" -> "Thank you for asking. Since I stopped smoking Sibanac I feel great!", "I drank some herbal tea for my headache, now I feel better."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Danke der Nachfrage. Seitdem ich kein Sibanac mehr rauche geht es mir ausgezeichnet!", "I trank Tee gegen meine Kopfschmerzen und nun geht es mir wieder gut."
 "your name", "who are you", "who art thou" -> "I'm a merchant, I sell fresh herbs. I am called William Daloire.", "I'm William Daloire, at you service."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin ein Händler der frische Kräuter verkauft. Ich werde William Daloire genannt.", "Ich heiße William Daloire, was kann ich für Euch tun?"
 
