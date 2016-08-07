@@ -42,7 +42,7 @@ function M.MoveToField(User)
         queststatuslist = common.Split_number(queststatus, 4) --reading the digits of the queststatus as table
 
         for i = 1, 4 do
-            if User:isInRangeToPosition(waypoint[i], 1) and queststatuslist[i] == 0 then
+            if User:isInRangeToPosition(waypoint[i], 2) and queststatuslist[i] == 0 then
                 queststatuslist[i] = 1 --found it!
                 common.InformNLS(User, messageG[i], messageE[i])
                 User:setQuestProgress(116, queststatuslist[1] * 1000 + queststatuslist[2] * 100 + queststatuslist[3] * 10 + queststatuslist[4] * 1) --saving the new queststatus
