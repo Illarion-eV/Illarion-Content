@@ -63,37 +63,25 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 58, 429, 126, 43, 391, 52, 752, 753, 759, 763, 767, 133, 134, 135, 136, 137, 140, 141, 142, 143, 144, 145, 148, 153, 154, 155, 156, 157, 431, 463, 2745, 158, 159, 160, 161, 162, 163
-buyPrimaryItems = 58, 429, 126, 43, 391, 52, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 133, 134, 135, 136, 137, 138, 140, 141, 142, 143, 144, 145, 146, 148, 152, 153, 154, 155, 156, 157, 431, 463, 2745, 158, 159, 160, 161, 162, 163
+sellItems = 126, 136, 162, 141, 147, 753, 158, 163, 766, 764, 765, 769, 146, 140, 407, 405, 149, 755, 148, 137, 153, 134, 762, 758, 145, 161, 760, 152, 752, 763, 138, 759, 754, 756, 761, 143, 160, 157, 142, 155, 156, 406, 151, 133, 159, 757, 144, 767, 768, 135, 3787
+-- sickle
+-- anger berry, birth mushroom, black thistle, blackberry, blue birdsberry, bulbsponge mushroom, champignon, con blossom, dark moss, daydream, desert berry, desert sky capsule, donf blade, elf caps, fairy ring mushroom, fir tree sprout, fire root, firnis blossom, flamegoblet blossom, foot leaf, fourleafed oneberry, gold crack herb, heart blood, heath flower, herder's mushroom, ice leaf, life root, mandrake, marsh flower, night angels blossom, nuts, oneleaved fourberry, pious berry, rain weed, red elder, red head, rotten tree bark, sandberry, sibanac leaf, steppe fern, stinkhorn, strawberry, sun herb, toadstool, tybalt star, virgin's weed, water blossom, wolverine fern, yellow weed, silk
+buyPrimaryItems = 136, 162, 141, 147, 753, 158, 163, 766, 764, 765, 769, 146, 140, 407, 405, 149, 755, 148, 137, 153, 134, 762, 758, 145, 161, 760, 152, 752, 763, 138, 759, 754, 756, 761, 143, 160, 157, 142, 155, 156, 406, 151, 133, 159, 757, 144, 767, 768, 135, 3787
+--anger berry, birth mushroom, black thistle, blackberry, blue birdsberry, bulbsponge mushroom, champignon, con blossom, dark moss, daydream, desert berry, desert sky capsule, donf blade, elf caps, fairy ring mushroom, fir tree sprout, fire root, firnis blossom, flamegoblet blossom, foot leaf, fourleafed oneberry, gold crack herb, heart blood, heath flower, herder's mushroom, ice leaf, life root, mandrake, marsh flower, night angels blossom, nuts, oneleaved fourberry, pious berry, rain weed, red elder, red head, rotten tree bark, sandberry, sibanac leaf, steppe fern, stinkhorn, strawberry, sun herb, toadstool, tybalt star, virgin's weed, water blossom, wolverine fern, yellow weed, silk
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
 tradeFinishedWithoutTradingMsg "Auf bald!", "Farewell!"
 tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Template Version 1.03 by Estralis Seborian
--- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
--- Valid races: human, elf, dwarf, lizardman, orc, halfling
--- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
--- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
--- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
--- When you are done, please hit the "Rebuild Script" button.
-
--- This NPC is supposed to trade (all goods are sold and bought, percentage indicates ratio of price bought/sold):
--- 10% Tools (Alchemist): 58
--- 10% Tools (Candle maker): 429
--- 10% Tools (Herb gatherer): 126
--- 10% Candles, torches: 43, 391
--- 10% Herbs II: 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769
--- 10% Herbs: 133, 134, 135, 136, 137, 138, 140, 141, 142, 143, 144, 145, 146, 148, 152, 153, 154, 155, 156, 157
--- 10% Wax: 431
--- 10% Writing stuff: 463, 2745
--- 10% Mushrooms: 158, 159, 160, 161, 162, 163
-"sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
 
 -- Help
-"Help" -> inform("[Game Help]This NPC is William Daloire the herbalist. Keywords: trade, buy, sell, greetings, profession, tell something.")
+"Help" -> inform("[Game Help] This NPC is William Daloire the herbalist. Keywords: trade, buy, sell, greetings, profession, tell something.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist William Daloire der Kräuterkundige. Schlüsselwörter: Handel, kaufe, verkaufe, Grüße, Beruf, erzähl was.")
+
+-- Trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Best goods!", "I have best herbs for all kinds of purposes.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Beste Waren!", "Ich habe die besten Kräuter für alle möglichen Verwendungen.", trade
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Oldra.", "Greetings.", "Be greeted."
