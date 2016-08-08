@@ -30,99 +30,99 @@ local foodList = {}
 -- COOKED FOOD --
 -- Tier 1 Food
 -- bread roll
-foodlist[191] = {difficulty = 0}
+foodList[191] = {difficulty = 0}
 -- Sausage
-foodlist[3051] = {difficulty = 0}
+foodList[3051] = {difficulty = 0}
 -- Ham
-foodlist[307] = {difficulty = 0}
+foodList[307] = {difficulty = 0}
 -- Smoked fish
-foodlist[455] = {difficulty = 0}
+foodList[455] = {difficulty = 0}
 -- Smoked rabbit
-foodlist[3710] = {difficulty = 0}
+foodList[3710] = {difficulty = 0}
 -- Smoked chicken
-foodlist[3709] = {difficulty = 0}
+foodList[3709] = {difficulty = 0}
 -- Grilled Steak
-foodlist[3606] = {difficulty = 5}
+foodList[3606] = {difficulty = 5}
 -- Grilled Lamb
-foodlist[3613] = {difficulty = 5}
+foodList[3613] = {difficulty = 5}
 -- Grilled Venison
-foodlist[3614] = {difficulty = 5}
+foodList[3614] = {difficulty = 5}
 -- Cookies
-foodlist[453] = {difficulty = 5}
+foodList[453] = {difficulty = 5}
 -- Cheese
-foodlist[3573] = {difficulty = 5}
+foodList[3573] = {difficulty = 5}
 -- Tier 2 Food
 -- Mushroom Soup
-foodlist[2456] = {difficulty = 10, leftOver = 2935, buffs = {agility = 1}}
+foodList[2456] = {difficulty = 10, leftOver = 2935, buffs = {agility = 1}}
 -- Baked Potato
-foodlist[3568] = {difficulty = 10, buffs = {dexterity = 1}}
+foodList[3568] = {difficulty = 10, buffs = {dexterity = 1}}
 -- Veggie Hash
-foodlist[3716] = {difficulty = 10, leftOver = 2952, buffs = {essence = 1}}
+foodList[3716] = {difficulty = 10, leftOver = 2952, buffs = {essence = 1}}
 -- Bread
-foodlist[49] = {difficulty = 20, buffs = {strength = 1}}
+foodList[49] = {difficulty = 20, buffs = {strength = 1}}
 -- Onion Soup
-foodlist[2923] = {difficulty = 20, leftOver = 2935, buffs = {intelligence = 1}}
+foodList[2923] = {difficulty = 20, leftOver = 2935, buffs = {intelligence = 1}}
 -- Mystery Meat
-foodlist[3715] = {difficulty = 20, leftOver = 2952, buffs = {perception = 1}}
+foodList[3715] = {difficulty = 20, leftOver = 2952, buffs = {perception = 1}}
 -- Trout fillet Dish
-foodlist[2459] = {difficulty = 25, leftOver = 2952, buffs = {willpower = 1}}
+foodList[2459] = {difficulty = 25, leftOver = 2952, buffs = {willpower = 1}}
 -- Sausage on bread
-foodlist[3631] = {difficulty = 25, buffs = {durability = 1}}
+foodList[3631] = {difficulty = 25, buffs = {durability = 1}}
 -- Tier 3 Food
 -- Banana Bread
-foodlist[3609] = {difficulty = 30, buffs = {willpower = 1, intelligence = 1}}
+foodList[3609] = {difficulty = 30, buffs = {willpower = 1, intelligence = 1}}
 --Cabbage Stew
-foodlist[2278] = {difficulty = 30, leftOver = 2935, buffs = {dexterity = 1, agility = 1}}
+foodList[2278] = {difficulty = 30, leftOver = 2935, buffs = {dexterity = 1, agility = 1}}
 -- Salmon Dish
-foodlist[556] = {difficulty = 30, leftOver = 2952, buffs = {strength = 1, durability = 1}}
+foodList[556] = {difficulty = 30, leftOver = 2952, buffs = {strength = 1, durability = 1}}
 -- Blackberry Muffin
-foodlist[454] = {difficulty = 40, buffs = {essence = 1, perception = 1}}
+foodList[454] = {difficulty = 40, buffs = {essence = 1, perception = 1}}
 -- Mulligan
-foodlist[2276] = {difficulty = 40, leftOver = 2935, buffs = {willpower = 1, intelligence = 1}}
+foodList[2276] = {difficulty = 40, leftOver = 2935, buffs = {willpower = 1, intelligence = 1}}
 -- Egg Dish
-foodlist[1154] = {difficulty = 40, leftOver = 2952, buffs = {strength = 1, durability = 1}}
+foodList[1154] = {difficulty = 40, leftOver = 2952, buffs = {strength = 1, durability = 1}}
 -- Potato Soup
-foodlist[3569] = {difficulty = 50, leftOver = 2935, buffs = {essence = 1, perception = 1}}
+foodList[3569] = {difficulty = 50, leftOver = 2935, buffs = {essence = 1, perception = 1}}
 -- Meat Dish
-foodlist[2277] = {difficulty = 50, leftOver = 2952, buffs = {dexterity = 1, agility = 1}}
+foodList[2277] = {difficulty = 50, leftOver = 2952, buffs = {dexterity = 1, agility = 1}}
 -- Apple Pie
-foodlist[353] = {difficulty = 50, buffs = {willpower = 1, intelligence = 1}}
+foodList[353] = {difficulty = 50, buffs = {willpower = 1, intelligence = 1}}
 -- Tier 4 Food
 -- Cherry Cake
-foodlist[303] = {difficulty = 60, buffs = {dexterity = 1, agility = 2}}
+foodList[303] = {difficulty = 60, buffs = {dexterity = 1, agility = 2}}
 --Egg Salad
-foodlist[3570] = {difficulty = 60, leftOver = 2935, buffs = {strength = 2, durability = 1}}
+foodList[3570] = {difficulty = 60, leftOver = 2935, buffs = {strength = 2, durability = 1}}
 --Sausages Dish
-foodlist[2922] = {difficulty = 60, leftOver = 2952, buffs = {essence = 2, perception = 1}}
+foodList[2922] = {difficulty = 60, leftOver = 2952, buffs = {essence = 2, perception = 1}}
 -- Steak dish
-foodlist[557] = {difficulty = 70, leftOver = 2952, buffs = {willpower = 2, intelligence = 1}}
+foodList[557] = {difficulty = 70, leftOver = 2952, buffs = {willpower = 2, intelligence = 1}}
 -- Fish Soup
-foodlist[3572] = {difficulty = 70, leftOver = 2935, buffs = {strength = 1, durability = 2}}
+foodList[3572] = {difficulty = 70, leftOver = 2935, buffs = {strength = 1, durability = 2}}
 -- Egg Salad Sandwich
-foodlist[3571] = {difficulty = 70, buffs = {dexterity = 2, agility = 1}}
+foodList[3571] = {difficulty = 70, buffs = {dexterity = 2, agility = 1}}
 -- Tier 5 Food
 --Rabbit Dish
-foodlist[555] = {difficulty = 80, leftOver = 2952, buffs = {strength = 2, durability = 2}}
+foodList[555] = {difficulty = 80, leftOver = 2952, buffs = {strength = 2, durability = 2}}
 -- Beer Soup
-foodlist[3712] = {difficulty = 80, leftOver = 2935, buffs = {essence = 1, perception = 2, intelligence = 1}}
+foodList[3712] = {difficulty = 80, leftOver = 2935, buffs = {essence = 1, perception = 2, intelligence = 1}}
 -- Strawberry Cake
-foodlist[354] = {difficulty = 80, buffs = {dexterity = 2, agility = 2}}
+foodList[354] = {difficulty = 80, buffs = {dexterity = 2, agility = 2}}
 -- Lamb Dish
-foodlist[559] = {difficulty = 85, leftOver = 2952, buffs = {essence = 2, perception = 2}}
+foodList[559] = {difficulty = 85, leftOver = 2952, buffs = {essence = 2, perception = 2}}
 -- nut Bread
-foodlist[3723] = {difficulty = 85, buffs = {essence = 1, perception = 1,willpower = 1, intelligence = 1}}
+foodList[3723] = {difficulty = 85, buffs = {essence = 1, perception = 1,willpower = 1, intelligence = 1}}
 -- Custard Pie
-foodlist[1153] = {difficulty = 90, buffs = {dexterity = 2, agility = 2}}
+foodList[1153] = {difficulty = 90, buffs = {dexterity = 2, agility = 2}}
 -- Venison Dish
-foodlist[554] = {difficulty = 90, leftOver = 2952, buffs = {strength = 2, durability = 2}}
+foodList[554] = {difficulty = 90, leftOver = 2952, buffs = {strength = 2, durability = 2}}
 -- Goulash
-foodlist[3711] = {difficulty = 90, leftOver = 2935, buffs = {strength = 1, durability = 1, agility = 1, dexterity = 1}}
+foodList[3711] = {difficulty = 90, leftOver = 2935, buffs = {strength = 1, durability = 1, agility = 1, dexterity = 1}}
 -- Elderberry Pie
-foodlist[3610] = {difficulty = 100, buffs = {willpower = 2, intelligence = 2}}
+foodList[3610] = {difficulty = 100, buffs = {willpower = 2, intelligence = 2}}
 --Chicken Dish
-foodlist[1155] = {difficulty = 100, leftOver = 2952, buffs = {essence = 2, perception = 2}}
+foodList[1155] = {difficulty = 100, leftOver = 2952, buffs = {essence = 2, perception = 2}}
 -- Chicken Soup
-foodlist[1152] = {difficulty = 100, leftOver = 2935, buffs = {willpower = 2, intelligence = 2}}
+foodList[1152] = {difficulty = 100, leftOver = 2935, buffs = {willpower = 2, intelligence = 2}}
 -- COOKED FOOD END --
 
 -- constants for free food (everything uncooked); use only those
