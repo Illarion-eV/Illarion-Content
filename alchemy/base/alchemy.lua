@@ -27,6 +27,7 @@ end
 
 function InitPlantSubstance()
 
+    -- Fruits
     setPlantSubstance(15,"","") --Apple
     setPlantSubstance(80,"","") --Banana
     setPlantSubstance(154,"","") --Hop
@@ -39,7 +40,8 @@ function InitPlantSubstance()
     setPlantSubstance(778,"","") --Sugarcane
     setPlantSubstance(1207,"","") --Orange
     setPlantSubstance(2493,"","") --Carrots
-
+    
+    -- Rare herbs
     setPlantSubstance(138,"","Dracolin") --Night angels blossom
     setPlantSubstance(146,"","Echolon") --Desert sky capsule
     setPlantSubstance(152,"Echolon","") --Life root
@@ -57,6 +59,7 @@ function InitPlantSubstance()
     setPlantSubstance(768,"Orcanol","") --wolverine fern
     setPlantSubstance(769,"Fenolin","") --desert berry
 
+    -- Common herbs
     setPlantSubstance(81,"Illidrium","Orcanol") --berries
     setPlantSubstance(133,"Adrazin","Orcanol") --sun herb
     setPlantSubstance(134,"Fenolin","Illidrium") --fourleafed oneberry
