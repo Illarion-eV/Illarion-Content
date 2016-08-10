@@ -34,7 +34,7 @@ function M.MoveToField( User )
     if User.pos == position(768, 250, -3) then -- Boat from sunken garden to new garden
         world:gfx(11, User.pos)
         world:makeSound(9, User.pos)
-        User:warp(position(767, 373, -3))
+        User:warp(position(767, 273, -3))
         world:gfx(11,User.pos)
         world:makeSound(9, User.pos)
     elseif User.pos == position(768, 273, -3) then -- Boat from new garden to old sunken one
