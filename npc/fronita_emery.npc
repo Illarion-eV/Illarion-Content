@@ -65,29 +65,26 @@ itemShoes = 369
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 311, 312, 2672, 164, 315, 1317, 1908, 2055, 2457, 2498, 41, 314, 316, 726, 310, 469, 390, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760, 736, 2588, 734, 24, 26
-buySecondaryItems = 311, 312, 2672, 164, 518, 790, 315, 1317, 1908, 2055, 2457, 2498, 41, 314, 316, 726, 310, 469, 390, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760, 736, 2588, 734, 24, 26
+sellItems = 24, 2710, 311, 2140, 26, 726, 316, 736, 2498, 1117, 790, 518, 390, 1317, 164, 41, 1908, 2055, 2457, 3642, 2588, 58, 2183, 2184, 310, 1223, 315
+-- shovel, mould, glass blow pipe, tongs
+-- clay, coarse sand, quartz sand, unfired bricks, large empty bottle, empty ink bottle, empty juice bottle, empty rum bottle, oil bottle, empty liquor bottle, empty potion, glass ingot, glass mug, glass, wine glass, empty salve jar, bricks, mortar, clay mug, clay cup, mug with lid, empty alchemy bomb, vase
+buySecondaryItems = 26, 726, 316, 736, 2498, 1117, 790, 518, 390, 1317, 164, 41, 1908, 2055, 2457, 3642, 2588, 58, 2183, 2184, 310, 1223, 315
+-- clay, coarse sand, quartz sand, unfired bricks, large empty bottle, empty ink bottle, empty juice bottle, empty rum bottle, oil bottle, empty liquor bottle, empty potion, glass ingot, glass mug, glass, wine glass, empty salve jar, bricks, mortar, clay mug, clay cup, mug with lid, empty alchemy bomb, vase
+
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
 tradeFinishedWithoutTradingMsg "Auf bald!", "Farewell!"
 tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Template Version 1.03 by Estralis Seborian
--- This NPC is supposed to trade (all goods are sold and bought, percentage indicates ratio of price bought/sold):
-
--- 5% Tools (Glass blower and brickmaking): 311, 312, 734, 24
--- 5% Glass products: 75, 164, 292, 315, 1317, 1908, 2055, 2457, 2498
--- 5% Glass resources: 41, 314, 316, 726
--- 5% Stuff: 310, 469, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
--- 5% Brick making: 736, 2588
--- 5% Clay: 26
--- Quest triggers currently blank, to be added at a later date
-"sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Fronita Emery the merchant. Keywords: buy, sell, trade, glas, wares, Runewick.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Händlerin Fronita Emery. Schlüsselwörter: Handel, kaufe, verkaufe, Glas, Waren, Runewick.")
+
+-- Trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> "This is what I can offer today.", "Don't just look, buy!", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Dies ist heute im Angebot.", "Nicht nur gucken sondern auch kaufen!", trade
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "May Findari and Elara bless you! Do you want to have a look at my wares?", "Welcome. If you're looking for goods made of glass I can definitely help you out."
@@ -176,8 +173,8 @@ english, "Bragon", "Brágon" -> "Aye, that's true, but I prefer Elara and Findari
 "Bragon", "Brágon" -> "Aye, richtig. Mir sagen Elara und Findari aber mehr zu."
 english, "Cherga" -> "Aye, that's true, but I prefer Elara and Findari."
 "Cherga" -> "Aye, richtig. Mir sagen Elara und Findari aber mehr zu."
-english, "Elara" -> "You have a lot of time to think about the important things in life when you stare at the furnace..", "My faith in Elara gives me peace of mind. Waiting for the glass to cool off is a form of meditation for me."
-"Elara" -> "Bis das Glas schmilzt hat man viel Zeit im Schein der Esse über das wirklich wichtige nachzudenken.", "Der Glaube an Elara gibt mir Frieden. Ich freue mich auf das stille Warten wenn das Glas kühlt, es klärt den Geist."
+english, "Elara" -> "You have a lot of time to think about the important things in life when you stare at the furnace.", "My faith in Elara gives me peace of mind. Waiting for the glass to cool off is a form of meditation for me."
+"Elara" -> "Bis das Glas schmilzt hat man viel Zeit im Schein des Ofens über das wirklich wichtige nachzudenken.", "Der Glaube an Elara gibt mir Frieden. Ich freue mich auf das stille Warten wenn das Glas kühlt, es klärt den Geist."
 english, "Eldan" -> "Aye, that's true, but I prefer Elara and Findari."
 "Eldan" -> "Aye, richtig. Mir sagen Elara und Findari aber mehr zu."
 english, "Findari" -> "If you literally need air to survive, like me, it is obvious who you should be grateful to.", "Findari guides my hand on the bellows, so the fire never dies."
