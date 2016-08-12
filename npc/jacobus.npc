@@ -63,13 +63,15 @@ itemShoes = 771
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 122, 2140, 21, 22, 234, 1062, 2536, 446, 447, 448, 449, 450, 451, 452, 45, 46, 197, 198, 283, 284, 285, 224, 465, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282, 92, 393, 399, 1001, 1840, 2031, 1858, 24, 2763, 251, 252, 253, 254, 255, 256, 257, 1054, 84, 98, 85, 297, 389, 398, 124, 229, 192, 2647
-buyPrimaryItems = 122, 2140, 21, 22, 234, 1062, 2536, 446, 447, 448, 449, 450, 451, 452, 45, 46, 197, 198, 283, 284, 285, 224, 225, 336, 465, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282, 92, 393, 399, 1001, 1840, 2031, 1858, 1054, 84, 98, 85, 123, 297, 389, 398, 444, 124, 229, 192, 296, 2647
-buySecondaryItems = 24, 2763, 251, 252, 253, 254, 255, 256, 257
-tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
-tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
-tradeFinishedWithoutTradingMsg "Auf bald!", "Farewell!"
-tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+sellItems = 2140, 122, 222, 3535, 3554, 3558, 3526, 3528, 79, 3539, 3541, 67, 3536, 3538, 82, 3559, 3543, 71, 3546, 3548, 62, 3549, 3551, 83, 3530, 3532, 334, 3534, 465, 225, 3556, 3557, 399, 92, 393, 336, 235, 3553, 3555, 3527, 3529, 277, 3540, 3560, 68, 3537, 3561, 278, 3542, 3544, 279, 3547, 3545, 281, 3550, 3552, 282, 3531, 3533, 280, 2559, 223, 1840, 1001, 1858, 224, 2647, 311, 450, 447, 446, 449, 448, 451, 452, 197, 46, 284, 283, 45, 198, 285
+-- tongs, finesmithing hammer
+-- iron amulet, golden amulet, silver amulet, copper amulet, copper amethyst amulet, silver amethyst amulet, golden amethyst amulet, copper ruby amulet, silver ruby amulet, golden ruby amulet, copper obsidian amulet, silver obsidian amulet, golden obsidian amulet, copper sapphire amulet, silver sapphire amulet, golden sapphire amulet, copper emerald amulet, silver emerald amulet, golden emerald amulet, copper topaz amulet, silver topaz amulet, golden topaz amulet, copper diamond amulet, silver diamond amulet, charm of the icebird, golden diamond amulet, diadem, crown, queen''s crown, kings''s crown, small candlestick, oil lamp, lantern, mirror, golden ring, copper ring, silver ring, copper amethyst ring, silver amethyst ring, golden amethyst ring, copper ruby ring, silver ruby ring, golden ruby ring, copper obsidian ring, silver obsidian ring, golden obsidian ring, copper sapphire ring, silver sapphire ring, golden sapphire ring, copper emerald ring, silver emerald ring, golden emerald ring, copper topaz ring, silver topaz ring, golden topaz ring, copper diamond ring, silver diamond ring, golden diamond ring, archmage ring, iron goblet, copper goblet, green plate, silver goblet, golden goblet, cutlery, glass blow pipe, amethyst powder, ruby powder, sapphire powder, obsidian powder, emerald powder, topaz powder, diamond powder, amethyst, ruby, sapphire, obsidian, emerald, topaz, diamond
+buySecondaryItems = 222, 3535, 3554, 3558, 3526, 3528, 79, 3539, 3541, 67, 3536, 3538, 82, 3559, 3543, 71, 3546, 3548, 62, 3549, 3551, 83, 3530, 3532, 334, 3534, 465, 225, 3556, 3557, 399, 92, 393, 336, 235, 3553, 3555, 3527, 3529, 277, 3540, 3560, 68, 3537, 3561, 278, 3542, 3544, 279, 3547, 3545, 281, 3550, 3552, 282, 3531, 3533, 280, 2559, 223, 1840, 1001, 1858, 224, 2647, 311, 450, 447, 446, 449, 448, 451, 452, 197, 46, 284, 283, 45, 198, 285
+-- iron amulet, golden amulet, silver amulet, copper amulet, copper amethyst amulet, silver amethyst amulet, golden amethyst amulet, copper ruby amulet, silver ruby amulet, golden ruby amulet, copper obsidian amulet, silver obsidian amulet, golden obsidian amulet, copper sapphire amulet, silver sapphire amulet, golden sapphire amulet, copper emerald amulet, silver emerald amulet, golden emerald amulet, copper topaz amulet, silver topaz amulet, golden topaz amulet, copper diamond amulet, silver diamond amulet, charm of the icebird, golden diamond amulet, diadem, crown, queen''s crown, kings''s crown, small candlestick, oil lamp, lantern, mirror, golden ring, copper ring, silver ring, copper amethyst ring, silver amethyst ring, golden amethyst ring, copper ruby ring, silver ruby ring, golden ruby ring, copper obsidian ring, silver obsidian ring, golden obsidian ring, copper sapphire ring, silver sapphire ring, golden sapphire ring, copper emerald ring, silver emerald ring, golden emerald ring, copper topaz ring, silver topaz ring, golden topaz ring, copper diamond ring, silver diamond ring, golden diamond ring, archmage ring, iron goblet, copper goblet, green plate, silver goblet, golden goblet, cutlery, glass blow pipe, amethyst powder, ruby powder, sapphire powder, obsidian powder, emerald powder, topaz powder, diamond powder, amethyst, ruby, sapphire, obsidian, emerald, topaz, diamond
+tradeNotEnoughMoneyMsg "Das ist nicht eure Kragenweite.", "That's out of your league."
+tradeFinishedMsg "Ich bin zu Dank verpflichtet.", "I owe you gratitude."
+tradeFinishedWithoutTradingMsg "Geht mit den Göttern.", "Go with the gods."
+tradeWrongItemMsg "Daran habe ich keinen Bedarf.", "I do not desire this."
 
 -- Template Version 1.03 by Estralis Seborian
 -- This NPC is supposed to trade (all goods are sold and bought, percentage indicates ratio of price bough/sold):
@@ -90,12 +92,14 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 10% Swords: 84, 98, 85 (123)
 -- 10% Daggers: 297, 389, 398 (444)
 -- 10% Axes: 124, 229, 192 (296)
-"sell", "buy", "wares", "price", "trade", "purchase" -> "I sell any kind of jewellery.", "Things made of gold, of copper, of gems... What do you need?", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich handele mit allerlei Juwelen.", "Dinge aus Gold, aus Kupfer, aus Edelsteinen... was braucht ihr?", trade
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the jeweller Jacobus. Keywords: buy, sell, trade, Hello, jewellery.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Juwellier Jacobus. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Juwelen.")
+"Help" -> inform("[Game Help] This NPC is the jeweller Jacobus. Keywords: Hello, buy, sell, trade, jewellery.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Juwellier Jacobus. Schlüsselwörter: Hallo, kaufe, verkaufe, Handel, Juwelen.")
+
+-- Trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I sell any kind of jewellery.", "Things made of gold, of copper, of gems... What do you need?", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich handele mit allerlei Juwelen.", "Dinge aus Gold, aus Kupfer, aus Edelsteinen... was braucht ihr?", trade
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Welcome to Cadomyr.", "Be greeted.", "Hello, do you need a ruby necklace?"
