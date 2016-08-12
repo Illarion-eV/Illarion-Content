@@ -63,16 +63,19 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 391, 799, 191, 453, 3568, 2499, 2500, 2497, 3051, 3573, 3715, 2456, 1500, 369, 1447, 2295, 809, 813, 802, 806, 1478, 367, 356, 830, 1416, 1453, 384, 97, 2760, 89, 196, 2418, 841, 1433, 363, 823, 827, 816, 820, 1485, 2194, 324, 16, 101, 2359, 1520, 1513, 1470, 325, 1492, 2117, 202, 1429, 4, 1441, 27, 189, 2629, 2711, 2776, 25
+sellItems = 799, 191, 453, 3568, 2499, 2500, 2497, 3051, 3573, 3715, 2456, 1500, 369, 1447, 2295, 809, 813, 802, 806, 1478, 367, 356, 830, 1416, 1453, 384, 97, 2760, 89, 196, 2418, 841, 1433, 363, 823, 827, 816, 820, 1485, 2194, 324, 16, 101, 2359, 1520, 1513, 1470, 325, 1492, 2117, 202, 1429, 4, 1441, 27, 189, 2629, 2711, 2776, 25, 64, 445, 1045, 2664, 230, 65, 2185, 391, 2717, 2445, 17, 1046, 1038, 1090, 39
 -- torch, wicker basket
 -- bread roll, cookies, baked potato, bottle of cider, bottle of wine, bottle of mead, sausage, cheese, veggie hash, mushroom soup
 -- simple leather shoes, leather shoes, grey cloth gloves, white cloth gloves, grey doublet, white doublet, grey dress, white dress, simple short leather leggings, short leather leggings, hat, grey hat with feather, simple horned helmet, simple leather gloves, thief's gloves, leather bag, rope, sling, grey coat, grey priest robe, grey white skirt, padded armour, leather scale armour, grey trousers, white trousers, grey tunic, white tunic
 -- simple short scale greaves, short scale greaves, chain helmet, orc helmet, chain mail, mercenary armour, iron boots, simple steel boots, simple steel gloves, steel gloves, simple short iron greaves, short iron greaves, steel cap, reinforced steel cap, plate armour, reinforced plate armour, simple dagger, dagger, light battle axe, halfling axe, machete, sabre
-buySecondaryItems = 391, 191, 453, 3568, 2499, 2500, 2497, 3051, 3573, 3715, 2456, 1500, 369, 1447, 2295, 809, 813, 802, 806, 1478, 367, 356, 830, 1416, 1453, 384, 2760, 89, 196, 2418, 841, 1433, 363, 823, 827, 816, 820, 1485, 2194, 324, 16, 101, 2359, 1520, 1513, 1470, 325, 1492, 2117, 202, 1429, 4, 1441, 27, 189, 2629, 2711, 2776, 25
--- torch
+-- arrow, wooden sword, wooden dagger, club, mace, short bow
+-- wooden cup, torch, pins and cotters, small wooden shield, wooden shield, simple spear, snake spear, walking stick, skull staff
+buySecondaryItems = 191, 453, 3568, 2499, 2500, 2497, 3051, 3573, 3715, 2456, 1500, 369, 1447, 2295, 809, 813, 802, 806, 1478, 367, 356, 830, 1416, 1453, 384, 2760, 89, 196, 2418, 841, 1433, 363, 823, 827, 816, 820, 1485, 2194, 324, 16, 101, 2359, 1520, 1513, 1470, 325, 1492, 2117, 202, 1429, 4, 1441, 27, 189, 2629, 2711, 2776, 25, 64, 445, 1045, 2664, 230, 65, 2185, 391, 2717, 2445, 17, 1046, 1038, 1090, 39
 -- bread roll, cookies, baked potato, bottle of cider, bottle of wine, bottle of mead, sausage, cheese, veggie hash, mushroom soup
 -- simple leather shoes, leather shoes, grey cloth gloves, white cloth gloves, grey doublet, white doublet, grey dress, white dress, simple short leather leggings, short leather leggings, hat, grey hat with feather, simple horned helmet, simple leather gloves, thief's gloves, rope, sling, grey coat, grey priest robe, grey white skirt, padded armour, leather scale armour, grey trousers, white trousers, grey tunic, white tunic
 -- simple short scale greaves, short scale greaves, chain helmet, orc helmet, chain mail, mercenary armour, iron boots, simple steel boots, simple steel gloves, steel gloves, simple short iron greaves, short iron greaves, steel cap, reinforced steel cap, plate armour, reinforced plate armour, simple dagger, dagger, light battle axe, halfling axe, machete, sabre
+-- arrow, wooden sword, wooden dagger, club, mace, short bow
+-- wooden cup, torch, pins and cotters, small wooden shield, wooden shield, simple spear, snake spear, walking stick, skull staff
 tradeNotEnoughMoneyMsg "Ich gewähre keinen Kredit.", "You don't have credit with me."
 tradeFinishedMsg "Danke.", "Thanks."
 tradeFinishedWithoutTradingMsg "Tschüss.", "Bye."
