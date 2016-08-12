@@ -63,26 +63,28 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 101, 324, 2194, 2359, 2444, 1057, 325, 2117, 202, 4, 367, 2295, 384, 182, 34, 356, 363, 369, 2664, 39, 230, 27, 1046, 64, 1266, 89, 65, 2445, 17, 2776, 88, 25, 191, 453, 49, 2456, 306, 3051, 802, 841, 196, 97, 2760, 391, 24
-buySecondaryItems = 101, 324, 2194, 2359, 2444, 1057, 325, 2117, 202, 4, 367, 2295, 384, 182, 34, 356, 363, 369, 2664, 39, 230, 27, 1046, 64, 1266, 89, 65, 2445, 17, 78, 2776, 88, 25, 191, 453, 49, 2456, 306, 3051, 802, 841, 196, 2760, 391, 24
-tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
-tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
-tradeFinishedWithoutTradingMsg "Auf bald!", "Farewell!"
-tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+sellItems = 391, 799, 191, 453, 3568, 2499, 2500, 2497, 3051, 3573, 3715, 2456, 1500, 369, 1447, 2295, 809, 813, 802, 806, 1478, 367, 356, 830, 1416, 1453, 384, 97, 2760, 89, 196, 2418, 841, 1433, 363, 823, 827, 816, 820, 1485, 2194, 324, 16, 101, 2359, 1520, 1513, 1470, 325, 1492, 2117, 202, 1429, 4, 1441, 27, 189, 2629, 2711, 2776, 25
+-- torch, wicker basket
+-- bread roll, cookies, baked potato, bottle of cider, bottle of wine, bottle of mead, sausage, cheese, veggie hash, mushroom soup
+-- simple leather shoes, leather shoes, grey cloth gloves, white cloth gloves, grey doublet, white doublet, grey dress, white dress, simple short leather leggings, short leather leggings, hat, grey hat with feather, simple horned helmet, simple leather gloves, thief's gloves, leather bag, rope, sling, grey coat, grey priest robe, grey white skirt, padded armour, leather scale armour, grey trousers, white trousers, grey tunic, white tunic
+-- simple short scale greaves, short scale greaves, chain helmet, orc helmet, chain mail, mercenary armour, iron boots, simple steel boots, simple steel gloves, steel gloves, simple short iron greaves, short iron greaves, steel cap, reinforced steel cap, plate armour, reinforced plate armour, simple dagger, dagger, light battle axe, halfling axe, machete, sabre
+buySecondaryItems = 391, 191, 453, 3568, 2499, 2500, 2497, 3051, 3573, 3715, 2456, 1500, 369, 1447, 2295, 809, 813, 802, 806, 1478, 367, 356, 830, 1416, 1453, 384, 2760, 89, 196, 2418, 841, 1433, 363, 823, 827, 816, 820, 1485, 2194, 324, 16, 101, 2359, 1520, 1513, 1470, 325, 1492, 2117, 202, 1429, 4, 1441, 27, 189, 2629, 2711, 2776, 25
+-- torch
+-- bread roll, cookies, baked potato, bottle of cider, bottle of wine, bottle of mead, sausage, cheese, veggie hash, mushroom soup
+-- simple leather shoes, leather shoes, grey cloth gloves, white cloth gloves, grey doublet, white doublet, grey dress, white dress, simple short leather leggings, short leather leggings, hat, grey hat with feather, simple horned helmet, simple leather gloves, thief's gloves, rope, sling, grey coat, grey priest robe, grey white skirt, padded armour, leather scale armour, grey trousers, white trousers, grey tunic, white tunic
+-- simple short scale greaves, short scale greaves, chain helmet, orc helmet, chain mail, mercenary armour, iron boots, simple steel boots, simple steel gloves, steel gloves, simple short iron greaves, short iron greaves, steel cap, reinforced steel cap, plate armour, reinforced plate armour, simple dagger, dagger, light battle axe, halfling axe, machete, sabre
+tradeNotEnoughMoneyMsg "Ich gewähre keinen Kredit.", "You don't have credit with me."
+tradeFinishedMsg "Danke.", "Thanks."
+tradeFinishedWithoutTradingMsg "Tschüss.", "Bye."
+tradeWrongItemMsg "Nein.", "Nope."
 
-
-
-
--- Armour level 0-10: 101, 324, 2194, 2359, 2444, 1057, 325, 2117, 202, 4, 367, 2295, 384, 182, 34, 356, 363, 369
--- Weapons Level 0-10: 2664, 39, 230, 27, 1046, 64, 1266, 89, 65, 2445, 17, 78, 2776, 88, 25
--- Food low level: 191, 453, 49, 2456, 306, 3051
--- Misc items: 802, 841, 196, 97, 276, 391, 24
-
-"sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
 -- Help
-"Help" -> inform("[Game Help] This NPC is Hook Gowan a trader of The Hemp Necktie Inn . Keywords: buy, sell, trade, Nubris, Ronagan, King Edwards, tell something")
+"Help" -> inform("[Game Help] This NPC is Hook Gowan a trader of The Hemp Necktie Inn. Keywords: buy, sell, trade, Nubris, Ronagan, King Edwards, tell something")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hook Gowan ein Händler im Gasthof zur Hanfschlinge. Schlüsselwörter: kaufe, verkaufe, Handel, Nubris, Ronagan, König Edwards, erzähl etwas")
+
+-- Trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I can't offer a lot.", "Take your time.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Viel habe ich nicht anzubieten.", "Nur ruhig Blut.", trade
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "With one foot in the shadows, be greeted.", "Good day, do you need something? I buy and sell exquisite third hand equipment.", "Be greeted and take a look at my goods."
@@ -94,9 +96,9 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "With one foot in shadows, be greete
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May the shadows shelter you, adieu!", "Good bye.", "Safe travels, see you soon."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Die Schatten sollen Euch verbergen, lebt wohl.", "Auf Wiedersehen.", "Mögen Euch die Götter schützen. Bis bald."
 "How are you", "How feel", "How do you do" -> "I'm alright, thanks,", "The nobility sinks in decadence and the poor are hungry. Thanks to Ronagan, for sheltering our kind.", "Hrmpf. Today I woke up having dreamt my hand was back, then I realised it was just a bad dream sent by Nargun."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Einigermaßen. Danke, der Nachfrage.", "Der Adel ist der Dekadenz verfallen und der Rand der Gesellschaft muss hungern! Gedankt sei's Ronagan, das er unser eins dennoch behütet.", "Hrmpf - Heute bin ich aufgewacht und glaubte meine Hand wäre mir wiedergegeben. - Anstelle des hässlichen Hakens! Doch dann wurde mir klar, es war ein übler Traum, den mir wohl Nargun gesannt hatte."
-"your name", "who are you", "who art thou" -> "#me winks and raises his hooked hand, 'They call me Hook Gowan.'", "#me's eyes twinkle, 'I'm Hook, seller of third hand equipment...'", "Gowan. May name is Gowan - Sometimes I wish everyone would just call me Gowan.", trade
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "#me winkt mit seiner Hakenhand: 'Mann nennt mich Hook Gowan.'", "#me zwinkert: 'Ich bin Hook, Händler aus dritter Hand, wenn ihr versteht was ich damit meine.'", "Gowan. Ich heiße Gowan. - Manchmal wünsch ich mir, die Leute würden mich einfach nur Gowan nennen."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Einigermaßen. Danke, der Nachfrage.", "Der Adel ist der Dekadenz verfallen und der Rand der Gesellschaft muss hungern! Gedankt sei's Ronagan, das er unser eins dennoch behütet.", "Hrmpf. Heute bin ich aufgewacht und glaubte meine Hand wäre mir wiedergegeben, anstelle des hässlichen Hakens! Doch dann wurde mir klar, es war ein übler Traum, den mir wohl Nargun gesannt hatte."
+"your name", "who are you", "who art thou" -> "#me winks and raises his hooked hand, 'They call me Hook Gowan.'", "#me's eyes twinkle, 'I'm Hook, seller of third hand equipment...'", "Gowan. May name is Gowan. Sometimes I wish everyone would just call me Gowan.", trade
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "#me winkt mit seiner Hakenhand: 'Mann nennt mich Hook Gowan.'", "#me zwinkert: 'Ich bin Hook, Händler aus dritter Hand, wenn ihr versteht was ich damit meine.'", "Gowan. Ich heiße Gowan. Manchmal wünsch ich mir, die Leute würden mich einfach nur Gowan nennen."
 
 -- Catching quest triggers
 english, "quest", "mission" -> "Hm-h. Honestly, I've got plenty of people working for me, therefore I can't hire you, I'm deeply sorry."
@@ -112,7 +114,7 @@ english, "job" -> "Once I was a thief myself. I stole whatever I needed to live,
 english, "Gobaith", "Gobiath" -> "An old friend of mine lived on Gobaith once, but I haven't seen him in ages. Anyway... I do not think there are many people left living on Gobaith."
 "Gobaith", "Gobiath" -> "Ein alter Freund von mir lebte derweilen auf Gobaith. Aber ich hab ihn schon ewig nicht gesehen. Und ich glaub auch nicht das jetzt noch Leute dort leben."
 "my name" -> "Alright, do you wish to buy something?", "Well then, listen, if you don't ask any questions I will not lie to you. Agreed?", "Superb!", trade
-"mein Name" -> "Alles klar. Wollt Ihr etwas veräußern oder einkaufen?", "In Ordnung. Hört her - Ihr stellt keine Fragen und ich werde Euch nicht belügen.", "Ausgezeichnet."
+"mein Name" -> "Alles klar. Wollt Ihr etwas veräußern oder einkaufen?", "In Ordnung. Hört her, ihr stellt keine Fragen und ich werde Euch nicht belügen.", "Ausgezeichnet."
 
 -- More small talk; add at least five triggers
 "third", "three", "goods" -> "Goods from third hand! Aye. That means these things are used already.", "#me laughs quietly, 'The third hand is mine, the second is the hand of the person who sold it to me and the first is the hand of the property owner.'"
@@ -122,15 +124,15 @@ english, "Nubris" -> "Well, my father lived in Nubris. I moved from Nubris, the 
 "drei", "dritter", "dritt", "wahre", "güter" -> "Wahre aus dritter Hand. Aye. Das heißt die Sachen sind schon Mal benutzt worden.", "#me lacht leise: 'Die dritte Hand ist meine, die Zweite gehört meinem Verkäufer und die Erste dem Eigentümer.'"
 "König" -> "#me schmunzelt traurig: 'Vor vielen Jahren gelang es mit das Nachthemd von König Edwards zu stehlen. Doch man fasste mich kurz darauf, der König ließ mir die Hand abhacken und verbannte mich. Nun bin ich hier und man nennt mich Hook Gowan.'"
 "edwards" -> "#me schmunzelt traurig: 'Vor vielen Jahren gelang es mit das Nachthemd von König Edwards zu stehlen. Doch man fasste mich kurz darauf, der König ließ mir die Hand abhacken und verbannte mich. Nun bin ich hier und man nennt mich Hook Gowan.'"
-"nubris" -> "Tja, mein Vater lebte noch direkt in Nubris. Ich bin ausgezogen... Nurbis, das goldene Juwel des Südens, wie es in Salkamar genannt wird. Viele Menschen dort, haben eine dunkle Haut.", "In Nubris, lasst mich von meiner weit entfernten Heimat erzählen... - dort gibts es ein Tier, es heißt Kawaaru. Eine riesige Echse mit sanften Gemüt. Welche zum tragen von schweren Gütern genützt wird.", "Ich will ganz subjektiv meinen Nubris ist die schönste Stadt Illarions. Weithin sind die vergoldeten Kuppeldächer und die prächtigen goldgelben Granitbauten sichtbar. Außerdem regiert ein Ältestenrat die Stadt.", "In Nubris ist es viel zu heiß für hinderliche Lederrüstungen oder gar Stahl. Stattdessen verwendet man hauptsächlich leichte Rüstplatten aus hartem Holz oder Schuppenpanzer aus stabilen Steinsorten."
+"nubris" -> "Tja, mein Vater lebte noch direkt in Nubris. Ich bin ausgezogen... Nurbis, das goldene Juwel des Südens, wie es in Salkamar genannt wird. Viele Menschen dort, haben eine dunkle Haut.", "In Nubris, lasst mich von meiner weit entfernten Heimat erzählen... Dort gibts es ein Tier, es heißt Kawaaru. Eine riesige Echse mit sanften Gemüt. Welche zum tragen von schweren Gütern genützt wird.", "Ich will ganz subjektiv meinen Nubris ist die schönste Stadt Illarions. Weithin sind die vergoldeten Kuppeldächer und die prächtigen goldgelben Granitbauten sichtbar. Außerdem regiert ein Ältestenrat die Stadt.", "In Nubris ist es viel zu heiß für hinderliche Lederrüstungen oder gar Stahl. Stattdessen verwendet man hauptsächlich leichte Rüstplatten aus hartem Holz oder Schuppenpanzer aus stabilen Steinsorten."
 
 -- Faction stuff
 english, "Elvaine", "Morgan", "archmage", "Erzmagier" -> "Those treehugers, looking like females, every single one of them. Are you able to differ elf and elfess?"
-"Elvaine", "Morgan", "archmage", "Erzmagier" -> "Diese Baumkuschler, sehen alle aus wie Weibsvolk. Fällt mir immer schwer n' Elfen von ner Elfin zu unterscheiden. - Alle so Weibisch."
+"Elvaine", "Morgan", "archmage", "Erzmagier" -> "Diese Baumkuschler, sehen alle aus wie Weibsvolk. Fällt mir immer schwer n' Elfen von ner Elfin zu unterscheiden. Alle so Weibisch."
 english, "Elvaine", "Morgan", "archmage", "Erzmagier" -> "Those treehugers, looking like females, every single one of them. Are you able to differ elf and elfess?"
-"Elvaine", "Morgan", "archmage", "Erzmagier" -> "Diese Baumkuschler, sehen alle aus wie Weibsvolk. Fällt mir immer schwer n' Elfen von ner Elfin zu unterscheiden. - Alle so Weibisch."
+"Elvaine", "Morgan", "archmage", "Erzmagier" -> "Diese Baumkuschler, sehen alle aus wie Weibsvolk. Fällt mir immer schwer n' Elfen von ner Elfin zu unterscheiden. Alle so Weibisch."
 english, "Runewick" -> "Hmm, let me think. I'm wanted in Runewick for three different crimes, so well, no more trips to this town for the man called Hook."
-"Runewick" -> "Hm-h, lasst mich nachdenken. In Runewick werde ich wegen drei verschiedener Verstöße gesucht. - Ich denke ich werde mich erst einmal eine Weile von dort fern halten. Ihr nicht auch?"
+"Runewick" -> "Hm-h, lasst mich nachdenken. In Runewick werde ich wegen drei verschiedener Verstöße gesucht. Ich denke ich werde mich erst einmal eine Weile von dort fern halten. Ihr nicht auch?"
 english, "Valerio", "Guilianni", "Don" -> "Ha! That tiny lecher should get a red cap so you can't oversee him while walking through grass anymore."
 "Valerio", "Guilianni", "Don" -> "Ha! Diesem zu klein geratenen Lustmolch sollte man eine rote Mütze aufsetzen, damit man ihn nicht mehr so leicht übersieht wenn er durchs Gras läuft."
 english, "Galmair" -> "Hui-ui! Galmair? Not even ten Ogres can make me go there again. I owe the Don a large amount of gold. Once he was forced to lend it out of his private treasury."
@@ -146,7 +148,7 @@ english, "Cadomyr" -> "I was banned from Cadomyr years ago. I loved the town, af
 english, "albar" -> "Well Albar... I know some Albarians but each single one of them is a doltish louts or blockheads."
 "albar" -> "Ach Albar... Ich kenne einige Albarer, aber es sind allesamt dumme Rüpel und Bauernköpfe."
 english, "gynk", "gync" -> "The swamplands stink, Gynk stinks and Gnykese stink as well... Isn't that obvious?"
-"gync", "gynk" -> "Die Sumpflande stinken, Gynk stinkt und Gynkesen stinken ebenso. - Wie könnte es auch anders sein?"
+"gync", "gynk" -> "Die Sumpflande stinken, Gynk stinkt und Gynkesen stinken ebenso. Wie könnte es auch anders sein?"
 english, "salkama" -> "In Salkamar the sun shines every single month of the year someone told me, of course not out of the sky but rather out of the buttocks of the Salkamarians!"
 "salkama" -> "In Salkamar soll das liebe lange Jahr die Sonne scheinen, hat man mir gesagt. Allerdings nicht vom Himmel herab, sondern aus den Hinterteilen der Salkamarer."
 
@@ -162,8 +164,8 @@ english, "Ronagan" -> "Ronagan, the God of thieves and shadows! He promises shel
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Gowan", "Hook", "hand" -> "Yes, I've got a hook instead of a hand. What's the matter?", "No I'm not a pirate, I don't even like the sea... Too much sway and swinging... makes me sick.", "The old King of Cadomyr chopped my hand off. True Story, lad."
-"Gowan", "Hook" -> "Ja, ich hab einen Haken an der Hand. Was wollt Ihr?", "Nein ich bin kein Pirat. Ich mag nicht mal das Meer, von zu viel Geschaukle wird mir nämlich immer übel.", "Der alte König, Cadomyrs hat mir damals noch die Hand abgehackt. Ist wahr - ist wahr."
-"haken", "hand" -> "Ja, ich hab einen Haken an der Hand. Was wollt Ihr?", "Nein ich bin kein Pirat. Ich mag nicht mal das Meer, von zu viel Geschaukle wird mir nämlich immer übel.", "Der alte König, Cadomyrs hat mir damals noch die Hand abgehackt. Ist wahr - ist wahr."
+"Gowan", "Hook" -> "Ja, ich hab einen Haken an der Hand. Was wollt Ihr?", "Nein ich bin kein Pirat. Ich mag nicht mal das Meer, von zu viel Geschaukle wird mir nämlich immer übel.", "Der alte König, Cadomyrs hat mir damals noch die Hand abgehackt. Ist wahr, ist wahr."
+"haken", "hand" -> "Ja, ich hab einen Haken an der Hand. Was wollt Ihr?", "Nein ich bin kein Pirat. Ich mag nicht mal das Meer, von zu viel Geschaukle wird mir nämlich immer übel.", "Der alte König, Cadomyrs hat mir damals noch die Hand abgehackt. Ist wahr, ist wahr."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
