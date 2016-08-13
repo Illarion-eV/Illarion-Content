@@ -63,39 +63,27 @@ itemShoes = 369
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
+sellItems = 2752, 2715, 9, 312, 74, 64, 237, 322, 445, 1045, 2664, 230, 1521, 231, 1522, 2737, 1044, 226, 1523, 1041, 1043, 1052, 65, 1531, 2646, 2714, 2708, 70, 2685, 2780, 2718, 2727, 2525, 2530, 2548, 2572, 2584, 2528, 2541, 2561, 2566, 2567, 2570, 2585, 2527, 2544, 2549, 2573, 90, 532, 533, 335, 332, 2185, 391, 2717, 2719, 2744, 1059, 374, 2445, 17, 18, 917, 19, 20, 186, 2388, 2448, 95, 96, 916, 2284, 2447, 2439, 1046, 1038, 1047, 1049, 1040, 1048, 77, 1042, 1053, 1039, 1050, 1051, 1090, 39, 40, 1528, 57, 1529, 76, 209, 207, 208, 1530, 2031, 2935, 2952, 293, 51, 72, 118, 121, 227, 258, 312, 429, 734, 2781, 323, 2782, 2783, 2784, 2785, 3608, 545, 546, 2543, 2716, 56, 2786, 3, 543, 544, 2560, 3786, 314
+-- carving tools, plane, saw, wooden shovel, hatchet 
+-- simple mage's staff, adepts's staff, mage's staff, elven mage's staff, battle staff, ornate mage's staff, master's staff, plate, soup bowl, wooden plate, javelin, bucket, fishing rod, rolling pin, peel, cooking spoon, flail, wooden shovel, candle mould, brick mould, dyeing rod, wand, wand of earth, wand of fire, wand of water, wand of air, wand of spirit, cherry wood boards, naldor wood boards, conifer wood boards, apple wood boards, bough, branch, conifer wood, cherry wood, naldor wood, applewood, heartwood, potash
+buySecondaryItems = 64, 237, 322, 445, 1045, 2664, 230, 1521, 231, 1522, 2737, 1044, 226, 1523, 1041, 1043, 1052, 65, 1531, 2646, 2714, 2708, 70, 2685, 2780, 2718, 2727, 2525, 2530, 2548, 2572, 2584, 2528, 2541, 2561, 2566, 2567, 2570, 2585, 2527, 2544, 2549, 2573, 90, 532, 533, 335, 332, 2185, 391, 2717, 2719, 2744, 1059, 374, 2445, 17, 18, 917, 19, 20, 186, 2388, 2448, 95, 96, 916, 2284, 2447, 2439, 1046, 1038, 1047, 1049, 1040, 1048, 77, 1042, 1053, 1039, 1050, 1051, 1090, 39, 40, 1528, 57, 1529, 76, 209, 207, 208, 1530, 2031, 2935, 2952, 293, 51, 72, 118, 121, 227, 258, 312, 429, 734, 2781, 323, 2782, 2783, 2784, 2785, 3608, 545, 546, 2543, 2716, 56, 2786, 3, 543, 544, 2560, 3786, 314
+-- simple mage's staff, adepts's staff, mage's staff, elven mage's staff, battle staff, ornate mage's staff, master's staff, plate, soup bowl, wooden plate, javelin, bucket, fishing rod, rolling pin, peel, cooking spoon, flail, wooden shovel, candle mould, brick mould, dyeing rod, wand, wand of earth, wand of fire, wand of water, wand of air, wand of spirit, cherry wood boards, naldor wood boards, conifer wood boards, apple wood boards, bough, branch, conifer wood, cherry wood, naldor wood, applewood, heartwood, potash
 tradeNotEnoughMoneyMsg "Mein Freund, ich glaube du hast deine Münzen nicht gezählt.", "My friend, I think you forgot to count your coins."
 tradeFinishedMsg "Komm wieder, mein Freund.", "Please come again, my friend."
 tradeFinishedWithoutTradingMsg "Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!"
 tradeWrongItemMsg "Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?"
-sellItems = 9, 74, 2709, 2715, 2752, 2193, 2194, 2935, 2952, 2185, 323, 64, 237, 1266, 545, 546, 2543, 2716, 65, 89, 2646, 2708, 2714, 2727, 2780, 2525, 2527, 2528, 2530, 2541, 2544, 2548, 2549, 2561, 2566, 2567, 2570, 2572, 2573, 2584, 2585, 90, 532, 533, 332, 333, 335, 3, 56, 543, 544, 2560, 2786, 17, 18, 19, 20, 95, 186, 917, 2388, 2445, 2448, 39, 40, 57, 76, 209, 293, 2645, 445, 1045, 2664, 1044, 1041, 226, 2737, 231, 230, 1090
-buySecondaryItems = 9, 74, 2709, 2715, 2752, 2193, 2194, 2935, 2952, 2185, 323, 2782, 2783, 2784, 2785, 64, 237, 322, 1266, 545, 546, 2543, 2716, 65, 70, 89, 2646, 2685, 2708, 2714, 2718, 2727, 2780, 2525, 2527, 2528, 2530, 2541, 2544, 2548, 2549, 2561, 2566, 2567, 2570, 2572, 2573, 2584, 2585, 90, 532, 533, 332, 333, 335, 3, 56, 543, 544, 2560, 2786, 17, 18, 19, 20, 95, 96, 186, 916, 917, 2284, 2388, 2439, 2445, 2447, 2448, 39, 40, 57, 76, 207, 208, 209, 293, 2645, 445, 1045, 2664, 1044, 1041, 1052, 1043, 226, 2737, 231, 230, 1090
 
 -- Template Version 1.07, 08/30/2012 by Estralis Seborian
--- The trader should buy all items he sells. Primary items are bought at 10% of the worth, secondary items yield only 5%
-
--- 5% Tools (Carpenter/Lumberjack): 9, 74, 2709, 2715, 2752
--- 5% Ammo: 64, 237, 322, 1266
--- 5% Boards: 545, 546, 2543, 2716
--- 5% Distance weapons: 65, 70, 89, 2646, 2685, 2708, 2714, 2718, 2727, 2780
--- 5% Handles: 2525, 2527, 2528, 2530, 2541, 2544, 2548, 2549, 2561, 2566, 2567, 2570, 2572, 2573, 2584, 2585
--- 5% Wooden leg armour: 2193, 2194
--- 5% Wooden plates: 2935, 2952, 2185
--- 5% Shields: 17, 18, 19, 20, 95, 96, 186, 916, 917, 2284, 2388, 2439, 2445, 2447, 2448
--- 5% Lumber: 3, 56, 543, 544, 2560, 2786
--- 5% Staffs: 39, 40, 57, 76, 207, 208, 209
--- 5% Instruments: 90, 332, 333, 335, 532, 533
--- 5% Wands: 323, 2782, 2783, 2784, 2785
--- 5% Throwing weapons: 293, 2645
--- 5% Weapons: 445(wooden sword), 1045(wooden dagger), 2664(club) [1044(battle hammer), 1041(Stachelkeule)], 1052 Dwarfen Stormhammer, 1043 Dwarfen Hammer, 226 warhammer, 2737 warflail, 231 battle flail, 230 mace, 1090 walking stick
-
-"sell", "buy", "wares", "price", "trade", "purchase" -> "I trade in wooden goods. Feel free to take a look, my friend.", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "I handle mit hölzernen Waren. Bitte, sieh dich ruhig um, mein Freund!", trade
 
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
 "Help" -> inform("[Game Help] This NPC is Laramir Silverwood the carpenter. Keywords: buy, sell, trade.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Laramir Silverwood der Schreiner. Schlüsselwörter: kaufe, verkaufe, Handel.")
+
+-- Trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I trade in wooden goods. Feel free to take a look, my friend.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "I handle mit hölzernen Waren. Bitte, sieh dich ruhig um, mein Freund!", trade
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted, my friend. How are you today?", "Greetings my friend. Did you come here to take a look at my wares?", "#me smiles, 'Greetings, my friend.'"
