@@ -63,38 +63,25 @@ itemShoes = 770
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 311, 312, 2672, 164, 315, 1317, 1908, 2055, 2457, 2498, 790, 518, 41, 314, 316, 726, 429, 43, 391, 431, 390, 469
-buyPrimaryItems = 311, 312, 2672, 164, 315, 1317, 1908, 2055, 2457, 2498, 790, 518, 41, 314, 316, 726, 518, 390, 469
-buySecondaryItems = 429, 43, 391, 431
-tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
-tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
-tradeFinishedWithoutTradingMsg "Auf bald!", "Farewell!"
-tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+sellItems = 311, 2140, 2498, 1117, 790, 518, 390, 1317, 164, 41, 1908, 2055, 2457, 3642, 2588, 58, 2183, 2184, 310, 1223, 315
+-- glass blow pipe, tongs
+-- large empty bottle, empty ink bottle, empty juice bottle, empty rum bottle, oil bottle, empty liquor bottle, empty potion, glass ingot, glass mug, glass, wine glass, empty salve jar, bricks, mortar, clay mug, clay cup, mug with lid, empty alchemy bomb, vase
+buyPrimaryItems = 2498, 1117, 790, 518, 390, 1317, 164, 41, 1908, 2055, 2457, 3642, 2588, 58, 2183, 2184, 310, 1223, 315
+-- large empty bottle, empty ink bottle, empty juice bottle, empty rum bottle, oil bottle, empty liquor bottle, empty potion, glass ingot, glass mug, glass, wine glass, empty salve jar, bricks, mortar, clay mug, clay cup, mug with lid, empty alchemy bomb, vase
+tradeNotEnoughMoneyMsg "Ich verlange hierfür mehr, als ihr überhaupt habt.", "I demand more for this than you even have."
+tradeFinishedMsg "Schaut doch bald wieder vorbei.", "See you next time."
+tradeFinishedWithoutTradingMsg "Und so trennen sich unsere Wege.", "And thus we part company."
+tradeWrongItemMsg "Das kaufe ich nicht.", "I don't buy this."
 
 -- Template Version 1.03 by Estralis Seborian
--- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
--- Valid races: human, elf, dwarf, lizardman, orc, halfling
--- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
--- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather gloves and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
--- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
--- When you are done, please hit the "Rebuild Script" button.
-
--- NPC by Estralis Seborian
-
--- This NPC is supposed to trade (all goods are sold and bought, percentage indicates ratio of price bough/sold):
-
--- 5% Tools (Candle maker): 429
--- 10% Tools (Glass blower): 311, 312
--- 10% Glass products: 164, 315, 1317, 1908, 2055, 2457, 2498, 790, 518
--- 10% Glass resources: 41, 314, 316, 726
--- 5% Candles, torches: 43, 391
--- 5% Wax: 431
-"sell", "buy", "wares", "price", "trade", "purchase" -> "I buy any kind of glass goods. You can also obtain candles from me.", "I'll gladly show you my offers of glasswares and candles.", "Here you can get anything you need for a perfect dinner.", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich handel aller Art Glaswaren. Ebenso könnt ihr Kerzen bei mir erwerben.", "Gerne zeige ich euch mein Angebot an Glaswaren und Kerzen.", "Hier bekommt ihr alles, was ihr für ein perfektes Abendessen braucht.", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the glass goods trader Jonathan Cyrus. Keywords: buy, sell, trade, Hello, glass.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Glaswarenhändler Jonathan Cyrus. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Glas.")
+
+-- Trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I buy any kind of glass goods. You can also obtain vases from me.", "I'll gladly show you my offers of glasswares and vases.", "Here you can get anything you need for a perfect dinner.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich handel aller Art Glaswaren. Ebenso könnt ihr Vasen bei mir erwerben.", "Gerne zeige ich euch mein Angebot an Glaswaren und Vasen.", "Hier bekommt ihr alles, was ihr für ein perfektes Abendessen braucht.", trade
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings, in the name of our Queen Rosaline! If you need any glasses, just ask.", "It is a wonderful day in Cadomyr, governed by our magnificient, and beautiful, Queen.", "Hello."
@@ -117,10 +104,10 @@ english, "quest", "mission" -> "Adventures? Now, glassblowing is truly a learnin
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Abenteuer? Nun, Glasblasen zu erlernen ist wirklich ein Abenteuer für sich."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I trade glassware.", "I trade candles and glassware."
-"beruf" -> "Ich handel mit Glaswaren.", "Ich handel mit Kerzen und Glaswaren."
-english, "job" -> "I trade glassware.", "I trade candles and glassware."
-"job" -> "Ich handel mit Glaswaren.", "Ich handel mit Kerzen und Glaswaren."
+"profession" -> "I trade glassware.", "I trade vases and glassware."
+"beruf" -> "Ich handel mit Glaswaren.", "Ich handel mit Vasen und Glaswaren."
+english, "job" -> "I trade glassware.", "I trade vases and glassware."
+"job" -> "Ich handel mit Glaswaren.", "Ich handel mit Vasen und Glaswaren."
 english, "Gobaith", "Gobiath" -> "Apologies I do not know much about that island Gobaith, only that some refugees once came from there to Cadomyr."
 "Gobaith", "Gobiath" -> "Entschuldigt, aber ich weiß nicht viel über diese Insel Gobaith, lediglich, dass einige Flüchtling von dort nach Cadomyr einst kamen."
 "my name" -> "Very pleased to meet you. How about we talk about glassware?"
@@ -188,10 +175,8 @@ english, "Jonathan", "Cyrus" -> "No, my daughter is not called Miley."
 cycletext "Was immer ihr braucht - ich habe es.", "Whatever you need, I have it."
 cycletext "Beste Glaswaren!", "Best glassware!"
 cycletext "Kommt her, schaut euch an, was ich zu bieten habe.", "Come and look at what I have to offer."
-cycletext "Kerzen, helle Kerzen!", "Candles, bright candles!"
 cycletext "#me wischt einen Glaskelch mit einem seidenen Tuch ab.", "#me polishes a glass goblet with a silk cloth."
 cycletext "Glitzernde Glaswaren, nur heute, nur für euch!", "Sparkling glassware, just today, just for you!"
-cycletext "#me schnüffelt an einer Kerze: 'Bestes Bienenwachs!'.", "#me sniffs a candle, 'Best bees wax!'."
 cycletext "Ich habe beste Kerzen im Angebot. Mögen sie euch ein Leuchtfeuer in der Dunkelheit sein.", "I have the best candles on sale. May they be a beacon of light in the darkest night."
 cycletext "Bierkrüge für Zwergenbier, feinste Kelche für Elfenwein - aus meinen Gütern schmeckt jedes Gebräu.", "Beer mugs for dwarven beer, fine goblets for elven wine, out of my goods any brew is tastier."
 cycletext "Das transparente Gold Cadomyrs: Glas!", "The transparent gold of Cadomyr: Glass!"
