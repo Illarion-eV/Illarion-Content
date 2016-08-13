@@ -83,7 +83,7 @@ tradeWrongItemMsg "Das kaufe ich euch nicht ab.", "I won't buy this from you."
 
 -- Trade
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I have wood.", "What do you need?", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich habe Holz.", Was benötigt ihr?", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich habe Holz.", "Was benötigt ihr?", trade
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "May Oldra bless you. Do you need wooden goods?", "#me nods slowly: 'Wisdom and patience. How can I help you?'", "Hiho! How can I help you?"
