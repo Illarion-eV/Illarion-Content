@@ -58,36 +58,33 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
--- 10% Tools (Brewer): 51, 227
--- 5% Tools (Cook/Baker): 121 (buys also 118, 2495)
--- 5% Baked food: 1153, 354, 303, 353, 453, 454, 49, 191, 3568, 3571, 3609, 3610
--- 5% Baker's resources: 2, 2529 (buys also 5)
--- 5% Dishes: 1155, 554, 559, 555, 557, 2922, 1154, 2277, 556, 2459, 1152, 2276, 2278, 2456, 2923, 306, 3051, 3606, 3569, 3570, 3572, 3573
-
-sellItems = 51, 121, 227, 1153, 354, 303, 353, 453, 454, 49, 191, 2, 2529, 1155, 554, 559, 555, 557, 2922, 1154, 2277, 556, 2459, 1152, 2276, 2278, 2456, 2923, 306, 3051, 3606, 3568, 3569, 3570, 3571, 3572, 3573, 3609, 3610
-buyPrimaryItems = 51, 227
-buySecondaryItems = 121, 118, 2495, 1153, 354, 303, 353, 453, 454, 49, 191, 2, 5, 2529, 1155, 554, 559, 555, 557, 2922, 1154, 2277, 556, 2459, 1152, 2276, 2278, 2456, 2923, 306, 3051, 3606, 3568, 3569, 3570, 3571, 3572, 3573, 3609, 3610
-
+sellItems = 121, 227, 429, 51, 2495, 191, 453, 3568, 49, 3631, 3609, 454, 353, 303, 3571, 354, 3723, 1153, 3610, 3051, 3573, 3715, 3716, 2459, 556, 1154, 2277, 2922, 3570, 557, 555, 559, 554, 1155, 2456, 2923, 2278, 2276, 3569, 3572, 3712, 3711, 1152, 307, 1149, 1150, 69, 2586, 2502, 469, 552, 553, 1151, 2934, 2940, 63, 2696, 333, 306, 455, 3606, 3709, 3710, 3713, 3714, 2529, 431, 43
+-- peel, cooking spoon, candle mould, bucket, pan
+-- bread roll, cookies, baked potato, bread, sausage on bread, banana bread, blackberry muffin, apple pie, cherry cake, egg salad sandwich, strawberry cake, nutbread, custard pie, elderberry pie, sausage, cheese, veggie hash, mystery meat, trout fillet dish, salmon dish, egg dish, meat dish, sausages dish, egg salad, steak dish, rabbit dish, lamb dish, venison dish, chicken dish, mushroom soup, onion soup, cabbage stew, mulligan, potato soup, fish soup, beer soup, goulash, chicken soup, pork, brown egg, white egg, raw leather, fur, bottle of milk, lamp oil, deer meat, rabbit meat, chicken meat, lamb meat, raw steak, entrails, feathers, horn, ham, smoked fish, grilled steak, smoked chicken, smoked rabbit, grilled lamb, grilled venison, honeycomb, wax, candles
+buySecondaryItems = 191, 453, 3568, 49, 3631, 3609, 454, 353, 303, 3571, 354, 3723, 1153, 3610, 3051, 3573, 3715, 3716, 2459, 556, 1154, 2277, 2922, 3570, 557, 555, 559, 554, 1155, 2456, 2923, 2278, 2276, 3569, 3572, 3712, 3711, 1152, 307, 1149, 1150, 69, 2586, 2502, 469, 552, 553, 1151, 2934, 2940, 63, 2696, 333, 306, 455, 3606, 3709, 3710, 3713, 3714, 2529, 431, 43
+-- bread roll, cookies, baked potato, bread, sausage on bread, banana bread, blackberry muffin, apple pie, cherry cake, egg salad sandwich, strawberry cake, nutbread, custard pie, elderberry pie, sausage, cheese, veggie hash, mystery meat, trout fillet dish, salmon dish, egg dish, meat dish, sausages dish, egg salad, steak dish, rabbit dish, lamb dish, venison dish, chicken dish, mushroom soup, onion soup, cabbage stew, mulligan, potato soup, fish soup, beer soup, goulash, chicken soup, pork, brown egg, white egg, raw leather, fur, bottle of milk, lamp oil, deer meat, rabbit meat, chicken meat, lamb meat, raw steak, entrails, feathers, horn, ham, smoked fish, grilled steak, smoked chicken, smoked rabbit, grilled lamb, grilled venison, honeycomb, wax, candles
 tradeNotEnoughMoneyMsg "Du kannst dir das nicht leisten!", "You can not afford that!"
 tradeFinishedMsg "Danke, komm bald wieder!", "Thanks, come again!"
 tradeFinishedWithoutTradingMsg "Auf bald!", "Farewell!"
-tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+tradeWrongItemMsg "Nichts da.", "No way."
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
-"sell", "buy", "wares", "price", "trade", "purchase" -> "I am selling different meals, just have a look!", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich verkaufe verschiedenstes Essen schau dich nur um!", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Morri the cook. Keywords: buy, sell, trade, Profession.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Morri der Koch. Schlüsselwörter: kaufe, verkaufe, Handel, Beruf.")
+
+-- Trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am selling different meals, just have a look!", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich verkaufe verschiedenstes Essen, schau dich nur um!", trade
 
 -- Quest by Charwis Irongate
 queststatus(702) = 4, english, "charwis", "irongate", "pin", "order" -> queststatus(702) = 5, "Charwis? A pin order? What, now? The pins have already started to corrode? No, thanks. I want new pins, please tell Charwis that."
 queststatus(702) = 4, "charwis", "irongate", "Bestellung", "nägel" -> queststatus(702) = 5, "Charwis?  Eine Nagelbestellung? Was höre ich da, die Nägel beginnen bereits zu rosten? Nein, danke! Ich möchte neue Nägel, bitte sagt das Charwis."
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hrm...Greetings. How can I help you?", "#me grumbles moodily, 'Good day'.", "Hail Irmorom. Do you want to buy something?"
-"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hrm...Grüße. Wie kann ich Euch helfen?", "#me brummt schlecht gelaunt: 'Guten Tag.'", "Heil Irmorom. Wollt ihr was kaufen?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hrm... Greetings. How can I help you?", "#me grumbles moodily, 'Good day'.", "Hail Irmorom. Do you want to buy something?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hrm... Grüße. Wie kann ich Euch helfen?", "#me brummt schlecht gelaunt: 'Guten Tag.'", "Heil Irmorom. Wollt ihr was kaufen?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hrm...Greetings. How can I help you?", "#me grumbles moodily, 'Good day'.", "Hail Irmorom. Do you want to buy something?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hrm...Grüße. Wie kann ich Euch helfen?", "#me brummt schlecht gelaunt: 'Guten Tag.'", "Heil Irmorom. Wollt ihr was kaufen?"
 "Farewell", "Bye", "Fare well", "See you" -> "Bye and enjoy your meal.", "Arr... See you soon.", "Fare thee well and come again soon!"
@@ -119,7 +116,7 @@ english, "Gobaith", "Gobiath" -> "There is nothing but bad news about Gobaith. W
 "orc" -> "Arr. Those green noses are annyoing, every last one of them. Actually, we merchants have to stick together. It is all about business!", "Those orcs are smarter than you think, particularly Krudash! Sogg, though, I haven't ever seen him sober.", "Arrr.... I don't know. I think it looks like the entire orc pack here in Galmair belongs to the same clan, but on the other hand... well, I don't know whether that's important."
 "dwarf" -> "What is important to a dwarf? Gold, business and sin-... no... relatives. Therefore, the clan.", "What does a dwarf like? His craft, his wife and his beer.", "We dwarves are a proud folk. I have to warn you, never insult a dwarf! He will remember even after his sons have grown up."
 "ork" -> "Arr. Die Grünschnauzen sind ein Ärgernis. - Nicht's weiter. Im Grunde müssen wir Händler zusammen stehen. Es geht ums Geschäft, das ist was zählt!", "Diese Orks sind klüger als Ihr denkt. Im besonderen diese Krudash! Aber dieser Sogg, den hab ich noch nie nüchtern gesehen...", "Arrr... ich weiß nicht. Aber für mich sieht's so aus als wären die alle, die Ganze Orkmeute in Galmair von der selben Sippe. Andererseits muss das bei Orks ja auch nichts heißen."
-"zwerg" -> "Was ist einem Zwerg von Wert? Gold, Geschäfte und Ge-...nein. Verwandte. Also sprich, der Klan.", "Was darf ein Zwerg lieben? Sein Handwerk, seine Frau und Bier.", "Wir Zwerge sind ein stolzes Folk. Ich will euch warnen, beleidigt ihr einen Zwerg wird er sich noch daran erinnern wenn Eure Söhne erwachsen sind."
+"zwerg" -> "Was ist einem Zwerg von Wert? Gold, Geschäfte und Ge-...nein. Verwandte. Also sprich, der Klan.", "Was darf ein Zwerg lieben? Sein Handwerk, seine Frau und Bier.", "Wir Zwerge sind ein stolzes Volk. Ich will euch warnen, beleidigt ihr einen Zwerg wird er sich noch daran erinnern wenn Eure Söhne erwachsen sind."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Ha-ha! I've heard that Archmage wears women's clothes! Wool under the chain mail and so on! *laughs*"
