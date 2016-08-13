@@ -65,28 +65,25 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 23, 24, 2763, 737, 733, 735, 1266, 21, 22, 234, 1062, 2536, 310, 469, 391, 2185, 2717, 2719, 2738, 2744, 2760, 2751
-buyPrimaryItems = 734, 23, 24, 2763, 737, 733, 735, 1266, 21, 22, 234, 1062, 2536
-buySecondaryItems = 310, 469, 391, 2185, 2717, 2719, 2738, 2744, 2760
-tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you cannot afford that."
-tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
-tradeFinishedWithoutTradingMsg "Auf bald!", "Farewell!"
-tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+sellItems = 2751, 737, 2763, 2535, 2550, 104, 236, 2571, 21, 22, 2536, 1062, 234, 2534, 251, 255, 252, 253, 256, 257, 254, 1266, 733, 735
+--crucible-pincers, chisel, pick-axe
+-- iron ingot, copper ingot, silver ingot, gold ingot, merinium ingot, coal, iron ore, copper ore, silver ore, gold nuggets, merinium ore, raw amethyst, raw ruby, raw obsidian, raw sapphire, raw emerald, raw topaz, raw diamond, stone, stone block, raw stone
+buyPrimaryItems = 2535, 2550, 104, 236, 2571, 21, 22, 2536, 1062, 234, 2534, 251, 255, 252, 253, 256, 257, 254, 1266, 733, 735
+-- iron ingot, copper ingot, silver ingot, gold ingot, merinium ingot, coal, iron ore, copper ore, silver ore, gold nuggets, merinium ore, raw amethyst, raw ruby, raw obsidian, raw sapphire, raw emerald, raw topaz, raw diamond, stone, stone block, raw stone
+tradeNotEnoughMoneyMsg "Ihr solltet eine Lohnerhöhung beantragen.", "You should try to increase your wage."
+tradeFinishedMsg "Das hat sich gelohnt.", "That was worth it."
+tradeFinishedWithoutTradingMsg "Hat sich nicht recht gelohnt.", "That wasn't worth it."
+tradeWrongItemMsg "Lohnt sich nicht.", "Not worth it."
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
--- This NPC is supposed to trade (all goods are sold and bought, percentage indicates ratio of price bought/sold):
-
--- 10% Tools : 23(hammer), 24(shovel), 2763(pickaxe), 737(chisel), 2751 pincers
--- 10% Stones: 733, 735, 1266
--- 10% Coal, Ores, Nuggets: 21, 22, 234, 2536
--- 5% Stuff: 310, 469, 391, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
-
-"sell", "buy", "wares", "price", "trade", "purchase" -> "I trade with rocks and stones that are as hard as my muscles!", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich handel mit Felsen und Steinen, die so hart sind wie meine Muskeln!", trade
 
 -- Help
 "Help" -> inform("[Game Help] This is 'Big Nik', he is a tool and supply trader. Keywords: sell, buy, trade, Hello, profession, laws.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Werkzeug- und Rohstoffhändler 'Big Nik'. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Beruf, Gesetze.")
+
+-- Trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I trade with rocks and stones that are as hard as my muscles!", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich handel mit Felsen und Steinen, die so hart sind wie meine Muskeln!", trade
 
 -- OPTIONAL TRIGGERS
 queststatus(702) = 1, english, "charwis", "ruby", "gem", "irongate" -> queststatus(702) = 2, "Ah yes, thank you for passing the message. Go talk to Charwis, I'm sure he will reward you for your service."
