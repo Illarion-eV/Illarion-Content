@@ -58,30 +58,28 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 24, 2763, 23, 737, 734, 26, 736, 2588, 733, 735, 1266, 2738, 2183, 2184, 310
-buyPrimaryItems = 24, 2763, 26, 736, 2588, 734, 2183, 2184, 310
-buySecondaryItems = 23, 737, 733, 735, 1266, 2738
-tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear you can not afford that."
-tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
-tradeFinishedWithoutTradingMsg "Auf bald!", "Farewell!"
-tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+sellItems = 24, 2710, 2751, 737, 2763, 26, 726, 316, 736, 2535, 2550, 104, 236, 2571, 21, 22, 2536, 1062, 234, 2534, 251, 255, 252, 253, 256, 257, 254, 1266, 733, 735
+-- shovel, mould, crucible-pincers, chisel, pick-axe
+-- clay, coarse sand, quartz sand, unfired bricks
+-- iron ingot, copper ingot, silver ingot, gold ingot, merinium ingot, coal, iron ore, copper ore, silver ore, gold nuggets, merinium ore, raw amethyst, raw ruby, raw obsidian, raw sapphire, raw emerald, raw topaz, raw diamond, stone, stone block, raw stone
+buyPrimaryItems = 26, 726, 316, 736
+-- clay, coarse sand, quartz sand, unfired bricks
+buySecondaryItems = 2535, 2550, 104, 236, 2571, 21, 22, 2536, 1062, 234, 2534, 251, 255, 252, 253, 256, 257, 254, 1266, 733, 735
+-- iron ingot, copper ingot, silver ingot, gold ingot, merinium ingot, coal, iron ore, copper ore, silver ore, gold nuggets, merinium ore, raw amethyst, raw ruby, raw obsidian, raw sapphire, raw emerald, raw topaz, raw diamond, stone, stone block, raw stone
+tradeNotEnoughMoneyMsg "Das könnt ihr euch nicht leisten.", "You can't afford that."
+tradeFinishedMsg "Im Namen Ihrer Majestät danke ich.", "In lieu of her Royal Majesty: I thank you."
+tradeFinishedWithoutTradingMsg "Bringt bitte mehr Steine.", "Please bring more stones."
+tradeWrongItemMsg "Das benötige ich nicht.", "I do not need that."
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
--- This NPC is supposed to trade (all goods are sold and bought, percentage indicates ratio of price bough/sold):
-
--- 10% Tools: 24(shovel), 2763(pickaxe), 734(brick mould)
--- 5% Tools (Mason): 23(hammer), 737(chisel)
--- 10% Clay: 26
--- 10% Bricks: 736, 2588
--- 5% Stones: 733, 735, 1266
--- 5%: 2738(pins)
-
-"sell", "buy", "wares", "price", "trade", "purchase" -> "I trade with building materials. I'll purchase anything that can help building Her Majesty's... place of peaceful rest.", "Bricks, stone blocks, marble... all the workers need.", "I can sell you the tools you need to serve the Queen. On, on!", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich handele mit Baumaterialien. Ich werde alles erwerben, was benötigt wird um für ihre Majestät... einen Ort der letzten Ruhe zu bauen.", "Ziegelsteine, Steinblöcke, Marmor... Ich handele mit allem, was die Arbeiter brauchen.", "Ich kann euch die Werkzeuge verkaufen, die ihr braucht, um Königin Rosaline zu dienen. Los, los!", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the royal builder Robertus. Keywords: buy, sell, trade, Hello, builder.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der königliche Baumeister Robertus. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Baumeister.")
+
+-- Trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I trade with building materials. I'll purchase anything that can help building Her Majesty's... place of peaceful rest.", "Bricks, stone blocks, marble... all the workers need.", "I can sell you the tools you need to serve the Queen. On, on!", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich handele mit Baumaterialien. Ich werde alles erwerben, was benötigt wird um für ihre Majestät... einen Ort der letzten Ruhe zu bauen.", "Steinblöcke, Marmor... Ich handele mit allem, was die Arbeiter brauchen.", "Ich kann euch die Werkzeuge verkaufen, die ihr braucht, um Königin Rosaline zu dienen. Los, los!", trade
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Ah, you must be the marble deliverer. Put it just next to the stack of bricks.", "Welcome, stranger. Do you have any building materials for me?", "Be greeted, in the name of the Queen."
