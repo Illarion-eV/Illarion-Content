@@ -115,7 +115,7 @@ english, "Gobaith", "Gobiath" -> "There is nothing but bad news about Gobaith. W
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "orc" -> "Arr. Those green noses are annyoing, every last one of them. Actually, we merchants have to stick together. It is all about business!", "Those orcs are smarter than you think, particularly Krudash! Sogg, though, I haven't ever seen him sober.", "Arrr.... I don't know. I think it looks like the entire orc pack here in Galmair belongs to the same clan, but on the other hand... well, I don't know whether that's important."
 "dwarf" -> "What is important to a dwarf? Gold, business and sin-... no... relatives. Therefore, the clan.", "What does a dwarf like? His craft, his wife and his beer.", "We dwarves are a proud folk. I have to warn you, never insult a dwarf! He will remember even after his sons have grown up."
-"ork" -> "Arr. Die Grünschnauzen sind ein Ärgernis. - Nicht's weiter. Im Grunde müssen wir Händler zusammen stehen. Es geht ums Geschäft, das ist was zählt!", "Diese Orks sind klüger als Ihr denkt. Im besonderen diese Krudash! Aber dieser Sogg, den hab ich noch nie nüchtern gesehen...", "Arrr... ich weiß nicht. Aber für mich sieht's so aus als wären die alle, die Ganze Orkmeute in Galmair von der selben Sippe. Andererseits muss das bei Orks ja auch nichts heißen."
+"ork" -> "Arr. Die Grünschnauzen sind ein Ärgernis. Nicht's weiter. Im Grunde müssen wir Händler zusammen stehen. Es geht ums Geschäft, das ist was zählt!", "Diese Orks sind klüger als Ihr denkt. Im besonderen diese Krudash! Aber dieser Sogg, den hab ich noch nie nüchtern gesehen...", "Arrr... ich weiß nicht. Aber für mich sieht's so aus als wären die alle, die Ganze Orkmeute in Galmair von der selben Sippe. Andererseits muss das bei Orks ja auch nichts heißen."
 "zwerg" -> "Was ist einem Zwerg von Wert? Gold, Geschäfte und Ge-...nein. Verwandte. Also sprich, der Klan.", "Was darf ein Zwerg lieben? Sein Handwerk, seine Frau und Bier.", "Wir Zwerge sind ein stolzes Volk. Ich will euch warnen, beleidigt ihr einen Zwerg wird er sich noch daran erinnern wenn Eure Söhne erwachsen sind."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
@@ -130,9 +130,9 @@ english, "Valerio", "Guilianni", "Don" -> "Don Guilianni is a nasty fellow. We m
 english, "Galmair" -> "I want to say, my brother and I could not find a better place than this... except for all the riff-raff. Well, and the buildings are falling down, but business is great."
 "Galmair" -> "Ich möchte sagen, an einen besseren Ort hätte es mich und meinen Bruder nicht verschlagen können. Nun gut, hier treibt sich einiges Gesindel herum, und die Mauern sehen ziemlich zerbrechlich aus, aber das Geschäft geht ausgezeichnet!"
 "Queen" -> "Blue blood! Pah! Bring the human royalty under my axe and I'll show you how blue it is. I tell you, they die just like anyone else! I have seen too many fools on the throne!"
-"Königin" -> "Blaues Blut! Pha! - Bringt mir diese Könige der Menschen vor meine Axt und ich demonstriere Euch wie blau es ist. Ich sage Euch, beim sterben ist jeder der Erste! Zu viele Narren hab ich auf dem Thron gesehn!"
+"Königin" -> "Blaues Blut! Pha! Bringt mir diese Könige der Menschen vor meine Axt und ich demonstriere Euch wie blau es ist. Ich sage Euch, beim sterben ist jeder der Erste! Zu viele Narren hab ich auf dem Thron gesehn!"
 english, "rosaline", "edwards" -> "Blue blood! Pah! Bring the human royalty under my axe and I'll show you how blue it is. I tell you, they die just like anyone else! I have seen too many fools on the throne!"
-"rosaline", "edwards" -> "Blaues Blut! Pha! - Bringt mir diese Könige der Menschen vor meine Axt und ich demonstriere Euch wie blau es ist. Ich sage Euch, beim sterben ist jeder der Erste! Zu viele Narren hab ich auf dem Thron gesehn!"
+"rosaline", "edwards" -> "Blaues Blut! Pha! Bringt mir diese Könige der Menschen vor meine Axt und ich demonstriere Euch wie blau es ist. Ich sage Euch, beim sterben ist jeder der Erste! Zu viele Narren hab ich auf dem Thron gesehn!"
 english, "Cadomyr" -> "They give their wealth and belongings to the dead in Cadomyr. Bury their gold in their crypts! Every dwarf knows that gold is an element for the living. How is it of any use to the dead?"
 "Cadomyr" -> "Cadomyrs Reichtum geben sie den Toten. Vergraben das Gold in den Krypten! Jeder Zwerg weiß natürlich, das Gold das Element der Lebenden ist. Wie sollte es den verstorbenen schon von Nutzen sein?"
 
@@ -161,7 +161,7 @@ english, "Ushara" -> "Honour to you, Mother of the rock, stone and soil."
 "erzähl was", "erzähl etwas" -> "Ich könnte dir eine Menge über das Kochen erzählen, aber ich bin im Moment leider sehr beschäftigt."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-"morri" -> "Arr. Bura'zak-ka! - Welches Essen wollt Ihr mir abkaufen?"
+"morri" -> "Arr. Bura'zak-ka! Welches Essen wollt Ihr mir abkaufen?"
 english, "morri" -> "Arr. Bura'zak-ka! What meal would you like to buy?"
 
 ------------------------------------------------------------------------------AC
