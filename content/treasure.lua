@@ -147,6 +147,51 @@ local function magicGem(gem, quantity)
 end
 
 treasureContents[1] = {
+
+{1266,10}, --stone
+{64,10}, --arrow
+{3,5}, --conifer wood
+{21,5}, --coal
+{22,5}, --iron ore
+{26,5}, --clay
+{50,5}, --thread
+{56,5}, --bough
+{63,5}, --entrails
+{69,5}, --raw leather
+{170,5}, --bale of wool
+{543,5}, --cherry wood
+{544,5}, --naldor wood
+{549,5}, --poisoned arrow
+{726,5}, --coarse sand
+{733,5}, --stone block
+{735,5}, --raw stone
+{2529,5}, --honeycomb
+{2560,5}, --applewood
+{2586,5}, --fur
+{2696,5}, --feathers
+{2786,5}, --branch
+{176,5}, --grey cloth
+{54,5}, --green cloth
+{174,5}, --red cloth
+{175,5}, --black cloth
+{177,5}, --yellow cloth
+{178,5}, --white cloth
+{179,5}, --blue cloth
+{314,5}, --potash
+{316,5}, --quartz sand
+{333,5}, --horn
+{431,5}, --wax
+{545,5}, --cherry wood boards
+{546,5}, --naldor wood boards
+{736,5}, --unfired bricks
+{2185,1}, --wooden cup
+{2535,5}, --iron ingot
+{2536,5}, --copper ore
+{2543,5}, --conifer wood boards
+{2547,5}, --leather
+{2716,5} --apple wood boards
+
+--[[
     -- Ammo: arrow, bolt, throwing star, wind arrows, poisoned arrow, stone, throwing axe, throwing spear,
     {64, 100}, {237, 100}, {294, 20}, {322, 50}, {549, 50}, {1266, 100}, {2645, 20}, {293, 20},
     -- Ore/Gems: coal, iron ore, copper ore, merinium ore, silver ore, gold nuggets, raw amethysts, raw rubies,
@@ -160,9 +205,129 @@ treasureContents[1] = {
     -- Misc: pins and cotters, pins, unfired bricks, stone block,
     {2717, 10}, {2738, 10}, {736, 10}, {733, 10},
     -- Trash: clay, thread, bough, wool, quartz sand, wax, branch, potash, horn, coarse sand, raw stone, honeycomb,
-    26, 50, 56, 170, 316, 431, 2786, 314, 333, 726, 735, 2529,
+    26, 50, 56, 170, 316, 431, 2786, 314, 333, 726, 735, 2529,]]
 }
 treasureContents[2] = {
+
+{1062,5}, --silver ore
+{41,5}, --glass ingot
+{43,5}, --candles
+{223,1}, --iron goblet
+{234,1}, --gold nuggets
+{251,1}, --raw amethyst
+{255,1}, --raw ruby
+{391,1}, --torch
+{1447,1}, --grey cloth gloves
+{2295,1}, --white cloth gloves
+{2525,1}, --axe handle
+{2530,1}, --dagger handle
+{2548,1}, --mace handle
+{2550,1}, --copper ingot
+{2572,1}, --staff handle
+{2584,1}, --sword handle
+{2588,1}, --bricks
+{2738,1}, --pins
+{104,1}, --silver ingot
+{252,1}, --raw obsidian
+{253,1}, --raw sapphire
+{802,1}, --grey dress
+{809,1}, --grey doublet
+{816,1}, --grey tunic
+{823,1}, --grey trousers
+{841,1}, --grey white skirt
+{1117,1}, --empty ink bottle
+{1840,1}, --copper goblet
+{2498,1}, --large empty bottle
+{2537,1}, --iron plate
+{2717,1}, --pins and cotters
+{46,1}, --ruby
+{197,1}, --amethyst
+{236,1}, --gold ingot
+{256,1}, --raw emerald
+{257,1}, --raw topaz
+{325,1}, --steel gloves
+{369,1}, --leather shoes
+{384,1}, --thief's gloves
+{790,1}, --empty juice bottle
+{806,1}, --white dress
+{813,1}, --white doublet
+{820,1}, --white tunic
+{827,1}, --white trousers
+{830,1}, --grey hat with feather
+{1001,1}, --green plate
+{1453,1}, --simple leather gloves
+{1460,1}, --simple chain gloves
+{1461,1}, --chain gloves
+{1470,1}, --simple steel gloves
+{1500,1}, --simple leather shoes
+{1507,1}, --simple jackboots
+{1508,1}, --jackboots
+{1513,1}, --simple steel boots
+{1520,1}, --iron boots
+{1858,1}, --silver goblet
+{2031,1}, --plate
+{2183,1}, --clay mug
+{2528,1}, --small handle
+{2541,1}, --hammer handle
+{2561,1}, --saw handle
+{2566,1}, --scythe handle
+{2567,1}, --shovel handle
+{2570,1}, --sickle handle
+{2585,1}, --big sword handle
+{2745,1}, --parchment
+{2935,1}, --soup bowl
+{2952,1}, --wooden plate
+{202,1}, --steel cap
+{324,1}, --chain helmet
+{356,1}, --hat
+{1415,1}, --white hat with feather
+{16,1}, --orc helmet
+{97,1}, --leather bag
+{254,1}, --raw diamond
+{326,1}, --steel boots
+{463,1}, --quill
+{518,1}, --empty rum bottle
+{1057,1}, --robust jackboots
+{1118,1}, --bottle of ink
+{1416,1}, --simple horned helmet
+{1429,1}, --reinforced steel cap
+{1501,1}, --robust leather shoes
+{48,1}, --leather gloves
+{1448,1}, --green cloth gloves
+{1449,1}, --black cloth gloves
+{1462,1}, --reinforced chain gloves
+{1471,1}, --reinforced steel gloves
+{7,1}, --horned helmet
+{187,1}, --steel hat
+{283,1}, --obsidian
+{284,1}, --sapphire
+{390,1}, --oil bottle
+{831,1}, --green hat with feather
+{1425,1}, --coppered chain helmet
+{183,1}, --short green trousers
+{222,1}, --iron amulet
+{235,1}, --golden ring
+{367,1}, --short leather leggings
+{457,1}, --green shirt
+{803,1}, --green dress
+{810,1}, --green doublet
+{817,1}, --green tunic
+{824,1}, --green trousers
+{842,1}, --green white skirt
+{1478,1}, --simple short leather leggings
+{1485,1}, --simple short scale greaves
+{1492,1}, --simple short iron greaves
+{2117,1}, --short iron greaves
+{2194,1}, --short scale greaves
+{3526,1}, --copper amethyst amulet
+{3527,1}, --copper amethyst ring
+{3535,1}, --golden amulet
+{3553,1}, --copper ring
+{3554,1}, --silver amulet
+{3555,1}, --silver ring
+{3558,1} --copper amulet
+
+--[[
     -- Ore/Gems: raw obsidian, raw sapphire, raw smaragd, raw topaz, ruby, amethyst,
     {252, 5}, {253, 5}, {256, 5}, {257, 5}, {46, 5}, {197, 5},
     -- Ingots: gold ingot, merinium ingot, bricks, (metal pieces, iron plate, )
@@ -172,9 +337,166 @@ treasureContents[2] = {
     -- Misc: amulet, iron goblet, golden goblet, clay mug, wodden sword, plate, copper goblet, goblet, glass mug, plate, glass, clay mug, clay cup, wooden cup, wine glass,
     222, 223, 224, 2183, 445, 1001, 1840, 1858, 1908, 2031, 2055, 2183, 2184, 2185, 2457,
     -- Handles: axehandle, large ornated handle, dagger handle, hammer handle, large handle, mace handle, morning star handle, saw handle, scythe handle, shovel handle, sickle handle, staff handle, long staff handle, sword handle, big sword handle, (small handle, )
-    {2525, 10}, {2527, 10}, {2530, 10}, {2541, 10}, {2544, 10}, {2548, 10}, {2549, 10}, {2561, 10}, {2566, 10}, {2567, 10}, {2570, 10}, {2572, 10}, {2573, 10}, {2584, 10}, {2585, 10} --, 2528,
+    {2525, 10}, {2527, 10}, {2530, 10}, {2541, 10}, {2544, 10}, {2548, 10}, {2549, 10}, {2561, 10}, {2566, 10}, {2567, 10}, {2570, 10}, {2572, 10}, {2573, 10}, {2584, 10}, {2585, 10} --, 2528,]]
+    
 }
 treasureContents[3] = {
+
+{2645,1}, --throwing axe
+{196,1}, --grey coat
+{1317,1}, --empty liquor bottle
+{3528,1}, --silver amethyst amulet
+{3529,1}, --silver amethyst ring
+{79,1}, --golden amethyst amulet
+{277,1}, --golden amethyst ring
+{294,1}, --throwing star
+{1056,1}, --guardian's boots
+{1502,1}, --simple leather boots
+{1514,1}, --reinforced steel boots
+{45,1}, --emerald
+{198,1}, --topaz
+{224,1}, --golden goblet
+{447,1}, --ruby powder
+{450,1}, --amethyst powder
+{1479,1}, --reinforced short leather leggings
+{1486,1}, --reinforced short scale greaves
+{1493,1}, --reinforced short iron greaves
+{2418,1}, --grey priest robe
+{2527,1}, --large ornamented handle
+{2544,1}, --large handle
+{2549,1}, --morning star handle
+{2573,1}, --long staff handle
+{832,1}, --red hat with feather
+{1454,1}, --reinforced leather gloves
+{1463,1}, --coppered chain gloves
+{1472,1}, --coppered steel gloves
+{3539,1}, --copper ruby amulet
+{3540,1}, --copper ruby ring
+{1417,1}, --coppered horned helmet
+{1430,1}, --reinforced steel hat
+{2444,1}, --serinjah helmet
+{6,1}, --scissors
+{9,1}, --saw
+{23,1}, --hammer
+{24,1}, --shovel
+{47,1}, --needle
+{51,1}, --bucket
+{58,1}, --mortar
+{72,1}, --fishing rod
+{74,1}, --hatchet
+{118,1}, --rolling pin
+{121,1}, --peel
+{122,1}, --finesmithing hammer
+{126,1}, --sickle
+{164,1}, --empty potion
+{227,1}, --cooking spoon
+{258,1}, --flail
+{271,1}, --scythe
+{285,1}, --diamond
+{311,1}, --glass blow pipe
+{312,1}, --wooden shovel
+{399,1}, --small candlestick
+{429,1}, --candle mould
+{734,1}, --brick mould
+{737,1}, --chisel
+{739,1}, --lockpicks
+{2140,1}, --tongs
+{2184,1}, --clay cup
+{2421,1}, --white priest robe
+{2495,1}, --pan
+{2647,1}, --cutlery
+{2697,1}, --rasp
+{2709,1}, --armourer's hammer
+{2710,1}, --mould
+{2715,1}, --plane
+{2746,1}, --razor blade
+{2751,1}, --crucible-pincers
+{2752,1}, --carving tools
+{2760,1}, --rope
+{2763,1}, --pick-axe
+{2781,1}, --dyeing rod
+{3541,1}, --silver ruby amulet
+{3560,1}, --silver ruby ring
+{2678,1}, --black dye
+{2679,1}, --green dye
+{2680,1}, --blue dye
+{2681,1}, --red dye
+{2682,1}, --yellow dye
+{2683,1}, --white dye
+{34,1}, --short black trousers
+{182,1}, --black shirt
+{812,1}, --black doublet
+{819,1}, --black tunic
+{826,1}, --black trousers
+{446,1}, --sapphire powder
+{449,1}, --obsidian powder
+{4,1}, --plate armour
+{27,1}, --simple dagger
+{67,1}, --golden ruby amulet
+{68,1}, --golden ruby ring
+{89,1}, --sling
+{101,1}, --chain mail
+{445,1}, --wooden sword
+{1045,1}, --wooden dagger
+{1433,1}, --padded armour
+{2445,1}, --small wooden shield
+{2534,1}, --merinium ore
+{2629,1}, --light battle axe
+{2664,1}, --club
+{2776,1}, --machete
+{17,1}, --wooden shield
+{25,1}, --sabre
+{53,1}, --leather boots
+{55,1}, --green robe
+{65,1}, --short bow
+{189,1}, --dagger
+{230,1}, --mace
+{363,1}, --leather scale armour
+{829,1}, --yellow hat with feather
+{1058,1}, --silversteel boots
+{1441,1}, --reinforced plate armour
+{1480,1}, --simple leather leggings
+{1487,1}, --simple scale greaves
+{1494,1}, --simple iron greaves
+{1515,1}, --coppered steel boots
+{2359,1}, --mercenary armour
+{2635,1}, --poisoned halfling axe
+{2668,1}, --poisoned simple dagger
+{2711,1}, --halfling axe
+{526,1}, --studded leather gloves
+{1464,1}, --silvered chain gloves
+{1473,1}, --silvered steel gloves
+{1450,1}, --red cloth gloves
+{90,1}, --flute
+{310,1}, --mug with lid
+{1908,1}, --glass mug
+{448,1}, --emerald powder
+{451,1}, --topaz powder
+{3536,1}, --copper obsidian amulet
+{3537,1}, --copper obsidian ring
+{18,1}, --light shield
+{78,1}, --short sword
+{194,1}, --black robe
+{1046,1}, --simple spear
+{1090,1}, --walking stick
+{1418,1}, --silvered horned helmet
+{1426,1}, --silvered chain helmet
+{1434,1}, --simple rogue armour
+{1521,1}, --nail club
+{1524,1}, --sharp dagger
+{1531,1}, --rider's bow
+{2290,1}, --round steel hat
+{2360,1}, --guardian's armour
+{2364,1}, --steel plate
+{2723,1}, --executioner's axe
+{2725,1}, --poisoned executioner's axe
+{1055,1}, --dwarven boots
+{39,1}, --skull staff
+{88,1}, --longaxe
+{1038,1}, --snake spear
+{293,1} --javelin
+
+--[[
     -- Ore/Gems: raw diamonds, obsidian, sapphire, emerald, topaz, ruby powder, amethyst powder,
     {254, 5}, {283, 5}, {284, 5}, {45, 5}, {198, 5}, {447, 5}, {450, 5},
     -- Jewellery: ruby amulet, amethyst amulet, golden ring,
@@ -192,9 +514,85 @@ treasureContents[3] = {
     -- Sheilds/Armour:small wooden shield, wooden shield, light metal shield, chain helmet, round steel hat,
     2445, 17, 18, 324, 2290,
     -- Weapons: club, simple dagger, skull staff, poisoned halfling axe, poisoned simple dagger, halfling axe
-    2664, 27, 39, 2635, 2668, 2711
+    2664, 27, 39, 2635, 2668, 2711]]
+    
 }
 treasureContents[4] = {
+
+{180,1}, --red shirt
+{459,1}, --short red trousers
+{529,1}, --dwarven metal gloves
+{811,1}, --red doublet
+{818,1}, --red tunic
+{844,1}, --black white skirt
+{40,1}, --cleric's staff
+{828,1}, --blue hat with feather
+{452,1}, --diamond powder
+{466,1}, --handcuffs
+{2055,1}, --glass
+{3538,1}, --silver obsidian amulet
+{3561,1}, --silver obsidian ring
+{366,1}, --leather leggings
+{1047,1}, --glaive
+{1049,1}, --viper spear
+{1503,1}, --robust leather boots
+{1509,1}, --coppered guardian's boots
+{1516,1}, --silvered steel boots
+{1525,1}, --flamberge
+{1528,1}, --novice's staff
+{2116,1}, --iron greaves
+{2193,1}, --scale greaves
+{2378,1}, --black cult robe
+{528,1}, --Salkamaerian chain gloves
+{1455,1}, --copper studded leather gloves
+{1474,1}, --gilded steel gloves
+{92,1}, --oil lamp
+{2571,1}, --merinium ingot
+{3786,1}, --heartwood
+{3787,1}, --silk
+{1,1}, --serinjah sword
+{231,1}, --battle flail
+{398,1}, --coppered dagger
+{917,1}, --red warden's shield
+{1095,1}, --scale armour
+{1443,1}, --coppered plate armour
+{2407,1}, --light rogue armour
+{2646,1}, --serinjah-rider's bow
+{2694,1}, --poisoned serinjah-sword
+{2946,1}, --battle axe
+{82,1}, --golden obsidian amulet
+{278,1}, --golden obsidian ring
+{94,1}, --pot helmet
+{1419,1}, --gilded horned helmet
+{2441,1}, --storm cap
+{2384,1}, --black coat
+{465,1}, --diadem
+{458,1}, --yellow shirt
+{808,1}, --yellow doublet
+{815,1}, --yellow tunic
+{825,1}, --red trousers
+{2719,1}, --comb
+{1451,1}, --yellow cloth gloves
+{1442,1}, --reinforced steel plate
+{57,1}, --simple mage's staff
+{204,1}, --greatsword
+{1040,1}, --ranseur
+{3542,1}, --copper sapphire ring
+{3559,1}, --copper sapphire amulet
+{393,1}, --lantern
+{532,1}, --panpipe
+{771,1}, --albarian steel boots
+{1054,1}, --ornate jackboots
+{1504,1}, --simple fur boots
+{1481,1}, --reinforced leather leggings
+{1488,1}, --reinforced scale greaves
+{1495,1}, --reinforced iron greaves
+{2420,1}, --black priest robe
+{1456,1}, --silver studded leather gloves
+{1465,1}, --gilded chain gloves
+{1475,1} --squire's gloves
+
+--[[
     -- Ore/Gems: diamond,
     {285, 5},
     -- Tools: scissors, saw, hammer, shovel, needle, bucket, mortar, fishing rod, hatchet, rolling pin, peel, finesmithing hammer, sickle,  cooking spoon, flail, scythe, glass blow pipe, wooden shovel,
@@ -208,9 +606,71 @@ treasureContents[4] = {
     -- Weapons: executioner's axe, poisened executioner's axe, serinjah-sword, poisoned serinjah-sword, shortsword, sling, cleric's staff, short bow, mace,
     2723, 2725, 1, 2694, 78, 89, 40, 65, 230,
     -- Unusable Tools: lock picks, cauldron, pan, nail board, rasp, carpenter hammer, mould,
-    -- 739, 1008, 2495, 2659, 2697, 2709, 2710,
+    -- 739, 1008, 2495, 2659, 2697, 2709, 2710,]]
 }
 treasureContents[5] = {
+
+{237,5}, --crossbow bolt
+{2457,1}, --wine glass
+{2744,1}, --pipe
+{225,1}, --crown
+{19,1}, --metal shield
+{190,1}, --ornate dagger
+{192,1}, --coppered battle axe
+{365,1}, --half leather armour
+{1444,1}, --silvered plate armour
+{1522,1}, --maul
+{2403,1}, --silversteel armour
+{2689,1}, --poisoned ornate dagger
+{2714,1}, --hunting bow
+{2757,1}, --scimitar
+{3543,1}, --silver sapphire amulet
+{3544,1}, --silver sapphire ring
+{1420,1}, --bull horned helmet
+{1427,1}, --gilded chain helmet
+{1431,1}, --reinforced pot helmet
+{181,1}, --blue shirt
+{460,1}, --short yellow trousers
+{807,1}, --blue doublet
+{814,1}, --blue tunic
+{843,1}, --red white skirt
+{547,1}, --novice robe
+{374,1}, --trap set
+{533,1}, --drum
+{1059,1}, --dice cup
+{1223,1}, --empty alchemy bomb
+{697,1}, --fur boots
+{1510,1}, --silvered guardian's boots
+{1517,1}, --gilded steel boots
+{71,1}, --golden sapphire amulet
+{279,1}, --golden sapphire ring
+{3556,1}, --queen's crown
+{3557,1}, --kings's crown
+{2395,1}, --dwarven plate
+{530,1}, --Albarian steel gloves
+{1048,1}, --voulge
+{1457,1}, --gold studded leather gloves
+{1466,1}, --guard's chain gloves
+{1526,1}, --claymore
+{1529,1}, --adepts's staff
+{1482,1}, --simple short fur trousers
+{1489,1}, --simple chain trousers
+{1496,1}, --simple steel greaves
+{2419,1}, --red priest robe
+{1452,1}, --blue cloth gloves
+{385,1}, --light blue dress
+{800,1}, --blue dress
+{801,1}, --yellow dress
+{804,1}, --red dress
+{805,1}, --black dress
+{822,1}, --yellow trousers
+{1421,1}, --Norodaj horned helmet
+{1432,1}, --albarian mercenary's helmet
+{2302,1}, --gynkese mercenary's helmet
+{3546,1}, --copper emerald amulet
+{3547,1} --copper emerald ring
+
+--[[
     -- Ore/Gems: sapphire powder, obsidian powder, emerald powder, topaz powder, diamond powder,
     {446, 5}, {449, 5}, {448, 5}, {451, 5}, {452, 5},
     -- Jewellery: sapphire amulet, obsidian amulet, emerald amulet, ruby ring, topaz amulet, amethyst ring, obsidian ring, sapphire ring,
@@ -220,9 +680,63 @@ treasureContents[5] = {
     -- Weapons: battle axe, dagger, poisened dagger,  orc axe
     2946, 189, 2672, 2642,
     -- clothes: grey coat, lute, blue wizard hat, red wizard hat, blue dress, blue dress, yellow dress, grey dress, green dress, red dress, black dress, white dress, black blue dress, black yellow dress, black yellow dress, black green dress, black red dress, black white dress, blue white skirt, yellow white skirt, grey white skirt, green white skirt, red white skirt, black white skirt, blue green heraldic dress, blue red heraldic dress, yellow blue heraldic dress, yellow green heraldic dress, red yellow heraldic dress, grey heraldic dress, black red heraldic dress, white heraldic dress, blue coat, black coat,
-    196, 335, 357, 358, 385, 800, 801, 802, 803, 804, 805, 806, 833, 834, 835, 836, 837, 838, 839, 840, 841, 842, 843, 844, 845, 846, 847, 848, 849, 850, 851, 852, 2380, 2384,
+    196, 335, 357, 358, 385, 800, 801, 802, 803, 804, 805, 806, 833, 834, 835, 836, 837, 838, 839, 840, 841, 842, 843, 844, 845, 846, 847, 848, 849, 850, 851, 852, 2380, 2384,]]
+    
 }
 treasureContents[6] = {
+
+{322,5}, --wind arrows
+{2377,1}, --red mage robe
+{20,1}, --knight shield
+{229,1}, --silvered battle axe
+{1435,1}, --simple hunting armour
+{1438,1}, --coppered scale armour
+{1445,1}, --gilded plate armour
+{2701,1}, --longsword
+{2705,1}, --poisoned longsword
+{2708,1}, --long bow
+{2737,1}, --war flail
+{2740,1}, --red dagger
+{358,1}, --red wizard hat
+{1505,1}, --robust fur boots
+{1511,1}, --gilded guardian's boots
+{1518,1}, --paladin's steel boots
+{3545,1}, --silver emerald ring
+{3548,1}, --silver emerald amulet
+{527,1}, --serinjah leather gloves
+{531,1}, --knight gloves
+{1467,1}, --gladiator's chain gloves
+{195,1}, --yellow robe
+{2112,1}, --short chain trousers
+{2114,1}, --short fur trousers
+{2172,1}, --steel greaves
+{461,1}, --short blue trousers
+{833,1}, --black blue dress
+{834,1}, --black yellow dress
+{835,1}, --black grey dress
+{836,1}, --black green dress
+{837,1}, --black red dress
+{838,1}, --black white dress
+{840,1}, --yellow white skirt
+{696,1}, --lizard armour
+{76,1}, --mage's staff
+{77,1}, --halberd
+{383,1}, --waraxe
+{1422,1}, --demonic horned helmet
+{1428,1}, --chain helmet of darkness
+{2287,1}, --albarian soldier's helmet
+{62,1}, --golden emerald amulet
+{281,1}, --golden emerald ring
+{357,1}, --blue wizard hat
+{3642,1}, --empty salve jar
+{3868,1}, --yellow wizard hat
+{368,1}, --yellow priest robe
+{698,1}, --serinjah leather boots
+{699,1}, --salkamaerian steel shoes
+{770,1} --knight boots
+
+
+--[[
     -- Shields/Armour: leather legs, albarian steel gloves, salkamarian steel boots, cursed shield, short iron greaves, leather scale armour, hardwood greaves, serinjah helmet,
     366, 530, 699, 917, 2117, 363, 2193, 2444,
     -- Weapons: simple mage's staff, serinjah-rider's bow, morning star, sabre, hunting bow, longaxe, ornate dagger, gilded dagger, silvered dagger, coppered dagger, merinium-plated dagger, poisoned ornate dagger,  scimitar
@@ -230,9 +744,69 @@ treasureContents[6] = {
     -- Clothes: red shirt, blue shirt, black shirt, green shirt, yellow shirt, blue doublet, yellow doublet, grey doublet, green doublet, red doublet, black doublet, white doublet, blue tunic, yellow tunic, grey tunic, green tunic, red tunic, black tunic, white tunic,
     180, 181, 182, 457, 458, 807, 808, 809, 810, 811, 812, 813, 814, 815, 816, 817, 818, 819, 820,
     -- Clothes: green robe, blue robe, black robe, yellow robe, harp, yellow priest robe, colourful wizard hat, expensive wizard hat, red mage robe, black cult robe, brown priest robe, grey priest robe, red priest robe, black priest robe, white priest robe,
-    55, 193, 194, 195, 332, 368, 370, 371, 2377, 2378, 2416, 2418, 2419, 2420, 2421,
+    55, 193, 194, 195, 332, 368, 370, 371, 2377, 2378, 2416, 2418, 2419, 2420, 2421,]]
+    
 }
 treasureContents[7] = {
+
+{2303,1}, --drow helmet
+{70,1}, --crossbow
+{85,1}, --coppered longsword
+{124,1}, --gilded battle axe
+{186,1}, --round metal shield
+{389,1}, --silvered dagger
+{1044,1}, --battle hammer
+{1436,1}, --hunting armour
+{1439,1}, --silvered scale armour
+{2369,1}, --albarian steel plate
+{1458,1}, --reinforced serinjah leather gloves
+{1468,1}, --merinium plated chain gloves
+{1476,1}, --merinium plated steel gloves
+{3549,1}, --copper topaz amulet
+{3550,1}, --copper topaz ring
+{821,1}, --blue trousers
+{839,1}, --blue white skirt
+{845,1}, --blue green heraldic dress
+{846,1}, --blue red heraldic dress
+{847,1}, --yellow blue heraldic dress
+{848,1}, --yellow green heraldic dress
+{849,1}, --red yellow heraldic dress
+{850,1}, --grey heraldic dress
+{851,1}, --black red heraldic dress
+{852,1}, --white heraldic dress
+{370,1}, --colourful wizard hat
+{3708,1}, --witch hat
+{1483,1}, --reinforced short fur trousers
+{1490,1}, --reinforced chain trousers
+{1497,1}, --reinforced steel greaves
+{2416,1}, --brown priest robe
+{184,1}, --visored helmet
+{1423,1}, --merinium plated horned helmet
+{2291,1}, --salkamaerian paladin's helmet
+{3551,1}, --silver topaz amulet
+{3552,1}, --silver topaz ring
+{2388,1}, --red steel shield
+{2390,1}, --dwarven state armour
+{2399,1}, --light elven armour
+{315,1}, --vase
+{323,1}, --wand
+{335,1}, --lute
+{1506,1}, --leather boots of the winds
+{1512,1}, --master's steel shoes
+{1519,1}, --knight boots of swiftness
+{193,1}, --blue robe
+{188,1}, --large waraxe
+{226,1}, --warhammer
+{1042,1}, --partisan
+{371,1}, --fine wizard hat
+{1459,1}, --ranger's gloves
+{1469,1}, --templar's chain gloves
+{1477,1}, --grand master's gloves
+{83,1}, --golden topaz amulet
+{282,1}, --golden topaz ring
+{336,1} --mirror
+
+--[[
     -- Jewellery: smaragd ring, topaz ring, diamond ring, diadem,
     281, 282, 280, 465,
     --Sheilds/Armour:red steel shield, studded leather gloves, fur boots, chain shirt, half leather armour, dwarfen metal gloves, albarian soldier's helmet, legionaire's tower shield, pot helmet, plate armour, heraldic shield, dwarven state armour,
@@ -242,25 +816,112 @@ treasureContents[7] = {
     -- Clothes: novice mage robe,  mage robe,
     547, 548,
     -- Elements: pure air, pure earth, pure fire, pure water, pure spirit
-    2551, 2552, 2553, 2554, 3607
+    2551, 2552, 2553, 2554, 3607]]
+    
 }
 treasureContents[8] = {
-    -- Sheilds/Armour:albarian steel boots, short fur trousers, drow helmet, storm cap, steel tower shield, light hunting armour, albarian steelgloves, heavy steel greaves, steel plate,
+{98,1}, --silvered longsword
+{297,1}, --gilded dagger
+{1446,1}, --albarian knight's armour
+{1523,1}, --heavy hammer
+{2357,1}, --assassin's armour
+{2389,1}, --salkamaerian armour
+{2448,1}, --legionnaire's tower shield
+{2642,1}, --orc axe
+{2655,1}, --poisoned broadsword
+{2658,1}, --broadsword
+{2685,1}, --elven shortbow
+{2778,1}, --elven sword
+{1498,1}, --knight's steel greaves
+{2111,1}, --chain pants
+{2113,1}, --fur trousers
+{2380,1}, --blue coat
+{185,1}, --visored helmet of darkness
+{1424,1}, --dragon horned helmet
+{2286,1}, --flame helmet
+{3530,1}, --copper diamond amulet
+{3531,1}, --copper diamond ring
+{548,1}, --mage robe
+{95,1}, --heraldic shield
+{2672,1}, --ritual dagger
+{3532,1}, --silver diamond amulet
+{3533,1}, --silver diamond ring
+{209,1}, --elven mage's staff
+{1053,1}, --divine voulge
+{1527,1}, --cleaver axe
+{332,1}, --harp
+{558,1}, --archmage robe
+{1484,1}, --fur trousers of dawn
+{1491,1}, --holy chain pants
+{1499,1} --steel greaves of eternal night
+
+    --[[
+    -- Shields/Armour:albarian steel boots, short fur trousers, drow helmet, storm cap, steel tower shield, light hunting armour, albarian steelgloves, heavy steel greaves, steel plate,
     771, 2114, 2303, 2441, 96, 364, 530, 2172, 2364,
     -- Weapons: gilded longsword, coppered longsword, silvered longsword, merinium-plated longsword, elven mage's staff, rapier, longsword, poisoned longsword, gilded battle axe, coppered battle axe, ornate mage's staff, silvered battle axe, merinium-plated battle axe, light battleaxe, two-handed sword, elvensword
     84, 85, 98, 123, 209, 2675, 2701, 2705, 124, 192, 1044, 229, 296, 2629, 2731, 2778,
     -- Clothes: archmage robe,
-    558
+    558]]
 }
 treasureContents[9] = {
+
+{84,1}, --gilded longsword
+{96,1}, --steel tower shield
+{364,1}, --reinforced hunting armour
+{1041,1}, --spiked mace
+{1440,1}, --gilded scale armour
+{2367,1}, --albarian noble's armour
+{2660,1}, --dwarven axe
+{2675,1}, --rapier
+{2775,1}, --elven rainbowsword
+{2780,1}, --ebony wood bow
+{2788,1}, --snake sword
+{280,1}, --golden diamond ring
+{334,1}, --charm of the icebird
+{2559,1}, --archmage ring
+{3534,1}, --golden diamond amulet
+{91,1}, --Malachín dagger
+{916,1}, --ornate tower shield
+{2402,1}, --drow armour
+{205,1}, --double axe
+{207,1}, --battle staff
+{1039,1}, --twinblade ranseur
+{2636,1}, --poisoned double axe
+{2731,1} --two-handed sword
+
+--[[
     -- Jewellery: crown,
     225,
     --Sheilds/Armour:visored helmet, serinjah leather boots, serinjah leather gloves, ornate tower shield, short chain pants, flame helmet, elven silversteel armour, black visored helmet, full leatherarmour, Shield of the Sky, albarian steel plate, cloud shield, knight boots, brass greaves
     184, 698, 527, 916, 2112, 2286, 2403, 185, 362, 2284, 2369, 2439, 770, 2113,
     -- Weapons: large waraxe, battle staff, dwarven axe, elven composite longbow, war hammer, snake sword, elven rainbowsword, double axe, poisoned longaxe,
-    188, 207, 2660, 2718, 226, 2788, 2775, 205, 2636
+    188, 207, 2660, 2718, 226, 2788, 2775, 205, 2636]]
 }
 treasureContents[10] = {
+
+{123,1}, --merinium-plated longsword
+{206,1}, --fire longsword
+{296,1}, --merinium-plated battle axe
+{362,1}, --full leather armour
+{444,1}, --merinium-plated dagger
+{1043,1}, --dwarven hammer
+{2284,1}, --shield of the sky
+{2365,1}, --salkamaerian officer's armour
+{2393,1}, --heavy plate armour
+{2693,1}, --magical serinjah-sword
+{2704,1}, --magical longsword
+{2718,1}, --elven composite longbow
+{2447,1}, --mosaic shield
+{2782,1}, --wand of earth
+{2783,1}, --wand of fire
+{2784,1}, --wand of water
+{2785,1}, --wand of air
+{3608,1}, --wand of spirit
+{208,1}, --ornate mage's staff
+{1050,1}, --shadow ranseur
+{2627,1}, --fire waraxe
+
+--[[
     -- Jewellery: charm of the icebird,
     334,
     -- Sheilds/Armour:knight gloves, lizard armour, iron greaves, chain pants, Lor-Angur guardian's armour, light breastplate, dwarvenplate, salkamaerian armour, mercenary armour, elven state armour,
@@ -268,17 +929,40 @@ treasureContents[10] = {
     -- Weapons: drow blade, drow sword, malachin dagger, elven shortbow, magical icebow, red fire dagger, fire broadsword, fire longsword, fire waraxe, large fire-waraxe, magical dagger, magical serinjah-sword, magical broadsword, magical longsword,
     2777, 3035, 91, 2685, 2742, 2656, 206, 2627, 2640, 2671, 2693, 2654, 2704,
     -- Wands: earthwand, wand of fire, wand of water, wand of air,
-    2782, 2783, 2784, 2785,
+    2782, 2783, 2784, 2785,]]
+    
     -- Magical emerald Level 1, Magical ruby Level 1, Magical amethyst Level 1, Magical topaz Level 1, Magical obsidian Level 1, Magical sapphire Level 1
     magicGem(gems.EMERALD, 1), magicGem(gems.RUBY, 1), magicGem(gems.AMETHYST, 1), magicGem(gems.TOPAZ, 1), magicGem(gems.OBSIDIAN, 1), magicGem(gems.SAPPHIRE, 1)
 }
 treasureContents[11] = {
+
+{1052,1}, --dwarven stormhammer
+{1437,1}, --assassin's armour of darkness
+{2363,1}, --nightplate
+{2400,1}, --state armour
+{2439,1}, --cloud shield
+{2654,1}, --magical broadsword
+{2656,1}, --fire broadsword
+{2662,1}, --magical dwarven axe
+{2671,1}, --magical dagger
+{2727,1}, --fire hunter's bow
+{2739,1}, --drow bow
+{2742,1}, --red fire dagger
+{2777,1}, --drow blade
+{2640,1}, --large fire-waraxe
+{1051,1}, --partisan of light
+{1530,1}, --master's staff
+{2626,1}, --magical waraxe
+{3035,1}, --drow sword
+
+--[[
     -- Jewellery: ring of the archmage,
     2559,
     -- Sheilds/Armour:nightplate, salkamaerian officer's armour, light elven armour, drow armour, shadowplate, albarian noble's armour, heavy plate armour,
     2363, 2365, 2399, 2402, 2357, 2367, 2393,
     -- Weapons: magical waraxe, magical dwarven axe,
-    2626, 2662,
+    2626, 2662,]]
+    
     -- Magical emerald Level 2, Magical ruby Level 2, Magical amethyst Level 2, Magical topaz Level 2, Magical obsidian Level 2, Magical sapphire Level 2
     magicGem(gems.EMERALD, 2), magicGem(gems.RUBY, 2), magicGem(gems.AMETHYST, 2), magicGem(gems.TOPAZ, 2), magicGem(gems.OBSIDIAN, 2), magicGem(gems.SAPPHIRE, 2)
 }
