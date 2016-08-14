@@ -27,7 +27,7 @@ function InitGathering()
 
         local prob_frequently = 0.005; --0.5% (1/200)
         local prob_occasionally = 0.0025; --0.25% (1/400)
-        local prob_rarely = 0.001; --0.1% (1/1000)
+        local prob_rarely = 0.1; --0.1% (1/1000)
         local prob_extremely_rarely = 0.00025; --0.025% (1/4000)
 
         woodchopping = gatheringcraft.GatheringCraft:new{LeadSkill = Character.woodcutting, LearnLimit = 100}; -- id_74_axe
