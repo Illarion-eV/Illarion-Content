@@ -235,19 +235,19 @@ local function poisonedFood(User,SourceItem)
     end
 end
 
-local atributesGerman = {}
-atributesGerman.strength     = "Stärke"
-atributesGerman.durability   = "Ausdauer"
-atributesGerman.agility      = "Schnelligkeit"
-atributesGerman.dexterity    = "Geschicklichkeit"
-atributesGerman.intelligence = "Intelligenz"
-atributesGerman.essence      = "Essenz"
-atributesGerman.perception   = "Wahrnehmung"
-atributesGerman.willpower    = "Willensstärke"
+local attributesGerman = {}
+attributesGerman.strength     = "Stärke"
+attributesGerman.durability   = "Ausdauer"
+attributesGerman.agility      = "Schnelligkeit"
+attributesGerman.dexterity    = "Geschicklichkeit"
+attributesGerman.intelligence = "Intelligenz"
+attributesGerman.essence      = "Essenz"
+attributesGerman.perception   = "Wahrnehmung"
+attributesGerman.willpower    = "Willensstärke"
 
 local function buffsAdding(User,SourceItem)
 
-    local buffs = foodList[SourceItem.id]["buffs"]
+    local buffs = foodList[SourceItem.id].buffs
 
     if not buffs then
         return
@@ -269,15 +269,16 @@ local function buffsAdding(User,SourceItem)
             messageDe = messageDe .. ", "
             messageEn = messsageEn .. ", "
         end
-        messageDe = messageDe .. ", " .. attributesGerman.attribute .. " " .. value
-        messageEn = messsageEn .. ", " .. attribute .. " " .. value
+        messageDe = messageDe .. ", " .. attribute .. " +" .. value
+        messageEn = messageEn .. ", " .. attribute .. " +" .. value
         
         User:increaseAttrib(attribute,value)
     end
 
     User:inform(messageDe,messageEn)
     
-    local dietEffect=LongTimeEffect(12,foodList[SourceItem.id]["buffs"])
+    --Debug from here. LongTimeEffect requires two ints.
+    local dietEffect=LongTimeEffect(12,foodList[SourceItem.id].buffs)
     dietEffect:addValue("foodId",SourceItem.id)
     User.effects:addEffect(dietEffect)
     
@@ -339,7 +340,8 @@ local function holyGrapes(user, sourceItem)
     world:erase(sourceItem,1)
 end
 
-function M.useItem(User,SourceItem,ltstate)
+function M.UseItem(User,SourceItem,ltstate)
+
     if SourceItem:getData("nameEn") == "Holy Grapes" then
         holyGrapes(User, SourceItem)
         return
@@ -371,15 +373,17 @@ function M.useItem(User,SourceItem,ltstate)
             "You find a piece of paper inside the cookie: \""..enText.."\"");
         end
     end
-    local oldFoodLevel = User:increaseAttrib("foodlevel")
-    local newFoodLevel = User:increaseAttrib("foodlevel",foodList[SourceItem.id["foodPoints"]])
+    local oldFoodLevel = User:increaseAttrib("foodlevel",0)
+    local newFoodLevel = User:increaseAttrib("foodlevel",foodList[SourceItem.id].foodPoints)
+
     foodLevelInform(User,newFoodLevel,oldFoodLevel)
-    
+
     poisonedFood(User,SourceItem)
-    
+
     buffsAdding(User,SourceItem)
-    
+
     world:erase(SourceItem,1)
+
     leftOverCreation(User,foodList[SourceItem.id["leftOver"]])
 end
 
