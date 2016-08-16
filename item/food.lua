@@ -222,7 +222,7 @@ local function calculateBuffDuration()
     local diff = maxCraftedBuffDuration - minCraftedBuffDuration
     for _,foodItem in pairs(foodList) do
         if foodItem.difficulty ~= nil and foodItem.foodPoints == nil then
-          foodItem.foodPoints = math.ceil(minCraftedBuffDuration + diff*(foodItem.difficulty/maxDifficulty))
+          foodItem.duration = math.ceil(minCraftedBuffDuration + diff*(foodItem.difficulty/maxDifficulty))
         end
     end
 end
@@ -278,7 +278,7 @@ local function buffsAdding(User,SourceItem)
     User:inform(messageDe,messageEn)
     
     --Debug from here. LongTimeEffect requires two ints.
-    local dietEffect=LongTimeEffect(12,foodList[SourceItem.id].buffs)
+    local dietEffect=LongTimeEffect(12,foodList[SourceItem.id].duration)
     dietEffect:addValue("foodId",SourceItem.id)
     User.effects:addEffect(dietEffect)
     
