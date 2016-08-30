@@ -390,7 +390,7 @@ function Product:getCraftingTime(skill)
 
     --This function returns the crafting time, scaled by the price of the item in 0.5 s steps.
     if (self.learnLimit == self.difficulty) then
-        learnProgress = 1
+        learnProgress = 100
     else
         learnProgress = (skill - self.difficulty) / (self.learnLimit - self.difficulty) * 100
     end
@@ -514,7 +514,7 @@ function Craft:generateQuality(user, productId, toolItem)
     local product = self.products[productId]
     
     if product.learnLimit == product.difficulty then
-        scalar = 1
+        scalar = 100
     else
         scalar = (self:getSkill(user) - product.difficulty) / (math.min(100, product.learnLimit) - product.difficulty) * 100
     end
