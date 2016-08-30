@@ -514,9 +514,9 @@ function Craft:generateQuality(user, productId, toolItem)
     local product = self.products[productId]
     
     if product.learnLimit == product.difficulty then
-        local scalar = 1
+        scalar = 1
     else
-        local scalar = (self:getSkill(user) - product.difficulty) / (math.min(100, product.learnLimit) - product.difficulty) * 100
+        scalar = (self:getSkill(user) - product.difficulty) / (math.min(100, product.learnLimit) - product.difficulty) * 100
     end
     
     local quality = common.Scale(4, 8, scalar)
