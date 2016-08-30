@@ -390,9 +390,9 @@ function Product:getCraftingTime(skill)
 
     --This function returns the crafting time, scaled by the price of the item in 0.5 s steps.
     if (self.learnLimit == self.difficulty) then
-        local learnProgress = 1
+        learnProgress = 1
     else
-        local learnProgress = (skill - self.difficulty) / (self.learnLimit - self.difficulty) * 100
+        learnProgress = (skill - self.difficulty) / (self.learnLimit - self.difficulty) * 100
     end
     local theItem = world:getItemStatsFromId(self.item)
     local minimum = math.max ((theItem.Worth * 0.0024),1)
