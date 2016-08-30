@@ -16,7 +16,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_102_tailoringtable' WHERE itm_id IN (102,103);
 
-local tailoring = require("content.craft.tailoring")
+--local tailoring = require("content.craft.tailoring")
+local tailoring = require("craft.tailoring")
 
 local M = {}
 

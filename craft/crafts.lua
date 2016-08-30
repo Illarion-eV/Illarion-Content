@@ -23,7 +23,7 @@ local common = require("base.common")
 local lookat = require("base.lookat")
 local licence = require("base.licence")
 
-module("item.base.crafts", package.seeall)
+module("craft.crafts", package.seeall)
 
 Product = {
             quantity = 1,
@@ -35,7 +35,7 @@ Product = {
 function Product:new(p)       -- new: constructor
     p = p or {}               -- if p=nil then create an empty list
     setmetatable(p, self)     -- metatable: holds functions of a class. loads product-stuff into this new product p.
-    self.__index = self       -- ??
+    self.__index = self
     return p
 end
 
@@ -50,14 +50,11 @@ Craft = {
     activeTool = {},
     toolLink = {},
 
-    defaultFoodConsumption = 500,
     sfx = 0,
     sfxDuration = 0,
 
     fallbackCraft = nil,
 }
-
-
 
 -- constructor
 
@@ -66,7 +63,6 @@ Usage: myCraft = Craft:new{ craftEN = "CRAFT_EN",
                             craftDE = "CRAFT_DE",
                             handTool = ID,
                             [leadSkill = SKILL | leadSkill = function(user)],
-                            [defaultFoodConsumption = FOOD,]
                             [sfx = SFX, sfxDuration = DURATION,]
                             [fallbackCraft = CRAFTWITHSAMEHANDTOOL,]
                             [npcCraft = true,]
@@ -83,9 +79,7 @@ function Craft:new(c)
     c.tool = {}
     c.activeTool = {}
     c.toolLink = {}
-    c.defaultProduct = Product:new{
-        foodConsumption = c.defaultFoodConsumption,
-    }
+    c.defaultProduct = Product:new{}
     return c
 end
 
@@ -120,9 +114,9 @@ function Product:addRemnant(item, quantity, data)
     table.insert(self["remnants"], {["item"]=item, ["quantity"]=quantity, ["data"]=data})
 end
 
-function Craft:addProduct(categoryId, itemId, difficulty, learnLimit, minTime, maxTime, quantity, data)
-    difficulty = math.min(difficulty, 100)
-    learnLimit = math.min(learnLimit, 100)
+function Craft:addProduct(categoryId, itemId, quantity, data)
+    difficulty = math.min(world:getItemStatsFromId(itemId).Level, 100)
+    learnLimit = math.min(difficulty+20, 100)
     quantity = quantity or 1
     data = data or {}
 
@@ -132,8 +126,6 @@ function Craft:addProduct(categoryId, itemId, difficulty, learnLimit, minTime, m
             ["item"] = itemId,
             ["difficulty"] = difficulty,
             ["learnLimit"] = learnLimit,
-            ["minTime"] = minTime,
-            ["maxTime"] = maxTime,
             ["quantity"] = quantity,
             ["data"] = data,
             ["ingredients"] = {},
@@ -520,13 +512,13 @@ function Craft:generateQuality(user, productId, toolItem)
     end
 
     local product = self.products[productId]
-
+    
     if product.learnLimit == product.difficulty then
         scalar = 100
     else
         scalar = (self:getSkill(user) - product.difficulty) / (math.min(100, product.learnLimit) - product.difficulty) * 100
     end
-
+    
     local quality = common.Scale(4, 8, scalar)
     local toolQuality = math.floor(toolItem.quality/100)
 
