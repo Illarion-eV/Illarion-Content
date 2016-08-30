@@ -389,7 +389,11 @@ end
 function Product:getCraftingTime(skill)
 
     --This function returns the crafting time, scaled by the price of the item in 0.5 s steps.
-    local learnProgress = (skill - self.difficulty) / (self.learnLimit - self.difficulty) * 100
+    if (self.learnLimit == self.difficulty) then
+        local learnProgress = 1
+    else
+        local learnProgress = (skill - self.difficulty) / (self.learnLimit - self.difficulty) * 100
+    end
     local theItem = world:getItemStatsFromId(self.item)
     local minimum = math.max ((theItem.Worth * 0.0024),1)
     local craftingTime = common.Scale(minimum * 2, minimum, learnProgress)
@@ -508,8 +512,13 @@ function Craft:generateQuality(user, productId, toolItem)
     end
 
     local product = self.products[productId]
-    local scalar = (self:getSkill(user) - product.difficulty) / (math.min(100, product.learnLimit) - product.difficulty) * 100
-
+    
+    if product.learnLimit == product.difficulty then
+        local scalar = 1
+    else
+        local scalar = (self:getSkill(user) - product.difficulty) / (math.min(100, product.learnLimit) - product.difficulty) * 100
+    end
+    
     local quality = common.Scale(4, 8, scalar)
     local toolQuality = math.floor(toolItem.quality/100)
 
