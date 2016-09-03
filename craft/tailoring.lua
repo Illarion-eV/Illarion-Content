@@ -574,7 +574,7 @@ product = tailoring:addProduct(catId, 1453, 1)
 product:addIngredient(50, 1) -- thread
 product:addIngredient(2547, 1) -- leather
 
--- thief''s gloves
+-- thief's gloves
 product = tailoring:addProduct(catId, 384, 1)
 product:addIngredient(50, 2) -- thread
 product:addIngredient(2547, 2) -- leather
@@ -632,7 +632,7 @@ product:addIngredient(2547, 5) -- leather
 product:addIngredient(2586, 1) -- fur
 product:addIngredient(3787, 2) -- silk
 
--- ranger''s gloves
+-- ranger's gloves
 product = tailoring:addProduct(catId, 1459, 1)
 product:addIngredient(50, 7) -- thread
 product:addIngredient(2547, 5) -- leather
@@ -889,7 +889,7 @@ product:addIngredient(2547, 11) -- leather
 product:addIngredient(2586, 1) -- fur
 product:addIngredient(3787, 2) -- silk
 
--- assassin''s armour
+-- assassin's armour
 product = tailoring:addProduct(catId, 2357, 1)
 product:addIngredient(50, 15) -- thread
 product:addIngredient(2547, 11) -- leather
@@ -910,7 +910,7 @@ product:addIngredient(2547, 14) -- leather
 product:addIngredient(2586, 1) -- fur
 product:addIngredient(3787, 4) -- silk
 
--- assassin''s armour of darkness
+-- assassin's armour of darkness
 product = tailoring:addProduct(catId, 1437, 1)
 product:addIngredient(50, 20) -- thread
 product:addIngredient(2547, 15) -- leather
