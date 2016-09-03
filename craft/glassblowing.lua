@@ -30,60 +30,60 @@ glassblowing:addTool(313) -- glass melting oven
 local catId = glassblowing:addCategory("Glass ingots", "Glasbarren")
 
 -- glass ingot
-product = tailoring:addProduct(catId, 41, 1)
+product = glassblowing:addProduct(catId, 41, 1)
 product:addIngredient(316, 1) -- quartz sand
 product:addIngredient(314, 1) -- potash
 
 local catId = glassblowing:addCategory("Bottles", "Flaschen")
 
 -- large empty bottle
-product = tailoring:addProduct(catId, 2498, 1)
+product = glassblowing:addProduct(catId, 2498, 1)
 product:addIngredient(41, 1) -- glass ingot
 
 -- empty ink bottle
-product = tailoring:addProduct(catId, 1117, 1)
+product = glassblowing:addProduct(catId, 1117, 1)
 product:addIngredient(41, 1) -- glass ingot
 
 -- empty juice bottle
-product = tailoring:addProduct(catId, 790, 1)
+product = glassblowing:addProduct(catId, 790, 1)
 product:addIngredient(41, 1) -- glass ingot
 
 -- empty rum bottle
-product = tailoring:addProduct(catId, 518, 1)
+product = glassblowing:addProduct(catId, 518, 1)
 product:addIngredient(41, 1) -- glass ingot
 
 -- oil bottle
-product = tailoring:addProduct(catId, 390, 1)
+product = glassblowing:addProduct(catId, 390, 1)
 product:addIngredient(41, 2) -- glass ingot
 
 -- empty liquor bottle
-product = tailoring:addProduct(catId, 1317, 1)
+product = glassblowing:addProduct(catId, 1317, 1)
 product:addIngredient(41, 2) -- glass ingot
 
 -- empty potion
-product = tailoring:addProduct(catId, 164, 1)
+product = glassblowing:addProduct(catId, 164, 1)
 product:addIngredient(41, 3) -- glass ingot
 
 local catId = glassblowing:addCategory("Glasses", "Gläser")
 
 -- glass mug
-product = tailoring:addProduct(catId, 1908, 1)
+product = glassblowing:addProduct(catId, 1908, 1)
 product:addIngredient(41, 3) -- glass ingot
 
 -- glass
-product = tailoring:addProduct(catId, 2055, 1)
+product = glassblowing:addProduct(catId, 2055, 1)
 product:addIngredient(41, 2) -- glass ingot
 product:addIngredient(446, 1) -- sapphire powder
 
 -- wine glass
-product = tailoring:addProduct(catId, 2457, 1)
+product = glassblowing:addProduct(catId, 2457, 1)
 product:addIngredient(41, 4) -- glass ingot
 product:addIngredient(449, 1) -- obsidian powder
 
 local catId = glassblowing:addCategory("Other", "Sonstiges")
 
 -- empty salve jar
-product = tailoring:addProduct(catId, 3642, 1)
+product = glassblowing:addProduct(catId, 3642, 1)
 product:addIngredient(41, 10) -- glass ingot
 product:addIngredient(451, 1) -- topaz powder
 product:addIngredient(450, 1) -- amethyst powder
