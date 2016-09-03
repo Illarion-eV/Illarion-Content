@@ -27,13 +27,6 @@ glassblowing = crafts.Craft:new{
 
 glassblowing:addTool(313) -- glass melting oven
 
-local catId = glassblowing:addCategory("Glass ingots", "Glasbarren")
-
--- glass ingot
-product = glassblowing:addProduct(catId, 41, 1)
-product:addIngredient(316, 1) -- quartz sand
-product:addIngredient(314, 1) -- potash
-
 local catId = glassblowing:addCategory("Bottles", "Flaschen")
 
 -- large empty bottle
