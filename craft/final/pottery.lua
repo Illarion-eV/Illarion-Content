@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.crafts")
 
-module("craft.pottery", package.seeall)
+module("craft.final.pottery", package.seeall)
 
 pottery = crafts.Craft:new{
                           craftEN = "Pottery",

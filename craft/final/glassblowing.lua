@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.crafts")
 
-module("craft.glassblowing", package.seeall)
+module("craft.final.glassblowing", package.seeall)
 
 glassblowing = crafts.Craft:new{
                           craftEN = "Glass Blowing",

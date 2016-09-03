@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_311_glassblowpipe' WHERE itm_id=311;
 
-local glassblowing = require("craft.glassblowing")
+local glassblowing = require("craft.final.glassblowing")
 local jewel = require("item.general.jewel")
 
 local M = {}

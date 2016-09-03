@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.crafts")
 
-module("craft.tailoring", package.seeall)
+module("craft.final.tailoring", package.seeall)
 
 tailoring = crafts.Craft:new{
                       craftEN = "Tailoring",
