@@ -60,10 +60,10 @@ function M.townManagmentUseItem(User, SourceItem)
     end
 
     local dialogTitle = common.GetNLS(User, "Stadtmanagement", "Town Management")
-    local dialogText = common.GetNLS(User, "Instrument zur Verwaltung der Stadt. Nur f�r offizielle Vertreter.", "Instrument for town management. Only for officials.")
+    local dialogText = common.GetNLS(User, "Instrument zur Verwaltung der Stadt. Nur für offizielle Vertreter.", "Instrument for town management. Only for officials.")
     local dialog = SelectionDialog(dialogTitle, dialogText, callback)
 
-    local toolUse = common.GetNLS(User, {"Verbannung", "Lizenz", "Schl�ssel"}, {"Ban a character", "Licence", "Key"})
+    local toolUse = common.GetNLS(User, {"Verbannung", "Lizenz", "Schlüssel"}, {"Ban a character", "Licence", "Key"})
     for i = 1, #toolUse do
         dialog:addOption(0, toolUse[i])
     end
@@ -117,7 +117,7 @@ function TownGuard(User,toolTown)
             else
                 local townId = toolTown
                 factions.setIndividualPlayerRelation(theChar, townId, factions.RELATION_HOSTILE, 3);
-                common.InformNLS(User,theChar.name.." ist f�r einen Zwergentag gebannt.",theChar.name.." is banned for one dwarven day.")
+                common.InformNLS(User,theChar.name.." ist für einen Zwergentag gebannt.",theChar.name.." is banned for one dwarven day.")
                 User:logAdmin("bans " .. theChar.name .. " for one day from " .. factions.getTownNameByID(townId));
                 log(string.format("[Town Management] %s bans %s for one day from " .. factions.getTownNameByID(townId),
                     character.LogText(User), theChar.name));
@@ -141,8 +141,8 @@ function TownLicence(User,toolTown)
     local licenceStrings = {}
     licenceStrings[licence.PERMISSION_NONE] = common.GetNLS(User, "Benutzung von statischen Werkzeugen ist verboten.", "Permission for static tools is restricted.")
     licenceStrings[licence.PERMISSION_ACTIVE] = common.GetNLS(User, "Benutzung von statischen Werkzeugen ist erlaubt.", "Permission for static tools is granted.")
-    local TextWithRespctToA = common.GetNLS(User, " f�r ", " with respect to ")
-    local TextWithRespctToB = common.GetNLS(User, " f�r ...", " with respect to ...")
+    local TextWithRespctToA = common.GetNLS(User, " für ", " with respect to ")
+    local TextWithRespctToB = common.GetNLS(User, " für ...", " with respect to ...")
     local TextSetLicenceOf = common.GetNLS(User, "Setze die Lizenz von ", "Set licence of ")
     local TextTo = common.GetNLS(User, " auf ...", " to ...")
     local TextLicence = common.GetNLS(User, "Lizenz", "Licence")
@@ -200,7 +200,7 @@ keydoorsnameDE[1]={"Villa Rosaline","Villa Edward","Villa Reginald","Wohnungsqua
 keydoorsnameEN[1]={"Villa Rosaline","Villa Edward","Villa Reginald","Flat quarter - Responsibility","Flat quarter - Faith & Obedience","Flat quarter - Honour & Lineage","Flat quarter - Truth & Justice","Flat quarter - Courage","Flat quarter - Patriarchy","Flat quarter - Property","Flat quarter - Alertness"}
 keydoorsnameDE[2]={"Insel des Feuers Appartement 1","Insel des Feuers Appartement 2","Insel des Feuers Appartement 3","Landhaus","Insel der Luft Appartement 2","Insel der Luft Appartement 1","Insel der Erde Appartement 6","Insel der Erde Appartement 3","Insel der Erde Appartement 5","Insel der Erde Appartement 4","Insel der Erde Appartement 1","Insel der Erde Appartement 2","Insel des Feuers Appartement 4"}
 keydoorsnameEN[2]={"Island of Fire Apartment 1","Island of Fire Apartment 2","Island of Fire Apartment 3","Cottage","Island of Air Apartment 2","Island of Air Apartment 1","Island of Earth Apartment 6","Island of Earth Apartment 3","Island of Earth Apartment 5","Island of Earth Apartment 4","Island of Earth Apartment 1","Island of Earth Apartment 2","Island of Fire Apartment 4"}
-keydoorsnameDE[3]={"Malachite Haus","Villa Goldader","Wohnung Irmorom","Wohnung Elara","Wohnung Adron","Wohnung Malachin","Wohnung Oldra","Wohnung Nargun","Wohnung Ronagan","Wohnung Sirani","Wohnung Zhambra", "Gl�ckskupfer", "Silberner Verdienst", "Goldener Abschluss"}
+keydoorsnameDE[3]={"Malachite Haus","Villa Goldader","Wohnung Irmorom","Wohnung Elara","Wohnung Adron","Wohnung Malachin","Wohnung Oldra","Wohnung Nargun","Wohnung Ronagan","Wohnung Sirani","Wohnung Zhambra", "Glückskupfer", "Silberner Verdienst", "Goldener Abschluss"}
 keydoorsnameEN[3]={"House of Malachite","Villa Goldvein","Flat Irmorom","Flat Elara","Flat Adron","Flat Malachin","Flat Oldra","Flat Nargun","Flat Ronagan","Flat Sirani","Flat Zhambra", "Lucky Copper", "Silver Profit", "Golden Deal"}
 
 
@@ -217,8 +217,8 @@ function TownKey(User,toolTown)
             character.LogText(User) , keydoorsnameEN[toolTown][selected]));
     end
 
-    local dialogTitle = common.GetNLS(User, "Schl�sselgenerator", "Key-Generator")
-    local dialogText = common.GetNLS(User, "Erstelle einen Schl�ssel f�r folgende T�ren.", "Create a key for following doors.")
+    local dialogTitle = common.GetNLS(User, "Schlüsselgenerator", "Key-Generator")
+    local dialogText = common.GetNLS(User, "Erstelle einen Schlüssel für folgende Türen.", "Create a key for following doors.")
     local dialog = SelectionDialog(dialogTitle, dialogText, callback)
 
     local keydoorsname = common.GetNLS(User, keydoorsnameDE[toolTown], keydoorsnameEN[toolTown])
