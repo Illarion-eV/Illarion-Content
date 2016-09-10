@@ -514,7 +514,7 @@ function Craft:generateQuality(user, productId, toolItem)
     local product = self.products[productId]
     
     if product.learnLimit == product.difficulty then
-        scalar = math.random(0, 100) ----This is a temporary solution until we get "effective" skills beyond 100 as proposed by Bloodraven, see Ars Magica
+        scalar = 50 --This is a temporary solution until we get "effective" skills beyond 100 as proposed by Bloodraven, see Ars Magica
     else
         scalar = (self:getSkill(user) - product.difficulty) / (math.min(100, product.learnLimit) - product.difficulty) * 100
     end
