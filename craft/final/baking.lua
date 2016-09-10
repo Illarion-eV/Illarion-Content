@@ -50,7 +50,6 @@ product:addRemnant(51, 1) -- bucket
 product = cooking:addProduct(catId, 3568, 1)
 product:addIngredient(3567, 3) -- potato
 product:addIngredient(3573, 1) -- cheese
-product:addRemnant(0, ) -- 
 
 -- potato bread
 product = cooking:addProduct(catId, 49, 1)
