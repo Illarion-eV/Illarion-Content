@@ -30,7 +30,7 @@ tailoring:addTool(103) -- tailoring table
 
 --------------------------------------------------------------------------------------------
 
-catId = tailoring:addCategory("Boots", "Stiefel")
+local catId = tailoring:addCategory("Boots", "Stiefel")
 
 -- simple leather shoes
 product = tailoring:addProduct(catId, 1500, 1)
@@ -113,7 +113,7 @@ product:addIngredient(2586, 1) -- fur
 product:addIngredient(3787, 1) -- silk
 product:addIngredient(2551, 1) -- pure air
 
-catId = tailoring:addCategory("Cloth gloves", "Stoffhandschuhe")
+local catId = tailoring:addCategory("Cloth gloves", "Stoffhandschuhe")
 
 -- grey cloth gloves
 product = tailoring:addProduct(catId, 1447, 1)
@@ -153,7 +153,7 @@ product:addIngredient(50, 3) -- thread
 product:addIngredient(179, 2) -- blue cloth
 product:addIngredient(3787, 1) -- silk
 
-catId = tailoring:addCategory("Doublets", "Wamse")
+local catId = tailoring:addCategory("Doublets", "Wamse")
 
 -- grey doublet
 product = tailoring:addProduct(catId, 809, 1)
@@ -192,7 +192,7 @@ product:addIngredient(50, 7) -- thread
 product:addIngredient(179, 5) -- blue cloth
 product:addIngredient(3787, 1) -- silk
 
-catId = tailoring:addCategory("Dresses", "Kleider")
+local catId = tailoring:addCategory("Dresses", "Kleider")
 
 -- grey dress
 product = tailoring:addProduct(catId, 802, 1)
@@ -335,7 +335,7 @@ product:addIngredient(50, 10) -- thread
 product:addIngredient(178, 8) -- white cloth
 product:addIngredient(3787, 2) -- silk
 
-catId = tailoring:addCategory("Greaves", "Beinkleider")
+local catId = tailoring:addCategory("Greaves", "Beinkleider")
 
 -- simple short leather leggings
 product = tailoring:addProduct(catId, 1478, 1)
@@ -407,7 +407,7 @@ product:addIngredient(2586, 1) -- fur
 product:addIngredient(3787, 1) -- silk
 product:addIngredient(2553, 1) -- pure fire
 
-catId = tailoring:addCategory("Hats", "Hüte")
+local catId = tailoring:addCategory("Hats", "Hüte")
 
 -- hat
 product = tailoring:addProduct(catId, 356, 1)
@@ -490,7 +490,7 @@ product:addIngredient(177, 1) -- yellow cloth
 product:addIngredient(3787, 1) -- silk
 product:addIngredient(3607, 1) -- pure spirit
 
-catId = tailoring:addCategory("Helmets", "Helme")
+local catId = tailoring:addCategory("Helmets", "Helme")
 
 -- simple horned helmet
 product = tailoring:addProduct(catId, 1416, 1)
@@ -567,7 +567,7 @@ product:addIngredient(2586, 1) -- fur
 product:addIngredient(3787, 1) -- silk
 product:addIngredient(2553, 1) -- pure fire
 
-catId = tailoring:addCategory("Leather gloves", "Lederhandschuhe")
+local catId = tailoring:addCategory("Leather gloves", "Lederhandschuhe")
 
 -- simple leather gloves
 product = tailoring:addProduct(catId, 1453, 1)
@@ -640,7 +640,7 @@ product:addIngredient(2586, 1) -- fur
 product:addIngredient(3787, 1) -- silk
 product:addIngredient(2551, 1) -- pure air
 
-catId = tailoring:addCategory("Other", "Sonstiges")
+local catId = tailoring:addCategory("Other", "Sonstiges")
 
 -- leather bag
 product = tailoring:addProduct(catId, 97, 1)
@@ -656,7 +656,7 @@ product = tailoring:addProduct(catId, 89, 1)
 product:addIngredient(50, 4) -- thread
 product:addIngredient(2547, 3) -- leather
 
-catId = tailoring:addCategory("Robes", "Roben")
+local catId = tailoring:addCategory("Robes", "Roben")
 
 -- grey coat
 product = tailoring:addProduct(catId, 196, 1)
@@ -768,7 +768,7 @@ product:addIngredient(177, 1) -- yellow cloth
 product:addIngredient(3787, 1) -- silk
 product:addIngredient(3607, 1) -- pure spirit
 
-catId = tailoring:addCategory("Shirts", "Hemden")
+local catId = tailoring:addCategory("Shirts", "Hemden")
 
 -- green shirt
 product = tailoring:addProduct(catId, 457, 1)
@@ -797,7 +797,7 @@ product:addIngredient(50, 7) -- thread
 product:addIngredient(179, 5) -- blue cloth
 product:addIngredient(3787, 1) -- silk
 
-catId = tailoring:addCategory("Skirts", "Röcke")
+local catId = tailoring:addCategory("Skirts", "Röcke")
 
 -- grey white skirt
 product = tailoring:addProduct(catId, 841, 1)
@@ -839,7 +839,7 @@ product:addIngredient(179, 2) -- blue cloth
 product:addIngredient(178, 1) -- white cloth
 product:addIngredient(3787, 2) -- silk
 
-catId = tailoring:addCategory("Torso armour", "Rüstungen")
+local catId = tailoring:addCategory("Torso armour", "Rüstungen")
 
 -- padded armour
 product = tailoring:addProduct(catId, 1433, 1)
@@ -918,7 +918,7 @@ product:addIngredient(2586, 1) -- fur
 product:addIngredient(3787, 2) -- silk
 product:addIngredient(2552, 1) -- pure earth
 
-catId = tailoring:addCategory("Trousers", "Hosen")
+local catId = tailoring:addCategory("Trousers", "Hosen")
 
 -- grey trousers
 product = tailoring:addProduct(catId, 823, 1)
@@ -988,7 +988,7 @@ product:addIngredient(50, 5) -- thread
 product:addIngredient(179, 4) -- blue cloth
 product:addIngredient(3787, 2) -- silk
 
-catId = tailoring:addCategory("Tunics", "Tuniken")
+local catId = tailoring:addCategory("Tunics", "Tuniken")
 
 -- grey tunic
 product = tailoring:addProduct(catId, 816, 1)
