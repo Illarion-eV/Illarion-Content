@@ -204,9 +204,9 @@ foodList[3567] = {foodPoints = valueMedium}
 
 -- get difficulty from the database
 for foodId, foodItem in pairs(foodList) do
-	if foodItem.crafted then
-		foodItem.difficulty = world:getItemStatsFromId(foodId).Level
-	end
+    if foodItem.crafted then
+        foodItem.difficulty = world:getItemStatsFromId(foodId).Level
+    end
 end
 
 local maxDifficulty = 100
@@ -216,9 +216,9 @@ local maxCraftedFoodvalue = 55000
 local difference = maxCraftedFoodvalue - minCraftedFoodvalue
 -- calculate food points for crafted food
 for _, foodItem in pairs(foodList) do
-	if foodItem.difficulty ~= nil and foodItem.foodPoints == nil then
-	  foodItem.foodPoints = minCraftedFoodvalue + difference*(foodItem.difficulty/maxDifficulty)
-	end
+    if foodItem.difficulty ~= nil and foodItem.foodPoints == nil then
+      foodItem.foodPoints = minCraftedFoodvalue + difference*(foodItem.difficulty/maxDifficulty)
+    end
 end
 
 local minCraftedBuffDuration = 1800 -- 1/10 seconds
@@ -226,8 +226,8 @@ local maxCraftedBuffDuration = 12000 -- 1/10 seconds
 local difference = maxCraftedBuffDuration - minCraftedBuffDuration
 -- calculate buff duration for crafted food
 for _, foodItem in pairs(foodList) do
-	if foodItem.difficulty ~= nil and foodItem.duration == nil then
-		foodItem.duration = math.ceil(minCraftedBuffDuration + difference*(foodItem.difficulty/maxDifficulty))
+    if foodItem.difficulty ~= nil and foodItem.duration == nil then
+        foodItem.duration = math.ceil(minCraftedBuffDuration + difference*(foodItem.difficulty/maxDifficulty))
     end
 end
 
@@ -266,24 +266,24 @@ local function buffsAdding(user, sourceItem)
         messageEn = "The former diet effect is replaced." .. messageEn
     end
     
-	local dietEffect=LongTimeEffect(12, foodList[sourceItem.id].duration)
+    local dietEffect=LongTimeEffect(12, foodList[sourceItem.id].duration)
     local addComma = false
-	for attribute, value in pairs(buffs) do
+    for attribute, value in pairs(buffs) do
         if addComma then
             messageDe = messageDe .. ", "
             messageEn = messageEn .. ", "
         end
-		messageDe = messageDe .. attributesGerman[attribute] .. " +" .. value
+        messageDe = messageDe .. attributesGerman[attribute] .. " +" .. value
         messageEn = messageEn .. attribute .. " +" .. value
-		addComma = true
+        addComma = true
         
-		local oldValue = user:increaseAttrib(attribute, 0)
+        local oldValue = user:increaseAttrib(attribute, 0)
         local newValue = user:increaseAttrib(attribute, value)
-		dietEffect:addValue(attribute, newValue - oldValue)
-	
-	end
-	
-	user.effects:addEffect(dietEffect)
+        dietEffect:addValue(attribute, newValue - oldValue)
+    
+    end
+    
+    user.effects:addEffect(dietEffect)
     user:inform(messageDe, messageEn)
 end
 
@@ -299,31 +299,31 @@ end
 
 local function foodLevelInform(user, newFoodLevel, oldFoodLevel)
     local messageDe
-	local messageEn
-	
-	if newFoodLevel == 60000 or newFoodLevel > 55000 and oldFoodLevel <= 55000 then
-		messageDe = "Nur mit Mühe kannst du dir noch etwas hinunter zwingen."
-		messageEn = "You hardly manage to eat something more."
-	elseif newFoodLevel > 50000 and oldFoodLevel <= 50000 then
-		messageDe = "Du bist sehr satt."
-		messageEn = "You have had enough."
-	elseif newFoodLevel > 40000 and oldFoodLevel <= 40000 then
-		messageDe = "Du bist satt."
-		messageEn = "You are stuffed."
-	elseif newFoodLevel > 30000 and oldFoodLevel <= 30000 then
-		messageDe = "Du fühlst dich noch etwas hungrig."
-		messageEn = "You still feel a little hungry."
-	elseif newFoodLevel > 20000 and oldFoodLevel <= 20000 then
-		messageDe = "Du hast noch immer Hunger."
-		messageEn = "You are still hungry."
-	elseif newFoodLevel > 5000 and oldFoodLevel <= 5000 then
-		messageDe = "Dein Magen schmerzt noch immer vor Hunger."
-		messageEn = "Your stomach still hurts because of your hunger."
-	end
-	
-	if messageDe and messageEn then 
-		user:inform(messageDe,messageEn, Character.mediumPriority)
-	end
+    local messageEn
+    
+    if newFoodLevel == 60000 or newFoodLevel > 55000 and oldFoodLevel <= 55000 then
+        messageDe = "Nur mit Mühe kannst du dir noch etwas hinunter zwingen."
+        messageEn = "You hardly manage to eat something more."
+    elseif newFoodLevel > 50000 and oldFoodLevel <= 50000 then
+        messageDe = "Du bist sehr satt."
+        messageEn = "You have had enough."
+    elseif newFoodLevel > 40000 and oldFoodLevel <= 40000 then
+        messageDe = "Du bist satt."
+        messageEn = "You are stuffed."
+    elseif newFoodLevel > 30000 and oldFoodLevel <= 30000 then
+        messageDe = "Du fühlst dich noch etwas hungrig."
+        messageEn = "You still feel a little hungry."
+    elseif newFoodLevel > 20000 and oldFoodLevel <= 20000 then
+        messageDe = "Du hast noch immer Hunger."
+        messageEn = "You are still hungry."
+    elseif newFoodLevel > 5000 and oldFoodLevel <= 5000 then
+        messageDe = "Dein Magen schmerzt noch immer vor Hunger."
+        messageEn = "Your stomach still hurts because of your hunger."
+    end
+    
+    if messageDe and messageEn then 
+        user:inform(messageDe,messageEn, Character.mediumPriority)
+    end
 end
 
 local function mapItem(user, sourceItem)
@@ -351,36 +351,36 @@ local function specialEgg(user, sourceItem)
 end
 
 local function holyGrapes(user, sourceItem)
-	if sourceItem:getData("nameEn") == "Holy Grapes" then
-		user:increaseAttrib("foodlevel", 2000)
-		user:inform("Die Trauben haben einen vollen Geschmack und füllen deinen ganzen Mund mit ihrem süßlichen Saft. Köstlich! Doch sie umspielen nicht nur deine Geschmacksknospen, sondern auch deinen Geist. Du bist leicht angetrunken.","The grapes have a rich, sweet taste that lingers on your tongue as their flavorful juice fills your entire mouth. Delicious! However, they not only play with your taste buds but also with your mind. You feel slightly drunk.")
-		world:erase(sourceItem, 1)
-		return true
-	end
+    if sourceItem:getData("nameEn") == "Holy Grapes" then
+        user:increaseAttrib("foodlevel", 2000)
+        user:inform("Die Trauben haben einen vollen Geschmack und füllen deinen ganzen Mund mit ihrem süßlichen Saft. Köstlich! Doch sie umspielen nicht nur deine Geschmacksknospen, sondern auch deinen Geist. Du bist leicht angetrunken.","The grapes have a rich, sweet taste that lingers on your tongue as their flavorful juice fills your entire mouth. Delicious! However, they not only play with your taste buds but also with your mind. You feel slightly drunk.")
+        world:erase(sourceItem, 1)
+        return true
+    end
 end
 
 local function thievesPoisonQuest(user, sourceItem)
 
-	if sourceItem:getData("nameEn") == "Thieves Dinner" then
-		if user:getQuestProgress(543) == 7 then
-			if user:countItemAt("all", 1323) == 0 then
-				user:inform("Du benötigst das Gift, um es unter das Essen zu mischen.", "You need the poison to tamper with the food.")
-			else
-				user:inform("Du hast den Inhalt des Fläschchens unbemerkt unter das Essen gemischt. Kehre zu Brigette zurück, um deine Belohnung abzuholen.", "You successfully sneak the contents of the vial Brigette gave you into the food, return to her for a reward.")
-				user:setQuestProgress(543, 8)
-			end
-		end
-		return true
-	end
-	
-	return false
+    if sourceItem:getData("nameEn") == "Thieves Dinner" then
+        if user:getQuestProgress(543) == 7 then
+            if user:countItemAt("all", 1323) == 0 then
+                user:inform("Du benötigst das Gift, um es unter das Essen zu mischen.", "You need the poison to tamper with the food.")
+            else
+                user:inform("Du hast den Inhalt des Fläschchens unbemerkt unter das Essen gemischt. Kehre zu Brigette zurück, um deine Belohnung abzuholen.", "You successfully sneak the contents of the vial Brigette gave you into the food, return to her for a reward.")
+                user:setQuestProgress(543, 8)
+            end
+        end
+        return true
+    end
+    
+    return false
 end
 
 local function fortuneCookie(sourceItem, user)
-	if sourceItem.id == 453 then
+    if sourceItem.id == 453 then
         if Random.uniform(1, 100) == 1 then
             local deText, enText = furtunecookies.cookie()
-			user:inform("Du findest ein Stück Papier in dem Keks: \""..deText.."\"", "You find a piece of paper inside the cookie: \""..enText.."\"")
+            user:inform("Du findest ein Stück Papier in dem Keks: \""..deText.."\"", "You find a piece of paper inside the cookie: \""..enText.."\"")
         end
     end
 end
@@ -399,7 +399,7 @@ function M.UseItem(user, sourceItem, ltstate)
     
     fortuneCookie(sourceItem, user)
     
-	local oldFoodLevel = user:increaseAttrib("foodlevel", 0)
+    local oldFoodLevel = user:increaseAttrib("foodlevel", 0)
     local newFoodLevel = user:increaseAttrib("foodlevel", foodList[sourceItem.id].foodPoints)
 
     foodLevelInform(user, newFoodLevel, oldFoodLevel)

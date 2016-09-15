@@ -26,26 +26,26 @@ function M.addEffect(dietEffect, user)
 end
 
 function M.callEffect(dietEffect, user)
-	return false
+    return false
 end
 
 function M.removeEffect(dietEffect, user)
-	for	_, attribute in pairs(attributes) do
-		local found, value = dietEffect:findValue(attribute)
-		if found then
-			user:increaseAttrib(attribute, -value)
-		end
-	end
-	user:inform("[Ernährung] Die Wirkung des guten Essens vergeht.", "[Diet] The effect of the good food vanishes.")
+    for    _, attribute in pairs(attributes) do
+        local found, value = dietEffect:findValue(attribute)
+        if found then
+            user:increaseAttrib(attribute, -value)
+        end
+    end
+    user:inform("[Ernährung] Die Wirkung des guten Essens vergeht.", "[Diet] The effect of the good food vanishes.")
 end
 
 function M.loadEffect(dietEffect, user)
-	for _, attribute in pairs(attributes) do
-		local found, value = dietEffect:findValue(attribute)
-		if found then
-			user:increaseAttrib(attribute, value)
-		end
-	end
+    for _, attribute in pairs(attributes) do
+        local found, value = dietEffect:findValue(attribute)
+        if found then
+            user:increaseAttrib(attribute, value)
+        end
+    end
 end
 
 return M
