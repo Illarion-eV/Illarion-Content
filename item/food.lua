@@ -262,8 +262,8 @@ local function buffsAdding(user, sourceItem)
     local foundEffect,dietEffect = user.effects:find(12)
     if foundEffect then
         user.effects:removeEffect(12)
-        messageDe = "Die vorherige Nahrungswirkung wird ersetzt." .. messageDe
-        messageEn = "The former diet effect is replaced." .. messageEn
+        messageDe = "Die vorherige Nahrungswirkung wird ersetzt. " .. messageDe
+        messageEn = "The former diet effect is replaced. " .. messageEn
     end
     
     local dietEffect=LongTimeEffect(12, foodList[sourceItem.id].duration)
