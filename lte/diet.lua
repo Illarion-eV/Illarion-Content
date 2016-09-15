@@ -17,145 +17,35 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Long Time Effect Script: Diet System
 -- Effect ID: 12
 
-local common = require("base.common")
+local attributes = {"strength", "durability", "agility", "dexterity", "intelligence", "essence", "perception", "willpower"}
 
 local M = {}
 
--- buff types, they have exactly two attributes
-local BUFFS = {
-  {"constitution", "strength"},
-  {"agility", "dexterity"},
-  {"perception", "intelligence"}
-};
+function M.addEffect(dietEffect, user)
 
-GermanAttributes = {
-  ["constitution"] = "Ausdauer",
-  ["strength"] = "Stärke",
-  ["dexterity"] = "Geschicklichkeit",
-  ["agility"] = "Schnelligkeit",
-  ["intelligence"] = "Intelligenz",
-  ["willpower"] = "Willenskraft",
-  ["perception"] = "Wahrnehmung",
-  ["essence"] = "Essenz"
-};
-
-function M.addEffect(dietEffect,Character)
-  M.InformPlayer(dietEffect,Character);
 end
 
-function M.callEffect(dietEffect,Character)
-	local curStamp = common.GetCurrentTimestamp();
-  local foundExpire, buffExpireStamp = dietEffect:findValue("buffExpireStamp");
-  if (not foundExpire) then
-    Character:inform("[ERROR] No expire stamp found in callEffect. Removing buff. Please inform a developer.");
-    return false;
-  end
-  if (curStamp >= buffExpireStamp) then
-    return false;
-  end
-  dietEffect.nextCalled = (buffExpireStamp - curStamp)*10;
-  return true;
+function M.callEffect(dietEffect, user)
+	return false
 end
 
-function M.removeEffect(dietEffect,Character)
-  -- inform the player that the buff ends
-  common.InformNLS(Character,
-  "[Ernährung] Die Wirkung des guten Essens vergeht.",
-  "[Diet] The effect of the good food vanishes.");
-
-  M.RemoveBuff(dietEffect,Character);
+function M.removeEffect(dietEffect, user)
+	for	_, attribute in pairs(attributes) do
+		local found, value = dietEffect:findValue(attribute)
+		if found then
+			user:increaseAttrib(attribute, -value)
+		end
+	end
+	user:inform("[Ernährung] Die Wirkung des guten Essens vergeht.", "[Diet] The effect of the good food vanishes.")
 end
 
-function M.loadEffect(dietEffect,Character)
-  -- check for old values and remove them
-  if dietEffect:findValue("constMod") then
-    dietEffect:removeValue("constMod");
-    dietEffect.nextCalled = 5;
-  end
-  if dietEffect:findValue("dom") then
-    dietEffect:removeValue("dom");
-    dietEffect.nextCalled = 5;
-  end
-
-  local foundBuff, buffType = dietEffect:findValue("buffType");
-  if (foundBuff) then
-    local foundBuffAmount, buffAmount = dietEffect:findValue("buffAmount");
-    if (not foundBuffAmount) then
-      -- should not happen
-      Character:inform("[ERROR] Found buffType, but no buffAmount. Set to 1. Please inform a developer.");
-      buffAmount = 1;
-    end
-    -- add 1 for each attribute of this buff
-    for i=1,buffAmount do
-      local attrib = BUFFS[buffType][i];
-      Character:setAttrib(attrib,Character:increaseAttrib(attrib,0)+1);
-    end
-  else
-    dietEffect.nextCalled = 5;
-  end
-end
-
-function M.InformPlayer(dietEffect, Character)
-  local foundBuff, buffType = dietEffect:findValue("buffType");
-  if (foundBuff) then
-    local foundBuffAmount, buffAmount = dietEffect:findValue("buffAmount");
-    if (not foundBuffAmount) then
-      -- should not happen
-      Character:inform("[Error] Found buffType, but no buffAmount. Set to 1. Please inform a developer.");
-      buffAmount = 1;
-    end
-    if (buffAmount == 1) then
-      local attrib = BUFFS[buffType][1];
-	  Character:setAttrib(attrib,Character:increaseAttrib(attrib,0)+1);
-      local gText = "[Ernährung] Durch das gute Essen erhöht sich vorübergehend folgendes Attribut um 1: ";
-      if (GermanAttributes[attrib] ~= nil) then
-        gText = gText .. GermanAttributes[attrib];
-      else
-        gText = gText .. attrib;
-      end
-      local eText = "[Diet] Due to your good food, the following attribute is temporarily increased by 1: " .. attrib;
-      common.InformNLS(Character,gText,eText);
-    else
-      local attrib = BUFFS[buffType];
-      local gText = "[Ernährung] Durch das gute Essen erhöhen sich vorübergehend folgende Attribute um 1: ";
-      local eText = "[Diet] Due to your good food, the following attributes are temporarily increased by 1: ";
-      local attrib = BUFFS[buffType][1];
-	  Character:setAttrib(attrib,Character:increaseAttrib(attrib,0)+1);
-      eText = eText .. attrib;
-      if (GermanAttributes[attrib] ~= nil) then
-        gText = gText .. GermanAttributes[attrib];
-      else
-        gText = gText .. attrib;
-      end
-      attrib = BUFFS[buffType][2];
-	  Character:setAttrib(attrib,Character:increaseAttrib(attrib,0)+1);
-      eText = eText .. " and " .. attrib;
-      if (GermanAttributes[attrib] ~= nil) then
-        gText = gText .. " und " .. GermanAttributes[attrib];
-      else
-        gText = gText .. " und " .. attrib;
-      end
-      common.InformNLS(Character,gText,eText);
-    end
-  end
-end
-
-function M.RemoveBuff(dietEffect, Character)
-  local foundBuff, buffType = dietEffect:findValue("buffType");
-  if (foundBuff) then
-    local foundBuffAmount, buffAmount = dietEffect:findValue("buffAmount");
-    if (not foundBuffAmount) then
-      -- should not happen
-      Character:inform("[ERROR] Found buffType, but no buffAmount. Set to 1. Please inform a developer.");
-      buffAmount = 1;
-    end
-    -- reset again the attributes
-    for i=1,buffAmount do
-      local attrib = BUFFS[buffType][i];
-      Character:setAttrib(attrib,math.max(1,Character:increaseAttrib(attrib,0)-1));
-    end
-  end
+function M.loadEffect(dietEffect, user)
+	for _, attribute in pairs(attributes) do
+		local found, value = dietEffect:findValue(attribute)
+		if found then
+			user:increaseAttrib(attribute, value)
+		end
+	end
 end
 
 return M
-
