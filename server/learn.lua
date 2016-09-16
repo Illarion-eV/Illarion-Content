@@ -110,7 +110,7 @@ function M.reduceMC(user)
         end
     
         --For debugging, use the following line.
-        user:inform("MC="..user:getMentalCapacity()..", idleTime="..user:idleTime()..", time="..world:getTime("unix")..".");
+        --user:inform("MC="..user:getMentalCapacity()..", idleTime="..user:idleTime()..", time="..world:getTime("unix")..".");
     end
 end
 
