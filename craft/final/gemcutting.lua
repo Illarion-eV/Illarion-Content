@@ -25,6 +25,8 @@ gemcutting = crafts.Craft:new{
                           handTool = 2140,
                           leadSkill = Character.gemcutting,
                           fallbackCraft = pottery.pottery,
+                          sfx = 16,
+                          sfxDuration = 27,
                         };
 
 gemcutting:addTool(270)  -- cutting stone

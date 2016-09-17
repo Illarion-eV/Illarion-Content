@@ -23,38 +23,40 @@ dyemaking = crafts.Craft:new{
                     craftDE = "Farbenherstellung",
                     handTool = 58,
                     leadSkill = Character.tanningAndWeaving,
+                    sfx = 10,
+                    sfxDuration = 27,
                   }
 
 dyemaking:addTool(1226) -- dye barrel
 
 local catId = dyemaking:addCategory("Dyes", "Färbemittel")
 
---White Dye
+-- White Dye
 local product = dyemaking:addProduct(catId, 2683, 1)
 product:addIngredient(161 , 2) -- herder's mushroom
 product:addIngredient(52) -- Water bucket
 
---Red Dye
+-- Red Dye
 product = dyemaking:addProduct(catId, 2681, 1)
 product:addIngredient(302, 4) -- Cherries
 product:addIngredient(52) -- Water bucket
 
---Green Dye
+-- Green Dye
 product = dyemaking:addProduct(catId, 2679, 1)
 product:addIngredient(290, 1) -- Cabbage
 product:addIngredient(52) -- Water bucket
 
---Black Dye
+-- Black Dye
 product = dyemaking:addProduct(catId, 2678, 1)
 product:addIngredient(136, 2) -- Anger berry
 product:addIngredient(52) -- Water bucket
 
---Yellow Dye
+-- Yellow Dye
 product = dyemaking:addProduct(catId, 2682, 1)
 product:addIngredient(135, 2) -- Yellow Weed
 product:addIngredient(52) -- Water bucket
 
---Blue Dye
+-- Blue Dye
 product = dyemaking:addProduct(catId, 2680, 1)
 product:addIngredient(753, 2) -- Blue Bird's Berry
 product:addIngredient(52) -- Water bucket
