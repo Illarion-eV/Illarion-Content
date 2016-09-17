@@ -22,17 +22,17 @@ local common = require("base.common")
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-	if blacksmithing.blacksmithing:isHandToolEquipped(User) then
-		blacksmithing.blacksmithing:showDialog(User, SourceItem);
-	elseif finesmithing.finesmithing:isHandToolEquipped(User) then
-		finesmithing.finesmithing:showDialog(User, SourceItem);
+    if blacksmithing.blacksmithing:isHandToolEquipped(User) then
+        blacksmithing.blacksmithing:showDialog(User, SourceItem);
+    elseif finesmithing.finesmithing:isHandToolEquipped(User) then
+        finesmithing.finesmithing:showDialog(User, SourceItem);
     elseif armourer.armourer:isHandToolEquipped(User) then
-		armourer.armourer:showDialog(User, SourceItem);
-	else
-		common.HighInformNLS(User,
+        armourer.armourer:showDialog(User, SourceItem);
+    else
+        common.HighInformNLS(User,
             "Dir fehlt ein Werkzeug in deiner Hand um hier zu arbeiten: Hammer, Feinschmiedehammer oder Hammer des Rüstschmieds.",
             "To work here you have to hold a tool in your hand: Hammer, finesmithing hammer or armourer's hammer.")
-	end
+    end
 end
 
 return M
