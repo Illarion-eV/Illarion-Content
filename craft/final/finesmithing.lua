@@ -18,7 +18,7 @@ local crafts = require("craft.crafts")
 
 module("craft.final.finesmithing", package.seeall)
 
-goldsmithing = crafts.Craft:new{
+finesmithing = crafts.Craft:new{
                       craftEN = "Finesmithing",
                       craftDE = "Feinschmieden",
                       handTool = 122,
@@ -27,7 +27,7 @@ goldsmithing = crafts.Craft:new{
                       sfxDuration = 15,
                     };
 
-goldsmithing:addTool(172) -- anvil
+finesmithing:addTool(172) -- anvil
 
 --------------------------------------------------------------------------------------------
 

@@ -1779,7 +1779,7 @@ leadAttribTable[Character.smithing]="dexterity"
 leadAttribTable[Character.gemcutting]="dexterity"
 leadAttribTable[Character.carpentry]="dexterity"
 leadAttribTable[Character.cookingAndBaking]="dexterity"
-leadAttribTable[Character.goldsmithing]="dexterity"
+leadAttribTable[Character.finesmithing]="dexterity"
 leadAttribTable[Character.glassBlowing]="dexterity"
 leadAttribTable[Character.pottery]="dexterity"
 

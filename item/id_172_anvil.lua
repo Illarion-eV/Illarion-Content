@@ -14,21 +14,24 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local smithing = require("content.craft.smithing")
-local goldsmithing = require("content.craft.goldsmithing")
+local blacksmithing = require("craft.final.blacksmithing")
+local finesmithing = require("craft.final.finesmithing")
+local armourer = require("craft.final.armourer")
 local common = require("base.common")
 
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-	if smithing.smithing:isHandToolEquipped(User) then
-		smithing.smithing:showDialog(User, SourceItem);
-	elseif goldsmithing.goldsmithing:isHandToolEquipped(User) then
-		goldsmithing.goldsmithing:showDialog(User, SourceItem);
+	if blacksmithing.blacksmithing:isHandToolEquipped(User) then
+		blacksmithing.blacksmithing:showDialog(User, SourceItem);
+	elseif finesmithing.finesmithing:isHandToolEquipped(User) then
+		finesmithing.finesmithing:showDialog(User, SourceItem);
+    elseif armourer.armourer:isHandToolEquipped(User) then
+		armourer.armourer:showDialog(User, SourceItem);
 	else
 		common.HighInformNLS(User,
-            "Dir fehlt ein Werkzeug in deiner Hand um hier zu arbeiten: Hammer oder Feinschmiedehammer",
-            "To work here you have to hold a tool in your hand: Hammer or finesmithing hammer")
+            "Dir fehlt ein Werkzeug in deiner Hand um hier zu arbeiten: Hammer, Feinschmiedehammer oder Hammer des Rüstschmieds.",
+            "To work here you have to hold a tool in your hand: Hammer, finesmithing hammer or armourer's hammer.")
 	end
 end
 
