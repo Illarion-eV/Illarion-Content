@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_227_cookingspoon' WHERE itm_id IN (227);
 
-local cooking = require("content.craft.cooking")
+local cooking = require("craft.final.cooking")
 local wood = require("item.general.wood")
 
 local M = {}

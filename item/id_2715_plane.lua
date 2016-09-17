@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_2715_plane' WHERE itm_id IN (2715);
 
-local carpentry = require("content.craft.carpentry")
+local carpentry = require("craft.final.carpentry")
 local wood = require("item.general.wood")
 
 local M = {}

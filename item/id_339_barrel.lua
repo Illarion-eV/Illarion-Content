@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_339_barrel' WHERE itm_id IN (339,1410,1411);
 
-local brewing = require("content.craft.brewing")
+local brewing = require("craft.final.brewing")
 
 local M = {}
 

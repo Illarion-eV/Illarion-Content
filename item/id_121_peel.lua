@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_121_peel' WHERE itm_id IN (121);
 
-local baking = require("content.craft.baking")
+local baking = require("craft.final.baking")
 local wood = require("item.general.wood")
 
 local M = {}

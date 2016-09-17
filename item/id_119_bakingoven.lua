@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
-local baking = require("content.craft.baking")
+local baking = require("craft.final.baking")
 
 local M = {}
 
