@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.crafts")
 
-module("craft.final.smithing", package.seeall)
+module("craft.final.blacksmithing", package.seeall)
 
-smithing = crafts.Craft:new{
+blacksmithing = crafts.Craft:new{
                       craftEN = "Blacksmithing",
                       craftDE = "Schmieden",
                       handTool = 23,
@@ -27,9 +27,9 @@ smithing = crafts.Craft:new{
                       sfxDuration = 27,
                     }
 
-smithing:addTool(172); -- anvil
+blacksmithing:addTool(172); -- anvil
 
-local catId = smithing:addCategory("Daggers", "Dolche")
+local catId = blacksmithing:addCategory("Daggers", "Dolche")
 
 -- simple dagger
 product = blacksmithing:addProduct(catId, 27, 1)
@@ -133,7 +133,7 @@ product:addIngredient(2571, 2) -- merinium ingot
 product:addIngredient(2553, 1) -- pure fire
 product:addIngredient(236, 2) -- gold ingot
 
-local catId = smithing:addCategory("One handed axes", "Einhändige Äxte")
+local catId = blacksmithing:addCategory("One handed axes", "Einhändige Äxte")
 
 -- light battle axe
 product = blacksmithing:addProduct(catId, 2629, 1)
@@ -205,7 +205,7 @@ product:addIngredient(2571, 2) -- merinium ingot
 product:addIngredient(2554, 1) -- pure water
 product:addIngredient(236, 2) -- gold ingot
 
-local catId = smithing:addCategory("One handed swords", "Einhändige Schwerter")
+local catId = blacksmithing:addCategory("One handed swords", "Einhändige Schwerter")
 
 -- machete
 product = blacksmithing:addProduct(catId, 2776, 1)
@@ -350,7 +350,7 @@ product:addIngredient(2571, 2) -- merinium ingot
 product:addIngredient(2553, 1) -- pure fire
 product:addIngredient(236, 2) -- gold ingot
 
-local catId = smithing:addCategory("Other", "Sonstiges")
+local catId = blacksmithing:addCategory("Other", "Sonstiges")
 
 -- pins
 product = blacksmithing:addProduct(catId, 2738, 1)
@@ -370,7 +370,7 @@ product = blacksmithing:addProduct(catId, 466, 1)
 product:addIngredient(2535, 2) -- iron ingot
 product:addIngredient(2537, 2) -- iron plate
 
-local catId = smithing:addCategory("Throwing weapons", "Wurfwaffen")
+local catId = blacksmithing:addCategory("Throwing weapons", "Wurfwaffen")
 
 -- throwing axe
 product = blacksmithing:addProduct(catId, 2645, 1)
@@ -382,7 +382,7 @@ product = blacksmithing:addProduct(catId, 294, 1)
 product:addIngredient(2535, 1) -- iron ingot
 product:addIngredient(2537, 1) -- iron plate
 
-local catId = smithing:addCategory("Tools", "Werkzeuge")
+local catId = blacksmithing:addCategory("Tools", "Werkzeuge")
 
 -- scissors
 product = blacksmithing:addProduct(catId, 6, 1)
@@ -484,7 +484,7 @@ product = blacksmithing:addProduct(catId, 2763, 1)
 product:addIngredient(2535, 2) -- iron ingot
 product:addIngredient(2525, 1) -- axe handle
 
-local catId = smithing:addCategory("Two handed axes", "Zweihändige Äxte")
+local catId = blacksmithing:addCategory("Two handed axes", "Zweihändige Äxte")
 
 -- executioner's axe
 product = blacksmithing:addProduct(catId, 2723, 1)
@@ -551,7 +551,7 @@ product:addIngredient(2571, 4) -- merinium ingot
 product:addIngredient(2554, 1) -- pure water
 product:addIngredient(236, 2) -- gold ingot
 
-local catId = smithing:addCategory("Two handed swords", "Zweihändige Schwerter")
+local catId = blacksmithing:addCategory("Two handed swords", "Zweihändige Schwerter")
 
 -- flamberge
 product = blacksmithing:addProduct(catId, 1525, 1)

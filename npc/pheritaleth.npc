@@ -98,8 +98,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Happy mining.", "Farewell."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 
 -- Gemcraft
-"gem", "magical smithing", "smithing", "gemcraft", "transmute", "combine", "enchant" -> gemcraft, "Let me take a look at your gems..."
-"Edelstein", "magisches Schmieden", "Schmieden", "verwandel", "verein", "kombinier", "verzauber" -> gemcraft, "Dann lasst mal eure Edelsteine sehen..."
+"gem", "magic", "smithing", "gemcraft", "transmute", "combine", "enchant" -> gemcraft, "Let me take a look at your gems..."
+"Edelstein", "magisch", "Schmieden", "verwandel", "verein", "kombinier", "verzauber" -> gemcraft, "Dann lasst mal eure Edelsteine sehen..."
 
 -- Mandatory: Catching quest triggers. Modify if the NPC does quests
 english, "quest", "mission" -> "I don't have any tasks for you."

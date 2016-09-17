@@ -18,7 +18,7 @@ local crafts = require("craft.crafts")
 
 module("craft.final.armourer", package.seeall)
 
-smithing = crafts.Craft:new{
+armourer = crafts.Craft:new{
                       craftEN = "Armourer",
                       craftDE = "Rüstschmied",
                       handTool = 2709,
@@ -27,9 +27,9 @@ smithing = crafts.Craft:new{
                       sfxDuration = 27,
                     }
 
-smithing:addTool(172); -- anvil
+armourer:addTool(172); -- anvil
 
-local catId = smithing:addCategory("Chain boots", "Kettenstiefel")
+local catId = armourer:addCategory("Chain boots", "Kettenstiefel")
 
 -- simple jackboots
 product = armourer:addProduct(catId, 1507, 1)
@@ -92,7 +92,7 @@ product:addIngredient(2571, 1) -- merinium ingot
 product:addIngredient(285, 1) -- diamond
 product:addIngredient(2552, 1) -- pure earth
 
-local catId = smithing:addCategory("Chain gloves", "Kettenhandschuhe")
+local catId = armourer:addCategory("Chain gloves", "Kettenhandschuhe")
 
 -- simple chain gloves
 product = armourer:addProduct(catId, 1460, 1)
@@ -168,7 +168,7 @@ product:addIngredient(2571, 1) -- merinium ingot
 product:addIngredient(285, 1) -- diamond
 product:addIngredient(2554, 1) -- pure water
 
-local catId = smithing:addCategory("Chain greaves", "Kettenhosen")
+local catId = armourer:addCategory("Chain greaves", "Kettenhosen")
 
 -- simple short scale greaves
 product = armourer:addProduct(catId, 1485, 1)
@@ -243,7 +243,7 @@ product:addIngredient(2571, 1) -- merinium ingot
 product:addIngredient(285, 1) -- diamond
 product:addIngredient(2554, 1) -- pure water
 
-local catId = smithing:addCategory("Chain helmets", "Kettenhelme")
+local catId = armourer:addCategory("Chain helmets", "Kettenhelme")
 
 -- chain helmet
 product = armourer:addProduct(catId, 324, 1)
@@ -320,7 +320,7 @@ product:addIngredient(2571, 1) -- merinium ingot
 product:addIngredient(285, 1) -- diamond
 product:addIngredient(2553, 1) -- pure fire
 
-local catId = smithing:addCategory("Chain mails", "Kettenhemden")
+local catId = armourer:addCategory("Chain mails", "Kettenhemden")
 
 -- chain mail
 product = armourer:addProduct(catId, 101, 1)
@@ -403,7 +403,7 @@ product:addIngredient(2571, 2) -- merinium ingot
 product:addIngredient(285, 1) -- diamond
 product:addIngredient(3607, 1) -- pure spirit
 
-local catId = smithing:addCategory("Plate boots", "Panzerstiefel")
+local catId = armourer:addCategory("Plate boots", "Panzerstiefel")
 
 -- iron boots
 product = armourer:addProduct(catId, 1520, 1)
@@ -485,7 +485,7 @@ product:addIngredient(2571, 1) -- merinium ingot
 product:addIngredient(285, 1) -- diamond
 product:addIngredient(2551, 1) -- pure air
 
-local catId = smithing:addCategory("Plate gloves", "Panzerhandschuhe")
+local catId = armourer:addCategory("Plate gloves", "Panzerhandschuhe")
 
 -- simple steel gloves
 product = armourer:addProduct(catId, 1470, 1)
@@ -568,7 +568,7 @@ product:addIngredient(2571, 1) -- merinium ingot
 product:addIngredient(285, 1) -- diamond
 product:addIngredient(2552, 1) -- pure earth
 
-local catId = smithing:addCategory("Plate greaves", "Panzerhosen")
+local catId = armourer:addCategory("Plate greaves", "Panzerhosen")
 
 -- simple short iron greaves
 product = armourer:addProduct(catId, 1492, 1)
@@ -643,7 +643,7 @@ product:addIngredient(2571, 1) -- merinium ingot
 product:addIngredient(285, 1) -- diamond
 product:addIngredient(2552, 1) -- pure earth
 
-local catId = smithing:addCategory("Plate helmets", "Panzerhelme")
+local catId = armourer:addCategory("Plate helmets", "Panzerhelme")
 
 -- steel cap
 product = armourer:addProduct(catId, 202, 1)
@@ -718,7 +718,7 @@ product:addIngredient(2571, 1) -- merinium ingot
 product:addIngredient(285, 1) -- diamond
 product:addIngredient(2552, 1) -- pure earth
 
-local catId = smithing:addCategory("Plate armour", "Plattenpanzer")
+local catId = armourer:addCategory("Plate armour", "Plattenpanzer")
 
 -- plate armour
 product = armourer:addProduct(catId, 4, 1)

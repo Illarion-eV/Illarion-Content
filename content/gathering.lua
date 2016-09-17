@@ -53,7 +53,7 @@ function InitGathering()
         oilsqueezing = gatheringcraft.GatheringCraft:new{LeadSkill = Character.herblore, LearnLimit = 100}; -- id_44_squeezer
         doughproducing = gatheringcraft.GatheringCraft:new{LeadSkill = Character.cookingAndBaking}; -- id_118_rollingpin
         weaving = gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_169_loom
-        oremelting = gatheringcraft.GatheringCraft:new{LeadSkill = Character.smithing}; -- id_2836_forge
+        oremelting = gatheringcraft.GatheringCraft:new{LeadSkill = Character.blacksmithing}; -- id_2836_forge
         leatherproducing = gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_2052_stretcher
         boardproducing = gatheringcraft.GatheringCraft:new{LeadSkill = Character.carpentry}; -- id_724_workbench
         candleproducing = gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, LearnLimit = 100}; -- id_429_candlemold

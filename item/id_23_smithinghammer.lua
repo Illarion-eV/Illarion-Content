@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_23_smithinghammer' WHERE itm_id IN (23);
 
-local smithing = require("content.craft.smithing")
+local blacksmithing = require("craft.final.blacksmithing")
 local metal = require("item.general.metal")
 
 local M = {}
@@ -24,7 +24,7 @@ local M = {}
 M.LookAtItem = metal.LookAtItem
 
 function M.UseItem(User, SourceItem, ltstate)
-    smithing.smithing:showDialog(User, SourceItem)
+    blacksmithing.blacksmithing:showDialog(User, SourceItem)
 end
 
 return M

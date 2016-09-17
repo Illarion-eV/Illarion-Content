@@ -1775,13 +1775,15 @@ end
 local leadAttribTable = {}
 --Dexterity: All crafting skills for final products
 leadAttribTable[Character.tailoring]="dexterity"
-leadAttribTable[Character.smithing]="dexterity"
+leadAttribTable[Character.blacksmithing]="dexterity"
 leadAttribTable[Character.gemcutting]="dexterity"
 leadAttribTable[Character.carpentry]="dexterity"
 leadAttribTable[Character.cookingAndBaking]="dexterity"
 leadAttribTable[Character.finesmithing]="dexterity"
 leadAttribTable[Character.glassBlowing]="dexterity"
 leadAttribTable[Character.pottery]="dexterity"
+leadAttribTable[Character.armourer]="dexterity"
+leadAttribTable[Character.brewing]="dexterity"
 
 --Dexterity: Instruments (please remove these skills in future)
 leadAttribTable[Character.harp]="dexterity"
@@ -1795,6 +1797,9 @@ leadAttribTable[Character.mining]="constitution"
 leadAttribTable[Character.fishing]="constitution"
 leadAttribTable[Character.farming]="constitution"
 leadAttribTable[Character.woodcutting]="constitution"
+leadAttribTable[Character.tanningAndWeaving]="constitution"
+leadAttribTable[Character.husbandry]="constitution"
+leadAttribTable[Character.digging]="constitution"
 
 --Agility: Defensive fighting skills
 leadAttribTable[Character.parry]="agility"
