@@ -15,6 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 local crafts = require("craft.crafts")
+local pottery = require("craft.final.pottery")
 
 module("craft.final.gemcutting", package.seeall)
 
@@ -23,6 +24,7 @@ gemcutting = crafts.Craft:new{
                           craftDE = "Edelsteinschleifen",
                           handTool = 2140,
                           leadSkill = Character.gemcutting,
+                          fallbackCraft = pottery.pottery,
                         };
 
 gemcutting:addTool(270)  -- cutting stone

@@ -12,20 +12,14 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>.
+with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
--- UPDATE items SET itm_script='item.id_2140_tong' WHERE itm_id=2140;
-
-local gemcutting = require("craft.final.gemcutting")
-local metal = require("item.general.metal")
+local pottery = require("craft.final.pottery")
 
 local M = {}
 
-M.LookAtItem = metal.LookAtItem
-
 function M.UseItem(User, SourceItem, ltstate)
-    gemcutting.gemcutting:showDialog(User, SourceItem)
+    pottery.pottery:showDialog(User, SourceItem)
 end
 
 return M
-

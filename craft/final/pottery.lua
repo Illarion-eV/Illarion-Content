@@ -23,9 +23,8 @@ pottery = crafts.Craft:new{
                           craftDE = "Töpfern",
                           handTool = 2140,
                           leadSkill = Character.pottery,
-                          fallbackCraft = gemcutting.gemcutting,
-                          sfx = 15,
-                          sfxDuration = 40,
+                          sfx = 7,
+                          sfxDuration = 80,
                         };
 
 pottery:addTool(1240) -- kiln
