@@ -23,8 +23,8 @@ glassblowing = crafts.Craft:new{
                           craftDE = "Glasblasen",
                           handTool = 311,
                           leadSkill = Character.glassBlowing,
-                          sfx = 15,
-                          sfxDuration = 40,
+                          sfx = 7,
+                          sfxDuration = 80,
                         };
 
 glassblowing:addTool(313) -- glass melting oven
