@@ -74,7 +74,7 @@ local skillNames = {
     Character.distanceWeapons,
     Character.drum,
     Character.farming,
-    Character.firingBricks,
+    Character.pottery,
     Character.fishing,
     Character.flute,
     Character.gemcutting,

@@ -1781,6 +1781,7 @@ leadAttribTable[Character.carpentry]="dexterity"
 leadAttribTable[Character.cookingAndBaking]="dexterity"
 leadAttribTable[Character.goldsmithing]="dexterity"
 leadAttribTable[Character.glassBlowing]="dexterity"
+leadAttribTable[Character.pottery]="dexterity"
 
 --Dexterity: Instruments (please remove these skills in future)
 leadAttribTable[Character.harp]="dexterity"
@@ -1792,7 +1793,6 @@ leadAttribTable[Character.lute]="dexterity"
 leadAttribTable[Character.herblore]="constitution"
 leadAttribTable[Character.mining]="constitution"
 leadAttribTable[Character.fishing]="constitution"
-leadAttribTable[Character.firingBricks]="constitution"
 leadAttribTable[Character.farming]="constitution"
 leadAttribTable[Character.woodcutting]="constitution"
 
