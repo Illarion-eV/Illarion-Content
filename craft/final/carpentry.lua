@@ -577,10 +577,6 @@ product:addIngredient(2552, 1) -- pure earth
 
 local catId = carpentry:addCategory("Tableware", "Geschirr")
 
--- plate
-product = carpentry:addProduct(catId, 2031, 1)
-product:addIngredient(2543, 2) -- conifer wood boards
-
 -- soup bowl
 product = carpentry:addProduct(catId, 2935, 1)
 product:addIngredient(2543, 2) -- conifer wood boards
@@ -630,6 +626,10 @@ product:addIngredient(2543, 4) -- conifer wood boards
 
 -- brick mould
 product = carpentry:addProduct(catId, 734, 1)
+product:addIngredient(2543, 4) -- conifer wood boards
+
+-- collection pan
+product = carpentry:addProduct(catId, 2031, 1)
 product:addIngredient(2543, 4) -- conifer wood boards
 
 -- dyeing rod

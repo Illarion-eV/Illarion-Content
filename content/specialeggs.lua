@@ -251,7 +251,7 @@ itemList = {
 2140 ,--Zange tongs
 2654 ,--magisches Breitschwert magical broadsword
 2655 ,--vergiftetes Breitschwert poisoned broadsword
-2031 ,--Teller plate
+2031 ,--Auffangschale collection pan
 2172 ,--Stahlbeinschienen steel greaves
 2183 ,--Tonkrug clay mug
 2184 ,--Tonbecher clay cup

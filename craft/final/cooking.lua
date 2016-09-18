@@ -48,40 +48,40 @@ product:addRemnant(2498, 1) -- large empty bottle
 
 -- cabbage roll
 product = cooking:addProduct(catId, 3715, 1)
-product:addIngredient(2031, 1) -- plate
+product:addIngredient(2952, 1) -- plate
 product:addIngredient(307, 1) -- pork
 product:addIngredient(290, 1) -- cabbage
 
 -- veggie hash
 product = cooking:addProduct(catId, 3716, 1)
-product:addIngredient(2031, 1) -- plate
+product:addIngredient(2952, 1) -- plate
 product:addIngredient(3567, 1) -- potato
 product:addIngredient(201, 1) -- onion
 product:addIngredient(2493, 1) -- carrots
 
 -- trout fillet dish
 product = cooking:addProduct(catId, 2459, 1)
-product:addIngredient(2031, 1) -- plate
+product:addIngredient(2952, 1) -- plate
 product:addIngredient(73, 1) -- trout
 product:addIngredient(290, 1) -- cabbage
 product:addIngredient(200, 1) -- tomato
 
 -- salmon dish
 product = cooking:addProduct(catId, 556, 1)
-product:addIngredient(2031, 1) -- plate
+product:addIngredient(2952, 1) -- plate
 product:addIngredient(355, 1) -- salmon
 product:addIngredient(201, 1) -- onion
 product:addIngredient(200, 1) -- tomato
 
 -- egg dish
 product = cooking:addProduct(catId, 1154, 1)
-product:addIngredient(2031, 1) -- plate
+product:addIngredient(2952, 1) -- plate
 product:addIngredient(3051, 1) -- sausage
 product:addIngredient(1150, 2) -- white egg
 
 -- meat dish
 product = cooking:addProduct(catId, 2277, 1)
-product:addIngredient(2031, 1) -- plate
+product:addIngredient(2952, 1) -- plate
 product:addIngredient(306, 1) -- ham
 product:addIngredient(201, 1) -- onion
 product:addIngredient(2493, 1) -- carrots
@@ -95,28 +95,28 @@ product:addIngredient(3573, 1) -- cheese
 
 -- sausages dish
 product = cooking:addProduct(catId, 2922, 1)
-product:addIngredient(2031, 1) -- plate
+product:addIngredient(2952, 1) -- plate
 product:addIngredient(3051, 2) -- sausage
 product:addIngredient(290, 2) -- cabbage
 product:addIngredient(2493, 3) -- carrots
 
 -- steak dish
 product = cooking:addProduct(catId, 557, 1)
-product:addIngredient(2031, 1) -- plate
+product:addIngredient(2952, 1) -- plate
 product:addIngredient(3606, 2) -- grilled steak
 product:addIngredient(200, 2) -- tomato
 product:addIngredient(201, 2) -- onion
 
 -- rabbit dish
 product = cooking:addProduct(catId, 555, 1)
-product:addIngredient(2031, 1) -- plate
+product:addIngredient(2952, 1) -- plate
 product:addIngredient(3710, 2) -- smoked rabbit
 product:addIngredient(290, 2) -- cabbage
 product:addIngredient(2493, 3) -- carrots
 
 -- lamb dish
 product = cooking:addProduct(catId, 559, 1)
-product:addIngredient(2031, 1) -- plate
+product:addIngredient(2952, 1) -- plate
 product:addIngredient(3713, 2) -- grilled lamb
 product:addIngredient(200, 2) -- tomato
 product:addIngredient(2493, 3) -- carrots
@@ -124,7 +124,7 @@ product:addIngredient(201, 2) -- onion
 
 -- venison dish
 product = cooking:addProduct(catId, 554, 1)
-product:addIngredient(2031, 1) -- plate
+product:addIngredient(2952, 1) -- plate
 product:addIngredient(3714, 2) -- grilled venison
 product:addIngredient(81, 5) -- berries
 product:addIngredient(2493, 3) -- carrots
@@ -132,7 +132,7 @@ product:addIngredient(290, 3) -- cabbage
 
 -- chicken dish
 product = cooking:addProduct(catId, 1155, 1)
-product:addIngredient(2031, 1) -- plate
+product:addIngredient(2952, 1) -- plate
 product:addIngredient(3709, 2) -- smoked chicken
 product:addIngredient(290, 2) -- cabbage
 product:addIngredient(2493, 3) -- carrots
