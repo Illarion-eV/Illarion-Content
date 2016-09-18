@@ -17,10 +17,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_6_scissors' WHERE itm_id IN (6);
 
 local common = require("base.common")
-local entrailscutting = require("content.gatheringcraft.entrailscutting")
-local licence = require("base.licence")
-local threadproducing = require("content.gatheringcraft.threadproducing")
-local weaving = require("content.gatheringcraft.weaving")
+local spinning = require("craft.intermediate.spinning")
+local weaving = require("craft.intermediate.weaving")
 local woolcutting = require("content.gatheringcraft.woolcutting")
 local metal = require("item.general.metal")
 
@@ -83,37 +81,24 @@ function M.UseItem(User, SourceItem, ltstate)
 		return;
 	end
 
-
 	-- check for spinning wheel
 	target = getWheel(User);
 	if (target ~= nil) then
-		if licence.licence(User) then --checks if user is citizen or has a licence
-			return -- avoids crafting if user is neither citizen nor has a licence
-		end
-		threadproducing.StartGathering(User, target, ltstate);
+		spinning.spinning:showDialog(User, SourceItem)
 		return;
 	end
 
 	-- check for loom
 	target = getLoom(User);
 	if (target ~= nil) then
-		if licence.licence(User) then --checks if user is citizen or has a licence
-			return -- avoids crafting if user is neither citizen nor has a licence
-		end
-		weaving.StartGathering(User, target, ltstate);
-		return;
-	end
-
-	-- check for entrails in inventory
-	if (User:countItemAt("all", 63) > 0) then
-		entrailscutting.StartGathering(User, nil, ltstate);
+		weaving.weaving:showDialog(User, SourceItem)
 		return;
 	end
 
 	-- there is nothing to work with
 	common.HighInformNLS( User,
-	"Du brauchst entweder ein Schaf, um es zu scheren, musst for einem Spinnrad oder Webstuhl stehen, oder brauchst Eingeweide, um sie zu Garn zu zerschneiden.",
-	"You need either a sheep for shearing it, or need to stand in front of a spinning wheel or loom, or need entrails for cutting it and thus producing thread." );
+	"Du brauchst entweder ein Schaf, um es zu scheren, oder musst vor einem Spinnrad oder Webstuhl stehen.",
+	"You need either a sheep for shearing it, or need to stand in front of a spinning wheel or loom." );
 end
 
 return M

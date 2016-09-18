@@ -17,18 +17,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_169_loom' WHERE itm_id IN (169);
 
-local common = require("base.common")
-local licence = require("base.licence")
-local weaving = require("content.gatheringcraft.weaving")
+local weaving = require("craft.intermediate.weaving")
 
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-	if licence.licence(User) then --checks if user is citizen or has a licence
-		return -- avoids crafting if user is neither citizen nor has a licence
-	end
-
-	weaving.StartGathering(User, SourceItem, ltstate);
+    weaving.weaving:showDialog(User, SourceItem)
 end
 
 return M
