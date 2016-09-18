@@ -15,15 +15,15 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE items SET itm_script='item.id_305_smokingoven' WHERE itm_id IN (305,304);
-
 local roasting = require("craft.intermediate.roasting")
+local metal = require("item.general.metal")
 
 local M = {}
+
+M.LookAtItem = metal.LookAtItem
 
 function M.UseItem(User, SourceItem, ltstate)
     roasting.roasting:showDialog(User, SourceItem)
 end
 
 return M
-
