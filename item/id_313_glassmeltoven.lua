@@ -19,6 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local glassblowing = require("craft.final.glassblowing")
 local glassmelting = require("craft.intermediate.glassmelting")
+local potashmaking = require("craft.intermediate.potashmaking")
 local common = require("base.common")
 
 local M = {}
@@ -29,10 +30,12 @@ function M.UseItem(User, SourceItem, ltstate)
         glassblowing.glassblowing:showDialog(User, SourceItem);
     elseif glassmelting.glassmelting:isHandToolEquipped(User) then
         glassmelting.glassmelting:showDialog(User, SourceItem);
+    elseif potashmaking.potashmaking:isHandToolEquipped(User) then
+        potashmaking.potashmaking:showDialog(User, SourceItem);
     else
         common.HighInformNLS(User,
-            "Dir fehlt ein Werkzeug in deiner Hand um hier zu arbeiten: Glasblasrohr oder Gussform.",
-            "To work here you have to hold a tool in your hand: Glass blow pipe or mould.")
+            "Dir fehlt ein Werkzeug in deiner Hand um hier zu arbeiten: Glasblasrohr, Gussform oder Holzkelle.",
+            "To work here you have to hold a tool in your hand: Glass blow pipe, mould or wooden shovel.")
     end
 
 end

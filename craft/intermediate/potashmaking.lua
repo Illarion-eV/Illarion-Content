@@ -29,7 +29,7 @@ potashmaking = crafts.Craft:new{
                     fallbackCraft = milling.milling
                   }
 
-potashmaking:addTool(313) -- baking oven
+potashmaking:addTool(313) -- oven
 
 local catId = potashmaking:addCategory("Potash", "Pottasche")
 
