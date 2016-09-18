@@ -28,77 +28,77 @@ M.LookAtItem = metal.LookAtItem
 
 function getLoom(User)
 
-	local LOOM = 169;
-	local item = common.GetFrontItem(User);
-	if (item ~= nil and item.id == LOOM) then
-		return item;
-	end
-	item = common.GetItemInArea(User.pos, LOOM);
-	return item;
+    local LOOM = 169;
+    local item = common.GetFrontItem(User);
+    if (item ~= nil and item.id == LOOM) then
+        return item;
+    end
+    item = common.GetItemInArea(User.pos, LOOM);
+    return item;
 end
 
 function getWheel(User)
 
-	local WHEEL = 171;
-	local item = common.GetFrontItem(User);
-	if (item ~= nil and item.id == WHEEL) then
-		return item;
-	end
-	item = common.GetItemInArea(User.pos, WHEEL);
-	return item;
+    local WHEEL = 171;
+    local item = common.GetFrontItem(User);
+    if (item ~= nil and item.id == WHEEL) then
+        return item;
+    end
+    item = common.GetItemInArea(User.pos, WHEEL);
+    return item;
 end
 
 function getSheep(User)
-	local targetCharacter = common.GetFrontCharacter(User);
-	-- check for sheep in front
-	if (targetCharacter ~= nil and targetCharacter:getRace()==18) then
-		return targetCharacter;
-	end
-	-- look for a nearby sheep
-	for x=-1,1 do
-		for y=-1,1 do
-			local pos = position(User.pos.x+x,User.pos.y+y,User.pos.z);
-			if ( world:isCharacterOnField(pos) ) then
-				targetCharacter = world:getCharacterOnField(pos);
-				if ( targetCharacter:getRace() == 18 ) then
-					return targetCharacter;
-				end
-			end
-		end
-	end
-	return nil;
+    local targetCharacter = common.GetFrontCharacter(User);
+    -- check for sheep in front
+    if (targetCharacter ~= nil and targetCharacter:getRace()==18) then
+        return targetCharacter;
+    end
+    -- look for a nearby sheep
+    for x=-1,1 do
+        for y=-1,1 do
+            local pos = position(User.pos.x+x,User.pos.y+y,User.pos.z);
+            if ( world:isCharacterOnField(pos) ) then
+                targetCharacter = world:getCharacterOnField(pos);
+                if ( targetCharacter:getRace() == 18 ) then
+                    return targetCharacter;
+                end
+            end
+        end
+    end
+    return nil;
 end
 
 
 function M.UseItem(User, SourceItem, ltstate)
 
-	local target;
+    local target;
 
-	-- check for sheep
-	target = getSheep(User);
-	if (target ~= nil) then
-		woolcutting.StartGathering(User, target, ltstate);
-		return;
-	end
+    -- check for sheep
+    target = getSheep(User);
+    if (target ~= nil) then
+        woolcutting.StartGathering(User, target, ltstate);
+        return;
+    end
 
-	-- check for spinning wheel
-	target = getWheel(User);
-	if (target ~= nil) then
-		spinning.spinning:showDialog(User, SourceItem)
-		return;
-	end
+    -- check for spinning wheel
+    target = getWheel(User);
+    if (target ~= nil) then
+        spinning.spinning:showDialog(User, SourceItem)
+        return;
+    end
 
-	-- check for loom
-	target = getLoom(User);
-	if (target ~= nil) then
-		weaving.weaving:showDialog(User, SourceItem)
-		return;
-	end
+    -- check for loom
+    target = getLoom(User);
+    if (target ~= nil) then
+        weaving.weaving:showDialog(User, SourceItem)
+        return;
+    end
 
-	-- there is nothing to work with
-	common.HighInformNLS( User,
-	"Du brauchst entweder ein Schaf, um es zu scheren, oder musst vor einem Spinnrad oder Webstuhl stehen.",
-	"You need either a sheep for shearing it, or need to stand in front of a spinning wheel or loom." );
+    -- there is nothing to work with
+    common.HighInformNLS( User,
+    "Du brauchst entweder ein Schaf, um es zu scheren, oder musst vor einem Spinnrad oder Webstuhl stehen.",
+    "You need either a sheep for shearing it, or need to stand in front of a spinning wheel or loom." );
 end
 
 return M
