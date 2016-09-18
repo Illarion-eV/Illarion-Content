@@ -24,8 +24,8 @@ cooking = crafts.Craft:new{
                      craftDE = "Kochen",
                      handTool = 227,
                      leadSkill = Character.cookingAndBaking,
-                     sfx = 15,
-                     sfxDuration = 40,
+                     sfx = 7,
+                     sfxDuration = 80,
                      fallbackCraft = brewing.brewing,
                    };
 
@@ -51,7 +51,6 @@ product = cooking:addProduct(catId, 3715, 1)
 product:addIngredient(2031, 1) -- plate
 product:addIngredient(307, 1) -- pork
 product:addIngredient(290, 1) -- cabbage
-product:addIngredient(0, 1) -- 
 
 -- veggie hash
 product = cooking:addProduct(catId, 3716, 1)
