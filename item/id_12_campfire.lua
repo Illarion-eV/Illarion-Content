@@ -24,7 +24,7 @@ local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
 
-    potashproducing.StartGathering(User, SourceItem, ltstate);
+    common.InformNLS( User,"Autsch! Das ist heiß.","Ouch! That's hot." );
 
 end
 
@@ -36,7 +36,7 @@ function M.CharacterOnField(User)
     common.InformNLS( User,
       "Du fühlst die aufsteigende Hitze des Feuers.",
       "You feel the heat of the fire." );
-    --Damage from campfires is annoying and abuseable; deactivated. -  reactivated by Evie 8/30/15
+
     if not (User:getQuestProgress(2) > 0) and not (User:increaseAttrib("hitpoints",0) < 2000) then
         User:increaseAttrib("hitpoints",-math.random(200,400));
     end
