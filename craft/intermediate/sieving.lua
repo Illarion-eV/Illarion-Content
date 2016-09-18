@@ -15,16 +15,18 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.crafts")
+local potashmaking = require("craft.intermediate.potashmaking")
 
 module("craft.intermediate.sieving", package.seeall)
 
 sieving = crafts.Craft:new{
                     craftEN = "Sieving",
                     craftDE = "Sieben",
-                    handTool = 24,
+                    handTool = 312,
                     leadSkill = Character.digging,
                     sfx = 16,
                     sfxDuration = 27,
+                    fallbackCraft = potashmaking.potashmaking,
                   }
 
 sieving:addTool(727) -- sieve
