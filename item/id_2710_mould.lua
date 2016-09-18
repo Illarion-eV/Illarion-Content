@@ -15,12 +15,12 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-local tailoring = require("craft.final.tailoring")
+local glassmelting = require("craft.intermediate.glassmelting")
 
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-    tailoring.tailoring:showDialog(User, SourceItem)
+    glassmelting.glassmelting:showDialog(User, SourceItem)
 end
 
 return M
