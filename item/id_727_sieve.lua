@@ -20,7 +20,7 @@ local sieving = require("craft.intermediate.sieving")
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-	sieving.sieving:showDialog(User, SourceItem)
+    sieving.sieving:showDialog(User, SourceItem)
 end
 
 return M
