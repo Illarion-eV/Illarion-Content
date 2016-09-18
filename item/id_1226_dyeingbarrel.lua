@@ -17,9 +17,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local dyeing = require("craft.intermediate.dyeing")
 local dyemaking = require("craft.intermediate.dyemaking")
+local common = require("base.common")
 
 local M = {}
-
 
 function M.UseItem(User, SourceItem, ltstate)
 
