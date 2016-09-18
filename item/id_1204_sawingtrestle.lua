@@ -15,14 +15,9 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE items SET itm_script='item.id_9_saw' WHERE itm_id IN (9);
-
 local sawing = require("craft.intermediate.sawing")
-local metal = require("item.general.metal")
 
 local M = {}
-
-M.LookAtItem = metal.LookAtItem
 
 function M.UseItem(User, SourceItem, ltstate)
     sawing.sawing:showDialog(User, SourceItem)
