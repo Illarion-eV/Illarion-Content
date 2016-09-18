@@ -20,11 +20,7 @@ local common = require("base.common")
 local M = {}
 
 function M.UseItem(User,SourceItem)
---[[
-	local oldSlime = world:createMonster(1055,position(8,2,0),0)
-	oldSlime.waypoints:addWaypoint(position(10,6,0))
-	oldSlime:setOnRoute(true)
-	]]
+
 end
 
 return M
