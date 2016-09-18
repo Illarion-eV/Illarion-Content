@@ -15,6 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.crafts")
+local milling = require("craft.intermediate.milling")
 
 module("craft.intermediate.potashmaking", package.seeall)
 
@@ -25,6 +26,7 @@ potashmaking = crafts.Craft:new{
                     leadSkill = Character.lumberjacking,
                     sfx = 7,
                     sfxDuration = 27,
+                    fallbackCraft = milling.milling
                   }
 
 potashmaking:addTool(313) -- baking oven
