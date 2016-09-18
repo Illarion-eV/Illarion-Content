@@ -15,19 +15,12 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE items SET itm_script='item.id_727_sieve' WHERE itm_id IN (727);
-
-local licence = require("base.licence")
-local sieving = require("content.gatheringcraft.sieving")
+local sieving = require("craft.intermediate.sieving")
 
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-	if licence.licence(User) then --checks if user is citizen or has a licence
-		return -- avoids crafting if user is neither citizen nor has a licence
-	end
-
-	sieving.StartGathering(User, SourceItem, ltstate);
+	sieving.sieving:showDialog(User, SourceItem)
 end
 
 return M
