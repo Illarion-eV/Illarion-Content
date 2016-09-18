@@ -23,8 +23,8 @@ baking = crafts.Craft:new{
                      craftDE = "Backen",
                      handTool = 121,
                      leadSkill = Character.cookingAndBaking,
-                     sfx = 15,
-                     sfxDuration = 40,
+                     sfx = 7,
+                     sfxDuration = 80,
                    };
                    
 baking:addTool( 119 ); -- baking oven
