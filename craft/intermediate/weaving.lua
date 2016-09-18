@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.crafts")
-local spinning = require("craft.intermediat.spinning")
+local spinning = require("craft.intermediate.spinning")
 
 module("craft.intermediate.weaving", package.seeall)
 
