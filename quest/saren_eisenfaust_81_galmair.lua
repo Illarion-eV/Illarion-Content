@@ -89,7 +89,7 @@ function M.QuestFinalStatus()
 end
 
 function M.QuestAvailability(user, status)
-    if factions.isGalmairCitizen(user) and user:getSkill(Character.smithing) < 80 and status == 0 then
+    if factions.isGalmairCitizen(user) and user:getSkill(Character.blacksmithing) < 80 and status == 0 then
         return Player.questAvailable
     else
         return Player.questNotAvailable
