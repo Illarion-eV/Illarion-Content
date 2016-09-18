@@ -18,7 +18,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_12_campfire' where itm_id=12;
 
 local common = require("base.common")
-local potashproducing = require("content.gatheringcraft.potashproducing")
 
 local M = {}
 
