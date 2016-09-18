@@ -15,6 +15,8 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.crafts")
+local dyemaking = require("craft.intermediate.dyemaking")
+
 
 module("craft.intermediate.dyeing", package.seeall)
 
@@ -25,6 +27,7 @@ dyeing = crafts.Craft:new{
                     leadSkill = Character.tanningAndWeaving,
                     sfx = 10,
                     sfxDuration = 27,
+                    fallbackCraft = dyemaking.dyemaking
                   }
 
 dyeing:addTool(1226) -- dye barrel

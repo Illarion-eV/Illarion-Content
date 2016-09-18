@@ -23,7 +23,7 @@ masonry = crafts.Craft:new{
                     craftDE = "Steinmetzkunst",
                     handTool = 737,
                     leadSkill = Character.mining,
-                    sfx = 16,
+                    sfx = 8,
                     sfxDuration = 27,
                   }
 

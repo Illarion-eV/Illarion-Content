@@ -15,12 +15,12 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-local dyemaking = require("craft.intermediate.dyemaking")
+local dyeing = require("craft.intermediate.dyeing")
 
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-    dyemaking.dyemaking:showDialog(User, SourceItem)
+    dyeing.dyeing:showDialog(User, SourceItem)
 end
 
 return M
