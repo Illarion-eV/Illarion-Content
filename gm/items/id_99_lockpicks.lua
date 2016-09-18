@@ -68,10 +68,13 @@ Coordina[17]={844,822,0}
 
 local skillNames = {
     Character.alchemy,
+    Character.armourer,
     Character.blacksmithing,
+    Character.brewing,
     Character.carpentry,
     Character.concussionWeapons,
     Character.cookingAndBaking,
+    Character.digging,
     Character.distanceWeapons,
     Character.drum,
     Character.farming,
@@ -84,6 +87,7 @@ local skillNames = {
     Character.heavyArmour,
     Character.herblore,
     Character.horn,
+    Character.husbandry,
     Character.lightArmour,
     Character.lute,
     Character.mediumArmour,
@@ -94,6 +98,7 @@ local skillNames = {
     Character.punctureWeapons,
     Character.slashingWeapons,
     Character.tailoring,
+    Character.tanningAndWeaving,
     Character.woodcutting,
     Character.wrestling
 }
