@@ -21,7 +21,7 @@ module("craft.intermediate.pressing", package.seeall)
 pressing = crafts.Craft:new{
                     craftEN = "Pressing",
                     craftDE = "Pressen",
-                    handTool = 51,
+                    handTool = 2031,
                     leadSkill = Character.husbandry,
                     sfx = 10,
                     sfxDuration = 27,
