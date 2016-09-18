@@ -17,18 +17,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_3869_bloomery' WHERE itm_id IN (3869,3870);
 
-
-local licence = require("base.licence")
-local oremelting = require("content.gatheringcraft.oremelting")
+local casting = require("craft.intermediate.casting")
 
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-    if licence.licence(User) then --checks if user is citizen or has a licence
-        return -- avoids crafting if user is neither citizen nor has a licence
-    end
-
-    oremelting.StartGathering(User, SourceItem, ltstate);
+    casting.casting:showDialog(User, SourceItem)
 end
 
 return M
