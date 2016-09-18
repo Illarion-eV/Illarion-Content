@@ -17,52 +17,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_2746_razorblade' WHERE itm_id IN (2746);
 
-local licence = require("base.licence")
-local leatherproducing = require("content.gatheringcraft.leatherproducing")
+local tanning = require("craft.intermediate.tanning")
 local metal = require("item.general.metal")
-local common = require("base.common")
 
 local M = {}
 
 M.LookAtItem = metal.LookAtItem
 
-function getStretcher(User)
-
-	local targetItem = common.GetFrontItem(User);
-	if (targetItem ~= nil and targetItem.id == 2052) then
-		return targetItem;
-	end
-
-	local Radius = 1;
-	for x=-Radius,Radius do
-		for y=-Radius,Radius do
-			local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
-			if (world:isItemOnField(targetPos)) then
-				local targetItem = world:getItemOnField(targetPos);
-				if (targetItem ~= nil and targetItem.id == 2052) then
-					return targetItem;
-				end
-			end
-		end
-	end
-	return nil;
-end
-
 function M.UseItem(User, SourceItem, ltstate)
-	if licence.licence(User) then --checks if user is citizen or has a licence
-		return -- avoids crafting if user is neither citizen nor has a licence
-	end
-
-	local stretcherItem = getStretcher(User);
-	if stretcherItem then
-		leatherproducing.StartGathering(User, stretcherItem, ltstate);
-		return
-	end
-
-	common.InformNLS(User,
-		"Du musst neben einem Spannrahmen stehen um die Rasierklinge zu benutzen.",
-		"You must stand next to a stretcher to use the razor blade.");
+    tanning.tanning:showDialog(User, SourceItem)
 end
 
 return M
-

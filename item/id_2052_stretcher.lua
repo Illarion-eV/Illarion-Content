@@ -17,17 +17,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_2052_stretcher' WHERE itm_id = 2052;
 
-local licence = require("base.licence")
-local leatherproducing = require("content.gatheringcraft.leatherproducing")
+local tanning = require("craft.intermediate.tanning")
 
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-	if licence.licence(User) then --checks if user is citizen or has a licence
-		return -- avoids crafting if user is neither citizen nor has a licence
-	end
-
-	leatherproducing.StartGathering(User, SourceItem, ltstate);
+    tanning.tanning:showDialog(User, SourceItem)
 end
 
 return M
