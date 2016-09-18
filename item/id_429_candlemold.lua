@@ -17,54 +17,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_429_candlemold' WHERE itm_id IN (429);
 
-local common = require("base.common")
-local licence = require("base.licence")
-local candleproducing = require("content.gatheringcraft.candleproducing")
+local candledipping = require("craft.intermediate.candledipping")
 local wood = require("item.general.wood")
 
 local M = {}
 
 M.LookAtItem = wood.LookAtItem
 
-function getChandlerTable(User)
-
-	local targetItem = common.GetFrontItem(User);
-	if (targetItem ~= nil and targetItem.id == 428) then
-		return targetItem;
-	end
-
-	local Radius = 1;
-	for x=-Radius,Radius do
-		for y=-Radius,Radius do
-			local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
-			if (world:isItemOnField(targetPos)) then
-				local targetItem = world:getItemOnField(targetPos);
-				if (targetItem ~= nil and targetItem.id == 428) then
-					return targetItem;
-				end
-			end
-		end
-	end
-	return nil;
-end
-
 function M.UseItem(User, SourceItem, ltstate)
-	if licence.licence(User) then --checks if user is citizen or has a licence
-		return -- avoids crafting if user is neither citizen nor has a licence
-	end
-
-
-	local chandlertableItem = getChandlerTable(User);
-	if chandlertableItem then
-		candleproducing.StartGathering(User, chandlertableItem, ltstate);
-		return
-	end
-
-	common.HighInformNLS( User,
-		"Du musst an einem Kerzenziehertisch arbeiten!",
-		"You have to work at a chandler table!" );
-
+    candledipping.candledipping:showDialog(User, SourceItem)
 end
 
 return M
-

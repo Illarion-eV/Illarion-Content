@@ -24,7 +24,7 @@ threshing = crafts.Craft:new{
                     handTool = 258,
                     leadSkill = Character.farming,
                     sfx = 41,
-                    sfxDuration = 5,
+                    sfxDuration = 10,
                   }
 
 threshing:addTool(3879) -- threshing floor

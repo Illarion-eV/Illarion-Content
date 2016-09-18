@@ -17,18 +17,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_428_candletable' WHERE itm_id IN (428);
 
-local licence = require("base.licence")
-local waxproducing = require("content.gatheringcraft.waxproducing")
+local candledipping = require("craft.intermediate.candledipping")
 
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-	if licence.licence(User) then --checks if user is citizen or has a licence
-		return -- avoids crafting if user is neither citizen nor has a licence
-	end
-
-	waxproducing.StartGathering(User, SourceItem, ltstate);
+    candledipping.candledipping:showDialog(User, SourceItem)
 end
 
 return M
-
