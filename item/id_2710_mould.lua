@@ -20,7 +20,6 @@ local glassmelting = require("craft.intermediate.glassmelting")
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-User:inform("drin2")
     glassmelting.glassmelting:showDialog(User, SourceItem)
 end
 

@@ -18,11 +18,23 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_313_glassmeltoven' WHERE itm_id IN (313);
 
 local glassblowing = require("craft.final.glassblowing")
+local glassmelting = require("craft.intermediate.glassmelting")
+local common = require("base.common")
 
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-    glassblowing.glassblowing:showDialog(User, SourceItem)
+
+    if glassblowing.glassblowing:isHandToolEquipped(User) then
+        glassblowing.glassblowing:showDialog(User, SourceItem);
+    elseif glassmelting.glassmelting:isHandToolEquipped(User) then
+        glassmelting.glassmelting:showDialog(User, SourceItem);
+    else
+        common.HighInformNLS(User,
+            "Dir fehlt ein Werkzeug in deiner Hand um hier zu arbeiten: Glasblasrohr oder Gussform.",
+            "To work here you have to hold a tool in your hand: Glass blow pipe or mould.")
+    end
+
 end
 
 return M
