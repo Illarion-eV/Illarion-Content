@@ -22,7 +22,7 @@ sawing = crafts.Craft:new{
                     craftEN = "Sawing",
                     craftDE = "Sägen",
                     handTool = 9,
-                    leadSkill = Character.lumberjacking,
+                    leadSkill = Character.woodcutting,
                     sfx = 11,
                     sfxDuration = 27,
                   }
