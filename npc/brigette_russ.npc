@@ -207,7 +207,7 @@ english, "Ronagan" -> "Ronagan is the patron god of thieves and shadows. The thi
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Ehren Sie den Fox.", "Honour the Fox."
+cycletext "Ehret den Fuchs.", "Honour the Fox."
 cycletext "#me verschiebt sich in den Schatten und scannt die Gegend.", "#me shifts into the shadows and scans the area."
 cycletext "Vertrauen Sie nie einem Dieb.", "Never trust a thief."
 cycletext "#me Gespräche, um sich leise, 'Kann es kaum erwarten, dorthin zu gelangen in mir.'", "#me talks to herself quietly, 'Can't wait to get in there myself.'"
