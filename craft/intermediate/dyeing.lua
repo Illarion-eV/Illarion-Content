@@ -17,7 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local crafts = require("craft.crafts")
 local dyemaking = require("craft.intermediate.dyemaking")
 
-
 module("craft.intermediate.dyeing", package.seeall)
 
 dyeing = crafts.Craft:new{

@@ -16,11 +16,23 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local dyeing = require("craft.intermediate.dyeing")
+local dyemaking = require("craft.intermediate.dyemaking")
 
 local M = {}
 
+
 function M.UseItem(User, SourceItem, ltstate)
-    dyeing.dyeing:showDialog(User, SourceItem)
+
+    if dyeing.dyeing:isHandToolEquipped(User) then
+        dyeing.dyeing:showDialog(User, SourceItem);
+    elseif dyemaking.dyemaking:isHandToolEquipped(User) then
+        dyemaking.dyemaking:showDialog(User, SourceItem);
+    else
+        common.HighInformNLS(User,
+            "Dir fehlt ein Werkzeug in deiner Hand um hier zu arbeiten: Färberstab oder Mörser.",
+            "To work here you have to hold a tool in your hand: Dyeing rod or mortar.")
+    end
+
 end
 
 return M
