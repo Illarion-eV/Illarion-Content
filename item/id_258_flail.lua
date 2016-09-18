@@ -17,19 +17,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_258_flail' WHERE itm_id IN (258);
 
-local common = require("base.common")
-local flailing = require("content.gatheringcraft.flailing")
-local wood = require("item.general.wood")
+local threshing = require("craft.intermediate.threshing")
+local metal = require("item.general.wood")
 
 local M = {}
 
 M.LookAtItem = wood.LookAtItem
 
 function M.UseItem(User, SourceItem, ltstate)
-
-    flailing.StartGathering(User, nil, ltstate);
-
+    threshing.threshing:showDialog(User, SourceItem)
 end
 
 return M
-
