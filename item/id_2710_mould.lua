@@ -16,8 +16,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local glassmelting = require("craft.intermediate.glassmelting")
+local metal = require("item.general.metal")
 
 local M = {}
+
+M.LookAtItem = metal.LookAtItem
 
 function M.UseItem(User, SourceItem, ltstate)
     glassmelting.glassmelting:showDialog(User, SourceItem)
