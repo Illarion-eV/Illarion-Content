@@ -301,10 +301,6 @@ product:addIngredient(3786, 4) -- heartwood
 
 local catId = carpentry:addCategory("Other", "Sonstiges")
 
--- wooden cup
-product = carpentry:addProduct(catId, 2185, 1)
-product:addIngredient(2716, 1) -- apple wood boards
-
 -- torch
 product = carpentry:addProduct(catId, 391, 1)
 product:addIngredient(2716, 1) -- apple wood boards
@@ -576,6 +572,10 @@ product:addIngredient(3786, 4) -- heartwood
 product:addIngredient(2552, 1) -- pure earth
 
 local catId = carpentry:addCategory("Tableware", "Geschirr")
+
+-- wooden cup
+product = carpentry:addProduct(catId, 2185, 1)
+product:addIngredient(2543, 1) -- conifer wood boards
 
 -- soup bowl
 product = carpentry:addProduct(catId, 2935, 1)
