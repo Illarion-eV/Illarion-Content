@@ -212,13 +212,11 @@ messageE[83]="[Hint] Focus on a selection of skills. Remember: Jack of all trade
 
 local welcomeNewPlayer
 local informPlayeraboutTaxandGems
-local MergeSkillInform
 local showNewbieDialog
 local exchangeFactionLeader
 local payTaxes
 local receiveGems
 local PayOutWage
-local MergeSkill
 local payNow
 
 function M.onLogin( player )
@@ -264,11 +262,6 @@ function M.onLogin( player )
                 informPlayeraboutTaxandGems(player, gemText, taxText)
             end
         end
-    end
-
-    --Skill change
-    if player:getSkill(Character.tactics) > 0 or player:getSkill(Character.dodge) > 0 then
-        MergeSkillInform(player)
     end
 
     --Noobia handling
@@ -512,61 +505,6 @@ function PayOutWage(Recipient, town)
             return infText
         end
     end
-end
-
-function MergeSkillInform(User)
-        local infText = common.GetNLS(User,
-            "Illarion hat neue Rüstungsfertigkeiten. Deine alten Fertigkeiten Ausweichen und Taktik werden in eine Rüstungsfertigkeit deiner Wahl konvertiert. Bitte wähle eine Option:",
-            "Illarion now has new armour skills. Your old dodging and tactics skills will be converted into an armour skill of your choice. Please select an option:")
-        local title = common.GetNLS(User,"Neue Rüstungsfertigkeiten","New Armour Skills")
-
-        local closeTrib=function(onClose)
-            MergeSkill(User)
-        end
-
-        local dialogue=MessageDialog(title,infText,closeTrib)
-        User:requestMessageDialog(dialogue)
-end
-
-function MergeSkill(User)
-    local names
-    if  User:getPlayerLanguage() == Player.german then
-        names = {"Leichte Rüstungen (gut gegen Schlagwaffen aber schlecht gegen Hiebwaffen)","Mittlere Rüstungen (gut gegen Hiebwaffen aber schlecht gegen Stich- und Distanzwaffen)","Schwere Rüstungen (gut gegen Stich- und Distanzwaffen aber schlecht gegen Schlagwaffen)"}
-    else
-        names = {"Light Armour (good against concussion weapons, bad against slashing weapons)","Medium Armour (good against slashing weapons, bad against puncture/distance weapons)","Heavy Armour (good against puncture/distance weapons, bad against concussion weapons)"}
-    end
-    local items = {364, 2403, 2390}
-    local targetSkill = {Character.lightArmour, Character.mediumArmour, Character.heavyArmour}
-
-    local callback = function(dialog)
-        local success = dialog:getSuccess()
-        if success then
-            local selected = dialog:getSelectedIndex()
-            local newskillValue = math.floor((User:getSkill(Character.tactics)+User:getSkill(Character.dodge))/2)
-            local skillValue = User:getSkill(targetSkill[selected+1]) --reading the skill points
-            User:increaseSkill(targetSkill[selected+1],newskillValue-skillValue)
-            User:increaseSkill(Character.dodge,-User:getSkill(Character.dodge))
-            User:increaseSkill(Character.tactics,-User:getSkill(Character.tactics))
-            User:inform("Du hast " ..names[selected+1].. " ausgewählt. Drücke 'C' um deine Fertigkeiten zu überprüfen.", "You have selected " ..names[selected+1].. ". Hit 'C' to review your skills.")
-            world:gfx(46,User.pos)
-            world:makeSound(13,User.pos)
-        else
-            User:inform("Bitte wähle eine Fertigkeit.", "Please choose a skill.")
-            MergeSkill(User)
-        end
-    end
-
-    local dialog
-    if User:getPlayerLanguage() == Player.german then
-        dialog = SelectionDialog("Neue Rüstungsfertigkeiten", "Welche Rüstungsfertigkeit wirst du nutzen?", callback)
-    else
-        dialog = SelectionDialog("New Armour Skill", "Which armour skill will you use?", callback)
-    end
-
-    for i=1,#items do
-        dialog:addOption(items[i], names[i])
-    end
-    User:requestSelectionDialog(dialog)
 end
 
 function payNow(User)
