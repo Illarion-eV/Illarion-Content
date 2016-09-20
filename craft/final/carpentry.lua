@@ -36,16 +36,16 @@ local catId = carpentry:addCategory("Arrows and bolts", "Pfeile und Bolzen")
 
 -- arrow
 product = carpentry:addProduct(catId, 64, 10)
-product:addIngredient(56, 2) -- bough
+product:addIngredient(56, 1) -- bough
 
 -- crossbow bolt
 product = carpentry:addProduct(catId, 237, 10)
-product:addIngredient(56, 2) -- bough
+product:addIngredient(56, 1) -- bough
 product:addIngredient(2535, 1) -- iron ingot
 
 -- wind arrows
 product = carpentry:addProduct(catId, 322, 10)
-product:addIngredient(56, 2) -- bough
+product:addIngredient(56, 1) -- bough
 product:addIngredient(236, 1) -- gold ingot
 
 local catId = carpentry:addCategory("Training weapons", "Übungswaffen")
