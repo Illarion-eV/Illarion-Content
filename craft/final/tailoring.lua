@@ -93,7 +93,7 @@ product:addIngredient(3787, 1) -- silk
 
 -- robust fur boots
 product = tailoring:addProduct(catId, 1505, 1)
-product:addIngredient(50, 5) -- thread
+product:addIngredient(50, 6) -- thread
 product:addIngredient(2547, 4) -- leather
 product:addIngredient(2586, 1) -- fur
 product:addIngredient(3787, 1) -- silk
