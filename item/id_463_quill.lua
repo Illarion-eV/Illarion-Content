@@ -111,7 +111,7 @@ end
 function CheckIfBottleInHand(User, SourceItem)
 
     local potionBottleList = alchemy.bottleList
-    local beverageBottleList = {517, 1315, 1316, 1318, 1319, 783, 784, 785, 786, 787, 788, 789, 791, 2500, 2496, 2497, 2501, 2499};
+    local beverageBottleList = {517, 1315, 1316, 1318, 1319, 1320, 1321, 1322,1323, 783, 784, 785, 786, 787, 788, 789, 791, 2500, 2496, 2497, 2501, 2499,3720,3721,3722};
 
     local bottleItem = common.GetTargetItem(User, SourceItem);
     if bottleItem == nil then
