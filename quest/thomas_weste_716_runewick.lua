@@ -57,11 +57,11 @@ local Start = {950, 827, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(950, 827, 0), position(854, 830, 0)} -- Beehives
+QuestTarget[1] = {position(950, 827, 0), position(852, 824, 0)} -- Beehives
 QuestTarget[2] = {position(950, 827, 0)} 
-QuestTarget[3] = {position(950, 827, 0), position(952, 823, 0)} -- Chandler table
+QuestTarget[3] = {position(950, 827, 0), position(942, 813, 0)} -- Chandler table
 QuestTarget[4] = {position(950, 827, 0)} 
-QuestTarget[5] = {position(950, 827, 0), position(952, 823, 0)} -- Chandler table
+QuestTarget[5] = {position(950, 827, 0), position(942, 813, 0)} -- Chandler table
 QuestTarget[6] = {position(950, 827, 0)} 
 QuestTarget[7] = {position(950, 827, 0), position(863, 813, 0)} -- Grass
 QuestTarget[8] = {position(950, 827, 0)} 
