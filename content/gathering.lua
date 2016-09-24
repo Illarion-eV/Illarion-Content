@@ -31,19 +31,19 @@ function InitGathering()
         local prob_extremely_rarely = 0.00025; --0.025% (1/4000)
 
         woodchopping = gatheringcraft.GatheringCraft:new{LeadSkill = Character.woodcutting, LearnLimit = 100}; -- id_74_axe
-        honeygathering = gatheringcraft.GatheringCraft:new{LeadSkill = Character.husbandry}; -- id_1005_beehive
-        egggathering = gatheringcraft.GatheringCraft:new{LeadSkill = Character.husbandry}; -- egg collecting
-        milking = gatheringcraft.GatheringCraft:new{LeadSkill = Character.husbandry}; -- id_2498_empty_bottle
-        farming = gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, FastActionFactor = 0.5, LearnLimit = 100}; -- seeds, id_126_sickle
-        fruitgathering = gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, FastActionFactor = 0.5}; -- harvest
+        honeygathering = gatheringcraft.GatheringCraft:new{LeadSkill = Character.husbandry, LearnLimit = 100}; -- id_1005_beehive
+        egggathering = gatheringcraft.GatheringCraft:new{LeadSkill = Character.husbandry, LearnLimit = 100}; -- egg collecting
+        milking = gatheringcraft.GatheringCraft:new{LeadSkill = Character.husbandry, LearnLimit = 100}; -- id_2498_empty_bottle
+        farming = gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, LearnLimit = 100}; -- seeds, id_126_sickle
+        fruitgathering = gatheringcraft.GatheringCraft:new{FastActionFactor = 0.5}; -- harvest
         mining = gatheringcraft.GatheringCraft:new{LeadSkill = Character.mining, LearnLimit = 100}; -- id_2763_pickaxe
         sanddigging = gatheringcraft.GatheringCraft:new{LeadSkill = Character.digging, LearnLimit = 100}; -- id_24_shovel
         snowballmaking = gatheringcraft.GatheringCraft:new{};
         claydigging = gatheringcraft.GatheringCraft:new{LeadSkill = Character.digging, LearnLimit = 100}; -- id_24_shovel
         herbgathering = gatheringcraft.GatheringCraft:new{LeadSkill = Character.herblore, LearnLimit = 100}; -- id_126_sickle
         fishing = gatheringcraft.GatheringCraft:new{LeadSkill = Character.fishing, LearnLimit = 100}; -- id_72_fishingrod
-        woolcutting = gatheringcraft.GatheringCraft:new{LeadSkill = Character.tanningAndWeaving}; -- id_6_scissors
-        grainharvesting = gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, FastActionFactor = 0.5, LearnLimit = 100}; -- id_271_scythe
+        woolcutting = gatheringcraft.GatheringCraft:new{LeadSkill = Character.tanningAndWeaving, LearnLimit = 100}; -- id_6_scissors
+        grainharvesting = gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, LearnLimit = 100}; -- id_271_scythe
         
         --woodchopping
         woodchopping:AddRandomItem(2551,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Findari, die Göttin der Luft, mit einem Kleinod aus Reiner Luft.","For your hard and honest labour Findari, the Godess of Air, rewards you with a treasure of Pure Air."); --Pure air
@@ -97,10 +97,8 @@ function InitGathering()
         farming:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
 
         --fruitgathering
-        fruitgathering:AddRandomItem(2551,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Findari, die Göttin der Luft, mit einem Kleinod aus Reiner Luft.","For your hard and honest labour Findari, the Godess of Air, rewards you with a treasure of Pure Air."); --Pure air
-        fruitgathering:AddRandomItem(gems.getMagicGemId(gems.RUBY),1,999,gems.getMagicGemData(1),prob_extremely_rarely,"Zwischen all den Früchten siehst du auf einmal ein strahlendes Etwas. Du findest einen magischen Rubin.","Between all the fruit you suddenly spot a flickering reflection, a magical ruby!"); --Magical ruby
         fruitgathering:AddRandomItem(65,1,333,{},prob_extremely_rarely,"Bei genauer Betrachtung entpuppt sich ein Ast am Boden als Bogen. Ob den ein elfischer Späher hier deponiert hat?","On closer inspection, a branch on the ground turns out to be a bow. Did an elven scout forget it here?"); --short bow
-        fruitgathering:AddRandomItem(2295,1,333,{},prob_occasionally,"Über einem Ast hängt ein Paar alter Handschuhe. Der Besitzer vermisst die offenbahr nicht.","Over a branch hangs a pair of old gloves. Judging by their condition no one would miss them."); --cloth gloves
+        fruitgathering:AddRandomItem(2295,1,333,{},prob_occasionally,"Über einem Ast hängt ein Paar alter Handschuhe. Der Besitzer vermisst sie offenbar nicht.","Over a branch hangs a pair of old gloves. Judging by their condition no one would miss them."); --cloth gloves
         fruitgathering:AddRandomItem(463,1,333,{},prob_frequently,"Eine Feder hat sich zwischen den Zweigen verfangen. Ob man mit ihr auch schreiben kann?","A feather lies entangled among the branches. Perhaps one could write with it?"); --quill
         fruitgathering:SetTreasureMap(prob_rarely,"Aus dem Augenwinkel siehst du ein altes Stück Pergament, das sich in einem Busch verfangen hat. Als du es dir genauer anschaust, erkennst du, dass es sich um eine Art Karte handelt.","Through the corner of your eye you spot an old parchment snared in a nearby bush. Once it is in your hand you notice it is some kind of map.");
         fruitgathering:AddMonster(271,prob_rarely,"Eine Wespe schnellt heran, um dir die süßen Früchte streitig zu machen.","An agitated wasp darts toward you to contest its claim to the fruit.",4,7);
