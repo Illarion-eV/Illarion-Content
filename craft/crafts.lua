@@ -493,13 +493,13 @@ function Craft:checkMaterial(user, productId)
             local ingredientName = self:getLookAt(user, ingredient).name
 
             if available == 0 then
-                common.HighInformNLS( user,
-                "Dir fehlt: "..ingredientName..".",
-                "You lack: "..ingredientName..".")
+                common.TempInformNLS( user,
+                "Dir fehlt: "..ingredientName.."!",
+                "You lack: "..ingredientName.."!")
             else
-                common.HighInformNLS( user,
-                "Das Material reicht nicht. Dir fehlt: "..ingredientName..".",
-                "The materials are insufficient. You lack: "..ingredientName..".")
+                common.TempInformNLS( user,
+                "Zu wenig: "..ingredientName..".",
+                "Not enough "..ingredientName.."s!")
             end
         end
     end
