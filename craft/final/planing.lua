@@ -32,18 +32,6 @@ planing:addTool(725) -- workbench
 
 --------------------------------------------------------------------------------------------
 
-local catId = planing:addCategory("Training weapons", "Übungswaffen")
-
--- wooden sword
-product = planing:addProduct(catId, 445, 1)
-product:addIngredient(545, 2) -- cherry wood boards
-product:addIngredient(2584, 1) -- sword handle
-
--- wooden dagger
-product = planing:addProduct(catId, 1045, 1)
-product:addIngredient(545, 2) -- cherry wood boards
-product:addIngredient(2530, 1) -- dagger handle
-
 local catId = planing:addCategory("Bows", "Bögen")
 
 -- short bow
@@ -238,3 +226,15 @@ product:addIngredient(2543, 2) -- conifer wood boards
 -- wooden plate
 product = planing:addProduct(catId, 2952, 1)
 product:addIngredient(2543, 2) -- conifer wood boards
+
+local catId = planing:addCategory("Training weapons", "Übungswaffen")
+
+-- wooden sword
+product = planing:addProduct(catId, 445, 1)
+product:addIngredient(545, 2) -- cherry wood boards
+product:addIngredient(2584, 1) -- sword handle
+
+-- wooden dagger
+product = planing:addProduct(catId, 1045, 1)
+product:addIngredient(545, 2) -- cherry wood boards
+product:addIngredient(2530, 1) -- dagger handle

@@ -21,7 +21,7 @@ module("craft.final.carving", package.seeall)
 carving = crafts.Craft:new{
               craftEN = "Carving",
               craftDE = "Schnitzen",
-              handTool = 2715,
+              handTool = 2752,
               leadSkill = Character.carpentry,
               sfx = 14,
               sfxDuration = 17,
