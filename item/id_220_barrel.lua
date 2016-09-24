@@ -18,8 +18,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_220_barrel' WHERE itm_id IN (220);
 
 local common = require("base.common")
-local licence = require("base.licence")
-local dyeing = require("content.gatheringcraft.dyeing")
 
 local M = {}
 
@@ -35,9 +33,6 @@ local dragonCaveBarrelPos = {
 local BarrelContents
 
 function M.UseItem(User, SourceItem, ltstate)
-    if licence.licence(User) then --checks if user is citizen or has a licence
-        return -- avoids crafting if user is neither citizen nor has a licence
-    end
 
     for i = 1, #dragonCaveBarrelPos do
         if (SourceItem.pos == dragonCaveBarrelPos[i]) then
@@ -46,7 +41,6 @@ function M.UseItem(User, SourceItem, ltstate)
         end
     end
 
-    dyeing.StartGathering(User, SourceItem, ltstate);
 end
 
 function BarrelContents(User, barrelItem)
