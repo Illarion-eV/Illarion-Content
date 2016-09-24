@@ -31,39 +31,20 @@ function InitGathering()
         local prob_extremely_rarely = 0.00025; --0.025% (1/4000)
 
         woodchopping = gatheringcraft.GatheringCraft:new{LeadSkill = Character.woodcutting, LearnLimit = 100}; -- id_74_axe
-        honeygathering = gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming}; -- id_1005_beehive
-        egggathering = gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming}; -- egg collecting
-        milking = gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming}; -- id_2498_empty_bottle
+        honeygathering = gatheringcraft.GatheringCraft:new{LeadSkill = Character.husbandry}; -- id_1005_beehive
+        egggathering = gatheringcraft.GatheringCraft:new{LeadSkill = Character.husbandry}; -- egg collecting
+        milking = gatheringcraft.GatheringCraft:new{LeadSkill = Character.husbandry}; -- id_2498_empty_bottle
         farming = gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, FastActionFactor = 0.5, LearnLimit = 100}; -- seeds, id_126_sickle
         fruitgathering = gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, FastActionFactor = 0.5}; -- harvest
         mining = gatheringcraft.GatheringCraft:new{LeadSkill = Character.mining, LearnLimit = 100}; -- id_2763_pickaxe
-        sanddigging = gatheringcraft.GatheringCraft:new{LeadSkill = Character.mining, LearnLimit = 100}; -- id_24_shovel
+        sanddigging = gatheringcraft.GatheringCraft:new{LeadSkill = Character.digging, LearnLimit = 100}; -- id_24_shovel
         snowballmaking = gatheringcraft.GatheringCraft:new{};
-        claydigging = gatheringcraft.GatheringCraft:new{LeadSkill = Character.mining, LearnLimit = 100}; -- id_24_shovel
+        claydigging = gatheringcraft.GatheringCraft:new{LeadSkill = Character.digging, LearnLimit = 100}; -- id_24_shovel
         herbgathering = gatheringcraft.GatheringCraft:new{LeadSkill = Character.herblore, LearnLimit = 100}; -- id_126_sickle
         fishing = gatheringcraft.GatheringCraft:new{LeadSkill = Character.fishing, LearnLimit = 100}; -- id_72_fishingrod
-        woolcutting = gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_6_scissors
-        potashproducing = gatheringcraft.GatheringCraft:new{LeadSkill = Character.woodcutting}; -- iteid_12_campfire
-        entrailscutting = gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_6_scissors
-        stonecutting = gatheringcraft.GatheringCraft:new{LeadSkill = Character.mining, LearnLimit = 100}; -- id_737_chisel
-        sieving = gatheringcraft.GatheringCraft:new{LeadSkill = Character.mining, LearnLimit = 100}; -- id_727_sieve
-        flailing = gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, FastActionFactor = 0.5, LearnLimit = 100}; -- id_258_flail
+        woolcutting = gatheringcraft.GatheringCraft:new{LeadSkill = Character.tanningAndWeaving}; -- id_6_scissors
         grainharvesting = gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, FastActionFactor = 0.5, LearnLimit = 100}; -- id_271_scythe
-        threadproducing = gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_171_spinningwheel
-        oilsqueezing = gatheringcraft.GatheringCraft:new{LeadSkill = Character.herblore, LearnLimit = 100}; -- id_44_squeezer
-        doughproducing = gatheringcraft.GatheringCraft:new{LeadSkill = Character.cookingAndBaking}; -- id_118_rollingpin
-        weaving = gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_169_loom
-        oremelting = gatheringcraft.GatheringCraft:new{LeadSkill = Character.blacksmithing}; -- id_2836_forge
-        leatherproducing = gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_2052_stretcher
-        boardproducing = gatheringcraft.GatheringCraft:new{LeadSkill = Character.carpentry}; -- id_724_workbench
-        candleproducing = gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, LearnLimit = 100}; -- id_429_candlemold
-        waxproducing = gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming}; -- id_428_candletable
-        glassingotproducing = gatheringcraft.GatheringCraft:new{LeadSkill = Character.glassBlowing}; -- id_313_glassmeltoven
-        bricksproducing = gatheringcraft.GatheringCraft:new{LeadSkill = Character.pottery, LearnLimit = 100}; -- id_313_glassmeltoven
-        smokefood = gatheringcraft.GatheringCraft:new{LeadSkill = Character.cookingAndBaking}; -- id_305_smokingoven
-        graingrinding = gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, FastActionFactor = 0.5, LearnLimit = 100}; -- id_250_mill
-        dyeing = gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_220_barrel
-
+        
         --woodchopping
         woodchopping:AddRandomItem(2551,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Findari, die Göttin der Luft, mit einem Kleinod aus Reiner Luft.","For your hard and honest labour Findari, the Godess of Air, rewards you with a treasure of Pure Air."); --Pure air
         woodchopping:AddRandomItem(gems.getMagicGemId(gems.EMERALD),1,999,gems.getMagicGemData(1),prob_extremely_rarely,"Im Unterholz erspähst du einen grün funkelnden Gegenstand. Du findest einen magischen Smaragd.","In the undergrowth you spot a green sparkling object. On closer inspection you discover it is a magical emerald."); --Magical emerald
@@ -72,7 +53,6 @@ function InitGathering()
         woodchopping:AddRandomItem(2664,1,333,{},prob_frequently,"Du findest einen Ast, den man auch sehr gut als Keule verwenden könnte.","You find a branch that resembles a sturdy club."); --Club
         woodchopping:SetTreasureMap(prob_rarely,"Fein säuberlich aufgerollt findest du eine Schatzkarte in einem ausgehöhlten Ast.","You find a treasure map neatly rolled up in a hollowed-out branch.");
         woodchopping:AddMonster(91,prob_rarely,"Dein Frevel gegen die Natur ruft die Wächter der Bäume herbei. Wie aus dem Nichts stampft ein wütender Troll auf dich zu.","From the nearby brush you hear a guttural snarl just before an angry troll emerges into the clearing. There is no doubt his eyes are trained on you.",4,7);
-
         woodchopping:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
 
         -- egg gathering
@@ -82,7 +62,6 @@ function InitGathering()
         egggathering:AddRandomItem(463,1,333,{},prob_frequently,"Du findest eine besonders große Feder, mit der man sicher auch gut schreiben kann.","You find a big feather that looks suitable for writing."); --Quill
         egggathering:SetTreasureMap(prob_rarely,"Unter dem Nest findest du eine Karte. Kein gutes Versteck!","Under the nest, you find a map. Not a good hiding place.");
         egggathering:AddMonster(622,prob_rarely,"Während du die Eier stiehlst, hüpft ein wütendes Hühnchen aus dem Nest.","While you steal eggs an angry chickens hops out of the nest!",4,7);
-
         egggathering:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
 
         --honeygathering
@@ -93,7 +72,6 @@ function InitGathering()
         honeygathering:AddRandomItem(431,1,333,{},prob_frequently,"An deinen Händen bleibt klebriger Wachs hängen.","Your hands get stuck in sticky wax.", 0); --Wax
         honeygathering:SetTreasureMap(prob_rarely,"Oh! Jemand hat eine Schatzkarte in diesem Bienenstock versteckt. Was für eine Überraschung!","Oh! Someone has hidden a treasure map in this hive. What a surprise!");
         honeygathering:AddMonster(271,prob_rarely,"Eine über deine Handlungen etwas erboste Wespe scheint sich dazu entschlossen zu haben, deinen Handlungen ein Ende zu setzten.","A wasp, unamused by your deeds, decides to attack!",4,7);
-
         honeygathering:AddInterruptMessage("Du wirst von etwas in dem Bienenstock gestochen. Was das wohl wahr?", "You feel a sting as you try to work.");
         honeygathering:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
         honeygathering:AddInterruptMessage("Du wirfst kurz einen Blick in den Bienenkorb um nach einer besseren Stelle für Honigwaben zu suchen.", "You decide to search deeper for honeycombs.");
@@ -116,7 +94,6 @@ function InitGathering()
         farming:AddRandomItem(2760,1,333,{},prob_frequently,"Zwischen den Feldfrüchten findest du ein altes Seil. Nützlich, oder?","Among the crops you find an old rope. Can never have enough rope!"); --rope
         farming:SetTreasureMap(prob_rarely,"In einer Ackerfurche findest du ein altes Pergament mit einem Kreuz darauf. Ob sie dich zu einem vergrabenen Schatz weisen wird?","In a furrow you find an old parchment with a cross on it. Will it show you the way to a buried treasure?");
         farming:AddMonster(114,prob_rarely,"Du stößt bei der Erdarbeit auf alte Knochen. Leider hat sie kein Hund hier vergraben und die Störung der Totenruhe bleibt nicht ungesühnt.","While ploughing, you find some old bones. Unfortunately, no dog has buried them here, and the disturbance of the dead unleashes Cherga's wrath.",4,7);
-
         farming:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
 
         --fruitgathering
@@ -138,7 +115,6 @@ function InitGathering()
         mining:AddRandomItem(391,1,333,{},prob_frequently,"In einer Felsspalte liegt eine alte Fackel. Hier ist wohl jemanden ein Licht aufgegangen.","In a crevice you spot an old torch."); --torch
         mining:SetTreasureMap(prob_rarely,"In einer engen Felsspalte findest du ein altes Pergament, das wie eine Karte aussieht. Kein Versteck ist so sicher, dass es nicht gefunden wird.","In a narrow crevice you find an old parchment that looks like a map. No hiding place is too safe that it cannot be found.");
         mining:AddMonster(1052,prob_rarely,"Als du den Fels malträtierst, läuft etwas Schleim aus einer Felsspalte...","As you slam your pick-axe on the rock, some slime flows out of the fissure...",4,7);
-
         mining:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
         mining:AddInterruptMessage("Dir fliegt ein Steinsplitter entgegen. Du kannst gerade noch ausweichen.", "Your hard work has shaken free a stalactite that crashes from overhead. Somehow you manage to avoid any injury as the rubble clears.");
         mining:AddInterruptMessage("Du bekommst etwas Schmutz ins Auge und reibst dir kurz die Augen.", "You feel a flake of dirt in your eye.");
@@ -153,7 +129,6 @@ function InitGathering()
         sanddigging:AddRandomItem(1266,1,333,{},prob_frequently,"Deine Schaufel stößt auf einen runden Kieselstein.","Your shoulder locks as your shovel drives into a hard stone."); --Rock
         sanddigging:SetTreasureMap(prob_rarely,"Der Sand gibt eine gut erhaltene Karte frei. Die Hitze konnte dem Pergament nichts anhaben.","Deep in the sand sheltered from the desert heat you discover a treasure map!");
         sanddigging:AddMonster(982,prob_rarely,"Tief im Sand stößt du auf etwas schwarzes, krabbelndes. Eine vorschnellende Klaue ist nur der Vorbote dessen, was du gerade erweckt hast.","To your dismay you unearth a beetle's hiding place. He furiously lashes his claws trying to defend his home.",4,7);
-
         sanddigging:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
         sanddigging:AddInterruptMessage("Du stößt beim Graben auf einen großen Stein. Der plötzliche Schlag auf die Schaufel lässt sie dir beinahe aus der Hand rutschen", "While digging you hit a big stone; the sudden impact nearly causes you to drop your shovel.");
         sanddigging:AddInterruptMessage("Ein aufdringliches Insekt schwirrt um deinen Kopf heru Du schlägst mit der Hand danach und versuchst es zu vertreiben.", "An annoying bug buzzes around your head. You strike at it in order to drive it away.");
@@ -171,7 +146,6 @@ function InitGathering()
         claydigging:AddRandomItem(2184,1,333,{},prob_frequently,"Ein Tonkrug offenbahrt sich im Matsch. Die Überreste einer alten Zivilisation oder einfach nur vom letzten Saufgelage?","A clay mug reveals itself in the mud. Perhaps the remains of an ancient civilization or just a littering traveller, who knows?"); --clay cup
         claydigging:SetTreasureMap(prob_rarely,"Von einer Lederhülle umgeben, findest du eine alte Karte. Die hat definitiv niemand absichtlich hier hinterlassen.","Covered in a leather hide you find an old map.");
         claydigging:AddMonster(104,prob_rarely,"Im Morast stößt du auf eine bedauernswerte Moorleiche. Jedoch scheinst du derjenige zu sein, den man fortan betrauern wird.","In the mud your shovel digs unintentionally into a feculent bog body. The stench is atrocious, but what's worse is the undead creature rises to attack.",4,7);
-
         claydigging:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
         claydigging:AddInterruptMessage("Du stößt beim Graben auf einen großen Stein. Der plötzliche Schlag auf die Schaufel lässt sie dir beinahe aus der Hand rutschen", "While digging you hit a big stone, the sudden impact nearly causes you to lose your grip on the handle.");
         claydigging:AddInterruptMessage("Ein aufdringliches Insekt schwirrt um deinen Kopf heru Du schlägst mit der Hand danach und versuchst es zu vertreiben.", "An annoying bug buzzes around your head. You swat at it in order to drive it away.");
@@ -186,7 +160,6 @@ function InitGathering()
         herbgathering:AddRandomItem(2570,1,333,{},prob_frequently,"Ein Griff einer alten Sichel liegt achtlos weggeworfen zwischen Ästen und Blättern herum.","A handle of an old sickle lies between the leaves and branches, but the blade is no where in sight."); --Sickle hilt
         herbgathering:SetTreasureMap(prob_rarely,"Unter einer Lage Blätter stößt du auf eine Schatzkarte. Hoffentlich ist der Besitzer nicht in der Nähe.","Under a layer of leaves you find a treasure map. Hopefully, the owner is not nearby!");
         herbgathering:AddMonster(271,prob_rarely,"Eine Wespe steigt aus dem Gestrüpp auf, offensichtlich unerfreut über die Störung.","A pesky wasp rises from the bushes apparently displeased with your disturbance.",4,7);
-
         herbgathering:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
         herbgathering:AddInterruptMessage("Ein kleines pelziges Tier springt aus dem Gebüsch und rennt davon. Für einen Moment bist du fürchterlich erschrocken.", "A small, furry critter jumps out of a bush and darts off. That really surprised you.");
         herbgathering:AddInterruptMessage("Du greifst mit der Hand in eine Blattlauskolonie. Verärgert wischt du dir die Hand an der Hose ab.", "The plant is crowded with lice. Annoyed, you wipe your hand clean on your trousers.");
@@ -200,8 +173,6 @@ function InitGathering()
         fishing:AddRandomItem(53,1,333,{},prob_frequently,"Ein alter, durchlöcherter Lederstiefel hängt am Haken.","As you angle back and forth for fish you feel a snag. Instead of a fish, however, a pair of old perforated boots tied together hangs from your hook!"); --Leather boots
         fishing:SetTreasureMap(prob_rarely,"Statt eines Fisches hast du eine Karte am Haken hängen.","Nargún's favour has finally found you for there is a treasure map on your hook instead of a fish!");
         fishing:AddMonster(101,prob_rarely,"Ein heftiger Ruck reißt dir fast die Angel aus der Hand. Noch während du dich wunderst teilt sich das Wasser vor dir und eine glitschige Wasserleiche steigt aus den Wellen empor.","A heavy force pulls on your fishing line momentarily before it releases. Then without warning the water before you erupts as putrified mummy vaults toward you.",4,7);
-
-        -- TODO decide if this should be included
         fishing:AddInterruptMessage("Ein schwarzer Fleck huscht durch das Wasser. Etwas erschrocken weichst du zurück.", "You notice a large black dot in the water, you decide not to disturb it.");
         fishing:AddInterruptMessage("Der Boden unter dir rutscht leicht weg, sodass du gerade noch das Gleichgewicht halten kannst.", "Some stones slip away from the bank, disturbing all the fish.");
         fishing:AddInterruptMessage("Dein Blick verliert sich für kurze Zeit in deinem Spiegelbild und du bist abgelenkt.", "You take a while to admire that good-looking person staring at you from your reflection.");
@@ -217,97 +188,18 @@ function InitGathering()
         woolcutting:AddRandomItem(156,1,333,{},prob_frequently,"Etwas Gras hat sich im Fell des Schafs verfangen. Du entfernst das klebrige Grünzeug.","Some grass was ensnared in the fur of the sheep. Before you can continue shearing you have to remove the sticky green weed."); --Steppe fern
         woolcutting:SetTreasureMap(prob_rarely,"Mit einem lauten 'Mäh' kratzt und schnüffelt das Schaf am Boden. Dort findest du eine seltsame Karte.","With a loud 'Baa' the sheep scratches and sniffs on the ground. Then, as if by magic a strange map appears on the ground.");
         woolcutting:AddMonster(271,prob_rarely,"Während du die Wolle einsammelst, umschwirrt dich eine ungewöhnlich agressive Wespe.","While you gather some wool a annoyingly aggressive wasp comes after you!",4,7);
-
         woolcutting:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
 
-        --potashproducing
-        potashproducing:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
-
-        --entrailscutting
-        entrailscutting:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
-
-        --stonecutting
-        stonecutting:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
-
-        --sieving
-        sieving:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
-        sieving:AddInterruptMessage("Du machst eine kürzere Pause um die größeren Steine aus dem Rüttelsieb zu entfernen.", "You toss out some small pebbles from the sieve.");
-        sieving:AddInterruptMessage("Für einen Moment dachtest du einen Edelstein im Sieb gefunden zu haben, es war aber doch nur ein Stück Glas.", "You look with glee at a shining stone in the sand, but then realise its only a piece of glass");
-        sieving:AddInterruptMessage("Du klopfst dir kurz den Sand aus der Kleidung, da er beginnt auf der Haut zu scheuern.", "You blow sand away from your clothes.");
-
-        --flailing
-        flailing:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
-        -- TODO translate
-        -- flailing:AddInterruptMessage("Du kehrst kurz die Spreu zusammen und bringst sie weg.", "");
-        flailing:AddInterruptMessage("Die Dreschstange des Flegels löst sich und du musst sie erneut festbinden.", "The flail's chain appears to be stuck, it takes you some time to fix it.");
-        flailing:AddInterruptMessage("Du schaffst das Stroh weg um wieder mehr Platz zu haben.", "You tie a few straw bundles together.");
-        flailing:AddInterruptMessage("Deine Hände brennen wie Feuer, deshalb machst du eine kurze Pause. Hoffentlich gibt das keine Blase…", "Your arms appear to be getting very tired, you decide on a short break.");
-
         --grainharvesting
+        grainharvesting:AddRandomItem(2552,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Ushara, die Göttin der Erde, mit einem Kleinod aus Reiner Erde.","For your hard and honest labour Ushara, the Godess of Earth, rewards you with a treasure of Pure Earth."); --Pure earth
+        grainharvesting:AddRandomItem(gems.getMagicGemId(gems.RUBY),1,999,gems.getMagicGemData(1),prob_extremely_rarely,"Beim Durchpflügen des Erdbodens stößt du auf einen rot scheinenden Stein. Du findest einen magischen Rubin.","While ploughing the soil you notice a red stone shining brightly. As you get closer you notice it is a magical ruby."); --Magical ruby
+        grainharvesting:AddRandomItem(1840,1,333,{},prob_extremely_rarely,"Im Ackerboden ist ein angelaufender Kupferkelch zu finden.","In the arable soil you find a tarnished copper goblet."); --copper goblet
+        grainharvesting:AddRandomItem(2935,1,333,{},prob_occasionally,"Da hat wohl jemand eine Schüssel verloren, mit der er Saatgut augestreut hat. Nun gehört sie dir.","You dig up an old bowl. Now it belongs to you."); --soup bowl
+        grainharvesting:AddRandomItem(2760,1,333,{},prob_frequently,"Zwischen den Feldfrüchten findest du ein altes Seil. Nützlich, oder?","Among the crops you find an old rope. Can never have enough rope!"); --rope
+        grainharvesting:SetTreasureMap(prob_rarely,"In einer Ackerfurche findest du ein altes Pergament mit einem Kreuz darauf. Ob sie dich zu einem vergrabenen Schatz weisen wird?","In a furrow you find an old parchment with a cross on it. Will it show you the way to a buried treasure?");
+        grainharvesting:AddMonster(114,prob_rarely,"Du stößt bei der Erdarbeit auf alte Knochen. Leider hat sie kein Hund hier vergraben und die Störung der Totenruhe bleibt nicht ungesühnt.","While ploughing, you find some old bones. Unfortunately, no dog has buried them here, and the disturbance of the dead unleashes Cherga's wrath.",4,7);
         grainharvesting:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
-
-        --threadproducing
-        threadproducing:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
-        threadproducing:AddInterruptMessage("Das Material zum Spinnen hat sich verheddert. Du brauchst einen Moment es auseinander zu machen.", "The spinning material gets entangled. You need a moment to remove the knots from it.");
-        threadproducing:AddInterruptMessage("Du siehst Gerade noch wie eine Maus ein Bündel Fasern von dir stibitzt. Du rennst der Maus hinterher, woraufhin diese das Bündel fallen lässt.", "You see a mouse nibbling at a few fibers. You try to catch it, causing it to drop them");
-        threadproducing:AddInterruptMessage("Du sortierst kurz einige fertige Garnspulen in deine Tasche ein.", "You sort some twisted yarn in your bag.");
-
-        --oilsqueezing
-        oilsqueezing:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
-
-        --doughproducing
-        doughproducing:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
-
-        --weaving
-        weaving:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
-
-        --oremelting
-        oremelting:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
-
-        --leatherproducing
-        leatherproducing:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
-
-        --boardproducing
-        boardproducing:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
-        boardproducing:AddInterruptMessage("Du bekommst einige Späne in den Mund und mußt husten.", "A cloud of fine splints makes you cough.");
-        boardproducing:AddInterruptMessage("Du überprüfst kurz die Maße des Brettes.", "You briefly check the measurements of the board.");
-        boardproducing:AddInterruptMessage("Du bekommst einen Holzsplitter in den Finger und mußt Pause machen, um ihn zu entfernen.", "A splinter pierces your finger. You have to take a break to remove it.");
-        boardproducing:AddInterruptMessage("Du bekommst einige Sägespäne ins Auge und reibst dir kurz die Augen.", "Fine splints make you rub your eyes.");
-
-        --candleproducing
-        candleproducing:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
-
-        --waxproducing
-        waxproducing:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
-
-        --glassingotproducing
-        glassingotproducing:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
-        glassingotproducing:AddInterruptMessage("Dir rutscht eine Kelle mit Sand aus der Hand und der Sand verteilt sich über den Boden. Nun wirst du erst den Sand aufkehren müssen.", "Some sand slips out of your hand, and you stop to try to scoop it up.");
-        glassingotproducing:AddInterruptMessage("Dir rutscht eine Kelle mit Asche aus der Hand und die Asche verteilt sich über den Boden. Nun wirst du erst die Asche aufkehren müssen.", "Some ash falls out of your hand, and you try your best to scoop it up.");
-        -- TODO translate
-        -- glassingotproducing:AddInterruptMessage("Der fertige Barren klemmt in der For Du klopfst sehr stark auf die Rückseite der Form bis er endlich heraus fällt.", "");
-        -- glassingotproducing:AddInterruptMessage("Für einen Moment hast du vergessen wo du die Kelle zum Sand schaufeln hingelegt hast und musst nach ihr suchen.", ");
-        glassingotproducing:AddInterruptMessage("Du beseitigst eine Verstopfung des Glasblasrohres.", "You remove an obstruction from the glass-blowing rod.");
-
-        --bricksproducing
-        bricksproducing:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
-        bricksproducing:AddInterruptMessage("Du bekommst den Ziegel nicht aus der Form und musst deshalb stark auf die Form klopfen bis er heraus fällt.", "A brick refuses to come out of the mould, it takes some time for you to get it out.");
-        bricksproducing:AddInterruptMessage("Bevor du weiter machst reinigst du deine Hände kurz vom feuchten Lehm der an den Fingern klebt.", "You wash your hands of the wet clay.");
-        bricksproducing:AddInterruptMessage("Du holst einen Stein aus dem Leh Zum Glück hast du ihn noch vor dem brennen bemerkt, sonst wäre der Ziegel bestimmt gebrochen.", "You fish out a stone from the wet clay. Fortunately you have found it, otherwise the brick would have probably been broken.");
-
-        --smokefood
-        smokefood:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
-
-        --graingrinding
-        graingrinding:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
-        graingrinding:AddInterruptMessage("Du klopfst dir das Mehl aus der Kleidung da du das Gefühl hast wie ein Geist auszusehen.", "You beat the flour out of your clothes so that you do not look like a ghost anymore.");
-        graingrinding:AddInterruptMessage("Gerade noch kannst du verhindern, dass ein Stein der sich wohl ins Korn gemogelt hatte, in das Mühlrad fällt.", "You just manage to catch a stone that whould have fallen into the millstone.");
-        graingrinding:AddInterruptMessage("Du säuberst kurz den Mühlstein um eine bessere Qualität des Mehls zu erreichen.", "You clean the millstone in order to ensure a good quality of the flour.");
-
-        --dyeing
-        dyeing:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
-        dyeing:AddInterruptMessage("Ein großer dicker Käfer ist irgendwie in die Farbe gelangt. Du benötigst eine Weile ihn zu fangen und mit ihm das zu machen was er verdient hat.", "A big, fat bug has found its way into your dye. It takes a while to catch it and seal its fate.");
-
+        
         startGathering = 1;
     end
 end
