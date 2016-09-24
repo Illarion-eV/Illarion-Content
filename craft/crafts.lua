@@ -500,19 +500,18 @@ function Craft:checkMaterial(user, productId)
                 enoughText = enoughText..ingredientName..", "
             end
         end
-        
-        if lackText ~= "" then
-            lackText=string.sub(lackText,1,-2)
-            common.HighInformNLS( user, "Dir fehlt: "..lackText.."!", "You lack: "..lackText.."!")
-        end
-        
-        if enoughText ~= "" then
-            enoughText=string.sub(enoughText,1,-2)
-            common.HighInformNLS(user, "Zu wenig: "..enoughText..".", "Not enough: "..enoughText..".")
-        end
-        
     end
 
+    if lackText ~= "" then
+        lackText=string.sub(lackText,1,-2)
+        common.HighInformNLS( user, "Dir fehlt: "..lackText.."!", "You lack: "..lackText.."!")
+    end
+        
+    if enoughText ~= "" then
+        enoughText=string.sub(enoughText,1,-2)
+        common.HighInformNLS(user, "Zu wenig: "..enoughText..".", "Not enough: "..enoughText..".")
+    end
+        
     return materialsAvailable
 end
 
