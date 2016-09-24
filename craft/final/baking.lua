@@ -41,7 +41,7 @@ product:addRemnant(51, 1) -- bucket
 
 -- cookies
 product = baking:addProduct(catId, 453, 2)
-product:addIngredient(2, 2) -- flour
+product:addIngredient(2, 3) -- flour
 product:addIngredient(2529, 1) -- honeycomb
 product:addIngredient(52, 1) -- bucket of water
 product:addRemnant(51, 1) -- bucket
@@ -67,17 +67,15 @@ product:addRemnant(51, 1) -- bucket
 
 -- banana bread
 product = baking:addProduct(catId, 3609, 1)
-product:addIngredient(2, 3) -- flour
+product:addIngredient(2, 4) -- flour
 product:addIngredient(785, 1) -- bottle of banana juice
-product:addIngredient(52, 1) -- bucket of water
-product:addRemnant(51, 1) -- bucket
 product:addRemnant(790,1) -- empty juice bottle
 
 -- blackberry muffin
 product = baking:addProduct(catId, 454, 1)
 product:addIngredient(2, 3) -- flour
 product:addIngredient(2529, 2) -- honeycomb
-product:addIngredient(147, 10) -- blackberry
+product:addIngredient(147, 15) -- blackberry
 product:addIngredient(52, 1) -- bucket of water
 product:addRemnant(51, 1) -- bucket
 
@@ -85,15 +83,15 @@ product:addRemnant(51, 1) -- bucket
 product = baking:addProduct(catId, 353, 1)
 product:addIngredient(2, 4) -- flour
 product:addIngredient(2529, 2) -- honeycomb
-product:addIngredient(15, 15) -- apple
+product:addIngredient(15, 20) -- apple
 product:addIngredient(52, 1) -- bucket of water
 product:addRemnant(51, 1) -- bucket
 
 -- cherry cake
 product = baking:addProduct(catId, 303, 1)
 product:addIngredient(2, 4) -- flour
-product:addIngredient(2529, 3) -- honeycomb
-product:addIngredient(302, 15) -- cherries
+product:addIngredient(2529, 2) -- honeycomb
+product:addIngredient(302, 20) -- cherries
 product:addIngredient(759, 5) -- nuts
 product:addIngredient(52, 1) -- bucket of water
 product:addRemnant(51, 1) -- bucket

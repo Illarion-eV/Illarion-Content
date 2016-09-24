@@ -578,12 +578,12 @@ product = carpentry:addProduct(catId, 2185, 1)
 product:addIngredient(2543, 1) -- conifer wood boards
 
 -- soup bowl
-product = carpentry:addProduct(catId, 2935, 1)
-product:addIngredient(2543, 2) -- conifer wood boards
+product = carpentry:addProduct(catId, 2935, 2)
+product:addIngredient(2543, 1) -- conifer wood boards
 
 -- wooden plate
-product = carpentry:addProduct(catId, 2952, 1)
-product:addIngredient(2543, 2) -- conifer wood boards
+product = carpentry:addProduct(catId, 2952, 2)
+product:addIngredient(2543, 1) -- conifer wood boards
 
 local catId = carpentry:addCategory("Throwing weapons", "Wurfwaffen")
 
