@@ -398,7 +398,7 @@ function Product:getCraftingTime(skill)
     local minimum = math.max ((self.quantity * theItem.Worth * 0.012),5) 
     local craftingTime = common.Scale(minimum * 2, minimum, learnProgress)
     if craftingTime > 99 then
-        craftingTime = math.ceil(craftingTime)
+        craftingTime = 10 * math.floor(craftingTime/10 + 0.5) -- Round correctly to whole seconds
     end
     return craftingTime
     
