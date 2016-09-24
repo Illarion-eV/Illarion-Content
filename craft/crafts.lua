@@ -487,21 +487,26 @@ function Craft:checkMaterial(user, productId)
     for i = 1, #product.ingredients do
         local ingredient = product.ingredients[i]
         local available = user:countItemAt("all", ingredient.item, ingredient.data)
-
+        
         if available < ingredient.quantity then
             materialsAvailable = false
             local ingredientName = self:getLookAt(user, ingredient).name
 
             if available == 0 then
-                common.TempInformNLS( user,
-                "Dir fehlt: "..ingredientName.."!",
-                "You lack: "..ingredientName.."!")
+                lackText = lackText..ingredientName..", "
             else
-                common.TempInformNLS( user,
-                "Zu wenig: "..ingredientName..".",
-                "Not enough "..ingredientName.."s!")
+                enoughText = enoughText..ingredientName..", "
             end
         end
+        
+        if lackText ~= "" then
+            common.HighInformNLS( user, "Dir fehlt: "..ingredientName.."!", "You lack: "..ingredientName.."!")
+        end
+        
+        if enoughText ~= "" then
+            common.HighInformNLS(user, "Zu wenig: "..enoughText..".", "Not enough: "..enoughText..".")
+        end
+        
     end
 
     return materialsAvailable
