@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_2715_plane' WHERE itm_id IN (2715);
 
-local carpentry = require("craft.final.carpentry")
+local planing = require("craft.final.planing")
 local wood = require("item.general.wood")
 
 local M = {}
@@ -24,7 +24,7 @@ local M = {}
 M.LookAtItem = wood.LookAtItem
 
 function M.UseItem(User, SourceItem, ltstate)
-    carpentry.carpentry:showDialog(User, SourceItem)
+    planing.planing:showDialog(User, SourceItem)
 end
 
 return M

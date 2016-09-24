@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_2752_carvingtools' WHERE itm_id IN (2752);
 
+local carving = require("craft.final.carving")
 local wood = require("item.general.wood")
 
 local M = {}
@@ -23,7 +24,7 @@ local M = {}
 M.LookAtItem = wood.LookAtItem
 
 function M.UseItem(User, SourceItem, ltstate)
-    User:inform("Du musst einen Hobel zum Schreinern verwenden.", "You need to use a plane for carpentry.")
+    carving.carving:showDialog(User, SourceItem)
 end
 
 return M

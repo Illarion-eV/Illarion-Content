@@ -17,12 +17,25 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_724_workbench' WHERE itm_id IN (724,725);
 
-local carpentry = require("craft.final.carpentry")
+local planing = require("craft.final.planing")
+local carving = require("craft.final.carving")
+local crafts = require("craft.crafts")
+local common = require("base.common")
 
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-    carpentry.carpentry:showDialog(User, SourceItem)
+
+    if carving.carving:isHandToolEquipped(User) then
+        carving.carving:showDialog(User, SourceItem);
+    elseif planing.planing:isHandToolEquipped(User) then
+        planing.planing:showDialog(User, SourceItem);
+    else
+        common.HighInformNLS(User,
+            "Dir fehlt ein Werkzeug in deiner Hand um hier zu arbeiten: Hobel oder Schnitzmesser.",
+            "To work here you have to hold a tool in your hand: Plane or carving tools.")
+    end
+    
 end
 
 return M
