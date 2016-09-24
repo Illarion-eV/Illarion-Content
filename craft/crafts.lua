@@ -382,7 +382,7 @@ function Craft:getCraftingTime(product, skill)
     if not self.npcCraft then
         return product:getCraftingTime(skill)
     else
-        return 5 --default time
+        return 10 --default time
     end
 end
 
@@ -395,9 +395,11 @@ function Product:getCraftingTime(skill)
         learnProgress = (skill - self.difficulty) / (self.learnLimit - self.difficulty) * 100
     end
     local theItem = world:getItemStatsFromId(self.item)
-    local minimum = math.max ((self.quantity * theItem.Worth * 0.0024),1) 
+    local minimum = math.max ((self.quantity * theItem.Worth * 0.012),5) 
     local craftingTime = common.Scale(minimum * 2, minimum, learnProgress)
-    craftingTime = 5 * math.ceil(craftingTime)
+    if craftingTime > 99 then
+        craftingTime = math.ceil(craftingTime)
+    end
     return craftingTime
     
 end
