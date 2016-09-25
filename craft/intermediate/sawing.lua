@@ -42,7 +42,7 @@ product:addIngredient(544) -- naldor wood
 
 -- Conifer wood board
 local product = sawing:addProduct(catId, 2543, 1)
-product:addIngredient(3) -- confier wood
+product:addIngredient(3) -- conifer wood
 
 -- Apple wood board
 local product = sawing:addProduct(catId, 2716, 1)
