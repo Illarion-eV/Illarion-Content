@@ -220,12 +220,12 @@ product = planing:addProduct(catId, 2185, 1)
 product:addIngredient(2543, 1) -- conifer wood boards
 
 -- soup bowl
-product = planing:addProduct(catId, 2935, 1)
-product:addIngredient(2543, 2) -- conifer wood boards
+product = planing:addProduct(catId, 2935, 2)
+product:addIngredient(2543, 1) -- conifer wood boards
 
 -- wooden plate
-product = planing:addProduct(catId, 2952, 1)
-product:addIngredient(2543, 2) -- conifer wood boards
+product = planing:addProduct(catId, 2952, 2)
+product:addIngredient(2543, 1) -- conifer wood boards
 
 local catId = planing:addCategory("Training weapons", "Übungswaffen")
 
