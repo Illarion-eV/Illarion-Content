@@ -125,7 +125,7 @@ Position List,lockId,English Description,German Description,locked on reload [fa
 --Hemptie Necktie Inn 4xx,,,,
 "{699, 311, 1}",401,Troll's Bane,Troll's Bane,
 "{699, 323, 1}",402,Silberbrand,Silberbrand,
-"{709, 315, 1}",403,Greenbriar,Greenbriar,
+"{709, 315, 1}",405,Greenbriar,Greenbriar,
 "{709, 319, 1}",404,Varshikar,Varshikar,
 --Dungeons 5xx,,,,
 "{766, 632, 0}",501,Dragon Cave,Drachenhort,
