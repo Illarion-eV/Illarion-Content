@@ -49,18 +49,22 @@ function M.learn(user, skill, actionPoints, learnLimit)
 
     if skillValue < learnLimit and skillValue < 100 then --you only learn when your skill is lower than the skill of the learnLimit and your skill is <100
 
-        local chanceForSkillGain = 100 - skillValue
-
-        if math.random(0, 99) < chanceForSkillGain then --Success?
-
+            local skillFactor = (100 - skillValue)/100
             local MCfactor = normalMC / math.max(MCvalue, 1) --5% of time spent online is considered "normal" -> MCfactor is 1
             local attributeFactor = common.GetAttributeBonus(leadAttrib,0.5); --0.5 to 1.5, depending on attribute, limited to 2
             local intelligenceFactor = common.GetAttributeBonus(user:increaseAttrib("intelligence", 0),0.1); --0.9 to 1.1, depending on attribute, limited to 1.2
-            local actionpointFactor = actionPoints / normalAP --An action with 50AP is "normal"
-            local minorIncrease = math.floor(scalingFactor * attributeFactor * intelligenceFactor * actionpointFactor * MCfactor)
+            local actionpointFactor = actionPoints / normalAP --An action with 50 AP is "normal"
+            
+            local minorIncrease = scalingFactor * skillFactor * MCfactor * attributeFactor * intelligenceFactor * actionpointFactor 
+
+            if common.Chance(minorIncrease-math.floor(minorIncrease)) then
+                minorIncrease=math.floor(minorIncrease)+1
+            else
+                minorIncrease=math.floor(minorIncrease)
+            end
 
             --For debugging, use the following line.
-            --user:inform("Skill="..user:getSkillName(skill)..", actionPoints="..actionPoints..", MCfactor="..MCfactor..", attributeFactor="..attributeFactor..", intelligenceFactor="..intelligenceFactor..", actionpointFactor="..actionpointFactor..", minorIncrease="..minorIncrease..".");
+            user:inform("Skill="..user:getSkillName(skill)..", actionPoints="..actionPoints..", skillFactor="..skillFactor..", MCfactor="..MCfactor..", attributeFactor="..attributeFactor..", intelligenceFactor="..intelligenceFactor..", actionpointFactor="..actionpointFactor..", minorIncrease="..minorIncrease..".");
 
             while minorIncrease > 0 do --for the rare case that an action results in two level ups, we have this loop
 
@@ -90,8 +94,7 @@ function M.learn(user, skill, actionPoints, learnLimit)
 
             end
 
-        end
-        user:increaseMentalCapacity(amplification * actionPoints)
+            user:increaseMentalCapacity(amplification * actionPoints)
     end
 end
 
@@ -110,7 +113,7 @@ function M.reduceMC(user)
         end
     
         --For debugging, use the following line.
-        --user:inform("MC="..user:getMentalCapacity()..", idleTime="..user:idleTime()..", time="..world:getTime("unix")..".");
+        user:inform("MC="..user:getMentalCapacity()..", idleTime="..user:idleTime()..", MCfactor="..normalMC / math.max(user:getMentalCapacity(), 1)..".");
     end
 end
 

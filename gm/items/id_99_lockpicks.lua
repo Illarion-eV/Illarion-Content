@@ -173,6 +173,7 @@ local charInfo
 local changeSkills
 local getSetQueststatus
 local godMode
+local setMC
 
 function M.UseItem(User, SourceItem, ltstate)
 
@@ -184,7 +185,7 @@ function M.UseItem(User, SourceItem, ltstate)
     end
 
     -- First check for mode change
-    local modes = {"Eraser", "Teleport", "Faction info of chars in radius", "Char Info", "Change skills", "Get/ Set Queststatus", "Instant kill/ revive", "Quest events"}
+    local modes = {"Eraser", "Teleport", "Faction info of chars in radius", "Char Info", "Change skills", "Get/ Set Queststatus", "Instant kill/ revive", "Quest events", "Set MC"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -206,6 +207,8 @@ function M.UseItem(User, SourceItem, ltstate)
             godMode(User, SourceItem, ltstate)
         elseif index == 8 then
             questEvents(User, SourceItem, ltstate)
+        elseif index == 9 then
+            setMC(User, SourceItem, ltstate)
         end
     end
     local sd = SelectionDialog("Pick a function of the lockpicks.", "Which do you want to use?", cbSetMode)
@@ -526,6 +529,37 @@ function M.LookAtItem(User, Item)
     lookat.SetSpecialDescription(Item, "Verwende die Dietriche zum Aufrufen der Funktionen.", "Use the lockpicks to pick a function.")
     lookat.SetSpecialName(Item, "Dietriche", "Lockpicks")
     return lookat.GenerateLookAt(User, Item, lookat.METAL)
+end
+
+function setMC(User, SourceItem, ltstate)
+
+    local setMCInputDialog = function (dialog)
+    
+        if (not dialog:getSuccess()) then
+            return
+        end
+        
+        local input = dialog:getInput()
+        
+        if input == "" or not input then
+            User:inform("Invalid input.")
+            return
+        end
+        
+        input = math.ceil(tonumber(input))
+        
+        if input < 1 or input > 100000000 then
+            User:inform("Invalid input.")
+            return
+        end
+        
+        User:increaseMentalCapacity(input - User:getMentalCapacity())
+        User:inform("New MC: "..User:getMentalCapacity())
+        
+    end
+    
+    User:requestInputDialog(InputDialog("Set MC", "Enter desired MC value (1-100000000)." ,false, 255, setMCInputDialog))
+
 end
 
 return M
