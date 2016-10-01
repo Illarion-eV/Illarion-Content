@@ -58,12 +58,12 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 24, 2710, 2751, 737, 2763, 26, 726, 316, 736, 2535, 2550, 104, 236, 2571, 21, 22, 2536, 1062, 234, 2534, 251, 255, 252, 253, 256, 257, 254, 1266, 733, 735
+sellItems = 24, 2710, 2751, 737, 2763, 26, 726, 316, 2535, 2550, 104, 236, 2571, 21, 22, 2536, 1062, 234, 2534, 251, 255, 252, 253, 256, 257, 254, 1266, 733, 735
 -- shovel, mould, crucible-pincers, chisel, pick-axe
--- clay, coarse sand, quartz sand, unfired bricks
+-- clay, coarse sand, quartz sand
 -- iron ingot, copper ingot, silver ingot, gold ingot, merinium ingot, coal, iron ore, copper ore, silver ore, gold nuggets, merinium ore, raw amethyst, raw ruby, raw obsidian, raw sapphire, raw emerald, raw topaz, raw diamond, stone, stone block, raw stone
-buyPrimaryItems = 26, 726, 316, 736
--- clay, coarse sand, quartz sand, unfired bricks
+buyPrimaryItems = 26, 726, 316 
+-- clay, coarse sand, quartz sand
 buySecondaryItems = 2535, 2550, 104, 236, 2571, 21, 22, 2536, 1062, 234, 2534, 251, 255, 252, 253, 256, 257, 254, 1266, 733, 735
 -- iron ingot, copper ingot, silver ingot, gold ingot, merinium ingot, coal, iron ore, copper ore, silver ore, gold nuggets, merinium ore, raw amethyst, raw ruby, raw obsidian, raw sapphire, raw emerald, raw topaz, raw diamond, stone, stone block, raw stone
 tradeNotEnoughMoneyMsg "Das könnt ihr euch nicht leisten.", "You can't afford that."

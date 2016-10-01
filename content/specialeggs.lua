@@ -71,7 +71,6 @@ itemList = {
 768 ,--Wolfsfarn wolverine fern
 769 ,--Wüstenbeere desert berry
 735 ,--roher Stein raw stone
-736 ,--ungebrannte Ziegel unfired bricks
 737 ,--Meißel chisel
 738 ,--Drachenei dragon egg
 770 ,--Ritterstiefel knight boots

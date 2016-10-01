@@ -183,7 +183,6 @@ treasureContents[1] = {
 {431,5}, --wax
 {545,5}, --cherry wood boards
 {546,5}, --naldor wood boards
-{736,5}, --unfired bricks
 {2185,1}, --wooden cup
 {2535,5}, --iron ingot
 {2536,5}, --copper ore
@@ -191,22 +190,6 @@ treasureContents[1] = {
 {2547,5}, --leather
 {2716,5} --apple wood boards
 
---[[
-    -- Ammo: arrow, bolt, throwing star, wind arrows, poisoned arrow, stone, throwing axe, throwing spear,
-    {64, 100}, {237, 100}, {294, 20}, {322, 50}, {549, 50}, {1266, 100}, {2645, 20}, {293, 20},
-    -- Ore/Gems: coal, iron ore, copper ore, merinium ore, silver ore, gold nuggets, raw amethysts, raw rubies,
-    {21, 10}, {22, 10}, {2536, 10}, 2534, {1062, 5}, {234, 5}, {251, 5}, {255, 5},
-    -- Ingots: copper ingot, iron ingot, glass ingot, silver ingot,
-    {2550, 5}, {2535, 5}, {41, 5}, {104, 5},
-    -- Cloth: raw leather, leather, fur, green cloth, red cloth, black cloth, grey cloth, yellow cloth, white cloth, blue cloth
-    {69, 10}, {2547, 10}, {2586, 10}, {54, 5}, {174, 5}, {175, 5}, {176, 5}, {177, 5}, {178, 5}, {179, 5},
-    -- Wood: cherry boards, naldor boards, conifer boards, apple boards, conifer wood, cherry wood, naldor wood, applewood,
-    {545, 10}, {546, 10}, {2543, 10}, {2716, 10}, {3, 10}, {543, 10}, {544, 10}, {2560, 10},
-    -- Misc: pins and cotters, pins, unfired bricks, stone block,
-    {2717, 10}, {2738, 10}, {736, 10}, {733, 10},
-    -- Trash: clay, thread, bough, wool, quartz sand, wax, branch, potash, horn, coarse sand, raw stone, honeycomb,
-    26, 50, 56, 170, 316, 431, 2786, 314, 333, 726, 735, 2529,]]
-}
 treasureContents[2] = {
 
 {1062,5}, --silver ore
