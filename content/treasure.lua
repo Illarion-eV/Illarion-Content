@@ -189,6 +189,7 @@ treasureContents[1] = {
 {2543,5}, --conifer wood boards
 {2547,5}, --leather
 {2716,5} --apple wood boards
+}
 
 treasureContents[2] = {
 
