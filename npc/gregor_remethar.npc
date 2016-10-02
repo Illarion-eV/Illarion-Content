@@ -110,7 +110,7 @@ queststatus(105) = 1, town = Runewick, "quest", "mission" -> "Nun, habt ihr scho
 queststatus(105) = 1, town = Runewick, "task", "adventure", "order" -> "Well, did you make sure the lights are burning in honour of the tomb? If you do ever light the lamps, come to me for a little compensation."
 queststatus(105) = 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nun, habt ihr schon sichergestellt, dass die Ehrenlichter in der Gruft brennen? Wenn immer ihr die Leuchten angezündet habt, kommt zu mir für eine kleine Aufwandsentschädigung."
 
--- Quest 1 solved, reward: random, 2 rankpoints if Runewick. Remind the player that the quest can solved over and over again
+-- Quest 1 solved, reward: random. Remind the player that the quest can solved over and over again
 
 -- 20cp 30%
 queststatus(105) = 2, english, chance(30.0), town = Runewick, ".+" -> inform("[Quest solved] You are awarded two silver coins. Your reputation with Archmage Elvaine Morgan rises."), money + 200, queststatus(105) = 1, "Ah, you lit the lights of honour. Here, take these two silver coins for your efforts. Come again to me if you ever rekindle the lights."
