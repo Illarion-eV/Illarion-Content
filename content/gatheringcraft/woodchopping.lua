@@ -26,25 +26,27 @@ module("content.gatheringcraft.woodchopping", package.seeall)
 
 
 local TreeItems = {}
-local function AddTree(TreeId, TrunkId, LogId, BoughId, Amount, BoughProbability)
+local function AddTree(TreeId, TrunkId, LogId, HeartwoodId, BoughId, Amount, BoughProbability, HeartwoodProbability)
     local treeTable = {};
     treeTable.TrunkId = TrunkId;
     treeTable.LogId = LogId;
+    treeTable.HeartwoodId = HeartwoodId;
     treeTable.BoughId = BoughId;
     treeTable.Amount = Amount;
     treeTable.BoughProbability = BoughProbability;
+    treeTable.HeartwoodProbability = HeartwoodProbability;
     TreeItems[TreeId] = treeTable
 end
 
-AddTree(  11,125,2560,  56,10,0.4); -- apple tree
-AddTree(  14,125,2560,  56,10,0.4); -- apple tree
-AddTree( 299,541, 543,2786,15,0.4); -- cherry tree
-AddTree( 300,541, 543,2786,15,0.4); -- cherry tree
-AddTree( 308,309,   3,   56,12,0.4); -- fir tree
-AddTree( 586,587, 544,  56,10,0.4); -- cachdern tree
-AddTree(1804,542, 544,  56,15,0.4); -- naldor tree
-AddTree(1809,584, 544,  56,24,0.4); -- eldan oak
-AddTree(1817,585,   3,   56,19,0.4); -- scandrel pine
+AddTree(  11,125,2560,3786,  56,11,0.075,0); -- apple tree
+AddTree(  14,125,2560,3786,  56,11,0.075,0); -- apple tree
+AddTree( 299,541, 543,3786,  56,11,0.075,0); -- cherry tree
+AddTree( 300,541, 543,3786,  56,11,0.075,0); -- cherry tree
+AddTree( 308,309,   3,3786,  56,10,0.075,0); -- fir tree
+AddTree( 586,587, 544,3786,  56,10,0.075,0.06); -- cachdern tree
+AddTree(1804,542, 544,3786,  56,11,0.075,0.06); -- naldor tree
+AddTree(1809,584, 544,3786,  56,11,0.075,0); -- eldan oak
+AddTree(1817,585,   3,3786,  56,11,0.075,0); -- scandrel pine
 
 local unchoppableTrees = {}
 unchoppableTrees[203] = true
@@ -160,7 +162,9 @@ function StartGathering(User, SourceItem, ltstate)
     world:changeItem(SourceItem);
 
     local producedItemId = tree.LogId;
-    if (math.random() <= tree.BoughProbability ) then
+    if (math.random() <= tree.HeartwoodProbability ) then
+        producedItemId = tree.HeartwoodId;
+    elseif (math.random() <= tree.BoughProbability ) then
         producedItemId = tree.BoughId;
     end
     local created = common.CreateItem(User, producedItemId, 1, 333, nil) -- create the new produced items
