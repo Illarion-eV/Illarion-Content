@@ -471,10 +471,10 @@ function M.ToolBreaks(user, item, workTime)
         return false
     end
     
-    loss=math.floor(workTime/300) --Each durability point equals 30 seconds of crafting time. Hence, a new tool lasts 50 minutes.
+    loss=math.floor(workTime/180) --Each durability point equals 18 seconds of crafting time. Hence, a new tool lasts 30 minutes.
     remainder=workTime-loss
     
-    if (math.random(1, 100) < (remainder/3)) then 
+    if (math.random(1, 100) < (remainder/1.8)) then 
         loss=loss+1
     end
 
