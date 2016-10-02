@@ -421,8 +421,8 @@ Description[ENGLISH][193] = "Philipp Molitor has the following order for you. Th
 Description[GERMAN][193] = "Für euch liegt folgender Auftrag von Philipp Molitor vor: Die nächste Karawane benötigt fünf verstärkte Jagdrüstungen. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen fünfhundertvierundzwanzig Silberstücke sein. Für die Ehre von Cadomyr!"
 Description[ENGLISH][194] = "Philipp Molitor has the following order for you. The next caravan has a demand for five full leather armours. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward will be seven hundred thirty six silver coins."
 Description[GERMAN][194] = "Für euch liegt folgender Auftrag von Philipp Molitor vor: Die nächste Karawane benötigt fünf volle Lederrüstungen. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen siebenhundertsechsunddreißig Silberstücke sein. Für die Ehre von Cadomyr!"
-Description[ENGLISH][195] = "Philipp Molitor has the following order for you. The next caravan has a demand for four assassin's armours of darkness. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward will be eight hundred silver coins."
-Description[GERMAN][195] = "Für euch liegt folgender Auftrag von Philipp Molitor vor: Die nächste Karawane benötigt vier Attentäterrüstungen der Dunkelheit. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen achthundert Silberstücke sein. Für die Ehre von Cadomyr!"
+Description[ENGLISH][195] = "Philipp Molitor has the following order for you. The next caravan has a demand for five assassin's armours of darkness. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward will be one thousand silver coins."
+Description[GERMAN][195] = "Für euch liegt folgender Auftrag von Philipp Molitor vor: Die nächste Karawane benötigt fünf Attentäterrüstungen der Dunkelheit. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen eintausend Silberstücke sein. Für die Ehre von Cadomyr!"
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 Start = {103, 588, 0}
