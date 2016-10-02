@@ -1,4 +1,4 @@
---[[
+﻿--[[
 Illarion Server
 
 This program is free software: you can redistribute it and/or modify it under
@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- sowing seeds
 local common = require("base.common")
 local sowing = require("content.gatheringcraft.sowing")
+local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
@@ -72,7 +73,9 @@ local M = {}
 
 
 function M.UseItem(User, SourceItem, ltstate)
-
+    if skillTransfer.skillTransferInformCookingHerbloreFarming(User) then
+        return
+    end
     sowing.StartGathering(User, SourceItem, ltstate);
 end
 

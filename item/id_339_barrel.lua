@@ -18,10 +18,14 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_339_barrel' WHERE itm_id IN (339,1410,1411);
 
 local brewing = require("craft.final.brewing")
+local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
+    if skillTransfer.skillTransferInformCookingHerbloreFarming(User) then
+        return
+    end
     brewing.brewing:showDialog(User, SourceItem)
 end
 

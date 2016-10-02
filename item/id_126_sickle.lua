@@ -22,13 +22,16 @@ local common = require("base.common")
 local farming = require("content.gatheringcraft.farming")
 local herbgathering = require("content.gatheringcraft.herbgathering")
 local metal = require("item.general.metal")
+local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
 M.LookAtItem = metal.LookAtItem
 
 function M.UseItem(User, SourceItem, ltstate)
-
+    if skillTransfer.skillTransferInformCookingHerbloreFarming(User) then
+        return
+    end
 	local plant;
 
 	-- field grops (and seeds)

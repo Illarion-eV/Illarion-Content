@@ -19,12 +19,16 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local candledipping = require("craft.intermediate.candledipping")
 local wood = require("item.general.wood")
+local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
 M.LookAtItem = wood.LookAtItem
 
 function M.UseItem(User, SourceItem, ltstate)
+    if skillTransfer.skillTransferInformCookingHerbloreFarming(User) then
+        return
+    end
     candledipping.candledipping:showDialog(User, SourceItem)
 end
 

@@ -17,12 +17,16 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local pressing = require("craft.intermediate.pressing")
 local wood = require("item.general.wood")
+local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
 M.LookAtItem = wood.LookAtItem
 
 function M.UseItem(User, SourceItem, ltstate)
+    if skillTransfer.skillTransferInformCookingHerbloreFarming(User) then
+        return
+    end
     pressing.pressing:showDialog(User, SourceItem)
 end
 
