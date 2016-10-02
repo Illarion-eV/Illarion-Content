@@ -29,39 +29,39 @@ M.LookAtItem = metal.LookAtItem
 
 function getGrain(User)
 
-	-- first check front position for grain
-	local TargetItem = common.GetFrontItem(User);
-	if ( TargetItem ~= nil and TargetItem.id == 248 ) then
-		return TargetItem;
-	end
+    -- first check front position for grain
+    local TargetItem = common.GetFrontItem(User);
+    if ( TargetItem ~= nil and TargetItem.id == 248 ) then
+        return TargetItem;
+    end
 
-	local foundYoungGrain = false; -- check if we only find not fully grown grain
-	TargetItem, foundYoungGrain = grainharvesting.GetNearbyGrain(User);
-	if ( TargetItem == nil ) then
-		-- since we're here, there is no fully grown grain
-		if ( foundYoungGrain ) then
-			common.HighInformNLS( User,
-			"Das Getreide ist noch nicht reif für den Schnitt.",
-			"The grain is not ready for harvest yet." );
-		else
-			common.HighInformNLS( User,
-			"Du brauchst Getriede um es mit der Sense zu schneiden.",
-			"You need grain for harvesting it with the scythe." );
-		end
-		return nil;
-	end
+    local foundYoungGrain = false; -- check if we only find not fully grown grain
+    TargetItem, foundYoungGrain = grainharvesting.GetNearbyGrain(User);
+    if ( TargetItem == nil ) then
+        -- since we're here, there is no fully grown grain
+        if ( foundYoungGrain ) then
+            common.HighInformNLS( User,
+            "Das Getreide ist noch nicht reif für den Schnitt.",
+            "The grain is not ready for harvest yet." );
+        else
+            common.HighInformNLS( User,
+            "Du brauchst Getriede um es mit der Sense zu schneiden.",
+            "You need grain for harvesting it with the scythe." );
+        end
+        return nil;
+    end
 
-	return TargetItem;
+    return TargetItem;
 end
 
 function M.UseItem(User, SourceItem, ltstate)
     if skillTransfer.skillTransferInformCookingHerbloreFarming(User) then
         return
     end
-	local grain = getGrain(User);
-	if grain ~= nil then
-		grainharvesting.StartGathering(User, grain, ltstate);
-	end
+    local grain = getGrain(User);
+    if grain ~= nil then
+        grainharvesting.StartGathering(User, grain, ltstate);
+    end
 
 end
 
