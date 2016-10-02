@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 -- This is ugly but functional code to handle the skill transfer to new skills. This code should be deleted after the 1th January 2017
+-- Clean up the various tool scripts as well then
 
 local common = require("base.common")
 local M = {}
@@ -37,23 +38,23 @@ local function transferSkillCookingHerbloreFarming(user)
     changes[0] = {textDe = "Ändere nichts.", textEn = "Change nothing.", 
     exec = function(user, skillValues) user:inform(common.GetNLS(user,"Du hast dich dafür entschieden, keine Veränderungen vorzunehmen.", "You decided to change nothing."), Character.highPriority); end}
     
-    changes[1] = {textDe = "Übertrage deine Punkte von Kochen und Backen auf Landwirtschaft.", textEn = "Transfer your points from Cooking and Baking to Husbanrdy.", 
+    changes[1] = {textDe = "Übertrage deine Punkte von Kochen und Backen auf Landwirtschaft.", textEn = "Transfer your points from Cooking and Baking to Husbandry.", 
     exec = function(user, skillValues) user:inform(common.GetNLS(user,"Du hast dich dafür entschieden, deine Punkte von Kochen und Backen auf Landwirtschaft zu übertragen.", "You decided to transfer your points from Cooking and Baking to Husbandry"), Character.highPriority); user:setSkill(Character.husbandry, skillValues.cookingBakingTable.major, cookingBakingTable.minor); user:setSkill(Character.cookingAndBaking, 0, 0); end}
     
     changes[2] = {textDe = "Übertrage deine Punkte von Kochen und Backen auf Brauerei.", textEn = "Transfer your points from Cooking and Baking to Brewing.", 
     exec = function(user, skillValues) user:inform(common.GetNLS(user,"Du hast dich dafür entschieden, deine Punkte von Kochen und Backen auf Brauerei zu übertragen.", "You decided to transfer your points from Cooking and Baking to Brewing"), Character.highPriority); user:setSkill(Character.brewing, skillValues.cookingBakingTable.major, skillValues.cookingBakingTable.minor); user:setSkill(Character.cookingAndBaking, 0, 0); end}
     
-    changes[3] = {textDe = "Übertrage deine Punkte von Kräuterkunde auf Landwirtschaft.", textEn = "Transfer your points from Herblore to Husbanrdy.", 
+    changes[3] = {textDe = "Übertrage deine Punkte von Kräuterkunde auf Landwirtschaft.", textEn = "Transfer your points from Herblore to Husbandry.", 
     exec = function(user, skillValues) user:inform(common.GetNLS(user,"Du hast dich dafür entschieden, deine Punkte von Kräuterkunde auf Landwirtschaft zu übertragen.", "You decided to transfer your points from Herblore to Husbandry"), Character.highPriority); user:setSkill(Character.husbandry, skillValues.herbloreTable.major, skillValues.herbloreTable.minor); user:setSkill(Character.herblore, 0, 0); end}
     
     changes[4] = {textDe = "Übertrage deine Punkte von Kochen und Backen auf Brauerei.\nUnd übertrage deine punkte von Kräuterkunde auf Landwirtschaft.", 
-    textEn = "Transfer your points from Cooking and Baking to Brewing.\nAnd transfer your points from Herblore to Husbanrdy.", 
+    textEn = "Transfer your points from Cooking and Baking to Brewing.\nAnd transfer your points from Herblore to Husbandry.", 
     exec = function(user, skillValues) user:inform(common.GetNLS(user,"Du hast dich dafür entschieden, deine Punkte von Kräuterkunde auf Landwirtschaft zu übertragen und deine Punkte von Kochen und Backen auf Brauerei zu verschieben.", "You decided to transfer your points from Herblore to Husbandry and to transfer your points from Cooking and Baking to Brewing.")); user:setSkill(Character.husbandry, skillValues.herbloreTable.major, skillValues.herbloreTable.minor); user:setSkill(Character.herblore, 0, 0); user:setSkill(Character.brewing, skillValues.cookingBakingTable.major, skillValues.cookingBakingTable.minor); user:setSkill(Character.cookingAndBaking, 0, 0); end}
     
-    changes[5] = {textDe = "Übertrage deine Punkte von Ackerbau auf Landwirtschaft.", textEn = "Transfer your points from Farming to Husbanrdy.", 
+    changes[5] = {textDe = "Übertrage deine Punkte von Ackerbau auf Landwirtschaft.", textEn = "Transfer your points from Farming to Husbandry.", 
     exec = function(user, skillValues) user:inform(common.GetNLS(user,"Du hast dich dafür entschieden, deine Punkte von Ackerbau auf Landwirtschaft zu übertragen.", "You decided to transfer your points from Farming to Husbandry", Character.highPriority)); user:setSkill(Character.husbandry, skillValues.farmingTable.major, skillValues.farmingTable.minor); user:setSkill(Character.farming, 0, 0); end}
     
-    changes[6] = {textDe = "Übertrage deine Punkte von Kochen und Backen auf Brauerei.\nUnd übertrage deine punkte von Ackerbau auf Landwirtschaft.", textEn = "Transfer your points from Cooking and Baking to Brewing.\nAnd transfer your points from Farming to Husbanrdy.", 
+    changes[6] = {textDe = "Übertrage deine Punkte von Kochen und Backen auf Brauerei.\nUnd übertrage deine punkte von Ackerbau auf Landwirtschaft.", textEn = "Transfer your points from Cooking and Baking to Brewing.\nAnd transfer your points from Farming to Husbandry.", 
     exec = function(user, skillValues) user:inform(common.GetNLS(user,"Du hast dich dafür entschieden, deine Punkte von Ackerbau auf Landwirtschaft zu übertragen und deine Punkte von Kochen und Backen auf Brauerei zu verschieben.", "You decided to transfer your points from Farming to Husbandry and to transfer your points from Cooking and Baking to Brewing.")); user:setSkill(Character.husbandry, skillValues.farmingTable.major, skillValues.farmingTable.minor); user:setSkill(Character.farming, 0, 0); user:setSkill(Character.brewing, skillValues.cookingBakingTable.major, skillValues.cookingBakingTable.minor); user:setSkill(Character.cookingAndBaking, 0, 0); end}
     
 
@@ -109,7 +110,7 @@ function M.skillTransferInformCookingHerbloreFarming(user)
     end
     
     local infText = common.GetNLS(user,
-       "Illarion hat zwei neue Skills: Brauerei und HusbandryDe.\nIm folgenden wirst du die Möglichkeit haben, deine Skills anzupassen, wenn du das wüschst.\nHusbandryDe umfasst das Braten am Räucherofen (zuvor gehörte das zum Kochen und Backen Skill), das Ölpressen (das gehörte zuvor zu Kräuterkunde) und das Sammeln von Waben und Verarbeiten von diesen zu Kerzen (beides zuvor Teil von Ackerbau.\nBrauerei umfasst das Herstellen von Getränken aller Art. Dies wurde aus dem Kochen und Backen Skill entfernt.\nKlicke auf 'Okay' um zu den möglichen Anpassungsoptionen zu gelangen. Bitte bedenke, dass du deine Entscheidung nicht im Nachinein ändern kannst.",
+       "Illarion hat zwei neue Skills: Brauerei und Landwirtschaft.\nIm folgenden wirst du die Möglichkeit haben, deine Skills anzupassen, wenn du das wüschst.\n\nLandwirtschaft umfasst das Braten am Räucherofen (zuvor gehörte das zum Kochen und Backen Skill), das Ölpressen (das gehörte zuvor zu Kräuterkunde) und das Sammeln von Waben und Verarbeiten von diesen zu Kerzen (beides zuvor Teil von Ackerbau.\n\nBrauerei umfasst das Herstellen von Getränken aller Art. Dies wurde aus dem Kochen und Backen Skill entfernt.\n\nKlicke auf 'Okay' um zu den möglichen Anpassungsoptionen zu gelangen. Bitte bedenke, dass du deine Entscheidung nicht im Nachinein ändern kannst.",
        
        "Illarion has two new Skills: Brewing and Husbandry.\nYou have now the option to adjust your skills if you wish to do so.\nHusbandry handles now smoking food in the smoke oven (Formerly, this was part of Cooking and Baking.), making oil from thistles (formerly part of Herblore), and collecting honeycombs and making candles from them (formlery part of farming).\nBrewing is producing all kinds of drinks (This was formerly part of Cooking and Baking).\nClick 'Okay' to get to the possible option for adjusting your skills. Mind that you cannot undo your decission afterwards.")
     local title = common.GetNLS(user,"Neue Handwerksskills","New crafting skills")

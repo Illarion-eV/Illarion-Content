@@ -22,39 +22,42 @@ local common = require("base.common")
 local farming = require("content.gatheringcraft.farming")
 local herbgathering = require("content.gatheringcraft.herbgathering")
 local metal = require("item.general.metal")
+local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
 M.LookAtItem = metal.LookAtItem
 
 function M.UseItem(User, SourceItem, ltstate)
+    if skillTransfer.skillTransferInformCookingHerbloreFarming(User) then
+        return
+    end
+    local plant;
 
-	local plant;
+    -- field grops (and seeds)
+    plant = farming.getFarmingItem(User);
+    if plant ~= nil then
+        farming.StartGathering(User, plant, ltstate);
+        return;
+    end
 
-	-- field grops (and seeds)
-	plant = farming.getFarmingItem(User);
-	if plant ~= nil then
-		farming.StartGathering(User, plant, ltstate);
-		return;
-	end
+    -- handle herbs which are harvestable first
+    plant = herbgathering.getHerbItem(User, true);
+    if plant ~= nil then
+        herbgathering.StartGathering(User, plant, ltstate);
+        return;
+    end
 
-	-- handle herbs which are harvestable first
-	plant = herbgathering.getHerbItem(User, true);
-	if plant ~= nil then
-		herbgathering.StartGathering(User, plant, ltstate);
-		return;
-	end
+    -- try herbs which wont give a harvest as well
+    plant = herbgathering.getHerbItem(User, false);
+    if plant ~= nil then
+        herbgathering.StartGathering(User, plant, ltstate);
+        return;
+    end
 
-	-- try herbs which wont give a harvest as well
-	plant = herbgathering.getHerbItem(User, false);
-	if plant ~= nil then
-		herbgathering.StartGathering(User, plant, ltstate);
-		return;
-	end
-
-	common.HighInformNLS( User,
-	"Hier ist nichts, wofür du die Sichel benutzen kannst.",
-	"There is nothing for which you can use the sickle." );
+    common.HighInformNLS( User,
+    "Hier ist nichts, wofür du die Sichel benutzen kannst.",
+    "There is nothing for which you can use the sickle." );
 
 end
 

@@ -17,10 +17,14 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_3581_kettle' WHERE itm_id IN (3581);
 
 local cooking = require("craft.final.cooking")
+local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
+    if skillTransfer.skillTransferInformCookingHerbloreFarming(User) then
+        return
+    end
     cooking.cooking:showDialog(User, SourceItem)
 end
 

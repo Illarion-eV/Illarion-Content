@@ -19,12 +19,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local honeygathering = require("content.gatheringcraft.honeygathering")
+local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-
-	honeygathering.StartGathering(User, SourceItem, ltstate);
+    if skillTransfer.skillTransferInformCookingHerbloreFarming(User) then
+        return
+    end
+    honeygathering.StartGathering(User, SourceItem, ltstate);
 end
 
 return M
