@@ -121,7 +121,6 @@ queststatus(212) ~= 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befeh
 -- Countdown is saved in queststatus (211)
 -- Cooldown works like this: Set queststatus (212) to delay time [minutes]/5. Example: 2 hours = 120 minutes -> queststatus(129) = 24
 
-
 -- Order 1: Gather fifty stones (1266) in four hours
 -- Order 1 taken, get fifty stones, reward: two sp, 1 rankpoints
 queststatus(210) = 0, english, chance(0.336700337), town = Galmair, "quest", "mission" -> inform("[New Order] Get fifty stones."), "A reliable client of mind has a demand for fifty stones. I’ll pay two silver coins. I won’t long before I give this order to someone else.", queststatus(210) = 1, queststatus(211) = 48
