@@ -55,7 +55,6 @@ function M.callEffect( Effect, Char ) -- Effect is called
         -- Reset queststatus for quests that can be done once every ingame month
         checkMonthlyQuests(Char)
 
-
         --Addition by Envi: Quest 680 (Evil Rock Reward)
         local theQuestStatus=Char:getQuestProgress(680)
 
@@ -196,6 +195,14 @@ function M.callEffect( Effect, Char ) -- Effect is called
             Char:setQuestProgress(129,theQuestStatus-1) --cooling!
         end
         --Addition end
+        
+        --Addition by Estralis: Quest 210/211/212 Late Delivery (Anthony Devries) Cooldown
+        theQuestStatus=Char:getQuestProgress(212)
+
+        if theQuestStatus > 0 then --Is there a cooldown? Will only be reduced if the player isn't AFK/idle
+            Char:setQuestProgress(212,theQuestStatus-1) --cooling!
+        end
+        --Addition end
 
         --Addition by Estralis: Quest 162/163/164 Glorious Bounty (Palis Nestros) Cooldown
         theQuestStatus=Char:getQuestProgress(164)
@@ -263,6 +270,33 @@ function M.callEffect( Effect, Char ) -- Effect is called
 
     if theQuestStatus > 0 then --Is there a countdown? Will be reduced even if the player is AFK/idle
         Char:setQuestProgress(128,theQuestStatus-1) --counting down!
+    end
+    --Addition end
+    
+    --Addition by Estralis: Quest 210/211/212 Late Delivery (Anthony Devries) Countdown
+    local theQuestStatus=Char:getQuestProgress(211)
+
+    if theQuestStatus == 1 then --Time over!
+
+        common.InformNLS(Char,"[Auftragssstatus] Du hast es nicht geschafft, den Auftrag von Anthony Devries zu erledigen.","[Order status] You failed to fulfil the order of Anthony Devries.") -- Feedback!
+        Char:setQuestProgress(210,0)
+
+    end
+
+    if theQuestStatus == 3 then --Ten minutes left!
+
+        common.InformNLS(Char,"[Auftragssstatus] Es verbleiben dir noch zehn Minuten, um den Auftrag von Anthony Devries zu erledigen.","[Order status] You have ten minutes left to fulfil the order of Anthony Devries.") -- Feedback!
+
+    end
+
+    if theQuestStatus == 13 then --One hour left
+
+        common.InformNLS(Char,"[Auftragssstatus] Es verbleibt dir noch eine Stunde, um den Auftrag von Anthony Devries zu erledigen.","[Order status] You have one hour left to fulfil the order of Anthony Devries.") -- Feedback!
+
+    end
+
+    if theQuestStatus > 0 then --Is there a countdown? Will be reduced even if the player is AFK/idle
+        Char:setQuestProgress(211,theQuestStatus-1) --counting down!
     end
     --Addition end
 
