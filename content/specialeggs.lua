@@ -476,7 +476,6 @@ itemList = {
 2777 ,--Drow-Klinge drow blade
 2778 ,--Elfenschwert elvensword
 2784 ,--Stab des Wassers wand of water
-2786 ,--Zweig branch
 2788 ,--Schlangenschwert snake sword
 83 ,--Topaskette topaz amulet
 198 ,--Topas topaz

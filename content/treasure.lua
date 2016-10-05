@@ -169,7 +169,6 @@ treasureContents[1] = {
 {2560,5}, --applewood
 {2586,5}, --fur
 {2696,5}, --feathers
-{2786,5}, --branch
 {176,5}, --grey cloth
 {54,5}, --green cloth
 {174,5}, --red cloth
