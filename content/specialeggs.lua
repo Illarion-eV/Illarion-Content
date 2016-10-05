@@ -642,7 +642,7 @@ itemList = {
 1048 ,--Voulge voulge
 1049 ,--Vipernspeer viper spear
 1051 ,--Partisane des Lichtes partisan of light
-1052 ,--Zwergen Sturmhammer dwarven stormhammer
+1052 ,--Zwergen-Sturmhammer dwarven stormhammer
 1053 ,--Heilige Voulge divine voulge
 1050 ,--Schattenranseur shadow ranseur
 835 ,--schwarz-graues Kleid black grey dress
