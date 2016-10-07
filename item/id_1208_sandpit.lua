@@ -25,7 +25,7 @@ function M.UseItem(User, SourceItem, ltstate)
     if skillTransfer.skillTransferInformMining(User) then
         return
     end
-	sanddigging.StartGathering(User, SourceItem, ltstate);
+    sanddigging.StartGathering(User, SourceItem, ltstate);
 end
 
 return M
