@@ -18,10 +18,14 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_3869_bloomery' WHERE itm_id IN (3869,3870);
 
 local casting = require("craft.intermediate.casting")
+local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
+    if skillTransfer.skillTransferInformMining(User) then
+        return
+    end
     casting.casting:showDialog(User, SourceItem)
 end
 

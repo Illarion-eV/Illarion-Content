@@ -18,15 +18,22 @@ local blacksmithing = require("craft.final.blacksmithing")
 local finesmithing = require("craft.final.finesmithing")
 local armourer = require("craft.final.armourer")
 local common = require("base.common")
+local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
     if blacksmithing.blacksmithing:isHandToolEquipped(User) then
+        if skillTransfer.skillTransferInformSmithing(User) then
+            return
+        end
         blacksmithing.blacksmithing:showDialog(User, SourceItem);
     elseif finesmithing.finesmithing:isHandToolEquipped(User) then
         finesmithing.finesmithing:showDialog(User, SourceItem);
     elseif armourer.armourer:isHandToolEquipped(User) then
+        if skillTransfer.skillTransferInformSmithing(User) then
+            return
+        end
         armourer.armourer:showDialog(User, SourceItem);
     else
         common.HighInformNLS(User,
