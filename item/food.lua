@@ -44,9 +44,9 @@ foodList[3709] = {crafted = true}
 -- Grilled Steak
 foodList[3606] = {crafted = true}
 -- Grilled Lamb
-foodList[3613] = {crafted = true}
+foodList[3713] = {crafted = true}
 -- Grilled Venison
-foodList[3614] = {crafted = true}
+foodList[3714] = {crafted = true}
 -- Cookies
 foodList[453] = {crafted = true}
 -- Cheese
