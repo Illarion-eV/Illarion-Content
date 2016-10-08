@@ -55,9 +55,9 @@ product = pottery:addProduct(catId, 310, 1)
 product:addIngredient(26, 10) -- clay
 
 -- empty alchemy bomb
-product = pottery:addProduct(catId, 1223, 1)
+product = pottery:addProduct(catId, 1223, 2)
 product:addIngredient(26, 10) -- clay
-product:addIngredient(448, 1) -- emerald powder
+product:addIngredient(451, 1) -- topaz powder
 
 -- vase
 product = pottery:addProduct(catId, 315, 1)
