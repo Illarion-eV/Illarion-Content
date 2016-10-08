@@ -34,7 +34,7 @@ foodList[191] = {crafted = true}
 -- Sausage
 foodList[3051] = {crafted = true}
 -- Ham
-foodList[307] = {crafted = true}
+foodList[306] = {crafted = true}
 -- Smoked fish
 foodList[455] = {crafted = true}
 -- Smoked rabbit
@@ -192,7 +192,7 @@ foodList[1207] = {foodPoints = valueMedium}
 -- horse mackerel
 foodList[1209] = {foodPoints = valueMedium}
 -- rose fish
-foodList[1210] = {foodPoints = VALUE_LARGE}
+foodList[1210] = {foodPoints = valueLarge}
 -- carrots:
 foodList[2493] = {foodPoints = valueMedium}
 -- lamb
