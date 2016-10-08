@@ -87,22 +87,22 @@ end
 -- reward[x] = {y,z} - x = stones to have collected, y = item id , z= amount of y
 local reward = {}
 reward[1] = {{3077, 2}}; -- 2 silver coins (3077)
-reward[5] = {{3077, 10},{49,1},{97,1},{463,1},{842,1}}; -- items worth 10 silver coins - silver coins, bread, leather bag, quill, green white skirt
-reward[10] = {{3077, 20},{455, 10},{812,1},{2629,1},{2359,1},{126,1},{72,1}} -- items worth 20 silver coins - silver coins, smoked fish, black doublet, light battle axe, mercenary armour, sickle, fishing rod
-reward[20] = {{3077, 30},{53,1},{2360,1},{454,4},{18,1}} -- items worth 30 silver coins - silver coins, leather boots, Guardians armour, blackberry muffins, light shield
-reward[50] = {{3077, 60},{2727, 1},{353,3},{2403,1},{2384,1}} -- items worth 60 silver coins - silver coins, fire hunters bow, apple pie, elvensilversteel armour, black coat
-reward[100] = {{61, 1},{557,4},{2675,1},{2302,1},{2419,1},{51,5}} -- items worth 1 gold coin - gold coin, steak dish, rapier, gynk mercenary helm, red priest robe, bucket
-reward[200] = {{61,2},{554,5},{1053,1},{696,1},{845,1}} -- items worth 2 gold coins - gold coins, vension dish, divine voulge, lizard armour, blue green heraldic dress
-reward[350] = {{61,5},{354,14},{558,1},{96,1},{2367,1}} -- items worth 5 gold coins - gold coins, strawberry cakes, archmage robe, steel tower shield, albarian nobles armour
-reward[500] = {{61,7},{2551,14},{2552,14},{2553,14},{2554,14},{3607,14}} -- items worth 7 gold coins - gold coins, pure aire, pure earth, pure fire, pure water
-reward[750] = {{61,10},{1052,1},{2400,1},{2662,1},{1155,20}} -- items worth 10 gold coins - gold coins, dwarven stormhammer, elven state armour, magical dwarven axe, chicken dish
+reward[5] = {{3077, 10},{16,1},{97,1},{463,1},{326,1}}; -- items worth 10 silver coins - silver coins, orc helmet, leather bag, quill, steel boots
+reward[10] = {{3077, 20},{455, 10},{2421,1},{2760,1},{2763,1},{126,1},{72,1}} -- items worth 20 silver coins - silver coins, smoked fish, white priest robe, rope, pick-axe, sickle, fishing rod
+reward[20] = {{3077, 30},{90,1},{1908,1},{2537,5},{254,3}} -- items worth 30 silver coins - silver coins, flute, glass mug, iron plate, raw diamond
+reward[50] = {{3077, 60},{1152,1},{2719,1},{453,20},{64,150}} -- items worth 60 silver coins - silver coins, chicken soup, comb, cookies, arrows
+reward[100] = {{61, 1},{559,2},{1059,1},{533,1},{1223,1},{51,5}} -- items worth 1 gold coin - gold coin, lamb dish, dice cup, drum, empty alchemy bomb, bucket
+reward[200] = {{61,2},{3723,4},{281,1},{357,1},{3642,1}} -- items worth 2 gold coins - gold coins, nut bread, golden emerald ring, blue wizard hat, empty salve jar
+reward[350] = {{61,5},{332,1},{558,1},{1491,1},{2571,10}} -- items worth 5 gold coins - gold coins, harp, archmage robe, holy chain pants, merinium ingot
+reward[500] = {{61,7},{205,1},{207,1},{1039,1},{2731,1}} -- items worth 7 gold coins - gold coins, double axe, battle staff, twinblade ranseur, two-handed sword
+reward[750] = {{61,10},{1052,1},{2742,1},{2400,1},{757,10}} -- items worth 10 gold coins - gold coins, dwarven stormhammer, red fire dagger, state armour, tybalt star
 
 function M.getReward(Char)
     local nrStones = M.CountStones(Char)
     if reward[nrStones] ~= nil then
         if #reward[nrStones] == 1 then
             common.CreateItem(Char, reward[nrStones][1][1], reward[nrStones][1][2], 699, nil)
-            Char:inform("Du hast 2 Silberstücke erhalten, da du den ersten Markierungsstein entdeckt hast. Weiter so!", "You have received two silver coins for discovering the first marker stone. Keep it up!");
+            Char:inform("Du hast zwei Silberstücke erhalten, da du den ersten Markierungsstein entdeckt hast. Weiter so!", "You have received two silver coins for discovering the first marker stone. Keep it up!");
             Char:setQuestProgress(320,2)
         else
             M.rewardDialog(Char, nrStones)
