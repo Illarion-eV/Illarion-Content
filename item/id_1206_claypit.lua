@@ -21,6 +21,7 @@ local common = require("base.common")
 local lookat = require("base.lookat")
 local climbing = require("content.climbing")
 local claydigging = require("content.gatheringcraft.claydigging")
+local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
@@ -37,7 +38,10 @@ function M.UseItem(User, SourceItem, ltstate)
         end
         return
     end
-
+   
+   if skillTransfer.skillTransferInformMining(User) then
+        return
+    end
     claydigging.StartGathering(User, SourceItem, ltstate)
 end
 

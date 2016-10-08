@@ -16,10 +16,14 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local sieving = require("craft.intermediate.sieving")
+local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
+    if skillTransfer.skillTransferInformMining(User) then
+        return
+    end
     sieving.sieving:showDialog(User, SourceItem)
 end
 

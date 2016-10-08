@@ -44,6 +44,7 @@ local treasure = require("item.base.treasure")
 local mining = require("content.gatheringcraft.mining")
 local metal = require("item.general.metal")
 local transformation_dog = require("alchemy.teaching.transformation_dog")
+local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
@@ -84,6 +85,10 @@ function M.UseItem(User, SourceItem, ltstate)
     end
 
     if not common.FitForWork( User ) then -- check minimal food points
+        return
+    end
+    
+    if skillTransfer.skillTransferInformMining(User) then
         return
     end
     

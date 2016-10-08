@@ -68,8 +68,8 @@ end
 -- The maximal level limit is set to a lower value then the treasure is. This usually happens in case the players
 -- does not have the sufficient skill level
 M.msgTreasureLevelTooHigh = messages.Messages()
-M.msgTreasureLevelTooHigh:addMessage("Du bist nicht erfahren genug in der Bergarbeit um diesen Schatz auszugraben.",
-    "You are not skilled enough in mining to dig out the treasure.")
+M.msgTreasureLevelTooHigh:addMessage("Du bist nicht erfahren genug mit diesem Werkzeug um diesen Schatz auszugraben.",
+    "You are not skilled enough in in using this tool to dig out the treasure.")
 
 -- The treasure was found, but to give the players some time to repair they have to digg another time into the ground
 -- to trigger the spawning of the treasure.

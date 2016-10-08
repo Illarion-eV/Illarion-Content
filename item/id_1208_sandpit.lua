@@ -17,12 +17,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_1208_sandpit' WHERE itm_id=1208;
 
 local sanddigging = require("content.gatheringcraft.sanddigging")
+local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-
-	sanddigging.StartGathering(User, SourceItem, ltstate);
+    if skillTransfer.skillTransferInformMining(User) then
+        return
+    end
+    sanddigging.StartGathering(User, SourceItem, ltstate);
 end
 
 return M

@@ -22,6 +22,7 @@ local money = require("base.money")
 local townTreasure = require("base.townTreasure")
 local gems = require("item.gems")
 local factionLeader = require("scheduled.factionLeader")
+local skillTransfer = require("base.skillTransfer")
 
 -- Called after every player login
 
@@ -221,6 +222,8 @@ local payNow
 
 function M.onLogin( player )
 
+    skillTransfer.setQuestStatusForNoSkillChars(player)
+    
     welcomeNewPlayer(player)
 
     world:gfx(31, player.pos) --A GFX that announces clearly: A player logged in.
@@ -301,6 +304,8 @@ function M.onLogin( player )
 end
 
 function showNewbieDialog(player)
+    skillTransfer.setNewbieQuestStatus(player)
+    
     local getText = function(deText,enText) return common.GetNLS(player, deText, enText) end
 
     local callbackNewbie = function(dialogNewbie) --start callback of Newbie Dialog

@@ -22,6 +22,7 @@ local transformation_dog = require("alchemy.teaching.transformation_dog")
 local claydigging = require("content.gatheringcraft.claydigging")
 local sanddigging = require("content.gatheringcraft.sanddigging")
 local metal = require("item.general.metal")
+local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
@@ -35,7 +36,7 @@ local function DigForTreasure(User)
 
     if groundType ~= common.GroundType.rocks then
         return treasure.performDiggingForTreasure(User, TargetPos, {
-            maximalLevel = (User:getSkill(Character.mining) / 10) + 1,
+            maximalLevel = (User:getSkill(Character.digging) / 10) + 1,
             msgDiggingOut = {
                 de = "Du gräbst mit deiner Schaufel in den Boden und stößt auf etwas hartes, von dem ein " ..
                         "hölzerner Klang ausgeht. Noch einmal graben und du hältst den Schatz in deinen Händen.",
@@ -99,7 +100,10 @@ end
 
 
 function M.UseItem(User, SourceItem, ltstate)
-
+    
+    if skillTransfer.skillTransferInformMining(User) then
+        return
+    end
     local toolItem = User:getItemAt(5)
     if ( toolItem.id ~=24 ) then
         toolItem = User:getItemAt(6)

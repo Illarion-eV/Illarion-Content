@@ -80,7 +80,7 @@ local function DrinkPotion(User,SourceItem)
 
     elseif potionEffectId >= 11111111 and potionEffectId <= 99999999 then -- it's an attribute changer
           -- there is already an effect, we remove it
-        local foundEffect = User.effects:find(59)
+        local foundEffect, myEffect = User.effects:find(59)
         if foundEffect then
             local findsight = myEffect:findValue("sightpotion")
             if findsight then
