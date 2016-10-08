@@ -386,6 +386,8 @@ function ArmourAbsorption(Attacker, Defender, Globals)
                     armourValue = itemLevel/(ArmourDefenseScalingFactor*ArmourDefenseScalingFactor)
                 elseif(armour.Type==1) then -- General armour
                     armourValue = itemLevel/GeneralScalingFactor
+                else
+                    armourValue = 1 -- Default value
                 end
             elseif (Attacker.AttackKind == 1) then -- Slash
                 if (armour.Type==2) then -- Light armour
@@ -396,6 +398,8 @@ function ArmourAbsorption(Attacker, Defender, Globals)
                     armourValue = itemLevel/(ArmourDefenseScalingFactor)
                 elseif(armour.Type==1) then -- General armour
                     armourValue = itemLevel/GeneralScalingFactor
+                else
+                    armourValue = 1 -- Default value
                 end
             elseif (Attacker.AttackKind == 3 or Attacker.AttackKind == 4) then -- Puncture
                 if (armour.Type==2) then -- Light armour
@@ -406,6 +410,8 @@ function ArmourAbsorption(Attacker, Defender, Globals)
                     armourValue = itemLevel
                 elseif(armour.Type==1) then -- General armour
                     armourValue = itemLevel/GeneralScalingFactor
+                else
+                    armourValue = 1 -- Default value
                 end
             end
         end
