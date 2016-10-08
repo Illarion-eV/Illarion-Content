@@ -203,7 +203,15 @@ function M.callEffect( Effect, Char ) -- Effect is called
             Char:setQuestProgress(212,theQuestStatus-1) --cooling!
         end
         --Addition end
+        
+        --Addition by Estralis: Quest 213/214/215 A Wistful Journey (Pesnar Rolemnes) Cooldown
+        theQuestStatus=Char:getQuestProgress(215)
 
+        if theQuestStatus > 0 then --Is there a cooldown? Will only be reduced if the player isn't AFK/idle
+            Char:setQuestProgress(215,theQuestStatus-1) --cooling!
+        end
+        --Addition end
+          
         --Addition by Estralis: Quest 162/163/164 Glorious Bounty (Palis Nestros) Cooldown
         theQuestStatus=Char:getQuestProgress(164)
 
@@ -300,6 +308,33 @@ function M.callEffect( Effect, Char ) -- Effect is called
     end
     --Addition end
 
+    --Addition by Estralis: Quest 213/214/215 A Wistful Journey (Pesnar Rolemnes) Countdown
+    local theQuestStatus=Char:getQuestProgress(214)
+
+    if theQuestStatus == 1 then --Time over!
+
+        common.InformNLS(Char,"[Auftragssstatus] Du hast es nicht geschafft, den Auftrag von Pesnar Rolemnes zu erledigen.","[Order status] You failed to fulfil the order of Pesnar Rolemnes.") -- Feedback!
+        Char:setQuestProgress(213,0)
+
+    end
+
+    if theQuestStatus == 3 then --Ten minutes left!
+
+        common.InformNLS(Char,"[Auftragssstatus] Es verbleiben dir noch zehn Minuten, um den Auftrag von Pesnar Rolemnes zu erledigen.","[Order status] You have ten minutes left to fulfil the order of Pesnar Rolemnes.") -- Feedback!
+
+    end
+
+    if theQuestStatus == 13 then --One hour left
+
+        common.InformNLS(Char,"[Auftragssstatus] Es verbleibt dir noch eine Stunde, um den Auftrag von Pesnar Rolemnes zu erledigen.","[Order status] You have one hour left to fulfil the order of Pesnar Rolemnes.") -- Feedback!
+
+    end
+
+    if theQuestStatus > 0 then --Is there a countdown? Will be reduced even if the player is AFK/idle
+        Char:setQuestProgress(214,theQuestStatus-1) --counting down!
+    end
+    --Addition end
+    
     --Addition by Estralis: Quest 162/163/164 Glorious Bounty (Palis Nestros) Cooldown
     theQuestStatus=Char:getQuestProgress(163)
 
