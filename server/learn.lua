@@ -35,8 +35,8 @@ local scalingFactor = 500 --Here, you can mod the learning speed. Higher value=f
 --Constants - Do not change unless you know exactly what you're doing!
 local amplification = 100 --An 'abritrary' value that governs the 'resolution' of the MC function.
 local damping = 0.0001
-local lowerBorder = 0.5 * amplification / damping --below 0.5% of time spent online, no additional bonus is granted
-local normalMC = 10 * lowerBorder --A 'normal' player invests 10x the time (=5%) into skill related actions
+local lowerBorder = 2.5 * amplification / damping --below 2.5 % of time spent online, no additional bonus is granted
+local normalMC = 4 * lowerBorder --A 'normal' player invests 4x the time (=10 %) into skill related actions
 local normalAP = 50 --How many movepoints does a 'normal' action take? Default=50
 --Constants - end
     
@@ -50,7 +50,7 @@ function M.learn(user, skill, actionPoints, learnLimit)
     if skillValue < learnLimit and skillValue < 100 then --you only learn when your skill is lower than the skill of the learnLimit and your skill is <100
 
             local skillFactor = (100 - skillValue)/100
-            local MCfactor = normalMC / math.max(MCvalue, 1) --5% of time spent online is considered "normal" -> MCfactor is 1
+            local MCfactor = normalMC / math.max(MCvalue, 1) --10 % of time spent online is considered "normal" -> MCfactor is 1
             local attributeFactor = common.GetAttributeBonus(leadAttrib,0.5); --0.5 to 1.5, depending on attribute, limited to 2
             local intelligenceFactor = common.GetAttributeBonus(user:increaseAttrib("intelligence", 0),0.1); --0.9 to 1.1, depending on attribute, limited to 1.2
             local actionpointFactor = actionPoints / normalAP --An action with 50 AP is "normal"
@@ -109,7 +109,8 @@ function M.reduceMC(user)
         user:increaseMentalCapacity(-1 * math.floor(user:getMentalCapacity() * damping + 0.5)) --reduce MC-points by 0.01%, rounded correctly.
         
         if user:getMentalCapacity() < ((0.5/damping)-1) then --Mental Capacity cannot drop below 4999 -> Bugged player or cheater
-            user:increaseMentalCapacity(normalMC) --This is default for new players.
+            user:inform("Invalid mental capacity value found: "..user:getMentalCapacity()..". Please inform a developer.")
+            user:increaseMentalCapacity(normalMC) --Reset to default value
         end
     
         --For debugging, use the following line.
