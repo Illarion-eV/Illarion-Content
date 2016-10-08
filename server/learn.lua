@@ -64,7 +64,7 @@ function M.learn(user, skill, actionPoints, learnLimit)
             end
 
             --For debugging, use the following line.
-            user:inform("Skill="..user:getSkillName(skill)..", actionPoints="..actionPoints..", skillFactor="..skillFactor..", MCfactor="..MCfactor..", attributeFactor="..attributeFactor..", intelligenceFactor="..intelligenceFactor..", actionpointFactor="..actionpointFactor..", minorIncrease="..minorIncrease..".");
+            --user:inform("Skill="..user:getSkillName(skill)..", actionPoints="..actionPoints..", skillFactor="..skillFactor..", MCfactor="..MCfactor..", attributeFactor="..attributeFactor..", intelligenceFactor="..intelligenceFactor..", actionpointFactor="..actionpointFactor..", minorIncrease="..minorIncrease..".");
 
             while minorIncrease > 0 do --for the rare case that an action results in two level ups, we have this loop
 
@@ -106,7 +106,7 @@ function M.reduceMC(user)
 
     if user:idleTime() < 300 then --Has the user done any action or spoken anything within the last five minutes?
     
-        user:increaseMentalCapacity(-1 * math.floor(user:getMentalCapacity() * damping + 0.5)) --reduce MC-points by 0.01%, rounded correctly.
+        user:increaseMentalCapacity(-1 * math.floor(user:getMentalCapacity() * damping + 0.5)) --reduce MC-points by 0.01 %, rounded correctly.
         currentMC = user:getMentalCapacity()
         
         if currentMC < ((0.5/damping)-1) then --Mental Capacity cannot drop below 4999 -> Bugged player or cheater
@@ -115,7 +115,7 @@ function M.reduceMC(user)
         end
     
         --For debugging, use the following line.
-        user:inform("MC="..currentMC..", idleTime="..user:idleTime()..", MCfactor="..normalMC / math.max(user:getMentalCapacity(), 1)..".");
+        user:inform("MC="..currentMC..", idleTime="..user:idleTime()..", MCfactor="..normalMC / math.max(lowerBorder, user:getMentalCapacity())..".");
     end
 end
 
