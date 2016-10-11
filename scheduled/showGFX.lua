@@ -50,24 +50,24 @@ function M.CreateGFX()
     NargunBlinkenlights()
 
     world:gfx(1, position(75, 651, 0)) -- thinking stone
-	world:gfx(11, position(873, 878, 0)) -- recognizing spring
+    world:gfx(11, position(873, 878, 0)) -- recognizing spring
     world:gfx(7, position(432, 238, 0)) -- knowing tree
 
-	-- Glutinous Seedling
-	local myPos = position(math.random(375, 377), math.random(287, 289), 0)
-	world:gfx(11, myPos)
-	if world:isCharacterOnField(myPos) then
-		local myChar = world:getCharacterOnField(myPos)
-		if character.IsPlayer(myChar) then
-			myChar:talk(Character.say, "#mes Füße werden von einem großen Schleimtropfen, der sich vom schleimigen Setzling gelöst hat, getroffen.","#me's feet are hit by a big drop of slime, which has come off from the glutinous seedling.")
-		end
-	end
-	-- Glutinous Seedling end
+    -- Glutinous Seedling
+    local myPos = position(math.random(375, 377), math.random(287, 289), 0)
+    world:gfx(11, myPos)
+    if world:isCharacterOnField(myPos) then
+        local myChar = world:getCharacterOnField(myPos)
+        if character.IsPlayer(myChar) then
+            myChar:talk(Character.say, "#mes Füße werden von einem großen Schleimtropfen, der sich vom schleimigen Setzling gelöst hat, getroffen.","#me's feet are hit by a big drop of slime, which has come off from the glutinous seedling.")
+        end
+    end
+    -- Glutinous Seedling end
 
-	--Lake of Life water drip
-	world:gfx(11, position(707, 279, -10)) -- water drip
-	world:makeSound(9, position(707, 279, -10)) -- sound effect
-	-- Lake of Life water drip end
+    --Lake of Life water drip
+    world:gfx(11, position(707, 279, -10)) -- water drip
+    world:makeSound(9, position(707, 279, -10)) -- sound effect
+    -- Lake of Life water drip end
 end
 
 return M

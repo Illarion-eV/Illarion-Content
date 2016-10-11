@@ -24,22 +24,22 @@ local jewel = require("item.general.jewel")
 local M = {}
 
 function M.LookAtItem(User,Item)
-	return jewel.LookAtItem(User,Item);
+    return jewel.LookAtItem(User,Item);
 end
 
 function M.MoveItemBeforeMove(User,SourceItem,TargetItem)
 
-	if TargetItem:getType() == 4 then --inventory, not belt
-	
-		return checks.checkLevel(User,SourceItem);
-		
-	else
-	
-		return true;
-		
-	end
-	
-	return true; --just in case
+    if TargetItem:getType() == 4 then --inventory, not belt
+    
+        return checks.checkLevel(User,SourceItem);
+        
+    else
+    
+        return true;
+        
+    end
+    
+    return true; --just in case
 end
 return M
 

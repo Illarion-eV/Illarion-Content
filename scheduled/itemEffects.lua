@@ -27,76 +27,76 @@ M.SPIDER_EGGS = {}
 M.PILE_OF_BONES = {}
 function M.itemEffects()
 
-	spiderEgg()
-	pileOfBones()
+    spiderEgg()
+    pileOfBones()
 
 end
 
 function doFunctionIfPositionAndCounter(theList, neededCounter, theFunction)
-	
-	local removedCounter = 0
-	for i=1,#theList do
-	    if theList[i-removedCounter]["itemCounter"] < neededCounter then
-			theList[i-removedCounter]["itemCounter"] = theList[i-removedCounter]["itemCounter"]+1
-		else
-			theFunction(theList[i-removedCounter]["itemPosition"])
-			table.remove(theList,i-removedCounter)
-			removedCounter = removedCounter + 1
-		end
-	end
+    
+    local removedCounter = 0
+    for i=1,#theList do
+        if theList[i-removedCounter]["itemCounter"] < neededCounter then
+            theList[i-removedCounter]["itemCounter"] = theList[i-removedCounter]["itemCounter"]+1
+        else
+            theFunction(theList[i-removedCounter]["itemPosition"])
+            table.remove(theList,i-removedCounter)
+            removedCounter = removedCounter + 1
+        end
+    end
 
 end
 
 function pileOfBones()
-	
-	doFunctionIfPositionAndCounter(M.PILE_OF_BONES, 8, function(pilePosition) riseWeakLich(pilePosition) end)
-	
+    
+    doFunctionIfPositionAndCounter(M.PILE_OF_BONES, 8, function(pilePosition) riseWeakLich(pilePosition) end)
+    
 end
 
 function riseWeakLich(pilePosition)
-	
-	local itemProperties = {itemId = 498}
-	if not common.DeleteItemFromStack(pilePosition, itemProperties) then
-	    return
-	end
-	
-	local weakenedLich = world:createMonster(117,pilePosition,-5)
-	weakenedLich:talk(Character.say,"#me erhebt sich aus dem Knochenhaufen.","#me rises from the pile of bones.")
+    
+    local itemProperties = {itemId = 498}
+    if not common.DeleteItemFromStack(pilePosition, itemProperties) then
+        return
+    end
+    
+    local weakenedLich = world:createMonster(117,pilePosition,-5)
+    weakenedLich:talk(Character.say,"#me erhebt sich aus dem Knochenhaufen.","#me rises from the pile of bones.")
 
 end
 
 function spiderEgg()
 
-	doFunctionIfPositionAndCounter(M.SPIDER_EGGS, 8, function(pilePosition) hatchingSpiders(pilePosition) end)
+    doFunctionIfPositionAndCounter(M.SPIDER_EGGS, 8, function(pilePosition) hatchingSpiders(pilePosition) end)
 
 end
 
 
 function hatchingSpiders(eggPosition)
 
-	local itemProperties = {itemId = 738, deleteAmount = 1, quality = false, data = {{dataKey = "spawnSpiders", dataValue = "true"}}}
-	if not common.DeleteItemFromStack(eggPosition, itemProperties) then
-	    return
-	end
-	
-	world:gfx(1,eggPosition)
-	local players = world:getPlayersInRangeOf(eggPosition,5)
-	for i=1,#players do
-		players[i]:inform("Das Ei zerspringt und kleine Spinnen schlüpfen.","The egg breaks and small spiders hatch.")
-	end
-	
-	for i=1,math.random(3,5) do
-	    local spawnPosition = eggPosition
-		for j=-1,1 do
-			for k=-1,1 do
-				local checkPosition = position(spawnPosition.x + j, spawnPosition.y+k, spawnPosition.z)
-				if checkPosition ~= eggPosition and world:getField(checkPosition):isPassable() and not world:isCharacterOnField(checkPosition) then	
-				    spawnPosition = checkPosition
-				end
-			end
-		end
-		world:createMonster(196,spawnPosition,-5)
-	end	
+    local itemProperties = {itemId = 738, deleteAmount = 1, quality = false, data = {{dataKey = "spawnSpiders", dataValue = "true"}}}
+    if not common.DeleteItemFromStack(eggPosition, itemProperties) then
+        return
+    end
+    
+    world:gfx(1,eggPosition)
+    local players = world:getPlayersInRangeOf(eggPosition,5)
+    for i=1,#players do
+        players[i]:inform("Das Ei zerspringt und kleine Spinnen schlüpfen.","The egg breaks and small spiders hatch.")
+    end
+    
+    for i=1,math.random(3,5) do
+        local spawnPosition = eggPosition
+        for j=-1,1 do
+            for k=-1,1 do
+                local checkPosition = position(spawnPosition.x + j, spawnPosition.y+k, spawnPosition.z)
+                if checkPosition ~= eggPosition and world:getField(checkPosition):isPassable() and not world:isCharacterOnField(checkPosition) then    
+                    spawnPosition = checkPosition
+                end
+            end
+        end
+        world:createMonster(196,spawnPosition,-5)
+    end    
 end
 
 return M

@@ -28,21 +28,21 @@ function(self, mode, value)
     self["value"], self["valuetype"] = tools.set_value(value)
     if (mode == "=") then
         self["perform"] = _town_helper_set
-	elseif (mode == "?") then
-		self["perform"] = _town_helper_status
+    elseif (mode == "?") then
+        self["perform"] = _town_helper_status
     else
         -- unkonwn comparator
     end
 end)
 
 function _town_helper_set(self, npcChar, player)
-    local value = tools.get_value(self.npc, self.value, self.valuetype)	
-	local factionValues = factions.getFaction(player)
-	factions.makeCharMemberOfTown(player,npcChar,factionValues,1, value)
+    local value = tools.get_value(self.npc, self.value, self.valuetype)    
+    local factionValues = factions.getFaction(player)
+    factions.makeCharMemberOfTown(player,npcChar,factionValues,1, value)
 end
 
 function _town_helper_status(self, npcChar, player)
-	factions.informPlayerAboutStatus(player)
+    factions.informPlayerAboutStatus(player)
 end
 
 return town

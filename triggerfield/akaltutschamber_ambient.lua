@@ -74,10 +74,10 @@ Akaltuts_chamberList.add( position(477,839,-9),nil,"Als du dich umsiehst, erkenn
 Akaltuts_chamberList.add( position(480,837,-9),nil,"Als du dich umsiehst, erkennst du Reihen von Schädeln an der Wand. Die Schädel an der nördlichen Wand haben rot glühende Augen, während die der im Osten grünlich glühen. Möglicherweise enthält die Schriftrolle auf dem Tisch einen Hinweis zu den Schädeln?","As you look around, you notice the skulls lining the walls. The ones on the northern wall have red glowing eyes while the eastern skulls' eyes glow green. Perhaps the scroll on the table holds the clue to these skulls?",nil,nil,100); --Akaltuts_Chamber_-9
 
 function M.MoveToField(Char)
-	local this = Akaltuts_chamberList.get(Char)
-	if this then
-		common.InformNLS(Char, this.german, this.english)
-	end
+    local this = Akaltuts_chamberList.get(Char)
+    if this then
+        common.InformNLS(Char, this.german, this.english)
+    end
 end
 
 return M

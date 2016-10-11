@@ -31,26 +31,26 @@ end
 
 function M.onLogout( theChar )
 
-	world:gfx(31,theChar.pos); --A nice GFX that announces clearly: A player logged out.
+    world:gfx(31,theChar.pos); --A nice GFX that announces clearly: A player logged out.
 
-	-- begin tying
-	local foundEffect, Tying = theChar.effects:find(24);
-	if foundEffect then -- Char is a captive, save logout time
-		Tying:addValue("logout",1);
-		Tying:addValue("logyears",world:getTime("year"));
-		Tying:addValue("logmonths",world:getTime("month"));
-		Tying:addValue("logdays",world:getTime("day"));
-		Tying:addValue("loghours",world:getTime("hour"));
-		Tying:addValue("logminutes",world:getTime("minute")+3);
-		Tying:addValue("logseconds",world:getTime("second"));
-		local foundCapturer, Capturer = Tying:findValue("Capturer");
-		log("[Rope]: Tied up character "..theChar.name.." has logged out."..(foundCapturer and " Capturer: "..Capturer or ""))
-	end
-	-- end tying
+    -- begin tying
+    local foundEffect, Tying = theChar.effects:find(24);
+    if foundEffect then -- Char is a captive, save logout time
+        Tying:addValue("logout",1);
+        Tying:addValue("logyears",world:getTime("year"));
+        Tying:addValue("logmonths",world:getTime("month"));
+        Tying:addValue("logdays",world:getTime("day"));
+        Tying:addValue("loghours",world:getTime("hour"));
+        Tying:addValue("logminutes",world:getTime("minute")+3);
+        Tying:addValue("logseconds",world:getTime("second"));
+        local foundCapturer, Capturer = Tying:findValue("Capturer");
+        log("[Rope]: Tied up character "..theChar.name.." has logged out."..(foundCapturer and " Capturer: "..Capturer or ""))
+    end
+    -- end tying
 
-	if theChar.name == "Valerio Guilianni" or theChar.name == "Rosaline Edwards" or theChar.name == "Elvaine Morgan" then
-		exchangeFactionLeader( theChar.name )
-	end
+    if theChar.name == "Valerio Guilianni" or theChar.name == "Rosaline Edwards" or theChar.name == "Elvaine Morgan" then
+        exchangeFactionLeader( theChar.name )
+    end
 end
 
 return M

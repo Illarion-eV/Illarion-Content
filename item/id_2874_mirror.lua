@@ -28,7 +28,7 @@ mirrorPosition = position(-28,193,-8)
 
 function M.LookAtItem(User, Item)
     
-	local lookAt = lookat.GenerateLookAt(User, Item)
+    local lookAt = lookat.GenerateLookAt(User, Item)
 
     if Item.pos == mirrorPosition and User:getFaceTo() == Character.dir_east and User.pos == position(-29, 193, -8) then
         lookAt.description = common.GetNLS("Hinter deinem Rücken erkennst du deutlich eine Leiter im Spiegel.",
@@ -38,33 +38,33 @@ function M.LookAtItem(User, Item)
             world:createItemFromId(35, 1, ladderPosition, true, 999, nil)
         end
     end
-	
+    
     return lookAt
 end
 
 function M.UseItem(User, SourceItem)
-	local output = "";
-	local lang = User:getPlayerLanguage();
-	local qual,dura = chardescription.getClothesFactor(User);
-	local ft = chardescription.getFigureText(User:increaseAttrib("body_height",0),User:increaseAttrib("weight",0),User:increaseAttrib("strength",0), lang);
-	if(lang == 0) then
-		output = "Du bist ";
-		output = output..chardescription.getAgeText(User:getRace(), User:increaseAttrib("age", 0), lang);
-		if(ft ~= nil) then
-			output = output..", "..ft;
-		end
-		output = output.." und "..chardescription.getHPText(User:increaseAttrib("hitpoints",0), lang)..". ";
-		output = output.."Deine Kleidung wirkt "..chardescription.getClothesQualText(qual, lang).." und "..chardescription.getClothesDuraText(dura, lang)..".";
-	else
-		output = "You are ";
-		output = output..chardescription.getAgeText(User:getRace(), User:increaseAttrib("age", 0), lang);
-		if(ft ~= nil) then
-			output = output..", "..chardescription.getFigureText(User:increaseAttrib("body_height",0),User:increaseAttrib("weight",0),User:increaseAttrib("strength",0), lang);
-		end
-		output = output.." and "..chardescription.getHPText(User:increaseAttrib("hitpoints",0), lang)..". ";
-		output = output.."Your clothes look "..chardescription.getClothesQualText(qual, lang).." and "..chardescription.getClothesDuraText(dura, lang)..".";
-	end
-	User:inform(output);
+    local output = "";
+    local lang = User:getPlayerLanguage();
+    local qual,dura = chardescription.getClothesFactor(User);
+    local ft = chardescription.getFigureText(User:increaseAttrib("body_height",0),User:increaseAttrib("weight",0),User:increaseAttrib("strength",0), lang);
+    if(lang == 0) then
+        output = "Du bist ";
+        output = output..chardescription.getAgeText(User:getRace(), User:increaseAttrib("age", 0), lang);
+        if(ft ~= nil) then
+            output = output..", "..ft;
+        end
+        output = output.." und "..chardescription.getHPText(User:increaseAttrib("hitpoints",0), lang)..". ";
+        output = output.."Deine Kleidung wirkt "..chardescription.getClothesQualText(qual, lang).." und "..chardescription.getClothesDuraText(dura, lang)..".";
+    else
+        output = "You are ";
+        output = output..chardescription.getAgeText(User:getRace(), User:increaseAttrib("age", 0), lang);
+        if(ft ~= nil) then
+            output = output..", "..chardescription.getFigureText(User:increaseAttrib("body_height",0),User:increaseAttrib("weight",0),User:increaseAttrib("strength",0), lang);
+        end
+        output = output.." and "..chardescription.getHPText(User:increaseAttrib("hitpoints",0), lang)..". ";
+        output = output.."Your clothes look "..chardescription.getClothesQualText(qual, lang).." and "..chardescription.getClothesDuraText(dura, lang)..".";
+    end
+    User:inform(output);
 end
 return M
 

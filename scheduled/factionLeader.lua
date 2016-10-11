@@ -21,28 +21,28 @@ local common = require("base.common")
 local M = {}
 
 M.informationTable = {
-	{npcName="Rosaline Edwards", usualPosition=position(122, 521, 0), newPosition=position(237, 104, 0)},
-	{npcName="Valerio Guilianni", usualPosition=position(337, 215, 0), newPosition=position(238, 104, 0)},
-	{npcName="Elvaine Morgan", usualPosition=position(898, 775, 2), newPosition=position(239, 104, 0)}}
+    {npcName="Rosaline Edwards", usualPosition=position(122, 521, 0), newPosition=position(237, 104, 0)},
+    {npcName="Valerio Guilianni", usualPosition=position(337, 215, 0), newPosition=position(238, 104, 0)},
+    {npcName="Elvaine Morgan", usualPosition=position(898, 775, 2), newPosition=position(239, 104, 0)}}
 
 function M.checkFactionLeader()
-	for i=1, #(M.informationTable) do
-		local charObject = common.CheckIfOnline(M.informationTable[i].npcName)
-		if charObject ~= nil then
-			M.updatePosition(M.informationTable[i].usualPosition, M.informationTable[i].newPosition)
-		else
-			M.updatePosition(M.informationTable[i].newPosition, M.informationTable[i].usualPosition)
-		end
-	end
+    for i=1, #(M.informationTable) do
+        local charObject = common.CheckIfOnline(M.informationTable[i].npcName)
+        if charObject ~= nil then
+            M.updatePosition(M.informationTable[i].usualPosition, M.informationTable[i].newPosition)
+        else
+            M.updatePosition(M.informationTable[i].newPosition, M.informationTable[i].usualPosition)
+        end
+    end
 end
 
 function M.updatePosition(usualPosition, newPosition)
-	if world:isCharacterOnField(usualPosition) == true then
-		local npcCharObject = world:getCharacterOnField(usualPosition);
-		if npcCharObject:getType() == Character.npc then
-			npcCharObject:forceWarp(newPosition);
-		end
-	end
+    if world:isCharacterOnField(usualPosition) == true then
+        local npcCharObject = world:getCharacterOnField(usualPosition);
+        if npcCharObject:getType() == Character.npc then
+            npcCharObject:forceWarp(newPosition);
+        end
+    end
 end
 
 return M

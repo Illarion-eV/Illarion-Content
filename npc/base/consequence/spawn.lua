@@ -22,22 +22,22 @@ local _spawn_helper
 
 local spawn = class(consequence,
 function(self, id, count, radius, x, y, z)
-	consequence:init(self)
+    consequence:init(self)
 
-	self["id"] = tonumber(id)
-	self["count"] = tonumber(count)
-	self["radius"] = tonumber(radius)
-	self["x"] = tonumber(x)
-	self["y"] = tonumber(y)
-	self["z"] = tonumber(z)
-	self["perform"] = _warp_helper
+    self["id"] = tonumber(id)
+    self["count"] = tonumber(count)
+    self["radius"] = tonumber(radius)
+    self["x"] = tonumber(x)
+    self["y"] = tonumber(y)
+    self["z"] = tonumber(z)
+    self["perform"] = _warp_helper
 end)
 
 function _spawn_helper(self, npcChar, player)
-	for i = 1, self.count do
-		local monPos = common.getFreePos(position(self.x, self.y, self.z), self.radius)
-		world:createMonster(self.id, monPos, 0)
-	end
+    for i = 1, self.count do
+        local monPos = common.getFreePos(position(self.x, self.y, self.z), self.radius)
+        world:createMonster(self.id, monPos, 0)
+    end
 end
 
 return spawn

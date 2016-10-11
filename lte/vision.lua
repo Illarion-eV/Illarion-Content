@@ -31,23 +31,23 @@ end
 
 function M.callEffect(Effect,User)
 --[[
-	if StoriesAreSet ~= true then
-	else
-		if AmountStory == nil then
-			local AmountStory = 0
-			return false
-		elseif User:getQuestProgress(664) <= AmountStory then
-			vision.vision(User,TypeStory)
-			User:setQuestProgress(664,User:getQuestProgress(664)+1)
-		else
-			User:setQuestProgress(664,1)
-			StoriesAreSet = false
-			return false
-		end
-	end
+    if StoriesAreSet ~= true then
+    else
+        if AmountStory == nil then
+            local AmountStory = 0
+            return false
+        elseif User:getQuestProgress(664) <= AmountStory then
+            vision.vision(User,TypeStory)
+            User:setQuestProgress(664,User:getQuestProgress(664)+1)
+        else
+            User:setQuestProgress(664,1)
+            StoriesAreSet = false
+            return false
+        end
+    end
 ]]
-	Effect.nextCalled = 200 --Effect gets called each 10 seconds
-	return true
+    Effect.nextCalled = 200 --Effect gets called each 10 seconds
+    return true
 end
 
 function M.removeEffect(Effect,User)

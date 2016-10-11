@@ -126,7 +126,7 @@ function M.lookAtPlayer( SourceCharacter, TargetCharacter, mode)
         factiontext = ( lang ==0 and " ("..factions.TownRankList[Faction.rankTown].gRank..")" or " ("..factions.TownRankList[Faction.rankTown].eRank..")" );
     else
         factiontext = ( (lang ==0 and " ("..factions.TownRankList[Faction.rankTown].gRank.." "..factions.TownNameGList[Faction.tid][1].."s)" )
-                or 	" ("..factions.TownRankList[Faction.rankTown].eRank.." of "..factions.TownNameEList[Faction.tid][1]..")" );
+                or     " ("..factions.TownRankList[Faction.rankTown].eRank.." of "..factions.TownNameEList[Faction.tid][1]..")" );
     end
     output = output .. factiontext;
 

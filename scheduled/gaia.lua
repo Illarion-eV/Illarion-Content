@@ -27,17 +27,17 @@ function AddPlant(ItemID, Grounds, rare)
     if rare then
         for i=1, #Grounds do
             if RarePlantByGround[Grounds[i]] == nil then
-				RarePlantByGround[Grounds[i]] = {}
-			end
+                RarePlantByGround[Grounds[i]] = {}
+            end
             table.insert(RarePlantByGround[Grounds[i]], ItemID);
-		end
+        end
     else
         for i=1, #Grounds do
-			if NormalPlantByGround[Grounds[i]] == nil then
-				NormalPlantByGround[Grounds[i]] = {}
-			end
+            if NormalPlantByGround[Grounds[i]] == nil then
+                NormalPlantByGround[Grounds[i]] = {}
+            end
             table.insert(NormalPlantByGround[Grounds[i]], ItemID);
-		end
+        end
     end
 end
 
@@ -67,11 +67,11 @@ AddPlant(151, {gt.forest},false)                        -- strawberry
 AddPlant(141, {gt.rocks},false)                         -- black thistle
 AddPlant(133, {gt.grass},false)                         -- sun herb
 AddPlant(753, {gt.grass,gt.forest},false)              -- blue bird's berry
-AddPlant(159, {gt.forest},false)						-- toadstool
-AddPlant(160, {gt.forest},false)						-- red head
-AddPlant(161, {gt.grass},false)						-- herder's mushroom
-AddPlant(162, {gt.grass},false)						-- birth mushroom
-AddPlant(163, {gt.forest},false)						-- champignon
+AddPlant(159, {gt.forest},false)                        -- toadstool
+AddPlant(160, {gt.forest},false)                        -- red head
+AddPlant(161, {gt.grass},false)                        -- herder's mushroom
+AddPlant(162, {gt.grass},false)                        -- birth mushroom
+AddPlant(163, {gt.forest},false)                        -- champignon
 
 -- rar herbs; not collectable with sickle
 AddPlant(138, {gt.dirt},true)                        -- night angels blossom
@@ -96,51 +96,51 @@ function M.plantdrop()
         Init();
     end
 
-	local herbCounter = 0 -- for testing
-	local normal = 0; local cool = 0
-	for i=1,35 do -- normal plants
-	   PutPlantOnField(false)
-	end
+    local herbCounter = 0 -- for testing
+    local normal = 0; local cool = 0
+    for i=1,35 do -- normal plants
+       PutPlantOnField(false)
+    end
 
-	for i=1,5 do -- rare plants
-	   PutPlantOnField(true)
-	end
+    for i=1,5 do -- rare plants
+       PutPlantOnField(true)
+    end
 end
 
 function PutPlantOnField(rare)
 
     local myPos = position( math.random(0,1024), math.random(0,1024), 0 )
-	local theTile=world:getField(myPos);
-	local myList
-	if rare then -- rare herb
-	    myList = RarePlantByGround
-	else -- normal herb
+    local theTile=world:getField(myPos);
+    local myList
+    if rare then -- rare herb
+        myList = RarePlantByGround
+    else -- normal herb
         myList = NormalPlantByGround
     end
-	if theTile then
-		local groundType = common.GetGroundType( theTile:tile() )
-		local gt = common.GroundType
+    if theTile then
+        local groundType = common.GetGroundType( theTile:tile() )
+        local gt = common.GroundType
 
-		if theTile:countItems() > 0 then -- check if no item is on that field
-		    return
-		end
-		if myList[groundType] == nil then -- check if this ground has any herbs
-		    return
-		end
-		if (groundType == gt.sand) then
-		    if not math.random(1,3)==1 then -- "Frickelfactor" for sand herbs (we have too many sand fields!)
-			    return
-			end
+        if theTile:countItems() > 0 then -- check if no item is on that field
+            return
+        end
+        if myList[groundType] == nil then -- check if this ground has any herbs
+            return
+        end
+        if (groundType == gt.sand) then
+            if not math.random(1,3)==1 then -- "Frickelfactor" for sand herbs (we have too many sand fields!)
+                return
+            end
         elseif (groundType == gt.grass or groundType == gt.forest) then
-		    if not math.random(1,2)==1 then -- "Frickelfactor" for grass and forest herbs (we have slightly too many fields of those)
-			    return
-			end
+            if not math.random(1,2)==1 then -- "Frickelfactor" for grass and forest herbs (we have slightly too many fields of those)
+                return
+            end
         end
 
-		local myPlant = myList[groundType][math.random(1,#myList[groundType])]
-		world:createItemFromId(myPlant,1,myPos,false,333,nil)
-		return true
-	end
+        local myPlant = myList[groundType][math.random(1,#myList[groundType])]
+        world:createItemFromId(myPlant,1,myPos,false,333,nil)
+        return true
+    end
 end
 
 return M

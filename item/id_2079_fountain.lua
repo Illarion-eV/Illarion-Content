@@ -24,24 +24,24 @@ local M = {}
 
 local lakeOfLifeFountainPos = {
     position(660, 238, -9),
-	position(744, 203, -9),
-	position(777, 186, -9),
-	position(705, 262, -9),
-	position(725, 286, -9),
-	position(759, 303, -9),
-	position(777, 283, -9),
-	position(763, 262, -9)
-	}
+    position(744, 203, -9),
+    position(777, 186, -9),
+    position(705, 262, -9),
+    position(725, 286, -9),
+    position(759, 303, -9),
+    position(777, 283, -9),
+    position(763, 262, -9)
+    }
 
 function M.UseItem(User, SourceItem, ltstate)
 
 for i = 1, #lakeOfLifeFountainPos do
         if (SourceItem.pos == lakeOfLifeFountainPos[i]) then
             world:gfx(16, User.pos) -- nice GFX
-	        world:makeSound(10, User.pos) -- nice SFX
-	        common.InformNLS(User, "Du wäschst dich.", "You start to cleanse.")
-			User:setQuestProgress(508,1)
-			User:setQuestProgress(509,2) -- timer
+            world:makeSound(10, User.pos) -- nice SFX
+            common.InformNLS(User, "Du wäschst dich.", "You start to cleanse.")
+            User:setQuestProgress(508,1)
+            User:setQuestProgress(509,2) -- timer
         end
     end
 end

@@ -24,9 +24,9 @@ local M = {}
 
 function M.LookAtItem(User, Item)
     --local nameDe, nameEn = treasureContent.getTreasureName(tonumber(Item:getData("trsCat")))
-	local nameDe, nameEn = "Eine kunstvoll verzierte Schatzkiste. Welche Reichtümer mag sie wohl enthalten?", "An ornated treasure chest. What riches will it contain?"
-	lookat.SetSpecialDescription(Item, nameDe, nameEn);
-	return lookat.GenerateLookAt(User, Item, lookat.NONE)
+    local nameDe, nameEn = "Eine kunstvoll verzierte Schatzkiste. Welche Reichtümer mag sie wohl enthalten?", "An ornated treasure chest. What riches will it contain?"
+    lookat.SetSpecialDescription(Item, nameDe, nameEn);
+    return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
 
 function M.UseItem(User,SourceItem)
@@ -35,12 +35,12 @@ function M.UseItem(User,SourceItem)
     local posi=SourceItem.pos;
 
     common.InformNLS(User, "Du öffnest die Schatzkiste...", "You open the treasure chest...");
-	world:erase(SourceItem, SourceItem.number); --strange hack here
-	if (level ~= nil) and (level~=0) and (level < 10) then
+    world:erase(SourceItem, SourceItem.number); --strange hack here
+    if (level ~= nil) and (level~=0) and (level < 10) then
         world:gfx(16,posi);
         world:makeSound(13,posi);
         treasureBase.dropTreasureItems(posi, level);
-	else	
+    else    
         common.InformNLS(User, "...sie ist leer!", "...it is empty!");
     end
 

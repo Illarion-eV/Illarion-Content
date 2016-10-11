@@ -38,8 +38,8 @@ end)
 function _money_helper_add(self, npcChar, player)
     local value = tools.get_value(self.npc, self.value, self.valuetype)
     if not base_money.GiveMoneyToChar(player, value) then
-		base_money.GiveMoneyToPosition(player.pos, value)
-	end
+        base_money.GiveMoneyToPosition(player.pos, value)
+    end
 end
 
 function _money_helper_sub(self, npcChar, player)

@@ -31,21 +31,21 @@ function M.addEffect(Effect, Character)               -- Nur beim ersten Aufruf
 end
 
 function M.callEffect(Effect,Character)                  -- Effect wird ausgeführt
-	
-	local foundImmunity, immunity, retVal = nil,nil,false;
-	for i=1,8 do
-		foundImmunity, immunity = Effect:findValue("immunity_"..i);
-		if foundImmunity then
-			if immunity == 0 then
-				Effect:removeValue("immunity_"..i);
-			else
-				Effect:addValue("immunity_"..i,immunity-1);
-				retVal = true;
-			end
-		end
-	end
-	Effect.nextCalled = 10;
-	return retVal;
+    
+    local foundImmunity, immunity, retVal = nil,nil,false;
+    for i=1,8 do
+        foundImmunity, immunity = Effect:findValue("immunity_"..i);
+        if foundImmunity then
+            if immunity == 0 then
+                Effect:removeValue("immunity_"..i);
+            else
+                Effect:addValue("immunity_"..i,immunity-1);
+                retVal = true;
+            end
+        end
+    end
+    Effect.nextCalled = 10;
+    return retVal;
 end
 
 function M.removeEffect(Effect,Character)         

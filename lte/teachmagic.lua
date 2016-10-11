@@ -20,13 +20,13 @@ local M = {}
 function M.addEffect(teachEffect, Character)
 
     local year=world:getTime("year")
-    year=(year-1)*31536000					-- (year-1)*((15*24) + 5)*24*60*60
+    year=(year-1)*31536000                    -- (year-1)*((15*24) + 5)*24*60*60
     local month=world:getTime("month")
-    month=(month-1)*2073600					-- (month-1)*24*24*60*60
+    month=(month-1)*2073600                    -- (month-1)*24*24*60*60
     local day=world:getTime("day")
-    day=(day-1)*86400							-- (day-1)*24*60*60
+    day=(day-1)*86400                            -- (day-1)*24*60*60
     local hour=world:getTime("hour")
-    hour=hour*3600								-- hour*60*60
+    hour=hour*3600                                -- hour*60*60
     local minute=world:getTime("minute")
     minute=minute*60
     local second=world:getTime("second")

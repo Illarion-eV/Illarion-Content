@@ -26,32 +26,32 @@ function M.UseItem(User, SourceItem, ltstate)
   -- entrance to the cave
   local pos = position(894, 627, 0);
   if (SourceItem.pos ~= pos) then
-		return
+        return
   end
 
   -- open on keyword
   local spokenText = User.lastSpokenText;
   if (string.find(spokenText, "[Ff][Oo][Xx]") ~= nil or
-	  string.find(spokenText, "[Ff][Uu][Cc][Hh][Ss]") ~= nil) then
+      string.find(spokenText, "[Ff][Uu][Cc][Hh][Ss]") ~= nil) then
 
-	world:erase(SourceItem, 1);
+    world:erase(SourceItem, 1);
 
-	common.InformNLS(User,
+    common.InformNLS(User,
       "Die Steinwand verschwindet als du sie berührst!",
       "The rock wall disappears as you touch it!");
 
 
     local Characters = world:getPlayersInRangeOf(pos, 5);
     for i, Char in pairs(Characters) do
-	  if (User.id ~= Char.id) then
+      if (User.id ~= Char.id) then
         common.InformNLS(Char,
-	    "Eine Steinwand verschwindet einfach.",
-	    "A rock wall just disappears.");
-	  end
+        "Eine Steinwand verschwindet einfach.",
+        "A rock wall just disappears.");
+      end
     end
 
   else
-	common.InformNLS(User,
+    common.InformNLS(User,
       "Nichts passiert als du die Steinwand berührst.",
       "Nothing happens as you touch the rock wall.");
   end
@@ -59,7 +59,7 @@ end
 
 function M.LookAtItem(User, Item)
   if (Item.pos == position(894, 627, 0)) then
-		lookat.SetSpecialDescription(Item, "Eine merkwürdige Steinwand.", "A peculiar rock wall.");
+        lookat.SetSpecialDescription(Item, "Eine merkwürdige Steinwand.", "A peculiar rock wall.");
   end
   return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end

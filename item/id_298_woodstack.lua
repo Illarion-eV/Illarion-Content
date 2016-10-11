@@ -24,7 +24,7 @@ local M = {}
 
 function M.UseItem(User, SourceItem)
     
-	if (SourceItem:getType()==3) then
+    if (SourceItem:getType()==3) then
         SourceItem.wear = 4;
         SourceItem.id = 12;
         SourceItem.number = 3;

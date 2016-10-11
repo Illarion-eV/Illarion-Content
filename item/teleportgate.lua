@@ -44,25 +44,25 @@ end
 
 function M.CharacterOnField( User )
 
-	if (User:getType() ~= 0) then -- only players, else end of script
+    if (User:getType() ~= 0) then -- only players, else end of script
         return
     end
 
     local SourceItem = world:getItemOnField( User.pos );
-	local destCoordX, destCoordY, destCoordZ
-	local dest
-	local destFound = false
+    local destCoordX, destCoordY, destCoordZ
+    local dest
+    local destFound = false
 
     destCoordX = SourceItem:getData("destinationCoordsX")
-	destCoordY = SourceItem:getData("destinationCoordsY")
-	destCoordZ = SourceItem:getData("destinationCoordsZ")
-	if (destCoordX ~= "") and (destCoordY ~= "") and (destCoordZ ~= "") then
-	    destCoordX = tonumber(destCoordX)
-	    destCoordY = tonumber(destCoordY)
- 	    destCoordZ = tonumber(destCoordZ)
-		dest = position(destCoordX,destCoordY,destCoordZ)
+    destCoordY = SourceItem:getData("destinationCoordsY")
+    destCoordZ = SourceItem:getData("destinationCoordsZ")
+    if (destCoordX ~= "") and (destCoordY ~= "") and (destCoordZ ~= "") then
+        destCoordX = tonumber(destCoordX)
+        destCoordY = tonumber(destCoordY)
+         destCoordZ = tonumber(destCoordZ)
+        dest = position(destCoordX,destCoordY,destCoordZ)
         destFound = true
-	end
+    end
     
     if destFound then -- destination was defined
     
@@ -70,24 +70,24 @@ function M.CharacterOnField( User )
             return
         end
     
-		world:makeSound( 13, dest )
-		world:gfx( 41, User.pos )
-		User:warp( dest );
-		world:gfx( 41, User.pos )
+        world:makeSound( 13, dest )
+        world:gfx( 41, User.pos )
+        User:warp( dest );
+        world:gfx( 41, User.pos )
 
-		common.InformNLS( User,
-		"Du machst eine magische Reise.",
-		"You travel by the realm of magic." );
+        common.InformNLS( User,
+        "Du machst eine magische Reise.",
+        "You travel by the realm of magic." );
 
-		if ( SourceItem.wear ~= 255 ) then
-			if ( SourceItem.quality > 200 ) then
-					SourceItem.quality = SourceItem.quality - 100;
-					world:changeItem( SourceItem );
-			else
-				world:erase( SourceItem, SourceItem.number );
-			end
-		end
-	end
+        if ( SourceItem.wear ~= 255 ) then
+            if ( SourceItem.quality > 200 ) then
+                    SourceItem.quality = SourceItem.quality - 100;
+                    world:changeItem( SourceItem );
+            else
+                world:erase( SourceItem, SourceItem.number );
+            end
+        end
+    end
 end
 
 return M

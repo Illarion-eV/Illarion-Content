@@ -26,39 +26,39 @@ function M.LookAtItem(User,Item)
     if book ~= "" then
         if id_266_bookshelf.bookList[book] ~= nil then
             lookat.SetSpecialName(Item,id_266_bookshelf.bookList[book].german,id_266_bookshelf.bookList[book].english)
-		end
-	end
-	return lookat.GenerateLookAt(User, Item, 0)
+        end
+    end
+    return lookat.GenerateLookAt(User, Item, 0)
 end
 
 function M.UseItem(User, SourceItem)
-	if SourceItem:getData("teachDogTransformationPotion") == "true" then
-		transformation_dog.UseSealedScroll(User, SourceItem)
-		return
-	end
+    if SourceItem:getData("teachDogTransformationPotion") == "true" then
+        transformation_dog.UseSealedScroll(User, SourceItem)
+        return
+    end
     
     local book = SourceItem:getData("book")
-	if book ~= "" then
+    if book ~= "" then
         if id_266_bookshelf.bookList[book] ~= nil then
             User:sendBook(id_266_bookshelf.bookList[book].bookId)
-		end
-	end
+        end
+    end
 
-	-- teleport character on use
-	local destCoordX = tonumber(SourceItem:getData("destinationCoordsX"))
-	local destCoordY = tonumber(SourceItem:getData("destinationCoordsY"))
-	local destCoordZ = tonumber(SourceItem:getData("destinationCoordsZ"))
-	if destCoordX and destCoordY and destCoordZ then
-		User:talk(Character.say,
-			"#me öffnet eine Schriftrolle und verschwindet in einem hellen Leuchten.",
-			"#me opens a scroll and disappears in a bright light.")
-		world:gfx(31, User.pos)
-		world:gfx(41, User.pos)
-		User:warp(position(destCoordX, destCoordY, destCoordZ))
-		world:gfx(41, User.pos)
-		world:erase(SourceItem,1)
-		return
-	end
+    -- teleport character on use
+    local destCoordX = tonumber(SourceItem:getData("destinationCoordsX"))
+    local destCoordY = tonumber(SourceItem:getData("destinationCoordsY"))
+    local destCoordZ = tonumber(SourceItem:getData("destinationCoordsZ"))
+    if destCoordX and destCoordY and destCoordZ then
+        User:talk(Character.say,
+            "#me öffnet eine Schriftrolle und verschwindet in einem hellen Leuchten.",
+            "#me opens a scroll and disappears in a bright light.")
+        world:gfx(31, User.pos)
+        world:gfx(41, User.pos)
+        User:warp(position(destCoordX, destCoordY, destCoordZ))
+        world:gfx(41, User.pos)
+        world:erase(SourceItem,1)
+        return
+    end
 end
 
 return M

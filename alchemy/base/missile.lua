@@ -36,23 +36,23 @@ ListeObjHolz = {39,40,56,57,76,207,208,209,293,323,2782,2783,2784,2785,2786};
 
 function fieldOfRadius1( Item )
     local posi = Item.pos
-	local actionfield = { };
+    local actionfield = { };
 
     for x=-1,1 do
         for y=-1,1 do
             table.insert( actionfield, position( posi.x+x, posi.y+y, posi.z ) );
         end
     end
-	return actionfield;
+    return actionfield;
 end
 
 function fieldOfRadius( Item, radius )
     local posi = Item.pos
-	local actionfield = { };
+    local actionfield = { };
 
-	if radius == nil then
-		radius = 2
-	end
+    if radius == nil then
+        radius = 2
+    end
 
     for x=(-1*radius),radius do
         for y=(-1*radius),radius do
@@ -61,7 +61,7 @@ function fieldOfRadius( Item, radius )
             end
         end
     end
-	return actionfield;
+    return actionfield;
 end
 
 function createSlime(User, Item, targetArea )
@@ -72,8 +72,8 @@ function createSlime(User, Item, targetArea )
         if not world:isCharacterOnField( posi ) then
             slime = world:createMonster(1054,posi,-20);
             if isValidChar(slime) then
-				character.DeathAfterTime(slime,(lifeTime+(math.random(10,200))),11,9)
-		    end
+                character.DeathAfterTime(slime,(lifeTime+(math.random(10,200))),11,9)
+            end
         end
     end
 
@@ -90,14 +90,14 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
         modifier = 1;
     end
 
-	local baseDamage -- the bigger the area, the lower the base damage
-	if #DamagedArea == 1 then
-	    baseDamage = 555
-	elseif #DamagedArea == 9 then
+    local baseDamage -- the bigger the area, the lower the base damage
+    if #DamagedArea == 1 then
+        baseDamage = 555
+    elseif #DamagedArea == 9 then
         baseDamage = 370
     else
-		baseDamage = 277
-	end
+        baseDamage = 277
+    end
 
     for i, posi in pairs(DamagedArea) do
         if world:isCharacterOnField( posi ) then
@@ -108,7 +108,7 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
             local qual = Item.quality;
             qual = common.Limit(math.floor(qual/100), 1, 9)
 
-			Schaden = baseDamage * qual;
+            Schaden = baseDamage * qual;
 
             -- Ermittle Summe der als schützend angegebene Attribute
             AttribEffect = 0;
@@ -136,14 +136,14 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
             -- Modifier für Attribute mit mehr als 10000 Punkten
             Schaden = math.ceil(Schaden * modifier);
 
-			-- minimal damage
-			local minDamage = math.ceil(75*qual*modifier)
-			if minDamage > Schaden then
-			    Schaden = minDamage
-			end
+            -- minimal damage
+            local minDamage = math.ceil(75*qual*modifier)
+            if minDamage > Schaden then
+                Schaden = minDamage
+            end
 
-			-- deal damage
-			Person:increaseAttrib( DamagedAttrib, -Schaden );
+            -- deal damage
+            Person:increaseAttrib( DamagedAttrib, -Schaden );
         end
         if ( gfxid ~= 0 ) then
             world:gfx( gfxid, posi );
@@ -151,7 +151,7 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
         if ( sfxid ~= 0 ) then
             world:makeSound( sfxid, posi );
         end
-	end
+    end
 end
 
 function damageItemDura( Item, targetArea, gfxid, sfxid, modifier, ItemType )
@@ -322,59 +322,59 @@ end
 FRUITS_FLOWERS = {15,80,81,143,148,144,147,151,199,302}
 
 function fruitBomb(User, Item, targetArea)
-	local sa = scheduled.alchemy
-	local posAsString = "".. Item.pos.x .." ".. Item.pos.y .." "..Item.pos.z
-	if sa.CENTER[posAsString] then
-		world:gfx(1,Item.pos)
-		return
-	end
+    local sa = scheduled.alchemy
+    local posAsString = "".. Item.pos.x .." ".. Item.pos.y .." "..Item.pos.z
+    if sa.CENTER[posAsString] then
+        world:gfx(1,Item.pos)
+        return
+    end
 
     local quality = math.floor(Item.quality/100)
-	local tries = #targetArea/7+(2*quality)
+    local tries = #targetArea/7+(2*quality)
     local theField
-	local thePos
-	for i=1,tries do
+    local thePos
+    for i=1,tries do
         local rnd = math.random(#targetArea)
-		thePos = targetArea[rnd]
-		theField = world:getField(thePos)
-		if theField:isPassable() and thePos~=Item.pos then
-		    world:createItemFromId(FRUITS_FLOWERS[math.random(#FRUITS_FLOWERS)],1,thePos,true,333,nil)
-		else
-			table.remove(targetArea,rnd)
-		end
-	end
-	for i=1, math.floor(tries/2) do
-		world:gfx(52, targetArea[math.random(#targetArea)])
-	end
+        thePos = targetArea[rnd]
+        theField = world:getField(thePos)
+        if theField:isPassable() and thePos~=Item.pos then
+            world:createItemFromId(FRUITS_FLOWERS[math.random(#FRUITS_FLOWERS)],1,thePos,true,333,nil)
+        else
+            table.remove(targetArea,rnd)
+        end
+    end
+    for i=1, math.floor(tries/2) do
+        world:gfx(52, targetArea[math.random(#targetArea)])
+    end
 
-	local sa = scheduled.alchemy
-	local posAsString = "".. Item.pos.x .." ".. Item.pos.y .." "..Item.pos.z
-	local found = false
-	for i=1,#sa.CENTERS do
-		if sa.CENTERS[i] == posAsString then
-			found = true
-		end
-	end
+    local sa = scheduled.alchemy
+    local posAsString = "".. Item.pos.x .." ".. Item.pos.y .." "..Item.pos.z
+    local found = false
+    for i=1,#sa.CENTERS do
+        if sa.CENTERS[i] == posAsString then
+            found = true
+        end
+    end
 
-	if not found then
-		table.insert(sa.CENTERS,posAsString)
-		sa.CENTER[posAsString] = {}
-	end
+    if not found then
+        table.insert(sa.CENTERS,posAsString)
+        sa.CENTER[posAsString] = {}
+    end
 
-	quality = quality/2
-	if quality % 2 ~= 0 then
-		if math.floor(2)==1 then
-			quality = quality + 1
-		end
-	end
-	quality = math.floor(quality)
+    quality = quality/2
+    if quality % 2 ~= 0 then
+        if math.floor(2)==1 then
+            quality = quality + 1
+        end
+    end
+    quality = math.floor(quality)
 
-	table.insert(sa.CENTER[posAsString],{quality, 0, targetArea})
+    table.insert(sa.CENTER[posAsString],{quality, 0, targetArea})
 
-	local players = world:getPlayersInRangeOf(Item.pos,9)
-	for i=1,#players do
-		players[i]:inform("Ein süßlicher Duft, der an Blumen und Früchte erinnert, breitet sich aus.", "A sweet scent, reminding one of flowers and fruits, starts to spread.")
-	end
+    local players = world:getPlayersInRangeOf(Item.pos,9)
+    for i=1,#players do
+        players[i]:inform("Ein süßlicher Duft, der an Blumen und Früchte erinnert, breitet sich aus.", "A sweet scent, reminding one of flowers and fruits, starts to spread.")
+    end
 
 end
 

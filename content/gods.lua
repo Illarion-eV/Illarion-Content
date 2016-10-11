@@ -37,7 +37,7 @@ M.GOD_THEFIVE  = 17
 M.GOD_THEDEVS  = 99
 
 M.GOD_LIST = {M.GOD_NARGUN,M.GOD_ELARA,M.GOD_ADRON,M.GOD_OLDRA,M.GOD_CHERGA,M.GOD_MALACHIN,
-			M.GOD_IRMOROM,M.GOD_SIRANI,M.GOD_ZHAMBRA,M.GOD_RONAGAN,M.GOD_MOSHRAN,M.GOD_THEFIVE};
+            M.GOD_IRMOROM,M.GOD_SIRANI,M.GOD_ZHAMBRA,M.GOD_RONAGAN,M.GOD_MOSHRAN,M.GOD_THEFIVE};
 
 M.GOD_EN = {
     [M.GOD_USHARA]   = "Ushara",
@@ -82,136 +82,136 @@ M.GOD_DE = {
 }
 
 PRAYER_CONVERSION = {
-	{skill = "Healing",
-		gText = "bitte (.+) heilung",
-		eText = "please (.+) healing"
-	}
+    {skill = "Healing",
+        gText = "bitte (.+) heilung",
+        eText = "please (.+) healing"
+    }
 }
 
 PRAYER_MASS = {
-	[M.GOD_NARGUN]   = {gText = "preiset narg[uú]n, gott des chaos",
-						eText = "praise narg[uú]n, god of chaos"},
+    [M.GOD_NARGUN]   = {gText = "preiset narg[uú]n, gott des chaos",
+                        eText = "praise narg[uú]n, god of chaos"},
     [M.GOD_ELARA]    = {gText = "preiset",
-						eText = "praise"},
+                        eText = "praise"},
     [M.GOD_ADRON]    = {gText = "preiset",
-						eText = "praise"},
+                        eText = "praise"},
     [M.GOD_OLDRA]    = {gText = "preiset",
-						eText = "praise"},
+                        eText = "praise"},
     [M.GOD_CHERGA]   = {gText = "preiset",
-						eText = "praise"},
+                        eText = "praise"},
     [M.GOD_MALACHIN] = {gText = "preiset",
-						eText = "praise"},
+                        eText = "praise"},
     [M.GOD_IRMOROM]  = {gText = "preiset",
-						eText = "praise"},
+                        eText = "praise"},
     [M.GOD_SIRANI]   = {gText = "preiset",
-						eText = "praise"},
+                        eText = "praise"},
     [M.GOD_ZHAMBRA]  = {gText = "preiset",
-						eText = "praise"},
+                        eText = "praise"},
     [M.GOD_RONAGAN]  = {gText = "preiset",
-						eText = "praise"},
+                        eText = "praise"},
     [M.GOD_MOSHRAN]  = {gText = "preiset",
-						eText = "praise"},
+                        eText = "praise"},
     [M.GOD_THEFIVE]  = {gText = "preiset",
-						eText = "praise"},
+                        eText = "praise"},
 }
 
 PRAYER_FOLLOWER = {
-	[M.GOD_NARGUN]   = {gText = "segne mich nargun",
-						eText = "bless me nargun"},
+    [M.GOD_NARGUN]   = {gText = "segne mich nargun",
+                        eText = "bless me nargun"},
     [M.GOD_ELARA]    = {gText = "segne mich",
-						eText = "bless me"},
+                        eText = "bless me"},
     [M.GOD_ADRON]    = {gText = "segne mich",
-						eText = "bless me"},
+                        eText = "bless me"},
     [M.GOD_OLDRA]    = {gText = "segne mich",
-						eText = "bless me"},
+                        eText = "bless me"},
     [M.GOD_CHERGA]   = {gText = "segne mich",
-						eText = "bless me"},
+                        eText = "bless me"},
     [M.GOD_MALACHIN] = {gText = "segne mich",
-						eText = "bless me"},
+                        eText = "bless me"},
     [M.GOD_IRMOROM]  = {gText = "segne mich",
-						eText = "bless me"},
+                        eText = "bless me"},
     [M.GOD_SIRANI]   = {gText = "segne mich",
-						eText = "bless me"},
+                        eText = "bless me"},
     [M.GOD_ZHAMBRA]  = {gText = "segne mich",
-						eText = "bless me"},
+                        eText = "bless me"},
     [M.GOD_RONAGAN]  = {gText = "segne mich",
-						eText = "bless me"},
+                        eText = "bless me"},
     [M.GOD_MOSHRAN]  = {gText = "segne mich",
-						eText = "bless me"},
+                        eText = "bless me"},
     [M.GOD_THEFIVE]  = {gText = "segnet mich",
-						eText = "bless me"},
+                        eText = "bless me"},
 }
 
 PRAYER_PRIEST = {
-	[M.GOD_NARGUN]   = {gText = "segne mich erneut nargun",
-						eText = "bless me again nargun"},
+    [M.GOD_NARGUN]   = {gText = "segne mich erneut nargun",
+                        eText = "bless me again nargun"},
     [M.GOD_ELARA]    = {gText = "segne mich",
-						eText = "bless me"},
+                        eText = "bless me"},
     [M.GOD_ADRON]    = {gText = "segne mich",
-						eText = "bless me"},
+                        eText = "bless me"},
     [M.GOD_OLDRA]    = {gText = "segne mich",
-						eText = "bless me"},
+                        eText = "bless me"},
     [M.GOD_CHERGA]   = {gText = "segne mich",
-						eText = "bless me"},
+                        eText = "bless me"},
     [M.GOD_MALACHIN] = {gText = "segne mich",
-						eText = "bless me"},
+                        eText = "bless me"},
     [M.GOD_IRMOROM]  = {gText = "segne mich",
-						eText = "bless me"},
+                        eText = "bless me"},
     [M.GOD_SIRANI]   = {gText = "segne mich",
-						eText = "bless me"},
+                        eText = "bless me"},
     [M.GOD_ZHAMBRA]  = {gText = "segne mich",
-						eText = "bless me"},
+                        eText = "bless me"},
     [M.GOD_RONAGAN]  = {gText = "segne mich",
-						eText = "bless me"},
+                        eText = "bless me"},
     [M.GOD_MOSHRAN]  = {gText = "segne mich",
-						eText = "bless me"},
+                        eText = "bless me"},
     [M.GOD_THEFIVE]  = {gText = "segnet mich",
-						eText = "bless me"},
+                        eText = "bless me"},
 }
 
 ALTARS = {
-	[M.GOD_NARGUN]	= position(-69,-100,0),
-    [M.GOD_ELARA]    	= position(0,0,0),
-    [M.GOD_ADRON]    	= position(0,0,0),
-    [M.GOD_OLDRA]    	= position(0,0,0),
-    [M.GOD_CHERGA]   	= position(0,0,0),
-    [M.GOD_MALACHIN] 	= position(0,0,0),
-    [M.GOD_IRMOROM]  	= position(0,0,0),
-    [M.GOD_SIRANI]   	= position(0,0,0),
-    [M.GOD_ZHAMBRA]  	= position(0,0,0),
-    [M.GOD_RONAGAN]  	= position(0,0,0),
-    [M.GOD_MOSHRAN]	= position(0,0,0),
-    [M.GOD_THEFIVE]  	= position(0,0,0)
+    [M.GOD_NARGUN]    = position(-69,-100,0),
+    [M.GOD_ELARA]        = position(0,0,0),
+    [M.GOD_ADRON]        = position(0,0,0),
+    [M.GOD_OLDRA]        = position(0,0,0),
+    [M.GOD_CHERGA]       = position(0,0,0),
+    [M.GOD_MALACHIN]     = position(0,0,0),
+    [M.GOD_IRMOROM]      = position(0,0,0),
+    [M.GOD_SIRANI]       = position(0,0,0),
+    [M.GOD_ZHAMBRA]      = position(0,0,0),
+    [M.GOD_RONAGAN]      = position(0,0,0),
+    [M.GOD_MOSHRAN]    = position(0,0,0),
+    [M.GOD_THEFIVE]      = position(0,0,0)
 }
 
 ITEMS_FOLLOWER = {
-	[M.GOD_NARGUN]	= {{id = 2, number = 1}},
-    [M.GOD_ELARA]    	= {{id = 2, number = 1}},
-    [M.GOD_ADRON]    	= {{id = 2, number = 1}},
-    [M.GOD_OLDRA]    	= {{id = 2, number = 1}},
-    [M.GOD_CHERGA]   	= {{id = 2, number = 1}},
-    [M.GOD_MALACHIN] 	= {{id = 2, number = 1}},
-    [M.GOD_IRMOROM]  	= {{id = 2, number = 1}},
-    [M.GOD_SIRANI]   	= {{id = 2, number = 1}},
-    [M.GOD_ZHAMBRA]  	= {{id = 2, number = 1}},
-    [M.GOD_RONAGAN]  	= {{id = 2, number = 1}},
-    [M.GOD_MOSHRAN]	= {{id = 2, number = 1}},
-    [M.GOD_THEFIVE]  	= {{id = 2, number = 1}}
+    [M.GOD_NARGUN]    = {{id = 2, number = 1}},
+    [M.GOD_ELARA]        = {{id = 2, number = 1}},
+    [M.GOD_ADRON]        = {{id = 2, number = 1}},
+    [M.GOD_OLDRA]        = {{id = 2, number = 1}},
+    [M.GOD_CHERGA]       = {{id = 2, number = 1}},
+    [M.GOD_MALACHIN]     = {{id = 2, number = 1}},
+    [M.GOD_IRMOROM]      = {{id = 2, number = 1}},
+    [M.GOD_SIRANI]       = {{id = 2, number = 1}},
+    [M.GOD_ZHAMBRA]      = {{id = 2, number = 1}},
+    [M.GOD_RONAGAN]      = {{id = 2, number = 1}},
+    [M.GOD_MOSHRAN]    = {{id = 2, number = 1}},
+    [M.GOD_THEFIVE]      = {{id = 2, number = 1}}
 }
 
 ITEMS_PRIEST = {
-	[M.GOD_NARGUN]	= {{id = 2, number = 1}},
-    [M.GOD_ELARA]    	= {{id = 2, number = 1}},
-    [M.GOD_ADRON]    	= {{id = 2, number = 1}},
-    [M.GOD_OLDRA]    	= {{id = 2, number = 1}},
-    [M.GOD_CHERGA]   	= {{id = 2, number = 1}},
-    [M.GOD_MALACHIN] 	= {{id = 2, number = 1}},
-    [M.GOD_IRMOROM]  	= {{id = 2, number = 1}},
-    [M.GOD_SIRANI]   	= {{id = 2, number = 1}},
-    [M.GOD_ZHAMBRA]  	= {{id = 2, number = 1}},
-    [M.GOD_RONAGAN]  	= {{id = 2, number = 1}},
-    [M.GOD_MOSHRAN]	= {{id = 2, number = 1}},
-    [M.GOD_THEFIVE]  	= {{id = 2, number = 1}}
+    [M.GOD_NARGUN]    = {{id = 2, number = 1}},
+    [M.GOD_ELARA]        = {{id = 2, number = 1}},
+    [M.GOD_ADRON]        = {{id = 2, number = 1}},
+    [M.GOD_OLDRA]        = {{id = 2, number = 1}},
+    [M.GOD_CHERGA]       = {{id = 2, number = 1}},
+    [M.GOD_MALACHIN]     = {{id = 2, number = 1}},
+    [M.GOD_IRMOROM]      = {{id = 2, number = 1}},
+    [M.GOD_SIRANI]       = {{id = 2, number = 1}},
+    [M.GOD_ZHAMBRA]      = {{id = 2, number = 1}},
+    [M.GOD_RONAGAN]      = {{id = 2, number = 1}},
+    [M.GOD_MOSHRAN]    = {{id = 2, number = 1}},
+    [M.GOD_THEFIVE]      = {{id = 2, number = 1}}
 }
 
 -- magic flags
@@ -221,7 +221,7 @@ RUNE_HEALING = 1;
 RUNE_SMALL = 32;
 
 M.DESCRIPTION_EN = {
-	[M.GOD_USHARA]="Goddess of earth";
+    [M.GOD_USHARA]="Goddess of earth";
     [M.GOD_BRAGON]="God of fire";
     [M.GOD_ELDAN]="God of spirit";
     [M.GOD_TANORA]="Goddess of water";
@@ -238,7 +238,7 @@ M.DESCRIPTION_EN = {
     [M.GOD_RONAGAN]="God of thieves and shadows";
     [M.GOD_MOSHRAN]="God of blood and bones";
 }
-	
+    
 M.DESCRIPTION_DE ={
     [M.GOD_BRAGON]="der Gott des Feuers";
     [M.GOD_ELDAN]="der Gott des Geistes";

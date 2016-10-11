@@ -20,8 +20,8 @@ local common = require("base.common")
 local factions = require("base.factions")
 local M = {}
      
-	 
-	 
+     
+     
 local GERMAN = Player.german
 local ENGLISH = Player.english
      

@@ -42,7 +42,7 @@ end
 
 function M.QuestDescription(user, status)
     
-	local german = "Du hast bereits ".. explorersguild.CountStones(user) .." Markierungssteine der Abenteurergilde gefunden. Weiter so!"
+    local german = "Du hast bereits ".. explorersguild.CountStones(user) .." Markierungssteine der Abenteurergilde gefunden. Weiter so!"
     local english = "You have already found ".. explorersguild.CountStones(user) .." marker stones of the Explorers' Guild. Keep it up!"
 
     return common.GetNLS(user, german, english)

@@ -105,7 +105,7 @@ function M.getClothesDuraText(dura, lang)
         ClDuraText[1]={"brand new", "new",  "slightly torn",    "used",      "torn",      "highly torn",    "old","dirty",  "tattered","haggled"};
         initClText=1;
     end
-	return ClDuraText[lang][10-math.floor(dura/10)];
+    return ClDuraText[lang][10-math.floor(dura/10)];
 end
 
 function M.getHPText(HP,language)

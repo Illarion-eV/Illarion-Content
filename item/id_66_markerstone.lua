@@ -25,33 +25,33 @@ local explorerguild_320_questlog = require("quest.explorerguild_320_questlog")
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)  -- DONT EDIT THIS LINE!
-	local stonedata=SourceItem:getData("markerstone");
-	if tonumber(stonedata) then
+    local stonedata=SourceItem:getData("markerstone");
+    if tonumber(stonedata) then
         local DisplayText
-		if not explorersguild.CheckStone(User,tonumber(stonedata)) then
-			--debug("Stone used. stonedata: "..stonedata)
-			DisplayText = common.GetNLS( User, "Du hast einen Markierungsstein der Abenteurergilde entdeckt; er trägt die Nummer "..stonedata,"You found a marker stone of the Explorers' Guild; it has the number "..stonedata);
-			explorersguild.WriteStone(User,tonumber(stonedata));
-			explorersguild.getReward(User);
-			ranklist.setRanklist(User, "explorerRanklist", explorersguild.CountStones(User));
-			User:setQuestProgress(320,1)
-		else
-			DisplayText = common.GetNLS( User, "Du hast diesen Markierungsstein der Abenteurergilde bereits früher gefunden; er trägt die Nummer "..stonedata..". Du hast bereits "..explorersguild.CountStones(User).." dieser Steine gefunden.","You have already found that marker stone of the Explorers' Guild earlier; it has the number "..stonedata..". You have already found "..explorersguild.CountStones(User).." of these stones.");
-		end
-		User:inform(DisplayText);
+        if not explorersguild.CheckStone(User,tonumber(stonedata)) then
+            --debug("Stone used. stonedata: "..stonedata)
+            DisplayText = common.GetNLS( User, "Du hast einen Markierungsstein der Abenteurergilde entdeckt; er trägt die Nummer "..stonedata,"You found a marker stone of the Explorers' Guild; it has the number "..stonedata);
+            explorersguild.WriteStone(User,tonumber(stonedata));
+            explorersguild.getReward(User);
+            ranklist.setRanklist(User, "explorerRanklist", explorersguild.CountStones(User));
+            User:setQuestProgress(320,1)
+        else
+            DisplayText = common.GetNLS( User, "Du hast diesen Markierungsstein der Abenteurergilde bereits früher gefunden; er trägt die Nummer "..stonedata..". Du hast bereits "..explorersguild.CountStones(User).." dieser Steine gefunden.","You have already found that marker stone of the Explorers' Guild earlier; it has the number "..stonedata..". You have already found "..explorersguild.CountStones(User).." of these stones.");
+        end
+        User:inform(DisplayText);
     end
 end
 
 function M.LookAtItem(User,Item)
-	local stonedata=Item:getData("markerstone");
-	if tonumber(stonedata) then
-		if not explorersguild.CheckStone(User,tonumber(stonedata)) then
-			lookat.SetSpecialDescription( Item, "Ein Markierungsstein der Abenteurergilde.","A marker stone of the Explorers' Guild.");
-		else
-			lookat.SetSpecialDescription( Item, "Du hast diesen Markierungsstein der Abenteurergilde bereits früher gefunden; er trägt die Nummer "..stonedata,"You have already found that marker stone of the Explorers' Guild earlier; it has the number "..stonedata);
-		end
+    local stonedata=Item:getData("markerstone");
+    if tonumber(stonedata) then
+        if not explorersguild.CheckStone(User,tonumber(stonedata)) then
+            lookat.SetSpecialDescription( Item, "Ein Markierungsstein der Abenteurergilde.","A marker stone of the Explorers' Guild.");
+        else
+            lookat.SetSpecialDescription( Item, "Du hast diesen Markierungsstein der Abenteurergilde bereits früher gefunden; er trägt die Nummer "..stonedata,"You have already found that marker stone of the Explorers' Guild earlier; it has the number "..stonedata);
+        end
     end
-	return lookat.GenerateLookAt(User, Item, lookat.NONE)
+    return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
 
 return M

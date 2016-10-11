@@ -26,11 +26,11 @@ function M.nextCycle(thisNPC)
 
     -- Suche nach Monstern
     local monsters = world:getMonstersInRangeOf(thisNPC.pos,EffectArea+2) -- Suche Nach Monstern zum Wegschleudern
-	for posi,monst in pairs(monsters) do
-		if monst:getMonsterType()==2000 then
-			table.remove(monsters,posi);
-		end
-	end
+    for posi,monst in pairs(monsters) do
+        if monst:getMonsterType()==2000 then
+            table.remove(monsters,posi);
+        end
+    end
 
     if (#monsters>0) then -- Monster gefunden
         CreateCircle(46,thisNPC.pos,EffectArea+2); -- Lustiger Leuchtkreis
@@ -40,7 +40,7 @@ function M.nextCycle(thisNPC)
             monster:warp(newPos); -- guten Flug!
             monster.movepoints=monster.movepoints - 20; -- Monster festhalten
             CreateLineofFligth(thisNPC.pos,monster.pos,1); -- Fluglinie Zeichnen
-			monster:setOnRoute(false); -- Cancels waypoints so it doesn't keep walking back to the cross if it's an archer.
+            monster:setOnRoute(false); -- Cancels waypoints so it doesn't keep walking back to the cross if it's an archer.
         end
     end
     -- Monster Fertig
@@ -68,13 +68,13 @@ function M.nextCycle(thisNPC)
                 world:gfx(53,player.pos)
                 world:gfx(53,thisNPC.pos);
                 CreateCircle(52,thisNPC.pos,thisNPC:distanceMetric(player)+1); -- Lustiger Leuchtkreis
-				-- WORKAROUND for Mantis issue #451: doubleEffect from lte_resurrected.lua, as all values are deleted upon double-adding effect
-				local foundRes, resEffect = player.effects:find(400);
-				if foundRes then
-					M.doubleEffect(resEffect,player);
-				else
-					player.effects:addEffect( LongTimeEffect(400,math.random(600,1800)) );
-				end
+                -- WORKAROUND for Mantis issue #451: doubleEffect from lte_resurrected.lua, as all values are deleted upon double-adding effect
+                local foundRes, resEffect = player.effects:find(400);
+                if foundRes then
+                    M.doubleEffect(resEffect,player);
+                else
+                    player.effects:addEffect( LongTimeEffect(400,math.random(600,1800)) );
+                end
             end
         end
     end
@@ -85,7 +85,7 @@ attribs={"strength","dexterity","constitution","agility","intelligence","percept
 
 function M.doubleEffect( rebirthEffect, Reborn )
     if Reborn:isAdmin() then
-	  return false;
+      return false;
     end
 
     common.InformNLS( Reborn,
@@ -109,13 +109,13 @@ function M.doubleEffect( rebirthEffect, Reborn )
         regEffect:addValue( "maxHP", math.floor( 10000 / ( maxChange + 1 ) ) );
         rebirthEffect:addValue( "maxChange", maxChange );
     end;
-	local foundMulti, multi = rebirthEffect:findValue("multiRes");
-	if not foundMulti then
-		multi = 1;
-	end
-	multi = multi +1;
-	rebirthEffect:addValue("multiRes",multi);
-	Reborn:setQuestProgress(20,common.GetCurrentTimestamp());
+    local foundMulti, multi = rebirthEffect:findValue("multiRes");
+    if not foundMulti then
+        multi = 1;
+    end
+    multi = multi +1;
+    rebirthEffect:addValue("multiRes",multi);
+    Reborn:setQuestProgress(20,common.GetCurrentTimestamp());
     return true;
 end
 

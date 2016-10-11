@@ -58,5 +58,5 @@ function _rankpoints_helper_sub(self, npcChar, player)
     rankpoints = rankpoints - value
     factions.setRankpoints(player,rankpoints)
 end
-	
+    
 return rankpoints

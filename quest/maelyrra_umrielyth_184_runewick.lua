@@ -648,7 +648,7 @@ function M.QuestFinalStatus()
 end
 
 function M.QuestAvailability(user, status)
-	-- only available if cooldown
+    -- only available if cooldown
     if status == 0 and user:getQuestProgress(186) == 0 then
         return Player.questAvailable
     else

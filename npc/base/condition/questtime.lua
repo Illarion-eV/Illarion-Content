@@ -24,13 +24,13 @@ local _questtime_helper_lesser
 
 local questtime = class(condition,
 function(self, comp, quest, month, day, hour)
-	condition:init(self)
+    condition:init(self)
     self["month"], self["monthtype"] = tools.set_value(month)
     self["day"], self["daytype"] = tools.set_value(day)
     self["hour"], self["hourtype"] = tools.set_value(hour)
     self["quest"] = quest
     
-	if (comp == ">") then
+    if (comp == ">") then
         self["check"] = _questtime_helper_greater
     elseif (comp == "<") then
         self["check"] = _questtime_helper_lesser
@@ -42,18 +42,18 @@ end)
 function _questtime_helper_greater(self, npcChar, texttype, player)
     local month = tools.get_value(self.npc, self.month, self.monthtype)
     local day = tools.get_value(self.npc, self.day, self.daytype)
-	local hour = tools.get_value(self.npc, self.hour, self.hourtype)
-	local quest = self.quest
+    local hour = tools.get_value(self.npc, self.hour, self.hourtype)
+    local quest = self.quest
     
-	return repeatable_quests.checkIfTimesExpired(player, quest, month, day, hour)
+    return repeatable_quests.checkIfTimesExpired(player, quest, month, day, hour)
 end
 
 function _questtime_helper_lesser(self, npcChar, texttype, player)
     local month = tools.get_value(self.npc, self.month, self.monthtype)
     local day = tools.get_value(self.npc, self.day, self.daytype)
-	local hour = tools.get_value(self.npc, self.hour, self.hourtype)
-	local quest = self.quest
-	
+    local hour = tools.get_value(self.npc, self.hour, self.hourtype)
+    local quest = self.quest
+    
     return not repeatable_quests.checkIfTimesExpired(player, quest, month, day, hour) 
 end
 

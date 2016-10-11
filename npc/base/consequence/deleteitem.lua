@@ -32,13 +32,13 @@ function(self, id, count, data)
     end
     
     self["count"], self["counttype"] = tools.set_value(count)
-	
-	if (data == nil) then
-		self["perform"] = _deleteitem_helper
-	else
-		self["data"] = data
-		self["perform"]  = _deleteitem_data_helper
-	end
+    
+    if (data == nil) then
+        self["perform"] = _deleteitem_helper
+    else
+        self["data"] = data
+        self["perform"]  = _deleteitem_data_helper
+    end
 end)
 
 function _deleteitem_helper(self, npcChar, player)

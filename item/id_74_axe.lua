@@ -27,17 +27,17 @@ M.LookAtItem = metal.LookAtItem
 
 function M.UseItem(User, SourceItem, ltstate)
 
-	local treeItem = woodchopping.getTree(User);
-	if treeItem then
-		woodchopping.StartGathering(User, treeItem, ltstate);
-		return;
-	end
-	
-	if treeItem == nil then
-		common.HighInformNLS( User,
-		"Um Holz zu hacken musst du zu einem Baum gehen.",
-		"For chopping wood you have to go to a tree." );
-	end
+    local treeItem = woodchopping.getTree(User);
+    if treeItem then
+        woodchopping.StartGathering(User, treeItem, ltstate);
+        return;
+    end
+    
+    if treeItem == nil then
+        common.HighInformNLS( User,
+        "Um Holz zu hacken musst du zu einem Baum gehen.",
+        "For chopping wood you have to go to a tree." );
+    end
 end
 
 

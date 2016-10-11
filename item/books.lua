@@ -29,34 +29,34 @@ local M = {}
 function M.UseItem(User, SourceItem)
 
     -- alchemy book; DO NOT CHANGE! STARTER PACK RELEVANT!
-	if SourceItem.id == 2622 then
-	    User:sendBook(101)
-	end
-	-- alchemy end
+    if SourceItem.id == 2622 then
+        User:sendBook(101)
+    end
+    -- alchemy end
     
     if SourceItem:getData("granorsHut") ~= "" then
         granorsHut.readingBook(User)
     end
 
     local book = SourceItem:getData("book")
-	if book ~= "" then
-		if id_266_bookshelf.bookList[book] ~= nil then
-			User:sendBook(id_266_bookshelf.bookList[book].bookId)
-		end
-	end
+    if book ~= "" then
+        if id_266_bookshelf.bookList[book] ~= nil then
+            User:sendBook(id_266_bookshelf.bookList[book].bookId)
+        end
+    end
 
 end
 
 function M.LookAtItem(User,Item)
     local book = Item:getData("book")
     if book ~= "" then
-		if book ~= nil then
-			if id_266_bookshelf.bookList[book] ~= nil then
-				lookat.SetSpecialName(Item,id_266_bookshelf.bookList[book].german,id_266_bookshelf.bookList[book].english)
-			end
-		end
-	end
-	return lookat.GenerateLookAt(User, Item, 0)
+        if book ~= nil then
+            if id_266_bookshelf.bookList[book] ~= nil then
+                lookat.SetSpecialName(Item,id_266_bookshelf.bookList[book].german,id_266_bookshelf.bookList[book].english)
+            end
+        end
+    end
+    return lookat.GenerateLookAt(User, Item, 0)
 end
 
 return M

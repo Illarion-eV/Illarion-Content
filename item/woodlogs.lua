@@ -52,7 +52,7 @@ function M.UseItem(User, SourceItem)
       return;
     end
     -- turn to field if necessary
-	common.TurnTo( User, checkPos );
+    common.TurnTo( User, checkPos );
   end
   
   --Weather is not shown by the client. So, players can only guess that it rains. Deactivated. ~Estralis

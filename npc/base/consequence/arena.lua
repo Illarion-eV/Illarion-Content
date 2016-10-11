@@ -40,7 +40,7 @@ function(self, mode)
 end)
 
 function _arena_helper_request(self, npcChar, player)
-	base_arena.requestMonster(player, npcChar)
+    base_arena.requestMonster(player, npcChar)
 end
 
 function _arena_helper_points(self, npcChar, player)
@@ -48,9 +48,9 @@ function _arena_helper_points(self, npcChar, player)
 end
 
 function _arena_helper_list(self, npcChar, player)
-	local arena = base_arena.getArena(player, npcChar)
-	local town = base_arena.arenaInformation[arena].town
-	local arenaListName = "ArenaList"..town
+    local arena = base_arena.getArena(player, npcChar)
+    local town = base_arena.arenaInformation[arena].town
+    local arenaListName = "ArenaList"..town
     ranklist.getRanklist(player, arenaListName, true)
 end
 

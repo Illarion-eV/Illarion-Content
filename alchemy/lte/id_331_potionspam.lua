@@ -26,8 +26,8 @@ function M.addEffect(Effect, Character)               -- Nur beim ersten Aufruf
 end
 
 function M.callEffect(Effect,Character)               -- Effect wird ausgeführt
-	-- Tritt nur einmal auf. Nach 4 Stunden. Breche den Effekt also ab.
-	return false;
+    -- Tritt nur einmal auf. Nach 4 Stunden. Breche den Effekt also ab.
+    return false;
 end
 
 function M.loadEffect(Effect,Character)               -- wenn der Charakter erneut einloggt

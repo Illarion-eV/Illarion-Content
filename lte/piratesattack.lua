@@ -76,7 +76,7 @@ function M.removeEffect(Effect,User)
 
 end
 
-function M.loadEffect(Effect,User)                  			
+function M.loadEffect(Effect,User)                              
 
 end
 

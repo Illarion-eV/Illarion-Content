@@ -24,7 +24,7 @@ function(self, value)
     condition:init(self)
     if (value == "shout" or value == "yell" or value == Character.yell) then
         self["value"] = Character.yell
-	elseif (value == "whisper" or value == Character.whisper) then
+    elseif (value == "whisper" or value == Character.whisper) then
         self["value"] = Character.whisper
     else
         self["value"] = Character.say

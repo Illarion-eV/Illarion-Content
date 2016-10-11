@@ -48,10 +48,10 @@ local talkNPCEntry = class(function(self)
     self["_conditions"] = {}
     
     self["_responses"] = {}
-	self["_responseProcessors"] = {}
+    self["_responseProcessors"] = {}
     self["_responsesCount"] = 0
     self["_consequences"] = {}
-	self["_parent"] = nil
+    self["_parent"] = nil
 end)
 
 function talkNPC:addCycleText(germanText, englishText)
@@ -73,17 +73,17 @@ function talkNPC:addTalkingEntry(newEntry)
         self._entry = {}
     end
     
-	newEntry:setParent(self)
+    newEntry:setParent(self)
     table.insert(self._entry, newEntry)
 end
 
 function talkNPC:receiveText(npcChar, texttype, player, text)
-	local result = false
-	
-	for _, entry in pairs(self._entry) do
+    local result = false
+    
+    for _, entry in pairs(self._entry) do
         if entry:checkEntry(npcChar, texttype, player, text) then
             entry:execute(npcChar, player)
-			result = true
+            result = true
             return true
         end
     end
@@ -93,7 +93,7 @@ end
 
 function talkNPC:nextCycle(npcChar, counter)
     if (counter >= self._nextCycleText) then
-	    self._nextCycleText = math.random(6000, 9000) --10 to 15 minutes
+        self._nextCycleText = math.random(6000, 9000) --10 to 15 minutes
         local german, english = self._cycleText:getRandomMessage()
         local textTypeDe, textDe = tools.get_text_and_talktype(german)
         local textTypeEn, textEn = tools.get_text_and_talktype(english)
@@ -115,25 +115,25 @@ function talkNPCEntry:addTrigger(text)
 end
 
 function talkNPCEntry:setParent(npc)
-	for _, value in pairs(self._conditions) do
+    for _, value in pairs(self._conditions) do
         value:setNPC(npc)
     end
-	for _, value in pairs(self._consequences) do
+    for _, value in pairs(self._consequences) do
         value:setNPC(npc)
     end
-	
-	self._parent = npc
+    
+    self._parent = npc
 end
 
 function talkNPCEntry:addCondition(c)
     if c == nil or not c:is_a(condition) then
         return
     end
-	
+    
     table.insert(self._conditions, c)
-	if (self._parent ~= nil) then
-		c:setNPC(self._parent)
-	end
+    if (self._parent ~= nil) then
+        c:setNPC(self._parent)
+    end
 end
 
 function talkNPCEntry:addResponse(text)
@@ -141,28 +141,28 @@ function talkNPCEntry:addResponse(text)
         return
     end
     table.insert(self._responses, text)
-	
+    
     self._responsesCount = self._responsesCount + 1
-	
-	for _, processor in pairs(processorList) do
-		if processor:check(text) then
-			if (self._responseProcessors[self._responsesCount] == nil) then
-				self._responseProcessors[self._responsesCount] = {}
-			end
-			table.insert(self._responseProcessors[self._responsesCount], processor)
-		end
-	end
+    
+    for _, processor in pairs(processorList) do
+        if processor:check(text) then
+            if (self._responseProcessors[self._responsesCount] == nil) then
+                self._responseProcessors[self._responsesCount] = {}
+            end
+            table.insert(self._responseProcessors[self._responsesCount], processor)
+        end
+    end
 end
 
 function talkNPCEntry:addConsequence(c)
     if c == nil or not c:is_a(consequence) then
         return
     end
-	
+    
     table.insert(self._consequences, c)
-	if (self._parent ~= nil) then
-		c:setNPC(self._parent)
-	end
+    if (self._parent ~= nil) then
+        c:setNPC(self._parent)
+    end
 end
 
 function talkNPCEntry:checkEntry(npcChar, texttype, player, text)
@@ -188,25 +188,25 @@ end
 function talkNPCEntry:execute(npcChar, player)
     if (self._responsesCount > 0) then
         local selectedResponse = math.random(1, self._responsesCount)
-		
-		local responseText = self._responses[selectedResponse]
-		local responseProcessors = self._responseProcessors[selectedResponse]
-		
-		if (responseProcessors ~= nil) then
-			for _, processor in pairs(responseProcessors) do
-				responseText = processor:process(player, self._parent, npcChar, responseText)
-			end
-		end
-		
-		local textType, text = tools.get_text_and_talktype(responseText)
-		npcChar:talk(textType, text)		
+        
+        local responseText = self._responses[selectedResponse]
+        local responseProcessors = self._responseProcessors[selectedResponse]
+        
+        if (responseProcessors ~= nil) then
+            for _, processor in pairs(responseProcessors) do
+                responseText = processor:process(player, self._parent, npcChar, responseText)
+            end
+        end
+        
+        local textType, text = tools.get_text_and_talktype(responseText)
+        npcChar:talk(textType, text)        
     end
     
     for _, consequence in pairs(self._consequences) do
-		if consequence then
-			consequence:perform(npcChar, player)
-		end
-	end
+        if consequence then
+            consequence:perform(npcChar, player)
+        end
+    end
 end
 
 talkNPC["talkNPCEntry"] = talkNPCEntry

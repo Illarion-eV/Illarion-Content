@@ -18,12 +18,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local M = {}
-	
-	
+    
+    
 local GERMAN = Player.german
 local ENGLISH = Player.english
      
-	
+    
 -- Insert the quest title here, in both languages
 local Title = {}
 Title[GERMAN] = "Der faule Lehrling"

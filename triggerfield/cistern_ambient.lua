@@ -99,10 +99,10 @@ cisternList.add( position(105,563,-6),nil,"Die Brücke knarrt laut und unheilvoll
 cisternList.add( position(113,570,-6),nil,"Eine Riesige Kanalratte springt überraschend hinter dem großen glühendem Pilz hervor und erschreckt dich.","A giant sewer rat jumps out from behind the huge glowing mushroom, startling the unprepared mind.",nil,nil,30); --cistern_cave
 
 function M.MoveToField(Char)
-	local this = cisternList.get(Char)
-	if this then
-		common.InformNLS(Char, this.german, this.english)
-	end
+    local this = cisternList.get(Char)
+    if this then
+        common.InformNLS(Char, this.german, this.english)
+    end
 end
 
 return M

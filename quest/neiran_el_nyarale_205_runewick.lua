@@ -16,12 +16,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (205, 'quest.neiran_el_nyarale_205_runewick');
      
-	 
+     
 local common = require("base.common")
 local factions = require("base.factions")
 local M = {}
      
-	 
+     
 local GERMAN = Player.german
 local ENGLISH = Player.english
      

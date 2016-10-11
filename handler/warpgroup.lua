@@ -29,14 +29,14 @@ end);
 function M.warpGroup:execute()   --warps all players within a range radius from centerpos to destpos
     local plyList = common.ExtgetPlayersInRangeOf(self.startpos, self.range)
 
-	for _, player in pairs(plyList) do
-		local dest = position(	self.destpos.x - (self.startpos.x - player.pos.x) ,
-								self.destpos.y - (self.startpos.y - player.pos.y),
-								self.destpos.z );
+    for _, player in pairs(plyList) do
+        local dest = position(    self.destpos.x - (self.startpos.x - player.pos.x) ,
+                                self.destpos.y - (self.startpos.y - player.pos.y),
+                                self.destpos.z );
         if self.gfx~=nil then
-			world:gfx(self.gfx,player.pos);--	world:gfx(self.gfx,player.pos); -- "sun" graphic
-		end
-		player:warp( dest );
+            world:gfx(self.gfx,player.pos);--    world:gfx(self.gfx,player.pos); -- "sun" graphic
+        end
+        player:warp( dest );
     end
 end
 

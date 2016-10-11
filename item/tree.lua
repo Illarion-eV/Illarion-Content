@@ -27,41 +27,41 @@ local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
     -- alchemy stuff
-	if SourceItem.pos == position(432,238,0) then
-		teacher.UseItem(User, SourceItem, ltstate)
-		return
-	end
-	-- alchemy end
+    if SourceItem.pos == position(432,238,0) then
+        teacher.UseItem(User, SourceItem, ltstate)
+        return
+    end
+    -- alchemy end
 
-	-- Try to harvest herbs first
-	if herbgathering.isHerbItem(SourceItem) and
-			herbgathering.GetValidProduct(SourceItem) and
-			User:countItemAt("body",126) > 0 then
-		herbgathering.StartGathering(User, SourceItem, ltstate);
-		return;
-	end
-	
-	if woodchopping.isUnchoppableTree(SourceItem,User) then
-		return
-	end
+    -- Try to harvest herbs first
+    if herbgathering.isHerbItem(SourceItem) and
+            herbgathering.GetValidProduct(SourceItem) and
+            User:countItemAt("body",126) > 0 then
+        herbgathering.StartGathering(User, SourceItem, ltstate);
+        return;
+    end
+    
+    if woodchopping.isUnchoppableTree(SourceItem,User) then
+        return
+    end
 
-	-- Try to chop tree
-	if woodchopping.isChoppableTree(SourceItem) then
-		woodchopping.StartGathering(User, SourceItem, ltstate);
-		return;
-	end
-	
+    -- Try to chop tree
+    if woodchopping.isChoppableTree(SourceItem) then
+        woodchopping.StartGathering(User, SourceItem, ltstate);
+        return;
+    end
+    
 end
 
 function M.LookAtItem(User,Item)
     -- alchemy stuff
-	if Item.pos == position(432,238,0) then
-		return teacher.LookAtItem(User, Item)
+    if Item.pos == position(432,238,0) then
+        return teacher.LookAtItem(User, Item)
 
-	end
-	-- alchemy end
+    end
+    -- alchemy end
 
-	return lookat.GenerateLookAt(User, Item)
+    return lookat.GenerateLookAt(User, Item)
 
 end
 

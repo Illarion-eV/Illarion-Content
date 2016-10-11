@@ -22,7 +22,7 @@ local M = {}
 local GERMAN = Player.german
 local ENGLISH = Player.english
      
-	 
+     
 -- Insert the quest title here, in both languages
 local Title = {}
 Title[GERMAN] = "Eibenthal"

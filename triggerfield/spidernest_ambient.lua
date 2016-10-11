@@ -60,10 +60,10 @@ spidernestList.add( position(909,520,-6),{5,6,7},"Zu deiner Rechten siehst du ei
 spidernestList.add( position(909,521,-6),{5,6,7},"Zu deiner Rechten siehst du einen Totelschädel liegen, der dich mit glühend roten Augen zu mustern scheint.","Off to your right, you see a skull whose eyes glow a bright red, beckoning you over.");
 
 function M.MoveToField(Char)
-	local this = spidernestList.get(Char)
-	if this then
-		common.InformNLS(Char, this.german, this.english)
-	end
+    local this = spidernestList.get(Char)
+    if this then
+        common.InformNLS(Char, this.german, this.english)
+    end
 end
 
 return M

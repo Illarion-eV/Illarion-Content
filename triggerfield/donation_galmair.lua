@@ -33,9 +33,9 @@ function M.PutItemOnField(Item,User)
 
    -- Quest 206 (Galmair Treasury, NPC Geretel Goldhair)
     if (donated) and (User:getQuestProgress(206) == 1) then
-		User:setQuestProgress(206, 2) --Quest solved!
-		common.InformNLS(User, "[Queststatus] Du hast erfolgreich etwas an den Don gespendet. Sprich mit Gretel Goldhair, um deine Belohnung einzufordern.", "[Quest status] You successfully made a donation to the Don. Talk to Gretel Goldhair to claim your reward.")
-	end
+        User:setQuestProgress(206, 2) --Quest solved!
+        common.InformNLS(User, "[Queststatus] Du hast erfolgreich etwas an den Don gespendet. Sprich mit Gretel Goldhair, um deine Belohnung einzufordern.", "[Quest status] You successfully made a donation to the Don. Talk to Gretel Goldhair to claim your reward.")
+    end
 end
 
 return M

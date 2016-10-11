@@ -65,8 +65,8 @@ function _test_magictype(player, magicType)
     if (playerMagicType ~= magicType) then
         return false
     end
-	
-	return player:getMagicFlags(magicType) > 0
+    
+    return player:getMagicFlags(magicType) > 0
 end
 
 return magictype

@@ -23,19 +23,19 @@ local common = require("base.common")
 local M = {}
 
 function M.MoveToField(char)
-	if char:getType() ~= Character.player then --Monsters will be ingored
-		return
-	end
+    if char:getType() ~= Character.player then --Monsters will be ingored
+        return
+    end
 
-	local queststatus = char:getQuestProgress(500)
+    local queststatus = char:getQuestProgress(500)
 
-	if (queststatus == 30) then
-		char:setQuestProgress(500, 31)
-		common.InformNLS(char,
+    if (queststatus == 30) then
+        char:setQuestProgress(500, 31)
+        common.InformNLS(char,
             "Als du vor den Altar trittst, hörst du ein Lachen und aus dem Spiegel des Chaos wirft jemand eine Torte nach dir.",
             "Stepping into the Altar you hear laughter and a pie is thrown at you from the Mirror of Chaos.")
-		world:createItemFromId(353, 1, char.pos, true, 333, nil)
-	end
+        world:createItemFromId(353, 1, char.pos, true, 333, nil)
+    end
 end
 
 return M

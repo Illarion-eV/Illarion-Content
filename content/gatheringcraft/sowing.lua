@@ -33,100 +33,100 @@ seedPlantList[3566] = 3562; -- potatoes
 
 -- gets the free position for seeds
 function getFreeFieldPosition(User)
-	local frontField = common.GetFrontPosition(User);
-	local field = world:getField(frontField);
-	local groundType = common.GetGroundType(field:tile());
-	local itemOnField = world:isItemOnField(frontField);
+    local frontField = common.GetFrontPosition(User);
+    local field = world:getField(frontField);
+    local groundType = common.GetGroundType(field:tile());
+    local itemOnField = world:isItemOnField(frontField);
 
-	if not itemOnField and groundType == 1 then
-		return frontField;
-	end
-	local Radius = 1;
-	for x=-Radius,Radius do
-		for y=-Radius,Radius do
-			local checkPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
-			if not world:isItemOnField(checkPos) then
-				field = world:getField(checkPos);
-				groundType = common.GetGroundType(field:tile())
-				if groundType == 1 then
-					return checkPos;
-				end
-			end
-		end
-	end
-	return nil;
+    if not itemOnField and groundType == 1 then
+        return frontField;
+    end
+    local Radius = 1;
+    for x=-Radius,Radius do
+        for y=-Radius,Radius do
+            local checkPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
+            if not world:isItemOnField(checkPos) then
+                field = world:getField(checkPos);
+                groundType = common.GetGroundType(field:tile())
+                if groundType == 1 then
+                    return checkPos;
+                end
+            end
+        end
+    end
+    return nil;
 end
 
 function StartGathering(User, SourceItem, ltstate)
 
-	gathering.InitGathering();
-	local farming = gathering.farming;
-	local seed = SourceItem
-	if seed.number < 1 then
-		User:inform("Du hast das Saatgut aufgebraucht.","You used all the seeds.")
-		return
-	end
+    gathering.InitGathering();
+    local farming = gathering.farming;
+    local seed = SourceItem
+    if seed.number < 1 then
+        User:inform("Du hast das Saatgut aufgebraucht.","You used all the seeds.")
+        return
+    end
 
-	local TargetPos = getFreeFieldPosition(User);
-	if TargetPos == nil then
-		TargetPos = common.GetFrontPosition(User);
-	end
+    local TargetPos = getFreeFieldPosition(User);
+    if TargetPos == nil then
+        TargetPos = common.GetFrontPosition(User);
+    end
 
-	common.ResetInterruption( User, ltstate );
-	if ( ltstate == Action.abort ) then -- work interrupted
+    common.ResetInterruption( User, ltstate );
+    if ( ltstate == Action.abort ) then -- work interrupted
         User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
-		return
-	end
+        return
+    end
 
-	if not common.FitForWork( User ) then -- check minimal food points
-		return
-	end
+    if not common.FitForWork( User ) then -- check minimal food points
+        return
+    end
 
-	common.TurnTo( User, TargetPos ); -- turn if necessary
+    common.TurnTo( User, TargetPos ); -- turn if necessary
 
-	-- should not stack plants on top of anything
-	if (world:isItemOnField(TargetPos)) then
-		common.HighInformNLS(User,
-		"Du kannst nur auf einem freien Feld Saatgut aussäen.",
-		"Sowing seeds is only possible at a free spot.");
-		return;
-	end
+    -- should not stack plants on top of anything
+    if (world:isItemOnField(TargetPos)) then
+        common.HighInformNLS(User,
+        "Du kannst nur auf einem freien Feld Saatgut aussäen.",
+        "Sowing seeds is only possible at a free spot.");
+        return;
+    end
 
   -- only on farm land
-	local Field = world:getField( TargetPos )
-	local groundType = common.GetGroundType( Field:tile() );
-	if ( groundType ~= 1 ) then
-		common.HighInformNLS(User,
-			"Du kannst nur auf Ackerboden Saatgut aussäen.",
-		"Sowing seeds is only possible on farm land.");
-		return
-	end
+    local Field = world:getField( TargetPos )
+    local groundType = common.GetGroundType( Field:tile() );
+    if ( groundType ~= 1 ) then
+        common.HighInformNLS(User,
+            "Du kannst nur auf Ackerboden Saatgut aussäen.",
+        "Sowing seeds is only possible on farm land.");
+        return
+    end
 
-	if ( ltstate == Action.none ) then -- currently not working -> let's go
-		farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,nil);
-		User:startAction( farming.SavedWorkTime[User.id], 0, 0, 0, 0);
+    if ( ltstate == Action.none ) then -- currently not working -> let's go
+        farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,nil);
+        User:startAction( farming.SavedWorkTime[User.id], 0, 0, 0, 0);
     -- this is no batch action => no emote message, only inform player
-		if farming.SavedWorkTime[User.id] > 15 then
-			common.InformNLS(User, "Du säst Saatgut aus.","You sow seeds.");
-		end
-		return
-	end
+        if farming.SavedWorkTime[User.id] > 15 then
+            common.InformNLS(User, "Du säst Saatgut aus.","You sow seeds.");
+        end
+        return
+    end
 
-	local nextField = getFreeFieldPosition(User);
-	if (nextField~=nil) then  -- there are still free fields
-		common.TurnTo( User, nextField); -- turn
-		farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,nil);
-		User:startAction( farming.SavedWorkTime[User.id], 0, 0, 0, 0);
-	end
+    local nextField = getFreeFieldPosition(User);
+    if (nextField~=nil) then  -- there are still free fields
+        common.TurnTo( User, nextField); -- turn
+        farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,nil);
+        User:startAction( farming.SavedWorkTime[User.id], 0, 0, 0, 0);
+    end
 
-	-- since we're here, we're working
+    -- since we're here, we're working
 
-	if farming:FindRandomItem(User) then
-		return
-	end
+    if farming:FindRandomItem(User) then
+        return
+    end
 
-	User:learn( farming.LeadSkill, farming.SavedWorkTime[User.id], farming.LearnLimit);
-	-- you always get at least one
+    User:learn( farming.LeadSkill, farming.SavedWorkTime[User.id], farming.LearnLimit);
+    -- you always get at least one
   local amount = 1;
   -- in 50% of all cases one more
   if (math.random(1,2) == 1) then
@@ -136,9 +136,9 @@ function StartGathering(User, SourceItem, ltstate)
   if (User:getSkill(farming.LeadSkill) > math.random(1,100)) then
     amount = amount + 1;
   end
-	world:createItemFromId( seedPlantList[seed.id], 1, TargetPos, true, 333 ,{["amount"] = "" .. amount});
-	world:erase( seed, 1 ); -- erase the seed
-	seed.number = seed.number - 1
-	User:changeSource(seed)
+    world:createItemFromId( seedPlantList[seed.id], 1, TargetPos, true, 333 ,{["amount"] = "" .. amount});
+    world:erase( seed, 1 ); -- erase the seed
+    seed.number = seed.number - 1
+    User:changeSource(seed)
 end
 

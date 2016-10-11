@@ -22,28 +22,28 @@ local M = {}
     
 function M.addEffect(Blessing, Character)       
 
-	Character:setAttrib("dexterity",Character:increaseAttrib("dexterity",0)+1);
-	Character:setAttrib("perception",Character:increaseAttrib("perception",0)+2);
-		
+    Character:setAttrib("dexterity",Character:increaseAttrib("dexterity",0)+1);
+    Character:setAttrib("perception",Character:increaseAttrib("perception",0)+2);
+        
     end
 
 function M.callEffect(Blessing, Character)
 
 
-	return false;
+    return false;
 end
 
 function M.loadEffect(Blessing, Character)
 
-	Character:setAttrib("dexterity",Character:increaseAttrib("dexterity",0)+1);
-	Character:setAttrib("perception",Character:increaseAttrib("perception",0)+2);
+    Character:setAttrib("dexterity",Character:increaseAttrib("dexterity",0)+1);
+    Character:setAttrib("perception",Character:increaseAttrib("perception",0)+2);
 
 end
 
 function M.removeEffect (Blessing, Character)
 
-	Character:setAttrib("dexterity",Character:increaseAttrib("dexterity",0)-1);
-	Character:setAttrib("perception",Character:increaseAttrib("perception",0)-2);
+    Character:setAttrib("dexterity",Character:increaseAttrib("dexterity",0)-1);
+    Character:setAttrib("perception",Character:increaseAttrib("perception",0)-2);
 
 end
 

@@ -49,14 +49,14 @@ function M.callEffect(theEffect, User)
         return false
     end
 
-	if theEffect.numberCalled == 600 then
+    if theEffect.numberCalled == 600 then
         common.InformNLS( User,
         "Ihr habt zulange gebraucht, um das Monster zu finden, es ist entwischt.",
         "It took you too long to find the monster, it escaped.")
         if isValidChar(huntMonster[User.id]) then
-			if huntMonster[User.id]:increaseAttrib("hitpoints",0) > 0 then
-				huntMonster[User.id]:increaseAttrib("hitpoints",-10000);
-			end
+            if huntMonster[User.id]:increaseAttrib("hitpoints",0) > 0 then
+                huntMonster[User.id]:increaseAttrib("hitpoints",-10000);
+            end
         end
         huntMonster[User.id] = nil
         return false
@@ -69,7 +69,7 @@ function M.callEffect(theEffect, User)
         "[Quest solved] Return to Defensor Informo to claim your reward.")
         if isValidChar(huntMonster[User.id]) then
 
-				huntMonster[User.id]:warp(position(441, 844, -10)); -- send it to the pit
+                huntMonster[User.id]:warp(position(441, 844, -10)); -- send it to the pit
 
         end
         User:setQuestProgress(529, 4)

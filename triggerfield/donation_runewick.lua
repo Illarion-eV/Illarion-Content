@@ -33,9 +33,9 @@ function M.PutItemOnField(Item,User)
 
    -- Quest 205 (Runewick Treasury, NPC Neiran el Nyarale)
     if (donated) and (User:getQuestProgress(205) == 1) then
-		User:setQuestProgress(205, 2) --Quest solved!
-		common.InformNLS(User, "[Queststatus] Du hast erfolgreich die Aufgabe von Neiran el Nyarale aufgeführt. Sprich mit ihm, um deine Belohnung einzufordern.", "[Quest status] You successfully completed the task given by Neiran el Nyarale. Talk to him to claim your reward.")
-	end
+        User:setQuestProgress(205, 2) --Quest solved!
+        common.InformNLS(User, "[Queststatus] Du hast erfolgreich die Aufgabe von Neiran el Nyarale aufgeführt. Sprich mit ihm, um deine Belohnung einzufordern.", "[Quest status] You successfully completed the task given by Neiran el Nyarale. Talk to him to claim your reward.")
+    end
 end
 
 return M

@@ -18,13 +18,13 @@ local class = require("base.class")
 local M = {}
 
 M.createMonster = class(function(cremonst, posi, ID, mvpoints)
-	cremonst.pos=posi;
-	cremonst.monsterID=ID;
-	cremonst.movepoints=mvpoints;
+    cremonst.pos=posi;
+    cremonst.monsterID=ID;
+    cremonst.movepoints=mvpoints;
 end);
-	
+    
 function M.createMonster:execute()
-	world:createMonster(self.monsterID, self.pos, self.movepoints);
+    world:createMonster(self.monsterID, self.pos, self.movepoints);
 end
 
 return M

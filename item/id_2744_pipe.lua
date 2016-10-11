@@ -24,35 +24,35 @@ local M = {}
 M.LookAtItem = wood.LookAtItem
 
 function M.UseItem(User, SourceItem)
-	--local amountSib = User:countItemAt("belt",155);
-	--local amountTob = User:countItemAt("belt",772);
-	if (User:countItemAt("belt",155) == 0 and User:countItemAt("belt",772) == 0) then
-		common.InformNLS( User,
+    --local amountSib = User:countItemAt("belt",155);
+    --local amountTob = User:countItemAt("belt",772);
+    if (User:countItemAt("belt",155) == 0 and User:countItemAt("belt",772) == 0) then
+        common.InformNLS( User,
         "Du benötigst Sibanac-Blätter oder Tabak, um Pfeife rauchen zu können.",
         "You need sibanac-leaves or tobacco to smoke a pipe." );
 
 
-	elseif (User:countItemAt("belt",155) ~= 0) then
-		User:talk(Character.say, "#me nimmt einen tiefen Zug von der Pfeife.", "#me takes a deep drag from the pipe.")
-		User:eraseItem( 155, 1 );
+    elseif (User:countItemAt("belt",155) ~= 0) then
+        User:talk(Character.say, "#me nimmt einen tiefen Zug von der Pfeife.", "#me takes a deep drag from the pipe.")
+        User:eraseItem( 155, 1 );
 
-	elseif (User:countItemAt("belt",772) ~= 0) then
-		User:talk(Character.say, "#me nimmt einen tiefen Zug von der Pfeife.", "#me takes a deep drag from the pipe.")
-		User:eraseItem( 772, 1 );
-	--[[Effekt setzen falls noch nicht vorhanden
-	-- LTE to get High, currently not working
-			find, stonedEffect = Character.effects:find(19);
-			if find then
-			found, stonedIndex = stonedEffect:findValue("stonedIndex");
-			if found then
-			stonedEffect:addValue("stonedIndex",(stonedIndex+1));
-			end
-			else
+    elseif (User:countItemAt("belt",772) ~= 0) then
+        User:talk(Character.say, "#me nimmt einen tiefen Zug von der Pfeife.", "#me takes a deep drag from the pipe.")
+        User:eraseItem( 772, 1 );
+    --[[Effekt setzen falls noch nicht vorhanden
+    -- LTE to get High, currently not working
+            find, stonedEffect = Character.effects:find(19);
+            if find then
+            found, stonedIndex = stonedEffect:findValue("stonedIndex");
+            if found then
+            stonedEffect:addValue("stonedIndex",(stonedIndex+1));
+            end
+            else
 
-			Character.effects:addEffect( LongTimeEffect(19,10) );
-			end]]
+            Character.effects:addEffect( LongTimeEffect(19,10) );
+            end]]
 
-	end
+    end
 end
 
 return M

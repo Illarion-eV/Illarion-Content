@@ -159,38 +159,38 @@ attendants2={}
 
 function M.vision(char,TypeStory)
 --debug("3: "..TypeStory)
-	local LineStory = char:getQuestProgress(664)
-	attendants[char.name] = world:getPlayersInRangeOf(position(940,200,0), 90)
-	if attendants[char.name] ~= nil then
-			for k,player in ipairs(attendants[char.name]) do
-				if (areas.PointInArea(player.pos,evilrock.EvilRockAreaNames[TypeStory])) then
---					player:inform(""..VisionTextDE[TypeStory][LineStory],""..VisionTextEN[TypeStory][LineStory])
-					common.InformNLS(player,VisionTextDE[TypeStory][LineStory],VisionTextEN[TypeStory][LineStory])
+    local LineStory = char:getQuestProgress(664)
+    attendants[char.name] = world:getPlayersInRangeOf(position(940,200,0), 90)
+    if attendants[char.name] ~= nil then
+            for k,player in ipairs(attendants[char.name]) do
+                if (areas.PointInArea(player.pos,evilrock.EvilRockAreaNames[TypeStory])) then
+--                    player:inform(""..VisionTextDE[TypeStory][LineStory],""..VisionTextEN[TypeStory][LineStory])
+                    common.InformNLS(player,VisionTextDE[TypeStory][LineStory],VisionTextEN[TypeStory][LineStory])
 --debug("ThereOn0: "..player.name)
-				else
+                else
 --debug("NotThereOn0: "..player.name)
-				end
+                end
 
-			end
-	else
+            end
+    else
 --debug("attendants0:nil ")
-	end
+    end
 
-	attendants2[char.name] = world:getPlayersInRangeOf(position(940,200,-6), 90)
-	if attendants2[char.name] ~= nil then
-			for k,player in ipairs(attendants2[char.name]) do
-				if (areas.PointInArea(player.pos,evilrock.EvilRockAreaNames[TypeStory])) then
---					player:inform(""..VisionTextDE[TypeStory][LineStory],""..VisionTextEN[TypeStory][LineStory])
-					common.InformNLS(player,VisionTextDE[TypeStory][LineStory],VisionTextEN[TypeStory][LineStory])
+    attendants2[char.name] = world:getPlayersInRangeOf(position(940,200,-6), 90)
+    if attendants2[char.name] ~= nil then
+            for k,player in ipairs(attendants2[char.name]) do
+                if (areas.PointInArea(player.pos,evilrock.EvilRockAreaNames[TypeStory])) then
+--                    player:inform(""..VisionTextDE[TypeStory][LineStory],""..VisionTextEN[TypeStory][LineStory])
+                    common.InformNLS(player,VisionTextDE[TypeStory][LineStory],VisionTextEN[TypeStory][LineStory])
 --debug("ThereOn-6: "..player.name)
-				else
+                else
 --debug("NotThereOn-6: "..player.name)
-				end
+                end
 
-			end
-	else
+            end
+    else
 --debug("attendants-6:nil ")
-	end
+    end
 end
 
 
@@ -208,136 +208,136 @@ gemsRequired={197,284,45,197,284,45}
 
 function M.UseDarkColumns(User, SourceItem, ltstate)
 
-	if User:getQuestProgress(667) >= 1 or world:getItemOnField(SourceItem.pos).id == 467 then
-		return
-	end
+    if User:getQuestProgress(667) >= 1 or world:getItemOnField(SourceItem.pos).id == 467 then
+        return
+    end
 
-	local AmountDarkColumnEvilrock = #M.darkColumnEvilrock
-  	for i = 1,AmountDarkColumnEvilrock do
-		if (SourceItem.pos == M.darkColumnEvilrock[i]) and User:countItemAt("all", gemsRequired[i], {["gemLevel"]="1"}) >= 1 then
---			local howmuchisit = User:countItemAt("all", 284)
+    local AmountDarkColumnEvilrock = #M.darkColumnEvilrock
+      for i = 1,AmountDarkColumnEvilrock do
+        if (SourceItem.pos == M.darkColumnEvilrock[i]) and User:countItemAt("all", gemsRequired[i], {["gemLevel"]="1"}) >= 1 then
+--            local howmuchisit = User:countItemAt("all", 284)
 
-			local foundSource
-	-- check for dark column
-			TargetItem = M.darkColumnEvilrock[i];
-			if (TargetItem ~= nil) then
-				common.TurnTo( User, M.darkColumnEvilrock[i] ); -- turn if necessary
-				foundSource=true
-			end
+            local foundSource
+    -- check for dark column
+            TargetItem = M.darkColumnEvilrock[i];
+            if (TargetItem ~= nil) then
+                common.TurnTo( User, M.darkColumnEvilrock[i] ); -- turn if necessary
+                foundSource=true
+            end
 
-			if ( ltstate == Action.none ) then
-				User:startAction( 20, 21, 5, 28, 55);
---				User:startAction( 20, 21, 5, 13, 25);
-				User:talk(Character.say, "#me setzt einen magischen Edelstein in die S‰ule ein.", "#me sets a magical gem into the column.")
-				world:gfx(52,M.darkColumnEvilrockLight[i])
-				world:createItemFromId( M.darkColumnEvilrockFlame[i], 1, M.darkColumnEvilrock[i], true, 666, nil)
-				User:eraseItem(gemsRequired[i],1, {["gemLevel"]="1"})
-			end
+            if ( ltstate == Action.none ) then
+                User:startAction( 20, 21, 5, 28, 55);
+--                User:startAction( 20, 21, 5, 13, 25);
+                User:talk(Character.say, "#me setzt einen magischen Edelstein in die S‰ule ein.", "#me sets a magical gem into the column.")
+                world:gfx(52,M.darkColumnEvilrockLight[i])
+                world:createItemFromId( M.darkColumnEvilrockFlame[i], 1, M.darkColumnEvilrock[i], true, 666, nil)
+                User:eraseItem(gemsRequired[i],1, {["gemLevel"]="1"})
+            end
 
-			for j = 1,AmountDarkColumnEvilrock do
-				local CheckLightOnColumn = world:getItemOnField(M.darkColumnEvilrock[j])
-				if CheckLightOnColumn.id == 467 then
-					CheckLightOnColumnIsThere[j] = true
-				else
-					CheckLightOnColumnIsThere[j] = false
-				end
-				for k = 1,j do
-					if CheckLightOnColumnIsThere[j] ~= true then
-						return
-					end
-				end
-			end
+            for j = 1,AmountDarkColumnEvilrock do
+                local CheckLightOnColumn = world:getItemOnField(M.darkColumnEvilrock[j])
+                if CheckLightOnColumn.id == 467 then
+                    CheckLightOnColumnIsThere[j] = true
+                else
+                    CheckLightOnColumnIsThere[j] = false
+                end
+                for k = 1,j do
+                    if CheckLightOnColumnIsThere[j] ~= true then
+                        return
+                    end
+                end
+            end
 
-			for l = 1,AmountDarkColumnEvilrock do
-				world:gfx(5,M.darkColumnEvilrock[l])
-				world:makeSound(27,M.darkColumnEvilrock[l])
-			end
+            for l = 1,AmountDarkColumnEvilrock do
+                world:gfx(5,M.darkColumnEvilrock[l])
+                world:makeSound(27,M.darkColumnEvilrock[l])
+            end
 
-			BlackColumnQuestProgressA(User)
+            BlackColumnQuestProgressA(User)
 
-		elseif SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", gemsRequired[i]) >= 1 then
-			common.InformNLS(User,"Der Edelstein l‰sst sich einsetzen, aber er scheint nicht der Richtige zu sein. Vielleicht versuchst du einen Anderen.","Your gem seems to fit but for some reason it does not seem to be the right one.")
-		elseif SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 285) >= 1 or SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 285) >= 1 or SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 283) >= 1 or SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 45) >= 1 or SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 46) >= 1 or SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 197) >= 1 or SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 198) >= 1 then
-			common.InformNLS(User,"Diese Art von Edelstein scheint nicht zu passen. Vielleicht versuchst du eine andere Art.","This kind of gem does not seem to fit. You might want to try a different one.")
-		elseif SourceItem.pos == M.darkColumnEvilrock[i] then
-			common.InformNLS(User,"Keiner deiner Gegenst‰nde scheint zu passen.","None of your items seem to fit.")
-		end
-	end
+        elseif SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", gemsRequired[i]) >= 1 then
+            common.InformNLS(User,"Der Edelstein l‰sst sich einsetzen, aber er scheint nicht der Richtige zu sein. Vielleicht versuchst du einen Anderen.","Your gem seems to fit but for some reason it does not seem to be the right one.")
+        elseif SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 285) >= 1 or SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 285) >= 1 or SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 283) >= 1 or SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 45) >= 1 or SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 46) >= 1 or SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 197) >= 1 or SourceItem.pos == M.darkColumnEvilrock[i] and User:countItemAt("all", 198) >= 1 then
+            common.InformNLS(User,"Diese Art von Edelstein scheint nicht zu passen. Vielleicht versuchst du eine andere Art.","This kind of gem does not seem to fit. You might want to try a different one.")
+        elseif SourceItem.pos == M.darkColumnEvilrock[i] then
+            common.InformNLS(User,"Keiner deiner Gegenst‰nde scheint zu passen.","None of your items seem to fit.")
+        end
+    end
 end
 
 
 function BlackColumnQuestProgressA(User)
-	enabledAttendantsForPuzzle[User.name] = world:getPlayersInRangeOf(position(969,172,0), 10)
-	for m,player in ipairs(enabledAttendantsForPuzzle[User.name]) do
-		if (areas.PointInArea(player.pos,evilrock.EvilRockAreaNames[2])) then
-			player:setQuestProgress(667,1)
-			common.InformNLS(player,"Eine Stimme sagt: 'Flammen, die Welt steht in Flammen!' Anschlieﬂend ist ein Summen zu hˆren und selektierbare Runen erscheinen an den schwarzen S‰ulen.","A voice says: 'Fire, the world is on fire!' A hum can be heard afterwards and selectable runes appear on the black columns.")
-		else
-		end
-	end
+    enabledAttendantsForPuzzle[User.name] = world:getPlayersInRangeOf(position(969,172,0), 10)
+    for m,player in ipairs(enabledAttendantsForPuzzle[User.name]) do
+        if (areas.PointInArea(player.pos,evilrock.EvilRockAreaNames[2])) then
+            player:setQuestProgress(667,1)
+            common.InformNLS(player,"Eine Stimme sagt: 'Flammen, die Welt steht in Flammen!' Anschlieﬂend ist ein Summen zu hˆren und selektierbare Runen erscheinen an den schwarzen S‰ulen.","A voice says: 'Fire, the world is on fire!' A hum can be heard afterwards and selectable runes appear on the black columns.")
+        else
+        end
+    end
 end
 
 
 function BlackColumnQuestProgressB(User,QuestStatusBlackColumn)
-	enabledAttendantsForPuzzle[User.name] = world:getPlayersInRangeOf(position(969,172,0), 10)
-	for m,player in ipairs(enabledAttendantsForPuzzle[User.name]) do
-		if (areas.PointInArea(player.pos,evilrock.EvilRockAreaNames[2])) then
-			if QuestStatusBlackColumn == 16 then
-				common.InformNLS(player,"Eine Stimme ruft: 'Flammen, die Welt steht in Flammen!'. Das Summen verst‰rkt sich anschlieﬂend.", "A voice shouts: 'Fire, the world is on fire!' The hum intensifies afterwards.")
-			else
-				common.InformNLS(player,"Das Summen verst‰rkt sich als du den magischen Edelstein einsetzt.", "The hum intensifies as you put in the magical gem.")
-			end
-			player:setQuestProgress(667,QuestStatusBlackColumn+1)
-		else
-		end
-	end
-	if QuestStatusBlackColumn == 24 then
-		world:makeSound(27,position(975,173,0))
-		world:gfx(46,position(975,173,0))
-	end
+    enabledAttendantsForPuzzle[User.name] = world:getPlayersInRangeOf(position(969,172,0), 10)
+    for m,player in ipairs(enabledAttendantsForPuzzle[User.name]) do
+        if (areas.PointInArea(player.pos,evilrock.EvilRockAreaNames[2])) then
+            if QuestStatusBlackColumn == 16 then
+                common.InformNLS(player,"Eine Stimme ruft: 'Flammen, die Welt steht in Flammen!'. Das Summen verst‰rkt sich anschlieﬂend.", "A voice shouts: 'Fire, the world is on fire!' The hum intensifies afterwards.")
+            else
+                common.InformNLS(player,"Das Summen verst‰rkt sich als du den magischen Edelstein einsetzt.", "The hum intensifies as you put in the magical gem.")
+            end
+            player:setQuestProgress(667,QuestStatusBlackColumn+1)
+        else
+        end
+    end
+    if QuestStatusBlackColumn == 24 then
+        world:makeSound(27,position(975,173,0))
+        world:gfx(46,position(975,173,0))
+    end
 end
 
 function BlackColumnQuestProgressC(User,QuestStatusBlackColumn)
-	enabledAttendantsForPuzzle[User.name] = world:getPlayersInRangeOf(position(969,172,0), 10)
-	for m,player in ipairs(enabledAttendantsForPuzzle[User.name]) do
-		if (areas.PointInArea(player.pos,evilrock.EvilRockAreaNames[2])) then
-			player:setQuestProgress(667,0)
-			common.InformNLS(player,"Das Summen bricht ab, die Lichter erlˆschen und die Runen an den schwarzen S‰ulen verschwinden.", "The hum breaks up, lights go out and the runes disappear on the black column.")
-			world:makeSound(27,player.pos)
-			local AmountDarkColumnEvilrock = #M.darkColumnEvilrock
-			for i=1,AmountDarkColumnEvilrock do
-				local DarkColumnEvilrockLightErase = world:getItemOnField(M.darkColumnEvilrock[i])
-				if DarkColumnEvilrockLightErase.id == 467 then
-					world:erase(DarkColumnEvilrockLightErase,DarkColumnEvilrockLightErase.number)
-					world:gfx(45,M.darkColumnEvilrockLight[i])
-				end
-			end
-		else
-		end
-	end
+    enabledAttendantsForPuzzle[User.name] = world:getPlayersInRangeOf(position(969,172,0), 10)
+    for m,player in ipairs(enabledAttendantsForPuzzle[User.name]) do
+        if (areas.PointInArea(player.pos,evilrock.EvilRockAreaNames[2])) then
+            player:setQuestProgress(667,0)
+            common.InformNLS(player,"Das Summen bricht ab, die Lichter erlˆschen und die Runen an den schwarzen S‰ulen verschwinden.", "The hum breaks up, lights go out and the runes disappear on the black column.")
+            world:makeSound(27,player.pos)
+            local AmountDarkColumnEvilrock = #M.darkColumnEvilrock
+            for i=1,AmountDarkColumnEvilrock do
+                local DarkColumnEvilrockLightErase = world:getItemOnField(M.darkColumnEvilrock[i])
+                if DarkColumnEvilrockLightErase.id == 467 then
+                    world:erase(DarkColumnEvilrockLightErase,DarkColumnEvilrockLightErase.number)
+                    world:gfx(45,M.darkColumnEvilrockLight[i])
+                end
+            end
+        else
+        end
+    end
 end
 
 
 function M.UseDarkColumnsPuzzle(User, SourceItem, ltstate)
 
-	local AmountDarkColumnEvilrock = #M.darkColumnEvilrock
-  	for i = 1,AmountDarkColumnEvilrock do
-		if (SourceItem.pos == M.darkColumnEvilrock[i]) and User:getQuestProgress(667) >= 1 and world:getItemOnField(SourceItem.pos).id == 467 then
+    local AmountDarkColumnEvilrock = #M.darkColumnEvilrock
+      for i = 1,AmountDarkColumnEvilrock do
+        if (SourceItem.pos == M.darkColumnEvilrock[i]) and User:getQuestProgress(667) >= 1 and world:getItemOnField(SourceItem.pos).id == 467 then
 
-			local foundSource
-	-- check for dark column
-			TargetItem = M.darkColumnEvilrock[i];
-			if (TargetItem ~= nil) then
-				common.TurnTo( User, M.darkColumnEvilrock[i] ); -- turn if necessary
-				foundSource=true
-			end
+            local foundSource
+    -- check for dark column
+            TargetItem = M.darkColumnEvilrock[i];
+            if (TargetItem ~= nil) then
+                common.TurnTo( User, M.darkColumnEvilrock[i] ); -- turn if necessary
+                foundSource=true
+            end
 
-			if ( ltstate == Action.none ) then
-				Puzzle(User,SourceItem)
---				return
-			end
-		end
-	end
+            if ( ltstate == Action.none ) then
+                Puzzle(User,SourceItem)
+--                return
+            end
+        end
+    end
 end
 
 
@@ -399,119 +399,119 @@ OptionToSelect={}
 puzzleDarkColumnOrder={1,5,3,6,2,4,1,2,3,6,5,4,1,2,6,3,5,4,1,5,6,3,2,4}
 
 function Puzzle(User,SourceItem)
-	local options
-	local Amountoptions = #puzzleOptionsDE
-	local QuestStatusBlackColumn = User:getQuestProgress(667)
-	local TrueOption = math.random(1,3)
+    local options
+    local Amountoptions = #puzzleOptionsDE
+    local QuestStatusBlackColumn = User:getQuestProgress(667)
+    local TrueOption = math.random(1,3)
 
-	if (SourceItem.pos == M.darkColumnEvilrock[puzzleDarkColumnOrder[QuestStatusBlackColumn]]) then
-		OptionToSelect[TrueOption] = QuestStatusBlackColumn
-		if TrueOption == 1 then
-			repeat
-				OptionToSelect[2] = math.random(1,24)
-				OptionToSelect[3] = math.random(1,24)
-			until OptionToSelect[1] ~= OptionToSelect[2] and OptionToSelect[1] ~= OptionToSelect[3] and OptionToSelect[2] ~= OptionToSelect[3]
-		elseif TrueOption == 2 then
-			repeat
-				OptionToSelect[1] = math.random(1,24)
-				OptionToSelect[3] = math.random(1,24)
-			until OptionToSelect[1] ~= OptionToSelect[2] and OptionToSelect[1] ~= OptionToSelect[3] and OptionToSelect[2] ~= OptionToSelect[3]
-		elseif TrueOption == 3 then
-			repeat
-				OptionToSelect[1] = math.random(1,24)
-				OptionToSelect[2] = math.random(1,24)
-			until OptionToSelect[1] ~= OptionToSelect[2] and OptionToSelect[1] ~= OptionToSelect[3] and OptionToSelect[2] ~= OptionToSelect[3]
-		end
-	else
-		repeat
-			OptionToSelect[1] = math.random(1,24)
-			OptionToSelect[2] = math.random(1,24)
-			OptionToSelect[3] = math.random(1,24)
-		until OptionToSelect[1] ~= OptionToSelect[2] and OptionToSelect[1] ~= OptionToSelect[3] and OptionToSelect[2] ~= OptionToSelect[3]
-	end
-
-
-	for j = 1,Amountoptions do
-	   	if  User:getPlayerLanguage() == Player.german then
-			puzzleOptions = puzzleOptionsDE
-		else
-			puzzleOptions = puzzleOptionsEN
-		end
-	end
+    if (SourceItem.pos == M.darkColumnEvilrock[puzzleDarkColumnOrder[QuestStatusBlackColumn]]) then
+        OptionToSelect[TrueOption] = QuestStatusBlackColumn
+        if TrueOption == 1 then
+            repeat
+                OptionToSelect[2] = math.random(1,24)
+                OptionToSelect[3] = math.random(1,24)
+            until OptionToSelect[1] ~= OptionToSelect[2] and OptionToSelect[1] ~= OptionToSelect[3] and OptionToSelect[2] ~= OptionToSelect[3]
+        elseif TrueOption == 2 then
+            repeat
+                OptionToSelect[1] = math.random(1,24)
+                OptionToSelect[3] = math.random(1,24)
+            until OptionToSelect[1] ~= OptionToSelect[2] and OptionToSelect[1] ~= OptionToSelect[3] and OptionToSelect[2] ~= OptionToSelect[3]
+        elseif TrueOption == 3 then
+            repeat
+                OptionToSelect[1] = math.random(1,24)
+                OptionToSelect[2] = math.random(1,24)
+            until OptionToSelect[1] ~= OptionToSelect[2] and OptionToSelect[1] ~= OptionToSelect[3] and OptionToSelect[2] ~= OptionToSelect[3]
+        end
+    else
+        repeat
+            OptionToSelect[1] = math.random(1,24)
+            OptionToSelect[2] = math.random(1,24)
+            OptionToSelect[3] = math.random(1,24)
+        until OptionToSelect[1] ~= OptionToSelect[2] and OptionToSelect[1] ~= OptionToSelect[3] and OptionToSelect[2] ~= OptionToSelect[3]
+    end
 
 
-	local callback = function(dialog)
-		success = dialog:getSuccess()
-		if success then
-			local selected = dialog:getSelectedIndex()
-			if (selected == 0) then
-				checkRightChoice(User,QuestStatusBlackColumn,selected)
-			elseif (selected == 1) then
-				checkRightChoice(User,QuestStatusBlackColumn,selected)
-			elseif (selected == 2) then
-				checkRightChoice(User,QuestStatusBlackColumn,selected)
-			end
-		end
-	end
-	local dialog
-
-	if  User:getPlayerLanguage() == Player.german then
-		dialog = SelectionDialog("Schwarze S‰ulen R‰tsel", "Triff deine Wahl, aber sei vorsichtig. Bei einer flaschen Antwort musst du wieder von vorne beginnen.", callback)
-	else
-		dialog = SelectionDialog("Black Column Puzzle", "Select your choice but be careful. If you select the wrong answer, you move back to the beginning.", callback)
-	end
-	dialog:setCloseOnMove()
+    for j = 1,Amountoptions do
+           if  User:getPlayerLanguage() == Player.german then
+            puzzleOptions = puzzleOptionsDE
+        else
+            puzzleOptions = puzzleOptionsEN
+        end
+    end
 
 
-	for i = 1,3 do
-		dialog:addOption(2805,puzzleOptions[(OptionToSelect[i])])
+    local callback = function(dialog)
+        success = dialog:getSuccess()
+        if success then
+            local selected = dialog:getSelectedIndex()
+            if (selected == 0) then
+                checkRightChoice(User,QuestStatusBlackColumn,selected)
+            elseif (selected == 1) then
+                checkRightChoice(User,QuestStatusBlackColumn,selected)
+            elseif (selected == 2) then
+                checkRightChoice(User,QuestStatusBlackColumn,selected)
+            end
+        end
+    end
+    local dialog
 
-	end
+    if  User:getPlayerLanguage() == Player.german then
+        dialog = SelectionDialog("Schwarze S‰ulen R‰tsel", "Triff deine Wahl, aber sei vorsichtig. Bei einer flaschen Antwort musst du wieder von vorne beginnen.", callback)
+    else
+        dialog = SelectionDialog("Black Column Puzzle", "Select your choice but be careful. If you select the wrong answer, you move back to the beginning.", callback)
+    end
+    dialog:setCloseOnMove()
 
 
-	User:requestSelectionDialog(dialog)
+    for i = 1,3 do
+        dialog:addOption(2805,puzzleOptions[(OptionToSelect[i])])
+
+    end
+
+
+    User:requestSelectionDialog(dialog)
 end
 
 
 function checkRightChoice(User,QuestStatusBlackColumn,selected)
-	User:startAction( 10, 0, 0, 22, 55);
-	User:talk(Character.say, "#me w‰hlt eine der Runen an der schwarzen S‰ule aus.", "#me selects one of the runes on the black column.")
-	if OptionToSelect[selected+1] == QuestStatusBlackColumn then
-		BlackColumnQuestProgressB(User,QuestStatusBlackColumn)
-	else
-		BlackColumnQuestProgressC(User,QuestStatusBlackColumn)
-	end
+    User:startAction( 10, 0, 0, 22, 55);
+    User:talk(Character.say, "#me w‰hlt eine der Runen an der schwarzen S‰ule aus.", "#me selects one of the runes on the black column.")
+    if OptionToSelect[selected+1] == QuestStatusBlackColumn then
+        BlackColumnQuestProgressB(User,QuestStatusBlackColumn)
+    else
+        BlackColumnQuestProgressC(User,QuestStatusBlackColumn)
+    end
 end
 
 
 findPossiblePlayersForBeamMeDown={}
 
 function M.beamMeDown(User, SourceItem)
-	world:makeSound(22,position(975,173,0))
-	world:gfx(46,position(975,173,0))
-	findPossiblePlayersForBeamMeDown[User.name] = world:getPlayersInRangeOf(position(970,173,0), 8)
-	for m,player in ipairs(findPossiblePlayersForBeamMeDown[User.name]) do
-		if areas.PointInArea(player.pos,"evilrock6") then
-			world:makeSound(13,player.pos)
-			world:gfx(37,player.pos)
-		end
-		if areas.PointInArea(player.pos,"evilrock6") then
-			player:warp(position(973,173,-6))
-			player:setQuestProgress(667,0)
-			common.InformNLS(player,"Das Summen bricht ab und ein Lichtermantel, der dich an einen anderen Ort zieht, umschlieﬂt dich.", "The hum breaks up and a coat of light encloses you and pulls you to a different place.")
-			world:makeSound(13,player.pos)
-			world:gfx(37,player.pos)
-		end
-	end
+    world:makeSound(22,position(975,173,0))
+    world:gfx(46,position(975,173,0))
+    findPossiblePlayersForBeamMeDown[User.name] = world:getPlayersInRangeOf(position(970,173,0), 8)
+    for m,player in ipairs(findPossiblePlayersForBeamMeDown[User.name]) do
+        if areas.PointInArea(player.pos,"evilrock6") then
+            world:makeSound(13,player.pos)
+            world:gfx(37,player.pos)
+        end
+        if areas.PointInArea(player.pos,"evilrock6") then
+            player:warp(position(973,173,-6))
+            player:setQuestProgress(667,0)
+            common.InformNLS(player,"Das Summen bricht ab und ein Lichtermantel, der dich an einen anderen Ort zieht, umschlieﬂt dich.", "The hum breaks up and a coat of light encloses you and pulls you to a different place.")
+            world:makeSound(13,player.pos)
+            world:gfx(37,player.pos)
+        end
+    end
 end
 
 function EvilRockPortal(User)
-	portalEvilRock = world:createItemFromId(10,1,position(977,173,-6),true,666, nil)
-	portalEvilRock:setData("destinationCoordsX",975)
-	portalEvilRock:setData("destinationCoordsY",173)
-	portalEvilRock:setData("destinationCoordsZ",-6)
-	world:changeItem(portalEvilRock)
-	world:makeSound( 4, position(977,173,-6))
+    portalEvilRock = world:createItemFromId(10,1,position(977,173,-6),true,666, nil)
+    portalEvilRock:setData("destinationCoordsX",975)
+    portalEvilRock:setData("destinationCoordsY",173)
+    portalEvilRock:setData("destinationCoordsZ",-6)
+    world:changeItem(portalEvilRock)
+    world:makeSound( 4, position(977,173,-6))
 end
 
 return M

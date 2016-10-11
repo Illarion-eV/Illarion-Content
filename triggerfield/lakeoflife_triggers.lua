@@ -40,46 +40,46 @@ local M = {}
 
 function M.MoveToField( User )
 
-	if User:getType() ~= Character.player then
-		return
-	end
+    if User:getType() ~= Character.player then
+        return
+    end
 
     if User.pos == position(641, 266, -9) then -- inform
-	        common.InformNLS(User,"Wenn Du den Eisfluß umgangen hast kannst Du eine Stelle in der Eismauer ausmachen welche weggeschlagen wurde.","As you round the iceflow, you can see a section of ice wall has been chisled away.")
+            common.InformNLS(User,"Wenn Du den Eisfluß umgangen hast kannst Du eine Stelle in der Eismauer ausmachen welche weggeschlagen wurde.","As you round the iceflow, you can see a section of ice wall has been chisled away.")
         elseif User.pos == position(640, 266, -9) then -- inform
-	        common.InformNLS(User,"Ein unheimliches Glühen scheint aus dem Eisboden und den Eiswänden hervorzukommen.","An eerie glow seems to come up through the ice floor and emanate out the ice walls.")
+            common.InformNLS(User,"Ein unheimliches Glühen scheint aus dem Eisboden und den Eiswänden hervorzukommen.","An eerie glow seems to come up through the ice floor and emanate out the ice walls.")
         elseif math.random(1, 4) == 1 and User.pos == position(639, 245, -9) then -- inform
-	        common.InformNLS(User,"Ein lautes Zerreißen ist aus einiger Entfernung zu hören, gefolgt von Knacken und Krachen.","A loud cracking can be heard in the distance, followed by some crashing and splashing.")
+            common.InformNLS(User,"Ein lautes Zerreißen ist aus einiger Entfernung zu hören, gefolgt von Knacken und Krachen.","A loud cracking can be heard in the distance, followed by some crashing and splashing.")
             world:makeSound(9, User.pos)
-	    elseif math.random(1, 4) == 1 and User.pos == position(731, 325, -9) then -- Knock out warp.			
-		    common.InformNLS(User,"Du rutscht ab und fällst ins Wasser. Du wirst weit vom Dock wieder an Land gespühlt.","You slip and fall into the water, washing ashore far from the dock.")
-		    world:gfx(11, User.pos)
-	        world:makeSound(9, User.pos)
+        elseif math.random(1, 4) == 1 and User.pos == position(731, 325, -9) then -- Knock out warp.            
+            common.InformNLS(User,"Du rutscht ab und fällst ins Wasser. Du wirst weit vom Dock wieder an Land gespühlt.","You slip and fall into the water, washing ashore far from the dock.")
+            world:gfx(11, User.pos)
+            world:makeSound(9, User.pos)
             User:warp(position(767, 305, -9))
             world:gfx(11, User.pos)
             world:makeSound(9, User.pos)
         elseif math.random(1, 4) == 1 and User.pos == position(666, 235, -9) then -- inform
-	        common.InformNLS(User,"In der Nähe hörst Du etwas laut etwas unter Wasser rutschen.","You hear something loud slip under the water nearby.")
-		    world:makeSound(9, User.pos)
+            common.InformNLS(User,"In der Nähe hörst Du etwas laut etwas unter Wasser rutschen.","You hear something loud slip under the water nearby.")
+            world:makeSound(9, User.pos)
         elseif math.random(1, 4) == 1 and User.pos == position(770, 293, -9) or User.pos == position(769, 300, -9) then -- Ice Entrapment #1
-            common.InformNLS(User,"Du hörst etwas laut unter deinem Fuß knacken. Eine Falle löst aus und Du bist plötzlich im Eis verschüttet. Bist Du klug genug um einen Weg heraus zu finden?","You hear something loud click under your foot. A trap springs and you are suddenly entombed in ice. Are you clever enough to find your way out?")		
+            common.InformNLS(User,"Du hörst etwas laut unter deinem Fuß knacken. Eine Falle löst aus und Du bist plötzlich im Eis verschüttet. Bist Du klug genug um einen Weg heraus zu finden?","You hear something loud click under your foot. A trap springs and you are suddenly entombed in ice. Are you clever enough to find your way out?")        
             world:gfx(41, User.pos)
-	        world:makeSound(5, User.pos)
+            world:makeSound(5, User.pos)
             User:warp(position(770, 295, -9))
             world:gfx(41, User.pos)
-   		elseif math.random(1, 4) == 1 and User.pos == position(782, 293, -9) or User.pos == position(779, 293, -9) or User.pos == position(786, 294, -9) then -- Ice Entrapment #2
-            common.InformNLS(User,"Du hörst etwas laut unter deinem Fuß knacken. Eine Falle löst aus und Du bist plötzlich im Eis verschüttet. Bist Du klug genug um einen Weg heraus zu finden?","You hear something loud click under your foot. A trap springs and you are suddenly entombed in ice. Are you clever enough to find your way out?")		
+           elseif math.random(1, 4) == 1 and User.pos == position(782, 293, -9) or User.pos == position(779, 293, -9) or User.pos == position(786, 294, -9) then -- Ice Entrapment #2
+            common.InformNLS(User,"Du hörst etwas laut unter deinem Fuß knacken. Eine Falle löst aus und Du bist plötzlich im Eis verschüttet. Bist Du klug genug um einen Weg heraus zu finden?","You hear something loud click under your foot. A trap springs and you are suddenly entombed in ice. Are you clever enough to find your way out?")        
             world:gfx(41, User.pos)
-	        world:makeSound(5, User.pos)
+            world:makeSound(5, User.pos)
             User:warp(position(784, 291, -9))
             world:gfx(41, User.pos)
-	    elseif math.random(1, 4) == 1 and User.pos == position(781, 290, -9) then -- inform
-	        common.InformNLS(User,"Etwas scheint anders zu sein mit dem Teil des Eisgebirges in Deiner Nähe.","Something about this ice mountain near you seems different.")
+        elseif math.random(1, 4) == 1 and User.pos == position(781, 290, -9) then -- inform
+            common.InformNLS(User,"Etwas scheint anders zu sein mit dem Teil des Eisgebirges in Deiner Nähe.","Something about this ice mountain near you seems different.")
         elseif math.random(1, 4) == 1 and User.pos == position(748, 274, -9) then -- inform
-	        common.InformNLS(User,"Du rutscht auf etwas feuchtem Gras aus und stolperst beinahe in das eiskalte Wasser.","You slip on some wet grass and nearly stumble into the freezing cold water.")
-		elseif User.pos == position(721, 244, -9) or User.pos == position(721, 243, -9) or User.pos == position(720, 243, -9)  then -- bridge inform
+            common.InformNLS(User,"Du rutscht auf etwas feuchtem Gras aus und stolperst beinahe in das eiskalte Wasser.","You slip on some wet grass and nearly stumble into the freezing cold water.")
+        elseif User.pos == position(721, 244, -9) or User.pos == position(721, 243, -9) or User.pos == position(720, 243, -9)  then -- bridge inform
             common.InformNLS(User,"Gegenüber des Wassers von der unvollständigen Brücke siehst Du einen Hebel. Vielleicht gibt es auf dieser Seite auch einen.", "Across the water from the partial bridge you see a lever, maybe there is one somewhere on this side as well.")
-	end
+    end
 
 end
 
