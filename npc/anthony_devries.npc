@@ -119,7 +119,7 @@ queststatus(212) ~= 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befeh
 -- ATTENTION: The lines below are generated. Do not do any manual changes. Tell me (Estralis) what is wrong and I will regenerate the lines.
 -- A quest is chosen at random!
 -- Countdown is saved in queststatus (211)
--- Cooldown works like this: Set queststatus (212) to delay time [minutes]/5. Example: 2 hours = 120 minutes -> queststatus(129) = 24
+-- Cooldown works like this: Set queststatus (212) to delay time [minutes]/5. Example: 2 hours = 120 minutes -> queststatus(212) = 24
 
 -- Order 1: Gather fifty stones (1266) in four hours
 -- Order 1 taken, get fifty stones, reward: two sp, 1 rankpoints
