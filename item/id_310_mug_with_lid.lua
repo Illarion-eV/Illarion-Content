@@ -26,13 +26,13 @@ local validMugIds = {}
 local BORGATES_MUG_POS = position(709, 313, 0)
 
 function M.getRandomMugId()
-    return validMugIds[Random.uniform(1, #validMugIds)]
+    return validMugIds[math.random(1, #validMugIds)]
 end
 
 function M.dropMugByChance(dropLocation,chance)
     chance = chance or 1
 
-    if #validMugIds > 0 and chance >= Random.uniform(1,100) then
+    if #validMugIds > 0 and chance >= math.random(1,100) then
         world:createItemFromId(310, 1, dropLocation, true, 999, {mugId = M.getRandomMugId()})
     end
 end

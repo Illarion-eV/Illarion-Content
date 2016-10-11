@@ -898,9 +898,9 @@ function setArcherMonsterOnRoute(AttackerStruct,Defender,distance)
     local newposition = false
     if foundDefender then
         if #possiblePositions.prefered > 0 then
-            newposition = possiblePositions.prefered[Random.uniform(1,#possiblePositions.prefered)]
+            newposition = possiblePositions.prefered[math.random(1,#possiblePositions.prefered)]
         elseif #possiblePositions.acceptable > 0 then
-            newposition = possiblePositions.acceptable[Random.uniform(1,#possiblePositions.acceptable)]
+            newposition = possiblePositions.acceptable[math.random(1,#possiblePositions.acceptable)]
         end
     end
 

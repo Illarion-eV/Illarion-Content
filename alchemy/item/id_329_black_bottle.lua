@@ -292,7 +292,7 @@ function dogTransformation(User,SourceItem)
     end
 
     local newRace = 58
-    local newHeight = Random.uniform(80,120)
+    local newHeight = math.random(80,120)
     local newSkincolor1 = 102
     local newSkincolor2 = 51
     local newSkincolor3 = 0

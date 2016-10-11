@@ -203,7 +203,7 @@ function M.oldSlimeAbortRoute(oldSlime)
                 "#me's slimy mass flows over the feed and absorbs it. Its body wobbles for a short period of time and an object emerges from it, which is catapulted over the boundary.")
             local feeding = world:getItemOnField(acceptFeedingField)
             world:erase(feeding, feeding.number)
-            local reward = rewardList[Random.uniform(1, #rewardList)]
+            local reward = rewardList[math.random(1, #rewardList)]
             world:createItemFromId(reward.itemId, reward.amount, rewardPosition, true, reward.quality, reward.data)
             oldSlime.movepoints = oldSlime.movepoints -50
         end

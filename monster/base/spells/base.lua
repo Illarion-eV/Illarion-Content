@@ -63,7 +63,7 @@ function M.getSpellResistence(char)
     local minResistence = willpower;
     local maxResistence = willpower * 2;
 
-    return common.Limit(Random.uniform(minResistence, maxResistence) / 80.0, 0, 1);
+    return common.Limit(math.random(minResistence, maxResistence) / 80.0, 0, 1);
 end
 
 -- Check if the line of sight is free from large objects that obstruct the view

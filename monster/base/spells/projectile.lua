@@ -229,15 +229,15 @@ return function(params)
 
         if hitCharacter ~= nil then
             local spellResistence = base.getSpellResistence(hitCharacter)
-            local damage = Random.uniform(damageRange[1], damageRange[2]) * (1.0 - spellResistence)
+            local damage = math.random(damageRange[1], damageRange[2]) * (1.0 - spellResistence)
             base.dealMagicDamage(hitCharacter, damage)
         end
 
         if gfxId > 0 then world:gfx(gfxId, hitPosition) end
         if sfxId > 0 then world:makeSound(sfxId, hitPosition) end
         if itemId > 0 and not common.isItemIdInFieldStack(itemId, enemy.pos) then
-            local qual = Random.uniform(itemQualityRange[1], itemQualityRange[2]) * 100 +
-                    Random.uniform(itemDurabilityRange[1], itemDurabilityRange[2])
+            local qual = math.random(itemQualityRange[1], itemQualityRange[2]) * 100 +
+                    math.random(itemDurabilityRange[1], itemDurabilityRange[2])
             local item = world:createItemFromId(itemId, 1, hitPosition, true, qual, nil)
             item.wear = 2
             world:changeItem(item)
@@ -254,7 +254,7 @@ return function(params)
     end
 
     function self.cast(monster, enemy)
-        if Random.uniform() <= probability then
+        if math.random() <= probability then
             local castedAtLeastOnce = false
             local remainingAttacks = targets
             local firstAttackDone = false

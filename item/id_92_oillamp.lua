@@ -24,7 +24,7 @@ local M = {}
 
 function M.UseItem(User, SourceItem)
 
-    local randomValue = Random.uniform(1,99)
+    local randomValue = math.random(1,99)
     
     if randomValue < 6 then
         User:inform("Du bist nicht sicher, aber es scheint als würde die Lampe etwas leuchten","You are not sure, but it seems the lamp starts to glow a little.")

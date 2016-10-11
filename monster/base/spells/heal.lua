@@ -105,7 +105,7 @@ return function(params)
     end
 
     function self.cast(monster, enemy)
-        if Random.uniform() <= probability then
+        if math.random() <= probability then
             -- Look for my friends
             local otherMonsters = world:getMonstersInRangeOf(monster.pos, 8)
             if #otherMonsters == 0 then return false end
@@ -123,10 +123,10 @@ return function(params)
                 if #woundedMonsters == 0 then return performedSpell end
 
                 -- Select monster to help
-                local selectedMonsterIndex = Random.uniform(1, #woundedMonsters)
+                local selectedMonsterIndex = math.random(1, #woundedMonsters)
                 local selectedMonster = woundedMonsters[selectedMonsterIndex]
                 table.remove(woundedMonsters, selectedMonsterIndex)
-                selectedMonster:increaseAttrib("hitpoints", Random.uniform(healRange[1], healRange[2]))
+                selectedMonster:increaseAttrib("hitpoints", math.random(healRange[1], healRange[2]))
 
                 if gfxId > 0 then world:gfx(gfxId, selectedMonster.pos) end
                 if sfxId > 0 then world:makeSound(sfxId, selectedMonster.pos) end

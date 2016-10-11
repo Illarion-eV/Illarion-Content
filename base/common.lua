@@ -1719,7 +1719,7 @@ function M.Shuffle(List)
         maxIndex = maxIndex - 1
     end
     for i = maxIndex, minIndex+1, -1 do -- shuffle all elements
-        j = Random.uniform(minIndex, i)
+        j = math.random(minIndex, i)
         List[i], List[j] = List[j], List[i]
     end
     return List

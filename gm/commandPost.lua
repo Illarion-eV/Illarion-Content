@@ -243,7 +243,7 @@ function spawnCommandPostMonster(indexA, indexB)
     local monsterIds = entryToNumbers(spawnInformations[indexA][indexB+1]["Monsters"])
     local coordinates = spawnInformations[indexA][indexB+1]["Coordinates"]
     local limit = spawnInformations[indexA][indexB+1]["NumberOfMonsters"]
-    local monsterId = monsterIds[Random.uniform(1,#monsterIds)]
+    local monsterId = monsterIds[math.random(1,#monsterIds)]
     if commandMonsters[indexA][indexB] == nil then
         commandMonsters[indexA][indexB] = {}
         local monster = world:createMonster(monsterId,coordinates,10)

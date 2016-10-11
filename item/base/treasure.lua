@@ -54,7 +54,7 @@ local function findPosition()
 
     -- Perform 100 tries to find a location.
     for cnt = 1, 100 do
-        local listTry = Random.uniform()
+        local listTry = math.random()
         local selectedArea
         for _, area in pairs(content.treasureLocations) do
             if area.chance >= listTry then
@@ -66,9 +66,9 @@ local function findPosition()
 
         if selectedArea ~= nil then
             local pos = position(
-                Random.uniform(selectedArea.x[1], selectedArea.x[2]),
-                Random.uniform(selectedArea.y[1], selectedArea.y[2]),
-                Random.uniform(selectedArea.z[1], selectedArea.z[2]))
+                math.random(selectedArea.x[1], selectedArea.x[2]),
+                math.random(selectedArea.y[1], selectedArea.y[2]),
+                math.random(selectedArea.z[1], selectedArea.z[2]))
 
             local field = world:getField(pos)
             if field ~= nil then
@@ -88,7 +88,7 @@ local function findPosition()
 end
 
 local function getRandomMapLevel()
-    return 10 - math.floor(math.sqrt(Random.uniform(1, 99)))
+    return 10 - math.floor(math.sqrt(math.random(1, 99)))
 end
 
 local function getModifiedPosition(player, realPosition)
@@ -174,7 +174,7 @@ local function getRandomMonsterId(level)
         return -1
     end
 
-    local selectedIndex = Random.uniform(1, count)
+    local selectedIndex = math.random(1, count)
     return content.guardianMonsters[level][selectedIndex]
 end
 
@@ -259,7 +259,7 @@ local function getRandomItem(level)
         return nil
     end
 
-    local selectedIndex = Random.uniform(1, count)
+    local selectedIndex = math.random(1, count)
     return content.treasureContents[level][selectedIndex]
 end
 
@@ -274,7 +274,7 @@ local function removeItemFromList(itemId)
 end
 
 local function dropTreasureItem(treasureLocation, level)
-    local quality = Random.uniform(6,9) * 100 + Random.uniform(50,99);
+    local quality = math.random(6,9) * 100 + math.random(50,99);
     while true do
         local itemData = getRandomItem(level)
         if itemData == nil then
@@ -283,7 +283,7 @@ local function dropTreasureItem(treasureLocation, level)
 
         local amount = 1
         if itemData.amount > 1 then
-            amount = Random.uniform(1, itemData.amount)
+            amount = math.random(1, itemData.amount)
         end
 
         local item = world:createItemFromId(itemData.itemId, amount, treasureLocation, true, quality, itemData.data)
@@ -344,7 +344,7 @@ function M.dropTreasureItems(treasureLocation, level)
     mugWithLid.dropMugByChance(treasureLocation,level*2)
 
     local minMoney, maxMoney = content.getMoneyInTreasure(level)
-    money.GiveMoneyToPosition(treasureLocation, Random.uniform(minMoney, maxMoney))
+    money.GiveMoneyToPosition(treasureLocation, math.random(minMoney, maxMoney))
 
     -- check if all items got spawned.
     for _, flag in pairs(itemSpawnResults) do

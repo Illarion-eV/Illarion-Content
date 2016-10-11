@@ -50,7 +50,7 @@ local function hatchEggs(pos)
         player:inform("Das Ei zerspringt und kleine Spinnen schlüpfen.","The egg breaks and small spiders hatch.")
     end
 
-    local spawnCount = Random.uniform(3, 5)
+    local spawnCount = math.random(3, 5)
     for freePos in common.GetFreePositions(pos, 2, true, true) do
         world:createMonster(196, freePos, -5)
         if spawnCount <= 1 then
@@ -66,7 +66,7 @@ function M.onDeath(monster)
         orgOnDeath(monster)
     end
 
-    if Random.uniform() < 0.3 then
+    if math.random() < 0.3 then
         local pos = position(monster.pos.x, monster.pos.y, monster.pos.z)
         monster:talk(Character.say,
             "#me explodiert und hinterlässt ein schleimiges Spinnenei.",

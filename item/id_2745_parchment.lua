@@ -102,14 +102,14 @@ function M.GenerateStockConcentration()
 
     local stockList = {1,1,1,1,1,1,1,1}
     local add = 43
-    if Random.uniform(1,2)==1 then
+    if math.random(1,2)==1 then
         add = 21
     end
 
     while add > 0 do
         local check = false
         while check == false do
-            local rnd = Random.uniform(1,8)
+            local rnd = math.random(1,8)
             if stockList[rnd] < 9 then
                 stockList[rnd] = stockList[rnd]+1
                 add = add - 1

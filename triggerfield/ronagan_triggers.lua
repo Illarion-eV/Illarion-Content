@@ -60,9 +60,9 @@ function M.MoveToField( User )
         return
     end
 
-    if Random.uniform(1, 4) == 1 and User.pos == position(916, 590, -3) or User.pos == position(916, 591, -3) then -- inform
+    if math.random(1, 4) == 1 and User.pos == position(916, 590, -3) or User.pos == position(916, 591, -3) then -- inform
         common.InformNLS(User,"Als du die Halle hinunterblickst, siehst du, dass stolz von jeder der drei Städte ein Wappenschild ausgestellt ist.","As you look down the hall, you see a shield is proudly displayed from each realm. ")
-    elseif Random.uniform(1, 4) == 1 and User.pos == position(900, 605, -9) or User.pos == position(900, 606, -9) or User.pos == position(900, 607, -9) then -- inform
+    elseif math.random(1, 4) == 1 and User.pos == position(900, 605, -9) or User.pos == position(900, 606, -9) or User.pos == position(900, 607, -9) then -- inform
         common.InformNLS(User,"Du bemerkst vielleicht, dass die Luft sehr stickig und schal ist, als ob dieser Ort nicht oft besucht würde.","You possibly notice the air is musty and stale as if this place is not visited often.")
     elseif User.pos == position(900, 598, -9) or User.pos == position(900, 599, -9)  or User.pos == position(900, 600, -9)  then -- light some camp fires.
         world:erase(world:getItemOnField(position(898, 600, -9)), 1) --remove unlit fire, scheduled/mapitemreset will clean up

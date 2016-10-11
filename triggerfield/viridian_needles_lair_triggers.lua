@@ -167,7 +167,7 @@ function M.MoveToField(User)
         return
     end
 
-    if Random.uniform(1, 4) == 1 then --only player characters trigger the triggerfield at a chance of 20%
+    if math.random(1, 4) == 1 then --only player characters trigger the triggerfield at a chance of 20%
         local theRatmantrigger
         for i = 1, #ratmanTrigger do
             if User.pos == ratmanTrigger[i] then

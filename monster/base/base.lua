@@ -59,7 +59,7 @@ local function _getValueFromRange(value)
         error("The minimal value of the range is larger then the maximal value.")
     end
 
-    return Random.uniform() * (max - min) + min
+    return math.random() * (max - min) + min
 end
 
 local function performRandomTalk(monster, msgs)
@@ -73,7 +73,7 @@ local function performRandomTalk(monster, msgs)
 end
 
 local function performRegeneration(monster)
-    if (Random.uniform() < 0.3) and (monster:increaseAttrib("hitpoints", 0) < 10000) then
+    if (math.random() < 0.3) and (monster:increaseAttrib("hitpoints", 0) < 10000) then
         local con = monster:increaseAttrib("constitution", 0)
         local healAmount = 2 * con
         monster:increaseAttrib("hitpoints", healAmount)
@@ -113,9 +113,9 @@ local function copyMergeTables(table1, table2)
 end
 
 local function dropLootItem(monster, lootItemData)
-    local amount = Random.uniform(lootItemData.minAmount, lootItemData.maxAmount)
-    local quality = Random.uniform(lootItemData.minQuality, lootItemData.maxQuality)
-    local durability = Random.uniform(lootItemData.minDurability, lootItemData.maxDurability)
+    local amount = math.random(lootItemData.minAmount, lootItemData.maxAmount)
+    local quality = math.random(lootItemData.minQuality, lootItemData.maxQuality)
+    local durability = math.random(lootItemData.minDurability, lootItemData.maxDurability)
 
     local data = lootItemData.data
     if lootItemData.itemId == 505 then
@@ -133,7 +133,7 @@ local function dropLootItem(monster, lootItemData)
 end
 
 local function dropLootCategory(monster, lootData)
-    local randomTry = Random.uniform()
+    local randomTry = math.random()
     for _, itemInfo in pairs(lootData) do
         if itemInfo.probability >= randomTry then
             dropLootItem(monster, itemInfo)
@@ -158,7 +158,7 @@ function M.generateCallbacks(msgs)
     local t = {}
 
     function t.enemyNear(monster, _)
-        if Random.uniform() < 3e-4 then --once each 5 minutes (3e-4) in average a message is spoken (is called very often)
+        if math.random() < 3e-4 then --once each 5 minutes (3e-4) in average a message is spoken (is called very often)
             performRandomTalk(monster, msgs)
         end
         return false
@@ -166,7 +166,7 @@ function M.generateCallbacks(msgs)
 
     function t.enemyOnSight(monster, _)
         performRegeneration(monster)
-        if Random.uniform() < 3e-3 then --once each 5 minutes (3e-3) in average a message is spoken
+        if math.random() < 3e-3 then --once each 5 minutes (3e-3) in average a message is spoken
             performRandomTalk(monster, msgs)
         end
         return false

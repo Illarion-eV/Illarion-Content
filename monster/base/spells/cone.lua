@@ -226,9 +226,9 @@ return function(params)
 
     local function attackField(pos)
         if gfxId > 0 then world:gfx(gfxId, pos) end
-        if itemId > 0 and not common.isItemIdInFieldStack(itemId, pos) and Random.uniform() < itemProbability then
-            local qual = Random.uniform(itemQualityRange[1], itemQualityRange[2]) * 100 +
-                    Random.uniform(itemDurabilityRange[1], itemDurabilityRange[2])
+        if itemId > 0 and not common.isItemIdInFieldStack(itemId, pos) and math.random() < itemProbability then
+            local qual = math.random(itemQualityRange[1], itemQualityRange[2]) * 100 +
+                    math.random(itemDurabilityRange[1], itemDurabilityRange[2])
             local item = world:createItemFromId(itemId, 1, pos, true, qual, nil)
             item.wear = 2
             world:changeItem(item)
@@ -237,7 +237,7 @@ return function(params)
         if world:isCharacterOnField(pos) then
             local victim = world:getCharacterOnField(pos)
             local spellResistence = base.getSpellResistence(victim)
-            local damage = Random.uniform(damageRange[1], damageRange[2]) * (1.0 - spellResistence)
+            local damage = math.random(damageRange[1], damageRange[2]) * (1.0 - spellResistence)
 
             base.dealMagicDamage(victim, damage)
         end
@@ -248,7 +248,7 @@ return function(params)
     end
 
     function self.cast(monster, enemy)
-        if Random.uniform() <= probability then
+        if math.random() <= probability then
             --So the cone is always a isosceles triangle. We take the attack range as the height of the triangle.
             --Best was to calculate it, is use calculate half of the triangle as right triangle and mirror it.
 

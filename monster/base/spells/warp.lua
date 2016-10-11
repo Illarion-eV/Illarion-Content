@@ -121,7 +121,7 @@ return function(params)
     end
 
     function self.cast(monster, enemy)
-        if Random.uniform() <= probability then
+        if math.random() <= probability then
             local nearPlayers = _getAdjazentPlayers(monster.pos)
             local foundArcher
             local foundOther = false

@@ -683,7 +683,7 @@ eggIds = {
 
 function M.createSpecialEgg(user, amount)
 
-    common.CreateItem(user, eggIds[Random.uniform(1,#eggIds)], amount, 333, {nameDe="Buntes Ei",nameEn="Coloured Egg",descriptionDe="Das Ei ist mir verschiedenen bunten Verzierungen versehen worden.",descriptionEn="There are various colourful decorations on the egg.",rareness=ItemLookAt.uncommonItem,specialEgg="true"})
+    common.CreateItem(user, eggIds[math.random(1,#eggIds)], amount, 333, {nameDe="Buntes Ei",nameEn="Coloured Egg",descriptionDe="Das Ei ist mir verschiedenen bunten Verzierungen versehen worden.",descriptionEn="There are various colourful decorations on the egg.",rareness=ItemLookAt.uncommonItem,specialEgg="true"})
 
 end
 
@@ -700,11 +700,11 @@ function openSpecialEgg(egg, user)
 
     user:talk(Character.say, "#me öffnet ein bunt bemaltes Ei.","#me opens a colourfully painted egg.")
     world:erase(egg,1)
-    local itemId = itemList[Random.uniform(1,#itemList)]
-    local itemQuality = Random.uniform(111,999)
+    local itemId = itemList[math.random(1,#itemList)]
+    local itemQuality = math.random(111,999)
     user:inform("Als du das Ei öffnest, findest du etwas: "..world:getItemName(itemId,Player.german), "You find something in the open egg: "..world:getItemName(itemId,Player.english),Player.mediumPriority)
     common.CreateItem(user, itemId, 1, itemQuality, nil)
-    world:gfx(gfxList[Random.uniform(1,#gfxList)],user.pos)
+    world:gfx(gfxList[math.random(1,#gfxList)],user.pos)
 end
 
 return M

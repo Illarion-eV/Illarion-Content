@@ -60,7 +60,7 @@ function M.doorCheck(user)
     if user:getFaceTo() == Character.south and world:getItemOnField(position(13, 689, 1)).id ~= 3314 then
         if (not timeLastMessage) or world:getTime("unix") - timeLastMessage > 60 then
             granorBergenhieb = common.getNpc(position(15, 685, 1), 5, "Granor Bergenhieb")
-            local messageNumber = Random.uniform(1, #closeTheDoorMessages)
+            local messageNumber = math.random(1, #closeTheDoorMessages)
             granorBergenhieb:talk(Character.yell, closeTheDoorMessages[messageNumber][Player.german], closeTheDoorMessages[messageNumber][Player.english])
             timeLastMessage = world:getTime("unix")
         end
@@ -90,7 +90,7 @@ end
 -- Hook for schedule script; spawn spawn clouds in the area
 function M.spawnPoisonClouds()
     for i = 1, 4 do
-        local randomPosition = position(Random.uniform(3, 40), Random.uniform(675, 700), 0)
+        local randomPosition = position(math.random(3, 40), math.random(675, 700), 0)
         if world:getField(randomPosition):isPassable() then
             world:gfx(8, randomPosition)
         end

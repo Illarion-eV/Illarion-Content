@@ -107,8 +107,8 @@ return function(params)
     end
 
     function self.cast(monster, enemy)
-        if Random.uniform() <= probability then
-            local selectedMonsterIndex = Random.uniform(1, #monsterIds)
+        if math.random() <= probability then
+            local selectedMonsterIndex = math.random(1, #monsterIds)
             local selectedMonsterId = monsterIds[selectedMonsterIndex]
 
             for spawnPos in common.GetFreePositions(monster.pos, range, true, true) do

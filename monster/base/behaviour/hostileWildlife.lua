@@ -56,8 +56,8 @@ aggroManager = ag.buildAggroManager{
 }
 
 local function doRandomMove(monster)
-    if Random.uniform() < 0.15 then
-        monster:move(Random.uniform(0, 7), true)
+    if math.random() < 0.15 then
+        monster:move(math.random(0, 7), true)
     else
         character.ChangeMovepoints(monster, -15)
     end
@@ -132,7 +132,7 @@ function M.addCallbacks(t)
             return true
         end
 
-        if Random.uniform() < 0.03 then
+        if math.random() < 0.03 then
             character.ChangeMovepoints(monster, -20)
             return true
         end

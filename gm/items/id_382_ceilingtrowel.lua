@@ -962,7 +962,7 @@ function spawnGM()
             end
             if #gmMonsters[i]-1 < amount then
                 updateMonsters(gmMonsters,i);
-                mon = world:createMonster(monsterIds[Random.uniform(1,#monsterIds)], position,10);
+                mon = world:createMonster(monsterIds[math.random(1,#monsterIds)], position,10);
                 if isValidChar(mon) then
                     table.insert(gmMonsters[i],mon);
                     --does GFX with spawn

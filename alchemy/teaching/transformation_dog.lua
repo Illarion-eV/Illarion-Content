@@ -120,14 +120,14 @@ function M.GenerateStockConcentration()
 
     local stockList = {1,1,1,1,1,1,1,1}
     local add = 42
-    if Random.uniform(1,2)==1 then
+    if math.random(1,2)==1 then
         add = 22
     end
 
     while add > 0 do
         local check = false
         while check == false do
-            local rnd = Random.uniform(1,8)
+            local rnd = math.random(1,8)
             if stockList[rnd] < 9 then
                 stockList[rnd] = stockList[rnd]+1
                 add = add - 1
@@ -193,7 +193,7 @@ function M.dropDonfblade(dog)
 
     local positionX, positionY
     while not positionX do
-        local checkPosition = position(Random.uniform(822,873),Random.uniform(765,799),0)
+        local checkPosition = position(math.random(822,873),math.random(765,799),0)
         if (not world:isItemOnField(checkPosition)) and (not world:isCharacterOnField(checkPosition)) then
             local tileID = world:getField(checkPosition):tile()
             if tileID == 2 or tileID == 3 or tileID == 4 or tileID == 8 or tileID == 9 or tileID == 10 or tileID == 11 or tileID == 15 then

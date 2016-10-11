@@ -109,7 +109,7 @@ end
 
 function PutPlantOnField(rare)
 
-    local myPos = position( Random.uniform(0,1024), Random.uniform(0,1024), 0 )
+    local myPos = position( math.random(0,1024), math.random(0,1024), 0 )
 	local theTile=world:getField(myPos);
 	local myList
 	if rare then -- rare herb
@@ -128,11 +128,11 @@ function PutPlantOnField(rare)
 		    return
 		end
 		if (groundType == gt.sand) then
-		    if not Random.uniform(1,3)==1 then -- "Frickelfactor" for sand herbs (we have too many sand fields!)
+		    if not math.random(1,3)==1 then -- "Frickelfactor" for sand herbs (we have too many sand fields!)
 			    return
 			end
         elseif (groundType == gt.grass or groundType == gt.forest) then
-		    if not Random.uniform(1,2)==1 then -- "Frickelfactor" for grass and forest herbs (we have slightly too many fields of those)
+		    if not math.random(1,2)==1 then -- "Frickelfactor" for grass and forest herbs (we have slightly too many fields of those)
 			    return
 			end
         end

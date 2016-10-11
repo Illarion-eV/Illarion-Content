@@ -85,7 +85,7 @@ function hatchingSpiders(eggPosition)
 		players[i]:inform("Das Ei zerspringt und kleine Spinnen schlüpfen.","The egg breaks and small spiders hatch.")
 	end
 	
-	for i=1,Random.uniform(3,5) do
+	for i=1,math.random(3,5) do
 	    local spawnPosition = eggPosition
 		for j=-1,1 do
 			for k=-1,1 do
