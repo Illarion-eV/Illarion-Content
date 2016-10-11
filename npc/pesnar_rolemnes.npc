@@ -101,20 +101,20 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Good travels.", "Farewell. 
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 -- Catching quest triggers of other factions' members. Outlaws are ignored.
-english, town = Cadomyr, "quest", "mission" -> "Greet your witch queen, will you? I only deal with Galmairians."
-town = Cadomyr, "quest", "mission" -> "Grüß mir eure Hexenkönigin. Ich handle nur mit Leuten aus Galmair."
-town = Cadomyr, "task", "adventure", "order" -> "Greet your witch queen, will you? I only deal with Galmairians."
-town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Grüß mir eure Hexenkönigin. Ich handle nur mit Leuten aus Galmair."
-english, town = Galmair, "quest", "mission" -> "I don't trade books. Back to your library, Runewicki!"
-town = Galmair, "quest", "mission" -> "Ich habe keine Bücher im Angebot. Zurück in deine Bücherhalle, Runewicki!"
-town = Galmair, "task", "adventure", "order", "order" -> "I don't trade books. Back to your library, Runewicki!"
-town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keine Bücher im Angebot. Zurück in deine Bücherhalle, Runewicki!"
+english, town = Cadomyr, "quest", "mission" -> "You are from Cadomyr, aren't you? I swore only to trade goods from Runewick. I certify that with every delivery."
+town = Cadomyr, "quest", "mission" -> "Ihr seid aus Cadomyr, hab ich recht? Ich habe geschworen, nur Güter aus Runewick zu liefern. Dies zertifiziere ich bei jeder meiner Lieferungen."
+town = Cadomyr, "task", "adventure", "order" -> "You are from Cadomyr, aren't you? I swore only to trade goods from Runewick. I certify that with every delivery."
+town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr seid aus Cadomyr, hab ich recht? Ich habe geschworen, nur Güter aus Runewick zu liefern. Dies zertifiziere ich bei jeder meiner Lieferungen."
+english, town = Galmair, "quest", "mission" -> "I am well aware that goods from Galmair can be of high quality. Sadly, my clients think otherwise."
+town = Galmair, "quest", "mission" -> "Ich bin mir wohl bewusst, dass Güter aus Galmair auch von annehmbarer Qualität sein können. Meine Auftraggeber denken da aber leider anders."
+town = Galmair, "task", "adventure", "order", "order" -> "I am well aware that goods from Galmair can be of high quality. But my clients think otherwise."
+town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin mir wohl bewusst, dass Güter aus Galmair auch von annehmbarer Qualität sein können. Meine Auftraggeber denken da aber leider anders."
 
 -- Catching quest triggers of those who have to wait for a new quest
-queststatus(215) ~= 0, english, town = Runewick, "quest", "mission" -> "I have no orders from abroad you could fulfil. Please come again later.", "Pardon, no new orders yet."
-queststatus(215) ~= 0, town = Runewick, "quest", "mission" -> "Ich habe derzeit keine Aufträge aus dem Ausland, welche du erfüllen könntest. Schau doch später nochmal vorbei.", "Pardon, ich habe noch keinen neuen Auftrag."
-queststatus(215) ~= 0, town = Runewick, "task", "adventure", "order" -> "I have no orders from abroad you could fulfil. Please come again later.", "Pardon, no new orders yet."
-queststatus(215) ~= 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe derzeit keine Aufträge aus dem Ausland, welche du erfüllen könntest. Schau doch später nochmal vorbei.", "Pardon, ich habe noch keinen neuen Auftrag."
+queststatus(215) ~= 0, english, town = Runewick, "quest", "mission" -> "At this moment, I cannot issue any order to you. Please come again later."
+queststatus(215) ~= 0, town = Runewick, "quest", "mission" -> "Derzeit habe ich keinen Auftrag für euch. Kommt bitte später wieder."
+queststatus(215) ~= 0, town = Runewick, "task", "adventure", "order" -> "At this moment, I cannot issue any order to you. Please come again later."
+queststatus(215) ~= 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Derzeit habe ich keinen Auftrag für euch. Kommt bitte später wieder."
 
 -- ATTENTION: The lines below are generated. Do not do any manual changes. Tell me (Estralis) what is wrong and I will regenerate the lines.
 -- A quest is chosen at random!
