@@ -23,7 +23,7 @@ local common = require("base.common")
 local lookat = require("base.lookat")
 local licence = require("base.licence")
 
-module("craft.crafts", package.seeall)
+module("craft.base.crafts", package.seeall)
 
 Product = {
             quantity = 1,

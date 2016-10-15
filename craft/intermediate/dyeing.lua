@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local crafts = require("craft.crafts")
+local crafts = require("craft.base.crafts")
 local dyemaking = require("craft.intermediate.dyemaking")
 
 module("craft.intermediate.dyeing", package.seeall)
