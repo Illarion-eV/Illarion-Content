@@ -58,8 +58,8 @@ function M.donate(Item, User, FactionName, LeaderName, Treasury)
         local gstring, estring = money.MoneyToString(payToFaction) --converting money to a string
 
         common.InformNLS(User,
-            "[Spende] Du spendest Gegenstände im Gegenwert von"..gstring.." in die Schatzkammer von "..FactionName..". "..LeaderName.." wird zufrieden sein.",
-            "[Donation] You donate items valued at"..estring.." to the treasury of "..FactionName..". "..LeaderName.." will be pleased.") -- Feedback!
+            "[Spende] Du spendest Gegenstände im Gegenwert von"..gstring.." in die Schatzkammer von "..FactionName..".",
+            "[Donation] You donate items valued at"..estring.." to the treasury of "..FactionName..".") -- Feedback!
         log(string.format("[Donation] %s donated %u %s (%u). Faction wealth of %s increased by %d copper to %d copper.",
             character.LogText(User), Item.number, world:getItemName(Item.id,Player.english), Item.id, FactionName, payToFaction, townTreasure.GetTownTreasure(FactionName)))
         world:gfx(46, Item.pos) -- nice GFX
