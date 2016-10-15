@@ -176,10 +176,10 @@ rank > 4, town = Cadomyr, sex = male, "rang" -> "Page, seid gegrüßt!"
 rank > 4, town = Cadomyr, sex = female, "rang" -> "Pagin, seid gegrüßt!"
 
 -- Rank 4
-rank > 6, town = Cadomyr, sex = male, "rank" -> "Greetings to you, Yeoman!"
-rank > 6, town = Cadomyr, sex = female, "rank" -> "Greetings to you, Yeowoman!"
-rank > 6, town = Cadomyr, sex = male, "rang" -> "Seid gegrüßt, Freisasse!"
-rank > 6, town = Cadomyr, sex = female, "rang" -> "Seid gegrüßt, Freisassin!"
+rank > 3, town = Cadomyr, sex = male, "rank" -> "Greetings to you, Yeoman!"
+rank > 3, town = Cadomyr, sex = female, "rank" -> "Greetings to you, Yeowoman!"
+rank > 3, town = Cadomyr, sex = male, "rang" -> "Seid gegrüßt, Freisasse!"
+rank > 3, town = Cadomyr, sex = female, "rang" -> "Seid gegrüßt, Freisassin!"
 
 -- Rank 3
 rank > 2, town = Cadomyr, sex = male, "rank" -> "Good day, Servant %CHARNAME!"
