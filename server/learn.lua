@@ -71,7 +71,7 @@ function M.learn(user, skill, actionPoints, learnLimit)
                 local realIncrease = math.min(minorIncrease, 10000) --to prevent overflow
 
                 if minorSkill + realIncrease < 10000 then
-                    user:increaseMinorSkill(skill, realIncrease) --Minimum of 10 actions of 50 AP for a swirlie at 5% activity
+                    user:increaseMinorSkill(skill, realIncrease)
 
                 else --Level up!
                     user:increaseMinorSkill(skill, realIncrease) --Increase the skill
