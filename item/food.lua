@@ -302,8 +302,8 @@ local function foodLevelInform(user, newFoodLevel, oldFoodLevel)
     local messageEn
     
     if newFoodLevel == 60000 or newFoodLevel > 55000 and oldFoodLevel <= 55000 then
-        messageDe = "Nur mit Mühe kannst du dir noch etwas hinunter zwingen."
-        messageEn = "You hardly manage to eat something more."
+        messageDe = "Nur mit Mühe kriegst du noch etwas runter."
+        messageEn = "You hardly manage to eat anything else."
     elseif newFoodLevel > 50000 and oldFoodLevel <= 50000 then
         messageDe = "Du bist sehr satt."
         messageEn = "You have had enough."
