@@ -388,7 +388,6 @@ function baseNPC:use(npcChar, char)
                 textEN[3]="I'd like to trade some goods."
                 textDE[4]="Auf wiedersehen."
                 textEN[4]="Farewell."
-                npc:talk(Character.say, "Greetings, my friend.");
                 char:talk(Character.say, getText(textDE[selected], textEN[selected]))
             end
         end
