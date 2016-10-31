@@ -355,7 +355,6 @@ function baseNPC:use(npcChar, char)
     end
 
     npcChar.activeLanguage = self._defaultLanguage
-    --npcChar:talk(Character.say, self._useMsgDE, self._useMsgUS)
 
     local getText = function(deText,enText) return common.GetNLS(char, deText, enText) end
 
@@ -389,7 +388,8 @@ function baseNPC:use(npcChar, char)
                 textEN[3]="I'd like to trade some goods."
                 textDE[4]="Auf wiedersehen."
                 textEN[4]="Farewell."
-                char:talk(Character.say, textDE[selected], textEN[selected])
+                npc:talk(Character.say, "Greetings, my friend.");
+                char:talk(Character.say, getText(textDE[selected], textEN[selected]))
             end
         end
     end
