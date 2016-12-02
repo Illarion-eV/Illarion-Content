@@ -181,7 +181,7 @@ monsterQuests.addQuest{
     location = {position = position(705, 410, -3), radius = 75},
     queststatus = {from = 30, to = 31},
     questTitle = {german = "Der fehlgeleitete Kreuzzug V", english = "The Errant Crusade V"},
-    monsterName = {german = "den Dämonenskelettkrieger", english = "the demon dkeleton warrior"},
+    monsterName = {german = "den Dämonenskelettkrieger", english = "the demon skeleton warrior"},
     npcName = "Arenius Batavius",
     monsterIds = {201} -- demon skeleton
 }
