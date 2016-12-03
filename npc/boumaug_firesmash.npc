@@ -345,7 +345,7 @@ english, "Zhambra" -> "God of friends! God of brothers! Good for holding clans t
 cycletext "Willkommen in Galmair!", "Welcome to Galmair!"
 cycletext "Der Don mag Orks! Wir sind seine Muskeln!", "Da Don likes da orcs! We are his muscle!"
 cycletext "#me schaut verträumt, 'Da gibt es Gava und Bula... und Bre...'", "#me stares off dreamily, 'Der is Gava, and Bula... and Bre...'"
-cycletext "#me hackt etwas von einer Liste ab, 'Noch soviel zu tun...'", "#me checks off a list, 'So much more to do...'"
+cycletext "#me hakt etwas von einer Liste ab, 'Noch soviel zu tun...'", "#me checks off a list, 'So much more to do...'"
 cycletext "#me klopft sich auf den Bauch, 'Feuer im Magen!", "#me slaps his stomach, 'Fire in da belly!'"
 cycletext "#me grinst, 'Ich bade einmal im Monat, egal ob ich es brauche oder nicht!", "#me beams a grin, 'I bathe once a month, need it or not!'"
 cycletext "#me grunzt voller Respekt.", "#me grunts in respect."
