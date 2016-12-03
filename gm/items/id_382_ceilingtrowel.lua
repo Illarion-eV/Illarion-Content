@@ -22,6 +22,7 @@ local licence = require("base.licence")
 local alchemy = require("scheduled.alchemy")
 local specialeggs = require("content.specialeggs")
 local scheduledFunction = require("scheduled.scheduledFunction")
+local mysticalcracker = require ("item.id_3894_mystical_cracker")
 
 local M = {}
 
@@ -34,6 +35,7 @@ local specialEggs
 local spawnGM
 local checkValue
 local updateMonsters
+local mysticalCracker
 
 local SPAWNDATAS = {}
 gmSpawnpointSettings = {}
@@ -44,7 +46,7 @@ local removePositions = {}
 function M.UseItem(User, SourceItem)
 
     -- First check for mode change
-    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Egg Creation"}
+    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Egg Creation", "Cracker Creation"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -61,6 +63,8 @@ function M.UseItem(User, SourceItem)
             spawnPoint(User, SourceItem)
         elseif index == 5 then
             specialEggs(User)
+        elseif index == 6 then
+            mysticalCracker(User)
         end
     end
     local sd = SelectionDialog("Set mode of this ceiling trowel", "To which mode you want to change?", cbSetMode)
@@ -920,6 +924,22 @@ function specialEggs(User)
         end
     end
     User:requestInputDialog(InputDialog("Egg creation", "How many special eggs to you want to create? (Notice: Eggs will have a normal wear of 3. Increase manually if needed." ,false, 255, cbInputDialog))
+
+end
+
+function mysticalCracker(User)
+
+    local cbInputDialog = function (dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local input = dialog:getInput()
+        if (string.find(input,"(%d+)") ~= nil) then
+            local a, b, amount = string.find(input,"(%d+)")
+            mysticalcracker.createMysticalCracker(User, tonumber(amount))
+        end
+    end
+    User:requestInputDialog(InputDialog("Cracker Creation", "How many mystical crackers to you want to create? (Notice: Crackers will have a normal wear of 10. Increase manually if needed." ,false, 255, cbInputDialog))
 
 end
 
