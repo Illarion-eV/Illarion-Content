@@ -674,8 +674,7 @@ itemList = {
 }
 
 gfxList = {
-
-    2,5,16,32,35,37,41,53,52
+2,5,16,32,35,37,41,53,52
 }
 
 function M.createMysticalCracker(user, amount)
