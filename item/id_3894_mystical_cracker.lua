@@ -673,6 +673,10 @@ itemList = {
 3607 ,--pure spirit
 }
 
+gfxList = {
+
+    2,5,16,32,35,37,41,53,52
+}
 
 function M.createMysticalCracker(user, amount)
     common.CreateItem(user, 3894, amount, 333,nil)
@@ -686,7 +690,7 @@ function M.UseItem(User, SourceItem)
     local itemQuality = math.random(444,999)
     User:inform("Du findest etwas als die bunte Verpackung aufreiﬂt: "..world:getItemName(itemId,Player.german), "You find something as you pull apart the colourful wrapping:"..world:getItemName(itemId,Player.english),Player.mediumPriority)
     common.CreateItem(User, itemId, 1, itemQuality, nil)
-    world:gfx(45, User.pos)
+    world:gfx(gfxList[math.random(1,#gfxList)],User.pos)
     world:makeSound(4, User.pos)
 end
 
