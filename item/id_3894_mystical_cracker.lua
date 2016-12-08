@@ -673,7 +673,7 @@ itemList = {
 3607 ,--pure spirit
 }
 
-gfxList = {
+local gfxList = {
 2,5,16,32,35,37,41,53,52
 }
 
