@@ -141,6 +141,16 @@ function M.UseItem(User, SourceItem)
         return
     end
 
+    if SourceItem.pos == position(742, 252, 0) then --OK, the player found entrance to Ushara Garden
+        User:inform("Du fühlst eine besänftigende Präsenz und plötzlich findest du dich in einem Ort göttlicher Ruhe wieder.",
+            "You feel a calming presence and suddenly find yourself in a place of divine tranquility.")
+        world:gfx(41, User.pos)
+        world:makeSound(13, User.pos)
+        User:warp(position(785, 280, -3)) -- landing in restored garden
+        world:gfx(41, User.pos)
+        world:makeSound(13, User.pos)
+        return
+    end
     for i = 1, #dragonCaveCoffinPos do
         if (SourceItem.pos == dragonCaveCoffinPos[i]) then
             CoffinContents(User, SourceItem)

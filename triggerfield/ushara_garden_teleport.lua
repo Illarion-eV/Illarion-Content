@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- INSERT INTO triggerfields VALUES (768, 250, -3,'triggerfield.ushara_garden_teleport');
 -- INSERT INTO triggerfields VALUES (768, 273, -3,'triggerfield.ushara_garden_teleport');
+-- INSERT INTO triggerfields VALUES (787, 280, -3,'triggerfield.ushara_garden_teleport');
 
 
 --Teleporters in the Ushara Garden
@@ -43,6 +44,12 @@ function M.MoveToField( User )
         User:warp(position(767, 249, -3))
         world:gfx(11, User.pos)
         world:makeSound(9, User.pos)
+    elseif User.pos == position(787, 280, -3) then -- warp back to surface from restored garden
+        world:gfx(41, User.pos)
+        world:makeSound(13, User.pos)
+        User:warp(position(740, 252, 0))
+        world:gfx(41, User.pos)
+        world:makeSound(13, User.pos)
     end
 
 end

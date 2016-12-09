@@ -25,7 +25,10 @@ local skillTransfer = require("base.skillTransfer")
 
 local M = {}
 
-local holePosition = position(854, 414, 0)
+local holePosition = {
+     position(854, 414, 0),
+     position(659, 225, 0)
+     }
 
 function M.UseItem(User, SourceItem, ltstate)
 
