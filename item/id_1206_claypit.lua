@@ -31,8 +31,8 @@ local holePosition = {
      }
 
 function M.UseItem(User, SourceItem, ltstate)
-
-    if SourceItem.pos == holePosition then
+    for i = 1, #holePosition do
+        if (SourceItem.pos == holePosition[i]) then
         common.HighInformNLS(User,
             "Du brauchst ein Seil um hier hinab zu klettern.",
             "You need a rope to climb down here.")
@@ -40,6 +40,7 @@ function M.UseItem(User, SourceItem, ltstate)
             climbing.climbDown(User)
         end
         return
+        end
     end
    
    if skillTransfer.skillTransferInformMining(User) then
