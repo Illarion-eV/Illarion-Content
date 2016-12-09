@@ -27,7 +27,7 @@ local M = {}
 
 local holePosition = {
      position(854, 414, 0),
-     position(659, 225, 0)
+     position(659, 255, 0)
      }
 
 function M.UseItem(User, SourceItem, ltstate)
