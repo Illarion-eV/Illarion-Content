@@ -81,6 +81,9 @@ function M.climbDown(User)
         if (TargetItem.pos == position(854, 414, 0)) then
             User:talk(Character.say, "#me klettert an einem Seil in das dunkle Loch hinab.", "#me climbs down into the dark hole on a rope.")
             User:warp(position(925, 518, -6));
+        elseif (TargetItem.pos == position(659, 255, 0)) then
+            User:talk(Character.say, "#me klettert an einem Seil in das dunkle Loch hinab.", "#me climbs down into the dark hole on a rope.")
+            User:warp(position(747, 234, -3));
         end
         return;
     end

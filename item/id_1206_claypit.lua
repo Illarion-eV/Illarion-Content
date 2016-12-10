@@ -26,12 +26,12 @@ local skillTransfer = require("base.skillTransfer")
 local M = {}
 
 local holePosition = {
-     position(854, 414, 0),
-     position(659, 255, 0)
-     }
+    position(854, 414, 0),
+    position(659, 255, 0)
+}
 
 function M.UseItem(User, SourceItem, ltstate)
-    for i = 1, #holePosition do
+    for  i = 1, #holePosition do
         if (SourceItem.pos == holePosition[i]) then
         common.HighInformNLS(User,
             "Du brauchst ein Seil um hier hinab zu klettern.",
