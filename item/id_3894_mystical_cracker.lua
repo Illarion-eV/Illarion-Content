@@ -690,7 +690,7 @@ function M.UseItem(User, SourceItem)
     User:inform("Du findest etwas als die bunte Verpackung aufreiﬂt: "..world:getItemName(itemId,Player.german), "You find something as you pull apart the colourful wrapping:"..world:getItemName(itemId,Player.english),Player.mediumPriority)
     common.CreateItem(User, itemId, 1, itemQuality, nil)
     world:gfx(gfxList[math.random(1,#gfxList)],User.pos)
-    world:makeSound(4, User.pos)
+    world:makeSound(13, User.pos)
 end
 
 return M
