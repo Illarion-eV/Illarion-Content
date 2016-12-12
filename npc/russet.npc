@@ -1,0 +1,64 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+------------------------------------------------------------------------------AC
+-- NPC Name: Russet                                                       None--
+-- NPC Job:  Pet                                                              --
+--                                                                            --
+-- NPC Race: deer                       NPC Position:  767, 287, -3           --
+-- NPC Sex:  male                       NPC Direction: west                   --
+--                                                                            --
+-- Authors:  Evie                                                             --
+--                                                                            --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+
+name = "Russet"
+race = halfling
+sex = male
+position = 767, 287, -3
+direction = south
+affiliation = "None"
+job = "Beast of burden"
+
+language = common
+defaultLanguage = common
+autointroduce = on
+
+author = "Evie"
+
+lookatDE = "Dies ist Russet das anmutige Hirsch."
+lookatUS = "This is Russet the graceful deer."
+useMsgDE = "#me beugt seinen Kopf."
+useMsgUS = "#me bows his head."
+wrongLangDE = "#me beugt seinen Kopf."
+wrongLangUS = "#me bows his head."
+
+-- NPC by Evie
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me bows his head.", "#me beugt seinen Kopf."
+cycletext "#me moves about gracefully.", "#me bewegt sich anmutig."
+cycletext "#me nibbles on some grass.", "#me kaut auf einem Blatt herum."
+cycletext "#me snorts.", "#me schnaubt."
+cycletext "#me paws the ground.", "#me scharrt im Boden."
+cycletext "#me curls up to nap.", "#me rollt sich zum Schlafen zusammen."
+cycletext "#me flicks his tail.", "#me schaut mit groﬂen Augen umher."
+cycletext "#me turns his head looking off in the distance.", "#me dreht den Kopf zur Seite."
+cycletext "#me scrapes his horns against a tree removing some bark.", "#me reibt sein Geweih gegen einen Baum. Etwas Rinde f‰llt zu Boden."
+

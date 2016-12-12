@@ -1,0 +1,64 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+------------------------------------------------------------------------------AC
+-- NPC Name: Curly                                                        None--
+-- NPC Job:  Pet                                                              --
+--                                                                            --
+-- NPC Race: lamb                       NPC Position:  784, 293, -3           --
+-- NPC Sex:  male                       NPC Direction: west                   --
+--                                                                            --
+-- Authors:  Evie                                                             --
+--                                                                            --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+
+name = "Curly"
+race = halfling
+sex = male
+position = 784, 293, -3
+direction = west
+affiliation = "None"
+job = "pet"
+
+language = common
+defaultLanguage = common
+autointroduce = on
+
+author = "Evie"
+
+lookatDE = "Das ist Curly das sanfte Lamm."
+lookatUS = "This is Curly the gentle lamb."
+useMsgDE = "Baa!"
+useMsgUS = "Baa!"
+wrongLangDE = "Baa?"
+wrongLangUS = "Baa?"
+
+-- NPC by Evie
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Baa!", "Baa!"
+cycletext "Baa.", "Baa."
+cycletext "Baa?", "Baa?"
+cycletext "#me paws the ground.","#me scharrt im Boden."
+cycletext "#me flicks his tail.", "#me schlägt mit dem Schwanz."
+cycletext "#me curls up to nap looking like a ball of wool.", "#me liegt schlafend am Boden und sieht aus wie ein Fellball."
+cycletext "#me bleats softly.", "#me pustet leise."
+cycletext "#me chews a blade of grass slowly.", "#me kaut langsam ein Grashalm."
+cycletext "#me scampers about playing.", "#me hüpft spielend umher."
+cycletext "#me bows his head.", "#me beugt seinen Kopf."
