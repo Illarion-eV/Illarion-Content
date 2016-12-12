@@ -17,7 +17,7 @@
 -- NPC Job:  Pet                                                              --
 --                                                                            --
 -- NPC Race: rabbit                     NPC Position:  787, 303, -3           --
--- NPC Sex:  female                     NPC Direction: west                   --
+-- NPC Sex:  female                     NPC Direction: south                   --
 --                                                                            --
 -- Authors:  Evie                                                             --
 --                                                                            --
@@ -28,7 +28,7 @@ name = "Willow"
 race = halfling
 sex = female
 position = 787, 303, -3
-direction = east
+direction = south
 affiliation = "None"
 job = "pet"
 
@@ -52,10 +52,10 @@ wrongLangUS = "#me thumps her foot."
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me thumps her foot.", "#me trommelt mit ihren Füßen."
-cycletext "#me jumps about hyperly.", "#me hopst wild umher."
-cycletext "#me is in constant movement.", "#me ist in ständiger Bewegung."
-cycletext "#me twitches her nose.", "#me zuckt mit ihrer Nase."
-cycletext "#me pulls a blade of grass from the ground and chews it slowly.", "#me zieht ein Grashalm aus der Wiese du mümmelt ihn langsam."
-cycletext "#me scratches her ear.", "#me kratzt sich hinter einem Löffel."
-cycletext "#me takes a bite of a half eaten carrot.", "#me knabbert an einer halb gegessenen Karotte."
+cycletext "#me trommelt mit ihren Füßen.","#me thumps her foot."
+cycletext "#me hopst wild umher.", "#me jumps about hyperly."
+cycletext "#me ist in ständiger Bewegung.", "#me is in constant movement."
+cycletext "#me zuckt mit ihrer Nase.", "#me twitches her nose."
+cycletext "#me zieht ein Grashalm aus der Wiese du mümmelt ihn langsam.", "#me pulls a blade of grass from the ground and chews it slowly."
+cycletext "#me kratzt sich hinter einem Löffel.", "#me scratches her ear."
+cycletext "#me knabbert an einer halb gegessenen Karotte.", "#me takes a bite of a half eaten carrot."

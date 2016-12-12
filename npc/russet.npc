@@ -52,13 +52,13 @@ wrongLangUS = "#me bows his head."
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me bows his head.", "#me beugt seinen Kopf."
-cycletext "#me moves about gracefully.", "#me bewegt sich anmutig."
-cycletext "#me nibbles on some grass.", "#me kaut auf einem Blatt herum."
-cycletext "#me snorts.", "#me schnaubt."
-cycletext "#me paws the ground.", "#me scharrt im Boden."
-cycletext "#me curls up to nap.", "#me rollt sich zum Schlafen zusammen."
-cycletext "#me flicks his tail.", "#me schaut mit groﬂen Augen umher."
-cycletext "#me turns his head looking off in the distance.", "#me dreht den Kopf zur Seite."
-cycletext "#me scrapes his horns against a tree removing some bark.", "#me reibt sein Geweih gegen einen Baum. Etwas Rinde f‰llt zu Boden."
+cycletext "#me beugt seinen Kopf.","#me bows his head."
+cycletext "#me bewegt sich anmutig.","#me moves about gracefully."
+cycletext "#me kaut auf einem Blatt herum.","#me nibbles on some grass."
+cycletext "#me schnaubt.","#me snorts."
+cycletext "#me scharrt im Boden.","#me paws the ground."
+cycletext "#me rollt sich zum Schlafen zusammen.","#me curls up to nap."
+cycletext "#me schaut mit groﬂen Augen umher.","#me flicks his tail."
+cycletext "#me dreht den Kopf zur Seite.","#me turns his head looking off in the distance."
+cycletext "#me reibt sein Geweih gegen einen Baum. Etwas Rinde f‰llt zu Boden.","#me scrapes his horns against a tree removing some bark."
 
