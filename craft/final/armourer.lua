@@ -42,7 +42,7 @@ product:addIngredient(2535, 2) -- iron ingot
 product:addIngredient(2547, 1) -- leather
 
 -- robust jackboots
-product = tailoring:addProduct(catId, 1057, 1)
+product = armourer:addProduct(catId, 1057, 1)
 product:addIngredient(2535, 2) -- iron ingot
 product:addIngredient(2547, 1) -- leather
 
@@ -66,7 +66,7 @@ product:addIngredient(2550, 1) -- copper ingot
 product:addIngredient(46, 1) -- ruby
 
 -- ornate jackboots
-product = tailoring:addProduct(catId, 1054, 1)
+product = armourer:addProduct(catId, 1054, 1)
 product:addIngredient(2535, 4) -- thread
 product:addIngredient(2547, 1) -- leather
 product:addIngredient(2550, 2) -- copper ingot
