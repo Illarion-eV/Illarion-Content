@@ -42,11 +42,6 @@ product = tailoring:addProduct(catId, 369, 1)
 product:addIngredient(50, 2) -- thread
 product:addIngredient(2547, 2) -- leather
 
--- robust jackboots
-product = tailoring:addProduct(catId, 1057, 1)
-product:addIngredient(50, 2) -- thread
-product:addIngredient(2547, 2) -- leather
-
 -- robust leather shoes
 product = tailoring:addProduct(catId, 1501, 1)
 product:addIngredient(50, 2) -- thread
@@ -69,13 +64,6 @@ product:addIngredient(50, 4) -- thread
 product:addIngredient(2547, 3) -- leather
 product:addIngredient(2586, 1) -- fur
 product:addIngredient(283, 1) -- obsidian
-
--- ornate jackboots
-product = tailoring:addProduct(catId, 1054, 1)
-product:addIngredient(50, 4) -- thread
-product:addIngredient(2547, 3) -- leather
-product:addIngredient(2586, 1) -- fur
-product:addIngredient(3787, 1) -- silk
 
 -- simple fur boots
 product = tailoring:addProduct(catId, 1504, 1)
