@@ -46,7 +46,7 @@ function M.UseItem(User, SourceItem, ltstate)
         "You have to stand next to a rock to mine.");
         return
     end
-    if skillTransfer.skillTransferInformMining(user) then
+    if skillTransfer.skillTransferInformMining(User) then
         return
     end
     mining.StartGathering(User, SourceItem, ltstate);
