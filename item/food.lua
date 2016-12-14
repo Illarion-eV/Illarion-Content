@@ -290,7 +290,7 @@ end
 local function leftOverCreation(user, leftOverId)
     if leftOverId then
         if math.random(1,20) == 1 then
-            User:inform("Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.", Character.highPriority)
+            user:inform("Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.", Character.highPriority)
         else
             common.CreateItem(user, leftOverId, 1, 333, nil)
         end
