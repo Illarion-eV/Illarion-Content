@@ -86,7 +86,7 @@ product:addIngredient(2535, 5) -- iron ingot
 product:addIngredient(2547, 2) -- leather
 product:addIngredient(2571, 1) -- merinium ingot
 product:addIngredient(45, 1) -- emerald
-product:addIngredient(104, 1) -- silver ingot
+product:addIngredient(236, 1) -- gold ingot
 
 -- salkamaerian steel shoes
 product = armourer:addProduct(catId, 699, 1)
@@ -397,7 +397,7 @@ product:addIngredient(2535, 17) -- iron ingot
 product:addIngredient(2547, 6) -- leather
 product:addIngredient(2571, 2) -- merinium ingot
 product:addIngredient(45, 1) -- emerald
-product:addIngredient(104, 4) -- silver ingot
+product:addIngredient(236, 4) -- gold ingot
 
 -- salkamaerian officer's armour
 product = armourer:addProduct(catId, 2365, 1)
