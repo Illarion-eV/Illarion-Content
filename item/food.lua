@@ -67,20 +67,20 @@ foodList[3715] = {crafted = true, leftOver = 2952, buffs = {perception = 1}}
 -- Trout fillet Dish
 foodList[2459] = {crafted = true, leftOver = 2952, buffs = {willpower = 1}}
 -- Sausage on bread
-foodList[3631] = {crafted = true, buffs = {durability = 1}}
+foodList[3631] = {crafted = true, buffs = {constitution = 1}}
 -- Tier 3 Food
 -- Banana Bread
 foodList[3609] = {crafted = true, buffs = {willpower = 1, intelligence = 1}}
 --Cabbage Stew
 foodList[2278] = {crafted = true, leftOver = 2935, buffs = {dexterity = 1, agility = 1}}
 -- Salmon Dish
-foodList[556] = {crafted = true, leftOver = 2952, buffs = {strength = 1, durability = 1}}
+foodList[556] = {crafted = true, leftOver = 2952, buffs = {strength = 1, constitution = 1}}
 -- Blackberry Muffin
 foodList[454] = {crafted = true, buffs = {essence = 1, perception = 1}}
 -- Mulligan
 foodList[2276] = {crafted = true, leftOver = 2935, buffs = {willpower = 1, intelligence = 1}}
 -- Egg Dish
-foodList[1154] = {crafted = true, leftOver = 2952, buffs = {strength = 1, durability = 1}}
+foodList[1154] = {crafted = true, leftOver = 2952, buffs = {strength = 1, constitution = 1}}
 -- Potato Soup
 foodList[3569] = {crafted = true, leftOver = 2935, buffs = {essence = 1, perception = 1}}
 -- Meat Dish
@@ -91,18 +91,18 @@ foodList[353] = {crafted = true, buffs = {willpower = 1, intelligence = 1}}
 -- Cherry Cake
 foodList[303] = {crafted = true, buffs = {dexterity = 1, agility = 2}}
 --Egg Salad
-foodList[3570] = {crafted = true, leftOver = 2935, buffs = {strength = 2, durability = 1}}
+foodList[3570] = {crafted = true, leftOver = 2935, buffs = {strength = 2, constitution = 1}}
 --Sausages Dish
 foodList[2922] = {crafted = true, leftOver = 2952, buffs = {essence = 2, perception = 1}}
 -- Steak dish
 foodList[557] = {crafted = true, leftOver = 2952, buffs = {willpower = 2, intelligence = 1}}
 -- Fish Soup
-foodList[3572] = {crafted = true, leftOver = 2935, buffs = {strength = 1, durability = 2}}
+foodList[3572] = {crafted = true, leftOver = 2935, buffs = {strength = 1, constitution = 2}}
 -- Egg Salad Sandwich
 foodList[3571] = {crafted = true, buffs = {dexterity = 2, agility = 1}}
 -- Tier 5 Food
 --Rabbit Dish
-foodList[555] = {crafted = true, leftOver = 2952, buffs = {strength = 2, durability = 2}}
+foodList[555] = {crafted = true, leftOver = 2952, buffs = {strength = 2, constitution = 2}}
 -- Beer Soup
 foodList[3712] = {crafted = true, leftOver = 2935, buffs = {essence = 1, perception = 2, intelligence = 1}}
 -- Strawberry Cake
@@ -114,9 +114,9 @@ foodList[3723] = {crafted = true, buffs = {essence = 1, perception = 1,willpower
 -- Custard Pie
 foodList[1153] = {crafted = true, buffs = {dexterity = 2, agility = 2}}
 -- Venison Dish
-foodList[554] = {crafted = true, leftOver = 2952, buffs = {strength = 2, durability = 2}}
+foodList[554] = {crafted = true, leftOver = 2952, buffs = {strength = 2, constitution = 2}}
 -- Goulash
-foodList[3711] = {crafted = true, leftOver = 2935, buffs = {strength = 1, durability = 1, agility = 1, dexterity = 1}}
+foodList[3711] = {crafted = true, leftOver = 2935, buffs = {strength = 1, constitution = 1, agility = 1, dexterity = 1}}
 -- Elderberry Pie
 foodList[3610] = {crafted = true, buffs = {willpower = 2, intelligence = 2}}
 --Chicken Dish
@@ -240,7 +240,7 @@ end
 
 local attributesGerman = {}
 attributesGerman.strength     = "Stärke"
-attributesGerman.durability   = "Ausdauer"
+attributesGerman.constitution   = "Ausdauer"
 attributesGerman.agility      = "Schnelligkeit"
 attributesGerman.dexterity    = "Geschicklichkeit"
 attributesGerman.intelligence = "Intelligenz"
