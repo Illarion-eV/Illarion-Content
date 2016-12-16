@@ -576,8 +576,6 @@ function CalculateDamage(Attacker, Globals)
         BaseDamage = fighting.GetWrestlingAttack( Attacker.Race ) * 10
     end
     
-    Attacker.Char:inform("BaseDamage: " .. BaseDamage)
-
     local messupmalus = 5 -- Amount that damage value is divided by if your skill isn't high enough to use this weapon.
 
     if character.IsPlayer(Attacker.Char) and world:getItemStatsFromId(Attacker.WeaponItem.id).Level>Attacker.skill then
@@ -675,7 +673,7 @@ function CauseDamage(Attacker, Defender, Globals)
         return true
     else
         character.ChangeHP(Defender.Char,-Globals.Damage) -- Finally dealing the damage.
-        Attacker.Char:inform("dealing damage: " .. Globals.Damage)
+
         if (Attacker.AttackKind == 4) then -- Ranged attack
             if not character.IsPlayer(Defender.Char) and character.IsPlayer(Attacker.Char) then
                 Defender.Char.movepoints = Defender.Char.movepoints - 5
