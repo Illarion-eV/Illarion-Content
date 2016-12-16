@@ -571,7 +571,7 @@ function CalculateDamage(Attacker, Globals)
     local QualityBonus
 
     if Attacker.IsWeapon then
-        BaseDamage = Attacker.Weapon.Attack * 10
+        BaseDamage = Attacker.Weapon.Attack * 40
     else
         BaseDamage = fighting.GetWrestlingAttack( Attacker.Race ) * 10
     end
