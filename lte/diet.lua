@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Long Time Effect Script: Diet System
 -- Effect ID: 12
 
-local attributes = {"strength", "durability", "agility", "dexterity", "intelligence", "essence", "perception", "willpower"}
+local attributes = {"strength", "constitution", "agility", "dexterity", "intelligence", "essence", "perception", "willpower"}
 
 local M = {}
 
