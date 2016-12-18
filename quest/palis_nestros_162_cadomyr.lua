@@ -414,7 +414,7 @@ Description[ENGLISH][187] = "The Kantabi desert has become a dangerous place. Th
 Description[ENGLISH][188] = "The Kantabi desert has become a dangerous place. There is a bounty put on twelve golems to make the desert peaceful again. Set out and kill them, thirty silver coins will be your reward."
 Description[ENGLISH][189] = "Return to Palis Nestros to claim your reward."
 
-local npcLocation = position(93, 618, 0)
+local npcLocation = position(115, 549, 0)
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 local Start = {npcLocation.x, npcLocation.y, npcLocation.z}
