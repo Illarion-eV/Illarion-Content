@@ -16,7 +16,7 @@
 -- NPC Name: Fredericus                                               Cadomyr --
 -- NPC Job:  Fisherman                                                        --
 --                                                                            --
--- NPC Race: human                      NPC Position:  117, 618, 0            --
+-- NPC Race: human                      NPC Position:  115, 617, 0            --
 -- NPC Sex:  male                       NPC Direction: east                   --
 --                                                                            --
 -- Authors:  Estralis Seborian                                                --
@@ -27,7 +27,7 @@
 name = "Fredericus"
 race = human
 sex = male
-position = 117, 618, 0
+position = 115, 617, 0
 direction = east
 affiliation = "Cadomyr"
 job = "Fisherman"

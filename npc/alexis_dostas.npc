@@ -16,7 +16,7 @@
 -- NPC Name: Alexis Dostas                                            Cadomyr --
 -- NPC Job:  stablemaster                                                     --
 --                                                                            --
--- NPC Race: human                      NPC Position:  141, 637, 0            --
+-- NPC Race: human                      NPC Position:  139, 632, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -26,7 +26,7 @@
 name = "Alexis Dostas"
 race = human
 sex = male
-position = 141, 637, 0
+position = 139, 632, 0
 direction = west
 affiliation = "Cadomyr"
 job = "stablemaster"

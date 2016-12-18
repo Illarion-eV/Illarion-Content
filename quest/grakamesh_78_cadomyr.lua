@@ -79,32 +79,32 @@ Description[GERMAN][22] = "Du hast alle Aufgaben von Grakamesh erfüllt."
 Description[ENGLISH][22] = "You have fulfilled all tasks for Grakamesh."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-local Start = {133, 638, 0}
+local Start = {140, 644, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(131, 638, 0)} 
-QuestTarget[2] = {position(131, 638, 0)} 
-QuestTarget[3] = {position(131, 638, 0)} 
-QuestTarget[4] = {position(131, 638, 0)}
-QuestTarget[5] = {position(131, 638, 0)} 
-QuestTarget[6] = {position(131, 638, 0)}
-QuestTarget[7] = {position(131, 638, 0)} 
-QuestTarget[8] = {position(131, 638, 0)} 
-QuestTarget[9] = {position(131, 638, 0)} 
-QuestTarget[10] = {position(131, 638, 0)}
-QuestTarget[11] = {position(133, 638, 0)} 
-QuestTarget[12] = {position(133, 638, 0)}
-QuestTarget[13] = {position(131, 638, 0)} 
-QuestTarget[14] = {position(131, 638, 0)} 
-QuestTarget[15] = {position(131, 638, 0)} 
-QuestTarget[16] = {position(131, 638, 0)}
-QuestTarget[17] = {position(131, 638, 0)} 
-QuestTarget[18] = {position(133, 638, 0)}
-QuestTarget[19] = {position(133, 638, 0)} 
-QuestTarget[20] = {position(131, 638, 0), position(157, 668, -4)} 
-QuestTarget[21] = {position(133, 638, 0)} 
-QuestTarget[22] = {position(133, 638, 0)}
+QuestTarget[1] = {position(139, 644, 0)} 
+QuestTarget[2] = {position(139, 644, 0)} 
+QuestTarget[3] = {position(139, 644, 0)} 
+QuestTarget[4] = {position(139, 644, 0)}
+QuestTarget[5] = {position(139, 644, 0)} 
+QuestTarget[6] = {position(139, 644, 0)}
+QuestTarget[7] = {position(139, 644, 0)} 
+QuestTarget[8] = {position(139, 644, 0)} 
+QuestTarget[9] = {position(139, 644, 0)} 
+QuestTarget[10] = {position(139, 644, 0)}
+QuestTarget[11] = {position(140, 644, 0)} 
+QuestTarget[12] = {position(140, 644, 0)}
+QuestTarget[13] = {position(139, 644, 0)} 
+QuestTarget[14] = {position(139, 644, 0)} 
+QuestTarget[15] = {position(139, 644, 0)} 
+QuestTarget[16] = {position(139, 644, 0)}
+QuestTarget[17] = {position(139, 644, 0)} 
+QuestTarget[18] = {position(140, 644, 0)}
+QuestTarget[19] = {position(140, 644, 0)} 
+QuestTarget[20] = {position(139, 644, 0), position(157, 668, -4)} 
+QuestTarget[21] = {position(140, 644, 0)} 
+QuestTarget[22] = {position(140, 644, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 22
