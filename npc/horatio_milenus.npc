@@ -1,22 +1,22 @@
 -- Illarion Server
---
+-- 
 -- This program is free software: you can redistribute it and/or modify it under
 -- the terms of the GNU Affero General Public License as published by the Free
 -- Software Foundation, either version 3 of the License, or (at your option) any
 -- later version.
---
+-- 
 -- This program is distributed in the hope that it will be useful, but WITHOUT
 -- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
 -- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 -- details.
---
+-- 
 -- You should have received a copy of the GNU Affero General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Horatio Milenus                                          Cadomyr --
 -- NPC Job:  Guard                                                            --
 --                                                                            --
--- NPC Race: human                      NPC Position:  114, 635, 0            --
+-- NPC Race: human                      NPC Position:  120, 642, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Authors:  Kawan Baxter                                                     --
@@ -28,7 +28,7 @@
 name = "Horatio Milenus"
 race = human
 sex = male
-position = 114, 635, 0
+position = 120, 642, 0
 direction = south
 affiliation = "Cadomyr"
 job = "Guard"
@@ -61,7 +61,7 @@ itemSecondHand = 95
 itemHands = 530
 itemTrousers = 367
 itemShoes = 771
-guardWarpTarget = 114, 643, 0
+guardWarpTarget = 119, 649, 0
 guardRange = 2, 2, 4, 4
 warpedMonsterMsg "Weg mit dir, widerliche Kreatur!", "Go away, nasty creature!"
 warpedMonsterMsg "Hinfort, du Monster!", "Begone, you monster!"
