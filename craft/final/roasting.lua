@@ -16,13 +16,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 
-module("craft.intermediate.roasting", package.seeall)
+module("craft.final.roasting", package.seeall)
 
 roasting = crafts.Craft:new{
                     craftEN = "Roasting",
                     craftDE = "Braten",
                     handTool = 2495,
-                    leadSkill = Character.husbandry,
+                    leadSkill = Character.cookingAndBaking,
                     sfx = 7,
                     sfxDuration = 27,
                   }

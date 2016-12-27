@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_305_smokingoven' WHERE itm_id IN (305,304);
 
-local roasting = require("craft.intermediate.roasting")
+local roasting = require("craft.final.roasting")
 local skillTransfer = require("base.skillTransfer")
 
 local M = {}
