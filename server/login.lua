@@ -30,185 +30,192 @@ local M = {}
 
 -- Load messages of the day
 -- German
-local messageG = {}
-messageG[1]="[Tipp] Leichte Rüstungen aus Leder schützen sehr gut gegen stumpfe Waffen aber schlecht gegen Hiebwaffen."
-messageG[2]="[Tipp] Mittlere Rüstungen wie Kettenhemden schützen sehr gut gegen Hiebwaffen aber schlecht gegen Stich- und Distanzwaffen."
-messageG[3]="[Tipp] Schwere Rüstungen wie Plattenpanzer schützen sehr gut gegen Stich- und Distanzwaffen aber schlecht gegen stumpfe Waffen."
-messageG[4]="[Tipp] Wir spielen miteinander, nicht gegeneinander. Viel Spaß beim Spielen!"
-messageG[5]="[Tipp] Bitte besuche uns auch im IRC-Chat: #illarion auf Quakenet."
-messageG[6]="[Tipp] Im Forum sind viele interessante Diskussion und Informationen zu finden. Meld dich gleich an!"
-messageG[7]="[Tipp] Wenn du einen Gamemaster erreichen möchtest, schreibe !gm <Deine Nachricht> im Chatfenster."
-messageG[8]="[Tipp] Brágon ist der Gott des Feuers."
-messageG[9]="[Tipp] Eldan ist der Gott des Geistes."
-messageG[10]="[Tipp] Findari ist die Göttin der Luft."
-messageG[11]="[Tipp] Tanora ist die Göttin des Wassers. Bei den Echsenmenschen ist sie als Zelphia bekannt."
-messageG[12]="[Tipp] Ushara ist die Göttin der Erde."
-messageG[13]="[Tipp] Adron ist der Gott des Weines und der Feste."
-messageG[14]="[Tipp] Cherga ist die Göttin der Geister und der Unterwelt."
-messageG[15]="[Tipp] Elara ist die Göttin des Wissens und der Weisheit."
-messageG[16]="[Tipp] Irmorom ist der Gott des Handels und des Handwerks."
-messageG[17]="[Tipp] Malachín ist der Gott der Jagd und der Schlachten."
-messageG[18]="[Tipp] Moshran ist der Gott des Blutes und der Gebeine."
-messageG[19]="[Tipp] Nargùn ist der Gott des Chaos."
-messageG[20]="[Tipp] Oldra ist die Göttin der Fruchtbarkeit und des Lebens."
-messageG[21]="[Tipp] Ronagan ist der Gott der Diebe und der Schatten."
-messageG[22]="[Tipp] Sirani ist die Göttin der Liebe und der Freude."
-messageG[23]="[Tipp] Zhambra ist der Gott der Freundschaft und Treue."
-messageG[24]="[Tipp] Cadomyr ist das Reich der Ehre."
-messageG[25]="[Tipp] Runewick ist das Reich der Weisheit."
-messageG[26]="[Tipp] Galmair ist das Reich des Reichtums."
-messageG[27]="[Tipp] Manchen Monstern sollte man lieber nicht alleine begegnen."
-messageG[28]="[Tipp] Gegenstände von geringer Haltbarkeit drohen zu zerbrechen. Ein Fachmann kann sie ausbessern."
-messageG[29]="[Tipp] Fernwaffen werden nicht umsonst so genannt: Stark auf Distanz, nutzlos im Nahkampf."
-messageG[30]="[Tipp] Hiebwaffen sind gut gegen leichte Lederrüstungen, aber schlecht gegen mittlere Rüstungen aus Schuppen und Ketten."
-messageG[31]="[Tipp] Stichwaffen sind gut gegen mittlere Rüstungen aus Schuppen und Ketten, aber schlecht gegen schwere Plattenrüstungen."
-messageG[32]="[Tipp] Stumpfe Waffen sind gut gegen schwere Plattenrüstungen, aber schlecht gegen leichte Lederrüstungen."
-messageG[33]="[Tipp] Ein Silberstück entspricht einhundert Kupferstücken. Einhundert Silberstücke entsprechen einem Goldstück."
---These hints need to be updated with Milestone II
-messageG[34]="[Tipp] Die besten Alchemisten leben in Runewick."
-messageG[35]="[Tipp] Die besten Kerzenzieher leben in Runewick."
-messageG[36]="[Tipp] Die besten Schreiner leben in Runewick."
-messageG[37]="[Tipp] Die besten Köche leben in Runewick."
-messageG[38]="[Tipp] Die besten Bauern leben in Runewick."
-messageG[39]="[Tipp] Die besten Kräuterkundigen leben in Runewick."
-messageG[40]="[Tipp] Die besten Schneider leben in Runewick."
-messageG[41]="[Tipp] Die besten Schmiede leben in Galmair."
-messageG[42]="[Tipp] Die besten Ziegelbrenner leben in Cadomyr."
-messageG[43]="[Tipp] Die besten Steinmetze leben in Galmair."
-messageG[44]="[Tipp] Die besten Bergarbeiter leben in Galmair."
-messageG[45]="[Tipp] Die besten Brauer leben in Galmair."
-messageG[46]="[Tipp] Die besten Fischer leben in Runewick."
-messageG[47]="[Tipp] Die besten Glasbläser leben in Cadomyr."
-messageG[48]="[Tipp] Die besten Gräber leben in Cadomyr."
-messageG[49]="[Tipp] Die besten Kunstschmiede leben in Cadomyr."
-messageG[50]="[Tipp] Die besten Edelsteinschleifer leben in Cadomyr."
---End of hints that require an update
-messageG[51]="[Tipp] Jedes Reich ist auf bestimmte Handwerke spezialisiert. Wenn es das, was du benötigst, nicht auf dem örtlichen Markt gibt, wirst du wohl reisen müssen."
-messageG[52]="[Tipp] Wenn du Probleme bei der Kommunikation mit einem NPC hast, sage 'Hilfe' um eine Liste der Schlüsselwörter aufzurufen."
-messageG[53]="[Tipp] Obstbäume haben schon so manchen hungrigen Abenteurer gerettet. Allerdings ist ein schmackhafteres Mahl stets vorzuziehen."
-messageG[54]="[Tipp] Es gibt viele Möglichkeiten, seinen Charakter zu bewegen: Die linke Maustaste, die Pfeiltasten, den Ziffernblock und WASD."
-messageG[55]="[Tipp] Einen NPC nach einer 'Mission' zu fragen ist ein guter Weg um ein paar einfache Münzen zu verdienen."
-messageG[56]="[Tipp] Scheue dich nicht, andere Spieler um Hilfe zu bitten. Behandle sie mit Respekt und verwende den out-of-character-Modus (#o), wenn nötig."
-messageG[57]="[Tipp] Um deinen Charakter anderen Charakteren vorzustellen, schreibe #i in die Chatbox und drücke Return. Diese erfahren so den Namen deines Charakters."
-messageG[58]="[Tipp] Der Illarion-Chat ist auf der Homepage verlinkt. Du erhältst dort technische Unterstützung oder kannst einfach andere Spieler kennenlernen."
-messageG[59]="[Tipp] Der Vollbildmodus kann im Optionsmenü des Clients aktiviert werden."
-messageG[60]="[Tipp] Wenn ein neuer Spieler deinem Reich beitritt erhältst du eine kurze Mitteilung. Heiße ihn doch gleich willkommen!"
-messageG[61]="[Tipp] Um der Staatskasse deines Reiches etwas zu spenden, lege es einfach auf das Spendenfeld in der Nähe deines Anführers."
-messageG[62]="[Tipp] Wenn du auf Reisen gehst, nimm stets Proviant mit. Deine Lebenspunkte regenerieren sich nicht, wenn dein Charakter hungrig ist."
-messageG[63]="[Tipp] Die meisten NPCs reagieren auf 'Hilfe' mit der Ausgabe einer Liste ihrer wichtigsten Schlüsselwörter."
-messageG[64]="[Tipp] Die Fertigkeiten deines Charakters kannst du aufrufen, indem du 'C' drückst."
-messageG[65]="[Tipp] Ein Stapel von Gegenständen läßt sich durch Halten der Shift-Taste beim Bewegen auflösen."
-messageG[66]="[Tipp] Hast du dir schon Gedanken zum Hintergrund und zur Vergangenheit deines Charakters gemnacht? Die Homepage www.illarion.org enthält eine Menge nützliche Informationen über Rassen, Götter und die Geschichte Illarions."
-messageG[67]="[Tipp] Sollte dein Charakter Hunger bekommen, so pflücke ein paar Früchte indem du einen Obstbaum benutzt. Früchte werden gegessen, indem man sie benutzt."
-messageG[68]="[Tipp] Brauchst du Hilfe? Schreibe '!gm Deine Frage' und drücke Return. Sobald ein Gamemaster verfügbar ist wird er dir helfen."
-messageG[69]="[Tipp] Um laut zu rufen, schreibe #s vor deine Nachricht. Um zu flüstern, verwende #w. Für den 'Out-of-character'-Modus verwendest du #o."
-messageG[70]="[Tipp] Klicke mit der linken Maustaste auf ein entferntes Feld um automatisch dorthin zu gehen."
-messageG[71]="[Tipp] Alle NPCs reagieren auf eine Reihe von Schlüsselwörtern. Eine List der wichtigsten Schlüsselwörter erhältst du als Antwort auf 'Hilfe'."
-messageG[72]="[Tipp] Indem du NPCs nach 'Aufgaben' und 'Quests' fragst, kannst du großen Reichtum erlangen."
-messageG[73]="[Tipp] Der rote Balken repräsentiert die Gesundheit deines Charakters. Der gelbe Balken zeigt wie satt dein Charakter ist und der blaue Balken symbolisiert das Mana der Magier."
-messageG[74]="[Tipp] Eine Liste deiner Aufgaben erhältst du, indem du 'Q' drückst."
-messageG[75]="[Tipp] Um Beute schnell aufzunehmen, drücke 'P' und du sammelst alle umliegenden Gegenstände ein."
-messageG[76]="[Tipp] Eine Übersicht aller Kommandos kannst du dir mit F1 anzeigen lassen."
-messageG[77]="[Tipp] Wie schnell deine Fertigkeiten steigen, hängt vor allem davon ab, wie viel Zeit du im Spiel verbringst."
-messageG[78]="[Tipp] Es ist nicht nötig, den ganzen Tag hart zu arbeiten, um deine Fertigkeiten zu steigern. Mach auch mal eine Pause um dich zu unterhalten oder die Welt zu erkunden."
-messageG[79]="[Tipp] Die Steuerungstaste schaltet zwischen Gehen und Laufen um."
-messageG[80]="[Tipp] Je mehr Aktionen du ohne Pause durchführst, desto weniger lernst du von jeder Aktion."
-messageG[81]="[Tipp] Hast du ein Problem mit dem Spiel? Auf der Homepage www.illarion.org sind häufig gestellte Fragen (FAQ) beantwortet."
-messageG[82]="[Tipp] Ein Doppelklick auf einen NPC öffnet eine Liste üblicher Dialogoptionen."
-messageG[83]="[Tipp] Konzentrier dich auf einige, wenige Fertigkeiten. Eierlegende Wollmilchsäue sind schwer zu züchten."
-
---messageG[XX]="[Tipp] Um die Sprache deines Charakters umzustellen, schreibe '!l' gefolgt von der gewünschten Sprache: Common, Elf, Human, Dwarf, Halfling, Lizard."
+local messageG = {
+"[Tipp] Leichte Rüstungen aus Leder schützen sehr gut gegen stumpfe Waffen aber schlecht gegen Hiebwaffen.",
+"[Tipp] Mittlere Rüstungen wie Kettenhemden schützen sehr gut gegen Hiebwaffen aber schlecht gegen Stich- und Distanzwaffen.",
+"[Tipp] Schwere Rüstungen wie Plattenpanzer schützen sehr gut gegen Stich- und Distanzwaffen aber schlecht gegen stumpfe Waffen.",
+"[Tipp] Wir spielen miteinander, nicht gegeneinander. Viel Spaß beim Spielen!",
+"[Tipp] Bitte besuche uns auch im IRC-Chat: #illarion auf Quakenet.",
+"[Tipp] Im Forum sind viele interessante Diskussion und Informationen zu finden. Meld dich gleich an!",
+"[Tipp] Wenn du einen Gamemaster erreichen möchtest, schreibe !gm <Deine Nachricht> im Chatfenster.",
+"[Tipp] Brágon ist der Gott des Feuers.",
+"[Tipp] Eldan ist der Gott des Geistes.",
+"[Tipp] Findari ist die Göttin der Luft.",
+"[Tipp] Tanora ist die Göttin des Wassers. Bei den Echsenmenschen ist sie als Zelphia bekannt.",
+"[Tipp] Ushara ist die Göttin der Erde.",
+"[Tipp] Adron ist der Gott des Weines und der Feste.",
+"[Tipp] Cherga ist die Göttin der Geister und der Unterwelt.",
+"[Tipp] Elara ist die Göttin des Wissens und der Weisheit.",
+"[Tipp] Irmorom ist der Gott des Handels und des Handwerks.",
+"[Tipp] Malachín ist der Gott der Jagd und der Schlachten.",
+"[Tipp] Moshran ist der Gott des Blutes und der Gebeine.",
+"[Tipp] Nargùn ist der Gott des Chaos.",
+"[Tipp] Oldra ist die Göttin der Fruchtbarkeit und des Lebens.",
+"[Tipp] Ronagan ist der Gott der Diebe und der Schatten.",
+"[Tipp] Sirani ist die Göttin der Liebe und der Freude.",
+"[Tipp] Zhambra ist der Gott der Freundschaft und Treue.",
+"[Tipp] Cadomyr ist das Reich der Ehre.",
+"[Tipp] Runewick ist das Reich der Weisheit.",
+"[Tipp] Galmair ist das Reich des Reichtums.",
+"[Tipp] Manchen Monstern sollte man lieber nicht alleine begegnen.",
+"[Tipp] Gegenstände von geringer Haltbarkeit drohen zu zerbrechen. Ein Fachmann kann sie ausbessern.",
+"[Tipp] Fernwaffen werden nicht umsonst so genannt: Stark auf Distanz, nutzlos im Nahkampf.",
+"[Tipp] Hiebwaffen sind gut gegen leichte Lederrüstungen, aber schlecht gegen mittlere Rüstungen aus Schuppen und Ketten.",
+"[Tipp] Stichwaffen sind gut gegen mittlere Rüstungen aus Schuppen und Ketten, aber schlecht gegen schwere Plattenrüstungen.",
+"[Tipp] Stumpfe Waffen sind gut gegen schwere Plattenrüstungen, aber schlecht gegen leichte Lederrüstungen.",
+"[Tipp] Ein Silberstück entspricht einhundert Kupferstücken. Einhundert Silberstücke entsprechen einem Goldstück.",
+"[Tipp] Die besten Bergarbeiter leben in Galmair.",
+"[Tipp] Die besten Edelsteinschleifer leben in Galmair.",
+"[Tipp] Die besten Schmiede leben in Galmair.",
+"[Tipp] Die besten Rüstschmiede leben in Galmair.",
+"[Tipp] Die besten Feinschmiede leben in Galmair.",
+"[Tipp] Die besten Steinmetze leben in Galmair.",
+"[Tipp] Die besten Holzfäller leben in Runewick.",
+"[Tipp] Die besten Schreiner leben in Runewick.",
+"[Tipp] Die besten Schnitzer leben in Runewick.",
+"[Tipp] Die besten Schneider leben in Cadomyr.",
+"[Tipp] Die besten Färber leben in Cadomyr.",
+"[Tipp] Die besten Gerber leben in Cadomyr.",
+"[Tipp] Die besten Weber leben in Cadomyr.",
+"[Tipp] Die besten Köche leben in Runewick.",
+"[Tipp] Die besten Bäcker leben in Runewick.",
+"[Tipp] Die besten Kerzenzieher leben in Runewick.",
+"[Tipp] Die besten Bauern leben in Runewick.",
+"[Tipp] Die besten Kräuterkundigen leben in Runewick.",
+"[Tipp] Die besten Brauer leben in Runewick.",
+"[Tipp] Die besten Fischer leben in Runewick.",
+"[Tipp] Die besten Landwirte leben in Runewick.",
+"[Tipp] Die besten Töpfer leben in Cadomyr.",
+"[Tipp] Die besten Glasbläser leben in Cadomyr.",
+"[Tipp] Die besten Gräber leben in Cadomyr.",
+"[Tipp] Jedes Reich ist auf bestimmte Handwerke spezialisiert. Wenn es das, was du benötigst, nicht auf dem örtlichen Markt gibt, wirst du wohl reisen müssen.",
+"[Tipp] Wenn du Probleme bei der Kommunikation mit einem NPC hast, sage 'Hilfe' um eine Liste der Schlüsselwörter aufzurufen.",
+"[Tipp] Obstbäume haben schon so manchen hungrigen Abenteurer gerettet. Allerdings ist ein schmackhafteres Mahl stets vorzuziehen.",
+"[Tipp] Es gibt viele Möglichkeiten, seinen Charakter zu bewegen: Die linke Maustaste, die Pfeiltasten, den Ziffernblock und WASD.",
+"[Tipp] Einen NPC nach einer 'Mission' zu fragen ist ein guter Weg um ein paar einfache Münzen zu verdienen.",
+"[Tipp] Scheue dich nicht, andere Spieler um Hilfe zu bitten. Behandle sie mit Respekt und verwende den out-of-character-Modus (#o), wenn nötig.",
+"[Tipp] Um deinen Charakter anderen Charakteren vorzustellen, schreibe #i in die Chatbox und drücke Return. Diese erfahren so den Namen deines Charakters.",
+"[Tipp] Der Illarion-Chat ist auf der Homepage verlinkt. Du erhältst dort technische Unterstützung oder kannst einfach andere Spieler kennenlernen.",
+"[Tipp] Der Vollbildmodus kann im Optionsmenü des Clients aktiviert werden.",
+"[Tipp] Wenn ein neuer Spieler deinem Reich beitritt erhältst du eine kurze Mitteilung. Heiße ihn doch gleich willkommen!",
+"[Tipp] Um der Staatskasse deines Reiches etwas zu spenden, lege es einfach auf das Spendenfeld in der Nähe deines Anführers.",
+"[Tipp] Wenn du auf Reisen gehst, nimm stets Proviant mit. Deine Lebenspunkte regenerieren sich nicht, wenn dein Charakter hungrig ist.",
+"[Tipp] Die meisten NPCs reagieren auf 'Hilfe' mit der Ausgabe einer Liste ihrer wichtigsten Schlüsselwörter.",
+"[Tipp] Die Fertigkeiten deines Charakters kannst du aufrufen, indem du 'C' drückst.",
+"[Tipp] Ein Stapel von Gegenständen läßt sich durch Halten der Shift-Taste beim Bewegen auflösen.",
+"[Tipp] Hast du dir schon Gedanken zum Hintergrund und zur Vergangenheit deines Charakters gemnacht? Die Homepage www.illarion.org enthält eine Menge nützliche Informationen über Rassen, Götter und die Geschichte Illarions.",
+"[Tipp] Sollte dein Charakter Hunger bekommen, so pflücke ein paar Früchte indem du einen Obstbaum benutzt. Früchte werden gegessen, indem man sie benutzt.",
+"[Tipp] Brauchst du Hilfe? Schreibe '!gm Deine Frage' und drücke Return. Sobald ein Gamemaster verfügbar ist wird er dir helfen.",
+"[Tipp] Um laut zu rufen, schreibe #s vor deine Nachricht. Um zu flüstern, verwende #w. Für den 'Out-of-character'-Modus verwendest du #o.",
+"[Tipp] Klicke mit der linken Maustaste auf ein entferntes Feld um automatisch dorthin zu gehen.",
+"[Tipp] Alle NPCs reagieren auf eine Reihe von Schlüsselwörtern. Eine List der wichtigsten Schlüsselwörter erhältst du als Antwort auf 'Hilfe'.",
+"[Tipp] Indem du NPCs nach 'Aufgaben' und 'Quests' fragst, kannst du großen Reichtum erlangen.",
+"[Tipp] Der rote Balken repräsentiert die Gesundheit deines Charakters. Der gelbe Balken zeigt wie satt dein Charakter ist und der blaue Balken symbolisiert das Mana der Magier.",
+"[Tipp] Eine Liste deiner Aufgaben erhältst du, indem du 'Q' drückst.",
+"[Tipp] Um Beute schnell aufzunehmen, drücke 'P' und du sammelst alle umliegenden Gegenstände ein.",
+"[Tipp] Eine Übersicht aller Kommandos kannst du dir mit F1 anzeigen lassen.",
+"[Tipp] Wie schnell deine Fertigkeiten steigen, hängt vor allem davon ab, wie viel Zeit du im Spiel verbringst.",
+"[Tipp] Es ist nicht nötig, den ganzen Tag hart zu arbeiten, um deine Fertigkeiten zu steigern. Mach auch mal eine Pause um dich zu unterhalten oder die Welt zu erkunden.",
+"[Tipp] Die Steuerungstaste schaltet zwischen Gehen und Laufen um.",
+"[Tipp] Je mehr Aktionen du ohne Pause durchführst, desto weniger lernst du von jeder Aktion.",
+"[Tipp] Hast du ein Problem mit dem Spiel? Auf der Homepage www.illarion.org sind häufig gestellte Fragen (FAQ) beantwortet.",
+"[Tipp] Ein Doppelklick auf einen NPC öffnet eine Liste üblicher Dialogoptionen.",
+"[Tipp] Konzentrier dich auf einige, wenige Fertigkeiten. Eierlegende Wollmilchsäue sind schwer zu züchten."
+}
 
 -- English
-local messageE = {}
-messageE[1]="[Hint] Light armours, such as those made of leather, offer good protection against blunt weapons but perform poorly against slashing weapons."
-messageE[2]="[Hint] Medium armours, such as chain mail, offer good protection against slashing weapons but are more vulnerable to stabbing weapons."
-messageE[3]="[Hint] Heavy armours, such as those made from sturdy metal plates, offer good protection against stabbing weapons but are vulnerable to blunt weapons."
-messageE[4]="[Hint] We play with, not against each other. Have fun playing!"
-messageE[5]="[Hint] Please join our IRC chat: #illarion on Quakenet."
-messageE[6]="[Hint] The forum contains many interesting discussions and a lot of useful information. Register today!"
-messageE[7]="[Hint] If you want to contact a gamemaster, type !gm <Your message> in the chat box."
-messageE[8]="[Hint] Brágon is the God of fire."
-messageE[9]="[Hint] Eldan is the God of spirit."
-messageE[10]="[Hint] Findari is the Goddess of air."
-messageE[11]="[Hint] Tanora is the Goddess of water. Among Lizardmen, she is known as Zelphia."
-messageE[12]="[Hint] Ushara is the Goddess of earth."
-messageE[13]="[Hint] Adron is the God of festivities and wine."
-messageE[14]="[Hint] Cherga is the Goddess of spirits and the underworld."
-messageE[15]="[Hint] Elara is the Goddess of wisdom and knowledge."
-messageE[16]="[Hint] Irmorom is the God of trade and craftsmanship."
-messageE[17]="[Hint] Malachín is the God of battle and hunting."
-messageE[18]="[Hint] Moshran is the God of blood and bones."
-messageE[19]="[Hint] Nargùn is the God of chaos."
-messageE[20]="[Hint] Oldra is the Goddess of life and fertility."
-messageE[21]="[Hint] Ronagan is the God of thieves and shadows."
-messageE[22]="[Hint] Sirani is the Goddess of love and pleasure."
-messageE[23]="[Hint] Zhambra is the God of friendship and loyalty."
-messageE[24]="[Hint] Cadomyr is the realm of honour."
-messageE[25]="[Hint] Runewick is the realm of wisdom."
-messageE[26]="[Hint] Galmair is the realm of wealth."
-messageE[27]="[Hint] There are some monsters which you should avoid while adventuring alone."
-messageE[28]="[Hint] Items of low durability might break any time. A specialist can repair them."
-messageE[29]="[Hint] Ranged weapons have their name for a reason: They are useful for distant targets, but useless in a melee."
-messageE[30]="[Hint] Slashing weapons are good against light leather armour but bad against medium chain and scale armour."
-messageE[31]="[Hint] Stabbing weapons are good against medium chain and scale armour but bad against heavy plate armour."
-messageE[32]="[Hint] Blunt weapons are good against heavy plate armour but bad against light leather armour."
-messageE[33]="[Hint] A single silver coin equals a hundred copper coins. One hundred silver coins equal one gold coin."
---These hints need to be updated with Milestone II
-messageE[34]="[Hint] The best alchemists are living in Runewick."
-messageE[35]="[Hint] The best candle makers are living in Runewick."
-messageE[36]="[Hint] The best carpenters are living in Runewick."
-messageE[37]="[Hint] The best cooks are living in Runewick."
-messageE[38]="[Hint] The best farmers are living in Runewick."
-messageE[39]="[Hint] The best herbalists are living in Runewick."
-messageE[40]="[Hint] The best tailors are living in Runewick."
-messageE[41]="[Hint] The best blacksmiths are living in Galmair."
-messageE[42]="[Hint] The best brick makers are living in Cadomyr."
-messageE[43]="[Hint] The best masons are living in Galmair."
-messageE[44]="[Hint] The best miners are living in Galmair."
-messageE[45]="[Hint] The best brewers are living in Galmair."
-messageE[46]="[Hint] The best fishers are living in Runewick."
-messageE[47]="[Hint] The best glass blowers are living in Cadomyr."
-messageE[48]="[Hint] The best diggers are living in Cadomyr."
-messageE[49]="[Hint] The best finesmiths are living in Cadomyr."
-messageE[50]="[Hint] The best gem grinders are living in Cadomyr."
---End of hints that require an update
-messageE[51]="[Hint] Each realm specialises in certain crafts. If you can't find what you are looking for in your home market, you may need to travel abroad."
-messageE[52]="[Hint] If you ever get stuck while communicating with an NPC, the 'help' command will provide you with a list of useful topics."
-messageE[53]="[Hint] Fruit trees have saved the lives of countless starving travellers. You will soon find yourself needing a more filling meal, though."
-messageE[54]="[Hint] There are many ways to move your character around in Illarion. The left mouse button, arrow keys, number pad, and WASD will all work."
-messageE[55]="[Hint] Asking an NPC whether they have a 'quest' for you to carry out can be a good way to earn a quick coin or two."
-messageE[56]="[Hint] Don't be afraid to ask the other players around you for help if you encounter difficulties. But make sure to remain respectful and to use OOC chat (#o), where appropriate."
-messageE[57]="[Hint] If you want to introduce your character to other players, type #i in the chatbox and hit return. The other players will then be able to see your character's name."
-messageE[58]="[Hint] The Illarion chat is linked on the website www.illarion.org. It is useful for technical assistance and for simply getting to know your fellow players."
-messageE[59]="[Hint] Fullscreen mode can be activated in the options menu when the client is started."
-messageE[60]="[Hint] You will receive a notification when a new player chooses to join your realm. Give them a friendly welcome!"
-messageE[61]="[Hint] In order to donate something to your realm's treasury, just place the item on the donation square close to your leader."
-messageE[62]="[Hint] If you go on a journey, always have some rations with you. Your character's hitpoints won't regenerate if your character is hungry."
-messageE[63]="[Hint] Most NPCs react on 'help' with a list of their most important keywords."
-messageE[64]="[Hint] You can review the skills of your character by hitting 'C'."
-messageE[65]="[Hint] To split a stack of items, hold shift while moving it."
-messageE[66]="[Hint] Did you already think about the background and past of your character? The website www.illarion.org contains a lot of information on the races, the gods, and the lore of Illarion."
-messageE[67]="[Hint] If your character ever gets hungry, just harvest some fruits by using a fruit tree. You can then eat the fruits by using them."
-messageE[68]="[Hint] Do you need help? Type '!gm <your question>' and hit enter. As soon as a Gamemaster is available, they will assist you."
-messageE[69]="[Hint] To shout, type #s in front of your message. To whisper, use #w. And use #o for the out of character mode."
-messageE[70]="[Hint] Click with the left mouse button while pointing at a distant field to make your character walk there automatically."
-messageE[71]="[Hint] All NPCs react on a number of keywords. You can get a list of the most important keywords for a particular NPC with the command 'help'."
-messageE[72]="[Hint] By asking NPCs for 'missions' and 'quests' you can become extremely wealthy."
-messageE[73]="[Hint] The red bar represents the health of your character. The yellow bar is an indicator of how hungry your character is, and the blue bar shows the mana level of mage characters."
-messageE[74]="[Hint] You can review the quests of your character by hitting 'Q'."
-messageE[75]="[Hint] To collect loot quickly, press 'P' to collect all items within reach."
-messageE[76]="[Hint] To see an overview of all commands, hit F1."
-messageE[77]="[Hint] The speed of skillgain is mainly determined by the time you spend in the game."
-messageE[78]="[Hint] It is not necessary to work all day long to raise your skills. Take a break to chat or explore the world!"
-messageE[79]="[Hint] CTRL toggles walking/running."
-messageE[80]="[Hint] The more actions you do over time, the less you learn from each action."
-messageE[81]="[Hint] Got a problem? On the website, you can find frequently asked questions (FAQ) answered."
-messageE[82]="[Hint] Double clicking an NPC opens a list with common dialog options."
-messageE[83]="[Hint] Focus on a selection of skills. Remember: Jack of all trades - master of none."
-
---messageE[XX]="[Hint] To switch the language of your character, type '!l' followed by the desired language: Common, Elf, Human, Dwarf, Halfling, Lizard."
-
+local messageE = {
+"[Hint] Light armours, such as those made of leather, offer good protection against blunt weapons but perform poorly against slashing weapons.",
+"[Hint] Medium armours, such as chain mail, offer good protection against slashing weapons but are more vulnerable to stabbing weapons.",
+"[Hint] Heavy armours, such as those made from sturdy metal plates, offer good protection against stabbing weapons but are vulnerable to blunt weapons.",
+"[Hint] We play with, not against each other. Have fun playing!",
+"[Hint] Please join our IRC chat: #illarion on Quakenet.",
+"[Hint] The forum contains many interesting discussions and a lot of useful information. Register today!",
+"[Hint] If you want to contact a gamemaster, type !gm <Your message> in the chat box.",
+"[Hint] Brágon is the God of fire.",
+"[Hint] Eldan is the God of spirit.",
+"[Hint] Findari is the Goddess of air.",
+"[Hint] Tanora is the Goddess of water. Among Lizardmen, she is known as Zelphia.",
+"[Hint] Ushara is the Goddess of earth.",
+"[Hint] Adron is the God of festivities and wine.",
+"[Hint] Cherga is the Goddess of spirits and the underworld.",
+"[Hint] Elara is the Goddess of wisdom and knowledge.",
+"[Hint] Irmorom is the God of trade and craftsmanship.",
+"[Hint] Malachín is the God of battle and hunting.",
+"[Hint] Moshran is the God of blood and bones.",
+"[Hint] Nargùn is the God of chaos.",
+"[Hint] Oldra is the Goddess of life and fertility.",
+"[Hint] Ronagan is the God of thieves and shadows.",
+"[Hint] Sirani is the Goddess of love and pleasure.",
+"[Hint] Zhambra is the God of friendship and loyalty.",
+"[Hint] Cadomyr is the realm of honour.",
+"[Hint] Runewick is the realm of wisdom.",
+"[Hint] Galmair is the realm of wealth.",
+"[Hint] There are some monsters which you should avoid while adventuring alone.",
+"[Hint] Items of low durability might break any time. A specialist can repair them.",
+"[Hint] Ranged weapons have their name for a reason: They are useful for distant targets, but useless in a melee.",
+"[Hint] Slashing weapons are good against light leather armour but bad against medium chain and scale armour.",
+"[Hint] Stabbing weapons are good against medium chain and scale armour but bad against heavy plate armour.",
+"[Hint] Blunt weapons are good against heavy plate armour but bad against light leather armour.",
+"[Hint] A single silver coin equals a hundred copper coins. One hundred silver coins equal one gold coin.",
+"[Hint] The best miners are living in Galmair.",
+"[Hint] The best gem grinders are living in Galmair.",
+"[Hint] The best blacksmiths are living in Galmair.",
+"[Hint] The best armourers are living in Galmair.",
+"[Hint] The best finesmiths are living in Galmair.",
+"[Hint] The best masons are living in Galmair.",
+"[Hint] The best lumberjacks are living in Runewick.",
+"[Hint] The best carpenters are living in Runewick.",
+"[Hint] The best carvers are living in Runewick.",
+"[Hint] The best tailors are living in Cadomyr.",
+"[Hint] The best dyers are living in Cadomyr.",
+"[Hint] The best tanners are living in Cadomyr.",
+"[Hint] The best weavers are living in Cadomyr.",
+"[Hint] The best cooks are living in Runewick.",
+"[Hint] The best bakers are living in Runewick.",
+"[Hint] The best candle makers are living in Runewick.",
+"[Hint] The best farmers are living in Runewick.",
+"[Hint] The best herbalists are living in Runewick.",
+"[Hint] The best brewers are living in Runewick.",
+"[Hint] The best fishers are living in Runewick.",
+"[Hint] The best husbandmen are living in Runewick.",
+"[Hint] The best potters are living in Cadomyr.",
+"[Hint] The best glass blowers are living in Cadomyr.",
+"[Hint] The best diggers are living in Cadomyr.",
+"[Hint] Each realm specialises in certain crafts. If you can't find what you are looking for in your home market, you may need to travel abroad.",
+"[Hint] If you ever get stuck while communicating with an NPC, the 'help' command will provide you with a list of useful topics.",
+"[Hint] Fruit trees have saved the lives of countless starving travellers. You will soon find yourself needing a more filling meal, though.",
+"[Hint] There are many ways to move your character around in Illarion. The left mouse button, arrow keys, number pad, and WASD will all work.",
+"[Hint] Asking an NPC whether they have a 'quest' for you to carry out can be a good way to earn a quick coin or two.",
+"[Hint] Don't be afraid to ask the other players around you for help if you encounter difficulties. But make sure to remain respectful and to use OOC chat (#o), where appropriate.",
+"[Hint] If you want to introduce your character to other players, type #i in the chatbox and hit return. The other players will then be able to see your character's name.",
+"[Hint] The Illarion chat is linked on the website www.illarion.org. It is useful for technical assistance and for simply getting to know your fellow players.",
+"[Hint] Fullscreen mode can be activated in the options menu when the client is started.",
+"[Hint] You will receive a notification when a new player chooses to join your realm. Give them a friendly welcome!",
+"[Hint] In order to donate something to your realm's treasury, just place the item on the donation square close to your leader.",
+"[Hint] If you go on a journey, always have some rations with you. Your character's hitpoints won't regenerate if your character is hungry.",
+"[Hint] Most NPCs react on 'help' with a list of their most important keywords.",
+"[Hint] You can review the skills of your character by hitting 'C'.",
+"[Hint] To split a stack of items, hold shift while moving it.",
+"[Hint] Did you already think about the background and past of your character? The website www.illarion.org contains a lot of information on the races, the gods, and the lore of Illarion.",
+"[Hint] If your character ever gets hungry, just harvest some fruits by using a fruit tree. You can then eat the fruits by using them.",
+"[Hint] Do you need help? Type '!gm <your question>' and hit enter. As soon as a Gamemaster is available, they will assist you.",
+"[Hint] To shout, type #s in front of your message. To whisper, use #w. And use #o for the out of character mode.",
+"[Hint] Click with the left mouse button while pointing at a distant field to make your character walk there automatically.",
+"[Hint] All NPCs react on a number of keywords. You can get a list of the most important keywords for a particular NPC with the command 'help'.",
+"[Hint] By asking NPCs for 'missions' and 'quests' you can become extremely wealthy.",
+"[Hint] The red bar represents the health of your character. The yellow bar is an indicator of how hungry your character is, and the blue bar shows the mana level of mage characters.",
+"[Hint] You can review the quests of your character by hitting 'Q'.",
+"[Hint] To collect loot quickly, press 'P' to collect all items within reach.",
+"[Hint] To see an overview of all commands, hit F1.",
+"[Hint] The speed of skillgain is mainly determined by the time you spend in the game.",
+"[Hint] It is not necessary to work all day long to raise your skills. Take a break to chat or explore the world!",
+"[Hint] CTRL toggles walking/running.",
+"[Hint] The more actions you do over time, the less you learn from each action.",
+"[Hint] Got a problem? On the website, you can find frequently asked questions (FAQ) answered.",
+"[Hint] Double clicking an NPC opens a list with common dialog options.",
+"[Hint] Focus on a selection of skills. Remember: Jack of all trades - master of none."
+}
 -- Messages of the day - END
 
 local welcomeNewPlayer
@@ -279,6 +286,9 @@ function M.onLogin( player )
     end --Noobia end
 
     --Messages of the day
+    if #messageG ~= #messageE then
+        common.HighInformNLS(player, "[Fehler] Anzahl der Tagestipps nicht korrekt.", "[Error] Amount of messages of the day incorrect.") --sending a message
+    end
     local dailyMessageID = math.random(1, #messageG) --chosing a message at random
     common.InformNLS(player, messageG[dailyMessageID], messageE[dailyMessageID]) --sending a message
 
