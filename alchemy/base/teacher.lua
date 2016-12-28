@@ -269,7 +269,7 @@ function GetTeacherQuestInfos(User,SourceItem)
 end
 
 function NoMagicCheck(User)
-    if (User:getMagicType() == 0 and User:getMagicFlags(0) > 0) then
+    if User:getMagicType() == 0 and (Char:getQuestProgress(37) ~= 0 or User:getMagicFlags(0) > 0) then
         return false
     end
 return true

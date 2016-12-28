@@ -99,6 +99,7 @@ local skillNames = {
     Character.slashingWeapons,
     Character.tailoring,
     Character.tanningAndWeaving,
+    Character.wandMagic,
     Character.woodcutting,
     Character.wrestling
 }

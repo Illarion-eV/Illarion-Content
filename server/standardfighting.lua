@@ -56,19 +56,18 @@ local fighting = require("content.fighting")
 local chr_reg = require("lte.chr_reg")
 local gems = require("base.gems")
 local monsterHooks = require("monster.base.hooks")
+local fightingutil = require("base.fightingutil")
 
 local M = {}
 
-local CalculateMovepoints
 local NewbieIsland
-local LoadWeapons
 local GetAttackType
 local LoadAttribsSkills
-local CheckRange
 local CheckAttackOK
 local HandleAmmunition
 local CheckCriticals
 local Specials
+local CalculateMovepoints
 local HandleMovepoints
 local ShowAttackGFX
 local CoupDeGrace
@@ -221,12 +220,12 @@ local function CheckAimingTime(AttackerList,Defender,inRange)
     end
     ]]
     if AIMING_TIME_LIST[Attacker.id] == nil then
-        FillAimingTimeList(Attacker,Defender,AttackerList.Weapon.id)
+        FillAimingTimeList(Attacker,Defender,AttackerList.WeaponItem.id)
         return false
     else
         -- Check if weapon and target are the same and if the attacker hasn't moved
-        if AttackerList.Weapon.id ~= AIMING_TIME_LIST[Attacker.id]["weapon"] or Defender.id ~= AIMING_TIME_LIST[Attacker.id]["target"] or Attacker.pos.x.." "..Attacker.pos.y.." "..Attacker.pos.z ~= AIMING_TIME_LIST[Attacker.id]["position"] then
-            FillAimingTimeList(Attacker,Defender,AttackerList.Weapon.id)
+        if AttackerList.WeaponItem.id ~= AIMING_TIME_LIST[Attacker.id]["weapon"] or Defender.id ~= AIMING_TIME_LIST[Attacker.id]["target"] or Attacker.pos.x.." "..Attacker.pos.y.." "..Attacker.pos.z ~= AIMING_TIME_LIST[Attacker.id]["position"] then
+            FillAimingTimeList(Attacker,Defender,AttackerList.WeaponItem.id)
             return false
         elseif (world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["started"])*10 > GetNecessaryAimingTime(AttackerList) + 20 then
             -- that is needed to prevent that someone aims, stops aiming, waits a long time and as soon as he targets the same character again, shoots immediately.
@@ -234,7 +233,7 @@ local function CheckAimingTime(AttackerList,Defender,inRange)
             AIMING_TIME_LIST[Attacker.id]["counter"] = 1
             AIMING_TIME_LIST[Attacker.id]["started"] = world:getTime("unix")
             return false
-        elseif AIMING_TIME_LIST[Attacker.id]["counter"] <= GetNecessaryAimingTime(AttackerList) and (world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["started"])*10 < math.ceil(GetNecessaryAimingTime(AttackerList)) then
+        elseif AIMING_TIME_LIST[Attacker.id]["counter"] <= GetNecessaryAimingTime(AttackerList) and (world:getTime("unix") - AIMING_TIME_LIST[Attacker.id]["started"])*10 < GetNecessaryAimingTime(AttackerList) then
             AIMING_TIME_LIST[Attacker.id]["counter"] = AIMING_TIME_LIST[Attacker.id]["counter"] + 1
         else
             return true
@@ -265,24 +264,36 @@ function M.onAttack(Attacker, Defender)
     end
 
     -- Load the weapons of the attacker
-    LoadWeapons(Attacker)
-    if Attacker.Weapon.WeaponType==13 then
-        return false
-    end
-
+    Attacker = fightingutil.loadWeapons(Attacker)
+ 
     -- Find out the attack type and the required combat skill
     GetAttackType(Attacker)
 
     -- Load Skills and Attributes of the attacking character
     LoadAttribsSkills(Attacker, true)
-
-    -- Check aiming time for player archers
-    if Attacker.AttackKind==4 and character.IsPlayer(Attacker.Char) and not CheckAimingTime(Attacker,Defender.Char,CheckRange(Attacker, Defender.Char)) then
-        return false
+    
+    -- Get range between players and check if the view is blocked for the attacker
+    local isInRange, range = fightingutil.checkRangeAndView(Attacker, Defender.Char) 
+    
+    -- Handle ranged, physical combat
+    if Attacker.AttackKind == 4 then
+        -- Check aiming time for player archers
+        if character.IsPlayer(Attacker.Char) and not CheckAimingTime(Attacker, Defender.Char, isInRange) then
+            return false
+        end
+        
+        -- Let npcs maintain a meaningful distance to their enemy
+        if not character.IsPlayer(Attacker.Char) then
+            if range <= 2 then
+                setArcherMonsterOnRoute(Attacker, Defender.Char, range)
+            else
+                Attacker.Char:setOnRoute(false)
+            end
+        end
     end
-
+    
     -- Check the range between the both fighting characters
-    if not CheckRange(Attacker, Defender.Char) then
+    if not isInRange then
         return false
     end
 
@@ -291,15 +302,27 @@ function M.onAttack(Attacker, Defender)
         return false
     end
 
+    -- Check if a magic attack is invoked
+    if Attacker.AttackKind == 5 then
+        local distance = Attacker.Char:distanceMetric(Defender.Char)
+        if fightingutil.isMagicUser(Attacker) then -- Only mages can invoke a magic attack
+            -- Magic attacks are calculated in a different manner, outsourced for tidiness
+            local magicAttack = require("magic.magicfighting")
+            magicAttack.onMagicAttack(Attacker, Defender)
+            return false
+        end
+    end 
+    
+    
     -- Check if ammunition is needed and use it
     if not HandleAmmunition(Attacker) then
         return false
     end
 
     -- Load weapon data, skills and attributes of the attacked character
-    LoadWeapons(Defender)
+    Defender = fightingutil.loadWeapons(Defender)
     LoadAttribsSkills(Defender, false)
-
+    
     --Calculate crit chance
     if CheckCriticals(Attacker, Defender, Globals) then
         --Do special crit effects
@@ -575,7 +598,7 @@ function CalculateDamage(Attacker, Globals)
     else
         BaseDamage = fighting.GetWrestlingAttack( Attacker.Race ) * 10
     end
-    
+
     local messupmalus = 5 -- Amount that damage value is divided by if your skill isn't high enough to use this weapon.
 
     if character.IsPlayer(Attacker.Char) and world:getItemStatsFromId(Attacker.WeaponItem.id).Level>Attacker.skill then
@@ -613,7 +636,7 @@ function CauseDamage(Attacker, Defender, Globals)
         AIMING_TIME_LIST[Attacker.Char.id]["started"] = world:getTime("unix")
     end
 
-    Globals.Damage=Globals.Damage*(math.random(9,10)/10) --Damage is randomised: 90-100%
+    Globals.Damage=Globals.Damage*(Random.uniform(9,10)/10) --Damage is randomised: 90-100%
     Globals.Damage=math.min(Globals.Damage,4999) --Damage is capped at 4999 Hitpoints to prevent "one hit kills"
     Globals.Damage=math.floor(Globals.Damage) --Hitpoints are an integer
 
@@ -770,7 +793,7 @@ function HitChance(Attacker, Defender, Globals)
     if(parryWeapon.WeaponType~=14) then
         defenderdefense = defenderdefense/2
     end
-
+    
     local parryChance
     --Quality Bonus: Multiplies final value by 0.93-1.09
     local qualitymod = 0.91+0.02*math.floor(parryItem.quality/100)
@@ -829,39 +852,6 @@ function CheckAttackOK(CharStruct)
     return true
 end
 
---- Check the range from the attacker to the defender and ensure that it is
--- within weapon distance.
--- @param AttackerStruct The table that stores the data of the attacker
--- @param Defender The character who is attacked
--- @return true in case the range is fine, else false
-function CheckRange(AttackerStruct, Defender)
-    local distance = AttackerStruct.Char:distanceMetric(Defender)
-
-    if AttackerStruct.AttackKind == 4 and not character.IsPlayer(AttackerStruct.Char) then -- if a monster with a bow and large distance
-        if(distance<=2) then
-            setArcherMonsterOnRoute(AttackerStruct,Defender,distance)
-        else
-            AttackerStruct.Char:setOnRoute(false)
-        end
-    end
-
-    if distance > 1 then
-        local blockList = world:LoS( AttackerStruct.Char.pos, Defender.pos )
-        local next = next -- make next-iterator local
-        if (next(blockList)~=nil) then -- see if there is a "next" (first) object in blockList!
-                return false -- something blocks
-        end
-    end
-
-    if (distance <= 2 and AttackerStruct.AttackKind == 4) then
-        return false
-    end
-    if AttackerStruct.IsWeapon then
-        return (distance <= AttackerStruct.Weapon.Range)
-    end
-    return (distance <= 1 )
-end
-
 -- Makes the monster move away from its target
 -- @param AttackerStruct The table that stores the data of the attacker
 -- @param Defender The character who is attacked
@@ -898,9 +888,9 @@ function setArcherMonsterOnRoute(AttackerStruct,Defender,distance)
     local newposition = false
     if foundDefender then
         if #possiblePositions.prefered > 0 then
-            newposition = possiblePositions.prefered[math.random(1,#possiblePositions.prefered)]
+            newposition = possiblePositions.prefered[Random.uniform(1,#possiblePositions.prefered)]
         elseif #possiblePositions.acceptable > 0 then
-            newposition = possiblePositions.acceptable[math.random(1,#possiblePositions.acceptable)]
+            newposition = possiblePositions.acceptable[Random.uniform(1,#possiblePositions.acceptable)]
         end
     end
 
@@ -1413,6 +1403,10 @@ function GetAttackType(CharStruct)
         else
             CharStruct["UsedHands"] = 2
         end
+    elseif (weaponType == 13) then
+        CharStruct["AttackKind"] = 5
+        CharStruct["Skillname"] = Character.magicWeapons
+        CharStruct["UsedHands"] = 2
     end
 end
 
@@ -1452,8 +1446,9 @@ function HandleAmmunition(Attacker)
     return true
 end
 
--- Calculate the required movepoints
--- @param Attacker The table that stores the values of the attacker
+--[[ Calculate the required movepoints
+---- @param Attacker The table that stores the values of the attacker
+---- @return the movepoints needed for the attack]]
 function CalculateMovepoints(Attacker)
     local weaponFightpoints
     if Attacker.IsWeapon then
@@ -1470,7 +1465,7 @@ function CalculateMovepoints(Attacker)
 
     -- The Global Speed Mod (GSM). Increase this to make fights faster.
     local GlobalSpeedMod = 100
-    return math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / GlobalSpeedMod )
+    return math.max(7, weaponFightpoints * (100 - (Attacker.agility-6) * 2.5) / GlobalSpeedMod)
 end
 
 --- Reduce the attacker movepoints by the fitting value.
@@ -1486,16 +1481,17 @@ function HandleMovepoints(Attacker, Globals)
 
     -- For player archers, we remove the normal reduction and leave only the reduction because of criticals.
     -- They have a count BEFORE the shoot.
-    local archerAdjustment = 0
+    -- The same technique is applied for ranged staff attacks
+    local rangedAdjustment = 0
     if Attacker.AttackKind==4 and character.IsPlayer(Attacker.Char) then
-        archerAdjustment = fightPointsBeforeCritical
+        rangedAdjustment = fightPointsBeforeCritical
     end
 
-    character.ChangeFightingpoints(Attacker.Char,-math.floor(reduceFightpoints-archerAdjustment))
+    character.ChangeFightingpoints(Attacker.Char,-math.floor(reduceFightpoints-rangedAdjustment))
 
     if not character.IsPlayer(Attacker.Char) then
     --This is merely a hack. Without this, monsters just "fly" over tiles while attacking because they do not invest movepoints. Strangely, if we do the same for players, they get stalled. A profound solution is needed, most probably, this is a server issue. The line below does the job for now, but it's not a clean solution. ~Estralis
-        character.ChangeMovepoints(Attacker.Char,-math.floor(reduceFightpoints-archerAdjustment))
+        character.ChangeMovepoints(Attacker.Char,-math.floor(reduceFightpoints-rangedAdjustment))
     end
 
     Globals["AP"] = reduceFightpoints
@@ -1512,16 +1508,16 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
         Attacker.Char:learn(Attacker.Skillname, AP/3, math.max(Defender.DefenseSkill, Defender.parry) + 20)
     end
 
-    local archerAdditional = 0
+    local rangedBonus = 0
     if Attacker.AttackKind==4 then
-        archerAdditional = GetNecessaryAimingTime(Attacker)*10
+        rangedBonus = GetNecessaryAimingTime(Attacker)*10
     end
 
     -- Defender learns armour skill
     if Defender.DefenseSkillName then
         local armourfound, armour = world:getArmorStruct(Globals.HittedItem.id)
         if armourfound then
-            Defender.Char:learn(Defender.DefenseSkillName,(AP+archerAdditional)/3,Attacker.skill + 20)
+            Defender.Char:learn(Defender.DefenseSkillName,(AP+rangedBonus)/3,Attacker.skill + 20)
         end
     end
 
@@ -1570,53 +1566,6 @@ function LoadAttribsSkills(CharStruct, Offensive)
         CharStruct["agility"] = NotNil(CharStruct.Char:increaseAttrib("agility", 0))
     end
     CharStruct["Race"] = CharStruct.Char:getRace()
-end
-
---- Load all weapon data for a character. The data is stored in the table that
--- is used as the parameter.
--- @param CharStruct The table of the character the weapons are supposed to be
---                      load for
-function LoadWeapons(CharStruct)
-    local rItem = CharStruct.Char:getItemAt(Character.right_tool)
-    local lItem = CharStruct.Char:getItemAt(Character.left_tool)
-    local rAttFound, rAttWeapon = world:getWeaponStruct(rItem.id)
-    local lAttFound, lAttWeapon = world:getWeaponStruct(lItem.id)
-
-    -- the right item is ALWAYS used as the weapon now!
-    local isRWp = 1
-    local isLWp = 1
-
-    if rAttFound then
-        local WType = rAttWeapon.WeaponType
-        if WType==10 or WType==11 or WType==12 or WType==14 then -- Ammo or shield in right hand: switch r and l hand!
-            isRWp=0
-        end
-    else
-        isRWp=0
-    end
-
-    if lAttFound then
-        local WType = lAttWeapon.WeaponType
-        if WType==10 or WType==11 or WType==12 or WType==14 then -- Ammo or shield in right hand: switch r and l hand!
-            isLWp=0
-        end
-    else
-        isLWp=0
-    end
-
-    if isRWp==0 and isLWp==1 then -- switch weapons
-        rItem,lItem = lItem,rItem
-        rAttFound,lAttFound = lAttFound,rAttFound
-        rAttWeapon,lAttWeapon = lAttWeapon,rAttWeapon
-    end
-
-    CharStruct["WeaponItem"] = rItem
-    CharStruct["IsWeapon"] = rAttFound
-    CharStruct["Weapon"] = rAttWeapon
-
-    CharStruct["SecWeaponItem"] = lItem
-    CharStruct["SecIsWeapon"] = lAttFound
-    CharStruct["SecWeapon"] = lAttWeapon
 end
 
 --- Check if the character is on newbie island and reject the attack in that.
