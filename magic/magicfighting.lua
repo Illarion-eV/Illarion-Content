@@ -217,7 +217,7 @@ local function applyDamage(attackerStruct, defenderStruct)
         + 0.5*(defenderStruct.intelligence - 6)
         + 0.5*(defenderStruct.essence - 6))))
     local resistance = common.Limit(Random.uniform(resistance, resistance*2) / 160.0, 0, 1)
-    damage = damage * (1 - resistance)
+    damage = damage --[[* (1 - resistance)]]
     
     -- take consitution of enemy in account
     damage  = (1 + damage * 14) / (defenderStruct.Char:increaseAttrib("constitution", 0) / 2)
