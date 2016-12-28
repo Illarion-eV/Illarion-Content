@@ -257,7 +257,7 @@ end
 function M.onMagicAttack(attackerStruct, defenderStruct)
     
     common.TurnTo(attackerStruct.Char,defenderStruct.Char.pos)
-    attackerStruct.skill = attackerStruct.char:getSkill(Character.wandMagic)
+    
     
     attackerStruct["willpower"] = attackerStruct.Char:increaseAttrib("willpower", 0)
     local neededCastTime = calculateCastTime(attackerStruct)

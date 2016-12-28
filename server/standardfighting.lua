@@ -1405,7 +1405,7 @@ function GetAttackType(CharStruct)
         end
     elseif (weaponType == 13) then
         CharStruct["AttackKind"] = 5
-        CharStruct["Skillname"] = Character.magicWeapons
+        CharStruct["Skillname"] = Character.wandMagic
         CharStruct["UsedHands"] = 2
     end
 end
