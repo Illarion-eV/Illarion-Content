@@ -34,7 +34,7 @@ function M.UseItem(User, SourceItem, ltstate)
         User:inform(User:increaseAttrib("willpower", 0))
         User:inform(User:increaseAttrib("essence", 0))
         User:inform(User:increaseAttrib("intelligence", 0))
-    elseif change == "class"
+    elseif change == "class" then
         User:setMagicType(willpower)
     end
     
