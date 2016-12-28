@@ -25,8 +25,8 @@ local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}
-Title[GERMAN] = "Das Glasblasen und Ziegelmachen"
-Title[ENGLISH] = "Glass blowing and brick making"
+Title[GERMAN] = "Das Glasblasen und Töpfern"
+Title[ENGLISH] = "Glass blowing and pottery"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
