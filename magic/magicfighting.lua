@@ -168,12 +168,6 @@ local function applyDamage(attackerStruct, defenderStruct)
     -- base damage
     local damage = attackerStruct.Weapon.Attack * 20
     
-    -- inflict malus for too high weapon
-    local noobMalus = 5
-    if attackerStruct.skill < itemLevel then
-        damage = damage / noobMalus
-    end
-
     -- raw damage without defence
     damage = damage * globalDamageFactor * qualityBonus * (100 + intBonus + essenceBonus + skillBonus)
     
