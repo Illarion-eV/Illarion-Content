@@ -179,6 +179,10 @@ local function applyDamage(attackerStruct, defenderStruct)
     local generalScalingFactor = 2.8
     local armorSkill = 0
     
+    if armorValue == 0 then
+        armorValue = 1
+    end
+    
     local armorFound, armor = world:getArmorStruct(hitItem.id)
     if (armorFound) then
         local armorSkill = nil
