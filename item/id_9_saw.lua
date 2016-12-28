@@ -26,7 +26,7 @@ M.LookAtItem = metal.LookAtItem
 
 function M.UseItem(User, SourceItem, ltstate)
     local _, _, change, willpower, essence, intelligence = string.find(User.lastSpokenText,"(%a+) (%d+) (%d+) (%d+)")
-    if change then
+    if change == "attributes" then
         User:setAttrib("willpower", willpower)
         User:setAttrib("essence", essence)
         User:setAttrib("intelligence", intelligence)
@@ -34,6 +34,8 @@ function M.UseItem(User, SourceItem, ltstate)
         User:inform(User:increaseAttrib("willpower", 0))
         User:inform(User:increaseAttrib("essence", 0))
         User:inform(User:increaseAttrib("intelligence", 0))
+    elseif change == "class"
+        User:setMagicType(willpower)
     end
     
     sawing.sawing:showDialog(User, SourceItem)
