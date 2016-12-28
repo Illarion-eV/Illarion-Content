@@ -205,7 +205,7 @@ local function applyDamage(attackerStruct, defenderStruct)
     end
     armorValue = armorValue*((1 - 1/armorScalingFactor) + (100/armorScalingFactor))
     attackerStruct.Char:inform("armorValue 3: "..armorValue)
-    attackerStruct.Char:inform("defQualityBonus: "..armorValue)
+    attackerStruct.Char:inform("defQualityBonus: "..defQualityBonus)
     damage = damage - (damage * armorValue * defQualityBonus/140)
     damage = defSkillBonus * damage
     attackerStruct.Char:inform("DD 3: "..damage) -- DEBUG
