@@ -1817,11 +1817,10 @@ leadAttribTable[Character.concussionWeapons]="strength"
 leadAttribTable[Character.punctureWeapons]="strength"
 
 --Essence: Alchemy
-leadAttribTable[Character.alchemy]="essence"
+leadAttribTable[Character.alchemy]="intelligence"
 
 --Intelligence: Magic
---No skills yet
-
+leadAttribTable[Character.wandMagic]="essence"
 --Willpower: Priests
 --No skills yet
 
