@@ -179,7 +179,7 @@ local function applyDamage(attackerStruct, defenderStruct)
     local armorDefenseScalingFactor = 4/3
     local generalScalingFactor = 2.8
     local armorSkill = 0
-    
+    attackerStruct.Char:inform("armorValue 1: "..damage) -- DEBUG
     local armorFound, armor = world:getArmorStruct(hitItem.id)
     if (armorFound) then
         local armorSkill = nil
@@ -199,14 +199,14 @@ local function applyDamage(attackerStruct, defenderStruct)
     
     local defGemBonus = gems.getGemBonus(hitItem)
     armorValue = armorValue + armorValue * defGemBonus / 100
-    
+    attackerStruct.Char:inform("armorValue 2: "..damage)
     local armorScalingFactor = 5
     local noobMalus = 5
     if character.IsPlayer(defenderStruct.Char) and armorValue > armorSkill then
         armorValue = armorValue / noobMalus
     end
     armorValue = armorValue*(1 - 1/armorScalingFactor) + (100/armorScalingFactor)
-    
+    attackerStruct.Char:inform("armorValue 3: "..damage)
     damage = defSkillBonus * (damage - (damage * armorValue * defQualityBonus/140))
     attackerStruct.Char:inform("DD 3: "..damage) -- DEBUG
     local resistance = math.max(1, math.floor(
