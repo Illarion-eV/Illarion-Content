@@ -175,11 +175,11 @@ local function applyDamage(attackerStruct, defenderStruct)
     local fighting = require("content.fighting")
     local hitArea = fighting.GetHitArea(defenderStruct.Race)
     local hitItem = defenderStruct.Char:getItemAt(hitArea)
-    local armorValueTEST = world:getItemStatsFromId(hitItem.id).Level
+    local armorValue = world:getItemStatsFromId(hitItem.id).Level
     local armorDefenseScalingFactor = 4/3
     local generalScalingFactor = 2.8
     local armorSkill = 0
-    attackerStruct.Char:inform("armorValueTEST 1: "..damage) -- DEBUG
+    attackerStruct.Char:inform("armorValue 1: "..armorValue) -- DEBUG
     local armorFound, armor = world:getArmorStruct(hitItem.id)
     if (armorFound) then
         local armorSkill = nil
@@ -198,16 +198,16 @@ local function applyDamage(attackerStruct, defenderStruct)
     local defSkillBonus = 1 - armorSkill/400
     
     local defGemBonus = gems.getGemBonus(hitItem)
-    armorValueTEST = armorValueTEST + armorValueTEST * defGemBonus / 100
-    attackerStruct.Char:inform("armorValueTEST 2: "..damage)
+    armorValue = armorValue + armorValue * defGemBonus / 100
+    attackerStruct.Char:inform("armorValue 2: "..armorValue)
     local armorScalingFactor = 5
     local noobMalus = 5
-    if character.IsPlayer(defenderStruct.Char) and armorValueTEST > armorSkill then
-        armorValueTEST = armorValueTEST / noobMalus
+    if character.IsPlayer(defenderStruct.Char) and armorValue > armorSkill then
+        armorValue = armorValue / noobMalus
     end
-    armorValueTEST = armorValueTEST*(1 - 1/armorScalingFactor) + (100/armorScalingFactor)
-    attackerStruct.Char:inform("armorValueTEST 3: "..damage)
-    damage = defSkillBonus * (damage - (damage * armorValueTEST * defQualityBonus/140))
+    armorValue = armorValue*(1 - 1/armorScalingFactor) + (100/armorScalingFactor)
+    attackerStruct.Char:inform("armorValue 3: "..armorValue)
+    damage = defSkillBonus * (damage - (damage * armorValue * defQualityBonus/140))
     attackerStruct.Char:inform("DD 3: "..damage) -- DEBUG
     local resistance = math.max(1, math.floor(
         (2*(defenderStruct.willpower - 6)
