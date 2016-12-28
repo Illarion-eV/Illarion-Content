@@ -195,7 +195,7 @@ local function applyDamage(attackerStruct, defenderStruct)
     
     -- defence boni
     local defQualityBonus = 0.82 + 0.02 + math.floor(hitItem.quality/100)
-    local defSkillBonus = 1 - armorSkill/400
+    local defSkillBonus = 1 - armorSkill/200
     
     local defGemBonus = gems.getGemBonus(hitItem)
     armorValue = armorValue + armorValue * defGemBonus / 100
