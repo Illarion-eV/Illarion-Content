@@ -296,7 +296,7 @@ function M.onMagicAttack(attackerStruct, defenderStruct)
     
     common.CreateLine(attackerStruct.Char.pos, defenderStruct.Char.pos, 
         function(currentPos)
-            world:gfx(1, currentPost)
+            world:gfx(1, currentPos)
         end
     )
     
