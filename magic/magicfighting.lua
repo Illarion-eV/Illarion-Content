@@ -184,7 +184,6 @@ local function applyDamage(attackerStruct, defenderStruct)
     local armorDefenseScalingFactor = 4/3
     local generalScalingFactor = 2.8
     local armorSkill = 0
-    local armorValue = 1
     
     local armorFound, armor = world:getArmorStruct(hitItem.id)
     if (armorFound) then
@@ -208,7 +207,7 @@ local function applyDamage(attackerStruct, defenderStruct)
     
     local armorScalingFactor = 5
     local noobMalus = 5
-    if character.IsPlayer(defenderStruct.Char) and defItemLevel > armorSkill then
+    if character.IsPlayer(defenderStruct.Char) and armorValue > armorSkill then
         armorValue = armorValue / noobMalus
     end
     armorValue = armorValue*(1 - 1/armorScalingFactor) + (100/armorScalingFactor)
@@ -323,7 +322,7 @@ function M.onMagicAttack(attackerStruct, defenderStruct)
     
     applyDamage(attackerStruct, defenderStruct)
     
-    attackerStruct.Char:learn(skill, neededCastTime/3, 100)
+    attackerStruct.Char:learn(attackerStruct.skill, neededCastTime/3, 100)
     
     return true
 end
