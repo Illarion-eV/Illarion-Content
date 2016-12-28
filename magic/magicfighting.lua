@@ -195,10 +195,8 @@ local function applyDamage(attackerStruct, defenderStruct)
     
     -- defence boni
     local defQualityBonus = 0.82 + 0.02 + math.floor(hitItem.quality/100)
-    local defSkillBonus = 1 - armorSkill/500
+    local defSkillBonus = 1 - armorSkill/400
     
-    local defGemBonus = gems.getGemBonus(hitItem)
-    armorValue = armorValue + armorValue * defGemBonus / 100
     attackerStruct.Char:inform("armorValue 2: "..armorValue)
     local armorScalingFactor = 5
     local noobMalus = 5
@@ -207,7 +205,8 @@ local function applyDamage(attackerStruct, defenderStruct)
     end
     armorValue = armorValue*(1 - 1/armorScalingFactor) + (100/armorScalingFactor)
     attackerStruct.Char:inform("armorValue 3: "..armorValue)
-    damage = defSkillBonus * (damage - (damage * armorValue * defQualityBonus/140))
+    damage = damage - (damage * armorValue * defQualityBonus/140)
+    damage = defSkillBonus * damage
     attackerStruct.Char:inform("DD 3: "..damage) -- DEBUG
     local resistance = math.max(1, math.floor(
         (2*(defenderStruct.willpower - 6)
