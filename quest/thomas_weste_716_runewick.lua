@@ -59,11 +59,11 @@ local Start = {950, 827, 0}
 local QuestTarget = {}
 QuestTarget[1] = {position(950, 827, 0), position(852, 824, 0)} -- Beehives
 QuestTarget[2] = {position(950, 827, 0)} 
-QuestTarget[3] = {position(950, 827, 0), position(942, 813, 0)} -- Chandler table
+QuestTarget[3] = {position(950, 827, 0), position(946, 821, 0)} -- Press
 QuestTarget[4] = {position(950, 827, 0)} 
 QuestTarget[5] = {position(950, 827, 0), position(942, 813, 0)} -- Chandler table
 QuestTarget[6] = {position(950, 827, 0)} 
-QuestTarget[7] = {position(950, 827, 0), position(863, 813, 0)} -- Grass
+QuestTarget[7] = {position(950, 827, 0), position(946, 821, 0)} -- Press
 QuestTarget[8] = {position(950, 827, 0)} 
 
 -- Insert the quest status which is reached at the end of the quest
