@@ -36,6 +36,8 @@ function M.UseItem(User, SourceItem, ltstate)
         User:inform(User:increaseAttrib("intelligence", 0))
     elseif change == "class" then
         User:setMagicType(willpower)
+        User:inform("class is")
+        User:inform(User:getMagicType())
     end
     
     sawing.sawing:showDialog(User, SourceItem)
