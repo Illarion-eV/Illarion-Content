@@ -166,11 +166,12 @@ local function applyDamage(attackerStruct, defenderStruct)
     local globalDamageFactor = 1/180 -- mirrored from standardfighting
     
     -- base damage
-    local damage = attackerStruct.Weapon.Attack * 20
+    local damage = attackerStruct.Weapon.Attack * 20#
+    attackerStruct.Char:inform("DD 1: "..damage) -- DEBUG
     
     -- raw damage without defence
     damage = damage * globalDamageFactor * qualityBonus * (100 + intBonus + essenceBonus + skillBonus)
-    
+    attackerStruct.Char:inform("DD 2: "..damage) -- DEBUG
     local fighting = require("content.fighting")
     local hitArea = fighting.GetHitArea(defenderStruct.Race)
     local hitItem = defenderStruct.Char:getItemAt(hitArea)
@@ -211,23 +212,23 @@ local function applyDamage(attackerStruct, defenderStruct)
     armorValue = armorValue*(1 - 1/armorScalingFactor) + (100/armorScalingFactor)
     
     damage = defSkillBonus * (damage - (damage * armorValue * defQualityBonus/140))
-    
+    attackerStruct.Char:inform("DD 3: "..damage) -- DEBUG
     local resistance = math.max(1, math.floor(
         (2*(defenderStruct.willpower - 6)
         + 0.5*(defenderStruct.intelligence - 6)
         + 0.5*(defenderStruct.essence - 6))))
     local resistance = common.Limit(Random.uniform(resistance, resistance*2) / 160.0, 0, 1)
-    damage = damage --[[* (1 - resistance)]]
-    
+    damage = damage* (1 - resistance)
+    attackerStruct.Char:inform("DD 4: "..damage) -- DEBUG
     -- take consitution of enemy in account
     damage  = (1 + damage * 14) / (defenderStruct.Char:increaseAttrib("constitution", 0) / 2)
-    
+    attackerStruct.Char:inform("DD 5: "..damage) -- DEBUG
     -- limits for damage
     damage = math.max(0, damage)
     damage = damage * (math.random(9,10)/10)
     damage = math.min(damage, 4999)
     damage = math.floor(damage)
-
+    attackerStruct.Char:inform("DD 6: "..damage) -- DEBUG
     -- inflict damage and check if character would die
     if character.IsPlayer(defenderStruct.Char) and character.WouldDie(defenderStruct.Char, damage + 1) then
         if character.AtBrinkOfDeath(defenderStruct.Char) then
@@ -247,7 +248,7 @@ local function applyDamage(attackerStruct, defenderStruct)
             chr_reg.stallRegeneration(defenderStruct.Char, 60 / timeFactor)
         end
     else
-        attackerStruct.Char:inform("DD: "..damage) -- DEBUG
+        attackerStruct.Char:inform("DD final: "..damage) -- DEBUG
         character.ChangeHP(defenderStruct.Char, -damage)
     end
 end
