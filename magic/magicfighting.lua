@@ -213,9 +213,9 @@ local function applyDamage(attackerStruct, defenderStruct)
     damage = defSkillBonus * (damage - (damage * armorValue * defQualityBonus/140))
     
     local resistance = math.max(1, math.floor(
-        2*(defenderStruct.willpower - 6)
+        (2*(defenderStruct.willpower - 6)
         + 0.5*(defenderStruct.intelligence - 6)
-        + 0.5*(defenderStruct.essence - 6)))
+        + 0.5*(defenderStruct.essence - 6))/2))
     local resistance = common.Limit(Random.uniform(resistance, resistance*2) / 80.0, 0, 1)
     damage = damage * (1 - resistance)
     
