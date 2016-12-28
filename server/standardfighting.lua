@@ -305,7 +305,7 @@ function M.onAttack(Attacker, Defender)
     -- Check if a magic attack is invoked
     if Attacker.AttackKind == 5 then
         local distance = Attacker.Char:distanceMetric(Defender.Char)
-        if fightingutil.isMagicUser(Attacker) then -- Only mages can invoke a magic attack
+        if fightingutil.isMagicUser(Attacker.Char) then -- Only mages can invoke a magic attack
             -- Magic attacks are calculated in a different manner, outsourced for tidiness
             local magicAttack = require("magic.magicfighting")
             magicAttack.onMagicAttack(Attacker, Defender)
