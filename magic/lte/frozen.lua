@@ -27,7 +27,7 @@ function M.initEffect(victim, duration, tickTime)
         local slowEffect = LongTimeEffect(801, tickTime)
         victim.effects:addEffect(slowEffect)
         slowEffect:addValue("ticks", duration)
-        victim:inform("Eine kÃ¼hle Schwere legt sich um deine KÃ¶rper und erschwer dein Vorankommen.", "Cold winds surround your body making moving a pain.")
+        victim:inform("Eine kühle Schwere legt sich um deine Körper und erschwer dein Vorankommen.", "Cold winds surround your body making moving a pain.")
     end
     world:gfx(9,victim.pos)
 end
@@ -40,14 +40,14 @@ function M.callEffect(effect, victim)
         if isEnhanced then
             local movepoints = victim:increaseAttrib("movepoints", 0)
             victim:increaseAttrib("movepoints", -movepoints)
-            victim:inform("Das Eis hÃ¤lt dich an Ort und Stelle fest", "The ice stops your moving completley")
+            victim:inform("Das Eis hält dich an Ort und Stelle fest", "The ice stops your moving completley")
         else
             victim:increaseAttrib("movepoints", -reducedMovePoints)
-            victim:inform("Die KÃ¤lte verlangsamt dich", "The coldness slows you down")
+            victim:inform("Die Kälte verlangsamt dich", "The coldness slows you down")
         end
         return true
     else
-        victim:inform("Die KÃ¤lte die dich umgab schwindet und du kannst dich wieder frei bewegen.", "The chill surrounding you vanishes and you can once again roam freely")
+        victim:inform("Die Kälte die dich umgab schwindet und du kannst dich wieder frei bewegen.", "The chill surrounding you vanishes and you can once again roam freely")
         return false
     end
 end

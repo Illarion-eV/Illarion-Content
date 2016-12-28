@@ -271,7 +271,7 @@ function M.onAttack(Attacker, Defender)
 
     -- Load Skills and Attributes of the attacking character
     LoadAttribsSkills(Attacker, true)
-	
+    
     -- Get range between players and check if the view is blocked for the attacker
     local isInRange, range = fightingutil.checkRangeAndView(Attacker, Defender.Char) 
     
@@ -303,15 +303,15 @@ function M.onAttack(Attacker, Defender)
     end
 
     -- Check if a magic attack is invoked
-	if Attacker.AttackKind == 5 then
-		local distance = Attacker.Char:distanceMetric(Defender.Char)
-		if fightingutil.isMagicUser(Attacker) then -- Only mages can invoke a magic attack
-			-- Magic attacks are calculated in a different manner, outsourced for tidiness
-			local magicAttack = require("magic.magicfighting")
-			magicAttack.onMagicAttack(Attacker, Defender)
-			return false
-		end
-	end 
+    if Attacker.AttackKind == 5 then
+        local distance = Attacker.Char:distanceMetric(Defender.Char)
+        if fightingutil.isMagicUser(Attacker) then -- Only mages can invoke a magic attack
+            -- Magic attacks are calculated in a different manner, outsourced for tidiness
+            local magicAttack = require("magic.magicfighting")
+            magicAttack.onMagicAttack(Attacker, Defender)
+            return false
+        end
+    end 
     
     
     -- Check if ammunition is needed and use it
@@ -793,7 +793,7 @@ function HitChance(Attacker, Defender, Globals)
     if(parryWeapon.WeaponType~=14) then
         defenderdefense = defenderdefense/2
     end
-	
+    
     local parryChance
     --Quality Bonus: Multiplies final value by 0.93-1.09
     local qualitymod = 0.91+0.02*math.floor(parryItem.quality/100)
@@ -1403,10 +1403,10 @@ function GetAttackType(CharStruct)
         else
             CharStruct["UsedHands"] = 2
         end
-	elseif (weaponType == 13) then
-		CharStruct["AttackKind"] = 5
-		CharStruct["Skillname"] = Character.magicWeapons
-		CharStruct["UsedHands"] = 2
+    elseif (weaponType == 13) then
+        CharStruct["AttackKind"] = 5
+        CharStruct["Skillname"] = Character.magicWeapons
+        CharStruct["UsedHands"] = 2
     end
 end
 
@@ -1481,7 +1481,7 @@ function HandleMovepoints(Attacker, Globals)
 
     -- For player archers, we remove the normal reduction and leave only the reduction because of criticals.
     -- They have a count BEFORE the shoot.
-	-- The same technique is applied for ranged staff attacks
+    -- The same technique is applied for ranged staff attacks
     local rangedAdjustment = 0
     if Attacker.AttackKind==4 and character.IsPlayer(Attacker.Char) then
         rangedAdjustment = fightPointsBeforeCritical

@@ -28,7 +28,7 @@ function M.initEffect(victim, duration, tickTime)
         local burningEffect = LongTimeEffect(800, tickTime)
         victim.effects:addEffect(burningEffect)
         burningEffect:addValue("ticks", duration)
-        victim:inform("Sengende Flammen zehren an deinem KÃ¶rper.","Stiching Flames eat your flesh.")
+        victim:inform("Sengende Flammen zehren an deinem Körper.","Stiching Flames eat your flesh.")
     end
     world:gfx(9,victim.pos)
 end
@@ -54,10 +54,10 @@ function M.callEffect(burningEffect, victim)
         
         victim:increaseAttrib("hitpoints", healthDamage)
         
-        victim:inform("Das Brennen schmerzt dir und schÃ¤digt dich um "..healthDamage, "The burning hurts and damages you by "..healthDamage)
+        victim:inform("Das Brennen schmerzt dir und schädigt dich um "..healthDamage, "The burning hurts and damages you by "..healthDamage)
         return true
     else
-        victim:inform("Das Feuer erlischt und die Schmerzen gehen zurÃ¼ck","The fire extinguishes and your pain reduces")
+        victim:inform("Das Feuer erlischt und die Schmerzen gehen zurück","The fire extinguishes and your pain reduces")
         return false
     end
 end

@@ -20,8 +20,8 @@ local M = {}
 local common = require("base.common")
 
 function M.cast(caster, victim)
-    caster:inform("Du lÃ¤sst einen Felsen aus der HÃ¶he hinab auf deinen Gegner schmettern", "You call down a rock on your enemy")
-    victim:inform("Ein Fels kommt plÃ¶tzlich aus der Luft und trifft dich", "Suddenly a rock appears in the air and hits you")
+    caster:inform("Du lässt einen Felsen aus der Höhe hinab auf deinen Gegner schmettern", "You call down a rock on your enemy")
+    victim:inform("Ein Fels kommt plötzlich aus der Luft und trifft dich", "Suddenly a rock appears in the air and hits you")
 
     world:gfx(1, victim.pos)
     world:createItemFromdId(28, 1, victim.pos, true, 1)

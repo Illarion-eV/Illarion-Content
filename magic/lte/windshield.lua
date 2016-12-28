@@ -27,7 +27,7 @@ function M.initEffect(user, duration, tickTime)
         local protEffect = LongTimeEffect(802, tickTime)
         user.effects:addEffect(protEffect)
         protEffect:addValue("ticks", duration)
-        user:inform("Dein KÃ¶rper wird von mÃ¤chtigen Winden umgeben, die deine Gegner von dir stoÃŸen", "Your body gets surrounded by mighty winds, pushing enemies away")
+        user:inform("Dein Körper wird von mächtigen Winden umgeben, die deine Gegner von dir stoßen", "Your body gets surrounded by mighty winds, pushing enemies away")
     end
     world:gfx(9,user.pos)
 end
@@ -51,7 +51,7 @@ function M.callEffect(effect, user)
 
         return true
     else
-        user:inform("Die schÃ¼tzenden Winde verlassen dich", "The protecting winds are leaving you")
+        user:inform("Die schützenden Winde verlassen dich", "The protecting winds are leaving you")
         return false
     end
 end
