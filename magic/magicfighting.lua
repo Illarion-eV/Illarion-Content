@@ -34,6 +34,7 @@ local STAFF_ELEMENTS = {[2785] = ELEMENTS.AIR, [2783] = ELEMENTS.FIRE,
 local common = require("base.common")
 local character = require("base.character")
 local fightingutil = require("base.fightingutil")
+local gems = require("base.gems")
 
 local function getNeededMana(castTime)
     return math.ceil(100 + (castTime-7)*25)
