@@ -1,12 +1,27 @@
 --[[
+Illarion Server
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU Affero General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option) any
+later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+details.
+
+You should have received a copy of the GNU Affero General Public License along
+with this program.  If not, see <http://www.gnu.org/licenses/>.
+]]
+
+--[[
 UPDATE weapon SET wp_attack = 44, wp_accuracy = 74, wp_range = 5 WHERE wp_itemid = 2785;
 UPDATE weapon SET wp_attack = 44, wp_accuracy = 74, wp_range = 5 WHERE wp_itemid = 2784;
 UPDATE weapon SET wp_attack = 44, wp_accuracy = 74, wp_range = 5 WHERE wp_itemid = 2783;
 UPDATE weapon SET wp_attack = 44, wp_accuracy = 74, wp_range = 5 WHERE wp_itemid = 2782;
 UPDATE weapon SET wp_attack = 44, wp_accuracy = 74, wp_range = 5 WHERE wp_itemid = 3608;
 UPDATE weapon SET wp_attack = 29, wp_accuracy = 70, wp_range = 5 WHERE wp_itemid = 323;
-UPDATE items SET itm_level = 0 WHERE itm_id = 2785 OR itm_id = 2784 OR itm_id = 2783 OR itm_id = 2782 OR itm_id = 3608;
-UPDATE items SET itm_level = 0 WHERE itm_id = 323;
 ]]
 
 local M = {}
