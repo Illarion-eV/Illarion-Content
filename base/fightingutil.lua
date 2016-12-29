@@ -115,7 +115,7 @@ function M.loadWeapons(charStruct)
 end
 
 function M.isMagicUser(Attacker)
-    if Char:getMagicType() == 0 and (Char:getQuestProgress(37) ~= 0 or User:getMagicFlags(0) > 0) then
+    if Attacker:getMagicType() == 0 and (Attacker:getQuestProgress(37) ~= 0 or Attacker:getMagicFlags(0) > 0) then
         return true
     end
     return false
