@@ -630,6 +630,11 @@ product:addIngredient(2551, 1) -- pure air
 
 local catId = tailoring:addCategory("Other", "Sonstiges")
 
+-- sling
+product = tailoring:addProduct(catId, 89, 1)
+product:addIngredient(50, 4) -- thread
+product:addIngredient(2547, 3) -- leather
+
 -- leather bag
 product = tailoring:addProduct(catId, 97, 1)
 product:addIngredient(50, 2) -- thread
@@ -638,11 +643,6 @@ product:addIngredient(2547, 2) -- leather
 -- rope
 product = tailoring:addProduct(catId, 2760, 1)
 product:addIngredient(50, 10) -- thread
-
--- sling
-product = tailoring:addProduct(catId, 89, 1)
-product:addIngredient(50, 4) -- thread
-product:addIngredient(2547, 3) -- leather
 
 local catId = tailoring:addCategory("Robes", "Roben")
 
