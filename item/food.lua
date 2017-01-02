@@ -231,10 +231,10 @@ for _, foodItem in pairs(foodList) do
     end
 end
 
-local function poisonedFood(user, sourceItem)
+local function poisonedFood(User, sourceItem)
     local poisonPoints = foodList[sourceItem.id]["poisonPoints"]
     if poisonPoints then
-        user:increaseAttrib("poisonlevel", poisonPoints)
+        User:increaseAttrib("poisonlevel", poisonPoints)
     end
 end
 
@@ -248,7 +248,7 @@ attributesGerman.essence      = "Essenz"
 attributesGerman.perception   = "Wahrnehmung"
 attributesGerman.willpower    = "Willensstärke"
 
-local function buffsAdding(user, sourceItem)
+local function buffsAdding(User, sourceItem)
 
     local buffs = foodList[sourceItem.id].buffs
 
@@ -259,9 +259,9 @@ local function buffsAdding(user, sourceItem)
     local messageDe = "Durch das Essen erfährst du folgende Veränderungen: "
     local messageEn = "Because of the meal you experience following changes: "
     
-    local foundEffect,dietEffect = user.effects:find(12)
+    local foundEffect,dietEffect = User.effects:find(12)
     if foundEffect then
-        user.effects:removeEffect(12)
+        User.effects:removeEffect(12)
         messageDe = "Die vorherige Nahrungswirkung wird ersetzt. " .. messageDe
         messageEn = "The former diet effect is replaced. " .. messageEn
     end
@@ -277,27 +277,27 @@ local function buffsAdding(user, sourceItem)
         messageEn = messageEn .. attribute .. " +" .. value
         addComma = true
         
-        local oldValue = user:increaseAttrib(attribute, 0)
-        local newValue = user:increaseAttrib(attribute, value)
+        local oldValue = User:increaseAttrib(attribute, 0)
+        local newValue = User:increaseAttrib(attribute, value)
         dietEffect:addValue(attribute, newValue - oldValue)
     
     end
     
-    user.effects:addEffect(dietEffect)
-    user:inform(messageDe, messageEn)
+    User.effects:addEffect(dietEffect)
+    User:inform(messageDe, messageEn)
 end
 
-local function leftOverCreation(user, leftOverId)
+local function leftOverCreation(User, leftOverId)
     if leftOverId then
         if math.random(1,20) == 1 then
-            user:inform("Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.", Character.highPriority)
+            User:inform("Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.", Character.highPriority)
         else
-            common.CreateItem(user, leftOverId, 1, 333, nil)
+            common.CreateItem(User, leftOverId, 1, 333, nil)
         end
     end
 end
 
-local function foodLevelInform(user, newFoodLevel, oldFoodLevel)
+local function foodLevelInform(User, newFoodLevel, oldFoodLevel)
     local messageDe
     local messageEn
     
@@ -322,20 +322,20 @@ local function foodLevelInform(user, newFoodLevel, oldFoodLevel)
     end
     
     if messageDe and messageEn then 
-        user:inform(messageDe,messageEn, Character.mediumPriority)
+        User:inform(messageDe,messageEn, Character.mediumPriority)
     end
 end
 
-local function mapItem(user, sourceItem)
+local function mapItem(User, sourceItem)
     if sourceItem.wear == 255 then
-        user:inform("Das kannst du nicht essen.", "You can't eat that.", Character.highPriority)
+        User:inform("Das kannst du nicht essen.", "You can't eat that.", Character.highPriority)
         return true
     end
 end
 
-local function alchemyCheck(user, sourceItem, ltstate)
-    local isPlant, ignoreIt = alchemy.getPlantSubstance(sourceItem.id, user)
-    local cauldron = alchemy.GetCauldronInfront(user, sourceItem)
+local function alchemyCheck(User, sourceItem, ltstate)
+    local isPlant, ignoreIt = alchemy.getPlantSubstance(sourceItem.id, User)
+    local cauldron = alchemy.GetCauldronInfront(User, sourceItem)
     if (cauldron ~= nil) and isPlant then
         herbs.UseItem(User, sourceItem, ltstate)
         return true
@@ -343,31 +343,31 @@ local function alchemyCheck(user, sourceItem, ltstate)
     return false
 end
 
-local function specialEgg(user, sourceItem)
-    if specialeggs.checkSpecialEgg(sourceItem, user) then
+local function specialEgg(User, sourceItem)
+    if specialeggs.checkSpecialEgg(sourceItem, User) then
         return true
     end
     return false
 end
 
-local function holyGrapes(user, sourceItem)
+local function holyGrapes(User, sourceItem)
     if sourceItem:getData("nameEn") == "Holy Grapes" then
-        user:increaseAttrib("foodlevel", 2000)
-        user:inform("Die Trauben haben einen vollen Geschmack und füllen deinen ganzen Mund mit ihrem süßlichen Saft. Köstlich! Doch sie umspielen nicht nur deine Geschmacksknospen, sondern auch deinen Geist. Du bist leicht angetrunken.","The grapes have a rich, sweet taste that lingers on your tongue as their flavorful juice fills your entire mouth. Delicious! However, they not only play with your taste buds but also with your mind. You feel slightly drunk.")
+        User:increaseAttrib("foodlevel", 2000)
+        User:inform("Die Trauben haben einen vollen Geschmack und füllen deinen ganzen Mund mit ihrem süßlichen Saft. Köstlich! Doch sie umspielen nicht nur deine Geschmacksknospen, sondern auch deinen Geist. Du bist leicht angetrunken.","The grapes have a rich, sweet taste that lingers on your tongue as their flavorful juice fills your entire mouth. Delicious! However, they not only play with your taste buds but also with your mind. You feel slightly drunk.")
         world:erase(sourceItem, 1)
         return true
     end
 end
 
-local function thievesPoisonQuest(user, sourceItem)
+local function thievesPoisonQuest(User, sourceItem)
 
     if sourceItem:getData("nameEn") == "Thieves Dinner" then
-        if user:getQuestProgress(543) == 7 then
-            if user:countItemAt("all", 1323) == 0 then
-                user:inform("Du benötigst das Gift, um es unter das Essen zu mischen.", "You need the poison to tamper with the food.")
+        if User:getQuestProgress(543) == 7 then
+            if User:countItemAt("all", 1323) == 0 then
+                User:inform("Du benötigst das Gift, um es unter das Essen zu mischen.", "You need the poison to tamper with the food.")
             else
-                user:inform("Du hast den Inhalt des Fläschchens unbemerkt unter das Essen gemischt. Kehre zu Brigette zurück, um deine Belohnung abzuholen.", "You successfully sneak the contents of the vial Brigette gave you into the food, return to her for a reward.")
-                user:setQuestProgress(543, 8)
+                User:inform("Du hast den Inhalt des Fläschchens unbemerkt unter das Essen gemischt. Kehre zu Brigette zurück, um deine Belohnung abzuholen.", "You successfully sneak the contents of the vial Brigette gave you into the food, return to her for a reward.")
+                User:setQuestProgress(543, 8)
             end
         end
         return true
@@ -376,41 +376,41 @@ local function thievesPoisonQuest(user, sourceItem)
     return false
 end
 
-local function fortuneCookie(sourceItem, user)
+local function fortuneCookie(sourceItem, User)
     if sourceItem.id == 453 then
         if math.random(1, 100) == 1 then
             local deText, enText = furtunecookies.cookie()
-            user:inform("Du findest ein Stück Papier in dem Keks: \""..deText.."\"", "You find a piece of paper inside the cookie: \""..enText.."\"")
+            User:inform("Du findest ein Stück Papier in dem Keks: \""..deText.."\"", "You find a piece of paper inside the cookie: \""..enText.."\"")
         end
     end
 end
 
-function M.UseItem(user, sourceItem, ltstate)
+function M.UseItem(User, sourceItem, ltstate)
 
-    if holyGrapes(user, sourceItem) then
+    if holyGrapes(User, sourceItem) then
         return
-    elseif specialEgg(user, sourceItem) then
+    elseif specialEgg(User, sourceItem) then
         return
-    elseif alchemyCheck(user, sourceItem, ltstate) then
+    elseif alchemyCheck(User, sourceItem, ltstate) then
         return
-    elseif mapItem(user, sourceItem) then
+    elseif mapItem(User, sourceItem) then
         return
     end
     
-    fortuneCookie(sourceItem, user)
+    fortuneCookie(sourceItem, User)
     
-    local oldFoodLevel = user:increaseAttrib("foodlevel", 0)
-    local newFoodLevel = user:increaseAttrib("foodlevel", foodList[sourceItem.id].foodPoints)
+    local oldFoodLevel = User:increaseAttrib("foodlevel", 0)
+    local newFoodLevel = User:increaseAttrib("foodlevel", foodList[sourceItem.id].foodPoints)
 
-    foodLevelInform(user, newFoodLevel, oldFoodLevel)
+    foodLevelInform(User, newFoodLevel, oldFoodLevel)
 
-    poisonedFood(user, sourceItem)
+    poisonedFood(User, sourceItem)
 
-    buffsAdding(user, sourceItem)
+    buffsAdding(User, sourceItem)
 
     world:erase(sourceItem, 1)
 
-    leftOverCreation(user, foodList[sourceItem.id].leftOver)
+    leftOverCreation(User, foodList[sourceItem.id].leftOver)
 end
 
 return M
