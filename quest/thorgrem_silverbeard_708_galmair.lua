@@ -41,8 +41,8 @@ Description[GERMAN][3] = "Schmilz zehn Eisenbarren für Thorgrem Silverbeard an d
 Description[ENGLISH][3] = "Smelt ten iron ingots for Thorgrem Silverbeard at the bloomery in Galmair's workshop. To smelt the ingots you have to take the crucible-pincers in your hand and use the bloomery."
 Description[GERMAN][4] = "Geh zu Thorgrem Silverbeard in der Werkstatt von Galmair. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][4] = "Go to Thorgrem Silverbeard at the workshop in Galmair, he is sure to have another task for you."
-Description[GERMAN][5] = "Schmiede fünf Nägel und fünf Kelche für Thorgrem Silverbeard bei der Werkstatt von Galmair. Für die Nägel musst du den Hammer mit dem gelben Griff benutzen. Für die Kelche nimmst du den Feinschmiedehammer mit dem roten Griff."
-Description[ENGLISH][5] = "Smith five pins and five goblets for Thorgrem Silverbeard at the workshop of Galmair. To smith you need to stand facing the anvil. For the pins you have to use the hammer with the yellow handle, for the goblets use the finesmithing hammer with the red handle."
+Description[GERMAN][5] = "Schmiede fünf Nägel und fünf Kelche (die silbernen) für Thorgrem Silverbeard bei der Werkstatt von Galmair. Für die Nägel musst du den Hammer mit dem gelben Griff benutzen. Für die Kelche nimmst du den Feinschmiedehammer mit dem roten Griff."
+Description[ENGLISH][5] = "Smith five pins and five goblets (the silver ones) for Thorgrem Silverbeard at the workshop of Galmair. To smith you need to stand facing the anvil. For the pins you have to use the hammer with the yellow handle, for the goblets use the finesmithing hammer with the red handle."
 Description[GERMAN][6] = "Du hast alle Aufgaben von Thorgrem Silverbeard erfüllt."
 Description[ENGLISH][6] = "You have fulfilled all the tasks for Thorgrem Silverbeard."
 
