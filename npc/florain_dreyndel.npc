@@ -82,7 +82,7 @@ english, "job" -> "My mission is to help, so if you need something to do, just a
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- help triggers
-"market" -> "Just follow the bridgs to the eastward island. If you want to know more about the places around Runewick, ask Elesil Dealwon, who you can find by the town gate."
+"market" -> "Just follow the bridges to the eastward island. If you want to know more about the places around Runewick, ask Elesil Dealwon, who you can find by the town gate."
 "markt" -> "Folgt einfach der Brücke bis zum Ende und geht dann weiter Richtung Osten. Wenn Ihr mehr über die Orte um Runewick herum wissen wollt, fragt Elesil Dealwon, welche Ihr am Stadttor findet."
 english, "Elesil", "Dealwon" -> "You can find her by the town gate. Just follow the bridge next to me to the west. She knows a lot about Runewick."
 "Elesil", "Dealwon" -> "Ihr könnte sie am Stadttor finden. Folgt einfach der Brücke neben mir nach Westen. Sie weiß eine Menge über Runewick."
