@@ -180,7 +180,7 @@ local function applyDamage(attackerStruct, defenderStruct)
     local generalScalingFactor = 2.8
     local armourSkill = 0
     attackerStruct.Char:inform("armourValue 1: "..armourValue) -- DEBUG
-    local armourFound, armour = world:getArmourStruct(hitItem.id)
+    local armourFound, armour = world:getArmorStruct(hitItem.id)
     if (armourFound) then
         local armourSkill = nil
         local armourType = armour.Type
