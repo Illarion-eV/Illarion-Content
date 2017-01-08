@@ -185,7 +185,7 @@ local function applyDamage(attackerStruct, defenderStruct)
     local globalDamageFactor = 1/180 -- mirrored from standardfighting
     
     -- base damage
-    local damage = attackerStruct.Weapon.Attack * 45
+    local damage = attackerStruct.Weapon.Attack * 50
     
     -- raw damage without defence
     damage = damage * globalDamageFactor * qualityBonus * (100 + intBonus + essenceBonus + skillBonus)
