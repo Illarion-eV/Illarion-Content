@@ -157,7 +157,8 @@ end
 
 local function applyDamage(attackerStruct, defenderStruct)
     local itemLevel = world:getItemStatsFromId(attackerStruct.WeaponItem.id).Level 
- 
+ attackerStruct.Char:inform("check skill: " .. Character.wandMagic) -- DEBUG
+attackerStruct.Char:inform("skill value: " .. attackerStruct.skill) -- DEBUG
     -- damage boni
     local intBonus = 3.5 * (attackerStruct.intelligence - 6)
     local essenceBonus = 1.1 * (attackerStruct.essence - 6) 
