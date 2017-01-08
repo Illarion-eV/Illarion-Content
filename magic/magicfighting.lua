@@ -53,7 +53,7 @@ local function checkCriticalAttack(attackerStruct)
 end
 
 local function checkBlockedAttack(attackerStruct, defenderStruct)
-    local magicDisturbance = defenderStruct.Weapon.MagicDisturbance
+    local magicDisturbance = 0 --defenderStruct.Weapon.MagicDisturbance
     local attackerWillpower = attackerStruct.willpower
     local defenderWillpower = defenderStruct.willpower
     
@@ -272,8 +272,14 @@ function M.onMagicAttack(attackerStruct, defenderStruct)
     
     common.TurnTo(attackerStruct.Char,defenderStruct.Char.pos)
     
-    
+    attackerStruct["intelligence"] = attackerStruct.Char:increaseAttrib("intelligence", 0)
+    attackerStruct["essence"] = attackerStruct.Char:increaseAttrib("essence", 0)
     attackerStruct["willpower"] = attackerStruct.Char:increaseAttrib("willpower", 0)
+    
+    if attackerStruct["intelligence"] + attackerStruct["essence"] + attackerStruct["willpower"] < 30 then
+        return
+    end
+    
     local neededCastTime = calculateCastTime(attackerStruct)
     
     -- Any attack must preload a given time before he can be executed
@@ -294,9 +300,6 @@ function M.onMagicAttack(attackerStruct, defenderStruct)
         return
     end
     attackerStruct.Char:increaseAttrib("mana", -neededMana)
-    
-    attackerStruct["intelligence"] = attackerStruct.Char:increaseAttrib("intelligence", 0)
-    attackerStruct["essence"] = attackerStruct.Char:increaseAttrib("essence", 0)
     
     attackerStruct.Char:performAnimation(6)
     
