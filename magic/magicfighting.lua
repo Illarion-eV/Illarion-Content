@@ -205,7 +205,7 @@ local function applyDamage(attackerStruct, defenderStruct)
     if character.IsPlayer(defenderStruct.Char) and armourValue > armourSkill then
         armourValue = armourValue / noobMalus
     end
-    armourValue = armourValue*((1 - 1/armourScalingFactor) + (100/armourScalingFactor))
+    armourValue = (100/armourScalingFactor) + armourValue*(1-1/armourScalingFactor)
     attackerStruct.Char:inform("armourValue 3: "..armourValue)
     attackerStruct.Char:inform("defQualityBonus: "..defQualityBonus)
     damage = damage - (damage * armourValue * defQualityBonus/140)
