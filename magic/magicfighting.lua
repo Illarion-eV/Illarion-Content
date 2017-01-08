@@ -213,7 +213,7 @@ attackerStruct.Char:inform("skill value: " .. attackerStruct.skill) -- DEBUG
     end
     attackerStruct.Char:inform("armourValue 3: "..armourValue)
     attackerStruct.Char:inform("defQualityBonus: "..defQualityBonus)
-    damage = damage - (damage * armourValue * defQualityBonus/210)
+    damage = damage - (damage * armourValue * defQualityBonus/250)
     damage = defSkillBonus * damage
     attackerStruct.Char:inform("DD 3: "..damage) -- DEBUG
     local resistance = math.max(1, math.floor(
