@@ -167,7 +167,7 @@ attackerStruct.Char:inform("skill value: " .. attackerStruct.skill) -- DEBUG
     local globalDamageFactor = 1/180 -- mirrored from standardfighting
     
     -- base damage
-    local damage = attackerStruct.Weapon.Attack * 40
+    local damage = attackerStruct.Weapon.Attack * 30
     attackerStruct.Char:inform("DD 1: "..damage) -- DEBUG
     
     -- raw damage without defence
@@ -203,7 +203,7 @@ attackerStruct.Char:inform("skill value: " .. attackerStruct.skill) -- DEBUG
     local defSkillBonus = 1 - armourSkill/250
     
     attackerStruct.Char:inform("armourValue 2: "..armourValue)
-    local armourScalingFactor = 5
+    local armourScalingFactor = 4
     local noobMalus = 5
     if character.IsPlayer(defenderStruct.Char) and armourValue > armourSkill then
         armourValue = armourValue / noobMalus
