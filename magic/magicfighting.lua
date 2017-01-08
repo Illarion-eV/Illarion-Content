@@ -170,7 +170,7 @@ local function averageArmourLevel(caster)
         end
     end
     
-    return averageArmourLevel/100/#bodyPositions
+    return averageArmourLevel/100
     
 end
 
