@@ -176,9 +176,11 @@ local function applyDamage(attackerStruct, defenderStruct)
     local hitArea = fighting.GetHitArea(defenderStruct.Race)
     local hitItem = defenderStruct.Char:getItemAt(hitArea)
     local armourValue = world:getItemStatsFromId(hitItem.id).Level
+    attackerStruct.Char:inform("armourValue 0: "..armourValue) -- DEBUG
     local armourDefenseScalingFactor = 4/3
     local generalScalingFactor = 2.8
     local armourSkill = 0
+    armorValue = armorValue/generalScalingFactor
     attackerStruct.Char:inform("armourValue 1: "..armourValue) -- DEBUG
     local armourFound, armour = world:getArmorStruct(hitItem.id)
     if (armourFound) then
