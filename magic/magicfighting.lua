@@ -165,7 +165,7 @@ local function averageArmourLevel(caster)
         local armourFound, armour = world:getArmorStruct(checkItem.id)
         if armourFound then
             caster:inform("armour found")
-            if armour.Type == Character.heavyArmour or armour.Type == Character.lightArmour or armour.Type == Character.mediumArmour then
+            if armour.Type == 4 or armour.Type == 3 or armour.Type == 2 then
                 caster:inform("add to armour level")
                 averageArmourLevel = averageArmourLevel + world:getItemStatsFromId(checkItem.id).Level*bodyPositions[i]["hitChance"]
             end
