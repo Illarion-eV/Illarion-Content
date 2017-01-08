@@ -324,7 +324,9 @@ function M.onMagicAttack(attackerStruct, defenderStruct)
     
     applyDamage(attackerStruct, defenderStruct)
     attackerStruct.Char:learn(Character.wandMagic, neededCastTime/3, 100)
-    
+    local skillTable = attackerStruct.Char:getSkillValue(Character.wandMagic)
+    attackerStruct.Char:inform("major: " .. skillTable.major)
+    attackerStruct.Char:inform("minor: " .. skillTable.minor)
     return true
 end
 
