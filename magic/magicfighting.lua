@@ -167,7 +167,7 @@ attackerStruct.Char:inform("skill value: " .. attackerStruct.skill) -- DEBUG
     local globalDamageFactor = 1/180 -- mirrored from standardfighting
     
     -- base damage
-    local damage = attackerStruct.Weapon.Attack * 30
+    local damage = attackerStruct.Weapon.Attack * 40
     attackerStruct.Char:inform("DD 1: "..damage) -- DEBUG
     
     -- raw damage without defence
