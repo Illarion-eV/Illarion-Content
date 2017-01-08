@@ -203,7 +203,7 @@ attackerStruct.Char:inform("skill value: " .. attackerStruct.skill) -- DEBUG
     local defSkillBonus = 1 - armourSkill/300
     
     attackerStruct.Char:inform("armourValue 2: "..armourValue)
-    local armourScalingFactor = 4
+    local armourScalingFactor = 5
     local noobMalus = 5
     if character.IsPlayer(defenderStruct.Char) and armourValue > armourSkill then
         armourValue = armourValue / noobMalus
@@ -213,7 +213,7 @@ attackerStruct.Char:inform("skill value: " .. attackerStruct.skill) -- DEBUG
     end
     attackerStruct.Char:inform("armourValue 3: "..armourValue)
     attackerStruct.Char:inform("defQualityBonus: "..defQualityBonus)
-    damage = damage - (damage * armourValue * defQualityBonus/250)
+    damage = damage - (damage * armourValue * defQualityBonus/350)
     damage = defSkillBonus * damage
     attackerStruct.Char:inform("DD 3: "..damage) -- DEBUG
     local resistance = math.max(1, math.floor(
