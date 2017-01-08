@@ -200,7 +200,7 @@ attackerStruct.Char:inform("skill value: " .. attackerStruct.skill) -- DEBUG
     
     -- defence boni
     local defQualityBonus = 0.82 + 0.02 + math.floor(hitItem.quality/100)
-    local defSkillBonus = 1 - armourSkill/250
+    local defSkillBonus = 1 - armourSkill/300
     
     attackerStruct.Char:inform("armourValue 2: "..armourValue)
     local armourScalingFactor = 4
