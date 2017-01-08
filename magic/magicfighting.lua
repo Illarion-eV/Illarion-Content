@@ -190,6 +190,8 @@ local function applyDamage(attackerStruct, defenderStruct)
             armorSkill = Character.mediumArmor
         elseif armorType == 2 then
             armorSkill = Character.lightArmor
+        else -- not an armour
+            armorValue = 0
         end
     end
     
