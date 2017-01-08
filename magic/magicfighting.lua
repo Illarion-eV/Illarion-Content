@@ -323,8 +323,7 @@ function M.onMagicAttack(attackerStruct, defenderStruct)
     sfxGfxOutput(attackerStruct, defenderStruct, element)
     
     applyDamage(attackerStruct, defenderStruct)
-    
-    attackerStruct.Char:learn(attackerStruct.skill, neededCastTime/3, 100)
+    attackerStruct.Char:learn(Character.wandMagic, neededCastTime/3, 100)
     
     return true
 end
