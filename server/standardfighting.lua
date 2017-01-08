@@ -309,8 +309,8 @@ function M.onAttack(Attacker, Defender)
             -- Magic attacks are calculated in a different manner, outsourced for tidiness
             local magicAttack = require("magic.magicfighting")
             magicAttack.onMagicAttack(Attacker, Defender)
-            return false
         end
+        return false
     end 
     
     
