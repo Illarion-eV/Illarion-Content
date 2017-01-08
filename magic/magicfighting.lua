@@ -175,40 +175,40 @@ local function applyDamage(attackerStruct, defenderStruct)
     local fighting = require("content.fighting")
     local hitArea = fighting.GetHitArea(defenderStruct.Race)
     local hitItem = defenderStruct.Char:getItemAt(hitArea)
-    local armorValue = world:getItemStatsFromId(hitItem.id).Level
-    local armorDefenseScalingFactor = 4/3
+    local armourValue = world:getItemStatsFromId(hitItem.id).Level
+    local armourDefenseScalingFactor = 4/3
     local generalScalingFactor = 2.8
-    local armorSkill = 0
-    attackerStruct.Char:inform("armorValue 1: "..armorValue) -- DEBUG
-    local armorFound, armor = world:getArmorStruct(hitItem.id)
-    if (armorFound) then
-        local armorSkill = nil
-        local armorType = armor.Type
-        if armorType == 4 then
-            armorSkill = Character.heavyArmor
-        elseif armorType == 3 then
-            armorSkill = Character.mediumArmor
-        elseif armorType == 2 then
-            armorSkill = Character.lightArmor
+    local armourSkill = 0
+    attackerStruct.Char:inform("armourValue 1: "..armourValue) -- DEBUG
+    local armourFound, armour = world:getArmourStruct(hitItem.id)
+    if (armourFound) then
+        local armourSkill = nil
+        local armourType = armour.Type
+        if armourType == 4 then
+            armourSkill = Character.heavyArmour
+        elseif armourType == 3 then
+            armourSkill = Character.mediumArmour
+        elseif armourType == 2 then
+            armourSkill = Character.lightArmour
         else -- not an armour
-            armorValue = 0
+            armourValue = 0
         end
     end
     
     -- defence boni
     local defQualityBonus = 0.82 + 0.02 + math.floor(hitItem.quality/100)
-    local defSkillBonus = 1 - armorSkill/400
+    local defSkillBonus = 1 - armourSkill/400
     
-    attackerStruct.Char:inform("armorValue 2: "..armorValue)
-    local armorScalingFactor = 5
+    attackerStruct.Char:inform("armourValue 2: "..armourValue)
+    local armourScalingFactor = 5
     local noobMalus = 5
-    if character.IsPlayer(defenderStruct.Char) and armorValue > armorSkill then
-        armorValue = armorValue / noobMalus
+    if character.IsPlayer(defenderStruct.Char) and armourValue > armourSkill then
+        armourValue = armourValue / noobMalus
     end
-    armorValue = armorValue*((1 - 1/armorScalingFactor) + (100/armorScalingFactor))
-    attackerStruct.Char:inform("armorValue 3: "..armorValue)
+    armourValue = armourValue*((1 - 1/armourScalingFactor) + (100/armourScalingFactor))
+    attackerStruct.Char:inform("armourValue 3: "..armourValue)
     attackerStruct.Char:inform("defQualityBonus: "..defQualityBonus)
-    damage = damage - (damage * armorValue * defQualityBonus/140)
+    damage = damage - (damage * armourValue * defQualityBonus/140)
     damage = defSkillBonus * damage
     attackerStruct.Char:inform("DD 3: "..damage) -- DEBUG
     local resistance = math.max(1, math.floor(
