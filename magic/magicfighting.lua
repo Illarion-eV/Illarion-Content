@@ -183,7 +183,7 @@ local function applyDamage(attackerStruct, defenderStruct)
     local armorFound, armor = world:getArmorStruct(hitItem.id)
     if (armorFound) then
         local armorSkill = nil
-        local armourType = armor.Type
+        local armorType = armor.Type
         if armorType == 4 then
             armorSkill = Character.heavyArmor
         elseif armorType == 3 then
