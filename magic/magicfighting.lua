@@ -37,7 +37,7 @@ local fightingutil = require("base.fightingutil")
 local gems = require("base.gems")
 
 local function getNeededMana(castTime)
-    return math.ceil(100 + (castTime-7)*25)
+    return math.ceil(100 + (castTime-7)*12)
 end
 
 local function calculateCastTime(attackerStruct)
@@ -164,9 +164,7 @@ local function averageArmourLevel(caster)
         local checkItem = caster:getItemAt(bodyPositions[i]["part"])
         local armourFound, armour = world:getArmorStruct(checkItem.id)
         if armourFound then
-            caster:inform("armour found")
             if armour.Type == 4 or armour.Type == 3 or armour.Type == 2 then
-                caster:inform("add to armour level")
                 averageArmourLevel = averageArmourLevel + world:getItemStatsFromId(checkItem.id).Level*bodyPositions[i]["hitChance"]
             end
         end
@@ -178,8 +176,7 @@ end
 
 local function applyDamage(attackerStruct, defenderStruct)
     local itemLevel = world:getItemStatsFromId(attackerStruct.WeaponItem.id).Level 
- attackerStruct.Char:inform("check skill: " .. Character.wandMagic) -- DEBUG
-attackerStruct.Char:inform("skill value: " .. attackerStruct.skill) -- DEBUG
+    
     -- damage boni
     local intBonus = 3.5 * (attackerStruct.intelligence - 6)
     local essenceBonus = 1.1 * (attackerStruct.essence - 6) 
@@ -188,22 +185,18 @@ attackerStruct.Char:inform("skill value: " .. attackerStruct.skill) -- DEBUG
     local globalDamageFactor = 1/180 -- mirrored from standardfighting
     
     -- base damage
-    local damage = attackerStruct.Weapon.Attack * 40
-    attackerStruct.Char:inform("DD 1: "..damage) -- DEBUG
+    local damage = attackerStruct.Weapon.Attack * 45
     
     -- raw damage without defence
     damage = damage * globalDamageFactor * qualityBonus * (100 + intBonus + essenceBonus + skillBonus)
-    attackerStruct.Char:inform("DD 2: "..damage) -- DEBUG
     local fighting = require("content.fighting")
     local hitArea = fighting.GetHitArea(defenderStruct.Race)
     local hitItem = defenderStruct.Char:getItemAt(hitArea)
     local armourValue = world:getItemStatsFromId(hitItem.id).Level
-    attackerStruct.Char:inform("armourValue 0: "..armourValue) -- DEBUG
     local armourDefenseScalingFactor = 4/3
     local generalScalingFactor = 2.8
     local armourSkill = 0
     armourValue = armourValue/generalScalingFactor
-    attackerStruct.Char:inform("armourValue 1: "..armourValue) -- DEBUG
     local armourFound, armour = world:getArmorStruct(hitItem.id)
     if (armourFound) then
         local armourSkill = nil
@@ -223,7 +216,6 @@ attackerStruct.Char:inform("skill value: " .. attackerStruct.skill) -- DEBUG
     local defQualityBonus = 0.82 + 0.02 + math.floor(hitItem.quality/100)
     local defSkillBonus = 1 - armourSkill/300
     
-    attackerStruct.Char:inform("armourValue 2: "..armourValue)
     local armourScalingFactor = 5
     local noobMalus = 5
     if character.IsPlayer(defenderStruct.Char) and armourValue > armourSkill then
@@ -232,30 +224,27 @@ attackerStruct.Char:inform("skill value: " .. attackerStruct.skill) -- DEBUG
     if armourValue > 0 then
         armourValue = (100/armourScalingFactor) + armourValue*(1-1/armourScalingFactor)
     end
-    attackerStruct.Char:inform("armourValue 3: "..armourValue)
-    attackerStruct.Char:inform("defQualityBonus: "..defQualityBonus)
     damage = damage - (damage * armourValue * defQualityBonus/350)
     damage = defSkillBonus * damage
-    attackerStruct.Char:inform("DD 3: "..damage) -- DEBUG
     local resistance = math.max(1, math.floor(
         (2*(defenderStruct.willpower - 6)
         + 0.5*(defenderStruct.intelligence - 6)
         + 0.5*(defenderStruct.essence - 6))))
     local resistance = common.Limit(Random.uniform(resistance, resistance*2) / 160.0, 0, 1)
     damage = damage* (1 - resistance)
-    attackerStruct.Char:inform("DD 4: "..damage) -- DEBUG
+    
     -- take consitution of enemy in account
     damage  = (damage * 7) / (defenderStruct.Char:increaseAttrib("constitution", 0))
-    attackerStruct.Char:inform("DD 5: "..damage) -- DEBUG
+    
     -- scale damage based on the level of the armour parts the mage wears
-    attackerStruct.Char:inform("averageArmourLevel: " .. averageArmourLevel(attackerStruct.Char))
     damage = damage*(1 - common.Scale(0, 0.5, averageArmourLevel(attackerStruct.Char)))
+    
     -- limits for damage
     damage = math.max(0, damage)
     damage = damage * (math.random(9,10)/10)
     damage = math.min(damage, 4999)
     damage = math.floor(damage)
-    attackerStruct.Char:inform("DD 6: "..damage) -- DEBUG
+    
     -- inflict damage and check if character would die
     if character.IsPlayer(defenderStruct.Char) and character.WouldDie(defenderStruct.Char, damage + 1) then
         if character.AtBrinkOfDeath(defenderStruct.Char) then
@@ -275,7 +264,6 @@ attackerStruct.Char:inform("skill value: " .. attackerStruct.skill) -- DEBUG
             chr_reg.stallRegeneration(defenderStruct.Char, 60 / timeFactor)
         end
     else
-        attackerStruct.Char:inform("DD final: "..damage) -- DEBUG
         character.ChangeHP(defenderStruct.Char, -damage)
     end
 end
@@ -349,8 +337,6 @@ function M.onMagicAttack(attackerStruct, defenderStruct)
     applyDamage(attackerStruct, defenderStruct)
     attackerStruct.Char:learn(Character.wandMagic, neededCastTime/3, 100)
     local skillTable = attackerStruct.Char:getSkillValue(Character.wandMagic)
-    attackerStruct.Char:inform("major: " .. skillTable.major)
-    attackerStruct.Char:inform("minor: " .. skillTable.minor)
     return true
 end
 
