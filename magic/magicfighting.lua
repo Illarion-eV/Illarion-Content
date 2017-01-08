@@ -159,7 +159,7 @@ local function averageArmourLevel(caster)
     
     local averageArmourLevel = 0
     
-    local bodyPositions = {{part = Character.head, hitChance = 14}, {part = Character.breats, hitChance = 40}, {part = Character.hands, hitChance = 13}, {part = Character.legs, hitChance = 20}, {part = Character.feet, hitChance = 13}}
+    local bodyPositions = {{part = Character.head, hitChance = 14}, {part = Character.breast, hitChance = 40}, {part = Character.hands, hitChance = 13}, {part = Character.legs, hitChance = 20}, {part = Character.feet, hitChance = 13}}
     for i = 1, #bodyPositions do
         local checkItem = caster:getItemAt(bodyPositions[i]["part"])
         local armourFound, armour = world:getArmorStruct(checkItem.id)
