@@ -224,7 +224,7 @@ attackerStruct.Char:inform("skill value: " .. attackerStruct.skill) -- DEBUG
     damage = damage* (1 - resistance)
     attackerStruct.Char:inform("DD 4: "..damage) -- DEBUG
     -- take consitution of enemy in account
-    damage  = (1 + damage * 14) / (defenderStruct.Char:increaseAttrib("constitution", 0) / 2)
+    damage  = (damage * 7) / (defenderStruct.Char:increaseAttrib("constitution", 0))
     attackerStruct.Char:inform("DD 5: "..damage) -- DEBUG
     -- limits for damage
     damage = math.max(0, damage)
