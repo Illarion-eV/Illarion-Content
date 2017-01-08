@@ -155,6 +155,25 @@ local function applyCriticalEffect(attackerStruct, defenderStruct, element)
     end
 end
 
+local function averageArmourLevel(caster)
+    
+    local averageArmourLevel = 0
+    
+    local bodyPositions = {{part = Character.head, hitChance = 14}, {part = Character.breats, hitChance 40}, {part = Character.hands, hitChance = 13}, {part = Character.legs, hitChance = 20}, {part = Character.feet, hitChance = 13}}
+    for i = 1, #bodyPositions do
+        local checkItem = caster:getItemAt(bodyPositions[i]["part"])
+        local armourFound, armour = world:getArmorStruct(checkItem.id)
+        if armourFound then
+            if armour.Type == Character.heavyArmour or armour.Type == Character.lightArmour or armour.Type == Character.mediumArmour then
+                averageArmourLevel = averageArmourLevel + world:getItemStatsFromId(checkItem.id).Level*bodyPositions[i]["hitChance"]
+            end
+        end
+    end
+    
+    return averageArmourLevel/100/#bodyPositions
+    
+end
+
 local function applyDamage(attackerStruct, defenderStruct)
     local itemLevel = world:getItemStatsFromId(attackerStruct.WeaponItem.id).Level 
  attackerStruct.Char:inform("check skill: " .. Character.wandMagic) -- DEBUG
@@ -226,6 +245,8 @@ attackerStruct.Char:inform("skill value: " .. attackerStruct.skill) -- DEBUG
     -- take consitution of enemy in account
     damage  = (damage * 7) / (defenderStruct.Char:increaseAttrib("constitution", 0))
     attackerStruct.Char:inform("DD 5: "..damage) -- DEBUG
+    -- scale damage based on the level of the armour parts the mage wears
+    damage = damage*(1 - base.Scale(0, 0.5, averageArmourLevel(attackerStruct.Char)))
     -- limits for damage
     damage = math.max(0, damage)
     damage = damage * (math.random(9,10)/10)
