@@ -32,7 +32,7 @@ function M.readMagicBooks(user, bookId)
     end
     
     -- Attribute requirements
-    if user:increaseAttrib("willpower", 0) + user:increaseAttrib("essence", 0) + user:increaseAttrib("intelligence") < 30 then
+    if user:increaseAttrib("willpower", 0) + user:increaseAttrib("essence", 0) + user:increaseAttrib("intelligence", 0) < 30 then
         return
     end
     
