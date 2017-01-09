@@ -98,7 +98,7 @@ function M.useMagicWand(user, sourceItem)
     end
     
     -- Already is a mage
-    if user:getMagicType() == 0 and (user:getQuestProgress(37) ~= 0 or user:getMagicFlags(0) > 0)
+    if user:getMagicType() == 0 and (user:getQuestProgress(37) ~= 0 or user:getMagicFlags(0) > 0) then
         return
     end
 
