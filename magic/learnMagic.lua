@@ -116,7 +116,7 @@ function M.useMagicWand(user, sourceItem)
         local success = dialog:getSuccess()
         if success then
             if dialog:getSelectedIndex() == 0 then
-                local messageCallback = function(dialog)
+                local messageCallback = function(messageDialog)
                     user:setMagicType(3)
                     world:makeSound(13,user.pos)
                     world:gfx(31,user.pos)
