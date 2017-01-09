@@ -22,6 +22,8 @@ local magicBooks = {337, 351, 379, 382, 398, 401, 404}
 
 local amountNeeded = 3
 
+local M = {}
+
 function M.readMagicBooks(user, bookId)
 
     -- Alchemists cannot become mages.
@@ -141,3 +143,5 @@ function M.useMagicWand(user, sourceItem)
     User:requestSelectionDialog(dialog)
     
 end
+
+return M
