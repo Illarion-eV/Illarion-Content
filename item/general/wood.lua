@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local lookat = require("base.lookat")
 local checks = require("item.general.checks")
-local learnMagic = require("magic.learnMagc")
+local learnMagic = require("magic.learnMagic")
 
 local M = {}
 
