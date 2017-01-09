@@ -74,7 +74,7 @@ function M.readMagicBooks(user, bookId)
         elseif bit32.extract(questProgress, 30) == 0 then    
             
             local callback = function(dialog)end;
-            
+            local dialog
             if user:getPlayerLanguage() == Player.german then
                 dialog = MessageDialog("Magische Lektüre", "Durch das Lesen der verschiedenen Bücher über Magie hast du ein tiefes Verständnis für die arkanen Künste erlangt. Um den Pfad der Magie zu betreten, ergreife einen Zauberstab und konzentriere dich auf deine innere Stärke.", callback)
             else
