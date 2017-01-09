@@ -339,7 +339,7 @@ function M.onMagicAttack(attackerStruct, defenderStruct)
     
     applyDamage(attackerStruct, defenderStruct)
     attackerStruct.Char:learn(Character.wandMagic, neededCastTime/3, 100)
-    local skillTable = attackerStruct.Char:getSkillValue(Character.wandMagic)
+    
     return true
 end
 
