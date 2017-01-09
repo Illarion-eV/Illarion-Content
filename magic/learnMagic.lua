@@ -80,6 +80,7 @@ function M.readMagicBooks(user, bookId)
             else
                 dialog = MessageDialog("Magical reading", "Reading the various books about magic gave you a vast understanding of the arcane arts. To follow the path of magic, you should acquire a magical wand, hold it firmly and concentrate on your inner strength.", callback)
             end
+            user:requestSelectionDialog(dialog)
             questProgress = bit32.replace(questProgress, 1, 30)
         end
     end
@@ -140,7 +141,7 @@ function M.useMagicWand(user, sourceItem)
     local dialog = SelectionDialog(common.GetNLS(user, "Der Weg der Magie", "The path of magic"), common.GetNLS(user, "Als du den Stab berührst, kannst du seine magische Macht spüren. Dir scheint, dass es dir gelingen könnte, sie dir nutzbar zu machen. Willst du das tun und somit zu einem Magier werden? Bedenke, dass eine weitere hohe Kunst - die Alchemie - dir so dann verschlossen sein wird.", "As you touch the wand, you can feel its magical power. It seems to you that you should be able to use this power. Do you want to do so and, therefore, become a mage? Mind that an other high art - alchemy - will not be accessable for you once you became a mage."), callback)
     dialog:addOption(0, common.GetNLS(user, "Werde Magier", "Become a mage"))
     dialog:addOption(0, common.GetNLS(user, "Nein. Vielleicht später.", "No. Maybe later."))
-    User:requestSelectionDialog(dialog)
+    user:requestSelectionDialog(dialog)
     
 end
 
