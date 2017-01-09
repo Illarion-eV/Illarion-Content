@@ -80,7 +80,7 @@ function M.readMagicBooks(user, bookId)
             else
                 dialog = MessageDialog("Magical reading", "Reading the various books about magic gave you a vast understanding of the arcane arts. To follow the path of magic, you should acquire a magical wand, hold it firmly and concentrate on your inner strength.", callback)
             end
-            user:requestSelectionDialog(dialog)
+            user:requestMessageDialog(dialog)
             questProgress = bit32.replace(questProgress, 1, 30)
         end
     end
