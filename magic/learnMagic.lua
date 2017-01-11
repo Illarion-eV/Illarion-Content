@@ -48,13 +48,15 @@ function M.readMagicBooks(user, bookId)
         return
     end
     
-    -- Register new book if it is a magical one
+    -- Register new book if it is a magical one and hasn't been read before
     local foundNewBook = false
     for i = 1, #magicBooks do
         if magicBooks[i] == bookId then
             local bitToChange = i - 1
-            questProgress = bit32.replace(questProgress, 1, bitToChange)
-            foundNewBook = true
+            if bit32.extract(questProgress, bitToChange) == 0 then
+                questProgress = bit32.replace(questProgress, 1, bitToChange)
+                foundNewBook = true
+            end
         end
     end
     
