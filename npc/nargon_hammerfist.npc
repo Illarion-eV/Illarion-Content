@@ -75,7 +75,7 @@ itemShoes = 697
 
 -- Learn how to gather, player has no pick axe
 queststatus(312) < 2, item(2763, all) = 0, english, ".*" -> item(2763, 1, 333), queststatus(312) = 2, "Arr, the name be Nargon, Nargon Hammerfist. Ye want coin? Harr. Only through hard labour can ye become wealthy. Here, have this pick-axe. Head into the mine behind me and gather five lumps of coal. To mine, stand in front of a rock and use the pick-axe which must be held in your hands."
-queststatus(312) < 2, item(2763, all) = 0, ".*" -> item(2763, 1, 333), queststatus(312) = 2, "Arr, mein Name ist Nargon, Nargon Hammerfist. Wilste 'ne Münze? Harr. Nur mit harter Arbeit kannste reich werden. Hier haste 'ne Spitzhacke. Geh in die Mine hinter mir und sammel fünf Brocken Kohle. Um zu schürfen, stell dich vor einen Stein und benutze die in der Hand gehaltene Spitzhacke."
+queststatus(312) < 2, item(2763, all) = 0, ".*" -> item(2763, 1, 333), queststatus(312) = 2, "Arr, mein Name ist Nargon, Nargon Hammerfist. Willste 'ne Münze? Harr. Nur mit harter Arbeit kannste reich werden. Hier haste 'ne Spitzhacke. Geh in die Mine hinter mir und sammel fünf Brocken Kohle. Um zu schürfen, stell dich vor einen Stein und benutze die in der Hand gehaltene Spitzhacke."
 
 -- Learn how to gather, player has pick axe
 queststatus(312) < 2, english, ".*" -> queststatus(312) = 2, "Arr, the name is Nargon, Nargon Hammerfist. Ye want coin? Harr. Only through hard labour can ye become wealthy. Head into the mine behind me and gather five lumps of coal with your pick axe. To mine, stand in front of a rock and use the pick-axe which must be held in your hands."
