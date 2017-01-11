@@ -58,18 +58,18 @@ product:addIngredient(2940) -- raw steak
 
 local catId = roasting:addCategory("Fish", "Fisch")
 
--- Smoked fish
-local product = roasting:addProduct(catId, 455, 1)
+-- Smoked rose fish
+local product = roasting:addProduct(catId, 3915, 1)
 product:addIngredient(1210) -- rose fish
 
--- Smoked fish
-local product = roasting:addProduct(catId, 455, 1)
+-- Smoked salmon
+local product = roasting:addProduct(catId, 3916, 1)
 product:addIngredient(355) -- salmon
 
--- Smoked fish
-local product = roasting:addProduct(catId, 455, 1)
+-- Smoked horse mackerel
+local product = roasting:addProduct(catId, 3914, 1)
 product:addIngredient(1209) -- horse mackerel
 
--- Smoked fish
+-- Smoked trout
 local product = roasting:addProduct(catId, 455, 1)
 product:addIngredient(73) -- trout
