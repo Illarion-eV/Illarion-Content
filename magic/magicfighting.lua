@@ -306,7 +306,7 @@ function M.onMagicAttack(attackerStruct, defenderStruct)
     if attackerStruct["intelligence"] + attackerStruct["essence"] + attackerStruct["willpower"] < 30 then
         return
     end
-    
+    attackerStruct.Char:inform("after attribute check")
     local neededCastTime = calculateCastTime(attackerStruct)
     
     -- Any attack must preload a given time before he can be executed
