@@ -37,7 +37,7 @@ local fightingutil = require("base.fightingutil")
 local gems = require("base.gems")
 
 local function getNeededMana(castTime)
-    return math.ceil(100 + (castTime-7)*12)
+    return math.ceil(80 + (castTime-7)*20)
 end
 
 local function calculateCastTime(attackerStruct)
