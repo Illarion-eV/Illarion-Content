@@ -77,7 +77,7 @@ queststatus(313) < 2, ".*" -> item(23, 1, 333), item(2535, 10, 333), queststatus
 
 -- Player brought 15 pins
 queststatus(313) = 2, item(2738, all) > 2, english, ".*" -> inform("[Tutorial] You are awarded an iron goblet."), deleteItem(2738, 3), item(223, 1, 599), queststatus(313) = 3, "Aye! Ye did it! I'll give ye this cup as example of my work, and to show ye what ye might be able to achieve one day. Don't hesitate to show it off to everyone on the mainland... ye might land me some more customers. Harr! Viola Baywillow, down the road, will help ye to choose a proper home and send ye on yer way."
-queststatus(313) = 2, item(2738, all) > 2, ".*" -> inform("[Tutorial] Du erhältst einen Eisenkelch."), deleteItem(2738, 3), item(223, 1, 599), queststatus(313) = 3, "Aye! Du hast es geschafft! Nimm diesen Kelch als Beispiel für meine Arbeit und als Zeichen, was du vielleicht mal erreichen kannst. Zögere nicht, ihn auch auf dem Festland rumzuzeigen, vielleicht verschaffste mir ja ein paar Kunden. Harr! Viola Bayillow, die die Straße runter wohnt, wird dir helfen, 'ne vernünftige Heimat auszusuchen und dich auf deinen Weg schicken."
+queststatus(313) = 2, item(2738, all) > 2, ".*" -> inform("[Tutorial] Du erhältst einen Eisenkelch."), deleteItem(2738, 3), item(223, 1, 599), queststatus(313) = 3, "Aye! Du hast es geschafft! Nimm diesen Kelch als Beispiel für meine Arbeit und als Zeichen, was du vielleicht mal erreichen kannst. Zögere nicht, ihn auch auf dem Festland rumzuzeigen, vielleicht verschaffste mir ja ein paar Kunden. Harr! Viola Baywillow, die die Straße runter wohnt, wird dir helfen, 'ne vernünftige Heimat auszusuchen und dich auf deinen Weg schicken."
 
 -- Player has lost his hammer
 queststatus(313) = 2, item(23, all) = 0, english, ".*" -> item(23, 1, 333), "Bah! Without a hammer, ye are not able to forge. Losing your hammer is the first step towards ending up on the rocks. Luckily for ye, I have another one."
@@ -93,7 +93,7 @@ queststatus(313) = 2, item(21, all) < 3, ".*" -> "Probleme mit dem Schmieden? Ei
 
 -- Player did all lessons
 queststatus(313) = 3, english, ".*" -> "Harr! Now I've only gone and trained another competitor for my business... yet again. True dwarven craft knows no competition though! I can proudly say ye learned all that ye need to get started now. Viola Baywillow will help ye to choose a proper home and send ye on yer way."
-queststatus(313) = 3, ".*" -> "Harr! Jetzt hab' ich schon wieder einen Konkurrenten für mein Geschäft trainiert. Aber wahre Zwergenkunst hat keine Konkurrenz! Ich kann mit Stolz sagen, dass du alles gelernt hast für den Anfang. Viola Bayillow wird dir helfen 'ne vernünftige Heimat auszusuchen und dich auf deinen Weg schicken."
+queststatus(313) = 3, ".*" -> "Harr! Jetzt hab' ich schon wieder einen Konkurrenten für mein Geschäft trainiert. Aber wahre Zwergenkunst hat keine Konkurrenz! Ich kann mit Stolz sagen, dass du alles gelernt hast für den Anfang. Viola Baywillow wird dir helfen 'ne vernünftige Heimat auszusuchen und dich auf deinen Weg schicken."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
