@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local lookat = require("base.lookat")
+local learnMagic = require("magic.learnMagic")
 
 local M = {}
 
@@ -224,6 +225,7 @@ function M.UseItem(user, item)
         if success then
             local selected = dialog:getSelectedIndex() + 1
             user:sendBook(bookIds[selected])
+            learnMagic.readMagicBooks(user, bookIds[selected])
         end
     end
 

@@ -118,6 +118,7 @@ function M.isMagicUser(Attacker)
     if Attacker:getMagicType() == 0 and (Attacker:getQuestProgress(37) ~= 0 or Attacker:getMagicFlags(0) > 0) then
         return true
     end
+    debug("no mage")
     return false
 end
 

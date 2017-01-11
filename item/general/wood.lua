@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local lookat = require("base.lookat")
 local checks = require("item.general.checks")
+local learnMagic = require("magic.learnMagic")
 
 local M = {}
 
@@ -40,6 +41,20 @@ function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
     end
 
     return true
+end
+
+function M.UseItem(user, sourceItem)
+    local magicWands = {}
+    magicWands[323] = true
+    magicWands[2782] = true
+    magicWands[2783] = true
+    magicWands[2784] = true
+    magicWands[2785] = true
+    magicWands[3608] = true
+    
+    if magicWands[sourceItem.id] then
+        learnMagic.useMagicWand(user, sourceItem)
+    end
 end
 
 return M

@@ -33,48 +33,48 @@ Title[ENGLISH] = "The Poacher"
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Gehe in den Elsbaumwald östlich von Eugene und jage sechs Schweine. Bringe ihm dann mindestens drei Stücke Schweinefleisch. Um zu Jagen nimm eine Waffe in die Hand und greife die Schweine an."
-Description[ENGLISH][1] = "Go into the Elstree forest, east of Eugene, and kill six pigs. Collect the pork you find and bring back to Eugene at least three pieces. To hunt, make sure you have a weapon in your hand and attack the pigs."
-Description[GERMAN][2] = "Jage noch fünf Schweine im Elsbaumwald."
-Description[ENGLISH][2] = "Kill five more pigs in the Elstree forest."
-Description[GERMAN][3] = "Jage noch vier Schweine im Elsbaumwald."
-Description[ENGLISH][3] = "Kill four more pigs in the Elstree forest."
-Description[GERMAN][4] = "Jage noch drei Schweine im Elsbaumwald."
-Description[ENGLISH][4] = "Kill three more pigs in the Elstree forest."
-Description[GERMAN][5] = "Jage noch zwei Schweine im Elsbaumwald."
-Description[ENGLISH][5] = "Kill two more pigs in the Elstree forest."
-Description[GERMAN][6] = "Jage noch ein Schweine im Elsbaumwald."
+Description[GERMAN][1] = "Gehe in den Elsbaumwald östlich von Eugene und jage sechs Kaninchen. Bringe ihm dann mindestens  Stücke  sechs Kaninchenfleisch. Um zu Jagen nimm eine Waffe in die Hand und greife die Kaninchen an."
+Description[ENGLISH][1] = "Go into the Elstree forest, east of Eugene, and kill six rabbits. Collect the meat you find and bring back to Eugene at least six pieces. To hunt, make sure you have a weapon in your hand and attack the rabbits."
+Description[GERMAN][2] = "Jage noch fünf Kaninchen im Elsbaumwald."
+Description[ENGLISH][2] = "Kill five more rabbits in the Elstree forest."
+Description[GERMAN][3] = "Jage noch vier Kaninchen im Elsbaumwald."
+Description[ENGLISH][3] = "Kill four more rabbits in the Elstree forest."
+Description[GERMAN][4] = "Jage noch drei Kaninchen im Elsbaumwald."
+Description[ENGLISH][4] = "Kill three more rabbits in the Elstree forest."
+Description[GERMAN][5] = "Jage noch zwei Kaninchen im Elsbaumwald."
+Description[ENGLISH][5] = "Kill two more rabbits in the Elstree forest."
+Description[GERMAN][6] = "Jage noch ein Kaninchen im Elsbaumwald."
 Description[ENGLISH][6] = "Kill one more pig in the Elstree forest."
-Description[GERMAN][7] = "Kehre zu Eugene Burton zurück und bringe ihm mindestens drei Stück Schweinefleisch. Sollte dir das Glück nicht hold gewesen sein, töte noch ein paar Schweine um an mehr Schweinefleisch zu kommen."
-Description[ENGLISH][7] = "Return to Eugene Burton with at least three pieces of pork."
+Description[GERMAN][7] = "Kehre zu Eugene Burton zurück und bringe ihm mindestens sechs Stück Kaninchenfleisch. Sollte dir das Glück nicht hold gewesen sein, töte noch ein paar Kaninchen um an mehr Kaninchenfleisch zu kommen."
+Description[ENGLISH][7] = "Return to Eugene Burton with at least six pieces of rabbit meat."
 Description[GERMAN][8] = "Gehe zu Eugene Burton, der sich am westlichen Rand des Elsbaumwaldes aufhält. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][8] = "Return to Eugene Burton on the western side of the Elstree forest, he certainly has another task for you."
-Description[GERMAN][9] = "Gehe in den Elsbaumwald östlich von Eugene und jage zwölf Rinder. Bringe ihm dann sechs Steaks. Um zu Jagen nehme eine Waffe in die Hand und greife die Kühe an."
-Description[ENGLISH][9] = "Go into the Elstree forest east of Eugene and kill twelve cows or bulls. Eugene is looking for 6 cuts of premium steak. Be sure to have a weapon in hand to kill more effectively!"
-Description[GERMAN][10] = "Jage noch elf Kühe im Elsbaumwald."
-Description[ENGLISH][10] = "First one down, keep going you have eleven cows left."
-Description[GERMAN][11] = "Jage noch zehn Kühe im Elsbaumwald."
-Description[ENGLISH][11] = "Two steaks if you are lucky, otherwise, press on! Ten cows left."
-Description[GERMAN][12] = "Jage noch neun Kühe im Elsbaumwald."
-Description[ENGLISH][12] = "The work is hard but at least there is plenty of leather, nine cows left."
-Description[GERMAN][13] = "Jage noch acht Kühe im Elsbaumwald."
-Description[ENGLISH][13] = "Four animals dead but how many steaks?. Eight cows left."
-Description[GERMAN][14] = "Jage noch sieben Kühe im Elsbaumwald."
-Description[ENGLISH][14] = "Another one falls but more steak is needed. Seven cows left."
-Description[GERMAN][15] = "Jage noch sechs Kühe im Elsbaumwald."
-Description[ENGLISH][15] = "Keep up the hard work! Six cows left."
-Description[GERMAN][16] = "Jage noch fünf Kühe im Elsbaumwald."
-Description[ENGLISH][16] = "Don't stop now! Five cows left."
-Description[GERMAN][17] = "Jage noch vier Kühe im Elsbaumwald."
-Description[ENGLISH][17] = "With any luck you are making progress. Four cows left."
-Description[GERMAN][18] = "Jage noch drei Kühe im Elsbaumwald."
-Description[ENGLISH][18] = "The work doesn't get any easier but there is a task to complete. Three cows left."
-Description[GERMAN][19] = "Jage noch zwei Kühe im Elsbaumwald."
-Description[ENGLISH][19] = "The steaks should be stacking up now. Two cows left."
+Description[GERMAN][9] = "Gehe in den Elsbaumwald östlich von Eugene und jage zwölf Hirsch. Bringe ihm dann zwölf Wild. Um zu Jagen nehme eine Waffe in die Hand und greife die Hirsch an."
+Description[ENGLISH][9] = "Go into the Elstree forest east of Eugene and kill twelve deer. Eugene is looking for 12 cuts of premium venison. Be sure to have a weapon in hand to kill more effectively!"
+Description[GERMAN][10] = "Jage noch elf Hirsch im Elsbaumwald."
+Description[ENGLISH][10] = "First one down, keep going you have eleven deer left."
+Description[GERMAN][11] = "Jage noch zehn Hirsch im Elsbaumwald."
+Description[ENGLISH][11] = "Two pieces of meat if you are lucky, otherwise, press on! Ten deer left."
+Description[GERMAN][12] = "Jage noch neun Hirsch im Elsbaumwald."
+Description[ENGLISH][12] = "The work is hard but at least there is plenty of fur, nine deer left."
+Description[GERMAN][13] = "Jage noch acht Hirsch im Elsbaumwald."
+Description[ENGLISH][13] = "Four animals dead but how many venison meat?. Eight deer left."
+Description[GERMAN][14] = "Jage noch sieben Hirsch im Elsbaumwald."
+Description[ENGLISH][14] = "Another one falls but more venison is needed. Seven deer left."
+Description[GERMAN][15] = "Jage noch sechs Hirsch im Elsbaumwald."
+Description[ENGLISH][15] = "Keep up the hard work! Six deer left."
+Description[GERMAN][16] = "Jage noch fünf Hirsch im Elsbaumwald."
+Description[ENGLISH][16] = "Don't stop now! Five deer left."
+Description[GERMAN][17] = "Jage noch vier Hirsch im Elsbaumwald."
+Description[ENGLISH][17] = "With any luck you are making progress. Four deer left."
+Description[GERMAN][18] = "Jage noch drei Hirsch im Elsbaumwald."
+Description[ENGLISH][18] = "The work doesn't get any easier but there is a task to complete. Three deer left."
+Description[GERMAN][19] = "Jage noch zwei Hirsch im Elsbaumwald."
+Description[ENGLISH][19] = "The venison should be stacking up now. Two deer left."
 Description[GERMAN][20] = "Jage noch eine Kuh im Elsbaumwald."
-Description[ENGLISH][20] = "Stay focused and tend to your work. One cow left."
-Description[GERMAN][21] = "Kehre zu Eugene Burton zurück und bringe ihm zwölf Steaks."
-Description[ENGLISH][21] = "If Nargun favored you, twelve premium cuts of steak should be in your possession, and you should go back to Eugene, otherwise keep hunting!"
+Description[ENGLISH][20] = "Stay focused and tend to your work. One deer left."
+Description[GERMAN][21] = "Kehre zu Eugene Burton zurück und bringe ihm zwölf Wild."
+Description[ENGLISH][21] = "If Nargun favored you, twelve premium cuts of venison should be in your possession, and you should go back to Eugene, otherwise keep hunting!"
 Description[GERMAN][22] = "Gehe zu Eugene Burton, der sich am westlichen Rand des Elsbaumwaldes aufhält. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][22] = "Return to Eugene Burton on the western side of the Elstree forest, he certainly has another task for you."
 Description[GERMAN][23] = "Gehe in den Elsbaumwald östlich von Eugene und töte sechs Wölfe. Nimm dazu eine Waffe in die Hand und greife die Wölfe an."
@@ -150,18 +150,18 @@ monsterQuests.addQuest{
     location = {position = position(775, 475, 0), radius = 75},
     queststatus = {from = 1, to = 7},
     questTitle = {german = "Der Wilderer I", english = "The Poacher I"},
-    monsterName = {german = "Wildschweine", english = "boars"},
+    monsterName = {german = "Kaninchen", english = "Rabbits"},
     npcName = "Eugene Burton",
-    raceIds = {24} -- all pigs
+    raceIds = {113} -- all rabbits
 }
 monsterQuests.addQuest{
     questId = 4,
     location = {position = position(775, 475, 0), radius = 75},
     queststatus = {from = 9, to = 21},
     questTitle = {german = "Der Wilderer II", english = "The Poacher II"},
-    monsterName = {german = "Rinder", english = "bulls"},
+    monsterName = {german = "Hirsch", english = "deer"},
     npcName = "Eugene Burton",
-    raceIds = {37} -- all cows
+    raceIds = {116} -- all deer
 }
 monsterQuests.addQuest{
     questId = 4,

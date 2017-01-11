@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE items SET itm_script='item.food' WHERE itm_id IN (15,49,73,80,81,142,143,147,151,158,159,160,161,162,163,191,199,200,201,302,303,306,307,353,354,355,388,453,454,455,552,553,554,555,556,557,559,1207,2276,2277,2278,2456,2459,2493,2922,2923,2934,2940,3051,3711,3712,3716,3715,3709,3710,3713,3714,3723);
+-- UPDATE items SET itm_script='item.food' WHERE itm_id IN (15,49,73,80,81,142,143,147,151,158,159,160,161,162,163,191,199,200,201,302,303,306,307,353,354,355,388,453,454,455,552,553,554,555,556,557,559,1207,2276,2277,2278,2456,2459,2493,2922,2923,2934,2940,3051,3711,3712,3716,3715,3709,3710,3713,3714,3723,3914,3915,3916);
 
 local M = {}
 
@@ -35,8 +35,14 @@ foodList[191] = {crafted = true}
 foodList[3051] = {crafted = true}
 -- Ham
 foodList[306] = {crafted = true}
--- Smoked fish
+-- Smoked trout
 foodList[455] = {crafted = true}
+-- Smoked salmon
+foodList[3916] = {crafted = true}
+-- Smoked rose fish
+foodList[3915] = {crafted = true}
+-- Smoked horse mackerel
+foodList[3914] = {crafted = true}
 -- Smoked rabbit
 foodList[3710] = {crafted = true}
 -- Smoked chicken
