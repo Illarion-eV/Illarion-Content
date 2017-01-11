@@ -49,7 +49,7 @@ function M.MoveToField(Character)
 
             local callbackNewbie = function() end --empty callback
             local dialogText = common.GetNLS(Character,
-                "An dieser Station wird dir die Elfe Aldania erkläre, wie man Gegenstände anlegt und sie benutzt. Begrüße sie einfach so, wie du es von Henry Cunnigan gelernt hast! Aktiviere deine Chatbox mit 'Return' und schreibe 'Hallo'.\n\nUm das Inventar zu öffnen, drücke 'I', 'B' öffnet deine Tasche. Gegenstände können mit der Maus in Inventarfelder gezogen werden und durch einen Doppelklick benutzt werden.",
+                "An dieser Station wird dir die Elfe Aldania erklären, wie man Gegenstände anlegt und sie benutzt. Begrüße sie einfach so, wie du es von Henry Cunnigan gelernt hast! Aktiviere deine Chatbox mit 'Return' und schreibe 'Hallo'.\n\nUm das Inventar zu öffnen, drücke 'I', 'B' öffnet deine Tasche. Gegenstände können mit der Maus in Inventarfelder gezogen werden und durch einen Doppelklick benutzt werden.",
                 "At this station, the elfess Aldania will explain to you how to equip and use items. Greet her as you learned from Henry Cunnigan! Activate your chatbox with 'return' and type 'Hello'.\n\nTo open the inventory, hit 'I', 'B' opens the backpack. Items can be dragged with the mouse to inventory slots and used with a double click.")
             local dialogNewbie = MessageDialog("Tutorial", dialogText, callbackNewbie)
             Character:requestMessageDialog(dialogNewbie)
