@@ -46,7 +46,7 @@ function M.MoveToField(Character)
 
             local callbackNewbie = function() end --empty callback
             local dialogText = common.GetNLS(Character,
-                 "An dieser Station lernst du, wie man Rohstoffe abbaut. Der Augenmerk liegt auf Bergbau aber im Prinzip laufen alle Sammelaktionen nach dem selben Schema ab. Nun, wer ist wohl der Richtige, um dir zu zeigen, wie man nach Gold gräbt? Natürlich ein Zwerg wie Nargon Hammerfist!\n\nRohstoffe werden durch das Benutzen eines geeigneten Werkzeuges in der Nähe einer Ressourcenquelle gesammelt.",
+                 "An dieser Station lernst du, wie man Rohstoffe abbaut. Das Augenmerk liegt auf Bergbau, aber im Prinzip laufen alle Sammelaktionen nach dem selben Schema ab. Nun, wer ist wohl der Richtige, um dir zu zeigen, wie man nach Gold gräbt? Natürlich ein Zwerg wie Nargon Hammerfist!\n\nRohstoffe werden durch das Benutzen eines geeigneten Werkzeuges in der Nähe einer Ressourcenquelle gesammelt.",
                  "At this station, you will learn how to gather resources. This station will focus on mining, though similar principles are applicable to the other gathering actions. Now, who might be the best to teach you how to mine for gold? Why, a dwarf like Nargon Hammerfist of course.\n\nYou can gather resources by using a suitable tool while standing close to a material source.")
             local dialogNewbie = MessageDialog("Tutorial", dialogText, callbackNewbie)
             Character:requestMessageDialog(dialogNewbie)
