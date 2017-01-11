@@ -296,7 +296,7 @@ function wandDegrade(caster, wand)
 end
 
 function M.onMagicAttack(attackerStruct, defenderStruct)
-    
+    debug("start onMagicAttack")
     common.TurnTo(attackerStruct.Char,defenderStruct.Char.pos)
     
     attackerStruct["intelligence"] = attackerStruct.Char:increaseAttrib("intelligence", 0)
