@@ -268,7 +268,7 @@ english, "Amethyst" -> "The amethyst belongs to Cadomyr and is part of the colle
 "Amethyst" -> "Der Amethyst gehört zu Cadomyr und ist Teil der Sammlung von Königin Rosaline Edwards. Du findest weitere Informationen über den Stein in jeder Stadt."
 "Sapphire" -> "The sapphire belongs to Galmair and is part of the collection of Don Valerio Guilianni. You can find further information about it in each of the towns."
 "Saphir" -> "Der Saphir gehört zu Galmair und ist Teil der Sammlung von Don Valerio Guilianni. Du findest weitere Informationen über den Stein in jeder Stadt."
-"Obsidian" -> "The obsidian belongs to Galmair and is part of the collection of Don Valerio Guilianni. You can find further information about it in each of the towns."
+"Obsidian", english -> "The obsidian belongs to Galmair and is part of the collection of Don Valerio Guilianni. You can find further information about it in each of the towns."
 "Obsidian" -> "Der Obsidian gehört zu Galmair und ist Teil der Sammlung von Don Valerio Guilianni. Du findest weitere Informationen über den Stein in jeder Stadt."
 "Diamond" -> "The diamond is missing. Nobody knows where it is but rumours say that it must be somewhere here. If you can find it for your chosen town you will definitely be highly rewarded."
 "Diamant" -> "Der Diamant wird vermisst. Niemand weiß wo er ist aber Gerüchten zufolge muss er irgendwo hier sein. Wenn du ihn für die Stadt deiner Wahl finden kannst wirst du bestimmt hoch belohnt."
