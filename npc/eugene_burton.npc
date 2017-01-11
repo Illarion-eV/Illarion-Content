@@ -74,7 +74,7 @@ itemShoes = 53
 -- 2-7: Killing 6 rabbits
 -- 8: Quest 1 solved, reward: 250 arrows
 -- 9: Quest 2 taken - kill 12 deer, provide 12 venison (552)
--- 10-21: Killing 12 bucks 
+-- 10-21: Killing 12 bucks
 -- 22: Quest 2 solved, reward: Golden ring, copper goblet, emerald amulet, 200cp
 -- 23: Quest 3 taken - kill 6 wolves
 -- 24-29: Killing 6 wolves
@@ -121,9 +121,9 @@ queststatus(4) > 0, queststatus(4) < 7, "task", "adventure" -> "Oh, please, will
 queststatus(4) > 0, queststatus(4) < 7, "Auftrag", "Aufgabe", "Abenteuer" -> "Oh, würdet ihr bitte ein halbes Dutzend Kaninchen im Elsbaumwald jagen gehen? Meine Kinder flehen um etwas zu essen und jeden Tag muss ich sie aufs Neue enttäuschen."
 
 -- Too few items
-queststatus(4) = 7, item(553, all) < 6, english, "quest", "mission" -> "Did you perhaps forget the rabbit in the forest? Please, quick, fetch it. My children will thank you."
+queststatus(4) = 7, item(553, all) < 6, english, "quest", "mission" -> "Did you perhaps forget the rabbit meat in the forest? Please, quick, fetch it. My children will thank you."
 queststatus(4) = 7, item(553, all) < 6, "quest", "mission" -> "Habt ihr etwa das Fleisch der Kaninchen im Wald vergessen? Bitte, lauft, und holt es! Meine Kinder werden es euch danken."
-queststatus(4) = 7, item(553, all) < 6, "task", "adventure" -> "Did you perhaps forget the rabbit in the forest? Please, quick, fetch it. My children will thank you."
+queststatus(4) = 7, item(553, all) < 6, "task", "adventure" -> "Did you perhaps forget the rabbit meat in the forest? Please, quick, fetch it. My children will thank you."
 queststatus(4) = 7, item(553, all) < 6, "Auftrag", "Aufgabe", "Abenteuer" -> "Habt ihr etwa das Fleisch der Kaninchen im Wald vergessen? Bitte, lauft, und holt es! Meine Kinder werden es euch danken."
 
 -- Quest 1 solved, reward: 250 arrows
