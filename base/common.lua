@@ -1816,19 +1816,14 @@ leadAttribTable[Character.wrestling]="strength"
 leadAttribTable[Character.concussionWeapons]="strength"
 leadAttribTable[Character.punctureWeapons]="strength"
 
---Essence: Alchemy
-leadAttribTable[Character.alchemy]="intelligence"
+--Perception: Druids
+leadAttribTable[Character.alchemy]="perception"
 
 --Intelligence: Magic
-leadAttribTable[Character.wandMagic]="essence"
+leadAttribTable[Character.wandMagic]="intelligence"
+
 --Willpower: Priests
 --No skills yet
-
---Deactivated skills
---leadAttribTable[Character.dodge]="agility" --deactivated
---leadAttribTable[Character.tactics]="perception" --deactivated
---leadAttribTable[Character.magicResistance]="wilpower" --please reconsider once you work on magic
---leadAttribTable[Character.poisoning]="perception" --deactivated
 
 function M.GetLeadAttributeName(Skill)
     return leadAttribTable[Skill]
