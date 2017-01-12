@@ -71,6 +71,9 @@ Position List,lockId,English Description,German Description,locked on reload [fa
 "{425, 241,-5}",126,Flat Ronagan,Wohnung Ronagan,
 "{425, 241,-5}",127,Flat Sirani,Wohnung Sirani,
 "{425, 241,-5}",128,Flat Zhambra,Wohnung Zhambra,
+"{399, 221,1}",131,Flat Sapphire,Wohnung Saphir,
+"{407, 221,1}",132,Flat Diamond,Wohnung Diamant,
+"{428, 215,1}",133,Flat Obsidian,Wohnung Obsidian,
 -- Runewick 2xx,,,,
 "{995, 815, 0)",200,Archmage's Villa,Villa des Erzmagiers,FALSE
 "{996, 815, 0)",200,Archmage's Villa,Villa des Erzmagiers,FALSE
