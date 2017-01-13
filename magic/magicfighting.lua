@@ -296,7 +296,7 @@ function wandDegrade(caster, wand)
 end
 
 function M.onMagicAttack(attackerStruct, defenderStruct)
-    debug("start onMagicAttack")
+
     common.TurnTo(attackerStruct.Char,defenderStruct.Char.pos)
     
     attackerStruct["intelligence"] = attackerStruct.Char:increaseAttrib("intelligence", 0)
@@ -304,7 +304,7 @@ function M.onMagicAttack(attackerStruct, defenderStruct)
     attackerStruct["willpower"] = attackerStruct.Char:increaseAttrib("willpower", 0)
     
     local attributeSum = attackerStruct["intelligence"] + attackerStruct["essence"] + attackerStruct["willpower"]
-    debug("" .. attributeSum) 
+
     if attributeSum < 30 then
         return
     end
