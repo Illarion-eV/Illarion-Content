@@ -580,6 +580,9 @@ itemList = {
 453 ,--Kekse cookies
 454 ,--Brombeermuffin blackberry muffin
 455 ,--geräucherter Fisch smoked fish
+3914,-- smoked horse mackerel
+3915,-- smoked rose fish
+3916,-- smoked salmon
 456 ,--Schneeball snowball
 85 ,--verkupfertes Langschwert coppered longsword
 460 ,--gelbe Hose yellow trousers

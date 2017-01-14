@@ -148,20 +148,20 @@ queststatus(718) = 3, item(1209, all) <5, town = Runewick, "task", "adventure", 
 queststatus(718) = 3, item(1209, all) <5, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me schiebt den Hut aus dem Gesicht 'Ich warte auf die zehn Lachse und die fünf Stachelmakrelen'."
 
 -- 3rd quest
-queststatus(718) = 4, english, town = Runewick, "quest", "mission" -> inform("[New quest] Relaxed fishing in Runewick III"), queststatus(718) = 5, "Go to town and smoke the fish, so they don't get stinky. Bring me five smoked fish."
-queststatus(718) = 4, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Entspanntes Fischen in Runewick III"), queststatus(718) = 5, "Frischer Fisch hält sich nich lang. Gehe in die Stadt und räucher ihn. Bringe mir dann fünf geräucherte Fische."
-queststatus(718) = 4, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Relaxed fishing in Runewick III"), queststatus(718) = 5, "Go to town and smoke the fish, so they don't get stinky. Bring me five smoked fish."
-queststatus(718) = 4, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Entspanntes Fischen in Runewick III"), queststatus(718) = 5, "Frischer Fisch hält sich nich lang. Gehe in die Stadt und räucher ihn. Bringe mir dann fünf geräucherte Fische."
+queststatus(718) = 4, english, town = Runewick, "quest", "mission" -> inform("[New quest] Relaxed fishing in Runewick III"), queststatus(718) = 5, "Go to town and smoke the salmons, so they don't get stinky. Bring me five smoked salmons."
+queststatus(718) = 4, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Entspanntes Fischen in Runewick III"), queststatus(718) = 5, "Frischer Fisch hält sich nich lang. Gehe in die Stadt und räucher ihn. Bringe mir dann fünf geräucherte Lachse."
+queststatus(718) = 4, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Relaxed fishing in Runewick III"), queststatus(718) = 5, "Go to town and smoke the salmons, so they don't get stinky. Bring me five smoked salmons."
+queststatus(718) = 4, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Entspanntes Fischen in Runewick III"), queststatus(718) = 5, "Frischer Fisch hält sich nich lang. Gehe in die Stadt und räucher ihn. Bringe mir dann fünf geräucherte Lachse."
 
-queststatus(718) = 5, item(455, all) < 5, english, town = Runewick, "quest", "mission" -> "The simplest way is to use the smoke oven in town to smoke five fish for me."
-queststatus(718) = 5, item(455, all) < 5, town = Runewick, "quest", "mission" -> "Am einfachsten nutzt du die Räucherhütte in der Stadt um mir fünf Fische zu räuchern."
-queststatus(718) = 5, item(455, all) < 5, town = Runewick, "task", "adventure", "order" -> "The simplest way is to use the smoke oven in town to smoke five fish for me."
-queststatus(718) = 5, item(455, all) < 5, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "job" -> "Am einfachsten nutzt du die Räucherhütte in der Stadt um mir fünf Fische zu räuchern."
+queststatus(718) = 5, item(3916, all) < 5, english, town = Runewick, "quest", "mission" -> "The simplest way is to use the smoke oven in town to smoke five salmons for me."
+queststatus(718) = 5, item(3916, all) < 5, town = Runewick, "quest", "mission" -> "Am einfachsten nutzt du die Räucherhütte in der Stadt um mir fünf Lachse zu räuchern."
+queststatus(718) = 5, item(3916, all) < 5, town = Runewick, "task", "adventure", "order" -> "The simplest way is to use the smoke oven in town to smoke five salmons for me."
+queststatus(718) = 5, item(3916, all) < 5, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "job" -> "Am einfachsten nutzt du die Räucherhütte in der Stadt um mir fünf Lachse zu räuchern."
 
-skill(fishing) < 90, queststatus(718) = 5, item(455, all) > 4, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded five silver coins and your fishing skill increases."), skill(fishing) + 1, money + 500, queststatus(718) = 6, "#me smiles broadly 'Keep the smoked fish, I don't like them. Take the coins for your effort.'"
-queststatus(718) = 5, item(455, all) > 4, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded five silver coins."), money + 500, queststatus(718) = 6, "#me smiles broadly 'Keep the smoked fish, I don't like them. Take the coins for your effort.'"
-skill(fishing) < 90, queststatus(718) = 5, item(455, all) > 4, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und deine Fischereifertigkeit steigt."), skill(fishing) + 1, money + 500, queststatus(718) = 6, "#me grinst breit 'Behalten den geräucherten Fisch, ich mag ihn sowieso nicht. Nimm die Münzen für den Aufwand.'"
-queststatus(718) = 5, item(455, all) > 4, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), money + 500, queststatus(718) = 6, "#me grinst breit 'Behalten den geräucherten Fisch, ich mag ihn sowieso nicht. Nimm die Münzen für den Aufwand.'"
+skill(fishing) < 90, queststatus(718) = 5, item(3916, all) > 4, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded five silver coins and your fishing skill increases."), skill(fishing) + 1, money + 500, queststatus(718) = 6, "#me smiles broadly 'Keep the smoked fish, I don't like them. Take the coins for your effort.'"
+queststatus(718) = 5, item(3916, all) > 4, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded five silver coins."), money + 500, queststatus(718) = 6, "#me smiles broadly 'Keep the smoked fish, I don't like them. Take the coins for your effort.'"
+skill(fishing) < 90, queststatus(718) = 5, item(3916, all) > 4, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und deine Fischereifertigkeit steigt."), skill(fishing) + 1, money + 500, queststatus(718) = 6, "#me grinst breit 'Behalten den geräucherten Fisch, ich mag ihn sowieso nicht. Nimm die Münzen für den Aufwand.'"
+queststatus(718) = 5, item(3916, all) > 4, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), money + 500, queststatus(718) = 6, "#me grinst breit 'Behalten den geräucherten Fisch, ich mag ihn sowieso nicht. Nimm die Münzen für den Aufwand.'"
 
 -- 4th quest
 queststatus(718) = 6, english, town = Runewick, "quest", "mission" -> inform("[New quest] Relaxed fishing in Runewick IV"), queststatus(718) = 7, "You also have to keep your fishing rod in a good repair. Bring ten spools of thread to me, then I will teach you how to repair your fishing rod."

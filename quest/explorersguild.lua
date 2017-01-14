@@ -88,7 +88,7 @@ end
 local reward = {}
 reward[1] = {{3077, 2}}; -- 2 silver coins (3077)
 reward[5] = {{3077, 10},{16,1},{97,1},{463,1},{326,1}}; -- items worth 10 silver coins - silver coins, orc helmet, leather bag, quill, steel boots
-reward[10] = {{3077, 20},{455, 10},{2421,1},{2760,1},{2763,1},{126,1},{72,1}} -- items worth 20 silver coins - silver coins, smoked fish, white priest robe, rope, pick-axe, sickle, fishing rod
+reward[10] = {{3077, 20},{455, 10},{2421,1},{2760,1},{2763,1},{126,1},{72,1}} -- items worth 20 silver coins - silver coins, smoked trout, white priest robe, rope, pick-axe, sickle, fishing rod
 reward[20] = {{3077, 30},{90,1},{1908,1},{2537,5},{254,3}} -- items worth 30 silver coins - silver coins, flute, glass mug, iron plate, raw diamond
 reward[50] = {{3077, 60},{1152,1},{2719,1},{453,20},{64,150}} -- items worth 60 silver coins - silver coins, chicken soup, comb, cookies, arrows
 reward[100] = {{61, 1},{559,2},{1059,1},{533,1},{1223,1},{51,5}} -- items worth 1 gold coin - gold coin, lamb dish, dice cup, drum, empty alchemy bomb, bucket

@@ -15,12 +15,6 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- smokingoven (305)
-
--- pork (307) --> ham (306)
--- trout (73) --> smoked fish (455)
--- salmon (355) --> smoked fish (455)
-
 local common = require("base.common")
 local gathering = require("content.gathering")
 
