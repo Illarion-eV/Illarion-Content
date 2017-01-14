@@ -388,14 +388,14 @@ end
 
 function Product:getCraftingTime(skill)
 
-    --This function returns the crafting time, scaled by the price of the item in 0.5 s steps.
+    --This function returns the crafting time, scaled by the price of the item.
     if (self.learnLimit == self.difficulty) then
         learnProgress = 50 --This is a temporary solution until we get "effective" skills beyond 100 as proposed by Bloodraven, see Ars Magica
     else
         learnProgress = (skill - self.difficulty) / (self.learnLimit - self.difficulty) * 100
     end
     local theItem = world:getItemStatsFromId(self.item)
-    local minimum = math.max ((self.quantity * theItem.Worth * 0.012),5) 
+    local minimum = math.max ((self.quantity * theItem.Worth * 0.012),10) 
     local craftingTime = common.Scale(minimum * 2, minimum, learnProgress)
     if craftingTime > 99 then
         craftingTime = 10 * math.floor(craftingTime/10 + 0.5) -- Round correctly to whole seconds
