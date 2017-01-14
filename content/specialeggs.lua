@@ -579,7 +579,7 @@ itemList = {
 314 ,--Pottasche potash
 453 ,--Kekse cookies
 454 ,--Brombeermuffin blackberry muffin
-455 ,--geräucherter Fisch smoked fish
+455 ,--geräucherter Forelle smoked trouts
 3914,-- smoked horse mackerel
 3915,-- smoked rose fish
 3916,-- smoked salmon
