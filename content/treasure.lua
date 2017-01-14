@@ -716,9 +716,14 @@ treasureContents[7] = {
 {1477,1}, --grand master's gloves
 {83,1}, --golden topaz amulet
 {282,1}, --golden topaz ring
-{336,1} --mirror
-    
+{336,1}, --mirror
+{2551,1}, --pure air
+{2552,1}, --pure earth
+{2553,1}, --pure fire
+{2554,1}, --pure water
+{3607,1} --pure spirit
 }
+
 treasureContents[8] = {
 {98,1}, --silvered longsword
 {297,1}, --gilded dagger
