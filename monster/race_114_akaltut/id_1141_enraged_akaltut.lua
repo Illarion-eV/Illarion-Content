@@ -52,14 +52,14 @@ local function spawnEnragedAkaltut(pos)
     if spiderQueen ~= nil and isValidChar(spiderQueen) then
         spiderQueen:talk(Character.say, "#me zerbricht das Ei und erscheint in ihrem normalen Aussehen.", "#me bursts forth from the egg in it's natural state.")
         id_1142_akaltut.akaltutSpiderFormExists = true
-        hooks.registerOnDeath(spiderQueen, function() id_1142_akaltut.akaltutSpiderFormExists = false; end;)
+        hooks.registerOnDeath(spiderQueen, function() id_1142_akaltut.akaltutSpiderFormExists = false; end)
     end
     local humanMage = world:createMonster(3,spawnPosition, -5)
     if humanMage ~= nil and isValidChar(humanMage) then
         humanMage:setAttrib("sex", 1)
         humanMage:talk(Character.say, "#me zerbricht das Ei und erscheint in ihrem normalen Aussehen.", "#me bursts forth from the egg in it's natural state.")
         id_1142_akaltut.akaltutMageFormExists = true
-        hooks.registerOnDeath(humanMage, function() id_1142_akaltut.akaltutMageFormExists = false; end;)
+        hooks.registerOnDeath(humanMage, function() id_1142_akaltut.akaltutMageFormExists = false; end)
     end
 end
 
