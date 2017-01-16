@@ -37,10 +37,10 @@ local M = akaltut.generateCallbacks()
 M = magic.addCallbacks(M)
 M = mageBehaviour.addCallbacks(magic, M)
 
-local M.eggExists = false
-local M.enragedAkaltutExists = false
-local M.akaltutMageFormExists = false
-local M.akaltutSpiderFormExists = false
+M.eggExists = false
+M.enragedAkaltutExists = false
+M.akaltutMageFormExists = false
+M.akaltutSpiderFormExists = false
 
 local function spawnEnragedAkaltut(pos)
     if not common.DeleteItemFromStack(pos, {itemId = 1174}) then
