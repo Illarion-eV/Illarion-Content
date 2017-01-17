@@ -150,7 +150,7 @@ local FINAL_QUEST_STATUS = 32
 -- Register the monster kill parts of the quest.
 monsterQuests.addQuest{
     questId = 513,
-    locations = {position = position(268, 785, -3), radius = 65},
+    location = {position = position(268, 785, -3), radius = 65},
     queststatus = {from = 3, to = 8},
     questTitle = {german = "Siegreich Letma II", english = "Conquering Letma II"},
     monsterName = {german = "Dämonenskelett Diener", english = "Demon Skeleton Servant"},
@@ -160,7 +160,7 @@ monsterQuests.addQuest{
 
 monsterQuests.addQuest{
     questId = 513,
-    locations = {position = position(220, 812, -6), radius = 65},
+    location = {position = position(220, 812, -6), radius = 65},
     queststatus = {from = 10, to = 15},
     questTitle = {german = "Siegreich Letma III", english = "Conquering Letma III"},
     monsterName = {german = "Betrachter", english = "Beholders"},
