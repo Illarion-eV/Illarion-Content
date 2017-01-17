@@ -79,7 +79,7 @@ local function PillarLookAt(User, Item)
     end
 local function BridgeCanalLookAt(User, Item)
     local itemLookat = lookat.GenerateLookAt(User, Item, lookat.NONE)
-    itemLookat.name = common.GetNLS(User, "Kanaldenkmal.", "Channel Monument")
+    itemLookat.name = common.GetNLS(User, "Kanaldenkmal.", "Canal Monument")
     itemLookat.description = common.GetNLS(User,
         "Die Namer derer, die am Bau beteiligt waren, sind in den Sockel eingraviert.",
         "The names of those who contributed are engraved on the statue.")
@@ -111,7 +111,7 @@ function M.LookAtItem(User, Item)
         itemLookat = RosalineLookAt(User, Item)
     end
 
-    -- Statue of Sir Reginald Rosaline
+    -- Statue of Sir Reginald Edwards
     if Item.pos == position(125, 566, 0) then
         itemLookat = ReginaldLookAt(User, Item)
     end
@@ -165,7 +165,7 @@ function M.UseItem(User, SourceItem, ltstate)
         local dialogTitle = common.GetNLS(User, "Sitten Cadomyrs", "Customs of Cadomyr")
         local dialogText = common.GetNLS(User,
             "I. Glaube: Ehre die Götter. Nur sie alleine sind wahrhaftig allmächtig.\nII. Gehorsam: Sei loyal und folgsam. Dein Monarch verkörpert den Willen der Götter.\nIII. Ehre: Handle stets ehrenhaft. Deine Ehre zu verteidigen ist dein Recht und deine Pflicht.\nIV. Abstammung: Kenne deinen Platz. Deine Geburt zählt mehr als dein Leben oder dein Tod.\nV. Ehrlichkeit: Halte dein Wort und gib kein falsches Zeugnis ab. Du wirst an deinen Worten gemessen.\nVI. Gerechtigkeit: Sei gerecht zu jedem. Stehle nicht, gib deine Freundschaft dem Freund und dein Schwert dem Feind.\nVII. Courage: Fürchte nicht. Stehe für deinen Herrscher und dein Ehre ein. Kein Rückzug, niemals aufgeben.\nVIII. Patriarchat: Gehorche dem Vater. Gehorche dem Ehemann. Aber gehorche nicht dem Sohn.\nIX. Besitz: Was dein ist, soll auch dein bleiben, sei es Getreide, Hund oder Mann.\nX. Verantwortung: Deine Taten hängen dir nach. Nur du bist ihr Ursprung.",
-            "I. Faith: Worship the Gods, they alone are true and almighty.\nII. Obedience: Be loyal and obedient, your monarch represents the will of the gods.\nIII. Honour: In all things act with honour. Defending it is your right and duty.\nIV. Lineage: Know your place. Your birth matters more than your life or death.\nV. Truth: Keep your word and give no false testimony. The strength of your word measures your worth.\nVI. Justice: In all things be fair and just; never steal, offer your friendship freely, but do not spare your enemy the sword.\nVII. Courage: Fear is not permissible. Stand for your honour and sovereign. Never retreat, never surrender.\nVIII. Patriarchy: Obey your father, obey your husband, but never your son.\nIX. Property: What is yours will remain yours, be it crop, dog, or man.\nX. Responsibility: In all things you are bound to your deeds. You are their origin.")
+            "I. Faith: Worship the gods, they alone are true and almighty.\nII. Obedience: Be loyal and obedient, your monarch represents the will of the gods.\nIII. Honour: In all things act with honour. Defending it is your right and duty.\nIV. Lineage: Know your place. Your birth matters more than your life or death.\nV. Truth: Keep your word and give no false testimony. The strength of your word measures your worth.\nVI. Justice: In all things be fair and just; never steal, offer your friendship freely, but do not spare your enemy the sword.\nVII. Courage: Fear is not permissible. Stand for your honour and sovereign. Never retreat, never surrender.\nVIII. Patriarchy: Obey your father, obey your husband, but never your son.\nIX. Property: What is yours will remain yours, be it crop, dog, or man.\nX. Responsibility: In all things you are bound to your deeds. You are their origin.")
         local callbackReginald = function(nothing) end --empty callback
         local dialogReginald = MessageDialog(dialogTitle, dialogText, callbackReginald)
 
@@ -182,10 +182,10 @@ function M.UseItem(User, SourceItem, ltstate)
     elseif SourceItem.pos == position(118, 566, 0) then --Queen Rosaline's statue
 
         --Dialog
-        local dialogTitle = common.GetNLS(User, "Herrscher Cadomyrs", "Souvereigns of Cadomyr")
+        local dialogTitle = common.GetNLS(User, "Herrscher Cadomyrs", "Sovereigns of Cadomyr")
         local dialogText = common.GetNLS(User,
-            "1. König Edward - 16 BS\n\n2. König Reginald - 0 AS\n\n3. Königin Rosaline Edwards - 22 AS",
-            "1. Sir Edward - 16 BS\n\n2. Sir Reginald - 0 AS\n\n3. Queen Rosaline Edwards - 22 AS")
+            "1. König Edward - 16 BS\n\n2. König Reginald - 0 AS\n\n3. Königin Rosaline Edwards - 32 AS",
+            "1. Sir Edward - 16 BS\n\n2. Sir Reginald - 0 AS\n\n3. Queen Rosaline Edwards - 32 AS")
         local callbackRosaline = function(nothing) end --empty callback
         local dialogRosaline = MessageDialog(dialogTitle, dialogText, callbackRosaline)
 
@@ -344,7 +344,7 @@ function M.UseItem(User, SourceItem, ltstate)
     elseif SourceItem.pos == position(244, 749, -3) then -- Letma Pillar eleven
         if User:getQuestProgress(513) == 30 then 
             User:setQuestProgress(513, 31) -- Found the  eleventh pillar
-            User:inform("Du hast das Letzte gefunden und einen Dämonenstab gefunden.", "You have found thelast and find a Demon's wand.")
+            User:inform("Du hast das Letzte gefunden und einen Dämonenstab gefunden.", "You have found the last and find a Demon's wand.")
             common.CreateItem(User, 2783, 1, 999, {descriptionEn = "The wand is carved with demonic runes and the name Preacerdhal.", descriptionDe = "In die Wand sind dämonische Runen und der Name Praecerdhal eingeritzt.",nameEn = "Demon's Wand", nameDe = "Dämonischer Zauberstab", rareness = "4"})
         elseif User:getQuestProgress(513) > 31 then -- already been here
             User:inform("Du hast diese Säule schon zuvor gefunden, probiere dein Glück mit einer anderen.", "You have already solved the mystery of the columns.")
@@ -353,7 +353,7 @@ function M.UseItem(User, SourceItem, ltstate)
         end
     elseif SourceItem.pos == position(596, 150, 0) or SourceItem.pos == position(607, 150, 0) or SourceItem.pos == position(588, 182, 0) or SourceItem.pos == position(600, 183, 0) or SourceItem.pos == position(755, 252, 1) or SourceItem.pos == position(760, 338, 1) then -- statues of recognition
             --Dialog
-        local dialogTitle = common.GetNLS(User, "Kanaldenkmal", "Channel Monument")
+        local dialogTitle = common.GetNLS(User, "Kanaldenkmal", "Canal Monument")
         local dialogText = common.GetNLS(User,
             "In Anerkennung seiner & ihrer Dienste für Kanal, Brücke und Fähre:\nSarangerel\nEvie Pryler & Ihr Clan\nRakaya & Ihre Träger\nJulia da Silva\nJerem Elessar\nBanduk Robberhauf el Luastelay\nAlrik Grimler\nSammy Goldlieb\nArtimer Fault",
             "In recognition of his & her services for Canal, Bridge and Ferry:\nSarangerel\nEvie Pryler & Her Clan\nRakaya & Her Bearer\nJulia da Silva\nJerem Elessar\nBanduk Robberhauf el Luastelay\nAlrik Grimler\nSammy Goldlieb\nArtimer Fault")
