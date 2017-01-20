@@ -99,8 +99,8 @@ queststatus(513) = 1, item(49, all) < 5, english, ".+" -> "I really need supplie
 queststatus(513) = 1, item(49, all) < 5, ".+" -> "Ich brauche dringend Vorräte, bitte bring mir fünf Kartoffelbrotlaibe."
 
 --Brought bread
-queststatus(513) = 1, item(49, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded fifty silver coins."), deleteItem(49, 5), money + 5000, queststatus(513) = 2, "Thank you for the potato bread. This, combined with what I will hunt, will let me continue my work here."
-queststatus(513) = 1, item(49, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst fünfzig Silberstücke."), deleteItem(49, 5), money + 5000, queststatus(513) = 2, "Danke für das Kartoffelbrot. Das, kombiniert mit dem was ich erjagen werde, wird mich mir ermöglichen meine Arbeit fortzusetzen."
+queststatus(513) = 1, item(49, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded 75 silver coins."), deleteItem(49, 5), money + 7500, queststatus(513) = 2, "Thank you for the potato bread. This, combined with what I will hunt, will let me continue my work here."
+queststatus(513) = 1, item(49, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 75 Silberstücke."), deleteItem(49, 5), money + 7500, queststatus(513) = 2, "Danke für das Kartoffelbrot. Das, kombiniert mit dem was ich erjagen werde, wird mich mir ermöglichen meine Arbeit fortzusetzen."
 
 -- Quest 2: Kill five demon skeleton servants for Metylda
 queststatus(513) = 2, english, "quest", "mission" -> inform("[New quest] Conquering Letma II"), queststatus(513) = 3, "I need to know how strong you are before I give you any more tasks.  Go below and kill five of the demon skeleton servants to prove your prowess."
@@ -135,8 +135,8 @@ queststatus(513) = 16, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[N
 queststatus(513) > 16, queststatus(513) < 18, english, ".+" -> "I would seriously like that gold golem to pay for injuring my fighting arm. Please kill it!"
 queststatus(513) > 16, queststatus(513) < 18, ".+" -> "Ich würde den Goldgolem wirklich gerne dafür bezahlen lassen, dass er meinen Kampfarm verletzte. Bitte töte ihn!"
 --done
-queststatus(513) = 18, english, ".+" -> inform("[Quest solved] You are awarded a map."), item(505,1,899,"MapPosX"= "375","MapPosY"="275","MapPosZ"="0"), queststatus(513) = 19, "Here is the map, I could not make sense of the symbols. I wish you more luck. I believe it to be out in the desert."
-queststatus(513) = 18, ".+" -> inform("[Quest gelöst] Du erhältst die Karte."), item(505,1,899,"MapPosX"= "375","MapPosY"="275","MapPosZ"="0"), queststatus(513) = 19, "Hier ist die Karte, ich konnte keinen Sinn in den Zeichen erkennen. Ich wünsche dir mehr Glück, ich glaube der Schatz liegt in der Wüste."
+queststatus(513) = 18, english, ".+" -> inform("[Quest solved] You are awarded a map."), item(505,1,899,"MapPosX"= "375","MapPosY"="575","MapPosZ"="0"), queststatus(513) = 19, "Here is the map, I could not make sense of the symbols. I wish you more luck. I believe it to be out in the desert."
+queststatus(513) = 18, ".+" -> inform("[Quest gelöst] Du erhältst die Karte."), item(505,1,899,"MapPosX"= "375","MapPosY"="575","MapPosZ"="0"), queststatus(513) = 19, "Hier ist die Karte, ich konnte keinen Sinn in den Zeichen erkennen. Ich wünsche dir mehr Glück, ich glaube der Schatz liegt in der Wüste."
 
 -- Quest 5: Find the mystery of the lettered columns
 queststatus(513) = 19, english, "quest", "mission" -> inform("[New quest] Conquering Letma IV"), queststatus(513) = 20, "There are strange pillars below with letters on them. I thought that if they were touched in the right order something special might happen. I am not one for spelling or words. If you figure out this riddle, I have a limited topaz for you."
