@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 
 -- IMPORTANT: Add new books to the END of the list. The list must not contain more than 30 elements.
-local magicBooks = {337, 351, 379, 382, 398, 401, 404}
+local magicBooks = {337, 351, 379, 382, 398, 401, 404, 411}
 
 local amountNeeded = 3
 
