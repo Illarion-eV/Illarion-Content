@@ -151,10 +151,10 @@ queststatus(513) = 31, english, ".+" -> inform("[Quest solved] You are awarded a
 queststatus(513) = 31, ".+" -> inform("[Quest gelöst] Du erhältst 100 Silberstücke."), item(198, 1, 999,"gemLevel" = "2"), queststatus(513) = 32, "Ein Dämonenzauberstab? Behalte ihn, ich habe keinerlei Verwendung für ihn. Nimm diesen Edelstein und wir sprechen nie wieder über das Ganze!"
 
 -- No more quests, just nice words of gratitude
-queststatus(513) = 24, english, "quest", "mission" -> "I have nothing else you can help with. Please speak of our interaction with no one."
-queststatus(513) = 24, "quest", "mission" -> "Es gibt nichts weiteres womit du mir helfen kannst. Bitte sprich mit niemandem über unsere Zusammenarbeit."
-queststatus(513) = 24, "task", "adventure", "order" -> "I have nothing else you can help with. Please speak of our interaction with no one."
-queststatus(513) = 24, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Es gibt nichts weiteres womit du mir helfen kannst. Bitte sprich mit niemandem über unsere Zusammenarbeit."
+queststatus(513) = 32, english, "quest", "mission" -> "I have nothing else you can help with. Please speak of our interaction with no one."
+queststatus(513) = 32, "quest", "mission" -> "Es gibt nichts weiteres womit du mir helfen kannst. Bitte sprich mit niemandem über unsere Zusammenarbeit."
+queststatus(513) = 32, "task", "adventure", "order" -> "I have nothing else you can help with. Please speak of our interaction with no one."
+queststatus(513) = 32, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Es gibt nichts weiteres womit du mir helfen kannst. Bitte sprich mit niemandem über unsere Zusammenarbeit."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "lady", "miss" -> "If you call me Lady or Miss again, I will feed you to the hellhounds."
