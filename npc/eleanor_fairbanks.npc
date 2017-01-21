@@ -114,13 +114,12 @@ queststatus(514) = 2, "quest", "mission" -> inform ("[Neue Quest] Ein Gute Tat f
 queststatus(514) = 2, "task", "adventure", "order" -> inform ("[New Quest] A Good Deed for Oldra II"), queststatus(514) = 3, "It seems I may have misread my recipe and did not buy enough cabbages the other day. Would you be so kind as to pick up the remaining 25 for me?"
 queststatus(514) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> inform ("[Neue Quest] Ein Gute Tat für Oldra II"), queststatus(514) = 3, "Anscheinend habe ich mein Rezept falsch gelesen und nicht genug Kohl gekauft als ich auf dem Markt war. Könnt ihr mir noch 25 Kohl bringen?"
 -- Objects not found
-queststatus(514) = 3, english, "quest", "mission" -> "The stew is almost ready, I am just waiting for those 25 cabbages."
-queststatus(514) = 3, "quest", "mission" -> "Der Eintopf ist fast fertig , ich warte nur auf die 25 Kohl."
-queststatus(514) = 3, "task", "adventure", "order" -> "The stew is almost ready, I am just waiting for those 25 cabbages."
-queststatus(514) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> "Der Eintopf ist fast fertig , ich warte nur auf die 25 Kohl."
+queststatus(514) = 3, item(290, all) < 25, english, ".+" -> "The stew is almost ready, I am just waiting for those 25 cabbages."
+queststatus(514) = 3, item(290, all) < 25, ".+" -> "Der Eintopf ist fast fertig , ich warte nur auf die 25 Kohl."
+
 -- Objects found
-queststatus(514) = 3, item(292, all) > 25, english, ".+" -> inform ("[Quest Solved] You are rewarded 30 silver coins."), deleteItem(292, 25), money + 30000, queststatus(514) = 4, "Wonderful! Please take these coins for your trouble. Now, if only I could get the fire hot enough to cook over."
-queststatus(514) = 3, item(292, all) > 25, ".+" -> inform ("[Quest gelöst] Du erhältst 30 Silberstücke."), deleteItem(292, 25), money + 30000, queststatus(514) = 4, "Wunderbar! Bitte nehmt diese Münzen für eure Mühe. Wenn ich nur genug Holz für das Feuer hätte um weiter zu kochen."
+queststatus(514) = 3, item(290, all) > 24, english, ".+" -> inform ("[Quest Solved] You are rewarded 30 silver coins."), deleteItem(290, 25), money + 30000, queststatus(514) = 4, "Wonderful! Please take these coins for your trouble. Now, if only I could get the fire hot enough to cook over."
+queststatus(514) = 3, item(290, all) > 24, ".+" -> inform ("[Quest gelöst] Du erhältst 30 Silberstücke."), deleteItem(290, 25), money + 30000, queststatus(514) = 4, "Wunderbar! Bitte nehmt diese Münzen für eure Mühe. Wenn ich nur genug Holz für das Feuer hätte um weiter zu kochen."
 
 -- Quest 3: 20 Naldor wood, reward 20 silver and latent obsidien
 queststatus(514) = 4, english, "quest", "mission" -> inform ("[New Quest] A Good Deed for Oldra III"), queststatus(514) = 5, item(74, 1, 566), "I forgot to stock up on firewood yesterday, so I am having trouble getting the fire hot enough to cook over. Could you take that hatchet over there and split a few logs for me? 20 Naldor wood logs should suffice."
