@@ -93,10 +93,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell! May Oldra's bless
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Eleanor Fairbanks. Priesterin von Oldra."
 
 -- Quest 1: New wooden spoon, for old spoon
-queststatus(514) = 0, english, "quest", "mission" -> inform ("[New Quest] A Good Deed for Oldra"), money + 20000, queststatus(514) = 1, "Oh! I do have something you could help me with. It seems my wooden spoon has seen better days. Could you go visit the market place in Runewick and get me a new one? Here, take these coins."
-queststatus(514) = 0, "quest", "mission" -> inform ("[Neue Quest] Ein Gute Tat für Oldra"), money + 20000, queststatus(514) = 1, "Oh! Ich habe etwas wobei Ihr mir helfen könnt. Mein hölzerner Löffel hat schon bessere Tage gesehen. Könntet Ihr den Marktplatz in Runewick besuchen und mir einen neuen bringen? Hier nehmt diese Münzen."
-queststatus(514) = 0, "task", "adventure", "order" -> inform ("[New Quest] A Good Deed for Oldra"), money + 20000, queststatus(514) = 1, "Oh! I do have something you could help me with. It seems my wooden spoon has seen better days. Could you go visit the market place in Runewick and get me a new one? Here, take these coins."
-queststatus(514) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> inform ("[Neue Quest] Ein Gute Tat für Oldra"), money + 20000, queststatus(514) = 1, "Oh! Ich habe etwas wobei Ihr mir helfen könnt. Mein hölzerner Löffel hat schon bessere Tage gesehen. Könntet Ihr den Marktplatz in Runewick besuchen und mir einen neuen bringen? Hier nehmt diese Münzen."
+queststatus(514) = 0, english, "quest", "mission" -> inform ("[New Quest] A Good Deed for Oldra"), money + 2000, queststatus(514) = 1, "Oh! I do have something you could help me with. It seems my wooden spoon has seen better days. Could you go visit the market place in Runewick and get me a new one? Here, take these coins."
+queststatus(514) = 0, "quest", "mission" -> inform ("[Neue Quest] Ein Gute Tat für Oldra"), money + 2000, queststatus(514) = 1, "Oh! Ich habe etwas wobei Ihr mir helfen könnt. Mein hölzerner Löffel hat schon bessere Tage gesehen. Könntet Ihr den Marktplatz in Runewick besuchen und mir einen neuen bringen? Hier nehmt diese Münzen."
+queststatus(514) = 0, "task", "adventure", "order" -> inform ("[New Quest] A Good Deed for Oldra"), money + 2000, queststatus(514) = 1, "Oh! I do have something you could help me with. It seems my wooden spoon has seen better days. Could you go visit the market place in Runewick and get me a new one? Here, take these coins."
+queststatus(514) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> inform ("[Neue Quest] Ein Gute Tat für Oldra"), money + 2000, queststatus(514) = 1, "Oh! Ich habe etwas wobei Ihr mir helfen könnt. Mein hölzerner Löffel hat schon bessere Tage gesehen. Könntet Ihr den Marktplatz in Runewick besuchen und mir einen neuen bringen? Hier nehmt diese Münzen."
 
 --Not done
 queststatus(514) = 1, english, "quest", "mission" -> "Have you gotten me that spoon yet?"
@@ -118,8 +118,8 @@ queststatus(514) = 3, item(290, all) < 25, english, ".+" -> "The stew is almost 
 queststatus(514) = 3, item(290, all) < 25, ".+" -> "Der Eintopf ist fast fertig , ich warte nur auf die 25 Kohl."
 
 -- Objects found
-queststatus(514) = 3, item(290, all) > 24, english, ".+" -> inform ("[Quest Solved] You are rewarded 30 silver coins."), deleteItem(290, 25), money + 30000, queststatus(514) = 4, "Wonderful! Please take these coins for your trouble. Now, if only I could get the fire hot enough to cook over."
-queststatus(514) = 3, item(290, all) > 24, ".+" -> inform ("[Quest gelöst] Du erhältst 30 Silberstücke."), deleteItem(290, 25), money + 30000, queststatus(514) = 4, "Wunderbar! Bitte nehmt diese Münzen für eure Mühe. Wenn ich nur genug Holz für das Feuer hätte um weiter zu kochen."
+queststatus(514) = 3, item(290, all) > 24, english, ".+" -> inform ("[Quest Solved] You are rewarded 30 silver coins."), deleteItem(290, 25), money + 3000, queststatus(514) = 4, "Wonderful! Please take these coins for your trouble. Now, if only I could get the fire hot enough to cook over."
+queststatus(514) = 3, item(290, all) > 24, ".+" -> inform ("[Quest gelöst] Du erhältst 30 Silberstücke."), deleteItem(290, 25), money + 3000, queststatus(514) = 4, "Wunderbar! Bitte nehmt diese Münzen für eure Mühe. Wenn ich nur genug Holz für das Feuer hätte um weiter zu kochen."
 
 -- Quest 3: 20 Naldor wood, reward 20 silver and latent obsidien
 queststatus(514) = 4, english, "quest", "mission" -> inform ("[New Quest] A Good Deed for Oldra III"), queststatus(514) = 5, item(74, 1, 566), "I forgot to stock up on firewood yesterday, so I am having trouble getting the fire hot enough to cook over. Could you take that hatchet over there and split a few logs for me? 20 Naldor wood logs should suffice."
@@ -128,20 +128,18 @@ queststatus(514) = 4, "task", "adventure", "order" -> inform ("[New Quest] A Goo
 queststatus(514) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> inform ("[Neue Quest] Ein Gute Tat für Oldra III"), queststatus(514) = 5, item(74, 1, 566), "Ich habe gestern vergessen Brennholz zu besorgen. So kann ich das Feuer nicht heiß genug halten um zu kochen. Könnt ihr das  Beil dort nehmen und Brennholz für mich holen? 20 Naldorholz sollten genügen."
 
 -- Objects not found
-queststatus(514) = 5, english, "quest", "mission" -> "How is it coming with the firewood? Have you gotten me 20 logs of wood yet? The coals are threatening to go out."
-queststatus(514) = 5, "quest", "mission" -> "Habt ihr das Brennholz? Hast du die 20 Holzscheite besorgt? Die Kohle wird langsam kalt."
-queststatus(514) = 5, "task", "adventure", "order" ->  "How is it coming with the firewood? Have you gotten me 20 logs of wood yet? The coals are threatening to go out."
-queststatus(514) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> "Habt ihr das Brennholz? Hast du die 20 Holzscheite besorgt? Die Kohle wird langsam kalt."
+queststatus(514) = 5, item(544, all) < 20, english, ".+" -> "How is it coming with the firewood? Have you gotten me 20 logs of wood yet? The coals are threatening to go out."
+queststatus(514) = 3, item(544, all) < 20, ".+" -> "Habt ihr das Brennholz? Hast du die 20 Holzscheite besorgt? Die Kohle wird langsam kalt."
 
 -- Objects found -- 20 Naldor wood, reward 20 silver and a magical obsidian
-queststatus(514) = 5, item(544, all) > 20, english, ".+" -> inform ("[Quest Solved] You are rewarded 20 silver coins and a magical obsidian"), deleteItem(544, 20), money + 20000, item(283, 1, 333, "gemlevel" = "1"), queststatus(514) = 6, "There we go. Nice and hot. Oh! I did find this magic gem while trying to keep the coals hot. I have no idea how that got in there. Why don't you take it and have a few coins for your work! While that is cooking, could you help me with something else?"
-queststatus(514) = 5, item(544, all) > 20, ".+" -> inform ("[Quest gelöst] Du erhältst 20 Silberstücke und ein Magischen Obsidian"), deleteItem(544, 20), money + 20000, item(283, 1, 333, "gemlevel" = "1"), queststatus(514) = 6, "Geht doch. Schön und heiß. Oh! Ich fand diesen magischen Edelstein beim Versuch die Kohlen heiß zu halten. Warum nimmst du ihn nicht, und noch ein paar Münzen für deine Arbeit. Ach und während das hier kocht, könntet ihr mir mit etwas Anderem helfen?"
+queststatus(514) = 5, item(544, all) > 19, english, ".+" -> inform ("[Quest Solved] You are rewarded 20 silver coins and a magical obsidian"), deleteItem(544, 20), money + 2000, item(283, 1, 333, "gemLevel" = "1"), queststatus(514) = 6, "There we go. Nice and hot. Oh! I did find this magic gem while trying to keep the coals hot. I have no idea how that got in there. Why don't you take it and have a few coins for your work! While that is cooking, could you help me with something else?"
+queststatus(514) = 5, item(544, all) > 19, ".+" -> inform ("[Quest gelöst] Du erhältst 20 Silberstücke und ein Magischen Obsidian"), deleteItem(544, 20), money + 2000, item(283, 1, 333, "gemLevel" = "1"), queststatus(514) = 6, "Geht doch. Schön und heiß. Oh! Ich fand diesen magischen Edelstein beim Versuch die Kohlen heiß zu halten. Warum nimmst du ihn nicht, und noch ein paar Münzen für deine Arbeit. Ach und während das hier kocht, könntet ihr mir mit etwas Anderem helfen?"
 
 -- Quest 4: 10 bowls, reward stew
-queststatus(514) = 6, english, "quest", "mission" -> inform ("[New Quest] A Good Deed for Oldra IV"), queststatus(514) = 7, money + 20000, "I don't know what happened, but I seem to be short on bowls. It would be much appreciated if you could get 10 more for me. Here are a few coins."
-queststatus(514) = 6, "quest", "mission" -> inform ("[Neue Quest] Ein Gute Tat für Oldra IV"), queststatus(514) = 7, money + 20000, "Ich weiß nicht, was passiert ist , aber ich scheine zu wenig Schüsseln zu haben. Könntest du mir 10 Stück holen? Hier nimmst du diese Münzen."
-queststatus(514) = 6, "task", "adventure", "order" -> inform ("[New Quest] A Good Deed for Oldra IV"), queststatus(514) = 7, money + 20000, "I don't know what happened, but I seem to be short on soup bowls. It would be much appreciated if you could get 10 more for me. Here are a few coins."
-queststatus(514) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform ("[Neue Quest] Ein Gute Tat für Oldra IV"), queststatus(514) = 7, money + 20000, "Ich weiß nicht, was passiert ist , aber ich scheine zu wenig Schüsseln zu haben. Könntest du mir 10 Stück holen? Hier nimmst du diese Münzen."
+queststatus(514) = 6, english, "quest", "mission" -> inform ("[New Quest] A Good Deed for Oldra IV"), queststatus(514) = 7, money + 2000, "I don't know what happened, but I seem to be short on bowls. It would be much appreciated if you could get 10 more for me. Here are a few coins."
+queststatus(514) = 6, "quest", "mission" -> inform ("[Neue Quest] Ein Gute Tat für Oldra IV"), queststatus(514) = 7, money + 2000, "Ich weiß nicht, was passiert ist , aber ich scheine zu wenig Schüsseln zu haben. Könntest du mir 10 Stück holen? Hier nimmst du diese Münzen."
+queststatus(514) = 6, "task", "adventure", "order" -> inform ("[New Quest] A Good Deed for Oldra IV"), queststatus(514) = 7, money + 2000, "I don't know what happened, but I seem to be short on soup bowls. It would be much appreciated if you could get 10 more for me. Here are a few coins."
+queststatus(514) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform ("[Neue Quest] Ein Gute Tat für Oldra IV"), queststatus(514) = 7, money + 2000, "Ich weiß nicht, was passiert ist , aber ich scheine zu wenig Schüsseln zu haben. Könntest du mir 10 Stück holen? Hier nimmst du diese Münzen."
 
 -- Items not found
 queststatus(514) = 7, english, "quest", "mission" -> "Have you had any luck obtaining 10 bowls for me?"
