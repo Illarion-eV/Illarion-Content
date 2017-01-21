@@ -129,7 +129,7 @@ queststatus(514) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> inform ("[Ne
 
 -- Objects not found
 queststatus(514) = 5, item(544, all) < 20, english, ".+" -> "How is it coming with the firewood? Have you gotten me 20 logs of wood yet? The coals are threatening to go out."
-queststatus(514) = 3, item(544, all) < 20, ".+" -> "Habt ihr das Brennholz? Hast du die 20 Holzscheite besorgt? Die Kohle wird langsam kalt."
+queststatus(514) = 5, item(544, all) < 20, ".+" -> "Habt ihr das Brennholz? Hast du die 20 Holzscheite besorgt? Die Kohle wird langsam kalt."
 
 -- Objects found -- 20 Naldor wood, reward 20 silver and a magical obsidian
 queststatus(514) = 5, item(544, all) > 19, english, ".+" -> inform ("[Quest Solved] You are rewarded 20 silver coins and a magical obsidian"), deleteItem(544, 20), money + 2000, item(283, 1, 333, "gemLevel" = "1"), queststatus(514) = 6, "There we go. Nice and hot. Oh! I did find this magic gem while trying to keep the coals hot. I have no idea how that got in there. Why don't you take it and have a few coins for your work! While that is cooking, could you help me with something else?"
@@ -142,14 +142,12 @@ queststatus(514) = 6, "task", "adventure", "order" -> inform ("[New Quest] A Goo
 queststatus(514) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform ("[Neue Quest] Ein Gute Tat für Oldra IV"), queststatus(514) = 7, money + 2000, "Ich weiß nicht, was passiert ist , aber ich scheine zu wenig Schüsseln zu haben. Könntest du mir 10 Stück holen? Hier nimmst du diese Münzen."
 
 -- Items not found
-queststatus(514) = 7, english, "quest", "mission" -> "Have you had any luck obtaining 10 bowls for me?"
-queststatus(514) = 7, "quest", "mission" -> "Hast du Glück gehabt und 10 Schüsseln für mich gefunden?"
-queststatus(514) = 7, "task", "adventure", "order" -> "Have you had any luck obtaining 10 soup bowls for me?"
-queststatus(514) = 7, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> "Hast du Glück gehabt und 10 Schüsseln für mich gefunden?"
+queststatus(514) = 7, item(2935, all) < 10, english, ".+" -> "Have you had any luck obtaining 10 bowls for me?"
+queststatus(514) = 7, item(2935, all) < 10, ".+" -> "Hast du Glück gehabt und 10 Schüsseln für mich gefunden?"
 
 -- items found
-queststatus(514) = 7, item(2935, all) > 10, english, ".+" -> inform ("[Quest Solved] You have been rewarded with a mulligan stew"), deleteItem(2935, 10), item(2276, 1, 999), queststatus(514) = 8, "Oh, thank you! I can finish passing out the last of the stew. You must be hungry after all that work. Here, have a bowl of stew and may Oldra bless you for your help."
-queststatus(514) = 7, item(2935, all) > 10,  ".+" -> inform ("[Quest gelöst] Du erhältst Eintopf"), deleteItem(2935, 12), item(2276, 1, 999), queststatus(514) = 8, "Oh! Danke! Jetzt kann ich den Eintopf fertig kochen. Du musst hungrig sein, nach all dieser Arbeit. Hier, eine Schüssel mit Eintopf und möge Oldra Euch segnen für Eure Hilfe."
+queststatus(514) = 7, item(2935, all) > 9, english, ".+" -> inform ("[Quest Solved] You have been rewarded with a mulligan stew"), deleteItem(2935, 10), item(2276, 1, 999), queststatus(514) = 8, "Oh, thank you! I can finish passing out the last of the stew. You must be hungry after all that work. Here, have a bowl of stew and may Oldra bless you for your help."
+queststatus(514) = 7, item(2935, all) > 9,  ".+" -> inform ("[Quest gelöst] Du erhältst Eintopf"), deleteItem(2935, 10), item(2276, 1, 999), queststatus(514) = 8, "Oh! Danke! Jetzt kann ich den Eintopf fertig kochen. Du musst hungrig sein, nach all dieser Arbeit. Hier, eine Schüssel mit Eintopf und möge Oldra Euch segnen für Eure Hilfe."
 
 -- No more quests, just thanks
 queststatus(514) = 8, english, "quest", "mission" -> "I don't have any other task for you. Thank you for all your help. I wouldn't have finished that stew without you."
