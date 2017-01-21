@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local factions = require("base.factions")
+local M = {}
 
 local GERMAN = Player.german
 local ENGLISH = Player.english
@@ -48,7 +49,7 @@ Description[GERMAN][6] = "Geh zu Eleanor. Sie hat bestimmt noch eine Aufgabe für
 Description[ENGLISH][6] = "Go back to Eleanor, she certainly has another task for you."
 
 Description[GERMAN][7] =  "Es scheint, ein paar von Eleanors Schüsseln sind verschwunden. Sie konnte 10 mehr gebrauchen. Gehst du auf den Marktplatz in Runewick und holen Sie einige für sie."
-Description[ENGLISH][7] = "It seems a few of Eleanora's bowls have gone missing. She could use 10 more. Go to the market place in Runewick and retrieve some for her."
+Description[ENGLISH][7] = "It seems a few of Eleanora's bowls have gone missing. She could use ten more. Go to the market place in Runewick and retrieve some for her."
 
 Description[GERMAN][8] = "Du hast alle Aufgaben für Eleanor Fairbanks erledigt."
 Description[ENGLISH][8] = "You have finished all the tasks for Eleanor Fairbanks."
