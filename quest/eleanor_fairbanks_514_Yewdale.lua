@@ -56,18 +56,18 @@ Description[ENGLISH][8] = "You have finished all the tasks for Eleanor Fairbanks
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-local Start = {837, 857, 0}
+local Start = {798, 793, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(837, 857, 0), position(939, 826, 0)}
-QuestTarget[2] = {position(837, 857, 0), position(939, 826, 0)}
-QuestTarget[3] = {position(837, 857, 0), position(939, 822, 0)}
-QuestTarget[4] = {position(837, 857, 0), position(939, 822, 0)}
-QuestTarget[5] = {position(837, 857, 0), position(945, 829, 0)}
-QuestTarget[6] = {position(837, 857, 0), position(945, 829, 0)}
-QuestTarget[7] = {position(837, 857, 0), position(945, 829, 0)}
-QuestTarget[8] = {position(837, 857, 0)}
+QuestTarget[1] = {position(798, 793, 0), position(939, 826, 0)}
+QuestTarget[2] = {position(798, 793, 0), position(939, 826, 0)}
+QuestTarget[3] = {position(798, 793, 0), position(939, 822, 0)}
+QuestTarget[4] = {position(798, 793, 0), position(939, 822, 0)}
+QuestTarget[5] = {position(798, 793, 0), position(945, 829, 0)}
+QuestTarget[6] = {position(798, 793, 0), position(945, 829, 0)}
+QuestTarget[7] = {position(798, 793, 0), position(945, 829, 0)}
+QuestTarget[8] = {position(798, 793, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 8
