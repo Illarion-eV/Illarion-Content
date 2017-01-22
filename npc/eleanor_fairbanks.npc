@@ -99,7 +99,7 @@ queststatus(514) = 0, "task", "adventure", "order" -> inform ("[New Quest] A Goo
 queststatus(514) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> inform ("[Neue Quest] Ein Gute Tat für Oldra"), money + 2000, queststatus(514) = 1, "Oh! Ich habe etwas wobei Ihr mir helfen könnt. Mein hölzerner Löffel hat schon bessere Tage gesehen. Könntet Ihr den Marktplatz in Runewick besuchen und mir einen neuen bringen? Hier nehmt diese Münzen."
 
 --Not done
-queststatus(514) = 3, item(227, all) < 1, english, ".+" -> "Have you gotten me that spoon yet?"
+queststatus(514) = 1, item(227, all) < 1, english, ".+" -> "Have you gotten me that spoon yet?"
 queststatus(514) = 1, item(227, all) < 1, ".+" -> "Hast du mir den Löffel mitgebracht?"
 
 --done
