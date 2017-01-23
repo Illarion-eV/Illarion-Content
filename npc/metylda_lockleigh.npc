@@ -1,0 +1,201 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+------------------------------------------------------------------------------AC
+-- NPC Name: Metylda Lockleigh                                           None --
+-- NPC Job:  Hunter                                                           --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  249, 809, 1            --
+-- NPC Sex:  female                     NPC Direction: south                  --
+--                                                                            --
+-- Author:   Evie                                                             --
+--                                                    Illarion easyNPC Editor --
+--------------------------------------------------------------------------------
+
+name = "Metylda Lockleigh"
+race = human
+sex = female
+position = 249, 809, 1
+direction = south
+affiliation = "None"
+job = "hunter"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Evie"
+
+lookatDE = "Dieser NPC ist die Jäger Metylda Lockleigh"
+lookatUS = "This NPC is the hunter Metylda Lockleigh."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 1
+colorHair = 115, 80, 50
+colorSkin = 200, 170, 150
+itemChest = 2400
+itemCoat = 2418
+itemMainHand = 2704
+itemSecondHand = 2439
+itemHands = 528
+itemTrousers = 2111
+itemShoes = 699
+
+-- NPC by Evie
+
+-- queststatus(513) Overview
+-- QuestID=513
+-- 0: No Quest taken
+-- 1: Quest 1 taken - Bring Metylda Lockleigh five loaves of bread
+-- 3: Quest 2 taken - Kill five demon skeleton servants for Metylda
+-- 8: Quest 2 solved
+--10: Quest 3 taken - Kill five beholders for Metylda
+--15: Quest 3 solved
+--17: Quest 4 taken - Kill Gold Golem
+--18: Quest 4 solved
+--20: Quest 5 taken -  Touch the columns in the levels under the mountain in order for Metylda
+--31: Quest 5 solved
+
+-- Help
+"Help" -> inform("[Game Help] This is NPC Metylda Lockleigh the hunter. Keywords are: hello, lady, miss, hellhounds, injury, brother.")
+"Hilfe" -> inform("[Spielhilfe] Dies ist der NPC Metylda Lockleigh, die Jägerin. Schlüsselworte sind: Hallo, Lady, Dame, Höllenhunde, Verletzung, Bruder ")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Ya, ya hello. What do you want? You best not be trying to rob me, because even while injured I can lay you out."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Na hallo. Was willst du? Du versuchst am besten nicht mich auszurauben, selbst verletzt könnte ich es noch mit dir aufnehmen. "
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ya, ya hello. What do you want? You best not be trying to rob me, because even while injured I can lay you out."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Na hallo. Was willst du? Du versuchst am besten nicht mich auszurauben, selbst verletzt könnte ich es noch mit dir aufnehmen. "
+"Farewell", "Bye", "Fare well", "See you" -> "Be gone and stop bothering me already!", "Farewell."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Verschwinde und hör schon auf mich zu belästigen!", "Gehabt Euch wohl."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Be gone and stop bothering me already!", "Farewell."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Verschwinde und hör schon auf mich zu belästigen!", "Gehabt Euch wohl."
+"How are you", "How feel", "How do you do" -> "I am upset is what I am. That golem has my elbow so sore I can barely hold my sword."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich bin wütend, das ist was ich bin. Dieser Golem hat meinen Ellenbogen so stark verletzt, dass ich kaum mein Schwert halten kann."
+"your name", "who are you", "who art thou" -> "My name is Metylda Lockleigh, don't even try to call me Lady or Miss!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Mein Name ist Metylda Lockleigh, versuch gar nicht erst mich Lady oder Dame!"
+
+-- Quest 1: Bring Metlyda five loaves of bread
+queststatus(513) = 0, english, "quest", "mission" -> inform("[New quest] Conquering Letma I"), queststatus(513) = 1, "I have been on this mountain for some time and have ran out of supplies. I would pay you if you fetch me some food. I can fetch my own meat, however I could use some potato bread from town.   Would you go to town and fetch me five loaves of potato bread?"
+queststatus(513) = 0, "quest", "mission" -> inform("[Neue Quest] Siegreich Letma I"), queststatus(513) = 1, "Ich bin seit einiger Zeit auf diesem Berg und mir gehen die Vorräte aus. Ich würde dich bezahlen, wenn du mir etwas zu essen holst. Ich kann mir selbst Fleisch besorgen, allerdings könnte ich etwas Kartoffelbrot aus der Stadt gebrauchen. Würdest du zur Stadt gehen und mir fünf Laibe Kartoffelbrot holen?"
+queststatus(513) = 0, "task", "adventure", "order" -> inform("[New quest] Conquering Letma I"), queststatus(513) = 1, "I have been on this mountain for some time and have ran out of supplies. I would pay you if you fetch me some food. I can fetch my own meat, however I could use some potato bread from town.   Would you go to town and fetch me five loaves of potato bread?"
+queststatus(513) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Siegreich Letma I"), queststatus(513) = 1, "Ich bin seit einiger Zeit auf diesem Berg und mir gehen die Vorräte aus. Ich würde dich bezahlen, wenn du mir etwas zu essen holst. Ich kann mir selbst Fleisch besorgen, allerdings könnte ich etwas Kartoffelbrot aus der Stadt gebrauchen. Würdest du zur Stadt gehen und mir fünf Laibe Kartoffelbrot holen?"
+--Did not have all the items
+queststatus(513) = 1, item(49, all) < 5, english, ".+" -> "I really need supplies, please bring me five loaves of potato bread."
+queststatus(513) = 1, item(49, all) < 5, ".+" -> "Ich brauche dringend Vorräte, bitte bring mir fünf Kartoffelbrotlaibe."
+
+--Brought bread
+queststatus(513) = 1, item(49, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded 75 silver coins."), deleteItem(49, 5), money + 7500, queststatus(513) = 2, "Thank you for the potato bread. This, combined with what I will hunt, will let me continue my work here."
+queststatus(513) = 1, item(49, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 75 Silberstücke."), deleteItem(49, 5), money + 7500, queststatus(513) = 2, "Danke für das Kartoffelbrot. Das, kombiniert mit dem was ich erjagen werde, wird mich mir ermöglichen meine Arbeit fortzusetzen."
+
+-- Quest 2: Kill five demon skeleton servants for Metylda
+queststatus(513) = 2, english, "quest", "mission" -> inform("[New quest] Conquering Letma II"), queststatus(513) = 3, "I need to know how strong you are before I give you any more tasks.  Go below and kill five of the demon skeleton servants to prove your prowess."
+queststatus(513) = 2, "quest", "mission" -> inform("[Neue Quest] Siegreich Letma II"), queststatus(513) = 3, "Ich muss wissen wie stark du bist bevor ich dir weitere Aufträge gebe. Geh nach unten und töte fünf Diener der Dämonenskelette um deine Fähigkeiten zu beweisen."
+queststatus(513) = 2, "task", "adventure", "order" -> inform("[New quest] Conquering Letma II"), queststatus(513) = 3, "I need to know how strong you are before I give you any more tasks.  Go below and kill five of the demon skeleton servants to prove your prowess."
+queststatus(513) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Siegreich Letma II"), queststatus(513) = 3, "Ich muss wissen wie stark du bist bevor ich dir weitere Aufträge gebe. Geh nach unten und töte fünf Diener der Dämonenskelette um deine Fähigkeiten zu beweisen."
+--Monsters not killed
+queststatus(513) > 2, queststatus(513) < 8, english, ".+" -> "If you cannot prove to me you are a hunter by killing five demon skeleton servants, I will not give you other work."
+queststatus(513) > 2, queststatus(513) < 8, ".+" -> "Wenn du mir nicht beweisen kannst ein Jäger zu sein indem du fünf Diener der Dämonenskelette tötest, werde ich dir keine anderen Aufträge geben."
+-- quest done
+queststatus(513) = 8, english, ".+" -> inform("[Quest solved] You are awarded 75 silver coins."), money + 7500, queststatus(513) = 9, "You indeed have some strength but I have one more test for you."
+queststatus(513) = 8, ".+" -> inform("[Quest gelöst] Du erhältst 75 Silberstücke."), money + 7500, queststatus(513) = 9, "Du bist tatsächlich ziemlich stark, aber ich habe einen weiteren Test für dich."
+
+-- Quest 3: Kill five beholders for Metylda
+queststatus(513) = 9, english, "quest", "mission" -> inform("[New quest] Conquering Letma III"), queststatus(513) = 10, "Now that you have shown the spirit of a true hunter, I will give you another task. Please clear out five of the beholders below the mountain. My injury keeps me from doing it myself."
+queststatus(513) = 9, "quest", "mission" -> inform("[Neue Quest] Siegreich Letma III"), queststatus(513) = 10, "Nun, da du den Geist eines wahren Jägers bewiesen hast, werde ich dir eine andere Aufgabe geben. Bitte lösche fünf Glotzer unter dem Berg aus. Meine Verletzung verhindert, dass ich es selbst mache."
+queststatus(513) = 9, "task", "adventure", "order" -> inform("[New quest] Conquering Letma III"),  queststatus(513) = 10, "Now that you have shown the spirit of a true hunter, I will give you another task. Please clear out five of the beholders below the mountain. My injury keeps me from doing it myself."
+queststatus(513) = 9, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Siegreich Letma III"), queststatus(513) = 10, "Nun, da du den Geist eines wahren Jägers bewiesen hast, werde ich dir eine andere Aufgabe geben. Bitte lösche fünf Glotzer unter dem Berg aus. Meine Verletzung verhindert, dass ich es selbst mache."
+--Monsters not killed
+queststatus(513) > 9, queststatus(513) < 15, english, ".+" -> "The beholders see too much. I often wonder who they report to. Kill five of them to decrease their numbers."
+queststatus(513) > 9, queststatus(513) < 15, ".+" -> "Die Glotzer sehen zu viel. Ich frage mich oft wem sie berichten. Töte fünf von ihnen um sie zu dezimieren."
+-- Beholders killed
+queststatus(513) = 15, english, ".+" -> inform("[Quest solved] You are awarded 100 silver coins."), money + 10000, queststatus(513) = 16, "You have done well and now for a task of a different sort."
+queststatus(513) = 15, ".+" -> inform("[Quest gelöst] Du erhältst 100 Silberstücke."), money + 10000, queststatus(513) = 16, "Gut gemacht und nun zu einer Aufgabe einer anderen Art."
+
+-- Quest 4: Kill Gold Golem
+queststatus(513) = 16, english, "quest", "mission" -> inform("[New quest] Conquering Letma IV"), queststatus(513) = 17, "The gold golem injured me during our fight, which is why I am sitting up here on the mountain top and not hunting. If you kill the gold golem for me I will give you the map to a dragon's treasure I found."
+queststatus(513) = 16, "quest", "mission" -> inform("[Neue Quest] Siegreich Letma IV"), queststatus(513) = 17, "Der Goldgolem verletzte mich während unseres Kampfes, deswegen sitze ich hier oben auf dem Berg und jage nicht. Wenn du den Goldgolem für mich tötest, gebe ich dir die Schatzkarte eines Drachenschatzes, den ich gefunden habe."
+queststatus(513) = 16, "task", "adventure", "order" -> inform("[New quest] Conquering Letma IV"), queststatus(513) = 17, "The gold golem injured me during our fight, which is why I am sitting up here on the mountain top and not hunting. If you kill the gold golem for me I will give you the map to a dragon's treasure I found."
+queststatus(513) = 16, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Siegreich Letma IV"), queststatus(513) = 17, "Der Goldgolem verletzte mich während unseres Kampfes, deswegen sitze ich hier oben auf dem Berg und jage nicht. Wenn du den Goldgolem für mich tötest, gebe ich dir die Schatzkarte eines Drachenschatzes, den ich gefunden habe."
+--not done
+queststatus(513) > 16, queststatus(513) < 18, english, ".+" -> "I would seriously like that gold golem to pay for injuring my fighting arm. Please kill it!"
+queststatus(513) > 16, queststatus(513) < 18, ".+" -> "Ich würde den Goldgolem wirklich gerne dafür bezahlen lassen, dass er meinen Kampfarm verletzte. Bitte töte ihn!"
+--done
+queststatus(513) = 18, english, ".+" -> inform("[Quest solved] You are awarded a map."), item(505,1,899,"MapPosX"= "375","MapPosY"="575","MapPosZ"="0"), queststatus(513) = 19, "Here is the map, I could not make sense of the symbols. I wish you more luck. I believe it to be out in the desert."
+queststatus(513) = 18, ".+" -> inform("[Quest gelöst] Du erhältst die Karte."), item(505,1,899,"MapPosX"= "375","MapPosY"="575","MapPosZ"="0"), queststatus(513) = 19, "Hier ist die Karte, ich konnte keinen Sinn in den Zeichen erkennen. Ich wünsche dir mehr Glück, ich glaube der Schatz liegt in der Wüste."
+
+-- Quest 5: Find the mystery of the lettered columns
+queststatus(513) = 19, english, "quest", "mission" -> inform("[New quest] Conquering Letma IV"), queststatus(513) = 20, "There are strange pillars below with letters on them. I thought that if they were touched in the right order something special might happen. I am not one for spelling or words. If you figure out this riddle, I have a limited topaz for you."
+queststatus(513) = 19, "quest", "mission" -> inform("[Neue Quest] Siegreich Letma IV"), queststatus(513) = 20, "Unten sind merkwürdige Säulen mit Buchstaben drauf. Ich dachte, dass etwas besonderes passiert, wenn man sie in der richtigen Reihenfolge berührt. Ich gehöre nicht zu den Leuten der Rechtschreibung oder der Worte. Wenn du dieses Rätsel löst, habe ich einen begrenzt magischen Topas für dich."
+queststatus(513) = 19, "task", "adventure", "order" -> inform("[New quest] Conquering Letma IV"), queststatus(513) = 20, "There are strange pillars below with letters on them. I thought that if they were touched in the right order something special might happen. I am not one for spelling or words. If you figure out this riddle, I have a limited topaz for you."
+queststatus(513) = 19, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Siegreich Letma IV"), queststatus(513) = 20, "Unten sind merkwürdige Säulen mit Buchstaben drauf. Ich dachte, dass etwas besonderes passiert, wenn man sie in der richtigen Reihenfolge berührt. Ich gehöre nicht zu den Leuten der Rechtschreibung oder der Worte. Wenn du dieses Rätsel löst, habe ich einen begrenzt magischen Topas für dich."
+--not done
+queststatus(513) > 19, queststatus(513) < 31, english, ".+" -> "I am still stumped by the riddle of the pillars. Please figure out what order they need to be touched."
+queststatus(513) > 19, queststatus(513) < 31, ".+" -> "Ich bin immer noch von dem Säulen-Rätsel überfragt. Bitte finde heraus in welcher Reihenfolge sie berührt werden müssen. "
+--done
+queststatus(513) = 31, english, ".+" -> inform("[Quest solved] You are awarded a limited magical topaz."), item(198, 1, 999,"gemLevel" = "2"), queststatus(513) = 32, "A demon's wand? Keep it, I have no use for such things! Take this gem and we will never speak of this again!"
+queststatus(513) = 31, ".+" -> inform("[Quest gelöst] Du erhältst 100 Silberstücke."), item(198, 1, 999,"gemLevel" = "2"), queststatus(513) = 32, "Ein Dämonenzauberstab? Behalte ihn, ich habe keinerlei Verwendung für ihn. Nimm diesen Edelstein und wir sprechen nie wieder über das Ganze!"
+
+-- No more quests, just nice words of gratitude
+queststatus(513) = 32, english, "quest", "mission" -> "I have nothing else you can help with. Please speak of our interaction with no one."
+queststatus(513) = 32, "quest", "mission" -> "Es gibt nichts weiteres womit du mir helfen kannst. Bitte sprich mit niemandem über unsere Zusammenarbeit."
+queststatus(513) = 32, "task", "adventure", "order" -> "I have nothing else you can help with. Please speak of our interaction with no one."
+queststatus(513) = 32, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Es gibt nichts weiteres womit du mir helfen kannst. Bitte sprich mit niemandem über unsere Zusammenarbeit."
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"lady", "miss" -> "If you call me Lady or Miss again, I will feed you to the hellhounds."
+"dame" -> "Wenn du mich nochmal Lady oder Dame nennst, werde ich dich an die Höllenhunde verfüttern"
+"hellhound" ->"I love hunting the hellhounds.  The challenge of fighting beasts that can kill you can't be topped."
+"Höllenhunde" -> "Ich liebe es Höllenhunde zu jagen. Die Herausforderung gegen Bestien zu kämpfen die einen töten können ist nicht zu toppen."
+"my name" -> "My name is Metylda Lockleigh, don't even try to call me Lady or Miss!"
+"mein Name" -> "Mein Name ist Metylda Lockleigh, versuch gar nicht erst mich Lady oder Dame"
+"Injury" -> "I had a skirmish with some golems and now my elbow is right sore. I really hate having to ask for help."
+"Verletzung" -> "Ich hatte ein Gefecht mit einem Golem und nun ist mein Ellenbogen ziemlich wund. Ich hasse es nach Hilfe zu fragen."
+"brother" -> "I have seven brothers, but I aim to prove to my dad I am just as good if not a better hunter than them all."
+"bruder" -> "Ich habe sieben Brüder, aber ich möchte meinem Vater beweisen, dass ich ein mindestens genauso guter, wenn nicht sogar besserer Jäger bin als sie alle."
+
+-- Towns
+english, "Runewick" -> "Not a hunter there, always have their nose in a book in Runewick."
+"Runewick" -> "In Runewick gibt es keine Jäger, dort haben sie immer die Nasen in Büchern."
+english, "Galmair" -> "Thieves the lot of them in Galmair.  They would rather steal than make their own way."
+"Galmair" -> "In Galmair gibt es viele Diebe. Sie würden eher stehlen als es selbst zu machen."
+english, "Cadomyr" -> "I have seen many a fine warrior enter Cadomyr, but none is a finer hunter than me."
+"Cadomyr" -> "Ich sah viele gute Krieger Cadomyr betreten, doch keiner von ihnen war ein besserer Jäger als ich."
+english, "necktie", "hemp" -> "I have no use for the criminals at the Hemp Necktie Inn. I have my mission in life and no crook will help me find it."
+"necktie", "hemp" -> "Ich habe keinen Nutzen für die Kriminellen bei der Hanfschlinge. Ich habe eine Aufgabe in meinem Leben und kein Gauner wird mir helfen sie zu erreichen."
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "I do not sell or buy anything."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich kaufe und verkaufe nichts."
+
+-- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me sitzt da und versorgt eine kleine Wunde an ihrem Ellenbogen indem sie eine saubere weiße Bandage darum wickelt.", "#me sits nursing a small wound on her left elbow, wrapping it in a clean white bandage."
+cycletext "Ich werde es ihnen zeigen, das werde ich. *Murmelt sie eher zu sich selbst.*", "I'll show them, I will. *She mumbles mostly to herself.*"
+cycletext "Meine Waffen und meine Rüstung mögen pink sein, trotzdem bin ich immer zäher als du!", "My weapon and armour may be pink, but I am tougher than you any day!"
+cycletext "Braucht jemand einen Bruder? Ich habe einen, zwei oder sieben abzugeben.", "Anyone want a brother? I have one, two, or seven to spare."
+cycletext "#me schaut finster in die Ferne.", "#me scowls off into the distance."
+cycletext "#me schärft ihre Schwertklinge.", "#me sharpens her sword blade."
+cycletext "Ich werde diesen Berg bezwingen.", "I will conquer this mountain."
+cycletext "Mein Vater sagt Mädchen sind nicht so stark wie Jungs, ich habe vor ihm zu beweisen, dass er falsch liegt.", "My father said girls are not as strong as boys, I aim to prove him wrong."
+cycletext "#me pfeift eine Melodie.", "#me whistles a tune."
+cycletext "#me hackt mit einem Dolch auf ihr Haar ein und schneidet es kurz.", "#me hacks at her hair with a dagger, cropping it short."

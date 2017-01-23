@@ -40,15 +40,15 @@ Description[GERMAN][2] = "Geh zu Metylda. Sie hat bestimmt noch eine Aufgabe für
 Description[ENGLISH][2] = "Go back to Metylda, she certainly has another task for you."
 
 Description[GERMAN][3] = "Metylda Lockleigh möchte, dass du deine Fähigkeiten unter Beweis stellst indem du fünf Diener der Dämonenskelette tötest, du musst noch fünf töten. "
-Description[ENGLISH][3] = "Metylda Lockleigh wishes you to prove your prowness by killing five demon skeleton servants, you still need to kill five."
+Description[ENGLISH][3] = "Metylda Lockleigh wishes you to prove your prowess by killing five demon skeleton servants, you still need to kill five."
 Description[GERMAN][4] = "Metylda Lockleigh möchte, dass du deine Fähigkeiten unter Beweis stellst indem du fünf Diener der Dämonenskelette tötest, du musst noch vier töten. "
-Description[ENGLISH][4] = "Metylda Lockleigh wishes you to prove your prowness by killing five demon skeleton servants, you still need to kill four."
+Description[ENGLISH][4] = "Metylda Lockleigh wishes you to prove your prowess by killing five demon skeleton servants, you still need to kill four."
 Description[GERMAN][5] = "Metylda Lockleigh möchte, dass du deine Fähigkeiten unter Beweis stellst indem du fünf Diener der Dämonenskelette tötest, du musst noch drei töten. "
-Description[ENGLISH][5] = "Metylda Lockleigh wishes you to prove your prowness by killing five demon skeleton servants, you still need to kill three."
+Description[ENGLISH][5] = "Metylda Lockleigh wishes you to prove your prowess by killing five demon skeleton servants, you still need to kill three."
 Description[GERMAN][6] = "Metylda Lockleigh möchte, dass du deine Fähigkeiten unter Beweis stellst indem du fünf Diener der Dämonenskelette tötest, du musst noch zwei töten. "
-Description[ENGLISH][6] = "Metylda Lockleigh wishes you to prove your prowness by killing five demon skeleton servants, you still need to kill two."
+Description[ENGLISH][6] = "Metylda Lockleigh wishes you to prove your prowess by killing five demon skeleton servants, you still need to kill two."
 Description[GERMAN][7] = "Metylda Lockleigh möchte, dass du deine Fähigkeiten unter Beweis stellst indem du fünf Diener der Dämonenskelette tötest, du musst noch eine töten. "
-Description[ENGLISH][7] = "Metylda Lockleigh wishes you to prove your prowness by killing five demon skeleton servants, you still need to kill one."
+Description[ENGLISH][7] = "Metylda Lockleigh wishes you to prove your prowess by killing five demon skeleton servants, you still need to kill one."
 Description[GERMAN][8] = "Gehe zu Metylda zurück und teile ihr mit, dass du ihre Aufgabe erledigt hast."
 Description[ENGLISH][8] = "Report back to Metylda that you have finished her task."
 Description[GERMAN][9] = "Geh zu Metylda. Sie hat bestimmt noch eine Aufgabe für dich."
@@ -77,30 +77,31 @@ Description[GERMAN][19] = "Geh zu Metylda. Sie hat bestimmt noch eine Aufgabe fü
 Description[ENGLISH][19] = "Go back to Metylda, she certainly has another task for you."
 
 
-Description[GERMAN][20] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'P'."
-Description[ENGLISH][20] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'P'."
-Description[GERMAN][21] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PR'."
-Description[ENGLISH][21] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PR'."
-Description[GERMAN][22] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PRE'."
-Description[ENGLISH][22] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PRE'."
-Description[GERMAN][23] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PREA'."
-Description[ENGLISH][23] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PREA'."
-Description[GERMAN][24] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PREAC'."
-Description[ENGLISH][24] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PREAC'."
-Description[GERMAN][25] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PREACE'."
-Description[ENGLISH][25] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PREACE'."
-Description[GERMAN][26] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PREACER'."
-Description[ENGLISH][26] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PREACER'."
-Description[GERMAN][27] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PREACERD'."
-Description[ENGLISH][27] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PREACERD'."
-Description[GERMAN][28] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PREACERDH'."
-Description[ENGLISH][28] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PREACERDH'."
-Description[GERMAN][29] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PREACERDHA'."
-Description[ENGLISH][29] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PREACERDHA'."
-Description[GERMAN][30] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PREACERDHAL'."
-Description[ENGLISH][30] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PREACERDHAL'."
-Description[GERMAN][31] = "Gehe zu Metylda zurück und teile ihr mit, dass du ihre Aufgabe erledigt hast."
-Description[ENGLISH][31] = "Report back to Metylda that you have finished her task."
+Description[GERMAN][20] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen."
+Description[ENGLISH][20] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh."
+Description[GERMAN][21] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'P'."
+Description[ENGLISH][21] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'P'."
+Description[GERMAN][22] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PR'."
+Description[ENGLISH][22] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PR'."
+Description[GERMAN][23] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PRE'."
+Description[ENGLISH][23] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PRE'."
+Description[GERMAN][24] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PREA'."
+Description[ENGLISH][24] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PREA'."
+Description[GERMAN][25] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PREAC'."
+Description[ENGLISH][25] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PREAC'."
+Description[GERMAN][26] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PREACE'."
+Description[ENGLISH][26] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PREACE'."
+Description[GERMAN][27] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PREACER'."
+Description[ENGLISH][27] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PREACER'."
+Description[GERMAN][28] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PREACERD'."
+Description[ENGLISH][28] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PREACERD'."
+Description[GERMAN][29] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PREACERDH'."
+Description[ENGLISH][29] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PREACERDH'."
+Description[GERMAN][30] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PREACERDHA'."
+Description[ENGLISH][30] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PREACERDHA'."
+Description[GERMAN][31] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PREACERDHAL'. Gehe zu Metylda zurück und teile ihr mit, dass du ihre Aufgabe erledigt hast."
+Description[ENGLISH][31] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PREACERDHAL'. Report back to Metylda that you have finished her task."
+
 
 Description[GERMAN][32] = "Du hast alle Aufgaben für Metylda Lockleigh erledigt."
 Description[ENGLISH][32] = "You have finished all tasks for Metylda Lockleigh."
@@ -150,7 +151,7 @@ local FINAL_QUEST_STATUS = 32
 -- Register the monster kill parts of the quest.
 monsterQuests.addQuest{
     questId = 513,
-    locations = {position = position(268, 785, -3), radius = 65},
+    location = {position = position(268, 785, -3), radius = 65},
     queststatus = {from = 3, to = 8},
     questTitle = {german = "Siegreich Letma II", english = "Conquering Letma II"},
     monsterName = {german = "Dämonenskelett Diener", english = "Demon Skeleton Servant"},
@@ -160,7 +161,7 @@ monsterQuests.addQuest{
 
 monsterQuests.addQuest{
     questId = 513,
-    locations = {position = position(220, 812, -6), radius = 65},
+    location = {position = position(220, 812, -6), radius = 65},
     queststatus = {from = 10, to = 15},
     questTitle = {german = "Siegreich Letma III", english = "Conquering Letma III"},
     monsterName = {german = "Betrachter", english = "Beholders"},

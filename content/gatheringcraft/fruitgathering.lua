@@ -201,6 +201,9 @@ function InitHarvestItems()
     HarvestItems[ 3867 ] = {                              -- Banana Tree
     CreateHarvestProduct(80, nil, nil, 3866)            -- Banana
     }
+    HarvestItems[ 3892 ] = {                              -- blackberry bush
+    CreateHarvestProduct(147, nil, nil, 3893)            -- blackberry bush
+    }
 end
 
 -- for GroundType, see common.GroundType. If it doesn't matter, just set it to nil

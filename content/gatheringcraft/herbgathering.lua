@@ -324,7 +324,6 @@ function InitHerbItems()
 
 
     HerbItems[301] = {                                   -- hedge
-    CreateHarvestProduct(147, gt.forest),                        -- blackberry
     CreateHarvestProduct(142, gt.sand),                          -- sandberry
     CreateHarvestProduct(143, gt.grass),                         -- red elder
     CreateHarvestProduct(136, gt.dirt)                          -- anger berry
