@@ -198,13 +198,13 @@ local function FillAimingTimeList(Attacker,Defender,weaponId)
     AIMING_TIME_LIST[Attacker.id]["position"] = Attacker.pos.x.." "..Attacker.pos.y.." "..Attacker.pos.z
 end
 
---- Calculate time necessary to aim, depedning on attribute and weapon.
+--- Calculate time necessary to aim, depending on attribute and weapon.
 -- @param Attacker The character attacking
 -- @param Weapon The weapon used
 -- @return The time needed for an attack in 1/10 seconds
 local function GetNecessaryAimingTime(Attacker)
     -- we use a default value for every character and weapon; the differences in attributes and weapons come in play when the movepoints are lowered/regenerated
-    return math.floor(CalculateMovepoints(Attacker)+0.5)
+    return math.max(11, math.floor(CalculateMovepoints(Attacker)+0.5)) --11 is minimum for the animation to be played properly.
 end
 
 --- Check if enough aiming time has passed for the archer in order to shoot
@@ -696,7 +696,7 @@ function CauseDamage(Attacker, Defender, Globals)
         return true
     else
         character.ChangeHP(Defender.Char,-Globals.Damage) -- Finally dealing the damage.
-
+        
         if (Attacker.AttackKind == 4) then -- Ranged attack
             if not character.IsPlayer(Defender.Char) and character.IsPlayer(Attacker.Char) then
                 Defender.Char.movepoints = Defender.Char.movepoints - 5
@@ -1458,14 +1458,12 @@ function CalculateMovepoints(Attacker)
     end
 
     if Attacker.Weapon.AmmunitionType==10 then
-        if(Attacker.SecWeaponItem.id==322) then
+        if(Attacker.SecWeaponItem.id==322) then --Wind arrows. Effect to be revised.
             weaponFightpoints = weaponFightpoints-1
         end
     end
 
-    -- The Global Speed Mod (GSM). Increase this to make fights faster.
-    local GlobalSpeedMod = 100
-    return math.max(7, weaponFightpoints * (100 - (Attacker.agility-6) * 2.5) / GlobalSpeedMod)
+    return math.max(7, weaponFightpoints * (2 - (common.GetAttributeBonus(Attacker.agility,0.2))))
 end
 
 --- Reduce the attacker movepoints by the fitting value.
@@ -1508,16 +1506,11 @@ function LearnSuccess(Attacker, Defender, AP, Globals)
         Attacker.Char:learn(Attacker.Skillname, AP/3, math.max(Defender.DefenseSkill, Defender.parry) + 20)
     end
 
-    local rangedBonus = 0
-    if Attacker.AttackKind==4 then
-        rangedBonus = GetNecessaryAimingTime(Attacker)*10
-    end
-
     -- Defender learns armour skill
     if Defender.DefenseSkillName then
         local armourfound, armour = world:getArmorStruct(Globals.HittedItem.id)
         if armourfound then
-            Defender.Char:learn(Defender.DefenseSkillName,(AP+rangedBonus)/3,Attacker.skill + 20)
+            Defender.Char:learn(Defender.DefenseSkillName,(AP)/3,Attacker.skill + 20)
         end
     end
 
