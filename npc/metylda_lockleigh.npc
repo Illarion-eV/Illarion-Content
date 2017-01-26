@@ -38,7 +38,7 @@ autointroduce = on
 
 author = "Evie"
 
-lookatDE = "Dieser NPC ist die Jäger Metylda Lockleigh"
+lookatDE = "Dieser NPC ist die Jägerin Metylda Lockleigh"
 lookatUS = "This NPC is the hunter Metylda Lockleigh."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
@@ -91,9 +91,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Be gone and stop bothering 
 
 -- Quest 1: Bring Metlyda five loaves of bread
 queststatus(513) = 0, english, "quest", "mission" -> inform("[New quest] Conquering Letma I"), queststatus(513) = 1, "I have been on this mountain for some time and have ran out of supplies. I would pay you if you fetch me some food. I can fetch my own meat, however I could use some potato bread from town.   Would you go to town and fetch me five loaves of potato bread?"
-queststatus(513) = 0, "quest", "mission" -> inform("[Neue Quest] Siegreich Letma I"), queststatus(513) = 1, "Ich bin seit einiger Zeit auf diesem Berg und mir gehen die Vorräte aus. Ich würde dich bezahlen, wenn du mir etwas zu essen holst. Ich kann mir selbst Fleisch besorgen, allerdings könnte ich etwas Kartoffelbrot aus der Stadt gebrauchen. Würdest du zur Stadt gehen und mir fünf Laibe Kartoffelbrot holen?"
+queststatus(513) = 0, "quest", "mission" -> inform("[Neue Quest] Die Eroberung Letmas I"), queststatus(513) = 1, "Ich bin seit einiger Zeit auf diesem Berg und mir gehen die Vorräte aus. Ich würde dich bezahlen, wenn du mir etwas zu essen holst. Ich kann mir selbst Fleisch besorgen, allerdings könnte ich etwas Kartoffelbrot aus der Stadt gebrauchen. Würdest du zur Stadt gehen und mir fünf Laibe Kartoffelbrot holen?"
 queststatus(513) = 0, "task", "adventure", "order" -> inform("[New quest] Conquering Letma I"), queststatus(513) = 1, "I have been on this mountain for some time and have ran out of supplies. I would pay you if you fetch me some food. I can fetch my own meat, however I could use some potato bread from town.   Would you go to town and fetch me five loaves of potato bread?"
-queststatus(513) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Siegreich Letma I"), queststatus(513) = 1, "Ich bin seit einiger Zeit auf diesem Berg und mir gehen die Vorräte aus. Ich würde dich bezahlen, wenn du mir etwas zu essen holst. Ich kann mir selbst Fleisch besorgen, allerdings könnte ich etwas Kartoffelbrot aus der Stadt gebrauchen. Würdest du zur Stadt gehen und mir fünf Laibe Kartoffelbrot holen?"
+queststatus(513) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Die Eroberung Letmas I"), queststatus(513) = 1, "Ich bin seit einiger Zeit auf diesem Berg und mir gehen die Vorräte aus. Ich würde dich bezahlen, wenn du mir etwas zu essen holst. Ich kann mir selbst Fleisch besorgen, allerdings könnte ich etwas Kartoffelbrot aus der Stadt gebrauchen. Würdest du zur Stadt gehen und mir fünf Laibe Kartoffelbrot holen?"
 --Did not have all the items
 queststatus(513) = 1, item(49, all) < 5, english, ".+" -> "I really need supplies, please bring me five loaves of potato bread."
 queststatus(513) = 1, item(49, all) < 5, ".+" -> "Ich brauche dringend Vorräte, bitte bring mir fünf Kartoffelbrotlaibe."
@@ -104,9 +104,9 @@ queststatus(513) = 1, item(49, all) > 4, ".+" -> inform("[Quest gelöst] Du erhäl
 
 -- Quest 2: Kill five demon skeleton servants for Metylda
 queststatus(513) = 2, english, "quest", "mission" -> inform("[New quest] Conquering Letma II"), queststatus(513) = 3, "I need to know how strong you are before I give you any more tasks.  Go below and kill five of the demon skeleton servants to prove your prowess."
-queststatus(513) = 2, "quest", "mission" -> inform("[Neue Quest] Siegreich Letma II"), queststatus(513) = 3, "Ich muss wissen wie stark du bist bevor ich dir weitere Aufträge gebe. Geh nach unten und töte fünf Diener der Dämonenskelette um deine Fähigkeiten zu beweisen."
+queststatus(513) = 2, "quest", "mission" -> inform("[Neue Quest] Die Eroberung Letmas II"), queststatus(513) = 3, "Ich muss wissen wie stark du bist bevor ich dir weitere Aufträge gebe. Geh nach unten und töte fünf Diener der Dämonenskelette um deine Fähigkeiten zu beweisen."
 queststatus(513) = 2, "task", "adventure", "order" -> inform("[New quest] Conquering Letma II"), queststatus(513) = 3, "I need to know how strong you are before I give you any more tasks.  Go below and kill five of the demon skeleton servants to prove your prowess."
-queststatus(513) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Siegreich Letma II"), queststatus(513) = 3, "Ich muss wissen wie stark du bist bevor ich dir weitere Aufträge gebe. Geh nach unten und töte fünf Diener der Dämonenskelette um deine Fähigkeiten zu beweisen."
+queststatus(513) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Die Eroberung Letmas II"), queststatus(513) = 3, "Ich muss wissen wie stark du bist bevor ich dir weitere Aufträge gebe. Geh nach unten und töte fünf Diener der Dämonenskelette um deine Fähigkeiten zu beweisen."
 --Monsters not killed
 queststatus(513) > 2, queststatus(513) < 8, english, ".+" -> "If you cannot prove to me you are a hunter by killing five demon skeleton servants, I will not give you other work."
 queststatus(513) > 2, queststatus(513) < 8, ".+" -> "Wenn du mir nicht beweisen kannst ein Jäger zu sein indem du fünf Diener der Dämonenskelette tötest, werde ich dir keine anderen Aufträge geben."
@@ -116,21 +116,21 @@ queststatus(513) = 8, ".+" -> inform("[Quest gelöst] Du erhältst 75 Silberstücke
 
 -- Quest 3: Kill five beholders for Metylda
 queststatus(513) = 9, english, "quest", "mission" -> inform("[New quest] Conquering Letma III"), queststatus(513) = 10, "Now that you have shown the spirit of a true hunter, I will give you another task. Please clear out five of the beholders below the mountain. My injury keeps me from doing it myself."
-queststatus(513) = 9, "quest", "mission" -> inform("[Neue Quest] Siegreich Letma III"), queststatus(513) = 10, "Nun, da du den Geist eines wahren Jägers bewiesen hast, werde ich dir eine andere Aufgabe geben. Bitte lösche fünf Glotzer unter dem Berg aus. Meine Verletzung verhindert, dass ich es selbst mache."
+queststatus(513) = 9, "quest", "mission" -> inform("[Neue Quest] Die Eroberung Letmas III"), queststatus(513) = 10, "Nun, da du den Geist eines wahren Jägers bewiesen hast, werde ich dir eine andere Aufgabe geben. Bitte lösche fünf Glotzer unter dem Berg aus. Meine Verletzung verhindert, dass ich es selbst mache."
 queststatus(513) = 9, "task", "adventure", "order" -> inform("[New quest] Conquering Letma III"),  queststatus(513) = 10, "Now that you have shown the spirit of a true hunter, I will give you another task. Please clear out five of the beholders below the mountain. My injury keeps me from doing it myself."
-queststatus(513) = 9, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Siegreich Letma III"), queststatus(513) = 10, "Nun, da du den Geist eines wahren Jägers bewiesen hast, werde ich dir eine andere Aufgabe geben. Bitte lösche fünf Glotzer unter dem Berg aus. Meine Verletzung verhindert, dass ich es selbst mache."
+queststatus(513) = 9, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Die Eroberung Letmas III"), queststatus(513) = 10, "Nun, da du den Geist eines wahren Jägers bewiesen hast, werde ich dir eine andere Aufgabe geben. Bitte lösche fünf Glotzer unter dem Berg aus. Meine Verletzung verhindert, dass ich es selbst mache."
 --Monsters not killed
 queststatus(513) > 9, queststatus(513) < 15, english, ".+" -> "The beholders see too much. I often wonder who they report to. Kill five of them to decrease their numbers."
-queststatus(513) > 9, queststatus(513) < 15, ".+" -> "Die Glotzer sehen zu viel. Ich frage mich oft wem sie berichten. Töte fünf von ihnen um sie zu dezimieren."
+queststatus(513) > 9, queststatus(513) < 15, ".+" -> "Die Glotzer sehen zu viel. Ich frage mich oft wer ihr Anführer ist. Töte fünf von ihnen um sie zu dezimieren."
 -- Beholders killed
 queststatus(513) = 15, english, ".+" -> inform("[Quest solved] You are awarded 100 silver coins."), money + 10000, queststatus(513) = 16, "You have done well and now for a task of a different sort."
 queststatus(513) = 15, ".+" -> inform("[Quest gelöst] Du erhältst 100 Silberstücke."), money + 10000, queststatus(513) = 16, "Gut gemacht und nun zu einer Aufgabe einer anderen Art."
 
 -- Quest 4: Kill Gold Golem
 queststatus(513) = 16, english, "quest", "mission" -> inform("[New quest] Conquering Letma IV"), queststatus(513) = 17, "The gold golem injured me during our fight, which is why I am sitting up here on the mountain top and not hunting. If you kill the gold golem for me I will give you the map to a dragon's treasure I found."
-queststatus(513) = 16, "quest", "mission" -> inform("[Neue Quest] Siegreich Letma IV"), queststatus(513) = 17, "Der Goldgolem verletzte mich während unseres Kampfes, deswegen sitze ich hier oben auf dem Berg und jage nicht. Wenn du den Goldgolem für mich tötest, gebe ich dir die Schatzkarte eines Drachenschatzes, den ich gefunden habe."
+queststatus(513) = 16, "quest", "mission" -> inform("[Neue Quest] Die Eroberung Letmas IV"), queststatus(513) = 17, "Der Goldgolem verletzte mich während unseres Kampfes, deswegen sitze ich hier oben auf dem Berg und jage nicht. Wenn du den Goldgolem für mich tötest, gebe ich dir die Schatzkarte eines Drachenschatzes, den ich gefunden habe."
 queststatus(513) = 16, "task", "adventure", "order" -> inform("[New quest] Conquering Letma IV"), queststatus(513) = 17, "The gold golem injured me during our fight, which is why I am sitting up here on the mountain top and not hunting. If you kill the gold golem for me I will give you the map to a dragon's treasure I found."
-queststatus(513) = 16, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Siegreich Letma IV"), queststatus(513) = 17, "Der Goldgolem verletzte mich während unseres Kampfes, deswegen sitze ich hier oben auf dem Berg und jage nicht. Wenn du den Goldgolem für mich tötest, gebe ich dir die Schatzkarte eines Drachenschatzes, den ich gefunden habe."
+queststatus(513) = 16, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Die Eroberung Letmas IV"), queststatus(513) = 17, "Der Goldgolem verletzte mich während unseres Kampfes, deswegen sitze ich hier oben auf dem Berg und jage nicht. Wenn du den Goldgolem für mich tötest, gebe ich dir die Schatzkarte eines Drachenschatzes, den ich gefunden habe."
 --not done
 queststatus(513) > 16, queststatus(513) < 18, english, ".+" -> "I would seriously like that gold golem to pay for injuring my fighting arm. Please kill it!"
 queststatus(513) > 16, queststatus(513) < 18, ".+" -> "Ich würde den Goldgolem wirklich gerne dafür bezahlen lassen, dass er meinen Kampfarm verletzte. Bitte töte ihn!"
@@ -140,9 +140,9 @@ queststatus(513) = 18, ".+" -> inform("[Quest gelöst] Du erhältst die Karte."), 
 
 -- Quest 5: Find the mystery of the lettered columns
 queststatus(513) = 19, english, "quest", "mission" -> inform("[New quest] Conquering Letma IV"), queststatus(513) = 20, "There are strange pillars below with letters on them. I thought that if they were touched in the right order something special might happen. I am not one for spelling or words. If you figure out this riddle, I have a limited topaz for you."
-queststatus(513) = 19, "quest", "mission" -> inform("[Neue Quest] Siegreich Letma IV"), queststatus(513) = 20, "Unten sind merkwürdige Säulen mit Buchstaben drauf. Ich dachte, dass etwas besonderes passiert, wenn man sie in der richtigen Reihenfolge berührt. Ich gehöre nicht zu den Leuten der Rechtschreibung oder der Worte. Wenn du dieses Rätsel löst, habe ich einen begrenzt magischen Topas für dich."
+queststatus(513) = 19, "quest", "mission" -> inform("[Neue Quest] Die Eroberung Letmas IV"), queststatus(513) = 20, "Unten sind merkwürdige Säulen mit Buchstaben drauf. Ich dachte, dass etwas besonderes passiert, wenn man sie in der richtigen Reihenfolge berührt. Ich gehöre nicht zu den Leuten der Rechtschreibung oder der Worte. Wenn du dieses Rätsel löst, habe ich einen begrenzt magischen Topas für dich."
 queststatus(513) = 19, "task", "adventure", "order" -> inform("[New quest] Conquering Letma IV"), queststatus(513) = 20, "There are strange pillars below with letters on them. I thought that if they were touched in the right order something special might happen. I am not one for spelling or words. If you figure out this riddle, I have a limited topaz for you."
-queststatus(513) = 19, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Siegreich Letma IV"), queststatus(513) = 20, "Unten sind merkwürdige Säulen mit Buchstaben drauf. Ich dachte, dass etwas besonderes passiert, wenn man sie in der richtigen Reihenfolge berührt. Ich gehöre nicht zu den Leuten der Rechtschreibung oder der Worte. Wenn du dieses Rätsel löst, habe ich einen begrenzt magischen Topas für dich."
+queststatus(513) = 19, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Die Eroberung Letmas IV"), queststatus(513) = 20, "Unten sind merkwürdige Säulen mit Buchstaben drauf. Ich dachte, dass etwas besonderes passiert, wenn man sie in der richtigen Reihenfolge berührt. Ich gehöre nicht zu den Leuten der Rechtschreibung oder der Worte. Wenn du dieses Rätsel löst, habe ich einen begrenzt magischen Topas für dich."
 --not done
 queststatus(513) > 19, queststatus(513) < 31, english, ".+" -> "I am still stumped by the riddle of the pillars. Please figure out what order they need to be touched."
 queststatus(513) > 19, queststatus(513) < 31, ".+" -> "Ich bin immer noch von dem Säulen-Rätsel überfragt. Bitte finde heraus in welcher Reihenfolge sie berührt werden müssen. "
@@ -158,11 +158,11 @@ queststatus(513) = 32, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Es gibt n
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "lady", "miss" -> "If you call me Lady or Miss again, I will feed you to the hellhounds."
-"dame" -> "Wenn du mich nochmal Lady oder Dame nennst, werde ich dich an die Höllenhunde verfüttern"
+"dame" -> "Wenn du mich nochmal Lady oder Dame nennst, werde ich dich an die Höllenhunde verfüttern."
 "hellhound" ->"I love hunting the hellhounds.  The challenge of fighting beasts that can kill you can't be topped."
-"Höllenhunde" -> "Ich liebe es Höllenhunde zu jagen. Die Herausforderung gegen Bestien zu kämpfen die einen töten können ist nicht zu toppen."
+"Höllenhunde" -> "Ich liebe es Höllenhunde zu jagen. Die Herausforderung gegen Bestien zu kämpfen die einen töten können ist nicht zu überbieten."
 "my name" -> "My name is Metylda Lockleigh, don't even try to call me Lady or Miss!"
-"mein Name" -> "Mein Name ist Metylda Lockleigh, versuch gar nicht erst mich Lady oder Dame"
+"mein Name" -> "Mein Name ist Metylda Lockleigh, versuch gar nicht erst mich Lady oder Dame zu nennen."
 "Injury" -> "I had a skirmish with some golems and now my elbow is right sore. I really hate having to ask for help."
 "Verletzung" -> "Ich hatte ein Gefecht mit einem Golem und nun ist mein Ellenbogen ziemlich wund. Ich hasse es nach Hilfe zu fragen."
 "brother" -> "I have seven brothers, but I aim to prove to my dad I am just as good if not a better hunter than them all."

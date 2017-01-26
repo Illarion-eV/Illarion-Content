@@ -26,7 +26,7 @@ local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}
-Title[GERMAN] = "Siegreich Letma"
+Title[GERMAN] = "Die Eroberung Letmas"
 Title[ENGLISH] = "Conquering Letma"
 
 -- Insert an extensive description of each status here, in both languages
@@ -39,37 +39,37 @@ Description[ENGLISH][1] = "Metylda Lockleigh needs five loaves of potato bread. 
 Description[GERMAN][2] = "Geh zu Metylda. Sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][2] = "Go back to Metylda, she certainly has another task for you."
 
-Description[GERMAN][3] = "Metylda Lockleigh möchte, dass du deine Fähigkeiten unter Beweis stellst indem du fünf Diener der Dämonenskelette tötest, du musst noch fünf töten. "
+Description[GERMAN][3] = "Metylda Lockleigh möchte, dass du deine Fähigkeiten unter Beweis stellst indem du fünf Dämonenskelette tötest, du musst noch fünf töten. "
 Description[ENGLISH][3] = "Metylda Lockleigh wishes you to prove your prowess by killing five demon skeleton servants, you still need to kill five."
-Description[GERMAN][4] = "Metylda Lockleigh möchte, dass du deine Fähigkeiten unter Beweis stellst indem du fünf Diener der Dämonenskelette tötest, du musst noch vier töten. "
+Description[GERMAN][4] = "Metylda Lockleigh möchte, dass du deine Fähigkeiten unter Beweis stellst indem du fünf Dämonenskelette tötest, du musst noch vier töten. "
 Description[ENGLISH][4] = "Metylda Lockleigh wishes you to prove your prowess by killing five demon skeleton servants, you still need to kill four."
-Description[GERMAN][5] = "Metylda Lockleigh möchte, dass du deine Fähigkeiten unter Beweis stellst indem du fünf Diener der Dämonenskelette tötest, du musst noch drei töten. "
+Description[GERMAN][5] = "Metylda Lockleigh möchte, dass du deine Fähigkeiten unter Beweis stellst indem du fünf Dämonenskelette tötest, du musst noch drei töten. "
 Description[ENGLISH][5] = "Metylda Lockleigh wishes you to prove your prowess by killing five demon skeleton servants, you still need to kill three."
-Description[GERMAN][6] = "Metylda Lockleigh möchte, dass du deine Fähigkeiten unter Beweis stellst indem du fünf Diener der Dämonenskelette tötest, du musst noch zwei töten. "
+Description[GERMAN][6] = "Metylda Lockleigh möchte, dass du deine Fähigkeiten unter Beweis stellst indem du fünf Dämonenskelette tötest, du musst noch zwei töten. "
 Description[ENGLISH][6] = "Metylda Lockleigh wishes you to prove your prowess by killing five demon skeleton servants, you still need to kill two."
-Description[GERMAN][7] = "Metylda Lockleigh möchte, dass du deine Fähigkeiten unter Beweis stellst indem du fünf Diener der Dämonenskelette tötest, du musst noch eine töten. "
+Description[GERMAN][7] = "Metylda Lockleigh möchte, dass du deine Fähigkeiten unter Beweis stellst indem du fünf Dämonenskelette tötest, du musst noch eines töten. "
 Description[ENGLISH][7] = "Metylda Lockleigh wishes you to prove your prowess by killing five demon skeleton servants, you still need to kill one."
 Description[GERMAN][8] = "Gehe zu Metylda zurück und teile ihr mit, dass du ihre Aufgabe erledigt hast."
 Description[ENGLISH][8] = "Report back to Metylda that you have finished her task."
 Description[GERMAN][9] = "Geh zu Metylda. Sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][9] = "Go back to Metylda, she certainly has another task for you."
 
-Description[GERMAN][10] = "Metylda möchte, dass du fünf Glotzer im Bereich unter dem Berg tötest, du brauchst noch fünf."
+Description[GERMAN][10] = "Metylda möchte, dass du fünf Betrachter im Bereich unter dem Berg tötest, du brauchst noch fünf."
 Description[ENGLISH][10] = "Metylda wants you to kill five beholders in the area under the mountain, you still need five."
-Description[GERMAN][11] = "Metylda möchte, dass du fünf Glotzer im Bereich unter dem Berg tötest, du brauchst noch vier."
+Description[GERMAN][11] = "Metylda möchte, dass du fünf Betrachter im Bereich unter dem Berg tötest, du brauchst noch vier."
 Description[ENGLISH][11] = "Metylda wants you to kill five beholders in the area under the mountain, you still need four."
-Description[GERMAN][12] = "Metylda möchte, dass du fünf Glotzer im Bereich unter dem Berg tötest, du brauchst noch drei."
+Description[GERMAN][12] = "Metylda möchte, dass du fünf Betrachter im Bereich unter dem Berg tötest, du brauchst noch drei."
 Description[ENGLISH][12] = "Metylda wants you to kill five beholders in the area under the mountain, you still need three."
-Description[GERMAN][13] = "Metylda möchte, dass du fünf Glotzer im Bereich unter dem Berg tötest, du brauchst noch zwei."
+Description[GERMAN][13] = "Metylda möchte, dass du fünf Betrachter im Bereich unter dem Berg tötest, du brauchst noch zwei."
 Description[ENGLISH][13] = "Metylda wants you to kill five beholders in the area under the mountain, you still need two."
-Description[GERMAN][14] = "Metylda möchte, dass du fünf Glotzer im Bereich unter dem Berg tötest, du brauchst noch eine."
+Description[GERMAN][14] = "Metylda möchte, dass du fünf Betrachter im Bereich unter dem Berg tötest, du brauchst noch einen."
 Description[ENGLISH][14] = "Metylda wants you to kill five beholders in the area under the mountain, you still need one."
 Description[GERMAN][15] = "Gehe zu Metylda zurück und teile ihr mit, dass du ihre Aufgabe erledigt hast."
 Description[ENGLISH][15] = "Report back to Metylda that you have finished her task."
 Description[GERMAN][16] = "Geh zu Metylda. Sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][16] = "Go back to Metylda, she certainly has another task for you."
 
-Description[GERMAN][17] = "Übe Rache für Metylda und töte den Goldgolem unten."
+Description[GERMAN][17] = "Übe Rache für Metylda und töte den Goldgolem unter dem Berg."
 Description[ENGLISH][17] = "Seek revenge for Metylda, and kill the gold golem below."
 Description[GERMAN][18] = "Gehe zu Metylda zurück und teile ihr mit, dass du ihre Aufgabe erledigt hast."
 Description[ENGLISH][18] = "Report back to Metylda that you have finished her task."
@@ -77,29 +77,29 @@ Description[GERMAN][19] = "Geh zu Metylda. Sie hat bestimmt noch eine Aufgabe fü
 Description[ENGLISH][19] = "Go back to Metylda, she certainly has another task for you."
 
 
-Description[GERMAN][20] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen."
+Description[GERMAN][20] = "Du suchst für Metylda Lockleigh nach der Lösung für das Rätzel der Säulen."
 Description[ENGLISH][20] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh."
-Description[GERMAN][21] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'P'."
+Description[GERMAN][21] = "Du suchst für Metylda Lockleigh nach der Lösung für das Rätzel der Säulen. Bisher hast du 'P'."
 Description[ENGLISH][21] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'P'."
-Description[GERMAN][22] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PR'."
+Description[GERMAN][22] = "Du suchst für Metylda Lockleigh nach der Lösung für das Rätzel der Säulen. Bisher hast du 'PR'."
 Description[ENGLISH][22] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PR'."
-Description[GERMAN][23] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PRE'."
+Description[GERMAN][23] = "Du suchst für Metylda Lockleigh nach der Lösung für das Rätzel der Säulen. Bisher hast du 'PRE'."
 Description[ENGLISH][23] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PRE'."
-Description[GERMAN][24] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PREA'."
+Description[GERMAN][24] = "Du suchst für Metylda Lockleigh nach der Lösung für das Rätzel der Säulen. Bisher hast du 'PREA'."
 Description[ENGLISH][24] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PREA'."
-Description[GERMAN][25] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PREAC'."
+Description[GERMAN][25] = "Du suchst für Metylda Lockleigh nach der Lösung für das Rätzel der Säulen. Bisher hast du 'PREAC'."
 Description[ENGLISH][25] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PREAC'."
-Description[GERMAN][26] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PREACE'."
+Description[GERMAN][26] = "Du suchst für Metylda Lockleigh nach der Lösung für das Rätzel der Säulen. Bisher hast du 'PREACE'."
 Description[ENGLISH][26] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PREACE'."
-Description[GERMAN][27] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PREACER'."
+Description[GERMAN][27] = "Du suchst für Metylda Lockleigh nach der Lösung für das Rätzel der Säulen. Bisher hast du 'PREACER'."
 Description[ENGLISH][27] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PREACER'."
-Description[GERMAN][28] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PREACERD'."
+Description[GERMAN][28] = "Du suchst für Metylda Lockleigh nach der Lösung für das Rätzel der Säulen. Bisher hast du 'PREACERD'."
 Description[ENGLISH][28] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PREACERD'."
-Description[GERMAN][29] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PREACERDH'."
+Description[GERMAN][29] = "Du suchst für Metylda Lockleigh nach der Lösung für das Rätzel der Säulen. Bisher hast du 'PREACERDH'."
 Description[ENGLISH][29] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PREACERDH'."
-Description[GERMAN][30] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PREACERDHA'."
+Description[GERMAN][30] = "Du suchst für Metylda Lockleigh nach der Lösung für das Rätzel der Säulen. Bisher hast du 'PREACERDHA'."
 Description[ENGLISH][30] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PREACERDHA'."
-Description[GERMAN][31] = "Du suchst für Metylda Lockleigh nach der Lösung für des Rätsels der Säulen. Bisher hast du 'PREACERDHAL'. Gehe zu Metylda zurück und teile ihr mit, dass du ihre Aufgabe erledigt hast."
+Description[GERMAN][31] = "Du suchst für Metylda Lockleigh nach der Lösung für das Rätzel der Säulen. Bisher hast du 'PREACERDHAL'. Gehe zu Metylda zurück und teile ihr mit, dass du ihre Aufgabe erledigt hast."
 Description[ENGLISH][31] = "You search out the answer to the riddle of the columns below for Metylda Lockleigh, so far you have 'PREACERDHAL'. Report back to Metylda that you have finished her task."
 
 
@@ -153,7 +153,7 @@ monsterQuests.addQuest{
     questId = 513,
     location = {position = position(268, 785, -3), radius = 65},
     queststatus = {from = 3, to = 8},
-    questTitle = {german = "Siegreich Letma II", english = "Conquering Letma II"},
+    questTitle = {german = "Die Eroberung Letmas II", english = "Conquering Letma II"},
     monsterName = {german = "Dämonenskelett Diener", english = "Demon Skeleton Servant"},
     npcName = "Metylda Lockleigh",
     monsterIds = {206} -- demon skeleton servants
@@ -163,7 +163,7 @@ monsterQuests.addQuest{
     questId = 513,
     location = {position = position(220, 812, -6), radius = 65},
     queststatus = {from = 10, to = 15},
-    questTitle = {german = "Siegreich Letma III", english = "Conquering Letma III"},
+    questTitle = {german = "Die Eroberung Letmas III", english = "Conquering Letma III"},
     monsterName = {german = "Betrachter", english = "Beholders"},
     npcName = "Metylda Lockleigh",
     monsterGroupIds = {12,13,14} -- all Beholders
@@ -173,7 +173,7 @@ monsterQuests.addQuest{
     questId = 513,
     location = {position = position(228, 799, -8), radius = 65},
     queststatus = {from = 17, to = 18},
-    questTitle = {german = "Siegreich Letma IV", english = "Conquering Letma IV"},
+    questTitle = {german = "Die Eroberung Letmas IV", english = "Conquering Letma IV"},
     monsterName = {german = "Goldgolem", english = "Gold Golem"},
     npcName = "Metylda Lockleigh",
     monsterIds = {564} -- Gold Golem
