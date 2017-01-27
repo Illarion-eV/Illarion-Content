@@ -80,13 +80,13 @@ itemShoes = 1500
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho! Isn't it a lovely day?", "Hiho! Welcome to Oldra's Columns."
-"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho! Ist es nicht ein schöner Tag?", "Hiho! Willkommen zu Oldra's Säule."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho! Ist es nicht ein schöner Tag?", "Hiho! Willkommen an Oldras Säule."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Isn't it a lovely day?", "Hiho! Welcome to Oldra's Columns."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Ist es nicht ein schöner Tag?", "Hiho! Willkommen zu Oldras Säule."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Ist es nicht ein schöner Tag?", "Hiho! Willkommen an Oldras Säule."
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell! May Oldra's blessings be upon you!"
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf Wiedersehen! Möge Oldra's Segen auf euch sein!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf Wiedersehen! Möge Oldras Segen auf euch sein!"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell! May Oldra's blessings be upon you!"
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf Wiedersehen! Möge Oldra's Segen auf euch sein!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf Wiedersehen! Möge Oldras Segen auf euch sein!"
 "How are you", "How feel", "How do you do" -> "I am absolutely wonderful! Thank you for asking!"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es wunderbar! Danke der Nachfrage!"
 "your name", "who are you", "who art thou" -> "I am Eleanor Fairbanks. Priestess of Oldra."
@@ -149,13 +149,13 @@ queststatus(514) = 7, item(2935, all) > 9,  ".+" -> inform ("[Quest gelöst] Du e
 
 -- No more quests, just thanks
 queststatus(514) = 8, english, "quest", "mission" -> "I don't have any other task for you. Thank you for all your help. I wouldn't have finished that stew without you."
-queststatus(514) = 8, "quest", "mission" -> "Ich habe keine anderen Aufgaben für du. Danke für all ihr Hilfe. Ich hätte diesen Eintopf ohne Sie nicht fertiggebracht."
+queststatus(514) = 8, "quest", "mission" -> "Ich habe keine anderen Aufgaben für Euch. Danke für die ganze Hilfe. Ich hätte diesen Eintopf ohne Euch nicht fertiggebracht."
 queststatus(514) = 8, "task", "adventure", "order" -> "I don't have any other task for you. Thank you for all your help. I wouldn't have finished that stew without you."
-queststatus(514) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> "Ich habe keine anderen Aufgaben für du. Danke für all ihr Hilfe. Ich hätte diesen Eintopf ohne Sie nicht fertiggebracht."
+queststatus(514) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> "Ich habe keine anderen Aufgaben für Euch. Danke für die ganze Hilfe. Ich hätte diesen Eintopf ohne Euch nicht fertiggebracht."
 
 -- Mandatory: Trade Hooks, use the trade consequence for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a merchant. Look for them in the marketplace in Runewick."
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Kaufmann. Suchen sie auf dem Markt in Runewick."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Kaufmann. Sucht auf dem Markt in Runewick."
 
 -- OPTIONAL TRIGGERS
 
@@ -167,7 +167,7 @@ english, "job" -> "I am a priestess of Oldra, but I would hardly call it a job."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his environment
 english, "Yewdale" -> "We are a small halfling farm town just west of Runewick. Those mages would starve without us."
-"Yewdale" -> "Wir sind ein kleiner Halbling Bauernhof westlich von Runewick. Diese Magier würden ohne uns verhungern."
+"Yewdale" -> "Wir sind ein kleines Halbling Bauerndorf westlich von Runewick. Diese Magier würden ohne uns verhungern."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "I honor the younger gods, but I do Oldra's work."
@@ -177,7 +177,7 @@ english, "religion" -> "I honor the younger gods, but I do Oldra's work."
 "faith" -> "I honor the younger gods, but I do Oldra's work."
 "Glaube" -> "Ich ehre die Jüngeren Götter, aber ich mache Oldras Arbeit."
 english, "Oldra" -> "She is the goddess of life and fertility. Without her blessing, nothing would grow.", "Oldra is prayed to by farmers, peasants, and cooks to bless their crops and tables. Midwives and healers seek her to help mend others. She guides birthing and raising of children. And she is known as the All-mother to halflings.", "Oldra teaches us that if you give a man bread he will eat for a day, but if you teach him how to sow seeds and bake bread, he will feed a village."
-"Oldra" -> "Sie ist die Göttin des Lebens und der Fruchtbarkeit. Ohne ihren Segen würde nichts wachsen.", "Landwirte, Bauern und Köche beten zu Oldra damit sie ihre Ernte und Tische segnet. Die Hebamme und Heiler suchen ihre Hilfe und Andere zu heilen. Sie leitet Geburten und die Erziehung von Kindern. Sie ist bekannt als die große Mutter für Halblinge.", "Oldra lehrt uns, wenn du einem Mann ein Brot gibst, hat er einen Tag zu essen. Aber wenn du einem Mann Samen gibst und ihn lehrst Brot zu backen, wird er ein ganzes Dorf ernähren."
+"Oldra" -> "Sie ist die Göttin des Lebens und der Fruchtbarkeit. Ohne ihren Segen würde nichts wachsen.", "Landwirte, Bauern und Köche beten zu Oldra damit sie ihre Ernte und Tische segnet. Die Hebamme und Heiler suchen ihre Hilfe um andere zu heilen. Sie leitet Geburten und die Erziehung von Kindern. Sie ist bekannt als die große Mutter der Halblinge.", "Oldra lehrt uns, wenn du einem Mann ein Brot gibst, hat er einen Tag zu essen. Aber wenn du einem Mann Samen gibst und ihn lehrst Brot zu backen, wird er ein ganzes Dorf ernähren."
 
 -- Optional: Faction stuff
 "archmage" -> "He runs the mages academy in Runewick. A bit of a recluse, that one."
@@ -185,7 +185,7 @@ english, "Oldra" -> "She is the goddess of life and fertility. Without her bless
 english, "Elvaine", "Morgan" -> "He runs the mages academy in Runewick. A bit of a recluse, that one."
 "Elvaine", "Morgan" -> "Er führt die Magierakademie in Runewick. Er ist ein bisschen ein Einsiedler."
 english, "Runewick" -> "Runewick and the mages academy is just east of here. Don't be surprised if you hear explosions in the middle of the night."
-"Runewick" -> "Runewick und die Magierakademie liegt genau östlich von hier. Seien Sie nicht überrascht, wenn Sie mitten in der Nacht Explosionen hören."
+"Runewick" -> "Runewick und die Magierakademie liegt genau östlich von hier. Seid nicht überrascht, wenn ihr mitten in der Nacht Explosionen hören."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -194,7 +194,7 @@ english, "Runewick" -> "Runewick and the mages academy is just east of here. Don
 
 cycletext "Ohne Oldras Segen würde es kein Leben geben. Die Welt wäre öde  wie die Kantabi Wüste.", "There would be no life without Oldra's blessing,  the world would be as barren as the Kantabi Desert"
 cycletext "Geld mag das Brot kaufen was deinen Magen füllt. Aber das Brot mit Anderen zu teilen wird deine Seele nähren", "Money may buy the bread to feed your stomach, but sharing it with others will feed your soul."
-cycletext "Oldra möge du in der Ewigkeit begrüßen, wo du in ihrem Garten mit alten und neuen Freunden schmausen.", "May Oldra greet you in eternity, where you may feast in her garden with friends new and old!"
+cycletext "Oldra möge Euch in der Ewigkeit begrüßen, wo Ihr in ihrem Garten mit alten und neuen Freunden schmausen werdet.", "May Oldra greet you in eternity, where you may feast in her garden with friends new and old!"
 cycletext "Mögen deine Felder fruchtbar sein, dein Essen reichlich und deine Kinder stark werden.", "May your fields be fertile, your meals be bountiful, and your children grow strong"
 cycletext "Vor allem sollte das Leben einfach und demütig sein. Eine reiche Ernte gefolgt von einem hausgemachten Essen mit Freunden und der Familie ist ein Segen.", "Above all, life should be simple and humble. A bountiful harvest followed by a home cooked meal with friends and family is a blessing"
 cycletext "#me zählt Samen in eine kleine Tasche.", "#me counts out seeds into a small pouch."
