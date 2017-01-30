@@ -116,12 +116,12 @@ queststatus(513) = 8, ".+" -> inform("[Quest gelöst] Du erhältst 75 Silberstücke
 
 -- Quest 3: Kill five beholders for Metylda
 queststatus(513) = 9, english, "quest", "mission" -> inform("[New quest] Conquering Letma III"), queststatus(513) = 10, "Now that you have shown the spirit of a true hunter, I will give you another task. Please clear out five of the beholders below the mountain. My injury keeps me from doing it myself."
-queststatus(513) = 9, "quest", "mission" -> inform("[Neue Quest] Die Eroberung Letmas III"), queststatus(513) = 10, "Nun, da du den Geist eines wahren Jägers bewiesen hast, werde ich dir eine andere Aufgabe geben. Bitte lösche fünf Glotzer unter dem Berg aus. Meine Verletzung verhindert, dass ich es selbst mache."
+queststatus(513) = 9, "quest", "mission" -> inform("[Neue Quest] Die Eroberung Letmas III"), queststatus(513) = 10, "Nun, da du den Geist eines wahren Jägers bewiesen hast, werde ich dir eine andere Aufgabe geben. Bitte lösche fünf Betrachter unter dem Berg aus. Meine Verletzung verhindert, dass ich es selbst mache."
 queststatus(513) = 9, "task", "adventure", "order" -> inform("[New quest] Conquering Letma III"),  queststatus(513) = 10, "Now that you have shown the spirit of a true hunter, I will give you another task. Please clear out five of the beholders below the mountain. My injury keeps me from doing it myself."
-queststatus(513) = 9, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Die Eroberung Letmas III"), queststatus(513) = 10, "Nun, da du den Geist eines wahren Jägers bewiesen hast, werde ich dir eine andere Aufgabe geben. Bitte lösche fünf Glotzer unter dem Berg aus. Meine Verletzung verhindert, dass ich es selbst mache."
+queststatus(513) = 9, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Die Eroberung Letmas III"), queststatus(513) = 10, "Nun, da du den Geist eines wahren Jägers bewiesen hast, werde ich dir eine andere Aufgabe geben. Bitte lösche fünf Betrachter unter dem Berg aus. Meine Verletzung verhindert, dass ich es selbst mache."
 --Monsters not killed
 queststatus(513) > 9, queststatus(513) < 15, english, ".+" -> "The beholders see too much. I often wonder who they report to. Kill five of them to decrease their numbers."
-queststatus(513) > 9, queststatus(513) < 15, ".+" -> "Die Glotzer sehen zu viel. Ich frage mich oft wer ihr Anführer ist. Töte fünf von ihnen um sie zu dezimieren."
+queststatus(513) > 9, queststatus(513) < 15, ".+" -> "Die Betrachter sehen zu viel. Ich frage mich oft wer ihr Anführer ist. Töte fünf von ihnen um sie zu dezimieren."
 -- Beholders killed
 queststatus(513) = 15, english, ".+" -> inform("[Quest solved] You are awarded 100 silver coins."), money + 10000, queststatus(513) = 16, "You have done well and now for a task of a different sort."
 queststatus(513) = 15, ".+" -> inform("[Quest gelöst] Du erhältst 100 Silberstücke."), money + 10000, queststatus(513) = 16, "Gut gemacht und nun zu einer Aufgabe einer anderen Art."
