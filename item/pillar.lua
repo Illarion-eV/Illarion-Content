@@ -240,7 +240,7 @@ function M.UseItem(User, SourceItem, ltstate)
             queststatuslist = common.Split_number(queststatus, 6) -- reading the digits of the queststatus as table
             if queststatuslist[1] == 0 then -- sword, only triggered once by each char
             User:inform("Du nimmst das Schwert an dich und schließt sich dem Zzarn'K'Ska an.", "You take the sword and join the Zzarn'K'Ska.")
-            common.CreateItem(User, 2655, 1, 866, {descriptionEn = "Holy Sword of the Zzarn'K'Ska of Zelphia", descriptionDe = "Das heilge Schwert der ZzarnK'Ska von Zelphia", rareness = "4"})
+            common.CreateItem(User, 2655, 1, 866, {descriptionEn = "Holy Sword of the Zzarn'K'Ska of Zelphia", descriptionDe = "Das heilige Schwert der ZzarnK'Ska von Zelphia", rareness = "4"})
             queststatuslist[1] = 1
             User:setQuestProgress(506, queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+queststatuslist[5]*10+queststatuslist[6]*1) --saving the new queststatus
             User:setQuestProgress(503, 2)
@@ -267,7 +267,7 @@ function M.UseItem(User, SourceItem, ltstate)
         elseif User:getQuestProgress(513) > 22 then -- already been here
             User:inform("Du hast diese Säule schon zuvor gefunden, probiere dein Glück mit einer anderen.", "You previously found this pillar, try your luck with another one.")
         elseif User:getQuestProgress(513) >= 20 and User:getQuestProgress(513) < 21 then -- already been here
-            User:inform("Es scheint nicht die angebrachte/richtige Zeit zu sein um diese Säule zu benutzen.", "It does not appear that it is the appropriate time to use this column.")
+            User:inform("Es scheint nicht die richtige Zeit zu sein um diese Säule zu benutzen.", "It does not appear that it is the appropriate time to use this column.")
         end
     elseif SourceItem.pos == position(300, 755, -3) then -- Letma Pillar three
         if User:getQuestProgress(513) == 22 then 
@@ -276,7 +276,7 @@ function M.UseItem(User, SourceItem, ltstate)
         elseif User:getQuestProgress(513) > 23 then -- already been here
             User:inform("Du hast diese Säule schon zuvor gefunden, probiere dein Glück mit einer anderen.", "You previously found this pillar, try your luck with another one.")
         elseif User:getQuestProgress(513) >= 20 and User:getQuestProgress(513) < 22 then -- already been here
-            User:inform("Es scheint nicht die angebrachte/richtige Zeit zu sein um diese Säule zu benutzen.", "It does not appear that it is the appropriate time to use this column.")
+            User:inform("Es scheint nicht die richtige Zeit zu sein um diese Säule zu benutzen.", "It does not appear that it is the appropriate time to use this column.")
         end
     elseif SourceItem.pos == position(295, 755, -3) then -- Letma Pillar four
         if User:getQuestProgress(513) == 23 then 
@@ -285,7 +285,7 @@ function M.UseItem(User, SourceItem, ltstate)
         elseif User:getQuestProgress(513) > 24 then -- already been here
             User:inform("Du hast diese Säule schon zuvor gefunden, probiere dein Glück mit einer anderen.", "You previously found this pillar, try your luck with another one.")
         elseif User:getQuestProgress(513) >= 20 and User:getQuestProgress(513) < 23 then -- already been here
-            User:inform("Es scheint nicht die angebrachte/richtige Zeit zu sein um diese Säule zu benutzen.", "It does not appear that it is the appropriate time to use this column.")
+            User:inform("Es scheint nicht die richtige Zeit zu sein um diese Säule zu benutzen.", "It does not appear that it is the appropriate time to use this column.")
         end
     elseif SourceItem.pos == position(212, 820, -6) then -- Letma Pillar five
         if User:getQuestProgress(513) == 24 then 
@@ -294,7 +294,7 @@ function M.UseItem(User, SourceItem, ltstate)
         elseif User:getQuestProgress(513) > 25 then -- already been here
             User:inform("Du hast diese Säule schon zuvor gefunden, probiere dein Glück mit einer anderen.", "You previously found this pillar, try your luck with another one.")
         elseif User:getQuestProgress(513) >= 20 and User:getQuestProgress(513) < 24 then -- already been here
-            User:inform("Es scheint nicht die angebrachte/richtige Zeit zu sein um diese Säule zu benutzen.", "It does not appear that it is the appropriate time to use this column.")
+            User:inform("Es scheint nicht die richtige Zeit zu sein um diese Säule zu benutzen.", "It does not appear that it is the appropriate time to use this column.")
         end
     elseif SourceItem.pos == position(280, 808, -3) then -- Letma Pillar six
         if User:getQuestProgress(513) == 25 then 
@@ -303,7 +303,7 @@ function M.UseItem(User, SourceItem, ltstate)
         elseif User:getQuestProgress(513) > 26 then -- already been here
             User:inform("Du hast diese Säule schon zuvor gefunden, probiere dein Glück mit einer anderen.", "You previously found this pillar, try your luck with another one.")
         elseif User:getQuestProgress(513) >= 20 and User:getQuestProgress(513) < 25 then -- already been here
-            User:inform("Es scheint nicht die angebrachte/richtige Zeit zu sein um diese Säule zu benutzen.", "It does not appear that it is the appropriate time to use this column.")
+            User:inform("Es scheint nicht die richtige Zeit zu sein um diese Säule zu benutzen.", "It does not appear that it is the appropriate time to use this column.")
         end
     elseif SourceItem.pos == position(277, 804, -3) then -- Letma Pillar seven
         if User:getQuestProgress(513) == 26 then 
@@ -312,7 +312,7 @@ function M.UseItem(User, SourceItem, ltstate)
         elseif User:getQuestProgress(513) > 27 then -- already been here
             User:inform("Du hast diese Säule schon zuvor gefunden, probiere dein Glück mit einer anderen.", "You previously found this pillar, try your luck with another one.")
         elseif User:getQuestProgress(513) >= 20 and User:getQuestProgress(513) < 26 then -- already been here
-            User:inform("Es scheint nicht die angebrachte/richtige Zeit zu sein um diese Säule zu benutzen.", "It does not appear that it is the appropriate time to use this column.")
+            User:inform("Es scheint nicht die richtige Zeit zu sein um diese Säule zu benutzen.", "It does not appear that it is the appropriate time to use this column.")
         end
      elseif SourceItem.pos == position(262, 750, -3) then -- Letma Pillar eight
         if User:getQuestProgress(513) == 27 then 
@@ -321,16 +321,16 @@ function M.UseItem(User, SourceItem, ltstate)
         elseif User:getQuestProgress(513) > 28 then -- already been here
             User:inform("Du hast diese Säule schon zuvor gefunden, probiere dein Glück mit einer anderen.", "You previously found this pillar, try your luck with another one.")
         elseif User:getQuestProgress(513) >= 20 and User:getQuestProgress(513) < 27 then -- already been here
-            User:inform("Es scheint nicht die angebrachte/richtige Zeit zu sein um diese Säule zu benutzen.", "It does not appear that it is the appropriate time to use this column.")
+            User:inform("Es scheint nicht die richtige Zeit zu sein um diese Säule zu benutzen.", "It does not appear that it is the appropriate time to use this column.")
         end
     elseif SourceItem.pos == position(226, 780, -8) then -- Letma Pillar nine
         if User:getQuestProgress(513) == 28 then 
-            User:setQuestProgress(513, 29) -- Found the nineth pillar
-            User:inform("Du hast eine Säule gefunden, auf dieser steht ein 'PREACERDH'.", "You have found the nineth pillar, so far you have found 'PREACERDH'.")
+            User:setQuestProgress(513, 29) -- Found the ninth pillar
+            User:inform("Du hast eine Säule gefunden, auf dieser steht ein 'PREACERDH'.", "You have found the ninth pillar, so far you have found 'PREACERDH'.")
         elseif User:getQuestProgress(513) > 29 then -- already been here
             User:inform("Du hast diese Säule schon zuvor gefunden, probiere dein Glück mit einer anderen.", "You previously found this pillar, try your luck with another one.")
         elseif User:getQuestProgress(513) >= 20 and User:getQuestProgress(513) < 28 then -- already been here
-            User:inform("Es scheint nicht die angebrachte/richtige Zeit zu sein um diese Säule zu benutzen.", "It does not appear that it is the appropriate time to use this column.")
+            User:inform("Es scheint nicht die richtige Zeit zu sein um diese Säule zu benutzen.", "It does not appear that it is the appropriate time to use this column.")
         end
     elseif SourceItem.pos == position(233, 816, -6) then -- Letma Pillar ten
         if User:getQuestProgress(513) == 29 then 
@@ -339,17 +339,17 @@ function M.UseItem(User, SourceItem, ltstate)
         elseif User:getQuestProgress(513) > 30 then -- already been here
             User:inform("Du hast diese Säule schon zuvor gefunden, probiere dein Glück mit einer anderen.", "You previously found this pillar, try your luck with another one.")
         elseif User:getQuestProgress(513) >= 20 and User:getQuestProgress(513) < 29 then -- already been here
-            User:inform("Es scheint nicht die angebrachte/richtige Zeit zu sein um diese Säule zu benutzen.", "It does not appear that it is the appropriate time to use this column.")
+            User:inform("Es scheint nicht die richtige Zeit zu sein um diese Säule zu benutzen.", "It does not appear that it is the appropriate time to use this column.")
         end
     elseif SourceItem.pos == position(244, 749, -3) then -- Letma Pillar eleven
         if User:getQuestProgress(513) == 30 then 
             User:setQuestProgress(513, 31) -- Found the  eleventh pillar
-            User:inform("Du hast das Letzte gefunden und einen Dämonenstab gefunden.", "You have found the last and find a Demon's wand.")
-            common.CreateItem(User, 2783, 1, 999, {descriptionEn = "The wand is carved with demonic runes and the name Preacerdhal.", descriptionDe = "In die Wand sind dämonische Runen und der Name Praecerdhal eingeritzt.",nameEn = "Demon's Wand", nameDe = "Dämonischer Zauberstab", rareness = "4"})
+            User:inform("Du hast die letzte Säule gefunden und einen Dämonenstab entdeckt.", "You have found the last pillar and discover a Demon's Wand.")
+            common.CreateItem(User, 2783, 1, 999, {descriptionEn = "The wand is carved with demonic runes and the name Preacerdhal.", descriptionDe = "In den Stab sind dämonische Runen und der Name Praecerdhal eingeritzt.",nameEn = "Demon's Wand", nameDe = "Dämonischer Zauberstab", rareness = "4"})
         elseif User:getQuestProgress(513) > 31 then -- already been here
             User:inform("Du hast diese Säule schon zuvor gefunden, probiere dein Glück mit einer anderen.", "You have already solved the mystery of the columns.")
         elseif User:getQuestProgress(513) >= 20 and User:getQuestProgress(513) < 30 then -- already been here
-            User:inform("Es scheint nicht die angebrachte/richtige Zeit zu sein um diese Säule zu benutzen.", "It does not appear that it is the appropriate time to use this column.")
+            User:inform("Es scheint nicht die richtige Zeit zu sein um diese Säule zu benutzen.", "It does not appear that it is the appropriate time to use this column.")
         end
     elseif SourceItem.pos == position(596, 150, 0) or SourceItem.pos == position(607, 150, 0) or SourceItem.pos == position(588, 182, 0) or SourceItem.pos == position(600, 183, 0) or SourceItem.pos == position(755, 252, 1) or SourceItem.pos == position(760, 338, 1) then -- statues of recognition
             --Dialog

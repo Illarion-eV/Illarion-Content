@@ -210,4 +210,39 @@ addMug(20,
 "Ein Ork glotzt eine Orkfrau lüstern an und schenkt ihr ein Zwinkern.",
 "An orc stares lustfully at an orcess and gives her a wink."
 )
+
+addMug(21,
+"Schwimmende Echsenmenschen I",
+"Lizards Swimming I",
+"Ein Echsenjunges planscht in einem Becken und spuckt Wasserfontänen aus dem Maul.",
+"A lizardling is splashing about in a pool and shooting arcs of water from his mouth."
+)
+
+addMug(22,
+"Schwimmende Echsenmenschen II",
+"Lizards Swimming II",
+"Ein Echsenmann schnellt aus dem Wasser hoch in die Luft und zieht einen Schwall Wasser mit sich.",
+"A lizard jumps high into the air out of a body of water and water follows her, reaching up after the lizard."
+)
+
+addMug(23,
+"Schwimmende Echsenmenschen III",
+"Lizards Swimming III",
+"Eine Echsenfamilie schwimmt an Fischschwärmen und großen Wasserpflanzen im Meer vorbei.",
+"A family of lizards swim through the water, passing fish and large, waving water plants in the ocean."
+)
+
+addMug(24,
+"Schwimmende Echsenmenschen IV",
+"Lizards Swimming IV",
+"Im Ozean ist ein Echsenmensch zu sehen, welcher von einer kronentragenden Meerjungfrau mit leuchtendem Wasser gesalbt wird.",
+"A lizardfolk, in the ocean, is seen being anointed with glowing water, by a mermaid with a crown."
+)
+
+addMug(25,
+"Schwimmende Echsenmenschen V",
+"Lizards Swimming V",
+"Ein Echsemensch öffnet das Maul um einen leuchtend bunten Fisch zu verschlucken, der genau vors Maul geschwommen ist.",
+"A lizard opens his mouth while swimming to swallow the brightly colored fish just in front of him."
+)
 return M
