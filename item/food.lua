@@ -401,6 +401,8 @@ function M.UseItem(User, sourceItem, ltstate)
         return
     elseif mapItem(User, sourceItem) then
         return
+    elseif thievesPoisonQuest(User, sourceItem)
+        return
     end
     
     fortuneCookie(sourceItem, User)
