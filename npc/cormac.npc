@@ -124,7 +124,7 @@ queststatus(74) = 0, "Aufgabe", "Abenteuer", "Frage" -> inform("[Neues Quest] De
 queststatus(74) = 1, item(1909, all) < 1, "Aufgabe", "Abenteuer", "Frage" -> "Hast du Wachs in den Ohren oder was? Wenn du mit mir reden willst, musst du mir ein Bier bringen. Ich bin verdammt nochmal durstig."
 queststatus(74) = 2, "Aufgabe", "Abenteuer", "Frage" -> "Was willst du wissen? Ich kenne alle Gerüchte. Der Don, Galmair und seine Nachbarn, alles!"
 
--- bringing the beer--
+-- bringing the beer +20 rankpoints if Galmair--
 queststatus(74) = 1, item(1909, all) > 0, english, town = Galmair, ".+" -> inform("[Quest solved] Cormac will now answer your questions."), deleteItem(1909, 1), queststatus(74) = 2, rankpoints + 20, "#me takes the mug and grins: 'Arr! Ye aint so bad after all! I've been all over tha place, so I can tell ye about tha town, tha Don, Galmair or even the neighbours if ye really want.'"
 queststatus(74) = 1, item(1909, all) > 0, english, ".+" -> inform("[Quest solved] Cormac will now answer your questions."), deleteItem(1909, 1), queststatus(74) = 2, "#me takes the mug and grins: 'Arr! Ye aint so bad after all! I've been all over tha place, so I can tell ye about tha town, tha Don, Galmair or even the neighbours if ye really want.'"
 queststatus(74) = 1, item(1909, all) > 0, town = Galmair, ".+" -> inform("[Quest gelöst] Cormac wird nun deine Fragen beantworten."), deleteItem(1909, 1), queststatus(74) = 2, rankpoints + 20, "#me nimmt den Krug und grinst: 'Arr! Du bist gar nicht so schlecht, wie du aussiehst. Ich bin schon überall gewesen, du kannst mich alles über die Stadt, den Don, Galmair oder sogar unsere dummen Nachbarn fragen.'"

@@ -154,7 +154,7 @@ queststatus(702) = 10, town = Galmair, "quest", "mission" -> "Bitte zeigt Pherit
 queststatus(702) = 10, town = Galmair, "task", "adventure", "order" -> "Please, show the gold nugget to Pheritaleth in Cadomyr."
 queststatus(702) = 10, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte zeigt Pheritaleth aus Cadomyr diesen Goldnugget."
 
--- 4th quest solved, reward a necklace and 10 silver
+-- 4th quest solved, reward a necklace and 10 silver, + 9 rankpoints
 queststatus(702) = 11, english, english, town = Galmair, ".+" -> inform("[Quest solved] You solved the quest. You are rewarded with some coins and jewellery."), money + 1000, item(62, 1, 877, "rareness" = "1", "craftedBy" = "Charwis Irongate"), queststatus(702) = 12, rankpoints + 9, "Thank you. Please take this as a reward, and keep the gold nugget as a souvenir, I found an even larger one than that."
 queststatus(702) = 11, town = Galmair, ".+" -> inform("[Quest gelöst] Du hast das Quest gelöst. Du wirst mit Münzen und Schmuck belohnt."), money + 1000, item(62, 1, 877, "rareness" = "1", "craftedBy" = "Charwis Irongate"), queststatus(702) = 12, rankpoints + 9, "Danke schön. Bitte nehmt dies. Und behaltet den Goldnugget als Souvenir, ich habe bereits einen größeren gefunden."
 
@@ -170,7 +170,7 @@ queststatus(702) = 13, town = Galmair, "quest", "mission" -> "Bitte bringt Elvai
 queststatus(702) = 13, town = Galmair, "task", "adventure", "order" -> "Please take the wand back to Elvaine Morgan, he will miss it."
 queststatus(702) = 13, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte bringt Elvaine Morgan seinen Stab zurück. Er wird ihn vermissen."
 
--- 5th quest solved, reward silvered sword 98, 5 Silver
+-- 5th quest solved, reward silvered sword 98, 5 Silver, + 12 rankpoints
 queststatus(702) = 14, english, town = Galmair, ".+" -> inform("[Quest solved] You solved the quest. You are awarded a silvered longsword and some coins."), money + 500, item(98, 1, 222, "descriptionEn" = "This sword was a present from Charwis Irongate", "rareness" = "1", "descriptionDe" = "Dieses Schwert war ein Geschenk von Charwis Irongate."), queststatus(702) = 15, rankpoints + 12, "Thank you. Take this for your trouble."
 queststatus(702) = 14, town = Galmair, ".+" -> inform("[Quest gelöst] Du hast das Quest gelöst. Du wirst mit einem versilberten Langschwert und ein paar Silbermünzen belohnt."), money + 500, item(98, 1, 222, "descriptionEn" = "This wand was a present from Charwis Irongate", "rareness" = "1", "descriptionDe" = "Dieses Schwert war ein Geschenk von Charwis Irongate."), queststatus(702) = 15, rankpoints + 12, "Danke, nehmt dies als Belohnung."
 
