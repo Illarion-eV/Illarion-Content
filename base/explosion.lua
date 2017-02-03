@@ -31,8 +31,8 @@ local function HitVictims(Posi,Hitpoints,CenterPos)
         local Diffx = CenterPos.x - explosionVictim.pos.x
         local Diffy = CenterPos.y - explosionVictim.pos.y
         if (Distance == 1) then
-            Diffx = 6*Diffx
-            Diffy = 6*Diffy
+            Diffx = 4*Diffx
+            Diffy = 4*Diffy
         elseif (Distance == 2) then
             Diffx = 2*Diffx
             Diffy = 2*Diffy
