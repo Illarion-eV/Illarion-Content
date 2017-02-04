@@ -20,6 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local lookat = require("base.lookat")
 local goldenGoblet = require("item.id_224_goldengoblet")
+local createitem = require("handler.createitem")
 
 local M = {}
 
@@ -55,9 +56,65 @@ function M.UseItem(User, SourceItem)
                 User:inform('Die Münze verschwindet im Schlitz, aber nichts passiert.', 'The coin disappears but nothing happens.')
                 world:erase(SourceItem, 1)
             end
+        elseif frontItem.id == 2805 and frontItem.pos == position(370, 473, 1) then--if frontItem is quest pillar for entrance to Dragorog Dungeon
+            if User:getQuestProgress(515) == 1 and (world:getItemOnField(position(373, 477, 1)).id ~= 603) then
+                User:setQuestProgress (515, 2)
+                User:inform('Als die Münze in der Säule verschwindet spürst du etwas in deinen Finger stechen. Das schmerzt! Teile xyz mit, dass du den Eingang gefunden hast.', 'As the coin disappears into the column you feel something pierce your finger. That hurt! Tell xyz you found the entrance.')
+                world:erase(SourceItem, 1)
+                world:gfx(13,User.pos)
+                world:makeSound(31,User.pos)
+                User:increaseAttrib("hitpoints",-1000)
+                world:createItemFromId(606, 1,position(371,477,1), true, 333, nil) --bridge
+                world:createItemFromId(603, 1,position(372,477,1), true, 333, nil) --bridge
+                world:createItemFromId(603, 1,position(373,477,1), true, 333, nil) --bridge
+                world:createItemFromId(603, 1,position(374,477,1), true, 333, nil) --bridge
+                world:createItemFromId(601, 1,position(375,477,1), true, 333, nil) --bridge
+            elseif User:getQuestProgress(515) == 1 and (world:getItemOnField(position(373, 477, 1)).id == 603) then
+                User:setQuestProgress (515, 2)
+                User:inform('Als die Münze in der Säule verschwindet spürst du etwas in deinen Finger stechen. Das schmerzt! Teile xyz mit, dass du den Eingang gefunden hast.', 'As the coin disappears into the column you feel something pierce your finger. That hurt! Tell xyz you found the entrance.')
+                world:erase(SourceItem, 1)
+                world:gfx(13,User.pos)
+                world:makeSound(31,User.pos)
+            elseif (world:getItemOnField(position(373, 477, 1)).id ~= 603) then
+                User:inform('Als die Münze in der Säule verschwindet spürst du etwas in deinen Finger stechen. Das schmerzt!', 'As the coin disappears into the column you feel something pierce your finger. That hurt!')
+                world:erase(SourceItem, 1)
+                world:gfx(13,User.pos)
+                world:makeSound(31,User.pos)
+                User:increaseAttrib("hitpoints",-1000)
+                world:createItemFromId(606, 1,position(371,477,1), true, 333, nil) --bridge
+                world:createItemFromId(603, 1,position(372,477,1), true, 333, nil) --bridge
+                world:createItemFromId(603, 1,position(373,477,1), true, 333, nil) --bridge
+                world:createItemFromId(603, 1,position(374,477,1), true, 333, nil) --bridge
+                world:createItemFromId(601, 1,position(375,477,1), true, 333, nil) --bridge
+            elseif (world:getItemOnField(position(373, 477, 1)).id == 603) then
+                User:inform('Als die Münze in der Säule verschwindet spürst du etwas in deinen Finger stechen. Das schmerzt und die Brücke ist bereits da!', 'As the coin disappears into the column you feel something pierce your finger. That hurt and the bridge is already there!')
+                world:erase(SourceItem, 1)
+                world:gfx(13,User.pos)
+                world:makeSound(31,User.pos)
+                User:increaseAttrib("hitpoints",-1000)
+            end
+        elseif frontItem.id == 2805 and frontItem.pos == position(375, 479, 1) then--if frontItem is quest pillar for entrance to Dragorog Dungeon
+            if (world:getItemOnField(position(373, 477, 1)).id ~= 603) then
+                User:inform('Als die Münze in der Säule verschwindet spürst du etwas in deinen Finger stechen. Das schmerzt!', 'As the coin disappears into the column you feel something pierce your finger. That hurt!')
+                world:erase(SourceItem, 1)
+                world:gfx(13,User.pos)
+                world:makeSound(31,User.pos)
+                User:increaseAttrib("hitpoints",-1000)
+                world:createItemFromId(606, 1,position(371,477,1), true, 333, nil) --bridge
+                world:createItemFromId(603, 1,position(372,477,1), true, 333, nil) --bridge
+                world:createItemFromId(603, 1,position(373,477,1), true, 333, nil) --bridge
+                world:createItemFromId(603, 1,position(374,477,1), true, 333, nil) --bridge
+                world:createItemFromId(601, 1,position(375,477,1), true, 333, nil) --bridge
+            elseif (world:getItemOnField(position(373, 477, 1)).id == 603) then
+                User:inform('Als die Münze in der Säule verschwindet spürst du etwas in deinen Finger stechen. Das schmerzt und die Brücke ist bereits da!', 'As the coin disappears into the column you feel something pierce your finger. That hurt and the bridge is already there!')
+                world:erase(SourceItem, 1)
+                world:gfx(13,User.pos)
+                world:makeSound(31,User.pos)
+                User:increaseAttrib("hitpoints",-1000)
+            end
         return;
-        end
     end
+end
 
     if common.spamProtect(User, 5) then
         return

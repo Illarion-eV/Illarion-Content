@@ -15,6 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
+local deleteitem = require("handler.deleteitem")
 
 -- INSERT INTO scheduledscripts VALUES('scheduled.mapitemreset', 30, 30, 'resetMapitem')
 
@@ -88,6 +89,22 @@ function M.resetMapitem()
     world:changeItem(skull)
   end
 
+  -- remove bridge to Dragorog Dungeon
+        -- delete bridge
+        for xxx = 371, 375 do
+            local posi = position(xxx, 477, 1)
+                local bridgePart = world:getItemOnField(posi)
+                if bridgePart.id == 606 or bridgePart.id == 601 or bridgePart.id == 603 then
+                    -- port out characters on the bridge
+                    if  world:isCharacterOnField(posi) then
+                        local char = world:getCharacterOnField(posi)
+                        char:warp(position(370, 477, 1))
+                        common.InformNLS(char, "Du wirst ans Ufer gespült als die Brücke verschwindet.", "You are flushed to the shore as the bridge disappears.")
+                    end
+                    world:erase(bridgePart, bridgePart.number)
+                end
+        end
+       
   -- reset akultut exploded skull
   if (world:getItemOnField(position(482, 838, -9)).id ~= 2038) then
     local skull = world:createItemFromId(2038, 1, position(482, 838, -9), true, 333, nil)
