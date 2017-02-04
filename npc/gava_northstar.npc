@@ -60,7 +60,7 @@ itemHands = 530
 itemTrousers = 367
 itemShoes = 771
 guardWarpTarget = 386, 338, 0
-guardRange = 2, 8, 4, 8
+guardRange = 8, 8, 8, 8
 warpedMonsterMsg "Weg mit dir, widerliche Kreatur!", "Go away, nasty creature!"
 warpedPlayerMsg "Pass bloﬂ auf! Wir brauchen hier kein Gesindel.", "You'd better watch out! We don't need such lowlifes here."
 hitPlayerMsg "#me verpasst dem Eindringlich einen Hieb 'Verschwinde!'", "#me hits the intruder 'Get lost!'"
