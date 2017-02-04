@@ -102,7 +102,6 @@ english, "quest", "mission" -> "I don't have any tasks for you."
 "beruf" -> "Wenn notwendig diene ich als Auskunftsgeberin. In diesem Fall würde ich euch über Runewick informieren, seine Gebäude, Orte, Ereignisse, Leute, Geschichte oder Götter. Und wenn erwünscht, wären auch mindestens eine Aufgabe zu lösen."
 english, "job" -> "If necessary, I'm an informant. If asked, I will tell you about Runewick... the buildings, locations, events, people, history or gods. If you require even more, I have at least one task pending."
 "job" -> "Wenn notwendig diene ich als Auskunftsgeberin. In diesem Fall würde ich euch über Runewick informieren, seine Gebäude, Orte, Ereignisse, Leute, Geschichte oder Götter. Und wenn erwünscht, wären auch mindestens eine Aufgabe zu lösen."
-
 english, "telep" -> "The teleporter west of here can lead you to Cadomyr, Galmair or the Hemp Necktie Inn."
 "telep" -> "Der Teleporter westlich von hier vermag euch nach Cadomyr, Galmair oder zum Gasthof zur Hanfschlinge bringen."
 
@@ -287,8 +286,8 @@ english, "Irmorom" -> "One of the unimportant Younger Gods. You can find followe
 "Irmorom" -> "Einer der unwichtigen jüngeren Götter. Man kann Anhänger in Galmair finden."
 english, "Malachin", "Malachín" -> "One of the unimportant Younger Gods. You can find followers in Cadomyr."
 "Malachin", "Malachín" -> "Einer der unwichtigen jüngeren Götter. Man kann Anhänger in Cadomyr finden."
-english, "Moshran" -> "#me narrows her eyes and takes a blade which she swings immediately without a single word against her opposition.", attrib(hitpoints) - 6666, attrib(hitpoints) + 1
-"Moshran" -> "#me verengt ihre Augen, zieht ein Schwert und schlägt sogleich ohne ein einziges Wort damit herum.", attrib(hitpoints) - 6666, attrib(hitpoints) + 1
+english, "Moshran" -> "#me narrows her eyes and takes a blade which she swings immediately without a single word against her opposition."
+"Moshran" -> "#me verengt ihre Augen, zieht ein Schwert und schlägt sogleich ohne ein einziges Wort damit herum."
 
 -- ein HP abzug zufällig zwischen 1 und 10000 wäre wünschenswert
 english, "Nargun", "Nargún", "Nargùn" -> "One of the unimportant Younger Gods. You can find followers in Galmair."

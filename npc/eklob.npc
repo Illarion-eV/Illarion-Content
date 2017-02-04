@@ -98,7 +98,7 @@ itemShoes = 0
 "sell", "buy", "wares", "price", "trade", "purchase" -> "#me shakes himself."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "#me schüttelt sich."
 
--- 1st quest
+-- 1st quest +5 rankpoints
 queststatus(671) = 2, skill(cookingAndBaking) >= 20, item(15, all) > 4, english, town = Galmair, ".+" -> inform("[Bear Quest finished!]"), "#me eats the apples and grumbles satisfied.", deleteItem(15, 5), queststatus(671) = 3, rankpoints + 5
 queststatus(671) = 2, skill(cookingAndBaking) >= 20, item(15, all) > 4, town = Galmair, ".+" -> inform("[Bären Quest  erfüllt!]"), "#me verputzt die Äpfel und brummt zufrieden.", deleteItem(15, 5), queststatus(671) = 3, rankpoints + 5
 queststatus(671) = 2, skill(cookingAndBaking) < 20, item(15, all) > 4, english, town = Galmair, ".+" -> inform("[Bear Quest finished!] You feel like you really learnt something."), "#me eats the apples and grumbles satisfied.", skill(cookingAndBaking) + 2, deleteItem(15, 5), queststatus(671) = 3, rankpoints + 5
@@ -106,7 +106,7 @@ queststatus(671) = 2, skill(cookingAndBaking) < 20, item(15, all) > 4, town = Ga
 queststatus(671) = 2, item(15, all) < 5, english, ".+" -> inform("[Bear Quest] You have to feed the bear with five apples."), "#me looks hungry."
 queststatus(671) = 2, item(15, all) < 5, ".+" ->  inform("[Bären Quest ] Du sollst den Bären mit fünf Äpfeln füttern."), "#me schaut hungrig."
 
--- 2nd quest
+-- 2nd quest +5 rankpoints
 queststatus(671) = 5, skill(cookingAndBaking) >= 40, item(2940, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest finished!]"), "#me sniffs at the steak and gulps it down at once.", deleteItem(2940, 1), queststatus(671) = 6, rankpoints + 5
 queststatus(671) = 5, skill(cookingAndBaking) >= 40, item(2940, all) > 0, town = Galmair, ".+" -> inform("[Bären Quest  erfüllt!]"), "#me schnüffelt am Steak und verschlingt es mit einem Biss.", deleteItem(2940, 1), queststatus(671) = 6, rankpoints + 5
 queststatus(671) = 5, skill(cookingAndBaking) < 40, item(2940, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest finished!] You feel like you really learnt something."), "#me sniffs at the steak and gulps it down at once.", skill(cookingAndBaking) + 2, deleteItem(2940, 1), queststatus(671) = 6, rankpoints + 5
@@ -114,7 +114,7 @@ queststatus(671) = 5, skill(cookingAndBaking) < 40, item(2940, all) > 0, town = 
 queststatus(671) = 5, item(2940, all) < 1, english, ".+" -> inform("[Bear Quest] You have to feed the bear with a steak."), "#me looks hungry."
 queststatus(671) = 5, item(2940, all) < 1, ".+" ->  inform("[Bären Quest ] Du sollst den Bären mit einem Steak füttern."), "#me schaut hungrig."
 
--- 3rd quest
+-- 3rd quest +5 rankpoints
 queststatus(671) = 8, skill(cookingAndBaking) >= 60, item(49, all) > 0, item(3051, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest finished!]"), "#me grabs the food with his claws and starts eating immediately.", deleteItem(49, 1), deleteItem(3051, 1), queststatus(671) = 9, rankpoints + 5
 queststatus(671) = 8, skill(cookingAndBaking) >= 60, item(49, all) > 0, item(3051, all) > 0, town = Galmair, ".+" -> inform("[Bären Quest  erfüllt!]"), "#me reißt dir das Essen aus der Hand und verspeist es genüsslich.", deleteItem(49, 1), deleteItem(3051, 1), queststatus(671) = 9, rankpoints + 5
 queststatus(671) = 8, skill(cookingAndBaking) < 60, item(49, all) > 0, item(3051, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest finished!] You feel like you really learnt something."), "#me grabs the food with his claws and starts eating immediately.", skill(cookingAndBaking) + 2, deleteItem(49, 1), deleteItem(3051, 1), queststatus(671) = 9, rankpoints + 5
@@ -124,7 +124,7 @@ queststatus(671) = 8, item(49, all) < 1, ".+" ->  inform("[Bären Quest ] Du soll
 queststatus(671) = 8, item(3051, all) < 1, english, ".+" -> inform("[Bear Quest] You have to feed the bear with a loaf of bread and a sausage."), "#me sniffs hungrily at a stone."
 queststatus(671) = 8, item(3051, all) < 1, ".+" ->  inform("[Bären Quest ] Du sollst den Bären mit einem Brot und einer Wurst füttern."), "#me schnüffelt hungrig an einem Stein."
 
--- 4th quest
+-- 4th quest +5 rankpoints
 queststatus(671) = 11, skill(cookingAndBaking) >= 80, item(353, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest finished!]"), "#me takes the pie carefully in his mouth and grumbles happily.", deleteItem(353, 1), queststatus(671) = 12, rankpoints + 5
 queststatus(671) = 11, skill(cookingAndBaking) >= 80, item(353, all) > 0, town = Galmair, ".+" -> inform("[Bären Quest  erfüllt!]"), "#me nimmt den Kuchen vorsichtig in sein Maul und reibt zufrieden brummend seinen Kopf an der Wand.", deleteItem(353, 1), queststatus(671) = 12, rankpoints + 5
 queststatus(671) = 11, skill(cookingAndBaking) < 80, item(353, all) > 0, english, town = Galmair, ".+" -> inform("[Bear Quest finished!] You feel like you really learnt something."), "#me takes the pie carefully in his mouth and grumbles happily.", skill(cookingAndBaking) + 2, deleteItem(353, 1), queststatus(671) = 12, rankpoints + 5

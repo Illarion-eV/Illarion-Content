@@ -111,6 +111,7 @@ queststatus(514) = 2, english, "quest", "mission" -> inform ("[New Quest] A Good
 queststatus(514) = 2, "quest", "mission" -> inform ("[Neue Quest] Ein Gute Tat für Oldra II"), queststatus(514) = 3, "Anscheinend habe ich mein Rezept falsch gelesen und nicht genug Kohl gekauft als ich auf dem Markt war. Könnt ihr mir noch 25 Kohl bringen?"
 queststatus(514) = 2, "task", "adventure", "order" -> inform ("[New Quest] A Good Deed for Oldra II"), queststatus(514) = 3, "It seems I may have misread my recipe and did not buy enough cabbages the other day. Would you be so kind as to pick up the remaining 25 for me?"
 queststatus(514) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> inform ("[Neue Quest] Ein Gute Tat für Oldra II"), queststatus(514) = 3, "Anscheinend habe ich mein Rezept falsch gelesen und nicht genug Kohl gekauft als ich auf dem Markt war. Könnt ihr mir noch 25 Kohl bringen?"
+
 -- Objects not found
 queststatus(514) = 3, item(290, all) < 25, english, ".+" -> "The stew is almost ready, I am just waiting for those 25 cabbages."
 queststatus(514) = 3, item(290, all) < 25, ".+" -> "Der Eintopf ist fast fertig , ich warte nur auf die 25 Kohl."
