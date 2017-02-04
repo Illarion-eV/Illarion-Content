@@ -28,7 +28,7 @@ race = halfling
 sex = female
 position = 139, 622, 0
 direction = west
-affiliation = "None"
+affiliation = "Cadomyr"
 job = "portal book merchant"
 
 language = common

@@ -99,7 +99,7 @@ state = 1, "Ja" -> state = 0, "Sieht so aus als hättest du nicht genügen Münzen 
 state = 1, "No", "Thanks" -> state = 0, "Come back anytime you want to hear about your fortune."
 state = 1, "Nein", "Danke" -> state = 0, "Komm einfach wieder vorbei wenn du etwas über deine Zukunft erfahren möchtest."
 state = 1, english, ".*" -> "Do you want to hear your fortune in exchange for three silver coins? Say yes or no."
-state = 1, ".*" -> "Willst du deine Zukunft im Tausch für drei  Silberstücke gesagt bekommen? Antwortet einfach mit ja oder nein."
+state = 1, ".*" -> "Willst du deine Zukunft im Tausch für drei Silberstücke gesagt bekommen? Antwortet einfach mit ja oder nein."
 
 -- Warnings
 state = 2, english, ".*" -> state = 0, ". . . run!", "You'll need strong friends", "Take good care of yourself during the next few days.", "Stay away from trouble as far as possible.", "Avoiding monsters will keep you safe.", "In the near future you'll need lots of luck.", "In the near future you'd better be very careful.", "It would be wise to avoid unnecessary danger", "I'm sorry, you will experience a disappointment."
