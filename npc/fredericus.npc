@@ -14,7 +14,7 @@
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Fredericus                                               Cadomyr --
--- NPC Job:  Fisherman                                                        --
+-- NPC Job:  Herb trader                                                        --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  115, 617, 0            --
 -- NPC Sex:  male                       NPC Direction: east                   --
@@ -30,7 +30,7 @@ sex = male
 position = 115, 617, 0
 direction = east
 affiliation = "Cadomyr"
-job = "Fisherman"
+job = "Herb trader"
 
 language = common
 language = human
@@ -40,8 +40,8 @@ autointroduce = on
 author = "Estralis Seborian"
 author = "Martin Karing"
 
-lookatDE = "Dieser NPC ist der Fischer Fredericus."
-lookatUS = "This NPC is the fisherman Fredericus."
+lookatDE = "Dieser NPC ist der Kräuterkundige Fredericus."
+lookatUS = "This NPC is the herb trader Fredericus."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut verwirrt umher."
@@ -148,8 +148,8 @@ english, "albar" -> "Oh, Albar, how much I desire to sail there... A land of jus
 "albar" -> "Oh, Albar, wie sehr wünschte ich, ich könnte dorthin segeln. Ein Land der Gerechtigkeit und der Ehre."
 english, "gynk", "gync" -> "What did you say?", "I did not understand you.", "Pardon me?", "Shh, do not talk about this too loud."
 "gync", "gynk" -> "Was habt ihr gesagt?", "Ich habe euch nicht verstanden.", "Entschuldigung?", "Psst, sprecht darüber nicht so laut."
-english, "salkama" -> "Arrogant wise guys they are, and a hard working fisherman does not matter to the oh-so-noble people there."
-"salkama" -> "Arrogante Besserwisser sind das. Und ein hart arbeitender Fischer zählt nichts für die ach-so-noblen Leute dort."
+english, "salkama" -> "Arrogant wise guys they are, and a hard working man does not matter to the oh-so-noble people there."
+"salkama" -> "Arrogante Besserwisser sind das. Und ein hart arbeitender Mann zählt nichts für die ach-so-noblen Leute dort."
 
 -- Gods; each NPC should at react on at least one god, being a follower of said god
 "god" -> "Goddesses aren't prayed to in Albar, they say, but when you are at sea, you'll pray to Tanora and Findari, that's for sure."
