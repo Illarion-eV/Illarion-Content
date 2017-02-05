@@ -1,15 +1,15 @@
 -- Illarion Server
---
+-- 
 -- This program is free software: you can redistribute it and/or modify it under
 -- the terms of the GNU Affero General Public License as published by the Free
 -- Software Foundation, either version 3 of the License, or (at your option) any
 -- later version.
---
+-- 
 -- This program is distributed in the hope that it will be useful, but WITHOUT
 -- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
 -- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 -- details.
---
+-- 
 -- You should have received a copy of the GNU Affero General Public License
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
@@ -62,7 +62,7 @@ itemHands = 48
 itemTrousers = 367
 itemShoes = 53
 guardWarpTarget = 427, 250, 0
-guardRange = 1, 4, 2, 1
+guardRange = 5, 5, 5, 1
 warpedMonsterMsg "Weg mit dir, widerliche Kreatur!", "Go away, nasty creature!"
 warpedMonsterMsg "Hinfort, du Monster!", "Begone, you monster!"
 warpedPlayerMsg "Pass bloß auf! Wir brauchen hier kein Gesindel.", "You'd better watch out! We don't need such lowlifes here."
@@ -154,7 +154,6 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May Justice and peace make 
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Bre Southstar.", "Ich bin die schicke Zwergenkriegerin, Bre Southstar.", "Ich würde die Anrede 'Großartige Zwergenkriegerin Bre der Southstar' vorziehen."
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
-
 
 -- OPTIONAL TRIGGERS
 
