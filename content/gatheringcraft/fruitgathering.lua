@@ -190,13 +190,13 @@ function InitHarvestItems()
     CreateHarvestProduct(1207, nil, nil, 1193)                    -- orange
     }
     HarvestItems[ 387 ] = {                                    -- bush
-    CreateHarvestProduct(388, gt.grass, nil, 386)            -- grapes
+    CreateHarvestProduct(388, nil, nil, 386)            -- grapes
     }
     HarvestItems[ 3613 ] = {
-    CreateHarvestProduct(199, gt.sand, nil, 3612)            -- tangerine
+    CreateHarvestProduct(199, nil, nil, 3612)            -- tangerine
     }
     HarvestItems[ 3743 ] = {
-    CreateHarvestProduct(81, gt.forest, nil, 3742)            -- berries
+    CreateHarvestProduct(81, nil, nil, 3742)            -- berries
     }
     HarvestItems[ 3867 ] = {                              -- Banana Tree
     CreateHarvestProduct(80, nil, nil, 3866)            -- Banana
