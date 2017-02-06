@@ -23,9 +23,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (434, 463, 2,'triggerfield.dragorog_cult_trigger');
 -- INSERT INTO triggerfields VALUES (435, 463, 2,'triggerfield.dragorog_cult_trigger');
 -- INSERT INTO triggerfields VALUES (436, 463, 2,'triggerfield.dragorog_cult_trigger');
--- INSERT INTO triggerfields VALUES (434, 464, 2,'triggerfield.dragorog_cult_trigger');
--- INSERT INTO triggerfields VALUES (435, 464, 2,'triggerfield.dragorog_cult_trigger');
--- INSERT INTO triggerfields VALUES (436, 464, 2,'triggerfield.dragorog_cult_trigger');
 -- INSERT INTO triggerfields VALUES (434, 465, 2,'triggerfield.dragorog_cult_trigger');
 -- INSERT INTO triggerfields VALUES (435, 465, 2,'triggerfield.dragorog_cult_trigger');
 -- INSERT INTO triggerfields VALUES (436, 465, 2,'triggerfield.dragorog_cult_trigger');
