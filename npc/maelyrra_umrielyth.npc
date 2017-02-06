@@ -107,7 +107,7 @@ queststatus(186) ~= 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befe
 "Research", english -> "There is important research in the works.  Discovery of the world is at our fingertips."
 "Forsch" -> "Wir arbeiten gerade an einem wichtigen Forschungsprojekt."
 "Archmage", english -> "#me boasts proudly 'I work closely with the Archmage himself.'"
-"Erzmagier" -> "#me klopft sich auf die Brust. 'Der Erzmagier beauftragt mich persönlich'", "Elvain Morgan vertraut mir wichtige Aufgaben an."
+"Erzmagier" -> "#me klopft sich auf die Brust. 'Der Erzmagier beauftragt mich persönlich'", "Elvaine Morgan vertraut mir wichtige Aufgaben an."
 "foam" ->  "The foaming mouths of the wolves doesn't look good. It might be an illness"
 "Schaum" -> "Ach ja, wenn wir nur wüssten ob der Schaum im Maul der Wölfe gefährlich ist. Gut sieht er nicht aus."
 "ill" -> "The wolves are ill. That's what the archmage believes."
@@ -174,9 +174,9 @@ queststatus(184) ~= 0, queststatus(184) < 27, town = Runewick, "Auftrag", "Aufga
 -- Research 28: Kill four dogs in three hours
 -- 28: Research 28 taken, kill four dogs, reward: two sp, 2 rankpoints
 queststatus(184) = 0, english, chance(5.555555556), town = Runewick, "quest", "mission" -> inform("[New Research] Kill four dogs."), "The Archmage wishes to know what the dogs are attacking, please kill four and bring the remains.", queststatus(184) = 28, queststatus(185) = 36
-queststatus(184) = 0, german, chance(5.555555556), town = Runewick, "quest", "mission" -> inform("[Neue Forschungsaufgabe] Töte vier Hunde."), "Elvain Morgan wüscht zu wissen was nur die Hunde befallen hat? Sie geben keine Ruhe. Bitte bringe mir vier tote Hunde damit ich sie für den Erzmagier untersuchen kann.", queststatus(184) = 28, queststatus(185) = 36
+queststatus(184) = 0, german, chance(5.555555556), town = Runewick, "quest", "mission" -> inform("[Neue Forschungsaufgabe] Töte vier Hunde."), "Elvaine Morgan wüscht zu wissen was nur die Hunde befallen hat? Sie geben keine Ruhe. Bitte bringe mir vier tote Hunde damit ich sie für den Erzmagier untersuchen kann.", queststatus(184) = 28, queststatus(185) = 36
 queststatus(184) = 0, chance(5.555555556), town = Runewick, "task", "adventure", "order" ->inform("[New Information] Kill four dogs."),  "The Archmage wishes to know what the dogs are attacking, please kill four and bring the remains.", queststatus(184) = 28, queststatus(185) = 36
-queststatus(184) = 0, chance(5.555555556), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> inform("[Neue Forschungsaufgabe] Töte vier Hunde."), "Elvain Morgan wüscht zu wissen was nur die Hunde befallen hat? Sie geben keine Ruhe. Bitte bringe mir vier tote Hunde damit ich sie für den Erzmagier untersuchen kann.", queststatus(184) = 28, queststatus(185) = 36
+queststatus(184) = 0, chance(5.555555556), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> inform("[Neue Forschungsaufgabe] Töte vier Hunde."), "Elvaine Morgan wüscht zu wissen was nur die Hunde befallen hat? Sie geben keine Ruhe. Bitte bringe mir vier tote Hunde damit ich sie für den Erzmagier untersuchen kann.", queststatus(184) = 28, queststatus(185) = 36
 
 -- Research 28 solved, reward: two sp, 5 rankpoints, delay: 5h
 queststatus(184) = 32, english, town = Runewick, ".*" -> inform("[Research collected] You are awarded two silver coins."), "Thank you so much! Here have some coins I must get to work!", money + 200, queststatus(184) = 0, queststatus(185) = 0, queststatus(186) = 60, rankpoints + 2
