@@ -245,4 +245,39 @@ addMug(25,
 "Ein Echsemensch öffnet das Maul um einen leuchtend bunten Fisch zu verschlucken, der genau vors Maul geschwommen ist.",
 "A lizard opens his mouth while swimming to swallow the brightly colored fish just in front of him."
 )
+
+addMug(26,
+"Kämpfende Menschen I",
+"Humans Fighting I",
+"Ein großer Mann hält ein Schwert vor sich hoch als er in die Schlacht stürmt.",
+"A large man holds a sword high before him as he charges into battle."
+)
+
+addMug(27,
+"Kämpfende Menschen II",
+"Humans Fighting II",
+"Zwei Männer kämpfen inmitten einer Menge Zuschauer auf Leben und Tod, Blut spritzt überall hin.",
+"Two men battle to the death amidst a crowd of onlookers as blood sprays all over."
+)
+
+addMug(28,
+"Kämpfende Menschen III",
+"Humans Fighting III",
+"Zwei riesige Armeen verwickeln sich in eine Schlacht, ihre Landesflaggen sind deutlich sichtbar zur Schau gestellt.",
+"Two large armies engage in battle, their country's flag prominently displayed."
+)
+
+addMug(29,
+"Kämpfende Menschen IV",
+"Humans Fighting IV",
+"Ein gepanzerter Mann steht im Zentrum einer verlorenen Schlacht mit den Leichen seiner gefallenen Kameraden um ihn herum.",
+"An armoured man stands in the middle of a lost battle, with the bodies of fallen comrades all around him."
+)
+
+addMug(30,
+"Kämpfende Menschen V",
+"Humans Fighting V",
+"Ein Mann und eine Frau streiten vor einer kleinen Gruppe von Kindern und die Frau droht dem Mann mit dem Finger.",
+"A man and woman argue before a small group of children and the woman points a finger at the man."
+)
 return M
