@@ -102,9 +102,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Fair winds and clear sight 
 
 -- Quest 107: A message from Groktan Flintsplit
 queststatus(107) = 9, "message", "news", "letter", "scroll", "parchment", "task", "adventure", "order" -> inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."), queststatus(107) = 10, "#me shrieks as she reads the scroll: 'I thought I'd be safe here from the Don! I'm ruined if I have to pay what he demands."
-queststatus(107) = 9, "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."), queststatus(107) = 10, "#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle."
+queststatus(107) = 9, "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."), queststatus(107) = 10, "#me erschrickt als sie die Schriftrolle durchliest: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle."
 queststatus(107) = 9, english, "Groktan", "Flintsplit", "quest", "mission" -> inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."), queststatus(107) = 10, "#me shrieks as she reads the scroll: 'I thought I'd be safe here from the Don! I'm ruined if I have to pay what he demands."
-queststatus(107) = 9, "Groktan", "Flintsplit", "quest", "mission" -> inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."), queststatus(107) = 10, "#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle."
+queststatus(107) = 9, "Groktan", "Flintsplit", "quest", "mission" -> inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."), queststatus(107) = 10, "#me erschrickt als sie die Schriftrolle durchliest: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> "I don't really need any help, sorry."
@@ -120,7 +120,7 @@ english, "job" -> "Well, why might I stand around here between all this glass? I
 english, "Gobaith", "Gobiath" -> "I'm just a humble crafter, ask a scholar about that."
 "Gobaith", "Gobiath" -> "Ich bin nur eine einfache Händlerin. Fragt doch einen Gelehrten über sowas."
 "my name" -> "Nice to meet you! But don't expect a discount just because you told me your name.", "What a funny name. Somehow it gives away that you're not from around here."
-"mein Name" -> "Schön dich kennenzulernen! Erwarte aber keinen Preisnachlass deswegen.", "Was für ein lustiger Name. Man merkt irgendwie, dass du nicht von hier bist."
+"mein Name" -> "Schön dich kennen zu lernen! Erwarte aber keinen Preisnachlass deswegen.", "Was für ein lustiger Name. Man merkt irgendwie, dass du nicht von hier bist."
 
 -- More small talk; add at least five triggers
 "glass" -> "To work with glass is challenging. It becomes fragile very quickly.", "The slender hands of a lady like myself are just right for that kind of work, har har."
@@ -153,7 +153,7 @@ english, "Galmair" -> "Galmair, bah! They don't need glass, they swig straight f
 "Königin" -> "Man sagt sie könne Glasschmuck von echtem Schmuck unterscheiden. Am Geruch!", "Zwei große Kindheitsträume vereint: Königin spielen in einem riesen Sandkasten."
 english, "rosaline", "edwards" -> "They say she can tell glass jewellery and real jewellery apart... by their smell!", "Two big childhood dreams combined: Queen of her own enormous sandbox."
 "rosaline", "edwards" -> "Man sagt sie könne Glasschmuck von echtem Schmuck unterscheiden. Am Geruch!", "Zwei große Kindheitsträume vereint: Königin spielen in einem riesen Sandkasten."
-english, "Cadomyr" -> "I have to admit, there's better glassblowers than me there, but what else do you expect with all the sand there?", "I don't like those of Cadomyr, there's always trouble everytime I try to gather sand from the desert."
+english, "Cadomyr" -> "I have to admit, there's better glassblowers than me there, but what else do you expect with all the sand there?", "I don't like those of Cadomyr, there's always trouble every time I try to gather sand from the desert."
 "Cadomyr" -> "Leider muss ich sagen, dort gibt es bessere Glasbläser als mich. Aber kein Wunder! Bei all dem Sand.", "Ich mag sie nicht. Es gibt immer wieder Probleme wenn ich Sand aus der Wüste holen will."
 
 -- Main land factions

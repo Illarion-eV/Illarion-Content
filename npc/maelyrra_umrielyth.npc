@@ -411,9 +411,9 @@ queststatus(184) ~= 0, queststatus(184) < 149, town = Runewick, "Auftrag", "Aufg
 
 -- Research 150: Kill twelve thieves in three hours
 -- 150: Research 150 taken, get twelve thieves, reward: twenty four sp, 6 rankpoints
-queststatus(184) = 0, english, chance(25), town = Runewick, "quest", "mission" -> inform("[New Research] Kill twelve theives."), "Someone stole a very important research paper, kill twelve thieves and search them for evidence.", queststatus(184) = 150, queststatus(185) = 36
+queststatus(184) = 0, english, chance(25), town = Runewick, "quest", "mission" -> inform("[New Research] Kill twelve thieves."), "Someone stole a very important research paper, kill twelve thieves and search them for evidence.", queststatus(184) = 150, queststatus(185) = 36
 queststatus(184) = 0, german, chance(25), town = Runewick, "quest", "mission" -> inform("[Neue Forschungsaufgabe] Töte zwölf Diebe."), "Wir haben gehört, dass die Diebe vom Inhalt eines geheimen Berichtes erfahren haben. Nicht auszudenken wenn er bekannt würde. Ihr müsst schnell sein und das Dutzend Diebe schnellstmöglich eliminieren.", queststatus(184) = 150, queststatus(185) = 36
-queststatus(184) = 0, chance(25), town = Runewick, "task", "adventure", "order" -> inform("[New Research] Kill twelve theives."), "Someone stole a very important research paper, kill twelve thieves and search them for evidence.", queststatus(184) = 150, queststatus(185) = 36
+queststatus(184) = 0, chance(25), town = Runewick, "task", "adventure", "order" -> inform("[New Research] Kill twelve thieves."), "Someone stole a very important research paper, kill twelve thieves and search them for evidence.", queststatus(184) = 150, queststatus(185) = 36
 queststatus(184) = 0, chance(25), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Forschungsaufgabe] Töte zwölf Diebe."), "Wir haben gehört, dass die Diebe vom Inhalt eines geheimen Berichtes erfahren haben. Nicht auszudenken wenn er bekannt würde. Ihr müsst schnell sein und das Dutzend Diebe schnellstmöglich eliminieren.", queststatus(184) = 150, queststatus(185) = 36
 
 -- Research 150 solved, reward: twenty four sp, 6 rankpoints, delay: 5h
@@ -481,7 +481,7 @@ queststatus(184) ~= 0, queststatus(184) < 189, town = Runewick, "Auftrag", "Aufg
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 english, "Ushara" -> "We must research all manifestations of evil on Ushara's gift."
-"Ushara" -> "Woher kommen die teuflichen Auswüchse Usharas Gaben? Das müssen wir genau untersuchen."
+"Ushara" -> "Woher kommen die teuflischen Auswüchse an Usharas Gaben? Das müssen wir genau untersuchen."
 english, "Elara" -> "Goddess Elara, grant us knowledge."
 "Elara" -> "Elara bietet uns Wissen an. Folgen wir ihr zur Erkenntnis."
 
@@ -496,7 +496,7 @@ cycletext "#me murmelt zu sich selber während er etwas auf ein Pergament notiert
 cycletext "Entlocken wir der Welt ihre Geheimnisse.", "My world is research and unlocking mysteries."
 cycletext "Wenn man doch alle Informationen in den Büchern finden könnte.", "Only so much information can be gathered in a library."
 cycletext "Ein Sonderauftrag des Erzmagiers, schön.", "I am on special assignment from the Archmage."
-cycletext "Nicht jeder darf in dieser Frage helfen.", "It is a privilage to be able to assist in this matter."
+cycletext "Nicht jeder darf in dieser Frage helfen.", "It is a privilege to be able to assist in this matter."
 cycletext "Runewick ist die Heimstadt des Lernens.", "Runewick is the centre of learning."
 cycletext "Was es da draußen so alles zu entdecken gibt.", "There are still exciting things about the lands to be discovered."
 cycletext "Jeder soll helfen, Wissen zusammenzutragen.", "All devoted citizens should help with the research."
