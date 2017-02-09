@@ -279,7 +279,7 @@ local function flameRemover(user)
             end
             
             local event = function(currentPosition)
-                if world:isItemOnField(currentPosition) and then
+                if world:isItemOnField(currentPosition) then
                     local checkItem = world:getItemOnField(currentPosition)
                     if checkItem.id == flameId then
                         world:erase(checkItem, 1)
