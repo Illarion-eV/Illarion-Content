@@ -217,7 +217,7 @@ local function flameThrower(user)
         
         local inputNumber = dialog:getInput()
         if (string.find(inputNumber,"(%d+) (%d+) (%d+)") ~= nil) then
-            local _, _, flameId, radius, wear = string.find(inputNumber,"(%a) (%d+) (%d)")
+            local _, _, flameId, radius, wear = string.find(inputNumber,"(%d+) (%d+) (%d+)")
             flameId = tonumber(flameId)
             radius = tonumber(radius)
             wear = tonumber(wear)
@@ -263,9 +263,10 @@ local function flameRemover(user)
         end
         
         local inputNumber = dialog:getInput()
-        if (string.find(inputNumber, "(%d+)") ~= nil) then
-            local _, _, flameId, radius, wear = string.find(inputNumber,"(%a) (%d+) (%d)")
+        if (string.find(inputNumber, "(%d+) (%d+)") ~= nil) then
+            local _, _, flameId, radius,  = string.find(inputNumber,"(%d+) (%d+)")
             flameId = tonumber(flameId)
+            radius = tonumber(radius)
             
             local fireFlame = 359
             local iceFlame = 360
