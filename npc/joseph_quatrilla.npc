@@ -16,7 +16,7 @@
 -- NPC Name: Joseph Quatrilla                                         Cadomyr --
 -- NPC Job:  Alchemist                                                        --
 --                                                                            --
--- NPC Race: human                      NPC Position:  138, 543, 0            --
+-- NPC Race: human                      NPC Position:  134, 597, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   merung                                                           --
@@ -26,7 +26,7 @@
 name = "Joseph Quatrilla"
 race = human
 sex = male
-position = 138, 543, 0
+position = 134, 597, 0
 direction = west
 affiliation = "Cadomyr"
 job = "Alchemist"

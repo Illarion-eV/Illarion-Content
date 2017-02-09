@@ -16,7 +16,7 @@
 -- NPC Name: Grator Bottlebreak                                       Galmair --
 -- NPC Job:  Alchemist                                                        --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  377, 223, 0            --
+-- NPC Race: dwarf                      NPC Position:  399, 259, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   merung                                                           --
@@ -26,7 +26,7 @@
 name = "Grator Bottlebreak"
 race = dwarf
 sex = male
-position = 377, 223, 0
+position = 399, 259, 0
 direction = west
 affiliation = "Galmair"
 job = "Alchemist"
