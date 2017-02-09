@@ -252,7 +252,8 @@ local function flameThrower(user)
         end
         
     end
-
+    
+    user:requestInputDialog(InputDialog("Spawn a filled cirecle of flames", "Usage enter: flameId radius wear  -- Flame id can be 359 (fire) or 360 (ice). Radius is capped at 10." ,false, 255, cbInputDialog))
 end
 
 local function flameRemover(user)
@@ -295,9 +296,8 @@ local function flameRemover(user)
         end
         
     end
-
-
-
+    
+    user:requestInputDialog(InputDialog("Remove flames around you", "Usage enter: flameId radius  -- Flame id can be 359 (fire) or 360 (ice). Radius is capped at 10." ,false, 255, cbInputDialog))
 end
 
 local eraser
@@ -343,6 +343,10 @@ function M.UseItem(User, SourceItem, ltstate)
             questEvents(User, SourceItem, ltstate)
         elseif index == 9 then
             setMC(User, SourceItem, ltstate)
+        elseif index == 10 then
+            flameThrower(User)
+        elseif index == 11
+            flameRemover(User)
         end
     end
     local sd = SelectionDialog("Pick a function of the lockpicks.", "Which do you want to use?", cbSetMode)
