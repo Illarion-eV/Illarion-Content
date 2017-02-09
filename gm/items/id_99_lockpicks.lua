@@ -216,7 +216,7 @@ local function flameThrower(user)
         end
         
         local inputNumber = dialog:getInput()
-        if (string.find(inputNumber,"(%a) (%d+) (%d)") ~= nil) then
+        if (string.find(inputNumber,"(%d+) (%d+) (%d+)") ~= nil) then
             local _, _, flameId, radius, wear = string.find(inputNumber,"(%a) (%d+) (%d)")
             flameId = tonumber(flameId)
             radius = tonumber(radius)
