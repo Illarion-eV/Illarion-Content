@@ -15,8 +15,8 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO triggerfields VALUES (912,771,0,'triggerfield.potionToTeacher');
--- INSERT INTO triggerfields VALUES (376,223,0,'triggerfield.potionToTeacher');
--- INSERT INTO triggerfields VALUES (137,543,0,'triggerfield.potionToTeacher');
+-- INSERT INTO triggerfields VALUES (398,259,0,'triggerfield.potionToTeacher');
+-- INSERT INTO triggerfields VALUES (133,597,0,'triggerfield.potionToTeacher');
 
 local common = require("base.common")
 local id_3109_open_pell = require("item.id_3109_open_pell")
@@ -43,9 +43,9 @@ end
 local function getTown(Item)
     if Item.pos == position(912, 771, 0) then
         return "Runewick"
-    elseif Item.pos == position(137, 543, 0) then
+    elseif Item.pos == position(133, 597, 0) then
         return "Cadomyr"
-    elseif Item.pos == position(376, 223, 0) then
+    elseif Item.pos == position(398, 259, 0) then
         return "Galmair"
     end
     return false

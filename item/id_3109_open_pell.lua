@@ -255,9 +255,9 @@ function getTownOfPell(SourceItem)
 
     if SourceItem.pos == position(911,771,0) then
         return "Runewick"
-    elseif SourceItem.pos == position(137,542,0) then
+    elseif SourceItem.pos == position(133,596,0) then
         return "Cadomyr"
-    elseif SourceItem.pos == position(376,222,0) then
+    elseif SourceItem.pos == position(398,258,0) then
         return "Galmair"
     end
     return false
