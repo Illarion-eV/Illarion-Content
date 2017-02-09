@@ -319,7 +319,7 @@ function M.UseItem(User, SourceItem, ltstate)
     end
 
     -- First check for mode change
-    local modes = {"Eraser", "Teleport", "Faction info of chars in radius", "Char Info", "Change skills", "Get/ Set Queststatus", "Instant kill/ revive", "Quest events", "Set MC", "Create flames"}
+    local modes = {"Eraser", "Teleport", "Faction info of chars in radius", "Char Info", "Change skills", "Get/ Set Queststatus", "Instant kill/ revive", "Quest events", "Set MC", "Create flames", "Remove flames"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
