@@ -345,7 +345,7 @@ function M.UseItem(User, SourceItem, ltstate)
             setMC(User, SourceItem, ltstate)
         elseif index == 10 then
             flameThrower(User)
-        elseif index == 11
+        elseif index == 11 then
             flameRemover(User)
         end
     end
