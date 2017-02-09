@@ -264,7 +264,7 @@ local function flameRemover(user)
         
         local inputNumber = dialog:getInput()
         if (string.find(inputNumber, "(%d+) (%d+)") ~= nil) then
-            local _, _, flameId, radius,  = string.find(inputNumber,"(%d+) (%d+)")
+            local _, _, flameId, radius = string.find(inputNumber,"(%d+) (%d+)")
             flameId = tonumber(flameId)
             radius = tonumber(radius)
             
