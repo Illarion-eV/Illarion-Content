@@ -239,7 +239,7 @@ local function flameThrower(user)
             
             local event = function(currentPosition)
                 if world:isItemOnField(currentPosition) == false or world:getItemOnField(currentPosition).id ~= flameId then
-                    world:createItemFromId(flameId, flameId, 1, currentPosition, true, 999, {})
+                    world:createItemFromId(flameId, 1, currentPosition, true, 999, {})
                 end
             end
             
