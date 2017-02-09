@@ -255,6 +255,51 @@ local function flameThrower(user)
 
 end
 
+local function flameRemover(user)
+    local cbInputDialog = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        
+        local inputNumber = dialog:getInput()
+        if (string.find(inputNumber, "(%d+)") ~= nil) then
+            local _, _, flameId, radius, wear = string.find(inputNumber,"(%a) (%d+) (%d)")
+            flameId = tonumber(flameId)
+            
+            local fireFlame = 359
+            local iceFlame = 360
+            if flameId ~= fireFlame and flameId ~= iceFlame then
+                user:inform("No proper flame id provided.")
+                return
+            end
+            
+            if radius > 10 then
+                radius = 10
+            end
+            
+            local event = function(currentPosition)
+                if world:isItemOnField(currentPosition) and then
+                    local checkItem = world:getItemOnField(currentPosition)
+                    if checkItem.id == flameId then
+                        world:erase(checkItem, 1)
+                    end
+                end
+            end
+            
+            for i = 1, radius do
+                common.CreateCircle(user.pos, i, event)
+            end
+            
+        else
+            user:inform("Provide proper input, please.")
+        end
+        
+    end
+
+
+
+end
+
 local eraser
 local teleporter
 local factionInfoOfCharsInRadius
