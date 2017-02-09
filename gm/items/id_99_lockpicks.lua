@@ -209,6 +209,52 @@ local function questEvents(User, SourceItem, ltstate)
 
 end
 
+local function flameThrower(user)
+    local cbInputDialog = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        
+        local inputNumber = dialog:getInput()
+        if (string.find(inputNumber,"(%a) (%d+) (%d)") ~= nil) then
+            local _, _, flameId, radius, wear = string.find(inputNumber,"(%a) (%d+) (%d)")
+            flameId = tonumber(flameId)
+            radius = tonumber(radius)
+            wear = tonumber(wear)
+            
+            local fireFlame = 359
+            local iceFlame = 360
+            if flameId ~= fireFlame and flameId ~= iceFlame then
+                user:inform("No proper flame id provided.")
+                return
+            end
+            
+            if wear > 255 then
+                wear = 255
+            end
+            
+            if radius > 10 then
+                radius = 10
+            end
+            
+            local event = function(currentPosition)
+                if world:isItemOnField(currentPosition) == false or world:getItemOnField(currentPosition).id ~= flameId then
+                    world:createItemFromId(flameId, flameId, 1, currentPosition, true, 999, {})
+                end
+            end
+            
+            for i = 1, radius do
+                common.CreateCircle(user.pos, i, event)
+            end
+            
+        else
+            user:inform("Provide proper input, please.")
+        end
+        
+    end
+
+end
+
 local eraser
 local teleporter
 local factionInfoOfCharsInRadius
@@ -228,7 +274,7 @@ function M.UseItem(User, SourceItem, ltstate)
     end
 
     -- First check for mode change
-    local modes = {"Eraser", "Teleport", "Faction info of chars in radius", "Char Info", "Change skills", "Get/ Set Queststatus", "Instant kill/ revive", "Quest events", "Set MC"}
+    local modes = {"Eraser", "Teleport", "Faction info of chars in radius", "Char Info", "Change skills", "Get/ Set Queststatus", "Instant kill/ revive", "Quest events", "Set MC", "Create flames"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
