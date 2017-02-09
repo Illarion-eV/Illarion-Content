@@ -243,6 +243,7 @@ local function flameThrower(user)
                 end
             end
             
+            event(user.pos)
             for i = 1, radius do
                 common.CreateCircle(user.pos, i, event)
             end
@@ -288,6 +289,7 @@ local function flameRemover(user)
                 end
             end
             
+            event(user.pos)
             for i = 1, radius do
                 common.CreateCircle(user.pos, i, event)
             end
