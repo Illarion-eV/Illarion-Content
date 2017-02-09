@@ -77,6 +77,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me chuckles, 'I'll be seei
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Daniel Brock, wer bist du?"
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
+
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a carpenter, if you want to know more about it, ask me for a task. I'm sure I have something for you to do."
 "beruf" -> "Ich bin Schreiner. Falls du mehr darüber erfahren möchtest, frag mich nach einer Aufgabe. Ich hab sicher etwas für dich zu tun."
@@ -89,7 +90,7 @@ queststatus(713) > 0, queststatus(820) = 1, town = Runewick, "quest", "mission",
 queststatus(713) > 0, queststatus(820) = 1, town = Runewick, "task", "adventure", "order" -> queststatus(820) = 2, "Ah Florain sent you, but you have already asked me for something to do."
 queststatus(713) > 0, queststatus(820) = 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 2, "Ah, Florain hat dich geschickt. Aber du hast mich bereits nach einer Aufgabe gefragt."
 
--- Quests
+-- Quest 1
 queststatus(713) = 0, queststatus(820) = 1, english, town = Runewick, "quest", "mission" -> item(9, 1, 333), item(74, 1, 333), queststatus(713) = 1, queststatus(820) = 2, "A task. Ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of apple wood from the apple trees outside the city. Then return to the workshop and saw the pieces of apple wood into boards at the workbench with the saw I'll give you, and show them to me."
 queststatus(713) = 0, queststatus(820) = 1, town = Runewick, "quest", "mission" -> item(9, 1, 333), item(74, 1, 333), queststatus(713) = 1, queststatus(820) = 2, "Eine Aufgabe. Ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammle zehn Apfelholzscheite bei einem der Apfelbäume außerhalb der Stadt. Dann kommst du hierher zurück und sägst die Scheite bei der Werkbank mit dieser Säge, die ich dir gebe, zu Brettern und zeigst sie mir dann."
 queststatus(713) = 0, queststatus(820) = 1, town = Runewick, "task", "adventure", "order" -> item(9, 1, 333), item(74, 1, 333), queststatus(713) = 1, queststatus(820) = 2, "A task. Ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of apple wood from the apple trees outside the city. Then return to the workshop and saw the pieces of apple wood into boards at the workbench with the saw I'll give you, and show them to me."
@@ -104,6 +105,8 @@ queststatus(713) = 1, item(2716, all) > 9, town = Runewick, "task", "adventure",
 queststatus(713) = 1, item(2716, all) > 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(713) = 2, "Gut gemacht, die Bretter sehen gut aus. Bitte behalte sie für deine nächste Aufgabe."
 queststatus(713) = 1, item(2716, all) < 10, english, town = Runewick, ".+" -> "I wanted ten apple wood boards, come back once you have fulfilled this task."
 queststatus(713) = 1, item(2716, all) < 10, town = Runewick, ".+" -> "Ich wollte zehn Apfelholzbretter haben. Komm wieder wenn du die Aufgabe erfüllt hast."
+
+-- Quest 2
 queststatus(713) = 2, english, town = Runewick, "quest", "mission" -> item(2715, 1, 333), queststatus(713) = 3, "Let's make some plates from the apple wood boards now. You will need a plane for that, which I'll give you. Then you go to the workbench next to me and produce ten plates, which you can show me once you are done."
 queststatus(713) = 2, town = Runewick, "quest", "mission" -> item(2715, 1, 333), queststatus(713) = 3, "Nun stellen wir aus den Apfelholzbrettern Teller her. Dafür brauchst du einen Hobel, den ich dir gebe. Dann setzt du dich auf den Stuhl da gleich neben mir bei der Werkbank und machst zehn Teller. Diese zeigst du mir, wenn du fertig bist."
 queststatus(713) = 2, town = Runewick, "task", "adventure", "order" -> item(2715, 1, 333), queststatus(713) = 3, "Let's make some plates from the apple wood boards now. You will need a plane for that, which I'll give you. Then you go to the workbench next to me and produce ten plates, which you can show me once you are done."
@@ -114,6 +117,8 @@ queststatus(713) = 3, item(2952, all) > 9, town = Runewick, "task", "adventure",
 queststatus(713) = 3, item(2952, all) > 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> deleteItem(2952, 10), queststatus(713) = 4, "Gut gemacht, die Teller sehen gut aus. Wenn Ihr noch etwas Zeit habt, dann hätte ich eine weitere Aufgabe für Euch."
 queststatus(713) = 3, item(2952, all) < 10, english, town = Runewick, ".+" -> "I wanted ten plates, come back once you have fulfilled this task."
 queststatus(713) = 3, item(2952, all) < 10, town = Runewick, ".+" -> "Ich wollte zehn Teller. Komm wieder, wenn du die Aufgabe erfüllt hast."
+
+-- Quest 3
 queststatus(713) = 4, english, town = Runewick, "quest", "mission" -> item(2752, 1, 333), item(2738, 25, 333), queststatus(713) = 5, "Alright, now go out and collect five boughs. Once you have five boughs, come back here and produce twenty five pins and cotters for me using these carving tools and these twenty five pins I'll give you."
 queststatus(713) = 4, town = Runewick, "quest", "mission" -> item(2752, 1, 333), item(2738, 25, 333), queststatus(713) = 5, "Gut, nun geh hinaus und sammle bei den Apfelbäumen fünf Äste. Sobald du sie zusammen hast, komm hierher zurück und stell aus den Ästen 25 Nägel und Keile her. Dazu brauchst du ein Schnitzmesser, das ich dir gebe und diese 25 Nägel."
 queststatus(713) = 4, town = Runewick, "task", "adventure", "order" -> item(2752, 1, 333), item(2738, 25, 333), queststatus(713) = 5, "Alright, now go out and collect five boughs. Once you have five boughs, come back here and produce twenty five pins and cotters for me using these carving tools and these twenty five pins I'll give you."
