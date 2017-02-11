@@ -1082,8 +1082,14 @@ function DropAmmo(Attacker, Defender, GroundOnly)
     if ( Attacker.AttackKind ~= 4 ) then -- no distance attack --> no ammo
         return
     end
-
-    if common.Chance(0.33) then
+    
+    if Attacker.Weapon.AmmunitionType == 255 then --Recover throwing weapons at 100 %, arrows etc. at 50 %
+        chanceForDrop = 1
+    else
+        chanceForDrop = 0.5
+    end
+    
+    if common.Chance(chanceForDrop) then
         local AmmoItem
         if (Attacker.Weapon.AmmunitionType == Attacker.SecWeapon.WeaponType) then
             AmmoItem = Attacker.SecWeaponItem
@@ -1101,7 +1107,7 @@ function DropAmmo(Attacker, Defender, GroundOnly)
             if monsterArrowDrop[monsterId][AmmoItem.id] then
                 monsterArrowDrop[monsterId][AmmoItem.id] = monsterArrowDrop[monsterId][AmmoItem.id] + 1
             else
-                monsterArrowDrop[monsterId][AmmoItem.id] = 1
+                monsterArrowDrop[monsterId][AmmoItem.id] = 2 -- Last arrow is not counted; reason unknown.
                 local function dropAmmo(monster)
                     for ammoId, ammoAmount in pairs(monsterArrowDrop[monster.id]) do
                         world:createItemFromId(ammoId, ammoAmount, monster.pos, true, 333, nil)
@@ -1121,6 +1127,7 @@ function DropAmmo(Attacker, Defender, GroundOnly)
             end
 
             world:createItemFromId(AmmoItem.id, 1, Defender.pos, true, AmmoItem.quality, nil)
+
         end
     end
 end
