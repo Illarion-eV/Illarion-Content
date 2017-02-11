@@ -29,7 +29,7 @@ sex = male
 position = 387, 273, 0
 direction = west
 affiliation = "Galmair"
-job = "Smith and Miner"
+job = "Blacksmith"
 
 language = common
 language = dwarf
@@ -37,9 +37,10 @@ defaultLanguage = common
 autointroduce = on
 
 author = "Zot"
+author = "Estralis Seborian"
 
-lookatDE = ""
-lookatUS = ""
+lookatDE = "Dieser NPC ist Thorgrem Silverbeard der Schmied."
+lookatUS = "This NPC is Thorgrem Silverbeard the blacksmith."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Hands off!"
 wrongLangDE = "#me schaut dich verwirrt an."
@@ -58,8 +59,23 @@ itemHands = 0
 itemTrousers = 825
 itemShoes = 698
 
+-- Quest 1: Gathering. Player gets a gathering tool. Player gathers materials for 10 intermediate products. Reward: Tool for intermediate production
+-- Quest 2: Intermediate production. Player produces 10 intermediate products. Reward: Tool for final production
+-- Quest 3: Final production. Player delivers final products made of 10 intermediate products. Reward: 50 % of item.worth. Rank Layman / Laie
+-- Rank quests:
+-- 10: Novice / Anf‰nger. Reward: 10 Raw materials (e.g. coal)
+-- 20: Apprentice / Lehrling. Reward: 20 Raw materials (e.g. wool)
+-- 30: Initiate / Initiat. Reward: 10 Intermediate products (e.g. boards)
+-- 40: Journeyman / Geselle. Reward: 20 Intermediate products (e.g. thread)
+-- 50: Specialist / Spezialist. Reward: 10 Uncommon resources (e.g. handles)
+-- 60: Expert / Experte. Reward: 20 Uncommon resources (e.g. gold ingots)
+-- 70: Adept / Adept. Reward: 5 Rare resources (e.g. merinium ingots)
+-- 80: Artisan / Artisane. Reward: 10 Rare resources (e.g. heartwood)
+-- 90: Master / Meister. Reward: 5 Pure elements
+-- 100: Grandmaster / Groﬂmeister. Reward: 10 Pure elements
+
 -- Help
-"Help" -> inform("[Game Help] This NPC is Thorgrem Silverbeard the smith. Keywords: quest, smithing, craft")
+"Help" -> inform("[Game Help] This NPC is Thorgrem Silverbeard the smith. Keywords: quest, blacksmithing, craft")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Thorgrem Silverbeard der Schmied. Schl¸sselwˆrter: Quest, Schmieden, Handwerk")
 
 -- General speech
@@ -79,10 +95,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "I wish you a nice day.", "I
 "kauf", "waren", "preis", "Handel", "ver‰uﬂer", "ver‰usser", "erwerb" -> "Ich bin kein H‰ndler."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I'm a smith of course, maybe I'll have a little task for you later."
-"beruf" -> "Ich bin nat¸rlich ein Schmied. Vielleicht habe ich sp‰ter eine kleine Aufgabe f¸r dich."
-english, "job" -> "I'm a smith of course, maybe I'll have a little task for you later."
-"job" -> "Ich bin nat¸rlich ein Schmied. Vielleicht habe ich sp‰ter eine kleine Aufgabe f¸r dich."
+"profession" -> "Short legs, long beard; what do you think I am? A blacksmith of course!"
+"beruf" -> "Kurze Beine, langer Bart; was denkst du wohl, bin ich? Ein Schmied nat¸rlich!"
+english, "job" -> "Short legs, long beard; what do you think I am? A blacksmith of course!"
+"job" -> "Kurze Beine, langer Bart; was denkst du wohl, bin ich? Ein Schmied nat¸rlich!"
 
 -- help triggers
 "smith" -> "If you want to smith you need ingots and a hammer of course. Blacksmiths need a normal hammer, finesmiths need a finesmithing hammer, though."
@@ -181,7 +197,8 @@ cycletext "#me g‰hnt verhalten.", "#me yawns restrained."
 cycletext "Ein Bier! Bringt mir ein Bier!", "A beer, bring me a beer!"
 cycletext "#me grummelt.", "#me grumbles."
 cycletext "#me wirft den Hammer weg und blickt auf den Amboﬂ.", "#me tosses a hammer to the ground and looks at the anvil."
-cycletext "Arr Es gibt nichts Besseres als Schmieden.", "Arrr! There isn't anything better than smithing."
+cycletext "Arr! Es gibt nichts Besseres als Schmieden.", "Arrr! There isn't anything better than blacksmithing."
 cycletext "#me untersucht die Qualit‰t eines Eisenbarrens.", "#me examines the quality of an iron ingot."
 cycletext "#mes Kleidung ist voller Metallsp‰ne.", "#me's clothes are covered in metal shards."
 cycletext "Mit diesem Hammer kann ich alles schmieden.", "With this hammer I can make anything."
+cycletext "Tritt der Schmiedegilde von Galmair bei!", "Join the blacksmithing guild of Galmair!"
