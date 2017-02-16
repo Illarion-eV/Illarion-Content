@@ -374,6 +374,7 @@ local function thievesPoisonQuest(User, sourceItem)
             else
                 User:inform("Du hast den Inhalt des Fläschchens unbemerkt unter das Essen gemischt. Kehre zu Brigette zurück, um deine Belohnung abzuholen.", "You successfully sneak the contents of the vial Brigette gave you into the food, return to her for a reward.")
                 User:setQuestProgress(543, 8)
+                User:eraseItem(1323, 1)
             end
         end
         return true
@@ -399,10 +400,11 @@ function M.UseItem(User, sourceItem, ltstate)
         return
     elseif alchemyCheck(User, sourceItem, ltstate) then
         return
-    elseif mapItem(User, sourceItem) then
-        return
     elseif thievesPoisonQuest(User, sourceItem) then
         return
+    elseif mapItem(User, sourceItem) then
+        return
+
     end
     
     fortuneCookie(sourceItem, User)
