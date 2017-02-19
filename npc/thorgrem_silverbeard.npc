@@ -75,24 +75,24 @@ itemShoes = 698
 -- 100: Grandmaster / Großmeister. Reward: 10 Pure elements
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Thorgrem Silverbeard the smith. Keywords: quest, blacksmithing, craft")
+"Help" -> inform("[Game Help] This NPC is Thorgrem Silverbeard the blacksmith. Keywords: Quest, blacksmithing, craft")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Thorgrem Silverbeard der Schmied. Schlüsselwörter: Quest, Schmieden, Handwerk")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, can I help you?", "Nice to meet you, I'm Thorgrem Silverbeard."
-"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, kann ich Euch helfen?", "Freut mich Euch zu treffen. Ich bin Thorgrem Silverbeard."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, can I help you?", "Nice to meet you, I'm Thorgrem Silverbeard."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, kann ich Euch helfen?", "Freut mich Euch zu treffen. Ich bin Thorgrem Silverbeard"
-"Farewell", "Bye", "Fare well", "See you" -> "I wish you a nice day.", "I hope we meet again, goodbye."
-"Tschüß", "Tschüss", "Wiedersehen" -> "Ich wünsche Euch noch einen schönen Tag.", "Ich hoffe wir sehen uns wieder. Auf bald!"
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "I wish you a nice day.", "I hope we meet again, goodbye."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Ich wünsche Euch noch einen schönen Tag.", "Ich hoffe wir sehen uns wieder. Auf bald!"
-"How are you", "How feel", "How do you do" -> "I feel fine, thank you for asking."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke für die Nachfrage."
-"your name", "who are you", "who art thou" -> "I'm Thorgrem Silverbeard, who are you?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Thorgrem Silverbeard. Wer bist du?"
-"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Now what, do I need to help you?", "Not sure it is nice to meet you but I'm Thorgrem Silverbeard."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, muss ich dir jetzt helfen?", "Sollte ich mich freuen, dich kennenzulernen? Egal, ich bin Thorgrem Silverbeard."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Now what, do I need to help you?", "Not sure it is nice to meet you but I'm Thorgrem Silverbeard."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, muss ich dir jetzt helfen?", "Sollte ich mich freuen, dich kennenzulernen? Egal, ich bin Thorgrem Silverbeard."
+"Farewell", "Bye", "Fare well", "See you" -> "I wish you a day. Nice, bad, your call.", "I hope we meet again. Or not."
+"Tschüß", "Tschüss", "Wiedersehen" -> "Ich wünsche noch einen Tag. Obs ein schöner wird, liegt an dir.", "Ich hoffe wir sehen uns wieder. Oder auch nicht."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "I wish you a day. Nice, bad, your call.", "I hope we meet again. Or not."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Ich wünsche noch einen Tag. Obs ein schöner wird, liegt an dir.", "Ich hoffe wir sehen uns wieder. Oder auch nicht."
+"How are you", "How feel", "How do you do" -> "How am I supposed to feel?"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Wie soll's mir schon gehen?"
+"your name", "who are you", "who art thou" -> "I'm Thorgrem Silverbeard. That matters."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Thorgrem Silverbeard. Das ist wichtig."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader. Not at all."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin doch kein Händler!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Short legs, long beard; what do you think I am? A blacksmith of course!"
@@ -100,29 +100,19 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "I wish you a nice day.", "I
 english, "job" -> "Short legs, long beard; what do you think I am? A blacksmith of course!"
 "job" -> "Kurze Beine, langer Bart; was denkst du wohl, bin ich? Ein Schmied natürlich!"
 
--- help triggers
-"smith" -> "If you want to smith you need ingots and a hammer of course. Blacksmiths need a normal hammer, finesmiths need a finesmithing hammer, though."
-"schmied" -> "Wenn du schmieden willt dann brauchst du Barren und natürlich einen Hammer. Schmiede benutzen einen gewöhnlichen Hammer, Goldschmiede dagegen brauchen einen Feinschmiedehammer."
+-- Help triggers
+"smith" -> "If you want to smith you need ingots and a hammer of course. Blacksmiths need a normal hammer, finesmiths need a finesmithing hammer, though. Armourers have their own hammer, too."
+"schmied" -> "Wenn du schmieden willt dann brauchst du Barren und natürlich einen Hammer. Schmiede benutzen einen gewöhnlichen Hammer, Goldschmiede dagegen brauchen einen Feinschmiedehammer. Und Rüstschmiede haben auch ihren eigenen Hammer."
 "craft" -> "If you need help with smithing, ask me for a task."
-"handwerk" -> "Wenn du Hilfe beim Schmieden brauchst frag mich nach einer Aufgabe."
+"handwerk" -> "Wenn du Hilfe beim Schmieden brauchst, frag mich nach einer Aufgabe."
 
--- Quests
-queststatus(708) > 0, queststatus(712) = 3, english, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 4, "Ah Joey sent you, but you have already asked me for something to do. If you want to learn something about gem grinding or brick making, talk with Seleseth at the grinder next me. You can ask Tony Spirotelli at the workbench over there if you want to know more about carpentry though."
-queststatus(708) > 0, queststatus(712) = 3, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 4, "Ah Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt. Willst du etwas über das Edelsteinschleifen oder Ziegelmachen lernen, dann frag Seleseth, die Echse neben mir. Liegt dir das Schreinerhandwerk eher, dann frag Tony Spirotelli bei der Werkbank dort drüben."
-queststatus(708) > 0, queststatus(712) = 3, town = Galmair, "task", "adventure", "order" -> queststatus(712) = 4, "Ah Joey sent you, but you have already asked me for something to do. If you want to learn something about gem grinding or brick making, talk with Seleseth at the grinder next me. You can ask Tony Spirotelli at the workbench over there if you want to know more about carpentry though."
-queststatus(708) > 0, queststatus(712) = 3, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(712) = 4, "Ah Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt. Willst du etwas über das Edelsteinschleifen oder Ziegelmachen lernen, dann frag Seleseth, die Echse neben mir. Liegt dir das Schreinerhandwerk eher, dann frag Tony Spirotelli bei der Werkbank dort drüben."
-queststatus(708) = 0, queststatus(712) = 3, english, town = Galmair, "quest", "mission", "joey", "licavoli" -> item(2763, 1, 333), queststatus(712) = 4, queststatus(708) = 1, "Could you bring me 10 pieces of iron ore from the Malachite Mine and also 10 lumps of coal from the Dark Hole Mine? If you leave the workshop to the south, and follow the street south, you will get to the Malachite Mine. The Dark Hole Mine is outside the city, you can find it if you go north west from the main gate. I'll give you my old pick-axe to mine the ore."
-queststatus(708) = 0, queststatus(712) = 3, town = Galmair, "quest", "mission", "joey", "licavoli" -> item(2763, 1, 333), queststatus(712) = 4, queststatus(708) = 1, "Kannst du mir 10 Brocken Eisenerz von der Malachitmine und außerdem noch 10 Klumpen Kohle von der Dunkellochmine bringen? Verlass die Werkstatt und folge der Straße die nach Süden führt, um zur Malachitmine zu gelangen. Die Dunkellochmine ist außerhalb der Stadt im Nordwesten. Hier ich gebe dir meine alte Spitzhacke, um das Erz abzubauen."
-queststatus(708) = 0, queststatus(712) = 3, town = Galmair, "task", "adventure", "order" -> item(2763, 1, 333), queststatus(712) = 4, queststatus(708) = 1, "Could you bring me 10 pieces of iron ore from the Malachite Mine and also 10 lumps of coal from the Dark Hole Mine? If you leave the workshop to the south, and follow the street south, you will get to the Malachite Mine. The Dark Hole Mine is outside the city, you can find it if you go north west from the main gate. I'll give you my old pick-axe to mine the ore."
-queststatus(708) = 0, queststatus(712) = 3, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(2763, 1, 333), queststatus(712) = 4, queststatus(708) = 1, "Kannst du mir 10 Brocken Eisenerz von der Malachitmine und außerdem noch 10 Klumpen Kohle von der Dunkellochmine bringen? Verlass die Werkstatt und folge der Straße die nach Süden führt, um zur Malachitmine zu gelangen. Die Dunkellochmine ist außerhalb der Stadt im Nordwesten. Hier ich gebe dir meine alte Spitzhacke, um das Erz abzubauen."
-
--- first quest without newbie questgiver
+-- Quest 1: Gathering. Player gets a gathering tool. Player gathers materials for 10 intermediate products. Reward: Tool for intermediate production
 queststatus(708) = 0, english, town = Galmair, "quest", "mission" -> item(2763, 1, 333), queststatus(708) = 1, "Could you bring me 10 pieces of iron ore from the Malachite Mine and also 10 lumps of coal from the Dark Hole Mine? If you leave the workshop to the south, and follow the street south, you will get to the Malachite Mine. The Dark Hole Mine is outside the city, you can find it if you go north west from the main gate. I'll give you my old pick-axe to mine the ore."
 queststatus(708) = 0, town = Galmair, "quest", "mission" -> item(2763, 1, 333), queststatus(708) = 1, "Kannst du mir 10 Brocken Eisenerz von der Malachitmine und außerdem noch 10 Klumpen Kohle von der Dunkellochmine bringen? Verlass die Werkstatt und folg der Straße die nach Süden führt, um zur Malachitmine zu gelangen. Die Dunkellochmine ist außerhalb der Stadt im Nordwesten. Hier ich gebe dir meine alte Spitzhacke, um das Erz abzubauen."
 queststatus(708) = 0, town = Galmair, "task", "adventure", "order" -> item(2763, 1, 333), queststatus(708) = 1, "Could you bring me 10 pieces of iron ore from the Malachite Mine and also 10 lumps of coal from the Dark Hole Mine? If you leave the workshop to the south, and follow the street south, you will get to the Malachite Mine. The Dark Hole Mine is outside the city, you can find it if you go north west from the main gate. I'll give you my old pick-axe to mine the ore."
 queststatus(708) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(2763, 1, 333), queststatus(708) = 1, "Kannst du mir 10 Brocken Eisenerz von der Malachitmine und außerdem noch 10 Klumpen Kohle von der Dunkellochmine bringen? Verlass die Werkstatt und folg der Straße die nach Süden führt, um zur Malachitmine zu gelangen. Die Dunkellochmine ist außerhalb der Stadt im Nordwesten. Hier ich gebe dir meine alte Spitzhacke, um das Erz abzubauen."
 
--- first quest solved
+-- Quest 2 solved
 queststatus(708) = 1, item(21, all) > 9, item(22, all) > 9, english, town = Galmair, "quest", "mission" -> queststatus(708) = 2, "Well done, thank you. I'll take ten pieces of ore and ten lumps of coal. You can keep the other ten for your next task."
 queststatus(708) = 1, item(21, all) > 9, item(22, all) > 9, town = Galmair, "quest", "mission" -> queststatus(708) = 2, "Gut gemacht, danke. Ich nehme zehn Stück vom Erz und zehn von der Kohle. Den Rest kannst du für die nächste Aufgabe behalten."
 queststatus(708) = 1, item(21, all) > 9, item(22, all) > 9, town = Galmair, "task", "adventure", "order", "coal", "iron"  -> queststatus(708) = 2, "Well done, thank you. I'll take ten pieces of ore and ten lumps of coal. You can keep the other ten for your next task."
@@ -134,7 +124,7 @@ queststatus(708) = 1, item(21, all) < 10, town = Galmair, "quest", "mission" -> 
 queststatus(708) = 1, item(22, all) < 10, english, town = Galmair, "task", "adventure", "order", "coal", "iron" -> "That's not everything I was looking for. Did you forget that I told you to bring me 10 pieces of iron ore and 10 lumps of coal?"
 queststatus(708) = 1, item(22, all) < 10, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "kohle", "eisen" -> "Da fehlt aber noch etwas. Ich wollte 10 Eisenerze und 10 Kohleklumpen von dir. Hast du das vergessen?"
 
--- second quest
+-- Quest 2: Intermediate production. Player produces 10 intermediate products. Reward: Tool for final production
 queststatus(708) = 2, english, town = Galmair, "quest", "mission" -> item(2751, 1, 333), queststatus(708) = 3, "I have another task for you, aye. Could you smelt me ten iron ingots at the bloomery over there? Here I'll even give you the crucible-pincers for smelting the ore."
 queststatus(708) = 2, town = Galmair, "quest", "mission" -> item(2751, 1, 333), queststatus(708) = 3, "Ich hätte einen weitere Aufgabe für dich, aye. Kannst du zehn Eisenbarren bei der Rennofen neben mir schmelzen? Hier, ich gebe dir sogar eine Tiegelzange zum schmelzen."
 queststatus(708) = 2, town = Galmair, "task", "adventure", "order" -> item(2751, 1, 333), queststatus(708) = 3, "I have another task for you, aye. Could you smelt me ten iron ingots at the bloomery over there? Here I'll even give you the crucible-pincers for smelting the ore."
@@ -152,7 +142,7 @@ queststatus(708) = 3, item(2535, all) < 10, town = Galmair, "quest", "mission" -
 queststatus(708) = 3, item(2535, all) < 10, english, town = Galmair, "task", "adventure", "order", "iron", "ingots" -> "That's not ten iron ingots yet. Please come back later when you've finished the task."
 queststatus(708) = 3, item(2535, all) < 10, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "eisen", "barren" -> "Das sind noch keine 10 Eisenbarren, die ich von dir wollte. Komm wieder, wenn du die Aufgabe erledigt hast."
 
--- third task
+-- Quest 3: Final production. Player delivers final products made of 10 intermediate products. Reward: 50 % of item.worth. Rank Layman / Laie
 queststatus(708) = 4, english, town = Galmair, "quest", "mission" -> item(23, 1, 333), item(122, 1, 333), queststatus(708) = 5, "You want another task? Well alright. Could you smith me five pins and five goblets please? The hammer with the yellow handle is for blacksmithing and the hammer with the red handle is for finesmithing. Here I'll give you one of each kind so you can practise a little bit."
 queststatus(708) = 4, town = Galmair, "quest", "mission" -> item(23, 1, 333), item(122, 1, 333), queststatus(708) = 5, "Du willst noch eine Aufgabe? Na gut, meinetwegen. Bitte stell mir fünf Nägel, sowie fünf Kelche her. Der Hammer mit dem gelben Griff ist für das Schmieden gedacht, der mit dem roten Griff für das Feinschmieden. Hier ich gebe dir jeweils einen zum üben."
 queststatus(708) = 4, town = Galmair, "task", "adventure", "order" -> item(23, 1, 333), item(122, 1, 333), queststatus(708) = 5, "You want another task? Well alright. Could you smith me five pins and five goblets please? The hammer with the yellow handle is for blacksmithing and the hammer with the red handle is for finesmithing. Here I'll give you one of each kind so you can practise a little bit."
@@ -180,11 +170,22 @@ queststatus(708) = 6, town = Galmair, "quest", "mission" -> "Ich habe nichts wei
 queststatus(708) = 6, town = Galmair, "task", "adventure", "order" -> "I don't have anything more for you to do. Thank you for the help though!"
 queststatus(708) = 6, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
 
+-- 10: Novice / Anfänger. Reward: 10 Raw materials (e.g. coal)
+-- 20: Apprentice / Lehrling. Reward: 20 Raw materials (e.g. wool)
+-- 30: Initiate / Initiat. Reward: 10 Intermediate products (e.g. boards)
+-- 40: Journeyman / Geselle. Reward: 20 Intermediate products (e.g. thread)
+-- 50: Specialist / Spezialist. Reward: 10 Uncommon resources (e.g. handles)
+-- 60: Expert / Experte. Reward: 20 Uncommon resources (e.g. gold ingots)
+-- 70: Adept / Adept. Reward: 5 Rare resources (e.g. merinium ingots)
+-- 80: Artisan / Artisane. Reward: 10 Rare resources (e.g. heartwood)
+-- 90: Master / Meister. Reward: 5 Pure elements
+-- 100: Grandmaster / Großmeister. Reward: 10 Pure elements
+
 -- No quests for Non Galmairians
-english, "quest", "mission" -> "You are not a citizen of Galmair. I don't have anything for you to do."
-"quest", "mission" -> "Ihr scheint kein Bürger Galmairs zu sein. Ich habe nichts für Euch zu tun."
-"task", "adventure", "order" -> "You are not a citizen of Galmair. I don't have anything for you to do."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr scheint kein Bürger Galmairs zu sein. Ich habe nichts für Euch zu tun."
+english, "quest", "mission" -> "Get lost. Galmair first!"
+"quest", "mission" -> "Scher dich vom Acker. Galmair zuerst!"
+"task", "adventure", "order" -> "Get lost. Galmair first!"
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Scher dich vom Acker. Galmair zuerst!"
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
@@ -192,7 +193,6 @@ english, "quest", "mission" -> "You are not a citizen of Galmair. I don't have a
 
 cycletext "#me schaut sich gereizt um.", "#me looks about crankily."
 cycletext "#me streicht sich über seinen Bart.", "#me runs a hand over his beard."
-cycletext "Wenn du Hilfe beim Schmieden brauchst, dann frag mich nur!", "If you need any help smithing, just ask me!"
 cycletext "#me gähnt verhalten.", "#me yawns restrained."
 cycletext "Ein Bier! Bringt mir ein Bier!", "A beer, bring me a beer!"
 cycletext "#me grummelt.", "#me grumbles."

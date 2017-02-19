@@ -571,12 +571,12 @@ function M.callEffect( Effect, Char ) -- Effect is called
     end
     --Addition end
     
-    --Rule violation detection
+    --Rule compliance detection
     if not storedMessage then storedMessage={} end
     if not storedPosition then storedPosition={} end
     
     if storedMessage[Char.id] == Char.lastSpokenText and Char:isInRangeToPosition(storedPosition[Char.id],3) and Char:idleTime() < 300 then
-        Char:pageGM("Macro use suspected. idleTime = "..Char:idleTime()..".")
+        Char:pageGM("Rule compliance check necessary. idleTime = "..Char:idleTime()..".")
     end
     
     storedMessage[Char.id] = Char.lastSpokenText;
