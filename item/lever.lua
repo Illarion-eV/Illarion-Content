@@ -164,7 +164,7 @@ function M.init()
     lakeofLife2:bind(0, deletebridge.deleteBridge(position(723, 258, -9), 0, 19))
     lakeofLife2:bind(1, createbridge.createBridge(position(722, 258, -9), 0, 19))
     lakeofLife2:bind(1, createbridge.createBridge(position(723, 258, -9), 0, 19))
-    lakeofLife2:bind(1, sendmessage.sendMessage(position(720, 258, -9), "Du hörst ein knarzendes Geräsch in der Ferne.", "You hear a grinding sound a distance away.", 10))
+    lakeofLife2:bind(1, sendmessage.sendMessage(position(720, 258, -9), "Du hörst ein knarzendes Geräusch.", "You hear a grinding sound.", 10))
 
     -- Galmair Blackhole Race
     local ThroneRoom = lever.Lever (position(345,207, 0), true) -- create lever object
