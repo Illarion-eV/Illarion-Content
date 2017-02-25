@@ -114,7 +114,7 @@ function M.resetMapitem()
 
     -- reset lake of life bridge
     local lever1 = world:getItemOnField(position(720, 258, -9))
-    local lever2 = world:getItemOnField(position(781, 188, -9))
+    local lever2 = world:getItemOnField(position(741, 221, -9))
 
 
 

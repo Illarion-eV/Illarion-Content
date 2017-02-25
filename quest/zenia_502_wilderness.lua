@@ -75,7 +75,7 @@ for i = 1, 11 do
   QuestTarget[i] = {npcPos};
 end
 -- Insert the quest status which is reached at the end of the quest
-local FINAL_QUEST_STATUS = 11
+local FINAL_QUEST_STATUS = 9
 
 
 function M.QuestTitle(user)
