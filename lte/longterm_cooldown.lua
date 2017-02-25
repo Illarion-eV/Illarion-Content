@@ -574,9 +574,16 @@ function M.callEffect( Effect, Char ) -- Effect is called
     --Rule compliance detection
     if not storedMessage then storedMessage={} end
     if not storedPosition then storedPosition={} end
+    if not playerFlag then playerFlag={} end
     
     if storedMessage[Char.id] == Char.lastSpokenText and Char:isInRangeToPosition(storedPosition[Char.id],3) and Char:idleTime() < 300 then
-        Char:pageGM("Rule compliance check necessary. idleTime = "..Char:idleTime()..".")
+        if playerFlag[Char.id] == true then
+            Char:pageGM("Rule compliance check necessary. idleTime = "..Char:idleTime()..".")
+        else
+            playerFlag[Char.id] = true
+        end
+    else
+        playerFlag[Char.id] = false
     end
     
     storedMessage[Char.id] = Char.lastSpokenText;
