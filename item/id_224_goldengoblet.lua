@@ -56,7 +56,7 @@ function M.putCoinsInGoblet(user, sourceItem)
     end
 
     local coins = {[3076] = "copperCoins", [3077] = "silverCoins", [61] = "goldCoins"}
-    goblet:setData(coins[sourceItem.id], (tonumber(sourceItem:getData(coins[sourceItem.id])) or 0) + sourceItem.number)
+    goblet:setData(coins[sourceItem.id], (tonumber(goblet:getData(coins[sourceItem.id])) or 0) + sourceItem.number)
     world:changeItem(goblet)
 
     world:erase(sourceItem, sourceItem.number)
