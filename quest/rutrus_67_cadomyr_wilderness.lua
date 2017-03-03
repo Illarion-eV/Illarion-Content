@@ -56,13 +56,13 @@ Start = {359, 678, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(359, 678, 0), position(352, 678, 0)} -- stone
+QuestTarget[1] = {position(359, 678, 0), position(350, 675, 0)} -- sandpit
 QuestTarget[2] = {position(359, 678, 0)} 
-QuestTarget[3] = {position(359, 678, 0), position(143, 592, 0)} -- sieve
+QuestTarget[3] = {position(359, 678, 0), position(139, 592, 0)} -- sieve
 QuestTarget[4] = {position(359, 678, 0)} 
-QuestTarget[5] = {position(359, 678, 0), position(133, 589, 0), position(169, 607, 0)} -- händler mine
+QuestTarget[5] = {position(359, 678, 0), position(122, 614, 0), position(169, 607, 0)} -- händler mine
 QuestTarget[6] = {position(359, 678, 0)} 
-QuestTarget[7] = {position(359, 678, 0), position(133, 589, 0), position(143, 689, 0)} -- händler mine
+QuestTarget[7] = {position(359, 678, 0), position(122, 614, 0), position(143, 689, 0)} -- händler mine
 QuestTarget[8] = {position(359, 678, 0)} 
 
 -- Insert the quest status which is reached at the end of the quest
