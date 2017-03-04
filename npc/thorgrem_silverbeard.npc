@@ -127,7 +127,7 @@ queststatus(708) = 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl
 -- Quest 2: Intermediate production. Player gets a tool for intermediate production. Player produces 10 intermediate products.
 queststatus(708) = 2, english, town = Galmair, "quest", "mission" -> item(2751, 1, 333), queststatus(708) = 3, "Let's go on. Smelt ten iron ingots at the bloomery over there. Here, I'll even give you crucible-pincers for smelting the ore."
 queststatus(708) = 2, town = Galmair, "quest", "mission" -> item(2751, 1, 333), queststatus(708) = 3, "Lass uns weitermachen. Erschmelze zehn Eisenbarren in dem Rennofen neben mir. Hier, ich gebe dir sogar eine Tiegelzange."
-queststatus(708) = 2, town = Galmair, "task", "adventure", "order", , "iron", "ingot" -> item(2751, 1, 333), queststatus(708) = 3, "Let's go on. Smelt ten iron ingots at the bloomery over there. Here, I'll even give you crucible-pincers for smelting the ore."
+queststatus(708) = 2, town = Galmair, "task", "adventure", "order", "iron", "ingot" -> item(2751, 1, 333), queststatus(708) = 3, "Let's go on. Smelt ten iron ingots at the bloomery over there. Here, I'll even give you crucible-pincers for smelting the ore."
 queststatus(708) = 2, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Eisen", "Barren" -> item(2751, 1, 333), queststatus(708) = 3, "Lass uns weitermachen. Erschmelze zehn Eisenbarren in dem Rennofen neben mir. Hier, ich gebe dir sogar eine Tiegelzange."
 
 -- Quest 2: Solved
