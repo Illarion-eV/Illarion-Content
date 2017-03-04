@@ -55,8 +55,8 @@ M.JEWELLERY = 4
 
 local WeaponType = {}
 WeaponType[WeaponStruct.slashing] = {de = "Hiebwaffe", en = "Slashing Weapon", skill = Character.slashingWeapons}
-WeaponType[WeaponStruct.concussion] = {de = "Schlagwaffe", en = "Concussion Weapon", skill = Character.concussionWeapons}
-WeaponType[WeaponStruct.puncture] = {de = "Stichwaffe", en = "Puncture Weapon", skill = Character.punctureWeapons}
+WeaponType[WeaponStruct.concussion] = {de = "Schlagwaffe", en = "Blunt Weapon", skill = Character.concussionWeapons}
+WeaponType[WeaponStruct.puncture] = {de = "Stichwaffe", en = "Stabbing Weapon", skill = Character.punctureWeapons}
 WeaponType[WeaponStruct.slashingTwoHand] = WeaponType[WeaponStruct.slashing]
 WeaponType[WeaponStruct.concussionTwoHand] = WeaponType[WeaponStruct.concussion]
 WeaponType[WeaponStruct.punctureTwoHand] = WeaponType[WeaponStruct.puncture]
