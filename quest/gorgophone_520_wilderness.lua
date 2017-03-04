@@ -371,7 +371,7 @@ monsterQuests.addQuest{
     questTitle = {german = "Das Nest der Gorgophone", english = "Gorgophone's Nest"},
     monsterName = {german = "Groﬂ Spinnen", english = "Large spiders"},
     npcName = "Gorgophone",
-    monsterIds = {193, 195, 221, 231, 232} -- Tarantula, Spider Queen, Gynkese Widow, Kings Fright, Shadow Muncher
+    monsterIds = {193, 195, 221, 231, 232, 261} -- Tarantula, Spider Queen, Gynkese Widow, Kings Fright, Shadow Muncher,Nightmare spider
 }
 
 function M.QuestTitle(user)
