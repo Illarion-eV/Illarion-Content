@@ -487,7 +487,7 @@ function PayOutWage(Recipient, town)
                 log(string.format("[gems] %s got %d magic gems from %s. Character's rank: %d",
                     character.LogText(Recipient), RankedWage, town, RecipientRk))
                 while RankedWage>0 do
-                    local randomGem=math.random(1,2)
+                    local randomGem=Random.uniform(1,2)
                     local maxGemLevel = math.floor(math.log(RankedWage)/math.log(3)) + 1
                     local gemLevel= common.Limit(math.random(1,maxGemLevel), 1, 10)
 
