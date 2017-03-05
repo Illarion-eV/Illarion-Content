@@ -64,7 +64,7 @@ itemShoes = 53
 sellItem = id(1061), de("Portalbuch nach Cadomyr"), en("Portal book to Cadomyr"), price(1000), stack(1), quality(999), data("destinationCoordsY" = "647", "destinationCoordsX" = "126", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Cadomyr", "descriptionDe" = "Portal nach Cadomyr")
 sellItem = id(1061), de("Portalbuch nach Galmair"), en("Portal book to Galmair"), price(1000), stack(1), quality(999), data("destinationCoordsY" = "246", "destinationCoordsX" = "423", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Galmair", "descriptionDe" = "Portal nach Galmair")
 sellItem = id(1061), de("Portalbuch nach Runewick"), en("Portal book to Runewick"), price(1000), stack(1), quality(999), data("destinationCoordsY" = "813", "destinationCoordsX" = "835", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Runewick", "descriptionDe" = "Portal nach Runewick")
-sellItem = id(1061), de("Portalbuch zum Hemp Necktie Inn"), en("Portal book to the Hemp Necktie Inn"), price(1000), stack(1), quality(999), data("destinationCoordsY" = "307", "destinationCoordsX" = "684", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to the Hemp Necktie Inn", "descriptionDe" = "Portal zum Hemp Necktie Inn")
+sellItem = id(1061), de("Portalbuch zum Gasthof zur Hanfschlinge"), en("Portal book to the Hemp Necktie Inn"), price(1000), stack(1), quality(999), data("destinationCoordsY" = "307", "destinationCoordsX" = "684", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to the Hemp Necktie Inn", "descriptionDe" = "Portal zum Hemp Necktie Inn")
 
 tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
 tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
