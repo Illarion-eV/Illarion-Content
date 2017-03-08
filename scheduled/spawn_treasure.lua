@@ -35,6 +35,12 @@ local treasurePos = {
     position(847,503,-6), --Spider Nest
     position(785,273,-9), --Lake of life
     position(701,626,-3), --Volcano
+    position(230,794,-6), --Letma
+    position(393,440,2), --Dragorog Cult
+    position(571,191,-3), --Viridian Needles
+    position(310,355,1), --Fort Schnebeil
+    position(554,536,-6), --Necro Hideout
+    position(895,577,-9), --Ronangon Dungeon
 }
 function M.spawnTreasure()
     if #world:getPlayersInRangeOf(treasurePos[i],20) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
