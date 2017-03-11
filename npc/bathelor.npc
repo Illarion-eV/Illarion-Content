@@ -94,9 +94,9 @@ queststatus(113) = 0, "quest", "mission" -> inform("[Neues Quest] Feuer und Flam
 queststatus(113) = 0, "task", "adventure" -> inform("[New quest] A spark to a flame I"), queststatus(113) = 1, "Very well. To prove that you are a truly devout servant of the Five, I want you to pay hommage to them. Visit each of the shrines of the Five in the temple and honour them."
 queststatus(113) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Feuer und Flamme I"), queststatus(113) = 1, "Sehr gut. Um zu beweisen, dass ihr ein frommer Diener der Fünf seid, möchte ich, dass ihr ihnen huldigt. Besucht jeden der Schreine der Fünf und ehret sie."
 
--- 1st quest solved, reward: 2 candles (43)
-queststatus(113) = 2, english, ".+" -> inform("[Quest solved] You are awarded five candles."), item(43, 5, 333), queststatus(113) = 3, "Praise the Five, hail Brágon! Here, take these candles, for they will guide you through the darkest nights."
-queststatus(113) = 2, ".+" -> inform("[Quest gelöst] Du erhältst fünf Kerzen."), item(43, 5, 333), queststatus(113) = 3, "Lobet die Fünf, gepriesen sei Brágon! Hier, nehmt diese Kerzen, sie werden euch ein Licht in der Dunkelheit sein."
+-- 1st quest solved, reward: 5 candles (43), candlestick (399)
+queststatus(113) = 2, english, ".+" -> inform("[Quest solved] You are awarded five candles and a candlestick."), item(43, 5, 333), item(399, 1, 555), queststatus(113) = 3, "Praise the Five, hail Brágon! Here, take this candlestick and some candles, for they will guide you through the darkest nights."
+queststatus(113) = 2, ".+" -> inform("[Quest gelöst] Du erhältst fünf Kerzen und einen Halter."), item(43, 5, 333), item(399, 1, 555), queststatus(113) = 3, "Lobet die Fünf, gepriesen sei Brágon! Hier, nehmt diesen Kerzenhalter und ein paar Kerzen, sie werden euch ein Licht in der Dunkelheit sein."
 
 -- 1st quest taken but not solved, repeat the instructions
 queststatus(113) = 1, english, "quest", "mission" -> "I told you to honour the five at their shrines. Move!"

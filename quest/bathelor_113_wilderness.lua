@@ -51,9 +51,8 @@ local QuestTarget = {}
 QuestTarget[1] = {position(549, 138, 0), position(551, 133, 0), position(556, 135, 0), position(556, 141, 0), position(551, 143, 0), position(519, 128, 0)} -- Shrines
 QuestTarget[2] = {position(519, 128, 0)} 
 QuestTarget[3] = {position(519, 128, 0)} 
-QuestTarget[4] = {position(519, 128, 0), position(511, 119, 0)} -- tree
+QuestTarget[4] = {position(519, 128, 0)}
 QuestTarget[5] = {position(519, 128, 0)} 
-
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 5

@@ -25,12 +25,14 @@ altar[2] = position(551,143,0) --2: Brágon God of fire
 altar[3] = position(556,141,0) --3: Eldan God of spirit
 altar[4] = position(549,138,0) --4: Tanora/Zelphia Goddess of water
 altar[5] = position(556,135,0) --5: Findari Goddess of air
+
 local messageG = {}
 messageG[1] = "[Queststatus] Du näherst dich dem Altar Usharas. Eine beruhigende Stille umgibt dich."
 messageG[2] = "[Queststatus] Du näherst dich dem Altar Brágons. Hitze schlägt dir ins Gesicht."
 messageG[3] = "[Queststatus] Du näherst dich dem Altar Eldans. Nachdenklich betrachtest du den Schrein."
 messageG[4] = "[Queststatus] Du näherst dich dem Altar Tanoras. Täuscht du dich oder liegt hier Nebel in der Luft?"
 messageG[5] = "[Queststatus] Du näherst dich dem Altar Findaris. Eine Winböe streift durch deine Kleidung."
+
 local messageE = {}
 messageE[1] = "[Quest status] You approach the altar of Ushara - the silence is comforting."
 messageE[2] = "[Quest status] You approach the altar of Brágon as a wave of heat engulfs you."
