@@ -23,14 +23,17 @@ local common = require("base.common")
 local M = {}
 
 
-local treasurePos = {
-    position(703,421,-3), --Salavesh dungeon
+local lowTreasurePos = {
     position(161,666,-4), --Sir Reginald's tomb
     position(769,705,0), --A cave in the woods
     position(336,326,-6), --Galmair sewers
     position(907,574,0), --Wonderland
-    position(531,804,-6), --Akaltuts level 2
     position(841,524,-12), --Bandit Hideout
+}
+
+local highTreasurePos = {
+    position(703,421,-3), --Salavesh dungeon
+    position(531,804,-6), --Akaltuts level 2
     position(202,415,-3), --Fortress Hammerfall
     position(847,503,-6), --Spider Nest
     position(785,273,-9), --Lake of life
@@ -38,15 +41,27 @@ local treasurePos = {
     position(230,794,-6), --Letma
     position(393,440,2), --Dragorog Cult
     position(571,191,-3), --Viridian Needles
-    position(310,355,1), --Fort Schnebeil
+    position(310,355,1), --Fort Schnellbeil
     position(554,536,-6), --Necro Hideout
-    position(895,577,-9), --Ronangon Dungeon
+    position(895,577,-9) --Ronagan Dungeon
 }
+
 function M.spawnTreasure()
-    if #world:getPlayersInRangeOf(treasurePos[i],20) == 0 and world:isItemOnField(treasurePos) == false then --only spawn a treasure if nobody is around
-    
-        world:createItemFromId(2830,1,treasurePos,false,333,{trsCat=math.random(1,4)}); --spawn the chest
+
+    for i = 1, #lowTreasurePos do
+        if world:getPlayersInRangeOf(lowTreasurePos[i],20) == 0 and world:isItemOnField(lowTreasurePos) == false then --only spawn a treasure if nobody is around
         
+            world:createItemFromId(2830,1,lowTreasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
+            
+        end
+    end
+    
+    for i = 1, #highTreasurePos do
+        if world:getPlayersInRangeOf(highTreasurePos[i],20) == 0 and world:isItemOnField(highTreasurePos) == false then --only spawn a treasure if nobody is around
+        
+            world:createItemFromId(2830,1,highTreasurePos,false,333,{trsCat=math.random(1,4)}); --spawn the chest
+            
+        end
     end
 
 end
