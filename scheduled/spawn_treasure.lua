@@ -28,7 +28,7 @@ local lowTreasurePos = {
     position(769,705,0), --A cave in the woods
     position(336,326,-6), --Galmair sewers
     position(907,574,0), --Wonderland
-    position(841,524,-12), --Bandit Hideout
+    position(841,524,-12) --Bandit Hideout
 }
 
 local highTreasurePos = {
