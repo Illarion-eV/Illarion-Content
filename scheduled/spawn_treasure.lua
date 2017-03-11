@@ -49,17 +49,17 @@ local highTreasurePos = {
 function M.spawnTreasure()
 
     for i = 1, #lowTreasurePos do
-        if world:getPlayersInRangeOf(lowTreasurePos[i],20) == 0 and world:isItemOnField(lowTreasurePos) == false then --only spawn a treasure if nobody is around
+        if world:getPlayersInRangeOf(lowTreasurePos[i],20) == 0 and world:isItemOnField(lowTreasurePos[i]) == false then --only spawn a treasure if nobody is around
         
-            world:createItemFromId(2830,1,lowTreasurePos,false,333,{trsCat=math.random(0,1)}); --spawn the chest
+            world:createItemFromId(2830,1,lowTreasurePos[i],false,333,{trsCat=math.random(0,1)}); --spawn the chest
             
         end
     end
     
     for i = 1, #highTreasurePos do
-        if world:getPlayersInRangeOf(highTreasurePos[i],20) == 0 and world:isItemOnField(highTreasurePos) == false then --only spawn a treasure if nobody is around
+        if world:getPlayersInRangeOf(highTreasurePos[i],20) == 0 and world:isItemOnField(highTreasurePos[i]) == false then --only spawn a treasure if nobody is around
         
-            world:createItemFromId(2830,1,highTreasurePos,false,333,{trsCat=math.random(1,4)}); --spawn the chest
+            world:createItemFromId(2830,1,highTreasurePos[i],false,333,{trsCat=math.random(1,4)}); --spawn the chest
             
         end
     end
