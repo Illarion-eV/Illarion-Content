@@ -75,8 +75,8 @@ itemShoes = 698
 -- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Thorgrem Silverbeard the blacksmith. Keywords: Quest, blacksmithing, craft")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Thorgrem Silverbeard der Schmied. Schlüsselwörter: Quest, Schmieden, Handwerk")
+"Help" -> inform("[Game Help] This NPC is Thorgrem Silverbeard the blacksmith. Keywords: Hello, Quest, blacksmithing.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Thorgrem Silverbeard der Schmied. Schlüsselwörter: Hallo, Quest, Schmieden.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Now what, do I need to help you?", "Not sure it is nice to meet you but I'm Thorgrem Silverbeard."
@@ -101,10 +101,8 @@ english, "job" -> "Short legs, long beard; what do you think I am? A blacksmith 
 "job" -> "Kurze Beine, langer Bart; was denkst du wohl, bin ich? Ein Schmied natürlich!"
 
 -- Help triggers
-"smith" -> "If you want to smith you need ingots and a hammer of course. Blacksmiths need a normal hammer, finesmiths need a finesmithing hammer, though. Armourers have their own hammer, too."
-"schmied" -> "Wenn du schmieden willt, dann brauchst du Barren und natürlich einen Hammer. Schmiede benutzen einen gewöhnlichen Hammer, Goldschmiede dagegen brauchen einen Feinschmiedehammer. Und Rüstschmiede haben auch ihren eigenen Hammer."
-"craft" -> "If you need help with blacksmithing, ask me for a task."
-"handwerk" -> "Wenn du Hilfe beim Schmieden brauchst, frag mich nach einer Aufgabe."
+"smith", "craft" -> "If you want to smith you need ingots and a hammer of course. Blacksmiths need a normal hammer, finesmiths need a finesmithing hammer, though. Armourers have their own hammer, too."
+"schmied", "handwerk" -> "Wenn du schmieden willt, dann brauchst du Barren und natürlich einen Hammer. Schmiede benutzen einen gewöhnlichen Hammer, Goldschmiede dagegen brauchen einen Feinschmiedehammer. Und Rüstschmiede haben auch ihren eigenen Hammer."
 
 -- Quest 1: Gathering. Player gets a gathering tool. Player gathers materials for 10 intermediate products. 
 queststatus(708) = 0, english, town = Galmair, "quest", "mission" -> item(2763, 1, 333), queststatus(708) = 1, "Let's get started. To become a real blacksmith, you'll need iron ore and coal. Get ten pieces of iron ore from the Malachite Mine and also ten lumps of coal from the Dark Hole Mine. If you leave the workshop to the south, and follow the street south, you will get to the Malachite Mine. The Dark Hole Mine is outside the city, you can find it if you go north west from the main gate. I'll give you my old pick-axe to mine the ore."
