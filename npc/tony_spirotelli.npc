@@ -14,7 +14,7 @@
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: Tony Spirotelli                                          Galmair --
--- NPC Job:  Carpenter                                                        --
+-- NPC Job:  Finesmith                                                        --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  383, 269, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
@@ -29,7 +29,7 @@ sex = male
 position = 383, 269, 0
 direction = south
 affiliation = "Galmair"
-job = "Carpenter"
+job = "Finesmith"
 
 language = common
 language = human
@@ -37,9 +37,10 @@ defaultLanguage = common
 autointroduce = on
 
 author = "Zot"
+author = "Estralis Seborian"
 
-lookatDE = ""
-lookatUS = ""
+lookatDE = "Dieser NPC ist Tony Spirotelli der Feinschmied."
+lookatUS = "This NPC is Tony Spirotelli the finesmith."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Hands off!"
 wrongLangDE = "#me schaut dich verwirrt an."
@@ -59,8 +60,8 @@ itemTrousers = 826
 itemShoes = 53
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Tony Spirotelli the carpenter. Keywords: quest")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Tony Spirotelli der Schreiner. Schlüsselwörter: Quest")
+"Help" -> inform("[Game Help] This NPC is Tony Spirotelli the finesmith. Keywords: Hello, quest, finesmithing.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Tony Spirotelli der Feinschmied. Schlüsselwörter: Hallo, Quest, Feinschmieden.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, what do you need?", "Good day, what do you need?", "I'm Tony Spirotelli, what can I do for you?"
@@ -71,74 +72,222 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, what do you need?", "Good da
 "Tschüß", "Tschüss", "Wiedersehen" -> "#me lacht: 'Wir werden uns wiedersehen, da bin ich mir sicher.'", "Ja, bis zum nächsten mal."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me chuckles, 'I'll be seeing you again I hope.'", "Aye... another time."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me lacht: 'Wir werden uns wiedersehen, da bin ich mir sicher.'", "Ja, bis zum nächsten mal."
-"How are you", "How feel", "How do you do" -> "I feel fine, thank you for asking."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke der Nachfrage."
+"How are you", "How feel", "How do you do" -> "I feel fine, I'm a finemsmith. Funny, eh?"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es fein, denn ich bin ein Feinschmied. Lustig, oder?"
 "your name", "who are you", "who art thou" -> "I'm Tony Spirotelli, who are you?"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Tony Spirotelli, wer bist du?"
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin doch kein Händler."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I'm a carpenter, if you want to know more about it, ask me for a task. I'm sure I have something for you to do."
-"beruf" -> "Ich bin Schreiner Falls du mehr darüber erfahren möchtest, frag mich nach einer Aufgabe. Ich habe sicher etwas für dich zu tun."
-english, "job" -> "I'm a carpenter, if you want to know more about it, ask me for a task. I'm sure I have something for you to do."
-"job" -> "Ich bin Schreiner. Falls du mehr darüber erfahren möchtest, frag mich nach einer Aufgabe. Ich habe sicher etwas für dich zu tun."
+"profession" -> "I am an important member of the Finesmithing Syndicate."
+"beruf" -> "Ich bin ein wichtiges Mitglied des Feinschmiedesyndikates."
+english, "job" -> "I am an important member of the Finesmithing Syndicate."
+"job" -> "Ich bin ein wichtiges Mitglied des Feinschmiedesyndikates."
 
--- Quests
-queststatus(710) = 0, english, town = Galmair, "quest", "mission" -> item(9, 1, 333), item(74, 1, 333), queststatus(710) = 1, "A task..ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of apple wood from the apple trees outside the city. Then return to the workshop and saw the pieces of apple logs into boards at the workbench with the saw I'll give you, and show them to me."
-queststatus(710) = 0, town = Galmair, "quest", "mission" -> item(9, 1, 333), item(74, 1, 333), queststatus(710) = 1, "Eine Aufgabe..ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammel zehn Apfelholzscheite bei einem der Apfelbäume außerhalb der Stadt. Dann kommst du hierher zurück und sägst die Scheite, mit der Säge die ich dir gebe, bei der Werkbank zu Brettern und zeigst sie mir dann."
-queststatus(710) = 0, town = Galmair, "task", "adventure", "order" -> item(9, 1, 333), item(74, 1, 333), queststatus(710) = 1, "A task..ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of apple wood from the apple trees outside the city. Then return to the workshop and saw the pieces of apple logs into boards at the workbench with the saw I'll give you, and show them to me."
-queststatus(710) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(9, 1, 333), item(74, 1, 333), queststatus(710) = 1, "Eine Aufgabe..ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammel zehn Apfelholzscheite bei einem der Apfelbäume außerhalb der Stadt. Dann kommst du hierher zurück und sägst die Scheite, mit der Säge die ich dir gebe, bei der Werkbank zu Brettern und zeigst sie mir dann."
-queststatus(710) = 1, item(2716, all) > 9, english, town = Galmair, "quest", "mission", "board", "wood", "apple" -> queststatus(710) = 2, "Well done, the boards look great. Please keep them for your next task."
-queststatus(710) = 1, item(2716, all) > 9, town = Galmair, "quest", "mission", "brett", "holz", "laub" -> queststatus(710) = 2, "Gut gemacht, die Bretter sehen gut aus. Bitte behalte sie für deine nächste Aufgabe."
-queststatus(710) = 1, item(2716, all) > 9, town = Galmair, "task", "adventure", "order" -> queststatus(710) = 2, "Well done, the boards look great. Please keep them for your next task."
-queststatus(710) = 1, item(2716, all) > 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(710) = 2, "Gut gemacht, die Bretter sehen gut aus. Bitte behalte sie für deine nächste Aufgabe."
-queststatus(710) = 1, item(2716, all) < 10, english, town = Galmair, ".+" -> "I wanted ten apple wood boards, come back once you have fulfilled this task."
-queststatus(710) = 1, item(2716, all) < 10, town = Galmair, ".+" -> "Ich wollte zehn Apfelholzbretter haben. Komme wieder wenn du die Aufgabe erfüllt hast."
-queststatus(710) = 2, english, town = Galmair, "quest", "mission" -> item(2715, 1, 333), queststatus(710) = 3, "Let's make some plates from the apple wood boards now. You will need a plane for that, which I'll give you. Then you go to the workbench next to me and produce ten plates, which you can show me once you are done."
-queststatus(710) = 2, town = Galmair, "quest", "mission" -> item(2715, 1, 333), queststatus(710) = 3, "Nun stellen wir aus den Apfelholzbrettern Teller her. Dafür brauchst du einen Hobel, den ich dir gebe, und dann setzt du dich auf den Stuhl da gleich neben mir, bei der Werkbank und machst zehn Teller. Zeige sie mir wenn du fertig bist."
-queststatus(710) = 2, town = Galmair, "task", "adventure", "order" -> item(2715, 1, 333), queststatus(710) = 3, "Let's make some plates from the apple wood boards now. You will need a plane for that, which I'll give you. Then you go to the workbench next to me and produce ten plates, which you can show me once you are done."
-queststatus(710) = 2, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(2715, 1, 333), queststatus(710) = 3, "Nun stellen wir aus den Apfelholzbrettern Teller her. Dafür brauchst du einen Hobel, den ich dir gebe, und dann setzt du dich auf den Stuhl da gleich neben mir bei der Werkbank und machst zehn Teller. Zeige sie mir wenn du fertig bist."
-queststatus(710) = 3, item(2952, all) > 9, english, town = Galmair, "quest", "mission", "plate" -> deleteItem(2952, 10), queststatus(710) = 4, "Well done, the plates look pretty good. If you have more time, I could give you another task."
-queststatus(710) = 3, item(2952, all) > 9, town = Galmair, "quest", "mission", "teller" -> deleteItem(2952, 10), queststatus(710) = 4, "Gut gemacht, die Teller sehen gut aus. Wenn du etwas mehr Zeit hast, hätte ich eine weitere Aufgabe für dich."
-queststatus(710) = 3, item(2952, all) > 9, town = Galmair, "task", "adventure", "order" -> deleteItem(2952, 10), queststatus(710) = 4, "Well done, the plates look pretty good. If you have more time, I could give you another task."
-queststatus(710) = 3, item(2952, all) > 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> deleteItem(2952, 10), queststatus(710) = 4, "Gut gemacht, die Teller sehen gut aus. Wenn du etwas mehr Zeit hast, hätte ich eine weitere Aufgabe für dich."
-queststatus(710) = 3, item(2952, all) < 10, english, town = Galmair, ".+" -> "I wanted ten plates, come back once you have fulfilled this task."
-queststatus(710) = 3, item(2952, all) < 10, town = Galmair, ".+" -> "Ich wollte zehn Teller. Komme wieder wenn du die Aufgabe erfüllt hast."
-queststatus(710) = 4, english, town = Galmair, "quest", "mission" -> item(2752, 1, 333), item(2738, 25, 333), queststatus(710) = 5, "Alright, now go out and collect five boughs. Once you have five boughs, come back here and produce twenty five pins and cotters for me using these carving tools and the twenty five pins I'll give you."
-queststatus(710) = 4, town = Galmair, "quest", "mission" -> item(2752, 1, 333), item(2738, 25, 333), queststatus(710) = 5, "Gut, nun geh hinaus und sammel bei den Apfelbäumen fünf Äste. Sobald du sie zusammen hast, komme hierher zurück und stell aus den Ästen 25 Nägel und Keile her. Dafür brauchst du ein Schnitzmesser, das ich dir gebe, und diese 25 Nägel."
-queststatus(710) = 4, town = Galmair, "task", "adventure", "order" -> item(2752, 1, 333), item(2738, 25, 333), queststatus(710) = 5, "Alright, now go out and collect five boughs. Once you have five boughs, come back here and produce twenty five pins and cotters for me using these carving tools and the twenty five pins I'll give you."
-queststatus(710) = 4, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(2752, 1, 333), item(2738, 25, 333), queststatus(710) = 5, "Gut, nun geh hinaus und sammel bei den Apfelbäumen fünf Äste. Sobald du sie zusammen hast, komme hierher zurück und stell aus den Ästen 25 Nägel und Keile her. Dafür brauchst du ein Schnitzmesser, das ich dir gebe, und diese 25 Nägel."
-queststatus(710) = 5, item(2717, all) > 24, english, town = Galmair, "quest", "mission", "pin", "cotter" -> deleteItem(2717, 25), queststatus(710) = 6, "Well done, the pins and cotters look perfect. It will take a while for you to become a master in carpentry, but I hope I have taught you some of the basics at least."
-queststatus(710) = 5, item(2717, all) > 24, town = Galmair, "quest", "mission", "nägel", "keil" -> deleteItem(2717, 25), queststatus(710) = 6, "Gut gemacht, die Nägel und Keile sehen sehr gut aus. Bis du ein Meister in dem Fach wirst dauert es sicher noch etwas, aber ich hoffe du beherrscht nun zumindest die Grundlagen."
-queststatus(710) = 5, item(2717, all) > 24, town = Galmair, "task", "adventure", "order" -> deleteItem(2717, 25), queststatus(710) = 6, "Well done, the pins and cotters look perfect. It will take a while for you to become a master in carpentry, but I hope I have taught you some of the basics at least."
-queststatus(710) = 5, item(2717, all) > 24, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> deleteItem(2717, 25), queststatus(710) = 6, "Gut gemacht, die Nägel und Keile sehen sehr gut aus. Bis du ein Meister in dem Fach wirst dauert es sicher noch etwas, aber ich hoffe du beherrscht nun zumindest die Grundlagen."
-queststatus(710) = 5, item(2717, all) < 25, english, town = Galmair, ".+" -> "I wanted twenty five pins and cotters, come back once you have fulfilled this task."
-queststatus(710) = 5, item(2717, all) < 25, town = Galmair, ".+" -> "Ich wollte 25 Nägel und Keile, komm wieder wenn du die Aufgabe erfüllt hast."
+-- Help triggers
+"smith", "craft" -> "For finesmithing, you'll need noble metal ingots and a finesmithing hammer. Don't use the hammer of a blacksmith or an armourer."
+"schmied", "Handwerk" -> "Zum Feinschmieden wirst du Edelmetallbarren und einen Feinschmiedehammer brauchen. Benutz bloß nicht den Hammer eines ordinären Schmiedes oder eines Rüstschmiedes."
+
+--2536 copper ore
+--21 coal
+
+-- Quest 1: Gathering. Player gets a gathering tool. Player gathers materials for 10 intermediate products. 
+queststatus(710) = 0, english, town = Galmair, "quest", "mission" -> item(2763, 1, 333), queststatus(710) = 1, "So you fancy a career with the Finemsmithing Syndicate? Let's have a deal, you get this rusty pick-axe and you show me you are worth my time. Get ten lumps of coal and ten pieces of copper ore from the local mines and I'll teach you the ropes."
+queststatus(710) = 0, town = Galmair, "quest", "mission" -> item(2763, 1, 333), queststatus(710) = 1, "So, du denkst also, du kannst eine große Nummer im Feinschmiedesyndikat werden? Hier ist der Deal: Du kriegst diese rostige Spitzhacke und zeigst mir, dass du meine Zeit wert bist. Besorge zehn Klumpen Kohle und zehn Stück Eisenerz aus den nahegelegenen Minen und ich zeig dir, wo der Hase langläuft."
+queststatus(710) = 0, town = Galmair, "task", "adventure", "order" -> item(2763, 1, 333), queststatus(710) = 1, "So you fancy a career with the Finemsmithing Syndicate? Let's have a deal, you get this rusty pick-axe and you show me you are worth my time. Get ten lumps of coal and ten pieces of copper ore from the local mines and I'll teach you the ropes."
+queststatus(710) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(2763, 1, 333), queststatus(710) = 1, "So, du denkst also, du kannst eine große Nummer im Feinschmiedesyndikat werden? Hier ist der Deal: Du kriegst diese rostige Spitzhacke und zeigst mir, dass du meine Zeit wert bist. Besorge zehn Klumpen Kohle und zehn Stück Eisenerz aus den nahegelegenen Minen und ich zeig dir, wo der Hase langläuft."
+
+-- Quest 1: Solved
+queststatus(710) = 1, item(21, all) > 9, item(2536, all) > 9, english, town = Galmair, "quest", "mission" -> queststatus(710) = 2, "Very well, looks like you can tell rocks and copper ore apart. You'll need the resources for your next task."
+queststatus(710) = 1, item(21, all) > 9, item(2536, all) > 9, town = Galmair, "quest", "mission" -> queststatus(710) = 2, "Bestens, du kannst Kupfererz von Steinen unterscheiden. Du wirst die Ressourcen für deine nächste Aufgabe brauchen."
+queststatus(710) = 1, item(21, all) > 9, item(2536, all) > 9, town = Galmair, "task", "adventure", "order", "coal", "copper"  -> queststatus(710) = 2, "Very well, looks like you can tell rocks and copper ore apart. You'll need the resources for your next task."
+queststatus(710) = 1, item(21, all) > 9, item(2536, all) > 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "kohle", "Kupfer" -> queststatus(710) = 2, "Bestens, du kannst Kupfererz von Steinen unterscheiden. Du wirst die Ressourcen für deine nächste Aufgabe brauchen."
+
+-- Quest 1: Not enough items
+queststatus(710) = 1, english, town = Galmair, "quest", "mission" -> "Without copper ore and coal, you won't get anywhere with the Finesmithing Syndicate."
+queststatus(710) = 1, town = Galmair, "quest", "mission" -> "Ohne Kupfererz und Kohle wird's nichts mit dir und dem Feinschmiedesyndikat."
+queststatus(710) = 1, town = Galmair, "task", "adventure", "order", "coal", "copper" -> "Without copper ore and coal, you won't get anywhere with the Finesmithing Syndicate."
+queststatus(710) = 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "kohle", "Kupfer" -> "Ohne Kupfererz und Kohle wird's nichts mit dir und dem Feinschmiedesyndikat."
+
+-- Quest 2: Intermediate production. Player gets a tool for intermediate production. Player produces 10 intermediate products.
+queststatus(710) = 2, english, town = Galmair, "quest", "mission" -> item(2751, 1, 333), queststatus(710) = 3, "Ore is not all you need. To cast ingots, light the bloomery with coal and smelt the copper ore. You'll need crucible-pincers and I happen to have a spare pair."
+queststatus(710) = 2, town = Galmair, "quest", "mission" -> item(2751, 1, 333), queststatus(710) = 3, "Erz ist eigentlich nicht das, was du brauchst. Um Barren zu gießen, befeuere den Rennofen mit Kohle. Du wirst eine Tiegelzange brauchen, glücklicherweise habe ich noch eine Ersatzzange für dich."
+queststatus(710) = 2, town = Galmair, "task", "adventure", "order", "copper", "ingot" -> item(2751, 1, 333), queststatus(710) = 3, "Ore is not all you need. To cast ingots, light the bloomery with coal and smelt the copper ore. You'll need crucible-pincers and I happen to have a spare pair."
+queststatus(710) = 2, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kupfer", "Barren" -> item(2751, 1, 333), queststatus(710) = 3, "Erz ist eigentlich nicht das, was du brauchst. Um Barren zu gießen, befeuere den Rennofen mit Kohle. Du wirst eine Tiegelzange brauchen, glücklicherweise habe ich noch eine Ersatzzange für dich."
+
+-- Quest 2: Solved
+queststatus(710) = 3, item(2550, all) > 9, english, town = Galmair, "quest", "mission" -> queststatus(710) = 4, "Are you sure these ingots don't contain blowholes? We'll see during your next task."
+queststatus(710) = 3, item(2550, all) > 9, town = Galmair, "quest", "mission" -> queststatus(710) = 4, "Bist du sicher, dass keine Lunker in den Barren sind? Wir werden es bei deiner nächsten Aufgabe herausfinden."
+queststatus(710) = 3, item(2550, all) > 9, town = Galmair, "task", "adventure", "order", "copper", "ingot" -> queststatus(710) = 4, "Are you sure these ingots don't contain blowholes? We'll see during your next task."
+queststatus(710) = 3, item(2550, all) > 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kupfer", "barren" -> queststatus(710) = 4, "Bist du sicher, dass keine Lunker in den Barren sind? Wir werden es bei deiner nächsten Aufgabe herausfinden."
+
+-- Quest 2: Not enough items
+queststatus(710) = 3, english, town = Galmair, "quest", "mission" -> "Casting ingots is something you need to learn before you can become a good finesmith. Please cast ten copper ingots."
+queststatus(710) = 3, town = Galmair, "quest", "mission" -> "Wer ein guter Feinschmied werden will, der muss zunächst das Gießen von Barren erlernen. Gieße zehn Kupferbarren, bitte."
+queststatus(710) = 3, town = Galmair, "task", "adventure", "order", "copper", "ingot" -> "Casting ingots is something you need to learn before you can become a good finesmith. Please cast ten copper ingots."
+queststatus(710) = 3, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kupfer", "Barren" -> "Wer ein guter Feinschmied werden will, der muss zunächst das Gießen von Barren erlernen. Gieße zehn Kupferbarren, bitte."
+
+-- Quest 3: Final production. Player gets a tool for final production. Player delivers final products made of 10 intermediate products. Reward: 50 % of item.worth. Rank Layman / Laie
+queststatus(710) = 4, english, town = Galmair, "quest", "mission" -> item(122, 1, 333), queststatus(710) = 5, "I think you are ready to start production. Begin with ten copper amulets, they are fairly easy to make. Here, have this finesmithing hammer."
+queststatus(710) = 4, town = Galmair, "quest", "mission" -> item(122, 1, 333), queststatus(710) = 5, "Ich denke, du bist bereit, die Fertigung einzuleiten. Beginne mit zehn Kupferamuletten, die sind recht einfach herzustellen. Hier, nimm diesen Feinschmiedehammer."
+queststatus(710) = 4, town = Galmair, "task", "adventure", "order" -> item(122, 1, 333), queststatus(710) = 5, "I think you are ready to start production. Begin with ten copper amulets, they are fairly easy to make. Here, have this finesmithing hammer."
+queststatus(710) = 4, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(122, 1, 333), queststatus(710) = 5, "Ich denke, du bist bereit, die Fertigung einzuleiten. Beginne mit zehn Kupferamuletten, die sind recht einfach herzustellen. Hier, nimm diesen Feinschmiedehammer."
+
+-- Quest 3: Solved
+queststatus(710) = 5, item(3558, all) > 9, english, town = Galmair, "quest", "mission", "amulet" -> inform("[Guild rank] You advance to the rank of Layman with the Finesmithing Syndicate of Galmair. You are awarded sixty five silver coins."), deleteItem(3558, 10), queststatus(710) = 6, money + 6500, "You have proven worthy to join the Finesmithing Syndicate of Galmair. For the amulets, I'll give you some first revenue. Use it wisely. Come back once you are more experienced."
+queststatus(710) = 5, item(3558, all) > 9, town = Galmair, "quest", "mission", "amulet" -> inform("[Gildenrang] Das Feinschmiedesyndikat von Galmair erhebt dich in den Rang eines Laiens. Du erhältst fünfundsechsig Silberstücke."), deleteItem(3558, 10), queststatus(710) = 6, money + 6500, "Du hast dich als würdig erwiesen, ein Mitglied des Feinschmiedesyndikates von Galmair zu werden. Für die Amulette erhältst du deinen ersten Gewinn. Verwende ihn weise. Komm erneut zu mir, wenn du erfahrener bist."
+queststatus(710) = 5, item(3558, all) > 9, town = Galmair, "task", "adventure", "order" -> inform("[Guild rank] You advance to the rank of Layman with the Finesmithing Syndicate of Galmair. You are awarded sixty five silver coins."), deleteItem(3558, 10), queststatus(710) = 6, money + 6500, "You have proven worthy to join the Finesmithing Syndicate of Galmair. For the amulets, I'll give you some first revenue. Use it wisely. Come back once you are more experienced."
+queststatus(710) = 5, item(3558, all) > 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Gildenrang] Das Feinschmiedesyndikat von Galmair erhebt dich in den Rang eines Laiens. Du erhältst fünfundsechsig Silberstücke."), deleteItem(3558, 10), queststatus(710) = 6, money + 6500, "Du hast dich als würdig erwiesen, ein Mitglied des Feinschmiedesyndikates von Galmair zu werden. Für die Amulette erhältst du deinen ersten Gewinn. Verwende ihn weise. Komm erneut zu mir, wenn du erfahrener bist."
+
+-- Quest 3: Not enough items
+queststatus(710) = 5, english, town = Galmair, "quest", "mission" -> "Any problems manufacturing ten copper amulets? Just swing your finesmithing hammer."
+queststatus(710) = 5, town = Galmair, "quest", "mission" -> "Gibt es Probleme bei der Herstellung der zehn Kupferamulette? Schwing deinen Feinschmiedehammer!"
+queststatus(710) = 5, town = Galmair, "task", "adventure", "order", "pin" -> "Any problems manufacturing ten copper amulets? Just swing your finesmithing hammer."
+queststatus(710) = 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Nägel", "Nagel" -> "Gibt es Probleme bei der Herstellung der zehn Kupferamulette? Schwing deinen Feinschmiedehammer!"
+
+-- Level 10: Novice / Anfänger. Reward: 10 Raw materials (e.g. coal)
+skill(finesmithing) > 9, queststatus(710) = 6, english, town = Galmair, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Novice with the Finesmithing Syndicate of Galmair. You are awarded ten lumps of coal."), item(21, 10, 333), queststatus(710) = 7, "I ackknowledge your progress and the Finesmithing Syndicate of Galmair has decided to support your business with some coal. Please return to me once you are more experienced."
+skill(finesmithing) > 9, queststatus(710) = 6, town = Galmair, "quest", "mission" -> inform("[Gildenrang] Das Feinschmiedesyndikat von Galmair erhebt dich in den Rang eines Anfängers. Du erhältst zehn Klumpen Kohle."), item(21, 10, 333), queststatus(710) = 7, "Ich erkenne deinen Fortschritt an. Das Feinschmiedesyndikat von Galmair hat beschlossen, dein Geschäft mit diese Kohlen zu fördern. Bitte suche mich erneut auf, wenn du erfahrener bist."
+skill(finesmithing) > 9, queststatus(710) = 6, town = Galmair, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Novice with the Finesmithing Syndicate of Galmair. You are awarded ten lumps of coal."), item(21, 10, 333), queststatus(710) = 7, "I ackknowledge your progress and the Finesmithing Syndicate of Galmair has decided to support your business with some coal. Please return to me once you are more experienced."
+skill(finesmithing) > 9, queststatus(710) = 6, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Das Feinschmiedesyndikat von Galmair erhebt dich in den Rang eines Anfängers. Du erhältst zehn Klumpen Kohle."), item(21, 10, 333), queststatus(710) = 7, "Ich erkenne deinen Fortschritt an. Das Feinschmiedesyndikat von Galmair hat beschlossen, dein Geschäft mit diese Kohlen zu fördern. Bitte suche mich erneut auf, wenn du erfahrener bist."
+
+-- Level < 10: Not experienced enough
+skill(finesmithing) < 10, queststatus(710) = 6, english, town = Galmair, "quest", "mission" -> "Please improve your finesmithing skills. The Finesmithing Syndicate of Galmair cannot promote you beyond your current rank Layman."
+skill(finesmithing) < 10, queststatus(710) = 6, town = Galmair, "quest", "mission" -> "Verbessere bitte deine Feinschmiedefertigkeit. Das Feinschmiedesyndikat von Galmair kann dich so nicht befördern. Du wirst im Rang eines Laiens geführt."
+skill(finesmithing) < 10, queststatus(710) = 6, town = Galmair, "task", "adventure", "order", "rank" -> "Please improve your finesmithing skills. The Finesmithing Syndicate of Galmair cannot promote you beyond your current rank Layman."
+skill(finesmithing) < 10, queststatus(710) = 6, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Verbessere bitte deine Feinschmiedefertigkeit. Das Feinschmiedesyndikat von Galmair kann dich so nicht befördern. Du wirst im Rang eines Laiens geführt."
+
+-- Level 20: Apprentice / Lehrling. Reward: 20 Raw materials (e.g. wool)
+skill(finesmithing) > 19, queststatus(710) = 7, english, town = Galmair, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Apprentice with the Finesmithing Syndicate of Galmair. You are awarded twenty pieces of copper ore."), item(2536, 20, 333), queststatus(710) = 8, "I ackknowledge your progress and the Finesmithing Syndicate of Galmair has decided to support your business with some copper ore. Please return to me once you are more experienced."
+skill(finesmithing) > 19, queststatus(710) = 7, town = Galmair, "quest", "mission" -> inform("[Gildenrang] Das Feinschmiedesyndikat von Galmair erhebt dich in den Rang eines Lehrlings. Du erhältst zwanzig Stücke Kupfererz."), item(2536, 20, 333), queststatus(710) = 8, "Ich erkenne deinen Fortschritt an. Das Feinschmiedesyndikat von Galmair hat beschlossen, dein Geschäft mit diesem Kupfererz zu fördern. Bitte suche mich erneut auf, wenn du erfahrener bist."
+skill(finesmithing) > 19, queststatus(710) = 7, town = Galmair, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Apprentice with the Finesmithing Syndicate of Galmair. You are awarded twenty pieces of copper ore."), item(2536, 20, 333), queststatus(710) = 8, "I ackknowledge your progress and the Finesmithing Syndicate of Galmair has decided to support your business with some copper ore. Please return to me once you are more experienced."
+skill(finesmithing) > 19, queststatus(710) = 7, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Das Feinschmiedesyndikat von Galmair erhebt dich in den Rang eines Lehrlings. Du erhältst zwanzig Stücke Kupfererz."), item(2536, 20, 333), queststatus(710) = 8, "Ich erkenne deinen Fortschritt an. Das Feinschmiedesyndikat von Galmair hat beschlossen, dein Geschäft mit diesem Kupfererz zu fördern. Bitte suche mich erneut auf, wenn du erfahrener bist."
+
+-- Level < 20: Not experienced enough
+skill(finesmithing) < 20, queststatus(710) = 7, english, town = Galmair, "quest", "mission" -> "Please improve your finesmithing skills. The Finesmithing Syndicate of Galmair cannot promote you beyond your current rank Novice."
+skill(finesmithing) < 20, queststatus(710) = 7, town = Galmair, "quest", "mission" -> "Verbessere bitte deine Feinschmiedefertigkeit. Das Feinschmiedesyndikat von Galmair kann dich so nicht befördern. Du wirst im Rang eines Anfängers geführt."
+skill(finesmithing) < 20, queststatus(710) = 7, town = Galmair, "task", "adventure", "order", "rank" -> "Please improve your finesmithing skills. The Finesmithing Syndicate of Galmair cannot promote you beyond your current rank Novice."
+skill(finesmithing) < 20, queststatus(710) = 7, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Verbessere bitte deine Feinschmiedefertigkeit. Das Feinschmiedesyndikat von Galmair kann dich so nicht befördern. Du wirst im Rang eines Anfängers geführt."
+
+-- Level 30: Initiate / Initiat. Reward: 10 Intermediate products (e.g. boards)
+skill(finesmithing) > 29, queststatus(710) = 8, english, town = Galmair, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Initiate with the Finesmithing Syndicate of Galmair. You are awarded ten copper ingots."), item(2550, 10, 333), queststatus(710) = 9, "I ackknowledge your progress and the Finesmithing Syndicate of Galmair has decided to support your business with some copper ingots. Please return to me once you are more experienced."
+skill(finesmithing) > 29, queststatus(710) = 8, town = Galmair, "quest", "mission" -> inform("[Gildenrang] Das Feinschmiedesyndikat von Galmair erhebt dich in den Rang eines Initiatens. Du erhältst zehn Kupferbarren."), item(2550, 10, 333), queststatus(710) = 9, "Ich erkenne deinen Fortschritt an. Das Feinschmiedesyndikat von Galmair hat beschlossen, dein Geschäft mit diesen Kupferbarren zu fördern. Bitte suche mich erneut auf, wenn du erfahrener bist."
+skill(finesmithing) > 29, queststatus(710) = 8, town = Galmair, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Initiate with the Finesmithing Syndicate of Galmair. You are awarded ten copper ingots."), item(2550, 10, 333), queststatus(710) = 9, "I ackknowledge your progress and the Finesmithing Syndicate of Galmair has decided to support your business with some copper ingots. Please return to me once you are more experienced."
+skill(finesmithing) > 29, queststatus(710) = 8, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Das Feinschmiedesyndikat von Galmair erhebt dich in den Rang eines Initiatens. Du erhältst zehn Kupferbarren."), item(2550, 10, 333), queststatus(710) = 9, "Ich erkenne deinen Fortschritt an. Das Feinschmiedesyndikat von Galmair hat beschlossen, dein Geschäft mit diesen Kupferbarren zu fördern. Bitte suche mich erneut auf, wenn du erfahrener bist."
+
+-- Level < 30: Not experienced enough
+skill(finesmithing) < 30, queststatus(710) = 8, english, town = Galmair, "quest", "mission" -> "Please improve your finesmithing skills. The Finesmithing Syndicate of Galmair cannot promote you beyond your current rank Apprentice."
+skill(finesmithing) < 30, queststatus(710) = 8, town = Galmair, "quest", "mission" -> "Verbessere bitte deine Feinschmiedefertigkeit. Das Feinschmiedesyndikat von Galmair kann dich so nicht befördern. Du wirst im Rang eines Lehrlings geführt."
+skill(finesmithing) < 30, queststatus(710) = 8, town = Galmair, "task", "adventure", "order", "rank" -> "Please improve your finesmithing skills. The Finesmithing Syndicate of Galmair cannot promote you beyond your current rank Apprentice."
+skill(finesmithing) < 30, queststatus(710) = 8, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Verbessere bitte deine Feinschmiedefertigkeit. Das Feinschmiedesyndikat von Galmair kann dich so nicht befördern. Du wirst im Rang eines Lehrlings geführt."
+
+-- Level 40: Journeyman / Geselle. Reward: 20 Intermediate products (e.g. thread)
+skill(finesmithing) > 39, queststatus(710) = 9, english, town = Galmair, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Journeyman with the Finesmithing Syndicate of Galmair. You are awarded twenty silver ingots."), item(104, 20, 333), queststatus(710) = 10, "I ackknowledge your progress and the Finesmithing Syndicate of Galmair has decided to support your business with some silver ingots. Please return to me once you are more experienced."
+skill(finesmithing) > 39, queststatus(710) = 9, town = Galmair, "quest", "mission" -> inform("[Gildenrang] Das Feinschmiedesyndikat von Galmair erhebt dich in den Rang eines Gesellens. Du erhältst zwanzig Silberbarren."), item(104, 20, 333), queststatus(710) = 10, "Ich erkenne deinen Fortschritt an. Das Feinschmiedesyndikat von Galmair hat beschlossen, dein Geschäft mit diesen Silberbarren zu fördern. Bitte suche mich erneut auf, wenn du erfahrener bist."
+skill(finesmithing) > 39, queststatus(710) = 9, town = Galmair, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Journeyman with the Finesmithing Syndicate of Galmair. You are awarded twenty silver ingots."), item(104, 20, 333), queststatus(710) = 10, "I ackknowledge your progress and the Finesmithing Syndicate of Galmair has decided to support your business with some silver ingots. Please return to me once you are more experienced."
+skill(finesmithing) > 39, queststatus(710) = 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Das Feinschmiedesyndikat von Galmair erhebt dich in den Rang eines Gesellens. Du erhältst zwanzig Silberbarren."), item(104, 20, 333), queststatus(710) = 10, "Ich erkenne deinen Fortschritt an. Das Feinschmiedesyndikat von Galmair hat beschlossen, dein Geschäft mit diesen Silberbarren zu fördern. Bitte suche mich erneut auf, wenn du erfahrener bist."
+
+-- Level < 40: Not experienced enough
+skill(finesmithing) < 40, queststatus(710) = 9, english, town = Galmair, "quest", "mission" -> "Please improve your finesmithing skills. The Finesmithing Syndicate of Galmair cannot promote you beyond your current rank Initiate."
+skill(finesmithing) < 40, queststatus(710) = 9, town = Galmair, "quest", "mission" -> "Verbessere bitte deine Feinschmiedefertigkeit. Das Feinschmiedesyndikat von Galmair kann dich so nicht befördern. Du wirst im Rang eines Initiatens geführt."
+skill(finesmithing) < 40, queststatus(710) = 9, town = Galmair, "task", "adventure", "order", "rank" -> "Please improve your finesmithing skills. The Finesmithing Syndicate of Galmair cannot promote you beyond your current rank Initiate."
+skill(finesmithing) < 40, queststatus(710) = 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Verbessere bitte deine Feinschmiedefertigkeit. Das Feinschmiedesyndikat von Galmair kann dich so nicht befördern. Du wirst im Rang eines Initiatens geführt."
+
+-- Level 50: Specialist / Spezialist. Reward: 10 Uncommon resources (e.g. handles)
+skill(finesmithing) > 49, queststatus(710) = 10, english, town = Galmair, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Specialist with the Finesmithing Syndicate of Galmair. You are awarded ten sapphires."), item(284, 10, 333), queststatus(710) = 11, "I ackknowledge your progress and the Finesmithing Syndicate of Galmair has decided to support your business with some sapphires. Please return to me once you are more experienced."
+skill(finesmithing) > 49, queststatus(710) = 10, town = Galmair, "quest", "mission" -> inform("[Gildenrang] Das Feinschmiedesyndikat von Galmair erhebt dich in den Rang eines Spezialistens. Du erhältst zehn Saphire."), item(284, 10, 333), queststatus(710) = 11, "Ich erkenne deinen Fortschritt an. Das Feinschmiedesyndikat von Galmair hat beschlossen, dein Geschäft mit diesen Saphiren zu fördern. Bitte suche mich erneut auf, wenn du erfahrener bist."
+skill(finesmithing) > 49, queststatus(710) = 10, town = Galmair, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Specialist with the Finesmithing Syndicate of Galmair. You are awarded ten sapphires."), item(284, 10, 333), queststatus(710) = 11, "I ackknowledge your progress and the Finesmithing Syndicate of Galmair has decided to support your business with some sapphires. Please return to me once you are more experienced."
+skill(finesmithing) > 49, queststatus(710) = 10, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Das Feinschmiedesyndikat von Galmair erhebt dich in den Rang eines Spezialistens. Du erhältst zehn Saphire."), item(284, 10, 333), queststatus(710) = 11, "Ich erkenne deinen Fortschritt an. Das Feinschmiedesyndikat von Galmair hat beschlossen, dein Geschäft mit diesen Saphiren zu fördern. Bitte suche mich erneut auf, wenn du erfahrener bist."
+
+-- Level < 50: Not experienced enough
+skill(finesmithing) < 50, queststatus(710) = 10, english, town = Galmair, "quest", "mission" -> "Please improve your finesmithing skills. The Finesmithing Syndicate of Galmair cannot promote you beyond your current rank Journeyman."
+skill(finesmithing) < 50, queststatus(710) = 10, town = Galmair, "quest", "mission" -> "Verbessere bitte deine Feinschmiedefertigkeit. Das Feinschmiedesyndikat von Galmair kann dich so nicht befördern. Du wirst im Rang eines Gesellens geführt."
+skill(finesmithing) < 50, queststatus(710) = 10, town = Galmair, "task", "adventure", "order", "rank" -> "Please improve your finesmithing skills. The Finesmithing Syndicate of Galmair cannot promote you beyond your current rank Journeyman."
+skill(finesmithing) < 50, queststatus(710) = 10, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Verbessere bitte deine Feinschmiedefertigkeit. Das Feinschmiedesyndikat von Galmair kann dich so nicht befördern. Du wirst im Rang eines Gesellens geführt."
+
+-- Level 60: Expert / Experte. Reward: 20 Uncommon resources (e.g. gold ingots)
+skill(finesmithing) > 59, queststatus(710) = 11, english, town = Galmair, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Expert with the Finesmithing Syndicate of Galmair. You are awarded twenty emeralds."), item(45, 20, 333), queststatus(710) = 12, "I ackknowledge your progress and the Finesmithing Syndicate of Galmair has decided to support your business with some emeralds. Please return to me once you are more experienced."
+skill(finesmithing) > 59, queststatus(710) = 11, town = Galmair, "quest", "mission" -> inform("[Gildenrang] Das Feinschmiedesyndikat von Galmair erhebt dich in den Rang eines Expertens. Du erhältst zwanzig Smaragde."), item(45, 20, 333), queststatus(710) = 12, "Ich erkenne deinen Fortschritt an. Das Feinschmiedesyndikat von Galmair hat beschlossen, dein Geschäft mit diesen Smaragden zu fördern. Bitte suche mich erneut auf, wenn du erfahrener bist."
+skill(finesmithing) > 59, queststatus(710) = 11, town = Galmair, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Expert with the Finesmithing Syndicate of Galmair. You are awarded twenty emeralds."), item(45, 20, 333), queststatus(710) = 12, "I ackknowledge your progress and the Finesmithing Syndicate of Galmair has decided to support your business with some emeralds. Please return to me once you are more experienced."
+skill(finesmithing) > 59, queststatus(710) = 11, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Das Feinschmiedesyndikat von Galmair erhebt dich in den Rang eines Expertens. Du erhältst zwanzig Smaragde."), item(45, 20, 333), queststatus(710) = 12, "Ich erkenne deinen Fortschritt an. Das Feinschmiedesyndikat von Galmair hat beschlossen, dein Geschäft mit diesen Smaragden zu fördern. Bitte suche mich erneut auf, wenn du erfahrener bist."
+
+-- Level < 60: Not experienced enough
+skill(finesmithing) < 60, queststatus(710) = 11, english, town = Galmair, "quest", "mission" -> "Please improve your finesmithing skills. The Finesmithing Syndicate of Galmair cannot promote you beyond your current rank Specialist."
+skill(finesmithing) < 60, queststatus(710) = 11, town = Galmair, "quest", "mission" -> "Verbessere bitte deine Feinschmiedefertigkeit. Das Feinschmiedesyndikat von Galmair kann dich so nicht befördern. Du wirst im Rang eines Spezialistens geführt."
+skill(finesmithing) < 60, queststatus(710) = 11, town = Galmair, "task", "adventure", "order", "rank" -> "Please improve your finesmithing skills. The Finesmithing Syndicate of Galmair cannot promote you beyond your current rank Specialist."
+skill(finesmithing) < 60, queststatus(710) = 11, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Verbessere bitte deine Feinschmiedefertigkeit. Das Feinschmiedesyndikat von Galmair kann dich so nicht befördern. Du wirst im Rang eines Spezialistens geführt."
+
+-- Level 70: Adept / Adept. Reward: 5 Rare resources (e.g. merinium ingots)
+skill(finesmithing) > 69, queststatus(710) = 12, english, town = Galmair, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Adept with the Finesmithing Syndicate of Galmair. You are awarded five bags of emerald powder."), item(448, 5, 333), queststatus(710) = 13, "I ackknowledge your progress and the Finesmithing Syndicate of Galmair has decided to support your business with some emerald powder. Please return to me once you are more experienced."
+skill(finesmithing) > 69, queststatus(710) = 12, town = Galmair, "quest", "mission" -> inform("[Gildenrang] Das Feinschmiedesyndikat von Galmair erhebt dich in den Rang eines Adeptens. Du erhältst fünf Sack Smaragdstaub."), item(448, 5, 333), queststatus(710) = 13, "Ich erkenne deinen Fortschritt an. Das Feinschmiedesyndikat von Galmair hat beschlossen, dein Geschäft mit diesem Smaragdstaub zu fördern. Bitte suche mich erneut auf, wenn du erfahrener bist."
+skill(finesmithing) > 69, queststatus(710) = 12, town = Galmair, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Adept with the Finesmithing Syndicate of Galmair. You are awarded five bags of emerald powder."), item(448, 5, 333), queststatus(710) = 13, "I ackknowledge your progress and the Finesmithing Syndicate of Galmair has decided to support your business with some emerald powder. Please return to me once you are more experienced."
+skill(finesmithing) > 69, queststatus(710) = 12, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Das Feinschmiedesyndikat von Galmair erhebt dich in den Rang eines Adeptens. Du erhältst fünf Sack Smaragdstaub."), item(448, 5, 333), queststatus(710) = 13, "Ich erkenne deinen Fortschritt an. Das Feinschmiedesyndikat von Galmair hat beschlossen, dein Geschäft mit diesem Smaragdstaub zu fördern. Bitte suche mich erneut auf, wenn du erfahrener bist."
+
+-- Level < 70: Not experienced enough
+skill(finesmithing) < 70, queststatus(710) = 12, english, town = Galmair, "quest", "mission" -> "Please improve your finesmithing skills. The Finesmithing Syndicate of Galmair cannot promote you beyond your current rank Expert."
+skill(finesmithing) < 70, queststatus(710) = 12, town = Galmair, "quest", "mission" -> "Verbessere bitte deine Feinschmiedefertigkeit. Das Feinschmiedesyndikat von Galmair kann dich so nicht befördern. Du wirst im Rang eines Expertens geführt."
+skill(finesmithing) < 70, queststatus(710) = 12, town = Galmair, "task", "adventure", "order", "rank" -> "Please improve your finesmithing skills. The Finesmithing Syndicate of Galmair cannot promote you beyond your current rank Expert."
+skill(finesmithing) < 70, queststatus(710) = 12, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Verbessere bitte deine Feinschmiedefertigkeit. Das Feinschmiedesyndikat von Galmair kann dich so nicht befördern. Du wirst im Rang eines Expertens geführt."
+
+-- Level 80: Artisan / Artisane. Reward: 10 Rare resources (e.g. heartwood)
+skill(finesmithing) > 79, queststatus(710) = 13, english, town = Galmair, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Artisan with the Finesmithing Syndicate of Galmair. You are awarded ten bags of diamond powder."), item(452, 10, 333), queststatus(710) = 14, "I ackknowledge your progress and the Finesmithing Syndicate of Galmair has decided to support your business with some diamond powder. Please return to me once you are more experienced."
+skill(finesmithing) > 79, queststatus(710) = 13, town = Galmair, "quest", "mission" -> inform("[Gildenrang] Das Feinschmiedesyndikat von Galmair erhebt dich in den Rang eines Artisanens. Du erhältst zehn Sack Diamantstaub."), item(452, 10, 333), queststatus(710) = 14, "Ich erkenne deinen Fortschritt an. Das Feinschmiedesyndikat von Galmair hat beschlossen, dein Geschäft mit diesem Diamantstaub zu fördern. Bitte suche mich erneut auf, wenn du erfahrener bist."
+skill(finesmithing) > 79, queststatus(710) = 13, town = Galmair, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Artisan with the Finesmithing Syndicate of Galmair. You are awarded ten bags of diamond powder."), item(452, 10, 333), queststatus(710) = 14, "I ackknowledge your progress and the Finesmithing Syndicate of Galmair has decided to support your business with some diamond powder. Please return to me once you are more experienced."
+skill(finesmithing) > 79, queststatus(710) = 13, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Das Feinschmiedesyndikat von Galmair erhebt dich in den Rang eines Artisanens. Du erhältst zehn Sack Diamantstaub."), item(452, 10, 333), queststatus(710) = 14, "Ich erkenne deinen Fortschritt an. Das Feinschmiedesyndikat von Galmair hat beschlossen, dein Geschäft mit diesem Diamantstaub zu fördern. Bitte suche mich erneut auf, wenn du erfahrener bist."
+
+-- Level < 80: Not experienced enough
+skill(finesmithing) < 80, queststatus(710) = 13, english, town = Galmair, "quest", "mission" -> "Please improve your finesmithing skills. The Finesmithing Syndicate of Galmair cannot promote you beyond your current rank Adept."
+skill(finesmithing) < 80, queststatus(710) = 13, town = Galmair, "quest", "mission" -> "Verbessere bitte deine Feinschmiedefertigkeit. Das Feinschmiedesyndikat von Galmair kann dich so nicht befördern. Du wirst im Rang eines Adeptens geführt."
+skill(finesmithing) < 80, queststatus(710) = 13, town = Galmair, "task", "adventure", "order", "rank" -> "Please improve your finesmithing skills. The Finesmithing Syndicate of Galmair cannot promote you beyond your current rank Adept."
+skill(finesmithing) < 80, queststatus(710) = 13, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Verbessere bitte deine Feinschmiedefertigkeit. Das Feinschmiedesyndikat von Galmair kann dich so nicht befördern. Du wirst im Rang eines Adeptens geführt."
+
+-- Level 90: Master / Meister. Reward: 5 Pure elements
+skill(finesmithing) > 89, queststatus(710) = 14, english, town = Galmair, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Master with the Finesmithing Syndicate of Galmair. You are awarded five pieces of pure water."), item(2554, 5, 333), queststatus(710) = 15, "I ackknowledge your progress and the Finesmithing Syndicate of Galmair has decided to support your business with some pure water. Please return to me once you are more experienced."
+skill(finesmithing) > 89, queststatus(710) = 14, town = Galmair, "quest", "mission" -> inform("[Gildenrang] Das Feinschmiedesyndikat von Galmair erhebt dich in den Rang eines Meisters. Du erhältst fünf Stück reines Wasser."), item(2554, 5, 333), queststatus(710) = 15, "Ich erkenne deinen Fortschritt an. Das Feinschmiedesyndikat von Galmair hat beschlossen, dein Geschäft mit diesem reinen Wasser zu fördern. Bitte suche mich erneut auf, wenn du erfahrener bist."
+skill(finesmithing) > 89, queststatus(710) = 14, town = Galmair, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Master with the Finesmithing Syndicate of Galmair. You are awarded five pieces of pure water."), item(2554, 5, 333), queststatus(710) = 15, "I ackknowledge your progress and the Finesmithing Syndicate of Galmair has decided to support your business with some pure water. Please return to me once you are more experienced."
+skill(finesmithing) > 89, queststatus(710) = 14, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Das Feinschmiedesyndikat von Galmair erhebt dich in den Rang eines Meisters. Du erhältst fünf Stück reines Wasser."), item(2554, 5, 333), queststatus(710) = 15, "Ich erkenne deinen Fortschritt an. Das Feinschmiedesyndikat von Galmair hat beschlossen, dein Geschäft mit diesem reinen Wasser zu fördern. Bitte suche mich erneut auf, wenn du erfahrener bist."
+
+-- Level < 90: Not experienced enough
+skill(finesmithing) < 90, queststatus(710) = 14, english, town = Galmair, "quest", "mission" -> "Please improve your finesmithing skills. The Finesmithing Syndicate of Galmair cannot promote you beyond your current rank Artisan."
+skill(finesmithing) < 90, queststatus(710) = 14, town = Galmair, "quest", "mission" -> "Verbessere bitte deine Feinschmiedefertigkeit. Das Feinschmiedesyndikat von Galmair kann dich so nicht befördern. Du wirst im Rang eines Artisanens geführt."
+skill(finesmithing) < 90, queststatus(710) = 14, town = Galmair, "task", "adventure", "order", "rank" -> "Please improve your finesmithing skills. The Finesmithing Syndicate of Galmair cannot promote you beyond your current rank Artisan."
+skill(finesmithing) < 90, queststatus(710) = 14, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Verbessere bitte deine Feinschmiedefertigkeit. Das Feinschmiedesyndikat von Galmair kann dich so nicht befördern. Du wirst im Rang eines Artisanens geführt."
+
+-- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements
+skill(finesmithing) > 99, queststatus(710) = 15, english, town = Galmair, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Grandmaster with the Finesmithing Syndicate of Galmair. You are awarded ten pieces of pure spirit."), item(3607, 10, 333), queststatus(710) = 16, "Congratulations, you are now a true Grandmaster of the Finesmithing Syndicate of Galmair. This pure spirit shall help you to manufacture the best goods of Illarion."
+skill(finesmithing) > 99, queststatus(710) = 15, town = Galmair, "quest", "mission" -> inform("[Gildenrang] Das Feinschmiedesyndikat von Galmair erhebt dich in den Rang eines Großmeisters. Du erhältst zehn Stück reinem Geistes."), item(3607, 10, 333), queststatus(710) = 16, "Gratulation, du bist nun ein echter Großmeister der Schmiedegilde von Galmair. Dieser reine Geist soll dir helfen, die besten Waren ganz Illarions herzustellen."
+skill(finesmithing) > 99, queststatus(710) = 15, town = Galmair, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Grandmaster with the Finesmithing Syndicate of Galmair. You are awarded ten pieces of pure spirit."), item(3607, 10, 333), queststatus(710) = 16, "Congratulations, you are now a true Grandmaster of the Finesmithing Syndicate of Galmair. This pure spirit shall help you to manufacture the best goods of Illarion."
+skill(finesmithing) > 99, queststatus(710) = 15, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Das Feinschmiedesyndikat von Galmair erhebt dich in den Rang eines Großmeisters. Du erhältst zehn Stück reinem Geistes."), item(3607, 10, 333), queststatus(710) = 16, "Gratulation, du bist nun ein echter Großmeister der Schmiedegilde von Galmair. Dieser reine Geist soll dir helfen, die besten Waren ganz Illarions herzustellen."
+
+-- Level < 100: Not experienced enough
+skill(finesmithing) < 100, queststatus(710) = 15, english, town = Galmair, "quest", "mission" -> "Please improve your finesmithing skills. The Finesmithing Syndicate of Galmair cannot promote you beyond your current rank Master."
+skill(finesmithing) < 100, queststatus(710) = 15, town = Galmair, "quest", "mission" -> "Verbessere bitte deine Feinschmiedefertigkeit. Das Feinschmiedesyndikat von Galmair kann dich so nicht befördern. Du wirst im Rang eines Meisters geführt."
+skill(finesmithing) < 100, queststatus(710) = 15, town = Galmair, "task", "adventure", "order", "rank" -> "Please improve your finesmithing skills. The Finesmithing Syndicate of Galmair cannot promote you beyond your current rank Master."
+skill(finesmithing) < 100, queststatus(710) = 15, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Verbessere bitte deine Feinschmiedefertigkeit. Das Feinschmiedesyndikat von Galmair kann dich so nicht befördern. Du wirst im Rang eines Meisters geführt."
 
 -- Response after quest is done
-queststatus(710) = 6, english, town = Galmair, "quest", "mission" -> "I don't have anything more for you to do. Thank you for the help though!"
-queststatus(710) = 6, town = Galmair, "quest", "mission" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
-queststatus(710) = 6, town = Galmair, "task", "adventure", "order" -> "I don't have anything more for you to do. Thank you for the help though!"
-queststatus(710) = 6, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
+queststatus(710) = 16, english, town = Galmair, "quest", "mission" -> "So, you think you're the big show, Grandmaster %CHARNAME? You are!"
+queststatus(710) = 16, town = Galmair, "quest", "mission" -> "So, du denkst also, du bist nun wer, Großmeister %CHARNAME? Das stimmt tatsächlich!"
+queststatus(710) = 16, town = Galmair, "task", "adventure", "order" -> "So, you think you're the big show, Grandmaster %CHARNAME? You are!"
+queststatus(710) = 16, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "So, du denkst also, du bist nun wer, Großmeister %CHARNAME? Das stimmt tatsächlich!"
 
 -- No quests for Non Galmairians
-english, "quest", "mission" -> "You are not a citizen of Galmair. I don't have anything for you to do."
-"quest", "mission" -> "Ihr scheint kein Bürger Galmairs zu sein. Ich habe nichts für Euch zu tun."
-"task", "adventure", "order" -> "You are not a citizen of Galmair. I don't have anything for you to do."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr scheint kein Bürger Galmairs zu sein. Ich habe nichts für Euch zu tun."
+english, "quest", "mission" -> "Only citizens of Galmair may join the Finesmithing Syndicate."
+"quest", "mission" -> "Nur Bürger Galmairs können dem Feinschmiedesyndikat beitreten."
+"task", "adventure", "order" -> "Only citizens of Galmair may join the Finesmithing Syndicate."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nur Bürger Galmairs können dem Feinschmiedesyndikat beitreten."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Wenn du Hilfe beim Schreinern brauchst, dann frag' mich nur!", "If you need any help in carpentry, just ask me!"
-cycletext "#me gähnt verhalten.", "#me yawns restrained."
-cycletext "Der beste Tischler, das bin ich!", "The best cabinetmaker, that is me!"
-cycletext "#me schnitzt eine Holzfigur mit einem kleinen Messer.", "#me carves a figurine in wood with a small knife."
-cycletext "#me hat Sägespäne auf seinem Hemd.", "#me has sawdust on his shirt."
-cycletext "#me hat eine abgenutzte Axt in seinem Gürtel.", "#me has a worn hatchet hanging from his belt."
-cycletext "#me hobelt sorgfältig an einem Stück Holz, einen Bogen ausformend.", "#me carefully planes a piece of lumber, forming a bow."
-cycletext "Es gibt keine bessere Arbeit als mit Holz.", "There is no finer work than woodwork."
-cycletext "Es gibt nichts, was ich nicht mit meinen treuen Schnitzmessern machen kann.","There is nothing I can't make with my trusty carving knives."
+cycletext "Der beste Feinschmied, das bin ich!", "The best finesmith, that is me!"
+cycletext "#me hat Goldstaub auf seinem Hemd.", "#me has gold dust on his shirt."
+cycletext "#me hat einen abgenutzten Hammer in seinem Gürtel.", "#me has a worn hammer hanging from his belt."
+cycletext "#me schmiedet sorgfältig ein Stück Kupfer, bis es die Form eines Amulettes annimmt.", "#me carefully forges a piece of copper, forming an amulet."
+cycletext "Es gibt keine bessere Arbeit als mit Gold.", "There is no finer work than with gold."
+cycletext "Es gibt nichts, was ich nicht mit meinen treuen Hammer machen kann.","There is nothing I can't make with my trusty hammer."
+cycletext "Der Silberstreif am Horizont wird dir ganz anders erscheinen, wenn du erstmal ein Feinschmied bist.", "Silver lining gets a whole new meaning once you become a finesmith."
+cycletext "Das Feinschmiedesyndikat. Tritt ihm bei oder stirb arm.", "The Finesmithing Syndicate. Join today or die poor."
