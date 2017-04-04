@@ -202,6 +202,9 @@ M.bookList["sky"] = {english = "The Sky Above Our Heads",german =  "Der Himmel ü
 M.bookList["usharas_garden"] = {english = "Ushara's Garden",german =  "Ushara's Garten", bookId = 409, bookGraphic = bookCyanBooklet}
 M.bookList["saint_cornelius"] = {english = "Letter of Saint Cornelius",german =  "Saint Cornelius's Briefe", bookId = 410, bookGraphic = bookBrownSmall}
 M.bookList["magie_gift"] = {english = "The Old Path of Magic",german =  "Der alte Pfad der Magie", bookId = 411, bookGraphic = bookBlackRedRune}
+M.bookList["firsthelp"] = {english = "First Help",german =  "Erste Hilfe", bookId = 412, bookGraphic = bookRedBooklet}
+M.bookList["origionofmagic"] = {english = "About the Origins of Magic",german =  "Von der Herkunft der Magie", bookId = 413, bookGraphic = bookYellowVeryHeavy}
+M.bookList["historysilverbrand"] = {english = "The History of Silverbrand",german =  "Die Geschichte Silberbrands", bookId = 414, bookGraphic = bookGreyLargeHeavy}
 M.bookList["cadomyr_order1"] = {english = "Order 04. Findos 38 AW",german =  "Befehl 04. Findos 38 n.VdH", bookId = 501, bookGraphic = pell}
 M.bookList["speech_rosaline_32_11_05"] = {english = "Speech 04. Findos 38 AW",german =  "Rede 05. Findos 38 n.VdH", bookId = 502, bookGraphic = pell}
 M.bookList["galmair_adjutant"] = {english = "Wanted! Adjutant",german =  "Gesucht! Adjutant", bookId = 506, bookGraphic = pell}
