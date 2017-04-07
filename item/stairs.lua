@@ -20,8 +20,7 @@ local M = {}
 
 function M.UseItem(User,SourceItem)
 
-    common.InformNLS(User, "Beweg dich auf die Treppe um sie zu benutzen.", "If you would like to use the stairs walk on them.")
-
+    User.inform(User, "Beweg dich auf die Treppe um sie zu benutzen.", "If you would like to use the stairs walk on them.")
 end
 
 return M
