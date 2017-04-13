@@ -236,7 +236,7 @@ local function applyDamage(attackerStruct, defenderStruct)
     damage  = (damage * 7) / (defenderStruct.Char:increaseAttrib("constitution", 0))
     
     -- scale damage based on the level of the armour parts the mage wears
-    damage = damage*(1 - common.Scale(0, 0.5, averageArmourLevel(attackerStruct.Char)))
+    --damage = damage*(1 - common.Scale(0, 0.5, averageArmourLevel(attackerStruct.Char))) -- deactived to remove malus
     
     -- limits for damage
     damage = math.max(0, damage)
