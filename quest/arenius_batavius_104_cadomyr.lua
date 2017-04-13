@@ -97,8 +97,8 @@ Description[GERMAN][31] = "Kehre zu Arenius Batavius zurück."
 Description[ENGLISH][31] = "Return to Arenius Batavius."
 Description[GERMAN][32] = "Gehe zu Arenius Batavius, der sich am Gasthaus 'Seeufer' in Cadomyr aufhält. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][32] = "Go back to Arenius Batavius next to the Inn 'Lakeshore' in Cadomyr, he will certainly have another task for you."
-Description[GERMAN][33] = "Gehe in den Unterschlupf des Kults der Salavesh und töte den antiken Feuerdrachen. Nimm dazu eine Waffe in die Hand und greife den antiken Feuerdrachen an. Vielleicht brauchst du auch die Hilfe deiner Freunde um so ein schreckliches Monster zu töten."
-Description[ENGLISH][33] = "Go into the stronghold of the Cult of Salavesh and kill the ancient fire dragon. Take a weapon in your hand and attack the ancient fire dragon. NOTE: You might need help from friends."
+Description[GERMAN][33] = "Gehe in den Unterschlupf des Kults der Salavesh und töte den Nachtdrache. Nimm dazu eine Waffe in die Hand und greife den Nachtdrache an. Vielleicht brauchst du auch die Hilfe deiner Freunde um so ein schreckliches Monster zu töten."
+Description[ENGLISH][33] = "Go into the stronghold of the Cult of Salavesh and kill the Night Dragon. Take a weapon in your hand and attack the Night Dragon. NOTE: You might need help from friends."
 Description[GERMAN][34] = "Kehre zu Arenius Batavius zurück."
 Description[ENGLISH][34] = "Return to Arenius Batavius."
 Description[GERMAN][35] = "Du hast alle Aufgaben von Arenius Batavius erfüllt."
@@ -190,9 +190,9 @@ monsterQuests.addQuest{
     location = {position = position(705, 410, -3), radius = 75},
     queststatus = {from = 33, to = 34},
     questTitle = {german = "Der fehlgeleitete Kreuzzug VI", english = "The Errant Crusade VI"},
-    monsterName = {german = "den untoten Feuerdrachen", english = "the undead fire dragon"},
+    monsterName = {german = "den Nachtdrache", english = "the Night Dragon"},
     npcName = "Arenius Batavius",
-    monsterIds = {633} -- bone fire dragon
+    monsterIds = {1121} -- Night Dragon
 }
 
 function M.QuestTitle(user)
