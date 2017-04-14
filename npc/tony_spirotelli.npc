@@ -59,6 +59,21 @@ itemHands = 0
 itemTrousers = 826
 itemShoes = 53
 
+-- Quest 1: Gathering. Player gets a gathering tool. Player gathers materials for 10 intermediate products.
+-- Quest 2: Intermediate production. Player gets a tool for intermediate production. Player produces 10 intermediate products.
+-- Quest 3: Final production. Player gets a tool for final production. Player delivers final products made of 10 intermediate products. Reward: 50 % of item.worth. Rank Layman / Laie
+-- Rank quests:
+-- Level 10: Novice / Anfänger. Reward: 10 Raw materials (e.g. coal)
+-- Level 20: Apprentice / Lehrling. Reward: 20 Raw materials (e.g. wool)
+-- Level 30: Initiate / Initiat. Reward: 10 Intermediate products (e.g. boards)
+-- Level 40: Journeyman / Geselle. Reward: 20 Intermediate products (e.g. thread)
+-- Level 50: Specialist / Spezialist. Reward: 10 Uncommon resources (e.g. handles)
+-- Level 60: Expert / Experte. Reward: 20 Uncommon resources (e.g. gold ingots)
+-- Level 70: Adept / Adept. Reward: 5 Rare resources (e.g. merinium ingots)
+-- Level 80: Artisan / Artisane. Reward: 10 Rare resources (e.g. heartwood)
+-- Level 90: Master / Meister. Reward: 5 Pure elements
+-- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements
+
 -- Help
 "Help" -> inform("[Game Help] This NPC is Tony Spirotelli the finesmith. Keywords: Hello, quest, finesmithing.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Tony Spirotelli der Feinschmied. Schlüsselwörter: Hallo, Quest, Feinschmieden.")
@@ -88,9 +103,6 @@ english, "job" -> "I am an important member of the Finesmithing Syndicate."
 -- Help triggers
 "smith", "craft" -> "For finesmithing, you'll need noble metal ingots and a finesmithing hammer. Don't use the hammer of a blacksmith or an armourer."
 "schmied", "Handwerk" -> "Zum Feinschmieden wirst du Edelmetallbarren und einen Feinschmiedehammer brauchen. Benutz bloß nicht den Hammer eines ordinären Schmiedes oder eines Rüstschmiedes."
-
---2536 copper ore
---21 coal
 
 -- Quest 1: Gathering. Player gets a gathering tool. Player gathers materials for 10 intermediate products. 
 queststatus(710) = 0, english, town = Galmair, "quest", "mission" -> item(2763, 1, 333), queststatus(710) = 1, "So you fancy a career with the Finemsmithing Syndicate? Let's have a deal, you get this rusty pick-axe and you show me you are worth my time. Get ten lumps of coal and ten pieces of copper ore from the local mines and I'll teach you the ropes."

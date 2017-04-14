@@ -123,7 +123,7 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
                 Char:talk(Character.say, "#me krampft zusammen und geht zu Boden.", "#me convulses and falls to the ground.")
                 common.InformNLS(Char,
                     "Dein Magen verkrampft sich und du merkst nur noch wie dein Körper auf dem Boden aufschlägt, bevor alles um dich dunkel wird.",
-                    "Your stomach cramps and the last thing you feel is  your body hitting the ground before everything goes dark.");
+                    "Your stomach cramps and the last thing you feel is your body hitting the ground before everything goes dark.");
 
             end
 
@@ -182,12 +182,12 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
 
         if ( Manapoints < maxManapoints ) then -- Mana not at maximum -> Regeneration
 
-            if ( Foodvalue >= maxFoodvalue/12 ) then -- Schnelles HP regenerieren mit FP
+            if ( Foodvalue >= maxFoodvalue/12 ) then -- Quick mana regeneration with food consumption
 
                 Manapoints = math.min( maxManapoints, Manapoints + ( ( 2*TimeFactor + 14*TimeFactor * ( Essence / 20 ) ) ) ); -- Full regeneration from 0-10000 in around 19 minutes at ESS 10. That is 1/5 of HP regeneration
                 Foodvalue = Foodvalue - math.min(40*TimeFactor,(10000-Manapoints) * ( 2*TimeFactor / Essence ) ); -- A filled foodbar lasts 25 minutes of regeneration
 
-            else -- Langsame Regeneration ohne FP
+            else -- Slow mana regeneration without food consumption
 
                 Manapoints = math.min( maxManapoints, Manapoints + ( 2 * TimeFactor ) );  -- Full regeneration from 0-10000 in around 83 minutes
 

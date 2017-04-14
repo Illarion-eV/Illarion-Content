@@ -91,12 +91,12 @@ function M.readMagicBooks(user, bookId)
 end
 
 function M.useMagicWand(user, sourceItem)
-    
+
     -- Alchemists cannot become mages.
     if user:getMagicType() == 3 then 
         return
     end
-    
+   
     -- Attribute requirements
     if user:increaseAttrib("willpower", 0) + user:increaseAttrib("essence", 0) + user:increaseAttrib("intelligence", 0) < 30 then
         return
