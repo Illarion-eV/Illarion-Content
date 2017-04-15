@@ -95,6 +95,21 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Take care!", "May the Five 
 
 -- OPTIONAL TRIGGERS
 
+
+-- Catching quest triggers of other factions' members.
+english, town = Galmair, "quest", "mission" -> "I doubt you came to the right place for a mission. How about you try the sewers?"
+town = Galmair, "quest", "mission" -> "Dies dürfte nicht der richtige Ort für eure Mission sein. Schaut doch mal im Abwasserkanal nach."
+town = Galmair, "task", "adventure", "order" -> "I doubt you came to the right place for a mission. How about you try the sewers?"
+town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Dies dürfte nicht der richtige Ort für eure Mission sein. Schaut doch mal im Abwasserkanal nach."
+english, town = Cadomyr, "quest", "mission" -> "The work here can only be done by intellectuals, return to the desert."
+town = Cadomyr, "quest", "mission" -> "Diese Arbeit kann nur von Intelektuellen erledigt werden, geh zurück in die Wüste."
+town = Cadomyr, "task", "adventure", "order", "order" -> "The work here can only be done by intellectuals, return to the desert."
+town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Diese Arbeit kann nur von Intelektuellen erledigt werden, geh zurück in die Wüste."
+english, town = none, "quest", "mission" -> "The work of Runewick is too important to be handled by outlaws."
+town = none, "quest", "mission" -> "Die Arbeit von Runewick ist zu wichtig um sie von Gesetzlosen erledigen zu lassen."
+town = none, "task", "adventure", "order"-> "The work of Runewick is too important to be handled by outlaws."
+town = none, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Die Arbeit von Runewick ist zu wichtig um sie von Gesetzlosen erledigen zu lassen."
+
 -- Optional: Trade Hooks, use only for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Me? I am not a trader. I'm the guard of the treasury, a very interesting profession if you ask me."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich? Ich bin kein Händler. Ich bin der Wächter der Schatzkammer, ein sehr interessanter Beruf wenn ihr mich fragt."
