@@ -158,7 +158,7 @@ english, "Illarion" -> inform("[Keywords] Northeast, northwest, southwest, south
 "Morgentausumpf" -> "Nun, wie ich schon sagte, dieser Ort ist im Südosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Numila Irunnleh in Runewick."
 "Yewdale" -> "Well, as I said, it is to the southeast. For more details you should ask someone who lives there. Numila Irunnleh in Runewick for example."
 "Eibenthal" -> "Nun, wie ich schon sagte, dieser Ort ist im Südosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Numila Irunnleh in Runewick."
-english, "Numila", "Irunnleh" -> "You can find her in Runewick. She knows all about the places in the southeast, thus around Runewick."
+english, "Numila", "Irunnleh" -> "You can find her in Runewick. She knows all about the places in the southeast around Runewick."
 "Numila", "Irunnleh" -> "Die findet man in Runewick und die kennt sämtliche Orte im Südosten, sprich um Runewick herum."
 
 -- northwest
@@ -174,7 +174,7 @@ english, "Numila", "Irunnleh" -> "You can find her in Runewick. She knows all ab
 "Einsame Berge" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
 "Galmair Plateau" -> "Well, as I said, it is in the northwest. For more details you should ask someone who lives there. Lotta Medborgar in Galmair for example."
 "Galmair Hochebene" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
-english, "Lotta", "Medborgar" -> "You can find her in Galmair. She knows all about the places in the northwest, thus around Galmair."
+english, "Lotta", "Medborgar" -> "You can find her in Galmair. She knows all about the places in the northwest around Galmair."
 "Lotta", "Medborgar" -> "Die findet man in Galmair und die kennt sämtliche Orte im Nordwesten, sprich um Galmair herum."
 
 -- southwest
@@ -186,7 +186,7 @@ english, "Lotta", "Medborgar" -> "You can find her in Galmair. She knows all abo
 "Wachwald" -> "Nun, wie ich schon sagte, dieser Ort ist im Südwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzussss in Cadomyr."
 "Great Ocean" -> "Well, as I said, it is in the southwest. For more details, you ask someone who lives there. Ruzussss in Cadomyr for example."
 "Großer Ozean" -> "Nun, wie ich schon sagte, dieser Ort ist im Südwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzussss in Cadomyr."
-"Border Mountains" -> "Well, as I said, it is in the southwest. For more details, you ask someone who lives there. Ruzussss in Cadomyr for example."
+"Mountains" -> "Well, as I said, it is in the southwest. For more details, you ask someone who lives there. Ruzussss in Cadomyr for example."
 "Grenzberge" -> "Nun, wie ich schon sagte, dieser Ort ist im Südwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzussss in Cadomyr."
 "Western Kantabi Desert" -> "Well, as I said, it is in the southwest. For more details, you ask someone who lives there. Ruzussss in Cadomyr for example."
 "Westliche Kantabiwüste" -> "Nun, wie ich schon sagte, dieser Ort ist im Südwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzussss in Cadomyr."
@@ -194,11 +194,11 @@ english, "Lotta", "Medborgar" -> "You can find her in Galmair. She knows all abo
 "Kantabiwüste" -> "Nun, wie ich schon sagte, dieser Ort ist im Südwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzussss in Cadomyr."
 english, "Kantabi Delta" -> "Well, as I said, it is in the southwest. For more details, you ask someone who lives there. Ruzussss in Cadomyr for example."
 "Kantabidelta" -> "Nun, wie ich schon sagte, dieser Ort ist im Südwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzussss in Cadomyr."
-english, "Ruzus" -> "Well, as I said, it is in the southwest. For more details, you ask someone who lives there. Ruzussss in Cadomyr for example."
+english, "Ruzus" -> "You can find him in Cadomyr. He knows all about the places in the southwest around Cadomyr."
 "Ruzus" -> "Den findet man in Cadomyr und der kennt sämtliche Orte im Südwesten, sprich um Cadomyr."
-"Chapel Five" -> "The Chapel of the Five is on the southern end of the Border Mountains and at the eastern border of Kantabi Desert. Ask Ruzussss in Cadomyr if you cannot find it."
+"Chapel Five" -> "The Chapel of the Five is on the southern end of the Border Mountains and at the eastern border of the Kantabi Desert. Ask Ruzussss in Cadomyr if you cannot find it."
 "Kapelle Fünf" -> "Die Kapelle der Fünf ist am südlichen Ende der Grenzberge und an der östlichen Grenze der Kantabiwüste. Frage Ruzussss in Cadomyr falls du sie nicht finden kannst."
-"Chapel" -> "The Chapel of the Five is on the southern end of the Border Mountains and at the eastern border of Kantabi Desert. Ask Ruzussss in Cadomyr if you cannot find it."
+"Chapel" -> "The Chapel of the Five is on the southern end of the Border Mountains and at the eastern border of the Kantabi Desert. Ask Ruzussss in Cadomyr if you cannot find it."
 "Kapelle" -> "Die Kapelle der Fünf ist am südlichen Ende der Grenzberge und an der östlichen Grenze der Kantabiwüste. Frage Ruzussss in Cadomyr falls du sie nicht finden kannst."
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
