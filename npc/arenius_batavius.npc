@@ -88,8 +88,8 @@ itemShoes = 53
 -- 30: Quest 5 taken: Kill 1 demon skeleton warrior (173)
 -- 31: Killing 1 demon skeleton warrior (173)
 -- 32: Quest 5 solved, reward: steel tower shield with magical sapphire (96), 500cp, 15 rankpoints if Cadomyr
--- 33: Quest 6 taken: Kill 1 Ancient Fire Dragon(264)
--- 34: Killing 1 Ancient Fire Dragon(264)
+-- 33: Quest 6 taken: Kill 1 Night Dragon(1121)
+-- 34: Killing 1 Night Dragon(1121)
 -- 35: Quest 6 solved, reward: albarian noble's armour with magical topaz (2367), 2000cp, 20 rankpoints if Cadomyr
 
 -- Help
@@ -222,8 +222,7 @@ queststatus(104) > 29, queststatus(104) < 31, "quest", "mission" -> "Dämonenskel
 queststatus(104) > 29, queststatus(104) < 31, "task", "adventure" -> "Demon skeletons are powerful beings; I understand you hesitate to face it but if the Cult of Salavesh hosts such a monster, it has to be slain!"
 queststatus(104) > 29, queststatus(104) < 31, "Auftrag", "Aufgabe", "Abenteuer" -> "Dämonenskelette sind mächtige Feinde; ich verstehe, wenn ihr zögert, euch ihm zu stellen. Aber wenn der Kult der Salavesh wirklich so ein Wesen beherbergt, dann muss es abgeschlachtet werden!"
 
--- 6th quest: Kill 1 ancient fire dragon
-
+-- 6th quest: Kill 1 Night Dragon
 -- Give out quest 6
 queststatus(104) = 32, english, "quest", "mission" -> inform("[New quest] The Errant Crusade VI"), queststatus(104) = 33, "I studied the scroll the boy found thoroughly and I came to the conclusion that the demon skeleton must have been guarding something. Might it be the source of all evil? Set out and eliminate it!"
 queststatus(104) = 32, "quest", "mission" -> inform("[Neues Quest] Der fehlgeleitete Kreuzzug VI"), queststatus(104) = 33, "Ich habe die Schriftrolle, die der Junge gefunden hat, gründlichst studiert und bin zu dem Schluss gekommen, dass das Dämonenskelett etwas bewacht haben muss. Etwas die Quelle allen Übels? Zieht aus und eleminiert sie!"

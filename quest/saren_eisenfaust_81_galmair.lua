@@ -26,7 +26,7 @@ local ENGLISH = Player.english
 -- Insert the quest title here, in both languages
 local Title = {}
 Title[GERMAN] = "Der faule Schmied"
-Title[ENGLISH] = "The lazy smith"
+Title[ENGLISH] = "The Lazy Smith"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
@@ -41,12 +41,12 @@ Description[GERMAN][3] = "Bring 15 Kupfererze, 1 Tiegelzange, 1 Feinschmiedehamm
 Description[ENGLISH][3] = "Bring 15 pieces of copper ore, 1 crucible-pincer, 1 finesmithing hammer and 5 iron ingots to Saren Eisenfaust."
 Description[GERMAN][4] = "Vielleicht solltest du Saren Eisenfaust nochmal ansprechen, er hat sicher noch mehr für dich zu tun."
 Description[ENGLISH][4] = "Perhaps you should talk to Saren Eisenfaust again, he is sure to have more for you to do."
-Description[GERMAN][5] = "Bring 10 Eisenbarren, 10 Goldbarren, 5 zwergische Metallhandschuhe und 4 Schwertgriffe zu Saren Eisenfaust."
-Description[ENGLISH][5] = "Bring 10 iron ingots, 10 gold ingots, 5 dwarven metal gloves and 4 sword handles to Saren Eisenfaust"
+Description[GERMAN][5] = "Bring 10 Eisenplatte, 10 Goldbarren, und 5 Streitaxt zu Saren Eisenfaust."
+Description[ENGLISH][5] = "Bring 10 iron plates, 10 gold ingots, and 5 battle axe to Saren Eisenfaust"
 Description[GERMAN][6] = "Vielleicht solltest du Saren Eisenfaust nochmal ansprechen, er hat sicher noch mehr für dich zu tun."
 Description[ENGLISH][6] = "Perhaps you should talk to Saren Eisenfaust again, he is sure to have more for you to do."
-Description[GERMAN][7] = "Bring 15 Kupferbarren, 3 leichte Elfenrüstung, 10 Hellebarden und 2 salkamaerische Rüstungen zu Saren Eisenfaust."
-Description[ENGLISH][7] = "Bring 15 copper ingots, 3 light elven armour, 10 halberds and 2 salkamaerian armours to Saren Eisenfaust"
+Description[GERMAN][7] = "Bring 10 verkupfertes Langschwert und 2 Zweihänder zu Saren Eisenfaust."
+Description[ENGLISH][7] = "Bring 10 coppered longswords and 2 two-handed swords to Saren Eisenfaust"
 Description[GERMAN][8] = "Du hast alle Aufgaben von Saren Eisenfaust erfüllt."
 Description[ENGLISH][8] = "You have fulfilled all tasks of Saren Eisenfaust."
 

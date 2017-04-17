@@ -190,14 +190,14 @@ keyID[2]={2558,2558,2558,2558,2558,2558,2558,2558,2558,2558,2558,2558,2558}
 keyID[3]={3056,3055,2558,2558,2558,2558,2558,2558,2558,2558,2558,2558,2558,2558,2558,2558,2558}
 
 local keydoorsID = {}
-keydoorsID[1]={310,311,312,320,321,322,323,324,325,326,327}
+keydoorsID[1]={340,341,342,343,361,362,363,364,365,366,367}
 keydoorsID[2]={240,241,242,251,211,210,236,233,235,234,230,231,243}
 keydoorsID[3]={110,111,120,121,122,123,124,125,126,127,128,113,114,115,131,132,133}
 
 local keydoorsnameDE = {}
 local keydoorsnameEN = {}
-keydoorsnameDE[1]={"Villa Rosaline","Villa Edward","Villa Reginald","Wohnungsquartier - Verantwortung","Wohnungsquartier - Glaube & Gehorsam","Wohnungsquartier - Ehre & Abstammung","Wohnungsquartier - Ehrlichkeit & Gerechtigkeit","Wohnungsquartier - Courage","Wohnungsquartier - Patriarchat","Wohnungsquartier - Besitz","Wohnungsquartier - Wachsamkeit"}
-keydoorsnameEN[1]={"Villa Rosaline","Villa Edward","Villa Reginald","Flat quarter - Responsibility","Flat quarter - Faith & Obedience","Flat quarter - Honour & Lineage","Flat quarter - Truth & Justice","Flat quarter - Courage","Flat quarter - Patriarchy","Flat quarter - Property","Flat quarter - Alertness"}
+keydoorsnameDE[1]={"Villa Wüstenfuchs","Villa Edward","Villa Reginald","Villa Wüstenfuchs Keller","Wohnungsquartier - Glaube & Gehorsam","Wohnungsquartier - Ehre & Abstammung","Wohnungsquartier - Ehrlichkeit & Gerechtigkeit","Wohnungsquartier - Courage","Wohnungsquartier - Patriarchat","Wohnungsquartier - Besitz","Schlangenturm"}
+keydoorsnameEN[1]={"Villa Desert Fox","Villa Edward","Villa Reginald","Villa Desert Fox Basement","Flat quarter - Faith & Obedience","Flat quarter - Honour & Lineage","Flat quarter - Truth & Justice","Flat quarter - Courage","Flat quarter - Patriarchy","Flat quarter - Property","Serpent Tower"}
 keydoorsnameDE[2]={"Insel des Feuers Appartement 1","Insel des Feuers Appartement 2","Insel des Feuers Appartement 3","Landhaus","Insel der Luft Appartement 2","Insel der Luft Appartement 1","Insel der Erde Appartement 6","Insel der Erde Appartement 3","Insel der Erde Appartement 5","Insel der Erde Appartement 4","Insel der Erde Appartement 1","Insel der Erde Appartement 2","Insel des Feuers Appartement 4"}
 keydoorsnameEN[2]={"Island of Fire Apartment 1","Island of Fire Apartment 2","Island of Fire Apartment 3","Cottage","Island of Air Apartment 2","Island of Air Apartment 1","Island of Earth Apartment 6","Island of Earth Apartment 3","Island of Earth Apartment 5","Island of Earth Apartment 4","Island of Earth Apartment 1","Island of Earth Apartment 2","Island of Fire Apartment 4"}
 keydoorsnameDE[3]={"Malachite Haus","Villa Goldader","Wohnung Irmorom","Wohnung Elara","Wohnung Adron","Wohnung Malachin","Wohnung Oldra","Wohnung Nargun","Wohnung Ronagan","Wohnung Sirani","Wohnung Zhambra", "Glückskupfer", "Silberner Verdienst", "Goldener Abschluss","Wohnung Saphir","Wohnung Diamant","Wohnung Obsidian"}

@@ -131,10 +131,10 @@ queststatus(160) = 1, item(547, all) < 1, town = Runewick, "Auftrag", "Aufgabe",
 
 -- 2: Quest 2 taken, get 5 empty bottles , reward: ice leaf , 3 rankpoints
 -- Quest 2: Gather 5 empty bottles (164)
-queststatus(160) = 0, english, chance(4.17), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 2, queststatus(260) = 36, "Our alchemistical resources are dwindling. Please bring me five empty bottles."
-queststatus(160) = 0, german, chance(4.17), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 2, queststatus(260) = 36, "Unsere alchemistischen Vorräte gehen zur Neige. Bringe mir bitte 5 leere Flaschen."
-queststatus(160) = 0, chance(4.17), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 2, queststatus(260) = 36, "Our alchemistical resources are dwindling. Please bring me five empty bottles."
-queststatus(160) = 0, chance(4.17), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 2, queststatus(260) = 36, "Unsere alchemistischen Vorräte gehen zur Neige. Bringe mir bitte 5 leere Flaschen."
+queststatus(160) = 0, english, chance(4.17), town = Runewick, "quest", "mission" -> inform("[New Quest] For Runewick"), queststatus(160) = 2, queststatus(260) = 36, "Our alchemistical resources are dwindling. Please bring me five empty bottles for alchemy."
+queststatus(160) = 0, german, chance(4.17), town = Runewick, "quest", "mission" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 2, queststatus(260) = 36, "Unsere alchemistischen Vorräte gehen zur Neige. Bringe mir bitte 5 leere Flaschen für die Alchemie."
+queststatus(160) = 0, chance(4.17), town = Runewick, "task", "adventure", "order" -> inform("[New Quest] For Runewick"), queststatus(160) = 2, queststatus(260) = 36, "Our alchemistical resources are dwindling. Please bring me five empty bottles for alchemy."
+queststatus(160) = 0, chance(4.17), town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Im Dienste Runewicks"), queststatus(160) = 2, queststatus(260) = 36, "Unsere alchemistischen Vorräte gehen zur Neige. Bringe mir bitte 5 leere Flaschen für die Alchemie."
 
 -- Quest 2 solved, reward: ice leaf, 3 rankpoints, delay: 5h
 queststatus(160) = 2, item(164, all) > 4, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded an ice leaf."), deleteItem(164, 5), item(760, 1, 599), queststatus(160) = 0, queststatus(260) = 0, queststatus(161) = 60, rankpoints + 3, "Five empty bottles for alchemy, check. Take this ice leaf in return."

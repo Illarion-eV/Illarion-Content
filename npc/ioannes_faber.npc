@@ -90,7 +90,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go forth and do as the Quee
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
--- Catching quest triggers of other factions' members. Outlaws are ignored.
+-- Catching quest triggers of other factions' members.
 english, town = Galmair, "quest", "mission" -> "I doubt you came to the right place for a mission. How about you try the sewers?"
 town = Galmair, "quest", "mission" -> "Dies dürfte nicht der richtige Ort für eure Mission sein. Schaut doch mal im Abwasserkanal nach."
 town = Galmair, "task", "adventure", "order" -> "I doubt you came to the right place for a mission. How about you try the sewers?"
@@ -99,6 +99,10 @@ english, town = Runewick, "quest", "mission" -> "While I admire the wisdom of Ru
 town = Runewick, "quest", "mission" -> "Ich bewundere zwar die Weisheit Runewicks aber ich habe meine Befehle und vergebe keine Aufgaben an Bürger von dort."
 town = Runewick, "task", "adventure", "order", "order" -> "While I admire the wisdom of Runewick, I have my orders not to issue any tasks to its citizens."
 town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bewundere zwar die Weisheit Runewicks aber ich habe meine Befehle und vergebe keine Aufgaben an Bürger von dort."
+english, town = none, "quest", "mission" -> "We have no use for outlaws. Leave the palace immediately!"
+town = none, "quest", "mission" -> "Wir können hier keine Gesetzlosen gebrauchen! Verlasse den Palast umgehend!"
+town = none, "task", "adventure", "order"-> "We have no use for outlaws. Leave the palace immediately!"
+town = none, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wir können hier keine Gesetzlosen gebrauchen! Verlasse den Palast umgehend!"
 
 -- Quest 1: Donate something to the treasury
 -- 1: Quest 1 taken, donate something to the treasury, reward: 20 rankpoints
