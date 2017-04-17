@@ -59,83 +59,236 @@ itemHands = 0
 itemTrousers = 827
 itemShoes = 53
 
+-- Quest 1: Gathering. Player gets a gathering tool. Player gathers materials for 10 intermediate products.
+-- Quest 2: Intermediate production. Player gets a tool for intermediate production. Player produces 10 intermediate products.
+-- Quest 3: Final production. Player gets a tool for final production. Player delivers final products made of 10 intermediate products. Reward: 50 % of item.worth. Rank Layman / Laie
+-- Rank quests:
+-- Level 10: Novice / Anfänger. Reward: 10 Raw materials (e.g. coal)
+-- Level 20: Apprentice / Lehrling. Reward: 20 Raw materials (e.g. wool)
+-- Level 30: Initiate / Initiat. Reward: 10 Intermediate products (e.g. boards)
+-- Level 40: Journeyman / Geselle. Reward: 20 Intermediate products (e.g. thread)
+-- Level 50: Specialist / Spezialist. Reward: 10 Uncommon resources (e.g. handles)
+-- Level 60: Expert / Experte. Reward: 20 Uncommon resources (e.g. gold ingots)
+-- Level 70: Adept / Adept. Reward: 5 Rare resources (e.g. merinium ingots)
+-- Level 80: Artisan / Artisane. Reward: 10 Rare resources (e.g. heartwood)
+-- Level 90: Master / Meister. Reward: 5 Pure elements
+-- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements
+
 -- Help
 "Help" -> inform("[Game Help] This NPC is Daniel Brock the carpenter. Keywords: Hello, Quest, Carpentry.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Daniel Brock der Schreiner. Schlüsselwörter: Hallo, Quest, Schreinern.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, what do you need?", "Good day, what do you need?", "I'm Daniel Brock, what can I do for you?"
-"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, was brauchst du?", "Guten Tag, was willst du?", "Ich bin Daniel Brock, was kann ich für dich tun?"
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, what do you need?", "Good day, what do you need?", "I'm Daniel Brock, what can I do for you?"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, was brauchst du?", "Guten Tag, was willst du?", "Ich bin Daniel Brock, was kann ich für dich tun?"
-"Farewell", "Bye", "Fare well", "See you" -> "#me chuckles, 'I'll be seeing you again I hope.'", "Aye... another time."
-"Tschüß", "Tschüss", "Wiedersehen" -> "#me lacht: 'Wir werden uns wiedersehen, da bin ich mir sicher.", "Ja, bis zum nächsten mal."
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me chuckles, 'I'll be seeing you again I hope.'", "Aye... another time."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "#me lacht: 'Wir werden uns wiedersehen, da bin ich mir sicher.", "Ja, bis zum nächsten mal."
-"How are you", "How feel", "How do you do" -> "I feel fine, thank you for asking."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke der Nachfrage."
-"your name", "who are you", "who art thou" -> "I'm Daniel Brock, who are you?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Daniel Brock, wer bist du?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "I am a busy man. What do you need?", "I hope you have a good reason to disturb me."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ich ein vielbeschäftiger Mann. Was brauchst du?", "Ich hoffe, du hast einen guten Grund, mich zu stören."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "I am a busy man. What do you need?", "I hope you have a good reason to disturb me."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Ich ein vielbeschäftiger Mann. Was brauchst du?", "Ich hoffe, du hast einen guten Grund, mich zu stören."
+"Farewell", "Bye", "Fare well", "See you" -> "May I carry on now?", "Aye, exactly, see you."
+"Tschüß", "Tschüss", "Wiedersehen" -> "Darf ich jetzt weiterarbeiten?", "Ja, genau, bis dann."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May I carry on now?", "Aye, exactly, see you."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Darf ich jetzt weiterarbeiten?", "Ja, genau, bis dann."
+"How are you", "How feel", "How do you do" -> "That's not important. There is work left to be done."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Unwichtig. Es gibt Arbeit zu erledigen."
+"your name", "who are you", "who art thou" -> "The name is Brock. Daniel Brock."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Mein Name ist Brock. Daniel Brock."
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I'm a carpenter, if you want to know more about it, ask me for a task. I'm sure I have something for you to do."
-"beruf" -> "Ich bin Schreiner. Falls du mehr darüber erfahren möchtest, frag mich nach einer Aufgabe. Ich hab sicher etwas für dich zu tun."
-english, "job" -> "I'm a carpenter, if you want to know more about it, ask me for a task. I'm sure I have something for you to do."
-"job" -> "Ich bin Schreiner. Falls du mehr darüber erfahren möchtest, frag mich nach einer Aufgabe. Ich hab sicher etwas für dich zu tun."
+"profession" -> "I carve and plane. I'm a carpenter. Now I need to carve and plane again."
+"beruf" -> "Ich schnitze und hobel. Ich bin ein Schreiner. Und nun muss ich wieder schnitzen und hobeln."
+english, "job" -> "I carve and plane. I'm a carpenter. Now I need to carve and plane again."
+"job" -> "Ich schnitze und hobel. Ich bin ein Schreiner. Und nun muss ich wieder schnitzen und hobeln."
 
--- Quest 1
-queststatus(713) = 0, queststatus(820) = 1, english, town = Runewick, "quest", "mission" -> item(9, 1, 333), item(74, 1, 333), queststatus(713) = 1, queststatus(820) = 2, "A task. Ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of apple wood from the apple trees outside the city. Then return to the workshop and saw the pieces of apple wood into boards at the workbench with the saw I'll give you, and show them to me."
-queststatus(713) = 0, queststatus(820) = 1, town = Runewick, "quest", "mission" -> item(9, 1, 333), item(74, 1, 333), queststatus(713) = 1, queststatus(820) = 2, "Eine Aufgabe. Ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammle zehn Apfelholzscheite bei einem der Apfelbäume außerhalb der Stadt. Dann kommst du hierher zurück und sägst die Scheite bei der Werkbank mit dieser Säge, die ich dir gebe, zu Brettern und zeigst sie mir dann."
-queststatus(713) = 0, queststatus(820) = 1, town = Runewick, "task", "adventure", "order" -> item(9, 1, 333), item(74, 1, 333), queststatus(713) = 1, queststatus(820) = 2, "A task. Ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of apple wood from the apple trees outside the city. Then return to the workshop and saw the pieces of apple wood into boards at the workbench with the saw I'll give you, and show them to me."
-queststatus(713) = 0, queststatus(820) = 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(9, 1, 333), item(74, 1, 333), queststatus(713) = 1, queststatus(820) = 2, "Eine Aufgabe. Ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammle zehn Apfelholzscheite bei einem der Apfelbäume außerhalb der Stadt. Dann kommst du hierher zurück und sägst die Scheite bei der Werkbank mit dieser Säge, die ich dir gebe, zu Brettern und zeigst sie mir dann."
-queststatus(713) = 0, english, town = Runewick, "quest", "mission" -> item(9, 1, 333), item(74, 1, 333), queststatus(713) = 1, "A task. Ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of apple wood from the apple trees outside the city. Then return to the workshop and saw the pieces of apple wood into boards at the workbench with the saw I'll give you, and show them to me."
-queststatus(713) = 0, town = Runewick, "quest", "mission" -> item(9, 1, 333), item(74, 1, 333), queststatus(713) = 1, "Eine Aufgabe. Ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammle zehn Apfelholzscheite bei einem der Apfelbäume außerhalb der Stadt. Dann kommst du hierher zurück und sägst die Scheite bei der Werkbank mit dieser Säge, die ich dir gebe, zu Brettern und zeigst sie mir dann."
-queststatus(713) = 0, town = Runewick, "task", "adventure", "order" -> item(9, 1, 333), item(74, 1, 333), queststatus(713) = 1, "A task. Ah yes, yes, of course. Take this old hatchet of mine and collect ten pieces of apple wood from the apple trees outside the city. Then return to the workshop and saw the pieces of apple wood into boards at the workbench with the saw I'll give you, and show them to me."
-queststatus(713) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(9, 1, 333), item(74, 1, 333), queststatus(713) = 1, "Eine Aufgabe. Ah ja, ja, sicher. Nimm dieses alte Beil von mir und sammle zehn Apfelholzscheite bei einem der Apfelbäume außerhalb der Stadt. Dann kommst du hierher zurück und sägst die Scheite bei der Werkbank mit dieser Säge, die ich dir gebe, zu Brettern und zeigst sie mir dann."
-queststatus(713) = 1, item(2716, all) > 9, english, town = Runewick, "quest", "mission", "board", "wood", "apple" -> queststatus(713) = 2, "Well done, the boards look great. Please keep them for your next task."
-queststatus(713) = 1, item(2716, all) > 9, town = Runewick, "quest", "mission", "bret", "laub", "holz" -> queststatus(713) = 2, "Gut gemacht, die Bretter sehen gut aus. Bitte behalte sie für deine nächste Aufgabe."
-queststatus(713) = 1, item(2716, all) > 9, town = Runewick, "task", "adventure", "order" -> queststatus(713) = 2, "Well done, the boards look great. Please keep them for your next task."
-queststatus(713) = 1, item(2716, all) > 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(713) = 2, "Gut gemacht, die Bretter sehen gut aus. Bitte behalte sie für deine nächste Aufgabe."
-queststatus(713) = 1, item(2716, all) < 10, english, town = Runewick, ".+" -> "I wanted ten apple wood boards, come back once you have fulfilled this task."
-queststatus(713) = 1, item(2716, all) < 10, town = Runewick, ".+" -> "Ich wollte zehn Apfelholzbretter haben. Komm wieder wenn du die Aufgabe erfüllt hast."
+-- Help triggers
+"carpent", "craft" -> "As a carpenter, you'll need at least two tools: A plane and carving tools. The plane is used for straight contours while filigree shapes require using carving tools."
+"Schreiner", "Handwerk" -> "As Schreiner benötigst du wenigstens zwei Werkzeuge: Einen Hobel und Schnitzmesser. Der Hobel wird für gerade Konturen verwendet. Schnitzmesser sind für filigrane Formen unerlässlich."
 
--- Quest 2
-queststatus(713) = 2, english, town = Runewick, "quest", "mission" -> item(2715, 1, 333), queststatus(713) = 3, "Let's make some plates from the apple wood boards now. You will need a plane for that, which I'll give you. Then you go to the workbench next to me and produce ten plates, which you can show me once you are done."
-queststatus(713) = 2, town = Runewick, "quest", "mission" -> item(2715, 1, 333), queststatus(713) = 3, "Nun stellen wir aus den Apfelholzbrettern Teller her. Dafür brauchst du einen Hobel, den ich dir gebe. Dann setzt du dich auf den Stuhl da gleich neben mir bei der Werkbank und machst zehn Teller. Diese zeigst du mir, wenn du fertig bist."
-queststatus(713) = 2, town = Runewick, "task", "adventure", "order" -> item(2715, 1, 333), queststatus(713) = 3, "Let's make some plates from the apple wood boards now. You will need a plane for that, which I'll give you. Then you go to the workbench next to me and produce ten plates, which you can show me once you are done."
-queststatus(713) = 2, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(2715, 1, 333), queststatus(713) = 3, "Nun stellen wir aus den Apfelholzbrettern Teller her. Dafür brauchst du einen Hobel, den ich dir gebe. Dann setzt du dich auf den Stuhl da gleich neben mich bei der Werkbank und machst zehn Teller. Diese zeigst du mir, wenn du fertig bist."
-queststatus(713) = 3, item(2952, all) > 9, english, town = Runewick, "quest", "mission", "plate" -> deleteItem(2952, 10), queststatus(713) = 4, "Well done, the plates look pretty good. If you have more time, I could give you another task."
-queststatus(713) = 3, item(2952, all) > 9, town = Runewick, "quest", "mission", "teller" -> deleteItem(2952, 10), queststatus(713) = 4, "Gut gemacht, die Teller sehen gut aus. Wenn Ihr noch etwas Zeit habt, dann hätte ich eine weitere Aufgabe für Euch."
-queststatus(713) = 3, item(2952, all) > 9, town = Runewick, "task", "adventure", "order" -> deleteItem(2952, 10), queststatus(713) = 4, "Well done, the plates look pretty good. If you have more time, I could give you another task."
-queststatus(713) = 3, item(2952, all) > 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> deleteItem(2952, 10), queststatus(713) = 4, "Gut gemacht, die Teller sehen gut aus. Wenn Ihr noch etwas Zeit habt, dann hätte ich eine weitere Aufgabe für Euch."
-queststatus(713) = 3, item(2952, all) < 10, english, town = Runewick, ".+" -> "I wanted ten plates, come back once you have fulfilled this task."
-queststatus(713) = 3, item(2952, all) < 10, town = Runewick, ".+" -> "Ich wollte zehn Teller. Komm wieder, wenn du die Aufgabe erfüllt hast."
+-- Quest 1: Gathering. Player gets a gathering tool. Player gathers materials for 10 intermediate products. 
+queststatus(713) = 0, english, town = Runewick, "quest", "mission" -> item(74, 1, 333), queststatus(713) = 1, "The Carpentry Association accepts you as an apprentice. But you'll have to work hard first. Take this hatchet and collect ten pieces of apple wood from the apple trees outside the city."
+queststatus(713) = 0, town = Runewick, "quest", "mission" -> item(74, 1, 333), queststatus(713) = 1, "Die Schreinerinnung wird deine Ausbildung übernehmen. Zunächst aber steht harte Arbeit an. Nimm dieses Beil und sammle zehn Apfelholzscheite von den Apfelbäumen außerhalb der Stadt."
+queststatus(713) = 0, town = Runewick, "task", "adventure", "order" -> item(74, 1, 333), queststatus(713) = 1, "The Carpentry Association accepts you as an apprentice. But you'll have to work hard first. Take this hatchet and collect ten pieces of apple wood from the apple trees outside the city."
+queststatus(713) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(74, 1, 333), queststatus(713) = 1, "Die Schreinerinnung wird deine Ausbildung übernehmen. Zunächst aber steht harte Arbeit an. Nimm dieses Beil und sammle zehn Apfelholzscheite von den Apfelbäumen außerhalb der Stadt."
 
--- Quest 3
-queststatus(713) = 4, english, town = Runewick, "quest", "mission" -> item(2752, 1, 333), item(2738, 25, 333), queststatus(713) = 5, "Alright, now go out and collect five boughs. Once you have five boughs, come back here and produce twenty five pins and cotters for me using these carving tools and these twenty five pins I'll give you."
-queststatus(713) = 4, town = Runewick, "quest", "mission" -> item(2752, 1, 333), item(2738, 25, 333), queststatus(713) = 5, "Gut, nun geh hinaus und sammle bei den Apfelbäumen fünf Äste. Sobald du sie zusammen hast, komm hierher zurück und stell aus den Ästen 25 Nägel und Keile her. Dazu brauchst du ein Schnitzmesser, das ich dir gebe und diese 25 Nägel."
-queststatus(713) = 4, town = Runewick, "task", "adventure", "order" -> item(2752, 1, 333), item(2738, 25, 333), queststatus(713) = 5, "Alright, now go out and collect five boughs. Once you have five boughs, come back here and produce twenty five pins and cotters for me using these carving tools and these twenty five pins I'll give you."
-queststatus(713) = 4, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(2752, 1, 333), item(2738, 25, 333), queststatus(713) = 5, "Gut, nun geh hinaus und sammle bei den Apfelbäumen fünf Äste. Sobald du sie zusammen hast, komm hierher zurück und stell aus den Ästen 25 Nägel und Keile her. Dazu brauchst du ein Schnitzmesser, das ich dir gebe und diese 25 Nägel."
-queststatus(713) = 5, item(2717, all) > 24, english, town = Runewick, "quest", "mission", "pin", "cotter" -> deleteItem(2717, 25), queststatus(713) = 6, "Well done, the pins and cotters look perfect. It will take a while for you to become a master in carpentry, but I hope I have taught you some of the basics at least."
-queststatus(713) = 5, item(2717, all) > 24, town = Runewick, "quest", "mission", "nägel", "keil" -> deleteItem(2717, 25), queststatus(713) = 6, "Gut gemacht, die Nägel und Keile sehen sehr gut aus. Bis du ein Meister in dem Fach wirst dauert es sicher noch etwas, aber ich hoffe du beherrscht nun zumindest die Grundlagen."
-queststatus(713) = 5, item(2717, all) > 24, town = Runewick, "task", "adventure", "order" -> deleteItem(2717, 25), queststatus(713) = 6, "Well done, the pins and cotters look perfect. It will take a while for you to become a master in carpentry, but I hope I have taught you some of the basics at least."
-queststatus(713) = 5, item(2717, all) > 24, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> deleteItem(2717, 25), queststatus(713) = 6, "Gut gemacht, die Nägel und Keile sehen sehr gut aus. Bis du ein Meister in dem Fach wirst dauert es sicher noch etwas, aber ich hoffe du beherrscht nun zumindest die Grundlagen."
-queststatus(713) = 5, item(2717, all) < 25, english, town = Runewick, ".+" -> "I wanted twenty five pins and cotters, come back once you have fulfilled this task."
-queststatus(713) = 5, item(2717, all) < 25, town = Runewick, ".+" -> "Ich wollte 25 Nägel und Keile. Komm wieder, wenn du die Aufgabe erfüllt hast."
+-- Quest 1: Solved
+queststatus(713) = 1, item(2560, all) > 9, english, town = Runewick, "quest", "mission" -> queststatus(713) = 2, "Nice wood. But it takes more to become a real carpenter. Keep the wood for the next part of your apprenticeship."
+queststatus(713) = 1, item(2560, all) > 9, town = Runewick, "quest", "mission" -> queststatus(713) = 2, "Gutes Holz. Aber es erfordert schon noch etwas mehr, um ein Schreiner zu werden. Behalte das Holz für den nächsten Schritt in deiner Ausbildung."
+queststatus(713) = 1, item(2560, all) > 9, town = Runewick, "task", "adventure", "order", "apple", "wood"  -> queststatus(713) = 2, "Nice wood. But it takes more to become a real carpenter. Keep the wood for the next part of your apprenticeship."
+queststatus(713) = 1, item(2560, all) > 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Apfel", "Holz" -> queststatus(713) = 2, "Gutes Holz. Aber es erfordert schon noch etwas mehr, um ein Schreiner zu werden. Behalte das Holz für den nächsten Schritt in deiner Ausbildung."
+
+-- Quest 1: Not enough items
+queststatus(713) = 1, english, town = Runewick, "quest", "mission" -> "I am very busy and can't nurse you all day long. As your master, I'll repeat my order: Get apple wood."
+queststatus(713) = 1, town = Runewick, "quest", "mission" -> "Ich bin sehr beschäftigt und kann mich nicht den ganzen Tag um dich kümmern. Als dein Meister werde ich meine Anordnung noch einmal wiederholen: Besorge Apfelholz!"
+queststatus(713) = 1, town = Runewick, "task", "adventure", "order", "apple", "wood" -> "I am very busy and can't nurse you all day long. As your master, I'll repeat my order: Get apple wood."
+queststatus(713) = 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Apfel", "Holz" -> "Ich bin sehr beschäftigt und kann mich nicht den ganzen Tag um dich kümmern. Als dein Meister werde ich meine Anordnung noch einmal wiederholen: Besorge Apfelholz!"
+
+-- Quest 2: Intermediate production. Player gets a tool for intermediate production. Player produces 10 intermediate products.
+queststatus(713) = 2, english, town = Runewick, "quest", "mission" -> item(9 1, 333), queststatus(713) = 3, "Boards. Boards that mean the world. Make ten of them from the apple wood you brought me. Here is a rusty saw, don't get rusty yourself."
+queststatus(713) = 2, town = Runewick, "quest", "mission" -> item(9 1, 333), queststatus(713) = 3, "Bretter. Bretter, die die Welt bedeuten. Mache bitte zehn aus dem Apfelholz, welches du mir gebracht hast. Hier ist eine rostige Säge. Nicht rasten, sonst rostest du."
+queststatus(713) = 2, town = Runewick, "task", "adventure", "order" -> item(9 1, 333), queststatus(713) = 3, "Boards. Boards that mean the world. Make ten of them from the apple wood you brought me. Here is a rusty saw, don't get rusty yourself."
+queststatus(713) = 2, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(9 1, 333), queststatus(713) = 3, "Bretter. Bretter, die die Welt bedeuten. Mache bitte zehn aus dem Apfelholz, welches du mir gebracht hast. Hier ist eine rostige Säge. Nicht rasten, sonst rostest du."
+
+-- Quest 2: Solved
+queststatus(713) = 3, item(2716, all) > 9, english, town = Runewick, "quest", "mission" -> queststatus(713) = 4, "You are able to make boards, fine. You'll need them for the next part of your apprenticeship."
+queststatus(713) = 3, item(2716, all) > 9, town = Runewick, "quest", "mission" -> queststatus(713) = 4, "Du bist in der Lage, Bretter herzustellen. Wunderbar, du wirst sie für den nächsten Teil deiner Ausbildung benötigen."
+queststatus(713) = 3, item(2716, all) > 9, town = Runewick, "task", "adventure", "order", "apple", "board" -> queststatus(713) = 4, "You are able to make boards, fine. You'll need them for the next part of your apprenticeship."
+queststatus(713) = 3, item(2716, all) > 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Apfel", "Brett" -> queststatus(713) = 4, "Du bist in der Lage, Bretter herzustellen. Wunderbar, du wirst sie für den nächsten Teil deiner Ausbildung benötigen."
+
+-- Quest 2: Not enough items
+queststatus(713) = 3, english, town = Runewick, "quest", "mission" -> "Sawing ten apple boards is your task. Without apple boards, we cannot continue your apprenticeship."
+queststatus(713) = 3, town = Runewick, "quest", "mission" -> "Zehn Apfelholzbretter zu sägen ist deine Aufgabe. Ohne Apfelholzbretter können wir deine Ausbildung nicht fortsetzen."
+queststatus(713) = 3, town = Runewick, "task", "adventure", "order", "apple", "board" -> "Sawing ten apple boards is your task. Without apple boards, we cannot continue your apprenticeship."
+queststatus(713) = 3, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Apfel", "Brett" -> "Zehn Apfelholzbretter zu sägen ist deine Aufgabe. Ohne Apfelholzbretter können wir deine Ausbildung nicht fortsetzen."
+
+-- Quest 3: Final production. Player gets a tool for final production. Player delivers final products made of 10 intermediate products. Reward: 50 % of item.worth. Rank Layman / Laie
+queststatus(713) = 4, english, town = Runewick, "quest", "mission" -> item(2752, 1, 333), queststatus(713) = 5, "Now the real work begins. Carving. I'll give you some old carving tools and you bring back some axe handles. I do not want to see you leaving the work bench before you are done."
+queststatus(713) = 4, town = Runewick, "quest", "mission" -> item(2752, 1, 333), queststatus(713) = 5, "Jetzt wird es anstrengend. Schnitzen. Ich gebe dir ein paar alte Schnitzmesser und du bringst mir zehn Axtgriffe zurück. Und verlasse ja nicht die Werkbank, bis du fertig damit bist."
+queststatus(713) = 4, town = Runewick, "task", "adventure", "order" -> item(2752, 1, 333), queststatus(713) = 5, "Now the real work begins. Carving. I'll give you some old carving tools and you bring back some axe handles. I do not want to see you leaving the work bench before you are done."
+queststatus(713) = 4, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(2752, 1, 333), queststatus(713) = 5, "Jetzt wird es anstrengend. Schnitzen. Ich gebe dir ein paar alte Schnitzmesser und du bringst mir zehn Axtgriffe zurück. Und verlasse ja nicht die Werkbank, bis du fertig damit bist."
+
+-- Quest 3: Solved
+queststatus(713) = 5, item(2525, all) > 9, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Layman with the Carpentry Association of Runewick. You are awarded twenty silver coins."), deleteItem(2525, 10), queststatus(713) = 6, money + 2000, "The Carpentry Association of Runewick accepts you as new member. Here is some money to get you started. I recommend you buy a plane from it. And come back once you are more experienced."
+queststatus(713) = 5, item(2525, all) > 9, town = Runewick, "quest", "mission" -> inform("[Gildenrang] Das Schreinerinnung von Runewick erhebt dich in den Rang eines Laiens. Du erhältst zwanzig Silberstücke."), deleteItem(2525, 10), queststatus(713) = 6, money + 2000, "Die Schreinerinnung von Runewick nimmt dich als neues Mitglied auf. Hier ist etwas montetäre Starthilfe. Mein Vorschlag wäre, dass du davon einen Hobel kaufst. Und komm zu mir zurück, sobald du erfahrener bist."
+queststatus(713) = 5, item(2525, all) > 9, town = Runewick, "task", "adventure", "order", "axe", "handle" -> inform("[Guild rank] You advance to the rank of Layman with the Carpentry Association of Runewick. You are awarded twenty silver coins."), deleteItem(2525, 10), queststatus(713) = 6, money + 2000, "The Carpentry Association of Runewick accepts you as new member. Here is some money to get you started. I recommend you buy a plane from it. And come back once you are more experienced."
+queststatus(713) = 5, item(2525, all) > 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Axt", "Griff" -> inform("[Gildenrang] Das Schreinerinnung von Runewick erhebt dich in den Rang eines Laiens. Du erhältst zwanzig Silberstücke."), deleteItem(2525, 10), queststatus(713) = 6, money + 2000, "Die Schreinerinnung von Runewick nimmt dich als neues Mitglied auf. Hier ist etwas montetäre Starthilfe. Mein Vorschlag wäre, dass du davon einen Hobel kaufst. Und komm zu mir zurück, sobald du erfahrener bist."
+
+-- Quest 3: Not enough items
+queststatus(713) = 5, english, town = Runewick, "quest", "mission" -> "Please do not waste my time. Use yours to carve ten axe handles."
+queststatus(713) = 5, town = Runewick, "quest", "mission" -> "Verschwende nicht meine Zeit sondern nutze deine, um zehn Axtgriffe zu schnitzen."
+queststatus(713) = 5, town = Runewick, "task", "adventure", "order", "axe", "handle" -> "Please do not waste my time. Use yours to carve ten axe handles."
+queststatus(713) = 5, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Axt", "Griff" -> "Verschwende nicht meine Zeit sondern nutze deine, um zehn Axtgriffe zu schnitzen."
+
+-- Level 10: Novice / Anfänger. Reward: 10 Raw materials (e.g. coal)
+skill(carpentry) > 9, queststatus(713) = 6, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Novice with the Carpentry Association of Runewick. You are awarded ten logs of conifer wood."), item(3, 10, 333), queststatus(713) = 7, "Good job. I see you really worked hard. The Carpentry Association of Runewick supports your efforts with some conifer wood. Come back to me once your are more experienced."
+skill(carpentry) > 9, queststatus(713) = 6, town = Runewick, "quest", "mission" -> inform("[Gildenrang] Das Schreinerinnung von Runewick erhebt dich in den Rang eines Anfängers. Du erhältst zehn Scheite Nadelholz."), item(3, 10, 333), queststatus(713) = 7, "Gut gemacht. Wie ich sehe, hast du hart gearbeitet. Die Schreinerinnung von Runewick unterstützt deine Bemühungen mit etwas Nadelholz. Komm erneut zu mir, wenn du erfahrener bist."
+skill(carpentry) > 9, queststatus(713) = 6, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Novice with the Carpentry Association of Runewick. You are awarded ten logs of conifer wood."), item(3, 10, 333), queststatus(713) = 7, "Good job. I see you really worked hard. The Carpentry Association of Runewick supports your efforts with some conifer wood. Come back to me once your are more experienced."
+skill(carpentry) > 9, queststatus(713) = 6, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Das Schreinerinnung von Runewick erhebt dich in den Rang eines Anfängers. Du erhältst zehn Scheite Nadelholz."), item(3, 10, 333), queststatus(713) = 7, "Gut gemacht. Wie ich sehe, hast du hart gearbeitet. Die Schreinerinnung von Runewick unterstützt deine Bemühungen mit etwas Nadelholz. Komm erneut zu mir, wenn du erfahrener bist."
+
+-- Level < 10: Not experienced enough
+skill(carpentry) < 10, queststatus(713) = 6, english, town = Runewick, "quest", "mission" -> "Work on! You have to improve your skills in carpentry to be eligible for a promotion. Your current rank is Layman."
+skill(carpentry) < 10, queststatus(713) = 6, town = Runewick, "quest", "mission" -> "Weiterarbeiten! Du musst dein Können im Schreinerhandwerk verbessern, um befördert zu werden. Du wirst im Rang eines Laiens geführt."
+skill(carpentry) < 10, queststatus(713) = 6, town = Runewick, "task", "adventure", "order", "rank" -> "Work on! You have to improve your skills in carpentry to be eligible for a promotion. Your current rank is Layman."
+skill(carpentry) < 10, queststatus(713) = 6, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Weiterarbeiten! Du musst dein Können im Schreinerhandwerk verbessern, um befördert zu werden. Du wirst im Rang eines Laiens geführt."
+
+-- Level 20: Apprentice / Lehrling. Reward: 20 Raw materials (e.g. wool)
+skill(carpentry) > 19, queststatus(713) = 7, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Apprentice with the Carpentry Association of Runewick. You are awarded twenty logs of cherry wood."), item(543, 20, 333), queststatus(713) = 8, "Good job. I see you really worked hard. The Carpentry Association of Runewick supports your efforts with some cherry wood. Come back to me once your are more experienced."
+skill(carpentry) > 19, queststatus(713) = 7, town = Runewick, "quest", "mission" -> inform("[Gildenrang] Das Schreinerinnung von Runewick erhebt dich in den Rang eines Lehrlings. Du erhältst zwanzig Scheite Kirschholz."), item(543, 20, 333), queststatus(713) = 8, "Gut gemacht. Wie ich sehe, hast du hart gearbeitet. Die Schreinerinnung von Runewick unterstützt deine Bemühungen mit etwas Kirschholz. Komm erneut zu mir, wenn du erfahrener bist."
+skill(carpentry) > 19, queststatus(713) = 7, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Apprentice with the Carpentry Association of Runewick. You are awarded twenty logs of cherry wood."), item(543, 20, 333), queststatus(713) = 8, "Good job. I see you really worked hard. The Carpentry Association of Runewick supports your efforts with some cherry wood. Come back to me once your are more experienced."
+skill(carpentry) > 19, queststatus(713) = 7, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Das Schreinerinnung von Runewick erhebt dich in den Rang eines Lehrlings. Du erhältst zwanzig Scheite Kirschholz."), item(543, 20, 333), queststatus(713) = 8, "Gut gemacht. Wie ich sehe, hast du hart gearbeitet. Die Schreinerinnung von Runewick unterstützt deine Bemühungen mit etwas Kirschholz. Komm erneut zu mir, wenn du erfahrener bist."
+
+-- Level < 20: Not experienced enough
+skill(carpentry) < 20, queststatus(713) = 7, english, town = Runewick, "quest", "mission" -> "Work on! You have to improve your skills in carpentry to be eligible for a promotion. Your current rank is Novice."
+skill(carpentry) < 20, queststatus(713) = 7, town = Runewick, "quest", "mission" -> "Weiterarbeiten! Du musst dein Können im Schreinerhandwerk verbessern, um befördert zu werden. Du wirst im Rang eines Anfängers geführt."
+skill(carpentry) < 20, queststatus(713) = 7, town = Runewick, "task", "adventure", "order", "rank" -> "Work on! You have to improve your skills in carpentry to be eligible for a promotion. Your current rank is Novice."
+skill(carpentry) < 20, queststatus(713) = 7, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Weiterarbeiten! Du musst dein Können im Schreinerhandwerk verbessern, um befördert zu werden. Du wirst im Rang eines Anfängers geführt."
+
+-- Level 30: Initiate / Initiat. Reward: 10 Intermediate products (e.g. boards)
+skill(carpentry) > 29, queststatus(713) = 8, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Initiate with the Carpentry Association of Runewick. You are awarded ten naldor wood boards."), item(546, 10, 333), queststatus(713) = 9, "Good job. I see you really worked hard. The Carpentry Association of Runewick supports your efforts with some naldor wood boards. Come back to me once your are more experienced."
+skill(carpentry) > 29, queststatus(713) = 8, town = Runewick, "quest", "mission" -> inform("[Gildenrang] Das Schreinerinnung von Runewick erhebt dich in den Rang eines Initiatens. Du erhältst zehn Naldorholzbretter."), item(546, 10, 333), queststatus(713) = 9, "Gut gemacht. Wie ich sehe, hast du hart gearbeitet. Die Schreinerinnung von Runewick unterstützt deine Bemühungen mit einigen Naldorholzbrettern. Komm erneut zu mir, wenn du erfahrener bist."
+skill(carpentry) > 29, queststatus(713) = 8, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Initiate with the Carpentry Association of Runewick. You are awarded ten naldor wood boards."), item(546, 10, 333), queststatus(713) = 9, "Good job. I see you really worked hard. The Carpentry Association of Runewick supports your efforts with some naldor wood boards. Come back to me once your are more experienced."
+skill(carpentry) > 29, queststatus(713) = 8, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Das Schreinerinnung von Runewick erhebt dich in den Rang eines Initiatens. Du erhältst zehn Naldorholzbretter."), item(546, 10, 333), queststatus(713) = 9, "Gut gemacht. Wie ich sehe, hast du hart gearbeitet. Die Schreinerinnung von Runewick unterstützt deine Bemühungen mit einigen Naldorholzbrettern. Komm erneut zu mir, wenn du erfahrener bist."
+
+-- Level < 30: Not experienced enough
+skill(carpentry) < 30, queststatus(713) = 8, english, town = Runewick, "quest", "mission" -> "Work on! You have to improve your skills in carpentry to be eligible for a promotion. Your current rank is Apprentice."
+skill(carpentry) < 30, queststatus(713) = 8, town = Runewick, "quest", "mission" -> "Weiterarbeiten! Du musst dein Können im Schreinerhandwerk verbessern, um befördert zu werden. Du wirst im Rang eines Lehrlings geführt."
+skill(carpentry) < 30, queststatus(713) = 8, town = Runewick, "task", "adventure", "order", "rank" -> "Work on! You have to improve your skills in carpentry to be eligible for a promotion. Your current rank is Apprentice."
+skill(carpentry) < 30, queststatus(713) = 8, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Weiterarbeiten! Du musst dein Können im Schreinerhandwerk verbessern, um befördert zu werden. Du wirst im Rang eines Lehrlings geführt."
+
+-- Level 40: Journeyman / Geselle. Reward: 20 Intermediate products (e.g. thread)
+skill(carpentry) > 39, queststatus(713) = 9, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Journeyman with the Carpentry Association of Runewick. You are awarded twenty apple wood boards."), item(2716, 20, 333), queststatus(713) = 10, "Good job. I see you really worked hard. The Carpentry Association of Runewick supports your efforts with some apple wood boards. Come back to me once your are more experienced."
+skill(carpentry) > 39, queststatus(713) = 9, town = Runewick, "quest", "mission" -> inform("[Gildenrang] Das Schreinerinnung von Runewick erhebt dich in den Rang eines Gesellens. Du erhältst zwanzig Apfelholzbretter."), item(2716, 20, 333), queststatus(713) = 10, "Gut gemacht. Wie ich sehe, hast du hart gearbeitet. Die Schreinerinnung von Runewick unterstützt deine Bemühungen mit einigen Apfelholzbrettern. Komm erneut zu mir, wenn du erfahrener bist."
+skill(carpentry) > 39, queststatus(713) = 9, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Journeyman with the Carpentry Association of Runewick. You are awarded twenty apple wood boards."), item(2716, 20, 333), queststatus(713) = 10, "Good job. I see you really worked hard. The Carpentry Association of Runewick supports your efforts with some apple wood boards. Come back to me once your are more experienced."
+skill(carpentry) > 39, queststatus(713) = 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Das Schreinerinnung von Runewick erhebt dich in den Rang eines Gesellens. Du erhältst zwanzig Apfelholzbretter."), item(2716, 20, 333), queststatus(713) = 10, "Gut gemacht. Wie ich sehe, hast du hart gearbeitet. Die Schreinerinnung von Runewick unterstützt deine Bemühungen mit einigen Apfelholzbrettern. Komm erneut zu mir, wenn du erfahrener bist."
+
+-- Level < 40: Not experienced enough
+skill(carpentry) < 40, queststatus(713) = 9, english, town = Runewick, "quest", "mission" -> "Work on! You have to improve your skills in carpentry to be eligible for a promotion. Your current rank is Initiate."
+skill(carpentry) < 40, queststatus(713) = 9, town = Runewick, "quest", "mission" -> "Weiterarbeiten! Du musst dein Können im Schreinerhandwerk verbessern, um befördert zu werden. Du wirst im Rang eines Initiatens geführt."
+skill(carpentry) < 40, queststatus(713) = 9, town = Runewick, "task", "adventure", "order", "rank" -> "Work on! You have to improve your skills in carpentry to be eligible for a promotion. Your current rank is Initiate."
+skill(carpentry) < 40, queststatus(713) = 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Weiterarbeiten! Du musst dein Können im Schreinerhandwerk verbessern, um befördert zu werden. Du wirst im Rang eines Initiatens geführt."
+
+-- Level 50: Specialist / Spezialist. Reward: 10 Uncommon resources (e.g. handles)
+skill(carpentry) > 49, queststatus(713) = 10, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Specialist with the Carpentry Association of Runewick. You are awarded ten iron ingots."), item(2535, 10, 333), queststatus(713) = 11, "Good job. I see you really worked hard. The Carpentry Association of Runewick supports your efforts with some iron ingots. Come back to me once your are more experienced."
+skill(carpentry) > 49, queststatus(713) = 10, town = Runewick, "quest", "mission" -> inform("[Gildenrang] Das Schreinerinnung von Runewick erhebt dich in den Rang eines Spezialistens. Du erhältst zehn Eisenbarren."), item(2535, 10, 333), queststatus(713) = 11, "Gut gemacht. Wie ich sehe, hast du hart gearbeitet. Die Schreinerinnung von Runewick unterstützt deine Bemühungen mit einigen Eisenbarren. Komm erneut zu mir, wenn du erfahrener bist."
+skill(carpentry) > 49, queststatus(713) = 10, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Specialist with the Carpentry Association of Runewick. You are awarded ten iron ingots."), item(2535, 10, 333), queststatus(713) = 11, "Good job. I see you really worked hard. The Carpentry Association of Runewick supports your efforts with some iron ingots. Come back to me once your are more experienced."
+skill(carpentry) > 49, queststatus(713) = 10, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Das Schreinerinnung von Runewick erhebt dich in den Rang eines Spezialistens. Du erhältst zehn Eisenbarren."), item(2535, 10, 333), queststatus(713) = 11, "Gut gemacht. Wie ich sehe, hast du hart gearbeitet. Die Schreinerinnung von Runewick unterstützt deine Bemühungen mit einigen Eisenbarren. Komm erneut zu mir, wenn du erfahrener bist."
+
+-- Level < 50: Not experienced enough
+skill(carpentry) < 50, queststatus(713) = 10, english, town = Runewick, "quest", "mission" -> "Work on! You have to improve your skills in carpentry to be eligible for a promotion. Your current rank is Journeyman."
+skill(carpentry) < 50, queststatus(713) = 10, town = Runewick, "quest", "mission" -> "Weiterarbeiten! Du musst dein Können im Schreinerhandwerk verbessern, um befördert zu werden. Du wirst im Rang eines Gesellens geführt."
+skill(carpentry) < 50, queststatus(713) = 10, town = Runewick, "task", "adventure", "order", "rank" -> "Work on! You have to improve your skills in carpentry to be eligible for a promotion. Your current rank is Journeyman."
+skill(carpentry) < 50, queststatus(713) = 10, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Weiterarbeiten! Du musst dein Können im Schreinerhandwerk verbessern, um befördert zu werden. Du wirst im Rang eines Gesellens geführt."
+
+-- Level 60: Expert / Experte. Reward: 20 Uncommon resources (e.g. gold ingots)
+skill(carpentry) > 59, queststatus(713) = 11, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Expert with the Carpentry Association of Runewick. You are awarded twenty iron plates."), item(2537, 20, 333), queststatus(713) = 12, "Good job. I see you really worked hard. The Carpentry Association of Runewick supports your efforts with some iron plates. Come back to me once your are more experienced."
+skill(carpentry) > 59, queststatus(713) = 11, town = Runewick, "quest", "mission" -> inform("[Gildenrang] Das Schreinerinnung von Runewick erhebt dich in den Rang eines Expertens. Du erhältst zwanzig Eisenplatten."), item(2537, 20, 333), queststatus(713) = 12, "Gut gemacht. Wie ich sehe, hast du hart gearbeitet. Die Schreinerinnung von Runewick unterstützt deine Bemühungen mit einigen Eisenplatten. Komm erneut zu mir, wenn du erfahrener bist."
+skill(carpentry) > 59, queststatus(713) = 11, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Expert with the Carpentry Association of Runewick. You are awarded twenty iron plates."), item(2537, 20, 333), queststatus(713) = 12, "Good job. I see you really worked hard. The Carpentry Association of Runewick supports your efforts with some iron plates. Come back to me once your are more experienced."
+skill(carpentry) > 59, queststatus(713) = 11, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Das Schreinerinnung von Runewick erhebt dich in den Rang eines Expertens. Du erhältst zwanzig Eisenplatten."), item(2537, 20, 333), queststatus(713) = 12, "Gut gemacht. Wie ich sehe, hast du hart gearbeitet. Die Schreinerinnung von Runewick unterstützt deine Bemühungen mit einigen Eisenplatten. Komm erneut zu mir, wenn du erfahrener bist."
+
+-- Level < 60: Not experienced enough
+skill(carpentry) < 60, queststatus(713) = 11, english, town = Runewick, "quest", "mission" -> "Work on! You have to improve your skills in carpentry to be eligible for a promotion. Your current rank is Specialist."
+skill(carpentry) < 60, queststatus(713) = 11, town = Runewick, "quest", "mission" -> "Weiterarbeiten! Du musst dein Können im Schreinerhandwerk verbessern, um befördert zu werden. Du wirst im Rang eines Spezialistens geführt."
+skill(carpentry) < 60, queststatus(713) = 11, town = Runewick, "task", "adventure", "order", "rank" -> "Work on! You have to improve your skills in carpentry to be eligible for a promotion. Your current rank is Specialist."
+skill(carpentry) < 60, queststatus(713) = 11, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Weiterarbeiten! Du musst dein Können im Schreinerhandwerk verbessern, um befördert zu werden. Du wirst im Rang eines Spezialistens geführt."
+
+-- Level 70: Adept / Adept. Reward: 5 Rare resources (e.g. merinium ingots)
+skill(carpentry) > 69, queststatus(713) = 12, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Adept with the Carpentry Association of Runewick. You are awarded five merinium ingots."), item(2571, 5, 333), queststatus(713) = 13, "Good job. I see you really worked hard. The Carpentry Association of Runewick supports your efforts with some merinium ingots. Come back to me once your are more experienced."
+skill(carpentry) > 69, queststatus(713) = 12, town = Runewick, "quest", "mission" -> inform("[Gildenrang] Das Schreinerinnung von Runewick erhebt dich in den Rang eines Adeptens. Du erhältst fünf Meriniumbarren."), item(2571, 5, 333), queststatus(713) = 13, "Gut gemacht. Wie ich sehe, hast du hart gearbeitet. Die Schreinerinnung von Runewick unterstützt deine Bemühungen mit einigen Meriniumbarren. Komm erneut zu mir, wenn du erfahrener bist."
+skill(carpentry) > 69, queststatus(713) = 12, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Adept with the Carpentry Association of Runewick. You are awarded five merinium ingots."), item(2571, 5, 333), queststatus(713) = 13, "Good job. I see you really worked hard. The Carpentry Association of Runewick supports your efforts with some merinium ingots. Come back to me once your are more experienced."
+skill(carpentry) > 69, queststatus(713) = 12, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Das Schreinerinnung von Runewick erhebt dich in den Rang eines Adeptens. Du erhältst fünf Meriniumbarren."), item(2571, 5, 333), queststatus(713) = 13, "Gut gemacht. Wie ich sehe, hast du hart gearbeitet. Die Schreinerinnung von Runewick unterstützt deine Bemühungen mit einigen Meriniumbarren. Komm erneut zu mir, wenn du erfahrener bist."
+
+-- Level < 70: Not experienced enough
+skill(carpentry) < 70, queststatus(713) = 12, english, town = Runewick, "quest", "mission" -> "Work on! You have to improve your skills in carpentry to be eligible for a promotion. Your current rank is Expert."
+skill(carpentry) < 70, queststatus(713) = 12, town = Runewick, "quest", "mission" -> "Weiterarbeiten! Du musst dein Können im Schreinerhandwerk verbessern, um befördert zu werden. Du wirst im Rang eines Expertens geführt."
+skill(carpentry) < 70, queststatus(713) = 12, town = Runewick, "task", "adventure", "order", "rank" -> "Work on! You have to improve your skills in carpentry to be eligible for a promotion. Your current rank is Expert."
+skill(carpentry) < 70, queststatus(713) = 12, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Weiterarbeiten! Du musst dein Können im Schreinerhandwerk verbessern, um befördert zu werden. Du wirst im Rang eines Expertens geführt."
+
+-- Level 80: Artisan / Artisane. Reward: 10 Rare resources (e.g. heartwood)
+skill(carpentry) > 79, queststatus(713) = 13, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Artisan with the Carpentry Association of Runewick. You are awarded ten logs of heartwood."), item(3786, 10, 333), queststatus(713) = 14, "Good job. I see you really worked hard. The Carpentry Association of Runewick supports your efforts with some logs of heartwood. Come back to me once your are more experienced."
+skill(carpentry) > 79, queststatus(713) = 13, town = Runewick, "quest", "mission" -> inform("[Gildenrang] Das Schreinerinnung von Runewick erhebt dich in den Rang eines Artisanens. Du erhältst zehn Scheite Kernholz."), item(3786, 10, 333), queststatus(713) = 14, "Gut gemacht. Wie ich sehe, hast du hart gearbeitet. Die Schreinerinnung von Runewick unterstützt deine Bemühungen mit etwas Kernholz. Komm erneut zu mir, wenn du erfahrener bist."
+skill(carpentry) > 79, queststatus(713) = 13, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Artisan with the Carpentry Association of Runewick. You are awarded ten logs of heartwood."), item(3786, 10, 333), queststatus(713) = 14, "Good job. I see you really worked hard. The Carpentry Association of Runewick supports your efforts with some logs of heartwood. Come back to me once your are more experienced."
+skill(carpentry) > 79, queststatus(713) = 13, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Das Schreinerinnung von Runewick erhebt dich in den Rang eines Artisanens. Du erhältst zehn Scheite Kernholz."), item(3786, 10, 333), queststatus(713) = 14, "Gut gemacht. Wie ich sehe, hast du hart gearbeitet. Die Schreinerinnung von Runewick unterstützt deine Bemühungen mit etwas Kernholz. Komm erneut zu mir, wenn du erfahrener bist."
+
+-- Level < 80: Not experienced enough
+skill(carpentry) < 80, queststatus(713) = 13, english, town = Runewick, "quest", "mission" -> "Work on! You have to improve your skills in carpentry to be eligible for a promotion. Your current rank is Adept."
+skill(carpentry) < 80, queststatus(713) = 13, town = Runewick, "quest", "mission" -> "Weiterarbeiten! Du musst dein Können im Schreinerhandwerk verbessern, um befördert zu werden. Du wirst im Rang eines Adeptens geführt."
+skill(carpentry) < 80, queststatus(713) = 13, town = Runewick, "task", "adventure", "order", "rank" -> "Work on! You have to improve your skills in carpentry to be eligible for a promotion. Your current rank is Adept."
+skill(carpentry) < 80, queststatus(713) = 13, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Weiterarbeiten! Du musst dein Können im Schreinerhandwerk verbessern, um befördert zu werden. Du wirst im Rang eines Adeptens geführt."
+
+-- Level 90: Master / Meister. Reward: 5 Pure elements
+skill(carpentry) > 89, queststatus(713) = 14, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Master with the Carpentry Association of Runewick. You are awarded five pieces of pure earth."), item(2552, 5, 333), queststatus(713) = 15, "Good job. I see you really worked hard. The Carpentry Association of Runewick supports your efforts with some pure earth. Come back to me once your are more experienced."
+skill(carpentry) > 89, queststatus(713) = 14, town = Runewick, "quest", "mission" -> inform("[Gildenrang] Das Schreinerinnung von Runewick erhebt dich in den Rang eines Meisters. Du erhältst fünf Stück reiner Erde."), item(2552, 5, 333), queststatus(713) = 15, "Gut gemacht. Wie ich sehe, hast du hart gearbeitet. Die Schreinerinnung von Runewick unterstützt deine Bemühungen mit etwas reiner Erde. Komm erneut zu mir, wenn du erfahrener bist."
+skill(carpentry) > 89, queststatus(713) = 14, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Master with the Carpentry Association of Runewick. You are awarded five pieces of pure earth."), item(2552, 5, 333), queststatus(713) = 15, "Good job. I see you really worked hard. The Carpentry Association of Runewick supports your efforts with some pure earth. Come back to me once your are more experienced."
+skill(carpentry) > 89, queststatus(713) = 14, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Das Schreinerinnung von Runewick erhebt dich in den Rang eines Meisters. Du erhältst fünf Stück reiner Erde."), item(2552, 5, 333), queststatus(713) = 15, "Gut gemacht. Wie ich sehe, hast du hart gearbeitet. Die Schreinerinnung von Runewick unterstützt deine Bemühungen mit etwas reiner Erde. Komm erneut zu mir, wenn du erfahrener bist."
+
+-- Level < 90: Not experienced enough
+skill(carpentry) < 90, queststatus(713) = 14, english, town = Runewick, "quest", "mission" -> "Work on! You have to improve your skills in carpentry to be eligible for a promotion. Your current rank is Artisan."
+skill(carpentry) < 90, queststatus(713) = 14, town = Runewick, "quest", "mission" -> "Weiterarbeiten! Du musst dein Können im Schreinerhandwerk verbessern, um befördert zu werden. Du wirst im Rang eines Artisanens geführt."
+skill(carpentry) < 90, queststatus(713) = 14, town = Runewick, "task", "adventure", "order", "rank" -> "Work on! You have to improve your skills in carpentry to be eligible for a promotion. Your current rank is Artisan."
+skill(carpentry) < 90, queststatus(713) = 14, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Weiterarbeiten! Du musst dein Können im Schreinerhandwerk verbessern, um befördert zu werden. Du wirst im Rang eines Artisanens geführt."
+
+-- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements
+skill(carpentry) > 99, queststatus(713) = 15, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Grandmaster with the Carpentry Association of Runewick. You are awarded ten pieces of pure air."), item(2551, 10, 333), queststatus(713) = 16, "Was about time. I bow to a new Grandmaster of the Carpentry Association of Runewick. With this pure air, you shall help carve the most valuable goods of Illarion."
+skill(carpentry) > 99, queststatus(713) = 15, town = Runewick, "quest", "mission" -> inform("[Gildenrang] Das Schreinerinnung von Runewick erhebt dich in den Rang eines Großmeisters. Du erhältst zehn Stück reiner Luft."), item(2551, 10, 333), queststatus(713) = 16, "Wurd ja auch mal Zeit. Ich verneige mich vor einem neuen Großmeister der Schreinerinnung von Runewick. Mit dieser reinen Luft wirst du die teuersten Waren Illarions herstellen."
+skill(carpentry) > 99, queststatus(713) = 15, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Grandmaster with the Carpentry Association of Runewick. You are awarded ten pieces of pure air."), item(2551, 10, 333), queststatus(713) = 16, "Was about time. I bow to a new Grandmaster of the Carpentry Association of Runewick. With this pure air, you shall help carve the most valuable goods of Illarion."
+skill(carpentry) > 99, queststatus(713) = 15, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Das Schreinerinnung von Runewick erhebt dich in den Rang eines Großmeisters. Du erhältst zehn Stück reiner Luft."), item(2551, 10, 333), queststatus(713) = 16, "Wurd ja auch mal Zeit. Ich verneige mich vor einem neuen Großmeister der Schreinerinnung von Runewick. Mit dieser reinen Luft wirst du die teuersten Waren Illarions herstellen."
+
+-- Level < 100: Not experienced enough
+skill(carpentry) < 100, queststatus(713) = 15, english, town = Runewick, "quest", "mission" -> "Work on! You have to improve your skills in carpentry to be eligible for a promotion. Your current rank is Master."
+skill(carpentry) < 100, queststatus(713) = 15, town = Runewick, "quest", "mission" -> "Weiterarbeiten! Du musst dein Können im Schreinerhandwerk verbessern, um befördert zu werden. Du wirst im Rang eines Meisters geführt."
+skill(carpentry) < 100, queststatus(713) = 15, town = Runewick, "task", "adventure", "order", "rank" -> "Work on! You have to improve your skills in carpentry to be eligible for a promotion. Your current rank is Master."
+skill(carpentry) < 100, queststatus(713) = 15, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Weiterarbeiten! Du musst dein Können im Schreinerhandwerk verbessern, um befördert zu werden. Du wirst im Rang eines Meisters geführt."
 
 -- Response after quest is done
-queststatus(713) = 6, english, town = Runewick, "quest", "mission" -> "I don't have anything more for you to do. Thank you for the help though!"
-queststatus(713) = 6, town = Runewick, "quest", "mission" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
-queststatus(713) = 6, town = Runewick, "task", "adventure", "order" -> "I don't have anything more for you to do. Thank you for the help though!"
-queststatus(713) = 6, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
+queststatus(713) = 16, english, town = Runewick, "quest", "mission" -> "One day, you will tell your grandchildren about you apprenticeship with the Carpentry Association of Runewick, Grandmaster %CHARNAME."
+queststatus(713) = 16, town = Runewick, "quest", "mission" -> "Du wirst noch deinen Enkeln von deiner Lehre bei der Schreinerinnung von Runewick erzählen, Großmeister %CHARNAME."
+queststatus(713) = 16, town = Runewick, "task", "adventure", "order" -> "One day, you will tell your grandchildren about you apprenticeship with the Carpentry Association of Runewick, Grandmaster %CHARNAME."
+queststatus(713) = 16, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du wirst noch deinen Enkeln von deiner Lehre bei der Schreinerinnung von Runewick erzählen, Großmeister %CHARNAME."
 
 -- No quests for Non Runewickians
-english, "quest", "mission" -> "You are not a citizen of Runewick. I don't have anything for you to do."
-"quest", "mission" -> "Ihr scheint kein Bürger Runewicks zu sein. Ich habe nichts für Euch zu tun."
-"task", "adventure", "order" -> "You are not a citizen of Runewick. I don't have anything for you to do."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr scheint kein Bürger Runewicks zu sein. Ich habe nichts für Euch zu tun."
+english, "quest", "mission" -> "The Carpentry Association is restricted to Runewick's citizens."
+"quest", "mission" -> "Die Schreinerinnung steht nur Bürgern Runewicks offen."
+"task", "adventure", "order" -> "The Carpentry Association is restricted to Runewick's citizens."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Die Schreinerinnung steht nur Bürgern Runewicks offen."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -149,3 +302,5 @@ cycletext "#me hat Sägespäne auf seinem Hemd.", "#me has sawdust on his shirt."
 cycletext "#me hat eine abgenutzte Axt in seinem Gürtel.", "#me has a worn hatchet hanging from his belt."
 cycletext "#me hobelt sorgfältig an einem Stück Holz.", "#me carefully planes a piece of lumber."
 cycletext "Es gibt keine bessere Arbeit als mit Holz.", "There is no finer work than woodwork."
+cycletext "Die Schreinerinnung sucht stets neue Lehrlinge.", "The Carpentry Association looks for new apprentices."
+cycletext "Holz sieht sehr schön aus, Holz ist vielseitig.", "Wood looks great, wood is versatile."

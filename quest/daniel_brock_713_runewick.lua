@@ -25,44 +25,72 @@ local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}
-Title[GERMAN] = "Das Schreinerhandwerk"
-Title[ENGLISH] = "The carpentry craft"
+Title[GERMAN] = "Die Schreinerinnung von Runewick"
+Title[ENGLISH] = "The Carpentry Association of Runewick"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Sammel zehn Apfelholzbretter und zeig diese Daniel Brock in der Schreinerei. Sammel erstmal mit dem Beil an einem Apfelbaum in Yewdale zehn Apfelholzscheite. Dazu nimmst du das Beil in die Hand und benutzt es, während du vor einem Apfelbaum stehst. Hast du das erstmal gemacht, geh zurück zu Daniel und säge die Scheite mit der Säge in der Hand bei der Werkbank zu Brettern. Yewdale ist bei der goldenen Brücke nördlich des Teleporters."
-Description[ENGLISH][1] = "Collect ten applewood boards for Daniel Brock in the carpenter's shop. You should start by collecting ten applewood in Yewdale by using the hatchet in your hand, whilst standing in front of an apple tree. Once you have the applewood you can saw it into boards in the workshop by using the workbench as you stand in front of it, with the saw in your hand. Yewdale is at the golden bridge north of the teleporter."
-Description[GERMAN][2] = "Geh zu Daniel Brock, der sich in der Schreinerei aufhält. Er hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][2] = "Go back to Daniel Brock in the carpenter's shop, he is sure to have another task for you."
-Description[GERMAN][3] = "Stell zehn Teller für Daniel Brock in der Schreinerei her. Um die Teller herzustellen, brauchst du Apfelholzbretter. Hast du diese, nimmst du den Hobel in die Hand und benutzt ihn, während du vor einer Werkbank stehst."
-Description[ENGLISH][3] = "Produce ten plates for Daniel Brock in the carpenter's shop. To produce the plates you need applewood boards. Once you have them, take the plane in your hand and use it whilst standing in front of the workbench."
-Description[GERMAN][4] = "Geh zu Daniel Brock, der sich in der Schreinerei aufhält. Er hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][4] = "Go back to Daniel Brock in the carpenter's shop, he is sure to have another task for you."
-Description[GERMAN][5] = "Stell für Daniel Brock, der sich in der Schreinerei aufhält, 25 Nägel und Keile her. Um die Nägel und Keile herzustellen, brauchst du Äste und Nägel. Nägel können von Schmieden hergestellt werden. Äste findest du manchmal beim Fällen von Apfelbäumen. Hast du erstmal fünf Äste gefunden, kehr zur Werkstatt zurück und fertige mit dem Schnitzmesser in der Hand bei der Werkbank 25 Nägel und Keile."
-Description[ENGLISH][5] = "Produce twenty five pins and cotters for Daniel Brock in the carpenter's shop. To produce the pins and cotters you need five boughs and the pins first of all. You can get boughs by chopping down an apple tree; pins can be made by a smith. Once you have the boughs return to the workshop and produce twenty five pins and cotters by using the carving tools in your hand whilst at the workbench."
-Description[GERMAN][6] = "Du hast alle Aufgaben von Daniel Brock erfüllt."
-Description[ENGLISH][6] = "You have fulfilled all the tasks for Daniel Brock."
 
+Description[GERMAN][1] = "Sammel zehn Scheite Apfelholz und bring diese zu Daniel Brock in der Werkstatt von Runewick. Sammel mit dem Beil in Eibenthal zehn Apfelholzscheite. Dazu nimmst du das Beil in die Hand und benutzt es, während du vor einem Apfelbaum stehst.."
+Description[ENGLISH][1] = "Collect ten logs of apple wood and take them to Daniel Brock at the workshop in Runewick. Collect ten logs of apple wood in Yewdale by using the hatchet in your hand, whilst standing in front of an apple tree." 
+Description[GERMAN][2] = "Geh zu Daniel Brock in der Werkstatt von Runewick. Er hat bestimmt noch eine Aufgabe für dich."
+Description[ENGLISH][2] = "Go to Daniel Brock at the workshop in Runewick, he is sure to have another task for you."
+Description[GERMAN][3] = "Säge zehn Apfelholzbretter für Daniel Brock am Rennofen in Runewick. Um die Bretter herzustellen, musst du die Säge in die Hand nehmen und die Werkbank benutzen, wenn du vor ihr stehst."
+Description[ENGLISH][3] = "Saw ten apple wood boards for Daniel Brock at the bloomery in Runewick's workshop. To saw the boards you have to take the saw in your hand and use the work bench."
+Description[GERMAN][4] = "Geh zu Daniel Brock in der Werkstatt von Runewick. Er hat bestimmt noch eine Aufgabe für dich."
+Description[ENGLISH][4] = "Go to Daniel Brock at the workshop in Runewick, he is sure to have another task for you."
+Description[GERMAN][5] = "Schnitze zehn Axtgriffe für Daniel Brock in der Werkstatt von Runewick. Für die Axtgriffe musst du die Schnitzmesser an der Werkbank benutzen."
+Description[ENGLISH][5] = "Carve ten axe handles for Daniel Brock at the workshop of Runewick. To carve you need to stand facing the work bench and use the carving tools."
+
+Description[GERMAN][6] = "Dein derzeitiger Rang in der Schreinerinnung von Runewick ist der eines Laiens. Gehe zu Daniel Brock in der Werkstatt von Runewick sobald du Level 10 in der Schreinerfertigkeit erreicht hast."
+Description[ENGLISH][6] = "Your current rank with the Carpentry Association of Runewick is Layman. Return to Daniel Brock at the workshop of Runewick once you reached Level 10 in Carpentry."
+Description[GERMAN][7] = "Dein derzeitiger Rang in der Schreinerinnung von Runewick ist der eines Anfängers. Gehe zu Daniel Brock in der Werkstatt von Runewick sobald du Level 20 in der Schreinerfertigkeit erreicht hast."
+Description[ENGLISH][7] = "Your current rank with the Carpentry Association of Runewick is Novice. Return to Daniel Brock at the workshop of Runewick once you reached Level 20 in Carpentry."
+Description[GERMAN][8] = "Dein derzeitiger Rang in der Schreinerinnung von Runewick ist der eines Lehrlings. Gehe zu Daniel Brock in der Werkstatt von Runewick sobald du Level 30 in der Schreinerfertigkeit erreicht hast."
+Description[ENGLISH][8] = "Your current rank with the Carpentry Association of Runewick is Apprentice. Return to Daniel Brock at the workshop of Runewick once you reached Level 30 in Carpentry."
+Description[GERMAN][9] = "Dein derzeitiger Rang in der Schreinerinnung von Runewick ist der eines Initiatens. Gehe zu Daniel Brock in der Werkstatt von Runewick sobald du Level 40 in der Schreinerfertigkeit erreicht hast."
+Description[ENGLISH][9] = "Your current rank with the Carpentry Association of Runewick is Initiate. Return to Daniel Brock at the workshop of Runewick once you reached Level 40 in Carpentry."
+Description[GERMAN][10] = "Dein derzeitiger Rang in der Schreinerinnung von Runewick ist der eines Gesellens. Gehe zu Daniel Brock in der Werkstatt von Runewick sobald du Level 50 in der Schreinerfertigkeit erreicht hast."
+Description[ENGLISH][10] = "Your current rank with the Carpentry Association of Runewick is Journeyman. Return to Daniel Brock at the workshop of Runewick once you reached Level 50 in Carpentry."
+Description[GERMAN][11] = "Dein derzeitiger Rang in der Schreinerinnung von Runewick ist der eines Spezialistens. Gehe zu Daniel Brock in der Werkstatt von Runewick sobald du Level 60 in der Schreinerfertigkeit erreicht hast."
+Description[ENGLISH][11] = "Your current rank with the Carpentry Association of Runewick is Specialist. Return to Daniel Brock at the workshop of Runewick once you reached Level 60 in Carpentry."
+Description[GERMAN][12] = "Dein derzeitiger Rang in der Schreinerinnung von Runewick ist der eines Expertens. Gehe zu Daniel Brock in der Werkstatt von Runewick sobald du Level 70 in der Schreinerfertigkeit erreicht hast."
+Description[ENGLISH][12] = "Your current rank with the Carpentry Association of Runewick is Expert. Return to Daniel Brock at the workshop of Runewick once you reached Level 70 in Carpentry."
+Description[GERMAN][13] = "Dein derzeitiger Rang in der Schreinerinnung von Runewick ist der eines Adeptens. Gehe zu Daniel Brock in der Werkstatt von Runewick sobald du Level 80 in der Schreinerfertigkeit erreicht hast."
+Description[ENGLISH][13] = "Your current rank with the Carpentry Association of Runewick is Adept. Return to Daniel Brock at the workshop of Runewick once you reached Level 80 in Carpentry."
+Description[GERMAN][14] = "Dein derzeitiger Rang in der Schreinerinnung von Runewick ist der eines Artisanens. Gehe zu Daniel Brock in der Werkstatt von Runewick sobald du Level 90 in der Schreinerfertigkeit erreicht hast."
+Description[ENGLISH][14] = "Your current rank with the Carpentry Association of Runewick is Artisan. Return to Daniel Brock at the workshop of Runewick once you reached Level 90 in Carpentry."
+Description[GERMAN][15] = "Dein derzeitiger Rang in der Schreinerinnung von Runewick ist der eines Meisters. Gehe zu Daniel Brock in der Werkstatt von Runewick sobald du Level 100 in der Schreinerfertigkeit erreicht hast."
+Description[ENGLISH][15] = "Your current rank with the Carpentry Association of Runewick is Master. Return to Daniel Brock at the workshop of Runewick once you reached Level 100 in Carpentry."
+Description[GERMAN][16] = "Gratulation, du bist nun ein wahrer Großmeister der Schreinerinnung von Runewick."
+Description[ENGLISH][16] = "Congratulations, you are now a true Grandmaster of the Carpentry Association of Runewick."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 local Start = {959, 825, 0}
 
-
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(959, 825, 0), position(792, 819, 0)} -- Apple tree
-QuestTarget[2] = {position(959, 825, 0)} 
+QuestTarget[1] = {position(959, 825, 0)}
+QuestTarget[2] = {position(959, 825, 0)}
 QuestTarget[3] = {position(959, 825, 0), position(957, 823, 0)} -- Work bench
-QuestTarget[4] = {position(959, 825, 0)} 
+QuestTarget[4] = {position(959, 825, 0)}
 QuestTarget[5] = {position(959, 825, 0), position(957, 823, 0)} -- Work bench
 QuestTarget[6] = {position(959, 825, 0)} 
-
+QuestTarget[7] = {position(959, 825, 0)} 
+QuestTarget[8] = {position(959, 825, 0)} 
+QuestTarget[9] = {position(959, 825, 0)} 
+QuestTarget[10] = {position(959, 825, 0)} 
+QuestTarget[11] = {position(959, 825, 0)} 
+QuestTarget[12] = {position(959, 825, 0)} 
+QuestTarget[13] = {position(959, 825, 0)} 
+QuestTarget[14] = {position(959, 825, 0)} 
+QuestTarget[15] = {position(959, 825, 0)} 
 
 -- Insert the quest status which is reached at the end of the quest
-local FINAL_QUEST_STATUS = 6
+local FINAL_QUEST_STATUS = 16
 
 
 function M.QuestTitle(user)
