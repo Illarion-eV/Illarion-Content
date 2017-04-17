@@ -123,10 +123,10 @@ queststatus(713) = 1, town = Runewick, "task", "adventure", "order", "apple", "w
 queststatus(713) = 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Apfel", "Holz" -> "Ich bin sehr beschäftigt und kann mich nicht den ganzen Tag um dich kümmern. Als dein Meister werde ich meine Anordnung noch einmal wiederholen: Besorge Apfelholz!"
 
 -- Quest 2: Intermediate production. Player gets a tool for intermediate production. Player produces 10 intermediate products.
-queststatus(713) = 2, english, town = Runewick, "quest", "mission" -> item(9 1, 333), queststatus(713) = 3, "Boards. Boards that mean the world. Make ten of them from the apple wood you brought me. Here is a rusty saw, don't get rusty yourself."
-queststatus(713) = 2, town = Runewick, "quest", "mission" -> item(9 1, 333), queststatus(713) = 3, "Bretter. Bretter, die die Welt bedeuten. Mache bitte zehn aus dem Apfelholz, welches du mir gebracht hast. Hier ist eine rostige Säge. Nicht rasten, sonst rostest du."
-queststatus(713) = 2, town = Runewick, "task", "adventure", "order" -> item(9 1, 333), queststatus(713) = 3, "Boards. Boards that mean the world. Make ten of them from the apple wood you brought me. Here is a rusty saw, don't get rusty yourself."
-queststatus(713) = 2, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(9 1, 333), queststatus(713) = 3, "Bretter. Bretter, die die Welt bedeuten. Mache bitte zehn aus dem Apfelholz, welches du mir gebracht hast. Hier ist eine rostige Säge. Nicht rasten, sonst rostest du."
+queststatus(713) = 2, english, town = Runewick, "quest", "mission" -> item(9, 1, 333), queststatus(713) = 3, "Boards. Boards that mean the world. Make ten of them from the apple wood you brought me. Here is a rusty saw, don't get rusty yourself."
+queststatus(713) = 2, town = Runewick, "quest", "mission" -> item(9, 1, 333), queststatus(713) = 3, "Bretter. Bretter, die die Welt bedeuten. Mache bitte zehn aus dem Apfelholz, welches du mir gebracht hast. Hier ist eine rostige Säge. Nicht rasten, sonst rostest du."
+queststatus(713) = 2, town = Runewick, "task", "adventure", "order" -> item(9, 1, 333), queststatus(713) = 3, "Boards. Boards that mean the world. Make ten of them from the apple wood you brought me. Here is a rusty saw, don't get rusty yourself."
+queststatus(713) = 2, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(9, 1, 333), queststatus(713) = 3, "Bretter. Bretter, die die Welt bedeuten. Mache bitte zehn aus dem Apfelholz, welches du mir gebracht hast. Hier ist eine rostige Säge. Nicht rasten, sonst rostest du."
 
 -- Quest 2: Solved
 queststatus(713) = 3, item(2716, all) > 9, english, town = Runewick, "quest", "mission" -> queststatus(713) = 4, "You are able to make boards, fine. You'll need them for the next part of your apprenticeship."
