@@ -125,14 +125,14 @@ queststatus(710) = 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl
 -- Quest 2: Intermediate production. Player gets a tool for intermediate production. Player produces 10 intermediate products.
 queststatus(710) = 2, english, town = Galmair, "quest", "mission" -> item(2751, 1, 333), queststatus(710) = 3, "Ore is not all you need. To cast ingots, light the bloomery with coal and smelt the copper ore. You'll need crucible-pincers and I happen to have a spare pair."
 queststatus(710) = 2, town = Galmair, "quest", "mission" -> item(2751, 1, 333), queststatus(710) = 3, "Erz ist eigentlich nicht das, was du brauchst. Um Barren zu gießen, befeuere den Rennofen mit Kohle. Du wirst eine Tiegelzange brauchen, glücklicherweise habe ich noch eine Ersatzzange für dich."
-queststatus(710) = 2, town = Galmair, "task", "adventure", "order", "copper", "ingot" -> item(2751, 1, 333), queststatus(710) = 3, "Ore is not all you need. To cast ingots, light the bloomery with coal and smelt the copper ore. You'll need crucible-pincers and I happen to have a spare pair."
-queststatus(710) = 2, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kupfer", "Barren" -> item(2751, 1, 333), queststatus(710) = 3, "Erz ist eigentlich nicht das, was du brauchst. Um Barren zu gießen, befeuere den Rennofen mit Kohle. Du wirst eine Tiegelzange brauchen, glücklicherweise habe ich noch eine Ersatzzange für dich."
+queststatus(710) = 2, town = Galmair, "task", "adventure", "order" -> item(2751, 1, 333), queststatus(710) = 3, "Ore is not all you need. To cast ingots, light the bloomery with coal and smelt the copper ore. You'll need crucible-pincers and I happen to have a spare pair."
+queststatus(710) = 2, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(2751, 1, 333), queststatus(710) = 3, "Erz ist eigentlich nicht das, was du brauchst. Um Barren zu gießen, befeuere den Rennofen mit Kohle. Du wirst eine Tiegelzange brauchen, glücklicherweise habe ich noch eine Ersatzzange für dich."
 
 -- Quest 2: Solved
 queststatus(710) = 3, item(2550, all) > 9, english, town = Galmair, "quest", "mission" -> queststatus(710) = 4, "Are you sure these ingots don't contain blowholes? We'll see during your next task."
 queststatus(710) = 3, item(2550, all) > 9, town = Galmair, "quest", "mission" -> queststatus(710) = 4, "Bist du sicher, dass keine Lunker in den Barren sind? Wir werden es bei deiner nächsten Aufgabe herausfinden."
 queststatus(710) = 3, item(2550, all) > 9, town = Galmair, "task", "adventure", "order", "copper", "ingot" -> queststatus(710) = 4, "Are you sure these ingots don't contain blowholes? We'll see during your next task."
-queststatus(710) = 3, item(2550, all) > 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kupfer", "barren" -> queststatus(710) = 4, "Bist du sicher, dass keine Lunker in den Barren sind? Wir werden es bei deiner nächsten Aufgabe herausfinden."
+queststatus(710) = 3, item(2550, all) > 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Kupfer", "Barren" -> queststatus(710) = 4, "Bist du sicher, dass keine Lunker in den Barren sind? Wir werden es bei deiner nächsten Aufgabe herausfinden."
 
 -- Quest 2: Not enough items
 queststatus(710) = 3, english, town = Galmair, "quest", "mission" -> "Casting ingots is something you need to learn before you can become a good finesmith. Please cast ten copper ingots."
@@ -153,10 +153,10 @@ queststatus(710) = 5, item(3558, all) > 9, town = Galmair, "task", "adventure", 
 queststatus(710) = 5, item(3558, all) > 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Gildenrang] Das Feinschmiedesyndikat von Galmair erhebt dich in den Rang eines Laiens. Du erhältst fünfundsechsig Silberstücke."), deleteItem(3558, 10), queststatus(710) = 6, money + 6500, "Du hast dich als würdig erwiesen, ein Mitglied des Feinschmiedesyndikates von Galmair zu werden. Für die Amulette erhältst du deinen ersten Gewinn. Verwende ihn weise. Komm erneut zu mir, wenn du erfahrener bist."
 
 -- Quest 3: Not enough items
-queststatus(710) = 5, english, town = Galmair, "quest", "mission" -> "Any problems manufacturing ten copper amulets? Just swing your finesmithing hammer."
-queststatus(710) = 5, town = Galmair, "quest", "mission" -> "Gibt es Probleme bei der Herstellung der zehn Kupferamulette? Schwing deinen Feinschmiedehammer!"
-queststatus(710) = 5, town = Galmair, "task", "adventure", "order", "pin" -> "Any problems manufacturing ten copper amulets? Just swing your finesmithing hammer."
-queststatus(710) = 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Nägel", "Nagel" -> "Gibt es Probleme bei der Herstellung der zehn Kupferamulette? Schwing deinen Feinschmiedehammer!"
+queststatus(710) = 5, english, town = Galmair, "quest", "mission", "amulet" -> "Any problems manufacturing ten copper amulets? Just swing your finesmithing hammer."
+queststatus(710) = 5, town = Galmair, "quest", "mission", "amulet" -> "Gibt es Probleme bei der Herstellung der zehn Kupferamulette? Schwing deinen Feinschmiedehammer!"
+queststatus(710) = 5, town = Galmair, "task", "adventure", "order" -> "Any problems manufacturing ten copper amulets? Just swing your finesmithing hammer."
+queststatus(710) = 5, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Gibt es Probleme bei der Herstellung der zehn Kupferamulette? Schwing deinen Feinschmiedehammer!"
 
 -- Level 10: Novice / Anfänger. Reward: 10 Raw materials (e.g. coal)
 skill(finesmithing) > 9, queststatus(710) = 6, english, town = Galmair, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Novice with the Finesmithing Syndicate of Galmair. You are awarded ten lumps of coal."), item(21, 10, 333), queststatus(710) = 7, "I acknowledge your progress and the Finesmithing Syndicate of Galmair has decided to support your business with some coal. Please return to me once you are more experienced."

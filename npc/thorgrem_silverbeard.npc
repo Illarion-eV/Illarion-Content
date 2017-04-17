@@ -125,14 +125,14 @@ queststatus(708) = 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl
 -- Quest 2: Intermediate production. Player gets a tool for intermediate production. Player produces 10 intermediate products.
 queststatus(708) = 2, english, town = Galmair, "quest", "mission" -> item(2751, 1, 333), queststatus(708) = 3, "Let's go on. Smelt ten iron ingots at the bloomery over there. Here, I'll even give you crucible-pincers for smelting the ore."
 queststatus(708) = 2, town = Galmair, "quest", "mission" -> item(2751, 1, 333), queststatus(708) = 3, "Lass uns weitermachen. Erschmelze zehn Eisenbarren in dem Rennofen neben mir. Hier, ich gebe dir sogar eine Tiegelzange."
-queststatus(708) = 2, town = Galmair, "task", "adventure", "order", "iron", "ingot" -> item(2751, 1, 333), queststatus(708) = 3, "Let's go on. Smelt ten iron ingots at the bloomery over there. Here, I'll even give you crucible-pincers for smelting the ore."
-queststatus(708) = 2, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Eisen", "Barren" -> item(2751, 1, 333), queststatus(708) = 3, "Lass uns weitermachen. Erschmelze zehn Eisenbarren in dem Rennofen neben mir. Hier, ich gebe dir sogar eine Tiegelzange."
+queststatus(708) = 2, town = Galmair, "task", "adventure", "order" -> item(2751, 1, 333), queststatus(708) = 3, "Let's go on. Smelt ten iron ingots at the bloomery over there. Here, I'll even give you crucible-pincers for smelting the ore."
+queststatus(708) = 2, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(2751, 1, 333), queststatus(708) = 3, "Lass uns weitermachen. Erschmelze zehn Eisenbarren in dem Rennofen neben mir. Hier, ich gebe dir sogar eine Tiegelzange."
 
 -- Quest 2: Solved
 queststatus(708) = 3, item(2535, all) > 9, english, town = Galmair, "quest", "mission" -> queststatus(708) = 4, "Not bad I must admit. Keep the iron ingots for your next task."
 queststatus(708) = 3, item(2535, all) > 9, town = Galmair, "quest", "mission" -> queststatus(708) = 4, "Sieht gar nicht mal schlecht aus. Behalte die Eisenbarren für deine nächste Aufgabe."
 queststatus(708) = 3, item(2535, all) > 9, town = Galmair, "task", "adventure", "order", "iron", "ingot" -> queststatus(708) = 4, "Not bad I must admit. Keep the iron ingots for your next task."
-queststatus(708) = 3, item(2535, all) > 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Eisen", "barren" -> queststatus(708) = 4, "Sieht gar nicht mal schlecht aus. Behalte die Eisenbarren für deine nächste Aufgabe."
+queststatus(708) = 3, item(2535, all) > 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Eisen", "Barren" -> queststatus(708) = 4, "Sieht gar nicht mal schlecht aus. Behalte die Eisenbarren für deine nächste Aufgabe."
 
 -- Quest 2: Not enough items
 queststatus(708) = 3, english, town = Galmair, "quest", "mission" -> "That's not ten iron ingots yet. Please come back later when you've finished the task."
