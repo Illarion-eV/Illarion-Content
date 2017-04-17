@@ -86,13 +86,6 @@ product:addIngredient(306, 2) -- ham
 product:addIngredient(201, 3) -- onion
 product:addIngredient(2493, 2) -- carrots
 
--- egg salad
-product = cooking:addProduct(catId, 3570, 1)
-product:addIngredient(2935, 1) -- soup bowl
-product:addIngredient(1150, 10) -- white egg
-product:addIngredient(201, 3) -- onion
-product:addIngredient(2493, 3) -- carrots
-
 -- sausages dish
 product = cooking:addProduct(catId, 2922, 1)
 product:addIngredient(2952, 1) -- plate
@@ -179,6 +172,13 @@ product:addIngredient(3567, 8) -- potato
 product:addIngredient(201, 2) -- onion
 product:addIngredient(52, 1) -- bucket of water
 product:addRemnant(51, 1) -- bucket
+
+-- egg salad
+product = cooking:addProduct(catId, 3570, 1)
+product:addIngredient(2935, 1) -- soup bowl
+product:addIngredient(1150, 10) -- white egg
+product:addIngredient(201, 3) -- onion
+product:addIngredient(2493, 3) -- carrots
 
 -- fish soup
 product = cooking:addProduct(catId, 3572, 1)
