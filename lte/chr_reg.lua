@@ -185,7 +185,7 @@ if Char:idleTime() < 300 then -- Absolutely no regeneration effect if the player
             if ( Foodvalue >= maxFoodvalue/12 ) then -- Quick mana regeneration with food consumption
 
                 Manapoints = math.min( maxManapoints, Manapoints + ( ( 2*TimeFactor + 14*TimeFactor * ( Essence / 20 ) ) ) ); -- Full regeneration from 0-10000 in around 19 minutes at ESS 10. That is 1/5 of HP regeneration
-                Foodvalue = Foodvalue - math.min(40*TimeFactor,(10000-Manapoints) * ( 2*TimeFactor / Essence ) ); -- A filled foodbar lasts 25 minutes of regeneration
+                Foodvalue = Foodvalue - math.min(8*TimeFactor,(10000-Manapoints) * ( 0.4*TimeFactor / Essence ) ); -- A filled foodbar lasts 125 minutes of regeneration
 
             else -- Slow mana regeneration without food consumption
 
