@@ -44,7 +44,7 @@ function M.LookAtItem(user, item)
 end
 
 function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
-    local questProgress = user:getQuestProgress(38)
+    local questProgress = User:getQuestProgress(38)
     if TargetItem:getType() == 4 then --inventory, not belt
         if magicWands[SourceItem.id]then
             if User:getMagicType() == 3 then 
