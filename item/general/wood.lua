@@ -53,9 +53,7 @@ function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
             elseif User:increaseAttrib("willpower", 0) + User:increaseAttrib("essence", 0) + User:increaseAttrib("intelligence", 0) < 30 then
                 User:inform("Um Stabmagie zu benutzen muss die Summe der Attribute Intelligenz, Essenz und Willensstärke 30 ergeben. Attribute können bei den Trainer NPC's geändert werden.",
                 "To use wand magic, your combined attributes of intelligence, essence, and willpower must total at least 30. Attributes can be changed at the trainer NPC.")
-                    -- Already is a mage
             elseif User:getMagicType() == 0 and (User:getQuestProgress(37) ~= 0 or User:getMagicFlags(0) > 0) then 
-                return    
             elseif bit32.extract(questProgress, 30) == 0 then
                 User:inform("Um das Handwerk der Stabmagie zu erlernen, musst du drei Bücher über magische Theorie lesen. Sieh dir die Liste der Bücher in den Bibliotheken der Städte.",
                 "To learn the craft of wand magic you must read three books of magical theory. Look for the list of books in your town's library.")
