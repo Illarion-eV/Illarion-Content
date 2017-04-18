@@ -57,8 +57,8 @@ function M.UseItem(User, SourceItem,ltstate,checkVar)
    --Dialog
         local dialogTitle = common.GetNLS(User, "", "Book List")
         local dialogText = common.GetNLS(User,
-            "Der alte Pfad der Magie/nMagisches Wasser, Echsen und Magie/nVon den Ebenen/nGrundlagen arkaner Theorie/nManaströme/nGrundwerk der Artefaktmagie/nDie Sippen/nDie Beschwörung von Pran Xixuan",
-            "The Old Path of Magic/nThe Magic Water, Lizards and Magic/nAbout the Planes/nBasics of Arcane Theory/nMana Streams/nBasics of Artifact Magic/nThe Clansmen/nSummoning of Pran Xixuan")
+            "Der alte Pfad der Magie./nMagisches Wasser, Echsen und Magie./nVon den Ebenen./nGrundlagen arkaner Theorie./nManaströme./nGrundwerk der Artefaktmagie./nDie Sippen./nDie Beschwörung von Pran Xixuan",
+            "The Old Path of Magic./nThe Magic Water, Lizards and Magic./nAbout the Planes./nBasics of Arcane Theory./nMana Streams./nBasics of Artifact Magic./nThe Clansmen./nSummoning of Pran Xixuan")
         local callbackBook = function(nothing) end --empty callback
         local dialogBook = MessageDialog(dialogTitle, dialogText, callbackBook)
 
