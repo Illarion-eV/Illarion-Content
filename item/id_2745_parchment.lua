@@ -31,6 +31,16 @@ local M = {}
 -- important: do not remove the fourth parameter "checkVar".
 -- it is important for alchemy
 -- you can just ignore it
+
+local function bookListLookAt(User, Item)
+    local itemLookat = lookat.GenerateLookAt(User, Item, lookat.NONE)
+    itemLookat.name = common.GetNLS(User, "", "Magic Book List")
+    itemLookat.description = common.GetNLS(User,
+        "",
+        "The following books can be read to learn wand magic. ")
+    return itemLookat
+end
+
 function M.UseItem(User, SourceItem,ltstate,checkVar)
 
     -- Check if it is an alchemy recipe.
@@ -42,7 +52,18 @@ function M.UseItem(User, SourceItem,ltstate,checkVar)
     if SourceItem:getData("TeachLenniersDream")=="true" then
         LearnLenniersDream(User)
     end
+    
+    if SourceItem:getData("bookList") == "true" then
+   --Dialog
+        local dialogTitle = common.GetNLS(User, "", "Book List")
+        local dialogText = common.GetNLS(User,
+            "Der alte Pfad der Magie/nMagisches Wasser, Echsen und Magie/nVon den Ebenen/nGrundlagen arkaner Theorie/nManaströme/nGrundwerk der Artefaktmagie/nDie Sippen/nDie Beschwörung von Pran Xixuan",
+            "The Old Path of Magic/nThe Magic Water, Lizards and Magic/nAbout the Planes/nBasics of Arcane Theory/nMana Streams/nBasics of Artifact Magic/nThe Clansmen/nSummoning of Pran Xixuan")
+        local callbackBook = function(nothing) end --empty callback
+        local dialogBook = MessageDialog(dialogTitle, dialogText, callbackBook)
 
+        User:requestMessageDialog(dialogBook)
+    end
 end
 
 
@@ -451,8 +472,14 @@ end
 
 
 function M.LookAtItem(User, Item)
-
-    return lookat.GenerateLookAt(User, Item, lookat.NONE)
+    if Item:getData("bookList") == "true" then
+       itemLookat = bookListLookAt(User, Item)
+    end
+    if itemLookat then
+        return itemLookat --Send the custom lookAt
+    else
+        return lookat.GenerateLookAt(User, Item)
+    end
 
 end
 
