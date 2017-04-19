@@ -34,9 +34,9 @@ local M = {}
 
 local function bookListLookAt(User, Item)
     local itemLookat = lookat.GenerateLookAt(User, Item, lookat.NONE)
-    itemLookat.name = common.GetNLS(User, "", "Magic Book List")
+    itemLookat.name = common.GetNLS(User, "Liste der magischen Bücher", "Magic Book List")
     itemLookat.description = common.GetNLS(User,
-        ":Der alte Pfad der Magie, Magisches Wasser, Echsen und Magie, Von den Ebenen, Grundlagen arkaner Theorie, Manaströme, Grundwerk der Artefaktmagie, Die Sippen, und Die Beschwörung von Pran Xixuan",
+        "Diese Bücher können gelesen werden um Stabmagie zu erlernen:Der alte Pfad der Magie, Magisches Wasser, Echsen und Magie, Von den Ebenen, Grundlagen arkaner Theorie, Manaströme, Grundwerk der Artefaktmagie, Die Sippen, und Die Beschwörung von Pran Xixuan",
         "These books can be read to learn wand magic: The Old Path of Magic, The Magic Water, Lizards and Magic, About the Planes, Basics of Arcane Theory, Mana Streams, Basics of Artifact Magic, The Clansmen, and Summoning of Pran Xixuan")
     return itemLookat
 end
