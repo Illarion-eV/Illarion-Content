@@ -576,21 +576,20 @@ function M.callEffect( Effect, Char ) -- Effect is called
     if not storedPosition then storedPosition={} end
     if not playerFlag then playerFlag={} end
     
-    if storedMessage[Char.id] == Char.lastSpokenText and Char:isInRangeToPosition(storedPosition[Char.id],3) and Char:idleTime() < 300 then
-        if playerFlag[Char.id] == true then
-            Char:pageGM("Rule compliance check necessary. idleTime = "..Char:idleTime()..".")
-        else
-            playerFlag[Char.id] = true
+    if storedMessage[Char.id] == Char.lastSpokenText and Char:isInRangeToPosition(storedPosition[Char.id],3) and Char:idleTime() < 300 and Char:isAdmin() then
+
+        playerFlag[Char.id] = playerFlag[Char.id] +1
+        log(string.format("[Idle] %s is idle. idleTime = %d, count = %d.", character.LogText(Char), Char:idleTime(), playerFlag[Char.id]))
+        
+        if math.floor(playerFlag[Char.id]/10) == playerFlag[Char.id] then
+            Char:pageGM("Idle check necessary. idleTime = "..Char:idleTime()..", count = "..playerFlag[Char.id]..".")
+            common.InformNLS(Char,"[Erinnerung] Denke bitte daran, dass bei Illarion ein Hauptziel die Interaktion mit anderen Spielern ist.","[Reminder] Keep in mind Illarion is about interacting with other players. ") --sending a message
         end
-    else
-        playerFlag[Char.id] = false
     end
     
     storedMessage[Char.id] = Char.lastSpokenText;
     storedPosition[Char.id] = Char.pos;
-    --end
-    
-    Effect.nextCalled = 3000 --Effect gets called each 5 minutes
+    Effect.nextCalled = 30 --Effect gets called each 5 minutes
 
     return true
 
