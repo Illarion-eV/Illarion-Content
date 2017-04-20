@@ -178,7 +178,7 @@ treasureContents[1] = {
 {179,5}, --blue cloth
 {314,5}, --potash
 {316,5}, --quartz sand
-{333,5}, --horn
+{333,1}, --horn
 {431,5}, --wax
 {545,5}, --cherry wood boards
 {546,5}, --naldor wood boards
