@@ -580,7 +580,7 @@ function M.callEffect( Effect, Char ) -- Effect is called
     if storedMessage[Char.id] == Char.lastSpokenText and Char:isInRangeToPosition(storedPosition[Char.id],3) and Char:idleTime() < 300 and Char:isAdmin() then
 
         playerCount[Char.id] = playerCount[Char.id]+1
-        log(string.format("[Idle] %s is idle. idleTime = %d, count = %d.", Char.LogText(Char), Char:idleTime(), playerCount[Char.id]))
+        log(string.format("[Idle] %s is idle. idleTime = %d, count = %d.", character.LogText(Char), Char:idleTime(), playerCount[Char.id]))
         
         if math.floor(playerCount[Char.id]/10) == playerCount[Char.id] then
             Char:pageGM("Idle check necessary. idleTime = "..Char:idleTime()..", count = "..playerCount[Char.id]..".")
