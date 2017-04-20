@@ -577,7 +577,7 @@ function M.callEffect( Effect, Char ) -- Effect is called
     if not playerCount then playerCount={} end
     if not playerCount[Char.id] then playerCount[Char.id] = 0 end
     
-    if storedMessage[Char.id] == Char.lastSpokenText and Char:isInRangeToPosition(storedPosition[Char.id],3) and Char:idleTime() < 300 and Char:isAdmin() then
+    if storedMessage[Char.id] == Char.lastSpokenText and Char:isInRangeToPosition(storedPosition[Char.id],3) and Char:idleTime() < 300 and not Char:isAdmin() then
 
         playerCount[Char.id] = playerCount[Char.id]+1
         log(string.format("[Idle] %s is idle. idleTime = %d, count = %d.", Char.name, Char:idleTime(), playerCount[Char.id]))
@@ -590,7 +590,7 @@ function M.callEffect( Effect, Char ) -- Effect is called
     
     storedMessage[Char.id] = Char.lastSpokenText;
     storedPosition[Char.id] = Char.pos;
-    Effect.nextCalled = 30 --Effect gets called each 5 minutes
+    Effect.nextCalled = 3000 --Effect gets called each 5 minutes
 
     return true
 
