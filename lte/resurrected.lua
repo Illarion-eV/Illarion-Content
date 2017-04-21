@@ -107,7 +107,7 @@ function M.callEffect( rebirthEffect, Reborn )
     rebirthEffect.nextCalled=math.random(callValue-300,callValue+300);
 
     --Addition by Estralis: AFK chars do not regenerate!
-    if Reborn:idleTime() > 300 then --absolutely no regneration effect if the player is afk for more than five minutes
+    if Reborn:idleTime() > 300 then --absolutely no regeneration effect if the player is afk for more than five minutes
         return true;
     end;
     
