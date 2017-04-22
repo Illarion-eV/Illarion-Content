@@ -37,9 +37,10 @@ defaultLanguage = common
 autointroduce = on
 
 author = "Zot"
+author = "Estralis Seborian"
 
-lookatDE = ""
-lookatUS = ""
+lookatDE = "Dieser NPC ist Lilli Gallfing die Schneiderin."
+lookatUS = "This NPC is Lilli Gallfing the tailor."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Hands off!"
 wrongLangDE = "#me schaut dich verwirrt an."
@@ -58,31 +59,50 @@ itemHands = 0
 itemTrousers = 0
 itemShoes = 369
 
+-- Quest 1: Gathering. Player gets a gathering tool. Player gathers materials for 10 intermediate products.
+-- Quest 2: Intermediate production. Player gets a tool for intermediate production. Player produces 10 intermediate products.
+-- Quest 3: Final production. Player gets a tool for final production. Player delivers final products made of 10 intermediate products. Reward: 50 % of item.worth. Rank Layman / Laie
+-- Rank quests:
+-- Level 10: Novice / Anfänger. Reward: 10 Raw materials (e.g. coal)
+-- Level 20: Apprentice / Lehrling. Reward: 20 Raw materials (e.g. wool)
+-- Level 30: Initiate / Initiat. Reward: 10 Intermediate products (e.g. boards)
+-- Level 40: Journeyman / Geselle. Reward: 20 Intermediate products (e.g. thread)
+-- Level 50: Specialist / Spezialist. Reward: 10 Uncommon resources (e.g. handles)
+-- Level 60: Expert / Experte. Reward: 20 Uncommon resources (e.g. gold ingots)
+-- Level 70: Adept / Adept. Reward: 5 Rare resources (e.g. merinium ingots)
+-- Level 80: Artisan / Artisane. Reward: 10 Rare resources (e.g. heartwood)
+-- Level 90: Master / Meister. Reward: 5 Pure elements
+-- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements
+
 -- Help
-"Help" -> inform("[Game Help] This NPC is Lilli Gallfing the tailor. Keywords: quest")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Lilli Gallfing die Schneiderin. Schlüsselwörter: Quest")
+"Help" -> inform("[Game Help] This NPC is Lilli Gallfing the tailor. Keywords: Hello, Quest, Tailoring.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Lilli Gallfing die Schneiderin. Schlüsselwörter: Hallo, Quest, Schneidern.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, can I help you?", "Nice to meet you, I'm Lilli Gallfing."
-"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, kann ich Euch helfen?", "Freut mich, Euch zu treffen. Ich bin Lilli Gallfing."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, can I help you?", "Nice to meet you, I'm Lilli Gallfing."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, kann ich Euch helfen?", "Freut mich, Euch zu treffen. Ich bin Lilli Gallfing"
-"Farewell", "Bye", "Fare well", "See you" -> "I wish you a nice day.", "I hope we meet again, goodbye."
-"Tschüß", "Tschüss", "Wiedersehen" -> "Ich wünsche Euch noch einen schönen Tag.", "Ich hoffe wir sehen uns wieder, auf bald!"
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "I wish you a nice day.", "I hope we meet again, goodbye."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Ich wünsche Euch noch einen schönen Tag.", "Ich hoffe wir sehen uns wieder, auf bald!"
-"How are you", "How feel", "How do you do" -> "I feel fine, thank you for asking."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke für die Nachfrage."
-"your name", "who are you", "who art thou" -> "I'm Lilli Gallfing, who are you?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Lilli Gallfing. Wer bist du?"
-"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "So nice of you to visit me. What can I do for you on this lovely day?", "I like talking to people like you. So, what shall we talk about?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Das ist ja nett von dir, mich zu besuchen. Was kann ich an diesem schönen Tag für dich tun?", "Ich mag es, mit Leuten wir dir zu reden. Also, über was wollen wir uns unterhalten?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "So nice of you to visit me. What can I do for you on this lovely day?", "I like talking to people like you. So, what shall we talk about?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Das ist ja nett von dir, mich zu besuchen. Was kann ich an diesem schönen Tag für dich tun?", "Ich mag es, mit Leuten wir dir zu reden. Also, über was wollen wir uns unterhalten?"
+"Farewell", "Bye", "Fare well", "See you" -> "Thank you and see you soon. Visit me again.", "See you later."
+"Tschüß", "Tschüss", "Wiedersehen" -> "Danke und auf Wiedersehen. Schau bald mal wieder rein.", "Bis bald!"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Thank you and see you soon. Visit me again.", "See you later."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Danke und auf Wiedersehen. Schau bald mal wieder rein.", "Bis bald!"
+"How are you", "How feel", "How do you do" -> "All is fine, as usual. Why should I complain, anyway?"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Alles bestens, wie immer. Warum sollte ich auch klagen?"
+"your name", "who are you", "who art thou" -> "I'm Lilli Gallfing, but you can also call me Miss Moonshine. I provide her Majesty with her gowns."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Lilli Gallfing, aber du kannst mich auch Fräulein Mondschein nennen. Ich versorge ihre Majestät mit Gewändern."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader. But I can teach you how to tailor."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau. Aber ich kann dir das Schneiderhandwerk beibringen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I'm a tailor. Do you want to know more about it? Then just ask me for a task!"
-"beruf" -> "Ich bin Schneiderin. Wollt Ihr mehr darüber wissen? Dann fragt mich einfach nach einer Aufgabe!"
-english, "job" -> "I'm a tailor. Do you want to know more about it? Then just ask me for a task!"
-"job" -> "Ich bin Schneiderin. Wollt Ihr mehr darüber wissen? Dann fragt mich einfach nach einer Aufgabe!"
+"profession" -> "Tailoring is my passion. To craft marvellous robes that cover beautiful bodies is just amazing, isn't it?"
+"beruf" -> "Schneidern ist meine Leidenschaft. Wunderbare Roben zu nähen, die schöne Körper umschmeicheln, ist das nicht klasse?"
+english, "job" -> "Tailoring is my passion. To craft marvellous robes that cover beautiful bodies is just amazing, isn't it?"
+"job" -> "Schneidern ist meine Leidenschaft. Wunderbare Roben zu nähen, die schöne Körper umschmeicheln, ist das nicht klasse?"
+
+-- Help triggers
+"tailor", "craft" -> "So you think tailoring just takes a needle and some practice? Ha! You need various tools and a lot of experience in different actions to get anywhere. Scissors for cutting, a dye rod for dyeing and do not forget the razor blade for tanning."
+"Schneider", "Handwerk" -> "Du denkst also, dass man für das Schneidern nur eine Nadel und etwas Übung braucht? Ha! Du wirst viele Werkzeuge und viel Erfahrung brauchen, um irgendetwas zu erreichen. Du brauchst eine Schere fürs Zuschneiden, einen Färberstab zum Einfärben und vergiss nicht die das Rasiermesser fürs Gerben."
 
 -- Quests
 queststatus(705) = 0, town = Cadomyr, english, "quest", "mission" -> "Oh, you want to learn something about tailoring? Well, let's start with something simple. Could you collect twenty bales of wool for me? You can find sheep if you leave the city and follow the street to the west. You can have my old scissors to collect the wool.", item(6, 1, 333), queststatus(705) = 1
@@ -155,14 +175,11 @@ english, "quest", "mission" -> "You are not a citizen of Cadomyr. I don't have a
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Wenn Ihr Hilfe beim Schneidern braucht, dann fragt nur mich!", "If you need any help tailoring, just ask me!"
 cycletext "#me begutachtet die Qualität eines Stoffstückes.", "#me examines a piece of cloth for quality."
 cycletext "#me bestickt eine Robe mit einem Symbol.", "#me embroiders an emblem on a robe."
 cycletext "#me entfernt einen Fadenrest von ihrem Hemd.", "#me pulls a stray thread from her shirt."
-cycletext "Mit meiner Nadel kann ich alles nähen.", "I can create anything with my needle."
 cycletext "Morgen mache ich ein Kleid für eine sehr wichtige Person.", "Tomorrow I am going to make a dress for a very important person!"
 cycletext "Ich kenne mich aus mit feinsten Gewändern.", "I know everything about finest garments."
 cycletext "#me rollt eine Spule Garn auf.", "#me rolls up a clew of yarn."
-cycletext "Die besten Schneider arbeiten hier in dieser Schneiderei!", "The best tailors use to work in this tailor's shop!"
 cycletext "#me legt bunte Hemden zusammen.", "#me folds coloured shirts."
 cycletext "#me pfeift eine fröhliche Melodie, während sie ein Kleid bestickt.", "#me whistles a merry melody as she embroiders a dress."
