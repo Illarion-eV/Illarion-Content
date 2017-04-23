@@ -517,6 +517,12 @@ Description[ENGLISH][241] = "There is something you can do for Pesnar Rolemnes. 
 Description[GERMAN][241] = "Es gäbe da etwas, war ihr für Pesnar Rolemnes tun könntet. Für seine nächste Handelsreise benötigt er noch fünf Partisanen des Lichtes. Er wird wohl mit der nächsten Flut auslaufen, also sputet euch bitte. Eure Bemühungen werden nicht umsonst sein, eintausenddreihundertdreiunddreißig Silberstücke werden euer Lohn sein." 
 Description[ENGLISH][242] = "There is something you can do for Pesnar Rolemnes. For his next journey, he needs five master's staffs. He'll have to set sails with the next flood, so please deliver in a timely manner. Your effort shall not be in vain, one thousand three hundred thirty three silver coins shall be your reward."
 Description[GERMAN][242] = "Es gäbe da etwas, war ihr für Pesnar Rolemnes tun könntet. Für seine nächste Handelsreise benötigt er noch fünf Meisterstäbe. Er wird wohl mit der nächsten Flut auslaufen, also sputet euch bitte. Eure Bemühungen werden nicht umsonst sein, eintausenddreihundertdreiunddreißig Silberstücke werden euer Lohn sein." 
+Description[ENGLISH][243] = "There is something you can do for Pesnar Rolemnes. For his next journey, he needs forty smoked rose fish. He'll have to set sails with the next flood, so please deliver in a timely manner. Your effort shall not be in vain, sixteen silver coins shall be your reward."
+Description[GERMAN][243] = "Es gäbe da etwas, war ihr für Pesnar Rolemnes tun könntet. Für seine nächste Handelsreise benötigt er noch vierzig geräucherter Rotbarsch. Er wird wohl mit der nächsten Flut auslaufen, also sputet euch bitte. Eure Bemühungen werden nicht umsonst sein, sechzehn Silberstücke werden euer Lohn sein." 
+Description[ENGLISH][244] = "There is something you can do for Pesnar Rolemnes. For his next journey, he needs forty smoked horse mackerel. He'll have to set sails with the next flood, so please deliver in a timely manner. Your effort shall not be in vain, sixteen silver coins shall be your reward."
+Description[GERMAN][244] = "Es gäbe da etwas, war ihr für Pesnar Rolemnes tun könntet. Für seine nächste Handelsreise benötigt er noch vierzig geräucherte Stachelmakrele. Er wird wohl mit der nächsten Flut auslaufen, also sputet euch bitte. Eure Bemühungen werden nicht umsonst sein, sechzehn Silberstücke werden euer Lohn sein." 
+Description[ENGLISH][245] = "There is something you can do for Pesnar Rolemnes. For his next journey, he needs forty smoked salmon. He'll have to set sails with the next flood, so please deliver in a timely manner. Your effort shall not be in vain, sixteen silver coins shall be your reward."
+Description[GERMAN][245] = "Es gäbe da etwas, war ihr für Pesnar Rolemnes tun könntet. Für seine nächste Handelsreise benötigt er noch vierzig Räucherlachs. Er wird wohl mit der nächsten Flut auslaufen, also sputet euch bitte. Eure Bemühungen werden nicht umsonst sein, sechzehn Silberstücke werden euer Lohn sein." 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 Start = {902, 856, 0}
@@ -767,9 +773,12 @@ QuestTarget[239] = {position(902, 856, 0)}
 QuestTarget[240] = {position(902, 856, 0)}
 QuestTarget[241] = {position(902, 856, 0)}
 QuestTarget[242] = {position(902, 856, 0)}
+QuestTarget[243] = {position(902, 856, 0)}
+QuestTarget[244] = {position(902, 856, 0)}
+QuestTarget[245] = {position(902, 856, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
-local FINAL_QUEST_STATUS = 243
+local FINAL_QUEST_STATUS = 246
 
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])
