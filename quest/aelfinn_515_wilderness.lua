@@ -132,7 +132,7 @@ monsterQuests.addQuest{
     questTitle = {german = "Rette Miley! II", english = "Rescue Milly! II"},
     monsterName = {german = "Ork, Diebe, Jäger, und Krieger", english = "Orcs, Thieves, Hunters, and Warrior"},
     npcName = "Aelfinn",
-    monsterGroupIds {4} -- all orcs
+    monsterGroupIds = {4} -- all orcs
 }
 
 monsterQuests.addQuest{
