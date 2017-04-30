@@ -373,7 +373,9 @@ end
     @return boolean training weapon or not
 ]]
 function M.IsTrainingWeapon( ItemID )
-    return ( ItemID == 445 );
+    local woodenSword = 445;
+    local woodenDagger = 1045;
+    return ( ItemID == woodenSword or ItemID == woodenDagger );
 end;
 
 --- Get a area that is hit during a attack. Depending on the race the areas that
