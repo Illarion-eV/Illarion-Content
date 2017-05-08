@@ -18,7 +18,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --ID 2, Human Warrior,  Level: 6, Armourtype: heavy,  Weapontype: slashing
 --ID 5, Human Thief,    Level: 4, Armourtype: light,  Weapontype: puncture
 --ID 6, Friendly Human, Level: 0, Not hostile
---ID 9, Cursed Knight
+--ID 7, Dark Paladin,   Level: 7, Armourtype: heavy,  Weapontype: slashing
+--ID 9, Cursed Knight,..Level: 9,
 
 local humans = require("monster.race_0_human.base")
 return humans.generateCallbacks()
