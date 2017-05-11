@@ -40,7 +40,7 @@ function M.MoveToField(char)
     end
 
     if  char.pos == position(376, 476, 1) then -- warp up to Dragorog cult dungeon
-        char:warp(position(385, 461, 2))
+        char:warp(position(385, 464, 2))
     
     elseif char.pos == position(385, 460, 2) then -- warp down from Dragorog cult dungeon
         char:warp(position(376, 471, 1))
