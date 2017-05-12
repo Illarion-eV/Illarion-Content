@@ -100,10 +100,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "No! Don't go! I need your h
 -- Mandatory: Catching quest triggers. Modify if the NPC does quests
 
 -- Quest 1: Find Entrance to Dungeon
-queststatus(515) = 0, english, "quest", "mission" -> inform("[New Quest] Rescue Milly"), queststatus(515) = 1, "Milly and I were searching for rare desert herbs. We were attacked by orcs who took and carried her off! I tracked them this far, but I can't find the entrance. It's in the encampment west of here. Go see if you can find it and come back to me."
-queststatus(515) = 0, "quest", "mission" -> inform("[Neue Quest] Rette Miley!"), queststatus(515) = 1, "Milly und ich suchten nach seltenen Wüstenkräutern. Orks griffen uns an und entführten sie. Ich habe Sie verfolgt, aber ich kann den Eingang nicht finden. Er ist im Lager westlich von hier. Geh, sieh nach ob du ihn findest, komme dann zurück zu mir."
-queststatus(515) = 0, english, "task", "adventure", "order" -> inform("[New Quest] Rescue Milly"), queststatus(515) = 1, "Milly and I were searching for rare desert herbs. We were attacked by orcs who took and carried her off! I tracked them this far, but I can't find the entrance. It's in the encampment west of here. Go see if you can find it and come back to me."
-queststatus(515) = 0 ,"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Rette Miley!"), queststatus(515) = 1, "Milly und ich suchten nach seltenen Wüstenkräutern. Orks griffen uns an und entführten sie. Ich habe Sie verfolgt, aber ich kann den Eingang nicht finden. Er ist im Lager westlich von hier. Geh, sieh nach ob du ihn findest, komme dann zurück zu mir."
+queststatus(515) = 0, english, "quest", "mission" -> inform("[New Quest] Rescue Milly"), queststatus(515) = 1, "Milly and I were searching for rare desert herbs. We were attacked by orcs who took and carried her off! I tracked them this far, but I can't find the entrance. It's in the encampment north of here. Go see if you can find it and come back to me."
+queststatus(515) = 0, "quest", "mission" -> inform("[Neue Quest] Rette Milly!"), queststatus(515) = 1, "Milly und ich suchten nach seltenen Wüstenkräutern. Orks griffen uns an und entführten sie. Ich habe Sie verfolgt, aber ich kann den Eingang nicht finden. Er ist im Lager nördlich von hier. Geh, sieh nach ob du ihn findest, komme dann zurück zu mir."
+queststatus(515) = 0, english, "task", "adventure", "order" -> inform("[New Quest] Rescue Milly"), queststatus(515) = 1, "Milly and I were searching for rare desert herbs. We were attacked by orcs who took and carried her off! I tracked them this far, but I can't find the entrance. It's in the encampment north of here. Go see if you can find it and come back to me."
+queststatus(515) = 0 ,"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Rette Milly!"), queststatus(515) = 1, "Milly und ich suchten nach seltenen Wüstenkräutern. Orks griffen uns an und entführten sie. Ich habe Sie verfolgt, aber ich kann den Eingang nicht finden. Er ist im Lager nördlich von hier. Geh, sieh nach ob du ihn findest, komme dann zurück zu mir."
 
 -- Entrance not found
 queststatus(515) = 1, english, "quest", "mission" -> "Have you found the way in yet? We have to save Milly!"
@@ -117,9 +117,9 @@ queststatus(515) = 2, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke
 
 -- Quest 2: Kill 10 orcs
 queststatus(515) = 3, english, "quest", "mission" -> inform("[New Quest] Rescue Milly II"), queststatus(515)=4, "Now that you have gotten in, you need to clear a path so that you can find her. I have been watching the entrance carefully to determine their numbers. Killing 10 orc cultists should do it."
-queststatus(515) = 3, "quest", "mission" -> inform("[Neue Quest] Rette Miley! II"), queststatus(515)=4, "Nun da du hinein gefunden hast, musst du einen Weg säubern damit du sie finden kannst.  Ich habe den Eingang sorgfältig beobachtet um ihre Anzahl zu bestimmen. Töte 10 Orc-Kultisten, das sollte reichen."
+queststatus(515) = 3, "quest", "mission" -> inform("[Neue Quest] Rette Milly! II"), queststatus(515)=4, "Nun da du hinein gefunden hast, musst du einen Weg säubern damit du sie finden kannst.  Ich habe den Eingang sorgfältig beobachtet um ihre Anzahl zu bestimmen. Töte 10 Orc-Kultisten, das sollte reichen."
 queststatus(515) = 3, english, "task", "adventure", "order" -> inform("[New Quest] Rescue Milly II"), queststatus(515)=4, "Now that you have gotten in, you need to clear a path so that you can find her. I have been watching the entrance carefully to determine their numbers. Killing 10 orc cultists should do it."
-queststatus(515) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Rette Miley! II"), queststatus(515)=4, "Nun da du hinein gefunden hast, musst du einen Weg säubern damit du sie finden kannst.  Ich habe den Eingang sorgfältig beobachtet um ihre Anzahl zu bestimmen. Töte 10 Orc-Kultisten, das sollte reichen."
+queststatus(515) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Rette Milly! II"), queststatus(515)=4, "Nun da du hinein gefunden hast, musst du einen Weg säubern damit du sie finden kannst.  Ich habe den Eingang sorgfältig beobachtet um ihre Anzahl zu bestimmen. Töte 10 Orc-Kultisten, das sollte reichen."
 
 -- 10 not killed, remind player
 queststatus(515) = 4, english, "quest", "mission" -> "Have you taken out 10 orcs yet?"
@@ -133,9 +133,9 @@ queststatus(515) = 14, ".+" -> inform("[Quest gelöst] Du erhältst 50 Silberstück
 
 -- Quest 3: Go find Milly!
 queststatus(515) = 15, english, "quest", "mission" -> inform("[New Quest] Rescue Milly III"), queststatus(515)=16, "I need you to search for Milly. She is in there and alive, I am sure of it! Please bring her back to me safe and in one piece."
-queststatus(515) = 15, "quest", "mission" -> inform("[Neue Quest] Rette Miley! III"), queststatus(515)=16, "Ich brauche dich, um nach Milly zu suchen. Sie ist dort und am Leben, ich bin mir sicher! Bitte bring sie mir sicher und in einem Stück zurück."
+queststatus(515) = 15, "quest", "mission" -> inform("[Neue Quest] Rette Milly! III"), queststatus(515)=16, "Ich brauche dich, um nach Milly zu suchen. Sie ist dort und am Leben, ich bin mir sicher! Bitte bring sie mir sicher und in einem Stück zurück."
 queststatus(515) = 15, english, "task", "adventure", "order" -> inform("[New Quest] Rescue Milly III"), queststatus(515)=16, "I need you to search for Milly. She is in there and alive, I am sure of it! Please bring her back to me safe and in one piece."
-queststatus(515) = 15, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Rette Miley! III"), queststatus(515)=16, "Ich brauche dich, um nach Milly zu suchen. Sie ist dort und am Leben, ich bin mir sicher! Bitte bring sie mir sicher und in einem Stück zurück."
+queststatus(515) = 15, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Rette Milly! III"), queststatus(515)=16, "Ich brauche dich, um nach Milly zu suchen. Sie ist dort und am Leben, ich bin mir sicher! Bitte bring sie mir sicher und in einem Stück zurück."
 
 -- Milly not found, remind player.
 queststatus(515) = 16, english, "quest", "mission" -> "Have you found Milly? You have to find her for me!"
@@ -149,9 +149,9 @@ queststatus(515) = 17, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstück
 
 -- Quest 4: Kill the Orc Shaman
 queststatus(515) = 18, english, "quest", "mission" -> inform("[New Quest] Rescue Milly IV"), queststatus(515)=19, "We have to do something. We have to stop them. If not the Dragorog Cult will kill others! There must be an orc shaman leading these unholy rituals. Go kill him!"
-queststatus(515) = 18, "quest", "mission" -> inform("[Neue Quest] Rette Miley! IV"), queststatus(515)=19, "Wir müssen etwas tun. Wir müssen sie aufhalten. Wenn nicht, wird der Dragorog-Kult andere töten! Es muss einen Ork-Schamanen geben, der diese unheiligen Rituale durchführt. Töte ihn!"
+queststatus(515) = 18, "quest", "mission" -> inform("[Neue Quest] Rette Milly! IV"), queststatus(515)=19, "Wir müssen etwas tun. Wir müssen sie aufhalten. Wenn nicht, wird der Dragorog-Kult andere töten! Es muss einen Ork-Schamanen geben, der diese unheiligen Rituale durchführt. Töte ihn!"
 queststatus(515) = 18, english, "task", "adventure", "order" -> inform("[New Quest] Rescue Milly IV"), queststatus(515)=19, "We have to do something. We have to stop them. If not the Dragorog Cult will kill others! There must be an orc shaman leading these unholy rituals. Go kill him!"
-queststatus(515) = 18, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Rette Miley! IV"), queststatus(515)=19, "Wir müssen etwas tun. Wir müssen sie aufhalten. Wenn nicht, wird der Dragorog-Kult andere töten! Es muss einen Ork-Schamanen geben, der diese unheiligen Rituale durchführt. Töte ihn!"
+queststatus(515) = 18, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Rette Milly! IV"), queststatus(515)=19, "Wir müssen etwas tun. Wir müssen sie aufhalten. Wenn nicht, wird der Dragorog-Kult andere töten! Es muss einen Ork-Schamanen geben, der diese unheiligen Rituale durchführt. Töte ihn!"
 
 -- Orc shaman not dead, remind player
 queststatus(515) = 19, english, "quest", "mission" -> "Is the shaman dead yet?"
@@ -159,15 +159,15 @@ queststatus(515) = 19, "quest", "mission" -> "Ist der Schamane schon tot?"
 queststatus(515) = 19, english, "task", "adventure", "order" -> "Is the shaman dead yet?"
 queststatus(515) = 19, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ist der Schamane schon tot?"
 
--- Shaman Dead, reward 50 silver
-queststatus(515) = 20, english, ".+" -> inform("[Quest Solved] You have been awarded 50 Silver Coins"), queststatus(515)=21, money + 2000, "You have killed him? Good. This is the last of  my coin. Take it and prepare yourself. There is more work to be done."
-queststatus(515) = 20, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), queststatus(515)=21, money + 2000, "Du hast ihn getötet? Gut. Dies ist die letzte meiner Münzen. Nimm sie und bereite dich vor. Es gibt noch mehr Arbeit zu tun."
+-- Shaman Dead, reward 20 silver
+queststatus(515) = 20, english, ".+" -> inform("[Quest Solved] You have been awarded 20 Silver Coins"), queststatus(515)=21, money + 2000, "You have killed him? Good. This is the last of my coins. Take it and prepare yourself. There is more work to be done."
+queststatus(515) = 20, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), queststatus(515)=21, money + 2000, "Du hast ihn getötet? Gut. Das sind meine letzten Münzen. Nimm sie und bereite dich vor. Es gibt noch mehr Arbeit zu tun."
 
 --Quest 5: Kill Human Necromancer
 queststatus(515) = 21, english, "quest", "mission" -> inform("[New Quest] Rescue Milly V"), queststatus(515)=22, "The orcs can not be that organized. Someone else must be leading them. Where dark magic is involved, there is always a necromancer. Kill him!"
-queststatus(515) = 21, "quest", "mission" -> inform("[Neue Quest] Rette Miley! V"), queststatus(515)=22, "Die Orks können sich nicht so organisieren. Jemand anderes muss sie führen. Wo dunkle Magie beteiligt ist, gibt es immer einen Nekromanten. Töte ihn!"
+queststatus(515) = 21, "quest", "mission" -> inform("[Neue Quest] Rette Milly! V"), queststatus(515)=22, "Die Orks können sich nicht so organisieren. Jemand anderes muss sie führen. Wo dunkle Magie beteiligt ist, gibt es immer einen Nekromanten. Töte ihn!"
 queststatus(515) = 21, english, "task", "adventure", "order" -> inform("[New Quest] Rescue Milly V"), queststatus(515)=22, "The orcs can not be that organized. Someone else must be leading them. Where dark magic is involved, there is always a necromancer. Kill him!"
-queststatus(515) = 21, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Rette Miley! V"), queststatus(515)=22, "Die Orks können sich nicht so organisieren. Jemand anderes muss sie führen. Wo dunkle Magie beteiligt ist, gibt es immer einen Nekromanten. Töte ihn!"
+queststatus(515) = 21, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Rette Milly! V"), queststatus(515)=22, "Die Orks können sich nicht so organisieren. Jemand anderes muss sie führen. Wo dunkle Magie beteiligt ist, gibt es immer einen Nekromanten. Töte ihn!"
 
 -- Necromancer not dead, remind player
 queststatus(515) = 22, english, "quest", "mission" -> "Have you killed the necromancer?"
