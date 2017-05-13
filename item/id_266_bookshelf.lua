@@ -206,6 +206,7 @@ M.bookList["firstaid"] = {english = "First Aid",german =  "Erste Hilfe", bookId 
 M.bookList["origionofmagic"] = {english = "About the Origins of Magic",german =  "Von der Herkunft der Magie", bookId = 413, bookGraphic = bookYellowVeryHeavy}
 M.bookList["historysilverbrand"] = {english = "The History of Silverbrand",german =  "Die Geschichte Silberbrands", bookId = 414, bookGraphic = bookGreyLargeHeavy}
 M.bookList["landillarion"] = {english = "The Land Illarion",german =  "Das Land Illarion", bookId = 415, bookGraphic = bookBlueOrnament}
+M.bookList["grugmutz"] = {english = "The Legend of Grugmutz",german =  "Die Legende von Grugmutz", bookId = 416, bookGraphic = bookBrownSmall}
 M.bookList["cadomyr_order1"] = {english = "Order 04. Findos 38 AW",german =  "Befehl 04. Findos 38 n.VdH", bookId = 501, bookGraphic = pell}
 M.bookList["speech_rosaline_32_11_05"] = {english = "Speech 04. Findos 38 AW",german =  "Rede 05. Findos 38 n.VdH", bookId = 502, bookGraphic = pell}
 M.bookList["galmair_adjutant"] = {english = "Wanted! Adjutant",german =  "Gesucht! Adjutant", bookId = 506, bookGraphic = pell}
@@ -221,6 +222,17 @@ M.bookList["galmair_priester"] = {english = "Wanted! Priests",german =  "Gesucht
 M.bookList["galmair_translator"] = {english = "Wanted! Interpreter",german =  "Gesucht! Dolmetscher", bookId = 516, bookGraphic = pell}
 M.bookList["galmair_quartermaster"] = {english = "Wanted! Quatermaster",german =  "Gesucht! Quartiermeister", bookId = 517, bookGraphic = pell}
 
+
+local function questcheckFairyTale(bookNoInQuest, bookBitmap, bookName, book, user)
+    if book == bookName and bit32.band (user:getQuestProgress(678),tonumber(bookBitmap)) == 0 then
+        user:setQuestProgress(677, 2)
+        user:setQuestProgress(678, user:getQuestProgress(678) + bookBitmap) -- Book Bitmap
+        user:setQuestProgress(683, user:getQuestProgress(683) + 1) -- Book found yet
+        user:setQuestProgress(684, bookNoInQuest) -- Book number
+        user:inform("[Quest: Die Märchensammlung] Du hast das Märchen '" .. M.bookList[book].german .. "' gefunden. Lies sorgfältig und beantworte dann John Smith eine Frage zum Inhalt.","[Quest: The Fairy Tales Collection] You found the fairy tale '" .. M.bookList[book].english .. "'. Read carefully and answer John Smith a content related question.")
+    end
+
+end
 
 function M.UseItem(user, item)
     local bookIds = {}
@@ -260,7 +272,6 @@ function M.UseItem(user, item)
         user:setQuestProgress(526, 16)
         user:inform("[Aufgabe gelöst] Kehre zu Defensor Confirmo zurück um deine Belohnung zu erhalten.","[Task solved] Return to Defensor Confirmo for your reward.")
     end
-
 end
 
 function M.LookAtItem(user, item)
@@ -273,6 +284,15 @@ function M.LookAtItem(user, item)
             if M.bookList[book] ~= nil then
                 table.insert(bookTitles.german, M.bookList[book].german)
                 table.insert(bookTitles.english, M.bookList[book].english)
+                -- Fairy Tales Quest
+                if user:getQuestProgress(677) == 1 then
+                    questcheckFairyTale(1,1,"cumunculus",book,user)
+                    questcheckFairyTale(2,2,"cadoson_letnason",book,user)
+                    questcheckFairyTale(3,4,"elstree_battle",book,user)
+                    questcheckFairyTale(4,8,"snakehead",book,user)
+                    questcheckFairyTale(5,16,"broken_wreath",book,user)
+                    questcheckFairyTale(6,32,"singingwell",book,user)
+                end
             else
                 log("Illegal book '" .. book .. "' at position " .. tostring(item.pos) .. " detected.")
             end
