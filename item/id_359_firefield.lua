@@ -40,7 +40,7 @@ function M.CharacterOnField(User)
     end
 
     -- dont harm NPCs
-    if User:getType() == character.npc then
+    if User:getType() == Character.npc then
         return
     end
 
