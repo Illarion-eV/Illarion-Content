@@ -157,12 +157,12 @@ queststatus(677) > 2, queststatus(677) < 5, queststatus(684) = 1, "Sturm", "Luft
 queststatus(677) > 2, queststatus(677) < 5, queststatus(684) = 1, "wind", "storm", "air" -> inform("[Quest: The Fairy Tales Collection] The answer was right. Say anything to get your reward."),"That is right. Do you know Elvain Morgan has an elemental wand of air too?", queststatus(677) = 5
 -- "The Fairy Tales Collection" - wrong - 1st try - Question Cumunculus
 queststatus(677) = 3, queststatus(684) = 1, german, ".+" -> inform("[Quest: Die Märchensammlung] Die Antwort stimmte nicht. Du hast noch einen zweiten Versuch."),"Ich glaube ich hab dich nicht richtig verstanden. Welche Elementargewalt nutzte Enchanta um Cumunculus das zweite Mal vor den Magiern zu schützen?", queststatus(677) = 4, queststatus(687) = 3
-queststatus(677) = 3, queststatus(684) = 1, ".+" -> inform("[Quest: The Fairy Tales Collection] The answer was wrong. You got a second chance."),"Sorry I didn’t catch you. What elementary force Enchanta used to protect Cumunculus the second time from the pain?", queststatus(677) = 4, queststatus(687) = 3
+queststatus(677) = 3, queststatus(684) = 1, ".+" -> inform("[Quest: The Fairy Tales Collection] The answer was wrong. You got a second chance."),"Sorry I didn't catch you. What elementary force Enchanta used to protect Cumunculus the second time from the pain?", queststatus(677) = 4, queststatus(687) = 3
 
 -- Cadoson and Letmason (book related)
 -- "The Fairy Tales Collection" - Help - Cadoson and Letmason
 queststatus(684) = 2, "Hilf", "helfen", "Frage" -> inform("[Quest: Die Märchensammlung] Beantworte John Smith's Frage. Du hast zwei Versuche."),"Du hast das Buch doch gelesen. Überlege mal, was könnte man im Kantabi Delta finden, das einem Golemmädchen gefallen könnte?"
-queststatus(684) = 2, "help", "question" -> inform("[Quest: The Fairy Tales Collection] Please answer the question of John Smith. You got 2 chances."),"You read the book. Take into consideration what one can find in the Kantabi delta that impress a golem girl."
+queststatus(684) = 2, "help", "question" -> inform("[Quest: The Fairy Tales Collection] Please answer the question of John Smith. You get two chances."),"You read the book. Take into consideration what one can find in the Kantabi delta that impress a golem girl."
 -- "The Fairy Tales Collection" - Book found - Question Cadoson and Letmason
 queststatus(677) = 2, queststatus(684) = 2, german, "quest", "mission", "task", "book", "calida", "tale" -> inform("[Quest: Die Märchensammlung] Beantworte John Smith's Frage. Du hast zwei Versuche."),"Sehr gut, du kannst mir jetzt sicher auch meine Frage beantworten. Welches Geschenk suchten die Brüder im Kantabi Delta?", queststatus(677) = 3
 queststatus(677) = 2, queststatus(684) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Märchen", "Buch" -> inform("[Quest: Die Märchensammlung] Beantworte John Smith's Frage. Du hast zwei Versuche."),"Sehr gut, du kannst mir jetzt sicher auch meine Frage beantworten. Welches Geschenk suchten die Brüder im Kantabi Delta?", queststatus(677) = 3
@@ -172,7 +172,7 @@ queststatus(677) > 2, queststatus(677) < 5, queststatus(684) = 2, german, "sand"
 queststatus(677) > 2, queststatus(677) < 5, queststatus(684) = 2, "sand" -> inform("[Quest: The Fairy Tales Collection] The answer was right. Say anything to get your reward."),"That is right. But if I gifted my girl some sand, I'd be lost.", queststatus(677) = 5
 -- "The Fairy Tales Collection" - wrong - 1st try - Question Cadoson and Letmason
 queststatus(677) = 3, queststatus(684) = 2, german, ".+" -> inform("[Quest: Die Märchensammlung] Die Antwort stimmte nicht. Du hast noch einen zweiten Versuch."),"Ich glaube ich hab dich nicht richtig verstanden. Welches Geschenk suchten die Brüder im Kantabi Delta?", queststatus(677) = 4, queststatus(687) = 3
-queststatus(677) = 3, queststatus(684) = 2, ".+" -> inform("[Quest: The Fairy Tales Collection] The answer was wrong. You got a second chance."),"Sorry I didn’t catch you. What gift the brothers were looking in the Kantabi delta for?", queststatus(677) = 4, queststatus(687) = 3
+queststatus(677) = 3, queststatus(684) = 2, ".+" -> inform("[Quest: The Fairy Tales Collection] The answer was wrong. You got a second chance."),"Sorry I didn't catch you. What gift the brothers were looking in the Kantabi delta for?", queststatus(677) = 4, queststatus(687) = 3
 
 -- Battle for the Elstree Forest (book related)
 -- "The Fairy Tales Collection" - Help - Battle for the Elstree Forest
@@ -187,7 +187,7 @@ queststatus(677) > 2, queststatus(677) < 5, queststatus(684) = 3, "bücherei", "b
 queststatus(677) > 2, queststatus(677) < 5, queststatus(684) = 3, "library" -> inform("[Quest: The Fairy Tales Collection] The answer was right. Say anything to get your reward."),"But that is logical, isn't it?", queststatus(677) = 5
 -- "The Fairy Tales Collection" - wrong - 1st try - Question Battle for the Elstree Forest
 queststatus(677) = 3, queststatus(684) = 3, german, ".+" -> inform("[Quest: Die Märchensammlung] Die Antwort stimmte nicht. Du hast noch einen zweiten Versuch."),"Ich glaube ich hab dich nicht richtig verstanden. Die Feen verdrehten Wegweiser, um den Elsbaumwald zu schützen. Wohin führten diese, wenn Magier kamen?", queststatus(677) = 4, queststatus(687) = 3
-queststatus(677) = 3, queststatus(684) = 3, ".+" -> inform("[Quest: The Fairy Tales Collection] The answer was wrong. You got a second chance."),"Sorry I didn’t catch you. The fairies turned road signs to save the Elstree Forest. Where did these signs lead to if a mage used them?", queststatus(677) = 4, queststatus(687) = 3
+queststatus(677) = 3, queststatus(684) = 3, ".+" -> inform("[Quest: The Fairy Tales Collection] The answer was wrong. You got a second chance."),"Sorry I didn't catch you. The fairies turned road signs to save the Elstree Forest. Where did these signs lead to if a mage used them?", queststatus(677) = 4, queststatus(687) = 3
 
 -- The Stone Gaze (book related)
 -- "The Fairy Tales Collection" - Help - The Stone Gaze
@@ -202,7 +202,7 @@ queststatus(677) > 2, queststatus(677) < 5, queststatus(684) = 4, "Blut" -> info
 queststatus(677) > 2, queststatus(677) < 5, queststatus(684) = 4, "blood" -> inform("[Quest: The Fairy Tales Collection] The answer was right. Say anything to get your reward."),"That is right. Do you think our imagination about the flower is right?", queststatus(677) = 5
 -- "The Fairy Tales Collection" - wrong - 1st try - Question The Stone Gaze
 queststatus(677) = 3, queststatus(684) = 4, german, ".+" -> inform("[Quest: Die Märchensammlung] Die Antwort stimmte nicht. Du hast noch einen zweiten Versuch."),"Ich glaube ich hab dich nicht richtig verstanden. An was erinnern die Blütenblätter, der im Märchen beschriebenen Blume?", queststatus(677) = 4, queststatus(687) = 3
-queststatus(677) = 3, queststatus(684) = 4, ".+" -> inform("[Quest: The Fairy Tales Collection] The answer was wrong. You got a second chance."),"Sorry I didn’t catch you. The leaves of the flower in the fairy tale brings you something in mind. What is it?", queststatus(677) = 4, queststatus(687) = 3
+queststatus(677) = 3, queststatus(684) = 4, ".+" -> inform("[Quest: The Fairy Tales Collection] The answer was wrong. You got a second chance."),"Sorry I didn't catch you. The leaves of the flower in the fairy tale brings you something in mind. What is it?", queststatus(677) = 4, queststatus(687) = 3
 
 -- The Broken Wreath (book related)
 -- "The Fairy Tales Collection" - Help - The Broken Wreath
@@ -217,7 +217,7 @@ queststatus(677) > 2, queststatus(677) < 5, queststatus(684) = 5, "Höhle" -> inf
 queststatus(677) > 2, queststatus(677) < 5, queststatus(684) = 5, "cave" -> inform("[Quest: The Fairy Tales Collection] The answer was right. Say anything to get your reward."),"That is right. I see you read carefully.", queststatus(677) = 5
 -- "The Fairy Tales Collection" - wrong - 1st try - Question The Broken Wreath
 queststatus(677) = 3, queststatus(684) = 5, german, ".+" -> inform("[Quest: Die Märchensammlung] Die Antwort stimmte nicht. Du hast noch einen zweiten Versuch."),"Ich glaube ich hab dich nicht richtig verstanden. Wo fanden das Mädchen und der Junge Schutz vor dem Wüten der Götter?", queststatus(677) = 4, queststatus(687) = 3
-queststatus(677) = 3, queststatus(684) = 5, ".+" -> inform("[Quest: The Fairy Tales Collection] The answer was wrong. You got a second chance."),"Sorry I didn’t catch you. Where found the girl and the boy shelter from the ravage of the Gods?", queststatus(677) = 4, queststatus(687) = 3
+queststatus(677) = 3, queststatus(684) = 5, ".+" -> inform("[Quest: The Fairy Tales Collection] The answer was wrong. You got a second chance."),"Sorry I didn't catch you. Where found the girl and the boy shelter from the ravage of the Gods?", queststatus(677) = 4, queststatus(687) = 3
 
 -- The Singing Well (book related)
 -- "The Fairy Tales Collection" - Help - The Singing Well
@@ -232,11 +232,11 @@ queststatus(677) > 2, queststatus(677) < 5, queststatus(684) = 6, "Eis" -> infor
 queststatus(677) > 2, queststatus(677) < 5, queststatus(684) = 6, "ice" -> inform("[Quest: The Fairy Tales Collection] The answer was right. Say anything to get your reward."),"That's correct. It's told ther was never a better beer than at that time.", queststatus(677) = 5
 -- "The Fairy Tales Collection" - wrong - 1st try - Question The Singing Well
 queststatus(677) = 3, queststatus(684) = 6, german, ".+" -> inform("[Quest: Die Märchensammlung] Die Antwort stimmte nicht. Du hast noch einen zweiten Versuch."),"Ich glaube ich hab dich nicht richtig verstanden. Was baute Großvater in seiner Mine ab und verkaufte es mit großem Erfolg?", queststatus(677) = 4, queststatus(687) = 3
-queststatus(677) = 3, queststatus(684) = 6, ".+" -> inform("[Quest: The Fairy Tales Collection] The answer was wrong. You got a second chance."),"Sorry I didn’t catch you. What found grandfather in his mine and sold successfully?", queststatus(677) = 4, queststatus(687) = 3
+queststatus(677) = 3, queststatus(684) = 6, ".+" -> inform("[Quest: The Fairy Tales Collection] The answer was wrong. You got a second chance."),"Sorry I didn't catch you. What found grandfather in his mine and sold successfully?", queststatus(677) = 4, queststatus(687) = 3
 
 -- "The Fairy Tales Collection" - wrong - 2nd try - all books
 queststatus(677) = 4, german, ".+" -> inform("[Quest: Die Märchensammlung] Die Antwort stimmte nicht. Du kannst es in einer viertel Stunde erneut versuchen."),"Ich glaube das stimmt nicht ganz. Lies noch mal nach und komme später wieder, aber dann bitte mit der richtigen Antwort.", queststatus(677) = 2
-queststatus(677) = 4, ".+" -> inform("[Quest: The Fairy Tales Collection] The answer was wrong. You may try it after 15 minutes again."),"This won’t do. The answer is not correct. Please read the book again and come back with the right answer later.", queststatus(677) = 2
+queststatus(677) = 4, ".+" -> inform("[Quest: The Fairy Tales Collection] The answer was wrong. You may try it after 15 minutes again."),"This won't do. The answer is not correct. Please read the book again and come back with the right answer later.", queststatus(677) = 2
 
 -- "The Fairy Tales Collection" - get reward - all books
 queststatus(677) = 5, queststatus(683) = 1, german, ".+"  -> inform("[Quest: Die Märchensammlung] Du erhältst 10 Silbermünzen für dir richtige Antwort. Suche weiter, du hast noch nicht alle Bücher gefunden."),"Hier, nimm diese Münzen, die denen zustehen, die viel wissen. Bedenke, es gibt noch mehr Märchen, die die Calida-Schwestern aufgeschrieben haben.", queststatus(677) = 1, queststatus(687) = 0, money + 1000
@@ -342,7 +342,7 @@ english, "Gobaith", "Gobiath" -> "Ehm...?", "Really?", "Sorry, I never heard abo
 "buch", "büch" -> "Wenn ich mal nichts zu reparieren habe, schmökere ich gerne auch ein Buch.", "Wir haben hier in Runewick die größte Bücherei der bekannten Welt. Zumindestens der Welt, die ich kenne."
 "book", "library" -> "Often I read a book  if there is nothing to do else.", "The largest library of the known world you can find in Runewick. At least of the world I know."
 "Märchen" -> "Es gibt schon seltsame Geschichten. Nicht alles was in Märchen steht sollten wir für bare Münzen nehmen.", "Ich sag immer, Märchen sind nicht nur für Kinder", "Wer sich nur immer die Geschichten ausdenkt?"
-"tales" -> "Some tales are really strange. One shouldn’t take everything in a story for real.", "According to my opinion, fairy tales aren't for children only.", "Guess how these stories came into the mind of the people."
+"tales" -> "Some tales are really strange. One shouldn't take everything in a story for real.", "According to my opinion, fairy tales aren't for children only.", "Guess how these stories came into the mind of the people."
 "figur", "cumuncul", german -> "Meine liebste Märchenfigur ist noch immer Cumunculus. Stell dir nur mal vor, wie der ausgesehen haben wird!"
 "figur", "cumuncul" -> "My most loved fairy-tale figure is Cumunculus. Guess how he may had looked like!"
 "geld", "bezahl" -> "Ich nehm ja einiges durch die Arbeit ein. Der Erzmagier sagt immer, dass ich denen, die viel wissen auch was zurückgeben soll."
