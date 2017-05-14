@@ -16,7 +16,7 @@
 -- NPC Name: Ruzusss                                                  Cadomyr --
 -- NPC Job:  hunter                                                           --
 --                                                                            --
--- NPC Race: lizardman                  NPC Position:  126, 630, 0            --
+-- NPC Race: lizardman                  NPC Position:  134, 629, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   envi                                                             --
@@ -26,7 +26,7 @@
 name = "Ruzusss"
 race = lizardman
 sex = male
-position = 126, 630, 0
+position = 134, 629, 0
 direction = south
 affiliation = "Cadomyr"
 job = "hunter"
