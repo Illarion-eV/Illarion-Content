@@ -14,11 +14,25 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ID 1, Human,          Level: 5, Armourtype: medium, Weapontype: slashing
---ID 2, Human Warrior,  Level: 6, Armourtype: heavy,  Weapontype: slashing
---ID 5, Human Thief,    Level: 4, Armourtype: light,  Weapontype: puncture
---ID 6, Friendly Human, Level: 0, Not hostile
---ID 9, Cursed Knight,..Level: 9,
+--ID 7, Dark Paladin, Level: 7, Armourtype: Heavy, Weapontype: Slashing
 
 local humans = require("monster.race_0_human.base")
-return humans.generateCallbacks()
+local base = require("monster.base.base")
+local M = {}
+
+function M.generateCallbacks()
+    local t = humans.generateCallbacks()
+    local orgOnSpawn = t.onSpawn
+
+    function t.onSpawn(monster)
+        if orgOnSpawn ~= nil then
+            orgOnSpawn(monster)
+        end
+
+        base.setColor{monster = monster, target = base.HAIR_COLOR, red = 0, green = 0, blue = 0}
+        
+    end
+    return t
+end
+
+return M
