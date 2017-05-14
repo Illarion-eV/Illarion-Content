@@ -17,8 +17,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (677, 'quest.calida_677_runewick');
 
-require("base.common")
-module("quest.calida_IDQUEST_runewick", package.seeall)
+local common = require("base.common")
+--module("quest.calida_IDQUEST_runewick", package.seeall)
+local M = {}
 
 GERMAN = Player.german
 ENGLISH = Player.english
@@ -44,6 +45,9 @@ Description[GERMAN][4] = "Deine erste Antwort beinhaltete nicht das Schlüsselwor
 Description[ENGLISH][4] = "The first answer did not contains the keyword. You got a second chance.\nAnswer John Smith's question about the content of the fairy tale. He looks for a single simple word."
 Description[GERMAN][5] = "Die Antwort war richtig. Bedenke, dass John Smith noch eine Belohnung for dich hat."
 Description[ENGLISH][5] = "Your answer was right. Please take into consideration, John Smith has a reward for you"
+
+-- Insert the position of the quest start here (probably the position of an NPC or item)
+Start = {901, 808, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 QuestTarget = {}
@@ -75,3 +79,4 @@ end
 function QuestFinalStatus()
     return FINAL_QUEST_STATUS
 end
+return M
