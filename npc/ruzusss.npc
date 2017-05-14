@@ -128,7 +128,7 @@ english, "Illarion" -> inform("[Keywords] northeast, northwest, southwest, south
 "Südost" -> inform("[Schlüsselwörter] Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Morgentausumpf, Eibenthal, Numila Irunnleh."), "Ich habe Informationen zu folgenden Orten: Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Morgentausumpf, Eibenthal."
 
 -- northeast
-"There isss Elstree Forest and Elstree Plain. They are located in the northeast. You ssshould ask sssomeone who livesss there. Wulfgorda ssshould know."
+"Elstree" -> "There isss Elstree Forest and Elstree Plain. They are located in the northeast. You ssshould ask sssomeone who livesss there. Wulfgorda ssshould know."
 "Elstree Forest" -> "It isss in the northeast and you ssshould ask someone who livesss there. Wulfgorda ssshould know. I can tell you that fairies can be found there. Who might drop sssome magical gemsss if you are lucky."
 "Elsbaumwald" -> "Dieser Ort ist im Nordosten zu finden. Willst du mehr wissssen, bietet es sich an jemanden zu fragen, der dort wohnt. Zum Beispiel Wulfgorda. Wie dem auch sei, Feen können dort gefunden werden, welche womöglich magische Steine fallen lassen."
 "Elstree Plain" -> "It isss in the northeast. You ssshould ask someone who livesss there. Wulfgorda ssshould know."
