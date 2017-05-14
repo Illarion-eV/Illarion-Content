@@ -18,21 +18,18 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local humans = require("monster.race_0_human.base")
 local base = require("monster.base.base")
-local M = {}
+local M = humans.generateCallbacks()
+local orgOnSpawn = M.onSpawn
 
-function M.generateCallbacks()
-    local t = humans.generateCallbacks()
-    local orgOnSpawn = t.onSpawn
 
-    function t.onSpawn(monster)
-        if orgOnSpawn ~= nil then
-            orgOnSpawn(monster)
-        end
 
-        base.setColor{monster = monster, target = base.HAIR_COLOR, red = 0, green = 0, blue = 0}
-        
+function M.onSpawn(monster)
+    if orgOnSpawn ~= nil then
+        orgOnSpawn(monster)
     end
-    return t
+
+    base.setColor{monster = monster, target = base.HAIR_COLOR, red = 0, green = 0, blue = 0}
 end
+
 
 return M
