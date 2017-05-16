@@ -46,7 +46,7 @@ function InitGathering()
         grainharvesting = gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, LearnLimit = 100}; -- id_271_scythe
         
         --woodchopping
-        woodchopping:AddRandomItem(2551,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Findari, die Göttin der Luft, mit einem Kleinod aus Reiner Luft.","For your hard and honest labour Findari, the Godess of Air, rewards you with a treasure of Pure Air."); --Pure air
+        woodchopping:AddRandomPureElement(1,{},prob_extremely_rarely); -- Any pure element
         woodchopping:AddRandomMagicGem(1,999,gems.getMagicGemData(1),prob_extremely_rarely); -- Any latent magical gem
         woodchopping:AddRandomItem(2441,1,333,{},prob_extremely_rarely,"Im Erdboden machst du einen alten, rostigen Helm aus. Ein Überbleibsel einer längst vergessenen Schlacht?","As you work you unearth an old rusty helmet. A remnant of a long-forgotten battle?"); --Storm cap
         woodchopping:AddRandomItem(235,1,333,{},prob_occasionally,"In einer Spechthöhle findest du einen goldenen Ring. Wird er dich ins Dunkle treiben?","From a woodpecker's hole a golden gleam catches your eye, and you discover it is a golden ring."); --gold ring
@@ -56,7 +56,7 @@ function InitGathering()
         woodchopping:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
 
         -- egg gathering
-        egggathering:AddRandomItem(2553,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Brágon, der Gott des Feuers, mit einem Kleinod aus Reinem Feuer.","For your hard and honest labour Brágon, the god of fire, rewards you with a treasure of Pure Fire."); --Pure fire
+        egggathering:AddRandomPureElement(1,{},prob_extremely_rarely); -- Any pure element
         egggathering:AddRandomMagicGem(1,999,gems.getMagicGemData(1),prob_extremely_rarely); -- Any latent magical gem
         egggathering:AddRandomItem(249,1,333,{},prob_occasionally,"Für dieses Nest wurde ein ganzes Bündel Getreide als Nistmaterial verwendet.","A bundle of grain was used as nesting material for this nest."); --bundle of grain
         egggathering:AddRandomItem(463,1,333,{},prob_frequently,"Du findest eine besonders große Feder, mit der man sicher auch gut schreiben kann.","You find a big feather that looks suitable for writing."); --Quill
@@ -65,7 +65,7 @@ function InitGathering()
         egggathering:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
 
         --honeygathering
-        honeygathering:AddRandomItem(2551,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Findari, die Göttin der Luft, mit einem Kleinod aus Reiner Luft.","For your hard and honest labour Findari, the Godess of Air, rewards you with a treasure of Pure Air."); --Pure air
+        honeygathering:AddRandomPureElement(1,{},prob_extremely_rarely); -- Any pure element
         honeygathering:AddRandomMagicGem(1,999,gems.getMagicGemData(1),prob_extremely_rarely); -- Any latent magical gem
         honeygathering:AddRandomItem(2744,1,333,{},prob_extremely_rarely,"Ein Imkerkollege scheint hier seine Pfeife vergessen zu haben. Du nimmst sie an dich.","A beekeeper colleague must have forgotten his pipe for smoking out the bees. You take it with you."); --Pipe
         honeygathering:AddRandomItem(151,1,333,{},prob_occasionally,"Die Bienen haben offensichtlich Vorräte angelegt. Sogar eine ganze Erdbeere haben sie in ihren Stock geschleppt.","As you carefully pull honey from the hive you notice a sticky strawberry in your grasp!"); --Strawberry
@@ -79,15 +79,15 @@ function InitGathering()
         honeygathering:AddInterruptMessage("Eine aufdringliche Wespe schwirrt um deinen Kopf heru Du schlägst mit der Hand danach und versuchst es zu vertreiben.", "A curious wasp buzzes around your head and you try to scare it away.");
 
         --milking
-        milking:AddRandomItem(2554,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Tanora, die Göttin des Wassers, mit einem Kleinod aus Reinem Wasser.","For your hard and honest labour Tanora, the Godess of Water, rewards you with a treasure of Pure Water."); --Pure water
+        milking:AddRandomPureElement(1,{},prob_extremely_rarely); -- Any pure element
         milking:AddRandomMagicGem(1,999,gems.getMagicGemData(1),prob_extremely_rarely); -- Any latent magical gem
         milking:AddRandomItem(153,1,333,{},prob_occasionally,"Ein großes Blatt hat sich im Fell des Tieres verfangen. Du betreibst zunächst ein wenig Fellpflege, bevor du weiter melkst.","A large leaf was tangled in the fur of the animal. You do a little grooming before you continue milking."); --Foot leaf
-        milking:AddRandomItem(156,1,333,{},prob_frequently,"Etwas Gras hat sich im Fell des tieres verfangen. Du entfernst das klebrige Grünzeug.","Some grass was ensnared in the fur of the animal. Before you can continue milking you have to remove the sticky green weed."); --Steppe fern
+        milking:AddRandomItem(156,1,333,{},prob_frequently,"Etwas Gras hat sich im Fell des Tieres verfangen. Du entfernst das klebrige Grünzeug.","Some grass was ensnared in the fur of the animal. Before you can continue milking you have to remove the sticky green weed."); --Steppe fern
         milking:SetTreasureMap(prob_rarely,"Das Tier kratzt und schnüffelt aufgeregt am Boden. Dort findest du eine seltsame Karte.","The animal scratches and sniffs on the ground excitdly. You find a strange map there.");
         milking:AddMonster(271,prob_rarely,"Während du das Tiel melkst, umschwirrt dich eine ungewöhnlich agressive Wespe.","While you milk the animal an annoyingly aggressive wasp comes after you!",4,7);
 
         --farming
-        farming:AddRandomItem(2552,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Ushara, die Göttin der Erde, mit einem Kleinod aus Reiner Erde.","For your hard and honest labour Ushara, the Godess of Earth, rewards you with a treasure of Pure Earth."); --Pure earth
+        farming:AddRandomPureElement(1,{},prob_extremely_rarely); -- Any pure element
         farming:AddRandomMagicGem(1,999,gems.getMagicGemData(1),prob_extremely_rarely); -- Any latent magical gem
         farming:AddRandomItem(1840,1,333,{},prob_extremely_rarely,"Im Ackerboden ist ein angelaufender Kupferkelch zu finden.","In the arable soil you find a tarnished copper goblet."); --copper goblet
         farming:AddRandomItem(2935,1,333,{},prob_occasionally,"Da hat wohl jemand eine Schüssel verloren, mit der er Saatgut augestreut hat. Nun gehört sie dir.","You dig up an old bowl. Now it belongs to you."); --soup bowl
@@ -102,11 +102,10 @@ function InitGathering()
         fruitgathering:AddRandomItem(463,1,333,{},prob_frequently,"Eine Feder hat sich zwischen den Zweigen verfangen. Ob man mit ihr auch schreiben kann?","A feather lies entangled among the branches. Perhaps one could write with it?"); --quill
         fruitgathering:SetTreasureMap(prob_rarely,"Aus dem Augenwinkel siehst du ein altes Stück Pergament, das sich in einem Busch verfangen hat. Als du es dir genauer anschaust, erkennst du, dass es sich um eine Art Karte handelt.","Through the corner of your eye you spot an old parchment snared in a nearby bush. Once it is in your hand you notice it is some kind of map.");
         fruitgathering:AddMonster(271,prob_rarely,"Eine Wespe schnellt heran, um dir die süßen Früchte streitig zu machen.","An agitated wasp darts toward you to contest its claim to the fruit.",4,7);
-
         fruitgathering:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
 
         --mining
-        mining:AddRandomItem(2552,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Ushara, die Göttin der Erde, mit einem Kleinod aus Reiner Erde.","For your hard and honest labour Ushara, the Godess of Earth, rewards you with a treasure of Pure Earth."); --Pure earth
+        mining:AddRandomPureElement(1,{},prob_extremely_rarely); -- Any pure element
         mining:AddRandomMagicGem(1,999,gems.getMagicGemData(1),prob_extremely_rarely); -- Any latent magical gem
         mining:AddRandomItem(310,1,333,{},prob_extremely_rarely,"Zwerge scheinen alten Krügen keine Beachtung beizumessen, insbesondere, wenn sie leer sind. Auch hier liegt einfach einer herum.","Dwarves seem to pay no attention to old pitchers, especially if they are empty. As you work one catches your eye."); --mug with lid
         mining:AddRandomItem(1908,1,333,{},prob_occasionally,"Diese Mine wurde offensichtlich kürzlich von Zwergen aufgesucht. Wie sonst erklärt sich der Bierkrug, den du zwischen dem Geröll findest?","This mine was occupied recently. How else would you explain the beer mug at your feet?"); --beer mug
@@ -120,7 +119,7 @@ function InitGathering()
         mining:AddInterruptMessage("Du verlierst kurz das Gleichgewicht durch einen losen Gesteinsbrocken am Boden.", "Some rubble at your feet impedes your progress.");
 
         --sanddigging
-        sanddigging:AddRandomItem(2553,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Brágon, der Gott des Feuers, mit einem Kleinod aus Reinem Feuer.","For your hard and honest labour Brágon, the god of fire, rewards you with a treasure of Pure Fire."); --Pure fire
+        sanddigging:AddRandomPureElement(1,{},prob_extremely_rarely); -- Any pure element
         sanddigging:AddRandomMagicGem(1,999,gems.getMagicGemData(1),prob_extremely_rarely); -- Any latent magical gem
         sanddigging:AddRandomItem(3077,1,333,{},prob_extremely_rarely,"Eine funkelnde Münze liegt auf deinem Schaufelblatt. Hat sich die harte Arbeit doch gelohnt!","A tink of your shovel blade causes you to pause. Then to your surprise it turns out you struck a silver coin!"); --Silver coin
         sanddigging:AddRandomItem(21,1,333,{},prob_occasionally,"Du findest einige noch heiße Kohlen im Sand. Ein Glück, dass du nicht auf diese Überreste einer nächtlichen Grillfeier getreten bist.","As your shovel digs through the sand you unearth an unused lump of coal and discover an abandoned campfire."); --Coal
@@ -137,7 +136,7 @@ function InitGathering()
         snowballmaking:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
         
         --claydigging
-        claydigging:AddRandomItem(2554,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Tanora, die Göttin des Wassers, mit einem Kleinod aus Reinem Wasser.","For your hard and honest labour Tanora, the Godess of Water, rewards you with a treasure of Pure Water."); --Pure water
+        claydigging:AddRandomPureElement(1,{},prob_extremely_rarely); -- Any pure element
         claydigging:AddRandomMagicGem(1,999,gems.getMagicGemData(1),prob_extremely_rarely); -- Any latent magical gem
         claydigging:AddRandomItem(2658,1,333,{},prob_extremely_rarely,"Du findest eine Knochenhand im Matsch. Sie umklammert ein altes Schwert.","You find a boney hand in the mud clutching an old sword."); --broadsword
         claydigging:AddRandomItem(51,1,333,{},prob_occasionally,"Du ziehst einen alten Eimer aus dem Schlick.","You draw an old bucket from the silt."); --bucket
@@ -151,7 +150,7 @@ function InitGathering()
         claydigging:AddInterruptMessage("Das Loch, in dem du gräbst, füllt sich mit Wasser und du mußt es kurz abschöpfen.", "The pit you are digging fills with water causing you to pause in order to scoop it out.");
 
         --herbgathering
-        herbgathering:AddRandomItem(3607,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Eldan, der Gott des Geistes, mit einem Kleinod aus Reiner Geist.","For your hard and honest labour Eldan, the God of Spirit, rewards you with a treasure of Pure Spirit."); --Pure spirit
+        herbgathering:AddRandomPureElement(1,{},prob_extremely_rarely); -- Any pure element
         herbgathering:AddRandomMagicGem(1,999,gems.getMagicGemData(1),prob_extremely_rarely); -- Any latent magical gem
         herbgathering:AddRandomItem(2183,1,333,{},prob_extremely_rarely,"Ein alter Krug liegt verlassen und einsam im Gebüsch.","An old mug lies abandoned and lonesome in the bushes."); --Mug
         herbgathering:AddRandomItem(799,1,333,{},prob_occasionally,"Ein Weidenkorb liegt am Boden. Er scheint noch brauchbar zu sein.","A wicker basket lies on the ground. It still seems to be usable."); --Basket
@@ -165,7 +164,7 @@ function InitGathering()
         herbgathering:AddInterruptMessage("Ein aufdringliches Insekt schwirrt um deinen Kopf heru Du schlägst mit der Hand danach und versuchst es zu vertreiben.", "An annoying bug buzzes around your head. You strike at it in order to drive it away.");
 
         --fishing
-        fishing:AddRandomItem(2554,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Tanora, die Göttin des Wassers, mit einem Kleinod aus Reinem Wasser.","For your hard and honest labour Tanora, the Godess of Water, rewards you with a treasure of Pure Water."); --Pure water
+        fishing:AddRandomPureElement(1,{},prob_extremely_rarely); -- Any pure element
         fishing:AddRandomMagicGem(1,999,gems.getMagicGemData(1),prob_extremely_rarely); -- Any latent magical gem
         fishing:AddRandomItem(51,1,333,{},prob_extremely_rarely,"Ein Eimer verfängt sich in deiner Angelschnur. Den hat hier wohl jemand verloren.","As you tighten your line you feel a heavy resistance. With a careful approach you are able to pull a bucket ashore."); --Bucket
         fishing:AddRandomItem(92,1,333,{},prob_occasionally,"Du ziehst eine glitzernde Öllampe aus dem Wasser. Wo die wohl herkommt...?","You pull a sparkling oil lamp out of the water. Where did that come from?"); --Oil lamp
@@ -180,7 +179,7 @@ function InitGathering()
         -- fishing:AddInterruptMessage("Du weidest deinen bisherigen Fang aus.");
 
         --woolcutting
-        woolcutting:AddRandomItem(2553,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Brágon, der Gott des Feuers, mit einem Kleinod aus Reinem Feuer.","For your hard and honest labour Brágon, the God of Fire, rewards you with a treasure of Pure Fire."); --Pure fire
+        woolcutting:AddRandomPureElement(1,{},prob_extremely_rarely); -- Any pure element
         woolcutting:AddRandomMagicGem(1,999,gems.getMagicGemData(1),prob_extremely_rarely); -- Any latent magical gem
         woolcutting:AddRandomItem(222,1,333,{},prob_extremely_rarely,"Dieses Schaf trägt ein merkwürdiges Amulett um den Hals. Wer kommt auf solch eine Idee?","This sheep is bearing a strange amulet around its neck. Who had such an idea?"); --Amulet
         woolcutting:AddRandomItem(153,1,333,{},prob_occasionally,"Ein großes Blatt hat sich im Fell des Schafes verfangen. Du betreibst zunächst ein wenig Fellpflege, bevor du weiter scherst.","A large leaf was tangled in the fur of the sheep. You do a little grooming before you continue shearing."); --Foot leaf
@@ -190,7 +189,7 @@ function InitGathering()
         woolcutting:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
 
         --grainharvesting
-        grainharvesting:AddRandomItem(2552,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Ushara, die Göttin der Erde, mit einem Kleinod aus Reiner Erde.","For your hard and honest labour Ushara, the Godess of Earth, rewards you with a treasure of Pure Earth."); --Pure earth
+        grainharvesting:AddRandomPureElement(1,{},prob_extremely_rarely); -- Any pure element
         grainharvesting:AddRandomMagicGem(1,999,gems.getMagicGemData(1),prob_extremely_rarely); -- Any latent magical gem
         grainharvesting:AddRandomItem(1840,1,333,{},prob_extremely_rarely,"Im Ackerboden ist ein angelaufender Kupferkelch zu finden.","In the arable soil you find a tarnished copper goblet."); --copper goblet
         grainharvesting:AddRandomItem(2935,1,333,{},prob_occasionally,"Da hat wohl jemand eine Schüssel verloren, mit der er Saatgut augestreut hat. Nun gehört sie dir.","You dig up an old bowl. Now it belongs to you."); --soup bowl
