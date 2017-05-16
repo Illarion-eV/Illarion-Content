@@ -16,6 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local treasure = require("item.base.treasure")
+local gems = require("item.gems")
 
 module("base.gatheringcraft", package.seeall)
 
@@ -94,6 +95,16 @@ end
 
 function GatheringCraft:AddRandomItem(ItemID, Quantity, Quality, Data, Probability, MessageDE, MessageEN)
     table.insert(self.RandomItems, RandomItem:new{["ID"] = ItemID, ["Quantity"] = Quantity, ["Quality"] = Quality, ["Data"] = Data, ["Probability"] = Probability, ["MessageDE"] = MessageDE, ["MessageEN"] = MessageEN});
+    return;
+end
+
+function GatheringCraft:AddRandomMagicGem(Quantity, Quality, Data, Probability)
+    table.insert(self.RandomItems, RandomItem:new{["ID"] = gems.getMagicGemId(gems.EMERALD), ["Quantity"] = Quantity, ["Quality"] = Quality, ["Data"] = Data, ["Probability"] = tonumber(Probability) / 6, ["MessageDE"] = "Die Arbeit ist anstrengend aber nicht kompliziert. Du siehst dich um und entdeckst ein grünliches Leuchten. Du schaust genauer hin und findest einen magischen Smaragd.", ["MessageEN"] = "The work is exhausting but not difficult. You look around and discover a greenish glow. You look closer and find a magical emerald."});
+    table.insert(self.RandomItems, RandomItem:new{["ID"] = gems.getMagicGemId(gems.OBSIDIAN), ["Quantity"] = Quantity, ["Quality"] = Quality, ["Data"] = Data, ["Probability"] = tonumber(Probability) / 6, ["MessageDE"] = "Seit wann leuchtet Schmutz? Du wischst etwas Staub bei Seite und hältst einen magischen Obsidian in der Hand.", ["MessageEN"] = "Since when does dirt glow? You wipe dust aside and hold a magical obsidian in your hand."});
+    table.insert(self.RandomItems, RandomItem:new{["ID"] = gems.getMagicGemId(gems.RUBY), ["Quantity"] = Quantity, ["Quality"] = Quality, ["Data"] = Data, ["Probability"] = tonumber(Probability) / 6, ["MessageDE"] = "Erschrocken springst du zurück, als ein Funke auf deinen Fuß fällt. Als du genauer hinschaust siehst du, dass es sich um einen magischen Rubin handelt.", ["MessageEN"] = "Frightened, you spring back as a spark falls on your foot. As you look closer you can see that it is a magic ruby."});
+    table.insert(self.RandomItems, RandomItem:new{["ID"] = gems.getMagicGemId(gems.TOPAZ), ["Quantity"] = Quantity, ["Quality"] = Quality, ["Data"] = Data, ["Probability"] = tonumber(Probability) / 6, ["MessageDE"] = "Ist es ein Sonnenstrahl, der dir ins Auge sticht? Nein dort liegt etwas Gelbes. Du findest einen magischen Topas.", ["MessageEN"] = "Is it a sunbeam that hits your eye? No there is something yellow. You find a magical topaz."});
+    table.insert(self.RandomItems, RandomItem:new{["ID"] = gems.getMagicGemId(gems.AMETHYST), ["Quantity"] = Quantity, ["Quality"] = Quality, ["Data"] = Data, ["Probability"] = tonumber(Probability) / 6, ["MessageDE"] = "Du setzt dein Werkzeug kurz ab. Als du es wieder aufnimmst, findest du darunter einen magischen Amethysten.", ["MessageEN"] = "For a short moment you put your tool down. When you pick it back up, you find a magical amethyst."});
+    table.insert(self.RandomItems, RandomItem:new{["ID"] = gems.getMagicGemId(gems.SAPPHIRE), ["Quantity"] = Quantity, ["Quality"] = Quality, ["Data"] = Data, ["Probability"] = tonumber(Probability) / 6, ["MessageDE"] = "Schweiß tropft dir von der Stirn. Dort wo er aufschlägt verwandelt er sich. Oder lag der magische Saphir schon vorher dort?", ["MessageEN"] = "Sweat drips from your forehead. Where it reaches the ground it changes. Or was the magical sapphire already there?"});
     return;
 end
 
