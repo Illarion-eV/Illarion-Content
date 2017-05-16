@@ -114,11 +114,11 @@ english, "Illarion" -> inform("[Keywords] Northeast, northwest, southwest, south
 "Südost" -> inform("[Schlüsselwörter] Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Morgentausümpfe, Eibenthal, Numila Irunnleh."), "Ich habe Informationen zu folgenden Orten: Schlangenkopfbucht, Einsame Inseln, Todesgestank, Drachenhöhle, Morgentausümpfe, Eibenthal. Aber für ausführlichere Informationen frage Numila Irunnleh in Runewick."
 
 -- northeast
-"Elstree" -> "I know of two, Elstree Forest and Elstree Plain. Which one would you like to know more about?"
-"Elstree Forest" -> "The Elstree Forest is a huge and wonderful forest south of the Dead Marsh. There, you will also find Elstree Lake, Fairy's Dance, the Sunken Tower of Mar'ku, Mount Liferoot, and to the south the Den of Thieves. If you are lucky, fairies might drop magical stones for you."
+"Forest" -> "The Elstree Forest is a huge and wonderful forest south of the Dead Marsh. There, you will also find Elstree Lake, Fairy's Dance, the Sunken Tower of Mar'ku, Mount Liferoot, and to the south the Den of Thieves. If you are lucky, fairies might drop magical stones for you."
 "Elsbaumwald" -> "Der Elsbaumwald ist ein riesiger und wunderbarer Wald südlich vom Todessumpf. Dort findest du auch den Elstree See, den Feen Tanz, den Versunkenen Turm von Mar'ku, Berg Lebenswurzel, und im Süden die Diebeshöhle. Wenn du Glück hast, dann lassen die Feen dort den einen oder anderen magischen Stein für dich fallen."
-"Elstree Plain" -> "It is between Igruk's cave and the Elstree Forest. You'll find Jarl's Longhouse and the Golden Hole there."
+"Plain" -> "The Elstree Plain is between Igruk's cave and the Elstree Forest. You'll find Jarl's Longhouse and the Golden Hole there."
 "Elsbaumebene" -> "Die ist zwischen Igruk's Höhle und dem Elsbaumwald. Du findest dort auch des Jarls Langhaus und das Goldene Loch."
+"Elstree" -> "I know of two, Elstree Forest and Elstree Plain. Which one would you like to know more about?"
 "Eastland" -> "You will find it east of the Elstree Forest and from there you can find Eastport, Twin Mountains, Paddock Farm, the Wonderland with the Wishing Fountain and the Naganorium."
 "Ostland" -> "Du findest es östlich vom Elsbaumwald und dort wiederum kannst du den Osthafen, die Zwillingsberge, den Paddock Hof, das Wunderland mit dem Wunschbrunnen und das Naganorium finden."
 "Pauldron" -> "The Pauldron Isle is east of Eastland. You can find the Tanora Ruins, Epphurd's Houses, the Graveyard, Skewer Drift and the former Pauldron Settlement there."
