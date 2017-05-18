@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local monstermagic = require("monster.base.spells.base")
+local character = require("base.character")
 
 local M = {}
 
@@ -44,7 +45,7 @@ function M.CharacterOnField(User)
     end
 
     -- immune
-    if User:getType() == Character.monster and checkFlameImmunity(User:getMonsterType()) then
+    if not character.IsPlayer(User) and checkFlameImmunity(User:getMonsterType()) then
         return
     end
 

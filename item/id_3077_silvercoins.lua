@@ -59,7 +59,7 @@ function M.UseItem(User, SourceItem)
         elseif frontItem.id == 2805 and frontItem.pos == position(370, 473, 1) then--if frontItem is quest pillar for entrance to Dragorog Dungeon
             if User:getQuestProgress(515) == 1 and (world:getItemOnField(position(373, 477, 1)).id ~= 603) then
                 User:setQuestProgress (515, 2)
-                User:inform('Als die Münze in der Säule verschwindet spürst du etwas in deinen Finger stechen. Das schmerzt! Teile xyz mit, dass du den Eingang gefunden hast.', 'As the coin disappears into the column you feel something pierce your finger. That hurt! Tell xyz you found the entrance.')
+                User:inform('Als die Münze in der Säule verschwindet spürst du etwas in deinen Finger stechen. Das schmerzt! Teile Aelfinn mit, dass du den Eingang gefunden hast.', 'As the coin disappears into the column you feel something pierce your finger. That hurt! Tell Aelfinn you found the entrance.')
                 world:erase(SourceItem, 1)
                 world:gfx(13,User.pos)
                 world:makeSound(31,User.pos)
@@ -71,7 +71,7 @@ function M.UseItem(User, SourceItem)
                 world:createItemFromId(601, 1,position(375,477,1), true, 333, nil) --bridge
             elseif User:getQuestProgress(515) == 1 and (world:getItemOnField(position(373, 477, 1)).id == 603) then
                 User:setQuestProgress (515, 2)
-                User:inform('Als die Münze in der Säule verschwindet spürst du etwas in deinen Finger stechen. Das schmerzt! Teile xyz mit, dass du den Eingang gefunden hast.', 'As the coin disappears into the column you feel something pierce your finger. That hurt! Tell xyz you found the entrance.')
+                User:inform('Als die Münze in der Säule verschwindet spürst du etwas in deinen Finger stechen. Das schmerzt! Teile Aelfinn mit, dass du den Eingang gefunden hast.', 'As the coin disappears into the column you feel something pierce your finger. That hurt! Tell Aelfinn you found the entrance.')
                 world:erase(SourceItem, 1)
                 world:gfx(13,User.pos)
                 world:makeSound(31,User.pos)

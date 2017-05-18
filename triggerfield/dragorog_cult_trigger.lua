@@ -40,14 +40,14 @@ function M.MoveToField(char)
     end
 
     if  char.pos == position(376, 476, 1) then -- warp up to Dragorog cult dungeon
-        char:warp(position(385, 461, 2))
+        char:warp(position(385, 464, 2))
     
     elseif char.pos == position(385, 460, 2) then -- warp down from Dragorog cult dungeon
         char:warp(position(376, 471, 1))
         
     elseif char:isInRangeToPosition((position (435, 462, 2)), 2) and char:getQuestProgress(515) == 16 then -- Player found Milly
         char:setQuestProgress(515, 17)
-        common.InformNLS(char, "Vor dem Altar liegt die übel zugerichtete Leiche einer Elfin. Der Beschreibung Aelfinns nach, handelt es sich hierbei wohl um seine entführte Geliebte. Du solltest zurückgehen und ihm von ihrem Schicksal berichten.", "In front of the altar lies a rather gruesome looking elven corpse. Judging by Aelfinn's description, this is probably his kidnapped lover. You should return to him and tell him about his girlfriend's fate.")
+        common.InformNLS(char, "Vor dem Altar liegt der noch warme Leichnam einer Elfe. Du hast Milly gefunden. Leider zu spät.", "In front of the altar lays the still warm corpse of an elfess. You have found Milly. Too little, too late.")
     end
 
 end

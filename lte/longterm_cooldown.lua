@@ -42,6 +42,13 @@ local function checkMonthlyQuests(char)
 
 end
 
+local function cooldownQuest(Character,QuestID) -- cool down quest ID by 1 every 5 minutes
+    theQuestStatus=Character:getQuestProgress(QuestID)
+    if theQuestStatus > 0 then --cool down ends at 0
+        Character:setQuestProgress(QuestID,theQuestStatus-1) --cooling 5 minutes!
+    end
+end
+
 function M.addEffect( Effect, Character)
     -- it is needed to add at least value to make sure the effect does not get deleted right after
     -- the first call
@@ -55,6 +62,8 @@ function M.callEffect( Effect, Char ) -- Effect is called
         -- Reset queststatus for quests that can be done once every ingame month
         checkMonthlyQuests(Char)
 
+        cooldownQuest(Char,687)    --Banduk: Quest 687 (Fairy Tales)
+        
         --Addition by Envi: Quest 680 (Evil Rock Reward)
         local theQuestStatus=Char:getQuestProgress(680)
 

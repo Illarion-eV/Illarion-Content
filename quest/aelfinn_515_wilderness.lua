@@ -82,10 +82,10 @@ Description[ENGLISH][20] = "You have killed the orc shaman. Return to Aelfinn an
 Description[GERMAN][21] = "Geh zu Aelfinn. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][21] = "Go back to Aelfinn, he certainly has another task for you."
 
-Description[GERMAN][22] = "Aelfinn hat festgestellt, dass ein Nekromant den Dragorog Kult anführt. Tötet ihn und zerstöre diese unheilige Sekte."
-Description[ENGLISH][22] = "Aelfinn has determined that there is a necromancer running the Dragorog Cult. Go kill him and put an end to this unholy sect."
-Description[GERMAN][23] = "Du hast den Nekromanten getötet. Zurück zu Aelfinn."
-Description[ENGLISH][23] = "You have killed the necromancer. Return to Aelfinn."
+Description[GERMAN][22] = "Aelfinn hat festgestellt, dass es eine größere Dunkelheit gibt, die den Dragorog Cult führt. Geh und reinige die Höhle vin dem Bösen und beende diese unheilige Sekte."
+Description[ENGLISH][22] = "Aelfinn has determined that there is a greater darkness running the Dragorog Cult. Go cleanse the cave of its evil and put an end to this unholy sect."
+Description[GERMAN][23] = "Du hast den dunklen Paladin getötet. Zurück zu Aelfinn."
+Description[ENGLISH][23] = "You have killed the dark paladin. Return to Aelfinn."
 
 Description[GERMAN][24] = "Du hast alle Aufgaben für Aelfinn Russ erledigt."
 Description[ENGLISH][24] = "You have finished all tasks for Aelfinn."
@@ -95,29 +95,29 @@ local Start = {353, 532, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(353, 532, 0), position(904, 595, 0)}
-QuestTarget[2] = {position(353, 532, 0), position(904, 595, 0)}
-QuestTarget[3] = {position(353, 532, 0), position(904, 595, 0)}
-QuestTarget[4] = {position(353, 532, 0), position(904, 595, 0)}
-QuestTarget[5] = {position(353, 532, 0), position(904, 595, 0)}
-QuestTarget[6] = {position(353, 532, 0), position(904, 595, 0)}
-QuestTarget[7] = {position(353, 532, 0), position(904, 595, 0)}
-QuestTarget[8] = {position(353, 532, 0), position(904, 595, 0)}
-QuestTarget[9] = {position(353, 532, 0), position(904, 595, 0)}
-QuestTarget[10] = {position(353, 532, 0), position(904, 595, 0)}
-QuestTarget[11] = {position(353, 532, 0), position(904, 595, 0)}
-QuestTarget[12] = {position(353, 532, 0), position(904, 595, 0)}
-QuestTarget[13] = {position(353, 532, 0), position(904, 595, 0)}
-QuestTarget[14] = {position(353, 532, 0), position(904, 595, 0)}
-QuestTarget[15] = {position(353, 532, 0), position(904, 595, 0)}
-QuestTarget[16] = {position(353, 532, 0), position(904, 595, 0)}
-QuestTarget[17] = {position(353, 532, 0), position(904, 595, 0)}
-QuestTarget[18] = {position(353, 532, 0), position(904, 595, 0)}
-QuestTarget[19] = {position(353, 532, 0), position(904, 595, 0)}
-QuestTarget[20] = {position(353, 532, 0), position(904, 595, 0)}
-QuestTarget[21] = {position(353, 532, 0), position(904, 595, 0)}
-QuestTarget[22] = {position(353, 532, 0), position(904, 595, 0)}
-QuestTarget[23] = {position(353, 532, 0), position(904, 595, 0)}
+QuestTarget[1] = {position(353, 532, 0), position(365, 475, 0)}
+QuestTarget[2] = {position(353, 532, 0), position(365, 475, 0)}
+QuestTarget[3] = {position(353, 532, 0), position(365, 475, 0)}
+QuestTarget[4] = {position(353, 532, 0), position(365, 475, 0)}
+QuestTarget[5] = {position(353, 532, 0), position(365, 475, 0)}
+QuestTarget[6] = {position(353, 532, 0), position(365, 475, 0)}
+QuestTarget[7] = {position(353, 532, 0), position(365, 475, 0)}
+QuestTarget[8] = {position(353, 532, 0), position(365, 475, 0)}
+QuestTarget[9] = {position(353, 532, 0), position(365, 475, 0)}
+QuestTarget[10] = {position(353, 532, 0), position(365, 475, 0)}
+QuestTarget[11] = {position(353, 532, 0), position(365, 475, 0)}
+QuestTarget[12] = {position(353, 532, 0), position(365, 475, 0)}
+QuestTarget[13] = {position(353, 532, 0), position(365, 475, 0)}
+QuestTarget[14] = {position(353, 532, 0), position(365, 475, 0)}
+QuestTarget[15] = {position(353, 532, 0), position(365, 475, 0)}
+QuestTarget[16] = {position(353, 532, 0), position(365, 475, 0)}
+QuestTarget[17] = {position(353, 532, 0), position(365, 475, 0)}
+QuestTarget[18] = {position(353, 532, 0), position(365, 475, 0)}
+QuestTarget[19] = {position(353, 532, 0), position(365, 475, 0)}
+QuestTarget[20] = {position(353, 532, 0), position(365, 475, 0)}
+QuestTarget[21] = {position(353, 532, 0), position(365, 475, 0)}
+QuestTarget[22] = {position(353, 532, 0), position(365, 475, 0)}
+QuestTarget[23] = {position(353, 532, 0), position(365, 475, 0)}
 QuestTarget[24] = {position(353, 532, 0)}
 
 
@@ -130,9 +130,9 @@ monsterQuests.addQuest{
     location = {position = position(420, 470, 2), radius = 40},
     queststatus = {from = 4, to = 14},
     questTitle = {german = "Rette Miley! II", english = "Rescue Milly! II"},
-    monsterName = {german = "Ork, Diebe, JÃ¤ger, und Krieger", english = "Orcs, Thieves, Hunters, and Warrior"},
+    monsterName = {german = "Ork, Diebe, Jäger, und Krieger", english = "Orcs, Thieves, Hunters, and Warrior"},
     npcName = "Aelfinn",
-    monsterIds = {41, 42, 42, 44} -- different orcs, thieves, hunters, and warriors
+    monsterGroupIds = {4} -- all orcs
 }
 
 monsterQuests.addQuest{
@@ -150,9 +150,9 @@ monsterQuests.addQuest{
     location = {position = position(440, 440, 2), radius = 40},
     queststatus = {from = 22, to = 23},
     questTitle = {german = "Rette Miley! V", english = "Rescue Milly! V"},
-    monsterName = {german = "Nekromanten", english = "Human Necromancer"},
+    monsterName = {german = "dunklen Paladin", english = "Dark Paladin"},
     npcName = "Aelfinn",
-    monsterIds = {4} -- Human Necromancer
+    monsterIds = {7} -- Human Necromancer
 }
 
 function M.QuestTitle(user)

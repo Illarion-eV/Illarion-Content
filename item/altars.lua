@@ -215,9 +215,20 @@ function M.LookAtItem( User, Item )
         lookat.SetSpecialDescription(Item,"Um euch "..gods.GOD_DE[thisGod].." zu weihen, werdet ihr folgendes opfern müssen: "..tellStuff(devoteItems[thisGod],User:getPlayerLanguage()),"To devote yourself to "..gods.GOD_EN[thisGod]..", you'll have to donate: "..tellStuff(devoteItems[thisGod],User:getPlayerLanguage()));
       elseif (devotion == thisGod) then
         -- devoted to this god
-        common.InformNLS(User,
-        "Der Anblick von "..gods.GOD_DE[thisGod].."s Altar erfüllt dich in deiner Ergebenheit mit Stolz.",
-        "Beholding the altar of "..gods.GOD_EN[thisGod].." makes you feel proud of your devotion.");
+        if (User:getQuestProgress(685) == 0) then --quest 'A book about your God' not started
+          User:setQuestProgress(685, 1) --quest 'A book about your God' started
+          common.InformNLS(User,
+          "[Quest 'Ein Buch deines Gottes' gestartet] Weißt du bereits alles über "..gods.GOD_DE[thisGod].."? Vielleicht fragst du mal in einer Bücherei nach einem Buch über deinen Gott?",
+          "[Quest 'A book about your God' started] Do you know everything about "..gods.GOD_EN[thisGod].." already? You could ask in a library for a book about your God.");
+        elseif (User:getQuestProgress(685) == 1) then --quest 'A book about your God' push player
+          common.InformNLS(User,
+          "[Quest 'Ein Buch deines Gottes'] Hast du dir bereits das Buch über "..gods.GOD_DE[thisGod].." beschafft? Frag in einer Bücherei nach.",
+          "[Quest 'A book about your God'] Have you got the book about "..gods.GOD_EN[thisGod].." already? Ask in a library for such a book.");
+        else
+          common.InformNLS(User,
+          "Der Anblick von "..gods.GOD_DE[thisGod].."s Altar erfüllt dich in deiner Ergebenheit mit Stolz.",
+          "Beholding the altar of "..gods.GOD_EN[thisGod].." makes you feel proud of your devotion.");
+        end
         --For enabling becoming a priest, use the stuff below. Doesn't make any sense without priest magic, though.
         -- TODO needs adjustment.
   --[[

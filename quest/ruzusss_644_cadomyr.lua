@@ -43,7 +43,7 @@ local Start = {}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(126, 630, 0)} -- Ruzusss
+QuestTarget[1] = {position(134, 629, 0)} -- Ruzusss
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 2
