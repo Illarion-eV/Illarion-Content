@@ -82,10 +82,10 @@ Description[ENGLISH][20] = "You have killed the orc shaman. Return to Aelfinn an
 Description[GERMAN][21] = "Geh zu Aelfinn. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][21] = "Go back to Aelfinn, he certainly has another task for you."
 
-Description[GERMAN][22] = "Aelfinn hat festgestellt, dass ein Nekromant den Dragorog Kult anführt. Tötet ihn und zerstöre diese unheilige Sekte."
-Description[ENGLISH][22] = "Aelfinn has determined that there is a necromancer running the Dragorog Cult. Go kill him and put an end to this unholy sect."
-Description[GERMAN][23] = "Du hast den Nekromanten getötet. Zurück zu Aelfinn."
-Description[ENGLISH][23] = "You have killed the necromancer. Return to Aelfinn."
+Description[GERMAN][22] = "Aelfinn hat festgestellt, dass es eine größere Dunkelheit gibt, die den Dragorog Cult führt. Geh und reinige die Höhle vin dem Bösen und beende diese unheilige Sekte."
+Description[ENGLISH][22] = "Aelfinn has determined that there is a greater darkness running the Dragorog Cult. Go cleanse the cave of its evil and put an end to this unholy sect."
+Description[GERMAN][23] = "Du hast den dunklen Paladin getötet. Zurück zu Aelfinn."
+Description[ENGLISH][23] = "You have killed the dark paladin. Return to Aelfinn."
 
 Description[GERMAN][24] = "Du hast alle Aufgaben für Aelfinn Russ erledigt."
 Description[ENGLISH][24] = "You have finished all tasks for Aelfinn."
@@ -130,7 +130,7 @@ monsterQuests.addQuest{
     location = {position = position(420, 470, 2), radius = 40},
     queststatus = {from = 4, to = 14},
     questTitle = {german = "Rette Miley! II", english = "Rescue Milly! II"},
-    monsterName = {german = "Ork, Diebe, JÃ¤ger, und Krieger", english = "Orcs, Thieves, Hunters, and Warrior"},
+    monsterName = {german = "Ork, Diebe, Jäger, und Krieger", english = "Orcs, Thieves, Hunters, and Warrior"},
     npcName = "Aelfinn",
     monsterGroupIds = {4} -- all orcs
 }
@@ -150,9 +150,9 @@ monsterQuests.addQuest{
     location = {position = position(440, 440, 2), radius = 40},
     queststatus = {from = 22, to = 23},
     questTitle = {german = "Rette Miley! V", english = "Rescue Milly! V"},
-    monsterName = {german = "Nekromanten", english = "Human Necromancer"},
+    monsterName = {german = "dunklen Paladin", english = "Dark Paladin"},
     npcName = "Aelfinn",
-    monsterIds = {4} -- Human Necromancer
+    monsterIds = {7} -- Human Necromancer
 }
 
 function M.QuestTitle(user)
