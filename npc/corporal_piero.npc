@@ -94,12 +94,6 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell.", "Have a good da
 "your name", "who are you", "who art thou" -> "I am Corporal Piero. Servant of the Queen in Cadomyr."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Corporal Piero. Diener der Königin von Cadomyr."
 
--- Catching quest triggers. Modify if the NPC does quests.
-english, "quest", "mission" -> "I don't have any tasks for you."
-"quest", "mission" -> "Ich vergebe keine Aufgaben."
-"task", "adventure", "order" -> "I don't have any tasks for you."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich vergebe keine Aufgaben."
-
 -- language: human, common
 queststatus(305) = 6, "Botschaft", "verdienen", "aufgabe", "abenteuer" -> "Nochmals... Habt Dank. Ihr habt Cadomyr sehr geholfen. Zhambra soll Euch schützen."
 queststatus(305) = 6, english, "Tobis", "Vunu", "corporal", "Piero", "info", "quest", "job", "problem", "mission" -> "Thanks, again. You helped Cadomyr very much. Zhambra will bless you."
@@ -119,6 +113,12 @@ queststatus(305) = 0, "verdienen", "aufgabe", "abenteuer" -> inform("'Soll das e
 queststatus(305) = 0, english, "quest", "job", "problem", "mission" -> inform("'Is that a task or not? I should ask for more information..."), queststatus(305) = 1, "Indeed. Yes, yes. In name of the guard Cadomyr, I am to issue you a task. Find a way to Pirate Bay. Tobis Vunu holds information which is very important for me, deliver this message to me."
 queststatus(305) = 0, "quest", "job", "problem", "mission" -> inform("'Soll das ein Auftrag sein? Besser, ich frage nach mehr Informationen...'"), queststatus(305) = 1, "In der Tat. Ja, ja. Im Namen der Wächter Cadomyrs bin ich ermächtigt Euch einen Auftrag zu erteilen. Sucht Euren Weg in die Bucht der Piraten. Tobis Vunu hat Informationen für mich die ausgesprochen wichtig sind. Übergebt mir diese Botschaft."
 queststatus(305) = 0, "task", "adventure", "money", "earn" -> inform("'Is that a task or not? I should ask for more information..."), queststatus(305) = 1, "Indeed. Yes, yes. In name of the guard Cadomyr, I am to issue you a task. Find a way to Pirate Bay. Tobis Vunu holds information which is very important for me, deliver this message to me."
+
+-- Catching quest triggers. Modify if the NPC does quests.
+english, "quest", "mission" -> "I don't have any tasks for you."
+"quest", "mission" -> "Ich vergebe keine Aufgaben."
+"task", "adventure", "order" -> "I don't have any tasks for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich vergebe keine Aufgaben."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a guard. I guard people. Long live the Queen."

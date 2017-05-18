@@ -591,7 +591,7 @@ function M.callEffect( Effect, Char ) -- Effect is called
         playerCount[Char.id] = playerCount[Char.id]+1
         log(string.format("[Idle] %s is idle. idleTime = %d, count = %d.", Char.name, Char:idleTime(), playerCount[Char.id]))
         
-        if math.floor(playerCount[Char.id]/10) == playerCount[Char.id]/10 then
+        if math.floor(playerCount[Char.id]/12) == playerCount[Char.id]/12 then --Once an hour
             Char:pageGM("Idle check necessary. idleTime = "..Char:idleTime()..", count = "..playerCount[Char.id]..".")
             common.InformNLS(Char,"[Erinnerung] Denke bitte daran, dass bei Illarion ein Hauptziel die Interaktion mit anderen Spielern ist.","[Reminder] Keep in mind Illarion is about interacting with other players. ") --sending a message
         end
