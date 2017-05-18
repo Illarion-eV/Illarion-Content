@@ -18,7 +18,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (677, 'quest.calida_677_runewick');
 
 local common = require("base.common")
---module("quest.calida_IDQUEST_runewick", package.seeall)
+local factions = require("base.factions")
+
 local M = {}
 
 GERMAN = Player.german
@@ -50,7 +51,8 @@ Description[ENGLISH][5] = "Your answer was right. Please take into consideration
 Start = {901, 808, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
-QuestTarget = {}
+local QuestTarget = {}
+QuestTarget[1] = {901, 808, 0}
 QuestTarget[2] = {901, 808, 0}
 QuestTarget[3] = {901, 808, 0}
 QuestTarget[4] = {901, 808, 0}
@@ -58,25 +60,31 @@ QuestTarget[5] = {901, 808, 0}
 
 -- Insert the quest status which is reached at the end of the quest
 -- the quest is designed to be extended and has no real end
-FINAL_QUEST_STATUS = 99
+local FINAL_QUEST_STATUS = 99
 
 
-function QuestTitle(user)
-    return base.common.GetNLS(user, Title[GERMAN], Title[ENGLISH])
+function M.QuestTitle(user)
+    return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])
 end
 
-function QuestDescription(user, status)
+function M.QuestDescription(user, status)
     local german = Description[GERMAN][status] or ""
     local english = Description[ENGLISH][status] or ""
 
-    return base.common.GetNLS(user, german, english)
+    return common.GetNLS(user, german, english)
 end
 
-function QuestTargets(user, status)
+function M.QuestStart()
+    return Start
+end
+
+function M.QuestTargets(user, status)
     return QuestTarget[status]
 end
 
-function QuestFinalStatus()
+function M.QuestFinalStatus()
     return FINAL_QUEST_STATUS
 end
+
+
 return M
