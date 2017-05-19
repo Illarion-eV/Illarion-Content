@@ -143,8 +143,8 @@ queststatus(515) = 16, "quest", "mission" -> "Hast du Milly gefunden? Du musst s
 queststatus(515) = 16, english, "task", "adventure", "order" -> "Have you found Milly? You have to find her for me!"
 queststatus(515) = 16, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hast du Milly gefunden? Du musst sie für mich finden!"
 
--- Milly Found. Reward 20 silver and a latent ruby
-queststatus(515) = 17, english, ".+" -> inform("[Quest Solved] You have been given a Silver Ruby Amulet."), queststatus(515) = 18, item(3541, 1, 999), "You found Milly? She... She's dead? By the Five. I... I need some time to think. Here, take these coins and this gem."
+-- Milly Found. Reward silver ruby amulet
+queststatus(515) = 17, english, ".+" -> inform("[Quest Solved] You have been given a Silver Ruby Amulet."), queststatus(515) = 18, item(3541, 1, 999), "You found Milly? She... She's dead? By the Five. I... I need some time to think. Here, take this amulet."
 queststatus(515) = 17, ".+" -> inform("[Quest gelöst] Du erhältst ein Silbernes Rubinamulett."), queststatus(515) = 18, item(3541, 1, 999), "Du hast Milly gefunden? Sie... sie ist tot? Bei den Fünf. Ich ... Ich brauche etwas Zeit zum nachdenken. Warte! Hier. Nimm diese Halskette. Ich wollte sie... ich wollte... nur, bitte nehmt sie. Wenn du zurück kommst, haben wir einiges an Arbeit vor uns."
 
 -- Quest 4: Kill the Orc Shaman
