@@ -167,8 +167,8 @@ rank > 2, town = Runewick, sex = male, "rang" -> "Student, was führt dich zu mir
 rank > 2, town = Runewick, sex = female, "rang" -> "Studentin, was dich Euch zu mir? Brauchst du Hilfe?"
 
 -- Rank 2
-rank > 1, english, town = Runewick, sex = male, "rank" -> "You are an assistat. Please set a good example for the novices."
-rank > 1, english, town = Runewick, sex = female, "rank" -> "You are an assistant. Please set a good example for the novices."
+rank > 1, english, town = Runewick, sex = male, "rank" -> "You are an apprentice. Please set a good example for the novices."
+rank > 1, english, town = Runewick, sex = female, "rank" -> "You are an apprentice. Please set a good example for the novices."
 rank > 1, town = Runewick, sex = male, "rang" -> "Du bist ein Anwärter. Bitte sei ein gutes Beispiel für die Novizen."
 rank > 1, town = Runewick, sex = female, "rang" -> "Du bist eine Anwärterin. Bitte sei ein gutes Beispiel für die Novizen."
 
