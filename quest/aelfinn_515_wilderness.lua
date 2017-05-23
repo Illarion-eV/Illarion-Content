@@ -69,7 +69,7 @@ Description[ENGLISH][15] = "Go back to Aelfinn, he certainly has another task fo
 
 
 Description[GERMAN][16] = "Suche in der Dragorog Kultisten Höhle nach Milly. Sie muss da irgendwo sein. Wenn du sie gefunden hast, bringe sie sicher zu Aelfinn zurück."
-Description[ENGLISH][16] = "Search the Dragorog Cultists Lair for Milly. She has to be in there somewhere. When you find her, return her to Aelfinn safely."
+Description[ENGLISH][16] = "Search the Dragorog cultist's lair for Milly. She has to be in there somewhere. When you find her, return her to Aelfinn safely."
 Description[GERMAN][17] = "Du hast Milly gefunden. Kehre zu Aelfinn zurück und teile ihm die bedauerliche Nachricht mit."
 Description[ENGLISH][17] = "You have found Milly. Return to Aelfinn and tell him the regrettable news."
 Description[GERMAN][18] = "Geh zu Aelfinn. Er hat bestimmt noch eine Aufgabe für dich."
@@ -83,7 +83,7 @@ Description[GERMAN][21] = "Geh zu Aelfinn. Er hat bestimmt noch eine Aufgabe für
 Description[ENGLISH][21] = "Go back to Aelfinn, he certainly has another task for you."
 
 Description[GERMAN][22] = "Aelfinn hat festgestellt, dass es einen bedeutenderen Unhold gibt, die den Dragorog Cult führt. Geh und reinige die Höhle von dem Bösen und zerschlage diese unheilige Sekte."
-Description[ENGLISH][22] = "Aelfinn has determined that there is a greater darkness running the Dragorog Cult. Go cleanse the cave of its evil and put an end to this unholy sect."
+Description[ENGLISH][22] = "Aelfinn has determined that there is a greater darkness running the Dragorog cult. Go cleanse the cave of this evil and put an end to the unholy sect."
 Description[GERMAN][23] = "Du hast den dunklen Paladin getötet. Zurück zu Aelfinn."
 Description[ENGLISH][23] = "You have killed the dark paladin. Return to Aelfinn."
 

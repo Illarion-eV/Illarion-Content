@@ -66,7 +66,7 @@ itemShoes = 1505
 -- Style of triggers: Keywords are preferred. Avoid usage of phrases such as "tell me more"
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
 -- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
--- Appearance: If you don't change anything your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Appearance: If you don't change anything your NPC will wear a blue shirt, black trousers, leather gloves and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
 -- A helpful list of colours can be found here: http://www.wackerart.de/rgbfarben.html
 -- Equipment: You can find a graphical item list here: http://illarion.org/~martin/itemlist.pdf
 -- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly
@@ -100,9 +100,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "No! Don't go! I need your h
 -- Mandatory: Catching quest triggers. Modify if the NPC does quests
 
 -- Quest 1: Find Entrance to Dungeon
-queststatus(515) = 0, english, "quest", "mission" -> inform("[New Quest] Rescue Milly"), queststatus(515) = 1, "Milly and I were searching for rare desert herbs. We were attacked by orcs who carried her off! I tracked them this far, but I can't find the entrance. It's in the encampment north of here. Go see if you can find it and come back to me."
+queststatus(515) = 0, english, "quest", "mission" -> inform("[New Quest] Rescue Milly"), queststatus(515) = 1, "Milly and I were searching for rare desert herbs. We were attacked by orcs who carried her off! I tracked them this far, but I can't find an entrance. It's in the encampment north of here. Go see if you can find it and come back to me."
 queststatus(515) = 0, "quest", "mission" -> inform("[Neuer Quest] Rette Milly!"), queststatus(515) = 1, "Milly und ich suchten nach seltenen Wüstenkräutern. Orks griffen uns an und entführten sie. Ich habe Sie verfolgt, aber ich kann die Höhle nicht finden. Sie müsste beim Lager nördlich von hier sein. Geh, sieh nach ob du ihn findest, komme dann zurück zu mir."
-queststatus(515) = 0, english, "task", "adventure", "order" -> inform("[New Quest] Rescue Milly"), queststatus(515) = 1, "Milly and I were searching for rare desert herbs. We were attacked by orcs who carried her off! I tracked them this far, but I can't find the entrance. It's in the encampment north of here. Go see if you can find it and come back to me."
+queststatus(515) = 0, english, "task", "adventure", "order" -> inform("[New Quest] Rescue Milly"), queststatus(515) = 1, "Milly and I were searching for rare desert herbs. We were attacked by orcs who carried her off! I tracked them this far, but I can't find an entrance. It's in the encampment north of here. Go see if you can find it and come back to me."
 queststatus(515) = 0 ,"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neuer Quest] Rette Milly!"), queststatus(515) = 1, "Milly und ich suchten nach seltenen Wüstenkräutern. Orks griffen uns an und entführten sie. Ich habe Sie verfolgt, aber ich kann die Höhle nicht finden. Sie müsste beim Lager nördlich von hier sein. Geh, sieh nach ob du ihn findest, komme dann zurück zu mir."
 
 -- Entrance not found
@@ -116,9 +116,9 @@ queststatus(515) = 2, english, ".+" -> inform("[Quest Solved] You have been awar
 queststatus(515) = 2, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke"), money + 3000, queststatus(515)=3, "Du hast den Eingang gefunden? Den Fünf sei Dank! Ich habe die Orks beobachtet, während du weg warst. Das sind Dragorog-Kultisten. Du musst dich gut für den nächsten Schritt vorbereiten. Nimm diese Münzen und komm zurück, wenn du bereit bist."
 
 -- Quest 2: Kill 10 orcs
-queststatus(515) = 3, english, "quest", "mission" -> inform("[New Quest] Rescue Milly II"), queststatus(515)=4, "Now that you have gotten in, you need to clear a path so that you can find her. I have been watching the entrance carefully to determine their numbers. Killing 10 orc cultists should do it."
+queststatus(515) = 3, english, "quest", "mission" -> inform("[New Quest] Rescue Milly II"), queststatus(515)=4, "Now that you have got in, you need to clear a path so that you can find her. I have been watching the entrance carefully to determine their numbers. Killing 10 orc cultists should do it."
 queststatus(515) = 3, "quest", "mission" -> inform("[Neuer Quest] Rette Milly! II"), queststatus(515)=4, "Jetzt wo du den Weg hinein gefunden hast, solltest du ihn frei machen.  Ich habe den Eingang sorgfältig beobachtet um ihre Stärke herauszubekommen. Töte 10 Orc-Kultisten, das sollte reichen."
-queststatus(515) = 3, english, "task", "adventure", "order" -> inform("[New Quest] Rescue Milly II"), queststatus(515)=4, "Now that you have gotten in, you need to clear a path so that you can find her. I have been watching the entrance carefully to determine their numbers. Killing 10 orc cultists should do it."
+queststatus(515) = 3, english, "task", "adventure", "order" -> inform("[New Quest] Rescue Milly II"), queststatus(515)=4, "Now that you have got in, you need to clear a path so that you can find her. I have been watching the entrance carefully to determine their numbers. Killing 10 orc cultists should do it."
 queststatus(515) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "bereit" -> inform("[Neuer Quest] Rette Milly! II"), queststatus(515)=4, "Jetzt wo du den Weg hinein gefunden hast, solltest du ihn frei machen.  Ich habe den Eingang sorgfältig beobachtet um ihre Stärke herauszubekommen. Töte 10 Orc-Kultisten, das sollte reichen."
 
 -- 10 not killed, remind player
@@ -164,9 +164,9 @@ queststatus(515) = 20, english, ".+" -> inform("[Quest Solved] You have been awa
 queststatus(515) = 20, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), queststatus(515)=21, money + 2000, "Du hast ihn getötet? Gut. Hier sind meine letzten Münzen. Nimm sie und bereite dich vor. Es gibt noch mehr Arbeit zu tun."
 
 --Quest 5: Kill Human Necromancer
-queststatus(515) = 21, english, "quest", "mission" -> inform("[New Quest] Rescue Milly V"), queststatus(515)=22, "I don't think the shaman's death is the end of this madness. There is something darker inside that cave that leads the cult. Go and end what ever dark abomination is inside that cave!"
+queststatus(515) = 21, english, "quest", "mission" -> inform("[New Quest] Rescue Milly V"), queststatus(515)=22, "I don't think the shaman's death is the end of this madness. There is something darker inside that cave that leads the cult. Go and end whatever dark abomination is inside that cave!"
 queststatus(515) = 21, "quest", "mission" -> inform("[Neuer Quest] Rette Milly! V"), queststatus(515)=22, "Ich glaube nicht, dass der Tod des Schamanen das Ende dieses Wahnsinns ist. Es ist etwas Dunkles in dieser Höhle, das den Kult führt. Geh und beende, was auch immer für ein dunkler Greuel in dieser Höhle haust."
-queststatus(515) = 21, english, "task", "adventure", "order" -> inform("[New Quest] Rescue Milly V"), queststatus(515)=22, "I don't think the shaman's death is the end of this madness. There is something darker inside that cave that leads the cult. Go and end what ever dark abomination is inside that cave!"
+queststatus(515) = 21, english, "task", "adventure", "order" -> inform("[New Quest] Rescue Milly V"), queststatus(515)=22, "I don't think the shaman's death is the end of this madness. There is something darker inside that cave that leads the cult. Go and end whatever dark abomination is inside that cave!"
 queststatus(515) = 21, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neuer Quest] Rette Milly! V"), queststatus(515)=22, "Ich glaube nicht, dass der Tod des Schamanen das Ende dieses Wahnsinns ist. Es ist etwas Dunkles in dieser Höhle, das den Kult führt. Geh und beende, was auch immer für ein dunkler Greuel in dieser Höhle haust."
 
 -- Necromancer not dead, remind player
@@ -176,13 +176,13 @@ queststatus(515) = 22, english, "task", "adventure", "order" -> "Have you destro
 queststatus(515) = 22, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hast du die dunkle Kraft in dieser Höhle zerstört?"
 
 -- Necromancer dead, reward Bow (2685)
-queststatus(515) = 23, english, ".+" -> inform("[Quest Solved] You have been awarded an elven shortbow"), queststatus(515)=24, item(2685, 1, 666), "It is done? There was a dark paladin inside and you have killed him? Thank the Five, Milly will not have died in vain! Please. Take my bow. I have no need for it anymore."
+queststatus(515) = 23, english, ".+" -> inform("[Quest Solved] You have been awarded an elven shortbow"), queststatus(515)=24, item(2685, 1, 666), "It is done? There was a dark paladin inside and you have killed him? Thank the Five, Milly will not have died in vain! Please, take my bow. I have no need for it anymore."
 queststatus(515) = 23, ".+" -> inform("[Quest gelöst] Du erhältst ein Elfen-Kurzbogen."), queststatus(515)=24, item(2685, 1, 666), "Es ist vollbracht? Da war ein dunker Paladin und du hast ihn getötet? Den Fünf sei Dank, Milly wird nicht umsonst gestorben sein! Bitte, nimm meinen Bogen. Ich brauche ihn nicht mehr."
 
 -- Quests compelete
-queststatus(515) = 24, english, "quest", "mission" -> "No. I don't require anything else from you. Thank you. I am going to go find a monastery to live out the rest of my life without Milly."
+queststatus(515) = 24, english, "quest", "mission" -> "No, I don't require anything else from you. Thank you. I am going to go find a monastery to live out the rest of my life without Milly."
 queststatus(515) = 24, "quest", "mission" -> "Nein. Ich brauche nichts  von dir. Vielen Dank. Ich werde ein Kloster finden, indem ich den Rest meines Lebens ohne Milly leben kann."
-queststatus(515) = 24, english, "task", "adventure", "order" -> "No. I don't require anything else from you. Thank you. I am going to go find a monastery to live out the rest of my life without Milly."
+queststatus(515) = 24, english, "task", "adventure", "order" -> "No, I don't require anything else from you. Thank you. I am going to go find a monastery to live out the rest of my life without Milly."
 queststatus(515) = 24, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nein. Ich brauche nichts  von dir. Vielen Dank. Ich werde ein Kloster finden, indem ich den Rest meines Lebens ohne Milly leben kann."
 
 -- OPTIONAL TRIGGERS
@@ -194,9 +194,9 @@ english, "job" -> "If you really must insist on knowing! I am a ranger and spend
 "job" -> "Wenn du wirklich darauf bestehst es zu wissen! Ich bin ein Ranger und verbringe meine Zeit damit, Kräuter mit Milly zu sammeln.", "Ist nun wirklich die Zeit, unnütze Fragen zu stellen?", "Mein Job war, Milly zu schützen! Und jetzt haben sie sie mitgenommen!"
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-english, "Milly" -> "She has been kidnaped! I need your help to get her back!", "She is my love and my life, and I dunno what I would do without her."
-english, "Dragorog" -> "He is one of the blood god's dark minions.", "He is master of dark paladins and dark dragons. If I were you, I'd avoid them at all costs."
-english, "Cult" -> "It is Dragorog's cult. They are an evil sect that sacrifices people to their dark demi-god."
+english, "Milly" -> "She has been kidnapped! I need your help to get her back!", "She is my love and my life, and I don't know what I would do without her."
+english, "Dragorog" -> "He is one of the Blood God's dark minions.", "He is master of dark paladins and dark dragons. If I were you, I'd avoid them at all costs."
+english, "Cult" -> "It is a Dragorog cult. They are an evil sect that sacrifices people to their dark demi-god."
 english, "Altar" -> "I don't want to know what horrors lay on their blood soaked altar.", "It is where the members of Dragorog's cult sacrifice people during their unholy rituals. Just thinking about it gives me chills."
 "Milly" -> "Sie wurde gekidnappt! Ich brauche Deine Hilfe, um sie zurück zu bekommen!", "Sie ist meine Liebe und mein Leben, und ich weiß nicht, was ich ohne sie tun würde."
 "Dragorog" -> "Er ist einer der dunklen Diener des Blutgottes.", "Er ist Meister dunkler Paladine und dunkler Drachen. Wenn ich du wäre, würde ich sie um jeden Preis meiden."
@@ -212,7 +212,7 @@ english, "Moshran" -> "Shh! Do not say his name so loud.", "He is the god of blo
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Hilfe! Irgendjemand helft!", "Help! Some body help! "
+cycletext "Hilfe! Irgendjemand helft!", "Help! Somebody help! "
 cycletext "Hilfe! Sie haben sie genommen! Sie haben meine Milly mitgenommen!", "Help! They've taken her! They've taken my Milly!"
 cycletext "Diese Orks werden dafür bezahlen,und  wenn es das Letzte ist, was ich tue!", "Those orcs are going to pay for this if it's the last thing I do!"
 cycletext "Ich hoffe, sie haben Milly nicht weh getan!", "I hope they haven't hurt Milly!"
