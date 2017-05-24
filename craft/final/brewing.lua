@@ -31,7 +31,7 @@ brewing:addTool(339) -- barrel
 brewing:addTool(1410) -- barrel
 brewing:addTool(1411) -- barrel
 
-local catId = brewing:addCategory("Brewing", "Brauen")
+local catId = brewing:addCategory("Soft Liquors", "Leichter Alkohol")
 
 -- bottle of cider
 product = brewing:addProduct(catId, 2499, 1)
@@ -62,26 +62,12 @@ product:addIngredient(259, 1) -- grain
 product:addIngredient(52, 1) -- bucket of water
 product:addRemnant(51, 1) -- bucket
 
+local catId = brewing:addCategory("Juices", "Säfte")
+
 -- bottle of banana juice
 product = brewing:addProduct(catId, 785, 1)
 product:addIngredient(790, 1) -- empty juice bottle
 product:addIngredient(80, 3) -- banana
-product:addIngredient(778, 1) -- sugarcane
-product:addIngredient(52, 1) -- bucket of water
-product:addRemnant(51, 1) -- bucket
-
--- bottle of fir needle tea
-product = brewing:addProduct(catId, 3720, 1)
-product:addIngredient(790, 1) -- empty juice bottle
-product:addIngredient(149, 3) -- fir tree sprout
-product:addIngredient(778, 1) -- sugarcane
-product:addIngredient(52, 1) -- bucket of water
-product:addRemnant(51, 1) -- bucket
-
--- bottle of virgins weed tea
-product = brewing:addProduct(catId, 787, 1)
-product:addIngredient(790, 1) -- empty juice bottle
-product:addIngredient(144, 3) -- virgin's weed
 product:addIngredient(778, 1) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
 product:addRemnant(51, 1) -- bucket
@@ -110,27 +96,11 @@ product:addIngredient(778, 1) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
 product:addRemnant(51, 1) -- bucket
 
--- bottle of rum
-product = brewing:addProduct(catId, 517, 1)
-product:addIngredient(518, 1) -- empty rum bottle
-product:addIngredient(778, 3) -- sugarcane
-product:addIngredient(52, 1) -- bucket of water
-product:addRemnant(51, 1) -- bucket
-
 -- bottle of blackberry juice
 product = brewing:addProduct(catId, 783, 1)
 product:addIngredient(790, 1) -- empty juice bottle
 product:addIngredient(147, 5) -- blackberry
 product:addIngredient(778, 2) -- sugarcane
-product:addIngredient(52, 1) -- bucket of water
-product:addRemnant(51, 1) -- bucket
-
--- bottle of green tea
-product = brewing:addProduct(catId, 3721, 1)
-product:addIngredient(790, 1) -- empty juice bottle
-product:addIngredient(157, 3) -- rotten tree bark
-product:addIngredient(778, 2) -- sugarcane
-product:addIngredient(199, 2) -- tangerine
 product:addIngredient(52, 1) -- bucket of water
 product:addRemnant(51, 1) -- bucket
 
@@ -150,6 +120,41 @@ product:addIngredient(778, 2) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
 product:addRemnant(51, 1) -- bucket
 
+-- bottle of orange juice
+product = brewing:addProduct(catId, 3611, 1)
+product:addIngredient(790, 1) -- empty juice bottle
+product:addIngredient(1207, 5) -- orange
+product:addIngredient(778, 3) -- sugarcane
+product:addIngredient(52, 1) -- bucket of water
+product:addRemnant(51, 1) -- bucket
+
+local catId = brewing:addCategory("Teas", "Tee")
+
+-- bottle of fir needle tea
+product = brewing:addProduct(catId, 3720, 1)
+product:addIngredient(790, 1) -- empty juice bottle
+product:addIngredient(149, 3) -- fir tree sprout
+product:addIngredient(778, 1) -- sugarcane
+product:addIngredient(52, 1) -- bucket of water
+product:addRemnant(51, 1) -- bucket
+
+-- bottle of virgins weed tea
+product = brewing:addProduct(catId, 787, 1)
+product:addIngredient(790, 1) -- empty juice bottle
+product:addIngredient(144, 3) -- virgin's weed
+product:addIngredient(778, 1) -- sugarcane
+product:addIngredient(52, 1) -- bucket of water
+product:addRemnant(51, 1) -- bucket
+
+-- bottle of green tea
+product = brewing:addProduct(catId, 3721, 1)
+product:addIngredient(790, 1) -- empty juice bottle
+product:addIngredient(157, 3) -- rotten tree bark
+product:addIngredient(778, 2) -- sugarcane
+product:addIngredient(199, 2) -- tangerine
+product:addIngredient(52, 1) -- bucket of water
+product:addRemnant(51, 1) -- bucket
+
 -- bottle of druids tea
 product = brewing:addProduct(catId, 3722, 1)
 product:addIngredient(790, 1) -- empty juice bottle
@@ -160,10 +165,11 @@ product:addIngredient(145, 3) -- heath flower
 product:addIngredient(52, 1) -- bucket of water
 product:addRemnant(51, 1) -- bucket
 
--- bottle of orange juice
-product = brewing:addProduct(catId, 3611, 1)
-product:addIngredient(790, 1) -- empty juice bottle
-product:addIngredient(1207, 5) -- orange
+local catId = brewing:addCategory("Hard Liquors", "Harter Alkohol")
+
+-- bottle of rum
+product = brewing:addProduct(catId, 517, 1)
+product:addIngredient(518, 1) -- empty rum bottle
 product:addIngredient(778, 3) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
 product:addRemnant(51, 1) -- bucket
