@@ -25,8 +25,8 @@ local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}
-Title[GERMAN] = "Das Glasblasen und Töpfern"
-Title[ENGLISH] = "Glass blowing and pottery"
+Title[GERMAN] = "Die Töpferinnung von Cadomyr"
+Title[ENGLISH] = "The Pottery Association of Cadomyr"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
@@ -39,20 +39,28 @@ Description[GERMAN][2] = "Geh zu Zlatxhol in der Werkstatt von Cadomyr, er hat b
 Description[ENGLISH][2] = "Go to Zlatxhol in the workshop of Cadomyr, he is sure to have another task for you."
 Description[GERMAN][3] = "Stelle zehn Ziegel am Brennzofen für Zlatxhol in Cadomyr her. Um Ziegel herzustellen, musst du die Zange in die Hand nehmen und den Brennofen benutzen."
 Description[ENGLISH][3] = "Produce ten bricks in the glass melting oven for Zlatxhol in Cadomyr. To produce the bricks, you have to take the tongs in your hand and use the kiln."
-Description[GERMAN][4] = "Geh zu Zlatxhol in der Werkstatt von Cadomyr, er hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][4] = "Go to Zlatxhol in the workshop of Cadomyr, he is sure to have another task for you."
-Description[GERMAN][5] = "Sammel zehn Haufen groben Sand. Geh zum Sieb in der Werkstatt und mach daraus Quarzsand und zeig anschließend den Sand Zlatxhol in der Werkstatt von Cadomyr. Sand kann man in der Wüste in den Sandgruben mit der Schaufel, die Zlatxhol dir gab, ausgraben. Hat man erst etwas groben Sand, kann man mit der Holzkelle am Sieb Quarzsand herstellen. Dazu musst du das Sieb benutzen während du die Kelle in der Hand hältst."
-Description[ENGLISH][5] = "Collect ten piles coarse sand and go to the sieve in the workshop to turn these into quartz sand, and show the result to Zlatxhol in the workshop of Cadomyr. You can dig coarse sand in the desert in sand pits with the big shovel Zlatxhol gave you before. Once you have enough coarse sand, you can use the wooden shovel to sieve the quartz sand. To produce quartz sand take the wooden shovel in your hand and use the sieve whilst standing in front of it."
-Description[GERMAN][6] = "Geh zu Zlatxhol in der Werkstatt von Cadomyr, er hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][6] = "Go to Zlatxhol in the workshop of Cadomyr, he is sure to have another task for you."
-Description[GERMAN][7] = "Stell zehn Glasblöcke für Zlatxhol in der Werkstatt von Cadomyr her. Um Glasblöcke herzustellen brauchst du Quarzsand, hast du diesen brauchst du noch Asche. Asche lässt sich produzieren, indem du Holzscheite an einem Glasschmelzofen verbrennst. Nun nimmst du das Glasblasrohr in die Hand und benutzt den Ofen um Glasblöcke herzustellen." 
-Description[ENGLISH][7] = "Produce ten glass ingots for Zlatxhol in the workshop of Cadomyr. To produce glass ingots you need quartz sand and ash. To produce ash you need to use the glass melting oven. When you have enough ash and quartz sand, take the glass blowing pipe in your hand and use the oven."
-Description[GERMAN][8] = "Geh zu Zlatxhol in der Werkstatt von Cadomyr, er hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][8] = "Go to Zlatxhol in the workshop of Cadomyr, he is sure to have another task for you."
-Description[GERMAN][9] = "Stell fünf große leere Flaschen mit den Glasblöcken für Zlatxhol her und zeig ihm die Flaschen. Um die Flaschen herzustellen nimmst du das Glasblasrohr in die Hand und benutzt dieses während du vor dem Glasschmelzofen stehst."
-Description[ENGLISH][9] = "Produce five large empty bottles from glass ingots using the glass blowing pipe at the glass melting oven and show them to Zlatxhol. To produce the bottles go to the glass melting oven and take the glass blowing pipe in your hand and then use it."
-Description[GERMAN][10] = "Du hast alle Aufgaben von Zlatxhol erfüllt."
-Description[ENGLISH][10] = "You have fulfilled all the tasks for Zlatxhol."
+Description[GERMAN][6] = "Dein derzeitiger Rang in der Töpferinnung von Cadomyr ist der eines Laiens. Gehe zu Zlatxhol in der Werkstatt von Cadomyr sobald du Level 10 in der Schreinerfertigkeit erreicht hast."
+Description[ENGLISH][6] = "Your current rank with the Pottery Association of Cadomyr is Layman. Return to Zlatxhol at the workshop of Cadomyr once you reached Level 10 in Carpentry."
+Description[GERMAN][7] = "Dein derzeitiger Rang in der Töpferinnung von Cadomyr ist der eines Anfängers. Gehe zu Zlatxhol in der Werkstatt von Cadomyr sobald du Level 20 in der Schreinerfertigkeit erreicht hast."
+Description[ENGLISH][7] = "Your current rank with the Pottery Association of Cadomyr is Novice. Return to Zlatxhol at the workshop of Cadomyr once you reached Level 20 in Carpentry."
+Description[GERMAN][8] = "Dein derzeitiger Rang in der Töpferinnung von Cadomyr ist der eines Lehrlings. Gehe zu Zlatxhol in der Werkstatt von Cadomyr sobald du Level 30 in der Schreinerfertigkeit erreicht hast."
+Description[ENGLISH][8] = "Your current rank with the Pottery Association of Cadomyr is Apprentice. Return to Zlatxhol at the workshop of Cadomyr once you reached Level 30 in Carpentry."
+Description[GERMAN][9] = "Dein derzeitiger Rang in der Töpferinnung von Cadomyr ist der eines Initiatens. Gehe zu Zlatxhol in der Werkstatt von Cadomyr sobald du Level 40 in der Schreinerfertigkeit erreicht hast."
+Description[ENGLISH][9] = "Your current rank with the Pottery Association of Cadomyr is Initiate. Return to Zlatxhol at the workshop of Cadomyr once you reached Level 40 in Carpentry."
+Description[GERMAN][10] = "Dein derzeitiger Rang in der Töpferinnung von Cadomyr ist der eines Gesellens. Gehe zu Zlatxhol in der Werkstatt von Cadomyr sobald du Level 50 in der Schreinerfertigkeit erreicht hast."
+Description[ENGLISH][10] = "Your current rank with the Pottery Association of Cadomyr is Journeyman. Return to Zlatxhol at the workshop of Cadomyr once you reached Level 50 in Carpentry."
+Description[GERMAN][11] = "Dein derzeitiger Rang in der Töpferinnung von Cadomyr ist der eines Spezialistens. Gehe zu Zlatxhol in der Werkstatt von Cadomyr sobald du Level 60 in der Schreinerfertigkeit erreicht hast."
+Description[ENGLISH][11] = "Your current rank with the Pottery Association of Cadomyr is Specialist. Return to Zlatxhol at the workshop of Cadomyr once you reached Level 60 in Carpentry."
+Description[GERMAN][12] = "Dein derzeitiger Rang in der Töpferinnung von Cadomyr ist der eines Expertens. Gehe zu Zlatxhol in der Werkstatt von Cadomyr sobald du Level 70 in der Schreinerfertigkeit erreicht hast."
+Description[ENGLISH][12] = "Your current rank with the Pottery Association of Cadomyr is Expert. Return to Zlatxhol at the workshop of Cadomyr once you reached Level 70 in Carpentry."
+Description[GERMAN][13] = "Dein derzeitiger Rang in der Töpferinnung von Cadomyr ist der eines Adeptens. Gehe zu Zlatxhol in der Werkstatt von Cadomyr sobald du Level 80 in der Schreinerfertigkeit erreicht hast."
+Description[ENGLISH][13] = "Your current rank with the Pottery Association of Cadomyr is Adept. Return to Zlatxhol at the workshop of Cadomyr once you reached Level 80 in Carpentry."
+Description[GERMAN][14] = "Dein derzeitiger Rang in der Töpferinnung von Cadomyr ist der eines Artisanens. Gehe zu Zlatxhol in der Werkstatt von Cadomyr sobald du Level 90 in der Schreinerfertigkeit erreicht hast."
+Description[ENGLISH][14] = "Your current rank with the Pottery Association of Cadomyr is Artisan. Return to Zlatxhol at the workshop of Cadomyr once you reached Level 90 in Carpentry."
+Description[GERMAN][15] = "Dein derzeitiger Rang in der Töpferinnung von Cadomyr ist der eines Meisters. Gehe zu Zlatxhol in der Werkstatt von Cadomyr sobald du Level 100 in der Schreinerfertigkeit erreicht hast."
+Description[ENGLISH][15] = "Your current rank with the Pottery Association of Cadomyr is Master. Return to Zlatxhol at the workshop of Cadomyr once you reached Level 100 in Carpentry."
+Description[GERMAN][16] = "Gratulation, du bist nun ein wahrer Großmeister der Töpferinnung von Cadomyr."
+Description[ENGLISH][16] = "Congratulations, you are now a true Grandmaster of the Pottery Association of Cadomyr."
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
@@ -64,16 +72,20 @@ local QuestTarget = {}
 QuestTarget[1] = {position(134, 593, 0), position(106, 644, 0)} -- Clay Pit
 QuestTarget[2] = {position(134, 593, 0)} 
 QuestTarget[3] = {position(134, 593, 0), position(143, 584, 0)} -- Kiln
-QuestTarget[4] = {position(134, 593, 0)} 
-QuestTarget[5] = {position(134, 593, 0), position(122, 644, 0)} -- Sand Pit
 QuestTarget[6] = {position(134, 593, 0)} 
-QuestTarget[7] = {position(134, 593, 0), position(143, 586, 0)} -- Glass melting oven
+QuestTarget[7] = {position(134, 593, 0)} 
 QuestTarget[8] = {position(134, 593, 0)} 
-QuestTarget[9] = {position(134, 593, 0), position(143, 586, 0)} -- Glass melting oven
+QuestTarget[9] = {position(134, 593, 0)} 
 QuestTarget[10] = {position(134, 593, 0)} 
+QuestTarget[11] = {position(134, 593, 0)} 
+QuestTarget[12] = {position(134, 593, 0)} 
+QuestTarget[13] = {position(134, 593, 0)} 
+QuestTarget[14] = {position(134, 593, 0)} 
+QuestTarget[15] = {position(134, 593, 0)} 
+
 
 -- Insert the quest status which is reached at the end of the quest
-local FINAL_QUEST_STATUS = 10
+local FINAL_QUEST_STATUS = 16
 
 
 function M.QuestTitle(user)
