@@ -25,34 +25,46 @@ local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}
-Title[GERMAN] = "Das Edelsteinschleifen und Ziegelmachen"
-Title[ENGLISH] = "Gem grinding and brick making"
+Title[GERMAN] = "Die Gilder der Rüstungsschmiede"
+Title[ENGLISH] = "The Association of Armourer"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Geh zu Seleseth in der Werkstatt von Galmair. Er hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][1] = "Go to Seleseth in the workshop of Galmair, he is sure to have another task for you."
+Description[GERMAN][1] = "Sammel zehn Eisenerz und bring diese zu Seleseth in der Werkstatt von Galmair. Sammel mit der Spitzhacke in der Malachitmine. Diese liegt südlich der Stadt. Dazu nimmst du die Spitzhacke in die Hand und benutzt sie, während du vor erzhaltigen Stein stehst."
+Description[ENGLISH][1] = "Collect ten lumps of iron ore and take them to Seleseth at the workshop in Galmair. Collect the ore by using the pick-axe in your hand, whilst standing in front of an iron ore rich stone. The Malachit mine you find south of the town." 
 Description[GERMAN][2] = "Geh zu Seleseth in der Werkstatt von Galmair. Er hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][2] = "Go to Seleseth in the workshop of Galmair, he is sure to have another task for you."
-Description[GERMAN][3] = "Geh zu Seleseth in der Werkstatt von Galmair. Er hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][3] = "Go to Seleseth in the workshop of Galmair, he is sure to have another task for you."
+Description[ENGLISH][2] = "Go to Seleseth at the workshop in Galmair, he is sure to have another task for you."
+Description[GERMAN][3] = "Schmelze zehn Eisenbarren für Seleseth am Rennofen in Galmair. Um die Eisenbarren herzustellen, musst du die Tiegelzange in die Hand nehmen und den Rennofen benutzen, wenn du vor ihm stehst. Du benötigst auch noch Kohle für die Arbeit."
+Description[ENGLISH][3] = "Melt ten iron ingots for Seleseth at the bloomery in Galmair's workshop. To melt you have to take the crucible-pincer in your hand and use the bloomery. You need additional coal for your work."
 Description[GERMAN][4] = "Geh zu Seleseth in der Werkstatt von Galmair. Er hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][4] = "Go to Seleseth in the workshop of Galmair, he is sure to have another task for you."
-Description[GERMAN][5] = "Schleife acht Amethysten, für Seleseth, mit der Zange am Edelsteinschleifer in der Werkstatt von Galmair. Um den Edelsteinschleifer zu benutzen, brauchst du rohe Edelsteine und eine Zange in der Hand. Rohe Edelsteine findet man beim Schürfen in der Mine."
-Description[ENGLISH][5] = "Grind eight amethysts for Seleseth with the tongs he gave you at the gem grinder in the workshop of Galmair. You can use the gem grinder if you have raw gems and hold the tongs in your hand. You can find raw gems in the mines whilst mining."
-Description[GERMAN][6] = "Geh zu Seleseth in der Werkstatt von Galmair. Er hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][6] = "Go to Seleseth in the workshop of Galmair, he is sure to have another task for you."
-Description[GERMAN][7] = "Geh erneut zum Edelsteinschleifer und mach für Seleseth zwei Beutel Amethyststaub aus den acht geschliffenen Amethysten."
-Description[ENGLISH][7] = "Go once again to the gem grinder and produce two bags of amethyst powder by grinding eight of the ground amethysts you produced."
-Description[GERMAN][8] = "Geh zu Seleseth in der Werkstatt von Galmair. Er hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][8] = "Go to Seleseth in the workshop of Galmair, he is sure to have another task for you."
-Description[GERMAN][9] = "Stell für Seleseth, in der Werkstatt von Galmair, aus den zwei rohen Steinen 20 kleine Steine her. Um kleine Steine herzustellen, musst du den Meißel in die Hand nehmen und rohe Steine bei dir haben. Anschließend benutzt du den Meißel, um aus den rohen Steinen Steinquader zu machen. Aus den gewonnenen Steinquadern lassen sich kleine Steine herstellen, wenn man die Prozedur wiederholt. Rohe Steine lassen sich in der Mine, als Nebenprodukt, beim Abbau finden. Die kleinen Steine können mit einer Schleuder in der Hand als Waffe genutzt werden."
-Description[ENGLISH][9] = "Produce twenty small stones from the two raw stones for Seleseth at the workshop of Galmair. To produce the small stones you need to take the chisel in your hand and use it, whilst you have raw stones in your inventory. Once you have made stone blocks you repeat the process again to make small stones. You can find raw stones whilst mining. Furthermore you can use the small stones together with a sling as a weapon."
-Description[GERMAN][10] = "Du hast alle Aufgaben von Seleseth erfüllt."
-Description[ENGLISH][10] = "You have fulfilled all the tasks for Seleseth."
+Description[ENGLISH][4] = "Go to Seleseth at the workshop in Galmair, he is sure to have another task for you."
+Description[GERMAN][5] = "Schmiede zehn Stahlkappen für Seleseth in der Werkstatt von Galmair. Für die Stahlkappen musst du den Hammer des Rüstschmiedes am Amboss benutzen."
+Description[ENGLISH][5] = "Smith ten steel caps for Seleseth at the workshop of Galmair. To smith you need to stand facing the anvil and use the hammer of the armourer."
+Description[GERMAN][6] = "Dein derzeitiger Rang in der Innung der Rüstungsschmiede von Galmair ist der eines Laiens. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 10 in der Fertigkeit des Rüstungsschmiedens erreicht hast."
+Description[ENGLISH][6] = "Your current rank with the Armourer Association of Galmair is Layman. Return to Seleseth at the workshop of Galmair once you reached Level 10 in Armoury."
+Description[GERMAN][7] = "Dein derzeitiger Rang in der Innung der Rüstungsschmiede von Galmair ist der eines Anfängers. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 20 in der Fertigkeit des Rüstungsschmiedens erreicht hast."
+Description[ENGLISH][7] = "Your current rank with the Armourer Association of Galmair is Novice. Return to Seleseth at the workshop of Galmair once you reached Level 20 in Armoury."
+Description[GERMAN][8] = "Dein derzeitiger Rang in der Innung der Rüstungsschmiede von Galmair ist der eines Lehrlings. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 30 in der Fertigkeit des Rüstungsschmiedens erreicht hast."
+Description[ENGLISH][8] = "Your current rank with the Armourer Association of Galmair is Apprentice. Return to Seleseth at the workshop of Galmair once you reached Level 30 in Armoury."
+Description[GERMAN][9] = "Dein derzeitiger Rang in der Innung der Rüstungsschmiede von Galmair ist der eines Initiatens. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 40 in der Fertigkeit des Rüstungsschmiedens erreicht hast."
+Description[ENGLISH][9] = "Your current rank with the Armourer Association of Galmair is Initiate. Return to Seleseth at the workshop of Galmair once you reached Level 40 in Armoury."
+Description[GERMAN][10] = "Dein derzeitiger Rang in der Innung der Rüstungsschmiede von Galmair ist der eines Gesellens. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 50 in der Fertigkeit des Rüstungsschmiedens erreicht hast."
+Description[ENGLISH][10] = "Your current rank with the Armourer Association of Galmair is Journeyman. Return to Seleseth at the workshop of Galmair once you reached Level 50 in Armoury."
+Description[GERMAN][11] = "Dein derzeitiger Rang in der Innung der Rüstungsschmiede von Galmair ist der eines Spezialistens. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 60 in der Fertigkeit des Rüstungsschmiedens erreicht hast."
+Description[ENGLISH][11] = "Your current rank with the Armourer Association of Galmair is Specialist. Return to Seleseth at the workshop of Galmair once you reached Level 60 in Armoury."
+Description[GERMAN][12] = "Dein derzeitiger Rang in der Innung der Rüstungsschmiede von Galmair ist der eines Expertens. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 70 in der Fertigkeit des Rüstungsschmiedens erreicht hast."
+Description[ENGLISH][12] = "Your current rank with the Armourer Association of Galmair is Expert. Return to Seleseth at the workshop of Galmair once you reached Level 70 in Armoury."
+Description[GERMAN][13] = "Dein derzeitiger Rang in der Innung der Rüstungsschmiede von Galmair ist der eines Adeptens. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 80 in der Fertigkeit des Rüstungsschmiedens erreicht hast."
+Description[ENGLISH][13] = "Your current rank with the Armourer Association of Galmair is Adept. Return to Seleseth at the workshop of Galmair once you reached Level 80 in Armoury."
+Description[GERMAN][14] = "Dein derzeitiger Rang in der Innung der Rüstungsschmiede von Galmair ist der eines Artisanens. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 90 in der Fertigkeit des Rüstungsschmiedens erreicht hast."
+Description[ENGLISH][14] = "Your current rank with the Armourer Association of Galmair is Artisan. Return to Seleseth at the workshop of Galmair once you reached Level 90 in Armoury."
+Description[GERMAN][15] = "Dein derzeitiger Rang in der Innung der Rüstungsschmiede von Galmair ist der eines Meisters. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 100 in der Fertigkeit des Rüstungsschmiedens erreicht hast."
+Description[ENGLISH][15] = "Your current rank with the Armourer Association of Galmair is Master. Return to Seleseth at the workshop of Galmair once you reached Level 100 in Armoury."
+Description[GERMAN][16] = "Gratulation, du bist nun ein wahrer Großmeister der Innung der Rüstungsschmiede von Galmair."
+Description[ENGLISH][16] = "Congratulations, you are now a true Grandmaster of the Armourer Association of Galmair."
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
@@ -61,16 +73,21 @@ Start = {387, 278, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(387, 278, 0)}
-QuestTarget[2] = {position(387, 278, 0)} 
-QuestTarget[3] = {position(387, 278, 0)} 
-QuestTarget[4] = {position(387, 278, 0)} 
-QuestTarget[5] = {position(387, 278, 0), position(387, 280, 0)} -- gem grinder
+QuestTarget[1] = {position(387, 278, 0), position(438, 350, 0)}
+QuestTarget[2] = {position(387, 278, 0)}
+QuestTarget[3] = {position(387, 278, 0), position(387, 276, 0)} -- bloomery
+QuestTarget[4] = {position(387, 278, 0)}
+QuestTarget[5] = {position(387, 278, 0), position(383, 272, 0), position(383, 275, 0)} -- anvil
 QuestTarget[6] = {position(387, 278, 0)} 
-QuestTarget[7] = {position(387, 278, 0), position(387, 280, 0)} -- gem grinder
+QuestTarget[7] = {position(387, 278, 0)} 
 QuestTarget[8] = {position(387, 278, 0)} 
-QuestTarget[9] = {position(387, 278, 0)} -- Workshop
+QuestTarget[9] = {position(387, 278, 0)} 
 QuestTarget[10] = {position(387, 278, 0)} 
+QuestTarget[11] = {position(387, 278, 0)} 
+QuestTarget[12] = {position(387, 278, 0)} 
+QuestTarget[13] = {position(387, 278, 0)} 
+QuestTarget[14] = {position(387, 278, 0)} 
+QuestTarget[15] = {position(387, 278, 0)} 
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 10
