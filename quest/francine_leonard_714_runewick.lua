@@ -25,8 +25,8 @@ local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}
-Title[GERMAN] = "Der Ackerbau und das Kochen"
-Title[ENGLISH] = "Farming and cooking"
+Title[GERMAN] = "Der Innung der Köche und Bäcker Runewicks"
+Title[ENGLISH] = "The Association of Cooking and Baking of Runewick"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
@@ -34,22 +34,39 @@ local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 
-Description[GERMAN][1] = "Sammel zehn Getreidebündel für Francine Leonard in der Küche auf der Insel der Luft. Um Getreidebündel zu kriegen, musst du das Getreide von Francine auf den Feldern außerhalb der Stadt säen. Dazu benutzt du das Getreide, während du auf dem Feld stehst. Anschließend musst du warten, bis es reif ist. Sobald es reif ist, nimmst du die Sense in die Hand und benutzt diese um das Getreide zu Getreidebündeln zu schneiden."
-Description[ENGLISH][1] = "Collect ten bundles of grain for Francine Leonard in the kitchen of the crafts house. To get the bundles of grain you have to seed the grain which Francine gave you on the fields outside the city. To do this just hold the grain in your hand and use it, whilst standing on the field. Once the crop is ready, harvest the ripened grain by holding the scythe you got from Francine in your hand and using it."
-Description[GERMAN][2] = "Geh zu Francine Leonard, die sich in der Küche auf der Insel der Luft aufhält. Sie hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][2] = "Go back to Francine Leonard in the kitchen of the crafts house, she is sure to have another task for you."
-Description[GERMAN][3] = "Produzier fünf Säcke Mehl für Francine Leonard in der Küche auf der Insel der Luft. Um Mehl zu produzieren, musst du die Getreidebündel mit dem Dreschflegel in der Hand zu Getreide schlagen. Hast du erst einmal Getreide, musst du zum Mühlstein vor der Küche. Anschließend benutzt du den Mühlstein mit der Holzkelle in der Hand und machst aus dem Getreide Mehl."
-Description[ENGLISH][3] = "Produce five sacks of flour for Francine Leonard in the kitchen of the crafts house. To produce flour you have to use the flail in your hand with the bundles of grain in your inventory. Once you've produced grain from the bundles of grain, go to the millstone in front of the kitchen. To make flour you have to take the wooden shovel in your hand and use the millstone."
-Description[GERMAN][4] = "Geh zu Francine Leonard, die sich in der Küche auf der Insel der Luft aufhält. Sie hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][4] = "Go back to Francine Leonard in the kitchen of the crafts house, she is sure to have another task for you."
-Description[GERMAN][5] = "Back fünf Brötchen für Francine Leonard, die sich in der Küche auf der Insel der Luft aufhält. Um Brötchen zu backen, brauchst du Eimer mit Wasser und Mehl. Geh zum Backofen, nimm den Backofenschieber in die Hand und benutz den Backofen anschließend, um Brötchen zu backen."
-Description[ENGLISH][5] = "Bake five bread rolls for Francine Leonard in the kitchen of the crafts house. To bake bread rolls you need buckets of water and flour. Go to the baking oven and use the peel in your hand whilst standing in front of the baking oven to bake the bread rolls."
-Description[GERMAN][6] = "Geh zu Francine Leonard, die sich in der Küche auf der Insel der Luft aufhält. Sie hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][6] = "Go back to Francine Leonard in the kitchen of the crafts house, she is sure to have another task for you."
-Description[GERMAN][7] = "Koch für Francine Leonard im Kessel neben ihr fünf Würstchen. Um Würstchen herzustellen, brauchst du Schweinefleisch und Eingeweide. Beides findest du, wenn du Schweine erlegst. Mit den Zutaten die ich dir gegeben hab, musst du anschließend den Kochlöffel in die Hand nehmen und diesen benutzen, während du vor dem Kessel stehst."
-Description[ENGLISH][7] = "Cook five sausages for Francine Leonard at the kettle next her. To produce sausages you need pork and entrails, both can be obtained if you kill pigs. With the ingredients you got from me, you have to take the cooking spoon in your hand and use it while standing in front of the kettle."
-Description[GERMAN][8] = "Du hast alle Aufgaben von Francine Leonard erfüllt."
-Description[ENGLISH][8] = "You have fulfilled all the tasks for Francine Leonard."
+Description[GERMAN][1] = "Schöpfe 10 Eimer Wasser und bring diese zu Francine Leonard in der Küche von Runewick. Dazu nimmst du die Eimer in die Hand und benutzt sie, während du vor einem Brunnen stehst. Der nächste Brunnen steht vor der Küche."
+Description[ENGLISH][1] = "Fill 10 buckets with water and take them to Francine Leonard at the kitchen in Runewick. Fill the buckets by using the buckets in your hand, whilst standing in front of a well. The next well is in front of the kitchen." 
+Description[GERMAN][2] = "Geh zu Francine Leonard in der Küche von Runewick. Sie hat bestimmt noch eine Aufgabe für dich."
+Description[ENGLISH][2] = "Go to Francine Leonard at the kitchen in Runewick, she is sure to have another task for you."
+Description[GERMAN][3] = "Mahle 10 Säcke Mehl für Francine Leonard an der Mühle vor Runewicks Küche. Um das Getreide zu mahlen, musst du die Holzkelle in die Hand nehmen und die Mühle benutzen, wenn du vor ihr stehst."
+Description[ENGLISH][3] = "Grind ten sacks of flour for Francine Leonard at the mill in front of Runewick's kitchen. To grind the grain you have to take the wooden shovel in your hand and use the mill."
+Description[GERMAN][4] = "Geh zu Francine Leonard in der Küche von Runewick. Sie hat bestimmt noch eine Aufgabe für dich."
+Description[ENGLISH][4] = "Go to Francine Leonard at the kitchen in Runewick, she is sure to have another task for you."
+Description[GERMAN][5] = "Backe zehn Brötchen für Francine Leonard in der Küche von Runewick. Für die Brötchen musst du den Drotschieber benutzen und am Backofen stehen."
+Description[ENGLISH][5] = "Bake ten bread rolls for Francine Leonard at the kitchen of Runewick. To bake you need to stand facing the baking oven and use the pell."
+Description[GERMAN][6] = "Dein derzeitiger Rang in der Innung der Köche und Bäcker von Runewick ist der eines Laiens. Gehe zu Francine Leonard in der Küche von Runewick sobald du Level 10 in der Fertigkeit Kochen und Backen erreicht hast."
+Description[ENGLISH][6] = "Your current rank with the Association of Cooking and Baking of Runewick is Layman. Return to Francine Leonard at the kitchen of Runewick once you reached Level 10 in Cooking and Baking."
+Description[GERMAN][7] = "Dein derzeitiger Rang in der Innung der Köche und Bäcker von Runewick ist der eines Anfängers. Gehe zu Francine Leonard in der Küche von Runewick sobald du Level 20 in der Fertigkeit Kochen und Backen erreicht hast."
+Description[ENGLISH][7] = "Your current rank with the Association of Cooking and Baking of Runewick is Novice. Return to Francine Leonard at the kitchen of Runewick once you reached Level 20 in Cooking and Baking."
+Description[GERMAN][8] = "Dein derzeitiger Rang in der Innung der Köche und Bäcker von Runewick ist der eines Lehrlings. Gehe zu Francine Leonard in der Küche von Runewick sobald du Level 30 in der Fertigkeit Kochen und Backen erreicht hast."
+Description[ENGLISH][8] = "Your current rank with the Association of Cooking and Baking of Runewick is Apprentice. Return to Francine Leonard at the kitchen of Runewick once you reached Level 30 in Cooking and Baking."
+Description[GERMAN][9] = "Dein derzeitiger Rang in der Innung der Köche und Bäcker von Runewick ist der eines Initiatens. Gehe zu Francine Leonard in der Küche von Runewick sobald du Level 40 in der Fertigkeit Kochen und Backen erreicht hast."
+Description[ENGLISH][9] = "Your current rank with the Association of Cooking and Baking of Runewick is Initiate. Return to Francine Leonard at the kitchen of Runewick once you reached Level 40 in Cooking and Baking."
+Description[GERMAN][10] = "Dein derzeitiger Rang in der Innung der Köche und Bäcker von Runewick ist der eines Gesellens. Gehe zu Francine Leonard in der Küche von Runewick sobald du Level 50 in der Fertigkeit Kochen und Backen erreicht hast."
+Description[ENGLISH][10] = "Your current rank with the Association of Cooking and Baking of Runewick is Journeyman. Return to Francine Leonard at the kitchen of Runewick once you reached Level 50 in Cooking and Baking."
+Description[GERMAN][11] = "Dein derzeitiger Rang in der Innung der Köche und Bäcker von Runewick ist der eines Spezialistens. Gehe zu Francine Leonard in der Küche von Runewick sobald du Level 60 in der Fertigkeit Kochen und Backen erreicht hast."
+Description[ENGLISH][11] = "Your current rank with the Association of Cooking and Baking of Runewick is Specialist. Return to Francine Leonard at the kitchen of Runewick once you reached Level 60 in Cooking and Baking."
+Description[GERMAN][12] = "Dein derzeitiger Rang in der Innung der Köche und Bäcker von Runewick ist der eines Expertens. Gehe zu Francine Leonard in der Küche von Runewick sobald du Level 70 in der Fertigkeit Kochen und Backen erreicht hast."
+Description[ENGLISH][12] = "Your current rank with the Association of Cooking and Baking of Runewick is Expert. Return to Francine Leonard at the kitchen of Runewick once you reached Level 70 in Cooking and Baking."
+Description[GERMAN][13] = "Dein derzeitiger Rang in der Innung der Köche und Bäcker von Runewick ist der eines Adeptens. Gehe zu Francine Leonard in der Küche von Runewick sobald du Level 80 in der Fertigkeit Kochen und Backen erreicht hast."
+Description[ENGLISH][13] = "Your current rank with the Association of Cooking and Baking of Runewick is Adept. Return to Francine Leonard at the kitchen of Runewick once you reached Level 80 in Cooking and Baking."
+Description[GERMAN][14] = "Dein derzeitiger Rang in der Innung der Köche und Bäcker von Runewick ist der eines Artisanens. Gehe zu Francine Leonard in der Küche von Runewick sobald du Level 90 in der Fertigkeit Kochen und Backen erreicht hast."
+Description[ENGLISH][14] = "Your current rank with the Association of Cooking and Baking of Runewick is Artisan. Return to Francine Leonard at the kitchen of Runewick once you reached Level 90 in Cooking and Baking."
+Description[GERMAN][15] = "Dein derzeitiger Rang in der Innung der Köche und Bäcker von Runewick ist der eines Meisters. Gehe zu Francine Leonard in der Küche von Runewick sobald du Level 100 in der Fertigkeit Kochen und Backen erreicht hast."
+Description[ENGLISH][15] = "Your current rank with the Association of Cooking and Baking of Runewick is Master. Return to Francine Leonard at the kitchen of Runewick once you reached Level 100 in Cooking and Baking."
+Description[GERMAN][16] = "Gratulation, du bist nun ein wahrer Großmeister der Innung der Köche und Bäcker von Runewick."
+Description[ENGLISH][16] = "Congratulations, you are now a true Grandmaster of the Association of Cooking and Baking of Runewick."
+
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
@@ -57,14 +74,21 @@ local Start = {959, 842, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(959, 842, 0), position(858, 832, 0)} -- Fields
-QuestTarget[2] = {position(959, 842, 0)} 
-QuestTarget[3] = {position(959, 842, 0), position(951, 842, 0)} -- Millstone
-QuestTarget[4] = {position(959, 842, 0)} 
-QuestTarget[5] = {position(959, 842, 0), position(963, 837, 0)} -- Baking oven
+QuestTarget[1] = {position(959, 842, 0), position(948, 823, 0)} -- well
+QuestTarget[2] = {position(959, 842, 0)}
+QuestTarget[3] = {position(959, 842, 0), position(951, 842, 0)} -- mill
+QuestTarget[4] = {position(959, 842, 0)}
+QuestTarget[5] = {position(959, 842, 0), position(961, 835, 0), position(963, 837, 0)} -- baking oven
 QuestTarget[6] = {position(959, 842, 0)} 
-QuestTarget[7] = {position(959, 842, 0), position(960, 838, 0)} -- Camp fire
-QuestTarget[8] = {position(959, 842, 0)}
+QuestTarget[7] = {position(959, 842, 0)} 
+QuestTarget[8] = {position(959, 842, 0)} 
+QuestTarget[9] = {position(959, 842, 0)} 
+QuestTarget[10] = {position(959, 842, 0)} 
+QuestTarget[11] = {position(959, 842, 0)} 
+QuestTarget[12] = {position(959, 842, 0)} 
+QuestTarget[13] = {position(959, 842, 0)} 
+QuestTarget[14] = {position(959, 842, 0)} 
+QuestTarget[15] = {position(959, 842, 0)} 
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 8
