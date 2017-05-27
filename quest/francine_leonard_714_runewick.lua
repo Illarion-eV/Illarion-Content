@@ -42,7 +42,7 @@ Description[GERMAN][3] = "Mahle 10 Säcke Mehl für Francine Leonard an der Mühle 
 Description[ENGLISH][3] = "Grind ten sacks of flour for Francine Leonard at the mill in front of Runewick's kitchen. To grind the grain you have to take the wooden shovel in your hand and use the mill."
 Description[GERMAN][4] = "Geh zu Francine Leonard in der Küche von Runewick. Sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][4] = "Go to Francine Leonard at the kitchen in Runewick, she is sure to have another task for you."
-Description[GERMAN][5] = "Backe zehn Brötchen für Francine Leonard in der Küche von Runewick. Für die Brötchen musst du den Drotschieber benutzen und am Backofen stehen."
+Description[GERMAN][5] = "Backe zehn Brötchen für Francine Leonard in der Küche von Runewick. Für die Brötchen musst du den Brotschieber benutzen und am Backofen stehen."
 Description[ENGLISH][5] = "Bake ten bread rolls for Francine Leonard at the kitchen of Runewick. To bake you need to stand facing the baking oven and use the pell."
 Description[GERMAN][6] = "Dein derzeitiger Rang in der Innung der Köche und Bäcker von Runewick ist der eines Laiens. Gehe zu Francine Leonard in der Küche von Runewick sobald du Level 10 in der Fertigkeit Kochen und Backen erreicht hast."
 Description[ENGLISH][6] = "Your current rank with the Association of Cooking and Baking of Runewick is Layman. Return to Francine Leonard at the kitchen of Runewick once you reached Level 10 in Cooking and Baking."
@@ -91,7 +91,7 @@ QuestTarget[14] = {position(959, 842, 0)}
 QuestTarget[15] = {position(959, 842, 0)} 
 
 -- Insert the quest status which is reached at the end of the quest
-local FINAL_QUEST_STATUS = 8
+local FINAL_QUEST_STATUS = 16
 
 
 function M.QuestTitle(user)

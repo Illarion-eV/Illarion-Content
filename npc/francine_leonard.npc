@@ -36,7 +36,7 @@ language = human
 defaultLanguage = common
 autointroduce = on
 
-author = "Zot"
+author = "Estralis"
 
 lookatDE = ""
 lookatUS = ""
@@ -57,6 +57,21 @@ itemSecondHand = 0
 itemHands = 0
 itemTrousers = 843
 itemShoes = 0
+
+-- Quest 1: Gathering. Player gets a gathering tool. Player gathers materials for 10 intermediate products.
+-- Quest 2: Intermediate production. Player gets a tool for intermediate production. Player produces 10 intermediate products.
+-- Quest 3: Final production. Player gets a tool for final production. Player delivers final products made of 10 intermediate products. Reward: 50 % of item.worth. Rank Layman / Laie
+-- Rank quests:
+-- Level 10: Novice / Anfänger. Reward: 10 Raw materials (e.g. coal)
+-- Level 20: Apprentice / Lehrling. Reward: 20 Raw materials (e.g. wool)
+-- Level 30: Initiate / Initiat. Reward: 10 Intermediate products (e.g. boards)
+-- Level 40: Journeyman / Geselle. Reward: 20 Intermediate products (e.g. thread)
+-- Level 50: Specialist / Spezialist. Reward: 10 Uncommon resources (e.g. handles)
+-- Level 60: Expert / Experte. Reward: 20 Uncommon resources (e.g. gold ingots)
+-- Level 70: Adept / Adept. Reward: 5 Rare resources (e.g. merinium ingots)
+-- Level 80: Artisan / Artisane. Reward: 10 Rare resources (e.g. heartwood)
+-- Level 90: Master / Meister. Reward: 5 Pure elements
+-- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Francine Leonard the cook and baker. Keywords: quest")
@@ -212,9 +227,9 @@ skill(cookingAndBaking) < 80, queststatus(714) = 13, town = Runewick, "task", "a
 skill(cookingAndBaking) < 80, queststatus(714) = 13, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Weiterarbeiten! Du musst dein Können als Koch und Bäcker verbessern, um befördert zu werden. Du wirst im Rang eines Adeptens geführt."
 
 -- Level 90: Master / Meister. Reward: 5 Pure elements
-skill(cookingAndBaking) > 89, queststatus(714) = 14, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Master with the Baker and Cook Association of Runewick. You are awarded five pieces of pure xxx and a special tool."), item(735, 5, 333), queststatus(714) = 15, "Good job. I see you really worked hard. The Baker and Cook Association of Runewick supports your efforts with some pure xxx and this engraved spoon. Come back to me once your are more experienced.", item(227, 1, 999, "descriptionEn" = "Master of the Baker and Cook Association of Runewick", "descriptionDe" = "Meister der Innung der Bächer und Köche von Runewick")
-skill(cookingAndBaking) > 89, queststatus(714) = 14, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Master with the Baker and Cook Association of Runewick. You are awarded five pieces of pure xxx and a special tool."), item(735, 5, 333), queststatus(714) = 15, "Good job. I see you really worked hard. The Baker and Cook Association of Runewick supports your efforts with some pure xxx and this engraved spoon. Come back to me once your are more experienced.", item(227, 1, 999, "descriptionEn" = "Master of the Baker and Cook Association of Runewick", "descriptionDe" = "Meister der Innung der Bächer und Köche von Runewick")
-skill(cookingAndBaking) > 89, queststatus(714) = 14, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Die Innung der Köche und Bäcker von Runewick erhebt dich in den Rang eines Meisters. Du erhältst fünf Stück reiner xxx and a special tool."), item(735, 5, 333), queststatus(714) = 15, "Gut gemacht. Wie ich sehe, hast du hart gearbeitet. Die Innung der Köche und Bäcker von Runewick unterstützt deine Bemühungen mit etwas reiner xxxe und diesem besonderen Kochlöffel. Komm erneut zu mir, wenn du erfahrener bist.", item(227, 1, 999, "descriptionEn" = "Master of the Baker and Cook Association of Runewick", "descriptionDe" = "Meister der Innung der Bächer und Köche von Runewick")
+skill(cookingAndBaking) > 89, queststatus(714) = 14, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Master with the Baker and Cook Association of Runewick. You are awarded five pieces of pure xxx and a special tool."), item(735, 5, 333), queststatus(714) = 15, "Good job. I see you really worked hard. The Baker and Cook Association of Runewick supports your efforts with some pure xxx and this engraved spoon. Come back to me once your are more experienced.", item(227, 1, 999, "descriptionEn" = "Master of the Baker and Cook Association of Runewick", "descriptionDe" = "Meister der Innung der Bäcker und Köche von Runewick")
+skill(cookingAndBaking) > 89, queststatus(714) = 14, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Master with the Baker and Cook Association of Runewick. You are awarded five pieces of pure xxx and a special tool."), item(735, 5, 333), queststatus(714) = 15, "Good job. I see you really worked hard. The Baker and Cook Association of Runewick supports your efforts with some pure xxx and this engraved spoon. Come back to me once your are more experienced.", item(227, 1, 999, "descriptionEn" = "Master of the Baker and Cook Association of Runewick", "descriptionDe" = "Meister der Innung der Bäcker und Köche von Runewick")
+skill(cookingAndBaking) > 89, queststatus(714) = 14, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Die Innung der Köche und Bäcker von Runewick erhebt dich in den Rang eines Meisters. Du erhältst fünf Stück reiner xxx und ein besonderes Werkzeug."), item(735, 5, 333), queststatus(714) = 15, "Gut gemacht. Wie ich sehe, hast du hart gearbeitet. Die Innung der Köche und Bäcker von Runewick unterstützt deine Bemühungen mit etwas reiner xxxe und diesem besonderen Kochlöffel. Komm erneut zu mir, wenn du erfahrener bist.", item(227, 1, 999, "descriptionEn" = "Master of the Baker and Cook Association of Runewick", "descriptionDe" = "Meister der Innung der Bäcker und Köche von Runewick")
 
 -- Level < 90: Not experienced enough
 skill(cookingAndBaking) < 90, queststatus(714) = 14, english, town = Runewick, "quest", "mission" -> "Work on! You have to improve your skills in cooking and baking to be eligible for a promotion. Your current rank is Artisan."

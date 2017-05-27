@@ -90,7 +90,7 @@ QuestTarget[14] = {position(387, 278, 0)}
 QuestTarget[15] = {position(387, 278, 0)} 
 
 -- Insert the quest status which is reached at the end of the quest
-local FINAL_QUEST_STATUS = 10
+local FINAL_QUEST_STATUS = 16
 
 
 function M.QuestTitle(user)
