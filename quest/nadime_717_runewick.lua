@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
--- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (717, 'quest.nadime_717_runewick');
+-- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (717, 'quest.nadime_717_Cadomyr');
 
 local common = require("base.common")
 local factions = require("base.factions")
@@ -26,50 +26,73 @@ ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}
-Title[GERMAN] = "Das Glasblasen in Runewick"
-Title[ENGLISH] = "Glass blowing in Runewick"
+Title[GERMAN] = "Das Glasbläserinnung Cadomyrs"
+Title[ENGLISH] = "The Glassblowing Association Cadomyr's"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Sammel zehn Haufen groben Sand in den Sandgruben außerhalb der Stadt. Sand sammelst du, in dem du Schaufel in die Hand nimmst und sie bei einer Sandgrube benutzt. Geh dann zum Sieb in der Werkstatt und mach daraus Quarzsand und zeig anschließend den Sand Nadime, die du in der Werkstatt von Runewick findest. Benutze hierfür das Sieb, während du die Kelle in der Hand hältst."
-Description[ENGLISH][1] = "Collect ten piles of coarse sand at the sand pit found west outside the town. You can collect the coarse sand if you take the shovel in your hand and use it where there is a sand pit. Once you have enough coarse sand, you can use the wooden shovel to sieve the quartz sand. To produce quartz sand take the wooden shovel in your hand and use the sieve whilst standing in front of it."
-Description[GERMAN][2] = "Geh zu Nadime in dem Handwerkshaus von Runewick, sie hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][2] = "Go to Nadime in the workshop of Runewick, she is sure to have another task for you."
-Description[GERMAN][3] = " Produziere zehn Haufen Asche und bringe sie zu Nadime. Hierfür musst du Holzscheite an einem Feuer verbrennen. Zuerst leg einen Holzscheit auf den Boden, anschließend benutzt du diesen einmal. Daraufhin benutzt du das Feuer, um aus den restlichen Scheiten in deinem Inventar Asche herzustellen."
-Description[ENGLISH][3] = "Produce ten piles ash and bring them to Nadime. Place one wooden log on the ground, then use it. Once the fire is lit, wait for the fire to turn the remaining logs in your inventory to ash."
-Description[GERMAN][4] = "Geh zu Nadime in dem Handwerkshaus von Runewick, sie hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][4] = "Go to Nadime in the workshop of Runewick, she is sure to have another task for you."
-Description[GERMAN][5] = "Stell zehn Glasblöcke für Nadime in der Werkstatt von Runewick her. Um Glasblöcke herzustellen, brauchst du Quarzsand und Asche. Gehe zum Glasschmelzofen und nimm das Glasblasrohr in die Hand. Benutze den Ofen, um Glasblöcke herzustellen." 
-Description[ENGLISH][5] = "Produce ten glass ingots for Nadime in the workshop of Runewick. To produce glass ingots you need quartz sand and ash. Go to the glass melting oven, take the glass blow pipe in your hand and use the oven."
-Description[GERMAN][6] = "Geh zu Nadime in dem Handwerkshaus von Runewick, sie hat bestimmt noch eine Aufgabe für dich."
-Description[ENGLISH][6] = "Go to Nadime in the workshop of Runewick, she is sure to have another task for you."
-Description[GERMAN][7] = "Stell fünf leere Saftflaschen mit den Glasblöcken für Nadime her und zeig ihr die Flaschen. Um die Flaschen herzustellen, nimmst du das Glasblasrohr in die Hand und benutzt dieses, während du vor dem Glasschmelzofen stehst."
-Description[ENGLISH][7] = "Produce five empty juice bottles from glass ingots using the glass blow pipe at the glass melting oven and show them to Nadime. To produce the bottles go to the glass melting oven, take the glass blow pipe in your hand and then use it."
-Description[GERMAN][8] = "Du hast alle Aufgaben von Nadime erfüllt."
-Description[ENGLISH][8] = "You have fulfilled all the tasks for Nadime."
+Description[GERMAN][1] = "Beschaff 10 Schaufeln Sand und bring diese zu Nadime in der Werkstatt von Cadomyr. Dazu nimmst du die Schaufel in die Hand und benutzt sie, während du vor einer Sandgrube stehst. Die nächste Sandgrube findest du vor den Toren Cadomyrs."
+Description[ENGLISH][1] = "Get 10 shovels of sand and take them to Nadime at the workshop in Cadomyr. Dig the sand by using the shovel in your hand, whilst standing in front of a sandpit. The next sandpit is in front of Cadomyr's gates." 
+Description[GERMAN][2] = "Geh zu Nadime in der Werkstatt von Cadomyr. Sie hat bestimmt noch eine Aufgabe für dich."
+Description[ENGLISH][2] = "Go to Nadime at the workshop in Cadomyr, she is sure to have another task for you."
+Description[GERMAN][3] = "Verbrenne 10 Holzscheite zu Pottasche für Nadime am Glasschmelzofen in Cadomyrs Werkstatt. Um das Holz zu verbrennen, musst du die Holzkelle in die Hand nehmen und den Glasschmelzofen benutzen, wenn du vor ihm stehst."
+Description[ENGLISH][3] = "Burn 10 wood to potash for Nadime at the glass melting oven in Cadomyr's workshop. To burn the wood you have to take the wooden shovel in your hand and use the glass melting oven."
+Description[GERMAN][4] = "Geh zu Nadime in der Werkstatt von Cadomyr. Sie hat bestimmt noch eine Aufgabe für dich."
+Description[ENGLISH][4] = "Go to Nadime at the workshop in Cadomyr, she is sure to have another task for you."
+Description[GERMAN][5] = "Schmelze 10 Glasblöcke für Nadime in der Werkstatt von Cadomyr. Für die Glasblöcke musst du die Gussform benutzen und am Glasschmelzofen stehen."
+Description[ENGLISH][5] = "Melt 10 glass ingots for Nadime at the workshop of Cadomyr. To melt you need to stand facing the glass melting oven oven and use the mould."
+Description[GERMAN][6] = "Dein derzeitiger Rang in der Innung der Glasbläser von Cadomyr ist der eines Laiens. Gehe zu Nadime in der Werkstatt von Cadomyr sobald du Level 10 in der Fertigkeit Glasblasen erreicht hast."
+Description[ENGLISH][6] = "Your current rank with the Glassblower Association of Cadomyr is Layman. Return to Nadime at the workshop of Cadomyr once you reached Level 10 in Glassblowing."
+Description[GERMAN][7] = "Dein derzeitiger Rang in der Innung der Glasbläser von Cadomyr ist der eines Anfängers. Gehe zu Nadime in der Werkstatt von Cadomyr sobald du Level 20 in der Fertigkeit Glasblasen erreicht hast."
+Description[ENGLISH][7] = "Your current rank with the Glassblower Association of Cadomyr is Novice. Return to Nadime at the workshop of Cadomyr once you reached Level 20 in Glassblowing."
+Description[GERMAN][8] = "Dein derzeitiger Rang in der Innung der Glasbläser von Cadomyr ist der eines Lehrlings. Gehe zu Nadime in der Werkstatt von Cadomyr sobald du Level 30 in der Fertigkeit Glasblasen erreicht hast."
+Description[ENGLISH][8] = "Your current rank with the Glassblower Association of Cadomyr is Apprentice. Return to Nadime at the workshop of Cadomyr once you reached Level 30 in Glassblowing."
+Description[GERMAN][9] = "Dein derzeitiger Rang in der Innung der Glasbläser von Cadomyr ist der eines Initiatens. Gehe zu Nadime in der Werkstatt von Cadomyr sobald du Level 40 in der Fertigkeit Glasblasen erreicht hast."
+Description[ENGLISH][9] = "Your current rank with the Glassblower Association of Cadomyr is Initiate. Return to Nadime at the workshop of Cadomyr once you reached Level 40 in Glassblowing."
+Description[GERMAN][10] = "Dein derzeitiger Rang in der Innung der Glasbläser von Cadomyr ist der eines Gesellens. Gehe zu Nadime in der Werkstatt von Cadomyr sobald du Level 50 in der Fertigkeit Glasblasen erreicht hast."
+Description[ENGLISH][10] = "Your current rank with the Glassblower Association of Cadomyr is Journeyman. Return to Nadime at the workshop of Cadomyr once you reached Level 50 in Glassblowing."
+Description[GERMAN][11] = "Dein derzeitiger Rang in der Innung der Glasbläser von Cadomyr ist der eines Spezialistens. Gehe zu Nadime in der Werkstatt von Cadomyr sobald du Level 60 in der Fertigkeit Glasblasen erreicht hast."
+Description[ENGLISH][11] = "Your current rank with the Glassblower Association of Cadomyr is Specialist. Return to Nadime at the workshop of Cadomyr once you reached Level 60 in Glassblowing."
+Description[GERMAN][12] = "Dein derzeitiger Rang in der Innung der Glasbläser von Cadomyr ist der eines Expertens. Gehe zu Nadime in der Werkstatt von Cadomyr sobald du Level 70 in der Fertigkeit Glasblasen erreicht hast."
+Description[ENGLISH][12] = "Your current rank with the Glassblower Association of Cadomyr is Expert. Return to Nadime at the workshop of Cadomyr once you reached Level 70 in Glassblowing."
+Description[GERMAN][13] = "Dein derzeitiger Rang in der Innung der Glasbläser von Cadomyr ist der eines Adeptens. Gehe zu Nadime in der Werkstatt von Cadomyr sobald du Level 80 in der Fertigkeit Glasblasen erreicht hast."
+Description[ENGLISH][13] = "Your current rank with the Glassblower Association of Cadomyr is Adept. Return to Nadime at the workshop of Cadomyr once you reached Level 80 in Glassblowing."
+Description[GERMAN][14] = "Dein derzeitiger Rang in der Innung der Glasbläser von Cadomyr ist der eines Artisanens. Gehe zu Nadime in der Werkstatt von Cadomyr sobald du Level 90 in der Fertigkeit Glasblasen erreicht hast."
+Description[ENGLISH][14] = "Your current rank with the Glassblower Association of Cadomyr is Artisan. Return to Nadime at the workshop of Cadomyr once you reached Level 90 in Glassblowing."
+Description[GERMAN][15] = "Dein derzeitiger Rang in der Innung der Glasbläser von Cadomyr ist der eines Meisters. Gehe zu Nadime in der Werkstatt von Cadomyr sobald du Level 100 in der Fertigkeit Glasblasen erreicht hast."
+Description[ENGLISH][15] = "Your current rank with the Glassblower Association of Cadomyr is Master. Return to Nadime at the workshop of Cadomyr once you reached Level 100 in Glassblowing."
+Description[GERMAN][16] = "Gratulation, du bist nun ein wahrer Großmeister der Innung der Glasbläser von Cadomyr."
+Description[ENGLISH][16] = "Congratulations, you are now a true Grandmaster of the Glassblower Association of Cadomyr."
+
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-local Start = {949, 822, 0}
+local Start = {141, 582, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(949, 822, 0), position(744, 829, 0), position(950, 823, 0)} -- Sand Pit
-QuestTarget[2] = {position(949, 822, 0)} 
-QuestTarget[3] = {position(949, 822, 0)} -- 
-QuestTarget[4] = {position(949, 822, 0)} 
-QuestTarget[5] = {position(949, 822, 0), position(952, 821, 0)} -- Glass melting oven
-QuestTarget[6] = {position(949, 822, 0)} 
-QuestTarget[7] = {position(949, 822, 0), position(952, 821, 0)} -- Glass melting oven
-QuestTarget[8] = {position(949, 822, 0)} 
-
+QuestTarget[1] = {position(141, 582, 0), position(122, 624, 0), position(123, 653, 0)} -- sand pit
+QuestTarget[2] = {position(141, 582, 0)}
+QuestTarget[3] = {position(141, 582, 0), position(143, 587, 0), position(143, 585, 0)} -- glass melting oven
+QuestTarget[4] = {position(141, 582, 0)}
+QuestTarget[5] = {position(141, 582, 0), position(143, 587, 0), position(143, 585, 0)} -- glass melting oven
+QuestTarget[6] = {position(141, 582, 0)} 
+QuestTarget[7] = {position(141, 582, 0)} 
+QuestTarget[8] = {position(141, 582, 0)} 
+QuestTarget[9] = {position(141, 582, 0)} 
+QuestTarget[10] = {position(141, 582, 0)} 
+QuestTarget[11] = {position(141, 582, 0)} 
+QuestTarget[12] = {position(141, 582, 0)} 
+QuestTarget[13] = {position(141, 582, 0)} 
+QuestTarget[14] = {position(141, 582, 0)} 
+QuestTarget[15] = {position(141, 582, 0)} 
 
 -- Insert the quest status which is reached at the end of the quest
-local FINAL_QUEST_STATUS = 8
+local FINAL_QUEST_STATUS = 16
 
 
 function M.QuestTitle(user)
@@ -96,7 +119,7 @@ function M.QuestFinalStatus()
 end
 
 function M.QuestAvailability(user, status)
-    if factions.isRunewickCitizen(user) and status == 0 then
+    if factions.isCadomyrCitizen(user) and status == 0 then
         return Player.questAvailable
     else
         return Player.questNotAvailable
