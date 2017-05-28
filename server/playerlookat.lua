@@ -116,9 +116,11 @@ local addtext = "";
     --else belt is empty, nothing to tell!
     end
 
-    if ( LookingAt > 40 ) then
-        output = output .. getCharPurse( TargetCharacter, lang, LookingAt, 0);
-    end
+    -- weight of load
+    output = output .. getCharLoad( TargetCharacter, lang, LookingAt, 0)
+    
+    -- amount of money
+    output = output .. getCharPurse( TargetCharacter, lang, LookingAt, 40);
     
     -- what hold the char in hand?
     isFirstText = true;
@@ -166,7 +168,6 @@ function getCharWears( TargetCharacter, lang, positionAtChar, currentLookingAt, 
     return text;
 end
 
-
 function getCharPurse( TargetCharacter, lang, currentLookingAt, limitLookingAt)
     local copperAtChar = money.CharCoinsToMoney( TargetCharacter );
     local text = "";
@@ -193,6 +194,42 @@ function getCharPurse( TargetCharacter, lang, currentLookingAt, limitLookingAt)
                 text = text .. ( lang == 0 and "gefüllt. " or "filled. " );
             else
                 text = text .. ( lang == 0 and "prall gefüllt. " or "tightly filled. " );
+            end
+        end
+    end
+    return text;
+end
+
+function getCharLoad( TargetCharacter, lang, currentLookingAt, limitLookingAt)
+    local weightRelation = 0;
+    local text = "";
+    local TargetCharacterSex = TargetCharacter:increaseAttrib( "sex", 0 );
+    
+    if (currentLookingAt > limitLookingAt) then
+        local backpack = TargetCharacter:getItemAt(Character.backpack)
+        if ( backpack ~= nil ) and ( backpack.id > 0 ) then
+            if ( TargetCharacterSex == 0 ) then
+                text = ( lang == 0 and "\nSeine Tasche " or "\nHis bag " );
+            else
+                text = ( lang == 0 and "\nIhre Tasche " or "\nHer bag " );
+            end
+            weightRelation = getCharacterLoad(TargetCharacter) / getMaximumLoad(TargetCharacter);
+            if (weightRelation > 0.99) then
+                text = text .. ( lang == 0 and "ist völlig überladen. " or "is totally overloaded. " );
+            elseif  (weightRelation > 0.74) then
+                text = text .. ( lang == 0 and "ist sehr schwer. " or "is very heavy. " );
+            elseif  (weightRelation > 0.5) then
+                text = text .. ( lang == 0 and "ist gut gefüllt. " or "is well loaded. " );
+            elseif  (weightRelation > 0.2) then
+                text = text .. ( lang == 0 and "hat noch viel Platz. " or "has a lot of space yet. " );
+            else
+                text = text .. ( lang == 0 and "ist nahezu leer. " or "is almost empty. " );
+            end
+        else
+            if ( TargetCharacterSex == 0 ) then
+                text = ( lang == 0 and "\nEr trägt keine Tasche. " or "\nHe has no bag. " );
+            else
+                text = ( lang == 0 and "\nSie trägt keine Tasche. " or "\nShe has no bag. " );
             end
         end
     end
@@ -403,6 +440,32 @@ function isIgnoredItem(itemId)
     local CEILING_TROWEL_ID = 382;
     return itemId == nil or itemId == 0 or  itemId == TROWEL_ID or itemId == NULL_ID or itemId == MEDAL_ID
             or itemId == LOCKPICKS_ID or itemId == CEILING_TROWEL_ID;
+end
+
+function getMaximumLoad(user)
+    return user:increaseAttrib("strength", 0) * 500 + 5000 -- This calculation is the same the server uses.
+end
+
+function getCharacterLoad(user)
+    local totalLoad = 0
+    
+    local backPack
+    if user:getItemAt(Character.backpack) then
+        backPack = user:getBackPack()
+    end
+    
+    if backPack then
+        totalLoad = totalLoad + backPack:weight()
+    end
+    
+    for i = 1, 17 do
+        local currentItem = user:getItemAt(i)
+        if currentItem then
+            totalLoad = totalLoad +  world:getItemStats(currentItem).Weight
+        end
+    end
+    
+    return totalLoad
 end
 
 return M
