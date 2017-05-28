@@ -36,6 +36,8 @@ language = lizard
 defaultLanguage = common
 autointroduce = on
 
+author = "Zot"
+author = "Banduk"
 author = "Estralis"
 
 lookatDE = ""
