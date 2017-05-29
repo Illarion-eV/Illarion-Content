@@ -26,7 +26,7 @@ local ENGLISH = Player.english
 -- Insert the quest title here, in both languages
 local Title = {}
 Title[GERMAN] = "Der Innung der Köche und Bäcker Runewicks"
-Title[ENGLISH] = "The Association of Cooking and Baking of Runewick"
+Title[ENGLISH] = "The Baker and Cook Guild of Runewick"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
@@ -43,7 +43,7 @@ Description[ENGLISH][3] = "Grind ten sacks of flour for Francine Leonard at the 
 Description[GERMAN][4] = "Geh zu Francine Leonard in der Küche von Runewick. Sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][4] = "Go to Francine Leonard at the kitchen in Runewick, she is sure to have another task for you."
 Description[GERMAN][5] = "Backe zehn Brötchen für Francine Leonard in der Küche von Runewick. Für die Brötchen musst du den Brotschieber benutzen und am Backofen stehen."
-Description[ENGLISH][5] = "Bake ten bread rolls for Francine Leonard at the kitchen of Runewick. To bake you need to stand facing the baking oven and use the pell."
+Description[ENGLISH][5] = "Bake ten bread rolls for Francine Leonard at the kitchen of Runewick. To bake you need to stand facing the baking oven and use the peel."
 Description[GERMAN][6] = "Dein derzeitiger Rang in der Innung der Köche und Bäcker von Runewick ist der eines Laiens. Gehe zu Francine Leonard in der Küche von Runewick sobald du Level 10 in der Fertigkeit Kochen und Backen erreicht hast."
 Description[ENGLISH][6] = "Your current rank with the Association of Cooking and Baking of Runewick is Layman. Return to Francine Leonard at the kitchen of Runewick once you reached Level 10 in Cooking and Baking."
 Description[GERMAN][7] = "Dein derzeitiger Rang in der Innung der Köche und Bäcker von Runewick ist der eines Anfängers. Gehe zu Francine Leonard in der Küche von Runewick sobald du Level 20 in der Fertigkeit Kochen und Backen erreicht hast."
