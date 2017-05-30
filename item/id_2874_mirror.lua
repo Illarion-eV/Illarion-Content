@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
 local common = require("base.common")
-local chardescription = require("content.chardescription")
+local playerlookat = require("server.playerlookat")
 local lookat = require("base.lookat")
 
 local M = {}
@@ -43,27 +43,9 @@ function M.LookAtItem(User, Item)
 end
 
 function M.UseItem(User, SourceItem)
-    local output = "";
-    local lang = User:getPlayerLanguage();
-    local qual,dura = chardescription.getClothesFactor(User);
-    local ft = chardescription.getFigureText(User:increaseAttrib("body_height",0),User:increaseAttrib("weight",0),User:increaseAttrib("strength",0), lang);
-    if(lang == 0) then
-        output = "Du bist ";
-        output = output..chardescription.getAgeText(User:getRace(), User:increaseAttrib("age", 0), lang);
-        if(ft ~= nil) then
-            output = output..", "..ft;
-        end
-        output = output.." und "..chardescription.getHPText(User:increaseAttrib("hitpoints",0), lang)..". ";
-        output = output.."Deine Kleidung wirkt "..chardescription.getClothesQualText(qual, lang).." und "..chardescription.getClothesDuraText(dura, lang)..".";
-    else
-        output = "You are ";
-        output = output..chardescription.getAgeText(User:getRace(), User:increaseAttrib("age", 0), lang);
-        if(ft ~= nil) then
-            output = output..", "..chardescription.getFigureText(User:increaseAttrib("body_height",0),User:increaseAttrib("weight",0),User:increaseAttrib("strength",0), lang);
-        end
-        output = output.." and "..chardescription.getHPText(User:increaseAttrib("hitpoints",0), lang)..". ";
-        output = output.."Your clothes look "..chardescription.getClothesQualText(qual, lang).." and "..chardescription.getClothesDuraText(dura, lang)..".";
-    end
+    local output = playerlookat.getCharDescription( User, User, 2);
+    -- 2 means mode mirror
+    common.TurnTo( User, SourceItem.pos );
     User:inform(output);
 end
 return M
