@@ -75,6 +75,8 @@ function M.MoveToField(User)
                     User:setQuestProgress(510, 11) --Quest solved!
                     common.InformNLS(User, "[Queststatus] Du hast die Aufgabe erledigt und alle Ebenen gefunden.", "[Quest status] You completed the quest and found all levels.")
                     return --more than solving isn't possible, bailing out
+                else
+                    common.InformNLS(User, "[Queststatus] Es scheint noch mehr Ebenen zu geben. Du musst weiter suchen.", "[Quest status] There might be more levels. You have to go on with your search.")
                 end
             end
         end

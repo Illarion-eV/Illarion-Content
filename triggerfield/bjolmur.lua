@@ -79,7 +79,7 @@ local function PayGemsToMeetHer(char)
         if success then
             local selected = dialog:getSelectedIndex()
             if PlayerHasTheRightGems(char,requiredGems) == true then
-                char:inform("Du hörst etwas flüstern: 'Du bist würdig und sollst eintreten.", "You hear a whisper: 'You prove yourself worthy and shall enter.'")
+                char:inform("Du hörst etwas flüstern: 'Du bist würdig und sollst eintreten.'", "You hear a whisper: 'You prove yourself worthy and shall enter.'")
                 WrapPlayerUp(char,requiredGems)
             else
                 char:inform("Du hörst etwas flüstern: 'Willst du mich provozieren? Bringe, was ich fordere oder es wird dein Ende sein!'", "You hear a whisper: 'Do you want to provoke me? Bring what I demand or it will be your end!'")

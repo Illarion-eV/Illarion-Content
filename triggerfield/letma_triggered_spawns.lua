@@ -37,7 +37,7 @@ triggerpoint[5] = position(248, 809, 1)
 triggerpoint[6] = position(239, 818, 1)
 
 local messageG = {} --German informs
-messageG[1] = "Als du über den Baumstamm steigst störst Du etwas was darunter verborgen war."
+messageG[1] = "Als du über den Baumstamm steigst störst Du etwas, was darunter verborgen war."
 
 local messageE = {} --English informs
 messageE[1] = "As you step over the log, you disturb something that was hiding under it."
