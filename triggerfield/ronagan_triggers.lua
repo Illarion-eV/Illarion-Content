@@ -94,7 +94,7 @@ function M.MoveToField( User )
         world:createItemFromId(12, 1, position(898, 585, -9), true, 500, nil) -- add lit camp fires
         world:createItemFromId(12, 1, position(894, 585, -9), true, 500, nil) -- add lit camp fires
     elseif User.pos == position(890, 597, -6) then -- inform
-        common.InformNLS(User,"Die Münze auf dem Tisch zieht deinen Blick auf sich, als sie den Feuerschein reflektiert.","The coins on the table catch your eye as they reflect the firelight.")
+        common.InformNLS(User,"Die Münze auf dem Tisch reflektiert den Feuerschein und zieht deinen Blick auf sich.","The coins on the table catch your eye as they reflect the firelight.")
     end
 
 end
