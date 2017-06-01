@@ -32,25 +32,25 @@ potashmaking = crafts.Craft:new{
 potashmaking:addTool(313) -- oven
 
 
-local catId = potashmaking:addCategory("Potash from Cherry Wood", "Asche aus Kirschholz")
+local catId = potashmaking:addCategory("Potash from Cherry Wood", "Kirschholzasche")
 
 -- Potash
 local product = potashmaking:addProduct(catId, 314, 1)
 product:addIngredient(543) -- cherry wood
 
-local catId = potashmaking:addCategory("Potash from Naldor Wood", "Asche aus Naldorholz")
+local catId = potashmaking:addCategory("Potash from Naldor Wood", "Naldorholzasche")
 
 -- Potash
 local product = potashmaking:addProduct(catId, 314, 1)
 product:addIngredient(544) -- naldor wood
 
-local catId = potashmaking:addCategory("Potash from Conifer Wood", "Asche aus Nadelholz")
+local catId = potashmaking:addCategory("Potash from Conifer Wood", "Nadelholzasche")
 
 -- Potash
 local product = potashmaking:addProduct(catId, 314, 1)
 product:addIngredient(3) -- confier wood
 
-local catId = potashmaking:addCategory("Potash from Apple Wood", "Asche aus Apfelholz")
+local catId = potashmaking:addCategory("Potash from Apple Wood", "Apfelholzasche")
 -- Potash
 local product = potashmaking:addProduct(catId, 314, 1)
 product:addIngredient(2560) -- apple wood

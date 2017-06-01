@@ -165,7 +165,7 @@ product:addIngredient(145, 3) -- heath flower
 product:addIngredient(52, 1) -- bucket of water
 product:addRemnant(51, 1) -- bucket
 
-local catId = brewing:addCategory("Hard Liquors", "Harter Alkohol")
+local catId = brewing:addCategory("Hard Liquors", "Stark alkoholische Getränke")
 
 -- bottle of rum
 product = brewing:addProduct(catId, 517, 1)
