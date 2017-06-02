@@ -38,7 +38,7 @@ function M.MoveToField(User)
             end
         end
 
-        common.InformNLS(User, "Der Teleporter scheint dir den Dienster zu verweigern, bis deine Strafe abgearbeitet ist.", "The teleporter seems to be not working for you as long as you haven't served your sentence.")
+        common.InformNLS(User, "Der Teleporter scheint dir den Dienst zu verweigern, bis deine Strafe abgearbeitet ist.", "The teleporter seems to be not working for you as long as you haven't served your sentence.")
 
     else -- the char is allowed to leave
 

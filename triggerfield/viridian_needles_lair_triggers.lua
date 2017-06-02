@@ -156,7 +156,7 @@ local smellDe = {
     "Orangen",
     "mächtige Zwiebeln",
     "ein ausgeweideter verwesender Körper",
-    "ungekochtes Abwasser",
+    "schmutziges Abwasser",
     "faulige Eier",
     "vergammelter Fisch",
     "frisch geprägte Münzen",

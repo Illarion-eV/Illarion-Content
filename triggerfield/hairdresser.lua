@@ -166,7 +166,7 @@ function selectBeard(User, NPC)
         return
     -- if character is female, deny service
     elseif gender ~= 1 then
-        NPC:talk(Character.say, "Ihr seid eine Frau. Frauen haben keinen Bart. Vielleicht Zwerginnen, aber den Schneide ich nicht.", "You're the woman. Women don't have beards. Maybe dwarfess but I won't cut those.")
+        NPC:talk(Character.say, "Ihr seid eine Frau. Frauen haben keinen Bart. Vielleicht Zwerginnen, aber den schneide ich nicht.", "You're the woman. Women don't have beards. Maybe dwarfess but I won't cut those.")
         return
     end
 
@@ -241,7 +241,7 @@ function selectHaircolor(User, NPC)
     local dialog = SelectionDialog(common.GetNLS(User,"Friseur","Hair dresser"), common.GetNLS(User,"Bitte wähle aus, welche Farbe du haben möchtest.","Please select what hair color you wish to have."), callback)
     dialog:setCloseOnMove()
     dialog:addOption(0, common.GetNLS(User, "Zurück", "Back"))
-    dialog:addOption(0, common.GetNLS(User,"Naturhaarfarbe", "Natural hair color"))
+    dialog:addOption(0, common.GetNLS(User,"Natürliche Haarfarbe", "Natural hair color"))
     for i = 1, #hairColorSimple do
         dialog:addOption(0, common.GetNLS(User,hairColorSimple[i].nameDe,hairColorSimple[i].nameEn))
     end
