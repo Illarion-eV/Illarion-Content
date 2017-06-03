@@ -133,7 +133,7 @@ function StartGathering(User, SourceItem, ltstate)
         return
     end
 
-    User:learn( fruitgathering.LeadSkill, fruitgathering.SavedWorkTime[User.id], fruitgathering.LearnLimit)
+    --User:learn( fruitgathering.LeadSkill, fruitgathering.SavedWorkTime[User.id], fruitgathering.LearnLimit)
     amount = amount - 1
     local created = common.CreateItem(User, harvestProduct.productId, 1, 333, nil) -- create the new produced items
     if created then -- character can still carry something
