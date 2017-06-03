@@ -62,7 +62,7 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
     -- the related information is shown if limitToSeexxx is >= 0
     local factorPerception = SourceCharacter:increaseAttrib( "perception", 0 );
     local factorDistance = SourceCharacter:distanceMetric( TargetCharacter );
-    local bonusSex = (SourceCharacter:increaseAttrib( "sex", 0 ) == 0 and 10 or 10 );
+    local bonusSex = (SourceCharacter:increaseAttrib( "sex", 0 ) == 0 and 10 or 20 );
     if ( mode == MODE_MIRROR) then
         factorDistance = 1;
     end
@@ -88,14 +88,21 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
     if ( limitToSeeGeneral >= 0 ) then
         -- General overview.
         if ( TargetCharacter:increaseAttrib( "sex", 0 ) == 0 ) then
-            output = output .. ( lang == 0 and "Er ist " or "He is " );
+            output = output .. ( lang == 0 and "Er ist ein " or "He is a " );
         else
-            output = output .. ( lang == 0 and "Sie ist " or "She is " );
+            output = output .. ( lang == 0 and "Sie ist eine " or "She is a " );
         end
         output = output .. getAgeDescriptor(TargetCharacter:getRace(),TargetCharacter:increaseAttrib("age",0),lang);
-        output = output .. getClothesQualText(qual, lang);
-        output = output .. ( lang == 0 and " und " or " and " ) .. getFigure(TargetCharacter, lang)
-        output = output .. ". "
+        output = output .. getCharAtribute( TargetCharacter, lang, "strength", 14, "stark", "strong");
+        output = output .. getCharAtribute( TargetCharacter, lang, "dexterity", 14, "geschickt", "nimble");
+        output = output .. getCharAtribute( TargetCharacter, lang, "agility", 14, "flink", "agile");
+        output = output .. getCharAtribute( TargetCharacter, lang, "constitution", 15, "robust", "sturdy");
+        output = output .. getCharAtribute( TargetCharacter, lang, "intelligence", 18, "wissend", "knowingly");
+        output = output .. getCharAtribute( TargetCharacter, lang, "willpower", 18, "zielstrebig", "determined");
+        output = output .. getCharAtribute( TargetCharacter, lang, "perception", 18, "aufmerksam", "attentively");
+        output = output .. getCharAtribute( TargetCharacter, lang, "essence", 18, "magische", "magic");
+        output = string.sub ( output, 1, string.len(output) - 2) .. " " .. getCharRace( TargetCharacter, lang);
+        output = output .. ( lang == 0 and " und ist " or " and is " ) .. getClothesQualText(qual, lang) .. ". ";
     end
 
     -- what wears the char?
@@ -142,7 +149,7 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
     output = output .. getCharLoad( TargetCharacter, lang, limitToSeeBag)
     
     -- amount of money
-    output = output .. getCharPurse( TargetCharacter, lang, limitToSeePurse);
+--    output = output .. getCharPurse( TargetCharacter, lang, limitToSeePurse);
     
     -- what hold the char in hand?
     local addtext = "";
@@ -171,14 +178,45 @@ function getCharWears( TargetCharacter, lang, positionAtChar, currentLookingAt, 
         if ( bFirstText == false ) then
             text = text .. "; "
         end
-        bFirstText = false
         text = text .. world:getItemName( itemAtCharacter.id, lang );
-        textdescription = ( lang == 0 and itemAtCharacter:getData("descriptionDe") or itemAtCharacter:getData("descriptionEn") )
+        textdescription = ( lang == 0 and itemAtCharacter:getData("descriptionDe") or itemAtCharacter:getData("descriptionEn") );
         if ( common.IsNilOrEmpty(textdescription) == false ) then
             text = text .. " (" .. textdescription .. ")";
         end
     end
-    return text, bFirstText;
+    return text;
+end
+
+function getCharAtribute( TargetCharacter, lang, attribute, attributeLimit, textDe, textEn)
+    local valueAttribute = TargetCharacter:increaseAttrib( attribute, 0 );
+    local text = "";
+    if ( valueAttribute >= attributeLimit) then
+        text = text .. ( lang == 0 and textDe or textEn ) .. ", ";
+    end
+    return text;
+end
+
+function getCharRace( TargetCharacter, lang)
+    local raceName = { };
+    local raceID = TargetCharacter:getRace() + 1;
+    local TargetCharacterSex = TargetCharacter:increaseAttrib( "sex", 0 );
+    text = "";
+    -- human,dwarf,halfling, elf,orc,lizard
+    raceName[0] = {"man","dwarf","halfling", "elf","orc","lizard","strange looking person"};
+    raceName[1] = {"Mann","Zwerg","Halbling","Elf","Ork","Echsenmann","seltsam aussehende Person"};
+    raceName[2] = {"women","dwarfes","halfling women", "elfess","orcess","lizard women","strange looking person"};
+    raceName[3] = {"Frau","Zwergin","Halblingsfrau","Elfin","Orkin","Echsenfrau","seltsam aussehende Person"};
+
+    if (raceID > 7) then
+        raceID = 7
+    end
+    
+    if (TargetCharacterSex == 0 ) then
+        text = ( lang == 0 and raceName[1][raceID] or raceName[0][raceID] );
+    else
+        text = ( lang == 0 and raceName[3][raceID] or raceName[2][raceID] );
+    end
+    return text;
 end
 
 function getCharPurse( TargetCharacter, lang, currentLookingAt)
@@ -222,21 +260,19 @@ function getCharLoad( TargetCharacter, lang, currentLookingAt)
         local backpack = TargetCharacter:getItemAt(Character.backpack)
         if ( backpack ~= nil ) and ( backpack.id > 0 ) then
             if ( TargetCharacterSex == 0 ) then
-                text = ( lang == 0 and "\nSeine Tasche " or "\nHis bag " );
+                text = ( lang == 0 and "\nEr " or "\nHe " );
             else
-                text = ( lang == 0 and "\nIhre Tasche " or "\nHer bag " );
+                text = ( lang == 0 and "\nSie " or "\nShe " );
             end
             weightRelation = getCharacterLoad(TargetCharacter) / getMaximumLoad(TargetCharacter);
             if (weightRelation > 0.99) then
                 text = text .. ( lang == 0 and "ist völlig überladen. " or "is totally overloaded. " );
             elseif  (weightRelation > 0.74) then
-                text = text .. ( lang == 0 and "ist sehr schwer. " or "is very heavy. " );
-            elseif  (weightRelation > 0.5) then
-                text = text .. ( lang == 0 and "ist gut gefüllt. " or "is well loaded. " );
+                text = text .. ( lang == 0 and "sieht aus als ob " .. ( TargetCharacterSex == 0 and "\ner " or "\nsie " ) .. " kaum mehr tragen kann. " or "looks as if " .. ( TargetCharacterSex == 0 and "\nhe " or "\nshe " ) .. " is hardly able to carry much more. " );
             elseif  (weightRelation > 0.2) then
-                text = text .. ( lang == 0 and "hat noch viel Platz. " or "has a lot of space yet. " );
+                text = "";
             else
-                text = text .. ( lang == 0 and "ist nahezu leer. " or "is almost empty. " );
+                text = text .. ( lang == 0 and "scheint fast nichts zu tragen. " or "seems to carry almost nothing. " );
             end
         else
             if ( TargetCharacterSex == 0 ) then
@@ -341,7 +377,7 @@ function getAgeDescriptor(race,age, language)
     until( i >= 8 );
     i = math.min(8,math.max(1,i));
     if( i ~= 3 )then
-        return ageName[language][i]..", ";
+        return ageName[language][i] .. ", ";
     else
         return ageName[language][i];
     end
