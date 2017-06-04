@@ -34,7 +34,7 @@ local STAFF_ELEMENTS = {[2785] = ELEMENTS.AIR, [2783] = ELEMENTS.FIRE,
 local common = require("base.common")
 local character = require("base.character")
 local fightingutil = require("base.fightingutil")
-local gems = require("base.gems")
+local gems = require("item.gems")
 
 local function getNeededMana(castTime)
     return math.ceil(80 + (castTime-7)*20)
@@ -279,6 +279,7 @@ function wandDegrade(caster, wand)
             common.InformNLS(caster,
                 "Deine Waffe '"..nameText.."' zerbricht. Du vergießt eine bitter Träne und sagst lebe wohl, als sie in das nächste Leben übergeht.",
                 "Your weapon '"..nameText.."' shatters. You shed a single tear and bid it farewell as it moves on to its next life.")
+            gems.returnGemsToUser(caster, wand)
             world:erase(wand, 1)
             return
         end

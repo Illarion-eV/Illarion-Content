@@ -19,6 +19,7 @@ local character = require("base.character")
 local common = require("base.common")
 local money = require("base.money")
 local townTreasure = require("base.townTreasure")
+local gems = require("item.gems")
 
 local M = {}
 
@@ -63,6 +64,7 @@ function M.donate(Item, User, FactionName, LeaderName, Treasury)
         log(string.format("[Donation] %s donated %u %s (%u). Faction wealth of %s increased by %d copper to %d copper.",
             character.LogText(User), Item.number, world:getItemName(Item.id,Player.english), Item.id, FactionName, payToFaction, townTreasure.GetTownTreasure(FactionName)))
         world:gfx(46, Item.pos) -- nice GFX
+        gems.returnGemsToUser(User, Item)
         world:erase(Item, Item.number) -- delete the item
         donated = true -- donation worked
 

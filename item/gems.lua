@@ -397,5 +397,20 @@ function itemHasGems(item)
     return gems.getGemBonus(item) > 0
 end
 
+function M.returnGemsToUser(user, item)
+    if ( itemHasGems(item) == true ) then
+        for i = 1, #gemDataKey do
+            local itemKey = gemDataKey[i]
+            local level = tonumber(item:getData(itemKey))
+
+            if level and level > 0 then
+                common.CreateItem(user, gemItem[i], 1, 999, {[levelDataKey] = level})
+            end
+        end    
+        user:inform("Alle Edelsteine wurden aus dem Gegenstand entfernt und dir zurückgegeben.",
+                    "All gems were removed from the item and returned to your inventory.")
+    end
+end
+
 return M
 
