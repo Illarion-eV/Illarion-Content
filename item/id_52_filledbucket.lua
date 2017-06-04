@@ -433,7 +433,7 @@ function plantTree(user, sourceItem, ltstate)
                 user:eraseItem(52, 1)
                 user:inform("Der Eimer geht zu Bruch.", "The bucket breaks.", Character.highPriority)
             else
-                CreateEmptyBucket(user, sourceItem, true)
+                common.CreateItem(user, 51, 1, 333, nil)
             end
             
             local skillLevel = user:getSkill(Character.husbandry)
