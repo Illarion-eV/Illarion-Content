@@ -448,7 +448,7 @@ function plantTree(user, sourceItem, ltstate)
                 if user:countItem(52) < 1 then
                     user:inform("Du hast keine Wassereimer mehr.", "You don't have any buckets filled with water lever", Character.highPriority) 
                 else
-                    User:changeSource(sourceItem)
+                    user:changeSource(sourceItem)
                     user:startAction(40, 21, 5, 0, 0)
                 end
             end
