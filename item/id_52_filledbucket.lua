@@ -429,8 +429,8 @@ function plantTree(user, sourceItem, ltstate)
         if ltstate == Action.success then
             world:makeSound(9, frontItem.pos)
             world:gfx(11, frontItem.pos)
+            user:eraseItem(52, 1)
             if Random.uniform(1, 25) == 1 then
-                user:eraseItem(52, 1)
                 user:inform("Der Eimer geht zu Bruch.", "The bucket breaks.", Character.highPriority)
             else
                 common.CreateItem(user, 51, 1, 333, nil)
@@ -448,6 +448,7 @@ function plantTree(user, sourceItem, ltstate)
                 if user:countItem(52) < 1 then
                     user:inform("Du hast keine Wassereimer mehr.", "You don't have any buckets filled with water lever", Character.highPriority) 
                 else
+                    User:changeSource(sourceItem)
                     user:startAction(40, 21, 5, 0, 0)
                 end
             end
