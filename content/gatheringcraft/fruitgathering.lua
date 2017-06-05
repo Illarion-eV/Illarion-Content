@@ -93,11 +93,16 @@ function StartGathering(User, SourceItem, ltstate)
     -- check the amount
     local amountStr = SourceItem:getData("amount")
     local amount
+    local isPlayerPlanted = SourceItem:getData("playerPlanted") ~= ""
     if ( amountStr ~= "" ) then
         amount = tonumber(amountStr)
     else
         -- first time that this item is harvested
-        amount = 10
+        if isPlayerPlanted then
+            amount = 4
+        else
+            amount = 10
+        end
         SourceItem:setData("amount","" .. amount)
         world:changeItem(SourceItem)
         User:changeSource(SourceItem)
@@ -128,7 +133,7 @@ function StartGathering(User, SourceItem, ltstate)
         return
     end
 
-    User:learn( fruitgathering.LeadSkill, fruitgathering.SavedWorkTime[User.id], fruitgathering.LearnLimit)
+    --User:learn( fruitgathering.LeadSkill, fruitgathering.SavedWorkTime[User.id], fruitgathering.LearnLimit)
     amount = amount - 1
     local created = common.CreateItem(User, harvestProduct.productId, 1, 333, nil) -- create the new produced items
     if created then -- character can still carry something
@@ -138,25 +143,29 @@ function StartGathering(User, SourceItem, ltstate)
         end
     end
     if (amount<=0) then
-    if (IsTree[SourceItem.id] == true) then
-      common.HighInformNLS(User,
-      "Dieser Baum ist schon komplett abgeerntet. Gib ihm Zeit um nachzuwachsen.",
-      "This tree is already completely harvested. Give it time to grow again." )
-    else
-      common.HighInformNLS(User,
-      "Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.",
-      "This plant is already completely harvested. Give it time to grow again." )
-    end
-    -- reset amount
-    amount = 10
-    SourceItem:setData("amount","" .. amount)
-    world:changeItem(SourceItem)
-        -- change item id
-    world:swap(SourceItem, harvestProduct.nextItemId, 333)
-    return
-    -- regrow according to season: currently deactivated
-        -- local season = math.ceil(world:getTime("month")/4);
-        -- SourceItem.wear = SourceItem.wear + harvestProduct.growCycles[season];
+        if (IsTree[SourceItem.id] == true) then
+          common.HighInformNLS(User,
+          "Dieser Baum ist schon komplett abgeerntet. Gib ihm Zeit um nachzuwachsen.",
+          "This tree is already completely harvested. Give it time to grow again." )
+        else
+          common.HighInformNLS(User,
+          "Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.",
+          "This plant is already completely harvested. Give it time to grow again." )
+        end
+        -- reset amount
+        if isPlayerPlanted then
+            amount = 4
+        else
+            amount = 10
+        end
+        SourceItem:setData("amount","" .. amount)
+        world:changeItem(SourceItem)
+            -- change item id
+        world:swap(SourceItem, harvestProduct.nextItemId, 333)
+        return
+        -- regrow according to season: currently deactivated
+            -- local season = math.ceil(world:getTime("month")/4);
+            -- SourceItem.wear = SourceItem.wear + harvestProduct.growCycles[season];
     end
     SourceItem:setData("amount","" .. amount)
     world:changeItem(SourceItem)

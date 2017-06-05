@@ -24,6 +24,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local licence = require("base.licence")
+local areas = require("content.areas")
+local triggerfield = require("triggerfield.base.triggerfield")
+local woodchopping = require("content.gatheringcraft.woodchopping")
 
 local M = {}
 
@@ -32,6 +35,7 @@ local WaterIntoCauldron
 local CreateEmptyBucket
 local PourOnCharacter
 local getDragoncaveBush
+local plantTree
 
 function M.UseItem(User, SourceItem, ltstate)
 
@@ -40,6 +44,10 @@ function M.UseItem(User, SourceItem, ltstate)
         common.HighInformNLS(User,
             "Das kannst du nicht benutzen.",
             "You can't use that.")
+        return
+    end
+    
+    if plantTree(User, SourceItem, ltstate) then
         return
     end
 
@@ -286,6 +294,172 @@ function getDragoncaveBush(User)
         end
     end
     return nil
+end
+
+local grass = common.GroundType.grass
+local forest = common.GroundType.forest
+
+local seedList = {
+[15] = {seedlingId = 139, allowedTiles = {[grass] = true}, shadowTiles = {{x = 0, y = -2}, {x = 1, y = -1}, {x = 1, y = -2}, {x = 1, y = -3}, {x = 2, y = -1}, {x = 2, y = -2}, {x = 2, y = -3}, {x = 2, y = -4}, {x = 3, y = -1}, {x = 3, y = -2}, {x = 3, y = -3}, {x = 3, y = -4}, {x = 3, y = -5}, {x = 4, y = -3}, {x = 4, y = -4}, {x = 4, y = -5}, {x = 5, y = -4}, {x = 5, y = 5}}},
+[302] = {seedlingId = 132, allowedTiles = {[grass] = true}, shadowTiles = {{x = 0, y = -2}, {x = 1, y = -1}, {x = 1, y = -2}, {x = 1, y = -3}, {x = 2, y = -1}, {x = 2, y = -2}, {x = 2, y = -3}, {x = 2, y = -4}, {x = 3, y = -1}, {x = 3, y = -2}, {x = 3, y = -3}, {x = 3, y = -4}, {x = 3, y = -5}, {x = 4, y = -3}, {x = 4, y = -4}, {x = 4, y = -5}, {x = 5, y = -4}, {x = 5, y = -5}}},
+[149] = {seedlingId = 150, allowedTiles = {[forest] = true}, shadowTiles = {{x = 0, y = -1}, {x = 1, y = 0}, {x = 1, y = -1}, {x = 1, y = -2}, {x = 2, y = -1}, {x = 2, y = -2}, {x = 2, y = -3}, {x = 3, y = -4}}}
+}
+
+local noTreePlantingAreas = {
+
+}
+
+local playersWithValidPosition = {}
+
+local function isTreePlantableHere(seed)
+    
+    if seed.pos.z ~= 0 then
+        return false
+    end
+    
+    -- Exclude triggerfields
+    if triggerfield.isTriggerfield(seed.pos) then
+        return false
+    end
+    
+    local theField = world:getField(seed.pos)
+    
+    -- No stack
+    if theField:countItems() > 1 then
+        return false
+    end
+    
+    -- Proper tile?
+    if not seedList[seed.id].allowedTiles[common.GetGroundType(theField:tile())] then
+        return false
+    end
+
+    -- Some areas don't allow planting
+    for _, areaName in pairs(noTreePlantingAreas) do
+        if areas.PointInArea(seed.pos) then
+            return false
+        end
+    end
+
+    local unblockableItemsAllowed = 3
+    local unblockableItemsFound = 0
+    for i = -5, 5 do
+        for j = -5, 5 do
+            local currentPosition = position(seed.pos.x+i, seed.pos.y+j, seed.pos.z)
+            if world:isItemOnField(currentPosition) or world:isCharacterOnField(currentPosition) then
+                
+                local checkItem = world:getItemOnField(currentPosition)
+                
+                -- Tree planted by player in a distance of 5 fields?
+                if checkItem:getData("playerPlanted") ~= "" then
+                    return false
+                end
+                
+                -- Normal map tree in a distance of 2 fields?
+                if math.abs(i) <= 2 and math.abs(j) <= 2 then
+                    if woodchopping.isTree(checkItem.id) then
+                        return false
+                    end
+                end
+                
+                -- Check for items right next to the planintg spot
+                -- 3 unblocking items are allowed
+                -- No blocking item is allowed (= item on an unpassable field, includes e.g. flowers on water)
+                if math.abs(i) < 2 and math.abs(j) < 2 and (math.abs(i) > 0 or math.abs(j) > 0) then
+                    if not (world:getField(currentPosition)):isPassable() then
+                        return false
+                    else
+                        unblockableItemsFound = unblockableItemsFound + 1
+                        if unblockableItemsFound > unblockableItemsAllowed then
+                            return false
+                        end
+                    end
+                end
+                
+                -- Tree shadow must not block markerstones or NPCs
+                local checkCharacter
+                if world:isCharacterOnField(currentPosition) then
+                    checkCharacter = world:getCharacterOnField(currentPosition)
+                end
+                
+                if checkItem.id == 66 or (checkCharacter and checkCharacter:getType() == Character.npc) then
+                    local inShadow = false
+                    for _, shadowTiles in pairs(seedList[seed.id].shadowTiles) do
+                        if currentPosition == position(seed.pos.x + shadowTiles.x, seed.pos.y + shadowTiles.y, seed.pos.z) then
+                            return false
+                        end
+                    end
+                end
+            end
+        end
+    end
+    
+    return true
+end
+
+function plantTree(user, sourceItem, ltstate)
+
+    if ltstate == Action.abort then
+        playersWithValidPosition[user.id] = nil
+        return true
+    end
+    
+    -- No fruit there
+    local frontItem = common.GetFrontItem(user)
+    if not frontItem or not seedList[frontItem.id] then
+        return false
+    end
+    
+    if frontItem.number > 1 then
+        user:inform("Du kannst nur einen Baum aufeinmal anpflanzen.","You can just plant one tree at a time.")
+        return true
+    end
+    
+    local isValidPosition
+    -- Check if we already checked the position, otherwise perform necessary checks
+    if playersWithValidPosition[user.id] then
+        isValidPosition = true
+    else
+        isValidPosition = isTreePlantableHere(frontItem)
+    end
+    
+    if not isValidPosition then
+        user:inform("Dieser Baum wird hier nicht wachsen können.", "This tree would not grow here.")
+    else
+        if ltstate == Action.success then
+            world:makeSound(9, frontItem.pos)
+            world:gfx(11, frontItem.pos)
+            user:eraseItem(52, 1)
+            if Random.uniform(1, 25) == 1 then
+                user:inform("Der Eimer geht zu Bruch.", "The bucket breaks.", Character.highPriority)
+            else
+                common.CreateItem(user, 51, 1, 333, nil)
+            end
+            
+            local skillLevel = user:getSkill(Character.husbandry)
+            if Random.uniform(1, 100) <= common.Scale(20, 85, skillLevel) then
+                world:erase(frontItem, frontItem.number)
+                local seedling = world:createItemFromId(seedList[frontItem.id].seedlingId, 1, frontItem.pos, true, 333, nil)
+                seedling.wear = Random.uniform(10, 30)
+                seedling:setData("playerPlanted", user.name)
+                world:changeItem(seedling)
+                playersWithValidPosition[user.id] = nil
+            else
+                if user:countItem(52) < 1 then
+                    user:inform("Du hast keine Wassereimer mehr.", "You don't have any buckets filled with water lever", Character.highPriority) 
+                else
+                    user:changeSource(sourceItem)
+                    user:startAction(40, 21, 5, 0, 0)
+                end
+            end
+        elseif ltstate == Action.none then
+            user:startAction(40, 21, 5, 0, 0)
+            playersWithValidPosition[user.id] = true
+        end
+        user:learn(Character.husbandry, 40, 100)
+    end
+    
+    return true
 end
 
 return M

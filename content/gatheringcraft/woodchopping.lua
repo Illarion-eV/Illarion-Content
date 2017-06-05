@@ -24,8 +24,10 @@ local gathering = require("content.gathering")
 
 module("content.gatheringcraft.woodchopping", package.seeall)
 
+local M = {}
 
-local TreeItems = {}
+
+TreeItems = {}
 local function AddTree(TreeId, TrunkId, LogId, HeartwoodId, BoughId, Amount, BoughProbability, HeartwoodProbability)
     local treeTable = {};
     treeTable.TrunkId = TrunkId;
@@ -114,12 +116,18 @@ function StartGathering(User, SourceItem, ltstate)
     end
 
     local tree = TreeItems[SourceItem.id];
-
+    
+    local isPlayerPlanted = SourceItem:getData("playerPlanted") ~= ""
+    
     -- check the amount
     local changeItem = false;
     local amount = SourceItem:getData("wood_amount");
     if ( amount == "" ) then
-        amount = tree.Amount;
+        if isPlayerPlanted then
+            amount = 3
+        else
+            amount = tree.Amount;
+        end
         SourceItem:setData("wood_amount", "" .. amount);
         changeItem = true;
     else
@@ -128,11 +136,15 @@ function StartGathering(User, SourceItem, ltstate)
 
     if ( amount <= 0 ) then
         -- should never happen, but handle it nevertheless
-        world:erase(SourceItem, SourceItem.number);
-        world:createItemFromId(tree.TrunkId, 1, SourceItem.pos, true, 333, nil);
-        common.HighInformNLS( User,
-        "Hier gibt es kein Holz mehr zu holen. Gib dem Baum Zeit um nachzuwachsen.",
-        "There is no wood anymore that you can chop. Give the tree time to grow again." );
+        world:erase(SourceItem, SourceItem.number)
+        if isPlayerPlanted then
+            common.HighInformNLS(User, "Der Baum war zu jung, um nachwachsen zu können.", "The tree was too you to regrow.")
+        else
+            world:createItemFromId(tree.TrunkId, 1, SourceItem.pos, true, 333, nil);
+            common.HighInformNLS( User,
+            "Hier gibt es kein Holz mehr zu holen. Gib dem Baum Zeit um nachzuwachsen.",
+            "There is no wood anymore that you can chop. Give the tree time to grow again." );
+        end
         return;
     end
 
@@ -183,11 +195,15 @@ function StartGathering(User, SourceItem, ltstate)
     end
     if ( amount <= 0 ) then
         world:erase(SourceItem, SourceItem.number);
-        world:createItemFromId(tree.TrunkId, 1, SourceItem.pos, true, 333, nil);
-        common.HighInformNLS( User,
-        "Hier gibt es kein Holz mehr zu holen. Gib dem Baum Zeit um nachzuwachsen.",
-        "There is no wood anymore that you can chop. Give the tree time to grow again." );
-        return;
+        if isPlayerPlanted then
+            common.HighInformNLS(User, "Der Baum war zu jung, um nachwachsen zu können.", "The tree was too you to regrow.")
+        else
+            world:createItemFromId(tree.TrunkId, 1, SourceItem.pos, true, 333, nil);
+            common.HighInformNLS( User,
+            "Hier gibt es kein Holz mehr zu holen. Gib dem Baum Zeit um nachzuwachsen.",
+            "There is no wood anymore that you can chop. Give the tree time to grow again." );
+        end
+        return
     end
 
 end
@@ -245,6 +261,14 @@ function getTree(User)
     end
 
     return tree
+end
+
+-- Used by plantTree in item/id_52_filledbucket
+function isTree(itemId)
+    if unchoppableTrees[itemId] or TreeItems[itemId] then
+        return true
+    end
+    return false
 end
 
 function checkForTree(User,theFunction)
