@@ -225,10 +225,10 @@ M.bookList["galmair_quartermaster"] = {english = "Wanted! Quatermaster",german =
 
 local function questcheckFairyTale(bookNoInQuest, bookBitmap, bookName, book, user)
     if book == bookName and bit32.band (user:getQuestProgress(678),tonumber(bookBitmap)) == 0 then
-        user:setQuestProgress(677, 2)
         user:setQuestProgress(678, user:getQuestProgress(678) + bookBitmap) -- Book Bitmap
         user:setQuestProgress(683, user:getQuestProgress(683) + 1) -- Book found yet
         user:setQuestProgress(684, bookNoInQuest) -- Book number
+        user:setQuestProgress(677, 2)
         user:inform("[Quest: Die Märchensammlung] Du hast das Märchen '" .. M.bookList[book].german .. "' gefunden. Lies sorgfältig und beantworte dann John Smith eine Frage zum Inhalt.","[Quest: The Fairy Tales Collection] You found the fairy tale '" .. M.bookList[book].english .. "'. Read carefully and answer John Smith a content related question.")
     end
 
