@@ -113,8 +113,6 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Can I continue reading now?
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Immer diese Arbeit! Aber was sage ich, ihr seht aus, als wenn ihr voller Tatendrang wäret. Werdet ihr auf eine königliche Mission gehen?"
 "your name", "who are you", "who art thou" -> "My name is Hector, Hector Valerion. I am the royal ambassador and you are...?"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Mein Name ist Hector, Hector Valerion. Ich bin der königliche Botschafter und ihr seid...?"
-"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 
@@ -365,6 +363,8 @@ english, "Zhambra" -> "I am loyal, for Zhambra smiled upon me. I wouldn't do any
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "The only thing I'd buy is my peace. Sometimes, I wish I was a less important man."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Das einzige, was ich erkaufen würde, wäre meine Ruhe. Ich wünschte manchmal, ich wäre nicht so ein wichtiger Mann."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 "tell something" -> "Let's be honest, you disturb me and I am an important person. So, if you do a royal mission for me, both of us would be happy."
 "erzähl was", "erzähl etwas" -> "Mal ehrlich, ihr stört mich und ich bin eine wichtige Persönlichkeit. Also würdet ihr uns beide glücklich machen, wenn ihr euch auf eine Mission für die Königin begeben würdet."
 
