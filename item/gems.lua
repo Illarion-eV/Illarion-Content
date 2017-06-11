@@ -262,7 +262,7 @@ function getUnsocketablePositions(user, filter)
         if not filter or filter(item) then
             local itemId = item.id
 
-            if isUnsocketable(itemId) then
+            if isSocketable(itemId) then
                 table.insert(socketableTable, slot)
             end
         end
@@ -296,12 +296,23 @@ function isSocketable(itemId)
         end
     end
 
+    -- tools can also be socketed
+    if M.socketableTools(itemId) then
+        return true
+    end
+    
     return false
 end
 
-function isUnsocketable(itemId)
-    -- currently only weapons and armours can be socketed
-    return world:getWeaponStruct(itemId) or world:getArmorStruct(itemId)
+function M.socketableTools (itemId)
+    local toolList = { 72,74,121,2781,2697,122,311,2710,23,2709,227,737,47,2495,9,24,6,271,126,2763,2751,2140,2752}
+    -- 72:fishing rod;74:hatchet;121:peel;2781:dyeing rod;2697:rasp;122:finesmithing hammer;311:glass blow pipe;2710:mould;23:hammer;2709:armourer's hammer;227:cooking spoon;737:chisel;47:needle;2495:pan;9:saw;24:shovel;6:scissors;271:scythe;126:sickle;2763:pick-axe;2751:crucible-pincers;2140:tongs;2752:carving tools
+    for i in pairs(toolList) do
+        if itemId == toolList[i] then
+            return true
+        end
+    end
+    return false
 end
 
 function M.magicSmith(npc, player)
@@ -349,7 +360,7 @@ function unsocketGems(user)
             local slot = unsocketPositions[selected]
             local item = user:getItemAt(slot)
             local price = world:getItemStats(item).Worth
-            if isUnsocketable(item.id) and itemHasGems(item) then
+            if isSocketable(item.id) and itemHasGems(item) then
                 if money.CharHasMoney(user, price) then
                     for i = 1, #gemDataKey do
                         local itemKey = gemDataKey[i]
@@ -395,21 +406,6 @@ end
 
 function itemHasGems(item)
     return gems.getGemBonus(item) > 0
-end
-
-function M.returnGemsToUser(user, item)
-    if ( itemHasGems(item) == true ) then
-        for i = 1, #gemDataKey do
-            local itemKey = gemDataKey[i]
-            local level = tonumber(item:getData(itemKey))
-
-            if level and level > 0 then
-                common.CreateItem(user, gemItem[i], 1, 999, {[levelDataKey] = level})
-            end
-        end    
-        user:inform("Alle Edelsteine wurden aus dem Gegenstand entfernt und dir zurückgegeben.",
-                    "All gems were removed from the item and returned to your inventory.")
-    end
 end
 
 return M

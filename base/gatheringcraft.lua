@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local treasure = require("item.base.treasure")
-local gems = require("item.gems")
+local gems = require("base.gems")
 
 module("base.gatheringcraft", package.seeall)
 
@@ -206,7 +206,9 @@ function GatheringCraft:GenWorkTime(User, toolItem)
   -- apply the quality bonus
   if ( toolItem ~= nil ) then
     local qual = common.Limit(math.floor(toolItem.quality/100), 1, 9); -- quality integer in [1,9]
+    local gemBonus = tonumber(gems.getGemBonus(toolItem));
     workTime = workTime - workTime*0.20*((qual-5)/4); --+/-20% depending on tool quality
+    workTime = workTime - workTime*0.005*gemBonus; -- 36% (lvl3) lead to 18% time saving
   end
 
   workTime = math.ceil(workTime*self.FastActionFactor); --for fast actions.

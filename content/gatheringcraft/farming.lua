@@ -20,6 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- additional tool: sickle ( 126 )
 
 local common = require("base.common")
+local craft = require("base.craft")
 local gathering = require("content.gathering")
 
 module("content.gatheringcraft.farming", package.seeall)
@@ -130,7 +131,7 @@ function StartGathering(User, SourceItem, ltstate)
         end
     end
 
-    if common.ToolBreaks( User, toolItem, theCraft:GenWorkTime(User, toolItem) ) then -- damage and possibly break the tool
+    if craft.ToolBreaks( User, toolItem, theCraft:GenWorkTime(User, toolItem) ) then -- damage and possibly break the tool
         common.HighInformNLS(User,
         "Deine alte Sichel zerbricht.",
         "Your old sickle breaks.");

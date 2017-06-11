@@ -20,6 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- additional tool: shovel ( 24 )
 
 local common = require("base.common")
+local craft = require("base.craft")
 local gathering = require("content.gathering")
 
 module("content.gatheringcraft.claydigging", package.seeall)
@@ -111,11 +112,11 @@ function StartGathering(User, SourceItem, ltstate)
         SourceItem.id = 3633
         SourceItem.wear = 4
         world:changeItem(SourceItem)
-        User:inform( "An dieser Stelle gibt es nicht mehrs zu holen.", "There isn't anything left in this pit.", Character.highPriority);
+        User:inform( "An dieser Stelle gibt es nicht mehr zu holen.", "There isn't anything left in this pit.", Character.highPriority);
         return
     end
 
-    if common.ToolBreaks( User, toolItem, claydigging:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
+    if craft.ToolBreaks( User, toolItem, claydigging:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
         common.HighInformNLS(User,
         "Deine alte Schaufel zerbricht.",
         "Your old shovel breaks.");

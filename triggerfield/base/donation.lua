@@ -19,7 +19,7 @@ local character = require("base.character")
 local common = require("base.common")
 local money = require("base.money")
 local townTreasure = require("base.townTreasure")
-local gems = require("item.gems")
+local gems = require("base.gems")
 
 local M = {}
 
@@ -38,6 +38,11 @@ function M.donate(Item, User, FactionName, LeaderName, Treasury)
     elseif Item.id == 97 or Item.id == 799 then --Bags and baskets cannot be donated as the content of containers cannot be evaluated.
 
         common.InformNLS(User, "[Spende] Taschen und Körbe können nicht gespendet werden.", "[Donation] Bags and baskets cannot be donated.") -- Feedback!
+        donated = false -- no donation
+
+    elseif gems.itemIsMagicGem (Item) == true then --magic gems cannot be donated as the content of containers cannot be evaluated.
+
+        common.InformNLS(User, "[Spende] magische Edelsteine können nicht gespendet werden.", "[Donation] magic gems cannot be donated.") -- Feedback!
         donated = false -- no donation
 
     else -- item with worth

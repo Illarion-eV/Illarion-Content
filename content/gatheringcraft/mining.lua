@@ -20,6 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- additional tool: pickaxe ( 2763 )
 
 local common = require("base.common")
+local craft = require("base.craft")
 local gathering = require("content.gathering")
 
 module("content.gatheringcraft.mining", package.seeall)
@@ -103,7 +104,7 @@ function StartGathering(User, SourceItem, ltstate)
         end
     end
 
-    if common.ToolBreaks( User, toolItem, mining:GenWorkTime(User, toolItem) ) then -- damage and possibly break the tool
+    if craft.ToolBreaks( User, toolItem, mining:GenWorkTime(User, toolItem) ) then -- damage and possibly break the tool
         common.HighInformNLS(User,
         "Deine alte Spitzhacke zerbricht.",
         "Your old pick-axe breaks.");

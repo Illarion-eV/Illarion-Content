@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- deadPlayer - The player (character) whose hitpoints have just been set to zero
 
 local common = require("base.common")
+local gems = require("base.gems")
 
 local M = {}
 
@@ -25,7 +26,7 @@ local function showDeathDialog(deadPlayer)
 
     local dialogTitle = common.GetNLS(deadPlayer, "Tod", "Death")
     local dialogText = common.GetNLS(deadPlayer,
-        "Du bist gestorben. Deine Ausrüstung nimmt schweren Schaden. Die Welt um dich herum verblasst und du bereitest dich darauf vor, den Göttern in Chergas Reich der Toten gegenüberzutreten. Du wirst demnächst wiederbelebt - so wenn die Götter es wollen.",
+        "Du bist gestorben. Deine Ausrüstung nimmt schweren Schaden. Die Welt um dich herum verblasst und du bereitest dich darauf vor, den Göttern in Chergas Reich der Toten gegenüberzutreten. Du wirst demnächst wiederbelebt - so die Götter es wollen.",
         "You have died. Your equipment got damaged seriously. The world around you fades and you prepare yourself to face the Gods in the afterlife of Cherga's Realm. You will respawn in a moment - so the gods will.")
     local callback = function() end --empty callback
     local dialog = MessageDialog(dialogTitle, dialogText, callback)
@@ -74,6 +75,7 @@ function M.playerDeath(deadPlayer)
                 end
 
                 if durability <= DURABILITY_LOSS / newbieModficator then
+                    gems.returnGemsToUser(deadPlayer, item)
                     deadPlayer:increaseAtPos(i, -1)
                     local nameText = world:getItemName(item.id, deadPlayer:getPlayerLanguage())
                     common.HighInformNLS(deadPlayer, "[Tod] Dein Gegenstand '"..nameText.."' wurde zerstört.", "[Death] Your item '"..nameText.."' was destroyed.")

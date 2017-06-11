@@ -20,8 +20,10 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- rewritten for VBU by vilarion
 
 local common = require("base.common")
+local craftingCommon = require("base.craft")
 local lookat = require("base.lookat")
 local licence = require("base.licence")
+local gems = require("base.gems")
 
 module("item.base.crafts", package.seeall)
 
@@ -529,8 +531,12 @@ function Craft:generateQuality(user, productId, toolItem)
 
     local quality = common.Scale(4, 8, scalar)
     local toolQuality = math.floor(toolItem.quality/100)
+    local gemBonus = tonumber(gems.getGemBonus(toolItem))
 
-    quality = quality + math.random(math.min(0,((toolQuality-5)/2)),math.max(0,((toolQuality-5)/2))); -- +2 for a perfect tool, -2 for a crappy tool
+    quality = quality + math.random(math.min(0,((toolQuality-5)/2)),math.max(0,((toolQuality-5)/2 ))+ gemBonus/12); -- +2 for a perfect tool, -2 for a crappy tool, +1 per each 12% gem Bonus to max
+    common.HighInformNLS(user,
+            "xxx",
+            "tool:" .. tostring(toolQuality) .. " gem:" .. tostring(gemBonus) .. " min:" .. tostring(math.min(0,((toolQuality-5)/2))) .. " max:" .. tostring(math.max(0,((toolQuality-5)/2 ))+ gemBonus/12) .. " qual:" .. tostring(quality) )
 
     quality = math.floor(quality)
     quality = common.Limit(quality, 1, 9)
@@ -637,7 +643,7 @@ function Craft:craftItem(user, productId)
         self:createItem(user, productId, toolItem)
 
         if not self.npcCraft then
-            if common.ToolBreaks(user, toolItem, product:getCraftingTime(skill)) then
+            if craftingCommon.ToolBreaks(user, toolItem, product:getCraftingTime(skill)) then
                 common.HighInformNLS(user,"Dein altes Werkzeug zerbricht.", "Your old tool breaks.")
             end
             common.GetHungry(user, neededFood)

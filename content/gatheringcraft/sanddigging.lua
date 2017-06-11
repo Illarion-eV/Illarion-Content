@@ -20,6 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- additional tool: shovel ( 24 )
 
 local common = require("base.common")
+local craft = require("base.craft")
 local gathering = require("content.gathering")
 
 module("content.gatheringcraft.sanddigging", package.seeall)
@@ -115,8 +116,9 @@ function StartGathering(User, SourceItem, ltstate)
         User:inform( "An dieser Stelle gibt es nicht mehrs zu holen.", "There isn't anything left in this pit.", Character.highPriority);
         return
     end
-
-    if common.ToolBreaks( User, toolItem, sanddigging:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
+    
+    local tmpItem = toolItem;
+    if craft.ToolBreaks( User, toolItem, sanddigging:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
         common.HighInformNLS(User,
         "Deine alte Schaufel zerbricht.",
         "Your old shovel breaks.");
