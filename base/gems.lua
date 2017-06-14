@@ -24,7 +24,6 @@ local crafts = require("item.base.crafts")
 local vision = require("content.vision")
  
 -- UPDATE items SET itm_script='item.gems' WHERE itm_id IN (45, 46, 197, 198, 283, 284, 285);
--- test change due to encoding issue äöüÄÖÜ
  
 local M = {}
  
@@ -65,7 +64,7 @@ gemDataKey[M.TOPAZ] = "magicalTopaz"
  
 local levelDataKey = "gemLevel"
  
-M.gemPrefixDE = {"Latent", "Bedingt", "Leicht", "Mäßig", "Durchschnittlich", "Bemerkenswert", "Stark", "Sehr stark", "Unglaublich", "Einzigartig"}
+M.gemPrefixDE = {"Latent", "Bedingt", "Leicht", "M��ig", "Durchschnittlich", "Bemerkenswert", "Stark", "Sehr stark", "Unglaublich", "Einzigartig"}
 M.gemPrefixEN = {"Latent", "Limited", "Slight", "Moderate", "Average", "Notable", "Strong", "Very Strong", "Unbelievable", "Unique"}
  
 local gemLevelRareness = {}
@@ -193,7 +192,7 @@ function handleSocketing(user, gem)
                     item:setData(key, newLevel)
                     world:erase(gem, 1)
                     world:changeItem(item)
-                    user:inform("Der gewählte Gegenstand wurde gesockelt.",
+                    user:inform("Der gew�hlte Gegenstand wurde gesockelt.",
                                 "The selected item has been socketed.")
                 else
                     user:inform("Dieser Gegenstand beinhaltet bereits einen Edelstein dieser Art!",
@@ -205,7 +204,7 @@ function handleSocketing(user, gem)
  
     local language = user:getPlayerLanguage()
     local caption = common.GetNLS(user, "Sockeln", "Socketing")
-    local description = common.GetNLS(user, "Bitte wähle einen Gegenstand der gesockelt werden soll:", "Please select an item to insert the gem into:")
+    local description = common.GetNLS(user, "Bitte w�hle einen Gegenstand der gesockelt werden soll:", "Please select an item to insert the gem into:")
     local dialog = SelectionDialog(caption, description, callback)
     dialog:setCloseOnMove()
  
@@ -307,7 +306,6 @@ end
  
 function M.socketableTools (itemId)
     local toolList = { 72,74,121,2781,2697,122,311,2710,23,2709,227,737,47,2495,9,24,6,271,126,2763,2751,2140,2752}
-    -- 72:fishing rod;74:hatchet;121:peel;2781:dyeing rod;2697:rasp;122:finesmithing hammer;311:glass blow pipe;2710:mould;23:hammer;2709:armourer's hammer;227:cooking spoon;737:chisel;47:needle;2495:pan;9:saw;24:shovel;6:scissors;271:scythe;126:sickle;2763:pick-axe;2751:crucible-pincers;2140:tongs;2752:carving tools
     for _, checkId in pairs(toolList) do
         if itemId == checkId then
             return true
@@ -340,7 +338,7 @@ function M.magicSmith(npc, player)
     local tongs = 2140
  
     dialog:addOption(hammer, common.GetNLS(player, "Edelsteine vereinigen", "Combine gems"))
-    dialog:addOption(tongs, common.GetNLS(player, "Edelsteine herauslösen", "Unsocket gems"))
+    dialog:addOption(tongs, common.GetNLS(player, "Edelsteine herausl�sen", "Unsocket gems"))
  
     player:requestSelectionDialog(dialog)
 end
@@ -377,10 +375,10 @@ function unsocketGems(user)
                     world:changeItem(item)
  
                     local gstring, estring = money.MoneyToString(price)
-                    user:inform("Alle Edelsteine wurden aus dem Gegenstand entfernt und dir zurückgegeben für den Preis von " .. gstring ..".",
+                    user:inform("Alle Edelsteine wurden aus dem Gegenstand entfernt und dir zurückgegeben f�r den Preis von " .. gstring ..".",
                                 "All gems were removed from the item and returned to you for the cost of " .. estring ..".")
                 else
-                    user:inform("Du hast nicht genug Münzen!", "You do not have enough coins!", Character.highPriority)
+                    user:inform("Du hast nicht genug M�nzen!", "You do not have enough coins!", Character.highPriority)
                 end
             end
         end
@@ -388,7 +386,7 @@ function unsocketGems(user)
  
     local language = user:getPlayerLanguage()
     local caption = common.GetNLS(user, "Entsockeln", "Unsocketing")
-    local description = common.GetNLS(user, "Bitte wähle einen Gegenstand der entsockelt werden soll. Kosten sind abhängig vom Wert des Gegenstands",
+    local description = common.GetNLS(user, "Bitte w�hle einen Gegenstand der entsockelt werden soll. Kosten sind abhängig vom Wert des Gegenstands",
                                                  "Please select an item to remove all gems from. Cost depends on worth of the item")
     local dialog = SelectionDialog(caption, description, callback)
     dialog:setCloseOnMove()
