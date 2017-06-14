@@ -16,8 +16,8 @@
 -- NPC Name: Thomas Weste               Runewick                              --
 -- NPC Job:  Candle maker                                                     --
 --                                                                            --
--- NPC Race: human                      NPC Position:  950, 827, 0            --
--- NPC Sex:  male                       NPC Direction: north                  --
+-- NPC Race: human                      NPC Position:  904, 829, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
 --                                                     easyNPC Parser v1.23.1 --
@@ -26,8 +26,8 @@
 name = "Thomas Weste"
 race = human
 sex = male
-position = 950, 827, 0
-direction = north
+position = 904, 829, 0
+direction = west
 affiliation = "Runewick"
 job = "Brewer"
 
@@ -47,7 +47,7 @@ wrongLangUS = "#me looks at you confused."
 radius = 0
 hairID = 3
 beardID = 2
-colorHair = 0, 198, 45
+colorHair = 185, 122, 87
 colorSkin = 238, 216, 174
 itemHead = 0
 itemChest = 182
@@ -99,7 +99,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "I wish you a nice day.", "I
 english, "job" -> "I'm a brewer, I can tell you by own experience everything I made tastes good."
 "job" -> "Ich bin Brauer. Aus eigener Erfahrung kann ich sagen, dass alles was ich herstelle gut schmeckt."
 
--- Quest 1: Gathering. Player gets a gathering tool. Player gathers materials for 10 intermediate products. 
+-- Quest 1: Gathering. Player gets a gathering tool. Player gathers materials for 10 intermediate products.
 queststatus(716) = 0, english, town = Runewick, "quest", "mission" -> queststatus(716) = 1, "Adrons Brewery School accepts you as an apprentice. To learn what you need you have to stay sober. Go to Yewdale and collect 60 apples.", inform("[Guild Quest] Adrons Brewery School quest started. For more information see the Quest log.")
 queststatus(716) = 0, town = Runewick, "task", "adventure", "order" -> queststatus(716) = 1, "Adrons Brewery School accepts you as an apprentice. To learn what you need you have to stay sober. Go to Yewdale and collect 60 apples.", inform("[Guild Quest] Adrons Brewery School quest started. For more information see the Quest log.")
 queststatus(716) = 0, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(716) = 1, "Adrons Braukunst Schule wird deine Ausbildung übernehmen. Wenn du was lernen willst musst du nüchtern bleiben. Marschier nach Eibental und pflücke dort 60 Äpfel.", inform("[Zunft Quest] Du hast den Quest der Adrons Braukunst Schule angefangen. Detaillierte Informationen findest du im Questlog.")
