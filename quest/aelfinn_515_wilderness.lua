@@ -127,7 +127,7 @@ local FINAL_QUEST_STATUS = 24
 -- Register the monster kill parts of the quest.
 monsterQuests.addQuest{
     questId = 515,
-    location = {position = position(420, 470, 2), radius = 40},
+    location = {position = position(410, 460, 2), radius = 60},
     queststatus = {from = 4, to = 14},
     questTitle = {german = "Rette Miley! II", english = "Rescue Milly! II"},
     monsterName = {german = "Ork, Diebe, Jäger, und Krieger", english = "Orcs, Thieves, Hunters, and Warrior"},
@@ -137,7 +137,7 @@ monsterQuests.addQuest{
 
 monsterQuests.addQuest{
     questId = 515,
-    location = {position = position(436, 460, 2), radius = 40},
+    location = {position = position(410, 460, 2), radius = 60},
     queststatus = {from = 19, to = 20},
     questTitle = {german = "Rette Miley! IV", english = "Rescue Milly! IV"},
     monsterName = {german = "Ork-Schamanen", english = "Orc Shaman"},
@@ -147,7 +147,7 @@ monsterQuests.addQuest{
 
 monsterQuests.addQuest{
     questId = 515,
-    location = {position = position(440, 440, 2), radius = 40},
+    location = {position = position(410, 460, 2), radius = 60},
     queststatus = {from = 22, to = 23},
     questTitle = {german = "Rette Miley! V", english = "Rescue Milly! V"},
     monsterName = {german = "dunklen Paladin", english = "Dark Paladin"},
