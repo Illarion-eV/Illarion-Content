@@ -20,6 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- additional tool: fishingrod ( 72 )
 
 local common = require("base.common")
+local craft = require("base.craft")
 local gathering = require("content.gathering")
 
 module("content.gatheringcraft.fishing", package.seeall)
@@ -127,7 +128,7 @@ function StartGathering(User, SourceItem, ltstate)
         return
     end
 
-    if common.ToolBreaks( User, toolItem, fishing:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
+    if craft.ToolBreaks( User, toolItem, fishing:GenWorkTime(User,toolItem) ) then -- damage and possibly break the tool
         common.HighInformNLS(User,
         "Deine alte Angel zerbricht.",
         "Your old fishing rod breaks.")

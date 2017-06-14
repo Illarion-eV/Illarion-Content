@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Generic Routine Collection
 local M = {}
 
+
 --- Select the proper text upon the language flag of the character
 -- @param User The character who's language flag matters
 -- @param textInDe german text

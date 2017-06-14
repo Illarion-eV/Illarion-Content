@@ -20,6 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- (fully grown) grain (248) --> bundle of grain (249)
 
 local common = require("base.common")
+local craft = require("base.craft")
 local gathering = require("content.gathering")
 
 module("content.gatheringcraft.grainharvesting", package.seeall)
@@ -101,7 +102,7 @@ function StartGathering(User, SourceItem, ltstate)
         end
     end
 
-    if common.ToolBreaks( User, toolItem, grainharvesting:GenWorkTime(User, toolItem) ) then -- damage and possibly break the tool
+    if craft.ToolBreaks( User, toolItem, grainharvesting:GenWorkTime(User, toolItem) ) then -- damage and possibly break the tool
         common.HighInformNLS(User,
         "Deine alte Sense zerbricht.",
         "Your old scythe breaks.");

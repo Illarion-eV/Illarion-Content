@@ -344,6 +344,15 @@ function M.UseItem(User, SourceItem, ltstate)
         dogScroll(User, SourceItem)
         return
     end
+    if not common.IsNilOrEmpty(SourceItem:getData("writtenText")) then
+        User:inform("Du liest:","You read:")
+        local writtenText = SourceItem:getData("writtenText")
+        writtenText = string.gsub (writtenText,"\\n","\n")
+        if not common.IsNilOrEmpty(SourceItem:getData("signatureText")) then
+            writtenText = writtenText .. "\n~" .. SourceItem:getData("signatureText") .. "~"
+        end
+        User:inform(writtenText)
+    end
 
     local book = SourceItem:getData("book")
     if book ~= "" then

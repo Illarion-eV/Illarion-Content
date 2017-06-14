@@ -279,6 +279,7 @@ function wandDegrade(caster, wand)
             common.InformNLS(caster,
                 "Deine Waffe '"..nameText.."' zerbricht. Du vergießt eine bitter Träne und sagst lebe wohl, als sie in das nächste Leben übergeht.",
                 "Your weapon '"..nameText.."' shatters. You shed a single tear and bid it farewell as it moves on to its next life.")
+            gems.returnGemsToUser(caster, wand)
             world:erase(wand, 1)
             return
         end

@@ -505,6 +505,7 @@ function ArmourDegrade(Defender, Globals)
             common.InformNLS(Defender.Char,
                 "Dein Rüstungsteil '"..nameText.."' zerbricht. Glücklicherweise tritt kein Splitter in deinen Körper ein.",
                 "Your armour piece '"..nameText.."' shatters. Fortunately, no fragments end up in your body.")
+          gems.returnGemsToUser(Defender.Char, Globals.HittedItem)
           world:erase(Globals.HittedItem, 1)
           return true
         end
@@ -538,6 +539,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
             common.InformNLS(Attacker.Char,
                 "Deine Waffe '"..nameText.."' zerbricht. Du vergießt eine bitter Träne und sagst lebe wohl, als sie in das nächste Leben übergeht.",
                 "Your weapon '"..nameText.."' shatters. You shed a single tear and bid it farewell as it moves on to its next life.")
+            gems.returnGemsToUser(Attacker.Char, Attacker.WeaponItem)
             world:erase(Attacker.WeaponItem, 1)
             return true
         end
@@ -563,6 +565,7 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
             common.InformNLS(Defender.Char,
                 "Dein Gegenstand '"..nameText.."' zerbricht, dies erschwert es dir, dich zu verteidigen.",
                 "Your item '"..nameText.."' shatters, making it more difficult for you to defend yourself.")
+            gems.returnGemsToUser(Defender.Char, ParryWeapon)
             world:erase(ParryWeapon, 1)
             return true
         end

@@ -15,6 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
+local gems = require("base.gems")
 local treasure = require("item.base.treasure")
 
 module("craft.base.gathering", package.seeall)
@@ -182,12 +183,12 @@ function GatheringCraft:GenWorkTime(User, toolItem)
 
   local skill  = common.Limit(User:getSkill(self.LeadSkill), 0, 100);
   local workTime = common.Scale(maxTime, minTime, skill); --scaling with the skill
-
   -- apply the quality bonus
   if ( toolItem ~= nil ) then
     local qual = common.Limit(math.floor(toolItem.quality/100), 1, 9); -- quality integer in [1,9]
+    local gemBonus = tonumber(gems.getGemBonus(toolItem));
     workTime = workTime - workTime*0.20*((qual-5)/4); --+/-20% depending on tool quality
-  end
-
+    workTime = workTime - workTime*0.005*gemBonus; -- 36% (lvl3) lead to 18% time saving
+   end
   return workTime;
 end

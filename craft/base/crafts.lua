@@ -20,8 +20,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- rewritten for VBU by vilarion
 
 local common = require("base.common")
+local craft = require("base.craft")
 local lookat = require("base.lookat")
 local licence = require("base.licence")
+local gems = require("base.gems")
+
+local currentGemBonus = 0
 
 module("craft.base.crafts", package.seeall)
 
@@ -161,7 +165,7 @@ function Craft:showDialog(user, source)
             local neededFood = 0
             local foodOK = false
             local product = self.products[productId]
-            foodOK, neededFood = self:checkRequiredFood(user, product:getCraftingTime(self:getSkill(user)))
+            foodOK, neededFood = self:checkRequiredFood(user, product:getCraftingTime(self:getSkill(user),0))
             local canWork = self:allowCrafting(user, source) and self:checkMaterial(user, productId) and foodOK
             if canWork then
                 self:swapToActiveItem(user)
@@ -187,6 +191,7 @@ function Craft:showDialog(user, source)
             self:swapToInactiveItem(user)
         end
     end
+    self:setCurrentGemBonusUser (user)
     local dialog = CraftingDialog(self:getName(user), self.sfx, self.sfxDuration, callback)
     self:loadDialog(dialog, user)
     user:requestCraftingDialog(dialog)
@@ -261,8 +266,10 @@ function Craft:getHandToolEquipped(user)
     local rightTool = user:getItemAt(Character.right_tool)
 
     if leftTool.id == self.handTool then
+        self:setCurrentGemBonus (gems.getGemBonus(leftTool))
         return leftTool
     elseif rightTool.id == self.handTool then
+        self:setCurrentGemBonus (gems.getGemBonus(rightTool))
         return rightTool
     end
 
@@ -374,19 +381,20 @@ function RareItems(user, comparisonid, dataId)
 end
 
 function Craft:refreshDialog(dialog, user)
+    self:setCurrentGemBonusUser (user)
     dialog:clearGroupsAndProducts()
     self:loadDialog(dialog, user)
 end
 
 function Craft:getCraftingTime(product, skill)
     if not self.npcCraft then
-        return product:getCraftingTime(skill)
+        return product:getCraftingTime(skill,self:getCurrentGemBonus())
     else
         return 10 --default time
     end
 end
 
-function Product:getCraftingTime(skill)
+function Product:getCraftingTime(skill,gemBonus)
 
     --This function returns the crafting time, scaled by the price of the item.
     if (self.learnLimit == self.difficulty) then
@@ -397,6 +405,9 @@ function Product:getCraftingTime(skill)
     local theItem = world:getItemStatsFromId(self.item)
     local minimum = math.max ((self.quantity * theItem.Worth * 0.012),10) 
     local craftingTime = common.Scale(minimum * 2, minimum, learnProgress)
+    if theItem.MaxStack ~= 1 then
+        craftingTime = craftingTime - craftingTime*0.005*gemBonus; -- 36% (lvl3) lead to 18% time saving
+    end
     if craftingTime > 99 then
         craftingTime = 10 * math.floor(craftingTime/10 + 0.5) -- Round correctly to whole seconds
     end
@@ -531,8 +542,9 @@ function Craft:generateQuality(user, productId, toolItem)
     
     local quality = common.Scale(4, 8, scalar)
     local toolQuality = math.floor(toolItem.quality/100)
+    local gemBonus = tonumber(self:getCurrentGemBonus())
 
-    quality = quality + math.random(math.min(0,((toolQuality-5)/2)),math.max(0,((toolQuality-5)/2))); -- +2 for a perfect tool, -2 for a crappy tool
+    quality = quality + math.random(math.min(0,((toolQuality-5)/2)),math.max(0,((toolQuality-5)/2 ))+ gemBonus/12); -- +2 for a perfect tool, -2 for a crappy tool, +1 per each 12% gem Bonus to max
 
     quality = math.floor(quality)
     quality = common.Limit(quality, 1, 9)
@@ -628,7 +640,7 @@ function Craft:craftItem(user, productId)
     local neededFood = 0
     if not self.npcCraft then
         local foodOK = false
-        foodOK, neededFood = self:checkRequiredFood(user, product:getCraftingTime(skill))
+        foodOK, neededFood = self:checkRequiredFood(user, product:getCraftingTime(skill,0))
         if not foodOK then
             self:swapToInactiveItem(user)
             return false
@@ -639,14 +651,14 @@ function Craft:craftItem(user, productId)
         self:createItem(user, productId, toolItem)
 
         if not self.npcCraft then
-            if common.ToolBreaks(user, toolItem, product:getCraftingTime(skill)) then
+            if craft.ToolBreaks(user, toolItem, product:getCraftingTime(skill,0)) then
                 common.HighInformNLS(user,"Dein altes Werkzeug zerbricht.", "Your old tool breaks.")
             end
             common.GetHungry(user, neededFood)
         end
 
         if type(self.leadSkill) == "number" then
-            user:learn(self.leadSkill, product:getCraftingTime(skill), product.learnLimit)
+            user:learn(self.leadSkill, product:getCraftingTime(skill,0), product.learnLimit)
             local newSkill = self:getSkill(user)
             skillGain = (newSkill > skill)
         end
@@ -680,4 +692,16 @@ function Craft:createItem(user, productId, toolItem)
         local remnant = product.remnants[i]
        common.CreateItem(user, remnant.item, remnant.quantity, 333, remnant.data)
     end
+end
+
+function Craft:setCurrentGemBonus (bonus)
+    currentGemBonus = tonumber(bonus)
+end
+
+function Craft:getCurrentGemBonus ()
+    return currentGemBonus
+end
+
+function Craft:setCurrentGemBonusUser (user)
+    local toolItem = self:getHandToolEquipped(user)
 end

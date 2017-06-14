@@ -93,13 +93,13 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
             output = output .. ( lang == 0 and "Sie ist eine " or "She is a " );
         end
         output = output .. getAgeDescriptor(TargetCharacter:getRace(),TargetCharacter:increaseAttrib("age",0),lang);
-        output = output .. getCharAtribute( TargetCharacter, lang, "strength", 14, "stark", "strong");
-        output = output .. getCharAtribute( TargetCharacter, lang, "dexterity", 14, "geschickt", "nimble");
-        output = output .. getCharAtribute( TargetCharacter, lang, "agility", 14, "flink", "agile");
-        output = output .. getCharAtribute( TargetCharacter, lang, "constitution", 15, "robust", "sturdy");
-        output = output .. getCharAtribute( TargetCharacter, lang, "intelligence", 18, "wissend", "knowingly");
-        output = output .. getCharAtribute( TargetCharacter, lang, "willpower", 18, "zielstrebig", "determined");
-        output = output .. getCharAtribute( TargetCharacter, lang, "perception", 18, "aufmerksam", "attentively");
+        output = output .. getCharAtribute( TargetCharacter, lang, "strength", 14, "starke", "strong");
+        output = output .. getCharAtribute( TargetCharacter, lang, "dexterity", 14, "geschickte", "nimble");
+        output = output .. getCharAtribute( TargetCharacter, lang, "agility", 14, "flinke", "agile");
+        output = output .. getCharAtribute( TargetCharacter, lang, "constitution", 15, "robuste", "sturdy");
+        output = output .. getCharAtribute( TargetCharacter, lang, "intelligence", 18, "wissende", "knowingly");
+        output = output .. getCharAtribute( TargetCharacter, lang, "willpower", 18, "zielstrebige", "determined");
+        output = output .. getCharAtribute( TargetCharacter, lang, "perception", 18, "aufmerksame", "attentively");
         output = output .. getCharAtribute( TargetCharacter, lang, "essence", 18, "magische", "magic");
         output = string.sub ( output, 1, string.len(output) - 2) .. " " .. getCharRace( TargetCharacter, lang);
         output = output .. ( lang == 0 and " und ist " or " and is " ) .. getClothesQualText(qual, lang) .. ". ";

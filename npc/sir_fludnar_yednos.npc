@@ -105,8 +105,6 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Get out!", "Finally!", "...
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Würde man mich nicht stören, würde es mir besser gehen.", "Könnt ihr bitte leise sein?", "Gut, Gut, aber nun lasst mich weiterarbeiten."
 "your name", "who are you", "who art thou" -> "Who asks?", "Sir Fludnar Yednos.", "Why do you need to know?"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Wer fragt?", "Sir Fludnar Yednos.", "Ist das von belang zu wissen?"
-"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- Foreign quest 'A book about your God'
 -- first librarian
@@ -401,6 +399,8 @@ english, "Gobaith" -> "Oh yes, the good, old times. *sigh*", "It was a small isl
 "Gobaith" -> "Oh ja, die guten alten Zeiten. *seufzt*", "Es war eine kleine Insel irgendwo im Osten des Festlands.", "Es war ein chaotischer Ort mit lauter Möchtegern-Typen!"
 "I am", "my name" -> "Nice to meet you.", "Well, what do you want from me?", "Interesting, interesting, but never heard such a ridiculous name."
 "Ich bin", "mein Name" -> "Schön euch kennen zu lernen.", "Schön, was wollt ihr von mir?", "Interessant, interessant, aber ich habe noch nie so einen lächerlichen Namen gehört."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- More small talk; add at least five triggers
 "five" -> "Chapel of the Five? Ask people like Numila Irunnleh in the library. I am sure someone knows it.", "Chapel of the Five? I think it is in the west. But you should ask Numila Irunnleh in the library."

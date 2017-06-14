@@ -66,6 +66,20 @@ function M.UseItem(User, SourceItem, ltstate)
                 else
                     removeLabel(User)
                 end
+            elseif selected == 5 then
+                if not CheckIfParchmentInHand(User,SourceItem) then
+                    User:inform("Du brauchst ein einzelnes leeres Pergament auf dem du schreiben kannst.","You need a single empty parchment to write on.",Character.highPriority)
+                    return
+                else
+                    WriteParchment(User,SourceItem)
+                end
+            elseif selected == 6 then
+                if not CheckIfParchmentCanSigned(User,SourceItem) then
+                    User:inform("Du brauchst ein beschriebenes Pergament auf dem du unterschreiben kannst.","You need a written parchment to sign.",Character.highPriority)
+                    return
+                else
+                    SignParchment(User,SourceItem)
+                end
             end
         end
     end
@@ -75,6 +89,8 @@ function M.UseItem(User, SourceItem, ltstate)
     dialog:addOption(0, getText(User,"Flasche beschriften","Label a bottle"))
     dialog:addOption(0, getText(User,"Alchemierezept schreiben","Write an alchemy recipe"))
     dialog:addOption(0, getText(User,"Flaschenetikett entfernen","Remove label of a bottle"))
+    dialog:addOption(0, getText(User,"Pergament beschreiben","Write a parchment"))
+    dialog:addOption(0, getText(User,"Pergament unterschreiben","Sign a parchment"))
 
     User:requestSelectionDialog(dialog)
 end
@@ -136,6 +152,81 @@ function CheckIfBottleInHand(User, SourceItem)
 
     return nil;
 end
+
+function CheckIfParchmentInHand(User, SourceItem)
+    local parchmentList = {2745, 3109};
+
+    local parchmentItem = common.GetTargetItem(User, SourceItem);
+    if parchmentItem == nil then
+        return nil;
+    end
+
+    for i=1, #parchmentList do
+        if ((parchmentItem.id == parchmentList[i]) and (common.IsNilOrEmpty(parchmentItem:getData("descriptionEn"))) and (common.IsNilOrEmpty(parchmentItem:getData("writtenText"))) and (User:countItemAt("body",parchmentList[i])==1) )then
+            return parchmentItem;
+        end
+    end
+
+    return nil;
+end
+
+function WriteParchment(User,SourceItem)
+
+    local title = getText(User, "Pergament beschreiben", "Write Parchment");
+    local infoText = getText(User, "Füge hier den Text ein, den du auf das Pergament schreiben willst.", "Insert the text you want to write on the parchment.");
+
+    -- input dialog
+    local callback = function(dialog)
+        if not dialog:getSuccess() then
+            return;
+        else
+            local parchment = CheckIfParchmentInHand(User,SourceItem) -- check for the parchment again
+            if parchment then
+                local writtenText = dialog:getInput()
+                parchment:setData("writtenText",writtenText)
+                lookat.SetSpecialDescription(parchment,"Das Pergament ist beschrieben.","The parchment has been written on.")
+                world:changeItem(parchment)
+                User:inform("Du schreibst auf das Pergament:\n'".. string.gsub (writtenText,"\\n","\n") .."'.","You write on the parchment:\n'".. string.gsub (writtenText,"\\n","\n") .."'.")
+            else
+                User:inform("Du brauchst ein Pergament, um darauf zu schreiben.","You need a parchment if you want to write.")
+            end
+        end
+    end
+    local dialog = InputDialog(title, infoText, false, 255, callback)
+    User:requestInputDialog(dialog)
+end
+
+function SignParchment(User,SourceItem)
+
+    local parchment = CheckIfParchmentCanSigned(User,SourceItem) -- check for the parchment again
+
+    if parchment then
+        parchment:setData("signatureText",User.name)
+        lookat.SetSpecialDescription(parchment,"Das Pergament ist unterschrieben.","The parchment is signed.")
+        world:changeItem(parchment)
+        User:inform("Du unterschreibst das Pergament.","You sign the parchment.")
+    else
+        User:inform("Du brauchst ein beschriebes Pergament, um zu unterschreiben.","You need a written parchment to sign.")
+    end
+end
+
+function CheckIfParchmentCanSigned(User, SourceItem)
+    local parchmentList = {2745, 3109};
+
+    local parchmentItem = common.GetTargetItem(User, SourceItem);
+    if parchmentItem == nil then
+        return nil;
+    end
+
+    for i=1, #parchmentList do
+        if ((parchmentItem.id == parchmentList[i]) and not (common.IsNilOrEmpty(parchmentItem:getData("writtenText"))) and (common.IsNilOrEmpty(parchmentItem:getData("signatureText"))) )then
+            return parchmentItem;
+        end
+    end
+
+    return nil;
+end
+
 
 function WriteContainerLabel(User,SourceItem)
 

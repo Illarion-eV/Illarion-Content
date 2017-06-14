@@ -22,14 +22,14 @@
 -- Author:   Zot                                                              --
 --                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
-
+-- Adrons Brewery School of Runewick
 name = "Thomas Weste"
 race = human
 sex = male
 position = 950, 827, 0
 direction = north
 affiliation = "Runewick"
-job = "Candle maker"
+job = "Brewer"
 
 language = common
 language = human
@@ -58,9 +58,24 @@ itemHands = 0
 itemTrousers = 461
 itemShoes = 53
 
+-- Quest 1: Gathering. Player gets a gathering tool. Player gathers materials for 10 intermediate products.
+-- Quest 2: Intermediate production. Player gets a tool for intermediate production. Player produces 10 intermediate products.
+-- Quest 3: Final production. Player gets a tool for final production. Player delivers final products made of 10 intermediate products. Reward: 50 % of item.worth. Rank Layman / Laie
+-- Rank quests:
+-- Level 10: Novice / Anfänger. Reward: 10 Raw materials (e.g. coal)
+-- Level 20: Apprentice / Lehrling. Reward: 20 Raw materials (e.g. wool)
+-- Level 30: Initiate / Initiat. Reward: 10 Intermediate products (e.g. boards)
+-- Level 40: Journeyman / Geselle. Reward: 20 Intermediate products (e.g. thread)
+-- Level 50: Specialist / Spezialist. Reward: 10 Uncommon resources (e.g. handles)
+-- Level 60: Expert / Experte. Reward: 20 Uncommon resources (e.g. gold ingots)
+-- Level 70: Adept / Adept. Reward: 5 Rare resources (e.g. merinium ingots)
+-- Level 80: Artisan / Artisane. Reward: 10 Rare resources (e.g. heartwood)
+-- Level 90: Master / Meister. Reward: 5 Pure elements
+-- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements
+
 -- Help
-"Help" -> inform("[Game Help] This NPC is Thomas Weste the candle maker. Keywords: quest, black thistle")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Thomas Weste der Kerzenmacher. Schlüsselwörter: Quest, schwarze Disteln")
+"Help" -> inform("[Game Help] This NPC is Thomas Weste the brewer. Keywords: quest")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Thomas Weste der Brauer. Schlüsselwörter: Quest")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, can I help you?", "Nice to meet you, I'm Thomas Weste."
@@ -79,70 +94,185 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "I wish you a nice day.", "I
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I'm a candle maker, I'm responsible for the city lights."
-"beruf" -> "Ich bin Kerzenmacher. Ich kümmere mich um die Beleuchtung unserer schönen Stadt."
-english, "job" -> "I'm a candle maker, I'm responsible for the city lights."
-"job" -> "Ich bin Kerzenmacher. Ich kümmere mich um die Beleuchtung unserer schönen Stadt."
+"profession" -> "I'm a brewer, I can tell you by own experience everything I made tastes good."
+"beruf" -> "Ich bin Brauer. Aus eigener Erfahrung kann ich sagen, dass alles was ich herstelle gut schmeckt."
+english, "job" -> "I'm a brewer, I can tell you by own experience everything I made tastes good."
+"job" -> "Ich bin Brauer. Aus eigener Erfahrung kann ich sagen, dass alles was ich herstelle gut schmeckt."
 
--- Quest 1
-queststatus(716) = 0, town = Runewick, english, "quest", "mission" -> "A task. Well, you could gather honeycombs for me, you will need them to make wax anyway. There are a few beehives at the fields outside the city, so please collect twenty honeycombs for me and I'll teach you how to make wax from them.", queststatus(716) = 1
-queststatus(716) = 0, town = Runewick, "quest", "mission" -> "Eine Aufgabe. Nun, Ihr könntet mir erstmal einige Honigwaben bringen. Diese sind sehr wichtig für das Kerzenmachen. Ihr könnt welche bei den Feldern außerhalb der Stadt bei den Bienenstöcken finden. Bringt mir zwanzig Waben und ich zeige Euch, wie man Wachs herstellt.", queststatus(716) = 1
-queststatus(716) = 0, town = Runewick, "task", "adventure", "order" -> "A task. Well, you could gather honeycombs for me, you will need them to make wax anyway. There are a few beehives at the fields outside the city, so please collect twenty honeycombs for me and I'll teach you how to make wax from them.", queststatus(716) = 1
-queststatus(716) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Eine Aufgabe. Nun, Ihr könntet mir erstmal einige Honigwaben bringen. Diese sind sehr wichtig für das Kerzenmachen. Ihr könnt welche bei den Feldern außerhalb der Stadt bei den Bienenstöcken finden. Bringt mir zwanzig Waben und ich zeige Euch, wie man Wachs herstellt.", queststatus(716) = 1
-queststatus(716) = 1, item(2529, all) > 19, town = Runewick, english, "quest", "mission" -> "Well done, thank you. Please keep the honeycombs for your next task.", queststatus(716) = 2
-queststatus(716) = 1, item(2529, all) > 19, town = Runewick, "quest", "mission" -> "Gut gemacht, danke. Bitte behaltet die Honigwaben für Eure nächste Aufgabe.", queststatus(716) = 2
-queststatus(716) = 1, item(2529, all) > 19, town = Runewick, "task", "adventure", "order", "honey", "comb" -> "Well done, thank you. Please keep the honeycombs for your next task.", queststatus(716) = 2
-queststatus(716) = 1, item(2529, all) > 19, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "honig", "wabe" -> "Gut gemacht, danke. Bitte behaltet die Honigwaben für Eure nächste Aufgabe.", queststatus(716) = 2
-queststatus(716) = 1, item(2529, all) < 20, town = Runewick, english, ".+" -> "I want twenty honeycombs from you, you can collect them from the beehives at the fields outside of the city."
-queststatus(716) = 1, item(2529, all) < 20, town = Runewick, ".+" -> "Ihr sollt mir zwanzig Honigwaben bringen. Ihr könnt welche bei den Feldern außerhalb der Stadt finden."
+-- Quest 1: Gathering. Player gets a gathering tool. Player gathers materials for 10 intermediate products. 
+queststatus(716) = 0, english, town = Runewick, "quest", "mission" -> queststatus(716) = 1, "Adrons Brewery School accepts you as an apprentice. To learn what you need you have to stay sober. Go to Yewdale and collect 60 apples.", inform("[Guild Quest] Adrons Brewery School quest started. For more information see the Quest log.")
+queststatus(716) = 0, town = Runewick, "task", "adventure", "order" -> queststatus(716) = 1, "Adrons Brewery School accepts you as an apprentice. To learn what you need you have to stay sober. Go to Yewdale and collect 60 apples.", inform("[Guild Quest] Adrons Brewery School quest started. For more information see the Quest log.")
+queststatus(716) = 0, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(716) = 1, "Adrons Braukunst Schule wird deine Ausbildung übernehmen. Wenn du was lernen willst musst du nüchtern bleiben. Marschier nach Eibental und pflücke dort 60 Äpfel.", inform("[Zunft Quest] Du hast den Quest der Adrons Braukunst Schule angefangen. Detaillierte Informationen findest du im Questlog.")
 
--- Quest 2
-queststatus(716) = 2, town = Runewick, english, "quest", "mission" -> "Very well, now we can start to press wax out of the honeycombs. You will need a collection pan for that, here I will give you my old one. Go to the press and make twenty pieces of wax for me.", item(2031, 1, 333), queststatus(716) = 3
-queststatus(716) = 2, town = Runewick, "quest", "mission" -> "Wunderbar, nun sollten wir aus den Waben Wachs pressen. Dazu braucht Ihr eine Auffangschale. Die gebe ich Euch zum Üben. Geht rüber zur Presse und versucht etwas Wachs herzustellen. Bringt mir zwanzig Stück von dem Wachs.", item(2031, 1, 333), queststatus(716) = 3
-queststatus(716) = 2, town = Runewick, "task", "adventure", "order" -> "Very well, now we can start to press wax out of the honeycombs. You will need a collection pan for that, here I will give you my old one. Go to the press and make twenty pieces of wax for me.", item(2031, 1, 333), queststatus(716) = 3
-queststatus(716) = 2, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wunderbar, nun sollten wir aus den Waben Wachs pressen. Dazu braucht Ihr eine Auffangschale. Die gebe ich Euch zum Üben. Geht rüber zur Presse und versucht etwas Wachs herzustellen. Bringt mir zwanzig Stück von dem Wachs.", item(2031, 1, 333), queststatus(716) = 3
-queststatus(716) = 3, item(431, all) > 19, town = Runewick, english, "quest", "mission" -> "Well done, that wax looks pretty good. Please keep the wax for your next task.", deleteItem(431, 10), queststatus(716) = 4
-queststatus(716) = 3, item(431, all) > 19, town = Runewick, "quest", "mission" -> "Gut gemacht, das Wachs sieht sehr gut aus. Bitte behaltet das Wachs für Eure nächste Aufgabe.", deleteItem(431, 10), queststatus(716) = 4
-queststatus(716) = 3, item(431, all) > 19, town = Runewick, "task", "adventure", "order", "wax" -> "Well done, that wax looks pretty good. Please keep the wax for your next task.", deleteItem(431, 10), queststatus(716) = 4
-queststatus(716) = 3, item(431, all) > 19, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "wachs" -> "Gut gemacht, das Wachs sieht sehr gut aus. Bitte behaltet das Wachs für Eure nächste Aufgabe.", deleteItem(431, 10), queststatus(716) = 4
-queststatus(716) = 3, item(431, all) < 20, town = Runewick, english, ".+" -> "I want twenty pieces of wax, please come back once you are done with this task."
-queststatus(716) = 3, item(431, all) < 20, town = Runewick, ".+" -> "Ihr sollt mir zwanzig Stück Wachs bringen. Kommt wieder, wenn Ihr die Aufgabe erfüllt habt."
+-- Quest 1: Solved
+queststatus(716) = 1, item(15, all) > 59, english, town = Runewick, "quest", "mission" -> queststatus(716) = 2, "These are the apples? Fine, some are bumped but it doesn't matter if the drinker doesn't know. You will need them for your first bottles.", inform("[Guild Quest] You fulfilled the first task of Adrons Brewery School quest. Ask Thomas Weste if you want more tasks. The keyword is 'quest'.")
+queststatus(716) = 1, item(15, all) > 59, town = Runewick, "task", "adventure", "order", "apple"  -> queststatus(716) = 2, "These are the apples? Fine, some are bumped but it doesn't matter if the drinker doesn't know. You will need them for your first bottles.", inform("[Guild Quest] You fulfilled the first task of Adrons Brewery School quest. Ask Thomas Weste if you want more tasks. The keyword is 'quest'.")
+queststatus(716) = 1, item(15, all) > 59, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Apfel", "Äpfel" -> queststatus(716) = 2, "Das sind die Äpfel? Einige sind zwar schon angeschlagen, aber was solls. Was der Trinker nicht weiß ist ihm egal. Behalte sie für später.", inform("[Zunft Quest] Du hast die erste Aufgabe des Quests der Adrons Braukunst Schule gemeistert. Frage Thomas Weste nach mehr Aufgaben, wenn du weitermachen willst. Das Schlüsselwort ist 'Quest'.")
 
--- Quest 3
-queststatus(716) = 4, town = Runewick, english, "quest", "mission" -> "Alright, now we can start producing the candles. Go to the chandler table again and bring me ten candles back. I'll give you my old candle mould, you will need one to make the candles. If you need more moulds, just ask a carpenter.", item(429, 1, 333), queststatus(716) = 5
-queststatus(716) = 4, town = Runewick, "quest", "mission" -> "Jetzt, wo wir das Wachs haben, können wir endlich die Kerzen herstellen. Geht zu dem Kerzenziehertisch und stellt zehn Kerzen her bitte. Ich gebe Euch meine alte Kerzenform. Damit könnt Ihr die richtigen Kerzen herstellen. Falls Ihr weitere Kerzenformen braucht, fragt doch einfach einen Schreiner.", item(429, 1, 333), queststatus(716) = 5
-queststatus(716) = 4, town = Runewick, "task", "adventure", "order" -> "Alright, now we can start producing the candles. Go to the chandler table again and bring me ten candles back. I'll give you my old candle mould, you will need one to make the candles. If you need more moulds, just ask a carpenter.", item(429, 1, 333), queststatus(716) = 5
-queststatus(716) = 4, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Jetzt, wo wir das Wachs haben, können wir endlich die Kerzen herstellen. Geht zu dem Kerzenziehertisch und stellt zehn Kerzen her bitte. Ich gebe Euch meine alte Kerzenform, damit könnt Ihr die richtigen Kerzen herstellen. Falls Ihr weitere Kerzenformen braucht, fragt doch einfach einen Schreiner.", item(429, 1, 333), queststatus(716) = 5
-queststatus(716) = 5, item(43, all) > 9, town = Runewick, english, "quest", "mission" -> "Well done, the candles look perfect. If you have some time left, I can give you one last task.", deleteItem(43, 10), queststatus(716) = 6
-queststatus(716) = 5, item(43, all) > 9, town = Runewick, "quest", "mission" -> "Gut gemacht, die Kerzen sehen sehr gut aus. Wenn Ihr noch etwas Zeit habt, hätte ich noch eine letzte Aufgabe für Euch.", deleteItem(43, 10), queststatus(716) = 6
-queststatus(716) = 5, item(43, all) > 9, town = Runewick, "task", "adventure", "order", "candle" -> "Well done, the candles look perfect. If you have some time left, I can give you one last task.", deleteItem(43, 10), queststatus(716) = 6
-queststatus(716) = 5, item(43, all) > 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "kerze" -> "Gut gemacht, die Kerzen sehen sehr gut aus. Wenn Ihr noch etwas Zeit habt, hätte ich noch eine letzte Aufgabe für Euch.", deleteItem(43, 10), queststatus(716) = 6
-queststatus(716) = 5, item(43, all) < 10, town = Runewick, english, ".+" -> "Well, it looks like you haven't solved this task yet. I was looking for ten candles."
-queststatus(716) = 5, item(43, all) < 10, town = Runewick, ".+" -> "Wie ich sehe, habt Ihr die zehn Kerzen noch nicht zusammen. Kommt wieder, wenn Ihr die Aufgabe erfüllt habt."
+-- Quest 1: Not enough items
+queststatus(716) = 1, english, town = Runewick, "quest", "mission" -> "Can't count properly? As your master, I'll slowly repeat my order: Collect 60 apples.", inform("[Guild Quest] You have a task of Adrons Brewery School quest. More information about the quest you can find in the quest log. You can open the log by 'STRG Q'. You do not need to proceed that quest if you don't want.")
+queststatus(716) = 1, town = Runewick, "task", "adventure", "order", "apple" -> "Can't count properly? As your master, I'll slowly repeat my order: Collect 60 apples.", inform("[Guild Quest] You have a task of Adrons Brewery School quest. More information about the quest you can find in the quest log. You can open the log by 'STRG Q'. You do not need to proceed that quest if you don't want.")
+queststatus(716) = 1, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Apfel", "Äpfel" -> "Zählen ist nicht deine Stärke was? Als dein Meister werde ich meine Anordnung noch einmal langsam wiederholen: Pflücke 60 Äpfel!", inform("[Zunft Quest] Du hast noch eine Aufgabe des Quests der Adrons Braukunst Schule. Im Questlog findest du detaillierte Hilfen. Du kannst das Log mit 'STRG Q' öffnen. Du musst das Quest nicht lösen, wenn du nicht willst.")
 
--- Quest 4
-queststatus(716) = 6, town = Runewick, english, "quest", "mission" -> "Ah yes of course. Well now we are going to produce some lamp oil. It's very easy to make oil, you just need black thistles and this bottle. You can find them on rocky ground if you search amongst the grass tussocks. Please collect four thistles and bring me at least two bottles with oil. The press can be found on the forecourt. Take this sickle to gather the thistles.", item(126, 1, 333), item(390, 2, 333), queststatus(716) = 7
-queststatus(716) = 6, town = Runewick, "quest", "mission" -> "Ah ja natürlich. Nun wollen wir etwas Lampenöl machen. Das ist sehr einfach. Ihr braucht dazu lediglich schwarze Disteln und diese Flasche. Diese könnt Ihr auf felsigem Boden auf Grasbüscheln finden. Sammelt vier Disteln und bringt mir zwei Flaschen Öl mit, wenn Ihr fertig seid. Die Presse steht auf dem Vorplatz. Hier habt Ihr meine alte Sichel, um die Disteln zu sammeln.", item(126, 1, 333), item(390, 2, 333), queststatus(716) = 7
-queststatus(716) = 6, town = Runewick, "task", "adventure", "order" -> "Ah yes of course. Well now we are going to produce some lamp oil. It's very easy to make oil, you just need black thistles and this bottle. You can find them on rocky ground if you search amongst the grass tussocks. Please collect four thistles and bring me at least two bottles with oil. The press can be found on the forecourt. Take this sickle to gather the thistles.", item(126, 1, 333), item(390, 2, 333), queststatus(716) = 7
-queststatus(716) = 6, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ah ja natürlich. Nun wollen wir etwas Lampenöl machen. Das ist sehr einfach. Ihr braucht dazu lediglich schwarze Disteln und diese Flasche. Diese könnt Ihr auf felsigem Boden auf Grasbüscheln finden. Sammelt vier Disteln und bringt mir zwei Flaschen Öl mit, wenn Ihr fertig seid. Die Presse steht auf dem Vorplatz. Hier habt Ihr meine alte Sichel, um die Disteln zu sammeln.", item(126, 1, 333), item(390, 2, 333), queststatus(716) = 7
-queststatus(716) = 7, item(469, all) > 1, town = Runewick, english, "quest", "mission" -> "Well done, thank you very much. I hope I was able to teach you the basic things about candle making.", deleteItem(390, 2), queststatus(716) = 8
-queststatus(716) = 7, item(469, all) > 1, town = Runewick, "quest", "mission" -> "Gut gemacht, vielen Dank. Ich hoffe, ich konnte Euch die Grundlagen des Kerzenmachens beibringen.", deleteItem(390, 2), queststatus(716) = 8
-queststatus(716) = 7, item(469, all) > 1, town = Runewick, "task", "adventure", "order", "oil", "lamp" -> "Well done, thank you very much. I hope I was able to teach you the basic things about candle making.", deleteItem(390, 2), queststatus(716) = 8
-queststatus(716) = 7, item(469, all) > 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Öl", "Lampe" -> "Gut gemacht, vielen Dank. Ich hoffe, ich konnte Euch die Grundlagen des Kerzenmachens beibringen.", deleteItem(390, 2), queststatus(716) = 8
-queststatus(716) = 7, item(469, all) < 2, town = Runewick, english, ".+" -> "I want two bottles of lamp oil, please come back once you are done with this task."
-queststatus(716) = 7, item(469, all) < 2, town = Runewick, ".+" -> "Ich wollte zwei Flaschen mit Lampenöl. Bitte kommt wieder, wenn Ihr fertig seid."
+-- Quest 2: Intermediate production. Player gets a tool for intermediate production. Player produces 10 intermediate products.
+queststatus(716) = 2, english, town = Runewick, "quest", "mission" -> item(51, 10, 333), queststatus(716) = 3, "You can't brew any without water. Fill these ten buckets with water at the next well. Try not to fall in the well.", inform("[Guild Quest] Second task of Adrons Brewery School quest. Go to the well and use the buckets to work there.")
+queststatus(716) = 2, town = Runewick, "task", "adventure", "order" -> item(51, 10, 333), queststatus(716) = 3, "You can't brew any without water. Fill these ten buckets with water at the next well. Try not to fall in the well.", inform("[Guild Quest] Second task of Adrons Brewery School quest. Go to the well and use the buckets to work there.")
+queststatus(716) = 2, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(51, 10, 333), queststatus(716) = 3, "Ohne Wasser wird nicht nur der Wein trocken. Füll diese zehn Eimer mit Wasser. Und fall nicht ins Wasser.", inform("[Guild Quest] Zweite Aufgabe des Quests der Adrons Braukunst Schule. Um zu arbeiten, stell dich vor den Brunnen und nutze die Eimer.")
+
+-- Quest 2: Solved
+queststatus(716) = 3, item(52, all) > 9, english, town = Runewick, "quest", "mission" -> queststatus(716) = 4, "Ohh, the water is clear, that's even better for the drinks. But before we continue I have to drink a little bit."
+queststatus(716) = 3, item(52, all) > 9, town = Runewick, "task", "adventure", "order", "water", "bucket" -> queststatus(716) = 4, "Ohh, the water is clear, that's even better for the drinks. But before we continue I have to drink a little bit."
+queststatus(716) = 3, item(52, all) > 9, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Wasser", "Eimer" -> queststatus(716) = 4, "Ohh, das ist ja sogar sauberes Wasser. Aber bevor wir weitermachen, muss ich darauf einen heben."
+
+-- Quest 2: Not enough items
+queststatus(716) = 3, english, town = Runewick, "quest", "mission" -> "Where is the water? Your task was to fill ten buckets of water, not drink the water. A brewer never drink water. Cheers."
+queststatus(716) = 3, town = Runewick, "task", "adventure", "order", "water", "bucket" -> "Where is the water? Your task was to fill ten buckets of water, not drink the water. A brewer never drink water. Cheers."
+queststatus(716) = 3, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Wasser", "Eimer" -> "Wo hast du das Wasser? Du solltest zehn Eimer mit Wasser füllen und nicht austrinken. Ein Brauer trinkt kein Wasser. Prost."
+
+-- Quest 3: Final production. Player gets a tool for final production. Player delivers final products made of 10 intermediate products. Reward: 50 % of item.worth. Rank Layman / Laie
+queststatus(716) = 4, english, town = Runewick, "quest", "mission" -> item(227, 1, 333), queststatus(716) = 5, money + 6000, "Now we come to the real fun. I'll give you an old cooking spoon and you'll give me ten bottles of apple cider. Buy the big empty bottles from the money here at Fronita Emery."
+queststatus(716) = 4, town = Runewick, "task", "adventure", "order" -> item(227, 1, 333), queststatus(716) = 5, money + 6000, "Now we come to the real fun. I'll give you an old cooking spoon and you'll give me ten bottles of apple cider. Buy the big empty bottles from the money here at Fronita Emery."
+queststatus(716) = 4, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(227, 1, 333), queststatus(716) = 5, money + 6000, "Jetzt kommen wir zur Sache. Ich gebe dir einen alten Rührlöffel und du bringst mir zehn Flaschen Apfelcider. Die großen leeren Flaschen dazu kauf von dem Geld hier bei Fronita Emery."
+
+-- Quest 3: Solved
+queststatus(716) = 5, item(2499, all) > 9, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Layman with Adrons Brewery School of Runewick. You are awarded fourty five silver coins."), deleteItem(2499, 10), queststatus(716) = 6, money + 4500, "Adrons Brewery School of Runewick is glad to have a new person willing to learn in it's rows. Here is some money to get you started. I recommend you don't buy drinks but buckets from it. And come back once you improved your knowledge."
+queststatus(716) = 5, item(2499, all) > 9, town = Runewick, "task", "adventure", "order", "bread" -> inform("[Guild rank] You advance to the rank of Layman with Adrons Brewery School of Runewick. You are awarded fourty five silver coins."), deleteItem(2499, 10), queststatus(716) = 6, money + 4500, "Adrons Brewery School of Runewick is glad to have a new person willing to learn in it's rows. Here is some money to get you started. I recommend you don't buy drinks but buckets from it. And come back once you improved your knowledge."
+queststatus(716) = 5, item(2499, all) > 9, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Brötchen" -> inform("[Gildenrang] Adrons Braukunst Schule von Runewick erhebt dich in den Rang eines Laiens. Du erhältst fünfundvierzig Silberstücke."), deleteItem(2499, 10), queststatus(716) = 6, money + 4500, "Adrons Braukunst Schule von Runewick freut sich ein neues lernwilliges Mitglied zu begrüßen. Hier hast du Geld. Mein Vorschlag wäre, dass du es nicht versäufst und davon Eimer kaufst. Und komm zu mir zurück, wenn du deine Kenntnisse erweitert hast."
+
+-- Quest 3: Not enough items
+queststatus(716) = 5, english, town = Runewick, "quest", "mission" -> "First the water and the apples in the barrel, then stir. I'll taste the results, ten bottles of cider."
+queststatus(716) = 5, town = Runewick, "task", "adventure", "order", "bread" -> "First the water and the apples in the barrel, then stir. I'll taste the results, ten bottles of cider."
+queststatus(716) = 5, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Brötchen" -> "Erst Wasser ud Äpfel in den Bottich, dann rühren. Ich teste dann das Ergebnis, zehn Flaschen Cider."
+
+-- Level 10: Novice / Anfänger. Reward: 10 Raw materials (e.g. coal)
+skill(brewing) > 9, queststatus(716) = 6, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Novice with Adrons Brewery School of Runewick. You are awarded ten honeycombs."), item(2529, 10, 333), queststatus(716) = 7, "Cheers. You not only know to drink, you know to make drinks. Adrons Brewery School of Runewick wants to ease your path with some honeycombs. Come back to me once you know more to brew I can taste."
+skill(brewing) > 9, queststatus(716) = 6, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Novice with Adrons Brewery School of Runewick. You are awarded ten honeycombs."), item(2529, 10, 333), queststatus(716) = 7, "Cheers. You not only know to drink, you know to make drinks. Adrons Brewery School of Runewick wants to ease your path with some honeycombs. Come back to me once you know more to brew I can taste."
+skill(brewing) > 9, queststatus(716) = 6, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Adrons Braukunst Schule von Runewick erhebt dich in den Rang eines Anfängers. Du erhältst zehn Honigwaben."), item(2529, 10, 333), queststatus(716) = 7, "Prost. Du kannst ja nicht nur tinken sondern auch Tränke. Adrons Braukunst Schule von Runewick gibt dir gerne einige Honigwaben. Komm erneut zu mir, wenn ich mehr probieren kann."
+
+-- Level < 10: Not experienced enough
+skill(brewing) < 10, queststatus(716) = 6, english, town = Runewick, "quest", "mission" -> "Drinking is fine. But from time to time you have to stir a brew in the barrel too to be eligible for a promotion. Your current rank is Layman.", inform("[Guild rank] You need skill level 10 in brewing to advance in the rank of Adrons Brewery School.")
+skill(brewing) < 10, queststatus(716) = 6, town = Runewick, "task", "adventure", "order", "rank" -> "Drinking is fine. But from time to time you have to stir a brew in the barrel too to be eligible for a promotion. Your current rank is Layman.", inform("[Guild rank] You need skill level 10 in brewing to advance in the rank of Adrons Brewery School.")
+skill(brewing) < 10, queststatus(716) = 6, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Selber trinken ist schon in Ordnung. Aber hin und wieder musst du auch mal einen Sud rühren, wenn du befördert werden willst. Du wirst im Rang eines Laiens geführt.", inform("[Zunftrang] Du brauchst Skill Level 10 in Brauen um in der Adrons Braukunst Schule aufzusteigen.")
+
+-- Level 20: Apprentice / Lehrling. Reward: 20 Raw materials (e.g. wool)
+skill(brewing) > 19, queststatus(716) = 7, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Apprentice with Adrons Brewery School of Runewick. You are awarded twenty hops."), item(154, 20, 333), queststatus(716) = 8, "Cheers. You not only know to drink, you know to make drinks. Adrons Brewery School of Runewick wants to ease your path with some hop. Come back to me once you know more to brew I can taste."
+skill(brewing) > 19, queststatus(716) = 7, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Apprentice with Adrons Brewery School of Runewick. You are awarded twenty hops."), item(154, 20, 333), queststatus(716) = 8, "Cheers. You not only know to drink, you know to make drinks. Adrons Brewery School of Runewick wants to ease your path with some hop. Come back to me once you know more to brew I can taste."
+skill(brewing) > 19, queststatus(716) = 7, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Adrons Braukunst Schule von Runewick erhebt dich in den Rang eines Lehrlings. Du erhältst zwanzig Hopfendolden."), item(154, 20, 333), queststatus(716) = 8, "Prost. Du kannst ja nicht nur tinken sondern auch Tränke. Adrons Braukunst Schule von Runewick gibt dir gerne etwas Hopfen. Komm erneut zu mir, wenn ich mehr probieren kann."
+
+-- Level < 20: Not experienced enough
+skill(brewing) < 20, queststatus(716) = 7, english, town = Runewick, "quest", "mission" -> "Drinking is fine. But from time to time you have to stir a brew in the barrel too to be eligible for a promotion. Your current rank is Novice.", inform("[Guild rank] You need skill level 20 in brewing to advance in the rank of Adrons Brewery School.")
+skill(brewing) < 20, queststatus(716) = 7, town = Runewick, "task", "adventure", "order", "rank" -> "Drinking is fine. But from time to time you have to stir a brew in the barrel too to be eligible for a promotion. Your current rank is Novice.", inform("[Guild rank] You need skill level 20 in brewing to advance in the rank of Adrons Brewery School.")
+skill(brewing) < 20, queststatus(716) = 7, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Selber trinken ist schon in Ordnung. Aber hin und wieder musst du auch mal einen Sud rühren, wenn du befördert werden willst. Du wirst im Rang eines Anfängers geführt.", inform("[Zunftrang] Du brauchst Skill Level 20 in Brauen um in der Adrons Braukunst Schule aufzusteigen.")
+
+-- Level 30: Initiate / Initiat. Reward: 10 Intermediate products (e.g. boards)
+skill(brewing) > 29, queststatus(716) = 8, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Initiate with Adrons Brewery School of Runewick. You are awarded ten buckets"), item(51, 10, 333), queststatus(716) = 9, "Cheers. You not only know to drink, you know to make drinks. Adrons Brewery School of Runewick wants to ease your path with some buckets. Come back to me once you know more to brew I can taste."
+skill(brewing) > 29, queststatus(716) = 8, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Initiate with Adrons Brewery School of Runewick. You are awarded ten buckets."), item(51, 10, 333), queststatus(716) = 9, "Cheers. You not only know to drink, you know to make drinks. Adrons Brewery School of Runewick wants to ease your path with some buckets. Come back to me once you know more to brew I can taste."
+skill(brewing) > 29, queststatus(716) = 8, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Adrons Braukunst Schule von Runewick erhebt dich in den Rang eines Initiatens. Du erhältst zehn Eimer."), item(51, 10, 333), queststatus(716) = 9, "Prost. Du kannst ja nicht nur tinken sondern auch Tränke. Adrons Braukunst Schule von Runewick gibt dir gerne einige Eimer. Komm erneut zu mir, wenn ich mehr probieren kann."
+
+-- Level < 30: Not experienced enough
+skill(brewing) < 30, queststatus(716) = 8, english, town = Runewick, "quest", "mission" -> "Drinking is fine. But from time to time you have to stir a brew in the barrel too to be eligible for a promotion. Your current rank is Apprentice.", inform("[Guild rank] You need skill level 30 in brewing to advance in the rank of Adrons Brewery School.")
+skill(brewing) < 30, queststatus(716) = 8, town = Runewick, "task", "adventure", "order", "rank" -> "Drinking is fine. But from time to time you have to stir a brew in the barrel too to be eligible for a promotion. Your current rank is Apprentice.", inform("[Guild rank] You need skill level 30 in brewing to advance in the rank of Adrons Brewery School.")
+skill(brewing) < 30, queststatus(716) = 8, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Selber trinken ist schon in Ordnung. Aber hin und wieder musst du auch mal einen Sud rühren, wenn du befördert werden willst. Du wirst im Rang eines Lehrlings geführt.", inform("[Zunftrang] Du brauchst Skill Level 30 in Brauen um in der Adrons Braukunst Schule aufzusteigen.")
+
+-- Level 40: Journeyman / Geselle. Reward: 20 Intermediate products (e.g. thread)
+skill(brewing) > 39, queststatus(716) = 9, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Journeyman with Adrons Brewery School of Runewick. You are awarded twenty sugar canes and a certificate."), item(778, 20, 333), item(3109, 1, 666, "nameDe" = "Urkunde", "nameEn" = "Certificate", "rareness" = "2", "descriptionEn" = "The owner of that certificate has been successfully passed the examination as Journeyman. Thomas Weste - Adrons Brewery School of Runewick", "descriptionDe" = "Der Inhaber dieser Urkunde hat erfolgreich die Pruefung zum Gesellen bestanden. Thomas Weste - Adrons Braukunst Schule Runewick"), queststatus(716) = 10, "I'm glad to drink with a new Journeyman in our rows. Adrons Brewery School of Runewick wants to ease your path with some sugar canes. Come back to me once you know more to brew I can taste."
+skill(brewing) > 39, queststatus(716) = 9, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Journeyman with Adrons Brewery School of Runewick. You are awarded twenty sugar canes and a certificate."), item(778, 20, 333), item(3109, 1, 666, "nameDe" = "Urkunde", "nameEn" = "Certificate", "rareness" = "2", "descriptionEn" = "The owner of that certificate has been successfully passed the examination as Journeyman. Thomas Weste - Adrons Brewery School of Runewick", "descriptionDe" = "Der Inhaber dieser Urkunde hat erfolgreich die Pruefung zum Gesellen bestanden. Thomas Weste - Adrons Braukunst Schule Runewick"), queststatus(716) = 10, "I'm glad to drink with a new Journeyman in our rows. Adrons Brewery School of Runewick wants to ease your path with some sugar canes. Come back to me once you know more to brew I can taste."
+skill(brewing) > 39, queststatus(716) = 9, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Adrons Braukunst Schule von Runewick erhebt dich in den Rang eines Gesellens. Du erhältst zwanzig Zuckerrohr und eine Urkunde."), item(778, 20, 333), item(3109, 1, 666, "nameDe" = "Urkunde", "nameEn" = "Certificate", "rareness" = "2", "descriptionEn" = "The owner of that certificate has been successfully passed the examination as Journeyman. Thomas Weste - Adrons Brewery School of Runewick", "descriptionDe" = "Der Inhaber dieser Urkunde hat erfolgreich die Pruefung zum Gesellen bestanden. Thomas Weste - Adrons Braukunst Schule Runewick"), queststatus(716) = 10, "Ich freu mich von einem neuen Gesellen zu einen Umtrunk eingeladen zu werden. Adrons Braukunst Schule von Runewick gibt dir gerne einige Stangen Zuckerrohr. Komm erneut zu mir, wenn ich mehr probieren kann."
+
+-- Level < 40: Not experienced enough
+skill(brewing) < 40, queststatus(716) = 9, english, town = Runewick, "quest", "mission" -> "Drinking is fine. But from time to time you have to stir a brew in the barrel too to be eligible for a promotion. Your current rank is Initiate.", inform("[Guild rank] You need skill level 40 in brewing to advance in the rank of Adrons Brewery School.")
+skill(brewing) < 40, queststatus(716) = 9, town = Runewick, "task", "adventure", "order", "rank" -> "Drinking is fine. But from time to time you have to stir a brew in the barrel too to be eligible for a promotion. Your current rank is Initiate.", inform("[Guild rank] You need skill level 40 in brewing to advance in the rank of Adrons Brewery School.")
+skill(brewing) < 40, queststatus(716) = 9, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Selber trinken ist schon in Ordnung. Aber hin und wieder musst du auch mal einen Sud rühren, wenn du befördert werden willst. Du wirst im Rang eines Initiatens geführt.", inform("[Zunftrang] Du brauchst Skill Level 40 in Brauen um in der Adrons Braukunst Schule aufzusteigen.")
+
+-- Level 50: Specialist / Spezialist. Reward: 10 Uncommon resources (e.g. handles)
+skill(brewing) > 49, queststatus(716) = 10, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Specialist with Adrons Brewery School of Runewick. You are awarded ten large bottles."), item(2498, 10, 333), queststatus(716) = 11, "Cheers. You not only know to drink, you know to make drinks. Adrons Brewery School of Runewick wants to ease your path with some large bottles. Come back to me once you know more to brew I can taste."
+skill(brewing) > 49, queststatus(716) = 10, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Specialist with Adrons Brewery School of Runewick. You are awarded ten large bottles."), item(2498, 10, 333), queststatus(716) = 11, "Cheers. You not only know to drink, you know to make drinks. Adrons Brewery School of Runewick wants to ease your path with some large bottles. Come back to me once you know more to brew I can taste."
+skill(brewing) > 49, queststatus(716) = 10, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Adrons Braukunst Schule von Runewick erhebt dich in den Rang eines Spezialistens. Du erhältst zehn große Flaschen."), item(2498, 10, 333), queststatus(716) = 11, "Prost. Du kannst ja nicht nur tinken sondern auch Tränke. Adrons Braukunst Schule von Runewick gibt dir gerne einigen Flaschen. Komm erneut zu mir, wenn ich mehr probieren kann."
+
+-- Level < 50: Not experienced enough
+skill(brewing) < 50, queststatus(716) = 10, english, town = Runewick, "quest", "mission" -> "Drinking is fine. But from time to time you have to stir a brew in the barrel too to be eligible for a promotion. Your current rank is Journeyman.", inform("[Guild rank] You need skill level 50 in brewing to advance in the rank of Adrons Brewery School.")
+skill(brewing) < 50, queststatus(716) = 10, town = Runewick, "task", "adventure", "order", "rank" -> "Drinking is fine. But from time to time you have to stir a brew in the barrel too to be eligible for a promotion. Your current rank is Journeyman.", inform("[Guild rank] You need skill level 50 in brewing to advance in the rank of Adrons Brewery School.")
+skill(brewing) < 50, queststatus(716) = 10, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Selber trinken ist schon in Ordnung. Aber hin und wieder musst du auch mal einen Sud rühren, wenn du befördert werden willst. Du wirst im Rang eines Gesellens geführt.", inform("[Zunftrang] Du brauchst Skill Level 50 in Brauen um in der Adrons Braukunst Schule aufzusteigen.")
+
+-- Level 60: Expert / Experte. Reward: 20 Uncommon resources (e.g. gold ingots)
+skill(brewing) > 59, queststatus(716) = 11, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Expert with Adrons Brewery School of Runewick. You are awarded twenty juice bottles."), item(790, 20, 333), queststatus(716) = 12, "Cheers. You not only know to drink, you know to make drinks. Adrons Brewery School of Runewick wants to ease your path with some juice bottles. Come back to me once you know more to brew I can taste."
+skill(brewing) > 59, queststatus(716) = 11, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Expert with Adrons Brewery School of Runewick. You are awarded twenty juice bottles."), item(790, 20, 333), queststatus(716) = 12, "Cheers. You not only know to drink, you know to make drinks. Adrons Brewery School of Runewick wants to ease your path with some juice bottles. Come back to me once you know more to brew I can taste."
+skill(brewing) > 59, queststatus(716) = 11, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Adrons Braukunst Schule von Runewick erhebt dich in den Rang eines Expertens. Du erhältst zwanzig Saftflaschen."), item(790, 20, 333), queststatus(716) = 12, "Prost. Du kannst ja nicht nur tinken sondern auch Tränke. Adrons Braukunst Schule von Runewick gibt dir gerne einigen Saftflaschen. Komm erneut zu mir, wenn ich mehr probieren kann."
+
+-- Level < 60: Not experienced enough
+skill(brewing) < 60, queststatus(716) = 11, english, town = Runewick, "quest", "mission" -> "Drinking is fine. But from time to time you have to stir a brew in the barrel too to be eligible for a promotion. Your current rank is Specialist.", inform("[Guild rank] You need skill level 60 in brewing to advance in the rank of Adrons Brewery School.")
+skill(brewing) < 60, queststatus(716) = 11, town = Runewick, "task", "adventure", "order", "rank" -> "Drinking is fine. But from time to time you have to stir a brew in the barrel too to be eligible for a promotion. Your current rank is Specialist.", inform("[Guild rank] You need skill level 60 in brewing to advance in the rank of Adrons Brewery School.")
+skill(brewing) < 60, queststatus(716) = 11, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Selber trinken ist schon in Ordnung. Aber hin und wieder musst du auch mal einen Sud rühren, wenn du befördert werden willst. Du wirst im Rang eines Spezialistens geführt.", inform("[Zunftrang] Du brauchst Skill Level 60 in Brauen um in der Adrons Braukunst Schule aufzusteigen.")
+
+-- Level 70: Adept / Adept. Reward: 5 Rare resources (e.g. merinium ingots)
+skill(brewing) > 69, queststatus(716) = 12, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Adept with Adrons Brewery School of Runewick. You are awarded tem rum bottles."), item(518, 10, 333), queststatus(716) = 13, "Cheers. You not only know to drink, you know to make drinks. Adrons Brewery School of Runewick wants to ease your path with some rum bottles. Come back to me once you know more to brew I can taste."
+skill(brewing) > 69, queststatus(716) = 12, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Adept with Adrons Brewery School of Runewick. You are awarded ten rum bottles."), item(518, 10, 333), queststatus(716) = 13, "Cheers. You not only know to drink, you know to make drinks. Adrons Brewery School of Runewick wants to ease your path with some rum bottles. Come back to me once you know more to brew I can taste."
+skill(brewing) > 69, queststatus(716) = 12, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Adrons Braukunst Schule von Runewick erhebt dich in den Rang eines Adeptens. Du erhältst zehn Rumflaschen."), item(518, 10, 333), queststatus(716) = 13, "Prost. Du kannst ja nicht nur tinken sondern auch Tränke. Adrons Braukunst Schule von Runewick gibt dir gerne einige Rumflaschen. Komm erneut zu mir, wenn ich mehr probieren kann."
+
+-- Level < 70: Not experienced enough
+skill(brewing) < 70, queststatus(716) = 12, english, town = Runewick, "quest", "mission" -> "Drinking is fine. But from time to time you have to stir a brew in the barrel too to be eligible for a promotion. Your current rank is Expert.", inform("[Guild rank] You need skill level 70 in brewing to advance in the rank of Adrons Brewery School.")
+skill(brewing) < 70, queststatus(716) = 12, town = Runewick, "task", "adventure", "order", "rank" -> "Drinking is fine. But from time to time you have to stir a brew in the barrel too to be eligible for a promotion. Your current rank is Expert.", inform("[Guild rank] You need skill level 70 in brewing to advance in the rank of Adrons Brewery School.")
+skill(brewing) < 70, queststatus(716) = 12, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Selber trinken ist schon in Ordnung. Aber hin und wieder musst du auch mal einen Sud rühren, wenn du befördert werden willst. Du wirst im Rang eines Expertens geführt.", inform("[Zunftrang] Du brauchst Skill Level 70 in Brauen um in der Adrons Braukunst Schule aufzusteigen.")
+
+-- Level 80: Artisan / Artisane. Reward: 10 Rare resources (e.g. heartwood)
+skill(brewing) > 79, queststatus(716) = 13, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Artisan with Adrons Brewery School of Runewick. You are awarded twenty empty bottles."), item(1317, 20, 333), queststatus(716) = 14, "Cheers. You not only know to drink, you know to make drinks. Adrons Brewery School of Runewick wants to ease your path with some empty bottles. Come back to me once you know more to brew I can taste."
+skill(brewing) > 79, queststatus(716) = 13, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Artisan with Adrons Brewery School of Runewick. You are awarded twenty empty bottles."), item(1317, 20, 333), queststatus(716) = 14, "Cheers. You not only know to drink, you know to make drinks. Adrons Brewery School of Runewick wants to ease your path with some empty bottles. Come back to me once you know more to brew I can taste."
+skill(brewing) > 79, queststatus(716) = 13, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Adrons Braukunst Schule von Runewick erhebt dich in den Rang eines Artisanens. Du erhältst zwanzig leere Flaschen."), item(1317, 20, 333), queststatus(716) = 14, "Prost. Du kannst ja nicht nur tinken sondern auch Tränke. Adrons Braukunst Schule von Runewick gibt dir gerne einige leere Flaschen. Komm erneut zu mir, wenn ich mehr probieren kann."
+
+-- Level < 80: Not experienced enough
+skill(brewing) < 80, queststatus(716) = 13, english, town = Runewick, "quest", "mission" -> "Drinking alone isn't wise. And there's a lot of work for the best drinks. Cheers Adept.", inform("[Guild rank] You need skill level 80 in brewing to advance in the rank of Adrons Brewery School.")
+skill(brewing) < 80, queststatus(716) = 13, town = Runewick, "task", "adventure", "order", "rank" -> "Drinking alone isn't wise. And there's a lot of work for the best drinks. Cheers Adept.", inform("[Guild rank] You need skill level 80 in brewing to advance in the rank of Adrons Brewery School.")
+skill(brewing) < 80, queststatus(716) = 13, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Alleine trinken ist nicht weise. Und du brauchst mir nicht zu erklären wie viel Arbeit es ist, hervorragende Tränke zu brauen. Prost Adept.", inform("[Zunftrang] Du brauchst Skill Level 80 in Brauen um in der Adrons Braukunst Schule aufzusteigen.")
+
+-- Level 90: Master / Meister. Reward: 5 Pure elements
+skill(brewing) > 89, queststatus(716) = 14, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Master with Adrons Brewery School of Runewick. You are awarded five pieces of pure water and a special tool."), item(2554, 5, 333), queststatus(716) = 15, "Cheers. You not only know to drink, you know to make drinks. Adrons Brewery School of Runewick wants to ease your path with some drops pure water and this engraved spoon. Come back to me once you know more to brew I can taste.", item(227, 1, 999, "descriptionEn" = "Master of Adrons Brewery School of Runewick", "descriptionDe" = "Meister an Adrons Braukunst Schule Runewick")
+skill(brewing) > 89, queststatus(716) = 14, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Master with Adrons Brewery School of Runewick. You are awarded five pieces of pure water and a special tool."), item(2554, 5, 333), queststatus(716) = 15, "Cheers. You not only know to drink, you know to make drinks. Adrons Brewery School of Runewick wants to ease your path with some drops pure water and this engraved spoon. Come back to me once you know more to brew I can taste.", item(227, 1, 999, "descriptionEn" = "Master of Adrons Brewery School of Runewick", "descriptionDe" = "Meister an Adrons Braukunst Schule Runewick")
+skill(brewing) > 89, queststatus(716) = 14, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Adrons Braukunst Schule von Runewick erhebt dich in den Rang eines Meisters. Du erhältst fünf Tropfen reines Wasser und ein besonderes Werkzeug."), item(2554, 5, 333), queststatus(716) = 15, "Prost. Du kannst ja nicht nur tinken sondern auch Tränke. Adrons Braukunst Schule von Runewick gibt dir gerne etwas reines Wasser und diesem besonderen Kochlöffel. Komm erneut zu mir, wenn ich mehr probieren kann.", item(227, 1, 999, "descriptionEn" = "Master of Adrons Brewery School of Runewick", "descriptionDe" = "Meister an Adrons Braukunst Schule Runewick")
+
+-- Level < 90: Not experienced enough
+skill(brewing) < 90, queststatus(716) = 14, english, town = Runewick, "quest", "mission" -> "Drinking alone isn't wise. And there's a lot of work for the best drinks. Cheers Artisan.", inform("[Guild rank] You need skill level 90 in brewing to advance in the rank of Adrons Brewery School.")
+skill(brewing) < 90, queststatus(716) = 14, town = Runewick, "task", "adventure", "order", "rank" -> "Drinking alone isn't wise. And there's a lot of work for the best drinks. Cheers Artisan.", inform("[Guild rank] You need skill level 90 in brewing to advance in the rank of Adrons Brewery School.")
+skill(brewing) < 90, queststatus(716) = 14, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Alleine trinken ist nicht weise. Und du brauchst mir nicht zu erklären wie viel Arbeit es ist, hervorragende Tränke zu brauen. Prost Artisan.", inform("[Zunftrang] Du brauchst Skill Level 90 in Brauen um in der Adrons Braukunst Schule aufzusteigen.")
+
+-- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements
+skill(brewing) > 99, queststatus(716) = 15, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Grandmaster with Adrons Brewery School of Runewick. You are awarded ten pieces of pure spirit."), item(3607, 10, 333), queststatus(716) = 16, "Unbelieveable. I cheers to a new Grandmaster of Adrons Brewery School of Runewick. With this pure spirit ... erm what's it for? ... Let's clink our glases."
+skill(brewing) > 99, queststatus(716) = 15, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Grandmaster with Adrons Brewery School of Runewick. You are awarded ten pieces of pure fire."), item(3607, 10, 333), queststatus(716) = 16, "Unbelieveable. I cheers to a new Grandmaster of Adrons Brewery School of Runewick. With this pure spirit ... erm what's it for? ... Let's clink our glases."
+skill(brewing) > 99, queststatus(716) = 15, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Adrons Braukunst Schule von Runewick erhebt dich in den Rang eines Großmeisters. Du erhältst zehn Stück reinen Geist."), item(3607, 10, 333), queststatus(716) = 16, "Unglaublich. Ich erhebe mein Glas auf einen neuen Großmeister der Adrons Braukunst Schule von Runewick. Mit diesem reinen Geist wirst du ... erm ja was wirst du? ... Lasst uns anstoßen."
+
+-- Level < 100: Not experienced enough
+skill(brewing) < 100, queststatus(716) = 15, english, town = Runewick, "quest", "mission" -> "Drinking alone isn't wise. And there's a lot of work for the best drinks. Cheers Master.", inform("[Guild rank] You need skill level 100 in brewing to advance in the rank of Adrons Brewery School.")
+skill(brewing) < 100, queststatus(716) = 15, town = Runewick, "task", "adventure", "order", "rank" -> "Drinking alone isn't wise. And there's a lot of work for the best drinks. Cheers Master.", inform("[Guild rank] You need skill level 100 in brewing to advance in the rank of Adrons Brewery School.")
+skill(brewing) < 100, queststatus(716) = 15, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Alleine trinken ist nicht weise. Und du brauchst mir nicht zu erklären wie viel Arbeit es ist, hervorragende Tränke zu brauen. Prost Meister.", inform("[Zunftrang] Du brauchst Skill Level 100 in Brauen um in der Adrons Braukunst Schule aufzusteigen.")
 
 -- Response after quest is done
-queststatus(716) = 8, english, town = Runewick, "quest", "mission" -> "I don't have anything more for you to do. Thank you for the help though!"
-queststatus(716) = 8, town = Runewick, "quest", "mission" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
-queststatus(716) = 8, town = Runewick, "task", "adventure", "order" -> "I don't have anything more for you to do. Thank you for the help though!"
-queststatus(716) = 8, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für Eure Hilfe!"
+queststatus(716) = 16, english, town = Runewick, "quest", "mission" -> "One day, you will drink with your grandchildren and tell about you apprenticeship with Adrons Brewery School of Runewick, Grandmaster %CHARNAME."
+queststatus(716) = 16, town = Runewick, "task", "adventure", "order" -> "One day, you will drink with your grandchildren tell about you apprenticeship with Adrons Brewery School of Runewick, Grandmaster %CHARNAME."
+queststatus(716) = 16, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du wirst noch deinen Enkeln bei einem guten Glas Wein von deiner Lehre bei der Adrons Braukunst Schule von Runewick erzählen, Großmeister %CHARNAME."
 
 -- No quests for Non Runewickians
-english, "quest", "mission" -> "You are not a citizen of Runewick. I don't have anything for you to do."
-"quest", "mission" -> "Ihr scheint kein Bürger Runewicks zu sein. Ich habe nichts für Euch zu tun."
-"task", "adventure", "order" -> "You are not a citizen of Runewick. I don't have anything for you to do."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr scheint kein Bürger Runewicks zu sein. Ich habe nichts für Euch zu tun."
+english, "quest", "mission" -> "Adrons Brewery School is restricted to Runewick's citizens."
+"task", "adventure", "order" -> "Adrons Brewery School is restricted to Runewick's citizens."
+"quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Adrons Braukunst Schule steht nur Bürgern Runewicks offen."
+
+-- Additional talk
+english, "elvain", "morgan" -> "The Archmage Elvain Morgan patrons everybody who is willing to learn. That includes our school.", "I wished I could understand everything Elvain Morgan wrote.", "Yesterday I was able to serve the Archmage a special drink."
+"Archmage" -> "The Archmage Elvain Morgan patrons everybody who is willing to learn. That includes our school.", "I wished I could understand everything Elvain Morgan wrote.", "Yesterday I was able to serve the Archmage a special drink."
+"Erzmagier", "elvain", "morgan" -> "Der Erzmagier behütet jeden, der gewillt ist zu lernen. Auch unsere Schule.", "Ich wünschte ich könnte verstehen, was Elnain Morgan alles geschrieben hat.", "Gestern durfte ich dem Erzmagier ein besondern Trank kredenzen."
+
+"farm", "field", "vegetable", "grain" -> "I buy the food for my drinks from the farmer of our city.", "On the fields in front of the city almost everything a good brewer needs grows.", "You could plant everything yourself, but the farmers also want to sell something.", "I take fresh sugar cane in the barrel only."
+"landwirt", "feld", "Zucker", "getreide" -> "Die Lebensmittel für meine Getränke kaufe ich bei den Landwirten unserer Stadt.", "Auf den Feldern vor der Stadt wächst fast alles was ein guter Braumeister braucht.", "Man könnte ja alles selber anpflanzen, aber die Landwirte wollen ja auch was verkaufen.", "Mir kommt nur frisches Zuckerrohr in den Topf."
+
+"honey" -> "Mmmm ... Med!", "Med, the drink of the north ... and south, and west and east."
+"Honig" -> "Mmmm .. Honig!", "Meet, der Trank des Nordens ... und Südens und Westens und Ostens."
+
+english, "Adron" -> "Right in the tavern you find his altar.", "The best brewer ever worshipped Adron."
+"Adron" -> "Direkt in der Taverne findet man seinen Altar", "Die besten Brauer waren Anhänger Adrons."
+
+"god", "temple" -> "Many Gods have a temple in Runewick. Adron in the tavern, Ushara on the isle of earth, Tanora near the harbour, Bragon on the isle of fire, Oldra in Yewdale, Elara in the library, Eldan on the isle of the Archmage and Findari here on the isle of air.", "You may find temple of the Old and the Younger Gods in Runewick."
+"Gott", "Tempel" -> "Viele Götter haben einen Tempel in Runewick. Adron in der Taverne, Ushara auf der Insel der Erde, Tanora in der Nähe des Hafens, Bragon auf der Insel des Feuers, Oldra in Eibental, Elara in der Bücherei, Eldan auf der Insel der Erzmagiers und Findari hier bei uns auf der Insel der Luft", "Hier in Runewick findest du Tempel der alten und der jungen Götter."
+
+"cheers" -> "Cheers!"
+"prost" -> "Prost!"
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
@@ -150,7 +280,7 @@ english, "quest", "mission" -> "You are not a citizen of Runewick. I don't have 
 
 cycletext "#me verstaut eine Flasche in seinem Beutel.", "#me stores a bottle in his bag."
 cycletext "#me kratzt sich am Kopf.", "#me scratches his head."
-cycletext "Wenn ihr Hilfe beim Kerzenmachen braucht dann fragt nur mich!", "If you need any help with candle making, just ask me!"
+cycletext "Wenn ihr Hilfe beim Brauen braucht dann fragt nur mich!", "If you need any help with brewing, just ask me!"
 cycletext "#me gähnt verhalten.", "#me yawns restrained."
 cycletext "#me schaut sich kurz um und kratzt sich anschließend an seinem Hintern.", "#me looks around briefly and scratches his bum."
 cycletext "Im Adras rutschen einem die Getränke nur so die Kehle herunter.", "In Adras the drinks flow freely."
@@ -158,3 +288,4 @@ cycletext "#me schaut sich gereizt um.", "#me looks about crankily."
 cycletext "#me isst einen Apfel.", "#me eats an apple."
 cycletext "#me schreibt einen Brief.", "#me writes a letter."
 cycletext "#me reinigt sich seine Nägel mit einem Dolch.", "#me cleans his finger nails with a dagger."
+cycletext "Prost", "Cheers"

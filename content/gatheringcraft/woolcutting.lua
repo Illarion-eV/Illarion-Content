@@ -20,6 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- additional tool: scissors (6)
 
 local common = require("base.common")
+local craft = require("base.craft")
 local gathering = require("content.gathering")
 
 module("content.gatheringcraft.woolcutting", package.seeall)
@@ -125,7 +126,7 @@ function StartGathering(User, SourceAnimal, ltstate)
         end
     end
 
-    if common.ToolBreaks( User, toolItem, woolcutting:GenWorkTime(User, toolItem) ) then -- damage and possibly break the tool
+    if craft.ToolBreaks( User, toolItem, woolcutting:GenWorkTime(User, toolItem) ) then -- damage and possibly break the tool
         common.HighInformNLS(User,
         "Deine alte Schere zerbricht.",
         "Your old scissors break.");

@@ -47,6 +47,46 @@ Description[ENGLISH][4] = "The first answer did not contains the keyword. You go
 Description[GERMAN][5] = "Die Antwort war richtig. Bedenke, dass John Smith noch eine Belohnung for dich hat."
 Description[ENGLISH][5] = "Your answer was right. Please take into consideration, John Smith has a reward for you"
 
+-- QuestID: 684 = 1    Cumunculus
+-- QuestID: 684 = 2    Cadoson and Letmason
+-- QuestID: 684 = 3    Battle for the Elstree Forest
+-- QuestID: 684 = 4    The Stone Gaze
+-- QuestID: 684 = 5    The Broken Wreath
+-- QuestID: 684 = 6    The Singing Well
+TaleSpecific = {}
+TaleSpecific[GERMAN] = {}
+TaleSpecific[ENGLISH] = {}
+TaleSpecific[GERMAN][1] = " Er wollte wissen, wie Enchanta das zweite Mal Cumunculus schützte."
+TaleSpecific[ENGLISH][1] = " He wanted to know how Enchanta saved Cumunculus the second time."
+TaleSpecific[GERMAN][2] = " Er wollte wissen, was die Brüder im Kantabi Delta fanden."
+TaleSpecific[ENGLISH][2] = " He wanted to know what the brotheres found in the Kantabi delta."
+TaleSpecific[GERMAN][3] = " Er wollte wissen, wohin die Feen Magier schickten."
+TaleSpecific[ENGLISH][3] = " He wanted to know to know to where the fairies sent mages."
+TaleSpecific[GERMAN][4] = " Er wollte wissen, wie die besondere Blume aussah."
+TaleSpecific[ENGLISH][4] = " He wanted to know how the special flower looked like."
+TaleSpecific[GERMAN][5] = " Er wollte wissen, wo das Paar Schutz vor dem Wüten der Götter fand."
+TaleSpecific[ENGLISH][5] = " He wanted to know where the couple found shelter from the ravage of the Gods."
+TaleSpecific[GERMAN][6] = " Er wollte wissen, was Großvater in seiner Mine abbaute."
+TaleSpecific[ENGLISH][6] = " He wanted to know what mined grandfather."
+
+TaleLocation = {}
+TaleLocation[GERMAN] = {}
+TaleLocation[ENGLISH] = {}
+TaleLocation[GERMAN][1] = "Du hast das Buch in einem Keller einer verlassenen Farm gesehen."
+TaleLocation[ENGLISH][1] = "You saw the book in the basement of an abandoned Farm."
+TaleLocation[GERMAN][2] = "Du hast das Buch in der Nähe von Königin Rosali Edwards gesehen."
+TaleLocation[ENGLISH][2] = "You saw the book near Queen Rosali Edwards."
+TaleLocation[GERMAN][3] = "Du hast das Buch bei John Smith gesehen."
+TaleLocation[ENGLISH][3] = "You saw the book near John Smith."
+TaleLocation[GERMAN][4] = "Du hast das Buch in einer großen Taverne gesehen."
+TaleLocation[ENGLISH][4] = "You saw the book in a huge tavern."
+TaleLocation[GERMAN][5] = "Du hast das Buch mitten im Nordwald gesehen."
+TaleLocation[ENGLISH][5] = "You saw the book in the middle of the northern forest."
+TaleLocation[GERMAN][6] = "Du hast das Buch über dem Labor Galmairs gesehen."
+TaleLocation[ENGLISH][6] = "You saw the book over the labratory of Galmair."
+
+
+
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 Start = {901, 808, 0}
 
@@ -70,6 +110,16 @@ end
 function M.QuestDescription(user, status)
     local german = Description[GERMAN][status] or ""
     local english = Description[ENGLISH][status] or ""
+    local currentBook = user:getQuestProgress(684)
+    
+    if status == 2 then
+        german = german .. "\n" .. TaleLocation[GERMAN][currentBook]
+        english = english .. "\n" .. TaleLocation[ENGLISH][currentBook]
+    end
+    if status == 3 or status == 4 then
+        german = german .. TaleSpecific[GERMAN][currentBook] .. "\n" .. TaleLocation[GERMAN][currentBook]
+        english = english .. TaleSpecific[ENGLISH][currentBook] .. "\n" .. TaleLocation[ENGLISH][currentBook]
+    end
 
     return common.GetNLS(user, german, english)
 end
