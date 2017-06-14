@@ -184,7 +184,7 @@ function WriteParchment(User,SourceItem)
             if parchment then
                 local writtenText = dialog:getInput()
                 parchment:setData("writtenText",writtenText)
-                lookat.SetSpecialDescription(parchment,"Das Pergament ist beschrieben.","The parchment is written.")
+                lookat.SetSpecialDescription(parchment,"Das Pergament ist beschrieben.","The parchment has been written on.")
                 world:changeItem(parchment)
                 User:inform("Du schreibst auf das Pergament:\n'".. string.gsub (writtenText,"\\n","\n") .."'.","You write on the parchment:\n'".. string.gsub (writtenText,"\\n","\n") .."'.")
             else
