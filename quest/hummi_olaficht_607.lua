@@ -45,15 +45,15 @@ Description[ENGLISH][5] = "Hummi does not have any other quests for you, just mo
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {681, 318, 0}
+Start = {681, 311, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
 QuestTarget[1] = {position(164, 621, 0)} -- Tronruk
 QuestTarget[2] = {position(164, 621, 0)} -- Tronruk
-QuestTarget[3] = {position(681, 318, 0)} -- Hummi
-QuestTarget[4] = {position(681, 318, 0)} -- Hummi
+QuestTarget[3] = {position(681, 311, 0)} -- Hummi
+QuestTarget[4] = {position(681, 311, 0)} -- Hummi
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 5
