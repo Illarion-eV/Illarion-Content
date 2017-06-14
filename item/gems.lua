@@ -24,6 +24,7 @@ local crafts = require("item.base.crafts")
 local vision = require("content.vision")
 
 -- UPDATE items SET itm_script='item.gems' WHERE itm_id IN (45, 46, 197, 198, 283, 284, 285);
+-- test change due to encoding issue הצüִײÜ
 
 local M = {}
 
