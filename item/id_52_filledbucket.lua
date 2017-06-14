@@ -343,23 +343,16 @@ local function isTreePlantableHere(seed)
 
     local unblockableItemsAllowed = 3
     local unblockableItemsFound = 0
-    for i = -5, 5 do
-        for j = -5, 5 do
+    for i = -2, 2 do
+        for j = -2, 2 do
             local currentPosition = position(seed.pos.x+i, seed.pos.y+j, seed.pos.z)
             if world:isItemOnField(currentPosition) or world:isCharacterOnField(currentPosition) then
                 
                 local checkItem = world:getItemOnField(currentPosition)
                 
-                -- Tree planted by player in a distance of 5 fields?
-                if checkItem:getData("playerPlanted") ~= "" then
-                    return false
-                end
-                
                 -- Normal map tree in a distance of 2 fields?
-                if math.abs(i) <= 2 and math.abs(j) <= 2 then
-                    if woodchopping.isTree(checkItem.id) then
-                        return false
-                    end
+                if woodchopping.isTree(checkItem.id) then
+                    return false
                 end
                 
                 -- Check for items right next to the planintg spot
