@@ -68,26 +68,26 @@ Description[ENGLISH][16] = "Congratulations, you are now a true Grandmaster of t
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-local Start = {904, 829, 0}
+local Start = {954, 842, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(904, 829, 0), position(792, 818, 0)} -- apple tree
-QuestTarget[2] = {position(904, 829, 0)}
-QuestTarget[3] = {position(904, 829, 0), position(948, 823, 0)} -- well
-QuestTarget[4] = {position(904, 829, 0)}
-QuestTarget[5] = {position(904, 829, 0), position(959, 835, 0), position(960, 835, 0)} -- wine barrel
-QuestTarget[6] = {position(904, 829, 0)} 
-QuestTarget[7] = {position(904, 829, 0)} 
-QuestTarget[8] = {position(904, 829, 0)} 
-QuestTarget[9] = {position(904, 829, 0)} 
-QuestTarget[10] = {position(904, 829, 0)} 
-QuestTarget[11] = {position(904, 829, 0)} 
-QuestTarget[12] = {position(904, 829, 0)} 
-QuestTarget[13] = {position(904, 829, 0)} 
-QuestTarget[14] = {position(904, 829, 0)} 
-QuestTarget[15] = {position(904, 829, 0)} 
+QuestTarget[1] = {position(954, 842, 0), position(792, 818, 0)} -- apple tree
+QuestTarget[2] = {position(954, 842, 0)}
+QuestTarget[3] = {position(954, 842, 0), position(948, 823, 0)} -- well
+QuestTarget[4] = {position(954, 842, 0)}
+QuestTarget[5] = {position(954, 842, 0), position(959, 835, 0), position(960, 835, 0)} -- wine barrel
+QuestTarget[6] = {position(954, 842, 0)} 
+QuestTarget[7] = {position(954, 842, 0)} 
+QuestTarget[8] = {position(954, 842, 0)} 
+QuestTarget[9] = {position(954, 842, 0)} 
+QuestTarget[10] = {position(954, 842, 0)} 
+QuestTarget[11] = {position(954, 842, 0)} 
+QuestTarget[12] = {position(954, 842, 0)} 
+QuestTarget[13] = {position(954, 842, 0)} 
+QuestTarget[14] = {position(954, 842, 0)} 
+QuestTarget[15] = {position(954, 842, 0)} 
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 16

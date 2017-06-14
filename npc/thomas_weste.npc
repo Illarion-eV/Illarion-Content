@@ -16,7 +16,7 @@
 -- NPC Name: Thomas Weste               Runewick                              --
 -- NPC Job:  Candle maker                                                     --
 --                                                                            --
--- NPC Race: human                      NPC Position:  904, 829, 0            --
+-- NPC Race: human                      NPC Position:  954, 842, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Zot                                                              --
@@ -26,7 +26,7 @@
 name = "Thomas Weste"
 race = human
 sex = male
-position = 904, 829, 0
+position = 954, 842, 0
 direction = west
 affiliation = "Runewick"
 job = "Brewer"
