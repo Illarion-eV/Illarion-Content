@@ -108,12 +108,12 @@ function M.receiveText(npc, ttype, text, user)
 
     
     local answeredText = {}
-    answeredText[1] = {"Grüß dich!","Hallo mein Freund!","Hallo, lange nicht gesehen!","Be greted!","Hello my friend!","Hello, haven't seen you for a time!"}
-    answeredText[2] = {"Tschüss und viel Glück!","Man sieht sich!","Machs gut und pass auf dich auf!","Bye and have luck!","Good bye and have luck!","Have fun!"}
-    answeredText[3] = {"Danke und dir?","Ich kann nicht klagen aber solltest das.","Mir ging es nie besser.","Thank you and yourself?","I cannot blame anybody but you should.","Never better than today."}
+    answeredText[1] = {"Grüß dich!","Hallo mein Freund!","Hallo, lange nicht gesehen!","Be greeted!","Hello my friend!","Hello, I haven't seen you for awhile!"}
+    answeredText[2] = {"Tschüss und viel Glück!","Man sieht sich!","Machs gut und pass auf dich auf!","Bye and good luck!","Goodbye and good luck!","Have fun!"}
+    answeredText[3] = {"Danke und dir?","Ich kann nicht klagen aber du solltest das.","Mir ging es nie besser.","Thank you and yourself?","I can't complain but you should.","Never better than today."}
     answeredText[4] = {"Nenn mich der Bessere.","Trainer, einfach Trainer.","Ich bin "..npc.name..".","Call me the stronger guy.","Trainer, simply trainer.","I am "..npc.name.."."}
-    answeredText[5] = {"Man kann immer besser werden. Man muss nur wollen.","Es gibt immer was zu tun, packen wir es an.","Wer will schon bleiben wie er ist?","You always can improve yourself, if you want.","There is always something to do. Let's start.","Do you really want to stay as you are?"}
-    answeredText[6] = {"Wenn ich dich unter meine Fitiche nehme schauen die Götter lieber weg.","Was die Götter uns gaben können wir verbessern.","Dein Trainer ist dein siebzehnter Gott.","Be sure once I work with you the Gods close their eyes.","Gods give, gods take but at the end we decide if we want to use the gifts at the best.","Your trainer is your seventeenth God."}
+    answeredText[5] = {"Man kann immer besser werden. Man muss nur wollen.","Es gibt immer was zu tun, packen wir es an.","Wer will schon bleiben wie er ist?","You can always improve yourself, if you want.","There is always something to do. Let's start.","Do you really want to stay as you are?"}
+    answeredText[6] = {"Wenn ich dich unter meine Fitiche nehme schauen die Götter lieber weg.","Was die Götter uns gaben können wir verbessern.","Dein Trainer ist dein siebzehnter Gott.","Be assured as I work with you the Gods close their eyes.","Gods give, gods take, but in the end we decide if we want to use the gifts at their best.","Your trainer is your seventeenth God."}
     
     if not npc:isInRange(user, 2) then
         return
@@ -133,10 +133,12 @@ function M.receiveText(npc, ttype, text, user)
         if string.match(string.lower(text), saidText[i][1]) then
             local answerId = saidText[i][2]
             local textSelection = math.random(1,3)
-            common.TalkNLS(npc, Character.say,
-                    answeredText[answerId][textSelection],
-                    answeredText[answerId][textSelection+3])
-            return
+            if not common.IsNilOrEmpty(answeredText[answerId][textSelection]) and not common.IsNilOrEmpty(answeredText[answerId][textSelection+3]) then
+                common.TalkNLS(npc, Character.say,
+                        answeredText[answerId][textSelection],
+                        answeredText[answerId][textSelection+3])
+                return
+            end
         end
     end
     
@@ -252,7 +254,7 @@ function M.receiveText(npc, ttype, text, user)
                 local attribute = attributes[attributesKey[key]]
                 local base = user:getBaseAttribute(attribute)
                 
-                if key ~= selectedReduce and user:isBaseAttributeValid(attribute, base + 1) then
+                if key ~= selectedReduce and ( user:isBaseAttributeValid(attribute, base + 1) or base < 8 )then
                     local value = user:increaseAttrib(attribute, 0)
                     local valueText = ": " .. base
                     
@@ -276,7 +278,7 @@ function M.receiveText(npc, ttype, text, user)
         local attribute = attributes[attributesKey[key]]
         local base = user:getBaseAttribute(attribute)
         
-        if user:isBaseAttributeValid(attribute, base - 1) then
+        if user:isBaseAttributeValid(attribute, base - 1) or base > 12 then
             local value = user:increaseAttrib(attribute, 0)
             local valueText = ": " .. base
             
