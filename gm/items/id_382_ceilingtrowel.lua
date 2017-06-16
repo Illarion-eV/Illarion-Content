@@ -36,6 +36,7 @@ local spawnGM
 local checkValue
 local updateMonsters
 local mysticalCracker
+local specialItemCreation
 
 local SPAWNDATAS = {}
 gmSpawnpointSettings = {}
@@ -46,7 +47,7 @@ local removePositions = {}
 function M.UseItem(User, SourceItem)
 
     -- First check for mode change
-    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Egg Creation", "Cracker Creation"}
+    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -62,9 +63,7 @@ function M.UseItem(User, SourceItem)
         elseif index == 4 then
             spawnPoint(User, SourceItem)
         elseif index == 5 then
-            specialEggs(User)
-        elseif index == 6 then
-            mysticalCracker(User)
+            specialItemCreation(User)
         end
     end
     local sd = SelectionDialog("Set mode of this ceiling trowel", "To which mode you want to change?", cbSetMode)
@@ -942,6 +941,66 @@ function mysticalCracker(User)
     User:requestInputDialog(InputDialog("Cracker Creation", "How many mystical crackers to you want to create? (Notice: Crackers will have a normal wear of 10. Increase manually if needed." ,false, 255, cbInputDialog))
 
 end
+
+function specialItemCreation(User)
+    local MagicGem=1
+    local SpecialItem = {}
+    --SpecialItem[x] = {"Name",IsExtraFunction,ItemID,special}
+    SpecialItem[1] = {"Mystical Cracker",true,3894,0}
+    SpecialItem[2] = {"Special Eggs",true,1150,0}
+    SpecialItem[3] = {"Latent Magic Topaz",false,198,MagicGem}
+    SpecialItem[4] = {"Latent Magic Amethyst",false,197,MagicGem}
+    SpecialItem[5] = {"Latent Magic Obsidian",false,283,MagicGem}
+    SpecialItem[6] = {"Latent Magic Sappire",false,284,MagicGem}
+    SpecialItem[7] = {"Latent Magic Ruby",false,46,MagicGem}
+    SpecialItem[8] = {"Latent Magic Emerald",false,45,MagicGem}
+    SpecialItem[9] = {"Pure Fire",false,2553,0}
+    SpecialItem[10] = {"Pure Air",false,2551,0}
+    SpecialItem[11] = {"Pure Earth",false,2552,0}
+    SpecialItem[12] = {"Pure Water",false,2554,0}
+    SpecialItem[13] = {"Pure Spirit",false,3607,0}
+
+    local cbChooseItem = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local indexItem = dialog:getSelectedIndex() + 1
+        if SpecialItem[indexItem][2] then
+            if indexItem == 1 then
+                mysticalCracker(User)
+            elseif indexItem == 2 then
+                specialEggs(User)
+            else
+                return
+            end
+        else
+            local cbInputDialog = function (dialog)
+                if not dialog:getSuccess() then
+                    return
+                end
+                local input = dialog:getInput()
+                if (string.find(input,"(%d+)") ~= nil) then
+                    local a, b, amount = string.find(input,"(%d+)")
+                    if SpecialItem[indexItem][4] == MagicGem then
+                        common.CreateItem(User, SpecialItem[indexItem][3], tonumber(amount), 333,{gemLevel=1})
+                    else
+                        common.CreateItem(User, SpecialItem[indexItem][3], tonumber(amount), 333,nil)
+                    end
+                end
+            end
+            User:requestInputDialog(InputDialog("Item Creation", "How many "..SpecialItem[indexItem][1].." do you want to create?" ,false, 255, cbInputDialog))
+        end
+                end
+    local sdItemList = SelectionDialog("Special Items.", "Choose an item:", cbChooseItem)
+    local optionSubId = 1
+    for i = 1, #(SpecialItem) do
+        sdItemList:addOption(SpecialItem[i][3], SpecialItem[i][1])
+    end
+    User:requestSelectionDialog(sdItemList)
+
+end
+
+
 
 function spawnGM()
 

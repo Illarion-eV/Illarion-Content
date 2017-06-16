@@ -29,84 +29,46 @@ local itemPos = {"Head","Neck","Breast","Hands","Left Tool","Right Tool",
     "Belt 2","Belt 3","Belt 4","Belt 5","Belt 6"}
 itemPos[0] = "Backpack"
 
+local SubLocation={"Cadomyr","Galmair","Runewick","Wilderness","Dungeons"}
 local Location={}
-local Coordina={}
-Location[1]="Player"
-Coordina[1]={"X","Y","Z"}
-Location[2]="GM Castle"
-Coordina[2]={250,100,0}
-Location[3]="Hemp Necktie Inn"
-Coordina[3]={690,320,0}
-Location[4]="Cadomyr Palace of Her Majesty"
-Coordina[4]={122,521,0}
-Location[5]="Cadomyr Market"
-Coordina[5]={130,600,0}
-Location[6]="Galmair Crest"
-Coordina[6]={337,215,0}
-Location[7]="Galmair Town"
-Coordina[7]={400,250,0}
-Location[8]="Runewick Library"
-Coordina[8]={946, 804, 0}
-Location[9]="Runewick Market"
-Coordina[9]={935, 833, 0}
-Location[10]="Cadomyr Cornerstone of Candour"
-Coordina[10]={130,700,0}
-Location[11]="Cadomyr Liberty Quarry"
-Coordina[11]={170,620,0}
-Location[12]="Cadomyr Blood Circle Arena"
-Coordina[12]={258,668,0}
-Location[13]="Galmair Balckhole Mine"
-Coordina[13]={388,157,-3}
-Location[14]="Galmair Malachite Mine"
-Coordina[14]={400,355,0}
-Location[15]="Galmair Game Room"
-Coordina[15]={293,260,-5}
-Location[16]="Runewick Yewdale"
-Coordina[16]={750,810,0}
-Location[17]="Runewick Lurnord Bridge"
-Coordina[17]={844,822,0}
-Location[18]="Dragorog Cult"
-Coordina[18]={366,477,0}
-Location[19]="Fox Den"
-Coordina[19]={813,382,0}
-Location[20]="Mount Letma"
-Coordina[20]={220,771,0}
-Location[21]="Sunken Altar"
-Coordina[21]={742,252,0}
-Location[22]="Fort Hammerfall"
-Coordina[22]={191,425,0}
-Location[23]="Grugmut's Cave"
-Coordina[23]={200,557,0}
-Location[24]="Khesra"
-Coordina[24]={406,578,0}
-Location[25]="Pauldron"
-Coordina[25]={868,337,0}
-Location[26]="Fort Schnellbeil"
-Coordina[26]={366,344,0}
-Location[27]="Shadowlands"
-Coordina[27]={414,383,0}
-Location[28]="Sir Reginald's Tomb"
-Coordina[28]={139,645,0}
-Location[29]="Bandit Hideout"
-Coordina[29]={204,466,0}
-Location[30]="Bear Cave"
-Coordina[30]={792,716,0}
-Location[31]="Dragon Cave"
-Coordina[31]={784,681,0}
-Location[32]="Lake of Life"
-Coordina[32]={638,271,0}
-Location[33]="Necro Hideout"
-Coordina[33]={528,555,0}
-Location[34]="Ronagan Dungeon"
-Coordina[34]={904,595,0}
-Location[35]="Salavesh"
-Coordina[35]={670,410,0}
-Location[36]="Spider Dungeon"
-Coordina[36]={854,414,0}
-Location[37]="Viridian Needles lair"
-Coordina[37]={522,205,0}
-Location[38]="Northern Islands"
-Coordina[38]={365,50,0}
+Location[1]={"Player","","X","Y","Z"}
+Location[2]={"GM Castle","",250,100,0}
+Location[3]={"Hemp Necktie Inn","",690,320,0}
+Location[4]={"Cadomyr Palace of Her Majesty","Cadomyr",122,521,0}
+Location[5]={"Cadomyr Market","Cadomyr",130,600,0}
+Location[6]={"Galmair Crest","Galmair",337,215,0}
+Location[7]={"Galmair Town","Galmair",400,250,0}
+Location[8]={"Runewick Library","Runewick",946, 804, 0}
+Location[9]={"Runewick Market","Runewick",935, 833, 0}
+Location[10]={"Cadomyr Cornerstone of Candour","Cadomyr",130,700,0}
+Location[11]={"Cadomyr Liberty Quarry","Cadomyr",170,620,0}
+Location[12]={"Cadomyr Blood Circle Arena","Cadomyr",258,668,0}
+Location[13]={"Galmair Balckhole Mine","Galmair",388,157,-3}
+Location[14]={"Galmair Malachite Mine","Galmair",400,355,0}
+Location[15]={"Galmair Game Room","Galmair",293,260,-5}
+Location[16]={"Runewick Yewdale","Runewick",750,810,0}
+Location[17]={"Runewick Lurnord Bridge","Runewick",844,822,0}
+Location[18]={"Dragorog Cult","Dungeons",366,477,0}
+Location[19]={"Fox Den","Dungeons",813,382,0}
+Location[20]={"Mount Letma","Dungeons",220,771,0}
+Location[21]={"Sunken Altar","Dungeons",742,252,0}
+Location[22]={"Fort Hammerfall","Dungeons",191,425,0}
+Location[23]={"Grugmut's Cave","Dungeons",200,557,0}
+Location[24]={"Khesra","Dungeons",406,578,0}
+Location[25]={"Pauldron","Wilderness",868,337,0}
+Location[26]={"Fort Schnellbeil","Wilderness",366,344,0}
+Location[27]={"Shadowlands","Dungeons",414,383,0}
+Location[28]={"Sir Reginald's Tomb","Dungeons",139,645,0}
+Location[29]={"Bandit Hideout","Dungeons",204,466,0}
+Location[30]={"Bear Cave","Wilderness",792,716,0}
+Location[31]={"Dragon Cave","Dungeons",784,681,0}
+Location[32]={"Lake of Life","Dungeons",638,271,0}
+Location[33]={"Necro Hideout","Dungeons",528,555,0}
+Location[34]={"Ronagan Dungeon","Dungeons",904,595,0}
+Location[35]={"Salavesh","Dungeons",670,410,0}
+Location[36]={"Spider Dungeon","Dungeons",854,414,0}
+Location[37]={"Viridian Needles lair","Dungeons",522,205,0}
+Location[38]={"Northern Islands","Wilderness",365,50,0}
 
 local skillNames = {
     Character.alchemy,
@@ -145,6 +107,12 @@ local skillNames = {
     Character.woodcutting,
     Character.wrestling
 }
+
+local classNames={}
+classNames[0] = "Mage"
+classNames[1] = "Priest"
+classNames[2] = "Bard"
+classNames[3] = "Alchemist"
 
 local function akalutCadomyrBlockade(User, SourceItem, ltstate)
 
@@ -311,6 +279,8 @@ local changeSkills
 local getSetQueststatus
 local godMode
 local setMC
+local changeMagicClass
+local actionWithChar
 
 function M.UseItem(User, SourceItem, ltstate)
 
@@ -322,7 +292,7 @@ function M.UseItem(User, SourceItem, ltstate)
     end
 
     -- First check for mode change
-    local modes = {"Eraser", "Teleport", "Faction info of chars in radius", "Char Info", "Change skills", "Get/ Set Queststatus", "Instant kill/ revive", "Quest events", "Set MC", "Create flames", "Remove flames"}
+    local modes = {"Eraser", "Teleport", "Faction info of chars in radius", "Char Info", "Change skills", "Get/ Set Queststatus", "Instant kill/ revive", "Quest events", "Set MC", "Create flames", "Remove flames", "Get/ Set Magic Class", "Miscellaneous actions at char"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -350,6 +320,10 @@ function M.UseItem(User, SourceItem, ltstate)
             flameThrower(User)
         elseif index == 11 then
             flameRemover(User)
+        elseif index == 12 then
+            changeMagicClass(User, SourceItem, ltstate)
+        elseif index == 13 then
+            actionWithChar(User, SourceItem, ltstate)
         end
     end
     local sd = SelectionDialog("Pick a function of the lockpicks.", "Which do you want to use?", cbSetMode)
@@ -399,6 +373,7 @@ function eraser(User, SourceItem, ltstate)
 end
 
 function teleporter(User, SourceItem, ltstate)
+    local validTarget = {}
 
     local cbChooseLocation = function (dialog)
         if (not dialog:getSuccess()) then
@@ -426,12 +401,42 @@ function teleporter(User, SourceItem, ltstate)
             end
             User:requestSelectionDialog(sdTeleportPlayer)
         else
-            User:warp(position(Coordina[index][1], Coordina[index][2], Coordina[index][3]))
+            if validTarget[index][4] == 0 then
+                User:warp(position(validTarget[index][1], validTarget[index][2], validTarget[index][3]))
+            else
+            local cbChooseSubLocation = function (dialog)
+                if (not dialog:getSuccess()) then
+                    return
+                end
+                local indexSubTarget = dialog:getSelectedIndex() + 1
+                User:warp(position(validTarget[indexSubTarget][1], validTarget[indexSubTarget][2], validTarget[indexSubTarget][3]))
+            end
+            local sdSubTeleport = SelectionDialog("Teleporter.", "Choose a destination:", cbChooseSubLocation)
+            local optionSubId = 1
+            for i = 1, #(Location) do
+                if Location[i][2] == SubLocation[validTarget[index][4]] then
+                    sdSubTeleport:addOption(0, Location[i][1] .. " (" .. Location[i][3]..", "..Location[i][4]..", "..Location[i][5] .. ")")
+                    validTarget[optionSubId] = {Location[i][3],Location[i][4],Location[i][5],0}
+                    optionSubId = optionSubId+1
+                end
+            end
+            User:requestSelectionDialog(sdSubTeleport)
+            end
         end
     end
     local sdTeleport = SelectionDialog("Teleporter.", "Choose a destination:", cbChooseLocation)
+    local optionId = 1
     for i = 1, #(Location) do
-        sdTeleport:addOption(0, Location[i] .. " (" .. Coordina[i][1]..", "..Coordina[i][2]..", "..Coordina[i][3] .. ")")
+        if common.IsNilOrEmpty(Location[i][2]) then
+            sdTeleport:addOption(0, Location[i][1] .. " (" .. Location[i][3]..", "..Location[i][4]..", "..Location[i][5] .. ")")
+            validTarget[optionId] = {Location[i][3],Location[i][4],Location[i][5],0}
+            optionId = optionId+1
+        end
+    end
+    for i = 1, #(SubLocation) do
+        sdTeleport:addOption(0, "Group: "..SubLocation[i])
+        validTarget[optionId] = {0,0,0,i}
+        optionId = optionId+1
     end
     User:requestSelectionDialog(sdTeleport)
 end
@@ -701,6 +706,110 @@ function setMC(User, SourceItem, ltstate)
     
     User:requestInputDialog(InputDialog("Set MC", "Enter desired MC value (1-100000000)." ,false, 255, setMCInputDialog))
 
+end
+
+function changeMagicClass(User, SourceItem, ltstate)
+
+    local playersTmp = world:getPlayersInRangeOf(User.pos, 25)
+    local players = {User}
+    for _, player in pairs(playersTmp) do
+        if (player.id ~= User.id) then
+            table.insert(players, player)
+        end
+    end
+
+    local cbChoosePlayer = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local chosenPlayer = players[dialog:getSelectedIndex() + 1]
+        local magicClassDialog = function (dialog)
+            if (not dialog:getSuccess()) then
+                return
+            end
+            local targetClass = dialog:getSelectedIndex()
+            if targetClass ~= chosenPlayer:getMagicType() then
+                User:logAdmin("Change magic class of character " .. chosenPlayer.name .. " from " .. classNames[chosenPlayer:getMagicType()].. " to " .. classNames[targetClass])
+                chosenPlayer:setMagicType(targetClass)
+                chosenPlayer:inform("GM changed magic class to " .. classNames[targetClass])
+            end
+        end
+        local sdClass = SelectionDialog("Select action", "What magic class should be set for "..chosenPlayer.name.."?", magicClassDialog)
+        for i=0, #classNames do
+            if chosenPlayer:getMagicType() == i then
+                sdClass:addOption(0," Is: "..classNames[i])
+            else
+                sdClass:addOption(0," Change to: "..classNames[i])
+            end
+        end
+        User:requestSelectionDialog(sdClass)
+    end
+    --Dialog to choose the player
+    local sdPlayer = SelectionDialog("Change the magic class.", "First choose a character:", cbChoosePlayer)
+    local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
+        for _, player in ipairs(players) do
+        local race = math.min(player:getRace() + 1, #raceNames)
+        sdPlayer:addOption(0, player.name .. " (" .. raceNames[race] .. ") " .. player.id)
+        end
+    User:requestSelectionDialog(sdPlayer)
+end
+
+
+function actionWithChar(User, SourceItem, ltstate)
+
+    local playersTmp = world:getPlayersInRangeOf(User.pos, 25)
+    local players = {User}
+    for _, player in pairs(playersTmp) do
+        if (player.id ~= User.id) then
+            table.insert(players, player)
+        end
+    end
+
+    local cbChoosePlayer = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local chosenPlayer = players[dialog:getSelectedIndex() + 1]
+        local charActionDialog = function (dialog)
+            if (not dialog:getSuccess()) then
+                return
+            end
+            local actionToPerform = dialog:getSelectedIndex()
+            if actionToPerform == 0 then
+                if chosenPlayer:getQuestProgress(36) == 0 then
+                    chosenPlayer:setQuestProgress(36,1)
+                    User:logAdmin("Make character " .. chosenPlayer.name .. " unable to be attacked.")
+                    chosenPlayer:inform("GM makes your character unable to attack.")
+                else
+                    chosenPlayer:setQuestProgress(36,0)
+                    User:logAdmin("Make character " .. chosenPlayer.name .. " able to be attacked.")
+                    chosenPlayer:inform("GM makes your character able to attack.")
+                end
+            elseif actionToPerform == 1 then
+                chosenPlayer:increaseAttrib("foodlevel", 60000)
+            elseif actionToPerform == 2 then
+                chosenPlayer:increaseAttrib("foodlevel", -15000)
+            end
+        end
+        local sdAction = SelectionDialog("Select action", "What action should be performed for "..chosenPlayer.name.."?", charActionDialog)
+        if chosenPlayer:getQuestProgress(36) == 0 then
+            sdAction:addOption(0," Make unable to attack!")
+        else
+            sdAction:addOption(0," Make able to attack!")
+        end
+        sdAction:addOption(0," Feed!")
+        sdAction:addOption(0," -25% foot points!")
+       
+        User:requestSelectionDialog(sdAction)
+    end
+    --Dialog to choose the player
+    local sdPlayer = SelectionDialog("Change the magic class.", "First choose a character:", cbChoosePlayer)
+    local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
+        for _, player in ipairs(players) do
+        local race = math.min(player:getRace() + 1, #raceNames)
+        sdPlayer:addOption(0, player.name .. " (" .. raceNames[race] .. ") " .. player.id)
+        end
+    User:requestSelectionDialog(sdPlayer)
 end
 
 return M
