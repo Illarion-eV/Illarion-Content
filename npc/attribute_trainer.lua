@@ -26,7 +26,9 @@ VALUES (0, 695, 311, 0, 6, 'Trainer Blight Ronin', 'npc.attribute_trainer', 0, 1
 ---]]
 
 
+local common = require("base.common")
 local money = require("base.money")
+
 local M = {}
 
 local init = {};
@@ -47,6 +49,72 @@ function M.useNPC(npc, user)
 end
 
 function M.receiveText(npc, ttype, text, user)
+    local saidText = {}
+    --saidText[i] = {said,answerId}
+    saidText[1] = {"hello",1}
+    saidText[2] = {"greet",1}
+    saidText[3] = {"hail",1}
+    saidText[4] = {"good day",1}
+    saidText[5] = {"good morning",1}
+    saidText[6] = {"good evening",1}
+    saidText[7] = {"good night",1}
+    saidText[8] = {"grüß",1}
+    saidText[9] = {"gruß",1}
+    saidText[10] = {"guten morgen",1}
+    saidText[11] = {"guten tag",1}
+    saidText[12] = {"guten abend",1}
+    saidText[13] = {"gute nacht",1}
+    saidText[14] = {"mahlzeit",1}
+    saidText[15] = {"tach",1}
+    saidText[16] = {"moin",1}
+    saidText[17] = {"mohltied",1}
+    saidText[18] = {"hiho",1}
+    saidText[19] = {"hallo",1}
+    saidText[20] = {"hey",1}
+    saidText[21] = {"greeb",1}
+    saidText[22] = {"farewell",2}
+    saidText[23] = {"bye",2}
+    saidText[24] = {"fare well",2}
+    saidText[25] = {"see you",2}
+    saidText[26] = {"tschüß",2}
+    saidText[27] = {"tschüss",2}
+    saidText[28] = {"wiedersehen",2}
+    saidText[29] = {"gehab wohl",2}
+    saidText[30] = {"ciao",2}
+    saidText[31] = {"adieu",2}
+    saidText[32] = {"au revoir",2}
+    saidText[33] = {"farebba",2}
+    saidText[34] = {"how are you",3}
+    saidText[35] = {"how feel",3}
+    saidText[36] = {"how do you do",3}
+    saidText[37] = {"wie geht",3}
+    saidText[38] = {"wie fühlst",3}
+    saidText[39] = {"wie ist es ergangen",3}
+    saidText[40] = {"wie befind",3}
+    saidText[41] = {"your name",4}
+    saidText[42] = {"who are you",4}
+    saidText[43] = {"who art thou",4}
+    saidText[44] = {"ihr name",4}
+    saidText[45] = {"dein name",4}
+    saidText[46] = {"wer bist du",4}
+    saidText[47] = {"wer seid ihr",4}
+    saidText[48] = {"wie heißt",4}
+    saidText[49] = {"besser",5}
+    saidText[50] = {"better",5}
+    saidText[51] = {"improve",5}
+    saidText[52] = {"god",6}
+    saidText[53] = {"gott",6}
+    saidText[54] = {"gött",6}
+
+    
+    local answeredText = {}
+    answeredText[1] = {"Grüß dich!","Hallo mein Freund!","Hallo, lange nicht gesehen!","Be greeted!","Hello my friend!","Hello, I haven't seen you for awhile!"}
+    answeredText[2] = {"Tschüss und viel Glück!","Man sieht sich!","Machs gut und pass auf dich auf!","Bye and good luck!","Goodbye and good luck!","Have fun!"}
+    answeredText[3] = {"Danke und dir?","Ich kann nicht klagen aber du solltest das.","Mir ging es nie besser.","Thank you and yourself?","I can't complain but you should.","Never better than today."}
+    answeredText[4] = {"Nenn mich der Bessere.","Trainer, einfach Trainer.","Ich bin "..npc.name..".","Call me the stronger guy.","Trainer, simply trainer.","I am "..npc.name.."."}
+    answeredText[5] = {"Man kann immer besser werden. Man muss nur wollen.","Es gibt immer was zu tun, packen wir es an.","Wer will schon bleiben wie er ist?","You can always improve yourself, if you want.","There is always something to do. Let's start.","Do you really want to stay as you are?"}
+    answeredText[6] = {"Wenn ich dich unter meine Fitiche nehme schauen die Götter lieber weg.","Was die Götter uns gaben können wir verbessern.","Dein Trainer ist dein siebzehnter Gott.","Be assured as I work with you the Gods close their eyes.","Gods give, gods take, but in the end we decide if we want to use the gifts at their best.","Your trainer is your seventeenth God."}
+    
     if not npc:isInRange(user, 2) then
         return
     end
@@ -59,6 +127,19 @@ function M.receiveText(npc, ttype, text, user)
     if string.match(text, "[Hh]ilf") then
         user:inform("[Hilfe] Dieser NPC ist ein Trainer. Bitte ihn dich zu trainieren um deine grundlegenden Attribute dauerhaft zu ändern, gegen eine geringe Gebühr natürlich.")
         return
+    end
+    
+    for i=1,#saidText do
+        if string.match(string.lower(text), saidText[i][1]) then
+            local answerId = saidText[i][2]
+            local textSelection = math.random(1,3)
+            if not common.IsNilOrEmpty(answeredText[answerId][textSelection]) and not common.IsNilOrEmpty(answeredText[answerId][textSelection+3]) then
+                common.TalkNLS(npc, Character.say,
+                        answeredText[answerId][textSelection],
+                        answeredText[answerId][textSelection+3])
+                return
+            end
+        end
     end
     
     if not string.match(text, "[Tt]rain") then
@@ -173,7 +254,7 @@ function M.receiveText(npc, ttype, text, user)
                 local attribute = attributes[attributesKey[key]]
                 local base = user:getBaseAttribute(attribute)
                 
-                if key ~= selectedReduce and user:isBaseAttributeValid(attribute, base + 1) then
+                if key ~= selectedReduce and ( user:isBaseAttributeValid(attribute, base + 1) or base < 8 )then
                     local value = user:increaseAttrib(attribute, 0)
                     local valueText = ": " .. base
                     
@@ -197,7 +278,7 @@ function M.receiveText(npc, ttype, text, user)
         local attribute = attributes[attributesKey[key]]
         local base = user:getBaseAttribute(attribute)
         
-        if user:isBaseAttributeValid(attribute, base - 1) then
+        if user:isBaseAttributeValid(attribute, base - 1) or base > 12 then
             local value = user:increaseAttrib(attribute, 0)
             local valueText = ": " .. base
             
