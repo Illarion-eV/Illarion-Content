@@ -281,7 +281,7 @@ english, "malachit" -> "It's not that far sssouth of Galmair to the Malachite Mi
 "malachit", "ore" -> "It's not that far sssouth of Galmair to the Malachite Mine and the ore.", "The deeper you go into the mine, the better the ore, sssz."
 "malachit", "erz" -> "Ssso weit sssüdlich von Galmair isss die Malachitmine gar nicht, sssz.", "Tiefer in der Mine isss Erzss reicher, sssagt man."
 
-"coal", "darkhole" -> "It'sss fine coal we get from the Darkhole Mine, sssz.", "Coal would be much more expensive without the Copperhand Tunnel, sssz."
+"coal", "dark hole" -> "It'sss fine coal we get from the Dark hole Mine, sssz.", "Coal would be much more expensive without the Copperhand Tunnel, sssz."
 "Kohle", "Dunkelloch" -> "Esss isss eine gute Kohle, die wir ausss der Dunkelloch Mine gewinnen, sssz.", "Ohne den Copperhand Tunnel wäre Kohle echt teuer, sssz."
 
 ------------------------------------------------------------------------------AC
