@@ -110,7 +110,7 @@ function M.receiveText(npc, ttype, text, user)
     local answeredText = {}
     answeredText[1] = {"Grüß dich!","Hallo mein Freund!","Hallo, lange nicht gesehen!","Be greeted!","Hello my friend!","Hello, I haven't seen you for awhile!"}
     answeredText[2] = {"Tschüss und viel Glück!","Man sieht sich!","Machs gut und pass auf dich auf!","Bye and good luck!","Goodbye and good luck!","Have fun!"}
-    answeredText[3] = {"Danke und dir?","Ich kann nicht klagen aber du solltest das.","Mir ging es nie besser.","Thank you and yourself?","I can't complain but you should.","Never better than today."}
+    answeredText[3] = {"Danke und dir?","Ich kann nicht klagen aber du solltest das.","Mir ging es nie besser.","Thank you, and yourself?","I can't complain, but you should.","Never better than today."}
     answeredText[4] = {"Nenn mich der Bessere.","Trainer, einfach Trainer.","Ich bin "..npc.name..".","Call me the stronger guy.","Trainer, simply trainer.","I am "..npc.name.."."}
     answeredText[5] = {"Man kann immer besser werden. Man muss nur wollen.","Es gibt immer was zu tun, packen wir es an.","Wer will schon bleiben wie er ist?","You can always improve yourself, if you want.","There is always something to do. Let's start.","Do you really want to stay as you are?"}
     answeredText[6] = {"Wenn ich dich unter meine Fitiche nehme schauen die Götter lieber weg.","Was die Götter uns gaben können wir verbessern.","Dein Trainer ist dein siebzehnter Gott.","Be assured as I work with you the Gods close their eyes.","Gods give, gods take, but in the end we decide if we want to use the gifts at their best.","Your trainer is your seventeenth God."}
