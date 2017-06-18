@@ -44,6 +44,27 @@ gmMonsters = {}
 local SPAWNDATA = {}
 local removePositions = {}
 
+local MagicGem=1
+local SpecialItem = {}
+local SpecialItemSubMenu = {"Money","Magic Gems","Pure Elements"}
+--SpecialItem[x] = {"Name",IsExtraFunction,ItemID,special,SubMenue}
+SpecialItem[1] = {"Mystical Cracker",true,3894,0,""}
+SpecialItem[2] = {"Special Eggs",true,1150,0,""}
+SpecialItem[3] = {"Latent Magic Topaz",false,198,MagicGem,"Magic Gems"}
+SpecialItem[4] = {"Latent Magic Amethyst",false,197,MagicGem,"Magic Gems"}
+SpecialItem[5] = {"Latent Magic Obsidian",false,283,MagicGem,"Magic Gems"}
+SpecialItem[6] = {"Latent Magic Sappire",false,284,MagicGem,"Magic Gems"}
+SpecialItem[7] = {"Latent Magic Ruby",false,46,MagicGem,"Magic Gems"}
+SpecialItem[8] = {"Latent Magic Emerald",false,45,MagicGem,"Magic Gems"}
+SpecialItem[9] = {"Pure Fire",false,2553,0,"Pure Elements"}
+SpecialItem[10] = {"Pure Air",false,2551,0,"Pure Elements"}
+SpecialItem[11] = {"Pure Earth",false,2552,0,"Pure Elements"}
+SpecialItem[12] = {"Pure Water",false,2554,0,"Pure Elements"}
+SpecialItem[13] = {"Pure Spirit",false,3607,0,"Pure Elements"}
+SpecialItem[14] = {"Silver Coins",false,3077,0,"Money"}
+SpecialItem[15] = {"Gold Coins",false,61,0,"Money"}
+SpecialItem[16] = {"Poison Coins",false,3078,0,"Money"}
+
 function M.UseItem(User, SourceItem)
 
     -- First check for mode change
@@ -78,7 +99,7 @@ local itemPos = {{en="Head", de="Kopf"},{en="Neck", de="Hals"},{en="Breast", de=
     {en="Left Finger", de="Linker Finger"},{en="Right Finger", de="Rechter Finger"} ,{en="Legs", de="Beine"}, {en="Feet", de="Füße"}, {en="Coat", de="Umhang"},{en="Belt 1", de="Gürtel 1"},
     {en="Belt 2", de="Gürtel 2"},{en="Belt 3", de="Gürtel 3"},{en="Belt 4", de="Gürtel 4"},{en="Belt 5", de="Gürtel 5"},{en="Belt 6", de="Gürtel 6"}}
 itemPos[0] = {en="Backpack", de="Rucksack" }
-
+local itemOrder = {5,6,12,13,14,15,16,17,1,11,3,4,9,10,2,7,8}
 
 function chooseItem(User)
 
@@ -94,11 +115,11 @@ function chooseItem(User)
         table.insert(itemPosOnChar, {en="Item in front", de="Item vor dir" })
     end
     --get all the items the char has on him, without the stuff in the backpack
-    for i = 17, 0, -1 do
-        local item = User:getItemAt(i)
+    for i = 1, #(itemOrder) do
+        local item = User:getItemAt(itemOrder[i])
         if item.id > 0 then
             table.insert(itemsOnChar, item)
-            table.insert(itemPosOnChar, itemPos[i])
+            table.insert(itemPosOnChar, itemPos[itemOrder[i]])
         end
     end
 
@@ -111,7 +132,7 @@ function chooseItem(User)
         local chosenItem = itemsOnChar[index]
 
         if chosenItem ~= nil then
-            changeItem(User, chosenItem)
+            changeItemSelection(User, chosenItem)
         else
             User:inform("[ERROR] Something went wrong, please inform a developer.");
         end
@@ -127,7 +148,42 @@ function chooseItem(User)
     User:requestSelectionDialog(sdItems)
 end
 
-function changeItem(User, TargetItem)
+function changeItemSelection(User, TargetItem)
+    local changeItemFunctions = {}
+    changeItemFunctions[1] = {"Set Number"}
+    changeItemFunctions[2] = {"Set Quality and Durability"}
+    changeItemFunctions[3] = {"Set Name"}
+    changeItemFunctions[4] = {"Set Description"}
+    changeItemFunctions[5] = {"Set Wear"}
+    changeItemFunctions[6] = {"Set Data"}
+    
+    local cbChangeItem = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local index = dialog:getSelectedIndex() + 1
+        if index == 1 then
+            changeItemNumber(User, TargetItem)
+        elseif index == 2 then
+            changeItemQuality(User, TargetItem)
+        elseif index == 3 then
+            changeItemName(User, TargetItem)
+        elseif index == 4 then
+            changeItemDescription(User, TargetItem)
+        elseif index == 5 then
+            changeItemWear(User, TargetItem)
+        elseif index == 6 then
+            changeItemData(User, TargetItem)
+        end
+    end
+    local sd = SelectionDialog(world:getItemName(TargetItem.id, Player.english), "Choose the porperty you want to change.", cbChangeItem)
+    for i=1, #(changeItemFunctions) do
+        sd:addOption(0,changeItemFunctions[i][1])
+    end
+    User:requestSelectionDialog(sd)
+end
+
+function changeItemNumber(User, TargetItem)
 
     if (TargetItem == nil or TargetItem.id == 0) then
         return
@@ -137,29 +193,9 @@ function changeItem(User, TargetItem)
         if (not dialog:getSuccess()) then
             return
         end
-
         local input = dialog:getInput()
-
-        if (string.find(input,"setdata (%w+) (.+)")~=nil) then
-            local a,b,dataString,newdata = string.find(input,"setdata (%w+) (.+)")
-            TargetItem:setData(dataString,newdata)
-            world:changeItem(TargetItem)
-            User:inform("Data of "..world:getItemName(TargetItem.id, Player.english).." set to key: " ..dataString.." value: "..TargetItem:getData(dataString))
-            User:logAdmin("changed data of "..world:getItemName(TargetItem.id, Player.english).."("..TargetItem.id..") to key: " ..dataString.." value: "..TargetItem:getData(dataString))
-        elseif (string.find(input,"setqual (%d)(%d)(%d)")~=nil) then
-            local a,b,newqual=string.find(input,"setqual (%d+)")
-            TargetItem.quality=tonumber(newqual)
-            world:changeItem(TargetItem)
-            User:inform("Quality of "..world:getItemName(TargetItem.id, Player.english).." set to "..TargetItem.quality)
-            User:logAdmin("changed quality of "..world:getItemName(TargetItem.id, Player.english).."("..TargetItem.id..") to "..TargetItem.quality)
-        elseif (string.find(input,"setwear (%d+)")~=nil) then
-            local a,b,newwear = string.find(input,"setwear (%d+)")
-            TargetItem.wear=tonumber(newwear)
-            world:changeItem(TargetItem)
-            User:inform("Wear of "..world:getItemName(TargetItem.id, Player.english).." set to "..TargetItem.wear)
-            User:logAdmin("changed wear of "..world:getItemName(TargetItem.id, Player.english).."("..TargetItem.id..") to "..TargetItem.wear)
-        elseif (string.find(input,"setnumber (%d+)")~=nil) then
-            local a,b,newnumber = string.find(input,"setnumber (%d+)")
+        if (string.find(input,"(%d+)")~=nil) then
+            local a,b,newnumber = string.find(input,"(%d+)")
             TargetItem.number=math.min(1000, tonumber(newnumber))
             world:changeItem(TargetItem)
             User:inform("Amount of "..world:getItemName(TargetItem.id, Player.english).." set to "..TargetItem.number)
@@ -167,8 +203,183 @@ function changeItem(User, TargetItem)
         else
             User:inform("Sorry, I didn't understand you.")
         end
+        changeItemSelection(User, TargetItem)
     end
-    User:requestInputDialog(InputDialog("Set an option for the Item", "Possible actions:  setdata <key> <value>, setqual <value>, setwear <value>, setnumber <value>" ,false, 255, cbInputDialog))
+    User:requestInputDialog(InputDialog("Set the mumber of items", "How many "..world:getItemName(TargetItem.id, Player.english).." do you want?" ,false, 255, cbInputDialog))
+end
+
+function changeItemQuality(User, TargetItem)
+
+    if (TargetItem == nil or TargetItem.id == 0) then
+        return
+    end
+
+    local cbInputDialog = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local input = dialog:getInput()
+        if (string.find(input,"(%d)(%d)(%d)")~=nil) then
+            local a,b,newqual=string.find(input,"(%d+)")
+            TargetItem.quality=tonumber(newqual)
+            world:changeItem(TargetItem)
+            User:inform("Quality of "..world:getItemName(TargetItem.id, Player.english).." set to "..TargetItem.quality)
+            User:logAdmin("changed quality of "..world:getItemName(TargetItem.id, Player.english).."("..TargetItem.id..") to "..TargetItem.quality)
+        else
+            User:inform("Sorry, I didn't understand you.")
+        end
+        changeItemSelection(User, TargetItem)
+    end
+    User:requestInputDialog(InputDialog("Set the quality of items", "Enter target quality for: "..world:getItemName(TargetItem.id, Player.english).." \n 101-999; [1-9][01-99] Quality / Durability" ,false, 255, cbInputDialog))
+end
+
+function changeItemWear(User, TargetItem)
+
+    if (TargetItem == nil or TargetItem.id == 0) then
+        return
+    end
+
+    local cbInputDialog = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local input = dialog:getInput()
+        if (string.find(input,"(%d+)")~=nil) then
+            local a,b,newwear = string.find(input,"(%d+)")
+            TargetItem.wear=tonumber(newwear)
+            world:changeItem(TargetItem)
+            User:inform("Wear of "..world:getItemName(TargetItem.id, Player.english).." set to "..TargetItem.wear)
+            User:logAdmin("changed wear of "..world:getItemName(TargetItem.id, Player.english).."("..TargetItem.id..") to "..TargetItem.wear)
+        else
+            User:inform("Sorry, I didn't understand you.")
+        end
+        changeItemSelection(User, TargetItem)
+    end
+    User:requestInputDialog(InputDialog("Set the wear of items", "How long "..world:getItemName(TargetItem.id, Player.english).." should need to rot?\n about x * 3 min" ,false, 255, cbInputDialog))
+end
+
+function changeItemData(User, TargetItem)
+
+    if (TargetItem == nil or TargetItem.id == 0) then
+        return
+    end
+
+    local cbInputDialog = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local input = dialog:getInput()
+        if (string.find(input,"(%w+) (.+)")~=nil) then
+            local a,b,dataString,newdata = string.find(input,"(%w+) (.+)")
+            TargetItem:setData(dataString,newdata)
+            world:changeItem(TargetItem)
+            User:inform("Data of "..world:getItemName(TargetItem.id, Player.english).." set to key: " ..dataString.." value: "..TargetItem:getData(dataString))
+            User:logAdmin("changed data of "..world:getItemName(TargetItem.id, Player.english).."("..TargetItem.id..") to key: " ..dataString.." value: "..TargetItem:getData(dataString))
+        else
+            User:inform("Sorry, I didn't understand you.")
+        end
+        changeItemSelection(User, TargetItem)
+    end
+    User:requestInputDialog(InputDialog("Set data of items", "Data for "..world:getItemName(TargetItem.id, Player.english)..".\n Use 'data value'" ,false, 255, cbInputDialog))
+end
+
+function changeItemName(User, TargetItem)
+    local newNameDe
+    local newNameEn
+    local a
+    local b
+
+    if (TargetItem == nil or TargetItem.id == 0) then
+        return
+    end
+
+    local cbInputDialogEn = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local inputEn = dialog:getInput()
+        if (string.find(inputEn,"(.+)")~=nil) then
+            a,b,newNameEn = string.find(inputEn,"(.+)")
+        else
+            newNameEn = ""
+        end
+        local cbInputDialogDe = function (dialog)
+            if (not dialog:getSuccess()) then
+                return
+            end
+            local inputDe = dialog:getInput()
+            if (string.find(inputDe,"(.+)")~=nil) then
+                a,b,newNameDe = string.find(inputDe,"(.+)")
+            else
+                newNameDe = newNameEn
+            end
+            if common.IsNilOrEmpty(newNameEn) then
+                newNameEn = newNameDe
+            end
+            if common.IsNilOrEmpty(newNameEn) == false then
+                TargetItem:setData("nameDe",newNameDe)
+                TargetItem:setData("nameEn",newNameEn)
+                world:changeItem(TargetItem)
+                User:inform("Name of "..world:getItemName(TargetItem.id, Player.english).." set to: " ..newNameEn.." / "..newNameDe)
+                User:logAdmin("changed name of "..world:getItemName(TargetItem.id, Player.english).." to: " ..newNameEn.." / "..newNameDe)
+            else
+                User:inform("Sorry, I didn't understand you.")
+            end
+            changeItemSelection(User, TargetItem)
+        end
+        User:requestInputDialog(InputDialog("Set name of items", "German name for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, cbInputDialogDe))
+    end
+    User:requestInputDialog(InputDialog("Set name of items", "English name for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, cbInputDialogEn))
+end
+
+
+function changeItemDescription(User, TargetItem)
+    local newDescriptionDe
+    local newDescriptionEn
+    local a
+    local b
+
+    if (TargetItem == nil or TargetItem.id == 0) then
+        return
+    end
+
+    local cbInputDialogEn = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local inputEn = dialog:getInput()
+        if (string.find(inputEn,"(.+)")~=nil) then
+            a,b,newDescriptionEn = string.find(inputEn,"(.+)")
+        else
+            newDescriptionEn = ""
+        end
+        local cbInputDialogDe = function (dialog)
+            if (not dialog:getSuccess()) then
+                return
+            end
+            local inputDe = dialog:getInput()
+            if (string.find(inputDe,"(.+)")~=nil) then
+                a,b,newDescriptionDe = string.find(inputDe,"(.+)")
+            else
+                newDescriptionDe = newDescriptionEn
+            end
+            if common.IsNilOrEmpty(newDescriptionEn) then
+                newDescriptionEn = newDescriptionDe
+            end
+            if common.IsNilOrEmpty(newDescriptionEn) == false then
+                TargetItem:setData("descriptionDe",newDescriptionDe)
+                TargetItem:setData("descriptionEn",newDescriptionEn)
+                world:changeItem(TargetItem)
+                User:inform("Description of "..world:getItemName(TargetItem.id, Player.english).." set to: " ..newDescriptionEn.." / "..newDescriptionDe)
+                User:logAdmin("changed description of "..world:getItemName(TargetItem.id, Player.english).." to: " ..newDescriptionEn.." / "..newDescriptionDe)
+            else
+                User:inform("Sorry, I didn't understand you.")
+            end
+            changeItemSelection(User, TargetItem)
+        end
+        User:requestInputDialog(InputDialog("Set description of items", "German description for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, cbInputDialogDe))
+    end
+    User:requestInputDialog(InputDialog("Set description of items", "English description for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, cbInputDialogEn))
 end
 
 function weather(User, SourceItem)
@@ -943,64 +1154,82 @@ function mysticalCracker(User)
 end
 
 function specialItemCreation(User)
-    local MagicGem=1
-    local SpecialItem = {}
-    --SpecialItem[x] = {"Name",IsExtraFunction,ItemID,special}
-    SpecialItem[1] = {"Mystical Cracker",true,3894,0}
-    SpecialItem[2] = {"Special Eggs",true,1150,0}
-    SpecialItem[3] = {"Latent Magic Topaz",false,198,MagicGem}
-    SpecialItem[4] = {"Latent Magic Amethyst",false,197,MagicGem}
-    SpecialItem[5] = {"Latent Magic Obsidian",false,283,MagicGem}
-    SpecialItem[6] = {"Latent Magic Sappire",false,284,MagicGem}
-    SpecialItem[7] = {"Latent Magic Ruby",false,46,MagicGem}
-    SpecialItem[8] = {"Latent Magic Emerald",false,45,MagicGem}
-    SpecialItem[9] = {"Pure Fire",false,2553,0}
-    SpecialItem[10] = {"Pure Air",false,2551,0}
-    SpecialItem[11] = {"Pure Earth",false,2552,0}
-    SpecialItem[12] = {"Pure Water",false,2554,0}
-    SpecialItem[13] = {"Pure Spirit",false,3607,0}
+    local validItems = {}
+    local validItemsSub = {}
 
     local cbChooseItem = function (dialog)
         if (not dialog:getSuccess()) then
             return
         end
         local indexItem = dialog:getSelectedIndex() + 1
-        if SpecialItem[indexItem][2] then
-            if indexItem == 1 then
-                mysticalCracker(User)
-            elseif indexItem == 2 then
-                specialEggs(User)
-            else
-                return
-            end
+        if validItems[indexItem][2] == 0 then
+            specialItemCreationCreate(User,validItems[indexItem][1])
         else
-            local cbInputDialog = function (dialog)
-                if not dialog:getSuccess() then
+        --
+            local cbChooseSubItem = function (dialog)
+                if (not dialog:getSuccess()) then
                     return
                 end
-                local input = dialog:getInput()
-                if (string.find(input,"(%d+)") ~= nil) then
-                    local a, b, amount = string.find(input,"(%d+)")
-                    if SpecialItem[indexItem][4] == MagicGem then
-                        common.CreateItem(User, SpecialItem[indexItem][3], tonumber(amount), 333,{gemLevel=1})
-                    else
-                        common.CreateItem(User, SpecialItem[indexItem][3], tonumber(amount), 333,nil)
-                    end
+                local indexItemSub = dialog:getSelectedIndex() + 1
+                specialItemCreationCreate(User,validItemsSub[indexItemSub][1])
+            end
+            local sdItemListSub = SelectionDialog("Special Items.", "Choose an item:", cbChooseSubItem)
+            local optionSubId = 1
+            for i = 1, #(SpecialItem) do
+                if SpecialItem[i][5] ==  SpecialItemSubMenu[validItems[indexItem][2]]then
+                    sdItemListSub:addOption(SpecialItem[i][3], SpecialItem[i][1])
+                    validItemsSub[optionSubId] = {i,0}
+                    optionSubId = optionSubId+1
                 end
             end
-            User:requestInputDialog(InputDialog("Item Creation", "How many "..SpecialItem[indexItem][1].." do you want to create?" ,false, 255, cbInputDialog))
+            User:requestSelectionDialog(sdItemListSub)
+        --
         end
-                end
+    end
     local sdItemList = SelectionDialog("Special Items.", "Choose an item:", cbChooseItem)
-    local optionSubId = 1
+    local optionId = 1
     for i = 1, #(SpecialItem) do
-        sdItemList:addOption(SpecialItem[i][3], SpecialItem[i][1])
+        if common.IsNilOrEmpty(SpecialItem[i][5]) then
+            sdItemList:addOption(SpecialItem[i][3], SpecialItem[i][1])
+            validItems[optionId] = {i,0}
+            optionId = optionId+1
+        end
+    end
+    for i = 1, #(SpecialItemSubMenu) do
+        sdItemList:addOption(0, "Group: "..SpecialItemSubMenu[i])
+        validItems[optionId] = {0,i}
+        optionId = optionId+1
     end
     User:requestSelectionDialog(sdItemList)
-
 end
 
-
+function specialItemCreationCreate(User,indexItem)
+    if SpecialItem[indexItem][2] then
+        if indexItem == 1 then
+            mysticalCracker(User)
+        elseif indexItem == 2 then
+            specialEggs(User)
+        else
+            return
+        end
+    else
+        local cbInputDialog = function (dialog)
+            if not dialog:getSuccess() then
+                return
+            end
+            local input = dialog:getInput()
+            if (string.find(input,"(%d+)") ~= nil) then
+                local a, b, amount = string.find(input,"(%d+)")
+                if SpecialItem[indexItem][4] == MagicGem then
+                    common.CreateItem(User, SpecialItem[indexItem][3], tonumber(amount), 333,{gemLevel=1})
+                else
+                    common.CreateItem(User, SpecialItem[indexItem][3], tonumber(amount), 333,nil)
+                end
+            end
+        end
+        User:requestInputDialog(InputDialog("Item Creation", "How many "..SpecialItem[indexItem][1].." do you want to create?" ,false, 255, cbInputDialog))
+    end
+end
 
 function spawnGM()
 
