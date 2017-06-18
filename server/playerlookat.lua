@@ -66,6 +66,7 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
     if ( mode == MODE_MIRROR) then
         factorDistance = 1;
     end
+    local limitToSeeAlways = 20 - factorDistance
     local limitToSeeGeneral = 1 * factorPerception - 1 * factorDistance;
     local limitToSeeHand = 2 * factorPerception - 4 * factorDistance + bonusSex;
     local limitToSeeBreast = 2 * factorPerception - 4 * factorDistance;
@@ -85,7 +86,7 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
         output = output .. ( lang == 0 and "Im Spiegel siehst du eine Person, die dir ähnlich sieht.\n" or "In the mirror you see a person that looks like you.\n" );
     end
     
-    if ( limitToSeeGeneral >= 0 ) then
+    if ( limitToSeeAlways >= 0 ) then
         -- General overview.
         if ( TargetCharacter:increaseAttrib( "sex", 0 ) == 0 ) then
             output = output .. ( lang == 0 and "Er ist ein " or "He is a " );
@@ -93,16 +94,22 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
             output = output .. ( lang == 0 and "Sie ist eine " or "She is a " );
         end
         output = output .. getAgeDescriptor(TargetCharacter:getRace(),TargetCharacter:increaseAttrib("age",0),lang);
-        output = output .. getCharAtribute( TargetCharacter, lang, "strength", 14, "starke", "strong");
-        output = output .. getCharAtribute( TargetCharacter, lang, "dexterity", 14, "geschickte", "nimble");
-        output = output .. getCharAtribute( TargetCharacter, lang, "agility", 14, "flinke", "agile");
-        output = output .. getCharAtribute( TargetCharacter, lang, "constitution", 15, "robuste", "sturdy");
-        output = output .. getCharAtribute( TargetCharacter, lang, "intelligence", 18, "wissende", "knowingly");
-        output = output .. getCharAtribute( TargetCharacter, lang, "willpower", 18, "zielstrebige", "determined");
-        output = output .. getCharAtribute( TargetCharacter, lang, "perception", 18, "aufmerksame", "attentively");
-        output = output .. getCharAtribute( TargetCharacter, lang, "essence", 18, "magische", "magic");
+        if ( limitToSeeGeneral >= 0 ) then
+            output = output .. getCharAtribute( TargetCharacter, lang, "strength", 14, "starke", "strong");
+            output = output .. getCharAtribute( TargetCharacter, lang, "dexterity", 14, "geschickte", "nimble");
+            output = output .. getCharAtribute( TargetCharacter, lang, "agility", 14, "flinke", "agile");
+            output = output .. getCharAtribute( TargetCharacter, lang, "constitution", 15, "robuste", "sturdy");
+            output = output .. getCharAtribute( TargetCharacter, lang, "intelligence", 18, "wissende", "knowingly");
+            output = output .. getCharAtribute( TargetCharacter, lang, "willpower", 18, "zielstrebige", "determined");
+            output = output .. getCharAtribute( TargetCharacter, lang, "perception", 18, "aufmerksame", "attentively");
+            output = output .. getCharAtribute( TargetCharacter, lang, "essence", 18, "magische", "magic");
+        end
         output = string.sub ( output, 1, string.len(output) - 2) .. " " .. getCharRace( TargetCharacter, lang);
-        output = output .. ( lang == 0 and " und ist " or " and is " ) .. getClothesQualText(qual, lang) .. ". ";
+        if ( limitToSeeGeneral >= 0 ) then
+            output = output .. ( lang == 0 and " und ist " or " and is " ) .. getClothesQualText(qual, lang) .. ". ";
+        else
+            output = output .. "."
+        end
     end
 
     -- what wears the char?
