@@ -95,29 +95,29 @@ local Start = {353, 532, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(353, 532, 0), position(365, 475, 0)}
-QuestTarget[2] = {position(353, 532, 0), position(365, 475, 0)}
-QuestTarget[3] = {position(353, 532, 0), position(365, 475, 0)}
-QuestTarget[4] = {position(353, 532, 0), position(365, 475, 0)}
-QuestTarget[5] = {position(353, 532, 0), position(365, 475, 0)}
-QuestTarget[6] = {position(353, 532, 0), position(365, 475, 0)}
-QuestTarget[7] = {position(353, 532, 0), position(365, 475, 0)}
-QuestTarget[8] = {position(353, 532, 0), position(365, 475, 0)}
-QuestTarget[9] = {position(353, 532, 0), position(365, 475, 0)}
-QuestTarget[10] = {position(353, 532, 0), position(365, 475, 0)}
-QuestTarget[11] = {position(353, 532, 0), position(365, 475, 0)}
-QuestTarget[12] = {position(353, 532, 0), position(365, 475, 0)}
-QuestTarget[13] = {position(353, 532, 0), position(365, 475, 0)}
-QuestTarget[14] = {position(353, 532, 0), position(365, 475, 0)}
-QuestTarget[15] = {position(353, 532, 0), position(365, 475, 0)}
-QuestTarget[16] = {position(353, 532, 0), position(365, 475, 0)}
-QuestTarget[17] = {position(353, 532, 0), position(365, 475, 0)}
-QuestTarget[18] = {position(353, 532, 0), position(365, 475, 0)}
-QuestTarget[19] = {position(353, 532, 0), position(365, 475, 0)}
-QuestTarget[20] = {position(353, 532, 0), position(365, 475, 0)}
-QuestTarget[21] = {position(353, 532, 0), position(365, 475, 0)}
-QuestTarget[22] = {position(353, 532, 0), position(365, 475, 0)}
-QuestTarget[23] = {position(353, 532, 0), position(365, 475, 0)}
+QuestTarget[1] = {position(353, 532, 0), position(372, 476, 1)}
+QuestTarget[2] = {position(353, 532, 0), position(372, 476, 1)}
+QuestTarget[3] = {position(353, 532, 0), position(372, 476, 1)}
+QuestTarget[4] = {position(353, 532, 0), position(372, 476, 1)}
+QuestTarget[5] = {position(353, 532, 0), position(372, 476, 1)}
+QuestTarget[6] = {position(353, 532, 0), position(372, 476, 1)}
+QuestTarget[7] = {position(353, 532, 0), position(372, 476, 1)}
+QuestTarget[8] = {position(353, 532, 0), position(372, 476, 1)}
+QuestTarget[9] = {position(353, 532, 0), position(372, 476, 1)}
+QuestTarget[10] = {position(353, 532, 0), position(372, 476, 1)}
+QuestTarget[11] = {position(353, 532, 0), position(372, 476, 1)}
+QuestTarget[12] = {position(353, 532, 0), position(372, 476, 1)}
+QuestTarget[13] = {position(353, 532, 0), position(372, 476, 1)}
+QuestTarget[14] = {position(353, 532, 0), position(372, 476, 1)}
+QuestTarget[15] = {position(353, 532, 0), position(372, 476, 1)}
+QuestTarget[16] = {position(353, 532, 0), position(372, 476, 1)}
+QuestTarget[17] = {position(353, 532, 0), position(372, 476, 1)}
+QuestTarget[18] = {position(353, 532, 0), position(372, 476, 1)}
+QuestTarget[19] = {position(353, 532, 0), position(372, 476, 1)}
+QuestTarget[20] = {position(353, 532, 0), position(372, 476, 1)}
+QuestTarget[21] = {position(353, 532, 0), position(372, 476, 1)}
+QuestTarget[22] = {position(353, 532, 0), position(372, 476, 1)}
+QuestTarget[23] = {position(353, 532, 0), position(372, 476, 1)}
 QuestTarget[24] = {position(353, 532, 0)}
 
 
@@ -127,7 +127,7 @@ local FINAL_QUEST_STATUS = 24
 -- Register the monster kill parts of the quest.
 monsterQuests.addQuest{
     questId = 515,
-    location = {position = position(420, 470, 2), radius = 40},
+    location = {position = position(410, 460, 2), radius = 60},
     queststatus = {from = 4, to = 14},
     questTitle = {german = "Rette Miley! II", english = "Rescue Milly! II"},
     monsterName = {german = "Ork, Diebe, Jäger, und Krieger", english = "Orcs, Thieves, Hunters, and Warrior"},
@@ -137,7 +137,7 @@ monsterQuests.addQuest{
 
 monsterQuests.addQuest{
     questId = 515,
-    location = {position = position(436, 460, 2), radius = 40},
+    location = {position = position(410, 460, 2), radius = 60},
     queststatus = {from = 19, to = 20},
     questTitle = {german = "Rette Miley! IV", english = "Rescue Milly! IV"},
     monsterName = {german = "Ork-Schamanen", english = "Orc Shaman"},
@@ -147,7 +147,7 @@ monsterQuests.addQuest{
 
 monsterQuests.addQuest{
     questId = 515,
-    location = {position = position(440, 440, 2), radius = 40},
+    location = {position = position(410, 460, 2), radius = 60},
     queststatus = {from = 22, to = 23},
     questTitle = {german = "Rette Miley! V", english = "Rescue Milly! V"},
     monsterName = {german = "dunklen Paladin", english = "Dark Paladin"},

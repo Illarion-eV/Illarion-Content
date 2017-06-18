@@ -16,7 +16,7 @@
 -- NPC Name: Phillibald                                                  None --
 -- NPC Job:  portalbook merchant                                              --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  960, 831, 0            --
+-- NPC Race: halfling                   NPC Position:  901, 808, 0            --
 -- NPC Sex:  male                       NPC Direction: west                  --
 --                                                                            --
 -- Author:   Zot, Faladron                                                    --
@@ -26,7 +26,7 @@
 name = "Phillibald"
 race = halfling
 sex = male
-position = 960, 831, 0
+position = 901, 808, 0
 direction = west
 affiliation = "None"
 job = "portal book merchant"

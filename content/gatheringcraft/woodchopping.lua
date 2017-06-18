@@ -139,7 +139,7 @@ function StartGathering(User, SourceItem, ltstate)
         -- should never happen, but handle it nevertheless
         world:erase(SourceItem, SourceItem.number)
         if isPlayerPlanted then
-            common.HighInformNLS(User, "Der Baum war zu jung, um nachwachsen zu können.", "The tree was too you to regrow.")
+            common.HighInformNLS(User, "Der Baum war zu jung, um nachwachsen zu können.", "The tree was too young to regrow.")
         else
             world:createItemFromId(tree.TrunkId, 1, SourceItem.pos, true, 333, nil);
             common.HighInformNLS( User,

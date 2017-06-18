@@ -88,15 +88,15 @@ TaleLocation[ENGLISH][6] = "You saw the book over the labratory of Galmair."
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {901, 808, 0}
+Start = {960, 831, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {901, 808, 0}
-QuestTarget[2] = {901, 808, 0}
-QuestTarget[3] = {901, 808, 0}
-QuestTarget[4] = {901, 808, 0}
-QuestTarget[5] = {901, 808, 0}
+QuestTarget[1] = {960, 831, 0}
+QuestTarget[2] = {960, 831, 0}
+QuestTarget[3] = {960, 831, 0}
+QuestTarget[4] = {960, 831, 0}
+QuestTarget[5] = {960, 831, 0}
 
 -- Insert the quest status which is reached at the end of the quest
 -- the quest is designed to be extended and has no real end

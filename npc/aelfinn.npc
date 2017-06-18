@@ -163,19 +163,19 @@ queststatus(515) = 19, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ist der S
 queststatus(515) = 20, english, ".+" -> inform("[Quest Solved] You have been awarded 20 Silver Coins"), queststatus(515)=21, money + 2000, "You have killed him? Good. This is the last of my coins. Take it and prepare yourself. There is more work to be done."
 queststatus(515) = 20, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), queststatus(515)=21, money + 2000, "Du hast ihn getötet? Gut. Hier sind meine letzten Münzen. Nimm sie und bereite dich vor. Es gibt noch mehr Arbeit zu tun."
 
---Quest 5: Kill Human Necromancer
+--Quest 5: Kill Dark Paladin
 queststatus(515) = 21, english, "quest", "mission" -> inform("[New Quest] Rescue Milly V"), queststatus(515)=22, "I don't think the shaman's death is the end of this madness. There is something darker inside that cave that leads the cult. Go and end whatever dark abomination is inside that cave!"
 queststatus(515) = 21, "quest", "mission" -> inform("[Neuer Quest] Rette Milly! V"), queststatus(515)=22, "Ich glaube nicht, dass der Tod des Schamanen das Ende dieses Wahnsinns ist. Es ist etwas Dunkles in dieser Höhle, das den Kult führt. Geh und beende, was auch immer für ein dunkler Greuel in dieser Höhle haust."
 queststatus(515) = 21, english, "task", "adventure", "order" -> inform("[New Quest] Rescue Milly V"), queststatus(515)=22, "I don't think the shaman's death is the end of this madness. There is something darker inside that cave that leads the cult. Go and end whatever dark abomination is inside that cave!"
 queststatus(515) = 21, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neuer Quest] Rette Milly! V"), queststatus(515)=22, "Ich glaube nicht, dass der Tod des Schamanen das Ende dieses Wahnsinns ist. Es ist etwas Dunkles in dieser Höhle, das den Kult führt. Geh und beende, was auch immer für ein dunkler Greuel in dieser Höhle haust."
 
--- Necromancer not dead, remind player
+-- Dark Paladin not dead, remind player
 queststatus(515) = 22, english, "quest", "mission" -> "Have you destroyed the dark force inside that cave?"
 queststatus(515) = 22, "quest", "mission" -> "Hast du die dunkle Kraft in dieser Höhle zerstört?"
 queststatus(515) = 22, english, "task", "adventure", "order" -> "Have you destroyed the dark force inside that cave?"
 queststatus(515) = 22, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hast du die dunkle Kraft in dieser Höhle zerstört?"
 
--- Necromancer dead, reward Bow (2685)
+-- Dark paladin dead, reward Bow (2685) and magic gem
 queststatus(515) = 23, english, ".+" -> inform("[Quest Solved] You have been awarded an elven shortbow and a magic ruby"), queststatus(515)=24, item(46, 1, 333, "gemLevel" = "1"), item(2685, 1, 666), "It is done? There was a dark paladin inside and you have killed him? Thank the Five, Milly will not have died in vain! Please, take my bow. I have no need for it anymore. And this magical ruby. Thank you for everything."
 queststatus(515) = 23, ".+" -> inform("[Quest gelöst] Du erhältst ein Elfen-Kurzbogen und einer magischen Rubin."), queststatus(515)=24, item(46, 1, 333, "gemLevel" = "1"), item(2685, 1, 666), "Es ist vollbracht? Da war ein dunker Paladin und du hast ihn getötet? Den Fünf sei Dank, Milly wird nicht umsonst gestorben sein! Bitte, nimm meinen Bogen. Ich brauche ihn nicht mehr. Und dieser magischen Rubin. Vielen Dank für alles."
 

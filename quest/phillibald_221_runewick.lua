@@ -44,15 +44,15 @@ Description[GERMAN][4] = "Du hast alle Aufgaben für Phillibald erledigt."
 Description[ENGLISH][4] = "You have completed all of Phillibald's tasks."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-local Start = {960, 831, 0}
+local Start = {901, 808, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
-QuestTarget[1] = {position(960, 831, 0)}
-QuestTarget[2] = {position(960, 831, 0)}
+QuestTarget[1] = {position(901, 808, 0)}
+QuestTarget[2] = {position(901, 808, 0)}
 
-QuestTarget[3] = {position(960, 831, 0)}
-QuestTarget[4] = {position(960, 831, 0)}
+QuestTarget[3] = {position(901, 808, 0)}
+QuestTarget[4] = {position(901, 808, 0)}
 
 
 -- Insert the quest status which is reached at the end of the quest

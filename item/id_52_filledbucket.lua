@@ -439,7 +439,7 @@ function plantTree(user, sourceItem, ltstate)
                 playersWithValidPosition[user.id] = nil
             else
                 if user:countItem(52) < 1 then
-                    user:inform("Du hast keine Wassereimer mehr.", "You don't have any buckets filled with water lever", Character.highPriority) 
+                    user:inform("Du hast keine Wassereimer mehr.", "You don't have any buckets filled with water left", Character.highPriority) 
                 else
                     user:changeSource(sourceItem)
                     user:startAction(40, 21, 5, 0, 0)
