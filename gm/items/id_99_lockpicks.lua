@@ -292,7 +292,7 @@ function M.UseItem(User, SourceItem, ltstate)
     end
 
     -- First check for mode change
-    local modes = {"Eraser", "Teleport", "Faction info of chars in radius", "Char Info", "Change skills", "Get/ Set Queststatus", "Instant kill/ revive", "Quest events", "Set MC", "Create flames", "Remove flames", "Get/ Set Magic Class", "Miscellaneous actions at char","Test"}
+    local modes = {"Eraser", "Teleport", "Faction info of chars in radius", "Char Info", "Change skills", "Get/ Set Queststatus", "Instant kill/ revive", "Quest events", "Set MC", "Create flames", "Remove flames", "Get/ Set Magic Class", "Miscellaneous actions at char"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -324,8 +324,6 @@ function M.UseItem(User, SourceItem, ltstate)
             changeMagicClass(User, SourceItem, ltstate)
         elseif index == 13 then
             actionWithChar(User, SourceItem, ltstate)
-        elseif index == 14 then
-            BandukTest(User)
         end
     end
     local sd = SelectionDialog("Pick a function of the lockpicks.", "Which do you want to use?", cbSetMode)
@@ -333,13 +331,6 @@ function M.UseItem(User, SourceItem, ltstate)
         sd:addOption(0, m)
     end
     User:requestSelectionDialog(sd)
-end
-
-function BandukTest(User)
-    local gmSpell = require("monster.base.spells.firecone"){probability = 1,  damage = {from = 1250, to = 1500}, range = 6, angularAperture = 30, itemProbability = 0.1, quality = {from = 0, to = 1}}
-    User:inform("==1")
-    gmSpell.cast(User,User)
-    User:inform("==3")
 end
 
 function eraser(User, SourceItem, ltstate)
