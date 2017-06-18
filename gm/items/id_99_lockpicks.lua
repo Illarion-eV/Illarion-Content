@@ -357,14 +357,21 @@ function eraser(User, SourceItem, ltstate)
                 world:erase(chosenItem, chosenItem.number)
                 User:logAdmin("erases " .. chosenItem.number .. " items from map: " .. world:getItemName(chosenItem.id, Player.english) .. "(" .. chosenItem.id .. ") at " .. tostring(common.GetFrontPosition(User)))
             end
+        elseif (index == 1) then
+            while common.GetFrontItem(User) ~= nil do
+                chosenItem = common.GetFrontItem(User)
+                world:erase(chosenItem, chosenItem.number)
+                User:logAdmin("erases " .. chosenItem.number .. " items from map: " .. world:getItemName(chosenItem.id, Player.english) .. "(" .. chosenItem.id .. ") at " .. tostring(common.GetFrontPosition(User)))
+            end
         else
-            chosenItem = itemsOnChar[index]
+            chosenItem = itemsOnChar[index-1]
             world:erase(chosenItem, chosenItem.number)
             User:logAdmin("erases " ..chosenItem.number.. " items from inventory: " .. world:getItemName(chosenItem.id, Player.english) .. "(" .. chosenItem.id .. ")")
         end
     end
     local sdItems = SelectionDialog("Erase items.", "Choose the item you wish to erase:", cbChooseItem)
-    sdItems:addOption(0, "Front of char")
+    sdItems:addOption(0, "Front of char - Top item")
+    sdItems:addOption(0, "Front of char - All stack")
     for _, item in ipairs(itemsOnChar) do
         local itemName = world:getItemName(item.id, Player.english)
         sdItems:addOption(item.id, itemName .. " (" .. itemPos[item.itempos] .. ") Count: ".. item.number)
