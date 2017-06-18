@@ -172,7 +172,10 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
         output = output .. addtext .. ". ";
     --nothing, you see that!
     end
-
+    
+    if ( common.IsNilOrEmpty(output) ) then
+        output = ( lang == 0 and "Du kannst schwerlich erkennen wie die Person aussieht." or "You can barely make out the figure." );
+    end
     return output;
 end
 
