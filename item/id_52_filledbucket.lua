@@ -337,7 +337,7 @@ local function isTreePlantableHere(seed)
     -- Some areas don't allow planting
     for _, areaName in pairs(noTreePlantingAreas) do
         if areas.PointInArea(seed.pos) then
-            return false
+            return false, "In diesem Gebiet ist der Boden nicht geeignet, um Bäume zu pflanzen.", "In this area, the ground is not suitable for planting trees."
         end
     end
 
@@ -352,7 +352,7 @@ local function isTreePlantableHere(seed)
                 
                 -- Normal map tree in a distance of 2 fields?
                 if woodchopping.isTree(checkItem.id) then
-                    return false
+                    return false, "Hier ist zu viel Schatten. Pflanze nicht so nah zu anderen Bäumen.", "There is too much shadow on this spot. Don't plant so close to other trees."
                 end
                 
                 -- Check for items right next to the planintg spot
@@ -360,11 +360,11 @@ local function isTreePlantableHere(seed)
                 -- No blocking item is allowed (= item on an unpassable field, includes e.g. flowers on water)
                 if math.abs(i) < 2 and math.abs(j) < 2 and (math.abs(i) > 0 or math.abs(j) > 0) then
                     if not (world:getField(currentPosition)):isPassable() then
-                        return false
+                        return false, "Die Wurzeln des Baumes könnten sich hier nicht richtig ausbreiten. Eines der Dinge um diesen Fleck herum, nimmt zu viel Raum ein.", "The roots of a tree couldn't spread properly in this spot. Something of the things around this spot take too much room."
                     else
                         unblockableItemsFound = unblockableItemsFound + 1
                         if unblockableItemsFound > unblockableItemsAllowed then
-                            return false
+                            return false, "Die Wurzeln des Baumes könnten sich hier nicht richtig ausbreiten. Es sind zu viele Dinge um diesen Fleck herum.", "The roots of a tree couldn't spread properly in this spot. There are too many things next to this spot."
                         end
                     end
                 end
@@ -379,7 +379,7 @@ local function isTreePlantableHere(seed)
                     local inShadow = false
                     for _, shadowTiles in pairs(seedList[seed.id].shadowTiles) do
                         if currentPosition == position(seed.pos.x + shadowTiles.x, seed.pos.y + shadowTiles.y, seed.pos.z) then
-                            return false
+                            return false, "NPC oder Makierungsstein", "NPC or markerstone"
                         end
                     end
                 end
@@ -408,16 +408,16 @@ function plantTree(user, sourceItem, ltstate)
         return true
     end
     
-    local isValidPosition
+    local isValidPosition, failMessageDe, failMessageEn
     -- Check if we already checked the position, otherwise perform necessary checks
     if playersWithValidPosition[user.id] then
         isValidPosition = true
     else
-        isValidPosition = isTreePlantableHere(frontItem)
+        isValidPosition, failMessageDe, failMessageEn = isTreePlantableHere(frontItem)
     end
     
     if not isValidPosition then
-        user:inform("Dieser Baum wird hier nicht wachsen können.", "This tree would not grow here.")
+        user:inform(failMessageDe, failMessageEn)
     else
         if ltstate == Action.success then
             world:makeSound(9, frontItem.pos)
