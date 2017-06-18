@@ -306,7 +306,7 @@ local seedList = {
 }
 
 local noTreePlantingAreas = {
-
+"Galmair", "Runewick", "Pauldron", "CadomyrAndDesert"
 }
 
 local playersWithValidPosition = {}

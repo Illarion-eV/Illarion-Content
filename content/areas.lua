@@ -57,8 +57,20 @@ function M.Init()
   });
   AddArea("evilrockstonechamber", {
     {{position(943,182,-6),position(983,182,-6),position(983,164,-6),position(943,164,-6)}, {-6}}
-  });    
-end
+  });
+
+    AddArea("Pauldron",
+    {{position(868,329,0), position(841,356,0), position(865,380,0), position(876,414,0), position(892,437,0), position(894,470,0), position(932,494,0), position(992,444,0), position(1010,357,0), position(969,281,0), position(916,303,0), position(868,329,0)}, {0}})
+
+    AddArea("Runewick", 
+    {{position(867,815,0), position(887,769,0), position(887,750,0), position(947,744,0), position(970,744,0), position(1007,806,0), position(1006,838,0), position(923,892,0), position(891,893,0), position(889,856,0), position(891,852,0), position(891,843,0), position(867,815,0)}, {0}})
+
+    AddArea("Galmair",
+    {{position(420,223,0), position(379,206,0), position(339,196,0), position(280,237,0), position(280,315,0), position(352,337,0), position(378,331,0),position(392,331,0), position(436,297,0), position(424,274,0), position(420,223,0)}, {0}})
+
+    AddArea("CadomyrAndDesert",
+    {{position(467,816,0), position(467,579,0), position(418,510,0), position(394,428,0), position(378,429,0), position(324,392,0), position(264,364,0), position(169,111,0), position(142,444,0), position(139,510,0), position(1,510,0), position(1,791,0), position(95,791,0), position(83,781,0), position(75,769,0), position(80,757,0), position(89,756,0), position(107,755,0), position(119,752,0), position(134,752,0), position(134,731,0), position(180,131,0), position(184,726,0), position(195,747,0), position(195,764,0), position(187,775,0), position(187,751,0), position(137,837,0), position(138,841,0), position(308,841,0),position(365,805,0), position(392,822,0), position(458,832,0), position(467,816,0)}, {0}})
+    end
 
 --- adds an area
 -- @param string The name for the new area.
