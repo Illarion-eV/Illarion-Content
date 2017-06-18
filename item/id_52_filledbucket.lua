@@ -379,7 +379,7 @@ local function isTreePlantableHere(seed)
                     local inShadow = false
                     for _, shadowTiles in pairs(seedList[seed.id].shadowTiles) do
                         if currentPosition == position(seed.pos.x + shadowTiles.x, seed.pos.y + shadowTiles.y, seed.pos.z) then
-                            return false, "NPC oder Makierungsstein", "NPC or markerstone"
+                            return false, "Der Boden hier ist zu sehr beansprucht, um etwas zu pflanzen.", "The ground here is too worn out to support the grow of a new tree."
                         end
                     end
                 end

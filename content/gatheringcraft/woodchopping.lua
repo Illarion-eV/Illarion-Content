@@ -125,7 +125,7 @@ function StartGathering(User, SourceItem, ltstate)
     local amount = SourceItem:getData("wood_amount");
     if ( amount == "" ) then
         if isPlayerPlanted then
-            amount = 3
+            amount = 1
         else
             amount = tree.Amount;
         end
