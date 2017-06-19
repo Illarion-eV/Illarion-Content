@@ -17,18 +17,124 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE common SET com_script='gm.items.id_93_medal' WHERE com_itemid=93;
 local lookat = require("base.lookat")
 local common = require("base.common")
+local globalvar = require("base.globalvar")
 local M = {}
+
+local gfxSubMenu = {"Fire","Ice and wind","Clouds","Light","Sparkles","Misc","Heavy attack","Attack","Friendly"}
+local gfxMenu = {}
+gfxMenu[1]={globalvar.gfxBLITZ,""}
+gfxMenu[2]={globalvar.gfxICE,""}
+gfxMenu[3]={globalvar.gfxELFFIRE,""}
+gfxMenu[4]={globalvar.gfxDEMFIRE,""}
+gfxMenu[5]={globalvar.gfxBLITZ,"Light"}
+gfxMenu[6]={globalvar.gfxICE,"Ice and wind"}
+gfxMenu[7]={globalvar.gfxELFFIRE,"Ice and wind"}
+gfxMenu[8]={globalvar.gfxDEMFIRE,"Clouds"}
+gfxMenu[9]={globalvar.gfxSPELL,"Ice and wind"}
+gfxMenu[10]={globalvar.gfxWIND,"Ice and wind"}
+gfxMenu[11]={globalvar.gfxGIFTWOLKE,"Clouds"}
+gfxMenu[12]={globalvar.gfxFIREBALL,"Fire"}
+gfxMenu[13]={globalvar.gfxPLATSCH,"Misc"}
+gfxMenu[14]={globalvar.gfxFIZZLE,"Clouds"}
+gfxMenu[15]={globalvar.gfxBLOOD,"Misc"}
+gfxMenu[16]={globalvar.gfxBOW,"Fight"}
+gfxMenu[17]={globalvar.gfxRAIN,"Sparkles"}
+gfxMenu[18]={globalvar.gfxSWORD,"Fight"}
+gfxMenu[19]={globalvar.gfxSHIELD,"Fight"}
+gfxMenu[20]={globalvar.gfxMACE,"Fight"}
+gfxMenu[21]={globalvar.gfxDAGGER,"Fight"}
+gfxMenu[22]={globalvar.gfxCLAW,"Misc"}
+gfxMenu[23]={globalvar.gfxBOXING,"Fight"}
+gfxMenu[24]={globalvar.gfxGLOWING,"Light"}
+gfxMenu[25]={globalvar.gfxFALL,"Clouds"}
+gfxMenu[26]={globalvar.gfxFLAMESTRIKE,"Fire"}
+gfxMenu[27]={globalvar.gfxLIGHT,"Light"}
+gfxMenu[28]={globalvar.gfxFIREFIELD,"Fire"}
+gfxMenu[29]={globalvar.gfxSTARS,"Misc"}
+gfxMenu[30]={globalvar.gfxEXPLO,"Fire"}
+gfxMenu[31]={globalvar.gfxSPLASH,"Sparkles"}
+gfxMenu[32]={globalvar.gfxSUN,"Light"}
+gfxMenu[33]={globalvar.gfxVIOLETT,"Fire"}
+gfxMenu[34]={globalvar.gfxSPRINKLE,"Sparkles"}
+gfxMenu[35]={globalvar.gfxSCOTTY,"Sparkles"}
+gfxMenu[36]={globalvar.gfxBLITZ,"Heavy attack"}
+gfxMenu[37]={globalvar.gfxICE,"Heavy attack"}
+gfxMenu[38]={globalvar.gfxELFFIRE,"Attack"}
+gfxMenu[39]={globalvar.gfxDEMFIRE,"Attack"}
+gfxMenu[40]={globalvar.gfxSPELL,"Attack"}
+gfxMenu[41]={globalvar.gfxWIND,"Attack"}
+gfxMenu[42]={globalvar.gfxGIFTWOLKE,"Attack"}
+gfxMenu[43]={globalvar.gfxFIREBALL,"Attack"}
+gfxMenu[44]={globalvar.gfxRAIN,"Friendly"}
+gfxMenu[45]={globalvar.gfxFALL,"Attack"}
+gfxMenu[46]={globalvar.gfxFLAMESTRIKE,"Attack"}
+gfxMenu[47]={globalvar.gfxLIGHT,"Attack"}
+gfxMenu[48]={globalvar.gfxFIREFIELD,"Heavy attack"}
+gfxMenu[49]={globalvar.gfxSTARS,"Friendly"}
+gfxMenu[50]={globalvar.gfxEXPLO,"Attack"}
+gfxMenu[51]={globalvar.gfxSPLASH,"Friendly"}
+gfxMenu[52]={globalvar.gfxSUN,"Friendly"}
+gfxMenu[53]={globalvar.gfxVIOLETT,"Heavy attack"}
+gfxMenu[54]={globalvar.gfxSPRINKLE,"Friendly"}
+gfxMenu[55]={globalvar.gfxSCOTTY,"Friendly"}
+
+local sfxSubMenu = {"Laugh and cry","Weather","Environment","Fight","Work","Door","Misc"}
+local sfxMenu = {}
+sfxMenu[1]={globalvar.sfxTHUNDER,""}
+sfxMenu[2]={globalvar.sfxSCREAM,""}
+sfxMenu[3]={globalvar.sfxROAR,""}
+sfxMenu[4]={globalvar.sfxWIND,""}
+sfxMenu[5]={globalvar.sfxSCREAM,"Laugh and cry"}
+sfxMenu[6]={globalvar.sfxSHEEP,"Laugh and cry"}
+sfxMenu[7]={globalvar.sfxHIT,"Fight"}
+sfxMenu[8]={globalvar.sfxTHUNDER,"Weather"}
+sfxMenu[9]={globalvar.sfxBANG,"Environment"}
+sfxMenu[10]={globalvar.sfxCHOPPING,"Work"}
+sfxMenu[11]={globalvar.sfxFIRE,"Environment"}
+sfxMenu[12]={globalvar.sfxANVIL,"Work"}
+sfxMenu[13]={globalvar.sfxWATERSPLASH,"Environment"}
+sfxMenu[14]={globalvar.sfxWATERPOUR,"Environment"}
+sfxMenu[15]={globalvar.sfxSAW,"Work"}
+sfxMenu[16]={globalvar.sfxDRINK,"Misc"}
+sfxMenu[17]={globalvar.sfxSNARING,"Misc"}
+sfxMenu[18]={globalvar.sfxCARVE,"Work"}
+sfxMenu[19]={globalvar.sfxCOOKING,"Work"}
+sfxMenu[20]={globalvar.sfxRASP,"Work"}
+sfxMenu[21]={globalvar.sfxGOLDSMITHING,"Work"}
+sfxMenu[22]={globalvar.sfxMINING,"Work"}
+sfxMenu[23]={globalvar.sfxLOCK,"Door"}
+sfxMenu[24]={globalvar.sfxUNLOCK,"Door"}
+sfxMenu[25]={globalvar.sfxDOOR,"Door"}
+sfxMenu[26]={globalvar.sfxCLICK,"Door"}
+sfxMenu[27]={globalvar.sfxBURP,"Laugh and cry"}
+sfxMenu[28]={globalvar.sfxCOINS,"Misc"}
+sfxMenu[29]={globalvar.sfxEVIL_LAUGH,"Laugh and cry"}
+sfxMenu[30]={globalvar.sfxROAR,"Laugh and cry"}
+sfxMenu[31]={globalvar.sfxWIND,"Weather"}
+sfxMenu[32]={globalvar.sfxWIND2,"Weather"}
+sfxMenu[33]={globalvar.sfxBOW,"Fight"}
+sfxMenu[34]={globalvar.sfxHIT_ARROW,"Fight"}
+sfxMenu[35]={globalvar.sfxHIT_STAFF_PLATE,"Fight"}
+sfxMenu[36]={globalvar.sfxHIT_SWORD_PLATE,"Fight"}
+sfxMenu[37]={globalvar.sfxPARRY_AXE_SHIELD,"Fight"}
+sfxMenu[38]={globalvar.sfxPARRY_STAFF,"Fight"}
+sfxMenu[39]={globalvar.sfxPARRY_SWORD,"Fight"}
+sfxMenu[40]={globalvar.sfxPARRY_SWORD_SHIELD,"Fight"}
+sfxMenu[41]={globalvar.sfxPARRY_SWORD_STAFF,"Fight"}
 
 local monsterCreation
 local gfx
+local gfxSelector
 local sfx
+local sfxSelector
 local animation
 local changeAvatar
+
 
 local function UseItemWithField(User, TargetPos)
 
     -- First check for mode change
-    local modes = {"Monster", "GFX", "SFX", "Animation", "Avatar changes"}
+    local modes = {"Monster", "GFX", "GFX Selector", "SFX", "SFX Selector", "Avatar changes"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -40,10 +146,12 @@ local function UseItemWithField(User, TargetPos)
         elseif index == 2 then
             gfx(User, TargetPos)
         elseif index == 3 then
-            sfx(User, TargetPos)
+            gfxSelector(User, TargetPos)
         elseif index == 4 then
-            animation(User)
+            sfx(User, TargetPos)
         elseif index == 5 then
+            sfxSelector(User, TargetPos)
+        elseif index == 6 then
             changeAvatar(User)
         else
             User:inform("no valid function")
@@ -131,6 +239,54 @@ function monsterCreation(User, TargetPos)
     User:requestInputDialog(InputDialog("Spawn a monster.", "Usage enter: MonsterID [amount] [radius] [GFX] [SFX]" ,false, 255, cbInputDialog))
 end
 
+function gfxSelector(User,TargetPos)
+    local validIndex = {}
+    local validIndexSub = {}
+
+    local cbTopMenu = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local indexTop = dialog:getSelectedIndex() + 1
+        if validIndex[indexTop][2] == 0 then
+            world:gfx(gfxMenu[validIndex[indexTop][1]][1],TargetPos)
+        else
+            local cbSubMenu = function (dialog)
+                if (not dialog:getSuccess()) then
+                    return
+                end
+                local indexSub = dialog:getSelectedIndex() + 1
+                world:gfx(gfxMenu[validIndexSub[indexSub][1]][1],TargetPos)
+            end
+            local sdSubMenu = SelectionDialog("GFX Effects", "Graphic effect is played in front of char.", cbSubMenu)
+            local optionSubId = 1
+            for i = 1, #(gfxMenu) do
+                if gfxMenu[i][2] ==  gfxSubMenu[validIndex[indexTop][2]]then
+                    sdSubMenu:addOption(0, globalvar.gfxText[gfxMenu[i][1]])
+                    validIndexSub[optionSubId] = {i,0}
+                    optionSubId = optionSubId+1
+                end
+            end
+            User:requestSelectionDialog(sdSubMenu)
+        end
+    end
+    local sdTopMenu = SelectionDialog("GFX Effects", "Graphic effect is played in front of char.", cbTopMenu)
+    local optionId = 1
+    for i = 1, #(gfxMenu) do
+        if common.IsNilOrEmpty(gfxMenu[i][2]) then
+            sdTopMenu:addOption(0, globalvar.gfxText[gfxMenu[i][1]])
+            validIndex[optionId] = {i,0}
+            optionId = optionId+1
+        end
+    end
+    for i = 1, #(gfxSubMenu) do
+        sdTopMenu:addOption(0, "Group: "..gfxSubMenu[i])
+        validIndex[optionId] = {0,i}
+        optionId = optionId+1
+    end
+    User:requestSelectionDialog(sdTopMenu)
+end
+
 function gfx(User, TargetPos)
 
     local cbInputDialog = function (dialog)
@@ -147,6 +303,54 @@ function gfx(User, TargetPos)
         end
     end
     User:requestInputDialog(InputDialog("Play a graphics effect.", "Usage: Type in graphic effects id. Will be played in front of character." ,false, 255, cbInputDialog))
+end
+
+function sfxSelector(User,TargetPos)
+    local validIndex = {}
+    local validIndexSub = {}
+
+    local cbTopMenu = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local indexTop = dialog:getSelectedIndex() + 1
+        if validIndex[indexTop][2] == 0 then
+            world:makeSound(sfxMenu[validIndex[indexTop][1]][1],TargetPos)
+        else
+            local cbSubMenu = function (dialog)
+                if (not dialog:getSuccess()) then
+                    return
+                end
+                local indexSub = dialog:getSelectedIndex() + 1
+                world:makeSound(sfxMenu[validIndexSub[indexSub][1]][1],TargetPos)
+            end
+            local sdSubMenu = SelectionDialog("sfx Effects", "Select a sound effect to play.", cbSubMenu)
+            local optionSubId = 1
+            for i = 1, #(sfxMenu) do
+                if sfxMenu[i][2] ==  sfxSubMenu[validIndex[indexTop][2]]then
+                    sdSubMenu:addOption(0, globalvar.sfxText[sfxMenu[i][1]])
+                    validIndexSub[optionSubId] = {i,0}
+                    optionSubId = optionSubId+1
+                end
+            end
+            User:requestSelectionDialog(sdSubMenu)
+        end
+    end
+    local sdTopMenu = SelectionDialog("sfx Effects", "Select a sound effect to play.", cbTopMenu)
+    local optionId = 1
+    for i = 1, #(sfxMenu) do
+        if common.IsNilOrEmpty(sfxMenu[i][2]) then
+            sdTopMenu:addOption(0, globalvar.sfxText[sfxMenu[i][1]])
+            validIndex[optionId] = {i,0}
+            optionId = optionId+1
+        end
+    end
+    for i = 1, #(sfxSubMenu) do
+        sdTopMenu:addOption(0, "Group: "..sfxSubMenu[i])
+        validIndex[optionId] = {0,i}
+        optionId = optionId+1
+    end
+    User:requestSelectionDialog(sdTopMenu)
 end
 
 function sfx(User, TargetPos)
