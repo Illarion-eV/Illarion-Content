@@ -32,6 +32,18 @@ function M.enemyOnSight(monster, enemy)
     return false
 end
 
+local orgEnemyNear = M.enemyNear
+function M.enemyNear(monster, enemy)
+    if orgEnemyNear ~= nil then
+        orgEnemyNear(monster, enemy)
+    end
+    if not monster.effects:find(19) then
+        monster.effects:addEffect(LongTimeEffect(19,5))
+    end
+    
+    return false
+end
+
 local orgOnSpawn = M.onSpawn
 function M.onSpawn(monster)
     if orgOnSpawn ~= nil then
