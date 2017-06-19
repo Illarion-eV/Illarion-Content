@@ -249,7 +249,7 @@ end
 local function modifyGemEffect(attackerList, effectStrength)
     local monstersInRange = world:getMonstersInRangeOf(attackerList["Char"].pos, 5)
     for _, currentMonster in pairs(monstersInRange) do
-        if currentMonster:getMonsterType() == 306 then
+        if currentMonster:getMonsterType() == 306 and currentMonster.pos.z == attackerList["Char"].pos.z then
             return 0
         end
     end

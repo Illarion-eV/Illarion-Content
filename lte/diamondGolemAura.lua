@@ -31,9 +31,11 @@ function M.callEffect(Effect, User)
     end
     
     local playersInRange = world:getPlayersInRangeOf(User.pos, 5)
-    if #playersInRange > 0 then
-        common.CreateCircle(User.pos, 5, function(thePosition) world:gfx(1, thePosition) end)
-        playerLastSeen = world:getTime("unix")
+    for _, player in pairs(playersInRange) do
+        if player.pos.z == User.pos.z then
+            common.CreateCircle(User.pos, 5, function(thePosition) world:gfx(1, thePosition) end)
+            playerLastSeen = world:getTime("unix")
+        end
     end
     
     return true
