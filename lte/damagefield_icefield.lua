@@ -32,11 +32,12 @@ local function causeDamage(User, quality)
 end
 
 function M.addEffect(theEffect, User)
-
-    User:inform("Du fühlst, wie das eiskalte Feuer allmählich deine Haut verbrennt.",
-                "You feel the icecold fire gradually burn your skin.")
-    local _, quality = theEffect:findValue("quality")
-    causeDamage(User, quality)
+    if User:getQuestProgress(299) == 0 then
+        User:inform("Du fühlst, wie das eiskalte Feuer allmählich deine Haut verbrennt.",
+                    "You feel the icecold fire gradually burn your skin.")
+        local _, quality = theEffect:findValue("quality")
+        causeDamage(User, quality)
+    end
 end
 
 function M.callEffect(theEffect, User)
@@ -57,7 +58,9 @@ function M.callEffect(theEffect, User)
         return false
     end
 
-    causeDamage(User, FieldItem.quality)
+    if User:getQuestProgress(299) == 0 then
+        causeDamage(User, FieldItem.quality)
+    end
     -- repeat in 5sec
     theEffect.nextCalled = 50
     return true
@@ -69,8 +72,10 @@ end
 
 function M.removeEffect (theEffect, User)
 
-    User:inform("Du fühlst wie die Kälte auf deiner Haut nachlässt.",
-                "You feel the cold of your skin fade.")
+    if User:getQuestProgress(299) == 0 then
+        User:inform("Du fühlst wie die Kälte auf deiner Haut nachlässt.",
+                    "You feel the cold of your skin fade.")
+    end
 end
 
 return M

@@ -32,11 +32,12 @@ local function causeDamage(User, quality)
 end
 
 function M.addEffect(theEffect, User)
-
-    User:inform("Du fühlst wie dein Körper schwächer wird.",
-                "You feel your body becoming weaker.")
-    local _, quality = theEffect:findValue("quality")
-    causeDamage(User, quality)
+    if User:getQuestProgress(300) == 0 then
+        User:inform("Du fühlst wie dein Körper schwächer wird.",
+                    "You feel your body becoming weaker.")
+        local _, quality = theEffect:findValue("quality")
+        causeDamage(User, quality)
+    end
 end
 
 function M.callEffect(theEffect, User)
@@ -57,7 +58,9 @@ function M.callEffect(theEffect, User)
         return false
     end
 
-    causeDamage(User, FieldItem.quality)
+    if User:getQuestProgress(300) == 0 then
+        causeDamage(User, FieldItem.quality)
+    end
     -- repeat in 5sec
     theEffect.nextCalled = 50
     return true
@@ -69,8 +72,10 @@ end
 
 function M.removeEffect (theEffect, User)
 
-    User:inform("Du fühlst wie das Gift in deinem Körper nachlässt.",
-                "You feel the poison fade.")
+    if User:getQuestProgress(300) == 0 then
+        User:inform("Du fühlst wie das Gift in deinem Körper nachlässt.",
+                    "You feel the poison fade.")
+    end
 end
 
 return M
