@@ -241,6 +241,22 @@ local function CheckAimingTime(AttackerList,Defender,inRange)
     end
 end
 
+-- This function modifies the gem effect.
+-- E.g. diamond golems cancel the effect of gems within a certain radius
+-- @param attackerList List containing Attacker and weapon
+-- @param effectStrength integer strength of the unmodified gem effect
+-- @return integer value after possible modifications
+local function modifyGemEffect(attackerList, effectStrength)
+    local monstersInRange = world:getMonstersInRangeOf(attackerList["Char"].pos, 5)
+    for _, currentMonster in pairs(monstersInRange) do
+        if currentMonster:getMonsterType() == 306 then
+            attackerList["Char"]:inform("reduce")
+            return 0
+        end
+    end
+    return effectStrength
+end
+
 --- Main Attack function. This function is called by the server to start an
 -- attack.
 -- @param Attacker The character who attacks
@@ -467,6 +483,7 @@ function ArmourAbsorption(Attacker, Defender, Globals)
     end
 
     local GemBonus = gems.getGemBonus(Globals.HittedItem)
+    GemBonus = modifyGemEffect(Attacker, GemBonus)
     armourValue = armourValue + armourValue * GemBonus / 100
 
     --Race armour for monsters
@@ -614,7 +631,8 @@ function CalculateDamage(Attacker, Globals)
     SkillBonus = (Attacker.skill - 20) * 1.5
 
     local GemBonus = gems.getGemBonus(Attacker.WeaponItem)
-
+    GemBonus = modifyGemEffect(Attacker, GemBonus)
+    
     --Quality Bonus: Multiplies final value by 0.93-1.09
     QualityBonus = 0.91+0.02*math.floor(Attacker.WeaponItem.quality/100)
 

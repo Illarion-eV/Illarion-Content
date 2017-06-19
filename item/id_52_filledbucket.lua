@@ -336,7 +336,7 @@ local function isTreePlantableHere(seed)
 
     -- Some areas don't allow planting
     for _, areaName in pairs(noTreePlantingAreas) do
-        if areas.PointInArea(seed.pos) then
+        if areas.PointInArea(seed.pos, areaName) then
             return false, "In diesem Gebiet ist der Boden nicht geeignet, um Bäume zu pflanzen.", "In this area, the ground is not suitable for planting trees."
         end
     end
