@@ -21,13 +21,11 @@ local golems = require("monster.race_30_golem.base")
 local M = golems.generateCallbacks()
 
 local orgEnemyOnSight = M.enemyOnSight
-function M.enemyNear(monster, enemy)
+function M.enemyOnSight(monster, enemy)
     if orgEnemyOnSight ~= nil then
         orgEnemyOnSight(monster, enemy)
     end
-    enemy:inform("1")
     if not monster.effects:find(19) then
-        enemy:inform("2")
         monster.effects:addEffect(LongTimeEffect(19,2))
     end
     
