@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 
 local M = {}
-local playerLastSeen = {}
+local playerLastSeen
 
 function M.addEffect(Effect, User)
 
@@ -26,15 +26,15 @@ end
 
 function M.callEffect(Effect, User)
 
-    if playerLastSeen[User.id] and world:getTime("unix") - playerLastSeen[User.id] > 300 then
+    if playerLastSeen and world:getTime("unix") - playerLastSeen[User.id] > 300 then
         return false
     end
     
     local playersInRange = world:getPlayersInRangeOf(User.pos, 5)
     if #playersInRange > 0 then
         common.CreateCircle(User.pos, 5, function(thePosition) world:gfx(1, thePosition) end)
+        playerLastSeen = world:getTime("unix")
     end
-    playerLastSeen[User.id] = world:getTime("unix")
     
     return true
 end
