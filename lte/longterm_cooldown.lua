@@ -49,6 +49,16 @@ local function cooldownQuest(Character,QuestID) -- cool down quest ID by 1 every
     end
 end
 
+local function cooldownQuestNoGM(Character,QuestID,endTextDe,endTextEn) -- cool down quest ID by 1 every 5 minutes
+    theQuestStatus=Character:getQuestProgress(QuestID)
+    if theQuestStatus > 0 and Character:isAdmin() ~= true then --cool down ends at 0, GM's don't cool down
+        Character:setQuestProgress(QuestID,theQuestStatus-1) --cooling 5 minutes!
+        if theQuestStatus == 1 and common.IsNilOrEmpty(endTextDe) == false and  common.IsNilOrEmpty(endTextEn) == false then
+            common.InformNLS(Character,endTextDe,endTextEn)
+        end
+    end
+end
+
 function M.addEffect( Effect, Character)
     -- it is needed to add at least value to make sure the effect does not get deleted right after
     -- the first call
@@ -574,11 +584,17 @@ function M.callEffect( Effect, Char ) -- Effect is called
     if theQuestStatus == 1 then --Time over!
         Char:setQuestProgress(602,0)
     end
-
+    
     if theQuestStatus > 0 then --Is there a countdown? Will be reduced even if the player is AFK/idle
         Char:setQuestProgress(608,theQuestStatus-1) --counting down!
     end
     --Addition end
+
+    --Addition by Banduk: Quest 36,298,299,300 - GM capability for all
+    cooldownQuestNoGM(Char,36,"[Info] Die Monster erheben wieder ihre Waffen gegen dich.","[Info] The monsters raise their weapons against you again.")
+    cooldownQuestNoGM(Char,298,"[Info] Flammen werden dir wieder etwas anhaben.","[Info] Flames will hurt you again.")
+    cooldownQuestNoGM(Char,299,"[Info] Eisflammen werden dir wieder etwas anhaben.","[Info] Ice flames will hurt you again.")
+    cooldownQuestNoGM(Char,300,"[Info] Giftwolken werden dir wieder etwas anhaben.","[Info] Poison clouds will hurt you again.")
     
     --Rule compliance detection
     if not storedMessage then storedMessage={} end

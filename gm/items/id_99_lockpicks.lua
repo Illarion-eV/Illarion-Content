@@ -19,6 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE common SET com_script='gm.items.id_99_lockpicks' WHERE com_itemid=99;
 local lookat = require("base.lookat")
 local common = require("base.common")
+local globalvar = require("base.globalvar")
 local factions = require("base.factions")
 local monsterHooks = require("monster.base.hooks")
 
@@ -32,7 +33,7 @@ itemPos[0] = "Backpack"
 local SubLocation={"Cadomyr","Galmair","Runewick","Wilderness","Dungeons"}
 local Location={}
 Location[1]={"Player","","X","Y","Z"}
-Location[2]={"GM Castle","",250,100,0}
+Location[2]={"GM Castle","",254,105,0}
 Location[3]={"Hemp Necktie Inn","",690,320,0}
 Location[4]={"Cadomyr Palace of Her Majesty","Cadomyr",122,521,0}
 Location[5]={"Cadomyr Market","Cadomyr",130,600,0}
@@ -177,7 +178,7 @@ local function questEvents(User, SourceItem, ltstate)
 
 end
 
-local function flameThrower(user)
+local function ambientActionFlameThrower(user,targetChar)
     local cbInputDialog = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -211,9 +212,9 @@ local function flameThrower(user)
                 end
             end
             
-            event(user.pos)
+            event(targetChar.pos)
             for i = 1, radius do
-                common.CreateCircle(user.pos, i, event)
+                common.CreateCircle(targetChar.pos, i, event)
             end
             
         else
@@ -225,7 +226,7 @@ local function flameThrower(user)
     user:requestInputDialog(InputDialog("Spawn a filled cirecle of flames", "Usage enter: flameId radius wear  -- Flame id can be 359 (fire) or 360 (ice). Radius is capped at 10." ,false, 255, cbInputDialog))
 end
 
-local function flameRemover(user)
+local function ambientActionFlameRemover(user,targetChar)
     local cbInputDialog = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -257,9 +258,9 @@ local function flameRemover(user)
                 end
             end
             
-            event(user.pos)
+            event(targetChar.pos)
             for i = 1, radius do
-                common.CreateCircle(user.pos, i, event)
+                common.CreateCircle(targetChar.pos, i, event)
             end
             
         else
@@ -271,69 +272,29 @@ local function flameRemover(user)
     user:requestInputDialog(InputDialog("Remove flames around you", "Usage enter: flameId radius  -- Flame id can be 359 (fire) or 360 (ice). Radius is capped at 10." ,false, 255, cbInputDialog))
 end
 
-local eraser
-local teleporter
-local factionInfoOfCharsInRadius
-local charInfo
-local changeSkills
-local getSetQueststatus
-local godMode
-local setMC
-local changeMagicClass
-local actionWithChar
-
-function M.UseItem(User, SourceItem, ltstate)
-
-    --if injured, heal!
-    if User:increaseAttrib("hitpoints",0) < 10000 or User:increaseAttrib("mana",0) < 10000 then
-        User:increaseAttrib("hitpoints", 10000)
-        User:increaseAttrib("mana", 10000)
-        User:increaseAttrib("foodlevel", 100000)
-    end
-
-    -- First check for mode change
-    local modes = {"Eraser", "Teleport", "Faction info of chars in radius", "Char Info", "Change skills", "Get/ Set Queststatus", "Instant kill/ revive", "Quest events", "Set MC", "Create flames", "Remove flames", "Get/ Set Magic Class", "Miscellaneous actions at char"}
-    local cbSetMode = function (dialog)
-        if (not dialog:getSuccess()) then
-            return
-        end
-        local index = dialog:getSelectedIndex() + 1
-        if index == 1 then
-            eraser(User, SourceItem, ltstate)
-        elseif index == 2 then
-            teleporter(User, SourceItem, ltstate)
-        elseif index == 3 then
-            factionInfoOfCharsInRadius(User, SourceItem, ltstate)
-        elseif index == 4 then
-            charInfo(User, SourceItem,ltstate)
-        elseif index == 5 then
-            changeSkills(User, SourceItem, ltstate)
-        elseif index == 6 then
-            getSetQueststatus(User, SourceItem, ltstate)
-        elseif index == 7 then
-            godMode(User, SourceItem, ltstate)
-        elseif index == 8 then
-            questEvents(User, SourceItem, ltstate)
-        elseif index == 9 then
-            setMC(User, SourceItem, ltstate)
-        elseif index == 10 then
-            flameThrower(User)
-        elseif index == 11 then
-            flameRemover(User)
-        elseif index == 12 then
-            changeMagicClass(User, SourceItem, ltstate)
-        elseif index == 13 then
-            actionWithChar(User, SourceItem, ltstate)
-        end
-    end
-    local sd = SelectionDialog("Pick a function of the lockpicks.", "Which do you want to use?", cbSetMode)
-    for _, m in ipairs(modes) do
-        sd:addOption(0, m)
-    end
-    User:requestSelectionDialog(sd)
+function ambientActionFireBreath(User,targetChar)
+    local gmSpell = require("monster.base.spells.firecone"){probability = 1,  damage = {from = 1250, to = 1500}, range = 6, angularAperture = 30, itemProbability = 0.1, quality = {from = 0, to = 1}, movepoints = 0}
+    gmSpell.cast(User,targetChar)
 end
 
-function eraser(User, SourceItem, ltstate)
+function ambientActionIceBreath(User,targetChar)
+    local gmSpell = require("monster.base.spells.icecone"){probability = 1,  damage = {from = 1250, to = 1500}, range = 6, angularAperture = 30, itemProbability = 0.1, quality = {from = 0, to = 1}, movepoints = 0}
+    gmSpell.cast(User,targetChar)
+end
+
+function ambientActionFireRing(targetChar)
+    local gmSpell = require("monster.base.spells.firering"){probability = 1, damage = {from = 2200, to = 2700}, range  = 6,
+    itemProbability = 0.15, quality = {from = 4, to = 5}, movepoints = 0}
+    gmSpell.cast(targetChar,targetChar)
+end
+
+function ambientActionIceRing(targetChar)
+    local gmSpell = require("monster.base.spells.icering"){probability = 1, damage = {from = 2200, to = 2700}, range  = 6,
+    itemProbability = 0.15, quality = {from = 4, to = 5}, movepoints = 0}
+    gmSpell.cast(targetChar,targetChar)
+end
+
+local function eraser(User)
 
     --get all the items the char has on him, with the stuff in the backpack
     local itemsOnChar = {}
@@ -379,7 +340,7 @@ function eraser(User, SourceItem, ltstate)
     User:requestSelectionDialog(sdItems)
 end
 
-function teleporter(User, SourceItem, ltstate)
+local function teleporter(User)
     local validTarget = {}
 
     local cbChooseLocation = function (dialog)
@@ -448,7 +409,7 @@ function teleporter(User, SourceItem, ltstate)
     User:requestSelectionDialog(sdTeleport)
 end
 
-function factionInfoOfCharsInRadius(User, SourceItem, ltstate)
+function factionInfoOfCharsInRadius(User)
 
     local players = world:getPlayersInRangeOf(User.pos, 40)
     local infos = ""
@@ -466,46 +427,24 @@ function factionInfoOfCharsInRadius(User, SourceItem, ltstate)
     User:requestMessageDialog(mDialog)
 end
 
-function charInfo(User, SourceItem, ltstate)
-
-    local playersTmp = world:getPlayersInRangeOf(User.pos, 25)
-    local players = {User}
-    for _, player in pairs(playersTmp) do
-        if (player.id ~= User.id) then
-            table.insert(players, player)
-        end
+local function charInfo(chosenPlayer)
+    local output = ""
+    local faction = factions.getFaction(chosenPlayer)
+    local factionInfo = "Town: " .. factions.getMembershipByName(chosenPlayer)
+    factionInfo = factionInfo .. "\nChanged towns already: " .. faction.towncnt
+    if (factions.townRanks[faction.tid] ~= nil and factions.townRanks[faction.tid][faction.rankTown] ~= nil) then
+        local germanRank, englishRank = factions.getRank(chosenPlayer, true)
+        factionInfo = factionInfo .. "\nRank: " .. englishRank .. "/" .. germanRank
+    else
+        factionInfo = factionInfo .. "\nRank: no rank " .. faction.rankTown
     end
-
-    local cbChoosePlayer = function (dialog)
-        if (not dialog:getSuccess()) then
-            return
-        end
-        local chosenPlayer = players[dialog:getSelectedIndex() + 1]
-        local faction = factions.getFaction(chosenPlayer)
-        local factionInfo = "Town: " .. factions.getMembershipByName(chosenPlayer)
-        factionInfo = factionInfo .. "\nChanged towns already (town count): " .. faction.towncnt
-        if (factions.townRanks[faction.tid] ~= nil and factions.townRanks[faction.tid][faction.rankTown] ~= nil) then
-            local germanRank, englishRank = factions.getRank(chosenPlayer, true)
-            factionInfo = factionInfo .. "\nRank: " .. englishRank .. "/" .. germanRank
-        else
-            factionInfo = factionInfo .. "\nRank: no rank " .. faction.rankTown
-        end
-        factionInfo = factionInfo .. "\nExact rankpoints: " .. faction.rankpoints
-        local mDialog = MessageDialog("Character Info for "..chosenPlayer.name, "HP: "..chosenPlayer:increaseAttrib("hitpoints", 0).." MP: "..chosenPlayer:increaseAttrib("mana", 0)..
-                        "\nSTR: "..chosenPlayer:increaseAttrib("strength", 0).." CON: "..chosenPlayer:increaseAttrib("constitution", 0).." DEX: "..chosenPlayer:increaseAttrib("dexterity", 0).." AGI: "..chosenPlayer:increaseAttrib("agility", 0)..
-                        "\nINT: "..chosenPlayer:increaseAttrib("intelligence", 0).." WIL: "..chosenPlayer:increaseAttrib("willpower", 0).." PERC: "..chosenPlayer:increaseAttrib("perception", 0).." ESS: "..chosenPlayer:increaseAttrib("essence", 0)..
-                        "\nIdle for [s]: "..tostring(chosenPlayer:idleTime()) ..
-                        "\n" .. factionInfo, cbChoosePlayer)
-        User:requestMessageDialog(mDialog)
-    end
-    --Dialog to choose the player
-    local sdPlayer = SelectionDialog("Get the stats of ...", "First choose a character:", cbChoosePlayer)
-    local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
-        for _, player in ipairs(players) do
-        local race = math.min(player:getRace() + 1, #raceNames)
-        sdPlayer:addOption(0, player.name .. " (" .. raceNames[race] .. ") " .. player.id)
-        end
-    User:requestSelectionDialog(sdPlayer)
+    factionInfo = factionInfo .. "\nExact rankpoints: " .. faction.rankpoints
+    output = "HP: "..chosenPlayer:increaseAttrib("hitpoints", 0).." MP: "..chosenPlayer:increaseAttrib("mana", 0).." FL: "..chosenPlayer:increaseAttrib("foodlevel", 0).."\nMC: "..chosenPlayer:getMentalCapacity()..
+            "\nSTR: "..chosenPlayer:increaseAttrib("strength", 0).." CON: "..chosenPlayer:increaseAttrib("constitution", 0).." DEX: "..chosenPlayer:increaseAttrib("dexterity", 0).." AGI: "..chosenPlayer:increaseAttrib("agility", 0)..
+            "\nINT: "..chosenPlayer:increaseAttrib("intelligence", 0).." WIL: "..chosenPlayer:increaseAttrib("willpower", 0).." PERC: "..chosenPlayer:increaseAttrib("perception", 0).." ESS: "..chosenPlayer:increaseAttrib("essence", 0)..
+            "\nIdle for [s]: "..tostring(chosenPlayer:idleTime()) ..
+            "\n" .. factionInfo
+    return output
 end
 
 local function String2Number(str)
@@ -519,109 +458,37 @@ local function String2Number(str)
     return 0, false
 end
 
-function changeSkills(User, SourceItem, ltstate)
-
-    local playersTmp = world:getPlayersInRangeOf(User.pos, 25)
-    local players = {User}
-    for _, player in pairs(playersTmp) do
-        if (player.id ~= User.id) then
-            table.insert(players, player)
-        end
-    end
-
-    local cbChoosePlayer = function (dialog)
+function settingsForCharSkills(User, chosenPlayer)
+    local skillDialog = function (dialog)
         if (not dialog:getSuccess()) then
             return
         end
-        local chosenPlayer = players[dialog:getSelectedIndex() + 1]
-        local skillDialog = function (dialog)
-            if (not dialog:getSuccess()) then
-                return
-            end
-            local chosenSkill = skillNames[dialog:getSelectedIndex() + 1]
-            local changeDialog = function (dialog)
-                if (not dialog:getSuccess()) then
-                    return
-                end
-                local skillValue, okay = String2Number(dialog:getInput())
-                if (not okay) then
-                    User:inform("no number")
-                    return
-                end
-                if (skillValue < 0 or skillValue > 100) then
-                    User:inform("Value has to be between 0 and 100.")
-                    return
-                end
-                local delta = skillValue - chosenPlayer:getSkill(chosenSkill)
-                chosenPlayer:increaseSkill(chosenSkill, delta)
-                User:logAdmin("changes skill of character " .. chosenPlayer.name .. ". " .. chosenPlayer:getSkillName(chosenSkill) .. ": " .. chosenPlayer:getSkill(chosenSkill) - delta .. " to " .. chosenPlayer:getSkill(chosenSkill))
-            end
-            local sdChange = InputDialog("Change skill for "..chosenPlayer.name, "Type in the new value for "..User:getSkillName(chosenSkill).."\nCurrent value: " .. chosenPlayer:getSkill(chosenSkill), false, 255, changeDialog)
-            User:requestInputDialog(sdChange)
-        end
-        local sdSkill = SelectionDialog("Select skill", "What skill do you wish to change for "..chosenPlayer.name.."?", skillDialog)
-        for _, skill in ipairs(skillNames) do
-            sdSkill:addOption(0,User:getSkillName(skill).." value: "..chosenPlayer:getSkill(skill))
-        end
-        User:requestSelectionDialog(sdSkill)
-    end
-    --Dialog to choose the player
-    local sdPlayer = SelectionDialog("Change a skill.", "First choose a character:", cbChoosePlayer)
-    local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
-        for _, player in ipairs(players) do
-        local race = math.min(player:getRace() + 1, #raceNames)
-        sdPlayer:addOption(0, player.name .. " (" .. raceNames[race] .. ") " .. player.id)
-        end
-    User:requestSelectionDialog(sdPlayer)
-end
-
-function getSetQueststatus(User, SourceItem, ltstate)
-
-    local playersTmp = world:getPlayersInRangeOf(User.pos, 25)
-    local players = {User}
-    for _, player in pairs(playersTmp) do
-        if (player.id ~= User.id) then
-            table.insert(players, player)
-        end
-    end
-
-    local cbChoosePlayer = function (dialog)
-        if (not dialog:getSuccess()) then
-            return
-        end
-        local chosenPlayer = players[dialog:getSelectedIndex() + 1]
+        local chosenSkill = skillNames[dialog:getSelectedIndex() + 1]
         local changeDialog = function (dialog)
             if (not dialog:getSuccess()) then
                 return
             end
-            local inputString = dialog:getInput()
-            if (string.find(inputString, "(%d+) (%d+)") ~= nil) then
-                local a, b, quest, status = string.find(inputString, "(%d+) (%d+)")
-                local quest = tonumber(quest)
-                local status = tonumber(status)
-                chosenPlayer:setQuestProgress(quest, status)
-                User:inform("Quest " .. quest .. " has been set to " .. status .. "!")
-                User:logAdmin("changes queststatus of character " .. chosenPlayer.name .. ". Quest ID " .. quest .. " set to value " .. status)
-            elseif (string.find(inputString, "(%d+)") ~= nil) then
-                local a, b, quest = string.find(inputString, "(%d+)")
-                local quest = tonumber(quest)
-                User:inform("Quest " .. quest .. " has the status " .. chosenPlayer:getQuestProgress(quest) .. ".")
-            else
-                User:inform("Sorry, I didn't understand you.")
-                User:requestInputDialog(InputDialog("Get/ Set Queststatus for "..chosenPlayer.name, "Usage: To get the value type in the questnumber.\n To set the value type in questnumber and the new status.", false, 255, changeDialog))
+            local skillValue, okay = String2Number(dialog:getInput())
+            if (not okay) then
+                User:inform("no number")
+                return
             end
+            if (skillValue < 0 or skillValue > 100) then
+                User:inform("Value has to be between 0 and 100.")
+                return
+            end
+            local delta = skillValue - chosenPlayer:getSkill(chosenSkill)
+            chosenPlayer:increaseSkill(chosenSkill, delta)
+            User:logAdmin("changes skill of character " .. chosenPlayer.name .. ". " .. chosenPlayer:getSkillName(chosenSkill) .. ": " .. chosenPlayer:getSkill(chosenSkill) - delta .. " to " .. chosenPlayer:getSkill(chosenSkill))
         end
-        local sdChange = InputDialog("Get/ Set Queststatus for "..chosenPlayer.name, "Usage: To get the value type in the questnumber.\n To set the value type in questnumber and the new status.", false, 255, changeDialog)
+        local sdChange = InputDialog("Change skill for "..chosenPlayer.name, "Type in the new value for "..User:getSkillName(chosenSkill).."\nCurrent value: " .. chosenPlayer:getSkill(chosenSkill), false, 255, changeDialog)
         User:requestInputDialog(sdChange)
     end
-    --Dialog to choose the player
-    local sdPlayer = SelectionDialog("Get/ Set Queststatus", "First choose a character:", cbChoosePlayer)
-    local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
-        for _, player in ipairs(players) do
-        local race = math.min(player:getRace() + 1, #raceNames)
-        sdPlayer:addOption(0, player.name .. " (" .. raceNames[race] .. ") " .. player.id)
-        end
-    User:requestSelectionDialog(sdPlayer)
+    local sdSkill = SelectionDialog("Select skill", "What skill do you wish to change for "..chosenPlayer.name.."?", skillDialog)
+    for _, skill in ipairs(skillNames) do
+        sdSkill:addOption(0,User:getSkillName(skill).." value: "..chosenPlayer:getSkill(skill))
+    end
+    User:requestSelectionDialog(sdSkill)
 end
 
 function godMode(User, SourceItem, ltstate)
@@ -672,19 +539,91 @@ function godMode(User, SourceItem, ltstate)
     local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
     sdPlayer:addOption(0, "Kill all Monster in a 3 tile radius")
         for _, player in ipairs(players) do
-        local race = math.min(player:getRace() + 1, #raceNames)
-        sdPlayer:addOption(0, player.name .. " (" .. raceNames[race] .. ") " .. player.id)
+            local race = math.min(player:getRace() + 1, #raceNames)
+            sdPlayer:addOption(0, player.name .. " (" .. raceNames[race] .. ") " .. player.id)
         end
     User:requestSelectionDialog(sdPlayer)
 end
 
-function M.LookAtItem(User, Item)
-    lookat.SetSpecialDescription(Item, "Verwende die Dietriche zum Aufrufen der Funktionen.", "Use the lockpicks to pick a function.")
-    lookat.SetSpecialName(Item, "Dietriche", "Lockpicks")
-    return lookat.GenerateLookAt(User, Item, lookat.METAL)
+local function actionOnCharDivineFeed(User, targetChar)
+-- Full Mana and food, + 10% health, fairy shower
+    targetChar:increaseAttrib("mana", 10000)
+    targetChar:increaseAttrib("foodlevel", 100000)
+    targetChar:increaseAttrib("hitpoints", 1000)
+    world:gfx(globalvar.gfxSCOTTY,targetChar.pos)
+    common.InformNLS(targetChar, "Du fühlst dich frisch und satt.", "You feel fresh and well-feed.")
+    User:logAdmin("Performed DivineFeed on " ..  targetChar.name)
 end
 
-function setMC(User, SourceItem, ltstate)
+local function actionOnCharDivineNotice(User, targetChar)
+-- lightspot, wind
+    world:gfx(globalvar.gfxSUN,targetChar.pos)
+    world:makeSound(globalvar.sfxWIND2,targetChar.pos)
+    common.InformNLS(targetChar, "Ein sanfter Wind umspielt deinen Kopf. Du fühlst dich gut.", "A soft wind touches your head. You feel good.")
+    User:logAdmin("Performed DivineNotice on " ..  targetChar.name)
+end
+
+local function actionOnCharDivineFury(User, targetChar)
+-- Take 25% Mana and food, - 10% health, lightning, thunder
+    targetChar:increaseAttrib("mana", -2500)
+    targetChar:increaseAttrib("foodlevel", -25000)
+    targetChar:increaseAttrib("hitpoints", -1000)
+    world:gfx(globalvar.gfxBLITZ,targetChar.pos)
+    world:makeSound(globalvar.sfxTHUNDER,targetChar.pos)
+    common.InformNLS(targetChar, "Bilder zorniger Götter laufen vor deinen Augen ab.", "Visions of angry Gods fill your head.")
+    User:logAdmin("Performed DivineFury on " ..  targetChar.name)
+end
+
+local function settingsForCharQueststatus(User, chosenPlayer)
+    local changeDialog = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local inputString = dialog:getInput()
+        if (string.find(inputString, "(%d+) (%d+)") ~= nil) then
+            local a, b, quest, status = string.find(inputString, "(%d+) (%d+)")
+            local quest = tonumber(quest)
+            local status = tonumber(status)
+            chosenPlayer:setQuestProgress(quest, status)
+            User:inform("Quest " .. quest .. " has been set to " .. status .. "!")
+            User:logAdmin("changes queststatus of character " .. chosenPlayer.name .. ". Quest ID " .. quest .. " set to value " .. status)
+        elseif (string.find(inputString, "(%d+)") ~= nil) then
+            local a, b, quest = string.find(inputString, "(%d+)")
+            local quest = tonumber(quest)
+            User:inform("Quest " .. quest .. " has the status " .. chosenPlayer:getQuestProgress(quest) .. ".")
+        else
+            User:inform("Sorry, I didn't understand you.")
+            User:requestInputDialog(InputDialog("Get/ Set Queststatus for "..chosenPlayer.name, "Usage: To get the value type in the questnumber.\n To set the value type in questnumber and the new status.", false, 255, changeDialog))
+        end
+    end
+    local sdChange = InputDialog("Get/ Set Queststatus for "..chosenPlayer.name, "Usage: To get the value type in the questnumber.\n To set the value type in questnumber and the new status.", false, 255, changeDialog)
+    User:requestInputDialog(sdChange)
+end
+
+local function settingsForCharMagicClass(User, chosenPlayer)
+    local magicClassDialog = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local targetClass = dialog:getSelectedIndex()
+        if targetClass ~= chosenPlayer:getMagicType() then
+            User:logAdmin("Change magic class of character " .. chosenPlayer.name .. " from " .. classNames[chosenPlayer:getMagicType()].. " to " .. classNames[targetClass])
+            chosenPlayer:setMagicType(targetClass)
+            common.InformNLS(chosenPlayer, "[GM Info] Die magische Klasse wurde auf " .. classNames[targetClass] .. "geändert", "[GM Info] The magic class has been changed to" .. classNames[targetClass].. ".")
+        end
+    end
+    local sdClass = SelectionDialog("Select action", "What magic class should be set for "..chosenPlayer.name.."?", magicClassDialog)
+    for i=0, #classNames do
+        if chosenPlayer:getMagicType() == i then
+            sdClass:addOption(0," Is: "..classNames[i])
+        else
+            sdClass:addOption(0," Change to: "..classNames[i])
+        end
+    end
+    User:requestSelectionDialog(sdClass)
+end
+
+local function settingsForCharMC(User, targetChar)
 
     local setMCInputDialog = function (dialog)
     
@@ -695,74 +634,76 @@ function setMC(User, SourceItem, ltstate)
         local input = dialog:getInput()
         
         if input == "" or not input then
-            User:inform("Invalid input.")
+            User:inform("MC of char " .. targetChar.name .. ": " .. targetChar:getMentalCapacity())
             return
         end
         
         input = math.ceil(tonumber(input))
         
         if input < 1 or input > 100000000 then
-            User:inform("Invalid input.")
+            User:inform("Invalid input. Value not in range 1-100000000")
             return
         end
         
-        User:increaseMentalCapacity(input - User:getMentalCapacity())
+        targetChar:increaseMentalCapacity(input - targetChar:getMentalCapacity())
         User:inform("New MC: "..User:getMentalCapacity())
+        User:logAdmin("Set MC for " ..  targetChar.name .. " to " .. tostring(input))
         
     end
     
-    User:requestInputDialog(InputDialog("Set MC", "Enter desired MC value (1-100000000)." ,false, 255, setMCInputDialog))
+    User:requestInputDialog(InputDialog("Get / Set MC", "Set desired MC value (1-100000000).\nEmpty for get the current value." ,false, 255, setMCInputDialog))
 
 end
 
-function changeMagicClass(User, SourceItem, ltstate)
-
-    local playersTmp = world:getPlayersInRangeOf(User.pos, 25)
-    local players = {User}
-    for _, player in pairs(playersTmp) do
-        if (player.id ~= User.id) then
-            table.insert(players, player)
-        end
+local function settingsForCharAttacable(User, chosenPlayer)
+    if chosenPlayer:getQuestProgress(36) == 0 then
+        chosenPlayer:setQuestProgress(36,3)
+        User:logAdmin("Make character " .. chosenPlayer.name .. " unable to be attacked for 15 min.")
+        common.InformNLS(chosenPlayer, "[GM Info] Dein Char wird für ca. 15 Minuten nicht von NPC angegriffen.", "[GM Info] Your character is unable to be attacked by NPC for about 15 min.")
+    else
+        chosenPlayer:setQuestProgress(36,0)
+        User:logAdmin("Make character " .. chosenPlayer.name .. " able to be attacked.")
+        common.InformNLS(chosenPlayer, "[GM Info] Dein Char wird wieder von NPC angegriffen.", "[GM Info] Your character can be attacked by NPC again.")
     end
-
-    local cbChoosePlayer = function (dialog)
-        if (not dialog:getSuccess()) then
-            return
-        end
-        local chosenPlayer = players[dialog:getSelectedIndex() + 1]
-        local magicClassDialog = function (dialog)
-            if (not dialog:getSuccess()) then
-                return
-            end
-            local targetClass = dialog:getSelectedIndex()
-            if targetClass ~= chosenPlayer:getMagicType() then
-                User:logAdmin("Change magic class of character " .. chosenPlayer.name .. " from " .. classNames[chosenPlayer:getMagicType()].. " to " .. classNames[targetClass])
-                chosenPlayer:setMagicType(targetClass)
-                chosenPlayer:inform("GM changed magic class to " .. classNames[targetClass])
-            end
-        end
-        local sdClass = SelectionDialog("Select action", "What magic class should be set for "..chosenPlayer.name.."?", magicClassDialog)
-        for i=0, #classNames do
-            if chosenPlayer:getMagicType() == i then
-                sdClass:addOption(0," Is: "..classNames[i])
-            else
-                sdClass:addOption(0," Change to: "..classNames[i])
-            end
-        end
-        User:requestSelectionDialog(sdClass)
-    end
-    --Dialog to choose the player
-    local sdPlayer = SelectionDialog("Change the magic class.", "First choose a character:", cbChoosePlayer)
-    local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
-        for _, player in ipairs(players) do
-        local race = math.min(player:getRace() + 1, #raceNames)
-        sdPlayer:addOption(0, player.name .. " (" .. raceNames[race] .. ") " .. player.id)
-        end
-    User:requestSelectionDialog(sdPlayer)
 end
 
+local function settingsForCharFireProof(User, chosenPlayer)
+    if chosenPlayer:getQuestProgress(298) == 0 then
+        chosenPlayer:setQuestProgress(298,3)
+        User:logAdmin("Make character " .. chosenPlayer.name .. " fireproof for 15 min.")
+        common.InformNLS(chosenPlayer, "[GM Info] Dein Char wird für ca. 15 Minuten gegen magische Flammen resistent sein.", "[GM Info] Your character is proof against magic flames for about 15 min.")
+    else
+        chosenPlayer:setQuestProgress(298,0)
+        User:logAdmin("Remove fireproof for character " .. chosenPlayer.name .. " .")
+        common.InformNLS(chosenPlayer, "[GM Info] Die Resistenz gegen magische Flammen ist beendet.", "[GM Info] Your character's proof against magic flames is over.")
+    end
+end
 
-function actionWithChar(User, SourceItem, ltstate)
+local function settingsForCharIceFlameProof(User, chosenPlayer)
+    if chosenPlayer:getQuestProgress(299) == 0 then
+        chosenPlayer:setQuestProgress(299,3)
+        User:logAdmin("Make character " .. chosenPlayer.name .. " ice flame proof for 15 min.")
+        common.InformNLS(chosenPlayer, "[GM Info] Dein Char wird für ca. 15 Minuten gegen Eisflammen resistent sein.", "[GM Info] Your character is proof against ice flames for about 15 min.")
+    else
+        chosenPlayer:setQuestProgress(299,0)
+        User:logAdmin("Remove ice flame proof for character " .. chosenPlayer.name .. " .")
+        common.InformNLS(chosenPlayer, "[GM Info] Die Resistenz gegen Eisflammen ist beendet.", "[GM Info] Your character's proof against ice flames is over.")
+    end
+end
+
+local function settingsForCharPoisonCloudProof(User, chosenPlayer)
+    if chosenPlayer:getQuestProgress(300) == 0 then
+        chosenPlayer:setQuestProgress(300,3)
+        User:logAdmin("Make character " .. chosenPlayer.name .. " proof against poison clouds for 15 min.")
+        common.InformNLS(chosenPlayer, "[GM Info] Dein Char wird für ca. 15 Minuten gegen Giftwolken resistent sein.", "[GM Info] Your character is proof against poison clouds for about 15 min.")
+    else
+        chosenPlayer:setQuestProgress(300,0)
+        User:logAdmin("Remove proof against poison clouds for character " .. chosenPlayer.name .. " .")
+        common.InformNLS(chosenPlayer, "[GM Info] Die Resistenz gegen Giftwolken ist beendet.", "[GM Info] Your character's proof against poison clouds is over.")
+    end
+end
+
+local function ambientAction(User)
 
     local playersTmp = world:getPlayersInRangeOf(User.pos, 25)
     local players = {User}
@@ -783,40 +724,221 @@ function actionWithChar(User, SourceItem, ltstate)
             end
             local actionToPerform = dialog:getSelectedIndex()
             if actionToPerform == 0 then
-                if chosenPlayer:getQuestProgress(36) == 0 then
-                    chosenPlayer:setQuestProgress(36,1)
-                    User:logAdmin("Make character " .. chosenPlayer.name .. " unable to be attacked.")
-                    chosenPlayer:inform("GM makes your character unable to attack.")
-                else
-                    chosenPlayer:setQuestProgress(36,0)
-                    User:logAdmin("Make character " .. chosenPlayer.name .. " able to be attacked.")
-                    chosenPlayer:inform("GM makes your character able to attack.")
-                end
+                ambientActionFlameThrower(User, chosenPlayer)
             elseif actionToPerform == 1 then
-                chosenPlayer:increaseAttrib("foodlevel", 60000)
+                ambientActionFlameRemover(User, chosenPlayer)
             elseif actionToPerform == 2 then
-                chosenPlayer:increaseAttrib("foodlevel", -15000)
+                ambientActionFireBreath(User, chosenPlayer)
+            elseif actionToPerform == 3 then
+                ambientActionIceBreath(User, chosenPlayer)
+            elseif actionToPerform == 4 then
+                ambientActionFireRing(chosenPlayer)
+            elseif actionToPerform == 5 then
+                ambientActionIceRing(chosenPlayer)
             end
         end
-        local sdAction = SelectionDialog("Select action", "What action should be performed for "..chosenPlayer.name.."?", charActionDialog)
-        if chosenPlayer:getQuestProgress(36) == 0 then
-            sdAction:addOption(0," Make unable to attack!")
-        else
-            sdAction:addOption(0," Make able to attack!")
-        end
-        sdAction:addOption(0," Feed!")
-        sdAction:addOption(0," -25% foot points!")
+        local sdAction = SelectionDialog("Select effect", "Effect center is "..chosenPlayer.name.."?", charActionDialog)
+        sdAction:addOption(0,"Create flame area")
+        sdAction:addOption(0,"Extinguish flame area")
+        sdAction:addOption(0,"Dragon fire breath")
+        sdAction:addOption(0,"Dragon ice breath")
+        sdAction:addOption(0,"Fire ring")
+        sdAction:addOption(0,"Ice ring")
        
         User:requestSelectionDialog(sdAction)
     end
     --Dialog to choose the player
     local sdPlayer = SelectionDialog("Change the magic class.", "First choose a character:", cbChoosePlayer)
     local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
+    local meFirst = true
         for _, player in ipairs(players) do
-        local race = math.min(player:getRace() + 1, #raceNames)
-        sdPlayer:addOption(0, player.name .. " (" .. raceNames[race] .. ") " .. player.id)
+            local race = math.min(player:getRace() + 1, #raceNames)
+            if meFirst then
+                sdPlayer:addOption(0, "Me")
+                meFirst = false
+            else
+                sdPlayer:addOption(0, player.name .. " (" .. raceNames[race] .. ") " .. player.id)
+            end
         end
     User:requestSelectionDialog(sdPlayer)
+end
+
+local function actionOnChar(User)
+
+    local playersTmp = world:getPlayersInRangeOf(User.pos, 25)
+    local players = {User}
+    for _, player in pairs(playersTmp) do
+        if (player.id ~= User.id) then
+            table.insert(players, player)
+        end
+    end
+
+    local cbChoosePlayer = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local chosenPlayer = players[dialog:getSelectedIndex() + 1]
+        local charActionDialog = function (dialog)
+            if (not dialog:getSuccess()) then
+                return
+            end
+            local actionToPerform = dialog:getSelectedIndex()
+            if actionToPerform == 0 then
+                actionOnCharDivineNotice(User, chosenPlayer)
+            elseif actionToPerform == 1 then
+                actionOnCharDivineFeed(User, chosenPlayer)
+            elseif actionToPerform == 2 then
+                actionOnCharDivineFury(User, chosenPlayer)
+            end
+        end
+        local sdAction = SelectionDialog("Select action", "What action should be performed for "..chosenPlayer.name.."?", charActionDialog)
+        sdAction:addOption(400,"Divine notice!")
+        sdAction:addOption(2278,"Divine feed and mana!")
+        sdAction:addOption(2627,"Divine fury")
+       
+        User:requestSelectionDialog(sdAction)
+    end
+    --Dialog to choose the player
+    local sdPlayer = SelectionDialog("Change the magic class.", "First choose a character:", cbChoosePlayer)
+    local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
+    local meFirst = true
+        for _, player in ipairs(players) do
+            local race = math.min(player:getRace() + 1, #raceNames)
+            if meFirst then
+                sdPlayer:addOption(0, "Me")
+                meFirst = false
+            else
+                sdPlayer:addOption(0, player.name .. " (" .. raceNames[race] .. ") " .. player.id)
+            end
+        end
+    User:requestSelectionDialog(sdPlayer)
+end
+
+local function settingsForChar(User)
+
+    local playersTmp = world:getPlayersInRangeOf(User.pos, 25)
+    local players = {User}
+    for _, player in pairs(playersTmp) do
+        if (player.id ~= User.id) then
+            table.insert(players, player)
+        end
+    end
+
+    local cbChoosePlayer = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local chosenPlayer = players[dialog:getSelectedIndex() + 1]
+        local charActionDialog = function (dialog)
+            if (not dialog:getSuccess()) then
+                return
+            end
+            local actionToPerform = dialog:getSelectedIndex()
+            if actionToPerform == 0 then
+                settingsForCharQueststatus(User, chosenPlayer)
+            elseif actionToPerform == 1 then
+                settingsForCharAttacable(User, chosenPlayer)
+            elseif actionToPerform == 2 then
+                settingsForCharSkills(User, chosenPlayer)
+            elseif actionToPerform == 3 then
+                settingsForCharMagicClass(User, chosenPlayer)
+            elseif actionToPerform == 4 then
+                settingsForCharMC(User, chosenPlayer)
+            elseif actionToPerform == 5 then
+                settingsForCharFireProof(User, chosenPlayer)
+            elseif actionToPerform == 6 then
+                settingsForCharIceFlameProof(User, chosenPlayer)
+            elseif actionToPerform == 7 then
+                ssettingsForCharPoisonCloudProof(User, chosenPlayer)
+            end
+        end
+        local sdAction = SelectionDialog("Character settings", chosenPlayer.name.."\n" .. charInfo(chosenPlayer), charActionDialog)
+        sdAction:addOption(3109,"Get/set Queststatus")
+        if chosenPlayer:getQuestProgress(36) == 0 then
+            sdAction:addOption(20,"Make 15 min attack proof!")
+        else
+            sdAction:addOption(1,"Make able to be attacked!")
+        end
+        sdAction:addOption(23,"Change skills")
+        sdAction:addOption(2784,"Set magic class")
+        sdAction:addOption(106,"Set MC (mental capacity)")
+        if chosenPlayer:getQuestProgress(298) == 0 then
+            sdAction:addOption(52,"Make 15 min fire proof!")
+        else
+            sdAction:addOption(51,"Remove fire proof!")
+        end
+        if chosenPlayer:getQuestProgress(299) == 0 then
+            sdAction:addOption(193,"Make 15 min ice flame proof!")
+        else
+            sdAction:addOption(180,"Remove ice flame proof!")
+        end
+        if chosenPlayer:getQuestProgress(300) == 0 then
+            sdAction:addOption(167,"Make 15 min poison cloud proof!")
+        else
+            sdAction:addOption(164,"Remove poison cloud proof!")
+        end
+       
+        User:requestSelectionDialog(sdAction)
+    end
+    --Dialog to choose the player
+    local sdPlayer = SelectionDialog("Change the magic class.", "First choose a character:", cbChoosePlayer)
+    local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
+    local meFirst = true
+        for _, player in ipairs(players) do
+            local race = math.min(player:getRace() + 1, #raceNames)
+            if meFirst then
+                sdPlayer:addOption(0, "Me")
+                meFirst = false
+            else
+                sdPlayer:addOption(0, player.name .. " (" .. raceNames[race] .. ") " .. player.id)
+            end
+        end
+    User:requestSelectionDialog(sdPlayer)
+end
+
+function M.UseItem(User, SourceItem, ltstate)
+
+    --if injured, heal!
+    User:increaseAttrib("hitpoints", 10000)
+    User:increaseAttrib("mana", 10000)
+    User:increaseAttrib("foodlevel", 100000)
+
+    -- First check for mode change
+    local modes = {"Eraser", "Teleport", "Instant kill/ revive", "Global events", "Events on single char", "Char Settings", "Faction info of chars in radius", "Quest events"}
+    local cbSetMode = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local index = dialog:getSelectedIndex() + 1
+        if index == 1 then
+            eraser(User)
+        elseif index == 2 then
+            teleporter(User)
+        elseif index == 3 then
+            godMode(User, SourceItem, ltstate)
+        elseif index == 4 then
+            ambientAction(User)
+        elseif index == 5 then
+            actionOnChar(User)
+        elseif index == 6 then
+            settingsForChar(User)
+        elseif index == 7 then
+            questEvents(User, SourceItem, ltstate)
+        elseif index == 8 then
+            factionInfoOfCharsInRadius(User, SourceItem, ltstate)
+        end
+    end
+    local sd = SelectionDialog("Pick a function of the lockpicks.", "Which do you want to use?", cbSetMode)
+    for _, m in ipairs(modes) do
+        sd:addOption(0, m)
+    end
+    User:requestSelectionDialog(sd)
+end
+
+function M.LookAtItem(User, Item)
+    lookat.SetSpecialDescription(Item, "Verwende die Dietriche zum Aufrufen der Funktionen.", "Use the lockpicks to pick a function.")
+    lookat.SetSpecialName(Item, "Dietriche", "Lockpicks")
+    return lookat.GenerateLookAt(User, Item, lookat.METAL)
 end
 
 return M
