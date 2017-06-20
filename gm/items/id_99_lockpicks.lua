@@ -545,6 +545,105 @@ function godMode(User, SourceItem, ltstate)
     User:requestSelectionDialog(sdPlayer)
 end
 
+local function numberIsPercent(inputValue)
+    local outputValue = 0
+    if not common.IsNilOrEmpty(inputValue) then
+        if inputValue == "max" then
+            outputValue = 100 -- below 1% will not filled full
+        elseif tonumber(inputValue) > -100 and tonumber(inputValue) <= 100 then
+            outputValue = tonumber(inputValue)/100
+        end
+    end
+    return outputValue
+end
+
+local function gfxsfxVerification(inputValue)
+    local outputValue = 0
+    if not common.IsNilOrEmpty(inputValue) then
+        outputValue = tonumber(inputValue)
+        if outputValue == nil then
+            outputValue = 0
+        end
+    end
+    return outputValue
+end
+
+local function actionOnCharSingleChar(targetChar, gfxValue, changeHP, changeMP, changeFL,textToPlayer)
+-- Free configurable without sound
+-- Banduk
+    local currentHP = targetChar:increaseAttrib("hitpoints", 0)
+    local currentMP = targetChar:increaseAttrib("mana", 0)
+    local currentFL = targetChar:increaseAttrib("foodlevel", 0)
+    targetChar:increaseAttrib("hitpoints", currentHP*numberIsPercent(changeHP))
+    targetChar:increaseAttrib("mana", currentMP*numberIsPercent(changeMP))
+    targetChar:increaseAttrib("foodlevel", currentFL*numberIsPercent(changeFL))
+    if gfxsfxVerification(gfxValue) ~= 0 then
+        world:gfx(gfxsfxVerification(gfxValue),targetChar.pos)
+    end
+    if not common.IsNilOrEmpty(textToPlayer) then
+        targetChar:inform(textToPlayer)
+    end
+end
+
+local function actionOnCharInput(user,targetChar)
+    local cbInputDialog = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        
+        local inputText = dialog:getInput()
+        if (string.find(inputText,"(%S+),(%S+),(%S+),(%S+),(%S+)") ~= nil) then
+            local _, _, gfxValue, sfxValue, changeHP, changeMP, changeFL, textToPlayer = string.find(inputText,"(%S+),(%S+),(%S+),(%S+),(%S+),([%S ]+)")
+            actionOnCharSingleChar(targetChar, gfxValue, changeHP, changeMP, changeFL, textToPlayer)
+            if gfxsfxVerification(sfxValue) ~= 0 then
+                world:makeSound(gfxsfxVerification(sfxValue),targetChar.pos)
+            end
+            user:logAdmin("Performed a customized sequence on " ..  targetChar.name)
+        else
+            user:inform("Provide proper input, please. '"..inputText.."'")
+        end
+        
+    end
+    
+    user:requestInputDialog(InputDialog("Custom event on char", "Perform a sequence on " .. targetChar.name .."\n Use: gfx,sfx,HP%,MP%,FL%,text\nHP% MP% FL% percentage:\n   -99 .. 100 related to current state \n   'max' fill full" ,false, 255, cbInputDialog))
+end
+
+local function actionOnGroupInput(user,targetChar)
+    local cbInputDialog = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        
+        local inputText = dialog:getInput()
+        if (string.find(inputText,"(%d+),(%S+),(%S+),(%S+),(%S+),(%S+)") ~= nil) then
+            local _, _, rangeInput, gfxValue, sfxValue, changeHP, changeMP, changeFL, textToPlayer = string.find(inputText,"(%d+),(%S+),(%S+),(%S+),(%S+),(%S+),([%S ]+)")
+            local range = tonumber(rangeInput)
+            if range == nil or range < 1 then
+                range = 1
+            elseif range > 20 then
+                range = 20
+            end
+            local playersTmp = world:getPlayersInRangeOf(targetChar.pos, range)
+--            local players = {User}
+            for _, player in pairs(playersTmp) do
+                if (player.id ~= user.id) then
+--                    table.insert(players, player)
+                    actionOnCharSingleChar(player, gfxValue, changeHP, changeMP, changeFL, textToPlayer)
+                end
+            end
+            if gfxsfxVerification(sfxValue) ~= 0 then
+                world:makeSound(gfxsfxVerification(sfxValue),targetChar.pos)
+            end
+            user:logAdmin("Performed a customized sequence on " ..  targetChar.name)
+        else
+            user:inform("Provide proper input, please. '"..inputText.."'")
+        end
+        
+    end
+    
+    user:requestInputDialog(InputDialog("Custom event on char", "Perform a sequence on " .. targetChar.name .."\n Use: range,gfx,sfx,HP%,MP%,FL%,text\nrange is capped at 20\nHP% MP% FL% percentage:\n   -99 .. 100 related to current state \n   'max' fill full" ,false, 255, cbInputDialog))
+end
+
 local function actionOnCharDivineFeed(User, targetChar)
 -- Full Mana and food, + 10% health, fairy shower
     targetChar:increaseAttrib("mana", 10000)
@@ -612,7 +711,7 @@ local function settingsForCharMagicClass(User, chosenPlayer)
             common.InformNLS(chosenPlayer, "[GM Info] Die magische Klasse wurde auf " .. classNames[targetClass] .. "geändert", "[GM Info] The magic class has been changed to" .. classNames[targetClass].. ".")
         end
     end
-    local sdClass = SelectionDialog("Select action", "What magic class should be set for "..chosenPlayer.name.."?", magicClassDialog)
+    local sdClass = SelectionDialog("Change Magic Class", "What magic class should be set for "..chosenPlayer.name.."?", magicClassDialog)
     for i=0, #classNames do
         if chosenPlayer:getMagicType() == i then
             sdClass:addOption(0," Is: "..classNames[i])
@@ -784,14 +883,17 @@ local function actionOnChar(User)
             end
             local actionToPerform = dialog:getSelectedIndex()
             if actionToPerform == 0 then
-                actionOnCharDivineNotice(User, chosenPlayer)
+                actionOnCharInput(User,chosenPlayer)
             elseif actionToPerform == 1 then
-                actionOnCharDivineFeed(User, chosenPlayer)
+                actionOnCharDivineNotice(User, chosenPlayer)
             elseif actionToPerform == 2 then
+                actionOnCharDivineFeed(User, chosenPlayer)
+            elseif actionToPerform == 3 then
                 actionOnCharDivineFury(User, chosenPlayer)
             end
         end
         local sdAction = SelectionDialog("Select action", "What action should be performed for "..chosenPlayer.name.."?", charActionDialog)
+        sdAction:addOption(2745,"Free configurable action")
         sdAction:addOption(400,"Divine notice!")
         sdAction:addOption(2278,"Divine feed and mana!")
         sdAction:addOption(2627,"Divine fury")
@@ -799,7 +901,52 @@ local function actionOnChar(User)
         User:requestSelectionDialog(sdAction)
     end
     --Dialog to choose the player
-    local sdPlayer = SelectionDialog("Change the magic class.", "First choose a character:", cbChoosePlayer)
+    local sdPlayer = SelectionDialog("Event on single char.", "First choose a character:", cbChoosePlayer)
+    local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
+    local meFirst = true
+        for _, player in ipairs(players) do
+            local race = math.min(player:getRace() + 1, #raceNames)
+            if meFirst then
+                sdPlayer:addOption(0, "Me")
+                meFirst = false
+            else
+                sdPlayer:addOption(0, player.name .. " (" .. raceNames[race] .. ") " .. player.id)
+            end
+        end
+    User:requestSelectionDialog(sdPlayer)
+end
+
+local function actionOnGroup(User)
+
+    local playersTmp = world:getPlayersInRangeOf(User.pos, 25)
+    local players = {User}
+    for _, player in pairs(playersTmp) do
+        if (player.id ~= User.id) then
+            table.insert(players, player)
+        end
+    end
+
+    local cbChoosePlayer = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local chosenPlayer = players[dialog:getSelectedIndex() + 1]
+        local charActionDialog = function (dialog)
+            if (not dialog:getSuccess()) then
+                return
+            end
+            local actionToPerform = dialog:getSelectedIndex()
+            if actionToPerform == 0 then
+                actionOnGroupInput(User,chosenPlayer)
+            end
+        end
+        local sdAction = SelectionDialog("Select action", "What action should be performed for all player?\nCenter of action at "..chosenPlayer.name.."?", charActionDialog)
+        sdAction:addOption(2745,"Free configurable action")
+       
+        User:requestSelectionDialog(sdAction)
+    end
+    --Dialog to choose the player
+    local sdPlayer = SelectionDialog("Event on group.", "First choose center of event:", cbChoosePlayer)
     local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
     local meFirst = true
         for _, player in ipairs(players) do
@@ -881,7 +1028,7 @@ local function settingsForChar(User)
         User:requestSelectionDialog(sdAction)
     end
     --Dialog to choose the player
-    local sdPlayer = SelectionDialog("Change the magic class.", "First choose a character:", cbChoosePlayer)
+    local sdPlayer = SelectionDialog("Character settings", "First choose a character:", cbChoosePlayer)
     local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
     local meFirst = true
         for _, player in ipairs(players) do
@@ -904,7 +1051,7 @@ function M.UseItem(User, SourceItem, ltstate)
     User:increaseAttrib("foodlevel", 100000)
 
     -- First check for mode change
-    local modes = {"Eraser", "Teleport", "Instant kill/ revive", "Global events", "Events on single char", "Char Settings", "Faction info of chars in radius", "Quest events"}
+    local modes = {"Eraser", "Teleport", "Instant kill/ revive", "Global events", "Events on single char", "Events on groups", "Char Settings", "Faction info of chars in radius", "Quest events"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -921,11 +1068,13 @@ function M.UseItem(User, SourceItem, ltstate)
         elseif index == 5 then
             actionOnChar(User)
         elseif index == 6 then
-            settingsForChar(User)
+            actionOnGroup(User)
         elseif index == 7 then
-            questEvents(User, SourceItem, ltstate)
+            settingsForChar(User)
         elseif index == 8 then
             factionInfoOfCharsInRadius(User, SourceItem, ltstate)
+        elseif index == 9 then
+            questEvents(User, SourceItem, ltstate)
         end
     end
     local sd = SelectionDialog("Pick a function of the lockpicks.", "Which do you want to use?", cbSetMode)
