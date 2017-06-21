@@ -184,7 +184,7 @@ local function TaskToLearn(User)
 
 end
 
-local function AlchemyRecipe(User, SourceItem,ltstate,checkVar)
+function AlchemyRecipe(User, SourceItem,ltstate,checkVar)
 
 
     if alchemy.GetCauldronInfront(User) then
