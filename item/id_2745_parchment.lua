@@ -32,7 +32,7 @@ local M = {}
 -- it is important for alchemy
 -- you can just ignore it
 
-local function bookListLookAt(User, Item)
+local function bookListLookAt(User)
     local itemLookat = lookat.GenerateLookAt(User, Item, lookat.NONE)
     itemLookat.name = common.GetNLS(User, "Liste der magischen Bücher", "Magic Book List")
     itemLookat.description = common.GetNLS(User,
@@ -473,8 +473,7 @@ function M.LookAtItem(User, Item)
 
     if Item:getData("bookList") == "true" then
        itemLookat = bookListLookAt(User, Item)
-    end
-    if itemLookat then
+    elseif itemLookat then
         return itemLookat --Send the custom lookAt
     else
         return lookat.GenerateLookAt(User, Item)
