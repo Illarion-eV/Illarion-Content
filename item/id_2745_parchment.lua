@@ -73,7 +73,7 @@ local function getText(User,deText,enText)
 end
 
 
-function LearnLenniersDream(User)
+local function LearnLenniersDream(User)
 
     local anAlchemist = alchemy.CheckIfAlchemist(User)
     if not anAlchemist then
@@ -95,7 +95,7 @@ function LearnLenniersDream(User)
     TaskToLearn(User)
 end
 
-function TeachLenniersDream(User)
+local function TeachLenniersDream(User)
 
 
     local callback = function(dialog)
@@ -149,7 +149,7 @@ function M.GetStockFromQueststatus(User)
     return alchemy.SplitData(User,User:getQuestProgress(860))
 end
 
-function GenerateStockDescription(User)
+local function GenerateStockDescription(User)
 
     local stockList = M.GetStockFromQueststatus(User)
     local de = ""
@@ -165,7 +165,7 @@ function GenerateStockDescription(User)
     return de, en
 end
 
-function TaskToLearn(User)
+local function TaskToLearn(User)
 
     local callback = function(dialog) end
 
@@ -184,7 +184,7 @@ function TaskToLearn(User)
 
 end
 
-function AlchemyRecipe(User, SourceItem,ltstate,checkVar)
+local function AlchemyRecipe(User, SourceItem,ltstate,checkVar)
 
 
     if alchemy.GetCauldronInfront(User) then
@@ -197,7 +197,7 @@ function AlchemyRecipe(User, SourceItem,ltstate,checkVar)
 
 end
 
-function UseRecipe(User, SourceItem,ltstate,checkVar)
+local function UseRecipe(User, SourceItem,ltstate,checkVar)
 
 
     -- is the char an alchemist?
@@ -219,7 +219,7 @@ function UseRecipe(User, SourceItem,ltstate,checkVar)
     StartBrewing(User, SourceItem,ltstate,checkVar)
 end
 
-function StartBrewing(User,SourceItem,ltstate,checkVar)
+local function StartBrewing(User,SourceItem,ltstate,checkVar)
     local listOfTheIngredients = getIngredients(SourceItem)
     local cauldron = alchemy.GetCauldronInfront(User)
 
@@ -311,7 +311,7 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
 
 end
 
-function CallBrewFunctionAndDeleteItem(User,deleteItem, deleteId,cauldron)
+local function CallBrewFunctionAndDeleteItem(User,deleteItem, deleteId,cauldron)
 
     if deleteId then
         if deleteId == 52 then -- water
@@ -345,7 +345,7 @@ function CallBrewFunctionAndDeleteItem(User,deleteItem, deleteId,cauldron)
 
 end
 
-function GetStartAction(User, listOfTheIngredients, cauldron)
+local function GetStartAction(User, listOfTheIngredients, cauldron)
 
     local ingredient = listOfTheIngredients[USER_POSITION_LIST[User.id]]
     local theString
@@ -372,7 +372,7 @@ function GetStartAction(User, listOfTheIngredients, cauldron)
     return duration,gfxId,gfxIntervall,sfxId,sfxIntervall
 end
 
-function GetItem(User, listOfTheIngredients)
+local function GetItem(User, listOfTheIngredients)
     local deleteItem, deleteId, missingDe, missingEn
     if type(listOfTheIngredients[USER_POSITION_LIST[User.id]])=="string" then
         if string.find(listOfTheIngredients[USER_POSITION_LIST[User.id]],"bottle") then
@@ -442,12 +442,12 @@ function GetItem(User, listOfTheIngredients)
     return deleteItem, deleteId, missingDe, missingEn
 end
 
-function ViewRecipe(User, SourceItem)
+local function ViewRecipe(User, SourceItem)
     local listOfTheIngredients = getIngredients(SourceItem)
     recipe_creation.ShowRecipe(User, listOfTheIngredients, true)
 end
 
-function getIngredients(SourceItem)
+local function getIngredients(SourceItem)
 
     local listOfTheIngredients = {}
     for i=1,60 do
@@ -472,9 +472,7 @@ end
 function M.LookAtItem(User, Item)
 
     if Item:getData("bookList") == "true" then
-       itemLookat = bookListLookAt(User, Item)
-    elseif itemLookat then
-        return itemLookat --Send the custom lookAt
+    return bookListLookAt(User, Item)
     else
         return lookat.GenerateLookAt(User, Item)
     end
