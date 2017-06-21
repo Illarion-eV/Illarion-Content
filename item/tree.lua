@@ -62,7 +62,7 @@ function M.LookAtItem(User,Item)
     -- alchemy end
     
     if Item:getData("playerPlanted") ~= "" then
-        lookat.SetSpecialDescription(Item, "Dieser Baum ist jung und steht noch nicht lange hier. Er trÃ¤gt kaum FrÃ¼chte und wird so gut wie kein Holz liefern.", "This young tree hasn't been around for a long time. It has just a few and will yield close to no wood.")
+        lookat.SetSpecialDescription(Item, "Dieser Baum ist jung und steht noch nicht lange hier. Er trägt kaum Früchte und wird so gut wie kein Holz liefern.", "This young tree hasn't been around for a long time. It has just a few fruits and will yield close to no wood.")
         lookat.SetSpecialName(Item, "Junger Baum", "Young tree")
     end
 
