@@ -1,0 +1,16 @@
+--general--
+nameDe, overlay generic item name
+nameEn, overlay generic item name
+descriptionDe, overlay generic look at
+descriptionEn, overlay generic look at
+--gems--
+gemLevel, magic level of gem (1-10)
+--bookshelf (id 266)--
+book1 .. book9, bookname from booklist visible in the bookshelf
+--lockpicks (id 99)--
+gmLocation1 .. gmLocation6, GM defined teleport target
+gmSequenceOnChar1 .. gmSequenceOnChar6, GM defined action sequence on single char
+gmSequenceOnGroup1 .. gmSequenceOnGroup6, GM defined action sequence on group
+--parchments (2745, 3109)--
+writtenText, text on parchment
+signatureText, name of char who signed the parchment
