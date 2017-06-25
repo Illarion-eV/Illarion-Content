@@ -114,15 +114,15 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
 
     -- what wears the char?
     addtext = "";
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 11, limitToSeeBreast, common.IsNilOrEmpty(addtext) ); -- robe
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 3, limitToSeeBreast, common.IsNilOrEmpty(addtext) ); -- breast
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 1, limitToSeeBreast, common.IsNilOrEmpty(addtext) ); -- helmet
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 9, limitToSeeLeg, common.IsNilOrEmpty(addtext) ); -- legs
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 10, limitToSeeShoe, common.IsNilOrEmpty(addtext) ); -- feet
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 4, limitToSeeLeg, common.IsNilOrEmpty(addtext) ); -- hands
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 2, limitToSeeJewels, common.IsNilOrEmpty(addtext) ); -- neck
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 7, limitToSeeJewels, common.IsNilOrEmpty(addtext) ); -- left finger
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 8, limitToSeeJewels, common.IsNilOrEmpty(addtext) ); -- right finger
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, 11, limitToSeeBreast, common.IsNilOrEmpty(addtext) , true); -- robe
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, 3, limitToSeeBreast, common.IsNilOrEmpty(addtext) , true); -- breast
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, 1, limitToSeeBreast, common.IsNilOrEmpty(addtext) , true); -- helmet
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, 9, limitToSeeLeg, common.IsNilOrEmpty(addtext) , true); -- legs
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, 10, limitToSeeShoe, common.IsNilOrEmpty(addtext) , true); -- feet
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, 4, limitToSeeLeg, common.IsNilOrEmpty(addtext) , true); -- hands
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, 2, limitToSeeJewels, common.IsNilOrEmpty(addtext) , true); -- neck
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, 7, limitToSeeJewels, common.IsNilOrEmpty(addtext) , true); -- left finger
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, 8, limitToSeeJewels, common.IsNilOrEmpty(addtext) , true); -- right finger
 
     if ( common.IsNilOrEmpty(addtext) == false ) then
         if ( TargetCharacter:increaseAttrib( "sex", 0 ) == 0 ) then
@@ -140,12 +140,12 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
 
     -- what is in the belt?
     addtext = "";
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 12, limitToSeeBelt, common.IsNilOrEmpty(addtext) ); -- belt 1
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 13, limitToSeeBelt, common.IsNilOrEmpty(addtext) ); -- belt 2
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 14, limitToSeeBelt, common.IsNilOrEmpty(addtext) ); -- belt 3
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 15, limitToSeeBelt, common.IsNilOrEmpty(addtext) ); -- belt 4
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 16, limitToSeeBelt, common.IsNilOrEmpty(addtext) ); -- belt 5
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 17, limitToSeeBelt, common.IsNilOrEmpty(addtext) ); -- belt 6
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, 12, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 1
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, 13, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 2
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, 14, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 3
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, 15, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 4
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, 16, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 5
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, 17, limitToSeeBelt, common.IsNilOrEmpty(addtext),false); -- belt 6
 
     if ( common.IsNilOrEmpty(addtext) == false ) then
         output = output .. ( lang == 0 and "\nIm Gürtel erkennst du: " or "\nYou see in the belt: " ) .. addtext .. ". ";
@@ -179,19 +179,37 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
     return output;
 end
 
+function ignoreDescription(itemId)
+    local itemList = {2745,3109,331,327,59,165,329,166,167,330}
+    --2745:parchment;3109:open pell;content of alchemy\base\alchemy.bottleList
+    for i=1, #itemList do
+        if itemList[i] == itemId then
+            return true
+        end
+    end
+    return false
+end
 
-function getCharWears( TargetCharacter, lang, positionAtChar, currentLookingAt, bFirstText)
+function getCharWears( TargetCharacter, lang, positionAtChar, currentLookingAt, bFirstText, withDetail)
     local itemAtCharacter = TargetCharacter:getItemAt( positionAtChar );
     local text = "";
     local textdescription = "";
+    local specialname = "";
     if ( itemAtCharacter ~= nil ) and ( itemAtCharacter.id > 0 ) and (currentLookingAt >= 0) and ( isIgnoredItem(itemAtCharacter.id) == false) then
         if ( bFirstText == false ) then
             text = text .. "; "
         end
-        text = text .. world:getItemName( itemAtCharacter.id, lang );
-        textdescription = ( lang == 0 and itemAtCharacter:getData("descriptionDe") or itemAtCharacter:getData("descriptionEn") );
-        if ( common.IsNilOrEmpty(textdescription) == false ) then
-            text = text .. " (" .. textdescription .. ")";
+        specialname = ( lang == 0 and itemAtCharacter:getData("nameDe") or itemAtCharacter:getData("nameEn") );
+        if ( common.IsNilOrEmpty(specialname) ) then
+            text = text .. world:getItemName( itemAtCharacter.id, lang );
+        else
+            text = text .. specialname;
+        end
+        if ignoreDescription(itemAtCharacter.id) == false and withDetail == true then
+            textdescription = ( lang == 0 and itemAtCharacter:getData("descriptionDe") or itemAtCharacter:getData("descriptionEn") );
+            if ( common.IsNilOrEmpty(textdescription) == false ) then
+                text = text .. " (" .. textdescription .. ")";
+            end
         end
     end
     return text;
@@ -215,7 +233,7 @@ function getCharRace( TargetCharacter, lang)
     -- human,dwarf,halfling, elf,orc,lizard
     raceName[0] = {"man","dwarf","halfling", "elf","orc","lizard","strange looking person"};
     raceName[1] = {"Mann","Zwerg","Halbling","Elf","Ork","Echsenmann","seltsam aussehende Person"};
-    raceName[2] = {"women","dwarfes","halfling women", "elfess","orcess","lizard women","strange looking person"};
+    raceName[2] = {"woman","dwarfes","halfling woman", "elfess","orcess","lizard woman","strange looking person"};
     raceName[3] = {"Frau","Zwergin","Halblingsfrau","Elfin","Orkin","Echsenfrau","seltsam aussehende Person"};
 
     if (raceID > 7) then
@@ -301,25 +319,34 @@ function getClothesFactor(Char)
     local sumQual=0;
     local sumDura=0;
     local multi;
-    for ipos=1, 11 do
-        local thisIt=Char:getItemAt(ipos);
-        -- also count empty slots!!!
-        -- What are these item slots? Constants please!
-        if ((ipos==2) or (ipos==7) or (ipos==8)) then
-            multi=2;
-        else
-            multi=1;
+    local iposList = {}
+    --iposList[ipos] = {position at char, multiplicator}
+    iposList[1] = {11,1}-- robe
+    iposList[2] = {3,1}-- breast
+    iposList[3] = {1,1}-- helmet
+    iposList[4] = {9,1}-- legs
+    iposList[5] = {10,1}-- feet
+    iposList[6] = {4,1}-- hands
+    iposList[7] = {2,2}-- neck
+    iposList[8] = {7,2}-- left finger
+    iposList[9] = {8,2}-- right finger
+
+    for ipos=1, #iposList do
+        local thisIt=Char:getItemAt(iposList[ipos][1]);
+        if thisIt ~= nil and thisIt.id > 0 then
+            multi = iposList[ipos][2]
+            itCount=itCount+multi;
+            local thisQual=math.floor(thisIt.quality/100);
+            sumQual=sumQual+multi*thisQual;
+            local thisDura=thisIt.quality-100*thisQual;
+            sumDura=sumDura+multi*thisDura;
         end
-        if (((ipos==5) or (ipos==6)) and thisIt.quality==0) then
-            multi=0;
-        end
-        itCount=itCount+multi;
-        local thisQual=math.floor(thisIt.quality/100);
-        sumQual=sumQual+multi*thisQual;
-        local thisDura=thisIt.quality-100*thisQual;
-        sumDura=sumDura+multi*thisDura;
     end
-    return math.floor(sumQual/itCount), math.floor(sumDura/itCount);
+    if itCount == 0 then
+        return 3,33;
+    else
+        return math.floor(sumQual/itCount), math.floor(sumDura/itCount);
+    end
 end
 
 function getClothesText(qual, dura, lang, sex,char)
@@ -396,42 +423,6 @@ function getAgeDescriptor(race,age,sex, language)
         output = output .. ", ";
     end
     return output
-end
-
-function getFigure(TargetCharacter, lang)
-    local str = TargetCharacter:increaseAttrib( "strength", 0 );
-    local height = TargetCharacter:increaseAttrib("body_height",0)
-    local mass = TargetCharacter:increaseAttrib("weight",0)
-    local lowStr={};
-    local normalStr={};
-    local highStr={};
-    lowStr[0]={"sehr mager", "sehr zierlich", "zierlich", "durchschnittlich", "mollig", "dick", "fett"};
-    lowStr[1]={"skinny", "very petite", "petite", "average", "chubby", "plump", "fat"};
-    normalStr[0]={"schmächtig", "dünn ", "schlank", "durchschnittlich", "mollig", "dick", "fett"};
-    normalStr[1]={"lank", "thin", "slim", "average", "chubby", "plump", "fat"};
-    highStr[0]={"drahtig", "sehr drahtig", "durchschnittlich", "athletisch", "muskulös", "kräftig", "stämmig"}
-    highStr[1]={"wiry", "very wiry", "average", "athletic", "muscular", "robust", "sturdy" };
-
-    height=height*2.54/100
-    mass=mass/100
-    local BMI=mass/(height*height); -- 18.5, 24.9, 29.9,
-    -- str= 10 average
-    if mass==0 then
-        BMI=22;
-    end
-    local Idx=math.ceil((BMI-16)/3)+1
-    Idx=math.max(Idx,1);
-    Idx=math.min(Idx,7);
-
-    -- sehr mager, dünn, schlank, (normal), mollig, dick, fett
-    -- athletisch, drahtig, zierlich, kräftig
-    if str<7 then
-        return lowStr[lang][Idx];
-    elseif str<14 then
-        return normalStr[lang][Idx];
-    else
-        return highStr[lang][Idx];
-    end
 end
 
 --Return true if the item should be ignored during examine
