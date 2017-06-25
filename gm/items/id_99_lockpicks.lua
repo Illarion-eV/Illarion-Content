@@ -277,29 +277,29 @@ local function ambientActionFlameRemover(user,targetChar)
     user:requestInputDialog(InputDialog("Remove flames around you", "Usage enter: flameId radius  -- Flame id can be 359 (fire) or 360 (ice). Radius is capped at 10." ,false, 255, cbInputDialog))
 end
 
-function ambientActionFireBreath(User,targetChar)
+local function ambientActionFireBreath(User,targetChar)
     local gmSpell = require("monster.base.spells.firecone"){probability = 1,  damage = {from = 1250, to = 1500}, range = 6, angularAperture = 30, itemProbability = 0.1, quality = {from = 0, to = 1}, movepoints = 0}
     gmSpell.cast(User,targetChar)
 end
 
-function ambientActionIceBreath(User,targetChar)
+local function ambientActionIceBreath(User,targetChar)
     local gmSpell = require("monster.base.spells.icecone"){probability = 1,  damage = {from = 1250, to = 1500}, range = 6, angularAperture = 30, itemProbability = 0.1, quality = {from = 0, to = 1}, movepoints = 0}
     gmSpell.cast(User,targetChar)
 end
 
-function ambientActionFireRing(targetChar)
+local function ambientActionFireRing(targetChar)
     local gmSpell = require("monster.base.spells.firering"){probability = 1, damage = {from = 2200, to = 2700}, range  = 6,
     itemProbability = 0.15, quality = {from = 4, to = 5}, movepoints = 0}
     gmSpell.cast(targetChar,targetChar)
 end
 
-function ambientActionIceRing(targetChar)
+local function ambientActionIceRing(targetChar)
     local gmSpell = require("monster.base.spells.icering"){probability = 1, damage = {from = 2200, to = 2700}, range  = 6,
     itemProbability = 0.15, quality = {from = 4, to = 5}, movepoints = 0}
     gmSpell.cast(targetChar,targetChar)
 end
 
-function ambientActionLocalStorm(targetChar)
+local function ambientActionLocalStorm(targetChar)
     local probabilityWindInner = 0.17
     local probabilityWindOuther = 0.01
     local probabilityWind = 1
@@ -497,7 +497,7 @@ local function teleporter(User,item)
     User:requestSelectionDialog(sdTeleport)
 end
 
-function factionInfoOfCharsInRadius(User)
+local function factionInfoOfCharsInRadius(User)
 
     local players = world:getPlayersInRangeOf(User.pos, 40)
     local infos = ""
@@ -546,7 +546,7 @@ local function String2Number(str)
     return 0, false
 end
 
-function settingsForCharSkills(User, chosenPlayer)
+local function settingsForCharSkills(User, chosenPlayer)
     local skillDialog = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -579,7 +579,7 @@ function settingsForCharSkills(User, chosenPlayer)
     User:requestSelectionDialog(sdSkill)
 end
 
-function godMode(User, SourceItem, ltstate)
+local function godMode(User, SourceItem, ltstate)
 
     local playersTmp = world:getPlayersInRangeOf(User.pos, 25)
     local players = {User}
@@ -1222,7 +1222,7 @@ local function settingsForChar(User)
             elseif actionToPerform == 6 then
                 settingsForCharIceFlameProof(User, chosenPlayer)
             elseif actionToPerform == 7 then
-                ssettingsForCharPoisonCloudProof(User, chosenPlayer)
+                settingsForCharPoisonCloudProof(User, chosenPlayer)
             end
         end
         local sdAction = SelectionDialog("Character settings", chosenPlayer.name.."\n" .. charInfo(chosenPlayer), charActionDialog)

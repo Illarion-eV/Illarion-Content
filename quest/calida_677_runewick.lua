@@ -22,17 +22,17 @@ local factions = require("base.factions")
 
 local M = {}
 
-GERMAN = Player.german
-ENGLISH = Player.english
+local GERMAN = Player.german
+local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
-Title = {}
+local Title = {}
 Title[GERMAN] = "Die Märchensammlung"
 Title[ENGLISH] = "The Fairy Tales Collection"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
-Description = {}
+local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 
@@ -53,7 +53,7 @@ Description[ENGLISH][5] = "Your answer was right. Please take into consideration
 -- QuestID: 684 = 4    The Stone Gaze
 -- QuestID: 684 = 5    The Broken Wreath
 -- QuestID: 684 = 6    The Singing Well
-TaleSpecific = {}
+local TaleSpecific = {}
 TaleSpecific[GERMAN] = {}
 TaleSpecific[ENGLISH] = {}
 TaleSpecific[GERMAN][1] = " Er wollte wissen, wie Enchanta das zweite Mal Cumunculus schützte."
@@ -69,7 +69,7 @@ TaleSpecific[ENGLISH][5] = " He wanted to know where the couple found shelter fr
 TaleSpecific[GERMAN][6] = " Er wollte wissen, was Großvater in seiner Mine abbaute."
 TaleSpecific[ENGLISH][6] = " He wanted to know what mined grandfather."
 
-TaleLocation = {}
+local TaleLocation = {}
 TaleLocation[GERMAN] = {}
 TaleLocation[ENGLISH] = {}
 TaleLocation[GERMAN][1] = "Du hast das Buch in einem Keller einer verlassenen Farm gesehen."

@@ -22,7 +22,7 @@ local factions = require("base.factions")
 local M = {}
 
 local GERMAN = Player.german
-ENGLISH = Player.english
+local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}

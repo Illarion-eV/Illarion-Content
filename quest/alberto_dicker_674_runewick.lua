@@ -79,7 +79,7 @@ Description[ENGLISH][202] = "Go to Anthar Vilicon and report about the copied pi
 local Start = {970, 787, 1} -- Numilia
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
-QuestTarget = {}
+local QuestTarget = {}
 QuestTarget[1] = {970, 787, 1} -- Numila
 QuestTarget[2] = {819, 104, 0} -- Raban
 QuestTarget[3] = {970, 787, 1} -- Numila
