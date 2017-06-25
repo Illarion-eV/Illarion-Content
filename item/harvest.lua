@@ -20,6 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local fruitgathering = require("content.gatheringcraft.fruitgathering")
 local woodchopping = require("content.gatheringcraft.woodchopping")
+local tree = require("item.tree")
 
 local M = {}
 
@@ -38,5 +39,7 @@ function M.UseItem(User, SourceItem, ltstate)
     end
 
 end
+
+M.LookAtItem = tree.LookAtItem
 
 return M
