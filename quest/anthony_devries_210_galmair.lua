@@ -629,7 +629,7 @@ Description[ENGLISH][297] = "A reliable client of Anthony Devries has a demand f
 Description[GERMAN][297] = "Ein vertrauenswürdiger Kontakt von Anthony Devries benötigt fünf magische Kriegsäxte. Er wird dafür eintausenddreihundertdreiunddreißig Silberstücke zahlen. Er wartet nicht lange und könnte den Auftrag auch an jemanden anderes vergeben."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {401, 298, 0}
+local Start = {401, 298, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}

@@ -44,7 +44,7 @@ Description[GERMAN][5] = "Du hast alle Aufgaben von Bathelor erfällt. Lobet Brág
 Description[ENGLISH][5] = "You have fulfilled all the tasks for Bathelor. Praise Brágon!"
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {519, 128, 0}
+local Start = {519, 128, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}

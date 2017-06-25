@@ -40,7 +40,7 @@ Description[GERMAN][3] = "Du hast die Einführung über das Sammeln abgeschlossen.
 Description[ENGLISH][3] = "You finished the tutorial on gathering."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {42, 55, 100}
+local Start = {42, 55, 100}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}

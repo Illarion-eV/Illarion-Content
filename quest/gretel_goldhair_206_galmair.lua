@@ -42,7 +42,7 @@ Description[ENGLISH][3] = "You have already donated to Galmair. But nevertheless
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {341, 218, 0}
+local Start = {341, 218, 0}
 
  
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there

@@ -425,7 +425,7 @@ Description[ENGLISH][195] = "Philipp Molitor has the following order for you. Th
 Description[GERMAN][195] = "Für euch liegt folgender Auftrag von Philipp Molitor vor: Die nächste Karawane benötigt fünf Attentäterrüstungen der Dunkelheit. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen eintausend Silberstücke sein. Für die Ehre von Cadomyr!"
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {103, 588, 0}
+local Start = {103, 588, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}

@@ -93,7 +93,7 @@ Description[GERMAN][20] = "Der Don hat einen Ring in Auftrag gegeben und dafür w
 Description[ENGLISH][20] = "The Don commissioned a ring to be made and used a gold nugget from the storage. It might only be a single nugget, but it must be replaced! I need you to get me one gold nugget."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {369, 236, 0}
+local Start = {369, 236, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}

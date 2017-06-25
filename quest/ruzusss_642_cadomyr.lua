@@ -39,7 +39,7 @@ Description[ENGLISH][2] = "You now know where you can find Queen Rosaline Edward
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {134, 629, 0}
+local Start = {134, 629, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
