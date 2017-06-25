@@ -74,7 +74,7 @@ Description[ENGLISH][18] = "You have fulfilled all the tasks for Boumaug Firesma
 -- These all need to change.
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {404, 248, 0}
+local Start = {404, 248, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}

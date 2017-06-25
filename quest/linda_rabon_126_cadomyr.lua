@@ -47,7 +47,7 @@ Description[ENGLISH][6] = "You have fulfilled all the tasks for Linda Rabon."
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {116, 576, 0}
+local Start = {116, 576, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there

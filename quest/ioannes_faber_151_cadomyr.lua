@@ -42,7 +42,7 @@ Description[ENGLISH][3] = "You have already donated to Cadomyr. But you can stil
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {129, 529, 0}
+local Start = {129, 529, 0}
 
 
  

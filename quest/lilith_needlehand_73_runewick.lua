@@ -50,7 +50,7 @@ Description[ENGLISH][6] = "You have fulfilled all the tasks for Lilith Needlehan
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {940, 817, 0}
+local Start = {940, 817, 0}
 
 
     

@@ -52,7 +52,7 @@ Description[GERMAN][8] = "Du hast alle Aufgaben von Zerarisa erfüllt. "
 Description[ENGLISH][8] = "You have fulfilled all the tasks for Zerarisa."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {390, 337, 0}
+local Start = {390, 337, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there

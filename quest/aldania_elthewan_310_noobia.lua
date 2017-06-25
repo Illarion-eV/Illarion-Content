@@ -42,7 +42,7 @@ Description[GERMAN][4] = "Du hast die Einführung über das Ausrüsten und Benutzen
 Description[ENGLISH][4] = "You finished the tutorial on equipping and using."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {52, 24, 100}
+local Start = {52, 24, 100}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}

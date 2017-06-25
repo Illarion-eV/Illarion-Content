@@ -50,7 +50,7 @@ Description[GERMAN][103] = "Münzspiel um ein Goldstück.\nSage 'Kopf', 'Zahl', 'R
 Description[ENGLISH][103] = "Coin game for one gold coin.\nUse 'heads', 'tails', 'other' or break up the game by using 'stop' or 'end'."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {295, 263, -6}
+local Start = {295, 263, -6}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}

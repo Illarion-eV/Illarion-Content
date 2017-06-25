@@ -93,7 +93,7 @@ Description[GERMAN][20] = "Heute habe ich keinen Befehl für euch sondern eine pe
 Description[ENGLISH][20] = "Today, I have a personal request rather than an order. Could you please bring me a gold ingot - I want to forge a special gift, a bracelet, for my Queen to prove my loyalty."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {117, 528, 0}
+local Start = {117, 528, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}

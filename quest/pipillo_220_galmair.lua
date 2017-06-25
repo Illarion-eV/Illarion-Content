@@ -44,7 +44,7 @@ Description[GERMAN][4] = "Du hast alle Aufgaben für Pipillo erledigt."
 Description[ENGLISH][4] = "You have completed all of Pipillo's tasks."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {405, 248, 0}
+local Start = {405, 248, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}

@@ -45,7 +45,7 @@ Description[ENGLISH][5] = "Hummi does not have any other quests for you, just mo
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {681, 311, 0}
+local Start = {681, 311, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there

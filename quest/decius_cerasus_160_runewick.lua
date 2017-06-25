@@ -107,7 +107,7 @@ Description[ENGLISH][24] = "Our Archmage is usually busy teaching and studying, 
 Description[GERMAN][25] = "Für Umbau- und Renovierungsarbeiten benötige ich noch einen Hammer. Natürlich wird unser Erzmagier davon erfahren, wenn ihr mir helft."
 Description[ENGLISH][25] = "For the reconstructions and renovations I still need a hammer. Of course our Archmage will hear about your help."
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {896, 849, 0}
+local Start = {896, 849, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}

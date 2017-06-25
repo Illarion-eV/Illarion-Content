@@ -72,7 +72,7 @@ Description[ENGLISH][18] = "You have fulfilled all the tasks for Joey Licavoli."
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {365, 256, 0}
+local Start = {365, 256, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}

@@ -88,7 +88,7 @@ TaleLocation[ENGLISH][6] = "You saw the book over the labratory of Galmair."
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {960, 831, 0}
+local Start = {960, 831, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
