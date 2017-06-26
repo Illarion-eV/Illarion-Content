@@ -107,7 +107,7 @@ function M.reduceMC(user)
     if user:idleTime() < 300 then --Has the user done any action or spoken anything within the last five minutes?
     
         user:increaseMentalCapacity(-1 * math.floor(user:getMentalCapacity() * damping + 0.5)) --reduce MC-points by 0.01 %, rounded correctly.
-        currentMC = user:getMentalCapacity()
+        local currentMC = user:getMentalCapacity()
         
         if currentMC < ((0.5/damping)-1) then --Mental Capacity cannot drop below 4999 -> Bugged player or cheater
             user:inform("Invalid mental capacity value found: "..currentMC..". Please inform a developer.")
