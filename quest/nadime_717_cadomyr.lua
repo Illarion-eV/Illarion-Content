@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (717, 'quest.nadime_717_Cadomyr');
 
@@ -22,7 +22,7 @@ local factions = require("base.factions")
 local M = {}
 
 local GERMAN = Player.german
-ENGLISH = Player.english
+local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}
@@ -35,7 +35,7 @@ local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "Beschaff 10 Schaufeln Sand und bring diese zu Nadime in der Werkstatt von Cadomyr. Dazu nimmst du die Schaufel in die Hand und benutzt sie, während du vor einer Sandgrube stehst. Die nächste Sandgrube findest du vor den Toren Cadomyrs."
-Description[ENGLISH][1] = "Get 10 shovels of sand and take them to Nadime at the workshop in Cadomyr. Dig the sand by using the shovel in your hand, whilst standing in front of a sandpit. The next sandpit is in front of Cadomyr's gates." 
+Description[ENGLISH][1] = "Get 10 shovels of sand and take them to Nadime at the workshop in Cadomyr. Dig the sand by using the shovel in your hand, whilst standing in front of a sandpit. The next sandpit is in front of Cadomyr's gates."
 Description[GERMAN][2] = "Geh zu Nadime in der Werkstatt von Cadomyr. Sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][2] = "Go to Nadime at the workshop in Cadomyr, she is sure to have another task for you."
 Description[GERMAN][3] = "Verbrenne 10 Holzscheite zu Pottasche für Nadime am Glasschmelzofen in Cadomyrs Werkstatt. Um das Holz zu verbrennen, musst du die Holzkelle in die Hand nehmen und den Glasschmelzofen benutzen, wenn du vor ihm stehst."
@@ -80,16 +80,16 @@ QuestTarget[2] = {position(141, 582, 0)}
 QuestTarget[3] = {position(141, 582, 0), position(143, 587, 0), position(143, 585, 0)} -- glass melting oven
 QuestTarget[4] = {position(141, 582, 0)}
 QuestTarget[5] = {position(141, 582, 0), position(143, 587, 0), position(143, 585, 0)} -- glass melting oven
-QuestTarget[6] = {position(141, 582, 0)} 
-QuestTarget[7] = {position(141, 582, 0)} 
-QuestTarget[8] = {position(141, 582, 0)} 
-QuestTarget[9] = {position(141, 582, 0)} 
-QuestTarget[10] = {position(141, 582, 0)} 
-QuestTarget[11] = {position(141, 582, 0)} 
-QuestTarget[12] = {position(141, 582, 0)} 
-QuestTarget[13] = {position(141, 582, 0)} 
-QuestTarget[14] = {position(141, 582, 0)} 
-QuestTarget[15] = {position(141, 582, 0)} 
+QuestTarget[6] = {position(141, 582, 0)}
+QuestTarget[7] = {position(141, 582, 0)}
+QuestTarget[8] = {position(141, 582, 0)}
+QuestTarget[9] = {position(141, 582, 0)}
+QuestTarget[10] = {position(141, 582, 0)}
+QuestTarget[11] = {position(141, 582, 0)}
+QuestTarget[12] = {position(141, 582, 0)}
+QuestTarget[13] = {position(141, 582, 0)}
+QuestTarget[14] = {position(141, 582, 0)}
+QuestTarget[15] = {position(141, 582, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 16
