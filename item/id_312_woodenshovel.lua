@@ -25,10 +25,10 @@ local M = {}
 M.LookAtItem = wood.LookAtItem
 
 function M.UseItem(User, SourceItem, ltstate)
-    if common.GetItemInArea(User.pos, 727, 1, false) == true and common.GetItemInArea(User.pos, 313, 1, false) == false and common.GetItemInArea(User.pos, 250, 1, false) == flase then
+    if common.GetItemInArea(User.pos, 727, 1, false) == true and common.GetItemInArea(User.pos, 313, 1, false) == false and common.GetItemInArea(User.pos, 250, 1, false) == false then
         if skillTransfer.skillTransferInformMining(User) then
             return
-        end    
+        end
     end
     if common.GetItemInArea(User.pos, 727, 1, false) == false and common.GetItemInArea(User.pos, 313, 1, false) == false and common.GetItemInArea(User.pos, 250, 1, false) == true then
         if skillTransfer.skillTransferInformCookingHerbloreFarming(User) then
