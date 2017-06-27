@@ -30,32 +30,42 @@ local money = require("base.money")
 local itemLookAt = require("server.itemlookat")
 local characterLua = require("base.character")
 
-
-
 local M = {}
 local MODE_POLITE = 0
 local MODE_STARE = 1
 local MODE_MIRROR = 2
 
+local getCharWears
+local getCharAtribute
+local getCharRace
+local getCharPurse
+local getCharLoad
+local getClothesFactor
+local getClothesText
+local getClothesQualText
+local getAgeDescriptor
+local getFigure
+local isIgnoredItem
+local getMaximumLoad
+local getCharacterLoad
 
-
-function M.lookAtPlayer( SourceCharacter, TargetCharacter, mode)
+function M.lookAtPlayer(SourceCharacter, TargetCharacter, mode)
     local output = ""
 
     if ( mode ~= MODE_MIRROR) then
-        common.TurnTo( SourceCharacter, TargetCharacter.pos )
+        common.TurnTo(SourceCharacter, TargetCharacter.pos)
     end
 
-    output = output .. M.getCharDescription( SourceCharacter, TargetCharacter, mode)
+    output = output .. M.getCharDescription(SourceCharacter, TargetCharacter, mode)
 
-    SourceCharacter:sendCharDescription( TargetCharacter.id , output )
+    SourceCharacter:sendCharDescription(TargetCharacter.id, output)
 
     if (mode == MODE_STARE) then
         common.InformNLS(TargetCharacter, "Du fühlst dich beobachtet.", "You feel watched.")
     end
 end
 
-function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
+function M.getCharDescription(SourceCharacter, TargetCharacter, mode)
     local addtext = ""
 
     -- Generate the limits
@@ -180,7 +190,7 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
 end
 
 
-function getCharWears( TargetCharacter, lang, positionAtChar, currentLookingAt, bFirstText)
+function getCharWears(TargetCharacter, lang, positionAtChar, currentLookingAt, bFirstText)
     local itemAtCharacter = TargetCharacter:getItemAt( positionAtChar )
     local text = ""
     local textdescription = ""
@@ -197,7 +207,7 @@ function getCharWears( TargetCharacter, lang, positionAtChar, currentLookingAt, 
     return text
 end
 
-function getCharAtribute( TargetCharacter, lang, attribute, attributeLimit, textDe, textEn)
+function getCharAtribute(TargetCharacter, lang, attribute, attributeLimit, textDe, textEn)
     local valueAttribute = TargetCharacter:increaseAttrib( attribute, 0 )
     local TargetCharacterSex = TargetCharacter:increaseAttrib( "sex", 0 )
     local text = ""
@@ -207,7 +217,7 @@ function getCharAtribute( TargetCharacter, lang, attribute, attributeLimit, text
     return text
 end
 
-function getCharRace( TargetCharacter, lang)
+function getCharRace(TargetCharacter, lang)
     local raceName = { }
     local raceID = TargetCharacter:getRace() + 1
     local TargetCharacterSex = TargetCharacter:increaseAttrib( "sex", 0 )
@@ -230,7 +240,7 @@ function getCharRace( TargetCharacter, lang)
     return text
 end
 
-function getCharPurse( TargetCharacter, lang, currentLookingAt)
+function getCharPurse(TargetCharacter, lang, currentLookingAt)
     local copperAtChar = money.CharCoinsToMoney( TargetCharacter )
     local text = ""
     local TargetCharacterSex = TargetCharacter:increaseAttrib( "sex", 0 )
@@ -262,7 +272,7 @@ function getCharPurse( TargetCharacter, lang, currentLookingAt)
     return text
 end
 
-function getCharLoad( TargetCharacter, lang, currentLookingAt)
+function getCharLoad(TargetCharacter, lang, currentLookingAt)
     local weightRelation = 0
     local text = ""
     local TargetCharacterSex = TargetCharacter:increaseAttrib( "sex", 0 )
@@ -322,7 +332,7 @@ function getClothesFactor(Char)
     return math.floor(sumQual/itCount), math.floor(sumDura/itCount)
 end
 
-function getClothesText(qual, dura, lang, sex,char)
+function getClothesText(qual, dura, lang, sex, char)
     local ClQualText={}
     local ClDuraText={}
     local sexText={}
@@ -358,7 +368,7 @@ function getClothesQualText(qual, lang)
     return ClQQualText[lang][10-qual]..clQText[lang]
 end
 
-function getAgeDescriptor(race,age,sex, language)
+function getAgeDescriptor(race, age, sex, language)
     local output = ""
     local ageList = { }
     local ageName = { }
