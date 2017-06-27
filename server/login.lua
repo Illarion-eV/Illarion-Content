@@ -230,7 +230,7 @@ local payNow
 function M.onLogin( player )
 
     skillTransfer.setQuestStatusForNoSkillChars(player)
-    
+
     welcomeNewPlayer(player)
 
     world:gfx(31, player.pos) --A GFX that announces clearly: A player logged in.
@@ -315,14 +315,15 @@ end
 
 function showNewbieDialog(player)
     skillTransfer.setNewbieQuestStatus(player)
-    
+
     local getText = function(deText,enText) return common.GetNLS(player, deText, enText) end
 
     local callbackNewbie = function(dialogNewbie) --start callback of Newbie Dialog
         local callbackSkip = function(dialogSkip) --start of callback of skipping dialog
             local dialogPostSkip
-            local success = dialogSkip:getSuccess()
-            if success and dialogSkip:getSelectedIndex()==1 then --skipping
+            local callbackPostSkip = function (dialogPostSkip) end --empty callback
+
+            if dialogSkip:getSuccess() and dialogSkip:getSelectedIndex()==1 then --skipping
                 player:warp(position(36, 97, 100))
                 world:gfx(46, player.pos)
                 if player:getPlayerLanguage() == 0 then --skip message
@@ -338,8 +339,6 @@ function showNewbieDialog(player)
                     dialogPostSkip = MessageDialog("Tutorial", "To start the tutorial, please walk to the human at the end of the pier. To move, click with the left mouse button on a spot close to the human. Alternatively, you can walk using the num pad, the arrow keys or WASD. Pressing the control key makes your character run.\n\nTo see an overview of all commands, hit F1. On the website www.illarion.org, you can find frequently asked question (FAQ) answered.", callbackPostSkip)
                 end
             end
-
-            local callbackPostSkip = function (dialogPostSkip) end --empty callback
 
             player:requestMessageDialog(dialogPostSkip) --showing the text after skipping dialog
 
