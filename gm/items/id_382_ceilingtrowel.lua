@@ -37,10 +37,12 @@ local checkValue
 local updateMonsters
 local mysticalCracker
 local specialItemCreation
+local changeItemSelection
+local specialItemCreationCreate
 
 local SPAWNDATAS = {}
-gmSpawnpointSettings = {}
-gmMonsters = {}
+local gmSpawnpointSettings = {}
+local gmMonsters = {}
 local SPAWNDATA = {}
 local removePositions = {}
 
@@ -148,42 +150,7 @@ function chooseItem(User)
     User:requestSelectionDialog(sdItems)
 end
 
-function changeItemSelection(User, TargetItem)
-    local changeItemFunctions = {}
-    changeItemFunctions[1] = {"Set Number"}
-    changeItemFunctions[2] = {"Set Quality and Durability"}
-    changeItemFunctions[3] = {"Set Name"}
-    changeItemFunctions[4] = {"Set Description"}
-    changeItemFunctions[5] = {"Set Wear"}
-    changeItemFunctions[6] = {"Set Data"}
-    
-    local cbChangeItem = function (dialog)
-        if (not dialog:getSuccess()) then
-            return
-        end
-        local index = dialog:getSelectedIndex() + 1
-        if index == 1 then
-            changeItemNumber(User, TargetItem)
-        elseif index == 2 then
-            changeItemQuality(User, TargetItem)
-        elseif index == 3 then
-            changeItemName(User, TargetItem)
-        elseif index == 4 then
-            changeItemDescription(User, TargetItem)
-        elseif index == 5 then
-            changeItemWear(User, TargetItem)
-        elseif index == 6 then
-            changeItemData(User, TargetItem)
-        end
-    end
-    local sd = SelectionDialog(world:getItemName(TargetItem.id, Player.english), "Choose the porperty you want to change.", cbChangeItem)
-    for i=1, #(changeItemFunctions) do
-        sd:addOption(0,changeItemFunctions[i][1])
-    end
-    User:requestSelectionDialog(sd)
-end
-
-function changeItemNumber(User, TargetItem)
+local function changeItemNumber(User, TargetItem)
 
     if (TargetItem == nil or TargetItem.id == 0) then
         return
@@ -208,7 +175,7 @@ function changeItemNumber(User, TargetItem)
     User:requestInputDialog(InputDialog("Set the mumber of items", "How many "..world:getItemName(TargetItem.id, Player.english).." do you want?" ,false, 255, cbInputDialog))
 end
 
-function changeItemQuality(User, TargetItem)
+local function changeItemQuality(User, TargetItem)
 
     if (TargetItem == nil or TargetItem.id == 0) then
         return
@@ -233,7 +200,7 @@ function changeItemQuality(User, TargetItem)
     User:requestInputDialog(InputDialog("Set the quality of items", "Enter target quality for: "..world:getItemName(TargetItem.id, Player.english).." \n 101-999; [1-9][01-99] Quality / Durability" ,false, 255, cbInputDialog))
 end
 
-function changeItemWear(User, TargetItem)
+local function changeItemWear(User, TargetItem)
 
     if (TargetItem == nil or TargetItem.id == 0) then
         return
@@ -258,7 +225,7 @@ function changeItemWear(User, TargetItem)
     User:requestInputDialog(InputDialog("Set the wear of items", "How long "..world:getItemName(TargetItem.id, Player.english).." should need to rot?\n about x * 3 min" ,false, 255, cbInputDialog))
 end
 
-function changeItemData(User, TargetItem)
+local function changeItemData(User, TargetItem)
 
     if (TargetItem == nil or TargetItem.id == 0) then
         return
@@ -283,7 +250,7 @@ function changeItemData(User, TargetItem)
     User:requestInputDialog(InputDialog("Set data of items", "Data for "..world:getItemName(TargetItem.id, Player.english)..".\n Use 'data value'" ,false, 255, cbInputDialog))
 end
 
-function changeItemName(User, TargetItem)
+local function changeItemName(User, TargetItem)
     local newNameDe
     local newNameEn
     local a
@@ -332,8 +299,7 @@ function changeItemName(User, TargetItem)
     User:requestInputDialog(InputDialog("Set name of items", "English name for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, cbInputDialogEn))
 end
 
-
-function changeItemDescription(User, TargetItem)
+local function changeItemDescription(User, TargetItem)
     local newDescriptionDe
     local newDescriptionEn
     local a
@@ -380,6 +346,41 @@ function changeItemDescription(User, TargetItem)
         User:requestInputDialog(InputDialog("Set description of items", "German description for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, cbInputDialogDe))
     end
     User:requestInputDialog(InputDialog("Set description of items", "English description for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, cbInputDialogEn))
+end
+
+function changeItemSelection(User, TargetItem)
+    local changeItemFunctions = {}
+    changeItemFunctions[1] = {"Set Number"}
+    changeItemFunctions[2] = {"Set Quality and Durability"}
+    changeItemFunctions[3] = {"Set Name"}
+    changeItemFunctions[4] = {"Set Description"}
+    changeItemFunctions[5] = {"Set Wear"}
+    changeItemFunctions[6] = {"Set Data"}
+    
+    local cbChangeItem = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local index = dialog:getSelectedIndex() + 1
+        if index == 1 then
+            changeItemNumber(User, TargetItem)
+        elseif index == 2 then
+            changeItemQuality(User, TargetItem)
+        elseif index == 3 then
+            changeItemName(User, TargetItem)
+        elseif index == 4 then
+            changeItemDescription(User, TargetItem)
+        elseif index == 5 then
+            changeItemWear(User, TargetItem)
+        elseif index == 6 then
+            changeItemData(User, TargetItem)
+        end
+    end
+    local sd = SelectionDialog(world:getItemName(TargetItem.id, Player.english), "Choose the porperty you want to change.", cbChangeItem)
+    for i=1, #(changeItemFunctions) do
+        sd:addOption(0,changeItemFunctions[i][1])
+    end
+    User:requestSelectionDialog(sd)
 end
 
 function weather(User, SourceItem)
@@ -1082,7 +1083,7 @@ function sapwnStartStop(User, SourceItem)
             monsterIds[counter]    = tonumber(monsterId)
         else
             User:inform("Enter MonsterID")
-            fin = string.len(inputNumber)
+--            fin = string.len(inputNumber)
             return
         end
     end

@@ -106,11 +106,11 @@ function M.getMagicGemId(gem, level)
 end
  
 function M.itemHasGems(item)
-    return getGemBonus(item) > 0
+    return M.getGemBonus(item) > 0
 end
  
 function M.returnGemsToUser(user, item)
-    if ( itemHasGems(item) == true ) then
+    if ( M.itemHasGems(item) == true ) then
         for i = 1, #gemDataKey do
             local itemKey = gemDataKey[i]
             local level = tonumber(item:getData(itemKey))
