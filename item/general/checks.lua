@@ -29,8 +29,8 @@ local function weaponSkillLevel(User, weapon)
         return User:getSkill(Character.punctureWeapons), User:getSkillName(Character.punctureWeapons)
     elseif (weapon.WeaponType == 7) or (weapon.WeaponType == 255) then --distance
         return User:getSkill(Character.distanceWeapons), User:getSkillName(Character.distanceWeapons)
-    elseif (weapon.WeaponType == 14) then --shields
-        return User:getSkill(Character.parry), User:getSkillName(Character.parry)
+--    elseif (weapon.WeaponType == 14) then --shields
+--        return User:getSkill(Character.parry), User:getSkillName(Character.parry)
     else
         return 100, "" --if all fails, the character may equip the item
     end
@@ -73,15 +73,41 @@ local function checkSkill(User, Item)
     end
 end
 
+local function checkParry(User, Item)
+    local isWeapon, weapon = world:getWeaponStruct(Item.id) --Is it a weapon? Loads the struct.
+    local itemLevel = world:getItemStatsFromId(Item.id).Level
+
+    if isWeapon then
+        local skillValue = User:getSkill(Character.parry)
+        local skillString = User:getSkillName(Character.parry)
+        if  skillValue < itemLevel then
+            return false, skillString --level too low
+        else
+            return true, skillString --level is high enough
+        end
+    else -- parry is used for weapons only
+        return true, "" --default: User may use/equip the item
+    end
+end
+
 --This function checks whether the user has the necessary level for the item or not
 function M.checkLevel(User, Item)
     local skillOK, skillString = checkSkill(User,  Item)
-    if  skillOK then
+    local parryOK, parryString = checkParry(User,  Item)
+    if  not skillOK and not parryOK then
+        common.HighInformNLS(User, "Deine Fertigkeiten '"..skillString.."' und '"..parryString.."' reichen nicht aus, um das volle Potential dieses Gegenstandes zu nutzen.", "Your skills '"..skillString.."' and '"..parryString.."' are not high enough to exploit the full potential of this item.")
+        return true
+    elseif not parryOK then
+        common.HighInformNLS(User, "Deine Fertigkeit '"..parryString.."' reicht nicht aus, um das volle deffensive Potential dieses Gegenstandes zu nutzen.", "Your skill '"..parryString.."' is not high enough to exploit the full defence potential of this item.")
+        return true
+    elseif not skillOK then
+        common.HighInformNLS(User, "Deine Fertigkeit '"..skillString.."' reicht nicht aus, um das volle Potential dieses Gegenstandes zu nutzen.", "Your skill '"..skillString.."' is not high enough to exploit the full potential of this item.")
+        return true
+    else
         return true
     end
+    return true -- security grid, should never happen
 
-    common.HighInformNLS(User, "Deine Fertigkeit '"..skillString.."' reicht nicht aus, um das volle Potential dieses Gegenstandes zu nutzen.", "Your skill '"..skillString.."' is not high enough to exploit the full potential of this item.") --inform
-    return true --Change this to FALSE if you want to prevent equipping. For now, set to true because we do not have enough items.
 end
 
 return M
