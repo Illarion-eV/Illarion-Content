@@ -27,7 +27,7 @@ name = "Corporal Piero"
 race = human
 sex = male
 position = 39, 649, 0
-direction = south
+direction = west
 affiliation = "Cadomyr"
 job = "quester"
 
@@ -105,7 +105,7 @@ queststatus(305) = 5, "Botschaft", "verdienen", "aufgabe", "abenteuer" -> item(3
 queststatus(305) = 5, english, "Tobis", "Vunu", "corporal", "Piero", "info", "quest", "mission", "job", "problem" -> item(356, 1, 999), queststatus(305) = 6, treasure(2), "Well well! You deliver good news. In name of the great Cadomyr I would like to thank you and present you this map I was able to capture from the pirate's hands...oh and Tobis told me to hand you this hat."
 queststatus(305) = 5, "Tobis", "Vunu", "corporal", "Piero", "info", "quest", "mission", "job", "problem" -> item(356, 1, 999), queststatus(305) = 6, treasure(2), "Gut gut! Ihr bringt gute Nachricht. Im Namen Cadomyrs will ich Euch danken und diese Karte überreichen. Sie stammt aus der Piratenhand... oh und Tobis meinte ich soll Euch diesen Hut geben."
 queststatus(305) = 5, "Message", "task", "adventure", "money", "earn" -> item(356, 1, 999), queststatus(305) = 6, treasure(2), "Well well! You deliver good news. In name of the great Cadomyr I would like to thank you and present you this map I was able to capture from the pirate's hands... oh and Tobis told me to hand you this hat."
-queststatus(305) = 1, "verdienen", "aufgabe", "abenteuer" -> inform("'Großartig. Also auf in die Piratenbucht! Arrr, Landratte!'"), "Irgendwo im Piratebay treibt sich mein Freund Tobis Vunu herum. Sage ihm das ich Euch sende und er wird sich Euch anvertrauen. Seine Informationen sind ausgesprochen wichtig für die Wache Cadomyrs. Viel Glück."
+queststatus(305) = 1, "verdienen", "aufgabe", "abenteuer" -> inform("'Großartig. Also auf in die Piratenbucht! Arrr, Landratte!'"), "Irgendwo in der Piratenbucht treibt sich mein Freund Tobis Vunu herum. Sage ihm das ich Euch sende und er wird sich Euch anvertrauen. Seine Informationen sind ausgesprochen wichtig für die Wache Cadomyrs. Viel Glück."
 queststatus(305) = 1, english, "info", "quest", "job", "problem", "mission" -> inform("'Awesome! Let's find a way to Pirate Bay! Arr, lubber!'"), "My friend Tobis Vunu roams the caves of Pirate Bay. Tell him, I send you and he will talk to you. His information is very important for the guard of Cadomyr. Good luck."
 queststatus(305) = 1,  "info", "quest", "job", "problem", "mission" -> inform("'Großartig. Also auf in die Piratenbucht! Arrr, Landratte!'"), "Irgendwo in der Piratenbucht treibt sich mein Freund Tobis Vunu herum. Sage ihm das ich Euch sende und er wird sich Euch anvertrauen. Seine Informationen sind ausgesprochen wichtig für die Wache Cadomyrs. Viel Glück."
 queststatus(305) = 1, "task", "adventure", "money", "earn" -> inform("'Awesome! Let's find a way to Pirate Bay! Arr, lubber!'"), "My friend Tobis Vunu roams the caves of Pirate Bay. Tell him, I send you and he will talk to you. His information is very important for the guard of Cadomyr. Good luck."
