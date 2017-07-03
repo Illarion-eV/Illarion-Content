@@ -810,10 +810,6 @@ function HitChance(Attacker, Defender, Globals)
     local parryweapondefense = parryWeapon.Defence
     local defenderdefense = (100/ShieldScalingFactor) + parryweapondefense*(1-1/ShieldScalingFactor)
 
-    if(parryWeapon.WeaponType~=14) then
-        defenderdefense = defenderdefense/2
-    end
-    
     local parryChance
     --Quality Bonus: Multiplies final value by 0.93-1.09
     local qualitymod = 0.91+0.02*math.floor(parryItem.quality/100)
@@ -1090,14 +1086,13 @@ end
 
 local monsterArrowDrop = {}
 
---- Drops the used ammo in case there is any ammo. This functions placed the
--- used ammunition under the character in case the target character is a player,
--- else the ammunition is dropped into the inventory of the target.
--- @param Attacker The table of the attacking char
--- @param Defender The character of the character that is supposed to receive
---                  the attack
--- @param GroundOnly true in case the item is supposed to be dropped only on the
---                  ground
+--[[Drops the used ammo in case there is any ammo. This functions placed the
+    used ammunition under the character in case the target character is a player,
+    else the ammunition is dropped into the inventory of the target.
+    @param Attacker The table of the attacking char
+    @param Defender The character of the character that is supposed to receive the attack
+    @param GroundOnly true in case the item is supposed to be dropped only on the ground
+--]]
 function DropAmmo(Attacker, Defender, GroundOnly)
     if ( Attacker.AttackKind ~= 4 ) then -- no distance attack --> no ammo
         return
