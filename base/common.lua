@@ -1677,6 +1677,27 @@ function M.PositionToText(pos)
 end
 
 --[[
+    \fn:    IsInList
+    \brief: returns true if an valueChecked is in the valueList
+
+    \attention: valueList must be a list!
+]]
+function M.isInList(valueChecked, valueList)
+    if valueChecked == nil then
+        return false
+    end
+    if #valueList == nil or #valueList == 0 then
+        return false
+    end
+    for i=1 , #valueList do
+        if valueChecked == valueList[i] then
+            return true
+        end
+    end
+    return false
+end
+
+--[[
     \fn:    ListToNumber
     \brief: transforms a number list into a number sequence which can be stored for example as quest status
     \usage: list = {5,2,7,9,1};

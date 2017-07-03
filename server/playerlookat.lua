@@ -58,23 +58,13 @@ end
 local function ignoreDescription(itemId)
     local itemList = {2745,3109,331,327,59,165,329,166,167,330}
     --2745:parchment;3109:open pell;content of alchemy\base\alchemy.bottleList
-    for i=1, #itemList do
-        if itemList[i] == itemId then
-            return true
-        end
-    end
-    return false
+    return common.isInList(itemId, itemList)
 end
 --Return true if the item should be ignored during examine
 local function isIgnoredItem(itemId)
-
-    local TROWEL_ID = 100
-    local NULL_ID = 228
-    local MEDAL_ID = 93
-    local LOCKPICKS_ID = 99
-    local CEILING_TROWEL_ID = 382
-    return itemId == nil or itemId == 0 or  itemId == TROWEL_ID or itemId == NULL_ID or itemId == MEDAL_ID
-            or itemId == LOCKPICKS_ID or itemId == CEILING_TROWEL_ID
+    local itemList = {100,228,93,99,382}
+    --100:trowel,228:NULL,93:medal,99:lockpicks,382:caeiling trowel
+    return itemId == nil or itemId == 0 or  common.isInList(itemId, itemList)
 end
 
 local function getCharWears( TargetCharacter, lang, positionAtChar, currentLookingAt, bFirstText, withDetail)
