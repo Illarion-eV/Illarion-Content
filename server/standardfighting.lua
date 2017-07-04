@@ -1155,7 +1155,7 @@ function DropBlood(Posi)
     end
     local field = world:getField(Posi)
     local tileId = field:tile()
-    if tileId == 6 or tileId == 0 then
+    if tileId == 6 or tileId == 0 or tileId == 34 then
         return -- no blood on water and invisible tiles
     end
     
