@@ -1153,7 +1153,12 @@ function DropBlood(Posi)
     if world:isItemOnField(Posi) then
         return --no blood on tiles with items on them!
     end
-
+    local field = world:getField(Posi)
+    local tileId = field:tile()
+    if tileId == 6 or tileId == 0 or tileId == 34 then
+        return -- no blood on water and invisible tiles
+    end
+    
     local Blood = world:createItemFromId(3101, 1, Posi, true, 333, nil)
     Blood.wear = 2
     world:changeItem(Blood)
