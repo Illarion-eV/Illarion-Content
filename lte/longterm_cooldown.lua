@@ -602,19 +602,23 @@ function M.callEffect( Effect, Char ) -- Effect is called
     if not playerCount then playerCount={} end
     if not playerCount[Char.id] then playerCount[Char.id] = 0 end
     
-    if storedMessage[Char.id] == Char.lastSpokenText and Char:isInRangeToPosition(storedPosition[Char.id],3) and Char:idleTime() < 300 and not Char:isAdmin() then
+    local players = world:getPlayersOnline()
+    
+    if storedMessage[Char.id] == Char.lastSpokenText and Char:isInRangeToPosition(storedPosition[Char.id],3) and Char:idleTime() < 300 and not Char:isAdmin() and #players > 1 then
 
         playerCount[Char.id] = playerCount[Char.id]+1
-        log(string.format("[Idle] %s is idle. idleTime = %d, count = %d.", Char.name, Char:idleTime(), playerCount[Char.id]))
         
         if math.floor(playerCount[Char.id]/12) == playerCount[Char.id]/12 then --Once an hour
+            log(string.format("[Idle] %s is idle. idleTime = %d, count = %d.", Char.name, Char:idleTime(), playerCount[Char.id]))
             Char:pageGM("Idle check necessary. idleTime = "..Char:idleTime()..", count = "..playerCount[Char.id]..".")
-            common.InformNLS(Char,"[Erinnerung] Denke bitte daran, dass bei Illarion ein Hauptziel die Interaktion mit anderen Spielern ist.","[Reminder] Keep in mind Illarion is about interacting with other players. ") --sending a message
         end
+    
+    else
+        playerCount[Char.id] = 0
     end
     
-    storedMessage[Char.id] = Char.lastSpokenText;
-    storedPosition[Char.id] = Char.pos;
+    storedMessage[Char.id] = Char.lastSpokenText
+    storedPosition[Char.id] = Char.pos
     Effect.nextCalled = 3000 --Effect gets called each 5 minutes
 
     return true
