@@ -117,7 +117,7 @@ monsterQuests.addQuest{
     questTitle = {german = Title[GERMAN], english = Title[ENGLISH]},
     monsterName = {german = "Dunkelelfen-Anführer", english = "drow leaders"},
     npcName = "Defensor Extremus",
-    monsterIds = {65} -- drow patriarch
+    monsterIds = {65} -- drow leader
 }
 
 function M.QuestTitle(user)
