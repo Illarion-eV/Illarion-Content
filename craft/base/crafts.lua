@@ -167,7 +167,6 @@ function Craft:showDialog(user, source)
         local result = dialog:getResult()
         if result == CraftingDialog.playerCrafts then
             local productId = dialog:getCraftableId()
-            --Banduk
             if productId > OFFSET_PRODUCTS_REPAIR then
                 productId = self:findReferenceProductId(user,productId)
             end
@@ -189,7 +188,6 @@ function Craft:showDialog(user, source)
             return self:getIngredientLookAt(user, productId, ingredientId)
         elseif result == CraftingDialog.playerCraftingComplete then
             local productId = dialog:getCraftableId()
-            --Banduk Hier wenn reparieren dann repairItem sonst craftItem
             local skillGain
             if productId > OFFSET_PRODUCTS_REPAIR then
                 skillGain = self:repairItem(user, productId)
@@ -296,7 +294,6 @@ function Craft:allowNpcCrafting(user, source)
 end
 
 function Craft:getProductLookAt(user, productId)
---Banduk
     local lookAt
     if productId > OFFSET_PRODUCTS_REPAIR then
         lookAt = lookat.GenerateLookAt(user, user:getItemAt( productId - OFFSET_PRODUCTS_REPAIR ), 0)
@@ -308,8 +305,7 @@ function Craft:getProductLookAt(user, productId)
 end
 
 function Craft:getIngredientLookAt(user, productId, ingredientId)
---Banduk
-    local lookAt
+   local lookAt
     if productId > OFFSET_PRODUCTS_REPAIR then
         productId = self:findReferenceProductId(user, productId)
     end
@@ -387,7 +383,6 @@ function Craft:loadDialog(dialog, user)
     end
     
     
---Banduk
     local repairPositions = {12, 13, 14, 15, 16, 17} -- all belt positions
     local showRepairGroup = false
     local repairSkill = self:getRepairSkill(user)
@@ -752,7 +747,6 @@ function Craft:createItem(user, productId, toolItem)
     end
 end
 
---Banduk
 function Craft:repairItem(user, productIdList)
     local productId = self:findReferenceProductId(user, productIdList)
     local product = self.products[productId]
@@ -812,7 +806,6 @@ function Craft:repairItem(user, productIdList)
     return skillGain
 end
 
---Banduk
 function Craft:createRepairedItem(user, productId, itemToRepair)
     local product = self.products[productId]
     local itemDamage = (100 - common.itemDurability(itemToRepair))/100
