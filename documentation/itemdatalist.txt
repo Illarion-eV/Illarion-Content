@@ -3,6 +3,8 @@ nameDe, overlay generic item name
 nameEn, overlay generic item name
 descriptionDe, overlay generic look at
 descriptionEn, overlay generic look at
+qualityAtCreation, best possible quality, set if item was repaired
+ceaftedBy, name of the character originally made the item
 --gems--
 gemLevel, magic level of gem (1-10)
 --bookshelf (id 266)--
@@ -14,3 +16,7 @@ gmSequenceOnGroup1 .. gmSequenceOnGroup6, GM defined action sequence on group
 --parchments (2745, 3109)--
 writtenText, text on parchment
 signatureText, name of char who signed the parchment
+--NPC repair
+uniqueID, processID
+repairPos, position of item in inventory
+repairQual, Quality of the item
