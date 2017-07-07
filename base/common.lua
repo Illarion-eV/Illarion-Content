@@ -504,6 +504,23 @@ function M.ToolBreaks(user, item, workTime)
 
 end
 
+--Calculate durability of an item
+-- @param Item the item to be checked
+-- @return durability (1-99)
+function M.itemDurability(item)
+    local durability = math.fmod(item.quality, 100)
+    return durability
+end
+
+--Calculate quality of an item
+-- @param Item the item to be checked
+-- @return quality (1-9)
+function M.itemQuality(item)
+    local durability = math.fmod(item.quality, 100)
+    local quality = (item.quality - durability) / 100
+    return quality
+end
+
 -- Check if a cooldown for an item is expired (e.g. if using it)
 -- Set a new cooldown if the old one is expired (or none set yet)
 -- @param Item the item to be checked
