@@ -113,6 +113,16 @@ local skillNames = {
     Character.woodcutting,
     Character.wrestling
 }
+local attributeNames={
+    "agility",
+    "constitution",
+    "dexterity",
+    "essence",
+    "intelligence",
+    "perception",
+    "strength",
+    "willpower"
+}
 
 local classNames={}
 classNames[0] = "Mage"
@@ -579,6 +589,51 @@ local function settingsForCharSkills(User, chosenPlayer)
     User:requestSelectionDialog(sdSkill)
 end
 
+--Banduk
+local function settingsForCharAttributes(User, chosenPlayer)
+    local textShown
+    local attibuteDialog = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local chosenAttribute = attributeNames[dialog:getSelectedIndex() + 1]
+        local changeDialog = function (dialog)
+            if (not dialog:getSuccess()) then
+                return
+            end
+            local attributeValue, okay = String2Number(dialog:getInput())
+            if (not okay) then
+                User:inform("no number")
+                return
+            end
+           if not chosenPlayer:isBaseAttributeValid(chosenAttribute,attributeValue) then
+                User:inform("Value out of permitted range.")
+                return
+            end
+            User:logAdmin("changes attribute of character " .. chosenPlayer.name .. ". " .. chosenAttribute .. " from " .. chosenPlayer:getBaseAttribute(chosenAttribute).. " to " .. tostring(attributeValue)..".")
+            User:inform("change " .. chosenAttribute .. " from " .. chosenPlayer:getBaseAttribute(chosenAttribute).. " to " .. tostring(attributeValue)..".")
+            chosenPlayer:setBaseAttribute(chosenAttribute,attributeValue)
+        end
+        local sdChange = InputDialog("Change attribute for "..chosenPlayer.name, "Type in the new value for "..chosenAttribute.."\nCurrent value: " .. chosenPlayer:getBaseAttribute(chosenAttribute), false, 255, changeDialog)
+        User:requestInputDialog(sdChange)
+    end
+    local attributeSum = chosenPlayer:getBaseAttributeSum()
+    local attributePermit = chosenPlayer:getMaxAttributePoints()
+    textShown = "What attribute do you wish to change for "..chosenPlayer.name.."?\nToals sum is "..tostring(attributeSum).." of "..tostring(attributePermit).."."
+    if attributeSum > attributePermit then
+        textShown = textShown .. "\n"..tostring(attributeSum-attributePermit).." too hight!"
+    elseif attributeSum < attributePermit then
+        textShown = textShown .. "\n"..tostring(attributePermit-attributeSum).." too low!"
+    else
+        textShown = textShown .. "\nConfigutratin is permitted!"
+    end
+    local sdAttribute = SelectionDialog("Select attribute", textShown, attibuteDialog)
+    for _, attribute in ipairs(attributeNames) do
+        sdAttribute:addOption(0,attribute.." value: "..chosenPlayer:getBaseAttribute(attribute))
+    end
+    User:requestSelectionDialog(sdAttribute)
+end
+
 local function godMode(User, SourceItem, ltstate)
 
     local playersTmp = world:getPlayersInRangeOf(User.pos, 25)
@@ -867,6 +922,11 @@ local function settingsForCharMagicClass(User, chosenPlayer)
         if targetClass ~= chosenPlayer:getMagicType() then
             User:logAdmin("Change magic class of character " .. chosenPlayer.name .. " from " .. classNames[chosenPlayer:getMagicType()].. " to " .. classNames[targetClass])
             chosenPlayer:setMagicType(targetClass)
+            if targetClass == 0 then -- Mage
+                chosenPlayer:setQuestProgress(37, 1)
+            else
+                chosenPlayer:setQuestProgress(37, 0)
+            end
             common.InformNLS(chosenPlayer, "[GM Info] Die magische Klasse wurde auf " .. classNames[targetClass] .. "geändert", "[GM Info] The magic class has been changed to" .. classNames[targetClass].. ".")
         end
     end
@@ -1223,6 +1283,8 @@ local function settingsForChar(User)
                 settingsForCharIceFlameProof(User, chosenPlayer)
             elseif actionToPerform == 7 then
                 settingsForCharPoisonCloudProof(User, chosenPlayer)
+            elseif actionToPerform == 8 then
+                settingsForCharAttributes(User, chosenPlayer)
             end
         end
         local sdAction = SelectionDialog("Character settings", chosenPlayer.name.."\n" .. charInfo(chosenPlayer), charActionDialog)
@@ -1250,6 +1312,7 @@ local function settingsForChar(User)
         else
             sdAction:addOption(164,"Remove poison cloud proof!")
         end
+        sdAction:addOption(93,"Set attributes")
        
         User:requestSelectionDialog(sdAction)
     end
