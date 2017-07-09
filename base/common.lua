@@ -504,22 +504,90 @@ function M.ToolBreaks(user, item, workTime)
 
 end
 
---Calculate durability of an item
--- @param Item the item to be checked
+--[[function set for item quality and durability
+item.quality contains quality and durability
+637 means: quality=6, durability=37
+default value is 333
+]]--
+M.ITEM_MAX_QUALITY = 9
+M.ITEM_DEFAULT_QUALITY = 3
+M.ITEM_MAX_DURABILITY = 99
+M.ITEM_DEFAULT_DURABILITY = 33
+
+-- Get durability of an item
+-- @param item the item to be checked
 -- @return durability (1-99)
-function M.itemDurability(item)
+function M.getItemDurability(item)
     local durability = math.fmod(item.quality, 100)
     return durability
 end
 
---Calculate quality of an item
+-- Set durability of an item
+-- @param item the item to be changed
+-- @param newDurability (1-99)
+function M.setItemDurability(item, newDurability)
+    local quality = M.getItemQuality(item)
+    item.quality = M.calculateItemQualityDurability(quality, newDurability)
+    world:changeItem(item)
+end
+
+-- Get quality of an item
 -- @param Item the item to be checked
 -- @return quality (1-9)
-function M.itemQuality(item)
+function M.GetItemQuality(item)
     local durability = math.fmod(item.quality, 100)
     local quality = (item.quality - durability) / 100
     return quality
 end
+
+-- Set quality of an item
+-- @param item the item to be changed
+-- @param newQuality (1-9)
+function M.setItemQuality(item, newQuality)
+    local durability = M.getItemDurability(item)
+    item.quality = M.calculateItemQualityDurability(newQuality, durability)
+    world:changeItem(item)
+end
+
+-- Set quality and durability of an item
+-- @param item the item to be checked
+-- @param newQuality (1-9)
+-- @param newDurability (1-99)
+function M.setItemQualityDurability(item, newQuality, newDurability)
+    item.quality = M.calculateItemQualityDurability(newQuality, newDurability)
+    world:changeItem(item)
+end
+
+-- calculates and verify the item state for item.quality
+-- @param quality (1-9)
+-- @param durability (1-99)
+-- @return value for item.quality
+-- default value is 333
+-- calculateItemQualityDurability (nil, nil) = 333
+function M.calculateItemQualityDurability (quality, durability)
+    local qualityNumber
+    if M.IsNilOrEmpty(quality) then
+        qualityNumber = ITEM_DEFAULT_QUALITY
+    else
+        qualityNumber= tonumber(quality)
+    end
+    if qualityNumber < 1 or qualityNumber > M.ITEM_MAX_QUALITY then
+        qualityNumber = ITEM_DEFAULT_QUALITY
+    end
+    
+    local durabilityNumber = tonumber(durability)
+    if M.IsNilOrEmpty(durability) then
+        durabilityNumber = M.ITEM_DEFAULT_DURABILITY
+    else
+        durabilityNumber= tonumber(durability)
+    end
+    if durabilityNumber < 1 or durabilityNumber > M.ITEM_MAX_DURABILITY then
+        durabilityNumber = M.ITEM_DEFAULT_DURABILITY
+    end
+    
+    return qualityNumber * 100 + durabilityNumber
+end
+
 
 -- Check if a cooldown for an item is expired (e.g. if using it)
 -- Set a new cooldown if the old one is expired (or none set yet)

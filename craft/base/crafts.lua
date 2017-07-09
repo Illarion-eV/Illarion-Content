@@ -28,6 +28,9 @@ local gems = require("base.gems")
 local currentGemBonus = 0
 
 local OFFSET_PRODUCTS_REPAIR = 235
+--[[productId for craftable items: id in products table.
+productId for repairable items position in inventory plus offset. Inventory has 17 positions, max productId = 255
+]]--
 local REPAIR_RESOURCE_USAGE = 0.3 -- 0-1; 0.5 means: probability to need ingedient for 100% repair
 local REPAIR_QUALITY_INCREASE_GENERAL = 0.6 -- probability for quality increase at 100% repair
 local REPAIR_QUALITY_INCREASE_KNOWN_CRAFTER = 0.4 -- additional probability for quality increase at 100% repair if item made by player
@@ -167,7 +170,7 @@ function Craft:showDialog(user, source)
         local result = dialog:getResult()
         if result == CraftingDialog.playerCrafts then
             local productId = dialog:getCraftableId()
-            if productId > OFFSET_PRODUCTS_REPAIR then
+            if self:isRepairItem(productId) then
                 productId = self:findReferenceProductId(user,productId)
             end
             local neededFood = 0
@@ -189,7 +192,7 @@ function Craft:showDialog(user, source)
         elseif result == CraftingDialog.playerCraftingComplete then
             local productId = dialog:getCraftableId()
             local skillGain
-            if productId > OFFSET_PRODUCTS_REPAIR then
+            if self:isRepairItem(productId) then
                 skillGain = self:repairItem(user, productId)
             else
                 skillGain = self:craftItem(user, productId)
@@ -295,7 +298,7 @@ end
 
 function Craft:getProductLookAt(user, productId)
     local lookAt
-    if productId > OFFSET_PRODUCTS_REPAIR then
+    if self:isRepairItem(productId) then
         lookAt = lookat.GenerateLookAt(user, user:getItemAt( productId - OFFSET_PRODUCTS_REPAIR ), 0)
     else
         local product = self.products[productId]
@@ -306,7 +309,7 @@ end
 
 function Craft:getIngredientLookAt(user, productId, ingredientId)
    local lookAt
-    if productId > OFFSET_PRODUCTS_REPAIR then
+    if self:isRepairItem(productId) then
         productId = self:findReferenceProductId(user, productId)
     end
     local ingredient = self.products[productId].ingredients[ingredientId]
@@ -411,26 +414,6 @@ function Craft:loadDialog(dialog, user)
 
     end
 
-end
-
-function RareItems(user, comparisonid, dataId)
-
-    local itemsOnChar = {};
-    for i=17,0,-1 do
-        local item = user:getItemAt(i);
-        local itemId = item.id
-        if (itemId > 0) then
-            if itemId==comparisonid then
-                if (tonumber(item:getData("RareArmour"))==dataId) then
-                    return true;
-                elseif (tonumber(item:getData("RareWeapon"))==dataId) then
-                    return true
-                end
-            end
-        end
-    end
-
-    return false;
 end
 
 function Craft:refreshDialog(dialog, user)
@@ -767,7 +750,7 @@ function Craft:repairItem(user, productIdList)
         return false
     end
     
-    if common.itemDurability(itemToRepair) == 99 then
+    if common.GetItemDurability(itemToRepair) == 99 then
         common.InformNLS(user,
         "Du findest nichts, was du an dem Werkstück reparieren könntest.",
         "There is nothing to repair on that item.")    
@@ -808,8 +791,8 @@ end
 
 function Craft:createRepairedItem(user, productId, itemToRepair)
     local product = self.products[productId]
-    local itemDamage = (100 - common.itemDurability(itemToRepair))/100
-    local quality = common.itemQuality(itemToRepair)
+    local itemDamage = (100 - common.getItemDurability(itemToRepair))/100
+    local quality = common.GetItemQuality(itemToRepair)
     local knownCrafter
 
     for i = 1, #product.ingredients do
@@ -846,8 +829,7 @@ function Craft:createRepairedItem(user, productId, itemToRepair)
         end
     end
     
-    local durability = 99
-    itemToRepair.quality = quality * 100 + durability
+    itemToRepair.quality = common.calculateItemQualityDurability(quality, common.ITEM_MAX_DURABILITY)
     world:changeItem(itemToRepair)
 end
 
@@ -864,9 +846,7 @@ function Craft:setCurrentGemBonusUser (user)
 end
 
 function Craft:findReferenceProductId(user, productId)
-    if productId <= OFFSET_PRODUCTS_REPAIR then
-        return productId
-    else
+    if self:isRepairItem(productId) then
         local itemAtCharacter = user:getItemAt( productId - OFFSET_PRODUCTS_REPAIR )
         for i = 1, #self.products do
             local product = self.products[i]
@@ -874,6 +854,8 @@ function Craft:findReferenceProductId(user, productId)
                 return i
             end
         end
+    else
+        return productId
     end
     return 0
 end
@@ -881,4 +863,11 @@ end
 function Craft:getRepairSkill(user)
     local repairSkill = self:getSkill(user) + tonumber (self:getCurrentGemBonus())
     return repairSkill
+end
+
+function Craft:isRepairItem(productId)
+    if productId > OFFSET_PRODUCTS_REPAIR then
+        return true
+    end
+return false
 end
