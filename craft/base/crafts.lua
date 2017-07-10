@@ -34,6 +34,7 @@ productId for repairable items position in inventory plus offset. Inventory has 
 local REPAIR_RESOURCE_USAGE = 0.3 -- 0-1; 0.5 means: probability to need ingedient for 100% repair
 local REPAIR_QUALITY_INCREASE_GENERAL = 0.6 -- probability for quality increase at 100% repair
 local REPAIR_QUALITY_INCREASE_KNOWN_CRAFTER = 0.4 -- additional probability for quality increase at 100% repair if item made by player
+local DUMMY_MIN_SKILL_REPAIR_ONLY = 200 -- not reachable skill for group 'repair only', need to hide not craftable items
 
 module("craft.base.crafts", package.seeall)
 
@@ -148,6 +149,9 @@ function Craft:addProduct(categoryId, itemId, quantity, data)
             self.categories[categoryId].minSkill = math.min(self.categories[categoryId].minSkill, difficulty)
         else
             self.categories[categoryId].minSkill = difficulty
+        end
+        if self:isRepairCategory(categoryId) then
+            self.categories[categoryId].minSkill = DUMMY_MIN_SKILL_REPAIR_ONLY
         end
 
         return self.products[#self.products]
@@ -374,7 +378,7 @@ function Craft:loadDialog(dialog, user)
         local product = self.products[i]
         local productRequirement = product.difficulty
 
-        if productRequirement <= skill then
+        if productRequirement <= skill and self:isRepairCategory(product.category) == false then
 
             dialog:addCraftable(i, categoryListId[product.category], product.item, self:getLookAt(user, product).name, self:getCraftingTime(product, skill), product.quantity)
 
@@ -577,19 +581,19 @@ function Craft:generateQuality(user, productId, toolItem)
     end
     
     local quality = common.Scale(4, 8, scalar)
-    local toolQuality = math.floor(toolItem.quality/100)
+    local toolQuality = common.GetItemQuality(toolItem)
     local gemBonus = tonumber(self:getCurrentGemBonus())
 
     quality = quality + math.random(math.min(0,((toolQuality-5)/2)),math.max(0,((toolQuality-5)/2 ))+ gemBonus/12); -- +2 for a perfect tool, -2 for a crappy tool, +1 per each 12% gem Bonus to max
 
     quality = math.floor(quality)
-    quality = common.Limit(quality, 1, 9)
+    quality = common.Limit(quality, 1, common.ITEM_MAX_QUALITY)
 
     quality = quality + math.random(-1,1); -- Final scatter!
-    quality = common.Limit(quality, 1, 9)
+    quality = common.Limit(quality, 1, common.ITEM_MAX_QUALITY)
 
-    local durability = 99
-    return quality * 100 + durability
+    local durability = common.ITEM_MAX_DURABILITY
+    return common.calculateItemQualityDurability(quality, durability)
 
 end
 
@@ -739,7 +743,6 @@ function Craft:repairItem(user, productIdList)
 
     local skillGain = false
     
-
     local toolItem = self:getHandToolEquipped(user)
 
     if product.difficulty > repairSkill then
@@ -750,7 +753,7 @@ function Craft:repairItem(user, productIdList)
         return false
     end
     
-    if common.GetItemDurability(itemToRepair) == 99 then
+    if common.getItemDurability(itemToRepair) == 99 then
         common.InformNLS(user,
         "Du findest nichts, was du an dem Werkstück reparieren könntest.",
         "There is nothing to repair on that item.")    
@@ -793,8 +796,6 @@ function Craft:createRepairedItem(user, productId, itemToRepair)
     local product = self.products[productId]
     local itemDamage = (100 - common.getItemDurability(itemToRepair))/100
     local quality = common.GetItemQuality(itemToRepair)
-    local knownCrafter
-
     for i = 1, #product.ingredients do
         local ingredient = product.ingredients[i]
         if math.random() < itemDamage * REPAIR_RESOURCE_USAGE then
@@ -802,17 +803,12 @@ function Craft:createRepairedItem(user, productId, itemToRepair)
         end
     end
 
-    if not common.IsNilOrEmpty(itemToRepair:getData("craftedBy")) then
-        knownCrafter = true
-    else
-        knownCrafter = false
-    end
-
     local bestQuality = itemToRepair:getData("qualityAtCreation")
+    local repairQualityIncrease
     if common.IsNilOrEmpty(bestQuality) then
         itemToRepair:setData("qualityAtCreation", quality)
     else
-        if knownCrafter then
+        if Craft:isKnownCrafter(itemToRepair) then
             repairQualityIncrease = REPAIR_QUALITY_INCREASE_GENERAL + REPAIR_QUALITY_INCREASE_KNOWN_CRAFTER
         else
             repairQualityIncrease = REPAIR_QUALITY_INCREASE_GENERAL
@@ -821,7 +817,7 @@ function Craft:createRepairedItem(user, productId, itemToRepair)
             quality = quality +1
             common.InformNLS(user,
             "Dir gelingt es, die Qualität des Gegenstands "..world:getItemName(itemToRepair.id,Player.german).." etwas zu verbessern.",
-            "You succeed in improving the quality of the item "..world:getItemName(itemToRepair.id,Player.english)..".")
+            "You have succeeded in improving the quality of the item "..world:getItemName(itemToRepair.id,Player.english)..".")
         else
             common.InformNLS(user,
             "Du reparierst "..world:getItemName(itemToRepair.id,Player.german)..".",
@@ -831,6 +827,19 @@ function Craft:createRepairedItem(user, productId, itemToRepair)
     
     itemToRepair.quality = common.calculateItemQualityDurability(quality, common.ITEM_MAX_DURABILITY)
     world:changeItem(itemToRepair)
+end
+
+function Craft:isKnownCrafter(item)
+    if not common.IsNilOrEmpty(item:getData("craftedBy")) then
+        return true
+    end
+    if not common.IsNilOrEmpty(item:getData("nameEn")) then
+        return true
+    end
+    if not common.IsNilOrEmpty(item:getData("descriptionEn")) then
+        return true
+    end
+    return false
 end
 
 function Craft:setCurrentGemBonus (bonus)
@@ -870,4 +879,11 @@ function Craft:isRepairItem(productId)
         return true
     end
 return false
+end
+
+function Craft:isRepairCategory(categoryId)
+    if self.categories[categoryId].nameEN == "repair only" then
+        return true
+    end
+    return false
 end

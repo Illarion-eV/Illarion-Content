@@ -825,3 +825,22 @@ product:addIngredient(2537, 7) -- iron plate
 product:addIngredient(2571, 2) -- merinium ingot
 product:addIngredient(285, 1) -- diamond
 product:addIngredient(2552, 1) -- pure earth
+
+-- Dummy group for items that cannot be crafted but repaired
+local catId = armourer:addCategory("repair only", "nur reparieren")
+
+-- drow helmet
+product = armourer:addProduct(catId, 2303, 1)
+product:addIngredient(2535, 7) -- iron ingot
+product:addIngredient(2537, 2) -- iron plate
+product:addIngredient(2571, 1) -- merinium ingot
+product:addIngredient(285, 1) -- diamond
+product:addIngredient(104, 2) -- silver ingot
+
+-- drow armour
+product = armourer:addProduct(catId, 2402, 1)
+product:addIngredient(2535, 18) -- iron ingot
+product:addIngredient(2537, 6) -- iron plate
+product:addIngredient(2571, 2) -- merinium ingot
+product:addIngredient(285, 1) -- diamond
+product:addIngredient(236, 4) -- gold ingot
