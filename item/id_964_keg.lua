@@ -29,6 +29,7 @@ local dragonCaveKegPos = {
 }
 
 local KegContents
+local ronagankegContents
 
 function M.UseItem(User, SourceItem)
 

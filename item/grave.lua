@@ -54,6 +54,7 @@ local dragonCaveCoffinPos = {
 }
 
 local CoffinContents
+local letmaCoffin
 
 function M.LookAtItem(User, Item)
 
