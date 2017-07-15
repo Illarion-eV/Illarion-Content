@@ -21,22 +21,7 @@ local money = require("base.money")
 
 local M = {}
 
-function M.UseItem(User, SourceItem, ltstate)
-    local itemData
-    local isRonaganTrap = (SourceItem:getData("ronaganTrap") == "true")
-    if (isRonaganTrap == true) then
-        User:inform("Ein Dieb hat dich in eine Falle gelockt. Er springt aus einem der Schatten und stielt dir ein paar Münzen.", "A thief has lured you into a trap, jumping out from a shadow, he steals some coins from you.")
-
-        -- steal 1% - 5% of characters money in inventroy
-        local wealth = money.CharCoinsToMoney(User)
-        money.TakeMoneyFromChar(User, math.random(math.floor(wealth / 100), math.floor(wealth / 20)))
-        return
-   end
-
-    chooseTypeOfDice(User)
-end
-
-function informAboutResult(User, typeOfDice, numberOfDice)
+local function informAboutResult(User, typeOfDice, numberOfDice)
     local thrownNumbers = math.random(1,typeOfDice);
     
     local diceTypeEn, diceTypeDe
@@ -68,7 +53,7 @@ function informAboutResult(User, typeOfDice, numberOfDice)
         
 end
 
-function chooseNumberOfDice(User, typeOfDice)
+local function chooseNumberOfDice(User, typeOfDice)
     local title = common.GetNLS(User,"Würfel", "Dice");
     local text = common.GetNLS(User,"Bitte gib ein, wieviele Würfel du werfen möchtest." , "Please type in how many dice you wish to throw.");
 
@@ -95,7 +80,7 @@ function chooseNumberOfDice(User, typeOfDice)
     User:requestInputDialog(InputDialog(title, text ,false, 255, cbInputDialog))
 end
 
-function chooseTypeOfDice(User)
+local function chooseTypeOfDice(User)
     local title = common.GetNLS(User,"Würfel", "Dice");
     local text = common.GetNLS(User,"Bitte wähle aus, welche Art Würfel du werfen möchtest." , "Please choose what type of dice you wish to throw.");
     
@@ -117,5 +102,22 @@ function chooseTypeOfDice(User)
     
     User:requestSelectionDialog(dialog)
 end
+
+function M.UseItem(User, SourceItem, ltstate)
+    local itemData
+    local isRonaganTrap = (SourceItem:getData("ronaganTrap") == "true")
+    if (isRonaganTrap == true) then
+        User:inform("Ein Dieb hat dich in eine Falle gelockt. Er springt aus einem der Schatten und stielt dir ein paar Münzen.", "A thief has lured you into a trap, jumping out from a shadow, he steals some coins from you.")
+
+        -- steal 1% - 5% of characters money in inventroy
+        local wealth = money.CharCoinsToMoney(User)
+        money.TakeMoneyFromChar(User, math.random(math.floor(wealth / 100), math.floor(wealth / 20)))
+        return
+   end
+
+    chooseTypeOfDice(User)
+end
+
+
 return M
 
