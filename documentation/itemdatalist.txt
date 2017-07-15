@@ -16,6 +16,9 @@ gmSequenceOnGroup1 .. gmSequenceOnGroup6, GM defined action sequence on group
 --parchments (2745, 3109)--
 writtenText, text on parchment
 signatureText, name of char who signed the parchment
+destinationCoordsX, x coordinate
+destinationCoordsY, y coordinate
+destinationCoordsZ, z coordinate
 --NPC repair
 uniqueID, processID
 repairPos, position of item in inventory
