@@ -24,7 +24,7 @@ local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}
-Title[GERMAN] = "Sibanac für Wulfgorda bei dem Gasthaus zur Hanfschlinge (Spinnenmaul)"
+Title[GERMAN] = "Sibanac für Wulfgorda bei dem Gasthof zur Hanfschlinge (Spinnenmaul)"
 Title[ENGLISH] = "Sibanac for Wulfgorda at the Hemp Necktie Inn (Spider's Mouth)"
 
 -- Insert an extensive description of each status here, in both languages
@@ -32,7 +32,7 @@ Title[ENGLISH] = "Sibanac for Wulfgorda at the Hemp Necktie Inn (Spider's Mouth)
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Finde Wulfgorda beim Gasthaus zur Hanfschlinge und bringe ihr die Sibanacblätter, um deine Belohnung zur erhalten."
+Description[GERMAN][1] = "Finde Wulfgorda beim Gasthof zur Hanfschlinge und bringe ihr die Sibanacblätter, um deine Belohnung zur erhalten."
 Description[ENGLISH][1] = "Try to find Wulfgorda at the Hemp Necktie Inn and take her the sibanac leaves to get your reward."
 Description[GERMAN][2] = "Du hast Wulfgorda gefunden. Wenn du möchtest, kannst du nun mit ihr sprechen. Frage sie nach 'Hilfe' wenn du nicht weißt, wonach du fragen sollst!\nSie kann dir einiges über die nordöstliche Karte von Illarion verraten."
 Description[ENGLISH][2] = "You have found Wulfgorda. If you like, you can talk with her now. Ask for 'help' if you do not know what to say!\nShe can provide you with information about the north-eastern part of Illarion."
