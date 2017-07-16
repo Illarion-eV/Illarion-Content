@@ -22,6 +22,8 @@ local itemPos = {{en="Head", de="Kopf"},{en="Neck", de="Hals"},{en="Breast", de=
     {en="Belt 2", de="Gürtel 2"},{en="Belt 3", de="Gürtel 3"},{en="Belt 4", de="Gürtel 4"},{en="Belt 5", de="Gürtel 5"},{en="Belt 6", de="Gürtel 6"}}
 itemPos[0] = {en="Backpack", de="Rucksack"}
 
+local REPAIR_QUALITY_REDUCTION_FACTOR = 0.3 --probability a totally damaged item lost quality
+
 local M = {}
 
 --opens a selection dialog for the player to choose an item to repair
@@ -124,10 +126,21 @@ function repair(npcChar, speaker, theItem, theItemUID, theItemPos, theItemQual, 
                 local notEnoughMoney={"Ihr habt anscheinend nicht genug Geld. Die Reparatur würde"..priceMessage.." kosten.","You don't have enough money I suppose. I demand"..priceMessage.." for repairing this item."} --Player is broke
                 npcChar:talk(Character.say, notEnoughMoney[language+1])
             else --he has the money
-                local successRepair={"Der Gegenstand wird für"..priceMessage.." in Stand gesetzt.", "The item is repaired at a cost of"..priceMessage.."."}
-                speaker:inform(successRepair[language+1])
+                local quality = common.itemQuality(theItem)
+                local damage = (99 - common.itemDurability(theItem)) / 99
+                local successRepair = {}
+                if common.IsNilOrEmpty(theItem:getData("qualityAtCreation")) then
+                    theItem:setData("qualityAtCreation",quality) -- save original quality
+                end
+                local targetQuality = quality
+                if (math.random() < damage * REPAIR_QUALITY_REDUCTION_FACTOR) and (quality > 1) then
+                    targetQuality = quality - 1
+                    common.InformNLS(speaker,"Der Gegenstand wird für"..priceMessage.." in Stand gesetzt, verliert aber an Qualität.", "The item is repaired at a cost of"..priceMessage.." but lost quality.")
+                else
+                    common.InformNLS(speaker,"Der Gegenstand wird für"..priceMessage.." in Stand gesetzt.", "The item is repaired at a cost of"..priceMessage..".")
+                end
                 money.TakeMoneyFromChar(speaker,price) --pay!
-                theItem.quality=theItem.quality+toRepair --repair!
+                theItem.quality=targetQuality*100 + 99 --repair!
                 world:changeItem(theItem)
             end --price/repair
         end --there is an item

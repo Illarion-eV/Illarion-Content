@@ -238,3 +238,14 @@ product:addIngredient(2584, 1) -- sword handle
 product = planing:addProduct(catId, 1045, 1)
 product:addIngredient(545, 2) -- cherry wood boards
 product:addIngredient(2530, 1) -- dagger handle
+
+-- Dummy group for items that cannot be crafted but repaired
+local catId = planing:addCategory("repair only", "nur reparieren")
+
+-- drow bow
+product = planing:addProduct(catId, 2739, 1)
+product:addIngredient(546, 5) -- naldor wood boards
+product:addIngredient(50, 2) -- thread
+product:addIngredient(3786, 3) -- heartwood
+product:addIngredient(3607, 1) -- pure spirit
+

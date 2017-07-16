@@ -139,7 +139,7 @@ town = Runewick, "Zensusbüro" -> "Das Zensusbüro im zweiten Stock im Gebäude auf
 "Zensusbüro" -> "Das Zensusbüro im zweiten Stock im Gebäude auf der Insel des Geistes gefunden werden. Dort könnt ihr dem Reich der Weisheit beitreten."
 
 "Yewdale" -> "Yewdale is the village west of Runewick. For more detailsask Numila Irunnleh."
-"Eibenthal" -> "Das Eibenthal ist das dorf westlich von Runewick. Befragt Numila Irunnleh um nähere Information zu erhalten."
+"Eibenthal" -> "Das Eibenthal ist das Dorf westlich von Runewick. Befragt Numila Irunnleh um nähere Information zu erhalten."
 "Shrine.*Oldra", "Findari Oldra" -> "The Shrine of Oldra can be found in Yewdale."
 "Schrein.*Oldra", "Findari Oldra" -> "Der Schrein der Oldra kann in Eibenthal gefunden werden."
 english, "Tomb" -> inform("[Keywords] Room of Light, Room of Darkness, Room of  Twilight"), "To reach the tomb you have to leave the town and go north. The tomb is divided in three rooms: Room of Light, Room of Darkness, and Room of Twilight."

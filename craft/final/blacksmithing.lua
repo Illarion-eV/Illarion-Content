@@ -581,3 +581,22 @@ product:addIngredient(2585, 1) -- big sword handle
 product:addIngredient(2571, 3) -- merinium ingot
 product:addIngredient(452, 1) -- diamond powder
 product:addIngredient(236, 2) -- gold ingot
+
+-- Dummy group for items that cannot be crafted but repaired
+local catId = blacksmithing:addCategory("repair only", "nur reparieren")
+
+-- drow blade
+product = blacksmithing:addProduct(catId, 2777, 1)
+product:addIngredient(2535, 7) -- iron ingot
+product:addIngredient(2584, 1) -- sword handle
+product:addIngredient(2571, 2) -- merinium ingot
+product:addIngredient(3607, 1) -- pure spirit
+product:addIngredient(236, 2) -- gold ingot
+
+-- drow sword
+product = blacksmithing:addProduct(catId, 3035, 1)
+product:addIngredient(2535, 12) -- iron ingot
+product:addIngredient(2525, 1) -- axe handle
+product:addIngredient(2571, 4) -- merinium ingot
+product:addIngredient(3607, 1) -- pure spirit
+product:addIngredient(236, 2) -- gold ingot
