@@ -609,7 +609,6 @@ function M.callEffect( Effect, Char ) -- Effect is called
         playerCount[Char.id] = playerCount[Char.id]+1
         
         if math.floor(playerCount[Char.id]/12) == playerCount[Char.id]/12 then --Once an hour
-            log(string.format("[Idle] %s is idle. idleTime = %d, count = %d.", Char.name, Char:idleTime(), playerCount[Char.id]))
             Char:pageGM("Idle check necessary. idleTime = "..Char:idleTime()..", count = "..playerCount[Char.id]..".")
         end
     
