@@ -589,7 +589,6 @@ local function settingsForCharSkills(User, chosenPlayer)
     User:requestSelectionDialog(sdSkill)
 end
 
---Banduk
 local function settingsForCharAttributes(User, chosenPlayer)
     local textShown
     local attibuteDialog = function (dialog)
@@ -1333,7 +1332,6 @@ local function settingsForChar(User)
 end
 
 function M.UseItem(User, SourceItem, ltstate)
-
     --if injured, heal!
     User:increaseAttrib("hitpoints", 10000)
     User:increaseAttrib("mana", 10000)
