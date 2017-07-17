@@ -128,7 +128,7 @@ local function isPossibleTarget(monster, candidate)
         return false
     end
 
-    if (candidate:getQuestProgress(36) ~= 0) then
+    if (candidate:getQuestProgress(36) ~= 0) or (candidate:getQuestProgress(236) ~= 0) then
         return false
     end
 

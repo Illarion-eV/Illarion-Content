@@ -974,12 +974,12 @@ local function settingsForCharMC(User, targetChar)
 end
 
 local function settingsForCharAttacable(User, chosenPlayer)
-    if chosenPlayer:getQuestProgress(36) == 0 then
-        chosenPlayer:setQuestProgress(36,3)
+    if chosenPlayer:getQuestProgress(236) == 0 then
+        chosenPlayer:setQuestProgress(236,3)
         User:logAdmin("Make character " .. chosenPlayer.name .. " unable to be attacked for 15 min.")
         common.InformNLS(chosenPlayer, "[GM Info] Dein Char wird für ca. 15 Minuten nicht von NPC angegriffen.", "[GM Info] Your character is unable to be attacked by NPC for about 15 min.")
     else
-        chosenPlayer:setQuestProgress(36,0)
+        chosenPlayer:setQuestProgress(236,0)
         User:logAdmin("Make character " .. chosenPlayer.name .. " able to be attacked.")
         common.InformNLS(chosenPlayer, "[GM Info] Dein Char wird wieder von NPC angegriffen.", "[GM Info] Your character can be attacked by NPC again.")
     end

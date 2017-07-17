@@ -590,8 +590,8 @@ function M.callEffect( Effect, Char ) -- Effect is called
     end
     --Addition end
 
-    --Addition by Banduk: Quest 36,298,299,300 - GM capability for all
-    cooldownQuestNoGM(Char,36,"[Info] Die Monster erheben wieder ihre Waffen gegen dich.","[Info] The monsters raise their weapons against you again.")
+    --Addition by Banduk: Quest 236,298,299,300 - GM capability for all
+    cooldownQuestNoGM(Char,236,"[Info] Die Monster erheben wieder ihre Waffen gegen dich.","[Info] The monsters raise their weapons against you again.")
     cooldownQuestNoGM(Char,298,"[Info] Flammen werden dir wieder etwas anhaben.","[Info] Flames will hurt you again.")
     cooldownQuestNoGM(Char,299,"[Info] Eisflammen werden dir wieder etwas anhaben.","[Info] Ice flames will hurt you again.")
     cooldownQuestNoGM(Char,300,"[Info] Giftwolken werden dir wieder etwas anhaben.","[Info] Poison clouds will hurt you again.")
