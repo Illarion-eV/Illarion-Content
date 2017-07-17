@@ -581,7 +581,7 @@ function Craft:generateQuality(user, productId, toolItem)
     end
     
     local quality = common.Scale(4, 8, scalar)
-    local toolQuality = common.GetItemQuality(toolItem)
+    local toolQuality = common.getItemQuality(toolItem)
     local gemBonus = tonumber(self:getCurrentGemBonus())
 
     quality = quality + math.random(math.min(0,((toolQuality-5)/2)),math.max(0,((toolQuality-5)/2 ))+ gemBonus/12); -- +2 for a perfect tool, -2 for a crappy tool, +1 per each 12% gem Bonus to max
@@ -795,7 +795,7 @@ end
 function Craft:createRepairedItem(user, productId, itemToRepair)
     local product = self.products[productId]
     local itemDamage = (100 - common.getItemDurability(itemToRepair))/100
-    local quality = common.GetItemQuality(itemToRepair)
+    local quality = common.getItemQuality(itemToRepair)
     for i = 1, #product.ingredients do
         local ingredient = product.ingredients[i]
         if math.random() < itemDamage * REPAIR_RESOURCE_USAGE then

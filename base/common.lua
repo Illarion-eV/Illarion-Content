@@ -534,7 +534,7 @@ end
 -- Get quality of an item
 -- @param Item the item to be checked
 -- @return quality (1-9)
-function M.GetItemQuality(item)
+function M.getItemQuality(item)
     local durability = math.fmod(item.quality, 100)
     local quality = (item.quality - durability) / 100
     return quality
