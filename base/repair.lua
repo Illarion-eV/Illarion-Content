@@ -126,8 +126,8 @@ function repair(npcChar, speaker, theItem, theItemUID, theItemPos, theItemQual, 
                 local notEnoughMoney={"Ihr habt anscheinend nicht genug Geld. Die Reparatur würde"..priceMessage.." kosten.","You don't have enough money I suppose. I demand"..priceMessage.." for repairing this item."} --Player is broke
                 npcChar:talk(Character.say, notEnoughMoney[language+1])
             else --he has the money
-                local quality = common.itemQuality(theItem)
-                local damage = (99 - common.itemDurability(theItem)) / 99
+                local quality = common.getItemQuality(theItem)
+                local damage = (99 - common.getItemDurability(theItem)) / 99
                 local successRepair = {}
                 if common.IsNilOrEmpty(theItem:getData("qualityAtCreation")) then
                     theItem:setData("qualityAtCreation",quality) -- save original quality

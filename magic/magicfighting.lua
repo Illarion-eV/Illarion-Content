@@ -353,7 +353,7 @@ function M.onMagicAttack(attackerStruct, defenderStruct)
     defenderStruct["essence"] = defenderStruct.Char:increaseAttrib("essence", 0)
     
     if checkBlockedAttack(attackerStruct, defenderStruct) then
-        attackerStruct.Char:inform("Deiner Willenskraft gelingt es, die magische Attacke abzublocken.", "Your willpower was able to block this magic attack.", Player.lowPriority)
+        defenderStruct.Char:inform("Deiner Willenskraft gelingt es, die magische Attacke abzublocken.", "Your willpower was able to block this magic attack.", Player.lowPriority)
         attackerStruct.Char:inform("Dein Gegner blockt mit seinem Willen den Angriff ab.", "Your enemy is able to block your attack with his willpower.", Player.lowPriority)
         return
     end

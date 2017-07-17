@@ -19,6 +19,9 @@ signatureText, name of char who signed the parchment
 destinationCoordsX, x coordinate
 destinationCoordsY, y coordinate
 destinationCoordsZ, z coordinate
+--treasure chest (2830)
+trsCat, category of treasure
+playerNeeded, number of player needed in range 7 to open the chest, if not than 1
 --NPC repair
 uniqueID, processID
 repairPos, position of item in inventory

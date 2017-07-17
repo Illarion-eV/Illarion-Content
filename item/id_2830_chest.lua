@@ -14,7 +14,7 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
--- UPDATE items SET itm_script='item.id_2830_chest' WHERE itm_id=2830;
+-- UPDATE items SET itm_script='item.id_2830_chest' WHERE itm_id=2830
 
 local common = require("base.common")
 local treasureContent = require("content.treasure")
@@ -25,23 +25,34 @@ local M = {}
 function M.LookAtItem(User, Item)
     --local nameDe, nameEn = treasureContent.getTreasureName(tonumber(Item:getData("trsCat")))
     local nameDe, nameEn = "Eine kunstvoll verzierte Schatzkiste. Welche Reichtümer mag sie wohl enthalten?", "An ornated treasure chest. What riches will it contain?"
-    lookat.SetSpecialDescription(Item, nameDe, nameEn);
+    lookat.SetSpecialDescription(Item, nameDe, nameEn)
     return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
 
 function M.UseItem(User,SourceItem)
-
+    local RANGE_PLAYER_HAVE_TO_BE = 7
     local level=tonumber(SourceItem:getData("trsCat"))
-    local posi=SourceItem.pos;
+    local playerNeeded=tonumber(SourceItem:getData("playerNeeded"))
+    local posi=SourceItem.pos
+    local playerInRange=world:getPlayersInRangeOf(posi ,RANGE_PLAYER_HAVE_TO_BE )
 
-    common.InformNLS(User, "Du öffnest die Schatzkiste...", "You open the treasure chest...");
-    world:erase(SourceItem, SourceItem.number); --strange hack here
-    if (level ~= nil) and (level~=0) and (level < 10) then
-        world:gfx(16,posi);
-        world:makeSound(13,posi);
-        treasureBase.dropTreasureItems(posi, level);
-    else    
-        common.InformNLS(User, "...sie ist leer!", "...it is empty!");
+    if (playerNeeded == nil) then
+        playerNeeded = 1
+    end
+    if (#playerInRange >= playerNeeded) then
+        common.InformNLS(User, "Du öffnest die Schatzkiste...", "You open the treasure chest...")
+        world:erase(SourceItem, SourceItem.number) --strange hack here
+        if (level ~= nil) and (level~=0) and (level < 10) then
+            world:gfx(16,posi)
+            world:makeSound(13,posi)
+            treasureBase.dropTreasureItems(posi, level)
+        else    
+            common.InformNLS(User, "...sie ist leer!", "...it is empty!")
+        end
+    else
+        common.InformNLS(User,
+        "Du kannst die Schatzkiste nicht öffen. Du braucht dazu mindestens "..tostring(playerNeeded-1).." Mitstreiter.",
+        "You are not able to open the treasure chest. You need at least "..tostring(playerNeeded-1).." companions.")
     end
 
 end
