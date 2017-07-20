@@ -30,7 +30,7 @@ function M.LookAtItem(User, Item)
 end
 
 function M.UseItem(User,SourceItem)
-    local RANGE_PLAYER_HAVE_TO_BE = 7
+    local RANGE_PLAYER_HAVE_TO_BE = 1
     local level=tonumber(SourceItem:getData("trsCat"))
     local playerNeeded=tonumber(SourceItem:getData("playerNeeded"))
     local posi=SourceItem.pos
@@ -40,7 +40,14 @@ function M.UseItem(User,SourceItem)
         playerNeeded = 1
     end
     if (#playerInRange >= playerNeeded) then
-        common.InformNLS(User, "Du öffnest die Schatzkiste...", "You open the treasure chest...")
+        if playerNeeded == 1 then
+            common.InformNLS(User, "Du öffnest die Schatzkiste...", "You open the treasure chest...")
+        else
+            for _, player in pairs(playerInRange) do
+                common.InformNLS(player, "Zusammen schafft ihr es den Schließmechanismus der Schatzkiste zu knacken.",
+                                       "Together you break tle lock of the treasure chest.")
+            end
+        end
         world:erase(SourceItem, SourceItem.number) --strange hack here
         if (level ~= nil) and (level~=0) and (level < 10) then
             world:gfx(16,posi)
@@ -51,8 +58,8 @@ function M.UseItem(User,SourceItem)
         end
     else
         common.InformNLS(User,
-        "Du kannst die Schatzkiste nicht öffen. Du braucht dazu mindestens "..tostring(playerNeeded-1).." Mitstreiter.",
-        "You are not able to open the treasure chest. You need at least "..tostring(playerNeeded-1).." companions.")
+        "Um den Mechanismus dieser Kiste zu überwinden benötigst du mindestens "..tostring(playerNeeded * 2).." Hände.",
+        "To open the mechanism of this chest you need at least "..tostring(playerNeeded * 2).." hands.")
     end
 
 end

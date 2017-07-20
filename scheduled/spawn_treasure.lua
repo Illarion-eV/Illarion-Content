@@ -52,12 +52,13 @@ function M.spawnTreasure()
 
     for i = 1, #treasureParameter do
         if #world:getPlayersInRangeOf(treasureParameter[i][1],20) == 0 and world:isItemOnField(treasureParameter[i][1]) == false then --only spawn a treasure if nobody is around
-            world:createItemFromId(2830,1,treasureParameter[i][1],false,333,
-            {trsCat=math.random(treasureParameter[i][2],treasureParameter[i][3]),
-            playerNeeded=treasureParameter[i][4]}) --spawn the chest
-            
+            M.spawnTreasureChest(treasureParameter[i][1], math.random(treasureParameter[i][2],treasureParameter[i][3]), treasureParameter[i][4])
         end
     end
 
+end
+
+function M.spawnTreasureChest(position, level, persons)
+    world:createItemFromId(2830,1,position,false,333,{trsCat=level,playerNeeded=persons})
 end
 return M

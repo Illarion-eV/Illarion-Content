@@ -23,6 +23,8 @@ local alchemy = require("scheduled.alchemy")
 local specialeggs = require("content.specialeggs")
 local scheduledFunction = require("scheduled.scheduledFunction")
 local mysticalcracker = require ("item.id_3894_mystical_cracker")
+local spawntreasures = require ("scheduled.spawn_treasure")
+
 
 local M = {}
 
@@ -52,20 +54,21 @@ local SpecialItemSubMenu = {"Money","Magic Gems","Pure Elements"}
 --SpecialItem[x] = {"Name",IsExtraFunction,ItemID,special,SubMenue}
 SpecialItem[1] = {"Mystical Cracker",true,3894,0,""}
 SpecialItem[2] = {"Special Eggs",true,1150,0,""}
-SpecialItem[3] = {"Latent Magic Topaz",false,198,MagicGem,"Magic Gems"}
-SpecialItem[4] = {"Latent Magic Amethyst",false,197,MagicGem,"Magic Gems"}
-SpecialItem[5] = {"Latent Magic Obsidian",false,283,MagicGem,"Magic Gems"}
-SpecialItem[6] = {"Latent Magic Sappire",false,284,MagicGem,"Magic Gems"}
-SpecialItem[7] = {"Latent Magic Ruby",false,46,MagicGem,"Magic Gems"}
-SpecialItem[8] = {"Latent Magic Emerald",false,45,MagicGem,"Magic Gems"}
-SpecialItem[9] = {"Pure Fire",false,2553,0,"Pure Elements"}
-SpecialItem[10] = {"Pure Air",false,2551,0,"Pure Elements"}
-SpecialItem[11] = {"Pure Earth",false,2552,0,"Pure Elements"}
-SpecialItem[12] = {"Pure Water",false,2554,0,"Pure Elements"}
-SpecialItem[13] = {"Pure Spirit",false,3607,0,"Pure Elements"}
-SpecialItem[14] = {"Silver Coins",false,3077,0,"Money"}
-SpecialItem[15] = {"Gold Coins",false,61,0,"Money"}
-SpecialItem[16] = {"Poison Coins",false,3078,0,"Money"}
+SpecialItem[3] = {"Treasure Chest",true,2830,0,""}
+SpecialItem[4] = {"Latent Magic Topaz",false,198,MagicGem,"Magic Gems"}
+SpecialItem[5] = {"Latent Magic Amethyst",false,197,MagicGem,"Magic Gems"}
+SpecialItem[6] = {"Latent Magic Obsidian",false,283,MagicGem,"Magic Gems"}
+SpecialItem[7] = {"Latent Magic Sappire",false,284,MagicGem,"Magic Gems"}
+SpecialItem[8] = {"Latent Magic Ruby",false,46,MagicGem,"Magic Gems"}
+SpecialItem[9] = {"Latent Magic Emerald",false,45,MagicGem,"Magic Gems"}
+SpecialItem[10] = {"Pure Fire",false,2553,0,"Pure Elements"}
+SpecialItem[11] = {"Pure Air",false,2551,0,"Pure Elements"}
+SpecialItem[12] = {"Pure Earth",false,2552,0,"Pure Elements"}
+SpecialItem[13] = {"Pure Water",false,2554,0,"Pure Elements"}
+SpecialItem[14] = {"Pure Spirit",false,3607,0,"Pure Elements"}
+SpecialItem[15] = {"Silver Coins",false,3077,0,"Money"}
+SpecialItem[16] = {"Gold Coins",false,61,0,"Money"}
+SpecialItem[17] = {"Poison Coins",false,3078,0,"Money"}
 
 function M.UseItem(User, SourceItem)
 
@@ -1154,6 +1157,35 @@ function mysticalCracker(User)
 
 end
 
+local function treasureChest(User)
+    local position
+    local cbInputDialog = function (dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local input = dialog:getInput()
+        if (string.find(input,"(%d) (%d)") ~= nil) then
+            local a, b, level, persons = string.find(input,"(%d) (%d)")
+            if level == nil or tonumber(level) < 1 or tonumber(level) > 9 then
+                User:inform("The level of the treasure chest must be a value from 1(farmer) to 9(nabranoo).")
+                return
+            end
+            if persons == nil or tonumber(persons) < 1 or tonumber(persons) > 8 then
+                User:inform("The number of persons needed to open the treasure chest must be a value from 1 to 8.")
+                return
+            end
+            position = common.GetFrontPosition(User)
+            if world:isItemOnField(position) == true then
+                User:inform("The place for the chest is not free.")
+                return
+            end
+            spawntreasures.spawnTreasureChest(position, level, persons)
+        end
+    end
+    User:requestInputDialog(InputDialog("Treasure Chest Creation", "Please enter level and amount of people needed\nFormat: '[1-9] [1-8]'" ,false, 255, cbInputDialog))
+
+end
+
 function specialItemCreation(User)
     local validItems = {}
     local validItemsSub = {}
@@ -1210,6 +1242,8 @@ function specialItemCreationCreate(User,indexItem)
             mysticalCracker(User)
         elseif indexItem == 2 then
             specialEggs(User)
+        elseif indexItem == 3 then
+            treasureChest(User)
         else
             return
         end
