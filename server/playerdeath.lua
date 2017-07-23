@@ -62,6 +62,7 @@ function M.playerDeath(deadPlayer)
         world:makeSound(25, deadPlayer.pos)
         showDeathDialog(deadPlayer)
 
+        --Quality loss
         local DURABILITY_LOSS = 10
         local BLOCKED_ITEM = 228
         for i = Character.head, Character.coat do
