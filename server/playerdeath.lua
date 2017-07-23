@@ -86,6 +86,36 @@ function M.playerDeath(deadPlayer)
                 end
             end
         end
+        
+        --Drop from bag
+        local spectators = world:getPlayersInRangeOf(deadPlayer.pos, 15)
+        if #spectators > 1 then
+            local bag = deadPlayer:getBackPack()
+            if bag then
+                local candidates = {}
+                for i = 0,99 do
+                    worked, theItem, theContainer = bag:viewItemNr(i)
+                    theItemStats = world:getItemStats(theItem)
+                    if theItem and worked and not gems.itemHasGems(theItem) and common.IsNilOrEmpty(theItem:getData("descriptionEn")) and common.IsNilOrEmpty(theItem:getData("descriptionDe")) and common.IsNilOrEmpty(theItem:getData("rareness")) and theItemStats.Rareness == 1 then
+                        table.insert(candidates, i)
+                    end
+                end
+                local counter = 0
+                if #candidates > 0 then
+                    repeat
+                        local index = math.random(1,#candidates)
+                        workedView, theItemView = bag:viewItemNr(candidates[index])
+                        if workedView then
+                            worked, theItem = bag:takeItemNr(candidates[index], theItemView.number)
+                            if worked then
+                                world:createItemFromItem(theItemView, deadPlayer.pos, true)
+                                counter = counter +1 
+                            end
+                        end
+                    until counter == math.min(#candidates, 3)
+                end
+            end
+        end
     end
 end
 
