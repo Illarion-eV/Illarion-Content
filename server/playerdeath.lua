@@ -37,7 +37,7 @@ end
 
 function M.playerDeath(deadPlayer)
 
-    if deadPlayer:isAdmin() then --Admins don't die.
+    if deadPlayer:isAdmin() == false then --Admins don't die.
 
         deadPlayer:increaseAttrib("hitpoints", 10000) -- Respawn
         common.HighInformNLS(deadPlayer, "[Wiederbelebung] Admins sterben nicht.", "[Respawn] Admins don't die.")
@@ -78,6 +78,15 @@ function M.playerDeath(deadPlayer)
                 if durability <= DURABILITY_LOSS / newbieModficator then
                     gems.returnGemsToUser(deadPlayer, item)
                     deadPlayer:increaseAtPos(i, -1)
+                    
+                    if i == 5 and world:getItemStats(deadPlayer:getItemAt(6)).id == BLOCKED_ITEM then
+                        deadPlayer:increaseAtPos(6, -1)
+                    end
+                    
+                    if i == 6 and world:getItemStats(deadPlayer:getItemAt(5)).id == BLOCKED_ITEM then
+                        deadPlayer:increaseAtPos(5, -1)
+                    end
+                    
                     local nameText = world:getItemName(item.id, deadPlayer:getPlayerLanguage())
                     common.HighInformNLS(deadPlayer, "[Tod] Dein Gegenstand '"..nameText.."' wurde zerstört.", "[Death] Your item '"..nameText.."' was destroyed.")
                 else
