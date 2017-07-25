@@ -45,7 +45,7 @@ function M.UseItem(User,SourceItem)
         else
             for _, player in pairs(playerInRange) do
                 common.InformNLS(player, "Zusammen schafft ihr es den Schlieﬂmechanismus der Schatzkiste zu knacken.",
-                                       "Together you break tle lock of the treasure chest.")
+                                       "Together you break the lock of the treasure chest.")
             end
         end
         world:erase(SourceItem, SourceItem.number) --strange hack here
