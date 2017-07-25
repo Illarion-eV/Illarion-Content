@@ -27,6 +27,12 @@ M.raceELF = 3
 M.raceORC = 4
 M.raceLIZARD = 5
 
+-- Towns
+M.townOUTLAW = 0
+M.townCADOMYR = 1
+M.townRUNEWICK = 2
+M.townGALMAIR = 3
+
 -- Graphic effects
 -- ID of the gfx effect
 M.gfxBLITZ = 2

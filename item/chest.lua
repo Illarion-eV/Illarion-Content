@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.chest' WHERE itm_id IN (8,649,650,1360,1361,1362,1367,3788,3789);
 
 local common = require("base.common")
+local collectionchest = require("content.collectionchest")
 
 local M = {}
 
@@ -44,6 +45,10 @@ local dragonCaveChestPos = {
 local ChestContents
 
 function M.UseItem(User, SourceItem)
+
+    if collectionchest.collectionChestUsed(User, SourceItem) then
+        return
+    end
 
     if (User:getQuestProgress(510) == 24) and  SourceItem.pos == position(783, 640, -3) then --OK, the player does the quest
         User:inform(

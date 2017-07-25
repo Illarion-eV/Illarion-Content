@@ -19,6 +19,7 @@ local factions = require("base.factions")
 local character = require("base.character")
 local common = require("base.common")
 local licence = require("base.licence")
+local collectionchest = require("content.collectionchest")
 
 local M = {}
 
@@ -28,6 +29,7 @@ M.townManagmentItemPos = {position(116, 527, 0), position(951, 786, 1), position
 local TownGuard
 local TownLicence
 local TownKey
+local TownMaterial
 
 function M.townManagmentUseItem(User, SourceItem)
 
@@ -56,6 +58,8 @@ function M.townManagmentUseItem(User, SourceItem)
             TownLicence(User,toolTown)
         elseif selected == 3 then
             TownKey(User,toolTown)
+        elseif selected == 4 then
+            TownMaterial(User,toolTown)
         end
     end
 
@@ -63,7 +67,13 @@ function M.townManagmentUseItem(User, SourceItem)
     local dialogText = common.GetNLS(User, "Instrument zur Verwaltung der Stadt. Nur für offizielle Vertreter.", "Instrument for town management. Only for officials.")
     local dialog = SelectionDialog(dialogTitle, dialogText, callback)
 
-    local toolUse = common.GetNLS(User, {"Verbannung", "Lizenz", "Schlüssel"}, {"Ban a character", "Licence", "Key"})
+    local toolUse = {}
+    if collectionchest.isCollectionChestExists(toolTown) then
+        toolUse = common.GetNLS(User, {"Verbannung", "Lizenz", "Schlüssel","Materialsammlug"}, {"Ban a character", "Licence", "Key","Material collection"})
+    else
+        toolUse = common.GetNLS(User, {"Verbannung", "Lizenz", "Schlüssel"}, {"Ban a character", "Licence", "Key"})
+    end
+    
     for i = 1, #toolUse do
         dialog:addOption(0, toolUse[i])
     end
@@ -230,4 +240,7 @@ function TownKey(User,toolTown)
     User:requestSelectionDialog(dialog)
 end
 
+function TownMaterial(User, townId)
+    collectionchest.manageCollections(User, townId)
+end
 return M

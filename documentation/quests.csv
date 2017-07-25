@@ -369,6 +369,8 @@ ID,"Title","NPCs","Status","Responsible Author","Description"
 999,"An ursurper to the Throne (Cadomyr)",,,"Mr.Cromwell/Faladron","Baron Hastings & his henchman Victor Tolenor try to harm Cadomyr and its ""unrightful"" Queen"
 1000-1999,"Recipes learning (alchemy)",,,"merung","used to remember if a char has learned a certain recipe"
 2000,"factionpoints",,,"envi","used to distribute faction points"
+3[1-9]00,"CollectionTaskID",,,"Banduk","User is active in the related collection task"
+3[1-9][01-12],"Already given for Slot",,,"Banduk","Character already gave to collection"
 10000-10009,"reserved",,,,
 999,"An ursurper to the Throne (Cadomyr)",,,"Mr.Cromwell/Faladron","Baron Hastings & his henchman Victor Tolenor try to harm Cadomyr and its ""unrightful"" Queen"
 10000,"Gravestone",,,,
