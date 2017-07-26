@@ -403,8 +403,8 @@ local function setUserTeleporter(user,Item)
             end
             
             local inputText = dialog:getInput()
-            if (string.find(inputText,"(%d+),(%d+),(%d+),(%S+)") ~= nil) then
-                local _, _, xValue, yValue, zValue, targetName = string.find(inputText,"(%d+),(%d+),(%d+),([%S ]+)")
+            if (string.find(inputText,"(%d+),(%d+),([%-]%d+),(%S+)") ~= nil) then
+                local _, _, xValue, yValue, zValue, targetName = string.find(inputText,"(%d+),(%d+),([%-]%d+),([%S ]+)")
                 Item:setData("gmLocation" .. tostring(index),inputText)
                 world:changeItem(Item)
             else
@@ -496,8 +496,8 @@ local function teleporter(User,item)
     for i = 1, maxUserLocation do
         local locationParameter = item:getData("gmLocation" .. tostring(i))
         if not common.IsNilOrEmpty(locationParameter) then
-            if (string.find(locationParameter,"(%d+),(%d+),(%d+),(%S+)") ~= nil) then
-                local _, _, xValue, yValue, zValue, targetName = string.find(locationParameter,"(%d+),(%d+),(%d+),([%S ]+)")
+            if (string.find(locationParameter,"(%d+),(%d+),([%-]%d+),(%S+)") ~= nil) then
+                local _, _, xValue, yValue, zValue, targetName = string.find(locationParameter,"(%d+),(%d+),([%-]%d+),([%S ]+)")
                 sdTeleport:addOption(0, targetName .. " (" .. tostring(xValue)..",".. tostring(yValue)..",".. tostring(zValue)..")")
                 validTarget[optionId] = {tonumber(xValue), tonumber(yValue), tonumber(zValue),0}
                 optionId = optionId+1
