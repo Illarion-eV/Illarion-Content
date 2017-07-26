@@ -20,48 +20,102 @@ local common = require("base.common")
 local treasureContent = require("content.treasure")
 local treasureBase = require("item.base.treasure")
 local lookat = require("base.lookat")
+local globalvar = require("base.globalvar")
+
+local MAX_CHARS = 8
+
 local M = {}
 
-function M.LookAtItem(User, Item)
-    --local nameDe, nameEn = treasureContent.getTreasureName(tonumber(Item:getData("trsCat")))
-    local nameDe, nameEn = "Eine kunstvoll verzierte Schatzkiste. Welche Reichtümer mag sie wohl enthalten?", "An ornated treasure chest. What riches will it contain?"
-    lookat.SetSpecialDescription(Item, nameDe, nameEn)
-    return lookat.GenerateLookAt(User, Item, lookat.NONE)
+local playerTriedAlready = {}
+
+local function resetLock(sourceItem)
+    for i=1, MAX_CHARS do
+        sourceItem:setData("unlockerId"..tostring(i),0)
+    end
+    world:changeItem(sourceItem)
 end
 
-function M.UseItem(User,SourceItem)
-    local RANGE_PLAYER_HAVE_TO_BE = 1
-    local level=tonumber(SourceItem:getData("trsCat"))
-    local playerNeeded=tonumber(SourceItem:getData("playerNeeded"))
-    local posi=SourceItem.pos
-    local playerInRange=world:getPlayersInRangeOf(posi ,RANGE_PLAYER_HAVE_TO_BE )
+local function getPlayerTriesAlready(user, sourceItem)
+    local posi=sourceItem.pos
+    local playerInRange=world:getPlayersInRangeOf(posi ,1 )
+    local currentPlayerId
+    local foundPlayer
+    
+    for i=1, MAX_CHARS do
+        currentPlayerId = tonumber(sourceItem:getData("unlockerId"..tostring(i)))
+        if common.IsNilOrEmpty(currentPlayerId) or (currentPlayerId == 0) then
+            return (i-1)
+        end
+        foundPlayer = false
+        for _, player in pairs(playerInRange) do
+            if (player.id == currentPlayerId) and (currentPlayerId == user.id) then
+                common.TalkNLS(user, Character.say,
+                    "#me fummelt am Schloss herum und der Mechanismus rasselt in seinen Ausgangszustand.",
+                    "#me fumbles around the lock and the mechanics rattles into its starting condition.")
+                resetLock(sourceItem)
+                return 99
+            elseif currentPlayerId == player.id then
+                foundPlayer = true
+            end
+        end
+        if not foundPlayer then
+            common.TalkNLS(user, Character.say,
+                "#me zuckt zurück als das Schloss mit einem lauten Geräusch in seinen Ausgangszustand springt.",
+                "#me flinches as the mechanics jumps back into its starting condition with a loud noise.")
+            resetLock(sourceItem)
+            return 99
+        end
+    end
+    --Safety belt, should never happen!
+    resetLock(sourceItem)
+    return 0
+end
+
+function M.LookAtItem(user, item)
+    --local nameDe, nameEn = treasureContent.getTreasureName(tonumber(Item:getData("trsCat")))
+    local nameDe, nameEn = "Eine kunstvoll verzierte Schatzkiste. Welche Reichtümer mag sie wohl enthalten?", "An ornated treasure chest. What riches will it contain?"
+    lookat.SetSpecialDescription(item, nameDe, nameEn)
+    return lookat.GenerateLookAt(user, item, lookat.NONE)
+end
+
+function M.UseItem(user,sourceItem)
+    local posi=sourceItem.pos
+    local level=tonumber(sourceItem:getData("trsCat"))
+    local playerNeeded=tonumber(sourceItem:getData("playerNeeded"))
 
     if (playerNeeded == nil) then
         playerNeeded = 1
     end
-    if (#playerInRange >= playerNeeded) then
-        if playerNeeded == 1 then
-            common.InformNLS(User, "Du öffnest die Schatzkiste...", "You open the treasure chest...")
-        else
-            for _, player in pairs(playerInRange) do
-                common.InformNLS(player, "Zusammen schafft ihr es den Schließmechanismus der Schatzkiste zu knacken.",
-                                       "Together you break the lock of the treasure chest.")
-            end
-        end
-        world:erase(SourceItem, SourceItem.number) --strange hack here
-        if (level ~= nil) and (level~=0) and (level < 10) then
-            world:gfx(16,posi)
-            world:makeSound(13,posi)
-            treasureBase.dropTreasureItems(posi, level)
-        else    
-            common.InformNLS(User, "...sie ist leer!", "...it is empty!")
-        end
-    else
-        common.InformNLS(User,
-        "Um den Mechanismus dieser Kiste zu überwinden benötigst du mindestens "..tostring(playerNeeded * 2).." Hände.",
-        "To open the mechanism of this chest you need at least "..tostring(playerNeeded * 2).." hands.")
+    
+    local playerTried = getPlayerTriesAlready(user, sourceItem) + 1
+    if playerTried > 99 then
+        return
     end
-
+    if playerNeeded > playerTried then
+        common.TalkNLS(user, Character.say,
+            "#me gelingt es dem Schloss ein Klicken zu entlocken und hält den Mechanismus mit beiden Händen.",
+            "#me managed to get a click from the lock and hold the mechanism with both hands.")
+        common.InformNLS(user,
+            "Um den Mechanismus dieser Kiste zu überwinden benötigst du mindestens "..tostring(playerNeeded).." Personen.",
+            "To open the mechanism of this chest you need at least "..tostring(playerNeeded).." persons.")
+        world:makeSound(globalvar.sfxCLICK,posi)
+        sourceItem:setData("unlockerId"..tostring(playerTried),user.id)
+        world:changeItem(sourceItem)
+    else
+        common.TalkNLS(user, Character.say,
+            "#me öffnet die Kiste.",
+            "#me opens the chest.")
+        world:erase(sourceItem, sourceItem.number)
+        if (level ~= nil) and (level~=0) and (level < 10) then
+            world:gfx(globalvar.gfxRAIN,posi)
+            world:makeSound(globalvar.sfxSNARING,posi)
+            treasureBase.dropTreasureItems(posi, level)
+        else
+            world:gfx(globalvar.gfxFIZZLE,posi)
+            world:makeSound(globalvar.sfxWIND,posi)
+            common.InformNLS(user, "...sie ist leer!", "...it is empty!")
+        end
+    end
 end
 
 
