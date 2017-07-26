@@ -1166,8 +1166,8 @@ local function treasureChest(User)
         local input = dialog:getInput()
         if (string.find(input,"(%d) (%d)") ~= nil) then
             local a, b, level, persons = string.find(input,"(%d) (%d)")
-            if level == nil or tonumber(level) < 1 or tonumber(level) > 9 then
-                User:inform("The level of the treasure chest must be a value from 1(farmer) to 9(nabranoo).")
+            if level == nil or tonumber(level) < 0 or tonumber(level) > 9 then
+                User:inform("The level of the treasure chest must be a value from 0(no treasure via 1(farmer) to 9(nabranoo).")
                 return
             end
             if persons == nil or tonumber(persons) < 1 or tonumber(persons) > 8 then
