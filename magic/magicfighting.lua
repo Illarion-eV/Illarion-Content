@@ -269,6 +269,11 @@ end
 
 function wandDegrade(caster, wand)
 
+    local degradeChance = 20
+    if caster:isNewPlayer() then
+        degradeChance = degradeChance * 2
+    end
+
     if (common.Chance(1, 20)) then
         local durability = math.fmod(wand.quality, 100)
         local quality = (wand.quality - durability) / 100

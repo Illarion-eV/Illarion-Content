@@ -511,7 +511,12 @@ function ArmourDegrade(Defender, Globals)
         return
     end
 
-    if (common.Chance(Globals.Damage, 12000)) and (Globals.HittedItem.id ~= 0) then -- do not damage non existing items
+
+    local degradeChance = 12000
+    if Defender.Char:isNewPlayer() then
+        degradeChance = degradeChance * 2
+    end
+    if (common.Chance(Globals.Damage, degradeChance)) and (Globals.HittedItem.id ~= 0) then -- do not damage non existing items
         local durability = math.fmod(Globals.HittedItem.quality, 100)
         local quality = (Globals.HittedItem.quality - durability) / 100
         local nameText = world:getItemName(Globals.HittedItem.id, Defender.Char:getPlayerLanguage())
@@ -545,7 +550,11 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
     commonAttackerWeapon=world:getItemStats(Attacker.WeaponItem);
     commonParryWeapon=world:getItemStats(ParryWeapon);
 
-    if (common.Chance(1, 20)) and (Attacker.WeaponItem.id ~= 0) and character.IsPlayer(Attacker.Char) and commonAttackerWeapon.MaxStack == 1 then
+    local degradeChance = 20
+    if Attacker.Char:isNewPlayer() then
+        degradeChance = degradeChance * 2
+    end
+    if (common.Chance(1, degradeChance)) and (Attacker.WeaponItem.id ~= 0) and character.IsPlayer(Attacker.Char) and commonAttackerWeapon.MaxStack == 1 then
         local durability = math.fmod(Attacker.WeaponItem.quality, 100)
         local quality = (Attacker.WeaponItem.quality - durability) / 100
         local nameText = world:getItemName(Attacker.WeaponItem.id, Attacker.Char:getPlayerLanguage())
