@@ -31,7 +31,12 @@ function M.ToolBreaks(user, item, workTime)
     if not user or not item or not workTime then
         return false
     end
-    loss=math.floor(workTime/180) --Each durability point equals 18 seconds of crafting time. Hence, a new tool lasts 30 minutes.
+    local timePerPoint = 180 --Each durability point equals 18 seconds of crafting time. Hence, a new tool lasts 30 minutes.
+    if user:isNewPlayer() then
+        timePerPoint = timePerPoint * 2
+    end
+    
+    loss=math.floor(workTime/timePerPoint)
     remainder=workTime-loss
     
     if (math.random(1, 100) < (remainder/1.8)) then 
