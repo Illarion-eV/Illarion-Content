@@ -48,6 +48,9 @@ function M.addEffect( rebirthEffect, Reborn )
         multi = 2;
     end
     rebirthEffect:addValue("multiRes",multi); -- multiplier for multiple resurrection
+    if Reborn:isNewPlayer() then
+        multi = 0.5
+    end
     local callValue = 600 * multi;
     rebirthEffect.nextCalled=math.random(callValue-300,callValue+300);
     return true;
