@@ -98,7 +98,7 @@ function M.playerDeath(deadPlayer)
         
         --Drop from bag
         local spectators = world:getPlayersInRangeOf(deadPlayer.pos, 15)
-        if #spectators > 1 then
+        if #spectators > 1 and not deadPlayer:isNewPlayer() then
             local bag = deadPlayer:getBackPack()
             if bag then
                 local candidates = {}
