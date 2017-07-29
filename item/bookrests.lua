@@ -290,6 +290,19 @@ function StaticTeleporter(User, SourceItem)
     local items = {105,61,2701,1909,466}
     local targetPos = {position(835,813,0), position(423,246,0),position(126,647,0),position(684,307,0),position(-484,-455,-40)}
 
+    local costCopper
+    local costTextDe
+    local costTextEn
+    if User:isNewPlayer() then
+        costCopper = 200
+        costTextDe = "zwei"
+        costTextEn = "two"
+    else
+        costCopper = 500
+        costTextDe = "fünf"
+        costTextEn = "five"
+    end
+    
     local callback = function(dialog)
 
         local success = dialog:getSuccess()
@@ -303,14 +316,14 @@ function StaticTeleporter(User, SourceItem)
             end
             local userFaction = factions.getMembershipByName(User)
             -- Check wether the char has enough money or travels from necktie to hometown or vice versa
-            if (money.CharHasMoney(User,500)) then 
+            if (money.CharHasMoney(User,costCopper)) then 
 
                 if User:distanceMetricToPosition(targetPos[selected]) < 5 then
-                    User:inform("Ihr befindet euch bereits in " ..names[selected]..".", "You are already in "..names[selected]..".")
+                    User:inform("Du befindest dich bereits in " ..names[selected]..".", "You are already in "..names[selected]..".")
                 else
 
-                    User:inform("Ihr habt euch dazu entschlossen nach " ..names[selected].. " zu Reisen.", "You have chosen to travel to " ..names[selected]..".")
-                    money.TakeMoneyFromChar(User,500)
+                    User:inform("Du hast dich dazu entschlossen nach " ..names[selected].. " zu Reisen.", "You have chosen to travel to " ..names[selected]..".")
+                    money.TakeMoneyFromChar(User,costCopper)
                     world:gfx(46,User.pos)
                     world:makeSound(13,User.pos);
 
@@ -319,18 +332,18 @@ function StaticTeleporter(User, SourceItem)
                     world:makeSound(13,User.pos);
                 end
             else
-                User:inform("Ihr habt nicht genug Geld für diese Reise. Die Reise kostet fünf Silberstücke.", "You don't have enough money for this journey. The journey costs five silver coins.")
+                User:inform("Du hast nicht genug Geld für diese Reise. Die Reise kostet " .. costTextDe .. " Silberstücke.", 
+                            "You don't have enough money for this journey. The journey costs " .. costTextEn .. " silver coins.")
             end
 
         end
     end
 
     local dialog
-    if User:getPlayerLanguage() == Player.german then
-        dialog = SelectionDialog("Teleporter", "Eine Reise kostet fünf Silberstücke. Wähle eine Ziel aus.", callback)
-    else
-        dialog = SelectionDialog("Teleporter", "A journey costs five silver coins. Choose a destination.", callback)
-    end
+    local dialogText
+    dialogText = common.GetNLS(User, "Eine Reise kostet " .. costTextDe .. " Silberstücke. Wähle eine Ziel aus.",
+                                    "A journey costs " .. costTextEn .. " silver coins. Choose a destination.")
+    dialog = SelectionDialog("Teleporter", dialogText, callback)
     dialog:setCloseOnMove()
 
     for i=1,#items do
@@ -348,7 +361,7 @@ function WonderlandTeleporter(User, SourceItem)
             local selected = dialog:getSelectedIndex() + 1
             if selected == 1 then
                 local wonderlandStart = position(900, 580, 0)
-                User:inform("Ihr habt euch dazu entschlossen das Wunderland zu betreten.", "You have chosen to enter the Wonderland.")
+                User:inform("Du hast dich dazu entschlossen das Wunderland zu betreten.", "You have chosen to enter the Wonderland.")
                 User:setQuestProgress(612,0)
                 world:gfx(46, User.pos)
                 world:makeSound(13, User.pos)
@@ -361,7 +374,7 @@ function WonderlandTeleporter(User, SourceItem)
     end
 
     local dialogTitle = common.GetNLS(User, "Wunderland Teleporter", "Wonderland Teleporter")
-    local dialogText = common.GetNLS(User, "Möchtet Ihr das Wunderland betreten?",
+    local dialogText = common.GetNLS(User, "Möchtest du das Wunderland betreten?",
                                             "Do you wish to go to Wonderland?")
     local dialog = SelectionDialog(dialogTitle, dialogText, callback)
 
