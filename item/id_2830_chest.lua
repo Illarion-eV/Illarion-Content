@@ -21,6 +21,7 @@ local treasureContent = require("content.treasure")
 local treasureBase = require("item.base.treasure")
 local lookat = require("base.lookat")
 local globalvar = require("base.globalvar")
+local salaveshDungeon = require("content.salaveshDungeon")
 
 local MAX_CHARS = 8
 
@@ -51,7 +52,7 @@ local function getPlayerTriesAlready(user, sourceItem)
             if (player.id == currentPlayerId) and (currentPlayerId == user.id) then
                 common.TalkNLS(user, Character.say,
                     "#me fummelt am Schloss herum und der Mechanismus rasselt in seinen Ausgangszustand.",
-                    "#me fumbles around the lock and the mechanics rattles into its starting condition.")
+                    "#me fumbles around with the lock causing the mechanism to rattle back into its starting position.")
                 resetLock(sourceItem)
                 return 99
             elseif currentPlayerId == player.id then
@@ -61,7 +62,7 @@ local function getPlayerTriesAlready(user, sourceItem)
         if not foundPlayer then
             common.TalkNLS(user, Character.say,
                 "#me zuckt zurück als das Schloss mit einem lauten Geräusch in seinen Ausgangszustand springt.",
-                "#me flinches as the mechanics jumps back into its starting condition with a loud noise.")
+                "#me flinches as the mechanism returns to its starting position with a loud click.")
             resetLock(sourceItem)
             return 99
         end
@@ -83,6 +84,11 @@ function M.UseItem(user,sourceItem)
     local level=tonumber(sourceItem:getData("trsCat"))
     local playerNeeded=tonumber(sourceItem:getData("playerNeeded"))
 
+    if posi == salaveshDungeon.positionChest then
+        salaveshDungeon.openChest(user, sourceItem, level)
+        return
+    end
+    
     if (playerNeeded == nil) then
         playerNeeded = 1
     end
@@ -94,10 +100,10 @@ function M.UseItem(user,sourceItem)
     if playerNeeded > playerTried then
         common.TalkNLS(user, Character.say,
             "#me gelingt es dem Schloss ein Klicken zu entlocken und hält den Mechanismus mit beiden Händen.",
-            "#me managed to get a click from the lock and hold the mechanism with both hands.")
+            "#me manages to get a click from the lock and hold the mechanism open using both hands.")
         common.InformNLS(user,
             "Um den Mechanismus dieser Kiste zu überwinden benötigst du mindestens "..tostring(playerNeeded).." Personen.",
-            "To open the mechanism of this chest you need at least "..tostring(playerNeeded).." persons.")
+            "[Inform] "..tostring(playerNeeded).." people are necessary to unlock and open this chest.")
         world:makeSound(globalvar.sfxCLICK,posi)
         sourceItem:setData("unlockerId"..tostring(playerTried),user.id)
         world:changeItem(sourceItem)

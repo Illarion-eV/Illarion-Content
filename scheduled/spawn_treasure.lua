@@ -45,7 +45,8 @@ local treasureParameter = {
     {position(571,191,-3),MEDIUM_LOW,MEDIUM_HIGH,1}, --Viridian Needles
     {position(310,355,1),MEDIUM_LOW,MEDIUM_HIGH,1}, --Fort Schnellbeil
     {position(554,536,-6),MEDIUM_LOW,MEDIUM_HIGH,1}, --Necro Hideout
-    {position(895,577,-9),MEDIUM_LOW,MEDIUM_HIGH,1} --Ronagan Dungeon
+    {position(895,577,-9),MEDIUM_LOW,MEDIUM_HIGH,1}, --Ronagan Dungeon
+    {position(693,390,-3),5,8,3} --Salavesh dungeon - Dragon lair
 }
 
 function M.spawnTreasure()
