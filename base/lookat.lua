@@ -146,13 +146,17 @@ function M.GenerateLookAt(user, item, material)
             lookAt.craftedBy = craftedByData
         end
         
-        lookAt.weight = item.number * itemCommon.Weight
-        
-        if not money.IsCurrency(item.id) then
-            lookAt.worth = 20*item.number * itemCommon.Worth
+        if item:getData("lookatNoWeight") ~= "1" then
+            lookAt.weight = item.number * itemCommon.Weight
+        end
+            
+        if item:getData("lookatNoPrice") ~= "1" then
+            if not money.IsCurrency(item.id) then
+                lookAt.worth = 20*item.number * itemCommon.Worth
+            end
         end
         
-        if material > M.NONE then
+        if material > M.NONE and item:getData("lookatNoQuality") ~= "1" then
             local itemDura = math.fmod(item.quality, 100)
             local itemQual = (item.quality - itemDura) / 100
             

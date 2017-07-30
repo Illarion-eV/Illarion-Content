@@ -26,3 +26,7 @@ playerNeeded, number of player needed in range 7 to open the chest, if not than 
 uniqueID, processID
 repairPos, position of item in inventory
 repairQual, Quality of the item
+--lookAt
+lookatNoQuality, 1, quality and durabilty is not shown in lookAt
+lookatNoPrice, 1, price is not shown in lookAt
+lookatNoWeight, 1, weight is not shown in lookAt
