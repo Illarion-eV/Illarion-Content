@@ -97,9 +97,6 @@ function M.triggerAmbush(char, monsterPositions)
         chance = 5
     end
 
---Banduk
-    chance = 50
-    
     local fighter = false
     if (char:getSkill(Character.punctureWeapons)>=40) or (char:getSkill(Character.distanceWeapons)>=40) or (char:getSkill(Character.slashingWeapons)>=40) or (char:getSkill(Character.concussionWeapons)>=40) or (char:getSkill(Character.wrestling)>=40) then --check if we have a fighter
         fighter = true

@@ -27,13 +27,12 @@ position(499,197,0),
 position(498,197,0),
 position(497,197,0),
 position(497,206,0),
-position(499,204,0).
+position(499,204,0),
 position(496,207,0) --don't remove this one, it triggers the next function
 }
 local ambushName = "ambushBlackwaterBridge"
 
 function M.MoveFromField(char)
-char:inform("Hä")
     if not galmairbridges.isAmbush(ambushName) then
         if galmairbridges.getTimeSinceLastAmbush(ambushName)>120 then
             local ambushed = galmairbridges.triggerAmbush(char, monsterPositions)
