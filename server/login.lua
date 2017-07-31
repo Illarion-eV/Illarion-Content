@@ -266,7 +266,6 @@ function M.onLogin( player )
     if not player:isAdmin() then --Admins don't pay taxes or get gems.
         if not (player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan") then --Leader don't pay taxes or get gems
 
-player:inform("los gehts")
             local taxText = payTaxes(player)
             local gemText = receiveGems(player)
             if gemText ~= nil or taxText ~= nil then
@@ -562,7 +561,6 @@ function payNow(User)
     local tax = math.floor(val*taxHeight)
     local totTax=tax -- total tax to pay
 
---Banduk
     if totTax < 1 then
         infText = common.GetNLS(User,
             "Du bist zu arm um Steuern an "..town.." zu bezahlen.",
