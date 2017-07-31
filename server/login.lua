@@ -266,6 +266,7 @@ function M.onLogin( player )
     if not player:isAdmin() then --Admins don't pay taxes or get gems.
         if not (player.name == "Valerio Guilianni" or player.name == "Rosaline Edwards" or player.name ==  "Elvaine Morgan") then --Leader don't pay taxes or get gems
 
+player:inform("los gehts")
             local taxText = payTaxes(player)
             local gemText = receiveGems(player)
             if gemText ~= nil or taxText ~= nil then
@@ -462,6 +463,20 @@ function receiveGems(gemRecipient)
 end
 
 -- transfer
+local function createMagicGem(gemId, gemAmount, Recipient)
+    local gemData = gems.getMagicGemData(1)
+    common.CreateItem(Recipient, gemId, gemAmount, 333, gemData)
+    local basename={}
+    basename=world:getItemName(gemId, Recipient:getPlayerLanguage())
+    if Recipient:getPlayerLanguage() == 0 then
+        basename = gems.gemPrefixDE[1] .. " magischer " .. basename
+    else
+        basename = gems.gemPrefixEN[1] .. " magical " .. basename
+    end
+    basename = "\n" .. tostring(gemAmount) .. " x " .. basename
+    return basename
+end
+
 function PayOutWage(Recipient, town)
     local totalTaxes = townTreasure.GetPaymentAmount(town)
     local totalPayers = townTreasure.GetTaxpayerNumber(town)
@@ -483,33 +498,24 @@ function PayOutWage(Recipient, town)
             else
                 local RankedWage=math.ceil(RecipientRk*baseWageUnit*0.5)
                 local endname=""
-                log(string.format("[gems] %s got %d magic gems from %s. Character's rank: %d",
-                    character.LogText(Recipient), RankedWage, town, RecipientRk))
-                while RankedWage>0 do
-                    local randomGem=Random.uniform(1,2)
-                    local maxGemLevel = math.floor(math.log(RankedWage)/math.log(3)) + 1
-                    local gemLevel= common.Limit(math.random(1,maxGemLevel), 1, 10)
 
-                    local gemsByTown={}
-                    gemsByTown["Cadomyr"]={gems.TOPAZ, gems.AMETHYST}
-                    gemsByTown["Runewick"]={gems.EMERALD, gems.RUBY}
-                    gemsByTown["Galmair"]={gems.SAPPHIRE, gems.OBSIDIAN}
-
-                    local gemId = gems.getMagicGemId(gemsByTown[town][randomGem])
-                    local gemData = gems.getMagicGemData(gemLevel)
-
-                    local basename={}
-                    basename=world:getItemName(gemId, Recipient:getPlayerLanguage())
-
-                    if Recipient:getPlayerLanguage() == 0 then
-                        basename = gems.gemPrefixDE[gemLevel] .. " magischer " .. basename
-                    else
-                        basename = gems.gemPrefixEN[gemLevel] .. " magical " .. basename
-                    end
-
-                    endname=endname.."\n"..basename
-                    common.CreateItem(Recipient, gemId, 1, 333, gemData)
-                    RankedWage=RankedWage-3^(gemLevel-1)
+                local firstGem = Random.uniform(0,RankedWage)
+                local secondGem = RankedWage - firstGem
+                local gemsByTown={}
+                gemsByTown["Cadomyr"]={gems.TOPAZ, gems.AMETHYST}
+                gemsByTown["Runewick"]={gems.EMERALD, gems.RUBY}
+                gemsByTown["Galmair"]={gems.SAPPHIRE, gems.OBSIDIAN}
+                local firstGemId = gems.getMagicGemId(gemsByTown[town][1])
+                local secondGemId = gems.getMagicGemId(gemsByTown[town][1])
+                
+                log(string.format("[gems] %s got %d (%d,%d) magic gems from %s. Character's rank: %d",
+                    character.LogText(Recipient), RankedWage, firstGem, secondGem, town, RecipientRk))
+                
+                if firstGem > 0 then
+                    endname = endname .. createMagicGem(firstGemId, firstGem, Recipient)
+                end
+                if secondGem > 0 then
+                    endname = endname .. createMagicGem(secondGemId, secondGem, Recipient)
                 end
 
                 infText = common.GetNLS(Recipient,
@@ -556,6 +562,14 @@ function payNow(User)
     local tax = math.floor(val*taxHeight)
     local totTax=tax -- total tax to pay
 
+--Banduk
+    if totTax < 1 then
+        infText = common.GetNLS(User,
+            "Du bist zu arm um Steuern an "..town.." zu bezahlen.",
+            "You are too poor to pay taxes to "..town..".")
+        return infText
+    end
+    
     -- try to get the payable tax from the depots first
     for i = 1, #(depNr) do
         if tax<=valDepot[i] then -- if you fild all you need in the first/ next depot, take it.
