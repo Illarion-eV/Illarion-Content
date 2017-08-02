@@ -23,6 +23,7 @@ local globalvar = require("base.globalvar")
 local factions = require("base.factions")
 local monsterHooks = require("monster.base.hooks")
 local explosion = require("base.explosion")
+local areas = require("content.areas")
 
 local M = {}
 
@@ -1331,6 +1332,31 @@ local function settingsForChar(User)
     User:requestSelectionDialog(sdPlayer)
 end
 
+local function testArea(User)
+
+    local thisInputDialog = function (dialog)
+    
+        if (not dialog:getSuccess()) then
+            return
+        end
+        
+        local input = dialog:getInput()
+        
+        if not common.IsNilOrEmpty(input) then
+            local point = User.pos
+            if areas.PointInArea(point, input) then
+                User:inform("This is part of area "..input)
+            else
+                User:inform("This is not part of area "..input)
+           end
+        end
+        
+    end
+    
+    User:requestInputDialog(InputDialog("Is char in area?", "Enter the area name according to areas.lua" ,false, 255, thisInputDialog))
+
+end
+
 function M.UseItem(User, SourceItem, ltstate)
     --if injured, heal!
     User:increaseAttrib("hitpoints", 10000)
@@ -1338,7 +1364,7 @@ function M.UseItem(User, SourceItem, ltstate)
     User:increaseAttrib("foodlevel", 100000)
 
     -- First check for mode change
-    local modes = {"Eraser", "Teleport", "Instant kill/ revive", "Global events", "Events on single char", "Events on groups", "Char Settings", "Faction info of chars in radius", "Quest events","Define Teleporter Targets","Define events on single char","Define events on groups"}
+    local modes = {"Eraser", "Teleport", "Instant kill/ revive", "Global events", "Events on single char", "Events on groups", "Char Settings", "Faction info of chars in radius", "Quest events","Define Teleporter Targets","Define events on single char","Define events on groups","Test area"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -1368,6 +1394,8 @@ function M.UseItem(User, SourceItem, ltstate)
             setUserActionOnChar(User, SourceItem)
         elseif index == 12 then
             setUserActionOnGroup(User, SourceItem)
+        elseif index == 13 then
+            testArea(User)
         end
     end
     local sd = SelectionDialog("Pick a function of the lockpicks.", "Which do you want to use?", cbSetMode)
