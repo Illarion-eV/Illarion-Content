@@ -20,6 +20,22 @@ local polygons = require("base.polygons")
 
 local M = {}
 
+--- adds an area
+-- @param string The name for the new area.
+-- @param list({list(posStruct),list(int)}) A list of tuples, each tuple forms a polygon with 1. a list of positions and 2. a list of valid z levels
+-- @return boolean False if entry already exists, true if adding the area worked.
+local function AddArea(name, aList)
+    if AreaList[name] then
+        debug("Area already exists.");
+        return false; -- entry already exists
+    end
+    AreaList[name] = {};
+    for _,poly in pairs(aList) do
+        table.insert(AreaList[name], polygons.Polygon(poly[1],poly[2]));
+    end
+    return true;
+end
+
 function M.Init()
     if AreaList then
         return;
@@ -68,24 +84,20 @@ function M.Init()
     AddArea("Galmair", {
     {{position(420,223,0), position(379,206,0), position(339,196,0), position(280,237,0), position(280,315,0), position(352,337,0), position(378,331,0),position(392,331,0), position(436,297,0), position(424,274,0), position(420,223,0)}, {0}}})
 
+    AddArea("Cadomyr", {
+    {{position(84,552,0), position(84,512,0), position(156,512,0), position(146,618,0), position(140,619,0), position(140,636,0), position(129,636,0), position(129,633,0), position(104,633,0), position(104,627,0), position(85,627,0), position(86,629,0), position(72,629,0), position(75,600,0), position(58,581,0), position(84,552,0)}, {0}}})
+
     AddArea("CadomyrAndDesert", {
     {{position(467,816,0), position(467,579,0), position(418,510,0), position(394,428,0), position(378,429,0), position(324,392,0), position(264,364,0), position(169,111,0), position(142,444,0), position(139,510,0), position(1,510,0), position(1,791,0), position(95,791,0), position(83,781,0), position(75,769,0), position(80,757,0), position(89,756,0), position(107,755,0), position(119,752,0), position(134,752,0), position(134,731,0), position(180,131,0), position(184,726,0), position(195,747,0), position(195,764,0), position(187,775,0), position(187,751,0), position(137,837,0), position(138,841,0), position(308,841,0),position(365,805,0), position(392,822,0), position(458,832,0), position(467,816,0)}, {0}}})
-    end
 
---- adds an area
--- @param string The name for the new area.
--- @param list({list(posStruct),list(int)}) A list of tuples, each tuple forms a polygon with 1. a list of positions and 2. a list of valid z levels
--- @return boolean False if entry already exists, true if adding the area worked.
-function AddArea(name, aList)
-    if AreaList[name] then
-        debug("Area already exists.");
-        return false; -- entry already exists
-    end
-    AreaList[name] = {};
-    for _,poly in pairs(aList) do
-        table.insert(AreaList[name], polygons.Polygon(poly[1],poly[2]));
-    end
-    return true;
+    AddArea("RunewickRegion", {
+    {{position(1023,961,0), position(1023,642,0), position(887,642,0), position(798,738,0), position(782,741,0), position(768,752,0), position(719,752,0), position(719,836,0), position(813,836,0), position(844,956,0), position(1023,961,0)}, {0}}})
+
+    AddArea("GalmairRegion", {
+    {{position(351,181,0), position(365,181,0), position(378,117,0), position(414,117,0), position(411,138,0), position(405,152,0), position(425,152,0), position(478,209,0), position(473,240,0), position(488,269,0), position(452,296,0), position(449,358,0), position(427,379,0), position(412,377,0), position(391,391,0), position(389,371,0), position(373,372,0), position(360,362,0), position(360,349,0), position(376,348,0), position(376,334,0), position(355,334,0), position(354,319,0), position(374,298,0), position(351,286,0), position(321,287,0), position(301,312,0), position(266,293,0), position(267,258,0), position(351,181,0)}, {0}}})
+
+    AddArea("CadomyrRegion", {
+    {{position(112,512,0), position(60,573,0), position(74,612,0), position(62,626,0), position(6,630,0), position(6,706,0), position(87,818,0), position(185,724,0), position(193,690,0), position(216,654,0), position(215,638,0), position(173,582,0), position(163,582,0), position(163,512,0), position(112,512,0)}, {0}}})
 end
 
 --- Test if a point is in an area

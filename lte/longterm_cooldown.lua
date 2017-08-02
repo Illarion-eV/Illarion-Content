@@ -270,6 +270,12 @@ function M.callEffect( Effect, Char ) -- Effect is called
             Char:setQuestProgress(561,theQuestStatus-1) --cooling!
         end
         --Addition end
+        
+        --Counter of activity of new chars for Newbie helper
+        if Char:isNewPlayer() then
+            theQuestStatus=Char:getQuestProgress(852)
+            Char:setQuestProgress(852,theQuestStatus+5)
+        end
 
     end --all above is only conducted for players that aren't afk for more than five minutes
 

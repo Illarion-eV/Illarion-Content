@@ -629,6 +629,15 @@ function M.getPlayerRelation(player, townFaction)
     end
 end
 
+function M.isPlayerPermittedInTown(player, townFaction)
+    local playerRelation = M.getPlayerRelation(player, townFaction)
+    if playerRelation == M.RELATION_HOSTILE or playerRelation == M.RELATION_AGGRESSIVE then
+        return false
+    else
+        return true
+    end
+end
+
 --- Get the relationship between two factions. The looking direction for the relationship is always from the town faction to the player faction.
 --- So if the towns faction is hostile to the players faction and the players faction is neutral to the towns faction the returned result will be hostile.
 --
