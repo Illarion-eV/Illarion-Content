@@ -48,6 +48,9 @@ local gmMonsters = {}
 local SPAWNDATA = {}
 local removePositions = {}
 
+local SPAWN_PLAYER_OUT_OF_SIGHT = 20
+local SPAWN_MONSTER_RUN_AWAY = 35
+
 local MagicGem=1
 local SpecialItem = {}
 local SpecialItemSubMenu = {"Money","Magic Gems","Pure Elements"}
@@ -1304,7 +1307,7 @@ function spawnGM()
                 gmSpawnpointSettings[i][8] = 0
             end
             if #gmMonsters[i]-1 < amount then
-                updateMonsters(gmMonsters,i);
+                updateMonsters(gmMonsters,i,position);
                 mon = world:createMonster(monsterIds[math.random(1,#monsterIds)], position,10);
                 if isValidChar(mon) then
                     table.insert(gmMonsters[i],mon);
@@ -1318,7 +1321,7 @@ function spawnGM()
                     end
                 end
             else
-                updateMonsters(gmMonsters,i);
+                updateMonsters(gmMonsters,i,position);
             end
         end
         --Removes spawnpoint if he reaches the maximum number of cycles
@@ -1344,12 +1347,18 @@ function checkValue(input)
     end
 end
 
-function updateMonsters(array,number)
+function updateMonsters(array,number,basePosition)
     if #array[number] > 1 then
         for i = #array[number], 2, -1 do
             local mon = array[number][i];
+
             if not isValidChar(mon) then
                 table.remove(array[number], i)
+            elseif not mon:isInRangeToPosition(basePosition,SPAWN_MONSTER_RUN_AWAY) then
+                local playerInSight = world:getPlayersInRangeOf(mon.pos,SPAWN_PLAYER_OUT_OF_SIGHT)
+                if #playerInSight == 0 then
+                    mon:warp(basePosition)
+                end
             end
         end
     end
