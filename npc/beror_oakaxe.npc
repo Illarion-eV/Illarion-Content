@@ -189,9 +189,9 @@ queststatus(111) = 10, town = Cadomyr, ".*" -> inform("[Quest gelöst] Du erhälts
 
 -- Quest 4 taken but not solved, repeat the instructions
 queststatus(111) = 9, english, town = Cadomyr, "quest", "mission" -> "The Cornerstone of Candour is a mine to the south, the Circle of Blood is the arena of these lands, the northern bridge over the Kantabi River is in the north and your patrol should also lead you to the eastern border."
-queststatus(111) = 9, town = Cadomyr, "quest", "mission" -> "Der Grundstein der Aufrichtigkeit ist eine Mine im Süden, der Blutkreis die Arena dieses Landes, die nördliche Brücker über den Kantabifluss ist im Norden und deine Patroullie sollte dich auch an die Ostgrenze führen."
+queststatus(111) = 9, town = Cadomyr, "quest", "mission" -> "Der Grundstein der Aufrichtigkeit ist eine Mine im Süden, der Blutkreis die Arena dieses Landes, die nördliche Brücke über den Kantabifluss ist im Norden und deine Patroullie sollte dich auch an die Ostgrenze führen."
 queststatus(111) = 9, town = Cadomyr, "task", "adventure", "order" -> "The Cornerstone of Candour is a mine to the south, the Circle of Blood is the arena of these lands, the northern bridge over the Kantabi River is in the north and your patrol should also lead you to the eastern border."
-queststatus(111) = 9, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Grundstein der Aufrichtigkeit ist eine Mine im Süden, der Blutkreis die Arena dieses Landes, die nördliche Brücker über den Kantabifluss ist im Norden und deine Patroullie sollte dich auch an die Ostgrenze führen."
+queststatus(111) = 9, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Grundstein der Aufrichtigkeit ist eine Mine im Süden, der Blutkreis die Arena dieses Landes, die nördliche Brücke über den Kantabifluss ist im Norden und deine Patroullie sollte dich auch an die Ostgrenze führen."
 
 -- Quest 5: Reconnoitre the other factions and the neutral tavern
 queststatus(111) = 11, english, town = Cadomyr, "quest", "mission" -> inform("[New Quest] A Question of Honour V"), queststatus(111) = 12, "Sometimes, intelligence can be vital for surviving. We do not spy, but we want to know who our enemy is, if you know what I mean. I want you to reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair and the Archmage's chamber in Runewick."
