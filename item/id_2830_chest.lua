@@ -22,6 +22,7 @@ local treasureBase = require("item.base.treasure")
 local lookat = require("base.lookat")
 local globalvar = require("base.globalvar")
 local salaveshDungeon = require("content.salaveshDungeon")
+local akaltutDungeon = require("content.akaltutDungeon")
 
 local MAX_CHARS = 8
 
@@ -84,8 +85,13 @@ function M.UseItem(user,sourceItem)
     local level=tonumber(sourceItem:getData("trsCat"))
     local playerNeeded=tonumber(sourceItem:getData("playerNeeded"))
 
+    common.TurnTo(user, posi)
     if posi == salaveshDungeon.positionChest then
         salaveshDungeon.openChest(user, sourceItem, level)
+        return
+    end
+    if posi == akaltutDungeon.positionChest then
+        akaltutDungeon.openChest(user, sourceItem, level)
         return
     end
     
