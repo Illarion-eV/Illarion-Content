@@ -39,7 +39,7 @@ function M.MoveToField(user)
         local itemAtPosition = world:getItemOnField(M.positionChest)
         if itemAtPosition.id == TRESURE_CHEST_ID then
             common.InformNLS(user,
-                "Der Knopf unter deinen Füßen gibt nach. In der Schatkiste klickt etaws.",
+                "Der Knopf unter deinen Füßen gibt nach. In der Schatzkiste klickt etwas.",
                 "The step plate under your feet sinks. Something clicks in the treasure chest.")
         else
             common.InformNLS(user,
