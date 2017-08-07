@@ -23,6 +23,7 @@ local lookat = require("base.lookat")
 local globalvar = require("base.globalvar")
 local salaveshDungeon = require("content.salaveshDungeon")
 local akaltutDungeon = require("content.akaltutDungeon")
+local volcano_chest = require("triggerfield.volcano_chest")
 
 local MAX_CHARS = 8
 
@@ -92,6 +93,10 @@ function M.UseItem(user,sourceItem)
     end
     if posi == akaltutDungeon.positionChest then
         akaltutDungeon.openChest(user, sourceItem, level)
+        return
+    end
+    if posi == volcano_chest.positionChest then
+        volcano_chest.openChest(user, sourceItem, level)
         return
     end
     

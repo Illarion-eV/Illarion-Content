@@ -48,6 +48,7 @@ local treasureParameter = {
     {position(895,577,-9),MEDIUM_LOW,MEDIUM_HIGH,1}, --Ronagan Dungeon
     {position(693,390,-3),5,8,3}, --Salavesh dungeon - Dragon lair
     {position(471,776,-9),6,9,4}, --Akaltut dungeon - end of dungeon
+    {position(701,616,-6),6,9,4} --Volcano dungeon - end of dungeon
 }
 
 function M.spawnTreasure()
