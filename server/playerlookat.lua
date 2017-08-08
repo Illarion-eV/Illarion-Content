@@ -125,38 +125,6 @@ local function getCharRace( TargetCharacter, lang)
     return text
 end
 
-local function getCharPurse( TargetCharacter, lang, currentLookingAt)
-    local copperAtChar = money.CharCoinsToMoney( TargetCharacter )
-    local text = ""
-    local TargetCharacterSex = TargetCharacter:increaseAttrib( "sex", 0 )
-    
-    if (currentLookingAt >= 0) then
-        if (copperAtChar == 0) then
-            if ( TargetCharacterSex == 0 ) then
-                text = ( lang == 0 and "\nEr trägt keine Geldkatze. " or "\nHe has no purse. " )
-            else
-                text = ( lang == 0 and "\nSie trägt keine Geldkatze. " or "\nShe has no purse. " )
-            end
-        else
-            if ( TargetCharacterSex == 0 ) then
-                text = ( lang == 0 and "\nSeine Geldkatze ist " or "\nHis purse is " )
-            else
-                text = ( lang == 0 and "\nIhre Geldkatze ist " or "\nHer purse is " )
-            end
-            if (copperAtChar < 1000) then
-                text = text .. ( lang == 0 and "nahzu leer. " or "almost empty. " )
-            elseif (copperAtChar < 5000) then
-                text = text .. ( lang == 0 and "leicht. " or "light. " )
-            elseif (copperAtChar < 20000) then
-                text = text .. ( lang == 0 and "gefüllt. " or "filled. " )
-            else
-                text = text .. ( lang == 0 and "prall gefüllt. " or "tightly filled. " )
-            end
-        end
-    end
-    return text
-end
-
 local function getMaximumLoad(user)
     return user:increaseAttrib("strength", 0) * 500 + 5000 -- This calculation is the same the server uses.
 end
@@ -427,13 +395,10 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
     -- weight of load
     output = output .. getCharLoad( TargetCharacter, lang, limitToSeeBag)
     
-    -- amount of money
---    output = output .. getCharPurse( TargetCharacter, lang, limitToSeePurse)
-    
     -- what hold the char in hand?
     local addtext = ""
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 5, limitToSeeHand, common.IsNilOrEmpty(addtext) ); -- left hand
-    addtext = addtext .. getCharWears ( TargetCharacter, lang, 6, limitToSeeHand, common.IsNilOrEmpty(addtext) ); -- right hand
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, 5, limitToSeeHand, common.IsNilOrEmpty(addtext),true); -- left hand
+    addtext = addtext .. getCharWears ( TargetCharacter, lang, 6, limitToSeeHand, common.IsNilOrEmpty(addtext),true); -- right hand
 
     if ( common.IsNilOrEmpty(addtext) == false ) then
         if ( TargetCharacter:increaseAttrib( "sex", 0 ) == 0 ) then
