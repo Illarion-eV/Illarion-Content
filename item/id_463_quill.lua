@@ -104,6 +104,32 @@ local function CheckIfParchmentInHand(User, SourceItem)
     return nil
 end
 
+local function CheckIfParchmentIsSigned(parchmentItem)
+    if parchmentItem == nil then
+        return false
+    end
+    if common.IsNilOrEmpty(parchmentItem:getData("signatureText")) then
+        return false
+    else
+        return true
+    end
+end
+
+local function CheckIfParchmentCanSigned(User, SourceItem)
+    local parchmentItem = common.GetTargetItem(User, SourceItem)
+    if parchmentItem == nil then
+        return nil
+    end
+
+    for i=1, #parchmentList do
+        if ((parchmentItem.id == parchmentList[i]) and not (common.IsNilOrEmpty(parchmentItem:getData("writtenText"))) and (not CheckIfParchmentIsSigned(parchmentItem)) )then
+            return parchmentItem
+        end
+    end
+
+    return nil
+end
+
 local function WriteParchment(User,SourceItem)
 
     local title = getText(User, "Pergament beschreiben", "Write Parchment")
@@ -120,8 +146,10 @@ local function WriteParchment(User,SourceItem)
                 if not common.IsNilOrEmpty(parchment:getData("writtenText")) then
                     writtenText = parchment:getData("writtenText") .. "\n" .. writtenText
                 end
-                if string.len (writtenText) > parchmentMaxTextLength then
-                    User:inform("Du findest nicht genügend freien Platz auf dem Pergament.","The parchment is too small for your text.")
+                if CheckIfParchmentIsSigned(parchment) then
+                    User:inform("Du kannst ein unterschriebenes Pergament nicht verändern.","You cannot change an already signed parchment.",Character.highPriority)
+                elseif string.len (writtenText) > parchmentMaxTextLength then
+                    User:inform("Du findest nicht genügend freien Platz auf dem Pergament.","The parchment is too small for your text.",Character.highPriority)
                 else
                     parchment:setData("writtenText",writtenText)
                     lookat.SetSpecialDescription(parchment,"Das Pergament ist beschrieben.","The parchment has been written on.")
@@ -129,27 +157,12 @@ local function WriteParchment(User,SourceItem)
                     User:inform("Du schreibst auf das Pergament:\n'".. string.gsub (writtenText,"\\n","\n") .."'.","You write on the parchment:\n'".. string.gsub (writtenText,"\\n","\n") .."'.")
                 end
             else
-                User:inform("Du brauchst ein Pergament, um darauf zu schreiben.","You need a parchment if you want to write.")
+                User:inform("Du brauchst ein Pergament, um darauf zu schreiben.","You need a parchment if you want to write.",Character.highPriority)
             end
         end
     end
     local dialog = InputDialog(title, infoText, false, 255, callback)
     User:requestInputDialog(dialog)
-end
-
-local function CheckIfParchmentCanSigned(User, SourceItem)
-    local parchmentItem = common.GetTargetItem(User, SourceItem)
-    if parchmentItem == nil then
-        return nil
-    end
-
-    for i=1, #parchmentList do
-        if ((parchmentItem.id == parchmentList[i]) and not (common.IsNilOrEmpty(parchmentItem:getData("writtenText"))) and (common.IsNilOrEmpty(parchmentItem:getData("signatureText"))) )then
-            return parchmentItem
-        end
-    end
-
-    return nil
 end
 
 local function SignParchment(User,SourceItem)
@@ -162,7 +175,7 @@ local function SignParchment(User,SourceItem)
         world:changeItem(parchment)
         User:inform("Du unterschreibst das Pergament.","You sign the parchment.")
     else
-        User:inform("Du brauchst ein beschriebes Pergament, um zu unterschreiben.","You need a written parchment to sign.")
+        User:inform("Du brauchst ein beschriebes Pergament, um zu unterschreiben.","You need a written parchment to sign.",Character.highPriority)
     end
 end
 
