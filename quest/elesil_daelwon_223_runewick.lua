@@ -140,7 +140,7 @@ function M.readBook(user,bookID)
         user:setQuestProgress(620,1)
         common.InformNLS(user, "Quest Untersuche Runewick - Du hast die Verfassung Runewicks gefunden. Lies sie und kehre zu Elesil Daelwon zurück.",
                                 "Quest Investigation Runewick - You found the constitution of Runewick. Read it and return to Elesil Daelwon.")
-        common.InformNLS(user, "[Neuer Quest: Finde Numilia Irunnleh] Du wunderst dich, dass in einigen weiteren Schränken weitere offensichtlich verschiedene Fassungen der Verfasung stehe. Vielleicht fragst du Numilia Irunnleh mal deshalb.",
+        common.InformNLS(user, "[Neuer Quest: Finde Numilia Irunnleh] Du wunderst dich, dass in einigen weiteren Schränken weitere offensichtlich verschiedene Fassungen der Verfassung stehen. Vielleicht fragst du Numilia Irunnleh mal deshalb.",
                                 "[New quest: Find Numilia Irunnleh] You are curious since there are further, obviously different versions of the constitution in the bookshelves around. Maybe Numilia Irunnleh has an aswer for you.")
     end
 end
