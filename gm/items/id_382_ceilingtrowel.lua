@@ -904,7 +904,12 @@ function spawnPoint(User, SourceItem)
             spawnReset(User, SourceItem)
         end
     end
-    local sd = SelectionDialog("Set the mode of this Spawnpoint.", "To which mode do you want to change it?", cbSetMode)
+    local dialogText = "To which mode do you want to change it?" ..
+                       "\nMonster: " .. tostring(SourceItem:getData("amount")) .. " x ID " .. tostring(SourceItem:getData("monsters")) ..
+                       "\nInterval per spawn (7s): " .. tostring(SourceItem:getData("intervals")) ..
+                       "\nTotal spawns : " .. tostring(SourceItem:getData("endurance")) ..
+                       "\ngfx / sfx : " .. tostring(SourceItem:getData("gfxId")) .. " / "  .. tostring(SourceItem:getData("sfxId"))
+    local sd = SelectionDialog("Set the mode of this Spawnpoint.", dialogText, cbSetMode)
     for _,m in ipairs(modes) do
         sd:addOption(0,m)
     end
@@ -1350,7 +1355,7 @@ end
 function updateMonsters(array,number,basePosition)
     if #array[number] > 1 then
         for i = #array[number], 2, -1 do
-            local mon = array[number][i];
+            local mon = array[number][i]
 
             if not isValidChar(mon) then
                 table.remove(array[number], i)
