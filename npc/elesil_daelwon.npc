@@ -96,7 +96,7 @@ queststatus(223) = 0, town = Runewick, "quest", "mission" , "Auftrag", "Aufgabe"
 
 -- Quest 1 solved, reward: 5 rankpoints
 queststatus(223) = 2, english, town = Runewick, ".*" -> inform("[Quest solved] You know the constitution."), queststatus(223) = 3, rankpoints + 5, "Very well, now you are ready for a more difficult research. The gained knowledge should be your reward."
-queststatus(223) = 2, town = Runewick, ".*" -> inform("[Quest gelöst] Du kennst die Verfassung."), queststatus(223) = 3, rankpoints + 5, "Soweit, so gut. Du bist nun bereit für schwierigere Studien. Und was due bisher gelernt hast sollte dir Belohnung genug sein."
+queststatus(223) = 2, town = Runewick, ".*" -> inform("[Quest gelöst] Du kennst die Verfassung."), queststatus(223) = 3, rankpoints + 5, "Soweit, so gut. Du bist nun bereit für schwierigere Studien. Und was du bisher gelernt hast, sollte dir Belohnung genug sein."
 
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(223) = 1, english, town = Runewick, "quest", "mission" -> "How do you want to study if you do not even able to read our laws. They are clearly written in the constitution."
@@ -110,7 +110,7 @@ queststatus(223) = 3, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe",
 
 -- Quest 2 solved, reward: Cider (2059), 10 rankpoints
 queststatus(223) = 5, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a Cider."), item(2059, 1, 333), queststatus(223) = 6, rankpoints + 10, "Some of the planks of the bridges at the port are rotten. Let's cheers on it, that nobody luckily still has broken through."
-queststatus(223) = 5, town = Runewick, ".*" -> inform("[Quest gelöst] Du erhältst ein Bier."), item(2059, 1, 333), queststatus(223) = 6, rankpoints + 10, "Einige der Planken der Stege am Hafen sind morsch. Lass uns drauf anstoßen, dass zum Glück noch keine durchgebrochen ist."
+queststatus(223) = 5, town = Runewick, ".*" -> inform("[Quest gelöst] Du erhältst ein Glas Cider."), item(2059, 1, 333), queststatus(223) = 6, rankpoints + 10, "Einige der Planken der Stege am Hafen sind morsch. Lass uns drauf anstoßen, dass zum Glück noch keine durchgebrochen ist."
 
 -- Quest 2 taken but not solved, repeat the instructions
 queststatus(223) = 4, english, town = Runewick, "quest", "mission" -> "What are you waiting for? Patrol the hospital, the isle of the Archmage and the town harbour!"
@@ -144,7 +144,7 @@ queststatus(223) = 10, town = Runewick, ".*" -> inform("[Quest gelöst] Du erhält
 -- Quest 4 taken but not solved, repeat the instructions
 queststatus(223) = 9, english, town = Runewick, "quest", "mission" -> "The Lunord Bridge is on the way westward from the teleporter. Passing Yewdale you find the harbor. Using the road northeast from Yewdale you find short after Cowards Last Stand the Merryglade with the chicken boxes. Short after on the right side you find behind the rock Oldras Tower the Shadow Gate."
 queststatus(223) = 9, town = Runewick, "task", "adventure", "order" -> "The Lunord Bridge is on the way westward from the teleporter. Passing Yewdale you find the harbor. Using the road northeast from Yewdale you find short after Cowards Last Stand the Merryglade with the chicken boxes. Short after on the right side you find behind the rock Oldras Tower the Shadow Gate."
-queststatus(223) = 9, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Die Lunordbrücke führt nach Westen und beginnt am Teleporter. Hinter Eibental findest du den Hafen. Folgst du der Straße von Eibental nach Nordwesten erreichst du kurz hinter Feiglings Letztes Gefecht dir Glückliche Lichtung mit den Hühnerställen. Bald darauf liegt rechterhand hinter dem Fels Oldras Turm das Schattentor."
+queststatus(223) = 9, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Die Lunordbrücke führt nach Westen und beginnt am Teleporter. Hinter Eibental findest du den Hafen. Folgst du der Straße von Eibental nach Nordwesten erreichst du kurz hinter Feiglings Letztes Gefecht die Glückliche Lichtung mit den Hühnerställen. Bald darauf liegt rechterhand hinter dem Fels Oldras Turm das Schattentor."
 
 -- Quest 5: Reconnoitre the other factions and the neutral tavern
 queststatus(223) = 11, english, town = Runewick, "quest", "mission" -> inform("[New Quest] Investigate Runewick V"), queststatus(223) = 12, queststatus(224) = 0, "Sometimes, intelligence can be vital for knowledge. We do not spy, but we want to know who our enemy is, if you know what I mean. I want you to reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair and the Queens palace in Cadomyr."
