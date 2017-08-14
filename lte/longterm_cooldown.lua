@@ -49,6 +49,16 @@ local function cooldownQuest(Character,QuestID) -- cool down quest ID by 1 every
     end
 end
 
+local function cooldownQuestInform(Character,QuestID,endTextDe,endTextEn) -- cool down quest ID by 1 every 5 minutes
+    theQuestStatus=Character:getQuestProgress(QuestID)
+    if theQuestStatus > 0 then --cool down ends at 0
+        Character:setQuestProgress(QuestID,theQuestStatus-1) --cooling 5 minutes!
+        if theQuestStatus == 1 and common.IsNilOrEmpty(endTextDe) == false and  common.IsNilOrEmpty(endTextEn) == false then
+            common.InformNLS(Character,endTextDe,endTextEn)
+        end
+    end
+end
+
 local function cooldownQuestNoGM(Character,QuestID,endTextDe,endTextEn) -- cool down quest ID by 1 every 5 minutes
     theQuestStatus=Character:getQuestProgress(QuestID)
     if theQuestStatus > 0 and Character:isAdmin() ~= true then --cool down ends at 0, GM's don't cool down
@@ -489,20 +499,11 @@ function M.callEffect( Effect, Char ) -- Effect is called
     --Addition end
 
     --Addition by Evie: Quest 561 Fox Den Feeding Cooldown
-    theQuestStatus=Char:getQuestProgress(561)
-
-    if theQuestStatus == 1 then --Time over!
-
-        common.InformNLS(Char,"Es ist einige Zeit vergangen. Die kleinen Füchse haben wieder Hunger.","Enough time has passed that the fox pups are hungry again.") -- Feedback!  Time to feed the Pups again.
-        Char:setQuestProgress(559,0)
-        
-    end
-
-    if theQuestStatus > 0 then --Is there a countdown? Will be reduced even if the player is AFK/idle
-        Char:setQuestProgress(561,theQuestStatus-1) --counting down!
-
-    end
+    cooldownQuestInform(Char,561,
+                        "Es ist einige Zeit vergangen. Die kleinen Füchse haben wieder Hunger.",
+                        "Enough time has passed that the fox pups are hungry again.")
     --Addition end
+    
     --Addition by Evie: Quest 119/159/120 Cadmoyr Stockup Anthar Vilicon
     theQuestStatus=Char:getQuestProgress(159)
 
