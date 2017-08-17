@@ -81,10 +81,10 @@ Description[ENGLISH][20] = "Return to Jeremiah Horanfeld for your reward."
 Description[GERMAN][21] = "Gehe zurück zum Rattenfänger Jeremiah Horanfeld, er hat vielleicht noch eine weitere Aufgabe für Dich."
 Description[ENGLISH][21] = "Check back with Vermin Monitor Jeremiah Horanfeld, he may have another task for you."
 
-Description[GERMAN][22] = "Sammle fünfzehn Rattenfelle und bringe sie als Beweis zu Jeremiah Horanfeld."
-Description[ENGLISH][22] = "Collect fifteen rat furs and bring them to Jeremiah Horanfeld as evidence."
-Description[GERMAN][23] = "Vielleicht hat Jeremiah Horanfeld eine weitere Aufgabe für Dich."
-Description[ENGLISH][23] = "Perhaps Jeremiah Horanfeld has another task to be done."
+Description[GERMAN][22] = "Prüfe fünf vergiftete Rattenköder in der Zusterne. Benutze den Köder (vergiftete Möhren) um die Prüfung auszuführen. Ziehe dazu Handschuhe an."
+Description[ENGLISH][22] = "Check five poisoned rat bails in the cistern. Use the bails (poisoned carrots) to carry out the check. You should wear gloves."
+Description[GERMAN][23] = "Berichte Jeremiah Horanfeld, was du gefunden hast."
+Description[ENGLISH][23] = "Report Jeremiah Horanfeld about your findings."
 
 Description[GERMAN][24] = "Töte in der Zisterne zehn Ratten, Du musst noch zehn töten."
 Description[ENGLISH][24] = "Kill ten rats in the Cistern, you still have ten left."
@@ -212,6 +212,12 @@ end
 function M.QuestDescription(user, status)
     local german = Description[GERMAN][status] or ""
     local english = Description[ENGLISH][status] or ""
+    if status == 22 then
+        local replacedCarrots = user:getQuestProgress(253)
+        local countCarrots = common.countBit(replacedCarrots)
+        german = german .. "\nFinde noch " .. tostring(5-countCarrots) .. " weitere Möhren."
+        english = english .. "\nYou have to find " .. tostring(5-countCarrots) .. " more carrots."
+    end
 
     return common.GetNLS(user, german, english)
 end
