@@ -34,8 +34,10 @@ Title[ENGLISH] = "Save Da Beer"
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Töte in der Zisterne fünf Ratten, Du musst noch fünf töten."
-Description[ENGLISH][1] = "Kill five rats in the Cistern, you still have five left."
+Description[GERMAN][1] = "Töte in der Zisterne fünf Ratten, Du musst noch fünf töten." ..
+                            "\nUm in die Zisterne steigen zu können, nutze das Seil. Nimm das Seil und klicke zweimal darauf, während du vor dem Brunnen stehst."
+Description[ENGLISH][1] = "Kill five rats in the Cistern, you still have five left." ..
+                            "\nTo climb down the well use the rope. Double click the rope to use it in front of the well."
 Description[GERMAN][2] = "Töte in der Zisterne fünf Ratten, Du musst noch vier töten."
 Description[ENGLISH][2] = "Kill five rats in the Cistern, you still have four left."
 Description[GERMAN][3] = "Töte in der Zisterne fünf Ratten, Du musst noch drei töten."
@@ -81,10 +83,10 @@ Description[ENGLISH][20] = "Return to Fokous Onyxbrow for your reward."
 Description[GERMAN][21] = "Kehre zurück zum Bierlieferant Quartiermeister Fokous Onyxbrow, er hat vielleicht noch eine weitere Aufgabe für Dich."
 Description[ENGLISH][21] = "Check back with Beer Supply Quartermaster Fokous Onyxbrow, he may have another task for you."
 
-Description[GERMAN][22] = "Sammle fünfzehn Rattenfelle und bringe sie als Beweis zu Fokous Onyxbrow."
-Description[ENGLISH][22] = "Collect fifteen rat furs and bring them to Fokous Onyxbrow as evidence."
-Description[GERMAN][23] = "Vielleicht hat Fokous Onyxbrow eine weitere Aufgabe für Dich"
-Description[ENGLISH][23] = "Perhaps Fokous Onyxbrow has another task to be done."
+Description[GERMAN][22] = "Prüfe fünf vergiftete Rattenköder in der Zusterne. Benutze den Köder (vergiftete Möhren) um die Prüfung auszuführen. Ziehe dazu Handschuhe an."
+Description[ENGLISH][22] = "Check five poisoned rat bails in the cistern. Use the bails (poisoned carrots) to carry out the check. You should wear gloves."
+Description[GERMAN][23] = "Berichte Fokous Onyxbrow, was du gefunden hast."
+Description[ENGLISH][23] = "Report Fokous Onyxbrow about your findings."
 
 Description[GERMAN][24] = "Töte in der Zisterne zehn Ratten, Du musst noch zehn töten."
 Description[ENGLISH][24] = "Kill ten rats in the Cistern, you still have ten left."
@@ -212,6 +214,12 @@ end
 function M.QuestDescription(user, status)
     local german = Description[GERMAN][status] or ""
     local english = Description[ENGLISH][status] or ""
+    if status == 22 then
+        local replacedCarrots = user:getQuestProgress(253)
+        local countCarrots = common.countBit(replacedCarrots)
+        german = german .. "\nFinde noch " .. tostring(5-countCarrots) .. " weitere Möhren."
+        english = english .. "\nYou have to find " .. tostring(5-countCarrots) .. " more carrots."
+    end
 
     return common.GetNLS(user, german, english)
 end

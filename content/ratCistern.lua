@@ -26,10 +26,39 @@ local dataRunewick = "RatQuestRunewick"
 
 local M = {}
 
-function M.checkCarrot(user,sourceItem)
+local function checkCarrotRealm(questId, dataValue, questOriginator, user, sourceItem)
     local numberOfCarrot
     local replacedCarrots = 0
     local countCarrots = 0
+    local questTaken = false
+    
+    if user:getQuestProgress(questId) == 22 then
+        numberOfCarrot = sourceItem:getData(dataValue)
+        if not common.IsNilOrEmpty(numberOfCarrot) then
+            replacedCarrots = user:getQuestProgress(253)
+            if not common.isBitSet(replacedCarrots,numberOfCarrot) then
+                replacedCarrots = common.addBit(replacedCarrots,numberOfCarrot)
+                user:setQuestProgress(253,replacedCarrots)
+                countCarrots = common.countBit(replacedCarrots)
+                if countCarrots == 5 then
+                    user:setQuestProgress(questId,23)
+                    common.InformNLS(user,
+                        "Auch die letzte vergiftete Möhre scheint unangetastet. Gehe zurück zu " .. questOriginator .. " und berichte.",
+                        "Also the last poisoned carrot seems untouched. Go back to " .. questOriginator .. " and report.")
+                else
+                    common.InformNLS(user,
+                        "Diese vergiftete Möhre scheint von den Ratten unangetastet. Finde noch " .. tostring(5-countCarrots) .. " weitere Möhren.",
+                        "The rats didn't touch this poisoned carrot. You have to find " .. tostring(5-countCarrots) .. " more carrots.")
+                end
+                questTaken = true
+            end
+        end
+    end
+
+    return questTaken
+end
+
+function M.checkCarrot(user,sourceItem)
     local questTaken = false
     
     local inHand = user:getItemAt(4)
@@ -44,30 +73,15 @@ function M.checkCarrot(user,sourceItem)
         end
     end
     
-    if user:getQuestProgress(187) == 22 then
-        numberOfCarrot = sourceItem:getData(dataCadomyr)
-        if not common.IsNilOrEmpty(numberOfCarrot) then
-            replacedCarrots = user:getQuestProgress(253)
-            if not common.isBitSet(replacedCarrots,numberOfCarrot) then
-                replacedCarrots = common.addBit(replacedCarrots,numberOfCarrot)
-                user:setQuestProgress(253,replacedCarrots)
-                countCarrots = common.countBit(replacedCarrots)
-                if countCarrots == 5 then
-                    user:setQuestProgress(187,23)
-                    common.InformNLS(user,
-                        "Auch die letzte vergiftete Möhre scheint unangetastet. Gehe zurück zu Jeremiah und berichte.",
-                        "Also the last poisoned carrot seems untouched. Go back to Jeremiah and report.")
-                else
-                    common.InformNLS(user,
-                        "Diese vergiftete Möhre scheint von den Ratten unangetastet. Finde noch " .. tostring(5-countCarrots) .. " weitere Möhren.",
-                        "The rats didn't touch this poisoned carrot. You have to find " .. tostring(5-countCarrots) .. " more carrots.")
-                end
-                questTaken = true
-            end
-        end
+    if checkCarrotRealm(187, dataCadomyr, "Jeremiah", user, sourceItem) then
+        questTaken = true
+    elseif checkCarrotRealm(188, dataRunewick, "Cilivren", user, sourceItem) then
+         questTaken = true
+    elseif checkCarrotRealm(189, dataGalmair, "Fokous", user, sourceItem) then
+         questTaken = true
     end
     
-    return questTaken
+   return questTaken
 end
 --]]
 

@@ -34,8 +34,10 @@ Title[ENGLISH] = "Vermin Monitor"
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Töte in der Zisterne fünf Ratten, Du musst noch fünf töten."
-Description[ENGLISH][1] = "Kill five rats in the Cistern, you still have five left."
+Description[GERMAN][1] = "Töte in der Zisterne fünf Ratten, Du musst noch fünf töten." ..
+                            "\nUm in die Zisterne steigen zu können, nutze das Seil. Nimm das Seil und klicke zweimal darauf, während du vor dem Brunnen stehst."
+Description[ENGLISH][1] = "Kill five rats in the Cistern, you still have five left." ..
+                            "\nTo climb down the well use the rope. Double click the rope to use it in front of the well."
 Description[GERMAN][2] = "Töte in der Zisterne fünf Ratten, Du musst noch vier töten."
 Description[ENGLISH][2] = "Kill five rats in the Cistern, you still have four left."
 Description[GERMAN][3] = "Töte in der Zisterne fünf Ratten, Du musst noch drei töten."

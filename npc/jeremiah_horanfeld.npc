@@ -71,9 +71,9 @@ itemShoes = 771
 -- 10: Quest 3 taken - kill ten rats
 -- 11-20: killing ten rats
 -- 21: Quest 3 solved, reward: 2000 cp, +5 rankpoints
--- 22: Quest 4 taken - collect fifteen furs
--- 23: Quest 4 solved - reward: 2000cp, +5 rankpoints
--- 24: Quest 5 taken -  kill ten rats
+-- 22: Quest 4 taken - check 10 poisoned carrots
+-- 23: Quest 4 done - back to Jeremiah
+-- 24: Quest 4 solved - reward: 2000cp, +5 rankpoints, Quest 5 taken -  kill ten rats
 -- 25-34: killing ten rats
 -- 35 Quest 5 solved -  reward: 2000 cp, +5 rankpoints
 -- 36 Quest 6  taken -  Kill ratman
@@ -173,11 +173,11 @@ queststatus(187) > 9, queststatus(187) < 20, town = Cadomyr, english, "quest", "
 queststatus(187) > 9, queststatus(187) < 20, town = Cadomyr, "task", "adventure" -> "e have the very important task to control the rat population. Kill ten rats."
 queststatus(187) > 9, queststatus(187) < 20, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> "Wir haben die ungemein wichtige Aufgabe die Ratten zu dezimieren. Töte zehn Ratten."
 
--- 4th quest collect 15 rat furs from cistern rats
+-- 4th quest check 5 poisoned carrots
 -- Giving out quest 4
-queststatus(187) = 21, english, town = Cadomyr, "quest", "mission" -> inform("[New quest] Vermin Monitor IV - Find and 'use' 5 poisoned rat bails in the cistern."), queststatus(187) = 22, "Recently I placed some poisoned carrots. Please verify if thee rats touched them. But carry any gloves if you touch the bails."
-queststatus(187) = 21, town = Cadomyr, "task", "adventure" -> inform("[New quest] Vermin Monitor IV - Find and verify 5 poisoned rat bails in the cistern. Use the bail to verify."), queststatus(187) = 22, queststatus(253) = 0, "Recently I placed some poisoned carrots. Please verify if thee rats touched them. But carry any gloves if you touch the bails."
-queststatus(187) = 21, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> inform("[Neues Quest] Rattenfänger IV - Finde und prüfe 5 Köder in der Zisterne. Benutze den Köder, um ihn zu prüfen."), queststatus(187) = 22, queststatus(253) = 0, "Ich habe vor kurzem einige vergiftete Möhren ausgelegt. Prüfe bitte mindestens 5 der Köder, ob sie angenommen werden. Aber zieh irgendwelche Handschuhe an, wenn du sie anfasst!"
+queststatus(187) = 21, english, town = Cadomyr, "quest", "mission" -> inform("[New quest] Vermin Monitor IV - Find and 'use' 5 poisoned rat bails in the cistern."), queststatus(253) = 0, queststatus(187) = 22, "Recently I placed some poisoned carrots. Please verify if thee rats touched them. But carry any gloves if you touch the bails."
+queststatus(187) = 21, town = Cadomyr, "task", "adventure" -> inform("[New quest] Vermin Monitor IV - Find and verify 5 poisoned rat bails in the cistern. Use the bail to verify."), queststatus(253) = 0, queststatus(187) = 22, "Recently I placed some poisoned carrots. Please verify if thee rats touched them. But carry any gloves if you touch the bails."
+queststatus(187) = 21, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> inform("[Neues Quest] Rattenfänger IV - Finde und prüfe 5 Köder in der Zisterne. Benutze den Köder, um ihn zu prüfen."), queststatus(253) = 0, queststatus(187) = 22, "Ich habe vor kurzem einige vergiftete Möhren ausgelegt. Prüfe bitte mindestens 5 der Köder, ob sie angenommen werden. Aber zieh irgendwelche Handschuhe an, wenn du sie anfasst!"
 
 -- Quest 4 taken but not started
 queststatus(187) = 22, queststatus(253) = 0, english, town = Cadomyr, ".+" -> inform("Find and 'use' 5 poisoned rat bails in the cistern. You must touch (use) the carrots."), "Wear gloves and check the bails. This is my chance to solve the rat issue without get my hands dirty."
@@ -193,7 +193,7 @@ queststatus(187) = 22, town = Cadomyr, "Auftrag", "Aufgabe", "quest", "mission",
 -- Give out quest 5
 queststatus(187) = 23, town = Cadomyr, english, "quest", "mission" -> inform("[Solved and new quest] Vermin Monitor V"), queststatus(187) = 24, "A disaster! We must do anyting immediately. I can not think of anything better than to kill another ten rats to save our honor.", money + 2000, rankpoints + 5
 queststatus(187) = 23, town = Cadomyr, "task", "adventure", "poison", "carrot" -> inform("[Solved and new quest] Vermin Monitor V"), queststatus(187) = 24, "A disaster! We must do anyting immediately. I can not think of anything better than to kill another ten rats to save our honor.", money + 2000, rankpoints + 5
-queststatus(187) = 23, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission", "Gift", "Möhre" -> inform("[Gelöstes und neues Quest] Rattenfänger V"), queststatus(187) = 24, "Eine Katastophe. Wir müssen unbedingt was tun. Mir fällt jetzt auch nichts Besseres ein, als weitere zehn Ratten zu töten, um unsere Ehre zu retten.", money + 2000, rankpoints + 5
+queststatus(187) = 23, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission", "Gift", "Möhre" -> inform("[Gelöstes und neues Quest] Rattenfänger V"), queststatus(187) = 24, "Eine Katastophe! Wir müssen unbedingt was tun. Mir fällt jetzt auch nichts Besseres ein, als weitere zehn Ratten zu töten, um unsere Ehre zu retten.", money + 2000, rankpoints + 5
 
 -- Quest 5 solved, 20 silver, +5 rankpoints
 queststatus(187) = 34, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(187) = 35, rankpoints + 5, "It's said the Queen mentioned the reduced number of vermin. Also due to your efforts."
