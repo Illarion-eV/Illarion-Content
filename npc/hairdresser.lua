@@ -34,7 +34,8 @@ local globalvar = require("base.globalvar")
 
 local DYESHORT = 1
 local DYELONG = 0
-
+local NOT_FOR_LIZARD = false
+local FOR_LIZARD_ONLY = true
 local M = {}
 
 local init = {}
@@ -163,7 +164,7 @@ local function payForWork(user,npc,priceWork)
     money.TakeMoneyFromChar(user,priceWork) --take money
     npc:talk(Character.say, "Vielen Dank. Kann ich noch etwas für euch tun?",
                             "Thank you. Can I do anything else for you?")
-    user:inform("Ihr habt "..germanMoney.." bezahlt.", "You paid "..englishMoney..".")
+    user:inform("Ihr habt "..germanMoney.." bezahlt.", "You paid "..englishMoney..".", Player.lowPriority)
     return true
 end
 
@@ -227,6 +228,42 @@ local function userOnChair(user,npc)
     return true
 end
 
+local function isInTransformationEffekt(user)
+    if user.effects:find(329) then
+        user:inform("[Info] Solange ein Verwandlungstrank wirkt kann die Friseuse nichts tun.",
+                    "[Info] The hairdresser cannot do anything as long as a transormation potion is active.", Player.highPriority)
+    end
+end
+
+local function permittedRace(user,npc,isForLizardOnly)
+    local race = user:getRace()
+    local permittedRaces = {
+    globalvar.raceHUMAN,
+    globalvar.raceDWARF,
+    globalvar.raceHALFLING,
+    globalvar.raceELF,
+    globalvar.raceORC,
+    globalvar.raceLIZARD
+}
+
+    if not common.isInList(race,permittedRaces)then
+        npc:talk(Character.say, "Ich weiß echt nicht, wie ich das machen soll.",
+                                "I have no idea how I should do that.")
+        return false
+    end
+    if race == globalvar.raceLIZARD and not isForLizardOnly then
+        npc:talk(Character.say, "Ich werde Euren Kamm nicht färben oder schneiden. Aber vielleicht wollt ihr eine Politur.",
+                                "I won't cut or dye your ridge. But I could polish it.")
+        return false
+    end
+    if race ~= globalvar.raceLIZARD and isForLizardOnly then
+        npc:talk(Character.say, "Diesen Service biete ich nur für Echsenmenschen an.",
+                                "This service is for lizardmen only.")
+        return false
+    end
+    return true
+end
+
 local function shaveSelector(user,npc,firstCall,beardStyleStart,beardStyleEnd)
     local currentTime = common.GetCurrentTimestamp()
     local race = user:getRace()
@@ -237,6 +274,9 @@ local function shaveSelector(user,npc,firstCall,beardStyleStart,beardStyleEnd)
             return
         end
         local selected = dialog:getSelectedIndex()
+        if isInTransformationEffekt(user) then
+            return
+        end
         if selected == 0 then
             return
         elseif selected == 1 then
@@ -286,13 +326,15 @@ local function shaveSelector(user,npc,firstCall,beardStyleStart,beardStyleEnd)
                                    common.GetNLS(user,
                                                 "Bitte wähle aus, welche Barttyp du haben möchtest." ..
                                                 "\nNachschneiden: " .. germanMoneyTrim ..
-                                                "\nNeuer Bart: " .. germanMoneyShave,
+                                                "\nNeuer Bart: " .. germanMoneyShave ..
+                                                "\nDu kannst verschiedene Stile ausprobieren. Wählst du keinen aus, bekommst du bie auf den Preis eines Nachschneidens alles Geld zurück",
                                                 "Please select what beard style you wish to have." ..
                                                 "\nTrim beard: " .. englishMoneyTrim ..
-                                                "\nNew beard style: " .. englishMoneyShave), callback)
+                                                "\nNew beard style: " .. englishMoneyShave) ..
+                                                "\nYou can try different styles. Except the price of a trim you get your money back if you don't choose one.", callback)
     dialog:setCloseOnMove()
-    dialog:addOption(0, common.GetNLS(user, "So lassen wie es jetzt ist.", "Let it as it is right now."))
-    dialog:addOption(0, common.GetNLS(user, "Ich möchte keinen neuen Bart.", "I don't want a new beard."))
+    dialog:addOption(0, common.GetNLS(user, "Genau diesen jetzigen Bartstil möchte ich haben.", "I want to have this current beard style."))
+    dialog:addOption(0, common.GetNLS(user, "Ich möchte doch keinen neuen Bart.", "Actually I don't want a new beard."))
     dialog:addOption(0, common.GetNLS(user, "Nur nachschneiden", "Trim beard only"))
     local beardTable = hair.beardStyles[race]
     for i = 1, #beardTable do
@@ -306,8 +348,8 @@ local function shave(user, npc)
 
     local gender = user:increaseAttrib("sex", 0) + 1
     local race = user:getRace()
-    if race == globalvar.raceLIZARD then
-        npc:talk(Character.say, "Ich werde Euren Kamm nicht färben oder schneiden.", "I won't cut or dye your ridge.")
+    
+    if not permittedRace(user,npc,NOT_FOR_LIZARD) then
         return
     end
 
@@ -365,7 +407,12 @@ local function hairColoringSelector(user,npc,firstCall,colorStart,colorEnd,color
             return
         end
         local selected = dialog:getSelectedIndex()
+        if isInTransformationEffekt(user) then
+            return
+        end
         if selected == 0 then
+            return
+        elseif selected == 1 then
             if not firstCall then
                 payBack(user,priceDye,0)
                 user:setHairColour(colour(colorStart.red, colorStart.green, colorStart.blue))
@@ -374,8 +421,6 @@ local function hairColoringSelector(user,npc,firstCall,colorStart,colorEnd,color
             end
             npc:talk(Character.say, "Genau, mit dieser Farbe seht ihr am Besten aus.",
                                     "Exact my opinion. The old colour fits you best.")
-            return
-        elseif selected == 1 then
             return
         else
             if firstCall then
@@ -400,8 +445,8 @@ local function hairColoringSelector(user,npc,firstCall,colorStart,colorEnd,color
                                                 "Please select what hair color you wish to have." ..
                                                 "\nDying with a " .. textActionEn .. " duration costs you " .. englishMoney), callback)
     dialog:setCloseOnMove()
-    dialog:addOption(0, common.GetNLS(user, "Ich möchte die Haare nicht färben lassen.", "I don't want dyeing my hair."))
-    dialog:addOption(0, common.GetNLS(user,"Lassen wir es so wie es jetzt ist.", "Let it be as it is right now."))
+    dialog:addOption(0, common.GetNLS(user, "Genau die jetzige Farbe möchte ich haben.", "I want to have this current hair colour."))
+    dialog:addOption(0, common.GetNLS(user, "Ich möchte doch keine neue Haarfarbe.", "Actually I don't want a new hair colour."))
     for i = 1, #hair.hairColorSimple do
         dialog:addOption(0, common.GetNLS(user,hair.hairColorSimple[i].nameDe,hair.hairColorSimple[i].nameEn))
     end
@@ -411,9 +456,7 @@ end
 local function hairColoring(user, npc)
     saveNaturalStyle(user)
 
-    local race = user:getRace()
-    if race == globalvar.raceLIZARD then
-        npc:talk(Character.say, "Ich werde Euren Kamm nicht färben oder schneiden.", "I won't cut or dye your ridge.")
+    if not permittedRace(user,npc,NOT_FOR_LIZARD) then
         return
     end
 
@@ -430,6 +473,9 @@ local function hairColoring(user, npc)
             return
         end
         local selected = dialog:getSelectedIndex()
+        if isInTransformationEffekt(user) then
+            return
+        end
         if selected == 0 then
             npc:talk(Character.say, "Wie ihr wünscht. Lassen wir es, wie es ist, die Farbe steht Euch.",
                                     "As you want. We will change nothing, the colour fits you.")
@@ -462,7 +508,7 @@ local function hairColoring(user, npc)
                                                 "\nShort term colour (2 month): " .. englishMoneyShort ..
                                                 "\nLong term colour (7 month): " .. englishMoneyLong), callback)
     dialog:setCloseOnMove()
-    dialog:addOption(0, common.GetNLS(user, "Ich möchte die Haare nicht färben laasen.", "I don't want dyeing my hair."))
+    dialog:addOption(0, common.GetNLS(user, "Ich möchte die Haare nicht färben lassen.", "I don't want dyeing my hair."))
     dialog:addOption(0, common.GetNLS(user,"Natürliche Haarfarbe", "Natural hair color"))
     dialog:addOption(0, common.GetNLS(user,"Kurzzeit Haarfarbe", "Short lasting hair colour"))
     dialog:addOption(0, common.GetNLS(user,"Lang haltende Haarfarbe", "Long lasting hair colour"))
@@ -480,6 +526,9 @@ local function haircutSelector(user,npc,firstCall,hairStyleStart,hairStyleEnd)
             return
         end
         local selected = dialog:getSelectedIndex()
+        if isInTransformationEffekt(user) then
+            return
+        end
         if selected == 0 then
             return
         elseif selected == 1 then
@@ -529,13 +578,15 @@ local function haircutSelector(user,npc,firstCall,hairStyleStart,hairStyleEnd)
                                    common.GetNLS(user,
                                                 "Bitte wähle aus, welche Frisur du haben möchtest." ..
                                                 "\nNachschneiden: " .. germanMoneyTrim ..
-                                                "\nNeue Frisur: " .. germanMoneyCut,
+                                                "\nNeue Frisur: " .. germanMoneyCut ..
+                                                "\nDu kannst verschiedene Schnitte ausprobieren. Wählst du keinen aus, bekommst du bie auf den Preis eines Nachschneidens alles Geld zurück",
                                                 "Please select what hair style you wish to have." ..
                                                 "\nTrim hair: " .. englishMoneyTrim ..
-                                                "\nNew hair style: " .. englishMoneyCut), callback)
+                                                "\nNew hair style: " .. englishMoneyCut ..
+                                                "\nYou can try different styles. Except the price of a trim you get your money back if you don't choose one."), callback)
     dialog:setCloseOnMove()
-    dialog:addOption(0, common.GetNLS(user, "So lassen wie es jetzt ist.", "Let it as it is right now."))
-    dialog:addOption(0, common.GetNLS(user, "Ich möchte keinen neuen Haarschnitt.", "Please don't cut my hair."))
+    dialog:addOption(0, common.GetNLS(user, "Genau diesen jetzigen Schnitt möchte ich haben.", "I want to have this current haircut."))
+    dialog:addOption(0, common.GetNLS(user, "Ich möchte doch keinen neuen Haarschnitt.", "Actually I don't want a new haircut."))
     dialog:addOption(0, common.GetNLS(user, "Nur nachschneiden", "Trim hair only"))
     local hairTable = hair.hairStyles[race][gender]
     for i = 1, #hairTable do
@@ -547,12 +598,7 @@ end
 local function haircut(user, npc)
     saveNaturalStyle(user)
 
-    local race = user:getRace()
-    local gender = user:increaseAttrib("sex", 0) + 1
-
-    -- if character is a lizardman, say something and deny service
-    if race == globalvar.raceLIZARD then
-        npc:talk(Character.say, "Ich werde Euren Kamm nicht färben oder schneiden.", "I won't cut or dye your ridge.")
+    if not permittedRace(user,npc,NOT_FOR_LIZARD) then
         return
     end
 
@@ -568,21 +614,47 @@ local function haircut(user, npc)
 end
 
 local function combPolish(user,npc)
-    local race = user:getRace()
+
+    if not permittedRace(user,npc,FOR_LIZARD_ONLY) then
+        return
+    end
 
     if not userOnChair(user,npc) then
         return
     end
 
-    -- if character is not lizardman, say something and deny service
-    if race ~= globalvar.raceLIZARD then
-        npc:talk(Character.say, "Diesen Service biete ich nur für Echsenmenschen an.", "This service is for lizardmans only.")
-        return
+    local callback = function(dialog)
+        local success = dialog:getSuccess()
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local selected = dialog:getSelectedIndex()
+        if isInTransformationEffekt(user) then
+            return
+        end
+        if selected == 0 then
+            return
+        else
+            if payForWork(user,npc,pricePolish) then
+                user:setQuestProgress(230,timePolishVisible)
+                npc:talk(Character.say, "#me poliert den Kamm mit weichen, gutriechenden Tüchern.",
+                                        "#me polishes the comb using soft and well smelling cloth.")
+                user:inform("Dein Kamm fühlt sich gut an und glänzt im Licht. Die Politur wird für einige Stunden für jeden sichtbar sein",
+                            "Your comb feels well and shines. For some hours everybody can see that.")
+            end
+        end
     end
-    if payForWork(user,npc,pricePolish) then
-        user:setQuestProgress(230,timePolishVisible)
-        npc:talk(Character.say, "#me poliert den Kamm mit weichen, gutriechenden Tüchern.", "#me polishes the comb using soft and well smelling cloth.")
-    end
+
+    local germanMoney, englishMoney = money.MoneyToString(pricePolish)
+
+    local dialog = SelectionDialog(common.GetNLS(user,"Friseur","Hair dresser"),
+                                   common.GetNLS(user,
+                                                "Einmal Kamm polieren kostet " .. germanMoney .. ".",
+                                                "Polishing your comb costs you " .. englishMoney) .. ".", callback)
+    dialog:setCloseOnMove()
+    dialog:addOption(0, common.GetNLS(user, "Nein, ich möchte den Kamm nicht poliert haben.", "No I don't want a comb polish."))
+    dialog:addOption(0, common.GetNLS(user, "Ja, bitte einmal polieren.", "Yes please polish the comb."))
+    user:requestSelectionDialog(dialog)
 end
 
 --Banduk remove that once it is tested properly
