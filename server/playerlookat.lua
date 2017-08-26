@@ -185,6 +185,18 @@ local function getCharLoad( TargetCharacter, lang, currentLookingAt)
     return text
 end
 
+local function getCharHairdresserState( Char, lang, currentLookingAt)
+    local text = ""
+    if (currentLookingAt >= 0) then
+        if Char:getQuestProgress(229) then
+            text = ( lang == 0 and "\nDie Haare sind frisch geschnitten." or "\nThe hair was made short ago." )
+        elseif Char:getQuestProgress(230) then
+            text = ( lang == 0 and "\nDer Kamm glänzt wie frisch poliert." or "\nThe comb shines as freshly polished." )
+        end
+    end
+    return text
+end
+
 local function getClothesFactor(Char)
     local itCount=0
     local sumQual=0
@@ -316,6 +328,7 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
     local limitToSeeBag = 2 * factorPerception - 3 * factorDistance
     local limitToSeePurse = 1 * factorPerception - 3 * factorDistance
     local limitToSeeBelt = 1 * factorPerception - 3 * factorDistance
+    local limitToSeeHairdresser = 2 * factorPerception - 6 * factorDistance + bonusSex
 
     local lang = SourceCharacter:getPlayerLanguage()
     -- inform about stats
@@ -408,6 +421,12 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
         end
         output = output .. addtext .. ". "
     --nothing, you see that!
+    end
+    
+    -- hairdresser recently
+    addtext = getCharHairdresserState( TargetCharacter, lang, limitToSeeHairdresser)
+    if ( common.IsNilOrEmpty(addtext) == false ) then
+        output = output .. addtext
     end
     
     if ( common.IsNilOrEmpty(output) ) then

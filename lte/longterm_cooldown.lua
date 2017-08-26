@@ -603,6 +603,12 @@ function M.callEffect( Effect, Char ) -- Effect is called
     cooldownQuestNoGM(Char,299,"[Info] Eisflammen werden dir wieder etwas anhaben.","[Info] Ice flames will hurt you again.")
     cooldownQuestNoGM(Char,300,"[Info] Giftwolken werden dir wieder etwas anhaben.","[Info] Poison clouds will hurt you again.")
     
+    --Addition by Banduk: Hairdresser
+    -- fresh hair from hairdresser
+    cooldownQuestInform(Char,229,"[Info] Deine Frisur sieht nicht mehr wie neu aus.","[Info] Your haircut doesn't looks like brandnew anymore.")
+    cooldownQuestInform(Char,230,"[Info] Dein Kamm glänzt nicht mehr wie frisch poliert.","[Info] Your comb doesn't shine fresh polished anymore.")
+    
+    
     --Rule compliance detection
     if not storedMessage then storedMessage={} end
     if not storedPosition then storedPosition={} end
