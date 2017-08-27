@@ -126,7 +126,7 @@ queststatus(642) > 0, queststatus(643) = 0, german, chance(100.0), "Kharud" -> i
 
 -- -- Quest by Zassaria Riverbank (Ask for me II)
 queststatus(701) = 13, item(225, all, "descriptionEn" = "This crown belongs to Rosaline Edwards.") > 0, english, "Zassaria", "lizard", "crown", "missing", "belong", "porperty", "riverbank" -> deleteItem(225, 1, "descriptionEn" = "This crown belongs to Rosaline Edwards."), queststatus(701) = 14, "What? Oh, thank you for returning my extra crown. I don't know how it got all the way to Runewick. You may leave now."
-queststatus(701) = 13, item(225, all, "descriptionDe" = "Diese Krone gehört Rosaline Edwards.") > 0, "Zassaria", "Echsenmensch", "Krone", "verloren", "gehören", "Eigentum", "riverbank" -> deleteItem(225, 1, "descriptionDe" = "Diese Krone gehört Rosaline Edwards."), queststatus(701) = 14, "Was? Oh, danke das Ihr meine Ersatzkrone zurückbringt. Ich weiß nicht wie sie bis nach Runewick gekommen ist. Ihr könnt jetzt gehen."
+queststatus(701) = 13, item(225, all, "descriptionDe" = "Diese Krone gehört Rosaline Edwards.") > 0, "Zassaria", "Echsenmensch", "Krone", "verloren", "gehören", "Eigentum", "riverbank" -> deleteItem(225, 1, "descriptionDe" = "Diese Krone gehört Rosaline Edwards."), queststatus(701) = 14, "Was? Oh, danke das ihr meine Ersatzkrone zurückbringt. Ich weiß nicht wie sie bis nach Runewick gekommen ist. Ihr könnt jetzt gehen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Profession? Foolish traveller, I am the Queen, my profession is to rule this kingdom!"

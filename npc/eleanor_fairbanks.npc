@@ -94,9 +94,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell! May Oldra's bless
 
 -- Quest 1: New wooden spoon, for old spoon
 queststatus(514) = 0, english, "quest", "mission" -> inform ("[New Quest] A Good Deed for Oldra"), money + 2000, queststatus(514) = 1, "Oh! I do have something you could help me with. It seems my wooden spoon has seen better days. Could you go visit the market place in Runewick and get me a new one? Here, take these coins."
-queststatus(514) = 0, "quest", "mission" -> inform ("[Neue Quest] Ein Gute Tat für Oldra"), money + 2000, queststatus(514) = 1, "Oh! Ich habe etwas wobei Ihr mir helfen könnt. Mein hölzerner Löffel hat schon bessere Tage gesehen. Könntet Ihr den Marktplatz in Runewick besuchen und mir einen neuen bringen? Hier nehmt diese Münzen."
+queststatus(514) = 0, "quest", "mission" -> inform ("[Neue Quest] Ein Gute Tat für Oldra"), money + 2000, queststatus(514) = 1, "Oh! Ich habe etwas wobei ihr mir helfen könnt. Mein hölzerner Löffel hat schon bessere Tage gesehen. Könntet ihr den Marktplatz in Runewick besuchen und mir einen neuen bringen? Hier nehmt diese Münzen."
 queststatus(514) = 0, "task", "adventure", "order" -> inform ("[New Quest] A Good Deed for Oldra"), money + 2000, queststatus(514) = 1, "Oh! I do have something you could help me with. It seems my wooden spoon has seen better days. Could you go visit the market place in Runewick and get me a new one? Here, take these coins."
-queststatus(514) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> inform ("[Neue Quest] Ein Gute Tat für Oldra"), money + 2000, queststatus(514) = 1, "Oh! Ich habe etwas wobei Ihr mir helfen könnt. Mein hölzerner Löffel hat schon bessere Tage gesehen. Könntet Ihr den Marktplatz in Runewick besuchen und mir einen neuen bringen? Hier nehmt diese Münzen."
+queststatus(514) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> inform ("[Neue Quest] Ein Gute Tat für Oldra"), money + 2000, queststatus(514) = 1, "Oh! Ich habe etwas wobei ihr mir helfen könnt. Mein hölzerner Löffel hat schon bessere Tage gesehen. Könntet ihr den Marktplatz in Runewick besuchen und mir einen neuen bringen? Hier nehmt diese Münzen."
 
 --Not done
 queststatus(514) = 1, item(227, all) < 1, english, ".+" -> "Have you gotten me that spoon yet?"
@@ -146,13 +146,13 @@ queststatus(514) = 7, item(2935, all) < 10, ".+" -> "Hast du Glück gehabt und 10
 
 -- items found
 queststatus(514) = 7, item(2935, all) > 9, english, ".+" -> inform ("[Quest Solved] You have been rewarded with a mulligan stew"), deleteItem(2935, 10), item(2276, 1, 999), queststatus(514) = 8, "Oh, thank you! I can finish passing out the last of the stew. You must be hungry after all that work. Here, have a bowl of stew and may Oldra bless you for your help."
-queststatus(514) = 7, item(2935, all) > 9,  ".+" -> inform ("[Quest gelöst] Du erhältst Eintopf"), deleteItem(2935, 10), item(2276, 1, 999), queststatus(514) = 8, "Oh! Danke! Jetzt kann ich den Eintopf fertig kochen. Du musst hungrig sein, nach all dieser Arbeit. Hier, eine Schüssel mit Eintopf und möge Oldra Euch segnen für Eure Hilfe."
+queststatus(514) = 7, item(2935, all) > 9,  ".+" -> inform ("[Quest gelöst] Du erhältst Eintopf"), deleteItem(2935, 10), item(2276, 1, 999), queststatus(514) = 8, "Oh! Danke! Jetzt kann ich den Eintopf fertig kochen. Du musst hungrig sein, nach all dieser Arbeit. Hier, eine Schüssel mit Eintopf und möge Oldra euch segnen für eure Hilfe."
 
 -- No more quests, just thanks
 queststatus(514) = 8, english, "quest", "mission" -> "I don't have any other task for you. Thank you for all your help. I wouldn't have finished that stew without you."
-queststatus(514) = 8, "quest", "mission" -> "Ich habe keine anderen Aufgaben für Euch. Danke für die ganze Hilfe. Ich hätte diesen Eintopf ohne Euch nicht fertiggebracht."
+queststatus(514) = 8, "quest", "mission" -> "Ich habe keine anderen Aufgaben für euch. Danke für die ganze Hilfe. Ich hätte diesen Eintopf ohne euch nicht fertiggebracht."
 queststatus(514) = 8, "task", "adventure", "order" -> "I don't have any other task for you. Thank you for all your help. I wouldn't have finished that stew without you."
-queststatus(514) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> "Ich habe keine anderen Aufgaben für Euch. Danke für die ganze Hilfe. Ich hätte diesen Eintopf ohne Euch nicht fertiggebracht."
+queststatus(514) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl"-> "Ich habe keine anderen Aufgaben für euch. Danke für die ganze Hilfe. Ich hätte diesen Eintopf ohne euch nicht fertiggebracht."
 
 -- Mandatory: Trade Hooks, use the trade consequence for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a merchant. Look for them in the marketplace in Runewick."
@@ -195,7 +195,7 @@ english, "Runewick" -> "Runewick and the mages academy is just east of here. Don
 
 cycletext "Ohne Oldras Segen würde es kein Leben geben. Die Welt wäre öde  wie die Kantabi Wüste.", "There would be no life without Oldra's blessing,  the world would be as barren as the Kantabi Desert"
 cycletext "Geld mag das Brot kaufen was deinen Magen füllt. Aber das Brot mit Anderen zu teilen wird deine Seele nähren", "Money may buy the bread to feed your stomach, but sharing it with others will feed your soul."
-cycletext "Oldra möge Euch in der Ewigkeit begrüßen, wo Ihr in ihrem Garten mit alten und neuen Freunden schmausen werdet.", "May Oldra greet you in eternity, where you may feast in her garden with friends new and old!"
+cycletext "Oldra möge euch in der Ewigkeit begrüßen, wo ihr in ihrem Garten mit alten und neuen Freunden schmausen werdet.", "May Oldra greet you in eternity, where you may feast in her garden with friends new and old!"
 cycletext "Mögen deine Felder fruchtbar sein, dein Essen reichlich und deine Kinder stark werden.", "May your fields be fertile, your meals be bountiful, and your children grow strong"
 cycletext "Vor allem sollte das Leben einfach und demütig sein. Eine reiche Ernte gefolgt von einem hausgemachten Essen mit Freunden und der Familie ist ein Segen.", "Above all, life should be simple and humble. A bountiful harvest followed by a home cooked meal with friends and family is a blessing"
 cycletext "#me zählt Samen in eine kleine Tasche.", "#me counts out seeds into a small pouch."

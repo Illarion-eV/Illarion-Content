@@ -87,9 +87,9 @@ english, "Ciao", "Adieu", "Au revoir" -> "Farewell my friend. May Oldra guide yo
 
 -- quest: give out the mission
 queststatus(106) = 0, english, "problem", "mission", "quest" -> inform("[New quest] Milo's ox"), queststatus(106) = 1, "This stupid ox of mine doesn't move a single step and I am late returning to my family. My ox will do anything for carrots, but a few miles back I ran out. If you could get me ten carrots, I could show you a few tricks with herb lore, as I am quite proficient in this art."
-queststatus(106) = 0, "Problem", "Mission", "Quest" -> inform("[Neues Quest] Milos Ochse"), queststatus(106) = 1, "Mein dummer Ochse bewegt sich kein Stück mehr nach vorne und ich bin jetzt schon spät dran, zu meiner Familie zurückzukehren. Mein Ochse würde alles für Karotten machen aber vor ein paar Meilen sind sie mir ausgegangen. Wenn Ihr mir zehn Karotten besorgen könntet, könnte ich euch ein paar Tricks in Kräuterkunde beibringen, denn ich bin sehr bewandert in dieser Kunst."
+queststatus(106) = 0, "Problem", "Mission", "Quest" -> inform("[Neues Quest] Milos Ochse"), queststatus(106) = 1, "Mein dummer Ochse bewegt sich kein Stück mehr nach vorne und ich bin jetzt schon spät dran, zu meiner Familie zurückzukehren. Mein Ochse würde alles für Karotten machen aber vor ein paar Meilen sind sie mir ausgegangen. Wenn ihr mir zehn Karotten besorgen könntet, könnte ich euch ein paar Tricks in Kräuterkunde beibringen, denn ich bin sehr bewandert in dieser Kunst."
 queststatus(106) = 0, "task", "adventure", "order", "yes", "ox" -> inform("[New quest] Milo's ox"), queststatus(106) = 1, "This stupid ox of mine doesn't move a single step and I am late returning to my family. My ox will do anything for carrots, but a few miles back I ran out. If you could get me ten carrots, I could show you a few tricks with herb lore, as I am quite proficient in this art."
-queststatus(106) = 0, "Aufgabe", "Auftrag", "Abenteuer", "Befehl", "ja", "helfe", "Ochse" -> inform("[Neues Quest] Milos Ochse"), queststatus(106) = 1, "Mein dummer Ochse bewegt sich kein Stück mehr nach vorne und ich bin jetzt schon spät dran, zu meiner Familie zurückzukehren. Mein Ochse würde alles für Karotten machen aber vor ein paar Meilen sind sie mir ausgegangen. Wenn Ihr mir zehn Karotten besorgen könntet, könnte ich euch ein paar Tricks in Kräuterkunde beibringen, denn ich bin sehr bewandert in dieser Kunst."
+queststatus(106) = 0, "Aufgabe", "Auftrag", "Abenteuer", "Befehl", "ja", "helfe", "Ochse" -> inform("[Neues Quest] Milos Ochse"), queststatus(106) = 1, "Mein dummer Ochse bewegt sich kein Stück mehr nach vorne und ich bin jetzt schon spät dran, zu meiner Familie zurückzukehren. Mein Ochse würde alles für Karotten machen aber vor ein paar Meilen sind sie mir ausgegangen. Wenn ihr mir zehn Karotten besorgen könntet, könnte ich euch ein paar Tricks in Kräuterkunde beibringen, denn ich bin sehr bewandert in dieser Kunst."
 
 -- quest: mission completed successful, very high skill level
 skill(herblore) > 89, queststatus(106) = 1, item(2493, all) >= 10, english, "problem", "mission", "quest" -> inform("[Quest solved] You received ten mandrakes and one bottle of elven wine."), deleteItem(2493, 10), item(1318, 1, 333), item(752, 10, 333), queststatus(106) = 2, "Thanks a lot for bringing me these carrots. Now I will have no problems returning home with this lazy bastard, but I can't teach you anything anymore. You already surpass my skills. Here let me give you some of my provisions in exchange, especially this nice wine from the elven domain!"
@@ -147,7 +147,7 @@ english, "job" -> "I am an expert when it comes to herbs. I could tell you all d
 "God" -> "The Gods affect our lives in all aspects. It would be wise to give them due respect. There are the Younger and Elder Gods. Which group are you interested in?"
 "Gott", "Götter" -> "Die Götter haben auf alle Aspekte unseres Lebens Einfluss. Es wäre weise, Ihnen Respekt zu erweisen. Es gibt die Jungen und die Alten Götter. Zu welcher Gruppe wollt ihr mehr erfahren?"
 english, "Oldra" -> "Oldra is the beginning of everything on earth. From her, all has emerged. Well, maybe with the exception of this stubborn ox."
-"Oldra" -> "Oldra verdanken wir alles auf dieser Welt. Aus Ihr ist jeder hervorgegangen. Nun ja, vielleicht mit Ausnahme von diesem störrischen Tier hier."
+"Oldra" -> "Oldra verdanken wir alles auf dieser Welt. Aus ihr ist jeder hervorgegangen. Nun ja, vielleicht mit Ausnahme von diesem störrischen Tier hier."
 english, "Ushara" -> "Our mother, Goddess of the earth. May She be praised!"
 "Ushara" -> "Unsere Mutter, Göttin der Erde. Geehrt sei Sie!"
 english, "Brágon", "Bragon" -> "Now we are talking about a great God. He imprisoned Moshran a long time ago, unfortunately he escaped."
@@ -163,7 +163,7 @@ english, "Findari" -> "The best tavern music I know comes from those bards and m
 english, "Nargún", "Nargun" -> "Argh, don't call him by his name unless you want to seek his attention. Chaos follows his path and we don't really want that, do we?"
 "Nargún", "Nargun" -> "Argh, nennt Ihn doch nicht bei seinem Namen sofern ihr nicht Seine Aufmerksamkeit erregen wollt. Auf seinen Pfaden folgt das Chaos und das ist nicht etwas, was wir wirklich wollen, oder?"
 english, "Elara" -> "Elara is the host of wisdom and knowledge. She is not really my kind but if you are much into reading and stuff like that, you should give it a try."
-"Elara" -> "Elara ist angefüllt mir Weisheit und Wissen. Sie ist nicht so das richtige für mich, aber wenn Ihr gerne in Büchern stöbert, dann wäre Sie genau das richtige für euch."
+"Elara" -> "Elara ist angefüllt mir Weisheit und Wissen. Sie ist nicht so das richtige für mich, aber wenn ihr gerne in Büchern stöbert, dann wäre Sie genau das richtige für euch."
 english, "Adron" -> "Adron is one of my favoured Gods. When I sit together with my friends and drink a wine we compete with toasts to the God of Wine and Festivities."
 "Adron" -> "Adron ist einer meiner liebsten Götter. Wenn ich mit Freunden auf ein Glas Wein zusammen sitze, wetteifern wir mit Trinksprüchen für den Gott des Weines und der Feste."
 english, "Cherga" -> "When I hear the name of Cherga the hairs on my feet stay on end. You should be on the watch if you meet one of the followers of the Goddess of Spirits and the Underworld."
@@ -171,7 +171,7 @@ english, "Cherga" -> "When I hear the name of Cherga the hairs on my feet stay o
 english, "Malachín", "Malachin" -> "Malachín, the God of Battle and Hunting, flourishes his swords too much. Why battle, if all problems can be discussed with a nice roast on your plate and a beaker of wine in your hand?"
 "Malachín", "Malachin" -> "Malachín, der Gott der Jagt und der Schlachten, fuchtelt mir ein wenig zu viel mit Schwertern herum. Warum sich streiten, wenn man alle Probleme bei einem schönen Braten und einem Humpen Wein besprechen könnte?"
 english, "Irmorom" -> "You should never trust those dwarven traders praying to the God of Trade and Craftsmanship. With one hand they offer you a good deal and with the other they strip you of all your belongings."
-"Irmorom" -> "Ihr solltet niemals diesen Zwergenhändlern vertrauen, die zum Gott des Handels und Handwerks beten. Mit einer Hand bieten sie Euch einen guten Handel an und mit der anderen klauen sie euch das letzte Kupferstück aus der Tasche."
+"Irmorom" -> "Ihr solltet niemals diesen Zwergenhändlern vertrauen, die zum Gott des Handels und Handwerks beten. Mit einer Hand bieten sia euch einen guten Handel an und mit der anderen klauen sie euch das letzte Kupferstück aus der Tasche."
 english, "Sirani" -> "I have to admit, that Sirani sometimes is dancing in my dreams. Oh yes, the Goddess of Love and Pleasure surely is a sight to be remembered."
 "Sirani" -> "Ich muss zugeben, dass Sirani manchmal in meinen Träumen tanzt. Ach ja, die Göttin der Liebe und Freuden ist wahrlich ein Anblick, an den man sich gerne erinnert."
 english, "Zhambra" -> "Count yourself lucky if you have a friend who is a true follower of Zhambra. You can trust this kind of person absolutely. Nobody would dare to deceive the God of Friendship and Loyalty by going behind his back."
@@ -179,7 +179,7 @@ english, "Zhambra" -> "Count yourself lucky if you have a friend who is a true f
 english, "Ronagan" -> "#me laughs heartily, 'The rogue in our godly pantheon. Always good for a joke, but you should never ever stray on his bad side... the God of Thieves and Shadows doesn't like to lose out.'"
 "Ronagan" -> "#me lacht herzhaft. 'Der Spitzbube in unserem Pantheon. Er ist immer für einen guten Scherz zu haben. Aber ihr solltet ihm niemals auf dem falschen Fuß erwischen. Der Gott der Diebe und der Schatten liebt es nicht, den Kürzeren zu ziehen.'"
 english, "Moshran" -> "If you are not tired of your life, you should stay far away from the God of Blood and Bones. I don't even dare to wisper his name, so that no misfortune or evil may befall me. He lurks in the dark waiting for a weakness of your soul, to get hold of it... forever. Be on your guard!"
-"Moshran" -> "Wenn Ihr nicht lebensmüde seid, so haltet euch fern vom Gott des Blutes und der Gebeine. Ich wage nicht, seinen Namen auszusprechen, so mir nicht Unglück und Verderben widerfährt. Er lauert im Dunkeln auf eine Schwäche eurer Seele, um ihrer habhaft zu werden... auf ewige Zeiten. Seid auf der Hut!"
+"Moshran" -> "Wenn ihr nicht lebensmüde seid, so haltet euch fern vom Gott des Blutes und der Gebeine. Ich wage nicht, seinen Namen auszusprechen, so mir nicht Unglück und Verderben widerfährt. Er lauert im Dunkeln auf eine Schwäche eurer Seele, um ihrer habhaft zu werden... auf ewige Zeiten. Seid auf der Hut!"
 
 -- herb lore
 "herbalist" -> "You can do a lot of stuff working as a herbalist. You can heal the wounded or poison the culprit. You can strengthen the weak or weaken the strong. You can change the biggest troll to the smallest fairy or create devastating bombs. All that is possible!"
@@ -207,7 +207,7 @@ english, "Raenandor" -> "I don't know much about their story as even the name is
 english, "Elvaine", "Morgan" -> "He is our wise and benevolent Archmage, the ruler of Runewick. Never before was there such a fair mind."
 "Elvaine", "Morgan" -> "Er ist unser weiser und mildtätiger Erzmagier, der Gebieter von Runewick. Niemals zuvor ward gesehen ein so brillianter Kopf."
 english, "Runewick" -> "Could you imagine a nicer place to live at than Runewick? This fabulous city of wisdom fills my heart with joy."
-"Runewick" -> "Könnt Ihr Euch einen schöneren Ort zum Leben als Runewick vorstellen? Diese fabelhafte Stadt der Weisheit erfüllt mich jedesmal mit großer Freude."
+"Runewick" -> "Könnt ihr euch einen schöneren Ort zum Leben als Runewick vorstellen? Diese fabelhafte Stadt der Weisheit erfüllt mich jedesmal mit großer Freude."
 english, "Valerio", "Guilianni", "Don" -> "An unpleasent person with too much gold at his disposal. I even heard that when his father died he had his fingers in the pie."
 "Valerio", "Guilianni", "Don" -> "Ein unangenehmer Zeitgenosse mit zu viel Gold in seinen Händen. Ich habe auch gehört, dass er seine Finger im Spiel hatte, als sein Vater gestorben ist."
 english, "Galmair" -> "Galmair is not a good place to be, if you ask me. They just crave for money but their character is spoiled."

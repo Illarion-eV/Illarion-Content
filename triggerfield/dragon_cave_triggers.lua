@@ -101,7 +101,7 @@ function M.MoveToField(User)
         world:makeSound(13, position(728, 631, -3))
     elseif math.random(1, 2) == 1 and User.pos == position(709, 649, -6) then -- skull trigger from feeding pen to dragon lair
         common.InformNLS(User,
-            "Als Du auf den Schädel trittst, hörst Du ein merkwürdiges Klicken und Du befindest Dich in der Drachenhöhle.",
+            "Als du auf den Schädel trittst, hörst du ein merkwürdiges Klicken und du befindest dich in der Drachenhöhle.",
             "As you step on the skull, you hear an odd click and find yourself whisked away to the dragon's lair.")
         world:gfx(41, User.pos)
         world:makeSound(11, User.pos)

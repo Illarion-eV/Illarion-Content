@@ -91,7 +91,7 @@ function M.requestMonster(User, NPC)
     end
 
     local dialogCaption = common.GetNLS(User, "Monsterstärke", "Monster strength")
-    local dialogText = common.GetNLS(User, "Wählt wie stark das Monster sein soll, gegen das Ihr kämpfen möchtet:", "Please choose how strong the monster you wish to fight against should be:")
+    local dialogText = common.GetNLS(User, "Wählt wie stark das Monster sein soll, gegen das ihr kämpfen möchtet:", "Please choose how strong the monster you wish to fight against should be:")
 
     local sdMonster = SelectionDialog(dialogCaption, dialogText, cbChooseLevel)
     sdMonster:setCloseOnMove()
@@ -246,7 +246,7 @@ function checkLte(User,NPC)
 
     local foundEffect = User.effects:find(18)
     if foundEffect then
-        NPC:talk(Character.say,"Besiegt erstmal die erste Kreatur, bevor Ihr eine zweite verlangt!","Finish the first creature before you demand a second one!")
+        NPC:talk(Character.say,"Besiegt erstmal die erste Kreatur, bevor ihr eine zweite verlangt!","Finish the first creature before you demand a second one!")
         return false
     end
     return true

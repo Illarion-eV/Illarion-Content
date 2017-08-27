@@ -70,11 +70,11 @@ itemShoes = 770
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Welcome to the Akaltut's Chamber stronghold. It's a good day to test your skills."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt.", "Willkommen im Innersten der Kammer von Akaltut. Ein guter Tag um deine Fähigkeiten zu testen."
 "Farewell", "Bye", "Fare well", "See you" -> "Come back, if you dare."
-"Tschüß", "Tschüss", "Wiedersehen" -> "Komm wieder wenn Du dich traust."
+"Tschüß", "Tschüss", "Wiedersehen" -> "Komm wieder wenn du dich traust."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Come back, if you dare."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Komm wieder wenn Du dich traust."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Komm wieder wenn du dich traust."
 "who are you", "who art thou" -> "I am a Defensor of Akaltut's Lair, pass my test to prove you are an ally and I will open the way for you."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin ein Defensor von Akaltuts Versteck. Bestehe meinen Test um zu zeigen das Du ein Verbündeter bist und ich werde Dir den Weg öffnen."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin ein Defensor von Akaltuts Versteck. Bestehe meinen Test um zu zeigen, dass du ein Verbündeter bist und ich werde dir den Weg öffnen."
 english, "your name", "name" -> "I am Defensor Animus."
 "ihr name", "Name" -> "Ich bin Defensor Animus."
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
@@ -90,7 +90,7 @@ english, "job" -> "My job is a Defensor, I make sure only the worthy move on."
 english, "Defensor" -> "My job is a Defensor, I make sure only the worthy move on.", "I am Defensor Animus."
 "Defensor" -> "Meine Aufgabe ist die eines Defensor, ich stelle sicher das nur die Würdigen weiterkommen.", "Ich bin Defensor Animus."
 english, "Drow" -> "The drow are dangerous fighters, are you a match for their skill?"
-"Drow" -> "Die Drow sind gefährliche Kämpfer, kannst Du dich mit Ihnen messen?"
+"Drow" -> "Die Drow sind gefährliche Kämpfer, kannst du dich mit Ihnen messen?"
 english, "Akaltut" -> "Akaltut is a spider queen. She and her breed are well known for terrorizing this corner. Pass our tests and you can face her."
 "Akaltut" -> "Akaltut ist eine Spinnenkönigin. Sie und ihre Zucht sind für das Terrorisieren dieser Gegend gut bekannt."
 
@@ -108,9 +108,9 @@ queststatus(528) = 29, queststatus(529) = 0, "task", "adventure", "order" -> inf
 queststatus(528) = 29, queststatus(529) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Die Kammer von Akaltut 17"), queststatus(528) = 30, queststatus(529) = 1, "Ich bin Defensor Animus, um meinen Test zu bestehen musst du zwei Drowschwerter von den Drows, welche hier herum schweifen sammeln."
 -- If quest received but task not finished
 queststatus(529) = 1, item(2777, all) < 2, english,"quest", "mission", "test" ->"Do you have two drow blades? If you do not pass this test you can't continue."
-queststatus(529) = 1, item(2777, all) < 2, "quest", "mission", "Test" ->"Hast Du zwei Drowschwerter? Wenn Du diesen Test nicht bestehst kannst Du nicht weitergehen."
+queststatus(529) = 1, item(2777, all) < 2, "quest", "mission", "Test" ->"Hast du zwei Drowschwerter? Wenn du diesen Test nicht bestehst kannst du nicht weitergehen."
 queststatus(529) = 1, item(2777, all) < 2, "task", "adventure", "order" -> "Do you have two drow blades? If you do not pass this test you can't continue."
-queststatus(529) = 1, item(2777, all) < 2,"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hast Du zwei Drowschwerter? Wenn Du diesen Test nicht bestehst kannst Du nicht weitergehen."
+queststatus(529) = 1, item(2777, all) < 2,"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hast du zwei Drowschwerter? Wenn du diesen Test nicht bestehst kannst du nicht weitergehen."
 -- If test is finished
 queststatus(529) = 1, item(2777, all) > 1, english, ".+" -> inform("[Quest solved] You are awarded a pure air."), item(2551, 1, 999), deleteItem(2777, 2), queststatus(529) = 2, "You have passed this test and are awarded a pure air."
 queststatus(529) = 1, item(2777, all) > 1, ".+" -> inform("[Quest gelöst] Du erhältst ein reine Luft."), item(2551, 1, 999), deleteItem(2777, 2), queststatus(529) = 2, "Du hast den Test bestanden. Du bekommst ein reine Luft."
@@ -127,7 +127,7 @@ queststatus(529) > 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du hast de
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 queststatus(525) < 1, english, ".*" -> "Finish our tests in order and you will be rewarded."
-queststatus(525) < 1, ".*" -> "Beende unsere Aufgaben und Du wirst eine Belohnung erhalten."
+queststatus(525) < 1, ".*" -> "Beende unsere Aufgaben und du wirst eine Belohnung erhalten."
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
@@ -135,4 +135,4 @@ queststatus(525) < 1, ".*" -> "Beende unsere Aufgaben und Du wirst eine Belohnun
 
 cycletext "Du bist in Akaltuts Versteck eingedrungen in das sich nur wenige trauen.", "You have invaded Akaltut's Lair where few dare go."
 cycletext "Die, die sterben werden Teil der Knochenhaufen.", "Those who die become part of the Pile of Bones."
-cycletext "#me start dich mit kaltem hartem Blick an. 'Bist Du würdig?'", "#me stares at you with cold, hard eyes 'Are you worthy?'"
+cycletext "#me starrt dich mit kaltem hartem Blick an. 'Bist du würdig?'", "#me stares at you with cold, hard eyes 'Are you worthy?'"

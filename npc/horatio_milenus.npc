@@ -255,7 +255,7 @@ english, "Zhambra" -> "It is through Zhambra that I am able to serve Cadomyr."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I buy only the safety of the realm and I sell only the crushing of Cadomyr's enemies.", "I am no trader.", "If you are looking for a trader, go to the market place."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich erkaufe lediglich die Sicherheit des Reiches und biete die Niederschlagung der Feinde Cadomyrs an.", "Ich bin kein Händler.", "Wenn Ihr einen Händler sucht, dann geht zum Marktplatz."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich erkaufe lediglich die Sicherheit des Reiches und biete die Niederschlagung der Feinde Cadomyrs an.", "Ich bin kein Händler.", "Wenn ihr einen Händler sucht, dann geht zum Marktplatz."
 "tell something" -> "Always carry double the water you think you'll need.", "I'm on duty and I am not paid for small talk.", "I am a town guard, not a story teller."
 "erzähl was", "erzähl etwas" -> "Nehmt immer genau die zweifache Menge an Wasser mit, die ihr meint, zu brauchen.", "Ich bin im Dienst und werde nicht für eine nette Plauderei bezahlt.", "Ich bin eine Stadtwache und kein Geschichtenerzähler."
 

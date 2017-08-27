@@ -160,7 +160,7 @@ local function ZeniaAltar(User, SourceItem)
         User:eraseItem(26, 5)
         User:eraseItem(73, 10)
         User:setQuestProgress(502, 9) --  You made a raft.
-        User:inform("[Quest status] Du sieht, nach dem Beten, dass die Materialien sich von selbst zu einem kleinen Floss zusammenfügen.  Du klettert darauf und wird zu einer kleinen Insel transportiert.", "[Quest status] After praying, you see the items magically form a small raft.  You climb on board and are transported to a small island.")
+        User:inform("[Quest status] Du sieht, nach dem Beten, dass die Materialien sich von selbst zu einem kleinen Floss zusammenfügen. Du klettert darauf und wirst zu einer kleinen Insel transportiert.", "[Quest status] After praying, you see the items magically form a small raft.  You climb on board and are transported to a small island.")
         User:warp(position(753, 351, -9))
         world:gfx(11, User.pos)
         world:makeSound(9, User.pos)

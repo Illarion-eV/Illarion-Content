@@ -572,7 +572,7 @@ function leaveFaction(originator, Faction, thisNPC)
 
     M.setFaction(originator,Faction); --write fv in Questprogress
 
-    gText="Ihr gehört nun keinem Reich mehr an. Das bedeutet das Ihr frei, aber auf Euch selbst gestellt seid. Viel Glück.";
+    gText="Ihr gehört nun keinem Reich mehr an. Das bedeutet das ihr frei, aber auf euch selbst gestellt seid. Viel Glück.";
     eText="You're now not belonging to any realm. This means you're free but also on your own. Good luck.";
     outText=common.GetNLS(originator,gText,eText);
     thisNPC:talk(Character.say, outText);

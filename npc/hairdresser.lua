@@ -280,7 +280,7 @@ local function shaveSelector(user,npc,firstCall,beardStyleStart,beardStyleEnd)
         if selected == 0 then
             return
         elseif selected == 1 then
-            npc:talk(Character.say, "Richtig! Bleibt dabei. Dieser Stil passt genau zu Euch.",
+            npc:talk(Character.say, "Richtig! Bleibt dabei. Dieser Stil passt genau zu euch.",
                                     "You are right. Don't change. This style perfectly fits you.")
             if not firstCall then
                 user:setBeard(beardStyleStart)
@@ -477,7 +477,7 @@ local function hairColoring(user, npc)
             return
         end
         if selected == 0 then
-            npc:talk(Character.say, "Wie ihr wünscht. Lassen wir es, wie es ist, die Farbe steht Euch.",
+            npc:talk(Character.say, "Wie ihr wünscht. Lassen wir es, wie es ist, die Farbe steht euch.",
                                     "As you want. We will change nothing, the colour fits you.")
             return
         elseif selected == 1 then
@@ -764,7 +764,7 @@ function M.receiveText(npc, ttype, text, user)
     answeredText[4] = {"Die schnellste Scheere Illarions.","Meister der Haarkunst Ezra, und ihr?","Ich bin "..npc.name..".","The fastes scissors in Illarion.","Master of the art of hair, and you?","I am "..npc.name.."."}
     answeredText[5] = {"Man kann immer besser aussehen. Man muss nur wollen.","Es gibt immer was abzuschneiden, packen wir es an.","Wer will schon bleiben wie er ist?","You can always make yourself looking better, if you want.","There is always something to cut. Let's start.","Do you really want to stay as you are?"}
     answeredText[6] = {"Wenn ich euch unter meine Fitiche nehme, lächeln die Götter.","Die Götter werden euch immer wiedererkennen, bei allen anderen bin ich mir nicht sicher.","Gleich hinter dem haus findet ihr Adrons Altar.","Be assured as I work with you the Gods will smile.","Gods will recognize you however, I'm not that sure for everybody else.","Right behind the house is an altar of Adron."}
-    answeredText[7] = {"Ich vergebe keine Aufgaben.","Ich hätte eine unentwirrbare Aufgabe, aber die ist fest auf Eurem Kopf.","Nein ich habe für Euch nichts zu tun, außer still sitzen.","I don't have a quest for you.","There is an inextricable mission. But this is located on your head.","No I don't have a quest for you but you could keep still."}
+    answeredText[7] = {"Ich vergebe keine Aufgaben.","Ich hätte eine unentwirrbare Aufgabe, aber die ist fest auf Eurem Kopf.","Nein ich habe für euch nichts zu tun, außer still sitzen.","I don't have a quest for you.","There is an inextricable mission. But this is located on your head.","No I don't have a quest for you but you could keep still."}
     
     if not npc:isInRange(user, 2) then
         return

@@ -82,9 +82,9 @@ itemShoes = 698
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted!", "Welcome to Elstree Forest.", "Greetings, please mind the fairies and stay away from their cakes!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Tach, mein Freund!", "Willkommen im Elsbaumwald", "Grüße, bitte gebt auf die Feen Acht und bleibt weg von ihrem Kuchen!"
 "Farewell", "Bye", "Fare well", "See you" -> "Look at the wonderful world the gods have made for us, honour them in your travels.", "Please visit again.", "Farewell."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Schaut Euch die wunderbare Welt an, welche die Götter für uns gemacht haben und ehrt sie auf eueren Reisen.", "Bitte besucht uns erneut.", "Gehabt euch wohl."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Schaut euch die wunderbare Welt an, welche die Götter für uns gemacht haben und ehrt sie auf eueren Reisen.", "Bitte besucht uns erneut.", "Gehabt euch wohl."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Look at the wonderful world the gods have made for us, honour them in your travels.", "Please visit again.", "Farewell."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Schaut Euch die wunderbare Welt an, welche die Götter für uns gemacht haben und ehrt sie auf eueren Reisen.", "Bitte besucht uns erneut.", "Gehabt euch wohl."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Schaut euch die wunderbare Welt an, welche die Götter für uns gemacht haben und ehrt sie auf eueren Reisen.", "Bitte besucht uns erneut.", "Gehabt euch wohl."
 "How are you", "How feel", "How do you do" -> "I feel grand.", "I am blessed by the Five", "I feel like playing music."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich fühle mich großartig.", "Ich bin von den Fünfen gesegnet.", "Mir ist danach zu musizieren."
 "your name", "who are you", "who art thou" -> "I'm Melanie Meadowlark.", "I'm the ranger Melanie.", "You can call me Mel, protector of the fairies."
@@ -118,9 +118,9 @@ queststatus(500) > 12, queststatus(500) < 29, ".+" -> inform("[Quest gelöst] Du 
 
 -- Quest 3: visit Nargun's altar, for a cake
 queststatus(500) = 29, english, "quest", "mission" -> inform("[New quest] Elstree Ranger III"), queststatus(500) = 30, "There is a disturbance at the Altar of Nargun, please check it out."
-queststatus(500) = 29, "quest", "mission" -> inform("[Neue Quest] Waldläufer des Elsbaumwaldes III"), queststatus(500) = 30, "Etwas ist ungewöhnlich an Narguns Altar. Könnt ihr Euch das ansehen?"
+queststatus(500) = 29, "quest", "mission" -> inform("[Neue Quest] Waldläufer des Elsbaumwaldes III"), queststatus(500) = 30, "Etwas ist ungewöhnlich an Narguns Altar. Könnt ihr euch das ansehen?"
 queststatus(500) = 29, "task", "adventure", "order" -> inform("[New quest] Elstree Ranger III"), queststatus(500) = 30, "There is a disturbance at the Altar of Nargun, please check it out."
-queststatus(500) = 29, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Waldläufer des Elsbaumwaldes III"), queststatus(500) = 30, "Etwas ist ungewöhnlich an Narguns Altar. Könnt ihr Euch das ansehen?"
+queststatus(500) = 29, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Waldläufer des Elsbaumwaldes III"), queststatus(500) = 30, "Etwas ist ungewöhnlich an Narguns Altar. Könnt ihr euch das ansehen?"
 queststatus(500) = 30, english, "quest", "mission" -> "Have you looked over the altar yet? Something is wrong there."
 queststatus(500) = 30, "quest", "mission" -> "Habt ihr den Altar schon kontrolliert? Etwas Seltsames geht dort vor."
 queststatus(500) = 30, "task", "adventure", "order" -> "Have you looked over the altar yet? Something is wrong there."
@@ -132,21 +132,21 @@ queststatus(500) = 31, ".+" -> inform("[Quest gelöst] Du erhältst einen Apfelkuc
 
 -- Quest 4: gather 20 flamegoblet blossoms for 2000cp
 queststatus(500) = 32, english, "quest", "mission" -> inform("[New quest] Elstree Ranger IV"), queststatus(500) = 33, "Oh great, you're here. We need some flowers for the arrangements. Please bring me twenty flamegoblet blossoms."
-queststatus(500) = 32, "quest", "mission" -> inform("[Neue Quest] Waldläufer des Elsbaumwaldes IV"), queststatus(500) = 33, "Oh, gut, dass Ihr da seid! Wir brauchen Blumen für den Tischschmuck. Bitte bringt mir 20 Flammenkelchblüten."
+queststatus(500) = 32, "quest", "mission" -> inform("[Neue Quest] Waldläufer des Elsbaumwaldes IV"), queststatus(500) = 33, "Oh, gut, dass ihr da seid! Wir brauchen Blumen für den Tischschmuck. Bitte bringt mir 20 Flammenkelchblüten."
 queststatus(500) = 32, "task", "adventure", "order" -> inform("[New quest] Elstree Ranger IV"), queststatus(500) = 33, "Oh great, you're here. We need some flowers for the arrangements. Please bring me twenty flamegoblet blossoms."
-queststatus(500) = 32, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Waldläufer des Elsbaumwaldes IV"), queststatus(500) = 33, "Oh, gut, dass Ihr da seid! Wir brauchen Blumen für den Tischschmuck. Bitte bringt mir 20 Flammenkelchblüten."
+queststatus(500) = 32, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Waldläufer des Elsbaumwaldes IV"), queststatus(500) = 33, "Oh, gut, dass ihr da seid! Wir brauchen Blumen für den Tischschmuck. Bitte bringt mir 20 Flammenkelchblüten."
 queststatus(500) = 33, item(137, all) < 20, english, "quest", "mission" -> "Have you found enough flowers yet? We need them urgently."
-queststatus(500) = 33, item(137, all) < 20, "quest", "mission" -> "Habt Ihr schon genung Blumen gefunden? Wir brauchen sie dringend."
+queststatus(500) = 33, item(137, all) < 20, "quest", "mission" -> "Habt ihr schon genung Blumen gefunden? Wir brauchen sie dringend."
 queststatus(500) = 33, item(137, all) < 20, "task", "adventure", "order" -> "Have you found enough flowers yet? We need them urgently."
-queststatus(500) = 33, item(137, all) < 20, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Habt Ihr schon genung Blumen gefunden? Wir brauchen sie dringend."
+queststatus(500) = 33, item(137, all) < 20, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Habt ihr schon genung Blumen gefunden? Wir brauchen sie dringend."
 queststatus(500) = 33, item(137, all) > 19, english, ".+" -> inform("[Quest solved] You are awarded twenty silver coins."), money + 2000, deleteItem(137, 20), queststatus(500) = 34, "Thank you for the flowers. Here's a little reward for your help."
 queststatus(500) = 33, item(137, all) > 19, ".+" -> inform("[Quest gelöst] Du erhältst zwanzig Silberstücke."), money + 2000, deleteItem(137, 20), queststatus(500) = 34, "Danke für die Blumen. Hier eine kleine Belohnung für Euere Mühen."
 
 -- No more quests, just nice words of gratitude
 queststatus(500) = 34, english, "quest", "mission" -> "There is no more work for you, thank you for the assistance!"
-queststatus(500) = 34, "quest", "mission" -> "Es gibt nichts mehr zu tun. Danke für Eure Unterstützung!"
+queststatus(500) = 34, "quest", "mission" -> "Es gibt nichts mehr zu tun. Danke für eure Unterstützung!"
 queststatus(500) = 34, "task", "adventure", "order" -> "There is no more work for you, thank you for the assistance!"
-queststatus(500) = 34, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Es gibt nichts mehr zu tun. Danke für Eure Unterstützung!"
+queststatus(500) = 34, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Es gibt nichts mehr zu tun. Danke für eure Unterstützung!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Oh, I am a ranger."

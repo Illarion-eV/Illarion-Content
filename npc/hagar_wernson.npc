@@ -107,9 +107,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Be well! An' careful that n
 
 -- Catching quest triggers
 english, "quest", "mission" -> "I haven't any tasks for you."
-"quest", "mission" -> "Ich hab keine Arbeit für Euch."
+"quest", "mission" -> "Ich hab keine Arbeit für euch."
 "task", "adventure", "order" -> "I haven't any tasks for you."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keine Arbeit für Euch."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keine Arbeit für euch."
 
 -- Small talk + free beer:
 "profession" -> "I'm the inkeeper here.", "This is my tavern. 'The Winged Sow'"

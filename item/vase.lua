@@ -82,13 +82,13 @@ dragongem[6] = position(685, 641, -3) --6: Dragon diamond
 dragongem[7] = position(694, 637, -3) --7: Dragon obsidian
 
 local messageG = {}
-messageG[1] = "[Queststatus] Du findest einen groﬂen Smaragd in dem in Drachenkopf eingeschliffen ist. Wahrscheinlich hat Obsidimine hiervon gesprochen."
-messageG[2] = "[Queststatus] Du findest einen groﬂen Rubin in dem in Drachenkopf eingeschliffen ist. Wahrscheinlich hat Obsidimine hiervon gesprochen."
-messageG[3] = "[Queststatus] Du findest einen groﬂen Amethyst in dem in Drachenkopf eingeschliffen ist. Wahrscheinlich hat Obsidimine hiervon gesprochen."
-messageG[4] = "[Queststatus] Du findest einen groﬂen Saphir in dem in Drachenkopf eingeschliffen ist. Wahrscheinlich hat Obsidimine hiervon gesprochen."
-messageG[5] = "[Queststatus] Du findest einen groﬂen Topas in dem in Drachenkopf eingeschliffen ist. Wahrscheinlich hat Obsidimine hiervon gesprochen."
-messageG[6] = "[Queststatus] Du findest einen groﬂen Diamant in dem in Drachenkopf eingeschliffen ist. Wahrscheinlich hat Obsidimine hiervon gesprochen."
-messageG[7] = "[Queststatus] Du findest einen groﬂen Obsidian in dem in Drachenkopf eingeschliffen ist. Wahrscheinlich hat Obsidimine hiervon gesprochen."
+messageG[1] = "[Queststatus] Du findest einen groﬂen Smaragd in dem ein Drachenkopf eingeschliffen ist. Wahrscheinlich hat Obsidimine hiervon gesprochen."
+messageG[2] = "[Queststatus] Du findest einen groﬂen Rubin in dem ein Drachenkopf eingeschliffen ist. Wahrscheinlich hat Obsidimine hiervon gesprochen."
+messageG[3] = "[Queststatus] Du findest einen groﬂen Amethyst in dem ein Drachenkopf eingeschliffen ist. Wahrscheinlich hat Obsidimine hiervon gesprochen."
+messageG[4] = "[Queststatus] Du findest einen groﬂen Saphir in dem ein Drachenkopf eingeschliffen ist. Wahrscheinlich hat Obsidimine hiervon gesprochen."
+messageG[5] = "[Queststatus] Du findest einen groﬂen Topas in dem ein Drachenkopf eingeschliffen ist. Wahrscheinlich hat Obsidimine hiervon gesprochen."
+messageG[6] = "[Queststatus] Du findest einen groﬂen Diamant in dem ein Drachenkopf eingeschliffen ist. Wahrscheinlich hat Obsidimine hiervon gesprochen."
+messageG[7] = "[Queststatus] Du findest einen groﬂen Obsidian in dem ein Drachenkopf eingeschliffen ist. Wahrscheinlich hat Obsidimine hiervon gesprochen."
 
 local messageE = {}
 messageE[1] = "[Quest status] You have discovered a large emerald engraved with a dragon head.  This must be what Obsidimine was speaking about."
