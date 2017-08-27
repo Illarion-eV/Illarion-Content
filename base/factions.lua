@@ -389,9 +389,9 @@ function M.setSpecialRank(player, rank)
         if rankpoints >= (M.highestRank-1)*100 then
             player:setQuestProgress(200, tonumber(rank));
             if rank == 0 then
-                inform = common.GetNLS(player,"Ihr wurdet degradiert und habt nun keinen speziellen Rang mehr.","You have been demoted and have no special rank anymore.")
+                inform = common.GetNLS(player,"Du wurdest degradiert und hast nun keinen speziellen Rang mehr.","You have been demoted and have no special rank anymore.")
             else
-                inform = common.GetNLS(player,"Ihr wurdet befördert und seid nun "..M.getRank(player)..".","You have been promoted and are now "..M.getRank(player)..".");
+                inform = common.GetNLS(player,"Du wurdest befördert und bist nun "..M.getRank(player)..".","You have been promoted and are now "..M.getRank(player)..".");
             end
             player:inform(inform)
             return true;

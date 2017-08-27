@@ -382,7 +382,7 @@ function M.piratesPiratesRule(User)
         if player:isInRangeToPosition(position(352,870,0), 30) or player:isInRangeToPosition(position(352,870,1), 30) or player:isInRangeToPosition(position(352,870,2), 30) then
             if M.previousselected == nil then
             else
-                player:inform("Malachín war wohl mit den Piraten. Sie sind in der Lage das Schiff zu überlaufen und setzen alle Anwesenden ihrem Glück mit Cherga aus. Wird Cherga Gnade haben?", "Malachín was obviously with the pirates. They overrun the ship and all passenger have to face Cherga. Will Cherga have mercy on you?")
+                player:inform("Malachín war wohl mit den Piraten. Sie sind in der Lage das Schiff zu überrennen und setzen alle Anwesenden ihrem Glück mit Cherga aus. Wird Cherga Gnade haben?", "Malachín was obviously with the pirates. They overrun the ship and all passenger have to face Cherga. Will Cherga have mercy on you?")
                 player:warp(M.targetPos[M.previousselected[User.name]+1])
                 character.DeathAfterTime(player,math.random(10,30),0,27,true) --kill all players
             end

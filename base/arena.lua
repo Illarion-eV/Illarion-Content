@@ -98,7 +98,7 @@ function M.requestMonster(User, NPC)
     for i = 1, #(M.monsterIDsByLevel) do
         local priceInCP = M.monsterIDsByLevel[i].price
         local germanMoney, englishMoney = money.MoneyToString(priceInCP)
-        local option = common.GetNLS(User, "Stärke "..i.." Monster ("..M.monsterIDsByLevel[i].points.." Punkte)\n Preis:"..germanMoney, "Level "..i.." Monster ("..M.monsterIDsByLevel[i].points.." points)\n Price:"..englishMoney)
+        local option = common.GetNLS(User, "Stärke "..i.." Monster ("..M.monsterIDsByLevel[i].points.." Punkte)\n Preis: "..germanMoney, "Level "..i.." Monster ("..M.monsterIDsByLevel[i].points.." points)\n Price: "..englishMoney)
         sdMonster:addOption(61, option)
     end
     User:requestSelectionDialog(sdMonster)
@@ -109,12 +109,12 @@ function payforMonster(User, MonsterLevel, NPC)
     local germanMoney, englishMoney = money.MoneyToString(priceInCP)
 
     if not money.CharHasMoney(User,priceInCP) then --not enough money!
-        local outText = common.GetNLS(User, "Ihr habt nicht genug Geld dabei! Ihr benötigt"..germanMoney..".", "You don't have enough money with you! You'll need"..englishMoney..".")
+        local outText = common.GetNLS(User, "Ihr habt nicht genug Geld dabei! Ihr benötigt "..germanMoney..".", "You don't have enough money with you! You'll need "..englishMoney..".")
         NPC:talk(Character.say, outText)
         return false
     end
     money.TakeMoneyFromChar(User,priceInCP) --take money
-    User:inform("Ihr habt Euch ein Monster für"..germanMoney.." gekauft. Viel Erfolg!", "You bought a monster at the price of"..englishMoney..". Good luck!")
+    User:inform("Du hast dir ein Monster für "..germanMoney.." gekauft. Viel Erfolg!", "You bought a monster at the price of "..englishMoney..". Good luck!")
     return true
 end
 

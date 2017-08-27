@@ -77,7 +77,7 @@ function LearnLenniersDream(User)
 
     local anAlchemist = alchemy.CheckIfAlchemist(User)
     if not anAlchemist then
-        User:inform("Ihr scheint nur seltsames Gekritzel zu stehen.","Only strange scribbling can be seen here.")
+        User:inform("Du erkennst hier nur seltsames Gekritzel.","Only strange scribbling can be seen here.")
         return
     end
 

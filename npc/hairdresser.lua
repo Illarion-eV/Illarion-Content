@@ -164,7 +164,7 @@ local function payForWork(user,npc,priceWork)
     money.TakeMoneyFromChar(user,priceWork) --take money
     npc:talk(Character.say, "Vielen Dank. Kann ich noch etwas für euch tun?",
                             "Thank you. Can I do anything else for you?")
-    user:inform("Ihr habt "..germanMoney.." bezahlt.", "You paid "..englishMoney..".", Player.lowPriority)
+    user:inform("Du hast "..germanMoney.." bezahlt.", "You paid "..englishMoney..".", Player.lowPriority)
     return true
 end
 
