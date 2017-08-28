@@ -52,8 +52,8 @@ beardID = 0
 colorHair = 200, 200, 200
 colorSkin = 186, 133, 91
 itemHead = 0
-itemChest = 0
-itemCoat = 804
+itemChest = 804
+itemCoat = 0
 itemMainHand = 47
 itemSecondHand = 0
 itemHands = 0
@@ -76,20 +76,18 @@ itemShoes = 1500
 -- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Nadime the glass blower. Keywords: quest")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Nadime die Glasbläserin. Schlüsselwörter: Quest")
+"Help" -> inform("[Game Help] This NPC is Nadime the glass blower. Keywords: Hello, quest")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Nadime die Glasbläserin. Schlüsselwörter: Hallo, Quest")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Nadime greets you.", "Greetings, Greetings."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Nadime grüßt dich.", "Grüße, Grüße."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Nadime greets you.", "Greetings, Greetings."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Nadime grüßt dich.", "Grüße, Grüße."
-
 "Farewell", "Bye", "Fare well", "See you" -> "Revisit Nadime again.", "Bye, Bye."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Besuch Nadime bald wieder.", "Bis bald."
 english, "Ciao", "Adieu", "Au revoir" -> "Visit Nadime again.", "Bye, Bye."
 "Ciao", "Adieu", "Au revoir" -> "Besuch Nadime bald wieder.", "Bis bald."
-
 "How are you", "How feel", "How do you do" -> "Great, it's warm enough here.", "Good, good."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Toll, alles schön warm hier.", "Gut, gut."
 "your name", "who are you", "who art thou" -> "I'm Nadime. Nadime is a glass blower."
@@ -100,8 +98,8 @@ english, "Ciao", "Adieu", "Au revoir" -> "Visit Nadime again.", "Bye, Bye."
 -- Quests
 
 -- Quest 1: Gathering. Player gets a gathering tool. Player gathers materials for 10 intermediate products.
-queststatus(717) = 0, english, town = Cadomyr, "quest", "mission" -> item(24, 1, 333), queststatus(717) = 1, "The Glassblowing Guild is proud to guide you on your apprenticeship. But honour comes from hard work. Take this shovel and collect 10 shovels of sand from the sand pits in front of the gate.", inform("[Guild Quest] Glassblower guild quest has started. For more information see the Quest log.")
-queststatus(717) = 0, town = Cadomyr, "task", "adventure", "order" -> item(24, 1, 333), queststatus(717) = 1, "The Glassblowing Guild is proud to guide you on your apprenticeship. But honour comes from hard work. Take this shovel and collect 10 shovels of sand from the sand pits in front of the gate.", inform("[Guild Quest] Glassblower guild quest has started. For more information see the Quest log.")
+queststatus(717) = 0, english, town = Cadomyr, "quest", "mission" -> item(24, 1, 333), queststatus(717) = 1, "The Glassblowing Guild is proud to guide you on your apprenticeship. But honour comes from hard work. Take this shovel and collect ten shovels of sand from the sand pits in front of the gate.", inform("[Guild Quest] Glassblower guild quest has started. For more information see the Quest log.")
+queststatus(717) = 0, town = Cadomyr, "task", "adventure", "order" -> item(24, 1, 333), queststatus(717) = 1, "The Glassblowing Guild is proud to guide you on your apprenticeship. But honour comes from hard work. Take this shovel and collect ten shovels of sand from the sand pits in front of the gate.", inform("[Guild Quest] Glassblower guild quest has started. For more information see the Quest log.")
 queststatus(717) = 0, town = Cadomyr, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> item(24, 1, 333), queststatus(717) = 1, "Die Glasbläserzunft ist stolz, deine Ausbildung zu begleiten. Ehre zu erringen ist harte Arbeit. Nimm diese Schaufel und hole zehn Schaufeln Sand aus den Sandgruben vor den Toren der Stadt.", inform("[Zunft Quest] Du hast den Quest der Glasbläserzunft angefangen. Detaillierte Informationen findest du im Questlog.")
 
 -- Quest 1: Solved
