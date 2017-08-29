@@ -25,7 +25,7 @@ local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}
-Title[GERMAN] = "Adrons Braukunst Schule"
+Title[GERMAN] = "Adrons Braukunstschule"
 Title[ENGLISH] = "Adron's Brewery School"
 
 -- Insert an extensive description of each status here, in both languages
@@ -43,27 +43,27 @@ Description[GERMAN][4] = "Geh zu Thomas Weste bei der Küche von Runewick. Er hat
 Description[ENGLISH][4] = "Go to Thomas Weste at the kitchen in Runewick, he is sure to have another task for you."
 Description[GERMAN][5] = "Braue zehn Flaschen Cicer für Thomas Weste bei der Küche von Runewick. Dazu musst du den Kochlöffel benutzen und am Braufass stehen. Die notwendigen großen leeren Flaschen bekommst du von Fronita Emery auf dem Markt."
 Description[ENGLISH][5] = "Brew ten bottles of cider for Thomas Weste at the kitchen of Runewick. To brew you need to stand facing the wine barrel and use the cooking spoon. The needed large empty bottles you can buy from Fronita Emery at the market."
-Description[GERMAN][6] = "Dein derzeitiger Rang in Adrons Braukunst Schule von Runewick ist der eines Laiens. Gehe zu Thomas Weste bei der Küche von Runewick sobald du Level 10 in der Fertigkeit Brauen erreicht hast."
+Description[GERMAN][6] = "Dein derzeitiger Rang in Adrons Braukunstschule von Runewick ist der eines Laiens. Gehe zu Thomas Weste bei der Küche von Runewick sobald du Level 10 in der Fertigkeit Brauen erreicht hast."
 Description[ENGLISH][6] = "Your current rank at Adron's Brewery School of Runewick is Layman. Return to Thomas Weste at the kitchen of Runewick once you reached Level 10 in Brewing."
-Description[GERMAN][7] = "Dein derzeitiger Rang in Adrons Braukunst Schule von Runewick ist der eines Anfängers. Gehe zu Thomas Weste bei der Küche von Runewick sobald du Level 20 in der Fertigkeit Brauen erreicht hast."
+Description[GERMAN][7] = "Dein derzeitiger Rang in Adrons Braukunstschule von Runewick ist der eines Anfängers. Gehe zu Thomas Weste bei der Küche von Runewick sobald du Level 20 in der Fertigkeit Brauen erreicht hast."
 Description[ENGLISH][7] = "Your current rank at Adron's Brewery School of Runewick is Novice. Return to Thomas Weste at the kitchen of Runewick once you reached Level 20 in Brewing."
-Description[GERMAN][8] = "Dein derzeitiger Rang in Adrons Braukunst Schule von Runewick ist der eines Lehrlings. Gehe zu Thomas Weste bei der Küche von Runewick sobald du Level 30 in der Fertigkeit Brauen erreicht hast."
+Description[GERMAN][8] = "Dein derzeitiger Rang in Adrons Braukunstschule von Runewick ist der eines Lehrlings. Gehe zu Thomas Weste bei der Küche von Runewick sobald du Level 30 in der Fertigkeit Brauen erreicht hast."
 Description[ENGLISH][8] = "Your current rank at Adron's Brewery School of Runewick is Apprentice. Return to Thomas Weste at the kitchen of Runewick once you reached Level 30 in Brewing."
-Description[GERMAN][9] = "Dein derzeitiger Rang in Adrons Braukunst Schule von Runewick ist der eines Initiatens. Gehe zu Thomas Weste bei der Küche von Runewick sobald du Level 40 in der Fertigkeit Brauen erreicht hast."
+Description[GERMAN][9] = "Dein derzeitiger Rang in Adrons Braukunstschule von Runewick ist der eines Initiatens. Gehe zu Thomas Weste bei der Küche von Runewick sobald du Level 40 in der Fertigkeit Brauen erreicht hast."
 Description[ENGLISH][9] = "Your current rank at Adron's Brewery School of Runewick is Initiate. Return to Thomas Weste at the kitchen of Runewick once you reached Level 40 in Brewing."
-Description[GERMAN][10] = "Dein derzeitiger Rang in Adrons Braukunst Schule von Runewick ist der eines Gesellens. Gehe zu Thomas Weste bei der Küche von Runewick sobald du Level 50 in der Fertigkeit Brauen erreicht hast."
+Description[GERMAN][10] = "Dein derzeitiger Rang in Adrons Braukunstschule von Runewick ist der eines Gesellens. Gehe zu Thomas Weste bei der Küche von Runewick sobald du Level 50 in der Fertigkeit Brauen erreicht hast."
 Description[ENGLISH][10] = "Your current rank at Adron's Brewery School of Runewick is Journeyman. Return to Thomas Weste at the kitchen of Runewick once you reached Level 50 in Brewing."
-Description[GERMAN][11] = "Dein derzeitiger Rang in Adrons Braukunst Schule von Runewick ist der eines Spezialistens. Gehe zu Thomas Weste bei der Küche von Runewick sobald du Level 60 in der Fertigkeit Brauen erreicht hast."
+Description[GERMAN][11] = "Dein derzeitiger Rang in Adrons Braukunstschule von Runewick ist der eines Spezialistens. Gehe zu Thomas Weste bei der Küche von Runewick sobald du Level 60 in der Fertigkeit Brauen erreicht hast."
 Description[ENGLISH][11] = "Your current rank at Adron's Brewery School of Runewick is Specialist. Return to Thomas Weste at the kitchen of Runewick once you reached Level 60 in Brewing."
-Description[GERMAN][12] = "Dein derzeitiger Rang in Adrons Braukunst Schule von Runewick ist der eines Expertens. Gehe zu Thomas Weste bei der Küche von Runewick sobald du Level 70 in der Fertigkeit Brauen erreicht hast."
+Description[GERMAN][12] = "Dein derzeitiger Rang in Adrons Braukunstschule von Runewick ist der eines Expertens. Gehe zu Thomas Weste bei der Küche von Runewick sobald du Level 70 in der Fertigkeit Brauen erreicht hast."
 Description[ENGLISH][12] = "Your current rank at Adron's Brewery School of Runewick is Expert. Return to Thomas Weste at the kitchen of Runewick once you reached Level 70 in Brewing."
-Description[GERMAN][13] = "Dein derzeitiger Rang in Adrons Braukunst Schule von Runewick ist der eines Adeptens. Gehe zu Thomas Weste bei der Küche von Runewick sobald du Level 80 in der Fertigkeit Brauen erreicht hast."
+Description[GERMAN][13] = "Dein derzeitiger Rang in Adrons Braukunstschule von Runewick ist der eines Adeptens. Gehe zu Thomas Weste bei der Küche von Runewick sobald du Level 80 in der Fertigkeit Brauen erreicht hast."
 Description[ENGLISH][13] = "Your current rank at Adron's Brewery School of Runewick is Adept. Return to Thomas Weste at the kitchen of Runewick once you reached Level 80 in Brewing."
-Description[GERMAN][14] = "Dein derzeitiger Rang in Adrons Braukunst Schule von Runewick ist der eines Artisanens. Gehe zu Thomas Weste bei der Küche von Runewick sobald du Level 90 in der Fertigkeit Brauen erreicht hast."
+Description[GERMAN][14] = "Dein derzeitiger Rang in Adrons Braukunstschule von Runewick ist der eines Artisanens. Gehe zu Thomas Weste bei der Küche von Runewick sobald du Level 90 in der Fertigkeit Brauen erreicht hast."
 Description[ENGLISH][14] = "Your current rank at Adron's Brewery School of Runewick is Artisan. Return to Thomas Weste at the kitchen of Runewick once you reached Level 90 in Brewing."
-Description[GERMAN][15] = "Dein derzeitiger Rang in Adrons Braukunst Schule von Runewick ist der eines Meisters. Gehe zu Thomas Weste bei der Küche von Runewick sobald du Level 100 in der Fertigkeit Brauen erreicht hast."
+Description[GERMAN][15] = "Dein derzeitiger Rang in Adrons Braukunstschule von Runewick ist der eines Meisters. Gehe zu Thomas Weste bei der Küche von Runewick sobald du Level 100 in der Fertigkeit Brauen erreicht hast."
 Description[ENGLISH][15] = "Your current rank at Adron's Brewery School of Runewick is Master. Return to Thomas Weste at the kitchen of Runewick once you reached Level 100 in Brewing."
-Description[GERMAN][16] = "Gratulation, du bist nun ein wahrer Großmeister Adrons Braukunst Schule von Runewick."
+Description[GERMAN][16] = "Gratulation, du bist nun ein wahrer Großmeister Adrons Braukunstschule von Runewick."
 Description[ENGLISH][16] = "Congratulations, you are now a true Grandmaster of Adron's Brewery School."
 
 
