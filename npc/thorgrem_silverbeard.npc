@@ -72,7 +72,7 @@ itemShoes = 698
 -- Level 70: Adept / Adept. Reward: 5 Rare resources (e.g. merinium ingots)
 -- Level 80: Artisan / Artisane. Reward: 10 Rare resources (e.g. heartwood)
 -- Level 90: Master / Meister. Reward: 5 Pure elements, master's tool
--- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements
+-- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements, amulet
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Thorgrem Silverbeard the blacksmith. Keywords: Hello, Quest, blacksmithing.")
@@ -239,7 +239,7 @@ skill(blacksmithing) < 90, queststatus(708) = 14, english, town = Galmair, "ques
 skill(blacksmithing) < 90, queststatus(708) = 14, town = Galmair, "task", "adventure", "order", "rank" -> "You are not experienced enough for a promotion with the Blacksmithing Guild of Galmair. Your current rank is Artisan."
 skill(blacksmithing) < 90, queststatus(708) = 14, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Du bist noch nicht erfahren genug, um in der Schmiedegilde von Galmair aufzusteigen. Du hast derzeit den Rang eines Artisanens inne."
 
--- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements
+-- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements, amulet
 skill(blacksmithing) > 99, queststatus(708) = 15, english, town = Galmair, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Grandmaster with the Blacksmithing Guild of Galmair. You are awarded ten pieces of pure fire."), item(2553, 10, 333), queststatus(708) = 16, "Congratulations, you are now a true Grandmaster of the Blacksmithing Guild of Galmair. This pure fire shall help you to manufacture the best goods of Illarion."
 skill(blacksmithing) > 99, queststatus(708) = 15, town = Galmair, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Grandmaster with the Blacksmithing Guild of Galmair. You are awarded ten pieces of pure fire."), item(2553, 10, 333), queststatus(708) = 16, "Congratulations, you are now a true Grandmaster of the Blacksmithing Guild of Galmair. This pure fire shall help you to manufacture the best goods of Illarion."
 skill(blacksmithing) > 99, queststatus(708) = 15, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Die Schmiedegilde von Galmair erhebt dich in den Rang eines Großmeisters. Du erhältst zehn Stück reines Feuer."), item(2553, 10, 333), queststatus(708) = 16, "Gratulation, du bist nun ein echter Großmeister der Schmiedegilde von Galmair. Dieses reine Feuer soll dir helfen, die besten Waren ganz Illarions herzustellen."

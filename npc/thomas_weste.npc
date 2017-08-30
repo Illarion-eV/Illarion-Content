@@ -22,7 +22,7 @@
 -- Author:   Zot                                                              --
 --                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
--- Adron's Brewery School of Runewick
+
 name = "Thomas Weste"
 race = human
 sex = male
@@ -38,8 +38,8 @@ autointroduce = on
 
 author = "Zot"
 
-lookatDE = ""
-lookatUS = ""
+lookatDE = "Dieser NPC ist Thomas Weste der Brauer."
+lookatUS = "This NPC is Thomas Weste the brewer."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Hands off!"
 wrongLangDE = "#me schaut dich verwirrt an."
@@ -71,11 +71,11 @@ itemShoes = 53
 -- Level 70: Adept / Adept. Reward: 5 Rare resources (e.g. merinium ingots)
 -- Level 80: Artisan / Artisane. Reward: 10 Rare resources (e.g. heartwood)
 -- Level 90: Master / Meister. Reward: 5 Pure elements, master's tool
--- Level 100: Grandmaster / Groﬂmeister. Reward: 10 Pure elements
+-- Level 100: Grandmaster / Groﬂmeister. Reward: 10 Pure elements, amulet
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Thomas Weste the brewer. Keywords: quest")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Thomas Weste der Brauer. Schl¸sselwˆrter: Quest")
+"Help" -> inform("[Game Help] This NPC is Thomas Weste the brewer. Keywords: Hello, quest.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Thomas Weste der Brauer. Schl¸sselwˆrter: Hallo, Quest.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, can I help you?", "Nice to meet you, I'm Thomas Weste."
@@ -175,9 +175,9 @@ skill(brewing) < 30, queststatus(716) = 8, town = Runewick, "task", "adventure",
 skill(brewing) < 30, queststatus(716) = 8, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Selber trinken ist schon in Ordnung. Aber hin und wieder musst du auch mal einen Sud r¸hren, wenn du befˆrdert werden willst. Du wirst im Rang eines Lehrlings gef¸hrt.", inform("[Gildenrang] Du brauchst Level 30 in Brauen um in der Adrons Braukunstschule aufzusteigen.")
 
 -- Level 40: Journeyman / Geselle. Reward: 20 Intermediate products (e.g. thread), certificate
-skill(brewing) > 39, queststatus(716) = 9, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Journeyman with Adron's Brewery School of Runewick. You are awarded twenty sugar cane and a certificate."), item(778, 20, 333), item(3109, 1, 666, "nameDe" = "Urkunde", "nameEn" = "Certificate", "rareness" = "2", "descriptionEn" = "The owner of this certificate has successfully passed the examination as Journeyman. Thomas Weste - Adron's Brewery School of Runewick", "descriptionDe" = "Der Inhaber dieser Urkunde hat erfolgreich die Pruefung zum Gesellen bestanden. Thomas Weste - Adrons Braukunstschule Runewick"), queststatus(716) = 10, "I'm glad to drink with a new Journeyman in our rows. Adron's Brewery School of Runewick wants to ease your path with some sugar cane. Come back to me once you have brewed new drinks that I can taste."
-skill(brewing) > 39, queststatus(716) = 9, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Journeyman with Adron's Brewery School of Runewick. You are awarded twenty sugar cane and a certificate."), item(778, 20, 333), item(3109, 1, 666, "nameDe" = "Urkunde", "nameEn" = "Certificate", "rareness" = "2", "descriptionEn" = "The owner of this certificate has successfully passed the examination as Journeyman. Thomas Weste - Adron's Brewery School of Runewick", "descriptionDe" = "Der Inhaber dieser Urkunde hat erfolgreich die Pruefung zum Gesellen bestanden. Thomas Weste - Adrons Braukunstschule Runewick"), queststatus(716) = 10, "I'm glad to drink with a new Journeyman in our rows. Adron's Brewery School of Runewick wants to ease your path with some sugar cane. Come back to me once you have brewed new drinks that I can taste."
-skill(brewing) > 39, queststatus(716) = 9, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Adrons Braukunstschule von Runewick erhebt dich in den Rang eines Gesellens. Du erh‰ltst zwanzig Zuckerrohr und eine Urkunde."), item(778, 20, 333), item(3109, 1, 666, "nameDe" = "Urkunde", "nameEn" = "Certificate", "rareness" = "2", "descriptionEn" = "The owner of this certificate has successfully passed the examination as Journeyman. Thomas Weste - Adron's Brewery School of Runewick", "descriptionDe" = "Der Inhaber dieser Urkunde hat erfolgreich die Pruefung zum Gesellen bestanden. Thomas Weste - Adrons Braukunstschule Runewick"), queststatus(716) = 10, "Ich freu mich von einem neuen Gesellen zu einen Umtrunk eingeladen zu werden. Adrons Braukunstschule von Runewick gibt dir gerne einige Stangen Zuckerrohr. Komm erneut zu mir, wenn ich mehr probieren kann."
+skill(brewing) > 39, queststatus(716) = 9, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Journeyman with Adron's Brewery School of Runewick. You are awarded twenty sugar cane and a certificate."), item(778, 20, 333), item(3109, 1, 666, "nameDe" = "Urkunde", "nameEn" = "Certificate", "rareness" = "1", "descriptionEn" = "The owner of this certificate has successfully passed the examination as Journeyman. Thomas Weste - Adron's Brewery School of Runewick", "descriptionDe" = "Der Inhaber dieser Urkunde hat erfolgreich die Pruefung zum Gesellen bestanden. Thomas Weste - Adrons Braukunstschule Runewick"), queststatus(716) = 10, "I'm glad to drink with a new Journeyman in our rows. Adron's Brewery School of Runewick wants to ease your path with some sugar cane. Come back to me once you have brewed new drinks that I can taste."
+skill(brewing) > 39, queststatus(716) = 9, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Journeyman with Adron's Brewery School of Runewick. You are awarded twenty sugar cane and a certificate."), item(778, 20, 333), item(3109, 1, 666, "nameDe" = "Urkunde", "nameEn" = "Certificate", "rareness" = "1", "descriptionEn" = "The owner of this certificate has successfully passed the examination as Journeyman. Thomas Weste - Adron's Brewery School of Runewick", "descriptionDe" = "Der Inhaber dieser Urkunde hat erfolgreich die Pruefung zum Gesellen bestanden. Thomas Weste - Adrons Braukunstschule Runewick"), queststatus(716) = 10, "I'm glad to drink with a new Journeyman in our rows. Adron's Brewery School of Runewick wants to ease your path with some sugar cane. Come back to me once you have brewed new drinks that I can taste."
+skill(brewing) > 39, queststatus(716) = 9, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Adrons Braukunstschule von Runewick erhebt dich in den Rang eines Gesellens. Du erh‰ltst zwanzig Zuckerrohr und eine Urkunde."), item(778, 20, 333), item(3109, 1, 666, "nameDe" = "Urkunde", "nameEn" = "Certificate", "rareness" = "1", "descriptionEn" = "The owner of this certificate has successfully passed the examination as Journeyman. Thomas Weste - Adron's Brewery School of Runewick", "descriptionDe" = "Der Inhaber dieser Urkunde hat erfolgreich die Pruefung zum Gesellen bestanden. Thomas Weste - Adrons Braukunstschule Runewick"), queststatus(716) = 10, "Ich freu mich von einem neuen Gesellen zu einen Umtrunk eingeladen zu werden. Adrons Braukunstschule von Runewick gibt dir gerne einige Stangen Zuckerrohr. Komm erneut zu mir, wenn ich mehr probieren kann."
 
 -- Level < 40: Not experienced enough
 skill(brewing) < 40, queststatus(716) = 9, english, town = Runewick, "quest", "mission" -> "Drinking is fine. But from time to time you have to stir a brew in the barrel too to be eligible for a promotion. Your current rank is Initiate.", inform("[Guild rank] You need skill level 40 in brewing to advance in the ranks of Adron's Brewery School.")
@@ -234,7 +234,7 @@ skill(brewing) < 90, queststatus(716) = 14, english, town = Runewick, "quest", "
 skill(brewing) < 90, queststatus(716) = 14, town = Runewick, "task", "adventure", "order", "rank" -> "Drinking alone isn't wise and there's a lot of work for the best drinks. Cheers Artisan.", inform("[Guild rank] You need skill level 90 in brewing to advance in the ranks of Adron's Brewery School.")
 skill(brewing) < 90, queststatus(716) = 14, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Alleine trinken ist nicht weise. Und du brauchst mir nicht zu erkl‰ren wie viel Arbeit es ist, hervorragende Tr‰nke zu brauen. Prost Artisan.", inform("[Gildenrang] Du brauchst Level 90 in Brauen um in der Adrons Braukunstschule aufzusteigen.")
 
--- Level 100: Grandmaster / Groﬂmeister. Reward: 10 Pure elements
+-- Level 100: Grandmaster / Groﬂmeister. Reward: 10 Pure elements, amulet
 skill(brewing) > 99, queststatus(716) = 15, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Grandmaster with Adron's Brewery School of Runewick. You are awarded ten pieces of pure spirit."), item(3607, 10, 333), queststatus(716) = 16, "Unbelieveable. I cheer to a new Grandmaster of Adron's Brewery School of Runewick. With this pure spirit ... erm what's it for? ... Let's clink our glasses."
 skill(brewing) > 99, queststatus(716) = 15, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Grandmaster with Adron's Brewery School of Runewick. You are awarded ten pieces of pure fire."), item(3607, 10, 333), queststatus(716) = 16, "Unbelieveable. I cheer to a new Grandmaster of Adron's Brewery School of Runewick. With this pure spirit ... erm what's it for? ... Let's clink our glasses."
 skill(brewing) > 99, queststatus(716) = 15, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Adrons Braukunstschule von Runewick erhebt dich in den Rang eines Groﬂmeisters. Du erh‰ltst zehn St¸ck reinen Geist."), item(3607, 10, 333), queststatus(716) = 16, "Unglaublich. Ich erhebe mein Glas auf einen neuen Groﬂmeister der Adrons Braukunstschule von Runewick. Mit diesem reinen Geist wirst du ... erm ja was wirst du? ... Lasst uns anstoﬂen."

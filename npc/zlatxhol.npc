@@ -29,7 +29,7 @@ sex = male
 position = 134, 593, 0
 direction = west
 affiliation = "Cadomyr"
-job = "Pottery"
+job = "Potter"
 
 language = common
 language = lizard
@@ -40,8 +40,8 @@ author = "Zot"
 author = "Banduk"
 author = "Estralis"
 
-lookatDE = ""
-lookatUS = ""
+lookatDE = "Dieser NPC ist Zlatxhol der Töpfer."
+lookatUS = "This NPC is Zlatxhol the potter."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Hands off!"
 wrongLangDE = "#me schaut dich verwirrt an."
@@ -73,7 +73,7 @@ itemShoes = 0
 -- Level 70: Adept / Adept. Reward: 5 Rare resources (e.g. merinium ingots)
 -- Level 80: Artisan / Artisane. Reward: 10 Rare resources (e.g. heartwood)
 -- Level 90: Master / Meister. Reward: 5 Pure elements, master's tool
--- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements
+-- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements, amulet
 -- Help
 "Help" -> inform("[Game Help] This NPC is Zlatxhol the potter. Keywords: quest")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Zlatxhol der Töpfer. Schlüsselwörter: Quest")
@@ -160,9 +160,9 @@ skill(pottery) < 30, queststatus(707) = 8, town = Cadomyr, "task", "adventure", 
 skill(pottery) < 30, queststatus(707) = 8, town = Cadomyr, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Ess issst mir eine Ehre einen Lehrling der Gilde sszu ssehen. Ich habe dich aber nicht ssso viel am Brennofen gesehen, sssz.", inform("[Gildenrang] Du brauchst Level 30 in Töpfern um in der Töpferinnung aufzusteigen.")
 
 -- Level 40: Journeyman / Geselle. Reward: 20 Intermediate products (e.g. thread), certificate
-skill(pottery) > 39, queststatus(707) = 9, english, town = Cadomyr, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Journeyman with the Pottery Guild of Cadomyr. You get a certificate."), item(3109, 1, 666, "nameDe" = "Urkunde", "nameEn" = "Certificate", "rareness" = "2", "descriptionEn" = "The owner of this certificate has successfully passed the examination as Journeyman. Zlatxhol - Pottery Guild of Cadomyr", "descriptionDe" = "Der Inhaber dieser Urkunde hat erfolgreich die Pruefung zum Gesellen bestanden. Zlatxhol - Toepferinnung von Cadomyr"), queststatus(707) = 10, "You did well for honour and glory of our guild and the Queen, Ssss. The Pottery Guild of Cadomyr is glad to have a new journeyman. Come back to me once you are more experienced."
-skill(pottery) > 39, queststatus(707) = 9, town = Cadomyr, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Journeyman with the Pottery Guild of Cadomyr. You get a certificate."), item(3109, 1, 666, "nameDe" = "Urkunde", "nameEn" = "Certificate", "rareness" = "2", "descriptionEn" = "The owner of this certificate has successfully passed the examination as Journeyman. Zlatxhol - Pottery Guild of Cadomyr", "descriptionDe" = "Der Inhaber dieser Urkunde hat erfolgreich die Pruefung zum Gesellen bestanden. Zlatxhol - Toepferinnung von Cadomyr"), queststatus(707) = 10, "You did well for honour and glory of our guild and the Queen, Ssss. The Pottery Guild of Cadomyr is glad to have a new journeyman. Come back to me once you are more experienced."
-skill(pottery) > 39, queststatus(707) = 9, town = Cadomyr, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Die Töpferinnung von Cadomyr erhebt dich in den Rang eines Gesellens. Du erhältst eine Urkunde."), item(3109, 1, 666, "nameDe" = "Urkunde", "nameEn" = "Certificate", "rareness" = "2", "descriptionEn" = "The owner of this certificate has successfully passed the examination as Journeyman. Zlatxhol - Pottery Guild of Cadomyr", "descriptionDe" = "Der Inhaber dieser Urkunde hat erfolgreich die Pruefung zum Gesellen bestanden. Zlatxhol - Toepferinnung von Cadomyr"), queststatus(707) = 10, "Gut gemacht. Wie ich sehe, hast du hart gearbeitet. Die Töpferinnung von Cadomyr freut sich dich als neuen Gesellen zu begrüßen sszu helfen. Ich ssseh dich wieder, sssobald du erfahrener bist."
+skill(pottery) > 39, queststatus(707) = 9, english, town = Cadomyr, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Journeyman with the Pottery Guild of Cadomyr. You get a certificate."), item(3109, 1, 666, "nameDe" = "Urkunde", "nameEn" = "Certificate", "rareness" = "1", "descriptionEn" = "The owner of this certificate has successfully passed the examination as Journeyman. Zlatxhol - Pottery Guild of Cadomyr", "descriptionDe" = "Der Inhaber dieser Urkunde hat erfolgreich die Pruefung zum Gesellen bestanden. Zlatxhol - Toepferinnung von Cadomyr"), queststatus(707) = 10, "You did well for honour and glory of our guild and the Queen, Ssss. The Pottery Guild of Cadomyr is glad to have a new journeyman. Come back to me once you are more experienced."
+skill(pottery) > 39, queststatus(707) = 9, town = Cadomyr, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Journeyman with the Pottery Guild of Cadomyr. You get a certificate."), item(3109, 1, 666, "nameDe" = "Urkunde", "nameEn" = "Certificate", "rareness" = "1", "descriptionEn" = "The owner of this certificate has successfully passed the examination as Journeyman. Zlatxhol - Pottery Guild of Cadomyr", "descriptionDe" = "Der Inhaber dieser Urkunde hat erfolgreich die Pruefung zum Gesellen bestanden. Zlatxhol - Toepferinnung von Cadomyr"), queststatus(707) = 10, "You did well for honour and glory of our guild and the Queen, Ssss. The Pottery Guild of Cadomyr is glad to have a new journeyman. Come back to me once you are more experienced."
+skill(pottery) > 39, queststatus(707) = 9, town = Cadomyr, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Die Töpferinnung von Cadomyr erhebt dich in den Rang eines Gesellens. Du erhältst eine Urkunde."), item(3109, 1, 666, "nameDe" = "Urkunde", "nameEn" = "Certificate", "rareness" = "1", "descriptionEn" = "The owner of this certificate has successfully passed the examination as Journeyman. Zlatxhol - Pottery Guild of Cadomyr", "descriptionDe" = "Der Inhaber dieser Urkunde hat erfolgreich die Pruefung zum Gesellen bestanden. Zlatxhol - Toepferinnung von Cadomyr"), queststatus(707) = 10, "Gut gemacht. Wie ich sehe, hast du hart gearbeitet. Die Töpferinnung von Cadomyr freut sich dich als neuen Gesellen zu begrüßen sszu helfen. Ich ssseh dich wieder, sssobald du erfahrener bist."
 
 -- Level < 40: Not experienced enough
 skill(pottery) < 40, queststatus(707) = 9, english, town = Cadomyr, "quest", "mission" -> "I'm proud to sssee you Initiate. You should ssstay more time at the kiln to become promoted, Ssss.", inform("[Guild rank] You need skill level 40 in pottery to advance in rank of the Pottery Guild.")
@@ -219,7 +219,7 @@ skill(pottery) < 90, queststatus(707) = 14, english, town = Cadomyr, "quest", "m
 skill(pottery) < 90, queststatus(707) = 14, town = Cadomyr, "task", "adventure", "order", "rank" -> "I'm proud to sssee you Artisan. Isss hard work to becomes a massster potter.", inform("[Guild rank] You need skill level 90 in pottery to advance in rank of the Pottery Guild.")
 skill(pottery) < 90, queststatus(707) = 14, town = Cadomyr, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Ess issst mir eine Ehre einen Artisanen der Gilde sszu ssehen. Ich weisss, issst harte Arbeit um Meister der Töpfer ssszu werden, sssz.", inform("[Gildenrang] Du brauchst Level 90 in Töpfern um in der Töpferinnung aufzusteigen.")
 
--- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements
+-- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements, amulet
 skill(pottery) > 99, queststatus(707) = 15, english, town = Cadomyr, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Grandmaster with the Pottery Guild of Cadomyr. You are awarded ten pieces of pure earth."), item(2552, 10, 333), queststatus(707) = 16, "What a high hounour, Ssss. I bow to a new Grandmaster of the Pottery Guild of Cadomyr. With this pure earth, you shall help make the most valuable goodss of Illarion."
 skill(pottery) > 99, queststatus(707) = 15, town = Cadomyr, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Grandmaster with the Pottery Guild of Cadomyr. You are awarded ten pieces of pure earth."), item(2552, 10, 333), queststatus(707) = 16, "What a high hounour, Ssss. I bow to a new Grandmaster of the Pottery Guild of Cadomyr. With this pure earth, you shall help make the most valuable goodss of Illarion."
 skill(pottery) > 99, queststatus(707) = 15, town = Cadomyr, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Die Töpferinnung von Cadomyr erhebt dich in den Rang eines Großmeisters. Du erhältst zehn Stück reiner Erde."), item(2552, 10, 333), queststatus(707) = 16, "Weloch hohe Ehre, sssz. Ich verneige mich vor einem neuen Großmeister der Töpferinnung von Cadomyr. Mit dieser reinen Erde wirst du die teuersten Waren Illarions herstellen."
@@ -243,13 +243,10 @@ english, "quest", "mission" -> "The Pottery Assssociation isss restricted to Cad
 english, "rosalie", "edwards" -> "The Queen Rosalie Edwards isss mother of Cadomyr, asss Tanora isss mother of childrensss of the ssssea.", "I'm proud to ssserve the Queen as a craftsmen.", "Hail the Queen!", "All pottery in the palace was made by our guild."
 "queen" -> "The Queen Rosalie Edwards isss mother of Cadomyr, asss Tanora isss mother of childrensss of the ssssea.", "I'm proud to ssserve the Queen as a craftsmen.", "Hail the Queen!", "All pottery in the palace was made by our guild."
 "rosalie", "edwards", "König" -> "Die Königin Rosalie Edwards issst Mutter vons Cadomyr ssso wie Tanora issst Mutter von Kinder der Sssee.", "Ich bin stolz der Königin als Handwerker zu dienen.", "Hoch lebe die Königin!", "Alle Töpferwaren im Palast stammen von unserer Innung."
-
 english, "tanora" -> "Tanora isss mother of childrensss of ssssea.", "Temple of Tanora isss in west of Cadomyr."
 "Tanora" -> "Tanora issst Mutter der Kinder der Sssee.", "Den Tempel Tanoras findest du im Westen der Stadt, sssz."
-
 "god", "temple" -> "Cadomyr hasss many templess, Ssss. Isss Tanora in west, Zhambra near the palace, Malachin sssouth of town and Sirani in delta of Kantabi water ssstream.", "Ssserve the Queen, Worship your God and become a honourable potter!"
 "Gott", "Tempel" -> "Cadomyr hat viele Tempel, sssz. Tanorasss in Westen, Zhambrasss am Palast, Malachinsss im Sssüden der Stadt und Sirani on Delta desss grossen Kantabi Wasssserss.", "Diene der Königin, Preise deinen Gott und werd ein ehrenvoller Töpfer!"
-
 "clay" -> "Best clay hasss to be ssssoft, ass butt of landstridersss baby.", "My favorite clay pit is far in the sssouth near the ocean.", "Pottery is not only burned clay, isss a art, Ssss."
 "Lehm" -> "Lehm muss weich sein, wie der Po eines Landläufer Babiessss.", "Meine bevorzugte Lehmgrube liegt weit im Sssüden am Meer, sssz.", "Töpfern issst mehr alsss nur Lehm brennen, esss issst eine Kunst, sssz."
 
