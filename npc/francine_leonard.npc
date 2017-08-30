@@ -76,8 +76,8 @@ itemShoes = 0
 -- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements, amulet
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Francine Leonard the cook and baker. Keywords: Hello, quest.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Francine Leonard die Köchin und Bäckerin. Schlüsselwörter: Hallo, Quest.")
+"Help" -> inform("[Game Help] This NPC is Francine Leonard the cook and baker. Keywords: Hello, quest, cook, baker.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Francine Leonard die Köchin und Bäckerin. Schlüsselwörter: Hallo, Quest, Köchin, Bäcker.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, can I help you?", "Nice to meet you, I'm Francine Leonard."
@@ -101,7 +101,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "I wish you a nice day.", "I
 english, "job" -> "I'm a cook and farmer. Do you want to know more about these jobs? Then just ask me for a task!"
 "job" -> "Ich bin Köchin und Bäuerin. Wollt ihr mehr darüber wissen? Dann fragt mich einfach nach einer Aufgabe!"
 
--- Quests
+-- Help triggers
+"cook", "baker", "craft" -> "Peel, oven, spoon, kettle; that is all you'll ever need."
+"Köchin", "Koch", "Bäcker", "Handwerk" -> "Ofenschieber, Ofen, Kochlöffel, Kessel; das ist alles, was du je brauchen wirst."
 
 -- Quest 1: Gathering. Player gets a gathering tool. Player gathers materials for 10 intermediate products.
 queststatus(714) = 0, english, town = Runewick, "quest", "mission" -> item(51, 10, 333), queststatus(714) = 1, "The Baker and Cook Guild accepts you as an apprentice. To learn what you need, you have to work hard first. Take these buckets and get water from the next well, clean water only.", inform("[Guild Quest] Baker and Cook Guild quest has started. For more information see the Quest log.")

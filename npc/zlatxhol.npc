@@ -74,9 +74,10 @@ itemShoes = 0
 -- Level 80: Artisan / Artisane. Reward: 10 Rare resources (e.g. heartwood)
 -- Level 90: Master / Meister. Reward: 5 Pure elements, master's tool
 -- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements, amulet
+
 -- Help
-"Help" -> inform("[Game Help] This NPC is Zlatxhol the potter. Keywords: quest")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Zlatxhol der Töpfer. Schlüsselwörter: Quest")
+"Help" -> inform("[Game Help] This NPC is Zlatxhol the potter. Keywords: Hello, quest.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Zlatxhol der Töpfer. Schlüsselwörter: Hallo, Quest.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetingsss to you.", "Yess, greetingss.", "Blessingss of the Mother upon you, greetingss"
@@ -98,6 +99,10 @@ english, "Ciao", "Adieu", "Au revoir" -> "Goodbye", "Farewell", "#me nods slowly
 "profession" -> "I'm a potter, do you wantsss to help Zlatxhol?"
 english, "job" -> "I'm a potter, do you wantsss to help Zlatxhol?"
 "job", "beruf" -> "Ich binss Töpfer, wollen du michssz helfen?"
+
+-- Help triggers
+"potter", "craft" -> "You need tongsss to take the hot potter ware out of the kiln! Don't burn your fingersss."
+"Töpfer", "Handwerk" -> "Du brauchssst eine Zssange, um die heißsse Töpferware ausss dem Ofen zssu holen. Verbrenn dir nicht die Finger!"
 
 -- Quest 1: Gathering. Player gets a gathering tool. Player gathers materials for 10 intermediate products.
 queststatus(707) = 0, english, town = Cadomyr, "quest", "mission" -> item(24, 1, 333), queststatus(707) = 1, "The Guild of Potterss acceptss you as an apprentice. But you'll have to work hard firsst. Take thiss ssshovel and collect clumpss of clay. You can findss clay in a clay pit sssouth of here just outsside the gate.", inform("[Guild Quest] Pottery Guild quest started. For more information see the Quest log.")

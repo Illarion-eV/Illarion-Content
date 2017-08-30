@@ -76,8 +76,8 @@ itemShoes = 1500
 -- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements, amulet
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Nadime the glass blower. Keywords: Hello, quest.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Nadime die Glasbläserin. Schlüsselwörter: Hallo, Quest.")
+"Help" -> inform("[Game Help] This NPC is Nadime the glass blower. Keywords: Hello, quest, glass blowing.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Nadime die Glasbläserin. Schlüsselwörter: Hallo, Quest, Glasblasen.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Nadime greets you.", "Greetings, Greetings."
@@ -95,7 +95,9 @@ english, "Ciao", "Adieu", "Au revoir" -> "Visit Nadime again.", "Bye, Bye."
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler."
 
--- Quests
+-- Help triggers
+"glass", "blowing", "craft" -> "Glass blowing is done at an oven with a glass blowing pipe. Mind that you first need glas ingots, cast into a mould."
+"Glasblasen", "handwerk" -> "Glasblasen wird an einem Ofen mit einem Glasblasrohr ausgeübt. Bedenke, dass du zunächst Glasbarren in eine Form gießen musst."
 
 -- Quest 1: Gathering. Player gets a gathering tool. Player gathers materials for 10 intermediate products.
 queststatus(717) = 0, english, town = Cadomyr, "quest", "mission" -> item(24, 1, 333), queststatus(717) = 1, "The Glassblowing Guild is proud to guide you on your apprenticeship. But honour comes from hard work. Take this shovel and collect ten shovels of sand from the sand pits in front of the gate.", inform("[Guild Quest] Glassblower guild quest has started. For more information see the Quest log.")

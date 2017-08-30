@@ -76,8 +76,8 @@ itemShoes = 0
 -- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements, amulet
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Seleseth the armourer. Keywords: Hello, quest.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Seleseth der Rüstschmied. Schlüsselwörter: Hallo, Quest.")
+"Help" -> inform("[Game Help] This NPC is Seleseth the armourer. Keywords: Hello, quest, armourer.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Seleseth der Rüstschmied. Schlüsselwörter: Hallo, Quest, Rüstschmied.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetingsss to you.", "Yess, greetingsss.", "Blessingsss of the Mother upon you, greetingsss"
@@ -98,7 +98,11 @@ english, "Ciao", "Adieu", "Au revoir" -> "Goodbye", "Farewell", "#me nods slowly
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 english, "job" -> "I'm a gem armourer, do you wantsss to help Ssseleseth?"
 "profession" -> "I'm a armourer, do you wantsss to help Ssseleseth?"
-"beruf", "job" -> "Ich binss Rüstungsssschmied, wollen du michssz helfen?"
+"beruf", "job" -> "Ich binss Rüstssschmied, wollen du michssz helfen?"
+
+-- Help triggers
+"armourer", "craft" -> "Armourersss are the best smithsss! We have our very own hammer, ssso everyone makesss room for usss at the anvil."
+"Rüstschmied", "handwerk" -> "Rüstssschmiede sssind die besssten Ssschmiede! Wir haben unssseren ganzss ssspezssiellen Hammer, jeder macht unsss Platzss am Ambosss."
 
 -- Quest 1: Gathering. Player gets a gathering tool. Player gathers materials for 10 intermediate products.
 queststatus(709) = 0, english, town = Galmair, "quest", "mission" -> item(2763, 1, 333), queststatus(709) = 1, "The Armourer Guild takess you as an apprentice. Wealth comesss from work, sssz. Take thisss pick-axe and collect ten iron ore from the Malachite mine sssouth of the city.", inform("[Guild Quest] Armourer guild quest has started. For more information see the Quest log.")
@@ -258,29 +262,21 @@ english, "quest", "mission" -> "The Armourer Guild isss restricted to Galmair's 
 -- Additional talk
 english, "don" -> "The protecting hand of the Don allowssss us to work for our wealth, sssz.", "Don Valerio Guilianni personally takessss care our guild prosperssss.", "Don Valerio Guilianni wearssss an armoury, made by our guild, yessss."
 "don" -> "Die schützende Hand des Donsss ermöglicht unseren Wohlstand, sssz.", "Don Valerio Guilianni kümmert sssich persönlich, dassss unsere Zunft gedeiht, sssz.", "Die Rüstung von Don Valerio Guilianni wurde von Meistern unserer Zunft geschmiedet, sssz."
-
 english, "tanora" -> "Tanora isss mother of childrensss of ssssea.", "Seleseth isss child of mother Tanora."
 "Tanora" -> "Tanora isss Mutter der Kinder der Sssee.", "Seleseth isss ein Kind von Mutter Tanora, sssz."
-
-english, "irmorom" -> "Irmorom and our guild asss well worksss in the sssmithy, that sssaysss all.", "Deep in the west of our valley you find Irmorom'sss temple, sssz."
-"irmorom" -> "Irmorom und auch unsere Zunft arbeiten in der Schmiede, dasss sssagt doch allesss.", "Irmoroms Tempel findest du tief im Tal im Westen, sssz."
-
+english, "Irmorom" -> "Irmorom and our guild asss well worksss in the sssmithy, that sssaysss all.", "Deep in the west of our valley you find Irmorom'sss temple, sssz."
+"Irmorom" -> "Irmorom und auch unsere Zunft arbeiten in der Schmiede, dasss sssagt doch allesss.", "Irmoroms Tempel findest du tief im Tal im Westen, sssz."
 english, "nargun" -> "Skill and luck we need, don't forget to sacrifice to Nargun.", "Nargunsss temple, use the elevator and head westward, sssz."
 "nargun" -> "Können und Glück isss wasss esss braucht. Vergesss nie auch Nargun zu opfern.", "Nargunsss Tempel, fahr mit dem Aufzug und halte dich westlich."
-
 english, "ronagan" -> "Poor people aren't good for buisinesss. Ronagan may help them, sssz.", "Ronagansss temple, use the elevator and head sssoutheast. Take the boat then, sssz."
 "ronagan" -> "Arme Leute sind nicht gut fürsss Geschäft, sssz. Ronagan möge ihnen beistehen, sssz.", "Ronagansss Tempel, fahr mit dem Aufzug und halte dich südöstlich. Nimm einfach dasss Boot."
-
 "god", "temple" -> "Galmair hasss many temples, sssz. Isss Irmorom in west, Ronagan and Nargun in the mountain.", "I pray at Tanorasss altar in the Temple of the Five, sssz."
 "Gott", "Tempel" -> "Galmair hat viele Tempel, sssz. Irmoromssss in Westen, Ronagansss und Nargunsss im Berg.", "Ich bete an Tanoras Schrein im Tempel der Fünf, sssz."
-
 "fish" -> "I catch my fish fresh from the Malachite Creek, sssz.", "Fish tastesss good alwaysss, no matter if raw, roasted or cooked, sssz."
 "fisch" -> "Ich fang mir meinen Fisch frisch aus dem Malachitbach.", "Egal ob roh, gegräuchert oder gekocht, Fisch schmeckt immer, sssz."
-
 english, "malachit" -> "It's not that far sssouth of Galmair to the Malachite Mine.", "The deeper you go into the mine, the better the ore, sssz."
-"malachit", "ore" -> "It's not that far sssouth of Galmair to the Malachite Mine and the ore.", "The deeper you go into the mine, the better the ore, sssz."
+"ore" -> "It's not that far sssouth of Galmair to the Malachite Mine and the ore.", "The deeper you go into the mine, the better the ore, sssz."
 "malachit", "erz" -> "Ssso weit sssüdlich von Galmair isss die Malachitmine gar nicht, sssz.", "Tiefer in der Mine isss Erzss reicher, sssagt man."
-
 "coal", "dark hole" -> "It'sss fine coal we get from the Dark hole Mine, sssz.", "Coal would be much more expensive without the Copperhand Tunnel, sssz."
 "Kohle", "Dunkelloch" -> "Esss isss eine gute Kohle, die wir ausss der Dunkelloch Mine gewinnen, sssz.", "Ohne den Copperhand Tunnel wäre Kohle echt teuer, sssz."
 

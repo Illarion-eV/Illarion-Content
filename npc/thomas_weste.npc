@@ -74,8 +74,8 @@ itemShoes = 53
 -- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements, amulet
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Thomas Weste the brewer. Keywords: Hello, quest.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Thomas Weste der Brauer. Schlüsselwörter: Hallo, Quest.")
+"Help" -> inform("[Game Help] This NPC is Thomas Weste the brewer. Keywords: Hello, quest, Brewer.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Thomas Weste der Brauer. Schlüsselwörter: Hallo, Quest, Brauer.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, can I help you?", "Nice to meet you, I'm Thomas Weste."
@@ -98,6 +98,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "I wish you a nice day.", "I
 "beruf" -> "Ich bin Brauer. Aus eigener Erfahrung kann ich sagen, dass alles was ich herstelle gut schmeckt."
 english, "job" -> "I'm a brewer, I can tell you from own experience everything I make tastes good."
 "job" -> "Ich bin Brauer. Aus eigener Erfahrung kann ich sagen, dass alles was ich herstelle gut schmeckt."
+
+-- Help triggers
+"brewer", "craft" -> "Brewing is fun, isn't it? If not, just drink some of your booze you make with the cooking spoon at the barrel and it will be fun, I promise!"
+"Brauer", "Handwerk" -> "Brauen macht Spaß, nicht wahr? Falls nicht, trink einfach etwas von dem Zeug, welches du mit dem Kochlöffel am Fass herstellst. Dann wird's bestimmt heiter!"
 
 -- Quest 1: Gathering. Player gets a gathering tool. Player gathers materials for 10 intermediate products.
 queststatus(716) = 0, english, town = Runewick, "quest", "mission" -> queststatus(716) = 1, "Adron's Brewery School accepts you as an apprentice. To learn what you need you have to stay sober. Go to Yewdale and collect 60 apples.", inform("[Guild Quest] Adron's Brewery School quest has started. For more information see the Quest log.")
@@ -136,13 +140,13 @@ queststatus(716) = 4, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe",
 
 -- Quest 3: Solved
 queststatus(716) = 5, item(2499, all) > 9, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Layman with Adron's Brewery School of Runewick. You are awarded forty five silver coins."), deleteItem(2499, 10), queststatus(716) = 6, money + 4500, "Adron's Brewery School of Runewick is glad to have a new person willing to learn in it's rows. Here is some money to get you started. I recommend you don't buy drinks but buckets with it. And, come back once you improved your knowledge."
-queststatus(716) = 5, item(2499, all) > 9, town = Runewick, "task", "adventure", "order", "bread" -> inform("[Guild rank] You advance to the rank of Layman with Adron's Brewery School of Runewick. You are awarded forty five silver coins."), deleteItem(2499, 10), queststatus(716) = 6, money + 4500, "Adron's Brewery School of Runewick is glad to have a new person willing to learn in it's rows. Here is some money to get you started. I recommend you don't buy drinks but buckets with it. And, come back once you improved your knowledge."
-queststatus(716) = 5, item(2499, all) > 9, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Brötchen" -> inform("[Gildenrang] Adrons Braukunstschule von Runewick erhebt dich in den Rang eines Laiens. Du erhältst fünfundvierzig Silberstücke."), deleteItem(2499, 10), queststatus(716) = 6, money + 4500, "Adrons Braukunstschule von Runewick freut sich ein neues lernwilliges Mitglied zu begrüßen. Hier hast du Geld. Mein Vorschlag wäre, dass du es nicht versäufst und davon Eimer kaufst. Und komm zu mir zurück, wenn du deine Kenntnisse erweitert hast."
+queststatus(716) = 5, item(2499, all) > 9, town = Runewick, "task", "adventure", "order" -> inform("[Guild rank] You advance to the rank of Layman with Adron's Brewery School of Runewick. You are awarded forty five silver coins."), deleteItem(2499, 10), queststatus(716) = 6, money + 4500, "Adron's Brewery School of Runewick is glad to have a new person willing to learn in it's rows. Here is some money to get you started. I recommend you don't buy drinks but buckets with it. And, come back once you improved your knowledge."
+queststatus(716) = 5, item(2499, all) > 9, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Gildenrang] Adrons Braukunstschule von Runewick erhebt dich in den Rang eines Laiens. Du erhältst fünfundvierzig Silberstücke."), deleteItem(2499, 10), queststatus(716) = 6, money + 4500, "Adrons Braukunstschule von Runewick freut sich ein neues lernwilliges Mitglied zu begrüßen. Hier hast du Geld. Mein Vorschlag wäre, dass du es nicht versäufst und davon Eimer kaufst. Und komm zu mir zurück, wenn du deine Kenntnisse erweitert hast."
 
 -- Quest 3: Not enough items
 queststatus(716) = 5, english, town = Runewick, "quest", "mission" -> "First the water and apples in the barrel, then stir. I'll taste the results, ten bottles of cider."
-queststatus(716) = 5, town = Runewick, "task", "adventure", "order", "bread" -> "First the water and apples in the barrel, then stir. I'll taste the results, ten bottles of cider."
-queststatus(716) = 5, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Brötchen" -> "Erst Wasser ud Äpfel in den Bottich, dann rühren. Ich teste dann das Ergebnis, zehn Flaschen Cider."
+queststatus(716) = 5, town = Runewick, "task", "adventure", "order" -> "First the water and apples in the barrel, then stir. I'll taste the results, ten bottles of cider."
+queststatus(716) = 5, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Erst Wasser ud Äpfel in den Bottich, dann rühren. Ich teste dann das Ergebnis, zehn Flaschen Cider."
 
 -- Level 10: Novice / Anfänger. Reward: 10 Raw materials (e.g. coal)
 skill(brewing) > 9, queststatus(716) = 6, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Novice with Adron's Brewery School of Runewick. You are awarded ten honeycombs."), item(2529, 10, 333), queststatus(716) = 7, "Cheers. You not only know how to drink, you know how to make drinks. Adron's Brewery School of Runewick wants to ease your path with some honeycombs. Come back to me once you have brewed new drinks that I can taste."
