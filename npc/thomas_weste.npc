@@ -70,7 +70,7 @@ itemShoes = 53
 -- Level 60: Expert / Experte. Reward: 20 Uncommon resources (e.g. gold ingots)
 -- Level 70: Adept / Adept. Reward: 5 Rare resources (e.g. merinium ingots)
 -- Level 80: Artisan / Artisane. Reward: 10 Rare resources (e.g. heartwood)
--- Level 90: Master / Meister. Reward: 5 Pure elements
+-- Level 90: Master / Meister. Reward: 5 Pure elements, master's tool
 -- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements
 
 -- Help
@@ -224,7 +224,7 @@ skill(brewing) < 80, queststatus(716) = 13, english, town = Runewick, "quest", "
 skill(brewing) < 80, queststatus(716) = 13, town = Runewick, "task", "adventure", "order", "rank" -> "Drinking alone isn't wise and there's a lot of work for the best drinks. Cheers Adept.", inform("[Guild rank] You need skill level 80 in brewing to advance in the ranks of Adron's Brewery School.")
 skill(brewing) < 80, queststatus(716) = 13, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Alleine trinken ist nicht weise. Und du brauchst mir nicht zu erklären wie viel Arbeit es ist, hervorragende Tränke zu brauen. Prost Adept.", inform("[Zunftrang] Du brauchst Level 80 in Brauen um in der Adrons Braukunstschule aufzusteigen.")
 
--- Level 90: Master / Meister. Reward: 5 Pure elements
+-- Level 90: Master / Meister. Reward: 5 Pure elements, master's tool
 skill(brewing) > 89, queststatus(716) = 14, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Master with Adron's Brewery School of Runewick. You are awarded five pieces of pure water and a special tool."), item(2554, 5, 333), queststatus(716) = 15, "Cheers. You not only know how to drink, you know how to make drinks. Adron's Brewery School of Runewick wants to ease your path with some drops pure water and this engraved spoon. Come back to me once you know have brewed new drinks that I can taste.", item(227, 1, 999, "descriptionEn" = "Master of Adron's Brewery School of Runewick", "descriptionDe" = "Meister an Adrons Braukunstschule Runewick")
 skill(brewing) > 89, queststatus(716) = 14, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Master with Adron's Brewery School of Runewick. You are awarded five pieces of pure water and a special tool."), item(2554, 5, 333), queststatus(716) = 15, "Cheers. You not only know how to drink, you know how to make drinks. Adron's Brewery School of Runewick wants to ease your path with some drops pure water and this engraved spoon. Come back to me once you have brewed new drinks that I can taste.", item(227, 1, 999, "descriptionEn" = "Master of Adron's Brewery School of Runewick", "descriptionDe" = "Meister an Adrons Braukunstschule Runewick")
 skill(brewing) > 89, queststatus(716) = 14, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Adrons Braukunstschule von Runewick erhebt dich in den Rang eines Meisters. Du erhältst fünf Tropfen reines Wasser und ein besonderes Werkzeug."), item(2554, 5, 333), queststatus(716) = 15, "Prost. Du kannst ja nicht nur tinken sondern auch Tränke. Adrons Braukunstschule von Runewick gibt dir gerne etwas reines Wasser und diesem besonderen Kochlöffel. Komm erneut zu mir, wenn ich mehr probieren kann.", item(227, 1, 999, "descriptionEn" = "Master of Adron's Brewery School of Runewick", "descriptionDe" = "Meister an Adrons Braukunstschule Runewick")

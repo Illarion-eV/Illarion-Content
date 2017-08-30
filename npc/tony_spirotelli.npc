@@ -71,7 +71,7 @@ itemShoes = 53
 -- Level 60: Expert / Experte. Reward: 20 Uncommon resources (e.g. gold ingots)
 -- Level 70: Adept / Adept. Reward: 5 Rare resources (e.g. merinium ingots)
 -- Level 80: Artisan / Artisane. Reward: 10 Rare resources (e.g. heartwood)
--- Level 90: Master / Meister. Reward: 5 Pure elements
+-- Level 90: Master / Meister. Reward: 5 Pure elements, master's tool
 -- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements
 
 -- Help
@@ -229,7 +229,7 @@ skill(finesmithing) < 80, queststatus(710) = 13, english, town = Galmair, "quest
 skill(finesmithing) < 80, queststatus(710) = 13, town = Galmair, "task", "adventure", "order", "rank" -> "Please improve your finesmithing skills. The Finesmithing Syndicate of Galmair cannot promote you beyond your current rank Adept."
 skill(finesmithing) < 80, queststatus(710) = 13, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Verbessere bitte deine Feinschmiedefertigkeit. Das Feinschmiedesyndikat von Galmair kann dich so nicht befördern. Du wirst im Rang eines Adeptens geführt."
 
--- Level 90: Master / Meister. Reward: 5 Pure elements
+-- Level 90: Master / Meister. Reward: 5 Pure elements, master's tool
 skill(finesmithing) > 89, queststatus(710) = 14, english, town = Galmair, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Master with the Finesmithing Syndicate of Galmair. You are awarded five drops of pure water."), item(2554, 5, 333), queststatus(710) = 15, "I acknowledge your progress and the Finesmithing Syndicate of Galmair has decided to support your business with some pure water. Please return to me once you are more experienced."
 skill(finesmithing) > 89, queststatus(710) = 14, town = Galmair, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Master with the Finesmithing Syndicate of Galmair. You are awarded five drops of pure water."), item(2554, 5, 333), queststatus(710) = 15, "I acknowledge your progress and the Finesmithing Syndicate of Galmair has decided to support your business with some pure water. Please return to me once you are more experienced."
 skill(finesmithing) > 89, queststatus(710) = 14, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Das Feinschmiedesyndikat von Galmair erhebt dich in den Rang eines Meisters. Du erhältst fünf Tropfen reines Wasser."), item(2554, 5, 333), queststatus(710) = 15, "Ich erkenne deinen Fortschritt an. Das Feinschmiedesyndikat von Galmair hat beschlossen, dein Geschäft mit diesem reinen Wasser zu fördern. Bitte suche mich erneut auf, wenn du erfahrener bist."

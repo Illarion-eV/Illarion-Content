@@ -72,7 +72,7 @@ itemShoes = 0
 -- Level 60: Expert / Experte. Reward: 20 Uncommon resources (e.g. gold ingots)
 -- Level 70: Adept / Adept. Reward: 5 Rare resources (e.g. merinium ingots)
 -- Level 80: Artisan / Artisane. Reward: 10 Rare resources (e.g. heartwood)
--- Level 90: Master / Meister. Reward: 5 Pure elements
+-- Level 90: Master / Meister. Reward: 5 Pure elements, master's tool
 -- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements
 
 -- Help
@@ -228,7 +228,7 @@ skill(cookingAndBaking) < 80, queststatus(714) = 13, english, town = Runewick, "
 skill(cookingAndBaking) < 80, queststatus(714) = 13, town = Runewick, "task", "adventure", "order", "rank" -> "Wisdom doesn't come easy. We know that well. But you are already an Adept.", inform("[Guild rank] You need skill level 80 in cooking and baking to advance in the ranks of the Baker and Cook Guild.")
 skill(cookingAndBaking) < 80, queststatus(714) = 13, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Weisheit ist schwer zu erlangen. Das brauchst du mir nicht zu erklären. Aber du bist ja bereits ein Adept.", inform("[Zunftrang] Du brauchst Level 80 in Kochen und Backen um in der Innung der Köche und Bäcker aufzusteigen.")
 
--- Level 90: Master / Meister. Reward: 5 Pure elements
+-- Level 90: Master / Meister. Reward: 5 Pure elements, master's tool
 skill(cookingAndBaking) > 89, queststatus(714) = 14, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Master with the Baker and Cook Guild of Runewick. You are awarded five pieces of pure air and a special tool."), item(2551, 5, 333), queststatus(714) = 15, "Very well. I see you do everything to improve your knowledge. The Baker and Cook Guild of Runewick supports your way to wisdom with some pure air and this engraved spoon. Come back to me once you have improved your knowledge.", item(227, 1, 999, "descriptionEn" = "Master of the Baker and Cook Guild of Runewick", "descriptionDe" = "Meister der Innung der Bäcker und Köche von Runewick")
 skill(cookingAndBaking) > 89, queststatus(714) = 14, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Master with the Baker and Cook Guild of Runewick. You are awarded five pieces of pure air and a special tool."), item(2551, 5, 333), queststatus(714) = 15, "Very well. I see you do everything to improve your knowledge. The Baker and Cook Guild of Runewick supports your way to wisdom with some pure air and this engraved spoon. Come back to me once you have improved your knowledge.", item(227, 1, 999, "descriptionEn" = "Master of the Baker and Cook Guild of Runewick", "descriptionDe" = "Meister der Innung der Bäcker und Köche von Runewick")
 skill(cookingAndBaking) > 89, queststatus(714) = 14, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Die Innung der Köche und Bäcker von Runewick erhebt dich in den Rang eines Meisters. Du erhältst fünf Stück reiner Luft und ein besonderes Werkzeug."), item(2551, 5, 333), queststatus(714) = 15, "Ausgezeichnet. Wie ich sehe, tust du alles um dein Wissen zu erweitern. Die Innung der Köche und Bäcker von Runewick unterstützt deinen Weg zu Können und Weisheit mit etwas reiner Luft und diesem besonderen Kochlöffel. Komm erneut zu mir, wenn du mehr kannst.", item(227, 1, 999, "descriptionEn" = "Master of the Baker and Cook Guild of Runewick", "descriptionDe" = "Meister der Innung der Bäcker und Köche von Runewick")

@@ -72,7 +72,7 @@ itemShoes = 0
 -- Level 60: Expert / Experte. Reward: 20 Uncommon resources (e.g. gold ingots)
 -- Level 70: Adept / Adept. Reward: 5 Rare resources (e.g. merinium ingots)
 -- Level 80: Artisan / Artisane. Reward: 10 Rare resources (e.g. heartwood)
--- Level 90: Master / Meister. Reward: 5 Pure elements
+-- Level 90: Master / Meister. Reward: 5 Pure elements, master's tool
 -- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements
 -- Help
 "Help" -> inform("[Game Help] This NPC is Zlatxhol the potter. Keywords: quest")
@@ -209,7 +209,7 @@ skill(pottery) < 80, queststatus(707) = 13, english, town = Cadomyr, "quest", "m
 skill(pottery) < 80, queststatus(707) = 13, town = Cadomyr, "task", "adventure", "order", "rank" -> "I'm proud to sssee you Adept. Isss hard work to becomes a massster potter.", inform("[Guild rank] You need skill level 80 in pottery to advance in rank of the Pottery Guild.")
 skill(pottery) < 80, queststatus(707) = 13, town = Cadomyr, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Ess issst mir eine Ehre einen Adepten der Gilde sszu ssehen. Ich weisss, issst harte Arbeit um Meister der Töpfer ssszu werden, sssz.", inform("[Zunftrang] Du brauchst Level 80 in Töpfern um in der Töpferinnung aufzusteigen.")
 
--- Level 90: Master / Meister. Reward: 5 Pure elements
+-- Level 90: Master / Meister. Reward: 5 Pure elements, master's tool
 skill(pottery) > 89, queststatus(707) = 14, english, town = Cadomyr, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Master with the Pottery Guild of Cadomyr. You are awarded five pieces of pure fire and a special set of tongs."), item(2553, 5, 333), queststatus(707) = 15, "You did well for honour and glory of our guild and the Queen, Ssss. The Pottery Guild of Cadomyr sssupportsss your effortsss with some pure fire and this special tool. Come back to me once you are more experienced.", item(2140, 1, 999, "descriptionEn" = "Master of the Pottery Guild of Cadomyr", "descriptionDe" = "Meister der Toepferinnung von Cadomyr")
 skill(pottery) > 89, queststatus(707) = 14, town = Cadomyr, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Master with the Pottery Guild of Cadomyr. You are awarded five pieces of pure fire and a special set of tongs."), item(2553, 5, 333), queststatus(707) = 15, "You did well for honour and glory of our guild and the Queen, Ssss. The Pottery Guild of Cadomyr sssupportsss your effortsss with some pure fire and thins special tool. Come back to me once you are more experienced.", item(2140, 1, 999, "descriptionEn" = "Master of the Pottery Guild of Cadomyr", "descriptionDe" = "Meister der Toepferinnung von Cadomyr")
 skill(pottery) > 89, queststatus(707) = 14, town = Cadomyr, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Zunftrang] Die Töpferinnung von Cadomyr erhebt dich in den Rang eines Meisters. Du erhältst fünf Stück reines Feuer und eine besondere Zange."), item(2553, 5, 333), queststatus(707) = 15, "Sssehr gut. Du bringst der Töpferinnung und der Königin Ehre und Ruhm. Wir sssind stolzz dir mit etwas reinem Feuer und dieser speziellen Zange sszu helfen. Ich ssseh dich wieder, sssobald du erfahrener bist.", item(2140, 1, 999, "descriptionEn" = "Master of the Pottery Guild of Cadomyr", "descriptionDe" = "Meister der Toepferinnung von Cadomyr")
@@ -242,7 +242,7 @@ english, "quest", "mission" -> "The Pottery Assssociation isss restricted to Cad
 -- Additional talk
 english, "rosalie", "edwards" -> "The Queen Rosalie Edwards isss mother of Cadomyr, asss Tanora isss mother of childrensss of the ssssea.", "I'm proud to ssserve the Queen as a craftsmen.", "Hail the Queen!", "All pottery in the palace was made by our guild."
 "queen" -> "The Queen Rosalie Edwards isss mother of Cadomyr, asss Tanora isss mother of childrensss of the ssssea.", "I'm proud to ssserve the Queen as a craftsmen.", "Hail the Queen!", "All pottery in the palace was made by our guild."
-"rosalie", "edwards", "König" -> "Die Königin Rosalie Edwards issst Mutter vons Cadomyr ssso wie Tanora issst Mutter von Kinder der Sssee.", "Ich bin stolz der Königing als Handwerker zu dienen.", "Hoch lebe die Königin!", "Alle Töpferwaren im Palast stammen von unserer Innung."
+"rosalie", "edwards", "König" -> "Die Königin Rosalie Edwards issst Mutter vons Cadomyr ssso wie Tanora issst Mutter von Kinder der Sssee.", "Ich bin stolz der Königin als Handwerker zu dienen.", "Hoch lebe die Königin!", "Alle Töpferwaren im Palast stammen von unserer Innung."
 
 english, "tanora" -> "Tanora isss mother of childrensss of ssssea.", "Temple of Tanora isss in west of Cadomyr."
 "Tanora" -> "Tanora issst Mutter der Kinder der Sssee.", "Den Tempel Tanoras findest du im Westen der Stadt, sssz."
