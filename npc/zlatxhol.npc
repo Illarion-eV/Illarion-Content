@@ -76,8 +76,8 @@ itemShoes = 0
 -- Level 100: Grandmaster / Großmeister. Reward: 10 Pure elements, amulet
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Zlatxhol the potter. Keywords: Hello, quest.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Zlatxhol der Töpfer. Schlüsselwörter: Hallo, Quest.")
+"Help" -> inform("[Game Help] This NPC is Zlatxhol the potter. Keywords: Hello, quest, potter.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Zlatxhol der Töpfer. Schlüsselwörter: Hallo, Quest, Töpfer.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetingsss to you.", "Yess, greetingss.", "Blessingss of the Mother upon you, greetingss"
