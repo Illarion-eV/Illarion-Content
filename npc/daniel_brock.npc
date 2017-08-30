@@ -66,7 +66,7 @@ itemShoes = 53
 -- Level 10: Novice / Anfänger. Reward: 10 Raw materials (e.g. coal)
 -- Level 20: Apprentice / Lehrling. Reward: 20 Raw materials (e.g. wool)
 -- Level 30: Initiate / Initiat. Reward: 10 Intermediate products (e.g. boards)
--- Level 40: Journeyman / Geselle. Reward: 20 Intermediate products (e.g. thread)
+-- Level 40: Journeyman / Geselle. Reward: 20 Intermediate products (e.g. thread), certificate
 -- Level 50: Specialist / Spezialist. Reward: 10 Uncommon resources (e.g. handles)
 -- Level 60: Expert / Experte. Reward: 20 Uncommon resources (e.g. gold ingots)
 -- Level 70: Adept / Adept. Reward: 5 Rare resources (e.g. merinium ingots)
@@ -179,7 +179,7 @@ skill(carpentry) < 30, queststatus(713) = 8, english, town = Runewick, "quest", 
 skill(carpentry) < 30, queststatus(713) = 8, town = Runewick, "task", "adventure", "order", "rank" -> "Work on! You have to improve your skills in carpentry to be eligible for a promotion. Your current rank is Apprentice."
 skill(carpentry) < 30, queststatus(713) = 8, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Weiterarbeiten! Du musst dein Können im Schreinerhandwerk verbessern, um befördert zu werden. Du wirst im Rang eines Lehrlings geführt."
 
--- Level 40: Journeyman / Geselle. Reward: 20 Intermediate products (e.g. thread)
+-- Level 40: Journeyman / Geselle. Reward: 20 Intermediate products (e.g. thread), certificate
 skill(carpentry) > 39, queststatus(713) = 9, english, town = Runewick, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Journeyman with the Carpentry Association of Runewick. You are awarded twenty apple wood boards."), item(2716, 20, 333), queststatus(713) = 10, "Good job. I see you really worked hard. The Carpentry Association of Runewick supports your efforts with some apple wood boards. Come back to me once your are more experienced."
 skill(carpentry) > 39, queststatus(713) = 9, town = Runewick, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Journeyman with the Carpentry Association of Runewick. You are awarded twenty apple wood boards."), item(2716, 20, 333), queststatus(713) = 10, "Good job. I see you really worked hard. The Carpentry Association of Runewick supports your efforts with some apple wood boards. Come back to me once your are more experienced."
 skill(carpentry) > 39, queststatus(713) = 9, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Die Schreinerinnung von Runewick erhebt dich in den Rang eines Gesellens. Du erhältst zwanzig Apfelholzbretter."), item(2716, 20, 333), queststatus(713) = 10, "Gut gemacht. Wie ich sehe, hast du hart gearbeitet. Die Schreinerinnung von Runewick unterstützt deine Bemühungen mit einigen Apfelholzbrettern. Komm erneut zu mir, wenn du erfahrener bist."

@@ -66,7 +66,7 @@ itemShoes = 53
 -- Level 10: Novice / Anfänger. Reward: 10 Raw materials (e.g. coal)
 -- Level 20: Apprentice / Lehrling. Reward: 20 Raw materials (e.g. wool)
 -- Level 30: Initiate / Initiat. Reward: 10 Intermediate products (e.g. boards)
--- Level 40: Journeyman / Geselle. Reward: 20 Intermediate products (e.g. thread)
+-- Level 40: Journeyman / Geselle. Reward: 20 Intermediate products (e.g. thread), certificate
 -- Level 50: Specialist / Spezialist. Reward: 10 Uncommon resources (e.g. handles)
 -- Level 60: Expert / Experte. Reward: 20 Uncommon resources (e.g. gold ingots)
 -- Level 70: Adept / Adept. Reward: 5 Rare resources (e.g. merinium ingots)
@@ -179,7 +179,7 @@ skill(finesmithing) < 30, queststatus(710) = 8, english, town = Galmair, "quest"
 skill(finesmithing) < 30, queststatus(710) = 8, town = Galmair, "task", "adventure", "order", "rank" -> "Please improve your finesmithing skills. The Finesmithing Syndicate of Galmair cannot promote you beyond your current rank Apprentice."
 skill(finesmithing) < 30, queststatus(710) = 8, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Verbessere bitte deine Feinschmiedefertigkeit. Das Feinschmiedesyndikat von Galmair kann dich so nicht befördern. Du wirst im Rang eines Lehrlings geführt."
 
--- Level 40: Journeyman / Geselle. Reward: 20 Intermediate products (e.g. thread)
+-- Level 40: Journeyman / Geselle. Reward: 20 Intermediate products (e.g. thread), certificate
 skill(finesmithing) > 39, queststatus(710) = 9, english, town = Galmair, "quest", "mission" -> inform("[Guild rank] You advance to the rank of Journeyman with the Finesmithing Syndicate of Galmair. You are awarded twenty silver ingots."), item(104, 20, 333), queststatus(710) = 10, "I acknowledge your progress and the Finesmithing Syndicate of Galmair has decided to support your business with some silver ingots. Please return to me once you are more experienced."
 skill(finesmithing) > 39, queststatus(710) = 9, town = Galmair, "task", "adventure", "order", "rank" -> inform("[Guild rank] You advance to the rank of Journeyman with the Finesmithing Syndicate of Galmair. You are awarded twenty silver ingots."), item(104, 20, 333), queststatus(710) = 10, "I acknowledge your progress and the Finesmithing Syndicate of Galmair has decided to support your business with some silver ingots. Please return to me once you are more experienced."
 skill(finesmithing) > 39, queststatus(710) = 9, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> inform("[Gildenrang] Das Feinschmiedesyndikat von Galmair erhebt dich in den Rang eines Gesellens. Du erhältst zwanzig Silberbarren."), item(104, 20, 333), queststatus(710) = 10, "Ich erkenne deinen Fortschritt an. Das Feinschmiedesyndikat von Galmair hat beschlossen, dein Geschäft mit diesen Silberbarren zu fördern. Bitte suche mich erneut auf, wenn du erfahrener bist."
