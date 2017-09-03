@@ -74,17 +74,23 @@ function M.learn(user, skill, actionPoints, learnLimit)
                     user:increaseMinorSkill(skill, realIncrease)
 
                 else --Level up!
+                
                     user:increaseMinorSkill(skill, realIncrease) --Increase the skill
-
+                    local skillstring = user:getSkillName(skill)
+                    
                     if user:getType() == 0 and user:getQuestProgress(154) ~= 1 then --Only players get an inform once
 
-                        local skillstring = user:getSkillName(skill)
-                        common.InformNLS(user, "[Levelaufstieg] Deine Fertigkeit '"..skillstring.."' hat sich soeben erhöht. Drücke 'C' um deine Fertigkeiten anzeigen zu lassen. Denke daran, dass es nicht nötig ist, ununterbrochen zu arbeiten, um schneller in Fertigkeiten aufzusteigen.", "[Level up] Your skill '"..skillstring.."' just increased. Hit 'C' to review your skills. Keep in mind that it is not necessary to work continously without rest to advance faster in skills.")
+                        local callbackSkill = function() end --empty callback
+                        local dialogTitle = common.GetNLS(user,"Levelaufstieg", "Level up")
+                        local dialogText = common.GetNLS(user,
+                        "Deine Fertigkeit '"..skillstring.."' hat sich soeben erhöht. Drücke 'C' um deine Fertigkeiten anzeigen zu lassen. Das Fähigkeitensystem Illarions basiert auf 'Learning by doing'. Dein Charakter wird also besser in dem, was er tut. Dein Charakter kann mit der Zeit von einem Anfänger im Handwerk zu einem Meister werden, wodurch er dann eine größere Vielfalt von Gegenständen besserer Qualität herstellen kann. Ein Charakter kann auch Kampffähigkeiten entwickeln und dadurch lernen, bessere Waffen zu halten oder exotische Rüstung zu tragen.\n\nJe mehr Handlungen du pro Zeit ausführst desto weniger lernst du von jeder Handlung. Unter dem Strich lernt aber jeder Charakter gleich viel über die Zeit. Ein Charakter kann einen hohen Erschöpfungsgrad senken indem er/sie Handlungen ausführt, die nicht von Fähigkeiten abhänging sind, wie mit anderen Charaktern zu reden oder die Spielwelt zu erforschen. Wir haben dieses System so konstruiert, um den Spielern die Möglichkeit zu geben, so viel Zeit in Rollenspiel oder Training zu stecken wie sie möchten, ohne dass eine Art Illarion zu spielen vom Spiel bevorzugt wird.",
+                        "Your skill '"..skillstring.."' just increased. Hit 'C' to review your skills. Illarion's skill system is based on 'learning by doing'. As your character practices certain actions, they begin to improve. Over time your character may develop from an apprentice crafter to a master, allowing him/her to create a larger variety of items at a higher quality. A character may also develop combat skills, improving his/her ability to weild more advanced weapons or wear exotic armour.\n\n The more actions you do over time, the less you learn from each action. This way, it is on you how much time you want to invest on training your skills, the result after a given time will be the same. A character can reverse a 'high' degree of mental fatigue by performing tasks which are not skill-dependant such as talking to other characters and exploring. We have designed the skill system in this way to give players the opportunity to roleplay or train as much as they want without one style of playing being favoured by the game.")
+                        local dialogSkill = MessageDialog(dialogTitle, dialogText, callbackSkill)
+                        user:requestMessageDialog(dialogSkill)
                         user:setQuestProgress(154, 1) --Remember that we already informed the player
-
+            
                     elseif user:getType() == 0 then
 
-                        local skillstring = user:getSkillName(skill)
                         common.TempInformNLS(user, skillstring.." +1", skillstring.." +1")
 
                     end
