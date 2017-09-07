@@ -85,7 +85,7 @@ local function returnFox()
     
     if #foxes ~= 0 then
         for _,fox in ipairs(foxes) do
-            fox:talk(Character.say, "#me schaut sich erschrocken um und rennt zurÃ¼ck.",
+            fox:talk(Character.say, "#me schaut sich erschrocken um und rennt zurück.",
                 "#me get frightened and runs back.")
             fox.movepoints = fox.movepoints - 0
             fox.waypoints:addWaypoint(denEntrance)
@@ -144,7 +144,7 @@ local function createPupFox()
     fox= world:createMonster(601, position(1,1,0), 0)
     fox:warp(denEntrance) -- hack to show model, to work around a client issue
     fox.movepoints = fox.movepoints - 30
-    fox:talk(Character.say, "#me gÃ¤hnt.",
+    fox:talk(Character.say, "#me gähnt.",
         "#me yawns.")
     fox.waypoints:addWaypoint(posBones1)
     fox.waypoints:addWaypoint(posBones2)
@@ -160,14 +160,14 @@ function M.tryFeeding(Item, char)
     if feededFoxes > 0 then
         world:createItemFromItem(Item, refuseFeedingField, true)
         world:erase(Item, Item.number)
-        common.InformNLS(char, "Wart am Besten ab, bis alle gefressen haben, bevor du erneut fÃ¼tterst.", "Wait untill all pups have eaten before you fed again.")
+        common.InformNLS(char, "Wart am Besten ab, bis alle gefressen haben, bevor du erneut fütterst.", "Wait untill all pups have eaten before you fed again.")
         return
     end
 
     if isFeeding() == true then
         world:createItemFromItem(Item, refuseFeedingField, true)
         world:erase(Item, Item.number)
-        common.InformNLS(char, "Gerade wurde gefÃ¼ttert. Wart noch etwas.", "Feeding was short before. Please wait a minute.")
+        common.InformNLS(char, "Gerade wurde gefüttert. Wart noch etwas.", "Feeding was short before. Please wait a minute.")
         return
     end
     
@@ -175,7 +175,7 @@ function M.tryFeeding(Item, char)
         -- reject wrong items
         world:createItemFromItem(Item, refuseFeedingField, true)
         world:erase(Item, Item.number)
-         common.InformNLS(char, "So was fressen FÃ¼chse nicht.", "Foxes don't eat that.")
+         common.InformNLS(char, "So was fressen Füchse nicht.", "Foxes don't eat that.")
        return
     end
 
@@ -183,7 +183,7 @@ function M.tryFeeding(Item, char)
         -- reject not enough items
         world:createItemFromItem(Item, refuseFeedingField, true)
         world:erase(Item, Item.number)
-         common.InformNLS(char, "Das reicht nicht fÃ¼r fÃ¼nf FÃ¼chse.", "That's not enough for five foxes.")
+         common.InformNLS(char, "Das reicht nicht für fünf Füchse.", "That's not enough for five foxes.")
        return
     end
 
@@ -191,7 +191,7 @@ function M.tryFeeding(Item, char)
         -- reject not enough items
         world:createItemFromItem(Item, refuseFeedingField, true)
         world:erase(Item, Item.number)
-         common.InformNLS(char, "Keiner interessiert sich fÃ¼r das Futter. Wart bis die Welpen wieder hungrig sind.", "Nobody is interested. Maybe the pups are not hungry enough yet.")
+         common.InformNLS(char, "Keiner interessiert sich für das Futter. Wart bis die Welpen wieder hungrig sind.", "Nobody is interested. Maybe the pups are not hungry enough yet.")
        return
     end
 
@@ -212,7 +212,7 @@ function M.foxAbortRoute(fox)
     if fox.pos == pupSpot1 or fox.pos == pupSpot2 or fox.pos == pupSpot3 or fox.pos == pupSpot4 or fox.pos == motherSpot then
         if feedTime == 20 then -- mother fox
             common.TurnTo(fox,emptyPlate)
-            fox:talk(Character.say, "#me schnÃ¼ffelt am Futter, bellt und frisst an einem StÃ¼ck.",
+            fox:talk(Character.say, "#me schnüffelt am Futter, bellt und frisst an einem Stück.",
                 "#me sniffs at the feeding, barks and chews on one pice.")
             local feeding = world:getItemOnField(emptyPlate)
             world:erase(feeding, 1)
