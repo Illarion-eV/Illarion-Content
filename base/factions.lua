@@ -389,9 +389,9 @@ function M.setSpecialRank(player, rank)
         if rankpoints >= (M.highestRank-1)*100 then
             player:setQuestProgress(200, tonumber(rank));
             if rank == 0 then
-                inform = common.GetNLS(player,"Ihr wurdet degradiert und habt nun keinen speziellen Rang mehr.","You have been demoted and have no special rank anymore.")
+                inform = common.GetNLS(player,"Du wurdest degradiert und hast nun keinen speziellen Rang mehr.","You have been demoted and have no special rank anymore.")
             else
-                inform = common.GetNLS(player,"Ihr wurdet befördert und seid nun "..M.getRank(player)..".","You have been promoted and are now "..M.getRank(player)..".");
+                inform = common.GetNLS(player,"Du wurdest befördert und bist nun "..M.getRank(player)..".","You have been promoted and are now "..M.getRank(player)..".");
             end
             player:inform(inform)
             return true;
@@ -572,7 +572,7 @@ function leaveFaction(originator, Faction, thisNPC)
 
     M.setFaction(originator,Faction); --write fv in Questprogress
 
-    gText="Ihr gehört nun keinem Reich mehr an. Das bedeutet das Ihr frei, aber auf Euch selbst gestellt seid. Viel Glück.";
+    gText="Ihr gehört nun keinem Reich mehr an. Das bedeutet das ihr frei, aber auf euch selbst gestellt seid. Viel Glück.";
     eText="You're now not belonging to any realm. This means you're free but also on your own. Good luck.";
     outText=common.GetNLS(originator,gText,eText);
     thisNPC:talk(Character.say, outText);

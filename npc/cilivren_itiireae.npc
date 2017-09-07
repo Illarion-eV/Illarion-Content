@@ -71,9 +71,9 @@ itemShoes = 697
 -- 10: Quest 3 taken - kill ten rats
 -- 11-20: killing ten rats
 -- 21: Quest 3 solved, reward: 2000 cp, +5 rankpoints
--- 22: Quest 4 taken - collect fifteen furs
--- 23: Quest 4 solved - reward: 2000cp, +5 rankpoints
--- 24: Quest 5 taken -  kill ten rats
+-- 22: Quest 4 taken - check 10 poisoned carrots
+-- 23: Quest 4 done - back to Cilivren
+-- 24: Quest 4 solved - reward: 2000cp, +5 rankpoints, Quest 5 taken -  kill ten rats
 -- 25-34: killing ten rats
 -- 35 Quest 5 solved -  reward: 2000 cp, +5 rankpoints
 -- 36 Quest 6  taken -  Kill ratman
@@ -89,9 +89,9 @@ itemShoes = 697
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be Greeted.", "Be Greeted in the name of the Five. Have you come to help with our rat mission?"
 "Hiho", "Hallo", "Hey", "Greeb" ->"Begrüßt.", "Sei gegrüßt im Namen der Fünf. Bist du gekommen uns bei der Rattenmission zu helfen?"
 "Farewell", "Bye", "Fare well", "See you" -> "May the five guide you.", "Farewell and safekeeping till we cross paths again."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Mögen die Fünf mit Dir sein.", "Lebe wohl und sichere Wege bis wir uns wiedersehen."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Mögen die Fünf mit dir sein.", "Lebe wohl und sichere Wege bis wir uns wiedersehen."
 english, "Ciao", "Adieu", "Au revoir" -> "May the five guide you.", "Farewell and safekeeping till we cross paths again."
-"Ciao", "Adieu", "Au revoir" -> "Mögen die Fünf mit Dir sein.", "Lebe wohl und sichere Wege bis wir uns wiedersehen."
+"Ciao", "Adieu", "Au revoir" -> "Mögen die Fünf mit dir sein.", "Lebe wohl und sichere Wege bis wir uns wiedersehen."
 "How are you", "How feel", "How do you do" -> "I am most blessed."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich bin reich gesegnet."
 "your name", "who are you", "who art thou" -> "My name is Cilivren Itiireae, I am the Guardian of the Fields."
@@ -115,9 +115,9 @@ town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nur Jene aus dem
 
 -- fix if quest started and sent to NPC by Florian
 queststatus(188) > 0, queststatus(820) = 21, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 22, "Ah, Florain sent you, but you already asked me for something to do."
-queststatus(188) > 0, queststatus(820) = 21, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 22, "Ah, Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(188) > 0, queststatus(820) = 21, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 22, "Ah, Florain hat euch geschickt aber ihr habt mich bereits nach einer Aufgabe gefragt."
 queststatus(188) > 0, queststatus(820) = 21, town = Runewick, "task", "adventure", "order" -> queststatus(820) = 22, "Ah, Florain sent you, but you already asked me for something to do."
-queststatus(188) > 0, queststatus(820) = 21, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 22, "Ah, Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(188) > 0, queststatus(820) = 21, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 22, "Ah, Florain hat euch geschickt aber ihr habt mich bereits nach einer Aufgabe gefragt."
 
 -- 1st quest: Kill five rats, player receives rope
 -- Give out quest 1 and a rope
@@ -126,10 +126,9 @@ queststatus(188) = 0, queststatus(820) = 21, town = Runewick, "quest", "mission"
 queststatus(188) = 0, queststatus(820) = 21, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Save The Field I. (Place the rope in your belt or hand and double click it to use it in front of the well)"), item(2760, 1, 333), queststatus(188) = 1, queststatus(820) = 22, "The rats are carrying off the farmers crops, please descend into the cursed well they have taken over and kill five rats. I will provide you with a rope."
 queststatus(188) = 0, queststatus(820) = 21, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Rette die Äcker I. (Lege das Seil in deinen Gürtel oder in die Hand und doppelklicke darauf um es zu benutzen)"), item(2760, 1, 333), queststatus(188) = 1, queststatus(820) = 22, "Die Ratten verschleppen die Ernte der Bauern. Bitte steige in diesen verwünschten Schacht hinab und töte fünf Ratten, da sie überhand genommen haben."
 
-queststatus(188) = 0, english, town = Runewick,"quest", "mission" -> inform("[New quest] Save The Field I. (Place the rope in your belt or hand and double click it to use it in front of the well)"), item(2760, 1, 333), queststatus(188) = 1, "The rats are carrying off the farmers crops, please descend into the cursed well they have taken over and kill five rats. I will provide you with a rope."
-queststatus(188) = 0, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Rette die Äcker I. (Lege das Seil in deinen Gürtel oder in die Hand und doppelklicke darauf um es zu benutzen)"), item(2760, 1, 333), queststatus(188) = 1, "Die Ratten verschleppen die Ernte der Bauern. Bitte steige in diesen verwünschten Schacht hinab und töte fünf Ratten, da sie überhand genommen haben."
-queststatus(188) = 0, town = Runewick, "task", "adventure" -> inform("[New quest] Save The Field I. (Place the rope in your belt or hand and double click it to use it in front of the well)"), item(2760, 1, 333), queststatus(188) = 1, "The rats are carrying off the farmers crops, please descend into the cursed well they have taken over and kill five rats. I will provide you with a rope."
-queststatus(188) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rette die Äcker I. (Lege das Seil in deinen Gürtel oder in die Hand und doppelklicke darauf um es zu benutzen)"), item(2760, 1, 333), queststatus(188) = 1, "Die Ratten verschleppen die Ernte der Bauern. Bitte steige in diesen verwünschten Schacht hinab und töte fünf Ratten, da sie überhand genommen haben."
+queststatus(188) = 0, english, town = Runewick,"quest", "mission" -> inform("[New quest] Save The Field I. (Double click the rope to use it in front of the well.)"), item(2760, 1, 333), queststatus(188) = 1, "The rats are carrying off the farmers crops, please descend into the cursed well they have taken over and kill five rats. I will provide you with a rope."
+queststatus(188) = 0, town = Runewick, "task", "adventure" -> inform("[New quest] Save The Field I. (Double click the rope to use it in front of the well.)"), item(2760, 1, 333), queststatus(188) = 1, "The rats are carrying off the farmers crops, please descend into the cursed well they have taken over and kill five rats. I will provide you with a rope."
+queststatus(188) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> inform("[Neues Quest] Rette die Äcker I. (Nimm das Seil und klicke zweimal darauf, während du vor dem Brunnen stehst.)"), item(2760, 1, 333), queststatus(188) = 1, "Die Ratten verschleppen die Ernte der Bauern, da sie überhand genommen haben. Bitte steige in diesen verwünschten Schacht hinab und töte fünf Ratten."
 
 -- Quest 1 solved, reward: 2000cp, +5 rankpoints
 queststatus(188) = 6, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(188) = 7, rankpoints + 5, "#me smiles, glancing over the field to her right, 'Thank you perhaps you could assist more?'"
@@ -137,100 +136,90 @@ queststatus(188) = 6, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhälts
 
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(188) > 0, queststatus(188) < 6, english, town = Runewick, "quest", "mission" -> "The farmers can't withstand much more theft by the rats, please hurry up and kill five rats."
-queststatus(188) > 0, queststatus(188) < 6, town = Runewick, "quest", "mission" -> "Die Bauern können die Diebstähle der Ratten nicht mehr ertragen, bitte beeile Dich und töte fünf Ratten."
 queststatus(188) > 0, queststatus(188) < 6, town = Runewick, "task", "adventure" -> "The farmers can't withstand much more theft by the rats, please hurry up and kill five rats."
-queststatus(188) > 0, queststatus(188) < 6, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> "Die Bauern können die Diebstähle der Ratten nicht mehr ertragen, bitte beeile Dich und töte fünf Ratten."
+queststatus(188) > 0, queststatus(188) < 6, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> "Die Bauern können die Diebstähle der Ratten nicht mehr ertragen, bitte beeile Dich und töte fünf Ratten."
 
 -- 2nd quest: Collect ten rat furs
 -- Give out quest 2
 queststatus(188) = 7, english, town = Runewick, "quest", "mission" -> inform("[New quest] Save The Field II"), queststatus(188) = 8, "Please descend into the well again and harvest ten rat furs.  The tailors need it to make gloves."
-queststatus(188) = 7, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Rette die Äcker II"), queststatus(188) = 8, "Bitte steige nochmals in den Schacht hinab und sammle zehn Rattenfelle. Der Schneider braucht sie um Handschuhe zu machen."
 queststatus(188) = 7, town = Runewick, "task", "adventure" -> inform("[New quest] Save The Field II"), queststatus(188) = 8, "Please descend into the well again and harvest ten rat furs.  The tailors need it to make gloves."
-queststatus(188) = 7, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rette die Äcker II"), queststatus(188) = 8, "Bitte steige nochmals in den Schacht hinab und sammle zehn Rattenfelle. Der Schneider braucht sie um Handschuhe zu machen."
+queststatus(188) = 7, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> inform("[Neues Quest] Rette die Äcker II"), queststatus(188) = 8, "Bitte steige nochmals in den Schacht hinab und sammle zehn Rattenfelle. Der Schneider braucht sie um Handschuhe zu machen."
 
 -- Quest 2 solved, reward: 2000cp, +5 rankpoints
-queststatus(188) = 8,  item(2586, all) > 9, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, deleteItem(2586, 10), queststatus(188)= 9, rankpoints + 5, "The Archmage will be most pleased to hear of your assistance."
-queststatus(188) = 8,  item(2586, all) > 9, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, deleteItem(2586, 10), queststatus(188)= 9, rankpoints + 5, "Der Erzmagier wird über deine Hilfe sehr erfreut sein."
+queststatus(188) = 8,  item(2586, all) > 9, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, deleteItem(2586, 10), queststatus(188)= 9, rankpoints + 5, "Nice soft furs. The Archmage will be most pleased to hear of your assistance."
+queststatus(188) = 8,  item(2586, all) > 9, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, deleteItem(2586, 10), queststatus(188)= 9, rankpoints + 5, "Schöne weiche Felle. Der Erzmagier wird über deine Hilfe sehr erfreut sein."
 
 -- Quest 2 taken but not solved, repeat the instructions
 queststatus(188) = 8, item(2586, all) < 10, town = Runewick, english, "quest", "mission" -> "The tailors have a pressing order for gloves, please bring me ten rat furs."
-queststatus(188) = 8, item(2586, all) < 10, town = Runewick, "quest", "mission" -> "Die Schneider haben eine dringende Bestellung für Handschuhe. Bitte bringe mir zehn Rattenfelle."
 queststatus(188) = 8, item(2586, all) < 10, town = Runewick, "task", "adventure" -> "The tailors have a pressing order for gloves, please bring me ten rat furs."
-queststatus(188) = 8, item(2586, all) < 10, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> "Die Schneider haben eine dringende Bestellung für Handschuhe. Bitte bringe mir zehn Rattenfelle."
+queststatus(188) = 8, item(2586, all) < 10, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> "Die Schneider haben eine dringende Bestellung für Handschuhe. Bitte bringe mir zehn Rattenfelle."
 
 -- 3rd quest: Kill ten rats
 -- Give out quest 3
-queststatus(188) = 9, town = Runewick, english, "quest", "mission" -> inform("[New quest] Save The Field III"), queststatus(188) = 10, "Please kill ten rats to further help our farmers."
-queststatus(188) = 9, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Rette die Äcker III"), queststatus(188) = 10, "Bitte töte zehn Ratten um unseren Bauern zu helfen."
-queststatus(188) = 9, town = Runewick, "task", "adventure" -> inform("[New quest] Save The Field III"), queststatus(188) = 10, "Please kill ten rats to further help our farmers."
-queststatus(188) = 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rette die Äcker III"), queststatus(188) = 10, "Bitte töte zehn Ratten um unseren Bauern zu helfen."
+queststatus(188) = 9, town = Runewick, english, "quest", "mission" -> inform("[New quest] Save The Field III"), queststatus(188) = 10, "The harvest has not been saved yet. Please kill ten rats to further help our farmers again."
+queststatus(188) = 9, town = Runewick, "task", "adventure" -> inform("[New quest] Save The Field III"), queststatus(188) = 10, "The harvest has not been saved yet. Please kill ten rats to further help our farmers again."
+queststatus(188) = 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> inform("[Neues Quest] Rette die Äcker III"), queststatus(188) = 10, "Noch ist die Ernte nicht sicher. Bitte töte noch mal zehn Ratten um unseren Bauern zu helfen."
 
 -- Quest 3 solved, reward: 20 silver, +5 rankpoints
-queststatus(188) = 20, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(188) = 21, rankpoints + 5, "The Archmage will be most pleased to hear of your assistance."
-queststatus(188) = 20, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, queststatus(188) = 21, rankpoints + 5, "Der Erzmagier wird über deine Hilfe sehr erfreut sein."
+queststatus(188) = 20, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(188) = 21, rankpoints + 5, "One can see rats not so often now. The Archmage will be most pleased to hear of your assistance."
+queststatus(188) = 20, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, queststatus(188) = 21, rankpoints + 5, "Man sieht jetzt Ratten viel selterer. Der Erzmagier wird über deine Hilfe sehr erfreut sein."
 
 -- Quest 3 taken but not solved, repeat the instructions
 queststatus(188) > 9, queststatus(188) < 20, town = Runewick, english, "quest", "mission" -> "Please kill ten rats to further help our farmers."
-queststatus(188) > 9, queststatus(188) < 20, town = Runewick, "quest", "mission" -> "Bitte töte zehn Ratten um unseren Bauern zu helfen."
 queststatus(188) > 9, queststatus(188) < 20, town = Runewick, "task", "adventure" -> "Please kill ten rats to further help our farmers."
-queststatus(188) > 9, queststatus(188) < 20, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> "Bitte töte zehn Ratten um unseren Bauern zu helfen."
+queststatus(188) > 9, queststatus(188) < 20, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> "Bitte töte zehn Ratten um unseren Bauern zu helfen."
 
--- 4th quest collect 15 fur from cistern rats
+-- 4th quest check 5 rat baits
 -- Giving out quest 4
-queststatus(188) = 21, english, town = Runewick, "quest", "mission" -> inform("[New quest] Save The Fields IV"), queststatus(188) = 22, "The tailors have a pressing order for pants, please bring me fifteen rat furs."
-queststatus(188) = 21, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Rette die Äcker IV"), queststatus(188) = 22, "Bitte steige nochmals in den Schacht hinab und sammle fünfzehn Rattenfelle. Der Schneider braucht sie um Beinkleider zu machen."
-queststatus(188) = 21, town = Runewick, "task", "adventure" -> inform("[New quest] Save The Fields IV"), queststatus(188) = 22, "The tailors have a pressing order for pants, please bring me fifteen rat furs."
-queststatus(188) = 21, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rette die Äcker IV"), queststatus(188) = 22, "Bitte steige nochmals in den Schacht hinab und sammle fünfzehn Rattenfelle. Der Schneider braucht sie um Beinkleider zu machen."
+queststatus(188) = 21, english, town = Runewick, "quest", "mission" -> inform("[New quest] Save The Fields IV - Find and 'use' 5 poisoned rat bails in the cistern."), queststatus(253) = 0, queststatus(188) = 22, "Recently I got some carrots from our farmer. I poisoned them and distributed them in the cistern. Please verify if thee rats touched them. But carry any gloves if you touch the bails."
+queststatus(188) = 21, town = Runewick, "task", "adventure" -> inform("[New quest] Save The Fields IV - Find and 'use' 5 poisoned rat bails in the cistern."), queststatus(253) = 0, queststatus(188) = 22, "Recently I got some carrots from our farmer. I poisoned them and distributed them in the cistern. Please verify if thee rats touched them. But carry any gloves if you touch the bails.."
+queststatus(188) = 21, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> inform("[Neues Quest] Rette die Äcker IV - Finde und prüfe 5 Köder in der Zisterne. Benutze den Köder, um ihn zu prüfen."), queststatus(253) = 0, queststatus(188) = 22, "Ich habe vor kurzem einige Möhren von Bauern bekommen. Ich habe sie mit Gift präpariert und ausgelegt. Schau bei mindestens 5 der Köder nach, ob die Ratten es annehmen. Aber zieh irgendwelche Handschuhe an, wenn du sie anfasst!"
 
--- Quest 4 solved, 20 silver, +5 rankpoints
-queststatus(188) = 22, item(2586, all) > 14, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, deleteItem(2586, 15), queststatus(188) = 23, rankpoints + 5, "The Archmage will be most pleased to hear of your assistance."
-queststatus(188) = 22, item(2586, all) > 14, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, deleteItem(2586, 15), queststatus(188) = 23, rankpoints + 5, "Der Erzmagier wird über deine Hilfe sehr erfreut sein."
+-- Quest 4 taken but not started
+queststatus(188) = 22, queststatus(253) = 0, english, town = Runewick, ".+" -> inform("Find and 'use' 5 poisoned rat bails in the cistern. You must touch (use) the carrots."), "Wear gloves an check the bails. This way me may solve thr rat issue once and forever."
+queststatus(188) = 22, queststatus(253) = 0, town = Runewick, ".+" -> inform("Finde und prüfe 5 Köder in der Zisterne. Benutze den Köder, um ihn zu prüfen."), "Zieh Handschuhe an und prüf die Köder. Das ist unsere Chance den Ratten ein für alle Male beizukommen."
 
 -- Quest 4 taken but not finished
-queststatus(188) = 22, item(2586, all) < 15, town = Runewick, english, "quest", "mission" -> "The tailors have a pressing order for pants, please bring me fifteen rat furs."
-queststatus(188) = 22, item(2586, all) < 15, town = Runewick, "quest", "mission" -> "Bitte steige nochmals in den Schacht hinab und sammle fünfzehn Rattenfelle. Der Schneider braucht sie um Beinkleider zu machen."
-queststatus(188) = 22, item(2586, all) < 15, town = Runewick, "task", "adventure" -> "The tailors have a pressing order for pants, please bring me fifteen rat furs."
-queststatus(188) = 22, item(2586, all) < 15, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> "Bitte steige nochmals in den Schacht hinab und sammle fünfzehn Rattenfelle. Der Schneider braucht sie um Beinkleider zu machen."
+queststatus(188) = 22, town = Runewick, english, "quest", "mission" -> "Oh je! You say the rats don't touch the baits? Please check some more."
+queststatus(188) = 22, town = Runewick, "task", "adventure", "poison", "carrot" -> "Oh je! You say the rats don't touch the baits? Please check some more."
+queststatus(188) = 22, town = Runewick, "Auftrag", "Aufgabe", "quest", "mission", "Abenteuer", "Gift", "Möhre" -> "Oh je! Du sagst, die Ratten verschähen die Köder? Bitte schau dir noch einige mehr an."
 
--- Quest 5 Kill ten rats
+
+-- Quest 4 solved, 20 silver, +5 rankpoints
+-- Quest 5 kill ten rats
 -- Give out quest 5
-queststatus(188) = 23, town = Runewick, english, "quest", "mission" -> inform("[New quest] Save The Fields V"), queststatus(188) = 24, "To further help our realm, please kill ten rats."
-queststatus(188) = 23, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Rette die Äcker V"), queststatus(188) = 24, "Töte zehn Ratten um unserem Reich zu helfen."
-queststatus(188) = 23, town = Runewick, "task", "adventure" -> inform("[New quest] Save The Fields V"), queststatus(188) = 24, "To further help our realm, please kill ten rats."
-queststatus(188) = 23, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rette die Äcker V"), queststatus(188) = 24, "Töte zehn Ratten um unserem Reich zu helfen."
+queststatus(188) = 23, town = Runewick, english, "quest", "mission" -> inform("[Solved and new quest] Save The Fields V"), queststatus(188) = 24, "What a surprize, the rats must be more intelligent than we thought! We must do anyting now. I can not think of anything better than to kill another ten rats now.", money + 2000, rankpoints + 5
+queststatus(188) = 23, town = Runewick, "task", "adventure", "poison", "carrot" -> inform("[Solved and new quest] Save The Fields V"), queststatus(188) = 24, "What a surprize, the rats must be more intelligent than we thought! We must do anyting now. I can not think of anything better than to kill another ten rats now.", money + 2000, rankpoints + 5
+queststatus(188) = 23, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission", "Gift", "Möhre" -> inform("[Gelöstes und neues Quest] Rette die Äcker V"), queststatus(188) = 24, "Ich bin erstaunt, die Ratten sind scheinbar intelligenter, als wir dachten! Wir müssen etwas tun. Mir fällt jetzt auch nichts Besseres ein, als weitere zehn Ratten zu töten.", money + 2000, rankpoints + 5
 
 -- Quest 5 solved, 20 silver, +5 rankpoints
-queststatus(188) = 34, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(188) = 35, rankpoints + 5, "The Archmage will be most pleased to hear of your assistance."
-queststatus(188) = 34, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, queststatus(188) = 35, rankpoints + 5, "Der Erzmagier wird über deine Hilfe sehr erfreut sein."
+queststatus(188) = 34, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(188) = 35, rankpoints + 5, "We may not saved the world but our harvest. The Archmage will be most pleased to hear of your assistance."
+queststatus(188) = 34, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, queststatus(188) = 35, rankpoints + 5, "Wir haben vielleicht nicht die Welt gerettet, aber wohl unsere Ernte. Der Erzmagier wird über deine Hilfe sehr erfreut sein."
 
 -- Quest 5 taken but not solved
 queststatus(188) > 23, queststatus(188) < 34, town = Runewick, english, "quest", "mission" -> "For the safety of the crops, you still need to kill ten rats."
-queststatus(188) > 23, queststatus(188) < 34, town = Runewick, "quest", "mission" -> "Du musst noch zehn Ratten töten um die Ernte zu sichern."
 queststatus(188) > 23, queststatus(188) < 34, town = Runewick, "task", "adventure" -> "For the safety of the crops, you still need to kill ten rats."
-queststatus(188) > 23, queststatus(188) < 34, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> "Du musst noch zehn Ratten töten um die Ernte zu sichern."
+queststatus(188) > 23, queststatus(188) < 34, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> "Du musst noch zehn Ratten töten um die Ernte zu sichern."
 
 -- Quest 6  Kill Ratman Boss
 -- Give out Quest 6
 queststatus(188) = 35, english, town = Runewick, "quest", "mission" -> inform("[New quest] Save The Fields VI"), queststatus(188) = 36, "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
-queststatus(188) = 35, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Rette die Äcker VI"), queststatus(188) = 36, "Töte den Rattenmenschen in der Zisterne, er ist der Befehlshaber und trägt den Namen 'Schnüffler'. Vielleicht werden die Ratten sich dann zurückziehen!"
 queststatus(188) = 35, town = Runewick, "task", "adventure" -> inform("[New quest] Save The Fields VI"), queststatus(188) = 36, "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
-queststatus(188) = 35, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rette die Äcker VI"), queststatus(188) = 36, "Töte den Rattenmenschen in der Zisterne, er ist der Befehlshaber und trägt den Namen 'Schnüffler'. Vielleicht werden die Ratten sich dann zurückziehen!"
+queststatus(188) = 35, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> inform("[Neues Quest] Rette die Äcker VI"), queststatus(188) = 36, "Töte den Rattenmenschen in der Zisterne, er ist der Befehlshaber und trägt den Namen 'Schnüffler'. Vielleicht werden die Ratten sich dann zurückziehen!"
 
 -- Quest 6 solved, 30 silver, +10 rankpoints
 queststatus(188) = 37, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 30 silver coins."), money + 3000, queststatus(188) = 38, rankpoints + 10, "You have successfully helped save the crops, the Archmage and I are grateful."
 queststatus(188) = 37, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), money + 3000, queststatus(188) = 38, rankpoints + 10, "Du hast erfolgreich geholfen die Ernte zu beschützen, der Erzmagier und ich sind dankbar."
 
 -- Quest 6 taken but not finished
-queststatus(188) > 35, queststatus(188) < 37, town = Runewick, english, "quest", "mission" -> "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
-queststatus(188) > 35, queststatus(188) < 37, town = Runewick, "quest", "mission" -> "Töte den Rattenmenschen in der Zisterne, er ist der Befehlshaber und trägt den Namen 'Schnüffler'. Vielleicht werden die Ratten sich dann zurückziehen!"
-queststatus(188) > 35, queststatus(188) < 37, town = Runewick, "task", "adventure" -> "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
-queststatus(188) > 35, queststatus(188) < 37, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> "Töte den Rattenmenschen in der Zisterne, er ist der Befehlshaber und trägt den Namen 'Schnüffler'. Vielleicht werden die Ratten sich dann zurückziehen!"
+queststatus(188) = 36, town = Runewick, english, "quest", "mission" -> "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
+queststatus(188) = 36, town = Runewick, "task", "adventure" -> "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
+queststatus(188) = 36, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> "Töte den Rattenmenschen in der Zisterne, er ist der Befehlshaber und trägt den Namen 'Schnüffler'. Vielleicht werden die Ratten sich dann zurückziehen!"
 
 -- No more quests, just nice words of gratitude
 queststatus(188) = 38, town = Runewick, english, "quest", "mission" -> "Thank you once again. I have no more work for you."
-queststatus(188) = 38, town = Runewick, "quest", "mission" -> "Nochmals danke. Ich habe nichts weiter für Dich zu tun."
 queststatus(188) = 38, town = Runewick, "task", "adventure" -> "Thank you once again. I have no more work for you."
-queststatus(188) = 38, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> "Nochmals danke. Ich habe nichts weiter für Dich zu tun."
+queststatus(188) = 38, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> "Nochmals danke. Ich habe nichts weiter für Dich zu tun."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "My job is Guardian of the Fields, I help protect the farmers and their crops."

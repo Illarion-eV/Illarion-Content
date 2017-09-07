@@ -24,6 +24,7 @@ local gems = require("item.gems")
 local factionLeader = require("scheduled.factionLeader")
 local skillTransfer = require("base.skillTransfer")
 local areas = require("content.areas")
+local hairdresser = require("npc.hairdresser")
 
 -- Called after every player login
 
@@ -300,6 +301,9 @@ function M.onLogin( player )
 
     --A hack to display bars correctly
     player:increaseAttrib("foodlevel", -1)
+    
+    --hair messages
+    hairdresser.hairOnLogin(player)
 
     --Check regeneration script
     local found = player.effects:find(2)

@@ -1783,6 +1783,27 @@ function M.isInList(valueChecked, valueList)
 end
 
 --[[
+    \fn:    posInList
+    \brief: returns position of an valueChecked in the valueList
+
+    \attention: valueList must be a list!
+]]
+function M.posInList(valueChecked, valueList)
+    if valueChecked == nil then
+        return 0
+    end
+    if #valueList == nil or #valueList == 0 then
+        return 0
+    end
+    for i=1 , #valueList do
+        if valueChecked == valueList[i] then
+            return i
+        end
+    end
+    return 0
+end
+
+--[[
     \fn:    ListToNumber
     \brief: transforms a number list into a number sequence which can be stored for example as quest status
     \usage: list = {5,2,7,9,1};
@@ -2127,6 +2148,90 @@ function M.isSpecialItem(item)
         return true
     end
     return false
+end
+
+--[[Binary functions
+Checks whether bit n is set or not
+bitN must be a number in between 1 and 15 (limit 16 bit integer)
+@return bool: tue if set
+]]--
+function M.isBitSet(checkedValue, bitN)
+    local bitNumber = tonumber(bitN)
+    local valueNumber = tonumber(checkedValue)
+    if bitNumber == nil or valueNumber == nil then
+        return false
+    end
+    if bitNumber < 1 or bitNumber > 15 then
+        return false
+    end
+    local bitValue = math.pow( 2, bitNumber - 1 )
+    if bit32.band(valueNumber, bitValue) == 0 then
+        return false
+    end
+    return true
+end
+
+--[[Binary functions
+Set bit n
+bitN must be a number in between 1 and 15 (limit 16 bit integer)
+setBit must be a number 
+@return int: setValue
+]]--
+function M.addBit(setValue, bitN)
+    local bitNumber = tonumber(bitN)
+    local valueNumber = tonumber(setValue)
+    if bitNumber == nil or valueNumber == nil then
+        return nil
+    end
+    if bitNumber < 1 or bitNumber > 15 then
+        return valueNumber
+    end
+    if not M.isBitSet(valueNumber, bitNumber) then
+        valueNumber = valueNumber + math.pow( 2, bitNumber - 1 )
+    end
+    return valueNumber
+end
+
+--[[Binary functions
+Remove bit n
+bitN must be a number in between 1 and 15 (limit 16 bit integer)
+setBit must be a number 
+@return int: setValue
+]]--
+function M.removeBit(setValue, bitN)
+    local bitNumber = tonumber(bitN)
+    local valueNumber = tonumber(setValue)
+    if bitNumber == nil or valueNumber == nil then
+        return nil
+    end
+    if bitNumber < 1 or bitNumber > 15 then
+        return valueNumber
+    end
+    if M.isBitSet(valueNumber, bitNumber) then
+        valueNumber = valueNumber - math.pow( 2, bitNumber - 1 )
+    end
+    return valueNumber
+end
+
+--[[Binary functions
+Remove bit n
+setBit must be a number 
+@return int: number of bits = 1
+]]--
+function M.countBit(checkedValue)
+    local bitNumber = 1
+    local valueNumber = tonumber(checkedValue)
+    local countBit = 0
+    if valueNumber == nil then
+        return 0
+    end
+    for i=1 , 15 do
+        if bit32.band(valueNumber, bitNumber) > 0 then
+            countBit = countBit + 1
+        end
+        bitNumber = bitNumber * 2
+    end
+    return countBit
 end
 
 return M

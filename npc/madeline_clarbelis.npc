@@ -111,21 +111,21 @@ queststatus(333) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Stab" -> "Ihr sollt ge
 -- 2nd quest: Bring 10 RESOURCES
 -- fix
 queststatus(334) > 0, queststatus(820) = 13, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 14, "Ah Florain send you but you already ask me for something to do."
-queststatus(334) > 0, queststatus(820) = 13, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 14, "Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(334) > 0, queststatus(820) = 13, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 14, "Ah Florain hat euch geschickt aber ihr habt mich bereits nach einer Aufgabe gefragt."
 queststatus(334) > 0, queststatus(820) = 13, town = Runewick, "task", "adventure", "order" -> queststatus(820) = 14, "Ah Florain send you but you already ask me for something to do."
-queststatus(334) > 0, queststatus(820) = 13, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 14, "Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(334) > 0, queststatus(820) = 13, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 14, "Ah Florain hat euch geschickt aber ihr habt mich bereits nach einer Aufgabe gefragt."
 
 -- Give out quest 2
 queststatus(334) = 0, queststatus(820) = 13, english, "quest", "mission", "florain", "dreyndel" -> inform("[New quest] The Lazy Apprentice"), queststatus(334) = 1, queststatus(820) = 14, "Mistress Snow wants me to gather some herbs for her. I don't really feel like it though. If you get them for me, I'll give you a nice present. I need four foot leaves and two firnis blossoms."
-queststatus(334) = 0, queststatus(820) = 13, "quest", "mission", "florain", "dreyndel" -> inform("[Neues Quest] Der faule Lehrling"), queststatus(334) = 1, queststatus(820) = 14, "Meine Lehrerin Frau Snow möchte das ich Kräuter sammle. Aber ich habe nicht wirklich Lust dazu.Wenn Ihr mir die Kräuter sucht gebe ich Euch ein schönes Geschenk. Ich brauche vier Fussblatt und zwei Firnisblüten."
+queststatus(334) = 0, queststatus(820) = 13, "quest", "mission", "florain", "dreyndel" -> inform("[Neues Quest] Der faule Lehrling"), queststatus(334) = 1, queststatus(820) = 14, "Meine Lehrerin Frau Snow möchte das ich Kräuter sammle. Aber ich habe nicht wirklich Lust dazu.Wenn ihr mir die Kräuter sucht gebe ich euch ein schönes Geschenk. Ich brauche vier Fussblatt und zwei Firnisblüten."
 queststatus(334) = 0, queststatus(820) = 13, "task", "adventure" -> inform("[New quest] The Lazy Apprentice"), queststatus(334) = 1, queststatus(820) = 14, "Mistress Snow wants me to gather some herbs for her. I don't really feel like it though. If you get them for me, I'll give you a nice present. I need four foot leaves and two firnis blossoms."
-queststatus(334) = 0, queststatus(820) = 13, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der faule Lehrling"), queststatus(334) = 1, queststatus(820) = 14, "Meine Lehrerin Frau Snow möchte das ich Kräuter sammle. Aber ich habe nicht wirklich Lust dazu.Wenn Ihr mir die Kräuter sucht gebe ich Euch ein schönes Geschenk. Ich brauche vier Fussblatt und zwei Firnisblüten."
+queststatus(334) = 0, queststatus(820) = 13, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der faule Lehrling"), queststatus(334) = 1, queststatus(820) = 14, "Meine Lehrerin Frau Snow möchte das ich Kräuter sammle. Aber ich habe nicht wirklich Lust dazu.Wenn ihr mir die Kräuter sucht gebe ich euch ein schönes Geschenk. Ich brauche vier Fussblatt und zwei Firnisblüten."
 
 -- Give out quest 2
 queststatus(334) = 0, english, "quest", "mission" -> inform("[New quest] The Lazy Apprentice"), queststatus(334) = 1, "Mistress Snow wants me to gather some herbs for her. I don't really feel like it though. If you get them for me, I'll give you a nice present. I need four foot leaves and two firnis blossoms."
-queststatus(334) = 0, "quest", "mission" -> inform("[Neues Quest] Der faule Lehrling"), queststatus(334) = 1, "Meine Lehrerin Frau Snow möchte das ich Kräuter sammle. Aber ich habe nicht wirklich Lust dazu.Wenn Ihr mir die Kräuter sucht gebe ich Euch ein schönes Geschenk. Ich brauche vier Fussblatt und zwei Firnisblüten."
+queststatus(334) = 0, "quest", "mission" -> inform("[Neues Quest] Der faule Lehrling"), queststatus(334) = 1, "Meine Lehrerin Frau Snow möchte das ich Kräuter sammle. Aber ich habe nicht wirklich Lust dazu.Wenn ihr mir die Kräuter sucht gebe ich euch ein schönes Geschenk. Ich brauche vier Fussblatt und zwei Firnisblüten."
 queststatus(334) = 0, "task", "adventure" -> inform("[New quest] The Lazy Apprentice"), queststatus(334) = 1, "Mistress Snow wants me to gather some herbs for her. I don't really feel like it though. If you get them for me, I'll give you a nice present. I need four foot leaves and two firnis blossoms."
-queststatus(334) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der faule Lehrling"), queststatus(334) = 1, "Meine Lehrerin Frau Snow möchte das ich Kräuter sammle. Aber ich habe nicht wirklich Lust dazu.Wenn Ihr mir die Kräuter sucht gebe ich Euch ein schönes Geschenk. Ich brauche vier Fussblatt und zwei Firnisblüten."
+queststatus(334) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der faule Lehrling"), queststatus(334) = 1, "Meine Lehrerin Frau Snow möchte das ich Kräuter sammle. Aber ich habe nicht wirklich Lust dazu.Wenn ihr mir die Kräuter sucht gebe ich euch ein schönes Geschenk. Ich brauche vier Fussblatt und zwei Firnisblüten."
 
 -- Quest 2 taken but not solved, repeat the instructions
 queststatus(334) = 1, item(153, all) < 4, english, "quest", "mission" -> "I really need you to bring me those four foot leaves."
@@ -143,9 +143,9 @@ queststatus(334) = 1, item(153, all) > 3, item(148, all) > 1, ".+" -> inform("[Q
 
 -- No more quests, just nice words of gratitude
 queststatus(334) = 2, english, "quest", "mission" -> "Thanks for your help. I should really start doing some work, though. I don't want to disappoint Aurora."
-queststatus(334) = 2, "quest", "mission" -> "Danke für Eure Hilfe. Ich sollte nun wirklich mit der Arbeit beginnen, schließlich will ich Aurora nicht enttäuschen."
+queststatus(334) = 2, "quest", "mission" -> "Danke für eure Hilfe. Ich sollte nun wirklich mit der Arbeit beginnen, schließlich will ich Aurora nicht enttäuschen."
 queststatus(334) = 2, "task", "adventure" -> "Thanks for your help. I should really start doing some work, though. I don't want to disappoint Aurora."
-queststatus(334) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> "Danke für Eure Hilfe. Ich sollte nun wirklich mit der Arbeit beginnen, schließlich will ich Aurora nicht enttäuschen."
+queststatus(334) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> "Danke für eure Hilfe. Ich sollte nun wirklich mit der Arbeit beginnen, schließlich will ich Aurora nicht enttäuschen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I...I am training to be a druid.", "I am an apprentice druid.", "I will be a druid, one day."
@@ -155,7 +155,7 @@ english, "job" -> "I...I am training to be a druid.", "I am an apprentice druid.
 english, "Gobaith", "Gobiath" -> "That island was...dull.", "The people there were so...nosy.", "I liked Gobaith, I suppose."
 "Gobaith", "Gobiath" -> "Die Insel war...totlangweilg.", "Die Leute dort waren so...neugierig.", "Ich mochte Gobiath, glaub ich."
 "my name" -> "I...it is nice to meet you.", "A p...pleasure to meet you.", "I am glad to meet you."
-"mein Name" -> "F...freut mich Euch kennen zu lernen.", "I...Ich freue mich euch zu treffen.", "E... Es ist eine Freude Euch zu treffen."
+"mein Name" -> "F...freut mich euch kennen zu lernen.", "I...Ich freue mich euch zu treffen.", "E... Es ist eine Freuda euch zu treffen."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 english, "druid" -> "Yes, one day I shall be a druid! I cannot wait for that day to come!", "I am only learning the ways of the druids at the moment, but soon I hope to be one myself!", "#me sighs faintly, 'It takes a long time to learn the true ways of nature.'"
@@ -169,7 +169,7 @@ english, "aurora" -> "Aurora was kind enough to choose me as her apprentice. She
 english, "Elvaine", "Morgan" -> "Mistress Aurora says that he is missing something. I wonder what she means?", "I hear that the Archmage is the most powerful mage to ever step foot on these lands.", "I wonder if he takes as long to teach magic as Mistress Aurora does to teach me the ways of a druid."
 "Elvaine", "Morgan" -> "Meine Lehrerin Aurora sagt, er übersieht etwas. Ich frage mich, was sie damit meint.", "Ich hörte der Erzmagier sei der mächtigste Magier, der jemals seinen Fuß auf dieses Lang gesetzt hat.", "Ich frage mich ob er genauso lange bracht Magie zu unterrichten, wie meine Lehrerin Aurora braucht um Magie zu unterrichten."
 english, "Runewick" -> "There are so many books in Runewick. Can you read? I can.", "Mistress Aurora says that I should spend lots of time in Runewick, if I want to become wise like she is.", "Sometimes I can't understand what the people in Runewick are saying. They speak with really big words."
-"Runewick" -> "Dort sind so viele Bücher in Runewick. Könnt Ihr lesen?", "Meine Lehrerin sagt ich solle viel Zeit in Runewick verbringen, wenn ich so weise wie sie werden will.", "Manchmal kann ich verstehen, was die Leute in Runewick sagen. Sie gebrauchen wirklich komplizierte Worte."
+"Runewick" -> "Dort sind so viele Bücher in Runewick. Könnt ihr lesen?", "Meine Lehrerin sagt ich solle viel Zeit in Runewick verbringen, wenn ich so weise wie sie werden will.", "Manchmal kann ich verstehen, was die Leute in Runewick sagen. Sie gebrauchen wirklich komplizierte Worte."
 english, "Valerio", "Guilianni", "Don" -> "They say he has a lot of money.", "Mistress Aurora says that money isn't important. The Don has a lot of it, though.", "The Don rules the town of Galmair."
 "Valerio", "Guilianni", "Don" -> "Man sagt, er habe viel Geld.", "Meisterin Aurora sagt das Geld nicht wichtig ist, der Don jedoch hat viel davon.", "Der Don herrscht über die Stadt Galmair."
 english, "Galmair" -> "Mistress Aurora says that the people who live there are small-minded.", "People say that Galmair reminds them of Gynk. I've never been to Gynk, though.", "The town of Galmair is ruled by the Don."
@@ -185,7 +185,7 @@ english, "Cadomyr" -> "I think the people who live in Cadomyr are very nice.", "
 english, "albar" -> "I don't know much about Albar.", "I hear that they don't respect women in Albar. Is that true?", "People tell me that Albar is a corrupt land. Aurora tells me that it is none of my concern, though."
 "albar" -> "Ich weiß nicht viel über Albar.", "Die Leute sagen, dass ma in Albar die Frauen nicht respektiert. Stimmt das?", "Die Leute sagten mir, Albar sei in korruptes Land. Aurora sagte mir das solle ich mich nicht bekümmern."
 english, "gynk", "gync" -> "I don't know much about Gynk.", "I've never been to Gynk. Do you think it's nice?", "Mistress Aurora says that society is like a mask. Society doesn't make me laugh, though."
-"gync", "gynk" -> "Ich weiß nicht viel über Gynk.", "Ich war noch nie in Gynk. Glaubt Ihr es ist schön dort?", "Gesellschaft ist eine Fassade, sagt meine Lehrerin Aurora. Ich frage mich, was man wohl erblickt, wenn man dahinter schaut?"
+"gync", "gynk" -> "Ich weiß nicht viel über Gynk.", "Ich war noch nie in Gynk. Glaubt ihr es ist schön dort?", "Gesellschaft ist eine Fassade, sagt meine Lehrerin Aurora. Ich frage mich, was man wohl erblickt, wenn man dahinter schaut?"
 english, "salkama" -> "I don't know much about Salkamar.", "I used to enjoy listening to stories about the heroes from Salkamar.", "Mistress Aurora says that society is like a mask. Society doesn't make me laugh, though."
 "salkama" -> "Ich weiß nicht viel über Salkamar.", "Früher hörte ich gern Geschichten über Helden aus Salkamar.", "Gesellschaft ist eine Fassade, sagt meine Lehrerin Aurora. Ich frage mich, was man wohl erblickt, wenn man dahinter schaut?"
 
@@ -229,7 +229,7 @@ english, "Zhambra" -> "Aurora hasn't taught me much about that God yet.", "Auror
 "what sell", "what buy", "list wares", "price of" -> "I don't want to trade.", "I don't wish to trade today, thank you.", "Sorry, but Aurora tells me that I cannot be enticed by material possessions."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich möchte nicht handeln.", "Ich wünsche heute nicht zu handeln, habt Dank.", "Entschuldigt, aber Aurora hat gesagt ich solle mich nicht von materiellen Dingen verführen lassen."
 "tell something" -> "You should go for a walk through the forest. It's quiet, and very pretty. Watch out for wild animals, though.", "Sometimes you can find herbs that have blown across the land. Aurora gets me to pick them up for her.", "If you want to become a druid, you should find someone to take you as their apprentice. I don't recommend an Elf, though."
-"erzähl was", "erzähl etwas" -> "Ihr solltet im Wald spazieren gehen. Dort ist es ruhig und sehr schön. Gebt nur Acht auf wilde Tiere.", "Manchmal findet man Kräuter die der Wind über dem Land verstreut hat. Aurora lässt mich diese Kräuter für sie sammeln", "Wenn Ihr Druide werden wollt so such jemanden, er euch als Schüler annimmt. Ich rate euch, wählt keinen Elfen als Lehrmeister."
+"erzähl was", "erzähl etwas" -> "Ihr solltet im Wald spazieren gehen. Dort ist es ruhig und sehr schön. Gebt nur Acht auf wilde Tiere.", "Manchmal findet man Kräuter die der Wind über dem Land verstreut hat. Aurora lässt mich diese Kräuter für sie sammeln", "Wenn ihr Druide werden wollt so such jemanden, er euch als Schüler annimmt. Ich rate euch, wählt keinen Elfen als Lehrmeister."
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 

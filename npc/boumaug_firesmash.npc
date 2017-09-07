@@ -130,9 +130,9 @@ town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bewache Deine e
 
 -- Outlaw answer
 english, town = None, "quest", "mission" -> "Yous wanderer! Yous come work for da Don, after you move to Galmair!"
-town = None, "quest", "mission" -> "Du Wanderer! Du kommst zu arbeiten für Don, erst wenn Du Galmairer bist!"
+town = None, "quest", "mission" -> "Du Wanderer! Du kommst zu arbeiten für Don, erst wenn du Galmairer bist!"
 town = None, "task", "adventure", "order" -> "Yous wanderer! Yous come work for da Don, after you move to Galmair!"
-town = None, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du Wanderer! Du kommst zu arbeiten für Don, erst wenn Du Galmairer bist!"
+town = None, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du Wanderer! Du kommst zu arbeiten für Don, erst wenn du Galmairer bist!"
 
 -- Quest 1: Read Galmair's rules
 queststatus(155) = 0, english, town = Galmair, "quest", "mission" -> inform("[New Quest] As a Galmair Guard I"), queststatus(155) = 1,"Yous not been here much. Yous need to know da rules. Go to da statues in front of da Crest, da Don's house. Big building in da mountain. Read da rules. Know da rules."

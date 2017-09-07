@@ -116,7 +116,7 @@ queststatus(333) = 8, "Auftrag", "Aufgabe", "Abenteuer" -> "Diessser Dolch issst
 
 -- Quest 1 solved, emerald ring deleted, ornate dagger added
 queststatus(333) = 9, item(281, all) > 0, english, ".+" -> inform("[Quest updated] Aurora's Staff: Part III."), deleteItem(281, 1), item(190, 1, 499), queststatus(333) = 10, "Yesss...zis iss ze one. Gorgeousss...Here iss your dagger, as promisssed. Zss."
-queststatus(333) = 9, item(281, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst 80 Kupferstücke."), deleteItem(281, 1), item(190, 1, 499), queststatus(333) = 10, "Ja...dasss issst er, der Dolch. Zss! Grosssartig... Hier isst Euer Doch wie versprochen. Zzs."
+queststatus(333) = 9, item(281, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst 80 Kupferstücke."), deleteItem(281, 1), item(190, 1, 499), queststatus(333) = 10, "Ja...dasss issst er, der Dolch. Zss! Grosssartig... Hier isst euer Doch wie versprochen. Zzs."
 
 -- 2nd quest: Bring 10 trout
 
@@ -134,7 +134,7 @@ queststatus(335) = 1, item(73, all) < 10, "Auftrag", "Aufgabe", "Abenteuer" -> "
 
 -- Quest 2 solved, reward: 300cp
 queststatus(335) = 1, item(73, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded three silver coins."), money + 300, deleteItem(73, 10), queststatus(335) = 2, "Yess...zis isss good, very good. Zss. Here isss your money."
-queststatus(335) = 1, item(73, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst drei Silberstücke."), money + 300, deleteItem(73, 10), queststatus(335) = 2, "Ja... dass ist gut.Sssehr gut. Zss. Hier issst Euer Geld."
+queststatus(335) = 1, item(73, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst drei Silberstücke."), money + 300, deleteItem(73, 10), queststatus(335) = 2, "Ja... dass ist gut.Sssehr gut. Zss. Hier issst euer Geld."
 
 -- 3rd quest: Bring 5 salmon
 
@@ -168,7 +168,7 @@ english, "job" -> "I ssserve ze Goddessss.", "Zss. I am a temple guard.", "I des
 english, "Gobaith", "Gobiath" -> "Zis land wasss very corrupt.", "Zis island had much evil, much evil, yesss. Zss.", "Zss. Ze people zere, zey were weak."
 "Gobaith", "Gobiath" -> "Diess land war sssehr koorup. Zss.", "Diessse Inssel war Heim von viel bössem. Ja, sssehr viel bösses.", "Zss. Die Leute dort waren szz...schwach."
 "my name" -> "Zss. It isss an honour to meet you.", "A pleasssure to meet you.", "Glory to ze Goddessss."
-"mein Name" -> "Zss. Es isst eine Ehre Euch zzzu treffen.", "Ess issst eine Freude Euch zzzu treffen.", "Ehre sssei der Göttin!"
+"mein Name" -> "Zss. Es isst eine Ehra euch zzzu treffen.", "Ess issst eine Freuda euch zzzu treffen.", "Ehre sssei der Göttin!"
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Zss. Ze magicsss isss not to be trusssted.", "Zey sssay zat he wasss blesssed by ze human Goddesss Elara.", "Ze Archmage rulesss ze town of Runewick."
@@ -236,7 +236,7 @@ english, "Zhambra" -> "All ze Godsss are acknowledged, only Zelphia iss worshipe
 "what sell", "what buy", "list wares", "price of" -> "Zss. I have nozing to trade.", "I do not ssseek to trade. Zss.", "Sssorry, I do not wisssh to trade."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Zss. Ich habe nichtsss zum handeln.", "Ich brache nichts zzu handeln.", "Entschuldigt, ich bin nicht am Handeln interessiert. Zss."
 "tell something" -> "Zss. What do you wisssh to know?", "Perhapsss I have a tasssk for you?", "Ssservice to ze Godsss isss ze most honourable life. Zss."
-"erzähl was", "erzähl etwas" -> "Vielleicht habe ich eine Aufgabe. Zss. Eine Aufgabe für Euch.", "Der Göttin zzzu dienen issst die grösssste Aufgabe im Leben. Zss."
+"erzähl was", "erzähl etwas" -> "Vielleicht habe ich eine Aufgabe. Zss. Eine Aufgabe für euch.", "Der Göttin zzzu dienen issst die grösssste Aufgabe im Leben. Zss."
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 

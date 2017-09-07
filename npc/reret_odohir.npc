@@ -81,15 +81,15 @@ itemShoes = 45
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted, nice to see you here.", "Be greeted, I am the notary of this town."
-"Grüße", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße, schön Euch mal wieder hier zu sehen.", "Zum Gruße, ich bin die Notarin dieser Stadt."
+"Grüße", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße, schön euch mal wieder hier zu sehen.", "Zum Gruße, ich bin die Notarin dieser Stadt."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted.", "Greetings.", "Greetings, nice to see you again", "Be greeted, I am the notary of this town."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt.", "Grüße.", "Grüße, schön Euch mal wieder hier zu sehen.", "Zum Gruße, ich bin die Notarin dieser Stadt."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt.", "Grüße.", "Grüße, schön euch mal wieder hier zu sehen.", "Zum Gruße, ich bin die Notarin dieser Stadt."
 "Farewell", "Bye", "Fare well", "See you" -> "Fare well!", "Bye!", "#me smiles at you and waves."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf bald!", "Bis bald!", "#me lächelt dich an und winkt zum Abschied."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Fare well!", "#me smiles at you and waves."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf bald!", "#me lächelt dich an und winkt zum Abschied."
 "How are you", "How feel", "How do you do" -> "I am fine and how are you?", "I'm fine. Thanks for asking."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es gut und wie geht es Euch?", "Eigentlich ganz gut, danke der Nachfrage."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es gut und wie geht es euch?", "Eigentlich ganz gut, danke der Nachfrage."
 "your name", "who are you", "who art thou" -> "I'm Reret Odohir, Notary and citizen of Cadomyr."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Reret Odohir, Notar und Bürger von Cadomyr."
 
@@ -97,7 +97,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Fare well!", "#me smiles at
 
 -- Optional: Trade Hooks, use only for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I sell nothing, but I can register you as a citizen. Just tell me, if you want to become a citizen."
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ick verkauf nichts, aber ich kann Euch als Bürger eintragen. Sagt mir einfach wenn Ihr Bürger dieser Stadt werden möchtet."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ick verkauf nichts, aber ich kann euch als Bürger eintragen. Sagt mir einfach wenn ihr Bürger dieser Stadt werden möchtet."
 
 -- Player is already citizen
 english, town = Cadomyr, "join Cadomyr", "become citizen", "gain citizenship" -> town = Cadomyr, "Oh! You are already a citizen of Cadomyr."
@@ -113,7 +113,7 @@ town = None, "Cadomyr beitreten", "Bürger werden", "Bürgerschaft beantragen" -> 
 
 -- terminating citiienship, leaving in Cadomyr (209)
 english, town = Cadomyr, "give up citizenship", "terminate", "leave", "leaving" -> queststatus(209) = 1, "You want to give up citizenship in Cadomyr. Are you sure?"
-town = Cadomyr, "beende Bürgerschaft", "verlasse", "annulier" -> queststatus(209) = 1, "Ihr wollt den Status als Bürger Cadomyrs augfeben? Seid Ihr sicher?"
+town = Cadomyr, "beende Bürgerschaft", "verlasse", "annulier" -> queststatus(209) = 1, "Ihr wollt den Status als Bürger Cadomyrs augfeben? Seid ihr sicher?"
 
 -- saying leave without beeing a citizen
 "give up citizenship", "terminate", "leave", "leaving" -> "Ehm... you are not a citizen of Cadomyr anyway."
@@ -121,7 +121,7 @@ town = Cadomyr, "beende Bürgerschaft", "verlasse", "annulier" -> queststatus(209
 
 -- answer yes
 queststatus(209) = 1, english, "yes" -> queststatus(209) = 0, town = None, "You are no longer citizen under the protection of Her Majesty Queen Rosaline, you no longer belong to Cadomyr. Farewell."
-queststatus(209) = 1, "ja" -> queststatus(209) = 0, town = None, "Ihr seid nun nicht länger Büger unter dem Schutz Königin Rosalines, Ihr gehört nicht mehr zu Cadomyr. Auf bald."
+queststatus(209) = 1, "ja" -> queststatus(209) = 0, town = None, "Ihr seid nun nicht länger Büger unter dem Schutz Königin Rosalines, ihr gehört nicht mehr zu Cadomyr. Auf bald."
 
 -- answer no
 queststatus(209) = 1, english, ".*" -> queststatus(209) = 0, "I see... Yes, Cadomyr is truly a nice place. I am glad you stay with us."
@@ -142,8 +142,8 @@ rank > 10, town = Cadomyr, sex = female, "rang" -> "#me verbeut sich erfürchtig.
 -- Rank 10
 rank > 9, town = Cadomyr, sex = male, "rank" -> "Greetings to you, Duke %CHARNAME!"
 rank > 9, town = Cadomyr, sex = female, "rank" -> "Greetings to you, Duchess %CHARNAME!"
-rank > 9, town = Cadomyr, sex = male, "rang" -> "Herzog %CHARNAME! Hochwohlgeboren, wie ist es Euch ergangen?"
-rank > 9, town = Cadomyr, sex = female, "rang" -> "Herzogin %CHARNAME! Hochwohlgeboren, wie ist es Euch ergangen?"
+rank > 9, town = Cadomyr, sex = male, "rang" -> "Herzog %CHARNAME! Hochwohlgeboren, wie ist es euch ergangen?"
+rank > 9, town = Cadomyr, sex = female, "rang" -> "Herzogin %CHARNAME! Hochwohlgeboren, wie ist es euch ergangen?"
 
 -- Rank 9
 rank > 8, town = Cadomyr, sex = male, "rank" -> "Greetings to you, Count!"
@@ -196,8 +196,8 @@ rank > 1, town = Cadomyr, sex = female, "rang" -> "Ah! Ihr seid eine Hörige."
 -- Rank 1
 rank > 0, town = Cadomyr, sex = male, "rank" -> "You are new here. You are not well known. Make an effort and become famous, Serf!"
 rank > 0, town = Cadomyr, sex = female, "rank" -> "You are new here. You are not well known. Make an effort and become famous, Serf!"
-rank > 0, town = Cadomyr, sex = male, "rang" -> "Ihr seid noch ganz neu hier. Euch kennt kaum jemand. Strengt Euch mehr an und mach Euch einen Namen, Leibeigener!"
-rank > 0, town = Cadomyr, sex = female, "rang" -> "Ihr seid noch ganz neu hier. Euch kennt kaum jemand. Strengt Euch mehr an und mach Euch einen Namen, Leibeigene!"
+rank > 0, town = Cadomyr, sex = male, "rang" -> "Ihr seid noch ganz neu hier. euch kennt kaum jemand. Strengt euch mehr an und mach euch einen Namen, Leibeigener!"
+rank > 0, town = Cadomyr, sex = female, "rang" -> "Ihr seid noch ganz neu hier. euch kennt kaum jemand. Strengt euch mehr an und mach euch einen Namen, Leibeigene!"
 
 -- saying Rank without beeing a member of Cadomyr
 "rank" -> "I do not know about other ranks of other towns.", "I am not interested in other systems, only the Cadomyrian one."
@@ -235,48 +235,48 @@ rank > 0, town = Cadomyr, sex = female, "rang" -> "Ihr seid noch ganz neu hier. 
 
 -- fix
 queststatus(150) > 0, queststatus(703) = 13, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 14, "Ah Jakob sent you, but you have already asked me for something to do."
-queststatus(150) > 0, queststatus(703) = 13, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 14, "Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(150) > 0, queststatus(703) = 13, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 14, "Ah Jakob hat euch geschickt aber ihr habt mich bereits nach einer Aufgabe gefragt."
 queststatus(150) > 0, queststatus(703) = 13, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 14, "Ah Jakob sent you, but you have already asked me for something to do."
-queststatus(150) > 0, queststatus(703) = 13, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 14, "Ah Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(150) > 0, queststatus(703) = 13, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 14, "Ah Jakob hat euch geschickt aber ihr habt mich bereits nach einer Aufgabe gefragt."
 
 -- 1st quest: bring Item 146 + desert sky capsule, for citizens of Cadomyr
 queststatus(150) = 0, queststatus(703) = 13, town = Cadomyr, english, "quest", "mission", "jakob", "lindorn" -> inform("[New quest] Present from Cadomyr"), queststatus(150) = 1, queststatus(703) = 14, "I'd like to send my grandparents in Salkamar a present from Cadomyr. They both like gardening, so I'd like to send them five desert sky capsules. I'm still busy working though, so could I ask you to go and find some for me, please?"
-queststatus(150) = 0, queststatus(703) = 13, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> inform("[Neues Quest] Geschenk aus Cadomyr"), queststatus(150) = 1, queststatus(703) = 14, "Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüstenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten einige Wüstenhimmelskapseln für mich zu finden?"
+queststatus(150) = 0, queststatus(703) = 13, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> inform("[Neues Quest] Geschenk aus Cadomyr"), queststatus(150) = 1, queststatus(703) = 14, "Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüstenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich euch bitten einige Wüstenhimmelskapseln für mich zu finden?"
 queststatus(150) = 0, queststatus(703) = 13, town = Cadomyr, "task", "adventure", "order" -> inform("[New quest] Present from Cadomyr"), queststatus(150) = 1, queststatus(703) = 14, "I'd like to send my grandparents in Salkamar a present from Cadomyr. They both like gardening, so I'd like to send them five desert sky capsules. I'm still busy working though, so could I ask you to go and find some for me, please?"
-queststatus(150) = 0, queststatus(703) = 13, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Geschenk aus Cadomyr"), queststatus(150) = 1, queststatus(703) = 14, "Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüstenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten einige Wüstenhimmelskapseln für mich zu finden?"
+queststatus(150) = 0, queststatus(703) = 13, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Geschenk aus Cadomyr"), queststatus(150) = 1, queststatus(703) = 14, "Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüstenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich euch bitten einige Wüstenhimmelskapseln für mich zu finden?"
 
 queststatus(150) = 0, english, town = Cadomyr, "quest", "mission" -> inform("[New quest] Present from Cadomyr"), queststatus(150) = 1, "I'd like to send my grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them five desert sky capsules. I'm still busy working though, so could I ask you to go and find some for me, please?"
-queststatus(150) = 0, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Geschenk aus Cadomyr"), queststatus(150) = 1, "Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüstenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten einige Wüstenhimmelskapseln für mich zu finden?"
+queststatus(150) = 0, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Geschenk aus Cadomyr"), queststatus(150) = 1, "Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüstenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich euch bitten einige Wüstenhimmelskapseln für mich zu finden?"
 queststatus(150) = 0, town = Cadomyr, "task", "adventure", "order" -> inform("[New quest] Present from Cadomyr"), queststatus(150) = 1, "I'd like to send my grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them five desert sky capsules. I'm still busy working though, so could I ask you to go and find some for me, please?"
-queststatus(150) = 0, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Geschenk aus Cadomyr"), queststatus(150) = 1, "Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüstenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten einige Wüstenhimmelskapseln für mich zu finden?"
+queststatus(150) = 0, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Geschenk aus Cadomyr"), queststatus(150) = 1, "Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüstenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich euch bitten einige Wüstenhimmelskapseln für mich zu finden?"
 
 -- 1st quest solved, Reward: dagger (27)
 queststatus(150) = 1, item(146, all) > 4, english, town = Cadomyr, "quest", "mission", "task", "adventure", "order" -> inform("[Quest solved] You are awarded a dagger."), deleteItem(146, 5), item(27, 1, 466), queststatus(150) = 2, rankpoints + 5, "Oh, you found the desert sky capsules? Thank you, that is very kind of you. Here, please take this, it shall be your reward for your troubles."
-queststatus(150) = 1, item(146, all) > 4, town = Cadomyr, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Quest gelöst] Du erhältst als Belohnung einen Dolch."), deleteItem(146, 5), item(27, 1, 466), queststatus(150) = 2, rankpoints + 5, "Oh, ihr habt die Wüstenhimmelskapseln gefunden? Danke, das ist sehr freundlich von Euch. Hier, bitte nehmt dies, betrachtet es als Belohung für eure Mühen."
+queststatus(150) = 1, item(146, all) > 4, town = Cadomyr, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Quest gelöst] Du erhältst als Belohnung einen Dolch."), deleteItem(146, 5), item(27, 1, 466), queststatus(150) = 2, rankpoints + 5, "Oh, ihr habt die Wüstenhimmelskapseln gefunden? Danke, das ist sehr freundlich von euch. Hier, bitte nehmt dies, betrachtet es als Belohung für eure Mühen."
 
 -- 1st quest not solved, repeat the instructions
 queststatus(150) = 1, english, town = Cadomyr, "quest", "mission" -> "I'm still busy working, so could I ask you to go and find five desert sky capsule for me, please?"
-queststatus(150) = 1, town = Cadomyr, "quest", "mission" -> "Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten, fünf Wüstenhimmelskapseln für mich zu finden?"
+queststatus(150) = 1, town = Cadomyr, "quest", "mission" -> "Ich bin mit der Arbeit sehr beschäftigt, könnte ich euch bitten, fünf Wüstenhimmelskapseln für mich zu finden?"
 queststatus(150) = 1, town = Cadomyr, "task", "adventure", "order" -> "I'm still busy working, so could I ask you to go and find five desert sky capsule for me, please?"
-queststatus(150) = 1, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten, fünf Wüstenhimmelskapseln für mich zu finden?"
+queststatus(150) = 1, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin mit der Arbeit sehr beschäftigt, könnte ich euch bitten, fünf Wüstenhimmelskapseln für mich zu finden?"
 
 -- Final dialogue: No more quests, just nice hints
 queststatus(150) = 2, english, town = Cadomyr, "quest", "mission" -> "Thanks again for your help."
-queststatus(150) = 2, town = Cadomyr, "quest", "mission" -> "Danke nochmals für Eure Hilfe."
+queststatus(150) = 2, town = Cadomyr, "quest", "mission" -> "Danke nochmals für eure Hilfe."
 queststatus(150) = 2, town = Cadomyr, "task", "adventure", "order" -> "Thanks again for your help."
-queststatus(150) = 2, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Danke nochmals für Eure Hilfe."
+queststatus(150) = 2, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Danke nochmals für eure Hilfe."
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 english, "quest", "mission" -> "No, sorry. I have nothing to do for you. Why don't you just enjoy your stay in Cadomyr?"
-"quest", "mission" -> "Nein, tut mir leid. Ich habe keinen Auftrag für Euch. Warum genießt Ihr nicht einfach Euren Aufenthalt in Cadomyr?"
+"quest", "mission" -> "Nein, tut mir leid. Ich habe keinen Auftrag für euch. Warum genießt ihr nicht einfach Euren Aufenthalt in Cadomyr?"
 "task", "adventure", "order" -> "No, sorry. I have nothing to do for you. Why don't you just enjoy your stay in Cadomyr?"
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nein, tut mir leid. Ich habe keinen Auftrag für Euch. Warum genießt Ihr nicht einfach Euren Aufenthalt in Cadomyr?"
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nein, tut mir leid. Ich habe keinen Auftrag für euch. Warum genießt ihr nicht einfach Euren Aufenthalt in Cadomyr?"
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "You can get registered as citizen here."
-"beruf" -> "Hier könnt Ihr Euch als Bürger eintragen lassen."
+"beruf" -> "Hier könnt ihr euch als Bürger eintragen lassen."
 english, "job" -> "You can get registered as citizen here."
-"job" -> "Hier könnt Ihr Euch als Bürger eintragen lassen."
+"job" -> "Hier könnt ihr euch als Bürger eintragen lassen."
 "tell something" -> "Sand can be used to make glass, but I like it just the way it is. This place is full of sand, it is on the streets, inside my shoes, even the air is filled with sand if the wind is blowing. If you don't like sand, don't go to the desert.", "I really like sand, especially quartz sand."
 "erzähl was", "erzähl etwas" -> "Sand kann man nutzen um Glas daraus zu machen, aber ich mag Sand so wie er ist. Dieser Ort ist voll von Sand, er ist auf den Straßen, in meinen Schuhen, selbst in der Luft ist Sand, wenn der Wind weht. Wer keinen Sand mag, sollte nicht in die Wüste gehen.", "Ich mag Sand sehr gerne, besonders Quartzsand."
 
@@ -300,7 +300,7 @@ english, "Galmair" -> "Galmair is only half as nice as Cadomyr. They don't have 
 english, "rosaline", "edwards" -> "She is the noble and rightful ruler of Cadomyr.", "Honour to our Queen!"
 "rosaline", "edwards" -> "Sie ist die edle und rechtmäßige Herrscherin von Cadomyr.", "Ehre der Königin!"
 english, "Cadomyr" -> "I really love the hot weather here, and you?", "Each town has magical gems, but ours, the ones of Cadomyr, are the most beautiful of them all!"
-"Cadomyr" -> "Ich liebe warmes Wetter hier, und Ihr?", "Jede Stadt besitzt magische Edelsteine, aber unsere, die von Cadomyr, sind die schönsten von allen!"
+"Cadomyr" -> "Ich liebe warmes Wetter hier, und ihr?", "Jede Stadt besitzt magische Edelsteine, aber unsere, die von Cadomyr, sind die schönsten von allen!"
 
 -- Optional: Main land factions
 english, "albar" -> "Albar? My grandparents spoke badly about the place. I've never been there."
@@ -318,7 +318,7 @@ english, "Gobaith", "Gobiath" -> "I don't know this town, do they have notaries 
 "my name" -> "A pleasure, I am Reret Odohir."
 "mein Name" -> "Freut mich, ich bin Reret Odohir."
 english, "Reret", "Odohir" -> "That's me. How can I help you?"
-"Reret", "Odohir" -> "Das bin ich. Was kann ich für Euch tun?"
+"Reret", "Odohir" -> "Das bin ich. Was kann ich für euch tun?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

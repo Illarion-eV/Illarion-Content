@@ -404,8 +404,8 @@ local function setUserTeleporter(user,Item)
             end
             
             local inputText = dialog:getInput()
-            if (string.find(inputText,"(%d+),(%d+),([%-]%d+),(%S+)") ~= nil) then
-                local _, _, xValue, yValue, zValue, targetName = string.find(inputText,"(%d+),(%d+),([%-]%d+),([%S ]+)")
+            if (string.find(inputText,"(%d+),(%d+),([%-]?%d+),(%S+)") ~= nil) then
+                local _, _, xValue, yValue, zValue, targetName = string.find(inputText,"(%d+),(%d+),([%-]?%d+),([%S ]+)")
                 Item:setData("gmLocation" .. tostring(index),inputText)
                 world:changeItem(Item)
             else
@@ -497,8 +497,8 @@ local function teleporter(User,item)
     for i = 1, maxUserLocation do
         local locationParameter = item:getData("gmLocation" .. tostring(i))
         if not common.IsNilOrEmpty(locationParameter) then
-            if (string.find(locationParameter,"(%d+),(%d+),([%-]%d+),(%S+)") ~= nil) then
-                local _, _, xValue, yValue, zValue, targetName = string.find(locationParameter,"(%d+),(%d+),([%-]%d+),([%S ]+)")
+            if (string.find(locationParameter,"(%d+),(%d+),([%-]?%d+),(%S+)") ~= nil) then
+                local _, _, xValue, yValue, zValue, targetName = string.find(locationParameter,"(%d+),(%d+),([%-]?%d+),([%S ]+)")
                 sdTeleport:addOption(0, targetName .. " (" .. tostring(xValue)..",".. tostring(yValue)..",".. tostring(zValue)..")")
                 validTarget[optionId] = {tonumber(xValue), tonumber(yValue), tonumber(zValue),0}
                 optionId = optionId+1
@@ -973,14 +973,26 @@ local function settingsForCharMC(User, targetChar)
 
 end
 
-local function settingsForCharAttacable(User, chosenPlayer)
+local function settingsForCharAttacableLimited(User, chosenPlayer)
     if chosenPlayer:getQuestProgress(236) == 0 then
         chosenPlayer:setQuestProgress(236,3)
         User:logAdmin("Make character " .. chosenPlayer.name .. " unable to be attacked for 15 min.")
         common.InformNLS(chosenPlayer, "[GM Info] Dein Char wird für ca. 15 Minuten nicht von NPC angegriffen.", "[GM Info] Your character is unable to be attacked by NPC for about 15 min.")
     else
         chosenPlayer:setQuestProgress(236,0)
-        User:logAdmin("Make character " .. chosenPlayer.name .. " able to be attacked.")
+        User:logAdmin("Remove character " .. chosenPlayer.name .. " limited attack proof.")
+        common.InformNLS(chosenPlayer, "[GM Info] Dein Char wird wieder von NPC angegriffen.", "[GM Info] Your character can be attacked by NPC again.")
+    end
+end
+
+local function settingsForCharAttacableForever(User, chosenPlayer)
+    if chosenPlayer:getQuestProgress(36) == 0 then
+        chosenPlayer:setQuestProgress(36,1)
+        User:logAdmin("Make character " .. chosenPlayer.name .. " unable to be attacked for ever.")
+        common.InformNLS(chosenPlayer, "[GM Info] Dein Char wird fnie wieder von NPC angegriffen.", "[GM Info] Your character is unable to be attacked by NPC for ever.")
+    else
+        chosenPlayer:setQuestProgress(36,0)
+        User:logAdmin("Remove character " .. chosenPlayer.name .. " indefinite attack proof.")
         common.InformNLS(chosenPlayer, "[GM Info] Dein Char wird wieder von NPC angegriffen.", "[GM Info] Your character can be attacked by NPC again.")
     end
 end
@@ -1270,29 +1282,36 @@ local function settingsForChar(User)
             if actionToPerform == 0 then
                 settingsForCharQueststatus(User, chosenPlayer)
             elseif actionToPerform == 1 then
-                settingsForCharAttacable(User, chosenPlayer)
+                settingsForCharAttacableLimited(User, chosenPlayer)
             elseif actionToPerform == 2 then
-                settingsForCharSkills(User, chosenPlayer)
+                settingsForCharAttacableForever(User, chosenPlayer)
             elseif actionToPerform == 3 then
-                settingsForCharMagicClass(User, chosenPlayer)
+                settingsForCharSkills(User, chosenPlayer)
             elseif actionToPerform == 4 then
-                settingsForCharMC(User, chosenPlayer)
+                settingsForCharMagicClass(User, chosenPlayer)
             elseif actionToPerform == 5 then
-                settingsForCharFireProof(User, chosenPlayer)
+                settingsForCharMC(User, chosenPlayer)
             elseif actionToPerform == 6 then
-                settingsForCharIceFlameProof(User, chosenPlayer)
+                settingsForCharFireProof(User, chosenPlayer)
             elseif actionToPerform == 7 then
-                settingsForCharPoisonCloudProof(User, chosenPlayer)
+                settingsForCharIceFlameProof(User, chosenPlayer)
             elseif actionToPerform == 8 then
+                settingsForCharPoisonCloudProof(User, chosenPlayer)
+            elseif actionToPerform == 9 then
                 settingsForCharAttributes(User, chosenPlayer)
             end
         end
         local sdAction = SelectionDialog("Character settings", chosenPlayer.name.."\n" .. charInfo(chosenPlayer), charActionDialog)
         sdAction:addOption(3109,"Get/set Queststatus")
-        if chosenPlayer:getQuestProgress(36) == 0 then
+        if chosenPlayer:getQuestProgress(236) == 0 then
             sdAction:addOption(20,"Make 15 min attack proof!")
         else
-            sdAction:addOption(1,"Make able to be attacked!")
+            sdAction:addOption(1,"Remove time limited  attack proof! (" .. tostring(chosenPlayer:getQuestProgress(236)*5) .. "min)")
+        end
+        if chosenPlayer:getQuestProgress(36) == 0 then
+            sdAction:addOption(20,"Make for ever attack proof!")
+        else
+            sdAction:addOption(1,"Remove indefinite attack proof!")
         end
         sdAction:addOption(23,"Change skills")
         sdAction:addOption(2784,"Set magic class")
@@ -1364,7 +1383,7 @@ function M.UseItem(User, SourceItem, ltstate)
     User:increaseAttrib("foodlevel", 100000)
 
     -- First check for mode change
-    local modes = {"Eraser", "Teleport", "Instant kill/ revive", "Global events", "Events on single char", "Events on groups", "Char Settings", "Faction info of chars in radius", "Quest events","Define Teleporter Targets","Define events on single char","Define events on groups","Test area"}
+    local modes = {"Eraser", "Teleport", "Instant kill/ revive", "Char Settings", "Global events", "Events on single char", "Events on groups", "Faction info of chars in radius", "Quest events","Define Teleporter Targets","Define events on single char","Define events on groups","Test area"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -1377,13 +1396,13 @@ function M.UseItem(User, SourceItem, ltstate)
         elseif index == 3 then
             godMode(User, SourceItem, ltstate)
         elseif index == 4 then
-            ambientAction(User)
-        elseif index == 5 then
-            actionOnChar(User, SourceItem)
-        elseif index == 6 then
-            actionOnGroup(User, SourceItem)
-        elseif index == 7 then
             settingsForChar(User)
+        elseif index == 5 then
+            ambientAction(User)
+        elseif index == 6 then
+            actionOnChar(User, SourceItem)
+        elseif index == 7 then
+            actionOnGroup(User, SourceItem)
         elseif index == 8 then
             factionInfoOfCharsInRadius(User, SourceItem, ltstate)
         elseif index == 9 then

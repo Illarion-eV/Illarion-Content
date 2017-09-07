@@ -24,6 +24,7 @@ local furtunecookies = require("content.furtunecookies")
 local alchemy = require("alchemy.base.alchemy")
 local herbs = require("alchemy.base.herbs")
 local specialeggs = require("content.specialeggs")
+local ratCistern = require("content.ratCistern")
 
 local foodList = {}
 
@@ -334,7 +335,9 @@ end
 
 local function mapItem(User, sourceItem)
     if sourceItem.wear == 255 then
-        User:inform("Das kannst du nicht essen.", "You can't eat that.", Character.highPriority)
+        if not ratCistern.checkCarrot(User,sourceItem) then
+            User:inform("Das kannst du nicht essen.", "You can't eat that.", Character.highPriority)
+        end
         return true
     end
 end

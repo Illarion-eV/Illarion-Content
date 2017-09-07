@@ -95,7 +95,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "No! Don't go! I need your h
 
 -- Mandatory: Trade Hooks, use the trade consequence for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I don't have time for such nonsense.", "If you're so set on finding a merchant, go back to Cadomyr!"
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich habe keine Zeit für solchen Unsinn.", "Wenn Du auf der Suche nach einem Händler bist, gehe zurück nach Cadomyr!", "Hier draußen wirst du keine Händler finden. Versuch es in der Stadt."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich habe keine Zeit für solchen Unsinn.", "Wenn du auf der Suche nach einem Händler bist, gehe zurück nach Cadomyr!", "Hier draußen wirst du keine Händler finden. Versuch es in der Stadt."
 
 -- Mandatory: Catching quest triggers. Modify if the NPC does quests
 

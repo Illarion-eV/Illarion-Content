@@ -30,3 +30,7 @@ repairQual, Quality of the item
 lookatNoQuality, 1, quality and durabilty is not shown in lookAt
 lookatNoPrice, 1, price is not shown in lookAt
 lookatNoWeight, 1, weight is not shown in lookAt
+--rat quest
+RatQuestCadomyr, number of poisioned carrot (1 - 5)
+RatQuestGalmair, number of poisioned carrot (1 - 5)
+RatQuestRunewick, number of poisioned carrot (1 - 5)

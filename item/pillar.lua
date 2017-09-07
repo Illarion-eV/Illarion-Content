@@ -355,7 +355,7 @@ function M.UseItem(User, SourceItem, ltstate)
             --Dialog
         local dialogTitle = common.GetNLS(User, "Kanaldenkmal", "Canal Monument")
         local dialogText = common.GetNLS(User,
-            "In Anerkennung seiner & ihrer Dienste für Kanal, Brücke und Fähre:\nSarangerel\nEvie Pryler & Ihr Clan\nRakaya & Ihre Träger\nJulia da Silva\nJerem Elessar\nBanduk Robberhauf el Luastelay\nAlrik Grimler\nSammy Goldlieb\nArtimer Fault",
+            "In Anerkennung seiner & ihrer Dienste für Kanal, Brücke und Fähre:\nSarangerel\nEvie Pryler & ihr Clan\nRakaya & ihre Träger\nJulia da Silva\nJerem Elessar\nBanduk Robberhauf el Luastelay\nAlrik Grimler\nSammy Goldlieb\nArtimer Fault",
             "In recognition of his & her services for Canal, Bridge and Ferry:\nSarangerel\nEvie Pryler & Her Clan\nRakaya & Her Bearer\nJulia da Silva\nJerem Elessar\nBanduk Robberhauf el Luastelay\nAlrik Grimler\nSammy Goldlieb\nArtimer Fault")
         local callbackBridgeCanal = function(nothing) end --empty callback
         local dialogBridgeCanal = MessageDialog(dialogTitle, dialogText, callbackBridgeCanal)

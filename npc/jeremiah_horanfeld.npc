@@ -71,9 +71,9 @@ itemShoes = 771
 -- 10: Quest 3 taken - kill ten rats
 -- 11-20: killing ten rats
 -- 21: Quest 3 solved, reward: 2000 cp, +5 rankpoints
--- 22: Quest 4 taken - collect fifteen furs
--- 23: Quest 4 solved - reward: 2000cp, +5 rankpoints
--- 24: Quest 5 taken -  kill ten rats
+-- 22: Quest 4 taken - check 10 poisoned carrots
+-- 23: Quest 4 done - back to Jeremiah
+-- 24: Quest 4 solved - reward: 2000cp, +5 rankpoints, Quest 5 taken -  kill ten rats
 -- 25-34: killing ten rats
 -- 35 Quest 5 solved -  reward: 2000 cp, +5 rankpoints
 -- 36 Quest 6  taken -  Kill ratman
@@ -115,122 +115,117 @@ town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keine A
 
 -- fix if quest started and sent to NPC by Jakob
 queststatus(187) > 0, queststatus(703) = 17, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 18, "Ah, Jakob sent you, but you have already asked me for something to do."
-queststatus(187) > 0, queststatus(703) = 17, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 18, "Ah, Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(187) > 0, queststatus(703) = 17, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 18, "Ah, Jakob hat euch geschickt aber ihr habt mich bereits nach einer Aufgabe gefragt."
 queststatus(187) > 0, queststatus(703) = 17, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 18, "Ah, Jakob sent you, but you have already asked me for something to do."
-queststatus(187) > 0, queststatus(703) = 17, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 18, "Ah, Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(187) > 0, queststatus(703) = 17, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 18, "Ah, Jakob hat euch geschickt aber ihr habt mich bereits nach einer Aufgabe gefragt."
 
 -- 1st quest: Kill five rats, player receives rope
 -- Give out quest 1 and a rope
-queststatus(187) = 0, queststatus(703) = 17, english, town = Cadomyr, "quest", "mission" -> inform("[New quest] Vermin Monitor I. Place the rope in your belt or hand and double click it to use it in front of the well."), item(2760, 1, 333), queststatus(187) = 1, queststatus(703) = 18, "For the honour and glory of Cadomyr, please kill five rats in the cistern. Take this rope and descend into the well!"
-queststatus(187) = 0, queststatus(703) = 17, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Rattenfänger I. Lege das Seil in deinen Gürtel oder die Hand und doppelklicke darauf um es zu benutzen wenn Du vor dem Brunnen stehst."), item(2760, 1, 333), queststatus(187) = 1, queststatus(703) = 18, "Töte fünf Ratten in der Zisterne für den Ruhm und die Ehre Cadomyrs. Nimm dieses Seil und begib dich hinab in den Schacht!"
-queststatus(187) = 0, queststatus(703) = 17, town = Cadomyr, "task", "adventure", "order" -> inform("[New quest] Vermin Monitor I. Place the rope in your belt or hand and double click it to use it in front of the well."), item(2760, 1, 333), queststatus(187) = 1, queststatus(703) = 18, "For the honour and glory of Cadomyr, please kill five rats in the cistern. Take this rope and descend into the well!"
-queststatus(187) = 0, queststatus(703) = 17, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Rattenfänger I. Lege das Seil in deinen Gürtel oder die Hand und doppelklicke darauf um es zu benutzen wenn Du vor dem Brunnen stehst."), item(2760, 1, 333), queststatus(187) = 1, queststatus(703) = 18, "Töte fünf Ratten in der Zisterne für den Ruhm und die Ehre Cadomyrs. Nimm dieses Seil und begib dich hinab in den Schacht!"
+queststatus(187) = 0, queststatus(703) = 17, english, town = Cadomyr, "quest", "mission" -> inform("[New quest] Vermin Monitor I. Double click the rope to use it in front of the well."), item(2760, 1, 333), queststatus(187) = 1, queststatus(703) = 18, "Rats! Recently one came out of the cistern. Can you imagin what happened if such a dirty beast came into the eyes of our queen? Go down and kill five rats. Take this rope and descend into the well!"
+queststatus(187) = 0, queststatus(703) = 17, town = Cadomyr, "task", "adventure", "order" -> inform("[New quest] Vermin Monitor I. Double click the rope to use it in front of the well."), item(2760, 1, 333), queststatus(187) = 1, queststatus(703) = 18, "Rats! Recently one came out of the cistern. Can you imagin what happened if such a dirty beast came into the eyes of our queen? Go down and kill five rats. Take this rope and descend into the well!"
+queststatus(187) = 0, queststatus(703) = 17, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "quest", "mission" -> inform("[Neues Quest] Rattenfänger I. Doppelklicke auf das Seil um es zu benutzen wenn du vor dem Brunnen stehst."), item(2760, 1, 333), queststatus(187) = 1, queststatus(703) = 18, "Ratten! Kam doch kürzlich wieder eine aus der Zisterne. Kannst du dir vorstellen, wenn so ein dreckiges Vieh die Augen unsere Königin beleidigt hätte? Steig hinab und töte fünf Ratten. Nimm dieses Seil und begib dich hinab in den Schacht!"
 
-queststatus(187) = 0, english, town = Cadomyr,"quest", "mission" -> inform("[New quest] Vermin Monitor I. Place the rope in your belt or hand and double click it to use it in front of the well."), item(2760, 1, 333), queststatus(187) = 1, "For the honour and glory of Cadomyr, please kill five rats in the cistern. Take this rope and descend into the well!"
-queststatus(187) = 0, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Rattenfänger I. Lege das Seil in deinen Gürtel oder die Hand und doppelklicke darauf um es zu benutzen wenn Du vor dem Schacht stehst."), item(2760, 1, 333), queststatus(187) = 1, "Töte fünf Ratten in der Zisterne für den Ruhm und die Ehre Cadomyrs. Nimm dieses Seil und begib dich hinab in den Schacht!"
-queststatus(187) = 0, town = Cadomyr, "task", "adventure" -> inform("[New quest] Vermin Monitor I. Place the rope in your belt or hand and double click it to use it in front of the well."), item(2760, 1, 333), queststatus(187) = 1, "For the honour and glory of Cadomyr, please kill five rats in the cistern. Take this rope and descend into the well!"
-queststatus(187) = 0, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rattenfänger I. Lege das Seil in deinen Gürtel oder die Hand und doppelklicke darauf um es zu benutzen wenn Du vor dem Brunnen stehst."), item(2760, 1, 333), queststatus(187) = 1, "Töte fünf Ratten in der Zisterne für den Ruhm und die Ehre Cadomyrs. Nimm dieses Seil und begib dich hinab in den Schacht!"
+queststatus(187) = 0, english, town = Cadomyr,"quest", "mission" -> inform("[New quest] Vermin Monitor I. Double click the rope to use it in front of the well."), item(2760, 1, 333), queststatus(187) = 1, queststatus(703) = 18, "Rats! Recently one came out of the cistern. Can you imagin what happened if such a dirty beast came into the eyes of our queen? Go down and kill five rats. Take this rope and descend into the well!"
+queststatus(187) = 0, town = Cadomyr, "task", "adventure" -> inform("[New quest] Vermin Monitor I. Double click the rope to use it in front of the well."), item(2760, 1, 333), queststatus(187) = 1, queststatus(703) = 18, "Rats! Recently one came out of the cistern. Can you imagin what happened if such a dirty beast came into the eyes of our queen? Go down and kill five rats. Take this rope and descend into the well!"
+queststatus(187) = 0, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> inform("[Neues Quest] Rattenfänger I. Doppelklicke auf das Seil um es zu benutzen wenn du vor dem Brunnen stehst."), item(2760, 1, 333), queststatus(187) = 1, queststatus(703) = 18, "Ratten! Kam doch kürzlich wieder eine aus der Zisterne. Kannst du dir vorstellen, wenn so ein dreckiges Vieh die Augen unsere Königin beleidigt hätte? Steig hinab und töte fünf Ratten. Nimm dieses Seil und begib dich hinab in den Schacht!"
 
 -- Quest 1 solved, reward: 2000cp, +5 rankpoints
 queststatus(187) = 6, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(187) = 7, rankpoints + 5, "Very well, you have done good work for this town. There is more to do yet."
 queststatus(187) = 6, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, queststatus(187) = 7, rankpoints + 5, "Sehr gut, du hast gute Dinge für die Stadt getan, aber es ist noch mehr zu tun."
 
 -- Quest 1 taken but not solved, repeat the instructions
-queststatus(187) > 0, queststatus(187) < 6, english, town = Cadomyr, "quest", "mission" -> "The Queen has ordered that the rat population be controlled, kill five rats."
-queststatus(187) > 0, queststatus(187) < 6, town = Cadomyr, "quest", "mission" -> "Die Königin hat den Befehl gegeben die Rattenanzahl zu dezimieren. Töte fünf Ratten."
-queststatus(187) > 0, queststatus(187) < 6, town = Cadomyr, "task", "adventure" -> "The Queen has ordered that the rat population be controlled, kill five rats."
-queststatus(187) > 0, queststatus(187) < 6, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> "Die Königin hat den Befehl gegeben die Rattenanzahl zu dezimieren. Töte fünf Ratten."
+queststatus(187) = 1, english, town = Cadomyr, "quest", "mission" -> "No matter if you don't know what rats are or you couldn't find any. Take the rope and climb down in the well. There you find five rats you have to kill."
+queststatus(187) = 1, town = Cadomyr, "task", "adventure" -> "No matter if you don't know what rats are or you couldn't find any. Take the rope and climb down in the well. There you find five rats you have to kill."
+queststatus(187) = 1, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> "Weißt du nicht, wie Ratten aussehen oder findest du keine? Egal. Nimm dein Seil und steig in den Brunnen. Dort wirst du die fünf Ratten finden, die du töten sollst."
+
+-- Quest 1 taken but not solved, repeat the instructions
+queststatus(187) > 0, queststatus(187) < 6, english, town = Cadomyr, "quest", "mission" -> "You have to kill five rats. You arn't ready yet."
+queststatus(187) > 0, queststatus(187) < 6, town = Cadomyr, "task", "adventure" -> "You have to kill five rats. You arn't ready yet."
+queststatus(187) > 0, queststatus(187) < 6, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> "Du solltest fünf Ratten töten. Du bist noch nicht fertig."
 
 -- 2nd quest: Collect ten rat furs
 -- Give out quest 2
-queststatus(187) = 7, english, town = Cadomyr, "quest", "mission" -> inform("[New quest] Vermin Monitor II"), queststatus(187) = 8, "I need further proof the numbers have went down. Please bring me ten pieces of fur from these rats."
-queststatus(187) = 7, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Rattenfänger II"), queststatus(187) = 8, "Ich benötige Beweise das die Zahl der Ratten gesunken ist. Bringe mir bitte zehn Rattenfelle."
-queststatus(187) = 7, town = Cadomyr, "task", "adventure" -> inform("[New quest] Vermin Monitor II"), queststatus(187) = 8, "I need further proof the numbers have went down. Please bring me ten pieces of fur from these rats."
-queststatus(187) = 7, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rattenfänger II"), queststatus(187) = 8, "Ich benötige Beweise das die Zahl der Ratten gesunken ist. Bringe mir bitte zehn Rattenfelle."
+queststatus(187) = 7, english, town = Cadomyr, "quest", "mission" -> inform("[New quest] Vermin Monitor II"), queststatus(187) = 8, "Only just I've seen another rat. I need further proof the numbers have went down. Please bring me ten pieces of fur from these rats."
+queststatus(187) = 7, town = Cadomyr, "task", "adventure" -> inform("[New quest] Vermin Monitor II"), queststatus(187) = 8, "Only just I've seen another rat. I need further proof the numbers have went down. Please bring me ten pieces of fur from these rats."
+queststatus(187) = 7, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> inform("[Neues Quest] Rattenfänger II"), queststatus(187) = 8, "Gerade eben habe ich wieder eine Ratte gesehen. Ich benötige Beweise, dass die Zahl der Ratten gesunken ist. Bringe mir bitte zehn Rattenfelle."
 
 -- Quest 2 solved, reward: 2000cp, +5 rankpoints
-queststatus(187) = 8,  item(2586, all) > 9, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, deleteItem(2586, 10), queststatus(187)= 9, rankpoints + 5, "The Queen will be most pleased when I tell her of your efforts."
-queststatus(187) = 8,  item(2586, all) > 9, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, deleteItem(2586, 10), queststatus(187)= 9, rankpoints + 5, "Die Königin wird sehr erfreut sein, wenn ich Ihr von deinen Bemühungen berichte."
+queststatus(187) = 8,  item(2586, all) > 9, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, deleteItem(2586, 10), queststatus(187)= 9, rankpoints + 5, "The Chancellor will be most pleased when he can tell the Queen of our success."
+queststatus(187) = 8,  item(2586, all) > 9, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, deleteItem(2586, 10), queststatus(187)= 9, rankpoints + 5, "Die Kanzler wird sehr erfreut sein, wenn er der Königin von unseren Erfolgen berichten kann."
 
 -- Quest 2 taken but not solved, repeat the instructions
-queststatus(187) = 8, item(2586, all) < 10, town = Cadomyr, english, "quest", "mission" -> "The Queen has given the command, reduce the numbers and bring me ten rat furs."
-queststatus(187) = 8, item(2586, all) < 10, town = Cadomyr, "quest", "mission" -> "Dir Königin hat den Befehl erteilt, verringere die Anzahl der Ratten und bring mir zehn Rattenfelle."
-queststatus(187) = 8, item(2586, all) < 10, town = Cadomyr, "task", "adventure" -> "The Queen has given the command, reduce the numbers and bring me ten rat furs."
-queststatus(187) = 8, item(2586, all) < 10, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> "Dir Königin hat den Befehl erteilt, verringere die Anzahl der Ratten und bring mir zehn Rattenfelle."
+queststatus(187) = 8, item(2586, all) < 10, town = Cadomyr, english, "quest", "mission" -> "The Queen has given the command to me, reduce the numbers of rates. She wants proof. So go bring me ten rat furs."
+queststatus(187) = 8, item(2586, all) < 10, town = Cadomyr, "task", "adventure" -> "The Queen has given the command to me, reduce the numbers of rates. She wants proof. So go bring me ten rat furs."
+queststatus(187) = 8, item(2586, all) < 10, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> "Dir Königin hat mir den Befehl erteilt, die Anzahl der Ratten zu reduzieren. Sie verlangt Beweise. Geh und bring mir zehn Rattenfelle als Beweis."
 
 -- 3rd quest: Kill ten rats
 -- Give out quest 3
-queststatus(187) = 9, town = Cadomyr, english, "quest", "mission" -> inform("[New quest] Vermin Monitor III"), queststatus(187) = 10, "For the honour and glory of Cadomyr, please kill ten rats in the cistern."
-queststatus(187) = 9, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Rattenfänger III"), queststatus(187) = 10, "Töte zehn Ratten in der Zisterne für den Ruhm und die Ehre Cadomyrs."
-queststatus(187) = 9, town = Cadomyr, "task", "adventure" -> inform("[New quest] Vermin Monitor III"), queststatus(187) = 10, "For the honour and glory of Cadomyr, please kill ten rats in the cistern."
-queststatus(187) = 9, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rattenfänger III"), queststatus(187) = 10, "Töte zehn Ratten in der Zisterne für den Ruhm und die Ehre Cadomyrs."
+queststatus(187) = 9, town = Cadomyr, english, "quest", "mission" -> inform("[New quest] Vermin Monitor III"), queststatus(187) = 10, "Despite all the heroic effort you take, the number of rats seem to increase. For the honour and glory of Cadomyr, please kill ten rats in the cistern."
+queststatus(187) = 9, town = Cadomyr, "task", "adventure" -> inform("[New quest] Vermin Monitor III"), queststatus(187) = 10, "Despite all the heroic effort you take, the number of rats seem to increase. For the honour and glory of Cadomyr, please kill ten rats in the cistern."
+queststatus(187) = 9, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> inform("[Neues Quest] Rattenfänger III"), queststatus(187) = 10, "Trotz all deiner heroischen Anstrengungen, es scheinen immer mehr Ratten zu werden. Töte zehn Ratten in der Zisterne für den Ruhm und die Ehre Cadomyrs."
 
 -- Quest 3 solved, reward: 20 silver, +5 rankpoints
-queststatus(187) = 20, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(187) = 21, rankpoints + 5, "The Queen will be most pleased when I tell her of your efforts."
-queststatus(187) = 20, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, queststatus(187) = 21, rankpoints + 5, "Die Königin wird sehr erfreut sein, wenn ich Ihr von deinen Bemühungen berichte."
+queststatus(187) = 20, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(187) = 21, rankpoints + 5, "I think we are done already. Due to our efforts the glory of the Queen is not harmed."
+queststatus(187) = 20, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, queststatus(187) = 21, rankpoints + 5, "Ich glaub wir haben es fast geschafft. Es ist unseren Bemühungen zu verdanken, dass die Pracht der Königin nicht durch Ratten beeinträchtigt wird."
 
 -- Quest 3 taken but not solved, repeat the instructions
-queststatus(187) > 9, queststatus(187) < 20, town = Cadomyr, english, "quest", "mission" -> "The Queen has ordered that the rat population be controlled. Kill ten rats."
-queststatus(187) > 9, queststatus(187) < 20, town = Cadomyr, "quest", "mission" -> "Die Königin hat den Befehl gegeben die Rattenanzahl zu dezimieren. Töte zehn Ratten."
-queststatus(187) > 9, queststatus(187) < 20, town = Cadomyr, "task", "adventure" -> "The Queen has ordered that the rat population be controlled. Kill ten rats."
-queststatus(187) > 9, queststatus(187) < 20, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> "Die Königin hat den Befehl gegeben die Rattenanzahl zu dezimieren. Töte zehn Ratten."
+queststatus(187) > 9, queststatus(187) < 20, town = Cadomyr, english, "quest", "mission" -> "We have the very important task to control the rat population. Kill ten rats."
+queststatus(187) > 9, queststatus(187) < 20, town = Cadomyr, "task", "adventure" -> "e have the very important task to control the rat population. Kill ten rats."
+queststatus(187) > 9, queststatus(187) < 20, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> "Wir haben die ungemein wichtige Aufgabe die Ratten zu dezimieren. Töte zehn Ratten."
 
--- 4th quest collect 15 rat furs from cistern rats
+-- 4th quest check 5 poisoned carrots
 -- Giving out quest 4
-queststatus(187) = 21, english, town = Cadomyr, "quest", "mission" -> inform("[New quest] Vermin Monitor IV"), queststatus(187) = 22, "I need further proof the numbers have went down. Please bring me fifteen pieces of fur from these rats."
-queststatus(187) = 21, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Rattenfänger IV"), queststatus(187) = 22, "Ich benötige Beweise das die Zahl der Ratten gesunken ist. Bringe mir bitte fünfzehn Rattenfelle."
-queststatus(187) = 21, town = Cadomyr, "task", "adventure" -> inform("[New quest] Vermin Monitor IV"), queststatus(187) = 22, "I need further proof the numbers have went down. Please bring me fifteen pieces of fur from these rats."
-queststatus(187) = 21, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rattenfänger IV"), queststatus(187) = 22, "Ich benötige Beweise das die Zahl der Ratten gesunken ist. Bringe mir bitte zfünfzehn Rattenfelle."
+queststatus(187) = 21, english, town = Cadomyr, "quest", "mission" -> inform("[New quest] Vermin Monitor IV - Find and 'use' 5 poisoned rat bails in the cistern."), queststatus(253) = 0, queststatus(187) = 22, "Recently I placed some poisoned carrots. Please verify if thee rats touched them. But carry any gloves if you touch the bails."
+queststatus(187) = 21, town = Cadomyr, "task", "adventure" -> inform("[New quest] Vermin Monitor IV - Find and verify 5 poisoned rat bails in the cistern. Use the bail to verify."), queststatus(253) = 0, queststatus(187) = 22, "Recently I placed some poisoned carrots. Please verify if thee rats touched them. But carry any gloves if you touch the bails."
+queststatus(187) = 21, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> inform("[Neues Quest] Rattenfänger IV - Finde und prüfe 5 Köder in der Zisterne. Benutze den Köder, um ihn zu prüfen."), queststatus(253) = 0, queststatus(187) = 22, "Ich habe vor kurzem einige vergiftete Möhren ausgelegt. Prüfe bitte mindestens 5 der Köder, ob sie angenommen werden. Aber zieh irgendwelche Handschuhe an, wenn du sie anfasst!"
 
--- Quest 4 solved, 20 silver, +5 rankpoints
-queststatus(187) = 22, item(2586, all) > 14, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, deleteItem(2586, 15), queststatus(187) = 23, rankpoints + 5, "The Queen will be most pleased when I tell her of your efforts."
-queststatus(187) = 22, item(2586, all) > 14, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, deleteItem(2586, 15), queststatus(187) = 23, rankpoints + 5, "Die Königin wird sehr erfreut sein, wenn ich Ihr von deinen Bemühungen berichte."
+-- Quest 4 taken but not started
+queststatus(187) = 22, queststatus(253) = 0, english, town = Cadomyr, ".+" -> inform("Find and 'use' 5 poisoned rat bails in the cistern. You must touch (use) the carrots."), "Wear gloves and check the bails. This is my chance to solve the rat issue without get my hands dirty."
+queststatus(187) = 22, queststatus(253) = 0, town = Cadomyr, ".+" -> inform("Finde und prüfe 5 Köder in der Zisterne. Benutze den Köder, um ihn zu prüfen."), "Zieh Handschuhe an und prüf die Köder. Das ist meine Chance den Ratten beizukommen, ohne mir die Hände schmutzig zu machen."
 
 -- Quest 4 taken but not finished
-queststatus(187) = 22, item(2586, all) < 15, town = Cadomyr, english, "quest", "mission" -> "Test your skill and bring me fifteen fur from the rats."
-queststatus(187) = 22, item(2586, all) < 15, town = Cadomyr, "quest", "mission" -> "Beweise deine Fähigkeiten und bring mir fünfzehn Rattenfelle."
-queststatus(187) = 22, item(2586, all) < 15, town = Cadomyr, "task", "adventure" -> "Test your skill and bring me fifteen fur from the rats."
-queststatus(187) = 22, item(2586, all) < 15, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> "Beweise deine Fähigkeiten und bring mir fünfzehn Rattenfelle."
+queststatus(187) = 22, town = Cadomyr, english, "quest", "mission" -> "Are you sure the rats don't touch the baits? Please verify some more."
+queststatus(187) = 22, town = Cadomyr, "task", "adventure", "poison", "carrot" -> "Are you sure the rats don't touch the baits? Please verify some more."
+queststatus(187) = 22, town = Cadomyr, "Auftrag", "Aufgabe", "quest", "mission", "Abenteuer", "Gift", "Möhre" -> "Bist du dir sicher, die Ratten verschähen die Köder? Bitte prüfe noch einige mehr."
 
+-- Quest 4 solved, 20 silver, +5 rankpoints
 -- Quest 5 kill ten rats
 -- Give out quest 5
-queststatus(187) = 23, town = Cadomyr, english, "quest", "mission" -> inform("[New quest] Vermin Monitor V"), queststatus(187) = 24, "To further improve your honour, kill ten rats."
-queststatus(187) = 23, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Rattenfänger V"), queststatus(187) = 24, "Töte zehn Ratten um deine Ehre zu mehren."
-queststatus(187) = 23, town = Cadomyr, "task", "adventure" -> inform("[New quest] Vermin Monitor V"), queststatus(187) = 24, "To further improve your honour, kill ten rats."
-queststatus(187) = 23, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rattenfänger V"), queststatus(187) = 24, "Töte zehn Ratten um deine Ehre zu mehren."
+queststatus(187) = 23, town = Cadomyr, english, "quest", "mission" -> inform("[Solved and new quest] Vermin Monitor V"), queststatus(187) = 24, "A disaster! We must do anyting immediately. I can not think of anything better than to kill another ten rats to save our honor.", money + 2000, rankpoints + 5
+queststatus(187) = 23, town = Cadomyr, "task", "adventure", "poison", "carrot" -> inform("[Solved and new quest] Vermin Monitor V"), queststatus(187) = 24, "A disaster! We must do anyting immediately. I can not think of anything better than to kill another ten rats to save our honor.", money + 2000, rankpoints + 5
+queststatus(187) = 23, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission", "Gift", "Möhre" -> inform("[Gelöstes und neues Quest] Rattenfänger V"), queststatus(187) = 24, "Eine Katastophe! Wir müssen unbedingt was tun. Mir fällt jetzt auch nichts Besseres ein, als weitere zehn Ratten zu töten, um unsere Ehre zu retten.", money + 2000, rankpoints + 5
 
 -- Quest 5 solved, 20 silver, +5 rankpoints
-queststatus(187) = 34, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(187) = 35, rankpoints + 5, "The Queen will be most pleased when I tell her of your efforts."
-queststatus(187) = 34, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, queststatus(187) = 35, rankpoints + 5, "Die Königin wird sehr erfreut sein, wenn ich Ihr von deinen Bemühungen berichte."
+queststatus(187) = 34, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(187) = 35, rankpoints + 5, "It's said the Queen mentioned the reduced number of vermin. Also due to your efforts."
+queststatus(187) = 34, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, queststatus(187) = 35, rankpoints + 5, "Man sagt die Königin hat lobend erwähnt, dass das Ungeziefer abnimmt. Auch dank deiner Bemühungen."
 
 -- Quest 5 taken but not solved
-queststatus(187) > 23, queststatus(187) < 34, town = Cadomyr, english, "quest", "mission" -> "To prove your honour, you still need to kill ten rats."
-queststatus(187) > 23, queststatus(187) < 34, town = Cadomyr, "quest", "mission" -> "Um deine Ehre zu zeigen musst du noch zehn Ratten töten."
-queststatus(187) > 23, queststatus(187) < 34, town = Cadomyr, "task", "adventure" -> "To prove your honour, you still need to kill ten rats."
-queststatus(187) > 23, queststatus(187) < 34, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> "Um deine Ehre zu zeigen musst du noch zehn Ratten töten."
+queststatus(187) > 23, queststatus(187) < 34, town = Cadomyr, english, "quest", "mission" -> "Saving our honour, you still need to kill ten rats."
+queststatus(187) > 23, queststatus(187) < 34, town = Cadomyr, "task", "adventure" -> "Saving our honor, you still need to kill ten rats."
+queststatus(187) > 23, queststatus(187) < 34, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> "Um unsere Ehre zu retten, musst du noch zehn Ratten töten."
 
 -- Quest 6  Kill Ratman Boss
 -- Give out Quest 6
-queststatus(187) = 35, english, town = Cadomyr, "quest", "mission" -> inform("[New quest] Vermin Monitor VI"), queststatus(187) = 36, "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
-queststatus(187) = 35, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Rattenfänger VI"), queststatus(187) = 36, "Töte den Rattenmenschen in der Zisterne, er ist der Befehlshaber und trägt den Namen 'Schnüffler'. Vielleicht werden die Ratten sich dann zurückziehen!"
-queststatus(187) = 35, town = Cadomyr, "task", "adventure" -> inform("[New quest] Vermin Monitor VI"), queststatus(187) = 36, "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
-queststatus(187) = 35, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rattenfänger VI"), queststatus(187) = 36, "Töte den Rattenmenschen in der Zisterne, er ist der Befehlshaber und trägt den Namen 'Schnüffler'. Vielleicht werden die Ratten sich dann zurückziehen!"
+queststatus(187) = 35, english, town = Cadomyr, "quest", "mission" -> inform("[New quest] Vermin Monitor VI"), queststatus(187) = 36, "It is said the rats have a king. There must be a single Queen in Cadomyr only. Kill the ratman in the Cistern, he goes by the Snuffler. I'm sure then the rats will leave!"
+queststatus(187) = 35, town = Cadomyr, "task", "adventure" -> inform("[New quest] Vermin Monitor VI"), queststatus(187) = 36, "It is said the rats have a king. There must be a single Queen in Cadomyr only. Kill the ratman in the Cistern, he goes by the Snuffler. I'm sure then the rats will leave!"
+queststatus(187) = 35, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> inform("[Neues Quest] Rattenfänger VI"), queststatus(187) = 36, "Man sagt die Ratten haben einen König. In Cadomyr kann es nur eine Königin geben. Töte den Rattenmenschen in der Zisterne. Er soll den Namen 'Schnüffler' tragen. Sicher werden die Ratten sich dann zurückziehen!"
 
 -- Quest 6 solved, 30 silver, +10 rankpoints
-queststatus(187) = 37, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 30 silver coins."), money + 3000, queststatus(187) = 38, rankpoints + 10, "You have proven your valour and honour. You will make a good subject for the Queen."
-queststatus(187) = 37, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), money + 3000, queststatus(187) = 38, rankpoints + 10, "Du hast deinen Mut und deine Ehre bewiesen. Du wirst ein guter Diener der Königin sein."
+queststatus(187) = 37, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 30 silver coins."), money + 3000, queststatus(187) = 38, rankpoints + 10, "You have proven your valour and honour. You will make a good subject for the Queen. And I may get my decoration to become First Vermin Monitor."
+queststatus(187) = 37, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), money + 3000, queststatus(187) = 38, rankpoints + 10, "Du hast deinen Mut und deine Ehre bewiesen. Du wirst ein guter Diener der Königin sein. Und ich werde sicher zum Oberrattenfänger befördert."
 
 -- Quest 6 taken but not finished
-queststatus(187) > 35, queststatus(187) < 37, town = Cadomyr, english, "quest", "mission" -> "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
-queststatus(187) > 35, queststatus(187) < 37, town = Cadomyr, "quest", "mission" -> "Töte den Rattenmenschen in der Zisterne, er ist der Befehlshaber und trägt den Namen 'Schnüffler'. Vielleicht werden die Ratten sich dann zurückziehen!"
-queststatus(187) > 35, queststatus(187) < 37, town = Cadomyr, "task", "adventure" -> "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
-queststatus(187) > 35, queststatus(187) < 37, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> "Töte den Rattenmenschen in der Zisterne, er ist der Befehlshaber und trägt den Namen 'Schnüffler'. Vielleicht werden die Ratten sich dann zurückziehen!"
+queststatus(187) = 36, town = Cadomyr, english, "quest", "mission" -> "Kill the ratman boss in the Cistern, he goes by the Snuffler. I'm sure then the rats will leave!"
+queststatus(187) = 36, town = Cadomyr, "task", "adventure" -> "Kill the ratman boss in the Cistern, he goes by the Snuffler. I'm sure then the rats will leave!"
+queststatus(187) = 36, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> "Töte den Rattenmenschen in der Zisterne, er trägt den Namen 'Schnüffler'. Sicher werden die Ratten sich dann zurückziehen!"
 
 -- No more quests, just nice words of gratitude
 queststatus(187) = 38, town = Cadomyr, english, "quest", "mission" -> "You have done your duty. I have no more work for you."
-queststatus(187) = 38, town = Cadomyr, "quest", "mission" -> "Du hast deine Arbeit getan. Ich habe nichts mehr für dich zu tun."
 queststatus(187) = 38, town = Cadomyr, "task", "adventure" -> "You have done your duty. I have no more work for you."
-queststatus(187) = 38, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> "Du hast deine Arbeit getan. Ich habe nichts mehr für dich zu tun."
+queststatus(187) = 38, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" , "quest", "mission"-> "Du hast deine Arbeit getan. Ich habe nichts mehr für dich zu tun."
+
+queststatus(187) = 38, "ober", "fänger", "ratte" -> "Eines Tages werde ich Oberrattenfänger. Sobald ich die Ratten unter Kontrolle habe.", "Sowohl Vater als auch Großvater waren Oberrattenfänger. Bald werde ich esauch sein.", "Ich habe gehört, dass ich nächste Woche in den Palast gefufen werde um meine Beförderung zum Oberrattenfänger zu erfahren."
+queststatus(187) = 38, "first", "vermin", "rat" -> "One day I'll become First Vermin Monitor. Once the rats are under control.", "My father and grandffather were decorated as First Vermin Monitor. It is time for me now!", "I have heard next week I'll be called to the palace to receive my decoration as First Vermin Monitor."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a Vermin Monitor, like my father, and his father before him!"
@@ -245,8 +240,8 @@ english, "name" -> "My name is Jeremiah Horanfeld, I am the Queen's own Vermin M
 "name" -> "Mein Name ist Jeremiah Horanfeld. Ich bin der Rattenfänger der Königin."
 "honour" -> "There is no greater honour than serving my Queen."
 "ehre" -> "Es gibt keine größere Ehre als meiner Königin zu dienen."
-"ratman" -> "The ratman in the well has a group of rat thugs in his command."
-"rattenmenschen" -> "Der Rattenmann am Wall hat eine Bande von Rattengangstern unter seinem Kommando."
+"ratman" -> "The ratman in the well claimed himself as king of rats."
+"rattenmenschen" -> "Der Rattenmann in der Zisterne hat sich zum König der Ratten erklärt."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "I don't know much about the Archmage, but who would follow a man who spends his time reading?"

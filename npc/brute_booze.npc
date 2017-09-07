@@ -74,15 +74,15 @@ itemShoes = 53
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings! Are you travelling as well?", "Good day to you. Are you on a great journey? ", "I welcome you!"
-"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid mir gegrüßet! Ihr seid wohl auch auf Reise?", "Guten Tag, wünsche iche. Befindigt Ihr Euch auf grosser Fahrt?", "Seid mir willkommen!"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid mir gegrüßet! Ihr seid wohl auch auf Reise?", "Guten Tag, wünsche iche. Befindigt ihr euch auf grosser Fahrt?", "Seid mir willkommen!"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings! Are you travelling as well?", "Good day to you. Are you on a great journey?", "I welcome you!"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Seid mir gerüßet! Ihr seid wohl auch auf Reise?", "Guten Tag, wünsche iche. Befindigt Ihr Euch auf grosser Fahrt?", "Seid mir willkommen!"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid mir gerüßet! Ihr seid wohl auch auf Reise?", "Guten Tag, wünsche iche. Befindigt ihr euch auf grosser Fahrt?", "Seid mir willkommen!"
 "Farewell", "Bye", "Fare well", "See you" -> "Save Travel!", "...or like the southern lizard folk say: May clear waters surround you.", "May your feet walk in good shoes."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Sicheres Reisen!", "... oder wie die südlichen Echsenmenschen sprechen: 'Mögt ihr von reinem Wasser umgebigt sein.'", "Iche will Euch gute Stiefel an die Füße wünsch-higen..."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Sicheres Reisen!", "... oder wie die südlichen Echsenmenschen sprechen: 'Mögt ihr von reinem Wasser umgebigt sein.'", "Iche will euch gute Stiefel an die Füße wünsch-higen..."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Save Travel!", "...or like the southern lizard folk say: May clear waters surround you.", "May your feet walk in good shoes."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Sichere Reise!", "... oder wie die südlichen Echsenmenschen sprechen: 'Mögt ihr von reinem Wasser umgebigt sein.'", "Iche will Euch gute Stiefel an die Füße wünsch-higen..."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Sichere Reise!", "... oder wie die südlichen Echsenmenschen sprechen: 'Mögt ihr von reinem Wasser umgebigt sein.'", "Iche will euch gute Stiefel an die Füße wünsch-higen..."
 "How are you", "How feel", "How do you do" -> "Yes! Old Brute is feeling great. Sometime I will leave for a new adventure.", "Oh, it is not important how I'm feeling! Tell me, how are you?", "I feel like I felt on great days, back then, when I was still a young orc."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Ja-h! Dem alten Brute geht's prächtigens. Irgendwann werde iche wohl zu einem neuen Abenteuer aufbrechen.", "Ach, das iset doch nicht wichti-hig, wie's mir geht! Sagt mir, wie gehtigt's Euch?", "Es geht mir wie an großen Tagen. Einst als iche noch Orkling war."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Ja-h! Dem alten Brute geht's prächtigens. Irgendwann werde iche wohl zu einem neuen Abenteuer aufbrechen.", "Ach, das iset doch nicht wichti-hig, wie's mir geht! Sagt mir, wie gehtigt's euch?", "Es geht mir wie an großen Tagen. Einst als iche noch Orkling war."
 "your name", "who are you", "who art thou" -> "I am the famous Brute Booze! A living legend and famous as well! I'm sure you have heard of my deeds."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Iche binne der berühmte Brute Booze! Lebendihige Legende und Berühmtheit! Sicherheitlich habt ihr von meinen Taten gehörigt."
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
@@ -90,9 +90,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Save Travel!", "...or like 
 
 -- Catching quest triggers
 english, "quest", "mission" -> "Oh, yes! Keep asking people for work and tasks, and one day you will become great hero, just like myself. However I don't have any work for you at the moment."
-"quest", "mission" -> "Hach, ja-ja! Fraget immerhig alle Leute nach Arbeit und Aufgaben. Dann werdet auch Ihr eines Tagiges ein ebenso großer Held sein, wie iche es bin. Allerdings habe iche im Moment keine Arbeit fü-hür Euch."
+"quest", "mission" -> "Hach, ja-ja! Fraget immerhig alle Leute nach Arbeit und Aufgaben. Dann werdet auch ihr eines Tagiges ein ebenso großer Held sein, wie iche es bin. Allerdings habe iche im Moment keine Arbeit fü-hür euch."
 "task", "adventure", "order" -> "Oh, yes! Keep asking people for work and tasks, and one day you will become great hero, just as I am. However I don't have any work for you at the moment."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hach, ja-ja! Fraget immerhig alle Leute nach Arbeit und Aufgaben. Dann werdet auch Ihr eines Tagiges ein ebenso großer Held sein, wie iche es bin. Allerdings habe iche im Moment keine Arbeit fü-hür Euch."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hach, ja-ja! Fraget immerhig alle Leute nach Arbeit und Aufgaben. Dann werdet auch ihr eines Tagiges ein ebenso großer Held sein, wie iche es bin. Allerdings habe iche im Moment keine Arbeit fü-hür euch."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Im not a king, not a smith, not a peasant... I live for adventures."
@@ -118,11 +118,11 @@ english, "Khaari" -> "Let me tell you, the Light of Khaari is a Flame orc city. 
 "Kroch", "Gurak" -> "Kroch'Gurak! Das Winterlager, der wilden Klans. Ein kolossales Höhlengebilde, durchdrungen vom rhythmischen Klang der Trommeln. Alles iset voll mit Orklingen die Vieh herumtreiben und es riecht nach Bohnenschnaps!"
 "Fireshine" -> "Fireshine! Die Drachenburg der Flammenorks. Aus schwarzem Lava-Stein heraus gehauen, werden die Orks von Khor-Anthalatosh, Träger der Inneren Flamme, großer Drache des Nordens, geleitet. Diese Festung iset im wahren Sinn des Worts, erleuchtigt."
 "Flamme", "Gerechtigkeit" -> "Die Flamme der Gerechtigkeit iset eine Klosterburg der Flammenorks. Dreimal täglich rufen laute, tief schallende Hörner in den Tempeln, die Paladine und Mönche zum Gebet. Allerdings verschließt man den Reisenden den Inneren Teil der Stadt."
-"Khaari" -> "Iche will Euch sagen, das Licht von Khaari iset eine Stadt der Flammenorks. Und über der Stadt thront der Tempel der Flamme dessen Drachenfeuer so hell leuchtet, das die Stadt niemals im Dunkeln liegt. Selbst in der Nacht nicht."
+"Khaari" -> "Iche will euch sagen, das Licht von Khaari iset eine Stadt der Flammenorks. Und über der Stadt thront der Tempel der Flamme dessen Drachenfeuer so hell leuchtet, das die Stadt niemals im Dunkeln liegt. Selbst in der Nacht nicht."
 "Sevenhill" -> "Well, not even humans are allowed inside Sevenhill by the dwarves. So I can only tell you, what one may hear. It is said to be a mine, with vast treasures recovered from it. "
 english, "Storm", "Keep" -> "It was really hard to reach Storm's Keep. It's far away to the north and only a few strangers go there, but the art of smithing there is legendary."
 english, "Arn-Gharrach", "Arn Gharrach" -> "Arn-Gharrach is probably the oldest dwarven realm. It is the city of trading and even 'Overlander', as they say, are allowed inside. Before all, I'd like to praise the dwarven beer. '"
-"Siebenberg" -> "Tja, nichtmal Menschen lass-hen die Zwerge nach Siebenberg hinein. Also kann iche Euch nur sagigen, was man hört. Es soll eine Miene sein, und die ausgegrabigten Schätze unermesslich."
+"Siebenberg" -> "Tja, nichtmal Menschen lass-hen die Zwerge nach Siebenberg hinein. Also kann iche euch nur sagigen, was man hört. Es soll eine Miene sein, und die ausgegrabigten Schätze unermesslich."
 "Storm", "Keep" -> "Es war wirklich schwierig nach Storm's Keep zu gelangen. Sehr weit im Norden und nur wenig Fremde dort. Die Schmiedekunst dort, iset jedoch weithin legendär."
 "Gharrach", "Gharrach" -> "Arn-Gharrach, wohl das älteste Zwergenreich. Es iset die Stadt des Handels und auch 'Oberwelter' wie man dort sagt, haben Zutritt. Vor allem möchte iche das Bier der Zwerge lobend erwähnen."
 "Firnismill" -> "Firnismill is known for it's hospitality. As an orc however, one is frowned upon. Anyhow, it is very green and rich in gardens. "
@@ -154,7 +154,7 @@ english, "Mitsobar" -> "There is strong beer and pungent, brown liquor in Mitsob
 english, "Koldamar" -> "Koldamar is a boring, windy city. Everyone there is thinking a lot and is not very talkative. If you do not like the jungle, you can go there to see the lizards - as long as the gods are willing."
 "Falmarha" -> "Falmarha iset eine Art Festung im Meer. Die Gasthöfe sind günstig und die Menschen bedienen einen wie Sklaven. Iche will sagen, so viele Schiffe sah iche dort zum Ersten Mal."
 "Laris" -> "Laris iset auch eine Festung, wenn man das so sagen will. Man hat sogar einen Fluss gezähmhigt und umgegraben. Das wichtigste iset aber der Wein. DER WEIN!...sollte man getrunken haben."
-"Nubris" -> "Lassigt Euch sagen, die Menschen in Nubris, haben schwarze Haut, wie meine Grün iset. Ihre Stadt nennen sie das goldene Juwel des Südens und es giehebt unzählige Gewürze und anderen Kram zu kaufigen."
+"Nubris" -> "Lassigt euch sagen, die Menschen in Nubris, haben schwarze Haut, wie meine Grün iset. Ihre Stadt nennen sie das goldene Juwel des Südens und es giehebt unzählige Gewürze und anderen Kram zu kaufigen."
 "Mitsobar" -> "In Mitsobar gibt es kräftiges Bier und starkigen , braunen Schnaps. Und davon saufen die Menschen beachtlicher Menge. Außerdem fressen die Menschen dorte Fische als wären sie Echsen."
 "Koldamar" -> "Koldamar iset eine langweilige windige Stadt. Alle denken viel nach und sprechen wene-hig. Wenn ihr den Dschungel nicht mögt, könnt ihr dort Echsenmenschen sehigen... - Sodar die Götter es wollen."
 english, "Angur" -> "Lor-Angur is filled with elves that think themselves very clever, and the humans there, are no different. All of them indulge in sorcery and other dangerous things like it."
@@ -180,9 +180,9 @@ english, "Cadomyr" -> "It's too dry in Cadomyr, for my liking, and no beer there
 
 -- Main land factions
 english, "Albar" -> "I have to confess, I never set foot in Albar. They say, people without work are forced to labour in the mines. I don't even want mention what they do with orcs."
-"Albar" -> "Iche muss Euch gestehen, um Albar hab iche einen weiten Bogen gemacht. 's heißt dort sperrt man Leute ohne Arbeit in die Mienen. Von Orks will iche gar nicht sprechen."
+"Albar" -> "Iche muss euch gestehen, um Albar hab iche einen weiten Bogen gemacht. 's heißt dort sperrt man Leute ohne Arbeit in die Mienen. Von Orks will iche gar nicht sprechen."
 english, "gynk", "gync" -> "Let me tell you, if you plan to do something illegal, do it in Gynk. You can get swampweed and sibanac on practically every corner and slaves are richer than workers."
-"gynk", "gync" -> "Lasst Euch sagen, wenn ihr was verbotenes machen wollt, macht es in Gynk. Stechkraut und Sibanac, wir einem überall feilgeboten. Und die Sklaven sind reicher als die Arbeiter."
+"gynk", "gync" -> "Lasst euch sagen, wenn ihr was verbotenes machen wollt, macht es in Gynk. Stechkraut und Sibanac, wir einem überall feilgeboten. Und die Sklaven sind reicher als die Arbeiter."
 english, "salkama" -> "City of the sun. The biggest temple of the known world is located there, Temple of the wheel, where books are kept like treasures in great halls."
 "salkama" -> "Salkamar - Die Stadt der Sonne. Dort steht der größte Tempel der bekannten Welt, der Tempel des Rades und Bücher hortet man wie Schätze in großen Hallen."
 
@@ -198,11 +198,11 @@ english, "Malachin", "Malachín" -> "Malachín, the aureate hunter! The impregnabl
 "what sell", "what buy", "list wares", "price of" -> "I'm afraid, I don't have anything for sale and I've got no interest in any of your things."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Iche bedauerige sehr, nichts habe iche zu verkaufen und keine Eurer Sachen sind mir von Wertlichkeit."
 "tell something" -> "When I was a young orc, someone asked me, what I wanted to have done, before I die. And I said, I want to have drank a beer in even city of Illarion. The next day, I had already broken up.", "Since I had left the Norbug Plateua back then, I have travelled many known countries, so if you are looking for knowledge, just ask me. I enjoy telling you about various, strange lands."
-"erzähl was", "erzähl etwas" -> "Als iche noch ein Orkling war, fragte mich Einer was iche getan haben wollte, sei iche erst tot. Und iche sagte, iche wollte in jeder Stadt Illarions ein Bier getrunken haben. Tags darauf war iche scho-hon aufgebrochen.", "Seit iche damals das Norbug Plateau verließ, binne iche in viele der bekannten Länder gereist. Wenn Ihr also etwas zu Wissen versucht, fragt mich ruhig aus. Iche erzähle gernig von allersamt fremder Länder."
+"erzähl was", "erzähl etwas" -> "Als iche noch ein Orkling war, fragte mich Einer was iche getan haben wollte, sei iche erst tot. Und iche sagte, iche wollte in jeder Stadt Illarions ein Bier getrunken haben. Tags darauf war iche scho-hon aufgebrochen.", "Seit iche damals das Norbug Plateau verließ, binne iche in viele der bekannten Länder gereist. Wenn ihr also etwas zu Wissen versucht, fragt mich ruhig aus. Iche erzähle gernig von allersamt fremder Länder."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Brute", "Booze" -> "Hurr hurr. That's being me!", "#me scratches his chin. 'How are you?'"
-"Brute", "Booze" -> "Hurr hurr. Der binnige ich!", "#me reckt sein Kinn in die Höhe. 'Wonach verlangts Euch?'"
+"Brute", "Booze" -> "Hurr hurr. Der binnige ich!", "#me reckt sein Kinn in die Höhe. 'Wonach verlangts euch?'"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

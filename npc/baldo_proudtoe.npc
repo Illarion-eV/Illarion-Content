@@ -88,9 +88,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a nice day and do not 
 
 -- fix
 queststatus(118) > 0, queststatus(820) = 9, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 10, "Ah Florain send you but you already ask me for something to do."
-queststatus(118) > 0, queststatus(820) = 9, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 10, "Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(118) > 0, queststatus(820) = 9, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 10, "Ah Florain hat euch geschickt aber ihr habt mich bereits nach einer Aufgabe gefragt."
 queststatus(118) > 0, queststatus(820) = 9, town = Runewick, "task", "adventure", "order" -> queststatus(820) = 10, "Ah Florain send you but you already ask me for something to do."
-queststatus(118) > 0, queststatus(820) = 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 10, "Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(118) > 0, queststatus(820) = 9, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 10, "Ah Florain hat euch geschickt aber ihr habt mich bereits nach einer Aufgabe gefragt."
 
 -- 1st quest: Gather 10 apples
 queststatus(118) = 0, queststatus(820) = 9, english, "quest", "mission", "florain", "dreyndel" -> inform("[New quest] Runewick Gardens I"), queststatus(118) = 1, queststatus(820) = 10, "Ah, you want to help me? Look, I'd like to plant some apple trees in my garden. But for that, I need apple seeds. So, please, bring me ten apples!"

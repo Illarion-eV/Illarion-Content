@@ -38,7 +38,7 @@ Description[ENGLISH][1] = "Collect six elven swords for Defensor Sancio."
 Description[GERMAN][2] = "Der Defensor Mando hat vielleicht eine Aufgabe für dich."
 Description[ENGLISH][2] = "The Defensor Mando may have a task for you."
 
-Description[GERMAN][3] = "Töte Drow für den Defensor Mando Du benötigst noch zehn."
+Description[GERMAN][3] = "Töte Drow für den Defensor Mando. Du benötigst noch zehn."
 Description[ENGLISH][3] = "Kill drow for Defensor Mando.  You still need ten."
 Description[GERMAN][4] = "Töte Drow für den Defensor Mando. Du benötigst noch neun."
 Description[ENGLISH][4] = "Kill drow for Defensor Mando.  You still need nine."

@@ -122,4 +122,16 @@ local dwarfBeard = {
 M.beardStyles = {dwarfBeard}
 M.beardStyles[0] = humanBeard
 
+M.hairColorSimple = {
+    {r=255 ,g=250 ,b=205 ,nameDe="Weiﬂblond", nameEn="White blonde"},
+    {r=255 ,g=215 ,b=0 ,nameDe="Blond", nameEn="Blonde"},
+    {r=205 ,g=173 ,b=0 ,nameDe="Dunkelblond", nameEn="Dark blonde"},
+    {r=139 ,g=129 ,b=76 ,nameDe="Hellbraun", nameEn="Light brown"},
+    {r=139 ,g=69 ,b=19 ,nameDe="Braun", nameEn="Brown"},
+    {r=60 ,g=22 ,b=21 ,nameDe="Dunkelbraun", nameEn="Dark brown"},
+    {r=0 ,g=0 ,b=0 ,nameDe="Schwarz", nameEn="Black"},
+    {r=255 ,g=127 ,b=36 ,nameDe="Hellrot", nameEn="Light ginger"},
+    {r=205 ,g=51 ,b=51 ,nameDe="Dunkelrot", nameEn="Dark ginger"}
+}
+
 return M

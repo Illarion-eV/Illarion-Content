@@ -97,9 +97,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Oh, won't you please visit 
 
 -- fix
 queststatus(126) > 0, queststatus(703) = 9, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 10, "Ah, Jakob sent you, but you have already asked me for something to do."
-queststatus(126) > 0, queststatus(703) = 9, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 10, "Ah, Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(126) > 0, queststatus(703) = 9, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> queststatus(703) = 10, "Ah, Jakob hat euch geschickt aber ihr habt mich bereits nach einer Aufgabe gefragt."
 queststatus(126) > 0, queststatus(703) = 9, town = Cadomyr, "task", "adventure", "order" -> queststatus(703) = 10, "Ah, Jakob sent you, but you have already asked me for something to do."
-queststatus(126) > 0, queststatus(703) = 9, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 10, "Ah, Jakob hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(126) > 0, queststatus(703) = 9, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(703) = 10, "Ah, Jakob hat euch geschickt aber ihr habt mich bereits nach einer Aufgabe gefragt."
 
 -- 1st quest: Gather 5 cutlery (2647)
 queststatus(126) = 0, queststatus(703) = 9, english, town = Cadomyr, "quest", "mission", "jakob", "lindorn" -> inform("[New quest] A Noble Celebration I"), queststatus(126) = 1, queststatus(703) = 10, "Oh, you want to help me? A celebration of noble men is scheduled in the Unicorn Lion and nothing is prepared, my dear! We lack five sets of cutlery, please get them."

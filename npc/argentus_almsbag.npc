@@ -92,7 +92,7 @@ tradeWrongItemMsg "Ich wechsle nur Geld.", "I just change money."
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings to you.", "Be greeted. Would you like to change your coppers into silvers?"
-"Grüße", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßt.", "Grüße. Mögt Ihr Euren Kupfer nicht gegen Silber eintauschen?"
+"Grüße", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßt.", "Grüße. Mögt ihr Euren Kupfer nicht gegen Silber eintauschen?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, hello!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, hallo!"
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell."
@@ -102,7 +102,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adieu."
 "How are you", "How feel", "How do you do" -> "I'm always happy when I'm trading."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es immer gut, wenn ich mit jemandem handeln kann."
 "your name", "who are you", "who art thou" -> "I am Argentus Almsbag! Don't you know me?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Argentus Almsbag. Kennt Ihr mich etwa nicht?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Argentus Almsbag. Kennt ihr mich etwa nicht?"
 
 -- Mandatory: Catching quest triggers. Modify if the NPC does quests
 english, "quest", "mission" -> "I don't have any tasks for you."
@@ -127,19 +127,19 @@ queststatus(701) = 4, "Zassaria", "lizzard", "fisch", "Bestellung", "riverbank" 
 english, "job" -> "I love money, but I hate my job."
 "job" -> "Ich mag Geld, aber ich mag meinen Beruf nicht."
 "tell something" -> "Sometimes I wonder why I change money for free. Perhaps I should start to take a percentage.."
-"erzähl was", "erzähl etwas" -> "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
+"erzähl was", "erzähl etwas" -> "Wollt ihr nun Handeln, oder mich mit eurem Geschwätz von der Arbeit abhalten?"
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Do you want to change your coins or do you just want to distract me from counting mine?"
-"Gott", "Götter" -> "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
+"Gott", "Götter" -> "Wollt ihr nun Handeln, oder mich mit eurem Geschwätz von der Arbeit abhalten?"
 
 -- Optional: Faction stuff
 english, "Runewick" -> "Runewick is such a lovely place. There's a lot of scope for making money here.", "Look, are you going to change coins or just gossip?"
-"Runewick" -> "Runwick ist ein sehr schöner Ort, man kann hier viel Geld machen.", "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
+"Runewick" -> "Runwick ist ein sehr schöner Ort, man kann hier viel Geld machen.", "Wollt ihr nun Handeln, oder mich mit eurem Geschwätz von der Arbeit abhalten?"
 english, "Galmair" -> "Galmair is full of corruption and grime. Only thieves make money there.", "Look, are you going to change coins or just gossip?"
-"Galmair" -> "Galmair ist voll von Korruption und Dreck.", "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
+"Galmair" -> "Galmair ist voll von Korruption und Dreck.", "Wollt ihr nun Handeln, oder mich mit eurem Geschwätz von der Arbeit abhalten?"
 english, "Cadomyr" -> "You don't need money in Cadomyr, I hear they all use slaves.", "Look, are you going to change coins or just gossip?"
-"Cadomyr" -> "Cadomyr ist Cadomyr.", "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
+"Cadomyr" -> "Cadomyr ist Cadomyr.", "Wollt ihr nun Handeln, oder mich mit eurem Geschwätz von der Arbeit abhalten?"
 
 -- Optional: Main land factions
 english, "salkama" -> "Salkamar was my home, but I hated it there."
@@ -147,7 +147,7 @@ english, "salkama" -> "Salkamar was my home, but I hated it there."
 
 -- Optional: Gobaith
 english, "Gobaith", "Gobiath" -> "Unless it's stamped on a coin I don't care."
-"Gobaith", "Gobiath" -> "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
+"Gobaith", "Gobiath" -> "Wollt ihr nun Handeln, oder mich mit eurem Geschwätz von der Arbeit abhalten?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

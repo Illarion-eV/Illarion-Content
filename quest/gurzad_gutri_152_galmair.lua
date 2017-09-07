@@ -68,7 +68,7 @@ Description[ENGLISH][11] = "The Don had a party for some merchants travelling th
 Description[GERMAN][12] = "Der Don hat eine neue Rüstung in Auftrag gegeben. Dafür wurden Materialien aus unserem Lager für den Schmied verwendet. Wir haben bereits alles bis auf das Leder ersetzt, da es hier kaum Schweine gibt. Woher ist mir egal, aber besorge zehn getrocknete Lederhäute."
 Description[ENGLISH][12] = "The Don commissioned a new set of armour to be made. For this he took materials from our storage for the smith. We've been able to replace everything except the leather since there are no pigs around. Please venture out and gather us ten pieces of dried leather."
 
-Description[GERMAN][13] = "Der persönliche Goldkelch des Dons hat über die Jahre an Glanz verloren, daher hat er sich einen neuen aus dem Lager genommen. Ich will, dass Ihr für Ersatz sorgt."
+Description[GERMAN][13] = "Der persönliche Goldkelch des Dons hat über die Jahre an Glanz verloren, daher hat er sich einen neuen aus dem Lager genommen. Ich will, dass ihr für Ersatz sorgt."
 Description[ENGLISH][13] = "The Don's personal golden goblet has been tarnished over the years, he's taken a new one from the storage. I'll need ya to go and fetch a new golden goblet for the storage."
 
 Description[GERMAN][14] = "Einer der Leibwachen des Dons hat gestern auf einem Jagdausflug seinen Bogen zerbrochen. Ein neuer Langbogen wurde aus dem Lager genommen, wir müssen ihn ersetzen! Bringt mir einen Langbogen."
@@ -77,7 +77,7 @@ Description[ENGLISH][14] = "One of the Don's bodyguards was out hunting yesterda
 Description[GERMAN][15] = "Eine unserer Jagdgruppen ist mit viel gutem Fleisch zurückgekehrt! Jedoch haben sie dabei eine größere Anzahl an Armbrustbolzen verbraucht. Besorgt mir 100 neue Bolzen."
 Description[ENGLISH][15] = "One of our hunting parties went out again and brought back a good stock of meat for us! But they used quite a large amount of crossbow bolts. I need you to get me one hundred crossbow bolts."
 
-Description[GERMAN][16] = "Heute Abend gibt es ein Gelage und das hat unsere Vorräte sehr belastet. Es kommen so viele Gäste, dass wir nicht genug für alle haben! Ich möchte, dass Ihr mir fünf fertige Wildgerichte bringt!"
+Description[GERMAN][16] = "Heute Abend gibt es ein Gelage und das hat unsere Vorräte sehr belastet. Es kommen so viele Gäste, dass wir nicht genug für alle haben! Ich möchte, dass ihr mir fünf fertige Wildgerichte bringt!"
 Description[ENGLISH][16] = "We're having a feast tonight and many of our materials were taken from the storage for food. There are so many people that we ran out! I need you to skip the storage part and just bring me five venison dishes for the feast!"
 
 Description[GERMAN][17] = "Unsere Alchemisten arbeiten sehr hart. Sie haben neulich einige Beutel Edelsteinstaub aus dem Lager genommen. Also... müssen sie ersetzt werden! Bringt mir fünf Beutel Saphirstaub!"

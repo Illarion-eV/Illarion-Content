@@ -87,11 +87,11 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello hello!", "Good day, how can I
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell!", "See you soon again.", "#me waves: 'Have a good day!'"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Lebt wohl.", "Tschüss. Bis demnächst!", "#me winkt: 'Einen schönen Tag wünsche ich!'"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Take care!", "May the Five be with you!", "#me bows.", "#me waves, 'Have a good day!'"
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Bis bald!", "Mögen die Fünf mit Euch sein!", "#me verbeugt sich.", "#me winkt: 'Einen schönen Tag wünsche ich!'"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Bis bald!", "Mögen die Fünf mit euch sein!", "#me verbeugt sich.", "#me winkt: 'Einen schönen Tag wünsche ich!'"
 "How are you", "How feel", "How do you do" -> "Me? Thank you, I am fine. How are you?", "How do you do?", "#me shrugs his shoulders, 'I'm fine, how are you?'"
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich? Mir geht es gut. Danke. Wie geht es Euch?", "Wie geht es Euch?", "#me zuckt mit den Schultern: 'Mir geht es gut und euch?'"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich? Mir geht es gut. Danke. Wie geht es euch?", "Wie geht es euch?", "#me zuckt mit den Schultern: 'Mir geht es gut und euch?'"
 "your name", "who are you", "who art thou" -> "Neiran el Nyarale, how can I help you?", "Neiran el Nyarale, at your service.", "Neiran el Nyarale from Runewick, and who are you?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Neiran el Nyarale, was kann ich für Euch tun?", "Neiran el Nyarale, zu euren Diensten.", "Neiran el Nyarale, aus Runewick. Und wer seid ihr?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Neiran el Nyarale, was kann ich für euch tun?", "Neiran el Nyarale, zu euren Diensten.", "Neiran el Nyarale, aus Runewick. Und wer seid ihr?"
 
 -- OPTIONAL TRIGGERS
 
@@ -117,9 +117,9 @@ town = none, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Die Arbeit von Rune
 -- Quest 1: Donate something to the treasury
 -- fix
 queststatus(205) > 0, queststatus(820) = 7, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 8, "Ah, Florain sent you but you already asked me for something to do."
-queststatus(205) > 0, queststatus(820) = 7, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 8, "Ah, Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(205) > 0, queststatus(820) = 7, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 8, "Ah, Florain hat euch geschickt aber ihr habt mich bereits nach einer Aufgabe gefragt."
 queststatus(205) > 0, queststatus(820) = 7, town = Runewick, "task", "adventure", "order" -> queststatus(820) = 8, "Ah, Florain sent you but you already asked me for something to do."
-queststatus(205) > 0, queststatus(820) = 7, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 8, "Ah, Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
+queststatus(205) > 0, queststatus(820) = 7, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 8, "Ah, Florain hat euch geschickt aber ihr habt mich bereits nach einer Aufgabe gefragt."
 
 -- 1: Quest 1 taken, donate something to the treasury, reward: 20 rankpoints
 queststatus(205) = 0, queststatus(820) = 7, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> inform("[New Quest] Runewick Treasury"), queststatus(205) = 1, queststatus(820) = 8, "Do you want a task? Donate some of your wealth and contribute to ensuring the city stays clean! The donation platform is right next to me."
@@ -141,7 +141,7 @@ queststatus(205) = 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befeh
 
 -- Quest 1 solved, reward: +20 rankpoints
 queststatus(205) = 2, english, town = Runewick, ".*" -> inform("[Quest solved] Neiran is satisfied."), queststatus(205) = 3, rankpoints + 20, "Thank you for your help!", "Thank you for your support!"
-queststatus(205) = 2, town = Runewick, ".*" -> inform("[Quest gelöst] Neiran ist zufrieden."), queststatus(205) = 3, rankpoints + 20, "Vielen Dank für Eure Hilfe!", "Vielen Dank für Eure Unterstützung!"
+queststatus(205) = 2, town = Runewick, ".*" -> inform("[Quest gelöst] Neiran ist zufrieden."), queststatus(205) = 3, rankpoints + 20, "Vielen Dank für eure Hilfe!", "Vielen Dank für eure Unterstützung!"
 
 -- Final dialogue: No more quests, just nice hints
 queststatus(205) = 3, english, "quest", "mission" -> "#me smiles happily and adds something to a list.", "I'm busy right now, please come again later."
@@ -207,7 +207,7 @@ english, "Gobaith", "Gobiath" -> " I've never been to this place.", "It was...a 
 "my name" -> "Nice to meet you! ", "Good to see you!", "#me smiles friendly."
 "mein Name" -> "Freut mich!", "Schön euch zu treffen!", "#me lächelt freundlich."
 english, "Neiran", "el Nyarale", "Nyarale" -> "That's me. How can I help you?", "#me raises a hand and waves.", "#me looks around, 'Who called for me?'", "#me smiles friendly"
-"Neiran", "el Nyarale", "Nyarale" -> "Das bin ich. Was kann ich für Euch tun?", "#me hebt eine Hand und winkt.", "#me blickt sich um: 'Wer rief nach mir?'", "#me lächelt freundlich."
+"Neiran", "el Nyarale", "Nyarale" -> "Das bin ich. Was kann ich für euch tun?", "#me hebt eine Hand und winkt.", "#me blickt sich um: 'Wer rief nach mir?'", "#me lächelt freundlich."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -220,7 +220,7 @@ cycletext "#me lächelt und lässt einige Münzen auf die magische Oberfläche falle
 cycletext "Was ist wahrer Reichtum? Wissen oder Münzen?", "What is of greater value? Knowledge or coins?"
 cycletext "Münzen, Waffen, Schmuck und Besteck, alles kann eingeschmolzen werden! Spendet an unsere schönen Stadt.", "Coins, weapons, jewellery, cutlery... everything can be melted down!"
 cycletext "Spendet Roh- und Baustoffe, wir bessern die Straßen von Runewick aus!", "Donate building material and resources, we repair the streets of Runewick!"
-cycletext "Spendet Papier und Tinte, die Bibliothek von Runewick wird es Euch danken!", "Donate ink and paper, for the libraries of Runewick!"
+cycletext "Spendet Papier und Tinte, die Bibliothek von Runewick wird es euch danken!", "Donate ink and paper, for the libraries of Runewick!"
 cycletext "Ich werde von eurem Einsatz für unsere schöne Stadt beim Erzmagier sprechen - zögert nicht!", "I'll tell the Archmage about your support for the town! Do not hesitate to donate."
 cycletext "#me sieht glücklich aus.", "#me seems to be happy."
 cycletext "#me schreibt eine Liste.", "#me writes a list."

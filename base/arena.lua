@@ -91,14 +91,14 @@ function M.requestMonster(User, NPC)
     end
 
     local dialogCaption = common.GetNLS(User, "Monsterstärke", "Monster strength")
-    local dialogText = common.GetNLS(User, "Wählt wie stark das Monster sein soll, gegen das Ihr kämpfen möchtet:", "Please choose how strong the monster you wish to fight against should be:")
+    local dialogText = common.GetNLS(User, "Wählt wie stark das Monster sein soll, gegen das ihr kämpfen möchtet:", "Please choose how strong the monster you wish to fight against should be:")
 
     local sdMonster = SelectionDialog(dialogCaption, dialogText, cbChooseLevel)
     sdMonster:setCloseOnMove()
     for i = 1, #(M.monsterIDsByLevel) do
         local priceInCP = M.monsterIDsByLevel[i].price
         local germanMoney, englishMoney = money.MoneyToString(priceInCP)
-        local option = common.GetNLS(User, "Stärke "..i.." Monster ("..M.monsterIDsByLevel[i].points.." Punkte)\n Preis:"..germanMoney, "Level "..i.." Monster ("..M.monsterIDsByLevel[i].points.." points)\n Price:"..englishMoney)
+        local option = common.GetNLS(User, "Stärke "..i.." Monster ("..M.monsterIDsByLevel[i].points.." Punkte)\n Preis: "..germanMoney, "Level "..i.." Monster ("..M.monsterIDsByLevel[i].points.." points)\n Price: "..englishMoney)
         sdMonster:addOption(61, option)
     end
     User:requestSelectionDialog(sdMonster)
@@ -109,12 +109,12 @@ function payforMonster(User, MonsterLevel, NPC)
     local germanMoney, englishMoney = money.MoneyToString(priceInCP)
 
     if not money.CharHasMoney(User,priceInCP) then --not enough money!
-        local outText = common.GetNLS(User, "Ihr habt nicht genug Geld dabei! Ihr benötigt"..germanMoney..".", "You don't have enough money with you! You'll need"..englishMoney..".")
+        local outText = common.GetNLS(User, "Ihr habt nicht genug Geld dabei! Ihr benötigt "..germanMoney..".", "You don't have enough money with you! You'll need "..englishMoney..".")
         NPC:talk(Character.say, outText)
         return false
     end
     money.TakeMoneyFromChar(User,priceInCP) --take money
-    User:inform("Ihr habt Euch ein Monster für"..germanMoney.." gekauft. Viel Erfolg!", "You bought a monster at the price of"..englishMoney..". Good luck!")
+    User:inform("Du hast dir ein Monster für "..germanMoney.." gekauft. Viel Erfolg!", "You bought a monster at the price of "..englishMoney..". Good luck!")
     return true
 end
 
@@ -246,7 +246,7 @@ function checkLte(User,NPC)
 
     local foundEffect = User.effects:find(18)
     if foundEffect then
-        NPC:talk(Character.say,"Besiegt erstmal die erste Kreatur, bevor Ihr eine zweite verlangt!","Finish the first creature before you demand a second one!")
+        NPC:talk(Character.say,"Besiegt erstmal die erste Kreatur, bevor ihr eine zweite verlangt!","Finish the first creature before you demand a second one!")
         return false
     end
     return true
