@@ -109,7 +109,7 @@ function payforMonster(User, MonsterLevel, NPC)
     local germanMoney, englishMoney = money.MoneyToString(priceInCP)
 
     if not money.CharHasMoney(User,priceInCP) then --not enough money!
-        local outText = common.GetNLS(User, "Ihr habt nicht genug Geld dabei! Ihr benötigt "..germanMoney..".", "You don't have enough money with you! You'll need "..englishMoney..".")
+        local outText = common.GetNLS(User, "Du hast nicht genug Geld dabei! Du benötigst "..germanMoney..".", "You don't have enough money with you! You'll need "..englishMoney..".")
         NPC:talk(Character.say, outText)
         return false
     end
@@ -211,7 +211,7 @@ function M.getArenastats(User, NPC)
     local quest = M.arenaInformation[arena].quest
     local points = User:getQuestProgress(quest)
 
-    local outText=common.GetNLS(User, "Ihr habt bereits "..points.." gesammelt. Weiter so!", "You have already earnt "..points.." points. Keep it up!")
+    local outText=common.GetNLS(User, "Du hast bereits "..points.." gesammelt. Weiter so!", "You have already earnt "..points.." points. Keep it up!")s
     NPC:talk(Character.say, outText)
 end
 

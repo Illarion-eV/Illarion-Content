@@ -539,7 +539,7 @@ function M.makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
         local germanMoney, englishMoney = money.MoneyToString(amountToPay);
         
         if not money.CharHasMoney(originator,amountToPay) then --not enough money!
-             gText="Ihr habt nicht genug Geld dabei! Ihr benötigt"..germanMoney..".";
+             gText="Du hast nicht genug Geld dabei! Du benötigst"..germanMoney..".";
             eText="You don't have enough money with you! You'll need"..englishMoney..".";
             outText=common.GetNLS(originator,gText,eText);
             thisNPC:talk(Character.say, outText);
@@ -572,7 +572,7 @@ function leaveFaction(originator, Faction, thisNPC)
 
     M.setFaction(originator,Faction); --write fv in Questprogress
 
-    gText="Ihr gehört nun keinem Reich mehr an. Das bedeutet das ihr frei, aber auf euch selbst gestellt seid. Viel Glück.";
+    gText="Du gehört nun keinem Reich mehr an. Das bedeutet, dass du frei, aber auf dich selbst gestellt seid. Viel Glück.";
     eText="You're now not belonging to any realm. This means you're free but also on your own. Good luck.";
     outText=common.GetNLS(originator,gText,eText);
     thisNPC:talk(Character.say, outText);

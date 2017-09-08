@@ -86,7 +86,7 @@ local function returnFox()
     if #foxes ~= 0 then
         for _,fox in ipairs(foxes) do
             fox:talk(Character.say, "#me schaut sich erschrocken um und rennt zurück.",
-                "#me get frightened and runs back.")
+                "#me gets frightened and runs back.")
             fox.movepoints = fox.movepoints - 0
             fox.waypoints:addWaypoint(denEntrance)
             fox:setOnRoute(true)

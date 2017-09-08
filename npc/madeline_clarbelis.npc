@@ -40,7 +40,7 @@ author = "Grokk"
 
 lookatDE = "Dieser NPC ist Madeline der Druiden-Schülerin."
 lookatUS = "This NPC is Madeline Clarbelis the apprentice druid."
-useMsgDE = "#me get nervös zurück."
+useMsgDE = "#me geht nervös zurück."
 useMsgUS = "#me pulls away nervously."
 wrongLangDE = "#me schüttelt ihren Kopf, sie scheint sich zu schämen."
 wrongLangUS = "#me shakes her head, seemingly embarrassed."
@@ -75,26 +75,26 @@ queststatus(333) > 12, ".+" -> inform("[Error] Something went wrong, please info
 "Hilfe" -> inform("[Spielhilfe]  Dieser NPC ist Madeline Clarbelis die Druiden-Schülerin. Schlüsselwörter: Auftrag, Aurora, Beruf, Ushara.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me blushes slightly, 'H...hello there.'", "#me glances toward her feet, 'Greetings.'", "G...greetings."
-"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me wird leicht rot.,'H...Hallo.'", "#me schaut verlegen zu Boden 'G...Grüße '.", "G...Grüße."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me blushes slightly, 'H...hello there.'", "#me glances toward her feet, 'Greetings.'", "G...greetings."
-"Hiho", "Hallo", "Hey", "Greeb" -> "#me wird leicht rot.,'H...Hallo.'", "#me schaut verlegen zu Boden 'G...Grüße '.", "G...Grüße."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me blushes slightly, 'H.. .hello there.'", "#me glances toward her feet, 'Greetings.'", "G... greetings."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me wird leicht rot.,'H... Hallo.'", "#me schaut verlegen zu Boden 'G... Grüße '.", "G... Grüße."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me blushes slightly, 'H... hello there.'", "#me glances toward her feet, 'Greetings.'", "G... greetings."
+"Hiho", "Hallo", "Hey", "Greeb" -> "#me wird leicht rot.,'H... Hallo.'", "#me schaut verlegen zu Boden 'G... Grüße '.", "G... Grüße."
 "Farewell", "Bye", "Fare well", "See you" -> "#me purses her lips, nodding once.", "Take care.", "Farewell."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "#me schützt ihre Lippen, nickt einer mal kurz.", "Gebt Acht.", "Lebt wohl."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me purses her lips, nodding once.", "Take care.", "Farewell."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me schützt ihre Lippen, nickt einer mal kurz.", "Gebt Acht.", "Lebt wohl."
-"How are you", "How feel", "How do you do" -> "I...I am fine.", "Well...of course. Why would I be otherwise?", "#me fidgets nervously, 'I cannot complain.'"
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "I...Ich, mir geht es gut.", "Gut... natürlich. Warum sollte es mir schlecht gehen?", "#me zappelt nervös. 'Ich kann nicht klagen'."
-"your name", "who are you", "who art thou" -> "Madeline. Madeline Clarbelis.", "I am Madeline.", "M...my name is Madeline Clarbelis."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Madeline. Madeline Clarbelis.", "I am Madeline.", "M...mein Name i...ist Madeline Clarbelis."
+"How are you", "How feel", "How do you do" -> "I... I am fine.", "Well... of course. Why would I be otherwise?", "#me fidgets nervously, 'I cannot complain.'"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "I... Ich, mir geht es gut.", "Gut... natürlich. Warum sollte es mir schlecht gehen?", "#me zappelt nervös. 'Ich kann nicht klagen'."
+"your name", "who are you", "who art thou" -> "Madeline. Madeline Clarbelis.", "I am Madeline.", "M... my name is Madeline Clarbelis."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Madeline. Madeline Clarbelis.", "I am Madeline.", "M... mein Name i... ist Madeline Clarbelis."
 
 -- 1st quest: Deliver 'Aurora's staff': receive long staff handle
 
 -- Give out quest 1
-queststatus(333) = 2, english, "quest", "mission" -> inform("[Quest Update] Aurora's Staff: Part I"), item(401, 1, 599), queststatus(333) = 3, "#me's eyes dart around nervously as she hands across a long wooden staff, 'Oh? You are here for the staff? Here it is. Be...careful with it."
-queststatus(333) = 2, "quest", "mission" -> inform("[Neues Quest] Auroras Stab: Teil  I"), item(40, 1, 599), queststatus(333) = 3, "#me's Augen huschen nervös hin und her als sie dir einen länglichen Holzstab reicht 'Oh? Ihr seid hier um den Stab zu hohlen?' Hier ist er... s...seid vorsichtig damit."
-queststatus(333) = 2, "task", "adventure" -> inform("[New quest] Aurora's Staff: Part I"), item(40, 1, 599), queststatus(333) = 3, "#me's eyes dart around nervously as she hands across a long wooden staff, 'Oh? You are here for the staff? Here it is. Be...careful with it."
-queststatus(333) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest]Auroras Stab: Teil  I"), item(40, 1, 599), queststatus(333) = 3, "#me's Augen huschen nervös hin und her als sie dir einen länglichen Holzstab reicht 'Oh? Ihr seid hier um den Stab zu hohlen?' Hier ist er... s...seid vorsichtig damit."
+queststatus(333) = 2, english, "quest", "mission" -> inform("[Quest Update] Aurora's Staff: Part I"), item(401, 1, 599), queststatus(333) = 3, "#me's eyes dart around nervously as she hands across a long wooden staff, 'Oh? You are here for the staff? Here it is. Be... careful with it."
+queststatus(333) = 2, "quest", "mission" -> inform("[Neues Quest] Auroras Stab: Teil  I"), item(40, 1, 599), queststatus(333) = 3, "#me's Augen huschen nervös hin und her als sie dir einen länglichen Holzstab reicht 'Oh? Ihr seid hier um den Stab zu hohlen?' Hier ist er... seid vorsichtig damit."
+queststatus(333) = 2, "task", "adventure" -> inform("[New quest] Aurora's Staff: Part I"), item(40, 1, 599), queststatus(333) = 3, "#me's eyes dart around nervously as she hands across a long wooden staff, 'Oh? You are here for the staff? Here it is. Be... careful with it."
+queststatus(333) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest]Auroras Stab: Teil  I"), item(40, 1, 599), queststatus(333) = 3, "#me's Augen huschen nervös hin und her als sie dir einen länglichen Holzstab reicht 'Oh? Ihr seid hier um den Stab zu hohlen?' Hier ist er... seid vorsichtig damit."
 
 -- Give out quest 1
 queststatus(333) = 5, english, "quest", "mission" -> inform("[Quest Update] Aurora's Staff: Part II"), queststatus(333) = 6, "I'm sorry. I shouldn't have lied. A Halfling, Fosco Goodbarrel, tricked me into giving up the staff. He told me that he could make me a powerful druid. I didn't want people to think I was stupid. You'll find him in the forest west of here."
@@ -148,14 +148,14 @@ queststatus(334) = 2, "task", "adventure" -> "Thanks for your help. I should rea
 queststatus(334) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> "Danke für eure Hilfe. Ich sollte nun wirklich mit der Arbeit beginnen, schließlich will ich Aurora nicht enttäuschen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I...I am training to be a druid.", "I am an apprentice druid.", "I will be a druid, one day."
-"beruf" -> "I...Ich lerne um eine Druidin zu werden.", "Ich bin ein angehender Druide.", "I werde eines Tages eine Druidin sein."
-english, "job" -> "I...I am training to be a druid.", "I am an apprentice druid.", "I will be a druid, one day."
-"job" -> "I...Ich lerne um eine Druidin zu werden.", "Ich bin ein angehender Druide.", "I werde eines Tages eine Druidin sein."
-english, "Gobaith", "Gobiath" -> "That island was...dull.", "The people there were so...nosy.", "I liked Gobaith, I suppose."
-"Gobaith", "Gobiath" -> "Die Insel war...totlangweilg.", "Die Leute dort waren so...neugierig.", "Ich mochte Gobiath, glaub ich."
-"my name" -> "I...it is nice to meet you.", "A p...pleasure to meet you.", "I am glad to meet you."
-"mein Name" -> "F...freut mich euch kennen zu lernen.", "I...Ich freue mich euch zu treffen.", "E... Es ist eine Freuda euch zu treffen."
+"profession" -> "I... I am training to be a druid.", "I am an apprentice druid.", "I will be a druid, one day."
+"beruf" -> "I... Ich lerne um eine Druidin zu werden.", "Ich bin ein angehender Druide.", "I werde eines Tages eine Druidin sein."
+english, "job" -> "I... I am training to be a druid.", "I am an apprentice druid.", "I will be a druid, one day."
+"job" -> "I... Ich lerne um eine Druidin zu werden.", "Ich bin ein angehender Druide.", "I werde eines Tages eine Druidin sein."
+english, "Gobaith", "Gobiath" -> "That island was... dull.", "The people there were so... nosy.", "I liked Gobaith, I suppose."
+"Gobaith", "Gobiath" -> "Die Insel war... totlangweilg.", "Die Leute dort waren so... neugierig.", "Ich mochte Gobiath, glaub ich."
+"my name" -> "I... it is nice to meet you.", "A p... pleasure to meet you.", "I am glad to meet you."
+"mein Name" -> "F... freut mich euch kennen zu lernen.", "I... Ich freue mich euch zu treffen.", "E... Es ist eine Freuda euch zu treffen."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 english, "druid" -> "Yes, one day I shall be a druid! I cannot wait for that day to come!", "I am only learning the ways of the druids at the moment, but soon I hope to be one myself!", "#me sighs faintly, 'It takes a long time to learn the true ways of nature.'"
@@ -190,7 +190,7 @@ english, "salkama" -> "I don't know much about Salkamar.", "I used to enjoy list
 "salkama" -> "Ich weiß nicht viel über Salkamar.", "Früher hörte ich gern Geschichten über Helden aus Salkamar.", "Gesellschaft ist eine Fassade, sagt meine Lehrerin Aurora. Ich frage mich, was man wohl erblickt, wenn man dahinter schaut?"
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "I like to listen to the stories about the Younger Gods. Aurora says that I must learn more about the Elder Ones, though.", "The Elder Ones gave birth to everything...that's what Aurora tells me.", "Aurora talks a lot about Ushara, one of the Elder Gods."
+"god" -> "I like to listen to the stories about the Younger Gods. Aurora says that I must learn more about the Elder Ones, though.", "The Elder Ones gave birth to everything... that's what Aurora tells me.", "Aurora talks a lot about Ushara, one of the Elder Gods."
 "Gott", "Götter" -> "Ich höre gerne Geschichte über die jungen Götter. Aurora sagt aber, dass ich mehr über die Alten lernen soll.", "Die alten Götter haben alles erschaffen... das hat Aurora mir gesagt.", "Aurora redet viel über Ushara, einen der alten Götter."
 english, "Adron" -> "Aurora hasn't taught me much about that God yet.", "Aurora tells me to respect the followers of all of the Gods.", "Aurora sometimes mentions that God."
 "Adron" -> "Aurora hat mir noch nicht viel über diesen Gott beigebracht.", "Aurora sagt, man soll die Anhänger jeden Gottes respektieren.", "Manchmal erwähnt Aurora diese Gottheit."

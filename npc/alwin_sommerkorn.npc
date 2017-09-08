@@ -180,9 +180,9 @@ skill(fishing) < 90, queststatus(718) = 7, item(50, all) > 9, town = Runewick, "
 queststatus(718) = 7, item(50, all) > 9, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, deleteItem(50, 10), queststatus(718) = 8, "#me nimmt das Garn und befestigt es gekonnt an einer Angel"
 
 queststatus(718) = 8, english, "quest", "mission" -> "I don't have anything more for you to do. Thank you for the help though!"
-queststatus(718) = 8, "quest", "mission" -> "Ich habe nichts weiter für euch zu tun. Aber danke nochmals für eure Hilfe!"
+queststatus(718) = 8, "quest", "mission" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für eure Hilfe!"
 queststatus(718) = 8, "task", "adventure", "order" -> "I don't have anything more for you to do. Thank you for the help though!"
-queststatus(718) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts weiter für euch zu tun. Aber danke nochmals für eure Hilfe!"
+queststatus(718) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für eure Hilfe!"
 
 -- No quests for non runewickians
 english, town = none, "quest", "mission" -> "No thanks stranger. I only have work for citizens of Runewick."

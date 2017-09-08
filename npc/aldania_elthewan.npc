@@ -76,7 +76,7 @@ itemShoes = 369
 
 -- Learn how to equip. Player has no torch. We will remove farmed torches at the end of the tutorial.
 queststatus(310) < 2, item(391, all) = 0, english, ".*" -> item(391, 1, 333), queststatus(310) = 2, "Be greeted, %CHARNAME. My name is Aldania Elthewan. Let us start with the basics, equipping. Make sure that your chatbox is deactivated and press 'I' to open your inventory and 'B' to open your backpack. Drag an item from a hand slot to your backpack and then drag the torch I gave you to the empty hand slot in your inventory by holding the left mouse button."
-queststatus(310) < 2, item(391, all) = 0, ".*" -> item(391, 1, 333), queststatus(310) = 2, "Seid gegrüßt, %CHARNAME. Mein Name ist Aldania Elthewan. Lasst uns mit dem Wichtigsten anfangen: dem Ausrüsten. Überprüfe, ob die Chatbox deaktiviert ist und drücke anschließend 'I', um das Inventar und 'B', um die Tasche zu öffnen. Zieht einen Gegenstand aus einem Handfeld in die Tasche und zieht danach die Fackel, die ich euch gab, mit gedrückter linker Maustaste in das leere Handfeld im Inventar."
+queststatus(310) < 2, item(391, all) = 0, ".*" -> item(391, 1, 333), queststatus(310) = 2, "Seid gegrüßt, %CHARNAME. Mein Name ist Aldania Elthewan. Lasst uns mit dem Wichtigsten anfangen: dem Ausrüsten. Überprüfe, ob die Chatbox deaktiviert ist und drücke anschließend 'I', um das Inventar und 'B', um die Tasche zu öffnen. Zieht einen Gegenstand aus einem Handfeld in die Tasche und zieht danach die Fackel, die ich Euch gab, mit gedrückter linker Maustaste in das leere Handfeld im Inventar."
 
 -- Learn how to equip
 queststatus(310) < 2, english, ".*" -> queststatus(310) = 2, "Be greeted, %CHARNAME. My name is Aldania Elthewan. Let us start with the basics, equipping. Make sure that your chatbox is deactivated and press 'I' to open your inventory and 'B' to open your backpack. Drag an item from a hand slot to your backpack and then drag your torch to the empty hand slot in your inventory by holding the left mouse button."
@@ -84,11 +84,11 @@ queststatus(310) < 2, ".*" ->  queststatus(310) = 2, "Seid gegrüßt, %CHARNAME. M
 
 -- Player lost his torch. We will remove farmed torches at the end of the tutorial.
 queststatus(310) = 2, item(391, all) = 0, english, ".*" -> item(391, 1, 333), "Alas, it looks like you lost your torch. Do not be so careless with your belongings! Without a light source, the darkness will engulf you sooner or later. I have given you another torch, be more careful with this one. Equip it, please."
-queststatus(310) = 2, item(391, all) = 0, ".*" -> item(391, 1, 333), "Ach herrje, es schaut aus, als hättet ihr eure Fackel verloren. Ihr solltet besser auf euer Hab und Gut aufpassen! Ohne eine Lichtquelle wird euch die Dunkelheit früher oder später einhüllen. Ich habe euch eine neue Fackel gegeben, bitte seid vorsichtiger mit dieser. Nehmt sie bitte in die Hand."
+queststatus(310) = 2, item(391, all) = 0, ".*" -> item(391, 1, 333), "Ach herrje, es schaut aus, als hättet Ihr eure Fackel verloren. Ihr solltet besser auf euer Hab und Gut aufpassen! Ohne eine Lichtquelle wird Euch die Dunkelheit früher oder später einhüllen. Ich habe Euch eine neue Fackel gegeben, bitte seid vorsichtiger mit dieser. Nehmt sie bitte in die Hand."
 
 -- Player seems to have a problem with equipping
 queststatus(310) = 2, english, ".*" -> "Please place the torch in your hands. Learning how to equip items is important, just imagine if you should face a dragon and could not even draw your sword!"
-queststatus(310) = 2, ".*" -> "Bitte nehmt die Spitzhacke in die Hand. Zu lernen, wie man Gegenstände ausrüstet ist wichtig. Stellt euch nur vor, ihr würdet auf einen Drachen stoßen und könntet nichtmal euer Schwert ziehen!"
+queststatus(310) = 2, ".*" -> "Bitte nehmt die Spitzhacke in die Hand. Zu lernen, wie man Gegenstände ausrüstet ist wichtig. Stellt Euch nur vor, Ihr würdet auf einen Drachen stoßen und könntet nichtmal euer Schwert ziehen!"
 
 --Dialog for next task is in lights.lua
 
@@ -102,7 +102,7 @@ queststatus(310) = 3, ".*" -> "Was ist der Nutzen von einem Gegenstand, wenn man
 
 -- Player did all the lessons
 queststatus(310) = 4, english, ".*" -> "This is where we part company, %CHARNAME. You have done well enough. Run along to that savage, Groknar, further down the road. He will train you in the art of fighting."
-queststatus(310) = 4, ".*" -> "Dies ist der Zeitpunkt, um getrennte Wege zu gehen, %CHARNAME. Ihr habt euch wacker geschlagen. Geht nur weiter die Straße entlang zu diesem Wilden: Groknar. Er wird euch in der Kunst des Kampfes unterrichten."
+queststatus(310) = 4, ".*" -> "Dies ist der Zeitpunkt, um getrennte Wege zu gehen, %CHARNAME. Ihr habt Euch wacker geschlagen. Geht nur weiter die Straße entlang zu diesem Wilden: Groknar. Er wird Euch in der Kunst des Kampfes unterrichten."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

@@ -313,7 +313,7 @@ function RecipeInform( User, SourceItem)
             local orgPos = originalPos[selected+1]
             local effectId = myListEffectId[orgPos]
             if User:getQuestProgress(effectId+1000) == 0 then
-                myNPC:talk(Character.say, "Wenn ihr wollt, dass ich euch zeige, wie dieser Trank richtig hergestellt wird, bringt mir "..myListTaskText[orgPos][language]..". Einfach hier auf meinen Tisch tun, damit ich meine Analyse vollziehen kann.", "If you want me to show you how to create this potion properly, bring me "..myListTaskText[orgPos][language]..". Just put it here ony my table so that I can analyse it.")
+                myNPC:talk(Character.say, "Wenn Ihr wollt, dass ich euch zeige, wie dieser Trank richtig hergestellt wird, bringt mir "..myListTaskText[orgPos][language]..". Einfach hier auf meinen Tisch tun, damit ich meine Analyse vollziehen kann.", "If you want me to show you how to create this potion properly, bring me "..myListTaskText[orgPos][language]..". Just put it here ony my table so that I can analyse it.")
             else
                 TellRecipe(User, effectId)
             end

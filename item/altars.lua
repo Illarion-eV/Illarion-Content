@@ -160,7 +160,7 @@ local function ZeniaAltar(User, SourceItem)
         User:eraseItem(26, 5)
         User:eraseItem(73, 10)
         User:setQuestProgress(502, 9) --  You made a raft.
-        User:inform("[Quest status] Du sieht, nach dem Beten, dass die Materialien sich von selbst zu einem kleinen Floss zusammenfügen. Du klettert darauf und wirst zu einer kleinen Insel transportiert.", "[Quest status] After praying, you see the items magically form a small raft.  You climb on board and are transported to a small island.")
+        User:inform("[Quest status] Nach dem Gebet siehst du, wie die Materialien sich von selbst zu einem kleinen Floss zusammenfügen. Du kletterst darauf und wirst zu einer kleinen Insel transportiert.", "[Quest status] After praying, you see the items magically form a small raft.  You climb on board and are transported to a small island.")
         User:warp(position(753, 351, -9))
         world:gfx(11, User.pos)
         world:makeSound(9, User.pos)
@@ -169,7 +169,7 @@ local function ZeniaAltar(User, SourceItem)
     elseif User:getQuestProgress(502) == 10 and User:countItemAt("all",355) >= 10 then -- Revisit Zenia
         User:eraseItem(355, 10)
         User:setQuestProgress(502, 9) --  Ready to leave again.
-        User:inform("[Quest status] Nach dem Beten siehst du einen hellen Lichtblitz und das kleine Floss erscheint im Wasser. Nachdem du darauf geklettert bist, wirst du zurück auf die kleine Insel gebracht.", "[Quest status]  After praying, you see a bright light flash and your small raft magically appears in the water. Climbing onto it, you are transported back to the small island.")
+        User:inform("[Quest status] Nach dem Gebet siehst du einen hellen Lichtblitz und das kleine Floss erscheint im Wasser. Nachdem du darauf geklettert bist, wirst du zurück auf die kleine Insel gebracht.", "[Quest status]  After praying, you see a bright light flash and your small raft magically appears in the water. Climbing onto it, you are transported back to the small island.")
         User:warp(position(753, 351, -9))
         world:gfx(11, User.pos)
         world:makeSound(9, User.pos)
