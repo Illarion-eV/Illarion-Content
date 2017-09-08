@@ -122,9 +122,9 @@ english, "Cadomyr" -> "Marcus did fail to take Cadomyr for Master. One day he wi
 -- Marcus task one.  Kill twenty drow.
 -- If haven't completed previous Defensors tasks
 queststatus(530) < 27, english, "quest", "mission", "test" -> "Marcus can not let you pass if you don't finish the Defensor's tests. He has no choice, Master won't let him."
-queststatus(530) < 27, "quest", "mission", "Test" -> "Marcus kann euch nicht vorbeilassen, solange ihr die Probe des Defensors nicht erledigt habt. Es hat keine Wahl, die Meisterin erlaubt es nicht."
+queststatus(530) < 27, "quest", "mission", "Test" -> "Marcus kann Euch nicht vorbeilassen, solange ihr die Probe des Defensors nicht erledigt habt. Es hat keine Wahl, die Meisterin erlaubt es nicht."
 queststatus(530) < 27, "task", "adventure", "order" -> "Marcus can not let you pass if you don't finish the Defensor's tests. He has no choice, Master won't let him."
-queststatus(530) < 27, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Marcus kann euch nicht vorbeilassen, solange ihr die Probe des Defensors nicht erledigt habt. Es hat keine Wahl, die Meisterin erlaubt es nicht."
+queststatus(530) < 27, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Marcus kann Euch nicht vorbeilassen, solange ihr die Probe des Defensors nicht erledigt habt. Es hat keine Wahl, die Meisterin erlaubt es nicht."
 -- Receiving the task of Killing twenty drow
 queststatus(530) = 27, queststatus(532) = 0, english, "quest", "mission", "test" -> inform("[New quest] Akaltut's Chambers Boss Fight 1"), queststatus(532) = 1, "Marcus made a foolish mistake when he.. he did sign Master's contract. To help me escape, first you need to kill off twenty of the drow that are protecting Akaltut in her lair."
 queststatus(530) = 27, queststatus(532) = 0, "quest", "mission", "Test" -> inform("[Neue Quest] Kampf in Akaltuts Kammern 1"), queststatus(532) = 1, "Marcus machte einen dummen Fehler, dass er...dass er den Vertrag mit der Meisterin einging. Um mir bei meiner Flucht zu helfen, müsst ihr als erstes zwanzig Drow erledigen, die Akaltut in ihrem Unterschlupf beschützen."

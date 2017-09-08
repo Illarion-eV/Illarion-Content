@@ -81,7 +81,7 @@ itemShoes = 697
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greeting, what do you want?", "The Five with you, may I help you?"
 "Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße dich.", "Die Fünf mit dir, kann ich dir irgendwie helfen?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "What do you want? Oh sorry, Greetings!", "Ja ja."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Was? Oh entschuldigt, natürlich. Grüßt euch!", "Ja ja."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Was? Oh entschuldigt, natürlich. Grüßt Euch!", "Ja ja."
 "Farewell", "Bye", "Fare well", "See you" -> "Bye bye, take care.", "The Five with you!", "Until next time!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Tschüss.", "Die Fünf mit dir!", "Man sieht sich."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Bye bye, take care.", "The Five with you!", "Until next time!"
@@ -219,17 +219,17 @@ english, "Cadomyr" -> "Well, it's a little hot there but the Queen is supposed t
 
 -- Main land factions
 english, "albar" -> "Forgive me... I don't know about the human towns, but maybe you are interested to hear about the Silverlake Forest?"
-"albar" -> "Vergebt mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber vielleicht interssiert ihr euch dafür über meine Heimat zu sprechen, den Silberseewald."
+"albar" -> "Vergebt mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber vielleicht interssiert ihr Euch dafür über meine Heimat zu sprechen, den Silberseewald."
 english, "gynk", "gync" -> "Forgive me... I don't know about the human towns, but maybe you are interested to hear about the Silverlake Forest?"
-"gync", "gynk" -> "Vergebt mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber vielleicht interssiert ihr euch dafür über meine Heimat zu sprechen, den Silberseewald."
+"gync", "gynk" -> "Vergebt mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber vielleicht interssiert ihr Euch dafür über meine Heimat zu sprechen, den Silberseewald."
 english, "salkama" -> "Forgive me... I don't know about the human towns, but maybe you are interested to hear about the Silverlake Forest?"
-"salkama" -> "Vergebt mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber veilleicht interssiert ihr euch dafür über meine Heimat zu sprechen, den Silberseewald."
+"salkama" -> "Vergebt mir... Ich weiß viel zu wenig über die Städte der Menschen. Aber veilleicht interssiert ihr Euch dafür über meine Heimat zu sprechen, den Silberseewald."
 "siverlake" -> "I can't remember eating anything more delicious than a Silverlake sturgeon, but you need the right receipe.", "Around the Silverlake live a number of elven clans. It is said that anybody who walks around the lake on a dark, new moon night will be blessed by the Five.", "The best carvers come out of the forest around the Silverlake, and so it has been for hundreds of years now.", "Humans, dwarves and lizardmen don't visit us often, I can't say they are welcome.", "No we have no animals. There are enough wild animals to hunt in the forest and the rivers."
 "Silbersee" -> "Es gibt nichts Besseres zu essen als einen gedünsteten Silberseestör. Aber man braucht die richtigen Zutaten.", "Rund um den Silbersee leben viele Elfenclans. Es wird gesagt, dass jemand, der in einer Neumondnacht allein um den See geht, von den Göttern gesegnet wird.", "Die besten Schnitzer kommen aus den Wäldern um den Silbersee. Und das schon seit hunderten von Jahren.", "Menschen, Zwerge oder Echsenmenschen finden selten zu uns. Und wir sehen sie auch nicht so gerne dort.", "Nein, wir züchten dort keine Tiere. In den Wäldern und Flüssen lebt genug jagdbares Wild."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "I follow the Five, the Elders Gods that created the world as we know nowadays."
-"Gott", "Götter" -> "Die Fünf mögen mit euch sein. Huldigen wir denen, die die Welt wie wir sie heute kennen erschaffen haben."
+"Gott", "Götter" -> "Die Fünf mögen mit Euch sein. Huldigen wir denen, die die Welt wie wir sie heute kennen erschaffen haben."
 english, "Bragon", "Brágon" -> "The flame of Brágon warms the living as a part of the Five."
 "Bragon", "Brágon" -> "Die Flamme Brágons wärmt die Völker als Teil des Segens der Fünf."
 

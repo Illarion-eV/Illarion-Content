@@ -101,19 +101,19 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Safe journey, and don't for
 
 -- Optional: Trade Hooks, use only for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I do not sell anything, but I can repair all kinds of things for you."
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "I verkaufe nichts, aber ich kann alles mögliche für euch reparieren."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "I verkaufe nichts, aber ich kann alles mögliche für Euch reparieren."
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 english, "quest", "mission" -> "I don't have anything to do for you."
-"quest", "mission" -> "Ich habe nichts für euch zu tun."
+"quest", "mission" -> "Ich habe nichts für Euch zu tun."
 "task", "adventure", "order" -> "I don't have anything to do for you."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für euch zu tun."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für Euch zu tun."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession", "work" -> "I can repair all kinds of things for you."
-"beruf" -> "Ich kann alles mögliche für euch reparieren."
+"beruf" -> "Ich kann alles mögliche für Euch reparieren."
 english, "job" -> "I can repair all kinds of things for you."
-"job" -> "Ich kann alles mögliche für euch reparieren."
+"job" -> "Ich kann alles mögliche für Euch reparieren."
 "tell something" -> "I like cake! Everyone else also likes cake! Nice,eh?"
 "erzähl was", "erzähl etwas" -> "Ich mag Kuchen! Und alle andern mögen auch Kuchen. Nett, oder?"
 
@@ -131,7 +131,7 @@ english, "Oldra" -> "I pray to Ushara. Cake is made of grain."
 "my name" -> "Nice to meet you."
 "mein Name" -> "Freut mich."
 english, "Marcel", "Metalfeet" -> "You want me to repair something for you?"
-"Metalfeet", "Metalfeet" -> "Ich soll etwas für euch reparieren?"
+"Metalfeet", "Metalfeet" -> "Ich soll etwas für Euch reparieren?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

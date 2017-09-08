@@ -66,7 +66,7 @@ itemShoes = 53
 sellItem = id(2622), de("Buch der Alchemie"), en("Book Of Alchemy"), price(1000), stack(1), quality(999)
 "Help" -> inform("[Game Help] This NPC is Vallaria Medrota the healer an alchemy teacher. Keywords: recipes, alchemy, book")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Vallaria Medrota die Heilerin und Alchemielehrerin. Schlüsselwörter: Rezepte, Alchemie, Buch")
-"handel", "kauf", "Buch" -> "Bei mir könnt ihr das Standardwerk der Alchemie erwerben.", trade
+"handel", "kauf", "Buch" -> "Bei mir könnt Ihr das Standardwerk der Alchemie erwerben.", trade
 "buy", "sell,", "trade", "book" -> "You can buy the standard work of alchemy from me.", trade
 
 -- general speech
@@ -85,17 +85,17 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell", "Goodbye.", "Hav
 
 -- tasks-- leraning recipes
 english, "quest", "mission" -> "If you want to learn the proper creation of a certain potion, have a look at my list here."
-"quest", "mission" -> "Wenn ihr ein die richtige Herstellung eines Tranks lernen wollt, schaut hier auf die Liste auf meinem Tisch."
+"quest", "mission" -> "Wenn Ihr ein die richtige Herstellung eines Tranks lernen wollt, schaut hier auf die Liste auf meinem Tisch."
 "task", "adventure", "order", "recipe", "learn", "lesson" -> "If you want to learn the proper creation of a certain potion, have a look at my list here."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rezept", "lernen", "Unterricht" -> "Wenn ihr ein die richtige Herstellung eines Tranks lernen wollt, schaut hier auf die Liste auf meinem Tisch."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rezept", "lernen", "Unterricht" -> "Wenn Ihr ein die richtige Herstellung eines Tranks lernen wollt, schaut hier auf die Liste auf meinem Tisch."
 
 -- small talk
 "profession" -> "I am a healer and I can teach you some helpful alchemical recipes, if you are also an alchemist."
-"beruf" -> "Ich bin Heilerin und kann euch einige nützliche Rezepte lehren, wenn ihr auch ein Alchemist seid."
+"beruf" -> "Ich bin Heilerin und kann Euch einige nützliche Rezepte lehren, wenn Ihr auch ein Alchemist seid."
 english, "job" -> "I am a healer and I can teach you some helpful alchemical recipes, if you are one of us."
-"job" -> "Ich bin Heilerin und kann euch einige nützliche Rezepte lehren, wenn ihr auch ein Alchemist seid."
+"job" -> "Ich bin Heilerin und kann Euch einige nützliche Rezepte lehren, wenn Ihr auch ein Alchemist seid."
 "tell something" -> "How about you tell me something?"
-"erzähl was", "erzähl etwas" -> "Erzählt ihr mir doch was."
+"erzähl was", "erzähl etwas" -> "Erzählt Ihr mir doch was."
 english, "druid" -> "Druids are actually rather strange people. Most of them are excellent alchemists, true. But well. They indeed have some mazy ideas: spirits of nature, will of nature and all those things."
 "druid" -> "Druiden sind schon ein sonderbarer Schlag. Die meisten von ihnen sind zwar exzellente Alchemisten, aber nun ja. Sie haben doch schon recht wirre Ideen: Naturgeister, Wille der Natur und all sowas."
 english, "alchemy", "alchemist" -> "Alchemists are masters of potions, have profound knowledge about the herbs, and are keen observer of the world."

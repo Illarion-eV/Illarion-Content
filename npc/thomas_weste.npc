@@ -79,13 +79,13 @@ itemShoes = 53
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, can I help you?", "Nice to meet you, I'm Thomas Weste."
-"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, kann ich euch helfen?", "Freut mich, euch zu treffen. Ich bin Thomas Weste."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, kann ich Euch helfen?", "Freut mich, Euch zu treffen. Ich bin Thomas Weste."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, can I help you?", "Nice to meet you, I'm Thomas Weste."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, kann ich euch helfen?", "Freut mich, euch zu treffen. Ich bin Thomas Weste"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, kann ich Euch helfen?", "Freut mich, Euch zu treffen. Ich bin Thomas Weste"
 "Farewell", "Bye", "Fare well", "See you" -> "I wish you a nice day.", "I hope we meet again, goodbye."
-"Tschüß", "Tschüss", "Wiedersehen" -> "Ich wünscha euch noch einen schönen Tag.", "Ich hoffe, wir sehen uns wieder, auf bald!"
+"Tschüß", "Tschüss", "Wiedersehen" -> "Ich wünsche Euch noch einen schönen Tag.", "Ich hoffe, wir sehen uns wieder, auf bald!"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "I wish you a nice day.", "I hope we meet again, goodbye."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Ich wünscha euch noch einen schönen Tag.", "Ich hoffe, wir sehen uns wieder, auf bald!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Ich wünsche Euch noch einen schönen Tag.", "Ich hoffe, wir sehen uns wieder, auf bald!"
 "How are you", "How feel", "How do you do" -> "I feel fine, thank you for asking."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke für die Nachfrage."
 "your name", "who are you", "who art thou" -> "I'm Thomas Weste, who are you?"
