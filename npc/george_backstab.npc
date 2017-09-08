@@ -14,12 +14,12 @@
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: George Backstab                                             None --
--- NPC Job:  Prisoner     			                                      --
+-- NPC Job:  Prisoner                                                       --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  354,872,0              --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   envi			                                           	   --
+-- Author:   envi                                                              --
 --                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
