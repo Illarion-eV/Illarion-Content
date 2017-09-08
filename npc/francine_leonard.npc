@@ -81,13 +81,13 @@ itemShoes = 0
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, can I help you?", "Nice to meet you, I'm Francine Leonard."
-"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, kann ich euch helfen?", "Freut mich, euch zu treffen. Ich bin Francine Leonard."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, kann ich Euch helfen?", "Freut mich, Euch zu treffen. Ich bin Francine Leonard."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, can I help you?", "Nice to meet you, I'm Francine Leonard."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, kann ich euch helfen?", "Freut mich, euch zu treffen. Ich bin Francine Leonard"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, kann ich Euch helfen?", "Freut mich, Euch zu treffen. Ich bin Francine Leonard"
 "Farewell", "Bye", "Fare well", "See you" -> "I wish you a nice day.", "I hope we meet again, goodbye."
-"Tschüß", "Tschüss", "Wiedersehen" -> "Ich wünscha euch noch einen schönen Tag.", "Ich hoffe, wir sehen uns wieder, auf bald!"
+"Tschüß", "Tschüss", "Wiedersehen" -> "Ich wünsche Euch noch einen schönen Tag.", "Ich hoffe, wir sehen uns wieder, auf bald!"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "I wish you a nice day.", "I hope we meet again, goodbye."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Ich wünscha euch noch einen schönen Tag.", "Ich hoffe, wir sehen uns wieder, auf bald!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Ich wünsche Euch noch einen schönen Tag.", "Ich hoffe, wir sehen uns wieder, auf bald!"
 "How are you", "How feel", "How do you do" -> "I feel fine, thank you for asking."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke für die Nachfrage."
 "your name", "who are you", "who art thou" -> "I'm Francine Leonard, who are you?"
@@ -280,7 +280,7 @@ english, "elvain", "morgan" -> "The Archmage Elvain Morgan patrons everybody who
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "#me rührt den Eintopf, der über dem Feuer brodelt, um.", "#me stirs a pot of stew bubbling over the fire."
-cycletext "Wenn ihr Hilfe beim Kochen und Backen braucht, dann fragt nur mich!", "If you need any help with baking and cooking, just ask me!"
+cycletext "Wenn Ihr Hilfe beim Kochen und Backen braucht, dann fragt nur mich!", "If you need any help with baking and cooking, just ask me!"
 cycletext "#me schaut sich freundlich um.", "#me looks around friendly."
 cycletext "#me pfeift eine Melodie.", "#me whistles a melody."
 cycletext "#me liest einen Brief.", "#me reads a letter."

@@ -382,7 +382,7 @@ function baseNPC:use(npcChar, char)
                 textEN[0]="Be greeted."
                 textDE[1]="Ich benötige Hilfe."
                 textEN[1]="Please help me."
-                textDE[2]="Habt ihr eine Aufgabe für mich?"
+                textDE[2]="Habt Ihr eine Aufgabe für mich?"
                 textEN[2]="Do you have a task for me?"
                 textDE[3]="Ich möchte Waren handeln."
                 textEN[3]="I'd like to trade some goods."

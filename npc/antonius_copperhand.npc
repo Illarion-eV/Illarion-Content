@@ -88,11 +88,11 @@ tradeWrongItemMsg "Behalt das mal. Ich kaufe das nicht.", "Keep that, I won't bu
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted.", "Greetings.", "Good day."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Zum Gruße.", "Seid gegrüßt.", "Guten Tach."
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell.", "Goodbye.", "May Irmorom be with you."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf bald.", "Bis bald.", "Möge Irmorom über euch wachen."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf bald.", "Bis bald.", "Möge Irmorom über Euch wachen."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell.", "Goodbye."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf bald.", "Bis bald."
 "How are you", "How feel", "How do you do" -> "I'm fine, thanks... and how are ya?", "Good, good."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir jeht ett wunderbar und wie jeht et euch?", "Jut, jut."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir jeht ett wunderbar und wie jeht et Euch?", "Jut, jut."
 "your name", "who are you", "who art thou" -> "Me? I'm the goldsmith of Galmair, the hard working Antonius."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ick? Ick bin der Goldchmied von Galmair, der fleißge Antonius."
 
