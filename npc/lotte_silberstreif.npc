@@ -100,7 +100,7 @@ queststatus(672) = 0, "los", chance(2) -> inform("[Quest Lotte Silberstreif 2] B
 
 -- return food
 queststatus(672) = 10, item(15, all) > 0,".*", english -> inform("[Quest Lotte Silberstreif 1] Quest solved."), queststatus(672) = 0, deleteItem(15, 1), "Oh thank you, that's the best medicine. An apple a day keeps the doctor away!"
-queststatus(672) = 10, item(15, all) > 0,".*" -> inform("[Quest Lotte Silberstreif 1] Quest abgeschlossen."), queststatus(672) = 0, deleteItem(15, 1), "Ich danka euch, das ist die beste Medizin. Ein Apfel am Tag erspart den Arzt sagt man!"
+queststatus(672) = 10, item(15, all) > 0,".*" -> inform("[Quest Lotte Silberstreif 1] Quest abgeschlossen."), queststatus(672) = 0, deleteItem(15, 1), "Ich danke Euch, das ist die beste Medizin. Ein Apfel am Tag erspart den Arzt sagt man!"
 queststatus(672) = 20, item(302, all) > 4,".*", english -> inform("[Quest Lotte Silberstreif 2] Quest solved."), queststatus(672) = 0, deleteItem(302, 5), "Cherry, cherry, I'm a lady and not hungry anymore!"
 queststatus(672) = 20, item(302, all) > 4,".*" -> inform("[Quest Lotte Silberstreif 1] Quest abgeschlossen."), queststatus(672) = 0, deleteItem(302, 5), "Cherry, cherry. Ich bin eine Lady und nicht mehr hungrig... oder hieß das klein?"
 queststatus(672) = 10, english, "ticket" -> inform("[Quest Lotte Silberstreif 1] Bring her an apple in order to participate in the lottery."), "Listen! What you hear is the sound of my stomach. I can't sell tickets until it has been filled."
@@ -192,7 +192,7 @@ english, "archmage", "Elvaine", "Morgan" -> "The Archmage bought a ticket but he
 english, "Runewick" -> "Runewick is in the southeast. They don't have a lottery because the Archmage always suspects the other mages might find out how to win with every ticket."
 "Runewick" -> "Runewick ist im Südosten zu finden. Es gibt dort keine Lotterie, weil der Erzmagier befürchtet, dass seine Magier herausfinden könnten, wie man bei jedem Los den Hauptgewinn zieht."
 english, "Valerio", "Guilianni", "Don" -> "The Don doesn't like to lose money. He is not going to buy a ticket but would accept if you buy one."
-"Valerio", "Guilianni", "Don" -> "Der Don verliert nur ungern. Er wird sicher kein Los kaufen. Aber er hat nichts dagegen, wenn ihr eines kauft."
+"Valerio", "Guilianni", "Don" -> "Der Don verliert nur ungern. Er wird sicher kein Los kaufen. Aber er hat nichts dagegen, wenn Ihr eines kauft."
 english, "Galmair" -> "We are in Galmair and this is the Galmairian lottery."
 "Galmair" -> "Wir sind in Galmair. Und das hier ist die Lotterie Galmairs."
 english, "rosaline", "edwards", "Queen" -> "The Queen plays with gems and mirrors but not with tickets. She's much too proud to play for money, but I'm not sure that one of her seers didn't buy a ticket for her recently."
@@ -231,7 +231,7 @@ english, "Silberstreif" -> "Yes, that is my name, but how about buying a ticket?
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Kommt und versucht euer Glück. Es wird euer Schaden nicht sein!", "Come and try. You will win, I'm sure."
+cycletext "Kommt und versucht Euer Glück. Es wird euer Schaden nicht sein!", "Come and try. You will win, I'm sure."
 cycletext "#me kaut auf einem Kirschkern herum.", "#me chews a cherry pit."
 cycletext "#me wischt ein Staubkorn von der Vase.", "#me wipes some dust from the vase."
 cycletext "25 Goldstücke, das ist der Hauptgewinn!", "Twenty five gold coins, that's the first prize!"

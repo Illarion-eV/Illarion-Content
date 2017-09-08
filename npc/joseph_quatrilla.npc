@@ -68,14 +68,14 @@ sellItem = id(2622), de("Buch der Alchemie"), en("Book Of Alchemy"), price(1000)
 -- help
 "Help" -> inform("[Game Help] This NPC is Joseph Quatrilla the master of alchemy. Keywords: recipes, alchemy, book")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Joseph Quatrilla der Lehrmeister der Alchemie. Schlüsselwörter: Rezepte, Alchemie, Buch")
-"handel", "kauf", "Buch" -> "Bei mir könnt ihr das Standardwerk der Alchemie erwerben.", trade
+"handel", "kauf", "Buch" -> "Bei mir könnt Ihr das Standardwerk der Alchemie erwerben.", trade
 "buy", "sell,", "trade", "book" -> "You can buy the standard work of alchemy from me.", trade
 
 -- ----------------------------------------------------------------------------
 -- help
 "Help" -> inform("[Game Help] This NPC is Joseph Quatrilla the master of alchemy. Keywords: recipes, alchemy, book")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Joseph Quatrilla der Lehrmeister der Alchemie. Schlüsselwörter: Rezepte, Alchemie, Buch")
-"handel", "kauf", "Buch" -> "Bei mir könnt ihr das Standardwerk der Alchemie erwerben.", trade
+"handel", "kauf", "Buch" -> "Bei mir könnt Ihr das Standardwerk der Alchemie erwerben.", trade
 "buy", "sell,", "trade", "book" -> "You can buy the standard work of alchemy from me.", trade
 
 -- general speech
@@ -94,17 +94,17 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell", "Goodbye.", "Hav
 
 -- tasks-- leraning recipes
 english, "quest", "mission" -> "If you want to learn the proper creation of a certain potion, have a look at my list here."
-"quest", "mission" -> "Wenn ihr ein die richtige Herstellung eines Trankes lernen wollt, schaut hier auf die Liste auf meinem Tisch."
+"quest", "mission" -> "Wenn Ihr ein die richtige Herstellung eines Trankes lernen wollt, schaut hier auf die Liste auf meinem Tisch."
 "task", "adventure", "order", "recipe", "learn", "teach", "lesson" -> "If you want to learn the proper creation of a certain potion, have a look at my list here."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rezept", "lernen", "lehren", "Unterricht" -> "Wenn ihr ein die richtige Herstellung eines Trankes lernen wollt, schaut hier auf die Liste auf meinem Tisch."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rezept", "lernen", "lehren", "Unterricht" -> "Wenn Ihr ein die richtige Herstellung eines Trankes lernen wollt, schaut hier auf die Liste auf meinem Tisch."
 
 -- small talk
 "profession" -> "I am an alchemist and if you are an alchemist as well, I am able to teach you something."
-"beruf" -> "Ich bin Alchemist und kann euch Dinge in der Alchemie lehren, solltet ihr schon einer sein."
+"beruf" -> "Ich bin Alchemist und kann Euch Dinge in der Alchemie lehren, solltet Ihr schon einer sein."
 english, "job" -> "I am an alchemist and if you are an alchemist as well, I am able to teach you something."
-"job" -> "Ich bin Alchemist und kann euch Dinge in der Alchemie lehren, solltet ihr schon einer sein."
+"job" -> "Ich bin Alchemist und kann Euch Dinge in der Alchemie lehren, solltet Ihr schon einer sein."
 "tell something" -> "How about you tell me something?"
-"erzähl was", "erzähl etwas" -> "Erzhält ihr mir doch was."
+"erzähl was", "erzähl etwas" -> "Erzhält Ihr mir doch was."
 english, "druid" -> "Druids are actually rather strange people. Most of them are excellent alchemists, true, but well, they indeed have some crazy ideas: spirits of nature, will of nature and all those things."
 "druid" -> "Druiden sind schon ein sonderbarer Schlag. Die meisten von ihnen sind zwar exellente Alchemisten, aber nun ja. Sie haben doch schon recht wirre Ideen: Naturgeister, Wille der Natur und all sowas."
 english, "alchemy", "alchemist" -> "Alchemists are masters of potions, have profound knowledge about the herbs, and are keen observers of the world."

@@ -100,7 +100,7 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings.", "Hello."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Safe Paths.", "Farewell."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Sichere Pfade.", "Lebt Wohl."
 "How are you", "How feel", "How do you do" -> "I'm fine, thank you. Do you want to change money?"
-"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke der Nachfrage. Möchtet ihr Geld eintauchen?"
+"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke der Nachfrage. Möchtet Ihr Geld eintauchen?"
 "your name", "who are you", "who art thou" -> "My name is Laura Pepperbags, I'm the best money changer in Galmair.", "My name is Laura Pepperbags, I'm the the only money changer in Galmair."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich heiße Laura Pepperbags, ich bin die beste Geldwechslerin in Galmair.", "Ich heiße Laura Pepperbags, ich bin die einzige Geldwechslerin in Galmair."
 
@@ -112,7 +112,7 @@ english, "quest", "mission" -> "I don't have any tasks for you."
 
 -- Optional: Trade Hooks, use only for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I'm a money changer. Want to change some?", "You can change your money here.", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin Geldwechsler. Mögt ihr wechseln?", "Ihr könnt hier Münzen eintauschen.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin Geldwechsler. Mögt Ihr wechseln?", "Ihr könnt hier Münzen eintauschen.", trade
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I like my job, I like money."
@@ -132,7 +132,7 @@ english, "Ronagan" -> "Ronagan is almost as evil as the unnamed one, but that's 
 english, "Runewick" -> "Runewick? Where there are islands filled with those crazy spellcasters."
 "Runewick" -> "Runewick? Das sind Inseln voll mit so verrückten Zauberern."
 english, "Galmair" -> "Yes, here you are in Galmair."
-"Galmair" -> "Ganz recht, hier seid ihr in Galmair."
+"Galmair" -> "Ganz recht, hier seid Ihr in Galmair."
 english, "Cadomyr" -> "Cadomyr is Cadomyr, right?"
 "Cadomyr" -> "Cadomyr ist halt Cadomyr, nich'?"
 
