@@ -14,12 +14,12 @@
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ------------------------------------------------------------------------------AC
 -- NPC Name: George Backstab                                             None --
--- NPC Job:  Prisoner                                                         --
+-- NPC Job:  Prisoner     			                                      --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  354,872,0              --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   envi                                                             --
+-- Author:   envi			                                           	   --
 --                                                     easyNPC Parser v1.23.1 --
 --------------------------------------------------------------------------------
 
@@ -171,4 +171,4 @@ cycletext "#me rüttelt an der Tür.", "#me knocks against the door."
 cycletext "#me seufzt beängstigt.", "#me sighs fearfully."
 cycletext "#me stöhnt erschöpft.", "#me groans exhausted"
 cycletext "#s Lasst mich gehen! Lasst...mich...gehen!", "#s Let me go! Let...me...go!"
-cycletext "#s ihr verdammten Söhne und Töchter! Lasst mich hier nicht alleine!", "#s You damn sons and daughters! Don't leave me alone here!"
+cycletext "#s Ihr verdammten Söhne und Töchter! Lasst mich hier nicht alleine!", "#s You damn sons and daughters! Don't leave me alone here!"
