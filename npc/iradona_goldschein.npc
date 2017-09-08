@@ -197,7 +197,7 @@ town = Galmair, "Zensusbüro" -> "Das Zensusbüro kann südlich auf dem Weg zur Mal
 "Platform" -> "The Platform is a place for fishers close to the Copperbridge *points east*. It was also used by lizards to rise and pray in the past. "
 "Plattform" -> "Die Plattform ist ein Ort für Fischer nahe der Kupferbrücke *zeigt in den Osten*. Sie wurde früher auch von Echsen genutzt zum Schlüpfen und Beten."
 "Dark Hole Mine" -> "The Dark Hole Mine is far in the north. Turn left at the town gate and use the Copperhand tunnel. Just follow the signposts. You can find coal there."
-"Dunkellochmine" -> "Die Dunkellochmine ist weit im Norden. Du gehst am Stadtor nach links und dann duch den Copperhand Tunnel. Folge einfach den Wegschildern. Du wirst Kohle dort finden."
+"Dunkellochmine" -> "Die Dunkellochmine ist weit im Norden. Du gehst am Stadtor nach links und dann duch den Copperhand-Tunnel. Folge einfach den Wegschildern. Du wirst Kohle dort finden."
 "Farmland" -> "The Farmland is just at the town gate. *points east*"
 "Ackerland" -> "Das Ackerland ist gleich in Sichtweite des Stadttores. *zeigt in den Osten*"
 "Copperbridge" -> inform("[Keyword] location"), "The Copperbridge in the east leads you over the Malachite creek to Nargun's Plain fist and then on to the Hemp Necktie Inn, if you want to go to those locations."
