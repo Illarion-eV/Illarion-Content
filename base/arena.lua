@@ -211,7 +211,7 @@ function M.getArenastats(User, NPC)
     local quest = M.arenaInformation[arena].quest
     local points = User:getQuestProgress(quest)
 
-    local outText=common.GetNLS(User, "Du hast bereits "..points.." gesammelt. Weiter so!", "You have already earnt "..points.." points. Keep it up!")s
+    local outText=common.GetNLS(User, "Du hast bereits "..points.." gesammelt. Weiter so!", "You have already earnt "..points.." points. Keep it up!")
     NPC:talk(Character.say, outText)
 end
 
