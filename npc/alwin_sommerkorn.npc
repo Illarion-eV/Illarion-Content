@@ -59,8 +59,8 @@ itemTrousers = 824
 itemShoes = 0
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Alwin Sommerkorn, a fisherman from Runewick. Keywords: quest")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Alwin Sommerkorn, ein Fischer von Runewick. Schlüsselwörter: Quest")
+"Help" -> inform("[Game Help] This NPC is Alwin Sommerkorn, a fisherman from Runewick. Keywords: Hello, quest.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Alwin Sommerkorn, ein Fischer von Runewick. Schlüsselwörter: Hallo, Quest.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho.", "Greetings."
@@ -84,6 +84,7 @@ english, "Ciao", "Adieu", "Au revoir" -> "Farewell.", "Goodbye."
 english, "job" -> "I'm a fisherman and fish fish, sitting in the sun.", "Fishing is the best job in the world, sitting on the bank and dangling the soul."
 "job" -> "Ich bin Fischer und fange Fische und sitze hier bequem in der Sonne.", "Fischen ist der tollste Job der Welt. Einfach nur am Ufer sitzen und die Seele baumeln lassen."
 
+-- Factions
 "archmage" -> "A kind gentleman, always studying, but he always has an open ear for his citizens.", "He is very clever and wise. Once he came to me and we discussed fishing."
 "Erzmagier" -> "Netter Herr, studiert viel, hat aber immer ein offenes Ohr für seine Bürger.", "Er ist sehr weise und klug. Kam einmal sogar zu mir heraus und wir haben uns über Fische unterhalten."
 english, "Elvaine", "Morgan" -> "A kind gentleman, always studying, but he always has an open ear for his citizens.", "He is very clever and wise. Once he came to me and we discussed fiscing."
@@ -117,11 +118,13 @@ queststatus(718) = 0, town = Runewick, "quest", "mission", "Florain", "dreyndel"
 queststatus(718) = 0, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Relaxed fishing in Runewick I"), item(72, 1, 444, "descriptionEn" = "Alwin's old fishing rod.", "descriptionDe" = "Alwins alte Angel."), queststatus(718) = 1, queststatus(820) = 26, "You want to learn how to fish, do you? Try to fish for ten trout. I give you my old fishing rod for that."
 queststatus(718) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Entspanntes Fischen in Runewick I"), item(72, 1, 444, "descriptionEn" = "Alwin's old fishing rod.", "descriptionDe" = "Alwins alte Angel."), queststatus(718) = 1, queststatus(820) = 26, "Du willst das Angeln lernen, nich wahr? Probier mal zehn Forellen zu fangen. Hier nimm meine alte Angel dafür."
 
+-- 1st quest: Not enough items
 queststatus(718) = 1, item(73, all) < 10, english, town = Runewick, "quest", "mission" -> "Try the places where you can see the fish. There you don't need a long time to fish for ten trout."
 queststatus(718) = 1, item(73, all) < 10, town = Runewick, "quest", "mission" -> "Probier die Stellen wo die Fische aus dem Wasser springen, da sind zehn Forellen schnell gefangen."
 queststatus(718) = 1, item(73, all) < 10, town = Runewick, "task", "adventure", "order" -> "Try the places where you can see the fish. There you don't need a long time to fish for ten trout."
 queststatus(718) = 1, item(73, all) < 10, town = Runewick,"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Probier die Stellen wo die Fische aus dem Wasser springen, da sind zehn Forellen schnell gefangen."
 
+-- 1st quest solved
 skill(fishing) < 90, queststatus(718) = 1, item(73, all) > 9, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded five silver coins and your fishing skill increases."), skill(fishing) + 1, money + 500, deleteItem(73, 10), queststatus(718) = 2, "Yep, those are trout. Not bad for starters. Take these coins for them. Do you want another task?"
 queststatus(718) = 1, item(73, all) > 9, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded five silver coins."), money + 500, deleteItem(73, 10), queststatus(718) = 2, "Yep, those are trout. Not bad for starters. Take these coins for them. Do you want another task?"
 skill(fishing) < 90, queststatus(718) = 1, item(73, all) > 9, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und deine Fischereifertigkeit steigt."), skill(fishing) + 1, money + 500, deleteItem(73, 10), queststatus(718) = 2, "Yep, das sind Forellen. Für den Anfang nicht schlecht, nimm die Münzen dafür. Willst du noch eine Aufgabe?"
@@ -133,11 +136,13 @@ queststatus(718) = 2, town = Runewick, "quest", "mission" -> inform("[Neues Ques
 queststatus(718) = 2, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Relaxed fishing in Runewick II"), queststatus(718) = 3, "Other than the trout, you can also fish for salmon, horse mackerel and rose fish. Bring me ten salmon and five horse mackerels."
 queststatus(718) = 2, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Entspanntes Fischen in Runewick II"), queststatus(718) = 3, "Neben Forellen gibt es auch noch Lachse, Stachelmakrelen und Rotbarsche. Fang mir doch zehn Lachse und fünf Stachelmakrelen."
 
+-- 2nd quest solved
 skill(fishing) < 90, queststatus(718) = 3, item(355, all) > 9, item(1209, all) > 4, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your fishing skill increases."), skill(fishing) + 1, money + 1000, deleteItem(355, 10), deleteItem(1209, 5), queststatus(718) = 4, "Now you can tell the different kinds of fish apart. I have some coins for you."
 queststatus(718) = 3, item(355, all) > 9, item(1209, all) > 4, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded ten silver coins."), money + 1000, deleteItem(355, 10), deleteItem(1209, 5), queststatus(718) = 4, "Now you can tell the different kinds of fish apart. I have some coins for you."
 skill(fishing) < 90, queststatus(718) = 3, item(355, all) > 9, item(1209, all) > 4, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Fischereifertigkeit steigt."), skill(fishing) + 1, money + 1000, deleteItem(355, 10), deleteItem(1209, 5), queststatus(718) = 4, "Jetzt kannst du auch die einzelnen Fischarten auseinanderhalten. Ich geb dir ein paar Münzen dafür."
 queststatus(718) = 3, item(355, all) > 9, item(1209, all) > 4, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke."), money + 1000, deleteItem(355, 10), deleteItem(1209, 5), queststatus(718) = 4, "Jetzt kannst du auch die einzelnen Fischarten auseinanderhalten. Ich geb dir ein paar Münzen dafür."
 
+-- 2nd quest: Not enough items
 queststatus(718) = 3, item(355, all) < 10, english, town = Runewick, "quest", "mission" -> "#me pushes his straw hat out of his face, 'I'm awaiting ten salmon and five horse mackerels'."
 queststatus(718) = 3, item(355, all) < 10, town = Runewick, "quest", "mission" -> "#me schiebt den Hut aus dem Gesicht 'Ich warte auf die zehn Lachse und die fünf Stachelmakrelen'."
 queststatus(718) = 3, item(355, all) < 10, town = Runewick, "task", "adventure", "order" -> "#me pushes his straw hat out of his face, 'I'm awaiting ten salmon and five horse mackerels'."
@@ -153,11 +158,13 @@ queststatus(718) = 4, town = Runewick, "quest", "mission" -> inform("[Neues Ques
 queststatus(718) = 4, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Relaxed fishing in Runewick III"), queststatus(718) = 5, "Go to town and smoke the salmons, so they don't get stinky. Bring me five smoked salmons."
 queststatus(718) = 4, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Entspanntes Fischen in Runewick III"), queststatus(718) = 5, "Frischer Fisch hält sich nich lang. Gehe in die Stadt und räucher ihn. Bringe mir dann fünf geräucherte Lachse."
 
+-- 3rd quest: Not enough items
 queststatus(718) = 5, item(3916, all) < 5, english, town = Runewick, "quest", "mission" -> "The simplest way is to use the smoke oven in town to smoke five salmons for me."
 queststatus(718) = 5, item(3916, all) < 5, town = Runewick, "quest", "mission" -> "Am einfachsten nutzt du die Räucherhütte in der Stadt um mir fünf Lachse zu räuchern."
 queststatus(718) = 5, item(3916, all) < 5, town = Runewick, "task", "adventure", "order" -> "The simplest way is to use the smoke oven in town to smoke five salmons for me."
 queststatus(718) = 5, item(3916, all) < 5, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "job" -> "Am einfachsten nutzt du die Räucherhütte in der Stadt um mir fünf Lachse zu räuchern."
 
+-- 3rd quest solved
 skill(fishing) < 90, queststatus(718) = 5, item(3916, all) > 4, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded five silver coins and your fishing skill increases."), skill(fishing) + 1, money + 500, queststatus(718) = 6, "#me smiles broadly 'Keep the smoked salmon, I don't like them. Take the coins for your effort.'"
 queststatus(718) = 5, item(3916, all) > 4, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded five silver coins."), money + 500, queststatus(718) = 6, "#me smiles broadly 'Keep the smoked salmon, I don't like them. Take the coins for your effort.'"
 skill(fishing) < 90, queststatus(718) = 5, item(3916, all) > 4, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und deine Fischereifertigkeit steigt."), skill(fishing) + 1, money + 500, queststatus(718) = 6, "#me grinst breit 'Behalten den geräucherten Lachs, ich mag ihn sowieso nicht. Nimm die Münzen für den Aufwand.'"
@@ -169,20 +176,23 @@ queststatus(718) = 6, town = Runewick, "quest", "mission" -> inform("[Neues Ques
 queststatus(718) = 6, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Relaxed fishing in Runewick IV"), queststatus(718) = 7, "You also have to keep your fishing rod in a good repair. Bring ten spools of thread to me, then I will teach you how to repair your fishing rod."
 queststatus(718) = 6, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Entspanntes Fischen in Runewick IV"), queststatus(718) = 7, "Zum Fischen gehört auch seine Angel in Schuss zu halten. Bringe mir zehn Spulen Garn, dann zeig ich dir, wie man seine Angelschnur repariert."
 
+-- 4th quest: Not enough items
 queststatus(718) = 7, item(50, all) < 10, english, town = Runewick, "quest", "mission" -> "Do you know how many fish you can fish with a broken fishing line? None! Bring ten spools of thread to me."
 queststatus(718) = 7, item(50, all) < 10, town = Runewick, "quest", "mission" -> "Weißt du was man mit einer kaputten Angel Fischen kann? Genau, Nichts! Also bringe mir zehn Spulen Garn."
 queststatus(718) = 7, item(50, all) < 10, town = Runewick, "task", "adventure", "order" -> "Do you know how many fish you can fish with a broken fishing line? None! Bring ten spools of thread to me."
 queststatus(718) = 7, item(50, all) < 10, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Weißt du was man mit einer kaputten Angel Fischen kann? Genau, Nichts! Also bringe mir zehn Spulen Garn."
 
+-- 4th quest solved
 skill(fishing) < 90, queststatus(718) = 7, item(50, all) > 9, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 20 silver coins and your fishing skill increases."), skill(fishing) + 1, money + 2000, deleteItem(50, 10), queststatus(718) = 8, "#me takes the thread and fixes it skilfully to the fishing rod."
 queststatus(718) = 7, item(50, all) > 9, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, deleteItem(50, 10), queststatus(718) = 8, "#me takes the thread and fixes it skilfully to the fishing rod."
 skill(fishing) < 90, queststatus(718) = 7, item(50, all) > 9, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke und deine Fischereifertigkeit steigt."), skill(fishing) + 1, money + 2000, deleteItem(50, 10), queststatus(718) = 8, "#me nimmt das Garn und befestigt es gekonnt an einer Angel"
 queststatus(718) = 7, item(50, all) > 9, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, deleteItem(50, 10), queststatus(718) = 8, "#me nimmt das Garn und befestigt es gekonnt an einer Angel"
 
-queststatus(718) = 8, english, "quest", "mission" -> "I don't have anything more for you to do. Thank you for the help though!"
-queststatus(718) = 8, "quest", "mission" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für eure Hilfe!"
-queststatus(718) = 8, "task", "adventure", "order" -> "I don't have anything more for you to do. Thank you for the help though!"
-queststatus(718) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für eure Hilfe!"
+-- No more quests
+queststatus(718) = 8, english, town = Runewick, "quest", "mission" -> "I don't have anything more for you to do. Thank you for the help though!"
+queststatus(718) = 8, town = Runewick, "quest", "mission" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für eure Hilfe!"
+queststatus(718) = 8, town = Runewick, "task", "adventure", "order" -> "I don't have anything more for you to do. Thank you for the help though!"
+queststatus(718) = 8, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts weiter für Euch zu tun. Aber danke nochmals für eure Hilfe!"
 
 -- No quests for non runewickians
 english, town = none, "quest", "mission" -> "No thanks stranger. I only have work for citizens of Runewick."
