@@ -251,9 +251,9 @@ skill(cookingAndBaking) < 100, queststatus(714) = 15, town = Runewick, "task", "
 skill(cookingAndBaking) < 100, queststatus(714) = 15, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Weisheit ist schwer zu erlangen. Das brauchst du mir nicht zu erklären. Aber du bist ja bereits ein Meister.", inform("[Gildenrang] Du brauchst Level 100 in Kochen und Backen um in der Liga der Köche und Bäcker aufzusteigen.")
 
 -- Response after quest is done
-queststatus(714) = 16, english, town = Runewick, "quest", "mission" -> "One day, you will tell your grandchildren about you apprenticeship with the Baker and Cook League of Runewick, Grandmaster %CHARNAME."
-queststatus(714) = 16, town = Runewick, "task", "adventure", "order" -> "One day, you will tell your grandchildren about you apprenticeship with the Baker and Cook League of Runewick, Grandmaster %CHARNAME."
-queststatus(714) = 16, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du wirst noch deinen Enkeln von deiner Lehre bei der Liga der Köche und Bäcker von Runewick erzählen, Großmeister %CHARNAME."
+queststatus(714) = 16, english, town = Runewick, "quest", "mission" -> "Grandmaster %CHARNAME. Sounds pretty awesome, doesn't it?"
+queststatus(714) = 16, town = Runewick, "task", "adventure", "order" -> "Grandmaster %CHARNAME. Sounds pretty awesome, doesn't it?"
+queststatus(714) = 16, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Großmeister %CHARNAME. Klingt klasse, oder?"
 
 -- No quests for Non Runewickians
 english, "quest", "mission" -> "The Baker and Cook League is restricted to Runewick's citizens."

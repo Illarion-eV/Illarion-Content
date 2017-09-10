@@ -250,9 +250,9 @@ skill(armourer) < 100, queststatus(709) = 15, town = Galmair, "task", "adventure
 skill(armourer) < 100, queststatus(709) = 15, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Wennsss einfach wär, wär jeder reich, sssz. Esss isss verdammt viel Arbeit unser Handwerk zu meistern. Aber du bisss bereitsss ein Meister.", inform("[Gildenrang] Du brauchst Level 100 in Rüstschmieden um in der Zunft der Rüstschmiede aufzusteigen.")
 
 -- Response after quest is done
-queststatus(709) = 16, english, town = Galmair, "quest", "mission" -> "One day, you will tell your grandchildren about your time with the Armourer Guild of Galmair, Grandmaster %CHARNAME, sssz."
-queststatus(709) = 16, town = Galmair, "task", "adventure", "order" -> "One day, you will tell your grandchildren about your time with the Armourer Guild of Galmair, Grandmaster %CHARNAME, sssz."
-queststatus(709) = 16, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du wirst noch deinen Enkeln von deiner Ausbildung bei der Zunft der Rüstschmiede von Galmair erzählen, Großmeister %CHARNAME, sssz."
+queststatus(709) = 16, english, town = Galmair, "quest", "mission" -> "One day, you will tell your hatchlings about your time with the Armourer Guild of Galmair, Grandmaster %CHARNAME, sssz."
+queststatus(709) = 16, town = Galmair, "task", "adventure", "order" -> "One day, you will tell your hatchlings about your time with the Armourer Guild of Galmair, Grandmaster %CHARNAME, sssz."
+queststatus(709) = 16, town = Galmair, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du wirst noch deinen Schlüpflingen von deiner Zsseit bei der Zunft der Rüstschmiede von Galmair erzählen, Großmeister %CHARNAME, sssz."
 
 -- No quests for Non Galmairians
 english, "quest", "mission" -> "The Armourer Guild isss restricted to Galmair's citizensss."

@@ -265,9 +265,9 @@ skill(glassBlowing) < 100, queststatus(717) = 15, town = Cadomyr, "task", "adven
 skill(glassBlowing) < 100, queststatus(717) = 15, town = Cadomyr, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Die höchste Ehre ist nur durch harte Arbeit zu erringen. Wer weiß das besser als ihr, Meister.", inform("[Gildenrang] Du brauchst Level 100 in Glasblasen um in der Glasbläserzunft aufzusteigen.")
 
 -- Response after quest is done
-queststatus(717) = 16, english, town = Cadomyr, "quest", "mission" -> "One day, you will tell your grandchildren about you apprenticeship with the Glassblowing Guild of Cadomyr, Grandmaster %CHARNAME."
-queststatus(717) = 16, town = Cadomyr, "task", "adventure", "order" -> "One day, you will tell your grandchildren about you apprenticeship with the Glassblowing Guild of Cadomyr, Grandmaster %CHARNAME."
-queststatus(717) = 16, town = Cadomyr, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du wirst noch deinen Enkeln von deiner Lehre bei der Glasbläserzunft von Cadomyr erzählen, Großmeister %CHARNAME."
+queststatus(717) = 16, english, town = Cadomyr, "quest", "mission" -> "The Glassblowing Guild of Cadomyr honours its Grandmaster %CHARNAME."
+queststatus(717) = 16, town = Cadomyr, "task", "adventure", "order" -> "The Glassblowing Guild of Cadomyr honours its Grandmaster %CHARNAME."
+queststatus(717) = 16, town = Cadomyr, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Die Glasbläserzunft von Cadomyr ehrt ihren Großmeister %CHARNAME."
 
 -- No quests for Non Cadomyrians
 english, "quest", "mission" -> "The Glassblowing Guild is restricted to Cadomyr's citizens."

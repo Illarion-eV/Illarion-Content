@@ -235,12 +235,12 @@ skill(pottery) < 100, queststatus(707) = 15, town = Cadomyr, "task", "adventure"
 skill(pottery) < 100, queststatus(707) = 15, town = Cadomyr, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Ess issst mir eine Ehre einen Meister der Gilde sszu ssehen. Ich weisss, issst harte Arbeit um Meister der Töpfer ssszu werden, sssz.", inform("[Gildenrang] Du brauchst Level 100 in Töpfern um in der Töpferinnung aufzusteigen.")
 
 -- Response after quest is done
-queststatus(707) = 16, english, town = Cadomyr, "quest", "mission" -> "One day, you will tell your grandchildren about your apprenticeship with the Pottery Guild of Cadomyr, Grandmaster %CHARNAME, Ssss."
-queststatus(707) = 16, town = Cadomyr, "task", "adventure", "order" -> "One day, you will tell your grandchildren about your apprenticeship with the Pottery Guild of Cadomyr, Grandmaster %CHARNAME, Ssss."
-queststatus(707) = 16, town = Cadomyr, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du wirst noch deinen Enkeln von deiner Lehre bei der Töpferinnung von Cadomyr erzählen, Großmeister %CHARNAME, sssz."
+queststatus(707) = 16, english, town = Cadomyr, "quest", "mission" -> "The Pottery Guild of Cadomyr hailsss Grandmaster %CHARNAME."
+queststatus(707) = 16, town = Cadomyr, "task", "adventure", "order" -> "The Pottery Guild of Cadomyr hailsss Grandmaster %CHARNAME."
+queststatus(707) = 16, town = Cadomyr, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Die Töpferinnung von Cadomyr grüßsst ihren Großmeister %CHARNAME."
 
 -- No quests for Non Cadomyrians
-english, "quest", "mission" -> "The Pottery Assssociation isss restricted to Cadomyr's citizzens. I don't haves anything for you to do, Ssss."
+english, "quest", "mission" -> "The Pottery Assssociation isss restricted to Cadomyr's citizzens. I don't haves anything for you to do, zsss."
 "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Die Töpferinnung sssteht nur Bürgern Cadomyrs offen, zsss."
 "task", "adventure", "order" -> "The Pottery Assssociation isss restricted to Cadomyr's citizzens. I don't haves anything for yous to do, zsss."
 

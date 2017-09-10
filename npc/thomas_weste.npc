@@ -249,9 +249,9 @@ skill(brewing) < 100, queststatus(716) = 15, town = Runewick, "task", "adventure
 skill(brewing) < 100, queststatus(716) = 15, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Alleine trinken ist nicht weise. Und du brauchst mir nicht zu erklären wie viel Arbeit es ist, hervorragende Tränke zu brauen. Prost Meister.", inform("[Gildenrang] Du brauchst Level 100 in Brauen um in Adrons Braukunstschule aufzusteigen.")
 
 -- Response after quest is done
-queststatus(716) = 16, english, town = Runewick, "quest", "mission" -> "One day, you will drink with your grandchildren and tell about you apprenticeship with Adron's Brewery School of Runewick, Grandmaster %CHARNAME."
-queststatus(716) = 16, town = Runewick, "task", "adventure", "order" -> "One day, you will drink with your grandchildren tell about you apprenticeship with Adron's Brewery School of Runewick, Grandmaster %CHARNAME."
-queststatus(716) = 16, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du wirst noch deinen Enkeln bei einem guten Glas Wein von deiner Lehre bei der Adrons Braukunstschule zu Runewick erzählen, Großmeister %CHARNAME."
+queststatus(716) = 16, english, town = Runewick, "quest", "mission" -> "Your apprenticeship with Adron's Brewery School of Runewick is over. For you are now one of its Grandmasters, %CHARNAME."
+queststatus(716) = 16, town = Runewick, "task", "adventure", "order" -> "Your apprenticeship with Adron's Brewery School of Runewick is over. For you are now one of its Grandmasters, %CHARNAME."
+queststatus(716) = 16, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Deine Lehre bei Adrons Braukunstschule zu Runewick ist nun vorrüber. Denn du bist einer ihrer Großmeister, %CHARNAME."
 
 -- No quests for Non Runewickians
 english, "quest", "mission" -> "Adron's Brewery School is restricted to Runewick's citizens."
