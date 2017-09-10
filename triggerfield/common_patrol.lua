@@ -28,7 +28,7 @@ local M = {}
 
 
 function M.MoveToField(user)
-    -- Hemp Neckty Inn (front door)
+    -- Hemp Necktie Inn (front door)
     local waypoints = {
     position(697, 314, 0)}
     if common.isInList(user.pos,waypoints) then
