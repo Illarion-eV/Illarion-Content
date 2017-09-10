@@ -34,8 +34,8 @@ local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 
-Description[GERMAN][1] = "Sammel zehn Scheite Apfelholz und bring diese zu Daniel Brock in der Werkstatt von Runewick. Sammel mit dem Beil in Eibenthal zehn Apfelholzscheite. Dazu nimmst du das Beil in die Hand und benutzt es, während du vor einem Apfelbaum stehst.."
-Description[ENGLISH][1] = "Collect ten logs of apple wood and take them to Daniel Brock at the workshop in Runewick. Collect ten logs of apple wood in Yewdale by using the hatchet in your hand, whilst standing in front of an apple tree." 
+Description[GERMAN][1] = "Sammel zehn Scheite Apfelholz in Eibenthal und bring diese zu Daniel Brock in der Werkstatt von Runewick. Dazu nimmst du das Beil in die Hand und benutzt es, während du vor einem Apfelbaum stehst."
+Description[ENGLISH][1] = "Collect ten logs of apple wood in Yewdale and take them to Daniel Brock at the workshop in Runewick. Use the hatchet in your hand, whilst standing in front of an apple tree." 
 Description[GERMAN][2] = "Geh zu Daniel Brock in der Werkstatt von Runewick. Er hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][2] = "Go to Daniel Brock at the workshop in Runewick, he is sure to have another task for you."
 Description[GERMAN][3] = "Säge zehn Apfelholzbretter für Daniel Brock am Sägebock in Runewick. Um die Bretter herzustellen, musst du die Säge in die Hand nehmen und den Sägebock benutzen, wenn du vor ihm stehst."
