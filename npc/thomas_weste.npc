@@ -259,8 +259,8 @@ english, "quest", "mission" -> "Adron's Brewery School is restricted to Runewick
 "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Adrons Braukunstschule steht nur Bürgern Runewicks offen."
 
 -- Additional talk
-english, "elvain", "morgan" -> "The Archmage Elvain Morgan patrons everybody who is willing to learn. That includes our school.", "I wish I could understand everything Elvain Morgan writes.", "Yesterday, I was able to serve the Archmage a special drink."
-"Archmage" -> "The Archmage Elvain Morgan patrons everybody who is willing to learn. That includes our school.", "I wish I could understand everything Elvain Morgan writes.", "Yesterday, I was able to serve the Archmage a special drink."
+english, "elvain", "morgan" -> "The Archmage Elvaine Morgan patrons everybody who is willing to learn. That includes our school.", "I wish I could understand everything Elvaine Morgan writes.", "Yesterday, I was able to serve the Archmage a special drink."
+"Archmage" -> "The Archmage Elvaine Morgan patrons everybody who is willing to learn. That includes our school.", "I wish I could understand everything Elvaine Morgan writes.", "Yesterday, I was able to serve the Archmage a special drink."
 "Erzmagier", "elvain", "morgan" -> "Der Erzmagier behütet jeden, der gewillt ist zu lernen. Auch unsere Schule.", "Ich wünschte ich könnte verstehen, was Elnain Morgan alles geschrieben hat.", "Gestern durfte ich dem Erzmagier ein besondern Trank kredenzen."
 "farm", "field", "vegetable", "grain" -> "I buy the food for my drinks from the farmers of our city.", "On the fields in front of the city almost everything a good brewer needs grows.", "You could plant everything yourself, but the farmers also want to sell something.", "I put fresh sugar cane only in the barrel."
 "landwirt", "feld", "Zucker", "getreide" -> "Die Lebensmittel für meine Getränke kaufe ich bei den Landwirten unserer Stadt.", "Auf den Feldern vor der Stadt wächst fast alles was ein guter Braumeister braucht.", "Man könnte ja alles selber anpflanzen, aber die Landwirte wollen ja auch was verkaufen.", "Mir kommt nur frisches Zuckerrohr in den Topf."
