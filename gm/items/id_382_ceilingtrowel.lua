@@ -1362,7 +1362,8 @@ function updateMonsters(array,number,basePosition)
             elseif not mon:isInRangeToPosition(basePosition,SPAWN_MONSTER_RUN_AWAY) then
                 local playerInSight = world:getPlayersInRangeOf(mon.pos,SPAWN_PLAYER_OUT_OF_SIGHT)
                 if #playerInSight == 0 then
-                    mon:warp(basePosition)
+                    local targetPos = common.getFreePos(basePosition, 5)
+                    mon:warp(targetPos)
                 end
             end
         end
