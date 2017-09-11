@@ -305,7 +305,7 @@ english, "Hinterland" -> inform("[Keywords] Sleepy Bujhaar Inn, Census office, S
 "Woodcorner" -> "That is a camp for lumberjacks and it is very close. Just behind the teleporter. *points north*"
 "Waldeck" -> "Das ist ein Lager für Holzfäller und es liegt sehr nahe. Gleich hinter dem Teleporter. *zeigt in den Norden"
 "Stinky Fisherman" -> "The Stinky Fisherman is a place for fishers and it is south from here, on the north bank of the Malachite creek."
-"Stinkende Fischer" -> "Der Stinkende Fischer ist ein Ort für Fischer und ist südlich von hier am Nordufer des Malachit Baches."
+"Stinkende Fischer" -> "Der Stinkende Fischer ist ein Ort für Fischer und ist südlich von hier am Nordufer des Malachitbaches."
 "Platform" -> "The Platform is a place for fishers close to the Copperbridge *points east*. It was also used by lizards to rise and pray in the past. "
 "Plattform" -> "Die Plattform ist ein Ort für Fischer nahe der Kupferbrücke *zeigt in den Osten*. Sie wurde früher auch von Echsen genutzt zum Schlüpfen und Beten."
 "Dark Hole Mine" -> "The Dark Hole Mine is far in the north. You have to walk east, over the Copperbridge, to the north over the Blackbridge, past the harbour, and then you are there. Just follow the signposts. You can find coal there."
