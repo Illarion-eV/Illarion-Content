@@ -106,7 +106,7 @@ english, "job" -> "I'm a brewer, I can tell you from own experience everything I
 -- Quest 1: Gathering. Player gets a gathering tool. Player gathers materials for 10 intermediate products.
 queststatus(716) = 0, english, town = Runewick, "quest", "mission" -> queststatus(716) = 1, "Adron's Brewery School accepts you as an apprentice. To learn what you need you have to stay sober. Go to Yewdale and collect sixty apples.", inform("[Guild Quest] Adron's Brewery School of Runewick I. For more information see the quest log (Q).")
 queststatus(716) = 0, town = Runewick, "task", "adventure", "order" -> queststatus(716) = 1, "Adron's Brewery School accepts you as an apprentice. To learn what you need you have to stay sober. Go to Yewdale and collect sixty apples.", inform("[Guild Quest] Adron's Brewery School of Runewick I. For more information see the quest log (Q).")
-queststatus(716) = 0, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(716) = 1, "Adrons Braukunstschule wird deine Ausbildung übernehmen. Wenn du was lernen willst musst du nüchtern bleiben. Marschier nach Eibental und pflücke dort sechzig Äpfel.", inform("[Gildenquest] Adrons Braukunstschule zu Runewick I. Detaillierte Informationen findest du im Questlog (Q).")
+queststatus(716) = 0, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(716) = 1, "Adrons Braukunstschule wird deine Ausbildung übernehmen. Wenn du was lernen willst musst du nüchtern bleiben. Marschier nach Eibenthal und pflücke dort sechzig Äpfel.", inform("[Gildenquest] Adrons Braukunstschule zu Runewick I. Detaillierte Informationen findest du im Questlog (Q).")
 
 -- Quest 1: Solved
 queststatus(716) = 1, item(15, all) > 59, english, town = Runewick, "quest", "mission" -> queststatus(716) = 2, "These are the apples? Fine. Some are bruised, but it doesn't matter if the drinker doesn't know. You will need them for your first bottles.", inform("[Guild Quest] Ask Thomas Weste for your next task.")
@@ -259,9 +259,9 @@ english, "quest", "mission" -> "Adron's Brewery School is restricted to Runewick
 "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Adrons Braukunstschule steht nur Bürgern Runewicks offen."
 
 -- Additional talk
-english, "elvain", "morgan" -> "The Archmage Elvaine Morgan patrons everybody who is willing to learn. That includes our school.", "I wish I could understand everything Elvaine Morgan writes.", "Yesterday, I was able to serve the Archmage a special drink."
+english, "elvaine", "morgan" -> "The Archmage Elvaine Morgan patrons everybody who is willing to learn. That includes our school.", "I wish I could understand everything Elvaine Morgan writes.", "Yesterday, I was able to serve the Archmage a special drink."
 "Archmage" -> "The Archmage Elvaine Morgan patrons everybody who is willing to learn. That includes our school.", "I wish I could understand everything Elvaine Morgan writes.", "Yesterday, I was able to serve the Archmage a special drink."
-"Erzmagier", "elvain", "morgan" -> "Der Erzmagier behütet jeden, der gewillt ist zu lernen. Auch unsere Schule.", "Ich wünschte ich könnte verstehen, was Elnain Morgan alles geschrieben hat.", "Gestern durfte ich dem Erzmagier ein besondern Trank kredenzen."
+"Erzmagier", "elvaine", "morgan" -> "Der Erzmagier behütet jeden, der gewillt ist zu lernen. Auch unsere Schule.", "Ich wünschte ich könnte verstehen, was Elvaine Morgan alles geschrieben hat.", "Gestern durfte ich dem Erzmagier ein besondern Trank kredenzen."
 "farm", "field", "vegetable", "grain" -> "I buy the food for my drinks from the farmers of our city.", "On the fields in front of the city almost everything a good brewer needs grows.", "You could plant everything yourself, but the farmers also want to sell something.", "I put fresh sugar cane only in the barrel."
 "landwirt", "feld", "Zucker", "getreide" -> "Die Lebensmittel für meine Getränke kaufe ich bei den Landwirten unserer Stadt.", "Auf den Feldern vor der Stadt wächst fast alles was ein guter Braumeister braucht.", "Man könnte ja alles selber anpflanzen, aber die Landwirte wollen ja auch was verkaufen.", "Mir kommt nur frisches Zuckerrohr in den Topf."
 "honey" -> "Mmmm... Mead!", "Mead, the drink of the north... and south, and west and east."
@@ -269,7 +269,7 @@ english, "elvain", "morgan" -> "The Archmage Elvaine Morgan patrons everybody wh
 english, "Adron" -> "Right in the tavern you find his altar.", "The best brewers always worshipped Adron."
 "Adron" -> "Direkt in der Taverne findet man seinen Altar", "Die besten Brauer waren Anhänger Adrons."
 "god", "temple" -> "Many Gods have a temple in Runewick: Adron in the tavern, Ushara on the isle of earth, Tanora near the harbour, Bragon on the isle of fire, Oldra in Yewdale, Elara in the library, Eldan on the isle of the Archmage and Findari here on the isle of air.", "You may find temples of the Old and the Younger Gods in Runewick."
-"Gott", "Tempel" -> "Viele Götter haben einen Tempel in Runewick. Adron in der Taverne, Ushara auf der Insel der Erde, Tanora in der Nähe des Hafens, Bragon auf der Insel des Feuers, Oldra in Eibental, Elara in der Bücherei, Eldan auf der Insel der Erzmagiers und Findari hier bei uns auf der Insel der Luft", "Hier in Runewick findest du Tempel der alten und der jungen Götter."
+"Gott", "Tempel" -> "Viele Götter haben einen Tempel in Runewick. Adron in der Taverne, Ushara auf der Insel der Erde, Tanora in der Nähe des Hafens, Bragon auf der Insel des Feuers, Oldra in Eibenthal, Elara in der Bücherei, Eldan auf der Insel der Erzmagiers und Findari hier bei uns auf der Insel der Luft", "Hier in Runewick findest du Tempel der alten und der jungen Götter."
 "cheers" -> "Cheers!"
 "prost" -> "Prost!"
 ------------------------------------------------------------------------------AC
