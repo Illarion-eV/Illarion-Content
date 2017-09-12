@@ -34,11 +34,11 @@ local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 
-Description[GERMAN][1] = "Schöpfe 10 Eimer Wasser und bring diese zu Francine Leonard in der Küche von Runewick. Dazu nimmst du die Eimer in die Hand und benutzt sie, während du vor einem Brunnen stehst. Der nächste Brunnen steht vor der Küche."
-Description[ENGLISH][1] = "Fill 10 buckets with water and take them to Francine Leonard at the kitchen in Runewick. Fill the buckets by using the buckets in your hand, whilst standing in front of a well. The next well is in front of the kitchen." 
+Description[GERMAN][1] = "Schöpfe zehn Eimer Wasser und bring diese zu Francine Leonard in der Küche von Runewick. Dazu nimmst du die Eimer in die Hand und benutzt sie, während du vor einem Brunnen stehst. Der nächste Brunnen steht vor der Küche."
+Description[ENGLISH][1] = "Fill ten buckets with water and take them to Francine Leonard at the kitchen in Runewick. Fill the buckets by using the buckets in your hand, whilst standing in front of a well. The next well is in front of the kitchen." 
 Description[GERMAN][2] = "Geh zu Francine Leonard in der Küche von Runewick. Sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][2] = "Go to Francine Leonard at the kitchen in Runewick, she is sure to have another task for you."
-Description[GERMAN][3] = "Mahle 10 Säcke Mehl für Francine Leonard an der Mühle vor Runewicks Küche. Um das Getreide zu mahlen, musst du die Holzkelle in die Hand nehmen und die Mühle benutzen, wenn du vor ihr stehst."
+Description[GERMAN][3] = "Mahle zehn Säcke Mehl für Francine Leonard an der Mühle vor Runewicks Küche. Um das Getreide zu mahlen, musst du die Holzkelle in die Hand nehmen und die Mühle benutzen, wenn du vor ihr stehst."
 Description[ENGLISH][3] = "Grind ten sacks of flour for Francine Leonard at the mill in front of Runewick's kitchen. To grind the grain you have to take the wooden shovel in your hand and use the mill."
 Description[GERMAN][4] = "Geh zu Francine Leonard in der Küche von Runewick. Sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][4] = "Go to Francine Leonard at the kitchen in Runewick, she is sure to have another task for you."
