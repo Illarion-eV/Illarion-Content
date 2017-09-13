@@ -70,7 +70,6 @@ Description[ENGLISH][16] = "Congratulations, you are now a true Grandmaster of t
 -- Insert the position of the quest start here (probably the position of an NPC or item)
 local Start = {135, 576, 0}
 
-
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
 QuestTarget[1] = {position(135, 576, 0), position(63, 654, 0)} -- Sheep
