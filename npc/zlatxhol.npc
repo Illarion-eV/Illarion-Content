@@ -142,7 +142,7 @@ skill(pottery) > 9, queststatus(707) = 6, town = Cadomyr, "quest", "mission", "A
 
 -- Level < 10: Not experienced enough
 skill(pottery) < 10, queststatus(707) = 6, english, town = Cadomyr, "quest", "mission" -> "I'm proud to sssee you Layman. You should ssstay more time at the kiln to become promoted, Ssss.", inform("[Guild rank] You need skill level 10 in pottery to advance in the ranks of the Pottery Guild.")
-skill(pottery) < 10, queststatus(707) = 6, town = Cadomyr, "task", "adventure", "order", "rank" -> "I'm proud to sssee you Layman. You should ssstay more time at the kiln to become promoted, Ssss.", inform("[Guild rank] You need skill level 10 in pottery to advance in ranks of the Pottery Guild.")
+skill(pottery) < 10, queststatus(707) = 6, town = Cadomyr, "task", "adventure", "order", "rank" -> "I'm proud to sssee you Layman. You should ssstay more time at the kiln to become promoted, Ssss.", inform("[Guild rank] You need skill level 10 in pottery to advance in the ranks of the Pottery Guild.")
 skill(pottery) < 10, queststatus(707) = 6, town = Cadomyr, "quest", "mission" , "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Rang" -> "Ess issst mir eine Ehre einen Laien der Gilde sszu ssehen. Ich habe dich aber nicht ssso viel am Brennofen gesehen, sssz.", inform("[Gildenrang] Du brauchst Level 10 in Töpfern um in der Töpferinnung aufzusteigen.")
 
 -- Level 20: Apprentice / Lehrling. Reward: 20 Raw materials (e.g. wool)
