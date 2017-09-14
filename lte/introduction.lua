@@ -294,7 +294,6 @@ end
 
 function M.addEffect(introductionEffect, User)
     introductionEffect:addValue("10",0) --dummy value to make sure the effect does not get deleted right after the first call
-    User:inform("Effect added")
 end
 
 function M.callEffect(introductionEffect, User)
@@ -305,6 +304,7 @@ function M.callEffect(introductionEffect, User)
         User:setQuestProgress(44,0)
         User:setQuestProgress(45,0)
         User:setQuestProgress(46,0)
+        User:inform("Outlaw")
         return false
     end
 
@@ -322,10 +322,8 @@ function M.callEffect(introductionEffect, User)
     local queststatuslist = {}
     queststatuslist = common.Split_number(queststatus, 13) --reading the digits of the queststatus as table
     
-    User:inform("Waypoints: "..#waypoint.."!")
-        
     for i = 1, #waypoint do
-    
+           User:inform("Check1")
         if queststatuslist[i] == 0 and User:isInRangeToPosition(waypoint[i], waypointRadius[i]) then
         
             common.InformNLS(User,informTextG[i],informTextE[i])
@@ -344,6 +342,7 @@ function M.callEffect(introductionEffect, User)
     User:setQuestProgress(44,newQueststatuslist)
     
     -- LOOK FOR OTHER PLAYERS
+               User:inform("Check2")
     local otherPlayers = world:getPlayersInRangeOf(User.pos, 5)
     if #otherPlayers > 1 and User:getQuestProgress(45) == 0 then
     
@@ -357,6 +356,7 @@ function M.callEffect(introductionEffect, User)
     end
     
     -- FINISH QUEST OR NEXT CALL
+               User:inform("Check3")
     if User:getQuestProgress(44) == 1111111111111 and User:getQuestProgress(45) == 1 then --all places visited, found another player
         User:setQuestProgress(46,2) --end the quest
         local callbackFinish = function() end --empty callback
@@ -365,11 +365,11 @@ function M.callEffect(introductionEffect, User)
         local dialogFinish = MessageDialog(dialogTitle, dialogText, callbackFinish)
         User:requestMessageDialog(dialogFinish)
         return false --removes the effect
-    else
-        introductionEffect.nextCalled = 20 
-        return true
     end
 
+               User:inform("Check4")
+    introductionEffect.nextCalled = 20 
+    return true
 end
 
 function M.removeEffect(introductionEffect, User)
@@ -378,8 +378,6 @@ function M.removeEffect(introductionEffect, User)
 end
 
 function M.loadEffect(introductionEffect, User)
-
-    User:inform("Effect loaded")
 
     -- Login Dialog
     local callbackLogin = function() end --empty callback
