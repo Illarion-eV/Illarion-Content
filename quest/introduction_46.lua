@@ -63,10 +63,6 @@ function M.QuestDescription(user, status)
     return common.GetNLS(user, german, english)
 end
 
-function M.QuestStart()
-    return Start
-end
-
 function M.QuestTargets(user, status)
     return QuestTarget[status]
 end

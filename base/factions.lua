@@ -22,6 +22,7 @@ local character = require("base.character")
 local M = {}
 
 -- NOTE: town IDs for:
+M.outlaw = 0
 M.cadomyr = 1
 M.runewick = 2
 M.galmair = 3
@@ -195,7 +196,7 @@ end
     @return - Id of the town
 ]]
 function M.getMembership(player)
-    return player:getQuestProgress(199);
+    return player:getQuestProgress(199)
 end
 
 function M.isCadomyrCitizen(player)
@@ -211,7 +212,7 @@ function M.isRunewickCitizen(player)
 end
 
 function M.isOutlaw(player)
-    return M.getMembership(player) == 0
+    return M.getMembership(player) == M.outlaw
 end
 
 --[[
