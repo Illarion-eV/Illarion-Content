@@ -85,7 +85,6 @@ function M.MoveToField(Character)
             "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Joey Licavoli is a friendly and helpful person, who is happy to help newcomers. Go and talk to him if you want to get some help at the beginning of your new life!")
 
     elseif Character.pos == position(40,111,100) and oldPlayer then --Galmair old player
-
         destination = position(424,245,0)
     end
 
@@ -107,7 +106,7 @@ function M.MoveToField(Character)
 
     local FactionCheck = factions.getFaction(Character);
 
-    if (not Character:isAdmin() and not (FactionCheck.tid ~= 0)) and not oldPlayer then -- Admins and chars who are already members of a faction are unaffected and just warped
+    if (not (FactionCheck.tid ~= 0)) and not oldPlayer then -- Old players and chars who are already members of a faction are unaffected and just warped
 
         -- Abuse protection: We delete some items, if the char has more than one of them (farmed)
         local DeleteList = {23,391,392,2763} --hammer, torch, lit torch, pick-axe (relict)
@@ -126,7 +125,6 @@ function M.MoveToField(Character)
         end
 
         -- We restore the character
-
         Character:setAttrib("hitpoints",10000)
         Character:setAttrib("mana",10000)
         Character:setAttrib("foodlevel",30000)
@@ -134,7 +132,7 @@ function M.MoveToField(Character)
         -- Build the dialogs
         local callbackNewbie = function(dialogNewbie)
             local callbackNewbieTask = function(dialogNewbieTask) end
-            local dialogNewbieTaskTitle = common.GetNLS(Character, "Ein guter Anfang", "A good beginning")
+            local dialogNewbieTaskTitle = common.GetNLS(Character, "Einführung", "Introduction")
             local dialogNewbieTask = MessageDialog(dialogNewbieTaskTitle, dialogNewbieTaskText, callbackNewbieTask)
             Character:requestMessageDialog(dialogNewbieTask)
         end
@@ -142,10 +140,9 @@ function M.MoveToField(Character)
 
         -- We send him a message box
         Character:requestMessageDialog(dialogNewbie); --sending the dialog box to tell him that he finished the tutorial
-                                                      --the callback of this box contains the dialog box to tell him to see the first quest giving NPC
+                                                      --the callback of this box contains the dialog box to tell him to visit special places
 
         -- We tell other players about our noob
-
         local playerlist = world:getPlayersOnline();
 
         for i = 1, #(playerlist) do
@@ -158,6 +155,13 @@ function M.MoveToField(Character)
         -- We make the noob a faction member - finally!
         Character:setQuestProgress(199,factionID);
         factions.setRankpoints(Character,0);
+        
+        -- We start the introduction LTE
+        local found = Character.effects:find(37)
+        if not found then
+            Character.effects:addEffect(LongTimeEffect(37, 20))
+            Character:setQuestProgress(46,1) --start the quest
+        end
 
     end
 end
