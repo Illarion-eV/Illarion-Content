@@ -43,9 +43,16 @@ function M.init(User)
     13: Temple 3
     ]]
 
+    local waypoint = {}
+    local waypointRadius = {}
+    local informTextG = {}
+    local informTextE = {}
+    local dialogTextG = {}
+    local dialogTextE = {}
+    
     if factions.isCadomyrCitizen(User) then
     
-        local waypoint = {
+        waypoint = {
         position(1,2,0),
         position(2,2,0),
         position(3,2,0),
@@ -60,9 +67,9 @@ function M.init(User)
         position(12,2,0),
         position(13,2,0)}
         
-        local waypointRadius = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13}
+        waypointRadius = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13}
         
-        local informTextG = {
+        informTextG = {
         "",
         "",
         "",
@@ -77,7 +84,7 @@ function M.init(User)
         "",
         ""}
         
-        local informTextE = {
+        informTextE = {
         "",
         "",
         "",
@@ -92,7 +99,7 @@ function M.init(User)
         "",
         ""}
         
-        local dialogTextG = {
+        dialogTextG = {
         "",
         "",
         "",
@@ -107,7 +114,7 @@ function M.init(User)
         "",
         ""}
         
-        local dialogTextE = {
+        dialogTextE = {
         "",
         "",
         "",
@@ -126,7 +133,7 @@ function M.init(User)
     
         User:inform("Galmair")
             
-        local waypoint = {
+        waypoint = {
         position(1,2,0),
         position(2,2,0),
         position(3,2,0),
@@ -141,9 +148,9 @@ function M.init(User)
         position(12,2,0),
         position(13,2,0)}
         
-        local waypointRadius = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13}
+        waypointRadius = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13}
         
-        local informTextG = {
+        informTextG = {
         "",
         "",
         "",
@@ -158,7 +165,7 @@ function M.init(User)
         "",
         ""}
         
-        local informTextE = {
+        informTextE = {
         "",
         "",
         "",
@@ -173,7 +180,7 @@ function M.init(User)
         "",
         ""}
         
-        local dialogTextG = {
+        dialogTextG = {
         "",
         "",
         "",
@@ -188,7 +195,7 @@ function M.init(User)
         "",
         ""}
         
-        local dialogTextE = {
+        dialogTextE = {
         "",
         "",
         "",
@@ -205,7 +212,7 @@ function M.init(User)
         
     elseif factions.isRunewickCitizen(User) then
     
-        local waypoint = {
+        waypoint = {
         position(1,2,0),
         position(2,2,0),
         position(3,2,0),
@@ -220,9 +227,9 @@ function M.init(User)
         position(12,2,0),
         position(13,2,0)}
         
-        local waypointRadius = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13}
+        waypointRadius = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13}
         
-        local informTextG = {
+        informTextG = {
         "",
         "",
         "",
@@ -237,7 +244,7 @@ function M.init(User)
         "",
         ""}
         
-        local informTextE = {
+        informTextE = {
         "",
         "",
         "",
@@ -252,7 +259,7 @@ function M.init(User)
         "",
         ""}
         
-        local dialogTextG = {
+        dialogTextG = {
         "",
         "",
         "",
@@ -267,7 +274,7 @@ function M.init(User)
         "",
         ""}
         
-        local dialogTextE = {
+        dialogTextE = {
         "",
         "",
         "",
@@ -282,8 +289,6 @@ function M.init(User)
         "",
         ""}
 
-    else
-        User:inform("No faction")
     end
     
     User:inform("Waypoints: "..#waypoint.."!")
