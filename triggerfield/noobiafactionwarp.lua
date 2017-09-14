@@ -53,8 +53,8 @@ function M.MoveToField(Character)
             "Herzlichen Glückwunsch, du hast das Tutorial erfolgreich abgeschlossen. Du hast dich dazu entschlossen, Cadomyr beizutreten, dem Reich von Ruhm und Ehre. Beachte bitte, dass von nun an jeder, dem du begegnest, erwarten wird, dass du in deiner Rolle bleibst - sei also ein nobler Ritter, ein unterwürfiger Diener oder ein edler Diplomat.",
             "Congratulations, you have completed the tutorial. You have chosen to join Cadomyr, the realm of honour and glory. Please note that from this point on everyone that you encounter will expect you to stay 'in character', by remaining true to your chosen role - be it a proud knight, a humble servant or a noble diplomat.")
         dialogNewbieTaskText = common.GetNLS(Character,
-            "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. Jakob Lindorn ist ein freundlicher und hilfsbereiter Mensch, der Neuankömmlingen hilft. Geh zu ihm herüber und sprich mit ihm, wenn du Hilfe am Beginn deines neuen Lebens wünscht!",
-            "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Jakob Lindorn is a friendly and helpful person, who is happy to help newcomers. Go and talk to him if you want to get some help at the beginning of your new life!")
+            "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. Dein erstes Ziel sollte es sein, die Stadt Cadomyr zu erkunden und andere Charaktere zu finden. Interessante Orte sind auf deiner Karte mit einem orangenem Symbol gekennzeichnet. Dein Questlog (Q) enthält weitere Informationen.",
+            "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Your first objective will be to explore the city of Cadomyr and to find other characters. Interesting places are marked on your map with an orange symbol. For further information, see your quest log (Q).")
 
     elseif Character.pos == position(20,99,100) and find then --Runewick for new player
 
@@ -65,8 +65,8 @@ function M.MoveToField(Character)
             "Herzlichen Glückwunsch, du hast das Tutorial erfolgreich abgeschlossen. Du hast dich dazu entschlossen, Runewick beizutreten, dem Reich der Weisheit und der Magie. Beachte bitte, dass von nun an jeder, dem du begegnest, erwarten wird, dass du in deiner Rolle bleibst - sei also ein geheimnisvoller Magier, ein weiser Gelehrter oder ein friedliebender Waldläufer.",
             "Congratulations, you have completed the tutorial. You have chosen to join Runewick, the realm of wisdom and magic. Please note that from this point on everyone that you encounter will expect you to stay 'in character', by remaining true to your chosen role - be it a mysterious mage, a wise scholar or a peaceful ranger.")
         dialogNewbieTaskText = common.GetNLS(Character,
-            "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. Florain Dreyndel ist ein freundlicher und hilfsbereiter Mensch, der Neuankömmlingen hilft. Geh zu ihm herüber und sprich mit ihm, wenn du Hilfe am Beginn deines neuen Lebens wünscht!",
-            "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Florain Dreyndel is a friendly and helpful person, who is happy to help newcomers. Go and talk to him if you want to get some help at the beginning of your new life!")
+            "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. Dein erstes Ziel sollte es sein, die Stadt Runewick zu erkunden und andere Spieler zu finden. Interessante Orte sind auf deiner Karte mit einem orangenem Symbol gekennzeichnet. Dein Questlog (Q) enthält weitere Informationen.",
+            "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Your first objective will be to explore the city of Runewick and to find other players. Interesting places are marked on your map with an orange symbol. For further information, see your quest log (Q).")
 
     elseif Character.pos == position(20,99,100) and oldPlayer then --Runewick for old player
 
@@ -81,8 +81,8 @@ function M.MoveToField(Character)
             "Herzlichen Glückwunsch, du hast das Tutorial erfolgreich abgeschlossen. Du hast dich dazu entschlossen, Galmair beizutreten, dem Reich des aufstrebenden Wohlstands. Beachte bitte, dass von nun an jeder, dem du begegnest, erwarten wird, dass du in deiner Rolle bleibst - sei also ein fleißiger Handwerker, ein durchtriebener Gauner oder ein reicher Händler.",
             "Congratulations, you have completed the tutorial. You have chosen to join Galmair, the realm of prosperity and wealth. Please note that from this point on everyone that you encounter will expect you to stay 'in character', by remaining true to your chosen role - be it a sturdy craftsman, a shady thug or a wealthy merchant.")
         dialogNewbieTaskText = common.GetNLS(Character,
-            "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. Joey Licavoli ist ein freundlicher und hilfsbereiter Mensch, der Neuankömmlingen hilft. Geh zu ihm herüber und sprich mit ihm, wenn du Hilfe am Beginn deines neuen Lebens wünscht!",
-            "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Joey Licavoli is a friendly and helpful person, who is happy to help newcomers. Go and talk to him if you want to get some help at the beginning of your new life!")
+            "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. Dein erstes Ziel sollte es sein, die Stadt Galmair zu erkunden und andere Spieler zu finden. Interessante Orte sind auf deiner Karte mit einem orangenem Symbol gekennzeichnet. Dein Questlog (Q) enthält weitere Informationen.",
+            "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Your first objective will be to explore the city of Galmair and to find other players. Interesting places are marked on your map with an orange symbol. For further information, see your quest log (Q).")
 
     elseif Character.pos == position(40,111,100) and oldPlayer then --Galmair old player
         destination = position(424,245,0)

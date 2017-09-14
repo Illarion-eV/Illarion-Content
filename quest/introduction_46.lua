@@ -35,10 +35,10 @@ Title[ENGLISH] = "Introduction"
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "GERMAN"
-Description[ENGLISH][1] = "ENGLISH"
+Description[GERMAN][1] = "GERMAN und die drei Tempel deines Reiches."
+Description[ENGLISH][1] = "Set out and explore your realm. Find another character and talk to him/her. Did you already make up a background for your character? Who were his/her parents, what does he/she like most? What is his/her profession? You'll easily tell apart characters from NPCs as the latter do not move and respond immediatly on the keyword 'help' with a list of commands. NPCs can also be used with a double click to access a menu of basic triggers. Some NPCs issue quests, those have a question mark (?) above their head.\n\nAlso, explore your home city. Interesting sites are marked with an orange symbol on your map. You should visit:\n\nThe central depot where you can store your goods.\n\nThe market where you can sell or buy commodities.\n\nThe workshop where all the crafts of your home city are performed.\n\nThe pillar of resurrection where the fallen rise from Cherga's Realm of Death.\n\nThe money changer who can provide you with change.\n\nThe notary where you can see your rank within society and modify your faction settings.\n\nThe treasurer who will accept donations for the realm's treasury.\n\nYour faction's leader who governs the realm..\n\nThe town guard that protects the city from hostile creatures.\n\nThe teleporter that can bring you magically to other cities.\n\nThe three temples of your realm."
 Description[GERMAN][2] = "GERMAN DONE"
-Description[ENGLISH][2] = "ENGLISH DONE"
+Description[ENGLISH][2] = "You finished the introduction. Have fun!"
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 2
