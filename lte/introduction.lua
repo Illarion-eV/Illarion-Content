@@ -131,8 +131,6 @@ function M.init(User)
         
     elseif factions.isGalmairCitizen(User) then
     
-        User:inform("Galmair")
-            
         waypoint = {
         position(1,2,0),
         position(2,2,0),
@@ -291,7 +289,6 @@ function M.init(User)
 
     end
     
-    User:inform("Waypoints: "..#waypoint.."!")
     return waypoint, waypointRadius, informTextG, informTextE, dialogTextG, dialogTextE
 end
 
@@ -307,6 +304,13 @@ function M.callEffect(introductionEffect, User)
         User:setQuestProgress(46,0)
         return false
     end
+
+    local waypoint = {}
+    local waypointRadius = {}
+    local informTextG = {}
+    local informTextE = {}
+    local dialogTextG = {}
+    local dialogTextE = {}
     
     local waypoint, waypointRadius, informTextG, informTextE, dialogTextG, dialogTextE = M.init(User)
 
@@ -315,6 +319,8 @@ function M.callEffect(introductionEffect, User)
     local queststatuslist = {}
     queststatuslist = common.Split_number(queststatus, 13) --reading the digits of the queststatus as table
     
+    User:inform("Waypoints: "..#waypoint.."!")
+        
     for i = 1, #waypoint do
     
         if queststatuslist[i] == 0 and User:isInRangeToPosition(waypoint[i], waypointRadius[i]) then
