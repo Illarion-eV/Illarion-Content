@@ -53,21 +53,21 @@ function M.init(User)
     if factions.isCadomyrCitizen(User) then
     
         waypoint = {
-        position(1,2,0),
+        position(1,1,0),
         position(2,2,0),
-        position(3,2,0),
-        position(4,2,0),
-        position(5,2,0),
-        position(6,2,0),
-        position(7,2,0),
-        position(8,2,0),
-        position(9,2,0),
-        position(10,2,0),
-        position(11,2,0),
-        position(12,2,0),
-        position(13,2,0)}
+        position(3,3,0),
+        position(4,4,0),
+        position(5,5,0),
+        position(6,6,0),
+        position(7,7,0),
+        position(8,8,0),
+        position(9,9,0),
+        position(10,10,0),
+        position(11,11,0),
+        position(12,12,0),
+        position(13,13,0)}
         
-        waypointRadius = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13}
+        waypointRadius = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
         
         informTextG = {
         "Text",
@@ -132,21 +132,21 @@ function M.init(User)
     elseif factions.isGalmairCitizen(User) then
     
         waypoint = {
-        position(1,2,0),
+        position(1,1,0),
         position(2,2,0),
-        position(3,2,0),
-        position(4,2,0),
-        position(5,2,0),
-        position(6,2,0),
-        position(7,2,0),
-        position(8,2,0),
-        position(9,2,0),
-        position(10,2,0),
-        position(11,2,0),
-        position(12,2,0),
-        position(13,2,0)}
+        position(3,3,0),
+        position(4,4,0),
+        position(5,5,0),
+        position(6,6,0),
+        position(7,7,0),
+        position(8,8,0),
+        position(9,9,0),
+        position(10,10,0),
+        position(11,11,0),
+        position(12,12,0),
+        position(13,13,0)}
         
-        waypointRadius = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13}
+        waypointRadius = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
         
         informTextG = {
         "Text",
@@ -211,21 +211,21 @@ function M.init(User)
     elseif factions.isRunewickCitizen(User) then
     
         waypoint = {
-        position(1,2,0),
+        position(1,1,0),
         position(2,2,0),
-        position(3,2,0),
-        position(4,2,0),
-        position(5,2,0),
-        position(6,2,0),
-        position(7,2,0),
-        position(8,2,0),
-        position(9,2,0),
-        position(10,2,0),
-        position(11,2,0),
-        position(12,2,0),
-        position(13,2,0)}
+        position(3,3,0),
+        position(4,4,0),
+        position(5,5,0),
+        position(6,6,0),
+        position(7,7,0),
+        position(8,8,0),
+        position(9,9,0),
+        position(10,10,0),
+        position(11,11,0),
+        position(12,12,0),
+        position(13,13,0)}
         
-        waypointRadius = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13}
+        waypointRadius = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
         
         informTextG = {
         "Text",
@@ -324,6 +324,7 @@ function M.callEffect(introductionEffect, User)
 
         if not common.isBitSet(queststatus,i) and User:isInRangeToPosition(waypoint[i], waypointRadius[i]) then
         
+            user:inform("Found: "..i.."!")
             common.InformNLS(User,informTextG[i],informTextE[i])
             local callbackFound = function() end --empty callback
             local dialogText = common.GetNLS(User,dialogTextG[i],dialogTextE[i])
