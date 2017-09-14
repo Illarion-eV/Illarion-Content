@@ -319,11 +319,10 @@ function M.callEffect(introductionEffect, User)
 
     -- CHECK LOCATIONS    
     local queststatus = User:getQuestProgress(44) --here, we save which places were visited
-    local queststatuslist = {}
     
     for i = 1, #waypoint do
 
-        if not common.isBitSet(queststatuslist,i) and User:isInRangeToPosition(waypoint[i], waypointRadius[i]) then
+        if not common.isBitSet(queststatus,i) and User:isInRangeToPosition(waypoint[i], waypointRadius[i]) then
         
             common.InformNLS(User,informTextG[i],informTextE[i])
             local callbackFound = function() end --empty callback
@@ -331,7 +330,7 @@ function M.callEffect(introductionEffect, User)
             local dialogTitle = common.GetNLS(User,"Einführung","Introduction")
             local dialogFound = MessageDialog(dialogTitle, dialogText, callbackFound)
             User:requestMessageDialog(dialogFound)            
-            User:setQuestProgress(44,common.addBit(queststatuslist,i)) --remember we visited the place
+            User:setQuestProgress(44,common.addBit(queststatus,i)) --remember we visited the place
             
         end
         
@@ -351,7 +350,7 @@ function M.callEffect(introductionEffect, User)
     end
     
     -- FINISH QUEST OR NEXT CALL
-    if User:getQuestProgress(44) == 1111111111111 and User:getQuestProgress(45) == 1 then --all places visited, found another player
+    if common.countBit(User:getQuestProgress(44)) == #waypoint and User:getQuestProgress(45) == 1 then --all places visited, found another player
         User:setQuestProgress(46,2) --end the quest
         local callbackFinish = function() end --empty callback
         local dialogText = common.GetNLS(User,"Letzte Hinweise...","Final hints...")
@@ -382,4 +381,3 @@ function M.loadEffect(introductionEffect, User)
 end
 
 return M
-
