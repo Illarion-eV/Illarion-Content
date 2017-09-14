@@ -321,7 +321,7 @@ function M.callEffect(introductionEffect, User)
         
     end
     
-    local newQueststatuslist = (queststatuslist[1]*1000000000000,queststatuslist[2]*100000000000,queststatuslist[3]*10000000000,queststatuslist[4]*1000000000,queststatuslist[5]*100000000,queststatuslist[6]*10000000+queststatuslist[7]*1000000+queststatuslist[8]*100000+queststatuslist[9]*10000+queststatuslist[10]*1000+queststatuslist[11]*100+ queststatuslist[12]*10+ queststatuslist[13]*1)
+    local newQueststatuslist = (queststatuslist[1]*1000000000000+queststatuslist[2]*100000000000+queststatuslist[3]*10000000000+queststatuslist[4]*1000000000+queststatuslist[5]*100000000+queststatuslist[6]*10000000+queststatuslist[7]*1000000+queststatuslist[8]*100000+queststatuslist[9]*10000+queststatuslist[10]*1000+queststatuslist[11]*100+ queststatuslist[12]*10+ queststatuslist[13]*1)
     User:setQuestProgress(44,newQueststatuslist)
     
     -- LOOK FOR OTHER PLAYERS
