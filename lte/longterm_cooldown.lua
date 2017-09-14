@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Longterm Cooldown
 -- by Estralis
--- EffectID = 33;
+-- EffectID = 33
 
 local common = require("base.common")
 
