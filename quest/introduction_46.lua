@@ -36,7 +36,7 @@ local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
 Description[GERMAN][1] = "GERMAN und die drei Tempel deines Reiches."
-Description[ENGLISH][1] = "Set out and explore your realm. Find another character and talk to him/her. You'll easily tell apart characters from NPCs as the latter do not move and respond immediatly on the keyword 'help' with a list of commands. NPCs can also be used with a double click. Some NPCs issue quests, those have a '?' above their head. Also, explore your home city. Interesting sites are marked with an orange symbol on your map. You should visit: The central depot, the market, the workshop, the pillar of resurrection, the money changer, the notary, the treasurer, your faction's leader, the town guard, the teleporter and the three temples of your realm."
+Description[ENGLISH][1] = "Set out and explore your realm. Find another character and talk to him/her. You'll easily tell apart characters from NPCs as the latter do not move and respond immediatly on the keyword 'help' with a list of commands. NPCs can also be used with a double click. Also, explore your home city. Interesting sites are marked with an orange symbol on your map. You should visit: The central depot, the market, the workshop, the pillar of resurrection, the money changer, the notary, the treasurer, your faction's leader, the town guard, the teleporter and the three temples of your realm."
 Description[GERMAN][2] = "GERMAN DONE"
 Description[ENGLISH][2] = "You finished the introduction. Have fun!"
 
