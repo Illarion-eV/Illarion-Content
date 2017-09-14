@@ -210,6 +210,10 @@ function M.isRunewickCitizen(player)
     return M.getMembership(player) == M.runewick
 end
 
+function M.isOutlaw(player)
+    return M.getMembership(player) == 0
+end
+
 --[[
     returns the name of the town the char is a member of
     @player - characterStruct
