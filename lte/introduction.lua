@@ -305,7 +305,7 @@ function M.callEffect(introductionEffect, User)
     local queststatuslist = {}
     queststatuslist = common.Split_number(queststatus, 13) --reading the digits of the queststatus as table
     
-    for i = 1 to #waypoint do
+    for i = 1, #waypoint do
     
         if queststatuslist[i] == 0 and User:isInRangeToPosition(waypoint[i], waypointRadius[i]) then
         
