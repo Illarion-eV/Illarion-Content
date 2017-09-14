@@ -294,10 +294,13 @@ end
 
 function M.addEffect(introductionEffect, User)
     introductionEffect:addValue("10",0) --dummy value to make sure the effect does not get deleted right after the first call
+    User:inform("Effect added")
 end
 
 function M.callEffect(introductionEffect, User)
 
+    User:inform("Effect called")
+    
     if factions.isOutlaw(User) then --abort the quest
         User:setQuestProgress(44,0)
         User:setQuestProgress(45,0)
@@ -370,10 +373,13 @@ function M.callEffect(introductionEffect, User)
 end
 
 function M.removeEffect(introductionEffect, User)
+    User:inform("Effect removed")
     return false
 end
 
 function M.loadEffect(introductionEffect, User)
+
+    User:inform("Effect loaded")
 
     -- Login Dialog
     local callbackLogin = function() end --empty callback
