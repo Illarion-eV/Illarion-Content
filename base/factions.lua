@@ -461,7 +461,7 @@ function M.setRankpoints(originator, rankpoints)
         if getSpecialRank(originator) ~= 0 then
             M.setSpecialRank(originator, 0);
         end
-    elseif rankpoints > M.getRankpoints(originator)
+    elseif rankpoints > M.getRankpoints(originator) then
         playerText = {"steigt.","advance"};
         informPlayerAboutRankpointchange(originator, playerText);
     end    
