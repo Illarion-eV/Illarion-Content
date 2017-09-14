@@ -64,11 +64,8 @@ QuestTarget[5] = {position(374, 216, 0)} -- Miggs
 QuestTarget[6] = {position(139, 553, 0)} -- Hector Valerion 
 QuestTarget[7] = {position(959, 788, 0)} -- Fludnar Yednos
 
-
-
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 8
-
 
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])

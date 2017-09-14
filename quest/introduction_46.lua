@@ -40,14 +40,12 @@ Description[ENGLISH][1] = "ENGLISH"
 Description[GERMAN][2] = "GERMAN DONE"
 Description[ENGLISH][2] = "ENGLISH DONE"
 
--- Insert the position of the quest start here (probably the position of an NPC or item)
-
 local waypoint, waypointRadius, informTextG, informTextE, dialogTextG, dialogTextE = introduction.init(User)
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
 
-    QuestTarget[1] = waypoint
+QuestTarget[1] = waypoint
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 2
