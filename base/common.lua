@@ -2153,7 +2153,7 @@ end
 --[[Binary functions
 Checks whether bit n is set or not
 bitN must be a number in between 1 and 15 (limit 16 bit integer)
-@return bool: tue if set
+@return bool: true if set
 ]]--
 function M.isBitSet(checkedValue, bitN)
     local bitNumber = tonumber(bitN)
@@ -2214,7 +2214,7 @@ function M.removeBit(setValue, bitN)
 end
 
 --[[Binary functions
-Remove bit n
+Returns the number of set bits.
 setBit must be a number 
 @return int: number of bits = 1
 ]]--

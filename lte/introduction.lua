@@ -320,11 +320,10 @@ function M.callEffect(introductionEffect, User)
     -- CHECK LOCATIONS    
     local queststatus = User:getQuestProgress(44) --here, we save which places were visited
     local queststatuslist = {}
-    queststatuslist = common.Split_number(queststatus, 13) --reading the digits of the queststatus as table
     
     for i = 1, #waypoint do
-           User:inform("Check1")
-        if queststatuslist[i] == 0 and User:isInRangeToPosition(waypoint[i], waypointRadius[i]) then
+
+        if not common.isBitSet(queststatuslist,i) and User:isInRangeToPosition(waypoint[i], waypointRadius[i]) then
         
             common.InformNLS(User,informTextG[i],informTextE[i])
             local callbackFound = function() end --empty callback
@@ -332,17 +331,13 @@ function M.callEffect(introductionEffect, User)
             local dialogTitle = common.GetNLS(User,"Einführung","Introduction")
             local dialogFound = MessageDialog(dialogTitle, dialogText, callbackFound)
             User:requestMessageDialog(dialogFound)            
-            queststatuslist[i] = 1 --remember we visited the place
+            User:setQuestProgress(44,common.addBit(queststatuslist,i)) --remember we visited the place
             
         end
         
     end
-    
-    local newQueststatuslist = (queststatuslist[1]*1000000000000+queststatuslist[2]*100000000000+queststatuslist[3]*10000000000+queststatuslist[4]*1000000000+queststatuslist[5]*100000000+queststatuslist[6]*10000000+queststatuslist[7]*1000000+queststatuslist[8]*100000+queststatuslist[9]*10000+queststatuslist[10]*1000+queststatuslist[11]*100+ queststatuslist[12]*10+ queststatuslist[13]*1)
-    User:setQuestProgress(44,newQueststatuslist)
-    
+ 
     -- LOOK FOR OTHER PLAYERS
-               User:inform("Check2")
     local otherPlayers = world:getPlayersInRangeOf(User.pos, 5)
     if #otherPlayers > 1 and User:getQuestProgress(45) == 0 then
     
@@ -356,7 +351,6 @@ function M.callEffect(introductionEffect, User)
     end
     
     -- FINISH QUEST OR NEXT CALL
-               User:inform("Check3")
     if User:getQuestProgress(44) == 1111111111111 and User:getQuestProgress(45) == 1 then --all places visited, found another player
         User:setQuestProgress(46,2) --end the quest
         local callbackFinish = function() end --empty callback
@@ -367,7 +361,6 @@ function M.callEffect(introductionEffect, User)
         return false --removes the effect
     end
 
-               User:inform("Check4")
     introductionEffect.nextCalled = 20 
     return true
 end
