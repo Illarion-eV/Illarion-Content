@@ -324,7 +324,7 @@ function M.callEffect(introductionEffect, User)
 
         if not common.isBitSet(queststatus,i) and User:isInRangeToPosition(waypoint[i], waypointRadius[i]) then
         
-            user:inform("Found: "..i.."!")
+            User:inform("Found: "..i.."!")
             common.InformNLS(User,informTextG[i],informTextE[i])
             local callbackFound = function() end --empty callback
             local dialogText = common.GetNLS(User,dialogTextG[i],dialogTextE[i])
