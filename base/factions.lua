@@ -449,7 +449,7 @@ function M.setRankpoints(originator, rankpoints)
         Faction.rankTown = checkForRankChange(rankpoints,rank);    
     end
 
-    -- Factionleaders always have the leaderrank 11 and 1000 rankpoints (just to keep it consistent)
+    -- Factionleaders always have the leader rank 11 and 1000 rankpoints (just to keep it consistent)
     if originator.name == "Valerio Guilianni" or originator.name == "Rosaline Edwards" or originator.name == "Elvaine Morgan" then
         rankpoints = (leaderRank-1)*100;
         Faction.rankTown = leaderRank;
@@ -461,7 +461,7 @@ function M.setRankpoints(originator, rankpoints)
         if getSpecialRank(originator) ~= 0 then
             M.setSpecialRank(originator, 0);
         end
-    else
+    elseif rankpoints > M.getRankpoints(originator)
         playerText = {"steigt.","advance"};
         informPlayerAboutRankpointchange(originator, playerText);
     end    
