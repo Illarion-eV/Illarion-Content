@@ -124,6 +124,8 @@ function M.init(User)
         
     elseif factions.isGalmairCitizen(User) then
     
+        User:inform("Galmair")
+            
         local waypoint = {
         position(1,2,0),
         position(2,2,0),
@@ -280,8 +282,11 @@ function M.init(User)
         "",
         ""}
 
+    else
+        User:inform("No faction")
     end
     
+    User:inform("Waypoints: "..#waypoint.."!")
     return waypoint, waypointRadius, informTextG, informTextE, dialogTextG, dialogTextE
 end
 
