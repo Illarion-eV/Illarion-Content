@@ -314,9 +314,6 @@ function M.callEffect(introductionEffect, User)
     
     local waypoint, waypointRadius, informTextG, informTextE, dialogTextG, dialogTextE = M.init(User)
 
-    -- CHECK LOCATIONS    
-    local queststatus = User:getQuestProgress(44) --here, we save which places were visited
-    
     local function finishDialog()
         if M.questFinished(User, waypoint) then
             local callbackFinish = function() end --empty callback
@@ -327,6 +324,9 @@ function M.callEffect(introductionEffect, User)
         end
     end
  
+     -- CHECK LOCATIONS    
+    local queststatus = User:getQuestProgress(44) --here, we save which places were visited
+    
     for i = 1, #waypoint do
      
         if not common.isBitSet(queststatus, i) and User:isInRangeToPosition(waypoint[i], waypointRadius[i]) then
@@ -353,7 +353,7 @@ function M.callEffect(introductionEffect, User)
         local callbackGreeting = function(dialogGreeting)
             finishDialog()
         end --callback
-        local callbackGreeting = function(dialogFinish) end --callback
+        local callbackGreeting = function(dialogGreeting) end --callback
         local dialogText = common.GetNLS(User,"Interaktion, #i usw.","Interaction, introduction etc.")
         local dialogTitle = common.GetNLS(User,"Einführung","Introduction")
         local dialogGreeting = MessageDialog(dialogTitle, dialogText, callbackGreeting)
