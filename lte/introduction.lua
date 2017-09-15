@@ -319,10 +319,10 @@ function M.callEffect(introductionEffect, User)
     
     for i = 1, #waypoint do
 
-        if not common.isBitSet(queststatus,i) and User:isInRangeToPosition(waypoint[i], waypointRadius[i]) then
+        if not common.isBitSet(queststatus, i) and User:isInRangeToPosition(waypoint[i], waypointRadius[i]) then
         
             common.InformNLS(User,informTextG[i],informTextE[i])
-            local callbackFound = function() end --empty callback
+            local callbackFound = function(dialogFinish) end --callback
             local dialogText = common.GetNLS(User,dialogTextG[i],dialogTextE[i])
             local dialogTitle = common.GetNLS(User,"Einführung","Introduction")
             local dialogFound = MessageDialog(dialogTitle, dialogText, callbackFound)
@@ -338,26 +338,30 @@ function M.callEffect(introductionEffect, User)
     if #otherPlayers > 1 and User:getQuestProgress(45) == 0 then
     
         User:setQuestProgress(45,1) --remember we found someone
-        local callbackGreeting = function() end --empty callback
+        local callbackGreeting = function(dialogFinish) end --callback
         local dialogText = common.GetNLS(User,"Interaktion, #i usw.","Interaction, introduction etc.")
         local dialogTitle = common.GetNLS(User,"Einführung","Introduction")
         local dialogGreeting = MessageDialog(dialogTitle, dialogText, callbackGreeting)
         User:requestMessageDialog(dialogGreeting)
         
     end
-    
-    -- FINISH QUEST OR NEXT CALL
-    if common.countBit(User:getQuestProgress(44)) == #waypoint and User:getQuestProgress(45) == 1 then --all places visited, found another player
-        User:setQuestProgress(46,2) --end the quest
+ 
+    -- SHOW FINAL DIALOG
+    local dialogFinish
+    if M.questFinished(User, waypoint) then
         local callbackFinish = function() end --empty callback
         local dialogText = common.GetNLS(User,"Letzte Hinweise...","Final hints...")
         local dialogTitle = common.GetNLS(User,"Einführung","Introduction")
         local dialogFinish = MessageDialog(dialogTitle, dialogText, callbackFinish)
-        User:requestMessageDialog(dialogFinish)
-        return false --removes the effect
     end
-
-    introductionEffect.nextCalled = 20 
+ 
+    -- FINISH QUEST OR NEXT CALL
+    if M.questFinished(User, waypoint) then
+        User:setQuestProgress(46,2) --end the quest
+        return false --remove the effect
+    end
+    
+    introductionEffect.nextCalled = 10 
     return true
 end
 
@@ -374,6 +378,16 @@ function M.loadEffect(introductionEffect, User)
     local dialogLogin = MessageDialog(dialogTitle, dialogText, callbackLogin)
     User:requestMessageDialog(dialogLogin)
     
+end
+
+function M.questFinished(User, waypoint)
+
+    if common.countBit(User:getQuestProgress(44)) == #waypoint and User:getQuestProgress(45) == 1 then
+        return true
+    else
+        return false
+    end
+
 end
 
 return M

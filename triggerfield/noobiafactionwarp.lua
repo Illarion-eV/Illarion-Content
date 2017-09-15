@@ -159,7 +159,7 @@ function M.MoveToField(Character)
         -- We start the introduction LTE
         local found = Character.effects:find(37)
         if not found then
-            Character.effects:addEffect(LongTimeEffect(37, 20))
+            Character.effects:addEffect(LongTimeEffect(37, 10))
             Character:setQuestProgress(46,1) --start the quest
         end
 
