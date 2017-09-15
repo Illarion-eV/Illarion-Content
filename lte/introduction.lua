@@ -330,7 +330,8 @@ function M.callEffect(introductionEffect, User)
     for i = 1, #waypoint do
      
         if not common.isBitSet(queststatus, i) and User:isInRangeToPosition(waypoint[i], waypointRadius[i]) then
-       
+
+            User:setQuestProgress(44,common.addBit(queststatus,i)) --remember we visited the place        
             common.InformNLS(User,informTextG[i],informTextE[i])
             local callbackFound = function(dialogFound)
                 finishDialog()
@@ -340,7 +341,6 @@ function M.callEffect(introductionEffect, User)
             local dialogTitle = common.GetNLS(User,"Einführung","Introduction")
             local dialogFound = MessageDialog(dialogTitle, dialogText, callbackFound)
             User:requestMessageDialog(dialogFound)            
-            User:setQuestProgress(44,common.addBit(queststatus,i)) --remember we visited the place
            
         end
        
@@ -349,7 +349,8 @@ function M.callEffect(introductionEffect, User)
     -- LOOK FOR OTHER PLAYERS
     local otherPlayers = world:getPlayersInRangeOf(User.pos, 5)
     if #otherPlayers > 1 and User:getQuestProgress(45) == 0 then
-    
+
+        User:setQuestProgress(45,1) --remember we found someone    
         local callbackGreeting = function(dialogGreeting)
             finishDialog()
         end --callback
@@ -358,7 +359,6 @@ function M.callEffect(introductionEffect, User)
         local dialogTitle = common.GetNLS(User,"Einführung","Introduction")
         local dialogGreeting = MessageDialog(dialogTitle, dialogText, callbackGreeting)
         User:requestMessageDialog(dialogGreeting)
-        User:setQuestProgress(45,1) --remember we found someone
         
     end
  
