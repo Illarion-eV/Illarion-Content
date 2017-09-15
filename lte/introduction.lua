@@ -342,7 +342,6 @@ function M.callEffect(introductionEffect, User)
         local dialogText = common.GetNLS(User,"Interaktion, #i usw.","Interaction, introduction etc.")
         local dialogTitle = common.GetNLS(User,"Einführung","Introduction")
         local dialogGreeting = MessageDialog(dialogTitle, dialogText, callbackGreeting)
-        User:requestMessageDialog(dialogGreeting)
         
     end
  
@@ -353,6 +352,7 @@ function M.callEffect(introductionEffect, User)
         local dialogText = common.GetNLS(User,"Letzte Hinweise...","Final hints...")
         local dialogTitle = common.GetNLS(User,"Einführung","Introduction")
         local dialogFinish = MessageDialog(dialogTitle, dialogText, callbackFinish)
+        User:requestMessageDialog(dialogFinish)
     end
  
     -- FINISH QUEST OR NEXT CALL
