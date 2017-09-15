@@ -25,52 +25,36 @@ local M = {}
 
 M.LookAtItem = cloth.LookAtItem
 
-function M.UseItem(User, SourceItem, ltstate)
+-- Language=0 for German, otherwise English
+local function GetRaceGenderText( Language, Character )
 
-    if SourceItem:getData("tyingStatus") == "tied" then
-        -- it's a tying rope!
-        local targetChar = common.GetFrontCharacter(User);
-        if TyingRopeHandler(User, SourceItem, targetChar) then
-            return;
+    local articleGerman={"den","die"};
+    local descriptionGerman={"Mensch","Zwerg","Halbling","Elf","Ork","Echsenmensch","Menschendame","Zwergenmaid","Halblingsdame","Elfendame","Orkfrau","Echse"};
+    local descriptionEnglish={"human","dwarf","halfling","elf","orc","lizard","human lady","dwarven maid","halfling lady","elven lady","orcess","female lizard"};
+
+
+    local race=Character:getRace();
+    local gender=Character:increaseAttrib("sex",0);
+
+    local outText
+    if Language == 0 then
+        if race > 5 or gender > 1 then
+            outText = "das Wesen"
+        else
+            outText = articleGerman[gender+1].." "..descriptionGerman[race+1+6*gender];
         end
-        if targetChar then
-            -- actually nothing can happen anyway, mostly just for the error messages
-            UseRopeWithCharacter(User, SourceItem, targetChar, ltstate);
-            return;
+    else
+        if race > 5 or gender > 1 then
+            outText = "the creature"
+        else
+            outText = "the "..descriptionEnglish[race+1+6*gender];
         end
-        return;
     end
 
-    -- try to strengthen the knot (if User has tied up someone...)
-    if StrengthenKnot(User, SourceItem, common.GetTargetItem(User, SourceItem)) then
-        return;
-    end
-
-    -- try to tie up the frontChar!
-    local frontChar = common.GetFrontCharacter(User);
-    if frontChar then
-        UseRopeWithCharacter(User, SourceItem, frontChar, ltstate);
-        return;
-    end
-
-    -- noone infront ... perhaps climb down a well then or perhaps climb down a hole.
-    climbing.climbDown(User);
+    return outText;
 end
 
-function M.MoveItemBeforeMove( User, SourceItem, TargetItem )
-
-    if SourceItem:getData("tyingStatus") == "tied" then
-
-        common.InformNLS(User,
-            "Du solltest das Seil fest in der Hand behalten. Damit ist jemand gefesselt.",
-            "You should hold the rope tight in your hand. Someone is tied up with it.")
-        return false;
-    end
-
-    return true;
-end
-
-function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
+local function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 
     -- check if rope is in hands
     if SourceItem:getType() ~= 4 then
@@ -254,7 +238,7 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 end
 
 -- @return true if something was done
-function StrengthenKnot(User, Rope, TargetItem)
+local function StrengthenKnot(User, Rope, TargetItem)
     local foundEffect, Tying = User.effects:find(26);
     if not foundEffect then
         Rope:setData("tyingStatus", "untied");
@@ -285,7 +269,7 @@ end
 
 --- Handles actions with a tying rope (data 1), like tightening, untie or handing the leading rope over
 -- @return true if something was done
-function TyingRopeHandler(User, Rope, Target)
+local function TyingRopeHandler(User, Rope, Target)
 
     local foundEffect, Tying = User.effects:find(26);
     if not foundEffect then
@@ -370,33 +354,49 @@ function TyingRopeHandler(User, Rope, Target)
     return false;
 end
 
--- Language=0 for German, otherwise English
-function GetRaceGenderText( Language, Character )
+function M.UseItem(User, SourceItem, ltstate)
 
-    local articleGerman={"den","die"};
-    local descriptionGerman={"Mensch","Zwerg","Halbling","Elf","Ork","Echsenmensch","Menschendame","Zwergenmaid","Halblingsdame","Elfendame","Orkfrau","Echse"};
-    local descriptionEnglish={"human","dwarf","halfling","elf","orc","lizard","human lady","dwarven maid","halfling lady","elven lady","orcess","female lizard"};
-
-
-    local race=Character:getRace();
-    local gender=Character:increaseAttrib("sex",0);
-
-    local outText
-    if Language == 0 then
-        if race > 5 or gender > 1 then
-            outText = "das Wesen"
-        else
-            outText = articleGerman[gender+1].." "..descriptionGerman[race+1+6*gender];
+    if SourceItem:getData("tyingStatus") == "tied" then
+        -- it's a tying rope!
+        local targetChar = common.GetFrontCharacter(User);
+        if TyingRopeHandler(User, SourceItem, targetChar) then
+            return;
         end
-    else
-        if race > 5 or gender > 1 then
-            outText = "the creature"
-        else
-            outText = "the "..descriptionEnglish[race+1+6*gender];
+        if targetChar then
+            -- actually nothing can happen anyway, mostly just for the error messages
+            UseRopeWithCharacter(User, SourceItem, targetChar, ltstate);
+            return;
         end
+        return;
     end
 
-    return outText;
+    -- try to strengthen the knot (if User has tied up someone...)
+    if StrengthenKnot(User, SourceItem, common.GetTargetItem(User, SourceItem)) then
+        return;
+    end
+
+    -- try to tie up the frontChar!
+    local frontChar = common.GetFrontCharacter(User);
+    if frontChar then
+        UseRopeWithCharacter(User, SourceItem, frontChar, ltstate);
+        return;
+    end
+
+    -- noone infront ... perhaps climb down a well then or perhaps climb down a hole.
+    climbing.climbDown(User);
+end
+
+function M.MoveItemBeforeMove( User, SourceItem, TargetItem )
+
+    if SourceItem:getData("tyingStatus") == "tied" then
+
+        common.InformNLS(User,
+            "Du solltest das Seil fest in der Hand behalten. Damit ist jemand gefesselt.",
+            "You should hold the rope tight in your hand. Someone is tied up with it.")
+        return false;
+    end
+
+    return true;
 end
 
 return M

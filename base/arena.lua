@@ -91,7 +91,7 @@ function M.requestMonster(User, NPC)
     end
 
     local dialogCaption = common.GetNLS(User, "Monsterstärke", "Monster strength")
-    local dialogText = common.GetNLS(User, "Wählt wie stark das Monster sein soll, gegen das ihr kämpfen möchtet:", "Please choose how strong the monster you wish to fight against should be:")
+    local dialogText = common.GetNLS(User, "Wähle wie stark das Monster sein soll, gegen das du kämpfen möchtet:", "Please choose how strong the monster you wish to fight against should be:")
 
     local sdMonster = SelectionDialog(dialogCaption, dialogText, cbChooseLevel)
     sdMonster:setCloseOnMove()
