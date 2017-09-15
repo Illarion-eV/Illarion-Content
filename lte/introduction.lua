@@ -317,42 +317,49 @@ function M.callEffect(introductionEffect, User)
     -- CHECK LOCATIONS    
     local queststatus = User:getQuestProgress(44) --here, we save which places were visited
     
+    local function finishDialog()
+        if M.questFinished(User, waypoint) then
+            local callbackFinish = function() end --empty callback
+            local dialogText = common.GetNLS(User,"Letzte Hinweise...","Final hints...")
+            local dialogTitle = common.GetNLS(User,"Einführung","Introduction")
+            local dialogFinish = MessageDialog(dialogTitle, dialogText, callbackFinish)
+            User:requestMessageDialog(dialogFinish)
+        end
+    end
+ 
     for i = 1, #waypoint do
-
+     
         if not common.isBitSet(queststatus, i) and User:isInRangeToPosition(waypoint[i], waypointRadius[i]) then
-        
+       
             common.InformNLS(User,informTextG[i],informTextE[i])
-            local callbackFound = function(dialogFinish) end --callback
+            local callbackFound = function(dialogFound)
+                finishDialog()
+            end --callback
+           
             local dialogText = common.GetNLS(User,dialogTextG[i],dialogTextE[i])
             local dialogTitle = common.GetNLS(User,"Einführung","Introduction")
             local dialogFound = MessageDialog(dialogTitle, dialogText, callbackFound)
             User:requestMessageDialog(dialogFound)            
             User:setQuestProgress(44,common.addBit(queststatus,i)) --remember we visited the place
-            
+           
         end
-        
+       
     end
  
     -- LOOK FOR OTHER PLAYERS
     local otherPlayers = world:getPlayersInRangeOf(User.pos, 5)
     if #otherPlayers > 1 and User:getQuestProgress(45) == 0 then
     
-        User:setQuestProgress(45,1) --remember we found someone
+        local callbackGreeting = function(dialogGreeting)
+            finishDialog()
+        end --callback
         local callbackGreeting = function(dialogFinish) end --callback
         local dialogText = common.GetNLS(User,"Interaktion, #i usw.","Interaction, introduction etc.")
         local dialogTitle = common.GetNLS(User,"Einführung","Introduction")
         local dialogGreeting = MessageDialog(dialogTitle, dialogText, callbackGreeting)
+        User:requestMessageDialog(dialogGreeting)
+        User:setQuestProgress(45,1) --remember we found someone
         
-    end
- 
-    -- SHOW FINAL DIALOG
-    local dialogFinish
-    if M.questFinished(User, waypoint) then
-        local callbackFinish = function() end --empty callback
-        local dialogText = common.GetNLS(User,"Letzte Hinweise...","Final hints...")
-        local dialogTitle = common.GetNLS(User,"Einführung","Introduction")
-        local dialogFinish = MessageDialog(dialogTitle, dialogText, callbackFinish)
-        User:requestMessageDialog(dialogFinish)
     end
  
     -- FINISH QUEST OR NEXT CALL
