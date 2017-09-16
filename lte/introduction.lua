@@ -70,25 +70,25 @@ function M.init(User)
         waypointRadius = {3, 7, 5, 3, 3, 3, 3, 3, 3, 3, 5, 5, 5}
         
         informTextG = {
-        "Text1",
-        "Text2",
-        "Text3",
-        "Text4",
-        "Text5",
-        "Text6",
-        "Text7",
-        "Text8",
-        "Text9",
-        "Text10",
-        "Text11",
-        "Text12",
-        "Text13"}
+        "Text1 - Depot",
+        "Text2 - Markt",
+        "Text3 - Werkstatt",
+        "Text4 - Wiederbelebung",
+        "Text5 - Geldwechsler",
+        "Text6 - Notar",
+        "Text7 - Schatzmeister",
+        "Text8 - Anführer",
+        "Text9 - Wache",
+        "Text10 - Teleporter",
+        "Text11 - Tempel 1",
+        "Text12 - Tempel 2",
+        "Text13 - Tempel 3"}
         
         informTextE = {
-        "Text1",
+        "Text1 - Depot",
         "Fine clothing, sparkling glassware and intricate pottery adorn the market stalls of Cadomyr as merchants toiling in the desert heat proclaim their wares to be worthy of their Queen.",
         "Suffocating heat from the vast kilns and ovens of Cadomyr's potters and glassblowers fills the sweltering workshops, whilst tailors rhythmically spin thread and weave cloth for stitching in the neighbouring room.",
-        "Text4",
+        "Text4 - Inform pillar of resurrection",
         "In the backstreets of Cadomyr a humble woman diligently counts coins into cloth bags. On occasion she inconspiciously exchanges coins with passing citizens with barely a few words passing between them.",
         "A dignified woman sits at a desk neatly ordering ledgers. Two shimmering red and white banners of Cadomyr frame her, an indication she is an official of the realm.",
         "A stern man keeps careful watch on the donation platform from across the Throne Room. Two shimmering red and white banners of Cadomyr flank him, an indication of his importance to the realm.",
@@ -100,19 +100,19 @@ function M.init(User)
         "The once beautiful oasis temple lies in ruins with only the altar remaining intact, yet the comfort of Sirani may still be felt by those with an open heart."}
         
         dialogTextG = {
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text"}
+        "Text1 - Depot",
+        "Text2 - Markt",
+        "Text3 - Werkstatt",
+        "Text4 - Wiederbelebung",
+        "Text5 - Geldwechsler",
+        "Text6 - Notar",
+        "Text7 - Schatzmeister",
+        "Text8 - Anführer",
+        "Text9 - Wache",
+        "Text10 - Teleporter",
+        "Text11 - Tempel 1",
+        "Text12 - Tempel 2",
+        "Text13 - Tempel 3"}
         
         dialogTextE = {
         "Text1 - Explain depots.",
@@ -149,64 +149,64 @@ function M.init(User)
         waypointRadius = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
         
         informTextG = {
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text"}
+        "Text1 - Depot",
+        "Text2 - Markt",
+        "Text3 - Werkstatt",
+        "Text4 - Wiederbelebung",
+        "Text5 - Geldwechsler",
+        "Text6 - Notar",
+        "Text7 - Schatzmeister",
+        "Text8 - Anführer",
+        "Text9 - Wache",
+        "Text10 - Teleporter",
+        "Text11 - Tempel 1",
+        "Text12 - Tempel 2",
+        "Text13 - Tempel 3"}
         
         informTextE = {
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text"}
+        "Text1 - Depot",
+        "Text2 - Market",
+        "Text3 - Workshop",
+        "Text4 - Resurrection",
+        "Text5 - Money changer",
+        "Text6 - Notary",
+        "Text7 - Treasury",
+        "Text8 - Faction leader",
+        "Text9 - Guard",
+        "Text10 - Teleporter",
+        "Text11 - Temple 1",
+        "Text12 - Temple 2",
+        "Text13 - Temple 3"}
         
         dialogTextG = {
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text"}
+        "Text1 - Depot",
+        "Text2 - Markt",
+        "Text3 - Werkstatt",
+        "Text4 - Wiederbelebung",
+        "Text5 - Geldwechsler",
+        "Text6 - Notar",
+        "Text7 - Schatzmeister",
+        "Text8 - Anführer",
+        "Text9 - Wache",
+        "Text10 - Teleporter",
+        "Text11 - Tempel 1",
+        "Text12 - Tempel 2",
+        "Text13 - Tempel 3"}
         
         dialogTextE = {
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text"}
+        "Text1 - Depot",
+        "Text2 - Market",
+        "Text3 - Workshop",
+        "Text4 - Resurrection",
+        "Text5 - Money changer",
+        "Text6 - Notary",
+        "Text7 - Treasury",
+        "Text8 - Faction leader",
+        "Text9 - Guard",
+        "Text10 - Teleporter",
+        "Text11 - Temple 1",
+        "Text12 - Temple 2",
+        "Text13 - Temple 3"}
         
     elseif factions.isRunewickCitizen(User) then
     
@@ -228,64 +228,64 @@ function M.init(User)
         waypointRadius = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
         
         informTextG = {
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text"}
+        "Text1 - Depot",
+        "Text2 - Markt",
+        "Text3 - Werkstatt",
+        "Text4 - Wiederbelebung",
+        "Text5 - Geldwechsler",
+        "Text6 - Notar",
+        "Text7 - Schatzmeister",
+        "Text8 - Anführer",
+        "Text9 - Wache",
+        "Text10 - Teleporter",
+        "Text11 - Tempel 1",
+        "Text12 - Tempel 2",
+        "Text13 - Tempel 3"}
         
         informTextE = {
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text"}
+        "Text1 - Depot",
+        "Text2 - Market",
+        "Text3 - Workshop",
+        "Text4 - Resurrection",
+        "Text5 - Money changer",
+        "Text6 - Notary",
+        "Text7 - Treasury",
+        "Text8 - Faction leader",
+        "Text9 - Guard",
+        "Text10 - Teleporter",
+        "Text11 - Temple 1",
+        "Text12 - Temple 2",
+        "Text13 - Temple 3"}
         
         dialogTextG = {
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text"}
+        "Text1 - Depot",
+        "Text2 - Markt",
+        "Text3 - Werkstatt",
+        "Text4 - Wiederbelebung",
+        "Text5 - Geldwechsler",
+        "Text6 - Notar",
+        "Text7 - Schatzmeister",
+        "Text8 - Anführer",
+        "Text9 - Wache",
+        "Text10 - Teleporter",
+        "Text11 - Tempel 1",
+        "Text12 - Tempel 2",
+        "Text13 - Tempel 3"}
         
         dialogTextE = {
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text",
-        "Text"}
+        "Text1 - Depot",
+        "Text2 - Market",
+        "Text3 - Workshop",
+        "Text4 - Resurrection",
+        "Text5 - Money changer",
+        "Text6 - Notary",
+        "Text7 - Treasury",
+        "Text8 - Faction leader",
+        "Text9 - Guard",
+        "Text10 - Teleporter",
+        "Text11 - Temple 1",
+        "Text12 - Temple 2",
+        "Text13 - Temple 3"}
 
     end
     
@@ -314,6 +314,7 @@ function M.callEffect(introductionEffect, User)
     
     local waypoint, waypointRadius, informTextG, informTextE, dialogTextG, dialogTextE = M.init(User)
 
+    -- QUEST FINISHED DIALOG
     local function finishDialog()
         if M.questFinished(User, waypoint) then
             local callbackFinish = function() end --empty callback
@@ -324,7 +325,7 @@ function M.callEffect(introductionEffect, User)
         end
     end
  
-     -- CHECK LOCATIONS    
+    -- CHECK LOCATIONS    
     local queststatus = User:getQuestProgress(44) --here, we save which places were visited
     
     for i = 1, #waypoint do
