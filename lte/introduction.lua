@@ -174,9 +174,9 @@ function M.init(User)
         "Within his secluded island villa, an elf deep in thought, studies countless artefacts and scrolls. Undoubtedly he is Archmage Elvaine Morgan, the wise and elightened ruler of Runewick.",
         "Text9 - Guard",
         "The air crackles with energy around an ornate marble podium. An elaborately scribed pell sits on the podium listing a number of destinations.",
-        "Text11 - Tempel Elara",
-        "Text12 - Tempel Adron",
-        "Text13 - Temple Oldra"}
+        "Nestled in a quiet corner of the immense library and surrounded by books and manuscripts, a simple table serves as a modest altar that encapsulates the restraint and wisdom of Elara. ",
+        "Backed by tangled vines bearing bountiful bunches of grapes and flanked by heavy barrels of the finest ale, a prominent altar dominates the homely tavern, a place of many joyous festivities worthy of Adron.",
+        "Carved wooden columns embraced by tangled vines shelter a modestly adorned altar, surrounded by bountiful flowers that epitomise the life Oldra brings."}
         
         dialogTextG = {
         "Text1 - Depot",
@@ -243,17 +243,17 @@ function M.init(User)
         "Text13 - Tempel 3"}
         
         informTextE = {
-        "Text1 - Depot",
+        "A highly embellished golden chest sits prominently in Galmair, shimmering with energy and seemingly harbouring remarkable depths.",
         "Text2 - Market",
         "Text3 - Workshop",
-        "Text4 - Resurrection",
+        "Light splits as it strikes the ornately carved cross, refracted colour falling to the feet of four golden armoured guards as the atmosphere shimmers and crackles with energy.",
         "Text5 - Money changer",
-        "Text6 - Notary",
+        "A man peers scrupiously at some tax records, checking off names. The sparsely decorated room gives little hint he is an official of the realm but the seal of Galmair adorns his letters.",
         "Text7 - Treasury",
-        "Text8 - Faction leader",
+        "A richly attired dwarf flips a gold coin as you enter the vast Guilianni Residence in Galmair's Crest. Undoubtedly he is Don Valerio Guilianni, the wealthy and prudent ruler of Galmair.",
         "Text9 - Guard",
-        "Text10 - Teleporter",
-        "Text11 - Temple 1",
+        "The air crackles with energy around an ornate marble podium. A weathered pell sits on the podium listing a number of destinations.",
+        "Text11 - Temple Irmorom",
         "Text12 - Temple 2",
         "Text13 - Temple 3"}
         
@@ -268,24 +268,24 @@ function M.init(User)
         "Text8 - Anführer",
         "Text9 - Wache",
         "Text10 - Teleporter",
-        "Text11 - Tempel 1",
+        "Text11 - Tempel Irmorom",
         "Text12 - Tempel 2",
         "Text13 - Tempel 3"}
         
         dialogTextE = {
-        "Text1 - Depot",
-        "Text2 - Market",
-        "Text3 - Workshop",
-        "Text4 - Resurrection",
-        "Text5 - Money changer",
-        "Text6 - Notary",
-        "Text7 - Treasury",
-        "Text8 - Faction leader",
+        "You will find several depots around Galmair, each giving you access to your stored possesions. Access the depot by double clicking it and drag items in and out of the slots. Each realm and the neutral Hemp Necktie Inn have their own storage system.",
+        "The market contains a wealth of traders buying and selling anything from raw materials to the finest crafted products. Items can be sold at a tenth of their value in the primary crafting realm, indicated by the gold coin in the trading menu. They can only be sold at a twentieth of their value in the secondary crafting realm, indicated by the silver coin in the trading menu.",
+        "The primary crafts of blacksmithing, armour smithing and finesmithing are fully supported with static tools, resources, merchants and guilds in Galmair. Secondary crafts are only partially supported with static tools, limited resources and poorer trading opportunities. Most static tools are found in or around the workshops. Hover over a tool to find out what it should be used for.",
+        "Should you be unfortunate enough to perish there is every chance Cherga, the goddess of spirits and the underworld, will deny you entry to her realm as there is still so much for you to experience in Ilarion. Returned to the resurrection pillar of you chosen realm you will find yourself weak so give yourself time to recover.",
+        "Copper, silver and gold coins are used throughout Illarion. One hundred copper coins can be exchanged for one silver coin and one hundred silver coins can be exchanged for a gold coin by the Money Changer, XXXXX.",
+        "Speak to the Notary Frederik Silvereye if you wish to join or leave Galmair, find out what your rank is as a citizen of Galmair, or if you need to purchase a licence to use tools as a visitor to Galmair. You can improve your rank and advance in the Don's favour by completing quests issued by NPCs in Galmair or receiving rank points from a Game Master for your contribution to the realm.",
+        "Together with tax returns, donations made to the realm contribute to faction wealth and determine the number of magic gems distributed between citizens. A donation is made by placing an item or coins on the donation platform. Donated items contribute a tenth of their value.",
+        "The faction ruler may be played by one of the Game Masters on occasions to attend events and interact with their subjects. If you wish to leave a message for the Don you can contact the relevant Game Master via the forum account Valerio Guilianni. Be aware though each realm has developed their own customs and etiquette so you should try to find out what is expected of citizens. Often the faction ruler will be supported by a number of player characters who have worked their way into positions of influence.",
         "Text9 - Guard",
-        "Text10 - Teleporter",
-        "Text11 - Temple 1",
-        "Text12 - Temple 2",
-        "Text13 - Temple 3"}
+        "A teleporter can be found outside the entrance to each town and the neutral Hemp Necktie Inn. Double click on the podium to use it and for five silver you will be able to travel to another realm. Portal books can also be bought for ten silver to use anywhere on the map to transport you to a designated teleporter. In Galmair, Pipillo sells portal books from the stall to the north, just inside the gates.",
+        "The Younger Gods dominate daily life in Illarion and Irmorom is one of three patron deities of Galmair. As the god of xxxxxxxxxxx his xxxxxxxxx is revered by many xxxxxxxxx in Galmair.",
+        "The Younger Gods dominate daily life in Illarion and Nargùn is one of three patron deities of Galmair. As the god of xxxxxxxxxxx his xxxxxxxxx are held in high esteem amongst the xxxxxxxxxx of Galmair.",
+        "The Younger Gods dominate daily life in Illarion and Ronagan is one of three patron deities of Galmair. As the god of xxxxxxxxxxx his xxxxxxxxx are held in high esteem amongst the xxxxxxxxxx of Galmair."}
 
     end
     
