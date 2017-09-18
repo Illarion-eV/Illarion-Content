@@ -333,8 +333,8 @@ function M.callEffect(introductionEffect, User)
         if not common.isBitSet(queststatus, i) and User:isInRangeToPosition(waypoint[i], waypointRadius[i]) then
 
             User:setQuestProgress(44,common.addBit(queststatus,i)) --remember we visited the place        
-            common.InformNLS(User,informTextG[i],informTextE[i])
             local callbackFound = function(dialogFound)
+                common.InformNLS(User,informTextG[i],informTextE[i])
                 finishDialog()
             end --callback
            
