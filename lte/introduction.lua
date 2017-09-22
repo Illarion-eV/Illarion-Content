@@ -31,7 +31,7 @@ function M.init(User)
     1: Depot
     2: Market
     3: Workshop
-    4: Cross
+    4: Pillar of Resurrection
     5: Money Changer
     6: Notary
     7: Treasurer
@@ -45,6 +45,8 @@ function M.init(User)
 
     local waypoint = {}
     local waypointRadius = {}
+    local waypointNameG = {}
+    local waypointNameE = {}
     local informTextG = {}
     local informTextE = {}
     local dialogTextG = {}
@@ -66,6 +68,36 @@ function M.init(User)
         position(142, 564, 0),
         position(146, 677, 1),
         position(176, 761, 0)}
+        
+        waypointNameG = {
+        "Depot",
+        "Markt",
+        "Werkstatt",
+        "Säule der Auferstehung",
+        "Geldwechsler",
+        "Notar",
+        "Schatzmeister",
+        "Königin Rosaline Edwards",
+        "Torwache",
+        "Teleporter",
+        "Tempel des Zhambra",
+        "Tempel des Malachín",
+        "Tempel der Sirani"}
+        
+        waypointNameE = {
+        "Depot",
+        "Market",
+        "Workshop",
+        "Pillar of Resurrection",
+        "Money Changer",
+        "Notary",
+        "Treasurer",
+        "Queen Rosaline Edwards",
+        "Guard",
+        "Teleporter",
+        "Temple of Zhambra",
+        "Temple of Malachín",
+        "Temple of Sirani"}
         
         waypointRadius = {3, 7, 5, 3, 3, 3, 3, 3, 3, 3, 5, 5, 5}
         
@@ -147,6 +179,36 @@ function M.init(User)
         position(13,13,0)}
         
         waypointRadius = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+      
+        waypointNameG = {
+        "Depot",
+        "Markt",
+        "Werkstatt",
+        "Säule der Auferstehung",
+        "Geldwechsler",
+        "Notar",
+        "Schatzmeister",
+        "Erzmagier Elvaine Morgan",
+        "Torwache",
+        "Teleporter",
+        "Tempel der Elara",
+        "Tempel des Adron",
+        "Tempel der Oldra"}
+        
+        waypointNameE = {
+        "Depot",
+        "Market",
+        "Workshop",
+        "Pillar of Resurrection",
+        "Money Changer",
+        "Notary",
+        "Treasurer",
+        "Archmage Elvaine Morgan",
+        "Guard",
+        "Teleporter",
+        "Temple of Elara",
+        "Temple of Adron",
+        "Temple of Oldra"}
         
         informTextG = {
         "Text1 - Depot",
@@ -226,6 +288,36 @@ function M.init(User)
         position(13,13,0)}
         
         waypointRadius = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+       
+        waypointNameG = {
+        "Depot",
+        "Markt",
+        "Werkstatt",
+        "Säule der Auferstehung",
+        "Geldwechsler",
+        "Notar",
+        "Schatzmeister",
+        "Don Valerio Guilianni",
+        "Torwache",
+        "Teleporter",
+        "Tempel des Irmorom",
+        "Tempel des Nargùn",
+        "Tempel des Ronagan"}
+        
+        waypointNameE = {
+        "Depot",
+        "Market",
+        "Workshop",
+        "Pillar of Resurrection",
+        "Money Changer",
+        "Notary",
+        "Treasurer",
+        "Don Valerio Guilianni",
+        "Guard",
+        "Teleporter",
+        "Temple of Irmorom",
+        "Temple of Nargùn",
+        "Temple of Ronagan"}
         
         informTextG = {
         "Text1 - Depot",
@@ -238,9 +330,9 @@ function M.init(User)
         "Text8 - Anführer",
         "Text9 - Wache",
         "Text10 - Teleporter",
-        "Text11 - Tempel 1",
-        "Text12 - Tempel 2",
-        "Text13 - Tempel 3"}
+        "Text11 - Tempel Irmorom",
+        "Text12 - Tempel Nargùn",
+        "Text13 - Tempel Ronagan"}
         
         informTextE = {
         "A highly embellished golden chest sits prominently in Galmair, shimmering with energy and seemingly harbouring remarkable depths.",
@@ -254,8 +346,8 @@ function M.init(User)
         "Text9 - Guard",
         "The air crackles with energy around an ornate marble podium. A weathered pell sits on the podium listing a number of destinations.",
         "Text11 - Temple Irmorom",
-        "Text12 - Temple 2",
-        "Text13 - Temple 3"}
+        "Text12 - Temple Nargùn",
+        "Text13 - Temple Ronagan"}
         
         dialogTextG = {
         "Text1 - Depot",
@@ -289,7 +381,7 @@ function M.init(User)
 
     end
     
-    return waypoint, waypointRadius, informTextG, informTextE, dialogTextG, dialogTextE
+    return waypoint, waypointRadius, waypointNameG, waypointNameE, informTextG, informTextE, dialogTextG, dialogTextE
 end
 
 function M.addEffect(introductionEffect, User)
@@ -307,12 +399,14 @@ function M.callEffect(introductionEffect, User)
 
     local waypoint = {}
     local waypointRadius = {}
+    local waypointNameG = {}
+    local waypointNameE = {}
     local informTextG = {}
     local informTextE = {}
     local dialogTextG = {}
     local dialogTextE = {}
     
-    local waypoint, waypointRadius, informTextG, informTextE, dialogTextG, dialogTextE = M.init(User)
+    local waypoint, waypointRadius, waypointNameG, waypointNameE, informTextG, informTextE, dialogTextG, dialogTextE = M.init(User)
 
     -- QUEST FINISHED DIALOG
     local function finishDialog()

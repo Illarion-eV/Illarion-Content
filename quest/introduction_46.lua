@@ -35,8 +35,8 @@ Title[ENGLISH] = "Introduction"
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "GERMAN und die drei Tempel deines Reiches."
-Description[ENGLISH][1] = "Set out and explore your realm. Find another character and talk to him/her. You'll easily tell apart characters from NPCs as the latter do not move and respond immediatly on the keyword 'help' with a list of commands. NPCs can also be used with a double click. Also, explore your home city. Interesting sites are marked with a red symbol on your map. Visit them all!"
+Description[GERMAN][1] = "GERMAN QUEST"
+Description[ENGLISH][1] = "Set out and explore your realm. Find other player characters and talk to them. Also, explore your home city. Interesting sites are marked with a red symbol on your map. You haven't visited: "
 Description[GERMAN][2] = "GERMAN DONE"
 Description[ENGLISH][2] = "You finished the introduction. Have fun!"
 
@@ -60,7 +60,7 @@ end
 
 function M.QuestTargets(user, status)
 
-    local waypoint, waypointRadius, informTextG, informTextE, dialogTextG, dialogTextE = introduction.init(user)
+    local waypoint, waypointRadius, waypointNameG, waypointNameE, informTextG, informTextE, dialogTextG, dialogTextE = introduction.init(user)
 
     -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
     local QuestTarget = {}
