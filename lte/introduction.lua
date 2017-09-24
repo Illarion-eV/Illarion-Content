@@ -149,21 +149,21 @@ function M.initWaypoint(User)
     elseif factions.isGalmairCitizen(User) then
     
         waypoint = {
-        position(1,1,0),
-        position(2,2,0),
-        position(3,3,0),
-        position(4,4,0),
-        position(5,5,0),
-        position(6,6,0),
-        position(7,7,0),
-        position(8,8,0),
-        position(9,9,0),
-        position(10,10,0),
-        position(11,11,0),
-        position(12,12,0),
-        position(13,13,0)}
+        position(395, 240, 0),
+        position(364, 271, 0),
+        position(384, 274, 0),
+        position(345, 266, 0),
+        position(374, 229, 0),
+        position(404, 263, 1),
+        position(341, 218, 0),
+        position(337, 215, 0),
+        position(415, 248, 0),
+        position(424, 246, 0),
+        position(312, 232, 1),
+        position(299, 265, -5),
+        position(385, 262, -6)}
         
-        waypointRadius = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+        waypointRadius = {3, 7, 5, 3, 3, 3, 3, 3, 3, 3, 5, 5, 5}
        
         waypointNameG = {
         "Depot",
