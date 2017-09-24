@@ -25,7 +25,7 @@ local factions = require("base.factions")
 
 local M = {}
 
-function M.init(User)
+function M.initWaypoint(User)
 
     --[[This is a list of places the player should visit during the introduction. The order does not matter.
     1: Depot
@@ -44,13 +44,9 @@ function M.init(User)
     ]]
 
     local waypoint = {}
-    local waypointRadius = {}
     local waypointNameG = {}
     local waypointNameE = {}
-    local informTextG = {}
-    local informTextE = {}
-    local dialogTextG = {}
-    local dialogTextE = {}
+    local waypointRadius = {}
     
     if factions.isCadomyrCitizen(User) then
     
@@ -68,6 +64,8 @@ function M.init(User)
         position(142, 564, 0),
         position(146, 677, 1),
         position(176, 761, 0)}
+        
+        waypointRadius = {3, 7, 5, 3, 3, 3, 3, 3, 3, 3, 5, 5, 5}
         
         waypointNameG = {
         "Depot",
@@ -98,69 +96,7 @@ function M.init(User)
         "Temple of Zhambra",
         "Temple of Malachín",
         "Temple of Sirani"}
-        
-        waypointRadius = {3, 7, 5, 3, 3, 3, 3, 3, 3, 3, 5, 5, 5}
-        
-        informTextG = {
-        "Text1 - Depot",
-        "Text2 - Markt",
-        "Text3 - Werkstatt",
-        "Text4 - Wiederbelebung",
-        "Text5 - Geldwechsler",
-        "Text6 - Notar",
-        "Text7 - Schatzmeister",
-        "Text8 - Anführer",
-        "Text9 - Wache",
-        "Text10 - Teleporter",
-        "Text11 - Tempel 1",
-        "Text12 - Tempel 2",
-        "Text13 - Tempel 3"}
-        
-        informTextE = {
-        "A highly embellished golden chest sits prominently on a table in Cadomyr, shimmering with energy and seemingly harbouring remarkable depths.",
-        "Fine clothing, sparkling glassware and intricate pottery adorn the market stalls of Cadomyr as merchants toiling in the desert heat proclaim their wares to be worthy of their Queen.",
-        "Suffocating heat from the vast kilns and ovens of Cadomyr's potters and glassblowers fills the sweltering workshops, whilst tailors rhythmically spin thread and weave cloth for stitching in the neighbouring room.",
-        "Light splits as it strikes the ornately carved cross, colour falling to the sparkling marble surround as the atmosphere shimmers and crackles with energy. ",
-        "In the backstreets of Cadomyr a humble woman diligently counts coins into cloth bags. On occasion she inconspiciously exchanges coins with passing citizens with barely a few words passing between them.",
-        "A dignified woman sits at a desk neatly ordering ledgers. Two shimmering red and white banners of Cadomyr frame her, an indication she is an official of the realm.",
-        "A stern man keeps careful watch on the donation platform from across the Throne Room. Two shimmering red and white banners of Cadomyr flank him, an indication of his importance to the realm.",
-        "A proud, yet beautiful, woman wears a crown in the Throne Room of the Royal Palace. Undoubtedly she is Queen Rosaline Edwards, the righteous and ambitious ruler of Cadomyr.",
-        "An imposing and heavily armoured guard stands to attention before the grand entrance to Cadomyr, scrutinising all those who try to pass over the bridge.",
-        "The air crackles with energy around an ornate marble podium. A weathered pell sits on the podium listing a number of destinations.",
-        "Lines of glorious mounted riders form a guard of honour leading to an altar, flanked by two armoured figures that depict a noble young soldier who epitomises the bravery and camaradarie of Zhambra.",
-        "On occasion, the distant howl of a wolf might be carried on winds whistling through the modestly adorned mountain-top temple guarded by armoured statues that encapsulate the dignified honour of Malachín.",
-        "The once beautiful oasis temple lies in ruins with only the altar remaining intact, yet the comfort of Sirani may still be felt by those with an open heart."}
-        
-        dialogTextG = {
-        "Text1 - Depot",
-        "Text2 - Markt",
-        "Text3 - Werkstatt",
-        "Text4 - Wiederbelebung",
-        "Text5 - Geldwechsler",
-        "Text6 - Notar",
-        "Text7 - Schatzmeister",
-        "Text8 - Anführer",
-        "Text9 - Wache",
-        "Text10 - Teleporter",
-        "Text11 - Tempel 1",
-        "Text12 - Tempel 2",
-        "Text13 - Tempel 3"}
-        
-        dialogTextE = {
-        "You will find several depots around Cadomyr, each giving you access to your stored possesions. Access the depot by double clicking it and drag items in and out of the slots. Each realm and the neutral Hemp Necktie Inn have their own storage system.",
-        "The market contains a wealth of traders buying and selling anything from raw materials to the finest crafted products. Items can be sold at a tenth of their value in the primary crafting realm, indicated by the gold coin in the trading menu. They can only be sold at a twentieth of their value in the secondary crafting realm, indicated by the silver coin in the trading menu.",
-        "The primary crafts of glassblowing, pottery and tailoring are fully supported with static tools, resources, merchants and guilds in Cadomyr. Secondary crafts are only partially supported with static tools, limited resources and poorer trading opportunities. Most static tools are found in or around the workshops. Hover over a tool to find out what it should be used for.",
-        "Should you be unfortunate enough to perish there is every chance Cherga, the goddess of spirits and the underworld, will deny you entry to her realm as there is still so much for you to experience in Ilarion. Returned to the resurrection pillar of you chosen realm you will find yourself weak so give yourself time to recover.",
-        "Copper, silver and gold coins are used in Illarion. One hundred copper coins can be exchanged for one silver coin and one hundred silver coins can be exchanged for a gold coin by the Money Changer, Cassandra Hestan.",
-        "Speak to the Notary Reret Odohir if you wish to join or leave Cadomyr, find out what your rank is as a citizen of Cadomyr, or if you need to purchase a licence to use tools as a visitor to Cadomyr. You can improve your rank and advance in the Queen's favour by completing quests issued by NPCs in Cadomyr or receiving rank points from a Game Master for your contribution to the realm.",
-        "Together with tax returns, donations made to the realm contribute to faction wealth and determine the number of magic gems distributed between citizens. A donation is made by placing an item or coins on the donation platform. Donated items contribute a tenth of their value.",
-        "The faction ruler may be played by one of the Game Masters on occasions to attend events and interact with their subjects. If you wish to leave a message for the Queen you can contact the relevant Game Master via the forum account Rosaline Edwards. Be aware though each realm has developed their own customs and etiquette so you should try to find out what is expected of citizens. Often the faction ruler will be supported by a number of player characters who have worked their way into positions of influence.",
-        "Horatio Milenus is a loyal guard of Queen Rosaline and will only allow the respectable to pass through Cadomyr's gates. Behind the gates, Cadomyr is a safe haven from the dangers beyond as the guard will defend against any monsters. Should you displease the Queen or her officials, however, you may find yourself banned from the realm and the Horatio will see you do not enter either.",
-        "A teleporter can be found outside the entrance to each town and the neutral Hemp Necktie Inn. Double click on the podium to use it and for five silver you will be able to travel to another realm. Portal books can also be bought for ten silver to use anywhere on the map to transport you to a designated teleporter. In Cadomyr, Evera sells portal books from the Quartermaster Store to the east, just inside the gates.",
-        "The Younger Gods dominate daily life in Illarion and Zhambra is one of three patron deities of Cadomyr. As the god of friendhip and loyalty his righteous intentions are held in high esteem amongst the faithful of Cadomyr.",
-        "The Younger Gods dominate daily life in Illarion and Malachín is one of three patron deities of Cadomyr. As the god of battle and hunting his valour and strong sense of justice are revered by the honourable of Cadomyr.",
-        "The Younger Gods dominate daily life in Illarion and Sirani is one of three patron deities of Cadomyr. Amongst the faithful of Cadomyr, few will not recognise the beauty of the goddess of love and pleasure in their Queen."}
-        
+            
     elseif factions.isRunewickCitizen(User) then
     
         waypoint = {
@@ -209,7 +145,132 @@ function M.init(User)
         "Temple of Elara",
         "Temple of Adron",
         "Temple of Oldra"}
+          
+    elseif factions.isGalmairCitizen(User) then
+    
+        waypoint = {
+        position(1,1,0),
+        position(2,2,0),
+        position(3,3,0),
+        position(4,4,0),
+        position(5,5,0),
+        position(6,6,0),
+        position(7,7,0),
+        position(8,8,0),
+        position(9,9,0),
+        position(10,10,0),
+        position(11,11,0),
+        position(12,12,0),
+        position(13,13,0)}
         
+        waypointRadius = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+       
+        waypointNameG = {
+        "Depot",
+        "Markt",
+        "Werkstatt",
+        "Säule der Auferstehung",
+        "Geldwechsler",
+        "Notar",
+        "Schatzmeister",
+        "Don Valerio Guilianni",
+        "Torwache",
+        "Teleporter",
+        "Tempel des Irmorom",
+        "Tempel des Nargùn",
+        "Tempel des Ronagan"}
+        
+        waypointNameE = {
+        "Depot",
+        "Market",
+        "Workshop",
+        "Pillar of Resurrection",
+        "Money Changer",
+        "Notary",
+        "Treasurer",
+        "Don Valerio Guilianni",
+        "Guard",
+        "Teleporter",
+        "Temple of Irmorom",
+        "Temple of Nargùn",
+        "Temple of Ronagan"}
+
+    end
+    
+    return waypoint, waypointRadius, waypointNameG, waypointNameE
+end
+
+function M.initText(User)
+
+    local informTextG = {}
+    local informTextE = {}
+    local dialogTextG = {}
+    local dialogTextE = {}
+    
+    if factions.isCadomyrCitizen(User) then
+                   
+        informTextG = {
+        "Text1 - Depot",
+        "Text2 - Markt",
+        "Text3 - Werkstatt",
+        "Text4 - Wiederbelebung",
+        "Text5 - Geldwechsler",
+        "Text6 - Notar",
+        "Text7 - Schatzmeister",
+        "Text8 - Anführer",
+        "Text9 - Wache",
+        "Text10 - Teleporter",
+        "Text11 - Tempel 1",
+        "Text12 - Tempel 2",
+        "Text13 - Tempel 3"}
+        
+        informTextE = {
+        "A highly embellished golden chest sits prominently in Cadomyr, shimmering with energy and seemingly harbouring remarkable depths.",
+        "Fine clothing, sparkling glassware, and intricate pottery adorn the market stalls of Cadomyr as merchants toiling in the desert heat proclaim their wares to be worthy of their beloved Queen.",
+        "Suffocating heat from the vast kilns and ovens of Cadomyr's potters and glassblowers fills the sweltering workshops, whilst tailors rhythmically spin thread and weave cloth for stitching in the neighbouring room.",
+        "Light splits as it strikes the ornately carved cross, colour falling to the sparkling marble surround as the atmosphere shimmers and crackles with energy.",
+        "In the backstreets of Cadomyr a humble woman diligently counts coins into cloth bags. On occasion she inconspicuously exchanges coins with passing citizens with barely a few words passing between them.",
+        "A dignified woman sits at a desk neatly ordering ledgers. Two shimmering red and white banners of Cadomyr frame her, an indication she is an official of the realm. ",
+        "A stern man keeps careful watch on the donation platform and all those that visit it in the Throne Room. Two shimmering red and white banners of Cadomyr flank him, an indication of his importance to the realm.",
+        "A proud, yet beautiful, woman wears a crown in the Throne Room of the Royal Palace. Undoubtedly she is Queen Rosaline Edwards, the righteous and ambitious ruler of Cadomyr.",
+        "An imposing and heavily armoured guard stands to attention before the grand entrance to Cadomyr, scrutinising all those who try to pass over the bridge.",
+        "The air crackles with energy around an ornate marble podium. A sun-bleached pell sits on the podium listing a number of destinations.",
+        "Lines of glorious mounted riders form a guard of honour leading to an altar, flanked by two armoured figures that depict a noble young soldier who epitomises the bravery and camaraderie of Zhambra.",
+        "On occasion, the distant howl of a wolf might be carried on winds whistling through the modestly adorned mountain-top temple guarded by armoured statues that encapsulate the dignified honour of Malachín.",
+        "The once beautiful oasis temple lies in ruins with only the altar remaining intact, yet the comfort of Sirani may still be felt by those with an open heart."}
+        
+        dialogTextG = {
+        "Text1 - Depot",
+        "Text2 - Markt",
+        "Text3 - Werkstatt",
+        "Text4 - Wiederbelebung",
+        "Text5 - Geldwechsler",
+        "Text6 - Notar",
+        "Text7 - Schatzmeister",
+        "Text8 - Anführer",
+        "Text9 - Wache",
+        "Text10 - Teleporter",
+        "Text11 - Tempel 1",
+        "Text12 - Tempel 2",
+        "Text13 - Tempel 3"}
+        
+        dialogTextE = {
+        "You will find several depots around Cadomyr, each giving you access to your stored possessions. Access the depot by double clicking it and drag items in and out of the slots. Each realm and the neutral Hemp Necktie Inn have their own storage system.",
+        "The market contains a wealth of traders buying and selling anything from raw materials to the finest crafted products. Items can be sold at a tenth of their value in the primary crafting realm, indicated by the gold coin in the trading menu. They can only be sold at a twentieth of their value in the secondary crafting realm, indicated by the silver coin in the trading menu.",
+        "The primary crafts of glass blowing, pottery, and tailoring are fully supported with static tools, resources, merchants, and guilds in Cadomyr. Secondary crafts are only partially supported with static tools, limited resources and poorer trading opportunities. Most static tools are found in or around the workshops. Hover over a tool to find out what it should be used for.",
+        "Should you be unfortunate enough to perish there is every chance Cherga, the goddess of spirits and the underworld, will deny you entry to her realm as there is still so much for you to experience in Ilarion. Returned to the resurrection pillar of you chosen realm you will find yourself weak so give yourself time to recover.",
+        "Copper, silver and gold coins are used throughout Illarion. One hundred copper coins can be exchanged for one silver coin and one hundred silver coins can be exchanged for a gold coin by the Money Changer, Cassandra Hestan.",
+        "Speak to the Notary Reret Odohir if you wish to join or leave Cadomyr, find out what your rank is as a citizen of Cadomyr, or if you need to purchase a licence to use tools as a visitor to Cadomyr. You can improve your rank and advance in the Queen's favour by completing quests issued by NPCs in Cadomyr or by receiving rank points from a Game Master for your contribution to the realm.",
+        "Together with tax returns, donations made to the realm contribute to faction wealth and determine the number of magic gems distributed between citizens. A donation is made by placing an item or coins on the donation platform. Donated items contribute a tenth of their value.",
+        "The faction ruler may be played by one of the Game Masters on occasions to attend events and interact with their subjects. If you wish to leave a message for the Queen you can contact the relevant Game Master via the forum account Rosaline Edwards. Be aware though each realm has developed their own customs and etiquette so you should try to find out what is expected of citizens. Often the faction ruler will be supported by a number of player characters who have worked their way into positions of influence.",
+        "Horatio Milenus is a loyal guard of Queen Rosaline Edwards and will only allow the respectable to pass through Cadomyr's gates. Behind the gates, Cadomyr is a safe haven from the dangers beyond as the guard will defend against any monsters. Should you displease the Queen or her officials, however, you may find yourself banned from the realm and then Horatio will see you do not enter either.",
+        "A teleporter can be found outside the entrance to each town and the neutral Hemp Necktie Inn. Double click on the podium to use it and for five silver you will be able to travel to another realm. Portal books can also be bought for ten silver to use anywhere on the map to transport you to a designated teleporter. In Cadomyr, Evera sells portal books from the Quartermaster Store to the east, just inside the gates.",
+        "The Younger Gods dominate daily life in Illarion. Zhambra is one of the three patron deities of Cadomyr. As the god of friendship and loyalty his righteous intentions are held in high esteem amongst the faithful of Cadomyr.",
+        "The Younger Gods dominate daily life in Illarion. Malachín is one of the three patron deities of Cadomyr. As the god of battle and hunting, his valour and strong sense of justice are revered by the honourable of Cadomyr.",
+        "The Younger Gods dominate daily life in Illarion. Sirani is one of the three patron deities of Cadomyr. Amongst the faithful of Cadomyr, few will not recognise the beauty of the goddess of love and pleasure in their Queen."}
+        
+    elseif factions.isRunewickCitizen(User) then
+               
         informTextG = {
         "Text1 - Depot",
         "Text2 - Markt",
@@ -271,54 +332,7 @@ function M.init(User)
         "The Younger Gods dominate daily life in Illarion and Oldra is one of three patron deities of Runewick. As the goddess of xxxxxxxx amongst the xxxxxxxxx of Runewick."}
         
     elseif factions.isGalmairCitizen(User) then
-    
-        waypoint = {
-        position(1,1,0),
-        position(2,2,0),
-        position(3,3,0),
-        position(4,4,0),
-        position(5,5,0),
-        position(6,6,0),
-        position(7,7,0),
-        position(8,8,0),
-        position(9,9,0),
-        position(10,10,0),
-        position(11,11,0),
-        position(12,12,0),
-        position(13,13,0)}
-        
-        waypointRadius = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
-       
-        waypointNameG = {
-        "Depot",
-        "Markt",
-        "Werkstatt",
-        "Säule der Auferstehung",
-        "Geldwechsler",
-        "Notar",
-        "Schatzmeister",
-        "Don Valerio Guilianni",
-        "Torwache",
-        "Teleporter",
-        "Tempel des Irmorom",
-        "Tempel des Nargùn",
-        "Tempel des Ronagan"}
-        
-        waypointNameE = {
-        "Depot",
-        "Market",
-        "Workshop",
-        "Pillar of Resurrection",
-        "Money Changer",
-        "Notary",
-        "Treasurer",
-        "Don Valerio Guilianni",
-        "Guard",
-        "Teleporter",
-        "Temple of Irmorom",
-        "Temple of Nargùn",
-        "Temple of Ronagan"}
-        
+           
         informTextG = {
         "Text1 - Depot",
         "Text2 - Markt",
@@ -381,7 +395,7 @@ function M.init(User)
 
     end
     
-    return waypoint, waypointRadius, waypointNameG, waypointNameE, informTextG, informTextE, dialogTextG, dialogTextE
+    return informTextG, informTextE, dialogTextG, dialogTextE
 end
 
 function M.addEffect(introductionEffect, User)
@@ -406,8 +420,9 @@ function M.callEffect(introductionEffect, User)
     local dialogTextG = {}
     local dialogTextE = {}
     
-    local waypoint, waypointRadius, waypointNameG, waypointNameE, informTextG, informTextE, dialogTextG, dialogTextE = M.init(User)
-
+    local waypoint, waypointRadius, waypointNameG, waypointNameE = M.initWaypoint(User)
+    local informTextG, informTextE, dialogTextG, dialogTextE = M.initText(User)
+    
     -- QUEST FINISHED DIALOG
     local function finishDialog()
         if M.questFinished(User, waypoint) then

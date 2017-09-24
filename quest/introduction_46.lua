@@ -60,7 +60,7 @@ end
 
 function M.QuestTargets(user, status)
 
-    local waypoint, waypointRadius, waypointNameG, waypointNameE, informTextG, informTextE, dialogTextG, dialogTextE = introduction.init(user)
+    local waypoint, waypointRadius, waypointNameG, waypointNameE = introduction.initWaypoint(user)
 
     -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
     local QuestTarget = {}
