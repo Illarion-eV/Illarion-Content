@@ -49,8 +49,8 @@ function M.QuestDescription(user, status)
     local english = Description[ENGLISH][status] or ""
     local waypoint, waypointRadius, waypointNameG, waypointNameE = introduction.initWaypoint(user)
     local queststatus = user:getQuestProgress(44) --here, we save which places were visited
-    local germanText
-    local englishText
+    local germanText = ""
+    local englishText = ""
    
     for i = 1, #waypoint do
          
@@ -85,7 +85,7 @@ function M.QuestTargets(user, status)
     for i = 1, #waypoint do
      
         if not common.isBitSet(queststatus, i) then
-            table.insert(QuestTarget[i], waypoint[i])
+            table.insert(QuestTarget[1], waypoint[i])
         end
     end
 
