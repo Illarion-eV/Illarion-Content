@@ -32,6 +32,10 @@ Title[ENGLISH] = "Introduction"
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
 
+local Description = {}
+Description[GERMAN] = {}
+Description[ENGLISH] = {}
+    
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 2
 
@@ -41,9 +45,6 @@ end
 
 function M.QuestDescription(user, status)
 
-    local Description = {}
-    local Description[GERMAN] = {}
-    local Description[ENGLISH] = {}
     local waypoint, waypointRadius, waypointNameG, waypointNameE = introduction.initWaypoint(user)
     local queststatus = user:getQuestProgress(44) --here, we save which places were visited
     local germanText = ""
