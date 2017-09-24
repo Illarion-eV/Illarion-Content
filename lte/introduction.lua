@@ -427,7 +427,7 @@ function M.callEffect(introductionEffect, User)
     local function finishDialog()
         if M.questFinished(User, waypoint) then
             local callbackFinish = function() end --empty callback
-            local dialogText = common.GetNLS(User,"Letzte Hinweise...","Final hints...")
+            local dialogText = common.GetNLS(User,"Letzte Hinweise...","You have now a good overview of your home city. You are free to pursuit any goal your character might have. It is highly recommended to make some friends who help you get started. Always stay in your chosen role. Become the wealthiest trader, the most skilled crafter or a wise mage. The unique skill system of Illarion makes sure no time is wasted if you take your time to talk to other player characters. You'll learn more from each action if you take your time to interact with others. But who does nothing learns nothing, obviously!")
             local dialogTitle = common.GetNLS(User,"Einführung","Introduction")
             local dialogFinish = MessageDialog(dialogTitle, dialogText, callbackFinish)
             User:requestMessageDialog(dialogFinish)
@@ -468,7 +468,7 @@ function M.callEffect(introductionEffect, User)
             finishDialog()
         end --callback
         local callbackGreeting = function(dialogGreeting) end --callback
-        local dialogText = common.GetNLS(User,"Interaktion, #i usw.","Interaction, introduction etc.")
+        local dialogText = common.GetNLS(User,"Interaktion, #i usw.","Illarion is based in interaction between player characters and true roleplaying. Why don't you say 'Hello, my name is '"..User.name..".' to that other character? By the command #i, you can introduce your character to other player characters next to yours. Always stay in your chosen role and you'll have a great time. Maybe one day you will join a influential guild and get involved in the politics of your home city?")
         local dialogTitle = common.GetNLS(User,"Einführung","Introduction")
         local dialogGreeting = MessageDialog(dialogTitle, dialogText, callbackGreeting)
         User:requestMessageDialog(dialogGreeting)
@@ -493,7 +493,7 @@ function M.loadEffect(introductionEffect, User)
 
     -- Login Dialog
     local callbackLogin = function() end --empty callback
-    local dialogText = common.GetNLS(User,"Willkommen zurück!\n\nGERMAN","Welcome back!\n\nENGLISH")
+    local dialogText = common.GetNLS(User,"Willkommen zurück!\n\nGERMAN","Welcome back!\n\nDid you already visit all interesting sites of your home city? Just follow the red symbols on your map. The sites might be below the surface or upstairs. If you encounter any other player characters, introduce yourself. As a new citizen of Illarion, the best you can do is to make friends who help you in times of need. If you have issues with the game, remember to hit F1 for a list of commands or join the chat on the website www.illarion.org.")
     local dialogTitle = common.GetNLS(User,"Einführung","Introduction")
     local dialogLogin = MessageDialog(dialogTitle, dialogText, callbackLogin)
     User:requestMessageDialog(dialogLogin)
