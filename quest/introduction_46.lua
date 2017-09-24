@@ -32,11 +32,29 @@ Title[ENGLISH] = "Introduction"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
+
+local waypoint, waypointRadius, waypointNameG, waypointNameE = introduction.initWaypoint(user)
+local queststatus = User:getQuestProgress(44) --here, we save which places were visited
+local germanText
+local englishText
+   
+for i = 1, #waypoint do
+     
+    if not common.isBitSet(queststatus, i) then
+        germanText = germanText..", "..waypointNameG[i]
+        englishText = englishText..", "..waypointNameE[i]
+    end
+end
+
+--Remove leading comma
+germanText = string.sub(germanText, 3)
+englishText = string.sub(englishText, 3)
+    
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "GERMAN QUEST"
-Description[ENGLISH][1] = "Set out and explore your realm. Find other player characters and talk to them. Also, explore your home city. Interesting sites are marked with a red symbol on your map. You haven't visited: "
+Description[GERMAN][1] = "GERMAN QUEST: : "..germanText.."."
+Description[ENGLISH][1] = "Set out and explore your realm. Find other player characters and talk to them. Also, explore your home city. Interesting sites are marked with a red symbol on your map. You haven't visited: "..englishText.."."
 Description[GERMAN][2] = "GERMAN DONE"
 Description[ENGLISH][2] = "You finished the introduction. Have fun!"
 
@@ -61,11 +79,16 @@ end
 function M.QuestTargets(user, status)
 
     local waypoint, waypointRadius, waypointNameG, waypointNameE = introduction.initWaypoint(user)
-
-    -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
+    local queststatus = User:getQuestProgress(44) --here, we save which places were visited
     local QuestTarget = {}
+    
+    for i = 1, #waypoint do
+     
+        if not common.isBitSet(queststatus, i) then
+            table.insert(QuestTarget[i], waypoint[i])
+        end
+    end
 
-    QuestTarget[1] = waypoint
     return QuestTarget[status]
 end
 
