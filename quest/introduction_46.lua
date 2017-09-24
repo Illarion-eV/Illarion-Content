@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
--- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (125, 'quest.alexis_dostas_125_cadomyr');
 
 local common = require("base.common")
 local factions = require("base.factions")
@@ -33,30 +32,9 @@ Title[ENGLISH] = "Introduction"
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
 
-local waypoint, waypointRadius, waypointNameG, waypointNameE = introduction.initWaypoint(user)
-local queststatus = User:getQuestProgress(44) --here, we save which places were visited
-local germanText
-local englishText
-   
-for i = 1, #waypoint do
-     
-    if not common.isBitSet(queststatus, i) then
-        germanText = germanText..", "..waypointNameG[i]
-        englishText = englishText..", "..waypointNameE[i]
-    end
-end
-
---Remove leading comma
-germanText = string.sub(germanText, 3)
-englishText = string.sub(englishText, 3)
-    
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "GERMAN QUEST: : "..germanText.."."
-Description[ENGLISH][1] = "Set out and explore your realm. Find other player characters and talk to them. Also, explore your home city. Interesting sites are marked with a red symbol on your map. You haven't visited: "..englishText.."."
-Description[GERMAN][2] = "GERMAN DONE"
-Description[ENGLISH][2] = "You finished the introduction. Have fun!"
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 2
@@ -66,8 +44,30 @@ function M.QuestTitle(user)
 end
 
 function M.QuestDescription(user, status)
+
     local german = Description[GERMAN][status] or ""
     local english = Description[ENGLISH][status] or ""
+    local waypoint, waypointRadius, waypointNameG, waypointNameE = introduction.initWaypoint(user)
+    local queststatus = User:getQuestProgress(44) --here, we save which places were visited
+    local germanText
+    local englishText
+   
+    for i = 1, #waypoint do
+         
+        if not common.isBitSet(queststatus, i) then
+            germanText = germanText..", "..waypointNameG[i]
+            englishText = englishText..", "..waypointNameE[i]
+        end
+    end
+
+    --Remove leading comma
+    germanText = string.sub(germanText, 3)
+    englishText = string.sub(englishText, 3)
+    
+    Description[GERMAN][1] = "GERMAN QUEST: : "..germanText.."."
+    Description[ENGLISH][1] = "Set out and explore your realm. Find other player characters and talk to them. Also, explore your home city. Interesting sites are marked with a red symbol on your map. You haven't visited: "..englishText.."."
+    Description[GERMAN][2] = "GERMAN DONE"
+    Description[ENGLISH][2] = "You finished the introduction. Have fun!"
 
     return common.GetNLS(user, german, english)
 end
