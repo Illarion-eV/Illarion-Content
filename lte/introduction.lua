@@ -100,21 +100,21 @@ function M.initWaypoint(User)
     elseif factions.isRunewickCitizen(User) then
     
         waypoint = {
-        position(1,1,0),
-        position(2,2,0),
-        position(3,3,0),
-        position(4,4,0),
-        position(5,5,0),
-        position(6,6,0),
-        position(7,7,0),
-        position(8,8,0),
-        position(9,9,0),
-        position(10,10,0),
-        position(11,11,0),
-        position(12,12,0),
-        position(13,13,0)}
+        position(898, 817, 0),
+        position(946, 834, 0),
+        position(957, 824, 0),
+        position(918, 775, 0),
+        position(956, 829, 0),
+        position(947, 784, 1),
+        position(944, 784, 1),
+        position(1002, 813, 0),
+        position(865, 814, 0),
+        position(836, 813, 0),
+        position(968, 784, 0),
+        position(919, 827, 0),
+        position(802, 797, 0)}
         
-        waypointRadius = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+        waypointRadius = {3, 5, 3, 3, 3, 3, 3, 3, 3, 3, 5, 5, 5}
       
         waypointNameG = {
         "Depot",
