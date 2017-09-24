@@ -441,7 +441,10 @@ function M.callEffect(introductionEffect, User)
      
         if not common.isBitSet(queststatus, i) and User:isInRangeToPosition(waypoint[i], waypointRadius[i]) then
 
-            User:setQuestProgress(44,common.addBit(queststatus,i)) --remember we visited the place        
+            User:setQuestProgress(44,common.addBit(queststatus,i)) --remember we visited the place   
+            User:setQuestProgress(46,0) --hack to reload the quest log
+            User:setQuestProgress(46,1) --hack to reload the quest log
+            
             local callbackFound = function(dialogFound)
                 common.InformNLS(User,informTextG[i],informTextE[i])
                 finishDialog()
