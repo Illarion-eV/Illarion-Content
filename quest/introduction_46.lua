@@ -48,7 +48,7 @@ function M.QuestDescription(user, status)
     local german = Description[GERMAN][status] or ""
     local english = Description[ENGLISH][status] or ""
     local waypoint, waypointRadius, waypointNameG, waypointNameE = introduction.initWaypoint(user)
-    local queststatus = User:getQuestProgress(44) --here, we save which places were visited
+    local queststatus = user:getQuestProgress(44) --here, we save which places were visited
     local germanText
     local englishText
    
@@ -79,7 +79,7 @@ end
 function M.QuestTargets(user, status)
 
     local waypoint, waypointRadius, waypointNameG, waypointNameE = introduction.initWaypoint(user)
-    local queststatus = User:getQuestProgress(44) --here, we save which places were visited
+    local queststatus = user:getQuestProgress(44) --here, we save which places were visited
     local QuestTarget = {}
     
     for i = 1, #waypoint do
