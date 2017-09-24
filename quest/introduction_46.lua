@@ -81,7 +81,7 @@ function M.QuestTargets(user, status)
     local waypoint, waypointRadius, waypointNameG, waypointNameE = introduction.initWaypoint(user)
     local queststatus = user:getQuestProgress(44) --here, we save which places were visited
     local QuestTarget = {}
-    local QuestTarget[1] = {}
+    QuestTarget[1] = {}
     
     for i = 1, #waypoint do
      
