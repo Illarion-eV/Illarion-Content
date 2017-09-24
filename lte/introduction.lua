@@ -350,18 +350,18 @@ function M.initText(User)
         
         informTextE = {
         "A highly embellished golden chest sits prominently in Galmair, shimmering with energy and seemingly harbouring remarkable depths.",
-        "Text2 - Market",
-        "Text3 - Workshop",
+        "Gleaming blades, polished armour and sparkling jewellery fills the market stalls with raucous merchants haggling over prices and declaring their smithing to be worthy of the Don, if not Irmorom himself.",
+        "Blazing furnaces belch out sparks and smoke, the heat warming the cool mountain air that blows into the workshop. A crescendo of hammering rises from the anvils as smiths of all kinds strike their metal.",
         "Light splits as it strikes the ornately carved cross, refracted colour falling to the feet of four golden armoured guards as the atmosphere shimmers and crackles with energy.",
-        "Text5 - Money changer",
-        "A man peers scrupiously at some tax records, checking off names. The sparsely decorated room gives little hint he is an official of the realm but the seal of Galmair adorns his letters.",
-        "Text7 - Treasury",
-        "A richly attired dwarf flips a gold coin as you enter the vast Guilianni Residence in Galmair's Crest. Undoubtedly he is Don Valerio Guilianni, the wealthy and prudent ruler of Galmair.",
-        "Text9 - Guard",
+        "Surrounded by chests of coins, an astute woman inspects a pile of coins for counterfeits before sliding them into pouches. Frequent exchanges are made with citizens keen to get back to their trade.",
+        "A man peers scrupulously at some tax records, checking off names. The sparsely decorated room gives little hint he is an official of the realm, but the seal of Galmair adorns his letters.",
+        "A sharp-eyed woman scrutinises all left at the donation platform, quickly calculating the value. It may be unclear whether she is a nosy onlooker or an official of the realm, but her presence in the Crest seems to be tolerated.",
+        "A richly attired dwarf flips a gold coin as you enter the vast Guilianni Residence in Galmair's Crest. Undoubtedly he is Don Valerio Guilianni, the wealthy and prudent ruler of Galmair.",
+        "A stout and heavily armoured dwarfess stands guard behind towering fortress walls, scrutinising all those who try to enter through the main gate into Galmair.",
         "The air crackles with energy around an ornate marble podium. A weathered pell sits on the podium listing a number of destinations.",
-        "Text11 - Temple Irmorom",
-        "Text12 - Temple Nargùn",
-        "Text13 - Temple Ronagan"}
+        "Carved into the mountainside an extravagant approach leads to an altar and two magnificent anvils, flanked by two armoured figures that depict a rich dwarven smith that encapsulate the values of Irmorom.",
+        "Bizarrely, the cawing of a raven might be heard on occasion echoing through the peculiar temple dug deep into the mountain, the chaotic lighting and mismatched furniture encapsulating the unpredictability of Nargùn.",
+        "Deep in a tunnel flooded with filthy water an understated altar serves hidden in the shadows, the dark column for the collection of coins reminding of the protection Ronagan brings."}
         
         dialogTextG = {
         "Text1 - Depot",
@@ -375,23 +375,23 @@ function M.initText(User)
         "Text9 - Wache",
         "Text10 - Teleporter",
         "Text11 - Tempel Irmorom",
-        "Text12 - Tempel 2",
-        "Text13 - Tempel 3"}
+        "Text12 - Tempel Nargùn",
+        "Text13 - Tempel Ronagan"}
         
         dialogTextE = {
-        "You will find several depots around Galmair, each giving you access to your stored possesions. Access the depot by double clicking it and drag items in and out of the slots. Each realm and the neutral Hemp Necktie Inn have their own storage system.",
+        "You will find several depots around Galmair, each giving you access to your stored possessions. Access the depot by double clicking it and drag items in and out of the slots. Each realm and the neutral Hemp Necktie Inn have their own storage system.",
         "The market contains a wealth of traders buying and selling anything from raw materials to the finest crafted products. Items can be sold at a tenth of their value in the primary crafting realm, indicated by the gold coin in the trading menu. They can only be sold at a twentieth of their value in the secondary crafting realm, indicated by the silver coin in the trading menu.",
-        "The primary crafts of blacksmithing, armour smithing and finesmithing are fully supported with static tools, resources, merchants and guilds in Galmair. Secondary crafts are only partially supported with static tools, limited resources and poorer trading opportunities. Most static tools are found in or around the workshops. Hover over a tool to find out what it should be used for.",
+        "The primary crafts of blacksmithing, armour smithing, and finesmithing are fully supported with static tools, resources, merchants, and guilds in Galmair. Secondary crafts are only partially supported with static tools, limited resources and poorer trading opportunities. Most static tools are found in or around the workshops. Hover over a tool to find out what it should be used for.",
         "Should you be unfortunate enough to perish there is every chance Cherga, the goddess of spirits and the underworld, will deny you entry to her realm as there is still so much for you to experience in Ilarion. Returned to the resurrection pillar of you chosen realm you will find yourself weak so give yourself time to recover.",
-        "Copper, silver and gold coins are used throughout Illarion. One hundred copper coins can be exchanged for one silver coin and one hundred silver coins can be exchanged for a gold coin by the Money Changer, XXXXX.",
-        "Speak to the Notary Frederik Silvereye if you wish to join or leave Galmair, find out what your rank is as a citizen of Galmair, or if you need to purchase a licence to use tools as a visitor to Galmair. You can improve your rank and advance in the Don's favour by completing quests issued by NPCs in Galmair or receiving rank points from a Game Master for your contribution to the realm.",
+        "Copper, silver and gold coins are used throughout Illarion. One hundred copper coins can be exchanged for one silver coin and one hundred silver coins can be exchanged for a gold coin by the Money Changer, Laura Pepperbags.",
+        "Speak to the Notary Frederik Silvereye if you wish to join or leave Galmair, find out what your rank is as a citizen of Galmair, or if you need to purchase a licence to use tools as a visitor to Galmair. You can improve your rank and advance in the Don's favour by completing quests issued by NPCs in Galmair or by receiving rank points from a Game Master for your contribution to the realm. ",
         "Together with tax returns, donations made to the realm contribute to faction wealth and determine the number of magic gems distributed between citizens. A donation is made by placing an item or coins on the donation platform. Donated items contribute a tenth of their value.",
-        "The faction ruler may be played by one of the Game Masters on occasions to attend events and interact with their subjects. If you wish to leave a message for the Don you can contact the relevant Game Master via the forum account Valerio Guilianni. Be aware though each realm has developed their own customs and etiquette so you should try to find out what is expected of citizens. Often the faction ruler will be supported by a number of player characters who have worked their way into positions of influence.",
-        "Text9 - Guard",
+        "The faction ruler may be played by one of the Game Masters on occasions to attend events and interact with their subjects. If you wish to leave a message for the Don you can contact the relevant Game Master via the forum account Valerio Guilianni. Be aware though each realm has developed their own customs and etiquette so you should try to find out what is expected of citizens. Often the faction ruler will be supported by a number of player characters who have worked their way into positions of influence.",
+        "Bre Southstar is a loyal guard of Don Valerio Guilianni and will only allow the respectable and those with business to pass into Galmair. Behind the gates, Galmair is a safe haven from the dangers beyond as the guard will defend against any monsters. Should you displease the Don or his officials, however, you may find yourself banned from the realm and then Bre will see you do not enter either.",
         "A teleporter can be found outside the entrance to each town and the neutral Hemp Necktie Inn. Double click on the podium to use it and for five silver you will be able to travel to another realm. Portal books can also be bought for ten silver to use anywhere on the map to transport you to a designated teleporter. In Galmair, Pipillo sells portal books from the stall to the north, just inside the gates.",
-        "The Younger Gods dominate daily life in Illarion and Irmorom is one of three patron deities of Galmair. As the god of xxxxxxxxxxx his xxxxxxxxx is revered by many xxxxxxxxx in Galmair.",
-        "The Younger Gods dominate daily life in Illarion and Nargùn is one of three patron deities of Galmair. As the god of xxxxxxxxxxx his xxxxxxxxx are held in high esteem amongst the xxxxxxxxxx of Galmair.",
-        "The Younger Gods dominate daily life in Illarion and Ronagan is one of three patron deities of Galmair. As the god of xxxxxxxxxxx his xxxxxxxxx are held in high esteem amongst the xxxxxxxxxx of Galmair."}
+        "The Younger Gods dominate daily life in Illarion. Irmorom is one of the three patron deities of Galmair. As the god of trade and craftmanship his righteous intentions are held in high esteem by the industrious of Galmair.",
+        "The Younger Gods dominate daily life in Illarion. Nargùn is one of the three patron deities of Galmair. As the god of chaos his quick wit and favour are valued amongst those seeking good fortune in Galmair.",
+        "The Younger Gods dominate daily life in Illarion. Ronagan is one of the three patron deities of Galmair. As the god of theives and shadows his determined audacity is held in high esteem amongst the underclass of Galmair."}
 
     end
     
