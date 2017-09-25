@@ -89,18 +89,6 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me waves excitedly.", "Goo
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 
--- fix
-queststatus(73) > 0, queststatus(820) = 17, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 18, "Ah Florain sent you but you already asked me for something to do."
-queststatus(73) > 0, queststatus(820) = 17, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 18, "Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
-queststatus(73) > 0, queststatus(820) = 17, town = Runewick, "task", "adventure", "order" -> queststatus(820) = 18, "Ah Florain sent you but you already asked me for something to do."
-queststatus(73) > 0, queststatus(820) = 17, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 18, "Ah Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
-
--- 1st quest: Gather 20 wool coming from florain
-queststatus(73) = 0, queststatus(820) = 17, english, "quest", "mission", "florain", "dreyndel" -> inform("[New quest] The Lazy Tailoress I"), queststatus(73) = 1, queststatus(820) = 18, "I could use some help tailoring a robe for the Archmage! Could you help? If so please get me twenty bundles of wool, I am short on that."
-queststatus(73) = 0, queststatus(820) = 17, "quest", "mission", "florain", "dreyndel" -> inform("[Neues Quest] Das faule Schneiderlein I"), queststatus(73) = 1, queststatus(820) = 18, "Ich könnte etwas Hilfe gebrauchen, um eine Robe für den Erzmagier zu schneidern. Bring mir doch bitte zwanzig Wollballen, ich habe keine mehr."
-queststatus(73) = 0, queststatus(820) = 17, "task", "adventure", "order" -> inform("[New quest] The Lazy Tailoress I"), queststatus(73) = 1, queststatus(820) = 18, "I could use some help tailoring a robe for the Archmage! Could you help? If so please get me twenty bundles of wool, I am short on that."
-queststatus(73) = 0, queststatus(820) = 17, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Das faule Schneiderlein I"), queststatus(73) = 1, queststatus(820) = 18, "Ich könnte etwas Hilfe gebrauchen, um eine Robe für den Erzmagier zu schneidern. Bring mir doch bitte zwanzig Wollballen, ich habe keine mehr."
-
 -- 1st quest: Gather 20 wool
 queststatus(73) = 0, english, "quest", "mission" -> inform("[New quest] The Lazy Tailoress I"), queststatus(73) = 1, "I could use some help tailoring a robe for the Archmage! Could you help? If so please get me twenty bundles of wool, I am short on that."
 queststatus(73) = 0, "quest", "mission" -> inform("[Neues Quest] Das faule Schneiderlein I"), queststatus(73) = 1, "Ich könnte etwas Hilfe gebrauchen, um eine Robe für den Erzmagier zu schneidern. Bring mir doch bitte zwanzig Wollballen, ich habe keine mehr."
