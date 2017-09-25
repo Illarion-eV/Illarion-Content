@@ -467,7 +467,7 @@ function M.callEffect(introductionEffect, User)
         local callbackGreeting = function(dialogGreeting)
             finishDialog()
         end --callback
-        local callbackGreeting = function(dialogGreeting) end --callback
+
         local dialogText = common.GetNLS(User,"Illarion basiert auf der Interaktion zwischen Spielerfiguren und dem wahren Rollenspiel. Warum sagst du nicht 'Hallo, mein Name ist "..User.name ..".' zu diesem anderen Charakter? Mit dem Befehl #i kannst du deinen Charakter anderen Spielfiguren neben dir vorstellen. Bleib immer in deiner gewählten Rolle und du wirst eine tolle Zeit haben. Vielleicht wirst du eines Tages einer einflussreichen Gilde beitreten und dich in die Politik deiner Heimatstadt einbringen?","Illarion is based in interaction between player characters and true roleplaying. Why don't you say 'Hello, my name is '"..User.name..".' to that other character? By the command #i, you can introduce your character to other player characters next to yours. Always stay in your chosen role and you'll have a great time. Maybe one day you will join a influential guild and get involved in the politics of your home city?")
         local dialogTitle = common.GetNLS(User,"Einführung","Introduction")
         local dialogGreeting = MessageDialog(dialogTitle, dialogText, callbackGreeting)
