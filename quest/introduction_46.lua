@@ -62,9 +62,9 @@ function M.QuestDescription(user, status)
     germanText = string.sub(germanText, 3)
     englishText = string.sub(englishText, 3)
     
-    Description[GERMAN][1] = "GERMAN QUEST: : "..germanText
+    Description[GERMAN][1] = "Zieh los und erforsche dein Reich. Finde andere Spielercharaktere und spreche mit ihnen. Entdecke auch deine Heimatstadt. Interessante Orte sind mit einem roten Symbol auf deiner Karte markiert. Du solltest besuchen: "..germanText
     Description[ENGLISH][1] = "Set out and explore your realm. Find other player characters and talk to them. Also, explore your home city. Interesting sites are marked with a red symbol on your map. You should visit: "..englishText
-    Description[GERMAN][2] = "GERMAN DONE"
+    Description[GERMAN][2] = "Du hast die Einführung absolviert. Viel Spaß!"
     Description[ENGLISH][2] = "You finished the introduction. Have fun!"
 
     local german = Description[GERMAN][status] or ""
