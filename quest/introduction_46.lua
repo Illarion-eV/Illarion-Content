@@ -14,7 +14,6 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
--- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (125, 'quest.alexis_dostas_125_cadomyr');
 
 local common = require("base.common")
 local factions = require("base.factions")
@@ -32,14 +31,11 @@ Title[ENGLISH] = "Introduction"
 
 -- Insert an extensive description of each status here, in both languages
 -- Make sure that the player knows exactly where to go and what to do
+
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "GERMAN und die drei Tempel deines Reiches."
-Description[ENGLISH][1] = "Set out and explore your realm. Find another character and talk to him/her. You'll easily tell apart characters from NPCs as the latter do not move and respond immediatly on the keyword 'help' with a list of commands. NPCs can also be used with a double click. Also, explore your home city. Interesting sites are marked with a red symbol on your map. Visit them all!"
-Description[GERMAN][2] = "GERMAN DONE"
-Description[ENGLISH][2] = "You finished the introduction. Have fun!"
-
+    
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 2
 
@@ -48,9 +44,32 @@ function M.QuestTitle(user)
 end
 
 function M.QuestDescription(user, status)
+
+    local waypoint, waypointRadius, waypointNameG, waypointNameE = introduction.initWaypoint(user)
+    local queststatus = user:getQuestProgress(44) --here, we save which places were visited
+    local germanText = ""
+    local englishText = ""
+   
+    for i = 1, #waypoint do
+         
+        if not common.isBitSet(queststatus, i) then
+            germanText = germanText..", "..waypointNameG[i]
+            englishText = englishText..", "..waypointNameE[i]
+        end
+    end
+
+    --Remove leading comma
+    germanText = string.sub(germanText, 3)
+    englishText = string.sub(englishText, 3)
+    
+    Description[GERMAN][1] = "Zieh los und erforsche dein Reich. Finde andere Spielercharaktere und spreche mit ihnen. Entdecke auch deine Heimatstadt. Interessante Orte sind mit einem roten Symbol auf deiner Karte markiert. Du solltest besuchen: "..germanText
+    Description[ENGLISH][1] = "Set out and explore your realm. Find other player characters and talk to them. Also, explore your home city. Interesting sites are marked with a red symbol on your map. You should visit: "..englishText
+    Description[GERMAN][2] = "Du hast die Einführung absolviert. Viel Spaß!"
+    Description[ENGLISH][2] = "You finished the introduction. Have fun!"
+
     local german = Description[GERMAN][status] or ""
     local english = Description[ENGLISH][status] or ""
-
+    
     return common.GetNLS(user, german, english)
 end
 
@@ -60,12 +79,18 @@ end
 
 function M.QuestTargets(user, status)
 
-    local waypoint, waypointRadius, informTextG, informTextE, dialogTextG, dialogTextE = introduction.init(user)
-
-    -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
+    local waypoint, waypointRadius, waypointNameG, waypointNameE = introduction.initWaypoint(user)
+    local queststatus = user:getQuestProgress(44) --here, we save which places were visited
     local QuestTarget = {}
+    QuestTarget[1] = {}
+    
+    for i = 1, #waypoint do
+     
+        if not common.isBitSet(queststatus, i) then
+            table.insert(QuestTarget[1], waypoint[i])
+        end
+    end
 
-    QuestTarget[1] = waypoint
     return QuestTarget[status]
 end
 
