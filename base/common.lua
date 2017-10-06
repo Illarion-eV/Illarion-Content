@@ -926,19 +926,22 @@ end
 ]]
 function M.GetItemInInventory(User, ItemID, DataValues)
   local ItemList = User:getItemList(ItemID)
-  if (DataValues == nil) then
-    DataValues = {}
+  local dataOK
+  local hasData = true
+  if (DataValues == nil or #DataValues == 0) then
+    hasData = false
   end
   for _, item in pairs(ItemList) do
-    local dataOk = true
-    for _,d in pairs(DataValues) do
-      if (item:getData(d[1]) ~= d[2]) then
-        dataOk = false
-        break
-      end
+    dataOK = true
+    if hasData then
+        for _, data in pairs(DataValues) do
+            if (tostring(item:getData(data[1])) ~= tostring(data[2])) then
+                dataOK = false
+            end
+        end
     end
-    if (dataOk) then
-      return item
+    if dataOK then
+        return item
     end
   end
   return nil
@@ -1422,11 +1425,16 @@ function M.Split_number(Number, AmountOfDigits)
 
     local temptable = {}
     local tempcnt = 0
+    local tempnumber
 
+    tempnumber = math.floor(Number / (10^AmountOfDigits))
+    Number = Number - tempnumber * (10^AmountOfDigits)
 
     for i = (AmountOfDigits-1), 0, -1 do
         tempcnt = tempcnt + 1
-        temptable[tempcnt] = math.floor(math.fmod((Number / (10^i)), 10) + 0.5)
+        tempnumber = math.floor(Number / (10^i))
+        temptable[tempcnt] = tempnumber
+        Number = Number - tempnumber * (10^i)
     end
     return temptable
 end
