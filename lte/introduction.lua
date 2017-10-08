@@ -219,7 +219,7 @@ function M.initText(User)
         "Ein strenger Mann beobachtet sorgfältig die Spendenplattform und alle, die den Thronraum besuchen. Zwei schimmernde rot-weiße Banner Cadomyrs flankieren ihn, ein Hinweis auf seine Bedeutung für das Reich.",
         "Eine stolze und schöne Frau trägt eine Krone im Thronsaal des Königspalastes. Zweifellos ist sie Königin Rosaline Edwards, die gerechte und ehrgeizige Herrscherin Cadomyrs.",
         "Ein imposanter und schwer gepanzerter Wächter steht vor dem großen Tor zu Cadomyr und überprüft all jene, die versuchen, über die Brücke zu gehen.",
-        "Die Luft knistert mit Energie um ein kunstvolles Marmorpodium. Ein sonnengebleichtes Pergament mit einer Liste von Zielen liegt auf dem Podium.",
+        "Die Luft knistert mit Energie um ein kunstvoll verziertes Marmorpodium. Ein sonnengebleichtes Pergament mit einer Liste von Zielen liegt auf dem Podium.",
         "Reihen glorreicher Reiter bilden eine Ehrenwache, die zu einem Altar führt. Er wird flankiert von zwei gepanzerten Statuen, die edle, junge Soldaten darstellen, die die Tapferkeit und Kameradschaft des Zhambra verkörpern.",
         "Gelegentlich trägt der Wind das ferne Heulen eines Wolfs herbei und pfeift über den den bescheiden geschmückten Tempel. Bewacht von gepanzerten Statuen steht er für die würdige Ehre Malachíns.",
         "Der einst wunderschöne Oasentempel liegt in Trümmern, wobei nur der Altar intakt geblieben ist. Doch der Trost Siranis kann noch von einem offenen Herzen empfangen werden."}
@@ -242,7 +242,7 @@ function M.initText(User)
         dialogTextG = {
         "Es befinden sich mehrere Depots in Cadomyr. Jedes gibt dir Zugriff auf deine eingelagerten Gegenstände. Greife auf das Depot zu, indem du darauf doppelklickst und Gegenstände in und aus den Slots ziehst. Jedes Reich und der neutrale Gasthof zur Hanfschlinge hat sein eigenes Depotsystem.",
         "Der Markt beherbergt eine Fülle von Händlern, die von Rohstoffen bis hin zu feinsten Kunsthandwerk alles kaufen und verkaufen. Gegenstände der primären Handwerk können zu einem Zehntel ihres Wertes verkauft werden. Dies wird durch die Goldmünze im Handelsmenü angezeigt. Gegenstände der sekundären Handwerke können zu einem Zwanzigstel ihres Wertes verkauft werden, was durch die Silbermünze im Handelsmenü angezeigt wird.",
-        "Die primären Handwerke Glasbläserei, Töpfern und Schneidern werden durch statische Werkzeuge, Ressourcen, Händlern und Gilden in Cadomyr voll unterstützt. Sekundäres Handwerk wird nur teilweise mit statischen Werkzeugen, begrenzten Ressourcen und schlechteren Handelsmöglichkeiten unterstützt. Die meisten statischen Werkzeuge können in oder um die Werkstätten gefunden werden. Bewege deine Maus über ein Werkzeug, um herauszufinden, für was es verwendet werden kann.",
+        "Die primären Handwerke Glasbläserei, Töpfern und Schneidern werden durch statische Werkzeuge, Ressourcen, Händler und Gilden in Cadomyr voll unterstützt. Sekundäres Handwerk wird nur teilweise mit statischen Werkzeugen, begrenzten Ressourcen und schlechteren Handelsmöglichkeiten unterstützt. Die meisten statischen Werkzeuge können in oder um die Werkstätten gefunden werden. Bewege deine Maus über ein Werkzeug, um herauszufinden, für was es verwendet werden kann.",
         "Solltest du das Pech haben, niedergestreckt zu werden, gibt es eine Chance, dass Cherga, die Göttin der Geister und die Unterwelt, dir den Eintritt in ihr Reich verweigern wird. Es gibt noch so viel für dich in Illarion zu erleben und du wirst am Auferstehungspfeiler deines Reiches wiederbelebt. Du wirst dich schwach fühlen, also gib dir Zeit, dich zu erholen.",
         "Kupfer-, Silber- und Goldmünzen werden in ganz Illarion verwendet. Einhundert Kupfermünzen können gegen eine Silbermünze getauscht werden und hundert Silbermünzen können durch den Geldwechsler Cassandra Hestan gegen eine Goldmünze getauscht werden.",
         "Sprich mit dem Notar Reret Odohir, wenn du dich Cadomyr anschließen oder es verlassen willst. Du kannst auch herausfinden, was dein Rang als Bürger Cadomyrs ist. Du kannst deinen Rang verbessern und in der Gunst der Königin aufsteigen, indem du die von den NPCs in Cadomyr herausgegebenen Quests abschließt oder Rangpunkte von einem Gamemaster für deinen Beitrag zum Reich empfängst.",
@@ -272,19 +272,19 @@ function M.initText(User)
     elseif factions.isRunewickCitizen(User) then
                
         informTextG = {
-        "Text1 - Depot",
-        "Text2 - Markt",
-        "Text3 - Werkstatt",
-        "Text4 - Wiederbelebung",
-        "Text5 - Geldwechsler",
-        "Text6 - Notar",
-        "Text7 - Schatzmeister",
-        "Text8 - Anführer",
-        "Text9 - Wache",
-        "Text10 - Teleporter",
-        "Text11 - Tempel Elara",
-        "Text12 - Tempel Adron",
-        "Text13 - Tempel Oldra"}
+        "Eine goldene verzierte Kiste thront in Runewick, schimmernd mit Energie und scheinbar voll mit unerschöpflichen Reichtümern.",
+        "Das köstliche Aroma von Backwaren erfüllt den Markt, während Schreiner fein geschnitzte Waren verkaufen. Kaufleute rollen Fässer in Richtung der Taverne und erklären ihr Gebräu zum Leibtrunk des Erzmagiers.",
+        "Holzspäne bedecken den Werkstattboden wo Schreiner rhythmisch Holz sägen und hobeln. Ein köstliches Aroma von Backwaren, köchelnden Suppen und Gebräu strömt aus der großen Küche herrüber.",
+        "Licht bricht sich, als es auf das kunstvoll geschnitzte Kreuz trifft, und lässt vier dunkle Säulen funkeln. Die Luft flimmert und knistert vor Energie.",
+        "Ein gewissenhaft Mann zählt fleißig Münzen und führt mit großer Genauigkeit Buch über Transaktionen. Höflich tauscht er an seinem Tisch Münzen mit den Bürgern, die den Markt Runewicks besuchen.",
+        "Eine fleißige Frau sitzt umgeben von Pergamenten, und schreibt etwas in einen dicken Band. Zu ihrer Seite steht das blau-graue Banner von Runewick, ein Hinweis, dass sie ein Beamter des Reiches ist.",
+        "Ein tüchtiger Elf nimmt sorgfältig alle Spenden auf der Plattform neben ihm auf. Dahinter gibt das hoch aufragende blau-graue Banner von Runewick einen Hinweis auf seine Bedeutung für das Reich.",
+        "Ein Elf studiert tief in Gedanken unzählige Artefakte und Schriftrollen in seiner abgeschiedenen Inselvilla. Zweifellos ist er Erzmagier Elvaine Morgan, der weise und erleuchtete Herrscher Runewicks.",
+        "Ein in Leder gekleideter Waldläufer mit vollem Köcher und Bogen im Anschlag beobachtet den Wald vor ihm und überprüft all jene, die versuchen, die Brücke zu Runewick zu überqueren.",
+        "Die Luft knistert mit Energie um ein kunstvoll verziertes Marmorpodium. Ein aufwendig beschriebenes Pergament mit einer Liste von Zielen liegt auf dem Podium.",
+        "Eingebettet in eine ruhige Ecke der riesigen Bibliothek, umgeben von Büchern und Manuskripten, dient ein einfacher Tisch als bescheidener Altar, der die Zurückhaltung und Weisheit Elaras repräsentiert.",
+        "Vor verworrenen Reben, die reichhaltige Trauben tragen und von schweren Fässern des feinsten Gebräue flankiert sind, dominiert ein protziger Altar die heimelige Taverne. Dies ist ein Ort vieler Feierlichkeiten welche Adron würdig sind.",
+        "Geschnitzte Holzsäulen, die von verworrenen Reben umgeben sind, schützen einen bescheidenen Altar. Er ist umgeben von üppigen Blumen, die das Leben verkörpern, das Oldra bringt."}
         
         informTextE = {
         "A highly embellished golden chest sits prominently in Runewick, shimmering with energy and seemingly harbouring remarkable depths.",
@@ -302,19 +302,19 @@ function M.initText(User)
         "Carved wooden columns embraced by tangled vines shelter a modestly adorned altar, surrounded by bountiful flowers that epitomise the life that Oldra brings."}
         
         dialogTextG = {
-        "Text1 - Depot",
-        "Text2 - Markt",
-        "Text3 - Werkstatt",
-        "Text4 - Wiederbelebung",
-        "Text5 - Geldwechsler",
-        "Text6 - Notar",
-        "Text7 - Schatzmeister",
-        "Text8 - Anführer",
-        "Text9 - Wache",
-        "Text10 - Teleporter",
-        "Text11 - Tempel Elara",
-        "Text12 - Tempel Adron",
-        "Text13 - Tempel Oldra"}
+        "Es befinden sich mehrere Depots in Runewick. Jedes gibt dir Zugriff auf deine eingelagerten Gegenstände. Greife auf das Depot zu, indem du darauf doppelklickst und Gegenstände in und aus den Slots ziehst. Jedes Reich und der neutrale Gasthof zur Hanfschlinge hat sein eigenes Depotsystem.",
+        "Der Markt beherbergt eine Fülle von Händlern, die von Rohstoffen bis hin zu feinsten Kunsthandwerk alles kaufen und verkaufen. Gegenstände der primären Handwerk können zu einem Zehntel ihres Wertes verkauft werden. Dies wird durch die Goldmünze im Handelsmenü angezeigt. Gegenstände der sekundären Handwerke können zu einem Zwanzigstel ihres Wertes verkauft werden, was durch die Silbermünze im Handelsmenü angezeigt wird.",
+        "Die primären Handwerke Schreinern, Kochen und Brauen werden durch statische Werkzeuge, Ressourcen, Händler und Gilden in Runewick voll unterstützt. Sekundäres Handwerk wird nur teilweise mit statischen Werkzeugen, begrenzten Ressourcen und schlechteren Handelsmöglichkeiten unterstützt. Die meisten statischen Werkzeuge können in oder um die Werkstätten gefunden werden. Bewege deine Maus über ein Werkzeug, um herauszufinden, für was es verwendet werden kann.",
+        "Solltest du das Pech haben, niedergestreckt zu werden, gibt es eine Chance, dass Cherga, die Göttin der Geister und die Unterwelt, dir den Eintritt in ihr Reich verweigern wird. Es gibt noch so viel für dich in Illarion zu erleben und du wirst am Auferstehungspfeiler deines Reiches wiederbelebt. Du wirst dich schwach fühlen, also gib dir Zeit, dich zu erholen.",
+        "Kupfer-, Silber- und Goldmünzen werden in ganz Illarion verwendet. Einhundert Kupfermünzen können gegen eine Silbermünze getauscht werden und hundert Silbermünzen können durch den Geldwechsler Argentus Almsbag gegen eine Goldmünze getauscht werden.",
+        "Sprich mit dem Notar Torina Scibrim, wenn du dich Runewick anschließen oder es verlassen willst. Du kannst auch herausfinden, was dein Rang als Bürger Runewicks ist. Du kannst deinen Rang verbessern und in der Gunst des Erzmagiers aufsteigen, indem du die von den NPCs in Runewick herausgegebenen Quests abschließt oder Rangpunkte von einem Gamemaster für deinen Beitrag zum Reich empfängst.",
+        "Gemeinsam mit Steuerzahlungen tragen Spenden zum Reichtum deines Reiches bei und bestimmen die Anzahl der magischen Edelsteine, die unter den Bürgern verteilt werden. Gespendet wird durch die Platzierung eines Gegenstandes oder Münzen auf der Spendenplattform. Gegenstände zählen hierbei einen Zehntel ihres Wertes.",
+        "Der Herrscher eines Reiches kann von einem der Gamemaster gespielt werden, um an Veranstaltungen teilzunehmen und mit den Untertanen zu interagieren. Wenn du eine Nachricht für den Erzmagier hinterlassen möchtest, kannst du den entsprechenden Gamemaster über den Forenaccount Elvaine Morgan kontaktieren. Bedenke, dass jedes Reich seine eigene Sitten und Bräuche entwickelt hat, also solltest du versuchen, herauszufinden, was von den Bürgern erwartet wird. Oft wird der Herrscher eines Reiches von einigen Spielercharakteren unterstützt, die sich ihren Weg in einflussreiche Positionen erarbeitet haben.",
+        "Brassius Meres ist eine loyale Wache des Erzmagiers Elvaine Morgan und wird es nur den Ehrenhaften erlauben, über die Brücke nach Runewick zu gehen. Hinter der Brücke ist Runewick ein sicherer Zufluchtsort vor den Gefahren, den die Wache gegen Monster verteidigt. Solltest du beim Erzmagier oder seinen Beamten in Misskredit geraten, wirst du möglicherweise aus dem Reich verbannt und Brassius wird dich abweisen.",
+        "Ein Teleporter findet sich außerhalb des Eingangs zu jeder Stadt und dem neutralen Gasthof zur Hanfschlinge. Doppelklicke auf das Podium, um es zu benutzen und für fünf Silberstücke in ein anderes Reich zu reisen. Portalbücher können auch für zehn Silberstücke gekauft werden und überall benutzt werden, um dich zu einem bestimmten Teleporter zu transportieren. In Runewick verkauft Phillibald Portalbücher im Wächterhaus im Norden, direkt bei der Brücke.",
+        "Die Jungen Götter beherrschen das tägliche Leben in Illarion. Elara ist einer der drei Schutzgöttinnen Runewicks. Als Göttin des Wissens und der Weisheit werden ihre aufrichtigen Absichten unter den Gelehrten von Runewick hoch geschätzt.",
+        "Die elf Jungen Götter haben mehr Anhänger als die fünf Alten Götter. Adron ist einer der drei Schutzgötter Runewicks. Als Gott des Weines und der Feste wird seine Ausstrahlung von den jovialen Feiernden Runewicks besonders geschätzt.",
+        "Jedes Reich hat drei Schutzgötter. Oldra ist einer der drei Schutzgötter Runewicks. Als Göttin der Fruchtbarkeit und des Lebens ist ihre Fürsorge und Demut unter den Bauern von Runewick beliebt."}
         
         dialogTextE = {
         "You will find several depots around Runewick, each giving you access to your stored possessions. Access the depot by double clicking it and drag items in and out of the slots. Each realm and the neutral Hemp Necktie Inn have their own storage system.",
@@ -334,7 +334,7 @@ function M.initText(User)
     elseif factions.isGalmairCitizen(User) then
            
         informTextG = {
-        "Text1 - Depot",
+        "Eine goldene verzierte Kiste thront in Galmair, schimmernd mit Energie und scheinbar voll mit unerschöpflichen Reichtümern.",
         "Text2 - Markt",
         "Text3 - Werkstatt",
         "Text4 - Wiederbelebung",
@@ -364,19 +364,19 @@ function M.initText(User)
         "Deep in a tunnel flooded with filthy water an understated altar serves hidden in the shadows, the dark column for the collection of coins reminding of the protection Ronagan brings."}
         
         dialogTextG = {
-        "Text1 - Depot",
-        "Text2 - Markt",
-        "Text3 - Werkstatt",
-        "Text4 - Wiederbelebung",
-        "Text5 - Geldwechsler",
-        "Text6 - Notar",
-        "Text7 - Schatzmeister",
-        "Text8 - Anführer",
-        "Text9 - Wache",
-        "Text10 - Teleporter",
-        "Text11 - Tempel Irmorom",
-        "Text12 - Tempel Nargùn",
-        "Text13 - Tempel Ronagan"}
+        "Es befinden sich mehrere Depots in Galmair. Jedes gibt dir Zugriff auf deine eingelagerten Gegenstände. Greife auf das Depot zu, indem du darauf doppelklickst und Gegenstände in und aus den Slots ziehst. Jedes Reich und der neutrale Gasthof zur Hanfschlinge hat sein eigenes Depotsystem.",
+        "Der Markt beherbergt eine Fülle von Händlern, die von Rohstoffen bis hin zu feinsten Kunsthandwerk alles kaufen und verkaufen. Gegenstände der primären Handwerk können zu einem Zehntel ihres Wertes verkauft werden. Dies wird durch die Goldmünze im Handelsmenü angezeigt. Gegenstände der sekundären Handwerke können zu einem Zwanzigstel ihres Wertes verkauft werden, was durch die Silbermünze im Handelsmenü angezeigt wird.",
+        "Die primären Handwerke Schmieden, Rüstschmieden und Feinschmieden werden durch statische Werkzeuge, Ressourcen, Händler und Gilden in Galmair voll unterstützt. Sekundäres Handwerk wird nur teilweise mit statischen Werkzeugen, begrenzten Ressourcen und schlechteren Handelsmöglichkeiten unterstützt. Die meisten statischen Werkzeuge können in oder um die Werkstätten gefunden werden. Bewege deine Maus über ein Werkzeug, um herauszufinden, für was es verwendet werden kann.",
+        "Solltest du das Pech haben, niedergestreckt zu werden, gibt es eine Chance, dass Cherga, die Göttin der Geister und die Unterwelt, dir den Eintritt in ihr Reich verweigern wird. Es gibt noch so viel für dich in Illarion zu erleben und du wirst am Auferstehungspfeiler deines Reiches wiederbelebt. Du wirst dich schwach fühlen, also gib dir Zeit, dich zu erholen.",
+        "Kupfer-, Silber- und Goldmünzen werden in ganz Illarion verwendet. Einhundert Kupfermünzen können gegen eine Silbermünze getauscht werden und hundert Silbermünzen können durch den Geldwechsler Laura Pepperbags gegen eine Goldmünze getauscht werden.",
+        "Sprich mit dem Notar Frederik Silvereye, wenn du dich Galmair anschließen oder es verlassen willst. Du kannst auch herausfinden, was dein Rang als Bürger Galmairs ist. Du kannst deinen Rang verbessern und in der Gunst des Dons aufsteigen, indem du die von den NPCs in Galmair herausgegebenen Quests abschließt oder Rangpunkte von einem Gamemaster für deinen Beitrag zum Reich empfängst.",
+        "Gemeinsam mit Steuerzahlungen tragen Spenden zum Reichtum deines Reiches bei und bestimmen die Anzahl der magischen Edelsteine, die unter den Bürgern verteilt werden. Gespendet wird durch die Platzierung eines Gegenstandes oder Münzen auf der Spendenplattform. Gegenstände zählen hierbei einen Zehntel ihres Wertes.",
+        "Der Herrscher eines Reiches kann von einem der Gamemaster gespielt werden, um an Veranstaltungen teilzunehmen und mit den Untertanen zu interagieren. Wenn du eine Nachricht für den Don hinterlassen möchtest, kannst du den entsprechenden Gamemaster über den Forenaccount Valerio Guilianni kontaktieren. Bedenke, dass jedes Reich seine eigene Sitten und Bräuche entwickelt hat, also solltest du versuchen, herauszufinden, was von den Bürgern erwartet wird. Oft wird der Herrscher eines Reiches von einigen Spielercharakteren unterstützt, die sich ihren Weg in einflussreiche Positionen erarbeitet haben.",
+        "Bre Southstar ist eine loyale Wache von Don Valerio Guilianni und wird es nur den Respektablen und denen mit genug Gold erlauben, Galmair zu betreten. Hinter den Mauern ist Galmair ein sicherer Zufluchtsort vor den Gefahren, den die Wache gegen Monster verteidigt. Solltest du beim Don oder seinen Handlangern in Misskredit geraten, wirst du möglicherweise aus dem Reich verbannt und Bre wird dich abweisen.",
+        "Ein Teleporter findet sich außerhalb des Eingangs zu jeder Stadt und dem neutralen Gasthof zur Hanfschlinge. Doppelklicke auf das Podium, um es zu benutzen und für fünf Silberstücke in ein anderes Reich zu reisen. Portalbücher können auch für zehn Silberstücke gekauft werden und überall benutzt werden, um dich zu einem bestimmten Teleporter zu transportieren. In Galmair verkauft Pipillo Portalbücher im Stall im nördlichen Torhaus.",
+        "Die Jungen Götter beherrschen das tägliche Leben in Illarion. Text11 - Tempel Irmorom",
+        "Die elf Jungen Götter haben mehr Anhänger als die fünf Alten Götter. Text12 - Tempel Nargùn",
+        "Jedes Reich hat drei Schutzgötter. Text13 - Tempel Ronagan"}
         
         dialogTextE = {
         "You will find several depots around Galmair, each giving you access to your stored possessions. Access the depot by double clicking it and drag items in and out of the slots. Each realm and the neutral Hemp Necktie Inn have their own storage system.",
