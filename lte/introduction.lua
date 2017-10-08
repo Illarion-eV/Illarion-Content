@@ -335,18 +335,18 @@ function M.initText(User)
            
         informTextG = {
         "Eine goldene verzierte Kiste thront in Galmair, schimmernd mit Energie und scheinbar voll mit unerschöpflichen Reichtümern.",
-        "Text2 - Markt",
-        "Text3 - Werkstatt",
-        "Text4 - Wiederbelebung",
-        "Text5 - Geldwechsler",
-        "Text6 - Notar",
-        "Text7 - Schatzmeister",
-        "Text8 - Anführer",
-        "Text9 - Wache",
-        "Text10 - Teleporter",
-        "Text11 - Tempel Irmorom",
-        "Text12 - Tempel Nargùn",
-        "Text13 - Tempel Ronagan"}
+        "Glänzende Klingen, polierte Rüstungen und funkelnde Schmuckstücke füllen die Marktstände der rauen Kaufleuten. Sie feilschen über Preise und ihr erklären ihre Schmiedewaren dem Don würdig zu sein, wenn nicht sogar Irmorom selbst.",
+        "Flammende Öfen spucken Funken und Rauch aus. Die Hitze erwärmt die kühle Bergluft, die in die Werkstatt weht. Ein Crescendo des Hämmerns erklingt von den Ambossen, als Schmiede aller Art ihr Metall schlagen.",
+        "Licht bricht sich, als es auf das kunstvoll geschnitzte Kreuz trifft, und lässt vier goldene Wachen funkeln. Die Luft flimmert und knistert vor Energie.",
+        "Umgeben von Truhen von Münzen, prüft eine scharfsinnig Frau einen Haufen von Münzen auf Fälschungen, bevor sie sie in Beutel packt. Häufig tauscht sie Geld der Bürgern, die daran interessiert sind, wieder zu ihren Geschäften zurückzukehren.",
+        "Ein Mann schaut gewissenhaft auf einige Steueraktenund überprüft Namen. Das spärlich dekorierte Zimmer gibt wenig Hinweis, dass er ein Beamter des Reiches ist, aber das Siegel von Galmair schmückt seine Briefe.",
+        "Eine Frau prüft mit scharfem Blick alles auf der Spendenplattform, um schnell den Wert zu berechnen. Es ist unklar, ob sie ein neugieriger Zuschauer oder ein Beamter des Reiches ist, aber ihre Anwesenheit im Crest scheint geduldet zu sein.",
+        "Ein reich gekleideter Zwerg schnippt eine Goldmünze in die Luft, als du die riesige Giulianni-Residenz in Galmairs Crest betrittst. Zweifellos ist er Don Valerio Guilianni, der reiche und umsichtige Herrscher Galmairs.",
+        "Eine kräftige und schwer gepanzerte Zwergin steht hinter hoch aufragenden Festungsmauern und überprüft all jene, die versuchen, durch das Haupttor Galmairs einzutreten.",
+        "Die Luft knistert mit Energie um ein kunstvoll verziertes Marmorpodium. Ein verwittertesPergament mit einer Liste von Zielen liegt auf dem Podium.",
+        "Am  Berghang führt ein extravaganter Pfad zu einem Altar und zwei prächtigen Ambossen. Sie werden von zwei gepanzerten Statues flankiert, die  reiche Zwergenschmiede darstellen und die Werte Irmoroms repräsentieren.",
+        "Das bizarre Krähen eines Raben ist zuweilen in dem eigentümlichen Tempel, der tief in den Berg gegraben wurde. Die chaotische Beleuchtung und die nicht übereinstimmenden Möbel stehen hier für die Unberechenbarkeit von Nargùn.",
+        "Tief in einem mit schmutzigem Wasser überfluteten Tunnel steht ein dezenter Altar im Schatten. Die dunkle Säule für die Sammlung von Münzen erinnert an den Schutz, den Ronagan bietet."}
         
         informTextE = {
         "A highly embellished golden chest sits prominently in Galmair, shimmering with energy and seemingly harbouring remarkable depths.",
@@ -374,9 +374,9 @@ function M.initText(User)
         "Der Herrscher eines Reiches kann von einem der Gamemaster gespielt werden, um an Veranstaltungen teilzunehmen und mit den Untertanen zu interagieren. Wenn du eine Nachricht für den Don hinterlassen möchtest, kannst du den entsprechenden Gamemaster über den Forenaccount Valerio Guilianni kontaktieren. Bedenke, dass jedes Reich seine eigene Sitten und Bräuche entwickelt hat, also solltest du versuchen, herauszufinden, was von den Bürgern erwartet wird. Oft wird der Herrscher eines Reiches von einigen Spielercharakteren unterstützt, die sich ihren Weg in einflussreiche Positionen erarbeitet haben.",
         "Bre Southstar ist eine loyale Wache von Don Valerio Guilianni und wird es nur den Respektablen und denen mit genug Gold erlauben, Galmair zu betreten. Hinter den Mauern ist Galmair ein sicherer Zufluchtsort vor den Gefahren, den die Wache gegen Monster verteidigt. Solltest du beim Don oder seinen Handlangern in Misskredit geraten, wirst du möglicherweise aus dem Reich verbannt und Bre wird dich abweisen.",
         "Ein Teleporter findet sich außerhalb des Eingangs zu jeder Stadt und dem neutralen Gasthof zur Hanfschlinge. Doppelklicke auf das Podium, um es zu benutzen und für fünf Silberstücke in ein anderes Reich zu reisen. Portalbücher können auch für zehn Silberstücke gekauft werden und überall benutzt werden, um dich zu einem bestimmten Teleporter zu transportieren. In Galmair verkauft Pipillo Portalbücher im Stall im nördlichen Torhaus.",
-        "Die Jungen Götter beherrschen das tägliche Leben in Illarion. Text11 - Tempel Irmorom",
-        "Die elf Jungen Götter haben mehr Anhänger als die fünf Alten Götter. Text12 - Tempel Nargùn",
-        "Jedes Reich hat drei Schutzgötter. Text13 - Tempel Ronagan"}
+        "Die Jungen Götter beherrschen das tägliche Leben in Illarion. Irmorom ist einer der drei Schutzgötter Galmairs. Als der Gott des Handels und der Handwerkskunst werden seine aufrichtigen Absichten von der fleißigen Handwerkern in Galmair hoch geschätzt.",
+        "Die elf Jungen Götter haben mehr Anhänger als die fünf Alten Götter. Nargùn ist einer der drei Schutzgötter Galmairs. Als Gott des Chaos ist sein schneller Witz und seine Gunst geschätzt unter denen, die ihr Glück in Galmair suchen.",
+        "Jedes Reich hat drei Schutzgötter. Ronagan ist einer der drei Schutzgötter Galmairs. Als der Gott der Diebe und Schatten wird seine entschlossene Kühnheit in der Unterschicht Galmairs hoch geschätzt."}
         
         dialogTextE = {
         "You will find several depots around Galmair, each giving you access to your stored possessions. Access the depot by double clicking it and drag items in and out of the slots. Each realm and the neutral Hemp Necktie Inn have their own storage system.",
@@ -391,7 +391,7 @@ function M.initText(User)
         "A teleporter can be found outside the entrance to each town and the neutral Hemp Necktie Inn. Double click on the podium to use it and for five silver you will be able to travel to another realm. Portal books can also be bought for ten silver to use anywhere on the map to transport you to a designated teleporter. In Galmair, Pipillo sells portal books from the stall to the north, just inside the gates.",
         "The Younger Gods dominate daily life in Illarion. Irmorom is one of the three patron deities of Galmair. As the god of trade and craftmanship his righteous intentions are held in high esteem by the industrious of Galmair.",
         "The eleven Younger Gods have more followers than the five Elder Gods. Nargùn is one of the three patron deities of Galmair. As the god of chaos his quick wit and favour are valued amongst those seeking good fortune in Galmair.",
-        "Each realm has three patron deities. Ronagan is one of the three patron deities of Galmair. As the god of theives and shadows his determined audacity is held in high esteem amongst the underclass of Galmair."}
+        "Each realm has three patron deities. Ronagan is one of the three patron deities of Galmair. As the god of thieves and shadows his determined audacity is held in high esteem amongst the underclass of Galmair."}
 
     end
     
