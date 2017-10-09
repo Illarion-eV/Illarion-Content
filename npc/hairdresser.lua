@@ -111,7 +111,7 @@ local cycleText = {
 {"#me prüft die Schärfe ihere Schere. ", "#me checks the edge of her scissors."},
 {"#me schaut ihr Speigelbild lächelnd an.", "#me smiles looking at her reflection."},
 {"#me starrt auf eine Rasierklinge.", "#me stares at her razor."},
-{"#me haucht den Spiegel an und putzt ihn mit dem Ärmel.", "#me breaths on her mirror and cleans it with her sleeve."},
+{"#me haucht den Spiegel an und putzt ihn mit dem Ärmel.", "#me exhales on her mirror, producing some damp which she uses to clean it with her sleeve."},
 {"Haare schneiden fast im Vorbeigehen.", "Hair one moment. Gone the next!"},
 {"Einige Krieger kommen und wollen 'Aim the for the flat-top'. Was immer das sein soll.", "Some Warrior once told me, 'Aim the for the flat-top.' Whatever that means."},
 {"Zeit euch zu rasieren!?", "Time for a shave yes?!"},
@@ -281,7 +281,7 @@ local function shaveSelector(user,npc,firstCall,beardStyleStart,beardStyleEnd)
             return
         elseif selected == 1 then
             npc:talk(Character.say, "Richtig! Bleibt dabei. Dieser Stil passt genau zu Euch.",
-                                    "You are right. Don't change. This style perfectly fits you.")
+                                    "You are right. Don't change. This style fits you perfectly.")
             if not firstCall then
                 user:setBeard(beardStyleStart)
                 payBack(user,priceShave,priceTrim)
@@ -420,7 +420,7 @@ local function hairColoringSelector(user,npc,firstCall,colorStart,colorEnd,color
                 user:setQuestProgress(31,colorTarget)
             end
             npc:talk(Character.say, "Genau, mit dieser Farbe seht ihr am Besten aus.",
-                                    "Exact my opinion. The old colour fits you best.")
+                                    "That's right. The old hair colour fits you best.")
             return
         else
             if firstCall then
@@ -478,7 +478,7 @@ local function hairColoring(user, npc)
         end
         if selected == 0 then
             npc:talk(Character.say, "Wie ihr wünscht. Lassen wir es, wie es ist, die Farbe steht Euch.",
-                                    "As you want. We will change nothing, the colour fits you.")
+                                    "As you wish. We will change nothing, that hair colour fits you.")
             return
         elseif selected == 1 then
             if payForWork(user,npc,priceDyeShort) then
@@ -508,7 +508,7 @@ local function hairColoring(user, npc)
                                                 "\nShort term colour (2 month): " .. englishMoneyShort ..
                                                 "\nLong term colour (7 month): " .. englishMoneyLong), callback)
     dialog:setCloseOnMove()
-    dialog:addOption(0, common.GetNLS(user, "Ich möchte die Haare nicht färben lassen.", "I don't want dyeing my hair."))
+    dialog:addOption(0, common.GetNLS(user, "Ich möchte die Haare nicht färben lassen.", "I don't want to dye my hair."))
     dialog:addOption(0, common.GetNLS(user,"Natürliche Haarfarbe", "Natural hair color"))
     dialog:addOption(0, common.GetNLS(user,"Kurzzeit Haarfarbe", "Short lasting hair colour"))
     dialog:addOption(0, common.GetNLS(user,"Lang haltende Haarfarbe", "Long lasting hair colour"))
@@ -533,7 +533,7 @@ local function haircutSelector(user,npc,firstCall,hairStyleStart,hairStyleEnd)
             return
         elseif selected == 1 then
             npc:talk(Character.say, "#me zuckt mit den Schultern. 'Wie ihr wünscht, lassen wir es wie es war.'",
-                                    "#me shrugs: 'As you want. We let it as it was.'")
+                                    "#me shrugs: 'As you wish, we leave it as it was.'")
             if not firstCall then
                 user:setHair(hairStyleStart)
                 payBack(user,priceCut,priceTrim)
@@ -698,7 +698,7 @@ function M.hairOnLogin(user)
             local targetHair = user:getQuestProgress(32)
             user:setHair(targetHair)
             user:inform("[Friseur] Dein Haar hat wieder seinen natürlichen Stil.",
-                        "[Hairdresser] Your hair style became natural again.")
+                        "[Hairdresser] Over time your hair style has reverted to normal.")
         elseif hairStyleTimeOut - timeRevertWarning <= currentTime then
             dayRemain = math.ceil((hairStyleTimeOut-currentTime)/86400)
             user:inform("[Friseur] In spätestens "..tostring(dayRemain)..(dayRemain == 1 and " Tag" or " Tagen").." wird die Frisur wieder natürlich aussehen.",
@@ -713,7 +713,7 @@ function M.hairOnLogin(user)
             local targetBeard = user:getQuestProgress(33)
             user:setBeard(targetBeard)
             user:inform("[Friseur] Dein Bart wieder seinen natürlichen Stil.",
-                        "[Hairdresser] Your beard style became natural again.")
+                        "[Hairdresser] Over time your beard style has reverted to normal.")
         elseif beardStyleTimeOut - timeRevertWarning <= currentTime then
             dayRemain = math.ceil((beardStyleTimeOut-currentTime)/86400)
             user:inform("[Friseur] In spätestens "..tostring(dayRemain)..(dayRemain == 1 and " Tag" or " Tagen").." wird der Bart wieder natürlich aussehen.",
@@ -731,7 +731,7 @@ function M.hairOnLogin(user)
             r, g, b = colorRgbFromQuest(hairColor)
             user:setHairColour(colour(r, g, b))
             user:inform("[Friseur] Dein Haar hat wieder seine natürliche Farbe.",
-                        "[Hairdresser] Your hair color became natural again.")
+                        "[Hairdresser] Over time your hair color has reverted to normal.")
         elseif hairColorTimeOut - timeWashOutProcess <= currentTime then
             hairColor = user:getQuestProgress(34)
             local r0, g0, b0 = colorRgbFromQuest(hairColor)
@@ -758,20 +758,20 @@ function M.receiveText(npc, ttype, text, user)
 
     
     local answeredText = {}
-    answeredText[1] = {"Grüßt euch!","Hallo wieder etwas gewachsen?","Hallo, lange nicht gesehen!","Be greeted!","Hello my friend!","Hello, I haven't seen you for awhile!"}
+    answeredText[1] = {"Grüßt euch!","Hallo wieder etwas gewachsen?","Hallo, lange nicht gesehen!","Be greeted!","Hello my friend!","Hello, I haven't seen you for a while!"}
     answeredText[2] = {"Auf Wiedersehen!","Man sieht sich!","Pass auf eure Haare auf!","Good Bye!","Goodbye and good luck!","Take care of your hair!"}
     answeredText[3] = {"Danke und euch?","Ich kann nicht klagen aber ihr solltest das.","Mir ging es nie besser.","Thank you, and yourself?","I can't complain, but you should.","Never better than today."}
-    answeredText[4] = {"Die schnellste Scheere Illarions.","Meister der Haarkunst Ezra, und ihr?","Ich bin "..npc.name..".","The fastes scissors in Illarion.","Master of the art of hair, and you?","I am "..npc.name.."."}
-    answeredText[5] = {"Man kann immer besser aussehen. Man muss nur wollen.","Es gibt immer was abzuschneiden, packen wir es an.","Wer will schon bleiben wie er ist?","You can always make yourself looking better, if you want.","There is always something to cut. Let's start.","Do you really want to stay as you are?"}
-    answeredText[6] = {"Wenn ich euch unter meine Fitiche nehme, lächeln die Götter.","Die Götter werden euch immer wiedererkennen, bei allen anderen bin ich mir nicht sicher.","Gleich hinter dem haus findet ihr Adrons Altar.","Be assured as I work with you the Gods will smile.","Gods will recognize you however, I'm not that sure for everybody else.","Right behind the house is an altar of Adron."}
-    answeredText[7] = {"Ich vergebe keine Aufgaben.","Ich hätte eine unentwirrbare Aufgabe, aber die ist fest auf Eurem Kopf.","Nein ich habe für Euch nichts zu tun, außer still sitzen.","I don't have a quest for you.","There is an inextricable mission. But this is located on your head.","No I don't have a quest for you but you could keep still."}
+    answeredText[4] = {"Die schnellste Schere Illarions.","Meister der Haarkunst Ezra, und ihr?","Ich bin "..npc.name..".","The fastest scissors in Illarion.","Master of the art of hair, and you?","I am "..npc.name.."."}
+    answeredText[5] = {"Man kann immer besser aussehen. Man muss nur wollen.","Es gibt immer was abzuschneiden, packen wir es an.","Wer will schon bleiben wie er ist?","You can always make yourself look better, if you want.","There is always something to cut. Let's start.","Do you really want to stay as you are?"}
+    answeredText[6] = {"Wenn ich euch unter meine Fitiche nehme, lächeln die Götter.","Die Götter werden euch immer wiedererkennen, bei allen anderen bin ich mir nicht sicher.","Gleich hinter dem haus findet ihr Adrons Altar.","Be assured, as I work with you the Gods will smile.","Gods will recognize you however, I'm not that sure for everybody else.","Right behind the house is an altar of Adron."}
+    answeredText[7] = {"Ich vergebe keine Aufgaben.","Ich hätte eine unentwirrbare Aufgabe, aber die ist fest auf Eurem Kopf.","Nein ich habe für Euch nichts zu tun, außer still sitzen.","I don't have a quest for you.","There is an inextricable mission. But it is located on your head.","No I don't have a quest for you, but you could keep still."}
     
     if not npc:isInRange(user, 2) then
         return
     end
 
     if string.match(text, "[Hh]elp") then
-        user:inform("[Help] This NPC is a hair dresser. Ask him for changing your hair style, beard style or hair color. Keywords: cut, shave, dye, polish")
+        user:inform("[Help] This NPC is a hair dresser. Ask him to change your hair style, beard style or hair color. Keywords: cut, shave, dye, polish")
         return
     end
     

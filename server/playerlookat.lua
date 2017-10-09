@@ -191,7 +191,7 @@ local function getCharHairdresserState( Char, lang, currentLookingAt)
         if Char:getQuestProgress(229) then
             text = ( lang == 0 and "\nDie Haare sind frisch geschnitten." or "\nThe hair was made short ago." )
         elseif Char:getQuestProgress(230) then
-            text = ( lang == 0 and "\nDer Kamm glänzt wie frisch poliert." or "\nThe comb shines as freshly polished." )
+            text = ( lang == 0 and "\nDer Kamm glänzt wie frisch poliert." or "\nThe comb is freshly polished, making it shine." )
         end
     end
     return text

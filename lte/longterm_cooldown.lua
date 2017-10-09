@@ -605,8 +605,8 @@ function M.callEffect( Effect, Char ) -- Effect is called
     
     --Addition by Banduk: Hairdresser
     -- fresh hair from hairdresser
-    cooldownQuestInform(Char,229,"[Info] Deine Frisur sieht nicht mehr wie neu aus.","[Info] Your haircut doesn't looks like brandnew anymore.")
-    cooldownQuestInform(Char,230,"[Info] Dein Kamm glänzt nicht mehr wie frisch poliert.","[Info] Your comb doesn't shine fresh polished anymore.")
+    cooldownQuestInform(Char,229,"[Info] Deine Frisur sieht nicht mehr wie neu aus.","[Info] Your haircut no longer looks brand new.")
+    cooldownQuestInform(Char,230,"[Info] Dein Kamm glänzt nicht mehr wie frisch poliert.","[Info] The polished shine of your comb wears off.")
     
     
     --Rule compliance detection
