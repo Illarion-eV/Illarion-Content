@@ -15,6 +15,8 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
+--  INSERT INTO npc (npc_type,npc_posx,npc_posy,npc_posz,npc_faceto,npc_is_healer,npc_name, npc_script,npc_sex,npc_hair,npc_beard,npc_hairred,npc_hairgreen,npc_hairblue,npc_skinred,npc_skingreen,npc_skinblue,npc_hairalpha,npc_skinalpha) VALUES(0,715,308,0,4,FALSE,'Erza','npc.hairdresser',1,7,0,238,118,0,245,180,137,255,255);
+
 --[[Quest ID's
 31,Target haircolor
 32,Natural hairstyle
