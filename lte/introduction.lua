@@ -110,7 +110,7 @@ function M.initWaypoint(User)
         position(1002, 813, 0),
         position(865, 814, 0),
         position(836, 813, 0),
-        position(968, 784, 0),
+        position(968, 784, 1),
         position(919, 827, 0),
         position(802, 797, 0)}
         
