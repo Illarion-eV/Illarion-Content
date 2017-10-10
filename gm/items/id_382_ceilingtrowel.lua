@@ -845,14 +845,13 @@ local spawnIntervalsPerSpawn
 local spawnAmount
 local spawnTime
 local spawnEffects
-local sapwnStartStop
+local spawnStart
 local spawnRemove
 local spawnPause
 local spawnReset
 
 function spawnPoint(User, SourceItem)
 
-    local modes = {"Monster", "Intervals per spawn", "Amount of Monsters", "Time", "Effects", "Start Spawnpoint", "Delete Spawnpoint", "Pause Spawnpoint", "Reset Spawntool"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -860,17 +859,17 @@ function spawnPoint(User, SourceItem)
 
         local index = dialog:getSelectedIndex() + 1
         if index == 1 then
-            spawnMonster(User, SourceItem)
+            spawnStart(User, SourceItem)
         elseif index == 2 then
-            spawnIntervalsPerSpawn(User, SourceItem)
+            spawnMonster(User, SourceItem)
         elseif index == 3 then
-            spawnAmount(User, SourceItem)
+            spawnIntervalsPerSpawn(User, SourceItem)
         elseif index == 4 then
-            spawnTime(User, SourceItem)
+            spawnAmount(User, SourceItem)
         elseif index == 5 then
-            spawnEffects(User, SourceItem)
+            spawnTime(User, SourceItem)
         elseif index == 6 then
-            sapwnStartStop(User, SourceItem)
+            spawnEffects(User, SourceItem)
         elseif index == 7 then
             spawnRemove(User, SourceItem)
         elseif index == 8 then
@@ -879,15 +878,25 @@ function spawnPoint(User, SourceItem)
             spawnReset(User, SourceItem)
         end
     end
-    local dialogText = "To which mode do you want to change it?" ..
-                       "\nMonster: " .. tostring(SourceItem:getData("amount")) .. " x ID " .. tostring(SourceItem:getData("monsters")) ..
-                       "\nInterval per spawn (7s): " .. tostring(SourceItem:getData("intervals")) ..
-                       "\nTotal spawns : " .. tostring(SourceItem:getData("endurance")) ..
-                       "\ngfx / sfx : " .. tostring(SourceItem:getData("gfxId")) .. " / "  .. tostring(SourceItem:getData("sfxId"))
+    local dialogText = "To which mode do you want to change it?"
     local sd = SelectionDialog("Set the mode of this Spawnpoint.", dialogText, cbSetMode)
-    for _,m in ipairs(modes) do
-        sd:addOption(0,m)
+    sd:addOption(1,"Start Spawnpoint")
+    sd:addOption(0,"Monster ID's ("..tostring(SourceItem:getData("monsters"))..")")
+    local intervals = tonumber(SourceItem:getData("intervals"))
+    if checkValue(intervals) == false then
+        intervals = 1
     end
+    sd:addOption(0,"Spawn cycle (ca. "..tostring(intervals*7).." s)")
+    sd:addOption(0,"Amount of monsters at the same time ("..tostring(SourceItem:getData("amount"))..")")
+    local endurance = tonumber(SourceItem:getData("endurance"))
+    if checkValue(endurance) == false then
+        endurance = 1
+    end
+    sd:addOption(0,"Endurance of spawn point ("..tostring(math.floor(endurance*7/3.6)/1000).." h)")
+    sd:addOption(0,"Effects (gfx:"..tostring(SourceItem:getData("gfxId")).." sfx;"..tostring(SourceItem:getData("sfxId"))..")")
+    sd:addOption(0,"Delete Spawnpoint")
+    sd:addOption(0,"Pause Spawnpoint")
+    sd:addOption(0,"Reset Spawntool")
     User:requestSelectionDialog(sd)
 end
 
@@ -965,7 +974,7 @@ function spawnIntervalsPerSpawn(User, SourceItem)
             world:changeItem(SourceItem)
         end
     end
-    User:requestInputDialog(InputDialog("Set number of intervals.", "Usage: Set number of (roughly) 7 second intervals per spawn." ,false, 255, cbInputDialog))
+    User:requestInputDialog(InputDialog("Set spawn cycles.", "Usage: Time in between 2 monster spawns.\nSet number of (roughly) 7 second intervals." ,false, 255, cbInputDialog))
 end
 
 function spawnAmount(User, SourceItem)
@@ -997,7 +1006,7 @@ function spawnTime(User, SourceItem)
             world:changeItem(SourceItem)
         end
     end
-    User:requestInputDialog(InputDialog("Set how long the spawn shall take place.", "Usage: Set the amount of total intervals." ,false, 255, cbInputDialog))
+    User:requestInputDialog(InputDialog("Set how long the spawn shall take place.", "Usage: Set the amount of total intervals (ca. 7s)." ,false, 255, cbInputDialog))
 end
 
 function spawnEffects(User, SourceItem)
@@ -1035,7 +1044,7 @@ local function checkData(SourceItem,data)
     end
 end
 
-function sapwnStartStop(User, SourceItem)
+function spawnStart(User, SourceItem)
 
     local spawnPos = common.GetFrontPosition(User)
 
@@ -1109,7 +1118,6 @@ function M.UseItemWithField(User, SourceItem, TargetPos)
 end
 
 function spawnGM()
-
     local mon;
     if gmSpawnpointSettings[1] == nil then
         return
@@ -1129,7 +1137,7 @@ function spawnGM()
             table.remove(gmSpawnpointSettings, i)
             table.remove(gmMonsters, i)
             removed = true
-       end
+        end
         --sets/checks 8 array pos as counter
         if checkValue(pause) == false and removed == false then
         if gmSpawnpointSettings[i][8] == nil then
@@ -1190,10 +1198,10 @@ function updateMonsters(array,number,basePosition)
     if #array[number] > 1 then
         for i = #array[number], 2, -1 do
             local mon = array[number][i]
-    mon:inform(">>>spawn alive")
             if not isValidChar(mon) then
                 table.remove(array[number], i)
             elseif not mon:isInRangeToPosition(basePosition,SPAWN_MONSTER_RUN_AWAY) then
+    mon:inform(">>>spawn alive")
                 local playerInSight = world:getPlayersInRangeOf(mon.pos,SPAWN_PLAYER_OUT_OF_SIGHT)
                 if #playerInSight == 0 then
                     local targetPos = common.getFreePos(basePosition, 5)
