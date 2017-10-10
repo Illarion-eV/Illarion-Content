@@ -98,10 +98,10 @@ function M.checkLevel(user, item)
         common.HighInformNLS(user, "Deine Fertigkeiten '"..skillString.."' und '"..parryString.."' reichen nicht aus, um das volle Potential dieses Gegenstandes zu nutzen.", "Your skills '"..skillString.."' and '"..parryString.."' are not high enough to exploit the full potential of this item.")
         return true
     elseif not parryOK then
-        common.HighInformNLS(user, "Deine Fertigkeit '"..parryString.."' reicht nicht aus, um das volle deffensive Potential dieses Gegenstandes zu nutzen.", "Your skill '"..parryString.."' is not high enough to exploit the full defence potential of this item.")
+        common.HighInformNLS(user, "Deine Fertigkeit '"..parryString.."' reicht nicht aus, um das volle defensive Potential dieses Gegenstandes zu nutzen.", "Your skill '"..parryString.."' is not high enough to exploit the full defence potential of this item.")
         return true
     elseif not skillOK then
-        common.HighInformNLS(user, "Deine Fertigkeit '"..skillString.."' reicht nicht aus, um das volle Potential dieses Gegenstandes zu nutzen.", "Your skill '"..skillString.."' is not high enough to exploit the full potential of this item.")
+        common.HighInformNLS(user, "Deine Fertigkeit '"..skillString.."' reicht nicht aus, um das volle offensive Potential dieses Gegenstandes zu nutzen.", "Your skill '"..skillString.."' is not high enough to exploit the full attack potential of this item.")
         return true
     else
         return true
