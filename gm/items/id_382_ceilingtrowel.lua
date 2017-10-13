@@ -24,6 +24,7 @@ local specialeggs = require("content.specialeggs")
 local scheduledFunction = require("scheduled.scheduledFunction")
 local mysticalcracker = require ("item.id_3894_mystical_cracker")
 local spawntreasures = require ("scheduled.spawn_treasure")
+--local shard = require("item.shard")
 
 
 local M = {}
@@ -33,14 +34,9 @@ local changeItem
 local weather
 local factionHandling
 local spawnPoint
-local specialEggs
 local spawnGM
-local checkValue
 local updateMonsters
-local mysticalCracker
-local specialItemCreation
 local changeItemSelection
-local specialItemCreationCreate
 
 local SPAWNDATAS = {}
 local gmSpawnpointSettings = {}
@@ -72,42 +68,21 @@ SpecialItem[14] = {"Pure Spirit",false,3607,0,"Pure Elements"}
 SpecialItem[15] = {"Silver Coins",false,3077,0,"Money"}
 SpecialItem[16] = {"Gold Coins",false,61,0,"Money"}
 SpecialItem[17] = {"Poison Coins",false,3078,0,"Money"}
-
-function M.UseItem(User, SourceItem)
-
-    -- First check for mode change
-    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation"}
-    local cbSetMode = function (dialog)
-        if (not dialog:getSuccess()) then
-            return
-        end
-
-        local index = dialog:getSelectedIndex() + 1
-        if  index == 1 then
-            chooseItem(User)
-        elseif index == 2 then
-            weather(User, SourceItem)
-        elseif index == 3 then
-            factionHandling(User, SourceItem)
-        elseif index == 4 then
-            spawnPoint(User, SourceItem)
-        elseif index == 5 then
-            specialItemCreation(User)
-        end
-    end
-    local sd = SelectionDialog("Set mode of this ceiling trowel", "To which mode you want to change?", cbSetMode)
-    for _, m in ipairs(modes) do
-        sd:addOption(0, m)
-    end
-    User:requestSelectionDialog(sd)
-end
-
+SpecialItem[18] = {"Glyph Shards",true,3493,0,""}
 
 local itemPos = {{en="Head", de="Kopf"},{en="Neck", de="Hals"},{en="Breast", de="Brust"},{en="Both Hands", de="Beide Hände"},{en="Left Hand", de="Linke Hand"}, {en="Right Hand", de="Rechte Hand"},
     {en="Left Finger", de="Linker Finger"},{en="Right Finger", de="Rechter Finger"} ,{en="Legs", de="Beine"}, {en="Feet", de="Füße"}, {en="Coat", de="Umhang"},{en="Belt 1", de="Gürtel 1"},
     {en="Belt 2", de="Gürtel 2"},{en="Belt 3", de="Gürtel 3"},{en="Belt 4", de="Gürtel 4"},{en="Belt 5", de="Gürtel 5"},{en="Belt 6", de="Gürtel 6"}}
 itemPos[0] = {en="Backpack", de="Rucksack" }
 local itemOrder = {5,6,12,13,14,15,16,17,1,11,3,4,9,10,2,7,8}
+
+local function checkValue(input)
+    if input == 0 then
+        return false
+    else
+        return true
+    end
+end
 
 function chooseItem(User)
 
@@ -870,14 +845,13 @@ local spawnIntervalsPerSpawn
 local spawnAmount
 local spawnTime
 local spawnEffects
-local sapwnStartStop
+local spawnStart
 local spawnRemove
 local spawnPause
 local spawnReset
 
 function spawnPoint(User, SourceItem)
 
-    local modes = {"Monster", "Intervals per spawn", "Amount of Monsters", "Time", "Effects", "Start Spawnpoint", "Delete Spawnpoint", "Pause Spawnpoint", "Reset Spawntool"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -885,17 +859,17 @@ function spawnPoint(User, SourceItem)
 
         local index = dialog:getSelectedIndex() + 1
         if index == 1 then
-            spawnMonster(User, SourceItem)
+            spawnStart(User, SourceItem)
         elseif index == 2 then
-            spawnIntervalsPerSpawn(User, SourceItem)
+            spawnMonster(User, SourceItem)
         elseif index == 3 then
-            spawnAmount(User, SourceItem)
+            spawnIntervalsPerSpawn(User, SourceItem)
         elseif index == 4 then
-            spawnTime(User, SourceItem)
+            spawnAmount(User, SourceItem)
         elseif index == 5 then
-            spawnEffects(User, SourceItem)
+            spawnTime(User, SourceItem)
         elseif index == 6 then
-            sapwnStartStop(User, SourceItem)
+            spawnEffects(User, SourceItem)
         elseif index == 7 then
             spawnRemove(User, SourceItem)
         elseif index == 8 then
@@ -904,15 +878,25 @@ function spawnPoint(User, SourceItem)
             spawnReset(User, SourceItem)
         end
     end
-    local dialogText = "To which mode do you want to change it?" ..
-                       "\nMonster: " .. tostring(SourceItem:getData("amount")) .. " x ID " .. tostring(SourceItem:getData("monsters")) ..
-                       "\nInterval per spawn (7s): " .. tostring(SourceItem:getData("intervals")) ..
-                       "\nTotal spawns : " .. tostring(SourceItem:getData("endurance")) ..
-                       "\ngfx / sfx : " .. tostring(SourceItem:getData("gfxId")) .. " / "  .. tostring(SourceItem:getData("sfxId"))
+    local dialogText = "To which mode do you want to change it?"
     local sd = SelectionDialog("Set the mode of this Spawnpoint.", dialogText, cbSetMode)
-    for _,m in ipairs(modes) do
-        sd:addOption(0,m)
+    sd:addOption(1,"Start Spawnpoint")
+    sd:addOption(0,"Monster ID's ("..tostring(SourceItem:getData("monsters"))..")")
+    local intervals = tonumber(SourceItem:getData("intervals"))
+    if checkValue(intervals) == false then
+        intervals = 1
     end
+    sd:addOption(0,"Spawn cycle (ca. "..tostring(intervals*7).." s)")
+    sd:addOption(0,"Amount of monsters at the same time ("..tostring(SourceItem:getData("amount"))..")")
+    local endurance = tonumber(SourceItem:getData("endurance"))
+    if checkValue(endurance) == false then
+        endurance = 1
+    end
+    sd:addOption(0,"Endurance of spawn point ("..tostring(math.floor(endurance*7/3.6)/1000).." h)")
+    sd:addOption(0,"Effects (gfx:"..tostring(SourceItem:getData("gfxId")).." sfx;"..tostring(SourceItem:getData("sfxId"))..")")
+    sd:addOption(0,"Delete Spawnpoint")
+    sd:addOption(0,"Pause Spawnpoint")
+    sd:addOption(0,"Reset Spawntool")
     User:requestSelectionDialog(sd)
 end
 
@@ -990,7 +974,7 @@ function spawnIntervalsPerSpawn(User, SourceItem)
             world:changeItem(SourceItem)
         end
     end
-    User:requestInputDialog(InputDialog("Set number of intervals.", "Usage: Set number of (roughly) 7 second intervals per spawn." ,false, 255, cbInputDialog))
+    User:requestInputDialog(InputDialog("Set spawn cycles.", "Usage: Time in between 2 monster spawns.\nSet number of (roughly) 7 second intervals." ,false, 255, cbInputDialog))
 end
 
 function spawnAmount(User, SourceItem)
@@ -1022,7 +1006,7 @@ function spawnTime(User, SourceItem)
             world:changeItem(SourceItem)
         end
     end
-    User:requestInputDialog(InputDialog("Set how long the spawn shall take place.", "Usage: Set the amount of total intervals." ,false, 255, cbInputDialog))
+    User:requestInputDialog(InputDialog("Set how long the spawn shall take place.", "Usage: Set the amount of total intervals (ca. 7s)." ,false, 255, cbInputDialog))
 end
 
 function spawnEffects(User, SourceItem)
@@ -1060,7 +1044,7 @@ local function checkData(SourceItem,data)
     end
 end
 
-function sapwnStartStop(User, SourceItem)
+function spawnStart(User, SourceItem)
 
     local spawnPos = common.GetFrontPosition(User)
 
@@ -1133,149 +1117,7 @@ function M.UseItemWithField(User, SourceItem, TargetPos)
     User:inform("This field has the ID: "..Field:tile())
 end
 
-function specialEggs(User)
-
-    local cbInputDialog = function (dialog)
-        if not dialog:getSuccess() then
-            return
-        end
-        local input = dialog:getInput()
-        if (string.find(input,"(%d+)") ~= nil) then
-            local a, b, amount = string.find(input,"(%d+)")
-            specialeggs.createSpecialEgg(User, tonumber(amount))
-        end
-    end
-    User:requestInputDialog(InputDialog("Egg creation", "How many special eggs to you want to create? (Notice: Eggs will have a normal wear of 3. Increase manually if needed." ,false, 255, cbInputDialog))
-
-end
-
-function mysticalCracker(User)
-
-    local cbInputDialog = function (dialog)
-        if not dialog:getSuccess() then
-            return
-        end
-        local input = dialog:getInput()
-        if (string.find(input,"(%d+)") ~= nil) then
-            local a, b, amount = string.find(input,"(%d+)")
-            mysticalcracker.createMysticalCracker(User, tonumber(amount))
-        end
-    end
-    User:requestInputDialog(InputDialog("Cracker Creation", "How many mystical crackers to you want to create? (Notice: Crackers will have a normal wear of 10. Increase manually if needed." ,false, 255, cbInputDialog))
-
-end
-
-local function treasureChest(User)
-    local position
-    local cbInputDialog = function (dialog)
-        if not dialog:getSuccess() then
-            return
-        end
-        local input = dialog:getInput()
-        if (string.find(input,"(%d) (%d)") ~= nil) then
-            local a, b, level, persons = string.find(input,"(%d) (%d)")
-            if level == nil or tonumber(level) < 0 or tonumber(level) > 9 then
-                User:inform("The level of the treasure chest must be a value from 0(no treasure via 1(farmer) to 9(nabranoo).")
-                return
-            end
-            if persons == nil or tonumber(persons) < 1 or tonumber(persons) > 8 then
-                User:inform("The number of persons needed to open the treasure chest must be a value from 1 to 8.")
-                return
-            end
-            position = common.GetFrontPosition(User)
-            if world:isItemOnField(position) == true then
-                User:inform("The place for the chest is not free.")
-                return
-            end
-            spawntreasures.spawnTreasureChest(position, level, persons)
-        end
-    end
-    User:requestInputDialog(InputDialog("Treasure Chest Creation", "Please enter level and amount of people needed\nFormat: '[1-9] [1-8]'" ,false, 255, cbInputDialog))
-
-end
-
-function specialItemCreation(User)
-    local validItems = {}
-    local validItemsSub = {}
-
-    local cbChooseItem = function (dialog)
-        if (not dialog:getSuccess()) then
-            return
-        end
-        local indexItem = dialog:getSelectedIndex() + 1
-        if validItems[indexItem][2] == 0 then
-            specialItemCreationCreate(User,validItems[indexItem][1])
-        else
-        --
-            local cbChooseSubItem = function (dialog)
-                if (not dialog:getSuccess()) then
-                    return
-                end
-                local indexItemSub = dialog:getSelectedIndex() + 1
-                specialItemCreationCreate(User,validItemsSub[indexItemSub][1])
-            end
-            local sdItemListSub = SelectionDialog("Special Items.", "Choose an item:", cbChooseSubItem)
-            local optionSubId = 1
-            for i = 1, #(SpecialItem) do
-                if SpecialItem[i][5] ==  SpecialItemSubMenu[validItems[indexItem][2]]then
-                    sdItemListSub:addOption(SpecialItem[i][3], SpecialItem[i][1])
-                    validItemsSub[optionSubId] = {i,0}
-                    optionSubId = optionSubId+1
-                end
-            end
-            User:requestSelectionDialog(sdItemListSub)
-        --
-        end
-    end
-    local sdItemList = SelectionDialog("Special Items.", "Choose an item:", cbChooseItem)
-    local optionId = 1
-    for i = 1, #(SpecialItem) do
-        if common.IsNilOrEmpty(SpecialItem[i][5]) then
-            sdItemList:addOption(SpecialItem[i][3], SpecialItem[i][1])
-            validItems[optionId] = {i,0}
-            optionId = optionId+1
-        end
-    end
-    for i = 1, #(SpecialItemSubMenu) do
-        sdItemList:addOption(0, "Group: "..SpecialItemSubMenu[i])
-        validItems[optionId] = {0,i}
-        optionId = optionId+1
-    end
-    User:requestSelectionDialog(sdItemList)
-end
-
-function specialItemCreationCreate(User,indexItem)
-    if SpecialItem[indexItem][2] then
-        if indexItem == 1 then
-            mysticalCracker(User)
-        elseif indexItem == 2 then
-            specialEggs(User)
-        elseif indexItem == 3 then
-            treasureChest(User)
-        else
-            return
-        end
-    else
-        local cbInputDialog = function (dialog)
-            if not dialog:getSuccess() then
-                return
-            end
-            local input = dialog:getInput()
-            if (string.find(input,"(%d+)") ~= nil) then
-                local a, b, amount = string.find(input,"(%d+)")
-                if SpecialItem[indexItem][4] == MagicGem then
-                    common.CreateItem(User, SpecialItem[indexItem][3], tonumber(amount), 333,{gemLevel=1})
-                else
-                    common.CreateItem(User, SpecialItem[indexItem][3], tonumber(amount), 333,nil)
-                end
-            end
-        end
-        User:requestInputDialog(InputDialog("Item Creation", "How many "..SpecialItem[indexItem][1].." do you want to create?" ,false, 255, cbInputDialog))
-    end
-end
-
 function spawnGM()
-
     local mon;
     if gmSpawnpointSettings[1] == nil then
         return
@@ -1295,7 +1137,7 @@ function spawnGM()
             table.remove(gmSpawnpointSettings, i)
             table.remove(gmMonsters, i)
             removed = true
-       end
+        end
         --sets/checks 8 array pos as counter
         if checkValue(pause) == false and removed == false then
         if gmSpawnpointSettings[i][8] == nil then
@@ -1356,10 +1198,10 @@ function updateMonsters(array,number,basePosition)
     if #array[number] > 1 then
         for i = #array[number], 2, -1 do
             local mon = array[number][i]
-
             if not isValidChar(mon) then
                 table.remove(array[number], i)
             elseif not mon:isInRangeToPosition(basePosition,SPAWN_MONSTER_RUN_AWAY) then
+    mon:inform(">>>spawn alive")
                 local playerInSight = world:getPlayersInRangeOf(mon.pos,SPAWN_PLAYER_OUT_OF_SIGHT)
                 if #playerInSight == 0 then
                     local targetPos = common.getFreePos(basePosition, 5)
@@ -1368,6 +1210,177 @@ function updateMonsters(array,number,basePosition)
             end
         end
     end
+end
+function specialItemCreationSpecialEggs(User)
+
+    local cbInputDialog = function (dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local input = dialog:getInput()
+        if (string.find(input,"(%d+)") ~= nil) then
+            local a, b, amount = string.find(input,"(%d+)")
+            specialeggs.createSpecialEgg(User, tonumber(amount))
+        end
+    end
+    User:requestInputDialog(InputDialog("Egg creation", "How many special eggs to you want to create? (Notice: Eggs will have a normal wear of 3. Increase manually if needed." ,false, 255, cbInputDialog))
+
+end
+
+function specialItemCreationMysticalCracker(User)
+
+    local cbInputDialog = function (dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local input = dialog:getInput()
+        if (string.find(input,"(%d+)") ~= nil) then
+            local a, b, amount = string.find(input,"(%d+)")
+            mysticalcracker.createMysticalCracker(User, tonumber(amount))
+        end
+    end
+    User:requestInputDialog(InputDialog("Cracker Creation", "How many mystical crackers to you want to create? (Notice: Crackers will have a normal wear of 10. Increase manually if needed." ,false, 255, cbInputDialog))
+
+end
+
+local function specialItemCreationTreasureChest(User)
+    local position
+    local cbInputDialog = function (dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local input = dialog:getInput()
+        if (string.find(input,"(%d) (%d)") ~= nil) then
+            local a, b, level, persons = string.find(input,"(%d) (%d)")
+            if level == nil or tonumber(level) < 0 or tonumber(level) > 9 then
+                User:inform("The level of the treasure chest must be a value from 0(no treasure via 1(farmer) to 9(nabranoo).")
+                return
+            end
+            if persons == nil or tonumber(persons) < 1 or tonumber(persons) > 8 then
+                User:inform("The number of persons needed to open the treasure chest must be a value from 1 to 8.")
+                return
+            end
+            position = common.GetFrontPosition(User)
+            if world:isItemOnField(position) == true then
+                User:inform("The place for the chest is not free.")
+                return
+            end
+            spawntreasures.spawnTreasureChest(position, level, persons)
+        end
+    end
+    User:requestInputDialog(InputDialog("Treasure Chest Creation", "Please enter level and amount of people needed\nFormat: '[1-9] [1-8]'" ,false, 255, cbInputDialog))
+
+end
+
+--[[local function specialItemCreationGlyphShard(User)
+    local position
+    local cbInputDialog = function (dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local input = dialog:getInput()
+        if (string.find(input,"(%d+)") ~= nil) then
+            if (string.find(input,"[1-7][1-7]") ~= nil) then
+                local a, b, level = string.find(input,"(%d+)")
+                shard.createShardWithLevelOnUser(User, level)
+            else
+                local a, b, amount = string.find(input,"(%d+)")
+                for i=1, tonumber(amount) do
+                    shard.createShardOnUser(User)
+                end
+            end
+        else
+            shard.createShardOnUser(User)
+        end
+    end
+    User:requestInputDialog(InputDialog("Glyph Shard Creation",
+                                        "Please enter which shard you want to create" .. 
+                                        "\n- Nothing: A single random shard." ..
+                                        "\n- [1-7][1-7]: A singe defined shard." ..
+                                        "\n- Other numbers: Number of random shards.",false, 255, cbInputDialog))
+
+end]]--
+
+local function specialItemCreationCreate(User,indexItem)
+    if SpecialItem[indexItem][2] then
+        if indexItem == 1 then
+            specialItemCreationMysticalCracker(User)
+        elseif indexItem == 2 then
+            specialItemCreationSpecialEggs(User)
+        elseif indexItem == 3 then
+            specialItemCreationTreasureChest(User)
+        elseif indexItem == 18 then
+--            specialItemCreationGlyphShard(User)
+        else
+            return
+        end
+    else
+        local cbInputDialog = function (dialog)
+            if not dialog:getSuccess() then
+                return
+            end
+            local input = dialog:getInput()
+            if (string.find(input,"(%d+)") ~= nil) then
+                local a, b, amount = string.find(input,"(%d+)")
+                if SpecialItem[indexItem][4] == MagicGem then
+                    common.CreateItem(User, SpecialItem[indexItem][3], tonumber(amount), 333,{gemLevel=1})
+                else
+                    common.CreateItem(User, SpecialItem[indexItem][3], tonumber(amount), 333,nil)
+                end
+            end
+        end
+        User:requestInputDialog(InputDialog("Item Creation", "How many "..SpecialItem[indexItem][1].." do you want to create?" ,false, 255, cbInputDialog))
+    end
+end
+
+local function specialItemCreation(User)
+    local validItems = {}
+    local validItemsSub = {}
+
+    local cbChooseItem = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local indexItem = dialog:getSelectedIndex() + 1
+        if validItems[indexItem][2] == 0 then
+            specialItemCreationCreate(User,validItems[indexItem][1])
+        else
+        --
+            local cbChooseSubItem = function (dialog)
+                if (not dialog:getSuccess()) then
+                    return
+                end
+                local indexItemSub = dialog:getSelectedIndex() + 1
+                specialItemCreationCreate(User,validItemsSub[indexItemSub][1])
+            end
+            local sdItemListSub = SelectionDialog("Special Items.", "Choose an item:", cbChooseSubItem)
+            local optionSubId = 1
+            for i = 1, #(SpecialItem) do
+                if SpecialItem[i][5] ==  SpecialItemSubMenu[validItems[indexItem][2]]then
+                    sdItemListSub:addOption(SpecialItem[i][3], SpecialItem[i][1])
+                    validItemsSub[optionSubId] = {i,0}
+                    optionSubId = optionSubId+1
+                end
+            end
+            User:requestSelectionDialog(sdItemListSub)
+        --
+        end
+    end
+    local sdItemList = SelectionDialog("Special Items.", "Choose an item:", cbChooseItem)
+    local optionId = 1
+    for i = 1, #(SpecialItem) do
+        if common.IsNilOrEmpty(SpecialItem[i][5]) then
+            sdItemList:addOption(SpecialItem[i][3], SpecialItem[i][1])
+            validItems[optionId] = {i,0}
+            optionId = optionId+1
+        end
+    end
+    for i = 1, #(SpecialItemSubMenu) do
+        sdItemList:addOption(0, "Group: "..SpecialItemSubMenu[i])
+        validItems[optionId] = {0,i}
+        optionId = optionId+1
+    end
+    User:requestSelectionDialog(sdItemList)
 end
 
 function M.saveRemovePosition(thePos)
@@ -1383,6 +1396,34 @@ function M.saveRemovePosition(thePos)
             table.remove(gmMonsters, i)
         end
     end
+end
+
+function M.UseItem(User, SourceItem)
+    -- First check for mode change
+    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation"}
+    local cbSetMode = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+
+        local index = dialog:getSelectedIndex() + 1
+        if  index == 1 then
+            chooseItem(User)
+        elseif index == 2 then
+            weather(User, SourceItem)
+        elseif index == 3 then
+            factionHandling(User, SourceItem)
+        elseif index == 4 then
+            spawnPoint(User, SourceItem)
+        elseif index == 5 then
+            specialItemCreation(User)
+        end
+    end
+    local sd = SelectionDialog("Set mode of this ceiling trowel", "To which mode you want to change?", cbSetMode)
+    for _, m in ipairs(modes) do
+        sd:addOption(0, m)
+    end
+    User:requestSelectionDialog(sd)
 end
 
 return M
