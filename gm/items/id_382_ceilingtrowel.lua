@@ -24,7 +24,8 @@ local specialeggs = require("content.specialeggs")
 local scheduledFunction = require("scheduled.scheduledFunction")
 local mysticalcracker = require ("item.id_3894_mystical_cracker")
 local spawntreasures = require ("scheduled.spawn_treasure")
---local shard = require("item.shard")
+--Banduklocal shard = require("item.shard")
+--Banduklocal glyphs = require("base.glyphs")
 
 
 local M = {}
@@ -178,7 +179,7 @@ local function changeItemQuality(User, TargetItem)
         end
         changeItemSelection(User, TargetItem)
     end
-    User:requestInputDialog(InputDialog("Set the quality of items", "Enter target quality for: "..world:getItemName(TargetItem.id, Player.english).." \n 101-999; [1-9][01-99] Quality / Durability" ,false, 255, cbInputDialog))
+    User:requestInputDialog(InputDialog("Set the quality of items", "Enter target quality for: "..world:getItemName(TargetItem.id, Player.english).." \n 101-999; [1-9][01-99] Quality / Durability\nCurrent value: "..tostring(TargetItem.quality) ,false, 255, cbInputDialog))
 end
 
 local function changeItemWear(User, TargetItem)
@@ -203,7 +204,7 @@ local function changeItemWear(User, TargetItem)
         end
         changeItemSelection(User, TargetItem)
     end
-    User:requestInputDialog(InputDialog("Set the wear of items", "How long "..world:getItemName(TargetItem.id, Player.english).." should need to rot?\n about x * 3 min" ,false, 255, cbInputDialog))
+    User:requestInputDialog(InputDialog("Set the wear of items", "How long "..world:getItemName(TargetItem.id, Player.english).." should need to rot?\n about x * 3 min\nCurrent value: "..tostring(TargetItem.wear) ,false, 255, cbInputDialog))
 end
 
 local function changeItemData(User, TargetItem)
@@ -329,6 +330,29 @@ local function changeItemDescription(User, TargetItem)
     User:requestInputDialog(InputDialog("Set description of items", "English description for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, cbInputDialogEn))
 end
 
+local function changeItemGlyph(User, TargetItem)
+
+    if (TargetItem == nil or TargetItem.id == 0) then
+        return
+    end
+
+    local cbInputDialog = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local input = dialog:getInput()
+        if (string.find(input,"(%d+)")~=nil) then
+            local a,b,newcharges = string.find(input,"(%d+)")
+--Banduk            glyphs.setRemainingGlyphs(TargetItem,newcharges)
+            User:inform("Item "..world:getItemName(TargetItem.id, Player.english).." got "..tostring(newcharges).." glyph charges")
+        else
+            User:inform("Sorry, I didn't understand you.")
+        end
+        changeItemSelection(User, TargetItem)
+    end
+    User:requestInputDialog(InputDialog("Set the glyph charges of items", "How many charges "..world:getItemName(TargetItem.id, Player.english).." should get?" ,false, 255, cbInputDialog))
+end
+
 function changeItemSelection(User, TargetItem)
     local changeItemFunctions = {}
     changeItemFunctions[1] = {"Set Number"}
@@ -337,6 +361,7 @@ function changeItemSelection(User, TargetItem)
     changeItemFunctions[4] = {"Set Description"}
     changeItemFunctions[5] = {"Set Wear"}
     changeItemFunctions[6] = {"Set Data"}
+    changeItemFunctions[7] = {"Set Glyph charges"}
     
     local cbChangeItem = function (dialog)
         if (not dialog:getSuccess()) then
@@ -355,6 +380,8 @@ function changeItemSelection(User, TargetItem)
             changeItemWear(User, TargetItem)
         elseif index == 6 then
             changeItemData(User, TargetItem)
+        elseif index == 7 then
+            changeItemGlyph(User, TargetItem)
         end
     end
     local sd = SelectionDialog(world:getItemName(TargetItem.id, Player.english), "Choose the porperty you want to change.", cbChangeItem)
@@ -1201,7 +1228,6 @@ function updateMonsters(array,number,basePosition)
             if not isValidChar(mon) then
                 table.remove(array[number], i)
             elseif not mon:isInRangeToPosition(basePosition,SPAWN_MONSTER_RUN_AWAY) then
-    mon:inform(">>>spawn alive")
                 local playerInSight = world:getPlayersInRangeOf(mon.pos,SPAWN_PLAYER_OUT_OF_SIGHT)
                 if #playerInSight == 0 then
                     local targetPos = common.getFreePos(basePosition, 5)
@@ -1272,7 +1298,7 @@ local function specialItemCreationTreasureChest(User)
 
 end
 
---[[local function specialItemCreationGlyphShard(User)
+local function specialItemCreationGlyphShard(User)
     local position
     local cbInputDialog = function (dialog)
         if not dialog:getSuccess() then
@@ -1282,15 +1308,15 @@ end
         if (string.find(input,"(%d+)") ~= nil) then
             if (string.find(input,"[1-7][1-7]") ~= nil) then
                 local a, b, level = string.find(input,"(%d+)")
-                shard.createShardWithLevelOnUser(User, level)
+--Banduk                shard.createShardWithLevelOnUser(User, level)
             else
                 local a, b, amount = string.find(input,"(%d+)")
                 for i=1, tonumber(amount) do
-                    shard.createShardOnUser(User)
+--Banduk                    shard.createShardOnUser(User)
                 end
             end
         else
-            shard.createShardOnUser(User)
+--Banduk            shard.createShardOnUser(User)
         end
     end
     User:requestInputDialog(InputDialog("Glyph Shard Creation",
@@ -1299,7 +1325,7 @@ end
                                         "\n- [1-7][1-7]: A singe defined shard." ..
                                         "\n- Other numbers: Number of random shards.",false, 255, cbInputDialog))
 
-end]]--
+end
 
 local function specialItemCreationCreate(User,indexItem)
     if SpecialItem[indexItem][2] then
@@ -1310,7 +1336,7 @@ local function specialItemCreationCreate(User,indexItem)
         elseif indexItem == 3 then
             specialItemCreationTreasureChest(User)
         elseif indexItem == 18 then
---            specialItemCreationGlyphShard(User)
+            specialItemCreationGlyphShard(User)
         else
             return
         end
@@ -1383,6 +1409,36 @@ local function specialItemCreation(User)
     User:requestSelectionDialog(sdItemList)
 end
 
+local function readScriptVars(user)
+    local cbInputDialog = function (dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local input = dialog:getInput()
+        if string.find(input,"([%w]+) ([%w]+)") ~= nil then
+            local a, b, varName, varValue = string.find(input,"([%w]+) ([%w]+)")
+            local foundVar, currentVar = ScriptVars:find(varName)
+            if not foundVar then
+                user:inform("The script variable '"..varName.."' does not exists.")
+            else
+                ScriptVars:set(varName, varValue)
+                user:inform("Script variable: '"..varName.."' changed from "..tostring(currentVar).." to "..tostring(varValue))
+                user:logAdmin("Script variable: '"..varName.."' changed from "..tostring(currentVar).." to "..tostring(varValue))
+            end
+        elseif string.find(input,"([%w]+)") ~= nil then
+            local a, b, varName = string.find(input,"([%w]+)")
+            local foundVar, currentVar = ScriptVars:find(varName)
+            if not foundVar then
+                user:inform("The script variable '"..varName.."' does not exists.")
+            else
+                user:inform("Script variable: '"..varName.."' = "..tostring(currentVar))
+            end
+        end
+    end
+    user:requestInputDialog(InputDialog("Global Script Variables", "Please enter the name and value of the vaiable."..
+                                                                   "\nWithout value you get the value",false, 255, cbInputDialog))
+end
+
 function M.saveRemovePosition(thePos)
     if gmSpawnpointSettings[1] == nil then
         return
@@ -1400,7 +1456,7 @@ end
 
 function M.UseItem(User, SourceItem)
     -- First check for mode change
-    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation"}
+    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation", "Script Variables"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -1417,6 +1473,8 @@ function M.UseItem(User, SourceItem)
             spawnPoint(User, SourceItem)
         elseif index == 5 then
             specialItemCreation(User)
+        elseif index == 6 then
+            readScriptVars(User)
         end
     end
     local sd = SelectionDialog("Set mode of this ceiling trowel", "To which mode you want to change?", cbSetMode)
