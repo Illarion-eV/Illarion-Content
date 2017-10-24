@@ -35,7 +35,7 @@ function M.callEffect(Effect,User)
     if find then
         common.InformNLS( User, "Deine Augen fühlen sich wieder normal an.", "Your eyes feel normal again.")
     else
-        common.InformNLS( User, "Du fühlst, dass der Stärkungstrank seine Wirkung verliert.", "You feel that the strengthening potion looses its effect.")
+        common.InformNLS( User, "Du fühlst, dass der Stärkungstrank seine Wirkung verliert.", "You feel that the strengthening potion loses its effect.")
     end
     return false
 

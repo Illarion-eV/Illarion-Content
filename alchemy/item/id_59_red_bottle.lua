@@ -88,7 +88,7 @@ local function DrinkPotion(User,SourceItem)
                 "Your eyes feel normal again and the strengthening potions starts to take effect.")
             else
                 common.InformNLS(User, "Du spürst, dass der alte Stärkungstrank seine Wirkung verliert und wie der neue zu wirken einsetzt.",
-                "You feel that the old strengthening potion looses its effect and how the new one takes effect.")
+                "You feel that the old strengthening potion loses its effect and how the new one takes effect.")
             end
             User.effects:removeEffect(59)
         end
@@ -133,7 +133,7 @@ local function DrinkPotion(User,SourceItem)
         if foundEffect then
             User.effects:removeEffect(59)
             common.InformNLS(User, "Du spürst, dass der Trank seine Wirkung verliert. Deine Augen beginnen sich seltsam anzufühlen.",
-            "You feel that the old potion looses its effect. You eyes start to feel strange.")
+            "You feel that the old potion loses its effect. You eyes start to feel strange.")
         end
         local myEffectDuration = math.floor(SourceItem.quality/100)*600*4 -- quality 1 = 4 minutes duration, quality 9 = 36 minutes duration
         local myEffect = LongTimeEffect(59,myEffectDuration) -- new effect
