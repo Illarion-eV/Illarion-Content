@@ -35,6 +35,7 @@ local common = require("base.common")
 local character = require("base.character")
 local fightingutil = require("base.fightingutil")
 local gems = require("base.gems")
+local base = require("magic.base")
 
 local function getNeededMana(castTime)
     return math.ceil(80 + (castTime-7)*20)
@@ -53,12 +54,11 @@ local function checkCriticalAttack(attackerStruct)
 end
 
 local function checkBlockedAttack(attackerStruct, defenderStruct)
-    local magicDisturbance = 0 --defenderStruct.Weapon.MagicDisturbance
     local attackerWillpower = attackerStruct.willpower
     local defenderWillpower = defenderStruct.willpower
     
     local magicBlockChance = 1.5
-    local chance = magicDisturbance + magicBlockChance * (1 + (defenderWillpower - attackerWillpower)/40)
+    local chance = magicBlockChance * (1 + (defenderWillpower - attackerWillpower)/40)
     return common.Chance(chance, 100)
 end
 
@@ -181,58 +181,35 @@ local function applyDamage(attackerStruct, defenderStruct)
     local essenceBonus = 1.1 * (attackerStruct.essence - 6) 
     local skillBonus = 1.5 * (attackerStruct.skill - 10)
     local qualityBonus = 0.91 + 0.02 * math.floor(attackerStruct.WeaponItem.quality/100) --ranges: 0.93 - 1.09
+    local magicBonus = base.getMagicBonus(attackerStruct.Char)/100
     local globalDamageFactor = 1/180 -- mirrored from standardfighting
     
     -- base damage
     local damage = attackerStruct.Weapon.Attack * 35
-    
     -- raw damage without defence
     damage = damage * globalDamageFactor * qualityBonus * (100 + intBonus + essenceBonus + skillBonus)
-    local fighting = require("content.fighting")
-    local hitArea = fighting.GetHitArea(defenderStruct.Race)
-    local hitItem = defenderStruct.Char:getItemAt(hitArea)
-    local armourValue = world:getItemStatsFromId(hitItem.id).Level
+    damage = damage + (damage * magicBonus)
+    local armourValue = base.getMagicBonus(defenderStruct.Char)
     local armourDefenseScalingFactor = 4/3
     local generalScalingFactor = 2.8
-    local armourSkill = 0
     armourValue = armourValue/generalScalingFactor
-    local armourFound, armour = world:getArmorStruct(hitItem.id)
-    if (armourFound) then
-        local armourSkill = nil
-        local armourType = armour.Type
-        if armourType == 4 then
-            armourSkill = Character.heavyArmour
-        elseif armourType == 3 then
-            armourSkill = Character.mediumArmour
-        elseif armourType == 2 then
-            armourSkill = Character.lightArmour
-        else -- not an armour
-            armourValue = 0
-        end
-    end
     
     -- defence boni
-    local defQualityBonus = 0.82 + 0.02 + math.floor(hitItem.quality/100)
-    local defSkillBonus = 1 - armourSkill/300
-    
     local armourScalingFactor = 5
-    local noobMalus = 5
-    if character.IsPlayer(defenderStruct.Char) and armourValue > armourSkill then
-        armourValue = armourValue / noobMalus
-    end
+    
     if armourValue > 0 then
         armourValue = (100/armourScalingFactor) + armourValue*(1-1/armourScalingFactor)
     end
-    damage = damage - (damage * armourValue * defQualityBonus/350)
-    damage = defSkillBonus * damage
+    damage = damage - (damage * armourValue/350)
+    
     local resistance = math.max(1, math.floor(
         (2*(defenderStruct.willpower - 6)
         + 0.5*(defenderStruct.intelligence - 6)
         + 0.5*(defenderStruct.essence - 6))))
     local resistance = common.Limit(Random.uniform(resistance, resistance*2) / 160.0, 0, 1)
     damage = damage* (1 - resistance)
-    
-    -- take consitution of enemy in account
+   
+   -- take consitution of enemy in account
     damage  = (damage * 7) / (defenderStruct.Char:increaseAttrib("constitution", 0))
     
     -- scale damage based on the level of the armour parts the mage wears
@@ -243,7 +220,7 @@ local function applyDamage(attackerStruct, defenderStruct)
     damage = damage * (math.random(9,10)/10)
     damage = math.min(damage, 4999)
     damage = math.floor(damage)
-    
+
     -- inflict damage and check if character would die
     if character.IsPlayer(defenderStruct.Char) and character.WouldDie(defenderStruct.Char, damage + 1) then
         if character.AtBrinkOfDeath(defenderStruct.Char) then
