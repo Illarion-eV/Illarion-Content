@@ -602,12 +602,18 @@ function M.callEffect( Effect, Char ) -- Effect is called
     cooldownQuestNoGM(Char,298,"[Info] Flammen werden dir wieder etwas anhaben.","[Info] Flames will hurt you again.")
     cooldownQuestNoGM(Char,299,"[Info] Eisflammen werden dir wieder etwas anhaben.","[Info] Ice flames will hurt you again.")
     cooldownQuestNoGM(Char,300,"[Info] Giftwolken werden dir wieder etwas anhaben.","[Info] Poison clouds will hurt you again.")
-    
+
     --Addition by Banduk: Hairdresser
     -- fresh hair from hairdresser
     cooldownQuestInform(Char,229,"[Info] Deine Frisur sieht nicht mehr wie neu aus.","[Info] Your haircut no longer looks brand new.")
     cooldownQuestInform(Char,230,"[Info] Dein Kamm glänzt nicht mehr wie frisch poliert.","[Info] The polished shine of your comb wears off.")
-    
+    -- hairdresser not paid, remaining time to pay
+    cooldownQuest(Char,232)
+
+    --Addition by Banduk: Prevent removing all glyph forges at once
+    cooldownQuest(Char,562)
+    --Addition by Banduk: wait until next learn by searching a forge
+    cooldownQuest(Char,563)
     
     --Rule compliance detection
     if not storedMessage then storedMessage={} end
