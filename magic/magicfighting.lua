@@ -179,9 +179,9 @@ local function applyDamage(attackerStruct, defenderStruct)
     -- damage boni
     local intBonus = 3.5 * (attackerStruct.intelligence - 6)
     local essenceBonus = 1.1 * (attackerStruct.essence - 6) 
-    local skillBonus = 1.5 * (attackerStruct.skill - 10)
+    local skillBonus = 1.75 * (attackerStruct.skill - 10)
     local qualityBonus = 0.91 + 0.02 * math.floor(attackerStruct.WeaponItem.quality/100) --ranges: 0.93 - 1.09
-    local magicBonus = base.getMagicBonus(attackerStruct.Char)*0.8
+    local magicBonus = base.getMagicBonus(attackerStruct.Char)*1.5
     local globalDamageFactor = 1/180 -- mirrored from standardfighting
     
     -- base damage
