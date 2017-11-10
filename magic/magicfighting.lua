@@ -181,7 +181,7 @@ local function applyDamage(attackerStruct, defenderStruct)
     local essenceBonus = 1.1 * (attackerStruct.essence - 6) 
     local skillBonus = 1.5 * (attackerStruct.skill - 10)
     local qualityBonus = 0.91 + 0.02 * math.floor(attackerStruct.WeaponItem.quality/100) --ranges: 0.93 - 1.09
-    local magicBonus = base.getMagicBonus(attackerStruct.Char)
+    local magicBonus = base.getMagicBonus(attackerStruct.Char)*0.8
     local globalDamageFactor = 1/180 -- mirrored from standardfighting
     
     -- base damage
@@ -189,7 +189,6 @@ local function applyDamage(attackerStruct, defenderStruct)
     -- raw damage without defence
     damage = damage * globalDamageFactor * qualityBonus * (100 + intBonus + essenceBonus + skillBonus + magicBonus)
     --damage = damage + (damage * magicBonus)
-    attackerStruct.Char:inform("damage before defense calc: " .. damage)
     local armourValue = base.getMagicBonus(defenderStruct.Char)
     local generalScalingFactor = 2.8
     armourValue = armourValue/generalScalingFactor
@@ -205,7 +204,6 @@ local function applyDamage(attackerStruct, defenderStruct)
    
    -- take consitution of enemy in account
     damage  = (damage * 7) / (defenderStruct.Char:increaseAttrib("constitution", 0))
-    attackerStruct.Char:inform("damage after defense: " .. damage)
     -- scale damage based on the level of the armour parts the mage wears
     --damage = damage*(1 - common.Scale(0, 0.5, averageArmourLevel(attackerStruct.Char))) -- deactived to remove malus
     
@@ -214,7 +212,6 @@ local function applyDamage(attackerStruct, defenderStruct)
     damage = damage * (math.random(9,10)/10)
     damage = math.min(damage, 4999)
     damage = math.floor(damage)
-    attackerStruct.Char:inform("damage final: " .. damage)
     -- inflict damage and check if character would die
     if character.IsPlayer(defenderStruct.Char) and character.WouldDie(defenderStruct.Char, damage + 1) then
         if character.AtBrinkOfDeath(defenderStruct.Char) then
