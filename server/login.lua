@@ -549,6 +549,7 @@ end
 function PayOutWage(Recipient, town)
     local totalTaxes = townTreasure.GetPaymentAmount(town)
     local totalPayers = townTreasure.GetTaxpayerNumber(town)
+
     local infText = ""
 
     if tonumber(totalPayers)>0 then
@@ -571,9 +572,9 @@ function PayOutWage(Recipient, town)
                 local firstGem = Random.uniform(0,RankedWage)
                 local secondGem = RankedWage - firstGem
                 local gemsByTown={}
-                gemsByTown["Cadomyr"]={gems.TOPAZ, gems.AMETHYST}
-                gemsByTown["Runewick"]={gems.EMERALD, gems.RUBY}
-                gemsByTown["Galmair"]={gems.SAPPHIRE, gems.OBSIDIAN}
+                      gemsByTown["Cadomyr"]={gems.TOPAZ, gems.AMETHYST}
+                      gemsByTown["Runewick"]={gems.EMERALD, gems.RUBY}
+                      gemsByTown["Galmair"]={gems.SAPPHIRE, gems.OBSIDIAN}
                 local firstGemId = gems.getMagicGemId(gemsByTown[town][1])
                 local secondGemId = gems.getMagicGemId(gemsByTown[town][2])
                 

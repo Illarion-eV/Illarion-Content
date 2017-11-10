@@ -110,7 +110,7 @@ local function getCharRace( TargetCharacter, lang)
     -- human,dwarf,halfling, elf,orc,lizard
     raceName[0] = {"man","dwarf","halfling", "elf","orc","lizard","strange looking person"}
     raceName[1] = {"Mann","Zwerg","Halbling","Elf","Ork","Echsenmann","seltsam aussehende Person"}
-    raceName[2] = {"woman","dwarfes","halfling woman", "elfess","orcess","lizard woman","strange looking person"}
+    raceName[2] = {"woman","dwarfess","halfling woman", "elfess","orcess","lizard woman","strange looking person"}
     raceName[3] = {"Frau","Zwergin","Halblingsfrau","Elfin","Orkin","Echsenfrau","seltsam aussehende Person"}
 
     if (raceID > 7) then
@@ -188,9 +188,9 @@ end
 local function getCharHairdresserState( Char, lang, currentLookingAt)
     local text = ""
     if (currentLookingAt >= 0) then
-        if Char:getQuestProgress(229) then
+        if Char:getQuestProgress(229) > 0 then
             text = ( lang == 0 and "\nDie Haare sind frisch geschnitten." or "\nThe hair was made short ago." )
-        elseif Char:getQuestProgress(230) then
+        elseif Char:getQuestProgress(230) > 0 then
             text = ( lang == 0 and "\nDer Kamm glänzt wie frisch poliert." or "\nThe comb is freshly polished, making it shine." )
         end
     end
@@ -238,10 +238,10 @@ local function getClothesText(qual, dura, lang, sex,char)
     local sexText={}
     local clText={}
     ClQualText[0]={"adelige",     "noble", "sehr feine", "feine", "sehr gute", "gute", "normale", "billige","schäbige","lumpige"}
-    ClQualText[1]={"aristocratic","noble", "very fine",  "fine",  "very good", "good", "normal",  "cheap",  "shabby",  "measly"}
+    ClQualText[1]={"aristocratic","noble", "very fine",  "fine",  "very good", "good", "normal",  "cheap",  "shabby",  "lousy"}
 
     ClDuraText[0]={"nagelneu" ,"neu", "leicht abgenutzt","gebraucht","abgenutzt","sehr abgenutzt","alt","dreckig", "kaputt", "zerschlissen"  }
-    ClDuraText[1]={"brand new", "new",  "slightly torn",    "used",      "torn",      "highly torn",    "old","dirty",  "tattered","haggled"}
+    ClDuraText[1]={"brand new", "new",  "slightly torn",    "used",      "torn",      "highly torn",    "old","dirty",  "tattered","threadbare"}
 
     sexText[0]={}
     sexText[1]={}
@@ -260,7 +260,7 @@ local function getClothesQualText(qual, lang)
     local clQText={}
     local initClQText=1
     ClQQualText[0]={"adelig",     "nobel", "sehr fein", "fein", "sehr gut", "gut", "normal", "billig","schäbig","lumpig"}
-    ClQQualText[1]={"aristocraticly","nobly", "very finely",  "finely",  "very well", "well", "normaly",  "cheaply",  "shabbily",  "measly"}
+    ClQQualText[1]={"aristocratically","nobly", "very finely",  "finely",  "very well", "well", "normally",  "cheaply",  "shabbily",  "lousy"}
 
     clQText[0]=" gekleidet"
     clQText[1]=" dressed"
@@ -349,13 +349,13 @@ function M.getCharDescription( SourceCharacter, TargetCharacter, mode)
         output = output .. getAgeDescriptor(TargetCharacter:getRace(),TargetCharacter:increaseAttrib("age",0),TargetCharacter:increaseAttrib( "sex", 0 ),lang)
         if ( limitToSeeGeneral >= 0 ) then
             output = output .. getCharAtribute( TargetCharacter, lang, "strength", 14, "starke", "strong")
-            output = output .. getCharAtribute( TargetCharacter, lang, "dexterity", 14, "geschickte", "nimble")
+            output = output .. getCharAtribute( TargetCharacter, lang, "dexterity", 14, "geschickte", "dexterous")
             output = output .. getCharAtribute( TargetCharacter, lang, "agility", 14, "flinke", "agile")
-            output = output .. getCharAtribute( TargetCharacter, lang, "constitution", 15, "robuste", "sturdy")
-            output = output .. getCharAtribute( TargetCharacter, lang, "intelligence", 18, "wissende", "knowingly")
+            output = output .. getCharAtribute( TargetCharacter, lang, "constitution", 15, "robuste", "robust")
+            output = output .. getCharAtribute( TargetCharacter, lang, "intelligence", 18, "wissende", "nowledgeable")
             output = output .. getCharAtribute( TargetCharacter, lang, "willpower", 18, "zielstrebige", "determined")
-            output = output .. getCharAtribute( TargetCharacter, lang, "perception", 18, "aufmerksame", "attentively")
-            output = output .. getCharAtribute( TargetCharacter, lang, "essence", 18, "magische", "magic")
+            output = output .. getCharAtribute( TargetCharacter, lang, "perception", 18, "aufmerksame", "attentive")
+            output = output .. getCharAtribute( TargetCharacter, lang, "essence", 18, "magische", "spiritual")
         end
         output = string.sub ( output, 1, string.len(output) - 2) .. " " .. getCharRace( TargetCharacter, lang)
         if ( limitToSeeGeneral >= 0 ) then
