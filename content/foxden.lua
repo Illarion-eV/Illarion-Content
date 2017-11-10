@@ -20,6 +20,8 @@ local scheduledFunction = require("scheduled.scheduledFunction")
 
 local M = {}
 
+local FEED_REPETITION = 300
+
 local emptyPlate = position(814, 391, -3)
 
 local pupSpot1 = position(813, 391, -3)
@@ -61,7 +63,7 @@ local function isFeeding()
         local lastFeed = tonumber(value)
         if not common.IsNilOrEmpty(lastFeed) then
             local currentTime = common.GetCurrentTimestamp()
-            if currentTime - lastFeed < 60 then
+            if currentTime - lastFeed < FEED_REPETITION then
                 return true
             end
         end
@@ -103,7 +105,7 @@ local function createMotherFox()
     fox= world:createMonster(603, position(1,1,0), 0)
     fox:warp(denEntrance) -- hack to show model, to work around a client issue
     fox:talk(Character.say, "#me eilt sichernd zum Futterteller.",
-        "#me safeguarding hurries towards the feeding plate.")
+        "#me hurries towards the feeding plate, looking out for any danger on the way.")
     fox.movepoints = fox.movepoints - 0
     fox.waypoints:addWaypoint(motherSpot)
     fox:setOnRoute(true)
@@ -160,14 +162,14 @@ function M.tryFeeding(Item, char)
     if feededFoxes > 0 then
         world:createItemFromItem(Item, refuseFeedingField, true)
         world:erase(Item, Item.number)
-        common.InformNLS(char, "Wart am Besten ab, bis alle gefressen haben, bevor du erneut fütterst.", "Wait untill all pups have eaten before you fed again.")
+        common.InformNLS(char, "Wart am Besten ab, bis alle gefressen haben, bevor du erneut fütterst.", "Wait until all cubs have eaten before you try to feed them again.")
         return
     end
 
     if isFeeding() == true then
         world:createItemFromItem(Item, refuseFeedingField, true)
         world:erase(Item, Item.number)
-        common.InformNLS(char, "Gerade wurde gefüttert. Wart noch etwas.", "Feeding was short before. Please wait a minute.")
+        common.InformNLS(char, "Gerade wurde gefüttert. Wart noch etwas.", "The cubs were already fed recently. Please wait a few minutes before trying again.")
         return
     end
     
@@ -188,16 +190,16 @@ function M.tryFeeding(Item, char)
     end
 
     if char:getQuestProgress(561) ~= 0 then
-        -- reject not enough items
+        -- reject don't feed agin, time
         world:createItemFromItem(Item, refuseFeedingField, true)
         world:erase(Item, Item.number)
-         common.InformNLS(char, "Keiner interessiert sich für das Futter. Wart bis die Welpen wieder hungrig sind.", "Nobody is interested. Maybe the pups are not hungry enough yet.")
+         common.InformNLS(char, "Keiner interessiert sich für das Futter. Wart bis die Welpen wieder hungrig sind.", "None of the cubs seem interested in the food you presented. Maybe they just aren't hungry enough yet.")
        return
     end
 
     if  char:getQuestProgress(561) == 0 and Item.pos == emptyPlate and Item.number >= 5 then --  doing the quest -feeding the fox pups
-        char:setQuestProgress(561, 720) -- set cooldown
-        common.InformNLS(char, "Du hast den Welpen das richtige Futter gebracht. Sie kommen heraus um zu fressen.", "You have fed the fox pups an appropriate food and soon they appear to eat.")
+        char:setQuestProgress(561, 72) -- set cooldown (6 hours)
+        common.InformNLS(char, "Du hast den Welpen das richtige Futter gebracht. Sie kommen heraus um zu fressen.", "You have presented the fox cubs with the appropriate type of food.")
 
          --spawn mother fox
         setFeeding(true)
@@ -212,8 +214,8 @@ function M.foxAbortRoute(fox)
     if fox.pos == pupSpot1 or fox.pos == pupSpot2 or fox.pos == pupSpot3 or fox.pos == pupSpot4 or fox.pos == motherSpot then
         if feedTime == 20 then -- mother fox
             common.TurnTo(fox,emptyPlate)
-            fox:talk(Character.say, "#me schnüffelt am Futter, bellt und frisst an einem Stück.",
-                "#me sniffs at the feeding, barks and chews on one pice.")
+            fox:talk(Character.say, "#me schnüffelt am Futter, bellt und kaut an einem Stück.",
+                "#me sniffs at the food, barks once and then chews on one piece.")
             local feeding = world:getItemOnField(emptyPlate)
             world:erase(feeding, 1)
             createPupFox()
@@ -225,7 +227,7 @@ function M.foxAbortRoute(fox)
         else
             common.TurnTo(fox,emptyPlate)
             fox:talk(Character.say, "#me schlingt das Futter eifrig hinunter.",
-                "#me eagerly devours the feeding.")
+                "#me eagerly devours the food.")
             local feeding = world:getItemOnField(emptyPlate)
             world:erase(feeding, 1)
 
