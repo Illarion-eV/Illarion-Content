@@ -30,7 +30,7 @@ function M.getMagicBonus(character)
             quality = quality + math.floor(checkItem.quality/100)
         end
     end
-    local qualityBonus = 1+(quality - 5)*2.5/100 -- quality 5 has no influence; above 5, each point grants 2.5%. under 5, each point takes 2.5%
+    local qualityBonus = 1+(quality/itemsCounted - 5)*2.5/100 -- quality 5 has no influence; above 5, each point grants 2.5%. under 5, each point takes 2.5%
     return magicBonus*qualityBonus
 
 end
