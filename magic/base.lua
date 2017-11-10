@@ -25,9 +25,10 @@ function M.getMagicBonus(character)
     for _, bodyPosition in pairs(bodyPositions) do
         local checkItem = character:getItemAt(bodyPosition)
         if checkItem ~= nil and checkItem.id > 0 then
-            local isWepaon, armorStruct =  world:getArmorStruct(checkItem.id)
+            local isArmor, armorStruct =  world:getArmorStruct(checkItem.id)
             magicBonus = magicBonus + armorStruct.MagicDisturbance
             quality = quality + math.floor(checkItem.quality/100)
+            itemCounted = itemsCounted + 1
         end
     end
     local qualityBonus = 1+(quality/itemsCounted - 5)*2.5/100 -- quality 5 has no influence; above 5, each point grants 2.5%. under 5, each point takes 2.5%
