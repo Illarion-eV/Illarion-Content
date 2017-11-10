@@ -188,7 +188,6 @@ local function applyDamage(attackerStruct, defenderStruct)
     local damage = attackerStruct.Weapon.Attack * 35
     -- raw damage without defence
     damage = damage * globalDamageFactor * qualityBonus * (100 + intBonus + essenceBonus + skillBonus + magicBonus)
-    --damage = damage + (damage * magicBonus)
     local armourValue = base.getMagicBonus(defenderStruct.Char)
     local generalScalingFactor = 2.8
     armourValue = armourValue/generalScalingFactor
