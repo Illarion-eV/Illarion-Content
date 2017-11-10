@@ -41,7 +41,7 @@ local function spawnWeakLich(pos)
     local weakenedLich = world:createMonster(117, spawnPosition, -5)
     if weakenedLich ~= nil and isValidChar(weakenedLich) then
         weakenedLich:talk(Character.say, "#me erhebt sich aus dem Knochenhaufen.", "#me rises from the pile of bones.")
-        weakenedLich.effects:addEffect(LongTimeEffect(70, 50))
+        weakenedLich.effects:addEffect(LongTimeEffect(70, 300))
     end
 end
 
