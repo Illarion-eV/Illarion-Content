@@ -575,7 +575,7 @@ function PayOutWage(Recipient, town)
                 gemsByTown["Runewick"]={gems.EMERALD, gems.RUBY}
                 gemsByTown["Galmair"]={gems.SAPPHIRE, gems.OBSIDIAN}
                 local firstGemId = gems.getMagicGemId(gemsByTown[town][1])
-                local secondGemId = gems.getMagicGemId(gemsByTown[town][1])
+                local secondGemId = gems.getMagicGemId(gemsByTown[town][2])
                 
                 log(string.format("[gems] %s got %d (%d,%d) magic gems from %s. Character's rank: %d",
                     character.LogText(Recipient), RankedWage, firstGem, secondGem, town, RecipientRk))
