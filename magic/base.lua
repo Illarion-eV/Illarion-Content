@@ -16,27 +16,31 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local M = {}
 
+--Returns the total magic bonus and a list containing the items which add to the magic bonus
 function M.getMagicBonus(character)
     local bodyPositions = {Character.head, Character.neck, Character.breast, Character.hands, Character.finger_left_hand, Character.finger_right_hand, Character.legs, Character.feet, Character.coat}
     
-    local itemsCounted = 0
+    local itemsWithMagicBonus = {}
     local magicBonus = 0
     local quality = 0
     for _, bodyPosition in pairs(bodyPositions) do
         local checkItem = character:getItemAt(bodyPosition)
         if checkItem ~= nil and checkItem.id > 0 then
             local isArmor, armorStruct =  world:getArmorStruct(checkItem.id)
-            magicBonus = magicBonus + armorStruct.MagicDisturbance
-            quality = quality + math.floor(checkItem.quality/100)
-            itemsCounted = itemsCounted + 1
+            local itemBonus = armorStruct.MagicDisturbance
+            if itemBonus > 0 then
+                magicBonus = magicBonus + itemBonus
+                quality = quality + math.floor(checkItem.quality/100)
+                table.insert(itemsWithMagicBonus, checkItem)
+            end    
         end
     end
     
     local qualityBonus = 1
-    if itemsCounted > 1 then
-        local qualityBonus = qualityBonus+(quality/itemsCounted - 5)*2.5/100 -- quality 5 has no influence; above 5, each point grants 2.5%. under 5, each point takes 2.5%
+    if #itemsWithMagicBonus > 1 then
+        local qualityBonus = qualityBonus+(quality/#itemsWithMagicBonus - 5)*2.5/100 -- quality 5 has no influence; above 5, each point grants 2.5%. under 5, each point takes 2.5%
     end
-    return magicBonus*qualityBonus
+    return magicBonus*qualityBonus, itemsWithMagicBonus
 
 end
 

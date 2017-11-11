@@ -174,6 +174,42 @@ local function averageArmourLevel(caster)
     
 end
 
+local function magicItemsDegrade(character, magicItemsList)
+    
+    local degradeChance = 20
+    if caster:isNewPlayer() then
+        degradeChance = degradeChance * 2
+    end
+    
+    for _, bonusItem in pairs(magicItemList) do
+        if (common.Chance(1, 180)) then
+            local durability = math.fmod(bonusItem.quality, 100)
+            local quality = (bonusItem.quality - durability) / 100
+            local nameText = world:getItemName(bonusItem.id, caster:getPlayerLanguage())
+
+            durability = durability - 1
+            if (durability == 0) then
+                common.InformNLS(caster,
+                    "Deine Ausrüstungsgegenstand '"..nameText.."' zerbricht. Du vergießt eine bitter Träne und sagst lebe wohl, als sie in das nächste Leben übergeht.",
+                    "Your piece of equipment '"..nameText.."' shatters. You shed a single tear and bid it farewell as it moves on to its next life.")
+                gems.returnGemsToUser(caster, bonusItem)
+                world:erase(bonusItem, 1)
+                return
+            end
+
+            wand.quality = quality * 100 + durability
+            world:changeItem(bonusItem)
+
+            if (durability < 10) then
+                common.InformNLS(caster,
+                    "eine Ausrüstungsgegenstand '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du sie reparieren lassen.",
+                    "Your piece of equipment '"..nameText.."' has seen better days. You may want to get it repaired.")
+            end
+        end
+    end
+
+end
+
 local function applyDamage(attackerStruct, defenderStruct)
     
     -- damage boni
@@ -181,19 +217,19 @@ local function applyDamage(attackerStruct, defenderStruct)
     local essenceBonus = 1.1 * (attackerStruct.essence - 6) 
     local skillBonus = 1.75 * (attackerStruct.skill - 10)
     local qualityBonus = 0.91 + 0.02 * math.floor(attackerStruct.WeaponItem.quality/100) --ranges: 0.93 - 1.09
-    local magicBonus = base.getMagicBonus(attackerStruct.Char)*1.5
+    local magicBonusAttacker, magicItemsAttacker = base.getMagicBonus(attackerStruct.Char)*1.5
     local globalDamageFactor = 1/180 -- mirrored from standardfighting
     
     -- base damage
     local damage = attackerStruct.Weapon.Attack * 35
 
     -- raw damage without defence
-    damage = damage * globalDamageFactor * qualityBonus * (100 + intBonus + essenceBonus + skillBonus + magicBonus)
-    local armourValue = base.getMagicBonus(defenderStruct.Char)
+    damage = damage * globalDamageFactor * qualityBonus * (100 + intBonus + essenceBonus + skillBonus + magicBonusAttacker)
+    local magicBonusDefender, magicItemsDefender = base.getMagicBonus(defenderStruct.Char)
     local generalScalingFactor = 2.8
-    armourValue = armourValue/generalScalingFactor
+    magicBonusDefender = magicBonusDefender/generalScalingFactor
 
-    damage = damage - (damage * armourValue/350)
+    damage = damage - (damage * magicBonusDefender/350)
     
     local resistance = math.max(1, math.floor(
         (2*(defenderStruct.willpower - 6)
@@ -233,9 +269,12 @@ local function applyDamage(attackerStruct, defenderStruct)
     else
         character.ChangeHP(defenderStruct.Char, -damage)
     end
+    
+    magicItemsDegrade(defenderStruct.Char, magicItemsDefender)
+    magicItemsDegrade(attackerStruct.Char, magicItemsAttacker)
 end
 
-function wandDegrade(caster, wand)
+local function wandDegrade(caster, wand)
 
     local degradeChance = 20
     if caster:isNewPlayer() then
