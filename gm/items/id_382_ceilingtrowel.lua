@@ -78,7 +78,7 @@ itemPos[0] = {en="Backpack", de="Rucksack" }
 local itemOrder = {5,6,12,13,14,15,16,17,1,11,3,4,9,10,2,7,8}
 
 local function checkValue(input)
-    if input == 0 then
+    if input == nil or input == 0 then
         return false
     else
         return true
@@ -362,7 +362,7 @@ function changeItemSelection(User, TargetItem)
     changeItemFunctions[5] = {"Set Wear"}
     changeItemFunctions[6] = {"Set Data"}
     changeItemFunctions[7] = {"Set Glyph charges"}
-    
+
     local cbChangeItem = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -1213,13 +1213,6 @@ function spawnGM()
     end
 end
 
-function checkValue(input)
-    if input == 0 then
-        return false
-    else
-        return true
-    end
-end
 
 function updateMonsters(array,number,basePosition)
     if #array[number] > 1 then
@@ -1320,7 +1313,7 @@ local function specialItemCreationGlyphShard(User)
         end
     end
     User:requestInputDialog(InputDialog("Glyph Shard Creation",
-                                        "Please enter which shard you want to create" .. 
+                                        "Please enter which shard you want to create" ..
                                         "\n- Nothing: A single random shard." ..
                                         "\n- [1-7][1-7]: A singe defined shard." ..
                                         "\n- Other numbers: Number of random shards.",false, 255, cbInputDialog))
