@@ -37,9 +37,10 @@ function M.getMagicBonus(character)
     end
     
     local qualityBonus = 1
-    if #itemsWithMagicBonus > 1 then
-        local qualityBonus = qualityBonus+(quality/#itemsWithMagicBonus - 5)*2.5/100 -- quality 5 has no influence; above 5, each point grants 2.5%. under 5, each point takes 2.5%
+    if #itemsWithMagicBonus >= 1 then
+        qualityBonus = qualityBonus+(quality/#itemsWithMagicBonus - 5)*2.5/100 -- quality 5 has no influence; above 5, each point grants 2.5%. under 5, each point takes 2.5%
     end
+    
     return magicBonus*qualityBonus, itemsWithMagicBonus
 
 end

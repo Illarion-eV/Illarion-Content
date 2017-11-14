@@ -220,7 +220,7 @@ local function applyDamage(attackerStruct, defenderStruct)
     local magicBonusAttacker, magicItemsAttacker = base.getMagicBonus(attackerStruct.Char)
     magicBonusAttacker = magicBonusAttacker*1.5
     local globalDamageFactor = 1/180 -- mirrored from standardfighting
-    
+
     -- base damage
     local damage = attackerStruct.Weapon.Attack * 35
 
