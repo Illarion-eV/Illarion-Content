@@ -461,7 +461,7 @@ function welcomeNewPlayer(player)
                     textUse = textUse .. getText("\nDer Spieler ist noch keine Stunde online.","\nThe player has been online for less than an hour.")
                 elseif timeHours == 1 then
                     textUse = textUse .. getText("\nDer Spieler war bereits über eine Stunde online.",
-                                                 "\nThe player has already been online an hour.")
+                                                 "\nThe player has already been online for an hour.")
                 else
                     textUse = textUse .. getText("\nDer Spieler war bereits " .. tostring(timeHours) .. " Stunden online.",
                                                  "\nThe player was already online for " .. tostring(timeHours) .. " hours.")
