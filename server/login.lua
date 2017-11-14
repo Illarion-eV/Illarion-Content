@@ -458,13 +458,13 @@ function welcomeNewPlayer(player)
                 local timeMinutes = player:getQuestProgress(852)
                 local timeHours = math.floor(tonumber(timeMinutes)/60)
                 if timeHours == 0 then
-                    textUse = textUse .. getText("\nDer Spieler ist noch keine Stunde online.","\nThe player was less than a hour online yet.")
+                    textUse = textUse .. getText("\nDer Spieler ist noch keine Stunde online.","\nThe player has been online for less than an hour.")
                 elseif timeHours == 1 then
                     textUse = textUse .. getText("\nDer Spieler war bereits über eine Stunde online.",
-                                                 "\nThe player was already one hour online.")
+                                                 "\nThe player has already been online for an hour.")
                 else
                     textUse = textUse .. getText("\nDer Spieler war bereits " .. tostring(timeHours) .. " Stunden online.",
-                                                 "\nThe player was already " .. tostring(timeHours) .. " hours online.")
+                                                 "\nThe player was already online for " .. tostring(timeHours) .. " hours.")
                 end
                 
                 local dialog = SelectionDialog(getText("Ein neuer Spieler!","A new player!"), textUse, callback)
