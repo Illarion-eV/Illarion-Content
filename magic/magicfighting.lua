@@ -220,7 +220,7 @@ local function applyDamage(attackerStruct, defenderStruct)
     local magicBonusAttacker, magicItemsAttacker = base.getMagicBonus(attackerStruct.Char)
     magicBonusAttacker = magicBonusAttacker*1.5
     local globalDamageFactor = 1/180 -- mirrored from standardfighting
-    
+
     -- base damage
     local damage = attackerStruct.Weapon.Attack * 35
 
@@ -246,7 +246,7 @@ local function applyDamage(attackerStruct, defenderStruct)
     
     -- limits for damage
     damage = math.max(0, damage)
-    damage = damage * (math.random(9,10)/10)
+    damage = damage * ((9+math.random())/10)
     damage = math.min(damage, 4999)
     damage = math.floor(damage)
     -- inflict damage and check if character would die

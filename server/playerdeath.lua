@@ -37,7 +37,7 @@ end
 
 function M.playerDeath(deadPlayer)
 
-    if deadPlayer:isAdmin() == false then --Admins don't die.
+    if deadPlayer:isAdmin() then --Admins don't die.
 
         deadPlayer:increaseAttrib("hitpoints", 10000) -- Respawn
         common.HighInformNLS(deadPlayer, "[Wiederbelebung] Admins sterben nicht.", "[Respawn] Admins don't die.")
