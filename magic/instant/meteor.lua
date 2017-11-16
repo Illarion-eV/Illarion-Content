@@ -34,7 +34,7 @@ function M.cast(caster, victim)
         end
     end
 
-    -- TODO: Add some sort of defense calculation here :)
+    -- TODO: Add some sort of defence calculation here :)
     victim:increaseAttrib("hitpoints", -1000);
 end
 

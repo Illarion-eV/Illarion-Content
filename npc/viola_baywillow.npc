@@ -87,9 +87,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Fare thee well.", "Good-bye
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Viola und weiß alle wichtigen Dinge über die Reiche Cadomyr, Galmair und Runewick. So, frag mich was!"
 
 -- Catching quest triggers. Modify if the NPC does quests.
-english, "quest", "mission" -> "Alas, another bold traveler! Unfortunately, I haven't much work, but don't let me discourage ya. The realms are always on the look out for adventurers and workers alike!"
+english, "quest", "mission" -> "Alas, another bold traveller! Unfortunately, I haven't much work, but don't let me discourage ya. The realms are always on the look out for adventurers and workers alike!"
 "quest", "mission" -> "Hoi, noch ein tapferer Reisender! Leider habe ich keine Arbeit für euch. Das soll euch nicht entmutigen, da die Reiche immer nach Abenteuerer und Arbeitern suchen!"
-"task", "adventure", "order" -> "Ahh, a case of idle hands, I see. Be assured, traveler, if you're willing to look around there are folks out there that could use a hand or two. Best start with one of the realms!"
+"task", "adventure", "order" -> "Ahh, a case of idle hands, I see. Be assured, traveller, if you're willing to look around there are folks out there that could use a hand or two. Best start with one of the realms!"
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ahh, ein unbeschäftigtes Wesen. Aber keine Angst, es gibt hier und da genug Leute die Unterstützung suchen. Am besten sucht ihr nach ihnen in einem der Reiche!"
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
@@ -251,7 +251,7 @@ english, ".*" -> "I don't quite understand, sorry. Just ask me for 'help' and I'
 cycletext "Frag mich nach 'Hilfe', wenn du Hilfe brauchst.", "Ask me for 'help', if you need assistance."
 cycletext "Frag mich wenn du was über die drei Reiche wissen möchtest.", "Tell me if you'd like to know something specific about three realms."
 cycletext "Runewick, Galmair, Cadomyr... ich weiß alles. Fast alles.", "Runewick, Galmair, Cadomyr... I know everything. Almost."
-cycletext "Frage immer nach Aufgaben, vielleicht hat einer eine für dich und es gibt etwas für dich zu verdienen.", "Hiho, traveler! Keep on the lookout if you're in search for tasks or grand quests! All across the land many are in need, don't be afraid to ask!"
+cycletext "Frage immer nach Aufgaben, vielleicht hat einer eine für dich und es gibt etwas für dich zu verdienen.", "Hiho, traveller! Keep on the lookout if you're in search for tasks or grand quests! All across the land many are in need, don't be afraid to ask!"
 cycletext "Ob Königin Rosaline Edwards, Don Valerio Guilianni, oder Erzmagier Elvaine Morgan... Ich weiß alles über sie. Fast alles.", "Queen Rosaline Edwards, Don Valerio Guilianni, or Archmage Elvaine Morgan... learn all you need to know right here! Well, just about everything."
 cycletext "Wenn du nicht weißt wohin du gehen sollst, frag mich nach Hilfe.", "Don't get lost! I'm Viola, the local guide, ask me for help, and I won't let you down!"
 cycletext "Wenn du wissen möchtest wo du und dein Glaube gut aufgehoben sind, frage mich nach Hilfe.", "If you'd like to know where you and your faith are welcome, tell me your god and I'll tell you the best realm to join!"

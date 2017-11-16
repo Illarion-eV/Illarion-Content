@@ -271,7 +271,7 @@ function SpawnSpider(User, skullItem)
         world:gfx(41, monPos) -- swirly
     end
     User:inform("Schlechte Wahl, Abenteuerer! Etwas springt aus dem Totenschädel heraus und greift dich an.",
-                "Wrong choice traveler! Something hops out of the skull and attacks you.")
+                "Wrong choice traveller! Something hops out of the skull and attacks you.")
 
 end
 

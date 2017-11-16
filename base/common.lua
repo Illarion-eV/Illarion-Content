@@ -1017,9 +1017,9 @@ end
 
 --[[
     ParalyseCharacter
-    Paralyzes a character with a lte or by the actionpoints for setted time
-    @param CharacterStruct - The character that shall be paralyzed
-    @param integer - The time in seconds the character shall be paralyzed
+    Paralyses a character with a lte or by the actionpoints for setted time
+    @param CharacterStruct - The character that shall be paralysed
+    @param integer - The time in seconds the character shall be paralysed
     @param boolean - true if the time shall be added to an exsisting paralizing, false if the old values shall just be overwritten
     @param boolean - true(default) if a LTE shall be used to stunn the character. In this case its not intended to release the stunn any time ealier. False if not
     @return boolean - true if anything was done. false if not.

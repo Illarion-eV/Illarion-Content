@@ -63,7 +63,7 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dies ist NPC Ssiguss. Stichworte sind: Aufgabe, Tanora, Zelphia, Mutter, Wasser, und Gebet.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Mother'ss rain on you, traveler."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Mother'ss rain on you, traveller."
 "Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Möge Mutter euch am heutigen Tage ssegnen.", "Mutterss Barmherzigkeit ssei euch gewisss."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Blessings of the Mother, upon you today.", "The Mother's mercy upon you."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Möge Mutter euch am heutigen Tage ssegnen.", "Mutterss Barmherzigkeit ssei euch gewisss."
