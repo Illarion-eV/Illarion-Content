@@ -2064,17 +2064,17 @@ function M.isInPrison(Pos)
   return false
 end
 
---- Convert a RGB color to a HSV color.
--- @param red the red color component in a range from 0 to 255
--- @param green the green color component in a range from 0 to 255
--- @param blue the blue color component in a range from 0 to 255
--- @return hue, saturation, value color components. Hue in a range from 0° to 360°. Saturation and value in a range
+--- Convert a RGB colour to a HSV color.
+-- @param red the red colour component in a range from 0 to 255
+-- @param green the green colour component in a range from 0 to 255
+-- @param blue the blue colour component in a range from 0 to 255
+-- @return hue, saturation, value colour components. Hue in a range from 0° to 360°. Saturation and value in a range
 --         from 0 to 1
 function M.RGBtoHSV(red, green, blue)
     local max = math.max(red, green, blue)
     local min = math.min(red, green, blue)
     if max > 255 or min < 0 then
-        error("The color values are rgb to hsv conversation are out of bounds.")
+        error("The colour values are rgb to hsv conversation are out of bounds.")
     end
 
     local delta = max - min
@@ -2101,11 +2101,11 @@ function M.RGBtoHSV(red, green, blue)
     return hue, saturation, max / 255
 end
 
---- Convert a HSV color value to a RGB color value.
+--- Convert a HSV colour value to a RGB colour value.
 -- @param hue The hue value in degrees. Values larger then 360° are wrapped until they fit the range from 0° to 360°
 -- @param saturation The saturation value in a range from 0 to 1
--- @param value The color value in a range from 0 to 1
--- @return red, green, blue color value in a range from 0 to 255 as integer value
+-- @param value The colour value in a range from 0 to 1
+-- @return red, green, blue colour value in a range from 0 to 255 as integer value
 function M.HSVtoRGB(hue, saturation, value)
     local realHue = hue % 360
     if saturation < 0 or saturation > 1 then

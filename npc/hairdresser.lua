@@ -22,7 +22,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 32,Natural haircolor
 33,Natural beardstyle
 34,Natural haircolor
-226,Time new hair color disappear
+226,Time new hair colour disappear
 227,Time new hair style disappear
 228,Time new beard style disappear
 229,Cooldown new or trimed cut visible
@@ -83,7 +83,7 @@ local npcTalk = {
         {"It pays to be punctual with your payment.","There is nothing for free."} },
     {   {"hilf","help"},
         {"[Hilfe] Dieser NPC ist eine Friseuse. Bitte sie, dir die Haare oder den Bart zu machen. Schlüsselwörter: schneid, rasier, färb, polier, zahlen"},
-        {"[Help] This NPC is a hair dresser. Ask her to change your hair style (cut), beard style (shave) or hair color (dye). Keywords: cut, shave, dye, polish, pay"} }
+        {"[Help] This NPC is a hair dresser. Ask her to change your hair style (cut), beard style (shave) or hair colour (dye). Keywords: cut, shave, dye, polish, pay"} }
 }
 
 local cycleText = {
@@ -263,7 +263,7 @@ local function payToLate(user,npc)
 end
 
 local function saveNaturalStyle(user)
-    if user:getQuestProgress(32) == 0 and user:getQuestProgress(33) == 0 and user:getQuestProgress(34) == 0 then -- no natural hair color saved yet
+    if user:getQuestProgress(32) == 0 and user:getQuestProgress(33) == 0 and user:getQuestProgress(34) == 0 then -- no natural hair colour saved yet
         user:setQuestProgress(32,user:getHair())
         user:setQuestProgress(33,user:getBeard())
         local hairColour = user:getHairColour()

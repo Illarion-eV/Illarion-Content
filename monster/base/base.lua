@@ -282,7 +282,7 @@ function M.setColor(params)
             error("Color parameter is not a valid color.")
         end
     else
-        error("No color was set.")
+        error("No colour was set.")
     end
 
     if params.alpha ~= nil then
