@@ -24,10 +24,11 @@ local craft = require("base.craft")
 local lookat = require("base.lookat")
 local licence = require("base.licence")
 local gems = require("base.gems")
-
-local currentGemBonus = 0
+local glypheffects = require("magic.glypheffects")
 
 local OFFSET_PRODUCTS_REPAIR = 235
+local repairItemList = {}
+
 --[[productId for craftable items: id in products table.
 productId for repairable items position in inventory plus offset. Inventory has 17 positions, max productId = 255
 ]]--
@@ -211,7 +212,6 @@ function Craft:showDialog(user, source)
             self:swapToInactiveItem(user)
         end
     end
-    self:setCurrentGemBonusUser (user)
     local dialog = CraftingDialog(self:getName(user), self.sfx, self.sfxDuration, callback)
     self:loadDialog(dialog, user)
     user:requestCraftingDialog(dialog)
@@ -286,16 +286,22 @@ function Craft:getHandToolEquipped(user)
     local rightTool = user:getItemAt(Character.right_tool)
 
     if leftTool.id == self.handTool then
-        self:setCurrentGemBonus (gems.getGemBonus(leftTool))
         return leftTool
     elseif rightTool.id == self.handTool then
-        self:setCurrentGemBonus (gems.getGemBonus(rightTool))
         return rightTool
     end
 
     return nil
 end
 
+function Craft:getCurrentGemBonus(user)
+    local handItem = self:getHandToolEquipped(user)
+    if handItem ~= nil then
+        return gems.getGemBonus(handItem)
+    else
+        return 0
+    end
+end
 function Craft:allowNpcCrafting(user, source)
     return user:isInRange(source, 2)
 end
@@ -349,6 +355,15 @@ function Craft:getName(user)
     return craft
 end
 
+function Craft:cleanRepairItemList (user)
+    local limitTime = common.GetCurrentTimestamp() - 18000 --5hrs ago
+    for _, listEntry in ipairs(repairItemList) do
+        if listEntry[1] < limitTime then
+            listEntry = nil
+        end
+    end
+end
+
 function Craft:loadDialog(dialog, user)
     local skill = self:getSkill(user)
     local categoryListId = {}
@@ -371,16 +386,18 @@ function Craft:loadDialog(dialog, user)
         end
     end
     local repairListId = listId
-    
-    local zero=true;
 
+    local glyphEffect = 1
+    glyphEffect = glypheffects.effectOnCraftingTime(user)
+    local gemBonus = self:getCurrentGemBonus(user)
     for i = 1,#self.products do
         local product = self.products[i]
         local productRequirement = product.difficulty
 
         if productRequirement <= skill and self:isRepairCategory(product.category) == false then
 
-            dialog:addCraftable(i, categoryListId[product.category], product.item, self:getLookAt(user, product).name, self:getCraftingTime(product, skill), product.quantity)
+            local craftingTime = self:getCraftingTime(product, skill, gemBonus) * glyphEffect
+            dialog:addCraftable(i, categoryListId[product.category], product.item, self:getLookAt(user, product).name, craftingTime, product.quantity)
 
             for j = 1, #product.ingredients do
                 local ingredient = product.ingredients[j]
@@ -393,20 +410,30 @@ function Craft:loadDialog(dialog, user)
     local repairPositions = {12, 13, 14, 15, 16, 17} -- all belt positions
     local showRepairGroup = false
     local repairSkill = self:getRepairSkill(user)
+    local glyphEffect = 1
+    local gemBonus = self:getCurrentGemBonus(user)
+    local repairItemListSub = {}
+    local hasDataRepairItemListSub = false
     for k = 1, #repairPositions do
         local itemAtCharacter = user:getItemAt( repairPositions[k] )
         local itemStats = world:getItemStatsFromId(itemAtCharacter.id)
+        local durability = common.getItemDurability(itemAtCharacter)
         if itemStats.MaxStack == 1 then
             for i = 1, #self.products do
                 local product = self.products[i]
                 local productRequirement = product.difficulty
-                if product.item == itemAtCharacter.id and productRequirement <= repairSkill then
+                local craftingTime = self:getCraftingTime(product, repairSkill, 0)
+                if product.item == itemAtCharacter.id and productRequirement <= repairSkill and ((craftingTime * (99 - durability)/99) > 9 or durability < 91 ) then
                     if showRepairGroup == false then
                         dialog:addGroup(user:getPlayerLanguage() == Player.german and "Reparieren" or "Repair")
                         showRepairGroup = true
+                        glyphEffect = glypheffects.effectOnRepairTime(user)
                     end
-                    dialog:addCraftable(OFFSET_PRODUCTS_REPAIR+repairPositions[k], repairListId, product.item, self:getLookAt(user, product).name, self:getCraftingTime(product, skill), product.quantity)
-
+                    craftingTime = craftingTime * glyphEffect * (99 - durability)/99
+                    local listPosition = OFFSET_PRODUCTS_REPAIR+repairPositions[k]
+                    dialog:addCraftable(listPosition, repairListId, product.item, self:getLookAt(user, product).name, craftingTime, product.quantity)
+                    repairItemListSub[listPosition] = {product.item, durability}
+                    hasDataRepairItemListSub = true
                     for j = 1, #product.ingredients do
                         local ingredient = product.ingredients[j]
                         dialog:addCraftableIngredient(ingredient.item, ingredient.quantity)
@@ -415,20 +442,25 @@ function Craft:loadDialog(dialog, user)
                 end
             end
         end
-
+    end
+    self:cleanRepairItemList (user)
+    if hasDataRepairItemListSub then
+        repairItemListSub[1] = common.GetCurrentTimestamp()
+        repairItemList[user.id] = repairItemListSub
+    else
+        repairItemList[user.id]=nil
     end
 
 end
 
 function Craft:refreshDialog(dialog, user)
-    self:setCurrentGemBonusUser (user)
     dialog:clearGroupsAndProducts()
     self:loadDialog(dialog, user)
 end
 
-function Craft:getCraftingTime(product, skill)
+function Craft:getCraftingTime(product, skill, gemBonus)
     if not self.npcCraft then
-        return product:getCraftingTime(skill,self:getCurrentGemBonus())
+        return product:getCraftingTime(skill, gemBonus)
     else
         return 10 --default time
     end
@@ -582,9 +614,10 @@ function Craft:generateQuality(user, productId, toolItem)
     
     local quality = common.Scale(4, 8, scalar)
     local toolQuality = common.getItemQuality(toolItem)
-    local gemBonus = tonumber(self:getCurrentGemBonus())
+    local gemBonus = tonumber(self:getCurrentGemBonus(user))
+    local glyphBonus = glypheffects.effectOnQuality(user) + glypheffects.effectBloodToQuality(user)
 
-    quality = quality + math.random(math.min(0,((toolQuality-5)/2)),math.max(0,((toolQuality-5)/2 ))+ gemBonus/12); -- +2 for a perfect tool, -2 for a crappy tool, +1 per each 12% gem Bonus to max
+    quality = quality + math.random(math.min(0,((toolQuality-5)/2)),math.max(0,((toolQuality-5)/2 ))+ gemBonus/12) + glyphBonus; -- +2 for a perfect tool, -2 for a crappy tool, +1 per each 12% gem Bonus to max
 
     quality = math.floor(quality)
     quality = common.Limit(quality, 1, common.ITEM_MAX_QUALITY)
@@ -691,8 +724,11 @@ function Craft:craftItem(user, productId)
         self:createItem(user, productId, toolItem)
 
         if not self.npcCraft then
+            local originalDurability = common.getItemDurability(toolItem)
             if craft.ToolBreaks(user, toolItem, product:getCraftingTime(skill,0)) then
                 common.HighInformNLS(user,"Dein altes Werkzeug zerbricht.", "Your old tool breaks.")
+            else
+                glypheffects.effectToolSelfRepair(user, toolItem, originalDurability)
             end
             common.GetHungry(user, neededFood)
         end
@@ -713,8 +749,10 @@ function Craft:createItem(user, productId, toolItem)
     local product = self.products[productId]
 
     for i = 1, #product.ingredients do
-        local ingredient = product.ingredients[i]
-        user:eraseItem(ingredient.item, ingredient.quantity, ingredient.data)
+        if not glypheffects.effectSaveMaterialOnProduction(user) then
+            local ingredient = product.ingredients[i]
+            user:eraseItem(ingredient.item, ingredient.quantity, ingredient.data)
+        end
     end
 
     local quality = self:generateQuality(user, productId, toolItem)
@@ -740,12 +778,18 @@ function Craft:repairItem(user, productIdList)
     local itemToRepair = user:getItemAt( productIdList - OFFSET_PRODUCTS_REPAIR )
     local skill = self:getSkill(user)
     local repairSkill = self:getRepairSkill(user)
+    local repairTime = product:getCraftingTime(skill,0) * (99 - common.getItemDurability(itemToRepair))/99
 
     local skillGain = false
-    
-    local toolItem = self:getHandToolEquipped(user)
 
-    if product.difficulty > repairSkill then
+    local toolItem = self:getHandToolEquipped(user)
+    if itemToRepair.id ~= repairItemList[user.id][productIdList][1] or common.getItemDurability(itemToRepair) ~= repairItemList[user.id][productIdList][2] then
+    common.HighInformNLS(user,
+        "[Info] Bitte tausche die Gegenstände in deinem Inventar nicht während der Reparatur.",
+        "[Info] Please don't move items in your inventory during the repair.")
+        return false
+    end
+    if product.difficulty > repairSkill then  -- safty grid
         common.HighInformNLS(user,
         "Du bist nicht fähig genug um das zu tun.",
         "You are not skilled enough to do this.")
@@ -753,7 +797,7 @@ function Craft:repairItem(user, productIdList)
         return false
     end
     
-    if common.getItemDurability(itemToRepair) == 99 then
+    if common.getItemDurability(itemToRepair) == 99 then  -- safty grid
         common.InformNLS(user,
         "Du findest nichts, was du an dem Werkstück reparieren könntest.",
         "There is nothing to repair on that item.")    
@@ -763,7 +807,7 @@ function Craft:repairItem(user, productIdList)
     local neededFood = 0
     if not self.npcCraft then
         local foodOK = false
-        foodOK, neededFood = self:checkRequiredFood(user, product:getCraftingTime(skill,0))
+        foodOK, neededFood = self:checkRequiredFood(user, repairTime)
         if not foodOK then
             self:swapToInactiveItem(user)
             return false
@@ -774,14 +818,17 @@ function Craft:repairItem(user, productIdList)
         self:createRepairedItem(user, productId, itemToRepair)
 
         if not self.npcCraft then
-            if craft.ToolBreaks(user, toolItem, product:getCraftingTime(skill,0)) then
+            local originalDurability = common.getItemDurability(toolItem)
+            if craft.ToolBreaks(user, toolItem, repairTime) then
                 common.HighInformNLS(user,"Dein altes Werkzeug zerbricht.", "Your old tool breaks.")
+            else
+                glypheffects.effectToolSelfRepair(user, toolItem, originalDurability)
             end
             common.GetHungry(user, neededFood)
         end
 
         if type(self.leadSkill) == "number" then
-            user:learn(self.leadSkill, product:getCraftingTime(skill,0), product.learnLimit)
+            user:learn(self.leadSkill, repairTime, product.learnLimit)
             local newSkill = self:getSkill(user)
             skillGain = (newSkill > skill)
         end
@@ -799,25 +846,35 @@ function Craft:createRepairedItem(user, productId, itemToRepair)
     for i = 1, #product.ingredients do
         local ingredient = product.ingredients[i]
         if math.random() < itemDamage * REPAIR_RESOURCE_USAGE then
-            user:eraseItem(ingredient.item, ingredient.quantity, ingredient.data)
+            if not glypheffects.effectSaveMaterialOnRepair(user) then
+                user:eraseItem(ingredient.item, ingredient.quantity, ingredient.data)
+            end
         end
     end
 
     local bestQuality = itemToRepair:getData("qualityAtCreation")
     local repairQualityIncrease
+    local glyphBonus = 0
     if common.IsNilOrEmpty(bestQuality) then
         itemToRepair:setData("qualityAtCreation", quality)
     else
-        if Craft:isKnownCrafter(itemToRepair) then
-            repairQualityIncrease = REPAIR_QUALITY_INCREASE_GENERAL + REPAIR_QUALITY_INCREASE_KNOWN_CRAFTER
-        else
-            repairQualityIncrease = REPAIR_QUALITY_INCREASE_GENERAL
-        end
-        if (quality < tonumber(bestQuality)) and (math.random() < itemDamage * repairQualityIncrease) then
-            quality = quality +1
-            common.InformNLS(user,
-            "Dir gelingt es, die Qualität des Gegenstands "..world:getItemName(itemToRepair.id,Player.german).." etwas zu verbessern.",
-            "You have succeeded in improving the quality of the item "..world:getItemName(itemToRepair.id,Player.english)..".")
+        if (quality < tonumber(bestQuality)) then
+            glyphBonus = glypheffects.effectOnUserRepairQuality(user,itemToRepair)
+            if Craft:isKnownCrafter(itemToRepair) then
+                repairQualityIncrease = REPAIR_QUALITY_INCREASE_GENERAL + REPAIR_QUALITY_INCREASE_KNOWN_CRAFTER + glyphBonus
+            else
+                repairQualityIncrease = REPAIR_QUALITY_INCREASE_GENERAL + glyphBonus
+            end
+            if (math.random() < itemDamage * repairQualityIncrease) then
+                quality = quality +1
+                common.InformNLS(user,
+                "Dir gelingt es, die Qualität des Gegenstands "..world:getItemName(itemToRepair.id,Player.german).." etwas zu verbessern.",
+                "You have succeeded in improving the quality of the item "..world:getItemName(itemToRepair.id,Player.english)..".")
+            else
+                common.InformNLS(user,
+                "Du reparierst "..world:getItemName(itemToRepair.id,Player.german)..".",
+                "You repair "..world:getItemName(itemToRepair.id,Player.english)..".")
+            end
         else
             common.InformNLS(user,
             "Du reparierst "..world:getItemName(itemToRepair.id,Player.german)..".",
@@ -842,18 +899,6 @@ function Craft:isKnownCrafter(item)
     return false
 end
 
-function Craft:setCurrentGemBonus (bonus)
-    currentGemBonus = tonumber(bonus)
-end
-
-function Craft:getCurrentGemBonus ()
-    return currentGemBonus
-end
-
-function Craft:setCurrentGemBonusUser (user)
-    local toolItem = self:getHandToolEquipped(user)
-end
-
 function Craft:findReferenceProductId(user, productId)
     if self:isRepairItem(productId) then
         local itemAtCharacter = user:getItemAt( productId - OFFSET_PRODUCTS_REPAIR )
@@ -870,7 +915,7 @@ function Craft:findReferenceProductId(user, productId)
 end
 
 function Craft:getRepairSkill(user)
-    local repairSkill = self:getSkill(user) + tonumber (self:getCurrentGemBonus())
+    local repairSkill = self:getSkill(user) + tonumber (self:getCurrentGemBonus(user))
     return repairSkill
 end
 

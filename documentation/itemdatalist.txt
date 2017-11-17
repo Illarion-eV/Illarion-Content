@@ -34,3 +34,5 @@ lookatNoWeight, 1, weight is not shown in lookAt
 RatQuestCadomyr, number of poisioned carrot (1 - 5)
 RatQuestGalmair, number of poisioned carrot (1 - 5)
 RatQuestRunewick, number of poisioned carrot (1 - 5)
+--onionball
+onionball, true, lever and onion used for onionball

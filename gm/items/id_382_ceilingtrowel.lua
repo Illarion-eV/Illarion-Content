@@ -24,8 +24,9 @@ local specialeggs = require("content.specialeggs")
 local scheduledFunction = require("scheduled.scheduledFunction")
 local mysticalcracker = require ("item.id_3894_mystical_cracker")
 local spawntreasures = require ("scheduled.spawn_treasure")
---Banduklocal shard = require("item.shard")
---Banduklocal glyphs = require("base.glyphs")
+local shard = require("item.shard")
+local glyphs = require("base.glyphs")
+local seafaring = require("base.seafaring")
 
 
 local M = {}
@@ -343,7 +344,7 @@ local function changeItemGlyph(User, TargetItem)
         local input = dialog:getInput()
         if (string.find(input,"(%d+)")~=nil) then
             local a,b,newcharges = string.find(input,"(%d+)")
---Banduk            glyphs.setRemainingGlyphs(TargetItem,newcharges)
+            glyphs.setRemainingGlyphs(TargetItem,newcharges)
             User:inform("Item "..world:getItemName(TargetItem.id, Player.english).." got "..tostring(newcharges).." glyph charges")
         else
             User:inform("Sorry, I didn't understand you.")
@@ -1308,15 +1309,15 @@ local function specialItemCreationGlyphShard(User)
         if (string.find(input,"(%d+)") ~= nil) then
             if (string.find(input,"[1-7][1-7]") ~= nil) then
                 local a, b, level = string.find(input,"(%d+)")
---Banduk                shard.createShardWithLevelOnUser(User, level)
+                shard.createShardWithLevelOnUser(User, level)
             else
                 local a, b, amount = string.find(input,"(%d+)")
                 for i=1, tonumber(amount) do
---Banduk                    shard.createShardOnUser(User)
+                    shard.createShardOnUser(User)
                 end
             end
         else
---Banduk            shard.createShardOnUser(User)
+            shard.createShardOnUser(User)
         end
     end
     User:requestInputDialog(InputDialog("Glyph Shard Creation",
@@ -1456,7 +1457,7 @@ end
 
 function M.UseItem(User, SourceItem)
     -- First check for mode change
-    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation", "Script Variables"}
+    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation", "Script Variables","Harbours"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -1475,6 +1476,8 @@ function M.UseItem(User, SourceItem)
             specialItemCreation(User)
         elseif index == 6 then
             readScriptVars(User)
+        elseif index == 7 then
+            seafaring.gmManagePorts(User)
         end
     end
     local sd = SelectionDialog("Set mode of this ceiling trowel", "To which mode you want to change?", cbSetMode)

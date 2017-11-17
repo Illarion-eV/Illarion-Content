@@ -18,6 +18,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local lookat = require("base.lookat")
 local common = require("base.common")
 local globalvar = require("base.globalvar")
+local mob = require("base.mob")
+
 local M = {}
 
 local gfxSubMenu = {"Fire","Ice and wind","Clouds","Light","Sparkles","Misc","Heavy attack","Attack","Friendly"}
@@ -131,10 +133,10 @@ local animation
 local changeAvatar
 
 
-local function UseItemWithField(User, TargetPos)
+local function UseItemWithField(User, TargetPos,SourceItem)
 
     -- First check for mode change
-    local modes = {"Monster", "GFX", "GFX Selector", "SFX", "SFX Selector", "Avatar changes"}
+    local modes = {"Monster", "Mob Selector", "GFX", "GFX Selector", "SFX", "SFX Selector", "Avatar changes"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -144,14 +146,16 @@ local function UseItemWithField(User, TargetPos)
         if index == 1 then
             monsterCreation(User, TargetPos)
         elseif index == 2 then
-            gfx(User, TargetPos)
+            mob.gmSpawnMob(User,SourceItem)
         elseif index == 3 then
-            gfxSelector(User, TargetPos)
+            gfx(User, TargetPos)
         elseif index == 4 then
-            sfx(User, TargetPos)
+            gfxSelector(User, TargetPos)
         elseif index == 5 then
-            sfxSelector(User, TargetPos)
+            sfx(User, TargetPos)
         elseif index == 6 then
+            sfxSelector(User, TargetPos)
+        elseif index == 7 then
             changeAvatar(User)
         else
             User:inform("no valid function")
@@ -458,7 +462,7 @@ function changeAvatar(User)
 end
 
 function M.UseItem(User, SourceItem)
-    UseItemWithField(User, common.GetFrontPosition(User))
+    UseItemWithField(User, common.GetFrontPosition(User), SourceItem)
 end
 
 function M.LookAtItem(User, Item)

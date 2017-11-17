@@ -35,6 +35,10 @@ local common = require("base.common")
 local character = require("base.character")
 local fightingutil = require("base.fightingutil")
 local gems = require("base.gems")
+local glypheffects = require("magic.glypheffects")
+local globalvar = require("base.globalvar")
+local magic = require("base.magic")
+
 
 local function getNeededMana(castTime)
     return math.ceil(80 + (castTime-7)*20)
@@ -238,12 +242,23 @@ local function applyDamage(attackerStruct, defenderStruct)
     -- scale damage based on the level of the armour parts the mage wears
     --damage = damage*(1 - common.Scale(0, 0.5, averageArmourLevel(attackerStruct.Char))) -- deactived to remove malus
     
+    -- apply glyph effects
+    local glyphDamageFactor = glypheffects.effectDamageIncrease(attackerStruct.Char,defenderStruct.Char)
+    local isGlyphRevertDamage, glyphRevertDamageFactor = glypheffects.effectRevertDamage(defenderStruct.Char, attackerStruct.Char)
+    damage = damage * glyphDamageFactor * glyphRevertDamageFactor
+
     -- limits for damage
     damage = math.max(0, damage)
     damage = damage * (math.random(9,10)/10)
     damage = math.min(damage, 4999)
     damage = math.floor(damage)
-    
+
+    glypheffects.effectDamageOverTime(attackerStruct.Char,defenderStruct.Char,damage)
+
+    if isGlyphRevertDamage then
+        defenderStruct = attackerStruct
+    end
+
     -- inflict damage and check if character would die
     if character.IsPlayer(defenderStruct.Char) and character.WouldDie(defenderStruct.Char, damage + 1) then
         if character.AtBrinkOfDeath(defenderStruct.Char) then
@@ -265,40 +280,6 @@ local function applyDamage(attackerStruct, defenderStruct)
     else
         character.ChangeHP(defenderStruct.Char, -damage)
     end
-end
-
-function wandDegrade(caster, wand)
-
-    local degradeChance = 20
-    if caster:isNewPlayer() then
-        degradeChance = degradeChance * 2
-    end
-
-    if (common.Chance(1, 20)) then
-        local durability = math.fmod(wand.quality, 100)
-        local quality = (wand.quality - durability) / 100
-        local nameText = world:getItemName(wand.id, caster:getPlayerLanguage())
-
-        durability = durability - 1
-        if (durability == 0) then
-            common.InformNLS(caster,
-                "Deine Waffe '"..nameText.."' zerbricht. Du vergießt eine bitter Träne und sagst lebe wohl, als sie in das nächste Leben übergeht.",
-                "Your weapon '"..nameText.."' shatters. You shed a single tear and bid it farewell as it moves on to its next life.")
-            gems.returnGemsToUser(caster, wand)
-            world:erase(wand, 1)
-            return
-        end
-
-        wand.quality = quality * 100 + durability
-        world:changeItem(wand)
-
-        if (durability < 10) then
-            common.InformNLS(caster,
-                "Deine Waffe '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du sie reparieren lassen.",
-                "Your weapon '"..nameText.."' has seen better days. You may want to get it repaired.")
-        end
-    end
-
 end
 
 function M.onMagicAttack(attackerStruct, defenderStruct)
@@ -329,14 +310,14 @@ function M.onMagicAttack(attackerStruct, defenderStruct)
     
     -- Handle mana usage
     attackerStruct["mana"] = attackerStruct.Char:increaseAttrib("mana", 0)
-    local neededMana = getNeededMana(neededCastTime)
+    local neededMana = magic.getValueWithGemBonus(attackerStruct.Char, getNeededMana(neededCastTime))
     if (attackerStruct.mana < neededMana) then
         attackerStruct.Char:inform("Dein Mana reicht nicht aus", "Your mana is depleted")
         return
     end
     attackerStruct.Char:increaseAttrib("mana", -neededMana)
     
-    attackerStruct.Char:performAnimation(6)
+    attackerStruct.Char:performAnimation(globalvar.charAnimationSPELL)
     
     local hisher =  common.GetGenderText(attackerStruct.Char,"his","her")
     local seinihr = common.GetGenderText(attackerStruct.Char,"sein","ihr")
@@ -375,8 +356,11 @@ function M.onMagicAttack(attackerStruct, defenderStruct)
     applyDamage(attackerStruct, defenderStruct)
     attackerStruct.Char:learn(Character.wandMagic, neededCastTime/3, 100)
     
-    wandDegrade(attackerStruct.Char, attackerStruct.WeaponItem)
+    magic.wandDegrade(attackerStruct.Char, attackerStruct.WeaponItem)
     
+    -- take glyph effects on move points into consideration
+    glypheffects.effectOnFight(attackerStruct.Char,defenderStruct.Char)
+
     return true
 end
 

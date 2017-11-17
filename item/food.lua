@@ -25,6 +25,7 @@ local alchemy = require("alchemy.base.alchemy")
 local herbs = require("alchemy.base.herbs")
 local specialeggs = require("content.specialeggs")
 local ratCistern = require("content.ratCistern")
+local onionball = require("npc.sepp_leaf")
 
 local foodList = {}
 
@@ -395,7 +396,17 @@ local function fortuneCookie(sourceItem, User)
     end
 end
 
+function M.MoveItemAfterMove( User, SourceItem, TargetItem )
+    if onionball.moveOnion(User, SourceItem, TargetItem) then
+        return false
+    end
+    return true
+end
+
 function M.UseItem(User, sourceItem, ltstate)
+    if onionball.useOnion(User, sourceItem) then
+        return
+    end
 
     if holyGrapes(User, sourceItem) then
         return
