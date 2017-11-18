@@ -189,7 +189,7 @@ function M.wandDegrade(user, wand, chance)
         durability = durability - 1
         if (durability == 0) then
             common.InformNLS(user,
-                "Deine Waffe '"..nameText.."' zerbricht. Du vergie√üt eine bitter Tr√§ne und sagst lebe wohl, als sie in das n√§chste Leben √ºbergeht.",
+                "Deine Waffe '"..nameText.."' zerbricht. Du vergieﬂt eine bitter Tr‰ne und sagst lebe wohl, als sie in das n‰chste Leben ¸bergeht.",
                 "Your weapon '"..nameText.."' shatters. You shed a single tear and bid it farewell as it moves on to its next life.")
             gems.returnGemsToUser(user, wand)
             world:erase(wand, 1)
