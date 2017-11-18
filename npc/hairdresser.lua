@@ -19,14 +19,14 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 --[[Quest ID's
 31,Target hairstyle
-32,Natural haircolor
+32,Natural hairstyle
 33,Natural beardstyle
-34,Natural haircolor
-226,Time new hair color disappear
+34,Natural haircolour
+226,Time new hair colour disappear
 227,Time new hair style disappear
 228,Time new beard style disappear
-229,Cooldown new or trimed cut visible
-230,Cooldown polished comb for lizzards
+229,Cooldown new or trimmed cut visible
+230,Cooldown polished comb for lizards
 231,Money to pay
 232,Cooldown pay later
 233,warning to pay
@@ -73,13 +73,13 @@ local npcTalk = {
         {"Man kann immer besser aussehen. Man muss nur wollen.","Es gibt immer was abzuschneiden, packen wir es an.","Wer will schon bleiben wie er ist?"},
         {"You can always make yourself look better, if you want.","There is always something to cut. Let's start.","Do you really want to stay as you are?"} },
     {   {"god","gott","gött"},
-        {"Wenn ich Euch unter meine Fitiche nehme, lächeln die Götter.","Die Götter werden Euch immer wiedererkennen, bei allen anderen bin ich mir nicht sicher.","Gleich hinter dem Haus findet Ihr Adrons Altar."},
+        {"Wenn ich Euch unter meine Fittiche nehme, lächeln die Götter.","Die Götter werden Euch immer wiedererkennen, bei allen anderen bin ich mir nicht sicher.","Gleich hinter dem Haus findet Ihr Adrons Altar."},
         {"Be assured, as I work on you the gods will smile.","Gods will recognise you, however, I'm not that sure about everybody else.","Right behind the house is an altar to Adron."} },
     {   {"quest","task","mission","auftrag","aufgabe"},
         {"Ich vergebe keine Aufgaben.","Ich hätte eine unentwirrbare Aufgabe, aber die ist fest auf Eurem Kopf.","Nein ich habe für Euch nichts zu tun, außer still sitzen."},
         {"I don't have a quest for you.","There is an inextricable mission, but it is located on your head.","No I don't have a quest for you, but you could keep still."} },
     {   {"zahl","pay","coins","münze"},
-        {"Pünklich zahlen zahlt sich immer aus.","Nichts ist umsonst zu haben."},
+        {"Pünktlich zahlen zahlt sich immer aus.","Nichts ist umsonst zu haben."},
         {"Paying on time always pays off.","There is nothing for free."} }
 }
 
@@ -885,15 +885,15 @@ local function testFunction(user,npc)
         user:inform(">31 :"..tostring(user:getQuestProgress(31)).."     Target hair colour")
         user:inform(">32 :"..tostring(user:getQuestProgress(32)).."     Natural hairstyle")
         user:inform(">33 :"..tostring(user:getQuestProgress(33)).."     Natural beardstyle")
-        user:inform(">34 :"..tostring(user:getQuestProgress(34)).."     Natural haircolor")
+        user:inform(">34 :"..tostring(user:getQuestProgress(34)).."     Natural haircolour")
         user:inform(">226:"..tostring(user:getQuestProgress(226)).."     Time new hair colour disappear")
         user:inform(">227:"..tostring(user:getQuestProgress(227)).."     Time new hair style disappear")
         user:inform(">228:"..tostring(user:getQuestProgress(228)).."     Time new beard style disappear")
-        user:inform(">229:"..tostring(user:getQuestProgress(229)).."     Cooldown new or trimed cut visible")
-        user:inform(">230:"..tostring(user:getQuestProgress(230)).."     Cooldown polished comb for lizzards")
+        user:inform(">229:"..tostring(user:getQuestProgress(229)).."     Cooldown new or trimmed cut visible")
+        user:inform(">230:"..tostring(user:getQuestProgress(230)).."     Cooldown polished comb for lizards")
         user:inform(">231:"..tostring(user:getQuestProgress(231)).."     money to pay")
         user:inform(">232:"..tostring(user:getQuestProgress(232)).."     Cooldown for delayed payment")
-        user:inform(">233:"..tostring(user:getQuestProgress(233)).."     Warnings for delayed paymen")
+        user:inform(">233:"..tostring(user:getQuestProgress(233)).."     Warnings for delayed payment")
         user:inform(">234:"..tostring(user:getQuestProgress(234)).."     Time next haircut possible")
     end
 end
