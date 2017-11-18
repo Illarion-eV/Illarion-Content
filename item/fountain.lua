@@ -15,7 +15,7 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- UPDATE items SET itm_script='item.id_2079_fountain' WHERE itm_id IN (2079);
+-- UPDATE items SET itm_script='item.fountain' WHERE itm_id IN (631,2079);
 
 local common = require("base.common")
 local lookat = require("base.lookat")
@@ -35,7 +35,7 @@ local lakeOfLifeFountainPos = {
 
 function M.UseItem(User, SourceItem, ltstate)
 
-for i = 1, #lakeOfLifeFountainPos do
+    for i = 1, #lakeOfLifeFountainPos do
         if (SourceItem.pos == lakeOfLifeFountainPos[i]) then
             world:gfx(16, User.pos) -- nice GFX
             world:makeSound(10, User.pos) -- nice SFX
@@ -44,5 +44,24 @@ for i = 1, #lakeOfLifeFountainPos do
             User:setQuestProgress(509,2) -- timer
         end
     end
+
+    local ITEM_ID_BUCKET = 51
+    local emptybucket = require("item.id_51_emptybucket")
+    if common.hasItemIdInHand(User, ITEM_ID_BUCKET) then
+        emptybucket.UseItem(User, common.getItemInHand(User, ITEM_ID_BUCKET), ltstate)
+        return
+    end
+
+    local ITEM_ID_BOTTLE = 2498
+    local emptybottle = require("item.id_2498_empty_bottle")
+    if common.hasItemIdInHand(User, ITEM_ID_BOTTLE) then
+        emptybottle.UseItem(User, common.getItemInHand(User, ITEM_ID_BOTTLE), ltstate)
+        return
+    end
+
+    common.HighInformNLS(User,
+        "Du kannst hier einen Eimer oder eine große leere Flasche in deine Hand nehmen und mit Wasser füllen.",
+        "Take an empty bucket or a large empty bottle into hand to fill it with water.")
+
 end
 return M

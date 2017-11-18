@@ -75,11 +75,9 @@ function M.LookAtItem(User,Item)
     end
 
     -- Bookrest for ferry
-    local Amountferry = #seafaring.ferrySourceItemPos
-    for i = 1,Amountferry do
-        if (Item.pos == seafaring.ferrySourceItemPos[i]) then
-            lookAt = FerryLookAt(User, Item)
-        end
+    local isFerry, ferryLookAt = seafaring.ferryLookAt(User, Item, ItemLookAt())
+    if isFerry then
+        lookAt = ferryLookAt
     end
 
     -- static teleporter
@@ -92,19 +90,6 @@ function M.LookAtItem(User,Item)
     else
         return lookat.GenerateLookAt(User, Item, 0)
     end
-end
-
-
-function FerryLookAt(User, Item)
-    local lookAt = ItemLookAt()
-    if (User:getPlayerLanguage()==0) then
-        lookAt.name = "Fähre"
-        lookAt.description = "Wer bei der nächsten Fahrt mit möchte, sollte sich schnellstens hier innerhalb von fünf Schritten sammeln. Preis: Zehn Silberstücke für die ganze Gruppe."
-    else
-        lookAt.name = "Ferry"
-        lookAt.description = "Anyone who would like to join for the next trip should gather here within five steps. Price: Ten silver pieces for the whole group."
-    end
-    return lookAt
 end
 
 function TMLookAt(User, Item)
@@ -235,11 +220,8 @@ function M.UseItem(User, SourceItem)
     end
 
     -- ferries
-    local Amountferry = #seafaring.ferrySourceItemPos
-    for i = 1,Amountferry do
-        if (SourceItem.pos == seafaring.ferrySourceItemPos[i]) then
-            seafaring.Ferry(User, SourceItem)
-        end
+    if seafaring.useFerry(User, SourceItem) then
+        return
     end
 
     -- static teleporter

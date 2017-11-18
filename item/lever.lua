@@ -315,7 +315,7 @@ function M.init()
     AddToLevers(ThroneRoom)
 end
 
-function M.UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem, ltstate)
     
     if SourceItem:getData("oldSlimeFeeding") == "true" then
         oldSlimeFeeding.useLever(User, SourceItem)

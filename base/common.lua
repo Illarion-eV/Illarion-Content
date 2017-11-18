@@ -62,6 +62,17 @@ function M.GetGenderText(User, textMale, textFemale)
     return (User:increaseAttrib("sex", 0) == 1 and textFemale or textMale)
 end
 
+--[[ Get the frst letter in a text uppercase.
+@param text: "the text"
+@return text: "The text" ]]--
+function M.firstToUpper(text)
+    if M.IsNilOrEmpty(text) then
+        return text
+    end
+    text = tostring(text)
+    return (text:gsub("^%l", string.upper))
+end
+
 --- This function uses the random value generator to produce a random chance.
 -- This function returns true in a specified amount of cases. The optional
 -- Base parameter is used to set the value of 100%. By default this value is 1.
@@ -383,6 +394,49 @@ function M.getFreePos(CenterPos, Rad)
         return CenterPos
     end
     return pos
+end
+
+--Counts passable fields around a center location. The search is performed with a square mask. So the search
+--  area is actually a rectangle with the with a side length of searchRadius + 2
+-- @param centerPosition the center of the search
+-- @param searchRadius the radius of the search
+-- @return number of passable fields
+function M.getNumberOfPassableFieldsInArea(centerPos, searchRadius)
+    local countPos = 0
+    for x = -searchRadius, searchRadius do
+        for y = -searchRadius, searchRadius do
+            local pos = position(centerPos.x + x, centerPos.y + y, centerPos.z)
+            local field = world:getField(pos)
+            if field ~= nil then
+                if field:isPassable() then
+                    countPos = countPos + 1
+                end
+            end
+        end
+    end
+    return countPos
+end
+
+--Counts passable fields around a center location. The search is performed with a given relativ mask.
+-- @param centerPos the center of the search
+-- @param relativePoss table of reltive positions
+-- @return number of passable fields
+function M.getNumberOfPassableFieldsFromList(centerPos, relativePos)
+    local countPos = 0
+    if relativePos == nil or #relativePos == 0 then
+        return 0
+    else
+        for i=1, #relativePos do
+            local pos = position(centerPos.x + relativePos[i][1], centerPos.y + relativePos[i][2], centerPos.z + relativePos[i][3])
+            local field = world:getField(pos)
+            if field ~= nil then
+                if field:isPassable() then
+                    countPos = countPos + 1
+                end
+            end
+        end
+    end
+    return countPos
 end
 
 --- Check if a ItemStruct is valid for a special character
@@ -1636,6 +1690,41 @@ function M.IsItemInHands( item )
     return false
 end
 
+--[[Check if a char holds an item from a list in hand
+@return true if item with id is in any hand slot]]--
+function M.hasItemIdInHand(user, itemIds)
+    if type(row) == "table" then
+        itemIds = {itemIds}
+    end
+    local leftTool = user:getItemAt(Character.left_tool)
+    if M.isInList(leftTool.id, itemIds) then
+        return true
+    end
+    local rightTool = user:getItemAt(Character.right_tool)
+    if M.isInList(rightTool.id, itemIds) then
+        return true
+    end
+    return false
+end
+
+--[[Check if a char holds an item from a list in hand
+@return item if item with id is in any hand slot]]--
+function M.getItemInHand(user, itemIds)
+    if type(row) == "table" then
+        itemIds = {itemIds}
+    end
+    local leftTool = user:getItemAt(Character.left_tool)
+    if M.isInList(leftTool.id, itemIds) then
+        return leftTool
+    end
+    local rightTool = user:getItemAt(Character.right_tool)
+    if M.isInList(rightTool.id, itemIds) then
+        return rightTool
+    end
+    return nil
+end
+
+
 --- Gets the target item for Use-With like commands. Both, source and target items have to be in hand tool slots.
 -- @param character The character who wants to use the items
 -- @param source The source item that is "used with" the target item
@@ -1779,11 +1868,11 @@ function M.isInList(valueChecked, valueList)
     if valueChecked == nil then
         return false
     end
-    if #valueList == nil or #valueList == 0 then
-        return false
+    if type(valueList) ~= "table" then
+        valueList = {valueList}
     end
-    for i=1 , #valueList do
-        if valueChecked == valueList[i] then
+    for _, value in pairs(valueList) do
+        if valueChecked == value then
             return true
         end
     end
@@ -1800,15 +1889,31 @@ function M.posInList(valueChecked, valueList)
     if valueChecked == nil then
         return 0
     end
-    if #valueList == nil or #valueList == 0 then
+    if type(valueList) ~= "table" then
         return 0
     end
-    for i=1 , #valueList do
-        if valueChecked == valueList[i] then
+    for i, value in pairs(valueList) do
+        if valueChecked == value then
             return i
         end
     end
     return 0
+end
+
+--[[
+    \fn:    getOneOutOfList
+    \brief: returns one random row out of valueList
+    if valueList isn't a table, valueList is returned
+]]
+function M.getOneOutOfList(valueList)
+    if type(valueList) ~= "table" then
+        return valueList
+    end
+    local tmpList = {}
+    for i, row in pairs(valueList) do
+        table.insert(tmpList, i)
+    end
+    return valueList[math.random(1,#tmpList)]
 end
 
 --[[
@@ -2025,19 +2130,22 @@ function M.GetItemInArea(CenterPos, ItemId, Radius, OnlyWriteable)
   for x=-Radius,Radius do
     for y=-Radius,Radius do
       local field = world:getField(position(CenterPos.x + x, CenterPos.y + y, CenterPos.z))
+      if field ~= nil then
       local itemCount = field:countItems()
-      if (itemCount > 0) then
-        if (OnlyWriteable) then
-          itemCount = 1
-        end
-        for i=0,itemCount-1 do
-          local item = field:getStackItem(i)
-          if (item.id == ItemId) then
-            item.pos.x = CenterPos.x + x
-            item.pos.y = CenterPos.y + y
-            return item, (i==0)
+          if (itemCount > 0) then
+            if (OnlyWriteable) then
+              itemCount = 1
+            end
+            for i=0,itemCount-1 do
+              local item = field:getStackItem(i)
+              if (item.id == ItemId) then
+                item.pos.x = CenterPos.x + x
+                item.pos.y = CenterPos.y + y
+                item.pos.z = CenterPos.z
+                return item, (i==0)
+              end
+            end
           end
-        end
       end
     end
   end
@@ -2240,6 +2348,165 @@ function M.countBit(checkedValue)
         bitNumber = bitNumber * 2
     end
     return countBit
+end
+
+--[[Item name
+Considers special item names
+@return string]]--
+function M.getItemName(item, lang)
+    local specialname = ( lang == Player.german and item:getData("nameDe") or item:getData("nameEn") )
+    if ( M.IsNilOrEmpty(specialname) ) then
+        return world:getItemName( item.id, lang )
+    else
+        return specialname
+    end
+end
+
+--[[warp a character back
+@return: real distance (0 if not warped)]]--
+function M.pushBack(user,extDistance,extCenterPos)
+    local distance = extDistance or 1
+    local centerPos = extCenterPos or M.GetFrontPosition(user)
+
+    local diffX = centerPos.x - user.pos.x
+    local diffY = centerPos.y - user.pos.y
+    if (centerPos.x == user.pos.x and centerPos.y == user.pos.y) then -- any direction
+        diffX = math.random(1,5)
+        diffY = math.random(1,5)
+        if math.random() < 0.5 then
+            diffX = - diffX
+        end
+        if math.random() < 0.5 then
+            diffY = - diffY
+        end
+    else
+        diffX = centerPos.x - user.pos.x
+        diffY = centerPos.y - user.pos.y
+    end
+    local alpha = math.atan2(diffX,diffY)
+    local distX = math.floor(math.sin(alpha)*distance)
+    local distY = math.floor(math.cos(alpha)*distance)
+
+    local posX = user.pos.x - distX
+    local posY = user.pos.y - distY
+    local posZ = user.pos.z
+
+    local targetPos=user.pos
+
+    local isNotBlocked = function(pos)
+        if world:getField(pos):isPassable() then
+            targetPos = pos
+            return true
+        else
+            return false
+        end
+    end
+
+    M.CreateLine(user.pos, position(posX,posY,posZ), isNotBlocked)
+
+    local realDistance = user:distanceMetricToPosition(targetPos)
+    user:warp(targetPos)
+    return realDistance
+end
+
+--[[Find items out of a list from inventory and bag
+user: The cheched character
+itemIdList: Table of item ID's or item ID
+return: hasItem, returnList
+hasItem: true if all items are in inventory
+returnList: all found items
+]]--
+function M.userHasItems(user,itemIdList)
+    local idItem
+    local numberItem
+    local numberExists
+    local returnList = {}
+    local allItems = false
+    if type(itemIdList) ~= "table" then
+        itemIdList = {itemIdList}
+    end
+    if user:getType() == Character.player and #itemIdList > 0 then
+        allItems = true
+        for _, row in pairs(itemIdList) do
+            if type(row) == "table" then
+                idItem = row[1]
+                numberItem = row[2] or 1
+            else
+                idItem = row
+                numberItem = 1
+            end
+            local l = user:getItemList(idItem)
+            numberExists = 0
+            for _,i in pairs(l) do
+                numberExists = numberExists + i.number
+                table.insert(returnList,i)
+            end
+            if numberExists < numberItem then
+                allItems = false
+            end
+        end
+    end
+    return allItems, returnList
+end
+
+
+--[[ Drop a blood spot on the ground at a specified location.
+@param Posi The location where the blood spot is placed]]--
+function M.dropBlood(Posi, bloodWear)
+    usedWear = bloodWear or 2
+    if world:isItemOnField(Posi) then
+        return --no blood on tiles with items on them!
+    end
+    local field = world:getField(Posi)
+    local tileId = field:tile()
+    if tileId == 6 or tileId == 0 or tileId == 34 then
+        return -- no blood on water and invisible tiles
+    end
+    
+    local Blood = world:createItemFromId(3101, 1, Posi, true, 333, nil)
+    Blood.wear = usedWear
+    world:changeItem(Blood)
+end
+
+--[[ Drop some of blood. This function drops blood on every tile around the centerPos with a certain probability
+@param centerPos: The center of the bloody area
+@param: bloodProbability 0-1
+@param: bllodWear Time the blood remains x 3 min
+]]--
+function M.dropSomeBlood(centerPos, bloodProbability, bloodWear)
+    usedProbability = bloodProbability or 0.33
+    usedWear = bloodWear or 1
+    centerPos.x = centerPos.x - 1
+    centerPos.y = centerPos.y - 1
+    for i = 1, 3 do
+        for j = 1, 3 do
+            if math.random() < usedProbability then
+                M.dropBlood(centerPos, usedWear)
+            end
+            centerPos.x = centerPos.x + 1
+        end
+        centerPos.x = centerPos.x - 3
+        centerPos.y = centerPos.y + 1
+    end
+end
+
+--[[ Drop much of blood. This function drops blood on about every 3rd tile around the position set as center.
+@param centerPos The center of the bloody area]]--
+function M.dropMuchBlood(centerPos)
+    M.dropSomeBlood(centerPos, 1, 2)
+end
+
+--[[Counts player around a position including the levels -2, -1, +1, +2
+center pos: center of search
+range: range of search
+@return: number of character]]--
+function M.countPlayersInRangeOf(centerPos, range)
+    local users = world:getPlayersInRangeOf(centerPos, range)
+    local count=0
+    for _, user in pairs(users) do
+        count = count + 1
+    end
+    return count
 end
 
 return M

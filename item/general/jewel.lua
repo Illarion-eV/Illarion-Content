@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local lookat = require("base.lookat")
 local checks = require("item.general.checks")
+local glypheffects = require("magic.glypheffects")
 
 local M = {}
 
@@ -36,7 +37,8 @@ end
 function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
 
     if TargetItem:getType() == 4 then --inventory, not belt
-        return checks.checkLevel(User, SourceItem)
+        glypheffects.equipWithGlyphedItem(User, TargetItem)
+        return checks.checkLevel(User, SourceItem, TargetItem)
     end
 
     return true

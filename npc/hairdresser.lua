@@ -22,11 +22,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 32,Natural haircolor
 33,Natural beardstyle
 34,Natural haircolor
-226,Time new hair colour disappear
+226,Time new hair color disappear
 227,Time new hair style disappear
 228,Time new beard style disappear
 229,Cooldown new or trimed cut visible
-230,Cooldown polished comb for lizards
+230,Cooldown polished comb for lizzards
 231,Money to pay
 232,Cooldown pay later
 233,warning to pay
@@ -61,45 +61,42 @@ local npcTalk = {
         {"Grüßt euch!","Hallo wieder etwas gewachsen?","Hallo, lange nicht gesehen!"},
         {"Be greeted!","Hello my friend!","Hello, I haven't seen you for a while!"} },
     {   {"farewell","bye","fare well","see you","tschüß","tschüss","wiedersehen","gehab wohl","ciao","adieu","au revoir","farebba"},
-        {"Auf Wiedersehen!","Man sieht sich!","Pass auf eure Haare auf!"},
+        {"Auf Wiedersehen!","Man sieht sich!","Passt auf Eure Haare auf!"},
         {"Goodbye!","Goodbye and good luck!","Take care of your hair!"} },
     {   {"how are you","how feel","how do you do","wie geht","wie fühlst","wie ist es ergangen","wie befind"},
-        {"Danke und euch?","Ich kann nicht klagen aber ihr solltest das.","Mir ging es nie besser."},
+        {"Danke und Euch?","Ich kann nicht klagen aber Ihr solltest das.","Mir ging es nie besser."},
         {"Good, thank you, and yourself?","I can't complain, but you should.","Never better than today."} },
     {   {"your name","who are you","who art thou","ihr name","dein name","wer bist du","wer seid ihr","wie heißt"},
-        {"Die schnellste Schere Illarions.","Meister der Haarkunst Erza, und ihr?","Ich bin Erza."},
-        {"The fastest scissors in Illarion.","Master of the art of hair, and you?","I am Erza."} },
+        {"Die schnellste Schere Illarions.","Meister der Haarkunst Erza, und Ihr?","Ich bin Erza."},
+        {"The fastest scissors in Illarion.","Master of hair art, Erza, and you?","I am Erza."} },
     {   {"besser","better","improve"},
         {"Man kann immer besser aussehen. Man muss nur wollen.","Es gibt immer was abzuschneiden, packen wir es an.","Wer will schon bleiben wie er ist?"},
         {"You can always make yourself look better, if you want.","There is always something to cut. Let's start.","Do you really want to stay as you are?"} },
     {   {"god","gott","gött"},
-        {"Wenn ich euch unter meine Fitiche nehme, lächeln die Götter.","Die Götter werden euch immer wiedererkennen, bei allen anderen bin ich mir nicht sicher.","Gleich hinter dem Haus findet ihr Adrons Altar."},
-        {"Be assured, as I work with you the gods will smile.","Gods will recognize you, however, I'm not that sure about everybody else.","Right behind the house is an altar of Adron."} },
+        {"Wenn ich Euch unter meine Fitiche nehme, lächeln die Götter.","Die Götter werden Euch immer wiedererkennen, bei allen anderen bin ich mir nicht sicher.","Gleich hinter dem Haus findet Ihr Adrons Altar."},
+        {"Be assured, as I work on you the gods will smile.","Gods will recognise you, however, I'm not that sure about everybody else.","Right behind the house is an altar to Adron."} },
     {   {"quest","task","mission","auftrag","aufgabe"},
         {"Ich vergebe keine Aufgaben.","Ich hätte eine unentwirrbare Aufgabe, aber die ist fest auf Eurem Kopf.","Nein ich habe für Euch nichts zu tun, außer still sitzen."},
-        {"I don't have a quest for you.","There is an inextricable mission. But it is located on your head.","No I don't have a quest for you, but you could keep still."} },
+        {"I don't have a quest for you.","There is an inextricable mission, but it is located on your head.","No I don't have a quest for you, but you could keep still."} },
     {   {"zahl","pay","coins","münze"},
         {"Pünklich zahlen zahlt sich immer aus.","Nichts ist umsonst zu haben."},
-        {"It pays to be punctual with your payment.","There is nothing for free."} },
-    {   {"hilf","help"},
-        {"[Hilfe] Dieser NPC ist eine Friseuse. Bitte sie, dir die Haare oder den Bart zu machen. Schlüsselwörter: schneid, rasier, färb, polier, zahlen"},
-        {"[Help] This NPC is a hair dresser. Ask her to change your hair style (cut), beard style (shave) or hair colour (dye). Keywords: cut, shave, dye, polish, pay"} }
+        {"Paying on time always pays off.","There is nothing for free."} }
 }
 
 local cycleText = {
-{"Schnapp, schnipp und ab!", "Snip snip here! Snip snip there! And a couple of tra la las!"},
-{"#me schaut einen Vorbeigehenden an und ruft: 'Lange nicht mehr geschnitten, oder?'", "#me eyes a passerby and shouts. 'Get a haircut hippy!'"},
+{"Schnapp, schnipp und ab!", "Snip snip here! Snip snip there! And a couple of tra-la-las!"},
+{"#me schaut einen Vorbeigehenden an und ruft: 'Lange nicht mehr geschnitten, oder?'", "#me eyes a passerby and shouts, 'Get a haircut!'"},
 {"#me bürstet ihre Schürze aus.", "#me brushes off her apron."},
 {"#me pflückt Haare aus dem Kamm.", "#me plucks hairs from her comb."},
-{"#me prüft die Schärfe ihere Schere. ", "#me checks the edge of her scissors."},
+{"#me prüft die Schärfe ihrer Schere. ", "#me checks the blade of her scissors."},
 {"#me schaut ihr Spiegelbild lächelnd an.", "#me smiles looking at her reflection."},
 {"#me starrt auf eine Rasierklinge.", "#me stares at her razor."},
-{"#me haucht den Spiegel an und putzt ihn mit dem Ärmel.", "#me exhales on her mirror, producing some damp which she uses to clean it with her sleeve."},
+{"#me haucht den Spiegel an und putzt ihn mit dem Ärmel.", "#me exhales on her mirror, producing a damp mist and cleaning it with her sleeve."},
 {"Haare schneiden fast im Vorbeigehen.", "Hair one moment. Gone the next!"},
-{"Einige Krieger kommen und wollen 'Aim the for the flat-top'. Was immer das sein soll.", "A warrior once told me, 'Aim the for the flat-top.' Whatever that means."},
-{"Zeit euch zu rasieren!?", "Time for a shave yes!?"},
-{"Oh Götter, da ist eine tote Ratte auf eurem Kopf.", "Oh my gods! There's a dead rat on your head!."},
-{"Ich schneid dem Nächsten die Kehle durch, der mir mit .. Oh Hallo, braucht ihr eine Rasur?", "I'll kill the next fella that.. Oh hello there, care for a shave?"}
+{"Einige Krieger kommen und wollen 'Aim the for the flat-top'. Was immer das sein soll.", "Some warrior once told me, 'Aim the for the flat-top!' Whatever that means."},
+{"Zeit Euch zu rasieren!?", "Time for a shave yes?"},
+{"Oh Götter, da ist eine tote Ratte auf Eurem Kopf.", "Oh my gods! There's a dead rat on your head!."},
+{"Ich schneid dem Nächsten die Kehle durch, der mir mit .. Oh Hallo, braucht Ihr eine Rasur?", "I'll kill the next fella that.. Oh hello there, care for a shave?"}
 }
 
 local function initNpc(npc)
@@ -158,7 +155,7 @@ local function hasDebt(user,npc)
     if user:getQuestProgress(234) > common.GetCurrentTimestamp() then
         common.TalkNLS(npc,Character.say, "Verschwinde!", "Leave now!")
         common.InformNLS(user,"Nachdem du versucht hast Erza zu betrügen, wird sie ein Jahr lang nicht für dich da sein.",
-                              "Now that you tried to cheat Erza, she'll not serve you for one year.")
+                              "Once you tried to cheat Erza, now she'll not serve you for one year.")
         return true
     end
     if user:getQuestProgress(233) ~= 0 and user:getQuestProgress(232) == 0 then
@@ -189,9 +186,9 @@ function M.payErza(user)
         if not money.CharHasMoney(user,priceWork) then --not enough money!
             if user:getQuestProgress(233) == 0 then --first warning
                 common.TalkNLS(npc,Character.say, "Ich gebe Euch eine Stunde um hier mit dem Geld aufzutauchen! Ihr schuldet mir"..germanMoney..".",
-                                                  "I'll give you one hour to be here with the money! You owe me"..englishMoney..".")
-                common.InformNLS(user,"Komme innerhalb von 20 Minuten zu Erza zurück und zahl deine Schulden. Du weißt, dass du die Konsequenzen nicht tragen willst.",
-                                      "Come back to Erza and pay your debt within 20 minutes. You know you'd not like the consequences.")
+                                                  "I!ll give you one hour to be here with the money! You owe me"..englishMoney..".")
+                common.InformNLS(user,"Komme innerhalb von zwanzig Zwergenminuten zu Erza zurück und zahl deine Schulden. Du weißt, dass du die Konsequenzen nicht tragen willst.",
+                                      "Come back to Erza and pay your debt within twenty dwarven minutes. You know you would not like the consequences.")
                 user:setQuestProgress(232,5)
                 user:setQuestProgress(233,1)
             elseif user:getQuestProgress(233) > 0 then
@@ -207,9 +204,9 @@ function M.payErza(user)
             user:setQuestProgress(232,0)
             if user:getQuestProgress(233) > 0 then
                 common.TalkNLS(npc,Character.say, "Ihr habt Glück. Ich bin heute gnädig gestimmt.",
-                                                  "You're in luck. I'm feeling gracious today.")
+                                                  "You are n luck. I'm generous today.")
             else
-                common.TalkNLS(npc,Character.say, "Vielen Dank. Kann ich noch etwas für euch tun?",
+                common.TalkNLS(npc,Character.say, "Vielen Dank. Kann ich noch etwas für Euch tun?",
                                                   "Thank you. Can I do anything else for you?")
             end
             user:setQuestProgress(233,0)
@@ -253,7 +250,7 @@ local function payToLate(user,npc)
         user:increaseAttrib("hitpoints", - currentHealth)
         user:forceWarp(position(716,314,0))
         common.TalkNLS(npc,Character.say, "#me färbt und schneidet deine Haare bevor sie mit dem Rasiermesser deine Gurgel durchschneidet. 'Man betrügt mich nicht!'",
-                                          "#me dyes and cuts your hair before she cuts your throat with her razor. 'That's what you get for not paying!'")
+                                          "#me dyes and cuts your hair before she cuts your throat with her razor. 'I don't like a cheat!'")
         common.InformNLS(user,"Vielleicht wäre es doch besser gewesen, Erza zu bezahlen. Sie wird dich "..tostring(math.floor(timeAfterCheat/igMonth)).." Monate nicht bedienen.",
                               "Maybe it would have been better to pay Erza. She'll not serve your for "..tostring(math.floor(timeAfterCheat/igMonth)).." month.")
         return true
@@ -263,7 +260,7 @@ local function payToLate(user,npc)
 end
 
 local function saveNaturalStyle(user)
-    if user:getQuestProgress(32) == 0 and user:getQuestProgress(33) == 0 and user:getQuestProgress(34) == 0 then -- no natural hair colour saved yet
+    if user:getQuestProgress(32) == 0 and user:getQuestProgress(33) == 0 and user:getQuestProgress(34) == 0 then -- no natural hair color saved yet
         user:setQuestProgress(32,user:getHair())
         user:setQuestProgress(33,user:getBeard())
         local hairColour = user:getHairColour()
@@ -277,8 +274,8 @@ local function helmetOff(user,npc)
     if helmItem.id == 0 then
         return true
     else
-        common.TalkNLS(npc,Character.say, "Solange ihr den Helm aufhabt, komme ich an Euren Kopf nicht ran.",
-                                          "I cannot touch your head as long as you wear a helmet.")
+        common.TalkNLS(npc,Character.say, "Solange Ihr den Helm aufhabt, komme ich an nicht an Euren Kopf ran.",
+                                          "I cannot touch your head as long as you wear a hat or a helmet.")
         return false
     end
 end
@@ -288,8 +285,8 @@ local function userOnChair(user,npc)
     local userPos = user.pos
     
     if chairPos ~= userPos then
-        common.TalkNLS(npc,Character.say, "Vielleicht setzt ihr euch erst mal auf den Hocker hier.",
-                                          "I can work on your hair if you sit down here on that stool.")
+        common.TalkNLS(npc,Character.say, "Vielleicht setzt Ihr euch erst mal auf den Hocker hier.",
+                                          "I can work on your hair if you sit down here on this stool.")
         return false
     end
     return true
@@ -320,7 +317,7 @@ local function permittedRace(user,npc,isForLizardOnly)
     end
     if race == globalvar.raceLIZARD and not isForLizardOnly then
         common.TalkNLS(npc,Character.say, "Ich werde Euren Kamm nicht färben oder schneiden. Aber vielleicht wollt ihr eine Politur.",
-                                          "I won't cut or dye your ridge. But I could polish it.")
+                                          "I won't cut or dye your ridge, but I could polish it.")
         return false
     end
     if race ~= globalvar.raceLIZARD and isForLizardOnly then
@@ -338,7 +335,7 @@ local function trimBeard(user,npc)
     common.TalkNLS(npc,Character.say, "#me rasiert den Bart mit viel Schaum und einem scharfen Messer.",
                                       "#me shaves the beard with a lot of foam and a sharp razor.")
     common.InformNLS(user,"Dein Kinn fühlt sich gut an. Für einige Stunden kann jeder sehen, dass du beim Friseur warst. Du bezahlst"..germanMoney..".",
-                          "Your chin feels well. For some hours everybody can see you was at the hairdresser. You pay"..englishMoney..".")
+                          "Your chin feels good. For some hours everybody can see you were at the hairdresser's. You pay"..englishMoney..".")
     user:setQuestProgress(229,timeTrimVisible)
 end
 
@@ -373,8 +370,8 @@ local function shaveSelector(user,npc,firstCall,beardStyleStart,beardStyleEnd)
         selectedOption = optionList[selected+1]
         if selectedOption == DECISION_TAKETHIS then
             M.payErza(user)
-            common.InformNLS(user,"Du hast eine neue Rasur bekommen. Dieser wird ungefähr acht Monate halten. Für einige Zeit kann jeder sehen, dass du beim Friseur warst.",
-                                  "You've got a new beard style. It will last for about eight month. For some time everybody can see yor beard was freshly trimmed. .")
+            common.InformNLS(user,"Du hast eine neue Rasur bekommen. Diese wird ungefähr acht Monate halten. Für einige Zeit kann jeder sehen, dass du beim Friseur warst.",
+                                  "You've got a new beard style. It will last for about eight months. For some time everybody can see your beard was freshly shaved.")
             return
         elseif selectedOption == DECISION_NOTHING then
             common.TalkNLS(npc,Character.say, "Richtig! Bleibt dabei. Dieser Stil passt genau zu Euch.",
@@ -410,8 +407,8 @@ local function shaveSelector(user,npc,firstCall,beardStyleStart,beardStyleEnd)
         dialogAddText = common.GetNLS(user, "Bitte wähle aus, welche Rasur du haben möchtest.",
                                             "Please select what beard style you wish to have.")
     else
-        dialogAddText = common.GetNLS(user, "Gefällt dir die neue Rasur oder möchtest du eine andere?.",
-                                            "Do you like your new beard style, or wish to have another one?")
+        dialogAddText = common.GetNLS(user, "Gefällt dir die neue Rasur oder möchtest du eine andere?",
+                                            "Do you like your new beard style, or would you like to try another one?")
     end
     
     dialogAddText = dialogAddText .. common.GetNLS(user,
@@ -426,20 +423,20 @@ local function shaveSelector(user,npc,firstCall,beardStyleStart,beardStyleEnd)
     currentBeard = user:getBeard()
     if not firstCall then
         dialog:addOption(0, common.GetNLS(user, "Ich möchte doch keine neue Rasur.\nBitte nur "..beardTable[beardStyleStart].nameDe.." nachschneiden!",
-                                                "Actually I don't want a new beard style.\nPlease trim "..beardTable[beardStyleStart].nameEn.." only!"))
+                                                "Actually, I don't want a new beard style.\nPlease trim "..beardTable[beardStyleStart].nameEn.." only!"))
         table.insert(optionList,DECISION_TRIM)
         dialog:addOption(0, common.GetNLS(user, "Genau, ich möchte "..beardTable[currentBeard].nameDe.." haben!",
-                                                "Yes, I want to have "..beardTable[currentBeard].nameEn.."."))
+                                                "Yes, I want to have a "..beardTable[currentBeard].nameEn.."."))
         table.insert(optionList,DECISION_TAKETHIS)
     else
-        dialog:addOption(0, common.GetNLS(user, "Ich möchte doch keine neue Rasur.", "Actually I don't want a new beard style."))
+        dialog:addOption(0, common.GetNLS(user, "Ich möchte doch keine neue Rasur.", "Actually, I don't want a new beard style."))
         table.insert(optionList,DECISION_NOTHING)
-        dialog:addOption(0, common.GetNLS(user, "Nur nachschneiden!", "Trim beard only!"))
+        dialog:addOption(0, common.GetNLS(user, "Nur nachschneiden!", "Just a trim!"))
         table.insert(optionList,DECISION_TRIM)
     end
     for i, _ in pairs(beardTable) do
         if i ~= currentBeard and i ~= beardStyleStart then
-            dialog:addOption(0, common.GetNLS(user, "Zeige mir "..beardTable[i].nameDe.."!", "Try "..beardTable[i].nameEn.."!"))
+            dialog:addOption(0, common.GetNLS(user, "Zeige mir "..beardTable[i].nameDe.."!", "Try a "..beardTable[i].nameEn.."!"))
             table.insert(optionList,10+i)
         end
     end
@@ -540,8 +537,8 @@ local function hairColoringSelector(user,npc,firstCall,colorStart,colorEnd,color
             user:setQuestProgress(31,colorTarget)
             user:setQuestProgress(231,0)
             globalHairdresserDialogOpen = false
-            common.TalkNLS(npc,Character.say, "Genau, mit dieser Farbe seht ihr am Besten aus.",
-                                              "That's right. The old hair colour fits you best.")
+            common.TalkNLS(npc,Character.say, "Genau, mit dieser Farbe seht Ihr am Besten aus.",
+                                              "That's right. The old hair colour suits you best.")
             return
         elseif selectedOption == DECISION_TAKETHIS then
             M.payErza(user)
@@ -572,7 +569,7 @@ local function hairColoringSelector(user,npc,firstCall,colorStart,colorEnd,color
                                             "Please select what hair colour you wish to have.")
     else
         dialogAddText = common.GetNLS(user, "Gefällt dir die neue Farbe oder möchtest du eine andere?",
-                                            "Do you like your new hair colour or wish to have another one?")
+                                            "Do you like your new hair colour, or would you like to try another one?")
     end
     
     dialogAddText = dialogAddText .. common.GetNLS(user,
@@ -583,7 +580,7 @@ local function hairColoringSelector(user,npc,firstCall,colorStart,colorEnd,color
     local dialog = SelectionDialog(dialogTitleText, dialogAddText, callback)
     dialog:setCloseOnMove()
     optionList = {}
-    dialog:addOption(0, common.GetNLS(user, "Ich möchte doch keine neue Haarfarbe.", "Actually I don't want a new hair colour."))
+    dialog:addOption(0, common.GetNLS(user, "Ich möchte doch keine neue Haarfarbe.", "Actually, I don't want a new hair colour."))
     table.insert (optionList,DECISION_NOTHING)
     if not firstCall then
         dialog:addOption(0, common.GetNLS(user, "Genau, die Farbe "..hair.hairColorSimple[newColorId].nameDe.." möchte ich haben.",
@@ -633,7 +630,7 @@ local function hairColoring(user, npc)
         end
         if selected == 0 then
             common.TalkNLS(npc,Character.say, "Wie ihr wünscht. Lassen wir es, wie es ist, die Farbe steht Euch.",
-                                              "As you wish. We will change nothing, that hair colour fits you.")
+                                              "As you wish. We will change nothing, that hair colour suits you.")
             globalHairdresserDialogOpen = false
             return
         elseif selected == 1 then
@@ -651,9 +648,9 @@ local function hairColoring(user, npc)
                 user:setHairColour(colour(r, g, b))
                 user:setQuestProgress(226,0)
                 common.TalkNLS(npc,Character.say, "#me wäscht die Haare und entfernt die Reste der Haarfarbe.",
-                                                  "#me washes the hair and removes the residuals of the hair colouring.")
+                                                  "#me washes the hair and removes the residual hair colouring.")
                 common.InformNLS(user,"Du hast wieder deine ursprüngliche Haarfarbe und bezahlst"..germanMoneyShort..".",
-                                      "You have got back your natural hair colour and paid"..englishMoneyShort..".")
+                                      "You have got your natural hair colour back and paid"..englishMoneyShort..".")
             end
             globalHairdresserDialogOpen = false
             return
@@ -688,13 +685,13 @@ local function trimHair(user,npc,hairStyleStart)
     user:setQuestProgress(231,0)
     if hairStyleStart == 0 then
         common.TalkNLS(npc,Character.say, "#me poliert die Glatze mit weichen, gutriechenden Tüchern.",
-                                          "#me polishes the bald head using soft and well scented cloth.")
+                                          "#me polishes the bald head using a soft, scented cloth.")
     else
         common.TalkNLS(npc,Character.say, "#me stutzt und kämmt die Haare mit geübten Griffen.",
-                                          "#me's skilled hands trims and combs the hair.")
+                                          "#me's skilled hands trim and comb the hair.")
     end
     common.InformNLS(user,"Dein Kopf fühlt sich gut an. Für einige Stunden kann jeder sehen, dass du beim Friseur warst. Du bezahlst"..germanMoney..".",
-                          "Your head feels well. For some hours everybody can see you were at the hairdresser. You pay"..englishMoney..".")
+                          "Your head feels good. For some hours everybody can see you were at the hairdresser's. You pay"..englishMoney..".")
     user:setQuestProgress(229,timeTrimVisible)
 end
 
@@ -731,11 +728,11 @@ local function haircutSelector(user,npc,firstCall,hairStyleStart,hairStyleEnd)
         if selectedOption == DECISION_TAKETHIS then
             M.payErza(user)
             common.InformNLS(user,"Du hast einen neuen Haarschnitt bekommen. Dieser wird ungefähr acht Monate halten. Für einige Zeit kann jeder sehen, dass du beim Friseur warst.",
-                                  "You've got a new haircut. It will last for about eight month. For some time everybody can see yor hair was freshly cut.")
+                                  "You've got a new haircut. It will last for about eight months. For some time everybody can see your hair was freshly cut.")
             return
         elseif selectedOption == DECISION_NOTHING then
             common.TalkNLS(npc,Character.say, "#me zuckt mit den Schultern. 'Wie ihr wünscht, lassen wir es wie es war.'",
-                                              "#me shrugs: 'As you wish, we'll leave it as it was.'")
+                                              "#me shrugs: 'As you wish, we will leave it as it was.'")
             globalHairdresserDialogOpen = false
             return
         elseif selectedOption == DECISION_TRIM then
@@ -768,7 +765,7 @@ local function haircutSelector(user,npc,firstCall,hairStyleStart,hairStyleEnd)
                                             "Please select what hair style you wish to have.")
     else
         dialogAddText = common.GetNLS(user, "Gefällt dir die neue Frisur oder möchtest du eine andere?.",
-                                            "Do you like your new hair style or wish to have anoter one?")
+                                            "Do you like your new hair style, or would you like to try another one?")
     end
     
     dialogAddText = dialogAddText .. common.GetNLS(user,
@@ -783,15 +780,15 @@ local function haircutSelector(user,npc,firstCall,hairStyleStart,hairStyleEnd)
     currentHair = user:getHair()
     if not firstCall then
         dialog:addOption(0, common.GetNLS(user, "Ich möchte doch keinen neuen Haarschnitt.\nBitte nur "..hairTable[hairStyleStart].nameDe.." nachschneiden!",
-                                                "Actually I don't want a new haircut.\nPlease trim "..hairTable[hairStyleStart].nameEn.." only!"))
+                                                "Actually, I don't want a new haircut.\nPlease trim "..hairTable[hairStyleStart].nameEn.." only!"))
         table.insert(optionList,DECISION_TRIM)
         dialog:addOption(0, common.GetNLS(user, "Genau, ich möchte "..hairTable[currentHair].nameDe.." haben!",
                                                 "Yes, I want to have "..hairTable[currentHair].nameEn.."."))
         table.insert(optionList,DECISION_TAKETHIS)
     else
-        dialog:addOption(0, common.GetNLS(user, "Ich möchte doch keinen neuen Haarschnitt.", "Actually I don't want a new haircut."))
+        dialog:addOption(0, common.GetNLS(user, "Ich möchte doch keinen neuen Haarschnitt.", "Actually, I don't want a new haircut."))
         table.insert(optionList,DECISION_NOTHING)
-        dialog:addOption(0, common.GetNLS(user, "Nur nachschneiden!", "Trim hair only!"))
+        dialog:addOption(0, common.GetNLS(user, "Nur nachschneiden!", "Just a trim!"))
         table.insert(optionList,DECISION_TRIM)
     end
     for i, _ in pairs(hairTable) do
@@ -859,9 +856,9 @@ local function combPolish(user,npc)
                 user:setQuestProgress(231,0)
                 user:setQuestProgress(230,timePolishVisible)
                 common.TalkNLS(npc,Character.say, "#me poliert den Kamm mit weichen, gutriechenden Tüchern.",
-                                                  "#me polishes the comb using soft and well scented cloth.")
+                                                  "#me polishes the comb using a soft, scented cloth.")
                 common.InformNLS(user,"Dein Kamm fühlt sich gut an und glänzt im Licht. Die Politur wird für einige Stunden für jeden sichtbar sein. Du zahlst"..germanMoney..".",
-                                      "Your comb feels well and shines. For some hours everybody can see that. You pay"..englishMoney..".")
+                                      "Your comb feels good and shines. For some hours everybody can appreciate that. You pay"..englishMoney..".")
             end
         end
         globalHairdresserDialogOpen = false
@@ -872,12 +869,12 @@ local function combPolish(user,npc)
                                                 "Einmal Kamm polieren kostet" .. germanMoney .. ".",
                                                 "Polishing your comb costs you" .. englishMoney) .. ".", callback)
     dialog:setCloseOnMove()
-    dialog:addOption(0, common.GetNLS(user, "Nein, ich möchte den Kamm nicht poliert haben.", "No I don't want a comb polish."))
-    dialog:addOption(0, common.GetNLS(user, "Ja, bitte einmal polieren.", "Yes please polish the comb."))
+    dialog:addOption(0, common.GetNLS(user, "Nein, ich möchte den Kamm nicht poliert haben.", "No, I don't want a comb polish."))
+    dialog:addOption(0, common.GetNLS(user, "Ja, bitte einmal polieren.", "Yes, please polish the comb."))
     user:requestSelectionDialog(dialog)
 end
 
---Banduk remove that once it is tested properly
+--Banduk test for GM only, we let that in
 local function testFunction(user,npc)
     if user:isAdmin() then
         local hairColour = user:getHairColour()
@@ -893,15 +890,15 @@ local function testFunction(user,npc)
         user:inform(">227:"..tostring(user:getQuestProgress(227)).."     Time new hair style disappear")
         user:inform(">228:"..tostring(user:getQuestProgress(228)).."     Time new beard style disappear")
         user:inform(">229:"..tostring(user:getQuestProgress(229)).."     Cooldown new or trimed cut visible")
-        user:inform(">230:"..tostring(user:getQuestProgress(230)).."     Cooldown polished comb for lizards")
+        user:inform(">230:"..tostring(user:getQuestProgress(230)).."     Cooldown polished comb for lizzards")
         user:inform(">231:"..tostring(user:getQuestProgress(231)).."     money to pay")
         user:inform(">232:"..tostring(user:getQuestProgress(232)).."     Cooldown for delayed payment")
-        user:inform(">233:"..tostring(user:getQuestProgress(233)).."     Warnings for delayed payment")
+        user:inform(">233:"..tostring(user:getQuestProgress(233)).."     Warnings for delayed paymen")
         user:inform(">234:"..tostring(user:getQuestProgress(234)).."     Time next haircut possible")
     end
 end
 
---Banduk remove that once it is tested properly
+--Banduk test for admin, we let that in
 local function testLogin(user,npc)
     if user:isAdmin() then
         M.hairOnLogin(user)
@@ -926,7 +923,7 @@ function M.hairOnLogin(user)
             local targetHair = user:getQuestProgress(32)
             user:setHair(targetHair)
             common.InformNLS(user,"[Friseur] Dein Haar hat wieder seinen natürlichen Stil.",
-                                  "[Hairdresser] Over time your hair style has reverted to normal.")
+                                  "[Hairdresser] Over time your hair style has reverted back to normal.")
         elseif hairStyleTimeOut - timeRevertWarning <= currentTime then
             dayRemain = math.ceil((hairStyleTimeOut-currentTime)/86400)
             common.InformNLS(user,"[Friseur] In spätestens "..tostring(dayRemain)..(dayRemain == 1 and " Tag" or " Tagen").." wird die Frisur wieder natürlich aussehen.",
@@ -940,8 +937,8 @@ function M.hairOnLogin(user)
             user:setQuestProgress(228,0)
             local targetBeard = user:getQuestProgress(33)
             user:setBeard(targetBeard)
-            common.InformNLS(user,"[Friseur] Dein Bart wieder seinen natürlichen Stil.",
-                                  "[Hairdresser] Over time your beard style has reverted to normal.")
+            common.InformNLS(user,"[Friseur] Dein Bart hat wieder seinen natürlichen Stil.",
+                                  "[Hairdresser] Over time your beard style has reverted back to normal.")
         elseif beardStyleTimeOut - timeRevertWarning <= currentTime then
             dayRemain = math.ceil((beardStyleTimeOut-currentTime)/86400)
             common.InformNLS(user,"[Friseur] In spätestens "..tostring(dayRemain)..(dayRemain == 1 and " Tag" or " Tagen").." wird der Bart wieder natürlich aussehen.",
@@ -959,7 +956,7 @@ function M.hairOnLogin(user)
             r, g, b = colorRgbFromQuest(hairColor)
             user:setHairColour(colour(r, g, b))
             common.InformNLS(user,"[Friseur] Dein Haar hat wieder seine natürliche Farbe.",
-                                  "[Hairdresser] Over time your hair colour has reverted to normal.")
+                                  "[Hairdresser] Over time your hair colour has reverted back to normal.")
         elseif hairColorTimeOut - timeWashOutProcess <= currentTime then
             hairColor = user:getQuestProgress(34)
             local r0, g0, b0 = colorRgbFromQuest(hairColor)
@@ -1017,7 +1014,11 @@ function M.receiveText(npc, ttype, text, user)
         testLogin(user,npc)
         return
     end
-
+    if string.match(text, "[Hh]ilf") or string.match(text, "[Hh]elp") then
+        common.InformNLS(user,"[Hilfe] Dieser NPC ist eine Friseuse. Bitte sie, dir die Haare oder den Bart zu machen. Schlüsselwörter: schneid, rasier, färb, polier, zahlen",
+                              "[Help] This NPC is a hair dresser. Ask her to change your hair style (cut), beard style (shave) or hair colour (dye). Keywords: cut, shave, dye, polish, pay")
+        return
+    end
     for i=1,#saidText do
         if string.match(string.lower(text), saidText[i][1]) then
             local answerId = saidText[i][2]

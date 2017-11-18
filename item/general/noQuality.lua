@@ -26,7 +26,7 @@ local M = {}
 function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
 
     if TargetItem:getType() == 4 then --inventory, not belt
-        return checks.checkLevel(User, SourceItem)
+        return checks.checkLevel(User, SourceItem, TargetItem)
     end
 
     return true

@@ -57,6 +57,7 @@ local chr_reg = require("lte.chr_reg")
 local gems = require("base.gems")
 local monsterHooks = require("monster.base.hooks")
 local fightingutil = require("base.fightingutil")
+local glypheffects = require("magic.glypheffects")
 
 local M = {}
 
@@ -85,8 +86,6 @@ local PlayParrySound
 local WeaponDegrade
 local Counter
 local setArcherMonsterOnRoute
-local DropBlood
-local DropMuchBlood
 
 local function NotNil(val)
     if val==nil then
@@ -346,6 +345,9 @@ function M.onAttack(Attacker, Defender)
 
     -- Calculate and reduce the required movepoints
     local APreduction = HandleMovepoints(Attacker, Globals)
+
+    -- take glyph effects on move points into consideration
+    glypheffects.effectOnFight(Attacker.Char,Defender.Char)
 
     -- Turning the attacker to his victim
     common.TurnTo(Attacker.Char,Defender.Char.pos)
@@ -665,9 +667,16 @@ function CauseDamage(Attacker, Defender, Globals)
         AIMING_TIME_LIST[Attacker.Char.id]["started"] = world:getTime("unix")
     end
 
-    Globals.Damage=Globals.Damage*(Random.uniform(9,10)/10) --Damage is randomised: 90-100%
+    local glyphDamageFactor = glypheffects.effectDamageIncrease(Attacker.Char,Defender.Char)
+    local isGlyphRevertDamage, glyphRevertDamageFactor = glypheffects.effectRevertDamage(Defender.Char, Attacker.Char)
+    Globals.Damage=Globals.Damage*glyphDamageFactor*glyphRevertDamageFactor*(Random.uniform(9,10)/10) --Damage is randomised: 90-100%
     Globals.Damage=math.min(Globals.Damage,4999) --Damage is capped at 4999 Hitpoints to prevent "one hit kills"
     Globals.Damage=math.floor(Globals.Damage) --Hitpoints are an integer
+    glypheffects.effectDamageOverTime(Attacker.Char,Defender.Char,Globals.Damage)
+
+    if isGlyphRevertDamage then -- attacker attacks himself
+        Defender = Attacker
+    end
 
     if character.IsPlayer(Defender.Char) and not Defender.Char:isAdmin() and character.WouldDie(Defender.Char, Globals.Damage + 1) and not character.AtBrinkOfDeath(Defender.Char) then
         -- Character would die. Nearly killing him and moving him back in case it's possible
@@ -1087,7 +1096,7 @@ function CoupDeGrace(Attacker, Defender)
         end
 
         -- Drop much blood around the player
-        DropMuchBlood(Defender.Char.pos)
+        common.dropMuchBlood(Defender.Char.pos)
     end
 
     return false
@@ -1153,41 +1162,6 @@ function DropAmmo(Attacker, Defender, GroundOnly)
             world:createItemFromId(AmmoItem.id, 1, Defender.pos, true, AmmoItem.quality, nil)
 
         end
-    end
-end
-
---- Drop a blood spot on the ground at a specified location.
--- @param Posi The location where the blood spot is placed
-function DropBlood(Posi)
-    if world:isItemOnField(Posi) then
-        return --no blood on tiles with items on them!
-    end
-    local field = world:getField(Posi)
-    local tileId = field:tile()
-    if tileId == 6 or tileId == 0 or tileId == 34 then
-        return -- no blood on water and invisible tiles
-    end
-    
-    local Blood = world:createItemFromId(3101, 1, Posi, true, 333, nil)
-    Blood.wear = 2
-    world:changeItem(Blood)
-end
-
---- Drop alot of blood. This function drops blood on every tile around the
--- position set as center.
--- @param Posi The center of the bloody area
-function DropMuchBlood(Posi)
-    local workingPos = common.CopyPosition(Posi)
-
-    workingPos.x = workingPos.x - 1
-    workingPos.y = workingPos.y - 1
-    for i = 1, 3 do
-        for j = 1, 3 do
-            DropBlood(workingPos)
-            workingPos.x = workingPos.x + 1
-        end
-        workingPos.x = workingPos.x - 3
-        workingPos.y = workingPos.y + 1
     end
 end
 
@@ -1723,9 +1697,9 @@ function ShowEffects(Attacker, Defender, Globals)
         world:gfx(13, Defender.Char.pos) -- Blood effect, remove maybe?
         Defender.Char:performAnimation(10) -- Hit animation
         if Globals.criticalHit>0 then
-            DropMuchBlood(Defender.Char.pos)
+            common.dropSomeBlood(Defender.Char.pos)
         elseif (Globals.Damage > 2000) then
-            DropBlood(Defender.Char.pos)
+            common.dropBlood(Defender.Char.pos)
         end
     end
 

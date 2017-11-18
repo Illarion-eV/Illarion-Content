@@ -48,6 +48,7 @@ function InitGathering()
         --woodchopping
         woodchopping:AddRandomPureElement(1,{},prob_extremely_rarely); -- Any pure element
         woodchopping:AddRandomMagicGem(1,999,gems.getMagicGemData(1),prob_extremely_rarely); -- Any latent magical gem
+        woodchopping:SetShard(prob_rarely,"Deine Axt stößt auf einen Splitter eines magischen Artefaktes.", "You hatchet hits a shard of a magical artifact."); -- Any shard
         woodchopping:AddRandomItem(2441,1,333,{},prob_extremely_rarely,"Im Erdboden machst du einen alten, rostigen Helm aus. Ein Überbleibsel einer längst vergessenen Schlacht?","As you work you unearth an old rusty helmet. A remnant of a long-forgotten battle?"); --Storm cap
         woodchopping:AddRandomItem(235,1,333,{},prob_occasionally,"In einer Spechthöhle findest du einen goldenen Ring. Wird er dich ins Dunkle treiben?","From a woodpecker's hole a golden gleam catches your eye, and you discover it is a golden ring."); --gold ring
         woodchopping:AddRandomItem(2664,1,333,{},prob_frequently,"Du findest einen Ast, den man auch sehr gut als Keule verwenden könnte.","You find a branch that resembles a sturdy club."); --Club
@@ -58,6 +59,7 @@ function InitGathering()
         -- egg gathering
         egggathering:AddRandomPureElement(1,{},prob_extremely_rarely); -- Any pure element
         egggathering:AddRandomMagicGem(1,999,gems.getMagicGemData(1),prob_extremely_rarely); -- Any latent magical gem
+        egggathering:SetShard(prob_rarely,"An einem Ei klebt ein Splitter eines magischen Artefaktes.", "A shard of a magical artifact is stuck to an egg."); -- Any shard
         egggathering:AddRandomItem(249,1,333,{},prob_occasionally,"Für dieses Nest wurde ein ganzes Bündel Getreide als Nistmaterial verwendet.","A bundle of grain was used as nesting material for this nest."); --bundle of grain
         egggathering:AddRandomItem(463,1,333,{},prob_frequently,"Du findest eine besonders große Feder, mit der man sicher auch gut schreiben kann.","You find a big feather that looks suitable for writing."); --Quill
         egggathering:SetTreasureMap(prob_rarely,"Unter dem Nest findest du eine Karte. Kein gutes Versteck!","Under the nest, you find a map. Not a good hiding place.");
@@ -67,6 +69,7 @@ function InitGathering()
         --honeygathering
         honeygathering:AddRandomPureElement(1,{},prob_extremely_rarely); -- Any pure element
         honeygathering:AddRandomMagicGem(1,999,gems.getMagicGemData(1),prob_extremely_rarely); -- Any latent magical gem
+        honeygathering:SetShard(prob_rarely,"Im Honig findest du einen Splitter eines magischen Artefaktes.", "You find a shard of a magical artifact in the honey comb."); -- Any shard
         honeygathering:AddRandomItem(2744,1,333,{},prob_extremely_rarely,"Ein Imkerkollege scheint hier seine Pfeife vergessen zu haben. Du nimmst sie an dich.","A beekeeper colleague must have forgotten his pipe for smoking out the bees. You take it with you."); --Pipe
         honeygathering:AddRandomItem(151,1,333,{},prob_occasionally,"Die Bienen haben offensichtlich Vorräte angelegt. Sogar eine ganze Erdbeere haben sie in ihren Stock geschleppt.","As you carefully pull honey from the hive you notice a sticky strawberry in your grasp!"); --Strawberry
         honeygathering:AddRandomItem(431,1,333,{},prob_frequently,"An deinen Händen bleibt klebriger Wachs hängen.","Your hands get stuck in sticky wax.", 0); --Wax
@@ -81,6 +84,7 @@ function InitGathering()
         --milking
         milking:AddRandomPureElement(1,{},prob_extremely_rarely); -- Any pure element
         milking:AddRandomMagicGem(1,999,gems.getMagicGemData(1),prob_extremely_rarely); -- Any latent magical gem
+        milking:SetShard(prob_rarely,"Ein Splitter eines magischen Artefaktes hat sich im Fell des Tieres verfangen.", "A shard of a magical artifact was tangled in the fur of the animal."); -- Any shard
         milking:AddRandomItem(153,1,333,{},prob_occasionally,"Ein großes Blatt hat sich im Fell des Tieres verfangen. Du betreibst zunächst ein wenig Fellpflege, bevor du weiter melkst.","A large leaf was tangled in the fur of the animal. You do a little grooming before you continue milking."); --Foot leaf
         milking:AddRandomItem(156,1,333,{},prob_frequently,"Etwas Gras hat sich im Fell des Tieres verfangen. Du entfernst das klebrige Grünzeug.","Some grass was ensnared in the fur of the animal. Before you can continue milking you have to remove the sticky green weed."); --Steppe fern
         milking:SetTreasureMap(prob_rarely,"Das Tier kratzt und schnüffelt aufgeregt am Boden. Dort findest du eine seltsame Karte.","The animal scratches and sniffs on the ground excitdly. You find a strange map there.");
@@ -89,6 +93,7 @@ function InitGathering()
         --farming
         farming:AddRandomPureElement(1,{},prob_extremely_rarely); -- Any pure element
         farming:AddRandomMagicGem(1,999,gems.getMagicGemData(1),prob_extremely_rarely); -- Any latent magical gem
+        farming:SetShard(prob_rarely,"Zwischen den Ackerfurchen findest du einen Splitter eines magischen Artefaktes.", "Between the furrows you find a shard of a magical artifact."); -- Any shard
         farming:AddRandomItem(1840,1,333,{},prob_extremely_rarely,"Im Ackerboden ist ein angelaufender Kupferkelch zu finden.","In the arable soil you find a tarnished copper goblet."); --copper goblet
         farming:AddRandomItem(2935,1,333,{},prob_occasionally,"Da hat wohl jemand eine Schüssel verloren, mit der er Saatgut augestreut hat. Nun gehört sie dir.","You dig up an old bowl. Now it belongs to you."); --soup bowl
         farming:AddRandomItem(51,1,333,{},prob_frequently,"Da hat wohl jemand einen Eimer verloren. Nun gehört er dir.","You dig up an old bucket. Now it belongs to you."); --bucket
@@ -97,6 +102,7 @@ function InitGathering()
         farming:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
         
         --fruitgathering
+        fruitgathering:SetShard(prob_rarely,"In einem Ast steckt ein Splitter eines magischen Artefaktes.", "In a branch sticks a shard of a magical artifact."); -- Any shard
         fruitgathering:AddRandomItem(65,1,333,{},prob_extremely_rarely,"Bei genauer Betrachtung entpuppt sich ein Ast am Boden als Bogen. Ob den ein elfischer Späher hier deponiert hat?","On closer inspection, a branch on the ground turns out to be a bow. Did an elven scout forget it here?"); --short bow
         fruitgathering:AddRandomItem(2295,1,333,{},prob_occasionally,"Über einem Ast hängt ein Paar alter Handschuhe. Der Besitzer vermisst sie offenbar nicht.","Over a branch hangs a pair of old gloves. Judging by their condition no one would miss them."); --cloth gloves
         fruitgathering:AddRandomItem(463,1,333,{},prob_frequently,"Eine Feder hat sich zwischen den Zweigen verfangen. Ob man mit ihr auch schreiben kann?","A feather lies entangled among the branches. Perhaps one could write with it?"); --quill
@@ -107,6 +113,7 @@ function InitGathering()
         --mining
         mining:AddRandomPureElement(1,{},prob_extremely_rarely); -- Any pure element
         mining:AddRandomMagicGem(1,999,gems.getMagicGemData(1),prob_extremely_rarely); -- Any latent magical gem
+        mining:SetShard(prob_rarely,"Ein kleiner Stein entpuppt sich als Splitter eines magischen Artefaktes.", "A little rock seems to be a shard of a magical artifact."); -- Any shard
         mining:AddRandomItem(310,1,333,{},prob_extremely_rarely,"Zwerge scheinen alten Krügen keine Beachtung beizumessen, insbesondere, wenn sie leer sind. Auch hier liegt einfach einer herum.","Dwarves seem to pay no attention to old pitchers, especially if they are empty. As you work one catches your eye."); --mug with lid
         mining:AddRandomItem(1908,1,333,{},prob_occasionally,"Diese Mine wurde offensichtlich kürzlich von Zwergen aufgesucht. Wie sonst erklärt sich der Bierkrug, den du zwischen dem Geröll findest?","This mine was occupied recently. How else would you explain the beer mug at your feet?"); --beer mug
         mining:AddRandomItem(391,1,333,{},prob_frequently,"In einer Felsspalte liegt eine alte Fackel. Hier ist wohl jemanden ein Licht aufgegangen.","In a crevice you spot an old torch."); --torch
@@ -121,6 +128,7 @@ function InitGathering()
         --sanddigging
         sanddigging:AddRandomPureElement(1,{},prob_extremely_rarely); -- Any pure element
         sanddigging:AddRandomMagicGem(1,999,gems.getMagicGemData(1),prob_extremely_rarely); -- Any latent magical gem
+        sanddigging:SetShard(prob_rarely,"Im Sand erkennst du einen Splitter eines magischen Artefaktes.", "You spot a shard of a magical artifact in the sand."); -- Any shard
         sanddigging:AddRandomItem(3077,1,333,{},prob_extremely_rarely,"Eine funkelnde Münze liegt auf deinem Schaufelblatt. Hat sich die harte Arbeit doch gelohnt!","A tink of your shovel blade causes you to pause. Then to your surprise it turns out you struck a silver coin!"); --Silver coin
         sanddigging:AddRandomItem(21,1,333,{},prob_occasionally,"Du findest einige noch heiße Kohlen im Sand. Ein Glück, dass du nicht auf diese Überreste einer nächtlichen Grillfeier getreten bist.","As your shovel digs through the sand you unearth an unused lump of coal and discover an abandoned campfire."); --Coal
         sanddigging:AddRandomItem(1266,1,333,{},prob_frequently,"Deine Schaufel stößt auf einen runden Kieselstein.","Your shoulder locks as your shovel drives into a hard stone."); --Rock
@@ -138,6 +146,7 @@ function InitGathering()
         --claydigging
         claydigging:AddRandomPureElement(1,{},prob_extremely_rarely); -- Any pure element
         claydigging:AddRandomMagicGem(1,999,gems.getMagicGemData(1),prob_extremely_rarely); -- Any latent magical gem
+        claydigging:SetShard(prob_rarely,"Im Matsch erkennst du einen Splitter eines magischen Artefaktes.", "You spot a shard of a magical artifact in the mud."); -- Any shard
         claydigging:AddRandomItem(2658,1,333,{},prob_extremely_rarely,"Du findest eine Knochenhand im Matsch. Sie umklammert ein altes Schwert.","You find a boney hand in the mud clutching an old sword."); --broadsword
         claydigging:AddRandomItem(51,1,333,{},prob_occasionally,"Du ziehst einen alten Eimer aus dem Schlick.","You draw an old bucket from the silt."); --bucket
         claydigging:AddRandomItem(2184,1,333,{},prob_frequently,"Ein Tonkrug offenbahrt sich im Matsch. Die Überreste einer alten Zivilisation oder einfach nur vom letzten Saufgelage?","A clay mug reveals itself in the mud. Perhaps the remains of an ancient civilization or just a littering traveller, who knows?"); --clay cup
@@ -152,6 +161,7 @@ function InitGathering()
         --herbgathering
         herbgathering:AddRandomPureElement(1,{},prob_extremely_rarely); -- Any pure element
         herbgathering:AddRandomMagicGem(1,999,gems.getMagicGemData(1),prob_extremely_rarely); -- Any latent magical gem
+        herbgathering:SetShard(prob_rarely,"An einem Blatt klebt ein Splitter eines magischen Artefaktes.", "A shard of a magical artifact is stuck to an leave."); -- Any shard
         herbgathering:AddRandomItem(2183,1,333,{},prob_extremely_rarely,"Ein alter Krug liegt verlassen und einsam im Gebüsch.","An old mug lies abandoned and lonesome in the bushes."); --Mug
         herbgathering:AddRandomItem(799,1,333,{},prob_occasionally,"Ein Weidenkorb liegt am Boden. Er scheint noch brauchbar zu sein.","A wicker basket lies on the ground. It still seems to be usable."); --Basket
         herbgathering:AddRandomItem(2570,1,333,{},prob_frequently,"Ein Griff einer alten Sichel liegt achtlos weggeworfen zwischen Ästen und Blättern herum.","A handle of an old sickle lies between the leaves and branches, but the blade is no where in sight."); --Sickle hilt
@@ -166,6 +176,7 @@ function InitGathering()
         --fishing
         fishing:AddRandomPureElement(1,{},prob_extremely_rarely); -- Any pure element
         fishing:AddRandomMagicGem(1,999,gems.getMagicGemData(1),prob_extremely_rarely); -- Any latent magical gem
+        fishing:SetShard(prob_rarely,"In den Eingeweiden des Fischens findest du einen Splitter eines magischen Artefaktes.", "You find a shard of a magical artifact in the entrails of the fish."); -- Any shard
         fishing:AddRandomItem(51,1,333,{},prob_extremely_rarely,"Ein Eimer verfängt sich in deiner Angelschnur. Den hat hier wohl jemand verloren.","As you tighten your line you feel a heavy resistance. With a careful approach you are able to pull a bucket ashore."); --Bucket
         fishing:AddRandomItem(92,1,333,{},prob_occasionally,"Du ziehst eine glitzernde Öllampe aus dem Wasser. Wo die wohl herkommt...?","You pull a sparkling oil lamp out of the water. Where did that come from?"); --Oil lamp
         fishing:AddRandomItem(53,1,333,{},prob_frequently,"Ein alter, durchlöcherter Lederstiefel hängt am Haken.","As you angle back and forth for fish you feel a snag. Instead of a fish, however, a pair of old perforated boots tied together hangs from your hook!"); --Leather boots
@@ -181,6 +192,7 @@ function InitGathering()
         --woolcutting
         woolcutting:AddRandomPureElement(1,{},prob_extremely_rarely); -- Any pure element
         woolcutting:AddRandomMagicGem(1,999,gems.getMagicGemData(1),prob_extremely_rarely); -- Any latent magical gem
+        woolcutting:SetShard(prob_rarely,"Ein Splitter eines magischen Artefaktes hat sich in der Wolle des Schafes verfangen.", "A shard of a magical artifact was tangled in the wool of the sheep."); -- Any shard
         woolcutting:AddRandomItem(222,1,333,{},prob_extremely_rarely,"Dieses Schaf trägt ein merkwürdiges Amulett um den Hals. Wer kommt auf solch eine Idee?","This sheep is bearing a strange amulet around its neck. Who had such an idea?"); --Amulet
         woolcutting:AddRandomItem(153,1,333,{},prob_occasionally,"Ein großes Blatt hat sich im Fell des Schafes verfangen. Du betreibst zunächst ein wenig Fellpflege, bevor du weiter scherst.","A large leaf was tangled in the fur of the sheep. You do a little grooming before you continue shearing."); --Foot leaf
         woolcutting:AddRandomItem(156,1,333,{},prob_frequently,"Etwas Gras hat sich im Fell des Schafs verfangen. Du entfernst das klebrige Grünzeug.","Some grass was ensnared in the fur of the sheep. Before you can continue shearing you have to remove the sticky green weed."); --Steppe fern
@@ -191,6 +203,7 @@ function InitGathering()
         --grainharvesting
         grainharvesting:AddRandomPureElement(1,{},prob_extremely_rarely); -- Any pure element
         grainharvesting:AddRandomMagicGem(1,999,gems.getMagicGemData(1),prob_extremely_rarely); -- Any latent magical gem
+        grainharvesting:SetShard(prob_rarely,"In einer Ähre hängt ein Splitter eines magischen Artefaktes.", "A shard of a magical artifact hangs in a spike."); -- Any shard
         grainharvesting:AddRandomItem(1840,1,333,{},prob_extremely_rarely,"Im Ackerboden ist ein angelaufender Kupferkelch zu finden.","In the arable soil you find a tarnished copper goblet."); --copper goblet
         grainharvesting:AddRandomItem(2935,1,333,{},prob_occasionally,"Da hat wohl jemand eine Schüssel verloren, mit der er Saatgut augestreut hat. Nun gehört sie dir.","You dig up an old bowl. Now it belongs to you."); --soup bowl
         grainharvesting:AddRandomItem(2760,1,333,{},prob_frequently,"Zwischen den Feldfrüchten findest du ein altes Seil. Nützlich, oder?","Among the crops you find an old rope. Can never have enough rope!"); --rope

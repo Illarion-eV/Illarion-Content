@@ -25,6 +25,7 @@ local money = require("base.money")
 local monsterHooks = require("monster.base.hooks")
 local scheduledFunction = require("scheduled.scheduledFunction")
 local mugWithLid = require("item.id_310_mug_with_lid")
+local shard = require("item.shard")
 
 local M = {}
 
@@ -342,6 +343,8 @@ function M.dropTreasureItems(treasureLocation, level)
     table.insert(itemSpawnResults, dropTreasureItem(treasureLocation, level + 2))
 
     mugWithLid.dropMugByChance(treasureLocation,level*2)
+    
+    shard.dropShardByChance(treasureLocation,level)
 
     local minMoney, maxMoney = content.getMoneyInTreasure(level)
     money.GiveMoneyToPosition(treasureLocation, math.random(minMoney, maxMoney))

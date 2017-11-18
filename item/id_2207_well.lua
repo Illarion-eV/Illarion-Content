@@ -23,10 +23,11 @@ local climbing = require("content.climbing")
 
 local M = {}
 
-local wellPosition1 = position(528, 555, 0) -- maze
-local wellPosition2 = position(105, 600, 0) -- Cadomyr
-local wellPosition3 = position(357, 272, 0) -- Galmair
-local wellPosition4 = position(849, 841, 0) -- Runewick
+local climeableWellPosition = {}
+climeableWellPosition[1] = position(528, 555, 0) -- maze
+climeableWellPosition[2] = position(105, 600, 0) -- Cadomyr
+climeableWellPosition[7] = position(357, 272, 0) -- Galmair
+climeableWellPosition[4] = position(849, 841, 0) -- Runewick
 
 function M.UseItem(User, SourceItem, ltstate)
 
@@ -38,27 +39,38 @@ function M.UseItem(User, SourceItem, ltstate)
         return
     end
 
-    local climbable = false
+    local climbable = common.isInList(SourceItem.pos, climeableWellPosition)
 
-    if SourceItem.pos == wellPosition1 then
-        climbable = true
-    elseif SourceItem.pos == wellPosition2 then
-        climbable = true
-    elseif SourceItem.pos == wellPosition3 then
-        climbable = true
-    elseif SourceItem.pos == wellPosition4 then
-        climbable = true
-    end
-
-    if climbable and climbing.hasRope(User) then
+    local ITEM_ID_ROPE = 2760
+    if climbable and climbing.hasRope(User) and common.hasItemIdInHand(User, ITEM_ID_ROPE) then
         climbing.climbDown(User)
         return
-    elseif climbable then
-        common.HighInformNLS(User,
-            "Du brauchst ein Seil um hier hinab zu klettern.",
-            "You need a rope to climb down here.")
     end
-  -- TODO: select diaolg water scooping + climbing
+
+    local ITEM_ID_BUCKET = 51
+    local emptybucket = require("item.id_51_emptybucket")
+    if common.hasItemIdInHand(User, ITEM_ID_BUCKET) then
+        emptybucket.UseItem(User, common.getItemInHand(User, ITEM_ID_BUCKET), ltstate)
+        return
+    end
+
+    local ITEM_ID_BOTTLE = 2498
+    local emptybottle = require("item.id_2498_empty_bottle")
+    if common.hasItemIdInHand(User, ITEM_ID_BOTTLE) then
+        emptybottle.UseItem(User, common.getItemInHand(User, ITEM_ID_BOTTLE), ltstate)
+        return
+    end
+
+    if climbable then
+        common.HighInformNLS(User,
+            "Du kannst hier einen Eimer oder eine große leere Flasche in deine Hand nehmen und mit Wasser füllen. Oder du kletterst mit einem Seil hier hinab.",
+            "Take an empty bucket or a large empty bottle into hand to fill it with water. Or you use a rope to climb down here.")
+    else
+        common.HighInformNLS(User,
+            "Du kannst hier einen Eimer oder eine große leere Flasche in deine Hand nehmen und mit Wasser füllen.",
+            "Take an empty bucket or a large empty bottle into hand to fill it with water.")
+    end
+
 
 end
 
@@ -68,13 +80,13 @@ function M.LookAtItem(User, Item)
 
   if ( Item:getData("modifier") == "wishing well" ) then
     lookAt.name = common.GetNLS(User, "Wunschbrunnen", "wishing well")
-  elseif Item.pos == wellPosition1 then
+  elseif Item.pos == climeableWellPosition[1] then
     lookAt.name = common.GetNLS(User, "Ausgetrockneter Brunnen", "Dry well")
-  elseif Item.pos == wellPosition2 then
+  elseif Item.pos == climeableWellPosition[2] then
     lookAt.name = common.GetNLS(User, "Zisterne von Cadomyr", "Cadomyr Cavern")
-  elseif Item.pos == wellPosition3 then
+  elseif Item.pos == climeableWellPosition[3] then
     lookAt.name = common.GetNLS(User, "Zisterne von Galmair", "Galmair Cavern")
-  elseif Item.pos == wellPosition4 then
+  elseif Item.pos == climeableWellPosition[4] then
     lookAt.name = common.GetNLS(User, "Zisterne von Runewick", "Runewick Cavern")
   end
 

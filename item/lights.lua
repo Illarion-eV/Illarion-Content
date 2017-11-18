@@ -235,18 +235,22 @@ end
 
 function M.MoveItemAfterMove(User,SourceItem,TargetItem)
 
-    -- Quest 305: we burn a tabacco plantation
+    -- Quest 305: we burn a tobacco plantation
     if User:getQuestProgress(305) == 2 then
         if (TargetItem.pos.x >= 3) and (TargetItem.pos.x <= 6) and (TargetItem.pos.y >= 565) and (TargetItem.pos.y <= 571) and (TargetItem.pos.z <= 0) then
-            local spawnFire = function(posi)
-                world:createItemFromId(359,1,posi,true,333,nil)
+            if LightsOn[SourceItem.id] then
+                local spawnFire = function(posi)
+                    world:createItemFromId(359,1,posi,true,333,nil)
+                end
+                world:makeSound(7,position(5,568,0))
+                world:createItemFromId(359,1,position(5,568,0),true,333,nil)
+                common.CreateCircle(position(5,568,0), 1, spawnFire)
+                common.CreateCircle(position(5,568,0), 2, spawnFire)
+                User:setQuestProgress(305,3)
+                User:inform("Du hast das Tabakfeld zerstört. Gut gemacht. Spreche nun mit Tobis Vunu.","You destroyed the tobacco field. Well done. Talk to Tobis Vunu now.")
+            else
+                User:inform("Du kannst das Feld vermutlich mit brennenden Dingen besser abfackeln.","It's much easier to burn down a field if you are using fire.")
             end
-            world:makeSound(7,position(5,568,0))
-            world:createItemFromId(359,1,position(5,568,0),true,333,nil)
-            common.CreateCircle(position(5,568,0), 1, spawnFire)
-            common.CreateCircle(position(5,568,0), 2, spawnFire)
-            User:setQuestProgress(305,3)
-            User:inform("Du hast das Tabakfeld zerstört. Gut gemacht. Spreche nun mit Tobis Vunu.","You destroyed the tabacco field. Well done. Talk to Tobis Vunu now.")
         end
     end
 

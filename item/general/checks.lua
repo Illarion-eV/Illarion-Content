@@ -91,23 +91,20 @@ local function checkParry(user, item)
 end
 
 --This function checks whether the user has the necessary level for the item or not
-function M.checkLevel(user, item)
+function M.checkLevel(user, item, targetItem)
+    local isArmour, armour = world:getArmorStruct(item.id) --Is it an armour? Loads the struct.
     local skillOK, skillString = checkSkill(user,  item)
     local parryOK, parryString = checkParry(user,  item)
-    if  not skillOK and not parryOK then
+    if isArmour and (targetItem.itempos == Character.left_tool or targetItem.itempos == Character.right_tool) then
+        -- nothing
+    elseif  not skillOK and not parryOK then
         common.HighInformNLS(user, "Deine Fertigkeiten '"..skillString.."' und '"..parryString.."' reichen nicht aus, um das volle Potential dieses Gegenstandes zu nutzen.", "Your skills '"..skillString.."' and '"..parryString.."' are not high enough to exploit the full potential of this item.")
-        return true
     elseif not parryOK then
         common.HighInformNLS(user, "Deine Fertigkeit '"..parryString.."' reicht nicht aus, um das volle defensive Potential dieses Gegenstandes zu nutzen.", "Your skill '"..parryString.."' is not high enough to exploit the full defence potential of this item.")
-        return true
     elseif not skillOK then
         common.HighInformNLS(user, "Deine Fertigkeit '"..skillString.."' reicht nicht aus, um das volle offensive Potential dieses Gegenstandes zu nutzen.", "Your skill '"..skillString.."' is not high enough to exploit the full attack potential of this item.")
-        return true
-    else
-        return true
     end
-    return true -- security grid, should never happen
-
+    return true
 end
 
 return M

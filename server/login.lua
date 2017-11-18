@@ -25,7 +25,7 @@ local factionLeader = require("scheduled.factionLeader")
 local skillTransfer = require("base.skillTransfer")
 local areas = require("content.areas")
 local hairdresser = require("npc.hairdresser")
-
+local seafaring = require("base.seafaring")
 -- Called after every player login
 
 local M = {}
@@ -304,6 +304,9 @@ function M.onLogin( player )
     
     --hair messages
     hairdresser.hairOnLogin(player)
+    
+    --on ferry
+    seafaring.login(player)
 
     --Check regeneration script
     local found = player.effects:find(2)
@@ -372,15 +375,15 @@ local function jumpToNewPlayer(user, player)
         return
     end
     local playerPos = player.pos
-    if areas.PointInArea(playerPos,"Runewick") and factions.isPlayerPermittedInTown(user,factions.runewick) then
+    if areas.PointInArea(playerPos,"Runewick") and not factions.isPlayerPermittedInTown(user,factions.runewick) then
         common.InformNLS(user,"Dein Charakter darf Runewick nicht betreten. Du kannst hier nicht helfen.",
                               "Your character is not permitted to enter Runewick. You cannot help.")
         return
-    elseif areas.PointInArea(playerPos,"Cadomyr") and factions.isPlayerPermittedInTown(user,factions.cadomyr) then
+    elseif areas.PointInArea(playerPos,"Cadomyr") and not factions.isPlayerPermittedInTown(user,factions.cadomyr) then
         common.InformNLS(user,"Dein Charakter darf Cadomyr nicht betreten. Du kannst hier nicht helfen.",
                               "Your character is not permitted to enter Cadomyr. You cannot help.")
         return
-    elseif areas.PointInArea(playerPos,"Galmair") and factions.isPlayerPermittedInTown(user,factions.galmair) then
+    elseif areas.PointInArea(playerPos,"Galmair") and not factions.isPlayerPermittedInTown(user,factions.galmair) then
         common.InformNLS(user,"Dein Charakter darf Galmair nicht betreten. Du kannst hier nicht helfen.",
                               "Your character is not permitted to enter Galmair. You cannot help.")
         return
@@ -661,8 +664,10 @@ function payNow(User)
         "Du hast deine monatliche Abgabe an "..town.." gezahlt. Diesen Monat waren es "..gstring..". Die Abgabenhöhe betrug "..(taxHeight*100).."%",
         "You have paid your monthly tribute to "..town..". This month, it was "..estring..", resulting from a tribute rate of "..(taxHeight*100).."%")
 
+    local userRank = factions.getRankAsNumber(User)
     townTreasure.ChangeTownTreasure(town,totTax)
     townTreasure.IncreaseTaxpayerNumber(town)
+    townTreasure.IncreasePayerRanks(town,userRank)
 
     log(string.format("[taxes] %s paid %d. Faction wealth of %s increased to %d copper.",
                 character.LogText(User), totTax, town, townTreasure.GetTownTreasure(town)))
