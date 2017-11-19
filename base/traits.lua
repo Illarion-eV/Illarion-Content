@@ -31,7 +31,7 @@ function M.removeTrait(character)
 end
 
 -- This table contains all traits
-local M.allTraits = {}
+M.allTraits = {}
 
 -- Trait categoris --
 local GENERAL = 1
