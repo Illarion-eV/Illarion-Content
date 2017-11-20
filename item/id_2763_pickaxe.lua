@@ -45,6 +45,7 @@ local mining = require("content.gatheringcraft.mining")
 local metal = require("item.general.metal")
 local transformation_dog = require("alchemy.teaching.transformation_dog")
 local skillTransfer = require("base.skillTransfer")
+local glyphmagic = require("magic.glyphmagic")
 
 local M = {}
 
@@ -82,6 +83,10 @@ function M.UseItem(User, SourceItem, ltstate)
             "You have to hold the pick-axe in your hand!" );
             return
         end
+    end
+
+    if glyphmagic.removeGlyphForge(User) then
+        return
     end
 
     if not common.FitForWork( User ) then -- check minimal food points

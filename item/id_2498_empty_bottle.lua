@@ -22,7 +22,49 @@ local milking = require("content.gatheringcraft.milking")
 
 local M = {}
 
-function getAnimal(User)
+
+local function GetWaterTilePosition(User)
+  local Radius = 1;
+  for x=-Radius,Radius do
+    for y=-Radius,Radius do
+      local targetPos = position(User.pos.x + x, User.pos.y, User.pos.z);
+      if (common.GetGroundType(world:getField(targetPos):tile()) == common.GroundType.water) then
+        return targetPos;
+      end
+    end
+  end
+  return nil;
+end
+
+local function UseItemScooping(User, SourceItem, ltstate)
+
+    common.ResetInterruption( User, ltstate );
+    if ( ltstate == Action.abort ) then -- work interrupted
+      User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
+      return
+    end
+
+    if not common.CheckItem( User, SourceItem ) then -- security check
+        return
+    end
+
+    if not common.FitForWork( User ) then -- check minimal food points
+        return
+    end
+
+    -- currently not working, let's go
+    if ( ltstate == Action.none ) then
+        User:startAction( 20, 21, 5, 10, 25);
+        User:talk(Character.say, "#me beginnt eine Flasche zu befüllen.", "#me starts to fill a bottle.")
+        return
+    end
+
+    -- actually do the work, but only once because nobody wants to fill multiple bottles
+    world:erase(SourceItem, 1);
+    common.CreateItem(User, 2496, 1, 999, nil)
+end
+
+local function getAnimal(User)
 
     -- check for sheep or cow in front
     local targetCharacter = common.GetFrontCharacter(User);
@@ -86,47 +128,6 @@ function M.UseItem(User, SourceItem, ltstate)
       "Du kannst Flaschen an einem Brunnen oder an einem Gewässer füllen, oder ein geeignetes Tier melken. Lämmer und Bullen können aus naheliegenden Gründen nicht gemolken werden.",
       "You can fill bottles at a well or at some waters, or milk an adequate domestic animal. Lambs and bulls cannot be milked, obviously.");
 
-end
-
-function GetWaterTilePosition(User)
-  local Radius = 1;
-  for x=-Radius,Radius do
-    for y=-Radius,Radius do
-      local targetPos = position(User.pos.x + x, User.pos.y, User.pos.z);
-      if (common.GetGroundType(world:getField(targetPos):tile()) == common.GroundType.water) then
-        return targetPos;
-      end
-    end
-  end
-  return nil;
-end
-
-function UseItemScooping(User, SourceItem, ltstate)
-
-    common.ResetInterruption( User, ltstate );
-    if ( ltstate == Action.abort ) then -- work interrupted
-      User:talk(Character.say, "#me unterbricht "..common.GetGenderText(User, "seine", "ihre").." Arbeit.", "#me interrupts "..common.GetGenderText(User, "his", "her").." work.")
-      return
-    end
-
-    if not common.CheckItem( User, SourceItem ) then -- security check
-        return
-    end
-
-    if not common.FitForWork( User ) then -- check minimal food points
-        return
-    end
-
-    -- currently not working, let's go
-    if ( ltstate == Action.none ) then
-        User:startAction( 20, 21, 5, 10, 25);
-        User:talk(Character.say, "#me beginnt eine Flasche zu befüllen.", "#me starts to fill a bottle.")
-        return
-    end
-
-    -- actually do the work, but only once because nobody wants to fill multiple bottles
-    world:erase(SourceItem, 1);
-    common.CreateItem(User, 2496, 1, 999, nil)
 end
 
 return M

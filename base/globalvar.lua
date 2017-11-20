@@ -17,6 +17,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Global Variable Collection
 local M = {}
 
+--[[ Languages (documentation only - do not activate that part!)
+Player.german = 0
+Player.english = 1
+]]--
+
+--[[ Gender (documentation only - do not activate that part!)
+Character.male = 0
+Character.female = 1
+]]--
 -- Races
 -- Application call: user:getRace()
 -- Player races: "man","dwarf","halfling", "elf","orc","lizard"
@@ -32,6 +41,16 @@ M.townOUTLAW = 0
 M.townCADOMYR = 1
 M.townRUNEWICK = 2
 M.townGALMAIR = 3
+
+-- Char animations
+M.charAnimationWALK = 3
+M.charAnimationSLASH = 5
+M.charAnimationSTAFF = 6
+M.charAnimationBOW = 7
+M.charAnimationSHIELD = 9
+M.charAnimationSPELL = 11
+M.charAnimationHAMMER = 14
+M.charAnimationRUN = 19
 
 -- Graphic effects
 -- ID of the gfx effect
@@ -70,37 +89,37 @@ M.gfxSCOTTY = 53
 -- Graphic effects
 -- Descriptive text of the gfx effect
 M.gfxText = {}
-M.gfxText[2] = "Lightning"
-M.gfxText[3] = "Ice block"
-M.gfxText[4] = "Ice ball"
-M.gfxText[5] = "Green splash up"
-M.gfxText[6] = "Bonding wind"
-M.gfxText[7] = "Wind swirl"
-M.gfxText[8] = "Poison cloud"
-M.gfxText[9] = "Fire ball"
-M.gfxText[11] = "Splash"
-M.gfxText[12] = "Smoke puff"
-M.gfxText[13] = "Blood"
-M.gfxText[15] = "Bow fires"
-M.gfxText[16] = "Green sparkles"
-M.gfxText[17] = "Sword attacks"
-M.gfxText[18] = "Shield"
-M.gfxText[19] = "Mace attacks"
-M.gfxText[20] = "Dagger attacks"
-M.gfxText[21] = "Hands"
-M.gfxText[22] = "Boxing"
-M.gfxText[31] = "Light ball"
-M.gfxText[32] = "Red splash down"
-M.gfxText[36] = "Flame strike"
-M.gfxText[37] = "Light pile"
-M.gfxText[38] = "Huge flame"
-M.gfxText[41] = "Teleport swirl"
-M.gfxText[44] = "Explosion"
-M.gfxText[45] = "Red firework"
-M.gfxText[46] = "Spotlight"
-M.gfxText[51] = "Violett fire"
-M.gfxText[52] = "Dispell swirl"
-M.gfxText[53] = "White sparkles"
+M.gfxText[M.gfxBLITZ] = "Lightning"
+M.gfxText[M.gfxICE] = "Ice block"
+M.gfxText[M.gfxELFFIRE] = "Ice ball"
+M.gfxText[M.gfxDEMFIRE] = "Green splash up"
+M.gfxText[M.gfxSPELL] = "Bonding wind"
+M.gfxText[M.gfxWIND] = "Wind swirl"
+M.gfxText[M.gfxGIFTWOLKE] = "Poison cloud"
+M.gfxText[M.gfxFIREBALL] = "Fire ball"
+M.gfxText[M.gfxPLATSCH] = "Splash"
+M.gfxText[M.gfxFIZZLE] = "Smoke puff"
+M.gfxText[M.gfxBLOOD] = "Blood"
+M.gfxText[M.gfxBOW] = "Bow fires"
+M.gfxText[M.gfxRAIN] = "Green sparkles"
+M.gfxText[M.gfxSWORD] = "Sword attacks"
+M.gfxText[M.gfxSHIELD] = "Shield"
+M.gfxText[M.gfxMACE] = "Mace attacks"
+M.gfxText[M.gfxDAGGER] = "Dagger attacks"
+M.gfxText[M.gfxCLAW] = "Hands"
+M.gfxText[M.gfxBOXING] = "Boxing"
+M.gfxText[M.gfxGLOWING] = "Light ball"
+M.gfxText[M.gfxFALL] = "Red splash down"
+M.gfxText[M.gfxFLAMESTRIKE] = "Flame strike"
+M.gfxText[M.gfxLIGHT] = "Light pile"
+M.gfxText[M.gfxFIREFIELD] = "Huge flame"
+M.gfxText[M.gfxSTARS] = "Teleport swirl"
+M.gfxText[M.gfxEXPLO] = "Explosion"
+M.gfxText[M.gfxSPLASH] = "Red firework"
+M.gfxText[M.gfxSUN] = "Spotlight"
+M.gfxText[M.gfxVIOLETT] = "Violett fire"
+M.gfxText[M.gfxSPRINKLE] = "Dispell swirl"
+M.gfxText[M.gfxSCOTTY] = "White sparkles"
 
 -- Sound effects
 -- ID of the sfx effect

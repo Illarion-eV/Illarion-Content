@@ -173,7 +173,7 @@ function VaseContents(User, vaseItem)
         world:createMonster(222, monPos, -20)
         world:gfx(41, monPos) -- swirly
         User:inform("Schlechte Wahl, Abenteuerer! Etwas springt aus dem vase heraus und greift dich an.",
-            "Wrong choice traveler! Something hops out of the vase and attacks you.")
+            "Wrong choice traveller! Something hops out of the vase and attacks you.")
     end
 end
 

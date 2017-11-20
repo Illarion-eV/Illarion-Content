@@ -20,6 +20,7 @@ local hooks = require("monster.base.hooks")
 local treasure = require("item.base.treasure")
 local arena = require("base.arena")
 local mugWithLid = require("item.id_310_mug_with_lid")
+local shard = require("item.shard")
 
 local M = {}
 
@@ -151,6 +152,8 @@ local function performDrop(monster)
         for _, category in pairs(loot) do
             dropLootCategory(monster, category)
         end
+        
+        shard.dropShardByMonster(monster)
     end
 end
 
