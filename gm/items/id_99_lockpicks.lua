@@ -26,6 +26,7 @@ local explosion = require("base.explosion")
 local areas = require("content.areas")
 local shard = require("item.shard")
 local glyphmagic = require("magic.glyphmagic")
+local gods = require("content.gods")
 
 local M = {}
 
@@ -547,7 +548,7 @@ local function charInfo(chosenPlayer)
     local output = ""
     local faction = factions.getFaction(chosenPlayer)
     local factionInfo = "Town: " .. factions.getMembershipByName(chosenPlayer)
-    factionInfo = factionInfo .. "\nChanged towns already: " .. faction.towncnt
+    factionInfo = factionInfo .. " - already " .. faction.towncnt .. " x changed"
     if (factions.townRanks[faction.tid] ~= nil and factions.townRanks[faction.tid][faction.rankTown] ~= nil) then
         local germanRank, englishRank = factions.getRank(chosenPlayer, true)
         factionInfo = factionInfo .. "\nRank: " .. englishRank .. "/" .. germanRank
@@ -560,6 +561,17 @@ local function charInfo(chosenPlayer)
             "\nINT: "..chosenPlayer:increaseAttrib("intelligence", 0).." WIL: "..chosenPlayer:increaseAttrib("willpower", 0).." PERC: "..chosenPlayer:increaseAttrib("perception", 0).." ESS: "..chosenPlayer:increaseAttrib("essence", 0)..
             "\nIdle for [s]: "..tostring(chosenPlayer:idleTime()) ..
             "\n" .. factionInfo
+
+    local godInfo = ""
+    if chosenPlayer:getQuestProgress(402) > 0 then
+        godInfo = "Priest of "..gods.GODS_EN[chosenPlayer:getQuestProgress(402)]
+    elseif chosenPlayer:getQuestProgress(401) > 0 then
+        godInfo = "Devoted to "..gods.GODS_EN[chosenPlayer:getQuestProgress(401)]
+    else
+        godInfo = "not devoted to any God"
+    end
+    output = output .. "\n" .. godInfo
+
     local specialInfo = ""
     if chosenPlayer:isAdmin() then
         specialInfo = specialInfo .. "is admin"
@@ -661,7 +673,7 @@ local function settingsForCharAttributes(User, chosenPlayer)
     elseif attributeSum < attributePermit then
         textShown = textShown .. "\n"..tostring(attributePermit-attributeSum).." too low!"
     else
-        textShown = textShown .. "\nConfigutratin is permitted!"
+        textShown = textShown .. "\nConfiguration is permitted!"
     end
     local sdAttribute = SelectionDialog("Select attribute", textShown, attibuteDialog)
     for _, attribute in ipairs(attributeNames) do
