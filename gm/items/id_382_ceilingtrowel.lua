@@ -27,6 +27,7 @@ local spawntreasures = require ("scheduled.spawn_treasure")
 local shard = require("item.shard")
 local glyphs = require("base.glyphs")
 local seafaring = require("base.seafaring")
+local staticteleporter = require("base.static_teleporter")
 
 
 local M = {}
@@ -1450,7 +1451,7 @@ end
 
 function M.UseItem(User, SourceItem)
     -- First check for mode change
-    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation", "Script Variables","Harbours"}
+    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation", "Script Variables","Teleporter","Harbours"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -1470,6 +1471,8 @@ function M.UseItem(User, SourceItem)
         elseif index == 6 then
             readScriptVars(User)
         elseif index == 7 then
+            staticteleporter.gmManageTeleporter(User)
+        elseif index == 8 then
             seafaring.gmManagePorts(User)
         end
     end

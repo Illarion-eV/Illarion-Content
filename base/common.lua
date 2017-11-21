@@ -1741,6 +1741,59 @@ function M.GetTargetItem( character, source )
     return target
 end
 
+--[[ Gets the target item for Use-With like commands.
+@param character The character who wants to use the items
+@param items The items, searched for
+Sucess:
+one of the items in hand
+else#
+one of the items in belt
+else
+one of the items in bag
+itemNumber > 1 means in one step more than 1 possible item was found
+@return itemNumber (0 if not found), foundItem last found item]]--
+function M.GetTargetItemAnywhere(user, itemList)
+    local tmpItem
+    if type(itemList) ~= "table" then
+        itemList = {itemList}
+    end
+    local countItems = 0
+    local foundItem = nil
+    for i = 5, 6 do -- hands
+        tmpItem = user:getItemAt(i)
+        if M.isInList(tmpItem.id, itemList) then
+            countItems = countItems + 1
+            foundItem = tmpItem
+        end
+    end
+    if countItems > 0 then
+        return countItems, foundItem
+    end
+    for i = 12, 17 do -- belt
+        tmpItem = user:getItemAt(i)
+        if M.isInList(tmpItem.id, itemList) then
+            countItems = countItems + 1
+            foundItem = tmpItem
+        end
+    end
+    if countItems > 0 then
+        return countItems, foundItem
+    end
+    local backpack = user:getBackPack()
+    if backpack then
+        for i = 0, 99 do
+            local isItem, tmpItem, tmpContainer = backpack:viewItemNr(i)
+            if isItem then
+                if M.isInList(tmpItem.id, itemList) then
+                    countItems = countItems + 1
+                    foundItem = tmpItem
+                end
+            end
+        end
+    end
+    return countItems, foundItem
+end
+
 --- Returns the real date and time as a String
 -- @return date and time in format: YYYY-MM-DD | hh:mm:ss
 function M.GetRealDateTimeString()
