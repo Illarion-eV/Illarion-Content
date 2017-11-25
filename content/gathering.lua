@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local gatheringcraft = require("base.gatheringcraft")
-local gems = require("item.gems")
+local gems = require("base.gems")
 
 module("content.gathering", package.seeall)
 
