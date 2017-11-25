@@ -30,7 +30,7 @@ local shardItemId =
 
 M.GLYPH_SHRINE_ID = 3498
 
-M.SKILL_GLYPHING = Character.enchantingOfJewels
+M.SKILL_GLYPHING = Character.enchantingOfRings
 
 M.SHARD_LEVEL_DATA_KEY = "shardLevel"
 M.GLYPH_EFFEKT_REMAIN_DATA_KEY = "glyphEffNo"

@@ -116,7 +116,7 @@ local skillNames = {
     Character.wandMagic,
     Character.woodcutting,
     Character.wrestling,
-    Character.enchantingOfJewels
+    Character.enchantingOfRings
 }
 local attributeNames={
     "agility",
@@ -1428,6 +1428,13 @@ local function testArea(User)
 end
 
 local function testBanduk(user)
+    local isItem, thisItem = common.GetTargetItemAnywhere(user, {2946,23,1})
+    if isItem > 0 then
+        user:inform(">>>"..tostring(isItem) .. " ID:"..tostring(thisItem.id) .. " ID:"..tostring(thisItem.quality))
+    else
+        user:inform(">>>"..tostring(isItem))
+    end
+
 --world:createItemFromId(2207,1,position(357, 272, 0),false,333,{})
 --[[    local thisInputDialog = function (dialog)
     
@@ -1456,8 +1463,8 @@ function M.UseItem(User, SourceItem, ltstate)
     User:increaseAttrib("foodlevel", 100000)
 
     -- First check for mode change
---    local modes = {"Eraser", "Teleport", "Instant kill/ revive", "Char Settings", "Global events", "Events on single char", "Events on groups", "Faction info of chars in radius", "Quest events","Define Teleporter Targets","Define events on single char","Define events on groups","Test area","Test"}
-    local modes = {"Eraser", "Teleport", "Instant kill/ revive", "Char Settings", "Global events", "Events on single char", "Events on groups", "Faction info of chars in radius", "Quest events","Define Teleporter Targets","Define events on single char","Define events on groups","Test area"}
+    local modes = {"Eraser", "Teleport", "Instant kill/ revive", "Char Settings", "Global events", "Events on single char", "Events on groups", "Faction info of chars in radius", "Quest events","Define Teleporter Targets","Define events on single char","Define events on groups","Test area","Test"}
+--    local modes = {"Eraser", "Teleport", "Instant kill/ revive", "Char Settings", "Global events", "Events on single char", "Events on groups", "Faction info of chars in radius", "Quest events","Define Teleporter Targets","Define events on single char","Define events on groups","Test area"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
