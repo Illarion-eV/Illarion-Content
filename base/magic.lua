@@ -24,7 +24,7 @@ local MAGE_MIN_ATTRIBUTE_SUM = 30
 local M = {}
 
 M.mageSkills = {
-                Character.enchantingOfRings,
+                Character.enchantingOfJewels,
                 Character.wandMagic,
                 Character.earthMagic,
                 Character.windMagic,

@@ -27,6 +27,7 @@ local areas = require("content.areas")
 local shard = require("item.shard")
 local glyphmagic = require("magic.glyphmagic")
 local gods = require("content.gods")
+local gems = require("base.gems")
 
 local M = {}
 
@@ -116,7 +117,7 @@ local skillNames = {
     Character.wandMagic,
     Character.woodcutting,
     Character.wrestling,
-    Character.enchantingOfRings
+    Character.enchantingOfJewels
 }
 local attributeNames={
     "agility",
@@ -1428,12 +1429,8 @@ local function testArea(User)
 end
 
 local function testBanduk(user)
-    local isItem, thisItem = common.GetTargetItemAnywhere(user, {2946,23,1})
-    if isItem > 0 then
-        user:inform(">>>"..tostring(isItem) .. " ID:"..tostring(thisItem.id) .. " ID:"..tostring(thisItem.quality))
-    else
-        user:inform(">>>"..tostring(isItem))
-    end
+    user:inform(">>> developer test area")
+--    gems.convertOldGems(user)
 
 --world:createItemFromId(2207,1,position(357, 272, 0),false,333,{})
 --[[    local thisInputDialog = function (dialog)
