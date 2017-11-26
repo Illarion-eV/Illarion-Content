@@ -2527,19 +2527,20 @@ end
 @param: bllodWear Time the blood remains x 3 min
 ]]--
 function M.dropSomeBlood(centerPos, bloodProbability, bloodWear)
-    usedProbability = bloodProbability or 0.33
-    usedWear = bloodWear or 1
-    centerPos.x = centerPos.x - 1
-    centerPos.y = centerPos.y - 1
+    local usedProbability = bloodProbability or 0.33
+    local usedWear = bloodWear or 1
+    local centerPosX = centerPos.x - 1
+    local centerPosY = centerPos.y - 1
+    local centerPosZ = centerPos.z
     for i = 1, 3 do
         for j = 1, 3 do
             if math.random() < usedProbability then
-                M.dropBlood(centerPos, usedWear)
+                M.dropBlood(position(centerPosX,centerPosY,centerPosZ), usedWear)
             end
-            centerPos.x = centerPos.x + 1
+            centerPosX = centerPosX + 1
         end
-        centerPos.x = centerPos.x - 3
-        centerPos.y = centerPos.y + 1
+        centerPosX = centerPosX - 3
+        centerPosY = centerPosY + 1
     end
 end
 
