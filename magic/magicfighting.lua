@@ -219,7 +219,7 @@ local function applyDamage(attackerStruct, defenderStruct)
     local essenceBonus = 1.1 * (attackerStruct.essence - 6)
     local skillBonus = 1.75 * (attackerStruct.skill - 10)
     local qualityBonus = 0.91 + 0.02 * math.floor(attackerStruct.WeaponItem.quality/100) --ranges: 0.93 - 1.09
-    local magicBonusAttacker, magicItemsAttacker = base.getMagicBonus(attackerStruct.Char)
+    local magicBonusAttacker, magicItemsAttacker = magic.getMagicBonus(attackerStruct.Char)
     magicBonusAttacker = magicBonusAttacker*1.5
     local globalDamageFactor = 1/180 -- mirrored from standardfighting
 
@@ -228,7 +228,7 @@ local function applyDamage(attackerStruct, defenderStruct)
 
     -- raw damage without defence
     damage = damage * globalDamageFactor * qualityBonus * (100 + intBonus + essenceBonus + skillBonus + magicBonusAttacker)
-    local magicBonusDefender, magicItemsDefender = base.getMagicBonus(defenderStruct.Char)
+    local magicBonusDefender, magicItemsDefender = magic.getMagicBonus(defenderStruct.Char)
     local generalScalingFactor = 2.8
     magicBonusDefender = magicBonusDefender/generalScalingFactor
 
