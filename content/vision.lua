@@ -203,7 +203,7 @@ CheckLightOnColumnIsThere={}
 enabledAttendantsForPuzzle={}
 
 
-gemsRequired={197,284,45,197,284,45}
+gemsRequired={3519,3522,3523,3519,3522,3523}
 
 
 function M.UseDarkColumns(User, SourceItem, ltstate)

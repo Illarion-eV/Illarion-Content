@@ -23,7 +23,7 @@ local M = {}
 
 local gemDE = {"Je einen latenten magischen Smaragd, Rubin, Obsidian, Saphir, Amethyst und Topas.","Je einen bedingten magischen Smaragd, Rubin, Obsidian, Saphir, Amethyst und Topas.","Je einen leichten magischen Smaragd, Rubin, Obsidian, Saphir, Amethyst und Topas."}
 local gemEN = {"One latent magical emerald, ruby, obsidian, sapphire, amethyst and topaz.","One limited magical emerald, ruby, obsidian, sapphire, amethyst and topaz.","One slight magical emerald, ruby, obsidian, sapphire, amethyst and topaz."}
-local gemItem = {45,46,283,284,197,198}
+local gemItem = {3523,3521,3524,3522,3519,3525}
 
 local function PlayerHasTheRightGems(char, requiredGems)
     local GemsOnBody = 0

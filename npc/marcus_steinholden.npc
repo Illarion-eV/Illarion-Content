@@ -151,8 +151,8 @@ queststatus(532) > 22, queststatus(532) < 24, "quest", "mission", "Test" -> "Bit
 queststatus(532) > 22, queststatus(532) < 24, "task", "adventure", "order" -> "Please kill Enraged Akaltut for Marcus to break their bond."
 queststatus(532) > 22, queststatus(532) < 24, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte tötet Wütend Akaltut für Marcus, um den Bund zu brechen."
 -- If test is finished
-queststatus(532) = 24, english, ".+" -> inform("[Quest solved] You are awarded a slight topaz."), item(198, 1, 333, "gemLevel" = "3"), queststatus(532) = 25, "I feel the bond weakening even now. Marcus hopes in time he will get away. Marcus could not have done this without you. Take this gem as a thank you token."
-queststatus(532) = 24, ".+" -> inform("[Quest gelöst] Du wirst mit einem leichten Toas belohnt."), item(198, 1, 333, "gemLevel" = "3"), queststatus(532) = 2, "Ich fühle, wie der Bund vergeht. Marcus hofft, dass er bald verschwunden ist. Marcus hätte es ohne euch nicht geschafft. Nehmt diesen Edelstein, als Zeichen meines Dankes."
+queststatus(532) = 24, english, ".+" -> inform("[Quest solved] You are awarded a slight topaz."), item(3525, 1, 333, "gemLevel" = "3"), queststatus(532) = 25, "I feel the bond weakening even now. Marcus hopes in time he will get away. Marcus could not have done this without you. Take this gem as a thank you token."
+queststatus(532) = 24, ".+" -> inform("[Quest gelöst] Du wirst mit einem leichten Toas belohnt."), item(3525, 1, 333, "gemLevel" = "3"), queststatus(532) = 2, "Ich fühle, wie der Bund vergeht. Marcus hofft, dass er bald verschwunden ist. Marcus hätte es ohne euch nicht geschafft. Nehmt diesen Edelstein, als Zeichen meines Dankes."
 
 -- All done.
 queststatus(532) = 25, english, "quest", "mission", "test" -> "You have done all Marcus could have expected. Marcus must make his way on his own now."

@@ -107,7 +107,7 @@ function M.UseItem(User, SourceItem)
     elseif questStep == 9 and SourceItem.pos == position(845, 464, -6) then
         User:inform("Du holst einen groﬂen roten Edelstein aus dem Totensch‰del hervor. Es ist das Zauberauge der Pein!",
                     "You retrieve a large red gem from the skull. It is the Torturous Eye!")
-        common.CreateItem(User, 46, 1, 333, {["gemLevel"] = 1}) -- 1 latent ruby
+        common.CreateItem(User, 3521, 1, 333, {["gemLevel"] = 1}) -- 1 latent ruby
         User:setQuestProgress(521, 10)
 
     elseif questStep == 10 and SourceItem.pos == position(905, 515, -6) then
