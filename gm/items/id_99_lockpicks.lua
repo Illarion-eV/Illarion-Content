@@ -565,9 +565,9 @@ local function charInfo(chosenPlayer)
 
     local godInfo = ""
     if chosenPlayer:getQuestProgress(402) > 0 then
-        godInfo = "Priest of "..gods.GODS_EN[chosenPlayer:getQuestProgress(402)]
+        godInfo = "Priest of "..gods.GOD_EN[chosenPlayer:getQuestProgress(402)]
     elseif chosenPlayer:getQuestProgress(401) > 0 then
-        godInfo = "Devoted to "..gods.GODS_EN[chosenPlayer:getQuestProgress(401)]
+        godInfo = "Devoted to "..gods.GOD_EN[chosenPlayer:getQuestProgress(401)]
     else
         godInfo = "not devoted to any God"
     end
