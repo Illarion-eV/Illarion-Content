@@ -27,13 +27,13 @@ M.AMETHYST = 6
 M.TOPAZ    = 7
  
 M.gemItemId = {}
-M.gemItemId[M.DIAMOND] = 285
-M.gemItemId[M.EMERALD] = 45
-M.gemItemId[M.RUBY] = 46
-M.gemItemId[M.OBSIDIAN] = 283
-M.gemItemId[M.SAPPHIRE] = 284
-M.gemItemId[M.AMETHYST] = 197
-M.gemItemId[M.TOPAZ] = 198
+M.gemItemId[M.DIAMOND] = 3520
+M.gemItemId[M.EMERALD] = 3523
+M.gemItemId[M.RUBY] = 3521
+M.gemItemId[M.OBSIDIAN] = 3524
+M.gemItemId[M.SAPPHIRE] = 3522
+M.gemItemId[M.AMETHYST] = 3519
+M.gemItemId[M.TOPAZ] = 3525
 
 local gemDataKey = {}
 gemDataKey[M.DIAMOND] = "magicalDiamond"
@@ -67,6 +67,62 @@ local function extractNum(text)
     end
     return tonumber(text)
 end
+
+-- start of special code for Mantis 10356: Make use of new magic Gem ID and graphics
+-- can be removed at 2021-01-01 so only player leaving Illa before 2017-12-31 and never logged in over 3 years will lose collected magic gems
+
+local oldGemId = { 285,   45,   46,  283,  284,  197,  198}
+local newGemId = {3520, 3523, 3521, 3524, 3522, 3519, 3525}
+
+local function convertThisGem(item)
+    for i, itemId in pairs(oldGemId) do
+        if item.id == itemId then
+            local level = tonumber(item:getData(M.levelDataKey))
+            if level and level > 0 then
+                item.id = newGemId[i]
+                world:changeItem(item)
+            end
+            return
+        end
+    end
+end
+
+local function checkContainerForGem(container, user)
+    for i = 0, 99 do
+        local isItem, tmpItem, tmpContainer = container:viewItemNr(i)
+        if isItem then
+            if common.isInList(tmpItem.id, oldGemId) then
+                convertThisGem(tmpItem)
+            elseif tmpContainer ~= nil then
+                checkContainerForGem(tmpContainer, user)
+            end
+        end
+    end
+end
+
+function M.convertOldGems(user)
+    local tmpItem
+    for i = 1, 17 do -- all inventory
+        tmpItem = user:getItemAt(i)
+        if common.isInList(tmpItem.id, oldGemId) then
+            convertThisGem(tmpItem)
+        end
+    end
+    local backpack = user:getBackPack()
+    if backpack then
+        checkContainerForGem(backpack, user)
+    end
+    local depotContainer
+    for i = 99, 103 do --all depots
+        depotContainer = user:getDepot(i)
+        if depotContainer ~= nil then
+            checkContainerForGem(depotContainer, user)
+        end
+    end
+
+end
+-- end of special code for Mantis 10356
+
 -- calculates the gem bonus and returns it in %
 function M.getGemBonus(item)
     local gemStrength = {}
@@ -94,9 +150,9 @@ function M.lookAtFilter(user, lookAt, data)
 
     if gemLevel then
         if user:getPlayerLanguage() == 0 then
-            lookAt.name = gemPrefixDE[gemLevel] .. " magischer " .. lookAt.name
+            lookAt.name = gemPrefixDE[gemLevel] .. lookAt.name
         else
-            lookAt.name = gemPrefixEN[gemLevel] .. " Magical " .. lookAt.name
+            lookAt.name = gemPrefixEN[gemLevel] .. lookAt.name
         end
         lookAt.rareness = gemLevelRareness[gemLevel]
     end

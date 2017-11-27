@@ -301,12 +301,15 @@ function M.onLogin( player )
 
     --A hack to display bars correctly
     player:increaseAttrib("foodlevel", -1)
-    
+
     --hair messages
     hairdresser.hairOnLogin(player)
-    
+
     --on ferry
     seafaring.login(player)
+
+    --gem conversion
+    gems.convertOldGems(player)
 
     --Check regeneration script
     local found = player.effects:find(2)

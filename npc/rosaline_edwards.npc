@@ -119,10 +119,10 @@ queststatus(642) > 0, queststatus(643) = 0, english, chance(25.0), "Kharud" -> q
 queststatus(642) > 0, queststatus(643) = 0, german, chance(25.0), "Kharud" -> queststatus(643) = 1, treasure(7), "#me nickt und reicht dir leise einen Gegenstand."
 queststatus(642) > 0, queststatus(643) = 0, english, chance(34.0), "Kharud" -> queststatus(643) = 1, treasure(8), "#me nods and hands you an item silently."
 queststatus(642) > 0, queststatus(643) = 0, german, chance(34.0), "Kharud" -> queststatus(643) = 1, treasure(8), "#me nickt und reicht dir leise einen Gegenstand."
-queststatus(642) > 0, queststatus(643) = 0, english, chance(51.0), "Kharud" -> item(198, 1, 999, "gemLevel" = "1"), queststatus(643) = 1, "#me nods and hands you an item silently."
-queststatus(642) > 0, queststatus(643) = 0, german, chance(51.0), "Kharud" -> item(198, 1, 999, "gemLevel" = "1"), queststatus(643) = 1, "#me nickt und reicht dir leise einen Gegenstand."
-queststatus(642) > 0, queststatus(643) = 0, english, chance(100.0), "Kharud" -> item(197, 1, 999, "gemLevel" = "1"), queststatus(643) = 1, "#me nods and hands you an item silently."
-queststatus(642) > 0, queststatus(643) = 0, german, chance(100.0), "Kharud" -> item(197, 1, 999, "gemLevel" = "1"), queststatus(643) = 1, "#me nickt und reicht dir leise einen Gegenstand."
+queststatus(642) > 0, queststatus(643) = 0, english, chance(51.0), "Kharud" -> item(3525, 1, 999, "gemLevel" = "1"), queststatus(643) = 1, "#me nods and hands you an item silently."
+queststatus(642) > 0, queststatus(643) = 0, german, chance(51.0), "Kharud" -> item(3525, 1, 999, "gemLevel" = "1"), queststatus(643) = 1, "#me nickt und reicht dir leise einen Gegenstand."
+queststatus(642) > 0, queststatus(643) = 0, english, chance(100.0), "Kharud" -> item(3519, 1, 999, "gemLevel" = "1"), queststatus(643) = 1, "#me nods and hands you an item silently."
+queststatus(642) > 0, queststatus(643) = 0, german, chance(100.0), "Kharud" -> item(3519, 1, 999, "gemLevel" = "1"), queststatus(643) = 1, "#me nickt und reicht dir leise einen Gegenstand."
 
 -- -- Quest by Zassaria Riverbank (Ask for me II)
 queststatus(701) = 13, item(225, all, "descriptionEn" = "This crown belongs to Rosaline Edwards.") > 0, english, "Zassaria", "lizard", "crown", "missing", "belong", "porperty", "riverbank", "message" -> deleteItem(225, 1, "descriptionEn" = "This crown belongs to Rosaline Edwards."), queststatus(701) = 14, "What? Oh, thank you for returning my extra crown. I don't know how it got all the way to Runewick. You may leave now."

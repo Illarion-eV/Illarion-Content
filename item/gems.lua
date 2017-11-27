@@ -14,47 +14,27 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
-local gems = require("base.gems")
-local magicsmith = require("base.magicsmith")
 local common = require("base.common")
 local lookat = require("base.lookat")
 local analysis = require("alchemy.base.analysis")
-local vision = require("content.vision")
+local gems = require("base.gems")
 
 -- UPDATE items SET itm_script='item.gems' WHERE itm_id IN (45, 46, 197, 198, 283, 284, 285);
 
 local M = {}
 
-function M.LookAtItem(user, item)
-    local lookAt = lookat.GenerateLookAt(user, item)
+function M.LookAtItem(user, sourceItem)
+    local lookAt = lookat.GenerateLookAt(user, sourceItem)
 
-    local data = {}
-    data.gemLevel = tonumber(item:getData(gems.levelDataKey))
-
-    lookAt = gems.lookAtFilter(user, lookAt, data)
-
+    if not common.IsNilOrEmpty(sourceItem:getData(gems.levelDataKey)) then
+        lookAt.description = common.GetNLS(user,"Ein alter magischer Edelstein! Dieses Item sollte es nicht geben. Bitte log deinen Char neu ein und informiere einen Entwickler.", "An old magical gemstone. This item should not exists. Please relog your char and inform a developer")
+        return lookAt
+    end
     return lookAt
 end
 
-function M.UseItem(User, SourceItem, ltstate)
-    if SourceItem:getData(gems.levelDataKey) == "" then
-        analysis.AnalysisMain(User,SourceItem)
-        return
-    end
-
-    local TargetItemEvilRock = common.GetItemInArea(User.pos, 2805);
-    local AmountDarkColumnEvilrock = #vision.darkColumnEvilrock
-    if TargetItemEvilRock ~= nil then
-        for i = 1,AmountDarkColumnEvilrock do
-            if TargetItemEvilRock.pos == vision.darkColumnEvilrock[i] then
-                common.TurnTo(User,TargetItemEvilRock.pos); -- turn if necessary
-                vision.UseDarkColumns(User,TargetItemEvilRock,ltstate)
-                return
-            end
-        end
-    end
-
-    magicsmith.handleSocketing(User, SourceItem)
+function M.UseItem(User, sourceItem, ltstate)
+    analysis.AnalysisMain(User,sourceItem)
 end
 
 return M

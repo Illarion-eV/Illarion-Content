@@ -112,10 +112,10 @@ queststatus(622) > 0, queststatus(623) = 0, english, chance(25.0), "Kharud" -> q
 queststatus(622) > 0, queststatus(623) = 0, german, chance(25.0), "Kharud" -> queststatus(623) = 1, treasure(7), "#me nickt und reicht dir leise einen Gegenstand."
 queststatus(622) > 0, queststatus(623) = 0, english, chance(34.0), "Kharud" -> queststatus(623) = 1, treasure(8), "#me nods and hands over an item silently."
 queststatus(622) > 0, queststatus(623) = 0, german, chance(34.0), "Kharud" -> queststatus(623) = 1, treasure(8), "#me nickt und reicht dir leise einen Gegenstand."
-queststatus(622) > 0, queststatus(623) = 0, english, chance(51.0), "Kharud" -> item(45, 1, 999, "gemLevel" = "1"), queststatus(623) = 1, "#me nods and hands over an item silently."
-queststatus(622) > 0, queststatus(623) = 0, german, chance(51.0), "Kharud" -> item(45, 1, 999, "gemLevel" = "1"), queststatus(623) = 1, "#me nickt und reicht dir leise einen Gegenstand."
-queststatus(622) > 0, queststatus(623) = 0, english, chance(100.0), "Kharud" -> item(46, 1, 999, "gemLevel" = "1"), queststatus(623) = 1, "#me nods and hands over an item silently."
-queststatus(622) > 0, queststatus(623) = 0, german, chance(100.0), "Kharud" -> item(46, 1, 999, "gemLevel" = "1"), queststatus(623) = 1, "#me nickt und reicht dir leise einen Gegenstand."
+queststatus(622) > 0, queststatus(623) = 0, english, chance(51.0), "Kharud" -> item(3523, 1, 999, "gemLevel" = "1"), queststatus(623) = 1, "#me nods and hands over an item silently."
+queststatus(622) > 0, queststatus(623) = 0, german, chance(51.0), "Kharud" -> item(3523, 1, 999, "gemLevel" = "1"), queststatus(623) = 1, "#me nickt und reicht dir leise einen Gegenstand."
+queststatus(622) > 0, queststatus(623) = 0, english, chance(100.0), "Kharud" -> item(3521, 1, 999, "gemLevel" = "1"), queststatus(623) = 1, "#me nods and hands over an item silently."
+queststatus(622) > 0, queststatus(623) = 0, german, chance(100.0), "Kharud" -> item(3521, 1, 999, "gemLevel" = "1"), queststatus(623) = 1, "#me nickt und reicht dir leise einen Gegenstand."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the Archmage. I bear the responsibility for Runewick and their inhabitants.", "It's my duty to advise Runewick with knowledge and reason, and now and again with physical acts.", "I'm the Archmage, therefore I'm very busy. I advise you to ask a novice for details of my position."

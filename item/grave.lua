@@ -67,8 +67,9 @@ end
 
 local findPlayersForGems={}
 local graveSourceItemPos={position(958,238,0),position(968,226,0),position(970,219,0)}
-local typoOfGem={197,284,45}
-local gemColourDE1={"Lilla","Blau","Grün"}
+local typoOfGem={3519,3522,3523}
+
+local gemColourDE1={"Lila","Blau","Grün"}
 local gemColourDE2={"Amethysten","Saphire","Smaragde"}
 local gemColourEN1={"purple","blue","green"}
 local gemColourEN2={"Amethysts","Sapphires","Emeralds"}
@@ -90,7 +91,7 @@ function M.UseItem(User, SourceItem)
         queststatuslist = common.Split_number(queststatus, 6) -- reading the digits of the queststatus as table
         if queststatuslist[1] == 0 then -- gem, only triggered once by each char
             common.InformNLS(User, "Du entdeckst einen glitzernden Edelstein bei der Leiche.", "You discover a shiny gem with the corpse.")
-            common.CreateItem(User, 198, 1, 333, {["gemLevel"] = 1})
+            common.CreateItem(User, 3525, 1, 333, {["gemLevel"] = 1})
             queststatuslist[1] = 1
             User:setQuestProgress(531, queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+queststatuslist[5]*10+queststatuslist[6]*1) --saving the new queststatus
         end
