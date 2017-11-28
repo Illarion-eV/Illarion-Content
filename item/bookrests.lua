@@ -23,6 +23,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local seafaring = require("base.seafaring")
+local staticteleporter = require("base.static_teleporter")
 local townManagement = require("base.townManagement")
 local factions = require("base.factions")
 local vision = require("content.vision")
@@ -34,12 +35,10 @@ local M = {}
 
 local FerryLookAt
 local TMLookAt
-local StaticTeleporterLookAt
 local SalaveshLookAt
 local AkaltutLookAt
 local usingHomeTeleporter
 local NecktieHomeTravel
-local StaticTeleporter
 local WonderlandTeleporter
 
 local salaveshBookrest = position(741, 406, -3)
@@ -81,8 +80,9 @@ function M.LookAtItem(User,Item)
     end
 
     -- static teleporter
-    if Item:getData("staticTeleporter") ~= "" then
-        lookAt = StaticTeleporterLookAt(User, Item)
+    local isTeleporter, teleporterLookAt = staticteleporter.teleporterLookAt(User, Item, ItemLookAt())
+    if isTeleporter then
+        lookAt = teleporterLookAt
     end
 
     if lookAt then
@@ -101,12 +101,6 @@ function TMLookAt(User, Item)
         lookAt.name = "Town Managment"
         lookAt.description = "Instrument for town management. Only for officials."
     end
-    return lookAt
-end
-
-function StaticTeleporterLookAt(User, Item)
-    local lookAt = ItemLookAt()
-    lookAt.name = "Teleporter"
     return lookAt
 end
 
@@ -225,8 +219,8 @@ function M.UseItem(User, SourceItem)
     end
 
     -- static teleporter
-    if SourceItem:getData("staticTeleporter") ~= "" then
-        StaticTeleporter(User, SourceItem)
+    if staticteleporter.useTeleporter(User, SourceItem) then
+        return
     end
 end
 
@@ -259,79 +253,6 @@ local function akalutCadomyrBlockade(user)
     user:inform("Ein Blitz kommt aus dem Teleporter geschossen.", "You are hit by a lightning coming from the teleporter.", Character.highPriority)
     
     return true
-end
-
-function StaticTeleporter(User, SourceItem)
-
-    local names
-    if  User:getPlayerLanguage() == Player.german then
-        names = {"Runewick","Galmair","Cadomyr","Gasthof zur Hanfschlinge","Gefängnismine"}
-    else
-        names = {"Runewick","Galmair","Cadomyr","Hemp Necktie Inn","Prison Mine"}
-    end
-    local items = {105,61,2701,1909,466}
-    local targetPos = {position(835,813,0), position(423,246,0),position(126,647,0),position(684,307,0),position(-484,-455,-40)}
-
-    local costCopper
-    local costTextDe
-    local costTextEn
-    if User:isNewPlayer() then
-        costCopper = 200
-        costTextDe = "zwei"
-        costTextEn = "two"
-    else
-        costCopper = 500
-        costTextDe = "fünf"
-        costTextEn = "five"
-    end
-    
-    local callback = function(dialog)
-
-        local success = dialog:getSuccess()
-        if success then
-            local selected = dialog:getSelectedIndex() + 1
-            
-            if selected == 3 or User:distanceMetricToPosition(targetPos[3]) <= 5 then
-                if akalutCadomyrBlockade(User) then
-                    return
-                end
-            end
-            local userFaction = factions.getMembershipByName(User)
-            -- Check wether the char has enough money or travels from necktie to hometown or vice versa
-            if (money.CharHasMoney(User,costCopper)) then 
-
-                if User:distanceMetricToPosition(targetPos[selected]) < 5 then
-                    User:inform("Du befindest dich bereits in " ..names[selected]..".", "You are already in "..names[selected]..".")
-                else
-
-                    User:inform("Du hast dich dazu entschlossen nach " ..names[selected].. " zu Reisen.", "You have chosen to travel to " ..names[selected]..".")
-                    money.TakeMoneyFromChar(User,costCopper)
-                    world:gfx(46,User.pos)
-                    world:makeSound(13,User.pos);
-
-                    User:warp(targetPos[selected])
-                    world:gfx(46,User.pos)
-                    world:makeSound(13,User.pos);
-                end
-            else
-                User:inform("Du hast nicht genug Geld für diese Reise. Die Reise kostet " .. costTextDe .. " Silberstücke.", 
-                            "You don't have enough money for this journey. The journey costs " .. costTextEn .. " silver coins.")
-            end
-
-        end
-    end
-
-    local dialog
-    local dialogText
-    dialogText = common.GetNLS(User, "Eine Reise kostet " .. costTextDe .. " Silberstücke. Wähle eine Ziel aus.",
-                                    "A journey costs " .. costTextEn .. " silver coins. Choose a destination.")
-    dialog = SelectionDialog("Teleporter", dialogText, callback)
-    dialog:setCloseOnMove()
-
-    for i=1,#items do
-        dialog:addOption(items[i], names[i])
-    end
-    User:requestSelectionDialog(dialog)
 end
 
 function WonderlandTeleporter(User, SourceItem)

@@ -27,6 +27,7 @@ local spawntreasures = require ("scheduled.spawn_treasure")
 local shard = require("item.shard")
 local glyphs = require("base.glyphs")
 local seafaring = require("base.seafaring")
+local staticteleporter = require("base.static_teleporter")
 
 
 local M = {}
@@ -56,12 +57,12 @@ local SpecialItemSubMenu = {"Money","Magic Gems","Pure Elements"}
 SpecialItem[1] = {"Mystical Cracker",true,3894,0,""}
 SpecialItem[2] = {"Special Eggs",true,1150,0,""}
 SpecialItem[3] = {"Treasure Chest",true,2830,0,""}
-SpecialItem[4] = {"Latent Magic Topaz",false,198,MagicGem,"Magic Gems"}
-SpecialItem[5] = {"Latent Magic Amethyst",false,197,MagicGem,"Magic Gems"}
-SpecialItem[6] = {"Latent Magic Obsidian",false,283,MagicGem,"Magic Gems"}
-SpecialItem[7] = {"Latent Magic Sappire",false,284,MagicGem,"Magic Gems"}
-SpecialItem[8] = {"Latent Magic Ruby",false,46,MagicGem,"Magic Gems"}
-SpecialItem[9] = {"Latent Magic Emerald",false,45,MagicGem,"Magic Gems"}
+SpecialItem[4] = {"Latent Magic Topaz",false,3525,MagicGem,"Magic Gems"}
+SpecialItem[5] = {"Latent Magic Amethyst",false,3519,MagicGem,"Magic Gems"}
+SpecialItem[6] = {"Latent Magic Obsidian",false,3524,MagicGem,"Magic Gems"}
+SpecialItem[7] = {"Latent Magic Sappire",false,3522,MagicGem,"Magic Gems"}
+SpecialItem[8] = {"Latent Magic Ruby",false,3521,MagicGem,"Magic Gems"}
+SpecialItem[9] = {"Latent Magic Emerald",false,3523,MagicGem,"Magic Gems"}
 SpecialItem[10] = {"Pure Fire",false,2553,0,"Pure Elements"}
 SpecialItem[11] = {"Pure Air",false,2551,0,"Pure Elements"}
 SpecialItem[12] = {"Pure Earth",false,2552,0,"Pure Elements"}
@@ -71,6 +72,7 @@ SpecialItem[15] = {"Silver Coins",false,3077,0,"Money"}
 SpecialItem[16] = {"Gold Coins",false,61,0,"Money"}
 SpecialItem[17] = {"Poison Coins",false,3078,0,"Money"}
 SpecialItem[18] = {"Glyph Shards",true,3493,0,""}
+SpecialItem[19] = {"Latent Magic Diamond",false,3520,MagicGem,"Magic Gems"}
 
 local itemPos = {{en="Head", de="Kopf"},{en="Neck", de="Hals"},{en="Breast", de="Brust"},{en="Both Hands", de="Beide Hände"},{en="Left Hand", de="Linke Hand"}, {en="Right Hand", de="Rechte Hand"},
     {en="Left Finger", de="Linker Finger"},{en="Right Finger", de="Rechter Finger"} ,{en="Legs", de="Beine"}, {en="Feet", de="Füße"}, {en="Coat", de="Umhang"},{en="Belt 1", de="Gürtel 1"},
@@ -1450,7 +1452,7 @@ end
 
 function M.UseItem(User, SourceItem)
     -- First check for mode change
-    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation", "Script Variables","Harbours"}
+    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation", "Script Variables","Teleporter","Harbours"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -1470,6 +1472,8 @@ function M.UseItem(User, SourceItem)
         elseif index == 6 then
             readScriptVars(User)
         elseif index == 7 then
+            staticteleporter.gmManageTeleporter(User)
+        elseif index == 8 then
             seafaring.gmManagePorts(User)
         end
     end

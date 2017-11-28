@@ -54,28 +54,28 @@ M.orderOfGem = {
 {"Diamant","Diamond"}}
 
 M.ringAndAmuletDefinition={
---{itemID ring, itemID amulet, shard row/column, skill, working time}
-                    {3527,3526,1,0,40}, --Copper Amethyst
-                    {3540,3539,2,0,47}, --Copper Ruby
-                    {3542,3559,3,5,54}, --Copper Sappire
-                    {3537,3536,4,10,61}, --Copper Obsidian
-                    {3547,3546,5,15,68}, --Copper Emerald
-                    {3550,3549,6,20,75}, --Copper Topaz
-                    {3531,3530,7,25,82}, --Copper Diamond
-                    {3529,3528,1,30,89}, --Silver Amethyst
-                    {3560,3541,2,35,96}, --Silver Ruby
-                    {3544,3543,3,40,103}, --Silver Sappire
-                    {3561,3538,4,45,110}, --Silver Obsidian
-                    {3545,3548,5,50,117}, --Silver Emerald
-                    {3552,3551,6,55,124}, --Silver Topaz
-                    {3533,3532,7,60,131}, --Silver Diamond
-                    {277,79,1,65,138}, --Gold Amethyst
-                    {68,67,2,70,145}, --Gold Ruby
-                    {279,71,3,75,152}, --Gold Sappire
-                    {278,82,4,80,159}, --Gold Obsidian
-                    {281,62,5,85,166}, --Gold Emerald
-                    {282,83,6,90,173}, --Gold Topaz
-                    {280,3534,7,95,180} --Gold Diamond
+--{[1]itemID ring, [2]itemID amulet, [3]shard row/column, [4]skill, [5]working time, [6]effectID ring, [7]effectID amulet}
+                    {3527,3526,1,0,40,1,8}, --Copper Amethyst
+                    {3540,3539,2,0,47,2,9}, --Copper Ruby
+                    {3542,3559,3,5,54,3,10}, --Copper Sappire
+                    {3537,3536,4,10,61,4,11}, --Copper Obsidian
+                    {3547,3546,5,15,68,5,12}, --Copper Emerald
+                    {3550,3549,6,20,75,6,13}, --Copper Topaz
+                    {3531,3530,7,25,82,7,14}, --Copper Diamond
+                    {3529,3528,1,30,89,1,8}, --Silver Amethyst
+                    {3560,3541,2,35,96,2,9}, --Silver Ruby
+                    {3544,3543,3,40,103,3,10}, --Silver Sappire
+                    {3561,3538,4,45,110,4,11}, --Silver Obsidian
+                    {3545,3548,5,50,117,5,12}, --Silver Emerald
+                    {3552,3551,6,55,124,6,13}, --Silver Topaz
+                    {3533,3532,7,60,131,7,14}, --Silver Diamond
+                    {277,79,1,65,138,1,8}, --Gold Amethyst
+                    {68,67,2,70,145,2,9}, --Gold Ruby
+                    {279,71,3,75,152,3,10}, --Gold Sappire
+                    {278,82,4,80,159,4,11}, --Gold Obsidian
+                    {281,62,5,85,166,5,12}, --Gold Emerald
+                    {282,83,6,90,173,6,13}, --Gold Topaz
+                    {280,3534,7,95,180,7,14} --Gold Diamond
                     }
 
 local ITEM_ID_CANDLES = 43
@@ -86,7 +86,7 @@ M.glyphForgeFindMaxSkill = 20
 M.glyphForgeErectionTime = 54
 M.glyphForgeErectionMinSkill = 25
 M.glyphRitualPrepareTime = 82
-M.glyphRitualPrepareMinSkill = 5
+M.glyphRitualPrepareMinSkill = 0
 M.glyphRitualPrepareExposureTime = 300
 M.glyphRitualPrepareNecessaryItems = { {ITEM_ID_CANDLES, 2} , {ITEM_ID_CANDLEHOLDER, 2} }
 M.glyphRitualBreakGlyphSkill = 20
@@ -292,9 +292,9 @@ end
 function M.getNominalCharges(item)
     for i=1,#M.ringAndAmuletDefinition do
         if item.id == M.ringAndAmuletDefinition[i][1] then
-            return M.glyphEffects[i][1]
+            return M.glyphEffects[M.ringAndAmuletDefinition[i][6]][1]
         elseif item.id == M.ringAndAmuletDefinition[i][2] then
-            return M.glyphEffects[i+7][1]
+            return M.glyphEffects[M.ringAndAmuletDefinition[i][7]][1]
         end
     end
     return 0

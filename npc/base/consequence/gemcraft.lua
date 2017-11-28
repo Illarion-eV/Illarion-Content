@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local consequence = require("npc.base.consequence.consequence")
-local gems = require("item.gems")
+local gems = require("base.magicsmith")
 
 local _craft_helper
 

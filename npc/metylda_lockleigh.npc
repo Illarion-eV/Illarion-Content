@@ -147,8 +147,8 @@ queststatus(513) = 19, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[N
 queststatus(513) > 19, queststatus(513) < 31, english, ".+" -> "I am still stumped by the riddle of the pillars. Please figure out what order they need to be touched."
 queststatus(513) > 19, queststatus(513) < 31, ".+" -> "Ich bin immer noch von dem Säulen-Rätsel überfragt. Bitte finde heraus in welcher Reihenfolge sie berührt werden müssen. "
 --done
-queststatus(513) = 31, english, ".+" -> inform("[Quest solved] You are awarded a limited magical topaz."), item(198, 1, 999,"gemLevel" = "2"), queststatus(513) = 32, "A demon's wand? Keep it, I have no use for such things! Take this gem and we will never speak of this again!"
-queststatus(513) = 31, ".+" -> inform("[Quest gelöst] Du erhältst 100 Silberstücke."), item(198, 1, 999,"gemLevel" = "2"), queststatus(513) = 32, "Ein Dämonenzauberstab? Behalte ihn, ich habe keinerlei Verwendung für ihn. Nimm diesen Edelstein und wir sprechen nie wieder über das Ganze!"
+queststatus(513) = 31, english, ".+" -> inform("[Quest solved] You are awarded a limited magical topaz."), item(3525, 1, 999,"gemLevel" = "2"), queststatus(513) = 32, "A demon's wand? Keep it, I have no use for such things! Take this gem and we will never speak of this again!"
+queststatus(513) = 31, ".+" -> inform("[Quest gelöst] Du erhältst 100 Silberstücke."), item(3525, 1, 999,"gemLevel" = "2"), queststatus(513) = 32, "Ein Dämonenzauberstab? Behalte ihn, ich habe keinerlei Verwendung für ihn. Nimm diesen Edelstein und wir sprechen nie wieder über das Ganze!"
 
 -- No more quests, just nice words of gratitude
 queststatus(513) = 32, english, "quest", "mission" -> "I have nothing else you can help with. Please speak of our interaction with no one."

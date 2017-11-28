@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 -- This script contains the content definitions for the treasures.
-local gems = require("item.gems")
+local gems = require("base.gems")
 local messages = require("base.messages")
 
 local M = {}

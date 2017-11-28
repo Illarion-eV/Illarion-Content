@@ -103,17 +103,25 @@ function M.UseItem(User, SourceItem, ltstate)
             return
         end
 
-        local TargetItem = common.GetTargetItem(User, SourceItem);
-        if( TargetItem ) then
+        local TargetItems = {}
+        for _, combo in pairs(food[4]) do
+            table.insert(TargetItems,combo[1])
+        end
+        local foundVessels, vesselItem = common.GetTargetItemAnywhere(User,TargetItems)
+        
+        if foundVessels == 0 then
+            common.InformNLS( User, "Dir fällt auf, dass du gar kein Gefäß hast, welches du füllen könntest.",
+                                    "You notice that you do not have a vessel which you could fill.")
+        elseif foundVessels == 1 then
             for _, combo in pairs(food[4]) do
-                if combo[1] == TargetItem.id then
+                if combo[1] == vesselItem.id then
                     -- fill drink
-                    if (TargetItem.number > 1) then
-                        world:erase(TargetItem, 1)
+                    if (vesselItem.number > 1) then
+                        world:erase(vesselItem, 1)
                         common.CreateItem(User, combo[2], 1, 333, nil)
                     else
-                        TargetItem.id = combo[2]
-                        world:changeItem(TargetItem)
+                        vesselItem.id = combo[2]
+                        world:changeItem(vesselItem)
                     end
                     world:makeSound(10,User.pos)
 
@@ -136,11 +144,10 @@ function M.UseItem(User, SourceItem, ltstate)
                     -- cancel after one found item
                     break;
                 end -- found item
-            end -- search loop
+            end
         else
-            common.InformNLS( User,
-                "Nimm die Flasche und ein Trinkgefäß in deine Hände.",
-                "Take the bottle and a drinking vessel in your hands.");
+            common.InformNLS( User, "Du bist dir nicht ganz sicher, welches Gefäß du füllen willst.",
+                                    "You are not sure which vessel you want to fill.")
         end
     else
         --User:inform("unkown bottle item ");

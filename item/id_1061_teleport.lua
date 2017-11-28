@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_1061_teleport' WHERE itm_id=1061;
 
 local common = require("base.common")
+local staticteleporter = require("base.static_teleporter")
 
 local M = {}
 
@@ -31,6 +32,13 @@ function M.UseItem(User, SourceItem, ltstate)
     local destCoordZ = SourceItem:getData("destinationCoordsZ")
 
     if (destCoordX ~= "") and (destCoordY ~= "") and (destCoordZ ~= "") then
+
+        if staticteleporter.isBlocked(position(tonumber(destCoordX),tonumber(destCoordY),tonumber(destCoordZ))) then
+            common.InformNLS( User,
+            "Das Buch in deiner Hand schlägt von alleine wieder zu!",
+            "The book in your hand closes itself!" )
+            return
+        end
 
         local radius = 4;
         local targetPos = common.getFreePos(User.pos, radius)

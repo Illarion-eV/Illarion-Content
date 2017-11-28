@@ -233,6 +233,8 @@ local function startRitual(user, workingTime, manaConsumption, workingPlace, rit
     workingRitual[user.id]={workingCycles, deltaMana, deltaFood, workingPlace, ritualId, specialValues}
 
     performRitual(user)
+    common.TempInformNLS(user,"Das Ritual wird etwa " .. tostring(workingTime) .. " Sekunden dauern.",
+                              "The ritual will be finished in about " .. tostring(workingTime) .. " seconds.")
     return true
 end
 
@@ -466,7 +468,7 @@ local function showForgeSelection(user,userRings,userAmulets)
             end
             sd:addOption(userAmulets[i].id, common.GetNLS(user,common.getItemName(userAmulets[i], Player.german),common.getItemName(userAmulets[i], Player.english)) .. displayText )
             selectionTopicNo = selectionTopicNo + 1
-            selectionTopics[selectionTopicNo] = {canForged, glyphs.AMULET, userAmulets[i]}
+            selectionTopics[selectionTopicNo] = {canForged, userAmulets[i]}
         end
     end
     sd:setCloseOnMove()

@@ -20,7 +20,7 @@ local common = require("base.common")
 local factions = require("base.factions")
 local money = require("base.money")
 local townTreasure = require("base.townTreasure")
-local gems = require("item.gems")
+local gems = require("base.gems")
 local factionLeader = require("scheduled.factionLeader")
 local skillTransfer = require("base.skillTransfer")
 local areas = require("content.areas")
@@ -301,12 +301,15 @@ function M.onLogin( player )
 
     --A hack to display bars correctly
     player:increaseAttrib("foodlevel", -1)
-    
+
     --hair messages
     hairdresser.hairOnLogin(player)
-    
+
     --on ferry
     seafaring.login(player)
+
+    --gem conversion
+    gems.convertOldGems(player)
 
     --Check regeneration script
     local found = player.effects:find(2)
@@ -541,9 +544,9 @@ local function createMagicGem(gemId, gemAmount, Recipient)
     local basename={}
     basename=world:getItemName(gemId, Recipient:getPlayerLanguage())
     if Recipient:getPlayerLanguage() == 0 then
-        basename = gems.gemPrefixDE[1] .. " magischer " .. basename
+        basename = "Latent magischer " .. basename
     else
-        basename = gems.gemPrefixEN[1] .. " magical " .. basename
+        basename = "Latent magical " .. basename
     end
     basename = "\n" .. tostring(gemAmount) .. " x " .. basename
     return basename

@@ -302,6 +302,7 @@ function Craft:getCurrentGemBonus(user)
         return 0
     end
 end
+
 function Craft:allowNpcCrafting(user, source)
     return user:isInRange(source, 2)
 end
@@ -411,7 +412,6 @@ function Craft:loadDialog(dialog, user)
     local showRepairGroup = false
     local repairSkill = self:getRepairSkill(user)
     local glyphEffect = 1
-    local gemBonus = self:getCurrentGemBonus(user)
     local repairItemListSub = {}
     local hasDataRepairItemListSub = false
     for k = 1, #repairPositions do
