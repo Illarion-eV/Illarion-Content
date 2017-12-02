@@ -101,16 +101,16 @@ function M.learn(user, skill, actionPoints, learnLimit)
             end
 
             user:increaseMentalCapacity(amplification * actionPoints)
+            user:setQuestProgress(47,0)
     end
 end
-
 
 -- invoked every 10 s on every user; to be used to reduce MC on a regular basis
 -- user:idleTime() can be used to get the number of seconds a user has been idle to check for inactivity
 
 function M.reduceMC(user)
 
-    if user:idleTime() < 300 then --Has the user done any action or spoken anything within the last five minutes?
+    if user:idleTime() < 300 and user:getQuestProgress(47) < 12 then --Has the user done any action within the last five minutes?
     
         user:increaseMentalCapacity(-1 * math.floor(user:getMentalCapacity() * damping + 0.5)) --reduce MC-points by 0.01 %, rounded correctly.
         local currentMC = user:getMentalCapacity()
@@ -120,9 +120,9 @@ function M.reduceMC(user)
             user:increaseMentalCapacity(normalMC-currentMC) --Reset to default value
         end
     
-        --For debugging, use the following line.
-        --user:inform("MC="..currentMC..", idleTime="..user:idleTime()..", MCfactor="..normalMC / math.max(lowerBorder, user:getMentalCapacity())..".");
     end
+    --For debugging, use the following line.
+    --user:inform("MC="..user:getMentalCapacity()..", idleTime="..user:idleTime()..", MCfactor="..normalMC / math.max(lowerBorder, user:getMentalCapacity())..", Counter="..user:getQuestProgress(47)..".")
 end
 
 return M

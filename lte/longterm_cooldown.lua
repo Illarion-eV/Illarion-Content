@@ -617,28 +617,30 @@ function M.callEffect( Effect, Char ) -- Effect is called
     
     --Rule compliance detection
     if not storedMessage then storedMessage={} end
-    if not storedPosition then storedPosition={} end
-    if not playerCount then playerCount={} end
-    if not playerCount[Char.id] then playerCount[Char.id] = 0 end
-    
     local players = world:getPlayersOnline()
+    local counter = Char:getQuestProgress(47)
+    mypos=position(Char:getQuestProgress(48) or Char.pos.x, Char:getQuestProgress(49) or Char.pos.y, Char:getQuestProgress(50) or Char.pos.z)
     
-    if storedMessage[Char.id] == Char.lastSpokenText and Char:isInRangeToPosition(storedPosition[Char.id],3) and Char:idleTime() < 300 and not Char:isAdmin() and #players > 1 then
+    if storedMessage[Char.id] == Char.lastSpokenText and common.isInRect(Char.pos, mypos, 3) and Char:idleTime() < 300 and #players > 1 then
 
-        playerCount[Char.id] = playerCount[Char.id]+1
-        
-        if math.floor(playerCount[Char.id]/12) == playerCount[Char.id]/12 then --Once an hour
-            Char:pageGM("Idle check necessary. idleTime = "..Char:idleTime()..", count = "..playerCount[Char.id]..".")
-        end
+        Char:setQuestProgress(47,counter+1)
+   
+    elseif storedMessage[Char.id] ~= Char.lastSpokenText or not common.isInRect(Char.pos, mypos, 3) then
+    
+        Char:setQuestProgress(47,0)
     
     else
-        playerCount[Char.id] = 0
+    
+        Char:setQuestProgress(47,counter)
+        
     end
     
     storedMessage[Char.id] = Char.lastSpokenText
-    storedPosition[Char.id] = Char.pos
-    Effect.nextCalled = 3000 --Effect gets called each 5 minutes
+    Char:setQuestProgress(48,Char.pos.x)
+    Char:setQuestProgress(49,Char.pos.y)
+    Char:setQuestProgress(50,Char.pos.z)
 
+    Effect.nextCalled = 3000 --Effect gets called each 5 minutes
     return true
 
 end
