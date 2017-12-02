@@ -548,12 +548,17 @@ local function startFerry(user, sourceItem)
         local success = dialog:getSuccess()
         if success then
             local selected = dialog:getSelectedIndex()
-            if  money.CharHasMoney(user,priceFerry) then
-                money.TakeMoneyFromChar(user,priceFerry)
-                travelToTarget(user, dialogOption[selected+1],sourceItem.pos)
+            if dialogOption[selected+1][2] then
+                if  money.CharHasMoney(user,priceFerry) then
+                    money.TakeMoneyFromChar(user,priceFerry)
+                    travelToTarget(user, dialogOption[selected+1][1],sourceItem.pos)
+                else
+                    common.InformNLS(user,"Du hast nicht genug Geld für diese Reise. Die Reise kostet" .. germanMoney .." für eine Überfahrt.",
+                                           "You don't have enough money for this journey. The journey costs" .. englishMoney .." for one passage.")
+                end
             else
-                common.InformNLS(user,"Du hast nicht genug Geld für diese Reise. Die Reise kostet" .. germanMoney .." für eine Überfahrt.",
-                                       "You don't have enough money for this journey. The journey costs" .. englishMoney .." for one passage.")
+                common.InformNLS(user,"Niemend ist bereit, diesen Hafen anzusteuern. Du wirst wohl den Landweg nehmen müssen.",
+                                      "No one is willing to head for this port. You will probably have to walk.")
             end
         end
     end
@@ -568,7 +573,11 @@ local function startFerry(user, sourceItem)
     for i, harbor in pairs(harborList) do
         if not common.isBitSet(blockedHarbors, i) and sourceItem.pos ~= harbor.pos then
             dialog:addOption(harbor.pict, common.GetNLS(user,harbor.nameDe,harbor.nameEn))
-            table.insert(dialogOption,i)
+            table.insert(dialogOption,{i,true})
+        elseif sourceItem.pos ~= harbor.pos then
+            dialog:addOption(harbor.pict, common.GetNLS(user,harbor.nameDe .. " (keine Verbindung)",
+                                                             harbor.nameEn .. " (no connection)"))
+            table.insert(dialogOption,{i,false})
         end
     end
     user:requestSelectionDialog(dialog)

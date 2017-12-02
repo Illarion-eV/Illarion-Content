@@ -139,12 +139,17 @@ local function startTeleport(user, sourceItem)
         local success = dialog:getSuccess()
         if success then
             local selected = dialog:getSelectedIndex()
-            if  money.CharHasMoney(user,priceTeleporter) then
-                money.TakeMoneyFromChar(user,priceTeleporter)
-               travelToTarget(user, dialogOption[selected+1])
+            if dialogOption[selected+1][2] then
+                if  money.CharHasMoney(user,priceTeleporter) then
+                    money.TakeMoneyFromChar(user,priceTeleporter)
+                   travelToTarget(user, dialogOption[selected+1][1])
+                else
+                    common.InformNLS(user,"Du hast nicht genug Geld für diese Reise. Die Reise kostet" .. germanMoney .." für eine Überfahrt.",
+                                           "You don't have enough money for this journey. The journey costs" .. englishMoney .." for one passage.")
+                end
             else
-                common.InformNLS(user,"Du hast nicht genug Geld für diese Reise. Die Reise kostet" .. germanMoney .." für eine Überfahrt.",
-                                       "You don't have enough money for this journey. The journey costs" .. englishMoney .." for one passage.")
+                common.InformNLS(user,"Es passiert überhaupt nichts. Dieses Ziel kann wohl gerade nicht erreicht werden.",
+                                      "Nothing happens. It seems as if this target cannot be reached for the moment.")
             end
         end
     end
@@ -160,7 +165,11 @@ local function startTeleport(user, sourceItem)
         local blockedOut, blockedIn = getSettingsForTeleporter(i)
         if not blockedIn and sourceItem.pos ~= teleporter.posItem then
             dialog:addOption(teleporter.pict, common.GetNLS(user,teleporter.nameDe,teleporter.nameEn))
-            table.insert(dialogOption,i)
+            table.insert(dialogOption,{i,true})
+        elseif sourceItem.pos ~= teleporter.posItem then
+            dialog:addOption(teleporter.pict, common.GetNLS(user,teleporter.nameDe .. " (keine Verbindung)",
+                                                                 teleporter.nameEn .. " (no connection)"))
+            table.insert(dialogOption,{i,false})
         end
     end
     user:requestSelectionDialog(dialog)
