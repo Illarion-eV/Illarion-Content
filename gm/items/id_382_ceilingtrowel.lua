@@ -345,9 +345,13 @@ local function changeItemGlyph(User, TargetItem)
         end
         local input = dialog:getInput()
         if (string.find(input,"(%d+)")~=nil) then
-            local a,b,newcharges = string.find(input,"(%d+)")
-            glyphs.setRemainingGlyphs(TargetItem,newcharges)
-            User:inform("Item "..world:getItemName(TargetItem.id, Player.english).." got "..tostring(newcharges).." glyph charges")
+            if glyphs.getGlyphRingOrAmulet(TargetItem) == 0 then
+                User:inform("Item "..world:getItemName(TargetItem.id, Player.english).." cannot be glyphed. Only rings or amulets can contain glyph charges.")
+            else
+                local a,b,newcharges = string.find(input,"(%d+)")
+                glyphs.setRemainingGlyphs(TargetItem,newcharges)
+                User:inform("Item "..world:getItemName(TargetItem.id, Player.english).." got "..tostring(newcharges).." glyph charges.")
+            end
         else
             User:inform("Sorry, I didn't understand you.")
         end
