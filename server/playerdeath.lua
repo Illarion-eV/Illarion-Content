@@ -121,7 +121,7 @@ function M.playerDeath(deadPlayer)
                                 counter = counter +1 
                             end
                         end
-                    until counter == math.min(#candidates, 3)
+                    until counter == math.min(#candidates, 2)
                 end
             end
         end
