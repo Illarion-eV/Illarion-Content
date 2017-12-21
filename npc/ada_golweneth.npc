@@ -1,0 +1,188 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+------------------------------------------------------------------------------AC
+-- NPC Name: Ada Golwenteth                                          Runewick --
+-- NPC Job:  Elara Priest                                                     --
+--                                                                            --
+-- NPC Race: elf                        NPC Position:  916, 827, 0            --
+-- NPC Sex:  female                     NPC Direction: west                   --
+--                                                                            --
+-- Author:   Dantagon                                                         --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+
+name = "Ada Gowenteth"
+race = elf
+sex = female
+position = 916, 827, 0
+direction = west
+affiliation = "Runewick"
+job = "Elara Priest"
+
+language = common
+language = elf
+defaultLanguage = common
+autointroduce = on
+
+author = "Dantagon"
+
+lookatDE = "Dieser NPC ist Ada Golwenteth der Elarapriesterin."
+lookatUS = "This NPC is Ada Golwenteth the Elara Priestess."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 4
+beardID = 0
+colorHair = 139, 71, 38
+colorSkin = 210, 180, 140
+itemHead = 0
+itemChest = 850
+itemCoat = 558
+itemMainHand = 2620
+itemSecondHand = 0
+itemHands = 0
+itemTrousers = 183
+itemShoes = 697
+
+-- Template Version 1.13, 04/02/2015 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
+-- Style of triggers: Keywords are preferred. Avoid usage of phrases such as "tell me more"
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change anything your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- A helpful list of colours can be found here: http://www.wackerart.de/rgbfarben.html
+-- Equipment: You can find a graphical item list here: http://illarion.org/~martin/itemlist.pdf
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly
+-- After uploading, your NPC needs to be submitted to the database and a developer has to perform a full reload (!fr) of the server
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Dion Rhoditis the Adron Priest. Keywords: Hello, gods, Adron.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Dion Rhoditis der Adronpriester. Schlüsselwörter: Hallo, Götter, Adron.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hello!", "Greetings. Is there something I can do for you?"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Sei gegrüßt. Kann ich irgendetwas für dich tun?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello!", "Greetings. Is there something I can do for you?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo!", "Sei gegrüßt. Kann ich irgendetwas für dich tun?"
+"Farewell", "Bye", "Fare well", "See you" -> "May Elara’s wisdom guide you."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Möge Elaras Weisheit dich leiten."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May Elara’s wisdom guide you."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Möge Elaras Weisheit dich leiten."
+"How are you", "How feel", "How do you do" -> "I am well."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut."
+"your name", "who are you", "who art thou" -> "I am Ada Golweneth. It is nice to meet you."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich heiße Ada Golweneth. Es freut mich dich zu treffen."
+
+-- Mandatory: Trade Hooks, use the trade consequence for traders
+"sell", "buy", "wares", "price", "trade", "purchase" -> "The only thing I trade in is knowledge. If you are looking for material goods or wealth, the Runewick marketplace is east of here."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Das Einzige womit ich handle ist Wissen. Solltest du aber nach materiellen Gütern or Wohlstand suchen, der Marktplatz Runewicks findet sich östlich von hier."
+
+-- Mandatory: Catching quest triggers. Modify if the NPC does quests
+english, "quest", "mission" -> "I do not issue any quests."
+"task", "adventure", "order" -> "I do not issue any quests."
+"quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich vergebe keine Aufgaben."
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am a priestess of Elara. I tend to her manuscripts of wisdom within this library and to her altar. Things tend to get dusty in here from time to time."
+"beruf" -> "Ich bin Priesterin der Elara. Ich kümmere mich hier in der Bücherei um ihre weisen Aufzeichnungen und um ihren Altar. Hier drinne verstauben Sachen schon mal."
+english, "job" -> "I am a priestess of Elara. I tend to her manuscripts of wisdom within this library and to her altar. Things tend to get dusty in here from time to time."
+"job" -> "Ich bin Priesterin der Elara. Ich kümmere mich hier in der Bücherei um ihre weisen Aufzeichnungen und um ihren Altar. Hier drinne verstauben Sachen schon mal."
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+"god" -> "There are many gods. Five elder and eleven younger to be precise. I am a follower of Elara myself. Which one do you wish for me to expound upon?"
+"Gott", "Götter" -> "Es gibt viele Götter. Fünf Alte und elf Junge wenn man es genau nimmt. Ich selbst bin ein Jünger Elaras. Welchen davon soll ich dir genauer vorstellen?"
+english, "religion" -> "There are many gods. Five elder and eleven younger to be precise. I am a follower of Elara myself. Which one do you wish for me to expound upon?"
+"religion" -> "Es gibt viele Götter. Fünf Alte und elf Junge wenn man es genau nimmt. Ich bin ein Jünger Elaras. Welchen davon soll ich dir genauer vorstellen?"
+"faith" -> "There are many gods. Five elder and eleven younger to be precise. I am a follower of Elara myself. Which one do you wish for me to expound upon?"
+"Glaube" -> "Es gibt viele Götter. Fünf Alte und elf Junge wenn man es genau nimmt. Ich bin ein Jünger Elaras. Welchen davon soll ich dir genauer vorstellen?"
+english, "Adron" -> "God of drunkenness. I do hear that Adron’s followers are excellent brewers, at least when they are not too busy sampling their product. Runewick produces the best wine in the region, so there is an altar to him in the tavern."
+"Adron" -> "Adron ist der Gott des Weines und der Feste. Hast du seinen Segen wird dein Glas niemals leer sein.Ich bedauere die, die keinen Wein mehr anfassen wollen. Adrons Zorn wird sie treffen.Der Gott der Trunkenheit. Ich hörte unter Adrons Anhänger gibt es hervorragende Brauer, solange sie nicht zu beschäftigt sind, ihre eigenen Produkte zu testen. Der Runewicker Wein ist der beste Illarions weshalb sich sein Altar auch in der Taverne findet."
+english, "Bragon", "Brágon" -> "He is the elder god of fire. The elder gods do not walk this world as often as the younger gods do. Brágon’s warriors and priests now follow Malachín."
+"Bragon", "Brágon" -> "Er ist der alte Gott des Feuers. Die alten Götter verweilen im Gegensatz zu den jungen nur sehr selten in unserer Welt. Brágons Priester und Krieger haben sich heute Malachín zugewandt."
+english, "Cherga" -> "Cherga is the goddess of spirits. It is she that guides our spirits after death. Her followers are all rather morbid and spend far too much time around the dead. Her altars tend to exist only in graveyards, notably one on Pauldron Isle."
+"Cherga" -> "Cherga ist die Göttin der Geister. Sie ist diejenige, die die Geister nach dem Tod begleitet. Ihre Anhänger sind recht trübselig und beschäftigen sich zu sehr mit dem Tod. Ihre Tempel findet man fast nur auf Friedhöfen, ich kenne einen auf der Schulterplatte."
+english, "Elara" -> "Elara is the goddess of knowledge and wisdom. She is followed primarily by scholars and mages who wish to with to expand their knowledge. Many student also look to her for guidance with their studies.", "It is said that the knowledge obtained by a follower of Elara in life is written down upon a scroll. Upon their death that knowledge is used to answer the reason for greed, the reason for violence, and the reason for suffering.", "There is a parable about a holy man who prayed to Elara to tell him the meaning of life. The truth caused him to go mad and he pleaded for her to take it back. Upon doing so, he died content."
+"Elara" -> "Elara ist die Göttin des Wissens und der Weisheit. Ihre Anhänger sind vor allem Gelehrte und Magier, die immer mehr lernen wollen. Auch sucht so mancher Student ihren Beistand für seine Studien.", "Man sagt, dass alles Wissen, welches ein Elara Anhänger in seinem Leben erworben hat, niedergeschrieben wird. Nach ihrem Tod wird dieses Wissen genutzt um die Gründe für Geiz, Gewalt und Leid zu ergründen.", "Es gibt eine Geschichte über einen heiligen Mann dessen Gebete von Elara eines Tages erhört wurden. Er erfuhr den Sinn des Lebens. Doch er konnte das Wissen nicht ertragen und bat Elara es ihm wieder zu nehmen. Nachdem das geschah, starb er friedlich."
+english, "Eldan" -> "The elder god of the spirit. Eldan was never interested in the realm of mortals, he prefers his solitude, as does his few followers. The majority of which now follow Elara."
+"Eldan" -> "Der alte Gott des Geistes. Noch nie hat sich Eldan für die Belange der Sterblichen interessiert. Er und seine Anhänger bleiben lieber alleine. Die meisten seiner Jünger haben sich Elara zugewandt."
+english, "Findari" -> "She is the elder goddess of air. Findari was once followed by bards and artists. However, the elder gods and goddess no long wander this realm, and her followers now follow Adron."
+"Findari" -> "Sie ist die alte Göttin der Luft. Einst wurde Findari von Barden und Künstlern verehrt. Seitdem die alten Götter sich aber von dieser Welt abgewandt haben verehren ihre Anhänger nun Adron."
+english, "Irmorom" -> "Irmorom is god of crafts and trade. Without him and his followers, your clothes would be ill-fitting and towns wouldn’t prosper. It is only fitting that there is an altar dedicated to him in Galmair."
+"Irmorom" -> "Irmorom ist der Gott des Handwerks und des Handelns. Ohne ihn und seine Anhänger trügen wir  nur grobe Kleidung und Städte würden nicht aufblühen. Da passt es gut, dass ihm in Galmair ein Altar gewidmet ist."
+english, "Malachin", "Malachín" -> "God of battle and the hunt. The followers of Malachín spend all too much time training for battle and telling war stories. It is of no surprise that there is an altar dedicated to him in Cadomyr."
+"Malachin", "Malachín" -> "Der Gott der Jagd und der Schlachten. Die Anhänger Malachíns verbringen viel zu viel Zeit damit für die Schlacht zu üben und Kriegsgeschichten zu erzählen. Es ist keine Überraschung, dass sich sein Tempel nahe Cadomyr befindet."
+english, "Moshran" -> "#me stares at you in stunned silence before hastily uttering, ‘Don’t say that name in here. Don’t say that name around me! He might hear you!’."
+"Moshran" -> "#me schaut dich fassungslos an ‘Sprich seinen Namen hier nicht aus. Sprich ihn nicht in meiner Nähe aus, er könnte ihn hören.’"
+english, "Nargun", "Nargún", "Nargùn" -> "Nargùn is a chaotic god followed by madmen. Malcontents the lot. Gamblers will pray to him hoping for good fortune with a roll of the dice. I hear gamblers seek out his altar above the gaming den in Galmair."
+"Nargun", "Nargún", "Nargùn" -> "Nargùn ist ein chaotischer Gott und seine Anhänger sind Wahnsinnige, allesamt Querulanten. Spieler beten zu ihm in der Hoffnung auf einen guten Wurf. Man sagt über der Spielhöhle Galmairs hätten Spieler ihm einen Altar errichtet."
+english, "Oldra" -> "The all-mother to halflings, Oldra is the goddess of fertility. Harvests are bountiful with her blessing. Her altar is in Runewick’s providence of Yewdale, just west of here across the golden bridges."
+"Oldra" -> "Besonders verehrt von Halblingen ist Oldra die Göttin der Fruchtbarkeit. Ihrem Segen entspringt eine reiche Ernte. In Runewicks Vorort Yewdale findet sich westlich der goldenen Brücke ihr Altar."
+english, "Ronagan" -> "God of criminals! Ronagan’s followers are all thieves and assassins who hide in the shadows. Rumor has it that there is an altar dedicated to him deep in the Galmair sewers."
+"Ronagan" -> "Der Gott der Kriminellen. Ronagans Anhänger sind allesamt Diebe und Mörder, die sich in den Schatten verbergen. Gerüchteweise wurde ihm ein Altar in den Abwasserkanälen Galmairs eingerichtet."
+english, "Sirani" -> "Now there is a goddess of frivolous pursuits. Love and pleasure is all Sirani’s followers concern themselves with. It seems odd that she has an altar to her in Cadomyr, but I suppose it is befitting of the noble class."
+"Sirani" -> "Es gibt eine Göttin der frivolen Beschäftigungen. Liebe und Vergnügen sind alles womit sich Anhänger Siranies befassen . Es scheint merkwürdig, dass sie ihren Altar in Cadomyr hat, doch ich schätze, dass dies den adligen Zugute kommt."
+english, "Tanora", "Zelphia" -> "She is the elder goddess of water. Tanora is the mother of lizardfolk, who call her Zelphia. She does still wander this realm. Some say she is looking for something lost to her a long time ago."
+"Tanora", "Zelphia" -> "Tanora ist die alte Göttin des Wassers. Sie ist die Mutter der Echsenmenschen, die sie Zelphya nennen. Sie wandelt immer noch unter uns.  Man sagt, sie suche etwas, was sie vor langer Zeit verlor."
+english, "Ushara" -> "Ushara is the elder goddess of earth. There are a few old druids who claim to have met her. The elder gods no longer roam this realm.  By now her followers have all converted to following Oldra."
+"Ushara" -> "Ushara ist die alte Göttin der Erde. Ein paar alte Druiden behaupten, sie getroffen zu haben. Die älteren Götter durchstreifen diese Welt nicht mehr. Heute sind all ihre Anhänger zu Oldra gewechselt."
+english, "Zhambra" -> "The god of loyalty. Zhambra’s followers do make the best friends a person could ask for. Should you have need of help, simply call on them and they will provide it. His altar is next to the palace in Cadomyr."
+"Zhambra" -> "Der Gott des Vertrauens. Zhambra Anhänger sind die besten Freunde, die man sich wünschen kann. Solltest du Hilfe brauchen, sie werden zur Stelle sein. Sein Altar ist neben dem Palast von Cadomyr."
+
+-- Optional: Faction stuff
+"archmage" -> "Archmage Elvaine Morgan is the founder of the magic academy and Runewick. He originally sailed here from Lor Angor decades ago. Without him, none of this would exist."
+"Erzmagier" -> "Erzmagier Elvaine Morgan ist der Gründer der magischen Akademie und Runewicks. Ursprünglich kam er aus Lor Angor Jahrzehnte zuvor. Ohne ihn gäbe es all das hier nicht."
+english, "Elvaine", "Morgan" -> "Archmage Elvaine Morgan is the founder of the magic academy and Runewick. He originally sailed here from Lor Angor decades ago. Without him, none of this would exist."
+"Elvaine", "Morgan" -> "Erzmagier Elvaine Morgan ist der Gründer der magischen Akademie und Runewicks. Ursprünglich kam er aus Lor Angor Jahrzehnte zuvor. Ohne ihn gäbe es all das hier nicht."
+english, "Runewick" -> "You are already there. You are currently within the largest library on all of Illarion. Due to the numerous tomes filled with wisdom housed here and the local magic academy, Runewick is considered to be the center of all learning."
+"Runewick" -> "Da bist du gerade. Du befindest dich in der größten Bücherei Illarions. Wegen der unzähliche Wälzer voller Weisheit und der magischen Akademie ist Runewick das Zentrum des Lernens."
+english, "Valerio", "Guilianni", "Don" -> "Don Valerio Guilianni hails from the region of Gynk. He has a rather hands off style of ruling Galmair. Most issues matter not to him unless it interferes with his people or his gold."
+"Valerio", "Guilianni", "Don" -> "Don Valerio Guilianni stammt aus Gynk. Mit sicherer Hand herrscht er in Galmair. Die meisten Probleme interessieren ihn nicht, außer sie beeinflussen seine Leute oder sein Gold."
+english, "Galmair" -> "Ruled by Don Valerio Guilianni. It is primarily a trade town, filled with merchants and crafters. Although. It has a darker side. They say deep in its underbelly there is a black market of sorts. "
+"Galmair" -> "Die Stadt wird von Don Valerio Guilianni regiert. Eine Handelsstadt voll von Kaufleuten und Handwerkern. Aber  auch mit einer dunklen Seite. Man sagt tief im Inneren der Stadt gäbe es eine Art Schwarzmarkt."
+"Queen" -> "Queen Rosaline is the only surviving member of the house Edwards. Normally Albarian nobility only passes to male heirs. There currently are none, so she rules. Perhaps this is why she has no children."
+"Königin" -> "Königin Rosaline ist die einzige Überlebende des Hauses Edwards. Normalerweise erben nur männliche Nachfolger in albarischen Adelshäusern doch da es keinen gibt, regiert sie nun. Vielleicht hat sie deshalb keine Kinder."
+english, "rosaline", "edwards" -> "Queen Rosaline is the only surviving member of the house Edwards. Normally Albarian nobility only passes to male heirs. There currently are none, so she rules. Perhaps this is why she has no children."
+"rosaline", "edwards" -> "Königin Rosaline ist die einzige Überlebende des Hauses Edwards. Normalerweise erben nur männliche Nachfolger in albarischen Adelshäusern doch da es keinen gibt, regiert sie nun. Vielleicht hat sie deshalb keine Kinder."
+english, "Cadomyr" -> "This jewel in the desert is ruled by Queen Rosaline Edwards. Although it is Albarian by birth, the town itself contains a unique subculture. Compared to Albar it is downright civilized."
+"Cadomyr" -> "Dieses Juwel in der Wüste wird von Königin Rosaline Edwards regiert. Obwohl albarischer Abstammung beherbergt die Stadt selbst eine einzigartige Subkultur. Im Vergleich zu Albar geht es dort regelrecht zivilisiert zu."
+
+-- Optional: Last catch - Think about keywords the player might say and that are not caught until here
+"my name" -> "Nice to meet you."
+"mein Name" -> "Angenehm."
+english, "Ada", "Golweneth" -> "Yes?"
+"Ada", "Golweneth" -> "Ja?"
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me blättert schnell durch einen Stapel Pergamente.", "#me rapidly shuffles through a pile of parchments."
+cycletext "#me kritzelt Notizen auf ein Stück Pergament.", "#me scribbles notes on a piece of parchment."
+cycletext "#me rollt eine Schriftrolle auf und überfliegt sie kurz bevor sie diese wieder im Regal verstaut.", "#me unwinds a scroll, scanning it quickly before rerolling it and placing it back on the shelf."
+cycletext "#me blättert durch ein Buch, verweilt hier und da um zu lesen, bevor sie weiterblättert.", "#me flips through the pages of the book, stopping occasionally to read before continuing on."
+cycletext "#me durchstöbert die Regale.", "#me browses the shelves, looking for a text."
+cycletext "Es ist eine wohlbekannte Tatsache, dass Wissen Macht ist.", "It is a well known fact that knowledge is power."
+cycletext "Es gibt Leute, die sich weigern zu lernen. Sie lernen nicht aus den Fehlern von denen um sie herum und sind so verdammt dazu die Fehler zu wiederholen.", "There are those who refuse to learn. They will not learn from the mistakes of those around them and are therefore forever doomed to repeat them."
+cycletext "Lernen endet nicht damit ein Buch zu schließen. Es endet nicht. Stattdessen kann man es in allem und jedem finden. ", "You can learn anything from anyone. Even a fool has something to teach."
+cycletext "Man kann von jedem etwas lernen. Selbst ein Idiot kann dir etwas beibringen.", "You can learn anything from anyone. Even a fool has something to teach."
+cycletext "Die Feder ist mächtiger als die Klinge.", "The quill is mightier than the blade."
