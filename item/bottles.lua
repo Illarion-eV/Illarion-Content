@@ -146,8 +146,8 @@ function M.UseItem(User, SourceItem, ltstate)
                 end -- found item
             end
         else
-            common.InformNLS( User, "Du bist dir nicht ganz sicher, welches Gefäß du füllen willst.",
-                                    "You are not sure which vessel you want to fill.")
+            common.InformNLS( User, "Du bist dir nicht ganz sicher, welches Gefäß du füllen willst. Vielleicht nimmst du es in die Hand?",
+                                    "You are not sure what vessel you want to fill. Perhaps you could hold one in your hand?")
         end
     else
         --User:inform("unkown bottle item ");
