@@ -149,7 +149,7 @@ local function startTeleport(user, sourceItem)
                 end
             else
                 common.InformNLS(user,"Es passiert überhaupt nichts. Dieses Ziel kann wohl gerade nicht erreicht werden.",
-                                      "Nothing happens. It seems as if this target cannot be reached for the moment.")
+                                      "Nothing happens. It seems as though this destination cannot be reached for the moment.")
             end
         end
     end
