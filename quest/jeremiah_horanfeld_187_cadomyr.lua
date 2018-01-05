@@ -84,7 +84,7 @@ Description[GERMAN][21] = "Gehe zurück zum Rattenfänger Jeremiah Horanfeld, er h
 Description[ENGLISH][21] = "Check back with Vermin Monitor Jeremiah Horanfeld, he may have another task for you."
 
 Description[GERMAN][22] = "Prüfe fünf vergiftete Rattenköder in der Zusterne. Benutze den Köder (vergiftete Möhren) um die Prüfung auszuführen. Ziehe dazu Handschuhe an."
-Description[ENGLISH][22] = "Check five poisoned rat bails in the cistern. Use the bails (poisoned carrots) to carry out the check. You should wear gloves."
+Description[ENGLISH][22] = "Check five poisoned rat baits in the cistern. Use the baits (poisoned carrots) to carry out the check. You should wear gloves."
 Description[GERMAN][23] = "Berichte Jeremiah Horanfeld, was du gefunden hast."
 Description[ENGLISH][23] = "Report Jeremiah Horanfeld about your findings."
 
