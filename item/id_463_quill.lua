@@ -19,6 +19,8 @@ local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local lookat = require("base.lookat")
 local recipe_creation = require("alchemy.base.recipe_creation")
+local artifactcreation = require("craft.final.artifactcreation")
+local magic = require("base.magic")
 
 local M = {}
 
@@ -257,6 +259,10 @@ local function removeLabel(User)
 end
 
 
+function M.LookAtItem(user, item)
+    return lookat.GenerateLookAt(user, item, lookat.MISC)
+end
+
 function M.UseItem(User, SourceItem, ltstate)
 
     if SourceItem.itempos ~= 5 and SourceItem.itempos ~= 6 then
@@ -311,6 +317,13 @@ function M.UseItem(User, SourceItem, ltstate)
                 else
                     SignParchment(User,SourceItem)
                 end
+            elseif selected == 7 then
+                local descItem = common.GetItemInArea(User.pos, 550, 1)
+                if not descItem then
+                    descItem = common.GetItemInArea(User.pos, 551, 1)
+                end
+                common.TurnTo(User,descItem.pos)
+                artifactcreation.artifactcreation:showDialog(User, descItem)
             end
         end
     end
@@ -322,6 +335,10 @@ function M.UseItem(User, SourceItem, ltstate)
     dialog:addOption(0, getText(User,"Flaschenetikett entfernen","Remove label of a bottle"))
     dialog:addOption(0, getText(User,"Pergament beschreiben","Write a parchment"))
     dialog:addOption(0, getText(User,"Pergament unterschreiben","Sign a parchment"))
+    if magic.isMage(User) and (common.GetItemInArea(User.pos, 550, 1) or common.GetItemInArea(User.pos, 551, 1))then
+        dialog:addOption(0, getText(User,"Arbeite am Magier Schreibtisch","Work at mage desk"))
+    end
+
 
     User:requestSelectionDialog(dialog)
 end

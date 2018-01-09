@@ -20,42 +20,20 @@ local common = require("base.common")
 
 local M = {}
 
-local function akalutCadomyrBlockade(user, sourceItem, destination)
+function M.CharacterOnField( user )
 
-    local foundValue, value = ScriptVars:find("akalutCadomyrBlockade")
-    if not foundValue or tonumber(value) == 0 then
-        return false
-    end
-    
-    local cadomyrCheckPos = position(114, 635, 0)
-    
-    if user:distanceMetricToPosition(cadomyrCheckPos) <= 100 or math.sqrt((cadomyrCheckPos.x - destination.x)^2 + (cadomyrCheckPos.y - destination.y)^2) <= 100 then
-    
-        world:erase(sourceItem, sourceItem.number)
-        world:gfx(45, sourceItem.pos)
-        user:inform("Du spürst ein schmerzhaftes Prickeln, als das Portal zusammenbricht.", "You feel a painful prickling as the portal collapses.", Character.highPriority)
-        return true
-    
-    end
-    
-    return false
-    
-end
-
-function M.CharacterOnField( User )
-
-    if (User:getType() ~= 0) then -- only players, else end of script
+    if (user:getType() ~= 0) then -- only players, else end of script
         return
     end
 
-    local SourceItem = world:getItemOnField( User.pos );
+    local sourceItem = world:getItemOnField( user.pos );
     local destCoordX, destCoordY, destCoordZ
     local dest
     local destFound = false
 
-    destCoordX = SourceItem:getData("destinationCoordsX")
-    destCoordY = SourceItem:getData("destinationCoordsY")
-    destCoordZ = SourceItem:getData("destinationCoordsZ")
+    destCoordX = sourceItem:getData("destinationCoordsX")
+    destCoordY = sourceItem:getData("destinationCoordsY")
+    destCoordZ = sourceItem:getData("destinationCoordsZ")
     if (destCoordX ~= "") and (destCoordY ~= "") and (destCoordZ ~= "") then
         destCoordX = tonumber(destCoordX)
         destCoordY = tonumber(destCoordY)
@@ -66,25 +44,27 @@ function M.CharacterOnField( User )
     
     if destFound then -- destination was defined
     
-        if akalutCadomyrBlockade(User, SourceItem, dest) then
-            return
-        end
-    
         world:makeSound( 13, dest )
-        world:gfx( 41, User.pos )
-        User:warp( dest );
-        world:gfx( 41, User.pos )
+        world:gfx( 41, user.pos )
+        user:warp( dest );
+        world:gfx( 41, user.pos )
 
-        common.InformNLS( User,
+        common.InformNLS( user,
         "Du machst eine magische Reise.",
         "You travel by the realm of magic." );
 
-        if ( SourceItem.wear ~= 255 ) then
-            if ( SourceItem.quality > 200 ) then
-                    SourceItem.quality = SourceItem.quality - 100;
-                    world:changeItem( SourceItem );
+        if ( sourceItem.wear ~= 255 ) then
+            local numberOfTraveller = sourceItem:getData("traveller")
+            numberOfTraveller = tonumber(numberOfTraveller)
+            if common.IsNilOrEmpty(numberOfTraveller) then
+                numberOfTraveller = 8
+            end
+            if ( numberOfTraveller > 1 ) then
+                    numberOfTraveller = numberOfTraveller - 1
+                    sourceItem:setData("traveller", numberOfTraveller)
+                    world:changeItem( sourceItem )
             else
-                world:erase( SourceItem, SourceItem.number );
+                world:erase( sourceItem, sourceItem.number )
             end
         end
     end

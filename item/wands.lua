@@ -22,6 +22,7 @@ local checks = require("item.general.checks")
 local learnMagic = require("magic.learnMagic")
 local glyphs = require("base.glyphs")
 local glyphmagic = require("magic.glyphmagic")
+local portalbook = require("item.portalbook")
 
 local currentWandUse = {}
 local WAND_USE_GLYPH_FORGE_ERECT = 1
@@ -47,6 +48,7 @@ local function useWandSelection(user, item, ltstate)
     local ACTION_COUNT_SHARDS = 4
     local ACTION_GLYPH_JEWELRY = 5
     local ACTION_GLYPH_BREAK = 6
+    local ACTION_DEFINE_PORTAL_TARGET = 7
     local forgeItem
 
     local cbSetMode = function (dialog)
@@ -63,7 +65,7 @@ local function useWandSelection(user, item, ltstate)
         elseif actionIndex[index] == ACTION_FIND_GLYPH_FORGE then
             currentWandUse[user.id] = nil
             if not glyphmagic.findGlyphForge(user) then
-                common.InformNLS(user,"Du kannst in der weiteren Umgebung keinen Ritualplatz auchmachen.",
+                common.InformNLS(user,"Du kannst in der weiteren Umgebung keinen Ritualplatz ausmachen.",
                                       "You cannot detect any existing ritual place in that area.")
             end
         elseif actionIndex[index] == ACTION_COUNT_SHARDS then
@@ -72,6 +74,8 @@ local function useWandSelection(user, item, ltstate)
             glyphmagic.forgeGlyphs(user,forgeItem,ltstate)
         elseif actionIndex[index] == ACTION_GLYPH_BREAK then
             glyphmagic.breakGlyphs(user,forgeItem,ltstate)
+        elseif actionIndex[index] == ACTION_DEFINE_PORTAL_TARGET then
+            portalbook.definePortalTarget(user)
         end
     end
     local windowText = common.GetNLS(user,"Rituale", "Rituals")
@@ -96,6 +100,10 @@ local function useWandSelection(user, item, ltstate)
         table.insert(actionIndex,ACTION_GLYPH_JEWELRY)
         sd:addOption(2140, common.GetNLS(user,"Breche eine Glyphe aus einem Schmuckstück heraus","Break a glyph out of a jewelry"))
         table.insert(actionIndex,ACTION_GLYPH_BREAK)
+    end
+    if user:getSkill(Character.artifactCreation) >= 60 then
+        sd:addOption(1061, common.GetNLS(user,"Lege ein Ziel für ein Portalbuch fest","Define a target for a portal book"))
+        table.insert(actionIndex,ACTION_DEFINE_PORTAL_TARGET)
     end
 
     sd:setCloseOnMove()
@@ -132,7 +140,7 @@ end
 function M.UseItem(user, sourceItem, ltstate)
     if ltstate == Action.none then
         if magicWands[sourceItem.id] then
-            if user:getMagicType() == 0 and user:getQuestProgress(37) ~= 0 then
+            if magic.isMage(user) then
                 useWandSelection(user, sourceItem, ltstate)
             else
                 learnMagic.useMagicWand(user, sourceItem)

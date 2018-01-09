@@ -25,6 +25,7 @@ local lookat = require("base.lookat")
 local licence = require("base.licence")
 local gems = require("base.gems")
 local glypheffects = require("magic.glypheffects")
+local magic = require("base.magic")
 
 local OFFSET_PRODUCTS_REPAIR = 235
 local repairItemList = {}
@@ -128,8 +129,10 @@ function Product:addRemnant(item, quantity, data)
     table.insert(self["remnants"], {["item"]=item, ["quantity"]=quantity, ["data"]=data})
 end
 
-function Craft:addProduct(categoryId, itemId, quantity, data)
-    difficulty = math.min(world:getItemStatsFromId(itemId).Level, 100)
+function Craft:addProduct(categoryId, itemId, quantity, data, difficulty, craftingtime, manaconsumption)
+    difficulty = difficulty or math.min(world:getItemStatsFromId(itemId).Level, 100)
+    craftingtime = craftingtime or 0
+    manaconsumption = manaconsumption or 0
     learnLimit = math.min(difficulty+20, 100)
     quantity = quantity or 1
     data = data or {}
@@ -144,6 +147,8 @@ function Craft:addProduct(categoryId, itemId, quantity, data)
             ["data"] = data,
             ["ingredients"] = {},
             ["remnants"] = {},
+            ["craftingtime"] = craftingtime,
+            ["manaconsumption"] = manaconsumption,
         })
 
         if self.categories[categoryId].minSkill then
@@ -182,7 +187,8 @@ function Craft:showDialog(user, source)
             local foodOK = false
             local product = self.products[productId]
             foodOK, neededFood = self:checkRequiredFood(user, product:getCraftingTime(self:getSkill(user),0))
-            local canWork = self:allowCrafting(user, source) and self:checkMaterial(user, productId) and foodOK
+            local manaOK = self:checkRequiredMana(user, product)
+            local canWork = self:allowCrafting(user, source) and self:checkMaterial(user, productId) and foodOK and manaOK
             if canWork then
                 self:swapToActiveItem(user)
             end
@@ -475,7 +481,13 @@ function Product:getCraftingTime(skill,gemBonus)
         learnProgress = (skill - self.difficulty) / (self.learnLimit - self.difficulty) * 100
     end
     local theItem = world:getItemStatsFromId(self.item)
-    local minimum = math.max ((self.quantity * theItem.Worth * 0.012),10) 
+    local minimum
+    if self.craftingtime == 0 then
+        minimum = math.max ((self.quantity * theItem.Worth * 0.012),10)
+    else
+        minimum = self.craftingtime
+    end
+    
     local craftingTime = common.Scale(minimum * 2, minimum, learnProgress)
     if theItem.MaxStack ~= 1 then
         craftingTime = craftingTime - craftingTime*0.005*gemBonus; -- 36% (lvl3) lead to 18% time saving
@@ -543,6 +555,22 @@ function Craft:checkRequiredFood(user, craftingTime)
         return true, neededFood
     else
         return false, 0
+    end
+end
+
+function Craft:checkRequiredMana(user, product)
+    if product.manaconsumption == 0 then
+        return true, 0
+    end
+    local currentSkill = self:getSkill(user)
+    local relativeManaConsumption = magic.relativeManaConsumption(currentSkill, product.difficulty, product.manaconsumption)
+    local neededMana = math.ceil(10000 * relativeManaConsumption)
+
+    if magic.hasSufficientMana(user,neededMana) then
+        return true, neededMana
+    else
+        common.HighInformNLS(user, "Dein Mana reicht dafür nicht aus.", "You don't have sufficient mana for that.")
+        return false, neededMana
     end
 end
 
@@ -720,6 +748,16 @@ function Craft:craftItem(user, productId)
         end
     end
 
+    local neededMana = 0
+    if not self.npcCraft then
+        local manaOK = false
+        manaOK, neededMana = self:checkRequiredMana(user, product)
+        if not manaOK then
+            self:swapToInactiveItem(user)
+            return false
+        end
+    end
+
     if self:checkMaterial(user, productId) then
         self:createItem(user, productId, toolItem)
 
@@ -731,6 +769,7 @@ function Craft:craftItem(user, productId)
                 glypheffects.effectToolSelfRepair(user, toolItem, originalDurability)
             end
             common.GetHungry(user, neededFood)
+            user:increaseAttrib("mana", -neededMana)
         end
 
         if type(self.leadSkill) == "number" then
@@ -814,6 +853,16 @@ function Craft:repairItem(user, productIdList)
         end
     end
 
+    local neededMana = 0
+    if not self.npcCraft then
+        local manaOK = false
+        manaOK, neededMana = self:checkRequiredMana(user, product)
+        if not manaOK then
+            self:swapToInactiveItem(user)
+            return false
+        end
+    end
+
     if self:checkMaterial(user, productId) then
         self:createRepairedItem(user, productId, itemToRepair)
 
@@ -825,6 +874,7 @@ function Craft:repairItem(user, productIdList)
                 glypheffects.effectToolSelfRepair(user, toolItem, originalDurability)
             end
             common.GetHungry(user, neededFood)
+            user:increaseAttrib("mana", -neededMana)
         end
 
         if type(self.leadSkill) == "number" then

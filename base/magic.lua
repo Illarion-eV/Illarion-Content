@@ -20,11 +20,13 @@ local gems = require("base.gems")
 
 
 local MAGE_MIN_ATTRIBUTE_SUM = 30
+local MANA_DEGRATION_FACTOR = 7 --see function relativeManaConsumption
 
 local M = {}
 
 M.mageSkills = {
                 Character.enchantingOfJewels,
+                Character.artifactCreation,
                 Character.wandMagic,
                 Character.earthMagic,
                 Character.windMagic,
@@ -123,10 +125,35 @@ function M.neededFood(user, spellTime)
     return spellTime * 40
 end
 
+--[[relativeManaConsumption
+generic mana consumption: y=a/((m-1)/100*x+1)
+y: relative mana consumption at skill level x
+m: mana degration factor: A 100% mage can do the same spell 1/m times compared to a 0% mage
+currentSkill: current skill of the mage
+referenceSkill: skill for reference consumption
+referenceConsumption: mana consumption for referenceSkill [0-1] Default=1
+referenceDegration: mana degration factor Default=MANA_DEGRATION_FACTOR
+return: current manaConsumption [0-1] ]]--
+function M.relativeManaConsumption(currentSkill, referenceSkill, referenceConsumption, referenceDegration)
+    currentSkill = tonumber(currentSkill)
+    referenceSkill = tonumber(referenceSkill)
+    referenceConsumption = tonumber(referenceConsumption) or 1
+    referenceDegration = tonumber(referenceDegration) or MANA_DEGRATION_FACTOR
+    if referenceConsumption < 0 or referenceConsumption > 1 then
+        referenceConsumption = 1
+    end
+    if referenceDegration <= 0 then
+        referenceDegration = MANA_DEGRATION_FACTOR
+    end
+    local parameterA = referenceConsumption * ((referenceDegration - 1) * referenceSkill / 100 + 1)
+    local relativeManaConsumption = parameterA / ((referenceDegration - 1) * currentSkill / 100 + 1)
+    return relativeManaConsumption
+end
+
 --[[mana check
 return: true if sufficient mana]]--
 function M.hasSufficientMana(user,mana)
-    if user:increaseAttrib("mana", 0) > mana then
+    if tonumber(user:increaseAttrib("mana", 0)) >= tonumber(mana) then
         return true
     end
     return false
@@ -205,6 +232,16 @@ function M.wandDegrade(user, wand, chance)
         end
     end
 
+end
+
+--[[isMage
+user: character to check
+@return true if character is mage]]--
+function M.isMage(user)
+    if user:getMagicType() == 0 and user:getQuestProgress(37) ~= 0 then
+        return true
+    end
+    return false
 end
 
 return M

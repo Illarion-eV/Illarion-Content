@@ -242,19 +242,6 @@ function NecktieHomeTravel(User,factionNames,teleporterPos,selected)
     return false
 end
 
-local function akalutCadomyrBlockade(user)
-    local foundValue, value = ScriptVars:find("akalutCadomyrBlockade")
-    if not foundValue or tonumber(value) == 0 then
-        return false
-    end
-    
-    world:gfx(2, user.pos)
-    user:increaseAttrib("hitpoints",-1000)
-    user:inform("Ein Blitz kommt aus dem Teleporter geschossen.", "You are hit by a lightning coming from the teleporter.", Character.highPriority)
-    
-    return true
-end
-
 function WonderlandTeleporter(User, SourceItem)
     local choices = {common.GetNLS(User, "Ja, natürlich!", "Yes, of course!"), common.GetNLS(User, "Nein, lieber nicht...", "No, better not...")}
     local callback = function(dialog)

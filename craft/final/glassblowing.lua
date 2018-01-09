@@ -77,6 +77,10 @@ product:addIngredient(449, 1) -- obsidian powder
 
 local catId = glassblowing:addCategory("Other", "Sonstiges")
 
+-- glass ball
+product = glassblowing:addProduct(catId, 3499, 1)
+product:addIngredient(41, 3) -- glass ingot
+
 -- empty salve jar
 product = glassblowing:addProduct(catId, 3642, 1)
 product:addIngredient(41, 10) -- glass ingot

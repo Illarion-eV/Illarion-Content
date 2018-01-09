@@ -41,3 +41,10 @@ local catId = pressing:addCategory("Wax", "Wachs")
 -- Wax
 local product = pressing:addProduct(catId, 431, 1)
 product:addIngredient(2529) -- honeycomb
+
+local catId = pressing:addCategory("Ink", "Tinte")
+
+-- Ink bottle
+local product = pressing:addProduct(catId, 1118, 1)
+product:addIngredient(136 , 4) -- Anger berry
+product:addIngredient(1117) -- Empty ink bottle

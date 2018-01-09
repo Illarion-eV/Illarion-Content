@@ -117,7 +117,8 @@ local skillNames = {
     Character.wandMagic,
     Character.woodcutting,
     Character.wrestling,
-    Character.enchantingOfJewels
+    Character.enchantingOfJewels,
+    Character.artifactCreation
 }
 local attributeNames={
     "agility",
@@ -135,69 +136,6 @@ classNames[0] = "Mage"
 classNames[1] = "Priest"
 classNames[2] = "Bard"
 classNames[3] = "Alchemist"
-
-local function akalutCadomyrBlockade(User, SourceItem, ltstate)
-
-    local foundValue, value = ScriptVars:find("akalutCadomyrBlockade")
-    local newValue
-    local title
-    local description
-    local informMessage
-
-    if foundValue and tonumber(value) == 1then
-        newValue = 0
-        title = "Akalut: Cadomyr blockade. Do you want to deactivate it?"
-        description = "This special event renders Cadomyr's teleporter useless. You cannot travel to it or from it. Furthermore, portal books do not work in Cadomyr and cannot be used to get to Cadomyr. Do you really want to deactivate this?"
-        informMessage = "You deactivated the Cadomyr blockade for the Akalut quest."
-    else
-        newValue = 1
-        title = "Akalut: Cadomyr blockade. Do you want to activate it?"
-        description = "This special event renders Cadomyr's teleporter useless. You cannot travel to it or from it. Furthermore, portal books do not work in Cadomyr and cannot be used to get to Cadomyr. Do you really want to activate this?"
-        informMessage = "You activated the Cadomyr blockade for the Akalut quest."
-    end
-
-    local yesOrNo = {"Yes", "No"}
-    local cbQuestEvents = function (dialog)
-        if (not dialog:getSuccess()) then
-            return
-        end
-        local index = dialog:getSelectedIndex() + 1
-        if index == 1 then
-            User:inform(informMessage)
-            ScriptVars:set("akalutCadomyrBlockade",newValue)
-            ScriptVars:save()
-            local foundValue, value = ScriptVars:find("akalutCadomyrBlockade")
-        else
-            return
-        end
-    end
-    local sd = SelectionDialog(title, description, cbQuestEvents)
-    for _, m in ipairs(yesOrNo) do
-        sd:addOption(0, m)
-    end
-    User:requestSelectionDialog(sd)
-
-end
-
-local function questEvents(User, SourceItem, ltstate)
-
-    local questEvents = {"Akalut: Cadomyr blockade"}
-    local cbQuestEvents = function (dialog)
-        if (not dialog:getSuccess()) then
-            return
-        end
-        local index = dialog:getSelectedIndex() + 1
-        if index == 1 then
-            akalutCadomyrBlockade(User, SourceItem, ltstate)
-        end
-    end
-    local sd = SelectionDialog("Select special quest event.", "Select special quest event", cbQuestEvents)
-    for _, m in ipairs(questEvents) do
-        sd:addOption(0, m)
-    end
-    User:requestSelectionDialog(sd)
-
-end
 
 local function ambientActionFlameThrower(user,targetChar)
     local cbInputDialog = function (dialog)
@@ -1430,6 +1368,10 @@ end
 
 local function testBanduk(user)
     user:inform(">>> developer test area")
+    local testtext = "1ä2ö3ü4Ä5Ö6Ü7ß8"
+    local text = common.replaceUmlaut(testtext)
+    user:inform(">>>"..testtext..">>>"..text)
+
 --    gems.convertOldGems(user)
 
 --world:createItemFromId(2207,1,position(357, 272, 0),false,333,{})
@@ -1460,8 +1402,10 @@ function M.UseItem(User, SourceItem, ltstate)
     User:increaseAttrib("foodlevel", 100000)
 
     -- First check for mode change
-    local modes = {"Eraser", "Teleport", "Instant kill/ revive", "Char Settings", "Global events", "Events on single char", "Events on groups", "Faction info of chars in radius", "Quest events","Define Teleporter Targets","Define events on single char","Define events on groups","Test area","Test"}
---    local modes = {"Eraser", "Teleport", "Instant kill/ revive", "Char Settings", "Global events", "Events on single char", "Events on groups", "Faction info of chars in radius", "Quest events","Define Teleporter Targets","Define events on single char","Define events on groups","Test area"}
+    local modes = {"Eraser", "Teleport", "Instant kill/ revive", "Char Settings", "Global events", "Events on single char", "Events on groups", "Faction info of chars in radius", "Define Teleporter Targets","Define events on single char","Define events on groups","Test area"}
+    -- developer test function
+--    table.insert(modes,"Test")
+
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -1484,16 +1428,14 @@ function M.UseItem(User, SourceItem, ltstate)
         elseif index == 8 then
             factionInfoOfCharsInRadius(User, SourceItem, ltstate)
         elseif index == 9 then
-            questEvents(User, SourceItem, ltstate)
-        elseif index == 10 then
             setUserTeleporter(User, SourceItem)
-        elseif index == 11 then
+        elseif index == 10 then
             setUserActionOnChar(User, SourceItem)
-        elseif index == 12 then
+        elseif index == 11 then
             setUserActionOnGroup(User, SourceItem)
-        elseif index == 13 then
+        elseif index == 12 then
             testArea(User)
-        elseif index == 14 then
+        elseif index == 13 then
             testBanduk(User)
         end
     end

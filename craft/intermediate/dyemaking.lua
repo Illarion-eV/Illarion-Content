@@ -60,3 +60,10 @@ product:addIngredient(52) -- Water bucket
 product = dyemaking:addProduct(catId, 2680, 1)
 product:addIngredient(753, 2) -- Blue Bird's Berry
 product:addIngredient(52) -- Water bucket
+
+local catId = dyemaking:addCategory("Others", "Sonstiges")
+
+-- Ink bottle
+local product = dyemaking:addProduct(catId, 1118, 1)
+product:addIngredient(136 , 4) -- Anger berry
+product:addIngredient(1117) -- Empty ink bottle

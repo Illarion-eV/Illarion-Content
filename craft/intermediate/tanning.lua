@@ -32,6 +32,12 @@ tanning:addTool(2052) -- stretcher
 
 local catId = tanning:addCategory("Leather", "Leder")
 
---White Dye
+--leather
 local product = tanning:addProduct(catId, 2547, 1)
 product:addIngredient(69) -- raw leather
+
+local catId = tanning:addCategory("Parchment", "Pergament")
+
+--parchment
+local product = tanning:addProduct(catId, 2745, 1)
+product:addIngredient(2586) -- fur

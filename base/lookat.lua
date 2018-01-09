@@ -27,7 +27,6 @@ local TitleCase
 local AddWeaponOrArmourType
 local AddTypeAndUsable
 local GetGemLevel
-local GetItemDescription
 
 -- init german descriptions
 local GenericQualDe = {"perfekt", "exzellent", "sehr gut", "gut", "normal", "mäßig", "schlecht", "sehr schlecht",
@@ -37,6 +36,7 @@ GenericDuraDe[1] = {"nagelneu", "neu",       "fast neu", "gebraucht", "leicht ab
 GenericDuraDe[2] = {"nagelneu", "neu",       "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "morsch",        "zerfallend"}
 GenericDuraDe[3] = {"nagelneu", "neu",       "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "fadenscheinig", "zerfetzt"  }
 GenericDuraDe[4] = {"funkelnd", "strahlend", "glänzend", "gebraucht", "angekratzt",       "zerkratzt", "matt",           "alt", "stumpf",        "brüchig"   }
+GenericDuraDe[5] = {"nagelneu", "neu",       "fast neu", "gebraucht", "leicht abgenutzt", "abgenutzt", "sehr abgenutzt", "alt", "sehr alt",      "zerfallend"  }
 
 -- init english descriptions
 local GenericQualEn = {"perfect", "excellent", "very good", "good", "normal", "average", "bad", "very bad", "awful", "horrible"}
@@ -45,6 +45,7 @@ GenericDuraEn[1] = {"brand new", "new",   "almost new", "used", "slightly scrape
 GenericDuraEn[2] = {"brand new", "new",   "almost new", "used", "slightly scratched", "scratched", "highly scratched", "old", "rotten",     "nearly decayed"}
 GenericDuraEn[3] = {"brand new", "new",   "almost new", "used", "slightly frayed",    "frayed",    "highly frayed",    "old", "threadbare", "ragged"        }
 GenericDuraEn[4] = {"sparkling", "shiny", "glittery",   "used", "slightly scraped",   "scraped",   "highly scraped",   "old", "tarnished",  "fragile"       }
+GenericDuraEn[5] = {"brand new", "new",   "almost new", "used", "slightly scratched", "scratched", "highly scratched", "old", "very old",   "nearly decayed"}
 
 local GenericDuraLm = {90, 80, 70, 60, 50, 40, 30, 20, 10, 0}
 
@@ -53,6 +54,7 @@ M.METAL = 1
 M.WOOD = 2
 M.CLOTH = 3
 M.JEWELLERY = 4
+M.MISC = 5
 
 local WeaponType = {}
 WeaponType[WeaponStruct.slashing] = {de = "Hiebwaffe", en = "Slashing Weapon", skill = Character.slashingWeapons}
@@ -89,7 +91,7 @@ function M.GenerateLookAt(user, item, material)
     
     material = material or M.NONE
 
-    if material < M.NONE or material > M.JEWELLERY then
+    if material < M.NONE or material > M.MISC then
         debug("Sanity check failed, no valid material supplied.")
     end
     
@@ -313,10 +315,6 @@ function GetGemLevel(item, dataEntry)
     else
         return value
     end
-end
-
-function GetItemDescription(User, Item, material, Weapon, Priest)
-    return M.GenerateLookAt(User, Item, material)
 end
 
 --- Apply a special name to a item. The name is stored in the data values.

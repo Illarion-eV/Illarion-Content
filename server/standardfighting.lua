@@ -1122,6 +1122,10 @@ function DropAmmo(Attacker, Defender, GroundOnly)
         chanceForDrop = 0.5
     end
     
+    if(Attacker.SecWeaponItem.id==3500) then --Magic arrows. Thus are always lost.
+        chanceForDrop = 0
+    end
+
     if common.Chance(chanceForDrop) then
         local AmmoItem
         if (Attacker.Weapon.AmmunitionType == Attacker.SecWeapon.WeaponType) then

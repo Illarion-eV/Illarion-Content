@@ -73,6 +73,24 @@ function M.firstToUpper(text)
     return (text:gsub("^%l", string.upper))
 end
 
+--[[ Replace Umlaute by possible character.
+@param text: "the text with an ä."
+@return text: "the text with an ae."]]--
+function M.replaceUmlaut(text)
+    if M.IsNilOrEmpty(text) then
+        return text
+    end
+    text = tostring(text)
+    text = text:gsub("ä","ae")
+    text = text:gsub("ö","oe")
+    text = text:gsub("ü","ue")
+    text = text:gsub("Ä","Ae")
+    text = text:gsub("Ö","Oe")
+    text = text:gsub("Ü","Ue")
+    text = text:gsub("ß","ss")
+    return text
+end
+
 --- This function uses the random value generator to produce a random chance.
 -- This function returns true in a specified amount of cases. The optional
 -- Base parameter is used to set the value of 100%. By default this value is 1.
@@ -2562,5 +2580,73 @@ function M.countPlayersInRangeOf(centerPos, range)
     end
     return count
 end
+
+--[[Direction hints]]--
+--[[Translate a distance into text
+distance: number of tiles
+@return: textDe,textEn]]--
+function M.getTextForDistance(distance)
+    distance = tonumber(distance)
+    if distance == nil then
+        return "unscharf", "diffuse"
+    elseif distance < 20 then
+        return "sehr nah", "very close"
+    elseif distance < 60 then
+        return "nah", "close"
+    elseif distance < 200 then
+        return "fern", "far"
+    elseif distance < 500 then
+        return "sehr fern", "very far"
+    else
+        return "äußerst fern", "extremely far"
+    end
+end
+
+--[[Translate a direction into text
+direction: direction value
+@return: textDe,textEn]]--
+function M.getTextForDirection(direction)
+    if direction == Character.dir_north then
+        return "Norden", "north"
+    elseif direction == Character.dir_northeast then
+        return "Nordosten", "northeast"
+    elseif direction == Character.dir_east then
+        return "Osten", "east"
+    elseif direction == Character.dir_southeast then
+        return "Südosten", "southeast"
+    elseif direction == Character.dir_south then
+        return "Süden", "south"
+    elseif direction == Character.dir_southwest then
+        return "Südwesten", "southwest"
+    elseif direction == Character.dir_west then
+        return "Westen", "west"
+    elseif direction == Character.dir_northwest then
+        return "Nordwesten", "northwest"
+    else
+        return false, false
+    end
+end
+
+
+--[[Distance hint, a raw expectation where the target position might be
+user: start position
+targetPos: target position
+@return structure with German and English distance and direction]]--
+function M.getDistanceHint(user, targetPos)
+    if not targetPos then
+        return false
+    end
+
+    local metricDistance = user:distanceMetricToPosition(targetPos);
+    local dir = M.GetDirection(user.pos, targetPos);
+
+    local result = {}
+    result.direction = {}
+    result.direction.de, result.direction.en = M.getTextForDirection(dir)
+    result.distance = {}
+    result.distance.de, result.distance.en = M.getTextForDistance(metricDistance)
+    return result
+end
+
 
 return M
