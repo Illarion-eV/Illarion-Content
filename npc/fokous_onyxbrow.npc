@@ -161,12 +161,12 @@ queststatus(189) > 9, queststatus(189) < 20, town = Galmair, "Auftrag", "Aufgabe
 
 -- 4th quest check 5 rat baits
 -- Giving out quest 4
-queststatus(189) = 21, english, town = Galmair, "quest", "mission" -> inform("[New quest] Save Da Beer IV - Find and 'use' 5 poisoned rat bails in the cistern."), queststatus(253) = 0, queststatus(189) = 22, "Recently I placed some poisoned carrots. The rats should eat them instead of drinking the beer. Please verify if thee rats touched them. But carry any gloves if you touch the bails."
-queststatus(189) = 21, town = Galmair, "task", "adventure" -> inform("[New quest] Save Da Beer IV - Find and 'use' 5 poisoned rat bails in the cistern."), queststatus(253) = 0, queststatus(189) = 22, "Recently I placed some poisoned carrots. The rats should eat them instead of drinking the beer. Please verify if thee rats touched them. But carry any gloves if you touch the bails."
+queststatus(189) = 21, english, town = Galmair, "quest", "mission" -> inform("[New quest] Save Da Beer IV - Find and 'use' 5 poisoned rat baits in the cistern."), queststatus(253) = 0, queststatus(189) = 22, "Recently I placed some poisoned carrots. The rats should eat them instead of drinking the beer. Please verify if the rats touched them. But wear gloves if you touch the baits."
+queststatus(189) = 21, town = Galmair, "task", "adventure" -> inform("[New quest] Save Da Beer IV - Find and 'use' 5 poisoned rat baits in the cistern."), queststatus(253) = 0, queststatus(189) = 22, "Recently I placed some poisoned carrots. The rats should eat them instead of drinking the beer. Please verify if the rats touched them. But wear gloves if you touch the baits."
 queststatus(189) = 21, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> inform("[Neues Quest] Rette das Bierlager IV - Finde und prüfe 5 Köder in der Zisterne. Benutze den Köder, um ihn zu prüfen."), queststatus(253) = 0, queststatus(189) = 22, "Ich habe vor kurzem einige vergiftete Möhren ausgelegt. Schau bei mindestens 5 der Köder nach, ob die Ratten da eher rangehen als an's Bier. Aber zieh irgendwelche Handschuhe an, wenn du sie anfasst!"
 
 -- Quest 4 taken but not started
-queststatus(189) = 22, queststatus(253) = 0, english, town = Galmair, ".+" -> inform("Find and 'use' 5 poisoned rat bails in the cistern. You must touch (use) the carrots."), "Wear gloves an check the bails. This is my chance to solve the rat issue without get my fingers dirty."
+queststatus(189) = 22, queststatus(253) = 0, english, town = Galmair, ".+" -> inform("Find and 'use' 5 poisoned rat baits in the cistern. You must touch (use) the carrots."), "Wear gloves an check the baits. This is my chance to solve the rat issue without getting my fingers dirty."
 queststatus(189) = 22, queststatus(253) = 0, town = Galmair, ".+" -> inform("Finde und prüfe 5 Köder in der Zisterne. Benutze den Köder, um ihn zu prüfen."), "Zieh Handschuhe an und prüf die Köder. Das ist meine Chance den Ratten beizukommen, ohne mir die Hände schmutzig zu machen."
 
 -- Quest 4 taken but not finished
@@ -174,16 +174,15 @@ queststatus(189) = 22, town = Galmair, english, "quest", "mission" -> "Arr! You 
 queststatus(189) = 22, town = Galmair, "task", "adventure", "poison", "carrot" -> "Arr! You say the rats don't touch the baits? Go an check some more."
 queststatus(189) = 22, town = Galmair, "Auftrag", "Aufgabe", "quest", "mission", "Abenteuer", "Gift", "Möhre" -> "Arr! Du sagst, die Ratten verschähen die Köder? Los schau dir noch einige mehr an."
 
-
 -- Quest 4 solved, 20 silver, +5 rankpoints
 -- Quest 5 kill ten rats
 -- Give out quest 5
-queststatus(189) = 23, town = Galmair, english, "quest", "mission" -> inform("[Solved and new quest] Save Da Beer V"), queststatus(189) = 24, "Da damned rats! We must do anyting now. I can not think of anything better than to kill another ten rats to save our beer.", money + 2000, rankpoints + 5
+queststatus(189) = 23, town = Galmair, english, "quest", "mission" -> inform("[Solved and new quest] Save Da Beer V"), queststatus(189) = 24, "Da damned rats! We must do something now. I can not think of anything better than to kill another ten rats to save our beer.", money + 2000, rankpoints + 5
 queststatus(189) = 23, town = Galmair, "task", "adventure", "poison", "carrot" -> inform("[Solved and new quest] Save Da Beer V"), queststatus(189) = 24, "Da damned rats! We must do anyting now. I can not think of anything better than to kill another ten rats to save our beer.", money + 2000, rankpoints + 5
 queststatus(189) = 23, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission", "Gift", "Möhre" -> inform("[Gelöstes und neues Quest] Rette das Bierlager V"), queststatus(189) = 24, "Die blöden Ratten! Wir müssen jetzt was tun. Mir fällt jetzt auch nix Besseres ein, als weitere zehn Ratten zu töten, um unser Bier zu retten.", money + 2000, rankpoints + 5
 
 -- Quest 5 solved, 20 silver, +5 rankpoints
-queststatus(189) = 34, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(189) = 35, rankpoints + 5, "Arr! We didn't save the world but our beer. The Don be happy your helping. Come back later for more work."
+queststatus(189) = 34, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(189) = 35, rankpoints + 5, "Arr! We didn't save the world but our beer. The Don will be happy with your helping. Come back later for more work."
 queststatus(189) = 34, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, queststatus(189) = 35, rankpoints + 5, "Arr! Wir ham zwar nich die Welt aber unser Bier gerettet. Über deine Hilfe wird der Don sehr glücklich sein. Komm später wieder für mehr Arbeit."
 
 -- Quest 5 taken but not solved

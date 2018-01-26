@@ -59,7 +59,7 @@ local npcTalk = {
   --{{said},{answersDe},{answersEn}}
     {   {"hello","greet","hail","good day","good morning","good evening","good night","grüß","gruß","guten morgen","guten tag","guten abend","gute nacht","mahlzeit","tach","moin","mohltied","hiho","hallo","hey","greeb"},
         {"Grüßt euch!","Hallo wieder etwas gewachsen?","Hallo, lange nicht gesehen!"},
-        {"Be greeted!","Hello my friend!","Hello, I haven't seen you for a while!"} },
+        {"Be greeted!","Hello my friend!","Hello, I haven't seen you for awhile!"} },
     {   {"farewell","bye","fare well","see you","tschüß","tschüss","wiedersehen","gehab wohl","ciao","adieu","au revoir","farebba"},
         {"Auf Wiedersehen!","Man sieht sich!","Passt auf Eure Haare auf!"},
         {"Goodbye!","Goodbye and good luck!","Take care of your hair!"} },
@@ -74,13 +74,13 @@ local npcTalk = {
         {"You can always make yourself look better, if you want.","There is always something to cut. Let's start.","Do you really want to stay as you are?"} },
     {   {"god","gott","gött"},
         {"Wenn ich Euch unter meine Fittiche nehme, lächeln die Götter.","Die Götter werden Euch immer wiedererkennen, bei allen anderen bin ich mir nicht sicher.","Gleich hinter dem Haus findet Ihr Adrons Altar."},
-        {"Be assured, as I work on you the gods will smile.","Gods will recognise you, however, I'm not that sure about everybody else.","Right behind the house is an altar to Adron."} },
+        {"Be assured, as I work on you the gods will smile.","The gods will recognise you, however, I'm not that sure about everybody else.","Right behind the house is an altar to Adron."} },
     {   {"quest","task","mission","auftrag","aufgabe"},
         {"Ich vergebe keine Aufgaben.","Ich hätte eine unentwirrbare Aufgabe, aber die ist fest auf Eurem Kopf.","Nein ich habe für Euch nichts zu tun, außer still sitzen."},
-        {"I don't have a quest for you.","There is an inextricable mission, but it is located on your head.","No I don't have a quest for you, but you could keep still."} },
+        {"I don't have a quest for you.","There is an impossible mission, but it is located on your head.","No I don't have a quest for you, but you could keep still."} },
     {   {"zahl","pay","coins","münze"},
         {"Pünktlich zahlen zahlt sich immer aus.","Nichts ist umsonst zu haben."},
-        {"Paying on time always pays off.","There is nothing for free."} }
+        {"Paying on time always pays off.","Nothing is free."} }
 }
 
 local cycleText = {
@@ -186,7 +186,7 @@ function M.payErza(user)
         if not money.CharHasMoney(user,priceWork) then --not enough money!
             if user:getQuestProgress(233) == 0 then --first warning
                 common.TalkNLS(npc,Character.say, "Ich gebe Euch eine Stunde um hier mit dem Geld aufzutauchen! Ihr schuldet mir"..germanMoney..".",
-                                                  "I!ll give you one hour to be here with the money! You owe me"..englishMoney..".")
+                                                  "I'll give you one hour to be here with the money! You owe me"..englishMoney..".")
                 common.InformNLS(user,"Komme innerhalb von zwanzig Zwergenminuten zu Erza zurück und zahl deine Schulden. Du weißt, dass du die Konsequenzen nicht tragen willst.",
                                       "Come back to Erza and pay your debt within twenty dwarven minutes. You know you would not like the consequences.")
                 user:setQuestProgress(232,5)
@@ -204,7 +204,7 @@ function M.payErza(user)
             user:setQuestProgress(232,0)
             if user:getQuestProgress(233) > 0 then
                 common.TalkNLS(npc,Character.say, "Ihr habt Glück. Ich bin heute gnädig gestimmt.",
-                                                  "You are n luck. I'm generous today.")
+                                                  "You are in luck. I'm generous today.")
             else
                 common.TalkNLS(npc,Character.say, "Vielen Dank. Kann ich noch etwas für Euch tun?",
                                                   "Thank you. Can I do anything else for you?")
@@ -275,7 +275,7 @@ local function helmetOff(user,npc)
         return true
     else
         common.TalkNLS(npc,Character.say, "Solange Ihr den Helm aufhabt, komme ich an nicht an Euren Kopf ran.",
-                                          "I cannot touch your head as long as you wear a hat or a helmet.")
+                                          "I can't touch your head as long as you wear a hat or a helmet.")
         return false
     end
 end
@@ -295,7 +295,7 @@ end
 local function isInTransformationEffekt(user)
     if user.effects:find(329) then
         common.HighInformNLS(user,"[Info] Solange ein Verwandlungstrank wirkt kann die Friseuse nichts tun.",
-                                  "[Info] The hairdresser cannot do anything as long as a transformation potion is active.")
+                                  "[Info] The hairdresser can't do anything as long as a transformation potion is active.")
     end
 end
 
@@ -371,7 +371,7 @@ local function shaveSelector(user,npc,firstCall,beardStyleStart,beardStyleEnd)
         if selectedOption == DECISION_TAKETHIS then
             M.payErza(user)
             common.InformNLS(user,"Du hast eine neue Rasur bekommen. Diese wird ungefähr acht Monate halten. Für einige Zeit kann jeder sehen, dass du beim Friseur warst.",
-                                  "You've got a new beard style. It will last for about eight months. For some time everybody can see your beard was freshly shaved.")
+                                  "You've got a new beard style. It will last for about eight months. For sometime everybody can see your beard was freshly shaved.")
             return
         elseif selectedOption == DECISION_NOTHING then
             common.TalkNLS(npc,Character.say, "Richtig! Bleibt dabei. Dieser Stil passt genau zu Euch.",

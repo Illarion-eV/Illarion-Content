@@ -53,7 +53,7 @@ local slimeDietItems = {
 {itemId = 133, amount = 25}, --[[sun herb]]
 {itemId = 450, amount = 4}, --[[ameythst powder]]
 {itemId = 1149, amount = 10}, --[[eggs]]
-{itemId = 150, amount = 15}, --[[red head]]
+{itemId = 160, amount = 15}, --[[red head]]
 {itemId = 259, amount = 15}, --[[grain]]
 {itemId = 140, amount = 60}, --[[donf blade]]
 {itemId = 726, amount = 20}, --[[coarse sand]]

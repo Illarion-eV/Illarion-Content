@@ -42,15 +42,15 @@ Description[ENGLISH][3] = "You have already donated to Cadomyr. But you can stil
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-local Start = {129, 529, 0}
+local Start = {116, 519, 0}
 
 
  
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
 QuestTarget[1] = {position(116, 520, 0)} 
-QuestTarget[2] = {position(129, 529, 0)}
-QuestTarget[3] = {position(129, 529, 0), position(116, 520, 0)}
+QuestTarget[2] = {position(116, 519, 0)}
+QuestTarget[3] = {position(116, 519, 0), position(116, 520, 0)}
      
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 3

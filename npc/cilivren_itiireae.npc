@@ -160,29 +160,28 @@ queststatus(188) > 9, queststatus(188) < 20, town = Runewick, "Auftrag", "Aufgab
 
 -- 4th quest check 5 rat baits
 -- Giving out quest 4
-queststatus(188) = 21, english, town = Runewick, "quest", "mission" -> inform("[New quest] Save The Fields IV - Find and 'use' 5 poisoned rat bails in the cistern."), queststatus(253) = 0, queststatus(188) = 22, "Recently I got some carrots from our farmer. I poisoned them and distributed them in the cistern. Please verify if thee rats touched them. But carry any gloves if you touch the bails."
-queststatus(188) = 21, town = Runewick, "task", "adventure" -> inform("[New quest] Save The Fields IV - Find and 'use' 5 poisoned rat bails in the cistern."), queststatus(253) = 0, queststatus(188) = 22, "Recently I got some carrots from our farmer. I poisoned them and distributed them in the cistern. Please verify if thee rats touched them. But carry any gloves if you touch the bails.."
+queststatus(188) = 21, english, town = Runewick, "quest", "mission" -> inform("[New quest] Save The Fields IV - Find and 'use' 5 poisoned rat baits in the cistern."), queststatus(253) = 0, queststatus(188) = 22, "Recently I got some carrots from our farmer. I poisoned them and distributed them in the cistern. Please verify if the rats touched them. But use gloves if you touch the baits."
+queststatus(188) = 21, town = Runewick, "task", "adventure" -> inform("[New quest] Save The Fields IV - Find and 'use' 5 poisoned rat baits in the cistern."), queststatus(253) = 0, queststatus(188) = 22, "Recently I got some carrots from our farmer. I poisoned them and distributed them in the cistern. Please verify if the rats touched them. But use gloves if you touch the baits."
 queststatus(188) = 21, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> inform("[Neues Quest] Rette die Äcker IV - Finde und prüfe 5 Köder in der Zisterne. Benutze den Köder, um ihn zu prüfen."), queststatus(253) = 0, queststatus(188) = 22, "Ich habe vor kurzem einige Möhren von Bauern bekommen. Ich habe sie mit Gift präpariert und ausgelegt. Schau bei mindestens 5 der Köder nach, ob die Ratten es annehmen. Aber zieh irgendwelche Handschuhe an, wenn du sie anfasst!"
 
 -- Quest 4 taken but not started
-queststatus(188) = 22, queststatus(253) = 0, english, town = Runewick, ".+" -> inform("Find and 'use' 5 poisoned rat bails in the cistern. You must touch (use) the carrots."), "Wear gloves an check the bails. This way me may solve thr rat issue once and forever."
+queststatus(188) = 22, queststatus(253) = 0, english, town = Runewick, ".+" -> inform("Find and 'use' 5 poisoned rat baits in the cistern. You must touch (use) the carrots."), "Wear gloves and check the baits. This way me may solve the rat issue once and forever."
 queststatus(188) = 22, queststatus(253) = 0, town = Runewick, ".+" -> inform("Finde und prüfe 5 Köder in der Zisterne. Benutze den Köder, um ihn zu prüfen."), "Zieh Handschuhe an und prüf die Köder. Das ist unsere Chance den Ratten ein für alle Male beizukommen."
 
 -- Quest 4 taken but not finished
-queststatus(188) = 22, town = Runewick, english, "quest", "mission" -> "Oh je! You say the rats don't touch the baits? Please check some more."
+queststatus(188) = 22, town = Runewick, english, "quest", "mission" -> "Oh no! You say the rats don't touch the baits? Please check some more."
 queststatus(188) = 22, town = Runewick, "task", "adventure", "poison", "carrot" -> "Oh je! You say the rats don't touch the baits? Please check some more."
 queststatus(188) = 22, town = Runewick, "Auftrag", "Aufgabe", "quest", "mission", "Abenteuer", "Gift", "Möhre" -> "Oh je! Du sagst, die Ratten verschähen die Köder? Bitte schau dir noch einige mehr an."
-
 
 -- Quest 4 solved, 20 silver, +5 rankpoints
 -- Quest 5 kill ten rats
 -- Give out quest 5
-queststatus(188) = 23, town = Runewick, english, "quest", "mission" -> inform("[Solved and new quest] Save The Fields V"), queststatus(188) = 24, "What a surprize, the rats must be more intelligent than we thought! We must do anyting now. I can not think of anything better than to kill another ten rats now.", money + 2000, rankpoints + 5
-queststatus(188) = 23, town = Runewick, "task", "adventure", "poison", "carrot" -> inform("[Solved and new quest] Save The Fields V"), queststatus(188) = 24, "What a surprize, the rats must be more intelligent than we thought! We must do anyting now. I can not think of anything better than to kill another ten rats now.", money + 2000, rankpoints + 5
+queststatus(188) = 23, town = Runewick, english, "quest", "mission" -> inform("[Solved and new quest] Save The Fields V"), queststatus(188) = 24, "What a surprize, the rats must be more intelligent than we thought! We must do something now. I can not think of anything better than to kill another ten rats now.", money + 2000, rankpoints + 5
+queststatus(188) = 23, town = Runewick, "task", "adventure", "poison", "carrot" -> inform("[Solved and new quest] Save The Fields V"), queststatus(188) = 24, "What a surprize, the rats must be more intelligent than we thought! We must do something now. I can not think of anything better than to kill another ten rats now.", money + 2000, rankpoints + 5
 queststatus(188) = 23, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission", "Gift", "Möhre" -> inform("[Gelöstes und neues Quest] Rette die Äcker V"), queststatus(188) = 24, "Ich bin erstaunt, die Ratten sind scheinbar intelligenter, als wir dachten! Wir müssen etwas tun. Mir fällt jetzt auch nichts Besseres ein, als weitere zehn Ratten zu töten.", money + 2000, rankpoints + 5
 
 -- Quest 5 solved, 20 silver, +5 rankpoints
-queststatus(188) = 34, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(188) = 35, rankpoints + 5, "We may not saved the world but our harvest. The Archmage will be most pleased to hear of your assistance."
+queststatus(188) = 34, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(188) = 35, rankpoints + 5, "We may not have saved the world but we saved our harvest. The Archmage will be most pleased to hear of your assistance."
 queststatus(188) = 34, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, queststatus(188) = 35, rankpoints + 5, "Wir haben vielleicht nicht die Welt gerettet, aber wohl unsere Ernte. Der Erzmagier wird über deine Hilfe sehr erfreut sein."
 
 -- Quest 5 taken but not solved

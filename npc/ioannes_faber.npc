@@ -16,8 +16,8 @@
 -- NPC Name: Ioannes Faber                                            Cadomyr --
 -- NPC Job:  Royal treasurer                                                  --
 --                                                                            --
--- NPC Race: human                      NPC Position:  129, 529, 0            --
--- NPC Sex:  male                       NPC Direction: west                   --
+-- NPC Race: human                      NPC Position:  116, 519, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian/Ardian                                         --
 --                                                     easyNPC Parser v1.23.1 --
@@ -26,8 +26,8 @@
 name = "Ioannes Faber"
 race = human
 sex = male
-position = 129, 529, 0
-direction = west
+position = 116, 519, 0
+direction = south
 affiliation = "Cadomyr"
 job = "Royal treasurer"
 

@@ -84,7 +84,7 @@ Description[GERMAN][21] = "Kehre zurück zum Bierlieferant Quartiermeister Fokous
 Description[ENGLISH][21] = "Check back with Beer Supply Quartermaster Fokous Onyxbrow, he may have another task for you."
 
 Description[GERMAN][22] = "Prüfe fünf vergiftete Rattenköder in der Zusterne. Benutze den Köder (vergiftete Möhren) um die Prüfung auszuführen. Ziehe dazu Handschuhe an."
-Description[ENGLISH][22] = "Check five poisoned rat bails in the cistern. Use the bails (poisoned carrots) to carry out the check. You should wear gloves."
+Description[ENGLISH][22] = "Check five poisoned rat baits in the cistern. Use the baits (poisoned carrots) to carry out the check. You should wear gloves."
 Description[GERMAN][23] = "Berichte Fokous Onyxbrow, was du gefunden hast."
 Description[ENGLISH][23] = "Report Fokous Onyxbrow about your findings."
 

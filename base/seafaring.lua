@@ -557,8 +557,8 @@ local function startFerry(user, sourceItem)
                                            "You don't have enough money for this journey. The journey costs" .. englishMoney .." for one passage.")
                 end
             else
-                common.InformNLS(user,"Niemend ist bereit, diesen Hafen anzusteuern. Du wirst wohl den Landweg nehmen müssen.",
-                                      "No one is willing to head for this port. You will probably have to walk.")
+                common.InformNLS(user,"Kein Schiffsführer ist bereit, diesen Hafen anzusteuern. Du wirst wohl den Landweg nehmen müssen.",
+                                      "No sailor is willing to head for this port. You will probably have to walk.")
             end
         end
     end
@@ -576,7 +576,7 @@ local function startFerry(user, sourceItem)
             table.insert(dialogOption,{i,true})
         elseif sourceItem.pos ~= harbor.pos then
             dialog:addOption(harbor.pict, common.GetNLS(user,harbor.nameDe .. " (keine Verbindung)",
-                                                             harbor.nameEn .. " (no connection)"))
+                                                             harbor.nameEn .. " (no boats)"))
             table.insert(dialogOption,{i,false})
         end
     end
