@@ -45,7 +45,7 @@ function M.learn(user, skill, actionPoints, learnLimit)
     local leadAttrib = common.GetLeadAttrib(user, skill) --reading the lead attribute
     local skillValue = user:getSkill(skill) --reading the skill points
     local minorSkill = user:getMinorSkill(skill) --reading the minor skill points; 10000=1 skill point
-    local MCvalue = math.max(lowerBorder, user:getMentalCapacity()) --below 0.5% of time spent online, no additional bonus is granted
+    local MCvalue = math.max(lowerBorder, user:getMentalCapacity()) --below 2.5% of time spent online, no additional bonus is granted
 
     if skillValue < learnLimit and skillValue < 100 then --you only learn when your skill is lower than the skill of the learnLimit and your skill is <100
 
@@ -64,7 +64,7 @@ function M.learn(user, skill, actionPoints, learnLimit)
             end
 
             --For debugging, use the following line.
-            --user:inform("Skill="..user:getSkillName(skill)..", actionPoints="..actionPoints..", skillFactor="..skillFactor..", MCfactor="..MCfactor..", attributeFactor="..attributeFactor..", intelligenceFactor="..intelligenceFactor..", actionpointFactor="..actionpointFactor..", minorIncrease="..minorIncrease..".");
+            user:inform("Skill="..user:getSkillName(skill)..", actionPoints="..actionPoints..", skillFactor="..skillFactor..", MCfactor="..MCfactor..", attributeFactor="..attributeFactor..", intelligenceFactor="..intelligenceFactor..", actionpointFactor="..actionpointFactor..", minorIncrease="..minorIncrease..".");
 
             while minorIncrease > 0 do --for the rare case that an action results in two level ups, we have this loop
 
