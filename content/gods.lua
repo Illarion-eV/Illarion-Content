@@ -14,6 +14,40 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>. 
 ]]
+--Priest magic: Becoming a devotee, change devotion, become a priest by using an altar
+--Overview of queststatus:
+--401 contains the ID of the god the character is devoted to
+--402 contains the ID of the god the character is a priest of. MUST be equal to 401 or 0.
+
+
+local common = require("base.common")
+local globalvar = require("base.globalvar")
+
+--TODO move to a separate file
+---
+-- Turn a list into a "set"
+-- Use set[item] to check if an item is contained in set
+-- Taken from: http://lua-users.org/wiki/SetOperations
+-- For more operaions (union, intersection) see the above and also https://www.lua.org/pil/13.1.html
+--@param t list of values to be included in the set
+local function set(t)
+    local s = {}
+    for _,v in pairs(t) do s[v] = true end
+    return s
+end
+
+---
+-- Take two sets and create a union (set containing all items from the sets, without repetition)
+-- @param a - a set
+-- @param b - a set
+local function setUnion(a, b)
+    local s = {}
+    for v, _ in pairs(a) do s[v] = true end
+    for v, _ in pairs(b) do s[v] = true end
+    return s
+end
+
+
 local M = {}
 
 M.GOD_NONE     =  0
@@ -36,10 +70,20 @@ M.GOD_MOSHRAN  = 16
 M.GOD_THEFIVE  = 17
 M.GOD_THEDEVS  = 99
 
-M.GOD_LIST = {M.GOD_NARGUN,M.GOD_ELARA,M.GOD_ADRON,M.GOD_OLDRA,M.GOD_CHERGA,M.GOD_MALACHIN,
-            M.GOD_IRMOROM,M.GOD_SIRANI,M.GOD_ZHAMBRA,M.GOD_RONAGAN,M.GOD_MOSHRAN,M.GOD_THEFIVE};
 
-M.GOD_EN = {
+M._YOUNGER_GODS_LIST = {M.GOD_NARGUN,M.GOD_ELARA,M.GOD_ADRON,M.GOD_OLDRA,M.GOD_CHERGA,M.GOD_MALACHIN,
+            M.GOD_IRMOROM,M.GOD_SIRANI,M.GOD_ZHAMBRA,M.GOD_RONAGAN,M.GOD_MOSHRAN,M.GOD_THEFIVE};
+M._ELDER_GODS_LIST = {M.GOD_USHARA, M.GOD_BRAGON, M.GOD_ELDAN, M.GOD_TANORA, M.GOD_FINDARI}
+
+M.YOUNGER_GODS = set(M._YOUNGER_GODS_LIST)
+M.ELDER_GODS = set(M._ELDER_GODS_LIST)
+M.GODS = setUnion(M.ELDER_GODS, M.YOUNGER_GODS)
+
+M.RESPECTED_GODS = setUnion(M.ELDER_GODS, M.YOUNGER_GODS)  -- copy of M.GODS
+M.RESPECTED_GODS[M.GOD_MOSHRAN] = nil  -- ban Moshran
+
+
+M.GOD_NAME_EN = {
     [M.GOD_USHARA]   = "Ushara",
     [M.GOD_BRAGON]   = "Brágon",
     [M.GOD_ELDAN]    = "Eldan",
@@ -60,7 +104,7 @@ M.GOD_EN = {
     [M.GOD_THEDEVS]  = "Developers",
 }
 
-M.GOD_DE = {
+M.GOD_NAME_DE = {
     [M.GOD_USHARA]   = "Ushara",
     [M.GOD_BRAGON]   = "Brágon",
     [M.GOD_ELDAN]    = "Eldan",
@@ -81,6 +125,210 @@ M.GOD_DE = {
     [M.GOD_THEDEVS]  = "Entwickler",
 }
 
+
+
+M.DESCRIPTION_EN = {
+    [M.GOD_USHARA]="Goddess of earth";
+    [M.GOD_BRAGON]="God of fire";
+    [M.GOD_ELDAN]="God of spirit";
+    [M.GOD_TANORA]="Goddess of water";
+    [M.GOD_FINDARI]="Goddess of air";
+    [M.GOD_NARGUN]="God of chaos";
+    [M.GOD_ELARA]="Goddess of wisdom and knowledge";
+    [M.GOD_ADRON]="God of festivities and wine";
+    [M.GOD_OLDRA]="Goddess of life and fertility";
+    [M.GOD_CHERGA]="Goddess of spirits and the underworld";
+    [M.GOD_MALACHIN]="God of battle and hunting";
+    [M.GOD_IRMOROM]="God of trade and craftsmanship";
+    [M.GOD_SIRANI]="Goddess of love and pleasure";
+    [M.GOD_ZHAMBRA]="God of friendship and loyalty";
+    [M.GOD_RONAGAN]="God of thieves and shadows";
+    [M.GOD_MOSHRAN]="God of blood and bones";
+}
+
+M.DESCRIPTION_DE ={
+    [M.GOD_BRAGON]="der Gott des Feuers";
+    [M.GOD_ELDAN]="der Gott des Geistes";
+    [M.GOD_FINDARI]="die Göttin der Luft";
+    [M.GOD_TANORA]="die Göttin des Wassers";
+    [M.GOD_USHARA]="die Göttin der Erde";
+    [M.GOD_ADRON]="der Gott des Weines und der Feste";
+    [M.GOD_CHERGA]="die Göttin der Geister und der Unterwelt";
+    [M.GOD_ELARA]="die Göttin des Wissens und der Weisheit";
+    [M.GOD_IRMOROM]="der Gott des Handels und des Handwerks";
+    [M.GOD_MALACHIN]="der Gott der Jagd und der Schlachten";
+    [M.GOD_MOSHRAN]="der Gott des Blutes und der Gebeine";
+    [M.GOD_NARGUN]="der Gott des Chaos";
+    [M.GOD_OLDRA]="die Göttin der Fruchtbarkeit und des Lebens";
+    [M.GOD_RONAGAN]="der Gott der Diebe und der Schatten";
+    [M.GOD_SIRANI]="die Göttin der Liebe und der Freude";
+    [M.GOD_ZHAMBRA]="der Gott der Freundschaft und Treue";
+}
+
+---
+-- Check if char is devoted to a god
+-- @param User the char to check
+-- @param god a god (e.g. gods.Elara) or set of gods (e.g. gods.YOUNGER_GODS) to be checked.
+-- If god is not given, the function assumes gods.GODS i.e checks if char is devoted to anyone
+-- If god is gods.GOD_NONE then the function returns true if char is not devoted to any god
+function M.isDevoted(User, god)
+    god = god or M.GODS
+    local val = User:getQuestProgress(401)
+    if type(god) == 'number' then
+        -- a single god to check
+        return (val == god)
+    else
+        -- assume god is a set
+        return god[val]
+    end
+end
+---
+-- Check if char is a priest of a god
+-- @param User the char to check
+-- @param god a god (e.g. gods.Elara) or set of gods (e.g. gods.YOUNGER_GODS) to be checked.
+-- If god is not given, the function assumes gods.GODS i.e checks if char is devoted to anyone
+-- If god is gods.GOD_NONE then the function returns true if char is not a priest
+function M.isPriest(User, god)
+    god = god or M.GODS
+    local val = User:getQuestProgress(402)
+    if type(god) == 'number' then
+        -- a single god to check
+        return (val == god)
+    else
+        -- assume god is a set
+        return god[val]
+    end
+end
+
+---
+-- Make the char devoted to the god (without any checks/prerequisites)
+-- @param User the char to change
+-- @param god the target god. Should be one of gods.GODS or gods.GOD_NONE (to undevote)
+function M.setDevoted(User, god)
+    if M.isDevoted(User, god) then
+        User:inform("[ERROR] Trying to re-devote to same god. Please inform a developer.");
+        return
+    end
+    if god == M.GOD_NONE then
+        common.InformNLS(User, "FIXME " .. M.GOD_NAME_DE[god] .. " FIXME .", "FIXME " .. M.GOD_NAME_EN[god] .. " hates you and denies your faith!")
+        -- FIXME visual effects ?
+    elseif M.RESPECTED_GODS[god] then
+        common.InformNLS(User, "Ihr empfangt den Segen " .. M.GOD_NAME_DE[god] .. "s und weiht euer Leben dem Glaube an die Gottheit.", "You receive the blessing of " .. M.GOD_NAME_EN[god] .. " and devote your life to the faith in the divinity.")
+        world:gfx(globalvar.gfxRAIN, User.pos)
+        world:makeSound(globalvar.sfxSNARING, User.pos)
+    else
+        -- Moshran
+        common.InformNLS(User, "FIXME Ihr empfangt den Segen " .. M.GOD_NAME_DE[god] .. "s und weiht euer Leben dem Glaube an die Gottheit.", "FIXME " .. M.GOD_NAME_EN[god] .. " is your master now.")
+        world:gfx(globalvar.gfxDEMFIRE, User.pos)
+        world:makeSound(globalvar.sfxEVIL_LAUGH, User.pos)
+    end
+    if M.isPriest(User) then
+        -- too much spam, this was explained already
+        -- common.InformNLS(User, "FIXME", "FIXME You can't remain a priest after switching gods")
+        M.setNotPriest(User)
+    end
+    User:setQuestProgress(401, god) -- mark the char as devoted to the god
+end
+
+---
+-- Make the char a priest to his god (without any checks/prerequisites)
+-- @param User the char to change
+function M.setPriest(User)
+    local god = User:getQuestProgress(401)
+    if not M.GODS[god] then
+        User:inform("[ERROR] Trying to set priest status with illegal god. Please inform a developer.");
+        return
+    end
+
+    if M.RESPECTED_GODS[god] then
+        common.InformNLS(User, "FIXME " .. M.GOD_NAME_DE[god] .. "", "FIXME You are now a priest of " .. M.GOD_NAME_EN[god] .. ", have fun.")
+        world:gfx(globalvar.gfxRAIN, User.pos)
+        world:makeSound(globalvar.sfxSNARING, User.pos)
+    else
+    -- Moshran
+    common.InformNLS(User, "FIXME " .. M.GOD_NAME_DE[god] .. "", "FIXME " .. M.GOD_NAME_EN[god] .. " consumes your soul and gives demonic powers to the empty shell that remains.")
+    world:gfx(globalvar.gfxDEMFIRE, User.pos)
+    world:makeSound(globalvar.sfxEVIL_LAUGH, User.pos)
+    end
+
+    User:setQuestProgress(402, god) -- mark the char as priest of this god
+    User:setMagicType(1) -- mark the char as capable of priest magic
+    -- FIXME learn magic?
+end
+
+---
+-- Make the char not a priest
+-- @param User the char to change
+function M.setNotPriest(User)
+    local god = User:getQuestProgress(402)
+    if not M.GODS[god] then
+        User:inform("[ERROR] Trying to clear priest status with illegal god. Please inform a developer.");
+        return
+    end
+    common.InformNLS(User, "FIXME " .. M.GOD_NAME_DE[god] .. " FIXME .", "FIXME " .. M.GOD_NAME_EN[god] .. " hates you and denies your priesthood!")
+    world:gfx(globalvar.gfxBLITZ, User.pos)
+    world:makeSound(globalvar.sfxTHUNDER, User.pos)
+
+    User:setQuestProgress(402, M.GOD_NONE)
+    -- We don't clear the magic type (User:setMagicType), so that the user can't easily switch to another magic profession
+end
+
+
+---
+-- Check favour of a god
+-- @param User the char to check
+-- @param god a god (one of gods.GODS)
+function M.getFavour(User, god)
+    -- FIXME
+    return 600
+end
+
+---
+-- Change favour of a god
+--
+function M.increaseFavour(User, god, amount)
+    -- FIXME change given god's favour. If young god, compensate from other gods based on probability table
+    return
+end
+
+
+---
+-- Check that all god-related variables of a char are consistent
+function M.validate(User)
+--[[
+--            --Check for corrupted status
+            if priesthood ~= 0 and devotion ~= priesthood and User:getMagicType() == 1 then --Error! The character is a priest, but not a priest of "his" god!
+                common.InformNLS(User, "[Fehler] Bitte informiere einen Entwickler. Der Priesterstatus deines Charakters ist fehlerhaft.", "[Error] Please inform a developer, the priest status of your character is flawed.");
+                return; --bailing out
+            end
+            --Error! The character is not a priest, but has a priest quest status! Or player uses priest magic but has no dedicated god!
+            if (priesthood ~= 0 and User:getMagicType() ~= 1) or (priesthood == 0 and User:getMagicType() == 1) then
+                common.InformNLS(User, "[Fehler] Bitte informiere einen Entwickler. Der Priesterstatus deines Charakters ist fehlerhaft.", "[Error] Please inform a developer, the priest status of your character is flawed.");
+                return; --bailing out
+            end
+
+ ]]
+end
+
+M.ITEMS_DEVOTION = {
+    -- FIXME
+    [M.GOD_NARGUN]       = {{id = 2, number = 1}},
+    [M.GOD_ELARA]        = {{id = 2, number = 1}},
+    [M.GOD_ADRON]        = {{id = 2, number = 1}},
+    [M.GOD_OLDRA]        = {{id = 2551, number = 1}, {id = 2552, number = 1}},
+    [M.GOD_CHERGA]       = {{id = 2, number = 1}},
+    [M.GOD_MALACHIN]     = {{id = 2, number = 1}},
+    [M.GOD_IRMOROM]      = {{id = 2, number = 1}},
+    [M.GOD_SIRANI]       = {{id = 2, number = 1}},
+    [M.GOD_ZHAMBRA]      = {{id = 2, number = 1}},
+    [M.GOD_RONAGAN]      = {{id = 2, number = 1}},
+    [M.GOD_MOSHRAN]      = {{id = 2551, number = 1}, {id = 2553, number = 1}},
+}
+
+
+
+-- FIXME *** Everything between this line should be reviewed. Most likely it is dead code that never worked ***
+--[[
 PRAYER_CONVERSION = {
     {skill = "Healing",
         gText = "bitte (.+) heilung",
@@ -219,43 +467,5 @@ ITEMS_PRIEST = {
 RUNE_HEALING = 1;
 -- other runes
 RUNE_SMALL = 32;
-
-M.DESCRIPTION_EN = {
-    [M.GOD_USHARA]="Goddess of earth";
-    [M.GOD_BRAGON]="God of fire";
-    [M.GOD_ELDAN]="God of spirit";
-    [M.GOD_TANORA]="Goddess of water";
-    [M.GOD_FINDARI]="Goddess of air";
-    [M.GOD_NARGUN]="God of chaos";
-    [M.GOD_ELARA]="Goddess of wisdom and knowledge";
-    [M.GOD_ADRON]="God of festivities and wine";
-    [M.GOD_OLDRA]="Goddess of life and fertility";
-    [M.GOD_CHERGA]="Goddess of spirits and the underworld";
-    [M.GOD_MALACHIN]="God of battle and hunting";
-    [M.GOD_IRMOROM]="God of trade and craftsmanship";
-    [M.GOD_SIRANI]="Goddess of love and pleasure";
-    [M.GOD_ZHAMBRA]="God of friendship and loyalty";
-    [M.GOD_RONAGAN]="God of thieves and shadows";
-    [M.GOD_MOSHRAN]="God of blood and bones";
-}
-    
-M.DESCRIPTION_DE ={
-    [M.GOD_BRAGON]="der Gott des Feuers";
-    [M.GOD_ELDAN]="der Gott des Geistes";
-    [M.GOD_FINDARI]="die Göttin der Luft";
-    [M.GOD_TANORA]="die Göttin des Wassers";
-    [M.GOD_USHARA]="die Göttin der Erde";
-    [M.GOD_ADRON]="der Gott des Weines und der Feste";
-    [M.GOD_CHERGA]="die Göttin der Geister und der Unterwelt";
-    [M.GOD_ELARA]="die Göttin des Wissens und der Weisheit";
-    [M.GOD_IRMOROM]="der Gott des Handels und des Handwerks";
-    [M.GOD_MALACHIN]="der Gott der Jagd und der Schlachten";
-    [M.GOD_MOSHRAN]="der Gott des Blutes und der Gebeine";
-    [M.GOD_NARGUN]="der Gott des Chaos";
-    [M.GOD_OLDRA]="die Göttin der Fruchtbarkeit und des Lebens";
-    [M.GOD_RONAGAN]="der Gott der Diebe und der Schatten";
-    [M.GOD_SIRANI]="die Göttin der Liebe und der Freude";
-    [M.GOD_ZHAMBRA]="der Gott der Freundschaft und Treue";
-}
-
+--]]
 return M
