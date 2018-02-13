@@ -209,7 +209,7 @@ local function doDevote(User, god)
     gods.setDevoted(User, god)
 end
 
-local function confirmDevote(User, god)
+local function devotionDialog(User, god)
     local explanation = ""
     if gods.isDevoted(User, god) then
         User:inform("[ERROR] Devotion confirmation for same god. Please inform a developer.")
@@ -240,17 +240,30 @@ local function confirmDevote(User, god)
     end
 end
 
-local function pray(User, god)
-    common.TalkNLS(User, Character.say , "#me FIXME", "#me FIXME prays to " .. gods.GOD_NAME_EN[god])
-    -- FIXME adjust numbers when favour is implemented
-    -- TODO cooldown
-    gods.increaseFavour(User, 20)
+
+local function doDonate(User, god, scrItem)
+    local favourBonus = 0
+    common.InformNLS(User, "FIXME", "FIXME you donate " .. scrItem.number .. " items with id " .. scrItem.id .. " and gain " .. favourBonus .. "favour")
+
 end
 
-
-local function donate(User, god)
+local function donationDialog(User, god)
     -- FIXME
     User:inform("FIXME not implemented")
+    if true then
+        return
+    end
+    local function callback(dialog)
+        local result = dialog:getResult()
+        if result == MerchantDialog.playerSells then
+            doDonate(User, god, dialog:getSaleItem())
+        end
+    end
+
+    local dialog = MerchantDialog(common.GetNLS(User, "FIXME", "FIXME Sacrifise to " .. gods.GOD_NAME_EN[god]), callback)
+    dialog:addPrimaryRequest(2551, "Pure something", 666)
+    dialog:addSecondaryRequest(2, "Whole wheat flour", 1)
+    User:requestMerchantDialog(dialog)
 end
 
 local function defile(User, god)
@@ -267,7 +280,7 @@ local function defile(User, god)
         favour_penalty = 100
     end
     -- TODO cooldown
-    gods.increaseFavour(User, -favour_penalty)
+    gods.increaseFavour(User, god, -favour_penalty)
 end
 
 local function becomePriest(User, god)
@@ -278,6 +291,16 @@ end
 local function performService(User, god)
     -- TODO priest magic
     common.TalkNLS(User, Character.say , "#me FIXME", "#me FIXME performs a service in honor of " .. gods.GOD_NAME_EN[god])
+
+    -- FIXME this is just for debug
+    local function cb(dia)
+        if (dia:getSuccess()) then
+            local multiplier = tonumber(dia:getInput())
+            multiplier = multiplier or 0
+            gods.favourDecay(User, multiplier)
+        end
+    end
+    User:requestInputDialog(InputDialog("Decay", "Multiplier:", false, 10, cb))
 end
 
 
@@ -370,6 +393,11 @@ function M.UseItem(User, SourceItem, ltstate)
         return
     end
 
+    if not gods.validate(User) then
+        -- gods-related data is corrupted
+        return
+    end
+
     local god = tonumber(SourceItem:getData("god"))
 
     if god == nil then
@@ -390,8 +418,8 @@ function M.UseItem(User, SourceItem, ltstate)
         )
         local dialogOptions = {
             -- TODO icons
-            { icon = 1060, text = "Pray",   func = pray,          args = { User, god } }, -- 128 - book as in quest, 1060/1061/1089 - open book?
-            { icon = 2831, text = "Donate",   func = donate,          args = { User, god } }, -- 1367 - tresure chest, 2830 - mysterious chest, 2831 - open chest
+            { icon = 1060, text = "Pray",   func = gods.pray,          args = { User, god } }, -- 128 - book as in quest, 1060/1061/1089 - open book?
+            { icon = 2831, text = "Donate",   func = donationDialog,          args = { User, god } }, -- 1367 - tresure chest, 2830 - mysterious chest, 2831 - open chest
             { icon = 372, text = "Defile", func = defile,        args = { User, god } }, -- 157 - rotten bark, 26 - clay, 2038/2039 - skull, 3101/3102 - blood, 372 - poison cloud
         }
         if gods.isPriest(User, god) then
@@ -406,7 +434,7 @@ function M.UseItem(User, SourceItem, ltstate)
             end
         else
             table.insert(dialogOptions,
-                { icon = 467, text = "Devote yourself", func = confirmDevote, args = { User, god } } -- 467 - light
+                { icon = 467, text = "Devote yourself", func = devotionDialog, args = { User, god } } -- 467 - light
             )
         end
 

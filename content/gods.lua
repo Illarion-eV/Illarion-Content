@@ -18,10 +18,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 --Overview of queststatus:
 --401 contains the ID of the god the character is devoted to
 --402 contains the ID of the god the character is a priest of. MUST be equal to 401 or 0.
-
+--403-418 contains favour (as signed int) of the corresponding god.
 
 local common = require("base.common")
 local globalvar = require("base.globalvar")
+local math = require("math")
 
 --TODO move to a separate file
 ---
@@ -47,6 +48,42 @@ local function setUnion(a, b)
     return s
 end
 
+--- Sample from categorical distribution, e.g. rolling an N-sided die
+-- @param cumulativeProb - array of legth N - cumulative sum of probabilities
+--          should be monotonic non-decreasing, first element is the probability of first category
+--          every other element is sum of previous element and probability of current category
+--          last element should be 1
+-- @return int - the index of category that won
+--
+local function randomCategorical(cumulativeProb)
+    local r = math.random()
+    local category
+    for i,v in ipairs(cumulativeProb) do
+        if r <= v then
+            category = i
+            break
+        end
+    end
+    assert(category, "Failed sampling categorical distribution, last cumulativeProbability was " .. cumulativeProb[#cumulativeProb])
+    return category
+end
+
+--- Sample from multinomial distribution, i.e. repeated categorical trials
+-- @param numTrials - number of categorical trials to simulate. Sum of values in returned array will be equal to this.
+-- @param cumulativeProb - cumulative sum of probabilities, same as in randomCategorical function
+-- @return array of integers - number of times each category won
+--
+local function randomMultinomial(numTrials, cumulativeProb)
+    local result = {}
+    for i = 1, #cumulativeProb do
+        result[i] = 0
+    end
+    for _ = 1, numTrials do
+        local category = randomCategorical(cumulativeProb)
+        result[category] = result[category] + 1
+    end
+    return result
+end
 
 local M = {}
 
@@ -72,7 +109,7 @@ M.GOD_THEDEVS  = 99
 
 
 M._YOUNGER_GODS_LIST = {M.GOD_NARGUN,M.GOD_ELARA,M.GOD_ADRON,M.GOD_OLDRA,M.GOD_CHERGA,M.GOD_MALACHIN,
-            M.GOD_IRMOROM,M.GOD_SIRANI,M.GOD_ZHAMBRA,M.GOD_RONAGAN,M.GOD_MOSHRAN,M.GOD_THEFIVE};
+            M.GOD_IRMOROM,M.GOD_SIRANI,M.GOD_ZHAMBRA,M.GOD_RONAGAN,M.GOD_MOSHRAN};
 M._ELDER_GODS_LIST = {M.GOD_USHARA, M.GOD_BRAGON, M.GOD_ELDAN, M.GOD_TANORA, M.GOD_FINDARI}
 
 M.YOUNGER_GODS = set(M._YOUNGER_GODS_LIST)
@@ -81,6 +118,39 @@ M.GODS = setUnion(M.ELDER_GODS, M.YOUNGER_GODS)
 
 M.RESPECTED_GODS = setUnion(M.ELDER_GODS, M.YOUNGER_GODS)  -- copy of M.GODS
 M.RESPECTED_GODS[M.GOD_MOSHRAN] = nil  -- ban Moshran
+
+--- A 2D array of probabilities (from 0 to 1) for jealosusy between young gods.
+-- A[i][j] is probability that god j compensates favour change of god i.
+-- Aech row in the matrix should sum up to 1 (in latex: \forall i: \sum_{j}A[i][j] = 1 ).
+-- Each column doesn't have to sum up to 1, the higher value means god j is more "jealous" / affected by others.
+M._JEALOUSY_PROBABILITY = {
+    --                 1:NARGUN,   3:ADRON,    5:CHERGA,   7:IRMOROM,  9:ZHAMBRA,  11:MOSHRAN,
+    --                       2:ELARA,    4:OLDRA,    6:MALACHIN, 8:SIRANI,   10:RONAGAN,
+    --[[ 1:NARGUN  ]] {0.00, 0.14, 0.09, 0.12, 0.07, 0.13, 0.07, 0.11, 0.11, 0.07, 0.09},
+    --[[ 2:ELARA   ]] {0.14, 0.00, 0.07, 0.07, 0.07, 0.10, 0.09, 0.12, 0.10, 0.11, 0.13},
+    --[[ 3:ADRON   ]] {0.08, 0.07, 0.00, 0.07, 0.07, 0.12, 0.10, 0.10, 0.11, 0.14, 0.14},
+    --[[ 4:OLDRA   ]] {0.10, 0.07, 0.07, 0.00, 0.12, 0.09, 0.09, 0.08, 0.10, 0.14, 0.14},
+    --[[ 5:CHERGA  ]] {0.07, 0.11, 0.11, 0.13, 0.00, 0.11, 0.09, 0.10, 0.11, 0.09, 0.08},
+    --[[ 6:MALACHIN]] {0.14, 0.10, 0.09, 0.10, 0.07, 0.00, 0.08, 0.07, 0.07, 0.13, 0.15},
+    --[[ 7:IRMOROM ]] {0.07, 0.12, 0.11, 0.11, 0.07, 0.10, 0.00, 0.12, 0.10, 0.07, 0.13},
+    --[[ 8:SIRANI  ]] {0.10, 0.11, 0.11, 0.07, 0.07, 0.07, 0.12, 0.00, 0.07, 0.14, 0.14},
+    --[[ 9:ZHAMBRA ]] {0.12, 0.11, 0.10, 0.11, 0.07, 0.07, 0.07, 0.08, 0.00, 0.12, 0.15},
+    --[[10:RONAGAN ]] {0.07, 0.11, 0.10, 0.11, 0.07, 0.14, 0.07, 0.12, 0.11, 0.00, 0.10},
+    --[[11:MOSHRAN ]] {0.06, 0.11, 0.10, 0.11, 0.07, 0.12, 0.12, 0.10, 0.12, 0.09, 0.00}
+}
+
+--process the probability matrix
+M._JEALOUSY_CUMULATIVE_PROBABILITY = {}
+for i,row in ipairs(M._JEALOUSY_PROBABILITY) do
+    M._JEALOUSY_CUMULATIVE_PROBABILITY[i] = {}
+    local cumsum = 0
+    for j, val in ipairs(row) do
+        cumsum = cumsum + val
+        M._JEALOUSY_CUMULATIVE_PROBABILITY[i][j] = cumsum
+    end
+    assert(math.abs(cumsum-1)<0.0001, "Jealousy probability doesn't sum to 1 in row " .. i)
+    M._JEALOUSY_CUMULATIVE_PROBABILITY[i][#row] = 1 -- to ensure it's never slightly below, like 0.99999
+end
 
 
 M.GOD_NAME_EN = {
@@ -278,36 +348,150 @@ end
 -- Check favour of a god
 -- @param User the char to check
 -- @param god a god (one of gods.GODS)
+-- @return signed int - the favour
 function M.getFavour(User, god)
-    -- FIXME
-    return 600
+    return User:getQuestProgress(402+god)
 end
 
 ---
--- Change favour of a god
---
+-- Change favour of a god for specific character
+-- @param User the char
+-- @param god a god (one of gods.GODS)
+-- @param amount the change magnitude (an int, may be negative)
 function M.increaseFavour(User, god, amount)
-    -- FIXME change given god's favour. If young god, compensate from other gods based on probability table
+    if not M.GODS[god] then
+        User:inform("[ERROR] Favour change for invalid god. Please inform a developer.");
+        return
+    end
+    if amount==0 then
+        return
+    end
+
+    if not M.YOUNGER_GODS[god] then
+        -- For elder gods favour simply changes
+        User:setQuestProgress(402+god, User:getQuestProgress(402+god) + amount)
+        return
+    end
+
+    -- Young gods are jealous. Their favour always has zero sum.
+    local youngGodIdx = god - M.GOD_NARGUN + 1
+    assert(M._YOUNGER_GODS_LIST[youngGodIdx]==god)
+    local jealosySign = (amount < 0 and 1) or -1
+    local absAmount = math.abs(amount)
+    local changes = {}
+    -- randomly distribute the change between other gods
+    for i,v in ipairs(randomMultinomial(absAmount, M._JEALOUSY_CUMULATIVE_PROBABILITY[youngGodIdx])) do
+        -- translate from young god index to regular god enum and apply the correct directon of change
+        changes[M._YOUNGER_GODS_LIST[i]] = jealosySign * v
+    end
+    assert(changes[god] == 0, "Gods shouldn't be jealous to themselves")
+    changes[god]=amount
+    local checkSum = 0
+    for _, favourChange in pairs(changes) do
+        checkSum = checkSum + favourChange
+    end
+    assert(checkSum == 0, "Jealousy check sum was " .. checkSum .. " instead of 0")
+
+    -- apply the change
+    for iGod, favourChange in pairs(changes) do
+        --User:inform(M.GOD_NAME_EN[iGod] .. " favour change: " .. favourChange)
+        User:setQuestProgress(402+ iGod, User:getQuestProgress(402+ iGod) + favourChange)
+    end
+
     return
+end
+
+---
+-- Change favour of all gods towards 0 for specific character. A function should be called periodically.
+-- @param User the char
+-- @param multiplier the change magnitude as a float. 0 means no change. 1 means everything becomes 0.
+function M.favourDecay(User, multiplier)
+    local changes = {}
+    -- start by applying the multiplier and rounding
+    for iGod,_ in pairs(M.GODS) do
+        local oldFavour = User:getQuestProgress(402 + iGod)
+        User:inform(M.GOD_NAME_EN[iGod] .. " mult " .. multiplier .. " oldfav " .. oldFavour .. " " ..
+                (oldFavour * multiplier) .. " " ..
+                (oldFavour * multiplier + 0.5) .. " " ..
+                math.floor(oldFavour * multiplier + 0.5)
+        )
+        changes[iGod] = -1 * math.floor(oldFavour * multiplier + 0.5)
+    end
+    -- for younger gods we should preserve zero sum
+    -- we randomly (uniformly) distribute the unbalanced part between all younger gods
+    local unbalancedAmount = 0
+    for iGod,_ in pairs(M.YOUNGER_GODS) do
+        unbalancedAmount = unbalancedAmount - changes[iGod]
+    end
+    local unbalancedSign = (unbalancedAmount < 0 and -1) or 1
+    local absUnbalancedAmount = math.abs(unbalancedAmount)
+    User:inform(unbalancedAmount .. " " .. unbalancedSign .. " " .. absUnbalancedAmount)
+    for _=1, absUnbalancedAmount do
+        --choose a god randomly
+        local rand_god = math.random(#M._YOUNGER_GODS_LIST)
+        -- translate from young god index to regular god enum and apply the correct directon of change
+        changes[M._YOUNGER_GODS_LIST[rand_god]] = changes[M._YOUNGER_GODS_LIST[rand_god]] + unbalancedSign
+    end
+    local checkSum = 0
+    for iGod,_ in pairs(M.YOUNGER_GODS) do
+        checkSum = checkSum - changes[iGod]
+    end
+    assert(checkSum ==0, "Jealousy check sum was " .. checkSum .. " instead of 0")
+
+    -- apply the change
+    for iGod, favourChange in pairs(changes) do
+        User:inform(M.GOD_NAME_EN[iGod] .. " favour change: " .. favourChange)
+        User:setQuestProgress(402+ iGod, User:getQuestProgress(402+ iGod) + favourChange)
+    end
+
+end
+
+
+function M.pray(User, god)
+    common.TalkNLS(User, Character.say , "#me FIXME", "#me FIXME prays to " .. M.GOD_NAME_EN[god])
+    -- FIXME adjust numbers when favour is implemented
+    -- TODO cooldown
+    M.increaseFavour(User, god, 20)
 end
 
 
 ---
 -- Check that all god-related variables of a char are consistent
+-- @return boolean, true means everything is consistent
 function M.validate(User)
---[[
---            --Check for corrupted status
-            if priesthood ~= 0 and devotion ~= priesthood and User:getMagicType() == 1 then --Error! The character is a priest, but not a priest of "his" god!
-                common.InformNLS(User, "[Fehler] Bitte informiere einen Entwickler. Der Priesterstatus deines Charakters ist fehlerhaft.", "[Error] Please inform a developer, the priest status of your character is flawed.");
-                return; --bailing out
-            end
-            --Error! The character is not a priest, but has a priest quest status! Or player uses priest magic but has no dedicated god!
-            if (priesthood ~= 0 and User:getMagicType() ~= 1) or (priesthood == 0 and User:getMagicType() == 1) then
-                common.InformNLS(User, "[Fehler] Bitte informiere einen Entwickler. Der Priesterstatus deines Charakters ist fehlerhaft.", "[Error] Please inform a developer, the priest status of your character is flawed.");
-                return; --bailing out
-            end
+    local devotionGod = User:getQuestProgress(401)
+    local priesthoodGod = User:getQuestProgress(402)
 
- ]]
+    -- Check questprogress has valid values
+    if devotionGod ~= M.GOD_NONE and not M.GODS[devotionGod] then
+        User:inform("[ERROR] Devotion to illegal god (" .. devotionGod .. "). Please inform a developer.")
+        return false
+    end
+    if priesthoodGod ~= M.GOD_NONE and priesthoodGod ~= devotionGod then
+        User:inform("[ERROR] Priesthood to wrong god (" .. priesthoodGod .. " instead of " .. devotionGod .. "). Please inform a developer.")
+        return false
+    end
+
+    -- Check piest magic type
+    if priesthoodGod ~= M.GOD_NONE and User:getMagicType() ~= 1 then
+        User:inform("[ERROR] Priesthood with wrong magic type (" .. User:getMagicType() .. "). Please inform a developer.")
+        return false
+    end
+    -- It is allowed to have User:getMagicType() == 1 with priesthoodGod==M.GOD_NONE. This means a char is an ex-priest (e.g. a priest that lost favour and was deprived of his status
+
+    -- TODO check favour is inside limits
+
+    -- Check favour of younger gods has zero sum
+    local checkSum = 0
+    for iGod,_ in pairs(M.YOUNGER_GODS) do
+        checkSum = checkSum + M.getFavour(User, iGod)
+    end
+    if (checkSum~=0) then
+        User:inform("[ERROR] Favour of younger gods has non-zero sum (" .. checkSum .. "). Please inform a developer.")
+        return false
+    end
+
+    return true
 end
 
 M.ITEMS_DEVOTION = {
