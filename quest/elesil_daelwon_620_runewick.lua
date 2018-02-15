@@ -32,14 +32,13 @@ Title[ENGLISH] = "Find Numila Irunnleh in Runewick"
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Finde Numila Irunnleh in Runewick and sprich mit ihr."
-Description[ENGLISH][1] = "Find Numila Irunnleh in Runewick and talk to her."
-Description[GERMAN][2] = "Du hast Numila gefunden. Wenn du möchtest, kannst du nun mit ihr sprechen. Frage nach 'Hilfe' wenn du nicht weißt, wonach du fragen sollst!\nSie kann dir einiges über die südöstliche Karte von Illarion verraten."
-Description[ENGLISH][2] = "You have found Numila. If you like, you can talk with her now. Ask for 'help' if you do not know what to say!\nShe can provide you with information about the south-eastern part of Illarion."
+Description[GERMAN][1] = "Finde Numila Irunnleh in Runewick and befrag sie wegen der verschiedenen Verfassungen."
+Description[ENGLISH][1] = "Find Numila Irunnleh in Runewick and ask her about the different constitutions."
+
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-local Start = {894, 817, 0}
+local Start = {961, 784, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there

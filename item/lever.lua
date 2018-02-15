@@ -37,6 +37,7 @@ local eraseplayeritem = require("handler.eraseplayeritem")
 local createplayeritem = require("handler.createplayeritem")
 local evilrock = require("triggerfield.evilrock")
 local oldSlimeFeeding = require("content.oldSlimeFeeding")
+local volcano_chest = require("triggerfield.volcano_chest")
 
 local M = {}
 
@@ -314,10 +315,13 @@ function M.init()
     AddToLevers(ThroneRoom)
 end
 
-function M.UseItem(User, SourceItem)
+function M.UseItem(User, SourceItem, ltstate)
     
     if SourceItem:getData("oldSlimeFeeding") == "true" then
         oldSlimeFeeding.useLever(User, SourceItem)
+    end
+    if SourceItem:getData("volcanoTreasure") == "true" then
+        volcano_chest.useLever(User, SourceItem)
     end
 
     local key = SourceItem.pos.x * 1024 * 1024 + SourceItem.pos.y * 1024 + SourceItem.pos.z

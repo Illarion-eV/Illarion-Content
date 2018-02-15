@@ -68,8 +68,7 @@ Description[GERMAN][16] = "Gratulation, du bist nun ein wahrer Groﬂmeister der k
 Description[ENGLISH][16] = "Congratulations, you are now a true Grandmaster of the Royal Tailors of Cadomyr."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {135, 576, 0}
-
+local Start = {135, 576, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}

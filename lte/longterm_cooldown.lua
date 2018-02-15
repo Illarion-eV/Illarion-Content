@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- Longterm Cooldown
 -- by Estralis
--- EffectID = 33;
+-- EffectID = 33
 
 local common = require("base.common")
 
@@ -46,6 +46,16 @@ local function cooldownQuest(Character,QuestID) -- cool down quest ID by 1 every
     theQuestStatus=Character:getQuestProgress(QuestID)
     if theQuestStatus > 0 then --cool down ends at 0
         Character:setQuestProgress(QuestID,theQuestStatus-1) --cooling 5 minutes!
+    end
+end
+
+local function cooldownQuestInform(Character,QuestID,endTextDe,endTextEn) -- cool down quest ID by 1 every 5 minutes
+    theQuestStatus=Character:getQuestProgress(QuestID)
+    if theQuestStatus > 0 then --cool down ends at 0
+        Character:setQuestProgress(QuestID,theQuestStatus-1) --cooling 5 minutes!
+        if theQuestStatus == 1 and common.IsNilOrEmpty(endTextDe) == false and  common.IsNilOrEmpty(endTextEn) == false then
+            common.InformNLS(Character,endTextDe,endTextEn)
+        end
     end
 end
 
@@ -270,6 +280,12 @@ function M.callEffect( Effect, Char ) -- Effect is called
             Char:setQuestProgress(561,theQuestStatus-1) --cooling!
         end
         --Addition end
+        
+        --Counter of activity of new chars for Newbie helper
+        if Char:isNewPlayer() then
+            theQuestStatus=Char:getQuestProgress(852)
+            Char:setQuestProgress(852,theQuestStatus+5)
+        end
 
     end --all above is only conducted for players that aren't afk for more than five minutes
 
@@ -483,20 +499,11 @@ function M.callEffect( Effect, Char ) -- Effect is called
     --Addition end
 
     --Addition by Evie: Quest 561 Fox Den Feeding Cooldown
-    theQuestStatus=Char:getQuestProgress(561)
-
-    if theQuestStatus == 1 then --Time over!
-
-        common.InformNLS(Char,"Es ist einige Zeit vergangen. Die kleinen Füchse haben wieder Hunger.","Enough time has passed that the fox pups are hungry again.") -- Feedback!  Time to feed the Pups again.
-        Char:setQuestProgress(559,0)
-        
-    end
-
-    if theQuestStatus > 0 then --Is there a countdown? Will be reduced even if the player is AFK/idle
-        Char:setQuestProgress(561,theQuestStatus-1) --counting down!
-
-    end
+    cooldownQuestInform(Char,561,
+                        "Es ist einige Zeit vergangen. Die kleinen Füchse haben wieder Hunger.",
+                        "Enough time has passed that the fox pups are hungry again.")
     --Addition end
+    
     --Addition by Evie: Quest 119/159/120 Cadmoyr Stockup Anthar Vilicon
     theQuestStatus=Char:getQuestProgress(159)
 
@@ -590,33 +597,50 @@ function M.callEffect( Effect, Char ) -- Effect is called
     end
     --Addition end
 
-    --Addition by Banduk: Quest 36,298,299,300 - GM capability for all
-    cooldownQuestNoGM(Char,36,"[Info] Die Monster erheben wieder ihre Waffen gegen dich.","[Info] The monsters raise their weapons against you again.")
+    --Addition by Banduk: Quest 236,298,299,300 - GM capability for all
+    cooldownQuestNoGM(Char,236,"[Info] Die Monster erheben wieder ihre Waffen gegen dich.","[Info] The monsters raise their weapons against you again.")
     cooldownQuestNoGM(Char,298,"[Info] Flammen werden dir wieder etwas anhaben.","[Info] Flames will hurt you again.")
     cooldownQuestNoGM(Char,299,"[Info] Eisflammen werden dir wieder etwas anhaben.","[Info] Ice flames will hurt you again.")
     cooldownQuestNoGM(Char,300,"[Info] Giftwolken werden dir wieder etwas anhaben.","[Info] Poison clouds will hurt you again.")
+
+    --Addition by Banduk: Hairdresser
+    -- fresh hair from hairdresser
+    cooldownQuestInform(Char,229,"[Info] Deine Frisur sieht nicht mehr wie neu aus.","[Info] Your haircut no longer looks brand new.")
+    cooldownQuestInform(Char,230,"[Info] Dein Kamm glänzt nicht mehr wie frisch poliert.","[Info] The polished shine of your comb wears off.")
+    -- hairdresser not paid, remaining time to pay
+    cooldownQuest(Char,232)
+
+    --Addition by Banduk: Prevent removing all glyph forges at once
+    cooldownQuest(Char,562)
+    --Addition by Banduk: wait until next learn by searching a forge
+    cooldownQuest(Char,563)
     
     --Rule compliance detection
     if not storedMessage then storedMessage={} end
-    if not storedPosition then storedPosition={} end
-    if not playerCount then playerCount={} end
-    if not playerCount[Char.id] then playerCount[Char.id] = 0 end
+    local players = world:getPlayersOnline()
+    local counter = Char:getQuestProgress(47)
+    mypos=position(Char:getQuestProgress(48) or Char.pos.x, Char:getQuestProgress(49) or Char.pos.y, Char:getQuestProgress(50) or Char.pos.z)
     
-    if storedMessage[Char.id] == Char.lastSpokenText and Char:isInRangeToPosition(storedPosition[Char.id],3) and Char:idleTime() < 300 and not Char:isAdmin() then
+    if storedMessage[Char.id] == Char.lastSpokenText and common.isInRect(Char.pos, mypos, 3) and Char:idleTime() < 300 and #players > 1 then
 
-        playerCount[Char.id] = playerCount[Char.id]+1
-        log(string.format("[Idle] %s is idle. idleTime = %d, count = %d.", Char.name, Char:idleTime(), playerCount[Char.id]))
+        Char:setQuestProgress(47,counter+1)
+   
+    elseif storedMessage[Char.id] ~= Char.lastSpokenText or not common.isInRect(Char.pos, mypos, 3) then
+    
+        Char:setQuestProgress(47,0)
+    
+    else
+    
+        Char:setQuestProgress(47,counter)
         
-        if math.floor(playerCount[Char.id]/12) == playerCount[Char.id]/12 then --Once an hour
-            Char:pageGM("Idle check necessary. idleTime = "..Char:idleTime()..", count = "..playerCount[Char.id]..".")
-            common.InformNLS(Char,"[Erinnerung] Denke bitte daran, dass bei Illarion ein Hauptziel die Interaktion mit anderen Spielern ist.","[Reminder] Keep in mind Illarion is about interacting with other players. ") --sending a message
-        end
     end
     
-    storedMessage[Char.id] = Char.lastSpokenText;
-    storedPosition[Char.id] = Char.pos;
-    Effect.nextCalled = 3000 --Effect gets called each 5 minutes
+    storedMessage[Char.id] = Char.lastSpokenText
+    Char:setQuestProgress(48,Char.pos.x)
+    Char:setQuestProgress(49,Char.pos.y)
+    Char:setQuestProgress(50,Char.pos.z)
 
+    Effect.nextCalled = 3000 --Effect gets called each 5 minutes
     return true
 
 end

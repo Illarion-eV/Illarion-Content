@@ -45,7 +45,7 @@ function M.learn(user, skill, actionPoints, learnLimit)
     local leadAttrib = common.GetLeadAttrib(user, skill) --reading the lead attribute
     local skillValue = user:getSkill(skill) --reading the skill points
     local minorSkill = user:getMinorSkill(skill) --reading the minor skill points; 10000=1 skill point
-    local MCvalue = math.max(lowerBorder, user:getMentalCapacity()) --below 0.5% of time spent online, no additional bonus is granted
+    local MCvalue = math.max(lowerBorder, user:getMentalCapacity()) --below 2.5% of time spent online, no additional bonus is granted
 
     if skillValue < learnLimit and skillValue < 100 then --you only learn when your skill is lower than the skill of the learnLimit and your skill is <100
 
@@ -74,17 +74,23 @@ function M.learn(user, skill, actionPoints, learnLimit)
                     user:increaseMinorSkill(skill, realIncrease)
 
                 else --Level up!
+                
                     user:increaseMinorSkill(skill, realIncrease) --Increase the skill
-
+                    local skillstring = user:getSkillName(skill)
+                    
                     if user:getType() == 0 and user:getQuestProgress(154) ~= 1 then --Only players get an inform once
 
-                        local skillstring = user:getSkillName(skill)
-                        common.InformNLS(user, "[Levelaufstieg] Deine Fertigkeit '"..skillstring.."' hat sich soeben erhöht. Drücke 'C' um deine Fertigkeiten anzeigen zu lassen. Denke daran, dass es nicht nötig ist, ununterbrochen zu arbeiten, um schneller in Fertigkeiten aufzusteigen.", "[Level up] Your skill '"..skillstring.."' just increased. Hit 'C' to review your skills. Keep in mind that it is not necessary to work continously without rest to advance faster in skills.")
+                        local callbackSkill = function() end --empty callback
+                        local dialogTitle = common.GetNLS(user,"Levelaufstieg", "Level up")
+                        local dialogText = common.GetNLS(user,
+                        "Deine Fertigkeit '"..skillstring.."' hat sich soeben erhöht. Drücke 'C' um deine Fertigkeiten anzeigen zu lassen. Das Fähigkeitensystem Illarions basiert auf 'Learning by doing'. Dein Charakter wird also besser in dem, was er tut. Dein Charakter kann mit der Zeit von einem Anfänger im Handwerk zu einem Meister werden, wodurch er dann eine größere Vielfalt von Gegenständen besserer Qualität herstellen kann.\n\nJe mehr Handlungen du pro Zeit ausführst desto weniger lernst du von jeder Handlung. Unter dem Strich lernt aber jeder Charakter gleich viel über die Zeit. Du kannst also so viel Zeit in Rollenspiel oder Training stecken wie du möchtest, ohne dass eine Art Illarion zu spielen bevorzugt wird.",
+                        "Your skill '"..skillstring.."' just increased. Hit 'C' to review your skills. Illarion's skill system is based on 'learning by doing'. As your character practices certain actions, they begin to improve. Over time your character may develop from an apprentice crafter to a master, allowing him/her to create a larger variety of items at a higher quality.\n\nThe more actions you do over time, the less you learn from each action. This way, it is on you how much time you want to invest on training your skills, the result after a given time will be the same. So you can roleplay or train as much as you want without one style of playing being favoured by the game.")
+                        local dialogSkill = MessageDialog(dialogTitle, dialogText, callbackSkill)
+                        user:requestMessageDialog(dialogSkill)
                         user:setQuestProgress(154, 1) --Remember that we already informed the player
-
+            
                     elseif user:getType() == 0 then
 
-                        local skillstring = user:getSkillName(skill)
                         common.TempInformNLS(user, skillstring.." +1", skillstring.." +1")
 
                     end
@@ -95,28 +101,28 @@ function M.learn(user, skill, actionPoints, learnLimit)
             end
 
             user:increaseMentalCapacity(amplification * actionPoints)
+            user:setQuestProgress(47,0)
     end
 end
-
 
 -- invoked every 10 s on every user; to be used to reduce MC on a regular basis
 -- user:idleTime() can be used to get the number of seconds a user has been idle to check for inactivity
 
 function M.reduceMC(user)
 
-    if user:idleTime() < 300 then --Has the user done any action or spoken anything within the last five minutes?
+    if user:idleTime() < 300 and user:getQuestProgress(47) < 12 then --Has the user done any action within the last five minutes?
     
         user:increaseMentalCapacity(-1 * math.floor(user:getMentalCapacity() * damping + 0.5)) --reduce MC-points by 0.01 %, rounded correctly.
-        currentMC = user:getMentalCapacity()
+        local currentMC = user:getMentalCapacity()
         
         if currentMC < ((0.5/damping)-1) then --Mental Capacity cannot drop below 4999 -> Bugged player or cheater
             user:inform("Invalid mental capacity value found: "..currentMC..". Please inform a developer.")
             user:increaseMentalCapacity(normalMC-currentMC) --Reset to default value
         end
     
-        --For debugging, use the following line.
-        --user:inform("MC="..currentMC..", idleTime="..user:idleTime()..", MCfactor="..normalMC / math.max(lowerBorder, user:getMentalCapacity())..".");
     end
+    --For debugging, use the following line.
+    --user:inform("MC="..user:getMentalCapacity()..", idleTime="..user:idleTime()..", MCfactor="..normalMC / math.max(lowerBorder, user:getMentalCapacity())..", Counter="..user:getQuestProgress(47)..".")
 end
 
 return M

@@ -20,10 +20,12 @@ local common = require("base.common")
 local factions = require("base.factions")
 local money = require("base.money")
 local townTreasure = require("base.townTreasure")
-local gems = require("item.gems")
+local gems = require("base.gems")
 local factionLeader = require("scheduled.factionLeader")
 local skillTransfer = require("base.skillTransfer")
-
+local areas = require("content.areas")
+local hairdresser = require("npc.hairdresser")
+local seafaring = require("base.seafaring")
 -- Called after every player login
 
 local M = {}
@@ -230,7 +232,7 @@ local payNow
 function M.onLogin( player )
 
     skillTransfer.setQuestStatusForNoSkillChars(player)
-    
+
     welcomeNewPlayer(player)
 
     world:gfx(31, player.pos) --A GFX that announces clearly: A player logged in.
@@ -300,6 +302,15 @@ function M.onLogin( player )
     --A hack to display bars correctly
     player:increaseAttrib("foodlevel", -1)
 
+    --hair messages
+    hairdresser.hairOnLogin(player)
+
+    --on ferry
+    seafaring.login(player)
+
+    --gem conversion
+    gems.convertOldGems(player)
+
     --Check regeneration script
     local found = player.effects:find(2)
     if not found then
@@ -315,14 +326,15 @@ end
 
 function showNewbieDialog(player)
     skillTransfer.setNewbieQuestStatus(player)
-    
+
     local getText = function(deText,enText) return common.GetNLS(player, deText, enText) end
 
     local callbackNewbie = function(dialogNewbie) --start callback of Newbie Dialog
         local callbackSkip = function(dialogSkip) --start of callback of skipping dialog
             local dialogPostSkip
-            local success = dialogSkip:getSuccess()
-            if success and dialogSkip:getSelectedIndex()==1 then --skipping
+            local callbackPostSkip = function (dialogPostSkip) end --empty callback
+
+            if dialogSkip:getSuccess() and dialogSkip:getSelectedIndex()==1 then --skipping
                 player:warp(position(36, 97, 100))
                 world:gfx(46, player.pos)
                 if player:getPlayerLanguage() == 0 then --skip message
@@ -339,8 +351,6 @@ function showNewbieDialog(player)
                 end
             end
 
-            local callbackPostSkip = function (dialogPostSkip) end --empty callback
-
             player:requestMessageDialog(dialogPostSkip) --showing the text after skipping dialog
 
         end --end of callback of skip dialog
@@ -354,12 +364,51 @@ function showNewbieDialog(player)
 
     local dialogNewbie
     if player:getPlayerLanguage() == 0 then
-        dialogNewbie = MessageDialog("Willkommen zu Illarion!", "Eine lange Reise nähert sich ihrem Ende. Du gehst von Bord des Schiffes und hast endlich wieder festen Boden unter den Füßen. In diesem Land wirst du vor eine Entscheidung gestellt, die wohl die wichtigste deines Lebens sein wird.\nDas edle Cadomyr, das weise Runewick oder das reiche Galmair - welchen Weg wirst du einschlagen?\n\nWillkommen zu Illarion, dem kostenlosen Online-Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen.", callbackNewbie)
+        dialogNewbie = MessageDialog("Willkommen zu Illarion!", "Eine lange Reise nähert sich ihrem Ende. Du gehst von Bord des Schiffes und hast endlich wieder festen Boden unter den Füßen. In diesem Land wirst du vor eine Entscheidung gestellt, die wohl die wichtigste deines Lebens sein wird.\nDas edle Cadomyr, das weise Runewick oder das reiche Galmair - welchen Weg wirst du einschlagen?\n\nWillkommen zu Illarion, dem kostenlosen dem Open-Source MMORPG mit echtem Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen.", callbackNewbie)
     else
-        dialogNewbie = MessageDialog("Welcome to Illarion!", "A long, tiresome journey finally comes to an end. You disembark the ship and feel solid ground beneath your feet. In these lands, you will soon be faced with a choice, perhaps the most important of your entire life. Noble Cadomyr, wise Runewick, or wealthy Galmair - whose side shall you join?\n\nWelcome to Illarion, the free online roleplaying game. This tutorial will guide you through your first steps and teach you the controls of the game.", callbackNewbie)
+        dialogNewbie = MessageDialog("Welcome to Illarion!", "A long, tiresome journey finally comes to an end. You disembark the ship and feel solid ground beneath your feet. In these lands, you will soon be faced with a choice, perhaps the most important of your entire life. Noble Cadomyr, wise Runewick, or wealthy Galmair - whose side shall you join?\n\nWelcome to Illarion, the free open source MMORPG where true roleplaying is enforced. This tutorial will guide you through your first steps and teach you the controls of the game.", callbackNewbie)
     end
 
     player:requestMessageDialog(dialogNewbie) --showing the welcome text
+end
+
+local function jumpToNewPlayer(user, player)
+    if not isValidChar(player) then
+        common.InformNLS(user,"Der Character ist nicht mehr online.","This character is not online anymore.")
+        return
+    end
+    local playerPos = player.pos
+    if areas.PointInArea(playerPos,"Runewick") and not factions.isPlayerPermittedInTown(user,factions.runewick) then
+        common.InformNLS(user,"Dein Charakter darf Runewick nicht betreten. Du kannst hier nicht helfen.",
+                              "Your character is not permitted to enter Runewick. You cannot help.")
+        return
+    elseif areas.PointInArea(playerPos,"Cadomyr") and not factions.isPlayerPermittedInTown(user,factions.cadomyr) then
+        common.InformNLS(user,"Dein Charakter darf Cadomyr nicht betreten. Du kannst hier nicht helfen.",
+                              "Your character is not permitted to enter Cadomyr. You cannot help.")
+        return
+    elseif areas.PointInArea(playerPos,"Galmair") and not factions.isPlayerPermittedInTown(user,factions.galmair) then
+        common.InformNLS(user,"Dein Charakter darf Galmair nicht betreten. Du kannst hier nicht helfen.",
+                              "Your character is not permitted to enter Galmair. You cannot help.")
+        return
+    end
+    
+    local plyList = world:getPlayersInRangeOf(playerPos, 20)
+    local playerCount = 0
+    for i, player in pairs(plyList) do
+        if not player:isNewPlayer() then
+            playerCount = playerCount + 1
+        end
+    end
+    
+    if playerCount > 1 then
+        common.InformNLS(user,"Bei dem neuen Spielen sind bereits mindestens 2 Helfer.",
+                              "There are already 2 helper next to the new player.")
+    else
+        user:warp(player.pos)
+        world:gfx(46, player.pos)
+        user:setQuestProgress(850, user:getQuestProgress(850)+1)
+    end
+
 end
 
 function welcomeNewPlayer(player)
@@ -372,7 +421,7 @@ function welcomeNewPlayer(player)
     for i=1,#onlinePlayers do
         local user = onlinePlayers[i]
 
-        if not user:isNewPlayer() and user.pos.z ~= -40 then -- no new player and not in the prison mine
+        if not user:isNewPlayer() and not common.isInPrison(user.pos) then -- no new player and not in the prison mine
 
             if user:getQuestProgress(851) == 0 then
 
@@ -383,13 +432,7 @@ function welcomeNewPlayer(player)
                     if success then
                         local selected = dialog:getSelectedIndex()+1
                         if selected == 1 then
-                            if isValidChar(player) then
-                                user:warp(player.pos)
-                                world:gfx(46, player.pos)
-                                user:setQuestProgress(850, user:getQuestProgress(850)+1)
-                            else
-                                user:inform("This character is not online anymore.")
-                            end
+                            jumpToNewPlayer(user, player)
                         elseif selected == 2 then
                             -- nothing
                         elseif selected == 3 then
@@ -398,7 +441,39 @@ function welcomeNewPlayer(player)
                     end
                 end
 
-                local dialog = SelectionDialog(getText("Ein neuer Spieler!","A new player!"), getText("Ein neuer Spieler hat Illarion betreten! Möchtest du deine Hilfe anbieten?", "A new player has entered Illarion! Do you want to offer your help?"), callback)
+                local textUse = getText("Ein neuer Spieler hat Illarion betreten! Möchtest du deine Hilfe anbieten?\nEr befindet sich derzeit ",
+                                        "A new player has entered Illarion! Do you want to offer your help?\nHe is at the moment ")
+                local playerPos = player.pos
+                if common.isOnNoobia(playerPos) then
+                    textUse = textUse .. getText("auf Noobia.","on Noobia.")
+                elseif areas.PointInArea(playerPos,"Runewick") then
+                    textUse = textUse .. getText("in Runewick.","in Runewick.")
+                elseif areas.PointInArea(playerPos,"RunewickRegion") then
+                    textUse = textUse .. getText("nahe Runewicks.","close to Runewick.")
+                elseif areas.PointInArea(playerPos,"Cadomyr") then
+                    textUse = textUse .. getText("in Cadomyr.","in Cadomyr.")
+                elseif areas.PointInArea(playerPos,"CadomyrRegion") then
+                    textUse = textUse .. getText("nahe Cadomyrs.","close to Cadomyr.")
+                elseif areas.PointInArea(playerPos,"Galmair") then
+                    textUse = textUse .. getText("in Galmair.","in Galmair.")
+                elseif areas.PointInArea(playerPos,"GalmairRegion") then
+                    textUse = textUse .. getText("nahe Galmairs.","close to Galmair.")
+                else
+                    textUse = textUse .. getText("irgendwo in der Wildnis.","anywhere in the wilderness.")
+                end
+                local timeMinutes = player:getQuestProgress(852)
+                local timeHours = math.floor(tonumber(timeMinutes)/60)
+                if timeHours == 0 then
+                    textUse = textUse .. getText("\nDer Spieler ist noch keine Stunde online.","\nThe player has been online for less than an hour.")
+                elseif timeHours == 1 then
+                    textUse = textUse .. getText("\nDer Spieler war bereits über eine Stunde online.",
+                                                 "\nThe player has already been online for an hour.")
+                else
+                    textUse = textUse .. getText("\nDer Spieler war bereits " .. tostring(timeHours) .. " Stunden online.",
+                                                 "\nThe player was already online for " .. tostring(timeHours) .. " hours.")
+                end
+                
+                local dialog = SelectionDialog(getText("Ein neuer Spieler!","A new player!"), textUse, callback)
                 dialog:addOption(0, getText("Teleportier mich zu ihm. Ich will helfen!","Warp me to him, let me help!"))
                 dialog:addOption(0, getText("Nicht jetzt.", "Not now."))
                 dialog:addOption(0, getText("Nicht für diese Sitzung.","Not for this session."))
@@ -463,9 +538,24 @@ function receiveGems(gemRecipient)
 end
 
 -- transfer
+local function createMagicGem(gemId, gemAmount, Recipient)
+    local gemData = gems.getMagicGemData(1)
+    common.CreateItem(Recipient, gemId, gemAmount, 333, gemData)
+    local basename={}
+    basename=world:getItemName(gemId, Recipient:getPlayerLanguage())
+    if Recipient:getPlayerLanguage() == 0 then
+        basename = "Latent magischer " .. basename
+    else
+        basename = "Latent magical " .. basename
+    end
+    basename = "\n" .. tostring(gemAmount) .. " x " .. basename
+    return basename
+end
+
 function PayOutWage(Recipient, town)
     local totalTaxes = townTreasure.GetPaymentAmount(town)
     local totalPayers = townTreasure.GetTaxpayerNumber(town)
+
     local infText = ""
 
     if tonumber(totalPayers)>0 then
@@ -484,33 +574,24 @@ function PayOutWage(Recipient, town)
             else
                 local RankedWage=math.ceil(RecipientRk*baseWageUnit*0.5)
                 local endname=""
-                log(string.format("[gems] %s got %d magic gems from %s. Character's rank: %d",
-                    character.LogText(Recipient), RankedWage, town, RecipientRk))
-                while RankedWage>0 do
-                    local randomGem=Random.uniform(1,2)
-                    local maxGemLevel = math.floor(math.log(RankedWage)/math.log(3)) + 1
-                    local gemLevel= common.Limit(math.random(1,maxGemLevel), 1, 10)
 
-                    local gemsByTown={}
-                    gemsByTown["Cadomyr"]={gems.TOPAZ, gems.AMETHYST}
-                    gemsByTown["Runewick"]={gems.EMERALD, gems.RUBY}
-                    gemsByTown["Galmair"]={gems.SAPPHIRE, gems.OBSIDIAN}
-
-                    local gemId = gems.getMagicGemId(gemsByTown[town][randomGem])
-                    local gemData = gems.getMagicGemData(gemLevel)
-
-                    local basename={}
-                    basename=world:getItemName(gemId, Recipient:getPlayerLanguage())
-
-                    if Recipient:getPlayerLanguage() == 0 then
-                        basename = gems.gemPrefixDE[gemLevel] .. " magischer " .. basename
-                    else
-                        basename = gems.gemPrefixEN[gemLevel] .. " magical " .. basename
-                    end
-
-                    endname=endname.."\n"..basename
-                    common.CreateItem(Recipient, gemId, 1, 333, gemData)
-                    RankedWage=RankedWage-3^(gemLevel-1)
+                local firstGem = Random.uniform(0,RankedWage)
+                local secondGem = RankedWage - firstGem
+                local gemsByTown={}
+                      gemsByTown["Cadomyr"]={gems.TOPAZ, gems.AMETHYST}
+                      gemsByTown["Runewick"]={gems.EMERALD, gems.RUBY}
+                      gemsByTown["Galmair"]={gems.SAPPHIRE, gems.OBSIDIAN}
+                local firstGemId = gems.getMagicGemId(gemsByTown[town][1])
+                local secondGemId = gems.getMagicGemId(gemsByTown[town][2])
+                
+                log(string.format("[gems] %s got %d (%d,%d) magic gems from %s. Character's rank: %d",
+                    character.LogText(Recipient), RankedWage, firstGem, secondGem, town, RecipientRk))
+                
+                if firstGem > 0 then
+                    endname = endname .. createMagicGem(firstGemId, firstGem, Recipient)
+                end
+                if secondGem > 0 then
+                    endname = endname .. createMagicGem(secondGemId, secondGem, Recipient)
                 end
 
                 infText = common.GetNLS(Recipient,
@@ -557,6 +638,13 @@ function payNow(User)
     local tax = math.floor(val*taxHeight)
     local totTax=tax -- total tax to pay
 
+    if totTax < 1 then
+        infText = common.GetNLS(User,
+            "Du bist zu arm um Steuern an "..town.." zu bezahlen.",
+            "You are too poor to pay taxes to "..town..".")
+        return infText
+    end
+    
     -- try to get the payable tax from the depots first
     for i = 1, #(depNr) do
         if tax<=valDepot[i] then -- if you fild all you need in the first/ next depot, take it.
@@ -579,8 +667,10 @@ function payNow(User)
         "Du hast deine monatliche Abgabe an "..town.." gezahlt. Diesen Monat waren es "..gstring..". Die Abgabenhöhe betrug "..(taxHeight*100).."%",
         "You have paid your monthly tribute to "..town..". This month, it was "..estring..", resulting from a tribute rate of "..(taxHeight*100).."%")
 
+    local userRank = factions.getRankAsNumber(User)
     townTreasure.ChangeTownTreasure(town,totTax)
     townTreasure.IncreaseTaxpayerNumber(town)
+    townTreasure.IncreasePayerRanks(town,userRank)
 
     log(string.format("[taxes] %s paid %d. Faction wealth of %s increased to %d copper.",
                 character.LogText(User), totTax, town, townTreasure.GetTownTreasure(town)))

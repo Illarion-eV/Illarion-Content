@@ -60,6 +60,6 @@ function M.UseItem(User, SourceItem, ltstate)
     end
 end
 
-]]
-return M
+
+return M]]
 

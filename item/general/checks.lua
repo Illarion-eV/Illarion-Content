@@ -19,69 +19,92 @@ local common = require("base.common")
 
 local M = {}
 
-local function weaponSkillLevel(User, weapon)
+local function weaponSkillLevel(user, weapon)
 
     if (weapon.WeaponType == 1) or (weapon.WeaponType == 4) then
-        return User:getSkill(Character.slashingWeapons), User:getSkillName(Character.slashingWeapons)
+        return user:getSkill(Character.slashingWeapons), user:getSkillName(Character.slashingWeapons)
     elseif (weapon.WeaponType == 2) or (weapon.WeaponType == 5) then
-        return User:getSkill(Character.concussionWeapons), User:getSkillName(Character.concussionWeapons)
+        return user:getSkill(Character.concussionWeapons), user:getSkillName(Character.concussionWeapons)
     elseif (weapon.WeaponType == 3) or (weapon.WeaponType == 6) then
-        return User:getSkill(Character.punctureWeapons), User:getSkillName(Character.punctureWeapons)
+        return user:getSkill(Character.punctureWeapons), user:getSkillName(Character.punctureWeapons)
     elseif (weapon.WeaponType == 7) or (weapon.WeaponType == 255) then --distance
-        return User:getSkill(Character.distanceWeapons), User:getSkillName(Character.distanceWeapons)
-    elseif (weapon.WeaponType == 14) then --shields
-        return User:getSkill(Character.parry), User:getSkillName(Character.parry)
+        return user:getSkill(Character.distanceWeapons), user:getSkillName(Character.distanceWeapons)
+--    elseif (weapon.WeaponType == 14) then --shields
+--        return user:getSkill(Character.parry), user:getSkillName(Character.parry)
     else
         return 100, "" --if all fails, the character may equip the item
     end
 end
 
-local function armourSkillLevel(User, armour)
+local function armourSkillLevel(user, armour)
 
     if armour.Type == 4 then
-        return User:getSkill(Character.heavyArmour), User:getSkillName(Character.heavyArmour)
+        return user:getSkill(Character.heavyArmour), user:getSkillName(Character.heavyArmour)
     elseif armour.Type == 3 then
-        return User:getSkill(Character.mediumArmour), User:getSkillName(Character.mediumArmour)
+        return user:getSkill(Character.mediumArmour), user:getSkillName(Character.mediumArmour)
     elseif armour.Type == 2 then
-        return User:getSkill(Character.lightArmour), User:getSkillName(Character.lightArmour)
+        return user:getSkill(Character.lightArmour), user:getSkillName(Character.lightArmour)
     else
         return 100, "" --if all fails, the character may equip the item
     end
 end
 
-local function checkSkill(User, Item)
-    local isWeapon, weapon = world:getWeaponStruct(Item.id) --Is it a weapon? Loads the struct.
-    local isArmour, armour = world:getArmorStruct(Item.id) --Is it an armour? Loads the struct.
-    local itemLevel = world:getItemStatsFromId(Item.id).Level
+local function checkSkill(user, item)
+    local isWeapon, weapon = world:getWeaponStruct(item.id) --Is it a weapon? Loads the struct.
+    local isArmour, armour = world:getArmorStruct(item.id) --Is it an armour? Loads the struct.
+    local itemLevel = world:getItemStatsFromId(item.id).Level
 
     if isWeapon then
-        local skillValue, skillString = weaponSkillLevel(User, weapon)
+        local skillValue, skillString = weaponSkillLevel(user, weapon)
         if  skillValue < itemLevel then
             return false, skillString --level too low
         else
             return true, skillString --level is high enough
         end
     elseif isArmour then
-        local skillValue, skillString = armourSkillLevel(User, armour)
+        local skillValue, skillString = armourSkillLevel(user, armour)
         if skillValue < itemLevel then
             return false, skillString --level too low
         else
             return true, skillString --level is high enough
         end
     else --neither weapon nor armour
-    return true, "" --default: User may use/equip the item
+    return true, "" --default: user may use/equip the item
+    end
+end
+
+local function checkParry(user, item)
+    local isWeapon, weapon = world:getWeaponStruct(item.id) --Is it a weapon? Loads the struct.
+    local itemLevel = world:getItemStatsFromId(item.id).Level
+
+    if isWeapon then
+        local skillValue = user:getSkill(Character.parry)
+        local skillString = user:getSkillName(Character.parry)
+        if  skillValue < itemLevel then
+            return false, skillString --level too low
+        else
+            return true, skillString --level is high enough
+        end
+    else -- parry is used for weapons only
+        return true, "" --default: user may use/equip the item
     end
 end
 
 --This function checks whether the user has the necessary level for the item or not
-function M.checkLevel(User, Item)
-    local skillOK, skillString = checkSkill(User,  Item)
-    if  skillOK then
-        return true
+function M.checkLevel(user, item, targetItem)
+    local isArmour, armour = world:getArmorStruct(item.id) --Is it an armour? Loads the struct.
+    local skillOK, skillString = checkSkill(user,  item)
+    local parryOK, parryString = checkParry(user,  item)
+    if isArmour and (targetItem.itempos == Character.left_tool or targetItem.itempos == Character.right_tool) then
+        -- nothing
+    elseif  not skillOK and not parryOK then
+        common.HighInformNLS(user, "Deine Fertigkeiten '"..skillString.."' und '"..parryString.."' reichen nicht aus, um das volle Potential dieses Gegenstandes zu nutzen.", "Your skills '"..skillString.."' and '"..parryString.."' are not high enough to exploit the full potential of this item.")
+    elseif not parryOK then
+        common.HighInformNLS(user, "Deine Fertigkeit '"..parryString.."' reicht nicht aus, um das volle defensive Potential dieses Gegenstandes zu nutzen.", "Your skill '"..parryString.."' is not high enough to exploit the full defence potential of this item.")
+    elseif not skillOK then
+        common.HighInformNLS(user, "Deine Fertigkeit '"..skillString.."' reicht nicht aus, um das volle offensive Potential dieses Gegenstandes zu nutzen.", "Your skill '"..skillString.."' is not high enough to exploit the full attack potential of this item.")
     end
-
-    common.HighInformNLS(User, "Deine Fertigkeit '"..skillString.."' reicht nicht aus, um das volle Potential dieses Gegenstandes zu nutzen.", "Your skill '"..skillString.."' is not high enough to exploit the full potential of this item.") --inform
-    return true --Change this to FALSE if you want to prevent equipping. For now, set to true because we do not have enough items.
+    return true
 end
 
 return M

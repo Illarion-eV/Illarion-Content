@@ -21,9 +21,9 @@ local common = require("base.common")
 local M = {}
 
 local waypoint = {} --a list with positions
-waypoint[1] = position(696, 314, 0) --1: Hemp Necktie Inn
-waypoint[2] = position(122, 530, 0) --2: Cadomyr
-waypoint[3] = position(995, 816, 0) --3: Runewick
+waypoint[1] = position(697, 314, 0) --1: Hemp Necktie Inn
+waypoint[2] = position(121, 533, 0) --2: Cadomyr
+waypoint[3] = position(995, 815, 0) --3: Runewick
 local messageG = {}
 messageG[1] = "[Queststatus] Du betrittst den Gasthof zur Hanfschlinge. Es ist langweilig heute, aber eine angenehme Atmosphäre."
 messageG[2] = "[Queststatus] Der Thronraum der Königin. Ein Ort, an welchem man die Aura der Königin und ihre erhabene Selbstwahrnehmung verspürt."
@@ -33,7 +33,7 @@ messageE[1] = "[Quest status] You enter the Hemp Necktie Inn. It is rather dull 
 messageE[2] = "[Quest status] The Queen's throne room. A place where one should be mindful of her lofty opinion of herself."
 messageE[3] = "[Quest status] The Archmage seems focused on some unimportant history, and making pointless notes."
 
-function M.MoveToField(User)
+function M.triggerEvent(User)
     if (User:getQuestProgress(155) == 12) then --OK, the player does the quest
         local queststatus = User:getQuestProgress(158) --here, we save which fields were visited
         local queststatuslist = {}

@@ -57,6 +57,7 @@ local chr_reg = require("lte.chr_reg")
 local gems = require("base.gems")
 local monsterHooks = require("monster.base.hooks")
 local fightingutil = require("base.fightingutil")
+local glypheffects = require("magic.glypheffects")
 
 local M = {}
 
@@ -85,8 +86,6 @@ local PlayParrySound
 local WeaponDegrade
 local Counter
 local setArcherMonsterOnRoute
-local DropBlood
-local DropMuchBlood
 
 local function NotNil(val)
     if val==nil then
@@ -128,7 +127,7 @@ local function isPossibleTarget(monster, candidate)
         return false
     end
 
-    if (candidate:getQuestProgress(36) ~= 0) then
+    if (candidate:getQuestProgress(36) ~= 0) or (candidate:getQuestProgress(236) ~= 0) then
         return false
     end
 
@@ -347,6 +346,9 @@ function M.onAttack(Attacker, Defender)
     -- Calculate and reduce the required movepoints
     local APreduction = HandleMovepoints(Attacker, Globals)
 
+    -- take glyph effects on move points into consideration
+    glypheffects.effectOnFight(Attacker.Char,Defender.Char)
+
     -- Turning the attacker to his victim
     common.TurnTo(Attacker.Char,Defender.Char.pos)
 
@@ -511,7 +513,12 @@ function ArmourDegrade(Defender, Globals)
         return
     end
 
-    if (common.Chance(Globals.Damage, 12000)) and (Globals.HittedItem.id ~= 0) then -- do not damage non existing items
+
+    local degradeChance = 12000
+    if Defender.Char:isNewPlayer() then
+        degradeChance = degradeChance * 2
+    end
+    if (common.Chance(Globals.Damage, degradeChance)) and (Globals.HittedItem.id ~= 0) then -- do not damage non existing items
         local durability = math.fmod(Globals.HittedItem.quality, 100)
         local quality = (Globals.HittedItem.quality - durability) / 100
         local nameText = world:getItemName(Globals.HittedItem.id, Defender.Char:getPlayerLanguage())
@@ -545,7 +552,11 @@ function WeaponDegrade(Attacker, Defender, ParryWeapon)
     commonAttackerWeapon=world:getItemStats(Attacker.WeaponItem);
     commonParryWeapon=world:getItemStats(ParryWeapon);
 
-    if (common.Chance(1, 20)) and (Attacker.WeaponItem.id ~= 0) and character.IsPlayer(Attacker.Char) and commonAttackerWeapon.MaxStack == 1 then
+    local degradeChance = 20
+    if Attacker.Char:isNewPlayer() then
+        degradeChance = degradeChance * 2
+    end
+    if (common.Chance(1, degradeChance)) and (Attacker.WeaponItem.id ~= 0) and character.IsPlayer(Attacker.Char) and commonAttackerWeapon.MaxStack == 1 then
         local durability = math.fmod(Attacker.WeaponItem.quality, 100)
         local quality = (Attacker.WeaponItem.quality - durability) / 100
         local nameText = world:getItemName(Attacker.WeaponItem.id, Attacker.Char:getPlayerLanguage())
@@ -656,9 +667,16 @@ function CauseDamage(Attacker, Defender, Globals)
         AIMING_TIME_LIST[Attacker.Char.id]["started"] = world:getTime("unix")
     end
 
-    Globals.Damage=Globals.Damage*(Random.uniform(9,10)/10) --Damage is randomised: 90-100%
+    local glyphDamageFactor = glypheffects.effectDamageIncrease(Attacker.Char,Defender.Char)
+    local isGlyphRevertDamage, glyphRevertDamageFactor = glypheffects.effectRevertDamage(Defender.Char, Attacker.Char)
+    Globals.Damage=Globals.Damage*glyphDamageFactor*glyphRevertDamageFactor*(Random.uniform(9,10)/10) --Damage is randomised: 90-100%
     Globals.Damage=math.min(Globals.Damage,4999) --Damage is capped at 4999 Hitpoints to prevent "one hit kills"
     Globals.Damage=math.floor(Globals.Damage) --Hitpoints are an integer
+    glypheffects.effectDamageOverTime(Attacker.Char,Defender.Char,Globals.Damage)
+
+    if isGlyphRevertDamage then -- attacker attacks himself
+        Defender = Attacker
+    end
 
     if character.IsPlayer(Defender.Char) and not Defender.Char:isAdmin() and character.WouldDie(Defender.Char, Globals.Damage + 1) and not character.AtBrinkOfDeath(Defender.Char) then
         -- Character would die. Nearly killing him and moving him back in case it's possible
@@ -810,10 +828,6 @@ function HitChance(Attacker, Defender, Globals)
     local parryweapondefense = parryWeapon.Defence
     local defenderdefense = (100/ShieldScalingFactor) + parryweapondefense*(1-1/ShieldScalingFactor)
 
-    if(parryWeapon.WeaponType~=14) then
-        defenderdefense = defenderdefense/2
-    end
-    
     local parryChance
     --Quality Bonus: Multiplies final value by 0.93-1.09
     local qualitymod = 0.91+0.02*math.floor(parryItem.quality/100)
@@ -1082,7 +1096,7 @@ function CoupDeGrace(Attacker, Defender)
         end
 
         -- Drop much blood around the player
-        DropMuchBlood(Defender.Char.pos)
+        common.dropMuchBlood(Defender.Char.pos)
     end
 
     return false
@@ -1090,14 +1104,13 @@ end
 
 local monsterArrowDrop = {}
 
---- Drops the used ammo in case there is any ammo. This functions placed the
--- used ammunition under the character in case the target character is a player,
--- else the ammunition is dropped into the inventory of the target.
--- @param Attacker The table of the attacking char
--- @param Defender The character of the character that is supposed to receive
---                  the attack
--- @param GroundOnly true in case the item is supposed to be dropped only on the
---                  ground
+--[[Drops the used ammo in case there is any ammo. This functions placed the
+    used ammunition under the character in case the target character is a player,
+    else the ammunition is dropped into the inventory of the target.
+    @param Attacker The table of the attacking char
+    @param Defender The character of the character that is supposed to receive the attack
+    @param GroundOnly true in case the item is supposed to be dropped only on the ground
+--]]
 function DropAmmo(Attacker, Defender, GroundOnly)
     if ( Attacker.AttackKind ~= 4 ) then -- no distance attack --> no ammo
         return
@@ -1149,36 +1162,6 @@ function DropAmmo(Attacker, Defender, GroundOnly)
             world:createItemFromId(AmmoItem.id, 1, Defender.pos, true, AmmoItem.quality, nil)
 
         end
-    end
-end
-
---- Drop a blood spot on the ground at a specified location.
--- @param Posi The location where the blood spot is placed
-function DropBlood(Posi)
-    if world:isItemOnField(Posi) then
-        return --no blood on tiles with items on them!
-    end
-
-    local Blood = world:createItemFromId(3101, 1, Posi, true, 333, nil)
-    Blood.wear = 2
-    world:changeItem(Blood)
-end
-
---- Drop alot of blood. This function drops blood on every tile around the
--- position set as center.
--- @param Posi The center of the bloody area
-function DropMuchBlood(Posi)
-    local workingPos = common.CopyPosition(Posi)
-
-    workingPos.x = workingPos.x - 1
-    workingPos.y = workingPos.y - 1
-    for i = 1, 3 do
-        for j = 1, 3 do
-            DropBlood(workingPos)
-            workingPos.x = workingPos.x + 1
-        end
-        workingPos.x = workingPos.x - 3
-        workingPos.y = workingPos.y + 1
     end
 end
 
@@ -1714,9 +1697,9 @@ function ShowEffects(Attacker, Defender, Globals)
         world:gfx(13, Defender.Char.pos) -- Blood effect, remove maybe?
         Defender.Char:performAnimation(10) -- Hit animation
         if Globals.criticalHit>0 then
-            DropMuchBlood(Defender.Char.pos)
+            common.dropSomeBlood(Defender.Char.pos)
         elseif (Globals.Damage > 2000) then
-            DropBlood(Defender.Char.pos)
+            common.dropBlood(Defender.Char.pos)
         end
     end
 

@@ -35,17 +35,11 @@ function M.callEffect(newbieEffect,Character)
 
         roundCount = roundCount + 1 --Counting
 
-        if roundCount == 30 then --Let us check for players that required more than thirty minutes for Noobia.
-
-            Character:pageGM("This player could use assistance on Noobia.")
-
-        end
-
     else
         roundCount = 1
     end
 
-    newbieEffect:addValue("roundCount",roundCount) --whatever this is. Merung, learn to use comments -)
+    newbieEffect:addValue("roundCount",roundCount)
     newbieEffect.nextCalled=600 --One minute
     return true --bailing out in any case
 

@@ -29,6 +29,7 @@ local dragonCaveKegPos = {
 }
 
 local KegContents
+local ronagankegContents
 
 function M.UseItem(User, SourceItem)
 
@@ -66,7 +67,7 @@ function KegContents(User, kegItem)
     if random_number >= 0 and random_number <= 35 then
         User:inform("Du suchst bis zum Boden, findest aber nicht als Rattenkot.", "You search to the bottom but find nothing but rat droppings.")
     elseif random_number >= 36 and random_number <= 70 then
-        User:inform("Als Du suchst, findest Du einen Stapel Geldbörsen - aber alle sind leer.", "As you search you find a stash of money bags, that are all empty.")
+        User:inform("Beim Suchen findest du einen Stapel Geldbörsen - aber alle sind leer.", "As you search you find a stash of money bags, that are all empty.")
     elseif random_number >= 71 and random_number <= 90 then
         User:inform("Du findest eine Silbermünze.","You discover a silver coin.")
         common.CreateItem(User, 3077, 1, 333, nil) -- silver coin
@@ -74,7 +75,7 @@ function KegContents(User, kegItem)
         local monPos = common.getFreePos(kegItem.pos, 2) -- radius 2 around vase
         world:createMonster(211, monPos, -20)
         world:gfx(41, monPos) -- swirly
-        User:inform("Während Du suchst, schleicht irgendwas aus den Schatten um dich herum.",
+        User:inform("Während du suchst, schleicht irgendwas aus den Schatten um dich herum.",
             "As you are searching, something sneaks in from the shadows around you.")
     end
 end

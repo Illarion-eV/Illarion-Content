@@ -84,9 +84,9 @@ tradeWrongItemMsg "Brauch ich nicht, will ich nicht, kauf ich nicht.", "Don't wa
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greeted be.", "Wealth and glory, friend.", "Hail Irmorom.", "Great day to be a dwarf!", "This 'ere be me stall. You want to buy some wares?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho, Reisender.", "Wohlstand und profitable Geschäfte, mein Freund.", "Heil Irmorom.", "Gr'duzk. - würde ich sagen und heißt so viel wie guten Tag.", "H'druk g'har. Dies ist mein Schuppen. Wollt ihr was kaufen?"
 "Farewell", "Bye", "Fare well", "See you" -> "G'hruk. Farewell.", "Abundance and Wealth, my friend.", "Arr."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehabt Euch wohl.", "Wohlstand und profitable Geschäfte, mein Freund.", "Arr. N' schönen Tag noch.", "G'hruk."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehabt euch wohl.", "Wohlstand und profitable Geschäfte, mein Freund.", "Arr. N' schönen Tag noch.", "G'hruk."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "G'hruk. Farewell.", "Abundance and Wealth, my friend.", "Arr."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Gehabt Euch wohl.", "Wohlstand und profitable Geschäfte, mein Freund.", "Arr. N' schönen Tag noch.", "G'hruk."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Gehabt euch wohl.", "Wohlstand und profitable Geschäfte, mein Freund.", "Arr. N' schönen Tag noch.", "G'hruk."
 "How are you", "How feel", "How do you do" -> "Aye, the business is well and the Greenskins behave properly.", "Arr, as soon as I'm able to leave my shop, I am going to drink beer at Hagar's Inn. He is a Longleg, but the stuff is brewed by us dwarves!", "Gold. That's what a dwarf aspires to and I have a huge amount of it."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Aye, das Geschäft geht gut, und die Grünschnauzen benehmen sich einigermaßen.", "Arr, wenn ich einmal hier wegkomm, geh ich sofort zu Hagar! Der ist zwar ein Langbein, aber das Bier, das haben wir Zwerge ihm gebraut!", "Gold. Das ist was ein Zwerg will. Und ich hab eine Menge davon."
 "your name", "who are you", "who art thou" -> "Arr, just mellow dwarves tell their real name and someone like you would just yell it out to everyone, but in common language I'm called Advari Stonebog", "Advari Stonebog. And that's all someone like you needs to know."
@@ -106,7 +106,7 @@ english, "job" -> "I trade with seeds. If you're a farmer, I'm the dwarf for you
 english, "Gobaith", "Gobiath" -> "Gobaith? No idea what you're chattin' about!"
 "Gobaith", "Gobiath" -> "Gobaith? Drhg'hgin! So spricht niemand über meine Großmutter! Verzieh dich!"
 "my name" -> "Aye, ye pillow-nosed pillock.", "A true dwarf never shares 'is name!", "I'll remember that, we dwarves 'ave got great memories, as long as there's money involved."
-"mein Name" -> "Aye, du Weichnase.", "Schön für Euch. Aber ein ordentlicher Zwerg würde nie seinen wahren Namen verraten.", "Sehr genehm. Werd ich mir merken! Wie Zwerge haben ein ausgezeichnetes Gedächtnis. Und ich werd's nicht vergessen solltest du versuchen mich übers Ohr zu hauen!"
+"mein Name" -> "Aye, du Weichnase.", "Schön für euch. Aber ein ordentlicher Zwerg würde nie seinen wahren Namen verraten.", "Sehr genehm. Werd ich mir merken! Wie Zwerge haben ein ausgezeichnetes Gedächtnis. Und ich werd's nicht vergessen solltest du versuchen mich übers Ohr zu hauen!"
 
 -- More small talk; add at least five triggers
 "Dwar[vf]" -> "Dwarves are the proudest people! Formidable fighters! Masterful masons! Seasoned smiths! The most breathtaking of bards!", "Hi dwarf, hey dwarf - hi dwarf ho! Hi dwarf, hey dwarf go-go-go!"
@@ -142,7 +142,7 @@ english, "Cadomyr" -> "Cadomyr? They're ruled by that underbred brat, aren't the
 
 -- Main land factions
 english, "albar" -> "You want to chat about Albar? A well respected dwarf has no busniess over there."
-"albar" -> "Über Albar wollt ihr sprechen? Ich bitte Euch, ich bin ein angesehener Zwerg und hab dort tunlichst, nichts zu tun."
+"albar" -> "Über Albar wollt ihr sprechen? Ich bitte euch, ich bin ein angesehener Zwerg und hab dort tunlichst, nichts zu tun."
 english, "gynk", "gync" -> "Gynk, aye! There are mines there! Not ones comparable to the mines of the dwarves, mind and they're filled with swindlers, but what else would you expect from longlegs?"
 "gync", "gynk" -> "Gynk, ja-ja! Dort gibt's Minen! Natürlich nicht mit unseren zu vergleichen und alles voll mit Betrügern, aber was soll man von den Menschen schon besseres erwarten?"
 english, "salkama" -> "Sunny, shiny Salkamar. Too many wizards there for my liking! Even thinkin' about it makes me eyes sore. That place ain't made for us dwarves."
@@ -162,7 +162,7 @@ english, "Ronagan" -> "Aye, I give a good chunk of what I earn to the Lord of sh
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "advari", "stonebog" -> "Arr, pillownose! You think that's my real name? Whatever... you want to sell somethin'?"
-"advari", "stonebog" -> "Arr, Weichzwerg! So denkt Ihr das ich heiß, nicht war? Wie auch immer. Was wollt Ihr handeln?"
+"advari", "stonebog" -> "Arr, Weichzwerg! So denkt ihr das ich heiß, nicht war? Wie auch immer. Was wollt ihr handeln?"
 
 -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
@@ -175,7 +175,7 @@ cycletext "#me singt mit kehliger Stimme. 'Hai-hie! Hai-hoh. Hai-hi! Hai-ho! Hai
 cycletext "#me streicht sich zufrieden lächelnd über den langen buschigen Bart.", "#me runs his fingers through his long, fluffy beard, grinning quietly."
 cycletext "#me kaut auf seiner Pfeife herum. Gelegentlich stopft er etwas Kraut nach.", "#me chews the tip of his pipe. Every so often he stuffs some more tobacco in."
 cycletext "#me bläst einen großen Rauchring in die Luft, und gluckst glücklich.", "#me releases a large smoke ring into the air and chuckles in high spirits."
-cycletext "Langfinger fressen die Galgenvögel! Last's Euch sagen! Aye.", "Let thieves be eaten by giant demonic birds! Aye!"
+cycletext "Langfinger fressen die Galgenvögel! Last's euch sagen! Aye.", "Let thieves be eaten by giant demonic birds! Aye!"
 cycletext "#me knurrt etwas Unverständliches in seinen Bart, indessen funkelt er die Orkfrau beim Schuppen mit verärgertem Blick an.", "#me mumbles and snarls into his beard, sternly glancing towards the orcess on the next market stall."
 cycletext "Arr...", "Arr..."
 cycletext "Ich verkauf die schönsten Fälle zu den besten Preisen!", "I sell the finest fur at the best prices!"

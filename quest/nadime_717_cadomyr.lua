@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (717, 'quest.nadime_717_Cadomyr');
 
@@ -22,7 +22,7 @@ local factions = require("base.factions")
 local M = {}
 
 local GERMAN = Player.german
-ENGLISH = Player.english
+local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}
@@ -34,16 +34,16 @@ Title[ENGLISH] = "The Glassblowing Guild of Cadomyr"
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Beschaff 10 Schaufeln Sand und bring diese zu Nadime in der Werkstatt von Cadomyr. Dazu nimmst du die Schaufel in die Hand und benutzt sie, während du vor einer Sandgrube stehst. Die nächste Sandgrube findest du vor den Toren Cadomyrs."
-Description[ENGLISH][1] = "Get 10 shovels of sand and take them to Nadime at the workshop in Cadomyr. Dig the sand by using the shovel in your hand, whilst standing in front of a sandpit. The next sandpit is in front of Cadomyr's gates." 
+Description[GERMAN][1] = "Beschaffe zehn Haufen Sand und bring diese zu Nadime in der Werkstatt von Cadomyr. Dazu nimmst du die Schaufel in die Hand und benutzt sie, während du vor einer Sandgrube stehst. Die nächste Sandgrube findest du vor den Toren Cadomyrs."
+Description[ENGLISH][1] = "Get ten piles of sand and take them to Nadime at the workshop in Cadomyr. Dig the sand by using the shovel in your hand, whilst standing in front of a sandpit. The next sandpit is in front of Cadomyr's gates."
 Description[GERMAN][2] = "Geh zu Nadime in der Werkstatt von Cadomyr. Sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][2] = "Go to Nadime at the workshop in Cadomyr, she is sure to have another task for you."
-Description[GERMAN][3] = "Verbrenne 10 Holzscheite zu Pottasche für Nadime am Glasschmelzofen in Cadomyrs Werkstatt. Um das Holz zu verbrennen, musst du die Holzkelle in die Hand nehmen und den Glasschmelzofen benutzen, wenn du vor ihm stehst."
-Description[ENGLISH][3] = "Burn 10 wood to potash for Nadime at the glass melting oven in Cadomyr's workshop. To burn the wood you have to take the wooden shovel in your hand and use the glass melting oven."
+Description[GERMAN][3] = "Schmelze zehn Glasblöcke für Nadime in der Werkstatt von Cadomyr. Für die Glasblöcke musst du die Gussform benutzen und am Glasschmelzofen stehen. Du brauchst Pottasche und Quartzsand. Den Quartzsand erhältst du, wenn du den rohen Sand mit der Holzkelle am Sieb reinigst. Pottasche erhälst du durch das Verbrennen von Holz."
+Description[ENGLISH][3] = "Melt ten glass ingots for Nadime at the workshop of Cadomyr. To melt you need to stand facing the glass melting oven oven and use the mould. You need potash and quartz sand. You get quartz sand at the seive from the raw sand using the wooden shovel. Potash you get by burning wood."
 Description[GERMAN][4] = "Geh zu Nadime in der Werkstatt von Cadomyr. Sie hat bestimmt noch eine Aufgabe für dich."
 Description[ENGLISH][4] = "Go to Nadime at the workshop in Cadomyr, she is sure to have another task for you."
-Description[GERMAN][5] = "Schmelze 10 Glasblöcke für Nadime in der Werkstatt von Cadomyr. Für die Glasblöcke musst du die Gussform benutzen und am Glasschmelzofen stehen. Du brauchst Pottasche und Quartzsand. Den Quartzsand erhältst du, wenn du den rohen Sand mit der Holzkelle am Sieb reinigst."
-Description[ENGLISH][5] = "Melt 10 glass ingots for Nadime at the workshop of Cadomyr. To melt you need to stand facing the glass melting oven oven and use the mould. You need potash and quartz sand. You get quartz sand at the seive from the raw sand using the wooden shovel."
+Description[GERMAN][5] = "Stelle zehn große leere Flaschen am Glasschmelzofen her. Nimm das Glasblasrohr in die Hand und benutze es. Wähle die großen leeren Flaschen aus dem Menü aus."
+Description[ENGLISH][5] = "Produce ten big empty bottles at the glass melting oven. Take the glass blow pipe in your hand and use it. Select big empty bottles from the appearing menu."
 Description[GERMAN][6] = "Dein derzeitiger Rang in der Glasbläserzunft von Cadomyr ist der eines Laiens. Gehe zu Nadime in der Werkstatt von Cadomyr sobald du Level 10 in der Fertigkeit Glasblasen erreicht hast."
 Description[ENGLISH][6] = "Your current rank with the Glassblowing Guild of Cadomyr is Layman. Return to Nadime at the workshop of Cadomyr once you reached Level 10 in Glassblowing."
 Description[GERMAN][7] = "Dein derzeitiger Rang in der Glasbläserzunft von Cadomyr ist der eines Anfängers. Gehe zu Nadime in der Werkstatt von Cadomyr sobald du Level 20 in der Fertigkeit Glasblasen erreicht hast."
@@ -80,16 +80,16 @@ QuestTarget[2] = {position(141, 582, 0)}
 QuestTarget[3] = {position(141, 582, 0), position(143, 587, 0), position(143, 585, 0)} -- glass melting oven
 QuestTarget[4] = {position(141, 582, 0)}
 QuestTarget[5] = {position(141, 582, 0), position(143, 587, 0), position(143, 585, 0)} -- glass melting oven
-QuestTarget[6] = {position(141, 582, 0)} 
-QuestTarget[7] = {position(141, 582, 0)} 
-QuestTarget[8] = {position(141, 582, 0)} 
-QuestTarget[9] = {position(141, 582, 0)} 
-QuestTarget[10] = {position(141, 582, 0)} 
-QuestTarget[11] = {position(141, 582, 0)} 
-QuestTarget[12] = {position(141, 582, 0)} 
-QuestTarget[13] = {position(141, 582, 0)} 
-QuestTarget[14] = {position(141, 582, 0)} 
-QuestTarget[15] = {position(141, 582, 0)} 
+QuestTarget[6] = {position(141, 582, 0)}
+QuestTarget[7] = {position(141, 582, 0)}
+QuestTarget[8] = {position(141, 582, 0)}
+QuestTarget[9] = {position(141, 582, 0)}
+QuestTarget[10] = {position(141, 582, 0)}
+QuestTarget[11] = {position(141, 582, 0)}
+QuestTarget[12] = {position(141, 582, 0)}
+QuestTarget[13] = {position(141, 582, 0)}
+QuestTarget[14] = {position(141, 582, 0)}
+QuestTarget[15] = {position(141, 582, 0)}
 
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 16

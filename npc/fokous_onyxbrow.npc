@@ -72,9 +72,9 @@ itemShoes = 699
 -- 10: Quest 3 taken - kill ten rats
 -- 11-20: killing ten rats
 -- 21: Quest 3 solved, reward: 2000 cp, +5 rankpoints
--- 22: Quest 4 taken - collect fifteen furs
--- 23: Quest 4 solved - reward: 2000cp, +5 rankpoints
--- 24: Quest 5 taken -  kill ten rats
+-- 22: Quest 4 taken - check 10 poisoned carrots
+-- 23: Quest 4 done - back to Fokous
+-- 24: Quest 4 solved - reward: 2000cp, +5 rankpoints, Quest 5 taken -  kill ten rats
 -- 25-34: killing ten rats
 -- 35 Quest 5 solved -  reward: 2000 cp, +5 rankpoints
 -- 36 Quest 6  taken -  Kill ratman
@@ -114,23 +114,11 @@ town = Runewick, "quest", "mission" -> "#me schaut dich misstrauisch an 'Für Fre
 town = Runewick, "task", "adventure", "order" -> "#me looks at you with suspicious eyes, 'I do not have work for non citizens, you could be a spy!'"
 town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me schaut dich misstrauisch an, 'Für Fremde hab ich keine Arbeit, du könntest ein Spion sein!'"
 
--- fix if quest started and sent to NPC by Joey
-queststatus(189) > 0, queststatus(712) = 17, english, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 18, "Ah, Joey sent you, but you already asked me for something to do."
-queststatus(189) > 0, queststatus(712) = 17, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 18, "Ah, Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt."
-queststatus(189) > 0, queststatus(712) = 17, town = Galmair, "task", "adventure", "order" -> queststatus(712) = 18, "Ah, Joey sent you, but you already asked me for something to do."
-queststatus(189) > 0, queststatus(712) = 17, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(712) = 18, "Ah, Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt."
-
 -- 1st quest: Kill five rats, player receives rope
 -- Give out quest 1 and a rope
-queststatus(189) = 0, queststatus(712) = 17, english, town = Galmair, "quest", "mission" -> inform("[New quest] Save Da Beer I. (Place the rope in your belt or hand and double click it to use it in front of the well)"), item(2760, 1, 333), queststatus(189) = 1, queststatus(712) = 18, "Arr!! Dere be rats in da storage and dey be drinkin' da beer!!! Go now and kill me five, dis can not continue! Take dis rope and access da area through dis well just over dere."
-queststatus(189) = 0, queststatus(712) = 17, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Rette das Bierlager I. (Nimm das Seil in die Hand oder lege es an den Gürtel und klicke zweimal darauf, während du vor dem Brunnen stehst)"), item(2760, 1, 333), queststatus(189) = 1, queststatus(712) = 18, "Arr!! Da sind Ratten im Lager und die saufen das Bier!!! So kann das nicht weitergehen, los töte fünf von ihnen für mich! Nimm dieses Seil und kletter damit in den Brunnen da drüben."
-queststatus(189) = 0, queststatus(712) = 17, town = Galmair, "task", "adventure", "order" -> inform("[New quest] Save Da Beer I. (Place the rope in your belt or hand and double click it to use it in front of the well)"), item(2760, 1, 333), queststatus(189) = 1, queststatus(712) = 18, "Arr!! Dere be rats in da storage and dey be drinkin' da beer!!! Go now and kill me five, dis can not continue! Take dis rope and access da area through dis well just over dere."
-queststatus(189) = 0, queststatus(712) = 17, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Rette das Bierlager I. (Nimm das Seil in die Hand oder lege es an den Gürtel und klicke zweimal darauf, während du vor dem Brunnen stehst)"), item(2760, 1, 333), queststatus(189) = 1, queststatus(712) = 18, "Arr!! Da sind Ratten im Lager und die saufen das Bier!!! So kann das nicht weitergehen, los töte fünf von ihnen für mich! Nimm dieses Seil und kletter damit in den Brunnen da drüben."
-
-queststatus(189) = 0, english, town = Galmair,"quest", "mission" -> inform("[New quest] Save Da Beer I. (Place the rope in your belt or hand and double click it to use it in front of the well)"), item(2760, 1, 333), queststatus(189) = 1, "Arr!! Dere be rats in da storage and dey be drinkin' da beer!!! Go now and kill me five, dis can not continue! Take dis rope and access da area through dis well just over dere."
-queststatus(189) = 0, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Rette das Bierlager I. (Nimm das Seil in die Hand oder lege es an den Gürtel und klicke zweimal darauf, während du vor dem Brunnen stehst)"), item(2760, 1, 333), queststatus(189) = 1, "Arr!! Da sind Ratten im Lager und die saufen das Bier!!! So kann das nicht weitergehen, los töte fünf von ihnen für mich! Nimm dieses Seil und kletter damit in den Brunnen da drüben."
-queststatus(189) = 0, town = Galmair, "task", "adventure" -> inform("[New quest] Save Da Beer I. (Place the rope in your belt or hand and double click it to use it in front of the well)"), item(2760, 1, 333), queststatus(189) = 1, "Arr!! Dere be rats in da storage and dey be drinkin' da beer!!! Go now and kill me five, dis can not continue! Take dis rope and access da area through dis well just over dere."
-queststatus(189) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rette das Bierlager I. (Nimm das Seil in die Hand oder lege es an den Gürtel und klicke zweimal darauf, während du vor dem Brunnen stehst)"), item(2760, 1, 333), queststatus(189) = 1, "Arr!! Da sind Ratten im Lager und die saufen das Bier!!! So kann das nicht weitergehen, los töte fünf von ihnen für mich! Nimm dieses Seil und kletter damit in den Brunnen da drüben."
+queststatus(189) = 0, english, town = Galmair,"quest", "mission" -> inform("[New quest] Save Da Beer I. (Double click the rope to use it in front of the well.)"), item(2760, 1, 333), queststatus(189) = 1, "Arr!! Dere be rats in da storage and dey be drinkin' da beer!!! Go now and kill me five, dis can not continue! Take dis rope and access da area through dis well just over dere."
+queststatus(189) = 0, town = Galmair, "task", "adventure" -> inform("[New quest] Save Da Beer I. (Double click the rope to use it in front of the well.)"), item(2760, 1, 333), queststatus(189) = 1, "Arr!! Dere be rats in da storage and dey be drinkin' da beer!!! Go now and kill me five, dis can not continue! Take dis rope and access da area through dis well just over dere."
+queststatus(189) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> inform("[Neues Quest] Rette das Bierlager I. (Nimm das Seil und klicke zweimal darauf, während du vor dem Brunnen stehst.)"), item(2760, 1, 333), queststatus(189) = 1, "Arr!! Da sind Ratten im Lager und die saufen das Bier!!! So kann das nicht weitergehen, los töte fünf von ihnen für mich! Nimm dieses Seil und kletter damit in den Brunnen da drüben."
 
 -- Quest 1 solved, reward: 2000cp, +5 rankpoints
 queststatus(189) = 6, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(189) = 7, rankpoints + 5, "#me takes a long drink of beer, 'Here is your reward, but there is more work to be done!'"
@@ -138,16 +126,14 @@ queststatus(189) = 6, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst
 
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(189) > 0, queststatus(189) < 6, english, town = Galmair, "quest", "mission" -> "The beer supply is in grave danger, hurry up and kill five rats."
-queststatus(189) > 0, queststatus(189) < 6, town = Galmair, "quest", "mission" -> "Der Bier Nachschub ist in ernster Gefahr, los beeil dich und töte fünf Ratten."
 queststatus(189) > 0, queststatus(189) < 6, town = Galmair, "task", "adventure" -> "The beer supply is in grave danger, hurry up and kill five rats."
-queststatus(189) > 0, queststatus(189) < 6, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Der Bier Nachschub ist in ernster Gefahr, los beeil dich und töte fünf Ratten."
+queststatus(189) > 0, queststatus(189) < 6, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> "Der Bier Nachschub ist in ernster Gefahr, los beeil dich und töte fünf Ratten."
 
 -- 2nd quest: Collect ten rat furs
 -- Give out quest 2
 queststatus(189) = 7, english, town = Galmair, "quest", "mission" -> inform("[New quest] Save Da Beer II"), queststatus(189) = 8, "Arr!! Da Don is not pleased we have lost so much beer.  Go kill some more of da rats and bring me back ten furs as evidence!"
-queststatus(189) = 7, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Rette das Bierlager II"), queststatus(189) = 8, "Arr!! Der Don wird über den Verlust von soviel Bier nicht glücklich sein. Los töte noch mehr von den Ratten und bringe mir zehn ihrer Felle als Beweis!"
 queststatus(189) = 7, town = Galmair, "task", "adventure" -> inform("[New quest] Save Da Beer II"), queststatus(189) = 8, "Arr!! Da Don is not pleased we have lost so much beer.  Go kill some more of da rats and bring me back ten furs as evidence!"
-queststatus(189) = 7, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rette das Bierlager II"), queststatus(189) = 8, "Arr!! Der Don wird über den Verlust von soviel Bier nicht glücklich sein. Los töte noch mehr von den Ratten und bringe mir zehn ihrer Felle als Beweis!"
+queststatus(189) = 7, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> inform("[Neues Quest] Rette das Bierlager II"), queststatus(189) = 8, "Arr!! Der Don wird über den Verlust von soviel Bier nicht glücklich sein. Los töte noch mehr von den Ratten und bringe mir zehn ihrer Felle als Beweis!"
 
 -- Quest 2 solved, reward: 2000cp, +5 rankpoints
 queststatus(189) = 8,  item(2586, all) > 9, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, deleteItem(2586, 10), queststatus(189)= 9, rankpoints + 5, "Arr! The Don be happy your helping. Come back later for more work."
@@ -155,83 +141,74 @@ queststatus(189) = 8,  item(2586, all) > 9, town = Galmair, ".+" -> inform("[Que
 
 -- Quest 2 taken but not solved, repeat the instructions
 queststatus(189) = 8, item(2586, all) < 10, town = Galmair, english, "quest", "mission" -> "I will not be paying you on your word alone, bring me those ten rat furs."
-queststatus(189) = 8, item(2586, all) < 10, town = Galmair, "quest", "mission" -> "Ich werde dich nicht nur auf deine Aussage hin bezahlen, bring mir die zehn Rattenfelle."
 queststatus(189) = 8, item(2586, all) < 10, town = Galmair, "task", "adventure" -> "I will not be paying you on your word alone, bring me those ten rat furs."
-queststatus(189) = 8, item(2586, all) < 10, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich werde dich nicht nur auf deine Aussage hin bezahlen, bring mir die zehn Rattenfelle."
+queststatus(189) = 8, item(2586, all) < 10, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> "Ich werde dich nicht nur auf deine Aussage hin bezahlen, bring mir die zehn Rattenfelle."
 
 -- 3rd quest: Kill ten rats
 -- Give out quest 3
-queststatus(189) = 9, town = Galmair, english, "quest", "mission" -> inform("[New quest] Save Da Beer III"), queststatus(189) = 10, "Dere be ugly different kinds a rats down dere. Go kill ten rats."
-queststatus(189) = 9, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Rette das Bierlager III"), queststatus(189) = 10, "Es gibt verschiedene hässliche Arten von Ratten da unten. Geh und töte zehn Ratten."
-queststatus(189) = 9, town = Galmair, "task", "adventure" -> inform("[New quest] Save Da Beer III"), queststatus(189) = 10, "Dere be ugly different kinds a rats down dere. Go kill ten rats."
-queststatus(189) = 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rette das Bierlager III"), queststatus(189) = 10, "Es gibt verschiedene hässliche Arten von Ratten da unten. Geh und töte zehn Ratten."
+queststatus(189) = 9, town = Galmair, english, "quest", "mission" -> inform("[New quest] Save Da Beer III"), queststatus(189) = 10, "Dere be ugly different kinds a rats down dere. All drink the beer. Go kill ten rats."
+queststatus(189) = 9, town = Galmair, "task", "adventure" -> inform("[New quest] Save Da Beer III"), queststatus(189) = 10, "Dere be ugly different kinds a rats down dere. All drink the beer. Go kill ten rats."
+queststatus(189) = 9, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> inform("[Neues Quest] Rette das Bierlager III"), queststatus(189) = 10, "Es gibt verschiedene hässliche Arten von Ratten da unten. Un alle safen unser Bier. Geh und töte zehn Ratten."
 
 -- Quest 3 solved, reward: 20 silver, +5 rankpoints
-queststatus(189) = 20, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(189) = 21, rankpoints + 5, "Arr! The Don be happy your helping. Come back later for more work."
-queststatus(189) = 20, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, queststatus(189) = 21, rankpoints + 5, "Arr! Über deine Hilfe wird der Don sehr glücklich sein. Komm später wieder für mehr Arbeit."
+queststatus(189) = 20, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(189) = 21, rankpoints + 5, "Arr! The number of rats already decreased. The Don be happy your helping. Come back later for more work."
+queststatus(189) = 20, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, queststatus(189) = 21, rankpoints + 5, "Arr! Die Ratten sind schon weniger geworden. Über deine Hilfe wird da Don sehr glücklich sein. Komm später wieder für mehr Arbeit."
 
 -- Quest 3 taken but not solved, repeat the instructions
 queststatus(189) > 9, queststatus(189) < 20, town = Galmair, english, "quest", "mission" -> "I reckon ye aren't done with this yet.  Kill ten rats!"
-queststatus(189) > 9, queststatus(189) < 20, town = Galmair, "quest", "mission" -> "Ich glaube nicht, dass du schon fertig bist. Töte zehn Ratten!"
 queststatus(189) > 9, queststatus(189) < 20, town = Galmair, "task", "adventure" -> "I reckon ye aren't done with this yet.  Kill ten rats!"
-queststatus(189) > 9, queststatus(189) < 20, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich glaube nicht, dass du schon fertig bist. Töte zehn Ratten!"
+queststatus(189) > 9, queststatus(189) < 20, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> "Ich denk nicht, dass du schon fertig bist. Töte zehn Ratten!"
 
--- 4th quest collect 15 fur from cistern rats
+-- 4th quest check 5 rat baits
 -- Giving out quest 4
-queststatus(189) = 21, english, town = Galmair, "quest", "mission" -> inform("[New quest] Save Da Beer IV"), queststatus(189) = 22, "Go kill some more of da rats and bring me back fifteen furs as evidence!"
-queststatus(189) = 21, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Rette das Bierlager IV"), queststatus(189) = 22, "Los töte noch mehr von den Ratten und bringe mir fünfzehn ihrer Felle als Beweis!"
-queststatus(189) = 21, town = Galmair, "task", "adventure" -> inform("[New quest] Save Da Beer IV"), queststatus(189) = 22, "Go kill some more of da rats and bring me back fifteen furs as evidence!"
-queststatus(189) = 21, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rette das Bierlager IV"), queststatus(189) = 22, "Los töte noch mehr von den Ratten und bringe mir fünfzehn ihrer Felle als Beweis!"
+queststatus(189) = 21, english, town = Galmair, "quest", "mission" -> inform("[New quest] Save Da Beer IV - Find and 'use' 5 poisoned rat baits in the cistern."), queststatus(253) = 0, queststatus(189) = 22, "Recently I placed some poisoned carrots. The rats should eat them instead of drinking the beer. Please verify if the rats touched them. But wear gloves if you touch the baits."
+queststatus(189) = 21, town = Galmair, "task", "adventure" -> inform("[New quest] Save Da Beer IV - Find and 'use' 5 poisoned rat baits in the cistern."), queststatus(253) = 0, queststatus(189) = 22, "Recently I placed some poisoned carrots. The rats should eat them instead of drinking the beer. Please verify if the rats touched them. But wear gloves if you touch the baits."
+queststatus(189) = 21, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> inform("[Neues Quest] Rette das Bierlager IV - Finde und prüfe 5 Köder in der Zisterne. Benutze den Köder, um ihn zu prüfen."), queststatus(253) = 0, queststatus(189) = 22, "Ich habe vor kurzem einige vergiftete Möhren ausgelegt. Schau bei mindestens 5 der Köder nach, ob die Ratten da eher rangehen als an's Bier. Aber zieh irgendwelche Handschuhe an, wenn du sie anfasst!"
 
--- Quest 4 solved, 20 silver, +5 rankpoints
-queststatus(189) = 22, item(2586, all) > 14, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, deleteItem(2586, 15), queststatus(189) = 23, rankpoints + 5, "Arr! The Don be happy your helping. Come back later for more work."
-queststatus(189) = 22, item(2586, all) > 14, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, deleteItem(2586, 15), queststatus(189) = 23, rankpoints + 5, "Arr! Über deine Hilfe wird der Don sehr glücklich sein. Komm später wieder für mehr Arbeit."
+-- Quest 4 taken but not started
+queststatus(189) = 22, queststatus(253) = 0, english, town = Galmair, ".+" -> inform("Find and 'use' 5 poisoned rat baits in the cistern. You must touch (use) the carrots."), "Wear gloves an check the baits. This is my chance to solve the rat issue without getting my fingers dirty."
+queststatus(189) = 22, queststatus(253) = 0, town = Galmair, ".+" -> inform("Finde und prüfe 5 Köder in der Zisterne. Benutze den Köder, um ihn zu prüfen."), "Zieh Handschuhe an und prüf die Köder. Das ist meine Chance den Ratten beizukommen, ohne mir die Hände schmutzig zu machen."
 
 -- Quest 4 taken but not finished
-queststatus(189) = 22, item(2586, all) < 15, town = Galmair, english, "quest", "mission" -> "Go kill some more of da rats and bring me back fifteen furs as evidence!"
-queststatus(189) = 22, item(2586, all) < 15, town = Galmair, "quest", "mission" -> "Los töte noch mehr von den Ratten und bringe mir fünfzehn ihrer Felle als Beweis!"
-queststatus(189) = 22, item(2586, all) < 15, town = Galmair, "task", "adventure" -> "Go kill some more of da rats and bring me back fifteen furs as evidence!"
-queststatus(189) = 22, item(2586, all) < 15, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Los töte noch mehr von den Ratten und bringe mir fünfzehn ihrer Felle als Beweis!"
+queststatus(189) = 22, town = Galmair, english, "quest", "mission" -> "Arr! You say the rats don't touch the baits? Go an check some more."
+queststatus(189) = 22, town = Galmair, "task", "adventure", "poison", "carrot" -> "Arr! You say the rats don't touch the baits? Go an check some more."
+queststatus(189) = 22, town = Galmair, "Auftrag", "Aufgabe", "quest", "mission", "Abenteuer", "Gift", "Möhre" -> "Arr! Du sagst, die Ratten verschähen die Köder? Los schau dir noch einige mehr an."
 
--- Quest 5 Kill ten rats
+-- Quest 4 solved, 20 silver, +5 rankpoints
+-- Quest 5 kill ten rats
 -- Give out quest 5
-queststatus(189) = 23, town = Galmair, english, "quest", "mission" -> inform("[New quest] Save Da Beer V"), queststatus(189) = 24, "To furder save our beer, kill ten rats."
-queststatus(189) = 23, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Rette das Bierlager V"), queststatus(189) = 24, "Um unser Bier auch weiterhin zu beschützen, töte zehn Ratten."
-queststatus(189) = 23, town = Galmair, "task", "adventure" -> inform("[New quest] Save Da Beer V"), queststatus(189) = 24, "To furder save our beer, kill ten rats."
-queststatus(189) = 23, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rette das Bierlager V"), queststatus(189) = 24, "Um unser Bier auch weiterhin zu beschützen, töte zehn Ratten."
+queststatus(189) = 23, town = Galmair, english, "quest", "mission" -> inform("[Solved and new quest] Save Da Beer V"), queststatus(189) = 24, "Da damned rats! We must do something now. I can not think of anything better than to kill another ten rats to save our beer.", money + 2000, rankpoints + 5
+queststatus(189) = 23, town = Galmair, "task", "adventure", "poison", "carrot" -> inform("[Solved and new quest] Save Da Beer V"), queststatus(189) = 24, "Da damned rats! We must do anyting now. I can not think of anything better than to kill another ten rats to save our beer.", money + 2000, rankpoints + 5
+queststatus(189) = 23, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission", "Gift", "Möhre" -> inform("[Gelöstes und neues Quest] Rette das Bierlager V"), queststatus(189) = 24, "Die blöden Ratten! Wir müssen jetzt was tun. Mir fällt jetzt auch nix Besseres ein, als weitere zehn Ratten zu töten, um unser Bier zu retten.", money + 2000, rankpoints + 5
 
 -- Quest 5 solved, 20 silver, +5 rankpoints
-queststatus(189) = 34, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(189) = 35, rankpoints + 5, "Arr! The Don be happy your helping. Come back later for more work."
-queststatus(189) = 34, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, queststatus(189) = 35, rankpoints + 5, "Arr! Über deine Hilfe wird der Don sehr glücklich sein. Komm später wieder für mehr Arbeit."
+queststatus(189) = 34, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, queststatus(189) = 35, rankpoints + 5, "Arr! We didn't save the world but our beer. The Don will be happy with your helping. Come back later for more work."
+queststatus(189) = 34, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, queststatus(189) = 35, rankpoints + 5, "Arr! Wir ham zwar nich die Welt aber unser Bier gerettet. Über deine Hilfe wird der Don sehr glücklich sein. Komm später wieder für mehr Arbeit."
 
 -- Quest 5 taken but not solved
 queststatus(189) > 23, queststatus(189) < 34, town = Galmair, english, "quest", "mission" -> "I reckon ye aren't done with this yet.  Kill ten rats!"
-queststatus(189) > 23, queststatus(189) < 34, town = Galmair, "quest", "mission" -> "Ich glaube nicht, dass du schon fertig bist. Töte zehn Ratten!"
 queststatus(189) > 23, queststatus(189) < 34, town = Galmair, "task", "adventure" -> "I reckon ye aren't done with this yet.  Kill ten rats!"
-queststatus(189) > 23, queststatus(189) < 34, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich glaube nicht, dass du schon fertig bist. Töte zehn Ratten!"
+queststatus(189) > 23, queststatus(189) < 34, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> "Ich denk nich, dass du schon fertig bist. Töte zehn Ratten!"
 
 -- Quest 6  Kill Ratman Boss
 -- Give out Quest 6
 queststatus(189) = 35, english, town = Galmair, "quest", "mission" -> inform("[New quest] Save Da Beer VI"), queststatus(189) = 36, "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
-queststatus(189) = 35, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Rette das Bierlager VI"), queststatus(189) = 36, "Töte den Rattenmenschen in der Zisterne, er ist der Befehlshaber und trägt den Namen 'Schnüffler'. Vielleicht werden die Ratten sich dann zurückziehen!"
 queststatus(189) = 35, town = Galmair, "task", "adventure" -> inform("[New quest] Save Da Beer VI"), queststatus(189) = 36, "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
-queststatus(189) = 35, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Rette das Bierlager VI"), queststatus(189) = 36, "Töte den Rattenmenschen in der Zisterne, er ist der Befehlshaber und trägt den Namen 'Schnüffler'. Vielleicht werden die Ratten sich dann zurückziehen!"
+queststatus(189) = 35, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> inform("[Neues Quest] Rette das Bierlager VI"), queststatus(189) = 36, "Töte den Rattenmenschen in'er Zisterne, er ist der Befehlshaber un heißt 'Schnüffler'. Hoffen ma mal, die Ratten verschwinden dann!"
 
 -- Quest 6 solved, 30 silver, +10 rankpoints
-queststatus(189) = 37, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 30 silver coins."), money + 3000, queststatus(189) = 38, rankpoints + 10, "Da beer supply be safe. Me and da Don thanks ye!"
-queststatus(189) = 37, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), money + 3000, queststatus(189) = 38, rankpoints + 10, "Arr!!! Das Bier ist gerettet, ich habe nichts mehr für dich zu tun."
+queststatus(189) = 37, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 30 silver coins."), money + 3000, queststatus(189) = 38, rankpoints + 10, "Da beer supply be safe. Me and da Don thanks ye! You can get a beer in the tavern."
+queststatus(189) = 37, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), money + 3000, queststatus(189) = 38, rankpoints + 10, "Arr!!! Das Bier ist gerettet, ich habe nichts mehr für dich zu tun. In'er Taveverne wird's ausgeschenkt."
 
 -- Quest 6 taken but not finished
-queststatus(189) > 35, queststatus(189) < 37, town = Galmair, english, "quest", "mission" -> "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
-queststatus(189) > 35, queststatus(189) < 37, town = Galmair, "quest", "mission" -> "Töte den Rattenmenschen in der Zisterne, er ist der Befehlshaber und trägt den Namen 'Schnüffler'. Vielleicht werden die Ratten sich dann zurückziehen!"
-queststatus(189) > 35, queststatus(189) < 37, town = Galmair, "task", "adventure" -> "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
-queststatus(189) > 35, queststatus(189) < 37, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Töte den Rattenmenschen in der Zisterne, er ist der Befehlshaber und trägt den Namen 'Schnüffler'. Vielleicht werden die Ratten sich dann zurückziehen!"
+queststatus(189) = 36, town = Galmair, english, "quest", "mission" -> "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
+queststatus(189) = 36, town = Galmair, "task", "adventure" -> "Kill the ratman boss in the Cistern, he goes by the Snuffler. Maybe then the rats will leave!"
+queststatus(189) = 36, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> "Töte den Rattenmenschen in'er Zisterne, er ist der Befehlshaber un heißt 'Schnüffler'. Hoffen ma mal, die Ratten verschwinden dann!"
 
 -- No more quests, just nice words of gratitude
 queststatus(189) = 38, town = Galmair, english, "quest", "mission" -> "Arr!!! Da beer be safe, I have no more work for you."
-queststatus(189) = 38, town = Galmair, "quest", "mission" -> "Arr!!! Das Bier ist gerettet, ich habe nichts mehr für dich zu tun."
 queststatus(189) = 38, town = Galmair, "task", "adventure" -> "Arr!!! Da beer be safe, I have no more work for you."
-queststatus(189) = 38, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Arr!!! Das Bier ist gerettet, ich habe nichts mehr für dich zu tun."
+queststatus(189) = 38, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "quest", "mission" -> "Arr!!! Das Bier ist gerettet, außer trinken kannst du mix mehr tun hier."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Meh job is Beer Supply Quartermaster.  Its a special task from the Don himself!"

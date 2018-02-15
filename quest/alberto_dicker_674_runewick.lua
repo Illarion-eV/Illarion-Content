@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- INSERT INTO "quests" ("qst_id", "qst_script") VALUES (674, 'quest.alberto_dicker_674_runewick');
 
@@ -76,10 +76,10 @@ Description[ENGLISH][202] = "Go to Anthar Vilicon and report about the copied pi
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {970, 787, 1} -- Numilia
+local Start = {970, 787, 1} -- Numilia
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
-QuestTarget = {}
+local QuestTarget = {}
 QuestTarget[1] = {970, 787, 1} -- Numila
 QuestTarget[2] = {819, 104, 0} -- Raban
 QuestTarget[3] = {970, 787, 1} -- Numila

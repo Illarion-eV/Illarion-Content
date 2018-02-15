@@ -16,19 +16,19 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local lookat = require("base.lookat")
+local common = require("base.common")
+local magic = require("base.magic")
 local checks = require("item.general.checks")
 local learnMagic = require("magic.learnMagic")
+local glyphs = require("base.glyphs")
+local glyphmagic = require("magic.glyphmagic")
+
+local currentWandUse = {}
+local WAND_USE_GLYPH_FORGE_ERECT = 1
+local WAND_USE_GLYPH_RITUAL_PREPARE = 2
 
 local M = {}
 
--- Normal Items:
--- UPDATE common SET com_script='item.general.wood' WHERE com_itemid IN (17,39,40,57,65,70,76,207,208,209,212,213,214,215,216,217,218,219,263,312,522,524,550,551,2193,2194,2445,2448,2525,2527,2528,2530,2541,2544,2548,2549,2561,2566,2567,2570,2572,2573,2584,2585,2646,2659,2664,2685,2708,2714,2718,2727,2739,2780,2782,2783,2784,2785,2875,2876,2877,2878,2879,2880,2885,2913,2914,2915,2916);
-
--- Priest Items
--- UPDATE common SET com_script='item.general.wood' WHERE com_itemid IN ();
-
--- Weapons:
--- UPDATE common SET com_script='item.general.wood' WHERE com_itemid IN ();
 
 local magicWands = {}
     magicWands[323] = true
@@ -39,18 +39,81 @@ local magicWands = {}
     magicWands[3608] = true
     
 
+local function useWandSelection(user, item, ltstate)
+    local actionIndex = {}
+    local ACTION_ERECT_GLYPH_FORGE = 1
+    local ACTION_FIND_GLYPH_FORGE = 2
+    local ACTION_PREPARE_GLYPH_RITUAL = 3
+    local ACTION_COUNT_SHARDS = 4
+    local ACTION_GLYPH_JEWELRY = 5
+    local ACTION_GLYPH_BREAK = 6
+    local forgeItem
+
+    local cbSetMode = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local index = dialog:getSelectedIndex() + 1
+        if actionIndex[index] == ACTION_ERECT_GLYPH_FORGE then
+            currentWandUse[user.id] = WAND_USE_GLYPH_FORGE_ERECT
+            glyphmagic.placeGlyphForge(user, ltstate)
+        elseif actionIndex[index] == ACTION_PREPARE_GLYPH_RITUAL then
+            currentWandUse[user.id] = WAND_USE_GLYPH_RITUAL_PREPARE
+            glyphmagic.prepareGlyphRitual(user, ltstate)
+        elseif actionIndex[index] == ACTION_FIND_GLYPH_FORGE then
+            currentWandUse[user.id] = nil
+            if not glyphmagic.findGlyphForge(user) then
+                common.InformNLS(user,"Du kannst in der weiteren Umgebung keinen Ritualplatz auchmachen.",
+                                      "You cannot detect any existing ritual place in that area.")
+            end
+        elseif actionIndex[index] == ACTION_COUNT_SHARDS then
+            glyphmagic.showShardState(user)
+        elseif actionIndex[index] == ACTION_GLYPH_JEWELRY then
+            glyphmagic.forgeGlyphs(user,forgeItem,ltstate)
+        elseif actionIndex[index] == ACTION_GLYPH_BREAK then
+            glyphmagic.breakGlyphs(user,forgeItem,ltstate)
+        end
+    end
+    local windowText = common.GetNLS(user,"Rituale", "Rituals")
+    local commentText = ""
+    local sd = SelectionDialog(windowText, commentText, cbSetMode)
+    forgeItem, bool = common.GetItemInArea(user.pos, glyphs.GLYPH_SHRINE_ID, 1, true)
+    if forgeItem == nil then
+        sd:addOption(505, common.GetNLS(user,"Suche einen Glyph Ritualplatz","Find a glyph ritual place"))
+        table.insert(actionIndex,ACTION_FIND_GLYPH_FORGE)
+        if  user:getSkill(glyphs.SKILL_GLYPHING) >= glyphs.glyphForgeErectionMinSkill then
+            sd:addOption(glyphs.GLYPH_SHRINE_ID, common.GetNLS(user,"Errichte einen Glyph Ritualplatz","Build a glyph ritual place"))
+            table.insert(actionIndex,ACTION_ERECT_GLYPH_FORGE)
+        end
+    else
+        sd:addOption(3493, common.GetNLS(user,"Überprüfe deine Glyphensplitter","Check your glyph shards"))
+        table.insert(actionIndex,ACTION_COUNT_SHARDS)
+        if  user:getSkill(glyphs.SKILL_GLYPHING) >= glyphs.glyphRitualPrepareMinSkill then
+            sd:addOption(400, common.GetNLS(user,"Bereite ein Glyphen Ritual vor","Prepare a glyph ritual"))
+            table.insert(actionIndex,ACTION_PREPARE_GLYPH_RITUAL)
+        end
+        sd:addOption(235, common.GetNLS(user,"Arbeite eine Glyphe in ein Schmuckstück ein","Glyph a jewelry"))
+        table.insert(actionIndex,ACTION_GLYPH_JEWELRY)
+        sd:addOption(2140, common.GetNLS(user,"Breche eine Glyphe aus einem Schmuckstück heraus","Break a glyph out of a jewelry"))
+        table.insert(actionIndex,ACTION_GLYPH_BREAK)
+    end
+
+    sd:setCloseOnMove()
+    user:requestSelectionDialog(sd)
+end
+
 function M.LookAtItem(user, item)
     return lookat.GenerateLookAt(user, item, lookat.WOOD)
 end
 
-function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
+function M.MoveItemAfterMove(User, SourceItem, TargetItem)
     local questProgress = User:getQuestProgress(38)
     if TargetItem:getType() == 4 then --inventory, not belt
         if magicWands[SourceItem.id]then
             if User:getMagicType() == 3 then 
                 User:inform("Alchemisten können die Stabmagie nicht erlernen.",
                 "Alchemist are unable to use wand magic.")
-            elseif User:increaseAttrib("willpower", 0) + User:increaseAttrib("essence", 0) + User:increaseAttrib("intelligence", 0) < 30 then
+            elseif magic.hasMageAttributes(User) then
                 User:inform("Um Stabmagie zu verwenden, muss die Summe der Attribute Intelligenz, Essenz und Willensstärke wenigstens 30 ergeben. Attribute können bei den Trainer-NPCs geändert werden.",
                 "To use wand magic, your combined attributes of intelligence, essence, and willpower must total at least 30. Attributes can be changed at the trainer NPC.")
             elseif User:getMagicType() == 0 and (User:getQuestProgress(37) ~= 0 or User:getMagicFlags(0) > 0) then 
@@ -59,17 +122,28 @@ function M.MoveItemBeforeMove(User, SourceItem, TargetItem)
                 "To learn the craft of wand magic you must read three books of magical theory. Look for the list of books in your town's library.")
             end
         else
-            return checks.checkLevel(User, SourceItem)
+            return checks.checkLevel(User, SourceItem, TargetItem)
         end
     end
 
     return true
 end
 
-function M.UseItem(user, sourceItem)
-
-    if magicWands[sourceItem.id] then
-        learnMagic.useMagicWand(user, sourceItem)
+function M.UseItem(user, sourceItem, ltstate)
+    if ltstate == Action.none then
+        if magicWands[sourceItem.id] then
+            if user:getMagicType() == 0 and user:getQuestProgress(37) ~= 0 then
+                useWandSelection(user, sourceItem, ltstate)
+            else
+                learnMagic.useMagicWand(user, sourceItem)
+            end
+        end
+    else
+        if currentWandUse[user.id] == WAND_USE_GLYPH_FORGE_ERECT then
+            glyphmagic.placeGlyphForge(user, ltstate)
+        elseif currentWandUse[user.id] == WAND_USE_GLYPH_RITUAL_PREPARE then
+            glyphmagic.prepareGlyphRitual(user, ltstate)
+        end
     end
 end
 

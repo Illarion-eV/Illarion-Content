@@ -42,7 +42,7 @@ Description[ENGLISH][2] = "Go to the crypt and light at least one of the lamps i
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {862, 789, 0}
+local Start = {862, 789, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there

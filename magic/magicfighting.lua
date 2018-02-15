@@ -35,6 +35,9 @@ local common = require("base.common")
 local character = require("base.character")
 local fightingutil = require("base.fightingutil")
 local gems = require("base.gems")
+local glypheffects = require("magic.glypheffects")
+local globalvar = require("base.globalvar")
+local magic = require("base.magic")
 
 local function getNeededMana(castTime)
     return math.ceil(80 + (castTime-7)*20)
@@ -44,8 +47,8 @@ local function calculateCastTime(attackerStruct)
     local weaponPoints = attackerStruct.Weapon.ActionPoints
     local skill = attackerStruct.skill
     local globalSpeedMod = 100
-    
-    return math.ceil(math.max(7, weaponPoints * (100 - (attackerStruct.willpower-6)*2.5 - skill/5)/globalSpeedMod))   
+
+    return math.ceil(math.max(7, weaponPoints * (100 - (attackerStruct.willpower-6)*2.5 - skill/5)/globalSpeedMod))
 end
 
 local function checkCriticalAttack(attackerStruct)
@@ -53,12 +56,11 @@ local function checkCriticalAttack(attackerStruct)
 end
 
 local function checkBlockedAttack(attackerStruct, defenderStruct)
-    local magicDisturbance = 0 --defenderStruct.Weapon.MagicDisturbance
     local attackerWillpower = attackerStruct.willpower
     local defenderWillpower = defenderStruct.willpower
-    
+
     local magicBlockChance = 1.5
-    local chance = magicDisturbance + magicBlockChance * (1 + (defenderWillpower - attackerWillpower)/40)
+    local chance = magicBlockChance * (1 + (defenderWillpower - attackerWillpower)/40)
     return common.Chance(chance, 100)
 end
 
@@ -70,14 +72,14 @@ local function checkMissedAttack(attackerStruct)
     -- Damage in health will lower the concentration and therefore the attack is likely to miss
     local chance = accuracy*healthInPercent + (attackerStruct.willpower-5)*2
     local chance = 100 - common.Limit(chance, 5, 95)
-    
+
     return common.Chance(chance, 100)
 end
 
 local function isMagicAttackLoaded(attackerStruct, defender, neededCastTime)
     local attacker = attackerStruct["Char"]
     local mageLoad = MAGIC_LOAD_LIST[attacker.id]
-    
+
     -- Check if the player has changed his target/weapon/position or if he attacks for the first time
     if mageLoad == nil or (
     attackerStruct.WeaponItem.id ~= mageLoad["weapon"] or defender.id ~= mageLoad["target"] or
@@ -89,31 +91,31 @@ local function isMagicAttackLoaded(attackerStruct, defender, neededCastTime)
         MAGIC_LOAD_LIST[attacker.id]["position"] = attacker.pos.x.." "..attacker.pos.y.." "..attacker.pos.z
         return false
     end
-    
+
     -- Same reasonsing as in aiming time applies:
     -- We cannot check for the end of a fight but need to stop the start aiming, stop aiming, wait, attack immediately mechanic
     if (world:getTime("unix") - mageLoad["started"])*10 > neededCastTime + 20 then
         MAGIC_LOAD_LIST[attacker.id]["started"] = world:getTime("unix")
         return false
     end
-    
+
     -- Check if we can shoot
     if (world:getTime("unix") - mageLoad["started"])*10 < neededCastTime then
         return false
     end
-    
+
     -- Reset magicLoadTime if defender has run away or is blocked(!)
     if not fightingutil.checkRangeAndView(attackerStruct, defender) then
         MAGIC_LOAD_LIST[attacker.id]["started"] = world:getTime("unix")
         return false
     end
-    
+
     return true
 end
 
 local function sfxGfxOutput(attackerStruct, defenderStruct, element)
     common.CreateLine(attackerStruct.Char.pos, defenderStruct.Char.pos, function(currentPos)
-        local gfxId = 0 
+        local gfxId = 0
         if (currentPos == defenderStruct.Char.pos) then
             if (element == ELEMENTS.FIRE) then
                 gfxId = 44
@@ -131,11 +133,11 @@ local function sfxGfxOutput(attackerStruct, defenderStruct, element)
         end
         world:gfx(gfxId, currentPos)
     end)
-            
+
     world:makeSound(13, attackerStruct.Char.pos)
-end    
-    
-local function applyCriticalEffect(attackerStruct, defenderStruct, element) 
+end
+
+local function applyCriticalEffect(attackerStruct, defenderStruct, element)
     if (element == ELEMENTS.FIRE) then
         local burning = require("magic.lte.burning")
         burning.initEffect(defenderStruct.Char, 10, 10)
@@ -156,9 +158,9 @@ local function applyCriticalEffect(attackerStruct, defenderStruct, element)
 end
 
 local function averageArmourLevel(caster)
-    
+
     local averageArmourLevel = 0
-    
+
     local bodyPositions = {{part = Character.head, hitChance = 14}, {part = Character.breast, hitChance = 40}, {part = Character.hands, hitChance = 13}, {part = Character.legs, hitChance = 20}, {part = Character.feet, hitChance = 13}}
     for i = 1, #bodyPositions do
         local checkItem = caster:getItemAt(bodyPositions[i]["part"])
@@ -169,81 +171,98 @@ local function averageArmourLevel(caster)
             end
         end
     end
-    
+
     return averageArmourLevel/100
-    
+
+end
+
+local function magicItemsDegrade(character, magicItemsList)
+
+    local degradeChance = 20
+    if character:isNewPlayer() then
+        degradeChance = degradeChance * 2
+    end
+
+    for _, bonusItem in pairs(magicItemsList) do
+        if (common.Chance(1, 180)) then
+            local durability = math.fmod(bonusItem.quality, 100)
+            local quality = (bonusItem.quality - durability) / 100
+            local nameText = world:getItemName(bonusItem.id, character:getPlayerLanguage())
+
+            durability = durability - 1
+            if (durability == 0) then
+                common.InformNLS(character,
+                    "Deine Ausrüstungsgegenstand '"..nameText.."' zerbricht. Du vergießt eine bitter Träne und sagst lebe wohl, als sie in das nächste Leben übergeht.",
+                    "Your piece of equipment '"..nameText.."' shatters. You shed a single tear and bid it farewell as it moves on to its next life.")
+                gems.returnGemsToUser(character, bonusItem)
+                world:erase(bonusItem, 1)
+                return
+            end
+
+            bonusItem.quality = quality * 100 + durability
+            world:changeItem(bonusItem)
+
+            if (durability < 10) then
+                common.InformNLS(character,
+                    "eine Ausrüstungsgegenstand '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du sie reparieren lassen.",
+                    "Your piece of equipment '"..nameText.."' has seen better days. You may want to get it repaired.")
+            end
+        end
+    end
+
 end
 
 local function applyDamage(attackerStruct, defenderStruct)
-    
+
     -- damage boni
     local intBonus = 3.5 * (attackerStruct.intelligence - 6)
-    local essenceBonus = 1.1 * (attackerStruct.essence - 6) 
-    local skillBonus = 1.5 * (attackerStruct.skill - 10)
+    local essenceBonus = 1.1 * (attackerStruct.essence - 6)
+    local skillBonus = 1.75 * (attackerStruct.skill - 10)
     local qualityBonus = 0.91 + 0.02 * math.floor(attackerStruct.WeaponItem.quality/100) --ranges: 0.93 - 1.09
+    local magicBonusAttacker, magicItemsAttacker = magic.getMagicBonus(attackerStruct.Char)
+    magicBonusAttacker = magicBonusAttacker*1.5
     local globalDamageFactor = 1/180 -- mirrored from standardfighting
-    
+
     -- base damage
     local damage = attackerStruct.Weapon.Attack * 35
-    
+
     -- raw damage without defence
-    damage = damage * globalDamageFactor * qualityBonus * (100 + intBonus + essenceBonus + skillBonus)
-    local fighting = require("content.fighting")
-    local hitArea = fighting.GetHitArea(defenderStruct.Race)
-    local hitItem = defenderStruct.Char:getItemAt(hitArea)
-    local armourValue = world:getItemStatsFromId(hitItem.id).Level
-    local armourDefenseScalingFactor = 4/3
+    damage = damage * globalDamageFactor * qualityBonus * (100 + intBonus + essenceBonus + skillBonus + magicBonusAttacker)
+    local magicBonusDefender, magicItemsDefender = magic.getMagicBonus(defenderStruct.Char)
     local generalScalingFactor = 2.8
-    local armourSkill = 0
-    armourValue = armourValue/generalScalingFactor
-    local armourFound, armour = world:getArmorStruct(hitItem.id)
-    if (armourFound) then
-        local armourSkill = nil
-        local armourType = armour.Type
-        if armourType == 4 then
-            armourSkill = Character.heavyArmour
-        elseif armourType == 3 then
-            armourSkill = Character.mediumArmour
-        elseif armourType == 2 then
-            armourSkill = Character.lightArmour
-        else -- not an armour
-            armourValue = 0
-        end
-    end
-    
-    -- defence boni
-    local defQualityBonus = 0.82 + 0.02 + math.floor(hitItem.quality/100)
-    local defSkillBonus = 1 - armourSkill/300
-    
-    local armourScalingFactor = 5
-    local noobMalus = 5
-    if character.IsPlayer(defenderStruct.Char) and armourValue > armourSkill then
-        armourValue = armourValue / noobMalus
-    end
-    if armourValue > 0 then
-        armourValue = (100/armourScalingFactor) + armourValue*(1-1/armourScalingFactor)
-    end
-    damage = damage - (damage * armourValue * defQualityBonus/350)
-    damage = defSkillBonus * damage
+    magicBonusDefender = magicBonusDefender/generalScalingFactor
+
+    damage = damage - (damage * magicBonusDefender/350)
+
     local resistance = math.max(1, math.floor(
         (2*(defenderStruct.willpower - 6)
         + 0.5*(defenderStruct.intelligence - 6)
         + 0.5*(defenderStruct.essence - 6))))
     local resistance = common.Limit(Random.uniform(resistance, resistance*2) / 160.0, 0, 1)
     damage = damage* (1 - resistance)
-    
-    -- take consitution of enemy in account
+
+   -- take consitution of enemy in account
     damage  = (damage * 7) / (defenderStruct.Char:increaseAttrib("constitution", 0))
-    
     -- scale damage based on the level of the armour parts the mage wears
     --damage = damage*(1 - common.Scale(0, 0.5, averageArmourLevel(attackerStruct.Char))) -- deactived to remove malus
-    
+
+    -- apply glyph effects
+    local glyphDamageFactor = glypheffects.effectDamageIncrease(attackerStruct.Char,defenderStruct.Char)
+    local isGlyphRevertDamage, glyphRevertDamageFactor = glypheffects.effectRevertDamage(defenderStruct.Char, attackerStruct.Char)
+    damage = damage * glyphDamageFactor * glyphRevertDamageFactor
+
     -- limits for damage
     damage = math.max(0, damage)
-    damage = damage * (math.random(9,10)/10)
+    damage = damage * ((9+math.random())/10)
     damage = math.min(damage, 4999)
     damage = math.floor(damage)
-    
+
+    glypheffects.effectDamageOverTime(attackerStruct.Char,defenderStruct.Char,damage)
+
+    if isGlyphRevertDamage then
+        defenderStruct = attackerStruct
+    end
+
     -- inflict damage and check if character would die
     if character.IsPlayer(defenderStruct.Char) and character.WouldDie(defenderStruct.Char, damage + 1) then
         if character.AtBrinkOfDeath(defenderStruct.Char) then
@@ -265,99 +284,73 @@ local function applyDamage(attackerStruct, defenderStruct)
     else
         character.ChangeHP(defenderStruct.Char, -damage)
     end
-end
 
-function wandDegrade(caster, wand)
-
-    if (common.Chance(1, 20)) then
-        local durability = math.fmod(wand.quality, 100)
-        local quality = (wand.quality - durability) / 100
-        local nameText = world:getItemName(wand.id, caster:getPlayerLanguage())
-
-        durability = durability - 1
-        if (durability == 0) then
-            common.InformNLS(caster,
-                "Deine Waffe '"..nameText.."' zerbricht. Du vergießt eine bitter Träne und sagst lebe wohl, als sie in das nächste Leben übergeht.",
-                "Your weapon '"..nameText.."' shatters. You shed a single tear and bid it farewell as it moves on to its next life.")
-            gems.returnGemsToUser(caster, wand)
-            world:erase(wand, 1)
-            return
-        end
-
-        wand.quality = quality * 100 + durability
-        world:changeItem(wand)
-
-        if (durability < 10) then
-            common.InformNLS(caster,
-                "Deine Waffe '"..nameText.."' hat schon bessere Zeiten gesehen. Vielleicht solltest du sie reparieren lassen.",
-                "Your weapon '"..nameText.."' has seen better days. You may want to get it repaired.")
-        end
-    end
-
+    magicItemsDegrade(defenderStruct.Char, magicItemsDefender)
+    magicItemsDegrade(attackerStruct.Char, magicItemsAttacker)
 end
 
 function M.onMagicAttack(attackerStruct, defenderStruct)
 
     common.TurnTo(attackerStruct.Char,defenderStruct.Char.pos)
-    
+
     attackerStruct["intelligence"] = attackerStruct.Char:increaseAttrib("intelligence", 0)
     attackerStruct["essence"] = attackerStruct.Char:increaseAttrib("essence", 0)
     attackerStruct["willpower"] = attackerStruct.Char:increaseAttrib("willpower", 0)
-    
+
     local attributeSum = attackerStruct["intelligence"] + attackerStruct["essence"] + attackerStruct["willpower"]
 
     if attributeSum < 30 then
         return
     end
-    
+
     local neededCastTime = calculateCastTime(attackerStruct)
-    
+
     -- Any attack must preload a given time before he can be executed
     if not isMagicAttackLoaded(attackerStruct, defenderStruct.Char, neededCastTime) then
         return
     end
-    
+
     -- An attack is executed, reset the waittime till the next attack
     if character.IsPlayer(attackerStruct.Char) then
         MAGIC_LOAD_LIST[attackerStruct.Char.id]["started"] = world:getTime("unix")
     end
-    
+
     -- Handle mana usage
     attackerStruct["mana"] = attackerStruct.Char:increaseAttrib("mana", 0)
-    local neededMana = getNeededMana(neededCastTime)
+    local neededMana = magic.getValueWithGemBonus(attackerStruct.Char, getNeededMana(neededCastTime))
     if (attackerStruct.mana < neededMana) then
         attackerStruct.Char:inform("Dein Mana reicht nicht aus", "Your mana is depleted")
         return
     end
     attackerStruct.Char:increaseAttrib("mana", -neededMana)
-    
-    attackerStruct.Char:performAnimation(6)
-    
+
+    attackerStruct.Char:performAnimation(globalvar.charAnimationSPELL)
+
     local hisher =  common.GetGenderText(attackerStruct.Char,"his","her")
     local seinihr = common.GetGenderText(attackerStruct.Char,"sein","ihr")
-    
+
     if checkMissedAttack(attackerStruct) then
         attackerStruct.Char:inform("Der Angriff gelingt nicht. Du hast kurz die Konzentration verloren.", "The attack fails. You briefly lost your concentration.", Player.lowPriority)
         return
     end
-    
-    common.CreateLine(attackerStruct.Char.pos, defenderStruct.Char.pos, 
+
+    common.CreateLine(attackerStruct.Char.pos, defenderStruct.Char.pos,
         function(currentPos)
             world:gfx(1, currentPos)
         end
     )
-    
+
     defenderStruct = fightingutil.loadWeapons(defenderStruct)
     defenderStruct["intelligence"] = defenderStruct.Char:increaseAttrib("intelligence", 0)
     defenderStruct["willpower"] = defenderStruct.Char:increaseAttrib("willpower", 0)
     defenderStruct["essence"] = defenderStruct.Char:increaseAttrib("essence", 0)
-    
+
     if checkBlockedAttack(attackerStruct, defenderStruct) then
-        attackerStruct.Char:inform("Deiner Willenskraft gelingt es, die magische Attacke abzublocken.", "Your willpower was able to block this magic attack.", Player.lowPriority)
+        defenderStruct.Char:inform("Deiner Willenskraft gelingt es, die magische Attacke abzublocken.", "Your willpower was able to block this magic attack.", Player.lowPriority)
         attackerStruct.Char:inform("Dein Gegner blockt mit seinem Willen den Angriff ab.", "Your enemy is able to block your attack with his willpower.", Player.lowPriority)
         return
     end
-    
+
     local element = STAFF_ELEMENTS[attackerStruct.WeaponItem.id]
     --[[
     -- Will be added once we have citical attacks for all elements.
@@ -366,12 +359,15 @@ function M.onMagicAttack(attackerStruct, defenderStruct)
     end
     --]]
     sfxGfxOutput(attackerStruct, defenderStruct, element)
-    
+
     applyDamage(attackerStruct, defenderStruct)
     attackerStruct.Char:learn(Character.wandMagic, neededCastTime/3, 100)
-    
-    wandDegrade(attackerStruct.Char, attackerStruct.WeaponItem)
-    
+
+    magic.wandDegrade(attackerStruct.Char, attackerStruct.WeaponItem)
+
+    -- take glyph effects on move points into consideration
+    glypheffects.effectOnFight(attackerStruct.Char,defenderStruct.Char)
+
     return true
 end
 

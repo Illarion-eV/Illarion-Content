@@ -158,6 +158,16 @@ english, "Gobaith", "Gobiath" -> "Gobaith needed more Rangers."
 "my name" -> "Listen to the fairies sing!"
 "mein Name" -> "Hört die Feen singen!"
 
+-- Hints to the fox den
+"fox den" -> "In the fox den one can find cubs.", "There is a fox den in the north."
+"fox" -> "One day, the little cubs will hunt the rabbits.", "My fox vixen has cubs.", "If you are quiet about it, I'll let you say good night to the foxes here."
+"feed" -> "You will learn a lot about animals by feeding them.", "I feed the cubs so that they can one day hunt the rabbits."
+"rabbit" -> "They are so cute! If only they wouldn't nibble down all my flowers.", "The rabbits breed like ... well, like rabbits."
+"Fuchsbau" -> "Im dem Fuchsbau hier kann man Welpen beobachten.", "Nördlich von hier ist ein Fuchsbau."
+"Fuchs" -> "Eines Tages werden die kleinen Füchse die Kaninchen jagen.", "Meine Füchsin hat Junge.", "Wer leise ist, kann hier den Füchsen gute Nacht sagen."
+"Futter","fütter" -> "Füttere ruhig mal ein paar Tiere, du lernst sie dabei kennen.", "Ich füttere die jungen Füchse damit sie später mal die Kaninchen jagen."
+"Kaninchen" -> "Sind die nicht süß? Wen sie nicht immer alle Blumen abknabbern würden.", "Die Kaninchen vermehren sich wie ... na eben wie Kaninchen."
+
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "Ranger" -> "My job is to protect the forest and its inhabitants.", "All of Ushara's creatures are under my protection.", "My job is important to the life of the forest."
 "Waldläufer" -> "Meine Aufgabe ist es, den Wald und seine Bewohner zu schützen.", "Alle Geschöpfe Usharas stehen unter meinem Schutz.", "Meine Aufgabe ist wichtig für das Leben des Waldes."

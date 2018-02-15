@@ -18,6 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.chest' WHERE itm_id IN (8,649,650,1360,1361,1362,1367,3788,3789);
 
 local common = require("base.common")
+local collectionchest = require("content.collectionchest")
 
 local M = {}
 
@@ -44,6 +45,10 @@ local dragonCaveChestPos = {
 local ChestContents
 
 function M.UseItem(User, SourceItem)
+
+    if collectionchest.collectionChestUsed(User, SourceItem) then
+        return
+    end
 
     if (User:getQuestProgress(510) == 24) and  SourceItem.pos == position(783, 640, -3) then --OK, the player does the quest
         User:inform(
@@ -156,7 +161,7 @@ function ChestContents(User, chestItem)
     if random_number >= 0 and random_number <= 35 then
         User:inform("Du suchst bis zum Boden, findest aber nicht als Rattenkot.", "You search to the bottom but find nothing but rat droppings.")
     elseif random_number >= 36 and random_number <= 70 then
-        User:inform("Als Du suchst, findest Du einen Stapel Geldbörsen - aber alle sind leer.", "As you search, you find a stash of money bags, that are all empty.")
+        User:inform("Beim Suchen findest du einen Stapel Geldbörsen - aber alle sind leer.", "As you search, you find a stash of money bags, that are all empty.")
     elseif random_number >= 71 and random_number <= 90 then
         User:inform("Du findest eine Silbermünze.","You discover a silver coin.")
         common.CreateItem(User, 3077, 1, 333, nil) -- silver coin
@@ -164,7 +169,7 @@ function ChestContents(User, chestItem)
         local monPos = common.getFreePos(chestItem.pos, 2) -- radius 2 around vase
         world:createMonster(211, monPos, -20)
         world:gfx(41, monPos) -- swirly
-        User:inform("Während Du suchst, schleicht irgendwas aus den Schatten um dich herum.",
+        User:inform("Während du suchst, schleicht irgendwas aus den Schatten um dich herum.",
             "As you are searching, something sneaks in from the shadows around you.")
     end
 end
@@ -223,10 +228,10 @@ function letmaContents(User, letmaItem)
         local monPos = common.getFreePos(letmaItem.pos, 2) -- radius 2 around chest
         world:createMonster(141, monPos, -20)
         world:gfx(41, monPos) -- swirly
-        User:inform("Manchmal ist es besser Dinge in Ruhe zu lassen. Während Du nach der Kiste suchst, kommt Ihr Besitzer von hinten auf Dich zu.",
+        User:inform("Manchmal ist es besser Dinge in Ruhe zu lassen. Während du nach der Kiste suchst, kommt ihr Besitzer von hinten auf dich zu.",
             "Sometimes it is better to leave things alone. As you are searching the chest its owner comes up behind you.")
     elseif random_number >= 91 and random_number <= 100 then
-        User:inform("Unter einem Haufen von nutzlosen Dingen findest Du 5 Silberstücke in der Kiste.","Under a pile of rubbish in the chest you find five silver coins.")
+        User:inform("Unter einem Haufen von nutzlosen Dingen findest du 5 Silberstücke in der Kiste.","Under a pile of rubbish in the chest you find five silver coins.")
         common.CreateItem(User, 3077, 5, 333, nil) -- silver coin
     end
 end

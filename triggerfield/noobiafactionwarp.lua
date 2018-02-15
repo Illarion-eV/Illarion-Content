@@ -53,9 +53,9 @@ function M.MoveToField(Character)
             "Herzlichen Glückwunsch, du hast das Tutorial erfolgreich abgeschlossen. Du hast dich dazu entschlossen, Cadomyr beizutreten, dem Reich von Ruhm und Ehre. Beachte bitte, dass von nun an jeder, dem du begegnest, erwarten wird, dass du in deiner Rolle bleibst - sei also ein nobler Ritter, ein unterwürfiger Diener oder ein edler Diplomat.",
             "Congratulations, you have completed the tutorial. You have chosen to join Cadomyr, the realm of honour and glory. Please note that from this point on everyone that you encounter will expect you to stay 'in character', by remaining true to your chosen role - be it a proud knight, a humble servant or a noble diplomat.")
         dialogNewbieTaskText = common.GetNLS(Character,
-            "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. Jakob Lindorn ist ein freundlicher und hilfsbereiter Mensch, der Neuankömmlingen hilft. Geh zu ihm herüber und sprich mit ihm, wenn du Hilfe am Beginn deines neuen Lebens wünscht!",
-            "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Jakob Lindorn is a friendly and helpful person, who is happy to help newcomers. Go and talk to him if you want to get some help at the beginning of your new life!")
-
+            "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. Dein erstes Ziel sollte es sein, andere Spielercharaktere zu finden. Spielercharaktere lassen sich leicht von NPCs unterscheiden. NPCs bewegen sich nicht und reagieren sofort auf das Schlüsselwort 'Hilfe' mit einer Liste von Befehlen. Einige NPCs vergeben quests, diese haben ein '!' über ihrem Kopf. Erkunde auch die Stadt Cadomyr. Interessante Orte sind mit einem roten Symbol auf deiner Karte gekennzeichnet. Dein Questlog (Q) enthält weitere Informationen.",
+            "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Your first objective will be to find other player characters to interact with. You'll easily tell apart player characters from NPCs as the latter do not move and respond immediatly on the keyword 'help' with a list of commands. Some NPCs issue quests, those have a '!' above their head. Also, explore the city of Cadomyr. Interesting places are marked on your map with a red symbol. For further information, see your quest log (Q).")
+            
     elseif Character.pos == position(20,99,100) and find then --Runewick for new player
 
         destination = position(931, 818, 0)
@@ -65,8 +65,8 @@ function M.MoveToField(Character)
             "Herzlichen Glückwunsch, du hast das Tutorial erfolgreich abgeschlossen. Du hast dich dazu entschlossen, Runewick beizutreten, dem Reich der Weisheit und der Magie. Beachte bitte, dass von nun an jeder, dem du begegnest, erwarten wird, dass du in deiner Rolle bleibst - sei also ein geheimnisvoller Magier, ein weiser Gelehrter oder ein friedliebender Waldläufer.",
             "Congratulations, you have completed the tutorial. You have chosen to join Runewick, the realm of wisdom and magic. Please note that from this point on everyone that you encounter will expect you to stay 'in character', by remaining true to your chosen role - be it a mysterious mage, a wise scholar or a peaceful ranger.")
         dialogNewbieTaskText = common.GetNLS(Character,
-            "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. Florain Dreyndel ist ein freundlicher und hilfsbereiter Mensch, der Neuankömmlingen hilft. Geh zu ihm herüber und sprich mit ihm, wenn du Hilfe am Beginn deines neuen Lebens wünscht!",
-            "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Florain Dreyndel is a friendly and helpful person, who is happy to help newcomers. Go and talk to him if you want to get some help at the beginning of your new life!")
+            "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. Dein erstes Ziel sollte es sein, andere Spielercharaktere zu finden. Spielercharaktere lassen sich leicht von NPCs unterscheiden. NPCs bewegen sich nicht und reagieren sofort auf das Schlüsselwort 'Hilfe' mit einer Liste von Befehlen. Einige NPCs vergeben quests, diese haben ein '!' über ihrem Kopf. Erkunde auch die Stadt Runewick. Interessante Orte sind mit einem roten Symbol auf deiner Karte gekennzeichnet. Dein Questlog (Q) enthält weitere Informationen.",
+            "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Your first objective will be to find other player characters to interact with. You'll easily tell apart player characters from NPCs as the latter do not move and respond immediatly on the keyword 'help' with a list of commands. Some NPCs issue quests, those have a '!' above their head. Also, explore the city of Runewick. Interesting places are marked on your map with a red symbol. For further information, see your quest log (Q).")
 
     elseif Character.pos == position(20,99,100) and oldPlayer then --Runewick for old player
 
@@ -81,11 +81,10 @@ function M.MoveToField(Character)
             "Herzlichen Glückwunsch, du hast das Tutorial erfolgreich abgeschlossen. Du hast dich dazu entschlossen, Galmair beizutreten, dem Reich des aufstrebenden Wohlstands. Beachte bitte, dass von nun an jeder, dem du begegnest, erwarten wird, dass du in deiner Rolle bleibst - sei also ein fleißiger Handwerker, ein durchtriebener Gauner oder ein reicher Händler.",
             "Congratulations, you have completed the tutorial. You have chosen to join Galmair, the realm of prosperity and wealth. Please note that from this point on everyone that you encounter will expect you to stay 'in character', by remaining true to your chosen role - be it a sturdy craftsman, a shady thug or a wealthy merchant.")
         dialogNewbieTaskText = common.GetNLS(Character,
-            "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. Joey Licavoli ist ein freundlicher und hilfsbereiter Mensch, der Neuankömmlingen hilft. Geh zu ihm herüber und sprich mit ihm, wenn du Hilfe am Beginn deines neuen Lebens wünscht!",
-            "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Joey Licavoli is a friendly and helpful person, who is happy to help newcomers. Go and talk to him if you want to get some help at the beginning of your new life!")
+            "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. Dein erstes Ziel sollte es sein, andere Spielercharaktere zu finden. Spielercharaktere lassen sich leicht von NPCs unterscheiden. NPCs bewegen sich nicht und reagieren sofort auf das Schlüsselwort 'Hilfe' mit einer Liste von Befehlen. Einige NPCs vergeben quests, diese haben ein '!' über ihrem Kopf. Erkunde auch die Stadt Galmair. Interessante Orte sind mit einem roten Symbol auf deiner Karte gekennzeichnet. Dein Questlog (Q) enthält weitere Informationen.",
+            "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Your first objective will be to find other player characters to interact with. You'll easily tell apart player characters from NPCs as the latter do not move and respond immediatly on the keyword 'help' with a list of commands. Some NPCs issue quests, those have a '!' above their head. Also, explore the city of Galmair. Interesting places are marked on your map with a red symbol. For further information, see your quest log (Q).")
 
     elseif Character.pos == position(40,111,100) and oldPlayer then --Galmair old player
-
         destination = position(424,245,0)
     end
 
@@ -107,7 +106,7 @@ function M.MoveToField(Character)
 
     local FactionCheck = factions.getFaction(Character);
 
-    if (not Character:isAdmin() and not (FactionCheck.tid ~= 0)) and not oldPlayer then -- Admins and chars who are already members of a faction are unaffected and just warped
+    if (not (FactionCheck.tid ~= 0)) and not oldPlayer then -- Old players and chars who are already members of a faction are unaffected and just warped
 
         -- Abuse protection: We delete some items, if the char has more than one of them (farmed)
         local DeleteList = {23,391,392,2763} --hammer, torch, lit torch, pick-axe (relict)
@@ -126,7 +125,6 @@ function M.MoveToField(Character)
         end
 
         -- We restore the character
-
         Character:setAttrib("hitpoints",10000)
         Character:setAttrib("mana",10000)
         Character:setAttrib("foodlevel",30000)
@@ -134,7 +132,7 @@ function M.MoveToField(Character)
         -- Build the dialogs
         local callbackNewbie = function(dialogNewbie)
             local callbackNewbieTask = function(dialogNewbieTask) end
-            local dialogNewbieTaskTitle = common.GetNLS(Character, "Ein guter Anfang", "A good beginning")
+            local dialogNewbieTaskTitle = common.GetNLS(Character, "Einführung", "Introduction")
             local dialogNewbieTask = MessageDialog(dialogNewbieTaskTitle, dialogNewbieTaskText, callbackNewbieTask)
             Character:requestMessageDialog(dialogNewbieTask)
         end
@@ -142,10 +140,9 @@ function M.MoveToField(Character)
 
         -- We send him a message box
         Character:requestMessageDialog(dialogNewbie); --sending the dialog box to tell him that he finished the tutorial
-                                                      --the callback of this box contains the dialog box to tell him to see the first quest giving NPC
+                                                      --the callback of this box contains the dialog box to tell him to visit special places
 
         -- We tell other players about our noob
-
         local playerlist = world:getPlayersOnline();
 
         for i = 1, #(playerlist) do
@@ -158,6 +155,13 @@ function M.MoveToField(Character)
         -- We make the noob a faction member - finally!
         Character:setQuestProgress(199,factionID);
         factions.setRankpoints(Character,0);
+        
+        -- We start the introduction LTE
+        local found = Character.effects:find(37)
+        if not found then
+            Character.effects:addEffect(LongTimeEffect(37, 10))
+            Character:setQuestProgress(46,1) --start the quest
+        end
 
     end
 end

@@ -17,6 +17,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local treasure = require("item.base.treasure")
 local gems = require("base.gems")
+local shard = require("item.shard")
+local glypheffects = require("magic.glypheffects")
 
 module("base.gatheringcraft", package.seeall)
 
@@ -38,6 +40,8 @@ GatheringCraft = {
     SavedWorkTime = { },
     Treasure = 0,
     TreasureMsg = { },
+    Shard = 0,
+    ShardMsg = { },
   FastActionFactor = 1,
   LearnLimit = 20
 };
@@ -81,6 +85,12 @@ function GatheringCraft:SetTreasureMap(Probability, MessageDE, MessageEN)
     self.Treasure = Probability;
     self.TreasureMsg[1] = MessageDE;
     self.TreasureMsg[2] = MessageEN;
+end
+
+function GatheringCraft:SetShard(Probability, MessageDE, MessageEN)
+    self.Shard = Probability;
+    self.ShardMsg[1] = MessageDE;
+    self.ShardMsg[2] = MessageEN;
 end
 
 function GatheringCraft:AddInterruptMessage(MessageDE, MessageEN)
@@ -147,6 +157,15 @@ function GatheringCraft:FindRandomItem(User)
         end
     end
 
+    if (self.Shard > 0) then
+        local rand = math.random();
+        if(rand < self.Shard*self.FastActionFactor) then
+            shard.createShardOnUser(User)
+            common.InformNLS(User, self.ShardMsg[1], self.ShardMsg[2]);
+            return true;
+        end
+    end
+    
     if (#self.Monsters > 0) then
         local ra = math.random(#self.Monsters);
         local pa = math.random();
@@ -155,15 +174,19 @@ function GatheringCraft:FindRandomItem(User)
             if TargetPos == nil then
                 return false
             end
-            world:createMonster(self.Monsters[ra].MonsterID, TargetPos, 20);
-            if ( self.Monsters[ra].GFX ~= nil ) then
-                world:gfx(self.Monsters[ra].GFX, TargetPos);
+            if glypheffects.effectPreventMonsterOnGathering(User) then
+                return false
+            else
+                world:createMonster(self.Monsters[ra].MonsterID, TargetPos, 20);
+                if ( self.Monsters[ra].GFX ~= nil ) then
+                    world:gfx(self.Monsters[ra].GFX, TargetPos);
+                end
+                if(self.Monsters[ra].Sound ~= nil) then
+                    world:makeSound(self.Monsters[ra].Sound, TargetPos);
+                end
+                common.InformNLS(User, self.Monsters[ra].MessageDE, self.Monsters[ra].MessageEN);
+                return true;
             end
-            if(self.Monsters[ra].Sound ~= nil) then
-                world:makeSound(self.Monsters[ra].Sound, TargetPos);
-            end
-            common.InformNLS(User, self.Monsters[ra].MessageDE, self.Monsters[ra].MessageEN);
-            return true;
         end
     end
 

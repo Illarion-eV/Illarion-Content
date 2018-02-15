@@ -22,6 +22,7 @@ local character = require("base.character")
 local M = {}
 
 -- NOTE: town IDs for:
+M.outlaw = 0
 M.cadomyr = 1
 M.runewick = 2
 M.galmair = 3
@@ -195,7 +196,7 @@ end
     @return - Id of the town
 ]]
 function M.getMembership(player)
-    return player:getQuestProgress(199);
+    return player:getQuestProgress(199)
 end
 
 function M.isCadomyrCitizen(player)
@@ -208,6 +209,10 @@ end
 
 function M.isRunewickCitizen(player)
     return M.getMembership(player) == M.runewick
+end
+
+function M.isOutlaw(player)
+    return M.getMembership(player) == M.outlaw
 end
 
 --[[
@@ -389,9 +394,9 @@ function M.setSpecialRank(player, rank)
         if rankpoints >= (M.highestRank-1)*100 then
             player:setQuestProgress(200, tonumber(rank));
             if rank == 0 then
-                inform = common.GetNLS(player,"Ihr wurdet degradiert und habt nun keinen speziellen Rang mehr.","You have been demoted and have no special rank anymore.")
+                inform = common.GetNLS(player,"Du wurdest degradiert und hast nun keinen speziellen Rang mehr.","You have been demoted and have no special rank anymore.")
             else
-                inform = common.GetNLS(player,"Ihr wurdet befördert und seid nun "..M.getRank(player)..".","You have been promoted and are now "..M.getRank(player)..".");
+                inform = common.GetNLS(player,"Du wurdest befördert und bist nun "..M.getRank(player)..".","You have been promoted and are now "..M.getRank(player)..".");
             end
             player:inform(inform)
             return true;
@@ -444,7 +449,7 @@ function M.setRankpoints(originator, rankpoints)
         Faction.rankTown = checkForRankChange(rankpoints,rank);    
     end
 
-    -- Factionleaders always have the leaderrank 11 and 1000 rankpoints (just to keep it consistent)
+    -- Factionleaders always have the leader rank 11 and 1000 rankpoints (just to keep it consistent)
     if originator.name == "Valerio Guilianni" or originator.name == "Rosaline Edwards" or originator.name == "Elvaine Morgan" then
         rankpoints = (leaderRank-1)*100;
         Faction.rankTown = leaderRank;
@@ -456,7 +461,7 @@ function M.setRankpoints(originator, rankpoints)
         if getSpecialRank(originator) ~= 0 then
             M.setSpecialRank(originator, 0);
         end
-    else
+    elseif rankpoints > M.getRankpoints(originator) then
         playerText = {"steigt.","advance"};
         informPlayerAboutRankpointchange(originator, playerText);
     end    
@@ -539,7 +544,7 @@ function M.makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
         local germanMoney, englishMoney = money.MoneyToString(amountToPay);
         
         if not money.CharHasMoney(originator,amountToPay) then --not enough money!
-             gText="Ihr habt nicht genug Geld dabei! Ihr benötigt"..germanMoney..".";
+             gText="Du hast nicht genug Geld dabei! Du benötigst"..germanMoney..".";
             eText="You don't have enough money with you! You'll need"..englishMoney..".";
             outText=common.GetNLS(originator,gText,eText);
             thisNPC:talk(Character.say, outText);
@@ -572,7 +577,7 @@ function leaveFaction(originator, Faction, thisNPC)
 
     M.setFaction(originator,Faction); --write fv in Questprogress
 
-    gText="Ihr gehört nun keinem Reich mehr an. Das bedeutet das Ihr frei, aber auf Euch selbst gestellt seid. Viel Glück.";
+    gText="Du gehört nun keinem Reich mehr an. Das bedeutet, dass du frei, aber auf dich selbst gestellt seid. Viel Glück.";
     eText="You're now not belonging to any realm. This means you're free but also on your own. Good luck.";
     outText=common.GetNLS(originator,gText,eText);
     thisNPC:talk(Character.say, outText);
@@ -626,6 +631,15 @@ function M.getPlayerRelation(player, townFaction)
         end
     else
         return individualRelation;
+    end
+end
+
+function M.isPlayerPermittedInTown(player, townFaction)
+    local playerRelation = M.getPlayerRelation(player, townFaction)
+    if playerRelation == M.RELATION_HOSTILE or playerRelation == M.RELATION_AGGRESSIVE then
+        return false
+    else
+        return true
     end
 end
 

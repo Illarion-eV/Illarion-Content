@@ -89,6 +89,17 @@ function M.UseItem(User, SourceItem, ltstate)
         return
     end
 
+    if User:getQuestProgress(688) ~= 1 then
+        if User:getQuestProgress(718) == 3 or User:getQuestProgress(71) == 3 or common.Chance(1, 100) then
+            common.InformNLS(User,
+            "Müll gehört nicht ins Wasser. Du findest eine alte Pfanne, in der wohl früher mal Fische geräuchert wurden.",
+            "Garbage doesn't belongs in the water. You find an old rusty pan that was used to smoke fish earlier.")
+            User:setQuestProgress(688,1)
+            common.CreateItem(User, 2495, 1, 117)
+            return
+        end
+    end
+    
     fishing.StartGathering(User, shoalItem, ltstate)
 end
 

@@ -44,7 +44,7 @@ Description[GERMAN][4] = "Du hast alle Aufgaben für Evera erledigt."
 Description[ENGLISH][4] = "You have completed all of Evera's tasks."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {139, 622, 0 }
+local Start = {139, 622, 0 }
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}

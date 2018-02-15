@@ -72,14 +72,14 @@ Description[ENGLISH][18] = "You have fulfilled all the tasks for Beror Oakaxe."
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {135, 620, 0}
+local Start = {135, 620, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}
 QuestTarget[1] = {position(135, 620, 0), position(125, 566, 0)} -- statue
 QuestTarget[2] = {position(135, 620, 0)} 
 QuestTarget[3] = {position(135, 620, 0)} 
-QuestTarget[4] = {position(135, 620, 0), position(107, 556, 0), position(122, 544, 0), position(118, 641, 0)} -- notary's office, the palace and the gate
+QuestTarget[4] = {position(135, 620, 0), position(107, 556, 0), position(122, 544, 0), position(118, 623, 0)} -- notary's office, the palace and the gate
 QuestTarget[5] = {position(135, 620, 0)} 
 QuestTarget[6] = {position(135, 620, 0)} 
 QuestTarget[7] = {position(135, 620, 0), position(123, 614, 0), position(143, 586, 0)} -- Händler, Schmelzofen

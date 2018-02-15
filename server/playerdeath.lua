@@ -62,6 +62,7 @@ function M.playerDeath(deadPlayer)
         world:makeSound(25, deadPlayer.pos)
         showDeathDialog(deadPlayer)
 
+        --Quality loss
         local DURABILITY_LOSS = 10
         local BLOCKED_ITEM = 228
         for i = Character.head, Character.coat do
@@ -77,11 +78,50 @@ function M.playerDeath(deadPlayer)
                 if durability <= DURABILITY_LOSS / newbieModficator then
                     gems.returnGemsToUser(deadPlayer, item)
                     deadPlayer:increaseAtPos(i, -1)
+                    
+                    if i == 5 and world:getItemStats(deadPlayer:getItemAt(6)).id == BLOCKED_ITEM then
+                        deadPlayer:increaseAtPos(6, -1)
+                    end
+                    
+                    if i == 6 and world:getItemStats(deadPlayer:getItemAt(5)).id == BLOCKED_ITEM then
+                        deadPlayer:increaseAtPos(5, -1)
+                    end
+                    
                     local nameText = world:getItemName(item.id, deadPlayer:getPlayerLanguage())
                     common.HighInformNLS(deadPlayer, "[Tod] Dein Gegenstand '"..nameText.."' wurde zerstört.", "[Death] Your item '"..nameText.."' was destroyed.")
                 else
                     item.quality = item.quality - DURABILITY_LOSS / newbieModficator
                     world:changeItem(item)
+                end
+            end
+        end
+        
+        --Drop from bag
+        local spectators = world:getPlayersInRangeOf(deadPlayer.pos, 15)
+        if #spectators > 1 and not deadPlayer:isNewPlayer() then
+            local bag = deadPlayer:getBackPack()
+            if bag then
+                local candidates = {}
+                for i = 0,99 do
+                    worked, theItem, theContainer = bag:viewItemNr(i)
+                    theItemStats = world:getItemStats(theItem)
+                    if theItem and worked and not gems.itemHasGems(theItem) and common.IsNilOrEmpty(theItem:getData("descriptionEn")) and common.IsNilOrEmpty(theItem:getData("descriptionDe")) and common.IsNilOrEmpty(theItem:getData("rareness")) and theItemStats.Rareness == 1 then
+                        table.insert(candidates, i)
+                    end
+                end
+                local counter = 0
+                if #candidates > 0 then
+                    repeat
+                        local index = math.random(1,#candidates)
+                        workedView, theItemView = bag:viewItemNr(candidates[index])
+                        if workedView then
+                            worked, theItem = bag:takeItemNr(candidates[index], theItemView.number)
+                            if worked then
+                                world:createItemFromItem(theItemView, deadPlayer.pos, true)
+                                counter = counter +1 
+                            end
+                        end
+                    until counter == math.min(#candidates, 3)
                 end
             end
         end

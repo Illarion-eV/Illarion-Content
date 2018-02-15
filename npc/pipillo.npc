@@ -64,7 +64,7 @@ itemShoes = 53
 sellItem = id(1061), de("Portalbuch nach Cadomyr"), en("Portal book to Cadomyr"), price(1000), stack(1), quality(999), data("destinationCoordsY" = "647", "destinationCoordsX" = "126", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Cadomyr", "descriptionDe" = "Portal nach Cadomyr")
 sellItem = id(1061), de("Portalbuch nach Galmair"), en("Portal book to Galmair"), price(1000), stack(1), quality(999), data("destinationCoordsY" = "246", "destinationCoordsX" = "423", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Galmair", "descriptionDe" = "Portal nach Galmair")
 sellItem = id(1061), de("Portalbuch nach Runewick"), en("Portal book to Runewick"), price(1000), stack(1), quality(999), data("destinationCoordsY" = "813", "destinationCoordsX" = "835", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to Runewick", "descriptionDe" = "Portal nach Runewick")
-sellItem = id(1061), de("Portalbuch zum Gasthof zur Hanfschlinge"), en("Portal book to the Hemp Necktie Inn"), price(1000), stack(1), quality(999), data("destinationCoordsY" = "307", "destinationCoordsX" = "684", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to the Hemp Necktie Inn", "descriptionDe" = "Portal zum Hemp Necktie Inn")
+sellItem = id(1061), de("Portalbuch zum Gasthof zur Hanfschlinge"), en("Portal book to the Hemp Necktie Inn"), price(1000), stack(1), quality(999), data("destinationCoordsY" = "307", "destinationCoordsX" = "684", "destinationCoordsZ" = "0", "descriptionEn" = "Portal to the Hemp Necktie Inn", "descriptionDe" = "Portal zum Gasthof zur Hanfschlinge")
 
 tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
 tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
@@ -105,19 +105,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Always keep moving!", "Tood
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Pipillo, Portalbuch Händler. Das bin ich.", "Ich bin der Händler Pipillo.", "Pipillo mein Name, ich handle mit Portalbüchern."
 
 -- Quest
--- fix if quest started and sent to NPC by Joey
-queststatus(220) > 0, queststatus(712) = 15, english, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 16, "Ah Joey sent you but you already asked me for something to do."
-queststatus(220) > 0, queststatus(712) = 15, town = Galmair, "quest", "mission", "joey", "licavoli" -> queststatus(712) = 16, "Ah Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt."
-queststatus(220) > 0, queststatus(712) = 15, town = Galmair, "task", "adventure", "order" -> queststatus(712) = 16, "Ah Joey sent you but you already asked me for something to do."
-queststatus(220) > 0, queststatus(712) = 15, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(712) = 16, "Ah Joey hat dich geschickt aber du hast mich bereits nach einer Aufgabe gefragt."
-
 -- 1st quest: fetch an apple pie
 -- Give out quest 1 and coins
-queststatus(220) = 0, queststatus(712) = 15, english, town = Galmair, "quest", "mission" -> inform("[New quest] Bookseller Helper I"), money + 2700, queststatus(220) = 1, queststatus(712) = 16, "Hello, I am starving and can't leave my business. Can you fetch me apple pie for my lunch from the marketplace?  Here are the coins!"
-queststatus(220) = 0, queststatus(712) = 15, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Buchhändler-Helfer I"), money + 2700, queststatus(220) = 1, queststatus(712) = 16, "Hallo, ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus vom Marktplatz besorgen? Hier sind die Münzen für den Kuchen!"
-queststatus(220) = 0, queststatus(712) = 15, town = Galmair, "task", "adventure", "order" -> inform("[New quest] Bookseller Helper I"), money + 2700, queststatus(220) = 1, queststatus(712) = 16, "Hello, I am starving and can't leave my business. Can you fetch me apple pie for my lunch from the marketplace?  Here are the coins!"
-queststatus(220) = 0, queststatus(712) = 15, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Buchhändler-Helfer I"), money + 2700, queststatus(220) = 1, queststatus(712) = 16, "Hallo, ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus vom Marktplatz besorgen? Hier sind die Münzen für den Kuchen!"
-
 queststatus(220) = 0, english, town = Galmair,"quest", "mission" -> inform("[New quest] Bookseller Helper I"), money + 2700, queststatus(220) = 1, "Hello, I am starving and can't leave my business. Can you fetch me apple pie for my lunch from the marketplace?  Here are the coins!"
 queststatus(220) = 0, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Buchhändler-Helfer I"), money + 2700, queststatus(220) = 1, "Hallo, ich bin am verhungern, aber ich kann mein Geschäft nicht verlassen. Kannst mir einen Apfelkuchen aus vom Marktplatz besorgen? Hier sind die Münzen für den Kuchen!"
 queststatus(220) = 0, town = Galmair, "task", "adventure" -> inform("[New quest] Bookseller Helper I"), money + 2700, queststatus(220) = 1, "Hello, I am starving and can't leave my business. Can you fetch me apple pie for my lunch from the marketplace?  Here are the coins!"

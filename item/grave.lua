@@ -54,6 +54,7 @@ local dragonCaveCoffinPos = {
 }
 
 local CoffinContents
+local letmaCoffin
 
 function M.LookAtItem(User, Item)
 
@@ -66,8 +67,9 @@ end
 
 local findPlayersForGems={}
 local graveSourceItemPos={position(958,238,0),position(968,226,0),position(970,219,0)}
-local typoOfGem={197,284,45}
-local gemColourDE1={"Lilla","Blau","Grün"}
+local typoOfGem={3519,3522,3523}
+
+local gemColourDE1={"Lila","Blau","Grün"}
 local gemColourDE2={"Amethysten","Saphire","Smaragde"}
 local gemColourEN1={"purple","blue","green"}
 local gemColourEN2={"Amethysts","Sapphires","Emeralds"}
@@ -89,7 +91,7 @@ function M.UseItem(User, SourceItem)
         queststatuslist = common.Split_number(queststatus, 6) -- reading the digits of the queststatus as table
         if queststatuslist[1] == 0 then -- gem, only triggered once by each char
             common.InformNLS(User, "Du entdeckst einen glitzernden Edelstein bei der Leiche.", "You discover a shiny gem with the corpse.")
-            common.CreateItem(User, 198, 1, 333, {["gemLevel"] = 1})
+            common.CreateItem(User, 3525, 1, 333, {["gemLevel"] = 1})
             queststatuslist[1] = 1
             User:setQuestProgress(531, queststatuslist[1]*100000+queststatuslist[2]*10000+queststatuslist[3]*1000+queststatuslist[4]*100+queststatuslist[5]*10+queststatuslist[6]*1) --saving the new queststatus
         end
@@ -135,7 +137,7 @@ function M.UseItem(User, SourceItem)
     end
 
     if (User:getQuestProgress(510) == 21) and  SourceItem.pos == position(703, 612, -3) then --OK, the player does the quest at dragon cave
-        User:inform("Im Sarg findest Du die Überreste des Zwerges aus Deiner Vision. Du nimmst den losgelösten Schädel als Beweis für Obsidimine.",
+        User:inform("Im Sarg findest du die Überreste des Zwerges aus deiner Vision. Du nimmst den losgelösten Schädel als Beweis für Obsidimine.",
             "Inside the coffin you find the remains of the dwarf from the vision.  You take the detached skull as proof for Obsidimine.")
         User:setQuestProgress(510, 22)
         return
@@ -182,13 +184,13 @@ function CoffinContents(User, coffinItem)
 
     local random_number = math.random(1,100)
     if random_number >= 0 and random_number <= 35 then
-        User:inform("Bevor Du hineischauen kannst, schlägt Dir übler Geruch entgegen. Du schließt den Deckel, unfähig ihn wieder zu öffnen.",
+        User:inform("Bevor du hineischauen kannst, schlägt dir übler Geruch entgegen. Du schließt den Deckel, unfähig ihn wieder zu öffnen.",
             "The smell hits your nose before you can see inside, you drop the lid unable to open it any further.")
     elseif random_number >= 36 and random_number <= 70 then
         User:inform("Die Überreste im Sarg sind uralt und mumifiziert. Wer oder was es mal war ist unbekannt.",
             "The remains in the coffin are ancient and mummified.  Who or what they once were is unknown.")
     elseif random_number >= 71 and random_number <= 90 then
-        User:inform("Du blickst kurz in den Sarg und entdeckst einen einfachen Dolch, den Du für dich mitnimmst.",
+        User:inform("Du blickst kurz in den Sarg und entdeckst einen einfachen Dolch, den du für dich mitnimmst.",
             "You quickly glance in the coffin and discover a simple dagger which you take for your own.")
         common.CreateItem(User, 27, 1, 333, nil) -- simple dagger
     elseif random_number >= 91 and random_number <=100 then
@@ -217,15 +219,15 @@ function letmaCoffin(User, letmaCoffinItem)
 
     local random_number = math.random(1,100)
     if random_number >= 0 and random_number <= 70 then
-        User:inform("Im Sarg findest Du einen verfallenen Körper. Warum hast Du es erneut geöffnet?", "Inside the coffin you find a decayed corpse. Why did you open this again?")
+        User:inform("Im Sarg findest du einen verfallenen Körper. Warum hast du es erneut geöffnet?", "Inside the coffin you find a decayed corpse. Why did you open this again?")
     elseif random_number >= 71 and random_number <=90 then
         local monPos = common.getFreePos(letmaCoffinItem.pos, 2) -- radius 2 around chest
         world:createMonster(981, monPos, -20)
         world:gfx(41, monPos) -- swirly
-        User:inform("Ein Leichenfresser springt aus dem offenen Sarg und greift Dich an.",
+        User:inform("Ein Leichenfresser springt aus dem offenen Sarg und greift dich an.",
             "A corpse eater jumps from an opened coffin and attacks you.")
     elseif random_number >= 91 and random_number <= 100 then
-        User:inform("Im Sarg findest Du einen Rubinring an einem Knochenfinger. Jetzt ist er Dein.","On a bony finger inside the coffin you find a ruby ring. It's yours now.")
+        User:inform("Im Sarg findest du einen Rubinring an einem Knochenfinger. Jetzt ist er dein.","On a bony finger inside the coffin you find a ruby ring. It's yours now.")
         common.CreateItem(User, 68, 1, 666, nil) -- gold ruby ring
     end
 end

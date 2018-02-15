@@ -67,7 +67,7 @@ Description[GERMAN][16] = "Gratulation, du bist nun ein wahrer Groﬂmeister der S
 Description[ENGLISH][16] = "Congratulations, you are now a true Grandmaster of the Blacksmithing Guild of Galmair."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {387, 273, 0}
+local Start = {387, 273, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}

@@ -24,7 +24,7 @@ local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}
-Title[GERMAN] = "Finde Borgate Northoff im Gasthaus zur Hanfschlinge (Spinnenmaul)"
+Title[GERMAN] = "Finde Borgate Northoff im Gasthof zur Hanfschlinge (Spinnenmaul)"
 Title[ENGLISH] = "Find Borgate Northoff in the Hemp Necktie Inn (Spider's Mouth)"
 
 -- Insert an extensive description of each status here, in both languages
@@ -32,13 +32,13 @@ Title[ENGLISH] = "Find Borgate Northoff in the Hemp Necktie Inn (Spider's Mouth)
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-Description[GERMAN][1] = "Finde Borgate Northoff im Gasthaus zur Hanfschlinge und sprich mit ihm."
+Description[GERMAN][1] = "Finde Borgate Northoff im Gasthof zur Hanfschlinge und sprich mit ihm."
 Description[ENGLISH][1] = "Find Borgate Northoff in the Hemp Necktie Inn and talk to him."
 Description[GERMAN][2] = "Du hast Borgate gefunden. Da kannst nun das eine oder andere Bier bei ihm bestellen, wenn du magst."
 Description[ENGLISH][2] = "You have found Borgate. If you like, you can order a beer from him now."
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {685, 315, 0}
+local Start = {685, 315, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}

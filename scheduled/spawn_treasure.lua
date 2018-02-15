@@ -22,47 +22,46 @@ local common = require("base.common")
 
 local M = {}
 
+local LOW_LOW = 0
+local LOW_HIGH = 1
+local MEDIUM_LOW = 1
+local MEDIUM_HIGH = 4
 
-local lowTreasurePos = {
-    position(161,666,-4), --Sir Reginald's tomb
-    position(769,705,0), --A cave in the woods
-    position(336,326,-6), --Galmair sewers
-    position(907,574,0), --Wonderland
-    position(841,524,-12) --Bandit Hideout
-}
-
-local highTreasurePos = {
-    position(703,421,-3), --Salavesh dungeon
-    position(531,804,-6), --Akaltuts level 2
-    position(202,415,-3), --Fortress Hammerfall
-    position(847,503,-6), --Spider Nest
-    position(785,273,-9), --Lake of life
-    position(701,626,-3), --Volcano
-    position(230,794,-6), --Letma
-    position(393,440,2), --Dragorog Cult
-    position(571,191,-3), --Viridian Needles
-    position(310,355,1), --Fort Schnellbeil
-    position(554,536,-6), --Necro Hideout
-    position(895,577,-9) --Ronagan Dungeon
+local treasureParameter = {
+    --{position, lowest (0-9), highest (1-9), people needed}
+    {position(161,666,-4),LOW_LOW,LOW_HIGH,1}, --Sir Reginald's tomb
+    {position(769,705,0),LOW_LOW,LOW_HIGH,1}, --A cave in the woods
+    {position(336,326,-6),LOW_LOW,LOW_HIGH,1}, --Galmair sewers
+    {position(907,574,0),LOW_LOW,LOW_HIGH,1}, --Wonderland
+    {position(841,524,-12),LOW_LOW,LOW_HIGH,1}, --Bandit Hideout
+    {position(703,421,-3),MEDIUM_LOW,MEDIUM_HIGH,1}, --Salavesh dungeon
+    {position(531,804,-6),MEDIUM_LOW,MEDIUM_HIGH,1}, --Akaltuts level 2
+    {position(202,415,-3),MEDIUM_LOW,MEDIUM_HIGH,1}, --Fortress Hammerfall
+    {position(847,503,-6),MEDIUM_LOW,MEDIUM_HIGH,1}, --Spider Nest
+    {position(785,273,-9),MEDIUM_LOW,MEDIUM_HIGH,1}, --Lake of life
+    {position(701,626,-3),MEDIUM_LOW,MEDIUM_HIGH,1}, --Volcano
+    {position(230,794,-6),MEDIUM_LOW,MEDIUM_HIGH,1}, --Letma
+    {position(393,440,2),MEDIUM_LOW,MEDIUM_HIGH,1}, --Dragorog Cult
+    {position(571,191,-3),MEDIUM_LOW,MEDIUM_HIGH,1}, --Viridian Needles
+    {position(310,355,1),MEDIUM_LOW,MEDIUM_HIGH,1}, --Fort Schnellbeil
+    {position(554,536,-6),MEDIUM_LOW,MEDIUM_HIGH,1}, --Necro Hideout
+    {position(895,577,-9),MEDIUM_LOW,MEDIUM_HIGH,1}, --Ronagan Dungeon
+    {position(693,390,-3),5,8,3}, --Salavesh dungeon - Dragon lair
+    {position(471,776,-9),6,9,4}, --Akaltut dungeon - end of dungeon
+    {position(703,616,-6),6,9,4} --Volcano dungeon - end of dungeon
 }
 
 function M.spawnTreasure()
 
-    for i = 1, #lowTreasurePos do
-        if #world:getPlayersInRangeOf(lowTreasurePos[i],20) == 0 and world:isItemOnField(lowTreasurePos[i]) == false then --only spawn a treasure if nobody is around
-        
-            world:createItemFromId(2830,1,lowTreasurePos[i],false,333,{trsCat=math.random(0,1)}); --spawn the chest
-            
-        end
-    end
-    
-    for i = 1, #highTreasurePos do
-        if #world:getPlayersInRangeOf(highTreasurePos[i],20) == 0 and world:isItemOnField(highTreasurePos[i]) == false then --only spawn a treasure if nobody is around
-        
-            world:createItemFromId(2830,1,highTreasurePos[i],false,333,{trsCat=math.random(1,4)}); --spawn the chest
-            
+    for i = 1, #treasureParameter do
+        if #world:getPlayersInRangeOf(treasureParameter[i][1],20) == 0 and world:isItemOnField(treasureParameter[i][1]) == false then --only spawn a treasure if nobody is around
+            M.spawnTreasureChest(treasureParameter[i][1], math.random(treasureParameter[i][2],treasureParameter[i][3]), treasureParameter[i][4])
         end
     end
 
+end
+
+function M.spawnTreasureChest(position, level, persons)
+    world:createItemFromId(2830,1,position,false,333,{trsCat=level,playerNeeded=persons})
 end
 return M

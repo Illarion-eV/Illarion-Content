@@ -24,6 +24,8 @@ local furtunecookies = require("content.furtunecookies")
 local alchemy = require("alchemy.base.alchemy")
 local herbs = require("alchemy.base.herbs")
 local specialeggs = require("content.specialeggs")
+local ratCistern = require("content.ratCistern")
+local onionball = require("npc.sepp_leaf")
 
 local foodList = {}
 
@@ -334,7 +336,9 @@ end
 
 local function mapItem(User, sourceItem)
     if sourceItem.wear == 255 then
-        User:inform("Das kannst du nicht essen.", "You can't eat that.", Character.highPriority)
+        if not ratCistern.checkCarrot(User,sourceItem) then
+            User:inform("Das kannst du nicht essen.", "You can't eat that.", Character.highPriority)
+        end
         return true
     end
 end
@@ -359,7 +363,7 @@ end
 local function holyGrapes(User, sourceItem)
     if sourceItem:getData("nameEn") == "Holy Grapes" then
         User:increaseAttrib("foodlevel", 2000)
-        User:inform("Die Trauben haben einen vollen Geschmack und füllen deinen ganzen Mund mit ihrem süßlichen Saft. Köstlich! Doch sie umspielen nicht nur deine Geschmacksknospen, sondern auch deinen Geist. Du bist leicht angetrunken.","The grapes have a rich, sweet taste that lingers on your tongue as their flavorful juice fills your entire mouth. Delicious! However, they not only play with your taste buds but also with your mind. You feel slightly drunk.")
+        User:inform("Die Trauben haben einen vollen Geschmack und füllen deinen ganzen Mund mit ihrem süßlichen Saft. Köstlich! Doch sie umspielen nicht nur deine Geschmacksknospen, sondern auch deinen Geist. Du bist leicht angetrunken.","The grapes have a rich, sweet taste that lingers on your tongue as their flavourful juice fills your entire mouth. Delicious! However, they not only play with your taste buds but also with your mind. You feel slightly drunk.")
         world:erase(sourceItem, 1)
         return true
     end
@@ -392,7 +396,17 @@ local function fortuneCookie(sourceItem, User)
     end
 end
 
+function M.MoveItemAfterMove( User, SourceItem, TargetItem )
+    if onionball.moveOnion(User, SourceItem, TargetItem) then
+        return false
+    end
+    return true
+end
+
 function M.UseItem(User, sourceItem, ltstate)
+    if onionball.useOnion(User, sourceItem) then
+        return
+    end
 
     if holyGrapes(User, sourceItem) then
         return

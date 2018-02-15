@@ -130,9 +130,9 @@ town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bewache Deine e
 
 -- Outlaw answer
 english, town = None, "quest", "mission" -> "Yous wanderer! Yous come work for da Don, after you move to Galmair!"
-town = None, "quest", "mission" -> "Du Wanderer! Du kommst zu arbeiten für Don, erst wenn Du Galmairer bist!"
+town = None, "quest", "mission" -> "Du Wanderer! Du kommst zu arbeiten für Don, erst wenn du Galmairer bist!"
 town = None, "task", "adventure", "order" -> "Yous wanderer! Yous come work for da Don, after you move to Galmair!"
-town = None, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du Wanderer! Du kommst zu arbeiten für Don, erst wenn Du Galmairer bist!"
+town = None, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du Wanderer! Du kommst zu arbeiten für Don, erst wenn du Galmairer bist!"
 
 -- Quest 1: Read Galmair's rules
 queststatus(155) = 0, english, town = Galmair, "quest", "mission" -> inform("[New Quest] As a Galmair Guard I"), queststatus(155) = 1,"Yous not been here much. Yous need to know da rules. Go to da statues in front of da Crest, da Don's house. Big building in da mountain. Read da rules. Know da rules."
@@ -182,9 +182,9 @@ queststatus(155) = 7, town = Galmair,  ".*" -> "Zwanzig Steinquader für den Südw
 
 -- Quest 4: Patrol the tunnel to the Dark Hole Mine, Harbour, Black Bridge (ambush), beehives
 queststatus(155) = 8, english, town = Galmair, "quest", "mission" -> inform("[New Quest] As a Galmair Guard IV"), queststatus(155) = 9, "Yous are going out now! Go check da tunnel to da Dark Hole Mine, Galmair Harbour to da north, da Black Bridge, and da honey houses far to da east in da Plains of Nargún!"
-queststatus(155) = 8, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Als Wache Galmairs IV"), queststatus(155) = 9, "Du jetzt gehen los! Kontrolliere Galmairs Hafen in nördlicher Richtung, die schwarze Brücke und den Bienenstock fern im Osten der Nargúnebene."
+queststatus(155) = 8, town = Galmair, "quest", "mission" -> inform("[Neues Quest] Als Wache Galmairs IV"), queststatus(155) = 9, "Du jetzt gehen los! Kontrolliere den Tunnel zur Dunkellochmine, Galmairs Hafen in nördlicher Richtung, die Schwarzbrücke und den Bienenstock fern im Osten der Nargúnebene."
 queststatus(155) = 8, town = Galmair, "task", "adventure", "order" -> inform("[New Quest]As a Galmair Guard IV"), queststatus(155) = 9, "Yous are going out now! Go check da tunnel to da Darrk Hole Mine, Galmair Harbour to da north, da Black Bridge, and da honey houses far to da east in da Plains of Nargún!"
-queststatus(155) = 8, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Als Wache Galmairs IV"), queststatus(155) = 9, "Du jetzt gehen los! Kontrolliere Galmairs Hafen in nördlicher Richtung, die schwarze Brücke und den Bienenstock fern im Osten der Nargúnebene."
+queststatus(155) = 8, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Als Wache Galmairs IV"), queststatus(155) = 9, "Du jetzt gehen los! Kontrolliere den Tunnel zur Dunkellochmine, GGalmairs Hafen in nördlicher Richtung, die Schwarzbrücke und den Bienenstock fern im Osten der Nargúnebene."
 
 -- Quest 4 solved, reward: Orc helmet (2287), 15 rankpoints
 queststatus(155) = 10, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded an orc helmet."), item(16, 1, 699), queststatus(155) = 11, rankpoints + 15, "Bad rats? Bah, they cause trouble again. I will tell da Don. Yous do good! Here, my spare helmet! One of us!"
@@ -233,8 +233,8 @@ queststatus(155) = 16, town = Galmair, "task", "adventure", "order" -> inform("[
 queststatus(155) = 16, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Als Wache Galmairs VII"), queststatus(155) = 17, "Der Don hat neue Aufgabe! Bring mir einen Degen und eine Flasche Elfenwein, kleine Flasche. Gelb, nicht große rote Flasche. Der Don ist da sehr eigen."
 
 -- Quest 7 solved, reward: legionnaire's tower shield (2448), magical sapphire (284), 20 rankpoints
-queststatus(155) = 17, item(2675, all) > 0, item(1318, all) > 0, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded a legionnaire's tower shield and a magical amethyst."), deleteItem(2675, 1), deleteItem(1318, 1), item(2448, 1, 999,"descriptionEn" = "This shield bears the crest of Galmair.", "descriptionDe" = "Dieses Schild trägt das Wappen Galmairs.","rareness" = "3"), item(284, 1, 333, "gemLevel" = "2"), queststatus(155) = 18, rankpoints + 20, "Yous good friend of da Don. I am glad yous helped us. Thanks you!"
-queststatus(155) = 17, item(2675, all) > 0, item(1318, all) > 0, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst einen Legionärsturmschild und einen magischen Amethyst."), deleteItem(2675, 1), deleteItem(1318, 1), item(2448, 1, 999,"descriptionEn" = "This shield bears the crest of Galmair.", "descriptionDe" = "Dieses Schild trägt das Wappen Galmairs.","rareness" = "3"), item(284, 1, 333, "gemLevel" = "2"), queststatus(155) = 18, rankpoints + 20, "Du bist Freund von Don. Ich froh, dass du geholfen hast. Danks."
+queststatus(155) = 17, item(2675, all) > 0, item(1318, all) > 0, english, town = Galmair, ".*" -> inform("[Quest solved] You are awarded a legionnaire's tower shield and a magical amethyst."), deleteItem(2675, 1), deleteItem(1318, 1), item(2448, 1, 999,"descriptionEn" = "This shield bears the crest of Galmair.", "descriptionDe" = "Dieses Schild trägt das Wappen Galmairs.","rareness" = "3"), item(3522, 1, 333, "gemLevel" = "2"), queststatus(155) = 18, rankpoints + 20, "Yous good friend of da Don. I am glad yous helped us. Thanks you!"
+queststatus(155) = 17, item(2675, all) > 0, item(1318, all) > 0, town = Galmair, ".*" -> inform("[Quest gelöst] Du erhältst einen Legionärsturmschild und einen magischen Amethyst."), deleteItem(2675, 1), deleteItem(1318, 1), item(2448, 1, 999,"descriptionEn" = "This shield bears the crest of Galmair.", "descriptionDe" = "Dieses Schild trägt das Wappen Galmairs.","rareness" = "3"), item(3522, 1, 333, "gemLevel" = "2"), queststatus(155) = 18, rankpoints + 20, "Du bist Freund von Don. Ich froh, dass du geholfen hast. Danks."
 
 -- Quest 7 taken but not solved, repeat the instructions
 queststatus(155) = 17, english, town = Galmair,  ".*" -> "Da Don needs a rapier and a small bottle of yellow elven wine. Bring them back to me so I can inspect them."

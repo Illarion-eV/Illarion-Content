@@ -87,6 +87,112 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Au revoir. *Closes her eyes
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Fein, fein. *Schließt ihre Augen*"
 "your name", "who are you", "who art thou" -> "Elesil Daelwon. *Closes her eyes*"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Elesil Daelwon. *Schließt ihre Augen*"
+
+-- Catching quest triggers.
+-- Quest 1: Read the Runewickan laws
+queststatus(223) = 0, english, town = Runewick, "quest", "mission" -> inform("[New Quest] Investigate Runewick I"), queststatus(223) = 1, "You are fairly new to Runewick, aren't you? As a good student, you should make yourself familiar with the laws of Runewick. Visit the library and read the constitution thoroughly."
+queststatus(223) = 0, town = Runewick, "task", "adventure", "order" -> inform("[New Quest] Investigate Runewick I"), queststatus(223) = 1, "You are fairly new to Runewick, aren't you? As a good student, you should make yourself familiar with the laws of Runewick. Visit the library and read the constitution thoroughly."
+queststatus(223) = 0, town = Runewick, "quest", "mission" , "Auftrag", "Aufgabe" -> inform("[Neues Quest] Untersuche Runewick I"), queststatus(223) = 1, "Du bist neu hier, richtig? Als wackerer Student solltest du dich zuerst mit den Gesetzen Runewicks vertraut machen. Geh in die Bücherei und studiere die Verfassung der Stadt sorgfältig."
+
+-- Quest 1 solved, reward: 5 rankpoints
+queststatus(223) = 2, english, town = Runewick, ".*" -> inform("[Quest solved] You know the constitution."), queststatus(223) = 3, rankpoints + 5, "Very well, now you are ready for a more difficult research. The gained knowledge should be your reward."
+queststatus(223) = 2, town = Runewick, ".*" -> inform("[Quest gelöst] Du kennst die Verfassung."), queststatus(223) = 3, rankpoints + 5, "Soweit, so gut. Du bist nun bereit für schwierigere Studien. Und was du bisher gelernt hast, sollte dir Belohnung genug sein."
+
+-- Quest 1 taken but not solved, repeat the instructions
+queststatus(223) = 1, english, town = Runewick, "quest", "mission" -> "How do you want to study if you do not even able to read our laws. They are clearly written in the constitution."
+queststatus(223) = 1, town = Runewick, "task", "adventure", "order" -> "How do you want to study if you do not even able to read our laws. They are clearly written in the constitution."
+queststatus(223) = 1, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wie willst du studieren, wenn du noch nicht einmal die Gesetze lesen kannst? Du findest sie niedergeschrieben in unserer Verfassung."
+
+-- Quest 2: Patrol the hospital, the archmages isle and the town harbour
+queststatus(223) = 3, english, town = Runewick, "quest", "mission" -> inform("[New Quest] Investigate Runewick II"), queststatus(223) = 4, queststatus(224) = 0, "Cleanliness is important! Your first mission is to patrol Runewick and report any pollution. Check the hospital, the isle of the Archmage and the town harbour, especially the adventure stone there. Some drunken sailors besmeaqred it recently."
+queststatus(223) = 3, town = Runewick, "task", "adventure", "order" -> inform("[New Quest] Investigate Runewick II"), queststatus(223) = 4, queststatus(224) = 0, "Cleanliness is important! Your first mission is to patrol Runewick and report any pollution. Check the hospital, the isle of the Archmage and the town harbour, especially the adventure stone there. Some drunken sailors besmeaqred it recently."
+queststatus(223) = 3, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Untersuche Runewick II"), queststatus(223) = 4, queststatus(224) = 0, "Sauberkeit zuerst! Deine erste Mission besteht darin, in Runewick zu patroullieren und Verschmutzungen zu melden. Überprüf das Hospital, die Insel des Erzmagiers und den Stadthafen, dort besonders den Abenteuerstein. Irgendwelche besoffenen Matrosen hatten ihn letztens beschmiert."
+
+-- Quest 2 solved, reward: Cider (2059), 10 rankpoints
+queststatus(223) = 5, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a Cider."), item(2059, 1, 333), queststatus(223) = 6, rankpoints + 10, "Some of the planks of the bridges at the port are rotten. Let's cheers on it, that nobody luckily still has broken through."
+queststatus(223) = 5, town = Runewick, ".*" -> inform("[Quest gelöst] Du erhältst ein Glas Cider."), item(2059, 1, 333), queststatus(223) = 6, rankpoints + 10, "Einige der Planken der Stege am Hafen sind morsch. Lass uns drauf anstoßen, dass zum Glück noch keine durchgebrochen ist."
+
+-- Quest 2 taken but not solved, repeat the instructions
+queststatus(223) = 4, english, town = Runewick, "quest", "mission" -> "What are you waiting for? Patrol the hospital, the isle of the Archmage and the town harbour!"
+queststatus(223) = 4, town = Runewick, "task", "adventure", "order" -> "What are you waiting for? Patrol the hospital, the isle of the Archmage and the town harbour!"
+queststatus(223) = 4, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Worauf wartest du? Überprüfe das Hospital, die Insel des Erzmagiers und den Stadthafen!"
+
+-- Quest 3: Provide 20 boards (546)
+queststatus(223) = 6, english, town = Runewick, "quest", "mission" -> inform("[New Quest] Investigate Runewick III"), queststatus(223) = 7, "You noticed on your patrol the rotten planks in the harbour. This has to be repaired before any teacher and his lesson falls into the water; bring me twenty naldor boards so we fix the bridge."
+queststatus(223) = 6, town = Runewick, "task", "adventure", "order" -> inform("[New Quest] Investigate Runewick III"), queststatus(223) = 7, "You noticed on your patrol the rotten planks in the harbour. This has to be repaired before any teacher and his lesson falls into the water; bring me twenty naldor boards so we fix the bridge."
+queststatus(223) = 6, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Untersuche Runewick III"), queststatus(223) = 7, "Du hast ja berichtet, dass am Hafen einige Planken morsch sind. Ehe ein Lehrer und damit auch der Unterricht ins Wasser fällt müssen wir es reparieren; bring mir bitte zwanzig Naldorbretter zum Ausbessern der Stege."
+
+-- Quest 3 solved, reward: quill (463), 10 rankpoints
+queststatus(223) = 7, item(546, all) > 19, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a quill."), deleteItem(546, 20), item(463, 1, 599), queststatus(223) = 8, rankpoints + 10, "Twenty planks that mean the world! Take this quill and you can write a drama about."
+queststatus(223) = 7, item(546, all) > 19, town = Runewick, ".*" -> inform("[Quest gelöst] Du erhältst eine Schreibfeder."), deleteItem(546, 20), item(463, 1, 599), queststatus(223) = 8, rankpoints + 10, "Zwanzig Bretter die die Welt bedeuten! Hier hast du eine Schreibfeder, schreib ruhig ein Theaterstück darüber."
+
+-- Quest 3 taken but not solved, repeat the instructions
+queststatus(223) = 7, english, town = Runewick, "quest", "mission" -> "Twenty naldor planks to fix the world ... or our harbour. If you need help, ask Lothar Piero at the market place."
+queststatus(223) = 7, town = Runewick, "task", "adventure", "order" -> "Twenty naldor planks to fix the world ... or our harbour. If you need help, ask Lothar Piero at the market place."
+queststatus(223) = 7, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe" -> "Zwanzig Naldorbretter die die Welt geraderücken ... oder unseren Hafen sicher machen. Wenn du Hilfe brauchst, frage auf dem Markt nach Lothar Piero."
+
+-- Quest 4: Patrol the environment
+queststatus(223) = 8, english, town = Runewick, "quest", "mission" -> inform("[New Quest] Investigate Runewick IV"), queststatus(223) = 9, queststatus(224) = 0, "You have to leave the town now! Please patrol the Lunord Bridge, the Runewick Harbour, the chicken farm at the Merryglade and the Shadow Gate. We need to know what happens there."
+queststatus(223) = 8, town = Runewick, "task", "adventure", "order" -> inform("[New Quest] Investigate Runewick IV"), queststatus(223) = 9, queststatus(224) = 0, "You have to leave the town now! Please patrol the Lunord Bridge, the Runewick Harbour, the chicken farm at the Merryglade and the Shadow Gate. We need to know what happens there."
+queststatus(223) = 8, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Untersuche Runewick IV"), queststatus(223) = 9, queststatus(224) = 0, "Du musst mal raus aus der Stadt! Patroulliere bitte die Lunordbrücke, den Hafen Runewicks, die Hühnerfarm auf der fröhlichen Lichtung und das Schattentor. Es ist wichtig zu wissen, was dort passiert."
+
+-- Quest 4 solved, reward: Norodaj horned helmet (1421), 15 rankpoints
+queststatus(223) = 10, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded an Norodaj horned helmet."), item(1421, 1, 699), queststatus(223) = 11, rankpoints + 15, "What? An outbreak of slime? Bad news, I'll report to the Archmage as soon as possible. Thank you! You deserve this helmet of Runewick's warriors."
+queststatus(223) = 10, town = Runewick, ".*" -> inform("[Quest gelöst] Du erhältst einen Hörnerhelm der Norodaj."), item(1421, 1, 699), queststatus(223) = 11, rankpoints + 15, "Was? Ein Schleimausbruch? Schlimm, schlimm, das werde ich dem Erzmagier berichten müssen. Danke, das war wirklich wichtig! Du hast dir diesen Helm der Krieger Runewicks redlich verdient."
+
+--- hier weiter
+-- Quest 4 taken but not solved, repeat the instructions
+queststatus(223) = 9, english, town = Runewick, "quest", "mission" -> "The Lunord Bridge is on the way westward from the teleporter. Passing Yewdale you find the harbor. Using the road northeast from Yewdale you find short after Cowards Last Stand the Merryglade with the chicken boxes. Short after on the right side you find behind the rock Oldras Tower the Shadow Gate."
+queststatus(223) = 9, town = Runewick, "task", "adventure", "order" -> "The Lunord Bridge is on the way westward from the teleporter. Passing Yewdale you find the harbor. Using the road northeast from Yewdale you find short after Cowards Last Stand the Merryglade with the chicken boxes. Short after on the right side you find behind the rock Oldras Tower the Shadow Gate."
+queststatus(223) = 9, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Die Lunordbrücke führt nach Westen und beginnt am Teleporter. Hinter Eibenthal findest du den Hafen. Folgst du der Straße von Eibenthal nach Nordwesten erreichst du kurz hinter Feiglings Letztes Gefecht die Glückliche Lichtung mit den Hühnerställen. Bald darauf liegt rechterhand hinter dem Fels Oldras Turm das Schattentor."
+
+-- Quest 5: Reconnoitre the other factions and the neutral tavern
+queststatus(223) = 11, english, town = Runewick, "quest", "mission" -> inform("[New Quest] Investigate Runewick V"), queststatus(223) = 12, queststatus(224) = 0, "Sometimes, intelligence can be vital for knowledge. We do not spy, but we want to know who our enemy is, if you know what I mean. I want you to reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair and the Queens palace in Cadomyr."
+queststatus(223) = 11, town = Runewick, "task", "adventure", "order" -> inform("[New Quest] Investigate Runewick V"), queststatus(223) = 12, queststatus(224) = 0, "Sometimes, intelligence can be vital for knowledge. We do not spy, but we want to know who our enemy is, if you know what I mean. I want you to reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair and the Queens palace in Cadomyr."
+queststatus(223) = 11, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Untersuche Runewick V"), queststatus(223) = 12, queststatus(224) = 0, "Aufklärung bringt manchmal überraschende Erkenntnisse. Wir sind keine Spione, wollen aber wissen, wer unser Feind ist. Ich will, dass du den Gasthof zur Hanfschlinge, das Versteck des Dons in Galmair und den Palast der Königin von Cadomyr 'aufklärst'."
+
+-- Quest 5 solved, reward: fur boots (697) 15 rankpoints
+queststatus(223) = 13, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a pair fur boots."), item(697, 1, 699), queststatus(223) = 14, rankpoints + 15, "You can write a report later. For now, I am happy you made it back in one peace and with almost all your coins. For your next patrol, I have fitting footwear for you."
+queststatus(223) = 13, town = Runewick, ".*" -> inform("[Quest gelöst] Du erhältst ein Paar Fellstiefel."), item(697, 1, 699), queststatus(223) = 14, rankpoints + 15, "Du kannst später einen Bericht schreiben. Ich bin erstmal froh, dass du in einem Stück und mit fast all deinen Münzen zurück bist. Für deine nächste Patroullie habe ich passendes Schuhwerk für dich."
+
+-- Quest 5 taken but not solved, repeat the instructions
+queststatus(223) = 12, english, town = Runewick, "quest", "mission" -> "Please reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair and the Queen's palace in Cadomyr and see who is friend and who is foe."
+queststatus(223) = 12, town = Runewick, "task", "adventure", "order" -> "Please reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair and the Queen's palace in Cadomyr and see who is friend and who is foe."
+queststatus(223) = 12, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte besuche den Gasthof zur Hanfschlinge, das Versteck des Dons in Galmair und den Palast der Königin von Cadomyr und finde heraus, wer Feind und wer Freund ist."
+
+-- Quest 6: Provide 20 iron ingots (2535)
+queststatus(223) = 14, english, town = Runewick, "quest", "mission" -> inform("[New Quest] Investigate Runewick VI"), queststatus(223) = 15, "Being a student means more than reading books. Fostering one's university requires hard labour, too. Runewick is short on iron supply, as you might know. Please provide twenty iron ingots for ... erm. Whatever, at least we need them."
+queststatus(223) = 14, town = Runewick, "task", "adventure", "order" -> inform("[New Quest] Investigate Runewick VI"), queststatus(223) = 15, "Being a student means more than reading books. Fostering one's university requires hard labour, too. Runewick is short on iron supply, as you might know. Please provide twenty iron ingots for ... erm. Whatever, at least we need them."
+queststatus(223) = 14, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Untersuche Runewick VI"), queststatus(223) = 15, "Ein Student zu sein braucht es mehr als nur Bücher zu lesen. Die Universität muss auch in Stand gehalten werden. Runewick mangelt es bekanntermaßen an Eisen. Bring mir bitte zwanzig Eisnebarren für ... erm. Egal, wir brauchen sie."
+
+-- Quest 6 solved, reward: coppered dagger (398), 20 rankpoints
+queststatus(223) = 15, item(2535, all) > 19, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a coppered dagger."), deleteItem(2535, 20), item(398, 1, 799, "descriptionDe" = "Wissen ist Macht!", "descriptionEn" = "Knowledge is power!"), queststatus(223) = 16, rankpoints + 20, "What a brilliant performance! The ingots are not even rusty. You did a good deed today. I award you this dagger which identifies you as a student of Runewick."
+queststatus(223) = 15, item(2535, all) > 19, town = Runewick, ".*" -> inform("[Quest gelöst] Du erhältst einen Kupferdolch."), deleteItem(2535, 20), item(398, 1, 799, "descriptionDe" = "Wissen ist Macht!", "descriptionEn" = "Knowledge is power!"), queststatus(223) = 16, rankpoints + 20, "Was für eine glänzende Leistung! Die Eisenbarren sind ja nicht einmal angerostet. Du hast heute eine gute Tat vollbracht. Ich verleihe dir hiermit diesen Dolch, welcher dich als Student Runewicks ausweist."
+
+-- Quest 6 taken but not solved, repeat the instructions
+queststatus(223) = 15, english, town = Runewick, "quest", "mission" -> "Do you really cannot imagine what all the iron needs? Twenty ingots are just a drop on a hot stone."
+queststatus(223) = 15, town = Runewick, "task", "adventure", "order" -> "Do you really cannot imagine what all the iron needs? Twenty ingots are just a drop on a hot stone."
+queststatus(223) = 15, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe" -> "Kannst du dir wirklich nicht vorstellen wozu mal alles Eisen braucht? Zwanzig Eisenbarren sind nur ein Tropfen auf einen heißen Stein."
+
+-- Quest 7: Provide a wand (323) and a bottle elven wine (1318)
+queststatus(223) = 16, english, town = Runewick, "quest", "mission" -> inform("[New Quest] Investigate Runewick VII"), queststatus(223) = 17, "I have news from the university. A training wand was broken and the Archmage is short of wine. Provide a wand and a bottle of elven wine. Yes you can!"
+queststatus(223) = 16, town = Runewick, "task", "adventure", "order" -> inform("[New Quest] Investigate Runewick VII"), queststatus(223) = 17, "I have news from the university. A training wand was broken and the Archmage is short of wine. Provide a wand and a bottle of elven wine. Yes you can!"
+queststatus(223) = 16, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Untersuche Runewick VII"), queststatus(223) = 17, "Ich habe Neuigkeiten aus der Universität. Ein Zauberstanb zerbrach bei einer Übung und dem Erzmagier fehlt es an Wein. Bring mir bitte einen Zauberstanb und eine Flasche Elfenwein. Ja du schaffst das!"
+
+-- Quest 7 solved, reward: knight shield (20), magical ruby (46), 20 rankpoints
+queststatus(223) = 17, item(323, all) > 0, item(1318, all) > 0, english, town = Runewick, ".*" -> inform("[Quest solved] You are awarded a knight shield and a magical ruby."), deleteItem(323, 1), deleteItem(1318, 1), item(20, 1, 999,"descriptionEn" = "This shield bears the crest of Runewick.", "descriptionDe" = "Dieser Schild trägt das Wappen Runewicks.","rareness" = "3"), item(3521, 1, 333, "gemLevel" = "2"), queststatus(223) = 18, rankpoints + 20, "You made a very valuable contribution to the strengthening of Runewick. May you continue to pursue your studies with earnestness."
+queststatus(223) = 17, item(323, all) > 0, item(1318, all) > 0, town = Runewick, ".*" -> inform("[Quest gelöst] Du erhältst einen Ritterschild und einen magischen Rubin."), deleteItem(323, 1), deleteItem(1318, 1), item(20, 1, 999,"descriptionEn" = "This shield bears the crest of Runewick.", "descriptionDe" = "Dieser Schild trägt das Wappen Runewicks.","rareness" = "3"), item(3521, 1, 333, "gemLevel" = "2"), queststatus(223) = 18, rankpoints + 20, "Du hast dich um Runewick verdient gemacht. Mögest du deine Studien weiter mit Ersthaftigkeit verfolgen"
+
+-- Quest 7 taken but not solved, repeat the instructions
+queststatus(223) = 17, english, town = Runewick, "quest", "mission" -> "The Archmage demands a bottle of elven wine and we have to replace a broken wand. Bring it to me."
+queststatus(223) = 17, town = Runewick, "task", "adventure", "order" -> "The Archmage demands a bottle of elven wine and we have to replace a broken wand. Bring it to me."
+queststatus(223) = 17, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Erzmagier braucht eine Flasche Elfenwein und wir müssen einen zerbrochenen Zauberstab ersetzen. Bringt diese Dinge zu mir."
+
+-- No more quests, just nice words of gratitude
+queststatus(223) = 18, english, town = Runewick, "quest", "mission" -> "You might become one of Runewicks most famous scholars one day. But it's a hard work and a long way to go."
+queststatus(223) = 18, town = Runewick, "task", "adventure", "order" -> "You might become one of Runewicks most famous scholars one day. But it's a hard work and a long way to go."
+queststatus(223) = 18, town = Runewick, "quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du kannst es sicher zu einem der berühmten Wissenschaftler Runewicks bringen. Aber bis dahin ist es ein langer Weg voller Arbeit und Mühe."
+
 -- Mandatory: Catching quest triggers. Modify if the NPC does quests
 english, "quest", "mission" -> "I don't have any tasks for you."
 "quest", "mission" -> "Ich vergebe keine Aufgaben."
@@ -95,7 +201,6 @@ english, "quest", "mission" -> "I don't have any tasks for you."
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin keine Marktfrau."
 
--- OPTIONAL TRIGGERS
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "If necessary, I'm an informant. If asked, I will tell you about Runewick... the buildings, locations, events, people, history or gods. If you require even more, I have at least one task pending."
@@ -114,8 +219,6 @@ english, "inform" -> inform("[Keywords] building, location, event, people, histo
 "Gebäude" -> inform("[Schlüsselwörter] Markt, Schrein, Teleporter, Zensusbüro, Bibliothek, Gruft, Inseln, Insel der Luft, Insel des Feuers, Insel des Wassers, Insel der Erde"), "Welches Gebäude meint ihr? Markt, Schrein, Teleporter, Zensusbüro, Bibliothek, Gruft, oder unsere Inseln, sprich Insel der Luft, Insel des Feuers, Insel des Wassers, Insel der Erde?"
 "location" -> inform("[Keywords] Hinterland, Numila Irunnleh"), "Locations? Which locations of the hinterland do you mean? I recommend also talking to a geographer about them. I suggest Numila Irunnleh, who can be found in the Library of Earth."
 "Ort" -> inform("[Schlüsselwörter] Hinterland, Numila Irunnleh"), "Orte? Welche Orte des Hinterlandes meint ihr? Ich empfehle auch mit einem Geograph darüber zu sprechen. Ich kann euch eine in der Bibliothek der Erde empfehlen. Sie wird Numila Irunnleh genannt."
-queststatus(620) < 1, english, "Numila", "Irunnleh" -> inform("[New Quest 'Find Numila' started] Try to find Numila Irunnleh and get your reward."), "She is a geographer and can be found in the Library on the Island of Spirit. She will tell you information about locations outside of Runewick like Yewdale, Bear cave, Snakehead Bay, Illarion, Shadowland and other places you might like to know.", queststatus(620) = 1
-queststatus(620) < 1, "Numila", "Irunnleh" -> inform("[Neues Quest 'Finde Numila' gestartet] Finde Numila Irunnleh und erhalte deine Belohnung."), "Sie ist eine Geographin und kann in der Bibliothek auf der Insel des Geistes gefunden werden. Sie wird euch über Orte wie Eibenthal, Bärenhöhle, Schlangekopfbucht, Illarion, Schattenland und andere Orte informieren über die ihr gerne mehr wissen möchtet.", queststatus(620) = 1
 english, "Numila", "Irunnleh" -> "She is a geographer and can be found in the Central Library. She will tell you information about locations outside of Runewick like Yewdale, Bear cave, Snakehead Bay, Illarion, Shadowland and other places you might like to know."
 "Numila", "Irunnleh" -> "Sie ist eine Geographin und kann in der Zentralbibliothek gefunden werden. Sie wird euch über Orte wie Eibenthal, Bärenhöhle, Schlangekopfbucht, Illarion, Schattenland und andere Orte erzählen über die ihr gerne mehr wissen möchtet."
 "people" -> "People? Whom else do you desire to talk with other than our Archmage? I do not think anyone else has more wisdom, therefore do not waste your time with other people and more importantly, do not bother me with questions about them."
@@ -139,7 +242,7 @@ town = Runewick, "Zensusbüro" -> "Das Zensusbüro im zweiten Stock im Gebäude auf
 "Zensusbüro" -> "Das Zensusbüro im zweiten Stock im Gebäude auf der Insel des Geistes gefunden werden. Dort könnt ihr dem Reich der Weisheit beitreten."
 
 "Yewdale" -> "Yewdale is the village west of Runewick. For more detailsask Numila Irunnleh."
-"Eibenthal" -> "Das Eibenthal ist das dorf westlich von Runewick. Befragt Numila Irunnleh um nähere Information zu erhalten."
+"Eibenthal" -> "Das Eibenthal ist das Dorf westlich von Runewick. Befragt Numila Irunnleh um nähere Information zu erhalten."
 "Shrine.*Oldra", "Findari Oldra" -> "The Shrine of Oldra can be found in Yewdale."
 "Schrein.*Oldra", "Findari Oldra" -> "Der Schrein der Oldra kann in Eibenthal gefunden werden."
 english, "Tomb" -> inform("[Keywords] Room of Light, Room of Darkness, Room of  Twilight"), "To reach the tomb you have to leave the town and go north. The tomb is divided in three rooms: Room of Light, Room of Darkness, and Room of Twilight."
@@ -230,17 +333,6 @@ english, "Hinterland" -> inform("[Keywords] Fire of Triumph, Holy Oak, Twin Eyes
 "Lurnord bridge" -> "This is the bridge between Runewick and Yewdale. It was destroyed years ago after a war with Galmair and rebuilt by a friend of mine who left afterwards. Lunord was his name."
 "Lurnord Brücke" -> "Das ist die Brücke zwischen Runewick und dem Eibenthal. Sie war einige Jahre zuvor zerstört durch einen Krieg mit Galmair und wurde von einen Freund von mir wiederaufgebaut, welcher nun gegangen ist. Sein Name war Lunord."
 
--- Optional: Catching quest triggers. Modify if the NPC does quests
--- quest information_runewick_1.quest belongs to this NPC: Quest-ID.: 621
-queststatus(620) < 1, english, "quest", "mission" -> inform("[New Quest 'Find Numila' started] Try to find Numila Irunnleh and get your reward."), "I do not have a task for you yet. Probably in two or three months. If you want you can try to find Numila Irunnleh, but if you desire a real task you would be better asking other people in Runewick. *points over her shoulder* Otherwise, you are very welcome to come back in two or three months when I will definitely have some tasks for you.", queststatus(620) = 1
-queststatus(620) < 1, "quest", "mission" -> inform("[Neues Quest 'Finde Numila' gestartet] Finde Numila Irunnleh und erhalte deine Belohnung."), "Ich habe momentan nichts für euch zu tun. Wahrscheinlich in zwei oder drei Monaten. Falls ihr möchtet könnt ihr versuchen Numila Irunnleh zu finden. Aber wenn ihr einen richtigen Auftrag wünscht dann solltet ihr besser die Leute in Runewick fragen. *zeigt über ihre Schulter* In jeden Fall seid ihr herzlich eingeladen in zwei oder drei Monaten zurück zu kommen. Dann sollte ich einige Aufgaben für euch haben.", queststatus(620) = 1
-queststatus(620) < 1, "task", "adventure", "order" -> inform("[New Quest 'Find Numila' started] Try to find Numila Irunnleh and get your reward."), "I do not have a task for you yet. Probably in one or two months.  If you want you can try to find Numila Irunnleh, but if you desire a real task you would be better asking other people in Runewick. *points over her shoulder* Otherwise, you are very welcome to come back in two or three months when I will have definitely some tasks for you.", queststatus(620) = 1
-queststatus(620) < 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest 'Finde Numila' gestartet] Finde Numila Irunnleh und erhalte deine Belohnung."), "Ich habe momentan nichts für euch zu tun. Wahrscheinlich in zwei oder drei Monaten. Falls ihr möchtet könnt ihr versuchen Numila Irunnleh zu finden. Aber wenn ihr einen richtigen Auftrag wünscht dann solltet ihr besser die Leute in Runewick fragen. *zeigt über ihre Schulter* In jeden Fall seid ihr herzlich eingeladen in zwei oder drei Monaten zurück zu kommen. Dann sollte ich einige Aufgaben für euch haben.", queststatus(620) = 1
-english, "quest", "mission" -> "As I said, you should ask other people in Runewick. *points over her shoulder* Or you can come back in two or three months when I will have definitely some tasks for you."
-"quest", "mission" -> "Wie ich sagte, ihr solltet besser die Leute in Runewick fragen. *zeigt über ihre Schulter* Oder ihr kommt in zwei oder drei Monaten zurück. Dann sollte ich einige Aufgaben für euch haben."
-"task", "adventure", "order" -> "As I said, you should ask other people in Runewick. *points over her shoulder* Or you can come back in two or three months when I will have definitely some tasks for you."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wie ich sagte, ihr solltet besser die Leute in Runewick fragen. *zeigt über ihre Schulter* Oder ihr kommt in zwei oder drei Monaten zurück. Dann sollte ich einige Aufgaben für euch haben."
-
 -- Faction stuff
 "town" -> "There are three towns: Our town Runewick, ruled by our great leader Elvaine Morgan, then the two foolish towns of Galmair and Cadomyr, ruled by Don Valerio Guilianni and Queen Rosaline Edwards."
 "stadt" -> "Es gibt drei Städte: Unsere Stadt Runewick, geführt von unserem Herrscher Elvaine Morgan. Dann diese zwei närrischen Städte Galmair und Cadomyr, geführt von Don Valerio Guilianni und Königin Rosaline Edwards."
@@ -275,7 +367,7 @@ english, "Adron" -> "Adron's followers are mostly tavern keepers or vine growers
 english, "Bragon", "Brágon" -> "One of the Elder Gods, he is also known as the God of Fire. There is a shrine dedicated to him on the Island of Fire."
 "Bragon", "Brágon" -> "Einer der alten Götter. Er ist auch als Gott des Feuers bekannt. Es gibt einen Schrein auf der Insels des Feuers."
 english, "Cherga" -> "The Goddess of Spirits and the Underworld. She likes balance and justice. She does not care much about the living. There is a shrine dedicated to her in the graveyard forest."
-"Cherga" -> "Die Göttin der Geister und der Unterwelt. Sie steht ein für ausgeglichene Gerechtigkeit. Sie gibt nicht viel auf das Leben an sich, der Tod ist Ihr Reich. Es gibt im Friedwald einen Schrein ihr zu ehren."
+"Cherga" -> "Die Göttin der Geister und der Unterwelt. Sie steht ein für ausgeglichene Gerechtigkeit. Sie gibt nicht viel auf das Leben an sich, der Tod ist ihr Reich. Es gibt im Friedwald einen Schrein ihr zu ehren."
 english, "Elara" -> "Her followers believe in the power of wisdom. Some of these people are praying to be told great secrets, or even the secret of life. As legend tells, one holy man has been told it after long prayers and discussions with the Goddess."
 "Elara" -> "Ihre Anhänger glauben an die Macht der Weisheit. Einige dieser Anhänger beten, um geheimes und altes Wissen zu erlangen oder um den Sinn des Lebens zu erfahren. Eine Legende erzählt von einem Mann, der so lange betete, bis sich ihm dieser offenbarte."
 english, "Eldan" -> "One of the Elder Gods, he is also known as the God of Spirit."

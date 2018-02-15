@@ -39,7 +39,7 @@ function M.cookie(User)
         germText="Erfolg hat nur, wer etwas tut, während er auf den Erfolg wartet.";
         englText="Love is like paint, it makes things beautiful when you spread it, but it will dry up if you don't use it.";
     elseif (luck==7) then
-        germText="Das Schicksal meint es gut mit Dir.";
+        germText="Das Schicksal meint es gut mit dir.";
         englText="Your fortune is as sweet as you.";
     elseif (luck==8) then
         germText="Der Anfang ist die Hälfte des Ganzen.";
@@ -129,7 +129,7 @@ function M.cookie(User)
        germText="Den Tüchtigen belohnt das Glück.";
         englText="Common sense is not so common.";
     elseif (luck==37) then
-       germText="Es ist besser, eine kleines Licht zu entzünden, als über große Dunkelheit zu fluchen.";
+       germText="Es ist besser, ein kleines Licht zu entzünden, als über große Dunkelheit zu fluchen.";
         englText="If this fortune didn't exist, somebody would have invented it.";
     elseif (luck==38) then
        germText="Gut ist der Vorsatz, hingegen die Erfüllung schwer.";

@@ -66,7 +66,7 @@ Description[ENGLISH][15] = "You have fulfilled all tasks of Charwis Irongate."
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {360, 281, 0}
+local Start = {360, 281, 0}
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
 local QuestTarget = {}

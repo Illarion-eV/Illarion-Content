@@ -243,7 +243,7 @@ addMug(25,
 "Schwimmende Echsenmenschen V",
 "Lizards Swimming V",
 "Ein Echsemensch öffnet das Maul um einen leuchtend bunten Fisch zu verschlucken, der genau vors Maul geschwommen ist.",
-"A lizard opens his mouth while swimming to swallow the brightly colored fish just in front of him."
+"A lizard opens his mouth while swimming to swallow the brightly coloured fish just in front of him."
 )
 
 addMug(26,

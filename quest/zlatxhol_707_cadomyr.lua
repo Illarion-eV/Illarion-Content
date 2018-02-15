@@ -39,6 +39,7 @@ Description[GERMAN][2] = "Geh zu Zlatxhol in der Werkstatt von Cadomyr, er hat b
 Description[ENGLISH][2] = "Go to Zlatxhol in the workshop of Cadomyr, he is sure to have another task for you."
 Description[GERMAN][3] = "Stelle zehn Ziegel am Brennzofen für Zlatxhol in Cadomyr her. Um Ziegel herzustellen, musst du die Zange in die Hand nehmen und den Brennofen benutzen."
 Description[ENGLISH][3] = "Produce ten bricks in the kiln for Zlatxhol in Cadomyr. To produce the bricks, you have to take the tongs in your hand and use the kiln."
+-- 4 and 5 skipped
 Description[GERMAN][6] = "Dein derzeitiger Rang in der Töpferinnung von Cadomyr ist der eines Laiens. Gehe zu Zlatxhol in der Werkstatt von Cadomyr sobald du Level 10 in der Töpferfertigkeit erreicht hast."
 Description[ENGLISH][6] = "Your current rank with the Pottery Guild of Cadomyr is Layman. Return to Zlatxhol at the workshop of Cadomyr once you reached Level 10 in Pottery."
 Description[GERMAN][7] = "Dein derzeitiger Rang in der Töpferinnung von Cadomyr ist der eines Anfängers. Gehe zu Zlatxhol in der Werkstatt von Cadomyr sobald du Level 20 in der Töpferfertigkeit erreicht hast."
@@ -64,7 +65,7 @@ Description[ENGLISH][16] = "Congratulations, you are now a true Grandmaster of t
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {134, 593, 0}
+local Start = {134, 593, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
@@ -83,10 +84,8 @@ QuestTarget[13] = {position(134, 593, 0)}
 QuestTarget[14] = {position(134, 593, 0)} 
 QuestTarget[15] = {position(134, 593, 0)} 
 
-
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 16
-
 
 function M.QuestTitle(user)
     return common.GetNLS(user, Title[GERMAN], Title[ENGLISH])

@@ -1,0 +1,188 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+------------------------------------------------------------------------------AC
+-- NPC Name: Dion Rhoditis                                           Runewick --
+-- NPC Job:  Adron Priest                                                     --
+--                                                                            --
+-- NPC Race: halfling                   NPC Position:  916, 827, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
+--                                                                            --
+-- Author:   Dantagon                                                         --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+
+name = "Dion Rhoditis"
+race = halfling
+sex = male
+position = 903, 829, 0
+direction = west
+affiliation = "Runewick"
+job = "Adron Priest"
+
+language = common
+language = halfling
+defaultLanguage = common
+autointroduce = on
+
+author = "Dantagon"
+
+lookatDE = "Dieser NPC ist Dion Rhoditis der Adronpriester."
+lookatUS = "This NPC is Dion Rhoditis the Adron Priest."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 2
+beardID = 0
+colorHair = 139, 71, 38
+colorSkin = 210, 180, 140
+itemHead = 0
+itemChest = 180
+itemCoat = 195
+itemMainHand = 40
+itemSecondHand = 0
+itemHands = 1447
+itemTrousers = 183
+itemShoes = 697
+
+-- Template Version 1.13, 04/02/2015 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
+-- Style of triggers: Keywords are preferred. Avoid usage of phrases such as "tell me more"
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change anything your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- A helpful list of colours can be found here: http://www.wackerart.de/rgbfarben.html
+-- Equipment: You can find a graphical item list here: http://illarion.org/~martin/itemlist.pdf
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly
+-- After uploading, your NPC needs to be submitted to the database and a developer has to perform a full reload (!fr) of the server
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Dion Rhoditis the Adron Priest. Keywords: Hello, gods, Adron.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Dion Rhoditis der Adronpriester. Schlüsselwörter: Hallo, Götter, Adron.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hello!", "What brought you here?", "Nice to meet you."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo!", "Was führt dich denn her?", "Angenehm."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello!", "What brought you here?", "Nice to meet you."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo!", "Was führt dich denn her?", "Angenehm."
+"Farewell", "Bye", "Fare well", "See you" -> "Bye-bye!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Ciao."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Bye-bye!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Ciao."
+"How are you", "How feel", "How do you do" -> "Incredibly well! At least until I finish this glass of wine."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Blendend, zumindest so lange noch Wein da ist."
+"your name", "who are you", "who art thou" -> "I am Dion Rhoditis. Priest of Adron and lover of fine wine!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Dion Rhoditis, Adronpriester und Liebhaber feiner Weine."
+
+-- Mandatory: Trade Hooks, use the trade consequence for traders
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin doch kein Händler!"
+
+-- Mandatory: Catching quest triggers. Modify if the NPC does quests
+english, "quest", "mission" -> "I do not issue any quests."
+"task", "adventure", "order" -> "I do not issue any quests."
+"quest", "mission", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich vergebe keine Aufgaben."
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am Dion Rhoditis. Priest of Adron and lover of fine wine!"
+"beruf" -> "Ich bin Dion Rhoditis, Adronpriester und Liebhaber feiner Weine."
+english, "job" -> "I am Dion Rhoditis. Priest of Adron and lover of fine wine!"
+"job" -> "Ich bin Dion Rhoditis, Adronpriester und Liebhaber feiner Weine."
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+"god" -> "Depends on which one you want to know about. Adron is the most interesting of them all!"
+"Gott", "Götter" -> "Tja, hängt davon ab welcher. Ganz klar, Adron ist natürlich der Beste."
+english, "religion" -> "I follow all of the respectable gods, but few actually seem like they would be fun to drink with!"
+"religion" -> "Ich folge allen achtbaren Göttern, aber die meisten scheinen nicht die beste Trinkgesellschaft zu sein!"
+"faith" -> "I follow all of the respectable gods, but few actually seem like they would be fun to drink with!"
+"Glaube" -> "Ich folge allen achtbaren Göttern, aber die meisten scheinen nicht die beste Trinkgesellschaft zu sein!"
+english, "Adron" -> "Adron is the god of wine and festivities! With his blessing your cup will never run dry! I rue the day for those who try to stop the endless flow of wine. Adrons wrath will be upon them."
+"Adron" -> "Adron ist der Gott des Weines und der Feste. Hast du seinen Segen wird dein Glas niemals leer sein.Ich bedauere die, die keinen Wein mehr anfassen wollen. Adrons Zorn wird sie treffen."
+english, "Bragon", "Brágon" -> "He is one of them Elder Gods. If you ask me, those followers of Brágon don't have a fun bone in their body. Not that it matters, most of his followers follow Malachín now."
+"Bragon", "Brágon" -> "Er ist einer der alten Götter. Wenn du mich fragst haben die Anhänger Brágons keinen Sinn für Humor. Aber eigentlich ist es auch egal, die meisten verehren ja jetzt Malachín."
+english, "Cherga" -> "I'd rather not spend too much time thinking about the goddess of death. I'd rather live life and enjoy wine! Cherga's followers are all rather dull anyhow. They spend their time tending to the cemetery on Pauldron Isle."
+"Cherga" -> "Ich würd mir nicht zu viel Gedanken über die Göttin des Todes machen. Genieße lieber den Tag und ein gutes Glas Wein. Chergas Getreue sind nämlich ziemlich langweilige Gesellen. Sie verbringen ihre Zeit damit sich um den Friedhof auf der Schulternplatteninsel zu kümmern."
+english, "Elara" -> "Elara is the goddess of knowledge and wisdom. Her scholarly followers tend to hole themselves up in the Runewick library studying. Occasionally they come down here when they need a break. And a drink."
+"Elara" -> "Elara ist die Göttin des Wissens und der Weisheit. Ihre gelehrten Verehrer neigen dazu, sich selbst in der Bücherei Runewicks zu vergraben. Manchmal kommen sie hierher, wenn sie eine Pause brauchen. Und ein Getränk."
+english, "Eldan" -> "An Elder God. Eldan and his few followers are hermits and have no time to enjoy life. That is, what's left of them. His former followers tend to follow Elara now."
+"Eldan" -> "Einer der alten Götter. Eldan und seine paar Anhänger sind Einsiedler und haben keine Zeit ihr Leben zu genießen. Also, was davon noch übrig ist. Die meisten seiner früheren Anhänger haben sich nun Elara zugewandt."
+english, "Findari" -> "Findari is one of the elder goddesses. Back in her day she was followed by bards and other fun spirits. These days they attend Adron's parties."
+"Findari" -> "Findari ist eine der alten Götter. Zu ihrer Zeit wurde sie von Barden und anderen lustigen Gesellen verehrt. Heutzutage findest du diese Leute auf Adrons Festen."
+english, "Irmorom" -> "The god of crafting and trade. His followers do amazing craftsmanship. But if you ask me, that is all they do. If you're interested, you can find Irmorom's altar in Galmair."
+"Irmorom" -> "Der Gott des Handelns und des Handwerks. Seine Anhänger stellen die erstaunlichsten Dinge her. Aber das war's auch schon. Wenn es dich interessiert, Irmoroms Tempel ist in Galmair zu finden."
+english, "Malachin", "Malachín" -> "The stringent followers of Malachín. They are all battle this and battle that. Though when they cut loose and have a cup or five, boy, do they party! If you want to find them, they are near Cadomyr."
+"Malachin", "Malachín" -> "Die strengen Anhänger Malachíns kämpfen für dies und für das. Aber wenn sie mal losgelassen werden, Mann, was können die feiern! Wenn du sie besuchen willst, ihr Heiligtum findet sich in der Nähe Cadomyrs."
+english, "Moshran" -> "#me goes into a stunned silence. He attempts to stutter a response to no avail."
+"Moshran" -> "#me verstummt erst. Dann versucht er erfolglos eine Antwort zu stottern."
+english, "Nargun", "Nargún", "Nargùn" -> "Nargùn is the god of chaos. His followers are a real treat at parties. You never know what will happen next. The entertainment never ends! Those who go looking for him can find him in Galmair."
+"Nargun", "Nargún", "Nargùn" -> "Nargùn ist der Gott des Chaos. Seine Anhänger sind ein echter Gewinn für jede Party. Du weißt nie was als nächstes passiert, die Unterhaltung endet nie. Wenn du in Galmair suchst, hast du vielleicht Glück und findest ihren Tempel."
+english, "Oldra" -> "Oldra and her followers are all sweethearts. If not for them, we wouldn't have bountiful harvests of grapes for wine. We should all go visit her altar in Yewdale to thank her."
+"Oldra" -> "Oldra und ihre Anhänger sind Schätzchen. Wären sie nicht, hätten wir nichts was auf den Tisch käme und auch keine Trauben für Wein. Lasst uns zu ihrem Altar in Eibenthal pilgern um ihr zu danken."
+english, "Ronagan" -> "The followers of Ronagan like to take advantage of the followers of Adron. Just as we are well into our cups and having a good time, they take our purse! I am just glad his altar is far away in Galmair."
+"Ronagan" -> "Anhänger Ronagans nutzen gerne mal Anhänger Adrons aus. Während wir zu tief in die Gläser schauen und Spaß haben, nehmen sie unsere Geldbeutel. Zum Glück ist deren Altar weit weg in Galmair."
+english, "Sirani" -> "Such wonderful people Sirani's followers are. They know how to live life to the fullest. She is all about enjoying the pleasures in life. Her altar is found in a luscious oasis near Cadomyr."
+"Sirani" -> "Siranis Anhänger sind wirklich tolle Leute. Sie verstehen das Leben in vollen Zügen zu genießen. Bei ihr geht es wirklich nur um die Freude am Leben. Ihr Altar befindet sich in einer üppigen Oase bei Cadomyr."
+english, "Tanora", "Zelphia" -> "Tanora is the Elder Goddess of water. She is still around, somewhere. Wanders the land from time to time. Her followers are all her lizardfolk. They aren't any fun to drink with."
+"Tanora", "Zelphia" -> "Tanora ist die Alte Göttin des Wassers. Sie soll irgendwo noch unter uns weilen. Ihre Anhänger sind vor allem Echsenmenschen mit denen man nicht so viel Spaß haben kann."
+english, "Ushara" -> "She is one of those Elder Gods. Goddess of earth. Ushara has a few old elves that follow her along with hermit druids who claim to have met her. For the most part her followers follow Oldra now."
+"Ushara" -> "Die Göttin der Erde ist eine der alten Götter. Ushara hat einige alte Elfen, die ihr huldigen genauso wie ein paar vereinzelte Druiden, die behaupten sie mal getroffen zu haben. Aber die meisten ihrer früheren Anhänger haben sich jetzt Oldra zugewandt."
+english, "Zhambra" -> "He's the god of friendship and loyalty. Zhambra's followers are uptight chivalric warriors. But I tell yah, if you make friends with one of them, you have a lifelong drinking buddy. His altar is near the palace in Cadomyr."
+"Zhambra" -> "Er ist der Gott der Freundschaft und des Vertrauens. Zhambras Anhänger sind verklemmte, galante Krieger. Aber ich kann dir sagen, wenn du mal einen zum Freund hast, er wird ein Leben lang mit dir trinken. Der Altar findet sich im Übrigen nahe des Palastes von Cadomyr."
+
+-- Optional: Faction stuff
+"archmage" -> "I've spoken to him once or twice, but he isn't much of a drinker."
+"Erzmagier" -> "Ich hab ein paar mal mit ihm gesprochen. Nur trinken tut er nicht."
+english, "Elvaine", "Morgan" -> "I've spoken to him once or twice, but he isn't much of a drinker."
+"Elvaine", "Morgan" -> "Ich hab ein paar mal mit ihm gesprochen. Nur trinken tut er nicht."
+english, "Runewick" -> "Here! What better place to drink?"
+"Runewick" -> "Hier! Gibt es einen besseren Ort zum Trinken?"
+english, "Valerio", "Guilianni", "Don" -> "Never met him. He doesn't get out and drink much."
+"Valerio", "Guilianni", "Don" -> "Ich hab ihn noch nicht getroffen. Er geht selten raus um etwas zu trinken."
+english, "Galmair" -> "There tend to be a lot of dwarves there. If you aren't careful they will drink you under the table."
+"Galmair" -> "Da laufen eine Menge Zwerge rum. Wenn du nicht aufpasst, trinken die dich unter den Tisch."
+"Queen" -> "She seems nice enough, but I wouldn't know. I've never drank with her."
+"Königin" -> "Sie scheint nett zu sein, aber woher soll ich das wissen. Ich habe nie mit ihr getrunken."
+english, "rosaline", "edwards" -> "She seems nice enough, but I wouldn't know. I've never drank with her."
+"rosaline", "edwards" -> "Sie scheint nett zu sein, aber woher soll ich das wissen. Ich habe nie mit ihr getrunken."
+english, "Cadomyr" -> "Lovely folks, they throw great parties."
+"Cadomyr" -> "Ein lustiges Völkchen. Sie schmeißen tolle Feste."
+
+-- Optional: Last catch - Think about keywords the player might say and that are not caught until here
+"my name" -> "Nice to meet you."
+"mein Name" -> "Angenehm."
+english, "Dion", "Rhoditis" -> "Adron guides my way. Sometimes, weaving."
+"Dion", "Rhoditis" -> "Adron weist mir den Weg. Manchmal verläuft er in Schlangenlinien."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me füllt ein Glas mit Wein und trinkt dann aus der Flasche.", "#me fills a glass with wine, then drinks from the bottle."
+cycletext "#me nimmt einen tiefen Schluck aus der Weinflasche.", "#me takes a long drink from a bottle of wine."
+cycletext "#me seufzt: 'Mein Glas ist schon wieder leer. Ein Glück, dass noch mehr Wein da ist.'", "#me sighs, 'My glass is empty. Good thing there is more wine!'"
+cycletext "#me singt ein schiefes Trinklied.", "#me sings a drinking song offkey."
+cycletext "#me untersucht sorgfältig ein Glas.", "#me carefully examines a glass."
+cycletext "Gute Leute trinken guten Wein!", "Good people drink good wine!"
+cycletext "Hicks!", "Hic!"
+cycletext "Trink mit deinen Freunden. Trink mit deinen Feinden. Aber trink niemals alleine.", "Drink with your friends. Drink with your enemies. Drink, but never drink alone."
+cycletext "Warum ist mein Wein leer?", "Why is the wine gone?"
+cycletext "Wein macht aus Feinden Freunde, aus Lügnern Wahrsager und aus Magiern interessante Leute.", "Wine turns enemies into friends, liars into soothsayers, and makes mages actually interesting."

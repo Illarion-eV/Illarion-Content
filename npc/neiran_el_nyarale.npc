@@ -115,18 +115,6 @@ town = none, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Die Arbeit von Rune
 "kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich? Ich bin kein Händler. Ich bin der Wächter der Schatzkammer, ein sehr interessanter Beruf wenn ihr mich fragt."
 
 -- Quest 1: Donate something to the treasury
--- fix
-queststatus(205) > 0, queststatus(820) = 7, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 8, "Ah, Florain sent you but you already asked me for something to do."
-queststatus(205) > 0, queststatus(820) = 7, town = Runewick, "quest", "mission", "florain", "dreyndel" -> queststatus(820) = 8, "Ah, Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
-queststatus(205) > 0, queststatus(820) = 7, town = Runewick, "task", "adventure", "order" -> queststatus(820) = 8, "Ah, Florain sent you but you already asked me for something to do."
-queststatus(205) > 0, queststatus(820) = 7, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(820) = 8, "Ah, Florain hat Euch geschickt aber Ihr habt mich bereits nach einer Aufgabe gefragt."
-
--- 1: Quest 1 taken, donate something to the treasury, reward: 20 rankpoints
-queststatus(205) = 0, queststatus(820) = 7, english, town = Runewick, "quest", "mission", "florain", "dreyndel" -> inform("[New Quest] Runewick Treasury"), queststatus(205) = 1, queststatus(820) = 8, "Do you want a task? Donate some of your wealth and contribute to ensuring the city stays clean! The donation platform is right next to me."
-queststatus(205) = 0, queststatus(820) = 7, town = Runewick, "quest", "mission", "florain", "dreyndel" -> inform("[Neues Quest] Die Schatzkammer Runewicks"), queststatus(205) = 1, queststatus(820) = 8, "Ihr möchtet eine Aufgabe? Spendet einen Teil eures Reichtums und sorgt dafür dass die Stadt sauber bleibt! Die Spendenplattform ist gleich neben mir."
-queststatus(205) = 0, queststatus(820) = 7, town = Runewick, "task", "adventure", "order" -> inform("[New Quest] Runewick Treasury"), queststatus(205) = 1, queststatus(820) = 8, "Do you want a task? Donate some of your wealth and contribute to ensuring the city stays clean! The donation platform is right next to me."
-queststatus(205) = 0, queststatus(820) = 7, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Die Schatzkammer Runewicks"), queststatus(205) = 1, queststatus(820) = 8, "Ihr möchtet eine Aufgabe? Spendet einen Teil eures Reichtums und sorgt dafür dass die Stadt sauber bleibt! Die Spendenplattform ist gleich neben mir."
-
 -- 1: Quest 1 taken, donate something to the treasury, reward: 20 rankpoints
 queststatus(205) = 0, english, town = Runewick, "quest", "mission" -> inform("[New Quest] Runewick Treasury"), queststatus(205) = 1, "Do you want a task? Donate some of your wealth and contribute to ensuring the city stays clean! The donation platform is right next to me."
 queststatus(205) = 0, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Die Schatzkammer Runewicks"), queststatus(205) = 1, "Ihr möchtet eine Aufgabe? Spendet einen Teil eures Reichtums und sorgt dafür dass die Stadt sauber bleibt! Die Spendenplattform ist gleich neben mir."
@@ -150,8 +138,8 @@ queststatus(205) = 3, "task", "adventure", "order" -> "#me smiles happily and ad
 queststatus(205) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me lächelt glücklich und schreibt etwas auf eine Liste nieder.", "Ich bin im Moment etwas beschäftigt, kommt doch später wieder."
 
 -- Quest by Zassaria Riverbank (Ask for me III)
-queststatus(701) = 7, english, "Zassaria", "lizard", "lamp", "collection", "riverbank" -> queststatus(701) = 8, "Oil lamp collection? I threw away some oil lamps a few days ago... but, they did not belong to Lady Zassaria, did they?"
-queststatus(701) = 7, "Zassaria", "echse", "Lampe", "Sammlung" -> queststatus(701) = 8, "Öllampensammlung? Ich habe da eine ganze Menge Öllampen vor ein paar Tagen entsorgt...aber, das war doch nicht Lady Zassarias Öllampensammlung, oder?"
+queststatus(701) = 7, english, "Zassaria", "lizard", "lamp", "collection", "riverbank", "message", "question" -> queststatus(701) = 8, "Oil lamp collection? I threw away some oil lamps a few days ago... but, they did not belong to Lady Zassaria, did they?"
+queststatus(701) = 7, "Zassaria", "echse", "Lampe", "Sammlung", "Nachricht", "Frage" -> queststatus(701) = 8, "Öllampensammlung? Ich habe da eine ganze Menge Öllampen vor ein paar Tagen entsorgt...aber, das war doch nicht Lady Zassarias Öllampensammlung, oder?"
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the guard here. I guard the donation platform.", "I tell newcomers how to donate part of their wealth to Runewick to make the city a little bit better than it already is.", "I help to keep the streets clean. Do you want to help me with this task?"

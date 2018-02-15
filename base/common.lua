@@ -62,6 +62,17 @@ function M.GetGenderText(User, textMale, textFemale)
     return (User:increaseAttrib("sex", 0) == 1 and textFemale or textMale)
 end
 
+--[[ Get the frst letter in a text uppercase.
+@param text: "the text"
+@return text: "The text" ]]--
+function M.firstToUpper(text)
+    if M.IsNilOrEmpty(text) then
+        return text
+    end
+    text = tostring(text)
+    return (text:gsub("^%l", string.upper))
+end
+
 --- This function uses the random value generator to produce a random chance.
 -- This function returns true in a specified amount of cases. The optional
 -- Base parameter is used to set the value of 100%. By default this value is 1.
@@ -385,6 +396,49 @@ function M.getFreePos(CenterPos, Rad)
     return pos
 end
 
+--Counts passable fields around a center location. The search is performed with a square mask. So the search
+--  area is actually a rectangle with the with a side length of searchRadius + 2
+-- @param centerPosition the center of the search
+-- @param searchRadius the radius of the search
+-- @return number of passable fields
+function M.getNumberOfPassableFieldsInArea(centerPos, searchRadius)
+    local countPos = 0
+    for x = -searchRadius, searchRadius do
+        for y = -searchRadius, searchRadius do
+            local pos = position(centerPos.x + x, centerPos.y + y, centerPos.z)
+            local field = world:getField(pos)
+            if field ~= nil then
+                if field:isPassable() then
+                    countPos = countPos + 1
+                end
+            end
+        end
+    end
+    return countPos
+end
+
+--Counts passable fields around a center location. The search is performed with a given relativ mask.
+-- @param centerPos the center of the search
+-- @param relativePoss table of reltive positions
+-- @return number of passable fields
+function M.getNumberOfPassableFieldsFromList(centerPos, relativePos)
+    local countPos = 0
+    if relativePos == nil or #relativePos == 0 then
+        return 0
+    else
+        for i=1, #relativePos do
+            local pos = position(centerPos.x + relativePos[i][1], centerPos.y + relativePos[i][2], centerPos.z + relativePos[i][3])
+            local field = world:getField(pos)
+            if field ~= nil then
+                if field:isPassable() then
+                    countPos = countPos + 1
+                end
+            end
+        end
+    end
+    return countPos
+end
+
 --- Check if a ItemStruct is valid for a special character
 -- @param User Character who should own the item
 -- @param Item Item that shall be checked if its still valid
@@ -503,6 +557,91 @@ function M.ToolBreaks(user, item, workTime)
     return false
 
 end
+
+--[[function set for item quality and durability
+item.quality contains quality and durability
+637 means: quality=6, durability=37
+default value is 333
+]]--
+M.ITEM_MAX_QUALITY = 9
+M.ITEM_DEFAULT_QUALITY = 3
+M.ITEM_MAX_DURABILITY = 99
+M.ITEM_DEFAULT_DURABILITY = 33
+
+-- Get durability of an item
+-- @param item the item to be checked
+-- @return durability (1-99)
+function M.getItemDurability(item)
+    local durability = math.fmod(item.quality, 100)
+    return durability
+end
+
+-- Set durability of an item
+-- @param item the item to be changed
+-- @param newDurability (1-99)
+function M.setItemDurability(item, newDurability)
+    local quality = M.getItemQuality(item)
+    item.quality = M.calculateItemQualityDurability(quality, newDurability)
+    world:changeItem(item)
+end
+
+-- Get quality of an item
+-- @param Item the item to be checked
+-- @return quality (1-9)
+function M.getItemQuality(item)
+    local durability = math.fmod(item.quality, 100)
+    local quality = (item.quality - durability) / 100
+    return quality
+end
+
+-- Set quality of an item
+-- @param item the item to be changed
+-- @param newQuality (1-9)
+function M.setItemQuality(item, newQuality)
+    local durability = M.getItemDurability(item)
+    item.quality = M.calculateItemQualityDurability(newQuality, durability)
+    world:changeItem(item)
+end
+
+-- Set quality and durability of an item
+-- @param item the item to be checked
+-- @param newQuality (1-9)
+-- @param newDurability (1-99)
+function M.setItemQualityDurability(item, newQuality, newDurability)
+    item.quality = M.calculateItemQualityDurability(newQuality, newDurability)
+    world:changeItem(item)
+end
+
+-- calculates and verify the item state for item.quality
+-- @param quality (1-9)
+-- @param durability (1-99)
+-- @return value for item.quality
+-- default value is 333
+-- calculateItemQualityDurability (nil, nil) = 333
+function M.calculateItemQualityDurability (quality, durability)
+    local qualityNumber
+    if M.IsNilOrEmpty(quality) then
+        qualityNumber = ITEM_DEFAULT_QUALITY
+    else
+        qualityNumber= tonumber(quality)
+    end
+    if qualityNumber < 1 or qualityNumber > M.ITEM_MAX_QUALITY then
+        qualityNumber = ITEM_DEFAULT_QUALITY
+    end
+    
+    local durabilityNumber = tonumber(durability)
+    if M.IsNilOrEmpty(durability) then
+        durabilityNumber = M.ITEM_DEFAULT_DURABILITY
+    else
+        durabilityNumber= tonumber(durability)
+    end
+    if durabilityNumber < 1 or durabilityNumber > M.ITEM_MAX_DURABILITY then
+        durabilityNumber = M.ITEM_DEFAULT_DURABILITY
+    end
+    
+    return qualityNumber * 100 + durabilityNumber
+end
+
 
 -- Check if a cooldown for an item is expired (e.g. if using it)
 -- Set a new cooldown if the old one is expired (or none set yet)
@@ -841,19 +980,22 @@ end
 ]]
 function M.GetItemInInventory(User, ItemID, DataValues)
   local ItemList = User:getItemList(ItemID)
-  if (DataValues == nil) then
-    DataValues = {}
+  local dataOK
+  local hasData = true
+  if (DataValues == nil or #DataValues == 0) then
+    hasData = false
   end
   for _, item in pairs(ItemList) do
-    local dataOk = true
-    for _,d in pairs(DataValues) do
-      if (item:getData(d[1]) ~= d[2]) then
-        dataOk = false
-        break
-      end
+    dataOK = true
+    if hasData then
+        for _, data in pairs(DataValues) do
+            if (tostring(item:getData(data[1])) ~= tostring(data[2])) then
+                dataOK = false
+            end
+        end
     end
-    if (dataOk) then
-      return item
+    if dataOK then
+        return item
     end
   end
   return nil
@@ -929,9 +1071,9 @@ end
 
 --[[
     ParalyseCharacter
-    Paralyzes a character with a lte or by the actionpoints for setted time
-    @param CharacterStruct - The character that shall be paralyzed
-    @param integer - The time in seconds the character shall be paralyzed
+    Paralyses a character with a lte or by the actionpoints for setted time
+    @param CharacterStruct - The character that shall be paralysed
+    @param integer - The time in seconds the character shall be paralysed
     @param boolean - true if the time shall be added to an exsisting paralizing, false if the old values shall just be overwritten
     @param boolean - true(default) if a LTE shall be used to stunn the character. In this case its not intended to release the stunn any time ealier. False if not
     @return boolean - true if anything was done. false if not.
@@ -1337,11 +1479,16 @@ function M.Split_number(Number, AmountOfDigits)
 
     local temptable = {}
     local tempcnt = 0
+    local tempnumber
 
+    tempnumber = math.floor(Number / (10^AmountOfDigits))
+    Number = Number - tempnumber * (10^AmountOfDigits)
 
     for i = (AmountOfDigits-1), 0, -1 do
         tempcnt = tempcnt + 1
-        temptable[tempcnt] = math.floor(math.fmod((Number / (10^i)), 10) + 0.5)
+        tempnumber = math.floor(Number / (10^i))
+        temptable[tempcnt] = tempnumber
+        Number = Number - tempnumber * (10^i)
     end
     return temptable
 end
@@ -1543,6 +1690,41 @@ function M.IsItemInHands( item )
     return false
 end
 
+--[[Check if a char holds an item from a list in hand
+@return true if item with id is in any hand slot]]--
+function M.hasItemIdInHand(user, itemIds)
+    if type(row) == "table" then
+        itemIds = {itemIds}
+    end
+    local leftTool = user:getItemAt(Character.left_tool)
+    if M.isInList(leftTool.id, itemIds) then
+        return true
+    end
+    local rightTool = user:getItemAt(Character.right_tool)
+    if M.isInList(rightTool.id, itemIds) then
+        return true
+    end
+    return false
+end
+
+--[[Check if a char holds an item from a list in hand
+@return item if item with id is in any hand slot]]--
+function M.getItemInHand(user, itemIds)
+    if type(row) == "table" then
+        itemIds = {itemIds}
+    end
+    local leftTool = user:getItemAt(Character.left_tool)
+    if M.isInList(leftTool.id, itemIds) then
+        return leftTool
+    end
+    local rightTool = user:getItemAt(Character.right_tool)
+    if M.isInList(rightTool.id, itemIds) then
+        return rightTool
+    end
+    return nil
+end
+
+
 --- Gets the target item for Use-With like commands. Both, source and target items have to be in hand tool slots.
 -- @param character The character who wants to use the items
 -- @param source The source item that is "used with" the target item
@@ -1557,6 +1739,59 @@ function M.GetTargetItem( character, source )
         return nil
     end
     return target
+end
+
+--[[ Gets the target item for Use-With like commands.
+@param character The character who wants to use the items
+@param items The items, searched for
+Sucess:
+one of the items in hand
+else#
+one of the items in belt
+else
+one of the items in bag
+itemNumber > 1 means in one step more than 1 possible item was found
+@return itemNumber (0 if not found), foundItem last found item]]--
+function M.GetTargetItemAnywhere(user, itemList)
+    local tmpItem
+    if type(itemList) ~= "table" then
+        itemList = {itemList}
+    end
+    local countItems = 0
+    local foundItem = nil
+    for i = 5, 6 do -- hands
+        tmpItem = user:getItemAt(i)
+        if M.isInList(tmpItem.id, itemList) then
+            countItems = countItems + 1
+            foundItem = tmpItem
+        end
+    end
+    if countItems > 0 then
+        return countItems, foundItem
+    end
+    for i = 12, 17 do -- belt
+        tmpItem = user:getItemAt(i)
+        if M.isInList(tmpItem.id, itemList) then
+            countItems = countItems + 1
+            foundItem = tmpItem
+        end
+    end
+    if countItems > 0 then
+        return countItems, foundItem
+    end
+    local backpack = user:getBackPack()
+    if backpack then
+        for i = 0, 99 do
+            local isItem, tmpItem, tmpContainer = backpack:viewItemNr(i)
+            if isItem then
+                if M.isInList(tmpItem.id, itemList) then
+                    countItems = countItems + 1
+                    foundItem = tmpItem
+                end
+            end
+        end
+    end
+    return countItems, foundItem
 end
 
 --- Returns the real date and time as a String
@@ -1674,6 +1909,64 @@ function M.PositionToText(pos)
         return retString
     end
     return "nil","nil","nil"
+end
+
+--[[
+    \fn:    IsInList
+    \brief: returns true if an valueChecked is in the valueList
+
+    \attention: valueList must be a list!
+]]
+function M.isInList(valueChecked, valueList)
+    if valueChecked == nil then
+        return false
+    end
+    if type(valueList) ~= "table" then
+        valueList = {valueList}
+    end
+    for _, value in pairs(valueList) do
+        if valueChecked == value then
+            return true
+        end
+    end
+    return false
+end
+
+--[[
+    \fn:    posInList
+    \brief: returns position of an valueChecked in the valueList
+
+    \attention: valueList must be a list!
+]]
+function M.posInList(valueChecked, valueList)
+    if valueChecked == nil then
+        return 0
+    end
+    if type(valueList) ~= "table" then
+        return 0
+    end
+    for i, value in pairs(valueList) do
+        if valueChecked == value then
+            return i
+        end
+    end
+    return 0
+end
+
+--[[
+    \fn:    getOneOutOfList
+    \brief: returns one random row out of valueList
+    if valueList isn't a table, valueList is returned
+]]
+function M.getOneOutOfList(valueList)
+    if type(valueList) ~= "table" then
+        return valueList
+    end
+    local tmpList = {}
+    for i, row in pairs(valueList) do
+        table.insert(tmpList, i)
+    end
+    return valueList[math.random(1,#tmpList)]
 end
 
 --[[
@@ -1890,19 +2183,22 @@ function M.GetItemInArea(CenterPos, ItemId, Radius, OnlyWriteable)
   for x=-Radius,Radius do
     for y=-Radius,Radius do
       local field = world:getField(position(CenterPos.x + x, CenterPos.y + y, CenterPos.z))
+      if field ~= nil then
       local itemCount = field:countItems()
-      if (itemCount > 0) then
-        if (OnlyWriteable) then
-          itemCount = 1
-        end
-        for i=0,itemCount-1 do
-          local item = field:getStackItem(i)
-          if (item.id == ItemId) then
-            item.pos.x = CenterPos.x + x
-            item.pos.y = CenterPos.y + y
-            return item, (i==0)
+          if (itemCount > 0) then
+            if (OnlyWriteable) then
+              itemCount = 1
+            end
+            for i=0,itemCount-1 do
+              local item = field:getStackItem(i)
+              if (item.id == ItemId) then
+                item.pos.x = CenterPos.x + x
+                item.pos.y = CenterPos.y + y
+                item.pos.z = CenterPos.z
+                return item, (i==0)
+              end
+            end
           end
-        end
       end
     end
   end
@@ -1929,17 +2225,17 @@ function M.isInPrison(Pos)
   return false
 end
 
---- Convert a RGB color to a HSV color.
--- @param red the red color component in a range from 0 to 255
--- @param green the green color component in a range from 0 to 255
--- @param blue the blue color component in a range from 0 to 255
--- @return hue, saturation, value color components. Hue in a range from 0° to 360°. Saturation and value in a range
+--- Convert a RGB colour to a HSV color.
+-- @param red the red colour component in a range from 0 to 255
+-- @param green the green colour component in a range from 0 to 255
+-- @param blue the blue colour component in a range from 0 to 255
+-- @return hue, saturation, value colour components. Hue in a range from 0° to 360°. Saturation and value in a range
 --         from 0 to 1
 function M.RGBtoHSV(red, green, blue)
     local max = math.max(red, green, blue)
     local min = math.min(red, green, blue)
     if max > 255 or min < 0 then
-        error("The color values are rgb to hsv conversation are out of bounds.")
+        error("The colour values are rgb to hsv conversation are out of bounds.")
     end
 
     local delta = max - min
@@ -1966,11 +2262,11 @@ function M.RGBtoHSV(red, green, blue)
     return hue, saturation, max / 255
 end
 
---- Convert a HSV color value to a RGB color value.
+--- Convert a HSV colour value to a RGB colour value.
 -- @param hue The hue value in degrees. Values larger then 360° are wrapped until they fit the range from 0° to 360°
 -- @param saturation The saturation value in a range from 0 to 1
--- @param value The color value in a range from 0 to 1
--- @return red, green, blue color value in a range from 0 to 255 as integer value
+-- @param value The colour value in a range from 0 to 1
+-- @return red, green, blue colour value in a range from 0 to 255 as integer value
 function M.HSVtoRGB(hue, saturation, value)
     local realHue = hue % 360
     if saturation < 0 or saturation > 1 then
@@ -2021,6 +2317,250 @@ function M.isSpecialItem(item)
         return true
     end
     return false
+end
+
+--[[Binary functions
+Checks whether bit n is set or not
+bitN must be a number in between 1 and 15 (limit 16 bit integer)
+@return bool: true if set
+]]--
+function M.isBitSet(checkedValue, bitN)
+    local bitNumber = tonumber(bitN)
+    local valueNumber = tonumber(checkedValue)
+    if bitNumber == nil or valueNumber == nil then
+        return false
+    end
+    if bitNumber < 1 or bitNumber > 15 then
+        return false
+    end
+    local bitValue = math.pow( 2, bitNumber - 1 )
+    if bit32.band(valueNumber, bitValue) == 0 then
+        return false
+    end
+    return true
+end
+
+--[[Binary functions
+Set bit n
+bitN must be a number in between 1 and 15 (limit 16 bit integer)
+setBit must be a number 
+@return int: setValue
+]]--
+function M.addBit(setValue, bitN)
+    local bitNumber = tonumber(bitN)
+    local valueNumber = tonumber(setValue)
+    if bitNumber == nil or valueNumber == nil then
+        return nil
+    end
+    if bitNumber < 1 or bitNumber > 15 then
+        return valueNumber
+    end
+    if not M.isBitSet(valueNumber, bitNumber) then
+        valueNumber = valueNumber + math.pow( 2, bitNumber - 1 )
+    end
+    return valueNumber
+end
+
+--[[Binary functions
+Remove bit n
+bitN must be a number in between 1 and 15 (limit 16 bit integer)
+setBit must be a number 
+@return int: setValue
+]]--
+function M.removeBit(setValue, bitN)
+    local bitNumber = tonumber(bitN)
+    local valueNumber = tonumber(setValue)
+    if bitNumber == nil or valueNumber == nil then
+        return nil
+    end
+    if bitNumber < 1 or bitNumber > 15 then
+        return valueNumber
+    end
+    if M.isBitSet(valueNumber, bitNumber) then
+        valueNumber = valueNumber - math.pow( 2, bitNumber - 1 )
+    end
+    return valueNumber
+end
+
+--[[Binary functions
+Returns the number of set bits.
+setBit must be a number 
+@return int: number of bits = 1
+]]--
+function M.countBit(checkedValue)
+    local bitNumber = 1
+    local valueNumber = tonumber(checkedValue)
+    local countBit = 0
+    if valueNumber == nil then
+        return 0
+    end
+    for i=1 , 15 do
+        if bit32.band(valueNumber, bitNumber) > 0 then
+            countBit = countBit + 1
+        end
+        bitNumber = bitNumber * 2
+    end
+    return countBit
+end
+
+--[[Item name
+Considers special item names
+@return string]]--
+function M.getItemName(item, lang)
+    local specialname = ( lang == Player.german and item:getData("nameDe") or item:getData("nameEn") )
+    if ( M.IsNilOrEmpty(specialname) ) then
+        return world:getItemName( item.id, lang )
+    else
+        return specialname
+    end
+end
+
+--[[warp a character back
+@return: real distance (0 if not warped)]]--
+function M.pushBack(user,extDistance,extCenterPos)
+    local distance = extDistance or 1
+    local centerPos = extCenterPos or M.GetFrontPosition(user)
+
+    local diffX = centerPos.x - user.pos.x
+    local diffY = centerPos.y - user.pos.y
+    if (centerPos.x == user.pos.x and centerPos.y == user.pos.y) then -- any direction
+        diffX = math.random(1,5)
+        diffY = math.random(1,5)
+        if math.random() < 0.5 then
+            diffX = - diffX
+        end
+        if math.random() < 0.5 then
+            diffY = - diffY
+        end
+    else
+        diffX = centerPos.x - user.pos.x
+        diffY = centerPos.y - user.pos.y
+    end
+    local alpha = math.atan2(diffX,diffY)
+    local distX = math.floor(math.sin(alpha)*distance)
+    local distY = math.floor(math.cos(alpha)*distance)
+
+    local posX = user.pos.x - distX
+    local posY = user.pos.y - distY
+    local posZ = user.pos.z
+
+    local targetPos=user.pos
+
+    local isNotBlocked = function(pos)
+        if world:getField(pos):isPassable() then
+            targetPos = pos
+            return true
+        else
+            return false
+        end
+    end
+
+    M.CreateLine(user.pos, position(posX,posY,posZ), isNotBlocked)
+
+    local realDistance = user:distanceMetricToPosition(targetPos)
+    user:warp(targetPos)
+    return realDistance
+end
+
+--[[Find items out of a list from inventory and bag
+user: The cheched character
+itemIdList: Table of item ID's or item ID
+return: hasItem, returnList
+hasItem: true if all items are in inventory
+returnList: all found items
+]]--
+function M.userHasItems(user,itemIdList)
+    local idItem
+    local numberItem
+    local numberExists
+    local returnList = {}
+    local allItems = false
+    if type(itemIdList) ~= "table" then
+        itemIdList = {itemIdList}
+    end
+    if user:getType() == Character.player and #itemIdList > 0 then
+        allItems = true
+        for _, row in pairs(itemIdList) do
+            if type(row) == "table" then
+                idItem = row[1]
+                numberItem = row[2] or 1
+            else
+                idItem = row
+                numberItem = 1
+            end
+            local l = user:getItemList(idItem)
+            numberExists = 0
+            for _,i in pairs(l) do
+                numberExists = numberExists + i.number
+                table.insert(returnList,i)
+            end
+            if numberExists < numberItem then
+                allItems = false
+            end
+        end
+    end
+    return allItems, returnList
+end
+
+
+--[[ Drop a blood spot on the ground at a specified location.
+@param Posi The location where the blood spot is placed]]--
+function M.dropBlood(Posi, bloodWear)
+    usedWear = bloodWear or 2
+    if world:isItemOnField(Posi) then
+        return --no blood on tiles with items on them!
+    end
+    local field = world:getField(Posi)
+    local tileId = field:tile()
+    if tileId == 6 or tileId == 0 or tileId == 34 then
+        return -- no blood on water and invisible tiles
+    end
+    
+    local Blood = world:createItemFromId(3101, 1, Posi, true, 333, nil)
+    Blood.wear = usedWear
+    world:changeItem(Blood)
+end
+
+--[[ Drop some of blood. This function drops blood on every tile around the centerPos with a certain probability
+@param centerPos: The center of the bloody area
+@param: bloodProbability 0-1
+@param: bllodWear Time the blood remains x 3 min
+]]--
+function M.dropSomeBlood(centerPos, bloodProbability, bloodWear)
+    local usedProbability = bloodProbability or 0.33
+    local usedWear = bloodWear or 1
+    local centerPosX = centerPos.x - 1
+    local centerPosY = centerPos.y - 1
+    local centerPosZ = centerPos.z
+    for i = 1, 3 do
+        for j = 1, 3 do
+            if math.random() < usedProbability then
+                M.dropBlood(position(centerPosX,centerPosY,centerPosZ), usedWear)
+            end
+            centerPosX = centerPosX + 1
+        end
+        centerPosX = centerPosX - 3
+        centerPosY = centerPosY + 1
+    end
+end
+
+--[[ Drop much of blood. This function drops blood on about every 3rd tile around the position set as center.
+@param centerPos The center of the bloody area]]--
+function M.dropMuchBlood(centerPos)
+    M.dropSomeBlood(centerPos, 1, 2)
+end
+
+--[[Counts player around a position including the levels -2, -1, +1, +2
+center pos: center of search
+range: range of search
+@return: number of character]]--
+function M.countPlayersInRangeOf(centerPos, range)
+    local users = world:getPlayersInRangeOf(centerPos, range)
+    local count=0
+    for _, user in pairs(users) do
+        count = count + 1
+    end
+    return count
 end
 
 return M

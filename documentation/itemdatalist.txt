@@ -1,0 +1,38 @@
+--general--
+nameDe, overlay generic item name
+nameEn, overlay generic item name
+descriptionDe, overlay generic look at
+descriptionEn, overlay generic look at
+qualityAtCreation, best possible quality, set if item was repaired
+ceaftedBy, name of the character originally made the item
+--gems--
+gemLevel, magic level of gem (1-10)
+--bookshelf (id 266)--
+book1 .. book9, bookname from booklist visible in the bookshelf
+--lockpicks (id 99)--
+gmLocation1 .. gmLocation6, GM defined teleport target
+gmSequenceOnChar1 .. gmSequenceOnChar6, GM defined action sequence on single char
+gmSequenceOnGroup1 .. gmSequenceOnGroup6, GM defined action sequence on group
+--parchments (2745, 3109)--
+writtenText, text on parchment
+signatureText, name of char who signed the parchment
+destinationCoordsX, x coordinate
+destinationCoordsY, y coordinate
+destinationCoordsZ, z coordinate
+--treasure chest (2830)
+trsCat, category of treasure
+playerNeeded, number of player needed in range 7 to open the chest, if not than 1
+--NPC repair
+uniqueID, processID
+repairPos, position of item in inventory
+repairQual, Quality of the item
+--lookAt
+lookatNoQuality, 1, quality and durabilty is not shown in lookAt
+lookatNoPrice, 1, price is not shown in lookAt
+lookatNoWeight, 1, weight is not shown in lookAt
+--rat quest
+RatQuestCadomyr, number of poisioned carrot (1 - 5)
+RatQuestGalmair, number of poisioned carrot (1 - 5)
+RatQuestRunewick, number of poisioned carrot (1 - 5)
+--onionball
+onionball, true, lever and onion used for onionball

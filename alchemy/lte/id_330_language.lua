@@ -32,7 +32,7 @@ function M.addEffect(Effect, User)
 end
 
 function M.callEffect(Effect,User)                              
-    common.InformNLS( User, "Du fühlst, dass der Sprachtrank seine Wirkung verliert.", "You feel that the language potion looses its effect.")
+    common.InformNLS( User, "Du fühlst, dass der Sprachtrank seine Wirkung verliert.", "You feel that the language potion loses its effect.")
     return false
 end
 

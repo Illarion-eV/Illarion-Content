@@ -55,6 +55,16 @@ function M.GetTaxpayerNumber(town)
     return tonumber(currentNoPayer)
 end
 
+-- get the amount of ranks last month to determine the amount of gems to pay out
+-- @town Town which treasure we want to get as a string: "Cadomyr"|"Runewick"|"Galmair"
+function M.GetPayerRanks(town)
+    local foundRanks, currentNoRank = ScriptVars:find("OldRanks"..town)
+    if not foundRanks then
+        return 0
+    end
+    return tonumber(currentNoRank)
+end
+
 -- change treasure of a town
 -- @town Town which treasure we want to change
 -- @amount Amount of money. Positive number = increase treasure; negative number = decrease treasure
@@ -73,6 +83,18 @@ function M.IncreaseTaxpayerNumber(town)
         ScriptVars:set("Payers"..town, currentNoPayer + 1)
     else
         ScriptVars:set("Payers"..town, 1)
+    end
+    ScriptVars:save()
+end
+
+-- increases the number of equivalent ranks for this month by the rank of the user.
+-- @town Town
+function M.IncreasePayerRanks(town,amount)
+    local foundRanks, currentNoRanks = ScriptVars:find("Ranks"..town)
+    if foundRanks then
+        ScriptVars:set("Ranks"..town, currentNoRanks + amount)
+    else
+        ScriptVars:set("Ranks"..town, amount)
     end
     ScriptVars:save()
 end
@@ -99,6 +121,15 @@ function M.NewMonthSwitch(town,timeStmp)
     else
         ScriptVars:set("OldPayers"..town, 0)
         ScriptVars:set("Payers"..town, 0)
+    end
+
+    local foundRanks, currentRanks = ScriptVars:find("Ranks"..town)
+    if foundRanks then
+        ScriptVars:set("OldRanks"..town, currentRanks)
+        ScriptVars:set("Ranks"..town, 0)
+    else
+        ScriptVars:set("OldRanks"..town, 0)
+        ScriptVars:set("Ranks"..town, 0)
     end
     ScriptVars:save()
 end

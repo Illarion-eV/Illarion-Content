@@ -52,7 +52,7 @@ M.monsterIDsByLevel = {
     {monsters = {191, 514, 531, 402, 851}, points = 6, price=19200},
     {monsters = {121, 201, 513, 525, 852}, points = 8, price=23200},
     {monsters = {534, 124, 562, 634, 853}, points = 13, price=35100},
-    {monsters = {125, 205, 564, 262, 637}, points = 18, price=43200},
+    {monsters = {125, 564, 262, 637}, points = 18, price=43200},
     {monsters = {302, 632, 563}, points = 23, price=46000}
 }
 
@@ -91,14 +91,14 @@ function M.requestMonster(User, NPC)
     end
 
     local dialogCaption = common.GetNLS(User, "Monsterstärke", "Monster strength")
-    local dialogText = common.GetNLS(User, "Wählt wie stark das Monster sein soll, gegen das Ihr kämpfen möchtet:", "Please choose how strong the monster you wish to fight against should be:")
+    local dialogText = common.GetNLS(User, "Wähle wie stark das Monster sein soll, gegen das du kämpfen möchtet:", "Please choose how strong the monster you wish to fight against should be:")
 
     local sdMonster = SelectionDialog(dialogCaption, dialogText, cbChooseLevel)
     sdMonster:setCloseOnMove()
     for i = 1, #(M.monsterIDsByLevel) do
         local priceInCP = M.monsterIDsByLevel[i].price
         local germanMoney, englishMoney = money.MoneyToString(priceInCP)
-        local option = common.GetNLS(User, "Stärke "..i.." Monster ("..M.monsterIDsByLevel[i].points.." Punkte)\n Preis:"..germanMoney, "Level "..i.." Monster ("..M.monsterIDsByLevel[i].points.." points)\n Price:"..englishMoney)
+        local option = common.GetNLS(User, "Stärke "..i.." Monster ("..M.monsterIDsByLevel[i].points.." Punkte)\n Preis: "..germanMoney, "Level "..i.." Monster ("..M.monsterIDsByLevel[i].points.." points)\n Price: "..englishMoney)
         sdMonster:addOption(61, option)
     end
     User:requestSelectionDialog(sdMonster)
@@ -109,12 +109,12 @@ function payforMonster(User, MonsterLevel, NPC)
     local germanMoney, englishMoney = money.MoneyToString(priceInCP)
 
     if not money.CharHasMoney(User,priceInCP) then --not enough money!
-        local outText = common.GetNLS(User, "Ihr habt nicht genug Geld dabei! Ihr benötigt"..germanMoney..".", "You don't have enough money with you! You'll need"..englishMoney..".")
+        local outText = common.GetNLS(User, "Du hast nicht genug Geld dabei! Du benötigst "..germanMoney..".", "You don't have enough money with you! You'll need "..englishMoney..".")
         NPC:talk(Character.say, outText)
         return false
     end
     money.TakeMoneyFromChar(User,priceInCP) --take money
-    User:inform("Ihr habt Euch ein Monster für"..germanMoney.." gekauft. Viel Erfolg!", "You bought a monster at the price of"..englishMoney..". Good luck!")
+    User:inform("Du hast dir ein Monster für "..germanMoney.." gekauft. Viel Erfolg!", "You bought a monster at the price of "..englishMoney..". Good luck!")
     return true
 end
 
@@ -211,7 +211,7 @@ function M.getArenastats(User, NPC)
     local quest = M.arenaInformation[arena].quest
     local points = User:getQuestProgress(quest)
 
-    local outText=common.GetNLS(User, "Ihr habt bereits "..points.." gesammelt. Weiter so!", "You have already earnt "..points.." points. Keep it up!")
+    local outText=common.GetNLS(User, "Du hast bereits "..points.." gesammelt. Weiter so!", "You have already earnt "..points.." points. Keep it up!")
     NPC:talk(Character.say, outText)
 end
 
@@ -246,7 +246,7 @@ function checkLte(User,NPC)
 
     local foundEffect = User.effects:find(18)
     if foundEffect then
-        NPC:talk(Character.say,"Besiegt erstmal die erste Kreatur, bevor Ihr eine zweite verlangt!","Finish the first creature before you demand a second one!")
+        NPC:talk(Character.say,"Besiegt erstmal die erste Kreatur, bevor ihr eine zweite verlangt!","Finish the first creature before you demand a second one!")
         return false
     end
     return true

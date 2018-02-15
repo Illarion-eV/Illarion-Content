@@ -23,6 +23,12 @@ local alchemy = require("scheduled.alchemy")
 local specialeggs = require("content.specialeggs")
 local scheduledFunction = require("scheduled.scheduledFunction")
 local mysticalcracker = require ("item.id_3894_mystical_cracker")
+local spawntreasures = require ("scheduled.spawn_treasure")
+local shard = require("item.shard")
+local glyphs = require("base.glyphs")
+local seafaring = require("base.seafaring")
+local staticteleporter = require("base.static_teleporter")
+
 
 local M = {}
 
@@ -31,18 +37,18 @@ local changeItem
 local weather
 local factionHandling
 local spawnPoint
-local specialEggs
 local spawnGM
-local checkValue
 local updateMonsters
-local mysticalCracker
-local specialItemCreation
+local changeItemSelection
 
 local SPAWNDATAS = {}
-gmSpawnpointSettings = {}
-gmMonsters = {}
+local gmSpawnpointSettings = {}
+local gmMonsters = {}
 local SPAWNDATA = {}
 local removePositions = {}
+
+local SPAWN_PLAYER_OUT_OF_SIGHT = 20
+local SPAWN_MONSTER_RUN_AWAY = 35
 
 local MagicGem=1
 local SpecialItem = {}
@@ -50,56 +56,37 @@ local SpecialItemSubMenu = {"Money","Magic Gems","Pure Elements"}
 --SpecialItem[x] = {"Name",IsExtraFunction,ItemID,special,SubMenue}
 SpecialItem[1] = {"Mystical Cracker",true,3894,0,""}
 SpecialItem[2] = {"Special Eggs",true,1150,0,""}
-SpecialItem[3] = {"Latent Magic Topaz",false,198,MagicGem,"Magic Gems"}
-SpecialItem[4] = {"Latent Magic Amethyst",false,197,MagicGem,"Magic Gems"}
-SpecialItem[5] = {"Latent Magic Obsidian",false,283,MagicGem,"Magic Gems"}
-SpecialItem[6] = {"Latent Magic Sappire",false,284,MagicGem,"Magic Gems"}
-SpecialItem[7] = {"Latent Magic Ruby",false,46,MagicGem,"Magic Gems"}
-SpecialItem[8] = {"Latent Magic Emerald",false,45,MagicGem,"Magic Gems"}
-SpecialItem[9] = {"Pure Fire",false,2553,0,"Pure Elements"}
-SpecialItem[10] = {"Pure Air",false,2551,0,"Pure Elements"}
-SpecialItem[11] = {"Pure Earth",false,2552,0,"Pure Elements"}
-SpecialItem[12] = {"Pure Water",false,2554,0,"Pure Elements"}
-SpecialItem[13] = {"Pure Spirit",false,3607,0,"Pure Elements"}
-SpecialItem[14] = {"Silver Coins",false,3077,0,"Money"}
-SpecialItem[15] = {"Gold Coins",false,61,0,"Money"}
-SpecialItem[16] = {"Poison Coins",false,3078,0,"Money"}
-
-function M.UseItem(User, SourceItem)
-
-    -- First check for mode change
-    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation"}
-    local cbSetMode = function (dialog)
-        if (not dialog:getSuccess()) then
-            return
-        end
-
-        local index = dialog:getSelectedIndex() + 1
-        if  index == 1 then
-            chooseItem(User)
-        elseif index == 2 then
-            weather(User, SourceItem)
-        elseif index == 3 then
-            factionHandling(User, SourceItem)
-        elseif index == 4 then
-            spawnPoint(User, SourceItem)
-        elseif index == 5 then
-            specialItemCreation(User)
-        end
-    end
-    local sd = SelectionDialog("Set mode of this ceiling trowel", "To which mode you want to change?", cbSetMode)
-    for _, m in ipairs(modes) do
-        sd:addOption(0, m)
-    end
-    User:requestSelectionDialog(sd)
-end
-
+SpecialItem[3] = {"Treasure Chest",true,2830,0,""}
+SpecialItem[4] = {"Latent Magic Topaz",false,3525,MagicGem,"Magic Gems"}
+SpecialItem[5] = {"Latent Magic Amethyst",false,3519,MagicGem,"Magic Gems"}
+SpecialItem[6] = {"Latent Magic Obsidian",false,3524,MagicGem,"Magic Gems"}
+SpecialItem[7] = {"Latent Magic Sappire",false,3522,MagicGem,"Magic Gems"}
+SpecialItem[8] = {"Latent Magic Ruby",false,3521,MagicGem,"Magic Gems"}
+SpecialItem[9] = {"Latent Magic Emerald",false,3523,MagicGem,"Magic Gems"}
+SpecialItem[10] = {"Pure Fire",false,2553,0,"Pure Elements"}
+SpecialItem[11] = {"Pure Air",false,2551,0,"Pure Elements"}
+SpecialItem[12] = {"Pure Earth",false,2552,0,"Pure Elements"}
+SpecialItem[13] = {"Pure Water",false,2554,0,"Pure Elements"}
+SpecialItem[14] = {"Pure Spirit",false,3607,0,"Pure Elements"}
+SpecialItem[15] = {"Silver Coins",false,3077,0,"Money"}
+SpecialItem[16] = {"Gold Coins",false,61,0,"Money"}
+SpecialItem[17] = {"Poison Coins",false,3078,0,"Money"}
+SpecialItem[18] = {"Glyph Shards",true,3493,0,""}
+SpecialItem[19] = {"Latent Magic Diamond",false,3520,MagicGem,"Magic Gems"}
 
 local itemPos = {{en="Head", de="Kopf"},{en="Neck", de="Hals"},{en="Breast", de="Brust"},{en="Both Hands", de="Beide Hände"},{en="Left Hand", de="Linke Hand"}, {en="Right Hand", de="Rechte Hand"},
     {en="Left Finger", de="Linker Finger"},{en="Right Finger", de="Rechter Finger"} ,{en="Legs", de="Beine"}, {en="Feet", de="Füße"}, {en="Coat", de="Umhang"},{en="Belt 1", de="Gürtel 1"},
     {en="Belt 2", de="Gürtel 2"},{en="Belt 3", de="Gürtel 3"},{en="Belt 4", de="Gürtel 4"},{en="Belt 5", de="Gürtel 5"},{en="Belt 6", de="Gürtel 6"}}
 itemPos[0] = {en="Backpack", de="Rucksack" }
 local itemOrder = {5,6,12,13,14,15,16,17,1,11,3,4,9,10,2,7,8}
+
+local function checkValue(input)
+    if input == nil or input == 0 then
+        return false
+    else
+        return true
+    end
+end
 
 function chooseItem(User)
 
@@ -148,42 +135,7 @@ function chooseItem(User)
     User:requestSelectionDialog(sdItems)
 end
 
-function changeItemSelection(User, TargetItem)
-    local changeItemFunctions = {}
-    changeItemFunctions[1] = {"Set Number"}
-    changeItemFunctions[2] = {"Set Quality and Durability"}
-    changeItemFunctions[3] = {"Set Name"}
-    changeItemFunctions[4] = {"Set Description"}
-    changeItemFunctions[5] = {"Set Wear"}
-    changeItemFunctions[6] = {"Set Data"}
-    
-    local cbChangeItem = function (dialog)
-        if (not dialog:getSuccess()) then
-            return
-        end
-        local index = dialog:getSelectedIndex() + 1
-        if index == 1 then
-            changeItemNumber(User, TargetItem)
-        elseif index == 2 then
-            changeItemQuality(User, TargetItem)
-        elseif index == 3 then
-            changeItemName(User, TargetItem)
-        elseif index == 4 then
-            changeItemDescription(User, TargetItem)
-        elseif index == 5 then
-            changeItemWear(User, TargetItem)
-        elseif index == 6 then
-            changeItemData(User, TargetItem)
-        end
-    end
-    local sd = SelectionDialog(world:getItemName(TargetItem.id, Player.english), "Choose the porperty you want to change.", cbChangeItem)
-    for i=1, #(changeItemFunctions) do
-        sd:addOption(0,changeItemFunctions[i][1])
-    end
-    User:requestSelectionDialog(sd)
-end
-
-function changeItemNumber(User, TargetItem)
+local function changeItemNumber(User, TargetItem)
 
     if (TargetItem == nil or TargetItem.id == 0) then
         return
@@ -208,7 +160,7 @@ function changeItemNumber(User, TargetItem)
     User:requestInputDialog(InputDialog("Set the mumber of items", "How many "..world:getItemName(TargetItem.id, Player.english).." do you want?" ,false, 255, cbInputDialog))
 end
 
-function changeItemQuality(User, TargetItem)
+local function changeItemQuality(User, TargetItem)
 
     if (TargetItem == nil or TargetItem.id == 0) then
         return
@@ -230,10 +182,10 @@ function changeItemQuality(User, TargetItem)
         end
         changeItemSelection(User, TargetItem)
     end
-    User:requestInputDialog(InputDialog("Set the quality of items", "Enter target quality for: "..world:getItemName(TargetItem.id, Player.english).." \n 101-999; [1-9][01-99] Quality / Durability" ,false, 255, cbInputDialog))
+    User:requestInputDialog(InputDialog("Set the quality of items", "Enter target quality for: "..world:getItemName(TargetItem.id, Player.english).." \n 101-999; [1-9][01-99] Quality / Durability\nCurrent value: "..tostring(TargetItem.quality) ,false, 255, cbInputDialog))
 end
 
-function changeItemWear(User, TargetItem)
+local function changeItemWear(User, TargetItem)
 
     if (TargetItem == nil or TargetItem.id == 0) then
         return
@@ -255,10 +207,10 @@ function changeItemWear(User, TargetItem)
         end
         changeItemSelection(User, TargetItem)
     end
-    User:requestInputDialog(InputDialog("Set the wear of items", "How long "..world:getItemName(TargetItem.id, Player.english).." should need to rot?\n about x * 3 min" ,false, 255, cbInputDialog))
+    User:requestInputDialog(InputDialog("Set the wear of items", "How long "..world:getItemName(TargetItem.id, Player.english).." should need to rot?\n about x * 3 min\nCurrent value: "..tostring(TargetItem.wear) ,false, 255, cbInputDialog))
 end
 
-function changeItemData(User, TargetItem)
+local function changeItemData(User, TargetItem)
 
     if (TargetItem == nil or TargetItem.id == 0) then
         return
@@ -283,7 +235,7 @@ function changeItemData(User, TargetItem)
     User:requestInputDialog(InputDialog("Set data of items", "Data for "..world:getItemName(TargetItem.id, Player.english)..".\n Use 'data value'" ,false, 255, cbInputDialog))
 end
 
-function changeItemName(User, TargetItem)
+local function changeItemName(User, TargetItem)
     local newNameDe
     local newNameEn
     local a
@@ -332,8 +284,7 @@ function changeItemName(User, TargetItem)
     User:requestInputDialog(InputDialog("Set name of items", "English name for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, cbInputDialogEn))
 end
 
-
-function changeItemDescription(User, TargetItem)
+local function changeItemDescription(User, TargetItem)
     local newDescriptionDe
     local newDescriptionEn
     local a
@@ -380,6 +331,71 @@ function changeItemDescription(User, TargetItem)
         User:requestInputDialog(InputDialog("Set description of items", "German description for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, cbInputDialogDe))
     end
     User:requestInputDialog(InputDialog("Set description of items", "English description for "..world:getItemName(TargetItem.id, Player.english).."." ,false, 255, cbInputDialogEn))
+end
+
+local function changeItemGlyph(User, TargetItem)
+
+    if (TargetItem == nil or TargetItem.id == 0) then
+        return
+    end
+
+    local cbInputDialog = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local input = dialog:getInput()
+        if (string.find(input,"(%d+)")~=nil) then
+            if glyphs.getGlyphRingOrAmulet(TargetItem) == 0 then
+                User:inform("Item "..world:getItemName(TargetItem.id, Player.english).." cannot be glyphed. Only rings or amulets can contain glyph charges.")
+            else
+                local a,b,newcharges = string.find(input,"(%d+)")
+                glyphs.setRemainingGlyphs(TargetItem,newcharges)
+                User:inform("Item "..world:getItemName(TargetItem.id, Player.english).." got "..tostring(newcharges).." glyph charges.")
+            end
+        else
+            User:inform("Sorry, I didn't understand you.")
+        end
+        changeItemSelection(User, TargetItem)
+    end
+    User:requestInputDialog(InputDialog("Set the glyph charges of items", "How many charges "..world:getItemName(TargetItem.id, Player.english).." should get?" ,false, 255, cbInputDialog))
+end
+
+function changeItemSelection(User, TargetItem)
+    local changeItemFunctions = {}
+    changeItemFunctions[1] = {"Set Number"}
+    changeItemFunctions[2] = {"Set Quality and Durability"}
+    changeItemFunctions[3] = {"Set Name"}
+    changeItemFunctions[4] = {"Set Description"}
+    changeItemFunctions[5] = {"Set Wear"}
+    changeItemFunctions[6] = {"Set Data"}
+    changeItemFunctions[7] = {"Set Glyph charges"}
+
+    local cbChangeItem = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local index = dialog:getSelectedIndex() + 1
+        if index == 1 then
+            changeItemNumber(User, TargetItem)
+        elseif index == 2 then
+            changeItemQuality(User, TargetItem)
+        elseif index == 3 then
+            changeItemName(User, TargetItem)
+        elseif index == 4 then
+            changeItemDescription(User, TargetItem)
+        elseif index == 5 then
+            changeItemWear(User, TargetItem)
+        elseif index == 6 then
+            changeItemData(User, TargetItem)
+        elseif index == 7 then
+            changeItemGlyph(User, TargetItem)
+        end
+    end
+    local sd = SelectionDialog(world:getItemName(TargetItem.id, Player.english), "Choose the porperty you want to change.", cbChangeItem)
+    for i=1, #(changeItemFunctions) do
+        sd:addOption(0,changeItemFunctions[i][1])
+    end
+    User:requestSelectionDialog(sd)
 end
 
 function weather(User, SourceItem)
@@ -863,14 +879,13 @@ local spawnIntervalsPerSpawn
 local spawnAmount
 local spawnTime
 local spawnEffects
-local sapwnStartStop
+local spawnStart
 local spawnRemove
 local spawnPause
 local spawnReset
 
 function spawnPoint(User, SourceItem)
 
-    local modes = {"Monster", "Intervals per spawn", "Amount of Monsters", "Time", "Effects", "Start Spawnpoint", "Delete Spawnpoint", "Pause Spawnpoint", "Reset Spawntool"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -878,17 +893,17 @@ function spawnPoint(User, SourceItem)
 
         local index = dialog:getSelectedIndex() + 1
         if index == 1 then
-            spawnMonster(User, SourceItem)
+            spawnStart(User, SourceItem)
         elseif index == 2 then
-            spawnIntervalsPerSpawn(User, SourceItem)
+            spawnMonster(User, SourceItem)
         elseif index == 3 then
-            spawnAmount(User, SourceItem)
+            spawnIntervalsPerSpawn(User, SourceItem)
         elseif index == 4 then
-            spawnTime(User, SourceItem)
+            spawnAmount(User, SourceItem)
         elseif index == 5 then
-            spawnEffects(User, SourceItem)
+            spawnTime(User, SourceItem)
         elseif index == 6 then
-            sapwnStartStop(User, SourceItem)
+            spawnEffects(User, SourceItem)
         elseif index == 7 then
             spawnRemove(User, SourceItem)
         elseif index == 8 then
@@ -897,10 +912,25 @@ function spawnPoint(User, SourceItem)
             spawnReset(User, SourceItem)
         end
     end
-    local sd = SelectionDialog("Set the mode of this Spawnpoint.", "To which mode do you want to change it?", cbSetMode)
-    for _,m in ipairs(modes) do
-        sd:addOption(0,m)
+    local dialogText = "To which mode do you want to change it?"
+    local sd = SelectionDialog("Set the mode of this Spawnpoint.", dialogText, cbSetMode)
+    sd:addOption(1,"Start Spawnpoint")
+    sd:addOption(0,"Monster ID's ("..tostring(SourceItem:getData("monsters"))..")")
+    local intervals = tonumber(SourceItem:getData("intervals"))
+    if checkValue(intervals) == false then
+        intervals = 1
     end
+    sd:addOption(0,"Spawn cycle (ca. "..tostring(intervals*7).." s)")
+    sd:addOption(0,"Amount of monsters at the same time ("..tostring(SourceItem:getData("amount"))..")")
+    local endurance = tonumber(SourceItem:getData("endurance"))
+    if checkValue(endurance) == false then
+        endurance = 1
+    end
+    sd:addOption(0,"Endurance of spawn point ("..tostring(math.floor(endurance*7/3.6)/1000).." h)")
+    sd:addOption(0,"Effects (gfx:"..tostring(SourceItem:getData("gfxId")).." sfx;"..tostring(SourceItem:getData("sfxId"))..")")
+    sd:addOption(0,"Delete Spawnpoint")
+    sd:addOption(0,"Pause Spawnpoint")
+    sd:addOption(0,"Reset Spawntool")
     User:requestSelectionDialog(sd)
 end
 
@@ -978,7 +1008,7 @@ function spawnIntervalsPerSpawn(User, SourceItem)
             world:changeItem(SourceItem)
         end
     end
-    User:requestInputDialog(InputDialog("Set number of intervals.", "Usage: Set number of (roughly) 7 second intervals per spawn." ,false, 255, cbInputDialog))
+    User:requestInputDialog(InputDialog("Set spawn cycles.", "Usage: Time in between 2 monster spawns.\nSet number of (roughly) 7 second intervals." ,false, 255, cbInputDialog))
 end
 
 function spawnAmount(User, SourceItem)
@@ -1010,7 +1040,7 @@ function spawnTime(User, SourceItem)
             world:changeItem(SourceItem)
         end
     end
-    User:requestInputDialog(InputDialog("Set how long the spawn shall take place.", "Usage: Set the amount of total intervals." ,false, 255, cbInputDialog))
+    User:requestInputDialog(InputDialog("Set how long the spawn shall take place.", "Usage: Set the amount of total intervals (ca. 7s)." ,false, 255, cbInputDialog))
 end
 
 function spawnEffects(User, SourceItem)
@@ -1048,7 +1078,7 @@ local function checkData(SourceItem,data)
     end
 end
 
-function sapwnStartStop(User, SourceItem)
+function spawnStart(User, SourceItem)
 
     local spawnPos = common.GetFrontPosition(User)
 
@@ -1082,7 +1112,7 @@ function sapwnStartStop(User, SourceItem)
             monsterIds[counter]    = tonumber(monsterId)
         else
             User:inform("Enter MonsterID")
-            fin = string.len(inputNumber)
+--            fin = string.len(inputNumber)
             return
         end
     end
@@ -1121,7 +1151,93 @@ function M.UseItemWithField(User, SourceItem, TargetPos)
     User:inform("This field has the ID: "..Field:tile())
 end
 
-function specialEggs(User)
+function spawnGM()
+    local mon;
+    if gmSpawnpointSettings[1] == nil then
+        return
+    end
+    for i=1, #gmSpawnpointSettings do
+        local monsterIds = gmSpawnpointSettings[i][1];
+        local position = gmSpawnpointSettings[i][2];
+        local amount = gmSpawnpointSettings[i][3];
+        local intervals = gmSpawnpointSettings[i][4];
+        local endurance = gmSpawnpointSettings[i][5];
+        local gfxId = gmSpawnpointSettings[i][6];
+        local sfxId = gmSpawnpointSettings[i][7];
+        local pause = gmSpawnpointSettings[i][9];
+
+        local removed = false -- remove spawnpoints with portals destoyed by sand
+        if removePositions[tostring(position.x) .. " " .. tostring(position.y) .. " " .. tostring(position.z)] then
+            table.remove(gmSpawnpointSettings, i)
+            table.remove(gmMonsters, i)
+            removed = true
+        end
+        --sets/checks 8 array pos as counter
+        if checkValue(pause) == false and removed == false then
+        if gmSpawnpointSettings[i][8] == nil then
+            gmSpawnpointSettings[i][8] = 0;
+        else
+            gmSpawnpointSettings[i][8] = gmSpawnpointSettings[i][8]+1;
+        end
+        if checkValue(intervals) == false then
+            intervals = 1
+        end
+        if gmSpawnpointSettings[i][8] % intervals == 0 then
+            --keeps counter from overflow
+            if checkValue(endurance) == false then
+                gmSpawnpointSettings[i][8] = 0
+            end
+            if #gmMonsters[i]-1 < amount then
+                updateMonsters(gmMonsters,i,position);
+                mon = world:createMonster(monsterIds[math.random(1,#monsterIds)], position,10);
+                if isValidChar(mon) then
+                    table.insert(gmMonsters[i],mon);
+                    --does GFX with spawn
+                    if checkValue(gfxId) == true then
+                        world:gfx(gfxId,position)
+                    end
+                    --Does SFX with spawn
+                    if  checkValue(sfxId) == true then
+                        world:makeSound(sfxId,position)
+                    end
+                end
+            else
+                updateMonsters(gmMonsters,i,position);
+            end
+        end
+        --Removes spawnpoint if he reaches the maximum number of cycles
+        if checkValue(endurance) == true then
+            if gmSpawnpointSettings[i][8] >= endurance then
+                table.remove(gmSpawnpointSettings, i)
+                table.remove(gmMonsters, i)
+            end
+        end
+        end
+    end
+    removePositions = {}
+    if #gmSpawnpointSettings > 0 then
+        scheduledFunction.registerFunction(2, function() spawnGM() end)
+    end
+end
+
+
+function updateMonsters(array,number,basePosition)
+    if #array[number] > 1 then
+        for i = #array[number], 2, -1 do
+            local mon = array[number][i]
+            if not isValidChar(mon) then
+                table.remove(array[number], i)
+            elseif not mon:isInRangeToPosition(basePosition,SPAWN_MONSTER_RUN_AWAY) then
+                local playerInSight = world:getPlayersInRangeOf(mon.pos,SPAWN_PLAYER_OUT_OF_SIGHT)
+                if #playerInSight == 0 then
+                    local targetPos = common.getFreePos(basePosition, 5)
+                    mon:warp(targetPos)
+                end
+            end
+        end
+    end
+end
+function specialItemCreationSpecialEggs(User)
 
     local cbInputDialog = function (dialog)
         if not dialog:getSuccess() then
@@ -1137,7 +1253,7 @@ function specialEggs(User)
 
 end
 
-function mysticalCracker(User)
+function specialItemCreationMysticalCracker(User)
 
     local cbInputDialog = function (dialog)
         if not dialog:getSuccess() then
@@ -1153,7 +1269,97 @@ function mysticalCracker(User)
 
 end
 
-function specialItemCreation(User)
+local function specialItemCreationTreasureChest(User)
+    local position
+    local cbInputDialog = function (dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local input = dialog:getInput()
+        if (string.find(input,"(%d) (%d)") ~= nil) then
+            local a, b, level, persons = string.find(input,"(%d) (%d)")
+            if level == nil or tonumber(level) < 0 or tonumber(level) > 9 then
+                User:inform("The level of the treasure chest must be a value from 0(no treasure via 1(farmer) to 9(nabranoo).")
+                return
+            end
+            if persons == nil or tonumber(persons) < 1 or tonumber(persons) > 8 then
+                User:inform("The number of persons needed to open the treasure chest must be a value from 1 to 8.")
+                return
+            end
+            position = common.GetFrontPosition(User)
+            if world:isItemOnField(position) == true then
+                User:inform("The place for the chest is not free.")
+                return
+            end
+            spawntreasures.spawnTreasureChest(position, level, persons)
+        end
+    end
+    User:requestInputDialog(InputDialog("Treasure Chest Creation", "Please enter level and amount of people needed\nFormat: '[1-9] [1-8]'" ,false, 255, cbInputDialog))
+
+end
+
+local function specialItemCreationGlyphShard(User)
+    local position
+    local cbInputDialog = function (dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+        local input = dialog:getInput()
+        if (string.find(input,"(%d+)") ~= nil) then
+            if (string.find(input,"[1-7][1-7]") ~= nil) then
+                local a, b, level = string.find(input,"(%d+)")
+                shard.createShardWithLevelOnUser(User, level)
+            else
+                local a, b, amount = string.find(input,"(%d+)")
+                for i=1, tonumber(amount) do
+                    shard.createShardOnUser(User)
+                end
+            end
+        else
+            shard.createShardOnUser(User)
+        end
+    end
+    User:requestInputDialog(InputDialog("Glyph Shard Creation",
+                                        "Please enter which shard you want to create" ..
+                                        "\n- Nothing: A single random shard." ..
+                                        "\n- [1-7][1-7]: A singe defined shard." ..
+                                        "\n- Other numbers: Number of random shards.",false, 255, cbInputDialog))
+
+end
+
+local function specialItemCreationCreate(User,indexItem)
+    if SpecialItem[indexItem][2] then
+        if indexItem == 1 then
+            specialItemCreationMysticalCracker(User)
+        elseif indexItem == 2 then
+            specialItemCreationSpecialEggs(User)
+        elseif indexItem == 3 then
+            specialItemCreationTreasureChest(User)
+        elseif indexItem == 18 then
+            specialItemCreationGlyphShard(User)
+        else
+            return
+        end
+    else
+        local cbInputDialog = function (dialog)
+            if not dialog:getSuccess() then
+                return
+            end
+            local input = dialog:getInput()
+            if (string.find(input,"(%d+)") ~= nil) then
+                local a, b, amount = string.find(input,"(%d+)")
+                if SpecialItem[indexItem][4] == MagicGem then
+                    common.CreateItem(User, SpecialItem[indexItem][3], tonumber(amount), 333,{gemLevel=1})
+                else
+                    common.CreateItem(User, SpecialItem[indexItem][3], tonumber(amount), 333,nil)
+                end
+            end
+        end
+        User:requestInputDialog(InputDialog("Item Creation", "How many "..SpecialItem[indexItem][1].." do you want to create?" ,false, 255, cbInputDialog))
+    end
+end
+
+local function specialItemCreation(User)
     local validItems = {}
     local validItemsSub = {}
 
@@ -1203,121 +1409,34 @@ function specialItemCreation(User)
     User:requestSelectionDialog(sdItemList)
 end
 
-function specialItemCreationCreate(User,indexItem)
-    if SpecialItem[indexItem][2] then
-        if indexItem == 1 then
-            mysticalCracker(User)
-        elseif indexItem == 2 then
-            specialEggs(User)
-        else
+local function readScriptVars(user)
+    local cbInputDialog = function (dialog)
+        if not dialog:getSuccess() then
             return
         end
-    else
-        local cbInputDialog = function (dialog)
-            if not dialog:getSuccess() then
-                return
-            end
-            local input = dialog:getInput()
-            if (string.find(input,"(%d+)") ~= nil) then
-                local a, b, amount = string.find(input,"(%d+)")
-                if SpecialItem[indexItem][4] == MagicGem then
-                    common.CreateItem(User, SpecialItem[indexItem][3], tonumber(amount), 333,{gemLevel=1})
-                else
-                    common.CreateItem(User, SpecialItem[indexItem][3], tonumber(amount), 333,nil)
-                end
-            end
-        end
-        User:requestInputDialog(InputDialog("Item Creation", "How many "..SpecialItem[indexItem][1].." do you want to create?" ,false, 255, cbInputDialog))
-    end
-end
-
-function spawnGM()
-
-    local mon;
-    if gmSpawnpointSettings[1] == nil then
-        return
-    end
-    for i=1, #gmSpawnpointSettings do
-        local monsterIds = gmSpawnpointSettings[i][1];
-        local position = gmSpawnpointSettings[i][2];
-        local amount = gmSpawnpointSettings[i][3];
-        local intervals = gmSpawnpointSettings[i][4];
-        local endurance = gmSpawnpointSettings[i][5];
-        local gfxId = gmSpawnpointSettings[i][6];
-        local sfxId = gmSpawnpointSettings[i][7];
-        local pause = gmSpawnpointSettings[i][9];
-
-        local removed = false -- remove spawnpoints with portals destoyed by sand
-        if removePositions[tostring(position.x) .. " " .. tostring(position.y) .. " " .. tostring(position.z)] then
-            table.remove(gmSpawnpointSettings, i)
-            table.remove(gmMonsters, i)
-            removed = true
-       end
-        --sets/checks 8 array pos as counter
-        if checkValue(pause) == false and removed == false then
-        if gmSpawnpointSettings[i][8] == nil then
-            gmSpawnpointSettings[i][8] = 0;
-        else
-            gmSpawnpointSettings[i][8] = gmSpawnpointSettings[i][8]+1;
-        end
-        if checkValue(intervals) == false then
-            intervals = 1
-        end
-        if gmSpawnpointSettings[i][8] % intervals == 0 then
-            --keeps counter from overflow
-            if checkValue(endurance) == false then
-                gmSpawnpointSettings[i][8] = 0
-            end
-            if #gmMonsters[i]-1 < amount then
-                updateMonsters(gmMonsters,i);
-                mon = world:createMonster(monsterIds[math.random(1,#monsterIds)], position,10);
-                if isValidChar(mon) then
-                    table.insert(gmMonsters[i],mon);
-                    --does GFX with spawn
-                    if checkValue(gfxId) == true then
-                        world:gfx(gfxId,position)
-                    end
-                    --Does SFX with spawn
-                    if  checkValue(sfxId) == true then
-                        world:makeSound(sfxId,position)
-                    end
-                end
+        local input = dialog:getInput()
+        if string.find(input,"([%w]+) ([%w]+)") ~= nil then
+            local a, b, varName, varValue = string.find(input,"([%w]+) ([%w]+)")
+            local foundVar, currentVar = ScriptVars:find(varName)
+            if not foundVar then
+                user:inform("The script variable '"..varName.."' does not exists.")
             else
-                updateMonsters(gmMonsters,i);
+                ScriptVars:set(varName, varValue)
+                user:inform("Script variable: '"..varName.."' changed from "..tostring(currentVar).." to "..tostring(varValue))
+                user:logAdmin("Script variable: '"..varName.."' changed from "..tostring(currentVar).." to "..tostring(varValue))
             end
-        end
-        --Removes spawnpoint if he reaches the maximum number of cycles
-        if checkValue(endurance) == true then
-            if gmSpawnpointSettings[i][8] >= endurance then
-                table.remove(gmSpawnpointSettings, i)
-                table.remove(gmMonsters, i)
-            end
-        end
-        end
-    end
-    removePositions = {}
-    if #gmSpawnpointSettings > 0 then
-        scheduledFunction.registerFunction(2, function() spawnGM() end)
-    end
-end
-
-function checkValue(input)
-    if input == 0 then
-        return false
-    else
-        return true
-    end
-end
-
-function updateMonsters(array,number)
-    if #array[number] > 1 then
-        for i = #array[number], 2, -1 do
-            local mon = array[number][i];
-            if not isValidChar(mon) then
-                table.remove(array[number], i)
+        elseif string.find(input,"([%w]+)") ~= nil then
+            local a, b, varName = string.find(input,"([%w]+)")
+            local foundVar, currentVar = ScriptVars:find(varName)
+            if not foundVar then
+                user:inform("The script variable '"..varName.."' does not exists.")
+            else
+                user:inform("Script variable: '"..varName.."' = "..tostring(currentVar))
             end
         end
     end
+    user:requestInputDialog(InputDialog("Global Script Variables", "Please enter the name and value of the vaiable."..
+                                                                   "\nWithout value you get the value",false, 255, cbInputDialog))
 end
 
 function M.saveRemovePosition(thePos)
@@ -1333,6 +1452,40 @@ function M.saveRemovePosition(thePos)
             table.remove(gmMonsters, i)
         end
     end
+end
+
+function M.UseItem(User, SourceItem)
+    -- First check for mode change
+    local modes = {"Items", "Weather", "Factions", "Spawnpoint", "Special Item Creation", "Script Variables","Teleporter","Harbours"}
+    local cbSetMode = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+
+        local index = dialog:getSelectedIndex() + 1
+        if  index == 1 then
+            chooseItem(User)
+        elseif index == 2 then
+            weather(User, SourceItem)
+        elseif index == 3 then
+            factionHandling(User, SourceItem)
+        elseif index == 4 then
+            spawnPoint(User, SourceItem)
+        elseif index == 5 then
+            specialItemCreation(User)
+        elseif index == 6 then
+            readScriptVars(User)
+        elseif index == 7 then
+            staticteleporter.gmManageTeleporter(User)
+        elseif index == 8 then
+            seafaring.gmManagePorts(User)
+        end
+    end
+    local sd = SelectionDialog("Set mode of this ceiling trowel", "To which mode you want to change?", cbSetMode)
+    for _, m in ipairs(modes) do
+        sd:addOption(0, m)
+    end
+    User:requestSelectionDialog(sd)
 end
 
 return M

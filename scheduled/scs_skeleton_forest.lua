@@ -21,39 +21,7 @@ local common = require("base.common")
 
 local M = {}
 
-function M.ForestSkells()
-    local Charakters = world:getPlayersInRangeOf(position(780,50,0),30);
-    for _,Char in pairs(Charakters) do
-        local RndTry = math.random(1,2)
-        if (RndTry == 1) then
-            if SpawnSkeleton(Char) then
-                return
-            end
-        elseif (RndTry == 2) then
-            common.InformNLS(Char,"Du hörst ein leises Knacken im Unterholz und vielleicht ein leises Murmeln.","You hear a quiet cracking in the forest and maybe a muttering.");
-        end
-    end
-end
-
-function SpawnSkeleton(Charakter)
-    local Monsters = world:getMonstersInRangeOf(Charakter.pos,7);
-
-    if (#Monsters > 0) then
-        for _, Monster in pairs(Monsters) do
-            local MonType = Monster:getMonsterType();
-            if ((MonType>110) and (MonType<121)) then -- Skeletons
-                return false;
-            end
-        end
-    end
-
-    common.InformNLS(Charakter,"Um dich herum raschelt der Wald und du hört das Klappern von Knochen.","Around you the forest rustles and you hear the clacking of bones.");
-
-    SpawnSkeletonCycle(Charakter.pos,6,math.random(3,8));
-    return true;
-end
-
-function SpawnSkeletonCycle(CenterPos,Radius,Anzahl)
+local function SpawnSkeletonCycle(CenterPos,Radius,Anzahl)
     local irad = math.ceil(Radius);
     local dim = 2*(irad+1);
     local x;
@@ -82,6 +50,38 @@ function SpawnSkeletonCycle(CenterPos,Radius,Anzahl)
             end;
         end;
     end;
+end
+
+local function SpawnSkeleton(Charakter)
+    local Monsters = world:getMonstersInRangeOf(Charakter.pos,7);
+
+    if (#Monsters > 0) then
+        for _, Monster in pairs(Monsters) do
+            local MonType = Monster:getMonsterType();
+            if ((MonType>110) and (MonType<121)) then -- Skeletons
+                return false;
+            end
+        end
+    end
+
+    common.InformNLS(Charakter,"Um dich herum raschelt der Wald und du hört das Klappern von Knochen.","Around you the forest rustles and you hear the clacking of bones.");
+
+    SpawnSkeletonCycle(Charakter.pos,6,math.random(3,8));
+    return true;
+end
+
+function M.ForestSkells()
+    local Charakters = world:getPlayersInRangeOf(position(780,50,0),30);
+    for _,Char in pairs(Charakters) do
+        local RndTry = math.random(1,2)
+        if (RndTry == 1) then
+            if SpawnSkeleton(Char) then
+                return
+            end
+        elseif (RndTry == 2) then
+            common.InformNLS(Char,"Du hörst ein leises Knacken im Unterholz und vielleicht ein leises Murmeln.","You hear a quiet cracking in the forest and maybe a muttering.");
+        end
+    end
 end
 
 return M

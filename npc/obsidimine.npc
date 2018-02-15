@@ -67,9 +67,9 @@ itemShoes = 53
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Arrrr! Greetings to ye, it has been a while since I seen anyone about."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Arrrr! Grüß dich, ist schon eine Weile her, dass ich jemanden hier getroffen habe."
 "Farewell", "Bye", "Fare well", "See you" -> "Arrrr. Don't be a stranger!"
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Arrrr. Lass von Dir hören!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Arrrr. Lass von dir hören!"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Arrrr. Don't be a stranger!"
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Arrrr. Lass von Dir hören!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Arrrr. Lass von dir hören!"
 "How are you", "How feel", "How do you do" -> "Missin' me brother, Emeramine, me sure is."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich vermisse meinen Bruder, Emeramine, das ist sicher."
 "your name", "who are you", "who art thou" -> "Me be Obsidimine, but most just calls me Obsidi."
@@ -102,7 +102,7 @@ queststatus(510) = 0, "task", "adventure", "order" -> inform("[New quest] Spelun
 queststatus(510) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher"), queststatus(510) = 1, "Ein Körper dörrt richtig aus bei all der Lava hier. Sei so gut und hol mir zwei Flaschen Bier, ja?"
 
 queststatus(510) = 1, english, item(2501, all) > 1, ".+" -> inform("[Quest solved] You are awarded 30 silver coins."), deleteItem(2501, 2), money + 3000, queststatus(510) = 2, "#me tips a bottle back and takes a long pull of the drink before coming up for air. 'Ah... that be the good stuff that is. Thank ye.'"
-queststatus(510) = 1, item(2501, all) > 1, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), deleteItem(2501, 2), money + 3000, queststatus(510) = 2, "#me hebt eine Flasche an und nimmt ein paar kräftige Schlücke, ehe er absetzt um Luft zu holen. 'Ah... das ist das gute Zeug! Dank' Dir!'"
+queststatus(510) = 1, item(2501, all) > 1, ".+" -> inform("[Quest gelöst] Du erhältst 30 Silberstücke."), deleteItem(2501, 2), money + 3000, queststatus(510) = 2, "#me hebt eine Flasche an und nimmt ein paar kräftige Schlücke, ehe er absetzt um Luft zu holen. 'Ah... das ist das gute Zeug! Dank' dir!'"
 
 queststatus(510) = 1, item(2501, all) < 2, english, "quest", "mission" -> "Me throat is too dry. Me can't talk more until me gets some beer."
 queststatus(510) = 1, item(2501, all) < 2, "quest", "mission" -> "Meine Kehle ist zu trocken. Ich kann nicht mehr reden, bis ich ein paar Bier bekommen habe."
@@ -130,7 +130,7 @@ queststatus(510) = 6, "task", "adventure", "order" -> inform("[New quest] Spelun
 queststatus(510) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher III"), queststatus(510) = 7, "Bei Irmorom! Da sind Trolle auf dem Berggipfel! Dieser da hat mich fast abgefackelt, während ich meine Bierpause gemacht habe! Töte den Feuerspeier, damit ich weiter forschen kann!"
 
 queststatus(510) = 8, english, ".+" -> inform("[Quest solved] You are awarded 45 silver coins."), money + 4500, queststatus(510) = 9, "Tall volcano! So much to explore and you be a big help! *Tosses you a coin bag.*"
-queststatus(510) = 8, ".+" -> inform("[Quest gelöst] Du erhältst 45 Silberstücke."), money + 4500, queststatus(510) = 9, "Großer Vulkan! Es gibt so viel zu erforschen und du bist eine große Hilfe! *Wirft Dir einen Münzbeutel zu.*"
+queststatus(510) = 8, ".+" -> inform("[Quest gelöst] Du erhältst 45 Silberstücke."), money + 4500, queststatus(510) = 9, "Großer Vulkan! Es gibt so viel zu erforschen und du bist eine große Hilfe! *Wirft dir einen Münzbeutel zu.*"
 
 queststatus(510) > 6, queststatus(510) < 8, english, "quest", "mission" -> "Arr!! The firespitter has to go! Kill it for me and I will reward you."
 queststatus(510) > 6, queststatus(510) < 8, "quest", "mission" -> "Arr!! Der Feuerspeier muss weg! Töte ihn für mich und ich werde dich belohnen."
@@ -212,8 +212,8 @@ queststatus(510) = 23, "quest", "mission" -> inform("[Neue Quest] Höhlenforscher
 queststatus(510) = 23, "task", "adventure", "order" -> inform("[New quest] Spelunker IX"), queststatus(510) = 24, "Eme wouldn't have gone down before hidin' a family heirloom of our pappy's. It's a specially engraved emerald amulet. He's bound to have tossed it into a barrel, chest, or something down there. Please find it for me?"
 queststatus(510) = 23, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neue Quest] Höhlenforscher IX"), queststatus(510) = 24, "Eme wäre nicht abgetreten, ohne vorher das Familienerbstück unseres alten Herrn zu verstecken. Es ist ein speziell graviertes Smaragdamulett. Er hat es bestimmt in irgendein Fass, oder eine Truhe oder sowas Ähnliches hineingeworfen. Kannst du es für mich suchen gehen?"
 
-queststatus(510) = 25, english, ".+" -> inform("[Quest solved] You are rewarded a latent emerald."), item(45, 1, 333, "gemLevel" = "1"), queststatus(510) = 26, "Me thanks you for this as it's worth more to me than most items. Have this gem me found earlier as a reward."
-queststatus(510) = 25, ".+" -> inform("[Quest gelöst] Du erhältst einen latent magischen Smaragd."), item(45, 1, 333, "gemLevel" = "1"), queststatus(510) = 26, "Ich will dir für das Amulett danken, denn es ist für mich von höherem Wert, als die meisten anderen Gegenstände. Nimm diesen Edelstein, den ich vorhin gefunden habe als Belohnung."
+queststatus(510) = 25, english, ".+" -> inform("[Quest solved] You are rewarded a latent emerald."), item(3523, 1, 333, "gemLevel" = "1"), queststatus(510) = 26, "Me thanks you for this as it's worth more to me than most items. Have this gem me found earlier as a reward."
+queststatus(510) = 25, ".+" -> inform("[Quest gelöst] Du erhältst einen latent magischen Smaragd."), item(3523, 1, 333, "gemLevel" = "1"), queststatus(510) = 26, "Ich will dir für das Amulett danken, denn es ist für mich von höherem Wert, als die meisten anderen Gegenstände. Nimm diesen Edelstein, den ich vorhin gefunden habe als Belohnung."
 
 queststatus(510) = 24, queststatus(510) < 25, english, "quest", "mission" -> "Find Pappy's heirloom amulet. I am sure Eme would have tossed it into a barrel or chest below."
 queststatus(510) = 24, queststatus(510) < 25, "quest", "mission" -> "Such das Amulett, das ein Erbstück unseres alten Herrn ist. Ich bin mir sicher, dass Eme es unten in einem Faß oder einer Truhe versteckt hätte."
@@ -272,7 +272,7 @@ cycletext "#me schaut neugierig auf einen Stein in seiner Hand.", "#me looks cur
 cycletext "Ich mag Steine!", "Me likes rocks!"
 cycletext "Wo ist mein Bruder Eme?", "Where be me brother, Eme?"
 cycletext "#me klopft sich den Staub von seiner Kleidung.", "#me beats dust off his clothing."
-cycletext "Hey Du! Kennst du in dieser Gegend irgendwelche neuen Höhlen?", "Hey you! Do you know of any new caves in the area?"
+cycletext "Hey du! Kennst du in dieser Gegend irgendwelche neuen Höhlen?", "Hey you! Do you know of any new caves in the area?"
 cycletext "#s Eme?? Wo bist du? Ich fühle mich so allein!", "#s Eme?? Where are you? Me is getting lonely."
 cycletext "#me trinkt einen Krug Bier.", "#me drinks a mug of beer."
 cycletext "#me singt 'Einst kannte ich ein fesches Zwergenmadl, die hatte so stramme Wadl und bei meinem nächsten Marsch, ging ich an ihr vorbei und zwickte sie in ihren... Arm.'", "#me sings 'There once was a Dwarven lass, she had plenty of sass, one day when I went to pass, me reached out and pinched her on the arm.'"

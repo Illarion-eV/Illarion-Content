@@ -17,6 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- Turns a weakened lich back to a normal one
 
 local M = {}
+local hooks = require("monster.base.hooks")
 
 function M.addEffect(theEffect, weakendLich)                               
 
@@ -24,6 +25,7 @@ end
 
 function M.callEffect(theEffect, weakendLich) 
 
+    hooks.setNoDrop(weakendLich)
     weakendLich:increaseAttrib("hitpoints",-10000)
     local strongLich = world:createMonster(205,weakendLich.pos,-20)
     world:gfx(51,strongLich.pos)

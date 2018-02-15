@@ -77,7 +77,7 @@ function LearnLenniersDream(User)
 
     local anAlchemist = alchemy.CheckIfAlchemist(User)
     if not anAlchemist then
-        User:inform("Ihr scheint nur seltsames Gekritzel zu stehen.","Only strange scribbling can be seen here.")
+        User:inform("Du erkennst hier nur seltsames Gekritzel.","Only strange scribbling can be seen here.")
         return
     end
 
@@ -171,7 +171,7 @@ function TaskToLearn(User)
 
     local stockDe, stockEn = GenerateStockDescription(User)
 
-    local textDE = "Die Zeilen auf dem Pergament sind verschwommen und scheinen sich ständig zu bewegen. Nur ein paar Zeilen, lassen sich lesen:\n\n\nNeugierig, was hier steht? Nun, dann flößt Euch das folgende Gebräu ein und ich verrate Euch das Geheimnis:\nEin Trank, der zum einen aus einem Essenzgebräu auf Rubinstaubbasis (essenzierte Kräuter: Wutbeere, Wutbeere, Regenkraut, Tagtraum, Fliegenpilz) besteht und zum anderen aus einem Sud mit folgenden Konzentrationen: " .. stockDe
+    local textDE = "Die Zeilen auf dem Pergament sind verschwommen und scheinen sich ständig zu bewegen. Nur ein paar Zeilen, lassen sich lesen:\n\n\nNeugierig, was hier steht? Nun, dann flößt euch das folgende Gebräu ein und ich verrate euch das Geheimnis:\nEin Trank, der zum einen aus einem Essenzgebräu auf Rubinstaubbasis (essenzierte Kräuter: Wutbeere, Wutbeere, Regenkraut, Tagtraum, Fliegenpilz) besteht und zum anderen aus einem Sud mit folgenden Konzentrationen: " .. stockDe
     local textEN = "The writing on this parchment is blurry and the lines seem to be constantly moving. Only the following lines can be read:\n\n\nAre you curious what might be written here? Well, swallow the following potion and I will tell you the secret:\nA potion made from an essence brew based on ruby powder (containing: anger berry, anger berry, rain weed, daydream, toadstool) and from a stock having the following concentrations: " .. stockEn
 
     local dialog

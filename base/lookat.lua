@@ -19,6 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local gems = require("base.gems")
 local money = require("base.money")
+local glyphs = require("base.glyphs")
 
 local M = {}
 
@@ -122,18 +123,21 @@ function M.GenerateLookAt(user, item, material)
     end
     
     local defaultDescription, usedDescription
+    local addDescription
     if isGerman then
         defaultDescription = itemCommon.GermanDescription
         usedDescription = item:getData("descriptionDe")
+        addDescription = glyphs.lookatGlyph(item,Player.german)
     else
         defaultDescription = itemCommon.EnglishDescription
         usedDescription = item:getData("descriptionEn")
+        addDescription = glyphs.lookatGlyph(item,Player.english)
     end
     
     if common.IsNilOrEmpty(usedDescription) then
-        lookAt.description = defaultDescription
+        lookAt.description = defaultDescription .. addDescription
     else
-        lookAt.description = usedDescription
+        lookAt.description = usedDescription .. addDescription
     end
 
     local level = itemCommon.Level
@@ -146,13 +150,17 @@ function M.GenerateLookAt(user, item, material)
             lookAt.craftedBy = craftedByData
         end
         
-        lookAt.weight = item.number * itemCommon.Weight
-        
-        if not money.IsCurrency(item.id) then
-            lookAt.worth = 20*item.number * itemCommon.Worth
+        if item:getData("lookatNoWeight") ~= "1" then
+            lookAt.weight = item.number * itemCommon.Weight
+        end
+            
+        if item:getData("lookatNoPrice") ~= "1" then
+            if not money.IsCurrency(item.id) then
+                lookAt.worth = 20*item.number * itemCommon.Worth
+            end
         end
         
-        if material > M.NONE then
+        if material > M.NONE and item:getData("lookatNoQuality") ~= "1" then
             local itemDura = math.fmod(item.quality, 100)
             local itemQual = (item.quality - itemDura) / 100
             

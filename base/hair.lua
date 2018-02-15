@@ -14,112 +14,108 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+
+local globalvar = require("base.globalvar")
+
 local M = {}
 
-local humanHairStyles = {
-    {
-        {id=0, nameDe="Glatze", nameEn="Bald head"},
-        {id=1, nameDe="Kurze Haare", nameEn="Short hair"},
-        {id=2, nameDe="Mittellange Haare", nameEn="Medium length hair"},
-        {id=3, nameDe="Lange Haare", nameEn="Long hair"}
-    },
-    {
-        {id=0, nameDe="Glatze", nameEn="Bald head"},
-        {id=1, nameDe="Mittellange Haare", nameEn="Medium length hair"},
-        {id=4, nameDe="Hochgesteckte Haare", nameEn="Pinned up hair"},
-        {id=7, nameDe="Lange, offene Haare", nameEn="Long open hair"},
-        {id=8, nameDe="Lange Zöpfe", nameEn="Long braided hair"}
-    }
+
+M.hairStyles = {}
+--hairStyles[race ID][gender ID][hair ID]
+
+    M.hairStyles[globalvar.raceHUMAN] = {}
+        M.hairStyles[globalvar.raceHUMAN][Character.male] = {}
+            M.hairStyles[globalvar.raceHUMAN][Character.male][0] = {nameDe="Glatze", nameEn="bald head"}
+            M.hairStyles[globalvar.raceHUMAN][Character.male][1] = {nameDe="kurze Haare", nameEn="short hair"}
+            M.hairStyles[globalvar.raceHUMAN][Character.male][2] = {nameDe="mittellange Haare", nameEn="medium length hair"}
+            M.hairStyles[globalvar.raceHUMAN][Character.male][3] = {nameDe="lange Haare", nameEn="long hair"}
+        M.hairStyles[globalvar.raceHUMAN][Character.female] = {}
+            M.hairStyles[globalvar.raceHUMAN][Character.female][0] = {nameDe="Glatze", nameEn="bald head"}
+            M.hairStyles[globalvar.raceHUMAN][Character.female][1] = {nameDe="mittellange Haare", nameEn="medium length hair"}
+            M.hairStyles[globalvar.raceHUMAN][Character.female][4] = {nameDe="hochgesteckte Haare", nameEn="pinned up hair"}
+            M.hairStyles[globalvar.raceHUMAN][Character.female][7] = {nameDe="lange, offene Haare", nameEn="long open hair"}
+            M.hairStyles[globalvar.raceHUMAN][Character.female][8] = {nameDe="lange Zöpfe", nameEn="long braided hair"}
+
+    M.hairStyles[globalvar.raceDWARF] = {}
+        M.hairStyles[globalvar.raceDWARF][Character.male] = {}
+            M.hairStyles[globalvar.raceDWARF][Character.male][0] = {nameDe="Glatze", nameEn="bald head"}
+            M.hairStyles[globalvar.raceDWARF][Character.male][1] = {nameDe="kurze Haare", nameEn="short hair"}
+            M.hairStyles[globalvar.raceDWARF][Character.male][2] = {nameDe="lange Haare (1)", nameEn="long hair (1)"}
+            M.hairStyles[globalvar.raceDWARF][Character.male][3] = {nameDe="lange Haare (2)", nameEn="long hair (2)"}
+        M.hairStyles[globalvar.raceDWARF][Character.female] = {}
+            M.hairStyles[globalvar.raceDWARF][Character.female][0] = {nameDe="Glatze", nameEn="bald head"}
+            M.hairStyles[globalvar.raceDWARF][Character.female][1] = {nameDe="Zöpfe", nameEn="braided hair"}
+            M.hairStyles[globalvar.raceDWARF][Character.female][4] = {nameDe="hochgesteckte Haare", nameEn="pinned up hair"}
+            M.hairStyles[globalvar.raceDWARF][Character.female][7] = {nameDe="lange, offene Haare", nameEn="long open hair"}
+            M.hairStyles[globalvar.raceDWARF][Character.female][9] = {nameDe="Pferdeschwanz", nameEn="ponytail"}
+
+    M.hairStyles[globalvar.raceHALFLING] = {}
+        M.hairStyles[globalvar.raceHALFLING][Character.male] = {}
+            M.hairStyles[globalvar.raceHALFLING][Character.male][1] = {nameDe="kurze Haare", nameEn="short hair"}
+            M.hairStyles[globalvar.raceHALFLING][Character.male][2] = {nameDe="mittellange Haare", nameEn="medium length hair"}
+        M.hairStyles[globalvar.raceHALFLING][Character.female] = {}
+            M.hairStyles[globalvar.raceHALFLING][Character.female][1] = {nameDe="mittellange, glatte Haare", nameEn="medium length hair"}
+            M.hairStyles[globalvar.raceHALFLING][Character.female][2] = {nameDe="mittellange, buschige Haare", nameEn="medium bushy hair"}
+            M.hairStyles[globalvar.raceHALFLING][Character.female][4] = {nameDe="hochgesteckte Haare", nameEn="pinned up hair"}
+            M.hairStyles[globalvar.raceHALFLING][Character.female][9] = {nameDe="Pferdeschwanz", nameEn="ponytail"}
+
+    M.hairStyles[globalvar.raceELF] = {}
+        M.hairStyles[globalvar.raceELF][Character.male] = {}
+            M.hairStyles[globalvar.raceELF][Character.male][1] = {nameDe="kurze Haare", nameEn="short hair"}
+            M.hairStyles[globalvar.raceELF][Character.male][2] = {nameDe="mittellange Haare", nameEn="medium length hair"}
+        M.hairStyles[globalvar.raceELF][Character.female] = {}
+            M.hairStyles[globalvar.raceELF][Character.female][0] = {nameDe="Glatze", nameEn="bald head"}
+            M.hairStyles[globalvar.raceELF][Character.female][1] = {nameDe="mittellange Haare", nameEn="medium length hair"}
+            M.hairStyles[globalvar.raceELF][Character.female][4] = {nameDe="hochgesteckte Haare", nameEn="pinned up hair"}
+            M.hairStyles[globalvar.raceELF][Character.female][7] = {nameDe="lange, offene Haare", nameEn="long open hair"}
+            M.hairStyles[globalvar.raceELF][Character.female][8] = {nameDe="Pferdeschwanz", nameEn="ponytail"}
+
+    M.hairStyles[globalvar.raceORC] = {}
+        M.hairStyles[globalvar.raceORC][Character.male] = {}
+            M.hairStyles[globalvar.raceORC][Character.male][0] = {nameDe="Glatze", nameEn="bald head"}
+            M.hairStyles[globalvar.raceORC][Character.male][1] = {nameDe="kurze Haare", nameEn="short hair"}
+            M.hairStyles[globalvar.raceORC][Character.male][2] = {nameDe="Pferdeschwanz", nameEn="ponytail"}
+            M.hairStyles[globalvar.raceORC][Character.male][3] = {nameDe="großes Gewusel", nameEn="mery messy hair"}
+            M.hairStyles[globalvar.raceORC][Character.male][4] = {nameDe="Gewusel", nameEn="messy hair"}
+            M.hairStyles[globalvar.raceORC][Character.male][5] = {nameDe="langer Pferdeschwanz", nameEn="long ponytail"}
+    M.hairStyles[globalvar.raceORC] = {}
+        M.hairStyles[globalvar.raceORC][Character.female] = {}
+            M.hairStyles[globalvar.raceORC][Character.female][0] = {nameDe="Glatze", nameEn="bald head"}
+            M.hairStyles[globalvar.raceORC][Character.female][1] = {nameDe="kurze Haare", nameEn="short hair"}
+            M.hairStyles[globalvar.raceORC][Character.female][4] = {nameDe="hochgesteckte Haare", nameEn="pinned up hair"}
+            M.hairStyles[globalvar.raceORC][Character.female][7] = {nameDe="lange, offene Haare", nameEn="long open hair"}
+
+
+--Beard styles
+M.beardStyles = {}
+--beardStyles[race ID][beard ID]
+
+    M.beardStyles[globalvar.raceHUMAN] = {}
+        M.beardStyles[globalvar.raceHUMAN][0] = {nameDe="kein Bart", nameEn="no beard"}
+        M.beardStyles[globalvar.raceHUMAN][1] = {nameDe="Backenbart", nameEn="short beard"}
+        M.beardStyles[globalvar.raceHUMAN][3] = {nameDe="Spitzbart", nameEn="Goatee Beard"}
+        M.beardStyles[globalvar.raceHUMAN][4] = {nameDe="Bauschebart", nameEn="Square Beard"}
+        M.beardStyles[globalvar.raceHUMAN][5] = {nameDe="Lincolnbart", nameEn="thin beard"}
+        M.beardStyles[globalvar.raceHUMAN][6] = {nameDe="Vollbart", nameEn="long beard"}
+        M.beardStyles[globalvar.raceHUMAN][8] = {nameDe="Kapitainsbart", nameEn="Mutton Chops"}
+
+    M.beardStyles[globalvar.raceDWARF] = {}
+        M.beardStyles[globalvar.raceDWARF][0] = {nameDe="kein Bart", nameEn="no beard"}
+        M.beardStyles[globalvar.raceDWARF][1] = {nameDe="Backenbart", nameEn="short beard"}
+        M.beardStyles[globalvar.raceDWARF][2] = {nameDe="Vollbart", nameEn="long beard"}
+        M.beardStyles[globalvar.raceDWARF][4] = {nameDe="Rauschebart", nameEn="long thick beard"}
+
+--basic hair colors
+M.hairColorSimple = {
+    {r=255 ,g=250 ,b=205 ,nameDe="weißblond", nameEn="white blonde"},
+    {r=255 ,g=215 ,b=0 ,nameDe="blond", nameEn="blonde"},
+    {r=205 ,g=173 ,b=0 ,nameDe="dunkelblond", nameEn="dark blonde"},
+    {r=139 ,g=129 ,b=76 ,nameDe="hellbraun", nameEn="light brown"},
+    {r=139 ,g=69 ,b=19 ,nameDe="braun", nameEn="brown"},
+    {r=60 ,g=22 ,b=21 ,nameDe="dunkelbraun", nameEn="dark brown"},
+    {r=0 ,g=0 ,b=0 ,nameDe="schwarz", nameEn="black"},
+    {r=255 ,g=127 ,b=36 ,nameDe="hellrot", nameEn="light ginger"},
+    {r=205 ,g=51 ,b=51 ,nameDe="dunkelrot", nameEn="dark ginger"}
 }
-
-local elfHairStyles = {
-    {
-        {id=1, nameDe="Kurze Haare", nameEn="Short hair"},
-        {id=2, nameDe="Mittellange Haare", nameEn="Medium length hair"}
-    },
-     {
-        {id=0, nameDe="Glatze", nameEn="Bald head"},
-        {id=1, nameDe="Mittellange Haare", nameEn="Medium length hair"},
-        {id=4, nameDe="Hochgesteckte Haare", nameEn="Pinned up hair"},
-        {id=7, nameDe="Lange, offene Haare", nameEn="Long open hair"},
-        {id=8, nameDe="Pferdeschwanz", nameEn="Ponytail"}
-
-    }
-}
-
-local dwarfHairStyles = {
-     {
-        {id=0, nameDe="Glatze", nameEn="Bald head"},
-        {id=1, nameDe="Kurze Haare", nameEn="Short hair"},
-        {id=2, nameDe="Lange Haare (1)", nameEn="Long hair (1)"},
-        {id=3, nameDe="Lange Haare (2)", nameEn="Long hair (2)"}
-    },
-    {
-        {id=0, nameDe="Glatze", nameEn="Bald head"},
-        {id=1, nameDe="Zöpfe", nameEn="Braided hair"},
-        {id=4, nameDe="Hochgesteckte Haare", nameEn="Pinned up hair"},
-        {id=7, nameDe="Lange, offene Haare", nameEn="Long open hair"},
-        {id=9, nameDe="Pferdeschwanz", nameEn="Ponytail"}
-
-    }
-}
-
-local halfingHairStyles = {
-    {
-        {id=1, nameDe="Kurze Haare", nameEn="Short hair"},
-        {id=2, nameDe="Mittellange Haare", nameEn="Medium length hair"}
-    },
-    {
-        {id=1, nameDe="Mittellange, glatte Haare", nameEn="Medium length hair"},
-        {id=2, nameDe="Mittellange, buschige Haare", nameEn="Medium bushy hair"},
-        {id=4, nameDe="Hochgesteckte Haare", nameEn="Pinned up hair"},
-        {id=9, nameDe="Pferdeschwanz", nameEn="Ponytail"}
-
-    }
-}
-
-local orcHairStyles = {
-    {
-        {id=0, nameDe="Glatze", nameEn="Bald head"},
-        {id=1, nameDe="Kurze Haare", nameEn="Short hair"},
-        {id=2, nameDe="Pferdeschwanz", nameEn="Ponytail"},
-        {id=3, nameDe="Großes Gewusel", nameEn="Very messy hair"},
-        {id=4, nameDe="Gewusel", nameEn="Messy hair"},
-        {id=5, nameDe="Langer Pferdeschwanz", nameEn="Long ponytail"}
-    },
-    {
-        {id=0, nameDe="Glatze", nameEn="Bald head"},
-        {id=1, nameDe="Kurze Haare", nameEn="Short hair"},
-        {id=4, nameDe="Hochgesteckte Haare", nameEn="Pinned up hair"},
-        {id=7, nameDe="Lange, offene Haare", nameEn="Long open hair"}
-    }
-}
-
-M.hairStyles = {dwarfHairStyles, halfingHairStyles, elfHairStyles, orcHairStyles}
-M.hairStyles[0] = humanHairStyles
-
-
---Beard sytles by race
-
-local humanBeard = {
-    {id=0 , nameDe="Kein Bart", nameEn="No beard"},
-    {id=1 , nameDe="Backenbart", nameEn="Short beard"},
-    {id=3 , nameDe="Spitzbart", nameEn="Goatee Beard"},
-    {id=4 , nameDe="Bauschebart", nameEn="Square Beard"},
-    {id=5 , nameDe="Lincolnbart", nameEn="Thin Beard"},
-    {id=6 , nameDe="Vollbart", nameEn="Long Beard"},
-    {id=8 , nameDe="Kaptainsbart", nameEn="Mutton Chops"}
-
-}
-
-local dwarfBeard = {
-    {id=0 , nameDe="Kein Bart", nameEn="No beard"},
-    {id=1 , nameDe="Backenbart", nameEn="Short beard"},
-    {id=2 , nameDe="Vollbart", nameEn="Long beard"},
-    {id=4 , nameDe="Rauschebart", nameEn="Long thick beard"}
-}
-
-M.beardStyles = {dwarfBeard}
-M.beardStyles[0] = humanBeard
 
 return M

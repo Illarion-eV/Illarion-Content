@@ -25,7 +25,7 @@ local ENGLISH = Player.english
 
 -- Insert the quest title here, in both languages
 local Title = {}
-Title[GERMAN] = "Die Zunft der Rüstungsschmiede von Galmair"
+Title[GERMAN] = "Die Zunft der Rüstschmiede von Galmair"
 Title[ENGLISH] = "The Armourer Guild of Galmair"
 
 -- Insert an extensive description of each status here, in both languages
@@ -43,32 +43,32 @@ Description[GERMAN][4] = "Geh zu Seleseth in der Werkstatt von Galmair. Er hat b
 Description[ENGLISH][4] = "Go to Seleseth at the workshop in Galmair, he is sure to have another task for you."
 Description[GERMAN][5] = "Schmiede zehn Stahlkappen für Seleseth in der Werkstatt von Galmair. Für die Stahlkappen musst du den Hammer des Rüstschmiedes am Amboss benutzen."
 Description[ENGLISH][5] = "Smith ten steel caps for Seleseth at the workshop of Galmair. To smith you need to stand facing the anvil and use the hammer of the armourer."
-Description[GERMAN][6] = "Dein derzeitiger Rang in der Zunft der Rüstungsschmiede von Galmair ist der eines Laiens. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 10 in der Fertigkeit des Rüstungsschmiedens erreicht hast."
+Description[GERMAN][6] = "Dein derzeitiger Rang in der Zunft der Rüstschmiede von Galmair ist der eines Laiens. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 10 in der Fertigkeit des Rüstschmiedens erreicht hast."
 Description[ENGLISH][6] = "Your current rank with the Armourer Guild of Galmair is Layman. Return to Seleseth at the workshop of Galmair once you reached Level 10 in Armoury."
-Description[GERMAN][7] = "Dein derzeitiger Rang in der Zunft der Rüstungsschmiede von Galmair ist der eines Anfängers. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 20 in der Fertigkeit des Rüstungsschmiedens erreicht hast."
+Description[GERMAN][7] = "Dein derzeitiger Rang in der Zunft der Rüstschmiede von Galmair ist der eines Anfängers. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 20 in der Fertigkeit des Rüstschmiedens erreicht hast."
 Description[ENGLISH][7] = "Your current rank with the Armourer Guild of Galmair is Novice. Return to Seleseth at the workshop of Galmair once you reached Level 20 in Armoury."
-Description[GERMAN][8] = "Dein derzeitiger Rang in der Zunft der Rüstungsschmiede von Galmair ist der eines Lehrlings. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 30 in der Fertigkeit des Rüstungsschmiedens erreicht hast."
+Description[GERMAN][8] = "Dein derzeitiger Rang in der Zunft der Rüstschmiede von Galmair ist der eines Lehrlings. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 30 in der Fertigkeit des Rüstschmiedens erreicht hast."
 Description[ENGLISH][8] = "Your current rank with the Armourer Guild of Galmair is Apprentice. Return to Seleseth at the workshop of Galmair once you reached Level 30 in Armoury."
-Description[GERMAN][9] = "Dein derzeitiger Rang in der Zunft der Rüstungsschmiede von Galmair ist der eines Initiatens. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 40 in der Fertigkeit des Rüstungsschmiedens erreicht hast."
+Description[GERMAN][9] = "Dein derzeitiger Rang in der Zunft der Rüstschmiede von Galmair ist der eines Initiatens. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 40 in der Fertigkeit des Rüstschmiedens erreicht hast."
 Description[ENGLISH][9] = "Your current rank with the Armourer Guild of Galmair is Initiate. Return to Seleseth at the workshop of Galmair once you reached Level 40 in Armoury."
-Description[GERMAN][10] = "Dein derzeitiger Rang in der Zunft der Rüstungsschmiede von Galmair ist der eines Gesellens. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 50 in der Fertigkeit des Rüstungsschmiedens erreicht hast."
+Description[GERMAN][10] = "Dein derzeitiger Rang in der Zunft der Rüstschmiede von Galmair ist der eines Gesellens. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 50 in der Fertigkeit des Rüstschmiedens erreicht hast."
 Description[ENGLISH][10] = "Your current rank with the Armourer Guild of Galmair is Journeyman. Return to Seleseth at the workshop of Galmair once you reached Level 50 in Armoury."
-Description[GERMAN][11] = "Dein derzeitiger Rang in der Zunft der Rüstungsschmiede von Galmair ist der eines Spezialistens. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 60 in der Fertigkeit des Rüstungsschmiedens erreicht hast."
+Description[GERMAN][11] = "Dein derzeitiger Rang in der Zunft der Rüstschmiede von Galmair ist der eines Spezialistens. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 60 in der Fertigkeit des Rüstschmiedens erreicht hast."
 Description[ENGLISH][11] = "Your current rank with the Armourer Guild of Galmair is Specialist. Return to Seleseth at the workshop of Galmair once you reached Level 60 in Armoury."
-Description[GERMAN][12] = "Dein derzeitiger Rang in der Zunft der Rüstungsschmiede von Galmair ist der eines Expertens. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 70 in der Fertigkeit des Rüstungsschmiedens erreicht hast."
+Description[GERMAN][12] = "Dein derzeitiger Rang in der Zunft der Rüstschmiede von Galmair ist der eines Expertens. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 70 in der Fertigkeit des Rüstschmiedens erreicht hast."
 Description[ENGLISH][12] = "Your current rank with the Armourer Guild of Galmair is Expert. Return to Seleseth at the workshop of Galmair once you reached Level 70 in Armoury."
-Description[GERMAN][13] = "Dein derzeitiger Rang in der Zunft der Rüstungsschmiede von Galmair ist der eines Adeptens. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 80 in der Fertigkeit des Rüstungsschmiedens erreicht hast."
+Description[GERMAN][13] = "Dein derzeitiger Rang in der Zunft der Rüstschmiede von Galmair ist der eines Adeptens. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 80 in der Fertigkeit des Rüstschmiedens erreicht hast."
 Description[ENGLISH][13] = "Your current rank with the Armourer Guild of Galmair is Adept. Return to Seleseth at the workshop of Galmair once you reached Level 80 in Armoury."
-Description[GERMAN][14] = "Dein derzeitiger Rang in der Zunft der Rüstungsschmiede von Galmair ist der eines Artisanens. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 90 in der Fertigkeit des Rüstungsschmiedens erreicht hast."
+Description[GERMAN][14] = "Dein derzeitiger Rang in der Zunft der Rüstschmiede von Galmair ist der eines Artisanens. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 90 in der Fertigkeit des Rüstschmiedens erreicht hast."
 Description[ENGLISH][14] = "Your current rank with the Armourer Guild of Galmair is Artisan. Return to Seleseth at the workshop of Galmair once you reached Level 90 in Armoury."
-Description[GERMAN][15] = "Dein derzeitiger Rang in der Zunft der Rüstungsschmiede von Galmair ist der eines Meisters. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 100 in der Fertigkeit des Rüstungsschmiedens erreicht hast."
+Description[GERMAN][15] = "Dein derzeitiger Rang in der Zunft der Rüstschmiede von Galmair ist der eines Meisters. Gehe zu Seleseth in der Werkstatt von Galmair sobald du Level 100 in der Fertigkeit des Rüstschmiedens erreicht hast."
 Description[ENGLISH][15] = "Your current rank with the Armourer Guild of Galmair is Master. Return to Seleseth at the workshop of Galmair once you reached Level 100 in Armoury."
-Description[GERMAN][16] = "Gratulation, du bist nun ein wahrer Großmeister der Zunft der Rüstungsschmiede von Galmair."
+Description[GERMAN][16] = "Gratulation, du bist nun ein wahrer Großmeister der Zunft der Rüstschmiede von Galmair."
 Description[ENGLISH][16] = "Congratulations, you are now a true Grandmaster of the Armourer Guild of Galmair."
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {387, 278, 0}
+local Start = {387, 278, 0}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there

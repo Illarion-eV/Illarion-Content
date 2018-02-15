@@ -287,7 +287,8 @@ end
 
 
 local stoneChamberStonePosition={position(957,170,-6),position(953,167,-6),position(948,168,-6),position(946,173,-6),position(948,178,-6),position(953,179,-6),position(957,176,-6)}
-local stoneChamberStoneKind={283,197,46,285,45,198,284}
+local stoneChamberStoneKind={3524,3519,3521,3520,3523,3525,3522}
+
 local playerWithWrongWeight={}
 local playerWithRightWeight={}
 local clicksAmountDe={"einmaliges","dreimaliges","zweimaliges"}

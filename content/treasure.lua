@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 -- This script contains the content definitions for the treasures.
-local gems = require("item.gems")
+local gems = require("base.gems")
 local messages = require("base.messages")
 
 local M = {}
@@ -545,7 +545,7 @@ treasureContents[4] = {
 }
 treasureContents[5] = {
 
-{237,5}, --crossbow bolt
+{237,10}, --crossbow bolt
 {2457,1}, --wine glass
 {2744,1}, --pipe
 {225,1}, --crown
@@ -608,7 +608,7 @@ treasureContents[5] = {
 }
 treasureContents[6] = {
 
-{322,5}, --wind arrows
+{322,10}, --wind arrows
 {2377,1}, --red mage robe
 {20,1}, --knight shield
 {229,1}, --silvered battle axe

@@ -192,7 +192,7 @@ queststatus(504) = 4, item(58, all) > 0, ".*" -> deleteItem(58, 1), queststatus(
 
 -- Task 4: repeat task
 queststatus(504) = 4, item(58, all) < 1, english, ".*" -> "Stop jabbering! I want a new mortar. Go, get it! Get lost!"
-queststatus(504) = 4, item(58, all) < 1, ".*" -> "Quassel mich nicht voll! Ich wollte zwei Beutel mit Rubinstaub! Los besorg sie! Hau ab!"
+queststatus(504) = 4, item(58, all) < 1, ".*" -> "Quassel mich nicht voll! Ich wollte einen Mörser! Los besorg ihn! Hau ab!"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

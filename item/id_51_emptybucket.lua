@@ -99,7 +99,7 @@ function M.UseItem(User, SourceItem, ltstate)
 
     if isDragoncaveSpring then
         common.InformNLS(User,
-            "Als Du einen Eimer voll klaren, kühlen Wassers aus dem Becken herausgezogen hast, siehst Du dich nach Verwendungsmöglichkeiten für das Wasser um.",
+            "Als du einen Eimer voll klaren, kühlen Wassers aus dem Becken herausgezogen hast, siehst du dich nach Verwendungsmöglichkeiten für das Wasser um.",
             "As you pull a bucket of water from the clear cool waters of the pool, you look around to see what uses can be had with the water.")
     end
 

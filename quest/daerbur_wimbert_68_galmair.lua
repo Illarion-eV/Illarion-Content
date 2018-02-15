@@ -51,7 +51,7 @@ Description[ENGLISH][8] = "You have fulfilled all the tasks for Daerbur."
 
 
 -- Insert the position of the quest start here (probably the position of an NPC or item)
-Start = {392, 160, -3}
+local Start = {392, 160, -3}
 
 
 -- For each status insert a list of positions where the quest will continue, i.e. a new status can be reached there
