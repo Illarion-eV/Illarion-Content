@@ -315,21 +315,21 @@ local function ZeniaAltar(User, SourceItem)
         User:eraseItem(26, 5)
         User:eraseItem(73, 10)
         User:setQuestProgress(502, 9) --  You made a raft.
-        User:inform("[Quest status] Du sieht, nach dem Beten, dass die Materialien sich von selbst zu einem kleinen Floss zusammenfügen.  Du klettert darauf und wird zu einer kleinen Insel transportiert.", "[Quest status] After praying, you see the items magically form a small raft.  You climb on board and are transported to a small island.")
+        User:inform("[Quest status] Nach dem Gebet siehst du, wie die Materialien sich von selbst zu einem kleinen Floss zusammenfügen. Du kletterst darauf und wirst zu einer kleinen Insel transportiert.", "[Quest status] After praying, you see the items magically form a small raft.  You climb on board and are transported to a small island.")
         User:warp(position(753, 351, -9))
         world:gfx(11, User.pos)
         world:makeSound(9, User.pos)
     elseif User:getQuestProgress(502) == 8 then -- You dropped something you needed.
-        User:inform("Sie müssen alle Einzelteile für Floß und Gebet.", "You need all items for raft and prayer.")
+        User:inform("Du musst alle Einzelteile für Floß und Gebet haben.", "You need all items for raft and prayer.")
     elseif User:getQuestProgress(502) == 10 and User:countItemAt("all",355) >= 10 then -- Revisit Zenia
         User:eraseItem(355, 10)
         User:setQuestProgress(502, 9) --  Ready to leave again.
-        User:inform("[Quest status] Du sieht, nach dem Beten, einen hellen Lichtblitz und das kleine Floss erscheint im Wasser. Nachdem du darauf geklettert bist, wirst du zurück auf die kleine Insel gebracht.", "[Quest status]  After praying, you see a bright light flash and your small raft magically appears in the water. Climbing onto it, you are transported back to the small island.")
+        User:inform("[Quest status] Nach dem Gebet siehst du einen hellen Lichtblitz und das kleine Floss erscheint im Wasser. Nachdem du darauf geklettert bist, wirst du zurück auf die kleine Insel gebracht.", "[Quest status]  After praying, you see a bright light flash and your small raft magically appears in the water. Climbing onto it, you are transported back to the small island.")
         User:warp(position(753, 351, -9))
         world:gfx(11, User.pos)
         world:makeSound(9, User.pos)
     elseif  User:getQuestProgress(502) == 10 then -- You dropped something you needed.
-        User:inform("Sie verfügen nicht über die richtigen Elemente für das Gebet.", "You lack the proper items for prayer.")
+        User:inform("Du hast nicht die richtigen Dinge für das Gebet.", "You lack the proper items for prayer.")
     end
 end
 
@@ -361,19 +361,19 @@ function M.LookAtItem(User, Item)
 --                      elseif User:getMagicType()== 3 and User:getMagicFlags(3)~= 0 then --a druid! Can't become priest
 --                        common.InformNLS(User,"Ein Druide kann leider kein Priester werden.","As a druid, you cannot become a priest anymore.");
 --                      else --a noob, may become priest
---                        common.InformNLS(User,"Um ein Priester "..godName[god].."s zu werden, werdet ihr folgendes opfern müssen:","To become a priest of "..godName[god]..", you'll have to donate:");
+--                        common.InformNLS(User,"Um ein Priester "..godName[god].."s zu werden, wirst du folgendes opfern müssen:","To become a priest of "..godName[god]..", you'll have to donate:");
 --                        User:inform(tellStuff(priestItems[god],User:getPlayerLanguage())); --stuff4priest
 --                      end
 --                ]]
 --            elseif devotion ~= god then
 --                -- devoted to another god
 --                if (priesthood == 0) then
---                    common.InformNLS(User, "Als Anhänger einer anderen Gottheit werdet ihr eurem Gott abschwören müssen, um euch " .. gods.GOD_NAME_DE[god] .. " zu weihen.", "As devotee of another god, you'll have to abjure your god to devote yourself to " .. gods.GOD_NAME_EN[god] .. ".");
---                    common.InformNLS(User, "Um euch " .. gods.GOD_NAME_DE[god] .. " zu weihen, werdet ihr folgendes opfern müssen:", "To devote yourself to " .. gods.GOD_NAME_EN[god] .. ", you'll have to donate:");
+--                    common.InformNLS(User, "Als Anhänger einer anderen Gottheit wirst du deinem Gott abschwören müssen, um dich " .. gods.GOD_NAME_DE[god] .. " zu weihen.", "As devotee of another god, you'll have to abjure your god to devote yourself to " .. gods.GOD_NAME_EN[god] .. ".");
+--                    common.InformNLS(User, "Um dich " .. gods.GOD_NAME_DE[god] .. " zu weihen, wirst du folgendes opfern müssen:", "To devote yourself to " .. gods.GOD_NAME_EN[god] .. ", you'll have to donate:");
 --                    User:inform(tellStuff(devoteItems[god], User:getPlayerLanguage())); --stuff4devotee
 --                else
---                    common.InformNLS(User, "Als Priester einer anderen Gottheit müßtet ihr eurer Gottheit abschw�ren, um ein Priester " .. gods.GOD_NAME_DE[god] .. "s zu werden.", "As priest of another god, you'll have to abjure your god to become a priest of " .. gods.GOD_NAME_EN[god] .. ".");
---                    common.InformNLS(User, "Um ein Priester " .. gods.GOD_NAME_DE[god] .. "s zu werden, werdet ihr folgendes opfern müssen:", "To devote yourself to " .. gods.GOD_NAME_EN[god] .. ", you'll have to donate:");
+--                    common.InformNLS(User, "Als Priester einer anderen Gottheit must du deiner Gottheit abschwören, um ein Priester " .. gods.GOD_NAME_DE[god] .. "s zu werden.", "As priest of another god, you'll have to abjure your god to become a priest of " .. gods.GOD_NAME_EN[god] .. ".");
+--                    common.InformNLS(User, "Um ein Priester " .. gods.GOD_NAME_DE[god] .. "s zu werden, wirst du folgendes opfern müssen:", "To devote yourself to " .. gods.GOD_NAME_EN[god] .. ", you'll have to donate:");
 --                    User:inform(tellStuff(devoteItems[god], User:getPlayerLanguage())); --stuff4devotee
 --                    User:inform(tellStuff(priestItems[god], User:getPlayerLanguage())); --stuff4priest
 --                end
@@ -406,7 +406,7 @@ function M.UseItem(User, SourceItem, ltstate)
 
     --Depending on who's altar that is and who uses it, execute different actions
     if not gods.GODS[god] then --undedicated altar
-        common.InformNLS(User, "Ihr berührt den Altar, die Abwesenheit göttlichen Wirkens ist offensichtlich.", "You touch the altar, the absence of divine blessing is obvious.");
+        common.InformNLS(User, "Du berührst den Altar, die Abwesenheit göttlichen Wirkens ist offensichtlich.", "You touch the altar, the absence of divine blessing is obvious.");
     else --dedicated altar
         local title = common.GetNLS(User,
             "Altar " .. gods.GOD_NAME_DE[god] .. "s",
@@ -460,19 +460,19 @@ function M.UseItem(User, SourceItem, ltstate)
 --                --a noob without a god
 --                if checkStuff(User, devoteItems[god]) then
 --                    deleteStuff(User, devoteItems[god]);
---                    common.InformNLS(User, "Ihr empfangt den Segen " .. gods.GOD_DE[god] .. "s und weiht euer Leben dem Glaube an die Gottheit. Euer Opfer:", "You receive the blessing of " .. gods.GOD_NAME_EN[god] .. " and devote your life to the faith in the divinity. Your donation:");
+--                    common.InformNLS(User, "Du empfängst den Segen " .. gods.GOD_DE[god] .. "s und weihst dein Leben dem Glaube an die Gottheit. Dein Opfer:", "You receive the blessing of " .. gods.GOD_NAME_EN[god] .. " and devote your life to the faith in the divinity. Your donation:");
 --                    world:gfx(16, User.pos);
 --                    world:makeSound(13, User.pos);
 --                    User:setQuestProgress(401, god); --become devotee
 --                    User:setQuestProgress(402, 0); --the char was no priest before - must not be one afterwards
 --                else --does not have the stuff
---                    common.InformNLS(User, "Um euch " .. gods.GOD_DE[god] .. " zu weihen, werdet ihr folgendes opfern müssen:", "To devote yourself to " .. gods.GOD_NAME_EN[god] .. ", you'll have to donate:");
+--                    common.InformNLS(User, "Um dich " .. gods.GOD_DE[god] .. " zu weihen, wirst du folgendes opfern müssen:", "To devote yourself to " .. gods.GOD_NAME_EN[god] .. ", you'll have to donate:");
 --                end
 --                User:inform(tellStuff(devoteItems[god], User:getPlayerLanguage())); --stuff4devotee
 --            elseif (devotion == god) then
 --                -- devoted to this god
 --                common.InformNLS(User,
---                    "Ihr betet zu " .. gods.GOD_DE[god] .. " und bekräftigt euren Glauben.",
+--                    "Du betest zu " .. gods.GOD_DE[god] .. " und bekräftigst deinen Glauben.",
 --                    "You pray to " .. gods.GOD_EN[god] .. " and confirm your faith.");
 --                if (priesthood == 0) then
 --                    common.InformNLS(User,
@@ -490,7 +490,7 @@ function M.UseItem(User, SourceItem, ltstate)
 --                      if checkAudience(god,User.pos) then
 --                        if checkStuff(User,priestItems[god]) then
 --                          deleteStuff(User,priestItems[god]);
---                          common.InformNLS(User,"Ihr empfangt die Weihe eines Priesters "..godName[god].."s. Euer Opfer:","You receive the ordination to the priesthood of "..godName[god]..". Your donation:");
+--                          common.InformNLS(User,"Du empfangst die Weihe eines Priesters "..godName[god].."s. Dein Opfer:","You receive the ordination to the priesthood of "..godName[god]..". Your donation:");
 --                          world:gfx(31,User.pos);
 --                          world:makeSound(13,User.pos);
 --                          User:setQuestProgress(402,god); --become priest of this god
@@ -499,11 +499,11 @@ function M.UseItem(User, SourceItem, ltstate)
 --                          User:teachMagic(1,2);
 --                          User:teachMagic(1,3);
 --                        else --does not have the stuff
---                          common.InformNLS(User,"Um ein Priester "..godName[god].."s zu werden, werdet ihr folgendes opfern müssen:","To become a priest of "..godName[god]..", you'll have to donate:");
+--                          common.InformNLS(User,"Um ein Priester "..godName[god].."s zu werden, wirst du folgendes opfern müssen:","To become a priest of "..godName[god]..", you'll have to donate:");
 --                        end --item check
 --                        User:inform(tellStuff(priestItems[god],User:getPlayerLanguage())); --stuff4priest
 --                      else --not enough devotees around
---                        common.InformNLS(User,"Um die Priesterweihe zu empfangen müßt ihr wenigstens drei Anhänger "..godName[god].."s zu einer Messe versammeln.","To receive the ordination to the priesthood of "..godName[god]..", you'll have to gather at least three devotees for a mass.");
+--                        common.InformNLS(User,"Um die Priesterweihe zu empfangen musst du wenigstens drei Anhänger "..godName[god].."s zu einer Messe versammeln.","To receive the ordination to the priesthood of "..godName[god]..", you'll have to gather at least three devotees for a mass.");
 --                      end --audience check
 --                    end --noob
 --                    --]]
@@ -513,12 +513,12 @@ function M.UseItem(User, SourceItem, ltstate)
 --                if (priesthood == 0) then
 --                    if checkStuff(User, devoteItems[god]) then
 --                        deleteStuff(User, devoteItems[god]);
---                        common.InformNLS(User, "Ihr empfangt den Segen " .. gods.GOD_DE[god] .. "s und weiht euer Leben dem Glaube an die Gottheit. Euer Opfer:", "You receive the blessing of " .. gods.GOD_EN[god] .. " and devote your life to the faith in the divinity. Your donation:"); world:gfx(16, User.pos);
+--                        common.InformNLS(User, "Du empfängst den Segen " .. gods.GOD_DE[god] .. "s und weihst dein Leben dem Glaube an die Gottheit. Dein Opfer:", "You receive the blessing of " .. gods.GOD_EN[god] .. " and devote your life to the faith in the divinity. Your donation:"); world:gfx(16, User.pos);
 --                        world:makeSound(13, User.pos);
 --                        User:setQuestProgress(401, god); --become devotee
 --                        User:setQuestProgress(402, 0); --the char was no priest before - must not be one afterwards
 --                    else --does not have the stuff
---                        common.InformNLS(User, "Um euch " .. gods.GOD_DE[god] .. " zu weihen, werdet ihr folgendes opfern müssen:", "To devote yourself to " .. gods.GOD_EN[god] .. ", you'll have to donate:");
+--                        common.InformNLS(User, "Um dich " .. gods.GOD_DE[god] .. " zu weihen, wirst du folgendes opfern müssen:", "To devote yourself to " .. gods.GOD_EN[god] .. ", you'll have to donate:");
 --                    end
 --                    User:inform(tellStuff(devoteItems[god], User:getPlayerLanguage())); --stuff4devotee
 --                else
@@ -530,17 +530,17 @@ function M.UseItem(User, SourceItem, ltstate)
 --                      if checkAudience(god,User.pos) then
 --                        if checkStuff(User,devoteItems[god]) and checkStuff(User,priestItems[god]) then
 --                          deleteStuff(User,devoteItems[god]);
---                          common.InformNLS(User,"Ihr schwört eurem alten Glauben ab und empfangt die Weihe eines Priesters "..godName[god].."s. Euer Opfer:","You abjure your old faith and receive the ordination to the priesthood of "..godName[god]..". Your donation:");
+--                          common.InformNLS(User,"Du schwörst deinem alten Glauben ab und empfängst die Weihe eines Priesters "..godName[god].."s. Dein Opfer:","You abjure your old faith and receive the ordination to the priesthood of "..godName[god]..". Your donation:");
 --                          world:gfx(16,User.pos);
 --                          world:makeSound(13,User.pos);
 --                          User:setQuestProgress(401,god); --become devotee of this god
 --                          User:setQuestProgress(402,god); --become priest of this god
 --
 --                        else --does not have the stuff
---                          common.InformNLS(User,"Um ein Priester "..godName[god].."s zu werden, werdet ihr folgendes opfern müssen:","To become a  priest of "..godName[god]..", you'll have to donate:");
+--                          common.InformNLS(User,"Um ein Priester "..godName[god].."s zu werden, wirst du folgendes opfern müssen:","To become a  priest of "..godName[god]..", you'll have to donate:");
 --                        end
 --                      else --not enough devotees around
---                        common.InformNLS(User,"Um die Priesterweihe zu empfangen müßt ihr wenigstens drei Anhänger "..godName[god].."s zu einer Messe versammeln.","To receive the ordination to the priesthood of "..godName[god]..", you'll have to gather at least three devotees for a mass.");
+--                        common.InformNLS(User,"Um die Priesterweihe zu empfangen musst du wenigstens drei Anhänger "..godName[god].."s zu einer Messe versammeln.","To receive the ordination to the priesthood of "..godName[god]..", you'll have to gather at least three devotees for a mass.");
 --                      end --audience check
 --                      User:inform(tellStuff(devoteItems[god],User:getPlayerLanguage())); --stuff4devotee
 --                      User:inform(tellStuff(priestItems[god],User:getPlayerLanguage())); --stuff4priest
