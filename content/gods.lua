@@ -152,7 +152,7 @@ for i,row in ipairs(M._JEALOUSY_PROBABILITY) do
     M._JEALOUSY_CUMULATIVE_PROBABILITY[i][#row] = 1 -- to ensure it's never slightly below, like 0.99999
 end
 
-
+-- TODO: move to class
 M.GOD_NAME_EN = {
     [M.GOD_USHARA]   = "Ushara",
     [M.GOD_BRAGON]   = "Brágon",
