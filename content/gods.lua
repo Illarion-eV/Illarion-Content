@@ -24,6 +24,9 @@ local common = require("base.common")
 local globalvar = require("base.globalvar")
 local math = require("math")
 
+local adron = require("content._gods.adron")
+
+
 --TODO move to a separate file
 ---
 -- Turn a list into a "set"
@@ -107,6 +110,9 @@ M.GOD_MOSHRAN  = 16
 M.GOD_THEFIVE  = 17
 M.GOD_THEDEVS  = 99
 
+M._god_ordinal_to_class = {
+    [M.GOD_ADRON] = adron.Adron(M.GOD_ADRON)
+}
 
 M._YOUNGER_GODS_LIST = {M.GOD_NARGUN,M.GOD_ELARA,M.GOD_ADRON,M.GOD_OLDRA,M.GOD_CHERGA,M.GOD_MALACHIN,
             M.GOD_IRMOROM,M.GOD_SIRANI,M.GOD_ZHAMBRA,M.GOD_RONAGAN,M.GOD_MOSHRAN};

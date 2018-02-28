@@ -16,20 +16,27 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local class = require('base.class')
-local basegod = require("content._gods.basegod")
+local baseyounger = require("content._gods.baseyounger")
 
 local M = {}
 
-M.BaseYounger = class(
-    basegod.BaseGod,
+M.Adron = class(
+    baseyounger.BaseYounger,
     function(self, ...)
         self:_init(...)
     end
 )
 
-function M.BaseYounger:_init(ordinal, youngerOrdinal)
-    basegod.BaseGod._init(self, ordinal) -- call the base class constructor
-    self._youngerOrdinal = youngerOrdinal
+function M.Adron:_init(ordinal, youngerOrdinal)
+    baseyounger.BaseYounger._init(self, ordinal, youngerOrdinal) -- call the base class constructor
+    self._name_de = "Adron"
+    self._name_en = "Adron"
+    self._description_de = "der Gott des Weines und der Feste"
+    self._description_en = "God of festivities and wine"
+    self._devotion_items = {} --FIXME
+
 end
+
+
 
 return M

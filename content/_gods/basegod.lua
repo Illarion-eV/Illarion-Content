@@ -15,39 +15,59 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
-local basegod = {}
-basegod.__index = basegod
+local class = require('base.class')
 
-setmetatable(basegod, {
-    __call = function (cls, ...)
-        local self = setmetatable({}, cls)
+local M = {}
+
+M.BaseGod = class(
+    function(self, ...)
         self:_init(...)
-        return self
-    end,
-})
+    end
+)
 
-function basegod:_init(ordinal, name_de, name_en)
+function M.BaseGod:_init(ordinal)
     self._ordinal = ordinal
-    self._name_de = name_de
-    self._name_en = name_en
+    self._name_de = nil -- str, should be set in child class
+    self._name_en = nil -- str, should be set in child class
+    self._description_de = nil -- str, should be set in child class
+    self._description_en = nil -- str, should be set in child class
+    self._devotion_items = nil -- array of item ids, should be set in child class
 end
 
-function basegod:getOrdinal()
-    return self.ordinal
+function M.BaseGod:getOrdinal()
+    return self._ordinal
 end
 
---function basegod:_setOrdinal(ordinal)
+--function M.BaseGod:_setOrdinal(ordinal)
 --    self.ordinal = ordinal
 --end
 
-function basegod:getNameEn()
+function M.BaseGod:getNameEn()
     return self._name_en
 end
 
-function basegod:getNameDe()
+function M.BaseGod:getNameDe()
     return self._name_de
 end
 
-function basegod:getNameEn()
-    return self._name_en
+function M.BaseGod:getDescriptionEn()
+    return self._description_en
 end
+
+function M.BaseGod:getDescriptionDe()
+    return self._description_de
+end
+
+function M.BaseGod:getDevotionItems()
+    return self._devotion_items
+end
+
+function M.BaseGod:getFavour(User)
+    return User:getQuestProgress(402 + self._ordinal)
+end
+
+function M.BaseGod:setFavour(User, newValue)
+    User:setQuestProgress(402 + self._ordinal, newValue)
+end
+
+return M
