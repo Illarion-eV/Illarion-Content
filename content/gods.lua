@@ -24,7 +24,22 @@ local common = require("base.common")
 local globalvar = require("base.globalvar")
 local math = require("math")
 
-local adron = require("content._gods.adron")
+local   ushara = require("content._gods.ushara")
+local   bragon = require("content._gods.bragon")
+local    eldan = require("content._gods.eldan")
+local   tanora = require("content._gods.tanora")
+local  findari = require("content._gods.findari")
+local   nargun = require("content._gods.nargun")
+local    elara = require("content._gods.elara")
+local    adron = require("content._gods.adron")
+local    oldra = require("content._gods.oldra")
+local   cherga = require("content._gods.cherga")
+local malachin = require("content._gods.malachin")
+local  irmorom = require("content._gods.irmorom")
+local   sirani = require("content._gods.sirani")
+local  moshran = require("content._gods.moshran")
+local  zhambra = require("content._gods.zhambra")
+local  ronagan = require("content._gods.ronagan")
 
 
 --TODO move to a separate file
@@ -110,8 +125,23 @@ M.GOD_MOSHRAN  = 16
 M.GOD_THEFIVE  = 17
 M.GOD_THEDEVS  = 99
 
-M._god_ordinal_to_class = {
-    [M.GOD_ADRON] = adron.Adron(M.GOD_ADRON)
+M._godOrdinalToObj = { -- This is the only place where we create instances of god classes
+    [M.GOD_USHARA]   =   ushara.Ushara (M.GOD_USHARA,  M.GOD_USHARA - M.GOD_USHARA+1),
+    [M.GOD_BRAGON]   =   bragon.Bragon (M.GOD_BRAGON,  M.GOD_BRAGON - M.GOD_USHARA+1),
+    [M.GOD_ELDAN]    =    eldan.Eldan  (M.GOD_ELDAN,   M.GOD_ELDAN  - M.GOD_USHARA+1),
+    [M.GOD_TANORA]   =   tanora.Tanora (M.GOD_TANORA,  M.GOD_TANORA - M.GOD_USHARA+1),
+    [M.GOD_FINDARI]  =  findari.Findari(M.GOD_FINDARI, M.GOD_FINDARI- M.GOD_USHARA+1),
+    [M.GOD_NARGUN]   =   nargun.Nargun  (M.GOD_NARGUN,   M.GOD_NARGUN  - M.GOD_NARGUN+1),
+    [M.GOD_ELARA]    =    elara.Elara   (M.GOD_ELARA,    M.GOD_ELARA   - M.GOD_NARGUN+1),
+    [M.GOD_ADRON]    =    adron.Adron   (M.GOD_ADRON,    M.GOD_ADRON   - M.GOD_NARGUN+1),
+    [M.GOD_OLDRA]    =    oldra.Oldra   (M.GOD_OLDRA,    M.GOD_OLDRA   - M.GOD_NARGUN+1),
+    [M.GOD_CHERGA]   =   cherga.Cherga  (M.GOD_CHERGA,   M.GOD_CHERGA  - M.GOD_NARGUN+1),
+    [M.GOD_MALACHIN] = malachin.Malachin(M.GOD_MALACHIN, M.GOD_MALACHIN- M.GOD_NARGUN+1),
+    [M.GOD_IRMOROM]  =  irmorom.Irmorom (M.GOD_IRMOROM,  M.GOD_IRMOROM - M.GOD_NARGUN+1),
+    [M.GOD_SIRANI]   =   sirani.Sirani  (M.GOD_SIRANI,   M.GOD_SIRANI  - M.GOD_NARGUN+1),
+    [M.GOD_MOSHRAN]  =  moshran.Moshran (M.GOD_MOSHRAN,  M.GOD_MOSHRAN - M.GOD_NARGUN+1),
+    [M.GOD_ZHAMBRA]  =  zhambra.Zhambra (M.GOD_ZHAMBRA,  M.GOD_ZHAMBRA - M.GOD_NARGUN+1),
+    [M.GOD_RONAGAN]  =  ronagan.Ronagan (M.GOD_RONAGAN,  M.GOD_RONAGAN - M.GOD_NARGUN+1),
 }
 
 M._YOUNGER_GODS_LIST = {M.GOD_NARGUN,M.GOD_ELARA,M.GOD_ADRON,M.GOD_OLDRA,M.GOD_CHERGA,M.GOD_MALACHIN,
@@ -159,87 +189,92 @@ for i,row in ipairs(M._JEALOUSY_PROBABILITY) do
 end
 
 -- TODO: move to class
-M.GOD_NAME_EN = {
-    [M.GOD_USHARA]   = "Ushara",
-    [M.GOD_BRAGON]   = "Brágon",
-    [M.GOD_ELDAN]    = "Eldan",
-    [M.GOD_TANORA]   = "Tanora",
-    [M.GOD_FINDARI]  = "Findari",
-    [M.GOD_NARGUN]   = "Nargún",
-    [M.GOD_ELARA]    = "Elara",
-    [M.GOD_ADRON]    = "Adron",
-    [M.GOD_OLDRA]    = "Oldra",
-    [M.GOD_CHERGA]   = "Cherga",
-    [M.GOD_MALACHIN] = "Malachín",
-    [M.GOD_IRMOROM]  = "Irmorom",
-    [M.GOD_SIRANI]   = "Sirani",
-    [M.GOD_ZHAMBRA]  = "Zhambra",
-    [M.GOD_RONAGAN]  = "Ronagan",
-    [M.GOD_MOSHRAN]  = "Moshran",
-    [M.GOD_THEFIVE]  = "Five",
-    [M.GOD_THEDEVS]  = "Developers",
-}
+--M.GOD_NAME_EN = {
+--    [M.GOD_USHARA]   = "Ushara",
+--    [M.GOD_BRAGON]   = "Brágon",
+--    [M.GOD_ELDAN]    = "Eldan",
+--    [M.GOD_TANORA]   = "Tanora",
+--    [M.GOD_FINDARI]  = "Findari",
+--    [M.GOD_NARGUN]   = "Nargún",
+--    [M.GOD_ELARA]    = "Elara",
+--    [M.GOD_ADRON]    = "Adron",
+--    [M.GOD_OLDRA]    = "Oldra",
+--    [M.GOD_CHERGA]   = "Cherga",
+--    [M.GOD_MALACHIN] = "Malachín",
+--    [M.GOD_IRMOROM]  = "Irmorom",
+--    [M.GOD_SIRANI]   = "Sirani",
+--    [M.GOD_ZHAMBRA]  = "Zhambra",
+--    [M.GOD_RONAGAN]  = "Ronagan",
+--    [M.GOD_MOSHRAN]  = "Moshran",
+--    [M.GOD_THEFIVE]  = "Five",
+--    [M.GOD_THEDEVS]  = "Developers",
+--}
+--
+--M.GOD_NAME_DE = {
+--    [M.GOD_USHARA]   = "Ushara",
+--    [M.GOD_BRAGON]   = "Brágon",
+--    [M.GOD_ELDAN]    = "Eldan",
+--    [M.GOD_TANORA]   = "Tanora",
+--    [M.GOD_FINDARI]  = "Findari",
+--    [M.GOD_NARGUN]   = "Nargún",
+--    [M.GOD_ELARA]    = "Elara",
+--    [M.GOD_ADRON]    = "Adron",
+--    [M.GOD_OLDRA]    = "Oldra",
+--    [M.GOD_CHERGA]   = "Cherga",
+--    [M.GOD_MALACHIN] = "Malachín",
+--    [M.GOD_IRMOROM]  = "Irmorom",
+--    [M.GOD_SIRANI]   = "Sirani",
+--    [M.GOD_ZHAMBRA]  = "Zhambra",
+--    [M.GOD_RONAGAN]  = "Ronagan",
+--    [M.GOD_MOSHRAN]  = "Moshran",
+--    [M.GOD_THEFIVE]  = "Fünf",
+--    [M.GOD_THEDEVS]  = "Entwickler",
+--}
+--M.DESCRIPTION_EN = {
+--    [M.GOD_USHARA]="Goddess of earth";
+--    [M.GOD_BRAGON]="God of fire";
+--    [M.GOD_ELDAN]="God of spirit";
+--    [M.GOD_TANORA]="Goddess of water";
+--    [M.GOD_FINDARI]="Goddess of air";
+--    [M.GOD_NARGUN]="God of chaos";
+--    [M.GOD_ELARA]="Goddess of wisdom and knowledge";
+--    [M.GOD_ADRON]="God of festivities and wine";
+--    [M.GOD_OLDRA]="Goddess of life and fertility";
+--    [M.GOD_CHERGA]="Goddess of spirits and the underworld";
+--    [M.GOD_MALACHIN]="God of battle and hunting";
+--    [M.GOD_IRMOROM]="God of trade and craftsmanship";
+--    [M.GOD_SIRANI]="Goddess of love and pleasure";
+--    [M.GOD_ZHAMBRA]="God of friendship and loyalty";
+--    [M.GOD_RONAGAN]="God of thieves and shadows";
+--    [M.GOD_MOSHRAN]="God of blood and bones";
+--}
+--M.DESCRIPTION_DE ={
+--    [M.GOD_USHARA]="die Göttin der Erde";
+--    [M.GOD_BRAGON]="der Gott des Feuers";
+--    [M.GOD_ELDAN]="der Gott des Geistes";
+--    [M.GOD_TANORA]="die Göttin des Wassers";
+--    [M.GOD_FINDARI]="die Göttin der Luft";
+--    [M.GOD_NARGUN]="der Gott des Chaos";
+--    [M.GOD_ELARA]="die Göttin des Wissens und der Weisheit";
+--    [M.GOD_ADRON]="der Gott des Weines und der Feste";
+--    [M.GOD_OLDRA]="die Göttin der Fruchtbarkeit und des Lebens";
+--    [M.GOD_CHERGA]="die Göttin der Geister und der Unterwelt";
+--    [M.GOD_MALACHIN]="der Gott der Jagd und der Schlachten";
+--    [M.GOD_IRMOROM]="der Gott des Handels und des Handwerks";
+--    [M.GOD_SIRANI]="die Göttin der Liebe und der Freude";
+--    [M.GOD_ZHAMBRA]="der Gott der Freundschaft und Treue";
+--    [M.GOD_RONAGAN]="der Gott der Diebe und der Schatten";
+--    [M.GOD_MOSHRAN]="der Gott des Blutes und der Gebeine";
+--}
 
-M.GOD_NAME_DE = {
-    [M.GOD_USHARA]   = "Ushara",
-    [M.GOD_BRAGON]   = "Brágon",
-    [M.GOD_ELDAN]    = "Eldan",
-    [M.GOD_TANORA]   = "Tanora",
-    [M.GOD_FINDARI]  = "Findari",
-    [M.GOD_NARGUN]   = "Nargún",
-    [M.GOD_ELARA]    = "Elara",
-    [M.GOD_ADRON]    = "Adron",
-    [M.GOD_OLDRA]    = "Oldra",
-    [M.GOD_CHERGA]   = "Cherga",
-    [M.GOD_MALACHIN] = "Malachín",
-    [M.GOD_IRMOROM]  = "Irmorom",
-    [M.GOD_SIRANI]   = "Sirani",
-    [M.GOD_ZHAMBRA]  = "Zhambra",
-    [M.GOD_RONAGAN]  = "Ronagan",
-    [M.GOD_MOSHRAN]  = "Moshran",
-    [M.GOD_THEFIVE]  = "Fünf",
-    [M.GOD_THEDEVS]  = "Entwickler",
-}
 
-
-
-M.DESCRIPTION_EN = {
-    [M.GOD_USHARA]="Goddess of earth";
-    [M.GOD_BRAGON]="God of fire";
-    [M.GOD_ELDAN]="God of spirit";
-    [M.GOD_TANORA]="Goddess of water";
-    [M.GOD_FINDARI]="Goddess of air";
-    [M.GOD_NARGUN]="God of chaos";
-    [M.GOD_ELARA]="Goddess of wisdom and knowledge";
-    [M.GOD_ADRON]="God of festivities and wine";
-    [M.GOD_OLDRA]="Goddess of life and fertility";
-    [M.GOD_CHERGA]="Goddess of spirits and the underworld";
-    [M.GOD_MALACHIN]="God of battle and hunting";
-    [M.GOD_IRMOROM]="God of trade and craftsmanship";
-    [M.GOD_SIRANI]="Goddess of love and pleasure";
-    [M.GOD_ZHAMBRA]="God of friendship and loyalty";
-    [M.GOD_RONAGAN]="God of thieves and shadows";
-    [M.GOD_MOSHRAN]="God of blood and bones";
-}
-
-M.DESCRIPTION_DE ={
-    [M.GOD_BRAGON]="der Gott des Feuers";
-    [M.GOD_ELDAN]="der Gott des Geistes";
-    [M.GOD_FINDARI]="die Göttin der Luft";
-    [M.GOD_TANORA]="die Göttin des Wassers";
-    [M.GOD_USHARA]="die Göttin der Erde";
-    [M.GOD_ADRON]="der Gott des Weines und der Feste";
-    [M.GOD_CHERGA]="die Göttin der Geister und der Unterwelt";
-    [M.GOD_ELARA]="die Göttin des Wissens und der Weisheit";
-    [M.GOD_IRMOROM]="der Gott des Handels und des Handwerks";
-    [M.GOD_MALACHIN]="der Gott der Jagd und der Schlachten";
-    [M.GOD_MOSHRAN]="der Gott des Blutes und der Gebeine";
-    [M.GOD_NARGUN]="der Gott des Chaos";
-    [M.GOD_OLDRA]="die Göttin der Fruchtbarkeit und des Lebens";
-    [M.GOD_RONAGAN]="der Gott der Diebe und der Schatten";
-    [M.GOD_SIRANI]="die Göttin der Liebe und der Freude";
-    [M.GOD_ZHAMBRA]="der Gott der Freundschaft und Treue";
-}
+---
+-- Get god object from the ordinal (index)
+-- @param godOrdinal
+--
+function M.getGodByOrdinal(godOrdinal)
+    return M._godOrdinalToObj[godOrdinal]
+end
 
 ---
 -- Check if char is devoted to a god

@@ -29,7 +29,7 @@ M.BaseYounger = class(
 
 function M.BaseYounger:_init(ordinal, youngerOrdinal)
     basegod.BaseGod._init(self, ordinal) -- call the base class constructor
-    self._youngerOrdinal = youngerOrdinal
+    self.youngerOrdinal = youngerOrdinal
 end
 
 return M

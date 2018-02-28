@@ -20,19 +20,19 @@ local baseyounger = require("content._gods.baseyounger")
 
 local M = {}
 
-M.Adron = class(
+M.Ronagan = class(
     baseyounger.BaseYounger,
     function(self, ...)
         self:_init(...)
     end
 )
 
-function M.Adron:_init(ordinal, youngerOrdinal)
+function M.Ronagan:_init(ordinal, youngerOrdinal)
     baseyounger.BaseYounger._init(self, ordinal, youngerOrdinal) -- call the base class constructor
-    self.nameDe = "Adron"
-    self.nameEn = "Adron"
-    self.descriptionDe = "der Gott des Weines und der Feste"
-    self.descriptionEn = "God of festivities and wine"
+    self.nameDe = "Ronagan"
+    self.nameEn = "Ronagan"
+    self.descriptionDe = "der Gott der Diebe und der Schatten"
+    self.descriptionEn = "God of thieves and shadows"
     self.devotionItems = {} --FIXME
 
 end

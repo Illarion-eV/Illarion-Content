@@ -26,48 +26,20 @@ M.BaseGod = class(
 )
 
 function M.BaseGod:_init(ordinal)
-    self._ordinal = ordinal
-    self._name_de = nil -- str, should be set in child class
-    self._name_en = nil -- str, should be set in child class
-    self._description_de = nil -- str, should be set in child class
-    self._description_en = nil -- str, should be set in child class
-    self._devotion_items = nil -- array of item ids, should be set in child class
-end
-
-function M.BaseGod:getOrdinal()
-    return self._ordinal
-end
-
---function M.BaseGod:_setOrdinal(ordinal)
---    self.ordinal = ordinal
---end
-
-function M.BaseGod:getNameEn()
-    return self._name_en
-end
-
-function M.BaseGod:getNameDe()
-    return self._name_de
-end
-
-function M.BaseGod:getDescriptionEn()
-    return self._description_en
-end
-
-function M.BaseGod:getDescriptionDe()
-    return self._description_de
-end
-
-function M.BaseGod:getDevotionItems()
-    return self._devotion_items
+    self.ordinal = ordinal
+    self.nameDe = nil -- str, should be set in child class
+    self.nameEn = nil -- str, should be set in child class
+    self.descriptionDe = nil -- str, should be set in child class
+    self.descriptionEn = nil -- str, should be set in child class
+    self.devotionItems = nil -- array of item ids, should be set in child class
 end
 
 function M.BaseGod:getFavour(User)
-    return User:getQuestProgress(402 + self._ordinal)
+    return User:getQuestProgress(402 + self.ordinal)
 end
 
 function M.BaseGod:setFavour(User, newValue)
-    User:setQuestProgress(402 + self._ordinal, newValue)
+    User:setQuestProgress(402 + self.ordinal, newValue)
 end
 
 return M
