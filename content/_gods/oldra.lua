@@ -33,7 +33,7 @@ function M.Oldra:_init(ordinal, youngerOrdinal)
     self.nameEn = "Oldra"
     self.descriptionDe = "die Göttin der Fruchtbarkeit und des Lebens"
     self.descriptionEn = "Goddess of life and fertility"
-    self.devotionItems = {} --FIXME
+    self.devotionItems = {{id = 2551, number = 1}, {id = 2552, number = 1}} --FIXME
 
 end
 

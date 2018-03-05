@@ -15,6 +15,8 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
+local common = require('base.common')
+local globalvar = require("base.globalvar")
 local class = require('base.class')
 
 local M = {}
@@ -39,7 +41,26 @@ function M.BaseGod:getFavour(User)
 end
 
 function M.BaseGod:setFavour(User, newValue)
+    debug(self.nameEn .. " favour changes from " .. self:getFavour(User) .. " to " .. newValue .. " for user " .. User.name .. "(" .. User.id .. ")")
     User:setQuestProgress(402 + self.ordinal, newValue)
+end
+
+function M.BaseGod:informBecomeDevoted(User)
+    common.InformNLS(User, "Ihr empfangt den Segen " .. self.nameDe .. "s und weiht euer Leben dem Glaube an die Gottheit.", "You receive the blessing of " .. self.nameEn .. " and devote your life to the faith in the divinity.")
+    world:gfx(globalvar.gfxRAIN, User.pos)
+    world:makeSound(globalvar.sfxSNARING, User.pos)
+end
+
+function M.BaseGod:informBecomePriest(User)
+    common.InformNLS(User, "FIXME " .. self.nameDe .. "", "FIXME You are now a priest of " .. self.nameEn .. ", have fun.")
+    world:gfx(globalvar.gfxRAIN, User.pos)
+    world:makeSound(globalvar.sfxSNARING, User.pos)
+end
+
+function M.BaseGod:informStopBeingPriest(User)
+    common.InformNLS(User, "FIXME " .. self.nameDe .. " FIXME .", "FIXME " .. self.nameEn .. " hates you and denies your priesthood!")
+    world:gfx(globalvar.gfxBLITZ, User.pos)
+    world:makeSound(globalvar.sfxTHUNDER, User.pos)
 end
 
 return M

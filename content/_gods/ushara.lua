@@ -33,7 +33,7 @@ function M.Ushara:_init(ordinal, elderOrdinal)
     self.nameEn = "Ushara"
     self.descriptionDe = "die Göttin der Erde"
     self.descriptionEn = "Goddess of earth"
-    self.devotionItems = {} --FIXME
+    self.devotionItems = {{id = 2551, number = 1}, {id = 2552, number = 1}} --FIXME
 
 end
 

@@ -196,16 +196,28 @@ end
 --end
 
 local function canDevote(User, god)
+    local result = true
+    local reason_de = ""
+    local reason_en = ""
+
     -- FIXME check favour
-    return checkItems(User, gods.ITEMS_DEVOTION[god])
+
+    if not checkItems(User, gods.getItemsForDevotion(god)) then
+        result = false
+        reason_en = reason_en .. "You don't have the required items. "
+        reason_de = reason_de .. "You don't have the required items. "
+    end
+
+    return result, reason_de, reason_en
 end
 
 local function doDevote(User, god)
-    if not canDevote(User, god) then
+    local candevote, reason_de, reason_en = canDevote(User, god)
+    if not candevote then
         -- Was capable when opened dialog, but not when accepted. Cheater?
-        common.InformNLS(User, "FIXME", "FIXME You do not satisfy the devotion criteria")
+        common.InformNLS(User, "FIXME " .. reason_de, "FIXME You do not satisfy the devotion criteria. " .. reason_en)
     end
-    deleteItems(User, gods.ITEMS_DEVOTION[god])
+    deleteItems(User, gods.getItemsForDevotion(god))
     gods.setDevoted(User, god)
 end
 
@@ -216,25 +228,27 @@ local function devotionDialog(User, god)
         return
     elseif gods.isPriest(User) then
         explanation = explanation .. common.GetNLS(User,
-            "Als Priester einer anderen Gottheit müßtet ihr eurer Gottheit abschwören, um ein Priester " .. gods.GOD_NAME_DE[god] .. "s zu werden FIXME status loss.",
-            "As priest of another god, you'll have to abjure your god to become a priest of " .. gods.GOD_NAME_EN[god] .. ", FIXME and you will lose your status."
+            "Als Priester einer anderen Gottheit müßtet ihr eurer Gottheit abschwören, um ein Priester " .. gods.getNameDe(god) .. "s zu werden FIXME status loss.",
+            "As priest of another god, you'll have to abjure your god to become a priest of " .. gods.getNameEn(god) .. ", FIXME and you will lose your status."
         )
     elseif gods.isDevoted(User) then
         explanation = explanation .. common.GetNLS(User,
-            "Als Anhänger einer anderen Gottheit werdet ihr eurem Gott abschwören müssen, um euch " .. gods.GOD_NAME_DE[god] .. " zu weihen.",
-            "As devotee of another god, you'll have to abjure your god to devote yourself to " .. gods.GOD_NAME_EN[god] .. "."
+            "Als Anhänger einer anderen Gottheit werdet ihr eurem Gott abschwören müssen, um euch " .. gods.getNameDe(god) .. " zu weihen.",
+            "As devotee of another god, you'll have to abjure your god to devote yourself to " .. gods.getNameEn(god) .. "."
         )
     else -- noob
         explanation = explanation .. common.GetNLS(User, "FIXME", "FIXME You can only devote yourself to one god at a time and bla-bla-bla")
     end
-    explanation = explanation .. "\nYou will need to donate " .. tellItems(User, gods.ITEMS_DEVOTION[god])
+    explanation = explanation .. common.GetNLS(User, "FIXME", "\nYou will need to donate " .. tellItems(User, gods.getItemsForDevotion(god)))
 
-    if canDevote(User, god) then
+    local candevote, reason_de, reason_en = canDevote(User, god)
+    if candevote then
         SelectionDialogWrapper(User, common.GetNLS(User, "FIXME", "Devote"), explanation, {
             { icon = 0, text = common.GetNLS(User, "FIXME", "FIXME Yes, I do!"),             func = doDevote, args = { User, god } },
             { icon = 0, text = common.GetNLS(User, "FIXME", "FIXME You must be crazy. No!"), func = nil, args = nil },
         })
     else
+        explanation = explanation .. "\n" .. common.GetNLS(User, reason_de, reason_en)
         local dialog = MessageDialog(common.GetNLS(User, "FIXME", "Devote"), explanation, --[[callback=]]function(d) end)
         User:requestMessageDialog(dialog)
     end
@@ -260,14 +274,14 @@ local function donationDialog(User, god)
         end
     end
 
-    local dialog = MerchantDialog(common.GetNLS(User, "FIXME", "FIXME Sacrifise to " .. gods.GOD_NAME_EN[god]), callback)
+    local dialog = MerchantDialog(common.GetNLS(User, "FIXME", "FIXME Sacrifise to " .. gods.getNameEn(god)), callback)
     dialog:addPrimaryRequest(2551, "Pure something", 666)
     dialog:addSecondaryRequest(2, "Whole wheat flour", 1)
     User:requestMerchantDialog(dialog)
 end
 
 local function defile(User, god)
-    common.TalkNLS(User, Character.say , "#me FIXME", "#me FIXME spits on the altar and curses the name of " .. gods.GOD_NAME_EN[god])
+    common.TalkNLS(User, Character.say , "#me FIXME", "#me FIXME spits on the altar and curses the name of " .. gods.getNameEn(god))
     local favour_penalty
     -- FIXME adjust numbers when favour is implemented
     if gods.isPriest(User, god) then
@@ -290,7 +304,7 @@ end
 
 local function performService(User, god)
     -- TODO priest magic
-    common.TalkNLS(User, Character.say , "#me FIXME", "#me FIXME performs a service in honor of " .. gods.GOD_NAME_EN[god])
+    common.TalkNLS(User, Character.say , "#me FIXME", "#me FIXME performs a service in honor of " .. gods.getNameEn(god))
 
     -- FIXME this is just for debug
     local function cb(dia)
@@ -341,11 +355,11 @@ function M.LookAtItem(User, Item)
     if not gods.GODS[god] then --undedicated altar
         lookat.SetSpecialName(Item, "Altar", "Altar")
     else --dedicated altar
-        local msg_en = "Altar of " .. gods.GOD_NAME_EN[god] .. ", the " .. gods.DESCRIPTION_EN[god] .. "."
-        local msg_de = "Altar " .. gods.GOD_NAME_DE[god] .. "s, " .. gods.DESCRIPTION_DE[god] .. "."
+        local msg_en = "Altar of " .. gods.getNameEn(god) .. ", the " .. gods.getDescriptionEn(god) .. "."
+        local msg_de = "Altar " .. gods.getNameDe(god) .. "s, " .. gods.getDescriptionDe(god) .. "."
         if gods.isDevoted(User, god) then
-            msg_en = msg_en .. "Beholding the altar of " .. gods.GOD_NAME_EN[god] .. " makes you feel proud of your devotion."
-            msg_de = msg_de .. "Der Anblick von " .. gods.GOD_NAME_DE[god] .. "s Altar erfüllt dich in deiner Ergebenheit mit Stolz."
+            msg_en = msg_en .. "Beholding the altar of " .. gods.getNameEn(god) .. " makes you feel proud of your devotion."
+            msg_de = msg_de .. "Der Anblick von " .. gods.getNameDe(god) .. "s Altar erfüllt dich in deiner Ergebenheit mit Stolz."
         end
         lookat.SetSpecialName(Item,
             msg_de,
@@ -368,12 +382,12 @@ function M.LookAtItem(User, Item)
 --            elseif devotion ~= god then
 --                -- devoted to another god
 --                if (priesthood == 0) then
---                    common.InformNLS(User, "Als Anhänger einer anderen Gottheit wirst du deinem Gott abschwören müssen, um dich " .. gods.GOD_NAME_DE[god] .. " zu weihen.", "As devotee of another god, you'll have to abjure your god to devote yourself to " .. gods.GOD_NAME_EN[god] .. ".");
---                    common.InformNLS(User, "Um dich " .. gods.GOD_NAME_DE[god] .. " zu weihen, wirst du folgendes opfern müssen:", "To devote yourself to " .. gods.GOD_NAME_EN[god] .. ", you'll have to donate:");
+--                    common.InformNLS(User, "Als Anhänger einer anderen Gottheit wirst du deinem Gott abschwören müssen, um dich " .. gods.getNameDe(god) .. " zu weihen.", "As devotee of another god, you'll have to abjure your god to devote yourself to " .. gods.getNameEn(god) .. ".");
+--                    common.InformNLS(User, "Um dich " .. gods.getNameDe(god) .. " zu weihen, wirst du folgendes opfern müssen:", "To devote yourself to " .. gods.getNameEn(god) .. ", you'll have to donate:");
 --                    User:inform(tellStuff(devoteItems[god], User:getPlayerLanguage())); --stuff4devotee
 --                else
---                    common.InformNLS(User, "Als Priester einer anderen Gottheit must du deiner Gottheit abschwören, um ein Priester " .. gods.GOD_NAME_DE[god] .. "s zu werden.", "As priest of another god, you'll have to abjure your god to become a priest of " .. gods.GOD_NAME_EN[god] .. ".");
---                    common.InformNLS(User, "Um ein Priester " .. gods.GOD_NAME_DE[god] .. "s zu werden, wirst du folgendes opfern müssen:", "To devote yourself to " .. gods.GOD_NAME_EN[god] .. ", you'll have to donate:");
+--                    common.InformNLS(User, "Als Priester einer anderen Gottheit must du deiner Gottheit abschwören, um ein Priester " .. gods.getNameDe(god) .. "s zu werden.", "As priest of another god, you'll have to abjure your god to become a priest of " .. gods.getNameEn(god) .. ".");
+--                    common.InformNLS(User, "Um ein Priester " .. gods.getNameDe(god) .. "s zu werden, wirst du folgendes opfern müssen:", "To devote yourself to " .. gods.getNameEn(god) .. ", you'll have to donate:");
 --                    User:inform(tellStuff(devoteItems[god], User:getPlayerLanguage())); --stuff4devotee
 --                    User:inform(tellStuff(priestItems[god], User:getPlayerLanguage())); --stuff4priest
 --                end
@@ -409,12 +423,12 @@ function M.UseItem(User, SourceItem, ltstate)
         common.InformNLS(User, "Du berührst den Altar, die Abwesenheit göttlichen Wirkens ist offensichtlich.", "You touch the altar, the absence of divine blessing is obvious.");
     else --dedicated altar
         local title = common.GetNLS(User,
-            "Altar " .. gods.GOD_NAME_DE[god] .. "s",
-            "Altar of " .. gods.GOD_NAME_EN[god]
+            "Altar " .. gods.getNameDe(god) .. "s",
+            "Altar of " .. gods.getNameEn(god)
         )
         local description = common.GetNLS(User,
-            "Altar " .. gods.GOD_NAME_DE[god] .. "s, " .. gods.DESCRIPTION_DE[god] .. ". FIXME",
-            "Altar of " .. gods.GOD_NAME_EN[god] .. ", the " .. gods.DESCRIPTION_EN[god] .. ".\nChoose your action:"
+            "Altar " .. gods.getNameDe(god) .. "s, " .. gods.getDescriptionDe(god) .. ". FIXME",
+            "Altar of " .. gods.getNameEn(god) .. ", the " .. gods.getDescriptionEn(god) .. ".\nChoose your action:"
         )
         local dialogOptions = {
             -- TODO icons
@@ -460,13 +474,13 @@ function M.UseItem(User, SourceItem, ltstate)
 --                --a noob without a god
 --                if checkStuff(User, devoteItems[god]) then
 --                    deleteStuff(User, devoteItems[god]);
---                    common.InformNLS(User, "Du empfängst den Segen " .. gods.GOD_DE[god] .. "s und weihst dein Leben dem Glaube an die Gottheit. Dein Opfer:", "You receive the blessing of " .. gods.GOD_NAME_EN[god] .. " and devote your life to the faith in the divinity. Your donation:");
+--                    common.InformNLS(User, "Du empfängst den Segen " .. gods.GOD_DE[god] .. "s und weihst dein Leben dem Glaube an die Gottheit. Dein Opfer:", "You receive the blessing of " .. gods.getNameEn(god) .. " and devote your life to the faith in the divinity. Your donation:");
 --                    world:gfx(16, User.pos);
 --                    world:makeSound(13, User.pos);
 --                    User:setQuestProgress(401, god); --become devotee
 --                    User:setQuestProgress(402, 0); --the char was no priest before - must not be one afterwards
 --                else --does not have the stuff
---                    common.InformNLS(User, "Um dich " .. gods.GOD_DE[god] .. " zu weihen, wirst du folgendes opfern müssen:", "To devote yourself to " .. gods.GOD_NAME_EN[god] .. ", you'll have to donate:");
+--                    common.InformNLS(User, "Um dich " .. gods.GOD_DE[god] .. " zu weihen, wirst du folgendes opfern müssen:", "To devote yourself to " .. gods.getNameEn(god) .. ", you'll have to donate:");
 --                end
 --                User:inform(tellStuff(devoteItems[god], User:getPlayerLanguage())); --stuff4devotee
 --            elseif (devotion == god) then

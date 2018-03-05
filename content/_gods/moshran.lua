@@ -15,6 +15,8 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
+local common = require('base.common')
+local globalvar = require("base.globalvar")
 local class = require('base.class')
 local baseyounger = require("content._gods.baseyounger")
 
@@ -33,9 +35,19 @@ function M.Moshran:_init(ordinal, youngerOrdinal)
     self.nameEn = "Moshran"
     self.descriptionDe = "der Gott des Blutes und der Gebeine"
     self.descriptionEn = "God of blood and bones"
-    self.devotionItems = {} --FIXME
-
+    self.devotionItems = {{id = 2551, number = 1}, {id = 2552, number = 1}} --FIXME
 end
 
+function M.Moshran:informBecomeDevoted(User)
+    common.InformNLS(User, "FIXME Ihr empfangt den Segen " .. self.nameDe .. "s und weiht euer Leben dem Glaube an die Gottheit.", "FIXME " .. self.nameEn .. " is your master now.")
+    world:gfx(globalvar.gfxDEMFIRE, User.pos)
+    world:makeSound(globalvar.sfxEVIL_LAUGH, User.pos)
+end
+
+function M.Moshran:informBecomePriest(User)
+    common.InformNLS(User, "FIXME " .. self.nameDe .. "", "FIXME " .. self.nameEn .. " consumes your soul and gives demonic powers to the empty shell that remains.")
+    world:gfx(globalvar.gfxDEMFIRE, User.pos)
+    world:makeSound(globalvar.sfxEVIL_LAUGH, User.pos)
+end
 
 return M

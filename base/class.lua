@@ -113,7 +113,7 @@ end
 -- @return true in case the object is a instance of the class, false if not
 function __default_is_a(self, klass)
     local m = getmetatable(self)
-    while m do 
+    while m do
         if m == klass then
             return true
         end
