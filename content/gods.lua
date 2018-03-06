@@ -275,6 +275,27 @@ function M.getItemsForDevotion(godOrdinal)
 end
 
 ---
+-- Get string describing the character relations with gods (in two languages)
+-- @param User the char to check
+function M.getCharStatus(User)
+    local statusDe
+    local statusEn
+    local godObj = M._getDevotionGod(User)
+    if not godObj then
+        statusDe = "FIXME not devoted to any God"
+        statusEn = "not devoted to any God"
+    elseif M._getPriesthoodGod(User) == godObj then
+        statusDe = "FIXME priest of " .. godObj.nameEn
+        statusEn = "priest of " .. godObj.nameEn
+    else
+        statusDe = "FIXME devoted to " .. godObj.nameEn
+        statusEn = "devoted to " .. godObj.nameEn
+    end
+    return statusDe, statusEn
+end
+
+
+---
 -- Check if char is devoted to a god
 -- @param User the char to check
 -- @param godOrdinal a god ordinal (e.g. gods.GOD_ELARA) or set of ordinals (e.g. gods.YOUNGER_GODS) to be checked.

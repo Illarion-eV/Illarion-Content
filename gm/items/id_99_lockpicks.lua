@@ -563,14 +563,7 @@ local function charInfo(chosenPlayer)
             "\nIdle for [s]: "..tostring(chosenPlayer:idleTime()) ..
             "\n" .. factionInfo
 
-    local godInfo = ""
-    if chosenPlayer:getQuestProgress(402) > 0 then
-        godInfo = "Priest of "..gods.GOD_EN[chosenPlayer:getQuestProgress(402)]
-    elseif chosenPlayer:getQuestProgress(401) > 0 then
-        godInfo = "Devoted to "..gods.GOD_EN[chosenPlayer:getQuestProgress(401)]
-    else
-        godInfo = "not devoted to any God"
-    end
+    local godInfo = gods.getCharStatus(chosenPlayer)
     output = output .. "\n" .. godInfo
 
     local specialInfo = ""
