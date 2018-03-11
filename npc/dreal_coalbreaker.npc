@@ -68,9 +68,9 @@ itemShoes = 1517
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Dreal Coalbreaker, ein Priester des Irmorom. Schlüsselwörter: Hallo, Gott.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetin's"
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetin's"
-"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied", "Hiho", "Hallo", "Hey", "Greeb" -> "Tach"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetin's."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetin's."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied", "Hiho", "Hallo", "Hey", "Greeb" -> "Tach."
 "Farewell", "Bye", "Fare well", "See you" -> "Irmorom be with ya."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Irmorom be with ya."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl", "Ciao", "Adieu", "Au revoir", "Farebba" -> "Irmorom mit dir."
