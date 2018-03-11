@@ -1,0 +1,162 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+------------------------------------------------------------------------------AC
+-- NPC Name: Dreal Coalbreaker                                           None --
+-- NPC Job:  priest                                                           --
+--                                                                            --
+-- NPC Race: dwarf                      NPC Position:  311,253,1              --
+-- NPC Sex:  male                       NPC Direction: west                   --
+--                                                                            --
+-- Author:   Dantagon                                                         --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+
+-- SQL
+--INSERT INTO npc (npc_type,npc_posx,npc_posy,npc_posz,npc_faceto,npc_is_healer,npc_name, npc_script,npc_sex,npc_hair,npc_beard,npc_hairred,npc_hairgreen,npc_hairblue,npc_skinred,npc_skingreen,npc_skinblue,npc_hairalpha,npc_skinalpha) VALUES(1,311,253,1,6,FALSE,'Dreal Coalbreaker','npc.dreal_coalbreaker',0,2,4,79,79,79,255,228,1,255,255);
+
+name = "Dreal Coalbreaker"
+race = dwarf
+sex = male
+position = 311, 253, 1
+direction = west
+affiliation = "None"
+job = "Priest"
+
+language = common
+defaultLanguage = common
+autointroduce = on
+
+author = "Dantagon"
+
+lookatDE = "Dieser NPC ist Dreal Coalbreaker, ein Priester des Irmorom."
+lookatUS = "This NPC is Dreal Coalbreaker, the Priest of Irmorom."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+-- appearance not defined yet
+hairID = 2
+beardID = 4
+colorHair = 79, 79, 79
+colorSkin = 255, 228, 1
+itemHead = 1419
+itemChest = 1445
+itemCoat = 2418
+itemMainHand = 23
+itemSecondHand = 0
+itemHands = 1468
+itemTrousers = 2111
+itemShoes = 1517
+
+------------------------------------------------------------------------------AC
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Dreal Coalbreaker, the Priest of Irmorom. Keywords: Hello, god.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Dreal Coalbreaker, ein Priester des Irmorom. Schlüsselwörter: Hallo, Gott.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetin's"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetin's"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied", "Hiho", "Hallo", "Hey", "Greeb" -> "Tach"
+"Farewell", "Bye", "Fare well", "See you" -> "Irmorom be with ya."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Irmorom be with ya."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl", "Ciao", "Adieu", "Au revoir", "Farebba" -> "Irmorom mit dir."
+"How are you", "How feel", "How do you do" -> "Oh, I'm doin' fairly well."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Oh, mir geht's ziemlich gut."
+"your name", "who are you", "who art thou" -> "I am Dreal Coalbreaker."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Dreal Coalbreaker."
+
+
+-- Mandatory: Trade Hooks, use the trade consequence for traders
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I'm no merchant. Ya can find ‘em in the marketplace."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler. Die findest du am Markt."
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am a priest of Irmorom. I tend to his altar. But every once in awhile I manage ta get away and do some blacksmithing."
+english, "job" -> "I am a priest of Irmorom. I tend to his altar. But every once in awhile I manage ta get away and do some blacksmithing."
+"job", "beruf" -> "Ich bin Irmorompriester und kümmere mich um seinen Altar. Aber hin und wieder schaffe ich's fort zu kommen und ein wenig zu schmieden."
+
+-- Gods
+"God" -> "Irmorom is who I follow. Though I do my best to respect the other gods. They all have something to teach us and an effect on our day to day lives."
+"Gott" -> "Ich folge Irmorom. Allerdings tue ich auch mein bestes die anderen Götter zu respektieren. Sie alle können uns etwas lehren und unser alltägliches Leben beeinflussen."
+english, "Religion" -> "There are five elder gods, all of whom want little to do with us. The eleven younger gods hold the world in their stead. Of those, I follow Irmorom."
+"Religion" -> "Es gibt die fünf Alten Götter, die allesamt nur noch wenig mit uns zu tun haben wollen. An ihre Stelle sind die elf Jungen Götter getreten. Als einem von ihnen folge ich Irmorom."
+english, "Adron" -> "He is the god of wine and merrymakin'. All of his followers enjoy a good drink and the camaraderie of others. Ye can find Adron's altar in the tavern over in Runewick.  I never thought them mages did anything fun."
+"Adron" -> "Er ist der Gott des Weines und der Heiterkeit. All seine Anhänger lieben einen guten Schluck und die Gesellschaft von anderen. Du findest Adrons Altar in der Taverne drüben in Runewick. Ich hätte nie gedacht, dass Magier etwas lustiges tun könnten."
+english, "Bragon" -> "He's the elder god of fire. Bragon's flame still lights our forges, even though he has long since left this realm. His priests and follower follow Malachin now."
+"Bragon:Er ist der alte Gott des Feuers. Selbst wenn er vor langer Zeit unsere Welt verlassen hat, brennt Bragons Feuer noch heute in unseren Schmieden. Seine Priester und Anhänger folgen nun Malachin." -> "Bragon:Er ist der alte Gott des Feuers. Selbst wenn er vor langer Zeit unsere Welt verlassen hat, brennt Bragons Feuer noch heute in unseren Schmieden. Seine Priester und Anhänger folgen nun Malachin."
+english, "Cherga" -> "There is not one person alive who will not meet Cherga in the afterlife. I see no reason ta fear death, for it comes to us all. I would not go seek her out. Should ya do, her altar is on Pauldron Isle."
+"Cherga" -> "Es gibt niemanden unter den Lebenden, der im Jenseits nicht vor Cherga treten wird. Ich sehe keinen Grund den Tod zu fürchten, er kommt zu uns allen. Ich würde aber auch nicht losziehen sie zu suchen. Solltest du das wollen, findest du sie auf der Schulterplatte. "
+english, "Elara" -> "Elara is the goddess of knowledge. ‘Er followers are all into books and written learnin'. They'd rather sit in a library than go do. It doesn't surprise me that her altar is buried in the Runewick Library."
+"Elara" -> "Elara ist die Göttin der Weisheit. Ihre Anhänger lieben Bücher und studieren Schriften. Lieber sitzen sie in einer Bücherei als mal raus zu gehen. Überrascht mich nicht, dass ihr Altar in der Bücherei Runewicks vergraben ist."
+english, "Eldan" -> "He's the elder god of spirit. Bit of hermit along with his few followers. Eldan's never been interested in dis world, though his spirit is in all of us. Da few that used ta follow him, follow Elara now."
+"Eldan" -> "Er ist der alte Gott des Geistes. Wie seine Anhänger ist er ein Einsiedler. Eldan hat unsere Welt noch nie interessiert, doch sein Geist ist in uns allen. Seine wenigen Anhänger haben sich Elara zugewandt."
+english, "Findari" -> "Findari is the elder goddess of air. ‘Er wind blows the sails of trade ships across seas, but also brings the storms to sink ‘em. Sailors fear ‘er, though ‘er bard follow Adron now."
+"Findari" -> "Findari ist die alte Göttin der Luft. Ihre Winde blasen in die Segel der Handelsschiffe, ihre Stürme versenken sie. Seeleute fürchten sie aber ihre Barden folgen jetzt Adron."
+english, "Irmorom" -> "Irmorom is the god of trade and fine craftsmanship. Many a crafter looks to him for inspiration in their work and merchants pray to him in hopes that business will thrive. Dwarves tend to be both.", "Should a follower of Irmorom die, they are brought before him in his mountain hall. There they must create their final, finest work. Should they succeed, they are sent to paradise. Fail and be reborn to learn anew.", "Those who follow Irmorom believe that coin should be gained from hard work, fair trade, and fine craftsmanship. Thieves and swindlers will not find favor from Irmorom."
+"Irmorom" -> "Irmorom ist der Gott des Handels und des Handwerks. Viele Handwerker erhoffen von ihm Inspiration für ihre Arbeit, Händler bitten ihn um gute Geschäfte. Wir Zwerge neigen dazu beides zu sein.", "Stirbt ein Anhänger Irmoroms, so wird er zu ihm in seine Felsenhalle gebracht. Dort müssen sie ihr letztes und bestes Werk anfertigen. Hat er Erfolg, wird er ins Paradies geschickt. Scheiter und werde wiedergeboren um es neu zu lernen.", "Die, die Irmorom folgen glauben, dass Geld durch ehrlicher Arbeit, ehrlichem Handel und vom Handwerk verdient werden sollte. Diebe und Schwindler werden keine Gunst von Irmorom erhalten."
+english, "Malachin" -> "He's the god of the hunt. Malachin's followers are great fighters and incredible trackers. Look for his altar south of Cadomyr, above the mine. "
+"Malachin" -> "Er ist der Gott der Jagd. Malachins Anhänger sind hervorragende Krieger und unglaubliche Fährtenleser. Suche nach seinen Altar südlich von Cadomyr, über der Mine."
+english, "Moshran" -> "#me pales, eyes going wide. After a moment's pause he turns towards you, furious, ‘Do not speak his name anywhere near this here altar! Do ya hear me?!'"
+"Moshran" -> "#me wird blass, die Augen groß. Nach einer Weile dreht er sich verärgert zu dir. ‘Sprich seinen Namen niemals in der Nähe dieses Altars! Hast du mich verstanden?'"
+english, "Nargun" -> "#w Nargun's da god of chaos. His followers are all mad, they is. He's da reason that strange things occur and water wheels turn backwards. His altar is in Galmair's black market, well below ground."
+"Nargun" -> "#w Nargun ist der Gott des Chaos. Ihm folgen nur Verrückte. Er ist der Grund dafür, dass seltsame Dinge passieren und Wasserräder sich rückwärts drehen. Sein Tempel ist am Schwarzmarkt von Galmair, tief unter der Erde."
+english, "Oldra" -> "She's the goddess of fertility and the harvest. Those who follow Oldra tend ta be midwives and mothers. Others are halflings, farmers, and cooks. It's why ya can find her altar in Yewdale, west of Runewick."
+"Oldra" -> "Sie ist die Göttin der Fruchtbarkeit und der Ernte. Vor allem Hebammen und Mütter beten zu ihr. Dazu kommen Halblinge, Landwirte und Köche. Deshalb findest du ihren Altar in Eibental, westlich von Runewick."
+english, "Ronagan" -> "I do not consider the god of criminals to be a respectable god. His followers like to steal from honest crafters and merchants. If ye wish ta look, Ronagan's altar is in the Galmair underbelly."
+"Ronagan:Ich halte den Gott der Verbrecher nicht für einen ehrbaren Gott. Seine Anhänger stehlen von hart arbeitenden Handwerkern und Händlern. Wenn du ihn suchst, Ronagans Altar findet sich in Galmairs Untergrund." -> "Ronagan:Ich halte den Gott der Verbrecher nicht für einen ehrbaren Gott. Seine Anhänger stehlen von hart arbeitenden Handwerkern und Händlern. Wenn du ihn suchst, Ronagans Altar findet sich in Galmairs Untergrund."
+english, "Sirani" -> "Now there's a lovely goddess. Sirani and ‘er followers are all about the pleasurable things in life. They make for hospitable hosts should ye find yerself in need. ‘Er altar is near Cadomyr."
+"Sirani" -> "Sie ist eine liebenswürdige Göttin. Sirani und ihre Anhänger befassen sich mit all den erfreulichen Dingen im Leben. Sie sind gastfreundlich zu Leuten in Not. Ihr Altar findet sich nahe Cadomyrs."
+english, "Tanora" -> "She's the elder goddess of water. Tanora still walks these lands, as do ‘er lizardfolk children. I hear from those that have met her, that she seems lost."
+"Tanora" -> "Sie ist die ältere Göttin des Wassers. Tanora weilt noch unter den Sterblichen so wie auch ihre Echsenmenschen. Leute, die sie getroffen haben, berichten sie würde verloren aussehe."
+english, "Urshara" -> "She's the elder goddess of earth. ‘Er soil helps makes crops grow. Few elder elves and druids still follow ‘er. Most follow Oldra now in ‘er stead."
+"Urshara" -> "Sie ist die ältere Göttin der Erde. Ihr Boden lässt die Pflanzen wachsen. Ein paar alte Elfen und Druiden folgen ihr noch immer. Die meisten jedoch haben sich Oldra zugewandt."
+english, "Zhambra" -> "He's the god of loyalty. Zhambra's followers are true to their word. Ya can always depend on them to be fair. In a fight I want one of ‘em by my side. His altar is near the palace in Cadomyr."
+"Zhambra" -> "Er ist der Gott der Treue. Zhambras Anhänger stehen zu ihrem Wort. Man kann sich darauf verlassen, dass sie ehrlich sind. So einen wünsch ich mir an meiner Seite wenn es zum Kampf kommt. Sein Altar ist nahe des Palastes in Cadomyr."
+
+-- Faction stuff
+"archmage" -> "He's a smart one, I'll tell ya that. But the old Archmage Morgan doesn't leave his abode very often."
+english, "Elvaine", "Morgan" -> "He's a smart one, I'll tell ya that. But the old Archmage Morgan doesn't leave his abode very often."
+"Elvaine", "Morgan", "Erzmagier" -> "Er ist klug, sag ich dir. Doch der alte Erzmagier Morgan verlässt seine Behausung nicht sehr oft."
+english, "Runewick" -> "Whole town's filled with mages. That's where the original magic academy on Illarion is. I don't got anything against ‘em learned types, but I think they ought to do more handiwork than bookwork."
+"Runewick" -> "Die ganze Stadt ist voller Magier. Dies ist auch der Ort der ursprünglichen magischen Akademie in Illarion. Ich hab ja nichts gegen Magier aber sie sollten mehr Handwerk als Studien betreiben."
+english, "Valerio", "Guilianni", "Don" -> "The Don inherited Galmair from his father. Done good too. The town has flourished under ‘im. He rules the town with an iron fist. So don't ya go crossing him or disrupting anything here."
+"Valerio", "Guilianni", "Don" -> "Der Don erbte Galmair von seinem Vater. Auch er macht das gut, die Stadt gedeiht unter ihm. Er regiert mit eiserner Faust. Besser du kommst ihm nicht in die Quere."
+english, "Galmair" -> "The best craftsmen can be found here. Most of ‘em smiths of some kind. I can hear the hammers in the smithy from dawn til dusk. It is music to my ears, and it pleases Irmorom."
+"Galmair" -> "Hier findest du die besten Handwerker. Meist Schmiede und so was. Ich höre den Klang der Hämmer die ganze Nacht lang. Das ist Musik in meinen Ohren und gefällt Irmorom."
+"Queen" -> "She it a pretty young thing. The only heir to the Edwards line she is. Cadomyr has changed significantly under her rule."
+english, "rosaline", "edwards" -> "She it a pretty young thing. The only heir to the Edwards line she is. Cadomyr has changed significantly under her rule."
+"Königin", "rosaline", "edwards" -> "Sie ist ein hübsches junges Ding. Die einzige verbliebene Nachfahre der Edwards. Cadomyr hat sich unter ihrer Regierung ganz schön verändert."
+english, "Cadomyr" -> "The nobles of Cadomyr enjoy displaying their wealth. Their vanity lines Galmairian pockets with Cadomyrian gold."
+"Cadomyr" -> "Die Adligen Cadomyrs stellen ihren Reichtum gerne zur Schau und füllen so Galmairs Taschen mit Cadomyrer Gold."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Nichts geht über einen fairen Handel, eine gelungene Arbeit oder einen Krug guten Bieres.", "There is nothing better in life than knowing that ya have made a fair trade, created a fine work, and drunk a good beer."
+cycletext "Ein guter Handwerker arbeitet nur mit Verstand und Muskeln, ein hervorragender mit Herz und Seele.", "A good crafter puts only his mind and his muscle into his work. A fine crafter puts his heart and soul into it."
+cycletext "Ich kann Irmas kaum erwarten. Der große Markt, die Handwerksmesse zu Irmoroms Ehren  und das beste Bier geteilt mit Freunden.", "I can not wait for Irmas. Grand market days, contests to find whom Irmorom has blessed this year, and the finest brews shared among friends."
+cycletext "Versuch nicht dich mit jedem Handwerk zu beschäftigen, oder du wirst es nichtmal schaffen eins zu meistern.", "Do not dabble in all trades, for ya will never be able to master even one."
+cycletext "Wettbewerb belebt das Geschäft.", "A little competition goes a long way."
+cycletext "#me schnippt eine Goldmünze in die Luft.", "#me flips a gold coin."
+cycletext "#me nimmt einen großen Schluck aus einer Bierflasche.", "#me takes a long swig from a bottle of beer."
+cycletext "#me schnitzt an einem Stück Holz.", "#me widdles a piece of wood with a knife."
+cycletext "#me untersucht einen Erzbrocken genau.", "#me closely examines an ore."
+cycletext "#me summt eine fröhliche Melodie.", "#me hums a merry tune."

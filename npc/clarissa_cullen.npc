@@ -1,0 +1,163 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+------------------------------------------------------------------------------AC
+-- NPC Name: Clarissa Cullen                                           None   --
+-- NPC Job:  priest                                                           --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  129, 569, 0            --
+-- NPC Sex:  female                       NPC Direction: west                 --
+--                                                                            --
+-- Author:   Dantagon                                                         --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+
+-- SQL
+--INSERT INTO npc (npc_type,npc_posx,npc_posy,npc_posz,npc_faceto,npc_is_healer,npc_name, npc_script,npc_sex,npc_hair,npc_beard,npc_hairred,npc_hairgreen,npc_hairblue,npc_skinred,npc_skingreen,npc_skinblue,npc_hairalpha,npc_skinalpha) VALUES(0,129,569,0,6,FALSE,'Clarissa Cullen','npc.clarissa_cullen',1,4,0,205,102,29,232,187,145,255,255);
+
+name = "Clarissa Cullen"
+race = human
+sex = female
+position = 129, 569, 0
+direction = west
+affiliation = "None"
+job = "Priest"
+
+language = common
+defaultLanguage = common
+autointroduce = on
+
+author = "Dantagon"
+
+lookatDE = "Dieser NPC ist Clarissa Cullen, eine Priesterin des Zhambra."
+lookatUS = "This NPC is Clarissa Cullen, the Priestess of Zhambra."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+-- appearance not defined yet
+hairID = 4
+beardID = 0
+colorHair = 205, 102, 29
+colorSkin = 232, 187, 145
+itemHead = 0
+itemChest = 2400
+itemCoat = 2419
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 1465
+itemTrousers = 1499
+itemShoes = 1511
+
+------------------------------------------------------------------------------AC
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Clarissa Cullen, the Priestess of Zhambra. Keywords: Hello, god.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Clarissa Cullen, eine Priesterin des Zhambra. Schlüsselwörter: Hallo, Gott.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted!"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted!"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied", "Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt!"
+"Farewell", "Bye", "Fare well", "See you" -> "Until we meet again, friend."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Until we meet again, friend."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl", "Ciao", "Adieu", "Au revoir", "Farebba" -> "Mir geht es gut. Solange die Sonne auf Cadomyr scheint, kann ich mich nicht beklagen."
+"How are you", "How feel", "How do you do" -> "I am well. So long as the sun shines on Cadomyr, I can not complain."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut. Solange die Sonne auf Cadomyr scheint, kann ich mich nicht beklagen."
+"your name", "who are you", "who art thou" -> "I am Clarissa Cullen. A pleasure to meet you."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> " Ich bin Clarissa Cullen. Freut mich euch kennen zu lernen."
+
+-- Mandatory: Trade Hooks, use the trade consequence for traders
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Merchants you can find at the market place."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Händler kannst du am markt finden."
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am a paladin of Zhambra. I have served Cadomyr faithfully and fought in numerous battles on her behalf. Now I serve Queen Rosaline and Cadomyr by attending to Zhambras' Altar and training new recruits."
+english, "job" -> "I am a paladin of Zhambra. I have served Cadomyr faithfully and fought in numerous battles on her behalf. Now I serve Queen Rosaline and Cadomyr by attending to Zhambras' Altar and training new recruits."
+"job", "beruf" -> "Ich bin ein Paladin von Zhambra. Ich habe Cadomyr treu gedient und in zahlreichen Schlachten in ihrem Namen gekämpft. Jetzt diene ich Königin Rosaline und Cadomyr, indem ich Zhambras Altar besuche und neue Rekruten trainiere."
+
+-- Gods
+"God" -> "There are eleven younger gods and five elder gods. I serve the younger god Zhambra."
+"Gott" -> "Es gibt elf junge und fünf alte Götter. Ich diene dem jungen Gott Zhambra."
+english, "Religion" -> "There are eleven younger gods and five elder gods. I serve the younger god Zhambra."
+"Religion" -> "Es gibt elf junge und fünf alte Götter. Ich diene dem jungen Gott Zhambra."
+english, "Adron" -> "He is the god of wine and festivities. Most of Adron's followers are drunkards. Though I do appreciate the camaraderie they share over a glass or three of wine. His altar can be found in the tavern in Runewick. "
+"Adron" -> "Er ist der Gott des Weines und der Feste. Die meisten Anhänger von Adron sind Säufer. Trotzdem schätze ich die Kameradschaft, welche sie  über ein oder mehrere Gläser Wein teilen. Sein Altar kann in der Taverne in Runewick gefunden werden."
+english, "Bragon" -> "Bragon is the elder god of fire. He is just and noble, as are his followers. They are also ferocious warriors. I do not suggest getting on the bad side of any single one of them. His followers now follow Malachin."
+"Bragon" -> "Bragon ist der ältere Gott des Feuers. Er ist gerecht und edel wie seine Anhänger. Sie sind auch wilde Krieger. Ich schlage  vor, sie besser nicht zum Feind zu haben. Seine Anhänger folgen nun Malachin."
+english, "Cherga" -> "She is the goddess of death, but she does not cause it haphazardly. Cherga guides our spirits in the afterlife. Her followers nobily give peace to the dead and their families. Her altar is found in the graveyard on Pauldron Isle."
+"Cherga" -> "Sie ist die Göttin des Todes, aber sie macht es nicht zufällig. Cherga führt unsere Geister ins Jenseits. Ihre ehrenvollen Anhänger geben den Toten und ihren Familien Frieden. Ihr Altar befindet sich auf dem Friedhof auf der Schulterplatten Insel"
+english, "Elara" -> "Goddess of wisdom. Her followers are people who spend most of their time sealed off in libraries away from others. Elara's altar is suitably located in the library in Runewick. I imagine it to be a rather dull place."
+"Elara" -> "Göttin der Weisheit. Ihre Anhänger sind Menschen, die die meiste Zeit in Bibliotheken weg von anderen verbringen. Elaras Altar befindet sich in der Bibliothek in Runewick. Ich stelle mir vor, dass es ein ziemlich langweiliger Ort ist."
+english, "Eldan" -> "Eldan is the god of the spirit. He cares the least about the mortal realm and prefers to seal himself away from others. Few hermits follow him. All others follow Elara now."
+"Eldan" -> "Eldan ist der Gott des Geistes. Er kümmert sich am wenigsten um das sterbliche Reich und zieht es vor, sich von anderen zu fern zu bleiben. Nur wenige Einsiedler folgten ihm. Alle anderen folgen  Elara."
+english, "Findari" -> "Goddess of air. Her winds are the cause of violent sandstorms out in the desert. Though if not for her, music would not carry on the wind. Findari's followers now follow Adron."
+"Findari" -> "Sie ist die Göttin der Luft. Ihre Winde verursachen die schlimmen Sandstürme in der Wüste. Doch ohne sie gäbe es auch keine Musik.  Die meisten ihrer Anhänger sind zu Adron gewechselt."
+english, "Irmorom" -> "God of crafts and trade. Irmorom is patron to industrious dwarves. His followers love coin as much as they do fine craftsmanship. His altar is built into the mountains in Galmair."
+"Irmorom" -> "Gott des Handwerks und des Handels. Irmorom ist Schirmherr für fleißige Zwerge. Seine Anhänger lieben die Münze so sehr wie sie feine Handwerkskunst machen. Sein Altar ist in die Berge Galmairs gebaut."
+english, "Malachin" -> "Malachin is the god of the hunt and of battle. His followers are apt rangers and honourable warriors. He stands for what is right and just, and is against those who oppose the law. His altar sits above the Cornerstone of Candour."
+"Malachin" -> "Malachin ist der Gott der Jagd und der Schlacht. Seine Anhänger sind treffsichere Ranger und ehrenvolle Krieger. Er steht für das Richtige und Gerechte und ist gegen diejenigen, die dem Gesetz widersprechen. Sein Altar sitzt über dem Grundstein von Cadomyr"
+english, "Moshran" -> "#me drops her hand to her sword, glaring, ‘Do not speak that name in my presence!'"
+"Moshran" -> "Sprich nicht seinen Namen in meiner Gegenwart."
+english, "Nargun" -> "#me rolls her eyes. ‘He is the god of mischief. Though all of his followers are gamblers or babbling fools. His altar is located somewhere in the Galmair sewers, along with the rest of his followers.'"
+"Nargun" -> "#me rollt mit den Augen. 'Er ist der Gott des Unfuges. Alle seine Anhänger sind Spieler oder plappernde Narren. Sein Altar befindet sich irgendwo in den Abwasserkanälen Galmairs zusammen mit dem Rest seiner Anhänger.'"
+english, "Oldra" -> "Oldra is the goddess of life and fertility. Her followers are skilled healers and great cooks. Mothers pray to her for an easy birth and sanity while raising children. Her altar is located in Yewdale within Runewick."
+"Oldra" -> "Oldra ist die Göttin des Lebens und der Fruchtbarkeit. Ihre Anhänger sind erfahrene Heiler und hervorragende Köche. Die Mütter beten zu ihr für eine leichte Geburt  und Vernunft bei der Kindererziehung. Ihr Altar befindet sich in Eibental im Runewick."
+english, "Ronagan" -> "Only criminals pray to the god of thieves and shadows. Ronagan and his followers take pleasure in disorder. But by the gods, are they loyal to one another. His altar is found in the dark underbelly of Galmair."
+"Ronagan" -> "Nur Verbrecher beten zum Gott der Diebe und Schatten. Ronagan und seine Anhänger haben Freude an der Unordnung. Aber bei den Göttern sie sind einander treu. Sein Altar findet sich im dunklen Unterleib von Galmair."
+english, "Sirani" -> "Goddess of love and beauty. If you need food, shelter, or healing, seek out a Sirani follower. If you dare to demean women, you will soon wish you have spoken otherwise. You can find her altar in an oasis south of the Cadomyr gate."
+"Sirani" -> "Göttin der Liebe und Schönheit. Wenn Sie Nahrung, Schutz oder Heilung benötigen, suchen Sie einen Sirani-Anhänger. Wenn du es wagst, Frauen zu erniedrigen, wirst du bald wünschen, dass du anders gesprochen hättest. Sie können ihren Altar in einer Oase südlich des Cadomyr-Tores finden."
+english, "Tanora" -> "Tanora is the elder goddess of water. She is the mother to Lizards. Lizardfolk in turn are fiercely loyal to her. She still sometimes walks the realm of mortals even though the other elder gods remain distant. "
+"Tanora" -> "Tanora ist die ältere Göttin des Wassers. Sie ist die Mutter der Echsen. Echsenkrieger wiederum sind ihr treu ergeben. Sie geht manchmal noch in das Reich der Sterblichen, auch wenn die anderen älteren Götter weit weg bleiben."
+english, "Ushara" -> "Ushara is the elder goddess of earth. She is a wise, motherly figure who has no interest in goods of monetary value. Those few who follow her are elderly druids. All others have converted to following Oldra."
+"Urshara" -> "Urshara ist die ältere Göttin der Erde. Sie ist eine weise, mütterliche Gestalt, die kein Interesse an dem Geldwert hat. Die wenigen, die ihr folgen, sind ältere Druiden. Alle anderen haben sich Oldra zugewandt."
+english, "Zhambra" -> "Zhambra is the god of friendship and loyalty. He is noble and honourable, as are those who follow him. Pray to him for the safety of loved ones in battle.", "In the afterlife, Zhambra counts his followers friends. Should they be numerous and the follower has been loyal to them in life they are lead to paradise. Should they have failed, Zhambra sends them back to be reborn.", "A follower for Zhambra's word is their bond. They are sworn to uphold what is fair and just. To intentionally deceive another is the most reprehensible thing that can be done to a person, especially a friend."
+"Zhambra" -> "Zhambra ist der Gott der Freundschaft und Loyalität. Er ist edel und ehrenhaft, wie diejenigen, die ihm folgen. Bete zu ihm für die Sicherheit der Geliebten in der Schlacht.", "Im Jenseits zählt Zhambra die Freunde seiner Anhänger. Sollten sie zahlreich sein und der Anhänger ist ihnen im Leben treu gewesen, werden sie zum Paradies geführt. Sollten sie versagt haben, schickt Zhambra sie zurück, um wiedergeboren zu werden.", "Das Wort eines Anhängers Zhambras ist bindend. Sie  schwören, das zu halten, was fair und gerecht ist. Und einen anderen absichtlich zu täuschen, ist das Verwerflichste, was einer Person, besonders einem Freund, antun kann."
+
+-- Faction stuff
+"archmage" -> "From what I hear, he is an incredibly accomplished mage. He is also a shut in who makes his home an an island that can only be reached by a magical portal. He is loyal only to his work."
+english, "Elvaine", "Morgan" -> "From what I hear, he is an incredibly accomplished mage. He is also a shut in who makes his home an an island that can only be reached by a magical portal. He is loyal only to his work."
+"Elvaine", "Morgan", "Erzmagier" -> "Ich hörte er sei ein unglaublicher Magier. Der kennt nichts als seine Bücher und lebt auf einer Insel, die nur über ein magisches Portal erreichbar ist."
+english, "Runewick" -> "It is home to the largest library on Illarion and is the busiest port of all three towns. It's people are too self absorbed in their work for my tastes."
+"Runewick" -> "Es ist die Heimat der größten Bibliothek auf Illarion und ist der geschäftigste Hafen aller drei Städte. Es sind die Leute welche selbst für meinen Geschmack zu sehr in ihrer Arbeit vertieft sind."
+english, "Valerio", "Guilianni", "Don" -> "He is a greedy individual who I wish to speak no more of."
+"Valerio", "Guilianni", "Don" -> "Er ist eine gierige Person, über die ich nicht mehr sprechen möchte."
+english, "Galmair" -> "I prefer not to concern myself with that dingy town. The Don and his people are more concerned with coin than they are the well being of others."
+"Galmair" -> "Ich ziehe es vor, mich nicht mit dieser schäbigen Stadt zu beschäftigen. Der Don und seine Leute sind mehr mit der Münze beschäftigt, als mit dem Wohlergehen Anderer."
+"Queen" -> "Queen Rosaline is wise and noble. The city of Cadomyr has flourished under her rule."
+english, "rosaline", "edwards" -> "Queen Rosaline is wise and noble. The city of Cadomyr has flourished under her rule."
+"Königin", "rosaline", "edwards" -> "Königin Rosaline ist weise und edel. Die Stadt Cadomyr ist unter ihrer Herrschaft aufgeblüht."
+english, "Cadomyr" -> "Cadomyr has been ruled by the Edwards family for decades. Substantial changes have been made to the laws since the Queen has taken the throne. Changes that may not align to Albarian standards."
+"Cadomyr" -> "Cadomyr wird seit Jahrzehnten von der Familie Edwards regiert. Erhebliche Änderungen wurden an den Gesetzen vorgenommen, seit die Königin auf den Thron gestiegen ist. Änderungen, die nicht zu albaristische Standards passen."
+english, "Albar" -> "Albar is a country a long ways from here by boat. The majority of their nobles would not appreciate the progressiveness of Cadomyr. Personally, my loyalty is to Cadomyr and not Albar."
+"Albar" -> "Albar ist ein Land, das selbst mit einem schnellen Schiff weit weg ist. Die Mehrheit ihrer Adligen würde die modernen Errungenschaften von Cadomyr nicht schätzen. Persönlich liegt meine Loyalität bei Cadomyr und nicht Albar."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Niemand ist eine Insel. Diejenigen, die das glauben, brauchen jemanden, der ihnen zeigt, wie man ein Boot baut.", "No one is an island. Those who think they are may just need someone to show them how to build a boat."
+cycletext "An seinen Freunden erkennst du das Wesen einer Person.", "You can tell the true measure of a person by the friends they keep."
+cycletext "Im Kampfe muss sich jeder auf jeden verlassen können.", "In battle it is important to know that you can trust the warrior next to you and that they can trust you."
+cycletext "Wähle deine Freunde sorgfältig. Gute Freunde beflügeln sich gegenseitig und haben Zeit füreinander. Schlechte Freunde nutzen dich aus und ruinieren dich am Ende.", "Choose your friends carefully. A good friend will grow each other's character and provide for each other in times of need. A bad friend will only provide for themselves and bring you ruin."
+cycletext "Hüte dich vor falschen Freunden. Ihre Loyalität reicht nur so weit, wie es ihnen passt. Suche die, die ehrlich zu dir sind bis ans Ende ihrer Tage.", "Beware of false friends. For their loyalty only goes as far as you can get them. Seek out instead those who will remain true to others until the end of their days."
+cycletext "#me's Hand ruht auf dem Schwertgriff.", "#me rests her hand idly on her sword hilt."
+cycletext "#me beobachtet aufmerksam die Straße.", "#me's eyes scan the road attentively."
+cycletext "#me grüßt die Vorbeigehenden freundlich.", "#me greets passers by with a nod and a friendly smile."
+cycletext "#me korrigiert den Sitz ihrer Armschiene.", "#me adjusts the straps on her vambrace. "
+cycletext "#me's goldene Rüstung glänzt in der Sonne.", "#me's golden armor shines in the sun."

@@ -1,0 +1,166 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+------------------------------------------------------------------------------AC
+-- NPC Name: Bainien Grythil                                             None --
+-- NPC Job:  priest                                                           --
+--                                                                            --
+-- NPC Race: elf                       NPC Position:  891,396,0               --
+-- NPC Sex:  female                    NPC Direction: South                   --
+--                                                                            --
+-- Author:   Dantagon                                                         --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+
+-----------------------------------------------------------
+-- edit helper
+-- eine Priesterin der Cherga eine Priesterin der Cherga
+-- the Priestess of Cherga the Priestess of Cherga
+-- SQL
+--INSERT INTO npc (npc_type,npc_posx,npc_posy,npc_posz,npc_faceto,npc_is_healer,npc_name, npc_script,npc_sex,npc_hair,npc_beard,npc_hairred,npc_hairgreen,npc_hairblue,npc_skinred,npc_skingreen,npc_skinblue,npc_hairalpha,npc_skinalpha) VALUES(3,891,396,0,4,FALSE,'Bainien Grythil','npc.bainien_grythil',1,7,0,180,180,180,238,216,174,255,255);
+
+name = "Bainien Grythil"
+race = elf
+sex = female
+position = 891, 396, 0
+direction = south
+affiliation = "None"
+job = "Priest"
+
+language = common
+defaultLanguage = common
+autointroduce = on
+
+author = "Dantagon"
+
+lookatDE = "Dieser NPC ist Bainien Grythil, eine Priesterin der Cherga."
+lookatUS = "This NPC is Bainien Grythil, the Priestess of Cherga."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+-- appearance not defined yet
+hairID = 7
+beardID = 0
+colorHair = 160, 100, 70
+colorSkin = 238, 216, 174
+itemHead = 0
+itemChest = 805
+itemCoat = 2420
+itemMainHand = 2619
+itemSecondHand = 0
+itemHands = 1449
+itemTrousers = 826
+itemShoes = 1056
+
+------------------------------------------------------------------------------AC
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Bainien Grythil, the Priestess of Cherga. Keywords: Hello, god.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Bainien Grythil, eine Priesterin der Cherga. Schlüsselwörter: Hallo, Gott.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted, child."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted, child."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied", "Hiho", "Hallo", "Hey", "Greeb" -> "Sei gegrüßt mein Kind."
+"Farewell", "Bye", "Fare well", "See you" -> "Peace be with you."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Peace be with you."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl", "Ciao", "Adieu", "Au revoir", "Farebba" -> "Friede mit dir."
+"How are you", "How feel", "How do you do" -> "Well enough for one on this side of the soil."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Danke, gut genug für jemanden auf dieser Seite des Lebens."
+"your name", "who are you", "who art thou" -> "I am Bainien Grythil. Caretaker of the dead and priestess of Cherga. I tend to her altar here on Pauldron Isle and see to it that the dead in this graveyard remain undisturbed."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Bainien Grythil, Bewacherin der Toten und Priesterin von Cherga.Ich kümmere mich um ihren Altar hier auf der Schulterplatte und gebe Acht, dass die Totenruhe eingehalten wird."
+
+
+-- Mandatory: Trade Hooks, use the trade consequence for traders
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I have no need for material goods."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich habe keinen Bedarf an materiellen Gütern."
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "As a priestess to Cherga, I am a caretaker for the dead. After death I clean their bodies and wrap them in a shroud. I pray for a peaceful rest of their spirit. And I see that their bodies here remain undisturbed."
+english, "job" -> "As a priestess to Cherga, I am a caretaker for the dead. After death I clean their bodies and wrap them in a shroud. I pray for a peaceful rest of their spirit. And I see that their bodies here remain undisturbed."
+"job", "beruf" -> "Als Priesterin von Cherga gilt meine Sorge den Toten. Ich wasche sie und ziehe ihnen das Leichenhemd über. Ich bete für eine friedliche Ruhe ihrer Seelen. Und ich pass auf, dass ihre Körper hier ungestört bleiben."
+
+-- Gods
+"God" -> "There are many gods who guide us through life. Cherga is the only one who guides us through death."
+"Gott" -> "Es gibt viele Götter, die uns im Leben begleiten, nur Cherga begleitet uns im Tode."
+english, "Religion" -> "There are eleven younger gods and five elder gods. The elder gods have long since left the mortal realm and have left its well being to the younger."
+"Religion" -> "Es gibt elf junge Götter und fünf alte. Die Alten haben diese Welt verlassen und ihr Schicksal den Jungen überlassen."
+english, "Adron" -> "Adron is the god of wine and festivals. His followers enjoy life to the fullest while they still can. His altar can be found in the tavern in Runewick."
+"Adron" -> "Adron ist der Gott des Weins und der Feste. Seine Jünger genießen das Leben solange sie noch können. Sein Altar findest du in Runewick."
+english, "Bragon" -> "He is the elder god of fire. He no longer cares for the realm of mortals. Bragon's warriors now follow Malachin."
+"Bragon" -> "Er ist der Gott des Feuers, einer der Alten. Ihn kümmert das Schicksal der Sterblichen nicht mehr. Bragons Krieger folgen nun Malachin."
+english, "Cherga" -> "Cherga is the goddess of spirits and the underworld. It is she who guides all spirits to their place in the afterlife. And it is she who decides when your work is left undone and guides your spirit back.", "Those who have served Cherga well in life, will be blessed by her in the afterlife. Her sweet kiss will transform them into a lich to continue to faithfully serve her until the end of time.", "True followers of Cherga are rare. Some seek her knowledge for powers of necromancy or for their own gain. Others, like myself, wish only to help the dead, and the undead, be at peace."
+"Cherga" -> "Cherga ist die Göttin der Geister und der Unterwelt. Sie geleitet die Geister zu ihrem Platz in der Nachwelt. Sie ist es die entscheidet wenn dein Werk noch nicht verrichtet ist und dich zurückschickt.", "Die, die ihr zu Lebzeiten huldigten werden für ihre Treue im Jenseits belohnt. Ihr süßer Kuss wird diese in einen Lich verwandeln, so dass sie ihr weiterhin treu dienen können.", "Wahre Anhänger Chergas sind selten. Manch Totenbeschwörer betet nur aus Eigennutz zu ihr. Andere jedoch helfen wie ich den Toten und Untoten in Frieden zu ruhen."
+english, "Elara" -> "She is the goddess of knowledge. Her followers are avid learners. I have had to stop some from disturbing the dead for use in their irrational experiments. Elara's altar is in the library in Runewick. "
+"Elara:Sie ist die Göttin der Weisheit.Ihre Anhänger sind fleißige Lerner. So manchen musste ich zurückhalten, der die Toten mit seinen unvernünftigen Experimenten störte. Ihr Altar findet sich in Runewick." -> "Elara:Sie ist die Göttin der Weisheit.Ihre Anhänger sind fleißige Lerner. So manchen musste ich zurückhalten, der die Toten mit seinen unvernünftigen Experimenten störte. Ihr Altar findet sich in Runewick."
+english, "Eldan" -> "He is the elder god of the spirit. He cares not for the mortal realm and prefers to spend time studying in a far off secluded place. Eldan's followers now follow Elara."
+"Eldan" -> "Er ist der alte Gott des Geistes. Die Geschicke der Sterblichen kümmern ihn nicht. Er zieht es vor, an einem weit entfernten Ort zu studieren. Eldan Anhänger folgen nun Elara."
+english, "Findari" -> "Findari is the elder goddess of air. Her chaotic winds cause damage and death. She no longer walks the mortal realm and her followers have all converted to following Adron."
+"Findari" -> "Findari ist die alte Göttin der Luft. Ihre chaotischen Winde bringen Tod und Zerstörung. Sie wandelt nicht mehr unter den Sterblichen und ihre Anhänger konvertierten zu Adron."
+english, "Irmorom" -> "Irmorom is the god of trade and craftsmanship. His followers enjoy the beauty of fine work and are materialistic in life. You can find his altar in the mountains of Galmair."
+"Irmorom" -> "Irmorom ist der Gott des Handels und des Handwerks. Seine Anhänger erfreuen sich an der Schönheit ihrer eigenen Werke und sind materialistisch im Leben. Du findest seinen Altar in den Bergen Galmairs."
+english, "Malachin" -> "He is the god of battle and the hunt. His followers are dead silent hunters and deadly fighters.  Malachins altar can be found South of Cadomyr."
+"Malachin" -> "Er ist der Gott der Jagd und der Schlachten. Seine Anhänger sind schweigsame Jäger oder tödliche Krieger. Malachins Altar findest du südlich von Cadomyr."
+english, "Moshran" -> "Do not speak his name too loud, you might attract his attention. Moshran is the god of blood and bones. His followers do disgraceful things. Clerics of Cherga have had to chase his follower from a graveyard near the Hemp Necktie quite often."
+"Moshran" -> "Sprich seinen Namen nicht zu laut, er könnte dich hören. Moshran ist der Gott des Blutes und der Gebeine. Seine Anhänger tun schändliche Dinge. Geistliche Chergas mussten seine Anhänger immer wieder von einem Friedhof beim Gasthaus zur Hanfschlinge verjagen."
+english, "Nargun" -> "Ah, Nargun. He is the chaotic god of fortune. His followers very often gamble away their coins and their lives. Everyday is an adventure to them. His altar is deep within Galmair's underground."
+"Nargun" -> "Ahh, Nargun, der chaotische Gott des Glücks. Seine Anhänger verspielen oft Geld und Leben. Jeder Tag ist ein Abenteuer für sie. Sein Altar ist tief im Untergrund Galmairs."
+english, "Oldra" -> "Goddess of fertility and the harvest. Oldra and her followers deal with the living. Healing and feeding both the body and the soul. Her altar is in the halfling village of Yewdale, near Runewick"
+"Oldra" -> "Die Göttin der Fruchtbarkeit und des Lebens. Oldra und ihre Anhänger kümmern sich um die Lebenden. Heilen und Speisen, sowohl die Seele als auch den Körper. Ihren Altar findet man im Halblingsdorf Eibental nahe Runewick."
+english, "Ronagan" -> "Thieves and shadows.. Ronagan and his followers live in the shadows and have no qualms stealing from either the living or the dead. If you truly wish to find his altar, search the Galmair underground."
+"Ronagan" -> "Diebe und Schatten. Ronagan und seine Jünger leben im Schatten und haben keine Skrupel die Toten und die Lebenden zu bestehlen. Wenn du wirklich seinen Altar finden willst such im Untergrund von Galmair. "
+english, "Sirani" -> "She is the goddess of love and pleasure. Sirani's followers choose to enjoy what pleasures they can get out of life. They have also saved many from visiting Cherga too soon. Her altar is in an oasis near Cadomyr."
+"Sirani" -> "Sie ist die Göttin der Liebe und der Freude. Siranis Anhänger haben beschlossen mitzunehmen, was immer an Vergnügen das Leben bietet. Und sie verhindern, dass viele zu früh vor Cherga treten. Ihr Tempel ist in einer Oase nahe Cadomyr."
+english, "Tanora" -> "She is the elder goddess of water and mother of lizardfolk. Tanora is the only elder god who walks the realm of mortals. It is believed that she returns because she has lost something and can not find it. "
+"Tanora" -> "Die ist die ältere Göttin des Wassers und die Mutter der Echsenmenschen. Tanora ist die einzige der Alten, die sich manchmal unter den Sterblichen mischt. Man sagt sie sei zurückgekehrt weil sie etwas verloren hat, was sie nicht wiederfinden kann."
+english, "Urshara" -> "She is the elder goddess of earth. Usharas few followers are old, dying druids, though she no longer walks the realm of mortals. Her followers follow Oldra now."
+"Urshara" -> "Sie ist die ältere Göttin der Erde. Seit sie sich nicht mehr den Sterblichen zeigt sind Usharas paar Anhänger alles alte sterbende Druiden. Ihre Jünger folgen jetzt Oldra."
+english, "Zhambra" -> "God of loyalty and friendship. Zhambra's followers enjoy the camaraderie of others and seek to protect each other from death in battle. His altar is near the palace in Cadomyr."
+"Zhambra" -> "Der Gott der Freundschaft und des Vertrauens. Zhambras Anhänger erfreuen sich an der Kameradschaft und schützen sich so gegenseitig in der Schlacht. Sein Altar ist nahe dem Palast in Cadomyr."
+
+-- Faction stuff
+"archmage" -> "I do not concern myself with the matters of the living."
+english, "Elvaine", "Morgan" -> "I do not concern myself with the matters of the living."
+"Elvaine", "Morgan", "Erzmagier" -> "Ich kümmere mich nicht um die Angelegenheiten der Lebenden."
+english, "Runewick" -> "I do not concern myself with the matters of the living."
+"Runewick" -> "Ich kümmere mich nicht um die Angelegenheiten der Lebenden."
+english, "Valerio", "Guilianni", "Don" -> "I do not concern myself with the matters of the living."
+"Valerio", "Guilianni", "Don" -> "Ich kümmere mich nicht um die Angelegenheiten der Lebenden."
+english, "Galmair" -> "I do not concern myself with the matters of the living."
+"Galmair" -> "Ich kümmere mich nicht um die Angelegenheiten der Lebenden."
+"Queen" -> "I do not concern myself with the matters of the living."
+english, "rosaline", "edwards" -> "I do not concern myself with the matters of the living."
+"Königin", "rosaline", "edwards" -> "Ich kümmere mich nicht um die Angelegenheiten der Lebenden."
+english, "Cadomyr" -> "I do not concern myself with the matters of the living."
+"Cadomyr" -> "Ich kümmere mich nicht um die Angelegenheiten der Lebenden."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Alles muss ausgeglichen sein. Leben gibt es nur mit dem Tod. Cherga erinnert uns daran.", "In all things there must be balance. With life there must be death. Cherga reminds us of this balance."
+cycletext "Lebe nicht indem du auf den Tod wartest. Der Tod kommt zu jedem wenn es an der Zeit ist.Ehre die Götter und erfülle ihre Aufgaben solange du im Reich der Lebenden weilst.", "Do not live a life waiting for death, for death comes to all of us in time. Honour the gods and do their work while upon the realm of mortal men. "
+cycletext "Cherga schick die zurück, deren Zeit noch nicht gekommen ist. Ich kümmere mich um die, deren Zeit gekommen ist.", "Cherga sends back those whose time it is not. I tend to those whose time it is."
+cycletext "#me hüllt einen Körper in ein Leichentuch.", "#me wraps a body in a shroud."
+cycletext "#me wendet sich feierlich einer Leiche zu.", "#me solemnly tends to a corpse. "
+cycletext "#me zündet eine Kerze an.", "#me lights a candle."
+cycletext "#me rückt ihre schwarze Wollrobe zurecht.", "#me adjusts her black woolen robe."
+cycletext "#me näht den Saum  eines Leichentuch.", "#me hand sews the seams on a shroud."
+cycletext "#me spricht ein Wort zu den Toten.", "#me speaks a rite to the dead."
+cycletext "#me wäscht vorsichtig einen Toten.", "#me gently cleans a dead body."

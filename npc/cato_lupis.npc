@@ -1,0 +1,163 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+------------------------------------------------------------------------------AC
+-- NPC Name: Cato Lupis                                                  None --
+-- NPC Job:  priest                                                           --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  150, 686, 1            --
+-- NPC Sex:  male                       NPC Direction: west                   --
+--                                                                            --
+-- Author:   Dantagon                                                         --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+
+
+-- SQL
+--INSERT INTO npc (npc_type,npc_posx,npc_posy,npc_posz,npc_faceto,npc_is_healer,npc_name, npc_script,npc_sex,npc_hair,npc_beard,npc_hairred,npc_hairgreen,npc_hairblue,npc_skinred,npc_skingreen,npc_skinblue,npc_hairalpha,npc_skinalpha) VALUES(0,150,686,1,6,FALSE,'Cato Lupis','npc.cato_lupis',0,3,0,3,5,20,150,79,0,255,255);
+
+name = "Cato Lupis"
+race = human
+sex = male
+position = 150, 686, 1
+direction = west
+affiliation = "None"
+job = "Priest"
+
+language = common
+defaultLanguage = common
+autointroduce = on
+
+author = "Dantagon"
+
+lookatDE = "Dieser NPC ist Cato Lupis, ein Priester des Malachin."
+lookatUS = "This NPC is Cato Lupis, a Priest of Malachin."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+-- appearance not defined yet
+hairID = 3
+beardID = 0
+colorHair = 3, 5, 20
+colorSkin = 150, 79, 0
+itemHead = 0
+itemChest = 1446
+itemCoat = 2380
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 0
+itemTrousers = 1498
+itemShoes = 1518
+
+------------------------------------------------------------------------------AC
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Cato Lupis, a Priest of Malachin. Keywords: Hello, god.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Cato Lupis, ein Priester des Malachin. Schlüsselwörter: Hallo, Gott.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings!"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings!"
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied", "Hiho", "Hallo", "Hey", "Greeb" -> "Grüße!"
+"Farewell", "Bye", "Fare well", "See you" -> "Malachin be with you!"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Malachin be with you!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl", "Ciao", "Adieu", "Au revoir", "Farebba" -> "Malachin sei mit dir!"
+"How are you", "How feel", "How do you do" -> " I am doing quite well, thank you."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke."
+"your name", "who are you", "who art thou" -> "I am Cato Lupis, templar of Malachin."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Cato Lupis, Templer des Malachin."
+
+
+-- Mandatory: Trade Hooks, use the trade consequence for traders
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a merchant. Head back to the Cadomyrian marketplace if you wish to trade."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Ich bin kein Händler. Geh zum Markt in Cadomyr zurück, wenn du handeln möchtest."
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am a templar of Malachin. I slay the forces of the unholy and the unjust."
+english, "job" -> "I am a templar of Malachin. I slay the forces of the unholy and the unjust."
+"job", "beruf" -> "Ich bin Templer des Malachin. Ich töte die Mächte der Unheiligen und Ungerechten."
+
+-- Gods
+"God" -> "Although many gods are prayed to in these lands, it is Malachin whom I honour."
+"Gott" -> "Obwohl in diesen Ländern zu vielen Göttern gebetet wird, ist es Malachin, den ich ehre. "
+english, "Religion" -> "Although many gods are prayed to in these lands, it is Malachin whom I honour."
+"Religion" -> "Obwohl in diesen Ländern zu vielen Göttern gebetet wird, ist es Malachin, den ich ehre. "
+english, "Adron" -> "The followers of Adron spend too much time drinking wine and partying. Though I will admit that those brewers who pray to him are the finest in the land. His followers tend to gather at the tavern in Runewick."
+"Adron" -> "Die Anhänger Adrons verbringen zu viel Zeit damit Wein zu trinken und zu feiern. Allerdings muss ich gestehen, dass seine Anhänger die besten Braumeister sind. Seine Anhänger neigen dazu sich in der Taverne in Runewick zu versammeln."
+english, "Bragon" -> "He is the elder god of fire and although Bragon no longer walks this realm, his warrior spirit remains in all of us. Malachin now leads those who once followed him. "
+"Bragon" -> "Er ist der alte Gott des Feuers und auch wenn er längst nicht mehr in diesen Gefilden weilt, lebt sein Kampfgeist in uns allen. Malachin führt jetzt die, die ihm einst folgten."
+english, "Cherga" -> "She is the goddess of spirits and the underworld. In death Cherga either guides you back or guides you to the afterlife. Her altar can be found on Pauldron Isle."
+"Cherga" -> "Sie ist die Göttin der Geister und der Unterwelt. Im Tod geleitet Cherga einen entweder zurück oder ins Jenseits. Ihr Altar findet sich auf der Schulterplatteninsel."
+english, "Elara" -> "The goddess of knowledge. Elara's altar is in the library of Runewick. There it is surrounded by books and the scholars and mages who follow her."
+"Elara" -> "Die Göttin des Wissens. Elaras Altar befindet sich in der Bücherei Runewicks. Dort ist er umgeben von Büchern und Gelehrten und Magiern, die ihr huldigen."
+english, "Eldan" -> "One of the elder gods. No longer do they walk this plane. Eldan is the god of spirit and prefers to be a hermit as do his few followers. The rest follow Elara now."
+"Eldan" -> "Einer der Alten Götter die nicht länger auf dieser Ebene verweilen. Eldan ist der Gott des Geistes und bevorzugt - so wie seine wenigen Anhänger - als Einsiedler zu leben. Der Rest folgt nun Elara."
+english, "Findari" -> "The elder goddess of air. Findari no longer walks these lands and those few bards that followed her follow Adron now."
+"Findari" -> "Die alte Göttin der Luft. Sie weilt nicht mehr unter uns und die paar Barden, die ihr folgten, folgen nun Adron."
+english, "Irmorom" -> "He is the god of merchants and fine craftsmanship. If you want armor and weapons made right, find a crafter who follows Irmorom. His altar can be found in the mountains of Galmair. "
+"Irmorom" -> "Er ist der Gott der Händler und des feinen Handwerks. Solltest du eine gute Waffe oder Rüstung suchen, suche einen Handwerker, der zu Irmorom betet. Seinen Altar findest du in den Bergen Galmairs."
+english, "Malachin" -> "Malachin is the god of battle and hunting. He is prayed to by soldiers for protection in battle, hunters for a swift kill, and by paladins to bring evil doers to justice.", "A believer of Malachin who dies is brought forth to his great hall. There they feast and tell tales of great deeds. Should they prove to be dishonourable, they are doomed to walk the realm between here and the afterlife.", "Honourable orc tribes will pray to Malachin to ensure the provision of food for the tribe. Successful hunting by all followers is a means to prove their devotion and will leave an offering of dried remains for him."
+"Malachin" -> "Malachin ist der Gott der Jagd und des Kampfes. Er wird von Kriegern für Schutz in der Schlacht, von Jägern für einen guten Schuss und von Paladinen zum Richten von Bösewichten angebetet.", "Anhänger Malachins die sterben, kommen in seine große Halle. Dort feiern sie mit anderen und erzählen Geschichten von großen Taten. Sollten sie jedoch für unwürdig befunden werden, sind sie verdammt zwischen der Welt und dem Jenseits zu wandern.", "Ehrenhafte Orkstämme beten zu Malachin um die Versorgung des Stammes mit Nahrung zu sichern. Mit einer erfolgreichen gemeinschaftlichen Jagd beweisen sie ihre Treue und opfern getrocknete Reste der Jagdbeute."
+english, "Moshran" -> "Do not speak that name in my presence!"
+"Moshran" -> "Sprich seinen namen nicht in meiner Gegenwart!"
+english, "Nargun" -> "He is the god of chaos. Nargun's followers gamble away their coin and their lives. Many of them may as well be mad! Thank Malachin that his altar is far away from here in Galmair's underground."
+"Nargun" -> "Er ist der Gott des Chaos. Narguns Anhänger verspielen ihr Geld und ihr Leben. Viele von denen sind sicher auch verrückt. Malachin sei Dank, dass Narguns Altar fern von hier in Galmairs Unterwelt liegt."
+english, "Oldra" -> "She is the goddess of the harvest. Without Oldra's cooks and farmers we would all starve. And her healers take care of the wounded after battle. Her altar is in Yewdale near Runewick."
+"Oldra" -> "Sie ist die Göttin der Ernte. Ohne Olras Köche und Bauern würden wir alle verhungern. Und ihre Heiler kümmern sich um die Verwundeten nach der Schlacht. Ihr Altar findet sich in Eibental nahe Runewicks."
+english, "Ronagan" -> "Common criminals follow him as well as dishonourable assassins. Ronagan's lair is deep inside Galmair's underground. I would watch your coin purse should you ever venture near there.  "
+"Ronagan" -> "Seine Anhänger sind gewöhnliche Kriminelle und ehrlose Assassinen. Ronagans Höhle findet sich tief in Galmairs Untergrund. Ich an deiner Stelle würde auf den Geldbeutel achten, falls du dich dort jemals hin wagst."
+english, "Sirani" -> "The goddess of love and pleasure. Though many a desert adventure has found shelter under the care of her pacifistic followers. Continue down the road to the south and you will find her altar."
+"Sirani" -> "Die Göttin von Liebe und Freude. Auch haben viele Wüstenabenteurer Zuflucht bei ihren friedlichen Anhängern gefunden. Folge der Straße südwärts und du wirst ihren Altar finden."
+english, "Tanora" -> "Tanora is the elder goddess of water. Of all the elder gods, she still walks these lands. Her children the lizardfolk love and honour her with religious zeal. Whereas sailors fear dying beneath her waves. "
+"Tanora" -> "Sie ist die alte Göttin des Wassers Von allen alten Göttern ist sie die Einzige, die in diesen Landen verkehrt.  Ihre Kinder, die Echsenmenschen lieben und verehren sie mit religiösem Eifer. Wohingegen Seemänner fürchten in ihren Fluten zu sterben."
+english, "Urshara" -> "She is the elder goddess of earth. A few old elves and druids follow her, but most of Urshara's followers follow Oldra now.  "
+"Urshara" -> "Sie ist die alte Göttin der Erde. Ein paar alte Druiden und Elfen verehren sie noch, doch die meisten Anhänger Usharas folgen nun Oldra."
+english, "Zhambra" -> "Zhambra is the god of loyalty and friendship. His followers are an honour to fight next to in a shield wall. Seek out his followers at the temple dedicated to him near the palace in Cadomyr."
+"Zhambra" -> "Zhambra ist der Gott der Treue und der Freundschaft. Es ist eine Ehre neben einem seiner Anhänger im Schildwall zu kämpfen. Du findest seine Anhänger im Tempel in der Nähe des Palastes von Cadomyr."
+
+-- Faction stuff
+"archmage" -> "I really do not have much to say about him. He strikes me to be a loner who busy with his studies."
+english, "Elvaine", "Morgan" -> "I really do not have much to say about him. He strikes me to be a loner who busy with his studies."
+"Elvaine", "Morgan", "Erzmagier" -> "Über ihn gibt es wirklich nicht viel zu berichten. Mir erscheint er als Einzelgänger, der mit seinen Studien beschäftigt ist."
+english, "Runewick" -> "The people of that town would sooner speak esoterically than doing anything worthy of my interests. When I do visit Runewick, I tend to hunt in the surrounding forests."
+"Runewick" -> "Die Leute dort würden eher fein daherreden als etwas zu tun, das mein Interesse wert wäre. Wenn ich Runewick besuche, jage lieber in den umliegenden Wäldern."
+english, "Valerio", "Guilianni", "Don" -> "I find him to be a greedy dwarf. He does run Galmair with his own sense of justice. Though I am not sure his ends justify the means."
+"Valerio", "Guilianni", "Don" -> "Ich finde, er ist ein gieriger Zwerg. Galmair regiert er mit seinem ganz eigenen Sinn für Gerechtigkeit. Allerdings bin ich mir nicht sicher, ob das Ergebnis die Mittel rechtfertigt."
+english, "Galmair" -> "It is a dingy town. There is all manner of coal dust and sludge. And the people there will try to cheat or rob you out of your hard earned coins."
+"Galmair" -> "Es ist eine schäbige Stadt. Es gibt alle Arten von Staub und Schlamm. Und die Leute dort werden versuchen, dich um deine hart erarbeiteten Münzen zu bringen oder dich gar berauben."
+"Queen" -> "Queen Rosaline Edwards is as wise as she is beautiful. Through her just rule the town of Cadomyr has flourished."
+english, "rosaline", "edwards" -> "Queen Rosaline Edwards is as wise as she is beautiful. Through her just rule the town of Cadomyr has flourished."
+"Königin", "rosaline", "edwards" -> "Königin Rosaline Edwards ist so weise wie sie schön ist. Durch ihre gerechte Regierung Cadomyrs, gedeiht die Stadt prächtig."
+english, "Cadomyr" -> "Cadomyr is the realm of the just and honourable. It is only fitting that an altar to Malchin be housed here and surrounded by such noble warriors."
+"Cadomyr" -> "Cadomyr ist das Reich der Gerechten und Ehrenhaften. Da passt es, dass der Altars Malachin hier errichtet wurde, wo ihn  edle Krieger umgeben."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Wahre Gerechtigkeit erfreut die Ehrenhaften und erfüllt die Herzen der Übeltäter mit Schrecken.", "When proper justice is ensured, it brings joy to the honourable and strikes terror in the hearts of wrongdoers."
+cycletext "Mach was richtig ist. Stehe ein für die Unterdrückten. Verteidige die Wehrlosen. Und vor allem, suche immer Gerechtigkeit.", "Do what is right. Stand up for the oppressed. Defend the defenceless. And above all, seek justice!"
+cycletext "Eine Schlacht in der es nichts zu verlieren gibt, bringt nicht den gleichen Ruhm wie eine Schlacht, in der alles verloren werden kann.", "A battle where you stand nothing to lose does not bring the same glory as a battle where there is everything to be lost."
+cycletext "Schrei wütend und lass die Wölfe des Krieges los!", "Cry havoc and let loose the wolves of war!"
+cycletext "Es gehört zur Vorbereitung auf eine Schlacht zu helfen den Frieden zu sichern.", "It is in the preparation for battle that we can help preserve the peace."
+cycletext "#me schärft sein Schwert an einem Wetzstein.", "#me sharpens his sword with a wheystone."
+cycletext "#me poliert einen Schild.", "#me polishes a shield."
+cycletext "#me zerrt an den Handschuhen in seinen Stulpen.", "#me tugs on the gloves inside his gauntlets."
+cycletext "#me's Hand ruht auf dem Griff seines Schwertes.", "#me idly rests his hand on the pommel of his sword."
+cycletext "#me zieht die Riemen des Kriegshorns, das von seiner Schulter hängt, nach.", "#me adjusts the strap of the warhorn that hangs from his shoulder."
