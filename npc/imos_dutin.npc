@@ -68,14 +68,14 @@ itemShoes = 697
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Imos Dutin, ein Priester des Nargun. Schlüsselwörter: Hallo, Gott.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Lord Nargun’s blessing on you and welcome."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Lord Nargun’s blessing on you and welcome."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Lord Nargun's blessing on you and welcome."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Lord Nargun's blessing on you and welcome."
 "Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied", "Hiho", "Hallo", "Hey", "Greeb" -> "Unser Herr Nargun segne dich. Herzlich Willkommen."
 "Farewell", "Bye", "Fare well", "See you" -> "May the raven guide you on your path, and may your bones roll true."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May the raven guide you on your path, and may your bones roll true."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl", "Ciao", "Adieu", "Au revoir", "Farebba" -> "Mögen die Raben deine Wege begleiten und das Glück dir hold sein."
 "How are you", "How feel", "How do you do" -> "With Nargun's blessing am I doing well, he keeps me on my toes."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mit Narguns Segen geht’s mir gut. Er hält mich auf Trab."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mit Narguns Segen geht's mir gut. Er hält mich auf Trab."
 "your name", "who are you", "who art thou" -> "I am Imos Dutin, priest of Nargun, How may I help you?"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Imos Dutin, Nargunpriester. Wie kann ich dir helfen?"
 
@@ -96,7 +96,7 @@ english, "job" -> "I am Lord Nargun's servant, tend his altar and speak to those
 "Gott" -> "Nargun, der Gott des Chaos und der Listen. Es gibt tatsächlich Leute die seinen Namen nicht aussprechen aus Angst seine Aufmerksamkeit zu erregen."
 english, "Religion" -> "Lord Nargun, is one of the eleven younger gods, and not one of the five elder gods.. I follow my lord's religion spreading his will of chaos and tricks. "
 "Religion" -> "Unser Herr Nargun ist einer der elf jüngeren Götter und keiner der fünf Alten Götter. Ich befolge die Regeln seiner Religion und verbreite seine Lehren über Chaos und Liste."
-english, "Adron" -> "Yes, yes.. I know my lord Nargun, sometimes watches over Adron's doing since Adron is the god of wine and festivities. Most of Adron’s followers are drunkards, making Lord Nargun's day to have some fun."
+english, "Adron" -> "Yes, yes.. I know my lord Nargun, sometimes watches over Adron's doing since Adron is the god of wine and festivities. Most of Adron's followers are drunkards, making Lord Nargun's day to have some fun."
 "Adron" -> "Ja, ja. Ich weiß dass Nargun manchmal über Adron wacht, da dieser der Gott des Weines und der Feste ist. Die meisten von Adrons Anhänger sind Tunkenbold und bringen unserem Herrn viel Spaß."
 english, "Bragon" -> "Bragon. Yes, Bragon is the elder god of fire. A stiff board of the gods being so noble. But his followers are also ferocious warriors. And warriors cause great chaos. "
 "Bragon" -> "Bragon, ja Bragon der alte Gott des Feuers. Kaum einer der brettsteifen Götter ist so edel. Doch seine Anhänger sind wilde Krieger, und die verursachen ein schönes Chaos."
@@ -110,7 +110,7 @@ english, "Findari" -> "That be the windy goddess Findari, she can be quite tame,
 "Findari" -> "Die windige Göttin Findari kann recht zahm sein. Doch meist verursacht sie denen, die gegen sie sind, Schwierigkeiten.Die meisten ihrer Anhänger sind Spielleute und Schauspieler doch auch einige Elfen fühlen sich zu ihr hingezogen."
 english, "Irmorom" -> "Ahh that boring god, Irmorom, god of trade and craft. But what can be said for a god who cares only for making coin. Lord Nargun likes to watch crafters and give them light unfelt nudges to mess up their wares so they do not turn out perfect."
 "Irmorom" -> "Ahh, dieser langweilige Gott Irmorom. Der Gott des Handels und des Handwerks. Was soll man über einen Gott sagen, dem es nur darum geht, Geld anzuhäufen. Nargun liebt es den Handwerkern zuzuschauen und durch den ein oder anderen Knuff dazu beizutragen, dass nicht alles perfekt wird."
-english, "Malachin" -> "That do gooder god Malachin. He doesn't know chaos or how to have a wee bit of fun. He is god of battle and hunting and doesn’t do tricks. Nor do his followers who are mostly knights, paladins and other rule following do gooders."
+english, "Malachin" -> "That do gooder god Malachin. He doesn't know chaos or how to have a wee bit of fun. He is god of battle and hunting and doesn't do tricks. Nor do his followers who are mostly knights, paladins and other rule following do gooders."
 "Malachin" -> "Der gute Malachin. Er kennt kein Chaos und hat nie Spaß. Er ist der Gott der Jagd und der Schlachten und spielt keine Streiche. Das gilt auch für seine Anhänger, die meist Ritter, Paladine oder andere regelbesessene Leute sind."
 english, "Moshran" -> "A god Lord Nargun's finds interesting. He is the god of blood and bones, he is. His followers spread chaos and allows for trickery like Lord Nargun likes, but they love to spill blood for fun."
 "Moshran" -> "Ein Gott den Nargun interessant findet. Er ist der Gott des Blutes und der Knochen. Seine Anhänger verbreiten Chaos und Betrug so wie auch Nargun aber sie töten aus Spaß."
@@ -135,14 +135,14 @@ english, "Elvaine", "Morgan" -> "Bah, stuffy mage. But still lord Nargun his fun
 "Elvaine", "Morgan", "Erzmagier" -> "Pah, ein verklemmter Magier, aber immer für einen Streich Narguns gut."
 english, "Runewick" -> "Stuffy town of those good doers. Chaos would be good there."
 "Runewick" -> "Was für eine verklemmte Stadt. Chaos täte denen mal gut."
-english, "Valerio", "Guilianni", "Don" -> "Ahh the Don. A dwarf after Lord Nargun’s heart. He would do anything for a coin! He likes to roll the bones with Lord Nargun."
+english, "Valerio", "Guilianni", "Don" -> "Ahh the Don. A dwarf after Lord Nargun's heart. He would do anything for a coin! He likes to roll the bones with Lord Nargun."
 "Valerio", "Guilianni", "Don" -> "Ah der Don, ja ein Zwerg nach Narguns Geschmack. Der würde für Geld alles tun. Er wirft gerne mal die Würfel mit Nargun."
 english, "Galmair" -> "A grand town! Lots of people and lots of fun. Chaos grows there with every whisper."
 "Galmair" -> "Eine großartige Stadt, ein Haufen Leute und jede Menge Spaß. Chaos entsteht dort mit jedem Geflüster."
 "Queen" -> "A no fun noble. Rules, rules, rules! All she cares about is who is following the rules of her town."
 english, "rosaline", "edwards" -> "A no fun noble. Rules, rules, rules! All she cares about is who is following the rules of her town."
 "Königin", "rosaline", "edwards" -> "Eine unlustige Adlige. Regeln, nichts als Regeln. Sie interessiert nur, dass diese auch befolgt werden."
-english, "Cadomyr" -> "Nobles! Bah! But easy to cause trouble or mischief with. A whisper of someone trying to bend the queen’s ear more than another noble living there."
+english, "Cadomyr" -> "Nobles! Bah! But easy to cause trouble or mischief with. A whisper of someone trying to bend the queen's ear more than another noble living there."
 "Cadomyr" -> "Adelige, na ja. Aber es ist eifach unter ihnen Chaos zu stiften und Missgunst zu säen. Ein Flüstern, das das Ohr der Königin erreicht ist mehr wert als die anderen Adligen dort."
 
 ------------------------------------------------------------------------------AC
@@ -151,10 +151,10 @@ english, "Cadomyr" -> "Nobles! Bah! But easy to cause trouble or mischief with. 
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "Wirf die Würfel und schau was Nargun dir gibt.", "Roll your bones and see what Nargun gives you."
-cycletext "Folge dem Pfad des Raben, er ist verschlungen und lustig.", "Follow the Raven’s path, it be fun and chaotic."
+cycletext "Folge dem Pfad des Raben, er ist verschlungen und lustig.", "Follow the Raven's path, it be fun and chaotic."
 cycletext "Nargun segne dich, mal sehen was dein Schicksal bereithält.", "Lord Nargun bless you, and see what fate has in store for you."
 cycletext "Glück oder Pech, Nargun sei mit dir.", "Bad luck, good luck, or no luck at all, Lord Nargun be with you."
-cycletext "Verbreite Chaos und Unfug in Naguns Namen.", "Spread chaos and mischief, in Lord Nargun’s name."
+cycletext "Verbreite Chaos und Unfug in Naguns Namen.", "Spread chaos and mischief, in Lord Nargun's name."
 cycletext "#me kniet nieder und schüttelt einen Holzbecher in dem es klappert, bevor er die Würfel wirft und sagt: “Nargun sei gepriesen.”", "#me kneels down, shaking a wooden cup that rattles with each shake. Before turning out the bones.”Lord Nargun be praised.”  "
 cycletext "#me starrt auf die Steinwand als würde er dort etwas suchen.", "#me stares intently at the stone wall, as though looking for something."
 cycletext "#me füttert einen Raben, der ihm zu folgen scheint.", "#me feeds a raven that seems to follow him around."
