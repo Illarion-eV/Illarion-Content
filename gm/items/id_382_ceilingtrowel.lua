@@ -574,7 +574,7 @@ local function guardInfo(chosenPlayer)
     return myInfoText
 end
 
-local function ChangeRankpoints(User, modifier, value, faction, radius)
+local function changeRankpoints(User, modifier, value, faction, radius)
     --check if the points shall be added or removed
     local text
     local playerText
@@ -608,6 +608,36 @@ local function ChangeRankpoints(User, modifier, value, faction, radius)
             end
         end
     end
+end
+
+local function changeRankpointsInRadius(User)
+    local cbRadius = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local inputString = dialog:getInput()
+        if (string.find(inputString,"(%a+) (%d+) (%d+) (%d+)") ~= nil) then
+            local a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+) (%d+) (%d+)")
+            value=tonumber(value)
+            faction=tonumber(faction)
+            radius=tonumber(radius)
+            changeRankpoints(User,modifier,value,faction,radius)
+        elseif (string.find(inputString,"(%a+) (%d+) (%d+)") ~= nil) then
+            local a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+) (%d+)")
+            faction=tonumber(faction)
+            value=tonumber(value)
+            changeRankpoints(User,modifier,value,faction,radius)
+        elseif (string.find(inputString,"(%a+) (%d+)") ~= nil) then
+            local a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+)")
+            value=tonumber(value)
+            changeRankpoints(User,modifier,value,faction,radius)
+        else
+            User:inform("Sorry, I didn't understand you.")
+            changeRankpointsInRadius(User) -- re-call dialog
+        end
+    end
+    local idChange = InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|99|nil> (= cadomyr|runewick|galmair|all|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius)
+    User:requestInputDialog(idChange)
 end
 
 function factionHandling(User, SourceItem)
@@ -748,32 +778,7 @@ function factionHandling(User, SourceItem)
 
         -- rankpoints in radius
         elseif (ind == 1) then
-            local cbRadius = function (dialog)
-                if (not dialog:getSuccess()) then
-                    return
-                end
-                local inputString = dialog:getInput()
-                if (string.find(inputString,"(%a+) (%d+) (%d+) (%d+)") ~= nil) then
-                    local a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+) (%d+) (%d+)")
-                    value=tonumber(value)
-                    faction=tonumber(faction)
-                    radius=tonumber(radius)
-                    ChangeRankpoints(User,modifier,value,faction,radius)
-                elseif (string.find(inputString,"(%a+) (%d+) (%d+)") ~= nil) then
-                    local a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+) (%d+)")
-                    faction=tonumber(faction)
-                    value=tonumber(value)
-                    ChangeRankpoints(User,modifier,value,faction,radius)
-                elseif (string.find(inputString,"(%a+) (%d+)") ~= nil) then
-                    local a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+)")
-                    value=tonumber(value)
-                    ChangeRankpoints(User,modifier,value,faction,radius)
-                else
-                    User:inform("Sorry, I didn't understand you.")
-                    User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|99|nil> (= cadomyr|runewick|galmair|all|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius))
-                end
-            end
-            User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|99|nil> (= cadomyr|runewick|galmair|all|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius))
+            changeRankpointsInRadius(User)
 
         -- guard modes
         elseif (ind == 2) then
@@ -1237,7 +1242,8 @@ function updateMonsters(array,number,basePosition)
         end
     end
 end
-function specialItemCreationSpecialEggs(User)
+
+local function specialItemCreationSpecialEggs(User)
 
     local cbInputDialog = function (dialog)
         if not dialog:getSuccess() then
@@ -1250,10 +1256,9 @@ function specialItemCreationSpecialEggs(User)
         end
     end
     User:requestInputDialog(InputDialog("Egg creation", "How many special eggs to you want to create? (Notice: Eggs will have a normal wear of 3. Increase manually if needed." ,false, 255, cbInputDialog))
-
 end
 
-function specialItemCreationMysticalCracker(User)
+local function specialItemCreationMysticalCracker(User)
 
     local cbInputDialog = function (dialog)
         if not dialog:getSuccess() then
@@ -1266,7 +1271,6 @@ function specialItemCreationMysticalCracker(User)
         end
     end
     User:requestInputDialog(InputDialog("Cracker Creation", "How many mystical crackers to you want to create? (Notice: Crackers will have a normal wear of 10. Increase manually if needed." ,false, 255, cbInputDialog))
-
 end
 
 local function specialItemCreationTreasureChest(User)
@@ -1295,7 +1299,6 @@ local function specialItemCreationTreasureChest(User)
         end
     end
     User:requestInputDialog(InputDialog("Treasure Chest Creation", "Please enter level and amount of people needed\nFormat: '[1-9] [1-8]'" ,false, 255, cbInputDialog))
-
 end
 
 local function specialItemCreationGlyphShard(User)
@@ -1324,7 +1327,6 @@ local function specialItemCreationGlyphShard(User)
                                         "\n- Nothing: A single random shard." ..
                                         "\n- [1-7][1-7]: A singe defined shard." ..
                                         "\n- Other numbers: Number of random shards.",false, 255, cbInputDialog))
-
 end
 
 local function specialItemCreationCreate(User,indexItem)
