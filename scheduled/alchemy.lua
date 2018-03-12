@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local M = {}
@@ -20,59 +20,48 @@ local M = {}
 -- INSERT INTO scheduledscripts VALUES('scheduled.alchemy', 5, 5, 'startAlchemy');
 
 
--- This script is used for character independet events lasting over some time
+-- This script is used for character independent events lasting over some time
 
 
-WASPS = {}
-
-WASPS["id"] = {271,272,273,274}
---'Wasp','Hornet','Wasp Queen','Wasp Drone'
-WASPS["emotes"] = {}
-WASPS["emotes"]["de"] = {"#me kommt vom süßen Geruch angelockt summend angeschworren.", "#me fliegt dem Duft folgend daher.", "#me kommt angerauscht und fliegt zu der Quelle des süßen Geruchs.","#me stürtzt mit ausgestreckten Fühlern zum Ursprung des Duftes."}
-WASPS["emotes"]["en"] = {"#me comes closer humming, drawn in by the sweet smell.","#me flies along, following the sweet scent.","#me rushes to the source of the sweet smell.","#me moves with stretched out antennas to the source of the scent."}
-
--- conatining all center points
-CENTERS = {} 
+-- containing all center points
+CENTERS = {}
 
 -- get active bomb information by center position
 CENTER = {}
 
-
-function M.startAlchemy()
-
-    fruitBombInsectsSpawning()
-    
-
-
-end
-
-
 -- potion 318
 -- spawns insects over a certain period of time
-function fruitBombInsectsSpawning()
+local function fruitBombInsectsSpawning()
 
     if CENTERS[1] == nil then
         return
     end
-    
+
+    local WASPS = {}
+    WASPS["id"] = {271,272,273,274}
+    --'Wasp','Hornet','Wasp Queen','Wasp Drone'
+    WASPS["emotes"] = {}
+    WASPS["emotes"]["de"] = {"#me kommt vom süßen Geruch angelockt summend angeschworren.", "#me fliegt dem Duft folgend daher.", "#me kommt angerauscht und fliegt zu der Quelle des süßen Geruchs.","#me stürtzt mit ausgestreckten Fühlern zum Ursprung des Duftes."}
+    WASPS["emotes"]["en"] = {"#me comes closer humming, drawn in by the sweet smell.","#me flies along, following the sweet scent.","#me rushes to the source of the sweet smell.","#me moves with stretched out antennas to the source of the scent."}
+
     local removeCounterCENTERS = 0
     for i=1,#CENTERS do
-        
+
         local theCenter = CENTERS[i-removeCounterCENTERS]
-        
+
         local removeCounterCENTER = 0
         for j=1,#CENTER[theCenter] do
-        
+
             local quality = CENTER[theCenter][j-removeCounterCENTER][1]
             local counter = CENTER[theCenter][j-removeCounterCENTER][2]
             local targetArea = CENTER[theCenter][j-removeCounterCENTER][3]
-            
+
             local removeAt = quality*2
-            
+
             if counter >= 2 then
-                
+
                 if counter % 2 == 0 then -- even numbers
-                    
+
                     local checkedCounter = 1
                     local check = false
                     while check == false do
@@ -95,7 +84,7 @@ function fruitBombInsectsSpawning()
                         elseif checkedCounter == #targetArea then -- we have checked the whole area, no free position; abort
                             check = true
                         end
-                    end    
+                    end
                 end
             end
             CENTER[theCenter][j-removeCounterCENTER][2] = counter + 1
@@ -103,13 +92,15 @@ function fruitBombInsectsSpawning()
                 table.remove(CENTER[theCenter],j)
             end
         end
-        
+
         if #CENTER[theCenter] == 0 then
             table.remove(CENTERS,i)
         end
     end
-    
-    
+end
+
+function M.startAlchemy()
+    fruitBombInsectsSpawning()
 end
 
 return M

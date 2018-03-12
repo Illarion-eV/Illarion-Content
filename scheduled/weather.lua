@@ -20,7 +20,7 @@ local M = {}
 
 -- function should be invoked every 5-10 RL minutes (=15-30 illa minutes)
 
-function sign(value)        -- return sign of value (sign-function), random for sign(0)
+local function sign(value)        -- return sign of value (sign-function), random for sign(0)
     local retVal
     if value<0 then
         retVal=-1;
@@ -32,14 +32,14 @@ function sign(value)        -- return sign of value (sign-function), random for 
     return retVal;
 end
 
-function pseudogauss(minV, maxV)    -- returns a pseudogauss distributed random value between limits
+local function pseudogauss(minV, maxV)    -- returns a pseudogauss distributed random value between limits
     local intervall=maxV-minV;
     local maxRnd=math.floor(intervall/3);
     local retVal=minV+math.random(0,maxRnd)+math.random(0,maxRnd)+math.random(0,maxRnd)
     return retVal;
 end
 
-function largeScaleTempModifier()       -- larger scale temp modifier
+local function largeScaleTempModifier()       -- larger scale temp modifier
     local cycCnt
     local retLsTemp
     if cycCnt==nil then
@@ -54,7 +54,7 @@ function largeScaleTempModifier()       -- larger scale temp modifier
     return retLsTemp;
 end
 
-function largeScaleCloudModifier()      -- larger scale cloud modifier (periods of cloudy skies)
+local function largeScaleCloudModifier()      -- larger scale cloud modifier (periods of cloudy skies)
     local cycCldCnt
     local retLsCld
     if cycCldCnt==nil then
@@ -69,7 +69,7 @@ function largeScaleCloudModifier()      -- larger scale cloud modifier (periods 
     return retLsCld;
 end
 
-function getDayNightTemp(actClouds)                 -- cold at night, warm at day, not definied inbetween
+local function getDayNightTemp(actClouds)                 -- cold at night, warm at day, not definied inbetween
     local thisHour=world:getTime("hour");                 -- variation: 6 when cloudy, 20 when sunny
     local retTemp
     if actClouds<20 then
@@ -80,12 +80,12 @@ function getDayNightTemp(actClouds)                 -- cold at night, warm at da
     return retTemp+math.random(-1,1);               -- add little variation (realistic)
 end
 
-function getSeasonTemp(actMonth)                    -- cold in winter (-10) warm in summer (+30)
+local function getSeasonTemp(actMonth)                    -- cold in winter (-10) warm in summer (+30)
     local retTemp=math.floor(10-20*math.cos(actMonth*math.pi/8));     -- welllllll, yesssss.
     return retTemp;
 end
 
-function setFog(actFog, actCloud, thisMonth) -- in autumn and early winter
+local function setFog(actFog, actCloud, thisMonth) -- in autumn and early winter
     local fogProbability=math.floor(5-5*math.cos(thisMonth*math.pi/8-3));        -- ~0 in summer (6), 10% in month 11
     local fogTest=math.random(1,80);
     local retFog
@@ -107,7 +107,7 @@ function setFog(actFog, actCloud, thisMonth) -- in autumn and early winter
     return retFog;
 end
 
-function setClouds(actClouds,thisMonth)     -- much in winter, less in summer
+local function setClouds(actClouds,thisMonth)     -- much in winter, less in summer
                                             -- clear sky, cold night (winter)
     local newCloud=0;
     local typicalClearDayProb=math.floor(40-9*math.cos(thisMonth*math.pi/8)); -- 78% in summer, 60 in winter (69)
@@ -127,7 +127,7 @@ function setClouds(actClouds,thisMonth)     -- much in winter, less in summer
     return newCloud;
 end
 
-function getRain(thisMonth,actClouds)
+local function getRain(thisMonth,actClouds)
     local retRain
     if actClouds>30 then        -- only care about rain with more than 30% cld coverage
         local probabilityToRain=math.floor(60-20*math.cos(thisMonth*math.pi/8));  -- 35% in summer, 15 in winter (realistic values), 70% clear sky!
@@ -143,7 +143,7 @@ function getRain(thisMonth,actClouds)
     return retRain;
 end
 
-function getThunder(actClouds,actRain,actTemp)
+local function getThunder(actClouds,actRain,actTemp)
     local retThunder=0;
     if actRain>20 and actClouds>50 then
         if actTemp>25 then  -- summer thunder
@@ -165,7 +165,7 @@ function getThunder(actClouds,actRain,actTemp)
     return retThunder;
 end
 
-function getGust(actThunder)
+local function getGust(actThunder)
     local retGust
     if actThunder>0 then
         retGust=pseudogauss(0,100);
@@ -175,7 +175,7 @@ function getGust(actThunder)
     return retGust;
 end
 
-function getWindDir(actWind)
+local function getWindDir(actWind)
     local typicalWind=0;
     local windChange=pseudogauss(0,20);
     local direction=math.random(1,3);
@@ -190,7 +190,7 @@ function getWindDir(actWind)
     return retWind;
 end
 
-function logWeather(newWeather)
+local function logWeather(newWeather)
 --[[
     local LogString="TMP "..newWeather.temperature.." CLD "..newWeather.cloud_density.." WND "..newWeather.wind_dir.." GST "..newWeather.gust_strength.." PER "..newWeather.percipitation_strength.." THD "..newWeather.thunderstorm.." FOG "..newWeather.fog_density.."\n";
     local aYear=world:getTime("year");

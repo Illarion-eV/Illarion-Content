@@ -279,23 +279,23 @@ function M.onAttack(Attacker, Defender)
 
     -- Load the weapons of the attacker
     Attacker = fightingutil.loadWeapons(Attacker)
- 
+
     -- Find out the attack type and the required combat skill
     GetAttackType(Attacker)
 
     -- Load Skills and Attributes of the attacking character
     LoadAttribsSkills(Attacker, true)
-    
+
     -- Get range between players and check if the view is blocked for the attacker
-    local isInRange, range = fightingutil.checkRangeAndView(Attacker, Defender.Char) 
-    
+    local isInRange, range = fightingutil.checkRangeAndView(Attacker, Defender.Char)
+
     -- Handle ranged, physical combat
     if Attacker.AttackKind == 4 then
         -- Check aiming time for player archers
         if character.IsPlayer(Attacker.Char) and not CheckAimingTime(Attacker, Defender.Char, isInRange) then
             return false
         end
-        
+
         -- Let npcs maintain a meaningful distance to their enemy
         if not character.IsPlayer(Attacker.Char) then
             if range <= 2 then
@@ -305,7 +305,7 @@ function M.onAttack(Attacker, Defender)
             end
         end
     end
-    
+
     -- Check the range between the both fighting characters
     if not isInRange then
         return false
@@ -325,9 +325,9 @@ function M.onAttack(Attacker, Defender)
             magicAttack.onMagicAttack(Attacker, Defender)
         end
         return false
-    end 
-    
-    
+    end
+
+
     -- Check if ammunition is needed and use it
     if not HandleAmmunition(Attacker) then
         return false
@@ -336,7 +336,7 @@ function M.onAttack(Attacker, Defender)
     -- Load weapon data, skills and attributes of the attacked character
     Defender = fightingutil.loadWeapons(Defender)
     LoadAttribsSkills(Defender, false)
-    
+
     --Calculate crit chance
     if CheckCriticals(Attacker, Defender, Globals) then
         --Do special crit effects
@@ -549,8 +549,8 @@ end
 -- @param ParryWeapon The item which was used to parry
 function WeaponDegrade(Attacker, Defender, ParryWeapon)
 
-    commonAttackerWeapon=world:getItemStats(Attacker.WeaponItem);
-    commonParryWeapon=world:getItemStats(ParryWeapon);
+    local commonAttackerWeapon = world:getItemStats(Attacker.WeaponItem)
+    local commonParryWeapon = world:getItemStats(ParryWeapon)
 
     local degradeChance = 20
     if Attacker.Char:isNewPlayer() then
@@ -642,7 +642,7 @@ function CalculateDamage(Attacker, Globals)
 
     local GemBonus = gems.getGemBonus(Attacker.WeaponItem)
     GemBonus = modifyGemEffect(Attacker, GemBonus)
-    
+
     --Quality Bonus: Multiplies final value by 0.93-1.09
     QualityBonus = 0.91+0.02*math.floor(Attacker.WeaponItem.quality/100)
 
@@ -734,7 +734,7 @@ function CauseDamage(Attacker, Defender, Globals)
         return true
     else
         character.ChangeHP(Defender.Char,-Globals.Damage) -- Finally dealing the damage.
-        
+
         if (Attacker.AttackKind == 4) then -- Ranged attack
             if not character.IsPlayer(Defender.Char) and character.IsPlayer(Attacker.Char) then
                 Defender.Char.movepoints = Defender.Char.movepoints - 5
@@ -1115,13 +1115,14 @@ function DropAmmo(Attacker, Defender, GroundOnly)
     if ( Attacker.AttackKind ~= 4 ) then -- no distance attack --> no ammo
         return
     end
-    
+
+    local chanceForDrop
     if Attacker.Weapon.AmmunitionType == 255 then --Recover throwing weapons at 100 %, arrows etc. at 50 %
         chanceForDrop = 1
     else
         chanceForDrop = 0.5
     end
-    
+
     if common.Chance(chanceForDrop) then
         local AmmoItem
         if (Attacker.Weapon.AmmunitionType == Attacker.SecWeapon.WeaponType) then
