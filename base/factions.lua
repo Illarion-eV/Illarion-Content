@@ -624,7 +624,7 @@ end
 -- @param townFaction the faction of the town that is checked
 -- @param playerFaction the faction of the player that is checked
 -- @return int the relationship constant for the relation of the towns faction to the player faction
-function getFactionRelation(townFaction, playerFaction)
+function M.getFactionRelation(townFaction, playerFaction)
     if (townFaction == playerFaction) then
         return M.RELATION_SELF;
     end
@@ -647,7 +647,7 @@ end
 -- @param townFaction the town faction
 -- @param playerFaction the player faction
 -- @param newRelation the new relationship (M.RELATION_FRIENDLY,M.RELATION_NEUTRAL,M.RELATION_HOSTILE,M.RELATION_AGGRESSIVE)
-function setFactionRelation(townFaction, playerFaction, newRelation)
+function M.setFactionRelation(townFaction, playerFaction, newRelation)
     if (newRelation ~= M.RELATION_FRIENDLY) and (newRelation ~= M.RELATION_NEUTRAL) and (newRelation ~= M.RELATION_HOSTILE) and (newRelation ~= M.RELATION_AGGRESSIVE) then
         debug("[Error] Applied illegal relationship mode: "..tostring(newRelation));
         return;
