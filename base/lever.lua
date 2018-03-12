@@ -18,6 +18,7 @@ local class = require("base.class")
 
 local M = {}
 
+local bindList = {}
 
 M.Lever = class(function(lev, posi, twoState)    -- defines a class
     lev.pos = posi                             -- this is the constructor!!!!
@@ -137,9 +138,6 @@ local chrStr
 end
 
 function M.Lever:bind(levState, action)                       -- bind an action to a specific state
-    if (bindList==nil) then
-        bindList={}
-    end
     local key = self.pos.x*1024*1024+self.pos.y*1024+self.pos.z
     if (bindList[key]==nil) then
         bindList[key]={}

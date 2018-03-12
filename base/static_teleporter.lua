@@ -198,13 +198,13 @@ local function gmManageCostTeleporterNormal(user)
     local priceTeleporter = getTeleporterPriceNormal()
     local germanMoney, englishMoney = money.MoneyToString(priceTeleporter)
     local thisInputDialog = function (dialog)
-    
+
         if (not dialog:getSuccess()) then
             return
         end
-        
+
         local input = dialog:getInput()
-        
+
         if not common.IsNilOrEmpty(input) then
             local newPrice = tonumber(input)
             if newPrice ~= nil then
@@ -218,7 +218,7 @@ local function gmManageCostTeleporterNormal(user)
                 user:inform("The price for the teleporter must be in between 1 Copper and 100 Gold")
             end
         end
-        
+
     end
     dialogTitle = common.GetNLS(user,"Teleporter - Einstellungen","Teleporter - Settings")
     dialogAddText = common.GetNLS(user,"Standardpreis eines Teleports:"..englishMoney.." ("..tostring(priceTeleporter).." Kupfer)\nBitte neuen Preis in Kupferstücken angeben.",
@@ -233,13 +233,13 @@ local function gmManageCostTeleporterNewbe(user)
     local priceTeleporter = getTeleporterPriceNewbe()
     local germanMoney, englishMoney = money.MoneyToString(priceTeleporter)
     local thisInputDialog = function (dialog)
-    
+
         if (not dialog:getSuccess()) then
             return
         end
-        
+
         local input = dialog:getInput()
-        
+
         if not common.IsNilOrEmpty(input) then
             local newPrice = tonumber(input)
             if newPrice ~= nil then
@@ -253,7 +253,7 @@ local function gmManageCostTeleporterNewbe(user)
                 user:inform("The price for the teleporter must be in between 1 Copper and 100 Gold")
             end
         end
-        
+
     end
     dialogTitle = common.GetNLS(user,"Teleporter - Einstellungen","Teleporter - Settings")
     dialogAddText = common.GetNLS(user,"Preis eins Teleports für neue Spieler:"..englishMoney.." ("..tostring(priceTeleporter).." Kupfer)\nBitte neuen Preis in Kupferstücken angeben.",
@@ -346,7 +346,7 @@ end
 function M.isBlocked(targetPos)
     for i, teleporter in pairs(teleporterList) do
         if targetPos == teleporter.posWarp then
-            blockedOut, blockedIn = getSettingsForTeleporter(i)
+            local blockedOut, blockedIn = getSettingsForTeleporter(i)
             if  blockedIn then
                 return true
             end
@@ -359,7 +359,7 @@ end
 function M.useTeleporter(user, sourceItem)
     for i, teleporter in pairs(teleporterList) do
         if sourceItem.pos == teleporter.posItem then
-            blockedOut, blockedIn = getSettingsForTeleporter(i)
+            local blockedOut, blockedIn = getSettingsForTeleporter(i)
             if not blockedOut then
                 startTeleport(user, sourceItem)
             end

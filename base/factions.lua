@@ -12,12 +12,11 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local money = require("base.money")
 local character = require("base.character")
---THE EDITABLE PART FOR NEW TOWNS IS SOME LINES BELOW
 
 local M = {}
 
@@ -27,93 +26,93 @@ M.cadomyr = 1
 M.runewick = 2
 M.galmair = 3
 
-function InitFactionLists()
+--Towns--
+local TownList = {}
 
-    --Towns--
-    TownList={};
+--A list with the ranks
+local CadomyrRankListMale = {
+    {gRank = "Leibeigener", eRank = "Serf"},            --rank 1
+    {gRank = "Höriger", eRank = "Bondsman"},               --rank 2
+    {gRank = "Diener", eRank = "Servant"},               --rank 3
+    {gRank = "Freisasse", eRank = "Yeoman"},               --rank 4
+    {gRank = "Page", eRank = "Page"},       --rank 5
+    {gRank = "Knappe", eRank = "Squire"},         --rank 6
+    {gRank = "Ritter", eRank = "Knight"},                --rank 7
+    {gRank = "Baron", eRank = "Baron"},                 --rank 8
+    {gRank = "Graf", eRank = "Count"},               --rank 9
+    {gRank = "Herzog", eRank = "Duke"},                --rank 10
+    {gRank = "König", eRank = "King"}};                --rank leader
 
-    TownMainKey={};
-    TownJailKey={};
+local CadomyrRankListFemale = {
+    {gRank = "Leibeigene", eRank = "Serf"},            --rank 1
+    {gRank = "Hörige", eRank = "Bondswoman"},               --rank 2
+    {gRank = "Dienerin", eRank = "Servant"},               --rank 3
+    {gRank = "Freisassin", eRank = "Yeowoman"},       --rank 4
+    {gRank = "Pagin", eRank = "Page"},         --rank 5
+    {gRank = "Knappin", eRank = "Squire"},                --rank 6
+    {gRank = "Ritterin", eRank = "Knight"},                --rank 7
+    {gRank = "Baroin", eRank = "Baroness"},                 --rank 8
+    {gRank = "Gräfin", eRank = "Countess"},               --rank 9
+    {gRank = "Herzogin", eRank = "Duchess"},                --rank 10
+    {gRank = "Königin", eRank = "Queen"}};                --rank leader
 
-    --A list with the ranks
-    CadomyrRankListMale = { {gRank = "Leibeigener", eRank = "Serf"},            --rank 1
-                     {gRank = "Höriger", eRank = "Bondsman"},               --rank 2    
-                     {gRank = "Diener", eRank = "Servant"},               --rank 3                     
-                     {gRank = "Freisasse", eRank = "Yeoman"},               --rank 4
-                     {gRank = "Page", eRank = "Page"},       --rank 5
-                     {gRank = "Knappe", eRank = "Squire"},         --rank 6
-                     {gRank = "Ritter", eRank = "Knight"},                --rank 7
-                     {gRank = "Baron", eRank = "Baron"},                 --rank 8
-                     {gRank = "Graf", eRank = "Count"},               --rank 9
-                     {gRank = "Herzog", eRank = "Duke"},                --rank 10                     
-                     {gRank = "König", eRank = "King"}};                --rank leader
-    
-    CadomyrRankListFemale = { {gRank = "Leibeigene", eRank = "Serf"},            --rank 1
-                     {gRank = "Hörige", eRank = "Bondswoman"},               --rank 2    
-                     {gRank = "Dienerin", eRank = "Servant"},               --rank 3
-                     {gRank = "Freisassin", eRank = "Yeowoman"},       --rank 4             
-                     {gRank = "Pagin", eRank = "Page"},         --rank 5
-                     {gRank = "Knappin", eRank = "Squire"},                --rank 6                     
-                     {gRank = "Ritterin", eRank = "Knight"},                --rank 7
-                     {gRank = "Baroin", eRank = "Baroness"},                 --rank 8
-                     {gRank = "Gräfin", eRank = "Countess"},               --rank 9
-                     {gRank = "Herzogin", eRank = "Duchess"},                --rank 10    
-                     {gRank = "Königin", eRank = "Queen"}};                --rank leader
+local RunewickRankListMale = {
+    {gRank = "Novize", eRank = "Novice"},            --rank 1
+    {gRank = "Anwärter", eRank = "Apprentice"},           --rank 2
+    {gRank = "Student", eRank = "Student"},             --rank 3
+    {gRank = "Gelehrter", eRank = "Scholar"},           --rank 4
+    {gRank = "Magister", eRank = "Master"},              --rank 5
+    {gRank = "Doktor", eRank = "Doctor"},                 --rank 6
+    {gRank = "Dozent", eRank = "Docent"},                 --rank 7
+    {gRank = "Professor", eRank = "Professor"},        --rank 8
+    {gRank = "Dekan", eRank = "Dean"},                    --rank 9
+    {gRank = "Rektor", eRank = "Rector"},                --rank 10
+    {gRank = "Erzmagier", eRank = "Archmage"}};        --rank leader
 
-    RunewickRankListMale = { {gRank = "Novize", eRank = "Novice"},            --rank 1
-                     {gRank = "Anwärter", eRank = "Apprentice"},           --rank 2
-                     {gRank = "Student", eRank = "Student"},             --rank 3
-                     {gRank = "Gelehrter", eRank = "Scholar"},           --rank 4
-                     {gRank = "Magister", eRank = "Master"},              --rank 5
-                     {gRank = "Doktor", eRank = "Doctor"},                 --rank 6
-                     {gRank = "Dozent", eRank = "Docent"},                 --rank 7
-                     {gRank = "Professor", eRank = "Professor"},        --rank 8
-                     {gRank = "Dekan", eRank = "Dean"},                    --rank 9
-                     {gRank = "Rektor", eRank = "Rector"},                --rank 10
-                     {gRank = "Erzmagier", eRank = "Archmage"}};        --rank leader
-    
-    RunewickRankListFemale = { {gRank = "Novizin", eRank = "Novice"},            --rank 1
-                     {gRank = "Anwärterin", eRank = "Apprentice"},           --rank 2
-                     {gRank = "Studentin", eRank = "Student"},             --rank 3
-                     {gRank = "Gelehrte", eRank = "Scholar"},           --rank 4
-                     {gRank = "Magister", eRank = "Master"},              --rank 5
-                     {gRank = "Doktorin", eRank = "Doctor"},                 --rank 6
-                     {gRank = "Dozentin", eRank = "Docent"},                 --rank 7
-                     {gRank = "Professorin", eRank = "Professor"},        --rank 8
-                     {gRank = "Dekanin", eRank = "Dean"},                    --rank 9
-                     {gRank = "Rektorin", eRank = "Rector"},                --rank 10
-                     {gRank = "Erzmagierin", eRank = "Archmage"}};        --rank leader
+local RunewickRankListFemale = {
+    {gRank = "Novizin", eRank = "Novice"},            --rank 1
+    {gRank = "Anwärterin", eRank = "Apprentice"},           --rank 2
+    {gRank = "Studentin", eRank = "Student"},             --rank 3
+    {gRank = "Gelehrte", eRank = "Scholar"},           --rank 4
+    {gRank = "Magister", eRank = "Master"},              --rank 5
+    {gRank = "Doktorin", eRank = "Doctor"},                 --rank 6
+    {gRank = "Dozentin", eRank = "Docent"},                 --rank 7
+    {gRank = "Professorin", eRank = "Professor"},        --rank 8
+    {gRank = "Dekanin", eRank = "Dean"},                    --rank 9
+    {gRank = "Rektorin", eRank = "Rector"},                --rank 10
+    {gRank = "Erzmagierin", eRank = "Archmage"}};        --rank leader
 
-    GalmairRankListMale = { {gRank = "Rumtreiber", eRank = "Tramp"},          --rank 1
-                     {gRank = "Gehilfe", eRank = "Assistant"},          --rank 2
-                     {gRank = "Hausierer", eRank = "Pedlar"},             --rank 3
-                     {gRank = "Krämer", eRank = "Grocer"},               --rank 4
-                     {gRank = "Kaufmann", eRank = "Merchant"},          --rank 5
-                     {gRank = "Finanzier", eRank = "Financier"},        --rank 6
-                     {gRank = "Patrizier", eRank = "Patrician"},         --rank 7
-                     {gRank = "Mogul", eRank = "Mogul"},                   --rank 8
-                     {gRank = "Magnat", eRank = "Magnate"},                --rank 9
-                     {gRank = "Tycoon", eRank = "Tycoon"},                --rank 10
-                     {gRank = "Don", eRank = "Don"}};                    --rank leader
-    
-    GalmairRankListFemale = { {gRank = "Rumtreiberin", eRank = "Tramp"},          --rank 1
-                     {gRank = "Gehilfin", eRank = "Assistant"},          --rank 2
-                     {gRank = "Hausiererin", eRank = "Pedlar"},             --rank 3
-                     {gRank = "Krämerin", eRank = "Grocer"},               --rank 4
-                     {gRank = "Kauffrau", eRank = "Merchant"},          --rank 5
-                     {gRank = "Finanzier", eRank = "Financier"},        --rank 6
-                     {gRank = "Patrizierin", eRank = "Patrician"},         --rank 7
-                     {gRank = "Mogulin", eRank = "Mogul"},                   --rank 8
-                     {gRank = "Magnatin", eRank = "Magnate"},                --rank 9
-                     {gRank = "Tycoon", eRank = "Tycoon"},                --rank 10    
-                     {gRank = "Don", eRank = "Don"}};                    --rank leader
+local GalmairRankListMale = {
+    {gRank = "Rumtreiber", eRank = "Tramp"},          --rank 1
+    {gRank = "Gehilfe", eRank = "Assistant"},          --rank 2
+    {gRank = "Hausierer", eRank = "Pedlar"},             --rank 3
+    {gRank = "Krämer", eRank = "Grocer"},               --rank 4
+    {gRank = "Kaufmann", eRank = "Merchant"},          --rank 5
+    {gRank = "Finanzier", eRank = "Financier"},        --rank 6
+    {gRank = "Patrizier", eRank = "Patrician"},         --rank 7
+    {gRank = "Mogul", eRank = "Mogul"},                   --rank 8
+    {gRank = "Magnat", eRank = "Magnate"},                --rank 9
+    {gRank = "Tycoon", eRank = "Tycoon"},                --rank 10
+    {gRank = "Don", eRank = "Don"}};                    --rank leader
 
-    NoneRankList ={};
-    NoneRankList[0] = {gRank = "Geächteter", eRank = "Outcast"};
+local GalmairRankListFemale = {
+    {gRank = "Rumtreiberin", eRank = "Tramp"},          --rank 1
+    {gRank = "Gehilfin", eRank = "Assistant"},          --rank 2
+    {gRank = "Hausiererin", eRank = "Pedlar"},             --rank 3
+    {gRank = "Krämerin", eRank = "Grocer"},               --rank 4
+    {gRank = "Kauffrau", eRank = "Merchant"},          --rank 5
+    {gRank = "Finanzier", eRank = "Financier"},        --rank 6
+    {gRank = "Patrizierin", eRank = "Patrician"},         --rank 7
+    {gRank = "Mogulin", eRank = "Mogul"},                   --rank 8
+    {gRank = "Magnatin", eRank = "Magnate"},                --rank 9
+    {gRank = "Tycoon", eRank = "Tycoon"},                --rank 10
+    {gRank = "Don", eRank = "Don"}};                    --rank leader
 
-    M.townRanks = {CadomyrRankListMale, RunewickRankListMale, GalmairRankListMale, CadomyrRankListFemale, RunewickRankListFemale, GalmairRankListFemale}
-    M.townRanks[0] = NoneRankList;
-end
+local NoneRankList ={};
+NoneRankList[0] = {gRank = "Geächteter", eRank = "Outcast"};
+
+M.townRanks = {CadomyrRankListMale, RunewickRankListMale, GalmairRankListMale, CadomyrRankListFemale, RunewickRankListFemale, GalmairRankListFemale}
+M.townRanks[0] = NoneRankList;
 
 --[[
     AddTown
@@ -121,49 +120,24 @@ end
     @param TownID        - the ID of the town(1-9 allowed)
     @param TownName        - the Townname
 ]]
-function AddTown(TownID, TownName)
+local function AddTown(TownID, TownName)
     table.insert(TownList,{townID=TownID, townName=TownName});
 end
 
 
---[[
-    AddTownMainKey/ AddTownJailKey
-    Add the Main Key/Jail Key of the town of a faction with the Faction ID (TownMID)
-    @param TownMID                  - the ID of the town the key shall be added
-    @param KeyID,KeyQuality,KeyData - the ID,Quality and Data of the Key
 
-function AddTownMainKey(TownMID,KeyID, KeyQuality,KeyData)
-    if KeyQuality==nil then KeyQuality=333; end
-    table.insert(TownMainKey,TownMID, {KeyID,KeyQuality,KeyData});
-end
 
-function AddTownJailKey(TownJID,KeyID, KeyQuality,KeyData)
-    if KeyQuality==nil then KeyQuality=333; end
-    table.insert(TownJailKey,TownJID, {KeyID,KeyQuality,KeyData});
-end]]
+local citizenRank = 1;
+M.highestRank = 7;
+local specialRanks = {8,9,10};
+local leaderRank = 11;
 
-if not InitFaction then
-    InitFactionLists();
-    InitFaction = true;
-    citizenRank = 1;
-    M.highestRank = 7;
-    specialRanks = {8,9,10};
-    leaderRank = 11;
-
---==================================ADD NEW TOWNS HERE===============
---AddTown(TownID,TownName), IDs from 1-9
---AddAdditionalTownName(German Trigger, English Trigger)
 
 AddTown(0,"None");
 AddTown(M.cadomyr,"Cadomyr");
---AddTownMainKey(1,2121, 333, 5030);
---AddTownJailKey(12,2121, 333, 5031);
 AddTown(M.runewick,"Runewick");
 AddTown(M.galmair,"Galmair");
 
-
-end
---==================================END OF THE EDITABLE PART====================
 
 --[[
     returns the name of a town
@@ -228,7 +202,7 @@ end
 --[[
     returns the current rank of a char.
     @param player - characterStruct
-    
+
     @return - name of the rank
 ]]
 function M.getRank(player, bothFlag)
@@ -270,7 +244,7 @@ end
 --[[
     returns the ranknumber of a players rank
     @ player - characterStruct
-    
+
     @return - number of the rank
 ]]
 function M.getRankAsNumber(player)
@@ -290,16 +264,16 @@ end
     returns the name of a specific rank
     @player - characterStruct
     @ranknumber - number of the rank, the name is needed for
-    
+
     @return - name of the rank
 ]]
 function M.getRankName(player, ranknumber)
     local Faction = M.getFaction(player);
-    
+
     if ranknumber > leaderRank then
         return;
     end
-    
+
     if (player:increaseAttrib("sex",0) == 0) then --male Ranks
         if player:getPlayerLanguage() == 0 then
             return M.townRanks[Faction.tid][ranknumber].gRank;
@@ -332,7 +306,7 @@ function M.getFaction(originator)
     else
         rankTown = M.getRankAsNumber(originator);
     end
-    
+
     local factionMembership = originator:getQuestProgress(199);
     local towncnt = originator:getQuestProgress(201);
     local rankpoints = M.getRankpoints(originator);
@@ -356,7 +330,7 @@ end
 --[[
     Returns the special rank for a player
     @param player - characterStruct
-    
+
     @return specialRank - special rank of player
 ]]
 function getSpecialRank(player)
@@ -382,14 +356,14 @@ end
     Sets a special rank if the rank given really is special
     @param player - characterStruct
     @param rank - new special rank (0 to take the specialness away)
-    
+
     @return - special rank was set (true|false)
 ]]
-function M.setSpecialRank(player, rank) 
+function M.setSpecialRank(player, rank)
     local Faction = M.getFaction(player);
     local rankpoints = Faction.rankpoints;
     local inform;
-    
+
     if (rank > M.highestRank and rank < leaderRank) or rank == 0  then
         if rankpoints >= (M.highestRank-1)*100 then
             player:setQuestProgress(200, tonumber(rank));
@@ -446,7 +420,7 @@ function M.setRankpoints(originator, rankpoints)
 
     -- determine if player got a new rank
     if rank <= M.highestRank then
-        Faction.rankTown = checkForRankChange(rankpoints,rank);    
+        Faction.rankTown = checkForRankChange(rankpoints,rank);
     end
 
     -- Factionleaders always have the leader rank 11 and 1000 rankpoints (just to keep it consistent)
@@ -454,17 +428,17 @@ function M.setRankpoints(originator, rankpoints)
         rankpoints = (leaderRank-1)*100;
         Faction.rankTown = leaderRank;
     end
-    
+
     if rankpoints < M.getRankpoints(originator) then
-        playerText = {"sinkt.","decline"};
+        local playerText = {"sinkt.","decline"};
         informPlayerAboutRankpointchange(originator, playerText);
         if getSpecialRank(originator) ~= 0 then
             M.setSpecialRank(originator, 0);
         end
     elseif rankpoints > M.getRankpoints(originator) then
-        playerText = {"steigt.","advance"};
+        local playerText = {"steigt.","advance"};
         informPlayerAboutRankpointchange(originator, playerText);
-    end    
+    end
 
     -- Inform about rankchange
     if Faction.rankTown>rank then
@@ -485,13 +459,14 @@ end
 function informPlayerAboutRankchange(player, factionValues, rankHigher)
     -- collect all data needed for rankchange inform
     local townName = M.getTownNameByID(factionValues.tid)
-    
+
+    local rankName
     if (player:increaseAttrib("sex",0) == 0) then --male Ranks
         rankName = M.townRanks[factionValues.tid][factionValues.rankTown]
     else --female Ranks
         rankName = M.townRanks[tonumber(factionValues.tid)+3][factionValues.rankTown]
     end
-    
+
     -- Inform about rankchange
     if rankHigher == true then
         common.InformNLS( player, "Du hast soeben einen neuen Rang in "..townName.." erreicht. Du bist nun "..rankName.gRank..".",
@@ -542,17 +517,17 @@ function M.makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
         local amountToPay = 1000*(2^fv.towncnt) -- amount in coppercoins
         local GAmount, SAmount,CAmount = money.MoneyToCoins(amountToPay);
         local germanMoney, englishMoney = money.MoneyToString(amountToPay);
-        
+
         if not money.CharHasMoney(originator,amountToPay) then --not enough money!
-             gText="Du hast nicht genug Geld dabei! Du benötigst"..germanMoney..".";
-            eText="You don't have enough money with you! You'll need"..englishMoney..".";
-            outText=common.GetNLS(originator,gText,eText);
+            local gText="Du hast nicht genug Geld dabei! Du benötigst"..germanMoney..".";
+            local eText="You don't have enough money with you! You'll need"..englishMoney..".";
+            local outText=common.GetNLS(originator,gText,eText);
             thisNPC:talk(Character.say, outText);
             return;
         end
 
         originator:inform("Das Wechseln der Stadt hat"..germanMoney.." gekostet.", "It costs"..englishMoney.." to change the faction.");
-        
+
         fv.rankpoints = 0 -- set default value for rankpoints
         fv.tid = theTown; --set new Town ID
         fv.rankTown = theRank -- set the rank of the town
@@ -577,9 +552,9 @@ function leaveFaction(originator, Faction, thisNPC)
 
     M.setFaction(originator,Faction); --write fv in Questprogress
 
-    gText="Du gehört nun keinem Reich mehr an. Das bedeutet, dass du frei, aber auf dich selbst gestellt seid. Viel Glück.";
-    eText="You're now not belonging to any realm. This means you're free but also on your own. Good luck.";
-    outText=common.GetNLS(originator,gText,eText);
+    local gText="Du gehört nun keinem Reich mehr an. Das bedeutet, dass du frei, aber auf dich selbst gestellt seid. Viel Glück.";
+    local eText="You're now not belonging to any realm. This means you're free but also on your own. Good luck.";
+    local outText=common.GetNLS(originator,gText,eText);
     thisNPC:talk(Character.say, outText);
 end
 
@@ -606,15 +581,15 @@ function M.getPlayerRelation(player, townFaction)
     if player:isAdmin() then
         return M.RELATION_FRIENDLY;
     end
-    
-    local individualRelation = getIndividualPlayerRelation(player, townFaction);    
+
+    local individualRelation = getIndividualPlayerRelation(player, townFaction);
     local playerFaction = M.getFaction(player).tid;
     local factionRelation = getFactionRelation(townFaction, playerFaction);
-    
+
     if (individualRelation == M.RELATION_ACCEPTED) then
         return (factionRelation == M.RELATION_FRIENDLY) and M.RELATION_FRIENDLY or M.RELATION_NEUTRAL;
     end
-    
+
     if (factionRelation == M.RELATION_AGGRESSIVE) then
         return M.RELATION_AGGRESSIVE;
     elseif (factionRelation == M.RELATION_HOSTILE) then
@@ -653,16 +628,16 @@ function getFactionRelation(townFaction, playerFaction)
     if (townFaction == playerFaction) then
         return M.RELATION_SELF;
     end
-    
+
     local found, relation = ScriptVars:find("Mode_"..tostring(townFaction));
     if not found then
         return M.RELATION_HOSTILE;
     end
     relation = relation % (10 ^ (playerFaction + 1));
     relation = math.floor(relation / (10 ^ playerFaction));
-    
+
     if (relation ~= M.RELATION_FRIENDLY) and (relation ~= M.RELATION_NEUTRAL) and (relation ~= M.RELATION_AGGRESSIVE) then
-        return M.RELATION_HOSTILE; 
+        return M.RELATION_HOSTILE;
     end
     return relation;
 end
@@ -680,7 +655,7 @@ function setFactionRelation(townFaction, playerFaction, newRelation)
     if (townFaction == playerFaction) then
         return;
     end
-    
+
     -- get mode for all factions
     local found, relationships = ScriptVars:find("Mode_"..townFaction);
     local oldRelation = 0;
@@ -693,24 +668,24 @@ function setFactionRelation(townFaction, playerFaction, newRelation)
         oldRelation = relationships % (10 ^ (playerFaction + 1));
         oldRelation = math.floor(oldRelation / (10 ^ playerFaction));
     end
-    
+
     if (oldRelation == newRelation) then
         return;
     end;
-    
+
     relationships = relationships - (oldRelation * (10 ^ playerFaction));
     relationships = relationships + (newRelation * (10 ^ playerFaction));
-    
+
     relationships = math.max(0, math.min(9999, relationships)); -- must not be negative & exceed 9999 (3 towns + outcasts)
     ScriptVars:set("Mode_"..townFaction, relationships);
 end
 
---- Get the individual relationship of a player to a faction. These overwriting values are time limited. 
+--- Get the individual relationship of a player to a faction. These overwriting values are time limited.
 --
 -- @param player the player who's relation is queried
--- @param townFaction the faction 
+-- @param townFaction the faction
 -- @return int the relationship constant for the relation of the faction to the individual player
-function getIndividualPlayerRelation(player, townFaction) 
+function getIndividualPlayerRelation(player, townFaction)
     local relationId = -1;
     local daysId = -1;
     if (townFaction == M.cadomyr) then
@@ -723,32 +698,32 @@ function getIndividualPlayerRelation(player, townFaction)
         relationId = 195;
         daysId = 196;
     end
-    
+
     if (relationId < 0) or (daysId < 0) then
         return M.RELATION_NEUTRAL;
     end
-    
+
     local relation = player:getQuestProgress(relationId);
-    
+
     if (relation == M.RELATION_NEUTRAL) then
         return M.RELATION_NEUTRAL;
     end
-    
+
     local days, setTime = player:getQuestProgress(daysId);
-    
+
     if (relation ~= M.RELATION_FRIENDLY) and (relation ~= M.RELATION_NEUTRAL) and (relation ~= M.RELATION_AGGRESSIVE) and (relation ~= M.RELATION_ACCEPTED) and (relation ~= M.RELATION_HOSTILE) then
         debug("[Error] ".. character.LogText(player).." got illegal value for temporary faction relation. Resetting.");
         player:setQuestProgress(relationId, M.RELATION_NEUTRAL);
         return M.RELATION_NEUTRAL;
-    end    
-    
-    if (days > 0) then 
+    end
+
+    if (days > 0) then
         local daysInSec = (days / 3) * 24 * 60 * 60;
         if ((world:getTime("unix") - setTime) >= daysInSec) then
             return M.RELATION_NEUTRAL;
-        end    
-    end    
-    
+        end
+    end
+
     return relation;
 end
 
@@ -758,12 +733,12 @@ end
 -- @param townFaction the faction that is effected
 -- @param newRelation the new relation value
 -- @param the time limited in days for this change to wear off
-function M.setIndividualPlayerRelation(player, townFaction, newRelation, timeLimitInDays) 
+function M.setIndividualPlayerRelation(player, townFaction, newRelation, timeLimitInDays)
     if (newRelation ~= M.RELATION_FRIENDLY) and (newRelation ~= M.RELATION_NEUTRAL) and (newRelation ~= M.RELATION_HOSTILE) and (newRelation ~= M.RELATION_AGGRESSIVE) and (newRelation ~= M.RELATION_ACCEPTED) then
         debug("[Error] Applied illegal relationship mode: "..tostring(newRelation));
         return;
     end
-    
+
     local relationId = -1;
     local daysId = -1;
     if (townFaction == M.cadomyr) then
@@ -780,7 +755,7 @@ function M.setIndividualPlayerRelation(player, townFaction, newRelation, timeLim
         debug("[Error] Can't apply individual relationship for unknown town faction: "..tostring(townFaction));
         return;
     end
-    
+
     player:setQuestProgress(relationId, newRelation);
     if (newRelation == M.RELATION_NEUTRAL) then
         player:setQuestProgress(daysId, 0);

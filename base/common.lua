@@ -494,9 +494,9 @@ function M.FitForHardWork(User, required)
         "You are too exhausted for that. You should eat something.")
         return false
     end
-    
+
     return true
-    
+
 end
 
 --- Decrease the foodpoints of a character and show a warning if the foodpoints
@@ -506,13 +506,13 @@ end
 function M.GetHungry(User, units)
 
     local food = User:increaseAttrib("foodlevel", -units)
-    
+
     if (food <= 6000) and ((food + units) > 6000) then
         M.InformNLS(User,
         "Die Arbeit macht dich langsam müde und hungrig.",
         "You are getting tired and hungry from your work.")
     end
-    
+
 end
 
 --- Damage an item
@@ -525,11 +525,11 @@ function M.ToolBreaks(user, item, workTime)
     if not user or not item or not workTime then
         return false
     end
-    
-    loss=math.floor(workTime/180) --Each durability point equals 18 seconds of crafting time. Hence, a new tool lasts 30 minutes.
-    remainder=workTime-loss
-    
-    if (math.random(1, 100) < (remainder/1.8)) then 
+
+    local loss = math.floor(workTime/180) --Each durability point equals 18 seconds of crafting time. Hence, a new tool lasts 30 minutes.
+    local remainder = workTime - loss
+
+    if (math.random(1, 100) < (remainder/1.8)) then
         loss=loss+1
     end
 
@@ -537,12 +537,12 @@ function M.ToolBreaks(user, item, workTime)
     local quality = (item.quality - durability) / 100
 
     durability = durability - loss
-    
+
     if (durability <= 0) then
-    
+
         world:erase(item, 1)
         return true
-      
+
     end
 
     item.quality = quality * 100 + durability
@@ -621,14 +621,14 @@ end
 function M.calculateItemQualityDurability (quality, durability)
     local qualityNumber
     if M.IsNilOrEmpty(quality) then
-        qualityNumber = ITEM_DEFAULT_QUALITY
+        qualityNumber = M.ITEM_DEFAULT_QUALITY
     else
         qualityNumber= tonumber(quality)
     end
     if qualityNumber < 1 or qualityNumber > M.ITEM_MAX_QUALITY then
-        qualityNumber = ITEM_DEFAULT_QUALITY
+        qualityNumber = M.ITEM_DEFAULT_QUALITY
     end
-    
+
     local durabilityNumber = tonumber(durability)
     if M.IsNilOrEmpty(durability) then
         durabilityNumber = M.ITEM_DEFAULT_DURABILITY
@@ -638,7 +638,7 @@ function M.calculateItemQualityDurability (quality, durability)
     if durabilityNumber < 1 or durabilityNumber > M.ITEM_MAX_DURABILITY then
         durabilityNumber = M.ITEM_DEFAULT_DURABILITY
     end
-    
+
     return qualityNumber * 100 + durabilityNumber
 end
 
@@ -2343,7 +2343,7 @@ end
 --[[Binary functions
 Set bit n
 bitN must be a number in between 1 and 15 (limit 16 bit integer)
-setBit must be a number 
+setBit must be a number
 @return int: setValue
 ]]--
 function M.addBit(setValue, bitN)
@@ -2364,7 +2364,7 @@ end
 --[[Binary functions
 Remove bit n
 bitN must be a number in between 1 and 15 (limit 16 bit integer)
-setBit must be a number 
+setBit must be a number
 @return int: setValue
 ]]--
 function M.removeBit(setValue, bitN)
@@ -2384,7 +2384,7 @@ end
 
 --[[Binary functions
 Returns the number of set bits.
-setBit must be a number 
+setBit must be a number
 @return int: number of bits = 1
 ]]--
 function M.countBit(checkedValue)
@@ -2506,7 +2506,7 @@ end
 --[[ Drop a blood spot on the ground at a specified location.
 @param Posi The location where the blood spot is placed]]--
 function M.dropBlood(Posi, bloodWear)
-    usedWear = bloodWear or 2
+    local usedWear = bloodWear or 2
     if world:isItemOnField(Posi) then
         return --no blood on tiles with items on them!
     end
@@ -2515,7 +2515,7 @@ function M.dropBlood(Posi, bloodWear)
     if tileId == 6 or tileId == 0 or tileId == 34 then
         return -- no blood on water and invisible tiles
     end
-    
+
     local Blood = world:createItemFromId(3101, 1, Posi, true, 333, nil)
     Blood.wear = usedWear
     world:changeItem(Blood)

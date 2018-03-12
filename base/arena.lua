@@ -60,6 +60,63 @@ M.arenaInformation = {{playerPos=nil, monsterPos=position(255,668,0), newPlayerP
                     {playerPos=nil, monsterPos=position(995,784,-3), newPlayerPos=nil, npcName="Manuel Salan", town="Runewick", quest=802},
                     {playerPos=nil, monsterPos=position(338,193,-7), newPlayerPos=nil, npcName="Angelo Rothman", town="Galmair", quest=803}}
 
+--Sorts a table deceanding by the value of every second entry
+local function sortTable(inputTable)
+    local numberTable = {}
+    local sortedTable = {}
+    for i=2, #(inputTable), 2 do
+        table.insert(numberTable, inputTable[i])
+    end
+    table.sort(numberTable)
+    for i= 1, #(numberTable) do
+        for j=2, #(inputTable), 2 do
+            if inputTable[j] == numberTable[i] then
+                table.insert(sortedTable, 1, inputTable[j])
+                table.insert(sortedTable, 1, inputTable[j-1])
+            end
+        end
+    end
+    return sortedTable
+end
+
+local function checkLte(User,NPC)
+
+    local foundEffect = User.effects:find(18)
+    if foundEffect then
+        NPC:talk(Character.say,"Besiegt erstmal die erste Kreatur, bevor ihr eine zweite verlangt!","Finish the first creature before you demand a second one!")
+        return false
+    end
+    return true
+end
+
+local function payforMonster(User, MonsterLevel, NPC)
+    local priceInCP = M.monsterIDsByLevel[MonsterLevel].price
+    local germanMoney, englishMoney = money.MoneyToString(priceInCP)
+
+    if not money.CharHasMoney(User,priceInCP) then --not enough money!
+    local outText = common.GetNLS(User, "Du hast nicht genug Geld dabei! Du benötigst "..germanMoney..".", "You don't have enough money with you! You'll need "..englishMoney..".")
+    NPC:talk(Character.say, outText)
+    return false
+    end
+    money.TakeMoneyFromChar(User,priceInCP) --take money
+    User:inform("Du hast dir ein Monster für "..germanMoney.." gekauft. Viel Erfolg!", "You bought a monster at the price of "..englishMoney..". Good luck!")
+    return true
+end
+
+local function getRandomMonster(level)
+    local randomNumber = math.random(1, #M.monsterIDsByLevel[level].monsters)
+    return M.monsterIDsByLevel[level].monsters[randomNumber]
+end
+
+local function isUserInList(User, ranklist)
+    for i=1, #(ranklist), 2 do
+        if ranklist[i] == User.name then
+            return true, i
+        end
+    end
+    return false, 0
+end
+
 function M.requestMonster(User, NPC)
     local cbChooseLevel = function(dialog)
         if (not dialog:getSuccess()) then
@@ -104,20 +161,6 @@ function M.requestMonster(User, NPC)
     User:requestSelectionDialog(sdMonster)
 end
 
-function payforMonster(User, MonsterLevel, NPC)
-    local priceInCP = M.monsterIDsByLevel[MonsterLevel].price
-    local germanMoney, englishMoney = money.MoneyToString(priceInCP)
-
-    if not money.CharHasMoney(User,priceInCP) then --not enough money!
-        local outText = common.GetNLS(User, "Du hast nicht genug Geld dabei! Du benötigst "..germanMoney..".", "You don't have enough money with you! You'll need "..englishMoney..".")
-        NPC:talk(Character.say, outText)
-        return false
-    end
-    money.TakeMoneyFromChar(User,priceInCP) --take money
-    User:inform("Du hast dir ein Monster für "..germanMoney.." gekauft. Viel Erfolg!", "You bought a monster at the price of "..englishMoney..". Good luck!")
-    return true
-end
-
 local arenaMonster = {}
 local arenaMonsterByMonsterId = {}
 
@@ -140,13 +183,10 @@ function M.spawnMonster(User, MonsterLevel, arena)
 end
 
 function M.isArenaMonster(monster)
-
-
     if arenaMonsterByMonsterId[monster.id] ~= nil then
         return arenaMonsterByMonsterId[monster.id][1]
     end
     return nil
-
 end
 
 function M.checkMonster(User)
@@ -182,11 +222,6 @@ function M.killMonster(User)
     return true
 end
 
-function getRandomMonster(level)
-    local randomNumber = math.random(1, #M.monsterIDsByLevel[level].monsters)
-    return M.monsterIDsByLevel[level].monsters[randomNumber]
-end
-
 function M.getArena(User, NPC)
     for i=1, #(M.arenaInformation) do
         if M.arenaInformation[i].npcName == NPC.name then
@@ -194,15 +229,6 @@ function M.getArena(User, NPC)
         end
     end
     return ""
-end
-
-function isUserInList(User, ranklist)
-    for i=1, #(ranklist), 2 do
-        if ranklist[i] == User.name then
-            return true, i
-        end
-    end
-    return false, 0
 end
 
 -- Returns the points of a present arena, which the player has earned so far
@@ -223,35 +249,6 @@ function M.setArenastats(User, arena, points)
     User:setQuestProgress(quest, points)
 end
 
---Sorts a table deceanding by the value of every second entry
-function sortTable(inputTable)
-    local numberTable = {}
-    local sortedTable = {}
-    for i=2, #(inputTable), 2 do
-        table.insert(numberTable, inputTable[i])
-    end
-    table.sort(numberTable)
-    for i= 1, #(numberTable) do
-        for j=2, #(inputTable), 2 do
-            if inputTable[j] == numberTable[i] then
-                table.insert(sortedTable, 1, inputTable[j])
-                table.insert(sortedTable, 1, inputTable[j-1])
-            end
-        end
-    end
-    return sortedTable
-end
-
-function checkLte(User,NPC)
-
-    local foundEffect = User.effects:find(18)
-    if foundEffect then
-        NPC:talk(Character.say,"Besiegt erstmal die erste Kreatur, bevor ihr eine zweite verlangt!","Finish the first creature before you demand a second one!")
-        return false
-    end
-    return true
-end
-
 -- reward[x] = {y,z} - x = reward points required, y = item id , z= amount of y
 local reward = {
     {61,15}, -- gold coins
@@ -269,19 +266,7 @@ local reward = {
     {3607,1}, -- pure spirit
 }
 
-function M.getReward(User, quest)
-    local numberOfRewards = User:getQuestProgress(quest+2)
-    local currentPoints = User:getQuestProgress(quest)
-    local pointsNeededForNewReward = 50
-
-    -- give a reward at 50, 150, 350, 750, 1550, ..
-    if  currentPoints >= pointsNeededForNewReward*((2^(numberOfRewards+1))-1) then
-        User:setQuestProgress(quest+2, numberOfRewards+1)
-        rewardDialog(User, currentPoints)
-    end
-end
-
-function rewardDialog(User, points)
+local function rewardDialog(User, points)
     local title = common.GetNLS(User,"Arena Belohnung","Arena reward")
     local text = common.GetNLS(User,"Du hast "..points.." Punkte gesammelt, daher kannst du dir nun eine Belohnung aussuchen.", "You earned "..points.." points, therefore you can pick a reward.")
 
@@ -303,6 +288,18 @@ function rewardDialog(User, points)
     end
 
     User:requestSelectionDialog(dialog)
+end
+
+function M.getReward(User, quest)
+    local numberOfRewards = User:getQuestProgress(quest+2)
+    local currentPoints = User:getQuestProgress(quest)
+    local pointsNeededForNewReward = 50
+
+    -- give a reward at 50, 150, 350, 750, 1550, ..
+    if  currentPoints >= pointsNeededForNewReward*((2^(numberOfRewards+1))-1) then
+        User:setQuestProgress(quest+2, numberOfRewards+1)
+        rewardDialog(User, currentPoints)
+    end
 end
 
 return M
