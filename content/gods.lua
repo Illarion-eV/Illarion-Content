@@ -24,6 +24,8 @@ local common = require("base.common")
 local globalvar = require("base.globalvar")
 local math = require("math")
 
+local gods_cooldowns_common = require("content._gods.gods_cooldowns_common")
+
 local basegod = require("content._gods.basegod")
 local baseyounger = require("content._gods.baseyounger")
 local baseelder = require("content._gods.baseelder")
@@ -109,10 +111,11 @@ end
 
 local M = {}
 
---Overview of queststatus:
+-- Overview of queststatus:
 M._QUEST_DEVOTION = 401 --401 contains the ID of the god the character is devoted to
 M._QUEST_PRIESTHOOD = 402 --402 contains the ID of the god the character is a priest of. MUST be equal to value of quest 401 or 0.
 --403-418 contains favour (as signed int) of the corresponding god.
+
 
 M.GOD_NONE     =  0
 M.GOD_USHARA   =  1
@@ -451,6 +454,7 @@ end
 -- @param User the char
 -- @param multiplier the change magnitude as a float. 0 means no change. 1 means everything becomes 0.
 function M.favourDecay(User, multiplier)
+    multiplier = multiplier or gods_cooldowns_common.DONATION_DECAY_COEFF
     local changes = {}
     -- start by applying the multiplier and rounding
     for _,curGodObj in pairs(M._godOrdinalToObj) do
@@ -500,10 +504,16 @@ function M.pray(User, godOrdinal)
         User:inform("[ERROR] Praying to invalid god. Please inform a developer.");
         return
     end
+
     common.TalkNLS(User, Character.say , "#me FIXME pray " .. godObj.nameDe, "#me FIXME prays to " .. godObj.nameEn)
-    -- FIXME adjust numbers when favour is implemented
-    -- TODO cooldown
-    M.increaseFavour(User, godOrdinal, 20)
+    if gods_cooldowns_common.getUserPrayerCooldownCounter(User) > 0 then
+        -- prayed not so long ago
+        common.InformNLS(User, "FIXME", "FIXME Thou shalt not take the name of the Lord thy God in vain.")
+    else
+        M.increaseFavour(User, godOrdinal, gods_cooldowns_common.PRAYER_FAVOUR_INCREASE)
+        gods_cooldowns_common.setUserPrayerCooldownCounter(User, gods_cooldowns_common.PRAYER_COOLDOWN_COUNTER_RESET)
+    end
+
 end
 
 
@@ -546,7 +556,13 @@ function M.validate(User)
     return true
 end
 
+---
+--
+-- @param User
+-- @param godOrdinal
+function M.donationDecay(User)
 
+end
 
 -- FIXME *** Everything between this line should be reviewed ***
 --[[

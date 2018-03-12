@@ -26,6 +26,7 @@ local skillTransfer = require("base.skillTransfer")
 local areas = require("content.areas")
 local hairdresser = require("npc.hairdresser")
 local seafaring = require("base.seafaring")
+local gods_cooldowns_common = require("content._gods.gods_cooldowns_common")
 -- Called after every player login
 
 local M = {}
@@ -321,6 +322,12 @@ function M.onLogin( player )
     found = player.effects:find(33)
     if not found then
         player.effects:addEffect(LongTimeEffect(33, 10))
+    end
+
+    --Checking gods cooldown
+    found = player.effects:find(gods_cooldowns_common.EFFECT_ID)
+    if not found then
+        player.effects:addEffect(LongTimeEffect(gods_cooldowns_common.EFFECT_ID, 10))
     end
 end
 
