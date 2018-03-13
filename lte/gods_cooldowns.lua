@@ -24,49 +24,39 @@ local gods = require("content.gods")
 
 local M = {}
 
-function M.addEffect( Effect, Character)
-    -- it is needed to add at least value to make sure the effect does not get deleted right after
-    -- the first call
-    gods_cooldowns_common.setFavourDecayCounter(Effect, gods_cooldowns_common.FAVOUR_DECAY_COUNTER_RESET)
-    gods_cooldowns_common.setDonationDecayCounter(Effect, gods_cooldowns_common.DONATION_DECAY_COUNTER_RESET)
-    gods_cooldowns_common.setPrayerCooldownCounter(Effect, 0)
+function M.addEffect(effectObj, charObj)
+    debug("gods_cooldowns addEffect")
+    for _,counter in ipairs(gods_cooldowns_common.cooldownCounters) do
+        counter:initialize(charObj, effectObj)
+    end
+    for _,counter in ipairs(gods_cooldowns_common.decayCounters) do
+        counter:initialize(charObj, effectObj)
+    end
 end
 
-function M.callEffect( Effect, Char ) -- Effect is called
-
-    -- Decaying values
-    local next_favour_decay_counter = gods_cooldowns_common.getFavourDecayCounter(Effect) - 1
-    if next_favour_decay_counter <= 0 then
-        gods.favourDecay(Char)
-        next_favour_decay_counter = gods_cooldowns_common.FAVOUR_DECAY_COUNTER_RESET
+function M.callEffect(effectObj, charObj) -- Effect is called
+    debug("gods_cooldowns callEffect")
+    for _,counter in ipairs(gods_cooldowns_common.cooldownCounters) do
+        counter:tick(charObj, effectObj)
     end
-    gods_cooldowns_common.setFavourDecayCounter(Effect, next_favour_decay_counter)
-
-    local next_donation_decay_counter = gods_cooldowns_common.getDonationDecayCounter(Effect) - 1
-    if next_donation_decay_counter <= 0 then
-        gods.donationDecay(Char)
-        next_donation_decay_counter = gods_cooldowns_common.DONATION_DECAY_COUNTER_RESET
+    for _,counter in ipairs(gods_cooldowns_common.decayCounters) do
+        counter:tick(charObj, effectObj)
     end
-    gods_cooldowns_common.setDonationDecayCounter(Effect, next_donation_decay_counter)
-
-    -- Cooldowns
-    gods_cooldowns_common.setPrayerCooldownCounter(Effect,
-        math.max(gods_cooldowns_common.getPrayerCooldownCounter(Effect) - 1, 0)
-    )
 
     --
-    Effect.nextCalled = gods_cooldowns_common.LTE_TICK_NEXT_CALLED -- Effect gets called each X/10 secs
+    effectObj.nextCalled = gods_cooldowns_common.LTE_TICK_NEXT_CALLED -- Effect gets called each X/10 secs
     return true -- repeat forever
 end
 
 
-function M.removeEffect( Effect, Character )
-
+function M.removeEffect(effectObj, charObj)
+    debug("gods_cooldowns removeEffect !!!")
 --This effect doesn't get removed.
 
 end
 
-function M.loadEffect(Effect, Character)
+function M.loadEffect(effectObj, charObj)
+    debug("gods_cooldowns loadEffect")
 
 end
 

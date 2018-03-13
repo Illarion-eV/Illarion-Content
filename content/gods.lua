@@ -209,7 +209,7 @@ end
 
 ---
 -- Get the god  user is devoted to
--- @param User
+-- @param charobj
 -- @return god object
 --
 function M._getDevotionGod(User)
@@ -218,7 +218,7 @@ end
 
 ---
 -- Set the god  user is devoted to
--- @param User
+-- @param charobj
 -- @param godObj - god object
 --
 function M._setDevotionGod(User, godObj)
@@ -227,7 +227,7 @@ end
 
 ---
 -- Get the god  user is priest of
--- @param User
+-- @param charobj
 -- @return god object
 --
 function M._getPriesthoodGod(User)
@@ -236,7 +236,7 @@ end
 
 ---
 -- Set the god  user is devoted to
--- @param User
+-- @param charobj
 -- @param godObj - god object
 --
 function M._setPriesthoodGod(User, godObj)
@@ -279,7 +279,7 @@ end
 
 ---
 -- Get string describing the character relations with gods (in two languages)
--- @param User the char to check
+-- @param charobj the char to check
 function M.getCharStatus(User)
     local statusDe
     local statusEn
@@ -300,7 +300,7 @@ end
 
 ---
 -- Check if char is devoted to a god
--- @param User the char to check
+-- @param charobj the char to check
 -- @param godOrdinal a god ordinal (e.g. gods.GOD_ELARA) or set of ordinals (e.g. gods.YOUNGER_GODS) to be checked.
 -- If godOrdinal is not given, the function assumes gods.GODS i.e checks if char is devoted to anyone
 -- If god is gods.GOD_NONE then the function returns true if char is not devoted to any god
@@ -317,7 +317,7 @@ function M.isDevoted(User, godOrdinal)
 end
 ---
 -- Check if char is a priest of a god
--- @param User the char to check
+-- @param charobj the char to check
 -- @param godOrdinal a god ordinal (e.g. gods.GOD_ELARA) or set of ordinals (e.g. gods.YOUNGER_GODS) to be checked.
 -- If godOrdinal is not given, the function assumes gods.GODS i.e checks if char is a priest at all
 -- If god is gods.GOD_NONE then the function returns true if char is not a priest
@@ -335,7 +335,7 @@ end
 
 ---
 -- Make the char devoted to the god (without any checks/prerequisites)
--- @param User the char to change
+-- @param charobj the char to change
 -- @param godOrdinal the target god. Should be one of gods.GODS
 function M.setDevoted(User, godOrdinal)
     if M.isDevoted(User, godOrdinal) then
@@ -360,7 +360,7 @@ end
 
 ---
 -- Make the char a priest to his god (without any checks/prerequisites)
--- @param User the char to change
+-- @param charobj the char to change
 function M.setPriest(User)
     local godObj = M._getDevotionGod(User)
     if not godObj then
@@ -377,7 +377,7 @@ end
 
 ---
 -- Make the char not a priest
--- @param User the char to change
+-- @param charobj the char to change
 function M.setNotPriest(User)
     local godObj = M._getPriesthoodGod(User)
     if not godObj then
@@ -393,7 +393,7 @@ end
 
 ---
 -- Check favour of a god
--- @param User the char to check
+-- @param charobj the char to check
 -- @param godOrdinal a god ordinal (one of gods.GODS)
 -- @return signed int - the favour
 function M.getFavour(User, godOrdinal)
@@ -402,7 +402,7 @@ end
 
 ---
 -- Change favour of a god for specific character
--- @param User the char
+-- @param charobj the char
 -- @param godOrdinal a god (one of gods.GODS)
 -- @param amount the change magnitude (an int, may be negative)
 function M.increaseFavour(User, godOrdinal, amount)
@@ -451,7 +451,7 @@ end
 
 ---
 -- Change favour of all gods towards 0 for specific character. This function should be called periodically.
--- @param User the char
+-- @param charobj the char
 -- @param multiplier the change magnitude as a float. 0 means no change. 1 means everything becomes 0.
 function M.favourDecay(User, multiplier)
     multiplier = multiplier or gods_cooldowns_common.DONATION_DECAY_COEFF
@@ -496,7 +496,7 @@ end
 
 ---
 -- Perform a prayer to the god and update his favour
--- @param User
+-- @param charobj
 -- @param godOrdinal
 function M.pray(User, godOrdinal)
     local godObj = M._godOrdinalToObj[godOrdinal]
@@ -506,12 +506,12 @@ function M.pray(User, godOrdinal)
     end
 
     common.TalkNLS(User, Character.say , "#me FIXME pray " .. godObj.nameDe, "#me FIXME prays to " .. godObj.nameEn)
-    if gods_cooldowns_common.getUserPrayerCooldownCounter(User) > 0 then
+    if gods_cooldowns_common.prayerCooldownCounter:hasEnded(User) then
+        M.increaseFavour(User, godOrdinal, gods_cooldowns_common.PRAYER_FAVOUR_INCREASE)
+        gods_cooldowns_common.prayerCooldownCounter:restart(User)
+    else
         -- prayed not so long ago
         common.InformNLS(User, "FIXME", "FIXME Thou shalt not take the name of the Lord thy God in vain.")
-    else
-        M.increaseFavour(User, godOrdinal, gods_cooldowns_common.PRAYER_FAVOUR_INCREASE)
-        gods_cooldowns_common.setUserPrayerCooldownCounter(User, gods_cooldowns_common.PRAYER_COOLDOWN_COUNTER_RESET)
     end
 
 end
@@ -558,11 +558,17 @@ end
 
 ---
 --
--- @param User
+-- @param charobj
 -- @param godOrdinal
 function M.donationDecay(User)
 
 end
+
+
+-- Register callbacks for periodic decay
+gods_cooldowns_common.favourDecayCounter:addCallback(M.favourDecay)
+gods_cooldowns_common.donationDecayCounter:addCallback(M.donationDecay)
+
 
 -- FIXME *** Everything between this line should be reviewed ***
 --[[
