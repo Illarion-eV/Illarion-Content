@@ -12,15 +12,15 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_97_leatherbag' WHERE itm_id=97;
 local lookat = require("base.lookat")
 local M = {}
 
-BAG_LABEL_KEY = "bagLabel"
-BAG_LABEL_COMMAND = "!bag"
-MAX_LABEL_LENGTH = 100
+local BAG_LABEL_KEY = "bagLabel"
+local BAG_LABEL_COMMAND = "!bag"
+local MAX_LABEL_LENGTH = 100
 
 function M.LookAtItem(User,Item)
     local lookAt = lookat.GenerateLookAt(User, Item)
@@ -62,8 +62,8 @@ function M.UseItem(User, Item)
                     User:inform("Du beschriftest die Ledertasche mit "..label..".")
                 else
                     User:inform("You label the leather bag with "..label..".")
-                end 
-            end               
+                end
+            end
         end
     end
 end

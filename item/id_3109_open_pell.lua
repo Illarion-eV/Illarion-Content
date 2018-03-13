@@ -22,8 +22,6 @@ local id_266_bookshelf = require("item.id_266_bookshelf")
 
 local M = {}
 
--- script currently only used to teach alchemy recipes
-
 M.ListEffectId = {}
 M.ListTaskText = {}
 M.ListTaskItem = {}
@@ -41,7 +39,7 @@ M.ListEffectId["Galmair"] = {}
 M.ListTaskText["Galmair"] = {}
 M.ListTaskItem["Galmair"] = {}
 
-function AddPotion(town, potionEffectId, taskText, taskItem)
+local function AddPotion(town, potionEffectId, taskText, taskItem)
     table.insert(M.ListEffectId[town],potionEffectId)
     table.insert(M.ListTaskText[town],taskText)
     table.insert(M.ListTaskItem[town],taskItem)
@@ -251,7 +249,7 @@ AddPotion("Galmair",
           )
 
 
-function getTownOfPell(SourceItem)
+local function getTownOfPell(SourceItem)
 
     if SourceItem.pos == position(911,771,0) then
         return "Runewick"
@@ -263,7 +261,7 @@ function getTownOfPell(SourceItem)
     return false
 end
 
-function getNPC(SourceItem)
+local function getNPC(SourceItem)
 
     local myNPC = false
     local npcList = world:getNPCSInRangeOf(SourceItem.pos,5)
@@ -280,7 +278,57 @@ function getNPC(SourceItem)
     return myNPC
 end
 
-function RecipeInform( User, SourceItem)
+local function TellRecipe(User, effectId)
+    local ingredientList = alchemy.getIngredients(effectId)
+    local recipeEN = "Potion: "..alchemy.potionName[effectId][1].."\n\nComponents:\nStock:\n"
+    local recipeDE = "Trank: "..alchemy.potionName[effectId][2].."\n\nKomponenten:\nSud:\n"
+    local dataZList = alchemy.SplitData(User,ingredientList[2])
+    for i=1,8 do
+        recipeEN = recipeEN..alchemy.wirkung_en[dataZList[i]].." "..alchemy.wirkstoff[i].."\n"
+        recipeDE = recipeDE..alchemy.wirkung_de[dataZList[i]].." "..alchemy.wirkstoff[i].."\n"
+    end
+    recipeEN = recipeEN.."\nEssence brew based on "..world:getItemName(ingredientList[1],Player.english)..":\n"
+    recipeDE = recipeDE.."\nEssenzgebräu auf "..world:getItemName(ingredientList[1],Player.german).."basis:\n"
+    local success = false
+    for i=3,10 do
+        if ingredientList[i] == false then
+            break
+        else
+            success = true
+            recipeEN = recipeEN..world:getItemName(ingredientList[i],Player.english).."\n"
+            recipeDE = recipeDE..world:getItemName(ingredientList[i],Player.german).."\n"
+        end
+    end
+    if not success then
+        recipeEN = recipeEN.."No essecned herbs"
+        recipeDE = recipeDE.."Keine essenzierten Kräuter"
+    end
+
+    if recipeDE and recipeEN then
+        -- message box for the results
+        local callback = function(dialog) end
+        local dialog
+        if User:getPlayerLanguage() == 0 then
+            dialog = MessageDialog("Erlerntes Rezept", recipeDE, callback)
+        else
+            dialog = MessageDialog("Learned Recipe" , recipeEN, callback)
+        end
+        User:requestMessageDialog(dialog)
+    end
+
+end
+
+local function dogScroll(User, SourceItem)
+
+    if not alchemy.CheckIfAlchemist(User) or tonumber(SourceItem:getData("learnerId")) ~= User.id then
+        User:inform("Du kannst den Inhalt nicht entziffern. Es sind nur unverständliche Symbole.","You cannot read the scroll. There are only some symbols you don't understand.")
+        return
+    end
+
+    TellRecipe(User, 560)
+end
+
+local function RecipeInform( User, SourceItem)
 
     -- is the char an alchemist?
     local anAlchemist = alchemy.CheckIfAlchemist(User)
@@ -360,7 +408,7 @@ function M.UseItem(User, SourceItem, ltstate)
             User:sendBook(id_266_bookshelf.bookList[book].bookId)
         end
     end
-    
+
     -- Akaltut Quest
     if SourceItem.pos == position(430, 767, -9) then
         User:inform("Ein Zauberspruch in unaussprechlicher Sprache steht in der Schriftrolle geschrieben.",
@@ -381,56 +429,6 @@ function M.UseItem(User, SourceItem, ltstate)
         return
     else
         RecipeInform( User, SourceItem)
-    end
-    
-end
-
-function dogScroll(User, SourceItem)
-
-    if not alchemy.CheckIfAlchemist(User) or tonumber(SourceItem:getData("learnerId")) ~= User.id then
-        User:inform("Du kannst den Inhalt nicht entziffern. Es sind nur unverständliche Symbole.","You cannot read the scroll. There are only some symbols you don't understand.")
-        return
-    end
-
-    TellRecipe(User, 560)
-end
-
-function TellRecipe(User, effectId)
-    local ingredientList = alchemy.getIngredients(effectId)
-    local recipeEN = "Potion: "..alchemy.potionName[effectId][1].."\n\nComponents:\nStock:\n"
-    local recipeDE = "Trank: "..alchemy.potionName[effectId][2].."\n\nKomponenten:\nSud:\n"
-    local dataZList = alchemy.SplitData(User,ingredientList[2])
-    for i=1,8 do
-        recipeEN = recipeEN..alchemy.wirkung_en[dataZList[i]].." "..alchemy.wirkstoff[i].."\n"
-        recipeDE = recipeDE..alchemy.wirkung_de[dataZList[i]].." "..alchemy.wirkstoff[i].."\n"
-    end
-    recipeEN = recipeEN.."\nEssence brew based on "..world:getItemName(ingredientList[1],Player.english)..":\n"
-    recipeDE = recipeDE.."\nEssenzgebräu auf "..world:getItemName(ingredientList[1],Player.german).."basis:\n"
-    local success = false
-    for i=3,10 do
-        if ingredientList[i] == false then
-            break
-        else
-            success = true
-            recipeEN = recipeEN..world:getItemName(ingredientList[i],Player.english).."\n"
-             recipeDE = recipeDE..world:getItemName(ingredientList[i],Player.german).."\n"
-        end
-    end
-    if not success then
-        recipeEN = recipeEN.."No essecned herbs"
-        recipeDE = recipeDE.."Keine essenzierten Kräuter"
-    end
-
-    if recipeDE and recipeEN then
-        -- message box for the results
-        local callback = function(dialog) end
-        local dialog
-        if User:getPlayerLanguage() == 0 then
-            dialog = MessageDialog("Erlerntes Rezept", recipeDE, callback)
-        else
-            dialog = MessageDialog("Learned Recipe" , recipeEN, callback)
-        end
-        User:requestMessageDialog(dialog)
     end
 
 end

@@ -15,7 +15,6 @@ You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
--- Merung 2011: fill stock or potion into bottle
 -- UPDATE items SET itm_script='item.id_164_emptybottle' WHERE itm_id IN (164);
 
 local common = require("base.common")
@@ -24,6 +23,46 @@ local licence = require("base.licence")
 local granorsHut = require("content.granorsHut")
 
 local M = {}
+
+local function CheckWaterEmpty(User, SourceItem, cauldron)
+
+    if (cauldron:getData("filledWith") == "water") then -- water belongs into a bucket, not a potion bottle!
+    common.InformNLS( User,
+        "Es ist zu viel Wasser im Kessel, als dass es in die Flaschen passen würde. Ein Eimer wäre hilfreicher.",
+        "There is too much water in the cauldron to bottle it. Better use a bucket.")
+    return nil ;
+    -- no stock, no potion, not essence brew -> nothing we could fil into the bottle
+    elseif cauldron:getData("filledWith") == "" then
+        common.InformNLS( User,
+            "Es befindet sich nichts zum Abfüllen im Kessel.",
+            "There is nothing to be bottled in the cauldron.")
+        return nil;
+    end
+    return true
+end
+
+local function GetSlimeFromTree(User, SourceItem, ltstate)
+
+    if ( ltstate == Action.abort ) then
+        return
+    end
+
+    if (ltstate == Action.none) then
+        User:startAction(50,21,5,0,0);
+        return
+    end
+
+    if SourceItem.number > 1 then
+        local data = {}
+        data.filledWith="meraldilised slime"
+        common.CreateItem(User, 327, 1, 333, data)
+        User:eraseItem(SourceItem.id, 1)
+    else
+        SourceItem.id = 327
+        SourceItem:setData("filledWith","meraldilised slime")
+        world:changeItem(SourceItem)
+    end
+end
 
 function M.UseItem(User, SourceItem, ltstate)
 
@@ -68,25 +107,6 @@ function M.UseItem(User, SourceItem, ltstate)
     if frontItem and frontItem.id == 589 and frontItem.pos == position(376,288,0) then
         GetSlimeFromTree(User, SourceItem, ltstate)
     end
-
-end
-
-
-function CheckWaterEmpty(User, SourceItem, cauldron)
-
-    if (cauldron:getData("filledWith") == "water") then -- water belongs into a bucket, not a potion bottle!
-        common.InformNLS( User,
-                "Es ist zu viel Wasser im Kessel, als dass es in die Flaschen passen würde. Ein Eimer wäre hilfreicher.",
-                "There is too much water in the cauldron to bottle it. Better use a bucket.")
-        return nil ;
-    -- no stock, no potion, not essence brew -> nothing we could fil into the bottle
-    elseif cauldron:getData("filledWith") == "" then
-        common.InformNLS( User,
-                "Es befindet sich nichts zum Abfüllen im Kessel.",
-                "There is nothing to be bottled in the cauldron.")
-        return nil;
-    end
-    return true
 end
 
 function M.FillIntoBottle(User, SourceItem, cauldron)
@@ -137,31 +157,6 @@ function M.FillIntoBottle(User, SourceItem, cauldron)
     end
     world:changeItem(cauldron)
     world:makeSound(10,cauldron.pos)
-
-end
-
-function GetSlimeFromTree(User, SourceItem, ltstate)
-
-    if ( ltstate == Action.abort ) then
-        return
-    end
-
-    if (ltstate == Action.none) then
-       User:startAction(50,21,5,0,0);
-       return
-    end
-
-    if SourceItem.number > 1 then
-        local data = {}
-        data.filledWith="meraldilised slime"
-        common.CreateItem(User, 327, 1, 333, data)
-        User:eraseItem(SourceItem.id, 1)
-    else
-        SourceItem.id = 327
-        SourceItem:setData("filledWith","meraldilised slime")
-        world:changeItem(SourceItem)
-    end
-
 end
 
 return M

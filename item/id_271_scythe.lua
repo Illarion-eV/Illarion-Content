@@ -27,7 +27,7 @@ local M = {}
 
 M.LookAtItem = metal.LookAtItem
 
-function getGrain(User)
+local function getGrain(User)
 
     -- first check front position for grain
     local TargetItem = common.GetFrontItem(User);
@@ -62,8 +62,6 @@ function M.UseItem(User, SourceItem, ltstate)
     if grain ~= nil then
         grainharvesting.StartGathering(User, grain, ltstate);
     end
-
 end
 
 return M
-

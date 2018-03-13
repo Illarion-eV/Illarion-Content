@@ -26,7 +26,7 @@ local M = {}
 
 M.LookAtItem = metal.LookAtItem
 
-function getLoom(User)
+local function getLoom(User)
 
     local LOOM = 169;
     local item = common.GetFrontItem(User);
@@ -37,7 +37,7 @@ function getLoom(User)
     return item;
 end
 
-function getWheel(User)
+local function getWheel(User)
 
     local WHEEL = 171;
     local item = common.GetFrontItem(User);
@@ -48,7 +48,7 @@ function getWheel(User)
     return item;
 end
 
-function getSheep(User)
+local function getSheep(User)
     local targetCharacter = common.GetFrontCharacter(User);
     -- check for sheep in front
     if (targetCharacter ~= nil and targetCharacter:getRace()==18) then
@@ -102,4 +102,3 @@ function M.UseItem(User, SourceItem, ltstate)
 end
 
 return M
-

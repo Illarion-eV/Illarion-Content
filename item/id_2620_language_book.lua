@@ -14,12 +14,67 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+-- UPDATE items SET itm_script='item.id_2620_language_book' WHERE itm_id = 2620;
+
 local common = require("base.common")
 local lookat = require("base.lookat")
 local id_266_bookshelf = require("item.id_266_bookshelf")
+
 local M = {}
 
--- UPDATE items SET itm_script='item.id_2620_language_book' WHERE itm_id = 2620;
+local function Learning(User,Value,Skillname)
+    local MC=User:getMentalCapacity();
+    if (MC>100) then
+        return false
+    else
+        User:setMentalCapacity(2100);
+        local Skill=User:getSkill(Skillname);
+        User:increaseSkill(Skillname,Value-Skill);
+        return true
+    end
+end
+
+local function GetSkillName(code)
+    if (code==0) then return Character.ancientLanguage;
+    elseif (code==1) then return Character.commonLanguage;
+    elseif (code==2) then return Character.humanLanguage;
+    elseif (code==3) then return Character.dwarfLanguage;
+    elseif (code==4) then return Character.elfLanguage;
+    elseif (code==5) then return Character.orcLanguage;
+    elseif (code==6) then return Character.halflingLanguage;
+    elseif (code==7) then return Character.lizardLanguage;
+    end
+end
+
+local function GetLanguage(code,engl)
+    if (code==0) then return ( engl and "ancient language" or "Altertümlichen Sprache" );
+    elseif (code==1) then return ( engl and "common language" or "Gemeinsammen Sprache" );
+    elseif (code==2) then return ( engl and "human language" or "Sprache der Menschen" );
+    elseif (code==3) then return ( engl and "dwarf language" or "Sprache der Zwerge" );
+    elseif (code==4) then return ( engl and "elf language" or "Sprache der Elfen" );
+    elseif (code==5) then return ( engl and "orc language" or "Sprache der Orks" );
+    elseif (code==6) then return ( engl and "halfling language" or "Sprache der Halblinge" );
+    elseif (code==7) then return ( engl and "lizard language" or "Sprache der Echsen" );
+    elseif (code==8) then return ( engl and "goblin language" or "Sprache der Goblins" );
+    elseif (code==9) then return ( engl and "fairy language" or "Sprache der Feen" );
+    elseif (code==10) then return ( engl and "gnome language" or "Sprache der Gnome" );
+    end
+end
+
+local function GetDifficulty(code)
+    if (code==0) then return 13;
+    elseif (code==1) then return 2;
+    elseif (code==2) then return 5;
+    elseif (code==3) then return 5;
+    elseif (code==4) then return 8;
+    elseif (code==5) then return 2;
+    elseif (code==6) then return 6;
+    elseif (code==7) then return 10;
+    elseif (code==8) then return 5;
+    elseif (code==9) then return 7;
+    elseif (code==10) then return 5;
+    end
+end
 
 function M.UseItem(User, SourceItem, ltstate)
     if SourceItem:getData("langcode") == "" then
@@ -32,7 +87,7 @@ function M.UseItem(User, SourceItem, ltstate)
             User:sendBook(id_266_bookshelf.bookList[book].bookId)
         end
     end
-    
+
     local langcode = math.floor(tonumber(SourceItem:getData("langcode"))/10);
     local modecode = tonumber(SourceItem:getData("langcode")) - (langcode * 10);
 
@@ -66,6 +121,7 @@ function M.UseItem(User, SourceItem, ltstate)
         common.InformNLS(User,"Du verstehst nichts von dem, was hier steht","You understand nothing from the things, written in this book");
     elseif (Skill>59) then
         common.InformNLS(User,"Du findest nichts was du noch nicht weist, in diesem Buch","You find nothing new in this book");
+    --[[ Broken before 2010....
     else
         if (Counter ==1) then
             if (Skill<15) then
@@ -116,30 +172,15 @@ function M.UseItem(User, SourceItem, ltstate)
                 common.InformNLS(User,"Was hier steht, verstehst du noch nicht","You don't understand the things written down on this page");
             end
         end
+    ]]
     end
+
     local frontItem = common.GetFrontItem(User);
 
     if frontItem and ((frontItem.id == 266) or (frontItem.id == 267)) then
         world:erase(SourceItem,1)
-        --printerr("Erase aus skript ausgefuehrt");
         return;
     end
-
-    -- obsolet?
-    --[[local TargetItem = common.GetTargetItem(User, SourceItem);
-    if (TargetItem.id == 329 and tonumber(TargetItem:getData("langcode")) == 0) then
-        if ( Skill > 50) then
-            if (modecode==0) then
-                common.InformNLS(User,"Du schreibst eine Kurze Notiz in das Buch die dem nächsten Lernenden Helfen wird, den Einstieg in die Sprache zu finden",
-                "You write a short note into the book, which will help the next one, who wants to learn, to start learning the language");
-                SourceItem:setData("langcode", tonumber(SourceItem:getData("langcode"))+1);
-                world:changeItem(SourceItem);
-                world:erase(TargetItem,1);
-            end
-        end
-    end]]
-    --User:learn(4,"library research",2,100)
-    --Replace with new learn function, see learn.lua
 end
 
 function M.LookAtItem(User,Item)
@@ -154,7 +195,7 @@ function M.LookAtItem(User,Item)
     else
         lookat.SetSpecialName(Item, "Lehrbuch der "..GetLanguage(langcode,false),"Textbook of the "..GetLanguage(langcode,true));
     end
-    
+
     local book = Item:getData("book")
     if book ~= "" then
         if book ~= nil then
@@ -166,59 +207,4 @@ function M.LookAtItem(User,Item)
     return lookat.GenerateLookAt(User, Item, lookat.NONE)
 end
 
-function Learning(User,Value,Skillname)
-    local MC=User:getMentalCapacity();
-    if (MC>100) then
-        return false
-    else
-        User:setMentalCapacity(2100);
-        local Skill=User:getSkill(Skillname);
-        User:increaseSkill(Skillname,Value-Skill);
-        return true
-    end
-end
-
-function GetSkillName(code)
-    if (code==0) then return Character.ancientLanguage;
-    elseif (code==1) then return Character.commonLanguage;
-    elseif (code==2) then return Character.humanLanguage;
-    elseif (code==3) then return Character.dwarfLanguage;
-    elseif (code==4) then return Character.elfLanguage;
-    elseif (code==5) then return Character.orcLanguage;
-    elseif (code==6) then return Character.halflingLanguage;
-    elseif (code==7) then return Character.lizardLanguage;
-    end
-end;
-
-function GetLanguage(code,engl)
-    if (code==0) then return ( engl and "ancient language" or "Altertümlichen Sprache" );
-    elseif (code==1) then return ( engl and "common language" or "Gemeinsammen Sprache" );
-    elseif (code==2) then return ( engl and "human language" or "Sprache der Menschen" );
-    elseif (code==3) then return ( engl and "dwarf language" or "Sprache der Zwerge" );
-    elseif (code==4) then return ( engl and "elf language" or "Sprache der Elfen" );
-    elseif (code==5) then return ( engl and "orc language" or "Sprache der Orks" );
-    elseif (code==6) then return ( engl and "halfling language" or "Sprache der Halblinge" );
-    elseif (code==7) then return ( engl and "lizard language" or "Sprache der Echsen" );
-    elseif (code==8) then return ( engl and "goblin language" or "Sprache der Goblins" );
-    elseif (code==9) then return ( engl and "fairy language" or "Sprache der Feen" );
-    elseif (code==10) then return ( engl and "gnome language" or "Sprache der Gnome" );
-    end
-end
-
-function GetDifficulty(code)
-    if (code==0) then return 13;
-    elseif (code==1) then return 2;
-    elseif (code==2) then return 5;
-    elseif (code==3) then return 5;
-    elseif (code==4) then return 8;
-    elseif (code==5) then return 2;
-    elseif (code==6) then return 6;
-    elseif (code==7) then return 10;
-    elseif (code==8) then return 5;
-    elseif (code==9) then return 7;
-    elseif (code==10) then return 5;
-    end
-end
-
 return M
-

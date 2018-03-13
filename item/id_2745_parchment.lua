@@ -26,11 +26,24 @@ local recipe_creation = require("alchemy.base.recipe_creation")
 local lookat = require("base.lookat")
 local licence = require("base.licence")
 local shipmasterParchments = require("content.shipmasterParchments")
+
 local M = {}
 
--- important: do not remove the fourth parameter "checkVar".
--- it is important for alchemy
--- you can just ignore it
+local USER_POSITION_LIST = {}
+
+local LearnLenniersDream
+local TeachLenniersDream
+local GenerateStockDescription
+local TaskToLearn
+local AlchemyRecipe
+local UseRecipe
+local StartBrewing
+local CallBrewFunctionAndDeleteItem
+local GetStartAction
+local GetItem
+local ViewRecipe
+local getIngredients
+
 
 local function bookListLookAt(User,Item)
     local itemLookat = lookat.GenerateLookAt(User, Item, lookat.NONE)
@@ -41,6 +54,9 @@ local function bookListLookAt(User,Item)
     return itemLookat
 end
 
+-- important: do not remove the fourth parameter "checkVar".
+-- it is important for alchemy
+-- you can just ignore it
 function M.UseItem(User, SourceItem,ltstate,checkVar)
 
     -- Check if it is an alchemy recipe.
@@ -52,7 +68,7 @@ function M.UseItem(User, SourceItem,ltstate,checkVar)
     if SourceItem:getData("TeachLenniersDream")=="true" then
         LearnLenniersDream(User)
     end
-    
+
     if not common.IsNilOrEmpty(SourceItem:getData("writtenText")) then
         User:inform("Du liest:","You read:")
         local writtenText = SourceItem:getData("writtenText")
@@ -237,11 +253,6 @@ function StartBrewing(User,SourceItem,ltstate,checkVar)
     end
 
     if not checkVar and ltstate==Action.none then
-
-        if USER_POSITION_LIST == nil then -- note: it's global!
-            USER_POSITION_LIST = {}
-        end
-
         local callback = function(dialog)
             local success = dialog:getSuccess()
             if success then
@@ -474,12 +485,8 @@ function M.LookAtItem(User, Item)
     if Item:getData("bookList") == "true" then
         return bookListLookAt(User, Item)
     end
-    if itemLookat then
-        return itemLookat -- send custom lookat
-    else
-        return lookat.GenerateLookAt(User, Item)
-    end
 
+    return lookat.GenerateLookAt(User, Item)
 end
 
 function M.MoveItemAfterMove(user, sourceItem, targetItem)

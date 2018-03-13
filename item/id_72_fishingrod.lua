@@ -24,7 +24,7 @@ local M = {}
 
 M.LookAtItem = wood.LookAtItem
 
-function getWaterTilePosition(User)
+local function getWaterTilePosition(User)
     local targetPos = common.GetFrontPosition(User)
     if (common.GetGroundType(world:getField(targetPos):tile()) == common.GroundType.water) then
         return targetPos
@@ -42,7 +42,7 @@ function getWaterTilePosition(User)
     return nil;
 end
 
-function getShoal(User, shoalId)
+local function getShoal(User, shoalId)
 
     local targetItem = common.GetFrontItem(User)
     if (targetItem ~= nil and targetItem.id == shoalId) then
@@ -81,7 +81,7 @@ function M.UseItem(User, SourceItem, ltstate)
             return
         end
     end
-    
+
     if not shoalItem then
         common.HighInformNLS(User,
         "Hier scheinen sich keine Fische zu befinden. Halte Ausschau nach einem Fischschwarm.",
@@ -99,9 +99,8 @@ function M.UseItem(User, SourceItem, ltstate)
             return
         end
     end
-    
+
     fishing.StartGathering(User, shoalItem, ltstate)
 end
 
 return M
-
