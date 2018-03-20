@@ -37,30 +37,39 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- gods.GOD_RONAGAN  - 15 - Ronagan - God of thieves and shadows
 -- gods.GOD_MOSHRAN  - 16 - Moshran - God of blood and bones
 
---[[ Some altar locations
-The five: 553,137,0
-Cherga: 892,388,0
-Adron: 734,312,0
-Adron: 955,835,3
-Moshran: 683,408,2
-Moshran: 563,548,-6
-Nargun: 255,293,-5
-Nargun: 786,443,0
-Ronagan: 414,275,-6
-Irmorom: 312,232,1
-Ushara: 657,681,0
-Tanora: 630,594,0
-Tanora: 763,336,-9
-Tanora: 783,299,-9
-Eldan: 959,790,0
-Findari: 899,835,5
-Elara: 909,829,2
-Bragon: 903,773,5
-Malachin: 137,678,1
-Zhambra: 142,564,0
-Sirani: 176,761,0
-Sirani: 176,762,0
-Oldra: 802,797,0
+--[[ Altar locations. Updated by searching maps txt files (with a python script) on 2018-03-19
+Moshran   : 563,548,-6
+Tanora    : 783,299,-9
+Tanora    : 763,336,-9
+Irmorom   : 312,232,1
+Nargun    : 299,265,-5
+Ronagan   : 385,262,-6
+Findari   : 961,843,2
+Elara     : 970,784,1
+Tanora    : 908,850,-3
+Ushara    : 551,133,0
+Findari   : 556,135,0
+Tanora    : 549,138,0
+Eldan     : 556,141,0
+Bragon    : 551,143,0
+Adron     : 734,312,0
+Cherga    : 892,388,0
+Nargun    : 786,443,0
+Oldra     : 657,681,0
+Bragon    : 960,768,0
+Ushara    : 912,785,0
+Oldra     : 802,797,0
+Adron     : 919,827,0
+Eldan     : 1001,833,0
+Tanora    : 99,536,0
+Moshran   : 386,552,0
+Zhambra   : 142,564,0
+Sirani    : 176,761,0
+Sirani    : 176,762,0
+Moshran   : 683,408,2
+Ushara    : 783,289,-3
+Ronagan   : 913,625,1
+Malachin  : 146,678,1
 ]]
 
 -- TODO: the book of your god quest (move to npc?)
@@ -413,10 +422,7 @@ function M.UseItem(User, SourceItem, ltstate)
     end
 
     local god = tonumber(SourceItem:getData("god"))
-
-    if god == nil then
-        god = 0;
-    end;
+    god = god or gods.GOD_NONE
 
     --Depending on who's altar that is and who uses it, execute different actions
     if not gods.GODS[god] then --undedicated altar

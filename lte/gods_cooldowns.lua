@@ -50,14 +50,12 @@ end
 
 
 function M.removeEffect(effectObj, charObj)
+    --This effect doesn't get removed.
     debug("gods_cooldowns removeEffect !!!")
---This effect doesn't get removed.
-
 end
 
 function M.loadEffect(effectObj, charObj)
     debug("gods_cooldowns loadEffect")
-
 end
 
 return M

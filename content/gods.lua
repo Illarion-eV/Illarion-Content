@@ -501,7 +501,7 @@ end
 function M.pray(User, godOrdinal)
     local godObj = M._godOrdinalToObj[godOrdinal]
     if not godObj then
-        User:inform("[ERROR] Praying to invalid god. Please inform a developer.");
+        User:inform("[ERROR] Praying to invalid god. Please inform a developer.")
         return
     end
 
@@ -513,9 +513,25 @@ function M.pray(User, godOrdinal)
         -- prayed not so long ago
         common.InformNLS(User, "FIXME", "FIXME Thou shalt not take the name of the Lord thy God in vain.")
     end
-
 end
 
+
+---
+-- Sacrifice an item to the god and update his favour
+-- @param charobj
+-- @param godOrdinal
+-- @param item - scriptItem that is donated
+function M.sacrifice(charobj, godOrdinal, item)
+    local godObj = M._godOrdinalToObj[godOrdinal]
+    if not godObj then
+        User:inform("[ERROR] Sacrificing to invalid god. Please inform a developer.");
+        return
+    end
+
+--    common.TalkNLS(User, Character.say , "#me FIXME pray " .. godObj.nameDe, "#me FIXME  to " .. godObj.nameEn)
+    debug("Sacrificeing item id " .. item.id .. " to " .. godObj.nameEn)
+    world:erase(item, item.number)
+end
 
 ---
 -- Check that all god-related variables of a char are consistent
@@ -560,14 +576,14 @@ end
 --
 -- @param charobj
 -- @param godOrdinal
-function M.donationDecay(User)
+function M.sacrificeDecay(User)
 
 end
 
 
 -- Register callbacks for periodic decay
 gods_cooldowns_common.favourDecayCounter:addCallback(M.favourDecay)
-gods_cooldowns_common.donationDecayCounter:addCallback(M.donationDecay)
+gods_cooldowns_common.sacrificeDecayCounter:addCallback(M.donationDecay)
 
 
 -- FIXME *** Everything between this line should be reviewed ***

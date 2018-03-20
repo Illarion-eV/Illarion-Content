@@ -137,8 +137,8 @@ end
 M.prayerCooldownCounter = CooldownCounter("prayerCooldownCounter", M._PRAYER_COOLDOWN_COUNTER_RESET)
 M.cooldownCounters = {M.prayerCooldownCounter}
 M.favourDecayCounter = DecayCounter("favourDecayCounter", M._FAVOUR_DECAY_COUNTER_RESET)
-M.donationDecayCounter = DecayCounter("donationDecayCounter", M._DONATION_DECAY_COUNTER_RESET)
-M.decayCounters = {M.favourDecayCounter, M.donationDecayCounter}
+M.sacrificeDecayCounter = DecayCounter("sacrificeDecayCounter", M._DONATION_DECAY_COUNTER_RESET)
+M.decayCounters = {M.favourDecayCounter, M.sacrificeDecayCounter}
 
 
 function M.getEffectObj(charObj)
