@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local gems = require("base.gems")
 local common = require("base.common")
 local money = require("base.money")
-local crafts = require("item.base.crafts")
+local crafts = require("craft.base.crafts")
 
 local M = {}
 
@@ -36,7 +36,7 @@ local slots = {}
     table.insert(slots, Character.belt_pos_5)
     table.insert(slots, Character.belt_pos_6)
 
-    
+
 local function isSocketable(itemId)
     -- weapons can be socketed
     local weaponfound, weaponitem = world:getWeaponStruct(itemId)
@@ -70,7 +70,7 @@ local function isSocketable(itemId)
             return true
         end
     end
-    
+
     return false
 end
 
@@ -178,8 +178,7 @@ for gem=1,7 do
     local catId = categoryId[gem]
     if catId then
         for level=2,10 do
-            local duration = level * 10
-            product = gemCraft:addProduct(catId, gems.gemItemId[gem], 0, 0, duration, duration*2, 1, {gemLevel = level})
+            product = gemCraft:addProduct(catId, gems.gemItemId[gem], 1, {gemLevel = level})
             product:addIngredient(gems.gemItemId[gem], 3, {gemLevel = level-1})
         end
     end
