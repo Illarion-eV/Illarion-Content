@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local gems = require("base.gems")
 local common = require("base.common")
 local money = require("base.money")
-local crafts = require("craft.base.crafts")
+local magicgemming = require("craft.final.magicgemming")
 
 local M = {}
 
@@ -158,32 +158,6 @@ function M.handleSocketing(user, gem)
     user:requestSelectionDialog(dialog)
 end
 
-gemCraft = crafts.Craft:new{
-    craftEN = "Magic Blacksmith",
-    craftDE = "Magieschmied",
-    npcCraft = true,
-    lookAtFilter = gems.lookAtFilter,
-}
-
-local categoryId = {}
-categoryId[gems.EMERALD] = gemCraft:addCategory("Emerald", "Smaragd")
-categoryId[gems.RUBY] = gemCraft:addCategory("Ruby", "Rubin")
-categoryId[gems.OBSIDIAN] = gemCraft:addCategory("Obsidian", "Obsidian")
-categoryId[gems.SAPPHIRE] = gemCraft:addCategory("Sapphire", "Saphir")
-categoryId[gems.AMETHYST] = gemCraft:addCategory("Amethyst", "Amethyst")
-categoryId[gems.TOPAZ] = gemCraft:addCategory("Topaz", "Topas")
-
-local gem, level, product
-for gem=1,7 do
-    local catId = categoryId[gem]
-    if catId then
-        for level=2,10 do
-            product = gemCraft:addProduct(catId, gems.gemItemId[gem], 1, {gemLevel = level})
-            product:addIngredient(gems.gemItemId[gem], 3, {gemLevel = level-1})
-        end
-    end
-end
-
 local function unsocketGems(user)
     local unsocketPositions = getUnsocketablePositions(user)
 
@@ -242,7 +216,7 @@ function M.magicSmith(npc, player)
             local selected = dialog:getSelectedIndex()
 
             if selected == 0 then
-                gemCraft:showDialog(player, npc)
+                magicgemming.magicgemming:showDialog(player, npc)
             elseif selected == 1 then
                 unsocketGems(player)
             end
