@@ -25,13 +25,16 @@ brewing = crafts.Craft:new{
                      leadSkill = Character.brewing,
                      sfx = 10,
                      sfxDuration = 15,
-                   };
+                   }
 
 brewing:addTool(339) -- barrel
 brewing:addTool(1410) -- barrel
 brewing:addTool(1411) -- barrel
 
-local catId = brewing:addCategory("Soft Liquors", "Leichter Alkohol")
+local product
+local catId
+
+catId = brewing:addCategory("Soft Liquors", "Leichter Alkohol")
 
 -- bottle of cider
 product = brewing:addProduct(catId, 2499, 1)
@@ -62,7 +65,7 @@ product:addIngredient(259, 1) -- grain
 product:addIngredient(52, 1) -- bucket of water
 product:addRemnant(51, 1) -- bucket
 
-local catId = brewing:addCategory("Juices", "Säfte")
+catId = brewing:addCategory("Juices", "Säfte")
 
 -- bottle of banana juice
 product = brewing:addProduct(catId, 785, 1)
@@ -128,7 +131,7 @@ product:addIngredient(778, 3) -- sugarcane
 product:addIngredient(52, 1) -- bucket of water
 product:addRemnant(51, 1) -- bucket
 
-local catId = brewing:addCategory("Teas", "Tee")
+catId = brewing:addCategory("Teas", "Tee")
 
 -- bottle of fir needle tea
 product = brewing:addProduct(catId, 3720, 1)
@@ -165,7 +168,7 @@ product:addIngredient(145, 3) -- heath flower
 product:addIngredient(52, 1) -- bucket of water
 product:addRemnant(51, 1) -- bucket
 
-local catId = brewing:addCategory("Hard Liquors", "Stark alkoholische Getränke")
+catId = brewing:addCategory("Hard Liquors", "Stark alkoholische Getränke")
 
 -- bottle of rum
 product = brewing:addProduct(catId, 517, 1)

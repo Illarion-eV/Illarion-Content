@@ -25,14 +25,17 @@ pottery = crafts.Craft:new{
                           leadSkill = Character.pottery,
                           sfx = 7,
                           sfxDuration = 80,
-                        };
+                        }
 
 pottery:addTool(1240) -- kiln
 pottery:addTool(1241) -- kiln
 pottery:addTool(1242) -- kiln
 pottery:addTool(1243) -- kiln
 
-local catId = pottery:addCategory("Pottery", "Töpfern")
+local product
+local catId
+
+catId = pottery:addCategory("Pottery", "Töpfern")
 
 -- bricks
 product = pottery:addProduct(catId, 2588, 1)

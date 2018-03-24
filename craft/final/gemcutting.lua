@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 local pottery = require("craft.final.pottery")
@@ -27,11 +27,14 @@ gemcutting = crafts.Craft:new{
                           fallbackCraft = pottery.pottery,
                           sfx = 16,
                           sfxDuration = 27,
-                        };
+                        }
 
 gemcutting:addTool(270)  -- cutting stone
 
-local catId = gemcutting:addCategory("Gems", "Edelsteine")
+local product
+local catId
+
+catId = gemcutting:addCategory("Gems", "Edelsteine")
 
 -- amethyst
 product = gemcutting:addProduct(catId, 197, 1)
@@ -61,7 +64,7 @@ product:addIngredient(257, 1) -- raw topaz
 product = gemcutting:addProduct(catId, 285, 1)
 product:addIngredient(254, 1) -- raw diamond
 
-local catId = gemcutting:addCategory("Gem powder", "Edelsteinstaub")
+catId = gemcutting:addCategory("Gem powder", "Edelsteinstaub")
 
 -- amethyst powder
 product = gemcutting:addProduct(catId, 450, 1)

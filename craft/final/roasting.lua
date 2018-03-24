@@ -30,46 +30,49 @@ roasting = crafts.Craft:new{
 roasting:addTool(304) -- smoke oven
 roasting:addTool(305) -- smoke oven
 
-local catId = roasting:addCategory("Meat", "Fleisch")
+local product
+local catId
+
+catId = roasting:addCategory("Meat", "Fleisch")
 
 -- Ham
-local product = roasting:addProduct(catId, 306, 1)
+product = roasting:addProduct(catId, 306, 1)
 product:addIngredient(307) -- pork
 
 -- Smoked chicken
-local product = roasting:addProduct(catId, 3709, 1)
+product = roasting:addProduct(catId, 3709, 1)
 product:addIngredient(1151) -- chicken meat
 
 -- Smoked rabbit
-local product = roasting:addProduct(catId, 3710, 1)
+product = roasting:addProduct(catId, 3710, 1)
 product:addIngredient(553) -- rabbit meat
 
 -- Grilled lamb
-local product = roasting:addProduct(catId, 3713, 1)
+product = roasting:addProduct(catId, 3713, 1)
 product:addIngredient(2934) -- lamb meat
 
 -- Grilled venison
-local product = roasting:addProduct(catId, 3714, 1)
+product = roasting:addProduct(catId, 3714, 1)
 product:addIngredient(552) -- deer meat
 
 -- Grilled steak
-local product = roasting:addProduct(catId, 3606, 1)
+product = roasting:addProduct(catId, 3606, 1)
 product:addIngredient(2940) -- raw steak
 
-local catId = roasting:addCategory("Fish", "Fisch")
+catId = roasting:addCategory("Fish", "Fisch")
 
 -- Smoked rose fish
-local product = roasting:addProduct(catId, 3915, 1)
+product = roasting:addProduct(catId, 3915, 1)
 product:addIngredient(1210) -- rose fish
 
 -- Smoked salmon
-local product = roasting:addProduct(catId, 3916, 1)
+product = roasting:addProduct(catId, 3916, 1)
 product:addIngredient(355) -- salmon
 
 -- Smoked horse mackerel
-local product = roasting:addProduct(catId, 3914, 1)
+product = roasting:addProduct(catId, 3914, 1)
 product:addIngredient(1209) -- horse mackerel
 
 -- Smoked trout
-local product = roasting:addProduct(catId, 455, 1)
+product = roasting:addProduct(catId, 455, 1)
 product:addIngredient(73) -- trout

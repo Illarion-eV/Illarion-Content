@@ -25,13 +25,15 @@ baking = crafts.Craft:new{
                      leadSkill = Character.cookingAndBaking,
                      sfx = 7,
                      sfxDuration = 80,
-                   };
-                   
-baking:addTool( 119 ); -- baking oven
-baking:addTool( 120 ); -- baking oven
+                   }
 
---------------------------------------------------------------------------------------------
-local catId = baking:addCategory("Baked goods", "Backwaren")
+baking:addTool( 119 ) -- baking oven
+baking:addTool( 120 ) -- baking oven
+
+local product
+local catId
+
+catId = baking:addCategory("Baked goods", "Backwaren")
 
 -- bread roll
 product = baking:addProduct(catId, 191, 1)

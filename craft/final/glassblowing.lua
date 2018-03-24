@@ -25,11 +25,14 @@ glassblowing = crafts.Craft:new{
                           leadSkill = Character.glassBlowing,
                           sfx = 7,
                           sfxDuration = 80,
-                        };
+                        }
 
 glassblowing:addTool(313) -- glass melting oven
 
-local catId = glassblowing:addCategory("Bottles", "Flaschen")
+local product
+local catId
+
+catId = glassblowing:addCategory("Bottles", "Flaschen")
 
 -- large empty bottle
 product = glassblowing:addProduct(catId, 2498, 1)
@@ -59,7 +62,7 @@ product:addIngredient(41, 2) -- glass ingot
 product = glassblowing:addProduct(catId, 164, 1)
 product:addIngredient(41, 3) -- glass ingot
 
-local catId = glassblowing:addCategory("Glasses", "Gläser")
+catId = glassblowing:addCategory("Glasses", "Gläser")
 
 -- glass mug
 product = glassblowing:addProduct(catId, 1908, 1)
@@ -75,7 +78,7 @@ product = glassblowing:addProduct(catId, 2457, 1)
 product:addIngredient(41, 4) -- glass ingot
 product:addIngredient(449, 1) -- obsidian powder
 
-local catId = glassblowing:addCategory("Other", "Sonstiges")
+catId = glassblowing:addCategory("Other", "Sonstiges")
 
 -- empty salve jar
 product = glassblowing:addProduct(catId, 3642, 1)
