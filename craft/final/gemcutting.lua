@@ -17,9 +17,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local crafts = require("craft.base.crafts")
 local pottery = require("craft.final.pottery")
 
-module("craft.final.gemcutting", package.seeall)
+local M = {}
 
-gemcutting = crafts.Craft:new{
+local gemcutting = crafts.Craft:new{
                           craftEN = "Gemcutting",
                           craftDE = "Edelsteinschleifen",
                           handTool = 2140,
@@ -94,3 +94,5 @@ product:addIngredient(198, 1) -- topaz
 product = gemcutting:addProduct(catId, 452, 1)
 product:addIngredient(285, 1) -- diamond
 
+M.gemcutting = gemcutting
+return M

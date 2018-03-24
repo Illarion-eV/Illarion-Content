@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 
-module("craft.final.pottery", package.seeall)
+local M = {}
 
-pottery = crafts.Craft:new{
+local pottery = crafts.Craft:new{
                           craftEN = "Pottery",
                           craftDE = "Töpfern",
                           handTool = 2140,
@@ -67,3 +67,6 @@ product = pottery:addProduct(catId, 315, 1)
 product:addIngredient(26, 12) -- clay
 product:addIngredient(452, 2) -- diamond powder
 product:addIngredient(447, 1) -- ruby powder
+
+M.pottery = pottery
+return M

@@ -37,9 +37,9 @@ local REPAIR_QUALITY_INCREASE_GENERAL = 0.6 -- probability for quality increase 
 local REPAIR_QUALITY_INCREASE_KNOWN_CRAFTER = 0.4 -- additional probability for quality increase at 100% repair if item made by player
 local DUMMY_MIN_SKILL_REPAIR_ONLY = 200 -- not reachable skill for group 'repair only', need to hide not craftable items
 
-module("craft.base.crafts", package.seeall)
+local M = {}
 
-Product = {
+local Product = {
             quantity = 1,
             ingredients = {},
             difficulty = 0,
@@ -54,7 +54,7 @@ function Product:new(p)       -- new: constructor
 end
 
 
-Craft = {
+local Craft = {
     products = {},
     categories = {},
     skill = nil,
@@ -935,3 +935,7 @@ function Craft:isRepairCategory(categoryId)
     end
     return false
 end
+
+M.Product = Product
+M.Craft = Craft
+return M

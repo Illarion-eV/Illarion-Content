@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 
-module("craft.final.armourer", package.seeall)
+local M = {}
 
-armourer = crafts.Craft:new{
+local armourer = crafts.Craft:new{
                       craftEN = "Armourer",
                       craftDE = "Rüstschmied",
                       handTool = 2709,
@@ -847,3 +847,6 @@ product:addIngredient(2537, 6) -- iron plate
 product:addIngredient(2571, 2) -- merinium ingot
 product:addIngredient(285, 1) -- diamond
 product:addIngredient(236, 4) -- gold ingot
+
+M.armourer = armourer
+return M

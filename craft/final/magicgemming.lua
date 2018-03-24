@@ -17,9 +17,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local crafts = require("craft.base.crafts")
 local gems = require("base.gems")
 
-module("craft.final.magicgemming", package.seeall)
+local M = {}
 
-magicgemming = crafts.Craft:new{
+local magicgemming = crafts.Craft:new{
     craftEN = "Magic Blacksmith",
     craftDE = "Magieschmied",
     npcCraft = true,
@@ -44,3 +44,5 @@ for gem = 1, 7 do
     end
 end
 
+M.magicgemming = magicgemming
+return M

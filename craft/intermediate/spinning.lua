@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 
-module("craft.intermediate.spinning", package.seeall)
+local M = {}
 
-spinning = crafts.Craft:new{
+local spinning = crafts.Craft:new{
                     craftEN = "Spinning",
                     craftDE = "Spinnen",
                     handTool = 6,
@@ -32,3 +32,6 @@ local catId = spinning:addCategory("Thread", "Garn")
 -- Thread
 local product = spinning:addProduct(catId, 50, 1)
 product:addIngredient(170) -- bale of wool
+
+M.spinning = spinning
+return M

@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 
-module("craft.intermediate.candledipping", package.seeall)
+local M = {}
 
-candledipping = crafts.Craft:new{
+local candledipping = crafts.Craft:new{
                     craftEN = "Candle dipping",
                     craftDE = "Kerzenziehen",
                     handTool = 429,
@@ -34,3 +34,6 @@ local catId = candledipping:addCategory("Candles", "Kerzen")
 -- Candles
 local product = candledipping:addProduct(catId, 43, 1)
 product:addIngredient(431 , 1) -- wax
+
+M.candledipping = candledipping
+return M

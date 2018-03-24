@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 
-module("craft.final.carving", package.seeall)
+local M = {}
 
-carving = crafts.Craft:new{
+local carving = crafts.Craft:new{
               craftEN = "Carving",
               craftDE = "Schnitzen",
               handTool = 2752,
@@ -482,3 +482,6 @@ product:addIngredient(546, 9) -- naldor wood boards
 product:addIngredient(2527, 1) -- large ornamented handle
 product:addIngredient(3786, 2) -- heartwood
 product:addIngredient(3607, 1) -- pure spirit
+
+M.carving = carving
+return M

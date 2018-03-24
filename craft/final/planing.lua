@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 
-module("craft.final.planing", package.seeall)
+local M = {}
 
-planing = crafts.Craft:new{
+local planing = crafts.Craft:new{
               craftEN = "Planing",
               craftDE = "Hobeln",
               handTool = 2715,
@@ -250,3 +250,5 @@ product:addIngredient(50, 2) -- thread
 product:addIngredient(3786, 3) -- heartwood
 product:addIngredient(3607, 1) -- pure spirit
 
+M.planing = planing
+return M

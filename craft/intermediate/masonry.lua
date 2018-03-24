@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 
-module("craft.intermediate.masonry", package.seeall)
+local M = {}
 
-masonry = crafts.Craft:new{
+local masonry = crafts.Craft:new{
                     craftEN = "Masonry",
                     craftDE = "Steinmetzkunst",
                     handTool = 737,
@@ -39,3 +39,6 @@ product:addIngredient(735) -- raw stone
 -- Stone
 local product = masonry:addProduct(catId, 1266, 10)
 product:addIngredient(733) -- stone block
+
+M.masonry = masonry
+return M

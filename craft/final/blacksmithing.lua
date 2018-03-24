@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 
-module("craft.final.blacksmithing", package.seeall)
+local M = {}
 
-blacksmithing = crafts.Craft:new{
+local blacksmithing = crafts.Craft:new{
                       craftEN = "Blacksmithing",
                       craftDE = "Schmieden",
                       handTool = 23,
@@ -603,3 +603,6 @@ product:addIngredient(2525, 1) -- axe handle
 product:addIngredient(2571, 4) -- merinium ingot
 product:addIngredient(3607, 1) -- pure spirit
 product:addIngredient(236, 2) -- gold ingot
+
+M.blacksmithing = blacksmithing
+return M

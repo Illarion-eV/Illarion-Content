@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 
-module("craft.final.glassblowing", package.seeall)
+local M = {}
 
-glassblowing = crafts.Craft:new{
+local glassblowing = crafts.Craft:new{
                           craftEN = "Glass Blowing",
                           craftDE = "Glasblasen",
                           handTool = 311,
@@ -86,3 +86,5 @@ product:addIngredient(41, 10) -- glass ingot
 product:addIngredient(451, 1) -- topaz powder
 product:addIngredient(450, 1) -- amethyst powder
 
+M.glassblowing = glassblowing
+return M

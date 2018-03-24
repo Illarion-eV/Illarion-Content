@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 
-module("craft.final.finesmithing", package.seeall)
+local M = {}
 
-finesmithing = crafts.Craft:new{
+local finesmithing = crafts.Craft:new{
                       craftEN = "Finesmithing",
                       craftDE = "Feinschmieden",
                       handTool = 122,
@@ -398,3 +398,6 @@ catId = finesmithing:addCategory("Tools", "Werkzeuge")
 -- glass blow pipe
 product = finesmithing:addProduct(catId, 311, 1)
 product:addIngredient(2550, 3) -- copper ingot
+
+M.finesmithing = finesmithing
+return M

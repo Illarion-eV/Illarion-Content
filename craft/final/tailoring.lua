@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 
-module("craft.final.tailoring", package.seeall)
+local M = {}
 
-tailoring = crafts.Craft:new{
+local tailoring = crafts.Craft:new{
                       craftEN = "Tailoring",
                       craftDE = "Schneidern",
                       handTool = 47,
@@ -1015,3 +1015,6 @@ product = tailoring:addProduct(catId, 814, 1)
 product:addIngredient(50, 7) -- thread
 product:addIngredient(179, 5) -- blue cloth
 product:addIngredient(3787, 1) -- silk
+
+M.tailoring = tailoring
+return M

@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 
-module("craft.final.roasting", package.seeall)
+local M = {}
 
-roasting = crafts.Craft:new{
+local roasting = crafts.Craft:new{
                     craftEN = "Roasting",
                     craftDE = "Braten",
                     handTool = 2495,
@@ -76,3 +76,6 @@ product:addIngredient(1209) -- horse mackerel
 -- Smoked trout
 product = roasting:addProduct(catId, 455, 1)
 product:addIngredient(73) -- trout
+
+M.roasting = roasting
+return M

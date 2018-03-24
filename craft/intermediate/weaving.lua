@@ -17,9 +17,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local crafts = require("craft.base.crafts")
 local spinning = require("craft.intermediate.spinning")
 
-module("craft.intermediate.weaving", package.seeall)
+local M = {}
 
-weaving = crafts.Craft:new{
+local weaving = crafts.Craft:new{
                     craftEN = "Weaving",
                     craftDE = "Weben",
                     handTool = 6,
@@ -34,3 +34,6 @@ local catId = weaving:addCategory("Clothes", "Stoffe")
 -- Grey cloth
 local product = weaving:addProduct(catId, 176, 1)
 product:addIngredient(170) -- bale of wool
+
+M.weaving = weaving
+return M
