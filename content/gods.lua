@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local M = {}
 
@@ -81,14 +81,14 @@ M.GOD_DE = {
     [M.GOD_THEDEVS]  = "Entwickler",
 }
 
-PRAYER_CONVERSION = {
+local PRAYER_CONVERSION = {
     {skill = "Healing",
         gText = "bitte (.+) heilung",
         eText = "please (.+) healing"
     }
 }
 
-PRAYER_MASS = {
+local PRAYER_MASS = {
     [M.GOD_NARGUN]   = {gText = "preiset narg[uú]n, gott des chaos",
                         eText = "praise narg[uú]n, god of chaos"},
     [M.GOD_ELARA]    = {gText = "preiset",
@@ -115,7 +115,7 @@ PRAYER_MASS = {
                         eText = "praise"},
 }
 
-PRAYER_FOLLOWER = {
+local PRAYER_FOLLOWER = {
     [M.GOD_NARGUN]   = {gText = "segne mich nargun",
                         eText = "bless me nargun"},
     [M.GOD_ELARA]    = {gText = "segne mich",
@@ -142,7 +142,7 @@ PRAYER_FOLLOWER = {
                         eText = "bless me"},
 }
 
-PRAYER_PRIEST = {
+local PRAYER_PRIEST = {
     [M.GOD_NARGUN]   = {gText = "segne mich erneut nargun",
                         eText = "bless me again nargun"},
     [M.GOD_ELARA]    = {gText = "segne mich",
@@ -169,7 +169,7 @@ PRAYER_PRIEST = {
                         eText = "bless me"},
 }
 
-ALTARS = {
+local ALTARS = {
     [M.GOD_NARGUN]    = position(-69,-100,0),
     [M.GOD_ELARA]        = position(0,0,0),
     [M.GOD_ADRON]        = position(0,0,0),
@@ -184,7 +184,7 @@ ALTARS = {
     [M.GOD_THEFIVE]      = position(0,0,0)
 }
 
-ITEMS_FOLLOWER = {
+local ITEMS_FOLLOWER = {
     [M.GOD_NARGUN]    = {{id = 2, number = 1}},
     [M.GOD_ELARA]        = {{id = 2, number = 1}},
     [M.GOD_ADRON]        = {{id = 2, number = 1}},
@@ -199,7 +199,7 @@ ITEMS_FOLLOWER = {
     [M.GOD_THEFIVE]      = {{id = 2, number = 1}}
 }
 
-ITEMS_PRIEST = {
+local ITEMS_PRIEST = {
     [M.GOD_NARGUN]    = {{id = 2, number = 1}},
     [M.GOD_ELARA]        = {{id = 2, number = 1}},
     [M.GOD_ADRON]        = {{id = 2, number = 1}},
@@ -216,9 +216,9 @@ ITEMS_PRIEST = {
 
 -- magic flags
 -- category runes
-RUNE_HEALING = 1;
+local RUNE_HEALING = 1;
 -- other runes
-RUNE_SMALL = 32;
+local RUNE_SMALL = 32;
 
 M.DESCRIPTION_EN = {
     [M.GOD_USHARA]="Goddess of earth";
@@ -238,7 +238,7 @@ M.DESCRIPTION_EN = {
     [M.GOD_RONAGAN]="God of thieves and shadows";
     [M.GOD_MOSHRAN]="God of blood and bones";
 }
-    
+
 M.DESCRIPTION_DE ={
     [M.GOD_BRAGON]="der Gott des Feuers";
     [M.GOD_ELDAN]="der Gott des Geistes";

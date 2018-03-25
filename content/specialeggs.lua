@@ -20,9 +20,8 @@ local common = require("base.common")
 
 local M = {}
 
-
 -- That list contains nearly all items a player can carry.
-itemList = {
+local itemList = {
 306,-- Schinken ham
 307 ,--Schweinefleisch pork
 354 ,--Erdbeertorte strawberry cake
@@ -676,11 +675,11 @@ itemList = {
 3607 ,--pure spirit
 }
 
-gfxList = {
+local gfxList = {
 1,2,3,4,5,6,7,8,9,16,31,32,36,37,38,44,45,46,52,53
 }
 
-eggIds = {
+local eggIds = {
 1149,1150
 }
 
@@ -690,16 +689,7 @@ function M.createSpecialEgg(user, amount)
 
 end
 
-function M.checkSpecialEgg(theItem, user)
-
-    if theItem:getData("specialEgg") == "true" then
-        openSpecialEgg(theItem, user)
-        return true
-    end
-
-end
-
-function openSpecialEgg(egg, user)
+local function openSpecialEgg(egg, user)
 
     user:talk(Character.say, "#me öffnet ein bunt bemaltes Ei.","#me opens a colourfully painted egg.")
     world:erase(egg,1)
@@ -708,6 +698,15 @@ function openSpecialEgg(egg, user)
     user:inform("Als du das Ei öffnest, findest du etwas: "..world:getItemName(itemId,Player.german), "You find something in the open egg: "..world:getItemName(itemId,Player.english),Player.mediumPriority)
     common.CreateItem(user, itemId, 1, itemQuality, nil)
     world:gfx(gfxList[math.random(1,#gfxList)],user.pos)
+end
+
+function M.checkSpecialEgg(theItem, user)
+
+    if theItem:getData("specialEgg") == "true" then
+        openSpecialEgg(theItem, user)
+        return true
+    end
+
 end
 
 return M

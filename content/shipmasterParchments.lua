@@ -23,20 +23,12 @@ local parchment = 2745
 local M = {}
 
 function M.checkParchments()
-    
-    local repeatCheck = false
-    
     for i = 1, 10 do
-    
-        local checkVariable = "shipmasterParchment_" .. i
         local exists, value = ScriptVars:find("shipmasterParchment_" .. i)
         if exists and value ~= "wasFound" then
-        
-            repeatCheck = true
-            
-            -- Awkward and lazy method of getting inforamtion out of the string.
+            -- Awkward and lazy method of getting information out of the string.
             local breakAt = string.find(value, "/")
-            local germanDescription = string.sub(value, 1, breakAt-1) 
+            local germanDescription = string.sub(value, 1, breakAt-1)
             value = string.sub(value, breakAt+1)
             breakAt = string.find(value, "/")
             local englishDescription = string.sub(value, 1, breakAt-1)
@@ -47,15 +39,15 @@ function M.checkParchments()
             breakAt = string.find(value, "/")
             local yCoordinate = tonumber(string.sub(value, 1, breakAt-1))
             local zCoordinate = tonumber(string.sub(value, breakAt+1))
-            
+
             local checkPosition = position(xCoordinate, yCoordinate, zCoordinate)
             local parchmentIsThere = false
-            
+
             if world:isItemOnField(checkPosition) then
                 local checkItem = world:getItemOnField(checkPosition)
                 if checkItem.id == parchment then
                     if checkItem:getData("descriptionEn") == englishDescription and checkItem:getData("descriptionDe") == germanDescription then
-                        parchmentisThere = true
+                        parchmentIsThere = true
                     end
                 else
                     local theField = world:getField(checkPosition)
@@ -65,65 +57,48 @@ function M.checkParchments()
                     end
                 end
             end
-            
-            if not parchmentSsThere then
+
+            if not parchmentIsThere then
                 local newParchment = world:createItemFromId(parchment, 1, checkPosition, true, 333, {descriptionDe = germanDescription, descriptionEn = englishDescription, shipmasterParchment = i})
                 newParchment.wear = 254
                 world:changeItem(newParchment)
             end
-            
         end
     end
-    
-    if repeatCheck then
-    
-    end
-
 end
 
 function M.removeAll(user)
-    
     for i = 1, 10 do
-        local exists, value = ScriptVars:find("shipmasterParchment_" .. i)
+        local exists = ScriptVars:find("shipmasterParchment_" .. i)
         if exists then
              ScriptVars:remove("shipmasterParchment_" .. i)
         end
     end
-    
     user:inform("All variables removed. Scripts will rot now.")
-
 end
 
 function M.whatWasFound(user)
-
     for i = 1, 10 do
-        local exists, value = ScriptVars:find("shipmasterParchment_" .. i)
+        local exists = ScriptVars:find("shipmasterParchment_" .. i)
         if exists then
              user:inform("This parchment was found. Number: " .. i)
         end
     end
-
-
 end
 
 function M.parchmentWasMoved(theItem)
-
     local shipmasterData = tonumber(theItem:getData("shipmasterParchment"))
     if shipmasterData then
-        local exists, value = ScriptVars:find("shipmasterParchment_" .. shipmasterData)
+        local exists = ScriptVars:find("shipmasterParchment_" .. shipmasterData)
         if exists then
             ScriptVars:remove("shipmasterParchment_" .. shipmasterData)
         end
     end
-    
 end
 
 function M.setParchment(user, sourceItem)
-    
     local frontItem = common.GetFrontItem(user)
-    
     if frontItem and frontItem.id == parchment then
-    
         local freeScriptVar
         for i = 1, 10 do
             if not ScriptVars:find("shipmasterParchment_" .. i) then
@@ -131,37 +106,35 @@ function M.setParchment(user, sourceItem)
                 break
             end
         end
-        
+
         if not freeScriptVar then
             user:inform("No free script Var. You already set 10 parchments")
             return
         end
-        
+
         local germanDescription = frontItem:getdata("descriptionDe")
         local englishDescription = frontItem:getdata("descriptionDe")
-        
+
         if germanDescription == "" or englishDescription == "" then
             user:inform("German and english description must not be empty. Abort")
             return
         end
-        
-        fronItem:setData("shipmasterParchment", freeScriptVar)
+
+        frontItem:setData("shipmasterParchment", freeScriptVar)
         frontItem.wear = 254
         world:changeItem(frontItem)
-    
-        local positionAsString = frontItem.pos.x .. "/" .. fronItem.pos.y .. "/" .. frontItem.pos.z
-        
+
+        local positionAsString = frontItem.pos.x .. "/" .. frontItem.pos.y .. "/" .. frontItem.pos.z
+
         local scriptVarValue = germanDescription .. "/" .. englishDescription .. "/" .. positionAsString
-        
+
         ScriptVars:set(freeScriptVar, scriptVarValue)
         ScriptVars:save()
-        
-        scheduledFunction.registerFunction(1000, function() M.checkParchments() end)
-        
-        user:inform("Successfully added parchment")
-    
-    end
 
+        scheduledFunction.registerFunction(1000, function() M.checkParchments() end)
+
+        user:inform("Successfully added parchment")
+    end
 end
 
 return M

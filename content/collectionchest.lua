@@ -172,9 +172,8 @@ local function numberOfItemsInSlot(coltask,slot)
 end
 
 local function numberOfItemsOpenInSlot(coltask,slot)
-    local coltaskTotal
-    local coltaskCollected
-    coltaskTotal, coltaskCollected, _ = numberOfItemsInSlot(coltask,slot)
+
+    local coltaskTotal, coltaskCollected = numberOfItemsInSlot(coltask,slot)
     return tonumber(coltaskTotal) - tonumber(coltaskCollected)
 end
 
@@ -281,7 +280,7 @@ local function startNewCollection(coltask,taskName)
     ScriptVars:set("coltask"..tostring(coltask).."Name",taskName)
     ScriptVars:set("coltask"..tostring(coltask).."Id",tonumber(currentColtaskId) + 1)
     ScriptVars:set("coltask"..tostring(coltask).."Active",0)
-    
+
     local townPermitted
     for i = 0, 3 do
         townPermitted = 0
@@ -296,7 +295,7 @@ local function startNewCollection(coltask,taskName)
         end
         ScriptVars:set("coltask"..tostring(coltask).."Town"..tostring(i),townPermitted)
     end
-    
+
     for i = 1, COLTASK_MAX_SLOTS do
         ScriptVars:set("coltask"..tostring(coltask).."Slot"..tostring(i).."Item",0)
         ScriptVars:set("coltask"..tostring(coltask).."Slot"..tostring(i).."Total",0)
@@ -309,22 +308,22 @@ end
 local function getNewCollectionName(user,coltask)
 
     local currentInputDialog = function (dialog)
-    
+
         if (not dialog:getSuccess()) then
             return
         end
-        
+
         local input = dialog:getInput()
-        
+
         if common.IsNilOrEmpty(input) then
             common.InformNLS(user,"Nichts verändert?","Nothing changed!")
             return
         end
         startNewCollection(coltask,input)
         user:logAdmin("New made town material collection no " .. tostring(coltask) .. "by " ..  user.name)
-        
+
     end
-    
+
     local dialogTitle = common.GetNLS(user, "Materialsammlungen", "Material Collections")
     local dialogText = common.GetNLS(user, "Wähle den Namen der Sammlung.", "Selecte the name of the collection.")
     user:requestInputDialog(InputDialog(dialogTitle, dialogText ,false, 255, currentInputDialog))
@@ -333,21 +332,21 @@ end
 local function changeCollectionName(user,coltask)
 
     local currentInputDialog = function (dialog)
-    
+
         if (not dialog:getSuccess()) then
             return
         end
-        
+
         local input = dialog:getInput()
-        
+
         if common.IsNilOrEmpty(input) then
             common.InformNLS(user,"Nichts verändert?","Nothing changed!")
             return
         end
         ScriptVars:set("coltask"..tostring(coltask).."Name",input)
-        
+
     end
-    
+
     local dialogTitle = common.GetNLS(user, "Materialsammlungen", "Material Collections")
     local dialogText = common.GetNLS(user, "Bitte gebe den neuen Namen an.", "Please enter the new name.")
     user:requestInputDialog(InputDialog(dialogTitle, dialogText ,false, 255, currentInputDialog))
@@ -355,11 +354,11 @@ end
 
 local function defineSlotValues(user,coltask,slot)
     local currentInputDialog = function (dialog)
-    
+
         if (not dialog:getSuccess()) then
             return
         end
-        
+
         local input = dialog:getInput()
         if (string.find(input,"(%d+) (%d+) (%d+)") ~= nil) then
             local _, _, itemId, amountNeeded, amountSinglePlayer = string.find(input,"(%d+) (%d+) (%d+)")
@@ -382,9 +381,9 @@ local function defineSlotValues(user,coltask,slot)
             common.InformNLS(user,"Eingabe falsch. Nichts verändert!","Wrong input. Nothing changed!")
             return
         end
-        
+
     end
-    
+
     local dialogTitle = common.GetNLS(user, "Materialsammlungen", "Material Collections")
     local dialogText = common.GetNLS(user,
                         "Bitte gebe die Konfiguration für Kanal "..tostring(slot).." an.\n"..
@@ -554,7 +553,7 @@ function M.donate(item, user, town)
             coltaskSinglePlayer = tonumber(coltaskSinglePlayer)
             donatedItemNumber = tonumber(donatedItemNumber)
             alreadyDonated = tonumber(alreadyDonated)
-            
+
             if coltaskSinglePlayer < donatedItemNumber then
                 common.InformNLS(user,
                                 "Eine Person darf nicht mehr als " .. tostring(coltaskSinglePlayer) .. " " .. world:getItemName(itemId ,lang) .. " geben.",
@@ -562,7 +561,7 @@ function M.donate(item, user, town)
                 returnItemToUser(item, user)
                 return
             end
-            
+
             local maxItemsToGive = math.min(coltaskTotal - coltaskCollected,
                                             coltaskSinglePlayer - alreadyDonated)
             if maxItemsToGive == 0 then
@@ -590,7 +589,7 @@ function M.donate(item, user, town)
                             "Du hast " .. tostring(donatedItemNumber) .. " " .. world:getItemName(itemId ,lang) .. " gegeben.",
                             "You gave ".. tostring(donatedItemNumber) .. " " .. world:getItemName(itemId ,lang) .. ".")
             return
-            
+
         end
     end
 end
