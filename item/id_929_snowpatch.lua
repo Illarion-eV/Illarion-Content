@@ -17,10 +17,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -- UPDATE items SET itm_script='item.id_929_snowpatch' WHERE itm_id=929;
 
-local common = require("base.common")
-local lookat = require("base.lookat")
-local snowballmaking = require("content.gatheringcraft.snowballmaking")
-
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)

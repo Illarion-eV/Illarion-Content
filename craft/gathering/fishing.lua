@@ -21,14 +21,27 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local craft = require("base.craft")
-local gathering = require("content.gathering")
+local gathering = require("craft.base.gathering")
 
-module("content.gatheringcraft.fishing", package.seeall)
+local M = {}
 
-function StartGathering(User, SourceItem, ltstate)
+function M.StartGathering(User, SourceItem, ltstate)
 
-    gathering.InitGathering()
-    local fishing = gathering.fishing
+    local fishing = gathering.GatheringCraft:new{LeadSkill = Character.fishing, LearnLimit = 100}; -- id_72_fishingrod
+    fishing:AddRandomPureElement(gathering.prob_extremely_rarely); -- Any pure element
+    fishing:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
+    fishing:SetShard(gathering.prob_rarely,"In den Eingeweiden des Fischens findest du einen Splitter eines magischen Artefaktes.", "You find a shard of a magical artifact in the entrails of the fish."); -- Any shard
+    fishing:AddRandomItem(51,1,333,{},gathering.prob_extremely_rarely,"Ein Eimer verfängt sich in deiner Angelschnur. Den hat hier wohl jemand verloren.","As you tighten your line you feel a heavy resistance. With a careful approach you are able to pull a bucket ashore."); --Bucket
+    fishing:AddRandomItem(92,1,333,{},gathering.prob_occasionally,"Du ziehst eine glitzernde Öllampe aus dem Wasser. Wo die wohl herkommt...?","You pull a sparkling oil lamp out of the water. Where did that come from?"); --Oil lamp
+    fishing:AddRandomItem(53,1,333,{},gathering.prob_frequently,"Ein alter, durchlöcherter Lederstiefel hängt am Haken.","As you angle back and forth for fish you feel a snag. Instead of a fish, however, a pair of old perforated boots tied together hangs from your hook!"); --Leather boots
+    fishing:SetTreasureMap(gathering.prob_rarely,"Statt eines Fisches hast du eine Karte am Haken hängen.","Nargún's favour has finally found you for there is a treasure map on your hook instead of a fish!");
+    fishing:AddMonster(101,gathering.prob_rarely,"Ein heftiger Ruck reißt dir fast die Angel aus der Hand. Noch während du dich wunderst teilt sich das Wasser vor dir und eine glitschige Wasserleiche steigt aus den Wellen empor.","A heavy force pulls on your fishing line momentarily before it releases. Then without warning the water before you erupts as putrified mummy vaults toward you.",4,7);
+    fishing:AddInterruptMessage("Ein schwarzer Fleck huscht durch das Wasser. Etwas erschrocken weichst du zurück.", "You notice a large black dot in the water, you decide not to disturb it.");
+    fishing:AddInterruptMessage("Der Boden unter dir rutscht leicht weg, sodass du gerade noch das Gleichgewicht halten kannst.", "Some stones slip away from the bank, disturbing all the fish.");
+    fishing:AddInterruptMessage("Dein Blick verliert sich für kurze Zeit in deinem Spiegelbild und du bist abgelenkt.", "You take a while to admire that good-looking person staring at you from your reflection.");
+    fishing:AddInterruptMessage("Der Köder hängt nicht mehr am Haken. Leicht verärgert befestigst du einen neuen.", "A clever fish stole the bait from you, you affix fresh bait to the hook.");
+    -- TODO translate
+    -- fishing:AddInterruptMessage("Du weidest deinen bisherigen Fang aus.");
 
     common.ResetInterruption( User, ltstate )
     if ( ltstate == Action.abort ) then -- work interrupted
@@ -135,3 +148,5 @@ function StartGathering(User, SourceItem, ltstate)
         return
     end
 end
+
+return M

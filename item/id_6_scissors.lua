@@ -19,7 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local spinning = require("craft.intermediate.spinning")
 local weaving = require("craft.intermediate.weaving")
-local woolcutting = require("content.gatheringcraft.woolcutting")
+local woolcutting = require("craft.gathering.woolcutting")
 local metal = require("item.general.metal")
 
 local M = {}

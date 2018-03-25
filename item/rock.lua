@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local lookat = require("base.lookat")
 local teacher = require("alchemy.base.teacher")
-local mining = require("content.gatheringcraft.mining")
+local mining = require("craft.gathering.mining")
 local skillTransfer = require("base.skillTransfer")
 
 local M = {}

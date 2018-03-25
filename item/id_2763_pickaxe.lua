@@ -41,7 +41,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local treasure = require("item.base.treasure")
-local mining = require("content.gatheringcraft.mining")
+local mining = require("craft.gathering.mining")
 local metal = require("item.general.metal")
 local transformation_dog = require("alchemy.teaching.transformation_dog")
 local skillTransfer = require("base.skillTransfer")
@@ -92,11 +92,11 @@ function M.UseItem(User, SourceItem, ltstate)
     if not common.FitForWork( User ) then -- check minimal food points
         return
     end
-    
+
     if skillTransfer.skillTransferInformMining(User) then
         return
     end
-    
+
     -- check for alchemy scroll
     if transformation_dog.DigForTeachingScroll(User) then
         return

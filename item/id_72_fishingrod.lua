@@ -17,7 +17,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_72_fishingrod' WHERE itm_id=72;
 
 local common = require("base.common")
-local fishing = require("content.gatheringcraft.fishing")
+local fishing = require("craft.gathering.fishing")
 local wood = require("item.general.wood")
 
 local M = {}

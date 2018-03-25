@@ -20,7 +20,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local lookat = require("base.lookat")
 local climbing = require("content.climbing")
-local claydigging = require("content.gatheringcraft.claydigging")
+local claydigging = require("craft.gathering.claydigging")
 local skillTransfer = require("base.skillTransfer")
 
 local M = {}
@@ -42,7 +42,7 @@ function M.UseItem(User, SourceItem, ltstate)
         return
         end
     end
-   
+
    if skillTransfer.skillTransferInformMining(User) then
         return
     end

@@ -21,14 +21,45 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local craft = require("base.craft")
-local gathering = require("content.gathering")
+local gathering = require("craft.base.gathering")
 
-module("content.gatheringcraft.grainharvesting", package.seeall)
+local M = {}
 
-function StartGathering(User, SourceItem, ltstate)
+    -- @return TargetItem The fully grown grain or nil if nothing was found
+    -- @return foundYoungGrain True if not fully grown grain was found (not reliable if TargetItem~=nil !!!)
+local function GetNearbyGrain(User)
+    local TargetItem
+    local foundYoungGrain = false; -- check if we only find not fully grown grain
+    for x=-1,1 do
+        for y=-1,1 do
+            local pos = position(User.pos.x+x,User.pos.y+y,User.pos.z);
+            if ( world:isItemOnField(pos) ) then
+                TargetItem = world:getItemOnField(pos);
+                if ( TargetItem.id == 248 ) then
+                    -- got it!
+                    return TargetItem, foundYoungGrain;
+                elseif ( TargetItem.id == 246 or TargetItem.id == 247 ) then
+                    foundYoungGrain = true;
+                end
+                TargetItem = nil;
+            end
+        end
+    end
+    return TargetItem, foundYoungGrain;
+end
 
-    gathering.InitGathering();
-    local grainharvesting = gathering.grainharvesting;
+function M.StartGathering(User, SourceItem, ltstate)
+
+    local grainharvesting = gathering.GatheringCraft:new{LeadSkill = Character.farming, LearnLimit = 100}; -- id_271_scythe;
+    grainharvesting:AddRandomPureElement(gathering.prob_extremely_rarely); -- Any pure element
+    grainharvesting:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
+    grainharvesting:SetShard(gathering.prob_rarely,"In einer Ähre hängt ein Splitter eines magischen Artefaktes.", "A shard of a magical artifact hangs in a spike."); -- Any shard
+    grainharvesting:AddRandomItem(1840,1,333,{},gathering.prob_extremely_rarely,"Im Ackerboden ist ein angelaufender Kupferkelch zu finden.","In the arable soil you find a tarnished copper goblet."); --copper goblet
+    grainharvesting:AddRandomItem(2935,1,333,{},gathering.prob_occasionally,"Da hat wohl jemand eine Schüssel verloren, mit der er Saatgut augestreut hat. Nun gehört sie dir.","You dig up an old bowl. Now it belongs to you."); --soup bowl
+    grainharvesting:AddRandomItem(2760,1,333,{},gathering.prob_frequently,"Zwischen den Feldfrüchten findest du ein altes Seil. Nützlich, oder?","Among the crops you find an old rope. Can never have enough rope!"); --rope
+    grainharvesting:SetTreasureMap(gathering.prob_rarely,"In einer Ackerfurche findest du ein altes Pergament mit einem Kreuz darauf. Ob sie dich zu einem vergrabenen Schatz weisen wird?","In a furrow you find an old parchment with a cross on it. Will it show you the way to a buried treasure?");
+    grainharvesting:AddMonster(114,gathering.prob_rarely,"Du stößt bei der Erdarbeit auf alte Knochen. Leider hat sie kein Hund hier vergraben und die Störung der Totenruhe bleibt nicht ungesühnt.","While ploughing, you find some old bones. Unfortunately, no dog has buried them here, and the disturbance of the dead unleashes Cherga's wrath.",4,7);
+    grainharvesting:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
 
     common.ResetInterruption( User, ltstate );
     if ( ltstate == Action.abort ) then -- work interrupted
@@ -110,25 +141,7 @@ function StartGathering(User, SourceItem, ltstate)
     end
 end
 
--- @return TargetItem The fully grown grain or nil if nothing was found
--- @return foundYoungGrain True if not fully grown grain was found (not reliable if TargetItem~=nil !!!)
-function GetNearbyGrain(User)
-    local TargetItem
-    local foundYoungGrain = false; -- check if we only find not fully grown grain
-    for x=-1,1 do
-        for y=-1,1 do
-            local pos = position(User.pos.x+x,User.pos.y+y,User.pos.z);
-            if ( world:isItemOnField(pos) ) then
-                TargetItem = world:getItemOnField(pos);
-                if ( TargetItem.id == 248 ) then
-                    -- got it!
-                    return TargetItem, foundYoungGrain;
-                elseif ( TargetItem.id == 246 or TargetItem.id == 247 ) then
-                    foundYoungGrain = true;
-                end
-                TargetItem = nil;
-            end
-        end
-    end
-    return TargetItem, foundYoungGrain;
-end
+-- used by item.id_272_scythe
+M.GetNearbyGrain = GetNearbyGrain
+
+return M

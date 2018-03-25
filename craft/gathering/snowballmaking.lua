@@ -19,14 +19,14 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 local common = require("base.common")
-local gathering = require("content.gathering")
+local gathering = require("craft.base.gathering")
 
-module("content.gatheringcraft.snowballmaking", package.seeall)
+local M = {}
 
-function StartGathering(User, SourceItem, ltstate)
+function M.StartGathering(User, SourceItem, ltstate)
 
-    gathering.InitGathering()
-    local snowballmaking = gathering.snowballmaking
+    local snowballmaking = gathering.GatheringCraft:new{};
+    snowballmaking:AddInterruptMessage("Du wischst dir den Schweiﬂ von der Stirn.", "You wipe sweat off your forehead.");
 
     common.ResetInterruption( User, ltstate )
     if ( ltstate == Action.abort ) then -- work interrupted
@@ -85,5 +85,6 @@ function StartGathering(User, SourceItem, ltstate)
                     "You have depleted the snow pile.",Character.highPriority)
         return
     end
-
 end
+
+return M

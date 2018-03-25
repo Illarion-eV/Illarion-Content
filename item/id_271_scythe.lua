@@ -19,7 +19,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_271_scythe' WHERE itm_id IN (271);
 
 local common = require("base.common")
-local grainharvesting = require("content.gatheringcraft.grainharvesting")
+local grainharvesting = require("craft.gathering.grainharvesting")
 local metal = require("item.general.metal")
 local skillTransfer = require("base.skillTransfer")
 

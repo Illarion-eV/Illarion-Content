@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local common = require("base.common")
-local gathering = require("content.gathering")
+local gathering = require("craft.base.gathering")
 
-module("content.gatheringcraft.sowing", package.seeall)
+local M = {}
 
 local seedPlantList = {};
 seedPlantList[259] = 246; -- grain
@@ -32,7 +32,7 @@ seedPlantList[779] = 780; --sugarcane
 seedPlantList[3566] = 3562; -- potatoes
 
 -- gets the free position for seeds
-function getFreeFieldPosition(User)
+local function getFreeFieldPosition(User)
     local frontField = common.GetFrontPosition(User);
     local field = world:getField(frontField);
     local groundType = common.GetGroundType(field:tile());
@@ -57,10 +57,10 @@ function getFreeFieldPosition(User)
     return nil;
 end
 
-function StartGathering(User, SourceItem, ltstate)
+function M.StartGathering(User, SourceItem, ltstate)
 
-    gathering.InitGathering();
-    local farming = gathering.farming;
+    local sowing = gathering.GatheringCraft:new{LeadSkill = Character.farming, LearnLimit = 100 }
+
     local seed = SourceItem
     if seed.number < 1 then
         User:inform("Du hast das Saatgut aufgebraucht.","You used all the seeds.")
@@ -103,10 +103,10 @@ function StartGathering(User, SourceItem, ltstate)
     end
 
     if ( ltstate == Action.none ) then -- currently not working -> let's go
-        farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,nil);
-        User:startAction( farming.SavedWorkTime[User.id], 0, 0, 0, 0);
+        sowing.SavedWorkTime[User.id] = sowing:GenWorkTime(User,nil);
+        User:startAction( sowing.SavedWorkTime[User.id], 0, 0, 0, 0);
     -- this is no batch action => no emote message, only inform player
-        if farming.SavedWorkTime[User.id] > 15 then
+        if sowing.SavedWorkTime[User.id] > 15 then
             common.InformNLS(User, "Du säst Saatgut aus.","You sow seeds.");
         end
         return
@@ -115,17 +115,17 @@ function StartGathering(User, SourceItem, ltstate)
     local nextField = getFreeFieldPosition(User);
     if (nextField~=nil) then  -- there are still free fields
         common.TurnTo( User, nextField); -- turn
-        farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,nil);
-        User:startAction( farming.SavedWorkTime[User.id], 0, 0, 0, 0);
+        sowing.SavedWorkTime[User.id] = sowing:GenWorkTime(User,nil);
+        User:startAction( sowing.SavedWorkTime[User.id], 0, 0, 0, 0);
     end
 
     -- since we're here, we're working
 
-    if farming:FindRandomItem(User) then
+    if sowing:FindRandomItem(User) then
         return
     end
 
-    User:learn( farming.LeadSkill, farming.SavedWorkTime[User.id], farming.LearnLimit);
+    User:learn( sowing.LeadSkill, sowing.SavedWorkTime[User.id], sowing.LearnLimit);
     -- you always get at least one
   local amount = 1;
   -- in 50% of all cases one more
@@ -133,7 +133,7 @@ function StartGathering(User, SourceItem, ltstate)
     amount = amount + 1;
   end
   -- and another one depending on the skill
-  if (User:getSkill(farming.LeadSkill) > math.random(1,100)) then
+  if (User:getSkill(sowing.LeadSkill) > math.random(1,100)) then
     amount = amount + 1;
   end
     world:createItemFromId( seedPlantList[seed.id], 1, TargetPos, true, 333 ,{["amount"] = "" .. amount});
@@ -142,3 +142,4 @@ function StartGathering(User, SourceItem, ltstate)
     User:changeSource(seed)
 end
 
+return M
