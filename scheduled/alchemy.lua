@@ -19,20 +19,14 @@ local M = {}
 
 -- INSERT INTO scheduledscripts VALUES('scheduled.alchemy', 5, 5, 'startAlchemy');
 
-
 -- This script is used for character independent events lasting over some time
-
-
--- containing all center points
-CENTERS = {}
-
--- get active bomb information by center position
-CENTER = {}
 
 -- potion 318
 -- spawns insects over a certain period of time
 local function fruitBombInsectsSpawning()
 
+    -- containing all center points
+    local CENTERS = {}
     if CENTERS[1] == nil then
         return
     end
@@ -49,6 +43,8 @@ local function fruitBombInsectsSpawning()
 
         local theCenter = CENTERS[i-removeCounterCENTERS]
 
+        -- get active bomb information by center position
+        local CENTER = {}
         local removeCounterCENTER = 0
         for j=1,#CENTER[theCenter] do
 

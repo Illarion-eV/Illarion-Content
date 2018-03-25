@@ -12,20 +12,48 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
+
+local scheduledFunction = require("scheduled.scheduledFunction")
+
 local M = {}
+
 local commandPosts = {}
 local spawnInformations = {}
 local commandMonsters = {}
-local scheduledFunction = require("scheduled.scheduledFunction")
-local M = {}
+
+local gmSelection
+local pauseCommandPost
+local deleteCommandPost
+local setUpCommandPost
+local initiateSpawns
+local checkSpawnInformation
+local runCommandPost
+local spawnDoEffects
+local spawnCommandPostMonster
+local updateMonsters
+local checkCommandPost
+local createSpawnMarker
+local entryToNumbers
+local setCommandPostEffects
+local setCommandPostMarker
+local setCustomCommandPostMarker
+local setCommandPostCooldown
+local setCommandPostIntervals
+local selectCommandPostSpawn
+local setSpawnCoordinates
+local setNumberOfPortals
+local selectMonsters
+local setCustomMonsterList
+local setNumberOfMonsters
+
 -- Present in Item scripts of:
 -- Item: id_3109_open_pell
 function M.UseItem(User, SourceItem)
     local commandPostPos = SourceItem.pos
     if SourceItem:getData("commandPost") == "true" then
-        if SourceItem.itempos ~= 255 then 
+        if SourceItem.itempos ~= 255 then
             User:inform("Place the command Post on the ground to use it.")
             --User:inform(tostring(SourceItem.itempos))
             return
@@ -33,7 +61,7 @@ function M.UseItem(User, SourceItem)
         if User:isAdmin() == true then
             gmSelection(User, SourceItem)
         else
-        
+
             if SourceItem:getData("test") == "true" then
                 gmSelection(User, SourceItem)
                 return
@@ -51,12 +79,12 @@ end
 
 function gmSelection(User, SourceItem)
     local commandPostPos = SourceItem.pos
-       
+
     if commandPosts[tostring(commandPostPos)] == nil then
         setUpCommandPost(User, SourceItem, commandPostPos)
         return
     end
-    
+
     local modes = {"Set Number of Spawn", "Locate Spawns", "Select Monsters", "Number of Monsters", "Effects", "Spawn Marker","Spawn Intervals","Cooldown Time", "Start Command Post","Capture","Remove Command Post"}
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
@@ -86,11 +114,11 @@ function gmSelection(User, SourceItem)
             deleteCommandPost(User,SourceItem,commandPostPos)
         else
             local check = checkCommandPost(User, SourceItem, commandPostPos)
-           
+
             if check == true then
                 initiateSpawns(User, SourceItem, commandPostPos)
             end
-           
+
         end
     end
     local sd = SelectionDialog("Set the mode of this Spawnpoint.", "To which mode do you want to change it?", cbSetMode)
@@ -118,7 +146,7 @@ function pauseCommandPost(User,SourceItem,targetPosition)
     else
     User:inform("Der Befehlsstand ist bereits eingenommen. Es wird wohl eine Weile dauern bis sich wieder ein Feind hier her wagen wird.")
 
-    
+
     end
 end
 
@@ -145,13 +173,13 @@ end
 
 -- Initiate the Spawnpoint in the commandPosts table
 function initiateSpawns(User, SourceItem, targetPosition)
-    
+
     SourceItem:setData("nameDe","Befehlsstand")
     SourceItem:setData("nameEn","Command Post")
     SourceItem:setData("descriptionDe","Aktiver Befehlsstand")
     SourceItem:setData("descriptionEn","Active Command Post")
     world:changeItem(SourceItem)
-    
+
     createSpawnMarker(User, targetPosition)
     local length = #spawnInformations +1
     local empty = {}
@@ -171,13 +199,13 @@ function checkSpawnInformation(targetPosition)
     if spawnInformations == nil then
         return false
     end
-    
+
     for i=1, #spawnInformations do
         if tostring(spawnInformations[i][1]["pos"]) == tostring(targetPosition) then
             return i
         end
     end
-    
+
     return false
 
 end
@@ -187,7 +215,7 @@ function runCommandPost()
     if spawnInformations == nil then
         return
     end
-    
+
     for i=1, #spawnInformations do
         local gfxId = spawnInformations[i][1]["gfx"]
         local sfxId = spawnInformations[i][1]["sfx"]
@@ -196,7 +224,7 @@ function runCommandPost()
         local currentTime = world:getTime("unix")
         local intervals = spawnInformations[i][1]["intervals"]
         local intervalCounter = spawnInformations[i][1]["intervalCounter"]
-        
+
         if currentTime > spawnTime then
         local SourceItem = world:getItemOnField(itemPosition)
         SourceItem:setData("descriptionDe","Aktiver Befehlsstand")
@@ -206,20 +234,20 @@ function runCommandPost()
          if intervals > intervalCounter then
              spawnInformations[i][1]["intervalCounter"] = intervalCounter+1
          else
-            
+
             for j=2, #spawnInformations[i] do
                 updateMonsters(i,j-1)
                 if spawnCommandPostMonster(i,j-1) == true then
                     local spawnPos =spawnInformations[i][j]["Coordinates"]
                     spawnDoEffects(gfxId, sfxId,spawnPos)
                 end
-                
+
                 spawnInformations[i][1]["intervalCounter"] = 0
             end
         end
         end
     end
-    
+
     scheduledFunction.registerFunction(2, function() runCommandPost() end)
 end
 
@@ -251,8 +279,8 @@ function spawnCommandPostMonster(indexA, indexB)
         return true
     elseif #commandMonsters[indexA][indexB] < limit then
         local monster = world:createMonster(monsterId,coordinates,10)
-        table.insert(commandMonsters[indexA][indexB],monster) 
-        return true        
+        table.insert(commandMonsters[indexA][indexB],monster)
+        return true
     end
 end
 
@@ -278,7 +306,7 @@ function checkCommandPost(User, SourceItem, targetPosition)
     local flag = true
     for i=1, #commandPosts[tostring(targetPosition)][1]-2 do
         local identifyer = commandPosts[tostring(targetPosition)][1][i]
-        
+
         if commandPosts[tostring(targetPosition)][1][identifyer] ~= nil then
         --    User:inform(tostring(commandPosts[tostring(targetPosition)][1][identifyer]))
         elseif identifyer == "gfx" then
@@ -289,10 +317,10 @@ function checkCommandPost(User, SourceItem, targetPosition)
             User:inform(identifyer .. " is not set!")
             flag=false
         end
-        
+
     end
-    
-    for i=2, #commandPosts[tostring(targetPosition)] do 
+
+    for i=2, #commandPosts[tostring(targetPosition)] do
         for j=1, #commandPosts[tostring(targetPosition)][i] do
             local identifyer = commandPosts[tostring(targetPosition)][i][j]
             if commandPosts[tostring(targetPosition)][i][identifyer] == nil then
@@ -302,23 +330,23 @@ function checkCommandPost(User, SourceItem, targetPosition)
 
         end
     end
-    
+
     return flag
-    
+
 end
 
 -- Placing the chosen Items
 function createSpawnMarker(User, targetPosition)
     local itemId = tonumber(commandPosts[tostring(targetPosition)][1]["marker"])
     local itemQual = 333
-    
+
     for i=2, #commandPosts[tostring(targetPosition)] do
     local markerPos = commandPosts[tostring(targetPosition)][i]["Coordinates"]
-    
+
         local newItem = world:createItemFromId(itemId, 1, markerPos, true, itemQual, nil)
         newItem.wear = 255
         world:changeItem(newItem)
-    
+
     end
 end
 
@@ -365,7 +393,7 @@ end
 -- Setter for the items
 function setCommandPostMarker(User, SourceItem, targetPosition)
     local items = {10,798,2832,498,2937,512,2926,2069}
-    
+
         local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -378,7 +406,7 @@ function setCommandPostMarker(User, SourceItem, targetPosition)
             else
                 setCustomCommandPostMarker(User, SourceItem, targetPosition)
             end
-       
+
     end
     local sd = SelectionDialog("Spawn Marker", "Select a Marker for the Spawn Points", cbSetMode)
     for i=1,#items do
@@ -443,16 +471,16 @@ function selectCommandPostSpawn(User, SourceItem, targetPosition, selection)
         User:inform("Set up command post first!")
         return
     end
-    
+
     for i=1, commandPosts[tostring(targetPosition)][1]["numberOfPortals"] do
         if commandPosts[tostring(targetPosition)][i+1][spawnInformationSet[selection-1]] == nil then
            modes[i] = "Spawn " .. tostring(i)
-        else 
+        else
            modes[i] = "Spawn " .. tostring(i) .. ": " .. tostring(commandPosts[tostring(targetPosition)][i+1][spawnInformationSet[selection-1]])
         end
-        
+
     end
-    
+
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -467,14 +495,14 @@ function selectCommandPostSpawn(User, SourceItem, targetPosition, selection)
             elseif selection == 4 then
             setNumberOfMonsters(User, SourceItem, targetPosition, index+1)
             end
-       
+
     end
     local sd = SelectionDialog("Spawn Coordinates", "Select a Spawn Point", cbSetMode)
     for _,m in ipairs(modes) do
         sd:addOption(0,m)
     end
     User:requestSelectionDialog(sd)
-    
+
 end
 
 -- Setter for the spawn coordinates
@@ -488,7 +516,7 @@ function setSpawnCoordinates(User, SourceItem, targetPosition, index)
             local a, b, xCoords, yCoords, zCoords = string.find(input,"(%d+) (%d+) (%d+)")
             local target = position(tonumber(xCoords),tonumber(yCoords),tonumber(zCoords))
             local targetField = world:getField(target)
-            
+
             if targetField ~= nil then
             local check = targetField:isPassable()
                 if check == true then
@@ -500,8 +528,8 @@ function setSpawnCoordinates(User, SourceItem, targetPosition, index)
             else
             User:inform('Please enter coordinates of a valid tile.')
             end
-            
-           
+
+
         end
     end
     User:requestInputDialog(InputDialog("Span Locater", "Usage: Enter X Y Z coordinates" ,false, 255, cbInputDialog))
@@ -528,7 +556,7 @@ end
 -- Setter for the monster list
 function selectMonsters(User, SourceItem, targetPosition, selection)
     local monsterLists ={}
-    
+
     local names = {"Mas Lvl. 2", "Mas Lvl. 3","Mas Lvl. 4","Mas Lvl. 5","Mas Lvl. 6","Mas Lvl. 7", "Custom Entry"}
     monsterLists[1] = "104   103   101   105   107   114   151   172   762   881"
     monsterLists[2] = "102   111   112   115   152   171   536   753   752   763   871   882"
@@ -536,7 +564,7 @@ function selectMonsters(User, SourceItem, targetPosition, selection)
     monsterLists[4] = "108   109   142   532   531   540   537   741   751   782   784   783   851   861   873"
     monsterLists[5] = "121   122   143   201   202   533   538   541    61    65    62    63    64   742   744   852   862"
     monsterLists[6] = "110   123   124   131   203   204   534   542   543   633   634   635   636   637   638   743   853   863"
-    
+
         local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
             return
@@ -555,7 +583,7 @@ function selectMonsters(User, SourceItem, targetPosition, selection)
         sd:addOption(0,m)
     end
     User:requestSelectionDialog(sd)
-    
+
 end
 
 -- Entrypoint for custom monster list
@@ -567,7 +595,7 @@ function setCustomMonsterList(User, SourceItem, targetPosition, selection)
         local input = dialog:getInput()
         if (string.find(input,"(%d+)") ~= nil) then
             commandPosts[tostring(targetPosition)][selection]["Monsters"] = input
-           
+
         end
     end
     User:requestInputDialog(InputDialog("Custom Monster List Entry", "Usage: Enter Monster IDs like 1 3 42" ,false, 255, cbInputDialog))
@@ -583,7 +611,7 @@ function setNumberOfMonsters(User, SourceItem, targetPosition, index)
         if (string.find(input,"(%d+)") ~= nil) then
             local a, b, monster = string.find(input,"(%d+)")
             commandPosts[tostring(targetPosition)][index]["NumberOfMonsters"] = tonumber(monster)
-           
+
         end
     end
     User:requestInputDialog(InputDialog("Monster Number Entry", "Usage: Enter Number of Monsters" ,false, 255, cbInputDialog))
