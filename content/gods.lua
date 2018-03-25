@@ -454,7 +454,7 @@ end
 -- @param charobj the char
 -- @param multiplier the change magnitude as a float. 0 means no change. 1 means everything becomes 0.
 function M.favourDecay(User, multiplier)
-    multiplier = multiplier or gods_cooldowns_common.DONATION_DECAY_COEFF
+    multiplier = multiplier or gods_cooldowns_common.FAVOUR_DECAY_COEFF
     local changes = {}
     -- start by applying the multiplier and rounding
     for _,curGodObj in pairs(M._godOrdinalToObj) do
@@ -530,7 +530,23 @@ function M.sacrifice(charobj, godOrdinal, item)
 
 --    common.TalkNLS(User, Character.say , "#me FIXME pray " .. godObj.nameDe, "#me FIXME  to " .. godObj.nameEn)
     debug("Sacrificeing item id " .. item.id .. " to " .. godObj.nameEn)
-    world:erase(item, item.number)
+    local favourBonus = godObj:sacrifice(charobj, item)
+    if favourBonus > 0 then
+        M.increaseFavour(charobj, godOrdinal, favourBonus)
+        world:erase(item, item.number)
+    end
+end
+
+---
+-- Change "sacrifice cumulative value" of all gods towards 0 for specific character, that is forget old sacrifices. This function should be called periodically.
+-- @param charobj
+function M.sacrificeDecay(User, multiplier)
+    multiplier = multiplier or gods_cooldowns_common.SACRIFICE_DECAY_COEFF
+    for _,curGodObj in pairs(M._godOrdinalToObj) do
+        -- we do floor and not round, so that it can return to 0 eventually
+        local newValue = math.floor((1-multiplier) * curGodObj:getSacrificeCumulativeValue(User))
+        curGodObj:setSacrificeCumulativeValue(User, newValue)
+    end
 end
 
 ---
@@ -572,18 +588,10 @@ function M.validate(User)
     return true
 end
 
----
---
--- @param charobj
--- @param godOrdinal
-function M.sacrificeDecay(User)
-
-end
-
 
 -- Register callbacks for periodic decay
 gods_cooldowns_common.favourDecayCounter:addCallback(M.favourDecay)
-gods_cooldowns_common.sacrificeDecayCounter:addCallback(M.donationDecay)
+gods_cooldowns_common.sacrificeDecayCounter:addCallback(M.sacrificeDecay)
 
 
 -- FIXME *** Everything between this line should be reviewed ***

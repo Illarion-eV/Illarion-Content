@@ -24,13 +24,15 @@ local math = require("math")
 
 local M = {}
 
--- Cooldown settings
+-- Favour increase and cooldown settings
 M.PRAYER_COOLDOWN_sec = 60
 M.PRAYER_FAVOUR_INCREASE = 20
 M.FAVOUR_DECAY_PEROID_sec = 2*60
 M.FAVOUR_DECAY_COEFF = 0.05
-M.DONATION_DECAY_PERIOD_sec = 3*60
-M.DONATION_DECAY_COEFF = 0.1
+M.SACRIFICE_FAVOUR_COEFFICIENT = 10 / math.log(2)
+M.SACRIFICE_VALUE_OFFSET_copper = 100
+M.SACRIFICE_DECAY_PERIOD_sec = 3*60
+M.SACRIFICE_DECAY_COEFF = 0.1
 M.LTE_TICK_sec = 10
 
 -- Utility values
@@ -38,7 +40,7 @@ M.EFFECT_ID = 613
 M.LTE_TICK_NEXT_CALLED = M.LTE_TICK_sec * 10
 M._PRAYER_COOLDOWN_COUNTER_RESET = M.PRAYER_COOLDOWN_sec / M.LTE_TICK_sec
 M._FAVOUR_DECAY_COUNTER_RESET = M.FAVOUR_DECAY_PEROID_sec / M.LTE_TICK_sec
-M._DONATION_DECAY_COUNTER_RESET = M.DONATION_DECAY_PERIOD_sec / M.LTE_TICK_sec
+M._SACRIFICE_DECAY_COUNTER_RESET = M.SACRIFICE_DECAY_PERIOD_sec / M.LTE_TICK_sec
 
 
 --- Class to represent all cooldown counters in gods system.
@@ -137,7 +139,7 @@ end
 M.prayerCooldownCounter = CooldownCounter("prayerCooldownCounter", M._PRAYER_COOLDOWN_COUNTER_RESET)
 M.cooldownCounters = {M.prayerCooldownCounter}
 M.favourDecayCounter = DecayCounter("favourDecayCounter", M._FAVOUR_DECAY_COUNTER_RESET)
-M.sacrificeDecayCounter = DecayCounter("sacrificeDecayCounter", M._DONATION_DECAY_COUNTER_RESET)
+M.sacrificeDecayCounter = DecayCounter("sacrificeDecayCounter", M._SACRIFICE_DECAY_COUNTER_RESET)
 M.decayCounters = {M.favourDecayCounter, M.sacrificeDecayCounter}
 
 

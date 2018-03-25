@@ -65,7 +65,7 @@ Tanora    : 99,536,0
 Moshran   : 386,552,0
 Zhambra   : 142,564,0
 Sirani    : 176,761,0
-Sirani    : 176,762,0
+--Sirani    : 176,762,0 -- duplicate
 Moshran   : 683,408,2
 Ushara    : 783,289,-3
 Ronagan   : 913,625,1

@@ -21,9 +21,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (554, 148, 0,'triggerfield.altaroffive_triggered_events');
 -- INSERT INTO triggerfields VALUES (553, 144, 0,'triggerfield.altaroffive_triggered_events');
 -- INSERT INTO triggerfields VALUES (549, 143, 0,'triggerfield.altaroffive_triggered_events');
--- INSERT INTO triggerfields VALUES (550, 142, 0,'triggerfield.altaroffive_triggered_events');
+-- INSERT INTO triggerfields VALUES (548, 142, 0,'triggerfield.altaroffive_triggered_events');
 -- INSERT INTO triggerfields VALUES (557, 133, 0,'triggerfield.altaroffive_triggered_events');
--- INSERT INTO triggerfields VALUES (557, 136, 0,'triggerfield.altaroffive_triggered_events');
+-- INSERT INTO triggerfields VALUES (558, 135, 0,'triggerfield.altaroffive_triggered_events');
 -- INSERT INTO triggerfields VALUES (561, 135, 0,'triggerfield.altaroffive_triggered_events');
 -- INSERT INTO triggerfields VALUES (561, 131, 0,'triggerfield.altaroffive_triggered_events');
 -- INSERT INTO triggerfields VALUES (538, 127, 0,'triggerfield.altaroffive_triggered_events');
@@ -31,7 +31,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- INSERT INTO triggerfields VALUES (547, 140, 0,'triggerfield.altaroffive_triggered_events');
 -- INSERT INTO triggerfields VALUES (544, 124, 0,'triggerfield.altaroffive_triggered_events');
 -- INSERT INTO triggerfields VALUES (556, 139, 0,'triggerfield.altaroffive_triggered_events');
--- INSERT INTO triggerfields VALUES (555, 142, 0,'triggerfield.altaroffive_triggered_events');
+-- INSERT INTO triggerfields VALUES (554, 141, 0,'triggerfield.altaroffive_triggered_events');
 -- INSERT INTO triggerfields VALUES (562, 143, 0,'triggerfield.altaroffive_triggered_events');
 -- INSERT INTO triggerfields VALUES (559, 139, 0,'triggerfield.altaroffive_triggered_events');
 -- INSERT INTO triggerfields VALUES (550, 122, 0,'triggerfield.altaroffive_triggered_events');
@@ -59,9 +59,9 @@ waypoint[4] = position(525, 128, 0)
 waypoint[5] = position(554, 148, 0) -- Bragon Area
 waypoint[6] = position(553, 144, 0)
 waypoint[7] = position(549, 143, 0)
-waypoint[8] = position(550, 142, 0)
+waypoint[8] = position(548, 142, 0)
 waypoint[9] = position(557, 133, 0) -- Findari Area
-waypoint[10] = position(557, 136, 0)
+waypoint[10] = position(558, 135, 0)
 waypoint[11] = position(561, 135, 0)
 waypoint[12] = position(561, 131, 0)
 waypoint[13] = position(538, 127, 0) -- Tanora Area
@@ -69,7 +69,7 @@ waypoint[14] = position(538, 128, 0)
 waypoint[15] = position(547, 140, 0)
 waypoint[16] = position(544, 124, 0)
 waypoint[17] = position(556, 139, 0) -- Eldan Area
-waypoint[18] = position(555, 142, 0)
+waypoint[18] = position(554, 141, 0)
 waypoint[19] = position(562, 143, 0)
 waypoint[20] = position(559, 139, 0)
 waypoint[21] = position(550, 122, 0) -- Ushara Area
