@@ -25,27 +25,36 @@ local M = {}
 -- CharacterNear(guard,char)
 
 -- ** defaults **
-PatrolPointer = {};                --
-WpPointer = {};                    -- pointers for the PatrolList
-RandomPatrolChooser = {};        -- define if the patrols are randomly chosen. Can be changed in other scripts.
-WpDone = {};                    -- count how many waypoints (as destination) have been visited
-WpMax = {};                        -- save how many waypoints have to be visited in this patrol
-NextWp = {};                    -- save the next waypoint (the guard is walking to)
-CurWp = {};                        -- save the current waypoint (the guard is walking away from)
-WpTry = {};                        -- save how many times the route was aborted and choose a solution
-PatrolInitDone = {};
-
+local PatrolPointer = {};                --
+local WpPointer = {};                    -- pointers for the PatrolList
+local RandomPatrolChooser = {};        -- define if the patrols are randomly chosen. Can be changed in other scripts.
+local WpDone = {};                    -- count how many waypoints (as destination) have been visited
+local WpMax = {};                        -- save how many waypoints have to be visited in this patrol
+local NextWp = {};                    -- save the next waypoint (the guard is walking to)
+local CurWp = {};                        -- save the current waypoint (the guard is walking away from)
+local WpTry = {};                        -- save how many times the route was aborted and choose a solution
+local PatrolInitDone = {};
+local firstStartPatrol
 --[[
 PatrolList must contain lists with positions at first, then they are replaced with the respective waypoints
 @ index base of every list must contain a list:
     [1] boolean  true if waypoints are randomly chosen
     [2] integer  number of waypoints to be chosen before patrol ends. 0=list.length
 ]]
-PatrolList = {};
+local PatrolList = {};
 
+local ChooseNewPatrol
+local ChooseNewWp
+local GetWpFromPos
+local SetNewWp
+local AbortRoute
+local OpenDoor
+local CloseDoor
+local GetDoorItem
+local CharacterNear
 
 -- replace position data in PatrolList with waypoints and delete those which have no respective waypoint
-function PatrolInit(guard)
+function M.PatrolInit(guard)
     if PatrolInitDone[guard.id]~=nil then
         return;
     end
@@ -92,11 +101,11 @@ end
 starts the patrol and initializes the PatrolList and WaypointList
   @return boolean  if the patrol has been started
 ]]
-function StartPatrol(guard)
+function M.StartPatrol(guard)
     if firstStartPatrol==nil then
         firstStartPatrol = 1;
         waypoints.Init();
-        PatrolInit();
+        M.PatrolInit();
     end
     PatrolPointer[guard.id] = 0;
     WpTry[guard.id] = 0;
@@ -117,16 +126,9 @@ end
 
 --[[
 choose a new patrol. Sequential and random (see RandomPatrolChooser) is supported.
-If you want to define an own algorithm, define a function ChooseCustomPatrol(guard)
-It should set WpPointer,WpDone,WpMax,PatrolPointer and return if something was done.
-If not, the regular function will continue.
 ]]
 function ChooseNewPatrol(guard)
-    if ChooseCustomPatrol then
-        if ChooseCustomPatrol(guard) then
-            return;
-        end
-    end
+
     guard.waypoints:clear();
     WpPointer[guard.id] = 0;
     WpDone[guard.id] = 0;
@@ -149,7 +151,6 @@ end
 
 -- choose a new waypoint as destination, sequentially or randomly
 function ChooseNewWp(guard)
-    --npcdebug("ChooseNewWp");
     local l = #PatrolList[PatrolPointer[guard.id]];
     if PatrolList[PatrolPointer[guard.id]].base[1] then
         WpPointer[guard.id] = math.random(1,l);
@@ -164,11 +165,13 @@ end
 -- get the respective waypoint or nil if noone exists
 function GetWpFromPos(pos)
     local index = waypoints.PosToIndex(pos);
+    --[[ broken, probably beyond repair
     for _,area in pairs(WaypointList) do
         if area[index] then
             return area[index];
         end
     end
+    ]]
     return nil;
 end
 
@@ -202,29 +205,24 @@ should be called in the respective function of the monster/npc OR in base_guard.
 ]]
 function AbortRoute(guard)
     if (guard.pos == NextWp[guard.id].pos) then
-        npcdebug("try OK");
         WpTry[guard.id] = 0;
         guard.waypoints:clear();
         CloseDoor(guard);
         SetNewWp(guard);
         guard:setOnRoute(true);
     elseif WpTry[guard.id]==0 then
-        npcdebug("try 0");
         WpTry[guard.id] = 1;
         guard:setOnRoute(true);
     elseif WpTry[guard.id]==1 then
-        npcdebug("try 1");
         guard:warp(NextWp[guard.id].pos);
         WpTry[guard.id] = 2;
         AbortRoute(guard);
     elseif WpTry[guard.id]==2 then
-        npcdebug("try 2");
         guard:forceWarp(NextWp[guard.id].pos);
         WpTry[guard.id] = 3;
         AbortRoute(guard);
     else
-        npcdebug("try 3");
-        StartPatrol(guard);
+        M.StartPatrol(guard);
     end
 end
 
@@ -256,19 +254,9 @@ function GetDoorItem(Posi)
 end;
 
 function CharacterNear(guard,char)
-    --npcdebug("char near");
     if (NextWp[guard.id].pos == char.pos) then
-        npcdebug("char on waypoint, abort route!");
         AbortRoute(guard);
     end
-end
-
-function npcdebug(text)
-    thisNPC:talk(Character.say,"[DEBUG] ".. text);
-end
-
-function getPos(pos)
-    return pos.x ..",".. pos.y;
 end
 
 return M

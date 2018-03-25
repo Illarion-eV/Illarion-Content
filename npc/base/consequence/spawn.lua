@@ -30,7 +30,7 @@ function(self, id, count, radius, x, y, z)
     self["x"] = tonumber(x)
     self["y"] = tonumber(y)
     self["z"] = tonumber(z)
-    self["perform"] = _warp_helper
+    self["perform"] = _spawn_helper
 end)
 
 function _spawn_helper(self, npcChar, player)

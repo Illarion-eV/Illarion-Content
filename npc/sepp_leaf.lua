@@ -147,7 +147,7 @@ local function removeAllBalls(npc)
     end
 end
 
-local function endGame (npc)
+local function endGame(npc)
     isRunningGame = false
     isBallReleased = false
     countGameTime = 0
@@ -155,7 +155,7 @@ local function endGame (npc)
         world:erase(itemOnion,1)
     end
     teamNorth = {}
-    teamSouth = 
+    teamSouth =
     removeAllBalls(npc)
 end
 
@@ -174,7 +174,6 @@ local function checkTeamList(teamList)
 end
 
 local function isPlayer(user)
-    foundPlayer = false
     for i, player in pairs(teamNorth) do
         if player.id == user.id then
             return true
@@ -430,12 +429,12 @@ function M.receiveText(npc, ttype, text, user)
         user:inform("[Help] This NPC is an onionball refree. Ask him to oversee a match. Keywords: start, stop, winner, rule")
         return
     end
-    
+
     if string.match(text, "[Hh]ilf") then
         user:inform("[Hilfe] Dieser NPC ist ein Zwiebelball Schiedsrichter. Bitte ihn, ein Spiel zu pfeifen. Schlüsselwörter: start, stop, gewinner, regel")
         return
     end
-    
+
     for i=1,#saidText do
         if string.match(string.lower(text), saidText[i][1]) then
             local answerId = saidText[i][2]

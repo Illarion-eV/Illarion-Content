@@ -20,6 +20,74 @@ local common = require("base.common")
 
 local M = {}
 
+local function LangSkillName(Race)
+    if (Race == 0) then return Character.humanLanguage;
+    elseif (Race == 1) then return Character.dwarfLanguage
+    elseif (Race == 2) then return Character.halflingLanguage
+    elseif (Race == 3) then return Character.elfLanguage
+    elseif (Race == 4) then return Character.orcLanguage
+    elseif (Race == 5) then return Character.lizardLanguage
+    end
+end
+
+local function CreateCircle(GFXid,CenterPos,Radius)
+    local irad = math.ceil(Radius);
+    local dim = 2*(irad+1);
+    local x;
+    local y;
+    local map = {} ;
+    for x = -irad-1, irad do
+        map[x] = {};
+        for y = -irad-1, irad do
+            map[x][y] = (x+0.5)*(x+0.5)+(y+0.5)*(y+0.5)-irad*irad > 0
+        end;
+    end;
+
+    for x = -irad, irad do
+        for y = -irad, irad do
+            if not( map[x][y] and  map[x-1][y] and map[x][y-1] and map[x-1][y-1] )
+                    and( map[x][y] or   map[x-1][y] or  map[x][y-1] or  map[x-1][y-1] ) then
+                world:gfx(GFXid,position( CenterPos.x + x, CenterPos.y + y, CenterPos.z ));
+            end
+        end
+    end
+end
+
+local function CalcNewPos(StartPosi,TargetPosi,MoveRange)
+    if not (StartPosi == TargetPosi) then
+        local XAbweich=StartPosi.x-TargetPosi.x;
+        local YAbweich=StartPosi.y-TargetPosi.y;
+        local GAbweich=math.sqrt(math.pow(XAbweich,2)+math.pow(YAbweich,2));
+        local XPart=XAbweich/GAbweich;
+        local YPart=YAbweich/GAbweich;
+        return position(math.floor(TargetPosi.x-(MoveRange*XPart)),math.floor(TargetPosi.y-(MoveRange*YPart)),TargetPosi.z)
+    else
+        return StartPosi
+    end
+end
+
+local function CreateLineofFlight(StartPos,TargetPos,GFXID)
+    local XDiff=StartPos.x-TargetPos.x;
+    local YDiff=StartPos.y-TargetPos.y;
+    local  XDiff2=math.max(StartPos.x,TargetPos.x)-math.min(StartPos.x,TargetPos.x);
+    local YDiff2=math.max(StartPos.y,TargetPos.y)-math.min(StartPos.y,TargetPos.y);
+    local PriDiff=math.max(XDiff2,YDiff2);
+    local SecDiff=math.min(YDiff2,XDiff2);
+    for i=1,PriDiff do
+        local XMod=1;
+        local YMod=1;
+        if (XDiff<0) then XMod=-1 end
+        if (YDiff<0) then YMod=-1 end
+        local PathPos
+        if (PriDiff==XDiff2) then
+            PathPos=position(StartPos.x-XMod*i,StartPos.y-YMod*math.floor(i/PriDiff*SecDiff),StartPos.z)
+        elseif (PriDiff==YDiff2) then
+            PathPos=position(StartPos.x-XMod*math.floor(i/PriDiff*SecDiff),StartPos.y-YMod*i,StartPos.z)
+        end
+        world:gfx(GFXID,PathPos);
+    end
+end
+
 function M.nextCycle(thisNPC)
 
     local EffectArea = 5;
@@ -39,7 +107,7 @@ function M.nextCycle(thisNPC)
             world:gfx(37,monster.pos); -- Effekt am Anfang
             monster:warp(newPos); -- guten Flug!
             monster.movepoints=monster.movepoints - 20; -- Monster festhalten
-            CreateLineofFligth(thisNPC.pos,monster.pos,1); -- Fluglinie Zeichnen
+            CreateLineofFlight(thisNPC.pos,monster.pos,1); -- Fluglinie Zeichnen
             monster:setOnRoute(false); -- Cancels waypoints so it doesn't keep walking back to the cross if it's an archer.
         end
     end
@@ -81,8 +149,6 @@ function M.nextCycle(thisNPC)
     -- Spieler fertig
 end
 
-attribs={"strength","dexterity","constitution","agility","intelligence","perception","willpower","essence"};
-
 function M.doubleEffect( rebirthEffect, Reborn )
     if Reborn:isAdmin() then
       return false;
@@ -94,6 +160,7 @@ function M.doubleEffect( rebirthEffect, Reborn )
     local maxChange = 0;
     local changeBy = 0;
     local foundChange = false;
+    local attribs = {"strength","dexterity","constitution","agility","intelligence","perception","willpower","essence"}
     for _,attrib in pairs(attribs) do
         foundChange, changeBy = rebirthEffect:findValue( attrib );
         if not foundChange then
@@ -117,74 +184,6 @@ function M.doubleEffect( rebirthEffect, Reborn )
     rebirthEffect:addValue("multiRes",multi);
     Reborn:setQuestProgress(20,common.GetCurrentTimestamp());
     return true;
-end
-
-function LangSkillName(Race)
-    if (Race == 0) then return Character.humanLanguage;
-    elseif (Race == 1) then return Character.dwarfLanguage
-    elseif (Race == 2) then return Character.halflingLanguage
-    elseif (Race == 3) then return Character.elfLanguage
-    elseif (Race == 4) then return Character.orcLanguage
-    elseif (Race == 5) then return Character.lizardLanguage
-    end
-end
-
-function CreateCircle(GFXid,CenterPos,Radius)
-    local irad = math.ceil(Radius);
-    local dim = 2*(irad+1);
-    local x;
-    local y;
-    local map = {} ;
-    for x = -irad-1, irad do
-        map[x] = {};
-        for y = -irad-1, irad do
-            map[x][y] = (x+0.5)*(x+0.5)+(y+0.5)*(y+0.5)-irad*irad > 0
-        end;
-    end;
-
-    for x = -irad, irad do
-        for y = -irad, irad do
-            if not( map[x][y] and  map[x-1][y] and map[x][y-1] and map[x-1][y-1] )
-               and( map[x][y] or   map[x-1][y] or  map[x][y-1] or  map[x-1][y-1] ) then
-                world:gfx(GFXid,position( CenterPos.x + x, CenterPos.y + y, CenterPos.z ));
-            end
-        end
-    end
-end
-
-function CalcNewPos(StartPosi,TargetPosi,MoveRange)
-    if not (StartPosi == TargetPosi) then
-        local XAbweich=StartPosi.x-TargetPosi.x;
-        local YAbweich=StartPosi.y-TargetPosi.y;
-        local GAbweich=math.sqrt(math.pow(XAbweich,2)+math.pow(YAbweich,2));
-        local XPart=XAbweich/GAbweich;
-        local YPart=YAbweich/GAbweich;
-        return position(math.floor(TargetPosi.x-(MoveRange*XPart)),math.floor(TargetPosi.y-(MoveRange*YPart)),TargetPosi.z)
-    else
-        return StartPosi
-    end
-end
-
-function CreateLineofFligth(StartPos,TargetPos,GFXID)
-    local XDiff=StartPos.x-TargetPos.x;
-    local YDiff=StartPos.y-TargetPos.y;
-    local  XDiff2=math.max(StartPos.x,TargetPos.x)-math.min(StartPos.x,TargetPos.x);
-    local YDiff2=math.max(StartPos.y,TargetPos.y)-math.min(StartPos.y,TargetPos.y);
-    local PriDiff=math.max(XDiff2,YDiff2);
-    local SecDiff=math.min(YDiff2,XDiff2);
-    for i=1,PriDiff do
-        local XMod=1;
-        local YMod=1;
-        if (XDiff<0) then XMod=-1 end
-        if (YDiff<0) then YMod=-1 end
-        local PathPos
-        if (PriDiff==XDiff2) then
-            PathPos=position(StartPos.x-XMod*i,StartPos.y-YMod*math.floor(i/PriDiff*SecDiff),StartPos.z)
-        elseif (PriDiff==YDiff2) then
-            PathPos=position(StartPos.x-XMod*math.floor(i/PriDiff*SecDiff),StartPos.y-YMod*i,StartPos.z)
-        end
-        world:gfx(GFXID,PathPos);
-    end
 end
 
 return M

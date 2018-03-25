@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --- Response Parsers
 --
@@ -28,26 +28,25 @@ local factions = require("base.factions")
 local processorList = {}
 
 do
+    local function _processor_check_default(self, response)
+        return false
+    end
+
+    local function _processor_process_default(self, playerChar, npc, npcChar, response)
+        return response
+    end
     --- Default processor implementation that does simply nothing.
     local processor = class(function(self)
         -- "check" is the function called once a response is added. This function
-        -- has to determine if this processor has at any point a impact on the 
+        -- has to determine if this processor has at any point a impact on the
         -- response. If this function returns "false" the processor will never be
         -- executed for this class.
         self["check"] = _processor_check_default
-        
+
         -- This function is called in order to process the actual response text.
         -- This function has to return the new text in any case.
         self["process"] = _processor_process_default
     end)
-
-    function _processor_check_default(self, response)
-        return false
-    end
-
-    function _processor_process_default(self, playerChar, npc, npcChar, response)
-        return response
-    end
 
     do
         -- Player name processor
@@ -85,7 +84,7 @@ do
         end
         table.insert(processorList, npcNameProcessor())
     end
-    
+
     do
         -- town processor
         -- This processor replaces %TOWN with the name of the town a character belongs to.
@@ -104,7 +103,7 @@ do
         end
         table.insert(processorList, townNameProcessor())
     end
-    
+
     do
         -- rank processor
         -- This processor replaces %RANK with the rank of a character.
@@ -122,7 +121,7 @@ do
             return string.gsub(response, "%%RANK", rank)
         end
         table.insert(processorList, rankProcessor())
-    end    
+    end
 end
 
 return processorList
