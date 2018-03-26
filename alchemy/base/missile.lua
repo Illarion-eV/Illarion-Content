@@ -324,11 +324,10 @@ M.CENTERS = {}
 
 local function fruitBombInsectsSpawning()
 
-debug("test")
     if M.CENTERS[1] == nil then
         return
     end
-debug("test2")
+
     local WASPS = {}
     WASPS["id"] = {271,272,273,274}
     --'Wasp','Hornet','Wasp Queen','Wasp Drone'
