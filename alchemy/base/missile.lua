@@ -319,12 +319,9 @@ function countCharacters( targetPosis )
     return cnt;
 end
 
-M.CENTER = {}
-M.CENTERS = {}
+local function fruitBombInsectsSpawning(CENTERS, CENTER)
 
-local function fruitBombInsectsSpawning()
-
-    if M.CENTERS[1] == nil then
+    if CENTERS[1] == nil then
         return
     end
 
@@ -336,16 +333,16 @@ local function fruitBombInsectsSpawning()
     WASPS["emotes"]["en"] = {"#me comes closer humming, drawn in by the sweet smell.","#me flies along, following the sweet scent.","#me rushes to the source of the sweet smell.","#me moves with stretched out antennas to the source of the scent."}
 
     local removeCounterCENTERS = 0
-    for i=1,#M.CENTERS do
+    for i=1,#CENTERS do
 
-        local theCenter = M.CENTERS[i-removeCounterCENTERS]
+        local theCenter = CENTERS[i-removeCounterCENTERS]
 
         local removeCounterCENTER = 0
-        for j=1,#M.CENTER[theCenter] do
+        for j=1,#CENTER[theCenter] do
 
-            local quality = M.CENTER[theCenter][j-removeCounterCENTER][1]
-            local counter = M.CENTER[theCenter][j-removeCounterCENTER][2]
-            local targetArea = M.CENTER[theCenter][j-removeCounterCENTER][3]
+            local quality = CENTER[theCenter][j-removeCounterCENTER][1]
+            local counter = CENTER[theCenter][j-removeCounterCENTER][2]
+            local targetArea = CENTER[theCenter][j-removeCounterCENTER][3]
 
             local removeAt = quality*2
 
@@ -378,24 +375,26 @@ local function fruitBombInsectsSpawning()
                 end
                 end
             end
-            M.CENTER[theCenter][j-removeCounterCENTER][2] = counter + 1
+            CENTER[theCenter][j-removeCounterCENTER][2] = counter + 1
             if counter == removeAt then
-                table.remove(M.CENTER[theCenter],j)
+                table.remove(CENTER[theCenter],j)
             end
         end
 
-        if #M.CENTER[theCenter] == 0 then
-            table.remove(M.CENTERS,i)
+        if #CENTER[theCenter] == 0 then
+            table.remove(CENTERS,i)
         end
     end
-    scheduledFunction.registerFunction(5, function() fruitBombInsectsSpawning() end)
+    scheduledFunction.registerFunction(5, function() fruitBombInsectsSpawning(CENTERS, CENTER) end)
 end
 
 function fruitBomb(User, Item, targetArea)
     local FRUITS_FLOWERS = {15,80,81,143,148,144,147,151,199,302}
+    local CENTERS = {}
+    local CENTER = {}
 
     local posAsString = "".. Item.pos.x .." ".. Item.pos.y .." "..Item.pos.z
-    if M.CENTER[posAsString] then
+    if CENTER[posAsString] then
         world:gfx(1,Item.pos)
         return
     end
@@ -420,15 +419,15 @@ function fruitBomb(User, Item, targetArea)
 
     local posAsString = "".. Item.pos.x .." ".. Item.pos.y .." "..Item.pos.z
     local found = false
-    for i=1,#M.CENTERS do
-        if M.CENTERS[i] == posAsString then
+    for i=1,#CENTERS do
+        if CENTERS[i] == posAsString then
             found = true
         end
     end
 
     if not found then
-        table.insert(M.CENTERS,posAsString)
-        M.CENTER[posAsString] = {}
+        table.insert(CENTERS,posAsString)
+        CENTER[posAsString] = {}
     end
 
     quality = quality/2
@@ -439,13 +438,13 @@ function fruitBomb(User, Item, targetArea)
     end
     quality = math.floor(quality)
 
-    table.insert(M.CENTER[posAsString],{quality, 0, targetArea})
+    table.insert(CENTER[posAsString],{quality, 0, targetArea})
 
     local players = world:getPlayersInRangeOf(Item.pos,9)
     for i=1,#players do
         players[i]:inform("Ein süßlicher Duft, der an Blumen und Früchte erinnert, breitet sich aus.", "A sweet scent, reminding one of flowers and fruits, starts to spread.")
     end
-    scheduledFunction.registerFunction(5, function() fruitBombInsectsSpawning() end)
+    scheduledFunction.registerFunction(5, function() fruitBombInsectsSpawning(CENTERS, CENTER) end)
 end
 
 
