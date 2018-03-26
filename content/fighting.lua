@@ -284,16 +284,6 @@ function M.GetWeaknessMerinium( Race )
 end
 
 --[[
-    Returns if the weapon with the ID is a plated weapon
-
-    @param  int ID of the Item
-    @return boolean plated weapon or not
-]]
-function M.IsPlatedWeapon( ItemID )
-    return ( IsMeriniumPlatedWeapon( ItemID ) or IsGoldPlatedWeapon( ItemID ) or IsSilverPlatedWeapon( ItemID ) or IsCopperPlatedWeapon( ItemID ) );
-end
-
---[[
     Returns if the weapon with the ID is a merinium plated weapon
 
     @param  int ID of the Item
@@ -349,6 +339,15 @@ function M.IsCopperPlatedWeapon( ItemID )
     );
 end
 
+--[[
+    Returns if the weapon with the ID is a plated weapon
+
+    @param  int ID of the Item
+    @return boolean plated weapon or not
+]]
+function M.IsPlatedWeapon( ItemID )
+    return ( M.IsMeriniumPlatedWeapon( ItemID ) or M.IsGoldPlatedWeapon( ItemID ) or M.IsSilverPlatedWeapon( ItemID ) or M.IsCopperPlatedWeapon( ItemID ) );
+end
 --[[
     Returns the ID of the item that is the base item of a plated weapon or 0
 

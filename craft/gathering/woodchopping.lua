@@ -70,6 +70,86 @@ unchoppableTrees[1198] = true
 unchoppableTrees[1807] = true
 unchoppableTrees[1808] = true
 
+
+local function preventCutting(User, theAxe, theTree)
+
+    local effectType = theTree:getData("treeProtectionType")
+
+    if effectType == "lightning" then
+        world:gfx(2,User.pos)
+        world:makeSound(13,User.pos)
+        User:inform("Aus heiterem Himmel wirst du von einem Blitz getroffen!", "Out of the blue, you are struck by lightning!", Character.highPriority)
+        User:increaseAttrib("hitpoints",-3000)
+    elseif effectType == "axeSlippingOff" then
+        User:inform("Als du zum Fällen ausholst, rutscht dir das Beil fast aus der Hand. Du kannst es gerade noch so festhalten.", "As you strike out, you nearly drop the hatchet. You barely keep hold of it.", Character.highPriority)
+    elseif effectType == "slimyAcid" then
+        world:gfx(8,User.pos)
+        world:gfx(11,User.pos)
+        world:makeSound(9,User.pos)
+        User:increaseAttrib("hitpoints",-1000)
+        User:talk(Character.say, "#me wird, bevor die Axt den berühren kann, von einem dicken Batzen Schleim getroffen, der aus der Baumkrone heraustropfte.", "#me is, before the hatchet touches the tree, hit by a big blob of slime which dropped down from the treetrop.")
+        User:inform("Der Schleim verursacht ein überaus schmerzhaftes Brennen auf deiner Haut.", "The slime causes very painful burning to your skin.", Character.highPriority)
+    else
+        User:inform("Als du zum Fällen ausholst, rutscht dir das Beil fast aus der Hand. Du kannst es gerade noch so festhalten.", "As you strike out, you nearly drop the hatchet. You barely keep hold of it.", Character.highPriority)
+        debug("Tree at " .. theTree.x .. ", " .. theTree.y .. ", " .. theTree.z .. " is missing a proper data value for the data key treeProtectionType")
+    end
+end
+
+local function isChoppableTree(targetItem)
+    if targetItem ~= nil and TreeItems[targetItem.id] ~= nil then
+        return true;
+    end
+
+    return false;
+end
+
+local function isUnchoppableTree(targetItem,User)
+    if targetItem ~= nil and unchoppableTrees[targetItem.id] ~= nil then
+        common.TurnTo( User, targetItem.pos )
+        User:inform("Diese Baumart kann nicht gefällt werden.","This kind of tree cannot be cut down.")
+        return true;
+    end
+
+end
+
+local function checkForTree(User,theFunction)
+    local targetItem = common.GetFrontItem(User);
+    if theFunction(targetItem,User) then
+        return targetItem;
+    end
+
+    for x=-1,1 do
+        for y=-1,1 do
+            local pos = position(User.pos.x+x,User.pos.y+y,User.pos.z);
+            if ( world:isItemOnField(pos) ) then
+                targetItem = world:getItemOnField(pos);
+                if theFunction(targetItem,User) then
+                    return targetItem;
+                end
+            end
+        end
+    end
+    return nil
+end
+
+local function getTree(User)
+    local tree = checkForTree(User,isChoppableTree)
+    if not tree then
+        if checkForTree(User,isUnchoppableTree) then
+            return false
+        end
+    end
+
+    return tree
+end
+
+local function isTree(itemId)
+    if unchoppableTrees[itemId] or TreeItems[itemId] then
+        return true
+    end
+    return false
+end
+
 function M.StartGathering(User, SourceItem, ltstate)
 
     local theCraft = gathering.GatheringCraft:new{LeadSkill = Character.woodcutting, LearnLimit = 100}; -- id_74_axe
@@ -212,90 +292,6 @@ function M.StartGathering(User, SourceItem, ltstate)
         end
         return
     end
-
-end
-
-function preventCutting(User, theAxe, theTree)
-
-    local effectType = theTree:getData("treeProtectionType")
-
-    if effectType == "lightning" then
-        world:gfx(2,User.pos)
-        world:makeSound(13,User.pos)
-        User:inform("Aus heiterem Himmel wirst du von einem Blitz getroffen!", "Out of the blue, you are struck by lightning!", Character.highPriority)
-        User:increaseAttrib("hitpoints",-3000)
-    elseif effectType == "axeSlippingOff" then
-        User:inform("Als du zum Fällen ausholst, rutscht dir das Beil fast aus der Hand. Du kannst es gerade noch so festhalten.", "As you strike out, you nearly drop the hatchet. You barely keep hold of it.", Character.highPriority)
-    elseif effectType == "slimyAcid" then
-        world:gfx(8,User.pos)
-        world:gfx(11,User.pos)
-        world:makeSound(9,User.pos)
-        User:increaseAttrib("hitpoints",-1000)
-        User:talk(Character.say, "#me wird, bevor die Axt den berühren kann, von einem dicken Batzen Schleim getroffen, der aus der Baumkrone heraustropfte.", "#me is, before the hatchet touches the tree, hit by a big blob of slime which dropped down from the treetrop.")
-        User:inform("Der Schleim verursacht ein überaus schmerzhaftes Brennen auf deiner Haut.", "The slime causes very painful burning to your skin.", Character.highPriority)
-    else
-        User:inform("Als du zum Fällen ausholst, rutscht dir das Beil fast aus der Hand. Du kannst es gerade noch so festhalten.", "As you strike out, you nearly drop the hatchet. You barely keep hold of it.", Character.highPriority)
-        debug("Tree at " .. theTree.x .. ", " .. theTree.y .. ", " .. theTree.z .. " is missing a proper data value for the data key treeProtectionType")
-    end
-
-end
-
-function isChoppableTree(targetItem)
-    if targetItem ~= nil and TreeItems[targetItem.id] ~= nil then
-        return true;
-    end
-
-    return false;
-end
-
-function isUnchoppableTree(targetItem,User)
-
-    if targetItem ~= nil and unchoppableTrees[targetItem.id] ~= nil then
-        common.TurnTo( User, targetItem.pos )
-        User:inform("Diese Baumart kann nicht gefällt werden.","This kind of tree cannot be cut down.")
-        return true;
-    end
-
-end
-
-function getTree(User)
-
-    local tree = checkForTree(User,isChoppableTree)
-    if not tree then
-        if checkForTree(User,isUnchoppableTree) then
-            return false
-        end
-    end
-
-    return tree
-end
-
-function isTree(itemId)
-    if unchoppableTrees[itemId] or TreeItems[itemId] then
-        return true
-    end
-    return false
-end
-
-function checkForTree(User,theFunction)
-
-    local targetItem = common.GetFrontItem(User);
-    if theFunction(targetItem,User) then
-        return targetItem;
-    end
-
-    for x=-1,1 do
-        for y=-1,1 do
-            local pos = position(User.pos.x+x,User.pos.y+y,User.pos.z);
-            if ( world:isItemOnField(pos) ) then
-                targetItem = world:getItemOnField(pos);
-                if theFunction(targetItem,User) then
-                    return targetItem;
-                end
-            end
-        end
-    end
-    return nil;
 
 end
 

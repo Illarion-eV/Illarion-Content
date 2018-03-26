@@ -20,6 +20,19 @@ local gathering = require("craft.base.gathering")
 
 local M = {}
 
+local function preventGathering(User, theNest)
+
+    local effectType = theNest:getData("eggProtectionType")
+
+    if effectType == "ssigus" then
+        world:gfx(21,User.pos)
+        world:makeSound(31,User.pos)
+        User:inform("", "As you attempt to steal his eggs, Ssigus turns and swipes at you with a claw.", Character.highPriority)
+        User:increaseAttrib("hitpoints",-2000)
+    end
+
+end
+
 function M.StartGathering(User, SourceItem, ltstate)
     local EMPTY_NEST = 1172
     local FILLED_NEST = 1171
@@ -124,19 +137,6 @@ function M.StartGathering(User, SourceItem, ltstate)
     SourceItem:setData("amount","" .. amount);
     world:changeItem(SourceItem);
     User:changeSource(SourceItem);
-end
-
-function preventGathering(User, theNest)
-
-    local effectType = theNest:getData("eggProtectionType")
-
-    if effectType == "ssigus" then
-        world:gfx(21,User.pos)
-        world:makeSound(31,User.pos)
-        User:inform("", "As you attempt to steal his eggs, Ssigus turns and swipes at you with a claw.", Character.highPriority)
-        User:increaseAttrib("hitpoints",-2000)
-    end
-
 end
 
 return M

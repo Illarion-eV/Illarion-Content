@@ -30,7 +30,7 @@ function M.StartGathering(User, SourceItem, ltstate)
     local claydigging = gathering.GatheringCraft:new{LeadSkill = Character.digging, LearnLimit = 100}; -- id_24_shovel
     claydigging:AddRandomPureElement(gathering.prob_extremely_rarely); -- Any pure element
     claydigging:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
-    claydigging:SetShard(prob_rarely,"Im Matsch erkennst du einen Splitter eines magischen Artefaktes.", "You spot a shard of a magical artifact in the mud."); -- Any shard
+    claydigging:SetShard(gathering.prob_rarely,"Im Matsch erkennst du einen Splitter eines magischen Artefaktes.", "You spot a shard of a magical artifact in the mud."); -- Any shard
     claydigging:AddRandomItem(2658,1,333,{},gathering.prob_extremely_rarely,"Du findest eine Knochenhand im Matsch. Sie umklammert ein altes Schwert.","You find a boney hand in the mud clutching an old sword."); --broadsword
     claydigging:AddRandomItem(51,1,333,{},gathering.prob_occasionally,"Du ziehst einen alten Eimer aus dem Schlick.","You draw an old bucket from the silt."); --bucket
     claydigging:AddRandomItem(2184,1,333,{},gathering.prob_frequently,"Ein Tonkrug offenbahrt sich im Matsch. Die Überreste einer alten Zivilisation oder einfach nur vom letzten Saufgelage?","A clay mug reveals itself in the mud. Perhaps the remains of an ancient civilization or just a littering traveller, who knows?"); --clay cup
