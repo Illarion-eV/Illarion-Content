@@ -61,7 +61,7 @@ local common = require("base.common")
 local class = require("base.class")
 local character = require("base.character")
 local areas = require("content.areas")
-
+local vision = require("content.vision")
 local M = {}
 
 
@@ -79,11 +79,159 @@ local attendants2={}
 local advantureslist={}
 
 
+local function StartVision(char,AmountStory,TypeStory)
+    local find = char.effects:find(83)
+    if find then
+        return
+    end
+    local myEffect = LongTimeEffect(83,50)
+    myEffect:addValue("AmountStory",AmountStory)
+    myEffect:addValue("TypeStory",TypeStory)
+    char.effects:addEffect(myEffect)
+end
+local function CheckPortalLeverRiddle1(char)
+    if world:getItemOnField(position(966,169,2)).id == 436 and world:getItemOnField(position(967,169,2)).id == 436 and world:getItemOnField(position(968,169,2)).id ~= 436 and world:getItemOnField(position(969,169,2)).id ~= 436 and world:getItemOnField(position(970,169,2)).id ~= 436 and world:getItemOnField(position(971,169,2)).id ~= 436 and world:getItemOnField(position(972,169,2)).id ~= 436 and world:getItemOnField(position(973,169,2)).id ~= 436 and world:getItemOnField(position(974,169,2)).id == 436 then
+        return true
+    else
+        return false
+    end
+end
+
+
+local function CheckPortalLeverRiddle2(char)
+    if world:getItemOnField(position(966,169,2)).id == 436 and world:getItemOnField(position(967,169,2)).id ~= 436 and world:getItemOnField(position(968,169,2)).id == 436 and world:getItemOnField(position(969,169,2)).id ~= 436 and world:getItemOnField(position(970,169,2)).id ~= 436 and world:getItemOnField(position(971,169,2)).id == 436 and world:getItemOnField(position(972,169,2)).id ~= 436 and world:getItemOnField(position(973,169,2)).id ~= 436 and world:getItemOnField(position(974,169,2)).id ~= 436 then
+        return true
+    else
+        return false
+    end
+end
+
+
+local function CheckPortalLeverRiddle3(char)
+    if world:getItemOnField(position(966,169,2)).id == 436 and world:getItemOnField(position(967,169,2)).id ~= 436 and world:getItemOnField(position(968,169,2)).id ~= 436 and world:getItemOnField(position(969,169,2)).id == 436 and world:getItemOnField(position(970,169,2)).id ~= 436 and world:getItemOnField(position(971,169,2)).id ~= 436 and world:getItemOnField(position(972,169,2)).id ~= 436 and world:getItemOnField(position(973,169,2)).id == 436 and world:getItemOnField(position(974,169,2)).id ~= 436 then
+        return true
+    else
+        return false
+    end
+end
+
+
+local function CheckPortalLeverRiddle4(char)
+    if world:getItemOnField(position(966,169,2)).id == 436 and world:getItemOnField(position(967,169,2)).id ~= 436 and world:getItemOnField(position(968,169,2)).id ~= 436 and world:getItemOnField(position(969,169,2)).id == 436 and world:getItemOnField(position(970,169,2)).id ~= 436 and world:getItemOnField(position(971,169,2)).id ~= 436 and world:getItemOnField(position(972,169,2)).id == 436 and world:getItemOnField(position(973,169,2)).id ~= 436 and world:getItemOnField(position(974,169,2)).id ~= 436 then
+        return true
+    else
+        return false
+    end
+end
+
+function M.PortalLeverRiddle(char)
+    world:makeSound(22,position(970,171,2))
+    if CheckPortalLeverRiddle1(char) == true or CheckPortalLeverRiddle2(char) == true or CheckPortalLeverRiddle3(char) == true or CheckPortalLeverRiddle4(char) == true then
+        world:gfx(32,position(970,171,2))
+        world:makeSound(4,position(970,171,2))
+        world:createItemFromId(798,1,position(970,171,2),true,666,nil)
+    else
+        local checkRedPortal = world:getItemOnField(position(970,171,2))
+        if checkRedPortal.id == 798 then
+            world:erase(checkRedPortal,checkRedPortal.number)
+            world:makeSound(4,position(970,171,2))
+            world:gfx(5,position(970,171,2))
+        end
+    end
+end
+
+local stoneChamberAttendants={}
+
+local function StoneChamberQuestProgressCheck(char)
+    stoneChamberAttendants[char.name] = world:getPlayersInRangeOf(position(952,173,-6), 50)
+    for m,player in ipairs(stoneChamberAttendants[char.name]) do
+        if player:getQuestProgress(680) ~= 0 and player:getQuestProgress(681) ~= 0 then
+            return true
+        end
+    end
+end
+
+
+local function StoneChamberQuestProgress(char)
+    stoneChamberAttendants[char.name] = world:getPlayersInRangeOf(position(952,173,-6), 50)
+    for m,player in ipairs(stoneChamberAttendants[char.name]) do
+        player:setQuestProgress(680,math.random(400,600))
+        player:setQuestProgress(681,1)
+    end
+end
+local stoneChamberStonePosition={position(957,170,-6),position(953,167,-6),position(948,168,-6),position(946,173,-6),position(948,178,-6),position(953,179,-6),position(957,176,-6)}
+local stoneChamberStoneKind={3524,3519,3521,3520,3523,3525,3522}
+
+local playerWithWrongWeight={}
+local playerWithRightWeight={}
+local clicksAmountDe={"einmaliges","dreimaliges","zweimaliges"}
+local clicksAmountEn={"a click","three clicks","two clicks"}
+local playerHasCorrectWeight
+
+local function RightWeight(char,clicksAmountVar)
+    playerWithRightWeight[char.name] = world:getPlayersInRangeOf(position(960,173,-6), 50)
+    local AmountStoneChamberStones = #stoneChamberStonePosition
+    local ChanceForGemsToday = math.random(1,100)
+    local noLuckForGemsToday
+    if ChanceForGemsToday <= 10 or char:getQuestProgress(681) == 0 then
+        noLuckForGemsToday = true
+    else
+        noLuckForGemsToday = false
+    end
+    for m,player in ipairs(playerWithRightWeight[char.name]) do
+        if (areas.PointInArea(player.pos,"evilrockstonechamber")) then
+            common.InformNLS(player,"Der Thron sinkt ein wenig ein und du hörst ein "..clicksAmountDe[clicksAmountVar].." Klicken.","The throne sinks down slightly and you hear "..clicksAmountEn[clicksAmountVar].." .")
+        end
+    end
+
+    if not StoneChamberQuestProgressCheck(char) then
+        if noLuckForGemsToday == true then
+            for i = 1,AmountStoneChamberStones do
+                world:makeSound(27,stoneChamberStonePosition[i])
+                world:gfx(46,stoneChamberStonePosition[i])
+                world:createItemFromId(stoneChamberStoneKind[i],1,stoneChamberStonePosition[i],true,999,{["gemLevel"]="1"})
+            end
+        else
+            for m,player in ipairs(playerWithRightWeight[char.name]) do
+                world:makeSound(27,player.pos)
+                common.InformNLS(player,"Zusätzlich siehst du noch ein kurzes Aufleuchten einer Lichtquelle, welches aber sogleich abstirbt. Hier scheint heute nichts zu funktionieren.","Furthermore, you see a light blinking for a second but nothing happens. It does not seem as though anything is working today.")
+            end
+        end
+    else
+        for m,player in ipairs(playerWithRightWeight[char.name]) do
+            world:makeSound(27,player.pos)
+            common.InformNLS(player,"Zusätzlich siehst du noch ein kurzes Aufleuchten einer Lichtquelle, welches aber sogleich abstirbt. Hier scheint heute nichts zu funktionieren.","Furthermore, you see a light blinking, which immediately disappears. It does not seem as though anything is working today.")
+        end
+    end
+
+    world:createItemFromId(467,1,position(952,173,-6),true,333,nil)
+    playerHasCorrectWeight = true
+end
+
+
+local function WrongWeight(char,clicksAmountVar)
+    playerWithWrongWeight[char.name] = world:getPlayersInRangeOf(position(960,173,-6), 50)
+    for m,player in ipairs(playerWithWrongWeight[char.name]) do
+        if (areas.PointInArea(player.pos,"evilrockstonechamber")) then
+            common.InformNLS(player,"Du hörst ein "..clicksAmountDe[clicksAmountVar].." Klicken während der Thron leicht einsinkt und eine Stimme ruft: 'Narr, du bist nicht ich! Hinweg mit dir!' Anschließend füllt sich der Raum mit Flammen.","You hear "..clicksAmountEn[clicksAmountVar].." during which the throne sinks down slightly and a voice shouts: 'Fool, you are not me! Leave!' The room fills itself with flames afterwards.")
+            world:makeSound(25,player.pos);
+        end
+    end
+    for xx=943,960 do
+        for yy=164,182 do
+            local positionFlame = position(xx,yy,-6)
+            world:createItemFromId(360,1,positionFlame,true,666,nil)
+        end
+    end
+    playerHasCorrectWeight = false
+end
+
 function M.MoveToField(char)
     if char:getType() ~= Character.player then --Monsters will be ingored
         return
     end
 
+    local find
     local AmountFlameFire = #triggerFlameFire
     for i = 1,AmountFlameFire do
         if char.pos == triggerFlameFire[i] then
@@ -283,99 +431,6 @@ function M.MoveToField(char)
 
 end
 
-
-
-
-local stoneChamberStonePosition={position(957,170,-6),position(953,167,-6),position(948,168,-6),position(946,173,-6),position(948,178,-6),position(953,179,-6),position(957,176,-6)}
-local stoneChamberStoneKind={3524,3519,3521,3520,3523,3525,3522}
-
-local playerWithWrongWeight={}
-local playerWithRightWeight={}
-local clicksAmountDe={"einmaliges","dreimaliges","zweimaliges"}
-local clicksAmountEn={"a click","three clicks","two clicks"}
-local playerHasCorrectWeight
-
-function RightWeight(char,clicksAmountVar)
-    playerWithRightWeight[char.name] = world:getPlayersInRangeOf(position(960,173,-6), 50)
-    local AmountStoneChamberStones = #stoneChamberStonePosition
-    local ChanceForGemsToday = math.random(1,100)
-    local noLuckForGemsToday
-    if ChanceForGemsToday <= 10 or char:getQuestProgress(681) == 0 then
-        noLuckForGemsToday = true
-    else
-        noLuckForGemsToday = false
-    end
-    for m,player in ipairs(playerWithRightWeight[char.name]) do
-        if (areas.PointInArea(player.pos,"evilrockstonechamber")) then
-            common.InformNLS(player,"Der Thron sinkt ein wenig ein und du hörst ein "..clicksAmountDe[clicksAmountVar].." Klicken.","The throne sinks down slightly and you hear "..clicksAmountEn[clicksAmountVar].." .")
-        end
-    end
-
-    if not StoneChamberQuestProgressCheck(char) then
-        if noLuckForGemsToday == true then
-            for i = 1,AmountStoneChamberStones do
-                world:makeSound(27,stoneChamberStonePosition[i])
-                world:gfx(46,stoneChamberStonePosition[i])
-                world:createItemFromId(stoneChamberStoneKind[i],1,stoneChamberStonePosition[i],true,999,{["gemLevel"]="1"})
-            end
-        else
-            for m,player in ipairs(playerWithRightWeight[char.name]) do
-                world:makeSound(27,player.pos)
-                common.InformNLS(player,"Zusätzlich siehst du noch ein kurzes Aufleuchten einer Lichtquelle, welches aber sogleich abstirbt. Hier scheint heute nichts zu funktionieren.","Furthermore, you see a light blinking for a second but nothing happens. It does not seem as though anything is working today.")
-            end
-        end
-    else
-        for m,player in ipairs(playerWithRightWeight[char.name]) do
-            world:makeSound(27,player.pos)
-            common.InformNLS(player,"Zusätzlich siehst du noch ein kurzes Aufleuchten einer Lichtquelle, welches aber sogleich abstirbt. Hier scheint heute nichts zu funktionieren.","Furthermore, you see a light blinking, which immediately disappears. It does not seem as though anything is working today.")
-        end
-    end
-
-    world:createItemFromId(467,1,position(952,173,-6),true,333,nil)
-    playerHasCorrectWeight = true
-end
-
-
-function WrongWeight(char,clicksAmountVar)
-    playerWithWrongWeight[char.name] = world:getPlayersInRangeOf(position(960,173,-6), 50)
-    for m,player in ipairs(playerWithWrongWeight[char.name]) do
-        if (areas.PointInArea(player.pos,"evilrockstonechamber")) then
-            common.InformNLS(player,"Du hörst ein "..clicksAmountDe[clicksAmountVar].." Klicken während der Thron leicht einsinkt und eine Stimme ruft: 'Narr, du bist nicht ich! Hinweg mit dir!' Anschließend füllt sich der Raum mit Flammen.","You hear "..clicksAmountEn[clicksAmountVar].." during which the throne sinks down slightly and a voice shouts: 'Fool, you are not me! Leave!' The room fills itself with flames afterwards.")
-            world:makeSound(25,player.pos);
-        end
-    end
-    for xx=943,960 do
-        for yy=164,182 do
-            local positionFlame = position(xx,yy,-6)
-            world:createItemFromId(360,1,positionFlame,true,666,nil)
-        end
-    end
-    playerHasCorrectWeight = false
-end
-
-
-
-local stoneChamberAttendants={}
-
-function StoneChamberQuestProgressCheck(char)
-    stoneChamberAttendants[char.name] = world:getPlayersInRangeOf(position(952,173,-6), 50)
-    for m,player in ipairs(stoneChamberAttendants[char.name]) do
-        if player:getQuestProgress(680) ~= 0 and player:getQuestProgress(681) ~= 0 then
-            return true
-        end
-    end
-end
-
-
-function StoneChamberQuestProgress(char)
-    stoneChamberAttendants[char.name] = world:getPlayersInRangeOf(position(952,173,-6), 50)
-    for m,player in ipairs(stoneChamberAttendants[char.name]) do
-        player:setQuestProgress(680,math.random(400,600))
-        player:setQuestProgress(681,1)
-    end
-end
-
-
 function M.MoveFromField(char)
    if char:getType() ~= Character.player then
     return
@@ -410,17 +465,6 @@ function M.MoveFromField(char)
 end
 
 
-function StartVision(char,AmountStory,TypeStory)
-    local find = char.effects:find(83)
-    if find then
-        return
-    end
-    local myEffect = LongTimeEffect(83,50)
-    myEffect:addValue("AmountStory",AmountStory)
-    myEffect:addValue("TypeStory",TypeStory)
-    char.effects:addEffect(myEffect)
-end
-
 M.executePortalLeverRiddle = class(function(leverriddle, posi)
     leverriddle.pos=posi
 end)
@@ -428,60 +472,7 @@ end)
 
 function M.executePortalLeverRiddle:execute()
     local char=self.player
-    PortalLeverRiddle(char)
-end
-
-
-function M.PortalLeverRiddle(char)
-    world:makeSound(22,position(970,171,2))
-    if CheckPortalLeverRiddle1(char) == true or CheckPortalLeverRiddle2(char) == true or CheckPortalLeverRiddle3(char) == true or CheckPortalLeverRiddle4(char) == true then
-        world:gfx(32,position(970,171,2))
-        world:makeSound(4,position(970,171,2))
-        world:createItemFromId(798,1,position(970,171,2),true,666,nil)
-    else
-        local checkRedPortal = world:getItemOnField(position(970,171,2))
-        if checkRedPortal.id == 798 then
-            world:erase(checkRedPortal,checkRedPortal.number)
-            world:makeSound(4,position(970,171,2))
-            world:gfx(5,position(970,171,2))
-        end
-    end
-end
-
-
-function CheckPortalLeverRiddle1(char)
-    if world:getItemOnField(position(966,169,2)).id == 436 and world:getItemOnField(position(967,169,2)).id == 436 and world:getItemOnField(position(968,169,2)).id ~= 436 and world:getItemOnField(position(969,169,2)).id ~= 436 and world:getItemOnField(position(970,169,2)).id ~= 436 and world:getItemOnField(position(971,169,2)).id ~= 436 and world:getItemOnField(position(972,169,2)).id ~= 436 and world:getItemOnField(position(973,169,2)).id ~= 436 and world:getItemOnField(position(974,169,2)).id == 436 then
-        return true
-    else
-        return false
-    end
-end
-
-
-function CheckPortalLeverRiddle2(char)
-    if world:getItemOnField(position(966,169,2)).id == 436 and world:getItemOnField(position(967,169,2)).id ~= 436 and world:getItemOnField(position(968,169,2)).id == 436 and world:getItemOnField(position(969,169,2)).id ~= 436 and world:getItemOnField(position(970,169,2)).id ~= 436 and world:getItemOnField(position(971,169,2)).id == 436 and world:getItemOnField(position(972,169,2)).id ~= 436 and world:getItemOnField(position(973,169,2)).id ~= 436 and world:getItemOnField(position(974,169,2)).id ~= 436 then
-        return true
-    else
-        return false
-    end
-end
-
-
-function CheckPortalLeverRiddle3(char)
-    if world:getItemOnField(position(966,169,2)).id == 436 and world:getItemOnField(position(967,169,2)).id ~= 436 and world:getItemOnField(position(968,169,2)).id ~= 436 and world:getItemOnField(position(969,169,2)).id == 436 and world:getItemOnField(position(970,169,2)).id ~= 436 and world:getItemOnField(position(971,169,2)).id ~= 436 and world:getItemOnField(position(972,169,2)).id ~= 436 and world:getItemOnField(position(973,169,2)).id == 436 and world:getItemOnField(position(974,169,2)).id ~= 436 then
-        return true
-    else
-        return false
-    end
-end
-
-
-function CheckPortalLeverRiddle4(char)
-    if world:getItemOnField(position(966,169,2)).id == 436 and world:getItemOnField(position(967,169,2)).id ~= 436 and world:getItemOnField(position(968,169,2)).id ~= 436 and world:getItemOnField(position(969,169,2)).id == 436 and world:getItemOnField(position(970,169,2)).id ~= 436 and world:getItemOnField(position(971,169,2)).id ~= 436 and world:getItemOnField(position(972,169,2)).id == 436 and world:getItemOnField(position(973,169,2)).id ~= 436 and world:getItemOnField(position(974,169,2)).id ~= 436 then
-        return true
-    else
-        return false
-    end
+    M.PortalLeverRiddle(char)
 end
 
 return M

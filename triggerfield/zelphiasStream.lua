@@ -12,43 +12,43 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 -- INSERT INTO triggerfields VALUES (107,543,0,'triggerfield.zelphiasStream');
 
 local M = {}
 
-function getMaximumLoad(user)
+local function getMaximumLoad(user)
     return user:increaseAttrib("strength", 0) * 500 + 5000 -- This calculation is the same the server uses.
 end
 
-function getCharacterLoad(user)
+local function getCharacterLoad(user)
     local totalLoad = 0
-    
+
     local backPack
     if user:getItemAt(Character.backpack) then
         backPack = user:getBackPack()
     end
-    
+
     if backPack then
         totalLoad = totalLoad + backPack:weight()
     end
-    
+
     for i = 1, 17 do
         local currentItem = user:getItemAt(i)
         if currentItem then
             totalLoad = totalLoad +  world:getItemStats(currentItem).Weight
         end
     end
-    
+
     return totalLoad
 end
 
 function M.MoveToField(user)
 
     if getCharacterLoad(user) >= getMaximumLoad(user)/5 then
-        
+
         if user:getRace() == 5 then
             user:inform("Durch das Gewicht deiner Ausrüstung wirst du tief ins Wasser gezogen und von einer Strömung erfasst, doch durch das natürliche Schwimmvermögen deiner Rasse kannst du dich ihr entgegenstemmen.","The weighty equipment pulls you into the depths of the dark water. But the natural swimming abilities of your kind enable you to withstand the treacherous currents as you press on in spite of your burden.")
         else
@@ -56,9 +56,8 @@ function M.MoveToField(user)
             user:warp(position(75, 564, 0))
             user:talk(Character.say, "#me wird ans Ufer gespühlt.", "#me is washed ashore.")
         end
-        
-    end
 
+    end
 end
 
 return M
