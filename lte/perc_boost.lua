@@ -49,11 +49,11 @@ function M.removeEffect( Effect, Character )
     -- do nothing
 end
 
-function M.loadEffect(Effect, Character)                  -- wenn der Charakter einloggt...
-    local found,addPerc = coldEffect:findValue("addPerc")
+function M.loadEffect(Effect, User)                  -- wenn der Charakter einloggt...
+    local found,addPerc = Effect:findValue("addPerc")
     if found then
         User:increaseAttrib("perception",addPerc)      -- Buchhaltung: Auslesen der aktuellen "steigerung" und steigern
-        percBoost.nextCalled = 600                     -- in einer Minute wieder aufrufen
+        Effect.nextCalled = 600                     -- in einer Minute wieder aufrufen
     end
 end
 

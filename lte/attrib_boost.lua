@@ -18,18 +18,14 @@ local common = require("base.common")
 
 local M = {}
 
--- Character bekommt einen Attributs-Boost, der erst ansteigt und dann sinkt --
-local function initBoost(User)
-      local AttribToBoost = "perception"
-      local boostSteps = 6
-      local boostValue = 1
-      local reboostValue = -1
-      return AttribToBoost,boostSteps, boostValue, reboostValue
-end
+local AttribToBoost = "perception"
+local boostSteps = 6
+local boostValue = 1
+local reboostValue = -1
+
 
 function M.addEffect(addPerc, User)    -- Wird nur beim Start des Effektes aufgerufen (-> Perc+1)
     User:inform("function M.addEffect erreicht")
-    local AttribToBoost, boostSteps, boostValue, reboostValue = initBoost(User)
     common.InformNLS(User, "Deine Sinne werden merkbar sensibler.", "Your senses grow noticably.")
     User:increaseAttrib(AttribToBoost,boostValue)    -- (erste Steigerung)
 end
@@ -56,12 +52,12 @@ function M.callEffect(percBoost, User)                    -- Effect wird ausgefü
     end
 end
 
-function M.removeEffect( Effect, Character )
+function M.removeEffect(percBoost, Character )
     -- do nothing
 end
 
-function M.loadEffect(Effect, Character)                  -- wenn der Charakter einloggt...
-    local found,addPerc = coldEffect:findValue("addPerc")
+function M.loadEffect(percBoost, Character)                  -- wenn der Charakter einloggt...
+    local found,addPerc = percBoost:findValue("addPerc")
     if found then
         User:increaseAttrib(AttribToBoost,addPerc)     -- Buchhaltung: Auslesen der aktuellen "steigerung" und steigern
         percBoost.nextCalled = 600                     -- in einer Minute wieder aufrufen

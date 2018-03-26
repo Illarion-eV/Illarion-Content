@@ -68,7 +68,7 @@ function M.loadEffect(fireEffect, Patient)         -- Infection starts
 end
 
 -- checks if fire is under roof or under rain, if so, won't burn
-function FireInRain( posX, posY, posZ )
+local function FireInRain( posX, posY, posZ )
     local potentialRoofPos = position( posX, posY, posZ + 1 )
     local potRoof=world:getField( potentialRoofPos )
 
@@ -77,7 +77,7 @@ function FireInRain( posX, posY, posZ )
        ( posZ >= 0 ) and ( potRoof==nil ) ) then
             local PlayerList = world:getPlayersOnline()
             for char in PlayerList do
-                char:inform( "Fire at " .. tostring( poxX ) .. " " .. tostring( posY ) .. " " .. tostring( posZ ) )
+                char:inform( "Fire at " .. tostring( posX ) .. " " .. tostring( posY ) .. " " .. tostring( posZ ) )
             end
             --return true
     end
@@ -148,12 +148,11 @@ function M.callEffect(fireEffect, NPC)
                 fstNo = next
             elseif i == lstNo then
                 --NPC:talk(Character.say,"Entferne letztes!")
-                fireEffect:addValue("lastNumber", prvNo)
-                lstNo = prvNo
-                fireEffect:addValue("fireN"..prvNo, 0)
+                fireEffect:addValue("lastNumber", lstNo)
+                fireEffect:addValue("fireN"..lstNo, 0)
             else
                 --NPC:talk(Character.say,"Entferne aus der Mitte!")
-                fireEffect:addValue("fireN"..prvNo, next)
+                fireEffect:addValue("fireN"..lstNo, next)
             end
             fireEffect:removeValue("fireX"..i)
             fireEffect:removeValue("fireY"..i)

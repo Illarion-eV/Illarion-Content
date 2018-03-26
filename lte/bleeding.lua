@@ -17,7 +17,13 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local M = {}
 -- Bleeding Mainscript
 
-lowerAttribs = {"agility","stength","constitution","perception","dexterity"}
+local function dropTheBlood( posi )
+    if not world:isItemOnField( posi ) then
+        local Blood=world:createItemFromId(3101,1,posi,true,333,0)
+        Blood.wear=2
+        world:changeItem(Blood)
+    end
+end
 
 function M.addEffect( BleedingEffect, Victim )
     BleedingEffect:addValue( "wounds", 1 )
@@ -47,6 +53,8 @@ function M.doubleEffect( BleedingEffect, Victim )
 end
 
 function M.callEffect( BleedingEffect, Victim )
+    local lowerAttribs = {"agility","stength","constitution","perception","dexterity"}
+
     local woundsFound, wounds = BleedingEffect:findValue( "wounds" )
     if not woundsFound then
         wounds = 0
@@ -71,6 +79,7 @@ function M.callEffect( BleedingEffect, Victim )
             BleedingEffect:addValue( "mode", Mode +1 )
             local i = 0
             local targetAttrib
+
             repeat
                 i = i +1
                 if( i == 15 ) then
@@ -146,14 +155,6 @@ function M.callEffect( BleedingEffect, Victim )
             end
             return true
         end
-    end
-end
-
-function dropTheBlood( posi )
-    if not world:isItemOnField( posi ) then
-        local Blood=world:createItemFromId(3101,1,posi,true,333,0)
-        Blood.wear=2
-        world:changeItem(Blood)
     end
 end
 

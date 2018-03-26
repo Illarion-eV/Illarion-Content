@@ -23,6 +23,7 @@ local common = require("base.common")
 local M = {}
 
 local monthlyQuestsIds = {504}
+local storedMessage = {}
 
 -- Check quests that can be done once in every ingame month
 local function checkMonthlyQuests(char)
@@ -43,14 +44,14 @@ local function checkMonthlyQuests(char)
 end
 
 local function cooldownQuest(Character,QuestID) -- cool down quest ID by 1 every 5 minutes
-    theQuestStatus=Character:getQuestProgress(QuestID)
+    local theQuestStatus = Character:getQuestProgress(QuestID)
     if theQuestStatus > 0 then --cool down ends at 0
         Character:setQuestProgress(QuestID,theQuestStatus-1) --cooling 5 minutes!
     end
 end
 
 local function cooldownQuestInform(Character,QuestID,endTextDe,endTextEn) -- cool down quest ID by 1 every 5 minutes
-    theQuestStatus=Character:getQuestProgress(QuestID)
+    local theQuestStatus = Character:getQuestProgress(QuestID)
     if theQuestStatus > 0 then --cool down ends at 0
         Character:setQuestProgress(QuestID,theQuestStatus-1) --cooling 5 minutes!
         if theQuestStatus == 1 and common.IsNilOrEmpty(endTextDe) == false and  common.IsNilOrEmpty(endTextEn) == false then
@@ -60,7 +61,7 @@ local function cooldownQuestInform(Character,QuestID,endTextDe,endTextEn) -- coo
 end
 
 local function cooldownQuestNoGM(Character,QuestID,endTextDe,endTextEn) -- cool down quest ID by 1 every 5 minutes
-    theQuestStatus=Character:getQuestProgress(QuestID)
+    local theQuestStatus = Character:getQuestProgress(QuestID)
     if theQuestStatus > 0 and Character:isAdmin() ~= true then --cool down ends at 0, GM's don't cool down
         Character:setQuestProgress(QuestID,theQuestStatus-1) --cooling 5 minutes!
         if theQuestStatus == 1 and common.IsNilOrEmpty(endTextDe) == false and  common.IsNilOrEmpty(endTextEn) == false then
@@ -83,7 +84,7 @@ function M.callEffect( Effect, Char ) -- Effect is called
         checkMonthlyQuests(Char)
 
         cooldownQuest(Char,687)    --Banduk: Quest 687 (Fairy Tales)
-        
+
         --Addition by Envi: Quest 680 (Evil Rock Reward)
         local theQuestStatus=Char:getQuestProgress(680)
 
@@ -224,7 +225,7 @@ function M.callEffect( Effect, Char ) -- Effect is called
             Char:setQuestProgress(129,theQuestStatus-1) --cooling!
         end
         --Addition end
-        
+
         --Addition by Estralis: Quest 210/211/212 Late Delivery (Anthony Devries) Cooldown
         theQuestStatus=Char:getQuestProgress(212)
 
@@ -232,7 +233,7 @@ function M.callEffect( Effect, Char ) -- Effect is called
             Char:setQuestProgress(212,theQuestStatus-1) --cooling!
         end
         --Addition end
-        
+
         --Addition by Estralis: Quest 213/214/215 A Wistful Journey (Pesnar Rolemnes) Cooldown
         theQuestStatus=Char:getQuestProgress(215)
 
@@ -240,7 +241,7 @@ function M.callEffect( Effect, Char ) -- Effect is called
             Char:setQuestProgress(215,theQuestStatus-1) --cooling!
         end
         --Addition end
-          
+
         --Addition by Estralis: Quest 162/163/164 Glorious Bounty (Palis Nestros) Cooldown
         theQuestStatus=Char:getQuestProgress(164)
 
@@ -264,7 +265,7 @@ function M.callEffect( Effect, Char ) -- Effect is called
             Char:setQuestProgress(186,theQuestStatus-1) --cooling!
         end
         --Addition end
-        
+
         --Addition by Evie: Quest 541 Viridian Needles Lair Potion effect Cooldown
         theQuestStatus=Char:getQuestProgress(541)
 
@@ -280,7 +281,7 @@ function M.callEffect( Effect, Char ) -- Effect is called
             Char:setQuestProgress(561,theQuestStatus-1) --cooling!
         end
         --Addition end
-        
+
         --Counter of activity of new chars for Newbie helper
         if Char:isNewPlayer() then
             theQuestStatus=Char:getQuestProgress(852)
@@ -315,7 +316,7 @@ function M.callEffect( Effect, Char ) -- Effect is called
         Char:setQuestProgress(128,theQuestStatus-1) --counting down!
     end
     --Addition end
-    
+
     --Addition by Estralis: Quest 210/211/212 Late Delivery (Anthony Devries) Countdown
     local theQuestStatus=Char:getQuestProgress(211)
 
@@ -369,7 +370,7 @@ function M.callEffect( Effect, Char ) -- Effect is called
         Char:setQuestProgress(214,theQuestStatus-1) --counting down!
     end
     --Addition end
-    
+
     --Addition by Estralis: Quest 162/163/164 Glorious Bounty (Palis Nestros) Cooldown
     theQuestStatus=Char:getQuestProgress(163)
 
@@ -489,7 +490,7 @@ function M.callEffect( Effect, Char ) -- Effect is called
 
         common.InformNLS(Char,"Alles Nässe der Reinigung ist wieder weg und du bist trocken.","You have fully dried off from your cleansing.") -- Feedback!  You dried off!
         Char:setQuestProgress(508,0)
-        
+
     end
 
     if theQuestStatus > 0 then --Is there a countdown? Will be reduced even if the player is AFK/idle
@@ -503,7 +504,7 @@ function M.callEffect( Effect, Char ) -- Effect is called
                         "Es ist einige Zeit vergangen. Die kleinen Füchse haben wieder Hunger.",
                         "Enough time has passed that the fox pups are hungry again.")
     --Addition end
-    
+
     --Addition by Evie: Quest 119/159/120 Cadmoyr Stockup Anthar Vilicon
     theQuestStatus=Char:getQuestProgress(159)
 
@@ -530,7 +531,7 @@ function M.callEffect( Effect, Char ) -- Effect is called
         Char:setQuestProgress(159,theQuestStatus-1) --counting down!
     end
     --Addition end
-    
+
     --Addition by Evie: Quest 160/260/161 Runewick Daily Quest Decius Cerasus Industrius
     theQuestStatus=Char:getQuestProgress(260)
 
@@ -557,7 +558,7 @@ function M.callEffect( Effect, Char ) -- Effect is called
         Char:setQuestProgress(260,theQuestStatus-1) --counting down!
     end
     --Addition end
-    
+
     --Addition by Evie: Quest 152/252/153 Galmair Daily Quest Gurzad Gutri
     theQuestStatus=Char:getQuestProgress(252)
 
@@ -584,14 +585,14 @@ function M.callEffect( Effect, Char ) -- Effect is called
         Char:setQuestProgress(252,theQuestStatus-1) --counting down!
     end
     --Addition end
-    
+
     --Addition by Evie: Quest 602/608 - Tronuk beer quest
     theQuestStatus=Char:getQuestProgress(608)
 
     if theQuestStatus == 1 then --Time over!
         Char:setQuestProgress(602,0)
     end
-    
+
     if theQuestStatus > 0 then --Is there a countdown? Will be reduced even if the player is AFK/idle
         Char:setQuestProgress(608,theQuestStatus-1) --counting down!
     end
@@ -614,27 +615,26 @@ function M.callEffect( Effect, Char ) -- Effect is called
     cooldownQuest(Char,562)
     --Addition by Banduk: wait until next learn by searching a forge
     cooldownQuest(Char,563)
-    
+
     --Rule compliance detection
-    if not storedMessage then storedMessage={} end
     local players = world:getPlayersOnline()
     local counter = Char:getQuestProgress(47)
-    mypos=position(Char:getQuestProgress(48) or Char.pos.x, Char:getQuestProgress(49) or Char.pos.y, Char:getQuestProgress(50) or Char.pos.z)
-    
+    local mypos = position(Char:getQuestProgress(48) or Char.pos.x, Char:getQuestProgress(49) or Char.pos.y, Char:getQuestProgress(50) or Char.pos.z)
+
     if storedMessage[Char.id] == Char.lastSpokenText and common.isInRect(Char.pos, mypos, 3) and Char:idleTime() < 300 and #players > 1 then
 
         Char:setQuestProgress(47,counter+1)
-   
+
     elseif storedMessage[Char.id] ~= Char.lastSpokenText or not common.isInRect(Char.pos, mypos, 3) then
-    
+
         Char:setQuestProgress(47,0)
-    
+
     else
-    
+
         Char:setQuestProgress(47,counter)
-        
+
     end
-    
+
     storedMessage[Char.id] = Char.lastSpokenText
     Char:setQuestProgress(48,Char.pos.x)
     Char:setQuestProgress(49,Char.pos.y)
