@@ -27,8 +27,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 local common = require("base.common")
-local alchemy = require("scheduled.alchemy")
 local character = require("base.character")
+local scheduledFunction = require("scheduled.scheduledFunction")
 
 local M = {}
 
@@ -319,12 +319,84 @@ function countCharacters( targetPosis )
     return cnt;
 end
 
-FRUITS_FLOWERS = {15,80,81,143,148,144,147,151,199,302}
+M.CENTER = {}
+M.CENTERS = {}
+
+local function fruitBombInsectsSpawning()
+
+debug("test")
+    if M.CENTERS[1] == nil then
+        return
+    end
+debug("test2")
+    local WASPS = {}
+    WASPS["id"] = {271,272,273,274}
+    --'Wasp','Hornet','Wasp Queen','Wasp Drone'
+    WASPS["emotes"] = {}
+    WASPS["emotes"]["de"] = {"#me kommt vom süßen Geruch angelockt summend angeschworren.", "#me fliegt dem Duft folgend daher.", "#me kommt angerauscht und fliegt zu der Quelle des süßen Geruchs.","#me stürtzt mit ausgestreckten Fühlern zum Ursprung des Duftes."}
+    WASPS["emotes"]["en"] = {"#me comes closer humming, drawn in by the sweet smell.","#me flies along, following the sweet scent.","#me rushes to the source of the sweet smell.","#me moves with stretched out antennas to the source of the scent."}
+
+    local removeCounterCENTERS = 0
+    for i=1,#M.CENTERS do
+
+        local theCenter = M.CENTERS[i-removeCounterCENTERS]
+
+        local removeCounterCENTER = 0
+        for j=1,#M.CENTER[theCenter] do
+
+            local quality = M.CENTER[theCenter][j-removeCounterCENTER][1]
+            local counter = M.CENTER[theCenter][j-removeCounterCENTER][2]
+            local targetArea = M.CENTER[theCenter][j-removeCounterCENTER][3]
+
+            local removeAt = quality*2
+
+            if counter >= 2 then
+
+                if counter % 2 == 0 then -- even numbers
+
+                local checkedCounter = 1
+                local check = false
+                while check == false do
+                    local thePos = targetArea[math.random(1,#targetArea)]
+                    local theField = world:getField(thePos)
+                    if theField:isPassable() then
+                        local wasp = world:createMonster(WASPS["id"][math.random(1,#WASPS["id"])],thePos,-20)
+                        world:gfx(7, thePos)
+                        if counter == 2 then
+                            local players = world:getPlayersInRangeOf(thePos,9)
+                            for i=1,#players do
+                                players[i]:inform("Ein Summen ist zu vernehmen. Wespen werden von dem Duft angelockt!", "A buzzing can be heard and gets closer. Wasps are allured by the sweet scent.")
+                            end
+                        end
+                        if math.random(1,2)==1 or counter == 2 then
+                            local rnd = math.random(1,#WASPS["emotes"]["de"])
+                            wasp:talk(Character.say,WASPS["emotes"]["de"][rnd],WASPS["emotes"]["en"][rnd])
+                        end
+                        check = true
+                    elseif checkedCounter == #targetArea then -- we have checked the whole area, no free position; abort
+                    check = true
+                    end
+                end
+                end
+            end
+            M.CENTER[theCenter][j-removeCounterCENTER][2] = counter + 1
+            if counter == removeAt then
+                table.remove(M.CENTER[theCenter],j)
+            end
+        end
+
+        if #M.CENTER[theCenter] == 0 then
+            table.remove(M.CENTERS,i)
+        end
+    end
+    scheduledFunction.registerFunction(5, function() fruitBombInsectsSpawning() end)
+end
 
 function fruitBomb(User, Item, targetArea)
-    local sa = scheduled.alchemy
+    local FRUITS_FLOWERS = {15,80,81,143,148,144,147,151,199,302}
+
     local posAsString = "".. Item.pos.x .." ".. Item.pos.y .." "..Item.pos.z
-    if sa.CENTER[posAsString] then
+    if M.CENTER[posAsString] then
         world:gfx(1,Item.pos)
         return
     end
@@ -347,18 +419,17 @@ function fruitBomb(User, Item, targetArea)
         world:gfx(52, targetArea[math.random(#targetArea)])
     end
 
-    local sa = scheduled.alchemy
     local posAsString = "".. Item.pos.x .." ".. Item.pos.y .." "..Item.pos.z
     local found = false
-    for i=1,#sa.CENTERS do
-        if sa.CENTERS[i] == posAsString then
+    for i=1,#M.CENTERS do
+        if M.CENTERS[i] == posAsString then
             found = true
         end
     end
 
     if not found then
-        table.insert(sa.CENTERS,posAsString)
-        sa.CENTER[posAsString] = {}
+        table.insert(M.CENTERS,posAsString)
+        M.CENTER[posAsString] = {}
     end
 
     quality = quality/2
@@ -369,13 +440,13 @@ function fruitBomb(User, Item, targetArea)
     end
     quality = math.floor(quality)
 
-    table.insert(sa.CENTER[posAsString],{quality, 0, targetArea})
+    table.insert(M.CENTER[posAsString],{quality, 0, targetArea})
 
     local players = world:getPlayersInRangeOf(Item.pos,9)
     for i=1,#players do
         players[i]:inform("Ein süßlicher Duft, der an Blumen und Früchte erinnert, breitet sich aus.", "A sweet scent, reminding one of flowers and fruits, starts to spread.")
     end
-
+    scheduledFunction.registerFunction(5, function() fruitBombInsectsSpawning() end)
 end
 
 
