@@ -16,13 +16,12 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- UPDATE items SET itm_script='item.id_1170_shoal' WHERE itm_id=1170;
 
-local fishing = require("content.gatheringcraft.fishing")
+local fishing = require("craft.gathering.fishing")
 
 local M = {}
 
 function M.UseItem(User, SourceItem, ltstate)
-
-    fishing.StartGathering(User, SourceItem, ltstate);
+    fishing.StartGathering(User, SourceItem, ltstate)
 end
 
 return M

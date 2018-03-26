@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 --Priest magic: Becoming a devotee, change devotion, become a priest by using an altar
 --Overview of queststatus:
@@ -594,30 +594,30 @@ gods_cooldowns_common.favourDecayCounter:addCallback(M.favourDecay)
 gods_cooldowns_common.sacrificeDecayCounter:addCallback(M.sacrificeDecay)
 
 
--- FIXME *** Everything between this line should be reviewed ***
+-- FIXME *** Everything below this line should be reviewed ***
 --[[
-PRAYER_CONVERSION = {
+local PRAYER_CONVERSION = {
     {skill = "Healing",
         gText = "bitte (.+) heilung",
         eText = "please (.+) healing"
     }
 }
 
-PRAYER_MASS = {
+local PRAYER_MASS = {
     [M.GOD_NARGUN]   = {gText = "preiset narg[uú]n, gott des chaos",
                         eText = "praise narg[uú]n, god of chaos"},
     [M.GOD_???]    = {gText = "preiset",
                         eText = "praise"},
 }
 
-PRAYER_FOLLOWER = {
+local PRAYER_FOLLOWER = {
     [M.GOD_NARGUN]   = {gText = "segne mich nargun",
                         eText = "bless me nargun"},
     [M.GOD_???]    = {gText = "segne mich",
                         eText = "bless me"},
 }
 
-PRAYER_PRIEST = {
+local PRAYER_PRIEST = {
     [M.GOD_NARGUN]   = {gText = "segne mich erneut nargun",
                         eText = "bless me again nargun"},
     [M.GOD_???]    = {gText = "segne mich",

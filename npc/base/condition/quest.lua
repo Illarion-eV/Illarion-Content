@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local class = require("base.class")
 local condition = require("npc.base.condition.condition")
@@ -22,7 +22,7 @@ local _quest_helper_equal
 local _quest_helper_notequal
 local _quest_helper_lesserequal
 local _quest_helper_greaterequal
-local _quest_helper_greater_quest_helper_lesserz
+local _quest_helper_greater
 local _quest_helper_lesser
 
 local quest = class(condition,
@@ -30,7 +30,7 @@ function(self, questid, comp, value)
     condition:init(self)
     self["value"], self["valuetype"] = tools.set_value(value)
     self["questid"] = questid
-    
+
     if (comp == "=") then
         self["check"] = _quest_helper_equal
     elseif (comp == "<>" or comp == "!=" or comp == "~=") then

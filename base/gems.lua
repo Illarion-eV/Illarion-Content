@@ -1,23 +1,23 @@
 --[[
 Illarion Server
- 
+
 This program is free software: you can redistribute it and/or modify it under
 the terms of the GNU Affero General Public License as published by the Free
 Software Foundation, either version 3 of the License, or (at your option) any
 later version.
- 
+
 This program is distributed in the hope that it will be useful, but WITHOUT ANY
 WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
- 
+
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
- 
+
 local M = {}
- 
+
 M.DIAMOND  = 1
 M.EMERALD  = 2
 M.RUBY     = 3
@@ -25,7 +25,7 @@ M.OBSIDIAN = 4
 M.SAPPHIRE = 5
 M.AMETHYST = 6
 M.TOPAZ    = 7
- 
+
 M.gemItemId = {}
 M.gemItemId[M.DIAMOND] = 3520
 M.gemItemId[M.EMERALD] = 3523
@@ -132,17 +132,17 @@ function M.getGemBonus(item)
     gemStrength[4]=extractNum(item:getData("magicalAmethyst"))
     gemStrength[5]=extractNum(item:getData("magicalSapphire"))
     gemStrength[6]=extractNum(item:getData("magicalObsidian"))
- 
+
     local gemSum=0
     local gemMin=1000   -- arbitrarily high number
- 
+
     for _, gStrength in pairs(gemStrength) do
         gemSum=gemSum+gStrength
         if gStrength<gemMin then gemMin=gStrength end
     end
- 
+
     return gemSum+gemMin*6
- 
+
 end
 
 function M.lookAtFilter(user, lookAt, data)
@@ -150,9 +150,9 @@ function M.lookAtFilter(user, lookAt, data)
 
     if gemLevel then
         if user:getPlayerLanguage() == 0 then
-            lookAt.name = gemPrefixDE[gemLevel] .. lookAt.name
+            lookAt.name = gemPrefixDE[gemLevel] .. " " .. lookAt.name
         else
-            lookAt.name = gemPrefixEN[gemLevel] .. lookAt.name
+            lookAt.name = gemPrefixEN[gemLevel] .. " " .. lookAt.name
         end
         lookAt.rareness = gemLevelRareness[gemLevel]
     end
@@ -171,7 +171,7 @@ function M.itemIsMagicGem(item)
             end
         end
     end
-   
+
     return false
 end
 
@@ -195,7 +195,7 @@ function M.returnGemsToUser(user, item, isMessage)
         for i = 1, #gemDataKey do
             local itemKey = gemDataKey[i]
             local level = tonumber(item:getData(itemKey))
- 
+
             if level and level > 0 then
                 common.CreateItem(user, M.gemItemId[i], 1, 999, {[M.levelDataKey] = level})
                 item:setData(itemKey, "")

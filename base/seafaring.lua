@@ -52,9 +52,9 @@ local rankPointLoss = 20
 
 M.personalTarget = {}
 M.attackEndTime = 0
-LAST_TARGET = 1
-LAST_SHIP = 2
-LAST_OVERBOARD = 3
+local LAST_TARGET = 1
+local LAST_SHIP = 2
+local LAST_OVERBOARD = 3
 M.lastTarget = LAST_TARGET
 
 local piratesSpawnPos = {position(349,869,1),
@@ -183,8 +183,8 @@ local function personsOnShip()
 end
 
 local function isPersonOnShip(user)
-    if user:isInRangeToPosition(position(352,870,0), 30) or 
-       user:isInRangeToPosition(position(352,870,1), 30) or 
+    if user:isInRangeToPosition(position(352,870,0), 30) or
+       user:isInRangeToPosition(position(352,870,1), 30) or
        user:isInRangeToPosition(position(352,870,2), 30) then
         return true
     end
@@ -431,7 +431,7 @@ local function piratesAttack(user)
     dialogTitle = common.GetNLS(user,"Piratenangriff","Pirates attack")
     dialogAddText = common.GetNLS(user,"Piraten nähern sich dem Schiff. Folgende Möglichkeiten stehen zur Wahl:",
                                        "Pirates are coming closer to your ship. You can choose between the following options:")
-    dialog = SelectionDialog(dialogTitle, dialogAddText, callback)
+    local dialog = SelectionDialog(dialogTitle, dialogAddText, callback)
 
     dialog:addOption(1,common.GetNLS(user,"Kämpfe gegen die Piraten","Fight against the pirates"))
     dialog:addOption(53,common.GetNLS(user,"Fliehe vor den Piraten (25% Erfolgschance, ansonsten wartet der Kampf)",
@@ -526,7 +526,7 @@ local function travelToTarget(user, harborId, startPos)
             directTravel(user,harborId)
        end
     end
-    
+
 end
 
 local function startFerry(user, sourceItem)
@@ -611,13 +611,13 @@ local function gmManageCostFerry(user)
     local priceFerry = getFerryPrice()
     local germanMoney, englishMoney = money.MoneyToString(priceFerry)
     local thisInputDialog = function (dialog)
-    
+
         if (not dialog:getSuccess()) then
             return
         end
-        
+
         local input = dialog:getInput()
-        
+
         if not common.IsNilOrEmpty(input) then
             local newPrice = tonumber(input)
             if newPrice ~= nil then
@@ -631,7 +631,7 @@ local function gmManageCostFerry(user)
                 user:inform("The price for the ferry must be in between 1 Copper and 100 Gold")
             end
         end
-        
+
     end
     dialogTitle = common.GetNLS(user,"Fähre - Einstellungen","Ferry - Settings")
     dialogAddText = common.GetNLS(user,"Preis einer Fährfahrt:"..englishMoney.." ("..tostring(priceFerry).." Kupfer)\nBitte neuen Preis in Kupferstücken angeben.",
@@ -646,13 +646,13 @@ local function gmManageCostPirate(user)
     local pricePirates = getPiratePrice()
     local germanMoney, englishMoney = money.MoneyToString(pricePirates)
     local thisInputDialog = function (dialog)
-    
+
         if (not dialog:getSuccess()) then
             return
         end
-        
+
         local input = dialog:getInput()
-        
+
         if not common.IsNilOrEmpty(input) then
             local newPrice = tonumber(input)
             if newPrice ~= nil then
@@ -666,7 +666,7 @@ local function gmManageCostPirate(user)
                 user:inform("The price for the pirates must be in between 1 Copper and 1000 Gold")
             end
         end
-        
+
     end
     dialogTitle = common.GetNLS(user,"Fähre - Einstellungen","Ferry - Settings")
     dialogAddText = common.GetNLS(user,"Lösegeld an die Piraten:"..englishMoney.." ("..tostring(pricePirates).." Kupfer)\nBitte neuen Preis in Kupferstücken angeben.",
@@ -680,13 +680,13 @@ local function gmManageProbabilityPirates(user)
     local dialogAddText
     local chancePirateAttack = getChancePirateAttack()
     local thisInputDialog = function (dialog)
-    
+
         if (not dialog:getSuccess()) then
             return
         end
-        
+
         local input = dialog:getInput()
-        
+
         if not common.IsNilOrEmpty(input) then
             local newChance = tonumber(input)
             if newChance ~= nil then
@@ -699,7 +699,7 @@ local function gmManageProbabilityPirates(user)
                 user:inform("The chance the pirates attack must be in between 0 and 101 %")
             end
         end
-        
+
     end
     dialogTitle = common.GetNLS(user,"Fähre - Einstellungen","Ferry - Settings")
     dialogAddText = common.GetNLS(user,"Wahrscheinlichkeit eines Piratenüberfalls: "..tostring(chancePirateAttack).." %)\nBitte neuen Wert in Prozent (0-101) angeben.",
@@ -782,7 +782,7 @@ function M.gmManagePorts(user)
     germanMoney, englishMoney = money.MoneyToString(getPiratePrice())
     dialog:addOption(61, common.GetNLS(user,"Lösegeld ("..germanMoney..")","Ramson ("..englishMoney..")"))
     table.insert(optionList, SELECT_COST_PIRATE)
-    chancePirateAttack = getChancePirateAttack()
+    local chancePirateAttack = getChancePirateAttack()
     dialog:addOption(1, common.GetNLS(user,"Wahrscheilichkeit Piratenüberfall ("..tostring(chancePirateAttack).."%)","Probability pirate attack ("..tostring(chancePirateAttack).."%)"))
     table.insert(optionList, SELECT_PROPERTY_PIRATE)
     for i, harbor in pairs (harborList) do

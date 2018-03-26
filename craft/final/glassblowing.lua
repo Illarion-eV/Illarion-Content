@@ -16,20 +16,23 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 
-module("craft.final.glassblowing", package.seeall)
+local M = {}
 
-glassblowing = crafts.Craft:new{
+local glassblowing = crafts.Craft:new{
                           craftEN = "Glass Blowing",
                           craftDE = "Glasblasen",
                           handTool = 311,
                           leadSkill = Character.glassBlowing,
                           sfx = 7,
                           sfxDuration = 80,
-                        };
+                        }
 
 glassblowing:addTool(313) -- glass melting oven
 
-local catId = glassblowing:addCategory("Bottles", "Flaschen")
+local product
+local catId
+
+catId = glassblowing:addCategory("Bottles", "Flaschen")
 
 -- large empty bottle
 product = glassblowing:addProduct(catId, 2498, 1)
@@ -59,7 +62,7 @@ product:addIngredient(41, 2) -- glass ingot
 product = glassblowing:addProduct(catId, 164, 1)
 product:addIngredient(41, 3) -- glass ingot
 
-local catId = glassblowing:addCategory("Glasses", "Gläser")
+catId = glassblowing:addCategory("Glasses", "Gläser")
 
 -- glass mug
 product = glassblowing:addProduct(catId, 1908, 1)
@@ -75,7 +78,7 @@ product = glassblowing:addProduct(catId, 2457, 1)
 product:addIngredient(41, 4) -- glass ingot
 product:addIngredient(449, 1) -- obsidian powder
 
-local catId = glassblowing:addCategory("Other", "Sonstiges")
+catId = glassblowing:addCategory("Other", "Sonstiges")
 
 -- empty salve jar
 product = glassblowing:addProduct(catId, 3642, 1)
@@ -83,3 +86,5 @@ product:addIngredient(41, 10) -- glass ingot
 product:addIngredient(451, 1) -- topaz powder
 product:addIngredient(450, 1) -- amethyst powder
 
+M.glassblowing = glassblowing
+return M

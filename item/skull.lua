@@ -21,6 +21,48 @@ local common = require("base.common")
 
 local M = {}
 
+local function BlowOutFlames(User, flame)
+
+    for xx = 986, 998 do
+        for yy = 211, 235 do
+            local positionFlame = position(xx, yy, 0)
+            local checkFlame = world:getItemOnField(positionFlame)
+            if checkFlame.id == flame then
+                world:erase(checkFlame, checkFlame.number)
+                world:makeSound(13, User.pos)
+                if User:getQuestProgress(668) ~= 1 then
+                    User:setQuestProgress(668, 1)
+                end
+            end
+        end
+    end
+end
+
+local function SpawnSpider(User, skullItem)
+
+    -- skip if already tripped in the last 5 minutes
+    local serverTime = world:getTime("unix")
+    local trippingTime = skullItem:getData("tripping_time")
+
+    if (trippingTime ~= "" and ((tonumber(trippingTime) + 300) > serverTime)) then
+        User:inform("Du findest nichts in diesem Totenschädel.",
+            "You find nothing inside this skull.")
+        return
+    end
+    -- safe tripping time
+    skullItem:setData("tripping_time", serverTime)
+    world:changeItem(skullItem)
+
+    local monList = {191, 192, 193, 211, 222} -- Dread Spider, Pit Servant, Tarantula, Fire Spider, Juvenile Gynk Spider
+    local monID = monList[math.random(1, #monList)]
+    for i = 1, math.random(1, 2) do -- random count
+    local monPos = common.getFreePos(skullItem.pos, 2) -- radius 2 around skull
+    world:createMonster(monID, monPos, -20)
+    world:gfx(41, monPos) -- swirly
+    end
+    User:inform("Schlechte Wahl, Abenteuerer! Etwas springt aus dem Totenschädel heraus und greift dich an.",
+        "Wrong choice traveller! Something hops out of the skull and attacks you.")
+end
 
 function M.UseItem(User, SourceItem)
 
@@ -229,50 +271,6 @@ function M.UseItem(User, SourceItem)
             User.effects:addEffect(myEffect)
         end
     end
-end
-
-function BlowOutFlames(User, flame)
-
-    for xx = 986, 998 do
-        for yy = 211, 235 do
-            local positionFlame = position(xx, yy, 0)
-            local checkFlame = world:getItemOnField(positionFlame)
-            if checkFlame.id == flame then
-                world:erase(checkFlame, checkFlame.number)
-                world:makeSound(13, User.pos)
-                if User:getQuestProgress(668) ~= 1 then
-                    User:setQuestProgress(668, 1)
-                end
-            end
-        end
-    end
-end
-
-function SpawnSpider(User, skullItem)
-
-    -- skip if already tripped in the last 5 minutes
-    local serverTime = world:getTime("unix")
-    local trippingTime = skullItem:getData("tripping_time")
-
-    if (trippingTime ~= "" and ((tonumber(trippingTime) + 300) > serverTime)) then
-        User:inform("Du findest nichts in diesem Totenschädel.",
-                    "You find nothing inside this skull.")
-        return
-    end
-    -- safe tripping time
-    skullItem:setData("tripping_time", serverTime)
-    world:changeItem(skullItem)
-
-    local monList = {191, 192, 193, 211, 222} -- Dread Spider, Pit Servant, Tarantula, Fire Spider, Juvenile Gynk Spider
-    local monID = monList[math.random(1, #monList)]
-    for i = 1, math.random(1, 2) do -- random count
-        local monPos = common.getFreePos(skullItem.pos, 2) -- radius 2 around skull
-        world:createMonster(monID, monPos, -20)
-        world:gfx(41, monPos) -- swirly
-    end
-    User:inform("Schlechte Wahl, Abenteuerer! Etwas springt aus dem Totenschädel heraus und greift dich an.",
-                "Wrong choice traveller! Something hops out of the skull and attacks you.")
-
 end
 
 return M

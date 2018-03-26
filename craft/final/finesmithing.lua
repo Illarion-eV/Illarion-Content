@@ -16,22 +16,23 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 
-module("craft.final.finesmithing", package.seeall)
+local M = {}
 
-finesmithing = crafts.Craft:new{
+local finesmithing = crafts.Craft:new{
                       craftEN = "Finesmithing",
                       craftDE = "Feinschmieden",
                       handTool = 122,
                       leadSkill = Character.finesmithing,
                       sfx = 17,
                       sfxDuration = 15,
-                    };
+                    }
 
 finesmithing:addTool(172) -- anvil
 
---------------------------------------------------------------------------------------------
+local product
+local catId
 
-local catId = finesmithing:addCategory("Amulets", "Amulette")
+catId = finesmithing:addCategory("Amulets", "Amulette")
 
 -- iron amulet
 product = finesmithing:addProduct(catId, 222, 1)
@@ -178,7 +179,7 @@ product:addIngredient(285, 2) -- diamond
 product:addIngredient(2571, 1) -- merinium ingot
 product:addIngredient(3607, 1) -- pure spirit
 
-local catId = finesmithing:addCategory("Crowns", "Kronen")
+catId = finesmithing:addCategory("Crowns", "Kronen")
 
 -- diadem
 product = finesmithing:addProduct(catId, 465, 1)
@@ -200,7 +201,7 @@ product = finesmithing:addProduct(catId, 3557, 1)
 product:addIngredient(236, 3) -- gold ingot
 product:addIngredient(285, 1) -- diamond
 
-local catId = finesmithing:addCategory("Other", "Sonstiges")
+catId = finesmithing:addCategory("Other", "Sonstiges")
 
 -- small candlestick
 product = finesmithing:addProduct(catId, 399, 1)
@@ -223,7 +224,7 @@ product:addIngredient(236, 3) -- gold ingot
 product:addIngredient(284, 1) -- sapphire
 product:addIngredient(2571, 2) -- merinium ingot
 
-local catId = finesmithing:addCategory("Rings", "Ringe")
+catId = finesmithing:addCategory("Rings", "Ringe")
 
 -- golden ring
 product = finesmithing:addProduct(catId, 235, 1)
@@ -366,7 +367,7 @@ product:addIngredient(285, 2) -- diamond
 product:addIngredient(2571, 1) -- merinium ingot
 product:addIngredient(3607, 1) -- pure spirit
 
-local catId = finesmithing:addCategory("Tableware", "Geschirr")
+catId = finesmithing:addCategory("Tableware", "Geschirr")
 
 -- iron goblet
 product = finesmithing:addProduct(catId, 223, 1)
@@ -392,8 +393,11 @@ product:addIngredient(236, 1) -- gold ingot
 product = finesmithing:addProduct(catId, 2647, 1)
 product:addIngredient(2550, 3) -- copper ingot
 
-local catId = finesmithing:addCategory("Tools", "Werkzeuge")
+catId = finesmithing:addCategory("Tools", "Werkzeuge")
 
 -- glass blow pipe
 product = finesmithing:addProduct(catId, 311, 1)
 product:addIngredient(2550, 3) -- copper ingot
+
+M.finesmithing = finesmithing
+return M

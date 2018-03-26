@@ -30,6 +30,67 @@ showMessage = true: displays a messagebox with the ranklist
 showMessage = false: returns the ranklist table
 ]]
 
+local function showList(User, ranklist)
+    local list = ""
+
+    local mdList = function(dialog)
+        if not dialog:getSuccess() then
+            return
+        end
+    end
+    if User:getPlayerLanguage() == 0 then
+        for i=1, #ranklist do
+            list = list.."Platz "..i.." : "..ranklist[i].name.." mit "..ranklist[i].points.." Punkten.\n"
+        end
+        mdList = MessageDialog("Top Fünf", list, nil)
+    else
+        for i=1, #ranklist do
+            list = list.."Place "..i.." : "..ranklist[i].name.." with "..ranklist[i].points.." points.\n"
+        end
+        mdList = MessageDialog("Top five", list, nil)
+    end
+    User:requestMessageDialog(mdList)
+end
+
+local function compare(tableA, tableB)
+    return tonumber(tableA.points) > tonumber(tableB.points)
+end
+
+local function convertTo2dTable(list)
+    local newTable = {}
+
+    for i=1, #list, 2 do
+        table.insert(newTable, {["name"] = list[i], ["points"] = list[i+1]})
+    end
+    return newTable
+end
+
+local function convertToOneTable(list)
+    local joinedTable = {}
+
+    --debug("lenght of list: "..#list)
+
+    for i=1, #list do
+        --debug("List: "..i.." "..list[i].name.." "..list[i].points)
+        table.insert(joinedTable, list[i].name)
+        table.insert(joinedTable, list[i].points)
+    end
+    --debug("JoinedTable "..joinedTable[1])
+
+    return joinedTable
+end
+
+local function isUserInList(User, ranklist)
+    for i=1, #ranklist do
+        if ranklist[i].name == User.name then
+            --debug("found "..User.name.." on position"..i);
+            return true, i
+        end
+    end
+    --debug(User.name.." not found")
+    return false, 0
+end
+
 function M.getRanklist(User, listName, showMessage)
     local listEntryTable = {}
 
@@ -56,34 +117,14 @@ function M.getRanklist(User, listName, showMessage)
 end
 
 
-function showList(User, ranklist)
-    local list = ""
 
-    local mdList = function(dialog)
-        if not dialog:getSuccess() then
-            return
-        end
-    end
-    if User:getPlayerLanguage() == 0 then
-        for i=1, #ranklist do
-            list = list.."Platz "..i.." : "..ranklist[i].name.." mit "..ranklist[i].points.." Punkten.\n"
-        end
-        mdList = MessageDialog("Top Fünf", list, nil)
-    else
-        for i=1, #ranklist do
-            list = list.."Place "..i.." : "..ranklist[i].name.." with "..ranklist[i].points.." points.\n"
-        end
-        mdList = MessageDialog("Top five", list, nil)
-    end
-    User:requestMessageDialog(mdList)
-end
 
-maxEntries = 5
 --[[
 Saves the points of the player and if he reached the
 top five, also saves the new top five.
 ]]
 function M.setRanklist(User, listName, points)
+    local maxEntries = 5
     local ranklist = M.getRanklist(User, listName, false)
     local joinedRanklist = {}
 
@@ -127,45 +168,6 @@ function M.setRanklist(User, listName, points)
             ScriptVars:set(listName, stringList)
         end
     end
-end
-
-function compare(tableA, tableB)
-    return tonumber(tableA.points) > tonumber(tableB.points)
-end
-
-function convertTo2dTable(list)
-    local newTable = {}
-
-    for i=1, #list, 2 do
-        table.insert(newTable, {["name"] = list[i], ["points"] = list[i+1]})
-    end
-    return newTable
-end
-
-function convertToOneTable(list)
-    local joinedTable = {}
-
-    --debug("lenght of list: "..#list)
-
-    for i=1, #list do
-        --debug("List: "..i.." "..list[i].name.." "..list[i].points)
-        table.insert(joinedTable, list[i].name)
-        table.insert(joinedTable, list[i].points)
-    end
-    --debug("JoinedTable "..joinedTable[1])
-
-    return joinedTable
-end
-
-function isUserInList(User, ranklist)
-    for i=1, #ranklist do
-        if ranklist[i].name == User.name then
-            --debug("found "..User.name.." on position"..i);
-            return true, i
-        end
-    end
-    --debug(User.name.." not found")
-    return false, 0
 end
 
 return M

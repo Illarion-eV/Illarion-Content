@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 
-module("craft.final.carving", package.seeall)
+local M = {}
 
-carving = crafts.Craft:new{
+local carving = crafts.Craft:new{
               craftEN = "Carving",
               craftDE = "Schnitzen",
               handTool = 2752,
@@ -30,9 +30,10 @@ carving = crafts.Craft:new{
 carving:addTool(724) -- workbench
 carving:addTool(725) -- workbench
 
---------------------------------------------------------------------------------------------
+local product
+local catId
 
-local catId = carving:addCategory("Arrows and bolts", "Pfeile und Bolzen")
+catId = carving:addCategory("Arrows and bolts", "Pfeile und Bolzen")
 
 -- arrow
 product = carving:addProduct(catId, 64, 10)
@@ -48,7 +49,7 @@ product = carving:addProduct(catId, 322, 10)
 product:addIngredient(56, 1) -- bough
 product:addIngredient(236, 1) -- gold ingot
 
-local catId = carving:addCategory("Blunt weapons", "Stumpfe Waffen")
+catId = carving:addCategory("Blunt weapons", "Stumpfe Waffen")
 
 -- club
 product = carving:addProduct(catId, 2664, 1)
@@ -131,7 +132,7 @@ product:addIngredient(3786, 2) -- heartwood
 product:addIngredient(2571, 1) -- merinium ingot
 product:addIngredient(2551, 1) -- pure air
 
-local catId = carving:addCategory("Handles", "Griffe")
+catId = carving:addCategory("Handles", "Griffe")
 
 -- axe handle
 product = carving:addProduct(catId, 2525, 1)
@@ -197,7 +198,7 @@ product:addIngredient(2716, 3) -- apple wood boards
 product = carving:addProduct(catId, 2573, 1)
 product:addIngredient(2716, 3) -- apple wood boards
 
-local catId = carving:addCategory("Other", "Sonstiges")
+catId = carving:addCategory("Other", "Sonstiges")
 
 -- torch
 product = carving:addProduct(catId, 391, 1)
@@ -229,7 +230,7 @@ product:addIngredient(2716, 3) -- apple wood boards
 product:addIngredient(2535, 2) -- iron ingot
 product:addIngredient(3786, 1) -- heartwood
 
-local catId = carving:addCategory("Spears", "Speere")
+catId = carving:addCategory("Spears", "Speere")
 
 -- simple spear
 product = carving:addProduct(catId, 1046, 1)
@@ -311,7 +312,7 @@ product:addIngredient(3786, 2) -- heartwood
 product:addIngredient(2571, 2) -- merinium ingot
 product:addIngredient(3607, 1) -- pure spirit
 
-local catId = carving:addCategory("Staffs", "Stäbe")
+catId = carving:addCategory("Staffs", "Stäbe")
 
 -- walking stick
 product = carving:addProduct(catId, 1090, 1)
@@ -378,14 +379,14 @@ product:addIngredient(2572, 1) -- staff handle
 product:addIngredient(3786, 4) -- heartwood
 product:addIngredient(2552, 1) -- pure earth
 
-local catId = carving:addCategory("Throwing weapons", "Wurfwaffen")
+catId = carving:addCategory("Throwing weapons", "Wurfwaffen")
 
 -- javelin
 product = carving:addProduct(catId, 293, 1)
 product:addIngredient(2716, 1) -- apple wood boards
 product:addIngredient(2573, 1) -- long staff handle
 
-local catId = carving:addCategory("Tools", "Werkzeuge")
+catId = carving:addCategory("Tools", "Werkzeuge")
 
 -- fishing rod
 product = carving:addProduct(catId, 72, 1)
@@ -439,7 +440,7 @@ product = carving:addProduct(catId, 312, 1)
 product:addIngredient(2543, 1) -- conifer wood boards
 product:addIngredient(2528, 1) -- small handle
 
-local catId = carving:addCategory("Wands", "Zauberstäbe")
+catId = carving:addCategory("Wands", "Zauberstäbe")
 
 -- wand
 product = carving:addProduct(catId, 323, 1)
@@ -481,3 +482,6 @@ product:addIngredient(546, 9) -- naldor wood boards
 product:addIngredient(2527, 1) -- large ornamented handle
 product:addIngredient(3786, 2) -- heartwood
 product:addIngredient(3607, 1) -- pure spirit
+
+M.carving = carving
+return M

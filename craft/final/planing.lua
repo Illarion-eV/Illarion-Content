@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 
-module("craft.final.planing", package.seeall)
+local M = {}
 
-planing = crafts.Craft:new{
+local planing = crafts.Craft:new{
               craftEN = "Planing",
               craftDE = "Hobeln",
               handTool = 2715,
@@ -30,9 +30,10 @@ planing = crafts.Craft:new{
 planing:addTool(724) -- workbench
 planing:addTool(725) -- workbench
 
---------------------------------------------------------------------------------------------
+local product
+local catId
 
-local catId = planing:addCategory("Bows", "Bögen")
+catId = planing:addCategory("Bows", "Bögen")
 
 -- short bow
 product = planing:addProduct(catId, 65, 1)
@@ -95,7 +96,7 @@ product:addIngredient(50, 2) -- thread
 product:addIngredient(3786, 3) -- heartwood
 product:addIngredient(2553, 1) -- pure fire
 
-local catId = planing:addCategory("Music instruments", "Instrumente")
+catId = planing:addCategory("Music instruments", "Instrumente")
 
 -- flute
 product = planing:addProduct(catId, 90, 1)
@@ -122,7 +123,7 @@ product = planing:addProduct(catId, 332, 1)
 product:addIngredient(546, 4) -- naldor wood boards
 product:addIngredient(3786, 4) -- heartwood
 
-local catId = planing:addCategory("Shields", "Schilde")
+catId = planing:addCategory("Shields", "Schilde")
 
 -- small wooden shield
 product = planing:addProduct(catId, 2445, 1)
@@ -213,7 +214,7 @@ product:addIngredient(2537, 2) -- iron plate
 product:addIngredient(3786, 3) -- heartwood
 product:addIngredient(2551, 1) -- pure air
 
-local catId = planing:addCategory("Tableware", "Geschirr")
+catId = planing:addCategory("Tableware", "Geschirr")
 
 -- wooden cup
 product = planing:addProduct(catId, 2185, 1)
@@ -227,7 +228,7 @@ product:addIngredient(2543, 1) -- conifer wood boards
 product = planing:addProduct(catId, 2952, 2)
 product:addIngredient(2543, 1) -- conifer wood boards
 
-local catId = planing:addCategory("Training weapons", "Übungswaffen")
+catId = planing:addCategory("Training weapons", "Übungswaffen")
 
 -- wooden sword
 product = planing:addProduct(catId, 445, 1)
@@ -240,7 +241,7 @@ product:addIngredient(545, 2) -- cherry wood boards
 product:addIngredient(2530, 1) -- dagger handle
 
 -- Dummy group for items that cannot be crafted but repaired
-local catId = planing:addCategory("repair only", "nur reparieren")
+catId = planing:addCategory("repair only", "nur reparieren")
 
 -- drow bow
 product = planing:addProduct(catId, 2739, 1)
@@ -249,3 +250,5 @@ product:addIngredient(50, 2) -- thread
 product:addIngredient(3786, 3) -- heartwood
 product:addIngredient(3607, 1) -- pure spirit
 
+M.planing = planing
+return M

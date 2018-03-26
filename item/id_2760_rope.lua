@@ -218,15 +218,16 @@ local function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
     end
     Tying:addValue("Captive",Target.id);
 
+    local gText, eText
     if not foundEffectTarget then
-        local gText = "#me hat ein festes Seil um die Hände.";
-        local eText = "#me has a tight rope around the hands.";
+        gText = "#me hat ein festes Seil um die Hände.";
+        eText = "#me has a tight rope around the hands.";
         common.InformNLS(User,
             "Der Gefangene folgt nun dir.",
             "Now the captive follows you.");
     else
-        local gText = "#me ist nun mit einem weiteren Seil gefesselt.";
-        local eText = "#me is now tied up with another rope.";
+        gText = "#me ist nun mit einem weiteren Seil gefesselt.";
+        eText = "#me is now tied up with another rope.";
     end
     Target:talk(Character.say, gText, eText)
     if Target.effects:find(26) then

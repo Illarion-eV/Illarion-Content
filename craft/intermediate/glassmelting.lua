@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 
-module("craft.intermediate.glassmelting", package.seeall)
+local M = {}
 
-glassmelting = crafts.Craft:new{
+local glassmelting = crafts.Craft:new{
                     craftEN = "Glass melting",
                     craftDE = "Glasschmelzen",
                     handTool = 2710,
@@ -35,3 +35,6 @@ local catId = glassmelting:addCategory("Glass", "Glas")
 local product = glassmelting:addProduct(catId, 41, 1)
 product:addIngredient(316) -- quartz sand
 product:addIngredient(314) -- potash
+
+M.glassmelting = glassmelting
+return M

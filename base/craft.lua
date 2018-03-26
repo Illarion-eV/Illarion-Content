@@ -35,11 +35,11 @@ function M.ToolBreaks(user, item, workTime)
     if user:isNewPlayer() then
         timePerPoint = timePerPoint * 2
     end
-    
-    loss=math.floor(workTime/timePerPoint)
-    remainder=workTime-loss
-    
-    if (math.random(1, 100) < (remainder/1.8)) then 
+
+    local loss = math.floor(workTime/timePerPoint)
+    local remainder = workTime - loss
+
+    if (math.random(1, 100) < (remainder/1.8)) then
         loss=loss+1
     end
 
@@ -47,17 +47,17 @@ function M.ToolBreaks(user, item, workTime)
     local quality = (item.quality - durability) / 100
 
     durability = durability - loss
-    
+
     if (durability <= 0) then
         gems.returnGemsToUser(user, item)
         world:erase(item, 1)
         return true
-      
+
     end
 
     item.quality = quality * 100 + durability
     world:changeItem(item)
-    
+
 
     if (durability <= 10) and (loss > 0) then
       common.InformNLS(user,

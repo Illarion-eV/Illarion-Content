@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_1005_beehive' WHERE itm_id=1005;
 
 local common = require("base.common")
-local honeygathering = require("content.gatheringcraft.honeygathering")
+local honeygathering = require("craft.gathering.honeygathering")
 local skillTransfer = require("base.skillTransfer")
 
 local M = {}

@@ -26,7 +26,7 @@ local alchemy = require("alchemy.base.alchemy")
 local licence = require("base.licence")
 local areas = require("content.areas")
 local triggerfield = require("triggerfield.base.triggerfield")
-local woodchopping = require("content.gatheringcraft.woodchopping")
+local woodchopping = require("craft.gathering.woodchopping")
 
 local M = {}
 
@@ -46,7 +46,7 @@ function M.UseItem(User, SourceItem, ltstate)
             "You can't use that.")
         return
     end
-    
+
     if plantTree(User, SourceItem, ltstate) then
         return
     end
@@ -312,23 +312,23 @@ local noTreePlantingAreas = {
 local playersWithValidPosition = {}
 
 local function isTreePlantableHere(seed)
-    
+
     if seed.pos.z ~= 0 then
         return false
     end
-    
+
     -- Exclude triggerfields
     if triggerfield.isTriggerfield(seed.pos) then
         return false
     end
-    
+
     local theField = world:getField(seed.pos)
-    
+
     -- No stack
     if theField:countItems() > 1 then
         return false
     end
-    
+
     -- Proper tile?
     if not seedList[seed.id].allowedTiles[common.GetGroundType(theField:tile())] then
         return false
@@ -347,14 +347,14 @@ local function isTreePlantableHere(seed)
         for j = -2, 2 do
             local currentPosition = position(seed.pos.x+i, seed.pos.y+j, seed.pos.z)
             if world:isItemOnField(currentPosition) or world:isCharacterOnField(currentPosition) then
-                
+
                 local checkItem = world:getItemOnField(currentPosition)
-                
+
                 -- Normal map tree in a distance of 2 fields?
                 if woodchopping.isTree(checkItem.id) then
                     return false, "Hier ist zu viel Schatten. Pflanze nicht so nah zu anderen Bäumen.", "There is too much shadow on this spot. Don't plant so close to other trees."
                 end
-                
+
                 -- Check for items right next to the planintg spot
                 -- 3 unblocking items are allowed
                 -- No blocking item is allowed (= item on an unpassable field, includes e.g. flowers on water)
@@ -368,13 +368,13 @@ local function isTreePlantableHere(seed)
                         end
                     end
                 end
-                
+
                 -- Tree shadow must not block markerstones or NPCs
                 local checkCharacter
                 if world:isCharacterOnField(currentPosition) then
                     checkCharacter = world:getCharacterOnField(currentPosition)
                 end
-                
+
                 if checkItem.id == 66 or (checkCharacter and checkCharacter:getType() == Character.npc) then
                     local inShadow = false
                     for _, shadowTiles in pairs(seedList[seed.id].shadowTiles) do
@@ -386,7 +386,7 @@ local function isTreePlantableHere(seed)
             end
         end
     end
-    
+
     return true
 end
 
@@ -396,18 +396,18 @@ function plantTree(user, sourceItem, ltstate)
         playersWithValidPosition[user.id] = nil
         return true
     end
-    
+
     -- No fruit there
     local frontItem = common.GetFrontItem(user)
     if not frontItem or not seedList[frontItem.id] then
         return false
     end
-    
+
     if frontItem.number > 1 then
         user:inform("Du kannst nur einen Baum aufeinmal anpflanzen.","You can just plant one tree at a time.")
         return true
     end
-    
+
     local isValidPosition, failMessageDe, failMessageEn
     -- Check if we already checked the position, otherwise perform necessary checks
     if playersWithValidPosition[user.id] then
@@ -415,7 +415,7 @@ function plantTree(user, sourceItem, ltstate)
     else
         isValidPosition, failMessageDe, failMessageEn = isTreePlantableHere(frontItem)
     end
-    
+
     if not isValidPosition then
         user:inform(failMessageDe, failMessageEn)
     else
@@ -428,7 +428,7 @@ function plantTree(user, sourceItem, ltstate)
             else
                 common.CreateItem(user, 51, 1, 333, nil)
             end
-            
+
             local skillLevel = user:getSkill(Character.husbandry)
             if Random.uniform(1, 100) <= common.Scale(20, 85, skillLevel) then
                 world:erase(frontItem, frontItem.number)
@@ -439,7 +439,7 @@ function plantTree(user, sourceItem, ltstate)
                 playersWithValidPosition[user.id] = nil
             else
                 if user:countItem(52) < 1 then
-                    user:inform("Du hast keine Wassereimer mehr.", "You don't have any buckets filled with water left", Character.highPriority) 
+                    user:inform("Du hast keine Wassereimer mehr.", "You don't have any buckets filled with water left", Character.highPriority)
                 else
                     user:changeSource(sourceItem)
                     user:startAction(40, 21, 5, 0, 0)
@@ -451,7 +451,7 @@ function plantTree(user, sourceItem, ltstate)
         end
         user:learn(Character.husbandry, 40, 100)
     end
-    
+
     return true
 end
 

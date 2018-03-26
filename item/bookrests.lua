@@ -37,6 +37,7 @@ local FerryLookAt
 local TMLookAt
 local SalaveshLookAt
 local AkaltutLookAt
+local ronaganLookAt
 local usingHomeTeleporter
 local NecktieHomeTravel
 local WonderlandTeleporter
@@ -165,12 +166,12 @@ function M.UseItem(User, SourceItem)
             User:inform("Die Schriftzeichen sagen dir nichts.", "You can't make any sense of the letters written here.")
         end
     end
-    
+
             -- Bookrest for Ronagan dungeon
     if (SourceItem.pos == ronaganBookrest) then
         if User:getQuestProgress(543) == 4 then
             User:inform("Auf dem Stück Papier stehen ein paar Worte. 'Sprich Fuchs und drück gegen den Stein.' Du hast das mysteriöse Pergament für Brigette gefunden.", "The paper has a few words. 'Speak fox then push the rock.' You have found the mysterious parchment for Brigette.")
-            User:setQuestProgress(543, 5) 
+            User:setQuestProgress(543, 5)
         else
             User:inform("Auf dem Stück Papier stehen ein paar Worte. 'Sprich Fuchs und drück gegen den Stein.' ", "The paper has a few words. 'Speak fox then push the rock.'")
         end
@@ -247,11 +248,11 @@ local function akalutCadomyrBlockade(user)
     if not foundValue or tonumber(value) == 0 then
         return false
     end
-    
+
     world:gfx(2, user.pos)
     user:increaseAttrib("hitpoints",-1000)
     user:inform("Ein Blitz kommt aus dem Teleporter geschossen.", "You are hit by a lightning coming from the teleporter.", Character.highPriority)
-    
+
     return true
 end
 

@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 
-module("craft.intermediate.casting", package.seeall)
+local M = {}
 
-casting = crafts.Craft:new{
+local casting = crafts.Craft:new{
                     craftEN = "Casting",
                     craftDE = "Gieﬂen",
                     handTool = 2751,
@@ -56,3 +56,6 @@ product:addIngredient(21) -- coal
 local product = casting:addProduct(catId, 2571, 1)
 product:addIngredient(2534) -- merinium ore
 product:addIngredient(21) -- coal
+
+M.casting = casting
+return M

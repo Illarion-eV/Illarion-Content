@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 
-module("craft.final.armourer", package.seeall)
+local M = {}
 
-armourer = crafts.Craft:new{
+local armourer = crafts.Craft:new{
                       craftEN = "Armourer",
                       craftDE = "Rüstschmied",
                       handTool = 2709,
@@ -27,9 +27,12 @@ armourer = crafts.Craft:new{
                       sfxDuration = 27,
                     }
 
-armourer:addTool(172); -- anvil
+armourer:addTool(172) -- anvil
 
-local catId = armourer:addCategory("Chain boots", "Kettenstiefel")
+local product
+local catId
+
+catId = armourer:addCategory("Chain boots", "Kettenstiefel")
 
 -- simple jackboots
 product = armourer:addProduct(catId, 1507, 1)
@@ -104,7 +107,7 @@ product:addIngredient(2571, 1) -- merinium ingot
 product:addIngredient(285, 1) -- diamond
 product:addIngredient(2552, 1) -- pure earth
 
-local catId = armourer:addCategory("Chain gloves", "Kettenhandschuhe")
+catId = armourer:addCategory("Chain gloves", "Kettenhandschuhe")
 
 -- simple chain gloves
 product = armourer:addProduct(catId, 1460, 1)
@@ -180,7 +183,7 @@ product:addIngredient(2571, 1) -- merinium ingot
 product:addIngredient(285, 1) -- diamond
 product:addIngredient(2554, 1) -- pure water
 
-local catId = armourer:addCategory("Chain greaves", "Kettenhosen")
+catId = armourer:addCategory("Chain greaves", "Kettenhosen")
 
 -- simple short scale greaves
 product = armourer:addProduct(catId, 1485, 1)
@@ -255,7 +258,7 @@ product:addIngredient(2571, 1) -- merinium ingot
 product:addIngredient(285, 1) -- diamond
 product:addIngredient(2554, 1) -- pure water
 
-local catId = armourer:addCategory("Chain helmets", "Kettenhelme")
+catId = armourer:addCategory("Chain helmets", "Kettenhelme")
 
 -- chain helmet
 product = armourer:addProduct(catId, 324, 1)
@@ -332,7 +335,7 @@ product:addIngredient(2571, 1) -- merinium ingot
 product:addIngredient(285, 1) -- diamond
 product:addIngredient(2553, 1) -- pure fire
 
-local catId = armourer:addCategory("Chain mails", "Kettenhemden")
+catId = armourer:addCategory("Chain mails", "Kettenhemden")
 
 -- chain mail
 product = armourer:addProduct(catId, 101, 1)
@@ -415,7 +418,7 @@ product:addIngredient(2571, 2) -- merinium ingot
 product:addIngredient(285, 1) -- diamond
 product:addIngredient(3607, 1) -- pure spirit
 
-local catId = armourer:addCategory("Plate boots", "Panzerstiefel")
+catId = armourer:addCategory("Plate boots", "Panzerstiefel")
 
 -- iron boots
 product = armourer:addProduct(catId, 1520, 1)
@@ -497,7 +500,7 @@ product:addIngredient(2571, 1) -- merinium ingot
 product:addIngredient(285, 1) -- diamond
 product:addIngredient(2551, 1) -- pure air
 
-local catId = armourer:addCategory("Plate gloves", "Panzerhandschuhe")
+catId = armourer:addCategory("Plate gloves", "Panzerhandschuhe")
 
 -- simple steel gloves
 product = armourer:addProduct(catId, 1470, 1)
@@ -580,7 +583,7 @@ product:addIngredient(2571, 1) -- merinium ingot
 product:addIngredient(285, 1) -- diamond
 product:addIngredient(2552, 1) -- pure earth
 
-local catId = armourer:addCategory("Plate greaves", "Panzerhosen")
+catId = armourer:addCategory("Plate greaves", "Panzerhosen")
 
 -- simple short iron greaves
 product = armourer:addProduct(catId, 1492, 1)
@@ -655,7 +658,7 @@ product:addIngredient(2571, 1) -- merinium ingot
 product:addIngredient(285, 1) -- diamond
 product:addIngredient(2552, 1) -- pure earth
 
-local catId = armourer:addCategory("Plate helmets", "Panzerhelme")
+catId = armourer:addCategory("Plate helmets", "Panzerhelme")
 
 -- steel cap
 product = armourer:addProduct(catId, 202, 1)
@@ -730,7 +733,7 @@ product:addIngredient(2571, 1) -- merinium ingot
 product:addIngredient(285, 1) -- diamond
 product:addIngredient(2552, 1) -- pure earth
 
-local catId = armourer:addCategory("Plate armour", "Plattenpanzer")
+catId = armourer:addCategory("Plate armour", "Plattenpanzer")
 
 -- plate armour
 product = armourer:addProduct(catId, 4, 1)
@@ -827,7 +830,7 @@ product:addIngredient(285, 1) -- diamond
 product:addIngredient(2552, 1) -- pure earth
 
 -- Dummy group for items that cannot be crafted but repaired
-local catId = armourer:addCategory("repair only", "nur reparieren")
+catId = armourer:addCategory("repair only", "nur reparieren")
 
 -- drow helmet
 product = armourer:addProduct(catId, 2303, 1)
@@ -844,3 +847,6 @@ product:addIngredient(2537, 6) -- iron plate
 product:addIngredient(2571, 2) -- merinium ingot
 product:addIngredient(285, 1) -- diamond
 product:addIngredient(236, 4) -- gold ingot
+
+M.armourer = armourer
+return M

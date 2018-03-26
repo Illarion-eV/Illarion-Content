@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 
-module("craft.intermediate.threshing", package.seeall)
+local M = {}
 
-threshing = crafts.Craft:new{
+local threshing = crafts.Craft:new{
                     craftEN = "Threshing",
                     craftDE = "Dreschen",
                     handTool = 258,
@@ -34,3 +34,6 @@ local catId = threshing:addCategory("Grain", "Getreide")
 -- Grain
 local product = threshing:addProduct(catId, 259, 2)
 product:addIngredient(249) -- bundle of grain
+
+M.threshing = threshing
+return M

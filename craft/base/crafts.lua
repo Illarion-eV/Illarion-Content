@@ -37,9 +37,9 @@ local REPAIR_QUALITY_INCREASE_GENERAL = 0.6 -- probability for quality increase 
 local REPAIR_QUALITY_INCREASE_KNOWN_CRAFTER = 0.4 -- additional probability for quality increase at 100% repair if item made by player
 local DUMMY_MIN_SKILL_REPAIR_ONLY = 200 -- not reachable skill for group 'repair only', need to hide not craftable items
 
-module("craft.base.crafts", package.seeall)
+local M = {}
 
-Product = {
+local Product = {
             quantity = 1,
             ingredients = {},
             difficulty = 0,
@@ -54,7 +54,7 @@ function Product:new(p)       -- new: constructor
 end
 
 
-Craft = {
+local Craft = {
     products = {},
     categories = {},
     skill = nil,
@@ -129,8 +129,8 @@ function Product:addRemnant(item, quantity, data)
 end
 
 function Craft:addProduct(categoryId, itemId, quantity, data)
-    difficulty = math.min(world:getItemStatsFromId(itemId).Level, 100)
-    learnLimit = math.min(difficulty+20, 100)
+    local difficulty = math.min(world:getItemStatsFromId(itemId).Level, 100)
+    local learnLimit = math.min(difficulty + 20, 100)
     quantity = quantity or 1
     data = data or {}
 
@@ -406,8 +406,8 @@ function Craft:loadDialog(dialog, user)
             end
         end
     end
-    
-    
+
+
     local repairPositions = {12, 13, 14, 15, 16, 17} -- all belt positions
     local showRepairGroup = false
     local repairSkill = self:getRepairSkill(user)
@@ -438,7 +438,7 @@ function Craft:loadDialog(dialog, user)
                         local ingredient = product.ingredients[j]
                         dialog:addCraftableIngredient(ingredient.item, ingredient.quantity)
                     end
-                    
+
                 end
             end
         end
@@ -468,6 +468,8 @@ end
 
 function Product:getCraftingTime(skill,gemBonus)
 
+    local learnProgress
+
     --This function returns the crafting time, scaled by the price of the item.
     if (self.learnLimit == self.difficulty) then
         learnProgress = 50 --This is a temporary solution until we get "effective" skills beyond 100 as proposed by Bloodraven, see Ars Magica
@@ -475,7 +477,7 @@ function Product:getCraftingTime(skill,gemBonus)
         learnProgress = (skill - self.difficulty) / (self.learnLimit - self.difficulty) * 100
     end
     local theItem = world:getItemStatsFromId(self.item)
-    local minimum = math.max ((self.quantity * theItem.Worth * 0.012),10) 
+    local minimum = math.max ((self.quantity * theItem.Worth * 0.012),10)
     local craftingTime = common.Scale(minimum * 2, minimum, learnProgress)
     if theItem.MaxStack ~= 1 then
         craftingTime = craftingTime - craftingTime*0.005*gemBonus; -- 36% (lvl3) lead to 18% time saving
@@ -484,7 +486,7 @@ function Product:getCraftingTime(skill,gemBonus)
         craftingTime = 10 * math.floor(craftingTime/10 + 0.5) -- Round correctly to whole seconds
     end
     return craftingTime
-    
+
 end
 
 function Craft:swapToActiveItem(user)
@@ -565,14 +567,14 @@ function Craft:checkMaterial(user, productId)
         return false
     end
 
-    local materialsAvailable = true    
-    lackText = ""
-    enoughText = ""   
-        
+    local materialsAvailable = true
+    local lackText = ""
+    local enoughText = ""
+
     for i = 1, #product.ingredients do
         local ingredient = product.ingredients[i]
         local available = user:countItemAt("all", ingredient.item, ingredient.data)
-    
+
         if available < ingredient.quantity then
             materialsAvailable = false
             local ingredientName = self:getLookAt(user, ingredient).name
@@ -589,12 +591,12 @@ function Craft:checkMaterial(user, productId)
         lackText=string.sub(lackText,1,-3)
         common.HighInformNLS( user, "Dir fehlt: "..lackText.."!", "You lack: "..lackText..".")
     end
-        
+
     if enoughText ~= "" then
         enoughText=string.sub(enoughText,1,-3)
         common.HighInformNLS(user, "Zu wenig: "..enoughText..".", "Not enough: "..enoughText..".")
     end
-        
+
     return materialsAvailable
 end
 
@@ -605,13 +607,14 @@ function Craft:generateQuality(user, productId, toolItem)
     end
 
     local product = self.products[productId]
-    
+    local scalar
+
     if product.learnLimit == product.difficulty then
         scalar = 50 --This is a temporary solution until we get "effective" skills beyond 100 as proposed by Bloodraven, see Ars Magica
     else
         scalar = (self:getSkill(user) - product.difficulty) / (math.min(100, product.learnLimit) - product.difficulty) * 100
     end
-    
+
     local quality = common.Scale(4, 8, scalar)
     local toolQuality = common.getItemQuality(toolItem)
     local gemBonus = tonumber(self:getCurrentGemBonus(user))
@@ -796,14 +799,14 @@ function Craft:repairItem(user, productIdList)
         self:swapToInactiveItem(user)
         return false
     end
-    
+
     if common.getItemDurability(itemToRepair) == 99 then  -- safty grid
         common.InformNLS(user,
         "Du findest nichts, was du an dem Werkstück reparieren könntest.",
-        "There is nothing to repair on that item.")    
+        "There is nothing to repair on that item.")
         return false
     end
-    
+
     local neededFood = 0
     if not self.npcCraft then
         local foodOK = false
@@ -881,7 +884,7 @@ function Craft:createRepairedItem(user, productId, itemToRepair)
             "You repair "..world:getItemName(itemToRepair.id,Player.english)..".")
         end
     end
-    
+
     itemToRepair.quality = common.calculateItemQualityDurability(quality, common.ITEM_MAX_DURABILITY)
     world:changeItem(itemToRepair)
 end
@@ -932,3 +935,7 @@ function Craft:isRepairCategory(categoryId)
     end
     return false
 end
+
+M.Product = Product
+M.Craft = Craft
+return M

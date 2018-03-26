@@ -19,8 +19,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_126_sickle' WHERE itm_id=126;
 
 local common = require("base.common")
-local farming = require("content.gatheringcraft.farming")
-local herbgathering = require("content.gatheringcraft.herbgathering")
+local farming = require("craft.gathering.farming")
+local herbgathering = require("craft.gathering.herbgathering")
 local metal = require("item.general.metal")
 local skillTransfer = require("base.skillTransfer")
 
@@ -58,8 +58,6 @@ function M.UseItem(User, SourceItem, ltstate)
     common.HighInformNLS( User,
     "Hier ist nichts, wofür du die Sichel benutzen kannst.",
     "There is nothing for which you can use the sickle." );
-
 end
 
 return M
-

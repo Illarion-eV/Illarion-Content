@@ -17,9 +17,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local crafts = require("craft.base.crafts")
 local milling = require("craft.intermediate.milling")
 
-module("craft.intermediate.potashmaking", package.seeall)
+local M = {}
 
-potashmaking = crafts.Craft:new{
+local potashmaking = crafts.Craft:new{
                     craftEN = "Potash making",
                     craftDE = "Pottaschenproduktion",
                     handTool = 312,
@@ -54,3 +54,6 @@ local catId = potashmaking:addCategory("Potash from Apple Wood", "Apfelholzasche
 -- Potash
 local product = potashmaking:addProduct(catId, 314, 1)
 product:addIngredient(2560) -- apple wood
+
+M.potashmaking = potashmaking
+return M

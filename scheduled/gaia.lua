@@ -23,7 +23,7 @@ local M = {}
 local RarePlantByGround = {}
 local NormalPlantByGround = {}
 
-function AddPlant(ItemID, Grounds, rare)
+local function AddPlant(ItemID, Grounds, rare)
     if rare then
         for i=1, #Grounds do
             if RarePlantByGround[Grounds[i]] == nil then
@@ -73,7 +73,7 @@ AddPlant(161, {gt.grass},false)                        -- herder's mushroom
 AddPlant(162, {gt.grass},false)                        -- birth mushroom
 AddPlant(163, {gt.forest},false)                        -- champignon
 
--- rar herbs; not collectable with sickle
+-- rare herbs; not collectable with sickle
 AddPlant(138, {gt.dirt},true)                        -- night angels blossom
 AddPlant(146, {gt.sand},true)                        -- deser sky capsule
 AddPlant(152, {gt.forest},true)                      -- life root
@@ -91,26 +91,10 @@ AddPlant(766, {gt.forest},true)                        -- con blossom
 AddPlant(768, {gt.forest},true)                        -- wolverine fern
 AddPlant(769, {gt.sand},true)                         -- desert berry
 
-function M.plantdrop()
-    if ( RarePlantByGround==nil ) then
-        Init();
-    end
+local function PutPlantOnField(rare)
 
-    local herbCounter = 0 -- for testing
-    local normal = 0; local cool = 0
-    for i=1,35 do -- normal plants
-       PutPlantOnField(false)
-    end
-
-    for i=1,5 do -- rare plants
-       PutPlantOnField(true)
-    end
-end
-
-function PutPlantOnField(rare)
-
-    local myPos = position( math.random(0,1024), math.random(0,1024), 0 )
-    local theTile=world:getField(myPos);
+    local myPos = position( math.random(0,1024), math.random(0,1024), 0)
+    local theTile = world:getField(myPos)
     local myList
     if rare then -- rare herb
         myList = RarePlantByGround
@@ -140,6 +124,17 @@ function PutPlantOnField(rare)
         local myPlant = myList[groundType][math.random(1,#myList[groundType])]
         world:createItemFromId(myPlant,1,myPos,false,333,nil)
         return true
+    end
+end
+
+function M.plantdrop()
+
+    for i = 1,35 do -- normal plants
+    PutPlantOnField(false)
+    end
+
+    for i = 1,5 do -- rare plants
+    PutPlantOnField(true)
     end
 end
 

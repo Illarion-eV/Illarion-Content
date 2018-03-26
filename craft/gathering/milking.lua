@@ -16,11 +16,11 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local common = require("base.common")
-local gathering = require("content.gathering")
+local gathering = require("craft.base.gathering")
 
-module("content.gatheringcraft.milking", package.seeall)
+local M = {}
 
-function isMilkable(targetCharacter)
+local function isMilkable(targetCharacter)
 
     local milkableAnimals = {181, 371}; -- sheep, cow
 
@@ -33,10 +33,16 @@ function isMilkable(targetCharacter)
 end
 
 
-function StartGathering(User, SourceAnimal, ltstate)
+function M.StartGathering(User, SourceAnimal, ltstate)
 
-    gathering.InitGathering();
-    local milking = gathering.milking;
+    local milking = gathering.GatheringCraft:new{LeadSkill = Character.husbandry, LearnLimit = 100}; -- id_2498_empty_bottle
+    milking:AddRandomPureElement(gathering.prob_extremely_rarely); -- Any pure element
+    milking:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
+    milking:SetShard(gathering.prob_rarely,"Ein Splitter eines magischen Artefaktes hat sich im Fell des Tieres verfangen.", "A shard of a magical artifact was tangled in the fur of the animal."); -- Any shard
+    milking:AddRandomItem(153,1,333,{},gathering.prob_occasionally,"Ein großes Blatt hat sich im Fell des Tieres verfangen. Du betreibst zunächst ein wenig Fellpflege, bevor du weiter melkst.","A large leaf was tangled in the fur of the animal. You do a little grooming before you continue milking."); --Foot leaf
+    milking:AddRandomItem(156,1,333,{},gathering.prob_frequently,"Etwas Gras hat sich im Fell des Tieres verfangen. Du entfernst das klebrige Grünzeug.","Some grass was ensnared in the fur of the animal. Before you can continue milking you have to remove the sticky green weed."); --Steppe fern
+    milking:SetTreasureMap(gathering.prob_rarely,"Das Tier kratzt und schnüffelt aufgeregt am Boden. Dort findest du eine seltsame Karte.","The animal scratches and sniffs on the ground excitdly. You find a strange map there.");
+    milking:AddMonster(271,gathering.prob_rarely,"Während du das Tiel melkst, umschwirrt dich eine ungewöhnlich agressive Wespe.","While you milk the animal an annoyingly aggressive wasp comes after you!",4,7);
 
     common.ResetInterruption( User, ltstate );
     if ( ltstate == Action.abort ) then -- work interrupted
@@ -117,3 +123,8 @@ function StartGathering(User, SourceAnimal, ltstate)
         end
     end
 end
+
+-- Used by item/id_2498_empty_bottle
+M.isMilkable = isMilkable
+
+return M

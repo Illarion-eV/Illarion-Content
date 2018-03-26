@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- base script for waypoints
 
@@ -22,22 +22,22 @@ local M = {}
 -- *** DEFINITIONS *** --
 -------------------------
 
-MAX_DISTANCE = 9999999999;
+local MAX_DISTANCE = 9999999999;
 
 ------------------------------
 -- *** INITIALIZE LISTS *** --
 ------------------------------
 
-WaypointList = {};
-
-AreaList = {};
+local WaypointList = {};
+local WaitingList = {}
+local AreaList = {};
 
 
 ----------------------------
 -- *** WAYPOINT CLASS *** --
 ----------------------------
 
-Waypoint = {
+local Waypoint = {
     pos = nil;
     area = nil;
     neighbours = nil;
@@ -55,7 +55,7 @@ with the current WP as parameter and the changed WP as return value.
   @param list(waypoint)  list of neighbour waypoints
   @param list(mixed)  additional data
   @return Waypoint  self
-  
+
   data can contain e.g.:
     bridge = { toArea = int, toWaypoint = Waypoint, warp = boolean }
         * NOTE: toWaypoint contains at first the position of the wp. After initializing all wps the right wp will be set (see below)
@@ -88,9 +88,7 @@ function Waypoint:new(pos,area,neighbours,data)
         end
         table.insert(AreaList[area][data.bridge.toArea].bridges,this)
     end
-    if WaypointConstructor then
-        this = WaypointConstructor(this);
-    end
+
     return this;
 end
 
@@ -221,8 +219,8 @@ function M.PosToIndex(pos)
     return index;
 end
 
--- recalculate the distinct index and return the posStruct 
-function IndexToPos(index)
+-- recalculate the distinct index and return the posStruct
+function M.IndexToPos(index)
     local x,y,z;
     x = math.floor(math.fmod(index,100000000000000)/10000000000);
     if index>=100000000000000 then

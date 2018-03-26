@@ -21,14 +21,73 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 local common = require("base.common")
 local craft = require("base.craft")
-local gathering = require("content.gathering")
+local gathering = require("craft.base.gathering")
 
-module("content.gatheringcraft.farming", package.seeall)
+local M = {}
 
-function StartGathering(User, SourceItem, ltstate)
+local FarmingItems = {}
 
-    gathering.InitGathering();
-    local theCraft = gathering.farming;
+-- field crops
+FarmingItems[3890] = 290 -- cabbage -> cabbage
+FarmingItems[537] = 201 -- onion plant -> onion
+FarmingItems[540] = 200 -- tomato plant -> tomato
+FarmingItems[731] = 154 -- hop plant -> hop
+FarmingItems[732] = 728 -- old hops -> hop seeds
+FarmingItems[2492] = 2493 -- greens -> carrots
+FarmingItems[782] = 778 -- sugarcane plant -> sugarcane
+FarmingItems[777] = 772 -- withered tobacco plant -> tabacco
+FarmingItems[3565] = 3567                               -- Final stage potato plant -> Potatoes
+
+-- TODO when bug in MoveItem functions is resolved, remove these
+FarmingItems[779] = 779 -- sugarcane seeds
+FarmingItems[773] = 773 -- tobacco seeds
+FarmingItems[2917] = 2917 -- tomato seeds
+FarmingItems[2494] = 2494 -- carrot seeds ("seeds")
+FarmingItems[534] = 534 -- onion seeds
+FarmingItems[291] = 291 -- withered cabbage (seeds)
+FarmingItems[3566] = 3566                               -- Potato seeds
+
+local function isFarmingItem(Plant)
+    if (Plant ~= nil and FarmingItems[Plant.id] ~= nil and ((Plant:getData("amount") ~= "0" and Plant:getData("amount") ~= "") or Plant.wear == 255)) then
+        return true;
+    end
+    return false;
+end
+
+local function getFarmingItem(User)
+
+    local targetItem = common.GetFrontItem(User);
+    if (isFarmingItem(targetItem)) then
+        return targetItem;
+    end
+
+    local Radius = 1;
+    for x=-Radius,Radius do
+        for y=-Radius,Radius do
+            local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
+            if (world:isItemOnField(targetPos)) then
+                local targetItem = world:getItemOnField(targetPos);
+                if (isFarmingItem(targetItem)) then
+                    return targetItem;
+                end
+            end
+        end
+    end
+    return nil;
+end
+
+function M.StartGathering(User, SourceItem, ltstate)
+
+    local theCraft = gathering.GatheringCraft:new{LeadSkill = Character.farming, LearnLimit = 100}; -- seeds, id_126_sickle
+    theCraft:AddRandomPureElement(gathering.prob_extremely_rarely); -- Any pure element
+    theCraft:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
+    theCraft:SetShard(gathering.prob_rarely,"Zwischen den Ackerfurchen findest du einen Splitter eines magischen Artefaktes.", "Between the furrows you find a shard of a magical artifact."); -- Any shard
+    theCraft:AddRandomItem(1840,1,333,{},gathering.prob_extremely_rarely,"Im Ackerboden ist ein angelaufender Kupferkelch zu finden.","In the arable soil you find a tarnished copper goblet."); --copper goblet
+    theCraft:AddRandomItem(2935,1,333,{},gathering.prob_occasionally,"Da hat wohl jemand eine Schüssel verloren, mit der er Saatgut augestreut hat. Nun gehört sie dir.","You dig up an old bowl. Now it belongs to you."); --soup bowl
+    theCraft:AddRandomItem(51,1,333,{},gathering.prob_frequently,"Da hat wohl jemand einen Eimer verloren. Nun gehört er dir.","You dig up an old bucket. Now it belongs to you."); --bucket
+    theCraft:SetTreasureMap(gathering.prob_rarely,"In einer Ackerfurche findest du ein altes Pergament mit einem Kreuz darauf. Ob sie dich zu einem vergrabenen Schatz weisen wird?","In a furrow you find an old parchment with a cross on it. Will it show you the way to a buried treasure?");
+    theCraft:AddMonster(114,gathering.prob_rarely,"Du stößt bei der Erdarbeit auf alte Knochen. Leider hat sie kein Hund hier vergraben und die Störung der Totenruhe bleibt nicht ungesühnt.","While ploughing, you find some old bones. Unfortunately, no dog has buried them here, and the disturbance of the dead unleashes Cherga's wrath.",4,7);
+    theCraft:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
 
     common.ResetInterruption( User, ltstate );
     if ( ltstate == Action.abort ) then -- work interrupted
@@ -137,66 +196,9 @@ function StartGathering(User, SourceItem, ltstate)
         "Your old sickle breaks.");
         return
     end
-
 end
 
+-- Used by item.id_126_sickle
+M.getFarmingItem = getFarmingItem
 
-function InitFarmingItems()
-
-    if FarmingItems ~= nil then
-        return
-    end
-
-    FarmingItems = {};
-
-    -- field crops
-    FarmingItems[3890] = 290 -- cabbage -> cabbage
-    FarmingItems[537] = 201 -- onion plant -> onion
-    FarmingItems[540] = 200 -- tomato plant -> tomato
-    FarmingItems[731] = 154 -- hop plant -> hop
-    FarmingItems[732] = 728 -- old hops -> hop seeds
-    FarmingItems[2492] = 2493 -- greens -> carrots
-    FarmingItems[782] = 778 -- sugarcane plant -> sugarcane
-    FarmingItems[777] = 772 -- withered tobacco plant -> tabacco
-    FarmingItems[3565] = 3567                               -- Final stage potato plant -> Potatoes
-
-    -- TODO when bug in MoveItem functions is resolved, remove these
-    FarmingItems[779] = 779 -- sugarcane seeds
-    FarmingItems[773] = 773 -- tobacco seeds
-    FarmingItems[2917] = 2917 -- tomato seeds
-    FarmingItems[2494] = 2494 -- carrot seeds ("seeds")
-    FarmingItems[534] = 534 -- onion seeds
-    FarmingItems[291] = 291 -- withered cabbage (seeds)
-    FarmingItems[3566] = 3566                               -- Potato seeds
-
-end
-
-function isFarmingItem(Plant)
-    if (Plant ~= nil and FarmingItems[Plant.id] ~= nil and ((Plant:getData("amount") ~= "0" and Plant:getData("amount") ~= "") or Plant.wear == 255)) then
-        return true;
-    end
-    return false;
-end
-
-function getFarmingItem(User)
-    InitFarmingItems();
-
-    local targetItem = common.GetFrontItem(User);
-    if (isFarmingItem(targetItem)) then
-        return targetItem;
-    end
-
-    local Radius = 1;
-    for x=-Radius,Radius do
-        for y=-Radius,Radius do
-            local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
-            if (world:isItemOnField(targetPos)) then
-                local targetItem = world:getItemOnField(targetPos);
-                if (isFarmingItem(targetItem)) then
-                    return targetItem;
-                end
-            end
-        end
-    end
-    return nil;
-end
+return M

@@ -42,98 +42,7 @@ local dragonCaveChestPos = {
     position(704, 617, -6),
 }
 
-local ChestContents
-
-function M.UseItem(User, SourceItem)
-
-    if collectionchest.collectionChestUsed(User, SourceItem) then
-        return
-    end
-
-    if (User:getQuestProgress(510) == 24) and  SourceItem.pos == position(783, 640, -3) then --OK, the player does the quest
-        User:inform(
-            "In der Truhe liegt eine goldenes Amulet, das mit einem großen Smaragd geschmückt ist. Auf dem Stein ist ein goldenes Zwergenwappen. Danach hatte Obsidimine gefragt.",
-            "Inside the chest lays a golden amulet adorned with a large emerald. On the stone is a golden Dwarven coat of arms. This is what Obsidimine was inquiring about.")
-        User:setQuestProgress(510, 25)
-        return
-    end
-
-    if (User:getQuestProgress(543) == 1 and User:getQuestProgress(545) <= 0 and SourceItem.pos == position(901, 586, -3)) then --OK, the player does the quest 1 for Brigette Russ
-        User:inform(
-            "Im Inneren der Truhe liegt ein Kupferkelch, den du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
-            "Inside the chest lays a copper goblet that you take. This could be one of Brigette's lost belongings.")
-        User:setQuestProgress(545, 1)
-        common.CreateItem(User, 1840, 1, 851, nil)
-        checkIfGotAllItems(User)
-    end
-    if (User:getQuestProgress(543) == 1 and User:getQuestProgress(546) <= 0 and SourceItem.pos == position(902, 586, -3)) then --OK, the player does the quest 1 for Brigette Russ
-        User:inform(
-            "Im Inneren der Truhe liegt ein goldener Ring, den du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
-            "Inside the chest lays a golden ring that you take. This could be one of Brigette's lost belongings.")
-        User:setQuestProgress(546, 1)
-        common.CreateItem(User, 235, 1, 860, nil)
-        checkIfGotAllItems(User)
-    end
-    if (User:getQuestProgress(543) == 1 and User:getQuestProgress(547) <= 0 and SourceItem.pos == position(897, 593, -3)) then --OK, the player does the quest 1 for Brigette Russ
-        User:inform(
-            "Im Inneren der Truhe liegt ein goldener Rubinring, den du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
-            "Inside the chest lays a ruby gold ring that you take. This could be one of Brigette's lost belongings.")
-        User:setQuestProgress(547, 1)
-        common.CreateItem(User, 68, 1, 740, nil)
-        checkIfGotAllItems(User)
-    end
-    if (User:getQuestProgress(543) == 1 and User:getQuestProgress(548) <= 0 and SourceItem.pos == position(897, 594, -3)) then --OK, the player does the quest 1 for Brigette Russ
-        User:inform(
-            "Im Inneren der Truhe liegt ein Teller, den du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
-            "Inside the chest lays a plate that you take. This could be one of Brigette's lost belongings.")
-        User:setQuestProgress(548, 1)
-        common.CreateItem(User, 1001, 1, 650, nil)
-        checkIfGotAllItems(User)
-    end
-    if (User:getQuestProgress(543) == 1 and User:getQuestProgress(549) <= 0 and SourceItem.pos == position(902, 588, -3)) then --OK, the player does the quest 1 for Brigette Russ
-        User:inform(
-            "Im Inneren der Truhe liegt eine Flöte, die du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
-            "Inside the chest lays a flute that you take. This could be one of Brigette's lost belongings.")
-        User:setQuestProgress(549, 1)
-        common.CreateItem(User, 90, 1, 950, nil)
-        checkIfGotAllItems(User)
-    end
-    if (User:getQuestProgress(543) == 1 and User:getQuestProgress(550) <= 0 and SourceItem.pos == position(902, 589, -3)) then --OK, the player does the quest 1 for Brigette Russ
-        User:inform(
-            "Im Inneren der Truhe liegt ein grauer Hut mit einer Feder, den du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
-            "Inside the chest lays a grey hat with a feather that you take. This could be one of Brigette's lost belongings.")
-        User:setQuestProgress(550, 1)
-        common.CreateItem(User, 830, 1, 801, nil)
-        checkIfGotAllItems(User)
-        end
-    local itemData
-    local isronaganChest = (SourceItem:getData("ronaganChest") == "true")
-    if (isronaganChest) then
-        ronaganContents(User, SourceItem)
-        return
-    end
-
-    local isletmaChest = (SourceItem:getData("letmaChest") == "true")
-    if (isletmaChest) then
-        letmaContents(User, SourceItem)
-        return
-    end
-
-    for i = 1, #dragonCaveChestPos do
-            if (SourceItem.pos == dragonCaveChestPos[i]) then
-                ChestContents(User, SourceItem)
-                return
-            end
-    end
-
-    local isronaganTreasurechest = (SourceItem:getData("ronaganTreasurechest") == "true")
-    if (isronaganTreasurechest) then
-        ronaganTreasureContents(User, SourceItem)
-        return
-    end
-end
-
-function checkIfGotAllItems(User)
+local function checkIfGotAllItems(User)
     if (User:getQuestProgress(545) == 1 and User:getQuestProgress(546) == 1 and User:getQuestProgress(547) == 1 and User:getQuestProgress(548) == 1 and User:getQuestProgress(549) == 1 and User:getQuestProgress(550) == 1) then
         User:setQuestProgress(543, 2)
         User:inform(
@@ -142,7 +51,7 @@ function checkIfGotAllItems(User)
     end
 end
 
-function ChestContents(User, chestItem)
+local function ChestContents(User, chestItem)
 
     -- skip if already tripped in the last 30 minutes
     local serverTime = world:getTime("unix")
@@ -174,7 +83,7 @@ function ChestContents(User, chestItem)
     end
 end
 
-function ronaganContents(User, ronaganItem)
+local function ronaganContents(User, ronaganItem)
 
     -- skip if already tripped in the last 30 minutes
     local serverTime = world:getTime("unix")
@@ -206,7 +115,7 @@ function ronaganContents(User, ronaganItem)
     end
 end
 
-function letmaContents(User, letmaItem)
+local function letmaContents(User, letmaItem)
 
     -- skip if already tripped in the last 30 minutes
     local serverTime = world:getTime("unix")
@@ -235,7 +144,8 @@ function letmaContents(User, letmaItem)
         common.CreateItem(User, 3077, 5, 333, nil) -- silver coin
     end
 end
-function ronaganTreasureContents(User, ronaganTreasureItem)
+
+local function ronaganTreasureContents(User, ronaganTreasureItem)
 
     -- skip if already tripped in the last 1 hours
     local serverTime = world:getTime("unix")
@@ -262,6 +172,95 @@ function ronaganTreasureContents(User, ronaganTreasureItem)
         world:gfx(41, monPos) -- swirly
         User:inform("Du wurdest bei deinen Diebstahlversuchen ertappt.",
             "Your attempts at theft have been discovered.")
+    end
+end
+
+function M.UseItem(User, SourceItem)
+
+    if collectionchest.collectionChestUsed(User, SourceItem) then
+        return
+    end
+
+    if (User:getQuestProgress(510) == 24) and  SourceItem.pos == position(783, 640, -3) then --OK, the player does the quest
+    User:inform(
+        "In der Truhe liegt eine goldenes Amulet, das mit einem großen Smaragd geschmückt ist. Auf dem Stein ist ein goldenes Zwergenwappen. Danach hatte Obsidimine gefragt.",
+        "Inside the chest lays a golden amulet adorned with a large emerald. On the stone is a golden Dwarven coat of arms. This is what Obsidimine was inquiring about.")
+    User:setQuestProgress(510, 25)
+    return
+    end
+
+    if (User:getQuestProgress(543) == 1 and User:getQuestProgress(545) <= 0 and SourceItem.pos == position(901, 586, -3)) then --OK, the player does the quest 1 for Brigette Russ
+    User:inform(
+        "Im Inneren der Truhe liegt ein Kupferkelch, den du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
+        "Inside the chest lays a copper goblet that you take. This could be one of Brigette's lost belongings.")
+    User:setQuestProgress(545, 1)
+    common.CreateItem(User, 1840, 1, 851, nil)
+    checkIfGotAllItems(User)
+    end
+    if (User:getQuestProgress(543) == 1 and User:getQuestProgress(546) <= 0 and SourceItem.pos == position(902, 586, -3)) then --OK, the player does the quest 1 for Brigette Russ
+    User:inform(
+        "Im Inneren der Truhe liegt ein goldener Ring, den du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
+        "Inside the chest lays a golden ring that you take. This could be one of Brigette's lost belongings.")
+    User:setQuestProgress(546, 1)
+    common.CreateItem(User, 235, 1, 860, nil)
+    checkIfGotAllItems(User)
+    end
+    if (User:getQuestProgress(543) == 1 and User:getQuestProgress(547) <= 0 and SourceItem.pos == position(897, 593, -3)) then --OK, the player does the quest 1 for Brigette Russ
+    User:inform(
+        "Im Inneren der Truhe liegt ein goldener Rubinring, den du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
+        "Inside the chest lays a ruby gold ring that you take. This could be one of Brigette's lost belongings.")
+    User:setQuestProgress(547, 1)
+    common.CreateItem(User, 68, 1, 740, nil)
+    checkIfGotAllItems(User)
+    end
+    if (User:getQuestProgress(543) == 1 and User:getQuestProgress(548) <= 0 and SourceItem.pos == position(897, 594, -3)) then --OK, the player does the quest 1 for Brigette Russ
+    User:inform(
+        "Im Inneren der Truhe liegt ein Teller, den du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
+        "Inside the chest lays a plate that you take. This could be one of Brigette's lost belongings.")
+    User:setQuestProgress(548, 1)
+    common.CreateItem(User, 1001, 1, 650, nil)
+    checkIfGotAllItems(User)
+    end
+    if (User:getQuestProgress(543) == 1 and User:getQuestProgress(549) <= 0 and SourceItem.pos == position(902, 588, -3)) then --OK, the player does the quest 1 for Brigette Russ
+    User:inform(
+        "Im Inneren der Truhe liegt eine Flöte, die du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
+        "Inside the chest lays a flute that you take. This could be one of Brigette's lost belongings.")
+    User:setQuestProgress(549, 1)
+    common.CreateItem(User, 90, 1, 950, nil)
+    checkIfGotAllItems(User)
+    end
+    if (User:getQuestProgress(543) == 1 and User:getQuestProgress(550) <= 0 and SourceItem.pos == position(902, 589, -3)) then --OK, the player does the quest 1 for Brigette Russ
+    User:inform(
+        "Im Inneren der Truhe liegt ein grauer Hut mit einer Feder, den du herausnimmst. Dies könnte eines von Brigettes verlorenen Besitztümern sein.",
+        "Inside the chest lays a grey hat with a feather that you take. This could be one of Brigette's lost belongings.")
+    User:setQuestProgress(550, 1)
+    common.CreateItem(User, 830, 1, 801, nil)
+    checkIfGotAllItems(User)
+    end
+    local itemData
+    local isronaganChest = (SourceItem:getData("ronaganChest") == "true")
+    if (isronaganChest) then
+        ronaganContents(User, SourceItem)
+        return
+    end
+
+    local isletmaChest = (SourceItem:getData("letmaChest") == "true")
+    if (isletmaChest) then
+        letmaContents(User, SourceItem)
+        return
+    end
+
+    for i = 1, #dragonCaveChestPos do
+        if (SourceItem.pos == dragonCaveChestPos[i]) then
+            ChestContents(User, SourceItem)
+            return
+        end
+    end
+
+    local isronaganTreasurechest = (SourceItem:getData("ronaganTreasurechest") == "true")
+    if (isronaganTreasurechest) then
+        ronaganTreasureContents(User, SourceItem)
+        return
     end
 end
 

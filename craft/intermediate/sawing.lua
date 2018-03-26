@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 
-module("craft.intermediate.sawing", package.seeall)
+local M = {}
 
-sawing = crafts.Craft:new{
+local sawing = crafts.Craft:new{
                     craftEN = "Sawing",
                     craftDE = "Sägen",
                     handTool = 9,
@@ -47,3 +47,6 @@ product:addIngredient(3) -- conifer wood
 -- Apple wood board
 local product = sawing:addProduct(catId, 2716, 1)
 product:addIngredient(2560) -- apple wood
+
+M.sawing = sawing
+return M

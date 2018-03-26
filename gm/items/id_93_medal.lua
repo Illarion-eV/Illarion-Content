@@ -393,6 +393,54 @@ function animation(User)
     User:requestInputDialog(InputDialog("Play a animation effect.", "Usage: Type in animation effects id." ,false, 255, cbInputDialog))
 end
 
+local function changeAvatarForPlayer(User, chosenPlayer)
+    local cbInputDialog = function (dialog)
+        if (not dialog:getSuccess()) then
+            return
+        end
+        local inputString = dialog:getInput()
+        if (string.find(inputString,"(%a+) (%d+) (%d+) (%d+)") ~= nil) then
+            local _, _, modifier, red, green, blue = string.find(inputString,"(%a+) (%d+) (%d+) (%d+)")
+            red = tonumber(red)
+            green = tonumber(green)
+            blue = tonumber(blue)
+            if modifier == "haircolor" or modifier == "haircolour" then
+                chosenPlayer:setHairColour(colour(red, green, blue))
+            elseif modifier == "skincolor" or modifier == "skincolour" then
+                chosenPlayer:setSkinColour(colour(red, green, blue))
+            else
+                User:inform("Sorry, I didn't understand you.")
+                changeAvatarForPlayer(User, chosenPlayer) -- re-call dialog
+                return
+            end
+            User:logAdmin("changes avatar of "..chosenPlayer.name..": Set " ..modifier.." to RGB ("..red..", "..green..", "..blue..")")
+        elseif (string.find(inputString,"(%a+) (%d+)") ~= nil) then
+            local _, _, modifier, id = string.find(inputString,"(%a+) (%d+)")
+            id = tonumber(id)
+            if modifier == "race" then
+                chosenPlayer:setRace(id)
+            elseif modifier == "gender" then
+                chosenPlayer:setAttrib("sex", id)
+                chosenPlayer:setRace(chosenPlayer:getRace()) --to update avatar properly
+            elseif modifier == "beard" then
+                chosenPlayer:setBeard(id)
+            elseif modifier == "hair" then
+                chosenPlayer:setHair(id)
+            else
+                User:inform("Sorry, I didn't understand you.")
+                changeAvatarForPlayer(User, chosenPlayer) -- re-call dialog
+                return
+            end
+            User:logAdmin("changes avatar of "..chosenPlayer.name..": Set " ..modifier.." to ID "..id)
+        else
+            User:inform("Sorry, I didn't understand you.")
+            changeAvatarForPlayer(User, chosenPlayer) -- re-call dialog
+        end
+    end
+    local idChange = InputDialog("Change the appearance for the selected character.", "Usage: race <id>, gender <0|1>, beard <id>, hair <id>, haircolor <red> <green> <blue>, skincolor <red> <green> <blue>" ,false, 255, cbInputDialog)
+    User:requestInputDialog(idChange)
+end
+
 function changeAvatar(User)
 
     local playersTmp = world:getPlayersInRangeOf(User.pos, 4)
@@ -408,48 +456,7 @@ function changeAvatar(User)
             return
         end
         local chosenPlayer = players[dialog:getSelectedIndex()+1]
-        local cbInputDialog = function (dialog)
-            if (not dialog:getSuccess()) then
-                return
-            end
-            local inputString = dialog:getInput()
-            if (string.find(inputString,"(%a+) (%d+) (%d+) (%d+)") ~= nil) then
-                local _, _, modifier, red, green, blue = string.find(inputString,"(%a+) (%d+) (%d+) (%d+)")
-                red = tonumber(red)
-                green = tonumber(green)
-                blue = tonumber(blue)
-                if modifier == "haircolor" or modifier == "haircolour" then
-                    chosenPlayer:setHairColour(colour(red, green, blue))
-                elseif modifier == "skincolor" or modifier == "skincolour" then
-                    chosenPlayer:setSkinColour(colour(red, green, blue))
-                else
-                    User:inform("Sorry, I didn't understand you.")
-                    return
-                end
-                User:logAdmin("changes avatar of "..chosenPlayer.name..": Set " ..modifier.." to RGB ("..red..", "..green..", "..blue..")")
-            elseif (string.find(inputString,"(%a+) (%d+)") ~= nil) then
-                local _, _, modifier, id = string.find(inputString,"(%a+) (%d+)")
-                id = tonumber(id)
-                if modifier == "race" then
-                    chosenPlayer:setRace(id)
-                elseif modifier == "gender" then
-                    chosenPlayer:setAttrib("sex", id)
-                    chosenPlayer:setRace(chosenPlayer:getRace()) --to update avatar properly
-                elseif modifier == "beard" then
-                    chosenPlayer:setBeard(id)
-                elseif modifier == "hair" then
-                    chosenPlayer:setHair(id)
-                else
-                    User:inform("Sorry, I didn't understand you.")
-                    return
-                end
-                User:logAdmin("changes avatar of "..chosenPlayer.name..": Set " ..modifier.." to ID "..id)
-            else
-                User:inform("Sorry, I didn't understand you.")
-                User:requestInputDialog(InputDialog("Change the appearance for the selected character.", "Usage: race <id>, gender <0|1>,, beard <id>, hair <id>, haircolor <red> <green> <blue>, skincolor <red> <green> <blue>" ,false, 255, cbInputDialog))
-            end
-        end
-        User:requestInputDialog(InputDialog("Change the appearance for the selected character.", "Usage: race <id>, gender <0|1>, beard <id>, hair <id>, haircolor <red> <green> <blue>, skincolor <red> <green> <blue>" ,false, 255, cbInputDialog))
+        changeAvatarForPlayer(User, chosenPlayer)
     end
     --Dialog to choose the player
     local sdPlayer = SelectionDialog("Change the avatar of ...", "First choose a victim:", cbChoosePlayer)

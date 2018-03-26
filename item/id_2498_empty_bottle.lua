@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_2498_empty_bottle' WHERE itm_id IN (2498);
 
 local common = require("base.common")
-local milking = require("content.gatheringcraft.milking")
+local milking = require("craft.gathering.milking")
 
 local M = {}
 

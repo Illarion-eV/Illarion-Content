@@ -1,0 +1,166 @@
+-- Illarion Server
+-- 
+-- This program is free software: you can redistribute it and/or modify it under
+-- the terms of the GNU Affero General Public License as published by the Free
+-- Software Foundation, either version 3 of the License, or (at your option) any
+-- later version.
+-- 
+-- This program is distributed in the hope that it will be useful, but WITHOUT
+-- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+-- FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+-- details.
+-- 
+-- You should have received a copy of the GNU Affero General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+------------------------------------------------------------------------------AC
+-- NPC Name: Matti Schwan                                                None --
+-- NPC Job:  priest                                                           --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  157,745,0              --
+-- NPC Sex:  male                       NPC Direction: north                  --
+--                                                                            --
+-- Author:   Dantagon                                                         --
+--                                                     easyNPC Parser v1.23.1 --
+--------------------------------------------------------------------------------
+
+-- SQL
+--INSERT INTO npc (npc_type,npc_posx,npc_posy,npc_posz,npc_faceto,npc_is_healer,npc_name, npc_script,npc_sex,npc_hair,npc_beard,npc_hairred,npc_hairgreen,npc_hairblue,npc_skinred,npc_skingreen,npc_skinblue,npc_hairalpha,npc_skinalpha) VALUES(0,157,745,0,0,FALSE,'Matti Schwan','npc.matti_schwan',0,1,2,28,24,23,108,65,33,255,255);
+
+name = "Matti Schwan"
+race = human
+sex = male
+position = 157, 745, 0
+direction = north
+affiliation = "None"
+job = "Priest"
+
+language = common
+defaultLanguage = common
+autointroduce = on
+
+author = "Dantagon"
+
+lookatDE = "Dieser NPC ist Matti Schwan, ein Priester der Sirani."
+lookatUS = "This NPC is Matti Schwan, the Priest of Sirani."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+-- appearance not defined yet
+hairID = 1
+beardID = 2
+colorHair = 28, 24, 23
+colorSkin = 108, 65, 33
+itemHead = 1415
+itemChest = 0
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 2295
+itemTrousers = 827
+itemShoes = 0
+
+------------------------------------------------------------------------------AC
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Matti Schwan, the Priest of Sirani. Keywords: Hello, god.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Matti Schwan, ein Priester der Sirani. Schlüsselwörter: Hallo, Gott.")
+
+-- Mandatory: General speech
+sex = male, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me grins, 'Hello, dearie.'"
+sex = male, english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me grins, 'Hello, dearie.'"
+sex = male, "Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied", "Hiho", "Hallo", "Hey", "Greeb" -> "#me grinst: 'Hallo Liebling!'"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hello! My, do you look absolutely gorgeous today."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello! My, do you look absolutely gorgeous today."
+"Grüß", "Gruß", "Grüss", "Gruss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied", "Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, du siehst heute umwerfend aus."
+"Farewell", "Bye", "Fare well", "See you" -> "Take care, sweetie."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Take care, sweetie."
+sex = male, "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl", "Ciao", "Adieu", "Au revoir", "Farebba" -> "Pass auf dich auf Süßer."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl", "Ciao", "Adieu", "Au revoir", "Farebba" -> "Pass auf dich auf Süße."
+"How are you", "How feel", "How do you do" -> "Fabulous. Absolutely fabulous. Thank you for asking."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Fabelhaft. Absolut fabelhaft. Danke der Nachfrage."
+"your name", "who are you", "who art thou" -> "I am Matti Schwan. Brother of Sirani."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt", "wie heisst" -> "Ich bin Matti Schwan, ein Bruder im Namen Siranis."
+
+
+-- Mandatory: Trade Hooks, use the trade consequence for traders
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Oh. No honey, if you are looking to buy or sell something you need to head back to Cadomyr."
+"kauf", "waren", "preis", "Handel", "veräußer", "veräusser", "erwerb" -> "Oh nein Schatz. Wenn du was kaufen oder verkaufen willst, musst du zurück nach Cadomyr gehen."
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "Well. It isn't quite what you think. First off, there is sand everywhere out here. I am constantly having to keep the altar clean. And then I am always answering women's questions on fashion. Their men know nothing!"
+english, "job" -> "Well. It isn't quite what you think. First off, there is sand everywhere out here. I am constantly having to keep the altar clean. And then I am always answering women's questions on fashion. Their men know nothing!"
+"job", "beruf" -> "Ja, ja, es ist nicht das, was du denkst. Zuallererst der Sand hier überall. Ich putze den ganzen Tag den Altar. Und dann muss ich ständig die Fragen der Frauen bezüglich Mode beantworten. Ihre Männer verstehen davon gar nichts."
+
+-- Gods
+"God" -> "Well, there are many gods, dearie. Perhaps you should ask me about a specific one."
+"Gott" -> "Nun, es gibt viele Götter, Liebling. Vielleicht solltest du mich nach einem bestimmten fragen."
+english, "Religion" -> "I am a follower of Sirani. I prefer to take pleasure in life and help ease some of the pain and suffering in this world."
+"Religion" -> "Ich bin ein Mann Siranis.Ich ziehe es vor, Freude am Leben zu haben und versuche einige der Schmerzen und Leiden in dieser Welt zu lindern."
+english, "Adron" -> "By. The. Goddess. Adron's followers put on the best parties. God of wine and festivals. His altar is in the tavern in Runewick. Try the wine while you are there dear. I hear it is to die for!"
+"Adron" -> "Bei der Göttin. Adrons Jünger geben die besten Feste. Der Gott des Weines und der Feste. Sein Altar steht in der Taverne Runewicks. Koste den Wein dort, wenn du vorbeikommst, er ist göttlich."
+english, "Bragon" -> "He's a fiery one, that Bragon. His warriors are quite fit and train often. But this elder god has turned a blind eye and many of his former followers follow Malachin now."
+"Bragon" -> "Ein feuriger Mann der Bragon. Seine Krieger sind gut in Form und trainieren oft. Doch als einer der alten Götter schaut er nicht mehr auf uns und viele seiner Anhänger haben sich Malachin zugewandt."
+english, "Cherga" -> "Her followers are a drag, but what can you expect from people who spend their time around dead people. Anyway, the goddess Cherga tends to the spirits in the afterlife. Her altar is in a graveyard on Pauldron Isle."
+"Cherga" -> "Ihre Anhänger sind Langweiler. Aber was kann man schon von Leuten erwarten, die den ganzen Tag mit Toten zu tun haben.Jedenfalls geleitet Cherga die Seelen ins Jenseits. Ihr Altar ist auf der Schulterplatten Insel."
+english, "Elara" -> "All study and no play makes Elara's followers duller than a box a rocks. Though I suppose if obtaining knowledge  is what makes her scholars and mages happy, who am I to judge. Her altar is in Runewicks library."
+"Elara" -> "Öde wie ein Haufen Steine sind Elaras Anhänger. Immer nur lernen, keine Vergnügungen. Aber wenn die Gelehrten und Magier Spaß daran haben zu lernen, wer wäre ich das zu verurteilen' Ihr Altar ist in Runewicks Bibliothek."
+english, "Eldan" -> "He is one of the elder gods. Eldan and his followers are quite dull. Though you are most likely never going to see one of them as they tend to live a spiritual hermit existence. Those that remain follow Elara now."
+"Eldan" -> "Er ist einer der alten Götter. Eldan und seine Anhänger sind ziemlich langweilig. Wobei du vermutlich nie einen von ihnen sehen wirst, denn sie fristen ihre Existenz als Einsiedler. Der Rest folgt nun Elara."
+english, "Findari" -> "The elder goddess of air. Her name is music to my ears. Findari was once followed by predominantly bards, but since she flew away many of them now follow Adron."
+"Findari" -> "Die alte Göttin der Luft. Ihr Name ist Musik in meinen Ohren. Findari wurde einstmals vor allem von Barden angebetet doch seit sie sich zurückzog, haben sich die meisten davon Adron zugewandt."
+english, "Irmorom" -> "The followers of Irmorom are perhaps the finest crafters I have ever seen. And believe me, they strike a hard bargain for their wares. Head to the marketplace in Galamir, his altar is not far from there."
+"Irmorom" -> "Die Anhänger Irmoroms sind wohl die geschicktesten Handwerker, die ich je sah. Glaub mir, sie verlangen hohe Preise für ihre Waren. Geh zum Markt von Galmair, nicht weit von dort wirst du seinen Altar finden."
+english, "Malachin" -> "Talk about fine in furs. Malachin is the god of battle and hunting, and all his followers do is prepare for both.  Head back towards Cadomyr, his altar is above the mine if you don't believe me."
+"Malachin" -> "Reden wir über wertvolle Pelze. Malachin ist der Gott der Jagd und der Schlachten und seine Anhänger sind stets auf beides vorbereitet. Wenn du mir nicht glaubst, geh zurück Richtung Cadomyr, sein Altar ist über der Mine."
+english, "Moshran" -> "#me places a hand on his chest and looks at you absolutely stunned."
+"Moshran" -> "#me legt eine Hand auf seine Brust und schaut dich reglos an."
+english, "Nargun" -> "Ack. You could say all things are fair in love and war, but Nargun does love his chaos. I swear, his followers are either insane, or have gambled away their money. Thank Sirani his altar is far away in Galmair."
+"Nargun" -> "Man könnte ja sagen in Liebe und Krieg geht es immer gerecht zu aber Nargun liebt sein Chaos. Ich schwöre, seine Anhänger sind entweder wahnsinnig oder haben ihr Geld verspielt. Sirani sei Dank, sein Altar ist weit weg, in Galmair."
+english, "Oldra" -> "The bountiful feasts in Oldra's honour are absolutely to die for. She is also followed by mothers to be and healers for her grandmotherly wisdom. But if you just want some good food, go find it in Yewdale, along with her altar."
+"Oldra" -> "Die großzügigen Feste zu Oldras Ehren sind wunderschön. Sie wird von werdenden Müttern und Heilern ob ihrer großmütterlichen Weisheit angebetet. Und wenn es dir nur nach einem guten Essen gelüstet, in Eibenthal an ihrem Altar findest du bestimmt etwas."
+english, "Ronagan" -> "Ronagan is the god of thieves and shadows. Not all who pray to him are thieves or assassins. Some are simply in need of a loaf of bread to feed their family or are forgotten orphans.. His altar is well hidden in the underground of Galmair."
+"Ronagan" -> "Ronagan ist der Gott der Diebe und Schatten. Doch nicht nur Diebe und Mörder beten ihn an. So manche brauchen nur etwas Brot um ihre hungrigen Familien zu ernähren oder sind vergessene Waisen. Sein Altar findet sich, gut versteckt, unter Galmair."
+english, "Sirani" -> "Sirani is the goddess of love and pleasure. Everyone, and I mean everyone, prays to her for matchmaking. But everyone forgets that she is also a goddess of hospitality, peace, and companionship.", "There is so much pain and suffering in this world. It is the responsibility of the followers of Sirani to bring comfort and balance. We abhor war and encourage peace and healing and all that is good in life.", "When a follower of Sirani dies, they are kissed by her. The good then find themselves in a beautiful paradise. If they have wronged others, but are regretful, are forgiven and let in. Those who are wicked with no regrets, are sent back to be reborn."
+"Sirani" -> "Sirani ist die Göttin der Liebe und der Freude. Jeder, und damit meine ich wirklich jeder, betet zu ihr wenn es um eine Eheanbahnung geht. Und doch wird gerne vergessen, dass sie auch eine Göttin der Gastfreundschaft, des Friedens und der Kameradschaft ist.", "Es gibt so viel Schmerz und Leid in dieser Welt. Es liegt in der Verantwortung der Anhänger Siranis, Trost und Gleichgewicht zu bringen. Wir verabscheuen Krieg und fördern Frieden und Gesundheit sowie alles Gute im Leben.", "Wenn ein Anhänger Siranis stirbt, blickt sie in dessen Herz und küsst ihn dann. Die Guten kommen in ein gesegnetes Paradies. Auch wer bereut wird eingelassen. Diejenigen, die böse sind und nichts bereuen, werden neu geboren."
+english, "Tanora" -> "Tanora, the elder goddess of water, is the only elder who still wanders these lands. Though she is heavily worshiped by her lizardfolk, I doubt that is why she stayed. It is rumored that she searches for something lost. Or is it someone'"
+"Tanora" -> "Tanora, die alte Göttin des Wassers ist die Einzige der Alten, die noch in unserer Welt weilen. Auch wenn sie inbrünstig von ihren Echsenmenschen verehrt wird glaube ich doch den Gerüchten, dass sie etwas sucht. Oder vielleicht jemanden'"
+english, "Ushara" -> "The rather down to earth elder goddess, Ushara, has few remaining followers since she left. They all tend to be older than dire elves and druids. Everyone else follows Oldra."
+"Ushara" -> "Die der Erde zugewandte alte Gottheit. Ushara hat nur noch wenige Anhänger seit sie unsere Welt verlassen hat. Ein paar seltsame Elfen und alte Druiden sind ihr geblieben. Alle Anderen beten jetzt zu Oldra."
+english, "Zhambra" -> "The followers of Zhambra are perhaps the most loyal people I have ever met. They also look quite fine in armor if you ask me. If you're curious, I would go take a look around his altar near the palace."
+"Zhambra:Die Anhänger Zhambras sind die treuesten Leute, die man finden kann. In ihren Rüstungen sehen sie auch gut aus. Wenn du neugierig bist, schau nur in der Nähe des Palastes. Dort ist sein Altar." -> "Zhambra:Die Anhänger Zhambras sind die treuesten Leute, die man finden kann. In ihren Rüstungen sehen sie auch gut aus. Wenn du neugierig bist, schau nur in der Nähe des Palastes. Dort ist sein Altar."
+
+-- Faction stuff
+"archmage" -> "He strikes me to be quite the bore. Always absorbed in his studies on his little private island. But I suppose if that is how he gets his kicks, the more power to him."
+english, "Elvaine", "Morgan" -> "He strikes me to be quite the bore. Always absorbed in his studies on his little private island. But I suppose if that is how he gets his kicks, the more power to him."
+"Elvaine", "Morgan", "Erzmagier" -> "Auf mich wirkt er wie ein Langweiler. Immer auf seiner winzigen Insel in seine Studien vertieft. Aber ich glaube es gefällt ihm und steigert auch seine Macht."
+english, "Runewick" -> "A nice ocean front town. But with the docks so close, a good blast of wind causes the whole town to smell like fish."
+"Runewick" -> "Ein hübsches Küstenstädtchen. Doch da der Hafen so nah liegt, riecht die ganze Stadt beim leisesten Wind nach Fisch."
+english, "Valerio", "Guilianni", "Don" -> "That dwarf is really not much of a looker. I think he has a greater love of coin than anything else."
+"Valerio", "Guilianni", "Don" -> "Also gutaussehend kann man den Zwerg nicht nennen. Ich glaub seine ganze Liebe gilt dem Geld."
+english, "Galmair" -> "It is a quaint, but dirty town in the mountains."
+"Galmair" -> "Das ist eine malerische, aber dreckige Stadt in den Bergen."
+"Queen" -> "Darling, she is the most beautiful person in all of Cadomyr. And her clothing. I must find out who her tailor is."
+english, "rosaline", "edwards" -> "Darling, she is the most beautiful person in all of Cadomyr. And her clothing. I must find out who her tailor is."
+"Königin", "rosaline", "edwards" -> "Sie ist die Schönste in ganz Cadomyr. Und ihre Kleider! Ich muss herausbekommen, wer ihr Schneider ist."
+english, "Cadomyr" -> "An oasis in the desert. Well, besides here of course. We do like our fineries. Textiles, jewelry, even fine glassware. And darling, if you have not yet seen the palace, you should go look. It is gorgeous!"
+"Cadomyr" -> "Eine Oase in der Wüste, nicht ganz so schön wie hier. Wir lieben die Pracht. Textilien, Juwelen und wertvolle Glaswaren. Und wenn du den Palast noch nicht gesehen hast, den musst du dir unbedingt anschauen, er ist wundervoll!"
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Du siehst fantastisch aus. Sind das neue Sachen'", "You look marvelous! Is that a new outfit'"
+cycletext "Freundlichkeit ist überzeugender als Gewalt.", "Kindness is more compelling than violence."
+cycletext "Liebe ist das Glück eines anderen vor dein eigenes zu stellen.", "Love is putting someone else's happiness before your own."
+cycletext "Meine Freude anderen zu helfen ermüdet nie.", "I will never tire from the pleasure of helping others."
+cycletext "Du siehst erschöpft aus, Liebes. Komm setz dich und trink etwas.", "My dear, you look absolutely exhausted. Sit. Drink."
+cycletext "Komm, es gibt keine Fremden in dieser Oase, nur Freunde, die du noch nicht kennengelernt hast.", "Come. Come. There are no strangers around the oasis. Only friends you have not yet met."
+cycletext "#me steckt sich eine Firnisblüte ins Haar.", "#me places a firnis blossom in his hair."
+cycletext "#me summt vor sich hin während er Leinen in Verbände reißt.", "#me hums to himself as he tears linen into bandages."
+cycletext "#me füllt seine Flasche auf mit Wasser aus der Oase.", "#me fills bottles of water from the oasis."
+cycletext "#me schält eine Mandarine.", "#me peels the skin from a tangerine."

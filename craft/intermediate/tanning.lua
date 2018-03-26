@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 
-module("craft.intermediate.tanning", package.seeall)
+local M = {}
 
-tanning = crafts.Craft:new{
+local tanning = crafts.Craft:new{
                     craftEN = "Tanning",
                     craftDE = "Gerben",
                     handTool = 2746,
@@ -35,3 +35,6 @@ local catId = tanning:addCategory("Leather", "Leder")
 --White Dye
 local product = tanning:addProduct(catId, 2547, 1)
 product:addIngredient(69) -- raw leather
+
+M.tanning = tanning
+return M

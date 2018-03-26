@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 
-module("craft.intermediate.pressing", package.seeall)
+local M = {}
 
-pressing = crafts.Craft:new{
+local pressing = crafts.Craft:new{
                     craftEN = "Pressing",
                     craftDE = "Pressen",
                     handTool = 2031,
@@ -41,3 +41,6 @@ local catId = pressing:addCategory("Wax", "Wachs")
 -- Wax
 local product = pressing:addProduct(catId, 431, 1)
 product:addIngredient(2529) -- honeycomb
+
+M.pressing = pressing
+return M

@@ -37,95 +37,109 @@ end
 
 function M.playerDeath(deadPlayer)
 
-    if deadPlayer:isAdmin() then --Admins don't die.
-
+    -- Admins do not die.
+    if deadPlayer:isAdmin() then
         deadPlayer:increaseAttrib("hitpoints", 10000) -- Respawn
         common.HighInformNLS(deadPlayer, "[Wiederbelebung] Admins sterben nicht.", "[Respawn] Admins don't die.")
         return --bailing out!
+    end
 
-    elseif common.isOnNoobia(deadPlayer.pos) then --someone died on Noobia!
-
+    -- Noobies do not die on Noobia.
+    if common.isOnNoobia(deadPlayer.pos) then
         deadPlayer:increaseAttrib("hitpoints", 10000) -- Respawn
         world:gfx(53, deadPlayer.pos)
         common.HighInformNLS(deadPlayer, "[Wiederbelebung] Während des Tutorials bist du 'unsterblich'. Im Hauptspiel ist die Wiederbelebung mit merklichen Konsequenzen für deinen Charakter verbunden.", "[Respawn] During the tutorial, you are 'immortal'. In the main game, serious consequences for your character are triggered upon respawn.")
         return --bailing out!
+    end
 
-    elseif common.isInPrison(deadPlayer.pos) then -- death in the prison mine; no kill taxi!
-
+    -- Death in the prison mine; no kill taxi!
+    if common.isInPrison(deadPlayer.pos) then
         deadPlayer:increaseAttrib("hitpoints", 10000) -- Respawn
         world:gfx(53, deadPlayer.pos)
         common.HighInformNLS(deadPlayer, "[Wiederbelebung] In der Gefängnismine bist du 'unsterblich'. Weiterarbeiten!", "[Respawn] In the prison mine, you are 'immortal'. Work on!")
         return --bailing out!
+    end
 
-    else --valid death
+    -- Valid death.
+    world:makeSound(25, deadPlayer.pos)
+    showDeathDialog(deadPlayer)
 
-        world:makeSound(25, deadPlayer.pos)
-        showDeathDialog(deadPlayer)
+    -- Death consequence #1: Quality loss of equipped items.
+    local DURABILITY_LOSS = 10
+    if deadPlayer:isNewPlayer() then
+        DURABILITY_LOSS = 5
+    end
+    local BLOCKED_ITEM = 228
+    for i = Character.head, Character.coat do
+        local item = deadPlayer:getItemAt(i)
+        local commonItem = world:getItemStats(item)
+        if item.id > 0 and item.id ~= BLOCKED_ITEM and item.quality > 100 and commonItem.MaxStack == 1 then
+            local durability = item.quality % 100
+            if durability <= DURABILITY_LOSS then
+                gems.returnGemsToUser(deadPlayer, item)
+                deadPlayer:increaseAtPos(i, -1)
 
-        --Quality loss
-        local DURABILITY_LOSS = 10
-        local BLOCKED_ITEM = 228
-        for i = Character.head, Character.coat do
-            local item = deadPlayer:getItemAt(i)
-            local commonItem = world:getItemStats(item)
-            if item.id > 0 and item.id ~= BLOCKED_ITEM and item.quality > 100 and commonItem.MaxStack == 1 then
-                local durability = item.quality % 100
-                local newbieModficator = 1
-                if deadPlayer:isNewPlayer() then
-                    newbieModficator = 2
+                if i == 5 and world:getItemStats(deadPlayer:getItemAt(6)).id == BLOCKED_ITEM then
+                    deadPlayer:increaseAtPos(6, -1)
                 end
 
-                if durability <= DURABILITY_LOSS / newbieModficator then
-                    gems.returnGemsToUser(deadPlayer, item)
-                    deadPlayer:increaseAtPos(i, -1)
-                    
-                    if i == 5 and world:getItemStats(deadPlayer:getItemAt(6)).id == BLOCKED_ITEM then
-                        deadPlayer:increaseAtPos(6, -1)
-                    end
-                    
-                    if i == 6 and world:getItemStats(deadPlayer:getItemAt(5)).id == BLOCKED_ITEM then
-                        deadPlayer:increaseAtPos(5, -1)
-                    end
-                    
-                    local nameText = world:getItemName(item.id, deadPlayer:getPlayerLanguage())
-                    common.HighInformNLS(deadPlayer, "[Tod] Dein Gegenstand '"..nameText.."' wurde zerstört.", "[Death] Your item '"..nameText.."' was destroyed.")
-                else
-                    item.quality = item.quality - DURABILITY_LOSS / newbieModficator
-                    world:changeItem(item)
+                if i == 6 and world:getItemStats(deadPlayer:getItemAt(5)).id == BLOCKED_ITEM then
+                    deadPlayer:increaseAtPos(5, -1)
                 end
-            end
-        end
-        
-        --Drop from bag
-        local spectators = world:getPlayersInRangeOf(deadPlayer.pos, 15)
-        if #spectators > 1 and not deadPlayer:isNewPlayer() then
-            local bag = deadPlayer:getBackPack()
-            if bag then
-                local candidates = {}
-                for i = 0,99 do
-                    worked, theItem, theContainer = bag:viewItemNr(i)
-                    theItemStats = world:getItemStats(theItem)
-                    if theItem and worked and not gems.itemHasGems(theItem) and common.IsNilOrEmpty(theItem:getData("descriptionEn")) and common.IsNilOrEmpty(theItem:getData("descriptionDe")) and common.IsNilOrEmpty(theItem:getData("rareness")) and theItemStats.Rareness == 1 then
-                        table.insert(candidates, i)
-                    end
-                end
-                local counter = 0
-                if #candidates > 0 then
-                    repeat
-                        local index = math.random(1,#candidates)
-                        workedView, theItemView = bag:viewItemNr(candidates[index])
-                        if workedView then
-                            worked, theItem = bag:takeItemNr(candidates[index], theItemView.number)
-                            if worked then
-                                world:createItemFromItem(theItemView, deadPlayer.pos, true)
-                                counter = counter +1 
-                            end
-                        end
-                    until counter == math.min(#candidates, 3)
-                end
+
+                local nameText = world:getItemName(item.id, deadPlayer:getPlayerLanguage())
+                common.HighInformNLS(deadPlayer, "[Tod] Dein Gegenstand '"..nameText.."' wurde zerstört.", "[Death] Your item '"..nameText.."' was destroyed.")
+            else
+                item.quality = item.quality - DURABILITY_LOSS
+                world:changeItem(item)
             end
         end
     end
+
+    -- Death consequence #2: Drop few items from bag.
+    if deadPlayer:isNewPlayer() then
+        -- No negative consequence for Noobies.
+        return
+    end
+
+    local spectators = world:getPlayersInRangeOf(deadPlayer.pos, 15)
+    if #spectators < 2 then
+        -- If nobody is around to recover loot, then do not drop at all.
+        return
+    end
+
+    local bag = deadPlayer:getBackPack()
+    if not bag then
+        -- Leave characters without bag alone.
+        return
+    end
+
+    local candidates = {}
+    for i = 0, 99 do
+        local worked, theItem = bag:viewItemNr(i)
+        local theItemStats = world:getItemStats(theItem)
+        if theItem and worked and not gems.itemHasGems(theItem) and common.IsNilOrEmpty(theItem:getData("descriptionEn")) and common.IsNilOrEmpty(theItem:getData("descriptionDe")) and common.IsNilOrEmpty(theItem:getData("rareness")) and theItemStats.Rareness == 1 then
+            table.insert(candidates, i)
+        end
+    end
+
+    if #candidates == 0 then
+        -- No item found that we can responsibly take away.
+        return
+    end
+
+    local counter = 0
+    repeat
+        local index = math.random(1, #candidates)
+        local workedView, theItemView = bag:viewItemNr(candidates[index])
+        if workedView then
+            local worked = bag:takeItemNr(candidates[index], theItemView.number)
+            if worked then
+                world:createItemFromItem(theItemView, deadPlayer.pos, true)
+                counter = counter + 1
+            end
+        end
+    until counter == math.min(#candidates, 3)
 end
 
 return M

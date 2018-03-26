@@ -16,17 +16,24 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local common = require("base.common")
-local gathering = require("content.gathering")
+local gathering = require("craft.base.gathering")
 
-module("content.gatheringcraft.egggathering", package.seeall)
+local M = {}
 
-function StartGathering(User, SourceItem, ltstate)
+function M.StartGathering(User, SourceItem, ltstate)
     local EMPTY_NEST = 1172
     local FILLED_NEST = 1171
     local EGG = 1150
 
-    gathering.InitGathering();
-    local egggathering = gathering.egggathering;
+    local egggathering = gathering.GatheringCraft:new{LeadSkill = Character.husbandry, LearnLimit = 100}; -- egg collecting
+    egggathering:AddRandomPureElement(gathering.prob_extremely_rarely); -- Any pure element
+    egggathering:AddRandomMagicGem(1, gathering.prob_extremely_rarely); -- Any latent magical gem
+    egggathering:SetShard(gathering.prob_rarely,"An einem Ei klebt ein Splitter eines magischen Artefaktes.", "A shard of a magical artifact is stuck to an egg."); -- Any shard
+    egggathering:AddRandomItem(249,1,333,{},gathering.prob_occasionally,"Für dieses Nest wurde ein ganzes Bündel Getreide als Nistmaterial verwendet.","A bundle of grain was used as nesting material for this nest."); --bundle of grain
+    egggathering:AddRandomItem(463,1,333,{},gathering.prob_frequently,"Du findest eine besonders große Feder, mit der man sicher auch gut schreiben kann.","You find a big feather that looks suitable for writing."); --Quill
+    egggathering:SetTreasureMap(gathering.prob_rarely,"Unter dem Nest findest du eine Karte. Kein gutes Versteck!","Under the nest, you find a map. Not a good hiding place.");
+    egggathering:AddMonster(622,gathering.prob_rarely,"Während du die Eier stiehlst, hüpft ein wütendes Hühnchen aus dem Nest.","While you steal eggs an angry chickens hops out of the nest!",4,7);
+    egggathering:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
 
     common.ResetInterruption( User, ltstate );
     if ( ltstate == Action.abort ) then -- work interrupted
@@ -131,3 +138,5 @@ function preventGathering(User, theNest)
     end
 
 end
+
+return M

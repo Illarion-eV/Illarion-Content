@@ -20,8 +20,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local teacher = require("alchemy.base.teacher")
 local common = require("base.common")
 local lookat = require("base.lookat")
-local herbgathering = require("content.gatheringcraft.herbgathering")
-local woodchopping = require("content.gatheringcraft.woodchopping")
+local herbgathering = require("craft.gathering.herbgathering")
+local woodchopping = require("craft.gathering.woodchopping")
 
 local M = {}
 
@@ -40,7 +40,7 @@ function M.UseItem(User, SourceItem, ltstate)
         herbgathering.StartGathering(User, SourceItem, ltstate);
         return;
     end
-    
+
     if woodchopping.isUnchoppableTree(SourceItem,User) then
         return
     end
@@ -50,7 +50,7 @@ function M.UseItem(User, SourceItem, ltstate)
         woodchopping.StartGathering(User, SourceItem, ltstate);
         return;
     end
-    
+
 end
 
 function M.LookAtItem(User,Item)
@@ -60,7 +60,7 @@ function M.LookAtItem(User,Item)
 
     end
     -- alchemy end
-    
+
     if Item:getData("playerPlanted") ~= "" then
         lookat.SetSpecialDescription(Item, "Dieser Baum ist jung und steht noch nicht lange hier. Er trägt kaum Früchte und wird so gut wie kein Holz liefern.", "This young tree hasn't been around for a long time. It has just a few fruits and will yield close to no wood.")
         lookat.SetSpecialName(Item, "Junger Baum", "Young tree")

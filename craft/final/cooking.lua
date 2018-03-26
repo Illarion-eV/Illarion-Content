@@ -17,9 +17,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local crafts = require("craft.base.crafts")
 local brewing = require("craft.final.brewing")
 
-module("craft.final.cooking", package.seeall)
+local M = {}
 
-cooking = crafts.Craft:new{
+local cooking = crafts.Craft:new{
                      craftEN = "Cooking",
                      craftDE = "Kochen",
                      handTool = 227,
@@ -27,14 +27,15 @@ cooking = crafts.Craft:new{
                      sfx = 7,
                      sfxDuration = 80,
                      fallbackCraft = brewing.brewing,
-                   };
+                   }
 
 
 cooking:addTool(3581) -- kettle w/fire
 
---------------------------------------------------------------------------------------------
+local product
+local catId
 
-local catId = cooking:addCategory("Plate recipes", "Tellergerichte")
+catId = cooking:addCategory("Plate recipes", "Tellergerichte")
 
 -- sausage
 product = cooking:addProduct(catId, 3051, 2)
@@ -133,7 +134,7 @@ product:addIngredient(2493, 3) -- carrots
 product:addIngredient(517, 1) -- bottle of rum
 product:addRemnant(518, 1) -- empty rum bottle
 
-local catId = cooking:addCategory("Bowl recipes", "Schüsselgerichte")
+catId = cooking:addCategory("Bowl recipes", "Schüsselgerichte")
 
 -- mushroom soup
 product = cooking:addProduct(catId, 2456, 1)
@@ -222,3 +223,6 @@ product:addIngredient(788, 1) -- bottle of carrot juice
 product:addIngredient(52, 1) -- bucket of water
 product:addRemnant(51, 1) -- bucket
 product:addRemnant(790,1) -- empty juice bottle
+
+M.cooking = cooking
+return M

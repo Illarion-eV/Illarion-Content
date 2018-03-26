@@ -26,7 +26,7 @@ function M.setTrait(character, traitTable)
     character:setQuestProgress(traitTable.questId, bit32.replace(character:getQuestProgress(traitTable.questId), 1, traitTable.bitPostion))
 end
 
-function M.removeTrait(character)
+function M.removeTrait(character, traitTable)
     character:setQuestProgress(traitTable.questId, bit32.replace(character:getQuestProgress(traitTable.questId), 0, traitTable.bitPostion))
 end
 
@@ -39,6 +39,6 @@ local GENERAL = 1
 --Passive income--
 -- Beginning of each month, the character is granted some money by their secret sources.
 M.PASSIVE_INCOME = {questId = 720, bitPostion = 1, nameDe = "Passives Einkommen", nameEn = "Passive income", descriptionDe = "Jeden Monat erhälst du einen kleinen Geldbetrag aus deinen Quellen.", descriptionEn = "Every month, your sources grant you a small amount of money.", category = GENERAL}
-table.insert(allTraits, M.PASSIVE_INCOME)
+table.insert(M.allTraits, M.PASSIVE_INCOME)
 
 return M

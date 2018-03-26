@@ -21,25 +21,30 @@ local common = require("base.common")
 
 local M = {}
 
-WoodIds = {544,543,2560,3};
-BC = base.common;
+local WoodIds = {544,543,2560,3};
+
+local IsWood
+local LightFire
+local tryWildfire
+local callFireMan
+local logToFile
 
 function M.UseItem(User, SourceItem)
 
     -- item in hand?
-    if not BC.IsItemInHands(SourceItem) then
-        BC.InformNLS(User,
+    if not common.IsItemInHands(SourceItem) then
+        common.InformNLS(User,
             "Du musst die Zunderbüchse in die Hand nehmen.",
             "You have to hold the tinderbox in your hands.");
         return;
     end
 
-    local frontPos = BC.GetFrontPosition(User);
+    local frontPos = common.GetFrontPosition(User);
 
     -- check front position for proper ground tile
-    local groundType = BC.GetGroundType(world:getField(frontPos).tile);
-    if groundType == BC.GroundType.water or groundType == BC.GroundType.unknown then
-        BC.InformNLS(User,
+    local groundType = common.GetGroundType(world:getField(frontPos).tile);
+    if groundType == common.GroundType.water or groundType == common.GroundType.unknown then
+        common.InformNLS(User,
             "Auf diesem Untergrund kannst du kein Feuer machen.",
             "You can't light a fire on this ground.");
         return;
@@ -50,7 +55,7 @@ function M.UseItem(User, SourceItem)
     local frontItem
     local posOkay
     if world:isItemOnField(frontPos) then
-        frontItem = BC.GetFrontItem(User);
+        frontItem = common.GetFrontItem(User);
         if frontItem and frontItem.id == 2488 then -- a kettle
             posOkay = true;
         elseif IsWood(frontItem) then
@@ -62,7 +67,7 @@ function M.UseItem(User, SourceItem)
         end
     end
     if not posOkay or world:isCharacterOnField(frontPos) then
-        BC.InformNLS(User,
+        common.InformNLS(User,
             "Du kannst nur unter einem Kessel oder an einer freien Stelle ein Feuer machen.",
             "You have to light a fire beneath a kettle or at a clear place.");
         return;
@@ -84,7 +89,7 @@ function M.UseItem(User, SourceItem)
     end
 
     -- first check the hand slot
-    local woodItem = BC.GetTargetItem(User, SourceItem);
+    local woodItem = common.GetTargetItem(User, SourceItem);
     if IsWood(woodItem) then
         world:erase(woodItem, 1);
         foundWood = true;
@@ -107,7 +112,7 @@ function M.UseItem(User, SourceItem)
         -- wildfires disabled
         --tryWildfire(User, SourceItem);
     else
-        BC.InformNLS(User,
+        common.InformNLS(User,
             "Für ein Feuer brauchst du Holz.",
             "For a fire you need wood.");
     end
@@ -131,9 +136,9 @@ function IsWood(item)
     return false;
 end
 
-function LightFire(User, FrontPos)
+function LightFire(User, frontPos)
     world:createItemFromId(12,1,frontPos,true,333,nil); -- the fire
-    BC.InformNLS(User,
+    common.InformNLS(User,
         "Du entzündest ein Feuer.",
         "You light a fire.");
 end

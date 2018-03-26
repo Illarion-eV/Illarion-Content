@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 
-module("craft.intermediate.dyemaking", package.seeall)
+local M = {}
 
-dyemaking = crafts.Craft:new{
+local dyemaking = crafts.Craft:new{
                     craftEN = "Dyemaking",
                     craftDE = "Farbenherstellung",
                     handTool = 58,
@@ -60,3 +60,6 @@ product:addIngredient(52) -- Water bucket
 product = dyemaking:addProduct(catId, 2680, 1)
 product:addIngredient(753, 2) -- Blue Bird's Berry
 product:addIngredient(52) -- Water bucket
+
+M.dyemaking = dyemaking
+return M

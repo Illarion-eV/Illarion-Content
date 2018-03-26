@@ -17,9 +17,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local crafts = require("craft.base.crafts")
 local potashmaking = require("craft.intermediate.potashmaking")
 
-module("craft.intermediate.sieving", package.seeall)
+local M = {}
 
-sieving = crafts.Craft:new{
+local sieving = crafts.Craft:new{
                     craftEN = "Sieving",
                     craftDE = "Sieben",
                     handTool = 312,
@@ -36,3 +36,6 @@ local catId = sieving:addCategory("Sand", "Sand")
 -- Quartz sand
 local product = sieving:addProduct(catId, 316, 1)
 product:addIngredient(726) -- coarse sand
+
+M.sieving = sieving
+return M

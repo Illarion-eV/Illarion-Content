@@ -19,44 +19,44 @@ local factions = require("base.factions")
 local M = {}
 
 --Welches Item ist ein Auftrag (Schriftrolle)
-OrderItem = 3110;
+local OrderItem = 3110
 
 --Wie viele minuten wird ein Char gesperrt wenn er zu viele offene Aufträge hat und einen neuen annehmen will
-OrderRetentionPeriod = 5*60; --5 rl hours ig time retention period(8 was bit too high!)
+local OrderRetentionPeriod = 5*60 --5 rl hours ig time retention period(8 was bit too high!)
 
 --Um welchen Wert wird die Vertrauenswürdigkeit nach ablauf der Sperrfrist erhöht
-M.ThrustworthynessChangeAfterRetentionPeriod = 5;
+M.ThrustworthynessChangeAfterRetentionPeriod = 5
 
 --Um welchen Wert wird die Vertrauenswürdigkeit nach annehmen eines neuen Auftrags vermindert
-ThrustworthynessChangeAfterGetOrder = -5;
+local ThrustworthynessChangeAfterGetOrder = -5
 
 --Um welchen Wert wird die Vertrauenswürdigkeit erhöht wenn ein Auftrag innerhalb der normalen Zeit erfüllt wird.
-ThrustworthynessChangeAfterSuccessOrder = 10;
+local ThrustworthynessChangeAfterSuccessOrder = 10
 
---Um welchen Wert wird die Vertrauenswürdigkeit erhöht wenn ein Auftrag erfüllt wird aber zu spät ist oder die Qualitï¿½t nicht stimmt
-ThrustworthynessChangeAfterNotSuccessOrder = 5;
+--Um welchen Wert wird die Vertrauenswürdigkeit erhöht wenn ein Auftrag erfüllt wird aber zu spät ist oder die Qualität nicht stimmt
+local ThrustworthynessChangeAfterNotSuccessOrder = 5
 
 --Untergrenze der Vertrauenswürdigkeit, hat ein char weniger vertrauenswürdigkeit wird eine Sperrfrist festegelegt.
-ThrustworthynessBorder = 10;
+local ThrustworthynessBorder = 10
 
---Um welchen Wert wird der Wert fï¿½r Gute Aufträge erhöht wenn ein Auftrag innerhalb der normalen Zeit erfüllt wird.
-GoodOrderChangeAfterSuccessOrder = 3;
---Um welchen Wert wird der Wert fï¿½r Gute Aufträge erhöht wenn ein Auftrag ï¿½berzogen wurde
-GoodOrderChangeAfterNotSuccessOrder = -15;
---Um welchen Wert wird der Wert fï¿½r Gute Aufträge gesenkt nach einer Sperrfrist
-M.GoodOrderChangeAfterRetentionPeriod = -50;
-
-
+--Um welchen Wert wird der Wert für Gute Aufträge erhöht wenn ein Auftrag innerhalb der normalen Zeit erfüllt wird.
+local GoodOrderChangeAfterSuccessOrder = 3
+--Um welchen Wert wird der Wert für Gute Aufträge erhöht wenn ein Auftrag überzogen wurde
+local GoodOrderChangeAfterNotSuccessOrder = -15
+--Um welchen Wert wird der Wert für Gute Aufträge gesenkt nach einer Sperrfrist
+M.GoodOrderChangeAfterRetentionPeriod = -50
 
 
---Erzeugt ein item fï¿½r eine Bestellung
+
+
+--Erzeugt ein item für eine Bestellung
 --@param itemid die id des zu liefernden items
 --@param amount die anzahl der zu liefernden items
-function OrderItemStruct(itemid, amount)
+local function OrderItemStruct(itemid, amount)
     return {id=itemid,count=amount};
 end
 
-function TimeStruct(nday,nmonth,nyear,nhour)
+local function TimeStruct(nday,nmonth,nyear,nhour)
     return {day=nday,month=(nmonth-1),year=nyear,hour=nhour};
 end
 
@@ -72,7 +72,7 @@ end
 --     CoinsModStruct(2,100)
 --     fï¿½r je 2 Stunden ï¿½ber den Auftrag wï¿½rde 100 abgezogen werden
 --     bei 5 Stunden sind das 200 weniger also noch 800 Gold.
-function CoinsModStruct(qualmod,mvalue)
+local function CoinsModStruct(qualmod,mvalue)
     return {mod=qualmod,value=mvalue};
 end
 
@@ -86,9 +86,9 @@ end
 function M.setThrustWorthyness(user,ntwn,ngoodorders)
     local qp = user:getQuestProgress(61);
     --Vertrauenswürdigkeit herausmasken
-    twn = bit32.band(qp, 255);
+    local twn = bit32.band(qp, 255);
     --Lieferfï¿½higkeit herausmasken
-    goodorders = bit32.band(bit32.rshift(qp, 8), 255);
+    local goodorders = bit32.band(bit32.rshift(qp, 8), 255);
     if ( twn == 0 ) then
         twn = 50;
     end
@@ -132,9 +132,9 @@ local function getThrustWorthyness(user)
     return twn, goodorders;
 end
 
-OrderState = { NormalOrder = 0};
+local OrderState = { NormalOrder = 0};
 
-OrderNPC =
+local OrderNPC =
 {
     --der NPC
     npc = nil,
@@ -278,7 +278,7 @@ function OrderNPC:showStats(who)
    self.orderPool:inform(who);
 end
 
-function getNumberInString(thestring)
+local function getNumberInString(thestring)
     local a,b,value = string.find(thestring,"(%d+)");
     return tonumber(value);
 end
@@ -290,7 +290,7 @@ function OrderNPC:receiveText(who,text)
         elseif ( text == "show stats" ) then
             self:showStats(who);
         elseif ( text == "thrustworthyness" ) then
-            twn, go = getThrustWorthyness(who);
+            local twn, go = getThrustWorthyness(who);
             who:inform("twn: "..twn.." go: "..go);
         elseif ( string.find(text,"set twn.+(%d+)") ) then
             local numb = getNumberInString(text);
@@ -558,7 +558,7 @@ end
 
 
 --Definition der Werte eines Basisauftrages
-Order =
+local Order =
 {
     --der Gegenstand welcher der auftrag ist
     orderitem = nil,
@@ -748,7 +748,7 @@ end
 ]]--
 function Order:createOrderItem(Character)
 
-    scriptitem = Character:getItemAt( Character.right_tool );
+    local scriptitem = Character:getItemAt( Character.right_tool );
     if ( scriptitem.id ~= 0 ) then
         scriptitem = Character:getItemAt( Character.left_tool);
     end
@@ -779,7 +779,7 @@ end
 --@npc der NPC mit dem der Handel geprï¿½ft werden soll
 --@return die durchschnittsabweichung von der Qualitï¿½t, eine Liste mit den Auftragsitems oder null wenn die Items nicht vorhanden waren
 function Order:checkOrder(Character,npc)
-    ret = OrderStateStruct();
+    local ret = OrderStateStruct();
     --items = {}
     --Werte für durchschnittsberechnung
     local allcount = 0;
@@ -822,7 +822,7 @@ function Order:checkOrder(Character,npc)
         end
 
     end
-    averquali = math.floor((curquali / allcount) + 0.5);
+    local averquali = math.floor((curquali / allcount) + 0.5);
     --durchschnittsqualitï¿½t vergleichen.
     if ( averquali >= self.quality ) then
         ret.inquality = true;
@@ -1070,7 +1070,7 @@ function Order:get()
     end
 end
 
-QualityText = { {ger = "furchtbar",eng = "horrible"},
+local QualityText = { {ger = "furchtbar",eng = "horrible"},
                 {ger = "schrecklich",eng = "awful"},
                 {ger = "very bad",eng = "very bad"},
                 {ger = "schlecht",eng = "bad" },
@@ -1082,7 +1082,7 @@ QualityText = { {ger = "furchtbar",eng = "horrible"},
                 {ger = "perfekt",eng = "perfect"},
               };
 
-MonthNames = {"Elos", "Tanos", "Zhas", "Ushos", "Siros", "Ronas", "Bras", "Eldas", "Irmas", "Malas", "Findos", "Olos", "Adras", "Naras", "Chos", "Mas"}; --List of our months
+local MonthNames = {"Elos", "Tanos", "Zhas", "Ushos", "Siros", "Ronas", "Bras", "Eldas", "Irmas", "Malas", "Findos", "Olos", "Adras", "Naras", "Chos", "Mas"}; --List of our months
 
 function Order:lookAt(Char)
     local text = "";
@@ -1115,7 +1115,7 @@ function Order:lookAt(Char)
         else
             text = text .. " abzuliefern in " ..self.reltime .. " Stunden";
         end
-        g,s,c = CoinsToGSC(self.coins);
+        local g,s,c = CoinsToGSC(self.coins);
         if g == 0 then
             text = text .. " für " .. s .. " Silber und " .. c .. " Kupfermünzen.";
         else
@@ -1148,7 +1148,7 @@ function Order:lookAt(Char)
         else
             text = text .. " to deliver in " ..self.reltime.." hours";
         end
-        g,s,c = CoinsToGSC(self.coins);
+        local g,s,c = CoinsToGSC(self.coins);
         if g == 0 then
             text = text .. " for " .. s .. " silver and " .. c .. " copper coins.";
         else
@@ -1177,7 +1177,7 @@ end
              aufmultipliziert
     ]]--
 function OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount,nmincoins)
-    ret =  {
+    local ret =  {
         id = nid,
         number = nnumber,
         price = nprice,
@@ -1203,7 +1203,7 @@ function OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount,nmin
 end
 
 -- Ein Auftragspool
-OrderPool =
+local OrderPool =
 {
     --pool mit auftragsitems nach schwierigkeitsstufen eingeordnet
     pool = {},
@@ -1226,22 +1226,22 @@ OrderPool =
 };
 
 --Typen der Dringlichkeit eines auftrages
-TimeTypes = { NORMAL=0,HASTY=1,URGENT=2,VERY_URGENT=3,INSTANT=4 };
+local TimeTypes = { NORMAL=0,HASTY=1,URGENT=2,VERY_URGENT=3,INSTANT=4 };
 
 --Zeitmodifkikatoren: linker wert ist min Zeitwert, rechts max: 0.9,1.1 Bedeutet das Die Zeit von 90%-110% der normalen Zeit liegt
 --Bei einer Zeit von 10h also zwischen 9-11 h
 --                NORMAL    HASTY     URGENT  VERY_URGENT INSTANT
-TimeModTable = { {90,110},{80,90},{65,80},{50,65},{30,50} };
-CoinsModTable = { {80,115},{90,115},{100,130},{120,170},{130,200} };
+local TimeModTable = { {90,110},{80,90},{65,80},{50,65},{30,50} };
+local CoinsModTable = { {80,115},{90,115},{100,130},{120,170},{130,200} };
 --Wie groï¿½ ist der Werteverlust nach bestimmter Zeit die beiden Zahlen bedeuten
 --links: Nach wieviel Prozent der Stunden, rechts: wird welche Wert (in prozent) verloren.
 --Bsp.: Auftrag in 10h Wert 100 für die Werte {20,50}->nach 12 h ist der Auftrag nur noch 50 Wert. Nach 14 h gar nichts mehr.
 --Dabei ist die kleinste Zeit immer 1 h... d.H. {1,100} wï¿½rde fast immer bedeuten das bei ï¿½berziehung des Auftrags hinterher kein
 --Gewinn abgegeben wï¿½rde. Bzw. nur der mindestgewinn.
-ValueLossTimeTable = { {30,30},{20,40},{15,50},{10,60},{10,80} };
+local ValueLossTimeTable = { {30,30},{20,40},{15,50},{10,60},{10,80} };
 --Wertverlust je Qualitätspunkt unter dem Geforderten {1,20} Wert wird um 20 % vermindert je 1 Qualitätspunkt weniger.
 --Bei geforderter Qualität von 6 und gelieferter Qualität von 4 = 40 % weniger Geld.
-ValueLossQualityTable = { 1,20 }
+local ValueLossQualityTable = { 1,20 }
 
 --[[
     Erzeugt einen neuen Auftragspool mit items
@@ -1424,13 +1424,11 @@ end
 function getDigitName(number,lang) --returns a digit from 0-9 as text
 
 if number<10 then
-    if not InitDigitNames then
-        InitDigitNames = true;
-        digit_de = {"eins", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun"};
-        digit_de[0] = "null";
-        digit_eng ={"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-        digit_eng[0] = "zero";
-    end
+
+    local digit_de = {"eins", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun"};
+    digit_de[0] = "null";
+    local digit_eng ={"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+    digit_eng[0] = "zero";
 
     if lang == 0 then
         return digit_de[number];
@@ -1442,9 +1440,9 @@ end
 end
 
 function ConvertDateToHourOffset(year, month, day, hour)
-    DeliverTimestamp = (year*365+(month-1)*24+day)*24+hour;
-    curHourTimestamp = (world:getTime("year")*365+(world:getTime("month")-1)*24+world:getTime("day"))*24+world:getTime("hour");
-    HoursTillInvalidOrder = DeliverTimestamp - curHourTimestamp;
+    local DeliverTimestamp = (year*365+(month-1)*24+day)*24+hour;
+    local curHourTimestamp = (world:getTime("year")*365+(world:getTime("month")-1)*24+world:getTime("day"))*24+world:getTime("hour");
+    local HoursTillInvalidOrder = DeliverTimestamp - curHourTimestamp;
     return HoursTillInvalidOrder;
 end
 

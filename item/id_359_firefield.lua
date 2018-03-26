@@ -32,6 +32,23 @@ local function checkFlameImmunity(monsterId)
     return flameImmuneMonsters[monsterId]
 end
 
+local function DeleteFlame(User, FlameItem)
+    local field = world:getField(User.pos);
+    local count = field:countItems();
+    local currentitem;
+    local items = { };
+    for i=0, count-1 do
+        currentitem = world:getItemOnField(User.pos);
+        world:erase(currentitem, currentitem.number);
+        if(currentitem.id ~= FlameItem.id) then
+            table.insert(items, currentitem);
+        end
+    end
+    for i,item in pairs(items) do
+        world:createItemFromItem(item, User.pos, true);
+    end
+end
+
 function M.CharacterOnField(User)
 
     -- dont harm dead chars anymore
@@ -78,23 +95,6 @@ function M.CharacterOnField(User)
         DeleteFlame(User, FieldItem);
         User:inform("Die Feuerflamme war nur eine Illusion und verpufft.",
                     "The fireflame was just an illusion and disappears.")
-    end
-end
-
-function DeleteFlame(User, FlameItem)
-    local field = world:getField(User.pos);
-    local count = field:countItems();
-    local currentitem;
-    local items = { };
-    for i=0, count-1 do
-        currentitem = world:getItemOnField(User.pos);
-        world:erase(currentitem, currentitem.number);
-        if(currentitem.id ~= FlameItem.id) then
-            table.insert(items, currentitem);
-        end
-    end
-    for i,item in pairs(items) do
-        world:createItemFromItem(item, User.pos, true);
     end
 end
 

@@ -19,7 +19,6 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- note further that reload_tables will be called after this if and only if the !rd was successful and the !rd was issued by a !fr
 
 local alchemy = require("alchemy.base.alchemy")
-local areas = require("content.areas")
 local lever = require("item.lever")
 local granorsHut = require("content.granorsHut")
 local oldSlimeFeeding = require("content.oldSlimeFeeding")
@@ -28,10 +27,9 @@ local shipmasterParchments = require("content.shipmasterParchments")
 local M = {}
 
 function M.onReload()
-    
+
     oldSlimeFeeding.resetLever()
     alchemy.InitAlchemy()
-    areas.Init()
     lever.init()
     granorsHut.potionReplacer()
     shipmasterParchments.checkParchments()

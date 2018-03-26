@@ -204,46 +204,46 @@ local function ambientActionFlameThrower(user,targetChar)
         if (not dialog:getSuccess()) then
             return
         end
-        
+
         local inputNumber = dialog:getInput()
         if (string.find(inputNumber,"(%d+) (%d+) (%d+)") ~= nil) then
             local _, _, flameId, radius, wear = string.find(inputNumber,"(%d+) (%d+) (%d+)")
             flameId = tonumber(flameId)
             radius = tonumber(radius)
             wear = tonumber(wear)
-            
+
             local fireFlame = 359
             local iceFlame = 360
             if flameId ~= fireFlame and flameId ~= iceFlame then
                 user:inform("No proper flame id provided.")
                 return
             end
-            
+
             if wear > 255 then
                 wear = 255
             end
-            
+
             if radius > 10 then
                 radius = 10
             end
-            
+
             local event = function(currentPosition)
                 if world:isItemOnField(currentPosition) == false or world:getItemOnField(currentPosition).id ~= flameId then
                     world:createItemFromId(flameId, 1, currentPosition, true, 999, {})
                 end
             end
-            
+
             event(targetChar.pos)
             for i = 1, radius do
                 common.CreateCircle(targetChar.pos, i, event)
             end
-            
+
         else
             user:inform("Provide proper input, please.")
         end
-        
+
     end
-    
+
     user:requestInputDialog(InputDialog("Spawn a filled cirecle of flames", "Usage enter: flameId radius wear  -- Flame id can be 359 (fire) or 360 (ice). Radius is capped at 10." ,false, 255, cbInputDialog))
 end
 
@@ -252,24 +252,24 @@ local function ambientActionFlameRemover(user,targetChar)
         if (not dialog:getSuccess()) then
             return
         end
-        
+
         local inputNumber = dialog:getInput()
         if (string.find(inputNumber, "(%d+) (%d+)") ~= nil) then
             local _, _, flameId, radius = string.find(inputNumber,"(%d+) (%d+)")
             flameId = tonumber(flameId)
             radius = tonumber(radius)
-            
+
             local fireFlame = 359
             local iceFlame = 360
             if flameId ~= fireFlame and flameId ~= iceFlame then
                 user:inform("No proper flame id provided.")
                 return
             end
-            
+
             if radius > 10 then
                 radius = 10
             end
-            
+
             local event = function(currentPosition)
                 if world:isItemOnField(currentPosition) then
                     local checkItem = world:getItemOnField(currentPosition)
@@ -278,18 +278,18 @@ local function ambientActionFlameRemover(user,targetChar)
                     end
                 end
             end
-            
+
             event(targetChar.pos)
             for i = 1, radius do
                 common.CreateCircle(targetChar.pos, i, event)
             end
-            
+
         else
             user:inform("Provide proper input, please.")
         end
-        
+
     end
-    
+
     user:requestInputDialog(InputDialog("Remove flames around you", "Usage enter: flameId radius  -- Flame id can be 359 (fire) or 360 (ice). Radius is capped at 10." ,false, 255, cbInputDialog))
 end
 
@@ -324,7 +324,7 @@ local function ambientActionLocalStorm(targetChar)
     local probabilityBlitz = 1
     local innerCircle = 5
     local outherCircle = 17
-    
+
     local event = function(currentPosition)
         if world:isItemOnField(currentPosition) == false then
             if math.random() <= probabilityWind then
@@ -419,7 +419,7 @@ local function setUserTeleporter(user,Item)
             if (not dialog:getSuccess()) then
                 return
             end
-            
+
             local inputText = dialog:getInput()
             if (string.find(inputText,"(%d+),(%d+),([%-]?%d+),(%S+)") ~= nil) then
                 local _, _, xValue, yValue, zValue, targetName = string.find(inputText,"(%d+),(%d+),([%-]?%d+),([%S ]+)")
@@ -428,9 +428,9 @@ local function setUserTeleporter(user,Item)
             else
                 user:inform("Provide proper input, please. Input was:'"..inputText.."'")
             end
-            
+
         end
-        
+
         user:requestInputDialog(InputDialog("Custom target", "Define a customized teleporter target.\n Use: x,y,level,Target name" ,false, 255, cbInputDialog))
     end
     local sdTeleport = SelectionDialog("Teleporter.", "Define a destination:", cbChooseLocation)
@@ -529,7 +529,7 @@ end
 
 local function factionInfoOfCharsInRadius(User)
 
-    players = world:getPlayersInRangeOf(User.pos, 40)
+    local players = world:getPlayersInRangeOf(User.pos, 40)
     local infos = ""
     local germanRank, englishRank
 
@@ -782,7 +782,7 @@ local function setUserActionOnGroup(user,Item)
             if (not dialog:getSuccess()) then
                 return
             end
-            
+
             local inputText = dialog:getInput()
             if (string.find(inputText,"([%S ]+),(%d+),(%d+),(%d+),(%S+),(%S+),(%S+)") ~= nil) then
                 Item:setData("gmSequenceOnGroup" .. tostring(index),inputText)
@@ -790,9 +790,9 @@ local function setUserActionOnGroup(user,Item)
             else
                 user:inform("Provide proper input, please. Input was:'"..inputText.."'")
             end
-            
+
         end
-        
+
         user:requestInputDialog(InputDialog("Custom action", "Use: action name,range,gfx,sfx,HP%,MP%,FL%,text\nHP% MP% FL% percentage:\n   -99 .. 100 related to current state \n   'max' fill full" ,false, 255, cbInputDialog))
     end
     local sdAction = SelectionDialog("Customized action.", "Select a slot for actions on char:", cbChooseAction)
@@ -819,7 +819,7 @@ local function setUserActionOnChar(user,Item)
             if (not dialog:getSuccess()) then
                 return
             end
-            
+
             local inputText = dialog:getInput()
             if (string.find(inputText,"([%S ]+),(%d+),(%d+),(%S+),(%S+),(%S+)") ~= nil) then
                 Item:setData("gmSequenceOnChar" .. tostring(index),inputText)
@@ -827,9 +827,9 @@ local function setUserActionOnChar(user,Item)
             else
                 user:inform("Provide proper input, please. Input was:'"..inputText.."'")
             end
-            
+
         end
-        
+
         user:requestInputDialog(InputDialog("Custom action", "Use: action name,gfx,sfx,HP%,MP%,FL%,text\nHP% MP% FL% percentage:\n   -99 .. 100 related to current state \n   'max' fill full" ,false, 255, cbInputDialog))
     end
     local sdAction = SelectionDialog("Customized action.", "Select a slot for actions on char:", cbChooseAction)
@@ -849,7 +849,7 @@ local function actionOnCharInput(user,targetChar)
         if (not dialog:getSuccess()) then
             return
         end
-        
+
         local inputText = dialog:getInput()
         if (string.find(inputText,"(%S+),(%S+),(%S+),(%S+),(%S+)") ~= nil) then
             local _, _, gfxValue, sfxValue, changeHP, changeMP, changeFL, textToPlayer = string.find(inputText,"(%S+),(%S+),(%S+),(%S+),(%S+),([%S ]+)")
@@ -861,9 +861,9 @@ local function actionOnCharInput(user,targetChar)
         else
             user:inform("Provide proper input, please. '"..inputText.."'")
         end
-        
+
     end
-    
+
     user:requestInputDialog(InputDialog("Custom event on char", "Perform a sequence on " .. targetChar.name .."\n Use: gfx,sfx,HP%,MP%,FL%,text\nHP% MP% FL% percentage:\n   -99 .. 100 related to current state \n   'max' fill full" ,false, 255, cbInputDialog))
 end
 
@@ -872,7 +872,7 @@ local function actionOnGroupInput(user,targetChar)
         if (not dialog:getSuccess()) then
             return
         end
-        
+
         local inputText = dialog:getInput()
         if (string.find(inputText,"(%d+),(%S+),(%S+),(%S+),(%S+),(%S+)") ~= nil) then
             local _, _, rangeInput, gfxValue, sfxValue, changeHP, changeMP, changeFL, textToPlayer = string.find(inputText,"(%d+),(%S+),(%S+),(%S+),(%S+),(%S+),([%S ]+)")
@@ -895,9 +895,9 @@ local function actionOnGroupInput(user,targetChar)
         else
             user:inform("Provide proper input, please. '"..inputText.."'")
         end
-        
+
     end
-    
+
     user:requestInputDialog(InputDialog("Custom event on char", "Perform a sequence on " .. targetChar.name .."\n Use: range,gfx,sfx,HP%,MP%,FL%,text\nrange is capped at 20\nHP% MP% FL% percentage:\n   -99 .. 100 related to current state \n   'max' fill full" ,false, 255, cbInputDialog))
 end
 
@@ -949,11 +949,11 @@ local function settingsForCharQueststatus(User, chosenPlayer)
             User:inform("Quest " .. quest .. " has the status " .. chosenPlayer:getQuestProgress(quest) .. ".")
         else
             User:inform("Sorry, I didn't understand you.")
-            User:requestInputDialog(InputDialog("Get/ Set Queststatus for "..chosenPlayer.name, "Usage: To get the value type in the questnumber.\n To set the value type in questnumber and the new status.", false, 255, changeDialog))
+            settingsForCharQueststatus(User, chosenPlayer) -- re-call dialog
         end
     end
-    local sdChange = InputDialog("Get/ Set Queststatus for "..chosenPlayer.name, "Usage: To get the value type in the questnumber.\n To set the value type in questnumber and the new status.", false, 255, changeDialog)
-    User:requestInputDialog(sdChange)
+    local idChange = InputDialog("Get/ Set Queststatus for "..chosenPlayer.name, "Usage: To get the value type in the questnumber.\n To set the value type in questnumber and the new status.", false, 255, changeDialog)
+    User:requestInputDialog(idChange)
 end
 
 local function settingsForCharMagicClass(User, chosenPlayer)
@@ -987,31 +987,31 @@ end
 local function settingsForCharMC(User, targetChar)
 
     local setMCInputDialog = function (dialog)
-    
+
         if (not dialog:getSuccess()) then
             return
         end
-        
+
         local input = dialog:getInput()
-        
+
         if input == "" or not input then
             User:inform("MC of char " .. targetChar.name .. ": " .. targetChar:getMentalCapacity())
             return
         end
-        
+
         input = math.ceil(tonumber(input))
-        
+
         if input < 1 or input > 100000000 then
             User:inform("Invalid input. Value not in range 1-100000000")
             return
         end
-        
+
         targetChar:increaseMentalCapacity(input - targetChar:getMentalCapacity())
         User:inform("New MC: "..User:getMentalCapacity())
         User:logAdmin("Set MC for " ..  targetChar.name .. " to " .. tostring(input))
-        
+
     end
-    
+
     User:requestInputDialog(InputDialog("Get / Set MC", "Set desired MC value (1-100000000).\nEmpty for get the current value." ,false, 255, setMCInputDialog))
 
 end
@@ -1126,7 +1126,7 @@ local function ambientAction(User)
         sdAction:addOption(0,"Local thunderstorm")
         sdAction:addOption(0,"Explosion")
         sdAction:addOption(0,"Glyph shard shower")
-       
+
         User:requestSelectionDialog(sdAction)
     end
     --Dialog to choose the player
@@ -1205,7 +1205,7 @@ local function actionOnChar(User, item)
                 end
             end
         end
-       
+
         User:requestSelectionDialog(sdAction)
     end
     --Dialog to choose the player
@@ -1274,7 +1274,7 @@ local function actionOnGroup(User,item)
         end
         local sdAction = SelectionDialog("Select action", "What action should be performed for all player?\nCenter of action at "..chosenPlayer.name.."?", charActionDialog)
         sdAction:addOption(2745,"Free configurable action")
-       
+
         local optionId = 1
         for i = 1, maxActionOnGroup do
             local sequenceParameter = item:getData("gmSequenceOnGroup" .. tostring(i))
@@ -1378,7 +1378,7 @@ local function settingsForChar(User)
             sdAction:addOption(164,"Remove poison cloud proof!")
         end
         sdAction:addOption(93,"Set attributes")
-       
+
         User:requestSelectionDialog(sdAction)
     end
     --Dialog to choose the player
@@ -1399,13 +1399,13 @@ end
 
 local function testArea(User)
     local thisInputDialog = function (dialog)
-    
+
         if (not dialog:getSuccess()) then
             return
         end
-        
+
         local input = dialog:getInput()
-        
+
         if not common.IsNilOrEmpty(input) then
             local point = User.pos
             if areas.PointInArea(point, input) then
@@ -1414,9 +1414,9 @@ local function testArea(User)
                 User:inform("This is not part of area "..input)
            end
         end
-        
+
     end
-    
+
     User:requestInputDialog(InputDialog("Is char in area?", "Enter the area name according to areas.lua" ,false, 255, thisInputDialog))
 
 end
@@ -1427,20 +1427,20 @@ local function testBanduk(user)
 
 --world:createItemFromId(2207,1,position(357, 272, 0),false,333,{})
 --[[    local thisInputDialog = function (dialog)
-    
+
         if (not dialog:getSuccess()) then
             return
         end
-        
+
         local input = dialog:getInput()
-        
+
         if not common.IsNilOrEmpty(input) then
             user:performAnimation(tonumber(input))
             user:inform("Animation "..input)
         end
-        
+
     end
-    
+
     user:requestInputDialog(InputDialog("Animation", "Animation No" ,false, 255, thisInputDialog))]]--
 --    local c = user:createItem(3499, 1, 333,{})
 --    user:inform(">>>item: "..tostring(c))

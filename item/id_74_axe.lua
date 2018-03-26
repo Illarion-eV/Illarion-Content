@@ -18,7 +18,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 -- UPDATE items SET itm_script='item.id_74_axe' WHERE itm_id IN (74,2946);
 
 local common = require("base.common")
-local woodchopping = require("content.gatheringcraft.woodchopping")
+local woodchopping = require("craft.gathering.woodchopping")
 local metal = require("item.general.metal")
 
 local M = {}
@@ -32,7 +32,7 @@ function M.UseItem(User, SourceItem, ltstate)
         woodchopping.StartGathering(User, treeItem, ltstate);
         return;
     end
-    
+
     if treeItem == nil then
         common.HighInformNLS( User,
         "Um Holz zu hacken musst du zu einem Baum gehen.",

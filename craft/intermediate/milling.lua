@@ -16,9 +16,9 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local crafts = require("craft.base.crafts")
 
-module("craft.intermediate.milling", package.seeall)
+local M = {}
 
-milling = crafts.Craft:new{
+local milling = crafts.Craft:new{
                     craftEN = "Milling",
                     craftDE = "Mahlen",
                     handTool = 312,
@@ -34,3 +34,6 @@ local catId = milling:addCategory("Flour", "Mehl")
 -- Flour
 local product = milling:addProduct(catId, 2, 1)
 product:addIngredient(259 , 2) -- grain
+
+M.milling = milling
+return M

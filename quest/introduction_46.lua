@@ -12,7 +12,7 @@ PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
 details.
 
 You should have received a copy of the GNU Affero General Public License along
-with this program.  If not, see <http://www.gnu.org/licenses/>. 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 
 local common = require("base.common")
@@ -35,7 +35,7 @@ Title[ENGLISH] = "Introduction"
 local Description = {}
 Description[GERMAN] = {}
 Description[ENGLISH] = {}
-    
+
 -- Insert the quest status which is reached at the end of the quest
 local FINAL_QUEST_STATUS = 2
 
@@ -49,9 +49,9 @@ function M.QuestDescription(user, status)
     local queststatus = user:getQuestProgress(44) --here, we save which places were visited
     local germanText = ""
     local englishText = ""
-   
+
     for i = 1, #waypoint do
-         
+
         if not common.isBitSet(queststatus, i) then
             germanText = germanText..", "..waypointNameG[i]
             englishText = englishText..", "..waypointNameE[i]
@@ -61,7 +61,7 @@ function M.QuestDescription(user, status)
     --Remove leading comma
     germanText = string.sub(germanText, 3)
     englishText = string.sub(englishText, 3)
-    
+
     Description[GERMAN][1] = "Zieh los und erforsche dein Reich. Finde andere Spielercharaktere und spreche mit ihnen. Entdecke auch deine Heimatstadt. Interessante Orte sind mit einem roten Symbol auf deiner Karte markiert. Du solltest besuchen: "..germanText
     Description[ENGLISH][1] = "Set out and explore your realm. Find other player characters and talk to them. Also, explore your home city. Interesting sites are marked with a red symbol on your map. You should visit: "..englishText
     Description[GERMAN][2] = "Du hast die Einführung absolviert. Viel Spaß!"
@@ -69,12 +69,13 @@ function M.QuestDescription(user, status)
 
     local german = Description[GERMAN][status] or ""
     local english = Description[ENGLISH][status] or ""
-    
+
     return common.GetNLS(user, german, english)
 end
 
 function M.QuestStart()
-    return Start
+    -- we do not announce a start point, quest starts automatically upon first warp from noobia to one realm
+    return nil
 end
 
 function M.QuestTargets(user, status)
@@ -83,9 +84,9 @@ function M.QuestTargets(user, status)
     local queststatus = user:getQuestProgress(44) --here, we save which places were visited
     local QuestTarget = {}
     QuestTarget[1] = {}
-    
+
     for i = 1, #waypoint do
-     
+
         if not common.isBitSet(queststatus, i) then
             table.insert(QuestTarget[1], waypoint[i])
         end

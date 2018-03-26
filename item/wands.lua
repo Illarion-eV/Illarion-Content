@@ -37,7 +37,7 @@ local magicWands = {}
     magicWands[2784] = true
     magicWands[2785] = true
     magicWands[3608] = true
-    
+
 
 local function useWandSelection(user, item, ltstate)
     local actionIndex = {}
@@ -47,7 +47,8 @@ local function useWandSelection(user, item, ltstate)
     local ACTION_COUNT_SHARDS = 4
     local ACTION_GLYPH_JEWELRY = 5
     local ACTION_GLYPH_BREAK = 6
-    local forgeItem
+
+    local forgeItem = common.GetItemInArea(user.pos, glyphs.GLYPH_SHRINE_ID, 1, true)
 
     local cbSetMode = function (dialog)
         if (not dialog:getSuccess()) then
@@ -77,7 +78,6 @@ local function useWandSelection(user, item, ltstate)
     local windowText = common.GetNLS(user,"Rituale", "Rituals")
     local commentText = ""
     local sd = SelectionDialog(windowText, commentText, cbSetMode)
-    forgeItem, bool = common.GetItemInArea(user.pos, glyphs.GLYPH_SHRINE_ID, 1, true)
     if forgeItem == nil then
         sd:addOption(505, common.GetNLS(user,"Suche einen Glyph Ritualplatz","Find a glyph ritual place"))
         table.insert(actionIndex,ACTION_FIND_GLYPH_FORGE)
@@ -110,13 +110,13 @@ function M.MoveItemAfterMove(User, SourceItem, TargetItem)
     local questProgress = User:getQuestProgress(38)
     if TargetItem:getType() == 4 then --inventory, not belt
         if magicWands[SourceItem.id]then
-            if User:getMagicType() == 3 then 
+            if User:getMagicType() == 3 then
                 User:inform("Alchemisten können die Stabmagie nicht erlernen.",
                 "Alchemist are unable to use wand magic.")
             elseif magic.hasMageAttributes(User) then
                 User:inform("Um Stabmagie zu verwenden, muss die Summe der Attribute Intelligenz, Essenz und Willensstärke wenigstens 30 ergeben. Attribute können bei den Trainer-NPCs geändert werden.",
                 "To use wand magic, your combined attributes of intelligence, essence, and willpower must total at least 30. Attributes can be changed at the trainer NPC.")
-            elseif User:getMagicType() == 0 and (User:getQuestProgress(37) ~= 0 or User:getMagicFlags(0) > 0) then 
+            elseif User:getMagicType() == 0 and (User:getQuestProgress(37) ~= 0 or User:getMagicFlags(0) > 0) then
             elseif bit32.extract(questProgress, 30) == 0 then
                 User:inform("Um das Handwerk der Stabmagie zu erlernen, musst du drei Bücher über magische Theorie lesen. Sieh dir die Liste der Bücher in den Bibliotheken der Städte an.",
                 "To learn the craft of wand magic you must read three books of magical theory. Look for the list of books in your town's library.")

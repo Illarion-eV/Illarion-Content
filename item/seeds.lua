@@ -16,7 +16,7 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 -- sowing seeds
 local common = require("base.common")
-local sowing = require("content.gatheringcraft.sowing")
+local sowing = require("craft.gathering.sowing")
 local skillTransfer = require("base.skillTransfer")
 
 local M = {}
@@ -26,7 +26,7 @@ local M = {}
 -- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 247 WHERE itm_id = 246; -- grain
 -- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 248 WHERE itm_id = 247;
 -- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 246 WHERE itm_id = 248; -- this step no longer happens
--- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 259 WHERE itm_id = 259; -- grown grain rots away on the ground 
+-- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 259 WHERE itm_id = 259; -- grown grain rots away on the ground
 
 -- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 289 WHERE itm_id = 288; -- cabbage
 -- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 3890 WHERE itm_id = 289;
@@ -65,7 +65,7 @@ local M = {}
 -- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 779 WHERE itm_id = 779;
 
 -- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 3563 WHERE itm_id = 3562; -- potato
--- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 3564 WHERE itm_id = 3563; 
+-- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 3564 WHERE itm_id = 3563;
 -- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 3565 WHERE itm_id = 3564;
 -- UPDATE items SET com_agingspeed = 2, com_objectafterrot = 3566 WHERE itm_id = 3565;
 -- UPDATE items SET com_agingspeed = 4, com_objectafterrot = 3566 WHERE itm_id = 3566;

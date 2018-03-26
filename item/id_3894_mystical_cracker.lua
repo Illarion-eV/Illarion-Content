@@ -22,7 +22,7 @@ local M = {}
 
 
 -- That list contains nearly all items a player can carry.
-itemList = {
+local itemList = {
 306,-- Schinken ham
 307 ,--Schweinefleisch pork
 354 ,--Erdbeertorte strawberry cake

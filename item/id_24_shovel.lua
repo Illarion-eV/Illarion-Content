@@ -19,8 +19,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local common = require("base.common")
 local treasure = require("item.base.treasure")
 local transformation_dog = require("alchemy.teaching.transformation_dog")
-local claydigging = require("content.gatheringcraft.claydigging")
-local sanddigging = require("content.gatheringcraft.sanddigging")
+local claydigging = require("craft.gathering.claydigging")
+local sanddigging = require("craft.gathering.sanddigging")
 local metal = require("item.general.metal")
 local skillTransfer = require("base.skillTransfer")
 
@@ -100,7 +100,7 @@ end
 
 
 function M.UseItem(User, SourceItem, ltstate)
-    
+
     if skillTransfer.skillTransferInformMining(User) then
         return
     end
