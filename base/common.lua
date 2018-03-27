@@ -1032,6 +1032,7 @@ function M.GetStiffness(Character)
     return StiffnessVal
 end
 
+local interruptTable = {}
 --[[
     ResetInterruption
     Resets the interruption counter state, in case the action did not success
@@ -1052,11 +1053,7 @@ end
     @return boolean - true in case the action is interruped, false if not
 ]]
 function M.IsInterrupted(Character)
-    if not interruptTable then
-        interruptTable = {}
-        interruptTable[Character.id] = 2
-        return false
-    elseif not interruptTable[Character.id] then
+if not interruptTable[Character.id] then
         interruptTable[Character.id] = 2
         return false
     end
@@ -1693,7 +1690,7 @@ end
 --[[Check if a char holds an item from a list in hand
 @return true if item with id is in any hand slot]]--
 function M.hasItemIdInHand(user, itemIds)
-    if type(row) == "table" then
+    if type(itemIds) ~= "table" then
         itemIds = {itemIds}
     end
     local leftTool = user:getItemAt(Character.left_tool)
@@ -1710,7 +1707,7 @@ end
 --[[Check if a char holds an item from a list in hand
 @return item if item with id is in any hand slot]]--
 function M.getItemInHand(user, itemIds)
-    if type(row) == "table" then
+    if type(itemIds) ~= "table" then
         itemIds = {itemIds}
     end
     local leftTool = user:getItemAt(Character.left_tool)
