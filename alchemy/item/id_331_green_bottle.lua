@@ -14,22 +14,49 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- Testskript 1 für Weiterentwicklung Druidenmagie
--- 2007 by Falk
--- 2009 by Nitram
--- 2011 by Merung
--- Trinken aus grüner Flasche (331)
--- ------------------------------------------------
+-- UPDATE common SET com_script='alchemy.item.id_331_green_bottle' WHERE com_itemid = 331;
 
--- include base.common for additional functions
+-- Stocks
+-- unfinished potions ("Herb Brew")
+
 local common = require("base.common")
 local id_165_blue_bottle = require("alchemy.item.id_165_blue_bottle")
 local alchemy = require("alchemy.base.alchemy")
 local lookat = require("base.lookat")
+
 local M = {}
 
--- UPDATE common SET com_script='alchemy.item.id_331_green_bottle' WHERE com_itemid = 331;
+local function DrinkIt(User, SourceItem)
+    User:talk(Character.say, "#me trinkt eine grüne Flüssigkeit.", "#me drinks a green liquid.")
+    common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", "You don't have the feeling that something happens.")
+    User.movepoints=User.movepoints - 20
+end
 
+local function FillStockIn(User,SourceItem, cauldron)
+    -- water, stock or potion is in the cauldron; leads to a failure
+    if cauldron:getData("filledWith") == "water" then
+        alchemy.CauldronDestruction(User,cauldron,1)
+
+    elseif cauldron:getData("filledWith") == "stock" then
+        alchemy.CauldronDestruction(User,cauldron,2)
+
+    elseif cauldron:getData("filledWith") == "potion" then
+        if cauldron.id == 1013 then -- support potion
+        id_165_blue_bottle.SupportStock(User,cauldron,SourceItem)
+        else
+            alchemy.CauldronExplosion(User,cauldron,2)
+        end
+
+    elseif cauldron:getData("filledWith") == "essenceBrew" then
+        local check = alchemy.CombineStockEssence( User, SourceItem, cauldron)
+        if check == false then
+            return
+        end
+    elseif cauldron.id == 1008 then -- nothing in the cauldron, we just fill in the stock
+    alchemy.FillFromTo(SourceItem,cauldron)
+    world:changeItem(cauldron)
+    end
+end
 
 function M.UseItem(User, SourceItem, ltstate)
 
@@ -78,40 +105,8 @@ function M.UseItem(User, SourceItem, ltstate)
     end
 end
 
-function DrinkIt(User, SourceItem)
-        User:talk(Character.say, "#me trinkt eine grüne Flüssigkeit.", "#me drinks a green liquid.")
-        common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", "You don't have the feeling that something happens.")
-        User.movepoints=User.movepoints - 20
-end
-
-function FillStockIn(User,SourceItem, cauldron)
-    -- water, stock or potion is in the cauldron; leads to a failure
-    if cauldron:getData("filledWith") == "water" then
-        alchemy.CauldronDestruction(User,cauldron,1)
-
-    elseif cauldron:getData("filledWith") == "stock" then
-        alchemy.CauldronDestruction(User,cauldron,2)
-
-    elseif cauldron:getData("filledWith") == "potion" then
-        if cauldron.id == 1013 then -- support potion
-             id_165_blue_bottle.SupportStock(User,cauldron,SourceItem)
-        else
-            alchemy.CauldronExplosion(User,cauldron,2)
-        end
-
-    elseif cauldron:getData("filledWith") == "essenceBrew" then
-        local check = alchemy.CombineStockEssence( User, SourceItem, cauldron)
-        if check == false then
-            return
-        end
-    elseif cauldron.id == 1008 then -- nothing in the cauldron, we just fill in the stock
-        alchemy.FillFromTo(SourceItem,cauldron)
-        world:changeItem(cauldron)
-    end
-end
-
 function M.LookAtItem(User,Item)
     return lookat.GenerateLookAt(User, Item, 0)
 end
-return M
 
+return M

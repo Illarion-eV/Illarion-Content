@@ -14,21 +14,17 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- LTE für das Druidensystem
--- by Falk
--- Zeitverlauf und Rückwandlung bei Verwandlungen
+-- INSERT INTO longtimeeffects VALUES (329, 'alchemy_transformation', 'alchemy.lte.id_329_transformation');
+
 local common = require("base.common")
 
 local M = {}
 
--- INSERT INTO longtimeeffects VALUES (329, 'alchemy_transformation', 'alchemy.lte.id_329_transformation');
-
-function M.addEffect(Effect, User)               -- Nur beim ersten Aufruf
+function M.addEffect(Effect, User)
     --User:inform("debug func addEffect")
 end
 
 function M.callEffect(Effect,User)
---User:inform("debug func callEffect")
 
     local findCounter,counterBlack = Effect:findValue("counterBlack")
     if findCounter then

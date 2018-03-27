@@ -14,19 +14,17 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---ds_059_rote_flasche
---Druidensystem in Arbeit
---Falk
---Delay added by Blay09
---rework by Merung
+-- UPDATE common SET com_script='alchemy.item.id_59_red_bottle' WHERE com_itemid = 59;
+
+-- Red Potions
+-- Attribute changers ("Strength Potion", etc)
+
 local lookat = require("base.lookat")
 local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
 local granorsHut = require("content.granorsHut")
 
 local M = {}
-
--- UPDATE common SET com_script='alchemy.item.id_59_red_bottle' WHERE com_itemid = 59;
 
 local taste = {}
 M.attribList   ={"strength","intelligence","dexterity"       ,"perception"  ,"constitution","essence","agility"      ,"willpower"}

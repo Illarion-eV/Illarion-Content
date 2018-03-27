@@ -14,7 +14,10 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
--- hitpoint / mana / special potions
+-- UPDATE common SET com_script='alchemy.item.id_166_pink_bottle' WHERE com_itemid = 166;
+
+-- Pink potions
+-- hitpoint / mana / food / poison effects instantly and over time ("Healing potions" etc)
 
 local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
@@ -22,8 +25,6 @@ local lookat = require("base.lookat")
 local granorsHut = require("content.granorsHut")
 
 local M = {}
-
--- UPDATE common SET com_script='alchemy.item.id_166_pink_bottle' WHERE com_itemid = 166;
 
 local bottomBorder = 2;
 local topBorder = {7000       ,7000  ,50000      ,10000        ,7000         ,7000    ,50000        ,10000}

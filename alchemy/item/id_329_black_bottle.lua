@@ -14,18 +14,17 @@ details.
 You should have received a copy of the GNU Affero General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
---I_329_schwarze_flasche
---Druidensystem in Arbeit
---Falk
--- complete rework by merung, 2011
+-- UPDATE common SET com_script='alchemy.item.id_329_black_bottle' WHERE com_itemid = 329;
+
+-- Black Potions
+-- Shapeshift into other races, or monsters ("Transformation potions")
 
 local common = require("base.common")
 local alchemy = require("alchemy.base.alchemy")
-local id_165_blue_bottle = require("alchemy.item.id_165_blue_bottle")
 local lookat = require("base.lookat")
+
 local M = {}
 
--- UPDATE common SET com_script='alchemy.item.id_329_black_bottle' WHERE com_itemid = 329;
 
 --lists for HUMANS, DWARVES, HALFLINGS, ELVES, ORCS and LIZARDS
 -- apperance lists with the different values for the six races
@@ -71,6 +70,8 @@ ListHairFemale[3] = {1,7,8}
 ListHairFemale[4] = {1,7,8}
 ListHairFemale[5] = {1,2,3,4,5,6}
 
+local dogTransformation
+
 local function DrinkPotion(User,SourceItem)
 
     local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
@@ -80,7 +81,7 @@ local function DrinkPotion(User,SourceItem)
         "You don't have the feeling that something happens.")
         return
 
-    elseif (potionEffectId >= 500)--[[(potionEffectId > 0)]] and (potionEffectId < 599) then -- transformation potion
+    elseif (potionEffectId >= 500) and (potionEffectId < 599) then -- transformation potion
 
         if potionEffectId == 560 then
             dogTransformation(User,SourceItem)
@@ -249,8 +250,7 @@ function dogTransformation(User,SourceItem)
         local  findNewRace, LteNewRace = myEffect:findValue("newRace")
         local findCounter,counterBlack = myEffect:findValue("counterBlack")
         if findNewRace then
-            if LteNewRace == newRace then
-                User:inform("LteNewRace == newRace")
+            if LteNewRace == findNewRace then
                 if duration > counterBlack then -- same transformation, but the new potion will last longer
                     myEffect:addValue("counterBlack",duration)
                     return
@@ -354,5 +354,5 @@ end
 function M.LookAtItem(User,Item)
     return lookat.GenerateLookAt(User, Item, 0)
 end
-return M
 
+return M
