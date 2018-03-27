@@ -74,7 +74,7 @@ function M.callEffect( Tying, Capturer )
 
             -- ## BEGIN ## rope handling
             if not foundLogout then
-                local Rope = GetRope(Capturer);
+                local Rope = M.GetRope(Capturer);
                 if not Rope then
                     Capturer:inform("[Error] No rope found. Please inform a developer.",Player.mediumPriority);
                     return false;

@@ -97,39 +97,37 @@ local function consumeGlyph(item, user, number)
 end
 
 local function checkFingerNeck(user,finger,itemIds)
-    local glyphEffectItem = nil
-    local glyphEffectPower = 99
+
     local itemAtCharacter = user:getItemAt(finger)
     if common.isInList(itemAtCharacter.id, itemIds) then
         if glyphs.isGlyphed(itemAtCharacter) then
-            glyphEffectItem = itemAtCharacter
-            glyphEffectPower = common.posInList(itemAtCharacter.id, itemIds)
+            local glyphEffectItem = itemAtCharacter
+            local glyphEffectPower = common.posInList(itemAtCharacter.id, itemIds)
             return true, glyphEffectItem, glyphEffectPower
         end
     end
-    return false, glyphEffectItem, glyphEffectPower
+    return false, nil, nil
 end
 
 local function EffectIsSupported(user,effectId)
-    local glyphEffectItem
-    local glyphEffectPower
+
     local itemIds = {}
     if effectId <= 7 then
         itemIds = {glyphs.ringAndAmuletDefinition[effectId][1],glyphs.ringAndAmuletDefinition[effectId+7][1],glyphs.ringAndAmuletDefinition[effectId+14][1]}
         for finger = 7,8 do --finger left hand, finger right hand
-            isEquipped, glyphEffectItem, glyphEffectPower = checkFingerNeck(user,finger,itemIds)
+            local isEquipped, glyphEffectItem, glyphEffectPower = checkFingerNeck(user,finger,itemIds)
             if isEquipped then
                 return true, glyphEffectItem, glyphEffectPower
             end
         end
     else
         itemIds = {glyphs.ringAndAmuletDefinition[effectId-7][2],glyphs.ringAndAmuletDefinition[effectId][2],glyphs.ringAndAmuletDefinition[effectId+7][2]}
-        isEquipped, glyphEffectItem, glyphEffectPower = checkFingerNeck(user,2,itemIds)-- neck
+        local isEquipped, glyphEffectItem, glyphEffectPower = checkFingerNeck(user,2,itemIds)-- neck
         if isEquipped then
             return true, glyphEffectItem, glyphEffectPower
         end
     end
-    return false, glyphEffectItem, glyphEffectPower
+    return false, nil, nil
 end
 
 local function effectRepel(user)
@@ -170,7 +168,7 @@ function M.effectUse(user,effectId,numberOfCharges,specialProbaility)
     local glyphEffectItem
     local glyphEffectPower
     local isDestroyed
-    
+
     if not character.IsPlayer(user) then
         return false
     end
@@ -535,7 +533,7 @@ local function applyDamageOverTime(user,damageTaker,damage,effectCarrier,textDe,
     local totalDamage
     local damagePerCycle
 
-    isFired,parameter,isDestroyed = M.effectUse(user,effectCarrier)
+    local isFired, parameter, isDestroyed = M.effectUse(user, effectCarrier)
     if isFired then
         if effectRepel(damageTaker) then
             world:gfx(globalvar.gfxFIZZLE,damageTaker.pos)

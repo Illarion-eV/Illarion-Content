@@ -17,6 +17,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 local M = {}
 -- Bleeding Mainscript
 
+local lowerAttribs = {"agility","stength","constitution","perception","dexterity" }
+
 local function dropTheBlood( posi )
     if not world:isItemOnField( posi ) then
         local Blood=world:createItemFromId(3101,1,posi,true,333,0)
@@ -53,7 +55,6 @@ function M.doubleEffect( BleedingEffect, Victim )
 end
 
 function M.callEffect( BleedingEffect, Victim )
-    local lowerAttribs = {"agility","stength","constitution","perception","dexterity"}
 
     local woundsFound, wounds = BleedingEffect:findValue( "wounds" )
     if not woundsFound then

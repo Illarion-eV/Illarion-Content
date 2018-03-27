@@ -52,11 +52,11 @@ function M.callEffect(percBoost, User)                    -- Effect wird ausgefü
     end
 end
 
-function M.removeEffect(percBoost, Character )
+function M.removeEffect(percBoost, User)
     -- do nothing
 end
 
-function M.loadEffect(percBoost, Character)                  -- wenn der Charakter einloggt...
+function M.loadEffect(percBoost, User)                  -- wenn der Charakter einloggt...
     local found,addPerc = percBoost:findValue("addPerc")
     if found then
         User:increaseAttrib(AttribToBoost,addPerc)     -- Buchhaltung: Auslesen der aktuellen "steigerung" und steigern
