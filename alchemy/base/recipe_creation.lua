@@ -525,7 +525,7 @@ function ShowStockEssence(User, theLiquid, ListOfIngredients, notMenu)
     local de, en, titleDe, titleEn
     if liquid == "essence brew" then
         titleDe = "Essenzgebräu"
-        titleEn = "Essece brew"
+        titleEn = "Essence brew"
         de = ESSENCE_BREWS[liquidList[1]]["de"]..":"
         en = ESSENCE_BREWS[liquidList[1]]["en"]..":"
         if not (#liquidList > 1) then
@@ -539,7 +539,7 @@ function ShowStockEssence(User, theLiquid, ListOfIngredients, notMenu)
         end
     elseif liquid == "stock" then
         titleDe = "Sud"
-        titleEn = "Essence brew"
+        titleEn = "Stock"
         de = "Sud:"
         en = "Stock:"
         local activeSubstances = alchemy.wirkstoff
