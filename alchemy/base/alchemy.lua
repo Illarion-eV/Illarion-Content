@@ -20,12 +20,10 @@ local id_165_blue_bottle = require("alchemy.item.id_165_blue_bottle")
 
 local M = {}
 
-function M.InitAlchemy()
-    InitPlantSubstance()
-    InitPotions()
+local plantList = {}
+local function setPlantSubstance(id, plusSubstance, minusSubstance)
+    plantList[id] = {plusSubstance, minusSubstance}
 end
-
-function InitPlantSubstance()
 
     -- Fruits
     setPlantSubstance(15,"","") --Apple
@@ -93,14 +91,6 @@ function InitPlantSubstance()
     setPlantSubstance(763,"Dracolin","Caprazin") --marsh flower
     setPlantSubstance(767,"Echolon","Hyperborelium") --water blossom
 
-end
-
-function setPlantSubstance(id, plusSubstance, minusSubstance)
-    if plantList == nil then
-        plantList = {}
-    end
-    plantList[id] = {plusSubstance, minusSubstance}
-end
 
 function M.getPlantSubstance(id, User)
     if not plantList[id] then
@@ -117,12 +107,33 @@ function M.getPlantSubstance(id, User)
 end
 
 -- the list of possible potions effects
-potionsList = {};
-ingredientsList = {}
+local potionsList = {}
+local ingredientsList = {}
 M.potionName = {}
-idList = {}
+local idList = {}
 
--- on reload, this function is called
+
+--- Set the effect of a potion
+-- @param resultingEffect the resulting effect of the potion
+-- @param ... the components effecting the potion one by one
+local function setPotionEffect(resultingEffect, ...)
+    local currentList = potionsList;
+    local args = table.pack(...)
+    for i=1,args.n do
+        if (currentList[args[i]] == nil) then
+            currentList[args[i]] = {};
+        end;
+        currentList = currentList[args[i]];
+    end;
+    currentList[0] = resultingEffect;
+end;
+
+local function setPotionIngredients(effect,gemdust,stock,essenceHerb1,essenceHerb2,essenceHerb3,essenceHerb4,essenceHerb5,essenceHerb6,essenceHerb7,essenceHerb8)
+    if ingredientsList == nil then
+        ingredientsList = {}
+    end
+    ingredientsList[effect] = {gemdust,stock,essenceHerb1,essenceHerb2,essenceHerb3,essenceHerb4,essenceHerb5,essenceHerb6,essenceHerb7,essenceHerb8}
+end
 -- setPotion(effect id, stock data, gemdust ,Herb1, Herb2, Herb3, Herb4, Herb5, Herb6, Herb7, Herb8)
 -- every effect id is only used once!
 -- gemdust is the id of the gemdust used. indirectly, the potion kind
@@ -130,7 +141,11 @@ idList = {}
 -- Herb1...Herb8 are optional. If you use only x Herbs and x < 8 just write false for the rest
 -- Example: setPotion(15, 459, 95554553, 133, 15, 81, false, false, false, false, false)
 -- for an better overview, we save the names in an own list
-function InitPotions()
+local function setPotion(effect,gemdust,stock,essenceHerb1,essenceHerb2,essenceHerb3,essenceHerb4,essenceHerb5,essenceHerb6,essenceHerb7,essenceHerb8)
+    table.insert(idList,effect)
+    setPotionEffect(effect,gemdust,stock,essenceHerb1,essenceHerb2,essenceHerb3,essenceHerb4,essenceHerb5,essenceHerb6,essenceHerb7,essenceHerb8)
+    setPotionIngredients(effect,gemdust,stock,essenceHerb1,essenceHerb2,essenceHerb3,essenceHerb4,essenceHerb5,essenceHerb6,essenceHerb7,essenceHerb8)
+end
 
 -- body liquid potions
     M.potionName[10]    = {"Dragon Breath","Drachenatem"}
@@ -229,42 +244,11 @@ function InitPotions()
     setPotion(607, 452, 25796346, 756, 756, 765, 152, false, false, false, false)
 -- language potions end
 
-end
-
-function setPotion(effect,gemdust,stock,essenceHerb1,essenceHerb2,essenceHerb3,essenceHerb4,essenceHerb5,essenceHerb6,essenceHerb7,essenceHerb8)
-
-    table.insert(idList,effect)
-    setPotionEffect(effect,gemdust,stock,essenceHerb1,essenceHerb2,essenceHerb3,essenceHerb4,essenceHerb5,essenceHerb6,essenceHerb7,essenceHerb8)
-    setPotionIngredients(effect,gemdust,stock,essenceHerb1,essenceHerb2,essenceHerb3,essenceHerb4,essenceHerb5,essenceHerb6,essenceHerb7,essenceHerb8)
-
-end
-
---- Set the effect of a potion
--- @param resultingEffect the resulting effect of the potion
--- @param ... the components effecting the potion one by one
-function setPotionEffect(resultingEffect, ...)
-    local currentList = potionsList;
-    local args = table.pack(...)
-    for i=1,args.n do
-        if (currentList[args[i]] == nil) then
-            currentList[args[i]] = {};
-        end;
-        currentList = currentList[args[i]];
-    end;
-    currentList[0] = resultingEffect;
-end;
-
-function setPotionIngredients(effect,gemdust,stock,essenceHerb1,essenceHerb2,essenceHerb3,essenceHerb4,essenceHerb5,essenceHerb6,essenceHerb7,essenceHerb8)
-    if ingredientsList == nil then
-        ingredientsList = {}
-    end
-    ingredientsList[effect] = {gemdust,stock,essenceHerb1,essenceHerb2,essenceHerb3,essenceHerb4,essenceHerb5,essenceHerb6,essenceHerb7,essenceHerb8}
-end
 
 --- Get the effect of a potion
 -- @param ... the components effecting the potion one by one
 -- @return the resulting effect of the potion
-function getPotion(...)
+local function getPotion(...)
     local currentList = potionsList;
     local args = table.pack(...)
     for i=1,args.n do
@@ -278,7 +262,7 @@ function getPotion(...)
             return 0;
     end;
     return currentList[0];
-end;
+end
 
 function M.getIngredients(effectId)
 
@@ -290,9 +274,9 @@ function M.getIngredients(effectId)
 end
 
               --stock,sapphire ,ruby,emerald,obsidian  ,amethyst,topaz,diamant
-gemDustList  = {"non",446      ,447 ,448    ,449       ,450     ,451  ,452}
-gemList      = {"non",284      ,46  ,45     ,283       ,197     ,198  ,285}
-cauldronList = {1012 ,1011     ,1016,1013   ,1009      ,1015    ,1018 ,1017}
+local gemDustList  = {"non",446      ,447 ,448    ,449       ,450     ,451  ,452}
+local gemList      = {"non",284      ,46  ,45     ,283       ,197     ,198  ,285}
+local cauldronList = {1012 ,1011     ,1016,1013   ,1009      ,1015    ,1018 ,1017}
 M.bottleList   = {331  ,327      ,59  ,165    ,329       ,166     ,167  ,330}
 
 --Qualitätsbezeichnungen
@@ -335,7 +319,10 @@ M.wirkung_en[9] = "highly toxic";
 
 --Wirkungen auf Attribute
 --Reihe 1
-attr_r1 = {};                   untererGrenzwert = {};      obererGrenzwert = {};
+local attr_r1 = {}
+local untererGrenzwert = {}
+local obererGrenzwert = {}
+
 attr_r1[1] ="hitpoints";        untererGrenzwert[1] = 0;    obererGrenzwert[1] = 10000;
 attr_r1[2] ="body_height";      untererGrenzwert[2] = 35;   obererGrenzwert[2] = 84;
 attr_r1[3] ="foodlevel";        untererGrenzwert[3] = 0;    obererGrenzwert[3] = 50000;
@@ -345,7 +332,7 @@ attr_r1[6] ="poisonvalue";      untererGrenzwert[6] = 0;    obererGrenzwert[6] =
 attr_r1[7] ="mental capacity";  untererGrenzwert[7] = 0;    obererGrenzwert[7] = 2400;
 attr_r1[8] ="mana";             untererGrenzwert[8] = 0;    obererGrenzwert[8] = 10000;
 --Reihe 2
-attr_r2 = {};
+local attr_r2 = {}
 attr_r2[1] ="strength";
 attr_r2[2] ="perception";
 attr_r2[3] ="dexterity";
@@ -355,7 +342,7 @@ attr_r2[6] ="willpower";
 attr_r2[7] ="constitution";
 attr_r2[8] ="agility";
 
-taste = {};
+local taste = {}
 taste[0]   ={"fruchtig","herb"     ,"bitter"    ,"faulig"      ,"sauer"       ,"salzig" ,"scharf"   ,"süß"};
 taste[1]   ={"fruity"  ,"tartly"   ,"bitter"    ,"putrefactive","sour"        ,"salty"  ,"hot"      ,"sweet"};
 
@@ -396,9 +383,6 @@ function M.ImpactRow1(User,dataZList)
      end
 
   end
-
-
-  --User:inform("debug 13")
 end
 -- --------------------------------------------------------------------------------
 function M.SplitData(User,theData)
@@ -506,7 +490,7 @@ end
 return retVal
 end
 
-FOOD_NEEDED = 250
+local FOOD_NEEDED = 250
 
 function M.checkFood(User)
     if not common.FitForHardWork(User, FOOD_NEEDED) then
@@ -648,21 +632,19 @@ function M.FillFromTo(fromItem,toItem)
     world:changeItem(toItem)
 end
 
+local USER_EXPLOSION_LIST = {}
+
 function M.CheckExplosionAndCleanList(User)
    local check = false
-    if USER_EXPLOSION_LIST then
-        if USER_EXPLOSION_LIST[User.id] == true then
-            check = true
-            USER_EXPLOSION_LIST[User.id] = nil
-        end
-    end
+   if USER_EXPLOSION_LIST[User.id] == true then
+       check = true
+       USER_EXPLOSION_LIST[User.id] = nil
+   end
+
     return check
 end
 
 function M.CauldronDestruction(User,cauldron,effectId)
-    if USER_EXPLOSION_LIST == nil then -- note: it's global!
-        USER_EXPLOSION_LIST = {}
-    end
 
     if (effectId < 1) or (effectId > 3) or (effectId == nil) then
         effectId = 1
