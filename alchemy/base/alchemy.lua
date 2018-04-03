@@ -16,6 +16,8 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]]
 local common = require("base.common")
 local licence = require("base.licence")
+local id_165_blue_bottle = require("alchemy.item.id_165_blue_bottle")
+
 local M = {}
 
 function M.InitAlchemy()
@@ -38,7 +40,7 @@ function InitPlantSubstance()
     setPlantSubstance(778,"","") --Sugarcane
     setPlantSubstance(1207,"","") --Orange
     setPlantSubstance(2493,"","") --Carrots
-    
+
     -- Rare herbs
     setPlantSubstance(138,"","Dracolin") --Night angels blossom
     setPlantSubstance(146,"","Echolon") --Desert sky capsule
@@ -862,16 +864,13 @@ function M.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
 
         elseif cauldron:getData("filledWith") == "potion" then
             if cauldron.id == 1013 then -- support potion
-                alchemy.item.id_165_blue_bottle.SupportEssencebrew(User,cauldron,SourceItem)
+               id_165_blue_bottle.SupportEssenceBrew(User,cauldron,SourceItem)
             else
                 M.CauldronDestruction(User,cauldron,2)
             end
 
         elseif cauldron:getData("filledWith") == "stock" then -- stock is in the cauldron; we call the combin function
-                M.CombineStockEssence( User, cauldron, SourceItem)
-                if check == false then
-                  return
-                end
+            M.CombineStockEssence( User, cauldron, SourceItem)
 
         else -- nothing in the cauldron, we just fill in the essence brew
             M.FillFromTo(SourceItem,cauldron)
@@ -887,7 +886,7 @@ function M.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
 
         elseif cauldron:getData("filledWith") == "potion" then
             if cauldron.id == 1013 then -- support potion
-                alchemy.item.id_165_blue_bottle.SupportPotion(User,cauldron,SourceItem)
+                id_165_blue_bottle.SupportPotion(User,cauldron,SourceItem)
             else
                 M.CauldronDestruction(User,cauldron,2)
             end

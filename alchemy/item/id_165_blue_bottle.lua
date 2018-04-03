@@ -179,4 +179,8 @@ function M.LookAtItem(User,Item)
     return lookat.GenerateLookAt(User, Item, 0)
 end
 
+-- Used by alchemy.base.alchemy
+M.SupportEssenceBrew = SupportEssenceBrew
+M.SupportPotion = SupportPotion
+
 return M
